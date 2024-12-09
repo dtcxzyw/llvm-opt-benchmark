@@ -119,9 +119,9 @@ define hidden void @rb_free_global_enc_table() local_unnamed_addr #0 {
   br i1 %exitcond.not, label %5, label %1, !llvm.loop !7
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %7 = tail call i32 @rb_st_foreach(ptr noundef %6, ptr noundef nonnull @enc_names_free_i, i64 noundef 0) #20
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   tail call void @rb_st_free_table(ptr noundef %8) #20
   ret void
 }
@@ -255,7 +255,7 @@ define dso_local range(i32 -1, -2147483648) i32 @rb_to_encoding_index(i64 nounde
 
 rb_enc_to_index.exit.i.i:                         ; preds = %23, %20
   %27 = phi i32 [ %26, %23 ], [ 0, %20 ]
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %.not9.i.i = icmp sgt i32 %28, %27
   br i1 %.not9.i.i, label %29, label %rb_enc_from_index.exit.i.i
 
@@ -289,7 +289,7 @@ enc_check_encoding.exit.thread:                   ; preds = %rb_enc_from_index.e
 39:                                               ; preds = %enc_check_encoding.exit.thread
   %40 = tail call i32 @rb_enc_get_index(i64 noundef %37)
   %41 = icmp slt i32 %40, 0
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %43 = and i32 %40, 16777215
   %44 = icmp sle i32 %42, %43
   %45 = select i1 %41, i1 true, i1 %44
@@ -371,7 +371,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @enc_check_encoding(i64 no
 
 rb_enc_to_index.exit.i:                           ; preds = %23, %20
   %27 = phi i32 [ %26, %23 ], [ 0, %20 ]
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %.not9.i = icmp sgt i32 %28, %27
   br i1 %.not9.i, label %29, label %rb_enc_from_index.exit.i
 
@@ -407,7 +407,7 @@ declare i64 @rb_check_string_type(i64 noundef) local_unnamed_addr #1
 define dso_local ptr @rb_enc_get(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @rb_enc_get_index(i64 noundef %0)
   %3 = icmp slt i32 %2, 0
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %5 = and i32 %2, 16777215
   %6 = icmp sle i32 %4, %5
   %7 = select i1 %3, i1 true, i1 %6
@@ -435,7 +435,7 @@ define dso_local range(i32 -1, -2147483648) i32 @rb_enc_find_index(ptr noundef %
   br i1 %.not.i, label %enc_registered.exit.thread, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i = icmp eq ptr %4, null
   br i1 %.not6.i, label %enc_registered.exit.thread, label %5
 
@@ -461,7 +461,7 @@ enc_registered.exit:                              ; preds = %5
   br label %27
 
 13:                                               ; preds = %enc_registered.exit
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %15 = and i32 %9, 16777215
   %.not18 = icmp sgt i32 %14, %15
   br i1 %.not18, label %rb_enc_from_index.exit, label %rb_enc_from_index.exit.thread
@@ -544,7 +544,7 @@ define dso_local ptr @rb_to_encoding(i64 noundef %0) local_unnamed_addr #0 {
 
 rb_enc_to_index.exit.i.i:                         ; preds = %23, %20
   %27 = phi i32 [ %26, %23 ], [ 0, %20 ]
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %.not9.i.i = icmp sgt i32 %28, %27
   br i1 %.not9.i.i, label %29, label %rb_enc_from_index.exit.i.i
 
@@ -585,7 +585,7 @@ enc_check_encoding.exit.thread:                   ; preds = %rb_enc_from_index.e
   unreachable
 
 str_to_encindex.exit.i:                           ; preds = %enc_check_encoding.exit.thread
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %42 = and i32 %37, 16777215
   %.not.i = icmp sgt i32 %41, %42
   br i1 %.not.i, label %43, label %str_to_encoding.exit
@@ -643,7 +643,7 @@ define dso_local ptr @rb_find_encoding(i64 noundef %0) local_unnamed_addr #0 {
 
 rb_enc_to_index.exit.i.i:                         ; preds = %23, %20
   %27 = phi i32 [ %26, %23 ], [ 0, %20 ]
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %.not9.i.i = icmp sgt i32 %28, %27
   br i1 %.not9.i.i, label %29, label %rb_enc_from_index.exit.i.i
 
@@ -679,7 +679,7 @@ enc_check_encoding.exit.thread:                   ; preds = %rb_enc_from_index.e
   br i1 %38, label %rb_enc_from_index.exit, label %39
 
 39:                                               ; preds = %enc_check_encoding.exit.thread
-  %40 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %41 = and i32 %37, 16777215
   %.not = icmp sgt i32 %40, %41
   br i1 %.not, label %42, label %rb_enc_from_index.exit
@@ -703,7 +703,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @str_find_encindex(i64 nou
   %4 = call i64 @rb_string_value(ptr noundef nonnull %2) #20
   %5 = call i32 @rb_enc_get_index(i64 noundef %4)
   %6 = icmp slt i32 %5, 0
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %8 = and i32 %5, 16777215
   %9 = icmp sle i32 %7, %8
   %10 = select i1 %6, i1 true, i1 %9
@@ -756,7 +756,7 @@ name_for_encoding.exit:                           ; preds = %20
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local ptr @rb_enc_from_index(i32 noundef %0) local_unnamed_addr #4 {
   %2 = icmp slt i32 %0, 0
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %4 = and i32 %0, 16777215
   %5 = icmp sle i32 %3, %4
   %6 = select i1 %2, i1 true, i1 %5
@@ -792,7 +792,7 @@ rb_vm_lock_enter.exit:                            ; preds = %2, %6
   br i1 %.not.i, label %enc_registered.exit.thread, label %7
 
 7:                                                ; preds = %rb_vm_lock_enter.exit
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i = icmp eq ptr %8, null
   br i1 %.not6.i, label %enc_registered.exit.thread, label %9
 
@@ -814,7 +814,7 @@ enc_registered.exit:                              ; preds = %9
   br i1 %14, label %15, label %40
 
 15:                                               ; preds = %enc_registered.exit
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %17 = and i32 %13, 16777215
   %.not29 = icmp sgt i32 %16, %17
   br i1 %.not29, label %18, label %enc_from_index.exit
@@ -844,7 +844,7 @@ enc_from_index.exit:                              ; preds = %15, %18
   unreachable
 
 enc_register.exit:                                ; preds = %24
-  store i32 %25, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  store i32 %25, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %29 = call fastcc noundef i32 @enc_register_at(i32 noundef %16, ptr noundef nonnull %0, ptr noundef %1)
   br label %56
 
@@ -871,7 +871,7 @@ enc_register.exit:                                ; preds = %24
   unreachable
 
 40:                                               ; preds = %enc_registered.exit.thread, %enc_registered.exit
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %42 = add i32 %41, 1
   %43 = icmp sgt i32 %42, 256
   br i1 %43, label %44, label %enc_register.exit26
@@ -882,10 +882,10 @@ enc_register.exit:                                ; preds = %24
   unreachable
 
 enc_register.exit26:                              ; preds = %40
-  store i32 %42, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  store i32 %42, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %46 = call fastcc noundef i32 @enc_register_at(i32 noundef %41, ptr noundef %0, ptr noundef %1)
   %47 = icmp slt i32 %46, 0
-  %48 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %49 = and i32 %46, 16777215
   %50 = icmp sle i32 %48, %49
   %51 = select i1 %47, i1 true, i1 %50
@@ -976,7 +976,7 @@ define internal fastcc noundef i32 @enc_register_at(i32 noundef %0, ptr noundef 
   %25 = getelementptr inbounds nuw i8, ptr %.0, i64 128
   store i32 %0, ptr %25, align 8
   store ptr %.0, ptr %16, align 8
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %27 = ptrtoint ptr %.028 to i64
   %28 = tail call i32 @rb_st_insert(ptr noundef %26, i64 noundef %27, i64 noundef %4) #20
   %29 = load i64, ptr @rb_encoding_list, align 8
@@ -1274,7 +1274,7 @@ rb_vm_lock_enter.exit:                            ; preds = %1, %5
   br i1 %.not.i, label %enc_registered.exit.thread, label %6
 
 6:                                                ; preds = %rb_vm_lock_enter.exit
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i = icmp eq ptr %7, null
   br i1 %.not6.i, label %enc_registered.exit.thread, label %8
 
@@ -1296,7 +1296,7 @@ enc_registered.exit:                              ; preds = %8
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %enc_registered.exit.thread, %enc_registered.exit
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %16 = add i32 %15, 1
   %17 = icmp sgt i32 %16, 256
   br i1 %17, label %18, label %enc_register.exit
@@ -1307,14 +1307,14 @@ enc_registered.exit:                              ; preds = %8
   unreachable
 
 enc_register.exit:                                ; preds = %14
-  store i32 %16, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  store i32 %16, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %20 = call fastcc noundef i32 @enc_register_at(i32 noundef %15, ptr noundef %0, ptr noundef null)
   br label %21
 
 21:                                               ; preds = %enc_register.exit, %enc_registered.exit
   %.0 = phi i32 [ %20, %enc_register.exit ], [ %12, %enc_registered.exit ]
   %22 = icmp slt i32 %.0, 0
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %24 = and i32 %.0, 16777215
   %25 = icmp sle i32 %23, %24
   %26 = select i1 %22, i1 true, i1 %25
@@ -1361,7 +1361,7 @@ rb_vm_lock_enter.exit:                            ; preds = %2, %7
   br i1 %.not.i, label %enc_registered.exit, label %8
 
 8:                                                ; preds = %rb_vm_lock_enter.exit
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i = icmp eq ptr %9, null
   br i1 %.not6.i, label %enc_registered.exit, label %10
 
@@ -1384,7 +1384,7 @@ enc_registered.exit:                              ; preds = %rb_vm_lock_enter.ex
   store i64 0, ptr %3, align 8
   %.not.i6 = icmp ne ptr %1, null
   call void @llvm.assume(i1 %.not.i6)
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8, !nonnull !14, !noundef !14
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8, !nonnull !14, !noundef !14
   %17 = ptrtoint ptr %1 to i64
   %18 = call i32 @rb_st_lookup(ptr noundef nonnull %16, i64 noundef %17, ptr noundef nonnull %3) #20
   %.not7.i8 = icmp ne i32 %18, 0
@@ -1393,7 +1393,7 @@ enc_registered.exit:                              ; preds = %rb_vm_lock_enter.ex
   %20 = trunc i64 %19 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %21 = icmp sgt i32 %20, -1
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %23 = and i32 %20, 16777215
   %24 = icmp sgt i32 %22, %23
   call void @llvm.assume(i1 %21)
@@ -1464,7 +1464,7 @@ rb_vm_lock_enter.exit:                            ; preds = %2, %7
   br i1 %.not.i, label %enc_registered.exit, label %8
 
 8:                                                ; preds = %rb_vm_lock_enter.exit
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i = icmp eq ptr %9, null
   br i1 %.not6.i, label %enc_registered.exit, label %10
 
@@ -1488,7 +1488,7 @@ enc_registered.exit:                              ; preds = %rb_vm_lock_enter.ex
   br i1 %.not.i12, label %enc_registered.exit16, label %16
 
 16:                                               ; preds = %enc_registered.exit
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i13 = icmp eq ptr %17, null
   br i1 %.not6.i13, label %enc_registered.exit16, label %18
 
@@ -1510,7 +1510,7 @@ enc_registered.exit16:                            ; preds = %enc_registered.exit
   br i1 %24, label %25, label %32
 
 25:                                               ; preds = %enc_registered.exit16
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %27 = add i32 %26, 1
   %28 = icmp sgt i32 %27, 256
   br i1 %28, label %29, label %enc_register.exit
@@ -1521,14 +1521,14 @@ enc_registered.exit16:                            ; preds = %enc_registered.exit
   unreachable
 
 enc_register.exit:                                ; preds = %25
-  store i32 %27, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  store i32 %27, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %31 = call fastcc noundef i32 @enc_register_at(i32 noundef %26, ptr noundef %1, ptr noundef null)
   br label %32
 
 32:                                               ; preds = %enc_register.exit, %enc_registered.exit16
   %.0 = phi i32 [ %31, %enc_register.exit ], [ %.0.i, %enc_registered.exit16 ]
   %33 = icmp slt i32 %.0, 0
-  %34 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %35 = and i32 %.0, 16777215
   %36 = icmp sle i32 %34, %35
   %37 = select i1 %33, i1 true, i1 %36
@@ -1561,7 +1561,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @enc_replicate_with_index(p
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %3
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %7 = add i32 %6, 1
   %8 = icmp sgt i32 %7, 256
   br i1 %8, label %9, label %enc_register.exit
@@ -1572,7 +1572,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @enc_replicate_with_index(p
   unreachable
 
 enc_register.exit:                                ; preds = %5
-  store i32 %7, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  store i32 %7, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   br label %11
 
 11:                                               ; preds = %3, %enc_register.exit
@@ -1602,7 +1602,7 @@ enc_register.exit:                                ; preds = %5
   br label %set_base_encoding.exit
 
 set_base_encoding.exit:                           ; preds = %14, %23
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %28 = and i32 %12, 16777215
   %.not = icmp sgt i32 %27, %28
   br i1 %.not, label %29, label %rb_enc_from_index.exit
@@ -1644,7 +1644,7 @@ rb_vm_lock_enter.exit:                            ; preds = %1, %5
   br i1 %.not.i.i.i, label %17, label %7
 
 7:                                                ; preds = %rb_vm_lock_enter.exit
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i.i.i = icmp eq ptr %8, null
   br i1 %.not6.i.i.i, label %.thread2.i.i, label %9
 
@@ -1685,7 +1685,7 @@ enc_registered.exit.i.i:                          ; preds = %9
   unreachable
 
 enc_check_addable.exit.i:                         ; preds = %.thread.i.i
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %23 = add i32 %22, 1
   %24 = icmp sgt i32 %23, 256
   br i1 %24, label %25, label %enc_register.exit.i
@@ -1696,7 +1696,7 @@ enc_check_addable.exit.i:                         ; preds = %.thread.i.i
   unreachable
 
 enc_register.exit.i:                              ; preds = %enc_check_addable.exit.i
-  store i32 %23, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  store i32 %23, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %27 = call fastcc noundef i32 @enc_register_at(i32 noundef %22, ptr noundef nonnull %0, ptr noundef nonnull %6)
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %29, label %31
@@ -1727,7 +1727,7 @@ enc_register.exit.i:                              ; preds = %enc_check_addable.e
   br label %set_base_encoding.exit.i
 
 set_base_encoding.exit.i:                         ; preds = %40, %31
-  %44 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %45 = and i32 %27, 16777215
   %.not.i = icmp sgt i32 %44, %45
   br i1 %.not.i, label %46, label %enc_replicate.exit
@@ -1785,7 +1785,7 @@ rb_vm_lock_enter.exit:                            ; preds = %1, %5
   br i1 %.not.i, label %enc_registered.exit, label %7
 
 7:                                                ; preds = %rb_vm_lock_enter.exit
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i = icmp eq ptr %8, null
   br i1 %.not6.i, label %enc_registered.exit, label %9
 
@@ -1850,7 +1850,7 @@ rb_vm_lock_enter.exit:                            ; preds = %2, %6
   br i1 %.not.i.i7, label %17, label %7
 
 7:                                                ; preds = %rb_vm_lock_enter.exit
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i.i = icmp eq ptr %8, null
   br i1 %.not6.i.i, label %.thread2.i, label %9
 
@@ -1901,7 +1901,7 @@ enc_check_addable.exit:                           ; preds = %.thread.i
   br i1 %26, label %27, label %enc_alias.exit
 
 27:                                               ; preds = %24
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %29 = ptrtoint ptr %0 to i64
   %30 = zext nneg i32 %22 to i64
   %31 = call i32 @rb_st_insert2(ptr noundef %28, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @enc_dup_name) #20
@@ -1909,7 +1909,7 @@ enc_check_addable.exit:                           ; preds = %.thread.i
   br i1 %.not10.i, label %32, label %enc_alias.exit
 
 32:                                               ; preds = %27
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %34 = and i32 %22, 16777215
   %.not = icmp sgt i32 %33, %34
   br i1 %.not, label %35, label %enc_from_index.exit.i
@@ -1958,7 +1958,7 @@ rb_vm_lock_enter.exit:                            ; preds = %2, %6
   br i1 %.not.i, label %enc_registered.exit.thread, label %7
 
 7:                                                ; preds = %rb_vm_lock_enter.exit
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i = icmp eq ptr %8, null
   br i1 %.not6.i, label %enc_registered.exit.thread, label %9
 
@@ -1980,7 +1980,7 @@ enc_registered.exit:                              ; preds = %9
   br i1 %14, label %15, label %22
 
 15:                                               ; preds = %enc_registered.exit.thread, %enc_registered.exit
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %17 = add i32 %16, 1
   %18 = icmp sgt i32 %17, 256
   br i1 %18, label %19, label %enc_register.exit
@@ -1991,7 +1991,7 @@ enc_registered.exit:                              ; preds = %9
   unreachable
 
 enc_register.exit:                                ; preds = %15
-  store i32 %17, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  store i32 %17, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %21 = call fastcc noundef i32 @enc_register_at(i32 noundef %16, ptr noundef %1, ptr noundef null)
   br label %22
 
@@ -2006,7 +2006,7 @@ enc_register.exit:                                ; preds = %15
   br i1 %25, label %26, label %enc_alias.exit
 
 26:                                               ; preds = %23
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %28 = ptrtoint ptr %0 to i64
   %29 = sext i32 %.0 to i64
   %30 = call i32 @rb_st_insert2(ptr noundef %27, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @enc_dup_name) #20
@@ -2015,7 +2015,7 @@ enc_register.exit:                                ; preds = %15
 
 31:                                               ; preds = %26
   %32 = icmp slt i32 %.0, 0
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %34 = and i32 %.0, 16777215
   %35 = icmp sle i32 %33, %34
   %36 = select i1 %32, i1 true, i1 %35
@@ -2055,7 +2055,7 @@ define hidden nonnull ptr @rb_enc_get_from_index(i32 noundef %0) local_unnamed_a
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc nonnull ptr @must_encindex(i32 noundef %0) unnamed_addr #0 {
   %2 = icmp slt i32 %0, 0
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %4 = and i32 %0, 16777215
   %5 = icmp sle i32 %3, %4
   %6 = select i1 %2, i1 true, i1 %5
@@ -2132,7 +2132,7 @@ rb_vm_lock_enter.exit:                            ; preds = %1, %4
   br i1 %.not.i, label %enc_autoload_body.exit, label %.preheader
 
 .preheader:                                       ; preds = %rb_vm_lock_enter.exit
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %.not22.i6 = icmp sgt i32 %11, 0
   br i1 %.not22.i6, label %.lr.ph.preheader, label %enc_autoload_body.exit
 
@@ -2294,7 +2294,7 @@ rb_vm_lock_enter.exit:                            ; preds = %._crit_edge, %38
   br i1 %.not.i, label %enc_registered.exit.thread, label %40
 
 40:                                               ; preds = %39
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i = icmp eq ptr %41, null
   br i1 %.not6.i, label %enc_registered.exit.thread, label %42
 
@@ -2371,7 +2371,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %5, %6
 define dso_local ptr @rb_enc_find(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @rb_enc_find_index(ptr noundef %0)
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %4 = and i32 %spec.store.select, 16777215
   %.not = icmp sgt i32 %3, %4
   br i1 %.not, label %5, label %rb_enc_from_index.exit
@@ -2626,7 +2626,7 @@ rbimpl_intern_const.exit45:                       ; preds = %.lr.ph.i43, %35
 
 rb_enc_to_index.exit.i.i:                         ; preds = %77, %74
   %81 = phi i32 [ %80, %77 ], [ 0, %74 ]
-  %82 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %82 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %.not9.i.i = icmp sgt i32 %82, %81
   br i1 %.not9.i.i, label %83, label %rb_enc_from_index.exit.i.i
 
@@ -2831,7 +2831,7 @@ rb_enc_from_index.exit:                           ; preds = %rb_enc_asciicompat.
   %27 = phi i64 [ %26, %rb_enc_asciicompat.exit.thread ], [ %18, %rb_enc_asciicompat.exit ]
   %.val = phi i32 [ %.val.pre, %rb_enc_asciicompat.exit.thread ], [ 1, %rb_enc_asciicompat.exit ]
   %28 = icmp sgt i32 %14, -1
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %30 = and i32 %14, 16777215
   %31 = icmp sgt i32 %29, %30
   tail call void @llvm.assume(i1 %28)
@@ -2980,7 +2980,7 @@ enc_get_index_str.exit24.i:                       ; preds = %rb_num2int_inline.e
   br i1 %40, label %41, label %48
 
 41:                                               ; preds = %39
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %43 = and i32 %.0.i.i, 16777215
   %.not.i = icmp sgt i32 %42, %43
   br i1 %.not.i, label %44, label %enc_compatible_str.exit.thread
@@ -3029,7 +3029,7 @@ define dso_local nonnull ptr @rb_enc_check(i64 noundef %0, i64 noundef %1) local
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %7
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %11 = and i32 %3, 16777215
   %.not.i = icmp sgt i32 %10, %11
   br i1 %.not.i, label %12, label %rb_enc_compatible.exit.thread
@@ -3078,7 +3078,7 @@ define dso_local ptr @rb_enc_compatible(i64 noundef %0, i64 noundef %1) local_un
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %7
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %11 = and i32 %3, 16777215
   %.not = icmp sgt i32 %10, %11
   br i1 %.not, label %12, label %rb_enc_from_index.exit
@@ -3100,7 +3100,7 @@ rb_enc_from_index.exit:                           ; preds = %12, %9, %2, %16
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @enc_compatible_latter(i64 noundef %0, i64 noundef %1, i32 noundef range(i32 0, -2147483648) %2, i32 noundef range(i32 0, -2147483648) %3) unnamed_addr #0 {
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %6 = and i32 %2, 16777215
   %.not121 = icmp sgt i32 %5, %6
   br i1 %.not121, label %7, label %rb_enc_from_index.exit
@@ -3568,7 +3568,7 @@ define dso_local i32 @rb_locale_encindex() local_unnamed_addr #0 {
   %spec.store.select = select i1 %4, i32 1, i32 %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store i64 0, ptr %1, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i = icmp eq ptr %5, null
   br i1 %.not6.i, label %enc_registered.exit.thread, label %6
 
@@ -3598,7 +3598,7 @@ enc_registered.exit:                              ; preds = %6
   br label %rb_vm_lock_enter.exit
 
 rb_vm_lock_enter.exit:                            ; preds = %10, %12
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %14 = sext i32 %spec.store.select to i64
   %15 = call i32 @rb_st_insert2(ptr noundef %13, i64 noundef ptrtoint (ptr @.str.13 to i64), i64 noundef %14, ptr noundef nonnull @enc_dup_name) #20
   %16 = load ptr, ptr @ruby_single_main_ractor, align 8
@@ -3619,7 +3619,7 @@ declare i32 @rb_locale_charmap_index() local_unnamed_addr #1
 define dso_local ptr @rb_locale_encoding() local_unnamed_addr #0 {
   %1 = tail call i32 @rb_locale_encindex()
   %2 = icmp slt i32 %1, 0
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %4 = and i32 %1, 16777215
   %5 = icmp sle i32 %3, %4
   %6 = select i1 %2, i1 true, i1 %5
@@ -3641,7 +3641,7 @@ define dso_local range(i32 0, -2147483648) i32 @rb_filesystem_encindex() local_u
   %1 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store i64 0, ptr %1, align 8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i = icmp eq ptr %2, null
   br i1 %.not6.i, label %enc_registered.exit, label %3
 
@@ -3667,7 +3667,7 @@ define dso_local ptr @rb_filesystem_encoding() local_unnamed_addr #0 {
   %1 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store i64 0, ptr %1, align 8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i.i = icmp eq ptr %2, null
   br i1 %.not6.i.i, label %rb_filesystem_encindex.exit, label %3
 
@@ -3685,7 +3685,7 @@ rb_filesystem_encindex.exit:                      ; preds = %0, %3, %5
   %.0.i.i = phi i32 [ %7, %5 ], [ -1, %0 ], [ -1, %3 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   %spec.store.select.i = call range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %.0.i.i, i32 0)
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %9 = and i32 %spec.store.select.i, 16777215
   %.not = icmp sgt i32 %8, %9
   br i1 %.not, label %10, label %rb_enc_from_index.exit
@@ -3703,7 +3703,7 @@ rb_enc_from_index.exit:                           ; preds = %rb_filesystem_encin
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @rb_default_external_encoding() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @default_external, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @default_external, i64 8), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %2, label %rb_locale_encoding.exit
 
@@ -3713,7 +3713,7 @@ define dso_local ptr @rb_default_external_encoding() local_unnamed_addr #0 {
   br i1 %4, label %5, label %12
 
 5:                                                ; preds = %2
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %7 = and i32 %3, 16777215
   %.not3 = icmp sgt i32 %6, %7
   br i1 %.not3, label %8, label %rb_enc_from_index.exit
@@ -3726,13 +3726,13 @@ define dso_local ptr @rb_default_external_encoding() local_unnamed_addr #0 {
 
 rb_enc_from_index.exit:                           ; preds = %5, %8
   %.05.i.i = phi ptr [ %11, %8 ], [ null, %5 ]
-  store ptr %.05.i.i, ptr getelementptr inbounds (i8, ptr @default_external, i64 8), align 8
+  store ptr %.05.i.i, ptr getelementptr inbounds nuw (i8, ptr @default_external, i64 8), align 8
   br label %rb_locale_encoding.exit
 
 12:                                               ; preds = %2
   %13 = tail call i32 @rb_locale_encindex()
   %14 = icmp slt i32 %13, 0
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %16 = and i32 %13, 16777215
   %17 = icmp sle i32 %15, %16
   %18 = select i1 %14, i1 true, i1 %17
@@ -3751,7 +3751,7 @@ rb_locale_encoding.exit:                          ; preds = %19, %12, %0, %rb_en
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_enc_default_external() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @default_external, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @default_external, i64 8), align 8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %2, label %rb_default_external_encoding.exit.thread5
 
@@ -3761,7 +3761,7 @@ define dso_local i64 @rb_enc_default_external() local_unnamed_addr #0 {
   br i1 %4, label %5, label %12
 
 5:                                                ; preds = %2
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %7 = and i32 %3, 16777215
   %.not3.i = icmp sgt i32 %6, %7
   br i1 %.not3.i, label %8, label %rb_enc_from_index.exit.i
@@ -3774,13 +3774,13 @@ define dso_local i64 @rb_enc_default_external() local_unnamed_addr #0 {
 
 rb_enc_from_index.exit.i:                         ; preds = %8, %5
   %.05.i.i.i = phi ptr [ %11, %8 ], [ null, %5 ]
-  store ptr %.05.i.i.i, ptr getelementptr inbounds (i8, ptr @default_external, i64 8), align 8
+  store ptr %.05.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @default_external, i64 8), align 8
   br label %rb_default_external_encoding.exit
 
 12:                                               ; preds = %2
   %13 = tail call i32 @rb_locale_encindex()
   %14 = icmp slt i32 %13, 0
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %16 = and i32 %13, 16777215
   %17 = icmp sle i32 %15, %16
   %18 = select i1 %14, i1 true, i1 %17
@@ -3859,7 +3859,7 @@ rb_vm_lock_enter.exit:                            ; preds = %3, %7
   %11 = call noalias nonnull ptr @ruby_strdup(ptr noundef %2) #20
   %12 = ptrtoint ptr %11 to i64
   store i64 %12, ptr %5, align 8
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %14 = call i32 @rb_st_delete(ptr noundef %13, ptr noundef nonnull %5, ptr noundef null) #20
   %.not17 = icmp eq i32 %14, 0
   br i1 %.not17, label %18, label %15
@@ -3871,7 +3871,7 @@ rb_vm_lock_enter.exit:                            ; preds = %3, %7
   br label %18
 
 18:                                               ; preds = %15, %9
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %20 = call i32 @rb_st_insert(ptr noundef %19, i64 noundef %12, i64 noundef 2147483647) #20
   br label %33
 
@@ -3891,7 +3891,7 @@ rb_enc_to_index.exit:                             ; preds = %21, %23
   store i32 %27, ptr %0, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %28, align 8
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %30 = ptrtoint ptr %2 to i64
   %31 = zext nneg i32 %27 to i64
   %32 = call i32 @rb_st_insert2(ptr noundef %29, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @enc_dup_name) #20
@@ -3903,7 +3903,7 @@ rb_enc_to_index.exit:                             ; preds = %21, %23
 
 35:                                               ; preds = %33
   %36 = call i32 @Init_enc_set_filesystem_encoding() #20
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %38 = sext i32 %36 to i64
   %39 = call i32 @rb_st_insert2(ptr noundef %37, i64 noundef ptrtoint (ptr @.str.14 to i64), i64 noundef %38, ptr noundef nonnull @enc_dup_name) #20
   br label %40
@@ -3923,7 +3923,7 @@ rb_vm_lock_leave.exit:                            ; preds = %40, %42
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local ptr @rb_default_internal_encoding() local_unnamed_addr #10 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @default_internal, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @default_internal, i64 8), align 8
   %2 = icmp eq ptr %1, null
   %3 = load i32, ptr @default_internal, align 8
   %4 = icmp sgt i32 %3, -1
@@ -3931,7 +3931,7 @@ define dso_local ptr @rb_default_internal_encoding() local_unnamed_addr #10 {
   br i1 %or.cond, label %5, label %12
 
 5:                                                ; preds = %0
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %7 = and i32 %3, 16777215
   %.not = icmp sgt i32 %6, %7
   br i1 %.not, label %8, label %rb_enc_from_index.exit
@@ -3944,7 +3944,7 @@ define dso_local ptr @rb_default_internal_encoding() local_unnamed_addr #10 {
 
 rb_enc_from_index.exit:                           ; preds = %5, %8
   %.05.i.i = phi ptr [ %11, %8 ], [ null, %5 ]
-  store ptr %.05.i.i, ptr getelementptr inbounds (i8, ptr @default_internal, i64 8), align 8
+  store ptr %.05.i.i, ptr getelementptr inbounds nuw (i8, ptr @default_internal, i64 8), align 8
   br label %12
 
 12:                                               ; preds = %rb_enc_from_index.exit, %0
@@ -3954,7 +3954,7 @@ rb_enc_from_index.exit:                           ; preds = %5, %8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_enc_default_internal() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @default_internal, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @default_internal, i64 8), align 8
   %2 = icmp eq ptr %1, null
   %3 = load i32, ptr @default_internal, align 8
   %4 = icmp sgt i32 %3, -1
@@ -3962,7 +3962,7 @@ define dso_local i64 @rb_enc_default_internal() local_unnamed_addr #0 {
   br i1 %or.cond.i, label %5, label %rb_default_internal_encoding.exit
 
 5:                                                ; preds = %0
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %7 = and i32 %3, 16777215
   %.not.i = icmp sgt i32 %6, %7
   br i1 %.not.i, label %8, label %rb_enc_from_index.exit.i
@@ -3975,7 +3975,7 @@ define dso_local i64 @rb_enc_default_internal() local_unnamed_addr #0 {
 
 rb_enc_from_index.exit.i:                         ; preds = %8, %5
   %.05.i.i.i = phi ptr [ %11, %8 ], [ null, %5 ]
-  store ptr %.05.i.i.i, ptr getelementptr inbounds (i8, ptr @default_internal, i64 8), align 8
+  store ptr %.05.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @default_internal, i64 8), align 8
   br label %rb_default_internal_encoding.exit
 
 rb_default_internal_encoding.exit:                ; preds = %0, %rb_enc_from_index.exit.i
@@ -4100,7 +4100,7 @@ rb_class_of.exit:                                 ; preds = %8, %11, %12, %13, %
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 0, ptr %39, align 8
   tail call void @rb_gc_register_mark_object(i64 noundef %37) #20
-  %40 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %.lr.ph, label %._crit_edge
 
@@ -4117,7 +4117,7 @@ rb_class_of.exit:                                 ; preds = %8, %11, %12, %13, %
   store i64 %49, ptr %47, align 8
   %50 = tail call i64 @rb_ary_push(i64 noundef %37, i64 noundef %45) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %51 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %52 = sext i32 %51 to i64
   %53 = icmp slt i64 %indvars.iv.next, %52
   br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !21
@@ -4182,7 +4182,7 @@ rb_enc_to_index.exit:                             ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 16777215
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %.not13 = icmp sgt i32 %18, %17
   br i1 %.not13, label %19, label %rb_enc_from_index.exit
 
@@ -4228,7 +4228,7 @@ define internal i64 @enc_names(i64 noundef %0) #0 {
   %5 = tail call i64 @rb_ary_new_capa(i64 noundef 0) #20
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %5, ptr %6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %8 = ptrtoint ptr %2 to i64
   %9 = call i32 @rb_st_foreach(ptr noundef %7, ptr noundef nonnull @enc_names_i, i64 noundef %8) #20
   %10 = load i64, ptr %6, align 8
@@ -4277,7 +4277,7 @@ define internal range(i64 0, 21) i64 @enc_dummy_p(i64 noundef %0) #0 {
 
 rb_enc_to_index.exit.i.i.i:                       ; preds = %23, %20
   %27 = phi i32 [ %26, %23 ], [ 0, %20 ]
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %.not9.i.i.i = icmp sgt i32 %28, %27
   br i1 %.not9.i.i.i, label %29, label %rb_enc_from_index.exit.i.i.i
 
@@ -4363,7 +4363,7 @@ define internal range(i64 0, 21) i64 @enc_ascii_compatible_p(i64 noundef %0) #0 
 
 rb_enc_to_index.exit.i.i.i:                       ; preds = %23, %20
   %27 = phi i32 [ %26, %23 ], [ 0, %20 ]
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %.not9.i.i.i = icmp sgt i32 %28, %27
   br i1 %.not9.i.i.i, label %29, label %rb_enc_from_index.exit.i.i.i
 
@@ -4430,11 +4430,11 @@ define internal noundef i64 @enc_list(i64 %0) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @rb_enc_name_list(i64 %0) #0 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = tail call i64 @rb_ary_new_capa(i64 noundef %4) #20
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %7 = tail call i32 @rb_st_foreach(ptr noundef %6, ptr noundef nonnull @rb_enc_name_list_i, i64 noundef %5) #20
   ret i64 %5
 }
@@ -4447,7 +4447,7 @@ define internal i64 @rb_enc_aliases(i64 %0) #0 {
   %4 = tail call i64 @rb_ary_new() #20
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %4, ptr %5, align 8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %7 = ptrtoint ptr %2 to i64
   %8 = call i32 @rb_st_foreach(ptr noundef %6, ptr noundef nonnull @rb_enc_aliases_enc_i, i64 noundef %7) #20
   %9 = load i64, ptr %2, align 16
@@ -4606,7 +4606,7 @@ enc_capable.exit11.thread:                        ; preds = %37, %27, %27, %27, 
   br i1 %47, label %48, label %55
 
 48:                                               ; preds = %46
-  %49 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %50 = and i32 %42, 16777215
   %.not.i = icmp sgt i32 %49, %50
   br i1 %.not.i, label %51, label %rb_enc_from_encoding.exit
@@ -4675,7 +4675,7 @@ define internal noundef i64 @enc_load(i64 %0, i64 noundef returned %1) #9 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @get_default_external(i64 %0) #0 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @default_external, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @default_external, i64 8), align 8
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %3, label %rb_default_external_encoding.exit.thread5.i
 
@@ -4685,7 +4685,7 @@ define internal i64 @get_default_external(i64 %0) #0 {
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %3
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %8 = and i32 %4, 16777215
   %.not3.i.i = icmp sgt i32 %7, %8
   br i1 %.not3.i.i, label %9, label %rb_enc_from_index.exit.i.i
@@ -4698,13 +4698,13 @@ define internal i64 @get_default_external(i64 %0) #0 {
 
 rb_enc_from_index.exit.i.i:                       ; preds = %9, %6
   %.05.i.i.i.i = phi ptr [ %12, %9 ], [ null, %6 ]
-  store ptr %.05.i.i.i.i, ptr getelementptr inbounds (i8, ptr @default_external, i64 8), align 8
+  store ptr %.05.i.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @default_external, i64 8), align 8
   br label %rb_default_external_encoding.exit.i
 
 13:                                               ; preds = %3
   %14 = tail call i32 @rb_locale_encindex()
   %15 = icmp slt i32 %14, 0
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %17 = and i32 %14, 16777215
   %18 = icmp sle i32 %16, %17
   %19 = select i1 %15, i1 true, i1 %18
@@ -4763,7 +4763,7 @@ rb_enc_set_default_external.exit:                 ; preds = %2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @get_default_internal(i64 %0) #0 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @default_internal, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @default_internal, i64 8), align 8
   %3 = icmp eq ptr %2, null
   %4 = load i32, ptr @default_internal, align 8
   %5 = icmp sgt i32 %4, -1
@@ -4771,7 +4771,7 @@ define internal i64 @get_default_internal(i64 %0) #0 {
   br i1 %or.cond.i.i, label %6, label %rb_default_internal_encoding.exit.i
 
 6:                                                ; preds = %1
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %8 = and i32 %4, 16777215
   %.not.i.i = icmp sgt i32 %7, %8
   br i1 %.not.i.i, label %9, label %rb_enc_from_index.exit.i.i
@@ -4784,7 +4784,7 @@ define internal i64 @get_default_internal(i64 %0) #0 {
 
 rb_enc_from_index.exit.i.i:                       ; preds = %9, %6
   %.05.i.i.i.i = phi ptr [ %12, %9 ], [ null, %6 ]
-  store ptr %.05.i.i.i.i, ptr getelementptr inbounds (i8, ptr @default_internal, i64 8), align 8
+  store ptr %.05.i.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @default_internal, i64 8), align 8
   br label %rb_default_internal_encoding.exit.i
 
 rb_default_internal_encoding.exit.i:              ; preds = %rb_enc_from_index.exit.i.i, %1
@@ -4840,27 +4840,27 @@ define internal i64 @enc_m_loader(i64 %0, i64 noundef %1) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @Init_encodings() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %2, label %rb_enc_init.exit
 
 2:                                                ; preds = %0
   %3 = tail call ptr @rb_st_init_strcasetable_with_size(i64 noundef 256) #20
-  store ptr %3, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   br label %rb_enc_init.exit
 
 rb_enc_init.exit:                                 ; preds = %0, %2
-  %OnigEncodingASCII.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @OnigEncodingASCII, i64 8), align 8
+  %OnigEncodingASCII.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @OnigEncodingASCII, i64 8), align 8
   %4 = tail call fastcc i32 @enc_register_at(i32 noundef 0, ptr noundef %OnigEncodingASCII.val.i, ptr noundef nonnull @OnigEncodingASCII)
-  %OnigEncodingUTF_8.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @OnigEncodingUTF_8, i64 8), align 8
+  %OnigEncodingUTF_8.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @OnigEncodingUTF_8, i64 8), align 8
   %5 = tail call fastcc i32 @enc_register_at(i32 noundef 1, ptr noundef %OnigEncodingUTF_8.val.i, ptr noundef nonnull @OnigEncodingUTF_8)
-  %OnigEncodingUS_ASCII.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @OnigEncodingUS_ASCII, i64 8), align 8
+  %OnigEncodingUS_ASCII.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @OnigEncodingUS_ASCII, i64 8), align 8
   %6 = tail call fastcc i32 @enc_register_at(i32 noundef 2, ptr noundef %OnigEncodingUS_ASCII.val.i, ptr noundef nonnull @OnigEncodingUS_ASCII)
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 8), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 8), align 8
   store ptr %7, ptr @global_enc_ascii, align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 32), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 32), align 8
   store ptr %8, ptr @global_enc_utf_8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 56), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 56), align 8
   store ptr %9, ptr @global_enc_us_ascii, align 8
   %10 = tail call fastcc i32 @enc_register_at(i32 noundef 3, ptr noundef nonnull @.str.59, ptr noundef null)
   %11 = tail call fastcc i32 @enc_register_at(i32 noundef 4, ptr noundef nonnull @.str.60, ptr noundef null)
@@ -4871,13 +4871,13 @@ rb_enc_init.exit:                                 ; preds = %0, %2
   %16 = tail call fastcc i32 @enc_register_at(i32 noundef 9, ptr noundef nonnull @.str.65, ptr noundef null)
   %17 = tail call fastcc i32 @enc_register_at(i32 noundef 10, ptr noundef nonnull @.str.66, ptr noundef null)
   %18 = tail call fastcc i32 @enc_register_at(i32 noundef 11, ptr noundef nonnull @.str.67, ptr noundef null)
-  store i32 12, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  store i32 12, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_enc_foreach_name(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6152), align 8
   %4 = tail call i32 @rb_st_foreach(ptr noundef %3, ptr noundef %0, i64 noundef %1) #20
   ret void
 }
@@ -5036,7 +5036,7 @@ define internal noundef i32 @rb_enc_aliases_enc_i(i64 noundef %0, i64 noundef %1
 11:                                               ; preds = %3
   %12 = trunc i64 %1 to i32
   %13 = icmp slt i32 %12, 0
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_enc_table, i64 6144), align 8
   %15 = and i32 %12, 16777215
   %16 = icmp sle i32 %14, %15
   %17 = select i1 %13, i1 true, i1 %16

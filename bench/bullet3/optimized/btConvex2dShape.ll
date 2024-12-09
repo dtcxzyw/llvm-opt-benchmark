@@ -26,7 +26,7 @@ $__clang_call_terminate = comdat any
 define dso_local void @_ZN15btConvex2dShapeC2EP13btConvexShape(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %convexChildShape) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN13btConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15btConvex2dShape, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15btConvex2dShape, i64 16), ptr %this, align 8
   %m_childConvexShape = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %convexChildShape, ptr %m_childConvexShape, align 8
   %m_shapeType = getelementptr inbounds nuw i8, ptr %this, i64 8

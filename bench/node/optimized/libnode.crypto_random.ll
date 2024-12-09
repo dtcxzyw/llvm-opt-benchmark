@@ -906,7 +906,7 @@ if.then.i:                                        ; preds = %entry
   %2 = sext i32 %mul to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %is_root_node_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 40
@@ -1731,7 +1731,7 @@ if.then.i:                                        ; preds = %cond.end
   %1 = sext i32 %div to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %is_root_node_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 40
@@ -2340,7 +2340,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2v812BackingStoreESt14de
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i, align 8
   %_M_impl.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i, i64 16
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_refcount, align 8
@@ -2959,7 +2959,7 @@ if.end:                                           ; preds = %_ZNK2v820FunctionCa
   %add.ptr.i57 = getelementptr inbounds i8, ptr %18, i64 -8
   tail call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(304) %call10, ptr noundef %retval.0.i.i, ptr nonnull %add.ptr.i57, i32 noundef 57, double noundef -1.000000e+00) #18
   %19 = getelementptr inbounds nuw i8, ptr %call10, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14ThreadPoolWorkE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14ThreadPoolWorkE, i64 16), ptr %19, align 8
   %env_.i.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 64
   store ptr %retval.0.i.i, ptr %env_.i.i.i, align 8
   %type_.i.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 200
@@ -2973,16 +2973,16 @@ do.body4.i.i.i:                                   ; preds = %if.end
   unreachable
 
 _ZN4node14ThreadPoolWorkC2EPNS_11EnvironmentEPKc.exit.i.i: ; preds = %if.end
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 16), ptr %call10, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 192), ptr %19, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 16), ptr %call10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 192), ptr %19, align 8
   %mode_.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 208
   store i32 %call7, ptr %mode_.i.i, align 8
   %errors_.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 216
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto16CryptoErrorStoreE, i64 16), ptr %errors_.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto16CryptoErrorStoreE, i64 16), ptr %errors_.i.i, align 8
   %errors_.i.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %errors_.i.i.i, i8 0, i64 24, i1 false)
   %params_.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 248
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto17RandomBytesConfigE, i64 16), ptr %params_.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto17RandomBytesConfigE, i64 16), ptr %params_.i.i, align 8
   %buffer.i.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 256
   %buffer2.i.i.i = getelementptr inbounds nuw i8, ptr %params, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buffer.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %buffer2.i.i.i, i64 16, i1 false)
@@ -2994,8 +2994,8 @@ if.then.i.i:                                      ; preds = %_ZN4node14ThreadPoo
   br label %_ZN4node6crypto13DeriveBitsJobINS0_17RandomBytesTraitsEEC2EPNS_11EnvironmentEN2v85LocalINS6_6ObjectEEENS0_13CryptoJobModeEONS0_17RandomBytesConfigE.exit
 
 _ZN4node6crypto13DeriveBitsJobINS0_17RandomBytesTraitsEEC2EPNS_11EnvironmentEN2v85LocalINS6_6ObjectEEENS0_13CryptoJobModeEONS0_17RandomBytesConfigE.exit: ; preds = %_ZN4node14ThreadPoolWorkC2EPNS_11EnvironmentEPKc.exit.i.i, %if.then.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto13DeriveBitsJobINS0_17RandomBytesTraitsEEE, i64 16), ptr %call10, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto13DeriveBitsJobINS0_17RandomBytesTraitsEEE, i64 200), ptr %19, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto13DeriveBitsJobINS0_17RandomBytesTraitsEEE, i64 16), ptr %call10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto13DeriveBitsJobINS0_17RandomBytesTraitsEEE, i64 200), ptr %19, align 8
   %out_.i = getelementptr inbounds nuw i8, ptr %call10, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %out_.i, i8 0, i64 25, i1 false)
   br label %cleanup
@@ -3596,9 +3596,9 @@ define linkonce_odr dso_local void @_ZN4node6crypto13DeriveBitsJobINS0_17RandomB
 entry:
   %out_ = getelementptr inbounds nuw i8, ptr %this, i64 272
   tail call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %out_) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 192), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 192), ptr %add.ptr.i, align 8
   %errors_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load ptr, ptr %errors_.i.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
@@ -3636,9 +3636,9 @@ define linkonce_odr dso_local void @_ZN4node6crypto13DeriveBitsJobINS0_17RandomB
 entry:
   %out_.i = getelementptr inbounds nuw i8, ptr %this, i64 272
   tail call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %out_.i) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 192), ptr %add.ptr.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 192), ptr %add.ptr.i.i, align 8
   %errors_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load ptr, ptr %errors_.i.i.i, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
@@ -3684,7 +3684,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %is_root_node_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 40
@@ -4184,8 +4184,8 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   %out_.i = getelementptr inbounds nuw i8, ptr %this, i64 216
   tail call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %out_.i) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 192), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 192), ptr %this, align 8
   %errors_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %1 = load ptr, ptr %errors_.i.i.i, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
@@ -4224,8 +4224,8 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   %out_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 216
   tail call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %out_.i.i) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 192), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 192), ptr %this, align 8
   %errors_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %1 = load ptr, ptr %errors_.i.i.i.i, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
@@ -4282,9 +4282,9 @@ declare void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 192), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 192), ptr %add.ptr, align 8
   %errors_.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load ptr, ptr %errors_.i, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
@@ -4543,8 +4543,8 @@ _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit52: ; preds
 define linkonce_odr dso_local void @_ZThn56_N4node6crypto9CryptoJobINS0_17RandomBytesTraitsEED1Ev(ptr noundef %this) unnamed_addr #14 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 192), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomBytesTraitsEEE, i64 192), ptr %this, align 8
   %errors_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %1 = load ptr, ptr %errors_.i.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
@@ -5090,7 +5090,7 @@ define linkonce_odr dso_local void @_ZN4node18MemoryRetainerNodeC2EPNS_13MemoryT
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %ref.tmp = alloca %"class.v8::Local", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %this, align 8
   %retainer_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %retainer, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -5757,7 +5757,7 @@ if.end.i:                                         ; preds = %_ZN4node11Environme
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.then.i
   %retval.i.sroa.0.0 = phi ptr [ %16, %if.then.i ], [ %17, %if.end.i ]
   %call7 = tail call noundef i32 @_ZN4node6crypto16GetCryptoJobModeEN2v85LocalINS1_5ValueEEE(ptr %retval.i.sroa.0.0) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto17RandomPrimeConfigE, i64 16), ptr %params, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto17RandomPrimeConfigE, i64 16), ptr %params, align 8
   %prime.i = getelementptr inbounds nuw i8, ptr %params, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %prime.i, i8 0, i64 24, i1 false)
   %call8 = call i16 @_ZN4node6crypto17RandomPrimeTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEjPNS0_17RandomPrimeConfigE(i32 poison, ptr noundef nonnull align 8 dereferenceable(20) %args, i32 noundef 1, ptr noundef nonnull %params)
@@ -5771,7 +5771,7 @@ if.end:                                           ; preds = %_ZNK2v820FunctionCa
   %add.ptr.i57 = getelementptr inbounds i8, ptr %18, i64 -8
   tail call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(320) %call10, ptr noundef %retval.0.i.i, ptr nonnull %add.ptr.i57, i32 noundef 58, double noundef -1.000000e+00) #18
   %19 = getelementptr inbounds nuw i8, ptr %call10, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14ThreadPoolWorkE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14ThreadPoolWorkE, i64 16), ptr %19, align 8
   %env_.i.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 64
   store ptr %retval.0.i.i, ptr %env_.i.i.i, align 8
   %type_.i.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 200
@@ -5785,16 +5785,16 @@ do.body4.i.i.i:                                   ; preds = %if.end
   unreachable
 
 _ZN4node14ThreadPoolWorkC2EPNS_11EnvironmentEPKc.exit.i.i: ; preds = %if.end
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomPrimeTraitsEEE, i64 16), ptr %call10, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomPrimeTraitsEEE, i64 192), ptr %19, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomPrimeTraitsEEE, i64 16), ptr %call10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomPrimeTraitsEEE, i64 192), ptr %19, align 8
   %mode_.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 208
   store i32 %call7, ptr %mode_.i.i, align 8
   %errors_.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 216
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto16CryptoErrorStoreE, i64 16), ptr %errors_.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto16CryptoErrorStoreE, i64 16), ptr %errors_.i.i, align 8
   %errors_.i.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %errors_.i.i.i, i8 0, i64 24, i1 false)
   %params_.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 248
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto17RandomPrimeConfigE, i64 16), ptr %params_.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto17RandomPrimeConfigE, i64 16), ptr %params_.i.i, align 8
   %prime.i.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 256
   %20 = load i64, ptr %prime.i, align 8
   store i64 %20, ptr %prime.i.i.i, align 8
@@ -5819,8 +5819,8 @@ if.then.i.i:                                      ; preds = %_ZN4node14ThreadPoo
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %if.then.i.i, %_ZN4node14ThreadPoolWorkC2EPNS_11EnvironmentEPKc.exit.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto13DeriveBitsJobINS0_17RandomPrimeTraitsEEE, i64 16), ptr %call10, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto13DeriveBitsJobINS0_17RandomPrimeTraitsEEE, i64 200), ptr %19, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto13DeriveBitsJobINS0_17RandomPrimeTraitsEEE, i64 16), ptr %call10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto13DeriveBitsJobINS0_17RandomPrimeTraitsEEE, i64 200), ptr %19, align 8
   %out_.i = getelementptr inbounds nuw i8, ptr %call10, i64 288
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %out_.i, i8 0, i64 25, i1 false)
   %add.i10 = getelementptr inbounds nuw i8, ptr %params, i64 24
@@ -6019,7 +6019,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %is_root_node_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 40
@@ -6490,9 +6490,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node6crypto9CryptoJobINS0_17RandomPrimeTraitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(288) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomPrimeTraitsEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomPrimeTraitsEEE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomPrimeTraitsEEE, i64 192), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_17RandomPrimeTraitsEEE, i64 192), ptr %add.ptr, align 8
   %add.i = getelementptr inbounds nuw i8, ptr %this, i64 272
   %0 = load ptr, ptr %add.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -6881,7 +6881,7 @@ if.end.i:                                         ; preds = %_ZN4node11Environme
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.then.i
   %retval.i.sroa.0.0 = phi ptr [ %16, %if.then.i ], [ %17, %if.end.i ]
   %call7 = tail call noundef i32 @_ZN4node6crypto16GetCryptoJobModeEN2v85LocalINS1_5ValueEEE(ptr %retval.i.sroa.0.0) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto16CheckPrimeConfigE, i64 16), ptr %params, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto16CheckPrimeConfigE, i64 16), ptr %params, align 8
   %candidate.i = getelementptr inbounds nuw i8, ptr %params, i64 8
   store ptr null, ptr %candidate.i, align 8
   %checks.i = getelementptr inbounds nuw i8, ptr %params, i64 16
@@ -6897,7 +6897,7 @@ if.end:                                           ; preds = %_ZNK2v820FunctionCa
   %add.ptr.i57 = getelementptr inbounds i8, ptr %18, i64 -8
   tail call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(304) %call10, ptr noundef %retval.0.i.i, ptr nonnull %add.ptr.i57, i32 noundef 49, double noundef -1.000000e+00) #18
   %19 = getelementptr inbounds nuw i8, ptr %call10, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14ThreadPoolWorkE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14ThreadPoolWorkE, i64 16), ptr %19, align 8
   %env_.i.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 64
   store ptr %retval.0.i.i, ptr %env_.i.i.i, align 8
   %type_.i.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 200
@@ -6911,16 +6911,16 @@ do.body4.i.i.i:                                   ; preds = %if.end
   unreachable
 
 _ZN4node14ThreadPoolWorkC2EPNS_11EnvironmentEPKc.exit.i.i: ; preds = %if.end
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16CheckPrimeTraitsEEE, i64 16), ptr %call10, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16CheckPrimeTraitsEEE, i64 192), ptr %19, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16CheckPrimeTraitsEEE, i64 16), ptr %call10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16CheckPrimeTraitsEEE, i64 192), ptr %19, align 8
   %mode_.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 208
   store i32 %call7, ptr %mode_.i.i, align 8
   %errors_.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 216
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto16CryptoErrorStoreE, i64 16), ptr %errors_.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto16CryptoErrorStoreE, i64 16), ptr %errors_.i.i, align 8
   %errors_.i.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %errors_.i.i.i, i8 0, i64 24, i1 false)
   %params_.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 248
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto16CheckPrimeConfigE, i64 16), ptr %params_.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto16CheckPrimeConfigE, i64 16), ptr %params_.i.i, align 8
   %candidate.i.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 256
   %20 = load i64, ptr %candidate.i, align 8
   store i64 %20, ptr %candidate.i.i.i, align 8
@@ -6935,8 +6935,8 @@ if.then.i.i:                                      ; preds = %_ZN4node14ThreadPoo
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %if.then.i.i, %_ZN4node14ThreadPoolWorkC2EPNS_11EnvironmentEPKc.exit.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto13DeriveBitsJobINS0_16CheckPrimeTraitsEEE, i64 16), ptr %call10, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto13DeriveBitsJobINS0_16CheckPrimeTraitsEEE, i64 200), ptr %19, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto13DeriveBitsJobINS0_16CheckPrimeTraitsEEE, i64 16), ptr %call10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto13DeriveBitsJobINS0_16CheckPrimeTraitsEEE, i64 200), ptr %19, align 8
   %out_.i = getelementptr inbounds nuw i8, ptr %call10, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %out_.i, i8 0, i64 25, i1 false)
   br label %_ZN4node6crypto16CheckPrimeConfigD2Ev.exit
@@ -7085,9 +7085,9 @@ define linkonce_odr dso_local void @_ZN4node6crypto13DeriveBitsJobINS0_16CheckPr
 entry:
   %out_ = getelementptr inbounds nuw i8, ptr %this, i64 272
   tail call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %out_) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16CheckPrimeTraitsEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16CheckPrimeTraitsEEE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16CheckPrimeTraitsEEE, i64 192), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16CheckPrimeTraitsEEE, i64 192), ptr %add.ptr.i, align 8
   %candidate.i.i = getelementptr inbounds nuw i8, ptr %this, i64 256
   %0 = load ptr, ptr %candidate.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -7136,9 +7136,9 @@ define linkonce_odr dso_local void @_ZN4node6crypto13DeriveBitsJobINS0_16CheckPr
 entry:
   %out_.i = getelementptr inbounds nuw i8, ptr %this, i64 272
   tail call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %out_.i) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16CheckPrimeTraitsEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16CheckPrimeTraitsEEE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16CheckPrimeTraitsEEE, i64 192), ptr %add.ptr.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16CheckPrimeTraitsEEE, i64 192), ptr %add.ptr.i.i, align 8
   %candidate.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 256
   %0 = load ptr, ptr %candidate.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -7195,7 +7195,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %is_root_node_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 40
@@ -7619,8 +7619,8 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   %out_.i = getelementptr inbounds nuw i8, ptr %this, i64 216
   tail call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %out_.i) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16CheckPrimeTraitsEEE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16CheckPrimeTraitsEEE, i64 192), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16CheckPrimeTraitsEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16CheckPrimeTraitsEEE, i64 192), ptr %this, align 8
   %candidate.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
   %1 = load ptr, ptr %candidate.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -7691,9 +7691,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node6crypto9CryptoJobINS0_16CheckPrimeTraitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16CheckPrimeTraitsEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16CheckPrimeTraitsEEE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16CheckPrimeTraitsEEE, i64 192), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16CheckPrimeTraitsEEE, i64 192), ptr %add.ptr, align 8
   %candidate.i = getelementptr inbounds nuw i8, ptr %this, i64 256
   %0 = load ptr, ptr %candidate.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -7963,8 +7963,8 @@ _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit52: ; preds
 define linkonce_odr dso_local void @_ZThn56_N4node6crypto9CryptoJobINS0_16CheckPrimeTraitsEED1Ev(ptr noundef %this) unnamed_addr #14 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16CheckPrimeTraitsEEE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16CheckPrimeTraitsEEE, i64 192), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16CheckPrimeTraitsEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9CryptoJobINS0_16CheckPrimeTraitsEEE, i64 192), ptr %this, align 8
   %candidate.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
   %1 = load ptr, ptr %candidate.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null

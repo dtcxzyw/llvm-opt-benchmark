@@ -151,7 +151,7 @@ _ZN4NodenwEm.exit:                                ; preds = %46, %48
 
 51:                                               ; preds = %_ZN4NodenwEm.exit
   tail call void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(57) %.0.i.i.i, ptr noundef null) #16
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i, align 8
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
   store i32 0, ptr %52, align 4
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -2610,7 +2610,7 @@ declare noundef ptr @_ZN6IfNode10up_one_domEP4Nodeb(ptr noundef, i1 noundef zero
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12PhaseIterGVNC2EPS_(ptr noundef nonnull align 8 dereferenceable(2416) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
   tail call void @_ZN11PhaseValuesC2Ev(ptr noundef nonnull align 8 dereferenceable(2400) %0)
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV12PhaseIterGVN, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV12PhaseIterGVN, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2400
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2400
   %5 = load i8, ptr %4, align 8
@@ -2630,7 +2630,7 @@ define hidden void @_ZN12PhaseIterGVNC2EPS_(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12PhaseIterGVNC2EP8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(2416) %0, ptr nocapture readnone %1) unnamed_addr #0 align 2 {
   tail call void @_ZN11PhaseValuesC2Ev(ptr noundef nonnull align 8 dereferenceable(2400) %0)
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV12PhaseIterGVN, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV12PhaseIterGVN, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2400
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2408
@@ -7114,7 +7114,7 @@ define hidden noundef zeroext i1 @_ZNK12PhaseIterGVN23no_dependent_zero_checkEP4
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN8PhaseCCPC2EP12PhaseIterGVN(ptr noundef nonnull align 8 dereferenceable(2488) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
   tail call void @_ZN11PhaseValuesC2Ev(ptr noundef nonnull align 8 dereferenceable(2416) %0)
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV12PhaseIterGVN, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV12PhaseIterGVN, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2400
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2400
   %5 = load i8, ptr %4, align 8
@@ -7128,7 +7128,7 @@ define hidden void @_ZN8PhaseCCPC2EP12PhaseIterGVN(ptr noundef nonnull align 8 d
   store ptr %11, ptr %7, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV8PhaseCCP, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV8PhaseCCP, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2416
   %14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %15 = load ptr, ptr %14, align 8
@@ -10459,7 +10459,7 @@ define hidden noundef ptr @_ZNK8PhaseCCP8saturateEPK4TypeS2_S2_(ptr nocapture no
 define hidden void @_ZN13PhasePeepholeC2EP13PhaseRegAllocR8PhaseCFG(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(160) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN5PhaseC2ENS_11PhaseNumberE(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 16) #16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV13PhasePeephole, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV13PhasePeephole, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -11578,7 +11578,7 @@ declare void @_ZN9VectorSet4growEj(ptr noundef nonnull align 8 dereferenceable(3
 define linkonce_odr hidden void @_ZN11PhaseValuesC2Ev(ptr noundef nonnull align 8 dereferenceable(2400) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN5PhaseC2ENS_11PhaseNumberE(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 5) #16
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11PhaseValues, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11PhaseValues, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32

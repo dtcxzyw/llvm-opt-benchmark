@@ -1817,17 +1817,17 @@ entry:
   %agg.tmp16 = alloca %"class.irr::core::rect", align 8
   %frombool = zext i1 %border to i8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 520
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !3
   %DebugName.i = getelementptr inbounds nuw i8, ptr %this, i64 528
   store ptr null, ptr %DebugName.i, align 8, !tbaa !118
   %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %this, i64 536
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !78
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp16, ptr noundef nonnull align 4 dereferenceable(16) %rectangle, i64 16, i1 false)
-  call void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr3gui11CGUIEditBoxE, i64 16), i32 noundef 5, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp16)
+  call void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr3gui11CGUIEditBoxE, i64 16), i32 noundef 5, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp16)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui11CGUIEditBoxE, i64 24), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui11CGUIEditBoxE, i64 552), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr3gui11CGUIEditBoxE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr3gui11CGUIEditBoxE, i64 552), ptr %0, align 8, !tbaa !3
   %OverwriteMode = getelementptr inbounds nuw i8, ptr %this, i64 308
   store i8 0, ptr %OverwriteMode, align 4, !tbaa !6
   %MouseMarking = getelementptr inbounds nuw i8, ptr %this, i64 309
@@ -5435,7 +5435,7 @@ entry:
   store i64 1114111, ptr %_M_maxcode.i.i.i, align 8, !tbaa !145
   %_M_mode.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store i32 0, ptr %_M_mode.i.i.i, align 8, !tbaa !151
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EE, i64 16), ptr %call.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EE, i64 16), ptr %call.i, align 8, !tbaa !3
   store ptr %call.i, ptr %conv, align 8, !tbaa !152
   %_M_byte_err_string.i = getelementptr inbounds nuw i8, ptr %conv, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %conv, i64 24
@@ -9240,7 +9240,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef %vtt, i32 noundef %type, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %this, align 8, !tbaa !3
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
   %1 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
@@ -10078,7 +10078,7 @@ entry:
   store i64 1114111, ptr %_M_maxcode.i.i.i, align 8, !tbaa !145
   %_M_mode.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store i32 0, ptr %_M_mode.i.i.i, align 8, !tbaa !151
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EE, i64 16), ptr %call.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EE, i64 16), ptr %call.i, align 8, !tbaa !3
   store ptr %call.i, ptr %conv, align 8, !tbaa !152
   %_M_byte_err_string.i = getelementptr inbounds nuw i8, ptr %conv, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %conv, i64 24

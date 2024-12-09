@@ -343,7 +343,7 @@ $_ZTI15WriteBodiesLoop = comdat any
 define dso_local void @_ZN37btSequentialImpulseConstraintSolverMtC2Ev(ptr noundef nonnull align 8 dereferenceable(920) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont11:
   tail call void @_ZN35btSequentialImpulseConstraintSolverC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV37btSequentialImpulseConstraintSolverMt, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV37btSequentialImpulseConstraintSolverMt, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 432
   store i8 1, ptr %m_ownsMemory.i.i.i, align 8
   %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 424
@@ -667,7 +667,7 @@ declare void @_ZN35btSequentialImpulseConstraintSolverD2Ev(ptr noundef nonnull a
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN37btSequentialImpulseConstraintSolverMtD2Ev(ptr noundef nonnull align 8 dereferenceable(920) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV37btSequentialImpulseConstraintSolverMt, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV37btSequentialImpulseConstraintSolverMt, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 904
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -1432,7 +1432,7 @@ for.cond10.preheader:                             ; preds = %entry
 
 if.then:                                          ; preds = %entry
   %m_batchedContactConstraints = getelementptr inbounds nuw i8, ptr %this, i64 408
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27SetupContactConstraintsLoop, i64 16), ptr %loop, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27SetupContactConstraintsLoop, i64 16), ptr %loop, align 8
   %m_solver.i = getelementptr inbounds nuw i8, ptr %loop, i64 8
   store ptr %this, ptr %m_solver.i, align 8
   %m_bc.i = getelementptr inbounds nuw i8, ptr %loop, i64 16
@@ -2123,7 +2123,7 @@ _ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt27btContactMan
 invoke.cont3:                                     ; preds = %_ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt27btContactManifoldCachedInfoEE10deallocateEv.exit.i.i, %invoke.cont
   %0 = phi ptr [ %call.i.i.i.i31, %_ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt27btContactManifoldCachedInfoEE10deallocateEv.exit.i.i ], [ null, %invoke.cont ]
   store i32 %numManifolds, ptr %m_size.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV36CollectContactManifoldCachedInfoLoop, i64 16), ptr %loop, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV36CollectContactManifoldCachedInfoLoop, i64 16), ptr %loop, align 8
   %m_solver.i = getelementptr inbounds nuw i8, ptr %loop, i64 8
   store ptr %this, ptr %m_solver.i, align 8
   %m_cachedInfoArray.i = getelementptr inbounds nuw i8, ptr %loop, i64 16
@@ -2743,7 +2743,7 @@ _ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i257: ; pre
 invoke.cont44:                                    ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i257, %if.then.i239, %invoke.cont42
   store i32 %numRollingFrictionConstraints.0.lcssa, ptr %m_size.i.i237, align 4
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile18) #14
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27AllocContactConstraintsLoop, i64 16), ptr %loop45, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27AllocContactConstraintsLoop, i64 16), ptr %loop45, align 8
   %m_solver.i275 = getelementptr inbounds nuw i8, ptr %loop45, i64 8
   store ptr %this, ptr %m_solver.i275, align 8
   %m_cachedInfoArray.i276 = getelementptr inbounds nuw i8, ptr %loop45, i64 16
@@ -3090,7 +3090,7 @@ _ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE10deallocateE
 
 if.then3:                                         ; preds = %_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE10deallocateEv.exit.i.i, %if.then.i, %if.end
   store i32 %numConstraints, ptr %m_size.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14InitJointsLoop, i64 16), ptr %loop, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14InitJointsLoop, i64 16), ptr %loop, align 8
   %m_solver.i = getelementptr inbounds nuw i8, ptr %loop, i64 8
   store ptr %this, ptr %m_solver.i, align 8
   %m_constraints.i = getelementptr inbounds nuw i8, ptr %loop, i64 16
@@ -3302,7 +3302,7 @@ _ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i: ; preds 
 
 if.then33:                                        ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i, %if.then.i71, %for.end
   store i32 %totalNumRows.0.lcssa, ptr %m_size.i.i69, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17ConvertJointsLoop, i64 16), ptr %loop34, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17ConvertJointsLoop, i64 16), ptr %loop34, align 8
   %m_jointParamsArray.i = getelementptr inbounds nuw i8, ptr %loop34, i64 16
   store ptr %jointParamsArray, ptr %m_jointParamsArray.i, align 8
   %m_infoGlobal.i = getelementptr inbounds nuw i8, ptr %loop34, i64 32
@@ -3764,7 +3764,7 @@ invoke.cont2:                                     ; preds = %_ZN20btAlignedObjec
           to label %if.then unwind label %lpad
 
 if.then:                                          ; preds = %invoke.cont2
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17ConvertBodiesLoop, i64 16), ptr %loop, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17ConvertBodiesLoop, i64 16), ptr %loop, align 8
   %m_infoGlobal.i = getelementptr inbounds nuw i8, ptr %loop, i64 32
   store ptr %infoGlobal, ptr %m_infoGlobal.i, align 8
   %m_solver.i = getelementptr inbounds nuw i8, ptr %loop, i64 8
@@ -3933,7 +3933,7 @@ for.body:                                         ; preds = %lor.lhs.false, %for
   br i1 %tobool2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %for.body
-  store ptr getelementptr inbounds (i8, ptr @_ZTV40ContactSplitPenetrationImpulseSolverLoop, i64 16), ptr %loop, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV40ContactSplitPenetrationImpulseSolverLoop, i64 16), ptr %loop, align 8
   store ptr %this, ptr %m_solver.i, align 8
   store ptr %m_batchedContactConstraints, ptr %m_bc.i, align 8
   %3 = load i32, ptr %m_size.i, align 4
@@ -4926,7 +4926,7 @@ entry:
   %loop = alloca %struct.JointSolverLoop, align 8
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.15)
   %m_batchedJointConstraints = getelementptr inbounds nuw i8, ptr %this, i64 576
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15JointSolverLoop, i64 16), ptr %loop, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15JointSolverLoop, i64 16), ptr %loop, align 8
   %m_solver.i = getelementptr inbounds nuw i8, ptr %loop, i64 8
   store ptr %this, ptr %m_solver.i, align 8
   %m_bc.i = getelementptr inbounds nuw i8, ptr %loop, i64 16
@@ -4991,7 +4991,7 @@ entry:
   %loop = alloca %struct.ContactSolverLoop, align 8
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.16)
   %m_batchedContactConstraints = getelementptr inbounds nuw i8, ptr %this, i64 408
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17ContactSolverLoop, i64 16), ptr %loop, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17ContactSolverLoop, i64 16), ptr %loop, align 8
   %m_solver.i = getelementptr inbounds nuw i8, ptr %loop, i64 8
   store ptr %this, ptr %m_solver.i, align 8
   %m_bc.i = getelementptr inbounds nuw i8, ptr %loop, i64 16
@@ -5059,7 +5059,7 @@ entry:
   %loop = alloca %struct.ContactFrictionSolverLoop, align 8
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.17)
   %m_batchedContactConstraints = getelementptr inbounds nuw i8, ptr %this, i64 408
-  store ptr getelementptr inbounds (i8, ptr @_ZTV25ContactFrictionSolverLoop, i64 16), ptr %loop, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV25ContactFrictionSolverLoop, i64 16), ptr %loop, align 8
   %m_solver.i = getelementptr inbounds nuw i8, ptr %loop, i64 8
   store ptr %this, ptr %m_solver.i, align 8
   %m_bc.i = getelementptr inbounds nuw i8, ptr %loop, i64 16
@@ -5127,7 +5127,7 @@ entry:
   %loop = alloca %struct.InterleavedContactSolverLoop, align 8
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.18)
   %m_batchedContactConstraints = getelementptr inbounds nuw i8, ptr %this, i64 408
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28InterleavedContactSolverLoop, i64 16), ptr %loop, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28InterleavedContactSolverLoop, i64 16), ptr %loop, align 8
   %m_solver.i = getelementptr inbounds nuw i8, ptr %loop, i64 8
   store ptr %this, ptr %m_solver.i, align 8
   %m_bc.i = getelementptr inbounds nuw i8, ptr %loop, i64 16
@@ -5209,7 +5209,7 @@ for.body19.lr.ph:                                 ; preds = %for.cond17.preheade
 
 if.then:                                          ; preds = %entry
   %m_batchedContactConstraints = getelementptr inbounds nuw i8, ptr %this, i64 408
-  store ptr getelementptr inbounds (i8, ptr @_ZTV32ContactRollingFrictionSolverLoop, i64 16), ptr %loop, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV32ContactRollingFrictionSolverLoop, i64 16), ptr %loop, align 8
   %m_solver.i = getelementptr inbounds nuw i8, ptr %loop, i64 8
   store ptr %this, ptr %m_solver.i, align 8
   %m_bc.i = getelementptr inbounds nuw i8, ptr %loop, i64 16
@@ -5401,7 +5401,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22WriteContactPointsLoop, i64 16), ptr %loop, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22WriteContactPointsLoop, i64 16), ptr %loop, align 8
   %m_solver.i = getelementptr inbounds nuw i8, ptr %loop, i64 8
   store ptr %this, ptr %m_solver.i, align 8
   %m_infoGlobal.i = getelementptr inbounds nuw i8, ptr %loop, i64 16
@@ -5422,7 +5422,7 @@ lpad2:                                            ; preds = %if.then
   br label %ehcleanup
 
 if.end:                                           ; preds = %if.then, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15WriteJointsLoop, i64 16), ptr %loop5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15WriteJointsLoop, i64 16), ptr %loop5, align 8
   %m_solver.i5 = getelementptr inbounds nuw i8, ptr %loop5, i64 8
   store ptr %this, ptr %m_solver.i5, align 8
   %m_infoGlobal.i6 = getelementptr inbounds nuw i8, ptr %loop5, i64 16
@@ -5433,7 +5433,7 @@ if.end:                                           ; preds = %if.then, %entry
           to label %invoke.cont11 unwind label %lpad8
 
 invoke.cont11:                                    ; preds = %if.end
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15WriteBodiesLoop, i64 16), ptr %loop12, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15WriteBodiesLoop, i64 16), ptr %loop12, align 8
   %m_solver.i8 = getelementptr inbounds nuw i8, ptr %loop12, i64 8
   store ptr %this, ptr %m_solver.i8, align 8
   %m_infoGlobal.i9 = getelementptr inbounds nuw i8, ptr %loop12, i64 16

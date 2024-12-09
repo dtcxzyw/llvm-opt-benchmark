@@ -2151,7 +2151,7 @@ proto_item_set_hidden.exit531.sink.split:         ; preds = %404, %370
   br label %proto_item_set_hidden.exit531
 
 proto_item_set_hidden.exit531:                    ; preds = %proto_item_set_hidden.exit531.sink.split, %401, %367, %404, %proto_item_set_hidden.exit540, %370, %361
-  %411 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 28), align 4
+  %411 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 28), align 4
   %.not474 = icmp eq i32 %411, 0
   br i1 %.not474, label %415, label %412
 
@@ -2377,7 +2377,7 @@ dissect_ip_options.exit:                          ; preds = %493, %480, %472, %4
   %or.cond497.not560 = and i1 %538, %539
   %540 = icmp ne i32 %537, -1442971648
   %or.cond498.not557 = and i1 %540, %or.cond497.not560
-  %541 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 436), align 4
+  %541 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 436), align 4
   %.not479 = icmp eq i32 %541, 0
   %or.cond499 = select i1 %or.cond498.not557, i1 %.not479, i1 false
   br i1 %or.cond499, label %546, label %542

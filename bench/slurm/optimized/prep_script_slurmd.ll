@@ -90,8 +90,8 @@ define i32 @slurmd_script(ptr nocapture noundef %0, ptr noundef %1, i1 noundef z
   %10 = alloca [2 x ptr], align 16
   %11 = alloca %struct.run_command_args_t, align 8
   %12 = select i1 %2, ptr @.str, ptr @.str.1
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 320), align 8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 920), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 920), align 8
   %15 = select i1 %2, ptr %13, ptr %14
   br i1 %2, label %16, label %.critedge
 
@@ -191,7 +191,7 @@ define i32 @slurmd_script(ptr nocapture noundef %0, ptr noundef %1, i1 noundef z
 66:                                               ; preds = %64, %57
   %67 = load i32, ptr %26, align 4
   %68 = call i32 @close(i32 noundef %67) #8
-  %69 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 928), align 8
+  %69 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 928), align 8
   %70 = icmp eq i16 %69, -2
   %71 = zext i16 %69 to i32
   %72 = mul nuw nsw i32 %71, 1000
@@ -239,7 +239,7 @@ _run_spank_job_script.exit:                       ; preds = %23, %37, %75, %77, 
 
 87:                                               ; preds = %86
   store i32 0, ptr %9, align 4
-  %88 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 928), align 8
+  %88 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 928), align 8
   %89 = zext i16 %88 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %90 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -405,7 +405,7 @@ define internal fastcc ptr @_build_env(ptr nocapture noundef %0, ptr noundef %1,
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4304
   %29 = load ptr, ptr %28, align 8
   %30 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %4, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.12, ptr noundef %29) #8
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %32 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.12, ptr noundef %31) #8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %34 = load i32, ptr %33, align 4

@@ -198,7 +198,7 @@ lor.lhs.false121:                                 ; preds = %lor.lhs.false117
 
 if.then129:                                       ; preds = %lor.lhs.false121, %lor.lhs.false117, %if.end81
   store i32 666, ptr %status, align 8
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @z_errmsg, i64 48), align 16
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @z_errmsg, i64 48), align 16
   store ptr %25, ptr %msg, align 8
   %call132 = tail call i32 @deflateEnd(ptr noundef nonnull %strm)
   br label %return
@@ -1612,7 +1612,7 @@ lor.lhs.false7:                                   ; preds = %land.lhs.true, %lor
   br i1 %or.cond2, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %lor.lhs.false7, %land.lhs.true, %if.end
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @z_errmsg, i64 32), align 16
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @z_errmsg, i64 32), align 16
   %msg = getelementptr inbounds nuw i8, ptr %strm, i64 48
   store ptr %9, ptr %msg, align 8
   br label %return
@@ -1624,7 +1624,7 @@ if.end12:                                         ; preds = %lor.lhs.false7
   br i1 %cmp13, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %if.end12
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @z_errmsg, i64 56), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @z_errmsg, i64 56), align 8
   %msg15 = getelementptr inbounds nuw i8, ptr %strm, i64 48
   store ptr %11, ptr %msg15, align 8
   br label %return
@@ -1716,7 +1716,7 @@ land.lhs.true27:                                  ; preds = %if.else
   br i1 %or.cond3, label %if.then36, label %if.end39
 
 if.then36:                                        ; preds = %land.lhs.true27
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @z_errmsg, i64 56), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @z_errmsg, i64 56), align 8
   %msg37 = getelementptr inbounds nuw i8, ptr %strm, i64 48
   store ptr %27, ptr %msg37, align 8
   br label %return
@@ -1734,7 +1734,7 @@ land.lhs.true42:                                  ; preds = %if.end39
   br i1 %cmp44.not, label %lor.lhs.false600, label %if.then45
 
 if.then45:                                        ; preds = %land.lhs.true42
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @z_errmsg, i64 56), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @z_errmsg, i64 56), align 8
   %msg46 = getelementptr inbounds nuw i8, ptr %strm, i64 48
   store ptr %29, ptr %msg46, align 8
   br label %return

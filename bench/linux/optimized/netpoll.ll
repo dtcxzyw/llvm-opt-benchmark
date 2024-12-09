@@ -185,7 +185,7 @@ define dso_local void @netpoll_poll_dev(ptr noundef %0) #0 align 16 {
   %26 = phi i64 [ %23, %22 ], [ 0, %18 ]
   %27 = getelementptr %struct.netdev_queue, ptr %20, i64 %26, i32 11
   %28 = load volatile i32, ptr %27, align 4
-  %29 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !9
+  %29 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !9
   %30 = icmp eq i32 %28, %29
   br i1 %30, label %.loopexit7, label %22
 
@@ -206,7 +206,7 @@ define dso_local void @netpoll_poll_dev(ptr noundef %0) #0 align 16 {
   br label %37
 
 37:                                               ; preds = %36, %.loopexit8
-  %38 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !10
+  %38 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !10
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %40 = load volatile ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, %39
@@ -249,11 +249,11 @@ define dso_local void @netpoll_poll_dev(ptr noundef %0) #0 align 16 {
   br label %61
 
 61:                                               ; preds = %59, %52
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_napi_poll, i64 8), i32 2) #14
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_napi_poll, i64 8), i32 2) #14
           to label %82 [label %62], !srcloc !19
 
 62:                                               ; preds = %61
-  %63 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !20
+  %63 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !20
   %64 = zext i32 %63 to i64
   %65 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %64) #14, !srcloc !21
   %66 = icmp ult i8 %65, 2
@@ -262,9 +262,9 @@ define dso_local void @netpoll_poll_dev(ptr noundef %0) #0 align 16 {
   br i1 %67, label %82, label %68
 
 68:                                               ; preds = %62
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !22
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !22
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !23
-  %69 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_napi_poll, i64 72), align 8
+  %69 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_napi_poll, i64 72), align 8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %75, label %71
 
@@ -276,7 +276,7 @@ define dso_local void @netpoll_poll_dev(ptr noundef %0) #0 align 16 {
 
 75:                                               ; preds = %71, %68
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !24
-  %76 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !25
+  %76 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !25
   %77 = icmp ult i8 %76, 2
   tail call void @llvm.assume(i1 %77)
   %78 = icmp eq i8 %76, 0
@@ -326,7 +326,7 @@ declare dso_local void @up(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @zap_completion_queue() unnamed_addr #0 align 16 {
   %1 = alloca i64, align 8
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !22
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !22
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !30
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @softnet_data) #15, !srcloc !31
   %3 = inttoptr i64 %2 to ptr
@@ -411,7 +411,7 @@ define internal fastcc void @zap_completion_queue() unnamed_addr #0 align 16 {
 
 .loopexit:                                        ; preds = %46, %13, %0
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !37
-  %48 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !25
+  %48 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !25
   %49 = icmp ult i8 %48, 2
   call void @llvm.assume(i1 %49)
   %50 = icmp eq i8 %48, 0
@@ -538,7 +538,7 @@ define dso_local noundef range(i32 0, 2) i32 @netpoll_send_skb(ptr noundef reado
 34:                                               ; preds = %30
   %35 = getelementptr i8, ptr %32, i64 -312
   %36 = load i32, ptr %35, align 8
-  %37 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !43
+  %37 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !43
   %38 = icmp eq i32 %36, %37
   br i1 %38, label %.thread, label %30, !llvm.loop !44
 
@@ -571,7 +571,7 @@ define dso_local noundef range(i32 0, 2) i32 @netpoll_send_skb(ptr noundef reado
   br i1 %58, label %75, label %59, !prof !42
 
 59:                                               ; preds = %56
-  %60 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !45
+  %60 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !45
   store volatile i32 %60, ptr %48, align 4
   br label %61
 
@@ -712,8 +712,8 @@ define dso_local void @netpoll_send_udp(ptr noundef %0, ptr nocapture noundef re
   %32 = add i32 %28, %31
   %33 = sub i32 %28, %2
   call fastcc void @zap_completion_queue()
-  %34 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull getelementptr inbounds (i8, ptr @skb_pool, i64 20)) #14
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @skb_pool, i64 16), align 8
+  %34 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @skb_pool, i64 20)) #14
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @skb_pool, i64 16), align 8
   %36 = icmp ult i32 %35, 32
   br i1 %36, label %.preheader, label %.loopexit
 
@@ -723,20 +723,20 @@ define dso_local void @netpoll_send_udp(ptr noundef %0, ptr nocapture noundef re
   br i1 %38, label %.loopexit, label %39
 
 39:                                               ; preds = %.preheader
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @skb_pool, i64 8), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @skb_pool, i64 8), align 8
   store volatile ptr @skb_pool, ptr %37, align 8
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store volatile ptr %40, ptr %41, align 8
-  store volatile ptr %37, ptr getelementptr inbounds (i8, ptr @skb_pool, i64 8), align 8
+  store volatile ptr %37, ptr getelementptr inbounds nuw (i8, ptr @skb_pool, i64 8), align 8
   store volatile ptr %37, ptr %40, align 8
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @skb_pool, i64 16), align 8
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @skb_pool, i64 16), align 8
   %43 = add i32 %42, 1
-  store volatile i32 %43, ptr getelementptr inbounds (i8, ptr @skb_pool, i64 16), align 8
+  store volatile i32 %43, ptr getelementptr inbounds nuw (i8, ptr @skb_pool, i64 16), align 8
   %44 = icmp ult i32 %43, 32
   br i1 %44, label %.preheader, label %.loopexit, !llvm.loop !57
 
 .loopexit:                                        ; preds = %39, %.preheader, %9
-  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull getelementptr inbounds (i8, ptr @skb_pool, i64 20), i64 noundef %34) #14
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @skb_pool, i64 20), i64 noundef %34) #14
   %45 = call ptr @__alloc_skb(i32 noundef %32, i32 noundef 2080, i32 noundef 0, i32 noundef -1) #14
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.lr.ph, label %.thread
@@ -1247,7 +1247,7 @@ define dso_local i32 @__netpoll_setup(ptr noundef initializes((0, 8)) %0, ptr no
   br i1 %16, label %17, label %44
 
 17:                                               ; preds = %13
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %19 = tail call noalias align 8 dereferenceable_or_null(168) ptr @kmalloc_trace(ptr noundef %18, i32 noundef 3264, i64 noundef 168) #18
   %20 = icmp eq ptr %19, null
   br i1 %20, label %57, label %21
@@ -1389,7 +1389,7 @@ define internal void @queue_process(ptr noundef %0) #0 align 16 {
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %28
-  %39 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !66
+  %39 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !66
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 128
   call void @_raw_spin_lock(ptr noundef nonnull %40) #14
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 132
@@ -1657,8 +1657,8 @@ define dso_local i32 @netpoll_setup(ptr noundef %0) #0 align 16 {
   br label %107
 
 107:                                              ; preds = %.sink.split, %60
-  %108 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull getelementptr inbounds (i8, ptr @skb_pool, i64 20)) #14
-  %109 = load i32, ptr getelementptr inbounds (i8, ptr @skb_pool, i64 16), align 8
+  %108 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @skb_pool, i64 20)) #14
+  %109 = load i32, ptr getelementptr inbounds nuw (i8, ptr @skb_pool, i64 16), align 8
   %110 = icmp ult i32 %109, 32
   br i1 %110, label %.preheader, label %.loopexit
 
@@ -1668,20 +1668,20 @@ define dso_local i32 @netpoll_setup(ptr noundef %0) #0 align 16 {
   br i1 %112, label %.loopexit, label %113
 
 113:                                              ; preds = %.preheader
-  %114 = load ptr, ptr getelementptr inbounds (i8, ptr @skb_pool, i64 8), align 8
+  %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @skb_pool, i64 8), align 8
   store volatile ptr @skb_pool, ptr %111, align 8
   %115 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store volatile ptr %114, ptr %115, align 8
-  store volatile ptr %111, ptr getelementptr inbounds (i8, ptr @skb_pool, i64 8), align 8
+  store volatile ptr %111, ptr getelementptr inbounds nuw (i8, ptr @skb_pool, i64 8), align 8
   store volatile ptr %111, ptr %114, align 8
-  %116 = load i32, ptr getelementptr inbounds (i8, ptr @skb_pool, i64 16), align 8
+  %116 = load i32, ptr getelementptr inbounds nuw (i8, ptr @skb_pool, i64 16), align 8
   %117 = add i32 %116, 1
-  store volatile i32 %117, ptr getelementptr inbounds (i8, ptr @skb_pool, i64 16), align 8
+  store volatile i32 %117, ptr getelementptr inbounds nuw (i8, ptr @skb_pool, i64 16), align 8
   %118 = icmp ult i32 %117, 32
   br i1 %118, label %.preheader, label %.loopexit, !llvm.loop !57
 
 .loopexit:                                        ; preds = %113, %.preheader, %107
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull getelementptr inbounds (i8, ptr @skb_pool, i64 20), i64 noundef %108) #14
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @skb_pool, i64 20), i64 noundef %108) #14
   %119 = tail call i32 @__netpoll_setup(ptr noundef %0, ptr noundef nonnull %12)
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %124, label %121
@@ -1724,10 +1724,10 @@ declare dso_local void @_raw_read_unlock_bh(ptr noundef) local_unnamed_addr #2 s
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
 define internal noundef i32 @netpoll_init() #8 section ".init.text" align 16 {
-  store i32 0, ptr getelementptr inbounds (i8, ptr @skb_pool, i64 20), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @skb_pool, i64 20), align 4
   store ptr @skb_pool, ptr @skb_pool, align 8
-  store ptr @skb_pool, ptr getelementptr inbounds (i8, ptr @skb_pool, i64 8), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @skb_pool, i64 16), align 8
+  store ptr @skb_pool, ptr getelementptr inbounds nuw (i8, ptr @skb_pool, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @skb_pool, i64 16), align 8
   ret i32 0
 }
 
@@ -2141,7 +2141,7 @@ define internal fastcc i32 @netpoll_start_xmit(ptr noundef %0, ptr noundef %1, p
 70:                                               ; preds = %68, %16, %11, %3
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8
-  tail call void asm "movb $1, %gs:$0", "=*m,qi,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @softnet_data, i64 98), i8 0, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @softnet_data, i64 98)) #14, !srcloc !80
+  tail call void asm "movb $1, %gs:$0", "=*m,qi,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @softnet_data, i64 98), i8 0, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @softnet_data, i64 98)) #14, !srcloc !80
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %74 = load ptr, ptr %73, align 8
   %75 = tail call i32 %74(ptr noundef %0, ptr noundef %1) #14

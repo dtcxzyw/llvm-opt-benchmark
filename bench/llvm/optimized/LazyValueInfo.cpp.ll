@@ -313,7 +313,7 @@ define dso_local void @_ZN4llvm24LazyValueInfoWrapperPassC2Ev(ptr nocapture noun
   store ptr @_ZN4llvm24LazyValueInfoWrapperPass2IDE, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 2, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN4llvm24LazyValueInfoWrapperPassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN4llvm24LazyValueInfoWrapperPassE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = tail call noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() #19
@@ -12671,7 +12671,7 @@ _ZN12_GLOBAL__N_114LVIValueHandleC2ERKS0_.exit.i.i.i.i.i.i: ; preds = %113, %_ZN
   store ptr null, ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i7.i, i64 24
   store ptr inttoptr (i64 -4096 to ptr), ptr %118, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_114LVIValueHandleE, i64 16), ptr %.08.i.i.i.i.i7.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_114LVIValueHandleE, i64 16), ptr %.08.i.i.i.i.i7.i, align 8
   %119 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i7.i, i64 32
   store ptr null, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i7.i, i64 40
@@ -12723,7 +12723,7 @@ _ZN12_GLOBAL__N_114LVIValueHandleC2ERKS0_.exit.i.i.i.i.i.i.i: ; preds = %125, %_
   store ptr null, ptr %148, align 8
   %149 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i, i64 24
   store ptr inttoptr (i64 -4096 to ptr), ptr %149, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_114LVIValueHandleE, i64 16), ptr %.08.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_114LVIValueHandleE, i64 16), ptr %.08.i.i.i.i.i.i.i, align 8
   %150 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i, i64 32
   store ptr null, ptr %150, align 8
   %151 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i, i64 40
@@ -14826,7 +14826,7 @@ define dso_local void @_ZN4llvm13LazyValueInfo8printLVIERNS_8FunctionERNS_13Domi
 
 8:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4llvm12_GLOBAL__N_128LazyValueInfoAnnotatedWriterE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4llvm12_GLOBAL__N_128LazyValueInfoAnnotatedWriterE, i64 16), ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -14932,7 +14932,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit11:               ; preds = %44, %46
   %55 = load ptr, ptr %1, align 8
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4llvm12_GLOBAL__N_128LazyValueInfoAnnotatedWriterE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4llvm12_GLOBAL__N_128LazyValueInfoAnnotatedWriterE, i64 16), ptr %5, align 8
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %53, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -14972,7 +14972,7 @@ declare { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm24LazyValueInfoWrapperPassD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN4llvm24LazyValueInfoWrapperPassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN4llvm24LazyValueInfoWrapperPassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm13LazyValueInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #19
   tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #19
@@ -14981,7 +14981,7 @@ define linkonce_odr hidden void @_ZN4llvm24LazyValueInfoWrapperPassD2Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm24LazyValueInfoWrapperPassD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN4llvm24LazyValueInfoWrapperPassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN4llvm24LazyValueInfoWrapperPassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm13LazyValueInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #19
   tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #19
@@ -15413,7 +15413,7 @@ _ZN12_GLOBAL__N_114LVIValueHandleC2EPN4llvm5ValueEPNS_18LazyValueInfoCacheE.exit
   %.val9.i.i = phi ptr [ %1, %34 ], [ %1, %34 ], [ %1, %34 ], [ %.val9.i.i.pre, %38 ]
   %.val8.i.i = phi i32 [ %.val3, %34 ], [ %.val3, %34 ], [ %.val3, %34 ], [ %.val8.i.i.pre, %38 ]
   %.val7.i.i = phi ptr [ %.val2, %34 ], [ %.val2, %34 ], [ %.val2, %34 ], [ %.val7.i.i.pre, %38 ]
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_114LVIValueHandleE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_114LVIValueHandleE, i64 16), ptr %3, align 8
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %0, ptr %39, align 8
   %40 = icmp eq i32 %.val8.i.i, 0
@@ -17050,7 +17050,7 @@ _ZN12_GLOBAL__N_114LVIValueHandleC2ERKS0_.exit.i.i: ; preds = %23, %_ZN12_GLOBAL
   store ptr null, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 24
   store ptr inttoptr (i64 -4096 to ptr), ptr %30, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_114LVIValueHandleE, i64 16), ptr %.08.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_114LVIValueHandleE, i64 16), ptr %.08.i.i, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 32
   store ptr null, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 40
@@ -17078,7 +17078,7 @@ _ZN12_GLOBAL__N_114LVIValueHandleC2ERKS0_.exit.i.i.i: ; preds = %33, %_ZN12_GLOB
   store ptr null, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 24
   store ptr inttoptr (i64 -4096 to ptr), ptr %42, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_114LVIValueHandleE, i64 16), ptr %.08.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_114LVIValueHandleE, i64 16), ptr %.08.i.i.i, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 32
   store ptr null, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 40

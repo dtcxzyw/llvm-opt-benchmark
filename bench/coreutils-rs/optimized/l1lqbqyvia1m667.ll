@@ -2834,7 +2834,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i.i
   store i64 %239, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !noalias !457
   %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i64 %241, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 8, !noalias !457
-  invoke void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend17haae635ba35c0914eE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull @anon.1c674e0b08a8db5ba125b124057eb280.87, ptr noundef nonnull getelementptr inbounds (i8, ptr @anon.1c674e0b08a8db5ba125b124057eb280.87, i64 12))
+  invoke void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend17haae635ba35c0914eE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull @anon.1c674e0b08a8db5ba125b124057eb280.87, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @anon.1c674e0b08a8db5ba125b124057eb280.87, i64 12))
           to label %"_ZN120_$LT$std..collections..hash..set..HashSet$LT$T$C$S$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17hb6549d8da28cbf65E.exit" unwind label %243, !noalias !457
 
 243:                                              ; preds = %"_ZN73_$LT$std..hash..random..RandomState$u20$as$u20$core..default..Default$GT$7default17h6420f6cd5f39a78aE.exit.i"

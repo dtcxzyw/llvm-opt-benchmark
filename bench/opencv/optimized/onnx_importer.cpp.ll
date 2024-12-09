@@ -4879,7 +4879,7 @@ _ZN2cv3dnn14dnn4_v2024052112ONNXImporter22getParamUseLegacyNamesEv.exit: ; preds
           to label %.noexc unwind label %79
 
 .noexc:                                           ; preds = %107
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVZN2cv3dnn14dnn4_v2024052112ONNXImporterC1ERNS1_3NetEPKcmE4_Buf, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVZN2cv3dnn14dnn4_v2024052112ONNXImporterC1ERNS1_3NetEPKcmE4_Buf, i64 16), ptr %8, align 8
   %108 = getelementptr inbounds i8, ptr %2, i64 %3
   invoke void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %2, ptr noundef %2, ptr noundef %108)
           to label %_ZZN2cv3dnn14dnn4_v2024052112ONNXImporterC1ERNS1_3NetEPKcmEN4_BufC2ES6_m.exit unwind label %109

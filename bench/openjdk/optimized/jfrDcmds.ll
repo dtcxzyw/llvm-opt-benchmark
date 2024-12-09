@@ -472,7 +472,7 @@ define hidden noundef zeroext i1 @_Z18register_jfr_dcmdsv() local_unnamed_addr #
   store i32 7, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 2, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI27JfrCheckFlightRecordingDCmdE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI27JfrCheckFlightRecordingDCmdE, i64 16), ptr %1, align 8
   %7 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %1) #14
   %8 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #14
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -485,7 +485,7 @@ define hidden noundef zeroext i1 @_Z18register_jfr_dcmdsv() local_unnamed_addr #
   store i32 7, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 7, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI26JfrDumpFlightRecordingDCmdE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI26JfrDumpFlightRecordingDCmdE, i64 16), ptr %8, align 8
   %14 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %8) #14
   %15 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -498,7 +498,7 @@ define hidden noundef zeroext i1 @_Z18register_jfr_dcmdsv() local_unnamed_addr #
   store i32 7, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 11, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI27JfrStartFlightRecordingDCmdE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI27JfrStartFlightRecordingDCmdE, i64 16), ptr %15, align 8
   %21 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %15) #14
   %22 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #14
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -511,7 +511,7 @@ define hidden noundef zeroext i1 @_Z18register_jfr_dcmdsv() local_unnamed_addr #
   store i32 7, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i32 2, ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI26JfrStopFlightRecordingDCmdE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI26JfrStopFlightRecordingDCmdE, i64 16), ptr %22, align 8
   %28 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %22) #14
   %29 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #14
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -524,7 +524,7 @@ define hidden noundef zeroext i1 @_Z18register_jfr_dcmdsv() local_unnamed_addr #
   store i32 7, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store i32 7, ptr %34, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI26JfrViewFlightRecordingDCmdE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI26JfrViewFlightRecordingDCmdE, i64 16), ptr %29, align 8
   %35 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %29) #14
   %36 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #14
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -537,7 +537,7 @@ define hidden noundef zeroext i1 @_Z18register_jfr_dcmdsv() local_unnamed_addr #
   store i32 7, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store i32 10, ptr %41, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI30JfrConfigureFlightRecorderDCmdE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI30JfrConfigureFlightRecorderDCmdE, i64 16), ptr %36, align 8
   %42 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %36) #14
   ret i1 true
 }
@@ -551,7 +551,7 @@ define hidden void @_ZN7JfrDCmdC2EP12outputStreambi(ptr nocapture noundef nonnul
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %5, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7JfrDCmd, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV7JfrDCmd, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1341,7 +1341,7 @@ define hidden void @_ZN30JfrConfigureFlightRecorderDCmdC2EP12outputStreamb(ptr n
   store i8 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV30JfrConfigureFlightRecorderDCmd, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV30JfrConfigureFlightRecorderDCmd, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %9, align 8
@@ -1353,7 +1353,7 @@ define hidden void @_ZN30JfrConfigureFlightRecorderDCmdC2EP12outputStreamb(ptr n
   store ptr @.str.14, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %13, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %8, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr null, ptr %15, align 8
@@ -1365,7 +1365,7 @@ define hidden void @_ZN30JfrConfigureFlightRecorderDCmdC2EP12outputStreamb(ptr n
   store ptr @.str.14, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %19, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %14, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr null, ptr %21, align 8
@@ -1383,7 +1383,7 @@ define hidden void @_ZN30JfrConfigureFlightRecorderDCmdC2EP12outputStreamb(ptr n
   store i8 0, ptr %27, align 1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 218
   store i8 0, ptr %28, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %20, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr null, ptr %30, align 8
@@ -1401,7 +1401,7 @@ define hidden void @_ZN30JfrConfigureFlightRecorderDCmdC2EP12outputStreamb(ptr n
   store i8 0, ptr %36, align 1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 282
   store i8 0, ptr %37, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %29, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr null, ptr %39, align 8
@@ -1419,7 +1419,7 @@ define hidden void @_ZN30JfrConfigureFlightRecorderDCmdC2EP12outputStreamb(ptr n
   store i8 0, ptr %45, align 1
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 346
   store i8 0, ptr %46, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr %38, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr %38, align 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store ptr null, ptr %48, align 8
@@ -1437,7 +1437,7 @@ define hidden void @_ZN30JfrConfigureFlightRecorderDCmdC2EP12outputStreamb(ptr n
   store i8 0, ptr %54, align 1
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 426
   store i8 0, ptr %55, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr %47, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store ptr null, ptr %57, align 8
@@ -1455,7 +1455,7 @@ define hidden void @_ZN30JfrConfigureFlightRecorderDCmdC2EP12outputStreamb(ptr n
   store i8 0, ptr %63, align 1
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 506
   store i8 0, ptr %64, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr %56, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr %56, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store ptr null, ptr %66, align 8
@@ -1473,7 +1473,7 @@ define hidden void @_ZN30JfrConfigureFlightRecorderDCmdC2EP12outputStreamb(ptr n
   store i8 0, ptr %72, align 1
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 586
   store i8 0, ptr %73, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr %65, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr %65, align 8
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store ptr null, ptr %75, align 8
@@ -1491,7 +1491,7 @@ define hidden void @_ZN30JfrConfigureFlightRecorderDCmdC2EP12outputStreamb(ptr n
   store i8 0, ptr %81, align 1
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 666
   store i8 0, ptr %82, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %74, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %74, align 8
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 680
   store ptr null, ptr %84, align 8
@@ -1509,7 +1509,7 @@ define hidden void @_ZN30JfrConfigureFlightRecorderDCmdC2EP12outputStreamb(ptr n
   store i8 0, ptr %90, align 1
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 722
   store i8 0, ptr %91, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %83, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %83, align 8
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 728
   store i8 1, ptr %92, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8) #14
@@ -2107,7 +2107,7 @@ define internal fastcc void @_ZL3logP7oopDescP10JavaThread(ptr noundef %0, ptr n
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_143ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i8 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18LogMessageTemplateILN6LogTag4typeE64ELS1_143ELS1_0ELS1_0ELS1_0ELS1_0EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV18LogMessageTemplateILN6LogTag4typeE64ELS1_143ELS1_0ELS1_0ELS1_0ELS1_0EE, i64 16), ptr %3, align 8
   %6 = load i8, ptr @UseCompressedClassPointers, align 1
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, i64 12, i64 16
@@ -2117,7 +2117,7 @@ define internal fastcc void @_ZL3logP7oopDescP10JavaThread(ptr noundef %0, ptr n
   br i1 %11, label %.lr.ph.preheader, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14LogMessageImpl, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV14LogMessageImpl, i64 16), ptr %3, align 8
   br label %_ZN18LogMessageTemplateILN6LogTag4typeE64ELS1_143ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit
 
 .lr.ph.preheader:                                 ; preds = %2
@@ -2150,7 +2150,7 @@ define internal fastcc void @_ZL3logP7oopDescP10JavaThread(ptr noundef %0, ptr n
 ._crit_edge:                                      ; preds = %23, %.lr.ph
   %.pre = load i8, ptr %5, align 8
   %25 = trunc i8 %.pre to i1
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14LogMessageImpl, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV14LogMessageImpl, i64 16), ptr %3, align 8
   br i1 %25, label %26, label %_ZN18LogMessageTemplateILN6LogTag4typeE64ELS1_143ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit
 
 26:                                               ; preds = %._crit_edge
@@ -2404,7 +2404,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -2423,7 +2423,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -2442,7 +2442,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -2461,7 +2461,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -2480,7 +2480,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %22 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = sub i64 %14, %23
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %26 = zext nneg i32 %25 to i64
   %27 = lshr i64 %24, %26
   %28 = trunc i64 %27 to i32
@@ -2508,7 +2508,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -2965,7 +2965,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -2984,7 +2984,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -3003,7 +3003,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -3022,7 +3022,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -3041,7 +3041,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %22 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = sub i64 %14, %23
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %26 = zext nneg i32 %25 to i64
   %27 = lshr i64 %24, %26
   %28 = trunc i64 %27 to i32
@@ -3069,7 +3069,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -3247,7 +3247,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI27JfrCheckFlightRe
   store i32 2, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i8 0, ptr %8, align 4
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV27JfrCheckFlightRecordingDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV27JfrCheckFlightRecordingDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -3295,7 +3295,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI26JfrDumpFlightRec
   store i32 7, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i8 0, ptr %8, align 4
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV26JfrDumpFlightRecordingDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV26JfrDumpFlightRecordingDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -3343,7 +3343,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI27JfrStartFlightRe
   store i32 11, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i8 0, ptr %8, align 4
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV27JfrStartFlightRecordingDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV27JfrStartFlightRecordingDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -3391,7 +3391,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI26JfrStopFlightRec
   store i32 2, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i8 0, ptr %8, align 4
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV26JfrStopFlightRecordingDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV26JfrStopFlightRecordingDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -3439,7 +3439,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI26JfrViewFlightRec
   store i32 7, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i8 0, ptr %8, align 4
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV26JfrViewFlightRecordingDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV26JfrViewFlightRecordingDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 

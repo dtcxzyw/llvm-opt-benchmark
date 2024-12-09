@@ -1679,7 +1679,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5Yosys4PassC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2082,7 +2082,7 @@ define void @_ZN5Yosys4Pass11on_shutdownEv(ptr nocapture nonnull readnone align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5Yosys4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #34
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4604,7 +4604,7 @@ define void @_ZN5Yosys8FrontendC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcES
           to label %11 unwind label %29
 
 11:                                               ; preds = %10
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %.noexc unwind label %31
@@ -4633,7 +4633,7 @@ define void @_ZN5Yosys8FrontendC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i64 0, ptr %21, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #34
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys8FrontendE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys8FrontendE, i64 16), ptr %0, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %23 = invoke noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.28, i64 noundef 0)
           to label %24 unwind label %33
@@ -4671,7 +4671,7 @@ define void @_ZN5Yosys8FrontendC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcES
 33:                                               ; preds = %27, %26, %16
   %34 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #34
   br label %35
 
@@ -4915,10 +4915,10 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5Yosys8FrontendD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys8FrontendE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys8FrontendE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #34
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #34
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6747,7 +6747,7 @@ define void @_ZN5Yosys7BackendC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESa
           to label %11 unwind label %29
 
 11:                                               ; preds = %10
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %.noexc unwind label %31
@@ -6776,7 +6776,7 @@ define void @_ZN5Yosys7BackendC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   store i64 0, ptr %21, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #34
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys7BackendE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys7BackendE, i64 16), ptr %0, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %23 = invoke noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.28, i64 noundef 0)
           to label %24 unwind label %33
@@ -6814,7 +6814,7 @@ define void @_ZN5Yosys7BackendC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 33:                                               ; preds = %27, %26, %16
   %34 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #34
   br label %35
 
@@ -7009,10 +7009,10 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5Yosys7BackendD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys7BackendE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys7BackendE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #34
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #34
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7312,18 +7312,18 @@ define void @_ZN5Yosys7Backend10extra_argsERPSoRNSt7__cxx1112basic_stringIcSt11c
           to label %.noexc unwind label %94
 
 .noexc:                                           ; preds = %65
-  invoke void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(120) %64, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN12_GLOBAL__N_112gzip_ostreamE, i64 8), ptr noundef null)
+  invoke void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(120) %64, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN12_GLOBAL__N_112gzip_ostreamE, i64 8), ptr noundef null)
           to label %67 unwind label %76
 
 67:                                               ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_112gzip_ostreamE, i64 24), ptr %64, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_112gzip_ostreamE, i64 64), ptr %66, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_112gzip_ostreamE, i64 24), ptr %64, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_112gzip_ostreamE, i64 64), ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 8
   invoke void @_ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %68)
           to label %69 unwind label %78
 
 69:                                               ; preds = %67
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_112gzip_ostream14gzip_streambufE, i64 16), ptr %68, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_112gzip_ostream14gzip_streambufE, i64 16), ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %64, i64 112
   store ptr null, ptr %70, align 8
   %71 = load ptr, ptr %64, align 8
@@ -7351,7 +7351,7 @@ define void @_ZN5Yosys7Backend10extra_argsERPSoRNSt7__cxx1112basic_stringIcSt11c
 
 82:                                               ; preds = %80, %78
   %.pn.i = phi { ptr, i32 } [ %81, %80 ], [ %79, %78 ]
-  call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %64, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN12_GLOBAL__N_112gzip_ostreamE, i64 8)) #34
+  call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %64, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN12_GLOBAL__N_112gzip_ostreamE, i64 8)) #34
   br label %83
 
 83:                                               ; preds = %82, %76
@@ -24761,7 +24761,7 @@ define linkonce_odr void @_ZN5Yosys8HelpPassC2Ev(ptr noundef nonnull align 8 der
           to label %7 unwind label %20
 
 7:                                                ; preds = %6
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %.noexc unwind label %22
@@ -24792,7 +24792,7 @@ define linkonce_odr void @_ZN5Yosys8HelpPassC2Ev(ptr noundef nonnull align 8 der
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #34
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #34
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys8HelpPassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys8HelpPassE, i64 16), ptr %0, align 8
   ret void
 
 18:                                               ; preds = %1
@@ -24829,7 +24829,7 @@ define linkonce_odr void @_ZN5Yosys8HelpPassC2Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Yosys8HelpPassD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #34
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -24853,7 +24853,7 @@ define linkonce_odr void @_ZN5Yosys8EchoPassC2Ev(ptr noundef nonnull align 8 der
           to label %7 unwind label %20
 
 7:                                                ; preds = %6
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %.noexc unwind label %22
@@ -24884,7 +24884,7 @@ define linkonce_odr void @_ZN5Yosys8EchoPassC2Ev(ptr noundef nonnull align 8 der
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #34
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #34
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys8EchoPassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys8EchoPassE, i64 16), ptr %0, align 8
   ret void
 
 18:                                               ; preds = %1
@@ -24921,7 +24921,7 @@ define linkonce_odr void @_ZN5Yosys8EchoPassC2Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Yosys8EchoPassD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #34
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -24938,7 +24938,7 @@ define linkonce_odr void @_ZN5Yosys16MinisatSatSolverC2Ev(ptr noundef nonnull al
           to label %4 unwind label %9
 
 4:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys9SatSolverE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys9SatSolverE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %6 unwind label %11
@@ -24950,7 +24950,7 @@ define linkonce_odr void @_ZN5Yosys16MinisatSatSolverC2Ev(ptr noundef nonnull al
   store ptr %0, ptr @_ZN5Yosys20yosys_satsolver_listE, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #34
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #34
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys16MinisatSatSolverE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys16MinisatSatSolverE, i64 16), ptr %0, align 8
   store ptr %0, ptr @_ZN5Yosys15yosys_satsolverE, align 8
   ret void
 
@@ -24973,7 +24973,7 @@ define linkonce_odr void @_ZN5Yosys16MinisatSatSolverC2Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Yosys16MinisatSatSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys9SatSolverE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys9SatSolverE, i64 16), ptr %0, align 8
   %2 = load ptr, ptr @_ZN5Yosys20yosys_satsolver_listE, align 8
   %.not7.i = icmp eq ptr %2, null
   br i1 %.not7.i, label %._crit_edge.i, label %.lr.ph.i
@@ -25036,7 +25036,7 @@ define linkonce_odr void @_ZN5Yosys11LicensePassC2Ev(ptr noundef nonnull align 8
           to label %7 unwind label %20
 
 7:                                                ; preds = %6
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %.noexc unwind label %22
@@ -25067,7 +25067,7 @@ define linkonce_odr void @_ZN5Yosys11LicensePassC2Ev(ptr noundef nonnull align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #34
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #34
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys11LicensePassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys11LicensePassE, i64 16), ptr %0, align 8
   ret void
 
 18:                                               ; preds = %1
@@ -25104,7 +25104,7 @@ define linkonce_odr void @_ZN5Yosys11LicensePassC2Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Yosys11LicensePassD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #34
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -26435,7 +26435,7 @@ declare noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_strea
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_112gzip_ostream14gzip_streambufD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_112gzip_ostream14gzip_streambufE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_112gzip_ostream14gzip_streambufE, i64 16), ptr %0, align 8
   %2 = invoke noundef i32 @_ZN12_GLOBAL__N_112gzip_ostream14gzip_streambuf4syncEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
           to label %3 unwind label %9
 
@@ -26446,7 +26446,7 @@ define internal void @_ZN12_GLOBAL__N_112gzip_ostream14gzip_streambufD2Ev(ptr no
           to label %7 unwind label %9
 
 7:                                                ; preds = %3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #34
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #34
@@ -26481,11 +26481,11 @@ declare void @_ZTv0_n24_NSoD0Ev(ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_112gzip_ostreamD1Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 16), (120, 128)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_112gzip_ostreamE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_112gzip_ostreamE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_112gzip_ostreamE, i64 64), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_112gzip_ostreamE, i64 64), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_112gzip_ostream14gzip_streambufE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_112gzip_ostream14gzip_streambufE, i64 16), ptr %3, align 8
   %4 = invoke noundef i32 @_ZN12_GLOBAL__N_112gzip_ostream14gzip_streambuf4syncEv(ptr noundef nonnull align 8 dereferenceable(112) %3)
           to label %5 unwind label %9
 
@@ -26504,11 +26504,11 @@ define internal void @_ZN12_GLOBAL__N_112gzip_ostreamD1Ev(ptr noundef nonnull al
   unreachable
 
 _ZN12_GLOBAL__N_112gzip_ostreamD2Ev.exit:         ; preds = %5
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #34
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #34
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN12_GLOBAL__N_112gzip_ostreamE, i64 8)) #34
+  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN12_GLOBAL__N_112gzip_ostreamE, i64 8)) #34
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #34
   ret void
 }
@@ -26545,7 +26545,7 @@ declare void @_ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEC2Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_112gzip_ostream14gzip_streambufD0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_112gzip_ostream14gzip_streambufE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_112gzip_ostream14gzip_streambufE, i64 16), ptr %0, align 8
   %2 = invoke noundef i32 @_ZN12_GLOBAL__N_112gzip_ostream14gzip_streambuf4syncEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
           to label %3 unwind label %7
 
@@ -26564,7 +26564,7 @@ define internal void @_ZN12_GLOBAL__N_112gzip_ostream14gzip_streambufD0Ev(ptr no
   unreachable
 
 _ZN12_GLOBAL__N_112gzip_ostream14gzip_streambufD2Ev.exit: ; preds = %3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #34
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #34
@@ -26674,7 +26674,7 @@ declare void @_ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strERKNS_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #34
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #34
@@ -28211,7 +28211,7 @@ define linkonce_odr void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Yosys8HelpPassD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #34
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -28759,7 +28759,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys4PassESt4
   br label %.loopexit
 
 215:                                              ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys4PassESt4lessIS5_ESaISt4pairIKS5_S8_EEE5countERSC_.exit.thread
-  %216 = tail call noundef i32 @_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS0_8hash_opsIS7_EEE5countERKS7_(ptr noundef nonnull align 8 dereferenceable(49) getelementptr inbounds (i8, ptr @_ZN5YosysL18cell_help_messagesE, i64 56), ptr noundef nonnull align 8 dereferenceable(32) %208)
+  %216 = tail call noundef i32 @_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS0_8hash_opsIS7_EEE5countERKS7_(ptr noundef nonnull align 8 dereferenceable(49) getelementptr inbounds nuw (i8, ptr @_ZN5YosysL18cell_help_messagesE, i64 56), ptr noundef nonnull align 8 dereferenceable(32) %208)
   %.not26 = icmp eq i32 %216, 0
   br i1 %.not26, label %222, label %217
 
@@ -28767,7 +28767,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys4PassESt4
   tail call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.5)
   %218 = load ptr, ptr %1, align 8
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 32
-  %220 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS0_8hash_opsIS7_EEE2atERKS7_(ptr noundef nonnull align 8 dereferenceable(49) getelementptr inbounds (i8, ptr @_ZN5YosysL18cell_help_messagesE, i64 56), ptr noundef nonnull align 8 dereferenceable(32) %219)
+  %220 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS0_8hash_opsIS7_EEE2atERKS7_(ptr noundef nonnull align 8 dereferenceable(49) getelementptr inbounds nuw (i8, ptr @_ZN5YosysL18cell_help_messagesE, i64 56), ptr noundef nonnull align 8 dereferenceable(32) %219)
   %221 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %220) #34
   tail call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.21, ptr noundef %221)
   br label %.loopexit
@@ -29491,7 +29491,7 @@ declare void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceabl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Yosys8EchoPassD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #34
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -29637,7 +29637,7 @@ define linkonce_odr noundef ptr @_ZN5Yosys16MinisatSatSolver6createEv(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Yosys16MinisatSatSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys9SatSolverE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys9SatSolverE, i64 16), ptr %0, align 8
   %2 = load ptr, ptr @_ZN5Yosys20yosys_satsolver_listE, align 8
   %.not7.i.i = icmp eq ptr %2, null
   br i1 %.not7.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -29687,7 +29687,7 @@ _ZN5Yosys16MinisatSatSolverD2Ev.exit:             ; preds = %._crit_edge.i.i, %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Yosys9SatSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys9SatSolverE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys9SatSolverE, i64 16), ptr %0, align 8
   %2 = load ptr, ptr @_ZN5Yosys20yosys_satsolver_listE, align 8
   %.not7 = icmp eq ptr %2, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
@@ -29744,7 +29744,7 @@ declare void @_ZN9ezMiniSATC1Ev(ptr noundef nonnull align 8 dereferenceable(376)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Yosys11LicensePassD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys4PassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #34
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8

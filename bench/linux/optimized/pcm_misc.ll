@@ -350,7 +350,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local noundef i32 @snd_pcm_hw_limit_rates(ptr nocapture noundef %0) #4 align 16 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @snd_pcm_known_rates, i64 8), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @snd_pcm_known_rates, i64 8), align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %4, label %.loopexit3
 
@@ -412,7 +412,7 @@ define dso_local noundef i32 @snd_pcm_hw_limit_rates(ptr nocapture noundef %0) #
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local range(i32 1, -2147483647) i32 @snd_pcm_rate_to_rate_bit(i32 noundef %0) #5 align 16 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @snd_pcm_known_rates, i64 8), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @snd_pcm_known_rates, i64 8), align 8
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %.loopexit, label %4
 
@@ -445,7 +445,7 @@ define dso_local range(i32 1, -2147483647) i32 @snd_pcm_rate_to_rate_bit(i32 nou
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local i32 @snd_pcm_rate_bit_to_rate(i32 noundef %0) #5 align 16 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @snd_pcm_known_rates, i64 8), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @snd_pcm_known_rates, i64 8), align 8
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -507,7 +507,7 @@ define dso_local range(i32 0, -2147483647) i32 @snd_pcm_rate_mask_intersect(i32 
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local range(i32 1, 0) i32 @snd_pcm_rate_range_to_bits(i32 noundef %0, i32 noundef %1) #5 align 16 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @snd_pcm_known_rates, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @snd_pcm_known_rates, i64 8), align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.thread, label %5
 

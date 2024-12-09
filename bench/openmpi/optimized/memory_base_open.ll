@@ -39,8 +39,8 @@ define void @opal_memory_base_malloc_init_hook() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define internal i32 @opal_memory_base_open(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
-  %.01928 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @opal_memory_base_framework, i64 112), align 8
-  %.not29 = icmp eq ptr %.01928, getelementptr inbounds (i8, ptr @opal_memory_base_framework, i64 96)
+  %.01928 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_memory_base_framework, i64 112), align 8
+  %.not29 = icmp eq ptr %.01928, getelementptr inbounds nuw (i8, ptr @opal_memory_base_framework, i64 96)
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %12
@@ -67,14 +67,14 @@ define internal i32 @opal_memory_base_open(i32 noundef %0) #0 {
   %.1 = phi i32 [ %.030, %.lr.ph ], [ %.030, %8 ], [ %9, %11 ]
   %13 = getelementptr inbounds nuw i8, ptr %.01931, i64 16
   %.019 = load volatile ptr, ptr %13, align 8
-  %.not = icmp eq ptr %.019, getelementptr inbounds (i8, ptr @opal_memory_base_framework, i64 96)
+  %.not = icmp eq ptr %.019, getelementptr inbounds nuw (i8, ptr @opal_memory_base_framework, i64 96)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %12, %1
-  %14 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @opal_memory_base_framework, i64 112), align 8
+  %14 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_memory_base_framework, i64 112), align 8
   %.018.in32 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.01833 = load volatile ptr, ptr %.018.in32, align 8
-  %.not2434 = icmp eq ptr %14, getelementptr inbounds (i8, ptr @opal_memory_base_framework, i64 96)
+  %.not2434 = icmp eq ptr %14, getelementptr inbounds nuw (i8, ptr @opal_memory_base_framework, i64 96)
   br i1 %.not2434, label %._crit_edge40, label %.lr.ph39.preheader
 
 .lr.ph39.preheader:                               ; preds = %._crit_edge
@@ -92,7 +92,7 @@ define internal i32 @opal_memory_base_open(i32 noundef %0) #0 {
   br i1 %.not26, label %30, label %18
 
 18:                                               ; preds = %.lr.ph39
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @opal_memory_base_framework, i64 76), align 4
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_memory_base_framework, i64 76), align 4
   call void @mca_base_component_unload(ptr noundef %17, i32 noundef %19) #4
   %20 = load volatile ptr, ptr %.018.in36, align 8
   %21 = getelementptr inbounds nuw i8, ptr %.12035, i64 24
@@ -103,9 +103,9 @@ define internal i32 @opal_memory_base_open(i32 noundef %0) #0 {
   %25 = load volatile ptr, ptr %.018.in36, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store volatile ptr %24, ptr %26, align 8
-  %27 = load volatile i64, ptr getelementptr inbounds (i8, ptr @opal_memory_base_framework, i64 136), align 8
+  %27 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @opal_memory_base_framework, i64 136), align 8
   %28 = add i64 %27, -1
-  store volatile i64 %28, ptr getelementptr inbounds (i8, ptr @opal_memory_base_framework, i64 136), align 8
+  store volatile i64 %28, ptr getelementptr inbounds nuw (i8, ptr @opal_memory_base_framework, i64 136), align 8
   %29 = load volatile ptr, ptr %21, align 8
   %.pre = load ptr, ptr @opal_memory, align 8
   br label %30
@@ -114,7 +114,7 @@ define internal i32 @opal_memory_base_open(i32 noundef %0) #0 {
   %31 = phi ptr [ %15, %.lr.ph39 ], [ %.pre, %18 ]
   %.018.in = getelementptr inbounds nuw i8, ptr %.01837, i64 16
   %.018 = load volatile ptr, ptr %.018.in, align 8
-  %.not24 = icmp eq ptr %.01837, getelementptr inbounds (i8, ptr @opal_memory_base_framework, i64 96)
+  %.not24 = icmp eq ptr %.01837, getelementptr inbounds nuw (i8, ptr @opal_memory_base_framework, i64 96)
   br i1 %.not24, label %._crit_edge40, label %.lr.ph39, !llvm.loop !6
 
 ._crit_edge40:                                    ; preds = %30, %._crit_edge

@@ -855,7 +855,7 @@ define void @_ZN4pkpy8Compiler19push_global_contextEv(ptr dead_on_unwind noalias
   store i32 1, ptr %8, align 8, !noalias !4
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %9, align 4, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4pkpy10CodeObjectESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4pkpy10CodeObjectESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8, !noalias !4
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   invoke void @_ZSt10_ConstructIN4pkpy10CodeObjectEJRSt10shared_ptrINS0_10SourceDataEERNS0_3StrEEEvPT_DpOT0_(ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %_ZSt11make_sharedIN4pkpy10CodeObjectEJRSt10shared_ptrINS0_10SourceDataEERNS0_3StrEEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN4pkpy10CodeObjectESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i, !noalias !4
@@ -1640,7 +1640,7 @@ define void @_ZN4pkpy8Compiler14push_f_contextENS_3StrE(ptr dead_on_unwind noali
   store i32 1, ptr %8, align 8, !noalias !9
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %9, align 4, !noalias !9
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4pkpy8FuncDeclESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8, !noalias !9
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4pkpy8FuncDeclESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8, !noalias !9
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -1676,7 +1676,7 @@ define void @_ZN4pkpy8Compiler14push_f_contextENS_3StrE(ptr dead_on_unwind noali
   store i32 1, ptr %25, align 8, !noalias !12
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 1, ptr %26, align 4, !noalias !12
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4pkpy10CodeObjectESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23, align 8, !noalias !12
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4pkpy10CodeObjectESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23, align 8, !noalias !12
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 16
   invoke void @_ZSt10_ConstructIN4pkpy10CodeObjectEJRSt10shared_ptrINS0_10SourceDataEERNS0_3StrEEEvPT_DpOT0_(ptr noundef nonnull %27, ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZSt11make_sharedIN4pkpy10CodeObjectEJRSt10shared_ptrINS0_10SourceDataEERNS0_3StrEEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN4pkpy10CodeObjectESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i, !noalias !12
@@ -5691,7 +5691,7 @@ _ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit
   %55 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 32) #36, !noalias !25
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i32 0, ptr %56, align 8, !noalias !25
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy10AttribExprE, i64 16), ptr %55, align 8, !noalias !25
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy10AttribExprE, i64 16), ptr %55, align 8, !noalias !25
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store ptr %25, ptr %57, align 8, !noalias !25
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 24
@@ -5893,7 +5893,7 @@ _ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit
   %53 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 24) #36, !noalias !31
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i32 0, ptr %54, align 8, !noalias !31
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy11GroupedExprE, i64 16), ptr %53, align 8, !noalias !31
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy11GroupedExprE, i64 16), ptr %53, align 8, !noalias !31
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr %45, ptr %55, align 8, !noalias !31
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -6000,7 +6000,7 @@ define void @_ZN4pkpy8Compiler8exprCallEv(ptr noundef nonnull align 8 dereferenc
   %9 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 104) #36, !noalias !34
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false), !noalias !34
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy8CallExprE, i64 16), ptr %9, align 8, !noalias !34
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy8CallExprE, i64 16), ptr %9, align 8, !noalias !34
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store ptr %11, ptr %12, align 8, !noalias !34
@@ -7221,7 +7221,7 @@ _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exi
   %140 = call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 48) #36, !noalias !55
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %141, i8 0, i64 40, i1 false), !noalias !55
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4pkpy12ListCompExprE, i64 16), ptr %140, align 8, !noalias !55
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4pkpy12ListCompExprE, i64 16), ptr %140, align 8, !noalias !55
   %142 = load i32, ptr %7, align 4, !noalias !55
   %143 = add nsw i32 %142, -1
   %144 = sext i32 %143 to i64
@@ -7478,7 +7478,7 @@ _ZN4pkpy2TKEPKc.exit88:                           ; preds = %239, %237
   %241 = call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 72) #36, !noalias !58
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
   store i32 0, ptr %242, align 8, !noalias !58
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4pkpy12SequenceExprE, i64 16), ptr %241, align 8, !noalias !58
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4pkpy12SequenceExprE, i64 16), ptr %241, align 8, !noalias !58
   %243 = load ptr, ptr %21, align 8, !noalias !58
   %244 = icmp eq ptr %243, %2
   %245 = getelementptr inbounds nuw i8, ptr %241, i64 48
@@ -7523,7 +7523,7 @@ _ZN4pkpy8ListExprCI2NS_12SequenceExprEEONS_12small_vectorINS_14unique_ptr_128INS
   store ptr %2, ptr %21, align 8, !noalias !58
   store ptr %2, ptr %22, align 8, !noalias !58
   store ptr %21, ptr %23, align 8, !noalias !58
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4pkpy8ListExprE, i64 16), ptr %241, align 8, !noalias !58
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4pkpy8ListExprE, i64 16), ptr %241, align 8, !noalias !58
   %268 = load i32, ptr %7, align 4, !noalias !58
   %269 = add nsw i32 %268, -1
   %270 = sext i32 %269 to i64
@@ -7660,7 +7660,7 @@ define void @_ZN4pkpy8Compiler10exprSubscrEv(ptr noundef nonnull align 8 derefer
   %3 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 32) #36, !noalias !61
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8, !noalias !61
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy10SubscrExprE, i64 16), ptr %3, align 8, !noalias !61
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy10SubscrExprE, i64 16), ptr %3, align 8, !noalias !61
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !noalias !61
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -8117,7 +8117,7 @@ _ZN4pkpy2TKEPKc.exit43:                           ; preds = %93, %91
   %97 = call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 32) #36, !noalias !70
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i64 0, ptr %98, align 8, !noalias !70
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy12DictItemExprE, i64 16), ptr %97, align 8, !noalias !70
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy12DictItemExprE, i64 16), ptr %97, align 8, !noalias !70
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %99, i8 0, i64 16, i1 false), !noalias !70
   %100 = load i32, ptr %14, align 4, !noalias !70
@@ -8537,7 +8537,7 @@ _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exi
   br i1 %252, label %295, label %330
 
 295:                                              ; preds = %291
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4pkpy12DictCompExprE, i64 16), ptr %293, align 8, !noalias !86
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4pkpy12DictCompExprE, i64 16), ptr %293, align 8, !noalias !86
   %296 = load i32, ptr %14, align 4, !noalias !86
   %297 = add nsw i32 %296, -1
   %298 = sext i32 %297 to i64
@@ -8622,7 +8622,7 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit114:  ; preds = %323, %320
   br label %.body
 
 330:                                              ; preds = %291
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4pkpy11SetCompExprE, i64 16), ptr %293, align 8, !noalias !89
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4pkpy11SetCompExprE, i64 16), ptr %293, align 8, !noalias !89
   %331 = load i32, ptr %14, align 4, !noalias !89
   %332 = add nsw i32 %331, -1
   %333 = sext i32 %332 to i64
@@ -8898,7 +8898,7 @@ _ZN4pkpy2TKEPKc.exit179:                          ; preds = %428, %426
   %440 = call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 72) #36, !noalias !92
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 8
   store i32 0, ptr %441, align 8, !noalias !92
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4pkpy12SequenceExprE, i64 16), ptr %440, align 8, !noalias !92
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4pkpy12SequenceExprE, i64 16), ptr %440, align 8, !noalias !92
   %442 = load ptr, ptr %9, align 8, !noalias !92
   %443 = icmp eq ptr %442, %2
   %444 = getelementptr inbounds nuw i8, ptr %440, i64 48
@@ -8943,7 +8943,7 @@ _ZN4pkpy8DictExprCI2NS_12SequenceExprEEONS_12small_vectorINS_14unique_ptr_128INS
   store ptr %2, ptr %9, align 8, !noalias !92
   store ptr %2, ptr %10, align 8, !noalias !92
   store ptr %9, ptr %11, align 8, !noalias !92
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4pkpy8DictExprE, i64 16), ptr %440, align 8, !noalias !92
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4pkpy8DictExprE, i64 16), ptr %440, align 8, !noalias !92
   %467 = load i32, ptr %14, align 4, !noalias !92
   %468 = add nsw i32 %467, -1
   %469 = sext i32 %468 to i64
@@ -9032,7 +9032,7 @@ _ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4pushEOS3_.e
   %504 = call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 72) #36, !noalias !95
   %505 = getelementptr inbounds nuw i8, ptr %504, i64 8
   store i32 0, ptr %505, align 8, !noalias !95
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4pkpy12SequenceExprE, i64 16), ptr %504, align 8, !noalias !95
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4pkpy12SequenceExprE, i64 16), ptr %504, align 8, !noalias !95
   %506 = load ptr, ptr %9, align 8, !noalias !95
   %507 = icmp eq ptr %506, %2
   %508 = getelementptr inbounds nuw i8, ptr %504, i64 48
@@ -9077,7 +9077,7 @@ _ZN4pkpy7SetExprCI2NS_12SequenceExprEEONS_12small_vectorINS_14unique_ptr_128INS_
   store ptr %2, ptr %9, align 8, !noalias !95
   store ptr %2, ptr %10, align 8, !noalias !95
   store ptr %9, ptr %11, align 8, !noalias !95
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4pkpy7SetExprE, i64 16), ptr %504, align 8, !noalias !95
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4pkpy7SetExprE, i64 16), ptr %504, align 8, !noalias !95
   %531 = load i32, ptr %14, align 4, !noalias !95
   %532 = add nsw i32 %531, -1
   %533 = sext i32 %532 to i64
@@ -9216,7 +9216,7 @@ define void @_ZN4pkpy8Compiler12exprBinaryOpEv(ptr noundef nonnull align 8 deref
   %3 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 32) #36, !noalias !98
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8, !noalias !98
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy10BinaryExprE, i64 16), ptr %3, align 8, !noalias !98
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy10BinaryExprE, i64 16), ptr %3, align 8, !noalias !98
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !noalias !98
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -9502,7 +9502,7 @@ _ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit
   %42 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 24) #36, !noalias !110
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i32 0, ptr %43, align 8, !noalias !110
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy11NegatedExprE, i64 16), ptr %42, align 8, !noalias !110
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy11NegatedExprE, i64 16), ptr %42, align 8, !noalias !110
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %34, ptr %44, align 8, !noalias !110
   %45 = load i32, ptr %13, align 4, !noalias !110
@@ -9612,7 +9612,7 @@ _ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit
   %93 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 24) #36, !noalias !116
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i32 0, ptr %94, align 8, !noalias !116
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy10InvertExprE, i64 16), ptr %93, align 8, !noalias !116
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy10InvertExprE, i64 16), ptr %93, align 8, !noalias !116
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 16
   store ptr %85, ptr %95, align 8, !noalias !116
   %96 = load i32, ptr %13, align 4, !noalias !116
@@ -9722,7 +9722,7 @@ _ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit
   %144 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 24) #36, !noalias !122
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
   store i32 0, ptr %145, align 8, !noalias !122
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy11StarredExprE, i64 16), ptr %144, align 8, !noalias !122
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy11StarredExprE, i64 16), ptr %144, align 8, !noalias !122
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 12
   store i32 1, ptr %146, align 4, !noalias !122
   %147 = getelementptr inbounds nuw i8, ptr %144, i64 16
@@ -9834,7 +9834,7 @@ _ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit
   %196 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 24) #36, !noalias !128
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
   store i32 0, ptr %197, align 8, !noalias !128
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy11StarredExprE, i64 16), ptr %196, align 8, !noalias !128
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy11StarredExprE, i64 16), ptr %196, align 8, !noalias !128
   %198 = getelementptr inbounds nuw i8, ptr %196, i64 12
   store i32 2, ptr %198, align 4, !noalias !128
   %199 = getelementptr inbounds nuw i8, ptr %196, i64 16
@@ -10016,7 +10016,7 @@ define void @_ZN4pkpy8Compiler11exprTernaryEv(ptr noundef nonnull align 8 derefe
   %3 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 40) #36, !noalias !131
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8, !noalias !131
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy11TernaryExprE, i64 16), ptr %3, align 8, !noalias !131
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy11TernaryExprE, i64 16), ptr %3, align 8, !noalias !131
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !noalias !131
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -10307,7 +10307,7 @@ define void @_ZN4pkpy8Compiler7exprAndEv(ptr noundef nonnull align 8 dereference
   %3 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 32) #36, !noalias !143
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8, !noalias !143
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy7AndExprE, i64 16), ptr %3, align 8, !noalias !143
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy7AndExprE, i64 16), ptr %3, align 8, !noalias !143
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !noalias !143
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -10499,7 +10499,7 @@ define void @_ZN4pkpy8Compiler6exprOrEv(ptr noundef nonnull align 8 dereferencea
   %3 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 32) #36, !noalias !152
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8, !noalias !152
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy6OrExprE, i64 16), ptr %3, align 8, !noalias !152
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy6OrExprE, i64 16), ptr %3, align 8, !noalias !152
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !noalias !152
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -10717,7 +10717,7 @@ _ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit
   %17 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 24) #36, !noalias !164
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 0, ptr %18, align 8, !noalias !164
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy7NotExprE, i64 16), ptr %17, align 8, !noalias !164
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy7NotExprE, i64 16), ptr %17, align 8, !noalias !164
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %9, ptr %19, align 8, !noalias !164
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -10839,7 +10839,7 @@ _ZNK4pkpy8Compiler4prevEv.exit:                   ; preds = %1
   %20 = load i8, ptr %18, align 1, !noalias !167
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 0, ptr %21, align 8, !noalias !167
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy12Literal0ExprE, i64 16), ptr %19, align 8, !noalias !167
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy12Literal0ExprE, i64 16), ptr %19, align 8, !noalias !167
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i8 %20, ptr %22, align 4, !noalias !167
   %23 = load i32, ptr %6, align 4, !noalias !167
@@ -11489,7 +11489,7 @@ _ZNKSt8_Rb_treeIN4pkpy3StrES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_bo
 .noexc8:                                          ; preds = %.thread
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i32 0, ptr %54, align 8, !noalias !174
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy8NameExprE, i64 16), ptr %48, align 8, !noalias !174
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy8NameExprE, i64 16), ptr %48, align 8, !noalias !174
   %55 = getelementptr inbounds nuw i8, ptr %48, i64 12
   store i16 %53, ptr %55, align 4, !noalias !174
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 16
@@ -11734,7 +11734,7 @@ _ZNK4pkpy8Compiler4prevEv.exit:                   ; preds = %1
 21:                                               ; preds = %_ZNK4pkpy8Compiler4prevEv.exit
   %.not.i.i.i4 = icmp eq i8 %20, -1
   %22 = tail call ptr @__cxa_allocate_exception(i64 16) #36
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   br i1 %.not.i.i.i4, label %24, label %25
 
@@ -11752,7 +11752,7 @@ _ZSt3getIN4pkpy3StrEJSt9monostateldS1_EERKT_RKSt7variantIJDpT0_EE.exit: ; preds 
   %26 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 48) #36, !noalias !177
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i32 0, ptr %27, align 8, !noalias !177
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy11FStringExprE, i64 16), ptr %26, align 8, !noalias !177
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy11FStringExprE, i64 16), ptr %26, align 8, !noalias !177
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   tail call void @_ZN4pkpy3StrC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %18), !noalias !177
   %29 = load i32, ptr %6, align 4, !noalias !177
@@ -11879,7 +11879,7 @@ _ZNK4pkpy8Compiler4prevEv.exit:                   ; preds = %1
   %25 = call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 48) #36, !noalias !183
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 0, ptr %26, align 8, !noalias !183
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy8LongExprE, i64 16), ptr %25, align 8, !noalias !183
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy8LongExprE, i64 16), ptr %25, align 8, !noalias !183
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
   invoke void @_ZN4pkpy3StrC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.noexc unwind label %55
@@ -12016,7 +12016,7 @@ _ZNK4pkpy8Compiler4prevEv.exit:                   ; preds = %1
 21:                                               ; preds = %_ZNK4pkpy8Compiler4prevEv.exit
   %.not.i.i.i4 = icmp eq i8 %20, -1
   %22 = tail call ptr @__cxa_allocate_exception(i64 16) #36
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   br i1 %.not.i.i.i4, label %24, label %25
 
@@ -12035,7 +12035,7 @@ _ZSt3getIdJSt9monostateldN4pkpy3StrEEERKT_RKSt7variantIJDpT0_EE.exit: ; preds = 
   %27 = load double, ptr %18, align 8, !noalias !186
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i32 0, ptr %28, align 8, !noalias !186
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy8ImagExprE, i64 16), ptr %26, align 8, !noalias !186
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy8ImagExprE, i64 16), ptr %26, align 8, !noalias !186
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store double %27, ptr %29, align 8, !noalias !186
   %30 = load i32, ptr %6, align 4, !noalias !186
@@ -12160,7 +12160,7 @@ _ZNK4pkpy8Compiler4prevEv.exit:                   ; preds = %1
 21:                                               ; preds = %_ZNK4pkpy8Compiler4prevEv.exit
   %.not.i.i.i4 = icmp eq i8 %20, -1
   %22 = tail call ptr @__cxa_allocate_exception(i64 16) #36
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   br i1 %.not.i.i.i4, label %24, label %25
 
@@ -12178,7 +12178,7 @@ _ZSt3getIN4pkpy3StrEJSt9monostateldS1_EERKT_RKSt7variantIJDpT0_EE.exit: ; preds 
   %26 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 48) #36, !noalias !189
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i32 0, ptr %27, align 8, !noalias !189
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy9BytesExprE, i64 16), ptr %26, align 8, !noalias !189
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy9BytesExprE, i64 16), ptr %26, align 8, !noalias !189
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   tail call void @_ZN4pkpy3StrC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %18), !noalias !189
   %29 = load i32, ptr %6, align 4, !noalias !189
@@ -12275,7 +12275,7 @@ define void @_ZN4pkpy8Compiler10exprSlice0Ev(ptr noundef nonnull align 8 derefer
   %3 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 40) #36, !noalias !192
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8, !noalias !192
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy9SliceExprE, i64 16), ptr %3, align 8, !noalias !192
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy9SliceExprE, i64 16), ptr %3, align 8, !noalias !192
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !noalias !192
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -12783,7 +12783,7 @@ define void @_ZN4pkpy8Compiler10exprSlice1Ev(ptr noundef nonnull align 8 derefer
   %3 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 40) #36, !noalias !204
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8, !noalias !204
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy9SliceExprE, i64 16), ptr %3, align 8, !noalias !204
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy9SliceExprE, i64 16), ptr %3, align 8, !noalias !204
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !noalias !204
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -14731,7 +14731,7 @@ _ZN4pkpy8Compiler5matchEh.exit47.thread:          ; preds = %_ZNK4pkpy8Compiler4
   %214 = call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 72) #36, !noalias !227
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
   store i32 0, ptr %215, align 8, !noalias !227
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4pkpy12SequenceExprE, i64 16), ptr %214, align 8, !noalias !227
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4pkpy12SequenceExprE, i64 16), ptr %214, align 8, !noalias !227
   %216 = load ptr, ptr %37, align 8, !noalias !227
   %217 = icmp eq ptr %216, %3
   %218 = getelementptr inbounds nuw i8, ptr %214, i64 48
@@ -14776,7 +14776,7 @@ _ZN4pkpy9TupleExprCI2NS_12SequenceExprEEONS_12small_vectorINS_14unique_ptr_128IN
   store ptr %3, ptr %37, align 8, !noalias !227
   store ptr %3, ptr %38, align 8, !noalias !227
   store ptr %37, ptr %39, align 8, !noalias !227
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4pkpy9TupleExprE, i64 16), ptr %214, align 8, !noalias !227
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4pkpy9TupleExprE, i64 16), ptr %214, align 8, !noalias !227
   %241 = load i32, ptr %22, align 4, !noalias !227
   %242 = add nsw i32 %241, -1
   %243 = sext i32 %242 to i64
@@ -15154,7 +15154,7 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %30, %28
   %spec.store.select.i = select i1 %or.cond.i, i32 2, i32 %64
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i32 0, ptr %65, align 8, !noalias !233
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy8NameExprE, i64 16), ptr %53, align 8, !noalias !233
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy8NameExprE, i64 16), ptr %53, align 8, !noalias !233
   %66 = getelementptr inbounds nuw i8, ptr %53, i64 12
   store i16 %57, ptr %66, align 4, !noalias !233
   %67 = getelementptr inbounds nuw i8, ptr %53, i64 16
@@ -15341,7 +15341,7 @@ _ZN4pkpy8Compiler5matchEh.exit:                   ; preds = %_ZNK4pkpy8Compiler4
   %149 = call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 72) #36, !noalias !236
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   store i32 0, ptr %150, align 8, !noalias !236
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4pkpy12SequenceExprE, i64 16), ptr %149, align 8, !noalias !236
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4pkpy12SequenceExprE, i64 16), ptr %149, align 8, !noalias !236
   %151 = load ptr, ptr %5, align 8, !noalias !236
   %152 = icmp eq ptr %151, %3
   %153 = getelementptr inbounds nuw i8, ptr %149, i64 48
@@ -15386,7 +15386,7 @@ _ZN4pkpy9TupleExprCI2NS_12SequenceExprEEONS_12small_vectorINS_14unique_ptr_128IN
   store ptr %3, ptr %5, align 8, !noalias !236
   store ptr %3, ptr %6, align 8, !noalias !236
   store ptr %5, ptr %7, align 8, !noalias !236
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4pkpy9TupleExprE, i64 16), ptr %149, align 8, !noalias !236
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4pkpy9TupleExprE, i64 16), ptr %149, align 8, !noalias !236
   %176 = load i32, ptr %9, align 4, !noalias !236
   %177 = add nsw i32 %176, -1
   %178 = sext i32 %177 to i64
@@ -15482,7 +15482,7 @@ define linkonce_odr void @_ZN4pkpy8Compiler9make_exprINS_8NameExprEJNS_3StrENS_9
   %11 = load i32, ptr %3, align 4
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy8NameExprE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy8NameExprE, i64 16), ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i16 %10, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -15564,7 +15564,7 @@ _ZNSt7variantIJSt9monostateldN4pkpy3StrEEEC2ERKS3_.exit.thread: ; preds = %3
   store i8 1, ptr %6, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy11LiteralExprE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy11LiteralExprE, i64 16), ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i8 -1, ptr %12, align 8
@@ -15576,7 +15576,7 @@ _ZNSt7variantIJSt9monostateldN4pkpy3StrEEEC2ERKS3_.exit.thread15: ; preds = %3
   store i8 2, ptr %6, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy11LiteralExprE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy11LiteralExprE, i64 16), ptr %5, align 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i8 -1, ptr %16, align 8
@@ -15617,7 +15617,7 @@ _ZNSt7variantIJSt9monostateldN4pkpy3StrEEEC2ERKS3_.exit: ; preds = %._ZNSt7varia
   store i8 %23, ptr %6, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy11LiteralExprE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy11LiteralExprE, i64 16), ptr %5, align 8
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i8 -1, ptr %26, align 8
@@ -15800,7 +15800,7 @@ define linkonce_odr void @_ZN4pkpy8Compiler9make_exprINS_10LambdaExprEJRSt10shar
 16:                                               ; preds = %11, %14
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %17, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy10LambdaExprE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy10LambdaExprE, i64 16), ptr %4, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %5, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -15822,7 +15822,7 @@ define linkonce_odr void @_ZN4pkpy8Compiler9make_exprINS_10LambdaExprEJRSt10shar
 _ZN4pkpy10LambdaExprC2ESt10shared_ptrINS_8FuncDeclEE.exit: ; preds = %3
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %26, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy10LambdaExprE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy10LambdaExprE, i64 16), ptr %4, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %5, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -24793,7 +24793,7 @@ _ZNSt10shared_ptrIN4pkpy8FuncDeclEED2Ev.exit87:   ; preds = %271, %289, %302, %_
   %spec.store.select.i = select i1 %or.cond.i, i32 2, i32 %329
   %330 = getelementptr inbounds nuw i8, ptr %317, i64 8
   store i32 0, ptr %330, align 8, !noalias !292
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy8NameExprE, i64 16), ptr %317, align 8, !noalias !292
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy8NameExprE, i64 16), ptr %317, align 8, !noalias !292
   %331 = getelementptr inbounds nuw i8, ptr %317, i64 12
   store i16 %322, ptr %331, align 4, !noalias !292
   %332 = getelementptr inbounds nuw i8, ptr %317, i64 16
@@ -24832,7 +24832,7 @@ _ZN4pkpy14unique_ptr_128INS_8NameExprEED2Ev.exit105: ; preds = %342
   store i32 %348, ptr %330, align 8, !noalias !292
   %349 = load ptr, ptr %240, align 8
   %350 = getelementptr inbounds i8, ptr %349, i64 -232
-  %351 = load ptr, ptr getelementptr inbounds inrange(-104, 8) (i8, ptr @_ZTVN4pkpy8NameExprE, i64 104), align 8
+  %351 = load ptr, ptr getelementptr inbounds nuw inrange(-104, 8) (i8, ptr @_ZTVN4pkpy8NameExprE, i64 104), align 8
   %352 = invoke noundef zeroext i1 %351(ptr noundef nonnull align 8 dereferenceable(20) %317, ptr noundef nonnull %350)
           to label %_ZN4pkpy14unique_ptr_128INS_8NameExprEED2Ev.exit unwind label %_ZN4pkpy14unique_ptr_128INS_8NameExprEED2Ev.exit92
 
@@ -25070,7 +25070,7 @@ _ZNK4pkpy8Compiler4currEv.exit:                   ; preds = %1
   %42 = call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 32) #36, !noalias !295
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i64 0, ptr %43, align 8, !noalias !295
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy10BinaryExprE, i64 16), ptr %42, align 8, !noalias !295
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy10BinaryExprE, i64 16), ptr %42, align 8, !noalias !295
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false), !noalias !295
   %45 = load i32, ptr %4, align 4, !noalias !295
@@ -26125,7 +26125,7 @@ _ZSt17holds_alternativeIlJSt9monostateldN4pkpy3StrEEEbRKSt7variantIJDpT0_EE.exit
 26:                                               ; preds = %23
   %.not.i.i.i = icmp eq i8 %12, -1
   %27 = tail call ptr @__cxa_allocate_exception(i64 16) #36
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   br i1 %.not.i.i.i, label %29, label %30
 
@@ -26200,7 +26200,7 @@ _ZSt17holds_alternativeIdJSt9monostateldN4pkpy3StrEEEbRKSt7variantIJDpT0_EE.exit
 52:                                               ; preds = %51
   %.not.i.i.i32 = icmp eq i8 %40, -1
   %53 = call ptr @__cxa_allocate_exception(i64 16) #36
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %53, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   br i1 %.not.i.i.i32, label %55, label %56
 
@@ -26262,7 +26262,7 @@ _ZSt17holds_alternativeIN4pkpy3StrEJSt9monostateldS1_EEbRKSt7variantIJDpT0_EE.ex
 75:                                               ; preds = %74
   %.not.i.i.i39 = icmp eq i8 %63, -1
   %76 = call ptr @__cxa_allocate_exception(i64 16) #36
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %76, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   br i1 %.not.i.i.i39, label %78, label %79
 
@@ -26398,7 +26398,7 @@ define void @_ZN4pkpy8CompilerC2EPNS_2VMESt17basic_string_viewIcSt11char_traitsI
   store i32 1, ptr %10, align 8, !noalias !324
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 1, ptr %11, align 4, !noalias !324
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4pkpy10SourceDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8, !noalias !324
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4pkpy10SourceDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8, !noalias !324
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   invoke void @_ZN4pkpy10SourceDataC1ESt17basic_string_viewIcSt11char_traitsIcEERKNS_3StrENS_11CompileModeE(ptr noundef nonnull align 8 dereferenceable(120) %12, i64 %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %5)
           to label %_ZSt11make_sharedIN4pkpy10SourceDataEJRSt17basic_string_viewIcSt11char_traitsIcEERKNS0_3StrERNS0_11CompileModeEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN4pkpy10SourceDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, !noalias !324
@@ -27385,7 +27385,7 @@ _ZN4pkpy18is_raw_string_usedEh.exit96.thread:     ; preds = %_ZN4pkpy2TKEPKc.exi
 
 275:                                              ; preds = %271
   %276 = call ptr @__cxa_allocate_exception(i64 16) #36
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %276, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %276, align 8
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 8
   store ptr @.str.142, ptr %277, align 8
   invoke void @__cxa_throw(ptr nonnull %276, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #35
@@ -32966,7 +32966,7 @@ declare noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef) local_unnamed_addr #
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4pkpy12SequenceExprD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4pkpy12SequenceExprE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4pkpy12SequenceExprE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
@@ -33211,7 +33211,7 @@ _ZNSt12_Vector_baseIN4pkpy14unique_ptr_128INS0_4ExprEEESaIS3_EE13_M_deallocateEP
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4pkpy10LambdaExprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy10LambdaExprE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy10LambdaExprE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -33291,7 +33291,7 @@ _ZNSt10shared_ptrIN4pkpy8FuncDeclEED2Ev.exit:     ; preds = %1, %20, %33, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4pkpy10LambdaExprD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy10LambdaExprE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy10LambdaExprE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -33492,7 +33492,7 @@ _ZNSt10shared_ptrIN4pkpy8FuncDeclEED2Ev.exit:     ; preds = %18, %36, %49, %_ZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4pkpy11GroupedExprD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy11GroupedExprE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy11GroupedExprE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -33513,7 +33513,7 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit:     ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4pkpy11GroupedExprD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy11GroupedExprE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy11GroupedExprE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -33592,7 +33592,7 @@ define linkonce_odr noundef zeroext i8 @_ZN4pkpy12ListCompExpr3op1Ev(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4pkpy8CompExprD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4pkpy8CompExprE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4pkpy8CompExprE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -33658,7 +33658,7 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit6:    ; preds = %_ZN4pkpy14unique_pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4pkpy8ListExprD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4pkpy12SequenceExprE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4pkpy12SequenceExprE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
@@ -33706,7 +33706,7 @@ _ZN4pkpy12SequenceExprD2Ev.exit:                  ; preds = %_ZSt7destroyIPN4pkp
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4pkpy8ListExprD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4pkpy12SequenceExprE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4pkpy12SequenceExprE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
@@ -33835,7 +33835,7 @@ define linkonce_odr noundef zeroext i8 @_ZN4pkpy11SetCompExpr3op1Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4pkpy8DictExprD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4pkpy12SequenceExprE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4pkpy12SequenceExprE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
@@ -33883,7 +33883,7 @@ _ZN4pkpy12SequenceExprD2Ev.exit:                  ; preds = %_ZSt7destroyIPN4pkp
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4pkpy8DictExprD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4pkpy12SequenceExprE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4pkpy12SequenceExprE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
@@ -33966,7 +33966,7 @@ define linkonce_odr noundef zeroext i8 @_ZNK4pkpy8DictExpr6opcodeEv(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4pkpy7SetExprD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4pkpy12SequenceExprE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4pkpy12SequenceExprE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
@@ -34014,7 +34014,7 @@ _ZN4pkpy12SequenceExprD2Ev.exit:                  ; preds = %_ZSt7destroyIPN4pkp
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4pkpy7SetExprD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4pkpy12SequenceExprE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4pkpy12SequenceExprE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
@@ -34436,7 +34436,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIlJRlEEEPNS_8PyObjec
   store i16 %1, ptr %8, align 2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4pkpy3Py_IlEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4pkpy3Py_IlEE, i64 16), ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %5, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -34602,7 +34602,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjec
   store i16 %1, ptr %7, align 2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4pkpy3Py_IdEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4pkpy3Py_IdEE, i64 16), ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %10 = load double, ptr %2, align 8
   store double %10, ptr %9, align 8
@@ -34706,7 +34706,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_3StrEJRKS2_EEEPN
   store i16 %1, ptr %7, align 2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4pkpy3Py_INS_3StrEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4pkpy3Py_INS_3StrEEE, i64 16), ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   invoke void @_ZN4pkpy3StrC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZN4pkpy3Py_INS_3StrEEC2IJRKS1_EEENS_4TypeEDpOT_.exit unwind label %10
@@ -34822,7 +34822,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5TupleEJS2_EEEPN
   store i16 %1, ptr %7, align 2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4pkpy3Py_INS_5TupleEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4pkpy3Py_INS_5TupleEEE, i64 16), ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   tail call void @_ZN4pkpy5TupleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 8 dereferenceable(36) %2) #36
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -36046,7 +36046,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_3StrEJRS2_EEEPNS
   store i16 %1, ptr %7, align 2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4pkpy3Py_INS_3StrEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4pkpy3Py_INS_3StrEEE, i64 16), ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   invoke void @_ZN4pkpy3StrC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZN4pkpy3Py_INS_3StrEEC2IJRS1_EEENS_4TypeEDpOT_.exit unwind label %10

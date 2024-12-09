@@ -33,7 +33,7 @@ $_ZTSN5boost12noncopyable_10base_tokenE = comdat any
 define void @_ZN5boost7archive6detail25basic_pointer_oserializerC2ERKNS_13serialization18extended_type_infoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost7archive6detail25basic_pointer_oserializerE, i64 16), ptr %0, align 8, !tbaa !8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost7archive6detail25basic_pointer_oserializerE, i64 16), ptr %0, align 8, !tbaa !8
   ret void
 }
 

@@ -1036,7 +1036,7 @@ vfio_prepare_kvm_msi_virq_batch.exit:             ; preds = %vfio_prepare_kvm_ms
   store i8 1, ptr %defer_kvm_irq_routing.i, align 8
   %1 = load ptr, ptr @kvm_state, align 8
   store ptr %1, ptr @vfio_route_change, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @vfio_route_change, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @vfio_route_change, i64 8), align 8
   %conv = sext i32 %storemerge36 to i64
   %call2 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv, i64 noundef 40) #25
   store ptr %call2, ptr %msi_vectors, align 16
@@ -1234,7 +1234,7 @@ vfio_prepare_kvm_msi_virq_batch.exit:             ; preds = %entry
   store i8 1, ptr %defer_kvm_irq_routing.i, align 8
   %3 = load ptr, ptr @kvm_state, align 8
   store ptr %3, ptr @vfio_route_change, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @vfio_route_change, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @vfio_route_change, i64 8), align 8
   %call1 = tail call i32 @msix_set_vector_notifiers(ptr noundef nonnull %vdev, ptr noundef nonnull @vfio_msix_vector_use, ptr noundef nonnull @vfio_msix_vector_release, ptr noundef null) #23
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1939,14 +1939,14 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store i8 0, ptr %defer_kvm_irq_routing, align 8
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @vfio_route_change, i64 8), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vfio_route_change, i64 8), align 8
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %kvm_irqchip_commit_route_changes.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %2 = load ptr, ptr @vfio_route_change, align 8
   tail call void @kvm_irqchip_commit_routes(ptr noundef %2) #23
-  store i32 0, ptr getelementptr inbounds (i8, ptr @vfio_route_change, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @vfio_route_change, i64 8), align 8
   br label %kvm_irqchip_commit_route_changes.exit
 
 kvm_irqchip_commit_route_changes.exit:            ; preds = %if.end, %if.then.i
@@ -2627,7 +2627,7 @@ if.end.i.i:                                       ; preds = %if.then20.i
 if.else21.i:                                      ; preds = %if.then18.i
   %15 = load ptr, ptr @kvm_state, align 8
   store ptr %15, ptr @vfio_route_change, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @vfio_route_change, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @vfio_route_change, i64 8), align 8
   %no_kvm_msix.i51.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 3549
   %16 = load i8, ptr %no_kvm_msix.i51.i, align 1
   %tobool1.i52.i = trunc i8 %16 to i1
@@ -2636,14 +2636,14 @@ if.else21.i:                                      ; preds = %if.then18.i
 vfio_add_kvm_msi_virq.exit56.i:                   ; preds = %if.else21.i
   %call.i54.i = tail call i32 @kvm_irqchip_add_msi_route(ptr noundef nonnull @vfio_route_change, i32 noundef %nr, ptr noundef nonnull %call.i.i) #23
   store i32 %call.i54.i, ptr %virq10.i, align 8
-  %.pr.i = load i32, ptr getelementptr inbounds (i8, ptr @vfio_route_change, i64 8), align 8
+  %.pr.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @vfio_route_change, i64 8), align 8
   %tobool.not.i.i = icmp eq i32 %.pr.i, 0
   br i1 %tobool.not.i.i, label %kvm_irqchip_commit_route_changes.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %vfio_add_kvm_msi_virq.exit56.i
   %17 = load ptr, ptr @vfio_route_change, align 8
   tail call void @kvm_irqchip_commit_routes(ptr noundef %17) #23
-  store i32 0, ptr getelementptr inbounds (i8, ptr @vfio_route_change, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @vfio_route_change, i64 8), align 8
   br label %kvm_irqchip_commit_route_changes.exitthread-pre-split.i
 
 kvm_irqchip_commit_route_changes.exitthread-pre-split.i: ; preds = %if.then.i.i, %if.else21.i

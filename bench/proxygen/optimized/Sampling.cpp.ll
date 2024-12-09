@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN8proxygen8SamplingC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this, double noundef %rate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3.i = alloca %"class.google::LogMessageFatal", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen8SamplingE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen8SamplingE, i64 16), ptr %this, align 8
   %rate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store double 0.000000e+00, ptr %rate_, align 8
   %weight_ = getelementptr inbounds nuw i8, ptr %this, i64 16

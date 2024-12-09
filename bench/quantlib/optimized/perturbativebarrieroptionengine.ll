@@ -481,7 +481,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !35
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !37
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -559,15 +559,15 @@ entry:
   store ptr %2, ptr %_M_right.i.i.i.i.i.i.i.i, align 8, !tbaa !15
   %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8, !tbaa !16
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib13GenericEngineINS_13BarrierOption9argumentsENS_14OneAssetOption7resultsEEE, i64 16), ptr %this, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib13GenericEngineINS_13BarrierOption9argumentsENS_14OneAssetOption7resultsEEE, i64 88), ptr %1, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib13GenericEngineINS_13BarrierOption9argumentsENS_14OneAssetOption7resultsEEE, i64 16), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib13GenericEngineINS_13BarrierOption9argumentsENS_14OneAssetOption7resultsEEE, i64 88), ptr %1, align 8, !tbaa !35
   %arguments_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   invoke void @_ZN8QuantLib13BarrierOption9argumentsC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arguments_.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %entry
   %results_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
-  store ptr getelementptr inbounds inrange(-40, 24) (i8, ptr @_ZTCN8QuantLib14OneAssetOption7resultsE0_NS_10Instrument7resultsE, i64 40), ptr %results_.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-40, 24) (i8, ptr @_ZTCN8QuantLib14OneAssetOption7resultsE0_NS_10Instrument7resultsE, i64 40), ptr %results_.i.i, align 8, !tbaa !35
   %valuationDate.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
   invoke void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %valuationDate.i.i.i.i)
           to label %_ZN8QuantLib13BarrierOption6engineC2Ev.exit unwind label %lpad2.i.i
@@ -606,11 +606,11 @@ _ZN8QuantLib13BarrierOption6engineC2Ev.exit:      ; preds = %invoke.cont.i.i
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i5.i.i, align 8, !tbaa !16
   %6 = getelementptr inbounds nuw i8, ptr %this, i64 256
   %7 = getelementptr inbounds nuw i8, ptr %this, i64 312
-  store ptr getelementptr inbounds inrange(-40, 24) (i8, ptr @_ZTVN8QuantLib14OneAssetOption7resultsE, i64 40), ptr %results_.i.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-40, 24) (i8, ptr @_ZTVN8QuantLib14OneAssetOption7resultsE, i64 104), ptr %6, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-40, 24) (i8, ptr @_ZTVN8QuantLib14OneAssetOption7resultsE, i64 168), ptr %7, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib31PerturbativeBarrierOptionEngineE, i64 16), ptr %this, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib31PerturbativeBarrierOptionEngineE, i64 88), ptr %1, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-40, 24) (i8, ptr @_ZTVN8QuantLib14OneAssetOption7resultsE, i64 40), ptr %results_.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-40, 24) (i8, ptr @_ZTVN8QuantLib14OneAssetOption7resultsE, i64 104), ptr %6, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-40, 24) (i8, ptr @_ZTVN8QuantLib14OneAssetOption7resultsE, i64 168), ptr %7, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib31PerturbativeBarrierOptionEngineE, i64 16), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib31PerturbativeBarrierOptionEngineE, i64 88), ptr %1, align 8, !tbaa !35
   %process_ = getelementptr inbounds nuw i8, ptr %this, i64 360
   %8 = load ptr, ptr %process, align 8, !tbaa !39
   store ptr %8, ptr %process_, align 8, !tbaa !39
@@ -4288,7 +4288,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %this, align 8, !tbaa !35
   %observables_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_left.i.i, align 8, !tbaa !14
@@ -4360,9 +4360,9 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib31PerturbativeBarrierOptionEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(381) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib31PerturbativeBarrierOptionEngineE, i64 16), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib31PerturbativeBarrierOptionEngineE, i64 16), ptr %this, align 8, !tbaa !35
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib31PerturbativeBarrierOptionEngineE, i64 88), ptr %add.ptr, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib31PerturbativeBarrierOptionEngineE, i64 88), ptr %add.ptr, align 8, !tbaa !35
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 368
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !37
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -4409,9 +4409,9 @@ _ZN5boost10shared_ptrIN8QuantLib30GeneralizedBlackScholesProcessEED2Ev.exit: ; p
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib31PerturbativeBarrierOptionEngineD0Ev(ptr noundef nonnull align 8 dereferenceable(381) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib31PerturbativeBarrierOptionEngineE, i64 16), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib31PerturbativeBarrierOptionEngineE, i64 16), ptr %this, align 8, !tbaa !35
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib31PerturbativeBarrierOptionEngineE, i64 88), ptr %add.ptr.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib31PerturbativeBarrierOptionEngineE, i64 88), ptr %add.ptr.i, align 8, !tbaa !35
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 368
   %0 = load ptr, ptr %pn.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -4550,8 +4550,8 @@ entry:
 define linkonce_odr void @_ZThn56_N8QuantLib31PerturbativeBarrierOptionEngineD1Ev(ptr noundef %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib31PerturbativeBarrierOptionEngineE, i64 16), ptr %0, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib31PerturbativeBarrierOptionEngineE, i64 88), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib31PerturbativeBarrierOptionEngineE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib31PerturbativeBarrierOptionEngineE, i64 88), ptr %this, align 8, !tbaa !35
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 312
   %1 = load ptr, ptr %pn.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -4599,8 +4599,8 @@ _ZN8QuantLib31PerturbativeBarrierOptionEngineD2Ev.exit: ; preds = %entry, %if.th
 define linkonce_odr void @_ZThn56_N8QuantLib31PerturbativeBarrierOptionEngineD0Ev(ptr noundef %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib31PerturbativeBarrierOptionEngineE, i64 16), ptr %0, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib31PerturbativeBarrierOptionEngineE, i64 88), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib31PerturbativeBarrierOptionEngineE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib31PerturbativeBarrierOptionEngineE, i64 88), ptr %this, align 8, !tbaa !35
   %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 312
   %1 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -4904,11 +4904,11 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib13GenericEngineINS_13BarrierOption9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(360) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib13GenericEngineINS_13BarrierOption9argumentsENS_14OneAssetOption7resultsEEE, i64 16), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib13GenericEngineINS_13BarrierOption9argumentsENS_14OneAssetOption7resultsEEE, i64 16), ptr %this, align 8, !tbaa !35
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib13GenericEngineINS_13BarrierOption9argumentsENS_14OneAssetOption7resultsEEE, i64 88), ptr %add.ptr, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib13GenericEngineINS_13BarrierOption9argumentsENS_14OneAssetOption7resultsEEE, i64 88), ptr %add.ptr, align 8, !tbaa !35
   %results_ = getelementptr inbounds nuw i8, ptr %this, i64 176
-  store ptr getelementptr inbounds inrange(-40, 24) (i8, ptr @_ZTCN8QuantLib14OneAssetOption7resultsE0_NS_10Instrument7resultsE, i64 40), ptr %results_, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-40, 24) (i8, ptr @_ZTCN8QuantLib14OneAssetOption7resultsE0_NS_10Instrument7resultsE, i64 40), ptr %results_, align 8, !tbaa !35
   %additionalResults.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 208
   %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8, !tbaa !13
@@ -5009,7 +5009,7 @@ terminate.lpad.i.i9.i.i.i:                        ; preds = %if.then.i.i.i.i13.i
   unreachable
 
 _ZN8QuantLib13BarrierOption9argumentsD1Ev.exit:   ; preds = %_ZN5boost10shared_ptrIN8QuantLib8ExerciseEED2Ev.exit.i.i.i, %if.then.i.i3.i.i.i, %.noexc.i.i10.i.i.i, %if.then.i.i.i.i13.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %add.ptr, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %add.ptr, align 8, !tbaa !35
   %observables_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %_M_left.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %19 = load ptr, ptr %_M_left.i.i.i, align 8, !tbaa !14
@@ -5063,7 +5063,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont.i, %con
   unreachable
 
 _ZN8QuantLib8ObserverD2Ev.exit:                   ; preds = %for.cond.cleanup.i
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !35
   %observers_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_parent.i.i.i.i.i3 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %27 = load ptr, ptr %_M_parent.i.i.i.i.i3, align 8, !tbaa !13
@@ -5199,7 +5199,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib10ObservableD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !35
   %observers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8, !tbaa !13
@@ -5220,7 +5220,7 @@ _ZNSt3setIPN8QuantLib8ObserverESt4lessIS2_ESaIS2_EED2Ev.exit: ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib10ObservableD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !35
   %observers_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !13
@@ -5242,7 +5242,7 @@ _ZN8QuantLib10ObservableD2Ev.exit:                ; preds = %entry
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib10Instrument7resultsD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-40, 24) (i8, ptr @_ZTVN8QuantLib10Instrument7resultsE, i64 40), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-40, 24) (i8, ptr @_ZTVN8QuantLib10Instrument7resultsE, i64 40), ptr %this, align 8, !tbaa !35
   %additionalResults.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !13
@@ -5263,7 +5263,7 @@ _ZN8QuantLib10Instrument7resultsD2Ev.exit:        ; preds = %entry
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib10Instrument7resultsD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-40, 24) (i8, ptr @_ZTVN8QuantLib10Instrument7resultsE, i64 40), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-40, 24) (i8, ptr @_ZTVN8QuantLib10Instrument7resultsE, i64 40), ptr %this, align 8, !tbaa !35
   %additionalResults.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8, !tbaa !13
@@ -5324,7 +5324,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5boost3anyESt4les
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib14OneAssetOption7resultsD1Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-40, 24) (i8, ptr @_ZTCN8QuantLib14OneAssetOption7resultsE0_NS_10Instrument7resultsE, i64 40), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-40, 24) (i8, ptr @_ZTCN8QuantLib14OneAssetOption7resultsE0_NS_10Instrument7resultsE, i64 40), ptr %this, align 8, !tbaa !35
   %additionalResults.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8, !tbaa !13
@@ -5345,7 +5345,7 @@ _ZN8QuantLib14OneAssetOption7resultsD2Ev.exit:    ; preds = %entry
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib14OneAssetOption7resultsD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-40, 24) (i8, ptr @_ZTCN8QuantLib14OneAssetOption7resultsE0_NS_10Instrument7resultsE, i64 40), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-40, 24) (i8, ptr @_ZTCN8QuantLib14OneAssetOption7resultsE0_NS_10Instrument7resultsE, i64 40), ptr %this, align 8, !tbaa !35
   %additionalResults.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8, !tbaa !13
@@ -5429,7 +5429,7 @@ _ZN8QuantLib10Instrument7results5resetEv.exit:    ; preds = %entry
 define linkonce_odr void @_ZThn80_N8QuantLib14OneAssetOption7resultsD1Ev(ptr noundef %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -80
-  store ptr getelementptr inbounds inrange(-40, 24) (i8, ptr @_ZTCN8QuantLib14OneAssetOption7resultsE0_NS_10Instrument7resultsE, i64 40), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-40, 24) (i8, ptr @_ZTCN8QuantLib14OneAssetOption7resultsE0_NS_10Instrument7resultsE, i64 40), ptr %0, align 8, !tbaa !35
   %additionalResults.i.i.i = getelementptr inbounds i8, ptr %this, i64 -48
   %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -32
   %1 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8, !tbaa !13
@@ -5451,7 +5451,7 @@ _ZN8QuantLib14OneAssetOption7resultsD1Ev.exit:    ; preds = %entry
 define linkonce_odr void @_ZThn80_N8QuantLib14OneAssetOption7resultsD0Ev(ptr noundef %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -80
-  store ptr getelementptr inbounds inrange(-40, 24) (i8, ptr @_ZTCN8QuantLib14OneAssetOption7resultsE0_NS_10Instrument7resultsE, i64 40), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-40, 24) (i8, ptr @_ZTCN8QuantLib14OneAssetOption7resultsE0_NS_10Instrument7resultsE, i64 40), ptr %0, align 8, !tbaa !35
   %additionalResults.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -48
   %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -32
   %1 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8, !tbaa !13
@@ -5535,7 +5535,7 @@ _ZN8QuantLib14OneAssetOption7results5resetEv.exit: ; preds = %entry
 define linkonce_odr void @_ZThn136_N8QuantLib14OneAssetOption7resultsD1Ev(ptr noundef %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -136
-  store ptr getelementptr inbounds inrange(-40, 24) (i8, ptr @_ZTCN8QuantLib14OneAssetOption7resultsE0_NS_10Instrument7resultsE, i64 40), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-40, 24) (i8, ptr @_ZTCN8QuantLib14OneAssetOption7resultsE0_NS_10Instrument7resultsE, i64 40), ptr %0, align 8, !tbaa !35
   %additionalResults.i.i.i = getelementptr inbounds i8, ptr %this, i64 -104
   %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -88
   %1 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8, !tbaa !13
@@ -5557,7 +5557,7 @@ _ZN8QuantLib14OneAssetOption7resultsD1Ev.exit:    ; preds = %entry
 define linkonce_odr void @_ZThn136_N8QuantLib14OneAssetOption7resultsD0Ev(ptr noundef %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -136
-  store ptr getelementptr inbounds inrange(-40, 24) (i8, ptr @_ZTCN8QuantLib14OneAssetOption7resultsE0_NS_10Instrument7resultsE, i64 40), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-40, 24) (i8, ptr @_ZTCN8QuantLib14OneAssetOption7resultsE0_NS_10Instrument7resultsE, i64 40), ptr %0, align 8, !tbaa !35
   %additionalResults.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -104
   %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -88
   %1 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8, !tbaa !13
@@ -6159,51 +6159,51 @@ entry:
   %mul = fmul double %sub, 2.000000e+00
   %call = tail call double @pow(double noundef %mul, double noundef 5.000000e-01) #30, !tbaa !108
   %div = fdiv double %0, %call
-  store double %div, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 8), align 8, !tbaa !107
+  store double %div, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 8), align 8, !tbaa !107
   %sub2 = fsub double %tt, %s
   %1 = tail call double @llvm.fmuladd.f64(double %bx, double %sub2, double %ax)
   %mul5 = fmul double %sub2, 2.000000e+00
   %call6 = tail call double @pow(double noundef %mul5, double noundef 5.000000e-01) #30, !tbaa !108
   %div7 = fdiv double %1, %call6
-  store double %div7, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 16), align 16, !tbaa !107
+  store double %div7, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 16), align 16, !tbaa !107
   %2 = tail call double @llvm.fmuladd.f64(double %bx, double %tt, double %ax)
   %add = fadd double %2, %c
   %mul9 = fmul double %tt, 2.000000e+00
   %call10 = tail call double @pow(double noundef %mul9, double noundef 5.000000e-01) #30, !tbaa !108
   %div11 = fdiv double %add, %call10
-  store double %div11, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 24), align 8, !tbaa !107
+  store double %div11, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 24), align 8, !tbaa !107
   %div14 = fdiv double %sub, %sub2
   %call15 = tail call double @pow(double noundef %div14, double noundef 5.000000e-01) #30, !tbaa !108
-  store double %call15, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 8), align 8, !tbaa !107
+  store double %call15, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 8), align 8, !tbaa !107
   %div17 = fdiv double %sub, %tt
   %call18 = tail call double @pow(double noundef %div17, double noundef 5.000000e-01) #30, !tbaa !108
-  store double %call18, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 16), align 16, !tbaa !107
+  store double %call18, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 16), align 16, !tbaa !107
   %div20 = fdiv double %sub2, %tt
   %call21 = tail call double @pow(double noundef %div20, double noundef 5.000000e-01) #30, !tbaa !108
-  store double %call21, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 24), align 8, !tbaa !107
+  store double %call21, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 24), align 8, !tbaa !107
   %mul22 = fmul double %bx, 5.000000e-01
   %call23 = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_14tvtlEiPKdS2_d(ptr noundef nonnull @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, ptr noundef nonnull @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho)
   %mul24 = fmul double %mul22, %call23
   store double %mul24, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE4caux, align 8, !tbaa !107
-  %3 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 8), align 8, !tbaa !107
+  %3 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 8), align 8, !tbaa !107
   %square2.i = fmul double %3, %3
   %mul2.i = fmul double %square2.i, -5.000000e-01
   %call3.i = tail call double @exp(double noundef %mul2.i) #30, !tbaa !108
-  %4 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 24), align 8, !tbaa !107
-  %5 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 16), align 16, !tbaa !107
+  %4 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 24), align 8, !tbaa !107
+  %5 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 16), align 16, !tbaa !107
   %neg.i = fneg double %5
   %6 = tail call double @llvm.fmuladd.f64(double %neg.i, double %3, double %4)
   %square3.i = fmul double %5, %5
   %sub.i = fsub double 1.000000e+00, %square3.i
   %call10.i = tail call double @pow(double noundef %sub.i, double noundef 5.000000e-01) #30, !tbaa !108
-  %7 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 16), align 16, !tbaa !107
-  %8 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 8), align 8, !tbaa !107
+  %7 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 16), align 16, !tbaa !107
+  %8 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 8), align 8, !tbaa !107
   %neg15.i = fneg double %8
   %9 = tail call double @llvm.fmuladd.f64(double %neg15.i, double %3, double %7)
   %square4.i = fmul double %8, %8
   %sub18.i = fsub double 1.000000e+00, %square4.i
   %call19.i = tail call double @pow(double noundef %sub18.i, double noundef 5.000000e-01) #30, !tbaa !108
-  %10 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 24), align 8, !tbaa !107
+  %10 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 24), align 8, !tbaa !107
   %11 = tail call double @llvm.fmuladd.f64(double %neg15.i, double %5, double %10)
   %12 = tail call double @llvm.fmuladd.f64(double %neg15.i, double %8, double 1.000000e+00)
   %13 = tail call double @llvm.fmuladd.f64(double %neg.i, double %5, double 1.000000e+00)
@@ -6221,25 +6221,25 @@ entry:
   %div29 = fdiv double %div88.i, %call28
   %add30 = fadd double %mul24, %div29
   store double %add30, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE4caux, align 8, !tbaa !107
-  %16 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 16), align 16, !tbaa !107
+  %16 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 16), align 16, !tbaa !107
   %mul44.i = fmul double %16, -5.000000e-01
   %mul46.i = fmul double %16, %mul44.i
   %call47.i = tail call double @exp(double noundef %mul46.i) #30, !tbaa !108
-  %17 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 8), align 8, !tbaa !107
-  %18 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 8), align 8, !tbaa !107
+  %17 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 8), align 8, !tbaa !107
+  %18 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 8), align 8, !tbaa !107
   %neg52.i = fneg double %18
   %19 = tail call double @llvm.fmuladd.f64(double %neg52.i, double %16, double %17)
   %square.i = fmul double %18, %18
   %sub55.i = fsub double 1.000000e+00, %square.i
   %call56.i = tail call double @pow(double noundef %sub55.i, double noundef 5.000000e-01) #30, !tbaa !108
-  %20 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 24), align 8, !tbaa !107
-  %21 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 24), align 8, !tbaa !107
+  %20 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 24), align 8, !tbaa !107
+  %21 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 24), align 8, !tbaa !107
   %neg62.i = fneg double %21
   %22 = tail call double @llvm.fmuladd.f64(double %neg62.i, double %16, double %20)
   %square1.i = fmul double %21, %21
   %sub65.i = fsub double 1.000000e+00, %square1.i
   %call66.i = tail call double @pow(double noundef %sub65.i, double noundef 5.000000e-01) #30, !tbaa !108
-  %23 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 16), align 16, !tbaa !107
+  %23 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 16), align 16, !tbaa !107
   %24 = tail call double @llvm.fmuladd.f64(double %neg52.i, double %21, double %23)
   %25 = tail call double @llvm.fmuladd.f64(double %neg52.i, double %18, double 1.000000e+00)
   %26 = tail call double @llvm.fmuladd.f64(double %neg62.i, double %21, double 1.000000e+00)
@@ -6257,25 +6257,25 @@ entry:
   %div35 = fdiv double %div88.i77, %call34
   %add36 = fadd double %add30, %div35
   store double %add36, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE4caux, align 8, !tbaa !107
-  %29 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 24), align 8, !tbaa !107
+  %29 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 24), align 8, !tbaa !107
   %mul91.i = fmul double %29, -5.000000e-01
   %mul93.i = fmul double %29, %mul91.i
   %call94.i = tail call double @exp(double noundef %mul93.i) #30, !tbaa !108
-  %30 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 8), align 8, !tbaa !107
-  %31 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 16), align 16, !tbaa !107
+  %30 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 8), align 8, !tbaa !107
+  %31 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 16), align 16, !tbaa !107
   %neg99.i = fneg double %31
   %32 = tail call double @llvm.fmuladd.f64(double %neg99.i, double %29, double %30)
   %square5.i = fmul double %31, %31
   %sub102.i = fsub double 1.000000e+00, %square5.i
   %call103.i = tail call double @pow(double noundef %sub102.i, double noundef 5.000000e-01) #30, !tbaa !108
-  %33 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 16), align 16, !tbaa !107
-  %34 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 24), align 8, !tbaa !107
+  %33 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 16), align 16, !tbaa !107
+  %34 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 24), align 8, !tbaa !107
   %neg109.i = fneg double %34
   %35 = tail call double @llvm.fmuladd.f64(double %neg109.i, double %29, double %33)
   %square6.i = fmul double %34, %34
   %sub112.i = fsub double 1.000000e+00, %square6.i
   %call113.i = tail call double @pow(double noundef %sub112.i, double noundef 5.000000e-01) #30, !tbaa !108
-  %36 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 8), align 8, !tbaa !107
+  %36 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 8), align 8, !tbaa !107
   %37 = tail call double @llvm.fmuladd.f64(double %neg99.i, double %34, double %36)
   %38 = tail call double @llvm.fmuladd.f64(double %neg99.i, double %31, double 1.000000e+00)
   %39 = tail call double @llvm.fmuladd.f64(double %neg109.i, double %34, double 1.000000e+00)
@@ -6301,46 +6301,46 @@ entry:
   %42 = tail call double @llvm.fmuladd.f64(double %neg, double %sub, double %ax)
   %call50 = tail call double @pow(double noundef %mul, double noundef 5.000000e-01) #30, !tbaa !108
   %div51 = fdiv double %42, %call50
-  store double %div51, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 8), align 8, !tbaa !107
+  store double %div51, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 8), align 8, !tbaa !107
   %fneg = fneg double %ax
   %43 = tail call double @llvm.fmuladd.f64(double %bx, double %sub2, double %fneg)
   %call56 = tail call double @pow(double noundef %mul5, double noundef 5.000000e-01) #30, !tbaa !108
   %div57 = fdiv double %43, %call56
-  store double %div57, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 16), align 16, !tbaa !107
+  store double %div57, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 16), align 16, !tbaa !107
   %44 = tail call double @llvm.fmuladd.f64(double %bx, double %tt, double %fneg)
   %add60 = fadd double %44, %c
   %call62 = tail call double @pow(double noundef %mul9, double noundef 5.000000e-01) #30, !tbaa !108
   %div63 = fdiv double %add60, %call62
-  store double %div63, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 24), align 8, !tbaa !107
+  store double %div63, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 24), align 8, !tbaa !107
   %call67 = tail call double @pow(double noundef %div14, double noundef 5.000000e-01) #30, !tbaa !108
   %fneg68 = fneg double %call67
-  store double %fneg68, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 8), align 8, !tbaa !107
+  store double %fneg68, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 8), align 8, !tbaa !107
   %call71 = tail call double @pow(double noundef %div17, double noundef 5.000000e-01) #30, !tbaa !108
   %fneg72 = fneg double %call71
-  store double %fneg72, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 16), align 16, !tbaa !107
+  store double %fneg72, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 16), align 16, !tbaa !107
   %call75 = tail call double @pow(double noundef %div20, double noundef 5.000000e-01) #30, !tbaa !108
-  store double %call75, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 24), align 8, !tbaa !107
+  store double %call75, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 24), align 8, !tbaa !107
   %call77 = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_14tvtlEiPKdS2_d(ptr noundef nonnull @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, ptr noundef nonnull @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho)
   %mul78 = fmul double %mul22, %call77
-  %45 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 8), align 8, !tbaa !107
+  %45 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 8), align 8, !tbaa !107
   %square2.i85 = fmul double %45, %45
   %mul2.i86 = fmul double %square2.i85, -5.000000e-01
   %call3.i87 = tail call double @exp(double noundef %mul2.i86) #30, !tbaa !108
-  %46 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 24), align 8, !tbaa !107
-  %47 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 16), align 16, !tbaa !107
+  %46 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 24), align 8, !tbaa !107
+  %47 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 16), align 16, !tbaa !107
   %neg.i88 = fneg double %47
   %48 = tail call double @llvm.fmuladd.f64(double %neg.i88, double %45, double %46)
   %square3.i89 = fmul double %47, %47
   %sub.i90 = fsub double 1.000000e+00, %square3.i89
   %call10.i91 = tail call double @pow(double noundef %sub.i90, double noundef 5.000000e-01) #30, !tbaa !108
-  %49 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 16), align 16, !tbaa !107
-  %50 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 8), align 8, !tbaa !107
+  %49 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 16), align 16, !tbaa !107
+  %50 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 8), align 8, !tbaa !107
   %neg15.i93 = fneg double %50
   %51 = tail call double @llvm.fmuladd.f64(double %neg15.i93, double %45, double %49)
   %square4.i94 = fmul double %50, %50
   %sub18.i95 = fsub double 1.000000e+00, %square4.i94
   %call19.i96 = tail call double @pow(double noundef %sub18.i95, double noundef 5.000000e-01) #30, !tbaa !108
-  %52 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 24), align 8, !tbaa !107
+  %52 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 24), align 8, !tbaa !107
   %53 = tail call double @llvm.fmuladd.f64(double %neg15.i93, double %47, double %52)
   %54 = tail call double @llvm.fmuladd.f64(double %neg15.i93, double %50, double 1.000000e+00)
   %55 = tail call double @llvm.fmuladd.f64(double %neg.i88, double %47, double 1.000000e+00)
@@ -6357,25 +6357,25 @@ entry:
   %call82 = tail call double @pow(double noundef %mul, double noundef 5.000000e-01) #30, !tbaa !108
   %div83 = fdiv double %div88.i105, %call82
   %sub84 = fsub double %mul78, %div83
-  %58 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 16), align 16, !tbaa !107
+  %58 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 16), align 16, !tbaa !107
   %mul44.i106 = fmul double %58, -5.000000e-01
   %mul46.i107 = fmul double %58, %mul44.i106
   %call47.i108 = tail call double @exp(double noundef %mul46.i107) #30, !tbaa !108
-  %59 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 8), align 8, !tbaa !107
-  %60 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 8), align 8, !tbaa !107
+  %59 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 8), align 8, !tbaa !107
+  %60 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 8), align 8, !tbaa !107
   %neg52.i109 = fneg double %60
   %61 = tail call double @llvm.fmuladd.f64(double %neg52.i109, double %58, double %59)
   %square.i110 = fmul double %60, %60
   %sub55.i111 = fsub double 1.000000e+00, %square.i110
   %call56.i112 = tail call double @pow(double noundef %sub55.i111, double noundef 5.000000e-01) #30, !tbaa !108
-  %62 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 24), align 8, !tbaa !107
-  %63 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 24), align 8, !tbaa !107
+  %62 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 24), align 8, !tbaa !107
+  %63 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 24), align 8, !tbaa !107
   %neg62.i114 = fneg double %63
   %64 = tail call double @llvm.fmuladd.f64(double %neg62.i114, double %58, double %62)
   %square1.i115 = fmul double %63, %63
   %sub65.i116 = fsub double 1.000000e+00, %square1.i115
   %call66.i117 = tail call double @pow(double noundef %sub65.i116, double noundef 5.000000e-01) #30, !tbaa !108
-  %65 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 16), align 16, !tbaa !107
+  %65 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 16), align 16, !tbaa !107
   %66 = tail call double @llvm.fmuladd.f64(double %neg52.i109, double %63, double %65)
   %67 = tail call double @llvm.fmuladd.f64(double %neg52.i109, double %60, double 1.000000e+00)
   %68 = tail call double @llvm.fmuladd.f64(double %neg62.i114, double %63, double 1.000000e+00)
@@ -6392,25 +6392,25 @@ entry:
   %call88 = tail call double @pow(double noundef %mul5, double noundef 5.000000e-01) #30, !tbaa !108
   %div89 = fdiv double %div88.i126, %call88
   %add90 = fadd double %sub84, %div89
-  %71 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 24), align 8, !tbaa !107
+  %71 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 24), align 8, !tbaa !107
   %mul91.i127 = fmul double %71, -5.000000e-01
   %mul93.i128 = fmul double %71, %mul91.i127
   %call94.i129 = tail call double @exp(double noundef %mul93.i128) #30, !tbaa !108
-  %72 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 8), align 8, !tbaa !107
-  %73 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 16), align 16, !tbaa !107
+  %72 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 8), align 8, !tbaa !107
+  %73 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 16), align 16, !tbaa !107
   %neg99.i130 = fneg double %73
   %74 = tail call double @llvm.fmuladd.f64(double %neg99.i130, double %71, double %72)
   %square5.i131 = fmul double %73, %73
   %sub102.i132 = fsub double 1.000000e+00, %square5.i131
   %call103.i133 = tail call double @pow(double noundef %sub102.i132, double noundef 5.000000e-01) #30, !tbaa !108
-  %75 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 16), align 16, !tbaa !107
-  %76 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 24), align 8, !tbaa !107
+  %75 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 16), align 16, !tbaa !107
+  %76 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 24), align 8, !tbaa !107
   %neg109.i135 = fneg double %76
   %77 = tail call double @llvm.fmuladd.f64(double %neg109.i135, double %71, double %75)
   %square6.i136 = fmul double %76, %76
   %sub112.i137 = fsub double 1.000000e+00, %square6.i136
   %call113.i138 = tail call double @pow(double noundef %sub112.i137, double noundef 5.000000e-01) #30, !tbaa !108
-  %78 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 8), align 8, !tbaa !107
+  %78 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho, i64 8), align 8, !tbaa !107
   %79 = tail call double @llvm.fmuladd.f64(double %neg99.i130, double %76, double %78)
   %80 = tail call double @llvm.fmuladd.f64(double %neg99.i130, double %73, double 1.000000e+00)
   %81 = tail call double @llvm.fmuladd.f64(double %neg109.i135, double %76, double 1.000000e+00)
@@ -7126,44 +7126,44 @@ declare double @llvm.fabs.f64(double) #20
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, argmem: write, inaccessiblemem: write) uwtable
 define internal fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_13ND2Eddd(double noundef %a, double noundef %b, double noundef %rho) unnamed_addr #24 {
 entry:
-  store double 0x3FC5EDF601E2DBFD, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 40), align 8, !tbaa !107
-  store double 0xBFEDD6CA4E80A01F, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 40), align 8, !tbaa !107
-  store double 0x3FD716B7B5794C18, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 72), align 8, !tbaa !107
-  store double 0xBFE528A09655C960, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 72), align 8, !tbaa !107
-  store double 0x3FDDF24D499545DD, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 104), align 8, !tbaa !107
-  store double 0xBFCE8B12D03675C8, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 104), align 8, !tbaa !107
-  store double 0x3FA8275D9DEA6D87, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 48), align 16, !tbaa !107
-  store double 0xBFEF68F1D8E42E80, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 48), align 16, !tbaa !107
-  store double 0x3FBB60602BCE6178, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 80), align 16, !tbaa !107
-  store double 0xBFECEE874FFB88B5, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 80), align 16, !tbaa !107
-  store double 0x3FC47D7258F22D95, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 112), align 16, !tbaa !107
-  store double 0xBFE8A30AEED88F39, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 112), align 16, !tbaa !107
-  store double 0x3FCA0163E6B1AB71, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 144), align 16, !tbaa !107
-  store double 0xBFE2CB4F05C077F6, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 144), align 16, !tbaa !107
-  store double 0x3FCDE3155C256AB1, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 176), align 16, !tbaa !107
-  store double 0xBFD78A8D20A8B19D, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 176), align 16, !tbaa !107
-  store double 0x3FCFE40CE6D4F02A, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 208), align 16, !tbaa !107
-  store double 0xBFC007A5F8F630EE, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 208), align 16, !tbaa !107
-  store double 0x3F9209680274E8B0, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 56), align 8, !tbaa !107
-  store double 0xBFEFC7B5A0C71CE0, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 56), align 8, !tbaa !107
-  store double 0x3FA4C9B5EA53B67F, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 88), align 8, !tbaa !107
-  store double 0xBFEED8DBA7BD769F, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 88), align 8, !tbaa !107
-  store double 0x3FB00B467DF7E474, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 120), align 8, !tbaa !107
-  store double 0xBFED31064173FD92, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 120), align 8, !tbaa !107
-  store double 0x3FB5519FE196E24A, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 152), align 8, !tbaa !107
-  store double 0xBFEADA0BD5EFD6E7, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 152), align 8, !tbaa !107
-  store double 0x3FBA1817A317A81E, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 184), align 8, !tbaa !107
-  store double 0xBFE7E1F37346A54E, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 184), align 8, !tbaa !107
-  store double 0x3FBE41FF31573B47, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 216), align 8, !tbaa !107
-  store double 0xBFE45A8D3FA710DB, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 216), align 8, !tbaa !107
-  store double 0x3FC0DB2C5DB26DFE, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 248), align 8, !tbaa !107
-  store double 0xBFE05905C13F7FF7, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 248), align 8, !tbaa !107
-  store double 0x3FC230348F34A537, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 280), align 8, !tbaa !107
-  store double 0xBFD7EACCF15652C5, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 280), align 8, !tbaa !107
-  store double 0x3FC31819B52C5991, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 312), align 8, !tbaa !107
-  store double 0xBFCD281636928BC1, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 312), align 8, !tbaa !107
-  store double 0x3FC38D6C490A3372, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 344), align 8, !tbaa !107
-  store double 0xBFB3973DF98B86AF, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 344), align 8, !tbaa !107
+  store double 0x3FC5EDF601E2DBFD, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 40), align 8, !tbaa !107
+  store double 0xBFEDD6CA4E80A01F, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 40), align 8, !tbaa !107
+  store double 0x3FD716B7B5794C18, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 72), align 8, !tbaa !107
+  store double 0xBFE528A09655C960, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 72), align 8, !tbaa !107
+  store double 0x3FDDF24D499545DD, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 104), align 8, !tbaa !107
+  store double 0xBFCE8B12D03675C8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 104), align 8, !tbaa !107
+  store double 0x3FA8275D9DEA6D87, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 48), align 16, !tbaa !107
+  store double 0xBFEF68F1D8E42E80, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 48), align 16, !tbaa !107
+  store double 0x3FBB60602BCE6178, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 80), align 16, !tbaa !107
+  store double 0xBFECEE874FFB88B5, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 80), align 16, !tbaa !107
+  store double 0x3FC47D7258F22D95, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 112), align 16, !tbaa !107
+  store double 0xBFE8A30AEED88F39, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 112), align 16, !tbaa !107
+  store double 0x3FCA0163E6B1AB71, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 144), align 16, !tbaa !107
+  store double 0xBFE2CB4F05C077F6, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 144), align 16, !tbaa !107
+  store double 0x3FCDE3155C256AB1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 176), align 16, !tbaa !107
+  store double 0xBFD78A8D20A8B19D, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 176), align 16, !tbaa !107
+  store double 0x3FCFE40CE6D4F02A, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 208), align 16, !tbaa !107
+  store double 0xBFC007A5F8F630EE, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 208), align 16, !tbaa !107
+  store double 0x3F9209680274E8B0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 56), align 8, !tbaa !107
+  store double 0xBFEFC7B5A0C71CE0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 56), align 8, !tbaa !107
+  store double 0x3FA4C9B5EA53B67F, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 88), align 8, !tbaa !107
+  store double 0xBFEED8DBA7BD769F, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 88), align 8, !tbaa !107
+  store double 0x3FB00B467DF7E474, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 120), align 8, !tbaa !107
+  store double 0xBFED31064173FD92, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 120), align 8, !tbaa !107
+  store double 0x3FB5519FE196E24A, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 152), align 8, !tbaa !107
+  store double 0xBFEADA0BD5EFD6E7, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 152), align 8, !tbaa !107
+  store double 0x3FBA1817A317A81E, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 184), align 8, !tbaa !107
+  store double 0xBFE7E1F37346A54E, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 184), align 8, !tbaa !107
+  store double 0x3FBE41FF31573B47, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 216), align 8, !tbaa !107
+  store double 0xBFE45A8D3FA710DB, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 216), align 8, !tbaa !107
+  store double 0x3FC0DB2C5DB26DFE, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 248), align 8, !tbaa !107
+  store double 0xBFE05905C13F7FF7, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 248), align 8, !tbaa !107
+  store double 0x3FC230348F34A537, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 280), align 8, !tbaa !107
+  store double 0xBFD7EACCF15652C5, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 280), align 8, !tbaa !107
+  store double 0x3FC31819B52C5991, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 312), align 8, !tbaa !107
+  store double 0xBFCD281636928BC1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 312), align 8, !tbaa !107
+  store double 0x3FC38D6C490A3372, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 344), align 8, !tbaa !107
+  store double 0xBFB3973DF98B86AF, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 344), align 8, !tbaa !107
   %0 = tail call double @llvm.fabs.f64(double %rho)
   %cmp = fcmp olt double %0, 3.000000e-01
   %cmp1 = fcmp olt double %0, 7.500000e-01
@@ -8078,8 +8078,8 @@ if.end100:                                        ; preds = %_ZN8QuantLib12_GLOB
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define internal fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiE(double noundef %A, double noundef %B, double noundef %TOL) unnamed_addr #22 {
 entry:
-  store double %A, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2AI, i64 8), align 8, !tbaa !107
-  store double %B, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2BI, i64 8), align 8, !tbaa !107
+  store double %A, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2AI, i64 8), align 8, !tbaa !107
+  store double %B, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2BI, i64 8), align 8, !tbaa !107
   %cmp5 = fcmp olt double %TOL, 4.000000e+00
   br i1 %cmp5, label %while.body, label %entry.while.end_crit_edge
 
@@ -8304,36 +8304,36 @@ if.end13:                                         ; preds = %_ZN8QuantLib12_GLOB
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define internal fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERd(double noundef %A, double noundef %B, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %ERR) unnamed_addr #22 {
 entry:
-  store double 0x3FD1779AC87E04D8, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE2WG, i64 8), align 8, !tbaa !107
-  store double 0x3FAC8097265BB99C, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE2WG, i64 16), align 16, !tbaa !107
-  store double 0x3FC013047DEF88D4, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE2WG, i64 24), align 8, !tbaa !107
-  store double 0x3FC7D85B8DBFF1BB, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE2WG, i64 32), align 16, !tbaa !107
-  store double 0x3FCDD94B1446E07D, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE2WG, i64 40), align 8, !tbaa !107
-  store double 0x3FD0D1CA26FA5924, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE2WG, i64 48), align 16, !tbaa !107
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 8), align 8, !tbaa !107
-  store double 0x3FEFE242874C478B, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 16), align 16, !tbaa !107
-  store double 0x3FEF4DA62FD7E9B5, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 24), align 8, !tbaa !107
-  store double 0x3FEE223808178233, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 32), align 16, !tbaa !107
-  store double 0x3FEC62D11AF04753, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 40), align 8, !tbaa !107
-  store double 0x3FEA1D2486FFDA60, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 48), align 16, !tbaa !107
-  store double 0x3FE75D67BD219449, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 56), align 8, !tbaa !107
-  store double 0x3FE42DDF0B7F017F, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 64), align 16, !tbaa !107
-  store double 0x3FE09C6F7C4D8CE1, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 72), align 8, !tbaa !107
-  store double 0x3FD977EAB3C19E20, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 80), align 16, !tbaa !107
-  store double 0x3FD14031EFEB42C2, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 88), align 8, !tbaa !107
-  store double 0x3FC16C269B7F30EB, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 96), align 16, !tbaa !107
-  store double 0x3FC17B6194D27064, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 8), align 8, !tbaa !107
-  store double 0x3F83FFE74F6329E8, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 16), align 16, !tbaa !107
-  store double 0x3F9BCEED88ED3C01, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 24), align 8, !tbaa !107
-  store double 0x3FA776F2C442ABB1, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 32), align 16, !tbaa !107
-  store double 0x3FB027271FC3C221, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 40), align 8, !tbaa !107
-  store double 0x3FB4235C83CD8180, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 48), align 16, !tbaa !107
-  store double 0x3FB7CBC6368919F2, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 56), align 8, !tbaa !107
-  store double 0x3FBB1A6EA9750DEB, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 64), align 16, !tbaa !107
-  store double 0x3FBDE2A3D938B4D4, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 72), align 8, !tbaa !107
-  store double 0x3FC005341A78A40D, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 80), align 16, !tbaa !107
-  store double 0x3FC0CDCE32AE87C6, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 88), align 8, !tbaa !107
-  store double 0x3FC14E05E2E706EF, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 96), align 16, !tbaa !107
+  store double 0x3FD1779AC87E04D8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE2WG, i64 8), align 8, !tbaa !107
+  store double 0x3FAC8097265BB99C, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE2WG, i64 16), align 16, !tbaa !107
+  store double 0x3FC013047DEF88D4, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE2WG, i64 24), align 8, !tbaa !107
+  store double 0x3FC7D85B8DBFF1BB, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE2WG, i64 32), align 16, !tbaa !107
+  store double 0x3FCDD94B1446E07D, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE2WG, i64 40), align 8, !tbaa !107
+  store double 0x3FD0D1CA26FA5924, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE2WG, i64 48), align 16, !tbaa !107
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 8), align 8, !tbaa !107
+  store double 0x3FEFE242874C478B, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 16), align 16, !tbaa !107
+  store double 0x3FEF4DA62FD7E9B5, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 24), align 8, !tbaa !107
+  store double 0x3FEE223808178233, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 32), align 16, !tbaa !107
+  store double 0x3FEC62D11AF04753, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 40), align 8, !tbaa !107
+  store double 0x3FEA1D2486FFDA60, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 48), align 16, !tbaa !107
+  store double 0x3FE75D67BD219449, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 56), align 8, !tbaa !107
+  store double 0x3FE42DDF0B7F017F, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 64), align 16, !tbaa !107
+  store double 0x3FE09C6F7C4D8CE1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 72), align 8, !tbaa !107
+  store double 0x3FD977EAB3C19E20, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 80), align 16, !tbaa !107
+  store double 0x3FD14031EFEB42C2, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 88), align 8, !tbaa !107
+  store double 0x3FC16C269B7F30EB, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 96), align 16, !tbaa !107
+  store double 0x3FC17B6194D27064, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 8), align 8, !tbaa !107
+  store double 0x3F83FFE74F6329E8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 16), align 16, !tbaa !107
+  store double 0x3F9BCEED88ED3C01, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 24), align 8, !tbaa !107
+  store double 0x3FA776F2C442ABB1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 32), align 16, !tbaa !107
+  store double 0x3FB027271FC3C221, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 40), align 8, !tbaa !107
+  store double 0x3FB4235C83CD8180, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 48), align 16, !tbaa !107
+  store double 0x3FB7CBC6368919F2, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 56), align 8, !tbaa !107
+  store double 0x3FBB1A6EA9750DEB, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 64), align 16, !tbaa !107
+  store double 0x3FBDE2A3D938B4D4, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 72), align 8, !tbaa !107
+  store double 0x3FC005341A78A40D, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 80), align 16, !tbaa !107
+  store double 0x3FC0CDCE32AE87C6, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 88), align 8, !tbaa !107
+  store double 0x3FC14E05E2E706EF, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 96), align 16, !tbaa !107
   %sub = fsub double %B, %A
   %div = fmul double %sub, 5.000000e-01
   store double %div, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WID, align 8, !tbaa !107
@@ -8349,10 +8349,10 @@ entry:
   %6 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_12ARE, align 8, !tbaa !107
   %7 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_13RUCE, align 8, !tbaa !107
   %call = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_16TVTMFNEdddddddddi(double noundef %div1, double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, i32 noundef 0)
-  %8 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE2WG, i64 8), align 8, !tbaa !107
+  %8 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE2WG, i64 8), align 8, !tbaa !107
   %mul = fmul double %call, %8
   store double %mul, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE4RESG, align 8, !tbaa !107
-  %9 = load double, ptr getelementptr inbounds (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 8), align 8, !tbaa !107
+  %9 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 8), align 8, !tbaa !107
   %mul2 = fmul double %call, %9
   store double %mul2, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE4RESK, align 8, !tbaa !107
   br label %for.body

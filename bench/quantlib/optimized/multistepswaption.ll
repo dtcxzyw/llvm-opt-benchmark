@@ -213,7 +213,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !19
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !21
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -340,7 +340,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib17MultiStepSwaptionE, i64 16), ptr %this, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib17MultiStepSwaptionE, i64 16), ptr %this, align 8, !tbaa !19
   %startIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   store i64 %startIndex, ptr %startIndex_, align 8, !tbaa !23
   %endIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 168
@@ -830,7 +830,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib21MultiProductMultiStepD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib21MultiProductMultiStepE, i64 16), ptr %this, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib21MultiProductMultiStepE, i64 16), ptr %this, align 8, !tbaa !19
   %firstAliveRate_.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %firstAliveRate_.i, align 8, !tbaa !44
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -1015,7 +1015,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN8QuantLib17MultiStepSwaptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib21MultiProductMultiStepE, i64 16), ptr %this, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib21MultiProductMultiStepE, i64 16), ptr %this, align 8, !tbaa !19
   %rateTimes_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %rateTimes_2.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1088,7 +1088,7 @@ common.resume:                                    ; preds = %lpad4.i, %if.then.i
   resume { ptr, i32 } %common.resume.op
 
 _ZN8QuantLib21MultiProductMultiStepC2ERKS0_.exit: ; preds = %invoke.cont.i
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib17MultiStepSwaptionE, i64 16), ptr %this, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib17MultiStepSwaptionE, i64 16), ptr %this, align 8, !tbaa !19
   %startIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %startIndex_2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %startIndex_, ptr noundef nonnull align 8 dereferenceable(16) %startIndex_2, i64 16, i1 false)
@@ -1179,7 +1179,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib17MultiStepSwaptionD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib17MultiStepSwaptionE, i64 16), ptr %this, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib17MultiStepSwaptionE, i64 16), ptr %this, align 8, !tbaa !19
   %paymentTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load ptr, ptr %paymentTimes_, align 8, !tbaa !8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -1241,7 +1241,7 @@ _ZN5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEED2Ev.exit: ; preds = %_ZNSt
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib17MultiStepSwaptionD0Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib17MultiStepSwaptionE, i64 16), ptr %this, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib17MultiStepSwaptionE, i64 16), ptr %this, align 8, !tbaa !19
   %paymentTimes_.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load ptr, ptr %paymentTimes_.i, align 8, !tbaa !8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

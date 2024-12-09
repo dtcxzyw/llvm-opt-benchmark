@@ -65,7 +65,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr %4, ptr %5, align 8, !tbaa !13
   store ptr %4, ptr %2, align 8, !tbaa !14
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !16
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !16
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 272
   store ptr %0, ptr %7, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 280

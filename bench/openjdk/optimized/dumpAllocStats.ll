@@ -101,7 +101,7 @@ define hidden void @_ZN14DumpAllocStats11print_statsEii(ptr nocapture noundef no
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i8 0, ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18LogMessageTemplateILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV18LogMessageTemplateILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE, i64 16), ptr %4, align 8
   %32 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull @.str.5) #4
   %33 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.4) #4
   %34 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str) #4
@@ -217,7 +217,7 @@ switch.lookup:                                    ; preds = %3, %switch.lookup
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %121 = load i32, ptr %120, align 4
   %122 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull @.str.11, i32 noundef %112, i32 noundef %114, double noundef %119, i32 noundef %121) #4
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14LogMessageImpl, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV14LogMessageImpl, i64 16), ptr %4, align 8
   %123 = load i8, ptr %31, align 8
   %124 = trunc i8 %123 to i1
   br i1 %124, label %125, label %_ZN18LogMessageTemplateILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit

@@ -118,7 +118,7 @@ define i32 @prte_init_minimum() local_unnamed_addr #0 {
   br label %32
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 120), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_install_dirs, i64 120), align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %1)
   %11 = call i32 @stat(ptr noundef readonly %10, ptr noundef nonnull %1) #11
   %12 = icmp eq i32 %11, 0
@@ -126,7 +126,7 @@ define i32 @prte_init_minimum() local_unnamed_addr #0 {
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 120), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_install_dirs, i64 120), align 8
   %15 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.2, ptr noundef %14) #11
   %.pre = load ptr, ptr %2, align 8
   br label %16
@@ -151,7 +151,7 @@ define i32 @prte_init_minimum() local_unnamed_addr #0 {
   br label %32
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 112), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_install_dirs, i64 112), align 8
   %26 = call i32 @pmix_show_help_add_dir(ptr noundef %25) #11
   %.not17 = icmp eq i32 %26, 0
   br i1 %.not17, label %29, label %27
@@ -201,7 +201,7 @@ define void @prte_preload_default_mca_params() local_unnamed_addr #0 {
   %5 = alloca %struct.pmix_list_t, align 8
   %6 = tail call ptr @pmix_home_directory(i32 noundef -1) #11
   %7 = load i32, ptr @pmix_class_init_epoch, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %7, %8
   br i1 %.not, label %10, label %9
 
@@ -232,7 +232,7 @@ define void @prte_preload_default_mca_params() local_unnamed_addr #0 {
 
 pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %10
   %19 = load i32, ptr @pmix_class_init_epoch, align 4
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not99 = icmp eq i32 %19, %20
   br i1 %.not99, label %22, label %21
 
@@ -263,7 +263,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %10
 
 pmix_obj_run_constructors.exit116:                ; preds = %.lr.ph.i113, %22
   %31 = load i32, ptr @pmix_class_init_epoch, align 4
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not100 = icmp eq i32 %31, %32
   br i1 %.not100, label %34, label %33
 
@@ -293,7 +293,7 @@ pmix_obj_run_constructors.exit116:                ; preds = %.lr.ph.i113, %22
   br i1 %.not.i120, label %pmix_obj_run_constructors.exit121, label %.lr.ph.i118, !llvm.loop !4
 
 pmix_obj_run_constructors.exit121:                ; preds = %.lr.ph.i118, %34
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 56), align 8
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_install_dirs, i64 56), align 8
   %44 = call noalias ptr (i32, ...) @pmix_os_path(i32 noundef 0, ptr noundef %43, ptr noundef nonnull @.str.22, ptr noundef null) #11
   %45 = call i32 @pmix_mca_base_parse_paramfile(ptr noundef %44, ptr noundef nonnull %3) #11
   call void @free(ptr noundef %44) #11
@@ -925,7 +925,7 @@ define i32 @prte_init_util(i8 noundef zeroext %0) local_unnamed_addr #0 {
   br i1 %.not, label %5, label %19
 
 5:                                                ; preds = %3
-  store i8 %0, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 820), align 4
+  store i8 %0, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 820), align 4
   tail call void @prte_malloc_init() #11
   %6 = tail call zeroext i1 @pmix_output_init() #11
   tail call void @prte_setup_hostname() #11
@@ -981,26 +981,26 @@ declare ptr @prte_strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @prte_init(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_init_lock, i64 128)) #11
-  %5 = load volatile i8, ptr getelementptr inbounds (i8, ptr @prte_init_lock, i64 216), align 8
+  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 128)) #11
+  %5 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 216), align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %7 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_init_lock, i64 168), ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_init_lock, i64 128)) #11
-  %8 = load volatile i8, ptr getelementptr inbounds (i8, ptr @prte_init_lock, i64 216), align 8
+  %7 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 168), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 128)) #11
+  %8 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 216), align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   fence acquire
-  store volatile i8 1, ptr getelementptr inbounds (i8, ptr @prte_init_lock, i64 216), align 8
+  store volatile i8 1, ptr getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 216), align 8
   %10 = load i8, ptr @prte_initialized, align 1
   %11 = trunc i8 %10 to i1
-  store volatile i8 0, ptr getelementptr inbounds (i8, ptr @prte_init_lock, i64 216), align 8
+  store volatile i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 216), align 8
   fence release
-  %12 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_init_lock, i64 168)) #11
-  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_init_lock, i64 128)) #11
+  %12 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 168)) #11
+  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 128)) #11
   br i1 %11, label %62, label %14
 
 14:                                               ; preds = %._crit_edge
@@ -1090,29 +1090,29 @@ define i32 @prte_init(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   br i1 %.not51, label %47, label %59
 
 47:                                               ; preds = %42
-  tail call void @pmix_ifgetaliases(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_process_info, i64 808)) #11
+  tail call void @pmix_ifgetaliases(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 808)) #11
   %48 = tail call fastcc ptr @pmix_obj_new_tma()
   store ptr %48, ptr @prte_cache, align 8
   %49 = tail call i32 @pmix_pointer_array_init(ptr noundef %48, i32 noundef 1, i32 noundef 2147483647, i32 noundef 1) #11
-  %50 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_init_lock, i64 128)) #11
-  %51 = load volatile i8, ptr getelementptr inbounds (i8, ptr @prte_init_lock, i64 216), align 8
+  %50 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 128)) #11
+  %51 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 216), align 8
   %52 = trunc i8 %51 to i1
   br i1 %52, label %.lr.ph64, label %._crit_edge65
 
 .lr.ph64:                                         ; preds = %47, %.lr.ph64
-  %53 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_init_lock, i64 168), ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_init_lock, i64 128)) #11
-  %54 = load volatile i8, ptr getelementptr inbounds (i8, ptr @prte_init_lock, i64 216), align 8
+  %53 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 168), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 128)) #11
+  %54 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 216), align 8
   %55 = trunc i8 %54 to i1
   br i1 %55, label %.lr.ph64, label %._crit_edge65, !llvm.loop !15
 
 ._crit_edge65:                                    ; preds = %.lr.ph64, %47
   fence acquire
-  store volatile i8 1, ptr getelementptr inbounds (i8, ptr @prte_init_lock, i64 216), align 8
+  store volatile i8 1, ptr getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 216), align 8
   store i8 1, ptr @prte_initialized, align 1
-  store volatile i8 0, ptr getelementptr inbounds (i8, ptr @prte_init_lock, i64 216), align 8
+  store volatile i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 216), align 8
   fence release
-  %56 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_init_lock, i64 168)) #11
-  %57 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_init_lock, i64 128)) #11
+  %56 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 168)) #11
+  %57 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 128)) #11
   br label %62
 
 .sink.split:                                      ; preds = %38, %34, %31, %28, %24
@@ -1160,10 +1160,10 @@ declare i32 @prte_hwloc_base_open() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @pmix_obj_new_tma() unnamed_addr #0 {
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_pointer_array_t_class, i64 56), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_pointer_array_t_class, i64 56), align 8
   %2 = tail call noalias noundef ptr @malloc(i64 noundef %1) #16
   %3 = load i32, ptr @pmix_class_init_epoch, align 4
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_pointer_array_t_class, i64 32), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_pointer_array_t_class, i64 32), align 8
   %.not = icmp eq i32 %3, %4
   br i1 %.not, label %6, label %5
 

@@ -189,7 +189,7 @@ define void @part_data_build_row_bitmaps(ptr nocapture noundef %0, ptr noundef r
   br i1 %48, label %.lr.ph187, label %.loopexit, !llvm.loop !9
 
 49:                                               ; preds = %._crit_edge
-  %50 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %50 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %51 = and i64 %50, 1
   %.not125 = icmp eq i64 %51, 0
   br i1 %.not125, label %57, label %52
@@ -309,7 +309,7 @@ define void @part_data_build_row_bitmaps(ptr nocapture noundef %0, ptr noundef r
 
 ._crit_edge175:                                   ; preds = %._crit_edge169, %66
   tail call void @qsort(ptr noundef %68, i64 noundef %67, i64 noundef 16, ptr noundef nonnull @_compare_support) #8
-  %114 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %114 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %115 = and i64 %114, 1
   %.not126 = icmp eq i64 %115, 0
   %.pre = tail call i32 @llvm.umax.i32(i32 %39, i32 1)
@@ -531,7 +531,7 @@ part_data_sort_res.exit:                          ; preds = %.loopexit.i, %.loop
   br label %205
 
 205:                                              ; preds = %204, %201
-  %206 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %206 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %207 = and i64 %206, 1
   %.not128 = icmp eq i64 %207, 0
   br i1 %.not128, label %213, label %208
@@ -624,7 +624,7 @@ part_data_destroy_row.exit:                       ; preds = %216, %213
 
 .critedge:                                        ; preds = %198, %.loopexit150, %part_data_destroy_row.exit
   %.0 = phi ptr [ null, %part_data_destroy_row.exit ], [ null, %.loopexit150 ], [ %64, %198 ]
-  %244 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %244 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %245 = and i64 %244, 1
   %.not129 = icmp eq i64 %245, 0
   br i1 %.not129, label %251, label %246

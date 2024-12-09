@@ -457,7 +457,7 @@ define dso_local void @_ZN5clang12PreprocessorC2ESt10shared_ptrINS_19Preprocesso
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %48 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %48, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
@@ -472,7 +472,7 @@ define dso_local void @_ZN5clang12PreprocessorC2ESt10shared_ptrINS_19Preprocesso
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #29
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang15PragmaNamespaceE, i64 16), ptr %48, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang15PragmaNamespaceE, i64 16), ptr %48, align 8
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %57 = getelementptr inbounds nuw i8, ptr %48, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 20, i1 false)
@@ -2507,7 +2507,7 @@ _ZNKSt14default_deleteIN5clang15PragmaNamespaceEEclEPS1_.exit.i.i.i.i: ; preds =
 _ZNSt10unique_ptrIN5clang15PragmaNamespaceESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %1, %_ZNKSt14default_deleteIN5clang15PragmaNamespaceEEclEPS1_.exit.i.i.i.i
   %12 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28, !noalias !23
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !23
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %12, align 8, !noalias !23
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %12, align 8, !noalias !23
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #29, !noalias !23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !23
@@ -2522,7 +2522,7 @@ _ZNSt10unique_ptrIN5clang15PragmaNamespaceESt14default_deleteIS1_EEaSEOS4_.exit:
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #29, !noalias !23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !23
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang15PragmaNamespaceE, i64 16), ptr %12, align 8, !noalias !23
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang15PragmaNamespaceE, i64 16), ptr %12, align 8, !noalias !23
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 20, i1 false), !noalias !23
@@ -11621,7 +11621,7 @@ _ZNSt10unique_ptrIN5clang18PPChainedCallbacksESt14default_deleteIS1_EED2Ev.exit.
   %10 = ptrtoint ptr %9 to i64
   %11 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28, !noalias !251
   %12 = ptrtoint ptr %5 to i64
-  store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN5clang18PPChainedCallbacksE, i64 16), ptr %11, align 8, !noalias !251
+  store ptr getelementptr inbounds nuw inrange(-16, 384) (i8, ptr @_ZTVN5clang18PPChainedCallbacksE, i64 16), ptr %11, align 8, !noalias !251
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %12, ptr %13, align 8, !noalias !251
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16

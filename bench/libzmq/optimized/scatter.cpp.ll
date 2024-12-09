@@ -16,13 +16,13 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN3zmq9scatter_tC2EPNS_5ctx_tEji(ptr noundef nonnull align 8 dereferenceable(1880) %this, ptr noundef %parent_, i32 noundef %tid_, i32 noundef %sid_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN3zmq13socket_base_tC2EPNS_5ctx_tEjib(ptr noundef nonnull align 8 dereferenceable(1825) %this, ptr noundef %parent_, i32 noundef %tid_, i32 noundef %sid_, i1 noundef zeroext true)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq9scatter_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq9scatter_tE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 1448
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq9scatter_tE, i64 392), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq9scatter_tE, i64 392), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds nuw i8, ptr %this, i64 1464
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq9scatter_tE, i64 424), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq9scatter_tE, i64 424), ptr %add.ptr2, align 8
   %add.ptr3 = getelementptr inbounds nuw i8, ptr %this, i64 1472
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq9scatter_tE, i64 480), ptr %add.ptr3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq9scatter_tE, i64 480), ptr %add.ptr3, align 8
   %_lb = getelementptr inbounds nuw i8, ptr %this, i64 1832
   invoke void @_ZN3zmq4lb_tC1Ev(ptr noundef nonnull align 8 dereferenceable(42) %_lb)
           to label %invoke.cont unwind label %lpad

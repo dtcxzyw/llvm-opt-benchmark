@@ -387,9 +387,9 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define void @_ZN25QCPErrorBarsNotSelectableC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 2 {
   tail call void @_ZN12QCPErrorBarsC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV25QCPErrorBarsNotSelectable, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV25QCPErrorBarsNotSelectable, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr getelementptr inbounds (i8, ptr @_ZTV25QCPErrorBarsNotSelectable, i64 344), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV25QCPErrorBarsNotSelectable, i64 344), ptr %4, align 8
   ret void
 }
 
@@ -509,8 +509,8 @@ define void @_ZN15TCPStreamDialogC2EP7QWidgetP13_capture_file15tcp_graph_type_(p
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15TCPStreamDialog, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15TCPStreamDialog, i64 488), ptr %74, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15TCPStreamDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15TCPStreamDialog, i64 488), ptr %74, align 8
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %77 = invoke noalias noundef nonnull dereferenceable(456) ptr @_Znwm(i64 noundef 456) #27
           to label %78 unwind label %142
@@ -3740,7 +3740,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i279:   ; preds = %361
   %371 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 8
   store i32 0, ptr %372, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %371, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %371, align 8
   %373 = getelementptr inbounds nuw i8, ptr %371, i64 12
   store i32 40, ptr %373, align 4
   %374 = getelementptr inbounds nuw i8, ptr %371, i64 16
@@ -3857,7 +3857,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i297:   ; preds = %408
   %417 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 8
   store i32 0, ptr %418, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %417, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %417, align 8
   %419 = getelementptr inbounds nuw i8, ptr %417, i64 12
   store i32 40, ptr %419, align 4
   %420 = getelementptr inbounds nuw i8, ptr %417, i64 16
@@ -4134,7 +4134,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i345:   ; preds = %509
   %519 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %520 = getelementptr inbounds nuw i8, ptr %519, i64 8
   store i32 0, ptr %520, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %519, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %519, align 8
   %521 = getelementptr inbounds nuw i8, ptr %519, i64 12
   store i32 40, ptr %521, align 4
   %522 = getelementptr inbounds nuw i8, ptr %519, i64 16
@@ -4351,7 +4351,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i381:   ; preds = %591
   %600 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %601 = getelementptr inbounds nuw i8, ptr %600, i64 8
   store i32 0, ptr %601, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %600, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %600, align 8
   %602 = getelementptr inbounds nuw i8, ptr %600, i64 12
   store i32 40, ptr %602, align 4
   %603 = getelementptr inbounds nuw i8, ptr %600, i64 16
@@ -7680,9 +7680,9 @@ declare void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN15TCPStreamDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(584) initializes((0, 8), (16, 24)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15TCPStreamDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15TCPStreamDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15TCPStreamDialog, i64 488), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15TCPStreamDialog, i64 488), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   invoke void @graph_segment_list_free(ptr noundef nonnull %3)
           to label %4 unwind label %44

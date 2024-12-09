@@ -36,7 +36,7 @@ define hidden noundef ptr @_ZN18CompiledDirectCall19emit_to_interp_stubEP14Macro
   store ptr null, ptr %14, align 8, !alias.scope !6
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %15, align 8, !alias.scope !6
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV22static_stub_Relocation, i64 16), ptr %3, align 8, !alias.scope !6
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22static_stub_Relocation, i64 16), ptr %3, align 8, !alias.scope !6
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %.010, ptr %16, align 8, !alias.scope !6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8

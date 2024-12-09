@@ -1692,7 +1692,7 @@ define internal void @virtscsi_handle_event(ptr noundef %0) #2 align 16 {
   %13 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !5
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %15 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %14, i32 noundef 3264, i64 noundef 256) #15
   %16 = icmp eq ptr %15, null
   br i1 %16, label %131, label %17

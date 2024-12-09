@@ -486,13 +486,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store ptr @.str.1, ptr @dispatch_g, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @dispatch_g, i64 24), i8 0, i64 16, i1 false)
-  store ptr @.str.2, ptr getelementptr inbounds (i8, ptr @dispatch_g, i64 40), align 8
-  store ptr @dataset_list1, ptr getelementptr inbounds (i8, ptr @dispatch_g, i64 64), align 16
-  store ptr @dataset_list2, ptr getelementptr inbounds (i8, ptr @dispatch_g, i64 72), align 8
-  store ptr @.str.3, ptr getelementptr inbounds (i8, ptr @dispatch_g, i64 80), align 16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @dispatch_g, i64 104), align 8
-  store ptr @datatype_list2, ptr getelementptr inbounds (i8, ptr @dispatch_g, i64 112), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @dispatch_g, i64 24), i8 0, i64 16, i1 false)
+  store ptr @.str.2, ptr getelementptr inbounds nuw (i8, ptr @dispatch_g, i64 40), align 8
+  store ptr @dataset_list1, ptr getelementptr inbounds nuw (i8, ptr @dispatch_g, i64 64), align 16
+  store ptr @dataset_list2, ptr getelementptr inbounds nuw (i8, ptr @dispatch_g, i64 72), align 8
+  store ptr @.str.3, ptr getelementptr inbounds nuw (i8, ptr @dispatch_g, i64 80), align 16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @dispatch_g, i64 104), align 8
+  store ptr @datatype_list2, ptr getelementptr inbounds nuw (i8, ptr @dispatch_g, i64 112), align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %14 = tail call ptr @getenv(ptr noundef nonnull @.str.233) #21
   %.not.i = icmp eq ptr %14, null
@@ -1340,7 +1340,7 @@ print_obj_name.exit:                              ; preds = %312, %313
   %319 = call i32 @llvm.smax.i32(i32 %318, i32 0)
   %320 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %12, ptr noundef nonnull @.str.323, i32 noundef %319, ptr noundef nonnull @.str.41) #21
   %321 = load ptr, ptr @rawoutstream, align 8
-  %322 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
+  %322 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ls_dataformat, i64 288), align 8
   %323 = zext i32 %322 to i64
   %324 = call zeroext i1 @h5tools_render_element(ptr noundef %321, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %11, i64 noundef %323, i64 noundef 0, i64 noundef 0) #21
   call void @h5tools_close() #21
@@ -1535,7 +1535,7 @@ define internal noundef i32 @dataset_list1(i64 noundef %0) #3 {
 32:                                               ; preds = %.sink.split, %._crit_edge
   %33 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %5, ptr noundef nonnull @.str.52) #21
   %34 = load ptr, ptr @rawoutstream, align 8
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ls_dataformat, i64 288), align 8
   %36 = zext i32 %35 to i64
   %37 = call zeroext i1 @h5tools_render_element(ptr noundef %34, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4, i64 noundef %36, i64 noundef 0, i64 noundef 0) #21
   %38 = call i32 @H5Sclose(i64 noundef %8) #21
@@ -1882,7 +1882,7 @@ print_string.exit:                                ; preds = %.preheader112
 
 .loopexit:                                        ; preds = %._crit_edge138, %149
   %173 = load ptr, ptr @rawoutstream, align 8
-  %174 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
+  %174 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ls_dataformat, i64 288), align 8
   %175 = zext i32 %174 to i64
   %176 = call zeroext i1 @h5tools_render_element(ptr noundef %173, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %18, ptr noundef nonnull %17, ptr noundef nonnull %16, i64 noundef %175, i64 noundef 0, i64 noundef 0) #21
   %177 = call ptr @h5tools_str_reset(ptr noundef nonnull %17) #21
@@ -1890,7 +1890,7 @@ print_string.exit:                                ; preds = %.preheader112
   call fastcc void @print_type(ptr noundef %17, i64 noundef %28, i32 noundef 15)
   %179 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %17, ptr noundef nonnull @.str.69) #21
   %180 = load ptr, ptr @rawoutstream, align 8
-  %181 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
+  %181 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ls_dataformat, i64 288), align 8
   %182 = zext i32 %181 to i64
   %183 = call zeroext i1 @h5tools_render_element(ptr noundef %180, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %18, ptr noundef nonnull %17, ptr noundef nonnull %16, i64 noundef %182, i64 noundef 0, i64 noundef 0) #21
   %.b106 = load i1, ptr @address_g, align 1
@@ -2209,7 +2209,7 @@ define internal noundef i32 @datatype_list2(i64 noundef %0, ptr nocapture readno
   call fastcc void @print_type(ptr noundef %4, i64 noundef %0, i32 noundef 15)
   %11 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %4, ptr noundef nonnull @.str.69) #21
   %12 = load ptr, ptr @rawoutstream, align 8
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ls_dataformat, i64 288), align 8
   %14 = zext i32 %13 to i64
   %15 = call zeroext i1 @h5tools_render_element(ptr noundef %12, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %3, i64 noundef %14, i64 noundef 0, i64 noundef 0) #21
   call void @h5tools_str_close(ptr noundef nonnull %4) #21
@@ -2818,7 +2818,7 @@ print_obj_name.exit:                              ; preds = %30, %31
 
 39:                                               ; preds = %print_obj_name.exit, %15
   %40 = load ptr, ptr @rawoutstream, align 8
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ls_dataformat, i64 288), align 8
   %42 = zext i32 %41 to i64
   %43 = call zeroext i1 @h5tools_render_element(ptr noundef %40, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef %42, i64 noundef 0, i64 noundef 0) #21
   br label %85
@@ -2851,7 +2851,7 @@ print_obj_name.exit:                              ; preds = %30, %31
   %60 = load ptr, ptr %2, align 8
   %61 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %6, ptr noundef nonnull @.str.325, ptr noundef %60, ptr noundef %1) #21
   %62 = load ptr, ptr @rawoutstream, align 8
-  %63 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
+  %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ls_dataformat, i64 288), align 8
   %64 = zext i32 %63 to i64
   %65 = call zeroext i1 @h5tools_render_element(ptr noundef %62, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef %64, i64 noundef 0, i64 noundef 0) #21
   br label %85
@@ -2988,7 +2988,7 @@ print_obj_name.exit:                              ; preds = %27, %28
   %52 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %6, ptr noundef nonnull @.str.316, ptr noundef %42) #21
   %53 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %6, ptr noundef nonnull @.str.52) #21
   %54 = load ptr, ptr @rawoutstream, align 8
-  %55 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
+  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ls_dataformat, i64 288), align 8
   %56 = zext i32 %55 to i64
   %57 = call zeroext i1 @h5tools_render_element(ptr noundef %54, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %4, i64 noundef %56, i64 noundef 0, i64 noundef 0) #21
   %.b6479 = load i1, ptr @follow_symlink_g, align 1
@@ -3008,14 +3008,14 @@ print_obj_name.exit:                              ; preds = %27, %28
 67:                                               ; preds = %58
   %68 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %6, ptr noundef nonnull @.str.348) #21
   %69 = load ptr, ptr @rawoutstream, align 8
-  %70 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
+  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ls_dataformat, i64 288), align 8
   %71 = zext i32 %70 to i64
   %72 = call zeroext i1 @h5tools_render_element(ptr noundef %69, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %4, i64 noundef %71, i64 noundef 0, i64 noundef 0) #21
   br label %173
 
 73:                                               ; preds = %58
   %74 = load ptr, ptr @rawoutstream, align 8
-  %75 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
+  %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ls_dataformat, i64 288), align 8
   %76 = zext i32 %75 to i64
   %77 = call zeroext i1 @h5tools_render_element(ptr noundef %74, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %4, i64 noundef %76, i64 noundef 0, i64 noundef 0) #21
   %78 = load ptr, ptr %63, align 8
@@ -3044,7 +3044,7 @@ print_obj_name.exit:                              ; preds = %27, %28
   %89 = call ptr @h5tools_str_reset(ptr noundef nonnull %6) #21
   %90 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %6, ptr noundef nonnull @.str.69) #21
   %91 = load ptr, ptr @rawoutstream, align 8
-  %92 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
+  %92 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ls_dataformat, i64 288), align 8
   %93 = zext i32 %92 to i64
   %94 = call zeroext i1 @h5tools_render_element(ptr noundef %91, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %4, i64 noundef %93, i64 noundef 0, i64 noundef 0) #21
   br label %173
@@ -3101,7 +3101,7 @@ print_obj_name.exit:                              ; preds = %27, %28
   %125 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %6, ptr noundef nonnull @.str.316, ptr noundef %124) #21
   %126 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %6, ptr noundef nonnull @.str.52) #21
   %127 = load ptr, ptr @rawoutstream, align 8
-  %128 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
+  %128 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ls_dataformat, i64 288), align 8
   %129 = zext i32 %128 to i64
   %130 = call zeroext i1 @h5tools_render_element(ptr noundef %127, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %4, i64 noundef %129, i64 noundef 0, i64 noundef 0) #21
   br i1 %96, label %131, label %165
@@ -3122,14 +3122,14 @@ print_obj_name.exit:                              ; preds = %27, %28
 142:                                              ; preds = %131
   %143 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %6, ptr noundef nonnull @.str.348) #21
   %144 = load ptr, ptr @rawoutstream, align 8
-  %145 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
+  %145 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ls_dataformat, i64 288), align 8
   %146 = zext i32 %145 to i64
   %147 = call zeroext i1 @h5tools_render_element(ptr noundef %144, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %4, i64 noundef %146, i64 noundef 0, i64 noundef 0) #21
   br label %173
 
 148:                                              ; preds = %131
   %149 = load ptr, ptr @rawoutstream, align 8
-  %150 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
+  %150 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ls_dataformat, i64 288), align 8
   %151 = zext i32 %150 to i64
   %152 = call zeroext i1 @h5tools_render_element(ptr noundef %149, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %4, i64 noundef %151, i64 noundef 0, i64 noundef 0) #21
   %153 = load ptr, ptr %136, align 8
@@ -3168,7 +3168,7 @@ print_obj_name.exit:                              ; preds = %27, %28
 .thread:                                          ; preds = %print_obj_name.exit
   %168 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %6, ptr noundef nonnull @.str.351) #21
   %169 = load ptr, ptr @rawoutstream, align 8
-  %170 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
+  %170 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ls_dataformat, i64 288), align 8
   %171 = zext i32 %170 to i64
   %172 = call zeroext i1 @h5tools_render_element(ptr noundef %169, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %4, i64 noundef %171, i64 noundef 0, i64 noundef 0) #21
   call void @h5tools_str_close(ptr noundef nonnull %6) #21
@@ -4842,7 +4842,7 @@ print_obj_name.exit:                              ; preds = %30, %31
 
 56:                                               ; preds = %54, %50, %48
   %57 = load ptr, ptr @rawoutstream, align 8
-  %58 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
+  %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ls_dataformat, i64 288), align 8
   %59 = zext i32 %58 to i64
   %60 = call zeroext i1 @h5tools_render_element(ptr noundef %57, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef %59, i64 noundef 0, i64 noundef 0) #21
   %.not86 = icmp eq ptr %2, null
@@ -4862,7 +4862,7 @@ print_obj_name.exit:                              ; preds = %30, %31
 
 69:                                               ; preds = %67, %61
   %70 = load ptr, ptr @rawoutstream, align 8
-  %71 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
+  %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ls_dataformat, i64 288), align 8
   %72 = zext i32 %71 to i64
   %73 = call zeroext i1 @h5tools_render_element(ptr noundef %70, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef %72, i64 noundef 0, i64 noundef 0) #21
   br label %.critedge
@@ -4881,7 +4881,7 @@ print_obj_name.exit:                              ; preds = %30, %31
   %81 = call ptr @h5tools_str_reset(ptr noundef nonnull %6) #21
   %82 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %6, ptr noundef nonnull @.str.328) #21
   %83 = load ptr, ptr @rawoutstream, align 8
-  %84 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
+  %84 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ls_dataformat, i64 288), align 8
   %85 = zext i32 %84 to i64
   %86 = call zeroext i1 @h5tools_render_element(ptr noundef %83, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef %85, i64 noundef 0, i64 noundef 0) #21
   br label %.critedge
@@ -4910,7 +4910,7 @@ print_obj_name.exit:                              ; preds = %30, %31
   %99 = call ptr @h5tools_str_reset(ptr noundef nonnull %6) #21
   %100 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %6, ptr noundef nonnull @.str.69) #21
   %101 = load ptr, ptr @rawoutstream, align 8
-  %102 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
+  %102 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ls_dataformat, i64 288), align 8
   %103 = zext i32 %102 to i64
   %104 = call zeroext i1 @h5tools_render_element(ptr noundef %101, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef %103, i64 noundef 0, i64 noundef 0) #21
   %.pr = load i32, ptr @verbose_g, align 4
@@ -4937,7 +4937,7 @@ print_obj_name.exit:                              ; preds = %30, %31
   %117 = load i32, ptr %116, align 4
   %118 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %6, ptr noundef nonnull @.str.331, ptr noundef nonnull @.str.332, i32 noundef %117) #21
   %119 = load ptr, ptr @rawoutstream, align 8
-  %120 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
+  %120 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ls_dataformat, i64 288), align 8
   %121 = zext i32 %120 to i64
   %122 = call zeroext i1 @h5tools_render_element(ptr noundef %119, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef %121, i64 noundef 0, i64 noundef 0) #21
   %123 = load ptr, ptr %8, align 8
@@ -4969,7 +4969,7 @@ print_obj_name.exit:                              ; preds = %30, %31
   %136 = call ptr @h5tools_str_reset(ptr noundef nonnull %6) #21
   %137 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %6, ptr noundef nonnull @.str.334, ptr noundef nonnull @.str.335, ptr noundef nonnull %10) #21
   %138 = load ptr, ptr @rawoutstream, align 8
-  %139 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
+  %139 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ls_dataformat, i64 288), align 8
   %140 = zext i32 %139 to i64
   %141 = call zeroext i1 @h5tools_render_element(ptr noundef %138, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef %140, i64 noundef 0, i64 noundef 0) #21
   br label %142
@@ -5005,7 +5005,7 @@ print_obj_name.exit:                              ; preds = %30, %31
   %159 = call fastcc i32 @print_string(ptr noundef nonnull %6, ptr noundef nonnull %151, i1 noundef zeroext false)
   %160 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %6, ptr noundef nonnull @.str.338) #21
   %161 = load ptr, ptr @rawoutstream, align 8
-  %162 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
+  %162 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ls_dataformat, i64 288), align 8
   %163 = zext i32 %162 to i64
   %164 = call zeroext i1 @h5tools_render_element(ptr noundef %161, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef %163, i64 noundef 0, i64 noundef 0) #21
   br label %165
@@ -5041,7 +5041,7 @@ print_obj_name.exit:                              ; preds = %30, %31
   %177 = call ptr @h5tools_str_reset(ptr noundef nonnull %6) #21
   %178 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %6, ptr noundef nonnull @.str.93) #21
   %179 = load ptr, ptr @rawoutstream, align 8
-  %180 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
+  %180 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ls_dataformat, i64 288), align 8
   %181 = zext i32 %180 to i64
   %182 = call zeroext i1 @h5tools_render_element(ptr noundef %179, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef %181, i64 noundef 0, i64 noundef 0) #21
   store i8 0, ptr %14, align 8
@@ -5127,7 +5127,7 @@ define internal noundef i32 @list_attr(i64 noundef %0, ptr noundef %1, ptr nocap
   %.str.342.sink = phi ptr [ @.str.342, %35 ], [ @.str.341, %34 ], [ @.str.340, %22 ], [ @.str.93, %27 ], [ @.str.93, %.lr.ph ]
   %36 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %13, ptr noundef nonnull %.str.342.sink) #21
   %37 = load ptr, ptr @rawoutstream, align 8
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ls_dataformat, i64 288), align 8
   %39 = zext i32 %38 to i64
   %40 = call zeroext i1 @h5tools_render_element(ptr noundef %37, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %14, ptr noundef nonnull %13, ptr noundef nonnull %12, i64 noundef %39, i64 noundef 0, i64 noundef 0) #21
   %41 = call ptr @h5tools_str_reset(ptr noundef nonnull %13) #21
@@ -5135,7 +5135,7 @@ define internal noundef i32 @list_attr(i64 noundef %0, ptr noundef %1, ptr nocap
   call fastcc void @print_type(ptr noundef %13, i64 noundef %24, i32 noundef 15)
   %43 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %13, ptr noundef nonnull @.str.69) #21
   %44 = load ptr, ptr @rawoutstream, align 8
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ls_dataformat, i64 288), align 8
   %46 = zext i32 %45 to i64
   %47 = call zeroext i1 @h5tools_render_element(ptr noundef %44, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %14, ptr noundef nonnull %13, ptr noundef nonnull %12, i64 noundef %46, i64 noundef 0, i64 noundef 0) #21
   %48 = call i32 @H5Sclose(i64 noundef %23) #21

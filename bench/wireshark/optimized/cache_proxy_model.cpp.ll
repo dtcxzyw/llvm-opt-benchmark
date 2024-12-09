@@ -29,7 +29,7 @@ $_ZN9QtPrivate11QSlotObjectIM15CacheProxyModelFvvENS_4ListIJEEEvE4implEiPNS_15QS
 ; Function Attrs: mustprogress uwtable
 define void @_ZN15CacheProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN19QIdentityProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15CacheProxyModel, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15CacheProxyModel, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN18QStandardItemModelC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef null)
           to label %4 unwind label %5

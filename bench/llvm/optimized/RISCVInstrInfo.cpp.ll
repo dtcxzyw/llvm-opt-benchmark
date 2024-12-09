@@ -712,9 +712,9 @@ define dso_local void @_ZN4llvm17RISCVGenInstrInfoC2Ejjjj(ptr nocapture noundef 
   store i32 %3, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 %4, ptr %10, align 4
-  store ptr getelementptr inbounds inrange(-16, 1416) (i8, ptr @_ZTVN4llvm17RISCVGenInstrInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 1416) (i8, ptr @_ZTVN4llvm17RISCVGenInstrInfoE, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN4llvm10RISCVDescsE, i64 441920), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10RISCVDescsE, i64 441920), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @_ZN4llvm21RISCVInstrNameIndicesE, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -878,7 +878,7 @@ define dso_local noundef signext i16 @_ZN4llvm5RISCV18getNamedOperandIdxEtt(i16 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %3, %4
-  %.sink5 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, i64 20), %4 ], [ getelementptr inbounds (i8, ptr @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, i64 10), %3 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ]
+  %.sink5 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, i64 20), %4 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, i64 10), %3 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ], [ @_ZZN4llvm5RISCV18getNamedOperandIdxEttE10OperandMap, %2 ]
   %5 = zext i16 %1 to i64
   %6 = getelementptr inbounds nuw [5 x i16], ptr %.sink5, i64 0, i64 %5
   %7 = load i16, ptr %6, align 2
@@ -891,7 +891,7 @@ define dso_local noundef signext i16 @_ZN4llvm5RISCV18getNamedOperandIdxEtt(i16 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #2 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -903,7 +903,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr n
   br label %_ZNSt8functionIFvRKbEED2Ev.exit
 
 _ZNSt8functionIFvRKbEED2Ev.exit:                  ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -936,7 +936,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optINS_20MachineTraceStrategyELb0ENS0_6parserIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #2 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optINS_20MachineTraceStrategyELb0ENS0_6parserIS2_EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optINS_20MachineTraceStrategyELb0ENS0_6parserIS2_EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -949,7 +949,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optINS_20MachineTraceStrategyELb0EN
 
 _ZNSt8functionIFvRKN4llvm20MachineTraceStrategyEEED2Ev.exit: ; preds = %1, %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm2cl6parserINS_20MachineTraceStrategyEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm2cl6parserINS_20MachineTraceStrategyEEE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(400) %8) #25
   %10 = load ptr, ptr %8, align 8
@@ -962,7 +962,7 @@ _ZNSt8functionIFvRKN4llvm20MachineTraceStrategyEEED2Ev.exit: ; preds = %1, %4
   br label %_ZN4llvm2cl6parserINS_20MachineTraceStrategyEED2Ev.exit
 
 _ZN4llvm2cl6parserINS_20MachineTraceStrategyEED2Ev.exit: ; preds = %_ZNSt8functionIFvRKN4llvm20MachineTraceStrategyEEED2Ev.exit, %13
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %16 = load ptr, ptr %15, align 8
@@ -1013,7 +1013,7 @@ _ZSt7advanceIPKN4llvm18RISCVVPseudosTable10PseudoInfoElEvRT_T0_.exit.i.i: ; pred
   br i1 %10, label %_ZSt7advanceIPKN4llvm18RISCVVPseudosTable10PseudoInfoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm18RISCVVPseudosTable10PseudoInfoEZNS1_13getPseudoInfoEjE7KeyTypeZNS1_13getPseudoInfoEjE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !4
 
 _ZSt11lower_boundIPKN4llvm18RISCVVPseudosTable10PseudoInfoEZNS1_13getPseudoInfoEjE7KeyTypeZNS1_13getPseudoInfoEjE4CompET_S7_S7_RKT0_T1_.exit: ; preds = %_ZSt7advanceIPKN4llvm18RISCVVPseudosTable10PseudoInfoElEvRT_T0_.exit.i.i
-  %11 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZN4llvm18RISCVVPseudosTableL18RISCVVPseudosTableE, i64 45356)
+  %11 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZN4llvm18RISCVVPseudosTableL18RISCVVPseudosTableE, i64 45356)
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %_ZSt11lower_boundIPKN4llvm18RISCVVPseudosTable10PseudoInfoEZNS1_13getPseudoInfoEjE7KeyTypeZNS1_13getPseudoInfoEjE4CompET_S7_S7_RKT0_T1_.exit
@@ -1050,7 +1050,7 @@ _ZSt7advanceIPKN4llvm5RISCV21RISCVMaskedPseudoInfoElEvRT_T0_.exit.i.i: ; preds =
   br i1 %8, label %_ZSt7advanceIPKN4llvm5RISCV21RISCVMaskedPseudoInfoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm5RISCV21RISCVMaskedPseudoInfoEZNS1_19getMaskedPseudoInfoEjE7KeyTypeZNS1_19getMaskedPseudoInfoEjE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !6
 
 _ZSt11lower_boundIPKN4llvm5RISCV21RISCVMaskedPseudoInfoEZNS1_19getMaskedPseudoInfoEjE7KeyTypeZNS1_19getMaskedPseudoInfoEjE4CompET_S7_S7_RKT0_T1_.exit: ; preds = %_ZSt7advanceIPKN4llvm5RISCV21RISCVMaskedPseudoInfoElEvRT_T0_.exit.i.i
-  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZN4llvm5RISCVL23RISCVMaskedPseudosTableE, i64 19278)
+  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZN4llvm5RISCVL23RISCVMaskedPseudosTableE, i64 19278)
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %_ZSt11lower_boundIPKN4llvm5RISCV21RISCVMaskedPseudoInfoEZNS1_19getMaskedPseudoInfoEjE7KeyTypeZNS1_19getMaskedPseudoInfoEjE4CompET_S7_S7_RKT0_T1_.exit
@@ -1085,7 +1085,7 @@ define dso_local noundef ptr @_ZN4llvm5RISCV31lookupMaskedIntrinsicByUnmaskedEj(
   br i1 %8, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm5RISCV31lookupMaskedIntrinsicByUnmaskedEjE9IndexTypeZNS1_31lookupMaskedIntrinsicByUnmaskedEjE7KeyTypeZNS1_31lookupMaskedIntrinsicByUnmaskedEjE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !7
 
 _ZSt11lower_boundIPKZN4llvm5RISCV31lookupMaskedIntrinsicByUnmaskedEjE9IndexTypeZNS1_31lookupMaskedIntrinsicByUnmaskedEjE7KeyTypeZNS1_31lookupMaskedIntrinsicByUnmaskedEjE4CompET_S7_S7_RKT0_T1_.exit: ; preds = %.lr.ph.i.i
-  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm5RISCV31lookupMaskedIntrinsicByUnmaskedEjE5Index, i64 25704)
+  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm5RISCV31lookupMaskedIntrinsicByUnmaskedEjE5Index, i64 25704)
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm5RISCV31lookupMaskedIntrinsicByUnmaskedEjE9IndexTypeZNS1_31lookupMaskedIntrinsicByUnmaskedEjE7KeyTypeZNS1_31lookupMaskedIntrinsicByUnmaskedEjE4CompET_S7_S7_RKT0_T1_.exit
@@ -1118,7 +1118,7 @@ define dso_local void @_ZN4llvm14RISCVInstrInfoC2ERNS_14RISCVSubtargetE(ptr noca
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 -1, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN4llvm10RISCVDescsE, i64 441920), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10RISCVDescsE, i64 441920), ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @_ZN4llvm21RISCVInstrNameIndicesE, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1127,7 +1127,7 @@ define dso_local void @_ZN4llvm14RISCVInstrInfoC2ERNS_14RISCVSubtargetE(ptr noca
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store i32 13811, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 1416) (i8, ptr @_ZTVN4llvm14RISCVInstrInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 1416) (i8, ptr @_ZTVN4llvm14RISCVInstrInfoE, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %1, ptr %13, align 8
   ret void
@@ -1433,7 +1433,7 @@ _ZSt7advanceIPKN4llvm18RISCVVPseudosTable10PseudoInfoElEvRT_T0_.exit.i.i.i.i: ; 
   br i1 %13, label %_ZSt7advanceIPKN4llvm18RISCVVPseudosTable10PseudoInfoElEvRT_T0_.exit.i.i.i.i, label %_ZSt11lower_boundIPKN4llvm18RISCVVPseudosTable10PseudoInfoEZNS1_13getPseudoInfoEjE7KeyTypeZNS1_13getPseudoInfoEjE4CompET_S7_S7_RKT0_T1_.exit.i.i, !llvm.loop !4
 
 _ZSt11lower_boundIPKN4llvm18RISCVVPseudosTable10PseudoInfoEZNS1_13getPseudoInfoEjE7KeyTypeZNS1_13getPseudoInfoEjE4CompET_S7_S7_RKT0_T1_.exit.i.i: ; preds = %_ZSt7advanceIPKN4llvm18RISCVVPseudosTable10PseudoInfoElEvRT_T0_.exit.i.i.i.i
-  %14 = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN4llvm18RISCVVPseudosTableL18RISCVVPseudosTableE, i64 45356)
+  %14 = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZN4llvm18RISCVVPseudosTableL18RISCVVPseudosTableE, i64 45356)
   br i1 %14, label %_ZN4llvm5RISCV14getRVVMCOpcodeEj.exit.thread, label %15
 
 15:                                               ; preds = %_ZSt11lower_boundIPKN4llvm18RISCVVPseudosTable10PseudoInfoEZNS1_13getPseudoInfoEjE7KeyTypeZNS1_13getPseudoInfoEjE4CompET_S7_S7_RKT0_T1_.exit.i.i
@@ -1492,7 +1492,7 @@ _ZSt7advanceIPKN4llvm18RISCVVPseudosTable10PseudoInfoElEvRT_T0_.exit.i.i.i: ; pr
   br i1 %10, label %_ZSt7advanceIPKN4llvm18RISCVVPseudosTable10PseudoInfoElEvRT_T0_.exit.i.i.i, label %_ZSt11lower_boundIPKN4llvm18RISCVVPseudosTable10PseudoInfoEZNS1_13getPseudoInfoEjE7KeyTypeZNS1_13getPseudoInfoEjE4CompET_S7_S7_RKT0_T1_.exit.i, !llvm.loop !4
 
 _ZSt11lower_boundIPKN4llvm18RISCVVPseudosTable10PseudoInfoEZNS1_13getPseudoInfoEjE7KeyTypeZNS1_13getPseudoInfoEjE4CompET_S7_S7_RKT0_T1_.exit.i: ; preds = %_ZSt7advanceIPKN4llvm18RISCVVPseudosTable10PseudoInfoElEvRT_T0_.exit.i.i.i
-  %11 = icmp eq ptr %.1.i.i.i, getelementptr inbounds (i8, ptr @_ZN4llvm18RISCVVPseudosTableL18RISCVVPseudosTableE, i64 45356)
+  %11 = icmp eq ptr %.1.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZN4llvm18RISCVVPseudosTableL18RISCVVPseudosTableE, i64 45356)
   br i1 %11, label %_ZN4llvm18RISCVVPseudosTable13getPseudoInfoEj.exit.thread, label %12
 
 12:                                               ; preds = %_ZSt11lower_boundIPKN4llvm18RISCVVPseudosTable10PseudoInfoEZNS1_13getPseudoInfoEjE7KeyTypeZNS1_13getPseudoInfoEjE4CompET_S7_S7_RKT0_T1_.exit.i
@@ -1669,7 +1669,7 @@ define dso_local void @_ZNK4llvm14RISCVInstrInfo17copyPhysRegVectorERNS_17Machin
   br i1 %106, label %107, label %_ZL22isConvertibleToVMV_V_VRKN4llvm14RISCVSubtargetERKNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEERS9_NS_7RISCVII5VLMULE.exit.thread
 
 107:                                              ; preds = %"_ZZNK4llvm14RISCVInstrInfo17copyPhysRegVectorERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_8DebugLocENS_10MCRegisterES9_bPKNS_19TargetRegisterClassEENK3$_0clEtt.exit"
-  %108 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL23PreferWholeRegisterMove, i64 128), align 8
+  %108 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL23PreferWholeRegisterMove, i64 128), align 8
   %109 = trunc i8 %108 to i1
   br i1 %109, label %_ZL22isConvertibleToVMV_V_VRKN4llvm14RISCVSubtargetERKNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEERS9_NS_7RISCVII5VLMULE.exit.thread, label %110
 
@@ -2058,7 +2058,7 @@ _ZSt7advanceIPKN4llvm18RISCVVPseudosTable10PseudoInfoElEvRT_T0_.exit.i.i.i.i: ; 
   br i1 %286, label %_ZSt7advanceIPKN4llvm18RISCVVPseudosTable10PseudoInfoElEvRT_T0_.exit.i.i.i.i, label %_ZSt11lower_boundIPKN4llvm18RISCVVPseudosTable10PseudoInfoEZNS1_13getPseudoInfoEjE7KeyTypeZNS1_13getPseudoInfoEjE4CompET_S7_S7_RKT0_T1_.exit.i.i, !llvm.loop !4
 
 _ZSt11lower_boundIPKN4llvm18RISCVVPseudosTable10PseudoInfoEZNS1_13getPseudoInfoEjE7KeyTypeZNS1_13getPseudoInfoEjE4CompET_S7_S7_RKT0_T1_.exit.i.i: ; preds = %_ZSt7advanceIPKN4llvm18RISCVVPseudosTable10PseudoInfoElEvRT_T0_.exit.i.i.i.i
-  %287 = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN4llvm18RISCVVPseudosTableL18RISCVVPseudosTableE, i64 45356)
+  %287 = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZN4llvm18RISCVVPseudosTableL18RISCVVPseudosTableE, i64 45356)
   br i1 %287, label %_ZSt7advanceIPKN4llvm18RISCVVPseudosTable10PseudoInfoElEvRT_T0_.exit.i.i.i.i79.preheader, label %288
 
 288:                                              ; preds = %_ZSt11lower_boundIPKN4llvm18RISCVVPseudosTable10PseudoInfoEZNS1_13getPseudoInfoEjE7KeyTypeZNS1_13getPseudoInfoEjE4CompET_S7_S7_RKT0_T1_.exit.i.i
@@ -2093,7 +2093,7 @@ _ZSt7advanceIPKN4llvm18RISCVVPseudosTable10PseudoInfoElEvRT_T0_.exit.i.i.i.i79: 
   br i1 %301, label %_ZSt7advanceIPKN4llvm18RISCVVPseudosTable10PseudoInfoElEvRT_T0_.exit.i.i.i.i79, label %_ZSt11lower_boundIPKN4llvm18RISCVVPseudosTable10PseudoInfoEZNS1_13getPseudoInfoEjE7KeyTypeZNS1_13getPseudoInfoEjE4CompET_S7_S7_RKT0_T1_.exit.i.i87, !llvm.loop !4
 
 _ZSt11lower_boundIPKN4llvm18RISCVVPseudosTable10PseudoInfoEZNS1_13getPseudoInfoEjE7KeyTypeZNS1_13getPseudoInfoEjE4CompET_S7_S7_RKT0_T1_.exit.i.i87: ; preds = %_ZSt7advanceIPKN4llvm18RISCVVPseudosTable10PseudoInfoElEvRT_T0_.exit.i.i.i.i79
-  %302 = icmp eq ptr %.1.i.i.i.i86, getelementptr inbounds (i8, ptr @_ZN4llvm18RISCVVPseudosTableL18RISCVVPseudosTableE, i64 45356)
+  %302 = icmp eq ptr %.1.i.i.i.i86, getelementptr inbounds nuw (i8, ptr @_ZN4llvm18RISCVVPseudosTableL18RISCVVPseudosTableE, i64 45356)
   br i1 %302, label %.critedge, label %303
 
 303:                                              ; preds = %_ZSt11lower_boundIPKN4llvm18RISCVVPseudosTable10PseudoInfoEZNS1_13getPseudoInfoEjE7KeyTypeZNS1_13getPseudoInfoEjE4CompET_S7_S7_RKT0_T1_.exit.i.i87
@@ -7615,14 +7615,14 @@ define internal fastcc noundef zeroext i1 @_ZL18isCompressibleInstRKN4llvm12Mach
 
 25:                                               ; preds = %19
   %26 = lshr i32 %21, 3
-  %27 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
+  %27 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
   %28 = zext i16 %27 to i32
   %.not.i = icmp samesign ult i32 %26, %28
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %.critedge
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %25
   %29 = and i32 %21, 7
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
   %31 = zext nneg i32 %26 to i64
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
   %33 = load i8, ptr %32, align 1
@@ -7690,14 +7690,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1052: ; preds = %42
 
 69:                                               ; preds = %63
   %70 = lshr i32 %65, 3
-  %71 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
+  %71 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
   %72 = zext i16 %71 to i32
   %.not.i1053 = icmp samesign ult i32 %70, %72
   br i1 %.not.i1053, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1055, label %.critedge2
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1055: ; preds = %69
   %73 = and i32 %65, 7
-  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
+  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
   %75 = zext nneg i32 %70 to i64
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 %75
   %77 = load i8, ptr %76, align 1
@@ -7765,14 +7765,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1058: ; preds = %86
   %112 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %113 = load i32, ptr %112, align 4
   %114 = lshr i32 %113, 3
-  %115 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
+  %115 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
   %116 = zext i16 %115 to i32
   %.not.i1059 = icmp samesign ult i32 %114, %116
   br i1 %.not.i1059, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1061, label %.critedge4
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1061: ; preds = %111
   %117 = and i32 %113, 7
-  %118 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
+  %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
   %119 = zext nneg i32 %114 to i64
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 %119
   %121 = load i8, ptr %120, align 1
@@ -7840,14 +7840,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1064: ; preds = %130
   %156 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %157 = load i32, ptr %156, align 4
   %158 = lshr i32 %157, 3
-  %159 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
+  %159 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
   %160 = zext i16 %159 to i32
   %.not.i1065 = icmp samesign ult i32 %158, %160
   br i1 %.not.i1065, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1067, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1067: ; preds = %155
   %161 = and i32 %157, 7
-  %162 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
+  %162 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
   %163 = zext nneg i32 %158 to i64
   %164 = getelementptr inbounds nuw i8, ptr %162, i64 %163
   %165 = load i8, ptr %164, align 1
@@ -7919,14 +7919,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1070: ; preds = %174
 
 208:                                              ; preds = %202
   %209 = lshr i32 %204, 3
-  %210 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
+  %210 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
   %211 = zext i16 %210 to i32
   %.not.i1071 = icmp samesign ult i32 %209, %211
   br i1 %.not.i1071, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1073, label %.critedge8
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1073: ; preds = %208
   %212 = and i32 %204, 7
-  %213 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
+  %213 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
   %214 = zext nneg i32 %209 to i64
   %215 = getelementptr inbounds nuw i8, ptr %213, i64 %214
   %216 = load i8, ptr %215, align 1
@@ -8032,14 +8032,14 @@ _ZL27RISCVValidateMachineOperandRKN4llvm14MachineOperandEPKNS_14RISCVSubtargetEj
   %265 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %266 = load i32, ptr %265, align 4
   %267 = lshr i32 %266, 3
-  %268 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %268 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %269 = zext i16 %268 to i32
   %.not.i1077 = icmp samesign ult i32 %267, %269
   br i1 %.not.i1077, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1079, label %.critedge12
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1079: ; preds = %264
   %270 = and i32 %266, 7
-  %271 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %271 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %272 = zext nneg i32 %267 to i64
   %273 = getelementptr inbounds nuw i8, ptr %271, i64 %272
   %274 = load i8, ptr %273, align 1
@@ -8060,14 +8060,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1079: ; preds = %264
   %284 = getelementptr inbounds nuw i8, ptr %.32.val, i64 36
   %285 = load i32, ptr %284, align 4
   %286 = lshr i32 %285, 3
-  %287 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 758), align 2
+  %287 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 758), align 2
   %288 = zext i16 %287 to i32
   %.not.i1080 = icmp samesign ult i32 %286, %288
   br i1 %.not.i1080, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1082, label %.critedge12
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1082: ; preds = %283
   %289 = and i32 %285, 7
-  %290 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 744), align 8
+  %290 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 744), align 8
   %291 = zext nneg i32 %286 to i64
   %292 = getelementptr inbounds nuw i8, ptr %290, i64 %291
   %293 = load i8, ptr %292, align 1
@@ -8126,14 +8126,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1082: ; preds = %283
   %323 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %324 = load i32, ptr %323, align 4
   %325 = lshr i32 %324, 3
-  %326 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
+  %326 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
   %327 = zext i16 %326 to i32
   %.not.i1084 = icmp samesign ult i32 %325, %327
   br i1 %.not.i1084, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1086, label %.critedge14
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1086: ; preds = %322
   %328 = and i32 %324, 7
-  %329 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
+  %329 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
   %330 = zext nneg i32 %325 to i64
   %331 = getelementptr inbounds nuw i8, ptr %329, i64 %330
   %332 = load i8, ptr %331, align 1
@@ -8190,14 +8190,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1086: ; preds = %322
   %360 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %361 = load i32, ptr %360, align 4
   %362 = lshr i32 %361, 3
-  %363 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
+  %363 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
   %364 = zext i16 %363 to i32
   %.not.i1088 = icmp samesign ult i32 %362, %364
   br i1 %.not.i1088, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1090, label %.critedge16
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1090: ; preds = %359
   %365 = and i32 %361, 7
-  %366 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
+  %366 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
   %367 = zext nneg i32 %362 to i64
   %368 = getelementptr inbounds nuw i8, ptr %366, i64 %367
   %369 = load i8, ptr %368, align 1
@@ -8322,14 +8322,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1093: ; preds = %378
 
 441:                                              ; preds = %435
   %442 = lshr i32 %437, 3
-  %443 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
+  %443 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
   %444 = zext i16 %443 to i32
   %.not.i1094 = icmp samesign ult i32 %442, %444
   br i1 %.not.i1094, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1096, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1096.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1096: ; preds = %441
   %445 = and i32 %437, 7
-  %446 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
+  %446 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
   %447 = zext nneg i32 %442 to i64
   %448 = getelementptr inbounds nuw i8, ptr %446, i64 %447
   %449 = load i8, ptr %448, align 1
@@ -8386,14 +8386,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1096.thread.thread: ; p
   %479 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %480 = load i32, ptr %479, align 4
   %481 = lshr i32 %480, 3
-  %482 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
+  %482 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
   %483 = zext i16 %482 to i32
   %.not.i1098 = icmp samesign ult i32 %481, %483
   br i1 %.not.i1098, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1100, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1100: ; preds = %478
   %484 = and i32 %480, 7
-  %485 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
+  %485 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
   %486 = zext nneg i32 %481 to i64
   %487 = getelementptr inbounds nuw i8, ptr %485, i64 %486
   %488 = load i8, ptr %487, align 1
@@ -8459,14 +8459,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1100: ; preds = %478
 
 526:                                              ; preds = %520
   %527 = lshr i32 %522, 3
-  %528 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %528 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %529 = zext i16 %528 to i32
   %.not.i1102 = icmp samesign ult i32 %527, %529
   br i1 %.not.i1102, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1104, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1104.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1104: ; preds = %526
   %530 = and i32 %522, 7
-  %531 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %531 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %532 = zext nneg i32 %527 to i64
   %533 = getelementptr inbounds nuw i8, ptr %531, i64 %532
   %534 = load i8, ptr %533, align 1
@@ -8534,14 +8534,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1104.thread.thread: ; p
 
 572:                                              ; preds = %566
   %573 = lshr i32 %568, 3
-  %574 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %574 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %575 = zext i16 %574 to i32
   %.not.i1108 = icmp samesign ult i32 %573, %575
   br i1 %.not.i1108, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1110, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1110: ; preds = %572
   %576 = and i32 %568, 7
-  %577 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %577 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %578 = zext nneg i32 %573 to i64
   %579 = getelementptr inbounds nuw i8, ptr %577, i64 %578
   %580 = load i8, ptr %579, align 1
@@ -8626,14 +8626,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1113: ; preds = %589
 
 632:                                              ; preds = %628
   %633 = lshr i32 %619, 3
-  %634 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %634 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %635 = zext i16 %634 to i32
   %.not.i1114 = icmp samesign ult i32 %633, %635
   br i1 %.not.i1114, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1116, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1116: ; preds = %632
   %636 = and i32 %619, 7
-  %637 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %637 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %638 = zext nneg i32 %633 to i64
   %639 = getelementptr inbounds nuw i8, ptr %637, i64 %638
   %640 = load i8, ptr %639, align 1
@@ -8680,14 +8680,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1116: ; preds = %632
 
 667:                                              ; preds = %661
   %668 = lshr i32 %663, 3
-  %669 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %669 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %670 = zext i16 %669 to i32
   %.not.i1117 = icmp samesign ult i32 %668, %670
   br i1 %.not.i1117, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1119, label %.critedge30
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1119: ; preds = %667
   %671 = and i32 %663, 7
-  %672 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %672 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %673 = zext nneg i32 %668 to i64
   %674 = getelementptr inbounds nuw i8, ptr %672, i64 %673
   %675 = load i8, ptr %674, align 1
@@ -8755,14 +8755,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1122: ; preds = %684
 
 711:                                              ; preds = %705
   %712 = lshr i32 %707, 3
-  %713 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %713 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %714 = zext i16 %713 to i32
   %.not.i1123 = icmp samesign ult i32 %712, %714
   br i1 %.not.i1123, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1125, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1125: ; preds = %711
   %715 = and i32 %707, 7
-  %716 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %716 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %717 = zext nneg i32 %712 to i64
   %718 = getelementptr inbounds nuw i8, ptr %716, i64 %717
   %719 = load i8, ptr %718, align 1
@@ -8834,14 +8834,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1128: ; preds = %728
 
 762:                                              ; preds = %756
   %763 = lshr i32 %758, 3
-  %764 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %764 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %765 = zext i16 %764 to i32
   %.not.i1129 = icmp samesign ult i32 %763, %765
   br i1 %.not.i1129, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1131, label %.critedge34
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1131: ; preds = %762
   %766 = and i32 %758, 7
-  %767 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %767 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %768 = zext nneg i32 %763 to i64
   %769 = getelementptr inbounds nuw i8, ptr %767, i64 %768
   %770 = load i8, ptr %769, align 1
@@ -8908,14 +8908,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1131: ; preds = %762
 
 810:                                              ; preds = %806
   %811 = lshr i32 %797, 3
-  %812 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %812 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %813 = zext i16 %812 to i32
   %.not.i1133 = icmp samesign ult i32 %811, %813
   br i1 %.not.i1133, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1135, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1135: ; preds = %810
   %814 = and i32 %797, 7
-  %815 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %815 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %816 = zext nneg i32 %811 to i64
   %817 = getelementptr inbounds nuw i8, ptr %815, i64 %816
   %818 = load i8, ptr %817, align 1
@@ -8962,14 +8962,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1135: ; preds = %810
   %844 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %845 = load i32, ptr %844, align 4
   %846 = lshr i32 %845, 3
-  %847 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %847 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %848 = zext i16 %847 to i32
   %.not.i1136 = icmp samesign ult i32 %846, %848
   br i1 %.not.i1136, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1138, label %.critedge38
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1138: ; preds = %843
   %849 = and i32 %845, 7
-  %850 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %850 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %851 = zext nneg i32 %846 to i64
   %852 = getelementptr inbounds nuw i8, ptr %850, i64 %851
   %853 = load i8, ptr %852, align 1
@@ -9029,14 +9029,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1138: ; preds = %843
   %884 = getelementptr inbounds nuw i8, ptr %.32.val, i64 36
   %885 = load i32, ptr %884, align 4
   %886 = lshr i32 %885, 3
-  %887 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %887 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %888 = zext i16 %887 to i32
   %.not.i1140 = icmp samesign ult i32 %886, %888
   br i1 %.not.i1140, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1142, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1142: ; preds = %883
   %889 = and i32 %885, 7
-  %890 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %890 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %891 = zext nneg i32 %886 to i64
   %892 = getelementptr inbounds nuw i8, ptr %890, i64 %891
   %893 = load i8, ptr %892, align 1
@@ -9100,14 +9100,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1142: ; preds = %883
   %931 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %932 = load i32, ptr %931, align 4
   %933 = lshr i32 %932, 3
-  %934 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %934 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %935 = zext i16 %934 to i32
   %.not.i1144 = icmp samesign ult i32 %933, %935
   br i1 %.not.i1144, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1146, label %.critedge42
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1146: ; preds = %930
   %936 = and i32 %932, 7
-  %937 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %937 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %938 = zext nneg i32 %933 to i64
   %939 = getelementptr inbounds nuw i8, ptr %937, i64 %938
   %940 = load i8, ptr %939, align 1
@@ -9167,14 +9167,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1146: ; preds = %930
   %971 = getelementptr inbounds nuw i8, ptr %.32.val, i64 36
   %972 = load i32, ptr %971, align 4
   %973 = lshr i32 %972, 3
-  %974 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %974 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %975 = zext i16 %974 to i32
   %.not.i1148 = icmp samesign ult i32 %973, %975
   br i1 %.not.i1148, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1150, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1150: ; preds = %970
   %976 = and i32 %972, 7
-  %977 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %977 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %978 = zext nneg i32 %973 to i64
   %979 = getelementptr inbounds nuw i8, ptr %977, i64 %978
   %980 = load i8, ptr %979, align 1
@@ -9244,14 +9244,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1150: ; preds = %970
   %1019 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %1020 = load i32, ptr %1019, align 4
   %1021 = lshr i32 %1020, 3
-  %1022 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1398), align 2
+  %1022 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1398), align 2
   %1023 = zext i16 %1022 to i32
   %.not.i1152 = icmp samesign ult i32 %1021, %1023
   br i1 %.not.i1152, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1154, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1154.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1154: ; preds = %1018
   %1024 = and i32 %1020, 7
-  %1025 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1384), align 8
+  %1025 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1384), align 8
   %1026 = zext nneg i32 %1021 to i64
   %1027 = getelementptr inbounds nuw i8, ptr %1025, i64 %1026
   %1028 = load i8, ptr %1027, align 1
@@ -9272,14 +9272,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1154: ; preds = %1018
   %1038 = getelementptr inbounds nuw i8, ptr %.32.val, i64 36
   %1039 = load i32, ptr %1038, align 4
   %1040 = lshr i32 %1039, 3
-  %1041 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %1041 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %1042 = zext i16 %1041 to i32
   %.not.i1155 = icmp samesign ult i32 %1040, %1042
   br i1 %.not.i1155, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1157, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1154.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1157: ; preds = %1037
   %1043 = and i32 %1039, 7
-  %1044 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %1044 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %1045 = zext nneg i32 %1040 to i64
   %1046 = getelementptr inbounds nuw i8, ptr %1044, i64 %1045
   %1047 = load i8, ptr %1046, align 1
@@ -9323,14 +9323,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1154.thread.thread: ; p
   %1068 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %1069 = load i32, ptr %1068, align 4
   %1070 = lshr i32 %1069, 3
-  %1071 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1270), align 2
+  %1071 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1270), align 2
   %1072 = zext i16 %1071 to i32
   %.not.i1159 = icmp samesign ult i32 %1070, %1072
   br i1 %.not.i1159, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1161, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1161: ; preds = %1067
   %1073 = and i32 %1069, 7
-  %1074 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1256), align 8
+  %1074 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1256), align 8
   %1075 = zext nneg i32 %1070 to i64
   %1076 = getelementptr inbounds nuw i8, ptr %1074, i64 %1075
   %1077 = load i8, ptr %1076, align 1
@@ -9351,14 +9351,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1161: ; preds = %1067
   %1087 = getelementptr inbounds nuw i8, ptr %.32.val, i64 36
   %1088 = load i32, ptr %1087, align 4
   %1089 = lshr i32 %1088, 3
-  %1090 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 758), align 2
+  %1090 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 758), align 2
   %1091 = zext i16 %1090 to i32
   %.not.i1162 = icmp samesign ult i32 %1089, %1091
   br i1 %.not.i1162, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1164, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1164: ; preds = %1086
   %1092 = and i32 %1088, 7
-  %1093 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 744), align 8
+  %1093 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 744), align 8
   %1094 = zext nneg i32 %1089 to i64
   %1095 = getelementptr inbounds nuw i8, ptr %1093, i64 %1094
   %1096 = load i8, ptr %1095, align 1
@@ -9411,14 +9411,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1164: ; preds = %1086
   %1124 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %1125 = load i32, ptr %1124, align 4
   %1126 = lshr i32 %1125, 3
-  %1127 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 406), align 2
+  %1127 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 406), align 2
   %1128 = zext i16 %1127 to i32
   %.not.i1166 = icmp samesign ult i32 %1126, %1128
   br i1 %.not.i1166, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1168, label %1165
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1168: ; preds = %1123
   %1129 = and i32 %1125, 7
-  %1130 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 392), align 8
+  %1130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 392), align 8
   %1131 = zext nneg i32 %1126 to i64
   %1132 = getelementptr inbounds nuw i8, ptr %1130, i64 %1131
   %1133 = load i8, ptr %1132, align 1
@@ -9439,14 +9439,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1168: ; preds = %1123
   %1143 = getelementptr inbounds nuw i8, ptr %.32.val, i64 36
   %1144 = load i32, ptr %1143, align 4
   %1145 = lshr i32 %1144, 3
-  %1146 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %1146 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %1147 = zext i16 %1146 to i32
   %.not.i1169 = icmp samesign ult i32 %1145, %1147
   br i1 %.not.i1169, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1171, label %1165
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1171: ; preds = %1142
   %1148 = and i32 %1144, 7
-  %1149 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %1149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %1150 = zext nneg i32 %1145 to i64
   %1151 = getelementptr inbounds nuw i8, ptr %1149, i64 %1150
   %1152 = load i8, ptr %1151, align 1
@@ -9492,14 +9492,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1171: ; preds = %1142
   %1176 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %1177 = load i32, ptr %1176, align 4
   %1178 = lshr i32 %1177, 3
-  %1179 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 86), align 2
+  %1179 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 86), align 2
   %1180 = zext i16 %1179 to i32
   %.not.i1173 = icmp samesign ult i32 %1178, %1180
   br i1 %.not.i1173, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1175, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1175: ; preds = %1175
   %1181 = and i32 %1177, 7
-  %1182 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 72), align 8
+  %1182 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 72), align 8
   %1183 = zext nneg i32 %1178 to i64
   %1184 = getelementptr inbounds nuw i8, ptr %1182, i64 %1183
   %1185 = load i8, ptr %1184, align 1
@@ -9520,14 +9520,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1175: ; preds = %1175
   %1195 = getelementptr inbounds nuw i8, ptr %.32.val, i64 36
   %1196 = load i32, ptr %1195, align 4
   %1197 = lshr i32 %1196, 3
-  %1198 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 758), align 2
+  %1198 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 758), align 2
   %1199 = zext i16 %1198 to i32
   %.not.i1176 = icmp samesign ult i32 %1197, %1199
   br i1 %.not.i1176, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1178, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1178: ; preds = %1194
   %1200 = and i32 %1196, 7
-  %1201 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 744), align 8
+  %1201 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 744), align 8
   %1202 = zext nneg i32 %1197 to i64
   %1203 = getelementptr inbounds nuw i8, ptr %1201, i64 %1202
   %1204 = load i8, ptr %1203, align 1
@@ -9580,14 +9580,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1178: ; preds = %1194
   %1232 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %1233 = load i32, ptr %1232, align 4
   %1234 = lshr i32 %1233, 3
-  %1235 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1398), align 2
+  %1235 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1398), align 2
   %1236 = zext i16 %1235 to i32
   %.not.i1180 = icmp samesign ult i32 %1234, %1236
   br i1 %.not.i1180, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1182, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1182.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1182: ; preds = %1231
   %1237 = and i32 %1233, 7
-  %1238 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1384), align 8
+  %1238 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1384), align 8
   %1239 = zext nneg i32 %1234 to i64
   %1240 = getelementptr inbounds nuw i8, ptr %1238, i64 %1239
   %1241 = load i8, ptr %1240, align 1
@@ -9608,14 +9608,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1182: ; preds = %1231
   %1251 = getelementptr inbounds nuw i8, ptr %.32.val, i64 36
   %1252 = load i32, ptr %1251, align 4
   %1253 = lshr i32 %1252, 3
-  %1254 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %1254 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %1255 = zext i16 %1254 to i32
   %.not.i1183 = icmp samesign ult i32 %1253, %1255
   br i1 %.not.i1183, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1185, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1182.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1185: ; preds = %1250
   %1256 = and i32 %1252, 7
-  %1257 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %1257 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %1258 = zext nneg i32 %1253 to i64
   %1259 = getelementptr inbounds nuw i8, ptr %1257, i64 %1258
   %1260 = load i8, ptr %1259, align 1
@@ -9659,14 +9659,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1182.thread.thread: ; p
   %1281 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %1282 = load i32, ptr %1281, align 4
   %1283 = lshr i32 %1282, 3
-  %1284 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1270), align 2
+  %1284 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1270), align 2
   %1285 = zext i16 %1284 to i32
   %.not.i1187 = icmp samesign ult i32 %1283, %1285
   br i1 %.not.i1187, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1189, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1189: ; preds = %1280
   %1286 = and i32 %1282, 7
-  %1287 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1256), align 8
+  %1287 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1256), align 8
   %1288 = zext nneg i32 %1283 to i64
   %1289 = getelementptr inbounds nuw i8, ptr %1287, i64 %1288
   %1290 = load i8, ptr %1289, align 1
@@ -9687,14 +9687,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1189: ; preds = %1280
   %1300 = getelementptr inbounds nuw i8, ptr %.32.val, i64 36
   %1301 = load i32, ptr %1300, align 4
   %1302 = lshr i32 %1301, 3
-  %1303 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 758), align 2
+  %1303 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 758), align 2
   %1304 = zext i16 %1303 to i32
   %.not.i1190 = icmp samesign ult i32 %1302, %1304
   br i1 %.not.i1190, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1192, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1192: ; preds = %1299
   %1305 = and i32 %1301, 7
-  %1306 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 744), align 8
+  %1306 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 744), align 8
   %1307 = zext nneg i32 %1302 to i64
   %1308 = getelementptr inbounds nuw i8, ptr %1306, i64 %1307
   %1309 = load i8, ptr %1308, align 1
@@ -9747,14 +9747,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1192: ; preds = %1299
   %1337 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %1338 = load i32, ptr %1337, align 4
   %1339 = lshr i32 %1338, 3
-  %1340 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 406), align 2
+  %1340 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 406), align 2
   %1341 = zext i16 %1340 to i32
   %.not.i1194 = icmp samesign ult i32 %1339, %1341
   br i1 %.not.i1194, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1196, label %1378
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1196: ; preds = %1336
   %1342 = and i32 %1338, 7
-  %1343 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 392), align 8
+  %1343 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 392), align 8
   %1344 = zext nneg i32 %1339 to i64
   %1345 = getelementptr inbounds nuw i8, ptr %1343, i64 %1344
   %1346 = load i8, ptr %1345, align 1
@@ -9775,14 +9775,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1196: ; preds = %1336
   %1356 = getelementptr inbounds nuw i8, ptr %.32.val, i64 36
   %1357 = load i32, ptr %1356, align 4
   %1358 = lshr i32 %1357, 3
-  %1359 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %1359 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %1360 = zext i16 %1359 to i32
   %.not.i1197 = icmp samesign ult i32 %1358, %1360
   br i1 %.not.i1197, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1199, label %1378
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1199: ; preds = %1355
   %1361 = and i32 %1357, 7
-  %1362 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %1362 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %1363 = zext nneg i32 %1358 to i64
   %1364 = getelementptr inbounds nuw i8, ptr %1362, i64 %1363
   %1365 = load i8, ptr %1364, align 1
@@ -9828,14 +9828,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1199: ; preds = %1355
   %1389 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %1390 = load i32, ptr %1389, align 4
   %1391 = lshr i32 %1390, 3
-  %1392 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 86), align 2
+  %1392 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 86), align 2
   %1393 = zext i16 %1392 to i32
   %.not.i1201 = icmp samesign ult i32 %1391, %1393
   br i1 %.not.i1201, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1203, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1203: ; preds = %1388
   %1394 = and i32 %1390, 7
-  %1395 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 72), align 8
+  %1395 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 72), align 8
   %1396 = zext nneg i32 %1391 to i64
   %1397 = getelementptr inbounds nuw i8, ptr %1395, i64 %1396
   %1398 = load i8, ptr %1397, align 1
@@ -9856,14 +9856,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1203: ; preds = %1388
   %1408 = getelementptr inbounds nuw i8, ptr %.32.val, i64 36
   %1409 = load i32, ptr %1408, align 4
   %1410 = lshr i32 %1409, 3
-  %1411 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 758), align 2
+  %1411 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 758), align 2
   %1412 = zext i16 %1411 to i32
   %.not.i1204 = icmp samesign ult i32 %1410, %1412
   br i1 %.not.i1204, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1206, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1206: ; preds = %1407
   %1413 = and i32 %1409, 7
-  %1414 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 744), align 8
+  %1414 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 744), align 8
   %1415 = zext nneg i32 %1410 to i64
   %1416 = getelementptr inbounds nuw i8, ptr %1414, i64 %1415
   %1417 = load i8, ptr %1416, align 1
@@ -10028,14 +10028,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1206: ; preds = %1407
   %1512 = getelementptr inbounds nuw i8, ptr %.32.val, i64 36
   %1513 = load i32, ptr %1512, align 4
   %1514 = lshr i32 %1513, 3
-  %1515 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
+  %1515 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
   %1516 = zext i16 %1515 to i32
   %.not.i1210 = icmp samesign ult i32 %1514, %1516
   br i1 %.not.i1210, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1212, label %.critedge66
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1212: ; preds = %1511
   %1517 = and i32 %1513, 7
-  %1518 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
+  %1518 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
   %1519 = zext nneg i32 %1514 to i64
   %1520 = getelementptr inbounds nuw i8, ptr %1518, i64 %1519
   %1521 = load i8, ptr %1520, align 1
@@ -10095,14 +10095,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1212: ; preds = %1511
   %1549 = getelementptr inbounds nuw i8, ptr %.32.val, i64 36
   %1550 = load i32, ptr %1549, align 4
   %1551 = lshr i32 %1550, 3
-  %1552 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
+  %1552 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
   %1553 = zext i16 %1552 to i32
   %.not.i1213 = icmp samesign ult i32 %1551, %1553
   br i1 %.not.i1213, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1215, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1215: ; preds = %1548
   %1554 = and i32 %1550, 7
-  %1555 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
+  %1555 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
   %1556 = zext nneg i32 %1551 to i64
   %1557 = getelementptr inbounds nuw i8, ptr %1555, i64 %1556
   %1558 = load i8, ptr %1557, align 1
@@ -10129,14 +10129,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1215: ; preds = %1548
   %1571 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %1572 = load i32, ptr %1571, align 4
   %1573 = lshr i32 %1572, 3
-  %1574 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %1574 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %1575 = zext i16 %1574 to i32
   %.not.i1216 = icmp samesign ult i32 %1573, %1575
   br i1 %.not.i1216, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1218, label %.critedge70
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1218: ; preds = %1570
   %1576 = and i32 %1572, 7
-  %1577 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %1577 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %1578 = zext nneg i32 %1573 to i64
   %1579 = getelementptr inbounds nuw i8, ptr %1577, i64 %1578
   %1580 = load i8, ptr %1579, align 1
@@ -10201,14 +10201,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1221: ; preds = %1589
   %1616 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %1617 = load i32, ptr %1616, align 4
   %1618 = lshr i32 %1617, 3
-  %1619 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %1619 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %1620 = zext i16 %1619 to i32
   %.not.i1223 = icmp samesign ult i32 %1618, %1620
   br i1 %.not.i1223, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1225, label %1653
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1225: ; preds = %1615
   %1621 = and i32 %1617, 7
-  %1622 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %1622 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %1623 = zext nneg i32 %1618 to i64
   %1624 = getelementptr inbounds nuw i8, ptr %1622, i64 %1623
   %1625 = load i8, ptr %1624, align 1
@@ -10260,14 +10260,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1228: ; preds = %1634
   %1654 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %1655 = load i32, ptr %1654, align 4
   %1656 = lshr i32 %1655, 3
-  %1657 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %1657 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %1658 = zext i16 %1657 to i32
   %.not.i1230 = icmp samesign ult i32 %1656, %1658
   br i1 %.not.i1230, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1232, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1232: ; preds = %1653
   %1659 = and i32 %1655, 7
-  %1660 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %1660 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %1661 = zext nneg i32 %1656 to i64
   %1662 = getelementptr inbounds nuw i8, ptr %1660, i64 %1661
   %1663 = load i8, ptr %1662, align 1
@@ -10288,14 +10288,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1232: ; preds = %1653
   %1673 = getelementptr inbounds nuw i8, ptr %.32.val, i64 36
   %1674 = load i32, ptr %1673, align 4
   %1675 = lshr i32 %1674, 3
-  %1676 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 758), align 2
+  %1676 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 758), align 2
   %1677 = zext i16 %1676 to i32
   %.not.i1233 = icmp samesign ult i32 %1675, %1677
   br i1 %.not.i1233, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1235, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1235: ; preds = %1672
   %1678 = and i32 %1674, 7
-  %1679 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 744), align 8
+  %1679 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 744), align 8
   %1680 = zext nneg i32 %1675 to i64
   %1681 = getelementptr inbounds nuw i8, ptr %1679, i64 %1680
   %1682 = load i8, ptr %1681, align 1
@@ -10347,14 +10347,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1235: ; preds = %1672
   %1709 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %1710 = load i32, ptr %1709, align 4
   %1711 = lshr i32 %1710, 3
-  %1712 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %1712 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %1713 = zext i16 %1712 to i32
   %.not.i1237 = icmp samesign ult i32 %1711, %1713
   br i1 %.not.i1237, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1239, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1239.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1239: ; preds = %1708
   %1714 = and i32 %1710, 7
-  %1715 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %1715 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %1716 = zext nneg i32 %1711 to i64
   %1717 = getelementptr inbounds nuw i8, ptr %1715, i64 %1716
   %1718 = load i8, ptr %1717, align 1
@@ -10423,14 +10423,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1239.thread.thread: ; p
   %1755 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %1756 = load i32, ptr %1755, align 4
   %1757 = lshr i32 %1756, 3
-  %1758 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
+  %1758 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
   %1759 = zext i16 %1758 to i32
   %.not.i1244 = icmp samesign ult i32 %1757, %1759
   br i1 %.not.i1244, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1246, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1246: ; preds = %1754
   %1760 = and i32 %1756, 7
-  %1761 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
+  %1761 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
   %1762 = zext nneg i32 %1757 to i64
   %1763 = getelementptr inbounds nuw i8, ptr %1761, i64 %1762
   %1764 = load i8, ptr %1763, align 1
@@ -10451,14 +10451,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1246: ; preds = %1754
   %1774 = getelementptr inbounds nuw i8, ptr %.32.val, i64 36
   %1775 = load i32, ptr %1774, align 4
   %1776 = lshr i32 %1775, 3
-  %1777 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 758), align 2
+  %1777 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 758), align 2
   %1778 = zext i16 %1777 to i32
   %.not.i1247 = icmp samesign ult i32 %1776, %1778
   br i1 %.not.i1247, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1249, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1249: ; preds = %1773
   %1779 = and i32 %1775, 7
-  %1780 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 744), align 8
+  %1780 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 744), align 8
   %1781 = zext nneg i32 %1776 to i64
   %1782 = getelementptr inbounds nuw i8, ptr %1780, i64 %1781
   %1783 = load i8, ptr %1782, align 1
@@ -10499,14 +10499,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1249: ; preds = %1773
   %1805 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %1806 = load i32, ptr %1805, align 4
   %1807 = lshr i32 %1806, 3
-  %1808 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %1808 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %1809 = zext i16 %1808 to i32
   %.not.i1251 = icmp samesign ult i32 %1807, %1809
   br i1 %.not.i1251, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1253, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1253: ; preds = %1804
   %1810 = and i32 %1806, 7
-  %1811 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %1811 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %1812 = zext nneg i32 %1807 to i64
   %1813 = getelementptr inbounds nuw i8, ptr %1811, i64 %1812
   %1814 = load i8, ptr %1813, align 1
@@ -10572,14 +10572,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1256: ; preds = %1823
   %1852 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %1853 = load i32, ptr %1852, align 4
   %1854 = lshr i32 %1853, 3
-  %1855 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %1855 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %1856 = zext i16 %1855 to i32
   %.not.i1258 = icmp samesign ult i32 %1854, %1856
   br i1 %.not.i1258, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1260, label %.critedge82
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1260: ; preds = %1851
   %1857 = and i32 %1853, 7
-  %1858 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %1858 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %1859 = zext nneg i32 %1854 to i64
   %1860 = getelementptr inbounds nuw i8, ptr %1858, i64 %1859
   %1861 = load i8, ptr %1860, align 1
@@ -10645,14 +10645,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1263: ; preds = %1870
   %1898 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %1899 = load i32, ptr %1898, align 4
   %1900 = lshr i32 %1899, 3
-  %1901 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %1901 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %1902 = zext i16 %1901 to i32
   %.not.i1265 = icmp samesign ult i32 %1900, %1902
   br i1 %.not.i1265, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1267, label %1936
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1267: ; preds = %1897
   %1903 = and i32 %1899, 7
-  %1904 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %1904 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %1905 = zext nneg i32 %1900 to i64
   %1906 = getelementptr inbounds nuw i8, ptr %1904, i64 %1905
   %1907 = load i8, ptr %1906, align 1
@@ -10705,14 +10705,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1270: ; preds = %1916
   %1937 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %1938 = load i32, ptr %1937, align 4
   %1939 = lshr i32 %1938, 3
-  %1940 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %1940 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %1941 = zext i16 %1940 to i32
   %.not.i1272 = icmp samesign ult i32 %1939, %1941
   br i1 %.not.i1272, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1274, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1274: ; preds = %1936
   %1942 = and i32 %1938, 7
-  %1943 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %1943 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %1944 = zext nneg i32 %1939 to i64
   %1945 = getelementptr inbounds nuw i8, ptr %1943, i64 %1944
   %1946 = load i8, ptr %1945, align 1
@@ -10733,14 +10733,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1274: ; preds = %1936
   %1956 = getelementptr inbounds nuw i8, ptr %.32.val, i64 36
   %1957 = load i32, ptr %1956, align 4
   %1958 = lshr i32 %1957, 3
-  %1959 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 758), align 2
+  %1959 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 758), align 2
   %1960 = zext i16 %1959 to i32
   %.not.i1275 = icmp samesign ult i32 %1958, %1960
   br i1 %.not.i1275, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1277, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1277: ; preds = %1955
   %1961 = and i32 %1957, 7
-  %1962 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 744), align 8
+  %1962 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 744), align 8
   %1963 = zext nneg i32 %1958 to i64
   %1964 = getelementptr inbounds nuw i8, ptr %1962, i64 %1963
   %1965 = load i8, ptr %1964, align 1
@@ -10788,14 +10788,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1277: ; preds = %1955
   %1991 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %1992 = load i32, ptr %1991, align 4
   %1993 = lshr i32 %1992, 3
-  %1994 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 246), align 2
+  %1994 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 246), align 2
   %1995 = zext i16 %1994 to i32
   %.not.i1279 = icmp samesign ult i32 %1993, %1995
   br i1 %.not.i1279, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1281, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1281: ; preds = %1990
   %1996 = and i32 %1992, 7
-  %1997 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 232), align 8
+  %1997 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 232), align 8
   %1998 = zext nneg i32 %1993 to i64
   %1999 = getelementptr inbounds nuw i8, ptr %1997, i64 %1998
   %2000 = load i8, ptr %1999, align 1
@@ -10849,14 +10849,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1281: ; preds = %1990
   %2028 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %2029 = load i32, ptr %2028, align 4
   %2030 = lshr i32 %2029, 3
-  %2031 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %2031 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %2032 = zext i16 %2031 to i32
   %.not.i1285 = icmp samesign ult i32 %2030, %2032
   br i1 %.not.i1285, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1287, label %.critedge90
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1287: ; preds = %2027
   %2033 = and i32 %2029, 7
-  %2034 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %2034 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %2035 = zext nneg i32 %2030 to i64
   %2036 = getelementptr inbounds nuw i8, ptr %2034, i64 %2035
   %2037 = load i8, ptr %2036, align 1
@@ -10929,14 +10929,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1290: ; preds = %2046
   %2072 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %2073 = load i32, ptr %2072, align 4
   %2074 = lshr i32 %2073, 3
-  %2075 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
+  %2075 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
   %2076 = zext i16 %2075 to i32
   %.not.i1292 = icmp samesign ult i32 %2074, %2076
   br i1 %.not.i1292, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1294, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1294: ; preds = %2071
   %2077 = and i32 %2073, 7
-  %2078 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
+  %2078 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
   %2079 = zext nneg i32 %2074 to i64
   %2080 = getelementptr inbounds nuw i8, ptr %2078, i64 %2079
   %2081 = load i8, ptr %2080, align 1
@@ -10957,14 +10957,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1294: ; preds = %2071
   %2091 = getelementptr inbounds nuw i8, ptr %.32.val, i64 36
   %2092 = load i32, ptr %2091, align 4
   %2093 = lshr i32 %2092, 3
-  %2094 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 758), align 2
+  %2094 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 758), align 2
   %2095 = zext i16 %2094 to i32
   %.not.i1295 = icmp samesign ult i32 %2093, %2095
   br i1 %.not.i1295, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1297, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1297: ; preds = %2090
   %2096 = and i32 %2092, 7
-  %2097 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 744), align 8
+  %2097 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 744), align 8
   %2098 = zext nneg i32 %2093 to i64
   %2099 = getelementptr inbounds nuw i8, ptr %2097, i64 %2098
   %2100 = load i8, ptr %2099, align 1
@@ -11025,14 +11025,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1297: ; preds = %2090
 
 2136:                                             ; preds = %2130
   %2137 = lshr i32 %2132, 3
-  %2138 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %2138 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %2139 = zext i16 %2138 to i32
   %.not.i1299 = icmp samesign ult i32 %2137, %2139
   br i1 %.not.i1299, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1301, label %2164
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1301: ; preds = %2136
   %2140 = and i32 %2132, 7
-  %2141 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %2141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %2142 = zext nneg i32 %2137 to i64
   %2143 = getelementptr inbounds nuw i8, ptr %2141, i64 %2142
   %2144 = load i8, ptr %2143, align 1
@@ -11090,14 +11090,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1304: ; preds = %2153
 
 2179:                                             ; preds = %2173
   %2180 = lshr i32 %2175, 3
-  %2181 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %2181 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %2182 = zext i16 %2181 to i32
   %.not.i1305 = icmp samesign ult i32 %2180, %2182
   br i1 %.not.i1305, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1307, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1307: ; preds = %2179
   %2183 = and i32 %2175, 7
-  %2184 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %2184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %2185 = zext nneg i32 %2180 to i64
   %2186 = getelementptr inbounds nuw i8, ptr %2184, i64 %2185
   %2187 = load i8, ptr %2186, align 1
@@ -11169,14 +11169,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1310: ; preds = %2196
 
 2230:                                             ; preds = %2224
   %2231 = lshr i32 %2226, 3
-  %2232 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %2232 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %2233 = zext i16 %2232 to i32
   %.not.i1311 = icmp samesign ult i32 %2231, %2233
   br i1 %.not.i1311, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1313, label %.critedge98
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1313: ; preds = %2230
   %2234 = and i32 %2226, 7
-  %2235 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %2235 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %2236 = zext nneg i32 %2231 to i64
   %2237 = getelementptr inbounds nuw i8, ptr %2235, i64 %2236
   %2238 = load i8, ptr %2237, align 1
@@ -11244,14 +11244,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1316: ; preds = %2247
 
 2274:                                             ; preds = %2268
   %2275 = lshr i32 %2270, 3
-  %2276 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %2276 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %2277 = zext i16 %2276 to i32
   %.not.i1317 = icmp samesign ult i32 %2275, %2277
   br i1 %.not.i1317, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1319, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1319: ; preds = %2274
   %2278 = and i32 %2270, 7
-  %2279 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %2279 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %2280 = zext nneg i32 %2275 to i64
   %2281 = getelementptr inbounds nuw i8, ptr %2279, i64 %2280
   %2282 = load i8, ptr %2281, align 1
@@ -11303,14 +11303,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1322: ; preds = %2291
   %2311 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %2312 = load i32, ptr %2311, align 4
   %2313 = lshr i32 %2312, 3
-  %2314 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %2314 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %2315 = zext i16 %2314 to i32
   %.not.i1323 = icmp samesign ult i32 %2313, %2315
   br i1 %.not.i1323, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1325, label %.critedge102
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1325: ; preds = %2310
   %2316 = and i32 %2312, 7
-  %2317 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %2317 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %2318 = zext nneg i32 %2313 to i64
   %2319 = getelementptr inbounds nuw i8, ptr %2317, i64 %2318
   %2320 = load i8, ptr %2319, align 1
@@ -11375,14 +11375,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1328: ; preds = %2329
   %2356 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %2357 = load i32, ptr %2356, align 4
   %2358 = lshr i32 %2357, 3
-  %2359 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %2359 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %2360 = zext i16 %2359 to i32
   %.not.i1330 = icmp samesign ult i32 %2358, %2360
   br i1 %.not.i1330, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1332, label %2393
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1332: ; preds = %2355
   %2361 = and i32 %2357, 7
-  %2362 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %2362 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %2363 = zext nneg i32 %2358 to i64
   %2364 = getelementptr inbounds nuw i8, ptr %2362, i64 %2363
   %2365 = load i8, ptr %2364, align 1
@@ -11434,14 +11434,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1335: ; preds = %2374
   %2394 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %2395 = load i32, ptr %2394, align 4
   %2396 = lshr i32 %2395, 3
-  %2397 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %2397 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %2398 = zext i16 %2397 to i32
   %.not.i1337 = icmp samesign ult i32 %2396, %2398
   br i1 %.not.i1337, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1339, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1339: ; preds = %2393
   %2399 = and i32 %2395, 7
-  %2400 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %2400 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %2401 = zext nneg i32 %2396 to i64
   %2402 = getelementptr inbounds nuw i8, ptr %2400, i64 %2401
   %2403 = load i8, ptr %2402, align 1
@@ -11462,14 +11462,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1339: ; preds = %2393
   %2413 = getelementptr inbounds nuw i8, ptr %.32.val, i64 36
   %2414 = load i32, ptr %2413, align 4
   %2415 = lshr i32 %2414, 3
-  %2416 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 758), align 2
+  %2416 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 758), align 2
   %2417 = zext i16 %2416 to i32
   %.not.i1340 = icmp samesign ult i32 %2415, %2417
   br i1 %.not.i1340, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1342, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1342: ; preds = %2412
   %2418 = and i32 %2414, 7
-  %2419 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 744), align 8
+  %2419 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 744), align 8
   %2420 = zext nneg i32 %2415 to i64
   %2421 = getelementptr inbounds nuw i8, ptr %2419, i64 %2420
   %2422 = load i8, ptr %2421, align 1
@@ -11521,14 +11521,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1342: ; preds = %2412
   %2449 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %2450 = load i32, ptr %2449, align 4
   %2451 = lshr i32 %2450, 3
-  %2452 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %2452 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %2453 = zext i16 %2452 to i32
   %.not.i1344 = icmp samesign ult i32 %2451, %2453
   br i1 %.not.i1344, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1346, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1346.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1346: ; preds = %2448
   %2454 = and i32 %2450, 7
-  %2455 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %2455 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %2456 = zext nneg i32 %2451 to i64
   %2457 = getelementptr inbounds nuw i8, ptr %2455, i64 %2456
   %2458 = load i8, ptr %2457, align 1
@@ -11597,14 +11597,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1346.thread.thread: ; p
   %2495 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %2496 = load i32, ptr %2495, align 4
   %2497 = lshr i32 %2496, 3
-  %2498 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 118), align 2
+  %2498 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 118), align 2
   %2499 = zext i16 %2498 to i32
   %.not.i1351 = icmp samesign ult i32 %2497, %2499
   br i1 %.not.i1351, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1353, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1353: ; preds = %2494
   %2500 = and i32 %2496, 7
-  %2501 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 104), align 8
+  %2501 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 104), align 8
   %2502 = zext nneg i32 %2497 to i64
   %2503 = getelementptr inbounds nuw i8, ptr %2501, i64 %2502
   %2504 = load i8, ptr %2503, align 1
@@ -11625,14 +11625,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1353: ; preds = %2494
   %2514 = getelementptr inbounds nuw i8, ptr %.32.val, i64 36
   %2515 = load i32, ptr %2514, align 4
   %2516 = lshr i32 %2515, 3
-  %2517 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 758), align 2
+  %2517 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 758), align 2
   %2518 = zext i16 %2517 to i32
   %.not.i1354 = icmp samesign ult i32 %2516, %2518
   br i1 %.not.i1354, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1356, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1356: ; preds = %2513
   %2519 = and i32 %2515, 7
-  %2520 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 744), align 8
+  %2520 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 744), align 8
   %2521 = zext nneg i32 %2516 to i64
   %2522 = getelementptr inbounds nuw i8, ptr %2520, i64 %2521
   %2523 = load i8, ptr %2522, align 1
@@ -11686,14 +11686,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1356: ; preds = %2513
 
 2555:                                             ; preds = %2549
   %2556 = lshr i32 %2551, 3
-  %2557 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %2557 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %2558 = zext i16 %2557 to i32
   %.not.i1358 = icmp samesign ult i32 %2556, %2558
   br i1 %.not.i1358, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1360, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1360: ; preds = %2555
   %2559 = and i32 %2551, 7
-  %2560 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %2560 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %2561 = zext nneg i32 %2556 to i64
   %2562 = getelementptr inbounds nuw i8, ptr %2560, i64 %2561
   %2563 = load i8, ptr %2562, align 1
@@ -11733,14 +11733,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1360: ; preds = %2555
 
 2586:                                             ; preds = %2580
   %2587 = lshr i32 %2582, 3
-  %2588 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %2588 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %2589 = zext i16 %2588 to i32
   %.not.i1361 = icmp samesign ult i32 %2587, %2589
   br i1 %.not.i1361, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1363, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1363: ; preds = %2586
   %2590 = and i32 %2582, 7
-  %2591 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %2591 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %2592 = zext nneg i32 %2587 to i64
   %2593 = getelementptr inbounds nuw i8, ptr %2591, i64 %2592
   %2594 = load i8, ptr %2593, align 1
@@ -11767,14 +11767,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1363: ; preds = %2586
   %2607 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %2608 = load i32, ptr %2607, align 4
   %2609 = lshr i32 %2608, 3
-  %2610 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %2610 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %2611 = zext i16 %2610 to i32
   %.not.i1364 = icmp samesign ult i32 %2609, %2611
   br i1 %.not.i1364, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1366, label %.critedge116
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1366: ; preds = %2606
   %2612 = and i32 %2608, 7
-  %2613 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %2613 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %2614 = zext nneg i32 %2609 to i64
   %2615 = getelementptr inbounds nuw i8, ptr %2613, i64 %2614
   %2616 = load i8, ptr %2615, align 1
@@ -11840,14 +11840,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1369: ; preds = %2625
   %2653 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %2654 = load i32, ptr %2653, align 4
   %2655 = lshr i32 %2654, 3
-  %2656 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %2656 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %2657 = zext i16 %2656 to i32
   %.not.i1371 = icmp samesign ult i32 %2655, %2657
   br i1 %.not.i1371, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1373, label %2691
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1373: ; preds = %2652
   %2658 = and i32 %2654, 7
-  %2659 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %2659 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %2660 = zext nneg i32 %2655 to i64
   %2661 = getelementptr inbounds nuw i8, ptr %2659, i64 %2660
   %2662 = load i8, ptr %2661, align 1
@@ -11900,14 +11900,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1376: ; preds = %2671
   %2692 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %2693 = load i32, ptr %2692, align 4
   %2694 = lshr i32 %2693, 3
-  %2695 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %2695 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %2696 = zext i16 %2695 to i32
   %.not.i1378 = icmp samesign ult i32 %2694, %2696
   br i1 %.not.i1378, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1380, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1380: ; preds = %2691
   %2697 = and i32 %2693, 7
-  %2698 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %2698 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %2699 = zext nneg i32 %2694 to i64
   %2700 = getelementptr inbounds nuw i8, ptr %2698, i64 %2699
   %2701 = load i8, ptr %2700, align 1
@@ -11928,14 +11928,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1380: ; preds = %2691
   %2711 = getelementptr inbounds nuw i8, ptr %.32.val, i64 36
   %2712 = load i32, ptr %2711, align 4
   %2713 = lshr i32 %2712, 3
-  %2714 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 758), align 2
+  %2714 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 758), align 2
   %2715 = zext i16 %2714 to i32
   %.not.i1381 = icmp samesign ult i32 %2713, %2715
   br i1 %.not.i1381, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1383, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1383: ; preds = %2710
   %2716 = and i32 %2712, 7
-  %2717 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 744), align 8
+  %2717 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 744), align 8
   %2718 = zext nneg i32 %2713 to i64
   %2719 = getelementptr inbounds nuw i8, ptr %2717, i64 %2718
   %2720 = load i8, ptr %2719, align 1
@@ -11996,14 +11996,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1383: ; preds = %2710
 
 2756:                                             ; preds = %2750
   %2757 = lshr i32 %2752, 3
-  %2758 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
+  %2758 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 214), align 2
   %2759 = zext i16 %2758 to i32
   %.not.i1385 = icmp samesign ult i32 %2757, %2759
   br i1 %.not.i1385, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1387, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1387: ; preds = %2756
   %2760 = and i32 %2752, 7
-  %2761 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
+  %2761 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 200), align 8
   %2762 = zext nneg i32 %2757 to i64
   %2763 = getelementptr inbounds nuw i8, ptr %2761, i64 %2762
   %2764 = load i8, ptr %2763, align 1
@@ -12074,14 +12074,14 @@ _ZL27RISCVValidateMachineOperandRKN4llvm14MachineOperandEPKNS_14RISCVSubtargetEj
 
 2804:                                             ; preds = %2798
   %2805 = lshr i32 %2800, 3
-  %2806 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %2806 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %2807 = zext i16 %2806 to i32
   %.not.i1390 = icmp samesign ult i32 %2805, %2807
   br i1 %.not.i1390, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1392, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1392: ; preds = %2804
   %2808 = and i32 %2800, 7
-  %2809 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %2809 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %2810 = zext nneg i32 %2805 to i64
   %2811 = getelementptr inbounds nuw i8, ptr %2809, i64 %2810
   %2812 = load i8, ptr %2811, align 1
@@ -12152,14 +12152,14 @@ _ZL27RISCVValidateMachineOperandRKN4llvm14MachineOperandEPKNS_14RISCVSubtargetEj
 
 2852:                                             ; preds = %2846
   %2853 = lshr i32 %2848, 3
-  %2854 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %2854 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %2855 = zext i16 %2854 to i32
   %.not.i1395 = icmp samesign ult i32 %2853, %2855
   br i1 %.not.i1395, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1397, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1397: ; preds = %2852
   %2856 = and i32 %2848, 7
-  %2857 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %2857 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %2858 = zext nneg i32 %2853 to i64
   %2859 = getelementptr inbounds nuw i8, ptr %2857, i64 %2858
   %2860 = load i8, ptr %2859, align 1
@@ -12282,14 +12282,14 @@ _ZL27RISCVValidateMachineOperandRKN4llvm14MachineOperandEPKNS_14RISCVSubtargetEj
 
 2932:                                             ; preds = %2926
   %2933 = lshr i32 %2928, 3
-  %2934 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %2934 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %2935 = zext i16 %2934 to i32
   %.not.i1400 = icmp samesign ult i32 %2933, %2935
   br i1 %.not.i1400, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1402, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1402: ; preds = %2932
   %2936 = and i32 %2928, 7
-  %2937 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %2937 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %2938 = zext nneg i32 %2933 to i64
   %2939 = getelementptr inbounds nuw i8, ptr %2937, i64 %2938
   %2940 = load i8, ptr %2939, align 1
@@ -12366,14 +12366,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1405: ; preds = %2949
 
 2985:                                             ; preds = %2979
   %2986 = lshr i32 %2981, 3
-  %2987 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %2987 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %2988 = zext i16 %2987 to i32
   %.not.i1406 = icmp samesign ult i32 %2986, %2988
   br i1 %.not.i1406, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1408, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1408: ; preds = %2985
   %2989 = and i32 %2981, 7
-  %2990 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %2990 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %2991 = zext nneg i32 %2986 to i64
   %2992 = getelementptr inbounds nuw i8, ptr %2990, i64 %2991
   %2993 = load i8, ptr %2992, align 1
@@ -12432,14 +12432,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1411: ; preds = %3002
   %3026 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %3027 = load i32, ptr %3026, align 4
   %3028 = lshr i32 %3027, 3
-  %3029 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %3029 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %3030 = zext i16 %3029 to i32
   %.not.i1412 = icmp samesign ult i32 %3028, %3030
   br i1 %.not.i1412, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1414, label %.critedge136
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1414: ; preds = %3025
   %3031 = and i32 %3027, 7
-  %3032 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %3032 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %3033 = zext nneg i32 %3028 to i64
   %3034 = getelementptr inbounds nuw i8, ptr %3032, i64 %3033
   %3035 = load i8, ptr %3034, align 1
@@ -12512,14 +12512,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1417: ; preds = %3044
   %3070 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %3071 = load i32, ptr %3070, align 4
   %3072 = lshr i32 %3071, 3
-  %3073 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 118), align 2
+  %3073 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 118), align 2
   %3074 = zext i16 %3073 to i32
   %.not.i1419 = icmp samesign ult i32 %3072, %3074
   br i1 %.not.i1419, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1421, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1421: ; preds = %3069
   %3075 = and i32 %3071, 7
-  %3076 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 104), align 8
+  %3076 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 104), align 8
   %3077 = zext nneg i32 %3072 to i64
   %3078 = getelementptr inbounds nuw i8, ptr %3076, i64 %3077
   %3079 = load i8, ptr %3078, align 1
@@ -12540,14 +12540,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1421: ; preds = %3069
   %3089 = getelementptr inbounds nuw i8, ptr %.32.val, i64 36
   %3090 = load i32, ptr %3089, align 4
   %3091 = lshr i32 %3090, 3
-  %3092 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 758), align 2
+  %3092 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 758), align 2
   %3093 = zext i16 %3092 to i32
   %.not.i1422 = icmp samesign ult i32 %3091, %3093
   br i1 %.not.i1422, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1424, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1424: ; preds = %3088
   %3094 = and i32 %3090, 7
-  %3095 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 744), align 8
+  %3095 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 744), align 8
   %3096 = zext nneg i32 %3091 to i64
   %3097 = getelementptr inbounds nuw i8, ptr %3095, i64 %3096
   %3098 = load i8, ptr %3097, align 1
@@ -12622,14 +12622,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1424: ; preds = %3088
 
 3142:                                             ; preds = %3136
   %3143 = lshr i32 %3138, 3
-  %3144 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %3144 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %3145 = zext i16 %3144 to i32
   %.not.i1426 = icmp samesign ult i32 %3143, %3145
   br i1 %.not.i1426, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1428, label %.critedge140
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1428: ; preds = %3142
   %3146 = and i32 %3138, 7
-  %3147 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %3147 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %3148 = zext nneg i32 %3143 to i64
   %3149 = getelementptr inbounds nuw i8, ptr %3147, i64 %3148
   %3150 = load i8, ptr %3149, align 1
@@ -12697,14 +12697,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1431: ; preds = %3159
 
 3186:                                             ; preds = %3180
   %3187 = lshr i32 %3182, 3
-  %3188 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %3188 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %3189 = zext i16 %3188 to i32
   %.not.i1432 = icmp samesign ult i32 %3187, %3189
   br i1 %.not.i1432, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1434, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1434: ; preds = %3186
   %3190 = and i32 %3182, 7
-  %3191 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %3191 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %3192 = zext nneg i32 %3187 to i64
   %3193 = getelementptr inbounds nuw i8, ptr %3191, i64 %3192
   %3194 = load i8, ptr %3193, align 1
@@ -12782,14 +12782,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1437: ; preds = %3203
 
 3242:                                             ; preds = %3238
   %3243 = lshr i32 %3229, 3
-  %3244 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %3244 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %3245 = zext i16 %3244 to i32
   %.not.i1438 = icmp samesign ult i32 %3243, %3245
   br i1 %.not.i1438, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1440, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1440: ; preds = %3242
   %3246 = and i32 %3229, 7
-  %3247 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %3247 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %3248 = zext nneg i32 %3243 to i64
   %3249 = getelementptr inbounds nuw i8, ptr %3247, i64 %3248
   %3250 = load i8, ptr %3249, align 1
@@ -12829,14 +12829,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1440: ; preds = %3242
 
 3273:                                             ; preds = %3267
   %3274 = lshr i32 %3269, 3
-  %3275 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %3275 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %3276 = zext i16 %3275 to i32
   %.not.i1441 = icmp samesign ult i32 %3274, %3276
   br i1 %.not.i1441, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1443, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1443: ; preds = %3273
   %3277 = and i32 %3269, 7
-  %3278 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %3278 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %3279 = zext nneg i32 %3274 to i64
   %3280 = getelementptr inbounds nuw i8, ptr %3278, i64 %3279
   %3281 = load i8, ptr %3280, align 1
@@ -12876,14 +12876,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1443: ; preds = %3273
 
 3304:                                             ; preds = %3298
   %3305 = lshr i32 %3300, 3
-  %3306 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
+  %3306 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %3307 = zext i16 %3306 to i32
   %.not.i1444 = icmp samesign ult i32 %3305, %3307
   br i1 %.not.i1444, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1446, label %.critedge6
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit1446: ; preds = %3304
   %3308 = and i32 %3300, 7
-  %3309 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
+  %3309 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 424), align 8
   %3310 = zext nneg i32 %3305 to i64
   %3311 = getelementptr inbounds nuw i8, ptr %3309, i64 %3310
   %3312 = load i8, ptr %3311, align 1
@@ -13152,7 +13152,7 @@ define dso_local noundef i32 @_ZNK4llvm14RISCVInstrInfo31getMachineCombinerTrace
   br label %18
 
 16:                                               ; preds = %1
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL28ForceMachineCombinerStrategy, i64 128), align 8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL28ForceMachineCombinerStrategy, i64 128), align 8
   br label %18
 
 18:                                               ; preds = %4, %11, %16
@@ -13698,7 +13698,7 @@ _ZSt7advanceIPKN4llvm18RISCVVPseudosTable10PseudoInfoElEvRT_T0_.exit.i.i.i.i: ; 
   br i1 %15, label %_ZSt7advanceIPKN4llvm18RISCVVPseudosTable10PseudoInfoElEvRT_T0_.exit.i.i.i.i, label %_ZSt11lower_boundIPKN4llvm18RISCVVPseudosTable10PseudoInfoEZNS1_13getPseudoInfoEjE7KeyTypeZNS1_13getPseudoInfoEjE4CompET_S7_S7_RKT0_T1_.exit.i.i, !llvm.loop !4
 
 _ZSt11lower_boundIPKN4llvm18RISCVVPseudosTable10PseudoInfoEZNS1_13getPseudoInfoEjE7KeyTypeZNS1_13getPseudoInfoEjE4CompET_S7_S7_RKT0_T1_.exit.i.i: ; preds = %_ZSt7advanceIPKN4llvm18RISCVVPseudosTable10PseudoInfoElEvRT_T0_.exit.i.i.i.i
-  %16 = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN4llvm18RISCVVPseudosTableL18RISCVVPseudosTableE, i64 45356)
+  %16 = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZN4llvm18RISCVVPseudosTableL18RISCVVPseudosTableE, i64 45356)
   br i1 %16, label %_ZN4llvm5RISCV14getRVVMCOpcodeEj.exit.thread, label %17
 
 17:                                               ; preds = %_ZSt11lower_boundIPKN4llvm18RISCVVPseudosTable10PseudoInfoEZNS1_13getPseudoInfoEjE7KeyTypeZNS1_13getPseudoInfoEjE4CompET_S7_S7_RKT0_T1_.exit.i.i
@@ -17888,7 +17888,7 @@ define dso_local void @_ZNK4llvm14RISCVInstrInfo23createMIROperandCommentB5cxx11
   store i32 1, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %8, align 8
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %0, ptr %20, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef null, i64 noundef 0, i32 noundef 0) #25
@@ -22246,7 +22246,7 @@ _ZSt7advanceIPKN4llvm18RISCVVPseudosTable10PseudoInfoElEvRT_T0_.exit.i.i.i: ; pr
   br i1 %12, label %_ZSt7advanceIPKN4llvm18RISCVVPseudosTable10PseudoInfoElEvRT_T0_.exit.i.i.i, label %_ZSt11lower_boundIPKN4llvm18RISCVVPseudosTable10PseudoInfoEZNS1_13getPseudoInfoEjE7KeyTypeZNS1_13getPseudoInfoEjE4CompET_S7_S7_RKT0_T1_.exit.i, !llvm.loop !4
 
 _ZSt11lower_boundIPKN4llvm18RISCVVPseudosTable10PseudoInfoEZNS1_13getPseudoInfoEjE7KeyTypeZNS1_13getPseudoInfoEjE4CompET_S7_S7_RKT0_T1_.exit.i: ; preds = %_ZSt7advanceIPKN4llvm18RISCVVPseudosTable10PseudoInfoElEvRT_T0_.exit.i.i.i
-  %13 = icmp eq ptr %.1.i.i.i, getelementptr inbounds (i8, ptr @_ZN4llvm18RISCVVPseudosTableL18RISCVVPseudosTableE, i64 45356)
+  %13 = icmp eq ptr %.1.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZN4llvm18RISCVVPseudosTableL18RISCVVPseudosTableE, i64 45356)
   br i1 %13, label %_ZN4llvm18RISCVVPseudosTable13getPseudoInfoEj.exit.thread, label %14
 
 14:                                               ; preds = %_ZSt11lower_boundIPKN4llvm18RISCVVPseudosTable10PseudoInfoEZNS1_13getPseudoInfoEjE7KeyTypeZNS1_13getPseudoInfoEjE4CompET_S7_S7_RKT0_T1_.exit.i
@@ -23184,7 +23184,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm15TargetInstrInfo15getMIRFormat
 
 _ZNSt10unique_ptrIN4llvm12MIRFormatterESt14default_deleteIS1_EED2Ev.exit: ; preds = %1
   %4 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28, !noalias !350
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm12MIRFormatterE, i64 16), ptr %4, align 8, !noalias !350
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm12MIRFormatterE, i64 16), ptr %4, align 8, !noalias !350
   store ptr %4, ptr %2, align 8
   br label %5
 
@@ -23531,7 +23531,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl6parserINS_20MachineTraceStrategyEED2Ev(ptr noundef nonnull align 8 dereferenceable(416) %0) unnamed_addr #2 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm2cl6parserINS_20MachineTraceStrategyEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm2cl6parserINS_20MachineTraceStrategyEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(400) %2) #25
   %4 = load ptr, ptr %2, align 8
@@ -23597,7 +23597,7 @@ declare void @_ZN4llvm2cl6Option6anchorEv(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optINS_20MachineTraceStrategyELb0ENS0_6parserIS2_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #2 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optINS_20MachineTraceStrategyELb0ENS0_6parserIS2_EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optINS_20MachineTraceStrategyELb0ENS0_6parserIS2_EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -23610,7 +23610,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optINS_20MachineTraceStrategyELb0EN
 
 _ZNSt8functionIFvRKN4llvm20MachineTraceStrategyEEED2Ev.exit.i: ; preds = %4, %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm2cl6parserINS_20MachineTraceStrategyEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm2cl6parserINS_20MachineTraceStrategyEEE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(400) %8) #25
   %10 = load ptr, ptr %8, align 8
@@ -23623,7 +23623,7 @@ _ZNSt8functionIFvRKN4llvm20MachineTraceStrategyEEED2Ev.exit.i: ; preds = %4, %1
   br label %_ZN4llvm2cl6parserINS_20MachineTraceStrategyEED2Ev.exit.i
 
 _ZN4llvm2cl6parserINS_20MachineTraceStrategyEED2Ev.exit.i: ; preds = %13, %_ZNSt8functionIFvRKN4llvm20MachineTraceStrategyEEED2Ev.exit.i
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %16 = load ptr, ptr %15, align 8
@@ -23688,7 +23688,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl3optINS_20MachineTraceStrategyELb0E
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_20MachineTraceStrategyEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_20MachineTraceStrategyEEE, i64 16), ptr %4, align 8
   store i8 1, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %.pre, ptr %16, align 8
@@ -23724,7 +23724,7 @@ declare noundef zeroext i1 @_ZN4llvm2cl6Option13addOccurrenceEjNS_9StringRefES2_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl6parserINS_20MachineTraceStrategyEED0Ev(ptr noundef nonnull align 8 dereferenceable(416) %0) unnamed_addr #2 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm2cl6parserINS_20MachineTraceStrategyEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm2cl6parserINS_20MachineTraceStrategyEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(400) %2) #25
   %4 = load ptr, ptr %2, align 8
@@ -25177,7 +25177,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamls
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -25395,7 +25395,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_20M
   store i64 %.sroa.22.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8
   store ptr %.sroa.0.0.copyload, ptr %7, align 8
   store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_20MachineTraceStrategyEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_20MachineTraceStrategyEEE, i64 16), ptr %8, align 8
   store i8 1, ptr %9, align 4
   store i32 %16, ptr %10, align 8
   %17 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonINS_2cl6parserINS_20MachineTraceStrategyEE10OptionInfoEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS5_Lb0EEEEEPKS5_PT_RSA_m(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 noundef 1)
@@ -25404,11 +25404,11 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_20M
   %20 = getelementptr inbounds %"class.llvm::cl::parser<llvm::MachineTraceStrategy>::OptionInfo", ptr %18, i64 %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull align 8 dereferenceable(48) %17, i64 32, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_20MachineTraceStrategyEEE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_20MachineTraceStrategyEEE, i64 16), ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %22, ptr noundef nonnull align 8 dereferenceable(5) %23, i64 5, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_20MachineTraceStrategyEEE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_20MachineTraceStrategyEEE, i64 16), ptr %21, align 8
   %24 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #25
   %25 = add i64 %24, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %11, i64 noundef %25) #25
@@ -25467,11 +25467,11 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm25SmallVectorTemplateCommonINS_2
   %.sroa.04.08.i.i.i.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i.i.i.i ], [ %23, %20 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.09.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.04.08.i.i.i.i.i.i.i, i64 32, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i, i64 32
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_20MachineTraceStrategyEEE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_20MachineTraceStrategyEEE, i64 16), ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i, i64 40
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %27, ptr noundef nonnull align 8 dereferenceable(5) %28, i64 5, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_20MachineTraceStrategyEEE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_20MachineTraceStrategyEEE, i64 16), ptr %26, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i, i64 48
   %30 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i.i.i = icmp eq ptr %29, %25
@@ -26239,10 +26239,10 @@ define internal void @_GLOBAL__sub_I_RISCVInstrInfo.cpp() #20 section ".text.sta
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL23PreferWholeRegisterMove, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL23PreferWholeRegisterMove, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL23PreferWholeRegisterMove, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL23PreferWholeRegisterMove, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL23PreferWholeRegisterMove, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL23PreferWholeRegisterMove, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL23PreferWholeRegisterMove, align 8
   tail call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL23PreferWholeRegisterMove, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL23PreferWholeRegisterMove) #25
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL23PreferWholeRegisterMove, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL23PreferWholeRegisterMove, i64 152), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL23PreferWholeRegisterMove, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL23PreferWholeRegisterMove, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL23PreferWholeRegisterMove, i64 176), align 8
@@ -26286,10 +26286,10 @@ define internal void @_GLOBAL__sub_I_RISCVInstrInfo.cpp() #20 section ".text.sta
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL28ForceMachineCombinerStrategy, i32 noundef 0, i32 noundef 0)
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL28ForceMachineCombinerStrategy, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL28ForceMachineCombinerStrategy, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_20MachineTraceStrategyEEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL28ForceMachineCombinerStrategy, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optINS_20MachineTraceStrategyELb0ENS0_6parserIS2_EEEE, i64 16), ptr @_ZL28ForceMachineCombinerStrategy, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_20MachineTraceStrategyEEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL28ForceMachineCombinerStrategy, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optINS_20MachineTraceStrategyELb0ENS0_6parserIS2_EEEE, i64 16), ptr @_ZL28ForceMachineCombinerStrategy, align 8
   store ptr @_ZL28ForceMachineCombinerStrategy, ptr getelementptr inbounds nuw (i8, ptr @_ZL28ForceMachineCombinerStrategy, i64 160), align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm2cl6parserINS_20MachineTraceStrategyEEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL28ForceMachineCombinerStrategy, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm2cl6parserINS_20MachineTraceStrategyEEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL28ForceMachineCombinerStrategy, i64 152), align 8
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(400) getelementptr inbounds nuw (i8, ptr @_ZL28ForceMachineCombinerStrategy, i64 168), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL28ForceMachineCombinerStrategy, i64 184), i64 noundef 8) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL28ForceMachineCombinerStrategy, i64 568), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKN4llvm20MachineTraceStrategyEENS0_2cl3optIS1_Lb0ENS5_6parserIS1_EEEUlS3_E_EE9_M_invokeERKSt9_Any_dataS3_, ptr getelementptr inbounds nuw (i8, ptr @_ZL28ForceMachineCombinerStrategy, i64 592), align 8

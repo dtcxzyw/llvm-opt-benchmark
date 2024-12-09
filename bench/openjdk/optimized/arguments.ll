@@ -4866,8 +4866,8 @@ define hidden noundef zeroext i1 @_ZN9Arguments13is_bad_optionEPK12JavaVMOptionh
 
 4:                                                ; preds = %3
   %5 = icmp eq ptr %2, null
-  %.06 = select i1 %5, ptr getelementptr inbounds (i8, ptr @.str.109, i64 1), ptr %2
-  %.0 = select i1 %5, ptr getelementptr inbounds (i8, ptr @.str.109, i64 1), ptr @.str.109
+  %.06 = select i1 %5, ptr getelementptr inbounds nuw (i8, ptr @.str.109, i64 1), ptr %2
+  %.0 = select i1 %5, ptr getelementptr inbounds nuw (i8, ptr @.str.109, i64 1), ptr @.str.109
   %6 = load i8, ptr @DisplayVMOutputToStdout, align 1
   %7 = trunc i8 %6 to i1
   %8 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
@@ -5309,12 +5309,12 @@ _ZN9Arguments14build_jvm_argsEPKc.exit:           ; preds = %88, %_ZL12match_opt
   br i1 %.not156, label %106, label %110
 
 106:                                              ; preds = %104
-  %107 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN9Arguments16_legacyGCLoggingE, i64 8), align 8
+  %107 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Arguments16_legacyGCLoggingE, i64 8), align 8
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %109, label %.critedge159
 
 109:                                              ; preds = %106
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN9Arguments16_legacyGCLoggingE, i64 8), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Arguments16_legacyGCLoggingE, i64 8), align 8
   br label %.critedge159
 
 110:                                              ; preds = %104
@@ -6398,7 +6398,7 @@ sub_1289:                                         ; preds = %520
   br label %612
 
 612:                                              ; preds = %609, %611
-  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN9Arguments16_legacyGCLoggingE, i64 8), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Arguments16_legacyGCLoggingE, i64 8), align 8
   %613 = call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef %.pre363, i8 noundef zeroext 9) #31
   store ptr %613, ptr @_ZN9Arguments16_legacyGCLoggingE, align 8
   br label %.critedge159
@@ -6422,7 +6422,7 @@ sub_1289:                                         ; preds = %520
   %625 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
   %626 = select i1 %623, ptr %624, ptr %625
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(65) %57, i1 noundef zeroext false) #31
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %57, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %57, align 8
   %627 = getelementptr inbounds nuw i8, ptr %57, i64 56
   store ptr %626, ptr %627, align 8
   %628 = getelementptr inbounds nuw i8, ptr %57, i64 64
@@ -7368,7 +7368,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9Arguments13is_bad_optionEPK12
   %7 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
   %8 = select i1 %5, ptr %6, ptr %7
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %8, ptr noundef nonnull @.str.110, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.109, i64 1), ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.109, i64 1), ptr noundef %9) #31
+  %10 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %8, ptr noundef nonnull @.str.110, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.109, i64 1), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.109, i64 1), ptr noundef %9) #31
   br label %_ZN9Arguments13is_bad_optionEPK12JavaVMOptionhPKc.exit
 
 _ZN9Arguments13is_bad_optionEPK12JavaVMOptionhPKc.exit: ; preds = %2, %3
@@ -8560,7 +8560,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments32handle_deprecated_print_gc_flag
   br label %13
 
 13:                                               ; preds = %12, %10, %7
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN9Arguments16_legacyGCLoggingE, i64 8), align 8
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Arguments16_legacyGCLoggingE, i64 8), align 8
   %15 = icmp eq i32 %14, 2
   br i1 %15, label %16, label %24
 
@@ -8569,14 +8569,14 @@ define hidden noundef zeroext i1 @_ZN9Arguments32handle_deprecated_print_gc_flag
   %18 = trunc i8 %17 to i1
   %19 = select i1 %18, ptr @.str.275, ptr @.str.276
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %1, i1 noundef zeroext false) #31
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %1, align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %20) #31
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store i32 5, ptr %21, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %1, align 8
   %22 = load ptr, ptr @_ZN9Arguments16_legacyGCLoggingE, align 8
   %23 = call noundef zeroext i1 @_ZN16LogConfiguration19parse_log_argumentsEPKcS1_S1_S1_P12outputStream(ptr noundef %22, ptr noundef nonnull %19, ptr noundef null, ptr noundef null, ptr noundef nonnull %1) #31
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %1) #31
@@ -9284,14 +9284,14 @@ declare noundef i32 @_ZN7NMTUtil20parse_tracking_levelEPKc(ptr noundef) local_un
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9LogStreamC2ILN8LogLevel4typeE3ELN6LogTag4typeE5ELS4_0ELS4_0ELS4_0ELS4_0ELS4_0EEEPK13LogTargetImplIXT_EXT0_EXT1_EXT2_EXT3_EXT4_EXT5_EE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   tail call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %0, i1 noundef zeroext false) #31
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #31
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 3, ptr %4, align 8
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -10272,7 +10272,7 @@ declare void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #31
   ret void
@@ -10307,117 +10307,117 @@ define internal void @_GLOBAL__sub_I_arguments.cpp() #15 section ".text.startup"
   %9 = load i64, ptr @SharedBaseAddress, align 8
   store i64 %9, ptr @_ZN9Arguments26_default_SharedBaseAddressE, align 8
   store ptr @.str.38, ptr @_ZL17special_jvm_flags, align 16
-  store i32 13, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 8), align 8, !alias.scope !47
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 12), i8 0, i64 56, i1 false)
-  store ptr @.str.40, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 72), align 8
-  store i32 13, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 80), align 16, !alias.scope !50
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 84), i8 0, i64 56, i1 false)
-  store ptr @.str.41, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 144), align 16
-  store i32 23, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 152), align 8, !alias.scope !53
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 156), i8 0, i64 56, i1 false)
-  store ptr @.str.42, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 216), align 8
-  store i32 18, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 224), align 16, !alias.scope !56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 228), i8 0, i64 16, i1 false), !alias.scope !56
-  store i32 19, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 244), align 4, !alias.scope !59
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 248), i8 0, i64 36, i1 false)
-  store ptr @.str.43, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 288), align 16
-  store i32 18, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 296), align 8, !alias.scope !62
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 300), i8 0, i64 16, i1 false), !alias.scope !62
-  store i32 19, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 316), align 4, !alias.scope !65
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 320), i8 0, i64 36, i1 false)
-  store ptr @.str.44, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 360), align 8
-  store i32 18, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 368), align 16, !alias.scope !68
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 372), i8 0, i64 16, i1 false), !alias.scope !68
-  store i32 19, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 388), align 4, !alias.scope !71
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 392), i8 0, i64 36, i1 false)
-  store ptr @.str.45, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 432), align 16
-  store i32 18, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 440), align 8, !alias.scope !74
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 444), i8 0, i64 16, i1 false), !alias.scope !74
-  store i32 19, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 460), align 4, !alias.scope !77
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 464), i8 0, i64 36, i1 false)
-  store ptr @.str.46, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 504), align 8
-  store i32 23, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 512), align 16, !alias.scope !80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 516), i8 0, i64 16, i1 false), !alias.scope !80
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 532), align 4, !alias.scope !83
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 536), i8 0, i64 16, i1 false), !alias.scope !83
-  store i32 25, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 552), align 8, !alias.scope !86
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 556), i8 0, i64 16, i1 false), !alias.scope !86
-  store ptr @.str.47, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 576), align 16
-  store i32 23, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 584), align 8, !alias.scope !89
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 588), i8 0, i64 16, i1 false), !alias.scope !89
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 604), align 4, !alias.scope !92
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 608), i8 0, i64 16, i1 false), !alias.scope !92
-  store i32 25, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 624), align 16, !alias.scope !95
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 628), i8 0, i64 16, i1 false), !alias.scope !95
-  store ptr @.str.48, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 648), align 8
-  store i32 23, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 656), align 16, !alias.scope !98
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 660), i8 0, i64 16, i1 false), !alias.scope !98
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 676), align 4, !alias.scope !101
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 680), i8 0, i64 16, i1 false), !alias.scope !101
-  store i32 25, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 696), align 8, !alias.scope !104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 700), i8 0, i64 16, i1 false), !alias.scope !104
-  store ptr @.str.49, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 720), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 728), align 8, !alias.scope !107
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 732), i8 0, i64 16, i1 false), !alias.scope !107
-  store i32 26, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 748), align 4, !alias.scope !110
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 752), i8 0, i64 16, i1 false), !alias.scope !110
-  store i32 27, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 768), align 16, !alias.scope !113
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 772), i8 0, i64 16, i1 false), !alias.scope !113
-  store ptr @.str.50, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 792), align 8
-  store i32 9, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 800), align 16, !alias.scope !116
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 804), i8 0, i64 56, i1 false)
-  store ptr @.str.51, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 864), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 872), i8 0, i64 20, i1 false), !alias.scope !119
-  store i32 21, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 892), align 4, !alias.scope !122
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 896), i8 0, i64 36, i1 false)
-  store ptr @.str.52, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 936), align 8
-  store i32 23, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 944), align 16, !alias.scope !125
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 948), i8 0, i64 16, i1 false), !alias.scope !125
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 964), align 4, !alias.scope !128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 968), i8 0, i64 16, i1 false), !alias.scope !128
-  store i32 25, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 984), align 8, !alias.scope !131
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 988), i8 0, i64 16, i1 false), !alias.scope !131
-  store ptr @.str.53, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1008), align 16
-  store i32 23, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1016), align 8, !alias.scope !134
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1020), i8 0, i64 16, i1 false), !alias.scope !134
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1036), align 4, !alias.scope !137
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1040), i8 0, i64 16, i1 false), !alias.scope !137
-  store i32 25, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1056), align 16, !alias.scope !140
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1060), i8 0, i64 16, i1 false), !alias.scope !140
-  store ptr @.str.54, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1080), align 8
-  store i32 23, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1088), align 16, !alias.scope !143
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1092), i8 0, i64 16, i1 false), !alias.scope !143
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1108), align 4, !alias.scope !146
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1112), i8 0, i64 16, i1 false), !alias.scope !146
-  store i32 25, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1128), align 8, !alias.scope !149
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1132), i8 0, i64 16, i1 false), !alias.scope !149
-  store ptr @.str.55, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1152), align 16
-  store i32 23, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1160), align 8, !alias.scope !152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1164), i8 0, i64 16, i1 false), !alias.scope !152
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1180), align 4, !alias.scope !155
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1184), i8 0, i64 16, i1 false), !alias.scope !155
-  store i32 25, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1200), align 16, !alias.scope !158
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1204), i8 0, i64 16, i1 false), !alias.scope !158
-  store ptr @.str.56, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1224), align 8
-  store i32 23, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1232), align 16, !alias.scope !161
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1236), i8 0, i64 16, i1 false), !alias.scope !161
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1252), align 4, !alias.scope !164
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1256), i8 0, i64 16, i1 false), !alias.scope !164
-  store i32 25, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1272), align 8, !alias.scope !167
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1276), i8 0, i64 16, i1 false), !alias.scope !167
-  store ptr @.str.57, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1296), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1304), i8 0, i64 20, i1 false), !alias.scope !170
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1324), align 4, !alias.scope !173
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1328), i8 0, i64 16, i1 false), !alias.scope !173
-  store i32 25, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1344), align 16, !alias.scope !176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1348), i8 0, i64 16, i1 false), !alias.scope !176
-  store ptr @.str.58, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1368), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1376), i8 0, i64 20, i1 false), !alias.scope !179
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1396), align 4, !alias.scope !182
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1400), i8 0, i64 16, i1 false), !alias.scope !182
-  store i32 25, ptr getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1416), align 8, !alias.scope !185
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1420), i8 0, i64 16, i1 false), !alias.scope !185
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) getelementptr inbounds (i8, ptr @_ZL17special_jvm_flags, i64 1440), i8 0, i64 68, i1 false)
+  store i32 13, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 8), align 8, !alias.scope !47
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 12), i8 0, i64 56, i1 false)
+  store ptr @.str.40, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 72), align 8
+  store i32 13, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 80), align 16, !alias.scope !50
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 84), i8 0, i64 56, i1 false)
+  store ptr @.str.41, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 144), align 16
+  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 152), align 8, !alias.scope !53
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 156), i8 0, i64 56, i1 false)
+  store ptr @.str.42, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 216), align 8
+  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 224), align 16, !alias.scope !56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 228), i8 0, i64 16, i1 false), !alias.scope !56
+  store i32 19, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 244), align 4, !alias.scope !59
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 248), i8 0, i64 36, i1 false)
+  store ptr @.str.43, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 288), align 16
+  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 296), align 8, !alias.scope !62
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 300), i8 0, i64 16, i1 false), !alias.scope !62
+  store i32 19, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 316), align 4, !alias.scope !65
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 320), i8 0, i64 36, i1 false)
+  store ptr @.str.44, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 360), align 8
+  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 368), align 16, !alias.scope !68
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 372), i8 0, i64 16, i1 false), !alias.scope !68
+  store i32 19, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 388), align 4, !alias.scope !71
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 392), i8 0, i64 36, i1 false)
+  store ptr @.str.45, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 432), align 16
+  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 440), align 8, !alias.scope !74
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 444), i8 0, i64 16, i1 false), !alias.scope !74
+  store i32 19, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 460), align 4, !alias.scope !77
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 464), i8 0, i64 36, i1 false)
+  store ptr @.str.46, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 504), align 8
+  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 512), align 16, !alias.scope !80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 516), i8 0, i64 16, i1 false), !alias.scope !80
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 532), align 4, !alias.scope !83
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 536), i8 0, i64 16, i1 false), !alias.scope !83
+  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 552), align 8, !alias.scope !86
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 556), i8 0, i64 16, i1 false), !alias.scope !86
+  store ptr @.str.47, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 576), align 16
+  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 584), align 8, !alias.scope !89
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 588), i8 0, i64 16, i1 false), !alias.scope !89
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 604), align 4, !alias.scope !92
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 608), i8 0, i64 16, i1 false), !alias.scope !92
+  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 624), align 16, !alias.scope !95
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 628), i8 0, i64 16, i1 false), !alias.scope !95
+  store ptr @.str.48, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 648), align 8
+  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 656), align 16, !alias.scope !98
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 660), i8 0, i64 16, i1 false), !alias.scope !98
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 676), align 4, !alias.scope !101
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 680), i8 0, i64 16, i1 false), !alias.scope !101
+  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 696), align 8, !alias.scope !104
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 700), i8 0, i64 16, i1 false), !alias.scope !104
+  store ptr @.str.49, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 720), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 728), align 8, !alias.scope !107
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 732), i8 0, i64 16, i1 false), !alias.scope !107
+  store i32 26, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 748), align 4, !alias.scope !110
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 752), i8 0, i64 16, i1 false), !alias.scope !110
+  store i32 27, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 768), align 16, !alias.scope !113
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 772), i8 0, i64 16, i1 false), !alias.scope !113
+  store ptr @.str.50, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 792), align 8
+  store i32 9, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 800), align 16, !alias.scope !116
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 804), i8 0, i64 56, i1 false)
+  store ptr @.str.51, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 864), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 872), i8 0, i64 20, i1 false), !alias.scope !119
+  store i32 21, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 892), align 4, !alias.scope !122
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 896), i8 0, i64 36, i1 false)
+  store ptr @.str.52, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 936), align 8
+  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 944), align 16, !alias.scope !125
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 948), i8 0, i64 16, i1 false), !alias.scope !125
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 964), align 4, !alias.scope !128
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 968), i8 0, i64 16, i1 false), !alias.scope !128
+  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 984), align 8, !alias.scope !131
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 988), i8 0, i64 16, i1 false), !alias.scope !131
+  store ptr @.str.53, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1008), align 16
+  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1016), align 8, !alias.scope !134
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1020), i8 0, i64 16, i1 false), !alias.scope !134
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1036), align 4, !alias.scope !137
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1040), i8 0, i64 16, i1 false), !alias.scope !137
+  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1056), align 16, !alias.scope !140
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1060), i8 0, i64 16, i1 false), !alias.scope !140
+  store ptr @.str.54, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1080), align 8
+  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1088), align 16, !alias.scope !143
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1092), i8 0, i64 16, i1 false), !alias.scope !143
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1108), align 4, !alias.scope !146
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1112), i8 0, i64 16, i1 false), !alias.scope !146
+  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1128), align 8, !alias.scope !149
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1132), i8 0, i64 16, i1 false), !alias.scope !149
+  store ptr @.str.55, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1152), align 16
+  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1160), align 8, !alias.scope !152
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1164), i8 0, i64 16, i1 false), !alias.scope !152
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1180), align 4, !alias.scope !155
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1184), i8 0, i64 16, i1 false), !alias.scope !155
+  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1200), align 16, !alias.scope !158
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1204), i8 0, i64 16, i1 false), !alias.scope !158
+  store ptr @.str.56, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1224), align 8
+  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1232), align 16, !alias.scope !161
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1236), i8 0, i64 16, i1 false), !alias.scope !161
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1252), align 4, !alias.scope !164
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1256), i8 0, i64 16, i1 false), !alias.scope !164
+  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1272), align 8, !alias.scope !167
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1276), i8 0, i64 16, i1 false), !alias.scope !167
+  store ptr @.str.57, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1296), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1304), i8 0, i64 20, i1 false), !alias.scope !170
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1324), align 4, !alias.scope !173
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1328), i8 0, i64 16, i1 false), !alias.scope !173
+  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1344), align 16, !alias.scope !176
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1348), i8 0, i64 16, i1 false), !alias.scope !176
+  store ptr @.str.58, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1368), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1376), i8 0, i64 20, i1 false), !alias.scope !179
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1396), align 4, !alias.scope !182
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1400), i8 0, i64 16, i1 false), !alias.scope !182
+  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1416), align 8, !alias.scope !185
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1420), i8 0, i64 16, i1 false), !alias.scope !185
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1440), i8 0, i64 68, i1 false)
   %10 = load i64, ptr @HeapBaseMinAddress, align 8
   store i64 %10, ptr @_ZL25DefaultHeapBaseMinAddress, align 8
   ret void

@@ -117,7 +117,7 @@ $_ZN14PhaseTransform12is_dominatorEP4NodeS1_ = comdat any
 define hidden void @_ZN7MatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(1008) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN5PhaseC2ENS_11PhaseNumberE(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 6) #15
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV7Matcher, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV7Matcher, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN5ArenaC2E8MEMFLAGSNS_3TagEm(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 noundef zeroext 7, i8 noundef zeroext 1, i64 noundef 10200) #15
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -318,7 +318,7 @@ declare void @_ZN9VectorSetC1EP5Arena(ptr noundef nonnull align 8 dereferenceabl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl(ptr nocapture noundef nonnull align 8 dereferenceable(1008) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %.not10 = icmp ult ptr %1, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not10 = icmp ult ptr %1, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   br i1 %.not10, label %23, label %3
 
 3:                                                ; preds = %2
@@ -326,7 +326,7 @@ define hidden noundef i32 @_ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl(ptr no
   %5 = load i32, ptr %4, align 8
   %6 = ptrtoint ptr %1 to i64
   %7 = trunc i64 %6 to i32
-  %8 = add i32 %7, sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32))
+  %8 = add i32 %7, sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32))
   %9 = add nsw i32 %8, %5
   %10 = tail call noundef i32 @_ZN13SharedRuntime24out_preserve_stack_slotsEv() #15
   %11 = add nsw i32 %9, %10
@@ -356,7 +356,7 @@ define hidden noundef i32 @_ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl(ptr no
 23:                                               ; preds = %2
   %24 = ptrtoint ptr %1 to i64
   %25 = trunc i64 %24 to i32
-  %26 = sub i32 %25, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %26 = sub i32 %25, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %.not4.i = icmp eq i32 %26, -1
   br i1 %.not4.i, label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit, label %27
 
@@ -659,7 +659,7 @@ _ZN7RegMask6InsertEi.exit64:                      ; preds = %101, %105
   %173 = load ptr, ptr %172, align 8
   %174 = ptrtoint ptr %173 to i64
   %175 = trunc i64 %174 to i32
-  %176 = sub i32 %175, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %176 = sub i32 %175, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %.not89 = icmp eq i32 %176, -1
   br i1 %.not89, label %177, label %182
 
@@ -667,21 +667,21 @@ _ZN7RegMask6InsertEi.exit64:                      ; preds = %101, %105
   %178 = load ptr, ptr %171, align 8
   %179 = ptrtoint ptr %178 to i64
   %180 = trunc i64 %179 to i32
-  %181 = sub i32 %180, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %181 = sub i32 %180, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %.not90 = icmp eq i32 %181, -1
   br i1 %.not90, label %_ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl.exit71.thread, label %.thread
 
 182:                                              ; preds = %.lr.ph96
-  %.not10.i = icmp ult ptr %173, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not10.i = icmp ult ptr %173, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   br i1 %.not10.i, label %198, label %183
 
 .thread:                                          ; preds = %177
-  %.not10.i81 = icmp ult ptr %173, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not10.i81 = icmp ult ptr %173, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   br i1 %.not10.i81, label %_ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl.exit.thread, label %183
 
 183:                                              ; preds = %.thread, %182
   %184 = load i32, ptr %163, align 8
-  %185 = add i32 %175, sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32))
+  %185 = add i32 %175, sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32))
   %186 = add nsw i32 %185, %184
   %187 = tail call noundef i32 @_ZN13SharedRuntime24out_preserve_stack_slotsEv() #15
   %188 = add nsw i32 %186, %187
@@ -755,14 +755,14 @@ _ZN7RegMask6InsertEi.exit66:                      ; preds = %210, %214
 _ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl.exit.thread: ; preds = %.thread, %194, %_ZN7RegMask6InsertEi.exit66, %_ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl.exit
   %.0.i85 = phi i16 [ %222, %_ZN7RegMask6InsertEi.exit66 ], [ -1, %_ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl.exit ], [ -1, %194 ], [ -1, %.thread ]
   %223 = load ptr, ptr %171, align 8
-  %.not10.i67 = icmp ult ptr %223, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not10.i67 = icmp ult ptr %223, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   br i1 %.not10.i67, label %241, label %224
 
 224:                                              ; preds = %_ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl.exit.thread
   %225 = load i32, ptr %163, align 8
   %226 = ptrtoint ptr %223 to i64
   %227 = trunc i64 %226 to i32
-  %228 = add i32 %227, sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32))
+  %228 = add i32 %227, sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32))
   %229 = add nsw i32 %228, %225
   %230 = tail call noundef i32 @_ZN13SharedRuntime24out_preserve_stack_slotsEv() #15
   %231 = add nsw i32 %229, %230
@@ -790,7 +790,7 @@ _ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl.exit.thread: ; preds = %.thread, 
 241:                                              ; preds = %_ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl.exit.thread
   %242 = ptrtoint ptr %223 to i64
   %243 = trunc i64 %242 to i32
-  %244 = sub i32 %243, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %244 = sub i32 %243, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %.not4.i.i70 = icmp eq i32 %244, -1
   br i1 %.not4.i.i70, label %_ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl.exit71.thread, label %245
 
@@ -1226,7 +1226,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %437, %445
   call void @_ZN7Matcher20validate_null_checksEv(ptr noundef nonnull align 8 dereferenceable(1008) %0)
   call void @_ZN5Arena17destruct_contentsEv(ptr noundef nonnull align 8 dereferenceable(48) %307) #15
   call void @_ZN7Matcher19Fixup_Save_On_EntryEv(ptr noundef nonnull align 8 dereferenceable(1008) %0)
-  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %5, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 600)) #15
+  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %5, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 600)) #15
   call void @_ZN7Matcher34specialize_generic_vector_operandsEv(ptr noundef nonnull readonly align 8 dereferenceable(1008) %0)
   call void @_ZN7Compile10TracePhaseD1Ev(ptr noundef nonnull align 8 dereferenceable(81) %5) #15
   br label %502
@@ -1239,7 +1239,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %437, %445
 define hidden void @_ZN7Matcher15init_spill_maskEP4Node(ptr noundef nonnull align 8 dereferenceable(1008) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.RegMask, align 8
   %4 = alloca %class.RegMask, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 24), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 24), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %201
 
@@ -1606,29 +1606,29 @@ _ZN7Matcher10set_sharedEP4Node.exit:              ; preds = %_ZN7RegMask2ORERKS_
   %184 = or i32 %183, %178
   store i32 %184, ptr %182, align 4
   %185 = call noundef ptr @_ZN7Matcher26regmask_for_ideal_registerEjP4Node(ptr noundef nonnull align 8 dereferenceable(1008) %0, i32 noundef 2, ptr noundef nonnull %1)
-  store ptr %185, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 16), align 16
+  store ptr %185, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 16), align 16
   %186 = call noundef ptr @_ZN7Matcher26regmask_for_ideal_registerEjP4Node(ptr noundef nonnull align 8 dereferenceable(1008) %0, i32 noundef 3, ptr noundef nonnull %1)
-  store ptr %186, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 24), align 8
+  store ptr %186, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 24), align 8
   %187 = call noundef ptr @_ZN7Matcher26regmask_for_ideal_registerEjP4Node(ptr noundef nonnull align 8 dereferenceable(1008) %0, i32 noundef 4, ptr noundef nonnull %1)
-  store ptr %187, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 32), align 16
+  store ptr %187, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 32), align 16
   %188 = call noundef ptr @_ZN7Matcher26regmask_for_ideal_registerEjP4Node(ptr noundef nonnull align 8 dereferenceable(1008) %0, i32 noundef 5, ptr noundef nonnull %1)
-  store ptr %188, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 40), align 8
+  store ptr %188, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 40), align 8
   %189 = call noundef ptr @_ZN7Matcher26regmask_for_ideal_registerEjP4Node(ptr noundef nonnull align 8 dereferenceable(1008) %0, i32 noundef 6, ptr noundef nonnull %1)
-  store ptr %189, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 48), align 16
+  store ptr %189, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 48), align 16
   %190 = call noundef ptr @_ZN7Matcher26regmask_for_ideal_registerEjP4Node(ptr noundef nonnull align 8 dereferenceable(1008) %0, i32 noundef 7, ptr noundef nonnull %1)
-  store ptr %190, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 56), align 8
+  store ptr %190, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 56), align 8
   %191 = call noundef ptr @_ZN7Matcher26regmask_for_ideal_registerEjP4Node(ptr noundef nonnull align 8 dereferenceable(1008) %0, i32 noundef 8, ptr noundef nonnull %1)
-  store ptr %191, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 64), align 16
+  store ptr %191, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 64), align 16
   %192 = call noundef ptr @_ZN7Matcher26regmask_for_ideal_registerEjP4Node(ptr noundef nonnull align 8 dereferenceable(1008) %0, i32 noundef 9, ptr noundef nonnull %1)
-  store ptr %192, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 72), align 8
+  store ptr %192, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 72), align 8
   %193 = call noundef ptr @_ZN7Matcher26regmask_for_ideal_registerEjP4Node(ptr noundef nonnull align 8 dereferenceable(1008) %0, i32 noundef 10, ptr noundef nonnull %1)
-  store ptr %193, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 80), align 16
+  store ptr %193, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 80), align 16
   %194 = call noundef ptr @_ZN7Matcher26regmask_for_ideal_registerEjP4Node(ptr noundef nonnull align 8 dereferenceable(1008) %0, i32 noundef 11, ptr noundef nonnull %1)
-  store ptr %194, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 88), align 8
+  store ptr %194, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 88), align 8
   %195 = call noundef ptr @_ZN7Matcher26regmask_for_ideal_registerEjP4Node(ptr noundef nonnull align 8 dereferenceable(1008) %0, i32 noundef 12, ptr noundef nonnull %1)
-  store ptr %195, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 96), align 16
+  store ptr %195, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 96), align 16
   %196 = call noundef ptr @_ZN7Matcher26regmask_for_ideal_registerEjP4Node(ptr noundef nonnull align 8 dereferenceable(1008) %0, i32 noundef 13, ptr noundef nonnull %1)
-  store ptr %196, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 104), align 8
+  store ptr %196, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 104), align 8
   %197 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type9mreg2typeE, i64 112), align 8
   %198 = icmp eq ptr %197, null
   br i1 %198, label %_ZN7Matcher26regmask_for_ideal_registerEjP4Node.exit, label %199
@@ -1639,7 +1639,7 @@ _ZN7Matcher10set_sharedEP4Node.exit:              ; preds = %_ZN7RegMask2ORERKS_
 
 _ZN7Matcher26regmask_for_ideal_registerEjP4Node.exit: ; preds = %_ZN7Matcher10set_sharedEP4Node.exit, %199
   %.0.i = phi ptr [ %200, %199 ], [ null, %_ZN7Matcher10set_sharedEP4Node.exit ]
-  store ptr %.0.i, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 112), align 16
+  store ptr %.0.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 112), align 16
   br label %201
 
 201:                                              ; preds = %2, %_ZN7Matcher26regmask_for_ideal_registerEjP4Node.exit
@@ -3394,17 +3394,17 @@ define hidden void @_ZN7Matcher19Fixup_Save_On_EntryEv(ptr noundef nonnull align
   store i8 12, ptr %3, align 1
   %41 = call noundef i32 @_ZN13SharedRuntime23java_calling_conventionEPK9BasicTypeP9VMRegPairi(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 1) #15
   %42 = load ptr, ptr %40, align 8
-  %.not.i.i = icmp ult ptr %42, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not.i.i = icmp ult ptr %42, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   %43 = ptrtoint ptr %42 to i64
   %44 = trunc i64 %43 to i32
   br i1 %.not.i.i, label %47, label %45
 
 45:                                               ; preds = %31
-  %46 = add i32 %44, add (i32 sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)), i32 616)
+  %46 = add i32 %44, add (i32 sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)), i32 616)
   br label %_ZN7Matcher13find_receiverEv.exit
 
 47:                                               ; preds = %31
-  %48 = sub i32 %44, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %48 = sub i32 %44, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %.not4.i.i = icmp eq i32 %48, -1
   br i1 %.not4.i.i, label %_ZN7Matcher13find_receiverEv.exit.thread, label %49
 
@@ -3870,7 +3870,7 @@ _ZN4NodenwEm.exit:                                ; preds = %295, %297
 
 300:                                              ; preds = %_ZN4NodenwEm.exit
   call void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(164) %.0.i.i.i, ptr noundef %10) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i, align 8
   %301 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
   store i32 %.0164234, ptr %301, align 4
   %302 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -3894,7 +3894,7 @@ _ZN4NodenwEm.exit:                                ; preds = %295, %297
   br label %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit
 
 _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %304, %308
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV12MachProjNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV12MachProjNode, i64 16), ptr %.0.i.i.i, align 8
   %312 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %312, ptr noundef nonnull align 8 dereferenceable(96) %184, i64 96, i1 false)
   %313 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 160
@@ -4113,7 +4113,7 @@ _ZN4NodenwEm.exit199:                             ; preds = %422, %424
 
 427:                                              ; preds = %_ZN4NodenwEm.exit199
   call void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(164) %.0.i.i.i198, ptr noundef %10) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i198, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i198, align 8
   %428 = getelementptr inbounds nuw i8, ptr %.0.i.i.i198, i64 52
   store i32 %.0164234, ptr %428, align 4
   %429 = getelementptr inbounds nuw i8, ptr %.0.i.i.i198, i64 56
@@ -4137,7 +4137,7 @@ _ZN4NodenwEm.exit199:                             ; preds = %422, %424
   br label %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit201
 
 _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit201:   ; preds = %431, %435
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV12MachProjNode, i64 16), ptr %.0.i.i.i198, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV12MachProjNode, i64 16), ptr %.0.i.i.i198, align 8
   %439 = getelementptr inbounds nuw i8, ptr %.0.i.i.i198, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %439, ptr noundef nonnull align 8 dereferenceable(96) %184, i64 96, i1 false)
   %440 = getelementptr inbounds nuw i8, ptr %.0.i.i.i198, i64 160
@@ -4212,7 +4212,7 @@ _ZN4NodenwEm.exit205:                             ; preds = %470, %472
   %478 = getelementptr inbounds nuw i32, ptr %477, i64 %indvars.iv248
   %479 = load i32, ptr %478, align 4
   call void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(164) %.0.i.i.i204, ptr noundef %10) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i204, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i204, align 8
   %480 = getelementptr inbounds nuw i8, ptr %.0.i.i.i204, i64 52
   store i32 %.0164234, ptr %480, align 4
   %481 = getelementptr inbounds nuw i8, ptr %.0.i.i.i204, i64 56
@@ -4236,7 +4236,7 @@ _ZN4NodenwEm.exit205:                             ; preds = %470, %472
   br label %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit207
 
 _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit207:   ; preds = %483, %487
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV12MachProjNode, i64 16), ptr %.0.i.i.i204, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV12MachProjNode, i64 16), ptr %.0.i.i.i204, align 8
   %491 = getelementptr inbounds nuw i8, ptr %.0.i.i.i204, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %491, ptr noundef nonnull align 8 dereferenceable(96) %184, i64 96, i1 false)
   %492 = getelementptr inbounds nuw i8, ptr %.0.i.i.i204, i64 160
@@ -4587,10 +4587,10 @@ _ZN7RegMask6InsertEi.exit104:                     ; preds = %144, %148
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 2168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %163, i64 96, i1 false)
   call void @_ZN7RegMask14clear_to_pairsEv(ptr noundef nonnull align 8 dereferenceable(96) %2) #15
-  %164 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 32), align 16
+  %164 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 32), align 16
   %165 = load ptr, ptr %32, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %165, ptr noundef nonnull align 8 dereferenceable(96) %164, i64 96, i1 false)
-  %166 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 16), align 16
+  %166 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 16), align 16
   %167 = load ptr, ptr %22, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %167, ptr noundef nonnull align 8 dereferenceable(96) %166, i64 96, i1 false)
   %168 = load ptr, ptr %22, align 8
@@ -4685,7 +4685,7 @@ _ZN7RegMask2ORERKS_.exit:                         ; preds = %.lr.ph.i, %185
   br i1 %.not.i108, label %_ZN7RegMask2ORERKS_.exit109, label %.lr.ph.i106, !llvm.loop !13
 
 _ZN7RegMask2ORERKS_.exit109:                      ; preds = %.lr.ph.i106, %210
-  %220 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 24), align 8
+  %220 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 24), align 8
   %221 = load ptr, ptr %24, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %221, ptr noundef nonnull align 8 dereferenceable(96) %220, i64 96, i1 false)
   %222 = load ptr, ptr %24, align 8
@@ -4735,7 +4735,7 @@ _ZN7RegMask2ORERKS_.exit109:                      ; preds = %.lr.ph.i106, %210
   br i1 %.not.i113, label %_ZN7RegMask2ORERKS_.exit114, label %.lr.ph.i111, !llvm.loop !13
 
 _ZN7RegMask2ORERKS_.exit114:                      ; preds = %.lr.ph.i111, %239
-  %249 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 56), align 8
+  %249 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 56), align 8
   %250 = load ptr, ptr %26, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %250, ptr noundef nonnull align 8 dereferenceable(96) %249, i64 96, i1 false)
   %251 = load ptr, ptr %26, align 8
@@ -4781,7 +4781,7 @@ _ZN7RegMask2ORERKS_.exit114:                      ; preds = %.lr.ph.i111, %239
   br i1 %.not.i118, label %_ZN7RegMask2ORERKS_.exit119, label %.lr.ph.i116, !llvm.loop !13
 
 _ZN7RegMask2ORERKS_.exit119:                      ; preds = %.lr.ph.i116, %264
-  %274 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 40), align 8
+  %274 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 40), align 8
   %275 = load ptr, ptr %28, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %275, ptr noundef nonnull align 8 dereferenceable(96) %274, i64 96, i1 false)
   %276 = load ptr, ptr %28, align 8
@@ -4831,7 +4831,7 @@ _ZN7RegMask2ORERKS_.exit119:                      ; preds = %.lr.ph.i116, %264
   br i1 %.not.i123, label %_ZN7RegMask2ORERKS_.exit124, label %.lr.ph.i121, !llvm.loop !13
 
 _ZN7RegMask2ORERKS_.exit124:                      ; preds = %.lr.ph.i121, %293
-  %303 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 48), align 16
+  %303 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 48), align 16
   %304 = load ptr, ptr %30, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %304, ptr noundef nonnull align 8 dereferenceable(96) %303, i64 96, i1 false)
   %305 = load ptr, ptr %30, align 8
@@ -4883,7 +4883,7 @@ _ZN7RegMask2ORERKS_.exit129:                      ; preds = %.lr.ph.i126, %318
   br i1 %.not, label %356, label %330
 
 330:                                              ; preds = %_ZN7RegMask2ORERKS_.exit129
-  %331 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 112), align 16
+  %331 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 112), align 16
   %332 = load ptr, ptr %94, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %332, ptr noundef nonnull align 8 dereferenceable(96) %331, i64 96, i1 false)
   %333 = load ptr, ptr %94, align 8
@@ -4944,7 +4944,7 @@ _ZN7Matcher21vector_size_supportedE9BasicTypei.exit: ; preds = %_ZN7RegMask2ORER
   br i1 %360, label %361, label %_ZN7Matcher21vector_size_supportedE9BasicTypei.exit.thread
 
 361:                                              ; preds = %_ZN7Matcher21vector_size_supportedE9BasicTypei.exit
-  %362 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 72), align 8
+  %362 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 72), align 8
   %363 = load ptr, ptr %60, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %363, ptr noundef nonnull align 8 dereferenceable(96) %362, i64 96, i1 false)
   %364 = load ptr, ptr %60, align 8
@@ -5009,7 +5009,7 @@ _ZN7Matcher21vector_size_supportedE9BasicTypei.exit142: ; preds = %_ZN7RegMask2O
   br i1 %394, label %395, label %_ZN7Matcher21vector_size_supportedE9BasicTypei.exit142.thread
 
 395:                                              ; preds = %_ZN7Matcher21vector_size_supportedE9BasicTypei.exit142
-  %396 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 80), align 16
+  %396 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 80), align 16
   %397 = load ptr, ptr %62, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %397, ptr noundef nonnull align 8 dereferenceable(96) %396, i64 96, i1 false)
   %398 = load ptr, ptr %62, align 8
@@ -5096,7 +5096,7 @@ _ZN7Matcher21vector_size_supportedE9BasicTypei.exit149: ; preds = %_ZN7RegMask2O
 
 ._crit_edge339:                                   ; preds = %.lr.ph338, %425
   call void @_ZN7RegMask13clear_to_setsEj(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef 4) #15
-  %441 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 88), align 8
+  %441 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 88), align 8
   %442 = load ptr, ptr %64, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %442, ptr noundef nonnull align 8 dereferenceable(96) %441, i64 96, i1 false)
   %443 = load ptr, ptr %64, align 8
@@ -5183,7 +5183,7 @@ _ZN7Matcher21vector_size_supportedE9BasicTypei.exit156: ; preds = %_ZN7RegMask2O
 
 ._crit_edge344:                                   ; preds = %.lr.ph343, %470
   call void @_ZN7RegMask13clear_to_setsEj(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef 8) #15
-  %486 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 96), align 16
+  %486 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 96), align 16
   %487 = load ptr, ptr %66, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %487, ptr noundef nonnull align 8 dereferenceable(96) %486, i64 96, i1 false)
   %488 = load ptr, ptr %66, align 8
@@ -5270,7 +5270,7 @@ _ZN7Matcher21vector_size_supportedE9BasicTypei.exit163: ; preds = %_ZN7RegMask2O
 
 ._crit_edge349:                                   ; preds = %.lr.ph348, %515
   call void @_ZN7RegMask13clear_to_setsEj(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef 16) #15
-  %531 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 104), align 8
+  %531 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 104), align 8
   %532 = load ptr, ptr %68, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %532, ptr noundef nonnull align 8 dereferenceable(96) %531, i64 96, i1 false)
   %533 = load ptr, ptr %68, align 8
@@ -5329,7 +5329,7 @@ _ZN7RegMask2ORERKS_.exit168:                      ; preds = %.lr.ph.i165, %546, 
 
 560:                                              ; preds = %_ZN7RegMask2ORERKS_.exit168
   %561 = load ptr, ptr %24, align 8
-  %562 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 40), align 8
+  %562 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 40), align 8
   %563 = getelementptr inbounds nuw i8, ptr %561, i64 88
   %564 = load i32, ptr %563, align 8
   %565 = getelementptr inbounds nuw i8, ptr %562, i64 88
@@ -5375,7 +5375,7 @@ _ZN7RegMask2ORERKS_.exit168:                      ; preds = %.lr.ph.i165, %546, 
 
 _ZN7RegMask2ORERKS_.exit173:                      ; preds = %.lr.ph.i170, %577
   %587 = load ptr, ptr %28, align 8
-  %588 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 24), align 8
+  %588 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 24), align 8
   %589 = getelementptr inbounds nuw i8, ptr %587, i64 88
   %590 = load i32, ptr %589, align 8
   %591 = getelementptr inbounds nuw i8, ptr %588, i64 88
@@ -5421,7 +5421,7 @@ _ZN7RegMask2ORERKS_.exit173:                      ; preds = %.lr.ph.i170, %577
 
 _ZN7RegMask2ORERKS_.exit178:                      ; preds = %.lr.ph.i175, %603
   %613 = load ptr, ptr %22, align 8
-  %614 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 40), align 8
+  %614 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 40), align 8
   %615 = getelementptr inbounds nuw i8, ptr %613, i64 88
   %616 = load i32, ptr %615, align 8
   %617 = getelementptr inbounds nuw i8, ptr %614, i64 88
@@ -5467,7 +5467,7 @@ _ZN7RegMask2ORERKS_.exit178:                      ; preds = %.lr.ph.i175, %603
 
 _ZN7RegMask2ORERKS_.exit183:                      ; preds = %.lr.ph.i180, %629
   %639 = load ptr, ptr %26, align 8
-  %640 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 48), align 16
+  %640 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 48), align 16
   %641 = getelementptr inbounds nuw i8, ptr %639, i64 88
   %642 = load i32, ptr %641, align 8
   %643 = getelementptr inbounds nuw i8, ptr %640, i64 88
@@ -5513,7 +5513,7 @@ _ZN7RegMask2ORERKS_.exit183:                      ; preds = %.lr.ph.i180, %629
 
 _ZN7RegMask2ORERKS_.exit188:                      ; preds = %.lr.ph.i185, %655
   %665 = load ptr, ptr %30, align 8
-  %666 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 56), align 8
+  %666 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 56), align 8
   %667 = getelementptr inbounds nuw i8, ptr %665, i64 88
   %668 = load i32, ptr %667, align 8
   %669 = getelementptr inbounds nuw i8, ptr %666, i64 88
@@ -5559,7 +5559,7 @@ _ZN7RegMask2ORERKS_.exit188:                      ; preds = %.lr.ph.i185, %655
 
 _ZN7RegMask2ORERKS_.exit193:                      ; preds = %.lr.ph.i190, %681
   %691 = load ptr, ptr %32, align 8
-  %692 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 48), align 16
+  %692 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 48), align 16
   %693 = getelementptr inbounds nuw i8, ptr %691, i64 88
   %694 = load i32, ptr %693, align 8
   %695 = getelementptr inbounds nuw i8, ptr %692, i64 88
@@ -6566,17 +6566,17 @@ define hidden noundef i32 @_ZN7Matcher13find_receiverEv() local_unnamed_addr #0 
   store i8 12, ptr %2, align 1
   %4 = call noundef i32 @_ZN13SharedRuntime23java_calling_conventionEPK9BasicTypeP9VMRegPairi(ptr noundef nonnull %2, ptr noundef nonnull %1, i32 noundef 1) #15
   %5 = load ptr, ptr %3, align 8
-  %.not.i = icmp ult ptr %5, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not.i = icmp ult ptr %5, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   %6 = ptrtoint ptr %5 to i64
   %7 = trunc i64 %6 to i32
   br i1 %.not.i, label %10, label %8
 
 8:                                                ; preds = %0
-  %9 = add i32 %7, add (i32 sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)), i32 616)
+  %9 = add i32 %7, add (i32 sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)), i32 616)
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
 
 10:                                               ; preds = %0
-  %11 = sub i32 %7, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %11 = sub i32 %7, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %.not4.i = icmp eq i32 %11, -1
   br i1 %.not4.i, label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit, label %12
 
@@ -6739,7 +6739,7 @@ _ZN4NodenwEm.exit:                                ; preds = %31, %33
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   store ptr %6, ptr %41, align 8
   store i32 48, ptr %38, align 4
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9LoadNNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9LoadNNode, i64 16), ptr %.0.i.i.i, align 8
   br label %210
 
 42:                                               ; preds = %8
@@ -6787,7 +6787,7 @@ _ZN4NodenwEm.exit55:                              ; preds = %58, %60
   %68 = getelementptr inbounds nuw i8, ptr %.0.i.i.i54, i64 64
   store ptr %6, ptr %68, align 8
   store i32 48, ptr %65, align 4
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9LoadINode, i64 16), ptr %.0.i.i.i54, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9LoadINode, i64 16), ptr %.0.i.i.i54, align 8
   br label %210
 
 69:                                               ; preds = %8
@@ -6835,7 +6835,7 @@ _ZN4NodenwEm.exit58:                              ; preds = %85, %87
   %95 = getelementptr inbounds nuw i8, ptr %.0.i.i.i57, i64 64
   store ptr %6, ptr %95, align 8
   store i32 48, ptr %92, align 4
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9LoadPNode, i64 16), ptr %.0.i.i.i57, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9LoadPNode, i64 16), ptr %.0.i.i.i57, align 8
   br label %210
 
 96:                                               ; preds = %8
@@ -6883,7 +6883,7 @@ _ZN4NodenwEm.exit61:                              ; preds = %112, %114
   %122 = getelementptr inbounds nuw i8, ptr %.0.i.i.i60, i64 64
   store ptr %6, ptr %122, align 8
   store i32 48, ptr %119, align 4
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9LoadFNode, i64 16), ptr %.0.i.i.i60, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9LoadFNode, i64 16), ptr %.0.i.i.i60, align 8
   br label %210
 
 123:                                              ; preds = %8
@@ -6931,7 +6931,7 @@ _ZN4NodenwEm.exit64:                              ; preds = %139, %141
   %149 = getelementptr inbounds nuw i8, ptr %.0.i.i.i63, i64 64
   store ptr %6, ptr %149, align 8
   store i32 48, ptr %146, align 4
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9LoadDNode, i64 16), ptr %.0.i.i.i63, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9LoadDNode, i64 16), ptr %.0.i.i.i63, align 8
   %150 = getelementptr inbounds nuw i8, ptr %.0.i.i.i63, i64 72
   store i8 0, ptr %150, align 8
   br label %210
@@ -6981,7 +6981,7 @@ _ZN4NodenwEm.exit67:                              ; preds = %167, %169
   %177 = getelementptr inbounds nuw i8, ptr %.0.i.i.i66, i64 64
   store ptr %6, ptr %177, align 8
   store i32 48, ptr %174, align 4
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9LoadLNode, i64 16), ptr %.0.i.i.i66, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9LoadLNode, i64 16), ptr %.0.i.i.i66, align 8
   %178 = getelementptr inbounds nuw i8, ptr %.0.i.i.i66, i64 72
   store i8 0, ptr %178, align 8
   br label %210
@@ -7030,7 +7030,7 @@ _ZN4NodenwEm.exit70:                              ; preds = %195, %197
   store i32 0, ptr %204, align 4
   %205 = getelementptr inbounds nuw i8, ptr %.0.i.i.i69, i64 64
   store ptr %6, ptr %205, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV14LoadVectorNode, i64 16), ptr %.0.i.i.i69, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV14LoadVectorNode, i64 16), ptr %.0.i.i.i69, align 8
   store i32 112, ptr %202, align 4
   br label %210
 
@@ -7382,11 +7382,11 @@ define hidden noundef ptr @_ZN7Matcher10match_sfptEP13SafePointNode(ptr noundef 
   %180 = load ptr, ptr %177, align 8
   %181 = ptrtoint ptr %179 to i64
   %182 = trunc i64 %181 to i32
-  %183 = sub i32 %182, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %183 = sub i32 %182, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %184 = icmp ne i32 %183, -1
   %185 = ptrtoint ptr %180 to i64
   %186 = trunc i64 %185 to i32
-  %187 = sub i32 %186, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %187 = sub i32 %186, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %188 = icmp ne i32 %187, -1
   %or.cond190 = select i1 %184, i1 true, i1 %188
   br i1 %or.cond190, label %189, label %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169.thread
@@ -7408,11 +7408,11 @@ define hidden noundef ptr @_ZN7Matcher10match_sfptEP13SafePointNode(ptr noundef 
   br i1 %.not156, label %.loopexit196, label %200
 
 200:                                              ; preds = %189
-  %.not.i = icmp ult ptr %179, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not.i = icmp ult ptr %179, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   br i1 %.not.i, label %203, label %201
 
 201:                                              ; preds = %200
-  %202 = add i32 %182, add (i32 sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)), i32 616)
+  %202 = add i32 %182, add (i32 sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)), i32 616)
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
 
 203:                                              ; preds = %200
@@ -7427,11 +7427,11 @@ define hidden noundef ptr @_ZN7Matcher10match_sfptEP13SafePointNode(ptr noundef 
 
 _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit:         ; preds = %201, %203, %204
   %.0.i = phi i32 [ %202, %201 ], [ %207, %204 ], [ -1, %203 ]
-  %.not.i158 = icmp ult ptr %180, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not.i158 = icmp ult ptr %180, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   br i1 %.not.i158, label %210, label %208
 
 208:                                              ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
-  %209 = add i32 %186, add (i32 sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)), i32 616)
+  %209 = add i32 %186, add (i32 sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)), i32 616)
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit161
 
 210:                                              ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
@@ -7488,11 +7488,11 @@ _ZN7RegMask6InsertEi.exit:                        ; preds = %222, %225
   br i1 %exitcond220.not, label %.loopexit196, label %217, !llvm.loop !39
 
 .loopexit196:                                     ; preds = %_ZN7RegMask6InsertEi.exit, %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit161, %189
-  %.not13.i = icmp ult ptr %179, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not13.i = icmp ult ptr %179, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   br i1 %.not13.i, label %243, label %234
 
 234:                                              ; preds = %.loopexit196
-  %235 = sub i32 %182, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
+  %235 = sub i32 %182, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %236 = add nsw i32 %235, %136
   %.not.i162 = icmp slt i32 %236, %.2203
   %237 = add nsw i32 %236, 1
@@ -7558,11 +7558,11 @@ _ZN7RegMask6InsertEi.exit164:                     ; preds = %254, %258
 
 _ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit.thread: ; preds = %243, %239, %_ZN7RegMask6InsertEi.exit164, %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit
   %.5183 = phi i32 [ %.5, %_ZN7RegMask6InsertEi.exit164 ], [ %.5, %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit ], [ %spec.select, %239 ], [ %.2203, %243 ]
-  %.not13.i165 = icmp ult ptr %180, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not13.i165 = icmp ult ptr %180, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   br i1 %.not13.i165, label %275, label %266
 
 266:                                              ; preds = %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit.thread
-  %267 = sub i32 %186, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
+  %267 = sub i32 %186, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %268 = add nsw i32 %267, %136
   %.not.i166 = icmp slt i32 %268, %.5183
   %269 = add nsw i32 %268, 1
@@ -7689,7 +7689,7 @@ _ZN4NodenwEm.exit:                                ; preds = %325, %327
 330:                                              ; preds = %_ZN4NodenwEm.exit
   %331 = add i32 %309, 10000
   tail call void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(164) %.0.i.i.i, ptr noundef nonnull %.0140) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i, align 8
   %332 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
   store i32 %331, ptr %332, align 4
   %333 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -7714,7 +7714,7 @@ _ZN4NodenwEm.exit:                                ; preds = %325, %327
   br label %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit
 
 _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %335, %340
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV12MachProjNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV12MachProjNode, i64 16), ptr %.0.i.i.i, align 8
   %344 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %344, ptr noundef nonnull align 8 dereferenceable(96) @_ZN7RegMask5EmptyE, i64 96, i1 false)
   %345 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 160
@@ -8118,13 +8118,13 @@ declare void @_ZN4Node8add_precEPS_(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1008) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #0 align 2 {
-  %.not13 = icmp ult ptr %1, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not13 = icmp ult ptr %1, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   %5 = ptrtoint ptr %1 to i64
   %6 = trunc i64 %5 to i32
   br i1 %.not13, label %20, label %7
 
 7:                                                ; preds = %4
-  %8 = sub i32 %6, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
+  %8 = sub i32 %6, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %9 = add nsw i32 %8, %2
   %10 = load i32, ptr %3, align 4
   %.not = icmp slt i32 %9, %10
@@ -8149,7 +8149,7 @@ define hidden noundef i32 @_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi(ptr
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
 
 20:                                               ; preds = %4
-  %21 = sub i32 %6, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %21 = sub i32 %6, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %.not4.i = icmp eq i32 %21, -1
   br i1 %.not4.i, label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit, label %22
 
@@ -10036,7 +10036,7 @@ _ZN4NodenwEm.exit:                                ; preds = %26, %28
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %37 = load ptr, ptr %36, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, ptr noundef null, ptr noundef %35, ptr noundef %37) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i, align 8
   br label %38
 
 38:                                               ; preds = %31, %_ZN4NodenwEm.exit
@@ -10228,7 +10228,7 @@ _ZN4NodenwEm.exit197:                             ; preds = %132, %134
   %142 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %143 = load ptr, ptr %142, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i196, ptr noundef null, ptr noundef %141, ptr noundef %143) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i196, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i196, align 8
   br label %144
 
 144:                                              ; preds = %137, %_ZN4NodenwEm.exit197
@@ -10341,7 +10341,7 @@ _ZN4NodenwEm.exit208:                             ; preds = %197, %199
   %206 = getelementptr inbounds nuw i8, ptr %203, i64 32
   %207 = load ptr, ptr %206, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i207, ptr noundef null, ptr noundef %205, ptr noundef %207) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i207, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i207, align 8
   br label %208
 
 208:                                              ; preds = %202, %_ZN4NodenwEm.exit208
@@ -10460,7 +10460,7 @@ _ZN4NodenwEm.exit219:                             ; preds = %262, %264
   %272 = getelementptr inbounds nuw i8, ptr %269, i64 40
   %273 = load ptr, ptr %272, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i218, ptr noundef null, ptr noundef %271, ptr noundef %273) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i218, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i218, align 8
   br label %274
 
 274:                                              ; preds = %267, %_ZN4NodenwEm.exit219
@@ -10501,7 +10501,7 @@ _ZN4NodenwEm.exit222:                             ; preds = %289, %291
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 24
   %298 = load ptr, ptr %297, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i221, ptr noundef null, ptr noundef %298, ptr noundef %.0.i.i.i218) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i221, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i221, align 8
   br label %299
 
 299:                                              ; preds = %294, %_ZN4NodenwEm.exit222
@@ -10542,7 +10542,7 @@ _ZN4NodenwEm.exit225:                             ; preds = %314, %316
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 16
   %323 = load ptr, ptr %322, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i224, ptr noundef null, ptr noundef %323, ptr noundef %.0.i.i.i221) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i224, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i224, align 8
   br label %324
 
 324:                                              ; preds = %319, %_ZN4NodenwEm.exit225
@@ -10721,7 +10721,7 @@ _ZN4NodenwEm.exit236:                             ; preds = %386, %388
 
 391:                                              ; preds = %_ZN4NodenwEm.exit236
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i235, ptr noundef null, ptr noundef %370, ptr noundef %368) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i235, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i235, align 8
   br label %392
 
 392:                                              ; preds = %391, %_ZN4NodenwEm.exit236
@@ -10841,7 +10841,7 @@ _ZN4NodenwEm.exit247:                             ; preds = %446, %448
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 8
   %459 = load ptr, ptr %458, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i246, ptr noundef null, ptr noundef %455, ptr noundef %459) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i246, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i246, align 8
   br label %460
 
 460:                                              ; preds = %451, %_ZN4NodenwEm.exit247
@@ -10954,7 +10954,7 @@ _ZN4NodenwEm.exit258:                             ; preds = %513, %515
   %522 = getelementptr inbounds nuw i8, ptr %519, i64 24
   %523 = load ptr, ptr %522, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i257, ptr noundef null, ptr noundef %521, ptr noundef %523) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i257, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i257, align 8
   br label %524
 
 524:                                              ; preds = %518, %_ZN4NodenwEm.exit258
@@ -11044,7 +11044,7 @@ _ZN4Node7set_reqEjPS_.exit266:                    ; preds = %_ZN4Node7del_outEPS
   %570 = getelementptr inbounds nuw i8, ptr %567, i64 16
   %571 = load ptr, ptr %570, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %563, ptr noundef null, ptr noundef %569, ptr noundef %571) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %563, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %563, align 8
   br label %572
 
 572:                                              ; preds = %565, %562
@@ -11060,7 +11060,7 @@ _ZN4Node7set_reqEjPS_.exit266:                    ; preds = %_ZN4Node7del_outEPS
   %580 = getelementptr inbounds nuw i8, ptr %577, i64 32
   %581 = load ptr, ptr %580, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %573, ptr noundef null, ptr noundef %579, ptr noundef %581) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %573, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %573, align 8
   br label %582
 
 582:                                              ; preds = %575, %572
@@ -11083,7 +11083,7 @@ _ZN4Node7set_reqEjPS_.exit266:                    ; preds = %_ZN4Node7del_outEPS
   %591 = getelementptr inbounds nuw i8, ptr %588, i64 32
   %592 = load ptr, ptr %591, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %584, ptr noundef null, ptr noundef %590, ptr noundef %592) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %584, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %584, align 8
   br label %593
 
 593:                                              ; preds = %586, %583
@@ -11104,7 +11104,7 @@ _ZN4Node7set_reqEjPS_.exit266:                    ; preds = %_ZN4Node7del_outEPS
   %602 = getelementptr inbounds nuw i8, ptr %599, i64 16
   %603 = load ptr, ptr %602, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %595, ptr noundef null, ptr noundef %601, ptr noundef %603) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %595, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %595, align 8
   br label %604
 
 604:                                              ; preds = %597, %594
@@ -11130,7 +11130,7 @@ _ZN4Node7set_reqEjPS_.exit266:                    ; preds = %_ZN4Node7del_outEPS
   %617 = getelementptr inbounds nuw i8, ptr %614, i64 24
   %618 = load ptr, ptr %617, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %610, ptr noundef null, ptr noundef %616, ptr noundef %618) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %610, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %610, align 8
   br label %619
 
 619:                                              ; preds = %612, %609
@@ -11184,7 +11184,7 @@ _ZN4NodenwEm.exit269:                             ; preds = %640, %642
   %650 = getelementptr inbounds nuw i8, ptr %647, i64 24
   %651 = load ptr, ptr %650, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i268, ptr noundef null, ptr noundef %649, ptr noundef %651) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i268, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i268, align 8
   br label %652
 
 652:                                              ; preds = %645, %_ZN4NodenwEm.exit269
@@ -11297,7 +11297,7 @@ _ZN4NodenwEm.exit280:                             ; preds = %705, %707
   %714 = getelementptr inbounds nuw i8, ptr %711, i64 40
   %715 = load ptr, ptr %714, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i279, ptr noundef null, ptr noundef %713, ptr noundef %715) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i279, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i279, align 8
   br label %716
 
 716:                                              ; preds = %710, %_ZN4NodenwEm.exit280
@@ -11416,7 +11416,7 @@ _ZN4NodenwEm.exit291:                             ; preds = %770, %772
   %780 = getelementptr inbounds nuw i8, ptr %777, i64 32
   %781 = load ptr, ptr %780, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i290, ptr noundef null, ptr noundef %779, ptr noundef %781) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i290, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i290, align 8
   br label %782
 
 782:                                              ; preds = %775, %_ZN4NodenwEm.exit291
@@ -11535,7 +11535,7 @@ _ZN4NodenwEm.exit302:                             ; preds = %837, %839
   %847 = getelementptr inbounds nuw i8, ptr %844, i64 16
   %848 = load ptr, ptr %847, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i301, ptr noundef null, ptr noundef %846, ptr noundef %848) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i301, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i301, align 8
   br label %849
 
 849:                                              ; preds = %842, %_ZN4NodenwEm.exit302
@@ -11699,7 +11699,7 @@ _ZN4Node7set_reqEjPS_.exit318:                    ; preds = %_ZN4Node7del_outEPS
   %935 = getelementptr inbounds nuw i8, ptr %932, i64 16
   %936 = load ptr, ptr %935, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %928, ptr noundef null, ptr noundef %934, ptr noundef %936) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %928, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %928, align 8
   br label %937
 
 937:                                              ; preds = %930, %927
@@ -11715,7 +11715,7 @@ _ZN4Node7set_reqEjPS_.exit318:                    ; preds = %_ZN4Node7del_outEPS
   %945 = getelementptr inbounds nuw i8, ptr %942, i64 32
   %946 = load ptr, ptr %945, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %938, ptr noundef null, ptr noundef %944, ptr noundef %946) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %938, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %938, align 8
   br label %947
 
 947:                                              ; preds = %940, %937
@@ -11766,7 +11766,7 @@ _ZN4NodenwEm.exit321:                             ; preds = %964, %966
   %974 = getelementptr inbounds nuw i8, ptr %971, i64 24
   %975 = load ptr, ptr %974, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i320, ptr noundef null, ptr noundef %973, ptr noundef %975) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i320, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %.0.i.i.i320, align 8
   br label %976
 
 976:                                              ; preds = %969, %_ZN4NodenwEm.exit321
@@ -11857,7 +11857,7 @@ _ZN4Node7set_reqEjPS_.exit329:                    ; preds = %_ZN4Node7del_outEPS
   %1023 = getelementptr inbounds nuw i8, ptr %1020, i64 16
   %1024 = load ptr, ptr %1023, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %1016, ptr noundef null, ptr noundef %1022, ptr noundef %1024) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %1016, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %1016, align 8
   br label %1025
 
 1025:                                             ; preds = %1018, %1015
@@ -11896,7 +11896,7 @@ _ZN4Node7set_reqEjPS_.exit329:                    ; preds = %_ZN4Node7del_outEPS
   %1047 = getelementptr inbounds nuw i8, ptr %1044, i64 32
   %1048 = load ptr, ptr %1047, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %1040, ptr noundef null, ptr noundef %1046, ptr noundef %1048) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %1040, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %1040, align 8
   br label %1049
 
 1049:                                             ; preds = %1042, %1039
@@ -11930,7 +11930,7 @@ _ZN4Node7set_reqEjPS_.exit329:                    ; preds = %_ZN4Node7del_outEPS
   %1067 = getelementptr inbounds nuw i8, ptr %1064, i64 40
   %1068 = load ptr, ptr %1067, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %1060, ptr noundef null, ptr noundef %1066, ptr noundef %1068) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %1060, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %1060, align 8
   br label %1069
 
 1069:                                             ; preds = %1062, %1059
@@ -11944,7 +11944,7 @@ _ZN4Node7set_reqEjPS_.exit329:                    ; preds = %_ZN4Node7del_outEPS
   %1075 = getelementptr inbounds nuw i8, ptr %1074, i64 24
   %1076 = load ptr, ptr %1075, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %1070, ptr noundef null, ptr noundef %1076, ptr noundef %1060) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %1070, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %1070, align 8
   br label %1077
 
 1077:                                             ; preds = %1072, %1069
@@ -11966,7 +11966,7 @@ _ZN4Node7set_reqEjPS_.exit329:                    ; preds = %_ZN4Node7del_outEPS
   %1086 = getelementptr inbounds nuw i8, ptr %1083, i64 32
   %1087 = load ptr, ptr %1086, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %1079, ptr noundef null, ptr noundef %1085, ptr noundef %1087) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %1079, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %1079, align 8
   br label %1088
 
 1088:                                             ; preds = %1081, %1078
@@ -11987,7 +11987,7 @@ _ZN4Node7set_reqEjPS_.exit329:                    ; preds = %_ZN4Node7del_outEPS
   %1097 = getelementptr inbounds nuw i8, ptr %1094, i64 40
   %1098 = load ptr, ptr %1097, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %1090, ptr noundef null, ptr noundef %1096, ptr noundef %1098) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %1090, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %1090, align 8
   br label %1099
 
 1099:                                             ; preds = %1092, %1089
@@ -12005,7 +12005,7 @@ _ZN4Node7set_reqEjPS_.exit329:                    ; preds = %_ZN4Node7del_outEPS
   %1107 = getelementptr inbounds nuw i8, ptr %1104, i64 32
   %1108 = load ptr, ptr %1107, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %1100, ptr noundef null, ptr noundef %1106, ptr noundef %1108) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %1100, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %1100, align 8
   br label %1109
 
 1109:                                             ; preds = %1102, %1099
@@ -12026,7 +12026,7 @@ _ZN4Node7set_reqEjPS_.exit329:                    ; preds = %_ZN4Node7del_outEPS
   %1118 = getelementptr inbounds nuw i8, ptr %1115, i64 16
   %1119 = load ptr, ptr %1118, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %1111, ptr noundef null, ptr noundef %1117, ptr noundef %1119) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %1111, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %1111, align 8
   br label %1120
 
 1120:                                             ; preds = %1113, %1110
@@ -12065,7 +12065,7 @@ _ZN4Node7set_reqEjPS_.exit329:                    ; preds = %_ZN4Node7del_outEPS
   %1141 = getelementptr inbounds nuw i8, ptr %1140, i64 16
   %1142 = load ptr, ptr %1141, align 8
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %1137, ptr noundef null, ptr noundef %1142, ptr noundef %1142) #15
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %1137, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10BinaryNode, i64 16), ptr %1137, align 8
   br label %1143
 
 1143:                                             ; preds = %1139, %1136
@@ -12107,7 +12107,7 @@ declare void @_ZN4Node7del_reqEj(ptr noundef nonnull align 8 dereferenceable(52)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN7Matcher35gen_narrow_oop_implicit_null_checksEv() local_unnamed_addr #7 align 2 {
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 12), align 4
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 12), align 4
   %2 = trunc i8 %1 to i1
   br i1 %2, label %3, label %9
 

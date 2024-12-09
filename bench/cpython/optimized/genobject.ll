@@ -3038,7 +3038,7 @@ entry:
 if.then:                                          ; preds = %entry
   %ags_gen = getelementptr inbounds nuw i8, ptr %o, i64 16
   %1 = load ptr, ptr %ags_gen, align 8
-  tail call void @_PyErr_WarnUnawaitedAgenMethod(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 38216)) #7
+  tail call void @_PyErr_WarnUnawaitedAgenMethod(ptr noundef %1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 38216)) #7
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -3334,7 +3334,7 @@ if.then:                                          ; preds = %entry
   %agt_args = getelementptr inbounds nuw i8, ptr %o, i64 24
   %1 = load ptr, ptr %agt_args, align 8
   %tobool.not = icmp eq ptr %1, null
-  %cond = select i1 %tobool.not, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 37624), ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 38312)
+  %cond = select i1 %tobool.not, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37624), ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 38312)
   %agt_gen = getelementptr inbounds nuw i8, ptr %o, i64 16
   %2 = load ptr, ptr %agt_gen, align 8
   tail call void @_PyErr_WarnUnawaitedAgenMethod(ptr noundef %2, ptr noundef nonnull %cond) #7
@@ -3363,7 +3363,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %return, label %if.then.i
 
 if.else:                                          ; preds = %entry
-  %call6 = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %yf, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 40424), ptr noundef nonnull %meth) #7
+  %call6 = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %yf, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40424), ptr noundef nonnull %meth) #7
   %cmp7 = icmp slt i32 %call6, 0
   br i1 %cmp7, label %if.then8, label %if.end9
 
@@ -3948,7 +3948,7 @@ if.then17:                                        ; preds = %if.end12
   br label %if.end45
 
 if.else:                                          ; preds = %if.end12
-  %call29 = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 60520), ptr noundef nonnull %meth) #7
+  %call29 = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60520), ptr noundef nonnull %meth) #7
   %cmp30 = icmp slt i32 %call29, 0
   br i1 %cmp30, label %if.then32, label %if.end33
 

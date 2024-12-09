@@ -63,7 +63,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb5ArenaC2EmPNS_12AllocTrackerEm(ptr noundef nonnull align 16 dereferenceable(2288) initializes((0, 8), (2064, 2152)) %this, i64 noundef %block_size, ptr noundef %tracker, i64 noundef %huge_page_size) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb5ArenaE, i64 16), ptr %this, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb5ArenaE, i64 16), ptr %this, align 16
   %kBlockSize = getelementptr inbounds nuw i8, ptr %this, i64 2064
   %.sroa.speculated7.i = tail call i64 @llvm.umax.i64(i64 %block_size, i64 4096)
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %.sroa.speculated7.i, i64 2147483648)
@@ -337,7 +337,7 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb5ArenaD2Ev(ptr noundef nonnull align 16 dereferenceable(2288) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb5ArenaE, i64 16), ptr %this, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb5ArenaE, i64 16), ptr %this, align 16
   %tracker_ = getelementptr inbounds nuw i8, ptr %this, i64 2280
   %0 = load ptr, ptr %tracker_, align 8
   %cmp.not = icmp eq ptr %0, null

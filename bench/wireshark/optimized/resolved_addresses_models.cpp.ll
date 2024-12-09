@@ -81,7 +81,7 @@ $_ZN9QtPrivate15QCommonArrayOpsI7QStringE10growAppendEPKS1_S4_ = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN20EthernetAddressModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN20AStringListListModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV20EthernetAddressModel, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20EthernetAddressModel, i64 16), ptr %0, align 8
   invoke void @_ZN20EthernetAddressModel8populateEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
           to label %3 unwind label %4
 
@@ -3073,7 +3073,7 @@ _ZN7QStringD2Ev.exit87:                           ; preds = %_ZN7QStringD2Ev.exi
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10PortsModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN20AStringListListModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10PortsModel, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10PortsModel, i64 16), ptr %0, align 8
   %3 = invoke ptr @get_serv_port_hashtable()
           to label %.noexc unwind label %5
 

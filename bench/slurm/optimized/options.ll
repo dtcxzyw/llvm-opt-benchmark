@@ -112,7 +112,7 @@ define dso_local void @_usage() local_unnamed_addr #0 {
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @_do_help() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 16), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 16), align 8
   switch i32 %1, label %15 [
     i32 1, label %2
     i32 2, label %3
@@ -178,8 +178,8 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_init_params() local_unnamed_addr #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) @params, i8 0, i64 56, i1 false)
-  store i32 1, ptr getelementptr inbounds (i8, ptr @params, i64 44), align 4
-  store i32 -2, ptr getelementptr inbounds (i8, ptr @params, i64 48), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @params, i64 44), align 4
+  store i32 -2, ptr getelementptr inbounds nuw (i8, ptr @params, i64 48), align 8
   ret void
 }
 
@@ -260,8 +260,8 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   %6 = tail call ptr @xbasename(ptr noundef %5) #15
   %7 = tail call i32 @log_init(ptr noundef %6, ptr noundef nonnull byval(%struct.log_options_t) align 8 @__const.parse_command_line.logopt, i32 noundef 0, ptr noundef null) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) @params, i8 0, i64 56, i1 false)
-  store i32 1, ptr getelementptr inbounds (i8, ptr @params, i64 44), align 4
-  store i32 -2, ptr getelementptr inbounds (i8, ptr @params, i64 48), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @params, i64 44), align 4
+  store i32 -2, ptr getelementptr inbounds nuw (i8, ptr @params, i64 48), align 8
   store i32 1, ptr @opterr, align 4
   br label %8
 
@@ -294,27 +294,27 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br label %.backedge104
 
 11:                                               ; preds = %8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @params, i64 16), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @params, i64 16), align 8
   br label %.backedge104
 
 12:                                               ; preds = %8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @params, i64 16), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @params, i64 16), align 8
   br label %.backedge104
 
 13:                                               ; preds = %8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @params, i64 40), align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 8), ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34) #15
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 8), ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34) #15
   br label %.backedge104
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr @optarg, align 8
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 24), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %17, label %_addto_job_list.exit
 
 17:                                               ; preds = %14
   %18 = call ptr @list_create(ptr noundef nonnull @slurm_destroy_selected_step) #15
-  store ptr %18, ptr getelementptr inbounds (i8, ptr @params, i64 24), align 8
+  store ptr %18, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8
   br label %_addto_job_list.exit
 
 _addto_job_list.exit:                             ; preds = %14, %17
@@ -327,14 +327,14 @@ _addto_job_list.exit:                             ; preds = %14, %17
   br label %.backedge104
 
 22:                                               ; preds = %8
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 44), align 4
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 44), align 4
   %24 = or i32 %23, 2
-  store i32 %24, ptr getelementptr inbounds (i8, ptr @params, i64 44), align 4
+  store i32 %24, ptr getelementptr inbounds nuw (i8, ptr @params, i64 44), align 4
   br label %.backedge104
 
 25:                                               ; preds = %8
   %26 = load ptr, ptr @optarg, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 8), ptr noundef nonnull @.str.33, ptr noundef %26) #15
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 8), ptr noundef nonnull @.str.33, ptr noundef %26) #15
   br label %.backedge104
 
 27:                                               ; preds = %8
@@ -346,9 +346,9 @@ _addto_job_list.exit:                             ; preds = %14, %17
   br label %.backedge104
 
 29:                                               ; preds = %8
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 36), align 4
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 36), align 4
   %31 = add nsw i32 %30, 1
-  store i32 %31, ptr getelementptr inbounds (i8, ptr @params, i64 36), align 4
+  store i32 %31, ptr getelementptr inbounds nuw (i8, ptr @params, i64 36), align 4
   br label %.backedge104
 
 32:                                               ; preds = %8
@@ -367,7 +367,7 @@ _addto_job_list.exit:                             ; preds = %14, %17
   unreachable
 
 36:                                               ; preds = %8
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 16), align 8
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 16), align 8
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %39, label %38
 
@@ -386,13 +386,13 @@ _addto_job_list.exit:                             ; preds = %14, %17
   %44 = getelementptr inbounds ptr, ptr %1, i64 %43
   %45 = load ptr, ptr %44, align 8
   store ptr %45, ptr @optarg, align 8
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 24), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8
   %.not.i56 = icmp eq ptr %46, null
   br i1 %.not.i56, label %47, label %_addto_job_list.exit57
 
 47:                                               ; preds = %42
   %48 = call ptr @list_create(ptr noundef nonnull @slurm_destroy_selected_step) #15
-  store ptr %48, ptr getelementptr inbounds (i8, ptr @params, i64 24), align 8
+  store ptr %48, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8
   br label %_addto_job_list.exit57
 
 _addto_job_list.exit57:                           ; preds = %42, %47
@@ -401,16 +401,16 @@ _addto_job_list.exit57:                           ; preds = %42, %47
   br label %51
 
 51:                                               ; preds = %_addto_job_list.exit57, %39
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 8), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 8), align 8
   %.not41 = icmp eq ptr %52, null
   br i1 %.not41, label %53, label %54
 
 53:                                               ; preds = %51
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 8), ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.35) #15
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 8), ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.35) #15
   br label %54
 
 54:                                               ; preds = %53, %51
-  %55 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 36), align 4
+  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 36), align 4
   %.not42 = icmp eq i32 %55, 0
   br i1 %.not42, label %.thread, label %56
 
@@ -421,12 +421,12 @@ _addto_job_list.exit57:                           ; preds = %42, %47
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 1, ptr %59, align 4
   %60 = call i32 @log_alter(ptr noundef nonnull byval(%struct.log_options_t) align 8 %4, i32 noundef 0, ptr noundef null) #15
-  %.pr = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 36), align 4
+  %.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 36), align 4
   %.not43 = icmp eq i32 %.pr, 0
   br i1 %.not43, label %.thread, label %61
 
 61:                                               ; preds = %56
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 24), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8
   %.not44 = icmp eq ptr %62, null
   br i1 %.not44, label %.thread, label %63
 
@@ -445,7 +445,7 @@ _addto_job_list.exit57:                           ; preds = %42, %47
   br label %69
 
 69:                                               ; preds = %68, %65
-  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 24), align 8
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8
   %71 = call ptr @list_iterator_create(ptr noundef %70) #15
   %72 = call ptr @list_next(ptr noundef %71) #15
   %.not4661 = icmp eq ptr %72, null
@@ -486,7 +486,7 @@ _addto_job_list.exit57:                           ; preds = %42, %47
   br label %.thread
 
 .thread:                                          ; preds = %54, %._crit_edge, %63, %61, %56
-  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 8), align 8
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 8), align 8
   %strchr69 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %86, i32 44)
   %.not4770 = icmp eq ptr %strchr69, null
   br i1 %.not4770, label %._crit_edge74, label %.lr.ph73

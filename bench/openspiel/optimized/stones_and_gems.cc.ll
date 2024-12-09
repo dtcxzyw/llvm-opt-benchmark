@@ -3460,7 +3460,7 @@ define void @_ZNK10open_spiel15stones_and_gems16StonesNGemsState17ObservationStr
           to label %.noexc6 unwind label %35
 
 .noexc6:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.97, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.97, i64 28))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.97, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.97, i64 28))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %33
 
 33:                                               ; preds = %.noexc6
@@ -4612,7 +4612,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit:
 
 19:                                               ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit
   %.sroa.01.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, align 8
-  %.sroa.22.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, i64 8), align 8
+  %.sroa.22.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, i64 8), align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %21 = load i32, ptr %20, align 4
   %22 = add nsw i32 %21, 1
@@ -5272,7 +5272,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit:
 
 11:                                               ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit
   %.sroa.03.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_115kElStoneFallingE, align 8
-  %.sroa.24.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_115kElStoneFallingE, i64 8), align 8
+  %.sroa.24.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_115kElStoneFallingE, i64 8), align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = sext i32 %1 to i64
   %14 = load ptr, ptr %12, align 8
@@ -5301,7 +5301,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
 
 26:                                               ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread
   %.sroa.01.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_115kElStoneFallingE, align 8
-  %.sroa.22.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_115kElStoneFallingE, i64 8), align 8
+  %.sroa.22.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_115kElStoneFallingE, i64 8), align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %28 = sext i32 %1 to i64
   %29 = load ptr, ptr %27, align 8
@@ -5354,7 +5354,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
 
 61:                                               ; preds = %59
   %.sroa.0.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_115kElStoneFallingE, align 8
-  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_115kElStoneFallingE, i64 8), align 8
+  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_115kElStoneFallingE, i64 8), align 8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %63 = sext i32 %1 to i64
   %64 = load ptr, ptr %62, align 8
@@ -5719,7 +5719,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit7
 
 163:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit78
   %.sroa.013.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kElDiamondE, align 8
-  %.sroa.214.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kElDiamondE, i64 8), align 8
+  %.sroa.214.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kElDiamondE, i64 8), align 8
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %165 = load i32, ptr %164, align 4
   %166 = add nsw i32 %165, 1
@@ -5797,7 +5797,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit8
 
 199:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit81.thread
   %.sroa.03.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_115kElStoneFallingE, align 8
-  %.sroa.24.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_115kElStoneFallingE, i64 8), align 8
+  %.sroa.24.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_115kElStoneFallingE, i64 8), align 8
   tail call void @_ZN10open_spiel15stones_and_gems16StonesNGemsState8RollLeftEiNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload)
   br label %218
 
@@ -5807,13 +5807,13 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit8
 
 202:                                              ; preds = %200
   %.sroa.01.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_115kElStoneFallingE, align 8
-  %.sroa.22.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_115kElStoneFallingE, i64 8), align 8
+  %.sroa.22.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_115kElStoneFallingE, i64 8), align 8
   tail call void @_ZN10open_spiel15stones_and_gems16StonesNGemsState9RollRightEiNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload)
   br label %218
 
 203:                                              ; preds = %200
   %.sroa.0.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElStoneE, align 8
-  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElStoneE, i64 8), align 8
+  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElStoneE, i64 8), align 8
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %205 = sext i32 %1 to i64
   %206 = load ptr, ptr %204, align 8
@@ -5859,7 +5859,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit:
 
 11:                                               ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit
   %.sroa.03.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElDiamondFallingE, align 8
-  %.sroa.24.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElDiamondFallingE, i64 8), align 8
+  %.sroa.24.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElDiamondFallingE, i64 8), align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = sext i32 %1 to i64
   %14 = load ptr, ptr %12, align 8
@@ -5888,7 +5888,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
 
 26:                                               ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread
   %.sroa.01.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElDiamondFallingE, align 8
-  %.sroa.22.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElDiamondFallingE, i64 8), align 8
+  %.sroa.22.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElDiamondFallingE, i64 8), align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %28 = sext i32 %1 to i64
   %29 = load ptr, ptr %27, align 8
@@ -5941,7 +5941,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
 
 61:                                               ; preds = %59
   %.sroa.0.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElDiamondFallingE, align 8
-  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElDiamondFallingE, i64 8), align 8
+  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElDiamondFallingE, i64 8), align 8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %63 = sext i32 %1 to i64
   %64 = load ptr, ptr %62, align 8
@@ -6324,7 +6324,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit5
 
 170:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit55.thread
   %.sroa.03.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElDiamondFallingE, align 8
-  %.sroa.24.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElDiamondFallingE, i64 8), align 8
+  %.sroa.24.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElDiamondFallingE, i64 8), align 8
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %172 = sext i32 %1 to i64
   %173 = load ptr, ptr %171, align 8
@@ -6383,7 +6383,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit5
 
 211:                                              ; preds = %203
   %.sroa.01.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElDiamondFallingE, align 8
-  %.sroa.22.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElDiamondFallingE, i64 8), align 8
+  %.sroa.22.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElDiamondFallingE, i64 8), align 8
   %212 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
   %213 = sext i32 %212 to i64
   %214 = load ptr, ptr %210, align 8
@@ -6426,7 +6426,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit5
 
 238:                                              ; preds = %203
   %.sroa.0.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kElDiamondE, align 8
-  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kElDiamondE, i64 8), align 8
+  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kElDiamondE, i64 8), align 8
   %239 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
   %240 = sext i32 %239 to i64
   %241 = load ptr, ptr %210, align 8
@@ -6466,7 +6466,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit:
 
 11:                                               ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit
   %.sroa.03.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_113kElNutFallingE, align 8
-  %.sroa.24.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_113kElNutFallingE, i64 8), align 8
+  %.sroa.24.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_113kElNutFallingE, i64 8), align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = sext i32 %1 to i64
   %14 = load ptr, ptr %12, align 8
@@ -6495,7 +6495,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
 
 26:                                               ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread
   %.sroa.01.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_113kElNutFallingE, align 8
-  %.sroa.22.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_113kElNutFallingE, i64 8), align 8
+  %.sroa.22.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_113kElNutFallingE, i64 8), align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %28 = sext i32 %1 to i64
   %29 = load ptr, ptr %27, align 8
@@ -6548,7 +6548,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
 
 61:                                               ; preds = %59
   %.sroa.0.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_113kElNutFallingE, align 8
-  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_113kElNutFallingE, i64 8), align 8
+  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_113kElNutFallingE, i64 8), align 8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %63 = sext i32 %1 to i64
   %64 = load ptr, ptr %62, align 8
@@ -6651,7 +6651,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
 
 33:                                               ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread
   %.sroa.03.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_113kElNutFallingE, align 8
-  %.sroa.24.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_113kElNutFallingE, i64 8), align 8
+  %.sroa.24.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_113kElNutFallingE, i64 8), align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %35 = sext i32 %1 to i64
   %36 = load ptr, ptr %34, align 8
@@ -6710,7 +6710,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
 
 74:                                               ; preds = %66
   %.sroa.01.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_113kElNutFallingE, align 8
-  %.sroa.22.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_113kElNutFallingE, i64 8), align 8
+  %.sroa.22.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_113kElNutFallingE, i64 8), align 8
   %75 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
   %76 = sext i32 %75 to i64
   %77 = load ptr, ptr %73, align 8
@@ -6753,7 +6753,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
 
 101:                                              ; preds = %66
   %.sroa.0.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_16kElNutE, align 8
-  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_16kElNutE, i64 8), align 8
+  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_16kElNutE, i64 8), align 8
   %102 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
   %103 = sext i32 %102 to i64
   %104 = load ptr, ptr %73, align 8
@@ -6793,7 +6793,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit:
 
 11:                                               ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit
   %.sroa.03.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElBombFallingE, align 8
-  %.sroa.24.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElBombFallingE, i64 8), align 8
+  %.sroa.24.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElBombFallingE, i64 8), align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = sext i32 %1 to i64
   %14 = load ptr, ptr %12, align 8
@@ -6822,7 +6822,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
 
 26:                                               ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread
   %.sroa.01.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_17kElBombE, align 8
-  %.sroa.22.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_17kElBombE, i64 8), align 8
+  %.sroa.22.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_17kElBombE, i64 8), align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %28 = sext i32 %1 to i64
   %29 = load ptr, ptr %27, align 8
@@ -6875,7 +6875,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
 
 61:                                               ; preds = %59
   %.sroa.0.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_17kElBombE, align 8
-  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_17kElBombE, i64 8), align 8
+  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_17kElBombE, i64 8), align 8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %63 = sext i32 %1 to i64
   %64 = load ptr, ptr %62, align 8
@@ -6978,7 +6978,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
 
 33:                                               ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread
   %.sroa.07.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElBombFallingE, align 8
-  %.sroa.28.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElBombFallingE, i64 8), align 8
+  %.sroa.28.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElBombFallingE, i64 8), align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %35 = sext i32 %1 to i64
   %36 = load ptr, ptr %34, align 8
@@ -7031,7 +7031,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
 
 68:                                               ; preds = %66
   %.sroa.05.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElBombFallingE, align 8
-  %.sroa.26.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElBombFallingE, i64 8), align 8
+  %.sroa.26.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElBombFallingE, i64 8), align 8
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %70 = sext i32 %1 to i64
   %71 = load ptr, ptr %69, align 8
@@ -7195,7 +7195,7 @@ define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState10UpdateExitEi(pt
 
 7:                                                ; preds = %2
   %.sroa.0.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_111kElExitOpenE, align 8
-  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_111kElExitOpenE, i64 8), align 8
+  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_111kElExitOpenE, i64 8), align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %9 = sext i32 %1 to i64
   %10 = load ptr, ptr %8, align 8
@@ -7814,7 +7814,7 @@ _ZN10open_spiel15stones_and_gems12_GLOBAL__N_15IsKeyERKNS0_7ElementE.exit231.thr
 
 325:                                              ; preds = %307, %_ZN10open_spiel15stones_and_gems12_GLOBAL__N_15IsKeyERKNS0_7ElementE.exit231.thread, %285
   %.sroa.05.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElAgentE, align 8
-  %.sroa.26.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElAgentE, i64 8), align 8
+  %.sroa.26.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElAgentE, i64 8), align 8
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %327 = sext i32 %1 to i64
   %328 = load ptr, ptr %326, align 8
@@ -7835,7 +7835,7 @@ _ZN10open_spiel15stones_and_gems12_GLOBAL__N_15IsKeyERKNS0_7ElementE.exit231.thr
   %338 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %337, i64 %332, i32 4
   store i8 1, ptr %338, align 1
   %.sroa.03.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, align 8
-  %.sroa.24.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, i64 8), align 8
+  %.sroa.24.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, i64 8), align 8
   %339 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %340 = load i32, ptr %339, align 4
   %341 = add nsw i32 %340, 1
@@ -7864,7 +7864,7 @@ _ZN10open_spiel15stones_and_gems12_GLOBAL__N_15IsKeyERKNS0_7ElementE.exit231.thr
 352:                                              ; preds = %350
   tail call void @_ZN10open_spiel15stones_and_gems16StonesNGemsState8MoveItemEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
   %.sroa.0.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElAgentInExitE, align 8
-  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElAgentInExitE, i64 8), align 8
+  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElAgentInExitE, i64 8), align 8
   %353 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %354 = load i32, ptr %353, align 4
   %355 = add nsw i32 %354, 1
@@ -9962,7 +9962,7 @@ define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState15UpdateMagicWall
 
 7:                                                ; preds = %2
   %.sroa.03.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElWallMagicOnE, align 8
-  %.sroa.24.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElWallMagicOnE, i64 8), align 8
+  %.sroa.24.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElWallMagicOnE, i64 8), align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %9 = sext i32 %1 to i64
   %10 = load ptr, ptr %8, align 8
@@ -9994,7 +9994,7 @@ define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState15UpdateMagicWall
 
 28:                                               ; preds = %19
   %.sroa.01.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicDormantE, align 8
-  %.sroa.22.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicDormantE, i64 8), align 8
+  %.sroa.22.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicDormantE, i64 8), align 8
   %29 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
   %30 = sext i32 %29 to i64
   %31 = load ptr, ptr %6, align 8
@@ -10010,7 +10010,7 @@ define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState15UpdateMagicWall
 
 35:                                               ; preds = %19
   %.sroa.0.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicExpiredE, align 8
-  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicExpiredE, i64 8), align 8
+  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicExpiredE, i64 8), align 8
   %36 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
   %37 = sext i32 %36 to i64
   %38 = load ptr, ptr %6, align 8
@@ -10120,7 +10120,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit2
 
 51:                                               ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit21, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit
   %.sroa.0.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_17kElBlobE, align 8
-  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_17kElBlobE, i64 8), align 8
+  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_17kElBlobE, i64 8), align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %53 = load i32, ptr %52, align 4
   %54 = add nsw i32 %53, 1
@@ -10958,7 +10958,7 @@ define void @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8ToStringB5cxx11
           to label %.noexc11 unwind label %21
 
 .noexc11:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.101, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.101, i64 11))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.101, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.101, i64 11))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %19
 
 19:                                               ; preds = %.noexc11
@@ -11796,7 +11796,7 @@ define void @_ZNK10open_spiel15stones_and_gems16StonesNGemsState5CloneEv(ptr dea
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTVN10open_spiel15stones_and_gems16StonesNGemsStateE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 304) (i8, ptr @_ZTVN10open_spiel15stones_and_gems16StonesNGemsStateE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 60
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %4, ptr noundef nonnull align 4 dereferenceable(60) %5, i64 60, i1 false)
@@ -11943,7 +11943,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit
 
 _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %32, %52, %65, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTVN10open_spiel15stones_and_gems16StonesNGemsStateE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 304) (i8, ptr @_ZTVN10open_spiel15stones_and_gems16StonesNGemsStateE, i64 16), ptr %0, align 8
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %2, ptr %70, align 4
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -12206,7 +12206,7 @@ _ZNSt6vectorIN10open_spiel15stones_and_gems7ElementESaIS2_EED2Ev.exit: ; preds =
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN10open_spiel5StateD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTVN10open_spiel5StateE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 304) (i8, ptr @_ZTVN10open_spiel5StateE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -13946,7 +13946,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7Elemen
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i: ; preds = %706, %697
   %712 = call ptr @__cxa_allocate_exception(i64 8) #33, !noalias !80
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %712, align 8, !noalias !80
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %712, align 8, !noalias !80
   invoke void @__cxa_throw(ptr nonnull %712, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #34
           to label %.noexc97 unwind label %857
 
@@ -16635,7 +16635,7 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #33
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(146) %4) #33
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN10open_spiel15stones_and_gems15StonesNGemsGameE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTVN10open_spiel15stones_and_gems15StonesNGemsGameE, i64 16), ptr %0, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 280
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #33
   %50 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -16646,7 +16646,7 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
           to label %.noexc29 unwind label %106
 
 .noexc29:                                         ; preds = %.noexc28
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.74, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.74, i64 12))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.74, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.74, i64 12))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %51
 
 51:                                               ; preds = %.noexc29
@@ -16674,7 +16674,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc31 unwind label %110
 
 .noexc31:                                         ; preds = %.noexc30
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.75, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.75, i64 16))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.75, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.75, i64 16))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit34 unwind label %58
 
 58:                                               ; preds = %.noexc31
@@ -16701,7 +16701,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit34: ; 
           to label %.noexc36 unwind label %114
 
 .noexc36:                                         ; preds = %.noexc35
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.76, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.76, i64 11))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.76, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.76, i64 11))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit39 unwind label %64
 
 64:                                               ; preds = %.noexc36
@@ -16728,7 +16728,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit39: ; 
           to label %.noexc41 unwind label %118
 
 .noexc41:                                         ; preds = %.noexc40
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.78, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.78, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.78, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.78, i64 8))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit44 unwind label %70
 
 70:                                               ; preds = %.noexc41
@@ -16776,7 +16776,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit44: ; 
           to label %.noexc46 unwind label %122
 
 .noexc46:                                         ; preds = %.noexc45
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.79, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.79, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.79, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.79, i64 4))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit49 unwind label %88
 
 88:                                               ; preds = %.noexc46
@@ -16802,7 +16802,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit49: ; 
           to label %.noexc51 unwind label %126
 
 .noexc51:                                         ; preds = %.noexc50
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.77, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.77, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.77, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.77, i64 19))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit54 unwind label %93
 
 93:                                               ; preds = %.noexc51
@@ -17042,7 +17042,7 @@ define linkonce_odr void @_ZN10open_spiel4GameC2ENS_8GameTypeESt3mapINSt7__cxx11
   %4 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, open_spiel::GameParameter>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, open_spiel::GameParameter>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN10open_spiel4GameE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTVN10open_spiel4GameE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @_ZN10open_spiel8GameTypeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(146) %6, ptr noundef nonnull align 8 dereferenceable(146) %1)
           to label %7 unwind label %31
@@ -19195,7 +19195,7 @@ _ZN4absl7debian29MutexLockD2Ev.exit64:            ; preds = %199, %109, %80
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN10open_spiel4GameD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN10open_spiel4GameE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTVN10open_spiel4GameE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   tail call void @_ZN4absl7debian25MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #33
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -19283,7 +19283,7 @@ _ZNSt23enable_shared_from_thisIN10open_spiel4GameEED2Ev.exit: ; preds = %_ZN10op
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN10open_spiel15stones_and_gems16StonesNGemsStateD2Ev(ptr noundef nonnull align 8 dereferenceable(188) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTVN10open_spiel15stones_and_gems16StonesNGemsStateE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 304) (i8, ptr @_ZTVN10open_spiel15stones_and_gems16StonesNGemsStateE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -19314,7 +19314,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %4, %1
   br label %_ZN10open_spiel15stones_and_gems4GridD2Ev.exit
 
 _ZN10open_spiel15stones_and_gems4GridD2Ev.exit:   ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i, %12
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTVN10open_spiel5StateE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 304) (i8, ptr @_ZTVN10open_spiel5StateE, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %.not.i.i.i.i1 = icmp eq ptr %19, null
@@ -19732,7 +19732,7 @@ define linkonce_odr void @_ZNK10open_spiel5State22InformationStateStringB5cxx11E
           to label %.noexc3 unwind label %10
 
 .noexc3:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.149, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.149, i64 42))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.149, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.149, i64 42))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %7
 
 7:                                                ; preds = %.noexc3
@@ -19778,7 +19778,7 @@ define linkonce_odr void @_ZNK10open_spiel5State22InformationStateTensorEiN4absl
           to label %.noexc3 unwind label %11
 
 .noexc3:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.150, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.150, i64 37))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.150, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.150, i64 37))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %8
 
 8:                                                ; preds = %.noexc3
@@ -19826,7 +19826,7 @@ define linkonce_odr void @_ZN10open_spiel5State10UndoActionEil(ptr noundef nonnu
           to label %.noexc3 unwind label %10
 
 .noexc3:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.151, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.151, i64 51))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.151, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.151, i64 51))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %7
 
 7:                                                ; preds = %.noexc3
@@ -20094,7 +20094,7 @@ define linkonce_odr void @_ZNK10open_spiel5State36ActionsConsistentWithInformati
           to label %.noexc3 unwind label %10
 
 .noexc3:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.154, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.154, i64 62))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.154, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.154, i64 62))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %7
 
 7:                                                ; preds = %.noexc3
@@ -20140,7 +20140,7 @@ define linkonce_odr void @_ZN10open_spiel5State19DistributionSupportB5cxx11Ev(pt
           to label %.noexc3 unwind label %9
 
 .noexc3:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.155, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.155, i64 44))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.155, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.155, i64 44))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %6
 
 6:                                                ; preds = %.noexc3
@@ -20186,7 +20186,7 @@ define linkonce_odr void @_ZN10open_spiel5State18UpdateDistributionERKSt6vectorI
           to label %.noexc3 unwind label %9
 
 .noexc3:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.156, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.156, i64 43))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.156, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.156, i64 43))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %6
 
 6:                                                ; preds = %.noexc3
@@ -20234,7 +20234,7 @@ define linkonce_odr void @_ZN10open_spiel5State14DoApplyActionsERKSt6vectorIlSaI
           to label %.noexc3 unwind label %9
 
 .noexc3:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.157, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.157, i64 34))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.157, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.157, i64 34))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %6
 
 6:                                                ; preds = %.noexc3
@@ -20269,7 +20269,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN10open_spiel15stones_and_gems15StonesNGemsGameD2Ev(ptr noundef nonnull align 8 dereferenceable(5364) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN10open_spiel15stones_and_gems15StonesNGemsGameE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTVN10open_spiel15stones_and_gems15StonesNGemsGameE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5328
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -20306,7 +20306,7 @@ _ZN10open_spiel15stones_and_gems4GridD2Ev.exit:   ; preds = %_ZNSt6vectorIiSaIiE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN10open_spiel15stones_and_gems15StonesNGemsGameD0Ev(ptr noundef nonnull align 8 dereferenceable(5364) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN10open_spiel15stones_and_gems15StonesNGemsGameE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTVN10open_spiel15stones_and_gems15StonesNGemsGameE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5328
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -20376,7 +20376,7 @@ define linkonce_odr void @_ZNK10open_spiel15stones_and_gems15StonesNGemsGame15Ne
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i: ; preds = %15, %2
   %21 = tail call ptr @__cxa_allocate_exception(i64 8) #33, !noalias !106
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %21, align 8, !noalias !106
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %21, align 8, !noalias !106
   invoke void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #34
           to label %.noexc unwind label %100
 
@@ -20564,7 +20564,7 @@ define linkonce_odr void @_ZNK10open_spiel4Game15NewInitialStateERKNSt7__cxx1112
           to label %.noexc3 unwind label %10
 
 .noexc3:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.158, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.158, i64 47))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.158, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.158, i64 47))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %7
 
 7:                                                ; preds = %.noexc3
@@ -20622,7 +20622,7 @@ define linkonce_odr void @_ZNK10open_spiel4Game27InformationStateTensorShapeEv(p
           to label %.noexc3 unwind label %9
 
 .noexc3:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.159, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.159, i64 42))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.159, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.159, i64 42))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %6
 
 6:                                                ; preds = %.noexc3
@@ -20979,7 +20979,7 @@ define linkonce_odr void @_ZNK10open_spiel4Game28NewInitialStateForPopulationEi(
           to label %.noexc3 unwind label %10
 
 .noexc3:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.172, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.172, i64 48))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.172, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.172, i64 48))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %7
 
 7:                                                ; preds = %.noexc3
@@ -23351,7 +23351,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN10open_spiel15stones_an
   store i32 1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %23, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN10open_spiel15stones_and_gems15StonesNGemsGameELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN10open_spiel15stones_and_gems15StonesNGemsGameELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %24, align 8
   store ptr %4, ptr %3, align 8
@@ -23557,7 +23557,7 @@ declare noundef ptr @_ZN4absl7debian216numbers_internal15FastIntToBufferEiPc(i32
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN10open_spiel5StateC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(60) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTVN10open_spiel5StateE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 304) (i8, ptr @_ZTVN10open_spiel5StateE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -27857,7 +27857,7 @@ __cxx_global_var_init.52.exit:                    ; preds = %_ZN4absl7debian213f
           to label %448 unwind label %.body27
 
 448:                                              ; preds = %446
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %447, ptr noundef nonnull @.str.72, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.72, i64 15)) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %447, ptr noundef nonnull @.str.72, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.72, i64 15)) #33
   store ptr null, ptr %1, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_19kGameTypeE, i64 noundef 15)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body27
@@ -27897,7 +27897,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
           to label %457 unwind label %.body
 
 457:                                              ; preds = %455
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %456, ptr noundef nonnull @.str.73, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.73, i64 15)) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %456, ptr noundef nonnull @.str.73, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.73, i64 15)) #33
   store ptr null, ptr %2, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_19kGameTypeE, i64 32), i64 noundef 15)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit52.i unwind label %.body
@@ -27976,7 +27976,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit52.i: 
           to label %.noexc54.i unwind label %563
 
 .noexc54.i:                                       ; preds = %.noexc53.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @_ZN10open_spiel15stones_and_gems12kDefaultGridE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN10open_spiel15stones_and_gems12kDefaultGridE, i64 731))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @_ZN10open_spiel15stones_and_gems12kDefaultGridE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12kDefaultGridE, i64 731))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit57.i unwind label %475
 
 475:                                              ; preds = %.noexc54.i

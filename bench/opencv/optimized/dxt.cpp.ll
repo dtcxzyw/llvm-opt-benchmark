@@ -269,7 +269,7 @@ $_ZTISt15_Sp_counted_ptrIPN2cv10OcvDctImplELN9__gnu_cxx12_Lock_policyE2EE = comd
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal5DFT1D6createEiiiiPb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = tail call noalias noundef nonnull dereferenceable(2336) ptr @_Znwm(i64 noundef 2336) #18
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15OcvDftBasicImplE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15OcvDftBasicImplE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -345,7 +345,7 @@ common.resume:                                    ; preds = %29, %35
   store i32 1, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 1, ptr %39, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv15OcvDftBasicImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv15OcvDftBasicImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24, align 8
   %40 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %7, ptr %40, align 8
   store ptr %24, ptr %23, align 8
@@ -729,7 +729,7 @@ define void @_ZN2cv3hal5DFT2D6createEiiiiiii(ptr dead_on_unwind noalias nocaptur
 
 21:                                               ; preds = %8
   %22 = tail call noalias noundef nonnull dereferenceable(4312) ptr @_Znwm(i64 noundef 4312) #18
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv10OcvDftImplE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv10OcvDftImplE, i64 16), ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
@@ -816,7 +816,7 @@ common.resume:                                    ; preds = %53, %20
   store i32 1, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %48, i64 12
   store i32 1, ptr %61, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv10OcvDftImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %48, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv10OcvDftImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %48, align 8
   %62 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store ptr %22, ptr %62, align 8
   store ptr %48, ptr %47, align 8
@@ -4874,7 +4874,7 @@ declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr n
 define void @_ZN2cv3hal5DCT2D6createEiiii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.8") align 8 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = tail call noalias noundef nonnull dereferenceable(2392) ptr @_Znwm(i64 noundef 2392) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2392) %6, i8 0, i64 2392, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv10OcvDctImplE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv10OcvDctImplE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(43) %7, i8 0, i64 43, i1 false)
   %8 = invoke noundef zeroext i1 @_ZN2cv20checkHardwareSupportEi(i32 noundef 4)
@@ -5009,7 +5009,7 @@ common.resume:                                    ; preds = %63, %69
   store i32 1, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %58, i64 12
   store i32 1, ptr %73, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv10OcvDctImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %58, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv10OcvDctImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %58, align 8
   %74 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store ptr %6, ptr %74, align 8
   store ptr %58, ptr %57, align 8

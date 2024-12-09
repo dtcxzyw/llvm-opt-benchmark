@@ -37,7 +37,7 @@ define internal void @mca_rcache_grdma_cache_contructor(ptr noundef %0) #0 {
   %4 = inttoptr i64 %3 to ptr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(168) %4, i8 0, i64 168, i1 false)
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %5, %6
   br i1 %.not, label %8, label %7
 
@@ -66,7 +66,7 @@ define internal void @mca_rcache_grdma_cache_contructor(ptr noundef %0) #0 {
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %8
   %16 = load i32, ptr @opal_class_init_epoch, align 4
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @opal_lifo_t_class, i64 32), align 8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_lifo_t_class, i64 32), align 8
   %.not8 = icmp eq i32 %16, %17
   br i1 %.not8, label %19, label %18
 
@@ -266,7 +266,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %6, %8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 528
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %19, i8 0, i64 20, i1 false)
   %20 = load i32, ptr @opal_class_init_epoch, align 4
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 32), align 8
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_free_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %20, %21
   br i1 %.not, label %23, label %22
 
@@ -336,7 +336,7 @@ define internal i32 @mca_rcache_grdma_register(ptr noundef %0, ptr noundef %1, i
   br i1 %brmerge.not, label %28, label %56
 
 28:                                               ; preds = %6
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_accelerator, i64 88), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_accelerator, i64 88), align 8
   %30 = call i32 %29(i32 noundef -1, ptr noundef %1, ptr noundef nonnull %12, ptr noundef nonnull %13) #7
   %.not70 = icmp eq i32 %30, 0
   br i1 %.not70, label %32, label %31
@@ -363,7 +363,7 @@ define internal i32 @mca_rcache_grdma_register(ptr noundef %0, ptr noundef %1, i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 64
   %45 = load ptr, ptr %44, align 8
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_accelerator, i64 200), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_accelerator, i64 200), align 8
   %47 = call i32 %46(i32 noundef -1, ptr noundef %45, ptr noundef nonnull %10) #7
   %.not.i.i = icmp eq i32 %47, 0
   br i1 %.not.i.i, label %mca_rcache_accelerator_previously_freed_memory.exit.i, label %mca_rcache_accelerator_previously_freed_memory.exit.thread.i
@@ -544,7 +544,7 @@ opal_free_list_get_mt.exit:                       ; preds = %opal_update_counted
   br i1 %brmerge.not, label %118, label %122
 
 118:                                              ; preds = %109
-  %119 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_accelerator, i64 200), align 8
+  %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_accelerator, i64 200), align 8
   %120 = getelementptr inbounds nuw i8, ptr %110, i64 104
   %121 = call i32 %119(i32 noundef -1, ptr noundef %112, ptr noundef nonnull %120) #7
   br label %122
@@ -719,7 +719,7 @@ define internal i32 @mca_rcache_grdma_find(ptr nocapture noundef %0, ptr noundef
   br i1 %.not, label %68, label %28
 
 28:                                               ; preds = %4
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 348), align 4
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 348), align 4
   %.not26 = icmp eq i32 %29, 0
   br i1 %.not26, label %30, label %44
 
@@ -809,7 +809,7 @@ define internal i32 @mca_rcache_grdma_deregister(ptr nocapture noundef readonly 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %9 = load volatile i32, ptr %8, align 4
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 348), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 348), align 4
   %11 = icmp ne i32 %10, 0
   %12 = and i32 %9, 131
   %.not.i.i = icmp eq i32 %12, 0
@@ -942,7 +942,7 @@ define internal i32 @mca_rcache_grdma_invalidate_range(ptr nocapture noundef rea
 
 ; Function Attrs: nounwind uwtable
 define internal void @mca_rcache_grdma_finalize(ptr noundef %0) #0 {
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 344), align 8
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 344), align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %25
 
@@ -1516,7 +1516,7 @@ define internal fastcc void @mca_rcache_grdma_add_to_gc(ptr noundef %0) unnamed_
   br i1 %.not9, label %10, label %opal_lifo_push_atomic.exit
 
 10:                                               ; preds = %7
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 348), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 348), align 4
   %12 = icmp ne i32 %11, 0
   %13 = and i32 %5, 3
   %.not.i = icmp eq i32 %13, 0

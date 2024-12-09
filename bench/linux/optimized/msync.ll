@@ -60,7 +60,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_msync(i6
   br i1 %24, label %.thread15, label %25
 
 25:                                               ; preds = %23
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #4
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #4
           to label %27 [label %26], !srcloc !6
 
 26:                                               ; preds = %25
@@ -70,7 +70,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_msync(i6
 27:                                               ; preds = %26, %25
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 176
   tail call void @down_read(ptr noundef nonnull %28) #4
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #4
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #4
           to label %30 [label %29], !srcloc !6
 
 29:                                               ; preds = %27
@@ -220,7 +220,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_msync(i6
 117:                                              ; preds = %112
   %118 = getelementptr inbounds nuw i8, ptr %100, i64 24
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %118, ptr nonnull elementtype(i64) %118) #4, !srcloc !7
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #4
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #4
           to label %120 [label %119], !srcloc !6
 
 119:                                              ; preds = %117
@@ -238,7 +238,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_msync(i6
   br i1 %125, label %126, label %.thread11
 
 126:                                              ; preds = %120
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #4
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #4
           to label %128 [label %127], !srcloc !6
 
 127:                                              ; preds = %126
@@ -247,7 +247,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_msync(i6
 
 128:                                              ; preds = %127, %126
   tail call void @down_read(ptr noundef nonnull %28) #4
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #4
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #4
           to label %132 [label %129], !srcloc !6
 
 129:                                              ; preds = %128
@@ -266,7 +266,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_msync(i6
 ._crit_edge:                                      ; preds = %76, %70, %68, %80, %41, %.lr.ph.split.us.split.us.split.us, %45, %55, %53, %60, %130, %93, %88, %132, %30
   %.ph8 = phi i32 [ 0, %30 ], [ %91, %132 ], [ %84, %88 ], [ %91, %93 ], [ %91, %130 ], [ %56, %60 ], [ %49, %53 ], [ %56, %55 ], [ 0, %45 ], [ 0, %.lr.ph.split.us.split.us.split.us ], [ 0, %41 ], [ %71, %80 ], [ %64, %68 ], [ %71, %70 ], [ %71, %76 ]
   %.ph9 = phi i32 [ -12, %30 ], [ -12, %132 ], [ -12, %88 ], [ -16, %93 ], [ 0, %130 ], [ -12, %60 ], [ -12, %53 ], [ 0, %55 ], [ 0, %41 ], [ -12, %.lr.ph.split.us.split.us.split.us ], [ -12, %45 ], [ -12, %80 ], [ -12, %68 ], [ -16, %70 ], [ 0, %76 ]
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #4
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #4
           to label %136 [label %135], !srcloc !6
 
 135:                                              ; preds = %._crit_edge

@@ -2630,7 +2630,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.rlReadTexturePixels = private unnamed_addr constant [24 x i32] [i32 8, i32 16, i32 16, i32 24, i32 16, i32 16, i32 32, i32 32, i32 96, i32 128, i32 16, i32 48, i32 64, i32 4, i32 4, i32 8, i32 8, i32 4, i32 4, i32 8, i32 4, i32 4, i32 8, i32 2], align 4
 @switch.table.PollInputEvents = private unnamed_addr constant [15 x i32] [i32 7, i32 6, i32 8, i32 5, i32 9, i32 11, i32 13, i32 15, i32 14, i32 16, i32 17, i32 1, i32 2, i32 3, i32 4], align 4
 @switch.table.InitPlatform = private unnamed_addr constant [5 x ptr] [ptr @.str.139, ptr @.str.140, ptr @.str.141, ptr @.str.142, ptr @.str.143], align 8
-@switch.table.KeyCallback = private unnamed_addr constant [3 x ptr] [ptr getelementptr inbounds (i8, ptr @CORE, i64 196), ptr getelementptr inbounds (i8, ptr @CORE, i64 196), ptr getelementptr inbounds (i8, ptr @CORE, i64 1220)], align 8
+@switch.table.KeyCallback = private unnamed_addr constant [3 x ptr] [ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 196), ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 196), ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1220)], align 8
 
 ; Function Attrs: nounwind uwtable
 define i32 @gladLoadGLUserPtr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -17667,18 +17667,18 @@ define void @rlMatrixMode(i32 noundef %0) local_unnamed_addr #1 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %1, %2
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @RLGL, i64 80), %2 ], [ getelementptr inbounds (i8, ptr @RLGL, i64 144), %1 ]
-  store ptr %.sink, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @RLGL, i64 80), %2 ], [ getelementptr inbounds nuw (i8, ptr @RLGL, i64 144), %1 ]
+  store ptr %.sink, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
   br label %3
 
 3:                                                ; preds = %.sink.split, %1
-  store i32 %0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
+  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 68), align 4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @rlPushMatrix() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2324), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2324), align 4
   %2 = icmp sgt i32 %1, 31
   br i1 %2, label %3, label %4
 
@@ -17687,28 +17687,28 @@ define void @rlPushMatrix() local_unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %3, %0
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 68), align 4
   %6 = icmp eq i32 %5, 5888
   br i1 %6, label %7, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %4
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
   br label %8
 
 7:                                                ; preds = %4
-  store i8 1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 272), align 8
-  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 208), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 272), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 208), ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
   br label %8
 
 8:                                                ; preds = %._crit_edge, %7
-  %9 = phi ptr [ %.pre, %._crit_edge ], [ getelementptr inbounds (i8, ptr @RLGL, i64 208), %7 ]
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2324), align 4
+  %9 = phi ptr [ %.pre, %._crit_edge ], [ getelementptr inbounds nuw (i8, ptr @RLGL, i64 208), %7 ]
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2324), align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [32 x %struct.Matrix], ptr getelementptr inbounds (i8, ptr @RLGL, i64 276), i64 0, i64 %11
+  %12 = getelementptr inbounds [32 x %struct.Matrix], ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 276), i64 0, i64 %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %12, ptr noundef nonnull align 4 dereferenceable(64) %9, i64 64, i1 false)
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2324), align 4
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2324), align 4
   %14 = add nsw i32 %13, 1
-  store i32 %14, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2324), align 4
+  store i32 %14, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2324), align 4
   ret void
 }
 
@@ -17719,32 +17719,32 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @rlPopMatrix() local_unnamed_addr #4 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2324), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2324), align 4
   %2 = icmp sgt i32 %1, 0
   br i1 %2, label %3, label %10
 
 3:                                                ; preds = %0
   %4 = add nsw i32 %1, -1
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr inbounds nuw [32 x %struct.Matrix], ptr getelementptr inbounds (i8, ptr @RLGL, i64 276), i64 0, i64 %5
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  %6 = getelementptr inbounds nuw [32 x %struct.Matrix], ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 276), i64 0, i64 %5
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %7, ptr noundef nonnull align 4 dereferenceable(64) %6, i64 64, i1 false)
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2324), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2324), align 4
   %9 = add nsw i32 %8, -1
-  store i32 %9, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2324), align 4
+  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2324), align 4
   br label %10
 
 10:                                               ; preds = %3, %0
   %11 = phi i32 [ %9, %3 ], [ %1, %0 ]
   %12 = icmp eq i32 %11, 0
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 68), align 4
   %14 = icmp eq i32 %13, 5888
   %or.cond = select i1 %12, i1 %14, i1 false
   br i1 %or.cond, label %15, label %16
 
 15:                                               ; preds = %10
-  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 272), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 80), ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 272), align 8
   br label %16
 
 16:                                               ; preds = %15, %10
@@ -17753,7 +17753,7 @@ define void @rlPopMatrix() local_unnamed_addr #4 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define void @rlLoadIdentity() local_unnamed_addr #5 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
   store float 1.000000e+00, ptr %1, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.2.0..sroa_idx, i8 0, i64 16, i1 false)
@@ -17772,7 +17772,7 @@ define void @rlLoadIdentity() local_unnamed_addr #5 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @rlTranslatef(float noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #4 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
   %.sroa.043.0.copyload = load float, ptr %4, align 4
   %.sroa.244.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.244.0.copyload = load float, ptr %.sroa.244.0..sroa_idx, align 4
@@ -17927,7 +17927,7 @@ define void @rlRotatef(float noundef %0, float noundef %1, float noundef %2, flo
   %37 = tail call float @llvm.fmuladd.f32(float %32, float %19, float %36)
   %38 = fmul float %.062, %.062
   %39 = tail call float @llvm.fmuladd.f32(float %38, float %19, float %18)
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
   %.sroa.0102.0.copyload = load float, ptr %40, align 4
   %.sroa.2103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 4
   %.sroa.2103.0.copyload = load float, ptr %.sroa.2103.0..sroa_idx, align 4
@@ -18056,7 +18056,7 @@ declare float @cosf(float noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @rlScalef(float noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #4 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
   %.sroa.036.0.copyload = load float, ptr %4, align 4
   %.sroa.237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.237.0.copyload = load float, ptr %.sroa.237.0..sroa_idx, align 4
@@ -18195,7 +18195,7 @@ define void @rlMultMatrixf(ptr nocapture noundef readonly %0) local_unnamed_addr
   %30 = load float, ptr %29, align 4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %32 = load float, ptr %31, align 4
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
   %.sroa.046.0.copyload = load float, ptr %33, align 4
   %.sroa.247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 4
   %.sroa.247.0.copyload = load float, ptr %.sroa.247.0..sroa_idx, align 4
@@ -18337,7 +18337,7 @@ define void @rlFrustum(double noundef %0, double noundef %1, double noundef %2, 
   %29 = fmul float %13, %25
   %30 = fmul float %29, -2.000000e+00
   %31 = fdiv float %30, %12
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
   %.sroa.052.0.copyload = load float, ptr %32, align 4
   %.sroa.253.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 4
   %.sroa.253.0.copyload = load float, ptr %.sroa.253.0..sroa_idx, align 4
@@ -18466,7 +18466,7 @@ define void @rlOrtho(double noundef %0, double noundef %1, double noundef %2, do
   %28 = fadd float %27, %26
   %29 = fneg float %28
   %30 = fdiv float %29, %12
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
   %.sroa.048.0.copyload = load float, ptr %31, align 4
   %.sroa.249.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 4
   %.sroa.249.0.copyload = load float, ptr %.sroa.249.0..sroa_idx, align 4
@@ -18626,7 +18626,7 @@ define void @rlBegin(i32 noundef %0) local_unnamed_addr #0 {
   %31 = getelementptr %struct.rlDrawCall, ptr %27, i64 %30
   %32 = getelementptr i8, ptr %31, i64 -8
   %33 = load i32, ptr %32, align 4
-  %34 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
   %35 = add nsw i32 %34, %33
   %36 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %37 = load ptr, ptr %36, align 8
@@ -18669,7 +18669,7 @@ rlCheckRenderBatchLimit.exit.thread:              ; preds = %23
   br label %66
 
 rlCheckRenderBatchLimit.exit:                     ; preds = %23
-  store i32 %35, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
+  store i32 %35, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
   %64 = load i32, ptr %28, align 8
   %65 = add nsw i32 %64, 1
   store i32 %65, ptr %28, align 8
@@ -18706,7 +18706,7 @@ rlCheckRenderBatchLimit.exit:                     ; preds = %23
   %85 = getelementptr %struct.rlDrawCall, ptr %81, i64 %84
   %86 = getelementptr i8, ptr %85, i64 -12
   store i32 0, ptr %86, align 4
-  %87 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2328), align 8
+  %87 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2328), align 8
   %88 = load ptr, ptr @RLGL, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = load ptr, ptr %89, align 8
@@ -18724,7 +18724,7 @@ rlCheckRenderBatchLimit.exit:                     ; preds = %23
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @rlCheckRenderBatchLimit(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
   %3 = add nsw i32 %2, %0
   %4 = load ptr, ptr @RLGL, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -18778,12 +18778,12 @@ define noundef zeroext i1 @rlCheckRenderBatchLimit(i32 noundef %0) local_unnamed
 define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.Matrix, align 4
   %3 = alloca [16 x float], align 16
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %6, label %72
 
 6:                                                ; preds = %1
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2696), align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %18
 
@@ -18810,7 +18810,7 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %26 = load i32, ptr %25, align 4
   tail call void %19(i32 noundef 34962, i32 noundef %26) #54
   %27 = load ptr, ptr @glad_glBufferSubData, align 8
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
   %29 = mul nsw i32 %28, 3
   %30 = sext i32 %29 to i64
   %31 = shl nsw i64 %30, 2
@@ -18828,7 +18828,7 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %42 = load i32, ptr %41, align 4
   tail call void %37(i32 noundef 34962, i32 noundef %42) #54
   %43 = load ptr, ptr @glad_glBufferSubData, align 8
-  %44 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
+  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
   %45 = shl nsw i32 %44, 1
   %46 = sext i32 %45 to i64
   %47 = shl nsw i64 %46, 2
@@ -18846,7 +18846,7 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %58 = load i32, ptr %57, align 4
   tail call void %53(i32 noundef 34962, i32 noundef %58) #54
   %59 = load ptr, ptr @glad_glBufferSubData, align 8
-  %60 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
+  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
   %61 = shl nsw i32 %60, 2
   %62 = sext i32 %61 to i64
   %63 = load ptr, ptr %20, align 8
@@ -18855,7 +18855,7 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %66 = getelementptr inbounds %struct.rlVertexBuffer, ptr %63, i64 %65, i32 3
   %67 = load ptr, ptr %66, align 8
   tail call void %59(i32 noundef 34962, i64 noundef 0, i64 noundef %62, ptr noundef %67) #54
-  %68 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
+  %68 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2696), align 8
   %69 = trunc i8 %68 to i1
   br i1 %69, label %70, label %72
 
@@ -18865,24 +18865,24 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %72
 
 72:                                               ; preds = %18, %70, %1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 144), i64 64, i1 false)
-  %.sroa.0107.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), align 8
-  %.sroa.3109.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 84), align 4
-  %.sroa.4111.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 88), align 8
-  %.sroa.5113.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 92), align 4
-  %.sroa.6115.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 96), align 8
-  %.sroa.7117.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 100), align 4
-  %.sroa.8119.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 104), align 8
-  %.sroa.9121.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 108), align 4
-  %.sroa.10123.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 112), align 8
-  %.sroa.11125.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 116), align 4
-  %.sroa.12127.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 120), align 8
-  %.sroa.13129.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 124), align 4
-  %.sroa.14131.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 128), align 8
-  %.sroa.15133.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 132), align 4
-  %.sroa.16135.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 136), align 8
-  %.sroa.17137.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 140), align 4
-  %73 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2384), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @RLGL, i64 144), i64 64, i1 false)
+  %.sroa.0107.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 80), align 8
+  %.sroa.3109.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 84), align 4
+  %.sroa.4111.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 88), align 8
+  %.sroa.5113.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 92), align 4
+  %.sroa.6115.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 96), align 8
+  %.sroa.7117.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 100), align 4
+  %.sroa.8119.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 104), align 8
+  %.sroa.9121.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 108), align 4
+  %.sroa.10123.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 112), align 8
+  %.sroa.11125.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 116), align 4
+  %.sroa.12127.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 120), align 8
+  %.sroa.13129.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 124), align 4
+  %.sroa.14131.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 128), align 8
+  %.sroa.15133.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 132), align 4
+  %.sroa.16135.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 136), align 8
+  %.sroa.17137.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 140), align 4
+  %73 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2384), align 8
   %74 = trunc i8 %73 to i1
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -18911,15 +18911,15 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %74, label %96, label %170
 
 96:                                               ; preds = %94
-  %97 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2688), align 8
+  %97 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2688), align 8
   %98 = trunc nuw nsw i64 %indvars.iv229 to i32
   %99 = mul nuw nsw i32 %97, %98
   %100 = sdiv i32 %99, 2
   %101 = sdiv i32 %97, 2
-  %102 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2692), align 4
+  %102 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2692), align 4
   %103 = load ptr, ptr @glad_glViewport, align 8
   call void %103(i32 noundef %100, i32 noundef 0, i32 noundef %101, i32 noundef %102) #54
-  %104 = getelementptr inbounds nuw [2 x %struct.Matrix], ptr getelementptr inbounds (i8, ptr @RLGL, i64 2516), i64 0, i64 %indvars.iv229
+  %104 = getelementptr inbounds nuw [2 x %struct.Matrix], ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2516), i64 0, i64 %indvars.iv229
   %.sroa.0155.0.copyload = load float, ptr %104, align 4
   %.sroa.2156.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 4
   %.sroa.2156.0.copyload = load float, ptr %.sroa.2156.0..sroa_idx, align 8
@@ -19015,67 +19015,67 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %166 = call float @llvm.fmuladd.f32(float %.sroa.5113.0.copyload, float %.sroa.13167.0.copyload, float %165)
   %167 = call float @llvm.fmuladd.f32(float %.sroa.13129.0.copyload, float %.sroa.15169.0.copyload, float %166)
   %168 = call float @llvm.fmuladd.f32(float %.sroa.17137.0.copyload, float %.sroa.16170.0.copyload, float %167)
-  store float %108, ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), align 8
-  store float %124, ptr getelementptr inbounds (i8, ptr @RLGL, i64 84), align 4
-  store float %140, ptr getelementptr inbounds (i8, ptr @RLGL, i64 88), align 8
-  store float %156, ptr getelementptr inbounds (i8, ptr @RLGL, i64 92), align 4
-  store float %112, ptr getelementptr inbounds (i8, ptr @RLGL, i64 96), align 8
-  store float %128, ptr getelementptr inbounds (i8, ptr @RLGL, i64 100), align 4
-  store float %144, ptr getelementptr inbounds (i8, ptr @RLGL, i64 104), align 8
-  store float %160, ptr getelementptr inbounds (i8, ptr @RLGL, i64 108), align 4
-  store float %116, ptr getelementptr inbounds (i8, ptr @RLGL, i64 112), align 8
-  store float %132, ptr getelementptr inbounds (i8, ptr @RLGL, i64 116), align 4
-  store float %148, ptr getelementptr inbounds (i8, ptr @RLGL, i64 120), align 8
-  store float %164, ptr getelementptr inbounds (i8, ptr @RLGL, i64 124), align 4
-  store float %120, ptr getelementptr inbounds (i8, ptr @RLGL, i64 128), align 8
-  store float %136, ptr getelementptr inbounds (i8, ptr @RLGL, i64 132), align 4
-  store float %152, ptr getelementptr inbounds (i8, ptr @RLGL, i64 136), align 8
-  store float %168, ptr getelementptr inbounds (i8, ptr @RLGL, i64 140), align 4
-  %169 = getelementptr inbounds nuw [2 x %struct.Matrix], ptr getelementptr inbounds (i8, ptr @RLGL, i64 2388), i64 0, i64 %indvars.iv229
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 144), ptr noundef nonnull align 4 dereferenceable(64) %169, i64 64, i1 false)
+  store float %108, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 80), align 8
+  store float %124, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 84), align 4
+  store float %140, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 88), align 8
+  store float %156, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 92), align 4
+  store float %112, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 96), align 8
+  store float %128, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 100), align 4
+  store float %144, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 104), align 8
+  store float %160, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 108), align 4
+  store float %116, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 112), align 8
+  store float %132, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 116), align 4
+  store float %148, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 120), align 8
+  store float %164, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 124), align 4
+  store float %120, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 128), align 8
+  store float %136, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 132), align 4
+  store float %152, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 136), align 8
+  store float %168, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 140), align 4
+  %169 = getelementptr inbounds nuw [2 x %struct.Matrix], ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2388), i64 0, i64 %indvars.iv229
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @RLGL, i64 144), ptr noundef nonnull align 4 dereferenceable(64) %169, i64 64, i1 false)
   br label %170
 
 170:                                              ; preds = %96, %94
-  %171 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
+  %171 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
   %172 = icmp sgt i32 %171, 0
   br i1 %172, label %173, label %361
 
 173:                                              ; preds = %170
   %174 = load ptr, ptr @glad_glUseProgram, align 8
-  %175 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2368), align 8
+  %175 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2368), align 8
   call void %174(i32 noundef %175) #54
-  %.sroa.0203.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 144), align 8
-  %.sroa.4204.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 148), align 4
-  %.sroa.5205.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 152), align 8
-  %.sroa.6206.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 156), align 4
-  %.sroa.7207.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 160), align 8
-  %.sroa.8208.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 164), align 4
-  %.sroa.9209.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 168), align 8
-  %.sroa.10210.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 172), align 4
-  %.sroa.11211.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 176), align 8
-  %.sroa.12212.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 180), align 4
-  %.sroa.13213.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 184), align 8
-  %.sroa.14214.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 188), align 4
-  %.sroa.15215.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 192), align 8
-  %.sroa.16216.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 196), align 4
-  %.sroa.17217.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 200), align 8
-  %.sroa.18218.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 204), align 4
-  %.sroa.0187.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), align 8
-  %.sroa.4188.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 84), align 4
-  %.sroa.5189.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 88), align 8
-  %.sroa.6190.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 92), align 4
-  %.sroa.7191.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 96), align 8
-  %.sroa.8192.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 100), align 4
-  %.sroa.9193.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 104), align 8
-  %.sroa.10194.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 108), align 4
-  %.sroa.11195.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 112), align 8
-  %.sroa.12196.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 116), align 4
-  %.sroa.13197.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 120), align 8
-  %.sroa.14198.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 124), align 4
-  %.sroa.15199.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 128), align 8
-  %.sroa.16200.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 132), align 4
-  %.sroa.17201.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 136), align 8
-  %.sroa.18202.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 140), align 4
+  %.sroa.0203.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 144), align 8
+  %.sroa.4204.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 148), align 4
+  %.sroa.5205.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 152), align 8
+  %.sroa.6206.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 156), align 4
+  %.sroa.7207.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 160), align 8
+  %.sroa.8208.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 164), align 4
+  %.sroa.9209.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 168), align 8
+  %.sroa.10210.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 172), align 4
+  %.sroa.11211.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 176), align 8
+  %.sroa.12212.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 180), align 4
+  %.sroa.13213.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 184), align 8
+  %.sroa.14214.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 188), align 4
+  %.sroa.15215.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 192), align 8
+  %.sroa.16216.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 196), align 4
+  %.sroa.17217.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 200), align 8
+  %.sroa.18218.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 204), align 4
+  %.sroa.0187.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 80), align 8
+  %.sroa.4188.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 84), align 4
+  %.sroa.5189.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 88), align 8
+  %.sroa.6190.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 92), align 4
+  %.sroa.7191.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 96), align 8
+  %.sroa.8192.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 100), align 4
+  %.sroa.9193.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 104), align 8
+  %.sroa.10194.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 108), align 4
+  %.sroa.11195.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 112), align 8
+  %.sroa.12196.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 116), align 4
+  %.sroa.13197.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 120), align 8
+  %.sroa.14198.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 124), align 4
+  %.sroa.15199.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 128), align 8
+  %.sroa.16200.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 132), align 4
+  %.sroa.17201.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 136), align 8
+  %.sroa.18202.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 140), align 4
   %176 = fmul float %.sroa.4204.0.copyload, %.sroa.7191.0.copyload
   %177 = call float @llvm.fmuladd.f32(float %.sroa.0187.0.copyload, float %.sroa.0203.0.copyload, float %176)
   %178 = call float @llvm.fmuladd.f32(float %.sroa.11195.0.copyload, float %.sroa.5205.0.copyload, float %177)
@@ -19157,11 +19157,11 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   store float %235, ptr %88, align 8
   store float %239, ptr %89, align 4
   %240 = load ptr, ptr @glad_glUniformMatrix4fv, align 8
-  %241 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  %241 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 24
   %243 = load i32, ptr %242, align 4
   call void %240(i32 noundef %243, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %3) #54
-  %244 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
+  %244 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2696), align 8
   %245 = trunc i8 %244 to i1
   %246 = load ptr, ptr %90, align 8
   %247 = load i32, ptr %91, align 4
@@ -19181,11 +19181,11 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %256 = load i32, ptr %255, align 4
   call void %254(i32 noundef 34962, i32 noundef %256) #54
   %257 = load ptr, ptr @glad_glVertexAttribPointer, align 8
-  %258 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  %258 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
   %259 = load i32, ptr %258, align 4
   call void %257(i32 noundef %259, i32 noundef 3, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null) #54
   %260 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8
-  %261 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  %261 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
   %262 = load i32, ptr %261, align 4
   call void %260(i32 noundef %262) #54
   %263 = load ptr, ptr @glad_glBindBuffer, align 8
@@ -19196,12 +19196,12 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %268 = load i32, ptr %267, align 4
   call void %263(i32 noundef 34962, i32 noundef %268) #54
   %269 = load ptr, ptr @glad_glVertexAttribPointer, align 8
-  %270 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  %270 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 4
   %272 = load i32, ptr %271, align 4
   call void %269(i32 noundef %272, i32 noundef 2, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null) #54
   %273 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8
-  %274 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  %274 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 4
   %276 = load i32, ptr %275, align 4
   call void %273(i32 noundef %276) #54
@@ -19213,12 +19213,12 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %282 = load i32, ptr %281, align 4
   call void %277(i32 noundef 34962, i32 noundef %282) #54
   %283 = load ptr, ptr @glad_glVertexAttribPointer, align 8
-  %284 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  %284 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 20
   %286 = load i32, ptr %285, align 4
   call void %283(i32 noundef %286, i32 noundef 4, i32 noundef 5121, i8 noundef zeroext 1, i32 noundef 0, ptr noundef null) #54
   %287 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8
-  %288 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  %288 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 20
   %290 = load i32, ptr %289, align 4
   call void %287(i32 noundef %290) #54
@@ -19233,12 +19233,12 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 297:                                              ; preds = %253, %249
   %298 = load ptr, ptr @glad_glUniform4f, align 8
-  %299 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  %299 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 48
   %301 = load i32, ptr %300, align 4
   call void %298(i32 noundef %301, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00) #54
   %302 = load ptr, ptr @glad_glUniform1i, align 8
-  %303 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  %303 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 60
   %305 = load i32, ptr %304, align 4
   call void %302(i32 noundef %305, i32 noundef 0) #54
@@ -19246,7 +19246,7 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 306:                                              ; preds = %297, %315
   %indvars.iv = phi i64 [ 0, %297 ], [ %indvars.iv.next, %315 ]
-  %307 = getelementptr inbounds nuw [4 x i32], ptr getelementptr inbounds (i8, ptr @RLGL, i64 2332), i64 0, i64 %indvars.iv
+  %307 = getelementptr inbounds nuw [4 x i32], ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2332), i64 0, i64 %indvars.iv
   %308 = load i32, ptr %307, align 4
   %.not81 = icmp eq i32 %308, 0
   br i1 %.not81, label %315, label %309
@@ -19330,7 +19330,7 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %353, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %342, %316
-  %354 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
+  %354 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2696), align 8
   %355 = trunc i8 %354 to i1
   br i1 %355, label %359, label %356
 
@@ -19347,7 +19347,7 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %361
 
 361:                                              ; preds = %359, %170
-  %362 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
+  %362 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2696), align 8
   %363 = trunc i8 %362 to i1
   br i1 %363, label %364, label %366
 
@@ -19366,33 +19366,33 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %74, label %370, label %374
 
 370:                                              ; preds = %369
-  %371 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2688), align 8
-  %372 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2692), align 4
+  %371 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2688), align 8
+  %372 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2692), align 4
   %373 = load ptr, ptr @glad_glViewport, align 8
   call void %373(i32 noundef 0, i32 noundef 0, i32 noundef %371, i32 noundef %372) #54
   br label %374
 
 374:                                              ; preds = %370, %369
-  store i32 0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
   %375 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store float -1.000000e+00, ptr %375, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 144), ptr noundef nonnull align 4 dereferenceable(64) %2, i64 64, i1 false)
-  store float %.sroa.0107.0.copyload, ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), align 8
-  store float %.sroa.3109.0.copyload, ptr getelementptr inbounds (i8, ptr @RLGL, i64 84), align 4
-  store float %.sroa.4111.0.copyload, ptr getelementptr inbounds (i8, ptr @RLGL, i64 88), align 8
-  store float %.sroa.5113.0.copyload, ptr getelementptr inbounds (i8, ptr @RLGL, i64 92), align 4
-  store float %.sroa.6115.0.copyload, ptr getelementptr inbounds (i8, ptr @RLGL, i64 96), align 8
-  store float %.sroa.7117.0.copyload, ptr getelementptr inbounds (i8, ptr @RLGL, i64 100), align 4
-  store float %.sroa.8119.0.copyload, ptr getelementptr inbounds (i8, ptr @RLGL, i64 104), align 8
-  store float %.sroa.9121.0.copyload, ptr getelementptr inbounds (i8, ptr @RLGL, i64 108), align 4
-  store float %.sroa.10123.0.copyload, ptr getelementptr inbounds (i8, ptr @RLGL, i64 112), align 8
-  store float %.sroa.11125.0.copyload, ptr getelementptr inbounds (i8, ptr @RLGL, i64 116), align 4
-  store float %.sroa.12127.0.copyload, ptr getelementptr inbounds (i8, ptr @RLGL, i64 120), align 8
-  store float %.sroa.13129.0.copyload, ptr getelementptr inbounds (i8, ptr @RLGL, i64 124), align 4
-  store float %.sroa.14131.0.copyload, ptr getelementptr inbounds (i8, ptr @RLGL, i64 128), align 8
-  store float %.sroa.15133.0.copyload, ptr getelementptr inbounds (i8, ptr @RLGL, i64 132), align 4
-  store float %.sroa.16135.0.copyload, ptr getelementptr inbounds (i8, ptr @RLGL, i64 136), align 8
-  store float %.sroa.17137.0.copyload, ptr getelementptr inbounds (i8, ptr @RLGL, i64 140), align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @RLGL, i64 144), ptr noundef nonnull align 4 dereferenceable(64) %2, i64 64, i1 false)
+  store float %.sroa.0107.0.copyload, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 80), align 8
+  store float %.sroa.3109.0.copyload, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 84), align 4
+  store float %.sroa.4111.0.copyload, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 88), align 8
+  store float %.sroa.5113.0.copyload, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 92), align 4
+  store float %.sroa.6115.0.copyload, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 96), align 8
+  store float %.sroa.7117.0.copyload, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 100), align 4
+  store float %.sroa.8119.0.copyload, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 104), align 8
+  store float %.sroa.9121.0.copyload, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 108), align 4
+  store float %.sroa.10123.0.copyload, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 112), align 8
+  store float %.sroa.11125.0.copyload, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 116), align 4
+  store float %.sroa.12127.0.copyload, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 120), align 8
+  store float %.sroa.13129.0.copyload, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 124), align 4
+  store float %.sroa.14131.0.copyload, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 128), align 8
+  store float %.sroa.15133.0.copyload, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 132), align 4
+  store float %.sroa.16135.0.copyload, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 136), align 8
+  store float %.sroa.17137.0.copyload, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 140), align 4
   br label %376
 
 376:                                              ; preds = %374, %376
@@ -19403,7 +19403,7 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %379 = load ptr, ptr %93, align 8
   %380 = getelementptr inbounds nuw %struct.rlDrawCall, ptr %379, i64 %indvars.iv232, i32 1
   store i32 0, ptr %380, align 4
-  %381 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2328), align 8
+  %381 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2328), align 8
   %382 = load ptr, ptr %93, align 8
   %383 = getelementptr inbounds nuw %struct.rlDrawCall, ptr %382, i64 %indvars.iv232, i32 3
   store i32 %381, ptr %383, align 4
@@ -19435,34 +19435,34 @@ define void @rlEnd() local_unnamed_addr #4 {
 
 ; Function Attrs: nounwind uwtable
 define void @rlVertex3f(float noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #0 {
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 272), align 8
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 272), align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %31
 
 6:                                                ; preds = %3
-  %7 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 208), align 8
-  %8 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 212), align 4
+  %7 = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 208), align 8
+  %8 = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 212), align 4
   %9 = fmul float %1, %8
   %10 = tail call float @llvm.fmuladd.f32(float %7, float %0, float %9)
-  %11 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 216), align 8
+  %11 = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 216), align 8
   %12 = tail call float @llvm.fmuladd.f32(float %11, float %2, float %10)
-  %13 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 220), align 4
+  %13 = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 220), align 4
   %14 = fadd float %13, %12
-  %15 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 224), align 8
-  %16 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 228), align 4
+  %15 = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 224), align 8
+  %16 = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 228), align 4
   %17 = fmul float %1, %16
   %18 = tail call float @llvm.fmuladd.f32(float %15, float %0, float %17)
-  %19 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 232), align 8
+  %19 = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 232), align 8
   %20 = tail call float @llvm.fmuladd.f32(float %19, float %2, float %18)
-  %21 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 236), align 4
+  %21 = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 236), align 4
   %22 = fadd float %21, %20
-  %23 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 240), align 8
-  %24 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 244), align 4
+  %23 = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 240), align 8
+  %24 = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 244), align 4
   %25 = fmul float %1, %24
   %26 = tail call float @llvm.fmuladd.f32(float %23, float %0, float %25)
-  %27 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 248), align 8
+  %27 = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 248), align 8
   %28 = tail call float @llvm.fmuladd.f32(float %27, float %2, float %26)
-  %29 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 252), align 4
+  %29 = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 252), align 4
   %30 = fadd float %29, %28
   br label %31
 
@@ -19470,7 +19470,7 @@ define void @rlVertex3f(float noundef %0, float noundef %1, float noundef %2) lo
   %.016 = phi float [ %14, %6 ], [ %0, %3 ]
   %.015 = phi float [ %22, %6 ], [ %1, %3 ]
   %.0 = phi float [ %30, %6 ], [ %2, %3 ]
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
   %33 = load ptr, ptr @RLGL, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
@@ -19553,7 +19553,7 @@ rlCheckRenderBatchLimit.exit:                     ; preds = %rlCheckRenderBatchL
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds %struct.rlVertexBuffer, ptr %88, i64 %91, i32 1
   %93 = load ptr, ptr %92, align 8
-  %94 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
+  %94 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
   %95 = mul nsw i32 %94, 3
   %96 = sext i32 %95 to i64
   %97 = getelementptr inbounds float, ptr %93, i64 %96
@@ -19566,7 +19566,7 @@ rlCheckRenderBatchLimit.exit:                     ; preds = %rlCheckRenderBatchL
   %103 = sext i32 %102 to i64
   %104 = getelementptr inbounds %struct.rlVertexBuffer, ptr %100, i64 %103, i32 1
   %105 = load ptr, ptr %104, align 8
-  %106 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
+  %106 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
   %107 = mul nsw i32 %106, 3
   %108 = sext i32 %107 to i64
   %109 = getelementptr float, ptr %105, i64 %108
@@ -19580,13 +19580,13 @@ rlCheckRenderBatchLimit.exit:                     ; preds = %rlCheckRenderBatchL
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds %struct.rlVertexBuffer, ptr %113, i64 %116, i32 1
   %118 = load ptr, ptr %117, align 8
-  %119 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
+  %119 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
   %120 = mul nsw i32 %119, 3
   %121 = sext i32 %120 to i64
   %122 = getelementptr float, ptr %118, i64 %121
   %123 = getelementptr i8, ptr %122, i64 8
   store float %.0, ptr %123, align 4
-  %124 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 44), align 4
+  %124 = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 44), align 4
   %125 = load ptr, ptr @RLGL, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %127 = load ptr, ptr %126, align 8
@@ -19595,12 +19595,12 @@ rlCheckRenderBatchLimit.exit:                     ; preds = %rlCheckRenderBatchL
   %130 = sext i32 %129 to i64
   %131 = getelementptr inbounds %struct.rlVertexBuffer, ptr %127, i64 %130, i32 2
   %132 = load ptr, ptr %131, align 8
-  %133 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
+  %133 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
   %134 = shl nsw i32 %133, 1
   %135 = sext i32 %134 to i64
   %136 = getelementptr inbounds float, ptr %132, i64 %135
   store float %124, ptr %136, align 4
-  %137 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 48), align 8
+  %137 = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 48), align 8
   %138 = load ptr, ptr @RLGL, align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %140 = load ptr, ptr %139, align 8
@@ -19609,13 +19609,13 @@ rlCheckRenderBatchLimit.exit:                     ; preds = %rlCheckRenderBatchL
   %143 = sext i32 %142 to i64
   %144 = getelementptr inbounds %struct.rlVertexBuffer, ptr %140, i64 %143, i32 2
   %145 = load ptr, ptr %144, align 8
-  %146 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
+  %146 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
   %147 = shl nsw i32 %146, 1
   %148 = or disjoint i32 %147, 1
   %149 = sext i32 %148 to i64
   %150 = getelementptr inbounds float, ptr %145, i64 %149
   store float %137, ptr %150, align 4
-  %151 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 64), align 8
+  %151 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 64), align 8
   %152 = load ptr, ptr @RLGL, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %154 = load ptr, ptr %153, align 8
@@ -19624,12 +19624,12 @@ rlCheckRenderBatchLimit.exit:                     ; preds = %rlCheckRenderBatchL
   %157 = sext i32 %156 to i64
   %158 = getelementptr inbounds %struct.rlVertexBuffer, ptr %154, i64 %157, i32 3
   %159 = load ptr, ptr %158, align 8
-  %160 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
+  %160 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
   %161 = shl nsw i32 %160, 2
   %162 = sext i32 %161 to i64
   %163 = getelementptr inbounds i8, ptr %159, i64 %162
   store i8 %151, ptr %163, align 1
-  %164 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 65), align 1
+  %164 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 65), align 1
   %165 = load ptr, ptr @RLGL, align 8
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %167 = load ptr, ptr %166, align 8
@@ -19638,13 +19638,13 @@ rlCheckRenderBatchLimit.exit:                     ; preds = %rlCheckRenderBatchL
   %170 = sext i32 %169 to i64
   %171 = getelementptr inbounds %struct.rlVertexBuffer, ptr %167, i64 %170, i32 3
   %172 = load ptr, ptr %171, align 8
-  %173 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
+  %173 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
   %174 = shl nsw i32 %173, 2
   %175 = or disjoint i32 %174, 1
   %176 = sext i32 %175 to i64
   %177 = getelementptr inbounds i8, ptr %172, i64 %176
   store i8 %164, ptr %177, align 1
-  %178 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 66), align 2
+  %178 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 66), align 2
   %179 = load ptr, ptr @RLGL, align 8
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = load ptr, ptr %180, align 8
@@ -19653,13 +19653,13 @@ rlCheckRenderBatchLimit.exit:                     ; preds = %rlCheckRenderBatchL
   %184 = sext i32 %183 to i64
   %185 = getelementptr inbounds %struct.rlVertexBuffer, ptr %181, i64 %184, i32 3
   %186 = load ptr, ptr %185, align 8
-  %187 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
+  %187 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
   %188 = shl nsw i32 %187, 2
   %189 = or disjoint i32 %188, 2
   %190 = sext i32 %189 to i64
   %191 = getelementptr inbounds i8, ptr %186, i64 %190
   store i8 %178, ptr %191, align 1
-  %192 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 67), align 1
+  %192 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 67), align 1
   %193 = load ptr, ptr @RLGL, align 8
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %195 = load ptr, ptr %194, align 8
@@ -19668,15 +19668,15 @@ rlCheckRenderBatchLimit.exit:                     ; preds = %rlCheckRenderBatchL
   %198 = sext i32 %197 to i64
   %199 = getelementptr inbounds %struct.rlVertexBuffer, ptr %195, i64 %198, i32 3
   %200 = load ptr, ptr %199, align 8
-  %201 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
+  %201 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
   %202 = shl nsw i32 %201, 2
   %203 = or disjoint i32 %202, 3
   %204 = sext i32 %203 to i64
   %205 = getelementptr inbounds i8, ptr %200, i64 %204
   store i8 %192, ptr %205, align 1
-  %206 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
+  %206 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
   %207 = add nsw i32 %206, 1
-  store i32 %207, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
+  store i32 %207, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
   %208 = load ptr, ptr @RLGL, align 8
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %210 = load ptr, ptr %209, align 8
@@ -19713,25 +19713,25 @@ define void @rlVertex2i(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @rlTexCoord2f(float noundef %0, float noundef %1) local_unnamed_addr #1 {
-  store float %0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 44), align 4
-  store float %1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 48), align 8
+  store float %0, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 44), align 4
+  store float %1, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 48), align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @rlNormal3f(float noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #1 {
-  store float %0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 52), align 4
-  store float %1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 56), align 8
-  store float %2, ptr getelementptr inbounds (i8, ptr @RLGL, i64 60), align 4
+  store float %0, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 52), align 4
+  store float %1, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 56), align 8
+  store float %2, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 60), align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @rlColor4ub(i8 noundef zeroext %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i8 noundef zeroext %3) local_unnamed_addr #1 {
-  store i8 %0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 64), align 8
-  store i8 %1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 65), align 1
-  store i8 %2, ptr getelementptr inbounds (i8, ptr @RLGL, i64 66), align 2
-  store i8 %3, ptr getelementptr inbounds (i8, ptr @RLGL, i64 67), align 1
+  store i8 %0, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 64), align 8
+  store i8 %1, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 65), align 1
+  store i8 %2, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 66), align 2
+  store i8 %3, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 67), align 1
   ret void
 }
 
@@ -19745,10 +19745,10 @@ define void @rlColor4f(float noundef %0, float noundef %1, float noundef %2, flo
   %10 = fptoui float %9 to i8
   %11 = fmul float %3, 2.550000e+02
   %12 = fptoui float %11 to i8
-  store i8 %6, ptr getelementptr inbounds (i8, ptr @RLGL, i64 64), align 8
-  store i8 %8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 65), align 1
-  store i8 %10, ptr getelementptr inbounds (i8, ptr @RLGL, i64 66), align 2
-  store i8 %12, ptr getelementptr inbounds (i8, ptr @RLGL, i64 67), align 1
+  store i8 %6, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 64), align 8
+  store i8 %8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 65), align 1
+  store i8 %10, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 66), align 2
+  store i8 %12, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 67), align 1
   ret void
 }
 
@@ -19760,10 +19760,10 @@ define void @rlColor3f(float noundef %0, float noundef %1, float noundef %2) loc
   %7 = fptoui float %6 to i8
   %8 = fmul float %2, 2.550000e+02
   %9 = fptoui float %8 to i8
-  store i8 %5, ptr getelementptr inbounds (i8, ptr @RLGL, i64 64), align 8
-  store i8 %7, ptr getelementptr inbounds (i8, ptr @RLGL, i64 65), align 1
-  store i8 %9, ptr getelementptr inbounds (i8, ptr @RLGL, i64 66), align 2
-  store i8 -1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 67), align 1
+  store i8 %5, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 64), align 8
+  store i8 %7, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 65), align 1
+  store i8 %9, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 66), align 2
+  store i8 -1, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 67), align 1
   ret void
 }
 
@@ -19773,7 +19773,7 @@ define void @rlSetTexture(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %3, label %15
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
   %5 = load ptr, ptr @RLGL, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -19841,7 +19841,7 @@ define void @rlSetTexture(i32 noundef %0) local_unnamed_addr #0 {
   %47 = getelementptr %struct.rlDrawCall, ptr %43, i64 %46
   %48 = getelementptr i8, ptr %47, i64 -8
   %49 = load i32, ptr %48, align 4
-  %50 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
+  %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
   %51 = add nsw i32 %50, %49
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %53 = load ptr, ptr %52, align 8
@@ -19884,7 +19884,7 @@ rlCheckRenderBatchLimit.exit.thread:              ; preds = %39
   br label %82
 
 rlCheckRenderBatchLimit.exit:                     ; preds = %39
-  store i32 %51, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
+  store i32 %51, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
   %80 = load i32, ptr %44, align 8
   %81 = add nsw i32 %80, 1
   store i32 %81, ptr %44, align 8
@@ -19983,7 +19983,7 @@ define void @rlTextureParameters(i32 noundef %0, i32 noundef %1, i32 noundef %2)
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %6
-  %9 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2708), align 4
+  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2708), align 4
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %13
 
@@ -20008,7 +20008,7 @@ define void @rlTextureParameters(i32 noundef %0, i32 noundef %1, i32 noundef %2)
 
 18:                                               ; preds = %3
   %19 = sitofp i32 %2 to float
-  %20 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2712), align 8
+  %20 = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2712), align 8
   %21 = fcmp ult float %20, %19
   br i1 %21, label %24, label %22
 
@@ -20065,7 +20065,7 @@ define void @rlCubemapParameters(i32 noundef %0, i32 noundef %1, i32 noundef %2)
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %6
-  %9 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2708), align 4
+  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2708), align 4
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %13
 
@@ -20090,7 +20090,7 @@ define void @rlCubemapParameters(i32 noundef %0, i32 noundef %1, i32 noundef %2)
 
 18:                                               ; preds = %3
   %19 = sitofp i32 %2 to float
-  %20 = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2712), align 8
+  %20 = load float, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2712), align 8
   %21 = fcmp ult float %20, %19
   br i1 %21, label %24, label %22
 
@@ -20371,19 +20371,19 @@ define void @rlDisableSmoothLines() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @rlEnableStereoRender() local_unnamed_addr #1 {
-  store i8 1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2384), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2384), align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @rlDisableStereoRender() local_unnamed_addr #1 {
-  store i8 0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2384), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2384), align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @rlIsStereoRenderEnabled() local_unnamed_addr #10 {
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2384), align 8
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2384), align 8
   %2 = trunc i8 %1 to i1
   ret i1 %2
 }
@@ -20469,7 +20469,7 @@ define void @rlCheckErrors() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @rlSetBlendMode(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2644), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2644), align 4
   %.not = icmp eq i32 %2, %0
   br i1 %.not, label %3, label %8
 
@@ -20479,7 +20479,7 @@ define void @rlSetBlendMode(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %5, label %44
 
 5:                                                ; preds = %3
-  %6 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2684), align 4
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2684), align 4
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %44
 
@@ -20541,30 +20541,30 @@ define void @rlSetBlendMode(i32 noundef %0) local_unnamed_addr #0 {
 
 28:                                               ; preds = %8
   %29 = load ptr, ptr @glad_glBlendFunc, align 8
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2648), align 8
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2652), align 4
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2648), align 8
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2652), align 4
   tail call void %29(i32 noundef %30, i32 noundef %31) #54
   %32 = load ptr, ptr @glad_glBlendEquation, align 8
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2656), align 8
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2656), align 8
   tail call void %32(i32 noundef %33) #54
   br label %43
 
 34:                                               ; preds = %8
   %35 = load ptr, ptr @glad_glBlendFuncSeparate, align 8
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2660), align 4
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2664), align 8
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2668), align 4
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2672), align 8
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2660), align 4
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2664), align 8
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2668), align 4
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2672), align 8
   tail call void %35(i32 noundef %36, i32 noundef %37, i32 noundef %38, i32 noundef %39) #54
   %40 = load ptr, ptr @glad_glBlendEquationSeparate, align 8
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2676), align 4
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2680), align 8
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2676), align 4
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2680), align 8
   tail call void %40(i32 noundef %41, i32 noundef %42) #54
   br label %43
 
 43:                                               ; preds = %8, %34, %28, %25, %22, %19, %16, %13, %10
-  store i32 %0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2644), align 4
-  store i8 0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2684), align 4
+  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2644), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2684), align 4
   br label %44
 
 44:                                               ; preds = %3, %43, %5
@@ -20573,21 +20573,21 @@ define void @rlSetBlendMode(i32 noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define void @rlSetBlendFactors(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 {
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2648), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2648), align 8
   %.not = icmp eq i32 %4, %0
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2652), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2652), align 4
   %.not6 = icmp eq i32 %5, %1
   %or.cond = select i1 %.not, i1 %.not6, i1 false
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2656), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2656), align 8
   %.not7 = icmp eq i32 %6, %2
   %or.cond8 = select i1 %or.cond, i1 %.not7, i1 false
   br i1 %or.cond8, label %8, label %7
 
 7:                                                ; preds = %3
-  store i32 %0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2648), align 8
-  store i32 %1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2652), align 4
-  store i32 %2, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2656), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2684), align 4
+  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2648), align 8
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2652), align 4
+  store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2656), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2684), align 4
   br label %8
 
 8:                                                ; preds = %3, %7
@@ -20596,33 +20596,33 @@ define void @rlSetBlendFactors(i32 noundef %0, i32 noundef %1, i32 noundef %2) l
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define void @rlSetBlendFactorsSeparate(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #11 {
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2660), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2660), align 4
   %.not = icmp eq i32 %7, %0
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2664), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2664), align 8
   %.not12 = icmp eq i32 %8, %1
   %or.cond = select i1 %.not, i1 %.not12, i1 false
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2668), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2668), align 4
   %.not13 = icmp eq i32 %9, %2
   %or.cond17 = select i1 %or.cond, i1 %.not13, i1 false
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2672), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2672), align 8
   %.not14 = icmp eq i32 %10, %3
   %or.cond18 = select i1 %or.cond17, i1 %.not14, i1 false
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2676), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2676), align 4
   %.not15 = icmp eq i32 %11, %4
   %or.cond19 = select i1 %or.cond18, i1 %.not15, i1 false
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2680), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2680), align 8
   %.not16 = icmp eq i32 %12, %5
   %or.cond20 = select i1 %or.cond19, i1 %.not16, i1 false
   br i1 %or.cond20, label %14, label %13
 
 13:                                               ; preds = %6
-  store i32 %0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2660), align 4
-  store i32 %1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2664), align 8
-  store i32 %2, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2668), align 4
-  store i32 %3, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2672), align 8
-  store i32 %4, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2676), align 4
-  store i32 %5, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2680), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2684), align 4
+  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2660), align 4
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2664), align 8
+  store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2668), align 4
+  store i32 %3, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2672), align 8
+  store i32 %4, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2676), align 4
+  store i32 %5, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2680), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2684), align 4
   br label %14
 
 14:                                               ; preds = %6, %13
@@ -20635,7 +20635,7 @@ define void @rlglInit(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %4 = alloca %struct.rlRenderBatch, align 8
   store i32 -1, ptr %3, align 4
   %5 = call i32 @rlLoadTexture(ptr noundef nonnull %3, i32 noundef 1, i32 noundef 1, i32 noundef 7, i32 noundef 1)
-  store i32 %5, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2328), align 8
+  store i32 %5, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2328), align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %7, label %6
 
@@ -20649,12 +20649,12 @@ define void @rlglInit(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 8:                                                ; preds = %7, %6
   %9 = call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 32, i64 noundef 4) #57
-  store ptr %9, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2360), align 8
+  store ptr %9, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2360), align 8
   br label %10
 
 10:                                               ; preds = %10, %8
   %indvars.iv.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i, %10 ]
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2360), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2360), align 8
   %12 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i
   store i32 -1, ptr %12, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -20663,50 +20663,50 @@ define void @rlglInit(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 13:                                               ; preds = %10
   %14 = call i32 @rlCompileShader(ptr noundef nonnull @.str.1336, i32 noundef 35633)
-  store i32 %14, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2348), align 4
+  store i32 %14, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2348), align 4
   %15 = call i32 @rlCompileShader(ptr noundef nonnull @.str.1337, i32 noundef 35632)
-  store i32 %15, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2352), align 8
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2348), align 4
+  store i32 %15, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2352), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2348), align 4
   %17 = call i32 @rlLoadShaderProgram(i32 noundef %16, i32 noundef %15)
-  store i32 %17, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
+  store i32 %17, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2356), align 4
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %48, label %18
 
 18:                                               ; preds = %13
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.1338, i32 noundef %17) #54
   %19 = load ptr, ptr @glad_glGetAttribLocation, align 8
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2356), align 4
   %21 = call i32 %19(i32 noundef %20, ptr noundef nonnull @.str.71) #54
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2360), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2360), align 8
   store i32 %21, ptr %22, align 4
   %23 = load ptr, ptr @glad_glGetAttribLocation, align 8
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2356), align 4
   %25 = call i32 %23(i32 noundef %24, ptr noundef nonnull @.str.72) #54
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2360), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2360), align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 %25, ptr %27, align 4
   %28 = load ptr, ptr @glad_glGetAttribLocation, align 8
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2356), align 4
   %30 = call i32 %28(i32 noundef %29, ptr noundef nonnull @.str.74) #54
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2360), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2360), align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 20
   store i32 %30, ptr %32, align 4
   %33 = load ptr, ptr @glad_glGetUniformLocation, align 8
-  %34 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2356), align 4
   %35 = call i32 %33(i32 noundef %34, ptr noundef nonnull @.str.165) #54
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2360), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2360), align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store i32 %35, ptr %37, align 4
   %38 = load ptr, ptr @glad_glGetUniformLocation, align 8
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2356), align 4
   %40 = call i32 %38(i32 noundef %39, ptr noundef nonnull @.str.170) #54
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2360), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2360), align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 48
   store i32 %40, ptr %42, align 4
   %43 = load ptr, ptr @glad_glGetUniformLocation, align 8
-  %44 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
+  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2356), align 4
   %45 = call i32 %43(i32 noundef %44, ptr noundef nonnull @.str.171) #54
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2360), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2360), align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 60
   store i32 %45, ptr %47, align 4
   br label %rlLoadShaderDefault.exit
@@ -20716,18 +20716,18 @@ define void @rlglInit(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %rlLoadShaderDefault.exit
 
 rlLoadShaderDefault.exit:                         ; preds = %18, %48
-  %49 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
-  store i32 %49, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2368), align 8
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2360), align 8
-  store ptr %50, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2356), align 4
+  store i32 %49, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2368), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2360), align 8
+  store ptr %50, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
   call void @rlLoadRenderBatch(ptr dead_on_unwind nonnull writable sret(%struct.rlRenderBatch) align 8 %4, i32 noundef 1, i32 noundef 8192)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @RLGL, i64 8), ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 8), ptr @RLGL, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @RLGL, i64 8), ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 8), ptr @RLGL, align 8
   br label %51
 
 51:                                               ; preds = %rlLoadShaderDefault.exit, %51
   %indvars.iv = phi i64 [ 0, %rlLoadShaderDefault.exit ], [ %indvars.iv.next, %51 ]
-  %52 = getelementptr inbounds nuw [32 x %struct.Matrix], ptr getelementptr inbounds (i8, ptr @RLGL, i64 276), i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [32 x %struct.Matrix], ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 276), i64 0, i64 %indvars.iv
   store float 1.000000e+00, ptr %52, align 4
   %.sroa.223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.223.0..sroa_idx, i8 0, i64 16, i1 false)
@@ -20746,28 +20746,28 @@ rlLoadShaderDefault.exit:                         ; preds = %18, %48
   br i1 %exitcond.not, label %53, label %51
 
 53:                                               ; preds = %51
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 208), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 212), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 228), align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 232), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 248), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 252), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 268), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 144), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 148), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 164), align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 168), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 184), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 188), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 204), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 84), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 100), align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 104), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 120), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 124), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 140), align 4
-  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 208), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 212), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 228), align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 232), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 248), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 252), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 268), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 144), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 148), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 164), align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 168), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 184), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 188), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 204), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 80), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 84), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 100), align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 104), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 120), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 124), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 140), align 4
+  store ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 80), ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
   %54 = load ptr, ptr @glad_glDepthFunc, align 8
   call void %54(i32 noundef 515) #54
   %55 = load ptr, ptr @glad_glDisable, align 8
@@ -20784,8 +20784,8 @@ rlLoadShaderDefault.exit:                         ; preds = %18, %48
   call void %60(i32 noundef 2884) #54
   %61 = load ptr, ptr @glad_glEnable, align 8
   call void %61(i32 noundef 34895) #54
-  store i32 %0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2688), align 8
-  store i32 %1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2692), align 4
+  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2688), align 8
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2692), align 4
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.17) #54
   %62 = load ptr, ptr @glad_glClearColor, align 8
   call void %62(float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00) #54
@@ -20807,7 +20807,7 @@ define i32 @rlLoadTexture(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   store i32 0, ptr %6, align 4
   %12 = load ptr, ptr @glad_glBindTexture, align 8
   tail call void %12(i32 noundef 3553, i32 noundef 0) #54
-  %13 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2703), align 1
+  %13 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2703), align 1
   %14 = trunc i8 %13 to i1
   %15 = add i32 %3, -18
   %switch = icmp ult i32 %15, -4
@@ -20819,7 +20819,7 @@ define i32 @rlLoadTexture(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   br label %85
 
 17:                                               ; preds = %5
-  %18 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2704), align 8
+  %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2704), align 8
   %19 = trunc i8 %18 to i1
   %20 = icmp ne i32 %3, 18
   %or.cond7.not = or i1 %20, %19
@@ -20830,7 +20830,7 @@ define i32 @rlLoadTexture(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   br label %85
 
 22:                                               ; preds = %17
-  %23 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2705), align 1
+  %23 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2705), align 1
   %24 = trunc i8 %23 to i1
   %25 = add i32 %3, -21
   %or.cond9 = icmp ult i32 %25, -2
@@ -20842,7 +20842,7 @@ define i32 @rlLoadTexture(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   br label %85
 
 27:                                               ; preds = %22
-  %28 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2706), align 2
+  %28 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2706), align 2
   %29 = trunc i8 %28 to i1
   %30 = add i32 %3, -23
   %or.cond11 = icmp ult i32 %30, -2
@@ -20854,7 +20854,7 @@ define i32 @rlLoadTexture(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   br label %85
 
 32:                                               ; preds = %27
-  %33 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2707), align 1
+  %33 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2707), align 1
   %34 = trunc i8 %33 to i1
   %35 = add i32 %3, -25
   %or.cond13 = icmp ult i32 %35, -2
@@ -21127,7 +21127,7 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias nocapture writable wri
   br i1 %exitcond122.not, label %._crit_edge, label %.lr.ph96
 
 ._crit_edge:                                      ; preds = %.lr.ph96, %.preheader88
-  store i32 0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
   br i1 %exitcond127.not, label %._crit_edge100, label %24
@@ -21150,7 +21150,7 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias nocapture writable wri
 
 73:                                               ; preds = %._crit_edge100, %81
   %indvars.iv128 = phi i64 [ 0, %._crit_edge100 ], [ %indvars.iv.next129, %81 ]
-  %74 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
+  %74 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2696), align 8
   %75 = trunc i8 %74 to i1
   br i1 %75, label %76, label %81
 
@@ -21175,11 +21175,11 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias nocapture writable wri
   %88 = load ptr, ptr %87, align 8
   tail call void %86(i32 noundef 34962, i64 noundef %64, ptr noundef %88, i32 noundef 35048) #54
   %89 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8
-  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
   %91 = load i32, ptr %90, align 4
   tail call void %89(i32 noundef %91) #54
   %92 = load ptr, ptr @glad_glVertexAttribPointer, align 8
-  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
   %94 = load i32, ptr %93, align 4
   tail call void %92(i32 noundef %94, i32 noundef 3, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null) #54
   %95 = load ptr, ptr @glad_glGenBuffers, align 8
@@ -21193,12 +21193,12 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias nocapture writable wri
   %101 = load ptr, ptr %100, align 8
   tail call void %99(i32 noundef 34962, i64 noundef %67, ptr noundef %101, i32 noundef 35048) #54
   %102 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8
-  %103 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
   %105 = load i32, ptr %104, align 4
   tail call void %102(i32 noundef %105) #54
   %106 = load ptr, ptr @glad_glVertexAttribPointer, align 8
-  %107 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %109 = load i32, ptr %108, align 4
   tail call void %106(i32 noundef %109, i32 noundef 2, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null) #54
@@ -21213,12 +21213,12 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias nocapture writable wri
   %116 = load ptr, ptr %115, align 8
   tail call void %114(i32 noundef 34962, i64 noundef %69, ptr noundef %116, i32 noundef 35048) #54
   %117 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8
-  %118 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 20
   %120 = load i32, ptr %119, align 4
   tail call void %117(i32 noundef %120) #54
   %121 = load ptr, ptr @glad_glVertexAttribPointer, align 8
-  %122 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 20
   %124 = load i32, ptr %123, align 4
   tail call void %121(i32 noundef %124, i32 noundef 4, i32 noundef 5121, i8 noundef zeroext 1, i32 noundef 0, ptr noundef null) #54
@@ -21238,7 +21238,7 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias nocapture writable wri
 
 ._crit_edge104:                                   ; preds = %81, %._crit_edge100.thread
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.39) #54
-  %132 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
+  %132 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2696), align 8
   %133 = trunc i8 %132 to i1
   br i1 %133, label %134, label %136
 
@@ -21251,7 +21251,7 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias nocapture writable wri
   %137 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #56
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %137, ptr %138, align 8
-  %139 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2328), align 8
+  %139 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2328), align 8
   br label %140
 
 140:                                              ; preds = %136, %140
@@ -21279,33 +21279,33 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias nocapture writable wri
 
 ; Function Attrs: nounwind uwtable
 define void @rlglClose() local_unnamed_addr #0 {
-  tail call void @rlUnloadRenderBatch(ptr noundef nonnull byval(%struct.rlRenderBatch) align 8 getelementptr inbounds (i8, ptr @RLGL, i64 8))
+  tail call void @rlUnloadRenderBatch(ptr noundef nonnull byval(%struct.rlRenderBatch) align 8 getelementptr inbounds nuw (i8, ptr @RLGL, i64 8))
   %1 = load ptr, ptr @glad_glUseProgram, align 8
   tail call void %1(i32 noundef 0) #54
   %2 = load ptr, ptr @glad_glDetachShader, align 8
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2348), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2356), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2348), align 4
   tail call void %2(i32 noundef %3, i32 noundef %4) #54
   %5 = load ptr, ptr @glad_glDetachShader, align 8
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2352), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2356), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2352), align 8
   tail call void %5(i32 noundef %6, i32 noundef %7) #54
   %8 = load ptr, ptr @glad_glDeleteShader, align 8
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2348), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2348), align 4
   tail call void %8(i32 noundef %9) #54
   %10 = load ptr, ptr @glad_glDeleteShader, align 8
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2352), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2352), align 8
   tail call void %10(i32 noundef %11) #54
   %12 = load ptr, ptr @glad_glDeleteProgram, align 8
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2356), align 4
   tail call void %12(i32 noundef %13) #54
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2360), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2360), align 8
   tail call void @free(ptr noundef %14) #54
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2356), align 4
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.1340, i32 noundef %15) #54
   %16 = load ptr, ptr @glad_glDeleteTextures, align 8
-  tail call void %16(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @RLGL, i64 2328)) #54
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2328), align 8
+  tail call void %16(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @RLGL, i64 2328)) #54
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2328), align 8
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.18, i32 noundef %17) #54
   ret void
 }
@@ -21328,7 +21328,7 @@ define void @rlUnloadRenderBatch(ptr nocapture noundef readonly byval(%struct.rl
 
 8:                                                ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %9 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
+  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2696), align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %20
 
@@ -21362,7 +21362,7 @@ define void @rlUnloadRenderBatch(ptr nocapture noundef readonly byval(%struct.rl
   %27 = load ptr, ptr @glad_glDeleteBuffers, align 8
   %28 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %7, i64 %indvars.iv, i32 6, i64 3
   tail call void %27(i32 noundef 1, ptr noundef nonnull %28) #54
-  %29 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
+  %29 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2696), align 8
   %30 = trunc i8 %29 to i1
   br i1 %30, label %31, label %34
 
@@ -21418,27 +21418,27 @@ define void @rlLoadExtensions(ptr noundef %0) local_unnamed_addr #0 {
   call void %8(i32 noundef 33309, ptr noundef nonnull %2) #54
   %9 = load i32, ptr %2, align 4
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.21, i32 noundef %9) #54
-  store i8 1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2701), align 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2702), align 2
-  store i32 16843009, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
-  store i32 32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2716), align 4
-  store i8 1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2709), align 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2708), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2701), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2702), align 2
+  store i32 16843009, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2696), align 8
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2716), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2709), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2708), align 4
   %10 = load i32, ptr @GLAD_GL_KHR_texture_compression_astc_hdr, align 4
   %11 = icmp ne i32 %10, 0
   %12 = load i32, ptr @GLAD_GL_KHR_texture_compression_astc_ldr, align 4
   %13 = icmp ne i32 %12, 0
   %14 = select i1 %11, i1 %13, i1 false
   %15 = zext i1 %14 to i8
-  store i8 %15, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2707), align 1
+  store i8 %15, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2707), align 1
   %16 = load i32, ptr @GLAD_GL_EXT_texture_compression_s3tc, align 4
   %17 = icmp ne i32 %16, 0
   %18 = zext i1 %17 to i8
-  store i8 %18, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2703), align 1
+  store i8 %18, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2703), align 1
   %19 = load i32, ptr @GLAD_GL_ARB_ES3_compatibility, align 4
   %20 = icmp ne i32 %19, 0
   %21 = zext i1 %20 to i8
-  store i8 %21, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2705), align 1
+  store i8 %21, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2705), align 1
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.22) #54
   %22 = load ptr, ptr @glad_glGetString, align 8
   %23 = call ptr %22(i32 noundef 7936) #54
@@ -21453,8 +21453,8 @@ define void @rlLoadExtensions(ptr noundef %0) local_unnamed_addr #0 {
   %29 = call ptr %28(i32 noundef 35724) #54
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.26, ptr noundef %29) #54
   %30 = load ptr, ptr @glad_glGetFloatv, align 8
-  call void %30(i32 noundef 34047, ptr noundef nonnull getelementptr inbounds (i8, ptr @RLGL, i64 2712)) #54
-  %31 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
+  call void %30(i32 noundef 34047, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @RLGL, i64 2712)) #54
+  %31 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2696), align 8
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %34
 
@@ -21467,7 +21467,7 @@ define void @rlLoadExtensions(ptr noundef %0) local_unnamed_addr #0 {
   br label %35
 
 35:                                               ; preds = %34, %33
-  %36 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2698), align 2
+  %36 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2698), align 2
   %37 = trunc i8 %36 to i1
   br i1 %37, label %38, label %39
 
@@ -21480,7 +21480,7 @@ define void @rlLoadExtensions(ptr noundef %0) local_unnamed_addr #0 {
   br label %40
 
 40:                                               ; preds = %39, %38
-  %41 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2703), align 1
+  %41 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2703), align 1
   %42 = trunc i8 %41 to i1
   br i1 %42, label %43, label %44
 
@@ -21489,7 +21489,7 @@ define void @rlLoadExtensions(ptr noundef %0) local_unnamed_addr #0 {
   br label %44
 
 44:                                               ; preds = %43, %40
-  %45 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2704), align 8
+  %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2704), align 8
   %46 = trunc i8 %45 to i1
   br i1 %46, label %47, label %48
 
@@ -21498,7 +21498,7 @@ define void @rlLoadExtensions(ptr noundef %0) local_unnamed_addr #0 {
   br label %48
 
 48:                                               ; preds = %47, %44
-  %49 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2705), align 1
+  %49 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2705), align 1
   %50 = trunc i8 %49 to i1
   br i1 %50, label %51, label %52
 
@@ -21507,7 +21507,7 @@ define void @rlLoadExtensions(ptr noundef %0) local_unnamed_addr #0 {
   br label %52
 
 52:                                               ; preds = %51, %48
-  %53 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2706), align 2
+  %53 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2706), align 2
   %54 = trunc i8 %53 to i1
   br i1 %54, label %55, label %56
 
@@ -21516,7 +21516,7 @@ define void @rlLoadExtensions(ptr noundef %0) local_unnamed_addr #0 {
   br label %56
 
 56:                                               ; preds = %55, %52
-  %57 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2707), align 1
+  %57 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2707), align 1
   %58 = trunc i8 %57 to i1
   br i1 %58, label %59, label %60
 
@@ -21525,7 +21525,7 @@ define void @rlLoadExtensions(ptr noundef %0) local_unnamed_addr #0 {
   br label %60
 
 60:                                               ; preds = %59, %56
-  %61 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2710), align 2
+  %61 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2710), align 2
   %62 = trunc i8 %61 to i1
   br i1 %62, label %63, label %64
 
@@ -21534,7 +21534,7 @@ define void @rlLoadExtensions(ptr noundef %0) local_unnamed_addr #0 {
   br label %64
 
 64:                                               ; preds = %63, %60
-  %65 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2711), align 1
+  %65 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2711), align 1
   %66 = trunc i8 %65 to i1
   br i1 %66, label %67, label %68
 
@@ -21553,43 +21553,43 @@ define noundef i32 @rlGetVersion() local_unnamed_addr #12 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @rlSetFramebufferWidth(i32 noundef %0) local_unnamed_addr #1 {
-  store i32 %0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2688), align 8
+  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2688), align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @rlSetFramebufferHeight(i32 noundef %0) local_unnamed_addr #1 {
-  store i32 %0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2692), align 4
+  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2692), align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @rlGetFramebufferWidth() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2688), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2688), align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @rlGetFramebufferHeight() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2692), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2692), align 4
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @rlGetTextureIdDefault() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2328), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2328), align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @rlGetShaderIdDefault() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2356), align 4
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define ptr @rlGetShaderLocsDefault() local_unnamed_addr #10 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2360), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2360), align 8
   ret ptr %1
 }
 
@@ -21601,13 +21601,13 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @rlSetMatrixModelview(ptr nocapture noundef readonly byval(%struct.Matrix) align 8 %0) local_unnamed_addr #4 {
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 80), ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @RLGL, i64 80), ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @rlSetMatrixProjection(ptr nocapture noundef readonly byval(%struct.Matrix) align 8 %0) local_unnamed_addr #4 {
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 144), ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @RLGL, i64 144), ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
   ret void
 }
 
@@ -21616,7 +21616,7 @@ define void @rlSetRenderBatchActive(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @RLGL, align 8
   tail call void @rlDrawRenderBatch(ptr noundef %2)
   %.not = icmp eq ptr %0, null
-  %. = select i1 %.not, ptr getelementptr inbounds (i8, ptr @RLGL, i64 8), ptr %0
+  %. = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 8), ptr %0
   store ptr %., ptr @RLGL, align 8
   ret void
 }
@@ -21703,7 +21703,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 12:                                               ; preds = %4
-  %13 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2701), align 1
+  %13 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2701), align 1
   %14 = trunc i8 %13 to i1
   br i1 %14, label %15, label %16
 
@@ -21717,7 +21717,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 17:                                               ; preds = %4
-  %18 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2701), align 1
+  %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2701), align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %20, label %21
 
@@ -21731,7 +21731,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 22:                                               ; preds = %4
-  %23 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2701), align 1
+  %23 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2701), align 1
   %24 = trunc i8 %23 to i1
   br i1 %24, label %25, label %26
 
@@ -21745,7 +21745,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 27:                                               ; preds = %4
-  %28 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2702), align 2
+  %28 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2702), align 2
   %29 = trunc i8 %28 to i1
   br i1 %29, label %30, label %31
 
@@ -21759,7 +21759,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 32:                                               ; preds = %4
-  %33 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2702), align 2
+  %33 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2702), align 2
   %34 = trunc i8 %33 to i1
   br i1 %34, label %35, label %36
 
@@ -21773,7 +21773,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 37:                                               ; preds = %4
-  %38 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2702), align 2
+  %38 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2702), align 2
   %39 = trunc i8 %38 to i1
   br i1 %39, label %40, label %41
 
@@ -21787,7 +21787,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 42:                                               ; preds = %4
-  %43 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2703), align 1
+  %43 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2703), align 1
   %44 = trunc i8 %43 to i1
   br i1 %44, label %45, label %87
 
@@ -21796,7 +21796,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 46:                                               ; preds = %4
-  %47 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2703), align 1
+  %47 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2703), align 1
   %48 = trunc i8 %47 to i1
   br i1 %48, label %49, label %87
 
@@ -21805,7 +21805,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 50:                                               ; preds = %4
-  %51 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2703), align 1
+  %51 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2703), align 1
   %52 = trunc i8 %51 to i1
   br i1 %52, label %53, label %87
 
@@ -21814,7 +21814,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 54:                                               ; preds = %4
-  %55 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2703), align 1
+  %55 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2703), align 1
   %56 = trunc i8 %55 to i1
   br i1 %56, label %57, label %87
 
@@ -21823,7 +21823,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 58:                                               ; preds = %4
-  %59 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2704), align 8
+  %59 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2704), align 8
   %60 = trunc i8 %59 to i1
   br i1 %60, label %61, label %87
 
@@ -21832,7 +21832,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 62:                                               ; preds = %4
-  %63 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2705), align 1
+  %63 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2705), align 1
   %64 = trunc i8 %63 to i1
   br i1 %64, label %65, label %87
 
@@ -21841,7 +21841,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 66:                                               ; preds = %4
-  %67 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2705), align 1
+  %67 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2705), align 1
   %68 = trunc i8 %67 to i1
   br i1 %68, label %69, label %87
 
@@ -21850,7 +21850,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 70:                                               ; preds = %4
-  %71 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2706), align 2
+  %71 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2706), align 2
   %72 = trunc i8 %71 to i1
   br i1 %72, label %73, label %87
 
@@ -21859,7 +21859,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 74:                                               ; preds = %4
-  %75 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2706), align 2
+  %75 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2706), align 2
   %76 = trunc i8 %75 to i1
   br i1 %76, label %77, label %87
 
@@ -21868,7 +21868,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 78:                                               ; preds = %4
-  %79 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2707), align 1
+  %79 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2707), align 1
   %80 = trunc i8 %79 to i1
   br i1 %80, label %81, label %87
 
@@ -21877,7 +21877,7 @@ define void @rlGetGlTextureFormats(i32 noundef %0, ptr nocapture noundef writeon
   br label %87
 
 82:                                               ; preds = %4
-  %83 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2707), align 1
+  %83 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2707), align 1
   %84 = trunc i8 %83 to i1
   br i1 %84, label %85, label %87
 
@@ -21914,7 +21914,7 @@ switch.lookup:                                    ; preds = %1
 define i32 @rlLoadTextureDepth(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   store i32 0, ptr %4, align 4
-  %5 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2699), align 1
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2699), align 1
   %6 = trunc i8 %5 to i1
   %7 = xor i1 %6, true
   %brmerge = or i1 %2, %7
@@ -21952,7 +21952,7 @@ define i32 @rlLoadTextureDepth(i32 noundef %0, i32 noundef %1, i1 noundef zeroex
   %23 = load ptr, ptr @glad_glBindRenderbuffer, align 8
   call void %23(i32 noundef 36161, i32 noundef 0) #54
   %24 = load i32, ptr %4, align 4
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2716), align 4
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2716), align 4
   %26 = icmp sgt i32 %25, 23
   %27 = select i1 %26, i32 %25, i32 16
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.49, i32 noundef %24, i32 noundef %27) #54
@@ -22205,7 +22205,7 @@ define void @rlGenTextureMipmaps(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %or.cond19, label %.critedge, label %14
 
 14:                                               ; preds = %5, %8
-  %15 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2698), align 2
+  %15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2698), align 2
   %16 = trunc i8 %15 to i1
   br i1 %16, label %.critedge, label %25
 
@@ -22622,7 +22622,7 @@ define void @rlUpdateVertexBufferElements(i32 noundef %0, ptr noundef %1, i32 no
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @rlEnableVertexArray(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2696), align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %6
 
@@ -22637,7 +22637,7 @@ define noundef zeroext i1 @rlEnableVertexArray(i32 noundef %0) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define void @rlDisableVertexArray() local_unnamed_addr #0 {
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2696), align 8
   %2 = trunc i8 %1 to i1
   br i1 %2, label %3, label %5
 
@@ -22702,7 +22702,7 @@ define void @rlDrawVertexArrayElementsInstanced(i32 noundef %0, i32 noundef %1, 
 define i32 @rlLoadVertexArray() local_unnamed_addr #0 {
   %1 = alloca i32, align 4
   store i32 0, ptr %1, align 4
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2696), align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %6
 
@@ -22736,7 +22736,7 @@ define void @rlSetVertexAttributeDivisor(i32 noundef %0, i32 noundef %1) local_u
 define void @rlUnloadVertexArray(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2696), align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %9
 
@@ -22768,13 +22768,13 @@ define i32 @rlLoadShaderCode(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %.not, label %.thread, label %4
 
 .thread:                                          ; preds = %2
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2348), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2348), align 4
   br label %8
 
 4:                                                ; preds = %2
   %5 = tail call i32 @rlCompileShader(ptr noundef nonnull %0, i32 noundef 35633)
   %6 = icmp eq i32 %5, 0
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2348), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2348), align 4
   %spec.select = select i1 %6, i32 %7, i32 %5
   br label %8
 
@@ -22785,15 +22785,15 @@ define i32 @rlLoadShaderCode(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %.not28, label %.thread36, label %12
 
 .thread36:                                        ; preds = %8
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2352), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2352), align 8
   br label %16
 
 12:                                               ; preds = %8
   %13 = tail call i32 @rlCompileShader(ptr noundef nonnull %1, i32 noundef 35632)
   %14 = icmp eq i32 %13, 0
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2352), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2352), align 8
   %spec.select38 = select i1 %14, i32 %15, i32 %13
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2348), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2348), align 4
   br label %16
 
 16:                                               ; preds = %12, %.thread36
@@ -22806,12 +22806,12 @@ define i32 @rlLoadShaderCode(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %or.cond, label %22, label %24
 
 22:                                               ; preds = %16
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2356), align 4
   br label %43
 
 24:                                               ; preds = %16
   %25 = tail call i32 @rlLoadShaderProgram(i32 noundef %10, i32 noundef %19)
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2348), align 4
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2348), align 4
   %.not29 = icmp eq i32 %10, %26
   br i1 %.not29, label %32, label %27
 
@@ -22830,7 +22830,7 @@ define i32 @rlLoadShaderCode(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br label %32
 
 32:                                               ; preds = %30, %24
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2352), align 8
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2352), align 8
   %.not31 = icmp eq i32 %19, %33
   br i1 %.not31, label %39, label %34
 
@@ -22854,7 +22854,7 @@ define i32 @rlLoadShaderCode(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 41:                                               ; preds = %39
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.65) #54
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2356), align 4
   br label %43
 
 43:                                               ; preds = %39, %41, %22
@@ -23215,7 +23215,7 @@ define void @rlSetUniformSampler(i32 noundef %0, i32 noundef %1) local_unnamed_a
 
 3:                                                ; preds = %2, %11
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %11 ]
-  %4 = getelementptr inbounds nuw [4 x i32], ptr getelementptr inbounds (i8, ptr @RLGL, i64 2332), i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i32], ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2332), i64 0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, %1
   br i1 %6, label %7, label %11
@@ -23234,13 +23234,13 @@ define void @rlSetUniformSampler(i32 noundef %0, i32 noundef %1) local_unnamed_a
 
 .preheader:                                       ; preds = %11, %20
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %20 ], [ 0, %11 ]
-  %12 = getelementptr inbounds nuw [4 x i32], ptr getelementptr inbounds (i8, ptr @RLGL, i64 2332), i64 0, i64 %indvars.iv23
+  %12 = getelementptr inbounds nuw [4 x i32], ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2332), i64 0, i64 %indvars.iv23
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %.preheader
-  %16 = getelementptr inbounds nuw [4 x i32], ptr getelementptr inbounds (i8, ptr @RLGL, i64 2332), i64 0, i64 %indvars.iv23
+  %16 = getelementptr inbounds nuw [4 x i32], ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2332), i64 0, i64 %indvars.iv23
   %17 = trunc nuw nsw i64 %indvars.iv23 to i32
   %18 = load ptr, ptr @glad_glUniform1i, align 8
   %19 = add nuw nsw i32 %17, 1
@@ -23259,15 +23259,15 @@ define void @rlSetUniformSampler(i32 noundef %0, i32 noundef %1) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define void @rlSetShader(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2368), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2368), align 8
   %.not = icmp eq i32 %3, %0
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @RLGL, align 8
   tail call void @rlDrawRenderBatch(ptr noundef %5)
-  store i32 %0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2368), align 8
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2368), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
   br label %6
 
 6:                                                ; preds = %4, %2
@@ -23326,26 +23326,26 @@ define void @rlBindImageTexture(i32 noundef %0, i32 noundef %1, i32 noundef %2, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @rlGetMatrixModelview(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Matrix) align 4 initializes((0, 64)) %0) local_unnamed_addr #4 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 80), i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @RLGL, i64 80), i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @rlGetMatrixProjection(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Matrix) align 4 initializes((0, 64)) %0) local_unnamed_addr #4 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 144), i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @RLGL, i64 144), i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @rlGetMatrixTransform(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Matrix) align 4 initializes((0, 64)) %0) local_unnamed_addr #4 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 208), i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @RLGL, i64 208), i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @rlGetMatrixProjectionStereo(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Matrix) align 4 initializes((0, 64)) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [2 x %struct.Matrix], ptr getelementptr inbounds (i8, ptr @RLGL, i64 2388), i64 0, i64 %3
+  %4 = getelementptr inbounds [2 x %struct.Matrix], ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2388), i64 0, i64 %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 64, i1 false)
   ret void
 }
@@ -23353,22 +23353,22 @@ define void @rlGetMatrixProjectionStereo(ptr dead_on_unwind noalias nocapture wr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @rlGetMatrixViewOffsetStereo(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Matrix) align 4 initializes((0, 64)) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [2 x %struct.Matrix], ptr getelementptr inbounds (i8, ptr @RLGL, i64 2516), i64 0, i64 %3
+  %4 = getelementptr inbounds [2 x %struct.Matrix], ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2516), i64 0, i64 %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @rlSetMatrixProjectionStereo(ptr nocapture noundef readonly byval(%struct.Matrix) align 8 %0, ptr nocapture noundef readonly byval(%struct.Matrix) align 8 %1) local_unnamed_addr #4 {
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 2388), ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 2452), ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @RLGL, i64 2388), ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @RLGL, i64 2452), ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @rlSetMatrixViewOffsetStereo(ptr nocapture noundef readonly byval(%struct.Matrix) align 8 %0, ptr nocapture noundef readonly byval(%struct.Matrix) align 8 %1) local_unnamed_addr #4 {
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 2516), ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 2580), ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @RLGL, i64 2516), ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @RLGL, i64 2580), ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   ret void
 }
 
@@ -28055,13 +28055,13 @@ define range(i32 0, 2) i32 @QuaternionEquals(<2 x float> %0, <2 x float> %1, <2 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @SetGesturesEnabled(i32 noundef %0) local_unnamed_addr #1 {
-  store i32 %0, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 4), align 4
+  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 4), align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsGestureDetected(i32 noundef %0) local_unnamed_addr #10 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 4), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 4), align 4
   %3 = load i32, ptr @GESTURES, align 8
   %4 = and i32 %3, %2
   %5 = icmp eq i32 %4, %0
@@ -28072,7 +28072,7 @@ define zeroext i1 @IsGestureDetected(i32 noundef %0) local_unnamed_addr #10 {
 define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%struct.GestureEvent) align 8 %0) local_unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
-  store i32 %3, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 12), align 4
+  store i32 %3, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 12), align 4
   switch i32 %3, label %190 [
     i32 1, label %4
     i32 2, label %106
@@ -28087,9 +28087,9 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   ]
 
 6:                                                ; preds = %4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 88), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 88), align 8
   %8 = add nsw i32 %7, 1
-  store i32 %8, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 88), align 8
+  store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 88), align 8
   %9 = load i32, ptr @GESTURES, align 8
   %10 = icmp eq i32 %9, 0
   %11 = icmp sgt i32 %7, 0
@@ -28098,14 +28098,14 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
 
 12:                                               ; preds = %6
   %13 = tail call double @glfwGetTime() #54
-  %14 = load double, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 16), align 8
+  %14 = load double, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 16), align 8
   %15 = fsub double %13, %14
   %16 = fcmp olt double %15, 0x3FD3333340000000
   br i1 %16, label %17, label %30
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %19 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 32), align 8
+  %19 = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 32), align 8
   %20 = load <2 x float>, ptr %18, align 8
   %21 = fsub <2 x float> %20, %19
   %22 = extractelement <2 x float> %21, i64 0
@@ -28120,11 +28120,11 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
 28:                                               ; preds = %17
   %29 = bitcast <2 x float> %20 to i64
   store i32 2, ptr @GESTURES, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 88), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 88), align 8
   br label %31
 
 30:                                               ; preds = %17, %12, %6
-  store i32 1, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 88), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 88), align 8
   store i32 1, ptr @GESTURES, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre66 = load i64, ptr %.phi.trans.insert, align 8
@@ -28132,15 +28132,15 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
 
 31:                                               ; preds = %30, %28
   %32 = phi i64 [ %.pre66, %30 ], [ %29, %28 ]
-  store i64 %32, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 32), align 8
-  store i64 %32, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 48), align 8
-  store i64 %32, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 24), align 8
+  store i64 %32, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 32), align 8
+  store i64 %32, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 48), align 8
+  store i64 %32, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 24), align 8
   %33 = tail call double @glfwGetTime() #54
-  store double %33, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 16), align 8
+  store double %33, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 16), align 8
   %34 = tail call double @glfwGetTime() #54
-  store double %34, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 136), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 112), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 116), align 4
+  store double %34, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 136), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 112), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 116), align 4
   br label %190
 
 35:                                               ; preds = %4
@@ -28151,19 +28151,19 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   ]
 
 ._crit_edge:                                      ; preds = %35
-  %.pre65 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 24), align 8
+  %.pre65 = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 24), align 8
   br label %41
 
 37:                                               ; preds = %35, %35
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load i64, ptr %38, align 8
-  store i64 %39, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 24), align 8
+  store i64 %39, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 24), align 8
   %40 = bitcast i64 %39 to <2 x float>
   br label %41
 
 41:                                               ; preds = %._crit_edge, %37
   %42 = phi <2 x float> [ %.pre65, %._crit_edge ], [ %40, %37 ]
-  %43 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 32), align 8
+  %43 = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 32), align 8
   %44 = fsub <2 x float> %42, %43
   %45 = extractelement <2 x float> %44, i64 0
   %46 = fsub <2 x float> %42, %43
@@ -28171,13 +28171,13 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   %48 = extractelement <2 x float> %47, i64 1
   %49 = tail call float @llvm.fmuladd.f32(float %45, float %45, float %48)
   %sqrt.i30 = tail call float @llvm.sqrt.f32(float %49)
-  store float %sqrt.i30, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 124), align 4
+  store float %sqrt.i30, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 124), align 4
   %50 = tail call double @glfwGetTime() #54
-  %51 = load double, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 136), align 8
+  %51 = load double, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 136), align 8
   %52 = fsub double %50, %51
   %53 = fptrunc double %52 to float
   %54 = fdiv float %sqrt.i30, %53
-  store float %54, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 128), align 8
+  store float %54, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 128), align 8
   %55 = fcmp ogt float %54, 0x3FC99999A0000000
   %56 = load i32, ptr @GESTURES, align 8
   %57 = icmp ne i32 %56, 8
@@ -28185,8 +28185,8 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   br i1 %or.cond6, label %58, label %81
 
 58:                                               ; preds = %41
-  %59 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 32), align 8
-  %60 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 24), align 8
+  %59 = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 32), align 8
+  %60 = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 24), align 8
   %61 = fsub <2 x float> %60, %59
   %62 = extractelement <2 x float> %61, i64 1
   %63 = fsub <2 x float> %60, %59
@@ -28197,7 +28197,7 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   %68 = fadd float %66, 3.600000e+02
   %.0.i = select i1 %67, float %68, float %66
   %69 = fsub float 3.600000e+02, %.0.i
-  store float %69, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 120), align 8
+  store float %69, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 120), align 8
   %70 = fcmp olt float %69, 3.000000e+01
   %71 = fcmp ogt float %69, 3.300000e+02
   %or.cond9 = or i1 %70, %71
@@ -28223,59 +28223,59 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   br label %82
 
 81:                                               ; preds = %41
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 124), align 4
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 128), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 120), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 124), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 128), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 120), align 8
   br label %82
 
 82:                                               ; preds = %78, %75, %72, %58, %81
   %.sink = phi i32 [ 0, %81 ], [ 16, %58 ], [ 64, %72 ], [ 32, %75 ], [ %., %78 ]
   store i32 %.sink, ptr @GESTURES, align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 48), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 52), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 12), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 48), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 52), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 12), align 4
   br label %190
 
 83:                                               ; preds = %4
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %85 = load i64, ptr %84, align 8
-  store i64 %85, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 56), align 8
+  store i64 %85, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 56), align 8
   %86 = load i32, ptr @GESTURES, align 8
   %87 = icmp eq i32 %86, 4
   br i1 %87, label %88, label %99
 
 88:                                               ; preds = %83
-  %89 = load i8, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 96), align 8
+  %89 = load i8, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 96), align 8
   %90 = trunc i8 %89 to i1
   br i1 %90, label %91, label %92
 
 91:                                               ; preds = %88
-  store i64 %85, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 32), align 8
+  store i64 %85, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 32), align 8
   br label %92
 
 92:                                               ; preds = %91, %88
-  store i8 0, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 96), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 96), align 8
   %93 = tail call double @glfwGetTime() #54
-  %94 = load double, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 16), align 8
+  %94 = load double, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 16), align 8
   %95 = fsub double %93, %94
   %96 = fcmp ogt double %95, 0x3FD3333340000000
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %92
   %98 = tail call double @glfwGetTime() #54
-  store double %98, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 16), align 8
+  store double %98, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 16), align 8
   store i32 8, ptr @GESTURES, align 8
   br label %99
 
 99:                                               ; preds = %92, %97, %83
-  %100 = load float, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 56), align 8
-  %101 = load float, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 48), align 8
+  %100 = load float, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 56), align 8
+  %101 = load float, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 48), align 8
   %102 = fsub float %100, %101
-  store float %102, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 112), align 8
-  %103 = load float, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 60), align 4
-  %104 = load float, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 52), align 4
+  store float %102, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 112), align 8
+  %103 = load float, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 60), align 4
+  %104 = load float, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 52), align 4
   %105 = fsub float %103, %104
-  store float %105, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 116), align 4
+  store float %105, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 116), align 4
   br label %190
 
 106:                                              ; preds = %1
@@ -28289,18 +28289,18 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
 108:                                              ; preds = %106
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %110 = load i64, ptr %109, align 8
-  store i64 %110, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 32), align 8
+  store i64 %110, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 32), align 8
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %112 = load i64, ptr %111, align 8
-  store i64 %112, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 40), align 8
-  store i64 %110, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 72), align 8
-  store i64 %112, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 80), align 8
+  store i64 %112, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 40), align 8
+  store i64 %110, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 72), align 8
+  store i64 %112, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 80), align 8
   %113 = trunc i64 %112 to i32
   %114 = bitcast i32 %113 to float
   %115 = trunc i64 %110 to i32
   %116 = bitcast i32 %115 to float
   %117 = fsub float %114, %116
-  store float %117, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 144), align 8
+  store float %117, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 144), align 8
   %118 = lshr i64 %112, 32
   %119 = trunc nuw i64 %118 to i32
   %120 = bitcast i32 %119 to float
@@ -28308,15 +28308,15 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   %122 = trunc nuw i64 %121 to i32
   %123 = bitcast i32 %122 to float
   %124 = fsub float %120, %123
-  store float %124, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 148), align 4
+  store float %124, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 148), align 4
   store i32 4, ptr @GESTURES, align 8
   %125 = tail call double @glfwGetTime() #54
-  store double %125, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 104), align 8
+  store double %125, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 104), align 8
   br label %190
 
 126:                                              ; preds = %106
-  %127 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 56), align 8
-  %128 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 64), align 8
+  %127 = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 56), align 8
+  %128 = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 64), align 8
   %129 = fsub <2 x float> %128, %127
   %130 = extractelement <2 x float> %129, i64 0
   %131 = fsub <2 x float> %128, %127
@@ -28324,19 +28324,19 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   %133 = extractelement <2 x float> %132, i64 1
   %134 = tail call float @llvm.fmuladd.f32(float %130, float %130, float %133)
   %sqrt.i37 = tail call float @llvm.sqrt.f32(float %134)
-  store float %sqrt.i37, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 156), align 4
+  store float %sqrt.i37, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 156), align 4
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %136 = load i64, ptr %135, align 8
-  store i64 %136, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 56), align 8
+  store i64 %136, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 56), align 8
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %138 = load i64, ptr %137, align 8
-  store i64 %138, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 64), align 8
+  store i64 %138, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 64), align 8
   %139 = trunc i64 %138 to i32
   %140 = bitcast i32 %139 to float
   %141 = trunc i64 %136 to i32
   %142 = bitcast i32 %141 to float
   %143 = fsub float %140, %142
-  store float %143, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 144), align 8
+  store float %143, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 144), align 8
   %144 = lshr i64 %138, 32
   %145 = trunc nuw i64 %144 to i32
   %146 = bitcast i32 %145 to float
@@ -28344,8 +28344,8 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   %148 = trunc nuw i64 %147 to i32
   %149 = bitcast i32 %148 to float
   %150 = fsub float %146, %149
-  store float %150, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 148), align 4
-  %151 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 72), align 8
+  store float %150, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 148), align 4
+  %151 = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 72), align 8
   %152 = bitcast i64 %136 to <2 x float>
   %.sroa.0.0.vec.extract.i38 = extractelement <2 x float> %152, i64 0
   %.sroa.05.0.vec.extract.i39 = extractelement <2 x float> %151, i64 0
@@ -28359,7 +28359,7 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   %sqrt.i42 = tail call float @llvm.sqrt.f32(float %157)
   %158 = fcmp ult float %sqrt.i42, 0x3F747AE140000000
   %159 = bitcast i64 %138 to <2 x float>
-  %.pre = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 80), align 8
+  %.pre = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 80), align 8
   %.sroa.0.4.vec.extract.i45 = extractelement <2 x float> %159, i64 1
   br i1 %158, label %160, label %._crit_edge74
 
@@ -28410,9 +28410,9 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
 179:                                              ; preds = %160
   store i32 4, ptr @GESTURES, align 8
   %180 = tail call double @glfwGetTime() #54
-  store double %180, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 104), align 8
-  %.pre63 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 56), align 8
-  %.pre64 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 64), align 8
+  store double %180, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 104), align 8
+  %.pre63 = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 56), align 8
+  %.pre64 = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 64), align 8
   %181 = fsub <2 x float> %.pre64, %.pre63
   %.pre69 = extractelement <2 x float> %181, i64 1
   %182 = fsub <2 x float> %.pre64, %.pre63
@@ -28428,13 +28428,13 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   %187 = fadd float %185, 3.600000e+02
   %.0.i62 = select i1 %186, float %187, float %185
   %188 = fsub float 3.600000e+02, %.0.i62
-  store float %188, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 152), align 8
+  store float %188, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 152), align 8
   br label %190
 
 189:                                              ; preds = %106
-  store i32 0, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 12), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 12), align 4
   store i32 0, ptr @GESTURES, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @GESTURES, i64 144), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @GESTURES, i64 144), i8 0, i64 16, i1 false)
   br label %190
 
 190:                                              ; preds = %1, %106, %4, %183, %189, %108, %31, %99, %82
@@ -28446,7 +28446,7 @@ define hidden void @UpdateGestures() local_unnamed_addr #0 {
   %1 = load i32, ptr @GESTURES, align 8
   %2 = add i32 %1, -1
   %or.cond = icmp ult i32 %2, 2
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 12), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 12), align 4
   %4 = icmp slt i32 %3, 2
   %or.cond4 = select i1 %or.cond, i1 %4, i1 false
   br i1 %or.cond4, label %5, label %7
@@ -28454,7 +28454,7 @@ define hidden void @UpdateGestures() local_unnamed_addr #0 {
 5:                                                ; preds = %0
   store i32 4, ptr @GESTURES, align 8
   %6 = tail call double @glfwGetTime() #54
-  store double %6, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 104), align 8
+  store double %6, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 104), align 8
   %.pre = load i32, ptr @GESTURES, align 8
   br label %7
 
@@ -28479,7 +28479,7 @@ define hidden void @UpdateGestures() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetGestureDetected() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 4), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 4), align 4
   %2 = load i32, ptr @GESTURES, align 8
   %3 = and i32 %2, %1
   ret i32 %3
@@ -28493,7 +28493,7 @@ define float @GetGestureHoldDuration() local_unnamed_addr #0 {
 
 3:                                                ; preds = %0
   %4 = tail call double @glfwGetTime() #54
-  %5 = load double, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 104), align 8
+  %5 = load double, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 104), align 8
   %6 = fsub double %4, %5
   %7 = fptrunc double %6 to float
   br label %8
@@ -28505,25 +28505,25 @@ define float @GetGestureHoldDuration() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define <2 x float> @GetGestureDragVector() local_unnamed_addr #26 {
-  %.sroa.0.0.copyload = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 112), align 8
+  %.sroa.0.0.copyload = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 112), align 8
   ret <2 x float> %.sroa.0.0.copyload
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define float @GetGestureDragAngle() local_unnamed_addr #10 {
-  %1 = load float, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 120), align 8
+  %1 = load float, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 120), align 8
   ret float %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define <2 x float> @GetGesturePinchVector() local_unnamed_addr #26 {
-  %.sroa.0.0.copyload = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 144), align 8
+  %.sroa.0.0.copyload = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 144), align 8
   ret <2 x float> %.sroa.0.0.copyload
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define float @GetGesturePinchAngle() local_unnamed_addr #10 {
-  %1 = load float, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 152), align 8
+  %1 = load float, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 152), align 8
   ret float %1
 }
 
@@ -29768,11 +29768,11 @@ define void @GetCameraProjectionMatrix(ptr dead_on_unwind noalias nocapture writ
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define void @UpdateCamera(ptr noundef %0, i32 noundef %1) local_unnamed_addr #30 {
-  %3 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
-  %4 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1892), align 4
+  %3 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1884), align 4
+  %4 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1892), align 4
   %5 = fsub float %3, %4
-  %6 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1888), align 8
-  %7 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1896), align 8
+  %6 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1888), align 8
+  %7 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1896), align 8
   %8 = fsub float %6, %7
   %9 = icmp eq i32 %1, 4
   %10 = add i32 %1, -3
@@ -29823,7 +29823,7 @@ GetCameraUp.exit:                                 ; preds = %18, %24
   %.sroa.061.4.vec.extract.i.pre-phi = phi float [ %.sroa.07.4.vec.extract.i.i, %18 ], [ %27, %24 ]
   %.sroa.061.0.vec.extract.i.pre-phi = phi float [ %.sroa.07.0.vec.extract.i.i, %18 ], [ %26, %24 ]
   %.sroa.617.0.i.i = phi float [ %.sroa.24.0.copyload.i, %18 ], [ %28, %24 ]
-  %29 = load double, ptr getelementptr inbounds (i8, ptr @CORE, i64 2752), align 8
+  %29 = load double, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2752), align 8
   %30 = fptrunc double %29 to float
   %31 = fmul float %30, 5.000000e-01
   %32 = fcmp une float %.pre-phi883, 1.000000e+00
@@ -29904,7 +29904,7 @@ MatrixRotate.exit:                                ; preds = %GetCameraUp.exit, %
   br label %.thread
 
 83:                                               ; preds = %16
-  %84 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 460), align 4
+  %84 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 460), align 4
   %85 = icmp eq i8 %84, 1
   br i1 %85, label %86, label %87
 
@@ -29913,7 +29913,7 @@ MatrixRotate.exit:                                ; preds = %GetCameraUp.exit, %
   br label %87
 
 87:                                               ; preds = %86, %83
-  %88 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 461), align 1
+  %88 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 461), align 1
   %89 = icmp eq i8 %88, 1
   br i1 %89, label %90, label %91
 
@@ -29922,7 +29922,7 @@ MatrixRotate.exit:                                ; preds = %GetCameraUp.exit, %
   br label %91
 
 91:                                               ; preds = %90, %87
-  %92 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 458), align 2
+  %92 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 458), align 2
   %93 = icmp eq i8 %92, 1
   br i1 %93, label %94, label %CameraYaw.exit
 
@@ -30034,7 +30034,7 @@ GetCameraUp.exit.i:                               ; preds = %100, %94
   br label %CameraYaw.exit
 
 CameraYaw.exit:                                   ; preds = %153, %149, %91
-  %157 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 459), align 1
+  %157 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 459), align 1
   %158 = icmp eq i8 %157, 1
   br i1 %158, label %159, label %CameraYaw.exit170
 
@@ -30146,7 +30146,7 @@ GetCameraUp.exit.i138:                            ; preds = %165, %159
   br label %CameraYaw.exit170
 
 CameraYaw.exit170:                                ; preds = %218, %214, %CameraYaw.exit
-  %222 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 277), align 1
+  %222 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 277), align 1
   %223 = icmp eq i8 %222, 1
   br i1 %223, label %224, label %284
 
@@ -30241,7 +30241,7 @@ CameraRoll.exit:                                  ; preds = %224, %235
   br label %284
 
 284:                                              ; preds = %CameraRoll.exit, %CameraYaw.exit170
-  %285 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 265), align 1
+  %285 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 265), align 1
   %286 = icmp eq i8 %285, 1
   br i1 %286, label %287, label %347
 
@@ -30339,19 +30339,19 @@ CameraRoll.exit205:                               ; preds = %287, %298
   br i1 %14, label %348, label %513
 
 348:                                              ; preds = %347
-  %349 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 1908), align 4
+  %349 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1908), align 4
   %350 = icmp eq i8 %349, 1
-  %351 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 2042), align 2
+  %351 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2042), align 2
   %352 = icmp eq i8 %351, 1
   %narrow.i = select i1 %352, i1 true, i1 %350
   br i1 %narrow.i, label %353, label %513
 
 353:                                              ; preds = %348
-  %354 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
-  %355 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1892), align 4
+  %354 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1884), align 4
+  %355 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1892), align 4
   %356 = fsub float %354, %355
-  %357 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1888), align 8
-  %358 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1896), align 8
+  %357 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1888), align 8
+  %358 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1896), align 8
   %359 = fsub float %357, %358
   %360 = fcmp ogt float %356, 0.000000e+00
   br i1 %360, label %361, label %413
@@ -30827,7 +30827,7 @@ CameraYaw.exit348:                                ; preds = %574, %578
   br label %583
 
 583:                                              ; preds = %490, %CameraMoveUp.exit310, %CameraYaw.exit348
-  %584 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 283), align 1
+  %584 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 283), align 1
   %585 = icmp eq i8 %584, 1
   br i1 %585, label %586, label %619
 
@@ -30912,7 +30912,7 @@ CameraMoveForward.exit:                           ; preds = %GetCameraForward.ex
   br label %619
 
 619:                                              ; preds = %CameraMoveForward.exit, %583
-  %620 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 261), align 1
+  %620 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 261), align 1
   %621 = icmp eq i8 %620, 1
   br i1 %621, label %622, label %683
 
@@ -31053,7 +31053,7 @@ CameraMoveRight.exit432:                          ; preds = %GetCameraRight.exit
   br label %683
 
 683:                                              ; preds = %CameraMoveRight.exit432, %619
-  %684 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 279), align 1
+  %684 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 279), align 1
   %685 = icmp eq i8 %684, 1
   br i1 %685, label %686, label %719
 
@@ -31138,7 +31138,7 @@ CameraMoveForward.exit465:                        ; preds = %GetCameraForward.ex
   br label %719
 
 719:                                              ; preds = %CameraMoveForward.exit465, %683
-  %720 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 264), align 8
+  %720 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 264), align 8
   %721 = icmp eq i8 %720, 1
   br i1 %721, label %722, label %783
 
@@ -31279,12 +31279,12 @@ CameraMoveRight.exit518:                          ; preds = %GetCameraRight.exit
   br label %783
 
 783:                                              ; preds = %CameraMoveRight.exit518, %719
-  %784 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), align 4
+  %784 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2076), align 4
   %785 = trunc i8 %784 to i1
   br i1 %785, label %GetGamepadAxisMovement.exit, label %GetGamepadAxisMovement.exit690.thread
 
 GetGamepadAxisMovement.exit:                      ; preds = %783
-  %786 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 2600), align 8
+  %786 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2600), align 8
   %787 = tail call float @llvm.fabs.f32(float %786)
   %788 = fcmp ogt float %787, 0x3FB99999A0000000
   %789 = fmul float %786, -2.000000e+00
@@ -31406,12 +31406,12 @@ GetCameraUp.exit.i527:                            ; preds = %796, %GetGamepadAxi
   br label %CameraYaw.exit559
 
 CameraYaw.exit559:                                ; preds = %851, %855
-  %859 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), align 4
+  %859 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2076), align 4
   %860 = trunc i8 %859 to i1
   br i1 %860, label %861, label %GetGamepadAxisMovement.exit562
 
 861:                                              ; preds = %CameraYaw.exit559
-  %862 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 2604), align 4
+  %862 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2604), align 4
   %863 = tail call float @llvm.fabs.f32(float %862)
   %864 = fcmp ogt float %863, 0x3FB99999A0000000
   br i1 %864, label %865, label %GetGamepadAxisMovement.exit562
@@ -31424,12 +31424,12 @@ CameraYaw.exit559:                                ; preds = %851, %855
 GetGamepadAxisMovement.exit562:                   ; preds = %CameraYaw.exit559, %861, %865
   %.0.i561 = phi float [ %867, %865 ], [ -0.000000e+00, %861 ], [ -0.000000e+00, %CameraYaw.exit559 ]
   tail call void @CameraPitch(ptr noundef nonnull %0, float noundef %.0.i561, i1 noundef zeroext %17, i1 noundef zeroext %13, i1 noundef zeroext false)
-  %868 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), align 4
+  %868 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2076), align 4
   %869 = trunc i8 %868 to i1
   br i1 %869, label %870, label %GetGamepadAxisMovement.exit565.thread
 
 870:                                              ; preds = %GetGamepadAxisMovement.exit562
-  %871 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 2596), align 4
+  %871 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2596), align 4
   %872 = tail call float @llvm.fabs.f32(float %871)
   %873 = fcmp ule float %872, 0x3FB99999A0000000
   %874 = fcmp ugt float %871, -2.500000e-01
@@ -31511,7 +31511,7 @@ CameraMoveForward.exit597:                        ; preds = %GetCameraForward.ex
   %906 = fadd float %.sroa.212.0.copyload.i.i568, %900
   store <2 x float> %.sroa.08.4.vec.insert.i55.i588, ptr %801, align 4
   store float %906, ptr %.sroa.234.0..sroa_idx.i533, align 4
-  %.pre = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), align 4
+  %.pre = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2076), align 4
   br label %GetGamepadAxisMovement.exit565.thread
 
 GetGamepadAxisMovement.exit565.thread:            ; preds = %GetGamepadAxisMovement.exit562, %870, %CameraMoveForward.exit597
@@ -31520,7 +31520,7 @@ GetGamepadAxisMovement.exit565.thread:            ; preds = %GetGamepadAxisMovem
   br i1 %908, label %909, label %GetGamepadAxisMovement.exit600.thread
 
 909:                                              ; preds = %GetGamepadAxisMovement.exit565.thread
-  %910 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 2592), align 8
+  %910 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2592), align 8
   %911 = tail call float @llvm.fabs.f32(float %910)
   %912 = fcmp ule float %911, 0x3FB99999A0000000
   %913 = fcmp ugt float %910, -2.500000e-01
@@ -31656,7 +31656,7 @@ CameraMoveRight.exit652:                          ; preds = %GetCameraRight.exit
   %972 = fadd float %.sroa.212.0.copyload.i.i.i603, %966
   store <2 x float> %.sroa.08.4.vec.insert.i55.i639, ptr %801, align 4
   store float %972, ptr %.sroa.234.0..sroa_idx.i533, align 4
-  %.pre873 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), align 4
+  %.pre873 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2076), align 4
   br label %GetGamepadAxisMovement.exit600.thread
 
 GetGamepadAxisMovement.exit600.thread:            ; preds = %GetGamepadAxisMovement.exit565.thread, %909, %CameraMoveRight.exit652
@@ -31665,7 +31665,7 @@ GetGamepadAxisMovement.exit600.thread:            ; preds = %GetGamepadAxisMovem
   br i1 %974, label %975, label %GetGamepadAxisMovement.exit655.thread
 
 975:                                              ; preds = %GetGamepadAxisMovement.exit600.thread
-  %976 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 2596), align 4
+  %976 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2596), align 4
   %977 = tail call float @llvm.fabs.f32(float %976)
   %978 = fcmp ule float %977, 0x3FB99999A0000000
   %979 = fcmp ult float %976, 2.500000e-01
@@ -31747,7 +31747,7 @@ CameraMoveForward.exit687:                        ; preds = %GetCameraForward.ex
   %1011 = fadd float %.sroa.212.0.copyload.i.i658, %1005
   store <2 x float> %.sroa.08.4.vec.insert.i55.i678, ptr %801, align 4
   store float %1011, ptr %.sroa.234.0..sroa_idx.i533, align 4
-  %.pre874 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), align 4
+  %.pre874 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2076), align 4
   br label %GetGamepadAxisMovement.exit655.thread
 
 GetGamepadAxisMovement.exit655.thread:            ; preds = %GetGamepadAxisMovement.exit600.thread, %975, %CameraMoveForward.exit687
@@ -31756,7 +31756,7 @@ GetGamepadAxisMovement.exit655.thread:            ; preds = %GetGamepadAxisMovem
   br i1 %1013, label %1014, label %GetGamepadAxisMovement.exit690.thread
 
 1014:                                             ; preds = %GetGamepadAxisMovement.exit655.thread
-  %1015 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 2592), align 8
+  %1015 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2592), align 8
   %1016 = tail call float @llvm.fabs.f32(float %1015)
   %1017 = fcmp ule float %1016, 0x3FB99999A0000000
   %1018 = fcmp ult float %1015, 2.500000e-01
@@ -31898,7 +31898,7 @@ GetGamepadAxisMovement.exit690.thread:            ; preds = %GetGamepadAxisMovem
   br i1 %14, label %1078, label %1126
 
 1078:                                             ; preds = %GetGamepadAxisMovement.exit690.thread
-  %1079 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 228), align 4
+  %1079 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 228), align 4
   %1080 = icmp eq i8 %1079, 1
   br i1 %1080, label %1081, label %1102
 
@@ -31958,7 +31958,7 @@ CameraMoveUp.exit768:                             ; preds = %1081, %1087
   br label %1102
 
 1102:                                             ; preds = %CameraMoveUp.exit768, %1078
-  %1103 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 537), align 1
+  %1103 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 537), align 1
   %1104 = icmp eq i8 %1103, 1
   br i1 %1104, label %1105, label %.thread
 
@@ -32021,9 +32021,9 @@ CameraMoveUp.exit794:                             ; preds = %1105, %1111
   br i1 %9, label %.thread, label %IsKeyPressed.exit835.thread
 
 .thread:                                          ; preds = %1126, %MatrixRotate.exit, %1102, %CameraMoveUp.exit794
-  %1127 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1924), align 4
+  %1127 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1924), align 4
   %1128 = tail call float @llvm.fabs.f32(float %1127)
-  %1129 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1928), align 8
+  %1129 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1928), align 8
   %1130 = tail call float @llvm.fabs.f32(float %1129)
   %1131 = fcmp ogt float %1128, %1130
   %..i = select i1 %1131, float %1127, float %1129
@@ -32077,9 +32077,9 @@ CameraMoveToTarget.exit:                          ; preds = %.thread, %1142
   %1155 = fadd float %.sroa.222.0.copyload.i, %1152
   store <2 x float> %.sroa.08.4.vec.insert.i.i806, ptr %0, align 4
   store float %1155, ptr %.sroa.224.0..sroa_idx.i, align 4
-  %1156 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 1041), align 1
+  %1156 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1041), align 1
   %1157 = icmp eq i8 %1156, 0
-  %1158 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 529), align 1
+  %1158 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 529), align 1
   %1159 = icmp eq i8 %1158, 1
   %or.cond870 = select i1 %1157, i1 %1159, i1 false
   br i1 %or.cond870, label %1160, label %IsKeyPressed.exit.thread
@@ -32130,9 +32130,9 @@ CameraMoveToTarget.exit833:                       ; preds = %1160, %1168
 IsKeyPressed.exit.thread:                         ; preds = %CameraMoveToTarget.exit, %CameraMoveToTarget.exit833
   %.sroa.224.0.copyload.i838 = phi float [ %1155, %CameraMoveToTarget.exit ], [ %1181, %CameraMoveToTarget.exit833 ]
   %.sroa.023.0.copyload.i836 = phi <2 x float> [ %.sroa.08.4.vec.insert.i.i806, %CameraMoveToTarget.exit ], [ %.sroa.08.4.vec.insert.i.i830, %CameraMoveToTarget.exit833 ]
-  %1182 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 1042), align 2
+  %1182 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1042), align 2
   %1183 = icmp eq i8 %1182, 0
-  %1184 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 530), align 2
+  %1184 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 530), align 2
   %1185 = icmp eq i8 %1184, 1
   %or.cond872 = select i1 %1183, i1 %1185, i1 false
   br i1 %or.cond872, label %1186, label %IsKeyPressed.exit835.thread
@@ -32187,12 +32187,12 @@ IsKeyPressed.exit835.thread:                      ; preds = %1126, %IsKeyPressed
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define <2 x float> @GetMouseDelta() local_unnamed_addr #26 {
-  %1 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
-  %2 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1892), align 4
+  %1 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1884), align 4
+  %2 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1892), align 4
   %3 = fsub float %1, %2
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %3, i64 0
-  %4 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1888), align 8
-  %5 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1896), align 8
+  %4 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1888), align 8
+  %5 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1896), align 8
   %6 = fsub float %4, %5
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %6, i64 1
   ret <2 x float> %.sroa.0.4.vec.insert
@@ -32200,7 +32200,7 @@ define <2 x float> @GetMouseDelta() local_unnamed_addr #26 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define float @GetFrameTime() local_unnamed_addr #10 {
-  %1 = load double, ptr getelementptr inbounds (i8, ptr @CORE, i64 2752), align 8
+  %1 = load double, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2752), align 8
   %2 = fptrunc double %1 to float
   ret float %2
 }
@@ -32213,7 +32213,7 @@ define zeroext i1 @IsKeyDown(i32 noundef %0) local_unnamed_addr #10 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 196), i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 196), i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 1
   br label %8
@@ -32226,10 +32226,10 @@ define zeroext i1 @IsKeyDown(i32 noundef %0) local_unnamed_addr #10 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsMouseButtonDown(i32 noundef %0) local_unnamed_addr #10 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1906), i64 0, i64 %2
+  %3 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1906), i64 0, i64 %2
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 1
-  %6 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2040), i64 0, i64 %2
+  %6 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2040), i64 0, i64 %2
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 1
   %narrow = select i1 %8, i1 true, i1 %5
@@ -32243,7 +32243,7 @@ define zeroext i1 @IsGamepadAvailable(i32 noundef %0) local_unnamed_addr #10 {
 
 3:                                                ; preds = %1
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), i64 0, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2076), i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
   br label %8
@@ -32260,7 +32260,7 @@ define float @GetGamepadAxisMovement(i32 noundef %0, i32 noundef %1) local_unnam
 
 4:                                                ; preds = %2
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), i64 0, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2076), i64 0, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   %9 = icmp slt i32 %1, 8
@@ -32269,7 +32269,7 @@ define float @GetGamepadAxisMovement(i32 noundef %0, i32 noundef %1) local_unnam
 
 10:                                               ; preds = %4
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds [4 x [8 x float]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2592), i64 0, i64 %5, i64 %11
+  %12 = getelementptr inbounds [4 x [8 x float]], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2592), i64 0, i64 %5, i64 %11
   %13 = load float, ptr %12, align 4
   %14 = tail call float @llvm.fabs.f32(float %13)
   %15 = fcmp ogt float %14, 0x3FB99999A0000000
@@ -32285,9 +32285,9 @@ define float @GetGamepadAxisMovement(i32 noundef %0, i32 noundef %1) local_unnam
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define float @GetMouseWheelMove() local_unnamed_addr #10 {
-  %1 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1924), align 4
+  %1 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1924), align 4
   %2 = tail call float @llvm.fabs.f32(float %1)
-  %3 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1928), align 8
+  %3 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1928), align 8
   %4 = tail call float @llvm.fabs.f32(float %3)
   %5 = fcmp ogt float %2, %4
   %. = select i1 %5, float %1, float %3
@@ -32302,13 +32302,13 @@ define zeroext i1 @IsKeyPressed(i32 noundef %0) local_unnamed_addr #10 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 708), i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 708), i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 196), i64 0, i64 %4
+  %9 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 196), i64 0, i64 %4
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 1
   br label %12
@@ -32832,7 +32832,7 @@ msf_free_gif_state.exit:                          ; preds = %.lr.ph.i, %25
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i16 %.0.extract.trunc, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(22) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(22) getelementptr inbounds (i8, ptr @__const.msf_gif_begin.headerBytes, i64 10), i64 22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(22) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(22) getelementptr inbounds nuw (i8, ptr @__const.msf_gif_begin.headerBytes, i64 10), i64 22, i1 false)
   br label %32
 
 32:                                               ; preds = %27, %msf_free_gif_state.exit
@@ -33403,7 +33403,7 @@ msf_put_code.exit.i:                              ; preds = %350, %346, %343
   %.sroa.0.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %233, i64 20
   store i16 %.0.extract.trunc.i, ptr %.sroa.0.sroa.2.0..sroa_idx.i, align 1
   %.sroa.0.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %233, i64 22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.0.sroa.3.0..sroa_idx.i, ptr noundef nonnull align 2 dereferenceable(7) getelementptr inbounds (i8, ptr @__const.msf_compress_frame.headerBytes, i64 6), i64 7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.0.sroa.3.0..sroa_idx.i, ptr noundef nonnull align 2 dereferenceable(7) getelementptr inbounds nuw (i8, ptr @__const.msf_compress_frame.headerBytes, i64 6), i64 7, i1 false)
   %.sroa.0.sroa.3.sroa.2.0..sroa.0.sroa.3.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %233, i64 29
   store i16 %.0.extract.trunc112.i, ptr %.sroa.0.sroa.3.sroa.2.0..sroa.0.sroa.3.0..sroa_idx.sroa_idx.i, align 1
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %233, i64 31
@@ -37107,9 +37107,9 @@ define hidden void @rprand_unload_sequence(ptr nocapture noundef %0) local_unnam
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @WindowShouldClose() local_unnamed_addr #10 {
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 12), align 4
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 12), align 4
   %2 = trunc i8 %1 to i1
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 14), align 2
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 14), align 2
   %4 = trunc i8 %3 to i1
   %not. = xor i1 %2, true
   %.0 = select i1 %not., i1 true, i1 %4
@@ -37119,13 +37119,13 @@ define zeroext i1 @WindowShouldClose() local_unnamed_addr #10 {
 ; Function Attrs: nounwind uwtable
 define void @ToggleFullscreen() local_unnamed_addr #0 {
   %1 = alloca i32, align 4
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 13), align 1
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 13), align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %26, label %4
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr @platform.0, align 8
-  tail call void @glfwGetWindowPos(ptr noundef %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @CORE, i64 20), ptr noundef nonnull getelementptr inbounds (i8, ptr @CORE, i64 24)) #54
+  tail call void @glfwGetWindowPos(ptr noundef %5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @CORE, i64 20), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @CORE, i64 24)) #54
   store i32 0, ptr %1, align 4
   %6 = tail call i32 @GetCurrentMonitor()
   %7 = call ptr @glfwGetMonitors(ptr noundef nonnull %1) #54
@@ -37142,42 +37142,42 @@ define void @ToggleFullscreen() local_unnamed_addr #0 {
 
 .thread:                                          ; preds = %4, %10
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.110) #54
-  store i8 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 13), align 1
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 13), align 1
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %16 = and i32 %15, -3
-  store i32 %16, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %16, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %17 = load ptr, ptr @platform.0, align 8
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
   call void @glfwSetWindowMonitor(ptr noundef %17, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %18, i32 noundef %19, i32 noundef -1) #54
   br label %34
 
 20:                                               ; preds = %10
-  store i8 1, ptr getelementptr inbounds (i8, ptr @CORE, i64 13), align 1
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 13), align 1
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %22 = or i32 %21, 2
-  store i32 %22, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %22, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %23 = load ptr, ptr @platform.0, align 8
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
   call void @glfwSetWindowMonitor(ptr noundef %23, ptr noundef nonnull %13, i32 noundef 0, i32 noundef 0, i32 noundef %24, i32 noundef %25, i32 noundef -1) #54
   br label %34
 
 26:                                               ; preds = %0
-  store i8 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 13), align 1
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 13), align 1
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %28 = and i32 %27, -3
-  store i32 %28, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %28, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %29 = load ptr, ptr @platform.0, align 8
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 20), align 4
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 24), align 8
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 20), align 4
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 24), align 8
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
   tail call void @glfwSetWindowMonitor(ptr noundef %29, ptr noundef null, i32 noundef %30, i32 noundef %31, i32 noundef %32, i32 noundef %33, i32 noundef -1) #54
   br label %34
 
 34:                                               ; preds = %.thread, %20, %26
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %36 = and i32 %35, 64
   %.not = icmp eq i32 %36, 0
   br i1 %.not, label %38, label %37
@@ -37206,7 +37206,7 @@ define i32 @GetCurrentMonitor() local_unnamed_addr #0 {
   br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %0
-  %10 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 13), align 1
+  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 13), align 1
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %21
 
@@ -37238,12 +37238,12 @@ define i32 @GetCurrentMonitor() local_unnamed_addr #0 {
   store i32 0, ptr %3, align 4
   %22 = load ptr, ptr @platform.0, align 8
   call void @glfwGetWindowPos(ptr noundef %22, ptr noundef nonnull %2, ptr noundef nonnull %3) #54
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
   %24 = sdiv i32 %23, 2
   %25 = load i32, ptr %2, align 4
   %26 = add nsw i32 %25, %24
   store i32 %26, ptr %2, align 4
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
   %28 = sdiv i32 %27, 2
   %29 = load i32, ptr %3, align 4
   %30 = add nsw i32 %29, %28
@@ -37345,13 +37345,13 @@ define void @ToggleBorderlessWindowed() local_unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 13), align 1
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 13), align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %0
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @CORE, i64 20), align 4
-  store i64 %7, ptr getelementptr inbounds (i8, ptr @CORE, i64 28), align 4
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 20), align 4
+  store i64 %7, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 28), align 4
   tail call void @ToggleFullscreen()
   br label %8
 
@@ -37373,7 +37373,7 @@ define void @ToggleBorderlessWindowed() local_unnamed_addr #0 {
   br i1 %.not, label %60, label %19
 
 19:                                               ; preds = %14
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %21 = and i32 %20, 32768
   %.not14 = icmp eq i32 %21, 0
   br i1 %.not14, label %22, label %44
@@ -37383,22 +37383,22 @@ define void @ToggleBorderlessWindowed() local_unnamed_addr #0 {
 
 23:                                               ; preds = %22
   %24 = load ptr, ptr @platform.0, align 8
-  call void @glfwGetWindowPos(ptr noundef %24, ptr noundef nonnull getelementptr inbounds (i8, ptr @CORE, i64 28), ptr noundef nonnull getelementptr inbounds (i8, ptr @CORE, i64 32)) #54
+  call void @glfwGetWindowPos(ptr noundef %24, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @CORE, i64 28), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @CORE, i64 32)) #54
   br label %25
 
 25:                                               ; preds = %23, %22
-  %26 = load i64, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
-  store i64 %26, ptr getelementptr inbounds (i8, ptr @CORE, i64 52), align 4
+  %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
+  store i64 %26, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 52), align 4
   %27 = load ptr, ptr @platform.0, align 8
   call void @glfwSetWindowAttrib(ptr noundef %27, i32 noundef 131077, i32 noundef 0) #54
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %29 = or i32 %28, 8
-  store i32 %29, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %29, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %30 = load ptr, ptr @platform.0, align 8
   call void @glfwSetWindowAttrib(ptr noundef %30, i32 noundef 131079, i32 noundef 1) #54
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %32 = or i32 %31, 4096
-  store i32 %32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   store i32 0, ptr %2, align 4
   store i32 0, ptr %3, align 4
   %33 = load ptr, ptr %16, align 8
@@ -37414,35 +37414,35 @@ define void @ToggleBorderlessWindowed() local_unnamed_addr #0 {
   call void @glfwSetWindowSize(ptr noundef %40, i32 noundef %34, i32 noundef %36) #54
   %41 = load ptr, ptr @platform.0, align 8
   call void @glfwFocusWindow(ptr noundef %41) #54
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %43 = or i32 %42, 32768
-  store i32 %43, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %43, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %62
 
 44:                                               ; preds = %19
   %45 = load ptr, ptr @platform.0, align 8
   call void @glfwSetWindowAttrib(ptr noundef %45, i32 noundef 131079, i32 noundef 0) #54
-  %46 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %47 = and i32 %46, -4097
-  store i32 %47, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %47, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %48 = load ptr, ptr @platform.0, align 8
   call void @glfwSetWindowAttrib(ptr noundef %48, i32 noundef 131077, i32 noundef 1) #54
-  %49 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %50 = and i32 %49, -9
-  store i32 %50, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %50, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %51 = load ptr, ptr @platform.0, align 8
-  %52 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 52), align 4
-  %53 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 56), align 8
+  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 52), align 4
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 56), align 8
   call void @glfwSetWindowSize(ptr noundef %51, i32 noundef %52, i32 noundef %53) #54
   %54 = load ptr, ptr @platform.0, align 8
-  %55 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 28), align 4
-  %56 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 32), align 8
+  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 28), align 4
+  %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 32), align 8
   call void @glfwSetWindowPos(ptr noundef %54, i32 noundef %55, i32 noundef %56) #54
   %57 = load ptr, ptr @platform.0, align 8
   call void @glfwFocusWindow(ptr noundef %57) #54
-  %58 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %59 = and i32 %58, -32769
-  store i32 %59, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %59, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %62
 
 60:                                               ; preds = %14
@@ -37461,7 +37461,7 @@ declare ptr @glfwGetVideoMode(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsWindowState(i32 noundef %0) local_unnamed_addr #10 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %3 = and i32 %2, %0
   %4 = icmp ne i32 %3, 0
   ret i1 %4
@@ -37487,9 +37487,9 @@ define void @MaximizeWindow() local_unnamed_addr #0 {
 4:                                                ; preds = %0
   %5 = load ptr, ptr @platform.0, align 8
   tail call void @glfwMaximizeWindow(ptr noundef %5) #54
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %7 = or i32 %6, 1024
-  store i32 %7, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %7, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %8
 
 8:                                                ; preds = %4, %0
@@ -37519,9 +37519,9 @@ define void @RestoreWindow() local_unnamed_addr #0 {
 4:                                                ; preds = %0
   %5 = load ptr, ptr @platform.0, align 8
   tail call void @glfwRestoreWindow(ptr noundef %5) #54
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %7 = and i32 %6, -1537
-  store i32 %7, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %7, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %8
 
 8:                                                ; preds = %4, %0
@@ -37532,7 +37532,7 @@ declare void @glfwRestoreWindow(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @SetWindowState(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %3 = and i32 %2, 64
   %4 = xor i32 %3, 64
   %5 = and i32 %4, %0
@@ -37541,9 +37541,9 @@ define void @SetWindowState(i32 noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %1
   tail call void @glfwSwapInterval(i32 noundef 1) #54
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %8 = or i32 %7, 64
-  store i32 %8, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %9
 
 9:                                                ; preds = %6, %1
@@ -37556,7 +37556,7 @@ define void @SetWindowState(i32 noundef %0) local_unnamed_addr #0 {
 
 14:                                               ; preds = %9
   tail call void @ToggleBorderlessWindowed()
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %15
 
 15:                                               ; preds = %14, %9
@@ -37568,7 +37568,7 @@ define void @SetWindowState(i32 noundef %0) local_unnamed_addr #0 {
 
 19:                                               ; preds = %15
   tail call void @ToggleFullscreen()
-  %.pre89 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %.pre89 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %20
 
 20:                                               ; preds = %19, %15
@@ -37582,9 +37582,9 @@ define void @SetWindowState(i32 noundef %0) local_unnamed_addr #0 {
 25:                                               ; preds = %20
   %26 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetWindowAttrib(ptr noundef %26, i32 noundef 131075, i32 noundef 1) #54
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %28 = or i32 %27, 4
-  store i32 %28, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %28, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %29
 
 29:                                               ; preds = %25, %20
@@ -37598,9 +37598,9 @@ define void @SetWindowState(i32 noundef %0) local_unnamed_addr #0 {
 34:                                               ; preds = %29
   %35 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetWindowAttrib(ptr noundef %35, i32 noundef 131077, i32 noundef 0) #54
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %37 = or i32 %36, 8
-  store i32 %37, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %37, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %38
 
 38:                                               ; preds = %34, %29
@@ -37614,9 +37614,9 @@ define void @SetWindowState(i32 noundef %0) local_unnamed_addr #0 {
 43:                                               ; preds = %38
   %44 = load ptr, ptr @platform.0, align 8
   tail call void @glfwHideWindow(ptr noundef %44) #54
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %46 = or i32 %45, 128
-  store i32 %46, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %46, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %47
 
 47:                                               ; preds = %43, %38
@@ -37630,7 +37630,7 @@ define void @SetWindowState(i32 noundef %0) local_unnamed_addr #0 {
 52:                                               ; preds = %47
   %53 = load ptr, ptr @platform.0, align 8
   tail call void @glfwIconifyWindow(ptr noundef %53) #54
-  %.pre90 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %.pre90 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %54
 
 54:                                               ; preds = %52, %47
@@ -37648,15 +37648,15 @@ define void @SetWindowState(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %62, label %63, label %.MaximizeWindow.exit_crit_edge
 
 .MaximizeWindow.exit_crit_edge:                   ; preds = %59
-  %.pre91 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %.pre91 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %MaximizeWindow.exit
 
 63:                                               ; preds = %59
   %64 = load ptr, ptr @platform.0, align 8
   tail call void @glfwMaximizeWindow(ptr noundef %64) #54
-  %65 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %66 = or i32 %65, 1024
-  store i32 %66, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %66, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %MaximizeWindow.exit
 
 MaximizeWindow.exit:                              ; preds = %.MaximizeWindow.exit_crit_edge, %63, %54
@@ -37670,9 +37670,9 @@ MaximizeWindow.exit:                              ; preds = %.MaximizeWindow.exi
 71:                                               ; preds = %MaximizeWindow.exit
   %72 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetWindowAttrib(ptr noundef %72, i32 noundef 131084, i32 noundef 0) #54
-  %73 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %74 = or i32 %73, 2048
-  store i32 %74, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %74, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %75
 
 75:                                               ; preds = %71, %MaximizeWindow.exit
@@ -37686,9 +37686,9 @@ MaximizeWindow.exit:                              ; preds = %.MaximizeWindow.exi
 80:                                               ; preds = %75
   %81 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetWindowAttrib(ptr noundef %81, i32 noundef 131079, i32 noundef 1) #54
-  %82 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %82 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %83 = or i32 %82, 4096
-  store i32 %83, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %83, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %84
 
 84:                                               ; preds = %80, %75
@@ -37701,7 +37701,7 @@ MaximizeWindow.exit:                              ; preds = %.MaximizeWindow.exi
 
 89:                                               ; preds = %84
   %90 = or i32 %85, 256
-  store i32 %90, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %90, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %91
 
 91:                                               ; preds = %89, %84
@@ -37714,7 +37714,7 @@ MaximizeWindow.exit:                              ; preds = %.MaximizeWindow.exi
 
 96:                                               ; preds = %91
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.113) #54
-  %.pre92 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %.pre92 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %97
 
 97:                                               ; preds = %96, %91
@@ -37727,7 +37727,7 @@ MaximizeWindow.exit:                              ; preds = %.MaximizeWindow.exi
 
 102:                                              ; preds = %97
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.114) #54
-  %.pre93 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %.pre93 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %103
 
 103:                                              ; preds = %102, %97
@@ -37741,9 +37741,9 @@ MaximizeWindow.exit:                              ; preds = %.MaximizeWindow.exi
 108:                                              ; preds = %103
   %109 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetWindowAttrib(ptr noundef %109, i32 noundef 131085, i32 noundef 1) #54
-  %110 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %110 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %111 = or i32 %110, 16384
-  store i32 %111, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %111, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %112
 
 112:                                              ; preds = %108, %103
@@ -37756,7 +37756,7 @@ MaximizeWindow.exit:                              ; preds = %.MaximizeWindow.exi
 
 117:                                              ; preds = %112
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.115) #54
-  %.pre94 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %.pre94 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %118
 
 118:                                              ; preds = %117, %112
@@ -37779,7 +37779,7 @@ declare void @glfwHideWindow(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @ClearWindowState(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %3 = and i32 %0, 64
   %4 = and i32 %3, %2
   %or.cond.not.not = icmp eq i32 %4, 0
@@ -37787,9 +37787,9 @@ define void @ClearWindowState(i32 noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   tail call void @glfwSwapInterval(i32 noundef 0) #54
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %7 = and i32 %6, -65
-  store i32 %7, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %7, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %8
 
 8:                                                ; preds = %5, %1
@@ -37801,7 +37801,7 @@ define void @ClearWindowState(i32 noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %8
   tail call void @ToggleBorderlessWindowed()
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %13
 
 13:                                               ; preds = %12, %8
@@ -37813,7 +37813,7 @@ define void @ClearWindowState(i32 noundef %0) local_unnamed_addr #0 {
 
 17:                                               ; preds = %13
   tail call void @ToggleFullscreen()
-  %.pre63 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %.pre63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %18
 
 18:                                               ; preds = %17, %13
@@ -37826,9 +37826,9 @@ define void @ClearWindowState(i32 noundef %0) local_unnamed_addr #0 {
 22:                                               ; preds = %18
   %23 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetWindowAttrib(ptr noundef %23, i32 noundef 131075, i32 noundef 0) #54
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %25 = and i32 %24, -5
-  store i32 %25, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %25, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %26
 
 26:                                               ; preds = %22, %18
@@ -37841,9 +37841,9 @@ define void @ClearWindowState(i32 noundef %0) local_unnamed_addr #0 {
 30:                                               ; preds = %26
   %31 = load ptr, ptr @platform.0, align 8
   tail call void @glfwShowWindow(ptr noundef %31) #54
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %33 = and i32 %32, -129
-  store i32 %33, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %33, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %34
 
 34:                                               ; preds = %30, %26
@@ -37860,15 +37860,15 @@ define void @ClearWindowState(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %41, label %42, label %.RestoreWindow.exit_crit_edge
 
 .RestoreWindow.exit_crit_edge:                    ; preds = %38
-  %.pre64 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %.pre64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %RestoreWindow.exit
 
 42:                                               ; preds = %38
   %43 = load ptr, ptr @platform.0, align 8
   tail call void @glfwRestoreWindow(ptr noundef %43) #54
-  %44 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %45 = and i32 %44, -1537
-  store i32 %45, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %45, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %RestoreWindow.exit
 
 RestoreWindow.exit:                               ; preds = %.RestoreWindow.exit_crit_edge, %42, %34
@@ -37885,15 +37885,15 @@ RestoreWindow.exit:                               ; preds = %.RestoreWindow.exit
   br i1 %52, label %53, label %.RestoreWindow.exit62_crit_edge
 
 .RestoreWindow.exit62_crit_edge:                  ; preds = %49
-  %.pre65 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %.pre65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %RestoreWindow.exit62
 
 53:                                               ; preds = %49
   %54 = load ptr, ptr @platform.0, align 8
   tail call void @glfwRestoreWindow(ptr noundef %54) #54
-  %55 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %56 = and i32 %55, -1537
-  store i32 %56, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %56, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %RestoreWindow.exit62
 
 RestoreWindow.exit62:                             ; preds = %.RestoreWindow.exit62_crit_edge, %53, %RestoreWindow.exit
@@ -37906,9 +37906,9 @@ RestoreWindow.exit62:                             ; preds = %.RestoreWindow.exit
 60:                                               ; preds = %RestoreWindow.exit62
   %61 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetWindowAttrib(ptr noundef %61, i32 noundef 131077, i32 noundef 1) #54
-  %62 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %63 = and i32 %62, -9
-  store i32 %63, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %63, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %64
 
 64:                                               ; preds = %60, %RestoreWindow.exit62
@@ -37921,9 +37921,9 @@ RestoreWindow.exit62:                             ; preds = %.RestoreWindow.exit
 68:                                               ; preds = %64
   %69 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetWindowAttrib(ptr noundef %69, i32 noundef 131084, i32 noundef 1) #54
-  %70 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %71 = and i32 %70, -2049
-  store i32 %71, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %71, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %72
 
 72:                                               ; preds = %68, %64
@@ -37936,9 +37936,9 @@ RestoreWindow.exit62:                             ; preds = %.RestoreWindow.exit
 76:                                               ; preds = %72
   %77 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetWindowAttrib(ptr noundef %77, i32 noundef 131079, i32 noundef 0) #54
-  %78 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %79 = and i32 %78, -4097
-  store i32 %79, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %79, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %80
 
 80:                                               ; preds = %76, %72
@@ -37950,7 +37950,7 @@ RestoreWindow.exit62:                             ; preds = %.RestoreWindow.exit
 
 84:                                               ; preds = %80
   %85 = and i32 %81, -257
-  store i32 %85, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %85, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %86
 
 86:                                               ; preds = %84, %80
@@ -37962,7 +37962,7 @@ RestoreWindow.exit62:                             ; preds = %.RestoreWindow.exit
 
 90:                                               ; preds = %86
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.113) #54
-  %.pre66 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %.pre66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %91
 
 91:                                               ; preds = %90, %86
@@ -37974,7 +37974,7 @@ RestoreWindow.exit62:                             ; preds = %.RestoreWindow.exit
 
 95:                                               ; preds = %91
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.114) #54
-  %.pre67 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %.pre67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %96
 
 96:                                               ; preds = %95, %91
@@ -37987,9 +37987,9 @@ RestoreWindow.exit62:                             ; preds = %.RestoreWindow.exit
 100:                                              ; preds = %96
   %101 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetWindowAttrib(ptr noundef %101, i32 noundef 131085, i32 noundef 0) #54
-  %102 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %102 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %103 = and i32 %102, -16385
-  store i32 %103, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %103, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %104
 
 104:                                              ; preds = %100, %96
@@ -38001,7 +38001,7 @@ RestoreWindow.exit62:                             ; preds = %.RestoreWindow.exit
 
 108:                                              ; preds = %104
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.115) #54
-  %.pre68 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %.pre68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %109
 
 109:                                              ; preds = %108, %104
@@ -38158,7 +38158,7 @@ define void @SetWindowMonitor(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %11, label %49
 
 11:                                               ; preds = %1
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 13), align 1
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 13), align 1
   %13 = trunc i8 %12 to i1
   %14 = zext nneg i32 %0 to i64
   %15 = getelementptr inbounds nuw ptr, ptr %7, i64 %14
@@ -38182,8 +38182,8 @@ define void @SetWindowMonitor(i32 noundef %0) local_unnamed_addr #0 {
 
 28:                                               ; preds = %11
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.119, i32 noundef %0, ptr noundef %17) #54
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
   store i32 0, ptr %5, align 4
@@ -38235,16 +38235,16 @@ declare void @glfwGetMonitorWorkarea(ptr noundef, ptr noundef, ptr noundef, ptr 
 
 ; Function Attrs: nounwind uwtable
 define void @SetWindowMinSize(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  store i32 %0, ptr getelementptr inbounds (i8, ptr @CORE, i64 84), align 4
-  store i32 %1, ptr getelementptr inbounds (i8, ptr @CORE, i64 88), align 8
+  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 84), align 4
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 88), align 8
   %3 = icmp eq i32 %0, 0
   %4 = select i1 %3, i32 -1, i32 %0
   %5 = icmp eq i32 %1, 0
   %6 = select i1 %5, i32 -1, i32 %1
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 92), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 92), align 4
   %8 = icmp eq i32 %7, 0
   %9 = select i1 %8, i32 -1, i32 %7
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 96), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 96), align 8
   %11 = icmp eq i32 %10, 0
   %12 = select i1 %11, i32 -1, i32 %10
   %13 = load ptr, ptr @platform.0, align 8
@@ -38256,12 +38256,12 @@ declare void @glfwSetWindowSizeLimits(ptr noundef, i32 noundef, i32 noundef, i32
 
 ; Function Attrs: nounwind uwtable
 define void @SetWindowMaxSize(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  store i32 %0, ptr getelementptr inbounds (i8, ptr @CORE, i64 92), align 4
-  store i32 %1, ptr getelementptr inbounds (i8, ptr @CORE, i64 96), align 8
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 84), align 4
+  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 92), align 4
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 96), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 84), align 4
   %4 = icmp eq i32 %3, 0
   %5 = select i1 %4, i32 -1, i32 %3
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 88), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 88), align 8
   %7 = icmp eq i32 %6, 0
   %8 = select i1 %7, i32 -1, i32 %6
   %9 = icmp eq i32 %0, 0
@@ -38325,7 +38325,7 @@ define i32 @GetMonitorCount() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsWindowFullscreen() local_unnamed_addr #10 {
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 13), align 1
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 13), align 1
   %2 = trunc i8 %1 to i1
   ret i1 %2
 }
@@ -38610,7 +38610,7 @@ declare ptr @glfwGetClipboardString(ptr noundef) local_unnamed_addr #2
 define void @ShowCursor() local_unnamed_addr #0 {
   %1 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetInputMode(ptr noundef %1, i32 noundef 208897, i32 noundef 212993) #54
-  store i8 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 1904), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1904), align 8
   ret void
 }
 
@@ -38620,7 +38620,7 @@ declare void @glfwSetInputMode(ptr noundef, i32 noundef, i32 noundef) local_unna
 define void @HideCursor() local_unnamed_addr #0 {
   %1 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetInputMode(ptr noundef %1, i32 noundef 208897, i32 noundef 212994) #54
-  store i8 1, ptr getelementptr inbounds (i8, ptr @CORE, i64 1904), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1904), align 8
   ret void
 }
 
@@ -38628,21 +38628,21 @@ define void @HideCursor() local_unnamed_addr #0 {
 define void @EnableCursor() local_unnamed_addr #0 {
   %1 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetInputMode(ptr noundef %1, i32 noundef 208897, i32 noundef 212993) #54
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
   %3 = lshr i32 %2, 1
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
   %5 = lshr i32 %4, 1
   %6 = uitofp nneg i32 %3 to float
   %7 = uitofp nneg i32 %5 to float
-  store float %6, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
-  store float %7, ptr getelementptr inbounds (i8, ptr @CORE, i64 1888), align 8
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
-  store i64 %8, ptr getelementptr inbounds (i8, ptr @CORE, i64 1892), align 4
+  store float %6, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1884), align 4
+  store float %7, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1888), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1884), align 4
+  store i64 %8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1892), align 4
   %9 = load ptr, ptr @platform.0, align 8
   %10 = fpext float %6 to double
   %11 = fpext float %7 to double
   tail call void @glfwSetCursorPos(ptr noundef %9, double noundef %10, double noundef %11) #54
-  store i8 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 1904), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1904), align 8
   ret void
 }
 
@@ -38650,10 +38650,10 @@ define void @EnableCursor() local_unnamed_addr #0 {
 define void @SetMousePosition(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sitofp i32 %0 to float
   %4 = sitofp i32 %1 to float
-  store float %3, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
-  store float %4, ptr getelementptr inbounds (i8, ptr @CORE, i64 1888), align 8
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
-  store i64 %5, ptr getelementptr inbounds (i8, ptr @CORE, i64 1892), align 4
+  store float %3, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1884), align 4
+  store float %4, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1888), align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1884), align 4
+  store i64 %5, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1892), align 4
   %6 = load ptr, ptr @platform.0, align 8
   %7 = fpext float %3 to double
   %8 = fpext float %4 to double
@@ -38665,21 +38665,21 @@ define void @SetMousePosition(i32 noundef %0, i32 noundef %1) local_unnamed_addr
 define void @DisableCursor() local_unnamed_addr #0 {
   %1 = load ptr, ptr @platform.0, align 8
   tail call void @glfwSetInputMode(ptr noundef %1, i32 noundef 208897, i32 noundef 212995) #54
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
   %3 = lshr i32 %2, 1
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
   %5 = lshr i32 %4, 1
   %6 = uitofp nneg i32 %3 to float
   %7 = uitofp nneg i32 %5 to float
-  store float %6, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
-  store float %7, ptr getelementptr inbounds (i8, ptr @CORE, i64 1888), align 8
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
-  store i64 %8, ptr getelementptr inbounds (i8, ptr @CORE, i64 1892), align 4
+  store float %6, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1884), align 4
+  store float %7, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1888), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1884), align 4
+  store i64 %8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1892), align 4
   %9 = load ptr, ptr @platform.0, align 8
   %10 = fpext float %6 to double
   %11 = fpext float %7 to double
   tail call void @glfwSetCursorPos(ptr noundef %9, double noundef %10, double noundef %11) #54
-  store i8 1, ptr getelementptr inbounds (i8, ptr @CORE, i64 1904), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1904), align 8
   ret void
 }
 
@@ -38761,7 +38761,7 @@ declare void @glfwSetCursorPos(ptr noundef, double noundef, double noundef) loca
 
 ; Function Attrs: nounwind uwtable
 define void @SetMouseCursor(i32 noundef %0) local_unnamed_addr #0 {
-  store i32 %0, ptr getelementptr inbounds (i8, ptr @CORE, i64 1900), align 4
+  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1900), align 4
   %2 = icmp eq i32 %0, 0
   %3 = load ptr, ptr @platform.0, align 8
   br i1 %2, label %7, label %4
@@ -38787,7 +38787,7 @@ define void @PollInputEvents() local_unnamed_addr #0 {
   %2 = load i32, ptr @GESTURES, align 8
   %3 = add i32 %2, -1
   %or.cond.i = icmp ult i32 %3, 2
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 12), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 12), align 4
   %5 = icmp slt i32 %4, 2
   %or.cond4.i = select i1 %or.cond.i, i1 %5, i1 false
   br i1 %or.cond4.i, label %6, label %8
@@ -38795,7 +38795,7 @@ define void @PollInputEvents() local_unnamed_addr #0 {
 6:                                                ; preds = %0
   store i32 4, ptr @GESTURES, align 8
   %7 = tail call double @glfwGetTime() #54
-  store double %7, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 104), align 8
+  store double %7, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 104), align 8
   %.pre.i = load i32, ptr @GESTURES, align 8
   br label %8
 
@@ -38815,18 +38815,18 @@ define void @PollInputEvents() local_unnamed_addr #0 {
   br label %UpdateGestures.exit
 
 UpdateGestures.exit:                              ; preds = %8, %12
-  store i32 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 1796), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 1864), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 2056), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1796), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1864), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2056), align 8
   br label %13
 
 13:                                               ; preds = %UpdateGestures.exit, %13
   %indvars.iv = phi i64 [ 0, %UpdateGestures.exit ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 196), i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 196), i64 0, i64 %indvars.iv
   %15 = load i8, ptr %14, align 1
-  %16 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 708), i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 708), i64 0, i64 %indvars.iv
   store i8 %15, ptr %16, align 1
-  %17 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1220), i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1220), i64 0, i64 %indvars.iv
   store i8 0, ptr %17, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
@@ -38834,35 +38834,35 @@ UpdateGestures.exit:                              ; preds = %8, %12
 
 .preheader78:                                     ; preds = %13, %.preheader78
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %.preheader78 ], [ 0, %13 ]
-  %18 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1906), i64 0, i64 %indvars.iv89
+  %18 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1906), i64 0, i64 %indvars.iv89
   %19 = load i8, ptr %18, align 1
-  %20 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1914), i64 0, i64 %indvars.iv89
+  %20 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1914), i64 0, i64 %indvars.iv89
   store i8 %19, ptr %20, align 1
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next90, 8
   br i1 %exitcond92.not, label %21, label %.preheader78
 
 21:                                               ; preds = %.preheader78
-  %22 = load i64, ptr getelementptr inbounds (i8, ptr @CORE, i64 1924), align 4
-  store i64 %22, ptr getelementptr inbounds (i8, ptr @CORE, i64 1932), align 4
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @CORE, i64 1924), align 4
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @CORE, i64 1928), align 8
-  %23 = load i64, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
-  store i64 %23, ptr getelementptr inbounds (i8, ptr @CORE, i64 1892), align 4
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1924), align 4
+  store i64 %22, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1932), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1924), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1928), align 8
+  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1884), align 4
+  store i64 %23, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1892), align 4
   br label %24
 
 24:                                               ; preds = %21, %24
   %indvars.iv93 = phi i64 [ 0, %21 ], [ %indvars.iv.next94, %24 ]
-  %25 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2040), i64 0, i64 %indvars.iv93
+  %25 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2040), i64 0, i64 %indvars.iv93
   %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2048), i64 0, i64 %indvars.iv93
+  %27 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2048), i64 0, i64 %indvars.iv93
   store i8 %26, ptr %27, align 1
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next94, 8
   br i1 %exitcond96.not, label %28, label %24
 
 28:                                               ; preds = %24
-  store i64 %23, ptr getelementptr inbounds (i8, ptr @CORE, i64 1976), align 8
+  store i64 %23, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1976), align 8
   br label %30
 
 .preheader77:                                     ; preds = %30
@@ -38875,7 +38875,7 @@ UpdateGestures.exit:                              ; preds = %8, %12
   %32 = tail call i32 @glfwJoystickPresent(i32 noundef %31) #54
   %.not72 = icmp ne i32 %32, 0
   %spec.select = zext i1 %.not72 to i8
-  %33 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), i64 0, i64 %indvars.iv97
+  %33 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2076), i64 0, i64 %indvars.iv97
   store i8 %spec.select, ptr %33, align 1
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next98, 4
@@ -38884,17 +38884,17 @@ UpdateGestures.exit:                              ; preds = %8, %12
 34:                                               ; preds = %.preheader77, %67
   %indvar = phi i64 [ 0, %.preheader77 ], [ %indvar.next, %67 ]
   %35 = shl nuw nsw i64 %indvar, 5
-  %gep = getelementptr i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 2592), i64 %35
-  %36 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), i64 0, i64 %indvar
+  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2592), i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2076), i64 0, i64 %indvar
   %37 = load i8, ptr %36, align 1
   %38 = trunc i8 %37 to i1
   br i1 %38, label %.preheader, label %67
 
 .preheader:                                       ; preds = %34, %.preheader
   %indvars.iv102 = phi i64 [ %indvars.iv.next103, %.preheader ], [ 0, %34 ]
-  %39 = getelementptr inbounds nuw [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2336), i64 0, i64 %indvar, i64 %indvars.iv102
+  %39 = getelementptr inbounds nuw [4 x [32 x i8]], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2336), i64 0, i64 %indvar, i64 %indvars.iv102
   %40 = load i8, ptr %39, align 1
-  %41 = getelementptr inbounds nuw [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2464), i64 0, i64 %indvar, i64 %indvars.iv102
+  %41 = getelementptr inbounds nuw [4 x [32 x i8]], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2464), i64 0, i64 %indvar, i64 %indvars.iv102
   store i8 %40, ptr %41, align 1
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next103, 32
@@ -38916,12 +38916,12 @@ switch.lookup:                                    ; preds = %42, %53
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 1
   %49 = zext nneg i32 %switch.load to i64
-  %50 = getelementptr inbounds nuw [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2336), i64 0, i64 %indvar, i64 %49
+  %50 = getelementptr inbounds nuw [4 x [32 x i8]], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2336), i64 0, i64 %indvar, i64 %49
   br i1 %48, label %51, label %52
 
 51:                                               ; preds = %switch.lookup
   store i8 1, ptr %50, align 1
-  store i32 %switch.load, ptr getelementptr inbounds (i8, ptr @CORE, i64 2056), align 8
+  store i32 %switch.load, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2056), align 8
   br label %53
 
 52:                                               ; preds = %switch.lookup
@@ -38935,12 +38935,12 @@ switch.lookup:                                    ; preds = %42, %53
 
 .critedge.preheader:                              ; preds = %53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %gep, ptr noundef nonnull align 4 dereferenceable(24) %29, i64 24, i1 false)
-  %54 = getelementptr inbounds nuw [4 x [8 x float]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2592), i64 0, i64 %indvar
+  %54 = getelementptr inbounds nuw [4 x [8 x float]], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2592), i64 0, i64 %indvar
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load float, ptr %55, align 8
   %57 = fcmp ogt float %56, 0x3FB99999A0000000
   %58 = zext i1 %57 to i8
-  %59 = getelementptr inbounds nuw [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2336), i64 0, i64 %indvar
+  %59 = getelementptr inbounds nuw [4 x [32 x i8]], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2336), i64 0, i64 %indvar
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 10
   store i8 %58, ptr %60, align 2
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 20
@@ -38949,7 +38949,7 @@ switch.lookup:                                    ; preds = %42, %53
   %64 = zext i1 %63 to i8
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 12
   store i8 %64, ptr %65, align 4
-  %66 = getelementptr inbounds nuw [4 x i32], ptr getelementptr inbounds (i8, ptr @CORE, i64 2060), i64 0, i64 %indvar
+  %66 = getelementptr inbounds nuw [4 x i32], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2060), i64 0, i64 %indvar
   store i32 6, ptr %66, align 4
   br label %67
 
@@ -38959,8 +38959,8 @@ switch.lookup:                                    ; preds = %42, %53
   br i1 %exitcond114.not, label %68, label %34
 
 68:                                               ; preds = %67
-  store i8 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 15), align 1
-  %69 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 16), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 15), align 1
+  %69 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 16), align 8
   %70 = trunc i8 %69 to i1
   br i1 %70, label %71, label %72
 
@@ -38973,14 +38973,14 @@ switch.lookup:                                    ; preds = %42, %53
   br label %73
 
 73:                                               ; preds = %72, %71
-  %74 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %74 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %75 = and i32 %74, 768
   %or.cond.not87 = icmp eq i32 %75, 512
   br i1 %or.cond.not87, label %.lr.ph, label %.critedge7
 
 .lr.ph:                                           ; preds = %73, %.lr.ph
   call void @glfwWaitEvents() #54
-  %76 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %76 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %77 = and i32 %76, 768
   %or.cond.not = icmp eq i32 %77, 512
   br i1 %or.cond.not, label %.lr.ph, label %.critedge7
@@ -38990,7 +38990,7 @@ switch.lookup:                                    ; preds = %42, %53
   %79 = call i32 @glfwWindowShouldClose(ptr noundef %78) #54
   %80 = icmp ne i32 %79, 0
   %81 = zext i1 %80 to i8
-  store i8 %81, ptr getelementptr inbounds (i8, ptr @CORE, i64 14), align 2
+  store i8 %81, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 14), align 2
   %82 = load ptr, ptr @platform.0, align 8
   call void @glfwSetWindowShouldClose(ptr noundef %82, i32 noundef 0) #54
   ret void
@@ -39027,13 +39027,13 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
 
 11:                                               ; preds = %0
   tail call void @glfwDefaultWindowHints() #54
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %13 = and i32 %12, 2
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %15, label %14
 
 14:                                               ; preds = %11
-  store i8 1, ptr getelementptr inbounds (i8, ptr @CORE, i64 13), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 13), align 1
   br label %15
 
 15:                                               ; preds = %14, %11
@@ -39041,23 +39041,23 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
   %.lobit = and i32 %16, 1
   %. = xor i32 %.lobit, 1
   tail call void @glfwWindowHint(i32 noundef 131076, i32 noundef %.) #54
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %18 = lshr i32 %17, 3
   %.lobit98 = and i32 %18, 1
   %.sink89 = xor i32 %.lobit98, 1
   tail call void @glfwWindowHint(i32 noundef 131077, i32 noundef %.sink89) #54
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %20 = lshr i32 %19, 2
   %.lobit99 = and i32 %20, 1
   tail call void @glfwWindowHint(i32 noundef 131075, i32 noundef %.lobit99) #54
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %22 = and i32 %21, 1536
   %.not100 = icmp eq i32 %22, 0
   br i1 %.not100, label %25, label %23
 
 23:                                               ; preds = %15
   %24 = and i32 %21, -1537
-  store i32 %24, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %24, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %25
 
 25:                                               ; preds = %15, %23
@@ -39065,23 +39065,23 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
   %.lobit101 = and i32 %26, 1
   %.97 = xor i32 %.lobit101, 1
   tail call void @glfwWindowHint(i32 noundef 131073, i32 noundef %.97) #54
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %28 = lshr i32 %27, 12
   %.lobit102 = and i32 %28, 1
   tail call void @glfwWindowHint(i32 noundef 131079, i32 noundef %.lobit102) #54
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %30 = lshr i32 %29, 4
   %.lobit103 = and i32 %30, 1
   tail call void @glfwWindowHint(i32 noundef 131082, i32 noundef %.lobit103) #54
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %32 = lshr i32 %31, 13
   %.lobit104 = and i32 %32, 1
   tail call void @glfwWindowHint(i32 noundef 139276, i32 noundef %.lobit104) #54
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %34 = lshr i32 %33, 14
   %.lobit105 = and i32 %34, 1
   tail call void @glfwWindowHint(i32 noundef 131085, i32 noundef %.lobit105) #54
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %36 = and i32 %35, 32
   %.not41 = icmp eq i32 %36, 0
   br i1 %.not41, label %38, label %37
@@ -39108,31 +39108,31 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
 42:                                               ; preds = %38
   %43 = tail call ptr @glfwGetVideoMode(ptr noundef nonnull %40) #54
   %44 = load i32, ptr %43, align 4
-  store i32 %44, ptr getelementptr inbounds (i8, ptr @CORE, i64 36), align 4
+  store i32 %44, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 36), align 4
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %46 = load i32, ptr %45, align 4
-  store i32 %46, ptr getelementptr inbounds (i8, ptr @CORE, i64 40), align 8
-  %47 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  store i32 %46, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 40), align 8
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %42
-  store i32 %44, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  store i32 %44, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
   br label %50
 
 50:                                               ; preds = %49, %42
   %51 = phi i32 [ %44, %49 ], [ %47, %42 ]
-  %52 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %50
-  store i32 %46, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  store i32 %46, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
   br label %55
 
 55:                                               ; preds = %54, %50
   %56 = phi i32 [ %46, %54 ], [ %52, %50 ]
-  %57 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 13), align 1
+  %57 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 13), align 1
   %58 = trunc i8 %57 to i1
   %59 = icmp eq i32 %56, %46
   %60 = icmp eq i32 %51, %44
@@ -39144,7 +39144,7 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
 
 .thread62:                                        ; preds = %61
   %62 = lshr i32 %44, 2
-  store i32 %62, ptr getelementptr inbounds (i8, ptr @CORE, i64 20), align 4
+  store i32 %62, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 20), align 4
   %63 = lshr i32 %46, 2
   br label %.sink.split
 
@@ -39152,16 +39152,16 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
   %65 = lshr i32 %44, 1
   %66 = lshr i32 %51, 1
   %67 = sub nsw i32 %65, %66
-  store i32 %67, ptr getelementptr inbounds (i8, ptr @CORE, i64 20), align 4
+  store i32 %67, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 20), align 4
   %68 = lshr i32 %46, 1
   %69 = lshr i32 %56, 1
   %70 = sub nsw i32 %68, %69
-  store i32 %70, ptr getelementptr inbounds (i8, ptr @CORE, i64 24), align 8
+  store i32 %70, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 24), align 8
   %71 = icmp slt i32 %67, 0
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %64
-  store i32 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 20), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 20), align 4
   br label %73
 
 73:                                               ; preds = %72, %64
@@ -39170,7 +39170,7 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
 
 .sink.split:                                      ; preds = %73, %.thread62
   %.sink96 = phi i32 [ %63, %.thread62 ], [ 0, %73 ]
-  store i32 %.sink96, ptr getelementptr inbounds (i8, ptr @CORE, i64 24), align 8
+  store i32 %.sink96, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 24), align 8
   br label %75
 
 75:                                               ; preds = %.sink.split, %73
@@ -39182,8 +39182,8 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
   br i1 %79, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %75
-  %80 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
-  %81 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
+  %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
   %wide.trip.count = zext nneg i32 %78 to i64
   br label %82
 
@@ -39202,9 +39202,9 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
 
 88:                                               ; preds = %85
   %89 = getelementptr inbounds nuw i8, ptr %83, i64 4
-  store i32 %84, ptr getelementptr inbounds (i8, ptr @CORE, i64 36), align 4
+  store i32 %84, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 36), align 4
   %90 = load i32, ptr %89, align 4
-  store i32 %90, ptr getelementptr inbounds (i8, ptr @CORE, i64 40), align 8
+  store i32 %90, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 40), align 8
   br label %.loopexit
 
 91:                                               ; preds = %82, %85
@@ -39213,28 +39213,28 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
   br i1 %exitcond.not, label %.loopexit, label %82
 
 .loopexit:                                        ; preds = %91, %75, %88
-  %92 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 36), align 4
-  %93 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 40), align 8
+  %92 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 36), align 4
+  %93 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 40), align 8
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.128, i32 noundef %92, i32 noundef %93) #54
-  %94 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
-  %95 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 36), align 4
+  %94 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
+  %95 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 36), align 4
   %96 = icmp ugt i32 %94, %95
-  %.pre24.i = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
-  %.pre25.i = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 40), align 8
+  %.pre24.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
+  %.pre25.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 40), align 8
   %97 = icmp ugt i32 %.pre24.i, %.pre25.i
   %or.cond29.i = select i1 %96, i1 true, i1 %97
   br i1 %or.cond29.i, label %98, label %121
 
 98:                                               ; preds = %.loopexit
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.1367, i32 noundef %94, i32 noundef %.pre24.i, i32 noundef %95, i32 noundef %.pre25.i) #54
-  %99 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 36), align 4
+  %99 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 36), align 4
   %100 = uitofp i32 %99 to float
-  %101 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
   %102 = uitofp i32 %101 to float
   %103 = fdiv float %100, %102
-  %104 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 40), align 8
+  %104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 40), align 8
   %105 = uitofp i32 %104 to float
-  %106 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  %106 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
   %107 = uitofp i32 %106 to float
   %108 = fdiv float %105, %107
   %109 = fcmp ugt float %103, %108
@@ -39260,20 +39260,20 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
   %.pre-phi28.i = phi float [ %.pre27.i, %115 ], [ %103, %110 ]
   %.sink.i = phi i32 [ %119, %115 ], [ 0, %110 ]
   %storemerge.i = phi i32 [ 0, %115 ], [ %114, %110 ]
-  store i32 %.sink.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 76), align 4
-  store i32 %storemerge.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 80), align 8
-  store float %.pre-phi28.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 100), align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 104), i8 0, i64 16, i1 false)
-  store float %.pre-phi28.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 120), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 124), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @CORE, i64 140), align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 144), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @CORE, i64 160), align 8
-  store i32 %99, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
-  store i32 %104, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
+  store i32 %.sink.i, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 76), align 4
+  store i32 %storemerge.i, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 80), align 8
+  store float %.pre-phi28.i, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 100), align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @CORE, i64 104), i8 0, i64 16, i1 false)
+  store float %.pre-phi28.i, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 120), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @CORE, i64 124), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 140), align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @CORE, i64 144), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 160), align 8
+  store i32 %99, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 68), align 4
+  store i32 %104, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 72), align 8
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.1368, i32 noundef %99, i32 noundef %104) #54
-  %.pre82 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 36), align 4
-  %.pre83 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 40), align 8
+  %.pre82 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 36), align 4
+  %.pre83 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 40), align 8
   br label %161
 
 121:                                              ; preds = %.loopexit
@@ -39284,18 +39284,18 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
 
 124:                                              ; preds = %121
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.1369, i32 noundef %94, i32 noundef %.pre24.i, i32 noundef %95, i32 noundef %.pre25.i) #54
-  %125 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  %125 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
   %126 = icmp eq i32 %125, 0
-  %127 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  %127 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
   %128 = icmp eq i32 %127, 0
   %or.cond.i = select i1 %126, i1 true, i1 %128
-  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 36), align 4
-  %.pre23.i = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 40), align 8
+  %.pre.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 36), align 4
+  %.pre23.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 40), align 8
   br i1 %or.cond.i, label %129, label %130
 
 129:                                              ; preds = %124
-  store i32 %.pre.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
-  store i32 %.pre23.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  store i32 %.pre.i, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
+  store i32 %.pre23.i, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
   br label %130
 
 130:                                              ; preds = %129, %124
@@ -39311,32 +39311,32 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
   br i1 %139, label %145, label %140
 
 140:                                              ; preds = %130
-  store i32 %132, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
+  store i32 %132, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 68), align 4
   %141 = fdiv float %136, %135
   %142 = call float @llvm.round.f32(float %141)
   %143 = fptosi float %142 to i32
-  store i32 %143, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 76), align 4
+  store i32 %143, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 72), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 76), align 4
   %144 = sub i32 %143, %131
-  store i32 %144, ptr getelementptr inbounds (i8, ptr @CORE, i64 80), align 8
+  store i32 %144, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 80), align 8
   br label %161
 
 145:                                              ; preds = %130
   %146 = fmul float %135, %137
   %147 = call float @llvm.round.f32(float %146)
   %148 = fptosi float %147 to i32
-  store i32 %148, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
-  store i32 %131, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
+  store i32 %148, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 68), align 4
+  store i32 %131, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 72), align 8
   %149 = sub i32 %148, %132
-  store i32 %149, ptr getelementptr inbounds (i8, ptr @CORE, i64 76), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 80), align 8
+  store i32 %149, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 76), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 80), align 8
   br label %161
 
 150:                                              ; preds = %121
-  store i32 %94, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
-  store i32 %.pre24.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 76), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 80), align 8
+  store i32 %94, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 68), align 4
+  store i32 %.pre24.i, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 72), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 76), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 80), align 8
   br label %161
 
 151:                                              ; preds = %55
@@ -39344,8 +39344,8 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
 
 152:                                              ; preds = %151
   tail call void @glfwWindowHint(i32 noundef 131078, i32 noundef 0) #54
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
-  %.pre81 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
+  %.pre81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
   br label %153
 
 153:                                              ; preds = %152, %151
@@ -39360,10 +39360,10 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
   br i1 %.not44, label %.thread64, label %.thread
 
 .thread:                                          ; preds = %153
-  %159 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
-  store i32 %159, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
-  %160 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
-  store i32 %160, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
+  %159 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
+  store i32 %159, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 68), align 4
+  %160 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
+  store i32 %160, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 72), align 8
   br label %168
 
 161:                                              ; preds = %150, %145, %140, %120
@@ -39392,9 +39392,9 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
   br i1 %or.cond.not, label %208, label %172
 
 172:                                              ; preds = %168
-  store i8 1, ptr getelementptr inbounds (i8, ptr @CORE, i64 12), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 12), align 4
   call void @glfwSwapInterval(i32 noundef 0) #54
-  %173 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %173 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %174 = and i32 %173, 64
   %.not49 = icmp eq i32 %174, 0
   br i1 %.not49, label %176, label %175
@@ -39402,14 +39402,14 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
 175:                                              ; preds = %172
   call void @glfwSwapInterval(i32 noundef 1) #54
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.131) #54
-  %.pre84 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %.pre84 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %176
 
 176:                                              ; preds = %175, %172
   %177 = phi i32 [ %.pre84, %175 ], [ %173, %172 ]
-  %178 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  %178 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
   store i32 %178, ptr %5, align 4
-  %179 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  %179 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
   store i32 %179, ptr %6, align 4
   %180 = and i32 %177, 8192
   %.not50 = icmp eq i32 %180, 0
@@ -39420,48 +39420,48 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
   call void @glfwGetFramebufferSize(ptr noundef %182, ptr noundef nonnull %5, ptr noundef nonnull %6) #54
   %183 = load i32, ptr %5, align 4
   %184 = sitofp i32 %183 to float
-  %185 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  %185 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
   %186 = uitofp i32 %185 to float
   %187 = fdiv float %184, %186
   %188 = load i32, ptr %6, align 4
   %189 = sitofp i32 %188 to float
-  %190 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  %190 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
   %191 = uitofp i32 %190 to float
   %192 = fdiv float %189, %191
-  store float %187, ptr getelementptr inbounds (i8, ptr @CORE, i64 100), align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 104), i8 0, i64 16, i1 false)
-  store float %192, ptr getelementptr inbounds (i8, ptr @CORE, i64 120), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 124), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @CORE, i64 140), align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 144), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @CORE, i64 160), align 8
+  store float %187, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 100), align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @CORE, i64 104), i8 0, i64 16, i1 false)
+  store float %192, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 120), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @CORE, i64 124), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 140), align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @CORE, i64 144), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 160), align 8
   %193 = fdiv float %186, %184
   %194 = fdiv float %191, %189
-  store float %193, ptr getelementptr inbounds (i8, ptr @CORE, i64 1876), align 4
-  store float %194, ptr getelementptr inbounds (i8, ptr @CORE, i64 1880), align 8
+  store float %193, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1876), align 4
+  store float %194, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1880), align 8
   br label %195
 
 195:                                              ; preds = %181, %176
   %196 = phi i32 [ %188, %181 ], [ %179, %176 ]
   %197 = phi i32 [ %183, %181 ], [ %178, %176 ]
-  store i32 %197, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
-  store i32 %196, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
-  store i32 %197, ptr getelementptr inbounds (i8, ptr @CORE, i64 60), align 4
-  store i32 %196, ptr getelementptr inbounds (i8, ptr @CORE, i64 64), align 8
+  store i32 %197, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 68), align 4
+  store i32 %196, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 72), align 8
+  store i32 %197, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 60), align 4
+  store i32 %196, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 64), align 8
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.132) #54
-  %198 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 36), align 4
-  %199 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 40), align 8
+  %198 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 36), align 4
+  %199 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 40), align 8
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.133, i32 noundef %198, i32 noundef %199) #54
-  %200 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
-  %201 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  %200 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
+  %201 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.134, i32 noundef %200, i32 noundef %201) #54
-  %202 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
-  %203 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
+  %202 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 68), align 4
+  %203 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 72), align 8
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.135, i32 noundef %202, i32 noundef %203) #54
-  %204 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 76), align 4
-  %205 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 80), align 8
+  %204 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 76), align 4
+  %205 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 80), align 8
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.136, i32 noundef %204, i32 noundef %205) #54
-  %206 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %206 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %207 = and i32 %206, 512
   %.not51 = icmp eq i32 %207, 0
   br i1 %.not51, label %211, label %209
@@ -39476,7 +39476,7 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
   br label %211
 
 211:                                              ; preds = %209, %195
-  %212 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 12), align 4
+  %212 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 12), align 4
   %213 = trunc i8 %212 to i1
   br i1 %213, label %215, label %214
 
@@ -39519,7 +39519,7 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
 GetMonitorWidth.exit:                             ; preds = %226, %229, %230
   %.0.i = phi i32 [ %228, %226 ], [ 0, %229 ], [ 0, %230 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %231 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  %231 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
   %232 = lshr i32 %231, 1
   %233 = sub i32 %.0.i, %232
   %234 = call i32 @GetCurrentMonitor()
@@ -39557,7 +39557,7 @@ GetMonitorWidth.exit:                             ; preds = %226, %229, %230
 GetMonitorHeight.exit:                            ; preds = %244, %248, %249
   %.0.i56 = phi i32 [ %247, %244 ], [ 0, %248 ], [ 0, %249 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  %250 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  %250 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
   %251 = lshr i32 %250, 1
   %252 = sub i32 %.0.i56, %251
   %253 = load ptr, ptr @platform.0, align 8
@@ -39573,7 +39573,7 @@ GetMonitorHeight.exit:                            ; preds = %244, %248, %249
   %261 = call ptr @glfwSetWindowFocusCallback(ptr noundef %260, ptr noundef nonnull @WindowFocusCallback) #54
   %262 = load ptr, ptr @platform.0, align 8
   %263 = call ptr @glfwSetDropCallback(ptr noundef %262, ptr noundef nonnull @WindowDropCallback) #54
-  %264 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %264 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %265 = and i32 %264, 8192
   %.not52 = icmp eq i32 %265, 0
   br i1 %.not52, label %269, label %266
@@ -39609,7 +39609,7 @@ GetMonitorHeight.exit:                            ; preds = %244, %248, %249
   br i1 %.not53, label %291, label %287
 
 287:                                              ; preds = %284
-  %288 = getelementptr inbounds nuw [4 x [64 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2080), i64 0, i64 %indvars.iv77
+  %288 = getelementptr inbounds nuw [4 x [64 x i8]], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2080), i64 0, i64 %indvars.iv77
   %289 = call ptr @glfwGetJoystickName(i32 noundef %285) #54
   %290 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %288, ptr noundef nonnull dereferenceable(1) %289) #54
   br label %291
@@ -39632,7 +39632,7 @@ GetMonitorHeight.exit:                            ; preds = %244, %248, %249
   %298 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %299 = load i64, ptr %298, align 8
   %300 = add i64 %297, %299
-  store i64 %300, ptr getelementptr inbounds (i8, ptr @CORE, i64 2768), align 8
+  store i64 %300, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2768), align 8
   br label %InitTimer.exit
 
 301:                                              ; preds = %292
@@ -39641,11 +39641,11 @@ GetMonitorHeight.exit:                            ; preds = %244, %248, %249
 
 InitTimer.exit:                                   ; preds = %295, %301
   %302 = call double @glfwGetTime() #54
-  store double %302, ptr getelementptr inbounds (i8, ptr @CORE, i64 2728), align 8
+  store double %302, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2728), align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) @GetWorkingDirectory.currentDir, i8 0, i64 4096, i1 false)
   %303 = call ptr @getcwd(ptr noundef nonnull @GetWorkingDirectory.currentDir, i64 noundef 4095) #54
-  store ptr %303, ptr getelementptr inbounds (i8, ptr @CORE, i64 184), align 8
+  store ptr %303, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 184), align 8
   %304 = call i32 @glfwGetPlatform() #54
   %switch.tableidx = add i32 %304, -393217
   %305 = icmp ult i32 %switch.tableidx, 5
@@ -39700,8 +39700,8 @@ declare void @glfwGetFramebufferSize(ptr noundef, ptr noundef, ptr noundef) loca
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @SetMouseScale(float noundef %0, float noundef %1) local_unnamed_addr #1 {
-  store float %0, ptr getelementptr inbounds (i8, ptr @CORE, i64 1876), align 4
-  store float %1, ptr getelementptr inbounds (i8, ptr @CORE, i64 1880), align 8
+  store float %0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1876), align 4
+  store float %1, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1880), align 8
   ret void
 }
 
@@ -39712,46 +39712,46 @@ declare ptr @glfwSetWindowSizeCallback(ptr noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define internal void @WindowSizeCallback(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2) #25 {
   %4 = alloca %struct.Vector2, align 8
-  store i32 %1, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
-  store i32 %2, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 76), align 4
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 68), align 4
+  store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 72), align 8
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 76), align 4
   %6 = sdiv i32 %5, 2
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 80), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 80), align 8
   %8 = sdiv i32 %7, 2
   %9 = load ptr, ptr @glad_glViewport, align 8
   tail call void %9(i32 noundef %6, i32 noundef %8, i32 noundef %1, i32 noundef %2) #54
-  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 144), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
-  store i32 5889, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 144), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 148), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 164), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 168), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 184), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 188), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 204), align 4
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
+  store ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 144), ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
+  store i32 5889, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 68), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 144), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 148), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 164), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 168), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 184), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 188), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 204), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 68), align 4
   %11 = uitofp i32 %10 to double
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 72), align 8
   %13 = uitofp i32 %12 to double
   tail call void @rlOrtho(double noundef 0.000000e+00, double noundef %11, double noundef %13, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 1.000000e+00)
-  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
-  store i32 5888, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 84), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 100), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 104), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 120), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 124), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 140), align 4
-  store i32 %1, ptr getelementptr inbounds (i8, ptr @CORE, i64 60), align 4
-  store i32 %2, ptr getelementptr inbounds (i8, ptr @CORE, i64 64), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @CORE, i64 15), align 1
-  %14 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 13), align 1
+  store ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 80), ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
+  store i32 5888, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 68), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 80), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 84), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 100), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 104), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 120), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 124), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 140), align 4
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 60), align 4
+  store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 64), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 15), align 1
+  %14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 13), align 1
   %15 = trunc i8 %14 to i1
   br i1 %15, label %30, label %16
 
 16:                                               ; preds = %3
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %18 = and i32 %17, 8192
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %29, label %19
@@ -39768,7 +39768,7 @@ define internal void @WindowSizeCallback(ptr nocapture readnone %0, i32 noundef 
   %.sroa.0.0.vec.extract = extractelement <2 x float> %22, i64 0
   %24 = fdiv float %23, %.sroa.0.0.vec.extract
   %25 = fptoui float %24 to i32
-  store i32 %25, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  store i32 %25, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
   %26 = sitofp i32 %2 to float
   %.sroa.0.4.vec.extract = extractelement <2 x float> %22, i64 1
   %27 = fdiv float %26, %.sroa.0.4.vec.extract
@@ -39776,12 +39776,12 @@ define internal void @WindowSizeCallback(ptr nocapture readnone %0, i32 noundef 
   br label %.sink.split
 
 29:                                               ; preds = %16
-  store i32 %1, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %29
   %.sink = phi i32 [ %2, %29 ], [ %28, %19 ]
-  store i32 %.sink, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  store i32 %.sink, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
   br label %30
 
 30:                                               ; preds = %.sink.split, %3
@@ -39793,11 +39793,11 @@ declare ptr @glfwSetWindowMaximizeCallback(ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @WindowMaximizeCallback(ptr nocapture readnone %0, i32 noundef %1) #11 {
   %.not = icmp eq i32 %1, 0
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %4 = and i32 %3, -1025
   %masksel = select i1 %.not, i32 0, i32 1024
   %storemerge = or disjoint i32 %4, %masksel
-  store i32 %storemerge, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %storemerge, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   ret void
 }
 
@@ -39806,11 +39806,11 @@ declare ptr @glfwSetWindowIconifyCallback(ptr noundef, ptr noundef) local_unname
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @WindowIconifyCallback(ptr nocapture readnone %0, i32 noundef %1) #11 {
   %.not = icmp eq i32 %1, 0
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %4 = and i32 %3, -513
   %masksel = select i1 %.not, i32 0, i32 512
   %storemerge = or disjoint i32 %4, %masksel
-  store i32 %storemerge, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %storemerge, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   ret void
 }
 
@@ -39819,11 +39819,11 @@ declare ptr @glfwSetWindowFocusCallback(ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @WindowFocusCallback(ptr nocapture readnone %0, i32 noundef %1) #11 {
   %.not = icmp eq i32 %1, 0
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %4 = and i32 %3, -2049
   %masksel = select i1 %.not, i32 2048, i32 0
   %storemerge = or disjoint i32 %4, %masksel
-  store i32 %storemerge, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %storemerge, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   ret void
 }
 
@@ -39835,48 +39835,48 @@ define internal void @WindowDropCallback(ptr nocapture readnone %0, i32 noundef 
   br i1 %4, label %5, label %.loopexit
 
 5:                                                ; preds = %3
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 176), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 176), align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.lr.ph15.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %5 ]
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @CORE, i64 168), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 168), align 8
   %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %9) #54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 176), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 176), align 8
   %11 = zext i32 %10 to i64
   %12 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @CORE, i64 168), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 168), align 8
   tail call void @free(ptr noundef %13) #54
   br label %.lr.ph15.preheader
 
 .lr.ph15.preheader:                               ; preds = %5, %._crit_edge
-  store i32 %1, ptr getelementptr inbounds (i8, ptr @CORE, i64 176), align 8
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 176), align 8
   %14 = zext nneg i32 %1 to i64
   %15 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 8) #57
-  store ptr %15, ptr getelementptr inbounds (i8, ptr @CORE, i64 168), align 8
+  store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 168), align 8
   br label %.lr.ph15
 
 .lr.ph15:                                         ; preds = %.lr.ph15.preheader, %.lr.ph15
   %indvars.iv18 = phi i64 [ 0, %.lr.ph15.preheader ], [ %indvars.iv.next19, %.lr.ph15 ]
   %16 = tail call noalias dereferenceable_or_null(4096) ptr @calloc(i64 noundef 4096, i64 noundef 1) #57
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @CORE, i64 168), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 168), align 8
   %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv18
   store ptr %16, ptr %18, align 8
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @CORE, i64 168), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 168), align 8
   %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv18
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv18
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %23) #54
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 176), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 176), align 8
   %26 = zext i32 %25 to i64
   %27 = icmp samesign ult i64 %indvars.iv.next19, %26
   br i1 %27, label %.lr.ph15, label %.loopexit
@@ -39889,13 +39889,13 @@ declare ptr @glfwSetWindowContentScaleCallback(ptr noundef, ptr noundef) local_u
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @WindowContentScaleCallback(ptr nocapture readnone %0, float noundef %1, float noundef %2) #1 {
-  store float %1, ptr getelementptr inbounds (i8, ptr @CORE, i64 100), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 104), i8 0, i64 16, i1 false)
-  store float %2, ptr getelementptr inbounds (i8, ptr @CORE, i64 120), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 124), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @CORE, i64 140), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 144), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @CORE, i64 160), align 8
+  store float %1, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 100), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @CORE, i64 104), i8 0, i64 16, i1 false)
+  store float %2, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 120), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @CORE, i64 124), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 140), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @CORE, i64 144), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 160), align 8
   ret void
 }
 
@@ -39939,12 +39939,12 @@ switch.lookup:                                    ; preds = %7
 
 18:                                               ; preds = %15, %12
   %19 = zext nneg i32 %1 to i64
-  %20 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 196), i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 196), i64 0, i64 %19
   store i8 1, ptr %20, align 1
   br label %21
 
 21:                                               ; preds = %18, %15
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1796), align 4
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1796), align 4
   %23 = icmp slt i32 %22, 16
   %24 = icmp eq i32 %3, 1
   %or.cond = and i1 %24, %23
@@ -39952,15 +39952,15 @@ switch.lookup:                                    ; preds = %7
 
 25:                                               ; preds = %21
   %26 = sext i32 %22 to i64
-  %27 = getelementptr inbounds [16 x i32], ptr getelementptr inbounds (i8, ptr @CORE, i64 1732), i64 0, i64 %26
+  %27 = getelementptr inbounds [16 x i32], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1732), i64 0, i64 %26
   store i32 %1, ptr %27, align 4
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1796), align 4
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1796), align 4
   %29 = add nsw i32 %28, 1
-  store i32 %29, ptr getelementptr inbounds (i8, ptr @CORE, i64 1796), align 4
+  store i32 %29, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1796), align 4
   br label %30
 
 30:                                               ; preds = %25, %21
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 192), align 8
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 192), align 8
   %32 = icmp eq i32 %1, %31
   %or.cond3 = and i1 %24, %32
   br i1 %or.cond3, label %33, label %35
@@ -39978,17 +39978,17 @@ declare ptr @glfwSetCharCallback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @CharCallback(ptr nocapture readnone %0, i32 noundef %1) #11 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1864), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1864), align 8
   %4 = icmp slt i32 %3, 16
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
   %6 = sext i32 %3 to i64
-  %7 = getelementptr inbounds [16 x i32], ptr getelementptr inbounds (i8, ptr @CORE, i64 1800), i64 0, i64 %6
+  %7 = getelementptr inbounds [16 x i32], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1800), i64 0, i64 %6
   store i32 %1, ptr %7, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1864), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1864), align 8
   %9 = add nsw i32 %8, 1
-  store i32 %9, ptr getelementptr inbounds (i8, ptr @CORE, i64 1864), align 8
+  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1864), align 8
   br label %10
 
 10:                                               ; preds = %5, %2
@@ -40002,9 +40002,9 @@ define internal void @MouseButtonCallback(ptr nocapture readnone %0, i32 noundef
   %5 = alloca %struct.GestureEvent, align 8
   %6 = trunc i32 %2 to i8
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1906), i64 0, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1906), i64 0, i64 %7
   store i8 %6, ptr %8, align 1
-  %9 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2040), i64 0, i64 %7
+  %9 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2040), i64 0, i64 %7
   store i8 %6, ptr %9, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 104, i1 false)
   %sext.mask = and i32 %2, 255
@@ -40012,7 +40012,7 @@ define internal void @MouseButtonCallback(ptr nocapture readnone %0, i32 noundef
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1914), i64 0, i64 %7
+  %12 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1914), i64 0, i64 %7
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %15, label %16
@@ -40027,21 +40027,21 @@ define internal void @MouseButtonCallback(ptr nocapture readnone %0, i32 noundef
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %20 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
-  %21 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1868), align 4
+  %20 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1884), align 4
+  %21 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1868), align 4
   %22 = fadd float %20, %21
-  %23 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1876), align 4
+  %23 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1876), align 4
   %24 = fmul float %22, %23
-  %25 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1888), align 8
-  %26 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1872), align 8
+  %25 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1888), align 8
+  %26 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1872), align 8
   %27 = fadd float %25, %26
-  %28 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1880), align 8
+  %28 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1880), align 8
   %29 = fmul float %27, %28
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
   %31 = sitofp i32 %30 to float
   %32 = fdiv float %24, %31
   store float %32, ptr %19, align 8
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
   %34 = sitofp i32 %33 to float
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %36 = fdiv float %29, %34
@@ -40056,24 +40056,24 @@ declare ptr @glfwSetCursorPosCallback(ptr noundef, ptr noundef) local_unnamed_ad
 define internal void @MouseCursorPosCallback(ptr nocapture readnone %0, double noundef %1, double noundef %2) #0 {
   %4 = alloca %struct.GestureEvent, align 8
   %5 = fptrunc double %1 to float
-  store float %5, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
+  store float %5, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1884), align 4
   %6 = fptrunc double %2 to float
-  store float %6, ptr getelementptr inbounds (i8, ptr @CORE, i64 1888), align 8
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
-  store i64 %7, ptr getelementptr inbounds (i8, ptr @CORE, i64 1976), align 8
+  store float %6, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1888), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1884), align 4
+  store i64 %7, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1976), align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %8, i8 0, i64 96, i1 false)
   store i32 2, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 1, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
   %12 = sitofp i32 %11 to float
   %13 = trunc i64 %7 to i32
   %14 = bitcast i32 %13 to float
   %15 = fdiv float %14, %12
   store float %15, ptr %10, align 8
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
   %17 = sitofp i32 %16 to float
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %19 = lshr i64 %7, 32
@@ -40091,8 +40091,8 @@ declare ptr @glfwSetScrollCallback(ptr noundef, ptr noundef) local_unnamed_addr 
 define internal void @MouseScrollCallback(ptr nocapture readnone %0, double noundef %1, double noundef %2) #1 {
   %4 = fptrunc double %1 to float
   %5 = fptrunc double %2 to float
-  store float %4, ptr getelementptr inbounds (i8, ptr @CORE, i64 1924), align 4
-  store float %5, ptr getelementptr inbounds (i8, ptr @CORE, i64 1928), align 8
+  store float %4, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1924), align 4
+  store float %5, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1928), align 8
   ret void
 }
 
@@ -40102,7 +40102,7 @@ declare ptr @glfwSetCursorEnterCallback(ptr noundef, ptr noundef) local_unnamed_
 define internal void @CursorEnterCallback(ptr nocapture readnone %0, i32 noundef %1) #1 {
   %.not = icmp ne i32 %1, 0
   %. = zext i1 %.not to i8
-  store i8 %., ptr getelementptr inbounds (i8, ptr @CORE, i64 1905), align 1
+  store i8 %., ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1905), align 1
   ret void
 }
 
@@ -40115,14 +40115,14 @@ define internal void @JoystickCallback(i32 noundef %0, i32 noundef %1) #0 {
 
 3:                                                ; preds = %2
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds [4 x [64 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2080), i64 0, i64 %4
+  %5 = getelementptr inbounds [4 x [64 x i8]], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2080), i64 0, i64 %4
   %6 = tail call ptr @glfwGetJoystickName(i32 noundef %0) #54
   %7 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %6) #54
   br label %11
 
 8:                                                ; preds = %2
   %9 = sext i32 %0 to i64
-  %10 = getelementptr inbounds [4 x [64 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2080), i64 0, i64 %9
+  %10 = getelementptr inbounds [4 x [64 x i8]], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2080), i64 0, i64 %9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false)
   br label %11
 
@@ -40173,16 +40173,16 @@ define void @InitWindow(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_un
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.153) #54
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.154) #54
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.155) #54
-  store i32 %0, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
-  store i32 %1, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 16), align 8
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @CORE, i64 100), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 104), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @CORE, i64 120), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 124), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @CORE, i64 140), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 144), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @CORE, i64 160), align 8
+  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 16), align 8
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 100), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @CORE, i64 104), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 120), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @CORE, i64 124), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 140), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @CORE, i64 144), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 160), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %11
 
@@ -40196,48 +40196,48 @@ define void @InitWindow(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_un
   br label %14
 
 14:                                               ; preds = %13, %11, %3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2528) getelementptr inbounds (i8, ptr @CORE, i64 192), i8 0, i64 2528, i1 false)
-  store i32 256, ptr getelementptr inbounds (i8, ptr @CORE, i64 192), align 8
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @CORE, i64 1876), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @CORE, i64 1880), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @CORE, i64 1900), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2528) getelementptr inbounds nuw (i8, ptr @CORE, i64 192), i8 0, i64 2528, i1 false)
+  store i32 256, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 192), align 8
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1876), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1880), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1900), align 4
   %15 = tail call i32 @InitPlatform()
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 60), align 4
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 64), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 60), align 4
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 64), align 8
   tail call void @rlglInit(i32 noundef %16, i32 noundef %17)
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 60), align 4
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 64), align 8
-  store i32 %18, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
-  store i32 %19, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 76), align 4
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 60), align 4
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 64), align 8
+  store i32 %18, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 68), align 4
+  store i32 %19, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 72), align 8
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 76), align 4
   %21 = sdiv i32 %20, 2
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 80), align 8
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 80), align 8
   %23 = sdiv i32 %22, 2
   %24 = load ptr, ptr @glad_glViewport, align 8
   tail call void %24(i32 noundef %21, i32 noundef %23, i32 noundef %18, i32 noundef %19) #54
-  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 144), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
-  store i32 5889, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 144), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 148), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 164), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 168), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 184), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 188), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 204), align 4
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
+  store ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 144), ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
+  store i32 5889, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 68), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 144), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 148), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 164), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 168), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 184), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 188), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 204), align 4
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 68), align 4
   %26 = uitofp i32 %25 to double
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 72), align 8
   %28 = uitofp i32 %27 to double
   tail call void @rlOrtho(double noundef 0.000000e+00, double noundef %26, double noundef %28, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 1.000000e+00)
-  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
-  store i32 5888, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 84), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 100), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 104), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 120), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 124), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 140), align 4
+  store ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 80), ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
+  store i32 5888, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 68), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 80), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 84), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 100), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 104), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 120), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 124), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 140), align 4
   tail call void @LoadFontDefault() #54
   call void @GetFontDefault(ptr dead_on_unwind nonnull writable sret(%struct.Font) align 8 %4) #54
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -40246,7 +40246,7 @@ define void @InitWindow(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_un
   %.sroa.07.0.copyload = load float, ptr %31, align 4
   %.sroa.39.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 1524
   %.sroa.39.0.copyload = load float, ptr %.sroa.39.0..sroa_idx, align 4
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %33 = and i32 %32, 32
   %.not16 = icmp eq i32 %33, 0
   br i1 %.not16, label %38, label %34
@@ -40282,7 +40282,7 @@ define void @InitWindow(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_un
   br label %44
 
 44:                                               ; preds = %38, %34
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %46 = and i32 %45, 8192
   %.not17 = icmp eq i32 %46, 0
   br i1 %.not17, label %60, label %47
@@ -40313,8 +40313,8 @@ define void @InitWindow(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_un
   br label %60
 
 60:                                               ; preds = %47, %44
-  store i32 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 14), align 2
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2776), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 14), align 2
   %61 = call i64 @time(ptr noundef null) #54
   %62 = and i64 %61, 4294967295
   %63 = add nuw nsw i64 %62, -7046029254386353131
@@ -40450,38 +40450,38 @@ msf_gif_free.exit:                                ; preds = %4, %5
 
 6:                                                ; preds = %msf_gif_free.exit, %0
   tail call void @UnloadFontDefault() #54
-  tail call void @rlUnloadRenderBatch(ptr noundef nonnull byval(%struct.rlRenderBatch) align 8 getelementptr inbounds (i8, ptr @RLGL, i64 8))
+  tail call void @rlUnloadRenderBatch(ptr noundef nonnull byval(%struct.rlRenderBatch) align 8 getelementptr inbounds nuw (i8, ptr @RLGL, i64 8))
   %7 = load ptr, ptr @glad_glUseProgram, align 8
   tail call void %7(i32 noundef 0) #54
   %8 = load ptr, ptr @glad_glDetachShader, align 8
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2348), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2356), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2348), align 4
   tail call void %8(i32 noundef %9, i32 noundef %10) #54
   %11 = load ptr, ptr @glad_glDetachShader, align 8
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2352), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2356), align 4
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2352), align 8
   tail call void %11(i32 noundef %12, i32 noundef %13) #54
   %14 = load ptr, ptr @glad_glDeleteShader, align 8
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2348), align 4
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2348), align 4
   tail call void %14(i32 noundef %15) #54
   %16 = load ptr, ptr @glad_glDeleteShader, align 8
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2352), align 8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2352), align 8
   tail call void %16(i32 noundef %17) #54
   %18 = load ptr, ptr @glad_glDeleteProgram, align 8
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2356), align 4
   tail call void %18(i32 noundef %19) #54
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2360), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2360), align 8
   tail call void @free(ptr noundef %20) #54
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2356), align 4
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.1340, i32 noundef %21) #54
   %22 = load ptr, ptr @glad_glDeleteTextures, align 8
-  tail call void %22(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @RLGL, i64 2328)) #54
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2328), align 8
+  tail call void %22(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @RLGL, i64 2328)) #54
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2328), align 8
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.18, i32 noundef %23) #54
   %24 = load ptr, ptr @platform.0, align 8
   tail call void @glfwDestroyWindow(ptr noundef %24) #54
   tail call void @glfwTerminate() #54
-  store i8 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 12), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 12), align 4
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.156) #54
   ret void
 }
@@ -40490,14 +40490,14 @@ declare void @UnloadFontDefault() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsWindowReady() local_unnamed_addr #10 {
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 12), align 4
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 12), align 4
   %2 = trunc i8 %1 to i1
   ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsWindowHidden() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %2 = and i32 %1, 128
   %3 = icmp ne i32 %2, 0
   ret i1 %3
@@ -40505,7 +40505,7 @@ define zeroext i1 @IsWindowHidden() local_unnamed_addr #10 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsWindowMinimized() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %2 = and i32 %1, 512
   %3 = icmp ne i32 %2, 0
   ret i1 %3
@@ -40513,7 +40513,7 @@ define zeroext i1 @IsWindowMinimized() local_unnamed_addr #10 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsWindowMaximized() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %2 = and i32 %1, 1024
   %3 = icmp ne i32 %2, 0
   ret i1 %3
@@ -40521,7 +40521,7 @@ define zeroext i1 @IsWindowMaximized() local_unnamed_addr #10 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsWindowFocused() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %2 = and i32 %1, 2048
   %3 = icmp eq i32 %2, 0
   ret i1 %3
@@ -40529,57 +40529,57 @@ define zeroext i1 @IsWindowFocused() local_unnamed_addr #10 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsWindowResized() local_unnamed_addr #10 {
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 15), align 1
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 15), align 1
   %2 = trunc i8 %1 to i1
   ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetScreenWidth() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetScreenHeight() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetRenderWidth() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 68), align 4
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetRenderHeight() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 72), align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @EnableEventWaiting() local_unnamed_addr #1 {
-  store i8 1, ptr getelementptr inbounds (i8, ptr @CORE, i64 16), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 16), align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @DisableEventWaiting() local_unnamed_addr #1 {
-  store i8 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 16), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 16), align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsCursorHidden() local_unnamed_addr #10 {
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 1904), align 8
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1904), align 8
   %2 = trunc i8 %1 to i1
   ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsCursorOnScreen() local_unnamed_addr #10 {
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 1905), align 1
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1905), align 1
   %2 = trunc i8 %1 to i1
   ret i1 %2
 }
@@ -40612,12 +40612,12 @@ define void @ClearBackground(i32 %0) local_unnamed_addr #0 {
 define void @BeginDrawing() local_unnamed_addr #0 {
   %1 = alloca %struct.float16, align 4
   %2 = tail call double @glfwGetTime() #54
-  store double %2, ptr getelementptr inbounds (i8, ptr @CORE, i64 2720), align 8
-  %3 = load double, ptr getelementptr inbounds (i8, ptr @CORE, i64 2728), align 8
+  store double %2, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2720), align 8
+  %3 = load double, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2728), align 8
   %4 = fsub double %2, %3
-  store double %4, ptr getelementptr inbounds (i8, ptr @CORE, i64 2736), align 8
-  store double %2, ptr getelementptr inbounds (i8, ptr @CORE, i64 2728), align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  store double %4, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2736), align 8
+  store double %2, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2728), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
   store float 1.000000e+00, ptr %5, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.2.0..sroa_idx.i, i8 0, i64 16, i1 false)
@@ -40631,22 +40631,22 @@ define void @BeginDrawing() local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5.0..sroa_idx.i, i8 0, i64 16, i1 false)
   %.sroa.52.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 60
   store float 1.000000e+00, ptr %.sroa.52.0..sroa_idx.i, align 4
-  %.sroa.01.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 100), align 4
-  %.sroa.2.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 104), align 8
-  %.sroa.3.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 108), align 4
-  %.sroa.42.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 112), align 8
-  %.sroa.53.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 116), align 4
-  %.sroa.64.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 120), align 8
-  %.sroa.75.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 124), align 4
-  %.sroa.86.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 128), align 8
-  %.sroa.97.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 132), align 4
-  %.sroa.108.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 136), align 8
-  %.sroa.119.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 140), align 4
-  %.sroa.1210.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 144), align 8
-  %.sroa.1311.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 148), align 4
-  %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 152), align 8
-  %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 156), align 4
-  %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 160), align 8
+  %.sroa.01.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 100), align 4
+  %.sroa.2.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 104), align 8
+  %.sroa.3.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 108), align 4
+  %.sroa.42.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 112), align 8
+  %.sroa.53.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 116), align 4
+  %.sroa.64.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 120), align 8
+  %.sroa.75.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 124), align 4
+  %.sroa.86.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 128), align 8
+  %.sroa.97.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 132), align 4
+  %.sroa.108.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 136), align 8
+  %.sroa.119.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 140), align 4
+  %.sroa.1210.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 144), align 8
+  %.sroa.1311.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 148), align 4
+  %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 152), align 8
+  %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 156), align 4
+  %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 160), align 8
   store float %.sroa.01.0.copyload, ptr %1, align 4, !alias.scope !19
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %.sroa.53.0.copyload, ptr %6, align 4, !alias.scope !19
@@ -40710,12 +40710,12 @@ define void @EndDrawing() local_unnamed_addr #25 {
   call void @glfwGetWindowContentScale(ptr noundef %14, ptr noundef nonnull %3, ptr noundef nonnull %15) #54
   %16 = load <2 x float>, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 68), align 4
   %18 = uitofp i32 %17 to float
   %.sroa.08.0.vec.extract = extractelement <2 x float> %16, i64 0
   %19 = fmul float %.sroa.08.0.vec.extract, %18
   %20 = fptosi float %19 to i32
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 72), align 8
   %22 = uitofp i32 %21 to float
   %.sroa.08.4.vec.extract = extractelement <2 x float> %16, i64 1
   %23 = fmul float %.sroa.08.4.vec.extract, %22
@@ -40771,7 +40771,7 @@ define void @EndDrawing() local_unnamed_addr #25 {
 
 rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %13
   call void @free(ptr noundef %28) #54
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 68), align 4
   %46 = uitofp i32 %45 to float
   %47 = fmul float %.sroa.08.0.vec.extract, %46
   %48 = fptosi float %47 to i32
@@ -40789,10 +40789,10 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   br i1 %.not, label %60, label %55
 
 55:                                               ; preds = %51
-  %56 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
   %57 = add i32 %56, -20
   call void @DrawCircle(i32 noundef 30, i32 noundef %57, float noundef 1.000000e+01, i32 -13164098) #54
-  %58 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
   %59 = add i32 %58, -25
   call void @DrawText(ptr noundef nonnull @.str.157, i32 noundef 50, i32 noundef %59, i32 noundef 10, i32 -13162010) #54
   br label %60
@@ -40824,19 +40824,19 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %71 = phi ptr [ %166, %69 ], [ %64, %63 ]
   %72 = phi i32 [ %165, %69 ], [ %66, %63 ]
   %indvars.iv.i13 = phi i64 [ %indvars.iv.next.i14, %69 ], [ 0, %63 ]
-  %73 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 708), i64 0, i64 %indvars.iv.i13
+  %73 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 708), i64 0, i64 %indvars.iv.i13
   %74 = load i8, ptr %73, align 1
   %.not65.i = icmp eq i8 %74, 0
   br i1 %.not65.i, label %117, label %75
 
 75:                                               ; preds = %.preheader74.i
-  %76 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 196), i64 0, i64 %indvars.iv.i13
+  %76 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 196), i64 0, i64 %indvars.iv.i13
   %77 = load i8, ptr %76, align 1
   %.not66.i = icmp eq i8 %77, 0
   br i1 %.not66.i, label %78, label %117
 
 78:                                               ; preds = %75
-  %79 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
+  %79 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2776), align 8
   %80 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %71, i64 4
@@ -40893,13 +40893,13 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   br i1 %122, label %RecordAutomationEvent.exit, label %123
 
 123:                                              ; preds = %117
-  %124 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 196), i64 0, i64 %indvars.iv.i13
+  %124 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 196), i64 0, i64 %indvars.iv.i13
   %125 = load i8, ptr %124, align 1
   %.not67.i = icmp eq i8 %125, 0
   br i1 %.not67.i, label %._crit_edge.i, label %126
 
 126:                                              ; preds = %123
-  %127 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
+  %127 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2776), align 8
   %128 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %129 = load ptr, ptr %128, align 8
   %130 = zext i32 %121 to i64
@@ -40963,19 +40963,19 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %170 = phi ptr [ %265, %168 ], [ %166, %69 ]
   %171 = phi i32 [ %264, %168 ], [ %165, %69 ]
   %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %168 ], [ 0, %69 ]
-  %172 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1914), i64 0, i64 %indvars.iv87.i
+  %172 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1914), i64 0, i64 %indvars.iv87.i
   %173 = load i8, ptr %172, align 1
   %.not62.i = icmp eq i8 %173, 0
   br i1 %.not62.i, label %216, label %174
 
 174:                                              ; preds = %.preheader72.i
-  %175 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1906), i64 0, i64 %indvars.iv87.i
+  %175 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1906), i64 0, i64 %indvars.iv87.i
   %176 = load i8, ptr %175, align 1
   %.not63.i = icmp eq i8 %176, 0
   br i1 %.not63.i, label %177, label %216
 
 177:                                              ; preds = %174
-  %178 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
+  %178 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2776), align 8
   %179 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %180 = load ptr, ptr %179, align 8
   %181 = getelementptr inbounds nuw i8, ptr %170, i64 4
@@ -41032,13 +41032,13 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   br i1 %221, label %RecordAutomationEvent.exit, label %222
 
 222:                                              ; preds = %216
-  %223 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1906), i64 0, i64 %indvars.iv87.i
+  %223 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1906), i64 0, i64 %indvars.iv87.i
   %224 = load i8, ptr %223, align 1
   %.not64.i = icmp eq i8 %224, 0
   br i1 %.not64.i, label %._crit_edge110.i, label %225
 
 225:                                              ; preds = %222
-  %226 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
+  %226 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2776), align 8
   %227 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %228 = load ptr, ptr %227, align 8
   %229 = zext i32 %220 to i64
@@ -41094,23 +41094,23 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
 
 267:                                              ; preds = %168
   %268 = getelementptr inbounds nuw i8, ptr %265, i64 4
-  %269 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
+  %269 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1884), align 4
   %270 = fptosi float %269 to i32
-  %271 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1892), align 4
+  %271 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1892), align 4
   %272 = fptosi float %271 to i32
   %.not.i = icmp eq i32 %270, %272
   br i1 %.not.i, label %273, label %278
 
 273:                                              ; preds = %267
-  %274 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1888), align 8
+  %274 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1888), align 8
   %275 = fptosi float %274 to i32
-  %276 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1896), align 8
+  %276 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1896), align 8
   %277 = fptosi float %276 to i32
   %.not52.i = icmp eq i32 %275, %277
   br i1 %.not52.i, label %321, label %278
 
 278:                                              ; preds = %273, %267
-  %279 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
+  %279 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2776), align 8
   %280 = getelementptr inbounds nuw i8, ptr %265, i64 8
   %281 = load ptr, ptr %280, align 8
   %282 = zext i32 %264 to i64
@@ -41121,14 +41121,14 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %286 = zext i32 %285 to i64
   %287 = getelementptr inbounds nuw %struct.AutomationEvent, ptr %284, i64 %286, i32 1
   store i32 7, ptr %287, align 4
-  %288 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
+  %288 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1884), align 4
   %289 = fptosi float %288 to i32
   %290 = load ptr, ptr %280, align 8
   %291 = load i32, ptr %268, align 4
   %292 = zext i32 %291 to i64
   %293 = getelementptr inbounds nuw %struct.AutomationEvent, ptr %290, i64 %292, i32 2
   store i32 %289, ptr %293, align 4
-  %294 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1888), align 8
+  %294 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1888), align 8
   %295 = fptosi float %294 to i32
   %296 = load ptr, ptr %280, align 8
   %297 = load i32, ptr %268, align 4
@@ -41165,23 +41165,23 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %322 = phi i32 [ %319, %278 ], [ %263, %273 ]
   %323 = phi i32 [ %318, %278 ], [ %264, %273 ]
   %324 = phi ptr [ %315, %278 ], [ %265, %273 ]
-  %325 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1924), align 4
+  %325 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1924), align 4
   %326 = fptosi float %325 to i32
-  %327 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1932), align 4
+  %327 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1932), align 4
   %328 = fptosi float %327 to i32
   %.not53.i = icmp eq i32 %326, %328
   br i1 %.not53.i, label %329, label %334
 
 329:                                              ; preds = %321
-  %330 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1928), align 8
+  %330 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1928), align 8
   %331 = fptosi float %330 to i32
-  %332 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1936), align 8
+  %332 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1936), align 8
   %333 = fptosi float %332 to i32
   %.not54.i = icmp eq i32 %331, %333
   br i1 %.not54.i, label %.preheader, label %334
 
 334:                                              ; preds = %329, %321
-  %335 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
+  %335 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2776), align 8
   %336 = getelementptr inbounds nuw i8, ptr %324, i64 8
   %337 = load ptr, ptr %336, align 8
   %338 = getelementptr inbounds nuw i8, ptr %324, i64 4
@@ -41193,14 +41193,14 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %343 = zext i32 %342 to i64
   %344 = getelementptr inbounds nuw %struct.AutomationEvent, ptr %341, i64 %343, i32 1
   store i32 8, ptr %344, align 4
-  %345 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1924), align 4
+  %345 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1924), align 4
   %346 = fptosi float %345 to i32
   %347 = load ptr, ptr %336, align 8
   %348 = load i32, ptr %338, align 4
   %349 = zext i32 %348 to i64
   %350 = getelementptr inbounds nuw %struct.AutomationEvent, ptr %347, i64 %349, i32 2
   store i32 %346, ptr %350, align 4
-  %351 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1928), align 8
+  %351 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1928), align 8
   %352 = fptosi float %351 to i32
   %353 = load ptr, ptr %336, align 8
   %354 = load i32, ptr %338, align 4
@@ -41247,19 +41247,19 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %380 = phi i32 [ %474, %378 ], [ %.ph, %.preheader ]
   %381 = phi ptr [ %476, %378 ], [ %.ph115, %.preheader ]
   %indvars.iv91.i = phi i64 [ %indvars.iv.next92.i, %378 ], [ 0, %.preheader ]
-  %382 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2048), i64 0, i64 %indvars.iv91.i
+  %382 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2048), i64 0, i64 %indvars.iv91.i
   %383 = load i8, ptr %382, align 1
   %.not59.i = icmp eq i8 %383, 0
   br i1 %.not59.i, label %427, label %384
 
 384:                                              ; preds = %379
-  %385 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2040), i64 0, i64 %indvars.iv91.i
+  %385 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2040), i64 0, i64 %indvars.iv91.i
   %386 = load i8, ptr %385, align 1
   %.not60.i = icmp eq i8 %386, 0
   br i1 %.not60.i, label %387, label %427
 
 387:                                              ; preds = %384
-  %388 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
+  %388 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2776), align 8
   %389 = getelementptr inbounds nuw i8, ptr %381, i64 8
   %390 = load ptr, ptr %389, align 8
   %391 = getelementptr inbounds nuw i8, ptr %381, i64 4
@@ -41317,13 +41317,13 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   br i1 %432, label %RecordAutomationEvent.exit, label %433
 
 433:                                              ; preds = %427
-  %434 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2040), i64 0, i64 %indvars.iv91.i
+  %434 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2040), i64 0, i64 %indvars.iv91.i
   %435 = load i8, ptr %434, align 1
   %.not61.i = icmp eq i8 %435, 0
   br i1 %.not61.i, label %._crit_edge115.i, label %436
 
 436:                                              ; preds = %433
-  %437 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
+  %437 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2776), align 8
   %438 = getelementptr inbounds nuw i8, ptr %429, i64 8
   %439 = load ptr, ptr %438, align 8
   %440 = zext i32 %431 to i64
@@ -41395,19 +41395,19 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %485 = phi i32 [ %478, %.preheader68.i ], [ %583, %481 ]
   %486 = phi ptr [ %479, %.preheader68.i ], [ %585, %481 ]
   %indvars.iv95.i = phi i64 [ 0, %.preheader68.i ], [ %indvars.iv.next96.i, %481 ]
-  %487 = getelementptr inbounds nuw [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2464), i64 0, i64 %indvars.iv103.i, i64 %indvars.iv95.i
+  %487 = getelementptr inbounds nuw [4 x [32 x i8]], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2464), i64 0, i64 %indvars.iv103.i, i64 %indvars.iv95.i
   %488 = load i8, ptr %487, align 1
   %.not56.i = icmp eq i8 %488, 0
   br i1 %.not56.i, label %532, label %489
 
 489:                                              ; preds = %482
-  %490 = getelementptr inbounds nuw [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2336), i64 0, i64 %indvars.iv103.i, i64 %indvars.iv95.i
+  %490 = getelementptr inbounds nuw [4 x [32 x i8]], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2336), i64 0, i64 %indvars.iv103.i, i64 %indvars.iv95.i
   %491 = load i8, ptr %490, align 1
   %.not57.i = icmp eq i8 %491, 0
   br i1 %.not57.i, label %492, label %532
 
 492:                                              ; preds = %489
-  %493 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
+  %493 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2776), align 8
   %494 = getelementptr inbounds nuw i8, ptr %486, i64 8
   %495 = load ptr, ptr %494, align 8
   %496 = getelementptr inbounds nuw i8, ptr %486, i64 4
@@ -41467,13 +41467,13 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   br i1 %539, label %RecordAutomationEvent.exit, label %540
 
 540:                                              ; preds = %532
-  %541 = getelementptr inbounds nuw [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2336), i64 0, i64 %indvars.iv103.i, i64 %indvars.iv95.i
+  %541 = getelementptr inbounds nuw [4 x [32 x i8]], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2336), i64 0, i64 %indvars.iv103.i, i64 %indvars.iv95.i
   %542 = load i8, ptr %541, align 1
   %.not58.i = icmp eq i8 %542, 0
   br i1 %.not58.i, label %._crit_edge120.i, label %543
 
 543:                                              ; preds = %540
-  %544 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
+  %544 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2776), align 8
   %545 = getelementptr inbounds nuw i8, ptr %536, i64 8
   %546 = load ptr, ptr %545, align 8
   %547 = zext i32 %538 to i64
@@ -41540,7 +41540,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %590 = phi i32 [ %639, %587 ], [ %584, %481 ]
   %591 = phi ptr [ %640, %587 ], [ %585, %481 ]
   %indvars.iv99.i = phi i64 [ %indvars.iv.next100.i, %587 ], [ 0, %481 ]
-  %592 = getelementptr inbounds nuw [4 x [8 x float]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2592), i64 0, i64 %indvars.iv103.i, i64 %indvars.iv99.i
+  %592 = getelementptr inbounds nuw [4 x [8 x float]], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2592), i64 0, i64 %indvars.iv103.i, i64 %indvars.iv99.i
   %593 = load float, ptr %592, align 4
   %594 = fcmp ogt float %593, 0x3FB99999A0000000
   br i1 %594, label %595, label %._crit_edge124.i
@@ -41551,7 +41551,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   br label %637
 
 595:                                              ; preds = %.preheader.i
-  %596 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
+  %596 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2776), align 8
   %597 = getelementptr inbounds nuw i8, ptr %591, i64 8
   %598 = load ptr, ptr %597, align 8
   %599 = getelementptr inbounds nuw i8, ptr %591, i64 4
@@ -41621,7 +41621,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
 
 645:                                              ; preds = %643
   %646 = getelementptr inbounds nuw i8, ptr %640, i64 4
-  %647 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
+  %647 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2776), align 8
   %648 = getelementptr inbounds nuw i8, ptr %640, i64 8
   %649 = load ptr, ptr %648, align 8
   %650 = zext i32 %639 to i64
@@ -41670,15 +41670,15 @@ RecordAutomationEvent.exit:                       ; preds = %._crit_edge.i, %117
   %683 = load ptr, ptr @platform.0, align 8
   call void @glfwSwapBuffers(ptr noundef %683) #54
   %684 = call double @glfwGetTime() #54
-  store double %684, ptr getelementptr inbounds (i8, ptr @CORE, i64 2720), align 8
-  %685 = load double, ptr getelementptr inbounds (i8, ptr @CORE, i64 2728), align 8
+  store double %684, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2720), align 8
+  %685 = load double, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2728), align 8
   %686 = fsub double %684, %685
-  store double %686, ptr getelementptr inbounds (i8, ptr @CORE, i64 2744), align 8
-  store double %684, ptr getelementptr inbounds (i8, ptr @CORE, i64 2728), align 8
-  %687 = load double, ptr getelementptr inbounds (i8, ptr @CORE, i64 2736), align 8
+  store double %686, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2744), align 8
+  store double %684, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2728), align 8
+  %687 = load double, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2736), align 8
   %688 = fadd double %686, %687
-  store double %688, ptr getelementptr inbounds (i8, ptr @CORE, i64 2752), align 8
-  %689 = load double, ptr getelementptr inbounds (i8, ptr @CORE, i64 2760), align 8
+  store double %688, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2752), align 8
+  %689 = load double, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2760), align 8
   %690 = fcmp olt double %688, %689
   br i1 %690, label %691, label %715
 
@@ -41719,26 +41719,26 @@ RecordAutomationEvent.exit:                       ; preds = %._crit_edge.i, %117
 WaitTime.exit:                                    ; preds = %.preheader.i16, %691
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %710 = call double @glfwGetTime() #54
-  store double %710, ptr getelementptr inbounds (i8, ptr @CORE, i64 2720), align 8
-  %711 = load double, ptr getelementptr inbounds (i8, ptr @CORE, i64 2728), align 8
+  store double %710, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2720), align 8
+  %711 = load double, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2728), align 8
   %712 = fsub double %710, %711
-  store double %710, ptr getelementptr inbounds (i8, ptr @CORE, i64 2728), align 8
-  %713 = load double, ptr getelementptr inbounds (i8, ptr @CORE, i64 2752), align 8
+  store double %710, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2728), align 8
+  %713 = load double, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2752), align 8
   %714 = fadd double %712, %713
-  store double %714, ptr getelementptr inbounds (i8, ptr @CORE, i64 2752), align 8
+  store double %714, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2752), align 8
   br label %715
 
 715:                                              ; preds = %WaitTime.exit, %RecordAutomationEvent.exit
   call void @PollInputEvents()
-  %716 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 1009), align 1
+  %716 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1009), align 1
   %717 = icmp eq i8 %716, 0
-  %718 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 497), align 1
+  %718 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 497), align 1
   %719 = icmp eq i8 %718, 1
   %or.cond = select i1 %717, i1 %719, i1 false
   br i1 %or.cond, label %720, label %IsKeyPressed.exit.thread
 
 720:                                              ; preds = %715
-  %721 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 537), align 1
+  %721 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 537), align 1
   %722 = icmp eq i8 %721, 1
   br i1 %722, label %723, label %752
 
@@ -41750,7 +41750,7 @@ WaitTime.exit:                                    ; preds = %.preheader.i16, %69
 726:                                              ; preds = %723
   store i8 0, ptr @gifRecording, align 1
   call void @msf_gif_end(ptr dead_on_unwind nonnull writable sret(%struct.MsfGifResult) align 8 %4, ptr noundef nonnull @gifState)
-  %727 = load ptr, ptr getelementptr inbounds (i8, ptr @CORE, i64 184), align 8
+  %727 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 184), align 8
   %728 = load i32, ptr @screenshotCounter, align 4
   %729 = call ptr (ptr, ...) @TextFormat(ptr noundef nonnull @.str.158, ptr noundef %727, i32 noundef %728) #54
   %730 = load ptr, ptr %4, align 8
@@ -41779,12 +41779,12 @@ msf_gif_free.exit:                                ; preds = %726, %735
   call void @glfwGetWindowContentScale(ptr noundef %737, ptr noundef nonnull %1, ptr noundef nonnull %738) #54
   %739 = load <2 x float>, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  %740 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
+  %740 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 68), align 4
   %741 = uitofp i32 %740 to float
   %.sroa.0.0.vec.extract = extractelement <2 x float> %739, i64 0
   %742 = fmul float %.sroa.0.0.vec.extract, %741
   %743 = fptosi float %742 to i32
-  %744 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
+  %744 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 72), align 8
   %745 = uitofp i32 %744 to float
   %.sroa.0.4.vec.extract = extractelement <2 x float> %739, i64 1
   %746 = fmul float %.sroa.0.4.vec.extract, %745
@@ -41807,9 +41807,9 @@ msf_gif_free.exit:                                ; preds = %726, %735
   br label %IsKeyPressed.exit.thread
 
 IsKeyPressed.exit.thread:                         ; preds = %715, %752, %736, %msf_gif_free.exit
-  %757 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
+  %757 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2776), align 8
   %758 = add i32 %757, 1
-  store i32 %758, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
+  store i32 %758, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2776), align 8
   ret void
 }
 
@@ -41880,12 +41880,12 @@ define void @TakeScreenshot(ptr noundef %0) local_unnamed_addr #25 {
   call void @glfwGetWindowContentScale(ptr noundef %8, ptr noundef nonnull %2, ptr noundef nonnull %9) #54
   %10 = load <2 x float>, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 68), align 4
   %12 = uitofp i32 %11 to float
   %.sroa.0.0.vec.extract = extractelement <2 x float> %10, i64 0
   %13 = fmul float %.sroa.0.0.vec.extract, %12
   %14 = fptosi float %13 to i32
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 72), align 8
   %16 = uitofp i32 %15 to float
   %.sroa.0.4.vec.extract = extractelement <2 x float> %10, i64 1
   %17 = fmul float %.sroa.0.4.vec.extract, %16
@@ -41943,13 +41943,13 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   call void @free(ptr noundef %22) #54
   store ptr %24, ptr %3, align 8
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %40 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 68), align 4
   %41 = uitofp i32 %40 to float
   %42 = fmul float %.sroa.0.0.vec.extract, %41
   %43 = fptosi float %42 to i32
   store i32 %43, ptr %39, align 8
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 72), align 8
   %46 = uitofp i32 %45 to float
   %47 = fmul float %.sroa.0.4.vec.extract, %46
   %48 = fptosi float %47 to i32
@@ -41959,7 +41959,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 7, ptr %50, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %4, i8 0, i64 512, i1 false)
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @CORE, i64 184), align 8
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 184), align 8
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %GetFileName.exit, label %.preheader.i
 
@@ -42002,7 +42002,7 @@ define void @BeginMode2D(ptr nocapture noundef readonly byval(%struct.Camera2D) 
   %3 = alloca %struct.float16, align 4
   %4 = load ptr, ptr @RLGL, align 8
   tail call void @rlDrawRenderBatch(ptr noundef %4)
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
   store float 1.000000e+00, ptr %5, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.2.0..sroa_idx.i, i8 0, i64 16, i1 false)
@@ -42293,7 +42293,7 @@ define void @EndMode2D() local_unnamed_addr #0 {
   %2 = alloca %struct.float16, align 4
   %3 = load ptr, ptr @RLGL, align 8
   tail call void @rlDrawRenderBatch(ptr noundef %3)
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
   store float 1.000000e+00, ptr %4, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.2.0..sroa_idx.i, i8 0, i64 16, i1 false)
@@ -42317,22 +42317,22 @@ define void @EndMode2D() local_unnamed_addr #0 {
   br i1 %7, label %8, label %24
 
 8:                                                ; preds = %0
-  %.sroa.01.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 100), align 4
-  %.sroa.2.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 104), align 8
-  %.sroa.3.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 108), align 4
-  %.sroa.42.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 112), align 8
-  %.sroa.53.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 116), align 4
-  %.sroa.64.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 120), align 8
-  %.sroa.75.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 124), align 4
-  %.sroa.86.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 128), align 8
-  %.sroa.97.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 132), align 4
-  %.sroa.108.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 136), align 8
-  %.sroa.119.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 140), align 4
-  %.sroa.1210.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 144), align 8
-  %.sroa.1311.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 148), align 4
-  %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 152), align 8
-  %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 156), align 4
-  %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 160), align 8
+  %.sroa.01.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 100), align 4
+  %.sroa.2.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 104), align 8
+  %.sroa.3.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 108), align 4
+  %.sroa.42.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 112), align 8
+  %.sroa.53.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 116), align 4
+  %.sroa.64.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 120), align 8
+  %.sroa.75.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 124), align 4
+  %.sroa.86.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 128), align 8
+  %.sroa.97.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 132), align 4
+  %.sroa.108.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 136), align 8
+  %.sroa.119.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 140), align 4
+  %.sroa.1210.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 144), align 8
+  %.sroa.1311.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 148), align 4
+  %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 152), align 8
+  %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 156), align 4
+  %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 160), align 8
   store float %.sroa.01.0.copyload, ptr %2, align 4, !alias.scope !28
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store float %.sroa.53.0.copyload, ptr %9, align 4, !alias.scope !28
@@ -42376,37 +42376,37 @@ define void @BeginMode3D(ptr nocapture noundef readonly byval(%struct.Camera3D) 
   %2 = alloca %struct.float16, align 4
   %3 = load ptr, ptr @RLGL, align 8
   tail call void @rlDrawRenderBatch(ptr noundef %3)
-  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 144), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
-  store i32 5889, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2324), align 4
+  store ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 144), ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
+  store i32 5889, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 68), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2324), align 4
   %5 = icmp sgt i32 %4, 31
   br i1 %5, label %6, label %rlPushMatrix.exit
 
 6:                                                ; preds = %1
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 5, ptr noundef nonnull @.str.1) #54
-  %.pr = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
+  %.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 68), align 4
   %7 = icmp eq i32 %.pr, 5888
   br i1 %7, label %8, label %.._crit_edge.i_crit_edge
 
 .._crit_edge.i_crit_edge:                         ; preds = %6
-  %.pre.i.pre = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  %.pre.i.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
   br label %rlPushMatrix.exit
 
 8:                                                ; preds = %6
-  store i8 1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 272), align 8
-  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 208), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 272), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 208), ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
   br label %rlPushMatrix.exit
 
 rlPushMatrix.exit:                                ; preds = %1, %.._crit_edge.i_crit_edge, %8
-  %9 = phi ptr [ getelementptr inbounds (i8, ptr @RLGL, i64 208), %8 ], [ %.pre.i.pre, %.._crit_edge.i_crit_edge ], [ getelementptr inbounds (i8, ptr @RLGL, i64 144), %1 ]
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2324), align 4
+  %9 = phi ptr [ getelementptr inbounds nuw (i8, ptr @RLGL, i64 208), %8 ], [ %.pre.i.pre, %.._crit_edge.i_crit_edge ], [ getelementptr inbounds nuw (i8, ptr @RLGL, i64 144), %1 ]
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2324), align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [32 x %struct.Matrix], ptr getelementptr inbounds (i8, ptr @RLGL, i64 276), i64 0, i64 %11
+  %12 = getelementptr inbounds [32 x %struct.Matrix], ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 276), i64 0, i64 %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %12, ptr noundef nonnull align 4 dereferenceable(64) %9, i64 64, i1 false)
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2324), align 4
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2324), align 4
   %14 = add nsw i32 %13, 1
-  store i32 %14, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2324), align 4
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
+  store i32 %14, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2324), align 4
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
   store float 1.000000e+00, ptr %15, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.2.0..sroa_idx.i, i8 0, i64 16, i1 false)
@@ -42420,9 +42420,9 @@ rlPushMatrix.exit:                                ; preds = %1, %.._crit_edge.i_
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5.0..sroa_idx.i, i8 0, i64 16, i1 false)
   %.sroa.52.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 60
   store float 1.000000e+00, ptr %.sroa.52.0..sroa_idx.i, align 4
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 60), align 4
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 60), align 4
   %17 = uitofp i32 %16 to float
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 64), align 8
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 64), align 8
   %19 = uitofp i32 %18 to float
   %20 = fdiv float %17, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -42460,15 +42460,15 @@ rlPushMatrix.exit:                                ; preds = %1, %.._crit_edge.i_
   br label %44
 
 44:                                               ; preds = %rlPushMatrix.exit, %35, %23
-  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
-  store i32 5888, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 84), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 100), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 104), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 120), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 124), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 140), align 4
+  store ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 80), ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
+  store i32 5888, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 68), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 80), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 84), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 100), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 104), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 120), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 124), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 140), align 4
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.03.0.copyload = load <2 x float>, ptr %0, align 8
@@ -42582,28 +42582,28 @@ define void @EndMode3D() local_unnamed_addr #0 {
   %2 = alloca %struct.float16, align 4
   %3 = load ptr, ptr @RLGL, align 8
   tail call void @rlDrawRenderBatch(ptr noundef %3)
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2324), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2324), align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %6, label %rlPopMatrix.exit
 
 6:                                                ; preds = %0
   %7 = add nsw i32 %4, -1
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw [32 x %struct.Matrix], ptr getelementptr inbounds (i8, ptr @RLGL, i64 276), i64 0, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 144), ptr noundef nonnull align 4 dereferenceable(64) %9, i64 64, i1 false)
-  store i32 %7, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2324), align 4
+  %9 = getelementptr inbounds nuw [32 x %struct.Matrix], ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 276), i64 0, i64 %8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @RLGL, i64 144), ptr noundef nonnull align 4 dereferenceable(64) %9, i64 64, i1 false)
+  store i32 %7, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2324), align 4
   br label %rlPopMatrix.exit
 
 rlPopMatrix.exit:                                 ; preds = %0, %6
-  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
-  store i32 5888, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 84), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 100), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 104), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 120), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 124), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 140), align 4
+  store ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 80), ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
+  store i32 5888, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 68), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 80), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 84), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 100), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 104), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 120), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 124), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 140), align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
   store i32 0, ptr %1, align 4
   %10 = load ptr, ptr @glad_glGetIntegerv, align 8
@@ -42614,22 +42614,22 @@ rlPopMatrix.exit:                                 ; preds = %0, %6
   br i1 %12, label %13, label %29
 
 13:                                               ; preds = %rlPopMatrix.exit
-  %.sroa.01.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 100), align 4
-  %.sroa.2.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 104), align 8
-  %.sroa.3.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 108), align 4
-  %.sroa.42.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 112), align 8
-  %.sroa.53.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 116), align 4
-  %.sroa.64.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 120), align 8
-  %.sroa.75.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 124), align 4
-  %.sroa.86.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 128), align 8
-  %.sroa.97.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 132), align 4
-  %.sroa.108.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 136), align 8
-  %.sroa.119.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 140), align 4
-  %.sroa.1210.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 144), align 8
-  %.sroa.1311.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 148), align 4
-  %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 152), align 8
-  %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 156), align 4
-  %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 160), align 8
+  %.sroa.01.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 100), align 4
+  %.sroa.2.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 104), align 8
+  %.sroa.3.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 108), align 4
+  %.sroa.42.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 112), align 8
+  %.sroa.53.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 116), align 4
+  %.sroa.64.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 120), align 8
+  %.sroa.75.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 124), align 4
+  %.sroa.86.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 128), align 8
+  %.sroa.97.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 132), align 4
+  %.sroa.108.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 136), align 8
+  %.sroa.119.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 140), align 4
+  %.sroa.1210.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 144), align 8
+  %.sroa.1311.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 148), align 4
+  %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 152), align 8
+  %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 156), align 4
+  %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 160), align 8
   store float %.sroa.01.0.copyload, ptr %2, align 4, !alias.scope !34
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store float %.sroa.53.0.copyload, ptr %14, align 4, !alias.scope !34
@@ -42683,32 +42683,32 @@ define void @BeginTextureMode(ptr nocapture noundef readonly byval(%struct.Rende
   %8 = load i32, ptr %7, align 4
   %9 = load ptr, ptr @glad_glViewport, align 8
   tail call void %9(i32 noundef 0, i32 noundef 0, i32 noundef %6, i32 noundef %8) #54
-  store i32 %6, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2688), align 8
-  store i32 %8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2692), align 4
-  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 144), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
-  store i32 5889, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 144), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 148), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 164), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 168), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 184), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 188), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 204), align 4
+  store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2688), align 8
+  store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2692), align 4
+  store ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 144), ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
+  store i32 5889, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 68), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 144), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 148), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 164), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 168), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 184), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 188), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 204), align 4
   %10 = sitofp i32 %6 to double
   %11 = sitofp i32 %8 to double
   tail call void @rlOrtho(double noundef 0.000000e+00, double noundef %10, double noundef %11, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 1.000000e+00)
-  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
-  store i32 5888, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 84), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 100), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 104), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 120), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 124), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 140), align 4
-  store i32 %6, ptr getelementptr inbounds (i8, ptr @CORE, i64 60), align 4
-  store i32 %8, ptr getelementptr inbounds (i8, ptr @CORE, i64 64), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @CORE, i64 17), align 1
+  store ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 80), ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
+  store i32 5888, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 68), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 80), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 84), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 100), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 104), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 120), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 124), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 140), align 4
+  store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 60), align 4
+  store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 64), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 17), align 1
   ret void
 }
 
@@ -42719,53 +42719,53 @@ define void @EndTextureMode() local_unnamed_addr #0 {
   tail call void @rlDrawRenderBatch(ptr noundef %2)
   %3 = load ptr, ptr @glad_glBindFramebuffer, align 8
   tail call void %3(i32 noundef 36160, i32 noundef 0) #54
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 76), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 68), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 72), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 76), align 4
   %7 = sdiv i32 %6, 2
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 80), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 80), align 8
   %9 = sdiv i32 %8, 2
   %10 = load ptr, ptr @glad_glViewport, align 8
   tail call void %10(i32 noundef %7, i32 noundef %9, i32 noundef %4, i32 noundef %5) #54
-  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 144), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
-  store i32 5889, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 144), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 148), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 164), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 168), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 184), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 188), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 204), align 4
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
+  store ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 144), ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
+  store i32 5889, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 68), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 144), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 148), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 164), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 168), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 184), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 188), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 204), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 68), align 4
   %12 = uitofp i32 %11 to double
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 72), align 8
   %14 = uitofp i32 %13 to double
   tail call void @rlOrtho(double noundef 0.000000e+00, double noundef %12, double noundef %14, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 1.000000e+00)
-  store ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), ptr getelementptr inbounds (i8, ptr @RLGL, i64 72), align 8
-  store i32 5888, ptr getelementptr inbounds (i8, ptr @RLGL, i64 68), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 84), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 100), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 104), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 120), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 124), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @RLGL, i64 140), align 4
-  %.sroa.01.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 100), align 4
-  %.sroa.2.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 104), align 8
-  %.sroa.3.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 108), align 4
-  %.sroa.42.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 112), align 8
-  %.sroa.53.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 116), align 4
-  %.sroa.64.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 120), align 8
-  %.sroa.75.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 124), align 4
-  %.sroa.86.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 128), align 8
-  %.sroa.97.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 132), align 4
-  %.sroa.108.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 136), align 8
-  %.sroa.119.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 140), align 4
-  %.sroa.1210.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 144), align 8
-  %.sroa.1311.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 148), align 4
-  %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 152), align 8
-  %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 156), align 4
-  %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 160), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 80), ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 72), align 8
+  store i32 5888, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 68), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 80), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 84), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 100), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 104), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 120), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 124), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 140), align 4
+  %.sroa.01.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 100), align 4
+  %.sroa.2.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 104), align 8
+  %.sroa.3.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 108), align 4
+  %.sroa.42.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 112), align 8
+  %.sroa.53.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 116), align 4
+  %.sroa.64.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 120), align 8
+  %.sroa.75.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 124), align 4
+  %.sroa.86.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 128), align 8
+  %.sroa.97.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 132), align 4
+  %.sroa.108.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 136), align 8
+  %.sroa.119.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 140), align 4
+  %.sroa.1210.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 144), align 8
+  %.sroa.1311.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 148), align 4
+  %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 152), align 8
+  %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 156), align 4
+  %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 160), align 8
   store float %.sroa.01.0.copyload, ptr %1, align 4, !alias.scope !37
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %.sroa.53.0.copyload, ptr %15, align 4, !alias.scope !37
@@ -42798,25 +42798,25 @@ define void @EndTextureMode() local_unnamed_addr #0 {
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 60
   store float %.sroa.1614.0.copyload, ptr %29, align 4, !alias.scope !37
   call void @rlMultMatrixf(ptr noundef nonnull %1)
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
-  store i32 %30, ptr getelementptr inbounds (i8, ptr @CORE, i64 60), align 4
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
-  store i32 %31, ptr getelementptr inbounds (i8, ptr @CORE, i64 64), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 17), align 1
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 68), align 4
+  store i32 %30, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 60), align 4
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 72), align 8
+  store i32 %31, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 64), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 17), align 1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @BeginShaderMode(i32 %0, ptr %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2368), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2368), align 8
   %.not.i = icmp eq i32 %3, %0
   br i1 %.not.i, label %rlSetShader.exit, label %4
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @RLGL, align 8
   tail call void @rlDrawRenderBatch(ptr noundef %5)
-  store i32 %0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2368), align 8
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2368), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
   br label %rlSetShader.exit
 
 rlSetShader.exit:                                 ; preds = %2, %4
@@ -42825,17 +42825,17 @@ rlSetShader.exit:                                 ; preds = %2, %4
 
 ; Function Attrs: nounwind uwtable
 define void @EndShaderMode() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2368), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2356), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2368), align 8
   %.not.i = icmp eq i32 %2, %1
   br i1 %.not.i, label %rlSetShader.exit, label %3
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2360), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2360), align 8
   %5 = load ptr, ptr @RLGL, align 8
   tail call void @rlDrawRenderBatch(ptr noundef %5)
-  store i32 %1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2368), align 8
-  store ptr %4, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2368), align 8
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
   br label %rlSetShader.exit
 
 rlSetShader.exit:                                 ; preds = %0, %3
@@ -42850,7 +42850,7 @@ define void @BeginBlendMode(i32 noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @EndBlendMode() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2644), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2644), align 4
   %.not.i = icmp eq i32 %1, 0
   br i1 %.not.i, label %rlSetBlendMode.exit, label %2
 
@@ -42861,8 +42861,8 @@ define void @EndBlendMode() local_unnamed_addr #0 {
   tail call void %4(i32 noundef 770, i32 noundef 771) #54
   %5 = load ptr, ptr @glad_glBlendEquation, align 8
   tail call void %5(i32 noundef 32774) #54
-  store i32 0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2644), align 4
-  store i8 0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2684), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2644), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2684), align 4
   br label %rlSetBlendMode.exit
 
 rlSetBlendMode.exit:                              ; preds = %0, %2
@@ -42876,12 +42876,12 @@ define void @BeginScissorMode(i32 noundef %0, i32 noundef %1, i32 noundef %2, i3
   tail call void @rlDrawRenderBatch(ptr noundef %6)
   %7 = load ptr, ptr @glad_glEnable, align 8
   tail call void %7(i32 noundef 3089) #54
-  %8 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 17), align 1
+  %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 17), align 1
   %9 = trunc i8 %8 to i1
   br i1 %9, label %34, label %10
 
 10:                                               ; preds = %4
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %12 = and i32 %11, 8192
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %34, label %13
@@ -42898,7 +42898,7 @@ define void @BeginScissorMode(i32 noundef %0, i32 noundef %1, i32 noundef %2, i3
   %.sroa.0.0.vec.extract = extractelement <2 x float> %16, i64 0
   %18 = fmul float %.sroa.0.0.vec.extract, %17
   %19 = fptosi float %18 to i32
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 64), align 8
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 64), align 8
   %21 = uitofp i32 %20 to float
   %22 = add nsw i32 %3, %1
   %23 = sitofp i32 %22 to float
@@ -42917,7 +42917,7 @@ define void @BeginScissorMode(i32 noundef %0, i32 noundef %1, i32 noundef %2, i3
   br label %39
 
 34:                                               ; preds = %10, %4
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 64), align 8
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 64), align 8
   %36 = add i32 %3, %1
   %37 = sub i32 %35, %36
   %38 = load ptr, ptr @glad_glScissor, align 8
@@ -42939,20 +42939,20 @@ define void @EndScissorMode() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @BeginVrStereoMode(ptr nocapture noundef readonly byval(%struct.VrStereoConfig) align 8 %0) local_unnamed_addr #4 {
-  store i8 1, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2384), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2384), align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 2388), ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 2452), ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @RLGL, i64 2388), ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @RLGL, i64 2452), ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 2516), ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 2580), ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @RLGL, i64 2516), ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @RLGL, i64 2580), ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @EndVrStereoMode() local_unnamed_addr #1 {
-  store i8 0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2384), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2384), align 8
   ret void
 }
 
@@ -43324,7 +43324,7 @@ define zeroext i1 @IsShaderReady(i32 %0, ptr readnone %1) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define void @UnloadShader(i32 %0, ptr nocapture %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2356), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2356), align 4
   %.not = icmp eq i32 %0, %3
   br i1 %.not, label %6, label %4
 
@@ -43477,7 +43477,7 @@ define void @SetShaderValueTexture(i32 %0, ptr nocapture readnone %1, i32 nounde
 
 9:                                                ; preds = %17, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %17 ]
-  %10 = getelementptr inbounds nuw [4 x i32], ptr getelementptr inbounds (i8, ptr @RLGL, i64 2332), i64 0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [4 x i32], ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2332), i64 0, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, %8
   br i1 %12, label %13, label %17
@@ -43496,13 +43496,13 @@ define void @SetShaderValueTexture(i32 %0, ptr nocapture readnone %1, i32 nounde
 
 .preheader.i:                                     ; preds = %17, %26
   %indvars.iv23.i = phi i64 [ %indvars.iv.next24.i, %26 ], [ 0, %17 ]
-  %18 = getelementptr inbounds nuw [4 x i32], ptr getelementptr inbounds (i8, ptr @RLGL, i64 2332), i64 0, i64 %indvars.iv23.i
+  %18 = getelementptr inbounds nuw [4 x i32], ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2332), i64 0, i64 %indvars.iv23.i
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %.preheader.i
-  %22 = getelementptr inbounds nuw [4 x i32], ptr getelementptr inbounds (i8, ptr @RLGL, i64 2332), i64 0, i64 %indvars.iv23.i
+  %22 = getelementptr inbounds nuw [4 x i32], ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2332), i64 0, i64 %indvars.iv23.i
   %23 = trunc nuw nsw i64 %indvars.iv23.i to i32
   %24 = load ptr, ptr @glad_glUniform1i, align 8
   %25 = add nuw nsw i32 %23, 1
@@ -43521,9 +43521,9 @@ rlSetUniformSampler.exit:                         ; preds = %26, %21, %13, %4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define void @GetMouseRay(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Ray) align 4 initializes((0, 24)) %0, <2 x float> %1, ptr nocapture noundef readonly byval(%struct.Camera3D) align 8 %2) local_unnamed_addr #30 {
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
   %5 = sitofp i32 %4 to float
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
   %7 = sitofp i32 %6 to float
   tail call void @GetViewRay(ptr dead_on_unwind writable sret(%struct.Ray) align 4 %0, <2 x float> %1, ptr noundef nonnull byval(%struct.Camera3D) align 8 %2, float noundef %5, float noundef %7)
   ret void
@@ -43916,8 +43916,8 @@ define void @GetCameraMatrix(ptr dead_on_unwind noalias nocapture writable write
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define <2 x float> @GetWorldToScreen(<2 x float> %0, float %1, ptr nocapture noundef readonly byval(%struct.Camera3D) align 8 %2) local_unnamed_addr #30 {
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 44), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 48), align 8
   %6 = tail call <2 x float> @GetWorldToScreenEx(<2 x float> %0, float %1, ptr noundef nonnull byval(%struct.Camera3D) align 8 %2, i32 noundef %4, i32 noundef %5)
   ret <2 x float> %6
 }
@@ -44178,7 +44178,7 @@ define void @SetTargetFPS(i32 noundef %0) local_unnamed_addr #0 {
   %3 = uitofp nneg i32 %0 to double
   %4 = fdiv double 1.000000e+00, %3
   %storemerge = select i1 %2, double 0.000000e+00, double %4
-  store double %storemerge, ptr getelementptr inbounds (i8, ptr @CORE, i64 2760), align 8
+  store double %storemerge, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2760), align 8
   %5 = fptrunc double %storemerge to float
   %6 = fmul float %5, 1.000000e+03
   %7 = fpext float %6 to double
@@ -44188,9 +44188,9 @@ define void @SetTargetFPS(i32 noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define i32 @GetFPS() local_unnamed_addr #0 {
-  %1 = load double, ptr getelementptr inbounds (i8, ptr @CORE, i64 2752), align 8
+  %1 = load double, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2752), align 8
   %2 = fptrunc double %1 to float
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2776), align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.loopexit.loopexit, label %.loopexit
 
@@ -44406,9 +44406,9 @@ define noundef zeroext i1 @FileExists(ptr nocapture noundef readonly %0) local_u
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define void @SetConfigFlags(i32 noundef %0) local_unnamed_addr #11 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %3 = or i32 %2, %0
-  store i32 %3, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %3, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   ret void
 }
 
@@ -44603,7 +44603,7 @@ define noundef nonnull ptr @GetDirectoryPath(ptr noundef readonly %0) local_unna
 
 6:                                                ; preds = %4
   store i8 46, ptr @GetDirectoryPath.dirPath, align 16
-  store i8 47, ptr getelementptr inbounds (i8, ptr @GetDirectoryPath.dirPath, i64 1), align 1
+  store i8 47, ptr getelementptr inbounds nuw (i8, ptr @GetDirectoryPath.dirPath, i64 1), align 1
   br label %.preheader
 
 .preheader:                                       ; preds = %4, %4, %6, %1
@@ -44628,7 +44628,7 @@ strprbrk.exit:                                    ; preds = %7
 12:                                               ; preds = %10
   %13 = load i8, ptr %0, align 1
   store i8 %13, ptr @GetDirectoryPath.dirPath, align 16
-  store i8 0, ptr getelementptr inbounds (i8, ptr @GetDirectoryPath.dirPath, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @GetDirectoryPath.dirPath, i64 1), align 1
   br label %35
 
 14:                                               ; preds = %10
@@ -44641,7 +44641,7 @@ strprbrk.exit:                                    ; preds = %7
   %switch.selectcmp.case1 = icmp eq i8 %17, 92
   %switch.selectcmp.case2 = icmp eq i8 %17, 47
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
-  %18 = select i1 %switch.selectcmp, ptr @GetDirectoryPath.dirPath, ptr getelementptr inbounds (i8, ptr @GetDirectoryPath.dirPath, i64 2)
+  %18 = select i1 %switch.selectcmp, ptr @GetDirectoryPath.dirPath, ptr getelementptr inbounds nuw (i8, ptr @GetDirectoryPath.dirPath, i64 2)
   br label %19
 
 19:                                               ; preds = %16, %14
@@ -44773,7 +44773,7 @@ define noundef nonnull ptr @GetApplicationDirectory() local_unnamed_addr #42 {
 
 17:                                               ; preds = %0
   store i8 46, ptr @GetApplicationDirectory.appDir, align 16
-  store i8 47, ptr getelementptr inbounds (i8, ptr @GetApplicationDirectory.appDir, i64 1), align 1
+  store i8 47, ptr getelementptr inbounds nuw (i8, ptr @GetApplicationDirectory.appDir, i64 1), align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %3, %10, %17
@@ -45271,15 +45271,15 @@ declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsFileDropped() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 176), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 176), align 8
   %.not = icmp ne i32 %1, 0
   ret i1 %.not
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define { i64, ptr } @LoadDroppedFiles() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 176), align 8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @CORE, i64 168), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 176), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 168), align 8
   %.sroa.0.sroa.2.0.insert.ext = zext i32 %1 to i64
   %.sroa.0.sroa.2.0.insert.shift = shl nuw i64 %.sroa.0.sroa.2.0.insert.ext, 32
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.0.sroa.2.0.insert.shift, 0
@@ -45304,8 +45304,8 @@ define void @UnloadDroppedFiles(i64 %0, ptr nocapture %1) local_unnamed_addr #0 
 
 ._crit_edge:                                      ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %1) #54
-  store i32 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 176), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @CORE, i64 168), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 176), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 168), align 8
   br label %5
 
 5:                                                ; preds = %._crit_edge, %2
@@ -45839,7 +45839,7 @@ define void @SetAutomationEventList(ptr noundef %0) local_unnamed_addr #1 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @SetAutomationEventBaseFrame(i32 noundef %0) local_unnamed_addr #1 {
-  store i32 %0, ptr getelementptr inbounds (i8, ptr @CORE, i64 2776), align 8
+  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2776), align 8
   ret void
 }
 
@@ -45891,7 +45891,7 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 196), i64 0, i64 %8
+  %9 = getelementptr inbounds [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 196), i64 0, i64 %8
   store i8 0, ptr %9, align 1
   br label %MaximizeWindow.exit
 
@@ -45899,30 +45899,30 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 196), i64 0, i64 %13
+  %14 = getelementptr inbounds [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 196), i64 0, i64 %13
   store i8 1, ptr %14, align 1
-  %15 = getelementptr inbounds [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 708), i64 0, i64 %13
+  %15 = getelementptr inbounds [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 708), i64 0, i64 %13
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1796), align 4
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1796), align 4
   %19 = icmp slt i32 %18, 16
   %or.cond = select i1 %17, i1 %19, i1 false
   br i1 %or.cond, label %20, label %MaximizeWindow.exit
 
 20:                                               ; preds = %10
   %21 = sext i32 %18 to i64
-  %22 = getelementptr inbounds [16 x i32], ptr getelementptr inbounds (i8, ptr @CORE, i64 1732), i64 0, i64 %21
+  %22 = getelementptr inbounds [16 x i32], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1732), i64 0, i64 %21
   store i32 %12, ptr %22, align 4
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1796), align 4
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1796), align 4
   %24 = add nsw i32 %23, 1
-  store i32 %24, ptr getelementptr inbounds (i8, ptr @CORE, i64 1796), align 4
+  store i32 %24, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1796), align 4
   br label %MaximizeWindow.exit
 
 25:                                               ; preds = %2
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1906), i64 0, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1906), i64 0, i64 %28
   store i8 0, ptr %29, align 1
   br label %MaximizeWindow.exit
 
@@ -45930,7 +45930,7 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1906), i64 0, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1906), i64 0, i64 %33
   store i8 1, ptr %34, align 1
   br label %MaximizeWindow.exit
 
@@ -45938,25 +45938,25 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load i32, ptr %36, align 8
   %38 = sitofp i32 %37 to float
-  store float %38, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
+  store float %38, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1884), align 4
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %40 = load i32, ptr %39, align 4
   %41 = sitofp i32 %40 to float
-  store float %41, ptr getelementptr inbounds (i8, ptr @CORE, i64 1888), align 8
+  store float %41, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1888), align 8
   br label %MaximizeWindow.exit
 
 42:                                               ; preds = %2
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = sitofp i32 %44 to float
-  store float %45, ptr getelementptr inbounds (i8, ptr @CORE, i64 1924), align 4
+  store float %45, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1924), align 4
   br label %MaximizeWindow.exit
 
 46:                                               ; preds = %2
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load i32, ptr %47, align 8
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2040), i64 0, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2040), i64 0, i64 %49
   store i8 0, ptr %50, align 1
   br label %MaximizeWindow.exit
 
@@ -45964,7 +45964,7 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = load i32, ptr %52, align 8
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2040), i64 0, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2040), i64 0, i64 %54
   store i8 1, ptr %55, align 1
   br label %MaximizeWindow.exit
 
@@ -45975,14 +45975,14 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   %60 = sitofp i32 %59 to float
   %61 = load i32, ptr %57, align 8
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds [8 x %struct.Vector2], ptr getelementptr inbounds (i8, ptr @CORE, i64 1976), i64 0, i64 %62
+  %63 = getelementptr inbounds [8 x %struct.Vector2], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1976), i64 0, i64 %62
   store float %60, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %65 = load i32, ptr %64, align 8
   %66 = sitofp i32 %65 to float
   %.idx = shl nsw i64 %62, 3
   %.offs = or disjoint i64 %.idx, 4
-  %67 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 1976), i64 %.offs
+  %67 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1976), i64 %.offs
   store float %66, ptr %67, align 4
   br label %MaximizeWindow.exit
 
@@ -45990,7 +45990,7 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %70 = load i32, ptr %69, align 8
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), i64 0, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2076), i64 0, i64 %71
   store i8 1, ptr %72, align 1
   br label %MaximizeWindow.exit
 
@@ -45998,7 +45998,7 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %75 = load i32, ptr %74, align 8
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), i64 0, i64 %76
+  %77 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2076), i64 0, i64 %76
   store i8 0, ptr %77, align 1
   br label %MaximizeWindow.exit
 
@@ -46009,7 +46009,7 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %83 = load i32, ptr %82, align 4
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2336), i64 0, i64 %81, i64 %84
+  %85 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2336), i64 0, i64 %81, i64 %84
   store i8 0, ptr %85, align 1
   br label %MaximizeWindow.exit
 
@@ -46020,7 +46020,7 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %91 = load i32, ptr %90, align 4
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2336), i64 0, i64 %89, i64 %92
+  %93 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2336), i64 0, i64 %89, i64 %92
   store i8 1, ptr %93, align 1
   br label %MaximizeWindow.exit
 
@@ -46035,7 +46035,7 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %103 = load i32, ptr %102, align 4
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds [4 x [8 x float]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2592), i64 0, i64 %101, i64 %104
+  %105 = getelementptr inbounds [4 x [8 x float]], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2592), i64 0, i64 %101, i64 %104
   store float %99, ptr %105, align 4
   br label %MaximizeWindow.exit
 
@@ -46046,7 +46046,7 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   br label %MaximizeWindow.exit
 
 109:                                              ; preds = %2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @CORE, i64 14), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 14), align 2
   br label %MaximizeWindow.exit
 
 110:                                              ; preds = %2
@@ -46058,9 +46058,9 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
 114:                                              ; preds = %110
   %115 = load ptr, ptr @platform.0, align 8
   tail call void @glfwMaximizeWindow(ptr noundef %115) #54
-  %116 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %116 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   %117 = or i32 %116, 1024
-  store i32 %117, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  store i32 %117, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 8), align 8
   br label %MaximizeWindow.exit
 
 118:                                              ; preds = %2
@@ -46093,7 +46093,7 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   %135 = uitofp nneg i32 %133 to double
   %136 = fdiv double 1.000000e+00, %135
   %storemerge.i = select i1 %134, double 0.000000e+00, double %136
-  store double %storemerge.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 2760), align 8
+  store double %storemerge.i, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2760), align 8
   %137 = fptrunc double %storemerge.i to float
   %138 = fmul float %137, 1.000000e+03
   %139 = fpext float %138 to double
@@ -46112,7 +46112,7 @@ define zeroext i1 @IsKeyPressedRepeat(i32 noundef %0) local_unnamed_addr #10 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1220), i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1220), i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 1
   br label %8
@@ -46130,13 +46130,13 @@ define zeroext i1 @IsKeyReleased(i32 noundef %0) local_unnamed_addr #10 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 708), i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 708), i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 1
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 196), i64 0, i64 %4
+  %9 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 196), i64 0, i64 %4
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 0
   br label %12
@@ -46154,7 +46154,7 @@ define zeroext i1 @IsKeyUp(i32 noundef %0) local_unnamed_addr #10 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 196), i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 196), i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 0
   br label %8
@@ -46166,23 +46166,23 @@ define zeroext i1 @IsKeyUp(i32 noundef %0) local_unnamed_addr #10 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetKeyPressed() local_unnamed_addr #47 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1796), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1796), align 4
   %2 = icmp sgt i32 %1, 0
   br i1 %2, label %3, label %15
 
 3:                                                ; preds = %0
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1732), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1732), align 4
   %.not = icmp eq i32 %1, 1
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %5 = getelementptr inbounds nuw [16 x i32], ptr getelementptr inbounds (i8, ptr @CORE, i64 1732), i64 0, i64 %indvars.iv.next
+  %5 = getelementptr inbounds nuw [16 x i32], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1732), i64 0, i64 %indvars.iv.next
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds nuw [16 x i32], ptr getelementptr inbounds (i8, ptr @CORE, i64 1732), i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [16 x i32], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1732), i64 0, i64 %indvars.iv
   store i32 %6, ptr %7, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1796), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1796), align 4
   %9 = add nsw i32 %8, -1
   %10 = sext i32 %9 to i64
   %11 = icmp slt i64 %indvars.iv.next, %10
@@ -46190,11 +46190,11 @@ define i32 @GetKeyPressed() local_unnamed_addr #47 {
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.pre-phi = phi i64 [ 0, %3 ], [ %10, %.lr.ph ]
-  %12 = getelementptr inbounds [16 x i32], ptr getelementptr inbounds (i8, ptr @CORE, i64 1732), i64 0, i64 %.pre-phi
+  %12 = getelementptr inbounds [16 x i32], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1732), i64 0, i64 %.pre-phi
   store i32 0, ptr %12, align 4
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1796), align 4
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1796), align 4
   %14 = add nsw i32 %13, -1
-  store i32 %14, ptr getelementptr inbounds (i8, ptr @CORE, i64 1796), align 4
+  store i32 %14, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1796), align 4
   br label %15
 
 15:                                               ; preds = %._crit_edge, %0
@@ -46204,23 +46204,23 @@ define i32 @GetKeyPressed() local_unnamed_addr #47 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetCharPressed() local_unnamed_addr #47 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1864), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1864), align 8
   %2 = icmp sgt i32 %1, 0
   br i1 %2, label %3, label %15
 
 3:                                                ; preds = %0
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1800), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1800), align 8
   %.not = icmp eq i32 %1, 1
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %5 = getelementptr inbounds nuw [16 x i32], ptr getelementptr inbounds (i8, ptr @CORE, i64 1800), i64 0, i64 %indvars.iv.next
+  %5 = getelementptr inbounds nuw [16 x i32], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1800), i64 0, i64 %indvars.iv.next
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds nuw [16 x i32], ptr getelementptr inbounds (i8, ptr @CORE, i64 1800), i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [16 x i32], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1800), i64 0, i64 %indvars.iv
   store i32 %6, ptr %7, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1864), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1864), align 8
   %9 = add nsw i32 %8, -1
   %10 = sext i32 %9 to i64
   %11 = icmp slt i64 %indvars.iv.next, %10
@@ -46228,11 +46228,11 @@ define i32 @GetCharPressed() local_unnamed_addr #47 {
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.pre-phi = phi i64 [ 0, %3 ], [ %10, %.lr.ph ]
-  %12 = getelementptr inbounds [16 x i32], ptr getelementptr inbounds (i8, ptr @CORE, i64 1800), i64 0, i64 %.pre-phi
+  %12 = getelementptr inbounds [16 x i32], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1800), i64 0, i64 %.pre-phi
   store i32 0, ptr %12, align 4
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1864), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1864), align 8
   %14 = add nsw i32 %13, -1
-  store i32 %14, ptr getelementptr inbounds (i8, ptr @CORE, i64 1864), align 8
+  store i32 %14, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1864), align 8
   br label %15
 
 15:                                               ; preds = %._crit_edge, %0
@@ -46242,14 +46242,14 @@ define i32 @GetCharPressed() local_unnamed_addr #47 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @SetExitKey(i32 noundef %0) local_unnamed_addr #1 {
-  store i32 %0, ptr getelementptr inbounds (i8, ptr @CORE, i64 192), align 8
+  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 192), align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define nonnull ptr @GetGamepadName(i32 noundef %0) local_unnamed_addr #12 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [4 x [64 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2080), i64 0, i64 %2
+  %3 = getelementptr inbounds [4 x [64 x i8]], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2080), i64 0, i64 %2
   ret ptr %3
 }
 
@@ -46260,7 +46260,7 @@ define zeroext i1 @IsGamepadButtonPressed(i32 noundef %0, i32 noundef %1) local_
 
 4:                                                ; preds = %2
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), i64 0, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2076), i64 0, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   %9 = icmp slt i32 %1, 32
@@ -46269,13 +46269,13 @@ define zeroext i1 @IsGamepadButtonPressed(i32 noundef %0, i32 noundef %1) local_
 
 10:                                               ; preds = %4
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2464), i64 0, i64 %5, i64 %11
+  %12 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2464), i64 0, i64 %5, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2336), i64 0, i64 %5, i64 %11
+  %16 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2336), i64 0, i64 %5, i64 %11
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 1
   br label %19
@@ -46292,7 +46292,7 @@ define zeroext i1 @IsGamepadButtonDown(i32 noundef %0, i32 noundef %1) local_unn
 
 4:                                                ; preds = %2
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), i64 0, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2076), i64 0, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   %9 = icmp slt i32 %1, 32
@@ -46301,7 +46301,7 @@ define zeroext i1 @IsGamepadButtonDown(i32 noundef %0, i32 noundef %1) local_unn
 
 10:                                               ; preds = %4
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2336), i64 0, i64 %5, i64 %11
+  %12 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2336), i64 0, i64 %5, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 1
   br label %15
@@ -46318,7 +46318,7 @@ define zeroext i1 @IsGamepadButtonReleased(i32 noundef %0, i32 noundef %1) local
 
 4:                                                ; preds = %2
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), i64 0, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2076), i64 0, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   %9 = icmp slt i32 %1, 32
@@ -46327,13 +46327,13 @@ define zeroext i1 @IsGamepadButtonReleased(i32 noundef %0, i32 noundef %1) local
 
 10:                                               ; preds = %4
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2464), i64 0, i64 %5, i64 %11
+  %12 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2464), i64 0, i64 %5, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 1
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2336), i64 0, i64 %5, i64 %11
+  %16 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2336), i64 0, i64 %5, i64 %11
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 0
   br label %19
@@ -46350,7 +46350,7 @@ define zeroext i1 @IsGamepadButtonUp(i32 noundef %0, i32 noundef %1) local_unnam
 
 4:                                                ; preds = %2
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), i64 0, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2076), i64 0, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   %9 = icmp slt i32 %1, 32
@@ -46359,7 +46359,7 @@ define zeroext i1 @IsGamepadButtonUp(i32 noundef %0, i32 noundef %1) local_unnam
 
 10:                                               ; preds = %4
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2336), i64 0, i64 %5, i64 %11
+  %12 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2336), i64 0, i64 %5, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 0
   br label %15
@@ -46371,14 +46371,14 @@ define zeroext i1 @IsGamepadButtonUp(i32 noundef %0, i32 noundef %1) local_unnam
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetGamepadButtonPressed() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 2056), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2056), align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetGamepadAxisCount(i32 noundef %0) local_unnamed_addr #10 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [4 x i32], ptr getelementptr inbounds (i8, ptr @CORE, i64 2060), i64 0, i64 %2
+  %3 = getelementptr inbounds [4 x i32], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2060), i64 0, i64 %2
   %4 = load i32, ptr %3, align 4
   ret i32 %4
 }
@@ -46386,26 +46386,26 @@ define i32 @GetGamepadAxisCount(i32 noundef %0) local_unnamed_addr #10 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsMouseButtonPressed(i32 noundef %0) local_unnamed_addr #10 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1906), i64 0, i64 %2
+  %3 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1906), i64 0, i64 %2
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 1
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1914), i64 0, i64 %2
+  %7 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1914), i64 0, i64 %2
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 0
   br label %10
 
 10:                                               ; preds = %6, %1
   %.0 = phi i1 [ false, %1 ], [ %9, %6 ]
-  %11 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2040), i64 0, i64 %2
+  %11 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2040), i64 0, i64 %2
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 1
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2048), i64 0, i64 %2
+  %15 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2048), i64 0, i64 %2
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
   %spec.select5 = select i1 %17, i1 true, i1 %.0
@@ -46419,26 +46419,26 @@ define zeroext i1 @IsMouseButtonPressed(i32 noundef %0) local_unnamed_addr #10 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsMouseButtonReleased(i32 noundef %0) local_unnamed_addr #10 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1906), i64 0, i64 %2
+  %3 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1906), i64 0, i64 %2
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1914), i64 0, i64 %2
+  %7 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1914), i64 0, i64 %2
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 1
   br label %10
 
 10:                                               ; preds = %6, %1
   %.0 = phi i1 [ false, %1 ], [ %9, %6 ]
-  %11 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2040), i64 0, i64 %2
+  %11 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2040), i64 0, i64 %2
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2048), i64 0, i64 %2
+  %15 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2048), i64 0, i64 %2
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 1
   %spec.select5 = select i1 %17, i1 true, i1 %.0
@@ -46452,10 +46452,10 @@ define zeroext i1 @IsMouseButtonReleased(i32 noundef %0) local_unnamed_addr #10 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @IsMouseButtonUp(i32 noundef %0) local_unnamed_addr #10 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 1906), i64 0, i64 %2
+  %3 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1906), i64 0, i64 %2
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 0
-  %6 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2040), i64 0, i64 %2
+  %6 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2040), i64 0, i64 %2
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 0
   %narrow = select i1 %8, i1 true, i1 %5
@@ -46464,10 +46464,10 @@ define zeroext i1 @IsMouseButtonUp(i32 noundef %0) local_unnamed_addr #10 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetMouseX() local_unnamed_addr #10 {
-  %1 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
-  %2 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1868), align 4
+  %1 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1884), align 4
+  %2 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1868), align 4
   %3 = fadd float %1, %2
-  %4 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1876), align 4
+  %4 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1876), align 4
   %5 = fmul float %3, %4
   %6 = fptosi float %5 to i32
   ret i32 %6
@@ -46475,10 +46475,10 @@ define i32 @GetMouseX() local_unnamed_addr #10 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetMouseY() local_unnamed_addr #10 {
-  %1 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1888), align 8
-  %2 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1872), align 8
+  %1 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1888), align 8
+  %2 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1872), align 8
   %3 = fadd float %1, %2
-  %4 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1880), align 8
+  %4 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1880), align 8
   %5 = fmul float %3, %4
   %6 = fptosi float %5 to i32
   ret i32 %6
@@ -46486,16 +46486,16 @@ define i32 @GetMouseY() local_unnamed_addr #10 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define <2 x float> @GetMousePosition() local_unnamed_addr #26 {
-  %1 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1884), align 4
-  %2 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1868), align 4
+  %1 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1884), align 4
+  %2 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1868), align 4
   %3 = fadd float %1, %2
-  %4 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1876), align 4
+  %4 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1876), align 4
   %5 = fmul float %3, %4
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %5, i64 0
-  %6 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1888), align 8
-  %7 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1872), align 8
+  %6 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1888), align 8
+  %7 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1872), align 8
   %8 = fadd float %6, %7
-  %9 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1880), align 8
+  %9 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1880), align 8
   %10 = fmul float %8, %9
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %10, i64 1
   ret <2 x float> %.sroa.0.4.vec.insert
@@ -46505,27 +46505,27 @@ define <2 x float> @GetMousePosition() local_unnamed_addr #26 {
 define void @SetMouseOffset(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = sitofp i32 %0 to float
   %4 = sitofp i32 %1 to float
-  store float %3, ptr getelementptr inbounds (i8, ptr @CORE, i64 1868), align 4
-  store float %4, ptr getelementptr inbounds (i8, ptr @CORE, i64 1872), align 8
+  store float %3, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1868), align 4
+  store float %4, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1872), align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define <2 x float> @GetMouseWheelMoveV() local_unnamed_addr #26 {
-  %.sroa.0.0.copyload = load <2 x float>, ptr getelementptr inbounds (i8, ptr @CORE, i64 1924), align 4
+  %.sroa.0.0.copyload = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1924), align 4
   ret <2 x float> %.sroa.0.0.copyload
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetTouchX() local_unnamed_addr #10 {
-  %1 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1976), align 8
+  %1 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1976), align 8
   %2 = fptosi float %1 to i32
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetTouchY() local_unnamed_addr #10 {
-  %1 = load float, ptr getelementptr inbounds (i8, ptr @CORE, i64 1980), align 4
+  %1 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1980), align 4
   %2 = fptosi float %1 to i32
   ret i32 %2
 }
@@ -46537,7 +46537,7 @@ define <2 x float> @GetTouchPosition(i32 noundef %0) local_unnamed_addr #25 {
 
 3:                                                ; preds = %1
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds [8 x %struct.Vector2], ptr getelementptr inbounds (i8, ptr @CORE, i64 1976), i64 0, i64 %4
+  %5 = getelementptr inbounds [8 x %struct.Vector2], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1976), i64 0, i64 %4
   %.sroa.0.0.copyload2 = load <2 x float>, ptr %5, align 8
   br label %7
 
@@ -46557,7 +46557,7 @@ define i32 @GetTouchPointId(i32 noundef %0) local_unnamed_addr #10 {
 
 3:                                                ; preds = %1
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds [8 x i32], ptr getelementptr inbounds (i8, ptr @CORE, i64 1944), i64 0, i64 %4
+  %5 = getelementptr inbounds [8 x i32], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1944), i64 0, i64 %4
   %6 = load i32, ptr %5, align 4
   br label %7
 
@@ -46568,7 +46568,7 @@ define i32 @GetTouchPointId(i32 noundef %0) local_unnamed_addr #10 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @GetTouchPointCount() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 1940), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1940), align 4
   ret i32 %1
 }
 

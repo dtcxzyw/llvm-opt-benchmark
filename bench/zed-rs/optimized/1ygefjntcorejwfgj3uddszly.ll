@@ -7965,7 +7965,7 @@ define hidden void @"_ZN4gpui6window13WindowContext5spawn28_$u7b$$u7b$closure$u7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2191)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2194)
-  %12 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN13terminal_view11persistence11TERMINAL_DB17hcb4b23295c3eadbfE, i64 48) acquire, align 8, !noalias !2196
+  %12 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN13terminal_view11persistence11TERMINAL_DB17hcb4b23295c3eadbfE, i64 48) acquire, align 8, !noalias !2196
   %13 = icmp eq i32 %12, 4
   br i1 %13, label %"_ZN4core3ptr65drop_in_place$LT$gpui..app..async_context..AsyncWindowContext$GT$17hdd91a1f6f5bb3fc4E.exit5.i", label %14
 
@@ -7974,7 +7974,7 @@ define hidden void @"_ZN4gpui6window13WindowContext5spawn28_$u7b$$u7b$closure$u7
   store ptr @_ZN13terminal_view11persistence11TERMINAL_DB17hcb4b23295c3eadbfE, ptr %5, align 8, !noalias !2196
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !2196
   store ptr %5, ptr %4, align 8, !noalias !2196
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17hefe7ecc220e10994E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN13terminal_view11persistence11TERMINAL_DB17hcb4b23295c3eadbfE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5c34b2c50fe337d25893a03fec7c9f9.82.llvm.15731766825718755672)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17hefe7ecc220e10994E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN13terminal_view11persistence11TERMINAL_DB17hcb4b23295c3eadbfE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5c34b2c50fe337d25893a03fec7c9f9.82.llvm.15731766825718755672)
           to label %.noexc.i unwind label %15, !noalias !2200
 
 .noexc.i:                                         ; preds = %14
@@ -36308,7 +36308,7 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
   call void @llvm.experimental.noalias.scope.decl(metadata !7904)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17), !noalias !7907
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16), !noalias !7907
-  %111 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN13terminal_view11persistence11TERMINAL_DB17hcb4b23295c3eadbfE, i64 48) acquire, align 8, !noalias !7913
+  %111 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN13terminal_view11persistence11TERMINAL_DB17hcb4b23295c3eadbfE, i64 48) acquire, align 8, !noalias !7913
   %112 = icmp eq i32 %111, 4
   br i1 %112, label %_ZN3std4sync4once4Once9call_once17h0fea688aee6ad746E.llvm.15731766825718755672.exit.i.i.i.i, label %113
 
@@ -36317,7 +36317,7 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
   store ptr @_ZN13terminal_view11persistence11TERMINAL_DB17hcb4b23295c3eadbfE, ptr %14, align 8, !noalias !7913
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13), !noalias !7913
   store ptr %14, ptr %13, align 8, !noalias !7913
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17hefe7ecc220e10994E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN13terminal_view11persistence11TERMINAL_DB17hcb4b23295c3eadbfE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5c34b2c50fe337d25893a03fec7c9f9.82.llvm.15731766825718755672)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17hefe7ecc220e10994E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN13terminal_view11persistence11TERMINAL_DB17hcb4b23295c3eadbfE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5c34b2c50fe337d25893a03fec7c9f9.82.llvm.15731766825718755672)
           to label %.noexc.i.i.i unwind label %197, !noalias !7916
 
 .noexc.i.i.i:                                     ; preds = %113
@@ -39422,7 +39422,7 @@ define hidden void @"_ZN13terminal_view29subscribe_for_terminal_events28_$u7b$$u
 define hidden void @"_ZN81_$LT$terminal_view..TerminalView$u20$as$u20$workspace..item..SerializableItem$GT$7cleanup28_$u7b$$u7b$closure$u7d$$u7d$17h6044d7c86bf4efa5E.llvm.15731766825718755672"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef align 8 dereferenceable(64) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
   %5 = alloca [8 x i8], align 8
-  %6 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN13terminal_view11persistence11TERMINAL_DB17hcb4b23295c3eadbfE, i64 48) acquire, align 8, !noalias !8663
+  %6 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN13terminal_view11persistence11TERMINAL_DB17hcb4b23295c3eadbfE, i64 48) acquire, align 8, !noalias !8663
   %7 = icmp eq i32 %6, 4
   br i1 %7, label %"_ZN4core3ptr65drop_in_place$LT$gpui..app..async_context..AsyncWindowContext$GT$17hdd91a1f6f5bb3fc4E.exit5", label %8
 
@@ -39431,7 +39431,7 @@ define hidden void @"_ZN81_$LT$terminal_view..TerminalView$u20$as$u20$workspace.
   store ptr @_ZN13terminal_view11persistence11TERMINAL_DB17hcb4b23295c3eadbfE, ptr %5, align 8, !noalias !8663
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !8663
   store ptr %5, ptr %4, align 8, !noalias !8663
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17hefe7ecc220e10994E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN13terminal_view11persistence11TERMINAL_DB17hcb4b23295c3eadbfE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5c34b2c50fe337d25893a03fec7c9f9.82.llvm.15731766825718755672)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17hefe7ecc220e10994E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN13terminal_view11persistence11TERMINAL_DB17hcb4b23295c3eadbfE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5c34b2c50fe337d25893a03fec7c9f9.82.llvm.15731766825718755672)
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %8

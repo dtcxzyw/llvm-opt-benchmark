@@ -67,7 +67,7 @@ thermal_hwmon_lookup_by_type.exit:                ; preds = %9
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %thermal_hwmon_lookup_by_type.exit.thread, %thermal_hwmon_lookup_by_type.exit
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %18 = tail call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 3520, i64 noundef 72) #10
   %19 = icmp eq ptr %18, null
   br i1 %19, label %97, label %20
@@ -92,13 +92,13 @@ thermal_hwmon_lookup_by_type.exit:                ; preds = %9
   br label %.thread7
 
 32:                                               ; preds = %20
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %34 = tail call noalias align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %33, i32 noundef 3520, i64 noundef 120) #10
   %35 = icmp eq ptr %34, null
   br i1 %35, label %90, label %39
 
 .thread:                                          ; preds = %thermal_hwmon_lookup_by_type.exit
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %37 = tail call noalias align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %36, i32 noundef 3520, i64 noundef 120) #10
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.thread7, label %39
@@ -168,8 +168,8 @@ thermal_hwmon_lookup_by_type.exit:                ; preds = %9
 
 77:                                               ; preds = %76
   %78 = getelementptr inbounds nuw i8, ptr %41, i64 56
-  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @thermal_hwmon_list, i64 8), align 8
-  store ptr %78, ptr getelementptr inbounds (i8, ptr @thermal_hwmon_list, i64 8), align 8
+  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @thermal_hwmon_list, i64 8), align 8
+  store ptr %78, ptr getelementptr inbounds nuw (i8, ptr @thermal_hwmon_list, i64 8), align 8
   store ptr @thermal_hwmon_list, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %41, i64 64
   store ptr %79, ptr %80, align 8

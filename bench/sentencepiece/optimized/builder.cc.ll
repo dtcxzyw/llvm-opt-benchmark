@@ -541,7 +541,7 @@ _ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit86: ; preds = %_ZN13
 
 67:                                               ; preds = %64
   store i8 0, ptr %12, align 1
-  %68 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 4))
+  %68 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 4))
           to label %69 unwind label %103
 
 69:                                               ; preds = %67
@@ -1123,7 +1123,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit202.thread:          ; preds = %235
   %.sroa.12.0265340 = phi ptr [ null, %_ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %231, %._crit_edge320.loopexit ]
   %.sroa.0233.0269337 = phi ptr [ null, %_ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %230, %._crit_edge320.loopexit ]
   %.0.i.i.i.i.i272335 = phi ptr [ null, %_ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %.0.i.i.i.i.i.ph, %._crit_edge320.loopexit ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i64 16), ptr %21, align 8
   %260 = getelementptr inbounds nuw i8, ptr %21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %260, i8 0, i64 24, i1 false)
   %261 = ptrtoint ptr %.0.i.i.i.i.i272335 to i64
@@ -1344,7 +1344,7 @@ _ZNSt6vectorIN5Darts15DoubleArrayImplIvvivE16result_pair_typeESaIS3_EEC2EmRKS4_.
 
 324:                                              ; preds = %322
   store i8 0, ptr %25, align 1
-  %325 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 4))
+  %325 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 4))
           to label %326 unwind label %344
 
 326:                                              ; preds = %324
@@ -1404,7 +1404,7 @@ _ZNSt6vectorIN5Darts15DoubleArrayImplIvvivE16result_pair_typeESaIS3_EED2Ev.exit1
   br label %356
 
 346:                                              ; preds = %_ZNSt6vectorIN5Darts15DoubleArrayImplIvvivE16result_pair_typeESaIS3_EED2Ev.exit, %285
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i64 16), ptr %21, align 8
   %347 = getelementptr inbounds nuw i8, ptr %21, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %260, i8 0, i64 16, i1 false)
   %348 = load ptr, ptr %347, align 8
@@ -1438,7 +1438,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZN5Darts15DoubleAr
 
 356:                                              ; preds = %_ZNSt6vectorIN5Darts15DoubleArrayImplIvvivE16result_pair_typeESaIS3_EED2Ev.exit195, %295, %.body169, %268
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt6vectorIN5Darts15DoubleArrayImplIvvivE16result_pair_typeESaIS3_EED2Ev.exit195 ], [ %296, %295 ], [ %eh.lpad-body170, %.body169 ], [ %269, %268 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i64 16), ptr %21, align 8
   %357 = getelementptr inbounds nuw i8, ptr %21, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %260, i8 0, i64 16, i1 false)
   %358 = load ptr, ptr %357, align 8
@@ -1867,7 +1867,7 @@ _ZNKSt4lessISt6vectorIjSaIjEEEclERKS2_S5_.exit.i.i: ; preds = %50, %34
 
 _ZNKSt3mapISt6vectorIjSaIjEEiSt4lessIS2_ESaISt4pairIKS2_iEEE4findERS6_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %2, %_ZNKSt8_Rb_treeISt6vectorIjSaIjEESt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i, %_ZNKSt4lessISt6vectorIjSaIjEEEclERKS2_S5_.exit.i.i
   store i8 1, ptr %3, align 1
-  %53 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.54, i64 4))
+  %53 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.54, i64 4))
           to label %54 unwind label %.loopexit.split-lp
 
 54:                                               ; preds = %_ZNKSt3mapISt6vectorIjSaIjEEiSt4lessIS2_ESaISt4pairIKS2_iEEE4findERS6_.exit.thread
@@ -2180,7 +2180,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Darts15DoubleArrayImplIvvivED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -2371,7 +2371,7 @@ _ZNSt3mapISt6vectorIjSaIjEES2_St4lessIS2_ESaISt4pairIKS2_S2_EEE5clearEv.exit: ; 
 
 _ZN5Darts15DoubleArrayImplIvvivE9set_arrayEPKvm.exit: ; preds = %43
   call void @_ZN13sentencepiece4util6StatusD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i64 16), ptr %13, align 8
   %47 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 0, ptr %48, align 8
@@ -2436,7 +2436,7 @@ _ZN13sentencepiece4util8OkStatusEv.exit:          ; preds = %59
 
 _ZNSt8functionIFvmmEED2Ev.exit:                   ; preds = %_ZN13sentencepiece4util8OkStatusEv.exit, %61
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i64 16), ptr %13, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
   %66 = load ptr, ptr %52, align 8
   %.not.i.i19 = icmp eq ptr %66, null
@@ -2468,7 +2468,7 @@ _ZNSt8functionIFvmmEED2Ev.exit:                   ; preds = %_ZN13sentencepiece4
 
 _ZNSt8functionIFvmmEED2Ev.exit21:                 ; preds = %68, %72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i64 16), ptr %13, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
   %77 = load ptr, ptr %52, align 8
   %.not.i.i22 = icmp eq ptr %77, null
@@ -2710,7 +2710,7 @@ define void @_ZN13sentencepiece10normalizer7Builder12BuildNFKCMapEPSt3mapISt6vec
 
 6:                                                ; preds = %2
   store i8 0, ptr %3, align 1
-  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 4))
+  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 4))
           to label %8 unwind label %26
 
 8:                                                ; preds = %6
@@ -2772,7 +2772,7 @@ define void @_ZN13sentencepiece10normalizer7Builder11BuildNFCMapEPSt3mapISt6vect
 
 6:                                                ; preds = %2
   store i8 0, ptr %3, align 1
-  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 4))
+  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 4))
           to label %8 unwind label %26
 
 8:                                                ; preds = %6
@@ -2834,7 +2834,7 @@ define void @_ZN13sentencepiece10normalizer7Builder15BuildNmtNFKCMapEPSt3mapISt6
 
 6:                                                ; preds = %2
   store i8 0, ptr %3, align 1
-  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 4))
+  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 4))
           to label %8 unwind label %26
 
 8:                                                ; preds = %6
@@ -10203,7 +10203,7 @@ define void @_ZN13sentencepiece10normalizer7Builder15BuildNFKC_CFMapEPSt3mapISt6
 
 6:                                                ; preds = %2
   store i8 0, ptr %3, align 1
-  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 4))
+  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 4))
           to label %8 unwind label %26
 
 8:                                                ; preds = %6
@@ -10265,7 +10265,7 @@ define void @_ZN13sentencepiece10normalizer7Builder18BuildNmtNFKC_CFMapEPSt3mapI
 
 6:                                                ; preds = %2
   store i8 0, ptr %3, align 1
-  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 4))
+  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 4))
           to label %8 unwind label %26
 
 8:                                                ; preds = %6
@@ -10327,7 +10327,7 @@ define void @_ZN13sentencepiece10normalizer7Builder12BuildNFKDMapEPSt3mapISt6vec
 
 6:                                                ; preds = %2
   store i8 0, ptr %3, align 1
-  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 4))
+  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 4))
           to label %8 unwind label %26
 
 8:                                                ; preds = %6
@@ -10389,7 +10389,7 @@ define void @_ZN13sentencepiece10normalizer7Builder11BuildNFDMapEPSt3mapISt6vect
 
 6:                                                ; preds = %2
   store i8 0, ptr %3, align 1
-  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 4))
+  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 4))
           to label %8 unwind label %26
 
 8:                                                ; preds = %6
@@ -10451,7 +10451,7 @@ define void @_ZN13sentencepiece10normalizer7Builder15BuildNFKD_CFMapEPSt3mapISt6
 
 6:                                                ; preds = %2
   store i8 0, ptr %3, align 1
-  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 4))
+  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 4))
           to label %8 unwind label %26
 
 8:                                                ; preds = %6
@@ -10513,7 +10513,7 @@ define void @_ZN13sentencepiece10normalizer7Builder14BuildNFC_CFMapEPSt3mapISt6v
 
 6:                                                ; preds = %2
   store i8 0, ptr %3, align 1
-  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 4))
+  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 4))
           to label %8 unwind label %26
 
 8:                                                ; preds = %6
@@ -10575,7 +10575,7 @@ define void @_ZN13sentencepiece10normalizer7Builder14BuildNFD_CFMapEPSt3mapISt6v
 
 6:                                                ; preds = %2
   store i8 0, ptr %3, align 1
-  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 4))
+  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 4))
           to label %8 unwind label %26
 
 8:                                                ; preds = %6
@@ -10657,7 +10657,7 @@ define void @_ZN13sentencepiece10normalizer7Builder12LoadCharsMapESt17basic_stri
 
 28:                                               ; preds = %4
   store i8 0, ptr %12, align 1
-  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 4))
+  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 4))
           to label %30 unwind label %51
 
 30:                                               ; preds = %28
@@ -10883,7 +10883,7 @@ _ZN4absl8internal8SplitterD2Ev.exit:              ; preds = %117, %119
 
 126:                                              ; preds = %_ZN4absl8internal8SplitterD2Ev.exit
   store i8 1, ptr %18, align 1
-  %127 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 4))
+  %127 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 4))
           to label %128 unwind label %168
 
 128:                                              ; preds = %126
@@ -13928,7 +13928,7 @@ define internal fastcc void @_ZN13sentencepiece10normalizer12_GLOBAL__N_19Normal
 
 7:                                                ; preds = %4
   store i8 1, ptr %5, align 1
-  %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 4))
+  %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 4))
           to label %9 unwind label %92
 
 9:                                                ; preds = %7
@@ -16640,7 +16640,7 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairINSt7__cxx1112basic_stringIcSt11ch
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Darts15DoubleArrayImplIvvivED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -16938,7 +16938,7 @@ define linkonce_odr void @_ZN5Darts7Details8AutoPoolIhE10resize_bufEm(ptr nounde
   %15 = extractvalue { ptr, i32 } %10, 0
   %16 = tail call ptr @__cxa_begin_catch(ptr %15) #23
   %17 = tail call ptr @__cxa_allocate_exception(i64 16) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr @.str.57, ptr %18, align 8
   invoke void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #26
@@ -17069,7 +17069,7 @@ define linkonce_odr void @_ZN5Darts7Details8AutoPoolINS0_22DoubleArrayBuilderUni
   %16 = extractvalue { ptr, i32 } %11, 0
   %17 = tail call ptr @__cxa_begin_catch(ptr %16) #23
   %18 = tail call ptr @__cxa_allocate_exception(i64 16) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr @.str.57, ptr %19, align 8
   invoke void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #26
@@ -17909,7 +17909,7 @@ define linkonce_odr void @_ZN5Darts7Details8AutoPoolIjE10resize_bufEm(ptr nounde
   %16 = extractvalue { ptr, i32 } %11, 0
   %17 = tail call ptr @__cxa_begin_catch(ptr %16) #23
   %18 = tail call ptr @__cxa_allocate_exception(i64 16) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr @.str.57, ptr %19, align 8
   invoke void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #26
@@ -18004,7 +18004,7 @@ define linkonce_odr void @_ZN5Darts7Details8AutoPoolINS0_8DawgUnitEE10resize_buf
   %16 = extractvalue { ptr, i32 } %11, 0
   %17 = tail call ptr @__cxa_begin_catch(ptr %16) #23
   %18 = tail call ptr @__cxa_allocate_exception(i64 16) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr @.str.57, ptr %19, align 8
   invoke void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #26
@@ -18099,7 +18099,7 @@ define linkonce_odr void @_ZN5Darts7Details8AutoPoolINS0_8DawgNodeEE10resize_buf
   %16 = extractvalue { ptr, i32 } %11, 0
   %17 = tail call ptr @__cxa_begin_catch(ptr %16) #23
   %18 = tail call ptr @__cxa_allocate_exception(i64 16) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr @.str.57, ptr %19, align 8
   invoke void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #26
@@ -18282,7 +18282,7 @@ define linkonce_odr void @_ZN5Darts7Details11DawgBuilder6insertEPKcmi(ptr nounde
 
 6:                                                ; preds = %4
   %7 = tail call ptr @__cxa_allocate_exception(i64 16) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @.str.58, ptr %8, align 8
   tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #26
@@ -18298,7 +18298,7 @@ define linkonce_odr void @_ZN5Darts7Details11DawgBuilder6insertEPKcmi(ptr nounde
 
 12:                                               ; preds = %9
   %13 = tail call ptr @__cxa_allocate_exception(i64 16) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @.str.59, ptr %14, align 8
   tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #26
@@ -18323,7 +18323,7 @@ define linkonce_odr void @_ZN5Darts7Details11DawgBuilder6insertEPKcmi(ptr nounde
 
 25:                                               ; preds = %20
   %26 = tail call ptr @__cxa_allocate_exception(i64 16) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr @.str.60, ptr %27, align 8
   tail call void @__cxa_throw(ptr nonnull %26, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #26
@@ -18339,7 +18339,7 @@ define linkonce_odr void @_ZN5Darts7Details11DawgBuilder6insertEPKcmi(ptr nounde
 
 34:                                               ; preds = %28
   %35 = tail call ptr @__cxa_allocate_exception(i64 16) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %35, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr @.str.61, ptr %36, align 8
   tail call void @__cxa_throw(ptr nonnull %35, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #26
@@ -18850,7 +18850,7 @@ define linkonce_odr void @_ZN5Darts7Details11DawgBuilder5flushEj(ptr noundef non
   %78 = extractvalue { ptr, i32 } %73, 0
   %79 = call ptr @__cxa_begin_catch(ptr %78) #23
   %80 = call ptr @__cxa_allocate_exception(i64 16) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %80, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store ptr @.str.57, ptr %81, align 8
   invoke void @__cxa_throw(ptr nonnull %80, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #26
@@ -18957,7 +18957,7 @@ _ZN5Darts7Details9BitVector6appendEv.exit.i:      ; preds = %_ZN5Darts7Details8A
   %115 = extractvalue { ptr, i32 } %110, 0
   %116 = call ptr @__cxa_begin_catch(ptr %115) #23
   %117 = call ptr @__cxa_allocate_exception(i64 16) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %117, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   store ptr @.str.57, ptr %118, align 8
   invoke void @__cxa_throw(ptr nonnull %117, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #26
@@ -19052,7 +19052,7 @@ _ZN5Darts7Details8AutoPoolINS0_8DawgUnitEE6appendEv.exit.i: ; preds = %125, %.lo
   %149 = extractvalue { ptr, i32 } %144, 0
   %150 = call ptr @__cxa_begin_catch(ptr %149) #23
   %151 = call ptr @__cxa_allocate_exception(i64 16) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %151, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %151, align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
   store ptr @.str.57, ptr %152, align 8
   invoke void @__cxa_throw(ptr nonnull %151, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #26
@@ -19220,7 +19220,7 @@ _ZNK5Darts7Details8DawgNode4unitEv.exit:          ; preds = %174, %176
   %227 = extractvalue { ptr, i32 } %222, 0
   %228 = call ptr @__cxa_begin_catch(ptr %227) #23
   %229 = call ptr @__cxa_allocate_exception(i64 16) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %229, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %229, align 8
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 8
   store ptr @.str.57, ptr %230, align 8
   invoke void @__cxa_throw(ptr nonnull %229, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #26
@@ -19752,7 +19752,7 @@ define linkonce_odr void @_ZN5Darts7Details9BitVector5buildEv(ptr noundef nonnul
   %18 = extractvalue { ptr, i32 } %13, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #23
   %20 = tail call ptr @__cxa_allocate_exception(i64 16) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr @.str.62, ptr %21, align 8
   invoke void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #26
@@ -19912,7 +19912,7 @@ define linkonce_odr void @_ZN5Darts7Details18DoubleArrayBuilder15build_from_dawg
 
 70:                                               ; preds = %68
   %71 = tail call ptr @__cxa_allocate_exception(i64 16) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %71, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr @.str.63, ptr %72, align 8
   tail call void @__cxa_throw(ptr nonnull %71, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #26
@@ -20451,7 +20451,7 @@ _ZNK5Darts7Details18DoubleArrayBuilder17find_valid_offsetEj.exit: ; preds = %79,
 
 94:                                               ; preds = %_ZNK5Darts7Details18DoubleArrayBuilder17find_valid_offsetEj.exit
   %95 = tail call ptr @__cxa_allocate_exception(i64 16) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %95, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store ptr @.str.63, ptr %96, align 8
   tail call void @__cxa_throw(ptr nonnull %95, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #26
@@ -20816,7 +20816,7 @@ _ZNK5Darts7Details6KeysetIiE4keysEmm.exit.thread63: ; preds = %14
 
 31:                                               ; preds = %_ZNK5Darts7Details6KeysetIiE4keysEmm.exit
   %32 = tail call ptr @__cxa_allocate_exception(i64 16) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr @.str.64, ptr %33, align 8
   tail call void @__cxa_throw(ptr nonnull %32, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #26
@@ -20843,7 +20843,7 @@ _ZNK5Darts7Details6KeysetIiE6valuesEm.exit:       ; preds = %35, %38
 
 41:                                               ; preds = %_ZNK5Darts7Details6KeysetIiE6valuesEm.exit
   %42 = tail call ptr @__cxa_allocate_exception(i64 16) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr @.str.65, ptr %43, align 8
   tail call void @__cxa_throw(ptr nonnull %42, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #26
@@ -20918,7 +20918,7 @@ _ZN5Darts7Details8AutoPoolIhE6appendERKh.exit:    ; preds = %61, %64
 
 76:                                               ; preds = %74
   %77 = tail call ptr @__cxa_allocate_exception(i64 16) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %77, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr @.str.66, ptr %78, align 8
   tail call void @__cxa_throw(ptr nonnull %77, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #26
@@ -21069,7 +21069,7 @@ _ZNK5Darts7Details18DoubleArrayBuilder17find_valid_offsetEj.exit: ; preds = %136
 
 151:                                              ; preds = %_ZNK5Darts7Details18DoubleArrayBuilder17find_valid_offsetEj.exit
   %152 = tail call ptr @__cxa_allocate_exception(i64 16) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %152, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %152, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   store ptr @.str.63, ptr %153, align 8
   tail call void @__cxa_throw(ptr nonnull %152, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #26

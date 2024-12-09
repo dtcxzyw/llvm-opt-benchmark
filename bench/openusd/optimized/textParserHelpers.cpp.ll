@@ -1901,7 +1901,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrIn
 .invoke:                                          ; preds = %1
   %.not.i.i.i.i = icmp eq i8 %3, -1
   %4 = tail call ptr @__cxa_allocate_exception(i64 16) #24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.str.45..str.46 = select i1 %.not.i.i.i.i, ptr @.str.45, ptr @.str.46
   store ptr %.str.45..str.46, ptr %5, align 8
@@ -1926,7 +1926,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplINSt7__cxx1112b
   %12 = extractvalue { ptr, i32 } %7, 0
   %13 = tail call ptr @__cxa_begin_catch(ptr %12) #24
   %14 = tail call ptr @__cxa_allocate_exception(i64 16) #24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @.str.47, ptr %15, align 8
   invoke void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #26
@@ -12146,41 +12146,41 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFo
 
 13:                                               ; preds = %9
   %14 = extractvalue { ptr, ptr } %12, 0
-  store ptr %14, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 16), align 16
+  store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 16), align 16
   %15 = extractvalue { ptr, ptr } %12, 1
-  store ptr %15, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 24), align 8
+  store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 24), align 8
   %16 = invoke { ptr, ptr } @_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser25_GetListOpAndArrayTfTypesINS_9SdfListOpIjEEEESt4pairINS_6TfTypeES5_Ev()
           to label %17 unwind label %43
 
 17:                                               ; preds = %13
   %18 = extractvalue { ptr, ptr } %16, 0
-  store ptr %18, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 32), align 16
+  store ptr %18, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 32), align 16
   %19 = extractvalue { ptr, ptr } %16, 1
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 40), align 8
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 40), align 8
   %20 = invoke { ptr, ptr } @_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser25_GetListOpAndArrayTfTypesINS_9SdfListOpImEEEESt4pairINS_6TfTypeES5_Ev()
           to label %21 unwind label %43
 
 21:                                               ; preds = %17
   %22 = extractvalue { ptr, ptr } %20, 0
-  store ptr %22, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 48), align 16
+  store ptr %22, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 48), align 16
   %23 = extractvalue { ptr, ptr } %20, 1
-  store ptr %23, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 56), align 8
+  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 56), align 8
   %24 = invoke { ptr, ptr } @_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser25_GetListOpAndArrayTfTypesINS_9SdfListOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt4pairINS_6TfTypeESB_Ev()
           to label %25 unwind label %43
 
 25:                                               ; preds = %21
   %26 = extractvalue { ptr, ptr } %24, 0
-  store ptr %26, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 64), align 16
+  store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 64), align 16
   %27 = extractvalue { ptr, ptr } %24, 1
-  store ptr %27, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 72), align 8
+  store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 72), align 8
   %28 = invoke { ptr, ptr } @_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser25_GetListOpAndArrayTfTypesINS_9SdfListOpINS_7TfTokenEEEEESt4pairINS_6TfTypeES6_Ev()
           to label %29 unwind label %43
 
 29:                                               ; preds = %25
   %30 = extractvalue { ptr, ptr } %28, 0
-  store ptr %30, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 80), align 16
+  store ptr %30, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 80), align 16
   %31 = extractvalue { ptr, ptr } %28, 1
-  store ptr %31, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 88), align 8
+  store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 88), align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes) #24
   br label %32
 
@@ -12206,17 +12206,17 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFo
   br i1 %39, label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.exit", label %._crit_edge.loopexit.i.i.i
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %38
-  %.1.val.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 64), align 16
+  %.1.val.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 64), align 16
   %40 = icmp eq ptr %.1.val.i.i.i, %.val
   br i1 %40, label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.exit", label %41
 
 41:                                               ; preds = %._crit_edge.loopexit.i.i.i
-  %.2.val.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 80), align 16
+  %.2.val.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 80), align 16
   %42 = icmp eq ptr %.2.val.i.i.i, %.val
   br i1 %42, label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.exit", label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.exit.thread"
 
 "_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.exit": ; preds = %32, %38, %36, %34, %._crit_edge.loopexit.i.i.i, %41
-  %.028.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 64), %._crit_edge.loopexit.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 80), %41 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 16), %34 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 32), %36 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 48), %38 ], [ @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, %32 ]
+  %.028.i.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 64), %._crit_edge.loopexit.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 80), %41 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 16), %34 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 32), %36 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 48), %38 ], [ @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, %32 ]
   %.not9.not = icmp eq ptr %1, null
   br i1 %.not9.not, label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.exit.thread", label %45
 

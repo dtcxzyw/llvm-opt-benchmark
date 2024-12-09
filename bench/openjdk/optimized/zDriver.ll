@@ -224,7 +224,7 @@ define hidden void @_ZN15ZDriverUnlockerD2Ev(ptr nocapture nonnull readnone alig
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7ZDriverC2Ev(ptr noundef nonnull align 8 dereferenceable(924) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #13
-  store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTV7ZDriver, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTV7ZDriver, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store i32 11, ptr %2, align 8
   ret void
@@ -249,18 +249,18 @@ define hidden void @_ZN12ZDriverMinorC2Ev(ptr noundef nonnull align 8 dereferenc
   tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(924) %0) #13
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store i32 11, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTV12ZDriverMinor, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTV12ZDriverMinor, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 928
   tail call void @_ZN11ZDriverPortC1Ev(ptr noundef nonnull align 8 dereferenceable(136) %3) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, i8 0, i64 72, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV7GCTimer, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV7GCTimer, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   tail call void @_ZN14TimePartitionsC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #13
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV17ConcurrentGCTimer, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV17ConcurrentGCTimer, i64 16), ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   tail call void @_ZN12ZMinorTracerC1Ev(ptr noundef nonnull align 8 dereferenceable(80) %8) #13
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1256
@@ -511,18 +511,18 @@ define hidden void @_ZN12ZDriverMajorC2Ev(ptr noundef nonnull align 8 dereferenc
   tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(924) %0) #13
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store i32 11, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTV12ZDriverMajor, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTV12ZDriverMajor, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 928
   tail call void @_ZN11ZDriverPortC1Ev(ptr noundef nonnull align 8 dereferenceable(136) %3) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, i8 0, i64 72, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV7GCTimer, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV7GCTimer, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   tail call void @_ZN14TimePartitionsC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #13
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV17ConcurrentGCTimer, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV17ConcurrentGCTimer, i64 16), ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   tail call void @_ZN12ZMajorTracerC1Ev(ptr noundef nonnull align 8 dereferenceable(80) %8) #13
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1256
@@ -932,9 +932,9 @@ define linkonce_odr hidden void @_ZN12ThreadShadow22unused_initial_virtualEv(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12ZDriverMinorD2Ev(ptr noundef nonnull align 8 dereferenceable(1264) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTV12ZDriverMinor, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTV12ZDriverMinor, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV7GCTimer, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV7GCTimer, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   tail call void @_ZN14TimePartitionsD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 928
@@ -945,9 +945,9 @@ define linkonce_odr hidden void @_ZN12ZDriverMinorD2Ev(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12ZDriverMinorD0Ev(ptr noundef nonnull align 8 dereferenceable(1264) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTV12ZDriverMinor, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTV12ZDriverMinor, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV7GCTimer, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV7GCTimer, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   tail call void @_ZN14TimePartitionsD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 928
@@ -1071,9 +1071,9 @@ declare void @_ZN18ConcurrentGCThread4stopEv(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12ZDriverMajorD2Ev(ptr noundef nonnull align 8 dereferenceable(1264) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTV12ZDriverMajor, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTV12ZDriverMajor, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV7GCTimer, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV7GCTimer, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   tail call void @_ZN14TimePartitionsD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 928
@@ -1084,9 +1084,9 @@ define linkonce_odr hidden void @_ZN12ZDriverMajorD2Ev(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12ZDriverMajorD0Ev(ptr noundef nonnull align 8 dereferenceable(1264) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTV12ZDriverMajor, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTV12ZDriverMajor, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV7GCTimer, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV7GCTimer, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   tail call void @_ZN14TimePartitionsD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 928

@@ -292,7 +292,7 @@ define dso_local i32 @drm_mode_vrefresh(ptr nocapture noundef readonly %0) #2 al
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noalias noundef ptr @drm_mode_create(ptr nocapture readnone %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 120) #15
   ret ptr %3
 }
@@ -365,7 +365,7 @@ define dso_local noundef ptr @drm_analog_tv_mode(ptr noundef readonly %0, i32 no
 
 8:                                                ; preds = %7, %6, %6, %6, %6
   %9 = phi i64 [ 1, %7 ], [ 0, %6 ], [ 0, %6 ], [ 0, %6 ], [ 0, %6 ]
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %11 = tail call noalias noundef align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 120) #15
   %12 = icmp eq ptr %11, null
   br i1 %12, label %266, label %13
@@ -807,7 +807,7 @@ define dso_local noalias noundef ptr @drm_cvt_mode(ptr nocapture readnone %0, i3
   br i1 %10, label %11, label %174
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %13 = tail call noalias noundef align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3520, i64 noundef 120) #15
   %14 = icmp eq ptr %13, null
   br i1 %14, label %174, label %15
@@ -1063,7 +1063,7 @@ define dso_local noalias noundef ptr @drm_gtf_mode_complex(ptr nocapture readnon
   br i1 %13, label %14, label %124
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %16 = tail call noalias noundef align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3520, i64 noundef 120) #15
   %17 = icmp eq ptr %16, null
   br i1 %17, label %124, label %18
@@ -1435,7 +1435,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noalias noundef ptr @drm_mode_duplicate(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca %struct.list_head, align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %5 = tail call noalias noundef align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 120) #15
   %6 = icmp eq ptr %5, null
   br i1 %6, label %9, label %7

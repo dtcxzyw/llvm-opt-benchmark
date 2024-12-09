@@ -2173,8 +2173,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDele
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 464) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegateE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegateE, i64 496), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 464) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegateE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegateE, i64 496), ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2297,7 +2297,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i:                                         ; preds = %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i32 1, ptr %61, align 4, !noalias !9
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %60, align 8, !noalias !9
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %60, align 8, !noalias !9
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 12
   store i8 0, ptr %62, align 4, !noalias !9
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 13
@@ -2424,7 +2424,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i32:                                       ; preds = %113
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   store i32 1, ptr %115, align 4, !noalias !19
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %114, align 8, !noalias !19
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %114, align 8, !noalias !19
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 12
   store i8 0, ptr %116, align 4, !noalias !19
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 13
@@ -2772,9 +2772,9 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__15HdSceneDelegateD2Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(1184) initializes((0, 8), (24, 32)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 464) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegateE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 464) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegateE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegateE, i64 496), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegateE, i64 496), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -29499,7 +29499,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16HdPrimvarsSchemaD2Ev.exit: ; preds = %_ZN
   store i32 1, ptr %329, align 8, !noalias !123
   %330 = getelementptr inbounds nuw i8, ptr %328, i64 12
   store i32 1, ptr %330, align 4, !noalias !123
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5arrayISt6vectorIN32pxrInternal_v0_24__pxrReserved__19HdPrimvarDescriptorESaIS3_EELm6EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %328, align 8, !noalias !123
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5arrayISt6vectorIN32pxrInternal_v0_24__pxrReserved__19HdPrimvarDescriptorESaIS3_EELm6EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %328, align 8, !noalias !123
   %331 = getelementptr inbounds nuw i8, ptr %328, i64 16
   br label %332
 
@@ -32049,7 +32049,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30HdExtComputationPrimvarsSchemaD2Ev.exit: 
   store i32 1, ptr %553, align 8, !noalias !134
   %554 = getelementptr inbounds nuw i8, ptr %552, i64 12
   store i32 1, ptr %554, align 4, !noalias !134
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5arrayISt6vectorIN32pxrInternal_v0_24__pxrReserved__33HdExtComputationPrimvarDescriptorESaIS3_EELm6EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %552, align 8, !noalias !134
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5arrayISt6vectorIN32pxrInternal_v0_24__pxrReserved__33HdExtComputationPrimvarDescriptorESaIS3_EELm6EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %552, align 8, !noalias !134
   %555 = getelementptr inbounds nuw i8, ptr %552, i64 16
   br label %556
 
@@ -80098,7 +80098,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   store i32 1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %6, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS2_EELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS2_EELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %7, align 8
   store ptr %3, ptr %0, align 8

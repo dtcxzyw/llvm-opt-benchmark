@@ -141,7 +141,7 @@ define internal fastcc void @php_fsockopen_stream(ptr noundef %0, ptr nocapture 
   %.0250.ph366 = phi ptr [ %44, %45 ], [ null, %24 ], [ null, %38 ], [ null, %40 ], [ %44, %43 ]
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %55, align 8
-  %56 = load i64, ptr getelementptr inbounds (i8, ptr @file_globals, i64 24), align 8
+  %56 = load i64, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 24), align 8
   %57 = sitofp i64 %56 to double
   store double %57, ptr %6, align 8
   br label %58

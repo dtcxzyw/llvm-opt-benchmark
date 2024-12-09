@@ -194,11 +194,11 @@ define hidden { double, double } @_Z9world2demRKN2cv6Point_IdEERKNS_5Size_IiEE(p
   %6 = load double, ptr @dem_bl, align 8
   %7 = fsub double %3, %6
   %8 = fdiv double %5, %7
-  %9 = load double, ptr getelementptr inbounds (i8, ptr @dem_tr, i64 8), align 8
+  %9 = load double, ptr getelementptr inbounds nuw (i8, ptr @dem_tr, i64 8), align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load double, ptr %10, align 8
   %12 = fsub double %9, %11
-  %13 = load double, ptr getelementptr inbounds (i8, ptr @dem_bl, i64 8), align 8
+  %13 = load double, ptr getelementptr inbounds nuw (i8, ptr @dem_bl, i64 8), align 8
   %14 = fsub double %9, %13
   %15 = fdiv double %12, %14
   %16 = fsub double 1.000000e+00, %15
@@ -772,9 +772,9 @@ _ZNSt6vectorISt4pairIN2cv3VecIhLi3EEEdESaIS4_EE9push_backEOS4_.exit105: ; preds 
   %209 = load double, ptr @dem_bl, align 8
   %210 = fsub double %207, %209
   %211 = fdiv double %208, %210
-  %212 = load double, ptr getelementptr inbounds (i8, ptr @dem_tr, i64 8), align 8
+  %212 = load double, ptr getelementptr inbounds nuw (i8, ptr @dem_tr, i64 8), align 8
   %213 = fsub double %212, %202
-  %214 = load double, ptr getelementptr inbounds (i8, ptr @dem_bl, i64 8), align 8
+  %214 = load double, ptr getelementptr inbounds nuw (i8, ptr @dem_bl, i64 8), align 8
   %215 = fsub double %212, %214
   %216 = fdiv double %213, %215
   %217 = fsub double 1.000000e+00, %216

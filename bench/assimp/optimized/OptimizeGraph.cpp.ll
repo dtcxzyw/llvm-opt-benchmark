@@ -103,7 +103,7 @@ $_ZTV17DeadlyImportError = comdat any
 define hidden void @_ZN6Assimp20OptimizeGraphProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp20OptimizeGraphProcessE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp20OptimizeGraphProcessE, i64 16), ptr %this, align 8
   %mScene = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %mScene, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -2557,7 +2557,7 @@ call.i117.noexc:                                  ; preds = %for.end119
           to label %.noexc122 unwind label %lpad123
 
 .noexc122:                                        ; preds = %call.i117.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp121, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 18))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp121, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 18))
           to label %invoke.cont124 unwind label %lpad.i120
 
 lpad.i120:                                        ; preds = %.noexc122
@@ -2880,7 +2880,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #21
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -2952,7 +2952,7 @@ lpad8:                                            ; preds = %invoke.cont
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp20OptimizeGraphProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp20OptimizeGraphProcessE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp20OptimizeGraphProcessE, i64 16), ptr %this, align 8
   %meshes = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %meshes, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -2999,7 +2999,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp20OptimizeGraphProcessD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp20OptimizeGraphProcessE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp20OptimizeGraphProcessE, i64 16), ptr %this, align 8
   %meshes.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %meshes.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

@@ -1106,7 +1106,7 @@ _Py_NewRef.exit32:                                ; preds = %if.else, %if.end.i.
   %arrayidx.i34 = getelementptr i8, ptr %call, i64 32
   store ptr %5, ptr %arrayidx.i34, align 8
   %7 = load ptr, ptr %length, align 8
-  %call13 = tail call i32 @PyObject_RichCompareBool(ptr noundef %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848), i32 noundef 2) #6
+  %call13 = tail call i32 @PyObject_RichCompareBool(ptr noundef %7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3848), i32 noundef 2) #6
   switch i32 %call13, label %if.else20 [
     i32 -1, label %end
     i32 1, label %if.then18
@@ -1213,7 +1213,7 @@ if.end9.i:                                        ; preds = %if.end4.i
 
 if.end14.i:                                       ; preds = %if.end9.i
   %6 = load ptr, ptr %length.i, align 8
-  %call17.i = tail call i32 @PyObject_RichCompareBool(ptr noundef %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848), i32 noundef 2) #6
+  %call17.i = tail call i32 @PyObject_RichCompareBool(ptr noundef %6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3848), i32 noundef 2) #6
   %cmp18.not.i = icmp eq i32 %call17.i, 0
   br i1 %cmp18.not.i, label %if.end20.i, label %range_equals.exit
 
@@ -1569,7 +1569,7 @@ define internal ptr @longrangeiter_next(ptr nocapture noundef %r) #0 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %r, i64 32
   %0 = load ptr, ptr %len, align 8
-  %call1 = tail call i32 @PyObject_RichCompareBool(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), i32 noundef 4) #6
+  %call1 = tail call i32 @PyObject_RichCompareBool(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), i32 noundef 4) #6
   %cmp.not = icmp eq i32 %call1, 1
   br i1 %cmp.not, label %if.end, label %return
 
@@ -1584,7 +1584,7 @@ if.end:                                           ; preds = %entry
 
 if.end5:                                          ; preds = %if.end
   %3 = load ptr, ptr %len, align 8
-  %call8 = tail call ptr @PyNumber_Subtract(ptr noundef %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848)) #6
+  %call8 = tail call ptr @PyNumber_Subtract(ptr noundef %3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3848)) #6
   %cmp9 = icmp eq ptr %call8, null
   br i1 %cmp9, label %if.then10, label %if.end11
 
@@ -1715,7 +1715,7 @@ declare ptr @PyLong_FromSsize_t(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @compute_range_item(ptr nocapture noundef readonly %r, ptr noundef nonnull %arg) unnamed_addr #0 {
 entry:
-  %call1 = tail call i32 @PyObject_RichCompareBool(ptr noundef nonnull %arg, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), i32 noundef 0) #6
+  %call1 = tail call i32 @PyObject_RichCompareBool(ptr noundef nonnull %arg, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), i32 noundef 0) #6
   switch i32 %call1, label %if.else [
     i32 -1, label %return
     i32 1, label %if.then3
@@ -1740,7 +1740,7 @@ if.end.i.i:                                       ; preds = %if.else
 
 if.end8:                                          ; preds = %if.end.i.i, %if.else, %if.then3
   %i.0 = phi ptr [ %call4, %if.then3 ], [ %arg, %if.else ], [ %arg, %if.end.i.i ]
-  %call9 = tail call i32 @PyObject_RichCompareBool(ptr noundef nonnull %i.0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), i32 noundef 0) #6
+  %call9 = tail call i32 @PyObject_RichCompareBool(ptr noundef nonnull %i.0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), i32 noundef 0) #6
   %cmp10 = icmp eq i32 %call9, 0
   br i1 %cmp10, label %if.then11, label %if.end14
 
@@ -1797,7 +1797,7 @@ Py_DECREF.exit30:                                 ; preds = %if.then19, %if.then
 if.end20:                                         ; preds = %if.end14
   %step.i = getelementptr inbounds nuw i8, ptr %r, i64 32
   %8 = load ptr, ptr %step.i, align 8
-  %cmp.i22 = icmp eq ptr %8, getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848)
+  %cmp.i22 = icmp eq ptr %8, getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3848)
   br i1 %cmp.i22, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end20
@@ -1865,7 +1865,7 @@ define internal fastcc i32 @range_contains_long(ptr nocapture noundef readonly %
 entry:
   %step = getelementptr inbounds nuw i8, ptr %r, i64 32
   %0 = load ptr, ptr %step, align 8
-  %call1 = tail call i32 @PyObject_RichCompareBool(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), i32 noundef 4) #6
+  %call1 = tail call i32 @PyObject_RichCompareBool(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), i32 noundef 4) #6
   switch i32 %call1, label %if.else [
     i32 -1, label %Py_XDECREF.exit27
     i32 1, label %if.then5
@@ -1917,7 +1917,7 @@ if.end26:                                         ; preds = %if.end21
   br i1 %cmp29, label %if.then.i, label %if.end31
 
 if.end31:                                         ; preds = %if.end26
-  %call32 = tail call i32 @PyObject_RichCompareBool(ptr noundef nonnull %call28, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), i32 noundef 2) #6
+  %call32 = tail call i32 @PyObject_RichCompareBool(ptr noundef nonnull %call28, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), i32 noundef 2) #6
   br label %if.then.i
 
 if.then.i:                                        ; preds = %if.end31, %if.end26
@@ -2058,7 +2058,7 @@ if.then1.i51.i:                                   ; preds = %if.end.i48.i
 do.end.i:                                         ; preds = %if.then1.i51.i, %if.end.i48.i, %if.then7.i, %do.body.i
   %11 = load ptr, ptr %start.i, align 8
   %12 = load ptr, ptr %step1.i, align 8
-  %cmp.i26.i = icmp eq ptr %12, getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848)
+  %cmp.i26.i = icmp eq ptr %12, getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3848)
   br i1 %cmp.i26.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %do.end.i
@@ -2121,7 +2121,7 @@ if.then1.i42.i:                                   ; preds = %if.end.i39.i
 do.end19.i:                                       ; preds = %if.then1.i42.i, %if.end.i39.i, %if.then17.i, %do.body13.i
   %20 = load ptr, ptr %stop.i, align 8
   %21 = load ptr, ptr %step1.i, align 8
-  %cmp.i29.i = icmp eq ptr %21, getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848)
+  %cmp.i29.i = icmp eq ptr %21, getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3848)
   br i1 %cmp.i29.i, label %if.then.i42.i, label %if.else.i30.i
 
 if.then.i42.i:                                    ; preds = %do.end19.i
@@ -2434,7 +2434,7 @@ if.else.i:                                        ; preds = %land.lhs.true20.i.i
 
 if.end6.i:                                        ; preds = %if.end24.i.i, %if.end14.i.i, %if.end4.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %overflow.i.i)
-  %call7.i = call i32 @PyObject_RichCompareBool(ptr noundef %step, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), i32 noundef 4) #6
+  %call7.i = call i32 @PyObject_RichCompareBool(ptr noundef %step, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), i32 noundef 4) #6
   switch i32 %call7.i, label %if.else13.i [
     i32 -1, label %return
     i32 1, label %if.then12.i
@@ -2484,13 +2484,13 @@ Py_DECREF.exit86.i:                               ; preds = %if.then1.i84.i, %if
   br i1 %cmp21.i, label %return, label %if.end23.i
 
 if.end23.i:                                       ; preds = %Py_DECREF.exit86.i
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), align 8
   %add.i.i45.i = add i32 %8, 1
   %cmp.i.i46.i = icmp eq i32 %add.i.i45.i, 0
   br i1 %cmp.i.i46.i, label %if.end, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end23.i
-  store i32 %add.i.i45.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), align 8
+  store i32 %add.i.i45.i, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), align 8
   br label %if.end
 
 if.end25.i:                                       ; preds = %if.end17.i
@@ -2499,7 +2499,7 @@ if.end25.i:                                       ; preds = %if.end17.i
   br i1 %cmp27.i, label %Fail.i, label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.end25.i
-  %call30.i = call ptr @PyNumber_Subtract(ptr noundef nonnull %call26.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848)) #6
+  %call30.i = call ptr @PyNumber_Subtract(ptr noundef nonnull %call26.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3848)) #6
   %cmp31.i = icmp eq ptr %call30.i, null
   br i1 %cmp31.i, label %Fail.i, label %if.end33.i
 
@@ -2509,7 +2509,7 @@ if.end33.i:                                       ; preds = %if.end29.i
   br i1 %cmp35.i, label %Fail.i, label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.end33.i
-  %call38.i = call ptr @PyNumber_Add(ptr noundef nonnull %call34.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848)) #6
+  %call38.i = call ptr @PyNumber_Add(ptr noundef nonnull %call34.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3848)) #6
   %cmp39.i = icmp eq ptr %call38.i, null
   br i1 %cmp39.i, label %Fail.i, label %if.end41.i
 
@@ -2662,7 +2662,7 @@ compute_range_length.exit:                        ; preds = %if.else.i.i.i, %lan
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %if.end.i.i.i, %if.end23.i, %if.end.i45.i, %if.then1.i48.i, %Py_DECREF.exit59.i, %compute_range_length.exit
-  %retval.0.i19 = phi ptr [ %call3.i, %compute_range_length.exit ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), %if.end.i.i.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), %if.end23.i ], [ %call38.i, %if.end.i45.i ], [ %call38.i, %if.then1.i48.i ], [ %call38.i, %Py_DECREF.exit59.i ]
+  %retval.0.i19 = phi ptr [ %call3.i, %compute_range_length.exit ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), %if.end.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), %if.end23.i ], [ %call38.i, %if.end.i45.i ], [ %call38.i, %if.then1.i48.i ], [ %call38.i, %Py_DECREF.exit59.i ]
   %call1 = call ptr @_PyObject_New(ptr noundef %type) #6
   %cmp2 = icmp eq ptr %call1, null
   br i1 %cmp2, label %if.then3, label %if.end4
@@ -2838,7 +2838,7 @@ if.end.i.i:                                       ; preds = %if.end40
 _Py_NewRef.exit:                                  ; preds = %if.end40, %if.end.i.i
   %len = getelementptr inbounds nuw i8, ptr %call37, i64 32
   store ptr %4, ptr %len, align 8
-  %call46 = tail call ptr @PyNumber_Subtract(ptr noundef nonnull %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848)) #6
+  %call46 = tail call ptr @PyNumber_Subtract(ptr noundef nonnull %4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3848)) #6
   %tobool47.not = icmp eq ptr %call46, null
   br i1 %tobool47.not, label %create_failure, label %if.end49
 
@@ -3001,7 +3001,7 @@ if.then12:                                        ; preds = %if.end6
 if.end16:                                         ; preds = %if.then12
   %step = getelementptr inbounds nuw i8, ptr %r, i64 32
   %2 = load ptr, ptr %step, align 8
-  %cmp18 = icmp eq ptr %2, getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848)
+  %cmp18 = icmp eq ptr %2, getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3848)
   br i1 %cmp18, label %return, label %if.end20
 
 if.end20:                                         ; preds = %if.end16
@@ -3172,9 +3172,9 @@ sw.default:                                       ; preds = %entry
   br label %return
 
 sw.epilog:                                        ; preds = %land.lhs.true.i, %sw.bb12, %validate_step.exit
-  %start.0 = phi ptr [ %call, %validate_step.exit ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), %sw.bb12 ], [ %call, %land.lhs.true.i ]
+  %start.0 = phi ptr [ %call, %validate_step.exit ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), %sw.bb12 ], [ %call, %land.lhs.true.i ]
   %stop.0 = phi ptr [ %call4, %validate_step.exit ], [ %call14, %sw.bb12 ], [ %call4, %land.lhs.true.i ]
-  %step.1 = phi ptr [ %call.i, %validate_step.exit ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848), %sw.bb12 ], [ %call1.i, %land.lhs.true.i ]
+  %step.1 = phi ptr [ %call.i, %validate_step.exit ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3848), %sw.bb12 ], [ %call1.i, %land.lhs.true.i ]
   %call22 = tail call fastcc ptr @make_range_object(ptr noundef %type, ptr noundef nonnull %start.0, ptr noundef %stop.0, ptr noundef nonnull %step.1)
   %cmp.not = icmp eq ptr %call22, null
   br i1 %cmp.not, label %if.end24, label %return
@@ -3276,7 +3276,7 @@ if.end12:                                         ; preds = %if.end7
   br i1 %cmp14, label %if.then.i, label %if.end16
 
 if.end16:                                         ; preds = %if.end12
-  %call17 = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 49176)) #6
+  %call17 = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49176)) #6
   %call18 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef %call17, ptr noundef nonnull %call13, ptr noundef nonnull @_Py_NoneStruct) #6
   br label %return
 
@@ -3517,7 +3517,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end14:                                         ; preds = %_Py_NewRef.exit23
-  %call15 = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 49176)) #6
+  %call15 = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49176)) #6
   %call16 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef %call15, ptr noundef nonnull %call9, ptr noundef nonnull @_Py_NoneStruct) #6
   br label %return
 
@@ -3529,7 +3529,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @longrangeiter_setstate(ptr nocapture noundef %r, ptr noundef %state) #0 {
 entry:
-  %call1 = tail call i32 @PyObject_RichCompareBool(ptr noundef %state, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), i32 noundef 0) #6
+  %call1 = tail call i32 @PyObject_RichCompareBool(ptr noundef %state, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), i32 noundef 0) #6
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %return, label %if.end
 
@@ -3553,7 +3553,7 @@ if.then10:                                        ; preds = %if.end8
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end, %if.end8, %if.then10
-  %state.addr.0 = phi ptr [ %1, %if.then10 ], [ %state, %if.end8 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), %if.end ]
+  %state.addr.0 = phi ptr [ %1, %if.then10 ], [ %state, %if.end8 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), %if.end ]
   %step = getelementptr inbounds nuw i8, ptr %r, i64 24
   %2 = load ptr, ptr %step, align 8
   %call14 = tail call ptr @PyNumber_Multiply(ptr noundef %state.addr.0, ptr noundef %2) #6

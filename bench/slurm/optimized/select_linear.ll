@@ -100,7 +100,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @init() local_unnamed_addr #0 {
-  %1 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
+  %1 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   store i16 %1, ptr @cr_type, align 2
   %.not = icmp eq i16 %1, 0
   br i1 %.not, label %8, label %2
@@ -411,7 +411,7 @@ define dso_local range(i32 -1, 2041) i32 @select_p_job_test(ptr noundef %0, ptr 
   br i1 %63, label %64, label %71
 
 64:                                               ; preds = %62
-  %65 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %65 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %66 = and i64 %65, 1
   %.not71 = icmp eq i64 %66, 0
   br i1 %.not71, label %502, label %67
@@ -432,7 +432,7 @@ define dso_local range(i32 -1, 2041) i32 @select_p_job_test(ptr noundef %0, ptr 
   br i1 %or.cond, label %74, label %81
 
 74:                                               ; preds = %71
-  %75 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %75 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %76 = and i64 %75, 1
   %.not70 = icmp eq i64 %76, 0
   br i1 %.not70, label %502, label %77
@@ -1927,7 +1927,7 @@ define dso_local range(i32 -1, 1) i32 @select_p_job_begin(ptr noundef %0) local_
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %15 = load i32, ptr %14, align 8
   tail call void @gres_job_state_log(ptr noundef %13, i32 noundef %15) #11
-  %16 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %17 = and i64 %16, 64
   %.not13 = icmp eq i64 %17, 0
   br i1 %.not13, label %25, label %18
@@ -3067,7 +3067,7 @@ _test_tot_job.exit.thread.i:                      ; preds = %_test_tot_job.exit.
   %80 = tail call i32 @extract_job_resources_node(ptr noundef nonnull %42, i32 noundef %.066.lcssa.i) #11
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %82 = load i64, ptr %81, align 8
-  %83 = load i64, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 184), align 8
+  %83 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 184), align 8
   %84 = icmp slt i64 %82, %83
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %86 = load ptr, ptr %85, align 8
@@ -3433,7 +3433,7 @@ _rem_tot_job.exit.thread:                         ; preds = %9, %15, %_rem_tot_j
 _rem_tot_job.exit.thread144:                      ; preds = %.thread, %_rem_tot_job.exit
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 888
   %32 = load i64, ptr %31, align 8
-  %33 = load i64, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 184), align 8
+  %33 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 184), align 8
   %34 = icmp slt i64 %32, %33
   br i1 %3, label %35, label %46
 
@@ -4128,7 +4128,7 @@ define dso_local range(i32 0, 1901) i32 @select_p_select_nodeinfo_set_all() loca
   %40 = load ptr, ptr %28, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 104
   %42 = load ptr, ptr %41, align 8
-  %43 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 842), align 2
+  %43 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 842), align 2
   %44 = call double @assoc_mgr_tres_weighted(ptr noundef %39, ptr noundef %42, i16 noundef zeroext %43, i1 noundef zeroext false) #11
   br label %48
 

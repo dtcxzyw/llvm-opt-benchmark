@@ -1189,7 +1189,7 @@ declare void @_ZN16BooleanAttributeC1ENSt7__cxx1112basic_stringIcSt11char_traits
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN17NonVoidTypeFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17NonVoidTypeFilter, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17NonVoidTypeFilter, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %2, align 8
   ret void
@@ -1277,7 +1277,7 @@ define dso_local noundef ptr @_ZN17NonVoidTypeFilter8get_typeEv(ptr nocapture no
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN28NonVoidNonVolatileTypeFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28NonVoidNonVolatileTypeFilter, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28NonVoidNonVolatileTypeFilter, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %2, align 8
   ret void
@@ -1442,7 +1442,7 @@ define dso_local void @_ZN22ChooseRandomTypeFilterC2Ebb(ptr noundef nonnull alig
   %4 = zext i1 %1 to i8
   %5 = zext i1 %2 to i8
   tail call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22ChooseRandomTypeFilter, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22ChooseRandomTypeFilter, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 17
@@ -3003,7 +3003,7 @@ define dso_local noundef ptr @_ZN4Type21random_type_from_typeEPKS_bb(ptr noundef
 
 12:                                               ; preds = %10
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28NonVoidNonVolatileTypeFilter, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28NonVoidNonVolatileTypeFilter, i64 16), ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %13, align 8
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL8AllTypes, i64 8), align 8
@@ -3048,7 +3048,7 @@ _ZN4Type33choose_random_nonvoid_nonvolatileEv.exit: ; preds = %10, %22
 
 29:                                               ; preds = %27
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17NonVoidTypeFilter, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17NonVoidTypeFilter, i64 16), ptr %4, align 8
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %30, align 8
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL8AllTypes, i64 8), align 8
@@ -3131,7 +3131,7 @@ define dso_local noundef ptr @_ZN4Type33choose_random_nonvoid_nonvolatileEv() lo
 
 3:                                                ; preds = %0
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28NonVoidNonVolatileTypeFilter, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28NonVoidNonVolatileTypeFilter, i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %4, align 8
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL8AllTypes, i64 8), align 8
@@ -3172,7 +3172,7 @@ define dso_local noundef ptr @_ZN4Type21choose_random_nonvoidEv() local_unnamed_
 
 3:                                                ; preds = %0
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17NonVoidTypeFilter, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17NonVoidTypeFilter, i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %4, align 8
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL8AllTypes, i64 8), align 8
@@ -3516,7 +3516,7 @@ define dso_local void @_ZN4Type21make_one_struct_fieldERSt6vectorIPKS_SaIS2_EERS
   %6 = alloca %class.CVQualifiers, align 8
   %7 = zext i1 %3 to i8
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22ChooseRandomTypeFilter, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22ChooseRandomTypeFilter, i64 16), ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 17
@@ -8011,7 +8011,7 @@ _ZNK4Type18get_indirect_levelEv.exit:             ; preds = %21
 27:                                               ; preds = %5, %_ZNK4Type18get_indirect_levelEv.exit, %0
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1)
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22ChooseRandomTypeFilter, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22ChooseRandomTypeFilter, i64 16), ptr %1, align 8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i8 0, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 17
@@ -8106,7 +8106,7 @@ declare noundef i32 @_ZN9CGOptions18max_indirect_levelEv() local_unnamed_addr #0
 define dso_local noundef ptr @_ZN4Type13choose_randomEv() local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %class.ChooseRandomTypeFilter, align 8
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22ChooseRandomTypeFilter, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22ChooseRandomTypeFilter, i64 16), ptr %1, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 17

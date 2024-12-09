@@ -137,7 +137,7 @@ define dso_local i32 @sr_set_blocklength(ptr noundef %0, i32 noundef %1) local_u
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %7 = tail call noalias align 8 dereferenceable_or_null(512) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3264, i64 noundef 512) #9
   %8 = icmp eq ptr %7, null
   br i1 %8, label %34, label %9
@@ -218,7 +218,7 @@ define dso_local i32 @sr_cd_check(ptr noundef %0) local_unnamed_addr #3 align 16
   br i1 %10, label %11, label %254
 
 11:                                               ; preds = %1
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %13 = tail call noalias align 8 dereferenceable_or_null(512) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3264, i64 noundef 512) #9
   %14 = icmp eq ptr %13, null
   br i1 %14, label %254, label %15
@@ -401,7 +401,7 @@ define dso_local i32 @sr_cd_check(ptr noundef %0) local_unnamed_addr #3 align 16
   %130 = select i1 %128, i64 0, i64 %129
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #8
   %131 = load i32, ptr %16, align 8
-  %132 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %133 = call noalias align 8 dereferenceable_or_null(512) ptr @kmalloc_trace(ptr noundef %132, i32 noundef 3264, i64 noundef 512) #9
   %134 = icmp eq ptr %133, null
   br i1 %134, label %154, label %135
@@ -563,7 +563,7 @@ define dso_local i32 @sr_cd_check(ptr noundef %0) local_unnamed_addr #3 align 16
 224:                                              ; preds = %218
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #8
   %225 = load i32, ptr %16, align 8
-  %226 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %226 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %227 = call noalias align 8 dereferenceable_or_null(512) ptr @kmalloc_trace(ptr noundef %226, i32 noundef 3264, i64 noundef 512) #9
   %228 = icmp eq ptr %227, null
   br i1 %228, label %247, label %229

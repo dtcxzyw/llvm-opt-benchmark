@@ -276,7 +276,7 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_convolveBI(ptr noundef
   br i1 %.not.i.i, label %129, label %127
 
 127:                                              ; preds = %125
-  %128 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibSysFns, i64 16), align 8
+  %128 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
   call void %128(ptr noundef nonnull %120) #14
   br label %129
 
@@ -321,7 +321,7 @@ freeArray.exit:                                   ; preds = %129, %130
   br label %256
 
 148:                                              ; preds = %136
-  %149 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibFns, i64 48), align 16
+  %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibFns, i64 48), align 16
   %.val172 = load i32, ptr %140, align 8
   %150 = call i32 (ptr, ptr, ptr, i32, i32, i32, ...) %149(ptr noundef nonnull %138, ptr noundef nonnull %11, ptr noundef nonnull %60, i32 noundef %.0144, i32 noundef %.0143, i32 noundef %.val172) #14
   %.not = icmp eq i32 %150, 0
@@ -2032,7 +2032,7 @@ expandPackedICRdefault.exit:                      ; preds = %396, %403, %.loopex
 
 599:                                              ; preds = %593, %596
   %600 = phi i32 [ %598, %596 ], [ 4, %593 ]
-  %601 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibSysFns, i64 8), align 8
+  %601 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 8), align 8
   %602 = getelementptr inbounds nuw i8, ptr %1, i64 600
   %603 = load i32, ptr %602, align 8
   %604 = getelementptr inbounds nuw i8, ptr %1, i64 596
@@ -2048,7 +2048,7 @@ expandPackedICRdefault.exit:                      ; preds = %396, %403, %.loopex
   br i1 %611, label %612, label %624
 
 612:                                              ; preds = %609
-  %613 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibSysFns, i64 8), align 8
+  %613 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 8), align 8
   %614 = getelementptr inbounds nuw i8, ptr %1, i64 612
   %615 = load i32, ptr %614, align 4
   %616 = getelementptr inbounds nuw i8, ptr %1, i64 472
@@ -2106,7 +2106,7 @@ define internal fastcc void @freeArray(ptr noundef %0, ptr noundef readonly %1, 
   br i1 %.not.i, label %20, label %18
 
 18:                                               ; preds = %16
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibSysFns, i64 16), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
   tail call void %19(ptr noundef nonnull %2) #14
   br label %20
 
@@ -2126,7 +2126,7 @@ define internal fastcc void @freeArray(ptr noundef %0, ptr noundef readonly %1, 
   br i1 %.not18.i, label %28, label %26
 
 26:                                               ; preds = %25
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibSysFns, i64 16), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
   tail call void %27(ptr noundef nonnull %5) #14
   br label %28
 
@@ -2875,7 +2875,7 @@ define i32 @Java_sun_awt_image_ImagingLib_convolveRaster(ptr noundef %0, ptr noc
   br i1 %.not.i, label %114, label %112
 
 112:                                              ; preds = %107
-  %113 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibSysFns, i64 16), align 8
+  %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
   tail call void %113(ptr noundef nonnull %110) #14
   br label %114
 
@@ -2918,7 +2918,7 @@ freeDataArray.exit:                               ; preds = %114, %115
   br label %240
 
 131:                                              ; preds = %119
-  %132 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibFns, i64 48), align 16
+  %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibFns, i64 48), align 16
   %133 = load ptr, ptr %7, align 8
   %.val204 = load i32, ptr %133, align 8
   %134 = call i32 (ptr, ptr, ptr, i32, i32, i32, ...) %132(ptr noundef nonnull %121, ptr noundef nonnull %9, ptr noundef nonnull %57, i32 noundef %.0178, i32 noundef %.0177, i32 noundef %.val204) #14
@@ -3276,7 +3276,7 @@ define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0,
   br i1 %65, label %375, label %66
 
 66:                                               ; preds = %59
-  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibSysFns, i64 8), align 8
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 8), align 8
   %68 = load i32, ptr %32, align 8
   %69 = shl nsw i32 %68, 2
   %70 = zext nneg i32 %41 to i64
@@ -3350,7 +3350,7 @@ define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0,
   br i1 %116, label %375, label %117
 
 117:                                              ; preds = %110
-  %118 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibSysFns, i64 8), align 8
+  %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 8), align 8
   %119 = load i32, ptr %12, align 4
   %120 = load i32, ptr %80, align 8
   %121 = zext nneg i32 %91 to i64
@@ -3439,7 +3439,7 @@ define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0,
   br i1 %175, label %375, label %176
 
 176:                                              ; preds = %169
-  %177 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibSysFns, i64 8), align 8
+  %177 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 8), align 8
   %178 = load i32, ptr %12, align 4
   %179 = load i32, ptr %140, align 8
   %180 = shl nsw i32 %179, 1
@@ -3788,7 +3788,7 @@ expandPackedBCR.exit:                             ; preds = %189, %193, %.loopex
   br i1 %359, label %360, label %375
 
 360:                                              ; preds = %356
-  %361 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibSysFns, i64 16), align 8
+  %361 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
   %362 = load ptr, ptr %2, align 8
   tail call void %361(ptr noundef %362) #14
   br label %375
@@ -3812,7 +3812,7 @@ expandPackedBCR.exit:                             ; preds = %189, %193, %.loopex
   br i1 %371, label %372, label %375
 
 372:                                              ; preds = %368
-  %373 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibSysFns, i64 16), align 8
+  %373 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
   %374 = load ptr, ptr %2, align 8
   tail call void %373(ptr noundef %374) #14
   br label %375
@@ -3828,7 +3828,7 @@ define internal fastcc void @freeDataArray(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %7
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibSysFns, i64 16), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
   tail call void %9(ptr noundef nonnull %2) #14
   br label %10
 
@@ -3848,7 +3848,7 @@ define internal fastcc void @freeDataArray(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not18, label %18, label %16
 
 16:                                               ; preds = %15
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibSysFns, i64 16), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
   tail call void %17(ptr noundef nonnull %5) #14
   br label %18
 
@@ -4808,7 +4808,7 @@ switch.lookup:                                    ; preds = %24
   br i1 %.not.i.i, label %137, label %135
 
 135:                                              ; preds = %133
-  %136 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibSysFns, i64 16), align 8
+  %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
   call void %136(ptr noundef nonnull %128) #14
   br label %137
 
@@ -4854,7 +4854,7 @@ freeArray.exit:                                   ; preds = %137, %138
   br label %158
 
 158:                                              ; preds = %149, %144
-  %159 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibFns, i64 16), align 16
+  %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibFns, i64 16), align 16
   %160 = load ptr, ptr %7, align 8
   %161 = call i32 (ptr, ptr, ptr, i32, i32, ...) %159(ptr noundef %.pre100, ptr noundef %160, ptr noundef nonnull %9, i32 noundef %switch.tableidx, i32 noundef 5) #14
   %.not = icmp eq i32 %161, 0
@@ -4947,7 +4947,7 @@ freeArray.exit:                                   ; preds = %137, %138
   br i1 %.not.i86, label %201, label %199
 
 199:                                              ; preds = %195
-  %200 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibSysFns, i64 16), align 8
+  %200 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
   call void %200(ptr noundef nonnull %160) #14
   br label %201
 
@@ -4971,7 +4971,7 @@ freeDataArray.exit:                               ; preds = %201, %202
   br i1 %.not18.i, label %freeDataArray.exit87, label %210
 
 210:                                              ; preds = %freeDataArray.exit
-  %211 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibSysFns, i64 16), align 8
+  %211 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
   call void %211(ptr noundef nonnull %.pre100) #14
   br label %freeDataArray.exit87
 
@@ -5198,7 +5198,7 @@ switch.lookup:                                    ; preds = %21
   br i1 %.not.i, label %108, label %106
 
 106:                                              ; preds = %101
-  %107 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibSysFns, i64 16), align 8
+  %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
   tail call void %107(ptr noundef nonnull %104) #14
   br label %108
 
@@ -5229,7 +5229,7 @@ freeDataArray.exit:                               ; preds = %108, %109
   %118 = mul nsw i32 %.val110, %.val109
   %119 = sext i32 %118 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %.val108, i8 0, i64 %119, i1 false)
-  %120 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibFns, i64 16), align 16
+  %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibFns, i64 16), align 16
   %121 = load ptr, ptr %7, align 8
   %122 = call i32 (ptr, ptr, ptr, i32, i32, ...) %120(ptr noundef %114, ptr noundef %121, ptr noundef nonnull %9, i32 noundef %switch.tableidx, i32 noundef 5) #14
   %.not = icmp eq i32 %122, 0
@@ -5577,7 +5577,7 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_lookupByteBI(ptr nound
   br i1 %.not.i.i, label %114, label %112
 
 112:                                              ; preds = %110
-  %113 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibSysFns, i64 16), align 8
+  %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
   call void %113(ptr noundef nonnull %105) #14
   br label %114
 
@@ -5688,7 +5688,7 @@ freeArray.exit:                                   ; preds = %114, %115
   br i1 %.not.i.i166, label %152, label %150
 
 150:                                              ; preds = %148
-  %151 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibSysFns, i64 16), align 8
+  %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
   call void %151(ptr noundef nonnull %143) #14
   br label %152
 
@@ -5778,7 +5778,7 @@ freeArray.exit168:                                ; preds = %152, %153
   br label %.lr.ph213.preheader
 
 196:                                              ; preds = %.loopexit
-  %197 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibFns, i64 32), align 16
+  %197 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibFns, i64 32), align 16
   %198 = load ptr, ptr %7, align 8
   %199 = call i32 (ptr, ptr, ptr, ...) %197(ptr noundef %198, ptr noundef nonnull %186, ptr noundef nonnull %.0136181) #14
   %.not154 = icmp eq i32 %199, 0
@@ -6187,7 +6187,7 @@ define i32 @Java_sun_awt_image_ImagingLib_lookupByteRaster(ptr noundef %0, ptr n
   br i1 %.not.i, label %68, label %66
 
 66:                                               ; preds = %61
-  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibSysFns, i64 16), align 8
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
   tail call void %67(ptr noundef nonnull %64) #14
   br label %68
 
@@ -6412,7 +6412,7 @@ freeDataArray.exit:                               ; preds = %68, %69
   br label %161
 
 158:                                              ; preds = %._crit_edge
-  %159 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibFns, i64 32), align 16
+  %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibFns, i64 32), align 16
   %160 = call i32 (ptr, ptr, ptr, ...) %159(ptr noundef %77, ptr noundef nonnull %74, ptr noundef nonnull %11) #14
   %.not156 = icmp eq i32 %160, 0
   %spec.select160 = zext i1 %.not156 to i32

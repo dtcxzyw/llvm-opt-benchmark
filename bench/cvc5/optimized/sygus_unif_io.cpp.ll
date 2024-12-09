@@ -500,7 +500,7 @@ entry:
   %ref.tmp6 = alloca i8, align 1
   %ref.tmp12 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp15 = alloca i8, align 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers13UnifContextIoE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers13UnifContextIoE, i64 16), ptr %this, align 8
   %d_vals = getelementptr inbounds nuw i8, ptr %this, i64 8
   %d_str_pos = getelementptr inbounds nuw i8, ptr %this, i64 32
   %d_visit_role = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -5003,7 +5003,7 @@ entry:
   %ref.tmp18 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp21 = alloca i8, align 1
   tail call void @_ZN4cvc58internal6theory11quantifiers9SygusUnifC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(193) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers11SygusUnifIoE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers11SygusUnifIoE, i64 16), ptr %this, align 8
   %d_parent = getelementptr inbounds nuw i8, ptr %this, i64 200
   store ptr %p, ptr %d_parent, align 8
   %d_candidate = getelementptr inbounds nuw i8, ptr %this, i64 208
@@ -5444,7 +5444,7 @@ declare void @_ZN4cvc58internal6theory11quantifiers9SygusUnifC2ERNS0_3EnvE(ptr n
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers13UnifContextIoD2Ev(ptr noundef nonnull align 8 dereferenceable(124) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers13UnifContextIoE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers13UnifContextIoE, i64 16), ptr %this, align 8
   %d_false = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %d_false, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -5730,7 +5730,7 @@ declare void @_ZN4cvc58internal6theory11quantifiers9SygusUnifD2Ev(ptr noundef no
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal6theory11quantifiers11SygusUnifIoD2Ev(ptr noundef nonnull align 8 dereferenceable(632) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers11SygusUnifIoE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers11SygusUnifIoE, i64 16), ptr %this, align 8
   %d_context = getelementptr inbounds nuw i8, ptr %this, i64 504
   tail call void @_ZN4cvc58internal6theory11quantifiers13UnifContextIoD2Ev(ptr noundef nonnull align 8 dereferenceable(124) %d_context) #25
   %d_use_str_contains_eexc_conditional = getelementptr inbounds nuw i8, ptr %this, i64 456
@@ -14022,7 +14022,7 @@ declare noundef ptr @_ZN4cvc58internal3Env11getRewriterEv(ptr noundef nonnull al
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers30NegContainsSygusInvarianceTestC2EPNS1_8RewriterE(ptr noundef nonnull align 8 dereferenceable(105) %this, ptr noundef %r) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers19SygusInvarianceTestE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers19SygusInvarianceTestE, i64 16), ptr %this, align 8
   %d_rewriter.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %r, ptr %d_rewriter.i, align 8
   %0 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -14062,7 +14062,7 @@ _ZN4cvc58internal6theory11quantifiers19SygusInvarianceTestC2EPNS1_8RewriterE.exi
   %d_update_nvn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   store ptr %3, ptr %d_update_nvn.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers30NegContainsSygusInvarianceTestE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers30NegContainsSygusInvarianceTestE, i64 16), ptr %this, align 8
   %4 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %4, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %invoke.cont, !prof !4
@@ -14109,7 +14109,7 @@ declare void @_ZN4cvc58internal6theory11quantifiers12SygusExplain17getExplanatio
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers30NegContainsSygusInvarianceTestD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers30NegContainsSygusInvarianceTestE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers30NegContainsSygusInvarianceTestE, i64 16), ptr %this, align 8
   %d_neg_con_indices = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %d_neg_con_indices, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -14204,7 +14204,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit, %if.then.i.i, %if.then13.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers19SygusInvarianceTestE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers19SygusInvarianceTestE, i64 16), ptr %this, align 8
   %d_update_nvn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %12 = load ptr, ptr %d_update_nvn.i, align 8
   %bf.load.i.i.i = load i64, ptr %12, align 8
@@ -23278,7 +23278,7 @@ declare void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers19SygusInvarianceTestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers19SygusInvarianceTestE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers19SygusInvarianceTestE, i64 16), ptr %this, align 8
   %d_update_nvn = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_update_nvn, align 8
   %bf.load.i.i = load i64, ptr %0, align 8

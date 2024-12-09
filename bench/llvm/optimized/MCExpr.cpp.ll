@@ -343,7 +343,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 39:                                               ; preds = %33
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @.str.4, ptr %40, align 8, !alias.scope !7
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %7, align 8, !alias.scope !7
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %7, align 8, !alias.scope !7
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %21, ptr %41, align 8, !alias.scope !7
   %42 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %7) #13
@@ -352,7 +352,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 43:                                               ; preds = %33
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @.str.5, ptr %44, align 8, !alias.scope !10
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %8, align 8, !alias.scope !10
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %8, align 8, !alias.scope !10
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %21, ptr %45, align 8, !alias.scope !10
   %46 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %8) #13
@@ -361,7 +361,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 47:                                               ; preds = %33
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @.str.6, ptr %48, align 8, !alias.scope !13
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %9, align 8, !alias.scope !13
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %9, align 8, !alias.scope !13
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %21, ptr %49, align 8, !alias.scope !13
   %50 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %9) #13
@@ -370,7 +370,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 51:                                               ; preds = %33
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @.str.7, ptr %52, align 8, !alias.scope !16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %10, align 8, !alias.scope !16
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %10, align 8, !alias.scope !16
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %21, ptr %53, align 8, !alias.scope !16
   %54 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %10) #13

@@ -861,7 +861,7 @@ declare noundef zeroext i1 @_ZN8FrameMap14validate_frameEv(ptr noundef nonnull a
 define hidden noundef nonnull ptr @_ZNK8FrameMap15sp_offset2vmregE8ByteSize(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = sdiv i32 %1, 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617), i64 %4
+  %5 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %4
   ret ptr %5
 }
 
@@ -1063,10 +1063,10 @@ define hidden noundef ptr @_ZNK8FrameMap7regnameE7LIR_Opr(ptr nocapture noundef 
 5:                                                ; preds = %2
   %6 = call i32 @_ZNK7LIR_Opr11as_registerEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %7
+  %8 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %7
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i32
-  %11 = sub i32 %10, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %11 = sub i32 %10, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %12 = shl i32 %11, 1
   br label %58
 
@@ -1141,7 +1141,7 @@ _ZNK7LIR_Opr10is_addressEv.exit.thread:           ; preds = %36, %_ZNK7LIR_Opr10
 
 58:                                               ; preds = %44, %_ZNK8FrameMap18sp_offset_for_slotEi.exit, %5
   %.sink5 = phi i32 [ %56, %44 ], [ %35, %_ZNK8FrameMap18sp_offset_for_slotEi.exit ], [ %12, %5 ]
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @all_VMRegs, i64 617), %44 ], [ getelementptr inbounds (i8, ptr @all_VMRegs, i64 617), %_ZNK8FrameMap18sp_offset_for_slotEi.exit ], [ getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), %5 ]
+  %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), %44 ], [ getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), %_ZNK8FrameMap18sp_offset_for_slotEi.exit ], [ getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), %5 ]
   %59 = sext i32 %.sink5 to i64
   %60 = getelementptr inbounds %class.VMRegImpl, ptr %.sink, i64 %59
   ret ptr %60

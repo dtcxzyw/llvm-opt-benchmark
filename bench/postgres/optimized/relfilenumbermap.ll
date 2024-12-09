@@ -50,12 +50,12 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @relfilenumber_skey, i64 8), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @relfilenumber_skey, i64 12), align 4
   %14 = load ptr, ptr @CacheMemoryContext, align 8
-  tail call void @fmgr_info_cxt(i32 noundef 184, ptr noundef nonnull getelementptr inbounds (i8, ptr @relfilenumber_skey, i64 88), ptr noundef %14) #7
-  store i16 3, ptr getelementptr inbounds (i8, ptr @relfilenumber_skey, i64 78), align 2
-  store i32 0, ptr getelementptr inbounds (i8, ptr @relfilenumber_skey, i64 80), align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @relfilenumber_skey, i64 84), align 4
-  store i16 9, ptr getelementptr inbounds (i8, ptr @relfilenumber_skey, i64 4), align 4
-  store i16 8, ptr getelementptr inbounds (i8, ptr @relfilenumber_skey, i64 76), align 4
+  tail call void @fmgr_info_cxt(i32 noundef 184, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @relfilenumber_skey, i64 88), ptr noundef %14) #7
+  store i16 3, ptr getelementptr inbounds nuw (i8, ptr @relfilenumber_skey, i64 78), align 2
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @relfilenumber_skey, i64 80), align 16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @relfilenumber_skey, i64 84), align 4
+  store i16 9, ptr getelementptr inbounds nuw (i8, ptr @relfilenumber_skey, i64 4), align 4
+  store i16 8, ptr getelementptr inbounds nuw (i8, ptr @relfilenumber_skey, i64 76), align 4
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 8, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 40

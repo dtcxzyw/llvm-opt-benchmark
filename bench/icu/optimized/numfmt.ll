@@ -656,11 +656,11 @@ declare void @llvm.trap() #10
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7525SimpleNumberFormatFactoryC2ERKNS_6LocaleEa(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 9), (16, 26)) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, i8 noundef signext %visible) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525SimpleNumberFormatFactoryE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7525SimpleNumberFormatFactoryE, i64 16), ptr %this, align 8
   %_visible = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 %visible, ptr %_visible, align 8
   %_id = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %_id, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %_id, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i16 2, ptr %fUnion2.i, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513LocaleUtility18initNameFromLocaleERKNS_6LocaleERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 8 dereferenceable(64) %_id)
@@ -685,7 +685,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7525SimpleNumberFormatFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525SimpleNumberFormatFactoryE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7525SimpleNumberFormatFactoryE, i64 16), ptr %this, align 8
   %_id = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %_id) #20
   tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
@@ -723,7 +723,7 @@ entry:
 define void @_ZN6icu_7512NumberFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(356) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_756FormatC2Ev(ptr noundef nonnull align 8 dereferenceable(322) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512NumberFormatE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512NumberFormatE, i64 16), ptr %this, align 8
   %fGroupingUsed = getelementptr inbounds nuw i8, ptr %this, i64 322
   store i8 1, ptr %fGroupingUsed, align 2
   %fMaxIntegerDigits = getelementptr inbounds nuw i8, ptr %this, i64 324
@@ -767,7 +767,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7518SharedNumberFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518SharedNumberFormatE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7518SharedNumberFormatE, i64 16), ptr %this, align 8
   %ptr = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %ptr, align 8
   %isnull = icmp eq ptr %0, null
@@ -803,7 +803,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #8
 define void @_ZN6icu_7512NumberFormatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(356) %source) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756FormatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(322) %this, ptr noundef nonnull align 8 dereferenceable(322) %source)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512NumberFormatE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512NumberFormatE, i64 16), ptr %this, align 8
   %cmp.not.i = icmp eq ptr %this, %source
   br i1 %cmp.not.i, label %invoke.cont, label %if.then.i
 
@@ -1563,7 +1563,7 @@ entry:
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7512NumberFormat6formatEdRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(356) %this, double noundef %number, ptr noundef nonnull align 8 dereferenceable(64) %appendTo) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pos = alloca %"class.icu_75::FieldPosition", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513FieldPositionE, i64 16), ptr %pos, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513FieldPositionE, i64 16), ptr %pos, align 8
   %fField.i = getelementptr inbounds nuw i8, ptr %pos, i64 8
   store i32 -1, ptr %fField.i, align 8
   %fBeginIndex.i = getelementptr inbounds nuw i8, ptr %pos, i64 12
@@ -1594,7 +1594,7 @@ declare void @_ZN6icu_7513FieldPositionD1Ev(ptr noundef nonnull align 8 derefere
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7512NumberFormat6formatEiRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(356) %this, i32 noundef %number, ptr noundef nonnull align 8 dereferenceable(64) %appendTo) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pos = alloca %"class.icu_75::FieldPosition", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513FieldPositionE, i64 16), ptr %pos, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513FieldPositionE, i64 16), ptr %pos, align 8
   %fField.i = getelementptr inbounds nuw i8, ptr %pos, i64 8
   store i32 -1, ptr %fField.i, align 8
   %fBeginIndex.i = getelementptr inbounds nuw i8, ptr %pos, i64 12
@@ -1622,7 +1622,7 @@ lpad:                                             ; preds = %entry
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7512NumberFormat6formatElRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(356) %this, i64 noundef %number, ptr noundef nonnull align 8 dereferenceable(64) %appendTo) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pos = alloca %"class.icu_75::FieldPosition", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513FieldPositionE, i64 16), ptr %pos, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513FieldPositionE, i64 16), ptr %pos, align 8
   %fField.i = getelementptr inbounds nuw i8, ptr %pos, i64 8
   store i32 -1, ptr %fField.i, align 8
   %fBeginIndex.i = getelementptr inbounds nuw i8, ptr %pos, i64 12
@@ -1655,7 +1655,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513ParsePositionE, i64 16), ptr %parsePosition, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513ParsePositionE, i64 16), ptr %parsePosition, align 8
   %index.i = getelementptr inbounds nuw i8, ptr %parsePosition, i64 8
   store i32 0, ptr %index.i, align 8
   %errorIndex.i = getelementptr inbounds nuw i8, ptr %parsePosition, i64 12
@@ -2178,7 +2178,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_759NFFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759NFFactoryE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_759NFFactoryE, i64 16), ptr %this, align 8
   %_delegate = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %_delegate, align 8
   %isnull = icmp eq ptr %0, null
@@ -2329,7 +2329,7 @@ call.i.noexc:                                     ; preds = %new.notnull
           to label %if.then5 unwind label %lpad
 
 if.then5:                                         ; preds = %call.i.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759NFFactoryE, i64 16), ptr %call4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_759NFFactoryE, i64 16), ptr %call4, align 8
   %_delegate.i = getelementptr inbounds nuw i8, ptr %call4, i64 80
   store ptr %toAdopt, ptr %_delegate.i, align 8
   %_ids.i = getelementptr inbounds nuw i8, ptr %call4, i64 88
@@ -2872,7 +2872,7 @@ delete.notnull:                                   ; preds = %if.then7
 if.end8:                                          ; preds = %if.end
   %softRefCount.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %softRefCount.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518SharedNumberFormatE, i64 16), ptr %call4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7518SharedNumberFormatE, i64 16), ptr %call4, align 8
   %ptr.i = getelementptr inbounds nuw i8, ptr %call4, i64 24
   store ptr %retval.0.i, ptr %ptr.i, align 8
   call void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %call4)
@@ -2904,7 +2904,7 @@ if.end:                                           ; preds = %entry
   store i32 0, ptr %fCreationStatus.i.i.i, align 8
   %fIsPrimary.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 12
   store i8 0, ptr %fIsPrimary.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18SharedNumberFormatEEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18SharedNumberFormatEEE, i64 16), ptr %ref.tmp, align 8
   %fLoc.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i, ptr noundef nonnull align 8 dereferenceable(217) %loc)
           to label %_ZN6icu_7514LocaleCacheKeyINS_18SharedNumberFormatEEC2ERKNS_6LocaleE.exit unwind label %lpad.i
@@ -2924,7 +2924,7 @@ _ZN6icu_7514LocaleCacheKeyINS_18SharedNumberFormatEEC2ERKNS_6LocaleE.exit: ; pre
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6icu_7514LocaleCacheKeyINS_18SharedNumberFormatEEC2ERKNS_6LocaleE.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18SharedNumberFormatEEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18SharedNumberFormatEEE, i64 16), ptr %ref.tmp, align 8
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i) #20
   call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %ref.tmp) #20
   br label %return
@@ -2935,7 +2935,7 @@ return:                                           ; preds = %entry, %invoke.cont
 lpad:                                             ; preds = %_ZN6icu_7514LocaleCacheKeyINS_18SharedNumberFormatEEC2ERKNS_6LocaleE.exit
   %2 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18SharedNumberFormatEEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18SharedNumberFormatEEE, i64 16), ptr %ref.tmp, align 8
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i) #20
   br label %common.resume
 }
@@ -3122,7 +3122,7 @@ if.then40:                                        ; preds = %invoke.cont37
 
 invoke.cont44:                                    ; preds = %invoke.cont37, %if.end35
   store ptr null, ptr %symbolsToAdopt, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %pattern, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %pattern, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %pattern, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %fullName.i = getelementptr inbounds nuw i8, ptr %desiredLocale, i64 40
@@ -3238,13 +3238,13 @@ invoke.cont104:                                   ; preds = %invoke.cont102
   br i1 %tobool106.not, label %if.else187, label %invoke.cont112
 
 invoke.cont112:                                   ; preds = %invoke.cont104
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %nsDesc, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %nsDesc, align 8
   %fUnion2.i93 = getelementptr inbounds nuw i8, ptr %nsDesc, i64 8
   store i16 2, ptr %fUnion2.i93, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %nsRuleSetGroup, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %nsRuleSetGroup, align 8
   %fUnion2.i94 = getelementptr inbounds nuw i8, ptr %nsRuleSetGroup, i64 8
   store i16 2, ptr %fUnion2.i94, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %nsRuleSetName, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %nsRuleSetName, align 8
   %fUnion2.i95 = getelementptr inbounds nuw i8, ptr %nsRuleSetName, i64 8
   store i16 2, ptr %fUnion2.i95, align 8
   invoke void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217) %nsLoc)
@@ -4300,7 +4300,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #20
   %0 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0) #20, !srcloc !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522ICUNumberFormatServiceE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522ICUNumberFormatServiceE, i64 16), ptr %this, align 8
   store i32 0, ptr %status, align 4
   %call = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 144) #20
   %new.isnull = icmp eq ptr %call, null
@@ -4312,7 +4312,7 @@ new.notnull:                                      ; preds = %invoke.cont3
           to label %_ZN6icu_7522ICUNumberFormatFactoryC2Ev.exit unwind label %lpad4
 
 _ZN6icu_7522ICUNumberFormatFactoryC2Ev.exit:      ; preds = %new.notnull
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522ICUNumberFormatFactoryE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522ICUNumberFormatFactoryE, i64 16), ptr %call, align 8
   br label %new.cont
 
 new.cont:                                         ; preds = %_ZN6icu_7522ICUNumberFormatFactoryC2Ev.exit, %invoke.cont3
@@ -4511,7 +4511,7 @@ _ZNK6icu_7512UnifiedCache3getINS_18SharedNumberFormatEEEvRKNS_8CacheKeyIT_EEPKvR
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7514LocaleCacheKeyINS_18SharedNumberFormatEED2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18SharedNumberFormatEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18SharedNumberFormatEEE, i64 16), ptr %this, align 8
   %fLoc = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc) #20
   tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this) #20
@@ -4525,7 +4525,7 @@ declare void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7514LocaleCacheKeyINS_18SharedNumberFormatEED0Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18SharedNumberFormatEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18SharedNumberFormatEEE, i64 16), ptr %this, align 8
   %fLoc.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i) #20
   tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) #20
@@ -4552,14 +4552,14 @@ entry:
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
 new.notnull:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512CacheKeyBaseE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512CacheKeyBaseE, i64 16), ptr %call, align 8
   %fCreationStatus.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %fCreationStatus2.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %fCreationStatus2.i.i.i, align 8
   store i32 %0, ptr %fCreationStatus.i.i.i, align 8
   %fIsPrimary.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 12
   store i8 0, ptr %fIsPrimary.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18SharedNumberFormatEEE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18SharedNumberFormatEEE, i64 16), ptr %call, align 8
   %fLoc.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   %fLoc2.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i, ptr noundef nonnull align 8 dereferenceable(217) %fLoc2.i)

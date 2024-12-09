@@ -114,14 +114,14 @@ define internal noundef i32 @delayacct_setup_enable(ptr nocapture readnone %0) #
 define dso_local void @delayacct_init() local_unnamed_addr #1 align 16 {
   %1 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str, i32 noundef 144, i32 noundef 8, i32 noundef 262144, ptr noundef null) #6
   store ptr %1, ptr @delayacct_cache, align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @init_task, i64 2544), align 16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @init_task, i64 2544), align 16
   %2 = load i32, ptr @delayacct_on, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %.thread, label %4
 
 4:                                                ; preds = %0
   %5 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %1, i32 noundef 3520) #6
-  store ptr %5, ptr getelementptr inbounds (i8, ptr @init_task, i64 2544), align 16
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @init_task, i64 2544), align 16
   %6 = icmp eq ptr %5, null
   br i1 %6, label %8, label %7
 

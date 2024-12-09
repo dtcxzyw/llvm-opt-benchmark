@@ -44,7 +44,7 @@ define dso_local { i64, i32 } @ExecCreateTableAs(ptr noundef %0, ptr nocapture n
 
 15:                                               ; preds = %5
   %.sroa.056.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
-  %.sroa.4.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.4.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   br label %146
 
 16:                                               ; preds = %5

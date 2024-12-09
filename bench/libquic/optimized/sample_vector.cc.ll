@@ -63,7 +63,7 @@ entry:
   %ref.tmp13 = alloca i32, align 4
   %ref.tmp19 = alloca %"class.logging::LogMessage", align 8
   tail call void @_ZN4base16HistogramSamplesC2Em(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %id)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base12SampleVectorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base12SampleVectorE, i64 16), ptr %this, align 8
   %local_counts_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %bucket_ranges, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
@@ -197,7 +197,7 @@ entry:
   %ref.tmp23 = alloca i32, align 4
   %ref.tmp31 = alloca %"class.logging::LogMessage", align 8
   tail call void @_ZN4base16HistogramSamplesC2EmPNS0_8MetadataE(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %id, ptr noundef %meta)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base12SampleVectorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base12SampleVectorE, i64 16), ptr %this, align 8
   %local_counts_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %local_counts_, i8 0, i64 24, i1 false)
   %counts_ = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -296,7 +296,7 @@ declare void @_ZN4base16HistogramSamplesC2EmPNS0_8MetadataE(ptr noundef nonnull 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base12SampleVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base12SampleVectorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base12SampleVectorE, i64 16), ptr %this, align 8
   %local_counts_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %local_counts_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -314,7 +314,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base12SampleVectorD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base12SampleVectorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base12SampleVectorE, i64 16), ptr %this, align 8
   %local_counts_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %local_counts_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -730,7 +730,7 @@ define dso_local void @_ZN4base20SampleVectorIteratorC2EPKSt6vectorIiSaIiEEPKNS_
 entry:
   %ref.tmp = alloca i64, align 8
   %ref.tmp11 = alloca %"class.logging::LogMessage", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base20SampleVectorIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base20SampleVectorIteratorE, i64 16), ptr %this, align 8
   %counts_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %counts, align 8
   store ptr %0, ptr %counts_, align 8
@@ -864,7 +864,7 @@ define dso_local void @_ZN4base20SampleVectorIteratorC2EPKimPKNS_12BucketRangesE
 entry:
   %ref.tmp = alloca i64, align 8
   %ref.tmp9 = alloca %"class.logging::LogMessage", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base20SampleVectorIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base20SampleVectorIteratorE, i64 16), ptr %this, align 8
   %counts_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %counts, ptr %counts_, align 8
   %counts_size_ = getelementptr inbounds nuw i8, ptr %this, i64 16

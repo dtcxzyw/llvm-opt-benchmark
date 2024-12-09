@@ -106,10 +106,10 @@ define dso_local noundef range(i32 -1, 1) i32 @hvc_instantiate(i32 noundef %0, i
   %15 = getelementptr [16 x ptr], ptr @cons_ops, i64 0, i64 %6
   store ptr %2, ptr %15, align 8
   tail call void @console_list_lock() #12
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @hvc_console, i64 120), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hvc_console, i64 120), align 8
   %17 = icmp eq ptr %16, null
   tail call void @console_list_unlock() #12
-  %18 = load i16, ptr getelementptr inbounds (i8, ptr @hvc_console, i64 74), align 2
+  %18 = load i16, ptr getelementptr inbounds nuw (i8, ptr @hvc_console, i64 74), align 2
   %19 = sext i16 %18 to i32
   %20 = icmp eq i32 %1, %19
   %21 = select i1 %17, i1 %20, i1 false
@@ -370,7 +370,7 @@ define internal fastcc i32 @__hvc_poll(ptr noundef %0, i1 noundef zeroext %1) un
 79:                                               ; preds = %120, %73
   %80 = phi i64 [ 0, %73 ], [ %121, %120 ]
   %81 = load i32, ptr %56, align 4
-  %82 = load i16, ptr getelementptr inbounds (i8, ptr @hvc_console, i64 74), align 2
+  %82 = load i16, ptr getelementptr inbounds nuw (i8, ptr @hvc_console, i64 74), align 2
   %83 = sext i16 %82 to i32
   %84 = icmp eq i32 %81, %83
   %85 = getelementptr [16 x i8], ptr %5, i64 0, i64 %80
@@ -709,18 +709,18 @@ define dso_local ptr @hvc_alloc(i32 noundef %0, i32 noundef %1, ptr noundef %2, 
 106:                                              ; preds = %101, %97
   %107 = phi i32 [ %102, %101 ], [ %98, %97 ]
   %108 = getelementptr inbounds nuw i8, ptr %54, i64 456
-  %109 = load ptr, ptr getelementptr inbounds (i8, ptr @hvc_structs, i64 8), align 8
-  store ptr %108, ptr getelementptr inbounds (i8, ptr @hvc_structs, i64 8), align 8
+  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hvc_structs, i64 8), align 8
+  store ptr %108, ptr getelementptr inbounds nuw (i8, ptr @hvc_structs, i64 8), align 8
   store ptr @hvc_structs, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %54, i64 464
   store ptr %109, ptr %110, align 8
   store volatile ptr %108, ptr %109, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @hvc_structs_mutex) #12
   tail call void @console_list_lock() #12
-  %111 = load ptr, ptr getelementptr inbounds (i8, ptr @hvc_console, i64 120), align 8
+  %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hvc_console, i64 120), align 8
   %112 = icmp eq ptr %111, null
   tail call void @console_list_unlock() #12
-  %113 = load i16, ptr getelementptr inbounds (i8, ptr @hvc_console, i64 74), align 2
+  %113 = load i16, ptr getelementptr inbounds nuw (i8, ptr @hvc_console, i64 74), align 2
   %114 = sext i16 %113 to i32
   %115 = icmp eq i32 %107, %114
   %116 = select i1 %112, i1 %115, i1 false

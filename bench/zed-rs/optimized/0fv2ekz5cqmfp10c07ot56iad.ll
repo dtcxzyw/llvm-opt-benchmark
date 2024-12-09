@@ -121352,7 +121352,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   store i64 1, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
   %.val = load ptr, ptr %2, align 8
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 72), align 8, !range !86, !noundef !9
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 72), align 8, !range !86, !noundef !9
   switch i8 %7, label %default.unreachable [
     i8 0, label %8
     i8 1, label %9
@@ -121495,7 +121495,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   store i64 2, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
   %.val = load ptr, ptr %2, align 8
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 72), align 8, !range !86, !noundef !9
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 72), align 8, !range !86, !noundef !9
   switch i8 %7, label %default.unreachable [
     i8 0, label %8
     i8 1, label %9
@@ -121636,7 +121636,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   store i64 1, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
   %.val = load ptr, ptr %2, align 8
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 72), align 8, !range !86, !noundef !9
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 72), align 8, !range !86, !noundef !9
   switch i8 %7, label %default.unreachable [
     i8 0, label %8
     i8 1, label %9
@@ -121779,7 +121779,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   store i64 3, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
   %.val = load ptr, ptr %2, align 8
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 72), align 8, !range !86, !noundef !9
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 72), align 8, !range !86, !noundef !9
   switch i8 %7, label %default.unreachable [
     i8 0, label %8
     i8 1, label %9
@@ -121921,7 +121921,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   store i32 1000000003, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
   %.val = load ptr, ptr %2, align 8
-  %8 = load i8, ptr getelementptr inbounds (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 72), align 8, !range !86, !noundef !9
+  %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 72), align 8, !range !86, !noundef !9
   switch i8 %8, label %default.unreachable [
     i8 0, label %9
     i8 1, label %10
@@ -122063,7 +122063,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   store i64 1, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
   %.val = load ptr, ptr %2, align 8
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 72), align 8, !range !86, !noundef !9
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 72), align 8, !range !86, !noundef !9
   switch i8 %7, label %default.unreachable [
     i8 0, label %8
     i8 1, label %9
@@ -122252,7 +122252,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   store i64 2, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   %.val = load ptr, ptr %2, align 8
-  %8 = load i8, ptr getelementptr inbounds (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 72), align 8, !range !86, !noundef !9
+  %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 72), align 8, !range !86, !noundef !9
   switch i8 %8, label %default.unreachable [
     i8 0, label %9
     i8 1, label %10
@@ -122485,7 +122485,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   store i64 2, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
   %.val = load ptr, ptr %2, align 8
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 72), align 8, !range !86, !noundef !9
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 72), align 8, !range !86, !noundef !9
   switch i8 %7, label %default.unreachable [
     i8 0, label %8
     i8 1, label %9
@@ -122626,7 +122626,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   store i64 1, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
   %.val = load ptr, ptr %2, align 8
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 72), align 8, !range !86, !noundef !9
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 72), align 8, !range !86, !noundef !9
   switch i8 %7, label %default.unreachable [
     i8 0, label %8
     i8 1, label %9
@@ -122769,7 +122769,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   store i64 1, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
   %.val = load ptr, ptr %2, align 8
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 72), align 8, !range !86, !noundef !9
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 72), align 8, !range !86, !noundef !9
   switch i8 %7, label %default.unreachable [
     i8 0, label %8
     i8 1, label %9
@@ -122913,7 +122913,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   store i64 3, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
   %.val = load ptr, ptr %2, align 8
-  %8 = load i8, ptr getelementptr inbounds (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 72), align 8, !range !86, !noundef !9
+  %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 72), align 8, !range !86, !noundef !9
   switch i8 %8, label %default.unreachable [
     i8 0, label %9
     i8 1, label %10

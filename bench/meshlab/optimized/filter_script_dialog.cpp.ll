@@ -542,9 +542,9 @@ _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10
 ; Function Attrs: mustprogress uwtable
 define void @_ZN18FilterScriptDialogC2ER12FilterScriptP7QWidget(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %2, i32 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18FilterScriptDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18FilterScriptDialog, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18FilterScriptDialog, i64 488), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18FilterScriptDialog, i64 488), ptr %4, align 8
   %5 = invoke noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #23
           to label %6 unwind label %11
 
@@ -914,7 +914,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i63:  ; preds = %_ZN9QtPrivate8RefCo
   %102 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store i32 0, ptr %103, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %102, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 12
   store i32 20, ptr %104, align 4
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 16
@@ -1087,7 +1087,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i87:  ; preds = %_ZN9QtPrivate8RefCo
   %157 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
   store i32 0, ptr %158, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %157, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %157, align 8
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 12
   store i32 131, ptr %159, align 4
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 16
@@ -1892,9 +1892,9 @@ declare void @_ZN15QAbstractButton7setTextERK7QString(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN18FilterScriptDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18FilterScriptDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18FilterScriptDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18FilterScriptDialog, i64 488), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18FilterScriptDialog, i64 488), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -3532,7 +3532,7 @@ common.resume:                                    ; preds = %36, %28
   br label %common.resume
 
 _ZN29FilterNameParameterValuesPairC2ERKS_.exit:   ; preds = %_ZN7QStringC2ERKS_.exit.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29FilterNameParameterValuesPair, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29FilterNameParameterValuesPair, i64 16), ptr %0, align 8
   %30 = load ptr, ptr %17, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %_ZN5QListI29FilterNameParameterValuesPairE13node_destructEPNS1_4NodeE.exit, label %32
@@ -3618,7 +3618,7 @@ _ZN7QStringC2ERKS_.exit.i.i.i:                    ; preds = %15, %.noexc
   br label %.body
 
 _ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit: ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29FilterNameParameterValuesPair, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29FilterNameParameterValuesPair, i64 16), ptr %9, align 8
   store ptr %9, ptr %8, align 8
   br label %47
 
@@ -3677,7 +3677,7 @@ _ZN7QStringC2ERKS_.exit.i.i.i15:                  ; preds = %35, %.noexc17
   br label %.body18
 
 _ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit20: ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i15
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29FilterNameParameterValuesPair, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29FilterNameParameterValuesPair, i64 16), ptr %29, align 8
   store ptr %29, ptr %28, align 8
   br label %47
 
@@ -3726,7 +3726,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN11MLExceptionC2ERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QByteArray, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %4, align 8
@@ -3799,7 +3799,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %_ZNKR7QString11toLo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11MLExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
@@ -4045,7 +4045,7 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %13, %6
   br label %24
 
 19:                                               ; preds = %_ZN7QStringC2ERKS_.exit.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29FilterNameParameterValuesPair, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29FilterNameParameterValuesPair, i64 16), ptr %5, align 8
   store ptr %5, ptr %.01223, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.01223, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %.01322, i64 8
@@ -4381,7 +4381,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11MLExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4

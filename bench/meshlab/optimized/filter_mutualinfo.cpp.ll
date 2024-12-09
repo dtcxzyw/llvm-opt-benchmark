@@ -982,7 +982,7 @@ define void @_ZN22FilterMutualInfoPluginC1Ev(ptr noundef nonnull align 8 derefer
   %3 = alloca %"class.std::__cxx11::list.19", align 8
   %4 = alloca %class.QString, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store i8 1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 368
@@ -997,14 +997,14 @@ define void @_ZN22FilterMutualInfoPluginC1Ev(ptr noundef nonnull align 8 derefer
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT22FilterMutualInfoPlugin, i64 8), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTT22FilterMutualInfoPlugin, i64 8), align 8
   store ptr %12, ptr %11, align 8
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT22FilterMutualInfoPlugin, i64 16), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTT22FilterMutualInfoPlugin, i64 16), align 8
   %14 = getelementptr i8, ptr %12, i64 -24
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %11, i64 %15
   store ptr %13, ptr %16, align 8
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT22FilterMutualInfoPlugin, i64 24), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTT22FilterMutualInfoPlugin, i64 24), align 8
   %18 = load ptr, ptr %11, align 8
   %19 = getelementptr i8, ptr %18, i64 -32
   %20 = load i64, ptr %19, align 8
@@ -1024,10 +1024,10 @@ define void @_ZN22FilterMutualInfoPluginC1Ev(ptr noundef nonnull align 8 derefer
   store ptr %26, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 0, ptr %28, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22FilterMutualInfoPlugin, i64 32), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22FilterMutualInfoPlugin, i64 248), ptr %11, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22FilterMutualInfoPlugin, i64 480), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22FilterMutualInfoPlugin, i64 544), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22FilterMutualInfoPlugin, i64 32), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22FilterMutualInfoPlugin, i64 248), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22FilterMutualInfoPlugin, i64 480), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22FilterMutualInfoPlugin, i64 544), ptr %8, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   invoke void @_ZN8AlignSetC1Ev(ptr noundef nonnull align 8 dereferenceable(272) %29)
           to label %30 unwind label %47
@@ -1214,13 +1214,13 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit26:            ; preds = %.lr.ph.i.i.i23, %76
 
 79:                                               ; preds = %_ZNSt7__cxx114listIiSaIiEED2Ev.exit26, %47
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit26 ], [ %48, %47 ]
-  call void @_ZN12FilterPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT22FilterMutualInfoPlugin, i64 8)) #22
+  call void @_ZN12FilterPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT22FilterMutualInfoPlugin, i64 8)) #22
   call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
   br label %80
 
 80:                                               ; preds = %45, %79, %43
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %44, %43 ], [ %.pn.pn.pn.pn, %79 ], [ %46, %45 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %5, align 8
   call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #22
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn
 }
@@ -1231,7 +1231,7 @@ declare void @_ZN9QFileInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13MeshLabPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #22
   ret void
@@ -3831,7 +3831,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN11MLExceptionC2ERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QByteArray, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %4, align 8
@@ -3904,7 +3904,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %_ZNKR7QString11toLo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11MLExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
@@ -4645,7 +4645,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11MLExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4

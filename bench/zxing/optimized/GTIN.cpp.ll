@@ -573,7 +573,7 @@ define void @_ZN5ZXing4GTIN23LookupCountryIdentifierERKNSt7__cxx1112basic_string
   br i1 %261, label %248, label %262, !llvm.loop !19
 
 262:                                              ; preds = %248
-  %263 = icmp eq ptr %260, getelementptr inbounds (i8, ptr @_ZN5ZXing4GTINL9COUNTRIESE, i64 960)
+  %263 = icmp eq ptr %260, getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4GTINL9COUNTRIESE, i64 960)
   br i1 %263, label %278, label %264
 
 264:                                              ; preds = %262

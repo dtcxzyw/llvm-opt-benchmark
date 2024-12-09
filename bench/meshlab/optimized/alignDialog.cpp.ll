@@ -694,9 +694,9 @@ define void @_ZN11AlignDialogC2EP7QWidgetP15EditAlignPlugin(ptr noundef nonnull 
   %5 = alloca %class.QPoint, align 4
   %6 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN11QDockWidgetC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i32 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11AlignDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11AlignDialog, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11AlignDialog, i64 448), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11AlignDialog, i64 448), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr @_ZN12QMapDataBase11shared_nullE, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -5655,7 +5655,7 @@ define void @_ZN18MeshTreeWidgetItemC2EPN3vcg8MeshTreeI9MeshModelfE8MeshNodeE(pt
   %16 = alloca %class.QString, align 8
   %17 = alloca %class.QByteArray, align 8
   tail call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(60) %0, i32 noundef 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18MeshTreeWidgetItem, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18MeshTreeWidgetItem, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
@@ -6193,7 +6193,7 @@ define void @_ZN18MeshTreeWidgetItemC2EPN3vcg8MeshTreeI9MeshModelfEEPNS0_9AlignP
   %17 = alloca %class.QFont, align 8
   %18 = alloca %class.QString, align 8
   tail call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(60) %0, i32 noundef 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18MeshTreeWidgetItem, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18MeshTreeWidgetItem, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72

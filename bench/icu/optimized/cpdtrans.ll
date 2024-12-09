@@ -54,9 +54,9 @@ define void @_ZN6icu_7522CompoundTransliteratorC2EPKPNS_14TransliteratorEiPNS_13
 entry:
   %srcChar.addr.i.i = alloca i16, align 2
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i64 16), ptr %this, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ref.tmp, align 8, !alias.scope !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ref.tmp, align 8, !alias.scope !4
   %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !4
   %cmp6.i = icmp sgt i32 %transliteratorCount, 0
@@ -123,7 +123,7 @@ _ZN6icu_7522CompoundTransliterator7joinIDsEPKPNS_14TransliteratorEi.exit: ; pred
 
 invoke.cont:                                      ; preds = %_ZN6icu_7522CompoundTransliterator7joinIDsEPKPNS_14TransliteratorEi.exit
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #14
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i64 16), ptr %this, align 8
   %trans = getelementptr inbounds nuw i8, ptr %this, i64 88
   %conv.i = sext i32 %transliteratorCount to i64
   %mul.i = shl nsw i64 %conv.i, 3
@@ -218,7 +218,7 @@ lpad2:                                            ; preds = %lpad2.loopexit.spli
 define void @_ZN6icu_7522CompoundTransliterator7joinIDsEPKPNS_14TransliteratorEi(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %this, ptr nocapture noundef readonly %transliterators, i32 noundef %transCount) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %srcChar.addr.i = alloca i16, align 2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %cmp6 = icmp sgt i32 %transCount, 0
@@ -350,7 +350,7 @@ declare void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 derefer
 define void @_ZN6icu_7522CompoundTransliteratorC2ERKNS_13UnicodeStringE15UTransDirectionPNS_13UnicodeFilterER11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(64) %id, i32 noundef %direction, ptr noundef %adoptedFilter, ptr nocapture nonnull readnone align 4 %0, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef %adoptedFilter)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i64 16), ptr %this, align 8
   %trans = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr null, ptr %trans, align 8
   %numAnonymousRBTs = getelementptr inbounds nuw i8, ptr %this, i64 100
@@ -381,7 +381,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6icu_757UVectorC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %list, ptr noundef nonnull align 4 dereferenceable(4) %status)
   store ptr null, ptr %compoundFilter, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %regenID, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %regenID, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %regenID, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call4 = invoke noundef signext i8 @_ZN6icu_7522TransliteratorIDParser15parseCompoundIDERKNS_13UnicodeStringEiRS1_RNS_7UVectorERPNS_10UnicodeSetE(ptr noundef nonnull align 8 dereferenceable(64) %id, i32 noundef %direction, ptr noundef nonnull align 8 dereferenceable(64) %regenID, ptr noundef nonnull align 8 dereferenceable(40) %list, ptr noundef nonnull align 8 dereferenceable(8) %compoundFilter)
@@ -439,7 +439,7 @@ cleanup.cont:                                     ; preds = %entry, %cleanup
 define void @_ZN6icu_7522CompoundTransliteratorC2ERKNS_13UnicodeStringER11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr nocapture nonnull readnone align 4 %0, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef null)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i64 16), ptr %this, align 8
   %trans = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr null, ptr %trans, align 8
   %numAnonymousRBTs = getelementptr inbounds nuw i8, ptr %this, i64 100
@@ -461,7 +461,7 @@ lpad:                                             ; preds = %entry
 define void @_ZN6icu_7522CompoundTransliteratorC2ERKNS_13UnicodeStringERNS_7UVectorEPNS_13UnicodeFilterEiR11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(64) %newID, ptr noundef nonnull align 8 dereferenceable(40) %list, ptr noundef %adoptedFilter, i32 noundef %anonymousRBTs, ptr nocapture nonnull readnone align 4 %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(64) %newID, ptr noundef %adoptedFilter)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i64 16), ptr %this, align 8
   %trans = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr null, ptr %trans, align 8
   %numAnonymousRBTs = getelementptr inbounds nuw i8, ptr %this, i64 100
@@ -645,7 +645,7 @@ for.end:                                          ; preds = %for.body, %for.body
   br i1 %or.cond, label %if.then23, label %if.end43
 
 if.then23:                                        ; preds = %for.end
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %newID, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %newID, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %newID, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %cmp2629 = icmp sgt i32 %15, 0
@@ -804,7 +804,7 @@ return:                                           ; preds = %entry, %if.end7, %l
 define void @_ZN6icu_7522CompoundTransliteratorC2ERNS_7UVectorER11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(40) %list, ptr nocapture nonnull readnone align 4 %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ref.tmp, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef null)
@@ -812,7 +812,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #14
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i64 16), ptr %this, align 8
   %trans = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr null, ptr %trans, align 8
   %numAnonymousRBTs = getelementptr inbounds nuw i8, ptr %this, i64 100
@@ -925,7 +925,7 @@ eh.resume:                                        ; preds = %lpad2, %lpad
 define void @_ZN6icu_7522CompoundTransliteratorC2ERNS_7UVectorEiR11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(40) %list, i32 noundef %anonymousRBTs, ptr nocapture nonnull readnone align 4 %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ref.tmp, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef null)
@@ -933,7 +933,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #14
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i64 16), ptr %this, align 8
   %trans = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr null, ptr %trans, align 8
   %numAnonymousRBTs = getelementptr inbounds nuw i8, ptr %this, i64 100
@@ -1100,7 +1100,7 @@ for.end:                                          ; preds = %for.body, %entry
 define void @_ZN6icu_7522CompoundTransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(104) %t) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7514TransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(84) %t)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i64 16), ptr %this, align 8
   %trans = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr null, ptr %trans, align 8
   %count = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -1261,7 +1261,7 @@ return:                                           ; preds = %entry, %if.end64
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7522CompoundTransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i64 16), ptr %this, align 8
   %trans.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %trans.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -1521,7 +1521,7 @@ _ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit: ; preds 
   %11 = load ptr, ptr %trans.i, align 8
   %12 = load i32, ptr %count6.i, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ref.tmp, align 8, !alias.scope !18
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ref.tmp, align 8, !alias.scope !18
   %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !18
   %cmp6.i = icmp sgt i32 %12, 0
@@ -1694,7 +1694,7 @@ land.lhs.true:                                    ; preds = %_ZN6icu_7513Unicode
   br i1 %cmp3.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %pat, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %pat, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %pat, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call2.i21 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %rulesSource, ptr noundef nonnull @_ZL11COLON_COLON, i32 noundef 0, i32 noundef 2)
@@ -1759,7 +1759,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont97
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %invoke.cont97 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %rule, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %rule, align 8
   store i16 2, ptr %fUnion2.i28, align 8
   %11 = load ptr, ptr %trans, align 8
   %arrayidx = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv

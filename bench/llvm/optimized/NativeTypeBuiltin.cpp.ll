@@ -21,7 +21,7 @@ $_ZN4llvm3pdb15NativeRawSymbol10initializeEv = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm3pdb17NativeTypeBuiltinC2ERNS0_13NativeSessionEjNS_8codeview15ModifierOptionsENS0_15PDB_BuiltinTypeEm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 1 %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm3pdb15NativeRawSymbolC2ERNS0_13NativeSessionENS0_11PDB_SymTypeEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, i32 noundef 16, i32 noundef %2) #6
-  store ptr getelementptr inbounds inrange(-16, 1448) (i8, ptr @_ZTVN4llvm3pdb17NativeTypeBuiltinE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 1448) (i8, ptr @_ZTVN4llvm3pdb17NativeTypeBuiltinE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32

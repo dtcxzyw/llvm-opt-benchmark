@@ -2836,7 +2836,7 @@ define internal i32 @psmouse_connect(ptr noundef %0, ptr noundef %1) #2 align 16
 
 31:                                               ; preds = %21, %18, %7, %2
   %32 = phi ptr [ null, %7 ], [ null, %2 ], [ %14, %18 ], [ %14, %21 ]
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %34 = tail call noalias noundef align 8 dereferenceable_or_null(488) ptr @kmalloc_trace(ptr noundef %33, i32 noundef 3520, i64 noundef 488) #16
   %35 = tail call ptr @input_allocate_device() #14
   %36 = icmp ne ptr %34, null

@@ -20,7 +20,7 @@ define range(i32 0, 16) i32 @ompi_datatype_pack_external(ptr nocapture noundef r
   %10 = alloca i32, align 4
   %11 = alloca i64, align 8
   %12 = load i32, ptr @opal_class_init_epoch, align 4
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not = icmp eq i32 %12, %13
   br i1 %.not, label %15, label %14
 
@@ -164,7 +164,7 @@ define range(i32 0, 16) i32 @ompi_datatype_unpack_external(ptr nocapture noundef
   %10 = alloca i32, align 4
   %11 = alloca i64, align 8
   %12 = load i32, ptr @opal_class_init_epoch, align 4
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not = icmp eq i32 %12, %13
   br i1 %.not, label %15, label %14
 
@@ -303,7 +303,7 @@ declare i32 @opal_convertor_unpack(ptr noundef, ptr noundef, ptr noundef, ptr no
 define noundef i32 @ompi_datatype_pack_external_size(ptr nocapture noundef readnone %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct.opal_convertor_t, align 8
   %6 = load i32, ptr @opal_class_init_epoch, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not = icmp eq i32 %6, %7
   br i1 %.not, label %9, label %8
 

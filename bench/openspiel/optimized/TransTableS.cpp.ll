@@ -90,7 +90,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define void @_ZN11TransTableSC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2396) initializes((0, 8), (2256, 2280)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV11TransTableS, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTV11TransTableS, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2256
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %.b1 = load i1, ptr @_ZL13_constantsSet, align 1
@@ -158,7 +158,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN11TransTableSD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(2396) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV11TransTableS, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTV11TransTableS, i64 16), ptr %0, align 8
   tail call void @_ZN11TransTableS15ReturnAllMemoryEv(ptr noundef nonnull align 8 dereferenceable(2396) %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2256
   %3 = load ptr, ptr %2, align 8

@@ -132,7 +132,7 @@ define dso_local ptr @snd_seq_client_use_ptr(i32 noundef %0) local_unnamed_addr 
   br i1 %12, label %13, label %58
 
 13:                                               ; preds = %9
-  %14 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !6
+  %14 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !6
   %15 = and i32 %14, 16776960
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %58
@@ -570,7 +570,7 @@ declare dso_local i32 @snd_seq_queue_timer_set_tempo(i32 noundef, i32 noundef, p
 define dso_local i32 @snd_seq_create_kernel_client(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ...) #0 align 16 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #19
-  %5 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !6
+  %5 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !6
   %6 = and i32 %5, 16776960
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %46
@@ -652,7 +652,7 @@ define dso_local i32 @snd_seq_create_kernel_client(ptr noundef %0, i32 noundef %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef ptr @seq_create_client1(i32 noundef %0, i32 noundef range(i32 0, 501) %1) unnamed_addr #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %4 = tail call noalias noundef align 8 dereferenceable_or_null(280) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 280) #21
   %5 = icmp eq ptr %4, null
   br i1 %5, label %48, label %6
@@ -756,7 +756,7 @@ declare dso_local void @snd_seq_system_broadcast(i32 noundef, i32 noundef, i32 n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @snd_seq_delete_kernel_client(i32 noundef %0) #0 align 16 {
-  %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !6
+  %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !6
   %3 = and i32 %2, 16776960
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %.thread
@@ -4647,7 +4647,7 @@ declare dso_local i32 @snd_seq_fifo_poll_wait(ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @snd_seq_call_port_info_ioctl(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 -1062710496, 1084773156) %1, ptr noundef %2) unnamed_addr #0 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(168) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3264, i64 noundef 168) #21
   %6 = icmp eq ptr %5, null
   br i1 %6, label %77, label %7

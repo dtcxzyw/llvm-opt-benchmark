@@ -129,7 +129,7 @@ define hidden noundef ptr @_ZN16G1MonotonicArena15SegmentFreeList7get_allERmS1_(
   br i1 %9, label %10, label %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit
 
 10:                                               ; preds = %3
-  %11 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %11 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %12 = or i64 %11, 1
   br label %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit
 
@@ -230,7 +230,7 @@ _ZN13LockFreeStackIN16G1MonotonicArena7SegmentEXadL_ZNS0_15SegmentFreeList8next_
 define hidden void @_ZN16G1MonotonicArenaC2EPKNS_12AllocOptionsEPNS_15SegmentFreeListE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 10, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV16G1MonotonicArena, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV16G1MonotonicArena, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -252,7 +252,7 @@ define hidden void @_ZN16G1MonotonicArenaC2EPKNS_12AllocOptionsEPNS_15SegmentFre
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16G1MonotonicArenaD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV16G1MonotonicArena, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV16G1MonotonicArena, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load volatile ptr, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !12
@@ -441,7 +441,7 @@ define linkonce_odr hidden noundef ptr @_ZN16G1MonotonicArena11new_segmentEPNS_7
   br i1 %10, label %11, label %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i
 
 11:                                               ; preds = %2
-  %12 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %12 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %13 = or i64 %12, 1
   br label %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i
 

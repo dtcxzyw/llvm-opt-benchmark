@@ -117,7 +117,7 @@ define dso_local noundef range(i32 -12, 1) i32 @scsi_proc_hostdir_add(ptr nounde
   br i1 %15, label %.thread, label %19
 
 .thread:                                          ; preds = %6, %14
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %17 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %16, i32 noundef 3520, i64 noundef 40) #11
   %18 = icmp eq ptr %17, null
   br i1 %18, label %39, label %19
@@ -149,8 +149,8 @@ define dso_local noundef range(i32 -12, 1) i32 @scsi_proc_hostdir_add(ptr nounde
 35:                                               ; preds = %25
   %36 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %0, ptr %36, align 8
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @scsi_proc_list, i64 8), align 8
-  store ptr %20, ptr getelementptr inbounds (i8, ptr @scsi_proc_list, i64 8), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @scsi_proc_list, i64 8), align 8
+  store ptr %20, ptr getelementptr inbounds nuw (i8, ptr @scsi_proc_list, i64 8), align 8
   store ptr @scsi_proc_list, ptr %20, align 8
   %38 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %37, ptr %38, align 8

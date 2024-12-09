@@ -417,7 +417,7 @@ define dso_local i32 @call_fib6_entry_notifiers_replace(ptr noundef %0, ptr noun
 define dso_local range(i32 -2147483648, 1) i32 @fib6_tables_dump(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.fib6_dump_arg, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #13
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %6 = tail call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 2336, i64 noundef 72) #15
   %7 = icmp eq ptr %6, null
   br i1 %7, label %109, label %.critedge
@@ -725,7 +725,7 @@ define dso_local void @fib6_metric_set(ptr noundef %0, i32 noundef %1, i32 nound
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %11 = tail call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 2336, i64 noundef 72) #15
   %12 = icmp eq ptr %11, null
   br i1 %12, label %20, label %13
@@ -1526,7 +1526,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %402, label %403, label %409
 
 403:                                              ; preds = %399
-  %404 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %404 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %405 = tail call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %404, i32 noundef 2336, i64 noundef 72) #15
   %406 = icmp eq ptr %405, null
   br i1 %406, label %.thread76, label %407
@@ -3405,7 +3405,7 @@ define internal i32 @inet6_dump_fib(ptr noundef %0, ptr noundef %1) #0 align 16 
   %40 = getelementptr i8, ptr %1, i64 104
   store i64 %39, ptr %40, align 8
   store ptr @fib6_dump_done, ptr %37, align 8
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %42 = call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %41, i32 noundef 2336, i64 noundef 72) #15
   %43 = icmp eq ptr %42, null
   br i1 %43, label %146, label %44
@@ -4685,7 +4685,7 @@ define internal i32 @fib6_net_init(ptr noundef %0) #0 align 16 {
   store volatile ptr %9, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   tail call void @init_timer_key(ptr noundef nonnull %11, ptr noundef nonnull @fib6_gc_timer_cb, i32 noundef 0, ptr noundef null, ptr noundef null) #13
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %13 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3520, i64 noundef 24) #15
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1896
   store ptr %13, ptr %14, align 8
@@ -4693,7 +4693,7 @@ define internal i32 @fib6_net_init(ptr noundef %0) #0 align 16 {
   br i1 %15, label %48, label %16
 
 16:                                               ; preds = %4
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %18 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 3520, i64 noundef 64) #15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1944
   store ptr %18, ptr %19, align 8
@@ -4701,7 +4701,7 @@ define internal i32 @fib6_net_init(ptr noundef %0) #0 align 16 {
   br i1 %20, label %46, label %21
 
 21:                                               ; preds = %16
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %23 = tail call noalias align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %22, i32 noundef 3520, i64 noundef 120) #15
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1952
   store ptr %23, ptr %24, align 32

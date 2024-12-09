@@ -268,7 +268,7 @@ entry:
   %D = alloca %"class.(anonymous namespace)::Demangler", align 8
   %S = alloca %class.OutputStream, align 8
   %Name = alloca %class.StringView, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19DemanglerE, i64 16), ptr %D, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_19DemanglerE, i64 16), ptr %D, align 8
   %Error.i = getelementptr inbounds nuw i8, ptr %D, i64 8
   store i8 0, ptr %Error.i, align 8
   %Arena.i = getelementptr inbounds nuw i8, ptr %D, i64 16
@@ -490,7 +490,7 @@ if.then14:                                        ; preds = %if.end12
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then14, %if.end12
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19DemanglerE, i64 16), ptr %D, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_19DemanglerE, i64 16), ptr %D, align 8
   %.pr.i.i = load ptr, ptr %Arena.i, align 8
   %tobool.not3.i.i = icmp eq ptr %.pr.i.i, null
   br i1 %tobool.not3.i.i, label %_ZN12_GLOBAL__N_19DemanglerD2Ev.exit, label %while.body.i.i
@@ -578,7 +578,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_10SymbolNodeEJNS0_8NodeKindEEEEP
   %call2.i.sink8.i = phi ptr [ %call2.i.i, %if.end.i13 ], [ %9, %if.then.i ]
   %Kind.i.i5.i = getelementptr inbounds nuw i8, ptr %call2.i.sink8.i, i64 8
   store i32 1, ptr %Kind.i.i5.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle10SymbolNodeE, i64 16), ptr %call2.i.sink8.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle10SymbolNodeE, i64 16), ptr %call2.i.sink8.i, align 8
   %Name.i6.i = getelementptr inbounds nuw i8, ptr %call2.i.sink8.i, i64 16
   store ptr null, ptr %Name.i6.i, align 8
   %agg.tmp4.sroa.0.0.copyload = load ptr, ptr %MangledName, align 8
@@ -625,7 +625,7 @@ _ZL23synthesizeQualifiedNameRN4llvh11ms_demangle14ArenaAllocatorE10StringView.ex
   store i32 5, ptr %Kind.i.i.i4.i.i.i, align 8
   %TemplateParams.i.i5.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i.i.i, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i64 16), ptr %call2.i.sink9.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i64 16), ptr %call2.i.sink9.i.i.i, align 8
   %Name.i6.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i.i.i, i64 24
   store ptr %agg.tmp4.sroa.0.0.copyload, ptr %Name.i6.i.i.i, align 8
   %Name.sroa.2.0.Name1.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i.i.i, i64 32
@@ -799,7 +799,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpO
   store i32 5, ptr %Kind.i.i.i4.i.i, align 8
   %TemplateParams.i.i5.i.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i.i, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i64 16), ptr %call2.i.sink9.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i64 16), ptr %call2.i.sink9.i.i, align 8
   %Name.i6.i.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Name.i6.i.i, i8 0, i64 16, i1 false)
   %ref.tmp.i.sroa.4.0.Name.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i.i, i64 32
@@ -824,7 +824,7 @@ sw.default.i:                                     ; preds = %_ZN4llvh11ms_demang
 
 sw.epilog.i55:                                    ; preds = %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpOT0_.exit.i, %sw.bb8.i, %sw.bb5.i62, %sw.bb2.i
   %.str.38.sink = phi ptr [ @.str.38, %sw.bb8.i ], [ @.str.37, %sw.bb5.i62 ], [ @.str.36, %sw.bb2.i ], [ @.str.35, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpOT0_.exit.i ]
-  %.sink272 = phi ptr [ getelementptr inbounds (i8, ptr @.str.38, i64 30), %sw.bb8.i ], [ getelementptr inbounds (i8, ptr @.str.37, i64 15), %sw.bb5.i62 ], [ getelementptr inbounds (i8, ptr @.str.36, i64 9), %sw.bb2.i ], [ getelementptr inbounds (i8, ptr @.str.35, i64 9), %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpOT0_.exit.i ]
+  %.sink272 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.38, i64 30), %sw.bb8.i ], [ getelementptr inbounds nuw (i8, ptr @.str.37, i64 15), %sw.bb5.i62 ], [ getelementptr inbounds nuw (i8, ptr @.str.36, i64 9), %sw.bb2.i ], [ getelementptr inbounds nuw (i8, ptr @.str.35, i64 9), %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpOT0_.exit.i ]
   store ptr %.str.38.sink, ptr %Name.i6.i.i, align 8
   store ptr %.sink272, ptr %ref.tmp.i.sroa.4.0.Name.i.sroa_idx, align 8
   %call11.i = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler22demangleNameScopeChainER10StringViewPN4llvh11ms_demangle14IdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName, ptr noundef nonnull %call2.i.sink9.i.i)
@@ -869,7 +869,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_22SpecialTableSymbolNodeEJEEEPT_
   %Kind.i.i.i4.i38.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i37.i, i64 8
   store i32 28, ptr %Kind.i.i.i4.i38.i, align 8
   %Name.i.i5.i.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i37.i, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle22SpecialTableSymbolNodeE, i64 16), ptr %call2.i.sink9.i37.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle22SpecialTableSymbolNodeE, i64 16), ptr %call2.i.sink9.i37.i, align 8
   %TargetName.i6.i.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i37.i, i64 24
   store ptr null, ptr %TargetName.i6.i.i, align 8
   store ptr %call11.i, ptr %Name.i.i5.i.i, align 8
@@ -1034,21 +1034,21 @@ if.end15.i:                                       ; preds = %if.end.i.i289
 
 if.end18.i:                                       ; preds = %if.end15.i
   %Arena.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %call20.i = tail call fastcc noundef ptr @_ZL18synthesizeVariableRN4llvh11ms_demangle14ArenaAllocatorEPNS0_8TypeNodeE10StringView(ptr noundef nonnull align 8 dereferenceable(8) %Arena.i, ptr noundef %call10.i, ptr nonnull @.str.2, ptr nonnull getelementptr inbounds (i8, ptr @.str.2, i64 22))
+  %call20.i = tail call fastcc noundef ptr @_ZL18synthesizeVariableRN4llvh11ms_demangle14ArenaAllocatorEPNS0_8TypeNodeE10StringView(ptr noundef nonnull align 8 dereferenceable(8) %Arena.i, ptr noundef %call10.i, ptr nonnull @.str.2, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 22))
   br label %_ZN12_GLOBAL__N_19Demangler24demangleSpecialIntrinsicER10StringView.exit
 
 sw.bb21.i:                                        ; preds = %if.end.i.i151
   %add.ptr.i.i156 = getelementptr inbounds nuw i8, ptr %1, i64 5
   store ptr %add.ptr.i.i156, ptr %MangledName, align 8
   %Arena22.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %call24.i = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler23demangleUntypedVariableERN4llvh11ms_demangle14ArenaAllocatorER10StringViewS5_(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(8) %Arena22.i, ptr noundef nonnull align 8 dereferenceable(16) %MangledName, ptr nonnull @.str.3, ptr nonnull getelementptr inbounds (i8, ptr @.str.3, i64 23))
+  %call24.i = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler23demangleUntypedVariableERN4llvh11ms_demangle14ArenaAllocatorER10StringViewS5_(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(8) %Arena22.i, ptr noundef nonnull align 8 dereferenceable(16) %MangledName, ptr nonnull @.str.3, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 23))
   br label %_ZN12_GLOBAL__N_19Demangler24demangleSpecialIntrinsicER10StringView.exit
 
 sw.bb25.i:                                        ; preds = %if.end.i.i139
   %add.ptr.i.i144 = getelementptr inbounds nuw i8, ptr %1, i64 5
   store ptr %add.ptr.i.i144, ptr %MangledName, align 8
   %Arena26.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %call28.i = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler23demangleUntypedVariableERN4llvh11ms_demangle14ArenaAllocatorER10StringViewS5_(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(8) %Arena26.i, ptr noundef nonnull align 8 dereferenceable(16) %MangledName, ptr nonnull @.str.4, ptr nonnull getelementptr inbounds (i8, ptr @.str.4, i64 33))
+  %call28.i = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler23demangleUntypedVariableERN4llvh11ms_demangle14ArenaAllocatorER10StringViewS5_(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(8) %Arena26.i, ptr noundef nonnull align 8 dereferenceable(16) %MangledName, ptr nonnull @.str.4, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 33))
   br label %_ZN12_GLOBAL__N_19Demangler24demangleSpecialIntrinsicER10StringView.exit
 
 sw.bb29.i:                                        ; preds = %if.end.i.i163
@@ -1210,7 +1210,7 @@ return:                                           ; preds = %_ZN10StringView12co
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_19DemanglerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19DemanglerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_19DemanglerE, i64 16), ptr %this, align 8
   %Arena = getelementptr inbounds nuw i8, ptr %this, i64 16
   %.pr.i = load ptr, ptr %Arena, align 8
   %tobool.not3.i = icmp eq ptr %.pr.i, null
@@ -1243,7 +1243,7 @@ _ZN4llvh11ms_demangle14ArenaAllocatorD2Ev.exit:   ; preds = %delete.end8.i, %ent
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_19DemanglerD0Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19DemanglerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_19DemanglerE, i64 16), ptr %this, align 8
   %Arena.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %.pr.i.i = load ptr, ptr %Arena.i, align 8
   %tobool.not3.i.i = icmp eq ptr %.pr.i.i, null
@@ -1332,7 +1332,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17QualifiedNameNodeEJEEEPT_DpOT0
   %call2.i.sink7.i = phi ptr [ %call2.i.i, %if.end.i ], [ %7, %if.then.i ]
   %Kind.i.i4.i = getelementptr inbounds nuw i8, ptr %call2.i.sink7.i, i64 8
   store i32 20, ptr %Kind.i.i4.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle17QualifiedNameNodeE, i64 16), ptr %call2.i.sink7.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle17QualifiedNameNodeE, i64 16), ptr %call2.i.sink7.i, align 8
   %Components.i5.i = getelementptr inbounds nuw i8, ptr %call2.i.sink7.i, i64 16
   store ptr null, ptr %Components.i5.i, align 8
   %8 = load ptr, ptr %Arena, align 8
@@ -1375,7 +1375,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_13NodeArrayNodeEJEEEPT_DpOT0_.ex
   %call2.i.sink7.i22 = phi ptr [ %call2.i.i18, %if.end.i16 ], [ %15, %if.then.i24 ]
   %Kind.i.i4.i23 = getelementptr inbounds nuw i8, ptr %call2.i.sink7.i22, i64 8
   store i32 19, ptr %Kind.i.i4.i23, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle13NodeArrayNodeE, i64 16), ptr %call2.i.sink7.i22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle13NodeArrayNodeE, i64 16), ptr %call2.i.sink7.i22, align 8
   %Nodes.i5.i = getelementptr inbounds nuw i8, ptr %call2.i.sink7.i22, i64 16
   store i64 0, ptr %Nodes.i5.i, align 8
   store ptr %call2.i.sink7.i22, ptr %Components.i5.i, align 8
@@ -1485,7 +1485,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_24EncodedStringLiteralNodeEJEEEP
   store i32 22, ptr %Kind.i.i.i4.i, align 8
   %Name.i.i5.i = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i, i64 16
   store ptr null, ptr %Name.i.i5.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle24EncodedStringLiteralNodeE, i64 16), ptr %call2.i.sink11.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle24EncodedStringLiteralNodeE, i64 16), ptr %call2.i.sink11.i, align 8
   %DecodedString.i6.i = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i, i64 24
   %Char.i7.i = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i, i64 44
   store i32 0, ptr %Char.i7.i, align 4
@@ -2195,7 +2195,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18FunctionSymbolNodeEJEEEPT_DpOT
   store i32 26, ptr %Kind.i.i.i4.i, align 8
   %Name.i.i5.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i, i64 16
   store ptr null, ptr %Name.i.i5.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle18FunctionSymbolNodeE, i64 16), ptr %call2.i.sink9.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle18FunctionSymbolNodeE, i64 16), ptr %call2.i.sink9.i, align 8
   %Signature.i6.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i, i64 24
   store ptr null, ptr %Signature.i6.i, align 8
   %8 = load ptr, ptr %Arena, align 8
@@ -2240,7 +2240,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_24VcallThunkIdentifierNodeEJEEEP
   store i32 6, ptr %Kind.i.i.i4.i26, align 8
   %TemplateParams.i.i5.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i25, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle24VcallThunkIdentifierNodeE, i64 16), ptr %call2.i.sink9.i25, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle24VcallThunkIdentifierNodeE, i64 16), ptr %call2.i.sink9.i25, align 8
   %OffsetInVTable.i6.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i25, i64 24
   store i64 0, ptr %OffsetInVTable.i6.i, align 8
   %16 = load ptr, ptr %Arena, align 8
@@ -2298,7 +2298,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18ThunkSignatureNodeEJEEEPT_DpOT
   store i8 0, ptr %IsVariadic.i.i11.i, align 8
   %Params.i.i12.i = getelementptr inbounds nuw i8, ptr %call2.i.sink23.i, i64 48
   store ptr null, ptr %Params.i.i12.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle18ThunkSignatureNodeE, i64 16), ptr %call2.i.sink23.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle18ThunkSignatureNodeE, i64 16), ptr %call2.i.sink23.i, align 8
   %ThisAdjust.i13.i = getelementptr inbounds nuw i8, ptr %call2.i.sink23.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ThisAdjust.i13.i, i8 0, i64 16, i1 false)
   store ptr %call2.i.sink23.i, ptr %Signature.i6.i, align 8
@@ -2533,7 +2533,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_30LocalStaticGuardIdentifierNode
   store i32 7, ptr %Kind.i.i.i4.i, align 8
   %TemplateParams.i.i5.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle30LocalStaticGuardIdentifierNodeE, i64 16), ptr %call2.i.sink9.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle30LocalStaticGuardIdentifierNodeE, i64 16), ptr %call2.i.sink9.i, align 8
   %ScopeIndex.i6.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i, i64 24
   store i32 0, ptr %ScopeIndex.i6.i, align 8
   %call2 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler22demangleNameScopeChainER10StringViewPN4llvh11ms_demangle14IdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName, ptr noundef nonnull %call2.i.sink9.i)
@@ -2578,7 +2578,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_28LocalStaticGuardVariableNodeEJ
   %Kind.i.i.i4.i25 = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i24, i64 8
   store i32 25, ptr %Kind.i.i.i4.i25, align 8
   %Name.i.i5.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i24, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle28LocalStaticGuardVariableNodeE, i64 16), ptr %call2.i.sink9.i24, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle28LocalStaticGuardVariableNodeE, i64 16), ptr %call2.i.sink9.i24, align 8
   %IsVisible.i6.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i24, i64 24
   store i8 0, ptr %IsVisible.i6.i, align 8
   store ptr %call2, ptr %Name.i.i5.i, align 8
@@ -2964,7 +2964,7 @@ sw.epilog.i43.sink.split:                         ; preds = %if.end.i169, %if.th
   store i32 15, ptr %Kind.i.i.i5.i, align 8
   %Quals.i.i6.i = getelementptr inbounds nuw i8, ptr %call2.i.sink12.i.sink726, i64 12
   store i8 0, ptr %Quals.i.i6.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle11TagTypeNodeE, i64 16), ptr %call2.i.sink12.i.sink726, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle11TagTypeNodeE, i64 16), ptr %call2.i.sink12.i.sink726, align 8
   %QualifiedName.i7.i = getelementptr inbounds nuw i8, ptr %call2.i.sink12.i.sink726, i64 16
   store ptr null, ptr %QualifiedName.i7.i, align 8
   %Tag2.i8.i = getelementptr inbounds nuw i8, ptr %call2.i.sink12.i.sink726, i64 24
@@ -3104,7 +3104,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_15PointerTypeNodeEJEEEPT_DpOT0_.
   store i32 14, ptr %Kind.i.i.i4.i, align 8
   %Quals.i.i5.i = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i, i64 12
   store i8 0, ptr %Quals.i.i5.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle15PointerTypeNodeE, i64 16), ptr %call2.i.sink11.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle15PointerTypeNodeE, i64 16), ptr %call2.i.sink11.i, align 8
   %Affinity.i6.i = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i, i64 16
   store i32 0, ptr %Affinity.i6.i, align 8
   %ClassParent.i7.i = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i, i64 24
@@ -3311,7 +3311,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_15PointerTypeNodeEJEEEPT_DpOT0_.
   store i32 14, ptr %Kind.i.i.i4.i383, align 8
   %Quals.i.i5.i384 = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i382, i64 12
   store i8 0, ptr %Quals.i.i5.i384, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle15PointerTypeNodeE, i64 16), ptr %call2.i.sink11.i382, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle15PointerTypeNodeE, i64 16), ptr %call2.i.sink11.i382, align 8
   %Affinity.i6.i385 = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i382, i64 16
   store i32 0, ptr %Affinity.i6.i385, align 8
   %ClassParent.i7.i386 = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i382, i64 24
@@ -3550,7 +3550,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_13ArrayTypeNodeEJEEEPT_DpOT0_.ex
   store i32 16, ptr %Kind.i.i.i4.i500, align 8
   %Quals.i.i5.i501 = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i, i64 12
   store i8 0, ptr %Quals.i.i5.i501, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle13ArrayTypeNodeE, i64 16), ptr %call2.i.sink9.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle13ArrayTypeNodeE, i64 16), ptr %call2.i.sink9.i, align 8
   %Dimensions.i6.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Dimensions.i6.i, i8 0, i64 16, i1 false)
   %121 = load ptr, ptr %Arena.i91, align 8
@@ -3720,7 +3720,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18IntegerLiteralNodeEJRmRbEEEPT_
   %call2.i.sink12.i441 = phi ptr [ %call2.i.i437, %if.end.i435 ], [ %143, %if.then.i442 ]
   %Kind.i.i7.i = getelementptr inbounds nuw i8, ptr %call2.i.sink12.i441, i64 8
   store i32 23, ptr %Kind.i.i7.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle18IntegerLiteralNodeE, i64 16), ptr %call2.i.sink12.i441, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle18IntegerLiteralNodeE, i64 16), ptr %call2.i.sink12.i441, align 8
   %Value2.i8.i = getelementptr inbounds nuw i8, ptr %call2.i.sink12.i441, i64 16
   store i64 %retval.sroa.0.0.i460644, ptr %Value2.i8.i, align 8
   %IsNegative3.i9.i = getelementptr inbounds nuw i8, ptr %call2.i.sink12.i441, i64 24
@@ -3894,7 +3894,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_D
   store i32 3, ptr %Kind.i.i.i4.i590, align 8
   %Quals.i.i5.i591 = getelementptr inbounds nuw i8, ptr %call2.i.sink21.i, i64 12
   store i8 0, ptr %Quals.i.i5.i591, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle21FunctionSignatureNodeE, i64 16), ptr %call2.i.sink21.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle21FunctionSignatureNodeE, i64 16), ptr %call2.i.sink21.i, align 8
   %Affinity.i6.i592 = getelementptr inbounds nuw i8, ptr %call2.i.sink21.i, i64 16
   store i32 0, ptr %Affinity.i6.i592, align 8
   %CallConvention.i7.i = getelementptr inbounds nuw i8, ptr %call2.i.sink21.i, i64 20
@@ -4019,7 +4019,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_14CustomTypeNodeEJEEEPT_DpOT0_.e
   store i32 17, ptr %Kind.i.i.i4.i616, align 8
   %Quals.i.i5.i617 = getelementptr inbounds nuw i8, ptr %call2.i.sink7.i, i64 12
   store i8 0, ptr %Quals.i.i5.i617, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle14CustomTypeNodeE, i64 16), ptr %call2.i.sink7.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle14CustomTypeNodeE, i64 16), ptr %call2.i.sink7.i, align 8
   %call3.i = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler27demangleUnqualifiedTypeNameER10StringViewb(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName)
   %Identifier.i = getelementptr inbounds nuw i8, ptr %call2.i.sink7.i, i64 16
   store ptr %call3.i, ptr %Identifier.i, align 8
@@ -4667,7 +4667,7 @@ _ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit.thread: ; 
   store i32 2, ptr %Kind.i.i.i5.i.i, align 8
   %Quals.i.i6.i.i = getelementptr inbounds nuw i8, ptr %call2.i.sink10.i.i.sink730, i64 12
   store i8 0, ptr %Quals.i.i6.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle17PrimitiveTypeNodeE, i64 16), ptr %call2.i.sink10.i.i.sink730, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle17PrimitiveTypeNodeE, i64 16), ptr %call2.i.sink10.i.i.sink730, align 8
   %PrimKind.i7.i.i = getelementptr inbounds nuw i8, ptr %call2.i.sink10.i.i.sink730, i64 16
   store i32 %.sink727, ptr %PrimKind.i7.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp63.i)
@@ -4765,7 +4765,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18VariableSymbolNodeEJEEEPT_DpOT
   store i32 27, ptr %Kind.i.i.i4.i, align 8
   %Name.i.i5.i = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i, i64 16
   store ptr null, ptr %Name.i.i5.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle18VariableSymbolNodeE, i64 16), ptr %call2.i.sink11.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle18VariableSymbolNodeE, i64 16), ptr %call2.i.sink11.i, align 8
   %SC.i6.i = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i, i64 24
   store i8 0, ptr %SC.i6.i, align 8
   %Type.i7.i = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i, i64 32
@@ -4812,7 +4812,7 @@ _ZL23synthesizeQualifiedNameRN4llvh11ms_demangle14ArenaAllocatorE10StringView.ex
   store i32 5, ptr %Kind.i.i.i4.i.i.i, align 8
   %TemplateParams.i.i5.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i.i.i, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i64 16), ptr %call2.i.sink9.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i64 16), ptr %call2.i.sink9.i.i.i, align 8
   %Name.i6.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i.i.i, i64 24
   store ptr %VariableName.coerce0, ptr %Name.i6.i.i.i, align 8
   %Name.sroa.2.0.Name1.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i.i.i, i64 32
@@ -4867,7 +4867,7 @@ _ZL25synthesizeNamedIdentifierRN4llvh11ms_demangle14ArenaAllocatorE10StringView.
   store i32 5, ptr %Kind.i.i.i4.i.i, align 8
   %TemplateParams.i.i5.i.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i.i, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i64 16), ptr %call2.i.sink9.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i64 16), ptr %call2.i.sink9.i.i, align 8
   %Name.i6.i.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i.i, i64 24
   store ptr %VariableName.coerce0, ptr %Name.i6.i.i, align 8
   %Name.sroa.2.0.Name1.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i.i, i64 32
@@ -4914,7 +4914,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18VariableSymbolNodeEJEEEPT_DpOT
   %Kind.i.i.i4.i = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i, i64 8
   store i32 27, ptr %Kind.i.i.i4.i, align 8
   %Name.i.i5.i = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle18VariableSymbolNodeE, i64 16), ptr %call2.i.sink11.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle18VariableSymbolNodeE, i64 16), ptr %call2.i.sink11.i, align 8
   %SC.i6.i = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i, i64 24
   store i8 0, ptr %SC.i6.i, align 8
   %Type.i7.i = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i, i64 32
@@ -4991,7 +4991,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_27RttiBaseClassDescriptorNodeEJE
   store i32 24, ptr %Kind.i.i.i4.i, align 8
   %TemplateParams.i.i5.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle27RttiBaseClassDescriptorNodeE, i64 16), ptr %call2.i.sink9.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle27RttiBaseClassDescriptorNodeE, i64 16), ptr %call2.i.sink9.i, align 8
   %NVOffset.i6.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %NVOffset.i6.i, i8 0, i64 16, i1 false)
   %8 = load ptr, ptr %MangledName, align 8
@@ -5380,7 +5380,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18VariableSymbolNodeEJEEEPT_DpOT
   store i32 27, ptr %Kind.i.i.i4.i167, align 8
   %Name.i.i5.i = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i, i64 16
   store ptr null, ptr %Name.i.i5.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle18VariableSymbolNodeE, i64 16), ptr %call2.i.sink11.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle18VariableSymbolNodeE, i64 16), ptr %call2.i.sink11.i, align 8
   %SC.i6.i = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i, i64 24
   store i8 0, ptr %SC.i6.i, align 8
   %Type.i7.i = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i, i64 32
@@ -5454,7 +5454,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_29DynamicStructorIdentifierNodeE
   store i32 10, ptr %Kind.i.i.i4.i, align 8
   %TemplateParams.i.i5.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle29DynamicStructorIdentifierNodeE, i64 16), ptr %call2.i.sink9.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle29DynamicStructorIdentifierNodeE, i64 16), ptr %call2.i.sink9.i, align 8
   %Variable.i6.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %Variable.i6.i, i8 0, i64 16, i1 false)
   %IsDestructor2 = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i, i64 40
@@ -6601,11 +6601,11 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpO
   store i32 5, ptr %Kind.i.i.i4.i.i86, align 8
   %TemplateParams.i.i5.i.i87 = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i.i85, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i.i87, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i64 16), ptr %call2.i.sink9.i.i85, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i64 16), ptr %call2.i.sink9.i.i85, align 8
   %Name.i6.i.i88 = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i.i85, i64 24
   store ptr @.str.60, ptr %Name.i6.i.i88, align 8
   %ref.tmp.sroa.2.0.Name.sroa_idx.i89 = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i.i85, i64 32
-  store ptr getelementptr inbounds (i8, ptr @.str.60, i64 21), ptr %ref.tmp.sroa.2.0.Name.sroa_idx.i89, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @.str.60, i64 21), ptr %ref.tmp.sroa.2.0.Name.sroa_idx.i89, align 8
   %32 = load ptr, ptr %Last.i1.i.i, align 8
   %33 = load ptr, ptr %MangledName, align 8
   %sub.ptr.lhs.cast.i.i.i90 = ptrtoint ptr %32 to i64
@@ -6770,7 +6770,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpO
   store i32 5, ptr %Kind.i.i.i4.i.i, align 8
   %TemplateParams.i.i5.i.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i.i, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i64 16), ptr %call2.i.sink9.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i64 16), ptr %call2.i.sink9.i.i, align 8
   %Name.i6.i.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Name.i6.i.i, i8 0, i64 16, i1 false)
   %56 = load ptr, ptr %MangledName, align 8
@@ -7137,7 +7137,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17QualifiedNameNodeEJEEEPT_DpOT0
   %call2.i.sink7.i = phi ptr [ %call2.i.i44, %if.end.i42 ], [ %101, %if.then.i48 ]
   %Kind.i.i4.i = getelementptr inbounds nuw i8, ptr %call2.i.sink7.i, i64 8
   store i32 20, ptr %Kind.i.i4.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle17QualifiedNameNodeE, i64 16), ptr %call2.i.sink7.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle17QualifiedNameNodeE, i64 16), ptr %call2.i.sink7.i, align 8
   %Components.i5.i = getelementptr inbounds nuw i8, ptr %call2.i.sink7.i, i64 16
   store ptr null, ptr %Components.i5.i, align 8
   %call14 = call fastcc noundef ptr @_ZL19nodeListToNodeArrayRN4llvh11ms_demangle14ArenaAllocatorEP8NodeListm(ptr noundef nonnull align 8 dereferenceable(8) %Arena, ptr noundef nonnull %Head.0, i64 noundef %Count.0)
@@ -7301,7 +7301,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_13NodeArrayNodeEJEEEPT_DpOT0_.ex
   %call2.i.sink7.i = phi ptr [ %call2.i.i, %if.end.i ], [ %7, %if.then.i ]
   %Kind.i.i4.i = getelementptr inbounds nuw i8, ptr %call2.i.sink7.i, i64 8
   store i32 19, ptr %Kind.i.i4.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle13NodeArrayNodeE, i64 16), ptr %call2.i.sink7.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle13NodeArrayNodeE, i64 16), ptr %call2.i.sink7.i, align 8
   %Nodes.i5.i = getelementptr inbounds nuw i8, ptr %call2.i.sink7.i, i64 16
   store i64 0, ptr %Nodes.i5.i, align 8
   %Count1 = getelementptr inbounds nuw i8, ptr %call2.i.sink7.i, i64 24
@@ -7631,7 +7631,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_30TemplateParameterReferenceNode
   %call2.i.sink13.i = phi ptr [ %call2.i.i, %if.end.i102 ], [ %24, %if.then.i103 ]
   %Kind.i.i4.i = getelementptr inbounds nuw i8, ptr %call2.i.sink13.i, i64 8
   store i32 21, ptr %Kind.i.i4.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle30TemplateParameterReferenceNodeE, i64 16), ptr %call2.i.sink13.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle30TemplateParameterReferenceNodeE, i64 16), ptr %call2.i.sink13.i, align 8
   %Symbol.i5.i = getelementptr inbounds nuw i8, ptr %call2.i.sink13.i, i64 16
   store ptr null, ptr %Symbol.i5.i, align 8
   %ThunkOffsetCount.i6.i = getelementptr inbounds nuw i8, ptr %call2.i.sink13.i, i64 24
@@ -8050,7 +8050,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_30TemplateParameterReferenceNode
   %call2.i.sink13.i453 = phi ptr [ %call2.i.i449, %if.end.i447 ], [ %70, %if.then.i459 ]
   %Kind.i.i4.i454 = getelementptr inbounds nuw i8, ptr %call2.i.sink13.i453, i64 8
   store i32 21, ptr %Kind.i.i4.i454, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle30TemplateParameterReferenceNodeE, i64 16), ptr %call2.i.sink13.i453, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle30TemplateParameterReferenceNodeE, i64 16), ptr %call2.i.sink13.i453, align 8
   %Symbol.i5.i455 = getelementptr inbounds nuw i8, ptr %call2.i.sink13.i453, i64 16
   store ptr null, ptr %Symbol.i5.i455, align 8
   %ThunkOffsetCount.i6.i456 = getelementptr inbounds nuw i8, ptr %call2.i.sink13.i453, i64 24
@@ -8116,7 +8116,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_30TemplateParameterReferenceNode
   %call2.i.sink13.i496 = phi ptr [ %call2.i.i492, %if.end.i490 ], [ %78, %if.then.i502 ]
   %Kind.i.i4.i497 = getelementptr inbounds nuw i8, ptr %call2.i.sink13.i496, i64 8
   store i32 21, ptr %Kind.i.i4.i497, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle30TemplateParameterReferenceNodeE, i64 16), ptr %call2.i.sink13.i496, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle30TemplateParameterReferenceNodeE, i64 16), ptr %call2.i.sink13.i496, align 8
   %Symbol.i5.i498 = getelementptr inbounds nuw i8, ptr %call2.i.sink13.i496, i64 16
   store ptr null, ptr %Symbol.i5.i498, align 8
   %ThunkOffsetCount.i6.i499 = getelementptr inbounds nuw i8, ptr %call2.i.sink13.i496, i64 24
@@ -8335,7 +8335,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpO
   store i32 5, ptr %Kind.i.i.i4.i, align 8
   %TemplateParams.i.i5.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i64 16), ptr %call2.i.sink9.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i64 16), ptr %call2.i.sink9.i, align 8
   %Name.i6.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i, i64 24
   store ptr %1, ptr %Name.i6.i, align 8
   %S.sroa.2.0.Name4.sroa_idx = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i, i64 32
@@ -8491,7 +8491,7 @@ _ZN12_GLOBAL__N_19Demangler30demangleFunctionIdentifierCodeER10StringView27Funct
   store i32 8, ptr %Kind.i.i.i5.i56.i.i, align 8
   %TemplateParams.i.i6.i57.i.i = getelementptr inbounds nuw i8, ptr %call2.i.sink10.i55.i.i, i64 16
   store ptr null, ptr %TemplateParams.i.i6.i57.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle31IntrinsicFunctionIdentifierNodeE, i64 16), ptr %call2.i.sink10.i55.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle31IntrinsicFunctionIdentifierNodeE, i64 16), ptr %call2.i.sink10.i55.i.i, align 8
   %Operator2.i7.i58.i.i = getelementptr inbounds nuw i8, ptr %call2.i.sink10.i55.i.i, i64 24
   store i8 %retval.0.i39.i.i, ptr %Operator2.i7.i58.i.i, align 8
   br label %return
@@ -8675,7 +8675,7 @@ _ZN12_GLOBAL__N_19Demangler26demangleStructorIdentifierER10StringViewb.exit: ; p
   store i32 11, ptr %Kind.i.i.i4.i.i, align 8
   %TemplateParams.i.i5.i.i = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i.i, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle22StructorIdentifierNodeE, i64 16), ptr %call2.i.sink11.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle22StructorIdentifierNodeE, i64 16), ptr %call2.i.sink11.i.i, align 8
   %Class.i6.i.i = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i.i, i64 24
   store ptr null, ptr %Class.i6.i.i, align 8
   %IsDestructor.i7.i.i = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i.i, i64 32
@@ -8726,7 +8726,7 @@ _ZN12_GLOBAL__N_19Demangler36demangleConversionOperatorIdentifierER10StringView.
   store i32 9, ptr %Kind.i.i.i4.i.i28, align 8
   %TemplateParams.i.i5.i.i29 = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i.i, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i.i29, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle32ConversionOperatorIdentifierNodeE, i64 16), ptr %call2.i.sink9.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle32ConversionOperatorIdentifierNodeE, i64 16), ptr %call2.i.sink9.i.i, align 8
   %TargetType.i6.i.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i.i, i64 24
   store ptr null, ptr %TargetType.i6.i.i, align 8
   br label %return
@@ -8782,7 +8782,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNod
   store i32 8, ptr %Kind.i.i.i5.i, align 8
   %TemplateParams.i.i6.i = getelementptr inbounds nuw i8, ptr %call2.i.sink10.i, i64 16
   store ptr null, ptr %TemplateParams.i.i6.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle31IntrinsicFunctionIdentifierNodeE, i64 16), ptr %call2.i.sink10.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle31IntrinsicFunctionIdentifierNodeE, i64 16), ptr %call2.i.sink10.i, align 8
   %Operator2.i7.i = getelementptr inbounds nuw i8, ptr %call2.i.sink10.i, i64 24
   store i8 %retval.0.i, ptr %Operator2.i7.i, align 8
   br label %return
@@ -8842,7 +8842,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNod
   store i32 8, ptr %Kind.i.i.i5.i56, align 8
   %TemplateParams.i.i6.i57 = getelementptr inbounds nuw i8, ptr %call2.i.sink10.i55, i64 16
   store ptr null, ptr %TemplateParams.i.i6.i57, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle31IntrinsicFunctionIdentifierNodeE, i64 16), ptr %call2.i.sink10.i55, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle31IntrinsicFunctionIdentifierNodeE, i64 16), ptr %call2.i.sink10.i55, align 8
   %Operator2.i7.i58 = getelementptr inbounds nuw i8, ptr %call2.i.sink10.i55, i64 24
   store i8 %retval.0.i39, ptr %Operator2.i7.i58, align 8
   br label %return
@@ -8899,7 +8899,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_29LiteralOperatorIdentifierNodeE
   store i32 12, ptr %Kind.i.i.i4.i.i79, align 8
   %TemplateParams.i.i5.i.i80 = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i.i78, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i.i80, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle29LiteralOperatorIdentifierNodeE, i64 16), ptr %call2.i.sink9.i.i78, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle29LiteralOperatorIdentifierNodeE, i64 16), ptr %call2.i.sink9.i.i78, align 8
   %Name.i6.i.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i.i78, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Name.i6.i.i, i8 0, i64 16, i1 false)
   %Last.i.i.i = getelementptr inbounds nuw i8, ptr %MangledName, i64 8
@@ -8996,7 +8996,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNod
   store i32 8, ptr %Kind.i.i.i5.i104, align 8
   %TemplateParams.i.i6.i105 = getelementptr inbounds nuw i8, ptr %call2.i.sink10.i103, i64 16
   store ptr null, ptr %TemplateParams.i.i6.i105, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle31IntrinsicFunctionIdentifierNodeE, i64 16), ptr %call2.i.sink10.i103, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle31IntrinsicFunctionIdentifierNodeE, i64 16), ptr %call2.i.sink10.i103, align 8
   %Operator2.i7.i106 = getelementptr inbounds nuw i8, ptr %call2.i.sink10.i103, i64 24
   store i8 %retval.0.i87, ptr %Operator2.i7.i106, align 8
   br label %return
@@ -9117,7 +9117,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpO
   store i32 5, ptr %Kind.i.i.i4.i, align 8
   %TemplateParams.i.i5.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i64 16), ptr %call2.i.sink9.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i64 16), ptr %call2.i.sink9.i, align 8
   %Name.i6.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i, i64 24
   store ptr %S.coerce0, ptr %Name.i6.i, align 8
   %S.sroa.3.0.Name9.sroa_idx = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i, i64 32
@@ -9279,7 +9279,7 @@ return:                                           ; preds = %if.end, %if.then
   %frombool.i6 = and i8 %9, 1
   %Kind.i.i7 = getelementptr inbounds nuw i8, ptr %call2.i.sink12, i64 8
   store i32 23, ptr %Kind.i.i7, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle18IntegerLiteralNodeE, i64 16), ptr %call2.i.sink12, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle18IntegerLiteralNodeE, i64 16), ptr %call2.i.sink12, align 8
   %Value2.i8 = getelementptr inbounds nuw i8, ptr %call2.i.sink12, i64 16
   store i64 %8, ptr %Value2.i8, align 8
   %IsNegative3.i9 = getelementptr inbounds nuw i8, ptr %call2.i.sink12, i64 24
@@ -9509,7 +9509,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_D
   store i32 3, ptr %Kind.i.i.i4.i, align 8
   %Quals.i.i5.i = getelementptr inbounds nuw i8, ptr %call2.i.sink21.i, i64 12
   store i8 0, ptr %Quals.i.i5.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle21FunctionSignatureNodeE, i64 16), ptr %call2.i.sink21.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle21FunctionSignatureNodeE, i64 16), ptr %call2.i.sink21.i, align 8
   %Affinity.i6.i = getelementptr inbounds nuw i8, ptr %call2.i.sink21.i, i64 16
   store i32 0, ptr %Affinity.i6.i, align 8
   %CallConvention.i7.i = getelementptr inbounds nuw i8, ptr %call2.i.sink21.i, i64 20
@@ -10015,7 +10015,7 @@ return:                                           ; preds = %if.end, %if.then
   store i32 2, ptr %Kind.i.i.i5, align 8
   %Quals.i.i6 = getelementptr inbounds nuw i8, ptr %call2.i.sink10, i64 12
   store i8 0, ptr %Quals.i.i6, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle17PrimitiveTypeNodeE, i64 16), ptr %call2.i.sink10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle17PrimitiveTypeNodeE, i64 16), ptr %call2.i.sink10, align 8
   %PrimKind.i7 = getelementptr inbounds nuw i8, ptr %call2.i.sink10, i64 16
   store i32 %8, ptr %PrimKind.i7, align 8
   ret ptr %call2.i.sink10
@@ -10264,7 +10264,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18ThunkSignatureNodeEJEEEPT_DpOT
   store i8 0, ptr %IsVariadic.i.i11.i, align 8
   %Params.i.i12.i = getelementptr inbounds nuw i8, ptr %call2.i.sink23.i, i64 48
   store ptr null, ptr %Params.i.i12.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle18ThunkSignatureNodeE, i64 16), ptr %call2.i.sink23.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle18ThunkSignatureNodeE, i64 16), ptr %call2.i.sink23.i, align 8
   %ThisAdjust.i13.i = getelementptr inbounds nuw i8, ptr %call2.i.sink23.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ThisAdjust.i13.i, i8 0, i64 16, i1 false)
   %17 = load ptr, ptr %MangledName, align 8
@@ -10429,7 +10429,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18ThunkSignatureNodeEJEEEPT_DpOT
   store i8 0, ptr %IsVariadic.i.i11.i56, align 8
   %Params.i.i12.i57 = getelementptr inbounds nuw i8, ptr %call2.i.sink23.i48, i64 48
   store ptr null, ptr %Params.i.i12.i57, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle18ThunkSignatureNodeE, i64 16), ptr %call2.i.sink23.i48, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle18ThunkSignatureNodeE, i64 16), ptr %call2.i.sink23.i48, align 8
   %ThisAdjust.i13.i58 = getelementptr inbounds nuw i8, ptr %call2.i.sink23.i48, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ThisAdjust.i13.i58, i8 0, i64 16, i1 false)
   %tobool18.not = icmp samesign ult i16 %retval.0.i.ph, 1024
@@ -10872,7 +10872,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_D
   store i32 3, ptr %Kind.i.i.i4.i, align 8
   %Quals.i.i5.i = getelementptr inbounds nuw i8, ptr %call2.i.sink21.i, i64 12
   store i8 0, ptr %Quals.i.i5.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle21FunctionSignatureNodeE, i64 16), ptr %call2.i.sink21.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle21FunctionSignatureNodeE, i64 16), ptr %call2.i.sink21.i, align 8
   %Affinity.i6.i = getelementptr inbounds nuw i8, ptr %call2.i.sink21.i, i64 16
   store i32 0, ptr %Affinity.i6.i, align 8
   %CallConvention.i7.i = getelementptr inbounds nuw i8, ptr %call2.i.sink21.i, i64 20
@@ -10961,7 +10961,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18FunctionSymbolNodeEJEEEPT_DpOT
   store i32 26, ptr %Kind.i.i.i4.i288, align 8
   %Name.i.i5.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i, i64 16
   store ptr null, ptr %Name.i.i5.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle18FunctionSymbolNodeE, i64 16), ptr %call2.i.sink9.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle18FunctionSymbolNodeE, i64 16), ptr %call2.i.sink9.i, align 8
   %Signature.i6.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i, i64 24
   store ptr %FSN.1, ptr %Signature.i6.i, align 8
   ret ptr %call2.i.sink9.i
@@ -11013,7 +11013,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18VariableSymbolNodeEJEEEPT_DpOT
   store i32 27, ptr %Kind.i.i.i4.i, align 8
   %Name.i.i5.i = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i, i64 16
   store ptr null, ptr %Name.i.i5.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11ms_demangle18VariableSymbolNodeE, i64 16), ptr %call2.i.sink11.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle18VariableSymbolNodeE, i64 16), ptr %call2.i.sink11.i, align 8
   %SC.i6.i = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i, i64 24
   store i8 0, ptr %SC.i6.i, align 8
   %Type.i7.i = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i, i64 32

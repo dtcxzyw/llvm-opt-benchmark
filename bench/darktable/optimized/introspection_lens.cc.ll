@@ -1148,7 +1148,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %310 = load i32, ptr %309, align 4, !tbaa !143
   %311 = sitofp i32 %310 to float
   %312 = fmul reassoc nsz arcp contract afn float %304, %311
-  %313 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %313 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %314 = fptosi float %308 to i32
   %315 = fptosi float %312 to i32
   %316 = getelementptr inbounds nuw i8, ptr %266, i64 4
@@ -1189,7 +1189,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %344 = load i32, ptr %343, align 8, !tbaa !163
   %345 = icmp ne i32 %344, 0
   %346 = tail call noundef i32 @_ZN10lfModifier10InitializeEPK6lfLens13lfPixelFormatffff10lfLensTypeib(ptr noundef nonnull align 8 dereferenceable(96) %318, ptr noundef %332, i32 noundef 3, float noundef %334, float noundef %336, float noundef %338, float noundef %340, i32 noundef %342, i32 noundef %331, i1 noundef zeroext %345)
-  %347 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %347 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %348 = tail call ptr @dt_interpolation_new(i32 noundef 3)
   %349 = load i32, ptr %343, align 8, !tbaa !163
   %350 = icmp eq i32 %349, 0
@@ -3381,7 +3381,7 @@ define void @distort_mask(ptr nocapture noundef readnone %0, ptr nocapture nound
   %37 = load i32, ptr %36, align 4, !tbaa !143
   %38 = sitofp i32 %37 to float
   %39 = fmul reassoc nsz arcp contract afn float %31, %38
-  %40 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %40 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %41 = fptosi float %35 to i32
   %42 = fptosi float %39 to i32
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -3417,7 +3417,7 @@ define void @distort_mask(ptr nocapture noundef readnone %0, ptr nocapture nound
   %66 = load i32, ptr %65, align 8, !tbaa !163
   %67 = icmp ne i32 %66, 0
   %68 = tail call noundef i32 @_ZN10lfModifier10InitializeEPK6lfLens13lfPixelFormatffff10lfLensTypeib(ptr noundef nonnull align 8 dereferenceable(96) %45, ptr noundef %54, i32 noundef 3, float noundef %56, float noundef %58, float noundef %60, float noundef %62, i32 noundef %64, i32 noundef %53, i1 noundef zeroext %67)
-  %69 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %69 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %70 = and i32 %68, 57
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %80
@@ -5173,7 +5173,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   br i1 %72, label %89, label %73
 
 73:                                               ; preds = %69
-  %74 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %74 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %75 = tail call noundef ptr @_ZNK10lfDatabase14FindCamerasExtEPKcS1_i(ptr noundef nonnull align 8 dereferenceable(40) %62, ptr noundef null, ptr noundef nonnull %70, i32 noundef 0)
   %76 = icmp eq ptr %75, null
   br i1 %76, label %86, label %77
@@ -5198,7 +5198,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
 
 86:                                               ; preds = %77, %73
   %87 = phi ptr [ %78, %77 ], [ null, %73 ]
-  %88 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %88 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   br label %89
 
 89:                                               ; preds = %86, %69
@@ -5210,9 +5210,9 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   br i1 %94, label %128, label %95
 
 95:                                               ; preds = %89
-  %96 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %96 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %97 = tail call noundef ptr @_ZNK10lfDatabase10FindLensesEPK8lfCameraPKcS4_i(ptr noundef nonnull align 8 dereferenceable(40) %62, ptr noundef %91, ptr noundef null, ptr noundef nonnull %92, i32 noundef 0)
-  %98 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %98 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %99 = icmp eq ptr %97, null
   br i1 %99, label %128, label %100
 
@@ -5353,7 +5353,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
 179:                                              ; preds = %172
   %180 = getelementptr inbounds nuw i8, ptr %167, i64 112
   %181 = call i32 @dt_image_is_monochrome(ptr noundef nonnull %180)
-  %182 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %182 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %183 = load ptr, ptr %38, align 8, !tbaa !156
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 1484
   %185 = load i32, ptr %184, align 4, !tbaa !280
@@ -5392,7 +5392,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %211 = load i32, ptr %131, align 8, !tbaa !163
   %212 = icmp ne i32 %211, 0
   %213 = call noundef i32 @_ZN10lfModifier10InitializeEPK6lfLens13lfPixelFormatffff10lfLensTypeib(ptr noundef nonnull align 8 dereferenceable(96) %190, ptr noundef %205, i32 noundef 3, float noundef %206, float noundef %207, float noundef %208, float noundef %209, i32 noundef %210, i32 noundef %204, i1 noundef zeroext %212)
-  %214 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %214 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %216 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %215) #31
   %217 = lshr i32 %213, 1
@@ -7251,19 +7251,19 @@ define void @reload_defaults(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %123, label %239, label %124
 
 124:                                              ; preds = %120
-  %125 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %125 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %126 = load ptr, ptr %121, align 8, !tbaa !265
   %127 = call noundef ptr @_ZNK10lfDatabase14FindCamerasExtEPKcS1_i(ptr noundef nonnull align 8 dereferenceable(40) %126, ptr noundef nonnull %70, ptr noundef nonnull %36, i32 noundef 0)
-  %128 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %128 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %129 = icmp eq ptr %127, null
   br i1 %129, label %204, label %130
 
 130:                                              ; preds = %124
-  %131 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %131 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %132 = load ptr, ptr %121, align 8, !tbaa !265
   %133 = load ptr, ptr %127, align 8, !tbaa !34
   %134 = call noundef ptr @_ZNK10lfDatabase10FindLensesEPK8lfCameraPKcS4_i(ptr noundef nonnull align 8 dereferenceable(40) %132, ptr noundef %133, ptr noundef null, ptr noundef nonnull %33, i32 noundef 0)
-  %135 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %135 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %136 = icmp eq ptr %134, null
   br i1 %136, label %137, label %153
 
@@ -7279,11 +7279,11 @@ define void @reload_defaults(ptr noundef %0) local_unnamed_addr #3 {
 
 145:                                              ; preds = %137
   %146 = call i64 @g_strlcpy(ptr noundef nonnull %33, ptr noundef nonnull @.str.17, i64 noundef 128)
-  %147 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %147 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %148 = load ptr, ptr %121, align 8, !tbaa !265
   %149 = load ptr, ptr %127, align 8, !tbaa !34
   %150 = call noundef ptr @_ZNK10lfDatabase10FindLensesEPK8lfCameraPKcS4_i(ptr noundef nonnull align 8 dereferenceable(40) %148, ptr noundef %149, ptr noundef null, ptr noundef nonnull %33, i32 noundef 0)
-  %151 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %151 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %152 = icmp eq ptr %150, null
   br i1 %152, label %199, label %153
 
@@ -7436,7 +7436,7 @@ define internal fastcc noundef float @_ZL17_get_autoscale_lfP15dt_iop_module_tP2
   %9 = load ptr, ptr %8, align 16, !tbaa !264
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !265
-  %12 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %12 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %13 = tail call noundef ptr @_ZNK10lfDatabase10FindLensesEPK8lfCameraPKcS4_i(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef %2, ptr noundef null, ptr noundef nonnull %4, i32 noundef 0)
   %14 = icmp eq ptr %13, null
   br i1 %14, label %66, label %15
@@ -7506,7 +7506,7 @@ define internal fastcc noundef float @_ZL17_get_autoscale_lfP15dt_iop_module_tP2
 66:                                               ; preds = %52, %7
   %67 = phi float [ %65, %52 ], [ 1.000000e+00, %7 ]
   tail call void @lf_free(ptr noundef %13)
-  %68 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %68 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   br label %69
 
 69:                                               ; preds = %66, %3
@@ -7811,16 +7811,16 @@ define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %9 = tail call noundef i32 @pthread_mutex_init(ptr noundef nonnull %8, ptr noundef null) #31
   %10 = load ptr, ptr %7, align 16, !tbaa !91
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !365
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3120), align 8, !tbaa !365
   %12 = and i32 %11, 2
   %13 = icmp ne i32 %12, 0
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3216), align 8
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3216), align 8
   %15 = icmp ne i32 %14, 0
   %16 = select i1 %13, i1 %15, i1 false
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %6
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !372
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !372
   %19 = and i32 %18, 1048576
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %22, label %21
@@ -7830,7 +7830,7 @@ define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr
   br label %22
 
 22:                                               ; preds = %21, %17, %6
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !373
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !373
   tail call void @dt_control_signal_connect(ptr noundef %23, i32 noundef 23, ptr noundef nonnull @_ZL34_develop_ui_pipe_finished_callbackPvS_, ptr noundef nonnull %0)
   %24 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %8) #31
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 336
@@ -8103,16 +8103,16 @@ define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr
   %195 = load ptr, ptr %192, align 8, !tbaa !389
   call void @dt_bauhaus_slider_set_digits(ptr noundef %195, i32 noundef 1)
   store ptr %122, ptr %28, align 16, !tbaa !364
-  %196 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !365
+  %196 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3120), align 8, !tbaa !365
   %197 = and i32 %196, 2
   %198 = icmp ne i32 %197, 0
-  %199 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3208), align 8
+  %199 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3208), align 8
   %200 = icmp ne i32 %199, 0
   %201 = select i1 %198, i1 %200, i1 false
   br i1 %201, label %202, label %207
 
 202:                                              ; preds = %22
-  %203 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !372
+  %203 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !372
   %204 = and i32 %203, 1048576
   %205 = icmp eq i32 %204, 0
   br i1 %205, label %207, label %206
@@ -8122,7 +8122,7 @@ define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr
   br label %207
 
 207:                                              ; preds = %206, %202, %22
-  %208 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !373
+  %208 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !373
   call void @dt_control_signal_connect(ptr noundef %208, i32 noundef 21, ptr noundef nonnull @_ZL22_have_corrections_donePvS_, ptr noundef nonnull %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #31
   ret void
@@ -8181,9 +8181,9 @@ define internal void @_ZL26_camera_menusearch_clickedP10_GtkWidgetPv(ptr noundef
   %6 = load ptr, ptr %5, align 8, !tbaa !265
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 704
   %8 = load ptr, ptr %7, align 16, !tbaa !91
-  %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %10 = tail call noundef ptr @_ZNK10lfDatabase10GetCamerasEv(ptr noundef nonnull align 8 dereferenceable(40) %6)
-  %11 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %11 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %12 = icmp eq ptr %10, null
   br i1 %12, label %18, label %13
 
@@ -8220,9 +8220,9 @@ define internal void @_ZL26_camera_autosearch_clickedP10_GtkWidgetPv(ptr noundef
   br i1 %15, label %16, label %.preheader
 
 16:                                               ; preds = %2
-  %17 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %17 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %18 = tail call noundef ptr @_ZNK10lfDatabase10GetCamerasEv(ptr noundef nonnull align 8 dereferenceable(40) %8)
-  %19 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %19 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %20 = icmp eq ptr %18, null
   br i1 %20, label %46, label %21
 
@@ -8251,9 +8251,9 @@ define internal void @_ZL26_camera_autosearch_clickedP10_GtkWidgetPv(ptr noundef
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %32, i64 %34, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 %34
   store i8 0, ptr %35, align 1, !tbaa !57
-  %36 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %36 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %37 = call noundef ptr @_ZNK10lfDatabase14FindCamerasExtEPKcS1_i(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 0)
-  %38 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %38 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %39 = icmp eq ptr %37, null
   br i1 %39, label %46, label %40
 
@@ -8293,11 +8293,11 @@ define internal void @_ZL24_lens_menusearch_clickedP10_GtkWidgetPv(ptr noundef %
   %6 = load ptr, ptr %5, align 8, !tbaa !265
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 704
   %8 = load ptr, ptr %7, align 16, !tbaa !91
-  %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 352
   %11 = load ptr, ptr %10, align 8, !tbaa !392
   %12 = tail call noundef ptr @_ZNK10lfDatabase10FindLensesEPK8lfCameraPKcS4_i(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef %11, ptr noundef null, ptr noundef null, i32 noundef 2)
-  %13 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %13 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %14 = icmp eq ptr %12, null
   br i1 %14, label %20, label %15
 
@@ -8353,14 +8353,14 @@ define internal void @_ZL24_lens_autosearch_clickedP10_GtkWidgetPv(ptr noundef %
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %24, i64 %26, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 %26
   store i8 0, ptr %27, align 1, !tbaa !57
-  %28 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %28 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 352
   %30 = load ptr, ptr %29, align 8, !tbaa !392
   %31 = load i8, ptr %3, align 16, !tbaa !57
   %32 = icmp eq i8 %31, 0
   %33 = select i1 %32, ptr null, ptr %3
   %34 = call noundef ptr @_ZNK10lfDatabase10FindLensesEPK8lfCameraPKcS4_i(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %30, ptr noundef null, ptr noundef %33, i32 noundef 2)
-  %35 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %35 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %36 = icmp eq ptr %34, null
   br i1 %36, label %42, label %37
 
@@ -8418,7 +8418,7 @@ declare ptr @gtk_check_button_new_with_label(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL28_use_latest_md_algo_callbackP10_GtkWidgetPv(ptr nocapture readnone %0, ptr noundef %1) #3 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !395
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !395
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %5 = load i32, ptr %4, align 8, !tbaa !396
   %6 = icmp eq i32 %5, 0
@@ -8432,7 +8432,7 @@ define internal void @_ZL28_use_latest_md_algo_callbackP10_GtkWidgetPv(ptr nocap
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 320
   store float 0.000000e+00, ptr %11, align 4, !tbaa !286
   tail call void @gui_changed(ptr noundef %1, ptr noundef null, ptr poison)
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !401
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !401
   tail call void @dt_dev_add_history_item(ptr noundef %12, ptr noundef %1, i32 noundef 1)
   br label %13
 
@@ -8444,7 +8444,7 @@ declare void @dt_gui_new_collapsible_section(ptr noundef, ptr noundef, ptr nound
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL21_autoscale_pressed_mdP10_GtkWidgetPv(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #3 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !395
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !395
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %5 = load i32, ptr %4, align 8, !tbaa !396
   %6 = icmp eq i32 %5, 0
@@ -8487,7 +8487,7 @@ declare void @dt_bauhaus_widget_set_quad_active(ptr noundef, i32 noundef) local_
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL19_visualize_callbackP10_GtkWidgetPv(ptr noundef %0, ptr nocapture noundef readonly %1) #3 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !395
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !395
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %5 = load i32, ptr %4, align 8, !tbaa !396
   %6 = icmp eq i32 %5, 0
@@ -8512,7 +8512,7 @@ define internal void @_ZL19_visualize_callbackP10_GtkWidgetPv(ptr noundef %0, pt
 define internal void @_ZL22_have_corrections_donePvS_(ptr nocapture readnone %0, ptr noundef %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 704
   %4 = load ptr, ptr %3, align 16, !tbaa !91
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !395
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !395
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %7 = load i32, ptr %6, align 8, !tbaa !396
   %8 = icmp eq i32 %7, 0
@@ -8704,9 +8704,9 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %53, label %109, label %54
 
 54:                                               ; preds = %24
-  %55 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %55 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %56 = tail call noundef ptr @_ZNK10lfDatabase14FindCamerasExtEPKcS1_i(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef null, ptr noundef nonnull %36, i32 noundef 0)
-  %57 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %57 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %58 = icmp eq ptr %56, null
   br i1 %58, label %63, label %59
 
@@ -8766,7 +8766,7 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #3 {
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull align 1 %91, i64 %93, i1 false)
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 %93
   store i8 0, ptr %94, align 1, !tbaa !57
-  %95 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %95 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %96 = load ptr, ptr %51, align 8, !tbaa !392
   %97 = load i8, ptr %2, align 16, !tbaa !57
   %98 = icmp eq i8 %97, 0
@@ -8788,16 +8788,16 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #3 {
 
 107:                                              ; preds = %104, %102
   call void @lf_free(ptr noundef %100)
-  %108 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %108 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2) #31
   br label %114
 
 109:                                              ; preds = %76, %73, %24
-  %110 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %110 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   %111 = load ptr, ptr %3, align 16, !tbaa !91
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 340
   store i32 1, ptr %112, align 4, !tbaa !350
-  %113 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #31
+  %113 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #31
   br label %114
 
 114:                                              ; preds = %109, %107
@@ -9547,13 +9547,13 @@ define internal fastcc void @_ZL9_lens_setP15dt_iop_module_tPK6lfLens(ptr nounde
 
 ; Function Attrs: mustprogress uwtable
 define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !365
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3120), align 8, !tbaa !365
   %3 = and i32 %2, 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %1
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !372
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !372
   %7 = and i32 %6, 1048576
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %10, label %9
@@ -9563,15 +9563,15 @@ define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #3 {
   br label %10
 
 10:                                               ; preds = %9, %5, %1
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !373
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !373
   tail call void @dt_control_signal_disconnect(ptr noundef %11, ptr noundef nonnull @_ZL22_have_corrections_donePvS_, ptr noundef %0)
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !365
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3120), align 8, !tbaa !365
   %13 = and i32 %12, 4
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %20, label %15
 
 15:                                               ; preds = %10
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !372
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !372
   %17 = and i32 %16, 1048576
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %20, label %19
@@ -9581,7 +9581,7 @@ define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #3 {
   br label %20
 
 20:                                               ; preds = %19, %15, %10
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !373
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !373
   tail call void @dt_control_signal_disconnect(ptr noundef %21, ptr noundef nonnull @_ZL34_develop_ui_pipe_finished_callbackPvS_, ptr noundef %0)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %23 = tail call noundef i32 @pthread_mutex_destroy(ptr noundef nonnull %22) #31
@@ -9620,43 +9620,43 @@ define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 nound
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %2
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 56), align 8, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 144), align 16, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 232), align 8, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 320), align 16, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 408), align 8, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 496), align 16, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 584), align 8, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 672), align 16, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 760), align 8, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 848), align 16, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 936), align 8, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 1024), align 16, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 1112), align 8, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 1200), align 16, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 1288), align 8, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 1376), align 16, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 1464), align 8, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 1552), align 16, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 1640), align 8, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 1728), align 16, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 1816), align 8, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 1904), align 16, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 1992), align 8, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 2080), align 16, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 2168), align 8, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 2256), align 16, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 2344), align 8, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 2432), align 16, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 2520), align 8, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 2608), align 16, !tbaa !57
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 2696), align 8, !tbaa !57
-  store ptr @_ZZ18introspection_initE2f0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 72), align 8, !tbaa !57
-  store ptr @_ZZ18introspection_initE2f1, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 160), align 16, !tbaa !57
-  store ptr @_ZZ18introspection_initE2f2, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 248), align 8, !tbaa !57
-  store ptr @_ZZ18introspection_initE2f8, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 776), align 8, !tbaa !57
-  store ptr @_ZZ18introspection_initE3f21, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 1920), align 16, !tbaa !57
-  store ptr @_ZZ18introspection_initE3f29, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 2624), align 16, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 56), align 8, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 144), align 16, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 232), align 8, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 320), align 16, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 408), align 8, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 496), align 16, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 584), align 8, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 672), align 16, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 760), align 8, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 848), align 16, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 936), align 8, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1024), align 16, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1112), align 8, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1200), align 16, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1288), align 8, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1376), align 16, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1464), align 8, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1552), align 16, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1640), align 8, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1728), align 16, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1816), align 8, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1904), align 16, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1992), align 8, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 2080), align 16, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 2168), align 8, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 2256), align 16, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 2344), align 8, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 2432), align 16, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 2520), align 8, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 2608), align 16, !tbaa !57
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 2696), align 8, !tbaa !57
+  store ptr @_ZZ18introspection_initE2f0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 72), align 8, !tbaa !57
+  store ptr @_ZZ18introspection_initE2f1, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 160), align 16, !tbaa !57
+  store ptr @_ZZ18introspection_initE2f2, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 248), align 8, !tbaa !57
+  store ptr @_ZZ18introspection_initE2f8, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 776), align 8, !tbaa !57
+  store ptr @_ZZ18introspection_initE3f21, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1920), align 16, !tbaa !57
+  store ptr @_ZZ18introspection_initE3f29, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 2624), align 16, !tbaa !57
   br label %8
 
 8:                                                ; preds = %7, %2
@@ -10072,11 +10072,11 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #3 {
 85:                                               ; preds = %82
   %86 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.138)
   %87 = icmp eq i32 %86, 0
-  %88 = select i1 %87, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 2464), ptr null
+  %88 = select i1 %87, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 2464), ptr null
   br label %89
 
 89:                                               ; preds = %85, %82, %79, %76, %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %31, %28, %25, %22, %19, %16, %13, %10, %7, %4, %1
-  %90 = phi ptr [ @_ZL20introspection_linear, %1 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 88), %4 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 176), %7 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 264), %10 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 352), %13 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 440), %16 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 528), %19 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 616), %22 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 704), %25 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 792), %28 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 880), %31 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 968), %34 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 1056), %37 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 1144), %40 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 1232), %43 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 1320), %46 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 1408), %49 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 1496), %52 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 1584), %55 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 1672), %58 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 1760), %61 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 1848), %64 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 1936), %67 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 2024), %70 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 2112), %73 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 2200), %76 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 2288), %79 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 2376), %82 ], [ %88, %85 ]
+  %90 = phi ptr [ @_ZL20introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 88), %4 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 176), %7 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 264), %10 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 352), %13 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 440), %16 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 528), %19 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 616), %22 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 704), %25 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 792), %28 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 880), %31 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 968), %34 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1056), %37 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1144), %40 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1232), %43 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1320), %46 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1408), %49 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1496), %52 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1584), %55 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1672), %58 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1760), %61 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1848), %64 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1936), %67 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 2024), %70 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 2112), %73 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 2200), %76 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 2288), %79 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 2376), %82 ], [ %88, %85 ]
   ret ptr %90
 }
 
@@ -11628,7 +11628,7 @@ define internal void @_ZL19_camera_menu_selectP12_GtkMenuItemPv(ptr noundef %0, 
   %7 = getelementptr i8, ptr %1, i64 704
   %8 = load ptr, ptr %7, align 16, !tbaa !91
   tail call fastcc void @_ZL11_camera_setP15dt_iop_module_tPK8lfCamera(ptr %6, ptr %8, ptr noundef %4)
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !395
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !395
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %11 = load i32, ptr %10, align 8, !tbaa !396
   %12 = icmp eq i32 %11, 0
@@ -11638,7 +11638,7 @@ define internal void @_ZL19_camera_menu_selectP12_GtkMenuItemPv(ptr noundef %0, 
   %14 = load ptr, ptr %5, align 8, !tbaa !347
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 332
   store i32 1, ptr %15, align 4, !tbaa !257
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !401
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !401
   tail call void @dt_dev_add_history_item(ptr noundef %16, ptr noundef nonnull %1, i32 noundef 1)
   br label %17
 
@@ -11893,7 +11893,7 @@ define internal void @_ZL17_lens_menu_selectP12_GtkMenuItemPv(ptr noundef %0, pt
   %7 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef 80)
   %8 = tail call ptr @g_object_get_data(ptr noundef %7, ptr noundef nonnull @.str.146)
   tail call fastcc void @_ZL9_lens_setP15dt_iop_module_tPK6lfLens(ptr noundef %1, ptr noundef %8)
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !395
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !395
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %11 = load i32, ptr %10, align 8, !tbaa !396
   %12 = icmp eq i32 %11, 0
@@ -11908,7 +11908,7 @@ define internal void @_ZL17_lens_menu_selectP12_GtkMenuItemPv(ptr noundef %0, pt
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %19 = load ptr, ptr %18, align 8, !tbaa !352
   tail call void @dt_bauhaus_slider_set(ptr noundef %19, float noundef %17)
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !401
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !401
   tail call void @dt_dev_add_history_item(ptr noundef %20, ptr noundef nonnull %1, i32 noundef 1)
   br label %21
 
@@ -11965,7 +11965,7 @@ define internal void @_ZL29_lens_comboentry_focal_updateP10_GtkWidgetP15dt_iop_m
 10:                                               ; preds = %7, %2
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 332
   store i32 1, ptr %11, align 4, !tbaa !257
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !401
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !401
   tail call void @dt_dev_add_history_item(ptr noundef %12, ptr noundef nonnull %1, i32 noundef 1)
   ret void
 }
@@ -11988,7 +11988,7 @@ define internal void @_ZL32_lens_comboentry_aperture_updateP10_GtkWidgetP15dt_io
 10:                                               ; preds = %7, %2
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 332
   store i32 1, ptr %11, align 4, !tbaa !257
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !401
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !401
   tail call void @dt_dev_add_history_item(ptr noundef %12, ptr noundef nonnull %1, i32 noundef 1)
   ret void
 }
@@ -12009,7 +12009,7 @@ define internal void @_ZL32_lens_comboentry_distance_updateP10_GtkWidgetP15dt_io
 10:                                               ; preds = %7, %2
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 332
   store i32 1, ptr %11, align 4, !tbaa !257
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !401
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !401
   tail call void @dt_dev_add_history_item(ptr noundef %12, ptr noundef nonnull %1, i32 noundef 1)
   ret void
 }

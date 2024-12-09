@@ -901,7 +901,7 @@ define dso_local range(i32 -1, 1) i32 @launch_g_create_job_step(ptr noundef %0, 
 
 150:                                              ; preds = %141
   %151 = getelementptr inbounds nuw i8, ptr %30, i64 120
-  %152 = load i64, ptr getelementptr inbounds (i8, ptr @opt, i64 440), align 8
+  %152 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 440), align 8
   tail call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %151, ptr noundef nonnull @.str.37, i64 noundef %152) #18
   br label %153
 
@@ -1139,7 +1139,7 @@ define dso_local range(i32 -1, 1) i32 @launch_g_create_job_step(ptr noundef %0, 
   %279 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %280 = load ptr, ptr %279, align 8
   %.not277.i = icmp eq ptr %280, null
-  %281 = load ptr, ptr getelementptr inbounds (i8, ptr @sropt, i64 40), align 8
+  %281 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 40), align 8
   %spec.select.i = select i1 %.not277.i, ptr %281, ptr %280
   br label %282
 
@@ -1241,7 +1241,7 @@ define dso_local range(i32 -1, 1) i32 @launch_g_create_job_step(ptr noundef %0, 
   %340 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %341 = load i32, ptr %340, align 8
   %.not284.i = icmp eq i32 %341, -2
-  %342 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 176), align 8
+  %342 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 176), align 8
   %343 = trunc i32 %342 to i16
   %.sink322.i = select i1 %.not284.i, i16 -2, i16 %343
   %344 = getelementptr inbounds nuw i8, ptr %30, i64 200
@@ -1606,7 +1606,7 @@ _create_job_step_create_request.exit.thread:      ; preds = %431, %242
   br label %542
 
 530:                                              ; preds = %511
-  %531 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1242), align 2
+  %531 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1242), align 2
   %532 = icmp ugt i16 %531, 300
   br i1 %532, label %536, label %533
 
@@ -2751,7 +2751,7 @@ define internal void @_task_start(ptr noundef %0) #1 {
   %41 = zext i32 %35 to i64
   %42 = getelementptr inbounds nuw %struct.MPIR_PROCDESC, ptr %40, i64 %41
   %43 = load ptr, ptr %30, align 8
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 584), align 8
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 584), align 8
   %45 = tail call ptr @xstrcasestr(ptr noundef %44, ptr noundef nonnull @.str.58) #18
   %.not.i.us = icmp eq ptr %45, null
   br i1 %.not.i.us, label %48, label %46
@@ -2801,7 +2801,7 @@ _mpir_get_host_name.exit.us:                      ; preds = %48, %46
   %68 = zext i32 %62 to i64
   %69 = getelementptr inbounds nuw %struct.MPIR_PROCDESC, ptr %67, i64 %68
   %70 = load ptr, ptr %27, align 8
-  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 584), align 8
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 584), align 8
   %72 = tail call ptr @xstrcasestr(ptr noundef %71, ptr noundef nonnull @.str.58) #18
   %.not.i = icmp eq ptr %72, null
   br i1 %.not.i, label %75, label %73
@@ -3234,7 +3234,7 @@ _is_openmpi_port_error.exit:                      ; preds = %136, %138
   %144 = call i64 @time(ptr noundef null) #18
   %145 = load i64, ptr @launch_start_time, align 8
   %146 = call double @difftime(i64 noundef %144, i64 noundef %145) #20
-  %147 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
+  %147 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 720), align 8
   %148 = uitofp i16 %147 to double
   %149 = fcmp ogt double %146, %148
   br i1 %149, label %_is_openmpi_port_error.exit.thread, label %150
@@ -3443,7 +3443,7 @@ _update_task_exit_state.exit:                     ; preds = %.lr.ph.i118, %226, 
   br i1 %244, label %245, label %_kill_on_bad_exit.exit
 
 245:                                              ; preds = %239, %237
-  %246 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 580), align 4
+  %246 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 580), align 4
   %247 = zext i16 %246 to i32
   br label %_kill_on_bad_exit.exit
 

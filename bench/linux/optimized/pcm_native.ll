@@ -366,7 +366,7 @@ declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unna
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -14, 1) i32 @snd_pcm_info_user(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %4 = tail call noalias align 8 dereferenceable_or_null(288) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 288) #19
   %5 = icmp eq ptr %4, null
   br i1 %5, label %49, label %6
@@ -8320,7 +8320,7 @@ define internal fastcc noundef range(i32 -114, 1) i32 @snd_pcm_link(ptr noundef 
   br i1 %36, label %106, label %37
 
 37:                                               ; preds = %.thread
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %39 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %38, i32 noundef 3520, i64 noundef 64) #19
   %40 = icmp eq ptr %39, null
   br i1 %40, label %103, label %41
@@ -9264,7 +9264,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snd_pcm_sync_ptr(ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @snd_pcm_hw_refine_old_user(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %4 = tail call noalias align 8 dereferenceable_or_null(608) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 608) #19
   %5 = icmp eq ptr %4, null
   br i1 %5, label %92, label %6
@@ -9408,7 +9408,7 @@ define internal fastcc i32 @snd_pcm_hw_refine_old_user(ptr noundef nonnull %0, p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @snd_pcm_hw_params_old_user(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %4 = tail call noalias align 8 dereferenceable_or_null(608) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 608) #19
   %5 = icmp eq ptr %4, null
   br i1 %5, label %89, label %6
@@ -10484,7 +10484,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snd_pcm_ioctl_hw_params_co
   br i1 %6, label %59, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %9 = tail call noalias align 8 dereferenceable_or_null(608) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3264, i64 noundef 608) #19
   %10 = icmp eq ptr %9, null
   br i1 %10, label %59, label %11
@@ -11559,7 +11559,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snd_pcm_open(ptr noundef %
   br i1 %28, label %42, label %29
 
 29:                                               ; preds = %26
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %31 = call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %30, i32 noundef 3520, i64 noundef 16) #19
   %32 = icmp eq ptr %31, null
   %33 = load ptr, ptr %4, align 8

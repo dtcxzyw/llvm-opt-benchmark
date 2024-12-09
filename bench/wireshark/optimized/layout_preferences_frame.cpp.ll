@@ -120,9 +120,9 @@ define void @_ZN22LayoutPreferencesFrameC2EP7QWidget(ptr noundef nonnull align 8
   %7 = alloca %class.QString, align 8
   %8 = alloca %class.QString, align 8
   tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i32 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22LayoutPreferencesFrame, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22LayoutPreferencesFrame, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22LayoutPreferencesFrame, i64 456), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22LayoutPreferencesFrame, i64 456), ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = invoke noalias noundef nonnull dereferenceable(400) ptr @_Znwm(i64 noundef 400) #9
           to label %12 unwind label %182
@@ -133,25 +133,25 @@ define void @_ZN22LayoutPreferencesFrameC2EP7QWidget(ptr noundef nonnull align 8
           to label %13 unwind label %182
 
 13:                                               ; preds = %12
-  %14 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef nonnull getelementptr inbounds (i8, ptr @prefs, i64 252))
+  %14 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prefs, i64 252))
           to label %15 unwind label %182
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %14, ptr %16, align 8
-  %17 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef nonnull getelementptr inbounds (i8, ptr @prefs, i64 256))
+  %17 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prefs, i64 256))
           to label %18 unwind label %182
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %17, ptr %19, align 8
-  %20 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef nonnull getelementptr inbounds (i8, ptr @prefs, i64 260))
+  %20 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prefs, i64 260))
           to label %21 unwind label %182
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %20, ptr %22, align 8
-  %23 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef nonnull getelementptr inbounds (i8, ptr @prefs, i64 264))
+  %23 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prefs, i64 264))
           to label %24 unwind label %182
 
 24:                                               ; preds = %21
@@ -320,7 +320,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZNK7QString3argEii
           to label %110 unwind label %194
 
 110:                                              ; preds = %106
-  %111 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef nonnull getelementptr inbounds (i8, ptr @prefs, i64 484))
+  %111 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prefs, i64 484))
           to label %112 unwind label %194
 
 112:                                              ; preds = %110
@@ -338,7 +338,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZNK7QString3argEii
           to label %120 unwind label %194
 
 120:                                              ; preds = %118
-  %121 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef nonnull getelementptr inbounds (i8, ptr @prefs, i64 488))
+  %121 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prefs, i64 488))
           to label %122 unwind label %194
 
 122:                                              ; preds = %120
@@ -356,7 +356,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZNK7QString3argEii
           to label %130 unwind label %194
 
 130:                                              ; preds = %128
-  %131 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef nonnull getelementptr inbounds (i8, ptr @prefs, i64 492))
+  %131 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prefs, i64 492))
           to label %132 unwind label %194
 
 132:                                              ; preds = %130
@@ -374,7 +374,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZNK7QString3argEii
           to label %140 unwind label %194
 
 140:                                              ; preds = %138
-  %141 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef nonnull getelementptr inbounds (i8, ptr @prefs, i64 516))
+  %141 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prefs, i64 516))
           to label %142 unwind label %194
 
 142:                                              ; preds = %140
@@ -392,13 +392,13 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZNK7QString3argEii
           to label %150 unwind label %194
 
 150:                                              ; preds = %148
-  %151 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef nonnull getelementptr inbounds (i8, ptr @prefs, i64 520))
+  %151 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prefs, i64 520))
           to label %152 unwind label %194
 
 152:                                              ; preds = %150
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %151, ptr %153, align 8
-  %154 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef nonnull getelementptr inbounds (i8, ptr @prefs, i64 496))
+  %154 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prefs, i64 496))
           to label %155 unwind label %194
 
 155:                                              ; preds = %152
@@ -416,7 +416,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZNK7QString3argEii
           to label %163 unwind label %194
 
 163:                                              ; preds = %161
-  %164 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef nonnull getelementptr inbounds (i8, ptr @prefs, i64 500))
+  %164 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prefs, i64 500))
           to label %165 unwind label %194
 
 165:                                              ; preds = %163
@@ -2369,7 +2369,7 @@ _ZN7QStringD2Ev.exit312:                          ; preds = %651, %_ZN17QArrayDa
 666:                                              ; preds = %664
   %667 = getelementptr inbounds nuw i8, ptr %665, i64 8
   store i32 0, ptr %667, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %665, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %665, align 8
   %668 = getelementptr inbounds nuw i8, ptr %665, i64 12
   store i32 20, ptr %668, align 4
   %669 = getelementptr inbounds nuw i8, ptr %665, i64 16
@@ -2667,7 +2667,7 @@ _ZN7QStringD2Ev.exit354:                          ; preds = %761, %_ZN17QArrayDa
 770:                                              ; preds = %768
   %771 = getelementptr inbounds nuw i8, ptr %769, i64 8
   store i32 0, ptr %771, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %769, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %769, align 8
   %772 = getelementptr inbounds nuw i8, ptr %769, i64 12
   store i32 0, ptr %772, align 4
   %773 = getelementptr inbounds nuw i8, ptr %769, i64 16
@@ -2743,7 +2743,7 @@ _ZN7QStringD2Ev.exit360:                          ; preds = %793, %_ZN17QArrayDa
 802:                                              ; preds = %800
   %803 = getelementptr inbounds nuw i8, ptr %801, i64 8
   store i32 0, ptr %803, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %801, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %801, align 8
   %804 = getelementptr inbounds nuw i8, ptr %801, i64 12
   store i32 20, ptr %804, align 4
   %805 = getelementptr inbounds nuw i8, ptr %801, i64 16
@@ -2891,7 +2891,7 @@ _ZN7QStringD2Ev.exit378:                          ; preds = %848, %_ZN17QArrayDa
 857:                                              ; preds = %855
   %858 = getelementptr inbounds nuw i8, ptr %856, i64 8
   store i32 0, ptr %858, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %856, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %856, align 8
   %859 = getelementptr inbounds nuw i8, ptr %856, i64 12
   store i32 68, ptr %859, align 4
   %860 = getelementptr inbounds nuw i8, ptr %856, i64 16
@@ -4221,9 +4221,9 @@ declare void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) un
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN22LayoutPreferencesFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22LayoutPreferencesFrame, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22LayoutPreferencesFrame, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22LayoutPreferencesFrame, i64 456), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22LayoutPreferencesFrame, i64 456), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

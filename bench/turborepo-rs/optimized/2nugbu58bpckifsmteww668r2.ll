@@ -1241,7 +1241,7 @@ default.unreachable:                              ; preds = %185
   %115 = phi i64 [ %.pre.i.i.i.i, %.noexc5.i.i.i ], [ %109, %108 ]
   %116 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !160, !noalias !145, !nonnull !4, !noundef !4
   %117 = getelementptr inbounds i8, ptr %116, i64 %115
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %117, ptr noundef nonnull readonly align 8 dereferenceable(6) getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.34, i64 8), i64 6, i1 false), !noalias !142
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %117, ptr noundef nonnull readonly align 8 dereferenceable(6) getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.34, i64 8), i64 6, i1 false), !noalias !142
   br label %118
 
 118:                                              ; preds = %132, %114
@@ -1840,7 +1840,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   %311 = phi i64 [ %.pre.i93.i, %.noexc94.i ], [ %305, %304 ]
   %312 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !221, !nonnull !4, !noundef !4
   %313 = getelementptr inbounds i8, ptr %312, i64 %311
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %313, ptr noundef nonnull readonly align 8 dereferenceable(3) getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.25, i64 8), i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %313, ptr noundef nonnull readonly align 8 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.25, i64 8), i64 3, i1 false)
   %314 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !221, !noundef !4
   %315 = add i64 %314, 3
   store i64 %315, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !221
@@ -1850,7 +1850,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   %317 = getelementptr inbounds nuw i8, ptr %74, i64 9
   %318 = load i8, ptr %317, align 1, !range !41, !noundef !4
   %trunc.i = trunc nuw i8 %318 to i1
-  %..i = select i1 %trunc.i, ptr getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.28, i64 8), ptr getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.27, i64 8)
+  %..i = select i1 %trunc.i, ptr getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.28, i64 8), ptr getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.27, i64 8)
   %.169.i = select i1 %trunc.i, i64 6, i64 5
   br label %.invoke.i
 
@@ -1890,11 +1890,11 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %328 = phi i64 [ %.pre.i.i102.i, %.noexc103.i ], [ %323, %322 ]
   %329 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !228, !nonnull !4, !noundef !4
   %330 = getelementptr inbounds i8, ptr %329, i64 %328
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %330, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %330, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
   %331 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !228, !noundef !4
   %332 = add i64 %331, 10
   store i64 %332, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !228
-  invoke void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %32, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
+  invoke void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %32, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
           to label %.noexc104.i unwind label %71
 
 .noexc104.i:                                      ; preds = %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax.llvm.5393772610634076635.exit.i.i
@@ -1949,11 +1949,11 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %352 = phi i64 [ %.pre.i.i109.i, %.noexc110.i ], [ %347, %346 ]
   %353 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !240, !nonnull !4, !noundef !4
   %354 = getelementptr inbounds i8, ptr %353, i64 %352
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %354, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %354, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
   %355 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !240, !noundef !4
   %356 = add i64 %355, 10
   store i64 %356, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !240
-  invoke void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %32, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
+  invoke void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %32, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
           to label %.noexc111.i unwind label %71
 
 .noexc111.i:                                      ; preds = %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax.llvm.5393772610634076635.exit.i108.i
@@ -1976,7 +1976,7 @@ _RNvNvNtCseG2FYMysgNb_3wax6encode6encode24encode_intermediate_tree.exit113.i: ; 
   br label %_RNvMs0_NtCseG2FYMysgNb_3wax6encodeNtB5_8Grouping8push_str.exit97.i.backedge
 
 .invoke.i:                                        ; preds = %342, %319, %316, %185
-  %364 = phi ptr [ getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.26, i64 8), %185 ], [ %..i, %316 ], [ @anon.91e0f2e95f4668886e854e1bc81b7ae2.33, %319 ], [ getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.31, i64 8), %342 ]
+  %364 = phi ptr [ getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.26, i64 8), %185 ], [ %..i, %316 ], [ @anon.91e0f2e95f4668886e854e1bc81b7ae2.33, %319 ], [ getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.31, i64 8), %342 ]
   %365 = phi i64 [ 4, %185 ], [ %.169.i, %316 ], [ 2, %319 ], [ 9, %342 ]
   invoke void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %29, ptr noalias noundef nonnull align 8 dereferenceable(24) %32, ptr noalias noundef nonnull readonly align 1 %364, i64 noundef %365)
           to label %_RNvMs0_NtCseG2FYMysgNb_3wax6encodeNtB5_8Grouping8push_str.exit97.i.backedge unwind label %71
@@ -2004,7 +2004,7 @@ _RNvNvNtCseG2FYMysgNb_3wax6encode6encode24encode_intermediate_tree.exit113.i: ; 
   %376 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !248, !noundef !4
   %377 = add i64 %376, 8
   store i64 %377, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !248
-  invoke void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %29, ptr noalias noundef nonnull align 8 dereferenceable(24) %32, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.30, i64 8), i64 noundef 5)
+  invoke void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %29, ptr noalias noundef nonnull align 8 dereferenceable(24) %32, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.30, i64 8), i64 noundef 5)
           to label %_RNvMs0_NtCseG2FYMysgNb_3wax6encodeNtB5_8Grouping8push_str.exit120.i unwind label %71
 
 _RNvMs0_NtCseG2FYMysgNb_3wax6encodeNtB5_8Grouping8push_str.exit120.i: ; preds = %372
@@ -2047,11 +2047,11 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %391 = phi i64 [ %.pre.i.i123.i, %.noexc124.i ], [ %386, %385 ]
   %392 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !260, !nonnull !4, !noundef !4
   %393 = getelementptr inbounds i8, ptr %392, i64 %391
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %393, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %393, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
   %394 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !260, !noundef !4
   %395 = add i64 %394, 10
   store i64 %395, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !260
-  invoke void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %32, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
+  invoke void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %32, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
           to label %.noexc125.i unwind label %71
 
 .noexc125.i:                                      ; preds = %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax.llvm.5393772610634076635.exit.i122.i
@@ -2092,7 +2092,7 @@ _RNvNvNtCseG2FYMysgNb_3wax6encode6encode24encode_intermediate_tree.exit127.i: ; 
   %410 = phi i64 [ %.pre.i128.i, %.noexc129.i ], [ %404, %403 ]
   %411 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !268, !nonnull !4, !noundef !4
   %412 = getelementptr inbounds i8, ptr %411, i64 %410
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %412, ptr noundef nonnull readonly align 8 dereferenceable(11) getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.32, i64 8), i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %412, ptr noundef nonnull readonly align 8 dereferenceable(11) getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.32, i64 8), i64 11, i1 false)
   %413 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !268, !noundef !4
   %414 = add i64 %413, 11
   store i64 %414, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !268
@@ -2570,7 +2570,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %111 = phi i64 [ %.pre.i.i.i, %.noexc5.i.i ], [ %105, %104 ]
   %112 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !316, !noalias !301, !nonnull !4, !noundef !4
   %113 = getelementptr inbounds i8, ptr %112, i64 %111
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %113, ptr noundef nonnull readonly align 8 dereferenceable(6) getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.34, i64 8), i64 6, i1 false), !noalias !298
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %113, ptr noundef nonnull readonly align 8 dereferenceable(6) getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.34, i64 8), i64 6, i1 false), !noalias !298
   br label %114
 
 114:                                              ; preds = %128, %110
@@ -2786,7 +2786,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %195 = phi i64 [ %.pre.i38, %194 ], [ %190, %189 ]
   %196 = load ptr, ptr %33, align 8, !alias.scope !341, !nonnull !4, !noundef !4
   %197 = getelementptr inbounds i8, ptr %196, i64 %195
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %197, ptr noundef nonnull readonly align 8 dereferenceable(3) getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.25, i64 8), i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %197, ptr noundef nonnull readonly align 8 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.25, i64 8), i64 3, i1 false)
   %198 = load i64, ptr %32, align 8, !alias.scope !341, !noundef !4
   %199 = add i64 %198, 3
   store i64 %199, ptr %32, align 8, !alias.scope !341
@@ -3147,7 +3147,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   br label %.backedge
 
 306:                                              ; preds = %200
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.26, i64 8), i64 noundef 4)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.26, i64 8), i64 noundef 4)
   br label %.backedge
 
 307:                                              ; preds = %200
@@ -3165,11 +3165,11 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   ]
 
 311:                                              ; preds = %307
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.27, i64 8), i64 noundef 5)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.27, i64 8), i64 noundef 5)
   br label %.backedge
 
 312:                                              ; preds = %307
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.28, i64 8), i64 noundef 6)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.28, i64 8), i64 noundef 6)
   br label %.backedge
 
 313:                                              ; preds = %310
@@ -3197,11 +3197,11 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %321 = phi i64 [ %.pre.i.i69, %320 ], [ %316, %315 ]
   %322 = load ptr, ptr %33, align 8, !alias.scope !381, !nonnull !4, !noundef !4
   %323 = getelementptr inbounds i8, ptr %322, i64 %321
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %323, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %323, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
   %324 = load i64, ptr %32, align 8, !alias.scope !381, !noundef !4
   %325 = add i64 %324, 10
   store i64 %325, ptr %32, align 8, !alias.scope !381
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
   %326 = load i64, ptr %32, align 8, !alias.scope !384, !noundef !4
   %327 = load i64, ptr %2, align 8, !alias.scope !384, !noundef !4
   %328 = icmp eq i64 %326, %327
@@ -3254,11 +3254,11 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %346 = phi i64 [ %.pre.i.i71, %345 ], [ %341, %340 ]
   %347 = load ptr, ptr %33, align 8, !alias.scope !392, !nonnull !4, !noundef !4
   %348 = getelementptr inbounds i8, ptr %347, i64 %346
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %348, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %348, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
   %349 = load i64, ptr %32, align 8, !alias.scope !392, !noundef !4
   %350 = add i64 %349, 10
   store i64 %350, ptr %32, align 8, !alias.scope !392
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
   %351 = load i64, ptr %32, align 8, !alias.scope !395, !noundef !4
   %352 = load i64, ptr %2, align 8, !alias.scope !395, !noundef !4
   %353 = icmp eq i64 %351, %352
@@ -3297,7 +3297,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %367 = load i64, ptr %32, align 8, !alias.scope !400, !noundef !4
   %368 = add i64 %367, 8
   store i64 %368, ptr %32, align 8, !alias.scope !400
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.30, i64 8), i64 noundef 5)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.30, i64 8), i64 noundef 5)
   %369 = load i64, ptr %32, align 8, !alias.scope !403, !noundef !4
   %370 = load i64, ptr %2, align 8, !alias.scope !403, !noundef !4
   %371 = icmp eq i64 %369, %370
@@ -3316,7 +3316,7 @@ _ZN5alloc6string6String4push17h2eefef5338b5c74cE.llvm.15130853773629356366.exit:
   br label %.backedge
 
 376:                                              ; preds = %336
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.31, i64 8), i64 noundef 9)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.31, i64 8), i64 noundef 9)
   br label %.backedge
 
 377:                                              ; preds = %333
@@ -3335,7 +3335,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %383 = phi i64 [ %.pre.i75, %382 ], [ %378, %377 ]
   %384 = load ptr, ptr %33, align 8, !alias.scope !408, !nonnull !4, !noundef !4
   %385 = getelementptr inbounds i8, ptr %384, i64 %383
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %385, ptr noundef nonnull readonly align 8 dereferenceable(11) getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.32, i64 8), i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %385, ptr noundef nonnull readonly align 8 dereferenceable(11) getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.32, i64 8), i64 11, i1 false)
   %386 = load i64, ptr %32, align 8, !alias.scope !408, !noundef !4
   %387 = add i64 %386, 11
   store i64 %387, ptr %32, align 8, !alias.scope !408
@@ -3376,11 +3376,11 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %401 = phi i64 [ %.pre.i.i79, %400 ], [ %396, %395 ]
   %402 = load ptr, ptr %33, align 8, !alias.scope !419, !nonnull !4, !noundef !4
   %403 = getelementptr inbounds i8, ptr %402, i64 %401
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %403, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %403, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
   %404 = load i64, ptr %32, align 8, !alias.scope !419, !noundef !4
   %405 = add i64 %404, 10
   store i64 %405, ptr %32, align 8, !alias.scope !419
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
   %406 = load i64, ptr %32, align 8, !alias.scope !422, !noundef !4
   %407 = load i64, ptr %2, align 8, !alias.scope !422, !noundef !4
   %408 = icmp eq i64 %406, %407
@@ -3635,7 +3635,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %109 = phi i64 [ %.pre.i.i.i, %.noexc5.i.i ], [ %103, %102 ]
   %110 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !459, !noalias !444, !nonnull !4, !noundef !4
   %111 = getelementptr inbounds i8, ptr %110, i64 %109
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %111, ptr noundef nonnull readonly align 8 dereferenceable(6) getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.34, i64 8), i64 6, i1 false), !noalias !441
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %111, ptr noundef nonnull readonly align 8 dereferenceable(6) getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.34, i64 8), i64 6, i1 false), !noalias !441
   br label %112
 
 112:                                              ; preds = %126, %108
@@ -3848,7 +3848,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %193 = phi i64 [ %.pre.i37, %192 ], [ %188, %187 ]
   %194 = load ptr, ptr %37, align 8, !alias.scope !484, !nonnull !4, !noundef !4
   %195 = getelementptr inbounds i8, ptr %194, i64 %193
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %195, ptr noundef nonnull readonly align 8 dereferenceable(3) getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.25, i64 8), i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %195, ptr noundef nonnull readonly align 8 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.25, i64 8), i64 3, i1 false)
   %196 = load i64, ptr %36, align 8, !alias.scope !484, !noundef !4
   %197 = add i64 %196, 3
   store i64 %197, ptr %36, align 8, !alias.scope !484
@@ -4209,7 +4209,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   br label %411
 
 304:                                              ; preds = %198
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %31, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.26, i64 8), i64 noundef 4)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %31, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.26, i64 8), i64 noundef 4)
   br label %411
 
 305:                                              ; preds = %198
@@ -4227,11 +4227,11 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   ]
 
 309:                                              ; preds = %305
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %31, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.27, i64 8), i64 noundef 5)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %31, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.27, i64 8), i64 noundef 5)
   br label %411
 
 310:                                              ; preds = %305
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %31, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.28, i64 8), i64 noundef 6)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %31, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.28, i64 8), i64 noundef 6)
   br label %411
 
 311:                                              ; preds = %308
@@ -4259,11 +4259,11 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %319 = phi i64 [ %.pre.i.i67, %318 ], [ %314, %313 ]
   %320 = load ptr, ptr %37, align 8, !alias.scope !524, !nonnull !4, !noundef !4
   %321 = getelementptr inbounds i8, ptr %320, i64 %319
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %321, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %321, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
   %322 = load i64, ptr %36, align 8, !alias.scope !524, !noundef !4
   %323 = add i64 %322, 10
   store i64 %323, ptr %36, align 8, !alias.scope !524
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
   %324 = load i64, ptr %36, align 8, !alias.scope !527, !noundef !4
   %325 = load i64, ptr %2, align 8, !alias.scope !527, !noundef !4
   %326 = icmp eq i64 %324, %325
@@ -4316,11 +4316,11 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %344 = phi i64 [ %.pre.i.i69, %343 ], [ %339, %338 ]
   %345 = load ptr, ptr %37, align 8, !alias.scope !535, !nonnull !4, !noundef !4
   %346 = getelementptr inbounds i8, ptr %345, i64 %344
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %346, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %346, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
   %347 = load i64, ptr %36, align 8, !alias.scope !535, !noundef !4
   %348 = add i64 %347, 10
   store i64 %348, ptr %36, align 8, !alias.scope !535
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
   %349 = load i64, ptr %36, align 8, !alias.scope !538, !noundef !4
   %350 = load i64, ptr %2, align 8, !alias.scope !538, !noundef !4
   %351 = icmp eq i64 %349, %350
@@ -4359,7 +4359,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %365 = load i64, ptr %36, align 8, !alias.scope !543, !noundef !4
   %366 = add i64 %365, 8
   store i64 %366, ptr %36, align 8, !alias.scope !543
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %31, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.30, i64 8), i64 noundef 5)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %31, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.30, i64 8), i64 noundef 5)
   %367 = load i64, ptr %36, align 8, !alias.scope !546, !noundef !4
   %368 = load i64, ptr %2, align 8, !alias.scope !546, !noundef !4
   %369 = icmp eq i64 %367, %368
@@ -4378,7 +4378,7 @@ _ZN5alloc6string6String4push17h2eefef5338b5c74cE.llvm.15130853773629356366.exit:
   br label %411
 
 374:                                              ; preds = %334
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %31, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.31, i64 8), i64 noundef 9)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %31, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.31, i64 8), i64 noundef 9)
   br label %411
 
 375:                                              ; preds = %331
@@ -4397,7 +4397,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %381 = phi i64 [ %.pre.i73, %380 ], [ %376, %375 ]
   %382 = load ptr, ptr %37, align 8, !alias.scope !551, !nonnull !4, !noundef !4
   %383 = getelementptr inbounds i8, ptr %382, i64 %381
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %383, ptr noundef nonnull readonly align 8 dereferenceable(11) getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.32, i64 8), i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %383, ptr noundef nonnull readonly align 8 dereferenceable(11) getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.32, i64 8), i64 11, i1 false)
   %384 = load i64, ptr %36, align 8, !alias.scope !551, !noundef !4
   %385 = add i64 %384, 11
   store i64 %385, ptr %36, align 8, !alias.scope !551
@@ -4438,11 +4438,11 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %399 = phi i64 [ %.pre.i.i77, %398 ], [ %394, %393 ]
   %400 = load ptr, ptr %37, align 8, !alias.scope !562, !nonnull !4, !noundef !4
   %401 = getelementptr inbounds i8, ptr %400, i64 %399
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %401, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %401, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
   %402 = load i64, ptr %36, align 8, !alias.scope !562, !noundef !4
   %403 = add i64 %402, 10
   store i64 %403, ptr %36, align 8, !alias.scope !562
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
   %404 = load i64, ptr %36, align 8, !alias.scope !565, !noundef !4
   %405 = load i64, ptr %2, align 8, !alias.scope !565, !noundef !4
   %406 = icmp eq i64 %404, %405
@@ -4721,7 +4721,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %115 = phi i64 [ %.pre.i.i.i, %.noexc5.i.i ], [ %109, %108 ]
   %116 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !602, !noalias !587, !nonnull !4, !noundef !4
   %117 = getelementptr inbounds i8, ptr %116, i64 %115
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %117, ptr noundef nonnull readonly align 8 dereferenceable(6) getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.34, i64 8), i64 6, i1 false), !noalias !584
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %117, ptr noundef nonnull readonly align 8 dereferenceable(6) getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.34, i64 8), i64 6, i1 false), !noalias !584
   br label %118
 
 118:                                              ; preds = %132, %114
@@ -4937,7 +4937,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %199 = phi i64 [ %.pre.i38, %198 ], [ %194, %193 ]
   %200 = load ptr, ptr %34, align 8, !alias.scope !627, !nonnull !4, !noundef !4
   %201 = getelementptr inbounds i8, ptr %200, i64 %199
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %201, ptr noundef nonnull readonly align 8 dereferenceable(3) getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.25, i64 8), i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %201, ptr noundef nonnull readonly align 8 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.25, i64 8), i64 3, i1 false)
   %202 = load i64, ptr %33, align 8, !alias.scope !627, !noundef !4
   %203 = add i64 %202, 3
   store i64 %203, ptr %33, align 8, !alias.scope !627
@@ -5298,7 +5298,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   br label %.backedge
 
 310:                                              ; preds = %204
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.26, i64 8), i64 noundef 4)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.26, i64 8), i64 noundef 4)
   br label %.backedge
 
 311:                                              ; preds = %204
@@ -5316,11 +5316,11 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   ]
 
 315:                                              ; preds = %311
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.27, i64 8), i64 noundef 5)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.27, i64 8), i64 noundef 5)
   br label %.backedge
 
 316:                                              ; preds = %311
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.28, i64 8), i64 noundef 6)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.28, i64 8), i64 noundef 6)
   br label %.backedge
 
 317:                                              ; preds = %314
@@ -5348,11 +5348,11 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %325 = phi i64 [ %.pre.i.i69, %324 ], [ %320, %319 ]
   %326 = load ptr, ptr %34, align 8, !alias.scope !667, !nonnull !4, !noundef !4
   %327 = getelementptr inbounds i8, ptr %326, i64 %325
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %327, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %327, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
   %328 = load i64, ptr %33, align 8, !alias.scope !667, !noundef !4
   %329 = add i64 %328, 10
   store i64 %329, ptr %33, align 8, !alias.scope !667
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
   %330 = load i64, ptr %33, align 8, !alias.scope !670, !noundef !4
   %331 = load i64, ptr %2, align 8, !alias.scope !670, !noundef !4
   %332 = icmp eq i64 %330, %331
@@ -5405,11 +5405,11 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %350 = phi i64 [ %.pre.i.i71, %349 ], [ %345, %344 ]
   %351 = load ptr, ptr %34, align 8, !alias.scope !678, !nonnull !4, !noundef !4
   %352 = getelementptr inbounds i8, ptr %351, i64 %350
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %352, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %352, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
   %353 = load i64, ptr %33, align 8, !alias.scope !678, !noundef !4
   %354 = add i64 %353, 10
   store i64 %354, ptr %33, align 8, !alias.scope !678
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
   %355 = load i64, ptr %33, align 8, !alias.scope !681, !noundef !4
   %356 = load i64, ptr %2, align 8, !alias.scope !681, !noundef !4
   %357 = icmp eq i64 %355, %356
@@ -5448,7 +5448,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %371 = load i64, ptr %33, align 8, !alias.scope !686, !noundef !4
   %372 = add i64 %371, 8
   store i64 %372, ptr %33, align 8, !alias.scope !686
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.30, i64 8), i64 noundef 5)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.30, i64 8), i64 noundef 5)
   %373 = load i64, ptr %33, align 8, !alias.scope !689, !noundef !4
   %374 = load i64, ptr %2, align 8, !alias.scope !689, !noundef !4
   %375 = icmp eq i64 %373, %374
@@ -5467,7 +5467,7 @@ _ZN5alloc6string6String4push17h2eefef5338b5c74cE.llvm.15130853773629356366.exit:
   br label %.backedge
 
 380:                                              ; preds = %340
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.31, i64 8), i64 noundef 9)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.31, i64 8), i64 noundef 9)
   br label %.backedge
 
 381:                                              ; preds = %337
@@ -5486,7 +5486,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %387 = phi i64 [ %.pre.i75, %386 ], [ %382, %381 ]
   %388 = load ptr, ptr %34, align 8, !alias.scope !694, !nonnull !4, !noundef !4
   %389 = getelementptr inbounds i8, ptr %388, i64 %387
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %389, ptr noundef nonnull readonly align 8 dereferenceable(11) getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.32, i64 8), i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %389, ptr noundef nonnull readonly align 8 dereferenceable(11) getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.32, i64 8), i64 11, i1 false)
   %390 = load i64, ptr %33, align 8, !alias.scope !694, !noundef !4
   %391 = add i64 %390, 11
   store i64 %391, ptr %33, align 8, !alias.scope !694
@@ -5527,11 +5527,11 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %405 = phi i64 [ %.pre.i.i79, %404 ], [ %400, %399 ]
   %406 = load ptr, ptr %34, align 8, !alias.scope !705, !nonnull !4, !noundef !4
   %407 = getelementptr inbounds i8, ptr %406, i64 %405
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %407, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %407, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
   %408 = load i64, ptr %33, align 8, !alias.scope !705, !noundef !4
   %409 = add i64 %408, 10
   store i64 %409, ptr %33, align 8, !alias.scope !705
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
   %410 = load i64, ptr %33, align 8, !alias.scope !708, !noundef !4
   %411 = load i64, ptr %2, align 8, !alias.scope !708, !noundef !4
   %412 = icmp eq i64 %410, %411
@@ -5803,7 +5803,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %111 = phi i64 [ %.pre.i.i.i, %.noexc5.i.i ], [ %105, %104 ]
   %112 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !745, !noalias !730, !nonnull !4, !noundef !4
   %113 = getelementptr inbounds i8, ptr %112, i64 %111
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %113, ptr noundef nonnull readonly align 8 dereferenceable(6) getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.34, i64 8), i64 6, i1 false), !noalias !727
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %113, ptr noundef nonnull readonly align 8 dereferenceable(6) getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.34, i64 8), i64 6, i1 false), !noalias !727
   br label %114
 
 114:                                              ; preds = %128, %110
@@ -6019,7 +6019,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %195 = phi i64 [ %.pre.i38, %194 ], [ %190, %189 ]
   %196 = load ptr, ptr %33, align 8, !alias.scope !770, !nonnull !4, !noundef !4
   %197 = getelementptr inbounds i8, ptr %196, i64 %195
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %197, ptr noundef nonnull readonly align 8 dereferenceable(3) getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.25, i64 8), i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %197, ptr noundef nonnull readonly align 8 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.25, i64 8), i64 3, i1 false)
   %198 = load i64, ptr %32, align 8, !alias.scope !770, !noundef !4
   %199 = add i64 %198, 3
   store i64 %199, ptr %32, align 8, !alias.scope !770
@@ -6380,7 +6380,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   br label %.backedge
 
 306:                                              ; preds = %200
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.26, i64 8), i64 noundef 4)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.26, i64 8), i64 noundef 4)
   br label %.backedge
 
 307:                                              ; preds = %200
@@ -6398,11 +6398,11 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   ]
 
 311:                                              ; preds = %307
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.27, i64 8), i64 noundef 5)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.27, i64 8), i64 noundef 5)
   br label %.backedge
 
 312:                                              ; preds = %307
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.28, i64 8), i64 noundef 6)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.28, i64 8), i64 noundef 6)
   br label %.backedge
 
 313:                                              ; preds = %310
@@ -6430,11 +6430,11 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %321 = phi i64 [ %.pre.i.i69, %320 ], [ %316, %315 ]
   %322 = load ptr, ptr %33, align 8, !alias.scope !810, !nonnull !4, !noundef !4
   %323 = getelementptr inbounds i8, ptr %322, i64 %321
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %323, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %323, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
   %324 = load i64, ptr %32, align 8, !alias.scope !810, !noundef !4
   %325 = add i64 %324, 10
   store i64 %325, ptr %32, align 8, !alias.scope !810
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
   %326 = load i64, ptr %32, align 8, !alias.scope !813, !noundef !4
   %327 = load i64, ptr %2, align 8, !alias.scope !813, !noundef !4
   %328 = icmp eq i64 %326, %327
@@ -6487,11 +6487,11 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %346 = phi i64 [ %.pre.i.i71, %345 ], [ %341, %340 ]
   %347 = load ptr, ptr %33, align 8, !alias.scope !821, !nonnull !4, !noundef !4
   %348 = getelementptr inbounds i8, ptr %347, i64 %346
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %348, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %348, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
   %349 = load i64, ptr %32, align 8, !alias.scope !821, !noundef !4
   %350 = add i64 %349, 10
   store i64 %350, ptr %32, align 8, !alias.scope !821
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
   %351 = load i64, ptr %32, align 8, !alias.scope !824, !noundef !4
   %352 = load i64, ptr %2, align 8, !alias.scope !824, !noundef !4
   %353 = icmp eq i64 %351, %352
@@ -6530,7 +6530,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %367 = load i64, ptr %32, align 8, !alias.scope !829, !noundef !4
   %368 = add i64 %367, 8
   store i64 %368, ptr %32, align 8, !alias.scope !829
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.30, i64 8), i64 noundef 5)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.30, i64 8), i64 noundef 5)
   %369 = load i64, ptr %32, align 8, !alias.scope !832, !noundef !4
   %370 = load i64, ptr %2, align 8, !alias.scope !832, !noundef !4
   %371 = icmp eq i64 %369, %370
@@ -6549,7 +6549,7 @@ _ZN5alloc6string6String4push17h2eefef5338b5c74cE.llvm.15130853773629356366.exit:
   br label %.backedge
 
 376:                                              ; preds = %336
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.31, i64 8), i64 noundef 9)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.31, i64 8), i64 noundef 9)
   br label %.backedge
 
 377:                                              ; preds = %333
@@ -6568,7 +6568,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %383 = phi i64 [ %.pre.i75, %382 ], [ %378, %377 ]
   %384 = load ptr, ptr %33, align 8, !alias.scope !837, !nonnull !4, !noundef !4
   %385 = getelementptr inbounds i8, ptr %384, i64 %383
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %385, ptr noundef nonnull readonly align 8 dereferenceable(11) getelementptr inbounds (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.32, i64 8), i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %385, ptr noundef nonnull readonly align 8 dereferenceable(11) getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.32, i64 8), i64 11, i1 false)
   %386 = load i64, ptr %32, align 8, !alias.scope !837, !noundef !4
   %387 = add i64 %386, 11
   store i64 %387, ptr %32, align 8, !alias.scope !837
@@ -6609,11 +6609,11 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
   %401 = phi i64 [ %.pre.i.i79, %400 ], [ %396, %395 ]
   %402 = load ptr, ptr %33, align 8, !alias.scope !848, !nonnull !4, !noundef !4
   %403 = getelementptr inbounds i8, ptr %402, i64 %401
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %403, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %403, ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.23.llvm.5393772610634076635, i64 8), i64 10, i1 false)
   %404 = load i64, ptr %32, align 8, !alias.scope !848, !noundef !4
   %405 = add i64 %404, 10
   store i64 %405, ptr %32, align 8, !alias.scope !848
-  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
+  call void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 getelementptr inbounds nuw (i8, ptr @anon.9dc01d71e80089f67d178e33a3d6238c.24.llvm.5393772610634076635, i64 8), i64 noundef 5)
   %406 = load i64, ptr %32, align 8, !alias.scope !851, !noundef !4
   %407 = load i64, ptr %2, align 8, !alias.scope !851, !noundef !4
   %408 = icmp eq i64 %406, %407

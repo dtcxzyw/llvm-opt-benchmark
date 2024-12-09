@@ -681,7 +681,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5csr_tC2EP11processor_tm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) initializes((0, 37)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV5csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV5csr_t, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -760,7 +760,7 @@ define void @_ZNK5csr_t18verify_permissionsE6insn_tb(ptr nocapture noundef nonnu
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i64 %1, ptr %37, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %34, align 8
   tail call void @__cxa_throw(ptr nonnull %34, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -781,7 +781,7 @@ define void @_ZNK5csr_t18verify_permissionsE6insn_tb(ptr nocapture noundef nonnu
   store i8 0, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store i64 %1, ptr %46, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %43, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %43, align 8
   tail call void @__cxa_throw(ptr nonnull %43, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -805,7 +805,7 @@ define void @_ZNK5csr_t18verify_permissionsE6insn_tb(ptr nocapture noundef nonnu
   store i64 22, ptr %55, align 8
   store i8 0, ptr %56, align 8
   store i64 %1, ptr %57, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %54, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %54, align 8
   tail call void @__cxa_throw(ptr nonnull %54, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #29
   unreachable
 
@@ -813,7 +813,7 @@ define void @_ZNK5csr_t18verify_permissionsE6insn_tb(ptr nocapture noundef nonnu
   store i64 2, ptr %55, align 8
   store i8 0, ptr %56, align 8
   store i64 %1, ptr %57, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %54, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %54, align 8
   tail call void @__cxa_throw(ptr nonnull %54, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -1017,7 +1017,7 @@ define void @_ZN11basic_csr_tC2EP11processor_tmm(ptr nocapture noundef nonnull w
   %15 = icmp eq i64 %14, 3072
   %16 = zext i1 %15 to i8
   store i8 %16, ptr %13, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11basic_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11basic_csr_t, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %3, ptr %17, align 8
   ret void
@@ -1049,7 +1049,7 @@ define void @_ZN13pmpaddr_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull 
   %14 = icmp eq i64 %13, 3072
   %15 = zext i1 %14 to i8
   store i8 %15, ptr %12, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13pmpaddr_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13pmpaddr_csr_t, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1078,7 +1078,7 @@ define void @_ZNK13pmpaddr_csr_t18verify_permissionsE6insn_tb(ptr nocapture noun
   store i8 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 %1, ptr %13, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %10, align 8
   tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -1632,7 +1632,7 @@ define void @_ZN12pmpcfg_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull w
   %14 = icmp eq i64 %13, 3072
   %15 = zext i1 %14 to i8
   store i8 %15, ptr %12, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12pmpcfg_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12pmpcfg_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -1654,7 +1654,7 @@ define void @_ZNK12pmpcfg_csr_t18verify_permissionsE6insn_tb(ptr nocapture nound
   store i8 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 %1, ptr %13, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %10, align 8
   tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -1915,7 +1915,7 @@ define void @_ZN13mseccfg_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull 
   store i8 %15, ptr %12, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %16, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13mseccfg_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13mseccfg_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -1938,7 +1938,7 @@ define void @_ZNK13mseccfg_csr_t18verify_permissionsE6insn_tb(ptr nocapture noun
   store i8 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %1, ptr %12, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %9, align 8
   tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -2151,7 +2151,7 @@ define void @_ZN17virtualized_csr_tC2EP11processor_tSt10shared_ptrI5csr_tES4_(pt
   %18 = icmp eq i64 %17, 3072
   %19 = zext i1 %18 to i8
   store i8 %19, ptr %16, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17virtualized_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17virtualized_csr_t, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %2, align 8
   store ptr %21, ptr %20, align 8
@@ -2299,7 +2299,7 @@ define void @_ZN9epc_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull write
   %14 = icmp eq i64 %13, 3072
   %15 = zext i1 %14 to i8
   store i8 %15, ptr %12, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9epc_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9epc_csr_t, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %16, align 8
   ret void
@@ -2347,7 +2347,7 @@ define void @_ZN10tvec_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull wri
   %14 = icmp eq i64 %13, 3072
   %15 = zext i1 %14 to i8
   store i8 %15, ptr %12, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10tvec_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10tvec_csr_t, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %16, align 8
   ret void
@@ -2389,7 +2389,7 @@ define void @_ZN11cause_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull wr
   store i8 %15, ptr %12, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %16, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11cause_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11cause_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -2448,7 +2448,7 @@ define void @_ZN17base_status_csr_tC2EP11processor_tm(ptr nocapture noundef nonn
   %14 = icmp eq i64 %13, 3072
   %15 = zext i1 %14 to i8
   store i8 %15, ptr %12, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17base_status_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17base_status_csr_t, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 968
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -2656,7 +2656,7 @@ define void @_ZN14vsstatus_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull
   %14 = icmp eq i64 %13, 3072
   %15 = zext i1 %14 to i8
   store i8 %15, ptr %12, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17base_status_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17base_status_csr_t, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 968
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -2720,7 +2720,7 @@ _ZN17base_status_csr_tC2EP11processor_tm.exit:    ; preds = %27, %34
   %57 = or disjoint i64 %51, %56
   %58 = or i64 %57, 12884901952
   store i64 %58, ptr %52, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14vsstatus_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14vsstatus_csr_t, i64 16), ptr %0, align 8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 984
   %61 = load ptr, ptr %60, align 8
@@ -2842,7 +2842,7 @@ define void @_ZN19sstatus_proxy_csr_tC2EP11processor_tmSt10shared_ptrI13mstatus_
   %15 = icmp eq i64 %14, 3072
   %16 = zext i1 %15 to i8
   store i8 %16, ptr %13, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17base_status_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17base_status_csr_t, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 968
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -2906,7 +2906,7 @@ _ZN17base_status_csr_tC2EP11processor_tm.exit:    ; preds = %28, %35
   %58 = or disjoint i64 %52, %57
   %59 = or i64 %58, 12884901952
   store i64 %59, ptr %53, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19sstatus_proxy_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19sstatus_proxy_csr_t, i64 16), ptr %0, align 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %61 = load ptr, ptr %3, align 8
   store ptr %61, ptr %60, align 8
@@ -2988,7 +2988,7 @@ define void @_ZN13mstatus_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull 
   %14 = icmp eq i64 %13, 3072
   %15 = zext i1 %14 to i8
   store i8 %15, ptr %12, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17base_status_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17base_status_csr_t, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 968
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -3052,7 +3052,7 @@ _ZN17base_status_csr_tC2EP11processor_tm.exit:    ; preds = %27, %34
   %57 = or disjoint i64 %51, %56
   %58 = or i64 %57, 12884901952
   store i64 %58, ptr %52, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13mstatus_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13mstatus_csr_t, i64 16), ptr %0, align 8
   %59 = load ptr, ptr %16, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %61 = load i64, ptr %60, align 8
@@ -3297,7 +3297,7 @@ define void @_ZN14mnstatus_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull
   store i8 %15, ptr %12, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %16, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14mnstatus_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14mnstatus_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -3359,7 +3359,7 @@ define void @_ZN14rv32_low_csr_tC2EP11processor_tmSt10shared_ptrI5csr_tE(ptr noc
   %15 = icmp eq i64 %14, 3072
   %16 = zext i1 %15 to i8
   store i8 %16, ptr %13, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14rv32_low_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14rv32_low_csr_t, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %3, align 8
   store ptr %18, ptr %17, align 8
@@ -3461,7 +3461,7 @@ define void @_ZN15rv32_high_csr_tC2EP11processor_tmSt10shared_ptrI5csr_tE(ptr no
   %15 = icmp eq i64 %14, 3072
   %16 = zext i1 %15 to i8
   store i8 %16, ptr %13, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15rv32_high_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15rv32_high_csr_t, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %3, align 8
   store ptr %18, ptr %17, align 8
@@ -3611,7 +3611,7 @@ _ZNSt10shared_ptrI5csr_tEC2I14vsstatus_csr_tvEERKS_IT_E.exit: ; preds = %_ZNSt10
   %39 = icmp eq i64 %38, 3072
   %40 = zext i1 %39 to i8
   store i8 %40, ptr %37, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17virtualized_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17virtualized_csr_t, i64 16), ptr %0, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %5, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3796,7 +3796,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrI5csr_tED2Ev.exit14
 
 _ZNSt10shared_ptrI5csr_tED2Ev.exit14:             ; preds = %_ZNSt10shared_ptrI5csr_tED2Ev.exit, %109, %122, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i13
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13sstatus_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13sstatus_csr_t, i64 16), ptr %0, align 8
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %128 = load ptr, ptr %2, align 8
   store ptr %128, ptr %127, align 8
@@ -4131,7 +4131,7 @@ define void @_ZN10misa_csr_tC2EP11processor_tmm(ptr nocapture noundef nonnull wr
   store i8 %16, ptr %13, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %3, ptr %17, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10misa_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10misa_csr_t, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %3, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -5136,7 +5136,7 @@ define void @_ZN16mip_or_mie_csr_tC2EP11processor_tm(ptr nocapture noundef nonnu
   %14 = icmp eq i64 %13, 3072
   %15 = zext i1 %14 to i8
   store i8 %15, ptr %12, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16mip_or_mie_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16mip_or_mie_csr_t, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %16, align 8
   ret void
@@ -5193,7 +5193,7 @@ define void @_ZN9mip_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull write
   store i8 %15, ptr %12, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %16, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9mip_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9mip_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -5292,7 +5292,7 @@ define void @_ZN9mie_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull write
   store i8 %15, ptr %12, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %16, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9mie_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9mie_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -5647,7 +5647,7 @@ define void @_ZN15mip_proxy_csr_tC2EP11processor_tmSt10shared_ptrI22generic_int_
   %15 = icmp eq i64 %14, 3072
   %16 = zext i1 %15 to i8
   store i8 %16, ptr %13, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15mip_proxy_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15mip_proxy_csr_t, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %3, align 8
   store ptr %18, ptr %17, align 8
@@ -5824,7 +5824,7 @@ define void @_ZN15mie_proxy_csr_tC2EP11processor_tmSt10shared_ptrI22generic_int_
   %15 = icmp eq i64 %14, 3072
   %16 = zext i1 %15 to i8
   store i8 %16, ptr %13, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15mie_proxy_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15mie_proxy_csr_t, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %3, align 8
   store ptr %18, ptr %17, align 8
@@ -5999,7 +5999,7 @@ define void @_ZN13mideleg_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull 
   store i8 %15, ptr %12, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %16, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13mideleg_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13mideleg_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -6041,7 +6041,7 @@ define void @_ZNK13mideleg_csr_t18verify_permissionsE6insn_tb(ptr nocapture noun
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 %1, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %11, align 8
   tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -6097,7 +6097,7 @@ define void @_ZN13medeleg_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull 
   store i8 %15, ptr %12, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %16, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13medeleg_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13medeleg_csr_t, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 15729664, ptr %17, align 8
   ret void
@@ -6124,7 +6124,7 @@ define void @_ZNK13medeleg_csr_t18verify_permissionsE6insn_tb(ptr nocapture noun
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 %1, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %11, align 8
   tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -6180,7 +6180,7 @@ define void @_ZN12masked_csr_tC2EP11processor_tmmm(ptr nocapture noundef nonnull
   store i8 %17, ptr %14, align 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %4, ptr %18, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12masked_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12masked_csr_t, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %3, ptr %19, align 8
   ret void
@@ -6226,7 +6226,7 @@ define void @_ZN12envcfg_csr_tC2EP11processor_tmmm(ptr nocapture noundef nonnull
   store i64 %4, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %3, ptr %19, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12envcfg_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12envcfg_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -6274,7 +6274,7 @@ define void @_ZN13henvcfg_csr_tC2EP11processor_tmmmSt10shared_ptrI5csr_tE(ptr no
   store i64 %4, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %3, ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13henvcfg_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13henvcfg_csr_t, i64 16), ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load ptr, ptr %5, align 8
   store ptr %22, ptr %21, align 8
@@ -6326,7 +6326,7 @@ define void @_ZN14base_atp_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull
   store i8 %15, ptr %12, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %16, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14base_atp_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14base_atp_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -6570,7 +6570,7 @@ define void @_ZN10satp_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull wri
   store i8 %15, ptr %12, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %16, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10satp_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10satp_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -6601,7 +6601,7 @@ define void @_ZNK10satp_csr_t18verify_permissionsE6insn_tb(ptr nocapture noundef
   store i8 0, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i64 %1, ptr %18, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %15, align 8
   tail call void @__cxa_throw(ptr nonnull %15, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -6676,7 +6676,7 @@ _ZNSt10shared_ptrI5csr_tEC2ERKS1_.exit:           ; preds = %_ZNSt10shared_ptrI5
   %39 = icmp eq i64 %38, 3072
   %40 = zext i1 %39 to i8
   store i8 %40, ptr %37, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17virtualized_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17virtualized_csr_t, i64 16), ptr %0, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %5, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6861,7 +6861,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrI5csr_tED2Ev.exit14
 
 _ZNSt10shared_ptrI5csr_tED2Ev.exit14:             ; preds = %_ZNSt10shared_ptrI5csr_tED2Ev.exit, %109, %122, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i13
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22virtualized_satp_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22virtualized_satp_csr_t, i64 16), ptr %0, align 8
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %128 = load ptr, ptr %2, align 8
   store ptr %128, ptr %127, align 8
@@ -6920,7 +6920,7 @@ define void @_ZNK22virtualized_satp_csr_t18verify_permissionsE6insn_tb(ptr nocap
   store i8 0, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i64 %1, ptr %21, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %18, align 8
   tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #29
   unreachable
 
@@ -7061,7 +7061,7 @@ define void @_ZN18wide_counter_csr_tC2EP11processor_tmSt10shared_ptrI15smcntrpmf
   %15 = icmp eq i64 %14, 3072
   %16 = zext i1 %15 to i8
   store i8 %16, ptr %13, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18wide_counter_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18wide_counter_csr_t, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -7337,7 +7337,7 @@ define void @_ZN18time_counter_csr_tC2EP11processor_tm(ptr nocapture noundef non
   %14 = icmp eq i64 %13, 3072
   %15 = zext i1 %14 to i8
   store i8 %15, ptr %12, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18time_counter_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18time_counter_csr_t, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %16, align 8
   ret void
@@ -7465,7 +7465,7 @@ define void @_ZN11proxy_csr_tC2EP11processor_tmSt10shared_ptrI5csr_tE(ptr nocapt
   %15 = icmp eq i64 %14, 3072
   %16 = zext i1 %15 to i8
   store i8 %16, ptr %13, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11proxy_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11proxy_csr_t, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %3, align 8
   store ptr %18, ptr %17, align 8
@@ -7550,7 +7550,7 @@ define void @_ZN11const_csr_tC2EP11processor_tmm(ptr nocapture noundef nonnull w
   %15 = icmp eq i64 %14, 3072
   %16 = zext i1 %15 to i8
   store i8 %16, ptr %13, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11const_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11const_csr_t, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %3, ptr %17, align 8
   ret void
@@ -7610,7 +7610,7 @@ _ZNSt10shared_ptrI5csr_tEC2ERKS1_.exit:           ; preds = %4, %11, %14
   %26 = icmp eq i64 %25, 3072
   %27 = zext i1 %26 to i8
   store i8 %27, ptr %24, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11proxy_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11proxy_csr_t, i64 16), ptr %0, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %5, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -7701,7 +7701,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrI5csr_tED2Ev.exit
 
 _ZNSt10shared_ptrI5csr_tED2Ev.exit:               ; preds = %_ZNSt10shared_ptrI5csr_tEC2ERKS1_.exit, %52, %65, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19counter_proxy_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19counter_proxy_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -8085,7 +8085,7 @@ _ZNSt10shared_ptrI5csr_tED2Ev.exit35:             ; preds = %_ZNSt10shared_ptrI5
   store i8 0, ptr %204, align 8
   %205 = getelementptr inbounds nuw i8, ptr %202, i64 24
   store i64 %1, ptr %205, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %202, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %202, align 8
   tail call void @__cxa_throw(ptr nonnull %202, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -8100,7 +8100,7 @@ _ZNSt10shared_ptrI5csr_tED2Ev.exit35:             ; preds = %_ZNSt10shared_ptrI5
   store i8 0, ptr %210, align 8
   %211 = getelementptr inbounds nuw i8, ptr %208, i64 24
   store i64 %1, ptr %211, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %208, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %208, align 8
   tail call void @__cxa_throw(ptr nonnull %208, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #29
   unreachable
 
@@ -8122,7 +8122,7 @@ _ZNSt10shared_ptrI5csr_tED2Ev.exit35:             ; preds = %_ZNSt10shared_ptrI5
   store i64 22, ptr %219, align 8
   store i8 0, ptr %220, align 8
   store i64 %1, ptr %221, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %218, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %218, align 8
   tail call void @__cxa_throw(ptr nonnull %218, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #29
   unreachable
 
@@ -8130,7 +8130,7 @@ _ZNSt10shared_ptrI5csr_tED2Ev.exit35:             ; preds = %_ZNSt10shared_ptrI5
   store i64 2, ptr %219, align 8
   store i8 0, ptr %220, align 8
   store i64 %1, ptr %221, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %218, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %218, align 8
   tail call void @__cxa_throw(ptr nonnull %218, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -8159,7 +8159,7 @@ define void @_ZN12mevent_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull w
   store i8 %15, ptr %12, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %16, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12mevent_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12mevent_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -8226,7 +8226,7 @@ define void @_ZN16hypervisor_csr_tC2EP11processor_tm(ptr nocapture noundef nonnu
   store i8 %15, ptr %12, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %16, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16hypervisor_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16hypervisor_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -8251,7 +8251,7 @@ define void @_ZNK16hypervisor_csr_t18verify_permissionsE6insn_tb(ptr nocapture n
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 %1, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %11, align 8
   tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -8282,7 +8282,7 @@ define void @_ZN13hideleg_csr_tC2EP11processor_tmSt10shared_ptrI5csr_tE(ptr noca
   store i64 0, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 1092, ptr %18, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13hideleg_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13hideleg_csr_t, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %3, align 8
   store ptr %20, ptr %19, align 8
@@ -8348,7 +8348,7 @@ define void @_ZN11hgatp_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull wr
   store i8 %15, ptr %12, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %16, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11hgatp_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11hgatp_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -8385,7 +8385,7 @@ define void @_ZNK11hgatp_csr_t18verify_permissionsE6insn_tb(ptr nocapture nounde
   store i8 0, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i64 %1, ptr %23, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %20, align 8
   tail call void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -8493,7 +8493,7 @@ define void @_ZN13tselect_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull 
   store i8 %15, ptr %12, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %16, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13tselect_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13tselect_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -8546,7 +8546,7 @@ define void @_ZN12tdata1_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull w
   %14 = icmp eq i64 %13, 3072
   %15 = zext i1 %14 to i8
   store i8 %15, ptr %12, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12tdata1_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12tdata1_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -8611,7 +8611,7 @@ define void @_ZN12tdata2_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull w
   %14 = icmp eq i64 %13, 3072
   %15 = zext i1 %14 to i8
   store i8 %15, ptr %12, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12tdata2_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12tdata2_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -8676,7 +8676,7 @@ define void @_ZN12tdata3_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull w
   %14 = icmp eq i64 %13, 3072
   %15 = zext i1 %14 to i8
   store i8 %15, ptr %12, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12tdata3_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12tdata3_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -8741,7 +8741,7 @@ define void @_ZN11tinfo_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull wr
   %14 = icmp eq i64 %13, 3072
   %15 = zext i1 %14 to i8
   store i8 %15, ptr %12, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11tinfo_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11tinfo_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -8787,7 +8787,7 @@ define void @_ZN16debug_mode_csr_tC2EP11processor_tm(ptr nocapture noundef nonnu
   store i8 %15, ptr %12, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %16, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16debug_mode_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16debug_mode_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -8809,7 +8809,7 @@ define void @_ZNK16debug_mode_csr_t18verify_permissionsE6insn_tb(ptr nocapture n
   store i8 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 %1, ptr %13, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %10, align 8
   tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -8838,7 +8838,7 @@ define void @_ZN9dpc_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull write
   store i8 %15, ptr %12, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %16, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9dpc_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9dpc_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -8860,7 +8860,7 @@ define void @_ZNK9dpc_csr_t18verify_permissionsE6insn_tb(ptr nocapture noundef n
   store i8 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 %1, ptr %13, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %10, align 8
   tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -8887,7 +8887,7 @@ define void @_ZN10dcsr_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull wri
   %14 = icmp eq i64 %13, 3072
   %15 = zext i1 %14 to i8
   store i8 %15, ptr %12, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10dcsr_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10dcsr_csr_t, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 37
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %16, i8 0, i64 10, i1 false)
   ret void
@@ -8911,7 +8911,7 @@ define void @_ZNK10dcsr_csr_t18verify_permissionsE6insn_tb(ptr nocapture noundef
   store i8 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 %1, ptr %13, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %10, align 8
   tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -9100,7 +9100,7 @@ define void @_ZN11float_csr_tC2EP11processor_tmmm(ptr nocapture noundef nonnull 
   store i64 %4, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %3, ptr %19, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11float_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11float_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -9156,7 +9156,7 @@ _ZN13sstatus_csr_t7enabledEm.exit:                ; preds = %3, %24
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i64 %1, ptr %37, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %34, align 8
   tail call void @__cxa_throw(ptr nonnull %34, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -9186,7 +9186,7 @@ _ZN13sstatus_csr_t7enabledEm.exit.thread:         ; preds = %18, %24, %_ZN13ssta
   store i8 0, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 24
   store i64 %1, ptr %51, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %48, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %48, align 8
   tail call void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -9233,7 +9233,7 @@ _ZN13sstatus_csr_t7enabledEm.exit.thread:         ; preds = %18, %24, %_ZN13ssta
   store i8 0, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
   store i64 %1, ptr %74, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %71, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %71, align 8
   tail call void @__cxa_throw(ptr nonnull %71, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -9263,7 +9263,7 @@ _ZN13sstatus_csr_t7enabledEm.exit.thread:         ; preds = %18, %24, %_ZN13ssta
   store i8 0, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 24
   store i64 %1, ptr %92, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %89, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %89, align 8
   tail call void @__cxa_throw(ptr nonnull %89, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #29
   unreachable
 
@@ -9310,7 +9310,7 @@ _ZN13sstatus_csr_t7enabledEm.exit.thread:         ; preds = %18, %24, %_ZN13ssta
   store i64 22, ptr %118, align 8
   store i8 0, ptr %119, align 8
   store i64 %1, ptr %120, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %117, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %117, align 8
   tail call void @__cxa_throw(ptr nonnull %117, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #29
   unreachable
 
@@ -9318,7 +9318,7 @@ _ZN13sstatus_csr_t7enabledEm.exit.thread:         ; preds = %18, %24, %_ZN13ssta
   store i64 2, ptr %118, align 8
   store i8 0, ptr %119, align 8
   store i64 %1, ptr %120, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %117, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %117, align 8
   tail call void @__cxa_throw(ptr nonnull %117, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -9377,7 +9377,7 @@ define void @_ZN15composite_csr_tC2EP11processor_tmSt10shared_ptrI5csr_tES4_j(pt
   %17 = icmp eq i64 %16, 3072
   %18 = zext i1 %17 to i8
   store i8 %18, ptr %15, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15composite_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15composite_csr_t, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load ptr, ptr %3, align 8
   store ptr %20, ptr %19, align 8
@@ -9535,7 +9535,7 @@ define void @_ZN10seed_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull wri
   %14 = icmp eq i64 %13, 3072
   %15 = zext i1 %14 to i8
   store i8 %15, ptr %12, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10seed_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10seed_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -9558,7 +9558,7 @@ define void @_ZNK10seed_csr_t18verify_permissionsE6insn_tb(ptr nocapture noundef
   store i8 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %1, ptr %12, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %9, align 8
   tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -9614,7 +9614,7 @@ define void @_ZN12vector_csr_tC2EP11processor_tmmm(ptr nocapture noundef nonnull
   store i8 %17, ptr %14, align 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %4, ptr %18, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12vector_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12vector_csr_t, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %3, ptr %19, align 8
   ret void
@@ -9671,7 +9671,7 @@ _ZN13sstatus_csr_t7enabledEm.exit:                ; preds = %3, %24
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i64 %1, ptr %37, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %34, align 8
   tail call void @__cxa_throw(ptr nonnull %34, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -9694,7 +9694,7 @@ _ZN13sstatus_csr_t7enabledEm.exit.thread:         ; preds = %18, %24, %_ZN13ssta
   store i8 0, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store i64 %1, ptr %48, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %45, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %45, align 8
   tail call void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -9773,7 +9773,7 @@ define void @_ZN11vxsat_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull wr
   store i64 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 1, ptr %17, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11vxsat_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11vxsat_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -9828,7 +9828,7 @@ _ZN13sstatus_csr_t7enabledEm.exit:                ; preds = %3, %24
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i64 %1, ptr %37, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %34, align 8
   tail call void @__cxa_throw(ptr nonnull %34, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -9858,7 +9858,7 @@ _ZN13sstatus_csr_t7enabledEm.exit.thread:         ; preds = %18, %24, %_ZN13ssta
   store i8 0, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 24
   store i64 %1, ptr %51, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %48, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %48, align 8
   tail call void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -9922,7 +9922,7 @@ define void @_ZN14hstateen_csr_tC2EP11processor_tmmmh(ptr nocapture noundef nonn
   store i64 %4, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %3, ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14hstateen_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14hstateen_csr_t, i64 16), ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %5, ptr %21, align 8
   ret void
@@ -10009,7 +10009,7 @@ define void @_ZNK14hstateen_csr_t18verify_permissionsE6insn_tb(ptr nocapture nou
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i64 %1, ptr %24, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %21, align 8
   tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -10043,7 +10043,7 @@ define void @_ZN14sstateen_csr_tC2EP11processor_tmmmh(ptr nocapture noundef nonn
   store i64 %3, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %5, ptr %21, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14sstateen_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14sstateen_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -10191,7 +10191,7 @@ define void @_ZNK14sstateen_csr_t18verify_permissionsE6insn_tb(ptr nocapture nou
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i64 %1, ptr %24, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %21, align 8
   tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -10225,7 +10225,7 @@ _ZNK14hstateen_csr_t18verify_permissionsE6insn_tb.exit: ; preds = %3, %9
   store i8 0, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store i64 %1, ptr %44, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %41, align 8
   tail call void @__cxa_throw(ptr nonnull %41, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #29
   unreachable
 
@@ -10256,7 +10256,7 @@ define void @_ZN13senvcfg_csr_tC2EP11processor_tmmm(ptr nocapture noundef nonnul
   store i64 %4, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %3, ptr %19, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13senvcfg_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13senvcfg_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -10301,7 +10301,7 @@ define void @_ZNK13senvcfg_csr_t18verify_permissionsE6insn_tb(ptr nocapture noun
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store i64 %1, ptr %26, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %23, align 8
   tail call void @__cxa_throw(ptr nonnull %23, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -10331,7 +10331,7 @@ define void @_ZNK13senvcfg_csr_t18verify_permissionsE6insn_tb(ptr nocapture noun
   store i8 0, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store i64 %1, ptr %44, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %41, align 8
   tail call void @__cxa_throw(ptr nonnull %41, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #29
   unreachable
 
@@ -10377,7 +10377,7 @@ define void @_ZNK13henvcfg_csr_t18verify_permissionsE6insn_tb(ptr nocapture noun
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store i64 %1, ptr %26, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %23, align 8
   tail call void @__cxa_throw(ptr nonnull %23, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -10407,7 +10407,7 @@ define void @_ZN14stimecmp_csr_tC2EP11processor_tmm(ptr nocapture noundef nonnul
   store i8 %16, ptr %13, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %17, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14stimecmp_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14stimecmp_csr_t, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %3, ptr %18, align 8
   ret void
@@ -10527,7 +10527,7 @@ _ZNSt10shared_ptrI5csr_tEC2ERKS1_.exit5:          ; preds = %_ZNSt10shared_ptrI5
   %39 = icmp eq i64 %38, 3072
   %40 = zext i1 %39 to i8
   store i8 %40, ptr %37, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17virtualized_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17virtualized_csr_t, i64 16), ptr %0, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %5, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -10712,7 +10712,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrI5csr_tED2Ev.exit15
 
 _ZNSt10shared_ptrI5csr_tED2Ev.exit15:             ; preds = %_ZNSt10shared_ptrI5csr_tED2Ev.exit, %109, %122, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i14
-  store ptr getelementptr inbounds (i8, ptr @_ZTV26virtualized_stimecmp_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV26virtualized_stimecmp_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -10744,7 +10744,7 @@ define void @_ZNK14stimecmp_csr_t18verify_permissionsE6insn_tb(ptr nocapture nou
   store i8 0, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i64 %1, ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %17, align 8
   tail call void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -10778,7 +10778,7 @@ define void @_ZNK14stimecmp_csr_t18verify_permissionsE6insn_tb(ptr nocapture nou
   store i8 0, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store i64 %1, ptr %41, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %38, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %38, align 8
   tail call void @__cxa_throw(ptr nonnull %38, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #29
   unreachable
 
@@ -10816,7 +10816,7 @@ define void @_ZN15scountovf_csr_tC2EP11processor_tm(ptr nocapture noundef nonnul
   %14 = icmp eq i64 %13, 3072
   %15 = zext i1 %14 to i8
   store i8 %15, ptr %12, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15scountovf_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15scountovf_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -10838,7 +10838,7 @@ define void @_ZNK15scountovf_csr_t18verify_permissionsE6insn_tb(ptr nocapture no
   store i8 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %1, ptr %12, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %9, align 8
   tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -10930,7 +10930,7 @@ define void @_ZN9jvt_csr_tC2EP11processor_tmm(ptr nocapture noundef nonnull writ
   store i8 %16, ptr %13, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %3, ptr %17, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9jvt_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9jvt_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -10953,7 +10953,7 @@ define void @_ZNK9jvt_csr_t18verify_permissionsE6insn_tb(ptr nocapture noundef n
   store i8 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %1, ptr %12, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %9, align 8
   tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -10993,7 +10993,7 @@ define void @_ZNK9jvt_csr_t18verify_permissionsE6insn_tb(ptr nocapture noundef n
   store i8 0, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store i64 %1, ptr %33, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %30, align 8
   tail call void @__cxa_throw(ptr nonnull %30, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -11023,7 +11023,7 @@ define void @_ZNK9jvt_csr_t18verify_permissionsE6insn_tb(ptr nocapture noundef n
   store i8 0, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 24
   store i64 %1, ptr %51, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %48, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %48, align 8
   tail call void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #29
   unreachable
 
@@ -11070,7 +11070,7 @@ define void @_ZNK9jvt_csr_t18verify_permissionsE6insn_tb(ptr nocapture noundef n
   store i64 22, ptr %77, align 8
   store i8 0, ptr %78, align 8
   store i64 %1, ptr %79, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %76, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %76, align 8
   tail call void @__cxa_throw(ptr nonnull %76, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #29
   unreachable
 
@@ -11078,7 +11078,7 @@ define void @_ZNK9jvt_csr_t18verify_permissionsE6insn_tb(ptr nocapture noundef n
   store i64 2, ptr %77, align 8
   store i8 0, ptr %78, align 8
   store i64 %1, ptr %79, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %76, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %76, align 8
   tail call void @__cxa_throw(ptr nonnull %76, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -11153,7 +11153,7 @@ _ZNSt10shared_ptrI5csr_tEC2ERKS1_.exit5:          ; preds = %_ZNSt10shared_ptrI5
   %39 = icmp eq i64 %38, 3072
   %40 = zext i1 %39 to i8
   store i8 %40, ptr %37, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17virtualized_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17virtualized_csr_t, i64 16), ptr %0, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %5, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -11338,7 +11338,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrI5csr_tED2Ev.exit15
 
 _ZNSt10shared_ptrI5csr_tED2Ev.exit15:             ; preds = %_ZNSt10shared_ptrI5csr_tED2Ev.exit, %109, %122, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i14
-  store ptr getelementptr inbounds (i8, ptr @_ZTV26virtualized_indirect_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV26virtualized_indirect_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -11378,7 +11378,7 @@ define void @_ZN18sscsrind_reg_csr_tC2EP11processor_tmSt10shared_ptrI5csr_tE(ptr
   %15 = icmp eq i64 %14, 3072
   %16 = zext i1 %15 to i8
   store i8 %16, ptr %13, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18sscsrind_reg_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18sscsrind_reg_csr_t, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %3, align 8
   store ptr %18, ptr %17, align 8
@@ -11451,7 +11451,7 @@ define void @_ZNK18sscsrind_reg_csr_t18verify_permissionsE6insn_tb(ptr noundef n
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %. = select i1 %17, i64 22, i64 2
-  %.12 = select i1 %17, ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16)
+  %.12 = select i1 %17, ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16)
   %_ZTI24trap_virtual_instruction._ZTI24trap_illegal_instruction = select i1 %17, ptr @_ZTI24trap_virtual_instruction, ptr @_ZTI24trap_illegal_instruction
   %_ZN24trap_virtual_instructionD2Ev._ZN24trap_illegal_instructionD2Ev = select i1 %17, ptr @_ZN24trap_virtual_instructionD2Ev, ptr @_ZN24trap_illegal_instructionD2Ev
   store i64 %., ptr %19, align 8
@@ -12076,7 +12076,7 @@ define void @_ZN15smcntrpmf_csr_tC2EP11processor_tmmm(ptr nocapture noundef nonn
   store i64 %4, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %3, ptr %19, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15smcntrpmf_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15smcntrpmf_csr_t, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 0, ptr %20, align 8
   ret void
@@ -12130,7 +12130,7 @@ define void @_ZN12srmcfg_csr_tC2EP11processor_tmmm(ptr nocapture noundef nonnull
   store i64 %4, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %3, ptr %19, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12srmcfg_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12srmcfg_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -12153,7 +12153,7 @@ define void @_ZNK12srmcfg_csr_t18verify_permissionsE6insn_tb(ptr nocapture nound
   store i8 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %1, ptr %12, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %9, align 8
   tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -12191,7 +12191,7 @@ define void @_ZNK12srmcfg_csr_t18verify_permissionsE6insn_tb(ptr nocapture nound
   store i8 0, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store i64 %1, ptr %34, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %31, align 8
   tail call void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #29
   unreachable
 
@@ -12211,7 +12211,7 @@ define void @_ZNK12srmcfg_csr_t18verify_permissionsE6insn_tb(ptr nocapture nound
   store i8 0, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
   store i64 %1, ptr %45, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %42, align 8
   tail call void @__cxa_throw(ptr nonnull %42, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #29
   unreachable
 
@@ -12240,7 +12240,7 @@ define void @_ZN10hvip_csr_tC2EP11processor_tmm(ptr nocapture noundef nonnull wr
   store i8 %16, ptr %13, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %3, ptr %17, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10hvip_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10hvip_csr_t, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -12339,7 +12339,7 @@ define linkonce_odr void @_ZN13mseccfg_csr_tD0Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN17virtualized_csr_tD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17virtualized_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17virtualized_csr_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -12725,7 +12725,7 @@ define linkonce_odr void @_ZN14mnstatus_csr_tD0Ev(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14rv32_low_csr_tD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14rv32_low_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14rv32_low_csr_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -12805,7 +12805,7 @@ _ZNSt10shared_ptrI5csr_tED2Ev.exit:               ; preds = %1, %20, %33, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14rv32_low_csr_tD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14rv32_low_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14rv32_low_csr_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -12886,7 +12886,7 @@ _ZN14rv32_low_csr_tD2Ev.exit:                     ; preds = %1, %20, %33, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN15rv32_high_csr_tD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15rv32_high_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15rv32_high_csr_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -12966,7 +12966,7 @@ _ZNSt10shared_ptrI5csr_tED2Ev.exit:               ; preds = %1, %20, %33, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN15rv32_high_csr_tD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15rv32_high_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15rv32_high_csr_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -13091,7 +13091,7 @@ define linkonce_odr void @_ZN9mie_csr_tD0Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN15mip_proxy_csr_tD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15mip_proxy_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15mip_proxy_csr_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -13171,7 +13171,7 @@ _ZNSt10shared_ptrI22generic_int_accessor_tED2Ev.exit: ; preds = %1, %20, %33, %_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN15mip_proxy_csr_tD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15mip_proxy_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15mip_proxy_csr_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -13252,7 +13252,7 @@ _ZN15mip_proxy_csr_tD2Ev.exit:                    ; preds = %1, %20, %33, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN15mie_proxy_csr_tD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15mie_proxy_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15mie_proxy_csr_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -13332,7 +13332,7 @@ _ZNSt10shared_ptrI22generic_int_accessor_tED2Ev.exit: ; preds = %1, %20, %33, %_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN15mie_proxy_csr_tD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15mie_proxy_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15mie_proxy_csr_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -13653,7 +13653,7 @@ define linkonce_odr void @_ZN10satp_csr_tD0Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN22virtualized_satp_csr_tD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22virtualized_satp_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22virtualized_satp_csr_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -13734,7 +13734,7 @@ _ZNSt10shared_ptrI10satp_csr_tED2Ev.exit:         ; preds = %1, %20, %33, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN22virtualized_satp_csr_tD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22virtualized_satp_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22virtualized_satp_csr_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -13816,7 +13816,7 @@ _ZN22virtualized_satp_csr_tD2Ev.exit:             ; preds = %1, %20, %33, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN18wide_counter_csr_tD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18wide_counter_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18wide_counter_csr_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -13896,7 +13896,7 @@ _ZNSt10shared_ptrI15smcntrpmf_csr_tED2Ev.exit:    ; preds = %1, %20, %33, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN18wide_counter_csr_tD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18wide_counter_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18wide_counter_csr_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -13993,7 +13993,7 @@ define linkonce_odr noundef zeroext i1 @_ZN18time_counter_csr_t14unlogged_writeE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11proxy_csr_tD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11proxy_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11proxy_csr_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -14073,7 +14073,7 @@ _ZNSt10shared_ptrI5csr_tED2Ev.exit:               ; preds = %1, %20, %33, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11proxy_csr_tD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11proxy_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11proxy_csr_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -14165,7 +14165,7 @@ define linkonce_odr void @_ZN11const_csr_tD0Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN19counter_proxy_csr_tD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11proxy_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11proxy_csr_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -14245,7 +14245,7 @@ _ZN11proxy_csr_tD2Ev.exit:                        ; preds = %1, %20, %33, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN19counter_proxy_csr_tD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11proxy_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11proxy_csr_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -14348,7 +14348,7 @@ define linkonce_odr void @_ZN16hypervisor_csr_tD0Ev(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13hideleg_csr_tD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13hideleg_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13hideleg_csr_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -14428,7 +14428,7 @@ _ZNSt10shared_ptrI5csr_tED2Ev.exit:               ; preds = %1, %20, %33, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13hideleg_csr_tD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13hideleg_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13hideleg_csr_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -14624,7 +14624,7 @@ define linkonce_odr void @_ZN11float_csr_tD0Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN15composite_csr_tD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15composite_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15composite_csr_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -14910,7 +14910,7 @@ define linkonce_odr void @_ZN26virtualized_indirect_csr_tD0Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN18sscsrind_reg_csr_tD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18sscsrind_reg_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18sscsrind_reg_csr_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZNSt10_HashtableImSt4pairIKmSt10shared_ptrI5csr_tEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -14992,7 +14992,7 @@ _ZNSt10shared_ptrI5csr_tED2Ev.exit:               ; preds = %1, %21, %34, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN18sscsrind_reg_csr_tD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18sscsrind_reg_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18sscsrind_reg_csr_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZNSt10_HashtableImSt4pairIKmSt10shared_ptrI5csr_tEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -15119,7 +15119,7 @@ define linkonce_odr void @_ZN17base_status_csr_tD0Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13sstatus_csr_tD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13sstatus_csr_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13sstatus_csr_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null

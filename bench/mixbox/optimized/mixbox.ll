@@ -3535,7 +3535,7 @@ define internal fastcc void @_ZZL10mixbox_lutvEN13mixbox_init_tC2Ev() unnamed_ad
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr @_ZZL10mixbox_lutvE12decompressed, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZZL10mixbox_lutvE12decompressed, i64 799107), ptr %10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZL10mixbox_lutvE12decompressed, i64 799107), ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24

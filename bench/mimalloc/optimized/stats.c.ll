@@ -71,7 +71,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @_mi_stat_counter_increase(ptr noundef %stat, i64 noundef %amount) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp uge ptr %stat, @_mi_stats_main
-  %cmp1.i = icmp ult ptr %stat, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
+  %cmp1.i = icmp ult ptr %stat, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 640)
   %0 = select i1 %cmp.i, i1 %cmp1.i, i1 false
   %count = getelementptr inbounds nuw i8, ptr %stat, i64 8
   br i1 %0, label %if.then, label %if.else
@@ -102,7 +102,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %cmp.i.i = icmp uge ptr %stat, @_mi_stats_main
-  %cmp1.i.i = icmp ult ptr %stat, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
+  %cmp1.i.i = icmp ult ptr %stat, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 640)
   %0 = select i1 %cmp.i.i, i1 %cmp1.i.i, i1 false
   %current2.i = getelementptr inbounds nuw i8, ptr %stat, i64 24
   br i1 %0, label %if.then1.i, label %if.else9.i
@@ -182,7 +182,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %cmp.i.i = icmp uge ptr %stat, @_mi_stats_main
-  %cmp1.i.i = icmp ult ptr %stat, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
+  %cmp1.i.i = icmp ult ptr %stat, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 640)
   %0 = select i1 %cmp.i.i, i1 %cmp1.i.i, i1 false
   %current2.i = getelementptr inbounds nuw i8, ptr %stat, i64 24
   br i1 %0, label %if.then1.i, label %if.else9.i
@@ -367,16 +367,16 @@ land.lhs.true.i58.i:                              ; preds = %if.end.i52.i
   br i1 %cmp2.i60.i, label %if.end.i63.i, label %if.end4.i54.i
 
 if.end4.i54.i:                                    ; preds = %land.lhs.true.i58.i, %if.end.i52.i
-  %11 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 32), i64 %9 monotonic, align 8
+  %11 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 32), i64 %9 monotonic, align 8
   %current7.i55.i = getelementptr inbounds nuw i8, ptr %stats, i64 56
   %12 = load i64, ptr %current7.i55.i, align 8
-  %13 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 56), i64 %12 monotonic, align 8
+  %13 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 56), i64 %12 monotonic, align 8
   %freed11.i56.i = getelementptr inbounds nuw i8, ptr %stats, i64 40
   %14 = load i64, ptr %freed11.i56.i, align 8
-  %15 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 40), i64 %14 monotonic, align 8
+  %15 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 40), i64 %14 monotonic, align 8
   %peak14.i57.i = getelementptr inbounds nuw i8, ptr %stats, i64 48
   %16 = load i64, ptr %peak14.i57.i, align 8
-  %17 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 48), i64 %16 monotonic, align 8
+  %17 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 48), i64 %16 monotonic, align 8
   br label %if.end.i63.i
 
 if.end.i63.i:                                     ; preds = %if.end4.i54.i, %land.lhs.true.i58.i
@@ -392,16 +392,16 @@ land.lhs.true.i69.i:                              ; preds = %if.end.i63.i
   br i1 %cmp2.i71.i, label %if.end.i74.i, label %if.end4.i65.i
 
 if.end4.i65.i:                                    ; preds = %land.lhs.true.i69.i, %if.end.i63.i
-  %20 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 %18 monotonic, align 8
+  %20 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 %18 monotonic, align 8
   %current7.i66.i = getelementptr inbounds nuw i8, ptr %stats, i64 88
   %21 = load i64, ptr %current7.i66.i, align 8
-  %22 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 88), i64 %21 monotonic, align 8
+  %22 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 88), i64 %21 monotonic, align 8
   %freed11.i67.i = getelementptr inbounds nuw i8, ptr %stats, i64 72
   %23 = load i64, ptr %freed11.i67.i, align 8
-  %24 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 72), i64 %23 monotonic, align 8
+  %24 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 72), i64 %23 monotonic, align 8
   %peak14.i68.i = getelementptr inbounds nuw i8, ptr %stats, i64 80
   %25 = load i64, ptr %peak14.i68.i, align 8
-  %26 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 80), i64 %25 monotonic, align 8
+  %26 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 80), i64 %25 monotonic, align 8
   br label %if.end.i74.i
 
 if.end.i74.i:                                     ; preds = %if.end4.i65.i, %land.lhs.true.i69.i
@@ -417,16 +417,16 @@ land.lhs.true.i80.i:                              ; preds = %if.end.i74.i
   br i1 %cmp2.i82.i, label %if.end.i85.i, label %if.end4.i76.i
 
 if.end4.i76.i:                                    ; preds = %land.lhs.true.i80.i, %if.end.i74.i
-  %29 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 %27 monotonic, align 8
+  %29 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 %27 monotonic, align 8
   %current7.i77.i = getelementptr inbounds nuw i8, ptr %stats, i64 120
   %30 = load i64, ptr %current7.i77.i, align 8
-  %31 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 120), i64 %30 monotonic, align 8
+  %31 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120), i64 %30 monotonic, align 8
   %freed11.i78.i = getelementptr inbounds nuw i8, ptr %stats, i64 104
   %32 = load i64, ptr %freed11.i78.i, align 8
-  %33 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 104), i64 %32 monotonic, align 8
+  %33 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 104), i64 %32 monotonic, align 8
   %peak14.i79.i = getelementptr inbounds nuw i8, ptr %stats, i64 112
   %34 = load i64, ptr %peak14.i79.i, align 8
-  %35 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112), i64 %34 monotonic, align 8
+  %35 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112), i64 %34 monotonic, align 8
   br label %if.end.i85.i
 
 if.end.i85.i:                                     ; preds = %if.end4.i76.i, %land.lhs.true.i80.i
@@ -442,16 +442,16 @@ land.lhs.true.i91.i:                              ; preds = %if.end.i85.i
   br i1 %cmp2.i93.i, label %if.end.i96.i, label %if.end4.i87.i
 
 if.end4.i87.i:                                    ; preds = %land.lhs.true.i91.i, %if.end.i85.i
-  %38 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 128), i64 %36 monotonic, align 8
+  %38 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 128), i64 %36 monotonic, align 8
   %current7.i88.i = getelementptr inbounds nuw i8, ptr %stats, i64 152
   %39 = load i64, ptr %current7.i88.i, align 8
-  %40 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 152), i64 %39 monotonic, align 8
+  %40 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 152), i64 %39 monotonic, align 8
   %freed11.i89.i = getelementptr inbounds nuw i8, ptr %stats, i64 136
   %41 = load i64, ptr %freed11.i89.i, align 8
-  %42 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 136), i64 %41 monotonic, align 8
+  %42 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 136), i64 %41 monotonic, align 8
   %peak14.i90.i = getelementptr inbounds nuw i8, ptr %stats, i64 144
   %43 = load i64, ptr %peak14.i90.i, align 8
-  %44 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 144), i64 %43 monotonic, align 8
+  %44 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 144), i64 %43 monotonic, align 8
   br label %if.end.i96.i
 
 if.end.i96.i:                                     ; preds = %if.end4.i87.i, %land.lhs.true.i91.i
@@ -467,16 +467,16 @@ land.lhs.true.i102.i:                             ; preds = %if.end.i96.i
   br i1 %cmp2.i104.i, label %if.end.i107.i, label %if.end4.i98.i
 
 if.end4.i98.i:                                    ; preds = %land.lhs.true.i102.i, %if.end.i96.i
-  %47 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 160), i64 %45 monotonic, align 8
+  %47 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 160), i64 %45 monotonic, align 8
   %current7.i99.i = getelementptr inbounds nuw i8, ptr %stats, i64 184
   %48 = load i64, ptr %current7.i99.i, align 8
-  %49 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 184), i64 %48 monotonic, align 8
+  %49 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 184), i64 %48 monotonic, align 8
   %freed11.i100.i = getelementptr inbounds nuw i8, ptr %stats, i64 168
   %50 = load i64, ptr %freed11.i100.i, align 8
-  %51 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 168), i64 %50 monotonic, align 8
+  %51 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 168), i64 %50 monotonic, align 8
   %peak14.i101.i = getelementptr inbounds nuw i8, ptr %stats, i64 176
   %52 = load i64, ptr %peak14.i101.i, align 8
-  %53 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 176), i64 %52 monotonic, align 8
+  %53 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 176), i64 %52 monotonic, align 8
   br label %if.end.i107.i
 
 if.end.i107.i:                                    ; preds = %if.end4.i98.i, %land.lhs.true.i102.i
@@ -492,16 +492,16 @@ land.lhs.true.i113.i:                             ; preds = %if.end.i107.i
   br i1 %cmp2.i115.i, label %if.end.i118.i, label %if.end4.i109.i
 
 if.end4.i109.i:                                   ; preds = %land.lhs.true.i113.i, %if.end.i107.i
-  %56 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 192), i64 %54 monotonic, align 8
+  %56 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 192), i64 %54 monotonic, align 8
   %current7.i110.i = getelementptr inbounds nuw i8, ptr %stats, i64 216
   %57 = load i64, ptr %current7.i110.i, align 8
-  %58 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 216), i64 %57 monotonic, align 8
+  %58 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 216), i64 %57 monotonic, align 8
   %freed11.i111.i = getelementptr inbounds nuw i8, ptr %stats, i64 200
   %59 = load i64, ptr %freed11.i111.i, align 8
-  %60 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 200), i64 %59 monotonic, align 8
+  %60 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 200), i64 %59 monotonic, align 8
   %peak14.i112.i = getelementptr inbounds nuw i8, ptr %stats, i64 208
   %61 = load i64, ptr %peak14.i112.i, align 8
-  %62 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 208), i64 %61 monotonic, align 8
+  %62 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 208), i64 %61 monotonic, align 8
   br label %if.end.i118.i
 
 if.end.i118.i:                                    ; preds = %if.end4.i109.i, %land.lhs.true.i113.i
@@ -517,16 +517,16 @@ land.lhs.true.i124.i:                             ; preds = %if.end.i118.i
   br i1 %cmp2.i126.i, label %if.end.i129.i, label %if.end4.i120.i
 
 if.end4.i120.i:                                   ; preds = %land.lhs.true.i124.i, %if.end.i118.i
-  %65 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 256), i64 %63 monotonic, align 8
+  %65 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 256), i64 %63 monotonic, align 8
   %current7.i121.i = getelementptr inbounds nuw i8, ptr %stats, i64 280
   %66 = load i64, ptr %current7.i121.i, align 8
-  %67 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 280), i64 %66 monotonic, align 8
+  %67 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 280), i64 %66 monotonic, align 8
   %freed11.i122.i = getelementptr inbounds nuw i8, ptr %stats, i64 264
   %68 = load i64, ptr %freed11.i122.i, align 8
-  %69 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 264), i64 %68 monotonic, align 8
+  %69 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 264), i64 %68 monotonic, align 8
   %peak14.i123.i = getelementptr inbounds nuw i8, ptr %stats, i64 272
   %70 = load i64, ptr %peak14.i123.i, align 8
-  %71 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 272), i64 %70 monotonic, align 8
+  %71 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 272), i64 %70 monotonic, align 8
   br label %if.end.i129.i
 
 if.end.i129.i:                                    ; preds = %if.end4.i120.i, %land.lhs.true.i124.i
@@ -542,16 +542,16 @@ land.lhs.true.i135.i:                             ; preds = %if.end.i129.i
   br i1 %cmp2.i137.i, label %if.end.i140.i, label %if.end4.i131.i
 
 if.end4.i131.i:                                   ; preds = %land.lhs.true.i135.i, %if.end.i129.i
-  %74 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 224), i64 %72 monotonic, align 8
+  %74 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 224), i64 %72 monotonic, align 8
   %current7.i132.i = getelementptr inbounds nuw i8, ptr %stats, i64 248
   %75 = load i64, ptr %current7.i132.i, align 8
-  %76 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 248), i64 %75 monotonic, align 8
+  %76 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 248), i64 %75 monotonic, align 8
   %freed11.i133.i = getelementptr inbounds nuw i8, ptr %stats, i64 232
   %77 = load i64, ptr %freed11.i133.i, align 8
-  %78 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 232), i64 %77 monotonic, align 8
+  %78 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 232), i64 %77 monotonic, align 8
   %peak14.i134.i = getelementptr inbounds nuw i8, ptr %stats, i64 240
   %79 = load i64, ptr %peak14.i134.i, align 8
-  %80 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 240), i64 %79 monotonic, align 8
+  %80 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 240), i64 %79 monotonic, align 8
   br label %if.end.i140.i
 
 if.end.i140.i:                                    ; preds = %if.end4.i131.i, %land.lhs.true.i135.i
@@ -567,16 +567,16 @@ land.lhs.true.i146.i:                             ; preds = %if.end.i140.i
   br i1 %cmp2.i148.i, label %if.end.i151.i, label %if.end4.i142.i
 
 if.end4.i142.i:                                   ; preds = %land.lhs.true.i146.i, %if.end.i140.i
-  %83 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 288), i64 %81 monotonic, align 8
+  %83 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 %81 monotonic, align 8
   %current7.i143.i = getelementptr inbounds nuw i8, ptr %stats, i64 312
   %84 = load i64, ptr %current7.i143.i, align 8
-  %85 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 312), i64 %84 monotonic, align 8
+  %85 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 312), i64 %84 monotonic, align 8
   %freed11.i144.i = getelementptr inbounds nuw i8, ptr %stats, i64 296
   %86 = load i64, ptr %freed11.i144.i, align 8
-  %87 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 296), i64 %86 monotonic, align 8
+  %87 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 296), i64 %86 monotonic, align 8
   %peak14.i145.i = getelementptr inbounds nuw i8, ptr %stats, i64 304
   %88 = load i64, ptr %peak14.i145.i, align 8
-  %89 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304), i64 %88 monotonic, align 8
+  %89 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304), i64 %88 monotonic, align 8
   br label %if.end.i151.i
 
 if.end.i151.i:                                    ; preds = %if.end4.i142.i, %land.lhs.true.i146.i
@@ -592,16 +592,16 @@ land.lhs.true.i157.i:                             ; preds = %if.end.i151.i
   br i1 %cmp2.i159.i, label %if.end.i162.i, label %if.end4.i153.i
 
 if.end4.i153.i:                                   ; preds = %land.lhs.true.i157.i, %if.end.i151.i
-  %92 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 416), i64 %90 monotonic, align 8
+  %92 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 416), i64 %90 monotonic, align 8
   %current7.i154.i = getelementptr inbounds nuw i8, ptr %stats, i64 440
   %93 = load i64, ptr %current7.i154.i, align 8
-  %94 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 440), i64 %93 monotonic, align 8
+  %94 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 440), i64 %93 monotonic, align 8
   %freed11.i155.i = getelementptr inbounds nuw i8, ptr %stats, i64 424
   %95 = load i64, ptr %freed11.i155.i, align 8
-  %96 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 424), i64 %95 monotonic, align 8
+  %96 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 424), i64 %95 monotonic, align 8
   %peak14.i156.i = getelementptr inbounds nuw i8, ptr %stats, i64 432
   %97 = load i64, ptr %peak14.i156.i, align 8
-  %98 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 432), i64 %97 monotonic, align 8
+  %98 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 432), i64 %97 monotonic, align 8
   br label %if.end.i162.i
 
 if.end.i162.i:                                    ; preds = %if.end4.i153.i, %land.lhs.true.i157.i
@@ -617,16 +617,16 @@ land.lhs.true.i168.i:                             ; preds = %if.end.i162.i
   br i1 %cmp2.i170.i, label %if.end.i173.i, label %if.end4.i164.i
 
 if.end4.i164.i:                                   ; preds = %land.lhs.true.i168.i, %if.end.i162.i
-  %101 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 448), i64 %99 monotonic, align 8
+  %101 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 448), i64 %99 monotonic, align 8
   %current7.i165.i = getelementptr inbounds nuw i8, ptr %stats, i64 472
   %102 = load i64, ptr %current7.i165.i, align 8
-  %103 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 472), i64 %102 monotonic, align 8
+  %103 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 472), i64 %102 monotonic, align 8
   %freed11.i166.i = getelementptr inbounds nuw i8, ptr %stats, i64 456
   %104 = load i64, ptr %freed11.i166.i, align 8
-  %105 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 456), i64 %104 monotonic, align 8
+  %105 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 456), i64 %104 monotonic, align 8
   %peak14.i167.i = getelementptr inbounds nuw i8, ptr %stats, i64 464
   %106 = load i64, ptr %peak14.i167.i, align 8
-  %107 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 464), i64 %106 monotonic, align 8
+  %107 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 464), i64 %106 monotonic, align 8
   br label %if.end.i173.i
 
 if.end.i173.i:                                    ; preds = %if.end4.i164.i, %land.lhs.true.i168.i
@@ -642,16 +642,16 @@ land.lhs.true.i179.i:                             ; preds = %if.end.i173.i
   br i1 %cmp2.i181.i, label %if.end.i184.i, label %if.end4.i175.i
 
 if.end4.i175.i:                                   ; preds = %land.lhs.true.i179.i, %if.end.i173.i
-  %110 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 320), i64 %108 monotonic, align 8
+  %110 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 320), i64 %108 monotonic, align 8
   %current7.i176.i = getelementptr inbounds nuw i8, ptr %stats, i64 344
   %111 = load i64, ptr %current7.i176.i, align 8
-  %112 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 344), i64 %111 monotonic, align 8
+  %112 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 344), i64 %111 monotonic, align 8
   %freed11.i177.i = getelementptr inbounds nuw i8, ptr %stats, i64 328
   %113 = load i64, ptr %freed11.i177.i, align 8
-  %114 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 328), i64 %113 monotonic, align 8
+  %114 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 328), i64 %113 monotonic, align 8
   %peak14.i178.i = getelementptr inbounds nuw i8, ptr %stats, i64 336
   %115 = load i64, ptr %peak14.i178.i, align 8
-  %116 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 336), i64 %115 monotonic, align 8
+  %116 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 336), i64 %115 monotonic, align 8
   br label %if.end.i184.i
 
 if.end.i184.i:                                    ; preds = %if.end4.i175.i, %land.lhs.true.i179.i
@@ -667,16 +667,16 @@ land.lhs.true.i190.i:                             ; preds = %if.end.i184.i
   br i1 %cmp2.i192.i, label %if.end.i195.i, label %if.end4.i186.i
 
 if.end4.i186.i:                                   ; preds = %land.lhs.true.i190.i, %if.end.i184.i
-  %119 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 352), i64 %117 monotonic, align 8
+  %119 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 352), i64 %117 monotonic, align 8
   %current7.i187.i = getelementptr inbounds nuw i8, ptr %stats, i64 376
   %120 = load i64, ptr %current7.i187.i, align 8
-  %121 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 376), i64 %120 monotonic, align 8
+  %121 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 376), i64 %120 monotonic, align 8
   %freed11.i188.i = getelementptr inbounds nuw i8, ptr %stats, i64 360
   %122 = load i64, ptr %freed11.i188.i, align 8
-  %123 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 360), i64 %122 monotonic, align 8
+  %123 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 360), i64 %122 monotonic, align 8
   %peak14.i189.i = getelementptr inbounds nuw i8, ptr %stats, i64 368
   %124 = load i64, ptr %peak14.i189.i, align 8
-  %125 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 368), i64 %124 monotonic, align 8
+  %125 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 368), i64 %124 monotonic, align 8
   br label %if.end.i195.i
 
 if.end.i195.i:                                    ; preds = %if.end4.i186.i, %land.lhs.true.i190.i
@@ -692,79 +692,79 @@ land.lhs.true.i201.i:                             ; preds = %if.end.i195.i
   br i1 %cmp2.i203.i, label %mi_stats_add.exit, label %if.end4.i197.i
 
 if.end4.i197.i:                                   ; preds = %land.lhs.true.i201.i, %if.end.i195.i
-  %128 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 384), i64 %126 monotonic, align 8
+  %128 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 384), i64 %126 monotonic, align 8
   %current7.i198.i = getelementptr inbounds nuw i8, ptr %stats, i64 408
   %129 = load i64, ptr %current7.i198.i, align 8
-  %130 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 408), i64 %129 monotonic, align 8
+  %130 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 408), i64 %129 monotonic, align 8
   %freed11.i199.i = getelementptr inbounds nuw i8, ptr %stats, i64 392
   %131 = load i64, ptr %freed11.i199.i, align 8
-  %132 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 392), i64 %131 monotonic, align 8
+  %132 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 392), i64 %131 monotonic, align 8
   %peak14.i200.i = getelementptr inbounds nuw i8, ptr %stats, i64 400
   %133 = load i64, ptr %peak14.i200.i, align 8
-  %134 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 400), i64 %133 monotonic, align 8
+  %134 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 400), i64 %133 monotonic, align 8
   br label %mi_stats_add.exit
 
 mi_stats_add.exit:                                ; preds = %land.lhs.true.i201.i, %if.end4.i197.i
   %pages_extended16.i = getelementptr inbounds nuw i8, ptr %stats, i64 480
   %135 = load i64, ptr %pages_extended16.i, align 8
-  %136 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 480), i64 %135 monotonic, align 8
+  %136 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 480), i64 %135 monotonic, align 8
   %count2.i.i = getelementptr inbounds nuw i8, ptr %stats, i64 488
   %137 = load i64, ptr %count2.i.i, align 8
-  %138 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 488), i64 %137 monotonic, align 8
+  %138 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 488), i64 %137 monotonic, align 8
   %mmap_calls17.i = getelementptr inbounds nuw i8, ptr %stats, i64 496
   %139 = load i64, ptr %mmap_calls17.i, align 8
-  %140 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 496), i64 %139 monotonic, align 8
+  %140 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 496), i64 %139 monotonic, align 8
   %count2.i209.i = getelementptr inbounds nuw i8, ptr %stats, i64 504
   %141 = load i64, ptr %count2.i209.i, align 8
-  %142 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 504), i64 %141 monotonic, align 8
+  %142 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 504), i64 %141 monotonic, align 8
   %commit_calls18.i = getelementptr inbounds nuw i8, ptr %stats, i64 512
   %143 = load i64, ptr %commit_calls18.i, align 8
-  %144 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 512), i64 %143 monotonic, align 8
+  %144 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 512), i64 %143 monotonic, align 8
   %count2.i213.i = getelementptr inbounds nuw i8, ptr %stats, i64 520
   %145 = load i64, ptr %count2.i213.i, align 8
-  %146 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 520), i64 %145 monotonic, align 8
+  %146 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 520), i64 %145 monotonic, align 8
   %reset_calls19.i = getelementptr inbounds nuw i8, ptr %stats, i64 528
   %147 = load i64, ptr %reset_calls19.i, align 8
-  %148 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 528), i64 %147 monotonic, align 8
+  %148 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 528), i64 %147 monotonic, align 8
   %count2.i217.i = getelementptr inbounds nuw i8, ptr %stats, i64 536
   %149 = load i64, ptr %count2.i217.i, align 8
-  %150 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 536), i64 %149 monotonic, align 8
+  %150 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 536), i64 %149 monotonic, align 8
   %purge_calls20.i = getelementptr inbounds nuw i8, ptr %stats, i64 544
   %151 = load i64, ptr %purge_calls20.i, align 8
-  %152 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 544), i64 %151 monotonic, align 8
+  %152 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 544), i64 %151 monotonic, align 8
   %count2.i221.i = getelementptr inbounds nuw i8, ptr %stats, i64 552
   %153 = load i64, ptr %count2.i221.i, align 8
-  %154 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 552), i64 %153 monotonic, align 8
+  %154 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 552), i64 %153 monotonic, align 8
   %page_no_retire21.i = getelementptr inbounds nuw i8, ptr %stats, i64 560
   %155 = load i64, ptr %page_no_retire21.i, align 8
-  %156 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 560), i64 %155 monotonic, align 8
+  %156 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 560), i64 %155 monotonic, align 8
   %count2.i225.i = getelementptr inbounds nuw i8, ptr %stats, i64 568
   %157 = load i64, ptr %count2.i225.i, align 8
-  %158 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 568), i64 %157 monotonic, align 8
+  %158 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 568), i64 %157 monotonic, align 8
   %searches22.i = getelementptr inbounds nuw i8, ptr %stats, i64 576
   %159 = load i64, ptr %searches22.i, align 8
-  %160 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 576), i64 %159 monotonic, align 8
+  %160 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 576), i64 %159 monotonic, align 8
   %count2.i229.i = getelementptr inbounds nuw i8, ptr %stats, i64 584
   %161 = load i64, ptr %count2.i229.i, align 8
-  %162 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 584), i64 %161 monotonic, align 8
+  %162 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 584), i64 %161 monotonic, align 8
   %normal_count23.i = getelementptr inbounds nuw i8, ptr %stats, i64 592
   %163 = load i64, ptr %normal_count23.i, align 8
-  %164 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 592), i64 %163 monotonic, align 8
+  %164 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 592), i64 %163 monotonic, align 8
   %count2.i233.i = getelementptr inbounds nuw i8, ptr %stats, i64 600
   %165 = load i64, ptr %count2.i233.i, align 8
-  %166 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 600), i64 %165 monotonic, align 8
+  %166 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 600), i64 %165 monotonic, align 8
   %huge_count24.i = getelementptr inbounds nuw i8, ptr %stats, i64 608
   %167 = load i64, ptr %huge_count24.i, align 8
-  %168 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 608), i64 %167 monotonic, align 8
+  %168 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 608), i64 %167 monotonic, align 8
   %count2.i237.i = getelementptr inbounds nuw i8, ptr %stats, i64 616
   %169 = load i64, ptr %count2.i237.i, align 8
-  %170 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 616), i64 %169 monotonic, align 8
+  %170 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 616), i64 %169 monotonic, align 8
   %large_count25.i = getelementptr inbounds nuw i8, ptr %stats, i64 624
   %171 = load i64, ptr %large_count25.i, align 8
-  %172 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 624), i64 %171 monotonic, align 8
+  %172 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 624), i64 %171 monotonic, align 8
   %count2.i241.i = getelementptr inbounds nuw i8, ptr %stats, i64 632
   %173 = load i64, ptr %count2.i241.i, align 8
-  %174 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 632), i64 %173 monotonic, align 8
+  %174 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 632), i64 %173 monotonic, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(640) %stats, i8 0, i64 640, i1 false)
   br label %if.end
 
@@ -900,10 +900,10 @@ _mi_os_numa_node_count.exit:                      ; preds = %mi_stat_counter_pri
   %15 = add i64 %13, %14
   %sub1.i.i = sub i64 %call.i.i.i, %15
   store i64 %sub1.i.i, ptr %pinfo.i, align 8
-  %16 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 120) monotonic, align 8
+  %16 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120) monotonic, align 8
   %current_commit1.i = getelementptr inbounds nuw i8, ptr %pinfo.i, i64 40
   store i64 %16, ptr %current_commit1.i, align 8
-  %17 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
+  %17 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
   %peak_commit3.i = getelementptr inbounds nuw i8, ptr %pinfo.i, i64 48
   store i64 %17, ptr %peak_commit3.i, align 8
   %current_rss5.i = getelementptr inbounds nuw i8, ptr %pinfo.i, i64 24
@@ -999,10 +999,10 @@ entry:
   %3 = add i64 %1, %2
   %sub1.i = sub i64 %call.i.i, %3
   store i64 %sub1.i, ptr %pinfo, align 8
-  %4 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 120) monotonic, align 8
+  %4 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120) monotonic, align 8
   %current_commit1 = getelementptr inbounds nuw i8, ptr %pinfo, i64 40
   store i64 %4, ptr %current_commit1, align 8
-  %5 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
+  %5 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
   %peak_commit3 = getelementptr inbounds nuw i8, ptr %pinfo, i64 48
   store i64 %5, ptr %peak_commit3, align 8
   %current_rss5 = getelementptr inbounds nuw i8, ptr %pinfo, i64 24

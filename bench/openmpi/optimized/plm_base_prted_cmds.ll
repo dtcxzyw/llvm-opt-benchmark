@@ -45,7 +45,7 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef i32 @prte_plm_base_prted_exit(i8 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = alloca %struct.pmix_data_buffer, align 8
   %3 = alloca i8, align 1
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @prte_plm_base_framework, i64 76), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_plm_base_framework, i64 76), align 4
   %or.cond33 = icmp ult i32 %4, 64
   br i1 %or.cond33, label %5, label %12
 
@@ -105,10 +105,10 @@ define noundef i32 @prte_plm_base_prted_exit(i8 noundef zeroext %0) local_unname
   br label %80
 
 30:                                               ; preds = %25
-  %31 = load i64, ptr getelementptr inbounds (i8, ptr @prte_grpcomm_signature_t_class, i64 56), align 8
+  %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prte_grpcomm_signature_t_class, i64 56), align 8
   %32 = call noalias noundef ptr @malloc(i64 noundef %31) #10
   %33 = load i32, ptr @pmix_class_init_epoch, align 4
-  %34 = load i32, ptr getelementptr inbounds (i8, ptr @prte_grpcomm_signature_t_class, i64 32), align 8
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_grpcomm_signature_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %33, %34
   br i1 %.not.i, label %36, label %35
 
@@ -249,7 +249,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 define noundef i32 @prte_plm_base_prted_terminate_job(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.pmix_pointer_array_t, align 8
   %3 = alloca %struct.prte_proc_t, align 8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @prte_plm_base_framework, i64 76), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_plm_base_framework, i64 76), align 4
   %or.cond7 = icmp ult i32 %4, 64
   br i1 %or.cond7, label %5, label %13
 
@@ -268,7 +268,7 @@ define noundef i32 @prte_plm_base_prted_terminate_job(ptr noundef %0) local_unna
 
 13:                                               ; preds = %1, %5, %10
   %14 = load i32, ptr @pmix_class_init_epoch, align 4
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_pointer_array_t_class, i64 32), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_pointer_array_t_class, i64 32), align 8
   %.not = icmp eq i32 %14, %15
   br i1 %.not, label %17, label %16
 
@@ -300,7 +300,7 @@ define noundef i32 @prte_plm_base_prted_terminate_job(ptr noundef %0) local_unna
 pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %17
   %26 = call i32 @pmix_pointer_array_init(ptr noundef nonnull %2, i32 noundef 1, i32 noundef 1, i32 noundef 1) #9
   %27 = load i32, ptr @pmix_class_init_epoch, align 4
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @prte_proc_t_class, i64 32), align 8
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_proc_t_class, i64 32), align 8
   %.not6 = icmp eq i32 %27, %28
   br i1 %.not6, label %30, label %29
 
@@ -395,7 +395,7 @@ define noundef i32 @prte_plm_base_prted_kill_local_procs(ptr noundef readonly %0
   %2 = alloca %struct.pmix_data_buffer, align 8
   %3 = alloca i8, align 1
   store i8 2, ptr %3, align 1
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @prte_plm_base_framework, i64 76), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_plm_base_framework, i64 76), align 4
   %or.cond50 = icmp ult i32 %4, 64
   br i1 %or.cond50, label %5, label %12
 
@@ -480,10 +480,10 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   br i1 %35, label %pmix_pointer_array_get_item.exit, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %32, %.preheader, %17
-  %36 = load i64, ptr getelementptr inbounds (i8, ptr @prte_grpcomm_signature_t_class, i64 56), align 8
+  %36 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prte_grpcomm_signature_t_class, i64 56), align 8
   %37 = call noalias noundef ptr @malloc(i64 noundef %36) #10
   %38 = load i32, ptr @pmix_class_init_epoch, align 4
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @prte_grpcomm_signature_t_class, i64 32), align 8
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_grpcomm_signature_t_class, i64 32), align 8
   %.not.i51 = icmp eq i32 %38, %39
   br i1 %.not.i51, label %41, label %40
 
@@ -607,7 +607,7 @@ define noundef i32 @prte_plm_base_prted_signal_local_procs(ptr noundef %0, i32 n
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   store i8 3, ptr %6, align 1
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @prte_plm_base_framework, i64 76), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_plm_base_framework, i64 76), align 4
   %or.cond45 = icmp ult i32 %7, 64
   br i1 %or.cond45, label %8, label %15
 
@@ -673,10 +673,10 @@ define noundef i32 @prte_plm_base_prted_signal_local_procs(ptr noundef %0, i32 n
   br label %80
 
 30:                                               ; preds = %25
-  %31 = load i64, ptr getelementptr inbounds (i8, ptr @prte_grpcomm_signature_t_class, i64 56), align 8
+  %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prte_grpcomm_signature_t_class, i64 56), align 8
   %32 = call noalias noundef ptr @malloc(i64 noundef %31) #10
   %33 = load i32, ptr @pmix_class_init_epoch, align 4
-  %34 = load i32, ptr getelementptr inbounds (i8, ptr @prte_grpcomm_signature_t_class, i64 32), align 8
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_grpcomm_signature_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %33, %34
   br i1 %.not.i, label %36, label %35
 

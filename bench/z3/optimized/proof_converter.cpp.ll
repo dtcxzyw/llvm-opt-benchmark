@@ -132,7 +132,7 @@ _ZN22concat_proof_converterC2EP15proof_converterS1_.exit: ; preds = %if.end
   %1 = load i32, ptr %m_ref_count.i.i.i4.i.i, align 8
   %inc.i.i.i5.i.i = add i32 %1, 1
   store i32 %inc.i.i.i5.i.i, ptr %m_ref_count.i.i.i4.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22concat_proof_converter, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22concat_proof_converter, i64 16), ptr %call, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %_ZN22concat_proof_converterC2EP15proof_converterS1_.exit
@@ -152,7 +152,7 @@ _ZN8proof2pcC2ER11ast_managerP3app.exit:          ; preds = %entry
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
   %m_ref_count.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 0, ptr %m_ref_count.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8proof2pc, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8proof2pc, i64 16), ptr %call, align 8
   %m_pr.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %pr, ptr %m_pr.i, align 8
   %m_manager.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
@@ -560,7 +560,7 @@ _ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EED2Ev.exit:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN22concat_proof_converterD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16concat_converterI15proof_converterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16concat_converterI15proof_converterE, i64 16), ptr %this, align 8
   %m_c2.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_c2.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -623,7 +623,7 @@ _ZN16concat_converterI15proof_converterED2Ev.exit: ; preds = %_ZN3refI15proof_co
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN22concat_proof_converterD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16concat_converterI15proof_converterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16concat_converterI15proof_converterE, i64 16), ptr %this, align 8
   %m_c2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_c2.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -827,7 +827,7 @@ if.then.i.i3.i.i.i:                               ; preds = %invoke.cont.i.i.i
   br label %_ZN16concat_converterI15proof_converterE14translate_coreI22concat_proof_converterEEPS0_R15ast_translation.exit
 
 _ZN16concat_converterI15proof_converterE14translate_coreI22concat_proof_converterEEPS0_R15ast_translation.exit: ; preds = %invoke.cont.i.i.i, %if.then.i.i3.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22concat_proof_converter, i64 16), ptr %call7.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22concat_proof_converter, i64 16), ptr %call7.i, align 8
   ret ptr %call7.i
 }
 
@@ -840,7 +840,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN16concat_converterI15proof_converterED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16concat_converterI15proof_converterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16concat_converterI15proof_converterE, i64 16), ptr %this, align 8
   %m_c2 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_c2, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -938,7 +938,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8proof2pcD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8proof2pc, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8proof2pc, i64 16), ptr %this, align 8
   %m_pr = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_pr, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -972,7 +972,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8proof2pcD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8proof2pc, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8proof2pc, i64 16), ptr %this, align 8
   %m_pr.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_pr.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -1078,7 +1078,7 @@ _ZN15ast_translationclI3appEEPT_PKS2_.exit:       ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi ptr [ %call3.i.i, %if.end.i.i ], [ %1, %entry ]
   %m_ref_count.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 0, ptr %m_ref_count.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8proof2pc, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8proof2pc, i64 16), ptr %call, align 8
   %m_pr.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %retval.0.i.i, ptr %m_pr.i, align 8
   %m_manager.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24

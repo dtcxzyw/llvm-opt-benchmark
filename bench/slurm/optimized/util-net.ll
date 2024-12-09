@@ -326,7 +326,7 @@ define ptr @xgetaddrinfo(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.addrinfo, align 8
   store ptr null, ptr %3, align 8
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 244), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 244), align 4
   %6 = zext i32 %5 to i64
   %7 = and i64 %6, 64
   %.not.not = icmp eq i64 %7, 0
@@ -482,7 +482,7 @@ declare void @list_destroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define ptr @xgetnameinfo(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 382), align 2
+  %3 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 382), align 2
   %.not = icmp eq i16 %3, 0
   br i1 %.not, label %4, label %6
 
@@ -539,7 +539,7 @@ define ptr @xgetnameinfo(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   unreachable
 
 29:                                               ; preds = %22
-  %30 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %30 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %31 = and i64 %30, 1024
   %.not53 = icmp eq i64 %31, 0
   br i1 %.not53, label %71, label %32
@@ -588,12 +588,12 @@ define ptr @xgetnameinfo(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @slurm_xfree(ptr noundef nonnull %47) #13
   %48 = tail call ptr @xstrdup(ptr noundef nonnull %46) #13
   store ptr %48, ptr %47, align 8
-  %49 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 382), align 2
+  %49 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 382), align 2
   %50 = zext i16 %49 to i64
   %51 = add nsw i64 %11, %50
   %52 = getelementptr inbounds nuw i8, ptr %.036, i64 32
   store i64 %51, ptr %52, align 8
-  %53 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %53 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %54 = and i64 %53, 1024
   %.not50 = icmp eq i64 %54, 0
   br i1 %.not46, label %55, label %62

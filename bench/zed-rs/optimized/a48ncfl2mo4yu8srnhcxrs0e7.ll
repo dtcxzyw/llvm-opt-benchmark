@@ -3282,7 +3282,7 @@ define void @_ZN4text7locator7Locator3max17hb4aed31a795de577E(ptr dead_on_unwind
 define noundef nonnull align 8 dereferenceable(40) ptr @_ZN4text7locator7Locator7min_ref17h1778a13c79369ef9E() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca [8 x i8], align 8
   %2 = alloca [8 x i8], align 8
-  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN4text7locator3MIN17h5b18a3bc6606d0fbE.llvm.4959952686000743593, i64 40) acquire, align 8, !noalias !618
+  %3 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4text7locator3MIN17h5b18a3bc6606d0fbE.llvm.4959952686000743593, i64 40) acquire, align 8, !noalias !618
   %4 = icmp eq i32 %3, 4
   br i1 %4, label %_ZN3std4sync4once4Once9call_once17hff866734428a71c4E.llvm.4959952686000743593.exit, label %5
 
@@ -3291,7 +3291,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN4text7locator7Locator
   store ptr @_ZN4text7locator3MIN17h5b18a3bc6606d0fbE.llvm.4959952686000743593, ptr %2, align 8, !noalias !618
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1), !noalias !618
   store ptr %2, ptr %1, align 8, !noalias !618
-  call void @_ZN3std3sys4sync4once5futex4Once4call17h27df73aa60d9bd30E.llvm.4959952686000743593(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN4text7locator3MIN17h5b18a3bc6606d0fbE.llvm.4959952686000743593, i64 40), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d2b4a1bb8d1530ace1348bab1ee98896.75.llvm.4959952686000743593)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17h27df73aa60d9bd30E.llvm.4959952686000743593(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN4text7locator3MIN17h5b18a3bc6606d0fbE.llvm.4959952686000743593, i64 40), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d2b4a1bb8d1530ace1348bab1ee98896.75.llvm.4959952686000743593)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1), !noalias !618
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !618
   br label %_ZN3std4sync4once4Once9call_once17hff866734428a71c4E.llvm.4959952686000743593.exit
@@ -3304,7 +3304,7 @@ _ZN3std4sync4once4Once9call_once17hff866734428a71c4E.llvm.4959952686000743593.ex
 define noundef nonnull align 8 dereferenceable(40) ptr @_ZN4text7locator7Locator7max_ref17h7dce1558691a3f24E() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca [8 x i8], align 8
   %2 = alloca [8 x i8], align 8
-  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN4text7locator3MAX17h3d9144d35b9a4610E.llvm.4959952686000743593, i64 40) acquire, align 8, !noalias !621
+  %3 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4text7locator3MAX17h3d9144d35b9a4610E.llvm.4959952686000743593, i64 40) acquire, align 8, !noalias !621
   %4 = icmp eq i32 %3, 4
   br i1 %4, label %_ZN3std4sync4once4Once9call_once17hff866734428a71c4E.llvm.4959952686000743593.exit, label %5
 
@@ -3313,7 +3313,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN4text7locator7Locator
   store ptr @_ZN4text7locator3MAX17h3d9144d35b9a4610E.llvm.4959952686000743593, ptr %2, align 8, !noalias !621
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1), !noalias !621
   store ptr %2, ptr %1, align 8, !noalias !621
-  call void @_ZN3std3sys4sync4once5futex4Once4call17h27df73aa60d9bd30E.llvm.4959952686000743593(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN4text7locator3MAX17h3d9144d35b9a4610E.llvm.4959952686000743593, i64 40), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d2b4a1bb8d1530ace1348bab1ee98896.75.llvm.4959952686000743593)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17h27df73aa60d9bd30E.llvm.4959952686000743593(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN4text7locator3MAX17h3d9144d35b9a4610E.llvm.4959952686000743593, i64 40), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d2b4a1bb8d1530ace1348bab1ee98896.75.llvm.4959952686000743593)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1), !noalias !621
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !621
   br label %_ZN3std4sync4once4Once9call_once17hff866734428a71c4E.llvm.4959952686000743593.exit

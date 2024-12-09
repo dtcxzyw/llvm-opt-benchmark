@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden zeroext i1 @_mi_os_has_overcommit() local_unnamed_addr #0 {
 entry:
-  %0 = load i8, ptr getelementptr inbounds (i8, ptr @mi_os_mem_config, i64 24), align 8
+  %0 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mi_os_mem_config, i64 24), align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
@@ -42,7 +42,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden zeroext i1 @_mi_os_has_virtual_reserve() local_unnamed_addr #0 {
 entry:
-  %0 = load i8, ptr getelementptr inbounds (i8, ptr @mi_os_mem_config, i64 26), align 2
+  %0 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mi_os_mem_config, i64 26), align 2
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
@@ -57,7 +57,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden i64 @_mi_os_large_page_size() local_unnamed_addr #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @mi_os_mem_config, i64 8), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mi_os_mem_config, i64 8), align 8
   %cmp.not = icmp eq i64 %0, 0
   %1 = load i64, ptr @mi_os_mem_config, align 8
   %spec.select = select i1 %cmp.not, i64 %1, i64 %0
@@ -67,7 +67,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @_mi_os_use_large_page(i64 noundef %size, i64 noundef %alignment) local_unnamed_addr #1 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @mi_os_mem_config, i64 8), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mi_os_mem_config, i64 8), align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %return, label %lor.lhs.false
 
@@ -76,7 +76,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @mi_os_mem_config, i64 8), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mi_os_mem_config, i64 8), align 8
   %rem = urem i64 %size, %1
   %cmp1 = icmp eq i64 %rem, 0
   br i1 %cmp1, label %land.rhs, label %return
@@ -283,8 +283,8 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
   br label %mi_os_prim_free.exit.i
 
 mi_os_prim_free.exit.i:                           ; preds = %if.then3.i.i, %if.end.i.i
-  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 noundef 1073741824) #7
-  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 noundef 1073741824) #7
+  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef 1073741824) #7
+  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 noundef 1073741824) #7
   %sub.i7 = add i64 %size.addr.02.i, -1073741824
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %base.03.i, i64 1073741824
   %cmp2.i = icmp ugt i64 %sub.i7, 1073741823
@@ -309,11 +309,11 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
   br i1 %still_committed, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %if.end4.i
-  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 noundef %csize.0) #7
+  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef %csize.0) #7
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then5.i, %if.end4.i
-  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 noundef %csize.0) #7
+  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 noundef %csize.0) #7
   br label %if.end13
 
 if.end13:                                         ; preds = %mi_os_prim_free.exit.i, %if.end6.i, %if.else, %if.then10, %entry
@@ -341,11 +341,11 @@ if.end4:                                          ; preds = %if.then3, %if.end
   br i1 %still_committed, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end4
-  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 noundef %size) #7
+  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef %size) #7
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then5, %if.end4
-  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 noundef %size) #7
+  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 noundef %size) #7
   br label %return
 
 return:                                           ; preds = %entry, %if.end6
@@ -451,8 +451,8 @@ mi_os_prim_alloc.exit.thread13:                   ; preds = %if.end14.i
   br label %return
 
 mi_os_prim_alloc.exit:                            ; preds = %if.end14.i
-  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 noundef %retval.0.i10) #7
-  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 noundef %retval.0.i10) #7
+  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 noundef %retval.0.i10) #7
+  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef %retval.0.i10) #7
   %.pr = load ptr, ptr %p.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   %cmp2.not = icmp eq ptr %.pr, null
@@ -615,11 +615,11 @@ mi_os_prim_alloc.exit.thread3.i:                  ; preds = %if.end14.i.i
   br label %return
 
 if.then17.i.i:                                    ; preds = %if.end14.i.i
-  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 noundef %retval.0.i.i) #7
+  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 noundef %retval.0.i.i) #7
   br i1 %commit, label %if.then19.i.i, label %mi_os_prim_alloc.exit.i
 
 if.then19.i.i:                                    ; preds = %if.then17.i.i
-  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 noundef %retval.0.i.i) #7
+  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef %retval.0.i.i) #7
   br label %mi_os_prim_alloc.exit.i
 
 mi_os_prim_alloc.exit.i:                          ; preds = %if.then19.i.i, %if.then17.i.i
@@ -650,18 +650,18 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br i1 %commit, label %if.then5.i.i, label %mi_os_prim_free.exit.i
 
 if.then5.i.i:                                     ; preds = %if.end4.i.i
-  call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 noundef %retval.0.i.i) #7
+  call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef %retval.0.i.i) #7
   br label %mi_os_prim_free.exit.i
 
 mi_os_prim_free.exit.i:                           ; preds = %if.then5.i.i, %if.end4.i.i
-  call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 noundef %retval.0.i.i) #7
+  call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 noundef %retval.0.i.i) #7
   %sub17.i = xor i64 %retval.0.i13, -1
   %cmp18.not.i = icmp ult i64 %retval.0.i.i, %sub17.i
   br i1 %cmp18.not.i, label %if.end21.i, label %return
 
 if.end21.i:                                       ; preds = %mi_os_prim_free.exit.i
   %add.i22 = add i64 %retval.0.i.i, %retval.0.i13
-  %11 = load i8, ptr getelementptr inbounds (i8, ptr @mi_os_mem_config, i64 25), align 1
+  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mi_os_mem_config, i64 25), align 1
   %tobool22.i = trunc i8 %11 to i1
   %cmp.i64.i = icmp eq i64 %add.i22, 0
   br i1 %tobool22.i, label %if.then23.i, label %if.else34.i
@@ -695,7 +695,7 @@ mi_os_prim_alloc.exit74.thread8.i:                ; preds = %if.end14.i69.i
   br label %return
 
 mi_os_prim_alloc.exit74.i:                        ; preds = %if.end14.i69.i
-  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 noundef %add.i22) #7
+  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 noundef %add.i22) #7
   %.pr7.i = load ptr, ptr %p.i63.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i63.i)
   %cmp25.i = icmp eq ptr %.pr7.i, null
@@ -742,11 +742,11 @@ mi_os_prim_alloc.exit89.thread13.i:               ; preds = %if.end14.i83.i
   br label %return
 
 if.then17.i85.i:                                  ; preds = %if.end14.i83.i
-  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 noundef %add.i22) #7
+  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 noundef %add.i22) #7
   br i1 %commit, label %if.then19.i88.i, label %mi_os_prim_alloc.exit89.i
 
 if.then19.i88.i:                                  ; preds = %if.then17.i85.i
-  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 noundef %add.i22) #7
+  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef %add.i22) #7
   br label %mi_os_prim_alloc.exit89.i
 
 mi_os_prim_alloc.exit89.i:                        ; preds = %if.then19.i88.i, %if.then17.i85.i
@@ -883,7 +883,7 @@ if.end11:                                         ; preds = %_mi_align_up.exit
 
 if.end4.i.i.i.i:                                  ; preds = %if.end11
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %needs_recommit.i)
-  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 noundef %sub) #7
+  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef %sub) #7
   %3 = load i64, ptr @mi_os_mem_config, align 8
   %4 = ptrtoint ptr %call8 to i64
   %5 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %3)
@@ -937,7 +937,7 @@ return:                                           ; preds = %if.end11, %_mi_os_d
 define hidden noundef zeroext i1 @_mi_os_decommit(ptr noundef %addr, i64 noundef %size, ptr nocapture noundef readnone %tld_stats) local_unnamed_addr #1 {
 entry:
   %needs_recommit = alloca i8, align 1
-  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 noundef %size) #7
+  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef %size) #7
   %cmp1.i.i.i = icmp eq i64 %size, 0
   %cmp2.i.i.i = icmp eq ptr %addr, null
   %or.cond.i.i.i = or i1 %cmp2.i.i.i, %cmp1.i.i.i
@@ -1002,8 +1002,8 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  tail call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 noundef %size) #7
-  tail call void @_mi_stat_counter_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 512), i64 noundef 1) #7
+  tail call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef %size) #7
+  tail call void @_mi_stat_counter_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 512), i64 noundef 1) #7
   %cmp1.i = icmp eq i64 %size, 0
   %cmp2.i = icmp eq ptr %addr, null
   %or.cond.i = or i1 %cmp2.i, %cmp1.i
@@ -1156,7 +1156,7 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.then3:                                         ; preds = %land.lhs.true
   store i8 1, ptr %needs_recommit, align 1
-  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 noundef %size) #7
+  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef %size) #7
   %cmp1.i.i.i = icmp eq i64 %size, 0
   %cmp2.i.i.i = icmp eq ptr %p, null
   %or.cond.i.i.i = or i1 %cmp2.i.i.i, %cmp1.i.i.i
@@ -1467,8 +1467,8 @@ if.end14.us:                                      ; preds = %while.body.us
 
 if.end20.us:                                      ; preds = %if.end14.us
   %inc.us = add nuw i64 %page.050.us, 1
-  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 noundef 1073741824) #7
-  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 noundef 1073741824) #7
+  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef 1073741824) #7
+  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 noundef 1073741824) #7
   %call23.us = call i64 @_mi_clock_end(i64 noundef %call7) #7
   %add.us = add i64 %page.050.us, 2
   %div.us = udiv i64 %call23.us, %add.us
@@ -1533,14 +1533,14 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %if.end.i
-  call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 noundef 1073741824) #7
-  call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 noundef 1073741824) #7
+  call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef 1073741824) #7
+  call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 noundef 1073741824) #7
   br label %while.end
 
 if.end20:                                         ; preds = %if.end14
   %inc = add nuw i64 %page.050, 1
-  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 noundef 1073741824) #7
-  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 noundef 1073741824) #7
+  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef 1073741824) #7
+  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 noundef 1073741824) #7
   %exitcond.not = icmp eq i64 %inc, %pages
   br i1 %exitcond.not, label %while.end, label %while.body, !llvm.loop !7
 

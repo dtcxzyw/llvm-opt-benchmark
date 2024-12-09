@@ -62,7 +62,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef nonnull ptr @freezer_css_alloc(ptr nocapture readnone %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(208) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 208) #9
   %4 = icmp eq ptr %3, null
   %5 = select i1 %4, ptr inttoptr (i64 -12 to ptr), ptr %3
@@ -189,7 +189,7 @@ define internal void @freezer_fork(ptr noundef %0) #0 align 16 {
   %3 = load volatile ptr, ptr %2, align 32
   %4 = getelementptr i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @init_css_set, i64 40), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_css_set, i64 40), align 8
   %7 = icmp eq ptr %5, %6
   br i1 %7, label %19, label %8
 

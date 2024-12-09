@@ -180,7 +180,7 @@ define i32 @acct_gather_interconnect_p_node_update() local_unnamed_addr #0 {
 16:                                               ; preds = %12
   %17 = call i32 @acct_gather_profile_g_create_dataset(ptr noundef nonnull @.str.17, i64 noundef -1, ptr noundef nonnull %2) #9
   store i32 %17, ptr @_update.dataset_id, align 4
-  %18 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %19 = and i64 %18, 4194304
   %.not.i = icmp eq i64 %19, 0
   br i1 %.not.i, label %25, label %20

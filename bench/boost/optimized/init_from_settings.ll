@@ -6543,12 +6543,12 @@ define linkonce_odr hidden void @_ZN5boost11make_sharedINS_3log11v2_mt_posix9ano
   store i32 1, ptr %14, align 8, !tbaa !282
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 1, ptr %15, align 4, !tbaa !285
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous30default_text_file_sink_factoryIcEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %2, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous30default_text_file_sink_factoryIcEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %2, align 8, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr null, ptr %16, align 8, !tbaa !286
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9anonymous30default_text_file_sink_factoryIcEE, i64 16), ptr %18, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9anonymous30default_text_file_sink_factoryIcEE, i64 16), ptr %18, align 8, !tbaa !19
   store i8 1, ptr %17, align 8, !tbaa !289
   store ptr %18, ptr %0, align 8, !tbaa !276
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6669,12 +6669,12 @@ define linkonce_odr hidden void @_ZN5boost11make_sharedINS_3log11v2_mt_posix9ano
   store i32 1, ptr %15, align 8, !tbaa !282
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 1, ptr %16, align 4, !tbaa !285
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous28default_console_sink_factoryIcEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %2, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous28default_console_sink_factoryIcEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %2, align 8, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr null, ptr %17, align 8, !tbaa !290
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9anonymous28default_console_sink_factoryIcEE, i64 16), ptr %19, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9anonymous28default_console_sink_factoryIcEE, i64 16), ptr %19, align 8, !tbaa !19
   store i8 1, ptr %18, align 8, !tbaa !293
   store ptr %19, ptr %0, align 8, !tbaa !278
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6795,12 +6795,12 @@ define linkonce_odr hidden void @_ZN5boost11make_sharedINS_3log11v2_mt_posix9ano
   store i32 1, ptr %15, align 8, !tbaa !282
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 1, ptr %16, align 4, !tbaa !285
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous27default_syslog_sink_factoryIcEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %2, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous27default_syslog_sink_factoryIcEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %2, align 8, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr null, ptr %17, align 8, !tbaa !294
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9anonymous27default_syslog_sink_factoryIcEE, i64 16), ptr %19, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9anonymous27default_syslog_sink_factoryIcEE, i64 16), ptr %19, align 8, !tbaa !19
   store i8 1, ptr %18, align 8, !tbaa !297
   store ptr %19, ptr %0, align 8, !tbaa !280
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6891,7 +6891,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous30default_text_file_sink_factoryIcEENS0_13sp_ms_deleterIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous30default_text_file_sink_factoryIcEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous30default_text_file_sink_factoryIcEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !289, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -6911,7 +6911,7 @@ _ZN5boost6detail13sp_ms_deleterINS_3log11v2_mt_posix9anonymous30default_text_fil
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous30default_text_file_sink_factoryIcEENS0_13sp_ms_deleterIS6_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous30default_text_file_sink_factoryIcEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous30default_text_file_sink_factoryIcEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !289, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -10906,7 +10906,7 @@ _ZNK5boost10shared_ptrINS_3log11v2_mt_posix5sinks17text_file_backendEE29_interna
   store i32 1, ptr %15, align 8, !tbaa !282
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %16, align 4, !tbaa !285
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17text_file_backendENS0_13sp_ms_deleterIS5_EEEE, i64 16), ptr %3, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17text_file_backendENS0_13sp_ms_deleterIS5_EEEE, i64 16), ptr %3, align 8, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %17, align 8, !tbaa !664
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -13210,7 +13210,7 @@ declare void @_ZN5boost3log11v2_mt_posix5sinks17text_file_backendC1Ev(ptr nounde
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17text_file_backendENS0_13sp_ms_deleterIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17text_file_backendENS0_13sp_ms_deleterIS5_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17text_file_backendENS0_13sp_ms_deleterIS5_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !667, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -13228,7 +13228,7 @@ _ZN5boost6detail13sp_ms_deleterINS_3log11v2_mt_posix5sinks17text_file_backendEED
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17text_file_backendENS0_13sp_ms_deleterIS5_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17text_file_backendENS0_13sp_ms_deleterIS5_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17text_file_backendENS0_13sp_ms_deleterIS5_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !667, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -14226,7 +14226,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i: ; preds = %_Z
 
 _ZN5boost9gregorian16bad_day_of_monthC2Ev.exit:   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #29
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9gregorian16bad_day_of_monthE, i64 16), ptr %6, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9gregorian16bad_day_of_monthE, i64 16), ptr %6, align 8, !tbaa !19
   invoke void @_ZN5boost15throw_exceptionINS_9gregorian16bad_day_of_monthEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %6) #31
           to label %27 unwind label %28
 
@@ -14263,7 +14263,7 @@ declare void @_ZNSt12out_of_rangeD2Ev(ptr noundef nonnull align 8 dereferenceabl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1) #29
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -14273,16 +14273,16 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_9gregorian16bad_day_of
   store i32 -1, ptr %6, align 8, !tbaa !769
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 -1, ptr %7, align 4, !tbaa !771
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEEE, i64 16), ptr %0, align 8, !tbaa !19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEEE, i64 64), ptr %3, align 8, !tbaa !19
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEEE, i64 104), ptr %4, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEEE, i64 64), ptr %3, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEEE, i64 104), ptr %4, align 8, !tbaa !19
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !765
   %.not.i.i.i = icmp eq ptr %4, null
@@ -14318,13 +14318,13 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_9gregorian16bad_day_of_monthEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #33
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !19
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #29
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9gregorian16bad_day_of_monthE, i64 16), ptr %3, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9gregorian16bad_day_of_monthE, i64 16), ptr %3, align 8, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !765
@@ -14350,9 +14350,9 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_9gregorian16ba
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEEE, i64 16), ptr %2, align 8, !tbaa !19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEEE, i64 64), ptr %3, align 8, !tbaa !19
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEEE, i64 104), ptr %5, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEEE, i64 16), ptr %2, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEEE, i64 64), ptr %3, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEEE, i64 104), ptr %5, align 8, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %5, ptr noundef nonnull %17)
           to label %_ZN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEE7deleterD2Ev.exit7
@@ -14394,7 +14394,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_9gregorian16bad_day_o
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !765
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -14431,7 +14431,7 @@ _ZN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEED2Ev.exit: ; preds = %1, 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_9gregorian16bad_day_of_monthEED1Ev(ptr noundef %0) unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !765
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -14466,7 +14466,7 @@ _ZN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEED2Ev.exit: ; preds = %1, 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_9gregorian16bad_day_of_monthEED0Ev(ptr noundef %0) unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !765
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -14502,7 +14502,7 @@ _ZN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEED0Ev.exit: ; preds = %1, 
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_9gregorian16bad_day_of_monthEED1Ev(ptr noundef %0) unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !765
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -14537,7 +14537,7 @@ _ZN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEED2Ev.exit: ; preds = %1, 
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_9gregorian16bad_day_of_monthEED0Ev(ptr noundef %0) unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !765
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -14581,13 +14581,13 @@ define linkonce_odr hidden void @_ZN5boost9gregorian16bad_day_of_monthD0Ev(ptr n
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #29
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9gregorian16bad_day_of_monthE, i64 16), ptr %3, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9gregorian16bad_day_of_monthE, i64 16), ptr %3, align 8, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !765
@@ -14606,9 +14606,9 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_9gregorian16bad_day_of
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEEE, i64 16), ptr %0, align 8, !tbaa !19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEEE, i64 64), ptr %3, align 8, !tbaa !19
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEEE, i64 104), ptr %5, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEEE, i64 64), ptr %3, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEEE, i64 104), ptr %5, align 8, !tbaa !19
   ret void
 
 16:                                               ; preds = %9
@@ -15286,7 +15286,7 @@ _ZNK5boost10shared_ptrINS_3log11v2_mt_posix5sinks16synchronous_sinkINS3_17text_f
   store i32 1, ptr %16, align 8, !tbaa !282
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %17, align 4, !tbaa !285
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_17text_file_backendEEENS0_13sp_ms_deleterIS7_EEEE, i64 16), ptr %4, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_17text_file_backendEEENS0_13sp_ms_deleterIS7_EEEE, i64 16), ptr %4, align 8, !tbaa !19
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %18, align 8, !tbaa !814
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -15297,7 +15297,7 @@ _ZNK5boost10shared_ptrINS_3log11v2_mt_posix5sinks16synchronous_sinkINS3_17text_f
           to label %.noexc unwind label %49
 
 .noexc:                                           ; preds = %_ZNK5boost10shared_ptrINS_3log11v2_mt_posix5sinks16synchronous_sinkINS3_17text_file_backendEEEE29_internal_get_untyped_deleterEv.exit
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_17text_file_backendEEE, i64 16), ptr %20, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_17text_file_backendEEE, i64 16), ptr %20, align 8, !tbaa !19
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, i8 0, i64 40, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 168
@@ -15838,7 +15838,7 @@ _ZNK5boost10shared_ptrINS_3log11v2_mt_posix5sinks17asynchronous_sinkINS3_17text_
   store i32 1, ptr %16, align 8, !tbaa !282
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %17, align 4, !tbaa !285
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_17text_file_backendENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS8_EEEE, i64 16), ptr %4, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_17text_file_backendENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS8_EEEE, i64 16), ptr %4, align 8, !tbaa !19
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %18, align 8, !tbaa !850
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -16025,7 +16025,7 @@ declare void @_ZN5boost3log11v2_mt_posix15parse_formatterIcEENS1_15basic_formatt
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_17text_file_backendEEENS0_13sp_ms_deleterIS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_17text_file_backendEEENS0_13sp_ms_deleterIS7_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_17text_file_backendEEENS0_13sp_ms_deleterIS7_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !817, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -16045,7 +16045,7 @@ _ZN5boost6detail13sp_ms_deleterINS_3log11v2_mt_posix5sinks16synchronous_sinkINS4
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_17text_file_backendEEENS0_13sp_ms_deleterIS7_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_17text_file_backendEEENS0_13sp_ms_deleterIS7_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_17text_file_backendEEENS0_13sp_ms_deleterIS7_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !817, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -16128,7 +16128,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks30basic_formatt
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %3, ptr %4, align 8, !tbaa !854
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks19basic_sink_frontendE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks19basic_sink_frontendE, i64 16), ptr %0, align 8, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = tail call i32 @pthread_rwlock_init(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef null) #29
   %7 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
@@ -16154,7 +16154,7 @@ _ZN5boost3log11v2_mt_posix5sinks19basic_sink_frontendC2Eb.exit: ; preds = %2
   store ptr %7, ptr %11, align 8, !tbaa !140
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr null, ptr %14, align 8, !tbaa !757
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks30basic_formatting_sink_frontendIcEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks30basic_formatting_sink_frontendIcEE, i64 16), ptr %0, align 8, !tbaa !19
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 0, ptr %15, align 8, !tbaa !856
   %16 = invoke i32 @_ZN5boost3log11v2_mt_posix3aux23default_attribute_names7messageEv()
@@ -16189,7 +16189,7 @@ _ZN5boost3log11v2_mt_posix5sinks19basic_sink_frontendC2Eb.exit: ; preds = %2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_17text_file_backendEED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_17text_file_backendEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_17text_file_backendEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -16235,7 +16235,7 @@ _ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks17text_file_backendEED2Ev.exit: 
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_17text_file_backendEED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_17text_file_backendEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_17text_file_backendEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i.i = icmp eq ptr %3, null
@@ -16396,7 +16396,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks16synchronous_s
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks30basic_formatting_sink_frontendIcED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks30basic_formatting_sink_frontendIcEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks30basic_formatting_sink_frontendIcEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   invoke void @_ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
           to label %_ZN5boost19thread_specific_ptrINS_3log11v2_mt_posix5sinks30basic_formatting_sink_frontendIcE18formatting_contextEED2Ev.exit unwind label %3
@@ -16434,7 +16434,7 @@ _ZN5boost19thread_specific_ptrINS_3log11v2_mt_posix5sinks30basic_formatting_sink
   unreachable
 
 _ZN5boost3log11v2_mt_posix15basic_formatterIcED2Ev.exit: ; preds = %_ZN5boost19thread_specific_ptrINS_3log11v2_mt_posix5sinks30basic_formatting_sink_frontendIcE18formatting_contextEED2Ev.exit, %12
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks19basic_sink_frontendE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks19basic_sink_frontendE, i64 16), ptr %0, align 8, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = load ptr, ptr %16, align 8, !tbaa !757
   %.not.i.i.i1 = icmp eq ptr %17, null
@@ -16503,7 +16503,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost3log11v2_mt_posix5sinks4
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks19basic_sink_frontendD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks19basic_sink_frontendE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks19basic_sink_frontendE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !757
   %.not.i.i = icmp eq ptr %3, null
@@ -18499,7 +18499,7 @@ _ZN5boost3log11v2_mt_posix15basic_formatterIcED2Ev.exit.i: ; preds = %9, %3
 _ZN5boost3log11v2_mt_posix24basic_formatting_ostreamIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %16, %_ZN5boost3log11v2_mt_posix15basic_formatterIcED2Ev.exit.i
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %22) #29
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %13, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %13, align 8, !tbaa !19
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #29
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18544,7 +18544,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix24basic_formatting_os
 _ZN5boost3log11v2_mt_posix24basic_formatting_ostreamIcSt11char_traitsIcESaIcEE5flushEv.exit: ; preds = %4, %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %7) #29
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %0, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #29
   ret void
@@ -18925,12 +18925,12 @@ declare noundef ptr @_ZN5boost6detail12get_tss_dataEPKv(ptr noundef) local_unnam
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix24basic_formatting_ostreamIcSt11char_traitsIcESaIcEEC2ERNSt7__cxx1112basic_stringIcS4_S5_EE(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %0, align 8, !tbaa !19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
   tail call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #29
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %0, align 8, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 0, ptr %6, align 8
@@ -18966,9 +18966,9 @@ _ZN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIcSt11char_traitsIcESaIcEE
   store i8 0, ptr %19, align 1, !tbaa !901
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVSo, i64 24), ptr %8, align 8, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVSo, i64 64), ptr %16, align 8, !tbaa !19
-  %21 = load i64, ptr getelementptr inbounds inrange(0, 40) (i8, ptr @_ZTVSo, i64 0), align 8
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVSo, i64 24), ptr %8, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVSo, i64 64), ptr %16, align 8, !tbaa !19
+  %21 = load i64, ptr getelementptr inbounds nuw inrange(0, 40) (i8, ptr @_ZTVSo, i64 0), align 8
   %22 = getelementptr inbounds i8, ptr %8, i64 %21
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %22, ptr noundef nonnull %0)
           to label %_ZNSoC1EPSt15basic_streambufIcSt11char_traitsIcEE.exit unwind label %23
@@ -18993,7 +18993,7 @@ _ZNSoC1EPSt15basic_streambufIcSt11char_traitsIcEE.exit: ; preds = %_ZN5boost3log
 .body:                                            ; preds = %23, %26
   %.pn = phi { ptr, i32 } [ %27, %26 ], [ %24, %23 ]
   tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %16) #29
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %0, align 8, !tbaa !19
   tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #29
   resume { ptr, i32 } %.pn
 }
@@ -19076,7 +19076,7 @@ _ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc.exit: ; preds = %1, %_ZNKSt9basic_io
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIcSt11char_traitsIcESaIcEED0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 104) #32
@@ -19656,7 +19656,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks17asynchronous_
   store i32 0, ptr %9, align 8, !tbaa !856
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i8 0, ptr %10, align 4, !tbaa !936
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS2_17text_file_backendENS2_20unbounded_fifo_queueEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS2_17text_file_backendENS2_20unbounded_fifo_queueEEE, i64 16), ptr %0, align 8, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 40, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -19698,7 +19698,7 @@ _ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks17text_file_backendEEC2ERKS5_.ex
   store i32 1, ptr %29, align 8, !tbaa !943, !noalias !940
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 1, ptr %30, align 4, !tbaa !945, !noalias !940
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5mutexSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23, align 8, !tbaa !19, !noalias !940
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5mutexSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23, align 8, !tbaa !19, !noalias !940
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %31, i8 0, i64 40, i1 false), !noalias !940
   store ptr %23, ptr %28, align 8, !tbaa !946, !alias.scope !940
@@ -19719,7 +19719,7 @@ _ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks17text_file_backendEEC2ERKS5_.ex
           to label %.noexc unwind label %54
 
 .noexc:                                           ; preds = %35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS6_17text_file_backendENS6_20unbounded_fifo_queueEE8run_funcEEEEEEE, i64 16), ptr %36, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS6_17text_file_backendENS6_20unbounded_fifo_queueEE8run_funcEEEEEEE, i64 16), ptr %36, align 8, !tbaa !19
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = ptrtoint ptr %0 to i64
   store i64 %38, ptr %37, align 8, !tbaa !18
@@ -19811,7 +19811,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %.body
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_17text_file_backendENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_17text_file_backendENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS8_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_17text_file_backendENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS8_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !853, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -19831,7 +19831,7 @@ _ZN5boost6detail13sp_ms_deleterINS_3log11v2_mt_posix5sinks17asynchronous_sinkINS
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_17text_file_backendENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS8_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_17text_file_backendENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS8_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_17text_file_backendENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS8_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !853, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -19967,7 +19967,7 @@ _ZNSt12__shared_ptrISt5mutexLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS2_17text_file_backendENS2_20unbounded_fifo_queueEED2Ev(ptr noundef nonnull align 8 dereferenceable(270) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS2_17text_file_backendENS2_20unbounded_fifo_queueEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS2_17text_file_backendENS2_20unbounded_fifo_queueEEE, i64 16), ptr %0, align 8, !tbaa !19
   invoke void @_ZN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS2_17text_file_backendENS2_20unbounded_fifo_queueEE4stopEv(ptr noundef nonnull align 8 dereferenceable(270) %0)
           to label %2 unwind label %50
 
@@ -21712,7 +21712,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux14light_functionI
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous28default_console_sink_factoryIcEENS0_13sp_ms_deleterIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous28default_console_sink_factoryIcEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous28default_console_sink_factoryIcEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !293, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -21732,7 +21732,7 @@ _ZN5boost6detail13sp_ms_deleterINS_3log11v2_mt_posix9anonymous28default_console_
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous28default_console_sink_factoryIcEENS0_13sp_ms_deleterIS6_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous28default_console_sink_factoryIcEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous28default_console_sink_factoryIcEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !293, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -22147,7 +22147,7 @@ define linkonce_odr hidden void @_ZNK5boost3log11v2_mt_posix9anonymous28default_
   store i32 1, ptr %28, align 8, !tbaa !282
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 1, ptr %29, align 4, !tbaa !285
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPSt13basic_ostreamIwSt11char_traitsIwEENS_15null_deleter_ns12null_deleterEEE, i64 16), ptr %16, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPSt13basic_ostreamIwSt11char_traitsIwEENS_15null_deleter_ns12null_deleterEEE, i64 16), ptr %16, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr @_ZSt5wclog, ptr %30, align 8, !tbaa !1024
   store ptr %16, ptr %15, align 8, !tbaa !17
@@ -22786,7 +22786,7 @@ define linkonce_odr hidden void @_ZNK5boost3log11v2_mt_posix9anonymous28default_
   store i32 1, ptr %28, align 8, !tbaa !282
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 1, ptr %29, align 4, !tbaa !285
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPSoNS_15null_deleter_ns12null_deleterEEE, i64 16), ptr %16, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPSoNS_15null_deleter_ns12null_deleterEEE, i64 16), ptr %16, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr @_ZSt4clog, ptr %30, align 8, !tbaa !1081
   store ptr %16, ptr %15, align 8, !tbaa !17
@@ -23416,7 +23416,7 @@ _ZNK5boost10shared_ptrINS_3log11v2_mt_posix5sinks26basic_text_ostream_backendIwE
   store i32 1, ptr %15, align 8, !tbaa !282
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %16, align 4, !tbaa !285
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks26basic_text_ostream_backendIwEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %3, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks26basic_text_ostream_backendIwEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %3, align 8, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %17, align 8, !tbaa !1133
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -24524,7 +24524,7 @@ declare void @_ZN5boost3log11v2_mt_posix5sinks26basic_text_ostream_backendIwEC1E
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks26basic_text_ostream_backendIwEENS0_13sp_ms_deleterIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks26basic_text_ostream_backendIwEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks26basic_text_ostream_backendIwEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !1136, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -24542,7 +24542,7 @@ _ZN5boost6detail13sp_ms_deleterINS_3log11v2_mt_posix5sinks26basic_text_ostream_b
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks26basic_text_ostream_backendIwEENS0_13sp_ms_deleterIS6_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks26basic_text_ostream_backendIwEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks26basic_text_ostream_backendIwEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !1136, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -25099,7 +25099,7 @@ _ZNK5boost10shared_ptrINS_3log11v2_mt_posix5sinks16synchronous_sinkINS3_26basic_
   store i32 1, ptr %16, align 8, !tbaa !282
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %17, align 4, !tbaa !285
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_26basic_text_ostream_backendIwEEEENS0_13sp_ms_deleterIS8_EEEE, i64 16), ptr %4, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_26basic_text_ostream_backendIwEEEENS0_13sp_ms_deleterIS8_EEEE, i64 16), ptr %4, align 8, !tbaa !19
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %18, align 8, !tbaa !1230
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -25110,7 +25110,7 @@ _ZNK5boost10shared_ptrINS_3log11v2_mt_posix5sinks16synchronous_sinkINS3_26basic_
           to label %.noexc unwind label %49
 
 .noexc:                                           ; preds = %_ZNK5boost10shared_ptrINS_3log11v2_mt_posix5sinks16synchronous_sinkINS3_26basic_text_ostream_backendIwEEEEE29_internal_get_untyped_deleterEv.exit
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_26basic_text_ostream_backendIwEEEE, i64 16), ptr %20, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_26basic_text_ostream_backendIwEEEE, i64 16), ptr %20, align 8, !tbaa !19
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, i8 0, i64 40, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 168
@@ -25650,7 +25650,7 @@ _ZNK5boost10shared_ptrINS_3log11v2_mt_posix5sinks17asynchronous_sinkINS3_26basic
   store i32 1, ptr %16, align 8, !tbaa !282
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %17, align 4, !tbaa !285
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_26basic_text_ostream_backendIwEENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS9_EEEE, i64 16), ptr %4, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_26basic_text_ostream_backendIwEENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS9_EEEE, i64 16), ptr %4, align 8, !tbaa !19
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %18, align 8, !tbaa !1262
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -25758,7 +25758,7 @@ declare void @_ZN5boost3log11v2_mt_posix15parse_formatterIwEENS1_15basic_formatt
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_26basic_text_ostream_backendIwEEEENS0_13sp_ms_deleterIS8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_26basic_text_ostream_backendIwEEEENS0_13sp_ms_deleterIS8_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_26basic_text_ostream_backendIwEEEENS0_13sp_ms_deleterIS8_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !1233, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -25778,7 +25778,7 @@ _ZN5boost6detail13sp_ms_deleterINS_3log11v2_mt_posix5sinks16synchronous_sinkINS4
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_26basic_text_ostream_backendIwEEEENS0_13sp_ms_deleterIS8_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_26basic_text_ostream_backendIwEEEENS0_13sp_ms_deleterIS8_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_26basic_text_ostream_backendIwEEEENS0_13sp_ms_deleterIS8_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !1233, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -25861,7 +25861,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks30basic_formatt
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %3, ptr %4, align 8, !tbaa !854
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks19basic_sink_frontendE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks19basic_sink_frontendE, i64 16), ptr %0, align 8, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = tail call i32 @pthread_rwlock_init(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef null) #29
   %7 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
@@ -25887,7 +25887,7 @@ _ZN5boost3log11v2_mt_posix5sinks19basic_sink_frontendC2Eb.exit: ; preds = %2
   store ptr %7, ptr %11, align 8, !tbaa !140
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr null, ptr %14, align 8, !tbaa !757
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks30basic_formatting_sink_frontendIwEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks30basic_formatting_sink_frontendIwEE, i64 16), ptr %0, align 8, !tbaa !19
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 0, ptr %15, align 8, !tbaa !856
   %16 = invoke i32 @_ZN5boost3log11v2_mt_posix3aux23default_attribute_names7messageEv()
@@ -25922,7 +25922,7 @@ _ZN5boost3log11v2_mt_posix5sinks19basic_sink_frontendC2Eb.exit: ; preds = %2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_26basic_text_ostream_backendIwEEED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_26basic_text_ostream_backendIwEEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_26basic_text_ostream_backendIwEEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -25968,7 +25968,7 @@ _ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks26basic_text_ostream_backendIwEE
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_26basic_text_ostream_backendIwEEED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_26basic_text_ostream_backendIwEEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_26basic_text_ostream_backendIwEEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i.i = icmp eq ptr %3, null
@@ -26064,7 +26064,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks16synchronous_s
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks30basic_formatting_sink_frontendIwED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks30basic_formatting_sink_frontendIwEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks30basic_formatting_sink_frontendIwEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   invoke void @_ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
           to label %_ZN5boost19thread_specific_ptrINS_3log11v2_mt_posix5sinks30basic_formatting_sink_frontendIwE18formatting_contextEED2Ev.exit unwind label %3
@@ -26102,7 +26102,7 @@ _ZN5boost19thread_specific_ptrINS_3log11v2_mt_posix5sinks30basic_formatting_sink
   unreachable
 
 _ZN5boost3log11v2_mt_posix15basic_formatterIwED2Ev.exit: ; preds = %_ZN5boost19thread_specific_ptrINS_3log11v2_mt_posix5sinks30basic_formatting_sink_frontendIwE18formatting_contextEED2Ev.exit, %12
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks19basic_sink_frontendE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks19basic_sink_frontendE, i64 16), ptr %0, align 8, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = load ptr, ptr %16, align 8, !tbaa !757
   %.not.i.i.i1 = icmp eq ptr %17, null
@@ -27207,7 +27207,7 @@ _ZN5boost3log11v2_mt_posix15basic_formatterIwED2Ev.exit.i: ; preds = %9, %3
 _ZN5boost3log11v2_mt_posix24basic_formatting_ostreamIwSt11char_traitsIwESaIwEED2Ev.exit.i: ; preds = %16, %_ZN5boost3log11v2_mt_posix15basic_formatterIwED2Ev.exit.i
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %22) #29
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIwSt11char_traitsIwEE, i64 16), ptr %13, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIwSt11char_traitsIwEE, i64 16), ptr %13, align 8, !tbaa !19
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #29
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -27253,7 +27253,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix24basic_formatting_os
 _ZN5boost3log11v2_mt_posix24basic_formatting_ostreamIwSt11char_traitsIwESaIwEE5flushEv.exit: ; preds = %4, %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %7) #29
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIwSt11char_traitsIwEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIwSt11char_traitsIwEE, i64 16), ptr %0, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #29
   ret void
@@ -27663,12 +27663,12 @@ _ZN5boost3log11v2_mt_posix24basic_formatting_ostreamIwSt11char_traitsIwESaIwEE5c
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix24basic_formatting_ostreamIwSt11char_traitsIwESaIwEEC2ERNSt7__cxx1112basic_stringIwS4_S5_EE(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIwSt11char_traitsIwEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIwSt11char_traitsIwEE, i64 16), ptr %0, align 8, !tbaa !19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
   tail call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #29
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEEE, i64 16), ptr %0, align 8, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %5, i8 0, i64 17, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -27700,9 +27700,9 @@ _ZN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEE
   store i8 0, ptr %17, align 4, !tbaa !1285
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 392
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVSt13basic_ostreamIwSt11char_traitsIwEE, i64 24), ptr %7, align 8, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVSt13basic_ostreamIwSt11char_traitsIwEE, i64 64), ptr %14, align 8, !tbaa !19
-  %19 = load i64, ptr getelementptr inbounds inrange(0, 40) (i8, ptr @_ZTVSt13basic_ostreamIwSt11char_traitsIwEE, i64 0), align 8
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVSt13basic_ostreamIwSt11char_traitsIwEE, i64 24), ptr %7, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVSt13basic_ostreamIwSt11char_traitsIwEE, i64 64), ptr %14, align 8, !tbaa !19
+  %19 = load i64, ptr getelementptr inbounds nuw inrange(0, 40) (i8, ptr @_ZTVSt13basic_ostreamIwSt11char_traitsIwEE, i64 0), align 8
   %20 = getelementptr inbounds i8, ptr %7, i64 %19
   invoke void @_ZNSt9basic_iosIwSt11char_traitsIwEE4initEPSt15basic_streambufIwS1_E(ptr noundef nonnull align 8 dereferenceable(264) %20, ptr noundef nonnull %0)
           to label %_ZNSt13basic_ostreamIwSt11char_traitsIwEEC1EPSt15basic_streambufIwS1_E.exit unwind label %21
@@ -27794,14 +27794,14 @@ _ZNKSt9basic_iosIwSt11char_traitsIwEE5widenEc.exit.i.i.i: ; preds = %52
 .body:                                            ; preds = %21, %62
   %.pn = phi { ptr, i32 } [ %63, %62 ], [ %22, %21 ]
   tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %14) #29
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIwSt11char_traitsIwEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIwSt11char_traitsIwEE, i64 16), ptr %0, align 8, !tbaa !19
   tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #29
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEED0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIwSt11char_traitsIwEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIwSt11char_traitsIwEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #32
@@ -28505,7 +28505,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks17asynchronous_
   store i32 0, ptr %9, align 8, !tbaa !856
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i8 0, ptr %10, align 4, !tbaa !936
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS2_26basic_text_ostream_backendIwEENS2_20unbounded_fifo_queueEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS2_26basic_text_ostream_backendIwEENS2_20unbounded_fifo_queueEEE, i64 16), ptr %0, align 8, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 40, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -28547,7 +28547,7 @@ _ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks26basic_text_ostream_backendIwEE
   store i32 1, ptr %29, align 8, !tbaa !943, !noalias !1302
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 1, ptr %30, align 4, !tbaa !945, !noalias !1302
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5mutexSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23, align 8, !tbaa !19, !noalias !1302
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5mutexSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23, align 8, !tbaa !19, !noalias !1302
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %31, i8 0, i64 40, i1 false), !noalias !1302
   store ptr %23, ptr %28, align 8, !tbaa !946, !alias.scope !1302
@@ -28568,7 +28568,7 @@ _ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks26basic_text_ostream_backendIwEE
           to label %.noexc unwind label %54
 
 .noexc:                                           ; preds = %35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS6_26basic_text_ostream_backendIwEENS6_20unbounded_fifo_queueEE8run_funcEEEEEEE, i64 16), ptr %36, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS6_26basic_text_ostream_backendIwEENS6_20unbounded_fifo_queueEE8run_funcEEEEEEE, i64 16), ptr %36, align 8, !tbaa !19
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = ptrtoint ptr %0 to i64
   store i64 %38, ptr %37, align 8, !tbaa !18
@@ -28660,7 +28660,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %.body
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_26basic_text_ostream_backendIwEENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_26basic_text_ostream_backendIwEENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS9_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_26basic_text_ostream_backendIwEENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS9_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !1265, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -28680,7 +28680,7 @@ _ZN5boost6detail13sp_ms_deleterINS_3log11v2_mt_posix5sinks17asynchronous_sinkINS
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_26basic_text_ostream_backendIwEENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS9_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_26basic_text_ostream_backendIwEENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS9_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_26basic_text_ostream_backendIwEENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS9_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !1265, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -28760,7 +28760,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost6detail18sp_counted_impl_pdIPNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS2_26basic_text_ostream_backendIwEENS2_20unbounded_fifo_queueEED2Ev(ptr noundef nonnull align 8 dereferenceable(270) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS2_26basic_text_ostream_backendIwEENS2_20unbounded_fifo_queueEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS2_26basic_text_ostream_backendIwEENS2_20unbounded_fifo_queueEEE, i64 16), ptr %0, align 8, !tbaa !19
   invoke void @_ZN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS2_26basic_text_ostream_backendIwEENS2_20unbounded_fifo_queueEE4stopEv(ptr noundef nonnull align 8 dereferenceable(270) %0)
           to label %2 unwind label %50
 
@@ -29748,7 +29748,7 @@ _ZNK5boost10shared_ptrINS_3log11v2_mt_posix5sinks26basic_text_ostream_backendIcE
   store i32 1, ptr %15, align 8, !tbaa !282
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %16, align 4, !tbaa !285
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks26basic_text_ostream_backendIcEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %3, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks26basic_text_ostream_backendIcEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %3, align 8, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %17, align 8, !tbaa !1321
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -30856,7 +30856,7 @@ declare void @_ZN5boost3log11v2_mt_posix5sinks26basic_text_ostream_backendIcEC1E
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks26basic_text_ostream_backendIcEENS0_13sp_ms_deleterIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks26basic_text_ostream_backendIcEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks26basic_text_ostream_backendIcEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !1324, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -30874,7 +30874,7 @@ _ZN5boost6detail13sp_ms_deleterINS_3log11v2_mt_posix5sinks26basic_text_ostream_b
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks26basic_text_ostream_backendIcEENS0_13sp_ms_deleterIS6_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks26basic_text_ostream_backendIcEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks26basic_text_ostream_backendIcEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !1324, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -31437,7 +31437,7 @@ _ZNK5boost10shared_ptrINS_3log11v2_mt_posix5sinks16synchronous_sinkINS3_26basic_
   store i32 1, ptr %16, align 8, !tbaa !282
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %17, align 4, !tbaa !285
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_26basic_text_ostream_backendIcEEEENS0_13sp_ms_deleterIS8_EEEE, i64 16), ptr %4, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_26basic_text_ostream_backendIcEEEENS0_13sp_ms_deleterIS8_EEEE, i64 16), ptr %4, align 8, !tbaa !19
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %18, align 8, !tbaa !1410
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -31448,7 +31448,7 @@ _ZNK5boost10shared_ptrINS_3log11v2_mt_posix5sinks16synchronous_sinkINS3_26basic_
           to label %.noexc unwind label %49
 
 .noexc:                                           ; preds = %_ZNK5boost10shared_ptrINS_3log11v2_mt_posix5sinks16synchronous_sinkINS3_26basic_text_ostream_backendIcEEEEE29_internal_get_untyped_deleterEv.exit
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_26basic_text_ostream_backendIcEEEE, i64 16), ptr %20, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_26basic_text_ostream_backendIcEEEE, i64 16), ptr %20, align 8, !tbaa !19
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, i8 0, i64 40, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 168
@@ -31989,7 +31989,7 @@ _ZNK5boost10shared_ptrINS_3log11v2_mt_posix5sinks17asynchronous_sinkINS3_26basic
   store i32 1, ptr %16, align 8, !tbaa !282
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %17, align 4, !tbaa !285
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_26basic_text_ostream_backendIcEENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS9_EEEE, i64 16), ptr %4, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_26basic_text_ostream_backendIcEENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS9_EEEE, i64 16), ptr %4, align 8, !tbaa !19
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %18, align 8, !tbaa !1442
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -32093,7 +32093,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %1, %4, %.noexc.i, %
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_26basic_text_ostream_backendIcEEEENS0_13sp_ms_deleterIS8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_26basic_text_ostream_backendIcEEEENS0_13sp_ms_deleterIS8_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_26basic_text_ostream_backendIcEEEENS0_13sp_ms_deleterIS8_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !1413, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -32113,7 +32113,7 @@ _ZN5boost6detail13sp_ms_deleterINS_3log11v2_mt_posix5sinks16synchronous_sinkINS4
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_26basic_text_ostream_backendIcEEEENS0_13sp_ms_deleterIS8_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_26basic_text_ostream_backendIcEEEENS0_13sp_ms_deleterIS8_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_26basic_text_ostream_backendIcEEEENS0_13sp_ms_deleterIS8_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !1413, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -32193,7 +32193,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost6detail18sp_counted_impl_pdIPNS
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_26basic_text_ostream_backendIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_26basic_text_ostream_backendIcEEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_26basic_text_ostream_backendIcEEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -32239,7 +32239,7 @@ _ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks26basic_text_ostream_backendIcEE
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_26basic_text_ostream_backendIcEEED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_26basic_text_ostream_backendIcEEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_26basic_text_ostream_backendIcEEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i.i = icmp eq ptr %3, null
@@ -32817,7 +32817,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks17asynchronous_
   store i32 0, ptr %9, align 8, !tbaa !856
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i8 0, ptr %10, align 4, !tbaa !936
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS2_26basic_text_ostream_backendIcEENS2_20unbounded_fifo_queueEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS2_26basic_text_ostream_backendIcEENS2_20unbounded_fifo_queueEEE, i64 16), ptr %0, align 8, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 40, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -32859,7 +32859,7 @@ _ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks26basic_text_ostream_backendIcEE
   store i32 1, ptr %29, align 8, !tbaa !943, !noalias !1446
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 1, ptr %30, align 4, !tbaa !945, !noalias !1446
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5mutexSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23, align 8, !tbaa !19, !noalias !1446
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5mutexSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23, align 8, !tbaa !19, !noalias !1446
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %31, i8 0, i64 40, i1 false), !noalias !1446
   store ptr %23, ptr %28, align 8, !tbaa !946, !alias.scope !1446
@@ -32880,7 +32880,7 @@ _ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks26basic_text_ostream_backendIcEE
           to label %.noexc unwind label %54
 
 .noexc:                                           ; preds = %35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS6_26basic_text_ostream_backendIcEENS6_20unbounded_fifo_queueEE8run_funcEEEEEEE, i64 16), ptr %36, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS6_26basic_text_ostream_backendIcEENS6_20unbounded_fifo_queueEE8run_funcEEEEEEE, i64 16), ptr %36, align 8, !tbaa !19
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = ptrtoint ptr %0 to i64
   store i64 %38, ptr %37, align 8, !tbaa !18
@@ -32972,7 +32972,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %.body
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_26basic_text_ostream_backendIcEENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_26basic_text_ostream_backendIcEENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS9_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_26basic_text_ostream_backendIcEENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS9_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !1445, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -32992,7 +32992,7 @@ _ZN5boost6detail13sp_ms_deleterINS_3log11v2_mt_posix5sinks17asynchronous_sinkINS
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_26basic_text_ostream_backendIcEENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS9_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_26basic_text_ostream_backendIcEENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS9_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_26basic_text_ostream_backendIcEENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS9_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !1445, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -33072,7 +33072,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost6detail18sp_counted_impl_pdIPNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS2_26basic_text_ostream_backendIcEENS2_20unbounded_fifo_queueEED2Ev(ptr noundef nonnull align 8 dereferenceable(270) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS2_26basic_text_ostream_backendIcEENS2_20unbounded_fifo_queueEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS2_26basic_text_ostream_backendIcEENS2_20unbounded_fifo_queueEEE, i64 16), ptr %0, align 8, !tbaa !19
   invoke void @_ZN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS2_26basic_text_ostream_backendIcEENS2_20unbounded_fifo_queueEE4stopEv(ptr noundef nonnull align 8 dereferenceable(270) %0)
           to label %2 unwind label %50
 
@@ -34020,7 +34020,7 @@ _ZNSt6threadD2Ev.exit7:                           ; preds = %.thread, %15
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous27default_syslog_sink_factoryIcEENS0_13sp_ms_deleterIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous27default_syslog_sink_factoryIcEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous27default_syslog_sink_factoryIcEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !297, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -34040,7 +34040,7 @@ _ZN5boost6detail13sp_ms_deleterINS_3log11v2_mt_posix9anonymous27default_syslog_s
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous27default_syslog_sink_factoryIcEENS0_13sp_ms_deleterIS6_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous27default_syslog_sink_factoryIcEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous27default_syslog_sink_factoryIcEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !297, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -34908,7 +34908,7 @@ _ZNK5boost10shared_ptrINS_3log11v2_mt_posix5sinks14syslog_backendEE29_internal_g
   store i32 1, ptr %15, align 8, !tbaa !282
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %16, align 4, !tbaa !285
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks14syslog_backendENS0_13sp_ms_deleterIS5_EEEE, i64 16), ptr %3, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks14syslog_backendENS0_13sp_ms_deleterIS5_EEEE, i64 16), ptr %3, align 8, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %17, align 8, !tbaa !1533
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -35974,7 +35974,7 @@ declare void @_ZN5boost3log11v2_mt_posix5sinks14syslog_backendC1Ev(ptr noundef n
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks14syslog_backendENS0_13sp_ms_deleterIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks14syslog_backendENS0_13sp_ms_deleterIS5_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks14syslog_backendENS0_13sp_ms_deleterIS5_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !1536, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -35992,7 +35992,7 @@ _ZN5boost6detail13sp_ms_deleterINS_3log11v2_mt_posix5sinks14syslog_backendEED2Ev
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks14syslog_backendENS0_13sp_ms_deleterIS5_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks14syslog_backendENS0_13sp_ms_deleterIS5_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks14syslog_backendENS0_13sp_ms_deleterIS5_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !1536, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -36714,7 +36714,7 @@ _ZNK5boost10shared_ptrINS_3log11v2_mt_posix5sinks16synchronous_sinkINS3_14syslog
   store i32 1, ptr %16, align 8, !tbaa !282
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %17, align 4, !tbaa !285
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_14syslog_backendEEENS0_13sp_ms_deleterIS7_EEEE, i64 16), ptr %4, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_14syslog_backendEEENS0_13sp_ms_deleterIS7_EEEE, i64 16), ptr %4, align 8, !tbaa !19
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %18, align 8, !tbaa !1625
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -36725,7 +36725,7 @@ _ZNK5boost10shared_ptrINS_3log11v2_mt_posix5sinks16synchronous_sinkINS3_14syslog
           to label %.noexc unwind label %49
 
 .noexc:                                           ; preds = %_ZNK5boost10shared_ptrINS_3log11v2_mt_posix5sinks16synchronous_sinkINS3_14syslog_backendEEEE29_internal_get_untyped_deleterEv.exit
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_14syslog_backendEEE, i64 16), ptr %20, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_14syslog_backendEEE, i64 16), ptr %20, align 8, !tbaa !19
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, i8 0, i64 40, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 168
@@ -37266,7 +37266,7 @@ _ZNK5boost10shared_ptrINS_3log11v2_mt_posix5sinks17asynchronous_sinkINS3_14syslo
   store i32 1, ptr %16, align 8, !tbaa !282
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %17, align 4, !tbaa !285
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_14syslog_backendENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS8_EEEE, i64 16), ptr %4, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_14syslog_backendENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS8_EEEE, i64 16), ptr %4, align 8, !tbaa !19
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %18, align 8, !tbaa !1657
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -37370,7 +37370,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %1, %4, %.noexc.i, %
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_14syslog_backendEEENS0_13sp_ms_deleterIS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_14syslog_backendEEENS0_13sp_ms_deleterIS7_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_14syslog_backendEEENS0_13sp_ms_deleterIS7_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !1628, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -37390,7 +37390,7 @@ _ZN5boost6detail13sp_ms_deleterINS_3log11v2_mt_posix5sinks16synchronous_sinkINS4
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_14syslog_backendEEENS0_13sp_ms_deleterIS7_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_14syslog_backendEEENS0_13sp_ms_deleterIS7_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks16synchronous_sinkINS4_14syslog_backendEEENS0_13sp_ms_deleterIS7_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !1628, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -37470,7 +37470,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost6detail18sp_counted_impl_pdIPNS
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_14syslog_backendEED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_14syslog_backendEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_14syslog_backendEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -37516,7 +37516,7 @@ _ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks14syslog_backendEED2Ev.exit: ; p
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_14syslog_backendEED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_14syslog_backendEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks16synchronous_sinkINS2_14syslog_backendEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i.i = icmp eq ptr %3, null
@@ -38007,7 +38007,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks17asynchronous_
   store i32 0, ptr %9, align 8, !tbaa !856
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i8 0, ptr %10, align 4, !tbaa !936
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS2_14syslog_backendENS2_20unbounded_fifo_queueEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS2_14syslog_backendENS2_20unbounded_fifo_queueEEE, i64 16), ptr %0, align 8, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 40, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -38049,7 +38049,7 @@ _ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks14syslog_backendEEC2ERKS5_.exit:
   store i32 1, ptr %29, align 8, !tbaa !943, !noalias !1661
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 1, ptr %30, align 4, !tbaa !945, !noalias !1661
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5mutexSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23, align 8, !tbaa !19, !noalias !1661
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5mutexSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23, align 8, !tbaa !19, !noalias !1661
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %31, i8 0, i64 40, i1 false), !noalias !1661
   store ptr %23, ptr %28, align 8, !tbaa !946, !alias.scope !1661
@@ -38070,7 +38070,7 @@ _ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks14syslog_backendEEC2ERKS5_.exit:
           to label %.noexc unwind label %54
 
 .noexc:                                           ; preds = %35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS6_14syslog_backendENS6_20unbounded_fifo_queueEE8run_funcEEEEEEE, i64 16), ptr %36, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS6_14syslog_backendENS6_20unbounded_fifo_queueEE8run_funcEEEEEEE, i64 16), ptr %36, align 8, !tbaa !19
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = ptrtoint ptr %0 to i64
   store i64 %38, ptr %37, align 8, !tbaa !18
@@ -38162,7 +38162,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %.body
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_14syslog_backendENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_14syslog_backendENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS8_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_14syslog_backendENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS8_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !1660, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -38182,7 +38182,7 @@ _ZN5boost6detail13sp_ms_deleterINS_3log11v2_mt_posix5sinks17asynchronous_sinkINS
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_14syslog_backendENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS8_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_14syslog_backendENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS8_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks17asynchronous_sinkINS4_14syslog_backendENS4_20unbounded_fifo_queueEEENS0_13sp_ms_deleterIS8_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !1660, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -38262,7 +38262,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost6detail18sp_counted_impl_pdIPNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS2_14syslog_backendENS2_20unbounded_fifo_queueEED2Ev(ptr noundef nonnull align 8 dereferenceable(270) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS2_14syslog_backendENS2_20unbounded_fifo_queueEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS2_14syslog_backendENS2_20unbounded_fifo_queueEEE, i64 16), ptr %0, align 8, !tbaa !19
   invoke void @_ZN5boost3log11v2_mt_posix5sinks17asynchronous_sinkINS2_14syslog_backendENS2_20unbounded_fifo_queueEE4stopEv(ptr noundef nonnull align 8 dereferenceable(270) %0)
           to label %2 unwind label %50
 
@@ -40463,12 +40463,12 @@ define linkonce_odr hidden void @_ZN5boost11make_sharedINS_3log11v2_mt_posix9ano
   store i32 1, ptr %15, align 8, !tbaa !282
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 1, ptr %16, align 4, !tbaa !285
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous30default_text_file_sink_factoryIwEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %2, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous30default_text_file_sink_factoryIwEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %2, align 8, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr null, ptr %17, align 8, !tbaa !1691
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9anonymous30default_text_file_sink_factoryIwEE, i64 16), ptr %19, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9anonymous30default_text_file_sink_factoryIwEE, i64 16), ptr %19, align 8, !tbaa !19
   store i8 1, ptr %18, align 8, !tbaa !1694
   store ptr %19, ptr %0, align 8, !tbaa !1685
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40589,12 +40589,12 @@ define linkonce_odr hidden void @_ZN5boost11make_sharedINS_3log11v2_mt_posix9ano
   store i32 1, ptr %15, align 8, !tbaa !282
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 1, ptr %16, align 4, !tbaa !285
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous28default_console_sink_factoryIwEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %2, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous28default_console_sink_factoryIwEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %2, align 8, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr null, ptr %17, align 8, !tbaa !1695
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9anonymous28default_console_sink_factoryIwEE, i64 16), ptr %19, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9anonymous28default_console_sink_factoryIwEE, i64 16), ptr %19, align 8, !tbaa !19
   store i8 1, ptr %18, align 8, !tbaa !1698
   store ptr %19, ptr %0, align 8, !tbaa !1687
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40715,12 +40715,12 @@ define linkonce_odr hidden void @_ZN5boost11make_sharedINS_3log11v2_mt_posix9ano
   store i32 1, ptr %15, align 8, !tbaa !282
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 1, ptr %16, align 4, !tbaa !285
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous27default_syslog_sink_factoryIwEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %2, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous27default_syslog_sink_factoryIwEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %2, align 8, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr null, ptr %17, align 8, !tbaa !1699
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9anonymous27default_syslog_sink_factoryIwEE, i64 16), ptr %19, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9anonymous27default_syslog_sink_factoryIwEE, i64 16), ptr %19, align 8, !tbaa !19
   store i8 1, ptr %18, align 8, !tbaa !1702
   store ptr %19, ptr %0, align 8, !tbaa !1689
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40806,7 +40806,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %1, %4, %.noexc.i, %
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous30default_text_file_sink_factoryIwEENS0_13sp_ms_deleterIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous30default_text_file_sink_factoryIwEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous30default_text_file_sink_factoryIwEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !1694, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -40826,7 +40826,7 @@ _ZN5boost6detail13sp_ms_deleterINS_3log11v2_mt_posix9anonymous30default_text_fil
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous30default_text_file_sink_factoryIwEENS0_13sp_ms_deleterIS6_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous30default_text_file_sink_factoryIwEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous30default_text_file_sink_factoryIwEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !1694, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -46488,7 +46488,7 @@ declare void @_ZN5boost3log11v2_mt_posix12parse_filterIwEENS1_6filterEPKT_S6_(pt
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous28default_console_sink_factoryIwEENS0_13sp_ms_deleterIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous28default_console_sink_factoryIwEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous28default_console_sink_factoryIwEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !1698, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -46508,7 +46508,7 @@ _ZN5boost6detail13sp_ms_deleterINS_3log11v2_mt_posix9anonymous28default_console_
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous28default_console_sink_factoryIwEENS0_13sp_ms_deleterIS6_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous28default_console_sink_factoryIwEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous28default_console_sink_factoryIwEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !1698, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -46798,7 +46798,7 @@ define linkonce_odr hidden void @_ZNK5boost3log11v2_mt_posix9anonymous28default_
   store i32 1, ptr %24, align 8, !tbaa !282
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 1, ptr %25, align 4, !tbaa !285
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPSt13basic_ostreamIwSt11char_traitsIwEENS_15null_deleter_ns12null_deleterEEE, i64 16), ptr %12, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPSt13basic_ostreamIwSt11char_traitsIwEENS_15null_deleter_ns12null_deleterEEE, i64 16), ptr %12, align 8, !tbaa !19
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr @_ZSt5wclog, ptr %26, align 8, !tbaa !1024
   store ptr %12, ptr %11, align 8, !tbaa !17
@@ -47237,7 +47237,7 @@ define linkonce_odr hidden void @_ZNK5boost3log11v2_mt_posix9anonymous28default_
   store i32 1, ptr %24, align 8, !tbaa !282
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 1, ptr %25, align 4, !tbaa !285
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPSoNS_15null_deleter_ns12null_deleterEEE, i64 16), ptr %12, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPSoNS_15null_deleter_ns12null_deleterEEE, i64 16), ptr %12, align 8, !tbaa !19
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr @_ZSt4clog, ptr %26, align 8, !tbaa !1081
   store ptr %12, ptr %11, align 8, !tbaa !17
@@ -50381,7 +50381,7 @@ _ZN5boost15optional_detail13optional_baseINSt7__cxx1112basic_stringIwSt11char_tr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous27default_syslog_sink_factoryIwEENS0_13sp_ms_deleterIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous27default_syslog_sink_factoryIwEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous27default_syslog_sink_factoryIwEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !1702, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1
@@ -50401,7 +50401,7 @@ _ZN5boost6detail13sp_ms_deleterINS_3log11v2_mt_posix9anonymous27default_syslog_s
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous27default_syslog_sink_factoryIwEENS0_13sp_ms_deleterIS6_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous27default_syslog_sink_factoryIwEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix9anonymous27default_syslog_sink_factoryIwEENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !1702, !range !136, !noundef !144
   %4 = trunc nuw i8 %3 to i1

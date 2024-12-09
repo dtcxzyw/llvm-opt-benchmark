@@ -44,7 +44,7 @@ newBlock.exit:                                    ; preds = %1
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %13, align 8
-  store ptr %4, ptr getelementptr inbounds (i8, ptr @_grid, i64 8), align 8
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @_grid, i64 8), align 8
   ret ptr @_grid
 }
 
@@ -248,7 +248,7 @@ define i32 @gLength(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
 
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef ptr @newCell(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #4 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_grid, i64 16), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_grid, i64 16), align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -292,7 +292,7 @@ newBlock.exit.i:                                  ; preds = %13
 
 28:                                               ; preds = %newBlock.exit.i, %9
   %29 = phi ptr [ %15, %newBlock.exit.i ], [ %11, %9 ]
-  store ptr %29, ptr getelementptr inbounds (i8, ptr @_grid, i64 16), align 8
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_grid, i64 16), align 8
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %30, ptr %31, align 8

@@ -1273,7 +1273,7 @@ seterr.exit160:                                   ; preds = %200, %203
 
 209:                                              ; preds = %204
   store ptr @nonnewline.bracket, ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @nonnewline.bracket, i64 3), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @nonnewline.bracket, i64 3), ptr %4, align 8
   tail call fastcc void @p_bracket(ptr noundef nonnull %0)
   store ptr %25, ptr %0, align 8
   store ptr %21, ptr %4, align 8
@@ -2902,7 +2902,7 @@ seterr.exit115:                                   ; preds = %86, %89
 
 105:                                              ; preds = %100
   store ptr @nonnewline.bracket, ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @nonnewline.bracket, i64 3), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @nonnewline.bracket, i64 3), ptr %6, align 8
   tail call fastcc void @p_bracket(ptr noundef nonnull %0)
   store ptr %99, ptr %0, align 8
   store ptr %98, ptr %6, align 8

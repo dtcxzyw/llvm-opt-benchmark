@@ -1315,7 +1315,7 @@ define internal void @usb_release_dev(ptr noundef %0) #4 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @usb_alloc_dev(ptr noundef %0, ptr noundef %1, i32 noundef %2) #4 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %5 = tail call noalias noundef align 8 dereferenceable_or_null(1352) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 1352) #14
   %6 = icmp eq ptr %5, null
   br i1 %6, label %128, label %7

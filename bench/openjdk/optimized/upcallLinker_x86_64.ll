@@ -248,10 +248,10 @@ _ZN13GrowableArrayI9VMStorageEC2Ev.exit:          ; preds = %.lr.ph.i.i.i
   %or.cond.i.i.i = icmp samesign ult i32 %95, 31
   %spec.select.i.i17.i = select i1 %or.cond.i.i.i, i32 %101, i32 -1
   %102 = sext i32 %spec.select.i.i17.i to i64
-  %103 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %102
+  %103 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %102
   %104 = ptrtoint ptr %103 to i64
   %105 = trunc i64 %104 to i32
-  %106 = sub i32 %105, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %106 = sub i32 %105, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %spec.select.i.i.i = icmp ult i32 %106, 32
   %107 = load i8, ptr @UseAPX, align 1
   %108 = trunc i8 %107 to i1
@@ -294,10 +294,10 @@ _ZN13GrowableArrayI9VMStorageEC2Ev.exit:          ; preds = %.lr.ph.i.i.i
   %or.cond.i.i19.i = icmp samesign ult i32 %112, 31
   %spec.select.i.i20.i = select i1 %or.cond.i.i19.i, i32 %125, i32 -1
   %126 = sext i32 %spec.select.i.i20.i to i64
-  %127 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %126
+  %127 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %126
   %128 = ptrtoint ptr %127 to i64
   %129 = trunc i64 %128 to i32
-  %130 = sub i32 %129, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
+  %130 = sub i32 %129, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %spec.select.i.i18.i = icmp ult i32 %130, 32
   %131 = icmp sgt i32 %.pre.i, 2
   %132 = select i1 %131, i32 32, i32 16
@@ -342,9 +342,9 @@ _ZL26compute_reg_save_area_sizeRK13ABIDescriptor.exit: ; preds = %124
   %151 = and i32 %150, -16
   %152 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #9
   call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(40) %152, ptr noundef nonnull %37) #9
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV9Assembler, i64 16), ptr %152, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV9Assembler, i64 16), ptr %152, align 8
   call void @_ZN9Assembler15init_attributesEv(ptr noundef nonnull align 8 dereferenceable(40) %152) #9
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV14MacroAssembler, i64 16), ptr %152, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV14MacroAssembler, i64 16), ptr %152, align 8
   call void @_ZN14MacroAssembler5enterEv(ptr noundef nonnull align 8 dereferenceable(40) %152) #9
   %153 = getelementptr inbounds nuw i8, ptr %35, i64 152
   %154 = load i32, ptr %153, align 8
@@ -407,7 +407,7 @@ _ZL26compute_reg_save_area_sizeRK13ABIDescriptor.exit: ; preds = %124
   %188 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %189 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %190 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %191 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %191 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   br label %211
 
 192:                                              ; preds = %199, %157
@@ -429,7 +429,7 @@ _ZL26compute_reg_save_area_sizeRK13ABIDescriptor.exit: ; preds = %124
   store i32 -1, ptr %160, align 4
   store i32 %.063.i, ptr %161, align 8
   store i8 0, ptr %162, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %163, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %163, align 8
   store ptr null, ptr %164, align 8
   store i32 0, ptr %165, align 8
   call void @_ZN14MacroAssembler6movptrE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %152, ptr noundef nonnull %24, i32 %storemerge62.i) #9
@@ -442,10 +442,10 @@ _ZL26compute_reg_save_area_sizeRK13ABIDescriptor.exit: ; preds = %124
   %or.cond.i.i.i134 = icmp samesign ult i32 %193, 31
   %spec.select.i.i48.i = select i1 %or.cond.i.i.i134, i32 %200, i32 -1
   %201 = sext i32 %spec.select.i.i48.i to i64
-  %202 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %201
+  %202 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %201
   %203 = ptrtoint ptr %202 to i64
   %204 = trunc i64 %203 to i32
-  %205 = sub i32 %204, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %205 = sub i32 %204, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %spec.select.i.i.i135 = icmp ult i32 %205, 32
   %206 = load i8, ptr @UseAPX, align 1
   %207 = trunc i8 %206 to i1
@@ -473,7 +473,7 @@ _ZL26compute_reg_save_area_sizeRK13ABIDescriptor.exit: ; preds = %124
   store i32 -1, ptr %184, align 4
   store i32 %.265.i, ptr %185, align 8
   store i8 0, ptr %186, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %187, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %187, align 8
   store ptr null, ptr %188, align 8
   store i32 0, ptr %189, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %23)
@@ -495,7 +495,7 @@ _ZL26compute_reg_save_area_sizeRK13ABIDescriptor.exit: ; preds = %124
   store i32 -1, ptr %176, align 4
   store i32 %.265.i, ptr %177, align 8
   store i8 0, ptr %178, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %179, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %179, align 8
   store ptr null, ptr %180, align 8
   store i32 0, ptr %181, align 8
   call void @_ZN14MacroAssembler7vmovdquE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %152, ptr noundef nonnull %26, i32 %storemerge4664.i) #9
@@ -509,7 +509,7 @@ _ZL26compute_reg_save_area_sizeRK13ABIDescriptor.exit: ; preds = %124
   store i32 -1, ptr %168, align 4
   store i32 %.265.i, ptr %169, align 8
   store i8 0, ptr %170, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %171, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %171, align 8
   store ptr null, ptr %172, align 8
   store i32 0, ptr %173, align 8
   call void @_ZN14MacroAssembler6movdquE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %152, ptr noundef nonnull %27, i32 %storemerge4664.i) #9
@@ -522,10 +522,10 @@ _ZL26compute_reg_save_area_sizeRK13ABIDescriptor.exit: ; preds = %124
   %or.cond.i.i50.i = icmp samesign ult i32 %212, 31
   %spec.select.i.i51.i = select i1 %or.cond.i.i50.i, i32 %226, i32 -1
   %227 = sext i32 %spec.select.i.i51.i to i64
-  %228 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %227
+  %228 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %227
   %229 = ptrtoint ptr %228 to i64
   %230 = trunc i64 %229 to i32
-  %231 = sub i32 %230, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
+  %231 = sub i32 %230, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %spec.select.i.i49.i = icmp ult i32 %231, 32
   %232 = load i32, ptr @UseAVX, align 4
   %233 = icmp sgt i32 %232, 2
@@ -547,7 +547,7 @@ _ZL31preserve_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit: ; 
   %241 = getelementptr inbounds nuw i8, ptr %28, i64 20
   store i8 0, ptr %241, align 4
   %242 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %242, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %242, align 8
   %243 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store ptr null, ptr %243, align 8
   %244 = getelementptr inbounds nuw i8, ptr %28, i64 40
@@ -615,7 +615,7 @@ _ZL31preserve_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit: ; 
   %266 = getelementptr inbounds nuw i8, ptr %45, i64 20
   store i8 0, ptr %266, align 4
   %267 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %267, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %267, align 8
   %268 = getelementptr inbounds nuw i8, ptr %45, i64 32
   store ptr null, ptr %268, align 8
   %269 = getelementptr inbounds nuw i8, ptr %45, i64 40
@@ -662,7 +662,7 @@ _ZL31preserve_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit: ; 
   %283 = getelementptr inbounds nuw i8, ptr %48, i64 20
   store i8 0, ptr %283, align 4
   %284 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %284, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %284, align 8
   %285 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store ptr null, ptr %285, align 8
   %286 = getelementptr inbounds nuw i8, ptr %48, i64 40
@@ -696,7 +696,7 @@ _ZL31preserve_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit: ; 
   %295 = getelementptr inbounds nuw i8, ptr %49, i64 20
   store i8 0, ptr %295, align 4
   %296 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %296, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %296, align 8
   %297 = getelementptr inbounds nuw i8, ptr %49, i64 32
   store ptr null, ptr %297, align 8
   %298 = getelementptr inbounds nuw i8, ptr %49, i64 40
@@ -715,7 +715,7 @@ _ZL31preserve_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit: ; 
   %303 = getelementptr inbounds nuw i8, ptr %50, i64 20
   store i8 0, ptr %303, align 4
   %304 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %304, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %304, align 8
   %305 = getelementptr inbounds nuw i8, ptr %50, i64 32
   store ptr null, ptr %305, align 8
   %306 = getelementptr inbounds nuw i8, ptr %50, i64 40
@@ -742,7 +742,7 @@ _ZL31preserve_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit: ; 
   %313 = getelementptr inbounds nuw i8, ptr %51, i64 20
   store i8 0, ptr %313, align 4
   %314 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %314, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %314, align 8
   %315 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store ptr null, ptr %315, align 8
   %316 = getelementptr inbounds nuw i8, ptr %51, i64 40
@@ -800,7 +800,7 @@ _ZL31preserve_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit: ; 
   store i32 -1, ptr %331, align 4
   store i32 %.0128282, ptr %332, align 8
   store i8 0, ptr %333, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %334, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %334, align 8
   store ptr null, ptr %335, align 8
   store i32 0, ptr %336, align 8
   call void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %152, i32 %spec.select.i.i141, ptr noundef nonnull %52) #9
@@ -817,7 +817,7 @@ _ZL31preserve_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit: ; 
   store i32 -1, ptr %323, align 4
   store i32 %.0128282, ptr %324, align 8
   store i8 0, ptr %325, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %326, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %326, align 8
   store ptr null, ptr %327, align 8
   store i32 0, ptr %328, align 8
   call void @_ZN14MacroAssembler6movdquE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %152, i32 %spec.select.i.i145, ptr noundef nonnull %53) #9
@@ -854,7 +854,7 @@ _ZL31preserve_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit: ; 
   %354 = getelementptr inbounds nuw i8, ptr %54, i64 20
   store i8 0, ptr %354, align 4
   %355 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %355, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %355, align 8
   %356 = getelementptr inbounds nuw i8, ptr %54, i64 32
   store ptr null, ptr %356, align 8
   %357 = getelementptr inbounds nuw i8, ptr %54, i64 40
@@ -940,7 +940,7 @@ _ZL31preserve_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit: ; 
   store i32 -1, ptr %366, align 4
   store i32 %.052.i, ptr %367, align 8
   store i8 0, ptr %368, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %369, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %369, align 8
   store ptr null, ptr %370, align 8
   store i32 0, ptr %371, align 8
   call void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %152, i32 %storemerge51.i, ptr noundef nonnull %12) #9
@@ -953,10 +953,10 @@ _ZL31preserve_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit: ; 
   %or.cond.i.i.i148 = icmp samesign ult i32 %398, 31
   %spec.select.i.i37.i = select i1 %or.cond.i.i.i148, i32 %405, i32 -1
   %406 = sext i32 %spec.select.i.i37.i to i64
-  %407 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %406
+  %407 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %406
   %408 = ptrtoint ptr %407 to i64
   %409 = trunc i64 %408 to i32
-  %410 = sub i32 %409, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %410 = sub i32 %409, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %spec.select.i.i.i149 = icmp ult i32 %410, 32
   %411 = load i8, ptr @UseAPX, align 1
   %412 = trunc i8 %411 to i1
@@ -984,7 +984,7 @@ _ZL31preserve_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit: ; 
   store i32 -1, ptr %390, align 4
   store i32 %.254.i, ptr %391, align 8
   store i8 0, ptr %392, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %393, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %393, align 8
   store ptr null, ptr %394, align 8
   store i32 0, ptr %395, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
@@ -1006,7 +1006,7 @@ _ZL31preserve_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit: ; 
   store i32 -1, ptr %382, align 4
   store i32 %.254.i, ptr %383, align 8
   store i8 0, ptr %384, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %385, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %385, align 8
   store ptr null, ptr %386, align 8
   store i32 0, ptr %387, align 8
   call void @_ZN14MacroAssembler7vmovdquE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %152, i32 %storemerge3553.i, ptr noundef nonnull %14) #9
@@ -1020,7 +1020,7 @@ _ZL31preserve_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit: ; 
   store i32 -1, ptr %374, align 4
   store i32 %.254.i, ptr %375, align 8
   store i8 0, ptr %376, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %377, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %377, align 8
   store ptr null, ptr %378, align 8
   store i32 0, ptr %379, align 8
   call void @_ZN14MacroAssembler6movdquE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %152, i32 %storemerge3553.i, ptr noundef nonnull %15) #9
@@ -1033,10 +1033,10 @@ _ZL31preserve_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit: ; 
   %or.cond.i.i39.i = icmp samesign ult i32 %417, 31
   %spec.select.i.i40.i = select i1 %or.cond.i.i39.i, i32 %431, i32 -1
   %432 = sext i32 %spec.select.i.i40.i to i64
-  %433 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %432
+  %433 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %432
   %434 = ptrtoint ptr %433 to i64
   %435 = trunc i64 %434 to i32
-  %436 = sub i32 %435, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
+  %436 = sub i32 %435, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %spec.select.i.i38.i = icmp ult i32 %436, 32
   %437 = load i32, ptr @UseAVX, align 4
   %438 = icmp sgt i32 %437, 2
@@ -1058,7 +1058,7 @@ _ZL30restore_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit: ; p
   %446 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %446, align 4
   %447 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %447, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %447, align 8
   %448 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %448, align 8
   %449 = getelementptr inbounds nuw i8, ptr %16, i64 40

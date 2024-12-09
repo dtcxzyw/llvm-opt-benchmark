@@ -502,7 +502,7 @@ declare noundef zeroext i1 @_ZNK8QuantLib11EndCriteria18checkMaxIterationsEmRNS0
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib19GoldsteinLineSearchD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib10LineSearchE, i64 16), ptr %this, align 8, !tbaa !30
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib10LineSearchE, i64 16), ptr %this, align 8, !tbaa !30
   %gradient_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %gradient_.i, align 8, !tbaa !26
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -608,7 +608,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !30
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !30
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !46
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -711,7 +711,7 @@ declare double @llvm.fabs.f64(double) #14
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib10LineSearchD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib10LineSearchE, i64 16), ptr %this, align 8, !tbaa !30
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib10LineSearchE, i64 16), ptr %this, align 8, !tbaa !30
   %gradient_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %gradient_, align 8, !tbaa !26
   %cmp.not.i.i = icmp eq ptr %0, null

@@ -13842,7 +13842,7 @@ _ZL14_DictionaryEndPN32pxrInternal_v0_24__pxrReserved__21Sdf_TextParserContextE.
           to label %.noexc1992 unwind label %4754
 
 .noexc1992:                                       ; preds = %.noexc1991
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %180, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %180, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.7, i64 6))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1995 unwind label %4727
 
 4727:                                             ; preds = %.noexc1992
@@ -16381,7 +16381,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrIn
 .invoke:                                          ; preds = %1
   %.not.i.i.i.i = icmp eq i8 %3, -1
   %4 = tail call ptr @__cxa_allocate_exception(i64 16) #26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.str.91..str.92 = select i1 %.not.i.i.i.i, ptr @.str.91, ptr @.str.92
   store ptr %.str.91..str.92, ptr %5, align 8
@@ -16406,7 +16406,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplINSt7__cxx1112b
   %12 = extractvalue { ptr, i32 } %7, 0
   %13 = tail call ptr @__cxa_begin_catch(ptr %12) #26
   %14 = tail call ptr @__cxa_allocate_exception(i64 16) #26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @.str.93, ptr %15, align 8
   invoke void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #28
@@ -21015,7 +21015,7 @@ define linkonce_odr noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_
 
 5:                                                ; preds = %1
   %6 = tail call ptr @__cxa_allocate_exception(i64 16) #26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @.str.94, ptr %7, align 8
   invoke void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #28
@@ -21043,7 +21043,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIdvE5VisitERKSt
   %15 = extractvalue { ptr, i32 } %10, 0
   %16 = call ptr @__cxa_begin_catch(ptr %15) #26
   %17 = call ptr @__cxa_allocate_exception(i64 16) #26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr @.str.93, ptr %18, align 8
   invoke void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #28
@@ -32085,41 +32085,41 @@ define internal fastcc noundef zeroext i1 @_ZL28_IsGenericMetadataListOpTypeRKN3
 
 13:                                               ; preds = %9
   %14 = extractvalue { ptr, ptr } %12, 0
-  store ptr %14, ptr getelementptr inbounds (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 16), align 16
+  store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 16), align 16
   %15 = extractvalue { ptr, ptr } %12, 1
-  store ptr %15, ptr getelementptr inbounds (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 24), align 8
+  store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 24), align 8
   %16 = invoke fastcc { ptr, ptr } @_ZL25_GetListOpAndArrayTfTypesIN32pxrInternal_v0_24__pxrReserved__9SdfListOpIjEEESt4pairINS0_6TfTypeES4_Ev()
           to label %17 unwind label %43
 
 17:                                               ; preds = %13
   %18 = extractvalue { ptr, ptr } %16, 0
-  store ptr %18, ptr getelementptr inbounds (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 32), align 16
+  store ptr %18, ptr getelementptr inbounds nuw (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 32), align 16
   %19 = extractvalue { ptr, ptr } %16, 1
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 40), align 8
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 40), align 8
   %20 = invoke fastcc { ptr, ptr } @_ZL25_GetListOpAndArrayTfTypesIN32pxrInternal_v0_24__pxrReserved__9SdfListOpImEEESt4pairINS0_6TfTypeES4_Ev()
           to label %21 unwind label %43
 
 21:                                               ; preds = %17
   %22 = extractvalue { ptr, ptr } %20, 0
-  store ptr %22, ptr getelementptr inbounds (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 48), align 16
+  store ptr %22, ptr getelementptr inbounds nuw (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 48), align 16
   %23 = extractvalue { ptr, ptr } %20, 1
-  store ptr %23, ptr getelementptr inbounds (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 56), align 8
+  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 56), align 8
   %24 = invoke fastcc { ptr, ptr } @_ZL25_GetListOpAndArrayTfTypesIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEESt4pairINS0_6TfTypeESA_Ev()
           to label %25 unwind label %43
 
 25:                                               ; preds = %21
   %26 = extractvalue { ptr, ptr } %24, 0
-  store ptr %26, ptr getelementptr inbounds (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 64), align 16
+  store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 64), align 16
   %27 = extractvalue { ptr, ptr } %24, 1
-  store ptr %27, ptr getelementptr inbounds (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 72), align 8
+  store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 72), align 8
   %28 = invoke fastcc { ptr, ptr } @_ZL25_GetListOpAndArrayTfTypesIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_7TfTokenEEEESt4pairINS0_6TfTypeES5_Ev()
           to label %29 unwind label %43
 
 29:                                               ; preds = %25
   %30 = extractvalue { ptr, ptr } %28, 0
-  store ptr %30, ptr getelementptr inbounds (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 80), align 16
+  store ptr %30, ptr getelementptr inbounds nuw (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 80), align 16
   %31 = extractvalue { ptr, ptr } %28, 1
-  store ptr %31, ptr getelementptr inbounds (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 88), align 8
+  store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 88), align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes) #26
   br label %32
 
@@ -32145,17 +32145,17 @@ define internal fastcc noundef zeroext i1 @_ZL28_IsGenericMetadataListOpTypeRKN3
   br i1 %39, label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZL28_IsGenericMetadataListOpTypeRKS2_PS2_E3$_0ET_S9_S9_T0_.exit", label %._crit_edge.loopexit.i.i.i
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %38
-  %.1.val.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 64), align 16
+  %.1.val.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 64), align 16
   %40 = icmp eq ptr %.1.val.i.i.i, %.val
   br i1 %40, label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZL28_IsGenericMetadataListOpTypeRKS2_PS2_E3$_0ET_S9_S9_T0_.exit", label %41
 
 41:                                               ; preds = %._crit_edge.loopexit.i.i.i
-  %.2.val.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 80), align 16
+  %.2.val.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 80), align 16
   %42 = icmp eq ptr %.2.val.i.i.i, %.val
   br i1 %42, label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZL28_IsGenericMetadataListOpTypeRKS2_PS2_E3$_0ET_S9_S9_T0_.exit", label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZL28_IsGenericMetadataListOpTypeRKS2_PS2_E3$_0ET_S9_S9_T0_.exit.thread"
 
 "_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZL28_IsGenericMetadataListOpTypeRKS2_PS2_E3$_0ET_S9_S9_T0_.exit": ; preds = %32, %38, %36, %34, %._crit_edge.loopexit.i.i.i, %41
-  %.028.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 64), %._crit_edge.loopexit.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 80), %41 ], [ getelementptr inbounds nuw (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 16), %34 ], [ getelementptr inbounds nuw (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 32), %36 ], [ getelementptr inbounds nuw (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 48), %38 ], [ @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, %32 ]
+  %.028.i.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 64), %._crit_edge.loopexit.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 80), %41 ], [ getelementptr inbounds nuw (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 16), %34 ], [ getelementptr inbounds nuw (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 32), %36 ], [ getelementptr inbounds nuw (i8, ptr @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, i64 48), %38 ], [ @_ZZL28_IsGenericMetadataListOpTypeRKN32pxrInternal_v0_24__pxrReserved__6TfTypeEPS0_E19listOpAndArrayTypes, %32 ]
   %.not9.not = icmp eq ptr %1, null
   br i1 %.not9.not, label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZL28_IsGenericMetadataListOpTypeRKS2_PS2_E3$_0ET_S9_S9_T0_.exit.thread", label %45
 
@@ -67001,7 +67001,7 @@ define linkonce_odr noundef double @_ZSt10__do_visitINSt8__detail9__variant21__d
 
 23:                                               ; preds = %20
   %24 = tail call ptr @__cxa_allocate_exception(i64 16) #26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr @.str.93, ptr %25, align 8
   tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #28
@@ -67031,7 +67031,7 @@ common.resume.i.i.i:                              ; preds = %35, %31
 
 _ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC2ERKS0_.exit.i.i.i: ; preds = %28
   %33 = call ptr @__cxa_allocate_exception(i64 16) #26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr @.str.93, ptr %34, align 8
   invoke void @__cxa_throw(ptr nonnull %33, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #28
@@ -67089,7 +67089,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit: ; preds 
 
 20:                                               ; preds = %17
   %21 = tail call ptr @__cxa_allocate_exception(i64 16) #26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr @.str.93, ptr %22, align 8
   tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #28

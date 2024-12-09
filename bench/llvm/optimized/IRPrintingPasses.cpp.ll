@@ -88,7 +88,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm15PrintModulePass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr noundef nonnull align 8 dereferenceable(42) %1, ptr noundef nonnull align 8 dereferenceable(857) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::pair.147", align 8
-  %6 = load i8, ptr getelementptr inbounds (i8, ptr @WriteNewDbgInfoFormat, i64 128), align 8
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @WriteNewDbgInfoFormat, i64 128), align 8
   %7 = trunc i8 %6 to i1
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 856
   %9 = load i8, ptr %8, align 8
@@ -140,7 +140,7 @@ define dso_local void @_ZN4llvm15PrintModulePass3runERNS_6ModuleERNS_15AnalysisM
 .sink.split.i.i:                                  ; preds = %.lr.ph.i4.i.i, %.lr.ph.i.i.i, %19, %12
   %.sink.i.i = phi i8 [ 1, %12 ], [ 0, %19 ], [ 1, %.lr.ph.i.i.i ], [ 0, %.lr.ph.i4.i.i ]
   store i8 %.sink.i.i, ptr %8, align 8
-  %.pre = load i8, ptr getelementptr inbounds (i8, ptr @WriteNewDbgInfoFormat, i64 128), align 8
+  %.pre = load i8, ptr getelementptr inbounds nuw (i8, ptr @WriteNewDbgInfoFormat, i64 128), align 8
   br label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit
 
 _ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit: ; preds = %11, %.critedge.i.i, %.sink.split.i.i
@@ -405,7 +405,7 @@ define dso_local void @_ZN4llvm17PrintFunctionPassC2ERNS_11raw_ostreamERKNSt7__c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm17PrintFunctionPass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
-  %5 = load i8, ptr getelementptr inbounds (i8, ptr @WriteNewDbgInfoFormat, i64 128), align 8
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @WriteNewDbgInfoFormat, i64 128), align 8
   %6 = trunc i8 %5 to i1
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %8 = load i8, ptr %7, align 8

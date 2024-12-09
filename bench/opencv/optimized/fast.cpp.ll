@@ -2348,7 +2348,7 @@ define void @_ZN2cv19FastFeatureDetector6createEibNS0_12DetectorTypeE(ptr dead_o
   store i32 1, ptr %6, align 8, !noalias !54
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !54
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv24FastFeatureDetector_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !54
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv24FastFeatureDetector_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !54
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %_ZN2cv3PtrINS_24FastFeatureDetector_ImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv24FastFeatureDetector_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i, !noalias !54
@@ -2361,7 +2361,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv24FastFeatureDetector_
 
 _ZN2cv3PtrINS_24FastFeatureDetector_ImplEED2Ev.exit: ; preds = %4
   %10 = zext i1 %2 to i8
-  store ptr getelementptr inbounds inrange(-80, 176) (i8, ptr @_ZTVN2cv24FastFeatureDetector_ImplE, i64 80), ptr %8, align 8, !noalias !54
+  store ptr getelementptr inbounds nuw inrange(-80, 176) (i8, ptr @_ZTVN2cv24FastFeatureDetector_ImplE, i64 80), ptr %8, align 8, !noalias !54
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %1, ptr %11, align 8, !noalias !54
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 28

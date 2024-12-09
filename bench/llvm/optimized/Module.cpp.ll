@@ -1282,7 +1282,7 @@ define dso_local void @_ZN4llvm6ModuleC2ENS_9StringRefERNS_11LLVMContextE(ptr no
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 848
   store ptr null, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  %50 = load i8, ptr getelementptr inbounds (i8, ptr @UseNewDbgInfoFormat, i64 128), align 8
+  %50 = load i8, ptr getelementptr inbounds nuw (i8, ptr @UseNewDbgInfoFormat, i64 128), align 8
   %51 = and i8 %50, 1
   store i8 %51, ptr %49, align 8
   %52 = load ptr, ptr %0, align 8

@@ -91,7 +91,7 @@ define void @fdp_xLayout(ptr noundef %0, ptr nocapture noundef readonly %1) loca
   %.fca.0.extract.i = extractvalue { <2 x float>, i8 } %34, 0
   %.fca.1.extract.i = extractvalue { <2 x float>, i8 } %34, 1
   store <2 x float> %.fca.0.extract.i, ptr @X_marg, align 8
-  store i8 %.fca.1.extract.i, ptr getelementptr inbounds (i8, ptr @X_marg, i64 8), align 8
+  store i8 %.fca.1.extract.i, ptr getelementptr inbounds nuw (i8, ptr @X_marg, i64 8), align 8
   %35 = trunc i8 %.fca.1.extract.i to i1
   br i1 %35, label %36, label %41
 
@@ -101,7 +101,7 @@ define void @fdp_xLayout(ptr noundef %0, ptr nocapture noundef readonly %1) loca
   %39 = fdiv float %38, 7.200000e+01
   store float %39, ptr @X_marg, align 8
   %40 = fdiv float %37, 7.200000e+01
-  store float %40, ptr getelementptr inbounds (i8, ptr @X_marg, i64 4), align 4
+  store float %40, ptr getelementptr inbounds nuw (i8, ptr @X_marg, i64 4), align 4
   br label %41
 
 41:                                               ; preds = %36, %31
@@ -140,7 +140,7 @@ define void @fdp_xLayout(ptr noundef %0, ptr nocapture noundef readonly %1) loca
   %58 = load double, ptr %57, align 8
   %59 = fsub double %56, %58
   %60 = tail call double @llvm.fabs.f64(double %59)
-  %61 = load i8, ptr getelementptr inbounds (i8, ptr @X_marg, i64 8), align 8
+  %61 = load i8, ptr getelementptr inbounds nuw (i8, ptr @X_marg, i64 8), align 8
   %62 = trunc i8 %61 to i1
   %63 = getelementptr inbounds nuw i8, ptr %.013.val.i.i, i64 48
   %64 = load double, ptr %63, align 8
@@ -174,7 +174,7 @@ define void @fdp_xLayout(ptr noundef %0, ptr nocapture noundef readonly %1) loca
   %85 = getelementptr inbounds nuw i8, ptr %.013.val.i.i, i64 56
   %86 = load double, ptr %85, align 8
   %87 = fmul double %86, 5.000000e-01
-  %88 = load float, ptr getelementptr inbounds (i8, ptr @X_marg, i64 4), align 4
+  %88 = load float, ptr getelementptr inbounds nuw (i8, ptr @X_marg, i64 4), align 4
   %89 = fpext float %88 to double
   %90 = fadd double %87, %89
   %91 = getelementptr inbounds nuw i8, ptr %.012.val.i.i, i64 56
@@ -186,7 +186,7 @@ define void @fdp_xLayout(ptr noundef %0, ptr nocapture noundef readonly %1) loca
 .thread4.i.i.i:                                   ; preds = %.thread3.i.i.i
   %95 = getelementptr inbounds nuw i8, ptr %.013.val.i.i, i64 56
   %96 = load double, ptr %95, align 8
-  %97 = load float, ptr getelementptr inbounds (i8, ptr @X_marg, i64 4), align 4
+  %97 = load float, ptr getelementptr inbounds nuw (i8, ptr @X_marg, i64 4), align 4
   %98 = fpext float %97 to double
   %99 = fmul double %96, %98
   %100 = fmul double %99, 5.000000e-01
@@ -405,7 +405,7 @@ xinit_params.exit.i:                              ; preds = %127, %125
   %.021.lcssa.i.i.i.i = phi double [ %190, %._crit_edge.i.loopexit.i.i.i ], [ %178, %168 ]
   %198 = tail call double @llvm.fabs.f64(double %.pre-phi.i.i.i)
   %199 = tail call double @llvm.fabs.f64(double %.pre-phi28.i.i.i)
-  %200 = load i8, ptr getelementptr inbounds (i8, ptr @X_marg, i64 8), align 8
+  %200 = load i8, ptr getelementptr inbounds nuw (i8, ptr @X_marg, i64 8), align 8
   %201 = trunc i8 %200 to i1
   %202 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 48
   %203 = load double, ptr %202, align 8
@@ -439,7 +439,7 @@ xinit_params.exit.i:                              ; preds = %127, %125
   %224 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 56
   %225 = load double, ptr %224, align 8
   %226 = fmul double %225, 5.000000e-01
-  %227 = load float, ptr getelementptr inbounds (i8, ptr @X_marg, i64 4), align 4
+  %227 = load float, ptr getelementptr inbounds nuw (i8, ptr @X_marg, i64 4), align 4
   %228 = fpext float %227 to double
   %229 = fadd double %226, %228
   %230 = getelementptr inbounds nuw i8, ptr %.val24.i.i.i.i, i64 56
@@ -451,7 +451,7 @@ xinit_params.exit.i:                              ; preds = %127, %125
 .thread4.i.i.i.i.i:                               ; preds = %.thread3.i.i.i.i.i
   %234 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 56
   %235 = load double, ptr %234, align 8
-  %236 = load float, ptr getelementptr inbounds (i8, ptr @X_marg, i64 4), align 4
+  %236 = load float, ptr getelementptr inbounds nuw (i8, ptr @X_marg, i64 4), align 4
   %237 = fpext float %236 to double
   %238 = fmul double %235, %237
   %239 = fmul double %238, 5.000000e-01
@@ -546,7 +546,7 @@ applyRep.exit.i.i:                                ; preds = %overlap.exit.i.i.i.
   %299 = load double, ptr %298, align 8
   %300 = fsub double %297, %299
   %301 = tail call double @llvm.fabs.f64(double %300)
-  %302 = load i8, ptr getelementptr inbounds (i8, ptr @X_marg, i64 8), align 8
+  %302 = load i8, ptr getelementptr inbounds nuw (i8, ptr @X_marg, i64 8), align 8
   %303 = trunc i8 %302 to i1
   %304 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 48
   %305 = load double, ptr %304, align 8
@@ -580,7 +580,7 @@ applyRep.exit.i.i:                                ; preds = %overlap.exit.i.i.i.
   %326 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 56
   %327 = load double, ptr %326, align 8
   %328 = fmul double %327, 5.000000e-01
-  %329 = load float, ptr getelementptr inbounds (i8, ptr @X_marg, i64 4), align 4
+  %329 = load float, ptr getelementptr inbounds nuw (i8, ptr @X_marg, i64 4), align 4
   %330 = fpext float %329 to double
   %331 = fadd double %328, %330
   %332 = getelementptr inbounds nuw i8, ptr %.val28.i.i.i, i64 56
@@ -592,7 +592,7 @@ applyRep.exit.i.i:                                ; preds = %overlap.exit.i.i.i.
 .thread4.i.i.i.i:                                 ; preds = %.thread3.i.i.i.i
   %336 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 56
   %337 = load double, ptr %336, align 8
-  %338 = load float, ptr getelementptr inbounds (i8, ptr @X_marg, i64 4), align 4
+  %338 = load float, ptr getelementptr inbounds nuw (i8, ptr @X_marg, i64 4), align 4
   %339 = fpext float %338 to double
   %340 = fmul double %337, %339
   %341 = fmul double %340, 5.000000e-01
@@ -611,7 +611,7 @@ overlap.exit.i.i.i:                               ; preds = %.thread4.i.i.i.i, %
 
 overlap.exit.thread.i.i.i:                        ; preds = %overlap.exit.i.i.i, %.thread3.i.i.i.i, %308
   %350 = tail call double @hypot(double noundef %294, double noundef %300) #10
-  %351 = load i8, ptr getelementptr inbounds (i8, ptr @X_marg, i64 8), align 8
+  %351 = load i8, ptr getelementptr inbounds nuw (i8, ptr @X_marg, i64 8), align 8
   %352 = trunc i8 %351 to i1
   %353 = load ptr, ptr %279, align 8
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 48
@@ -626,7 +626,7 @@ overlap.exit.thread.i.i.i:                        ; preds = %overlap.exit.i.i.i,
   %361 = fpext float %360 to double
   %362 = fadd double %359, %361
   %363 = fmul double %357, 5.000000e-01
-  %364 = load float, ptr getelementptr inbounds (i8, ptr @X_marg, i64 4), align 4
+  %364 = load float, ptr getelementptr inbounds nuw (i8, ptr @X_marg, i64 4), align 4
   %365 = fpext float %364 to double
   %366 = fadd double %363, %365
   br label %RAD.exit.i.i.i
@@ -636,7 +636,7 @@ overlap.exit.thread.i.i.i:                        ; preds = %overlap.exit.i.i.i,
   %369 = fpext float %368 to double
   %370 = fmul double %355, %369
   %371 = fmul double %370, 5.000000e-01
-  %372 = load float, ptr getelementptr inbounds (i8, ptr @X_marg, i64 4), align 4
+  %372 = load float, ptr getelementptr inbounds nuw (i8, ptr @X_marg, i64 4), align 4
   %373 = fpext float %372 to double
   %374 = fmul double %357, %373
   %375 = fmul double %374, 5.000000e-01
@@ -646,7 +646,7 @@ RAD.exit.i.i.i:                                   ; preds = %367, %358
   %376 = phi double [ %362, %358 ], [ %371, %367 ]
   %377 = phi double [ %366, %358 ], [ %375, %367 ]
   %378 = tail call double @hypot(double noundef %376, double noundef %377) #10
-  %379 = load i8, ptr getelementptr inbounds (i8, ptr @X_marg, i64 8), align 8
+  %379 = load i8, ptr getelementptr inbounds nuw (i8, ptr @X_marg, i64 8), align 8
   %380 = trunc i8 %379 to i1
   %381 = load ptr, ptr %287, align 8
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 48
@@ -661,7 +661,7 @@ RAD.exit.i.i.i:                                   ; preds = %367, %358
   %389 = fpext float %388 to double
   %390 = fadd double %387, %389
   %391 = fmul double %385, 5.000000e-01
-  %392 = load float, ptr getelementptr inbounds (i8, ptr @X_marg, i64 4), align 4
+  %392 = load float, ptr getelementptr inbounds nuw (i8, ptr @X_marg, i64 4), align 4
   %393 = fpext float %392 to double
   %394 = fadd double %391, %393
   br label %RAD.exit29.i.i.i
@@ -671,7 +671,7 @@ RAD.exit.i.i.i:                                   ; preds = %367, %358
   %397 = fpext float %396 to double
   %398 = fmul double %383, %397
   %399 = fmul double %398, 5.000000e-01
-  %400 = load float, ptr getelementptr inbounds (i8, ptr @X_marg, i64 4), align 4
+  %400 = load float, ptr getelementptr inbounds nuw (i8, ptr @X_marg, i64 4), align 4
   %401 = fpext float %400 to double
   %402 = fmul double %385, %401
   %403 = fmul double %402, 5.000000e-01

@@ -557,7 +557,7 @@ _ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i: ; preds = %4, %_Z
 define dso_local void @_ZNK4llvm13MCInstPrinter9formatDecEl(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::format_object") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(58) %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @.str.1, ptr %4, align 8, !alias.scope !7
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !alias.scope !7
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !alias.scope !7
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %5, align 8, !alias.scope !7
   ret void
@@ -581,7 +581,7 @@ define dso_local void @_ZNK4llvm13MCInstPrinter9formatHexEl(ptr dead_on_unwind n
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @.str.2, ptr %11, align 8, !alias.scope !10
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !alias.scope !10
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !alias.scope !10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 -9223372036854775808, ptr %12, align 8, !alias.scope !10
   br label %42
@@ -590,7 +590,7 @@ define dso_local void @_ZNK4llvm13MCInstPrinter9formatHexEl(ptr dead_on_unwind n
   %14 = sub nsw i64 0, %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @.str.3, ptr %15, align 8, !alias.scope !13
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !alias.scope !13
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !alias.scope !13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %14, ptr %16, align 8, !alias.scope !13
   br label %42
@@ -598,7 +598,7 @@ define dso_local void @_ZNK4llvm13MCInstPrinter9formatHexEl(ptr dead_on_unwind n
 17:                                               ; preds = %7
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @.str.4, ptr %18, align 8, !alias.scope !16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !alias.scope !16
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !alias.scope !16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %19, align 8, !alias.scope !16
   br label %42
@@ -613,7 +613,7 @@ define dso_local void @_ZNK4llvm13MCInstPrinter9formatHexEl(ptr dead_on_unwind n
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @.str.5, ptr %24, align 8, !alias.scope !19
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !alias.scope !19
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !alias.scope !19
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 -9223372036854775808, ptr %25, align 8, !alias.scope !19
   br label %42
@@ -636,13 +636,13 @@ _ZL16needsLeadingZerom.exit:                      ; preds = %.lr.ph.i
 
 32:                                               ; preds = %_ZL16needsLeadingZerom.exit
   store ptr @.str.6, ptr %30, align 8, !alias.scope !22
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !alias.scope !22
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !alias.scope !22
   store i64 %27, ptr %31, align 8, !alias.scope !22
   br label %42
 
 33:                                               ; preds = %_ZL16needsLeadingZerom.exit
   store ptr @.str.7, ptr %30, align 8, !alias.scope !25
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !alias.scope !25
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !alias.scope !25
   store i64 %27, ptr %31, align 8, !alias.scope !25
   br label %42
 
@@ -663,7 +663,7 @@ _ZL16needsLeadingZerom.exit6:                     ; preds = %.lr.ph.i2
 37:                                               ; preds = %_ZL16needsLeadingZerom.exit6
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @.str.8, ptr %38, align 8, !alias.scope !28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !alias.scope !28
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !alias.scope !28
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %39, align 8, !alias.scope !28
   br label %42
@@ -671,7 +671,7 @@ _ZL16needsLeadingZerom.exit6:                     ; preds = %.lr.ph.i2
 _ZL16needsLeadingZerom.exit6.thread:              ; preds = %34, %_ZL16needsLeadingZerom.exit6
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @.str.9, ptr %40, align 8, !alias.scope !31
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !alias.scope !31
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !alias.scope !31
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %41, align 8, !alias.scope !31
   br label %42
@@ -708,7 +708,7 @@ _ZL16needsLeadingZerom.exit.thread:               ; preds = %6, %_ZL16needsLeadi
   %.str.9.sink = phi ptr [ @.str.9, %_ZL16needsLeadingZerom.exit.thread ], [ @.str.4, %3 ], [ @.str.8, %_ZL16needsLeadingZerom.exit ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.str.9.sink, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmEEE, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %11, align 8
   ret void

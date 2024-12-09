@@ -79,11 +79,11 @@ entry:
   store i32 %0, ptr %id, align 8
   %node = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr null, ptr %node, align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @handlers, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @handlers, i64 8), align 8
   %tql_prev = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr %1, ptr %tql_prev, align 8
   store ptr %call, ptr %1, align 8
-  store ptr %node, ptr getelementptr inbounds (i8, ptr @handlers, i64 8), align 8
+  store ptr %node, ptr getelementptr inbounds nuw (i8, ptr @handlers, i64 8), align 8
   tail call void @notifier_list_notify(ptr noundef nonnull @mouse_mode_notifiers, ptr noundef null) #12
   ret ptr %call
 }
@@ -110,7 +110,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @handlers, i64 8), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @handlers, i64 8), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -127,7 +127,7 @@ if.then18:                                        ; preds = %if.end
   br label %if.end24
 
 if.else22:                                        ; preds = %if.end
-  store ptr %node, ptr getelementptr inbounds (i8, ptr @handlers, i64 8), align 8
+  store ptr %node, ptr getelementptr inbounds nuw (i8, ptr @handlers, i64 8), align 8
   br label %if.end24
 
 if.end24:                                         ; preds = %if.else22, %if.then18
@@ -155,7 +155,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @handlers, i64 8), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @handlers, i64 8), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -163,10 +163,10 @@ if.end:                                           ; preds = %if.else, %if.then
   %tql_prev9 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store ptr %2, ptr %1, align 8
   store i64 0, ptr %node, align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @handlers, i64 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @handlers, i64 8), align 8
   store ptr %3, ptr %tql_prev9, align 8
   store ptr %s, ptr %3, align 8
-  store ptr %node, ptr getelementptr inbounds (i8, ptr @handlers, i64 8), align 8
+  store ptr %node, ptr getelementptr inbounds nuw (i8, ptr @handlers, i64 8), align 8
   tail call void @notifier_list_notify(ptr noundef nonnull @mouse_mode_notifiers, ptr noundef null) #12
   ret void
 }
@@ -188,7 +188,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @handlers, i64 8), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @handlers, i64 8), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -1115,11 +1115,11 @@ if.then2:                                         ; preds = %if.else
   store ptr %call.i, ptr %evt2.i, align 8
   %node.i = getelementptr inbounds nuw i8, ptr %call.i10, i64 40
   store ptr null, ptr %node.i, align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kbd_queue, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kbd_queue, i64 8), align 8
   %tql_prev4.i = getelementptr inbounds nuw i8, ptr %call.i10, i64 48
   store ptr %4, ptr %tql_prev4.i, align 8
   store ptr %call.i10, ptr %4, align 8
-  store ptr %node.i, ptr getelementptr inbounds (i8, ptr @kbd_queue, i64 8), align 8
+  store ptr %node.i, ptr getelementptr inbounds nuw (i8, ptr @kbd_queue, i64 8), align 8
   %5 = load i32, ptr @queue_count, align 4
   %inc.i = add i32 %5, 1
   store i32 %inc.i, ptr @queue_count, align 4
@@ -1127,11 +1127,11 @@ if.then2:                                         ; preds = %if.else
   store i32 3, ptr %call.i11, align 8
   %node.i12 = getelementptr inbounds nuw i8, ptr %call.i11, i64 40
   store ptr null, ptr %node.i12, align 8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kbd_queue, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kbd_queue, i64 8), align 8
   %tql_prev2.i = getelementptr inbounds nuw i8, ptr %call.i11, i64 48
   store ptr %6, ptr %tql_prev2.i, align 8
   store ptr %call.i11, ptr %6, align 8
-  store ptr %node.i12, ptr getelementptr inbounds (i8, ptr @kbd_queue, i64 8), align 8
+  store ptr %node.i12, ptr getelementptr inbounds nuw (i8, ptr @kbd_queue, i64 8), align 8
   %7 = load i32, ptr @queue_count, align 4
   %inc.i13 = add i32 %7, 1
   store i32 %inc.i13, ptr @queue_count, align 4
@@ -1199,11 +1199,11 @@ if.then5:                                         ; preds = %if.end4
   store ptr %1, ptr %timer2.i, align 8
   %node.i = getelementptr inbounds nuw i8, ptr %call.i2, i64 40
   store ptr null, ptr %node.i, align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kbd_queue, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kbd_queue, i64 8), align 8
   %tql_prev4.i = getelementptr inbounds nuw i8, ptr %call.i2, i64 48
   store ptr %4, ptr %tql_prev4.i, align 8
   store ptr %call.i2, ptr %4, align 8
-  store ptr %node.i, ptr getelementptr inbounds (i8, ptr @kbd_queue, i64 8), align 8
+  store ptr %node.i, ptr getelementptr inbounds nuw (i8, ptr @kbd_queue, i64 8), align 8
   %5 = load i32, ptr @queue_count, align 4
   %inc.i = add i32 %5, 1
   store i32 %inc.i, ptr @queue_count, align 4
@@ -1855,7 +1855,7 @@ if.then.i:                                        ; preds = %if.end7
   br label %if.end.i
 
 if.else.i:                                        ; preds = %if.end7
-  store ptr %5, ptr getelementptr inbounds (i8, ptr @handlers, i64 8), align 8
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @handlers, i64 8), align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
@@ -1872,7 +1872,7 @@ if.then18.i:                                      ; preds = %if.end.i
   br label %qemu_input_handler_activate.exit
 
 if.else22.i:                                      ; preds = %if.end.i
-  store ptr %node.i, ptr getelementptr inbounds (i8, ptr @handlers, i64 8), align 8
+  store ptr %node.i, ptr getelementptr inbounds nuw (i8, ptr @handlers, i64 8), align 8
   br label %qemu_input_handler_activate.exit
 
 qemu_input_handler_activate.exit:                 ; preds = %if.then18.i, %if.else22.i

@@ -1263,10 +1263,10 @@ _ZN2cv3Mat2atINS_3VecIhLi3EEEEERT_i.exit159:      ; preds = %468, %462, %455
   %.184 = phi i1 [ false, %307 ], [ %534, %532 ], [ false, %529 ]
   %536 = load i8, ptr @selectObject, align 1
   %537 = trunc i8 %536 to i1
-  %538 = load i32, ptr getelementptr inbounds (i8, ptr @selection, i64 8), align 4
+  %538 = load i32, ptr getelementptr inbounds nuw (i8, ptr @selection, i64 8), align 4
   %539 = icmp sgt i32 %538, 0
   %or.cond = select i1 %537, i1 %539, i1 false
-  %540 = load i32, ptr getelementptr inbounds (i8, ptr @selection, i64 12), align 4
+  %540 = load i32, ptr getelementptr inbounds nuw (i8, ptr @selection, i64 12), align 4
   %541 = icmp sgt i32 %540, 0
   %or.cond3 = select i1 %or.cond, i1 %541, i1 false
   br i1 %or.cond3, label %542, label %549
@@ -1545,17 +1545,17 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
   %10 = load i32, ptr @origin, align 8
   %11 = tail call i32 @llvm.smin.i32(i32 %1, i32 %10)
   store i32 %11, ptr @selection, align 4
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @origin, i64 4), align 4
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @origin, i64 4), align 4
   %13 = tail call i32 @llvm.smin.i32(i32 %2, i32 %12)
-  store i32 %13, ptr getelementptr inbounds (i8, ptr @selection, i64 4), align 4
+  store i32 %13, ptr getelementptr inbounds nuw (i8, ptr @selection, i64 4), align 4
   %14 = sub nsw i32 %1, %10
   %15 = tail call i32 @llvm.abs.i32(i32 %14, i1 true)
-  store i32 %15, ptr getelementptr inbounds (i8, ptr @selection, i64 8), align 4
+  store i32 %15, ptr getelementptr inbounds nuw (i8, ptr @selection, i64 8), align 4
   %16 = sub nsw i32 %2, %12
   %17 = tail call i32 @llvm.abs.i32(i32 %16, i1 true)
-  store i32 %17, ptr getelementptr inbounds (i8, ptr @selection, i64 12), align 4
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @image, i64 12), align 4
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @image, i64 8), align 8
+  store i32 %17, ptr getelementptr inbounds nuw (i8, ptr @selection, i64 12), align 4
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @image, i64 12), align 4
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @image, i64 8), align 8
   store i32 0, ptr %6, align 4
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %20, align 4
@@ -1579,17 +1579,17 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
   %.sroa.012.0.insert.insert = or disjoint i64 %.sroa.213.0.insert.shift, %.sroa.012.0.insert.ext
   store i64 %.sroa.012.0.insert.insert, ptr @origin, align 8
   store i32 %1, ptr @selection, align 4
-  store i32 %2, ptr getelementptr inbounds (i8, ptr @selection, i64 4), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @selection, i64 8), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @selection, i64 12), align 4
+  store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @selection, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @selection, i64 8), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @selection, i64 12), align 4
   store i8 1, ptr @selectObject, align 1
   br label %32
 
 26:                                               ; preds = %24
   store i8 0, ptr @selectObject, align 1
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @selection, i64 8), align 4
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @selection, i64 8), align 4
   %28 = icmp sgt i32 %27, 0
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @selection, i64 12), align 4
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @selection, i64 12), align 4
   %30 = icmp sgt i32 %29, 0
   %or.cond = select i1 %28, i1 %30, i1 false
   br i1 %or.cond, label %31, label %32

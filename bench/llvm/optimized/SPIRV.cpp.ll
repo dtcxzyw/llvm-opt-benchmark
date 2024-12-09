@@ -585,7 +585,7 @@ define hidden noundef ptr @_ZNK5clang6driver10toolchains14SPIRVToolChain13getTra
 4:                                                ; preds = %1
   %5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12, !noalias !16
   tail call void @_ZN5clang6driver4ToolC2EPKcS3_RKNS0_9ToolChainE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(2176) %0) #11, !noalias !16
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang6driver5tools5SPIRV10TranslatorE, i64 16), ptr %5, align 8, !noalias !16
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang6driver5tools5SPIRV10TranslatorE, i64 16), ptr %5, align 8, !noalias !16
   %6 = load ptr, ptr %2, align 8
   store ptr %5, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %6, null
@@ -621,7 +621,7 @@ define hidden noundef ptr @_ZNK5clang6driver10toolchains14SPIRVToolChain10Select
 8:                                                ; preds = %5
   %9 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12, !noalias !19
   tail call void @_ZN5clang6driver4ToolC2EPKcS3_RKNS0_9ToolChainE(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(2176) %0) #11, !noalias !19
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang6driver5tools5SPIRV10TranslatorE, i64 16), ptr %9, align 8, !noalias !19
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang6driver5tools5SPIRV10TranslatorE, i64 16), ptr %9, align 8, !noalias !19
   %10 = load ptr, ptr %6, align 8
   store ptr %9, ptr %6, align 8
   %.not.i.i.i.i.i = icmp eq ptr %10, null
@@ -659,7 +659,7 @@ define hidden noundef ptr @_ZNK5clang6driver10toolchains14SPIRVToolChain7getTool
 6:                                                ; preds = %3
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12, !noalias !22
   tail call void @_ZN5clang6driver4ToolC2EPKcS3_RKNS0_9ToolChainE(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(2176) %0) #11, !noalias !22
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang6driver5tools5SPIRV10TranslatorE, i64 16), ptr %7, align 8, !noalias !22
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang6driver5tools5SPIRV10TranslatorE, i64 16), ptr %7, align 8, !noalias !22
   %8 = load ptr, ptr %4, align 8
   store ptr %7, ptr %4, align 8
   %.not.i.i.i.i = icmp eq ptr %8, null
@@ -688,7 +688,7 @@ declare noundef ptr @_ZNK5clang6driver9ToolChain7getToolENS0_6Action11ActionClas
 define hidden noundef nonnull ptr @_ZNK5clang6driver10toolchains14SPIRVToolChain11buildLinkerEv(ptr noundef nonnull align 8 dereferenceable(2176) %0) unnamed_addr #0 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12
   tail call void @_ZN5clang6driver4ToolC2EPKcS3_RKNS0_9ToolChainE(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull align 8 dereferenceable(2168) %0) #11
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang6driver5tools5SPIRV6LinkerE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang6driver5tools5SPIRV6LinkerE, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -1170,7 +1170,7 @@ define linkonce_odr hidden void @_ZNK5clang6driver9ToolChain14getThreadModelB5cx
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
   %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3) #11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 5))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.8, i64 5))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
   ret void
 }

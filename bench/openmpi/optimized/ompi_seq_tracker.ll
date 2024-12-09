@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal void @ompi_seq_tracker_construct(ptr noundef initializes((0, 8)) %0) #0 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -209,10 +209,10 @@ define void @ompi_seq_tracker_insert(ptr noundef %0, i32 noundef %1) local_unnam
 
 ._crit_edge:                                      ; preds = %205, %2
   %.090.lcssa = phi i1 [ false, %2 ], [ %.not, %205 ]
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_seq_tracker_range_t_class, i64 56), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_seq_tracker_range_t_class, i64 56), align 8
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #6
   %9 = load i32, ptr @opal_class_init_epoch, align 4
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_seq_tracker_range_t_class, i64 32), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_seq_tracker_range_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %9, %10
   br i1 %.not.i, label %12, label %11
 
@@ -476,10 +476,10 @@ opal_obj_run_destructors.exit112:                 ; preds = %.lr.ph.i109, %132
   br i1 %143, label %144, label %205
 
 144:                                              ; preds = %142
-  %145 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_seq_tracker_range_t_class, i64 56), align 8
+  %145 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_seq_tracker_range_t_class, i64 56), align 8
   %146 = tail call noalias ptr @malloc(i64 noundef %145) #6
   %147 = load i32, ptr @opal_class_init_epoch, align 4
-  %148 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_seq_tracker_range_t_class, i64 32), align 8
+  %148 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_seq_tracker_range_t_class, i64 32), align 8
   %.not.i113 = icmp eq i32 %147, %148
   br i1 %.not.i113, label %150, label %149
 
@@ -556,10 +556,10 @@ opal_obj_new.exit119:                             ; preds = %.lr.ph.i.i116
   br i1 %179, label %180, label %205
 
 180:                                              ; preds = %178
-  %181 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_seq_tracker_range_t_class, i64 56), align 8
+  %181 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_seq_tracker_range_t_class, i64 56), align 8
   %182 = tail call noalias ptr @malloc(i64 noundef %181) #6
   %183 = load i32, ptr @opal_class_init_epoch, align 4
-  %184 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_seq_tracker_range_t_class, i64 32), align 8
+  %184 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_seq_tracker_range_t_class, i64 32), align 8
   %.not.i120 = icmp eq i32 %183, %184
   br i1 %.not.i120, label %186, label %185
 
@@ -648,10 +648,10 @@ define void @ompi_seq_tracker_copy(ptr noundef %0, ptr noundef %1) local_unnamed
 
 10:                                               ; preds = %.lr.ph, %40
   %.019 = phi ptr [ %.017, %.lr.ph ], [ %.0, %40 ]
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_seq_tracker_range_t_class, i64 56), align 8
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_seq_tracker_range_t_class, i64 56), align 8
   %12 = tail call noalias ptr @malloc(i64 noundef %11) #6
   %13 = load i32, ptr @opal_class_init_epoch, align 4
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_seq_tracker_range_t_class, i64 32), align 8
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_seq_tracker_range_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %13, %14
   br i1 %.not.i, label %16, label %15
 

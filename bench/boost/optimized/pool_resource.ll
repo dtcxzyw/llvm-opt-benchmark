@@ -897,7 +897,7 @@ define linkonce_odr hidden void @_ZN5boost9container15throw_bad_allocEv() local_
   %1 = tail call ptr @__cxa_allocate_exception(i64 16) #18
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @.str, ptr %2, align 8, !tbaa !39
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9container9bad_allocE, i64 16), ptr %1, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9container9bad_allocE, i64 16), ptr %1, align 8, !tbaa !14
   tail call void @__cxa_throw(ptr nonnull %1, ptr nonnull @_ZTIN5boost9container9bad_allocE, ptr nonnull @_ZNSt9exceptionD2Ev) #20
   unreachable
 }

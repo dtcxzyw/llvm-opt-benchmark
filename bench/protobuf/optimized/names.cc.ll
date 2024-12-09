@@ -175,7 +175,7 @@ invoke.cont:                                      ; preds = %.noexc
   %frombool.i.i = and i8 %1, 1
   store i8 %frombool.i.i, ptr %strip_nonfunctional_codegen.i.i, align 8
   %file_immutable_outer_class_names_.i = getelementptr inbounds nuw i8, ptr %name_resolver, i64 80
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %file_immutable_outer_class_names_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %file_immutable_outer_class_names_.i, align 8
   %slots_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %name_resolver, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i) #18
@@ -332,7 +332,7 @@ invoke.cont:                                      ; preds = %.noexc
   %frombool.i.i = and i8 %1, 1
   store i8 %frombool.i.i, ptr %strip_nonfunctional_codegen.i.i, align 8
   %file_immutable_outer_class_names_.i = getelementptr inbounds nuw i8, ptr %name_resolver, i64 80
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %file_immutable_outer_class_names_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %file_immutable_outer_class_names_.i, align 8
   %slots_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %name_resolver, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i) #18
@@ -441,7 +441,7 @@ invoke.cont:                                      ; preds = %.noexc
   %frombool.i.i = and i8 %1, 1
   store i8 %frombool.i.i, ptr %strip_nonfunctional_codegen.i.i, align 8
   %file_immutable_outer_class_names_.i = getelementptr inbounds nuw i8, ptr %name_resolver, i64 80
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %file_immutable_outer_class_names_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %file_immutable_outer_class_names_.i, align 8
   %slots_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %name_resolver, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i) #18
@@ -550,7 +550,7 @@ invoke.cont:                                      ; preds = %.noexc
   %frombool.i.i = and i8 %1, 1
   store i8 %frombool.i.i, ptr %strip_nonfunctional_codegen.i.i, align 8
   %file_immutable_outer_class_names_.i = getelementptr inbounds nuw i8, ptr %name_resolver, i64 80
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %file_immutable_outer_class_names_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %file_immutable_outer_class_names_.i, align 8
   %slots_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %name_resolver, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i) #18
@@ -1150,7 +1150,7 @@ entry:
   br i1 %cmp.not.i, label %_ZN4absl12lts_2023080218container_internal29SelectBucketCountForIterRangeIPKPKcEEmT_S7_m.exit, label %_ZN4absl12lts_2023080218container_internal29SelectBucketCountForIterRangeIPKPKcEEmT_S7_m.exit.thread
 
 _ZN4absl12lts_2023080218container_internal29SelectBucketCountForIterRangeIPKPKcEEmT_S7_m.exit.thread: ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %this, align 8
   %slots_.i.i.i.i.i10 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i10, i8 0, i64 24, i1 false)
   br label %invoke.cont.i
@@ -1163,7 +1163,7 @@ _ZN4absl12lts_2023080218container_internal29SelectBucketCountForIterRangeIPKPKcE
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i.i, -1
   %div.i.i = sdiv i64 %sub.i.i, 7
   %add.i.i = add nsw i64 %div.i.i, %sub.ptr.div.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %this, align 8
   %slots_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %tobool.not.i = icmp eq i64 %add.i.i, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i, i8 0, i64 24, i1 false)

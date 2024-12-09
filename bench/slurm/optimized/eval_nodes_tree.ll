@@ -88,7 +88,7 @@ define range(i32 -1, 2037) i32 @eval_nodes_tree(ptr noundef %0) local_unnamed_ad
   br i1 %.b78, label %50, label %41
 
 41:                                               ; preds = %1
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1456), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1456), align 8
   %43 = tail call ptr @xstrcasestr(ptr noundef %42, ptr noundef nonnull @.str) #7
   %.not = icmp eq ptr %43, null
   br i1 %.not, label %45, label %44
@@ -98,7 +98,7 @@ define range(i32 -1, 2037) i32 @eval_nodes_tree(ptr noundef %0) local_unnamed_ad
   br label %45
 
 45:                                               ; preds = %44, %41
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1456), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1456), align 8
   %47 = tail call ptr @xstrcasestr(ptr noundef %46, ptr noundef nonnull @.str.1) #7
   %.not9 = icmp eq ptr %47, null
   br i1 %.not9, label %49, label %48
@@ -366,7 +366,7 @@ define range(i32 -1, 2037) i32 @eval_nodes_tree(ptr noundef %0) local_unnamed_ad
   br i1 %172, label %173, label %180
 
 173:                                              ; preds = %170
-  %174 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %174 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %175 = and i64 %174, 1
   %.not445.i = icmp eq i64 %175, 0
   br i1 %.not445.i, label %.thread487.i, label %176
@@ -469,7 +469,7 @@ define range(i32 -1, 2037) i32 @eval_nodes_tree(ptr noundef %0) local_unnamed_ad
   br i1 %227, label %228, label %236
 
 228:                                              ; preds = %224
-  %229 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %229 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %230 = and i64 %229, 1
   %.not441.i = icmp eq i64 %230, 0
   br i1 %.not441.i, label %.thread487.i, label %231
@@ -489,7 +489,7 @@ define range(i32 -1, 2037) i32 @eval_nodes_tree(ptr noundef %0) local_unnamed_ad
 
 236:                                              ; preds = %235, %224
   call void @list_sort(ptr noundef %148, ptr noundef nonnull @eval_nodes_topo_weight_sort) #7
-  %237 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %237 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %238 = and i64 %237, 1
   %.not380.i = icmp eq i64 %238, 0
   br i1 %.not380.i, label %241, label %239
@@ -872,7 +872,7 @@ define range(i32 -1, 2037) i32 @eval_nodes_tree(ptr noundef %0) local_unnamed_ad
   %.0284.lcssa.i = phi i32 [ 0, %._crit_edge551.i ], [ %.1285.lcssa.i, %.critedge460.i ], [ %.1285.lcssa.i, %418 ], [ %.1285.lcssa.i, %.backedge.i ]
   %.0282.lcssa.i = phi i32 [ 0, %._crit_edge551.i ], [ %.1283.lcssa.i, %.critedge460.i ], [ %.1283.lcssa.i, %418 ], [ %.1283.lcssa.i, %.backedge.i ]
   call void @list_iterator_destroy(ptr noundef %332) #7
-  %424 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %424 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %425 = and i64 %424, 1
   %.not392.i = icmp eq i64 %425, 0
   br i1 %.not392.i, label %446, label %426
@@ -932,7 +932,7 @@ define range(i32 -1, 2037) i32 @eval_nodes_tree(ptr noundef %0) local_unnamed_ad
   br i1 %.not385.not.i.lcssa, label %447, label %454
 
 447:                                              ; preds = %446
-  %448 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %448 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %449 = and i64 %448, 1
   %.not395.i = icmp eq i64 %449, 0
   br i1 %.not395.i, label %.thread487.i, label %450
@@ -1069,7 +1069,7 @@ define range(i32 -1, 2037) i32 @eval_nodes_tree(ptr noundef %0) local_unnamed_ad
   br i1 %512, label %513, label %520
 
 513:                                              ; preds = %._crit_edge582.i
-  %514 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %514 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %515 = and i64 %514, 1
   %.not432.i = icmp eq i64 %515, 0
   br i1 %.not432.i, label %.thread487.i, label %516
@@ -1153,7 +1153,7 @@ define range(i32 -1, 2037) i32 @eval_nodes_tree(ptr noundef %0) local_unnamed_ad
   br i1 %556, label %.lr.ph586.i, label %._crit_edge587.i, !llvm.loop !14
 
 ._crit_edge587.i:                                 ; preds = %.lr.ph586.i
-  %557 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %557 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %558 = and i64 %557, 1
   %.not400.i = icmp eq i64 %558, 0
   br i1 %.not400.i, label %.loopexit506.i, label %.preheader505.i
@@ -1524,7 +1524,7 @@ define range(i32 -1, 2037) i32 @eval_nodes_tree(ptr noundef %0) local_unnamed_ad
   br label %742
 
 735:                                              ; preds = %732
-  %736 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %736 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %737 = and i64 %736, 1
   %.not426.i = icmp eq i64 %737, 0
   br i1 %.not426.i, label %.thread487.i, label %738
@@ -1697,7 +1697,7 @@ define range(i32 -1, 2037) i32 @eval_nodes_tree(ptr noundef %0) local_unnamed_ad
   br i1 %809, label %810, label %.loopexit.i
 
 810:                                              ; preds = %807
-  %811 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %811 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %812 = and i64 %811, 1
   %.not423.i = icmp eq i64 %812, 0
   br i1 %.not423.i, label %.thread487.i, label %813
@@ -2265,7 +2265,7 @@ _eval_nodes_dfly.exit:                            ; preds = %895, %._crit_edge63
   %.1349.lcssa.i = phi i32 [ %.0348.i, %988 ], [ %.2350.i, %1044 ]
   %.0343.lcssa.i = phi i32 [ %918, %988 ], [ %.1344.i, %1044 ]
   call void @list_sort(ptr noundef %992, ptr noundef nonnull @eval_nodes_topo_weight_sort) #7
-  %1055 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1055 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %1056 = and i64 %1055, 1
   %.not426.i24 = icmp eq i64 %1056, 0
   br i1 %.not426.i24, label %1059, label %1057
@@ -2488,7 +2488,7 @@ _eval_nodes_dfly.exit:                            ; preds = %895, %._crit_edge63
   br i1 %1176, label %.thread.thread.i, label %.thread528.i
 
 .thread.thread.i:                                 ; preds = %.thread.i61, %1173, %.thread792.i, %._crit_edge601.thread.i
-  %1177 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1177 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %1178 = and i64 %1177, 1
   %.not433.i25 = icmp eq i64 %1178, 0
   br i1 %.not433.i25, label %1763, label %1179
@@ -2578,7 +2578,7 @@ _eval_nodes_dfly.exit:                            ; preds = %895, %._crit_edge63
   br i1 %1219, label %1220, label %1227
 
 1220:                                             ; preds = %1217
-  %1221 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1221 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %1222 = and i64 %1221, 1
   %.not431.i = icmp eq i64 %1222, 0
   br i1 %.not431.i, label %1763, label %1223
@@ -2814,7 +2814,7 @@ _eval_nodes_dfly.exit:                            ; preds = %895, %._crit_edge63
   %.0319.ph.lcssa.split.i = phi i32 [ %.0319.ph638.i, %.outer.split.split.us.i ], [ %.0319.ph638.i, %.outer.split.split.i ], [ %.1320.lcssa.i38, %1319 ], [ %.1320.lcssa.i38, %.outer.i ]
   %.0316.ph.lcssa.split.i = phi i32 [ %.0316.ph639.i, %.outer.split.split.us.i ], [ %.0316.ph639.i, %.outer.split.split.i ], [ %.1317.lcssa.i, %1319 ], [ %.1317.lcssa.i, %.outer.i ]
   call void @list_iterator_destroy(ptr noundef %1248) #7
-  %1323 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1323 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %1324 = and i64 %1323, 1
   %.not461.i = icmp eq i64 %1324, 0
   br i1 %.not461.i, label %1345, label %1325
@@ -2874,7 +2874,7 @@ _eval_nodes_dfly.exit:                            ; preds = %895, %._crit_edge63
   br i1 %1346, label %1354, label %1347
 
 1347:                                             ; preds = %1345
-  %1348 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1348 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %1349 = and i64 %1348, 1
   %.not464.i = icmp eq i64 %1349, 0
   br i1 %.not464.i, label %1763, label %1350
@@ -3025,7 +3025,7 @@ _eval_nodes_dfly.exit:                            ; preds = %895, %._crit_edge63
   br i1 %1420, label %1421, label %1428
 
 1421:                                             ; preds = %1418
-  %1422 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1422 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %1423 = and i64 %1422, 1
   %.not492.i = icmp eq i64 %1423, 0
   br i1 %.not492.i, label %1763, label %1424
@@ -3093,7 +3093,7 @@ _eval_nodes_dfly.exit:                            ; preds = %895, %._crit_edge63
 
 ._crit_edge661.i:                                 ; preds = %.lr.ph660.i, %1428
   %1458 = phi i32 [ %1435, %1428 ], [ %1456, %.lr.ph660.i ]
-  %1459 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1459 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %1460 = and i64 %1459, 1
   %.not469.i = icmp eq i64 %1460, 0
   br i1 %.not469.i, label %.loopexit539.i, label %.preheader538.i
@@ -3915,7 +3915,7 @@ _topo_add_dist.exit521.i:                         ; preds = %1699
 
 1843:                                             ; preds = %1842, %1840
   store ptr null, ptr %14, align 8
-  %1844 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1844 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %1845 = and i64 %1844, 1
   %.not449.i32 = icmp eq i64 %1845, 0
   br i1 %.not449.i32, label %.loopexit545.i, label %1846

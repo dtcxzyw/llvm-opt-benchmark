@@ -193,8 +193,8 @@ entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %next_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i64 0, ptr %next_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %0, align 8
   %cmp = icmp eq ptr %finalize_callback, null
   %cond.v = select i1 %cmp, i64 32, i64 56
   %cond = getelementptr inbounds nuw i8, ptr %env, i64 %cond.v
@@ -233,8 +233,8 @@ entry:
   store ptr %finalize_hint, ptr %finalize_hint_.i.i, align 8
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 40
   %next_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %call, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %0, align 8
   %cmp.i = icmp eq ptr %finalize_callback, null
   %cond.v.i = select i1 %cmp.i, i64 32, i64 56
   %cond.i = getelementptr inbounds nuw i8, ptr %env, i64 %cond.v.i
@@ -262,9 +262,9 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6v8impl16TrackedFinalizerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (40, 48)) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %add.ptr, align 8
   %prev_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %prev_.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -302,8 +302,8 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit:             ; preds = %if.end.i, %if.then6
 define dso_local void @_ZThn40_N6v8impl16TrackedFinalizerD1Ev(ptr noundef initializes((-40, -32), (0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %this, align 8
   %prev_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %prev_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
@@ -340,9 +340,9 @@ _ZN6v8impl16TrackedFinalizerD2Ev.exit:            ; preds = %if.end.i.i, %if.the
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6v8impl16TrackedFinalizerD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (40, 48)) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %add.ptr.i, align 8
   %prev_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %prev_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -384,8 +384,8 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 define dso_local void @_ZThn40_N6v8impl16TrackedFinalizerD0Ev(ptr noundef initializes((-40, -32), (0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %this, align 8
   %prev_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %prev_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -603,8 +603,8 @@ entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %next_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i64 0, ptr %next_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %0, align 8
   %cmp.i = icmp eq ptr %finalize_callback, null
   %cond.v.i = select i1 %cmp.i, i64 32, i64 56
   %cond.i = getelementptr inbounds nuw i8, ptr %env, i64 %cond.v.i
@@ -623,8 +623,8 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZN6v8impl16TrackedFinalizerC2EP10napi_env__PFvS2_PvS3_ES3_S3_.exit: ; preds = %entry, %if.then.i.i
   store ptr %0, ptr %next_.i4.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl7RefBaseE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl7RefBaseE, i64 56), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl7RefBaseE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl7RefBaseE, i64 56), ptr %0, align 8
   %refcount_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i32 %initial_refcount, ptr %refcount_, align 8
   %ownership_ = getelementptr inbounds nuw i8, ptr %this, i64 68
@@ -664,8 +664,8 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZN6v8impl7RefBaseC2EP10napi_env__jNS_9OwnershipEPFvS2_PvS4_ES4_S4_.exit: ; preds = %entry, %if.then.i.i.i
   store ptr %0, ptr %next_.i4.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl7RefBaseE, i64 16), ptr %call, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl7RefBaseE, i64 56), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl7RefBaseE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl7RefBaseE, i64 56), ptr %0, align 8
   %refcount_.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   store i32 %initial_refcount, ptr %refcount_.i, align 8
   %ownership_.i = getelementptr inbounds nuw i8, ptr %call, i64 68
@@ -847,9 +847,9 @@ _ZN6v8impl7RefBase8FinalizeEv.exit:               ; preds = %if.end.i.i, %delete
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6v8impl9ReferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 8), (40, 48)) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl9ReferenceE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl9ReferenceE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl9ReferenceE, i64 56), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl9ReferenceE, i64 56), ptr %add.ptr, align 8
   %persistent_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %persistent_, align 8
   %cmp.i9 = icmp eq ptr %0, null
@@ -861,8 +861,8 @@ if.end.i:                                         ; preds = %entry
   br label %_ZN2v86GlobalINS_5ValueEED2Ev.exit
 
 _ZN2v86GlobalINS_5ValueEED2Ev.exit:               ; preds = %if.end.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %add.ptr, align 8
   %prev_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load ptr, ptr %prev_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -900,8 +900,8 @@ _ZN6v8impl7RefBaseD2Ev.exit:                      ; preds = %if.end.i.i.i, %if.t
 define dso_local void @_ZThn40_N6v8impl9ReferenceD1Ev(ptr noundef initializes((-40, -32), (0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl9ReferenceE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl9ReferenceE, i64 56), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl9ReferenceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl9ReferenceE, i64 56), ptr %this, align 8
   %persistent_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %persistent_.i, align 8
   %cmp.i9.i = icmp eq ptr %1, null
@@ -913,8 +913,8 @@ if.end.i.i:                                       ; preds = %entry
   br label %_ZN2v86GlobalINS_5ValueEED2Ev.exit.i
 
 _ZN2v86GlobalINS_5ValueEED2Ev.exit.i:             ; preds = %if.end.i.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %this, align 8
   %prev_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %prev_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %2, null
@@ -951,9 +951,9 @@ _ZN6v8impl9ReferenceD2Ev.exit:                    ; preds = %if.end.i.i.i.i, %if
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6v8impl9ReferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 8), (40, 48)) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl9ReferenceE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl9ReferenceE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl9ReferenceE, i64 56), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl9ReferenceE, i64 56), ptr %add.ptr.i, align 8
   %persistent_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %persistent_.i, align 8
   %cmp.i9.i = icmp eq ptr %0, null
@@ -965,8 +965,8 @@ if.end.i.i:                                       ; preds = %entry
   br label %_ZN2v86GlobalINS_5ValueEED2Ev.exit.i
 
 _ZN2v86GlobalINS_5ValueEED2Ev.exit.i:             ; preds = %if.end.i.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %add.ptr.i, align 8
   %prev_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load ptr, ptr %prev_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -1005,8 +1005,8 @@ _ZN6v8impl9ReferenceD2Ev.exit:                    ; preds = %if.end.i.i.i.i, %if
 define dso_local void @_ZThn40_N6v8impl9ReferenceD0Ev(ptr noundef initializes((-40, -32), (0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl9ReferenceE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl9ReferenceE, i64 56), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl9ReferenceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl9ReferenceE, i64 56), ptr %this, align 8
   %persistent_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %persistent_.i.i, align 8
   %cmp.i9.i.i = icmp eq ptr %1, null
@@ -1018,8 +1018,8 @@ if.end.i.i.i:                                     ; preds = %entry
   br label %_ZN2v86GlobalINS_5ValueEED2Ev.exit.i.i
 
 _ZN2v86GlobalINS_5ValueEED2Ev.exit.i.i:           ; preds = %if.end.i.i.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %this, align 8
   %prev_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %prev_.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %2, null
@@ -1094,8 +1094,8 @@ entry:
   %5 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %next_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i64 0, ptr %next_.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %5, align 8
   %cmp.i.i3 = icmp eq ptr %2, null
   %cond.v.i.i = select i1 %cmp.i.i3, i64 32, i64 56
   %cond.i.i = getelementptr inbounds nuw i8, ptr %env, i64 %cond.v.i.i
@@ -1118,8 +1118,8 @@ _ZN6v8impl7RefBaseC2EP10napi_env__jNS_9OwnershipEPFvS2_PvS4_ES4_S4_.exit: ; pred
   store i32 %0, ptr %refcount_.i, align 8
   %ownership_.i = getelementptr inbounds nuw i8, ptr %this, i64 68
   store i32 %1, ptr %ownership_.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl9ReferenceE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl9ReferenceE, i64 56), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl9ReferenceE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl9ReferenceE, i64 56), ptr %5, align 8
   %persistent_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %cmp.i.i = icmp eq ptr %value.coerce, null
   br i1 %cmp.i.i, label %_ZN2v86GlobalINS_5ValueEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit, label %if.end.i.i
@@ -6115,9 +6115,9 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
 "_ZZ38node_api_create_external_string_latin1ENK3$_0clEPN2v87IsolateE.exit.i.i": ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i.i
   %8 = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 16
   store ptr %6, ptr %next_.i4.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceE, i64 16), ptr %call2.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceE, i64 96), ptr %8, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceE, i64 136), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceE, i64 16), ptr %call2.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceE, i64 96), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceE, i64 136), ptr %6, align 8
   %string_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 80
   store ptr %str, ptr %string_.i.i.i.i, align 8
   %length_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 88
@@ -6276,9 +6276,9 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
 "_ZZ37node_api_create_external_string_utf16ENK3$_0clEPN2v87IsolateE.exit.i.i": ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i.i
   %9 = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 16
   store ptr %7, ptr %next_.i4.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_122ExternalStringResourceE, i64 16), ptr %call2.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_122ExternalStringResourceE, i64 96), ptr %9, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_122ExternalStringResourceE, i64 136), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_122ExternalStringResourceE, i64 16), ptr %call2.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_122ExternalStringResourceE, i64 96), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_122ExternalStringResourceE, i64 136), ptr %7, align 8
   %string_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 80
   store ptr %str, ptr %string_.i.i.i.i, align 8
   %length_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 88
@@ -15286,8 +15286,8 @@ do.end:                                           ; preds = %entry
   store ptr %finalize_hint, ptr %finalize_hint_.i.i.i, align 8
   %0 = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %next_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %call.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %call.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %0, align 8
   %cmp.i.i = icmp eq ptr %finalize_cb, null
   %cond.v.i.i = select i1 %cmp.i.i, i64 32, i64 56
   %cond.i.i = getelementptr inbounds nuw i8, ptr %env, i64 %cond.v.i.i
@@ -15403,8 +15403,8 @@ if.then.i.i.i.i:                                  ; preds = %if.end3
 
 _ZN6v8impl7RefBase3NewEP10napi_env__jNS_9OwnershipEPFvS2_PvS4_ES4_S4_.exit: ; preds = %if.end3, %if.then.i.i.i.i
   store ptr %2, ptr %next_.i4.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl7RefBaseE, i64 16), ptr %call.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl7RefBaseE, i64 56), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl7RefBaseE, i64 16), ptr %call.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl7RefBaseE, i64 56), ptr %2, align 8
   %refcount_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   store i32 0, ptr %refcount_.i.i, align 8
   %ownership_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 68
@@ -15619,9 +15619,9 @@ declare noundef zeroext i1 @_ZNK2v811ArrayBuffer11WasDetachedEv(ptr noundef nonn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6v8impl7RefBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %add.ptr.i, align 8
   %prev_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %prev_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -15658,9 +15658,9 @@ _ZN6v8impl16TrackedFinalizerD2Ev.exit:            ; preds = %if.end.i.i, %if.the
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6v8impl7RefBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %add.ptr.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %add.ptr.i.i, align 8
   %prev_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %prev_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -15699,8 +15699,8 @@ _ZN6v8impl7RefBaseD2Ev.exit:                      ; preds = %if.end.i.i.i, %if.t
 define linkonce_odr dso_local void @_ZThn40_N6v8impl7RefBaseD1Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %this, align 8
   %prev_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %prev_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -15738,8 +15738,8 @@ _ZN6v8impl7RefBaseD2Ev.exit:                      ; preds = %if.end.i.i.i, %if.t
 define linkonce_odr dso_local void @_ZThn40_N6v8impl7RefBaseD0Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 56), ptr %this, align 8
   %prev_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %prev_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -15813,7 +15813,7 @@ entry:
   %cb_data.i.i = getelementptr inbounds nuw i8, ptr %call22.i.i, i64 8
   %3 = load ptr, ptr %cb_data.i.i, align 8
   store ptr %3, ptr %_data.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_123FunctionCallbackWrapperE, i64 16), ptr %cbwrapper, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_123FunctionCallbackWrapperE, i64 16), ptr %cbwrapper, align 8
   %4 = load ptr, ptr %call22.i.i, align 8
   %cb4.i = getelementptr inbounds nuw i8, ptr %call22.i.i, i64 16
   %5 = load ptr, ptr %cb4.i, align 8
@@ -16108,9 +16108,9 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #20
 define internal void @_ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((16, 24), (56, 64)) %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %0, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %add.ptr.i, align 8
   %finalize_callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %finalize_callback_.i, align 8
   %cmp.i = icmp eq ptr %1, null
@@ -16175,9 +16175,9 @@ _ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD2Ev.exit: ; preds = %entry, %if.
 define internal void @_ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((16, 24), (56, 64)) %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %0, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %add.ptr.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %add.ptr.i.i, align 8
   %finalize_callback_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %finalize_callback_.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, null
@@ -16286,9 +16286,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @_ZThn16_N6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD1Ev(ptr nocapture noundef initializes((0, 8), (40, 48)) %this) unnamed_addr #8 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %add.ptr.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %add.ptr.i.i, align 8
   %finalize_callback_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %finalize_callback_.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -16352,9 +16352,9 @@ _ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD2Ev.exit: ; preds = %ent
 ; Function Attrs: nounwind uwtable
 define internal void @_ZThn16_N6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD0Ev(ptr noundef initializes((0, 8), (40, 48)) %this) unnamed_addr #8 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %this, align 8
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %add.ptr.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %add.ptr.i.i.i, align 8
   %finalize_callback_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %finalize_callback_.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -16453,8 +16453,8 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit:             ; preds = %if.end.i, %if.then6
 define internal void @_ZThn56_N6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD1Ev(ptr nocapture noundef initializes((-40, -32), (0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %this, align 8
   %finalize_callback_.i.i = getelementptr inbounds i8, ptr %this, i64 -24
   %1 = load ptr, ptr %finalize_callback_.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, null
@@ -16519,8 +16519,8 @@ _ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD2Ev.exit: ; preds = %ent
 define internal void @_ZThn56_N6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD0Ev(ptr noundef initializes((-40, -32), (0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %this, align 8
   %finalize_callback_.i.i.i = getelementptr inbounds i8, ptr %this, i64 -24
   %1 = load ptr, ptr %finalize_callback_.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
@@ -16618,9 +16618,9 @@ _ZN6v8impl12_GLOBAL__N_121TrackedStringResource8FinalizeEv.exit: ; preds = %if.e
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (40, 48)) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %add.ptr, align 8
   %finalize_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %finalize_callback_, align 8
   %cmp = icmp eq ptr %0, null
@@ -16684,9 +16684,9 @@ cleanup:                                          ; preds = %if.then3, %_ZN6v8im
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (40, 48)) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %add.ptr.i, align 8
   %finalize_callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %finalize_callback_.i, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -16752,8 +16752,8 @@ _ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD2Ev.exit: ; preds = %entry, %if.
 define internal void @_ZThn40_N6v8impl12_GLOBAL__N_121TrackedStringResourceD1Ev(ptr nocapture noundef initializes((-40, -32), (0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %this, align 8
   %finalize_callback_.i = getelementptr inbounds i8, ptr %this, i64 -24
   %1 = load ptr, ptr %finalize_callback_.i, align 8
   %cmp.i = icmp eq ptr %1, null
@@ -16818,8 +16818,8 @@ _ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD2Ev.exit: ; preds = %entry, %if.
 define internal void @_ZThn40_N6v8impl12_GLOBAL__N_121TrackedStringResourceD0Ev(ptr noundef initializes((-40, -32), (0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %this, align 8
   %finalize_callback_.i.i = getelementptr inbounds i8, ptr %this, i64 -24
   %1 = load ptr, ptr %finalize_callback_.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, null
@@ -16887,9 +16887,9 @@ declare ptr @_ZN2v86String18NewExternalTwoByteEPNS_7IsolateEPNS0_22ExternalStrin
 define internal void @_ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((16, 24), (56, 64)) %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %0, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %add.ptr.i, align 8
   %finalize_callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %finalize_callback_.i, align 8
   %cmp.i = icmp eq ptr %1, null
@@ -16954,9 +16954,9 @@ _ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD2Ev.exit: ; preds = %entry, %if.
 define internal void @_ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((16, 24), (56, 64)) %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %0, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %add.ptr.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %add.ptr.i.i, align 8
   %finalize_callback_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %finalize_callback_.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, null
@@ -17037,9 +17037,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @_ZThn16_N6v8impl12_GLOBAL__N_122ExternalStringResourceD1Ev(ptr nocapture noundef initializes((0, 8), (40, 48)) %this) unnamed_addr #8 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %add.ptr.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %add.ptr.i.i, align 8
   %finalize_callback_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %finalize_callback_.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -17103,9 +17103,9 @@ _ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD2Ev.exit: ; preds = %entry, %if
 ; Function Attrs: nounwind uwtable
 define internal void @_ZThn16_N6v8impl12_GLOBAL__N_122ExternalStringResourceD0Ev(ptr noundef initializes((0, 8), (40, 48)) %this) unnamed_addr #8 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %this, align 8
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %add.ptr.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %add.ptr.i.i.i, align 8
   %finalize_callback_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %finalize_callback_.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -17172,8 +17172,8 @@ _ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD0Ev.exit: ; preds = %entry, %if
 define internal void @_ZThn56_N6v8impl12_GLOBAL__N_122ExternalStringResourceD1Ev(ptr nocapture noundef initializes((-40, -32), (0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %this, align 8
   %finalize_callback_.i.i = getelementptr inbounds i8, ptr %this, i64 -24
   %1 = load ptr, ptr %finalize_callback_.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, null
@@ -17238,8 +17238,8 @@ _ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD2Ev.exit: ; preds = %entry, %if
 define internal void @_ZThn56_N6v8impl12_GLOBAL__N_122ExternalStringResourceD0Ev(ptr noundef initializes((-40, -32), (0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 56), ptr %this, align 8
   %finalize_callback_.i.i.i = getelementptr inbounds i8, ptr %this, i64 -24
   %1 = load ptr, ptr %finalize_callback_.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %1, null

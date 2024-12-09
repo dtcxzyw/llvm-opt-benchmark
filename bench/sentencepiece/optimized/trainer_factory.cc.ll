@@ -72,7 +72,7 @@ common.resume:                                    ; preds = %66, %63, %33, %29, 
   br label %common.resume
 
 _ZNSt10unique_ptrIN13sentencepiece7unigram7TrainerESt14default_deleteIS2_EED2Ev.exit: ; preds = %8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece7unigram7TrainerE, i64 16), ptr %9, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13sentencepiece7unigram7TrainerE, i64 16), ptr %9, align 8, !noalias !4
   br label %68
 
 12:                                               ; preds = %4
@@ -87,7 +87,7 @@ _ZNSt10unique_ptrIN13sentencepiece7unigram7TrainerESt14default_deleteIS2_EED2Ev.
   br label %common.resume
 
 _ZNSt10unique_ptrIN13sentencepiece3bpe7TrainerESt14default_deleteIS2_EED2Ev.exit: ; preds = %12
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece3bpe7TrainerE, i64 16), ptr %13, align 8, !noalias !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13sentencepiece3bpe7TrainerE, i64 16), ptr %13, align 8, !noalias !7
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 704
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 752
   store ptr %17, ptr %16, align 8, !noalias !7
@@ -123,7 +123,7 @@ _ZNSt10unique_ptrIN13sentencepiece3bpe7TrainerESt14default_deleteIS2_EED2Ev.exit
   br label %common.resume
 
 _ZNSt10unique_ptrIN13sentencepiece4word7TrainerESt14default_deleteIS2_EED2Ev.exit: ; preds = %27
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece4word7TrainerE, i64 16), ptr %28, align 8, !noalias !10
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13sentencepiece4word7TrainerE, i64 16), ptr %28, align 8, !noalias !10
   br label %68
 
 31:                                               ; preds = %4
@@ -138,7 +138,7 @@ _ZNSt10unique_ptrIN13sentencepiece4word7TrainerESt14default_deleteIS2_EED2Ev.exi
   br label %common.resume
 
 _ZNSt10unique_ptrIN13sentencepiece9character7TrainerESt14default_deleteIS2_EED2Ev.exit: ; preds = %31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece9character7TrainerE, i64 16), ptr %32, align 8, !noalias !13
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13sentencepiece9character7TrainerE, i64 16), ptr %32, align 8, !noalias !13
   br label %68
 
 35:                                               ; preds = %4
@@ -148,7 +148,7 @@ _ZNSt10unique_ptrIN13sentencepiece9character7TrainerESt14default_deleteIS2_EED2E
 
 38:                                               ; preds = %35
   store i8 1, ptr %5, align 1
-  %39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 4))
+  %39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 4))
           to label %40 unwind label %63
 
 40:                                               ; preds = %38
@@ -217,7 +217,7 @@ _ZNSt10unique_ptrIN13sentencepiece9character7TrainerESt14default_deleteIS2_EED2E
   br label %common.resume
 
 _ZNSt10unique_ptrIN13sentencepiece7unigram7TrainerESt14default_deleteIS2_EED2Ev.exit26: ; preds = %.critedge
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece7unigram7TrainerE, i64 16), ptr %65, align 8, !noalias !16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13sentencepiece7unigram7TrainerE, i64 16), ptr %65, align 8, !noalias !16
   br label %68
 
 68:                                               ; preds = %_ZNSt10unique_ptrIN13sentencepiece7unigram7TrainerESt14default_deleteIS2_EED2Ev.exit26, %_ZNSt10unique_ptrIN13sentencepiece9character7TrainerESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN13sentencepiece4word7TrainerESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN13sentencepiece3bpe7TrainerESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN13sentencepiece7unigram7TrainerESt14default_deleteIS2_EED2Ev.exit

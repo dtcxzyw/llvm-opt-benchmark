@@ -2132,7 +2132,7 @@ _ZNSt8functionIFvPN4llvm10BasicBlockEEEC2ERKS4_.exit: ; preds = %10, %14
 
 _ZN4llvm10CallbackVHC2EPNS_5ValueE.exit.i:        ; preds = %25, %_ZNSt8functionIFvPN4llvm10BasicBlockEEEC2ERKS4_.exit, %_ZNSt8functionIFvPN4llvm10BasicBlockEEEC2ERKS4_.exit, %_ZNSt8functionIFvPN4llvm10BasicBlockEEEC2ERKS4_.exit
   %26 = phi ptr [ %.pre, %25 ], [ %21, %_ZNSt8functionIFvPN4llvm10BasicBlockEEEC2ERKS4_.exit ], [ %21, %_ZNSt8functionIFvPN4llvm10BasicBlockEEEC2ERKS4_.exit ], [ %21, %_ZNSt8functionIFvPN4llvm10BasicBlockEEEC2ERKS4_.exit ]
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm14DomTreeUpdater18CallBackOnDeletionE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14DomTreeUpdater18CallBackOnDeletionE, i64 16), ptr %5, align 8
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %1, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -2185,7 +2185,7 @@ _ZN4llvm14DomTreeUpdater18CallBackOnDeletionC2EPNS_10BasicBlockESt8functionIFvS3
   br label %_ZN4llvm10CallbackVHC2ERKS0_.exit.i.i.i.i.i
 
 _ZN4llvm10CallbackVHC2ERKS0_.exit.i.i.i.i.i:      ; preds = %47, %41, %41, %41
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm14DomTreeUpdater18CallBackOnDeletionE, i64 16), ptr %38, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14DomTreeUpdater18CallBackOnDeletionE, i64 16), ptr %38, align 8
   %50 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %51 = load ptr, ptr %27, align 8
   store ptr %51, ptr %50, align 8
@@ -2793,7 +2793,7 @@ _ZNSt12_Vector_baseIN4llvm14DomTreeUpdater18CallBackOnDeletionESaIS2_EE11_M_allo
   br label %_ZN4llvm10CallbackVHC2ERKS0_.exit.i.i.i
 
 _ZN4llvm10CallbackVHC2ERKS0_.exit.i.i.i:          ; preds = %31, %_ZNSt12_Vector_baseIN4llvm14DomTreeUpdater18CallBackOnDeletionESaIS2_EE11_M_allocateEm.exit, %_ZNSt12_Vector_baseIN4llvm14DomTreeUpdater18CallBackOnDeletionESaIS2_EE11_M_allocateEm.exit, %_ZNSt12_Vector_baseIN4llvm14DomTreeUpdater18CallBackOnDeletionESaIS2_EE11_M_allocateEm.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm14DomTreeUpdater18CallBackOnDeletionE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14DomTreeUpdater18CallBackOnDeletionE, i64 16), ptr %23, align 8
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %36 = load ptr, ptr %35, align 8
@@ -2849,7 +2849,7 @@ _ZNSt16allocator_traitsISaIN4llvm14DomTreeUpdater18CallBackOnDeletionEEE9constru
   br label %_ZN4llvm10CallbackVHC2ERKS0_.exit.i.i.i.i.i.i.i
 
 _ZN4llvm10CallbackVHC2ERKS0_.exit.i.i.i.i.i.i.i:  ; preds = %53, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm14DomTreeUpdater18CallBackOnDeletionE, i64 16), ptr %.011.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14DomTreeUpdater18CallBackOnDeletionE, i64 16), ptr %.011.i.i.i.i.i, align 8
   %56 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 32
   %57 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 32
   %58 = load ptr, ptr %57, align 8
@@ -2914,7 +2914,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN4llvm14DomTreeUpdater18CallBackOnDele
   br label %_ZN4llvm10CallbackVHC2ERKS0_.exit.i.i.i.i.i.i.i24
 
 _ZN4llvm10CallbackVHC2ERKS0_.exit.i.i.i.i.i.i.i24: ; preds = %80, %.lr.ph.i.i.i.i.i19, %.lr.ph.i.i.i.i.i19, %.lr.ph.i.i.i.i.i19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm14DomTreeUpdater18CallBackOnDeletionE, i64 16), ptr %.011.i.i.i.i.i20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14DomTreeUpdater18CallBackOnDeletionE, i64 16), ptr %.011.i.i.i.i.i20, align 8
   %83 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i20, i64 32
   %84 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i21, i64 32
   %85 = load ptr, ptr %84, align 8

@@ -261,9 +261,9 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i41:    ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN7QStringD2Ev.exit43
 
 _ZN7QStringD2Ev.exit43:                           ; preds = %_ZN7QStringD2Ev.exit39, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i41, %20
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CaptureFileDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CaptureFileDialog, i64 16), ptr %0, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CaptureFileDialog, i64 488), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CaptureFileDialog, i64 488), ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %2, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -418,7 +418,7 @@ _Z12qobject_castIP11QGridLayoutET_P7QObject.exit: ; preds = %70
 79:                                               ; preds = %76
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i32 0, ptr %80, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %78, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %78, align 8
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 12
   store i32 1, ptr %81, align 4
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 16

@@ -1494,7 +1494,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %48 = and i16 %47, -4096
   %49 = or disjoint i16 %48, 1344
   store i16 %49, ptr %46, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle9DotSuffixE, i64 16), ptr %44, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle9DotSuffixE, i64 16), ptr %44, align 8
   %50 = getelementptr inbounds i8, ptr %43, i64 -32
   store ptr %15, ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %43, i64 -24
@@ -3074,7 +3074,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %133 = and i16 %132, -4096
   %134 = or disjoint i16 %133, 1344
   store i16 %134, ptr %131, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %129, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %129, align 8
   %135 = getelementptr inbounds i8, ptr %128, i64 -32
   store i64 19, ptr %135, align 8
   %.sroa.2.0..sroa_idx.i.i.i54 = getelementptr inbounds i8, ptr %128, i64 -24
@@ -3204,7 +3204,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %188 = and i16 %187, -4096
   %189 = or disjoint i16 %188, 1344
   store i16 %189, ptr %186, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %184, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %184, align 8
   %190 = getelementptr inbounds i8, ptr %183, i64 -32
   store i64 23, ptr %190, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %183, i64 -24
@@ -3556,7 +3556,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %374 = and i16 %373, -4096
   %375 = or disjoint i16 %374, 1344
   store i16 %375, ptr %372, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle23ExplicitObjectParameterE, i64 16), ptr %370, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle23ExplicitObjectParameterE, i64 16), ptr %370, align 8
   %376 = getelementptr inbounds i8, ptr %369, i64 -16
   store ptr %341, ptr %376, align 8
   %.pre = load ptr, ptr %328, align 8
@@ -3792,7 +3792,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNa
   %28 = and i16 %27, -4096
   %29 = or disjoint i16 %28, 1344
   store i16 %29, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %23, align 8
   %30 = getelementptr inbounds i8, ptr %22, i64 -32
   store i64 %24, ptr %30, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %22, i64 -24
@@ -3981,7 +3981,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %62 = and i16 %61, -4096
   %63 = or disjoint i16 %62, 1344
   store i16 %63, ptr %60, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %58, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %58, align 8
   %64 = getelementptr inbounds i8, ptr %57, i64 -16
   store i64 4, ptr %64, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %57, i64 -8
@@ -4034,7 +4034,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %91 = and i16 %90, -4096
   %92 = or disjoint i16 %91, 1344
   store i16 %92, ptr %89, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %87, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %87, align 8
   %93 = getelementptr inbounds i8, ptr %86, i64 -16
   store i64 7, ptr %93, align 8
   %.sroa.2.0..sroa_idx.i.i.i108 = getelementptr inbounds i8, ptr %86, i64 -8
@@ -4087,7 +4087,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %120 = and i16 %119, -4096
   %121 = or disjoint i16 %120, 1344
   store i16 %121, ptr %118, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %116, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %116, align 8
   %122 = getelementptr inbounds i8, ptr %115, i64 -16
   store i64 4, ptr %122, align 8
   %.sroa.2.0..sroa_idx.i.i.i110 = getelementptr inbounds i8, ptr %115, i64 -8
@@ -4140,7 +4140,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %149 = and i16 %148, -4096
   %150 = or disjoint i16 %149, 1344
   store i16 %150, ptr %147, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %145, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %145, align 8
   %151 = getelementptr inbounds i8, ptr %144, i64 -16
   store i64 4, ptr %151, align 8
   %.sroa.2.0..sroa_idx.i.i.i113 = getelementptr inbounds i8, ptr %144, i64 -8
@@ -4193,7 +4193,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %178 = and i16 %177, -4096
   %179 = or disjoint i16 %178, 1344
   store i16 %179, ptr %176, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %174, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %174, align 8
   %180 = getelementptr inbounds i8, ptr %173, i64 -16
   store i64 11, ptr %180, align 8
   %.sroa.2.0..sroa_idx.i.i.i116 = getelementptr inbounds i8, ptr %173, i64 -8
@@ -4246,7 +4246,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %207 = and i16 %206, -4096
   %208 = or disjoint i16 %207, 1344
   store i16 %208, ptr %205, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %203, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %203, align 8
   %209 = getelementptr inbounds i8, ptr %202, i64 -16
   store i64 13, ptr %209, align 8
   %.sroa.2.0..sroa_idx.i.i.i118 = getelementptr inbounds i8, ptr %202, i64 -8
@@ -4299,7 +4299,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %236 = and i16 %235, -4096
   %237 = or disjoint i16 %236, 1344
   store i16 %237, ptr %234, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %232, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %232, align 8
   %238 = getelementptr inbounds i8, ptr %231, i64 -16
   store i64 5, ptr %238, align 8
   %.sroa.2.0..sroa_idx.i.i.i120 = getelementptr inbounds i8, ptr %231, i64 -8
@@ -4352,7 +4352,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %265 = and i16 %264, -4096
   %266 = or disjoint i16 %265, 1344
   store i16 %266, ptr %263, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %261, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %261, align 8
   %267 = getelementptr inbounds i8, ptr %260, i64 -16
   store i64 14, ptr %267, align 8
   %.sroa.2.0..sroa_idx.i.i.i122 = getelementptr inbounds i8, ptr %260, i64 -8
@@ -4405,7 +4405,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %294 = and i16 %293, -4096
   %295 = or disjoint i16 %294, 1344
   store i16 %295, ptr %292, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %290, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %290, align 8
   %296 = getelementptr inbounds i8, ptr %289, i64 -16
   store i64 3, ptr %296, align 8
   %.sroa.2.0..sroa_idx.i.i.i124 = getelementptr inbounds i8, ptr %289, i64 -8
@@ -4458,7 +4458,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %323 = and i16 %322, -4096
   %324 = or disjoint i16 %323, 1344
   store i16 %324, ptr %321, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %319, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %319, align 8
   %325 = getelementptr inbounds i8, ptr %318, i64 -16
   store i64 12, ptr %325, align 8
   %.sroa.2.0..sroa_idx.i.i.i126 = getelementptr inbounds i8, ptr %318, i64 -8
@@ -4511,7 +4511,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %352 = and i16 %351, -4096
   %353 = or disjoint i16 %352, 1344
   store i16 %353, ptr %350, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %348, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %348, align 8
   %354 = getelementptr inbounds i8, ptr %347, i64 -16
   store i64 4, ptr %354, align 8
   %.sroa.2.0..sroa_idx.i.i.i128 = getelementptr inbounds i8, ptr %347, i64 -8
@@ -4564,7 +4564,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %381 = and i16 %380, -4096
   %382 = or disjoint i16 %381, 1344
   store i16 %382, ptr %379, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %377, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %377, align 8
   %383 = getelementptr inbounds i8, ptr %376, i64 -16
   store i64 13, ptr %383, align 8
   %.sroa.2.0..sroa_idx.i.i.i131 = getelementptr inbounds i8, ptr %376, i64 -8
@@ -4617,7 +4617,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %410 = and i16 %409, -4096
   %411 = or disjoint i16 %410, 1344
   store i16 %411, ptr %408, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %406, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %406, align 8
   %412 = getelementptr inbounds i8, ptr %405, i64 -16
   store i64 9, ptr %412, align 8
   %.sroa.2.0..sroa_idx.i.i.i134 = getelementptr inbounds i8, ptr %405, i64 -8
@@ -4670,7 +4670,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %439 = and i16 %438, -4096
   %440 = or disjoint i16 %439, 1344
   store i16 %440, ptr %437, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %435, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %435, align 8
   %441 = getelementptr inbounds i8, ptr %434, i64 -16
   store i64 18, ptr %441, align 8
   %.sroa.2.0..sroa_idx.i.i.i136 = getelementptr inbounds i8, ptr %434, i64 -8
@@ -4723,7 +4723,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %468 = and i16 %467, -4096
   %469 = or disjoint i16 %468, 1344
   store i16 %469, ptr %466, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %464, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %464, align 8
   %470 = getelementptr inbounds i8, ptr %463, i64 -16
   store i64 8, ptr %470, align 8
   %.sroa.2.0..sroa_idx.i.i.i138 = getelementptr inbounds i8, ptr %463, i64 -8
@@ -4776,7 +4776,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %497 = and i16 %496, -4096
   %498 = or disjoint i16 %497, 1344
   store i16 %498, ptr %495, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %493, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %493, align 8
   %499 = getelementptr inbounds i8, ptr %492, i64 -16
   store i64 17, ptr %499, align 8
   %.sroa.2.0..sroa_idx.i.i.i140 = getelementptr inbounds i8, ptr %492, i64 -8
@@ -4829,7 +4829,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %526 = and i16 %525, -4096
   %527 = or disjoint i16 %526, 1344
   store i16 %527, ptr %524, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %522, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %522, align 8
   %528 = getelementptr inbounds i8, ptr %521, i64 -16
   store i64 5, ptr %528, align 8
   %.sroa.2.0..sroa_idx.i.i.i142 = getelementptr inbounds i8, ptr %521, i64 -8
@@ -4882,7 +4882,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %555 = and i16 %554, -4096
   %556 = or disjoint i16 %555, 1344
   store i16 %556, ptr %553, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %551, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %551, align 8
   %557 = getelementptr inbounds i8, ptr %550, i64 -16
   store i64 6, ptr %557, align 8
   %.sroa.2.0..sroa_idx.i.i.i145 = getelementptr inbounds i8, ptr %550, i64 -8
@@ -4935,7 +4935,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %584 = and i16 %583, -4096
   %585 = or disjoint i16 %584, 1344
   store i16 %585, ptr %582, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %580, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %580, align 8
   %586 = getelementptr inbounds i8, ptr %579, i64 -16
   store i64 11, ptr %586, align 8
   %.sroa.2.0..sroa_idx.i.i.i147 = getelementptr inbounds i8, ptr %579, i64 -8
@@ -4988,7 +4988,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %613 = and i16 %612, -4096
   %614 = or disjoint i16 %613, 1344
   store i16 %614, ptr %611, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %609, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %609, align 8
   %615 = getelementptr inbounds i8, ptr %608, i64 -16
   store i64 10, ptr %615, align 8
   %.sroa.2.0..sroa_idx.i.i.i150 = getelementptr inbounds i8, ptr %608, i64 -8
@@ -5041,7 +5041,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %642 = and i16 %641, -4096
   %643 = or disjoint i16 %642, 1344
   store i16 %643, ptr %640, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %638, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %638, align 8
   %644 = getelementptr inbounds i8, ptr %637, i64 -16
   store i64 3, ptr %644, align 8
   %.sroa.2.0..sroa_idx.i.i.i152 = getelementptr inbounds i8, ptr %637, i64 -8
@@ -6114,7 +6114,7 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i48: ; preds = %90
   %108 = and i16 %107, -4096
   %109 = or disjoint i16 %108, 1344
   store i16 %109, ptr %106, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20NameWithTemplateArgsE, i64 16), ptr %104, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20NameWithTemplateArgsE, i64 16), ptr %104, align 8
   %110 = getelementptr inbounds i8, ptr %103, i64 -16
   store ptr %.0101, ptr %110, align 8
   %111 = getelementptr inbounds i8, ptr %103, i64 -8
@@ -6196,7 +6196,7 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i32: ; preds = %129
   %147 = and i16 %146, -4096
   %148 = or disjoint i16 %147, 1344
   store i16 %148, ptr %145, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %143, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %143, align 8
   %149 = getelementptr inbounds i8, ptr %142, i64 -16
   store i64 3, ptr %149, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %142, i64 -8
@@ -6569,7 +6569,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %318 = and i16 %317, -4096
   %319 = or disjoint i16 %318, 1344
   store i16 %319, ptr %316, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20NameWithTemplateArgsE, i64 16), ptr %314, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20NameWithTemplateArgsE, i64 16), ptr %314, align 8
   %320 = getelementptr inbounds i8, ptr %313, i64 -16
   store ptr %248, ptr %320, align 8
   %321 = getelementptr inbounds i8, ptr %313, i64 -8
@@ -6780,7 +6780,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %100 = and i16 %99, -4096
   %101 = or disjoint i16 %100, 1344
   store i16 %101, ptr %98, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20TemplateArgumentPackE, i64 16), ptr %96, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20TemplateArgumentPackE, i64 16), ptr %96, align 8
   %102 = getelementptr inbounds i8, ptr %95, i64 -16
   store ptr %74, ptr %102, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %95, i64 -8
@@ -6910,7 +6910,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %162 = and i16 %161, -4096
   %163 = or disjoint i16 %162, 1344
   store i16 %163, ptr %160, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle25TemplateParamQualifiedArgE, i64 16), ptr %158, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle25TemplateParamQualifiedArgE, i64 16), ptr %158, align 8
   %164 = getelementptr inbounds i8, ptr %157, i64 -16
   store ptr %134, ptr %164, align 8
   %165 = getelementptr inbounds i8, ptr %157, i64 -8
@@ -7039,7 +7039,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle12EnableIfA
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1344
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12EnableIfAttrE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12EnableIfAttrE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -16
   store ptr %.0.val, ptr %28, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %21, i64 -8
@@ -7190,7 +7190,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle16FunctionE
   %31 = and i16 %30, -4096
   %32 = or disjoint i16 %31, 256
   store i16 %32, ptr %29, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle16FunctionEncodingE, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle16FunctionEncodingE, i64 16), ptr %25, align 8
   %33 = getelementptr inbounds i8, ptr %24, i64 -64
   store ptr %.0.val, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %24, i64 -56
@@ -7471,7 +7471,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNa
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1344
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -32
   store i64 30, ptr %28, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %21, i64 -24
@@ -7526,7 +7526,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNa
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1344
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -32
   store i64 11, ptr %28, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %21, i64 -24
@@ -7581,7 +7581,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNa
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1344
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -32
   store i64 8, ptr %28, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %21, i64 -24
@@ -7636,7 +7636,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNa
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1344
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -32
   store i64 13, ptr %28, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %21, i64 -24
@@ -7691,7 +7691,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNa
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1344
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -32
   store i64 18, ptr %28, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %21, i64 -24
@@ -7940,7 +7940,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNa
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1344
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -32
   store i64 26, ptr %28, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %21, i64 -24
@@ -7995,7 +7995,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle21CtorVtabl
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1344
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle21CtorVtableSpecialNameE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle21CtorVtableSpecialNameE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -16
   store ptr %.0.val, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %21, i64 -8
@@ -8048,7 +8048,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNa
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1344
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -32
   store i64 40, ptr %28, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %21, i64 -24
@@ -8104,7 +8104,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNa
   %28 = and i16 %27, -4096
   %29 = or disjoint i16 %28, 1344
   store i16 %29, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %23, align 8
   %30 = getelementptr inbounds i8, ptr %22, i64 -32
   store i64 17, ptr %30, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %22, i64 -24
@@ -8159,7 +8159,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNa
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1344
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -32
   store i64 21, ptr %28, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %21, i64 -24
@@ -8214,7 +8214,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNa
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1344
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -32
   store i64 24, ptr %28, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %21, i64 -24
@@ -8313,7 +8313,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %49 = and i16 %48, -4096
   %50 = or disjoint i16 %49, 1344
   store i16 %50, ptr %47, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10ModuleNameE, i64 16), ptr %44, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10ModuleNameE, i64 16), ptr %44, align 8
   %51 = getelementptr inbounds i8, ptr %43, i64 -32
   store ptr %45, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %43, i64 -24
@@ -8755,7 +8755,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %54 = and i16 %53, -4096
   %55 = or disjoint i16 %54, 1344
   store i16 %55, ptr %52, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %50, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %50, align 8
   %56 = getelementptr inbounds i8, ptr %49, i64 -16
   store i64 %.lcssa.sink, ptr %56, align 8
   %.sroa.2.0..sroa_idx.i.i.i6 = getelementptr inbounds i8, ptr %49, i64 -8
@@ -8815,7 +8815,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJ
   %27 = and i16 %26, -4096
   %28 = or disjoint i16 %27, 1344
   store i16 %28, ptr %25, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %23, align 8
   %29 = getelementptr inbounds i8, ptr %22, i64 -16
   store i64 %.sroa.0.0.copyload.i, ptr %29, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %22, i64 -8
@@ -9075,7 +9075,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %38 = and i16 %37, -4096
   %39 = or disjoint i16 %38, 1344
   store i16 %39, ptr %36, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %34, align 8
   %40 = getelementptr inbounds i8, ptr %33, i64 -16
   store i64 3, ptr %40, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %33, i64 -8
@@ -9599,7 +9599,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %230 = and i16 %229, -4096
   %231 = or disjoint i16 %230, 1344
   store i16 %231, ptr %228, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12TemplateArgsE, i64 16), ptr %226, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12TemplateArgsE, i64 16), ptr %226, align 8
   %232 = getelementptr inbounds i8, ptr %225, i64 -32
   store ptr %205, ptr %232, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %225, i64 -24
@@ -9659,7 +9659,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle20NameWithT
   %28 = and i16 %27, -4096
   %29 = or disjoint i16 %28, 1344
   store i16 %29, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20NameWithTemplateArgsE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20NameWithTemplateArgsE, i64 16), ptr %23, align 8
   %30 = getelementptr inbounds i8, ptr %22, i64 -16
   store ptr %24, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %22, i64 -8
@@ -9850,7 +9850,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %79 = and i16 %78, -4096
   %80 = or disjoint i16 %79, 1344
   store i16 %80, ptr %77, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %75, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %75, align 8
   %81 = getelementptr inbounds i8, ptr %74, i64 -16
   store i64 %54, ptr %81, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %74, i64 -8
@@ -9909,7 +9909,7 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i44: ; preds = %94
   %113 = and i16 %112, -4096
   %114 = or disjoint i16 %113, 2688
   store i16 %114, ptr %111, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle24ForwardTemplateReferenceE, i64 16), ptr %109, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle24ForwardTemplateReferenceE, i64 16), ptr %109, align 8
   %115 = getelementptr inbounds i8, ptr %108, i64 -32
   store i64 %.058, ptr %115, align 8
   %116 = getelementptr inbounds i8, ptr %108, i64 -24
@@ -10133,7 +10133,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %50 = and i16 %49, -4096
   %51 = or disjoint i16 %50, 1344
   store i16 %51, ptr %48, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13EnclosingExprE, i64 16), ptr %46, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13EnclosingExprE, i64 16), ptr %46, align 8
   %52 = getelementptr inbounds i8, ptr %45, i64 -48
   store i64 8, ptr %52, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %45, i64 -40
@@ -10251,7 +10251,7 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %26
   store i16 %46, ptr %43, align 1
   %47 = getelementptr inbounds i8, ptr %40, i64 -4
   store i32 %.034, ptr %47, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle19SpecialSubstitutionE, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle19SpecialSubstitutionE, i64 16), ptr %41, align 8
   %48 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12parseAbiTagsEPNS0_4NodeE(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr noundef nonnull %41)
   %.not9 = icmp eq ptr %48, %41
   br i1 %.not9, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit.thread, label %49
@@ -10642,7 +10642,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %113 = and i16 %112, -4096
   %114 = or disjoint i16 %113, 1344
   store i16 %114, ptr %111, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle21StructuredBindingNameE, i64 16), ptr %109, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle21StructuredBindingNameE, i64 16), ptr %109, align 8
   %115 = getelementptr inbounds i8, ptr %108, i64 -16
   store ptr %87, ptr %115, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %108, i64 -8
@@ -10834,7 +10834,7 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i51: ; preds = %175
   %193 = and i16 %192, -4096
   %194 = or disjoint i16 %193, 1344
   store i16 %194, ptr %191, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12ModuleEntityE, i64 16), ptr %189, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12ModuleEntityE, i64 16), ptr %189, align 8
   %195 = getelementptr inbounds i8, ptr %188, i64 -16
   store ptr %166, ptr %195, align 8
   %196 = getelementptr inbounds i8, ptr %188, i64 -8
@@ -10913,7 +10913,7 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i53: ; preds = %222
   %.sink221 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i52 ], [ %204, %200 ], [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i53 ], [ %219, %215 ]
   %.sink215.in = phi ptr [ %201, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i52 ], [ %201, %200 ], [ %216, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i53 ], [ %216, %215 ]
   %.sink207 = phi i8 [ 25, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i52 ], [ 25, %200 ], [ 24, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i53 ], [ 24, %215 ]
-  %.sink = phi ptr [ getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20MemberLikeFriendNameE, i64 16), %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i52 ], [ getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20MemberLikeFriendNameE, i64 16), %200 ], [ getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10NestedNameE, i64 16), %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i53 ], [ getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10NestedNameE, i64 16), %215 ]
+  %.sink = phi ptr [ getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20MemberLikeFriendNameE, i64 16), %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i52 ], [ getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20MemberLikeFriendNameE, i64 16), %200 ], [ getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10NestedNameE, i64 16), %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i53 ], [ getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10NestedNameE, i64 16), %215 ]
   %227 = getelementptr inbounds nuw i8, ptr %.sink222, i64 8
   %228 = add nsw i64 %.sink221, 32
   store i64 %228, ptr %227, align 8
@@ -10990,7 +10990,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJ
   %27 = and i16 %26, -4096
   %28 = or disjoint i16 %27, 1344
   store i16 %28, ptr %25, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %23, align 8
   %29 = getelementptr inbounds i8, ptr %22, i64 -16
   store i64 %.sroa.0.0.copyload.i, ptr %29, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %22, i64 -8
@@ -11112,7 +11112,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJ
   %28 = and i16 %27, -4096
   %29 = or disjoint i16 %28, 1344
   store i16 %29, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %23, align 8
   %30 = getelementptr inbounds i8, ptr %22, i64 -16
   store i64 %24, ptr %30, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %22, i64 -8
@@ -11533,7 +11533,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %100 = or disjoint i16 %99, %98
   %101 = or i16 %100, 1344
   store i16 %101, ptr %96, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10PrefixExprE, i64 16), ptr %94, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10PrefixExprE, i64 16), ptr %94, align 8
   %102 = getelementptr inbounds i8, ptr %93, i64 -32
   store i64 %.sroa.0.0.i, ptr %102, align 8
   %.sroa.2.0..sroa_idx.i.i.i244 = getelementptr inbounds i8, ptr %93, i64 -24
@@ -11906,7 +11906,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %300 = or disjoint i16 %299, %298
   %301 = or i16 %300, 1344
   store i16 %301, ptr %296, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10DeleteExprE, i64 16), ptr %294, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10DeleteExprE, i64 16), ptr %294, align 8
   %302 = getelementptr inbounds i8, ptr %293, i64 -16
   store ptr %268, ptr %302, align 8
   %303 = getelementptr inbounds i8, ptr %293, i64 -8
@@ -12338,7 +12338,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %527 = or disjoint i16 %526, %525
   %528 = or i16 %527, 1344
   store i16 %528, ptr %523, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13EnclosingExprE, i64 16), ptr %521, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13EnclosingExprE, i64 16), ptr %521, align 8
   %529 = getelementptr inbounds i8, ptr %520, i64 -48
   store i64 %.sroa.0.0.i, ptr %529, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %520, i64 -40
@@ -12586,7 +12586,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %628 = and i16 %627, -4096
   %629 = or disjoint i16 %628, 1344
   store i16 %629, ptr %626, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8FoldExprE, i64 16), ptr %624, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8FoldExprE, i64 16), ptr %624, align 8
   %630 = getelementptr inbounds i8, ptr %623, i64 -48
   store ptr %.035.i, ptr %630, align 8
   %631 = getelementptr inbounds i8, ptr %623, i64 -40
@@ -13187,7 +13187,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11PostfixEx
   %30 = or disjoint i16 %28, %29
   %31 = or disjoint i16 %30, 1344
   store i16 %31, ptr %25, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11PostfixExprE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11PostfixExprE, i64 16), ptr %23, align 8
   %32 = getelementptr inbounds i8, ptr %22, i64 -32
   store ptr %.0.val, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %22, i64 -24
@@ -13245,7 +13245,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle18ArraySubs
   %29 = or disjoint i16 %27, %28
   %30 = or disjoint i16 %29, 1344
   store i16 %30, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle18ArraySubscriptExprE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle18ArraySubscriptExprE, i64 16), ptr %22, align 8
   %31 = getelementptr inbounds i8, ptr %21, i64 -16
   store ptr %.0.val, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %21, i64 -8
@@ -13304,7 +13304,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle10MemberExp
   %30 = or disjoint i16 %28, %29
   %31 = or disjoint i16 %30, 1344
   store i16 %31, ptr %25, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10MemberExprE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10MemberExprE, i64 16), ptr %23, align 8
   %32 = getelementptr inbounds i8, ptr %22, i64 -32
   store ptr %.0.val, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %22, i64 -24
@@ -13367,7 +13367,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle7NewExprEJR
   %33 = or disjoint i16 %31, %32
   %34 = or disjoint i16 %33, 1344
   store i16 %34, ptr %28, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle7NewExprE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle7NewExprE, i64 16), ptr %23, align 8
   %35 = getelementptr inbounds i8, ptr %22, i64 -48
   store ptr %.0.val, ptr %35, align 8
   %.sroa.25.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %22, i64 -40
@@ -13433,7 +13433,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8CallExprEJ
   %29 = or disjoint i16 %27, %28
   %30 = or disjoint i16 %29, 1344
   store i16 %30, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8CallExprE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8CallExprE, i64 16), ptr %22, align 8
   %31 = getelementptr inbounds i8, ptr %21, i64 -32
   store ptr %.0.val, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %21, i64 -24
@@ -13494,7 +13494,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle14Conversio
   %30 = or disjoint i16 %28, %29
   %31 = or disjoint i16 %30, 1344
   store i16 %31, ptr %25, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle14ConversionExprE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle14ConversionExprE, i64 16), ptr %23, align 8
   %32 = getelementptr inbounds i8, ptr %22, i64 -32
   store ptr %.0.val, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %22, i64 -24
@@ -13552,7 +13552,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle15Condition
   %29 = or disjoint i16 %27, %28
   %30 = or disjoint i16 %29, 1344
   store i16 %30, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15ConditionalExprE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15ConditionalExprE, i64 16), ptr %22, align 8
   %31 = getelementptr inbounds i8, ptr %21, i64 -32
   store ptr %.0.val, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %21, i64 -24
@@ -13613,7 +13613,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8CastExprEJ
   %30 = or disjoint i16 %28, %29
   %31 = or disjoint i16 %30, 1344
   store i16 %31, ptr %25, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8CastExprE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8CastExprE, i64 16), ptr %23, align 8
   %32 = getelementptr inbounds i8, ptr %22, i64 -32
   store i64 %.sroa.0.0.copyload.i, ptr %32, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %22, i64 -24
@@ -13870,7 +13870,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %110 = and i16 %109, -4096
   %111 = or disjoint i16 %110, 1344
   store i16 %111, ptr %108, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle16FloatLiteralImplIfEE, i64 16), ptr %106, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle16FloatLiteralImplIfEE, i64 16), ptr %106, align 8
   %112 = getelementptr inbounds i8, ptr %105, i64 -16
   store i64 8, ptr %112, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %105, i64 -8
@@ -13961,7 +13961,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %155 = and i16 %154, -4096
   %156 = or disjoint i16 %155, 1344
   store i16 %156, ptr %153, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle16FloatLiteralImplIdEE, i64 16), ptr %151, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle16FloatLiteralImplIdEE, i64 16), ptr %151, align 8
   %157 = getelementptr inbounds i8, ptr %150, i64 -16
   store i64 16, ptr %157, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i30 = getelementptr inbounds i8, ptr %150, i64 -8
@@ -14052,7 +14052,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %200 = and i16 %199, -4096
   %201 = or disjoint i16 %200, 1344
   store i16 %201, ptr %198, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle16FloatLiteralImplIeEE, i64 16), ptr %196, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle16FloatLiteralImplIeEE, i64 16), ptr %196, align 8
   %202 = getelementptr inbounds i8, ptr %195, i64 -16
   store i64 20, ptr %202, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i43 = getelementptr inbounds i8, ptr %195, i64 -8
@@ -14325,7 +14325,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %36 = and i16 %35, -4096
   %37 = or disjoint i16 %36, 1344
   store i16 %37, ptr %34, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %32, align 8
   %38 = getelementptr inbounds i8, ptr %31, i64 -16
   store i64 4, ptr %38, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %31, i64 -8
@@ -14482,7 +14482,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %102 = and i16 %101, -4096
   %103 = or disjoint i16 %102, 1344
   store i16 %103, ptr %100, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13FunctionParamE, i64 16), ptr %98, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13FunctionParamE, i64 16), ptr %98, align 8
   %104 = getelementptr inbounds i8, ptr %97, i64 -16
   store i64 %.sroa.0.0.i, ptr %104, align 8
   %.sroa.2.0..sroa_idx.i.i.i13 = getelementptr inbounds i8, ptr %97, i64 -8
@@ -14723,7 +14723,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %42 = and i16 %41, -4096
   %43 = or disjoint i16 %42, 1344
   store i16 %43, ptr %40, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10BracedExprE, i64 16), ptr %38, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10BracedExprE, i64 16), ptr %38, align 8
   %44 = getelementptr inbounds i8, ptr %37, i64 -32
   store ptr %12, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %37, i64 -24
@@ -14788,7 +14788,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %79 = and i16 %78, -4096
   %80 = or disjoint i16 %79, 1344
   store i16 %80, ptr %77, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10BracedExprE, i64 16), ptr %75, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10BracedExprE, i64 16), ptr %75, align 8
   %81 = getelementptr inbounds i8, ptr %74, i64 -32
   store ptr %49, ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %74, i64 -24
@@ -14858,7 +14858,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %119 = and i16 %118, -4096
   %120 = or disjoint i16 %119, 1344
   store i16 %120, ptr %117, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15BracedRangeExprE, i64 16), ptr %115, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15BracedRangeExprE, i64 16), ptr %115, align 8
   %121 = getelementptr inbounds i8, ptr %114, i64 -32
   store ptr %86, ptr %121, align 8
   %122 = getelementptr inbounds i8, ptr %114, i64 -24
@@ -14921,7 +14921,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle12InitListE
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1344
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12InitListExprE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12InitListExprE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -32
   store ptr null, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %21, i64 -24
@@ -15051,7 +15051,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %56 = and i16 %55, -4096
   %57 = or disjoint i16 %56, 1346
   store i16 %57, ptr %54, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle29PointerToMemberConversionExprE, i64 16), ptr %52, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle29PointerToMemberConversionExprE, i64 16), ptr %52, align 8
   %58 = getelementptr inbounds i8, ptr %51, i64 -32
   store ptr %2, ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %51, i64 -24
@@ -15115,7 +15115,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle13Enclosing
   %29 = or disjoint i16 %27, %28
   %30 = or disjoint i16 %29, 1344
   store i16 %30, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13EnclosingExprE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13EnclosingExprE, i64 16), ptr %22, align 8
   %31 = getelementptr inbounds i8, ptr %21, i64 -48
   store i64 9, ptr %31, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %21, i64 -40
@@ -15367,7 +15367,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %123 = and i16 %122, -4096
   %124 = or disjoint i16 %123, 1344
   store i16 %124, ptr %121, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15ExprRequirementE, i64 16), ptr %119, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15ExprRequirementE, i64 16), ptr %119, align 8
   %125 = getelementptr inbounds i8, ptr %118, i64 -32
   store ptr %82, ptr %125, align 8
   %126 = getelementptr inbounds i8, ptr %118, i64 -24
@@ -15429,7 +15429,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %158 = and i16 %157, -4096
   %159 = or disjoint i16 %158, 1344
   store i16 %159, ptr %156, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15TypeRequirementE, i64 16), ptr %154, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15TypeRequirementE, i64 16), ptr %154, align 8
   br label %193
 
 160:                                              ; preds = %127
@@ -15487,7 +15487,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %191 = and i16 %190, -4096
   %192 = or disjoint i16 %191, 1344
   store i16 %192, ptr %189, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle17NestedRequirementE, i64 16), ptr %187, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle17NestedRequirementE, i64 16), ptr %187, align 8
   br label %193
 
 193:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_15ExprRequirementEJRPNS0_4NodeERbSB_EEESA_DpOT0_.exit, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_15TypeRequirementEJRPNS0_4NodeEEEESA_DpOT0_.exit, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_17NestedRequirementEJRPNS0_4NodeEEEESA_DpOT0_.exit
@@ -15616,7 +15616,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %254 = and i16 %253, -4096
   %255 = or disjoint i16 %254, 1344
   store i16 %255, ptr %252, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12RequiresExprE, i64 16), ptr %250, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12RequiresExprE, i64 16), ptr %250, align 8
   %256 = getelementptr inbounds i8, ptr %249, i64 -32
   store ptr %.sroa.045.0, ptr %256, align 8
   %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %249, i64 -24
@@ -15801,7 +15801,7 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %61
   %80 = and i16 %79, -4096
   %81 = or disjoint i16 %80, 1344
   store i16 %81, ptr %78, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %76, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %76, align 8
   %82 = getelementptr inbounds i8, ptr %75, i64 -16
   store i64 %.sroa.0.0.i14, ptr %82, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %75, i64 -8
@@ -15945,7 +15945,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %150 = and i16 %149, -4096
   %151 = or disjoint i16 %150, 1344
   store i16 %151, ptr %148, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13SubobjectExprE, i64 16), ptr %146, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13SubobjectExprE, i64 16), ptr %146, align 8
   %152 = getelementptr inbounds i8, ptr %145, i64 -64
   store ptr %2, ptr %152, align 8
   %153 = getelementptr inbounds i8, ptr %145, i64 -56
@@ -16012,7 +16012,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle22Parameter
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1344
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle22ParameterPackExpansionE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle22ParameterPackExpansionE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -16
   store ptr %.0.val, ptr %28, align 8
   ret ptr %22
@@ -16063,7 +16063,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle19SizeofPar
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1344
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle19SizeofParamPackExprE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle19SizeofParamPackExprE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -16
   store ptr %.0.val, ptr %28, align 8
   ret ptr %22
@@ -16114,7 +16114,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle13Enclosing
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1344
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13EnclosingExprE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13EnclosingExprE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -48
   store i64 10, ptr %28, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %21, i64 -40
@@ -16171,7 +16171,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle13NodeArray
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1344
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13NodeArrayNodeE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13NodeArrayNodeE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -16
   store ptr %.0.val, ptr %28, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %21, i64 -8
@@ -16224,7 +16224,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle12InitListE
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1344
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12InitListExprE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12InitListExprE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -32
   store ptr %.0.val, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %21, i64 -24
@@ -16280,7 +16280,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJ
   %28 = and i16 %27, -4096
   %29 = or disjoint i16 %28, 1344
   store i16 %29, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %23, align 8
   %30 = getelementptr inbounds i8, ptr %22, i64 -16
   store i64 %24, ptr %30, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %22, i64 -8
@@ -16333,7 +16333,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle9ThrowExprE
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1344
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle9ThrowExprE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle9ThrowExprE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -16
   store ptr %.0.val, ptr %28, align 8
   ret ptr %22
@@ -16422,7 +16422,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %46 = and i16 %45, -4096
   %47 = or disjoint i16 %46, 1344
   store i16 %47, ptr %44, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20NameWithTemplateArgsE, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20NameWithTemplateArgsE, i64 16), ptr %42, align 8
   %48 = getelementptr inbounds i8, ptr %41, i64 -16
   store ptr %13, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %41, i64 -8
@@ -16494,7 +16494,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %84 = and i16 %83, -4096
   %85 = or disjoint i16 %84, 1344
   store i16 %85, ptr %82, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13QualifiedNameE, i64 16), ptr %80, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13QualifiedNameE, i64 16), ptr %80, align 8
   %86 = getelementptr inbounds i8, ptr %79, i64 -16
   store ptr %.1, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %79, i64 -8
@@ -16551,7 +16551,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %116 = and i16 %115, -4096
   %117 = or disjoint i16 %116, 1344
   store i16 %117, ptr %114, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13QualifiedNameE, i64 16), ptr %112, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13QualifiedNameE, i64 16), ptr %112, align 8
   %118 = getelementptr inbounds i8, ptr %111, i64 -16
   store ptr %.1, ptr %118, align 8
   %119 = getelementptr inbounds i8, ptr %111, i64 -8
@@ -16617,7 +16617,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %150 = and i16 %149, -4096
   %151 = or disjoint i16 %150, 1344
   store i16 %151, ptr %148, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle19GlobalQualifiedNameE, i64 16), ptr %146, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle19GlobalQualifiedNameE, i64 16), ptr %146, align 8
   %152 = getelementptr inbounds i8, ptr %145, i64 -16
   store ptr %123, ptr %152, align 8
   br label %.loopexit
@@ -16689,7 +16689,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %184 = and i16 %183, -4096
   %185 = or disjoint i16 %184, 1344
   store i16 %185, ptr %182, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13QualifiedNameE, i64 16), ptr %180, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13QualifiedNameE, i64 16), ptr %180, align 8
   %186 = getelementptr inbounds i8, ptr %179, i64 -16
   store ptr %.376.us, ptr %186, align 8
   %187 = getelementptr inbounds i8, ptr %179, i64 -8
@@ -16730,7 +16730,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %206 = and i16 %205, -4096
   %207 = or disjoint i16 %206, 1344
   store i16 %207, ptr %204, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle19GlobalQualifiedNameE, i64 16), ptr %202, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle19GlobalQualifiedNameE, i64 16), ptr %202, align 8
   %208 = getelementptr inbounds i8, ptr %201, i64 -16
   store ptr %160, ptr %208, align 8
   br label %209
@@ -16801,7 +16801,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %241 = and i16 %240, -4096
   %242 = or disjoint i16 %241, 1344
   store i16 %242, ptr %239, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13QualifiedNameE, i64 16), ptr %237, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13QualifiedNameE, i64 16), ptr %237, align 8
   %243 = getelementptr inbounds i8, ptr %236, i64 -16
   store ptr %.376, ptr %243, align 8
   %244 = getelementptr inbounds i8, ptr %236, i64 -8
@@ -16901,7 +16901,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %287 = and i16 %286, -4096
   %288 = or disjoint i16 %287, 1344
   store i16 %288, ptr %285, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20NameWithTemplateArgsE, i64 16), ptr %283, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20NameWithTemplateArgsE, i64 16), ptr %283, align 8
   %289 = getelementptr inbounds i8, ptr %282, i64 -16
   store ptr %254, ptr %289, align 8
   %290 = getelementptr inbounds i8, ptr %282, i64 -8
@@ -16958,7 +16958,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %318 = and i16 %317, -4096
   %319 = or disjoint i16 %318, 1344
   store i16 %319, ptr %316, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13QualifiedNameE, i64 16), ptr %314, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13QualifiedNameE, i64 16), ptr %314, align 8
   %320 = getelementptr inbounds i8, ptr %313, i64 -16
   store ptr %.5, ptr %320, align 8
   %321 = getelementptr inbounds i8, ptr %313, i64 -8
@@ -17018,7 +17018,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle10BinaryExp
   %29 = or disjoint i16 %27, %28
   %30 = or disjoint i16 %29, 1344
   store i16 %30, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10BinaryExprE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10BinaryExprE, i64 16), ptr %22, align 8
   %31 = getelementptr inbounds i8, ptr %21, i64 -32
   store ptr %.0.val, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %21, i64 -24
@@ -17354,7 +17354,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle10PrefixExp
   %29 = or disjoint i16 %27, %28
   %30 = or disjoint i16 %29, 1344
   store i16 %30, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10PrefixExprE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10PrefixExprE, i64 16), ptr %22, align 8
   %31 = getelementptr inbounds i8, ptr %21, i64 -32
   store i64 %.0.val, ptr %31, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %21, i64 -24
@@ -19419,7 +19419,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %54 = and i16 %53, -4096
   %55 = or disjoint i16 %54, 1344
   store i16 %55, ptr %52, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle14IntegerLiteralE, i64 16), ptr %50, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle14IntegerLiteralE, i64 16), ptr %50, align 8
   %56 = getelementptr inbounds i8, ptr %49, i64 -32
   store i64 %1, ptr %56, align 8
   %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %49, i64 -24
@@ -19482,7 +19482,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8BoolExprEJ
   %28 = and i16 %27, -4096
   %29 = or disjoint i16 %28, 1344
   store i16 %29, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8BoolExprE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8BoolExprE, i64 16), ptr %22, align 8
   %30 = getelementptr inbounds i8, ptr %21, i64 -5
   store i8 %24, ptr %30, align 1
   ret ptr %22
@@ -19533,7 +19533,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle13StringLit
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1344
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13StringLiteralE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13StringLiteralE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -16
   store ptr %.0.val, ptr %28, align 8
   ret ptr %22
@@ -19585,7 +19585,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJ
   %28 = and i16 %27, -4096
   %29 = or disjoint i16 %28, 1344
   store i16 %29, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %23, align 8
   %30 = getelementptr inbounds i8, ptr %22, i64 -16
   store i64 %24, ptr %30, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %22, i64 -8
@@ -19719,7 +19719,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %62 = and i16 %61, -4096
   %63 = or disjoint i16 %62, 1344
   store i16 %63, ptr %60, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15UnnamedTypeNameE, i64 16), ptr %58, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15UnnamedTypeNameE, i64 16), ptr %58, align 8
   %64 = getelementptr inbounds i8, ptr %57, i64 -16
   store i64 %.sroa.0.0.i, ptr %64, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %57, i64 -8
@@ -20290,7 +20290,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %317 = and i16 %316, -4096
   %318 = or disjoint i16 %317, 1344
   store i16 %318, ptr %315, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %313, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %313, align 8
   %319 = getelementptr inbounds i8, ptr %312, i64 -16
   store i64 15, ptr %319, align 8
   %.sroa.2.0..sroa_idx.i.i.i88 = getelementptr inbounds i8, ptr %312, i64 -8
@@ -20347,7 +20347,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle10LambdaExp
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1344
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10LambdaExprE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10LambdaExprE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -16
   store ptr %.0.val, ptr %28, align 8
   ret ptr %22
@@ -20401,7 +20401,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11EnumLiter
   %27 = and i16 %26, -4096
   %28 = or disjoint i16 %27, 1344
   store i16 %28, ptr %25, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11EnumLiteralE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11EnumLiteralE, i64 16), ptr %23, align 8
   %29 = getelementptr inbounds i8, ptr %22, i64 -32
   store ptr %.0.val, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %22, i64 -24
@@ -21320,7 +21320,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %40 = and i16 %39, -4096
   %41 = or disjoint i16 %40, 1280
   store i16 %41, ptr %38, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle21TypeTemplateParamDeclE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle21TypeTemplateParamDeclE, i64 16), ptr %36, align 8
   %42 = getelementptr inbounds i8, ptr %35, i64 -16
   store ptr %15, ptr %42, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E23ScopedTemplateParamListD2Ev.exit
@@ -21382,7 +21382,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %73 = and i16 %72, -4096
   %74 = or disjoint i16 %73, 1280
   store i16 %74, ptr %71, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle32ConstrainedTypeTemplateParamDeclE, i64 16), ptr %69, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle32ConstrainedTypeTemplateParamDeclE, i64 16), ptr %69, align 8
   %75 = getelementptr inbounds i8, ptr %68, i64 -16
   store ptr %46, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %68, i64 -8
@@ -21446,7 +21446,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %107 = and i16 %106, -4096
   %108 = or disjoint i16 %107, 1280
   store i16 %108, ptr %105, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle24NonTypeTemplateParamDeclE, i64 16), ptr %103, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle24NonTypeTemplateParamDeclE, i64 16), ptr %103, align 8
   %109 = getelementptr inbounds i8, ptr %102, i64 -16
   store ptr %80, ptr %109, align 8
   %110 = getelementptr inbounds i8, ptr %102, i64 -8
@@ -21762,7 +21762,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle15ClosureTy
   %29 = and i16 %28, -4096
   %30 = or disjoint i16 %29, 1344
   store i16 %30, ptr %27, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15ClosureTypeNameE, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15ClosureTypeNameE, i64 16), ptr %25, align 8
   %31 = getelementptr inbounds i8, ptr %24, i64 -64
   store ptr %.sroa.01.0.copyload.i, ptr %31, align 8
   %.sroa.24.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %24, i64 -56
@@ -21962,7 +21962,7 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %13
   %32 = and i16 %31, -4096
   %33 = or disjoint i16 %32, 1344
   store i16 %33, ptr %30, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle26SyntheticTemplateParamNameE, i64 16), ptr %28, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle26SyntheticTemplateParamNameE, i64 16), ptr %28, align 8
   %34 = getelementptr inbounds i8, ptr %27, i64 -20
   store i32 %0, ptr %34, align 4
   %35 = getelementptr inbounds i8, ptr %27, i64 -16
@@ -22084,7 +22084,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle25TemplateT
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1280
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle25TemplateTemplateParamDeclE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle25TemplateTemplateParamDeclE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -32
   store ptr %.0.val, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %21, i64 -24
@@ -22141,7 +22141,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle21TemplateP
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1280
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle21TemplateParamPackDeclE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle21TemplateParamPackDeclE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -16
   store ptr %.0.val, ptr %28, align 8
   ret ptr %22
@@ -23915,7 +23915,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle13FunctionP
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1344
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13FunctionParamE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13FunctionParamE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -16
   store i64 %.0.val, ptr %28, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %21, i64 -8
@@ -24463,7 +24463,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %1, %._ZN4l
   store i8 42, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 9
   store i16 1344, ptr %27, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle22ParameterPackExpansionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle22ParameterPackExpansionE, i64 16), ptr %2, align 8
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %25, ptr %28, align 8
   %29 = load ptr, ptr %0, align 8
@@ -26825,7 +26825,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %_ZN4llvm16
   store i8 42, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 9
   store i16 1344, ptr %39, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle22ParameterPackExpansionE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle22ParameterPackExpansionE, i64 16), ptr %3, align 8
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %37, ptr %40, align 8
   call void @_ZNK4llvm16itanium_demangle22ParameterPackExpansion9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(36) %1)
@@ -27273,7 +27273,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %36 = and i16 %35, -4096
   %37 = or disjoint i16 %36, 1344
   store i16 %37, ptr %34, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20NameWithTemplateArgsE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20NameWithTemplateArgsE, i64 16), ptr %32, align 8
   %38 = getelementptr inbounds i8, ptr %31, i64 -16
   store ptr %2, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %31, i64 -8
@@ -27386,7 +27386,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %46 = and i16 %45, -4096
   %47 = or disjoint i16 %46, 1344
   store i16 %47, ptr %44, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8DtorNameE, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8DtorNameE, i64 16), ptr %42, align 8
   %48 = getelementptr inbounds i8, ptr %41, i64 -16
   store ptr %storemerge.i, ptr %48, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E19parseDestructorNameEv.exit
@@ -27466,7 +27466,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %84 = and i16 %83, -4096
   %85 = or disjoint i16 %84, 1344
   store i16 %85, ptr %82, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20NameWithTemplateArgsE, i64 16), ptr %80, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20NameWithTemplateArgsE, i64 16), ptr %80, align 8
   %86 = getelementptr inbounds i8, ptr %79, i64 -16
   store ptr %51, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %79, i64 -8
@@ -27720,7 +27720,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %73 = and i16 %72, -4096
   %74 = or disjoint i16 %73, 1344
   store i16 %74, ptr %71, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle22ConversionOperatorTypeE, i64 16), ptr %69, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle22ConversionOperatorTypeE, i64 16), ptr %69, align 8
   %75 = getelementptr inbounds i8, ptr %68, i64 -16
   store ptr %44, ptr %75, align 8
   br label %76
@@ -27792,7 +27792,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %111 = and i16 %110, -4096
   %112 = or disjoint i16 %111, 1344
   store i16 %112, ptr %109, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %107, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %107, align 8
   %113 = getelementptr inbounds i8, ptr %106, i64 -16
   store i64 %86, ptr %113, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %106, i64 -8
@@ -27855,7 +27855,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %144 = and i16 %143, -4096
   %145 = or disjoint i16 %144, 1344
   store i16 %145, ptr %142, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15LiteralOperatorE, i64 16), ptr %140, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15LiteralOperatorE, i64 16), ptr %140, align 8
   %146 = getelementptr inbounds i8, ptr %139, i64 -16
   store ptr %117, ptr %146, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit.thread
@@ -27932,7 +27932,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %183 = and i16 %182, -4096
   %184 = or disjoint i16 %183, 1344
   store i16 %184, ptr %181, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle22ConversionOperatorTypeE, i64 16), ptr %179, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle22ConversionOperatorTypeE, i64 16), ptr %179, align 8
   %185 = getelementptr inbounds i8, ptr %178, i64 -16
   store ptr %156, ptr %185, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit.thread
@@ -28333,7 +28333,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %56 = and i16 %51, 4032
   %57 = or disjoint i16 %55, %56
   store i16 %57, ptr %53, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10AbiTagAttrE, i64 16), ptr %49, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10AbiTagAttrE, i64 16), ptr %49, align 8
   %58 = getelementptr inbounds i8, ptr %48, i64 -32
   store ptr %.0311, ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %48, i64 -24
@@ -29087,7 +29087,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle27ExpandedS
   %28 = and i16 %27, -4096
   %29 = or disjoint i16 %28, 1344
   store i16 %29, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle27ExpandedSpecialSubstitutionE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle27ExpandedSpecialSubstitutionE, i64 16), ptr %22, align 8
   %30 = getelementptr inbounds i8, ptr %21, i64 -4
   store i32 %24, ptr %30, align 4
   ret ptr %22
@@ -29140,7 +29140,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle12CtorDtorN
   %29 = and i16 %28, -4096
   %30 = or disjoint i16 %29, 1344
   store i16 %30, ptr %27, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12CtorDtorNameE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12CtorDtorNameE, i64 16), ptr %23, align 8
   %31 = getelementptr inbounds i8, ptr %22, i64 -16
   store ptr %24, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %22, i64 -8
@@ -29612,7 +29612,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJ
   %28 = and i16 %27, -4096
   %29 = or disjoint i16 %28, 1344
   store i16 %29, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %23, align 8
   %30 = getelementptr inbounds i8, ptr %22, i64 -16
   store i64 %24, ptr %30, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %22, i64 -8
@@ -29665,7 +29665,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle9LocalNameE
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1344
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle9LocalNameE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle9LocalNameE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -16
   store ptr %.0.val, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %21, i64 -8
@@ -29771,7 +29771,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle13ParameterPackC2ENS0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %6 = load i16, ptr %5, align 1
   %7 = and i16 %6, -4096
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13ParameterPackE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13ParameterPackE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -31869,7 +31869,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %56 = and i16 %55, -4096
   %57 = or disjoint i16 %56, 1344
   store i16 %57, ptr %54, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %52, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %52, align 8
   %58 = getelementptr inbounds i8, ptr %51, i64 -16
   store i64 8, ptr %58, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %51, i64 -8
@@ -31945,7 +31945,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %96 = and i16 %95, -4096
   %97 = or disjoint i16 %96, 1344
   store i16 %97, ptr %94, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12NoexceptSpecE, i64 16), ptr %92, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12NoexceptSpecE, i64 16), ptr %92, align 8
   %98 = getelementptr inbounds i8, ptr %91, i64 -16
   store ptr %62, ptr %98, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit24.thread
@@ -32098,7 +32098,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %177 = and i16 %176, -4096
   %178 = or disjoint i16 %177, 1344
   store i16 %178, ptr %175, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20DynamicExceptionSpecE, i64 16), ptr %173, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20DynamicExceptionSpecE, i64 16), ptr %173, align 8
   %179 = getelementptr inbounds i8, ptr %172, i64 -16
   store ptr %151, ptr %179, align 8
   %.sroa.2.0..sroa_idx.i.i.i28 = getelementptr inbounds i8, ptr %172, i64 -8
@@ -32327,7 +32327,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %284 = and i16 %283, -4096
   %285 = or disjoint i16 %284, 256
   store i16 %285, ptr %282, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12FunctionTypeE, i64 16), ptr %280, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12FunctionTypeE, i64 16), ptr %280, align 8
   %286 = getelementptr inbounds i8, ptr %279, i64 -48
   store ptr %199, ptr %286, align 8
   %287 = getelementptr inbounds i8, ptr %279, i64 -40
@@ -32515,7 +32515,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %73 = and i16 %72, -4096
   %74 = or disjoint i16 %73, 1344
   store i16 %74, ptr %71, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13ObjCProtoNameE, i64 16), ptr %69, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13ObjCProtoNameE, i64 16), ptr %69, align 8
   %75 = getelementptr inbounds i8, ptr %68, i64 -32
   store ptr %46, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %68, i64 -24
@@ -32588,7 +32588,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %110 = and i16 %109, -4096
   %111 = or disjoint i16 %110, 1344
   store i16 %111, ptr %108, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle17VendorExtQualTypeE, i64 16), ptr %106, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle17VendorExtQualTypeE, i64 16), ptr %106, align 8
   %112 = getelementptr inbounds i8, ptr %105, i64 -32
   store ptr %83, ptr %112, align 8
   %113 = getelementptr inbounds i8, ptr %105, i64 -24
@@ -32700,7 +32700,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %165 = and i16 %160, 4032
   %166 = or disjoint i16 %164, %165
   store i16 %166, ptr %162, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8QualTypeE, i64 16), ptr %158, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8QualTypeE, i64 16), ptr %158, align 8
   %167 = getelementptr inbounds i8, ptr %157, i64 -20
   store i32 %.2.i, ptr %167, align 4
   %168 = getelementptr inbounds i8, ptr %157, i64 -16
@@ -32758,7 +32758,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJ
   %28 = and i16 %27, -4096
   %29 = or disjoint i16 %28, 1344
   store i16 %29, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %23, align 8
   %30 = getelementptr inbounds i8, ptr %22, i64 -16
   store i64 %24, ptr %30, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %22, i64 -8
@@ -32812,7 +32812,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJ
   %28 = and i16 %27, -4096
   %29 = or disjoint i16 %28, 1344
   store i16 %29, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %23, align 8
   %30 = getelementptr inbounds i8, ptr %22, i64 -16
   store i64 %24, ptr %30, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %22, i64 -8
@@ -32866,7 +32866,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJ
   %28 = and i16 %27, -4096
   %29 = or disjoint i16 %28, 1344
   store i16 %29, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %23, align 8
   %30 = getelementptr inbounds i8, ptr %22, i64 -16
   store i64 %24, ptr %30, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %22, i64 -8
@@ -32922,7 +32922,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle15Transform
   %27 = and i16 %26, -4096
   %28 = or disjoint i16 %27, 1344
   store i16 %28, ptr %25, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15TransformedTypeE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15TransformedTypeE, i64 16), ptr %23, align 8
   %29 = getelementptr inbounds i8, ptr %22, i64 -32
   store i64 %.sroa.0.0.copyload.i, ptr %29, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %22, i64 -24
@@ -32977,7 +32977,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle12BinaryFPT
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1344
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12BinaryFPTypeE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12BinaryFPTypeE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -16
   store ptr %.0.val, ptr %28, align 8
   ret ptr %22
@@ -33029,7 +33029,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle10BitIntTyp
   %27 = and i16 %26, -4096
   %28 = or disjoint i16 %27, 1344
   store i16 %28, ptr %25, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10BitIntTypeE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10BitIntTypeE, i64 16), ptr %22, align 8
   %29 = getelementptr inbounds i8, ptr %21, i64 -16
   store ptr %.0.val, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %21, i64 -8
@@ -33085,7 +33085,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle20PostfixQu
   %27 = and i16 %26, -4096
   %28 = or disjoint i16 %27, 1344
   store i16 %28, ptr %25, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20PostfixQualifiedTypeE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20PostfixQualifiedTypeE, i64 16), ptr %23, align 8
   %29 = getelementptr inbounds i8, ptr %22, i64 -32
   store ptr %.0.val, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %22, i64 -24
@@ -33192,7 +33192,7 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %28
   %47 = and i16 %46, -4096
   %48 = or disjoint i16 %47, 1344
   store i16 %48, ptr %45, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %43, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %43, align 8
   %49 = getelementptr inbounds i8, ptr %42, i64 -16
   store i64 %21, ptr %49, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %42, i64 -8
@@ -33305,7 +33305,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %105 = and i16 %104, -4096
   %106 = or disjoint i16 %105, 1344
   store i16 %106, ptr %103, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10VectorTypeE, i64 16), ptr %101, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10VectorTypeE, i64 16), ptr %101, align 8
   %107 = getelementptr inbounds i8, ptr %100, i64 -16
   store ptr %79, ptr %107, align 8
   %108 = getelementptr inbounds i8, ptr %100, i64 -8
@@ -33363,7 +33363,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %137 = and i16 %136, -4096
   %138 = or disjoint i16 %137, 1344
   store i16 %138, ptr %135, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10VectorTypeE, i64 16), ptr %133, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10VectorTypeE, i64 16), ptr %133, align 8
   %139 = getelementptr inbounds i8, ptr %132, i64 -16
   store ptr %111, ptr %139, align 8
   %140 = getelementptr inbounds i8, ptr %132, i64 -8
@@ -33458,7 +33458,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %42 = and i16 %41, -4096
   %43 = or disjoint i16 %42, 1344
   store i16 %43, ptr %40, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle22ElaboratedTypeSpefTypeE, i64 16), ptr %38, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle22ElaboratedTypeSpefTypeE, i64 16), ptr %38, align 8
   %44 = getelementptr inbounds i8, ptr %37, i64 -32
   store i64 %.sroa.022.0, ptr %44, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %37, i64 -24
@@ -33521,7 +33521,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11PointerTy
   %30 = or disjoint i16 %25, %29
   %31 = or disjoint i16 %30, 1280
   store i16 %31, ptr %27, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11PointerTypeE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11PointerTypeE, i64 16), ptr %22, align 8
   %32 = getelementptr inbounds i8, ptr %21, i64 -16
   store ptr %.0.val, ptr %32, align 8
   ret ptr %22
@@ -33576,7 +33576,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle13Reference
   %30 = or disjoint i16 %25, %29
   %31 = or disjoint i16 %30, 1280
   store i16 %31, ptr %27, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13ReferenceTypeE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13ReferenceTypeE, i64 16), ptr %22, align 8
   %32 = getelementptr inbounds i8, ptr %21, i64 -16
   store ptr %.0.val, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %21, i64 -8
@@ -33631,7 +33631,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle20PostfixQu
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1344
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20PostfixQualifiedTypeE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20PostfixQualifiedTypeE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -32
   store ptr %.0.val, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %21, i64 -24
@@ -33686,7 +33686,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle20PostfixQu
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1344
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20PostfixQualifiedTypeE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20PostfixQualifiedTypeE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -32
   store ptr %.0.val, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %21, i64 -24
@@ -35553,7 +35553,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle15PixelVect
   %28 = and i16 %27, -4096
   %29 = or disjoint i16 %28, 1344
   store i16 %29, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15PixelVectorTypeE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15PixelVectorTypeE, i64 16), ptr %23, align 8
   %30 = getelementptr inbounds i8, ptr %22, i64 -16
   store ptr %24, ptr %30, align 8
   ret ptr %23
@@ -35604,7 +35604,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle10VectorTyp
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1344
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10VectorTypeE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10VectorTypeE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -16
   store ptr %.0.val, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %21, i64 -8
@@ -35889,7 +35889,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle9ArrayTypeE
   %26 = and i16 %25, -4096
   %27 = or disjoint i16 %26, 1024
   store i16 %27, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle9ArrayTypeE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle9ArrayTypeE, i64 16), ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 -16
   store ptr %.0.val, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %21, i64 -8
@@ -36126,7 +36126,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle19PointerTo
   %30 = or disjoint i16 %25, %29
   %31 = or disjoint i16 %30, 1280
   store i16 %31, ptr %27, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle19PointerToMemberTypeE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle19PointerToMemberTypeE, i64 16), ptr %22, align 8
   %32 = getelementptr inbounds i8, ptr %21, i64 -16
   store ptr %.0.val, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %21, i64 -8

@@ -1810,7 +1810,7 @@ _ZN16ShenandoahLockerD2Ev.exit:                   ; preds = %.lr.ph162, %_ZN16Sh
   %315 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %316 = call noundef i32 @_ZN4GCId20current_or_undefinedEv() #26
   store i32 %316, ptr %315, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahPretouchBitmapTask, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahPretouchBitmapTask, i64 16), ptr %17, align 8
   %317 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %318 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %318, ptr %317, align 8
@@ -1830,7 +1830,7 @@ _ZN16ShenandoahLockerD2Ev.exit:                   ; preds = %.lr.ph162, %_ZN16Sh
   %326 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %327 = call noundef i32 @_ZN4GCId20current_or_undefinedEv() #26
   store i32 %327, ptr %326, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV26ShenandoahPretouchHeapTask, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV26ShenandoahPretouchHeapTask, i64 16), ptr %18, align 8
   %328 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %329 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %329, ptr %328, align 8
@@ -1911,7 +1911,7 @@ _ZN16ShenandoahLockerD2Ev.exit:                   ; preds = %.lr.ph162, %_ZN16Sh
   %371 = call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr nonnull %370) #26, !srcloc !16
   %372 = getelementptr inbounds nuw i8, ptr %363, i64 168
   call void @_ZN12PeriodicTaskC2Em(ptr noundef nonnull align 8 dereferenceable(24) %372, i64 noundef 10) #26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV33ShenandoahPeriodicPacerNotifyTask, i64 16), ptr %372, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV33ShenandoahPeriodicPacerNotifyTask, i64 16), ptr %372, align 8
   %373 = getelementptr inbounds nuw i8, ptr %363, i64 184
   store ptr %363, ptr %373, align 8
   %374 = getelementptr inbounds nuw i8, ptr %363, i64 192
@@ -2099,7 +2099,7 @@ define hidden void @_ZN14ShenandoahHeap15initialize_modeEv(ptr nocapture noundef
 
 8:                                                ; preds = %5
   %9 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 5, i32 noundef 0) #26
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV18ShenandoahSATBMode, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV18ShenandoahSATBMode, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1640
   store ptr %9, ptr %10, align 8
   br label %27
@@ -2123,7 +2123,7 @@ sub_1:                                            ; preds = %sub_0
 
 17:                                               ; preds = %.tail
   %18 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 5, i32 noundef 0) #26
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV16ShenandoahIUMode, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV16ShenandoahIUMode, i64 16), ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1640
   store ptr %18, ptr %19, align 8
   br label %27
@@ -2135,7 +2135,7 @@ sub_1:                                            ; preds = %sub_0
 
 22:                                               ; preds = %.tail.thread
   %23 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 5, i32 noundef 0) #26
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV21ShenandoahPassiveMode, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV21ShenandoahPassiveMode, i64 16), ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1640
   store ptr %23, ptr %24, align 8
   br label %27
@@ -2227,8 +2227,8 @@ define linkonce_odr hidden void @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef no
 define hidden void @_ZN14ShenandoahHeapC2EP25ShenandoahCollectorPolicy(ptr noundef nonnull align 8 dereferenceable(2657) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   tail call void @_ZN13CollectedHeapC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr getelementptr inbounds inrange(-16, 488) (i8, ptr @_ZTV14ShenandoahHeap, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV14ShenandoahHeap, i64 520), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 488) (i8, ptr @_ZTV14ShenandoahHeap, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV14ShenandoahHeap, i64 520), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store volatile i32 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -2286,12 +2286,12 @@ define hidden void @_ZN14ShenandoahHeapC2EP25ShenandoahCollectorPolicy(ptr nound
   %39 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #26
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %40, i8 0, i64 72, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV7GCTimer, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV7GCTimer, i64 16), ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, i8 0, i64 32, i1 false)
   tail call void @_ZN14TimePartitionsC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %42) #26
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV17ConcurrentGCTimer, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV17ConcurrentGCTimer, i64 16), ptr %39, align 8
   store ptr %39, ptr %38, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 2096
   %44 = load i32, ptr @LogMinObjAlignmentInBytes, align 4
@@ -2309,7 +2309,7 @@ define hidden void @_ZN14ShenandoahHeapC2EP25ShenandoahCollectorPolicy(ptr nound
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 2248
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 2288
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %52, i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV10MarkBitMap, i64 16), ptr %53, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV10MarkBitMap, i64 16), ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 2296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 2312
@@ -2318,7 +2318,7 @@ define hidden void @_ZN14ShenandoahHeapC2EP25ShenandoahCollectorPolicy(ptr nound
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 2320
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 2336
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV10MarkBitMap, i64 16), ptr %58, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV10MarkBitMap, i64 16), ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 2344
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, i8 0, i64 16, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 2360
@@ -2345,7 +2345,7 @@ define hidden void @_ZN14ShenandoahHeapC2EP25ShenandoahCollectorPolicy(ptr nound
   %71 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 128, i8 noundef zeroext 9, i32 noundef 0) #26
   %72 = load i32, ptr %10, align 8
   tail call void @_ZN13WorkerThreadsC2EPKcj(ptr noundef nonnull align 8 dereferenceable(121) %71, ptr noundef nonnull @.str.36, i32 noundef %72) #26
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23ShenandoahWorkerThreads, i64 16), ptr %71, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23ShenandoahWorkerThreads, i64 16), ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 120
   store i8 0, ptr %73, align 8
   store ptr %71, ptr %14, align 8
@@ -2359,7 +2359,7 @@ define hidden void @_ZN14ShenandoahHeapC2EP25ShenandoahCollectorPolicy(ptr nound
   %78 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 128, i8 noundef zeroext 9, i32 noundef 0) #26
   %79 = load i32, ptr @ParallelGCThreads, align 4
   tail call void @_ZN13WorkerThreadsC2EPKcj(ptr noundef nonnull align 8 dereferenceable(121) %78, ptr noundef nonnull @.str.38, i32 noundef %79) #26
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23ShenandoahWorkerThreads, i64 16), ptr %78, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23ShenandoahWorkerThreads, i64 16), ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 120
   store i8 0, ptr %80, align 8
   store ptr %78, ptr %77, align 8
@@ -2398,7 +2398,7 @@ define hidden void @_ZN14ShenandoahHeap17reset_mark_bitmapEv(ptr nocapture nound
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = tail call noundef i32 @_ZN4GCId20current_or_undefinedEv() #26
   store i32 %8, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25ShenandoahResetBitmapTask, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV25ShenandoahResetBitmapTask, i64 16), ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %10, ptr %9, align 8
@@ -2796,7 +2796,7 @@ define hidden void @_ZN14ShenandoahHeap15post_initializeEv(ptr noundef nonnull a
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV32ShenandoahInitWorkerGCLABClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV32ShenandoahInitWorkerGCLABClosure, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %6 = load ptr, ptr %5, align 8
   call void @_ZNK13WorkerThreads10threads_doEP13ThreadClosure(ptr noundef nonnull align 8 dereferenceable(120) %6, ptr noundef nonnull %2) #26
@@ -4048,7 +4048,7 @@ define hidden void @_ZN14ShenandoahHeap23evacuate_collection_setEb(ptr noundef n
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = tail call noundef i32 @_ZN4GCId20current_or_undefinedEv() #26
   store i32 %9, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV24ShenandoahEvacuationTask, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV24ShenandoahEvacuationTask, i64 16), ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -4584,7 +4584,7 @@ declare void @_ZN20ShenandoahHeapRegion20make_trash_immediateEv(ptr noundef nonn
 define hidden void @_ZN14ShenandoahHeap18labs_make_parsableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.ShenandoahRetireGCLABClosure, align 8
   %3 = alloca %class.JavaThreadIteratorWithHandle, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahRetireGCLABClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahRetireGCLABClosure, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4747,7 +4747,7 @@ define hidden void @_ZN14ShenandoahHeap13gclabs_retireEb(ptr noundef nonnull ali
   %3 = alloca %class.ShenandoahRetireGCLABClosure, align 8
   %4 = alloca %class.JavaThreadIteratorWithHandle, align 8
   %5 = zext i1 %1 to i8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahRetireGCLABClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahRetireGCLABClosure, i64 16), ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %5, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -5037,7 +5037,7 @@ _ZN20BlockLocationPrinterI14ShenandoahHeapE16base_oop_or_nullEPv.exit.thread: ; 
   %68 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %69 = ptrtoint ptr %68 to i64
   %70 = and i64 %67, 4294967295
-  %71 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %72 = zext nneg i32 %71 to i64
   %73 = shl i64 %70, %72
   %74 = add i64 %73, %69
@@ -5134,14 +5134,14 @@ define hidden void @_ZNK14ShenandoahHeap18print_tracing_infoEv(ptr nocapture nou
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %16 = load i64, ptr %15, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %2, i1 noundef zeroext false) #26
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %17) #26
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store i32 3, ptr %18, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_146ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %2, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1680
   %20 = load ptr, ptr %19, align 8
   call void @_ZNK22ShenandoahPhaseTimings15print_global_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(30352) %20, ptr noundef nonnull %2) #26
@@ -5313,14 +5313,14 @@ define hidden void @_ZN14ShenandoahHeap14object_iterateEP13ObjectClosure(ptr nou
   store i64 -256, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 4, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackIP7oopDescL8MEMFLAGS5EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackIP7oopDescL8MEMFLAGS5EE, i64 16), ptr %4, align 8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 510, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ObjectIterateScanRootClosure, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ObjectIterateScanRootClosure, i64 16), ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %20, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -5456,7 +5456,7 @@ _ZN7oopDesc11oop_iterateI28ObjectIterateScanRootClosureEEvPT_.exit: ; preds = %8
   br i1 %105, label %_ZN14ShenandoahHeap32reclaim_aux_bitmap_for_iterationEv.exit.thread, label %109
 
 _ZN14ShenandoahHeap32reclaim_aux_bitmap_for_iterationEv.exit.thread: ; preds = %._crit_edge
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackIP7oopDescL8MEMFLAGS5EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackIP7oopDescL8MEMFLAGS5EE, i64 16), ptr %4, align 8
   %106 = load i64, ptr %22, align 8
   %107 = shl i64 %106, 3
   %108 = add i64 %107, 8
@@ -5482,7 +5482,7 @@ _ZN14ShenandoahHeap32reclaim_aux_bitmap_for_iterationEv.exit.thread: ; preds = %
 
 _ZN14ShenandoahHeap32reclaim_aux_bitmap_for_iterationEv.exit: ; preds = %109, %116, %118
   %.pr = load ptr, ptr %47, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackIP7oopDescL8MEMFLAGS5EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackIP7oopDescL8MEMFLAGS5EE, i64 16), ptr %4, align 8
   %119 = load i64, ptr %22, align 8
   %120 = shl i64 %119, 3
   %121 = add i64 %120, 8
@@ -5697,7 +5697,7 @@ define hidden noundef ptr @_ZN14ShenandoahHeap24parallel_object_iteratorEj(ptr n
 define linkonce_odr hidden void @_ZN32ShenandoahParallelObjectIteratorC2EjP10MarkBitMap(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 comdat align 2 {
   %4 = alloca %class.ShenandoahHeapIterationRootScanner, align 8
   %5 = alloca %class.ObjectIterateScanRootClosure, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32ShenandoahParallelObjectIterator, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32ShenandoahParallelObjectIterator, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -5714,7 +5714,7 @@ define linkonce_odr hidden void @_ZN32ShenandoahParallelObjectIteratorC2EjP10Mar
   store i64 -256, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 4, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackIP7oopDescL8MEMFLAGS5EE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackIP7oopDescL8MEMFLAGS5EE, i64 16), ptr %11, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 510, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -5753,7 +5753,7 @@ define linkonce_odr hidden void @_ZN32ShenandoahParallelObjectIteratorC2EjP10Mar
   %33 = load ptr, ptr %8, align 8
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %34, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ObjectIterateScanRootClosure, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ObjectIterateScanRootClosure, i64 16), ptr %5, align 8
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %33, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -5902,7 +5902,7 @@ define hidden void @_ZNK14ShenandoahHeap28parallel_heap_region_iterateEP27Shenan
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = tail call noundef i32 @_ZN4GCId20current_or_undefinedEv() #26
   store i32 %11, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV32ShenandoahParallelHeapRegionTask, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV32ShenandoahParallelHeapRegionTask, i64 16), ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %13, ptr %12, align 8
@@ -5945,7 +5945,7 @@ define hidden void @_ZN14ShenandoahHeap18rendezvous_threadsEv(ptr nocapture noun
   %2 = alloca %class.ShenandoahRendezvousClosure, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @.str.110, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV27ShenandoahRendezvousClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV27ShenandoahRendezvousClosure, i64 16), ptr %2, align 8
   call void @_ZN9Handshake7executeEP16HandshakeClosure(ptr noundef nonnull %2) #26
   ret void
 }
@@ -5982,7 +5982,7 @@ define hidden void @_ZN14ShenandoahHeap10prepare_gcEv(ptr nocapture noundef nonn
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = tail call noundef i32 @_ZN4GCId20current_or_undefinedEv() #26
   store i32 %10, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25ShenandoahResetBitmapTask, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV25ShenandoahResetBitmapTask, i64 16), ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %12, ptr %11, align 8
@@ -5991,7 +5991,7 @@ define hidden void @_ZN14ShenandoahHeap10prepare_gcEv(ptr nocapture noundef nonn
   %14 = load ptr, ptr %5, align 8
   call void @_ZN13WorkerThreads8run_taskEP10WorkerTask(ptr noundef nonnull align 8 dereferenceable(120) %14, ptr noundef nonnull %3) #26
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV39ShenandoahResetUpdateRegionStateClosure, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV39ShenandoahResetUpdateRegionStateClosure, i64 16), ptr %4, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 2248
@@ -6010,7 +6010,7 @@ define hidden void @_ZN14ShenandoahHeap10prepare_gcEv(ptr nocapture noundef nonn
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %26 = call noundef i32 @_ZN4GCId20current_or_undefinedEv() #26
   store i32 %26, ptr %25, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV32ShenandoahParallelHeapRegionTask, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV32ShenandoahParallelHeapRegionTask, i64 16), ptr %2, align 8
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %28 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %28, ptr %27, align 8
@@ -6057,7 +6057,7 @@ define hidden void @_ZN14ShenandoahHeap34prepare_regions_and_collection_setEb(pt
   %7 = alloca %class.ShenandoahGCPhase, align 8
   %8 = select i1 %1, i32 52, i32 198
   call void @_ZN17ShenandoahGCPhaseC1EN22ShenandoahPhaseTimings5PhaseE(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %8) #26
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV43ShenandoahFinalMarkUpdateRegionStateClosure, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV43ShenandoahFinalMarkUpdateRegionStateClosure, i64 16), ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 2248
@@ -6079,7 +6079,7 @@ define hidden void @_ZN14ShenandoahHeap34prepare_regions_and_collection_setEb(pt
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %22 = call noundef i32 @_ZN4GCId20current_or_undefinedEv() #26
   store i32 %22, ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV32ShenandoahParallelHeapRegionTask, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV32ShenandoahParallelHeapRegionTask, i64 16), ptr %3, align 8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %24 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %24, ptr %23, align 8
@@ -6677,14 +6677,14 @@ define hidden void @_ZN14ShenandoahHeap18stw_unload_classesEb(ptr noundef nonnul
   call void @_ZN21ClassUnloadingContextC1Ejbb(ptr noundef nonnull align 8 dereferenceable(26) %3, i32 noundef %17, i1 noundef zeroext true, i1 noundef zeroext false) #26
   %18 = select i1 %1, i32 259, i32 175
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV24ShenandoahIsAliveClosure, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV24ShenandoahIsAliveClosure, i64 16), ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %21 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 2248
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr %20, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV33ShenandoahForwardedIsAliveClosure, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV33ShenandoahForwardedIsAliveClosure, i64 16), ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %23, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 769
@@ -6705,7 +6705,7 @@ define hidden void @_ZN14ShenandoahHeap18stw_unload_classesEb(ptr noundef nonnul
   call void @_ZN28ShenandoahClassUnloadingTaskC1EN22ShenandoahPhaseTimings5PhaseEjb(ptr noundef nonnull align 8 dereferenceable(72) %8, i32 noundef %18, i32 noundef %34, i1 noundef zeroext %31) #26
   %35 = load ptr, ptr %14, align 8
   call void @_ZN13WorkerThreads8run_taskEP10WorkerTask(ptr noundef nonnull align 8 dereferenceable(120) %35, ptr noundef nonnull %8) #26
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahClassUnloadingTask, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahClassUnloadingTask, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 32
   call void @_ZN22CodeCacheUnloadingTaskD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #26
   call void @_ZN23ShenandoahGCWorkerPhaseD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %7) #26
@@ -6794,7 +6794,7 @@ define hidden void @_ZN14ShenandoahHeap22stw_process_weak_rootsEb(ptr noundef no
   %.sink25.sroa.gep32 = getelementptr inbounds nuw i8, ptr %7, i64 216
   %.sink25.sroa.gep29 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %.sink25.sroa.gep26 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV33ShenandoahForwardedIsAliveClosure, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV33ShenandoahForwardedIsAliveClosure, i64 16), ptr %5, align 8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 2248
@@ -6804,7 +6804,7 @@ define hidden void @_ZN14ShenandoahHeap22stw_process_weak_rootsEb(ptr noundef no
   store ptr null, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 3, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV27ShenandoahUpdateRefsClosure, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV27ShenandoahUpdateRefsClosure, i64 16), ptr %6, align 8
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %20, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -6812,7 +6812,7 @@ define hidden void @_ZN14ShenandoahHeap22stw_process_weak_rootsEb(ptr noundef no
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %28 = call noundef i32 @_ZN4GCId20current_or_undefinedEv() #26
   store i32 %28, ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV39ShenandoahParallelWeakRootsCleaningTaskI33ShenandoahForwardedIsAliveClosure27ShenandoahUpdateRefsClosureE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV39ShenandoahParallelWeakRootsCleaningTaskI33ShenandoahForwardedIsAliveClosure27ShenandoahUpdateRefsClosureE, i64 16), ptr %7, align 8
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 %14, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -6823,7 +6823,7 @@ define hidden void @_ZN14ShenandoahHeap22stw_process_weak_rootsEb(ptr noundef no
   store ptr %6, ptr %32, align 8
   %33 = load ptr, ptr %10, align 8
   call void @_ZN13WorkerThreads8run_taskEP10WorkerTask(ptr noundef nonnull align 8 dereferenceable(120) %33, ptr noundef nonnull %7) #26
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV39ShenandoahParallelWeakRootsCleaningTaskI33ShenandoahForwardedIsAliveClosure27ShenandoahUpdateRefsClosureE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV39ShenandoahParallelWeakRootsCleaningTaskI33ShenandoahForwardedIsAliveClosure27ShenandoahUpdateRefsClosureE, i64 16), ptr %7, align 8
   br label %47
 
 34:                                               ; preds = %2
@@ -6837,7 +6837,7 @@ define hidden void @_ZN14ShenandoahHeap22stw_process_weak_rootsEb(ptr noundef no
   %.sink25.sroa.gep31 = getelementptr inbounds nuw i8, ptr %9, i64 216
   %.sink25.sroa.gep28 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %.sink25.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 120
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV24ShenandoahIsAliveClosure, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV24ShenandoahIsAliveClosure, i64 16), ptr %8, align 8
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %36 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 2248
@@ -6848,7 +6848,7 @@ define hidden void @_ZN14ShenandoahHeap22stw_process_weak_rootsEb(ptr noundef no
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %41 = call noundef i32 @_ZN4GCId20current_or_undefinedEv() #26
   store i32 %41, ptr %40, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV39ShenandoahParallelWeakRootsCleaningTaskI24ShenandoahIsAliveClosure16DoNothingClosureE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV39ShenandoahParallelWeakRootsCleaningTaskI24ShenandoahIsAliveClosure16DoNothingClosureE, i64 16), ptr %9, align 8
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 %14, ptr %42, align 4
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -6859,7 +6859,7 @@ define hidden void @_ZN14ShenandoahHeap22stw_process_weak_rootsEb(ptr noundef no
   store ptr @do_nothing_cl, ptr %45, align 8
   %46 = load ptr, ptr %10, align 8
   call void @_ZN13WorkerThreads8run_taskEP10WorkerTask(ptr noundef nonnull align 8 dereferenceable(120) %46, ptr noundef nonnull %9) #26
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV39ShenandoahParallelWeakRootsCleaningTaskI24ShenandoahIsAliveClosure16DoNothingClosureE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV39ShenandoahParallelWeakRootsCleaningTaskI24ShenandoahIsAliveClosure16DoNothingClosureE, i64 16), ptr %9, align 8
   br label %47
 
 47:                                               ; preds = %34, %18
@@ -7317,7 +7317,7 @@ define hidden void @_ZN14ShenandoahHeap22update_heap_referencesEb(ptr noundef no
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = tail call noundef i32 @_ZN4GCId20current_or_undefinedEv() #26
   store i32 %8, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahUpdateHeapRefsTaskILb1EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahUpdateHeapRefsTaskILb1EE, i64 16), ptr %3, align 8
   br label %13
 
 9:                                                ; preds = %2
@@ -7328,7 +7328,7 @@ define hidden void @_ZN14ShenandoahHeap22update_heap_referencesEb(ptr noundef no
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = tail call noundef i32 @_ZN4GCId20current_or_undefinedEv() #26
   store i32 %12, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahUpdateHeapRefsTaskILb0EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahUpdateHeapRefsTaskILb0EE, i64 16), ptr %4, align 8
   br label %13
 
 13:                                               ; preds = %9, %5
@@ -7353,7 +7353,7 @@ define hidden void @_ZN14ShenandoahHeap25update_heap_region_statesEb(ptr noundef
   %6 = alloca %class.ShenandoahGCPhase, align 8
   %7 = select i1 %1, i32 135, i32 206
   call void @_ZN17ShenandoahGCPhaseC1EN22ShenandoahPhaseTimings5PhaseE(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %7) #26
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV49ShenandoahFinalUpdateRefsUpdateRegionStateClosure, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV49ShenandoahFinalUpdateRefsUpdateRegionStateClosure, i64 16), ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 112
@@ -7371,7 +7371,7 @@ define hidden void @_ZN14ShenandoahHeap25update_heap_region_statesEb(ptr noundef
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = call noundef i32 @_ZN4GCId20current_or_undefinedEv() #26
   store i32 %18, ptr %17, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV32ShenandoahParallelHeapRegionTask, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV32ShenandoahParallelHeapRegionTask, i64 16), ptr %3, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %20 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %20, ptr %19, align 8
@@ -8759,7 +8759,7 @@ define linkonce_odr hidden void @_ZN24ShenandoahEvacuationTask7do_workEv(ptr nou
   %2 = alloca %class.ShenandoahConcurrentEvacuateRegionObjectClosure, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV47ShenandoahConcurrentEvacuateRegionObjectClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV47ShenandoahConcurrentEvacuateRegionObjectClosure, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -9445,7 +9445,7 @@ define linkonce_odr hidden void @_ZN28ObjectIterateScanRootClosure11do_oop_workI
   %6 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = zext i32 %3 to i64
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %10 = zext nneg i32 %9 to i64
   %11 = shl i64 %8, %10
   %12 = add i64 %11, %7
@@ -9624,7 +9624,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN32ShenandoahParallelObjectIter
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 160, i8 noundef zeroext 5, i32 noundef 0) #26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %4, ptr %5, align 8
   %6 = zext i32 %4 to i64
@@ -9647,7 +9647,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN32ShenandoahParallelObjectIter
 _ZN27ShenandoahObjToScanQueueSetC2Ei.exit:        ; preds = %.lr.ph.i.i.i, %1
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store volatile i32 0, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV27ShenandoahObjToScanQueueSet, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV27ShenandoahObjToScanQueueSet, i64 16), ptr %2, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %2, ptr %13, align 8
   %14 = load i32, ptr %3, align 8
@@ -9676,7 +9676,7 @@ _ZN27ShenandoahObjToScanQueueSetC2Ei.exit:        ; preds = %.lr.ph.i.i.i, %1
   store i64 -256, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 664
   store i64 4, ptr %25, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE, i64 16), ptr %22, align 8
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 672
   store i64 510, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 680
@@ -9893,7 +9893,7 @@ _ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32ShenandoahParallelObjectIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32ShenandoahParallelObjectIterator, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32ShenandoahParallelObjectIterator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2425
@@ -9944,7 +9944,7 @@ _ZN14ShenandoahHeap32reclaim_aux_bitmap_for_iterationEv.exit: ; preds = %1, %7, 
 
 27:                                               ; preds = %.lr.ph
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 640
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE, i64 16), ptr %28, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE, i64 16), ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 696
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 648
@@ -10030,7 +10030,7 @@ _ZN6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072E
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
   %66 = phi ptr [ %.pre12, %._crit_edge ], [ %18, %.preheader ]
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE, i64 16), ptr %66, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE, i64 16), ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load ptr, ptr %67, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %68) #26
@@ -10043,7 +10043,7 @@ _ZN6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072E
 
 70:                                               ; preds = %69, %_ZN14ShenandoahHeap32reclaim_aux_bitmap_for_iterationEv.exit
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackIP7oopDescL8MEMFLAGS5EE, i64 16), ptr %71, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackIP7oopDescL8MEMFLAGS5EE, i64 16), ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -10197,7 +10197,7 @@ define linkonce_odr hidden void @_ZN32ShenandoahParallelObjectIterator23object_i
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV37ShenandoahObjectIterateParScanClosure, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV37ShenandoahObjectIterateParScanClosure, i64 16), ptr %6, align 8
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %13, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -10625,7 +10625,7 @@ define linkonce_odr hidden void @_ZN37ShenandoahObjectIterateParScanClosure11do_
   %6 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = zext i32 %3 to i64
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %10 = zext nneg i32 %9 to i64
   %11 = shl i64 %8, %10
   %12 = add i64 %11, %7
@@ -11416,7 +11416,7 @@ define linkonce_odr hidden void @_ZN27ShenandoahUpdateRefsClosure6do_oopEP9narro
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %3 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -11636,7 +11636,7 @@ declare void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #26
   ret void
@@ -11724,7 +11724,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI28ObjectIterateScanR
   %36 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = zext i32 %33 to i64
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %40 = zext nneg i32 %39 to i64
   %41 = shl i64 %38, %40
   %42 = add i64 %41, %37
@@ -12377,7 +12377,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass15oop_oop_iterateI9narrowO
   %37 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %38 = ptrtoint ptr %37 to i64
   %39 = zext i32 %34 to i64
-  %40 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %41 = zext nneg i32 %40 to i64
   %42 = shl i64 %39, %41
   %43 = add i64 %42, %38
@@ -12791,7 +12791,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = zext i32 %2 to i64
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %8 = zext nneg i32 %7 to i64
   %9 = shl i64 %6, %8
   %10 = add i64 %9, %5
@@ -12807,7 +12807,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = zext i32 %2 to i64
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %8 = zext nneg i32 %7 to i64
   %9 = shl i64 %6, %8
   %10 = add i64 %9, %5
@@ -12823,7 +12823,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = zext i32 %2 to i64
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %8 = zext nneg i32 %7 to i64
   %9 = shl i64 %6, %8
   %10 = add i64 %9, %5
@@ -12840,7 +12840,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %5 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = zext i32 %3 to i64
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %9 = zext nneg i32 %8 to i64
   %10 = shl i64 %7, %9
   %11 = add i64 %10, %6
@@ -12857,7 +12857,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = zext i32 %2 to i64
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %8 = zext nneg i32 %7 to i64
   %9 = shl i64 %6, %8
   %10 = add i64 %9, %5
@@ -13042,7 +13042,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread: ; preds = %84,
   %115 = ptrtoint ptr %2 to i64
   %116 = ptrtoint ptr %114 to i64
   %117 = sub i64 %115, %116
-  %118 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %118 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %119 = zext nneg i32 %118 to i64
   %120 = lshr i64 %117, %119
   %121 = trunc i64 %120 to i32
@@ -13703,7 +13703,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = zext i32 %2 to i64
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %8 = zext nneg i32 %7 to i64
   %9 = shl i64 %6, %8
   %10 = add i64 %9, %5
@@ -13719,7 +13719,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = zext i32 %2 to i64
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %8 = zext nneg i32 %7 to i64
   %9 = shl i64 %6, %8
   %10 = add i64 %9, %5
@@ -13735,7 +13735,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = zext i32 %2 to i64
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %8 = zext nneg i32 %7 to i64
   %9 = shl i64 %6, %8
   %10 = add i64 %9, %5
@@ -13752,7 +13752,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %5 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = zext i32 %3 to i64
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %9 = zext nneg i32 %8 to i64
   %10 = shl i64 %7, %9
   %11 = add i64 %10, %6
@@ -13769,7 +13769,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = zext i32 %2 to i64
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %8 = zext nneg i32 %7 to i64
   %9 = shl i64 %6, %8
   %10 = add i64 %9, %5
@@ -14573,7 +14573,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateI9narr
   %35 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = zext i32 %32 to i64
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %39 = zext nneg i32 %38 to i64
   %40 = shl i64 %37, %39
   %41 = add i64 %40, %36
@@ -15265,7 +15265,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   %36 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = zext i32 %33 to i64
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %40 = zext nneg i32 %39 to i64
   %41 = shl i64 %38, %40
   %42 = add i64 %41, %37
@@ -17915,7 +17915,7 @@ define linkonce_odr hidden void @_ZN28ShenandoahUpdateHeapRefsTaskILb1EE7do_work
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %9, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV31ShenandoahConcUpdateRefsClosure, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV31ShenandoahConcUpdateRefsClosure, i64 16), ptr %5, align 8
   %10 = icmp eq i32 %1, 0
   br i1 %10, label %11, label %20
 
@@ -17989,7 +17989,7 @@ _ZN24ShenandoahRegionIterator4nextEv.exit:        ; preds = %20
 
 49:                                               ; preds = %45
   %50 = call noundef ptr @_ZNK20ShenandoahHeapRegion22humongous_start_regionEv(ptr noundef nonnull align 8 dereferenceable(96) %.013) #26
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV35ShenandoahObjectToOopBoundedClosureI31ShenandoahConcUpdateRefsClosureE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV35ShenandoahObjectToOopBoundedClosureI31ShenandoahConcUpdateRefsClosureE, i64 16), ptr %3, align 8
   store ptr %5, ptr %35, align 8
   store ptr %47, ptr %36, align 8
   %51 = ptrtoint ptr %40 to i64
@@ -18003,7 +18003,7 @@ _ZN24ShenandoahRegionIterator4nextEv.exit:        ; preds = %20
   br label %_ZN14ShenandoahHeap25marked_object_oop_iterateI31ShenandoahConcUpdateRefsClosureEEvP20ShenandoahHeapRegionPT_PP12HeapWordImpl.exit
 
 57:                                               ; preds = %43
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahObjectToOopClosureI31ShenandoahConcUpdateRefsClosureE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahObjectToOopClosureI31ShenandoahConcUpdateRefsClosureE, i64 16), ptr %4, align 8
   store ptr %5, ptr %34, align 8
   call void @_ZN14ShenandoahHeap21marked_object_iterateI28ShenandoahObjectToOopClosureI31ShenandoahConcUpdateRefsClosureEEEvP20ShenandoahHeapRegionPT_PP12HeapWordImpl(ptr noundef nonnull align 8 dereferenceable(2657) %44, ptr noundef nonnull %.013, ptr noundef nonnull %4, ptr noundef %40)
   br label %_ZN14ShenandoahHeap25marked_object_oop_iterateI31ShenandoahConcUpdateRefsClosureEEvP20ShenandoahHeapRegionPT_PP12HeapWordImpl.exit
@@ -18149,7 +18149,7 @@ define linkonce_odr hidden void @_ZN31ShenandoahConcUpdateRefsClosure6do_oopEP9n
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %3 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -18746,7 +18746,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI31ShenandoahC
   %45 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %46 = ptrtoint ptr %45 to i64
   %47 = zext i32 %41 to i64
-  %48 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %49 = zext nneg i32 %48 to i64
   %50 = shl i64 %47, %49
   %51 = add i64 %50, %46
@@ -18988,7 +18988,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_boundedI
   %46 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %47 = ptrtoint ptr %46 to i64
   %48 = zext i32 %42 to i64
-  %49 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %50 = zext nneg i32 %49 to i64
   %51 = shl i64 %48, %50
   %52 = add i64 %51, %47
@@ -19094,7 +19094,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_proc
   %32 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %33 = ptrtoint ptr %32 to i64
   %34 = zext i32 %27 to i64
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %36 = zext nneg i32 %35 to i64
   %37 = shl i64 %34, %36
   %38 = add i64 %37, %33
@@ -19204,7 +19204,7 @@ _ZN16InstanceRefKlass12try_discoverI9narrowOop31ShenandoahConcUpdateRefsClosureE
   %39 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %40 = ptrtoint ptr %39 to i64
   %41 = zext i32 %34 to i64
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %43 = zext nneg i32 %42 to i64
   %44 = shl i64 %41, %43
   %45 = add i64 %44, %40
@@ -19267,7 +19267,7 @@ _ZN16InstanceRefKlass11do_referentI9narrowOop31ShenandoahConcUpdateRefsClosureK1
   %87 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %88 = ptrtoint ptr %87 to i64
   %89 = zext i32 %82 to i64
-  %90 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %90 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %91 = zext nneg i32 %90 to i64
   %92 = shl i64 %89, %91
   %93 = add i64 %92, %88
@@ -19335,7 +19335,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass22oop_oop_iterate_fieldsI9
   %21 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %22 = ptrtoint ptr %21 to i64
   %23 = zext i32 %16 to i64
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %25 = zext nneg i32 %24 to i64
   %26 = shl i64 %23, %25
   %27 = add i64 %26, %22
@@ -19398,7 +19398,7 @@ _ZN16InstanceRefKlass11do_referentI9narrowOop31ShenandoahConcUpdateRefsClosureK1
   %69 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %70 = ptrtoint ptr %69 to i64
   %71 = zext i32 %64 to i64
-  %72 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %73 = zext nneg i32 %72 to i64
   %74 = shl i64 %71, %73
   %75 = add i64 %74, %70
@@ -19955,7 +19955,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_bound
   %45 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %46 = ptrtoint ptr %45 to i64
   %47 = zext i32 %41 to i64
-  %48 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %49 = zext nneg i32 %48 to i64
   %50 = shl i64 %47, %49
   %51 = add i64 %50, %46
@@ -20050,7 +20050,7 @@ _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.
   %107 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %108 = ptrtoint ptr %107 to i64
   %109 = zext i32 %103 to i64
-  %110 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %110 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %111 = zext nneg i32 %110 to i64
   %112 = shl i64 %109, %111
   %113 = add i64 %112, %108
@@ -20361,7 +20361,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
   %45 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %46 = ptrtoint ptr %45 to i64
   %47 = zext i32 %41 to i64
-  %48 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %49 = zext nneg i32 %48 to i64
   %50 = shl i64 %47, %49
   %51 = add i64 %50, %46
@@ -20704,7 +20704,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass30oop_oop_iterate_h
   %24 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %25 = ptrtoint ptr %24 to i64
   %26 = zext i32 %19 to i64
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %28 = zext nneg i32 %27 to i64
   %29 = shl i64 %26, %28
   %30 = add i64 %29, %25
@@ -20758,7 +20758,7 @@ _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.
   %65 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %66 = ptrtoint ptr %65 to i64
   %67 = zext i32 %60 to i64
-  %68 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %69 = zext nneg i32 %68 to i64
   %70 = shl i64 %67, %69
   %71 = add i64 %70, %66
@@ -20875,7 +20875,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit:          ; preds = %8, %25
   %45 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %46 = ptrtoint ptr %45 to i64
   %47 = zext i32 %38 to i64
-  %48 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %49 = zext nneg i32 %48 to i64
   %50 = shl i64 %47, %49
   %51 = add i64 %50, %46
@@ -21380,7 +21380,7 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass23oop_oop_iterate_boundedI9na
   %51 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %52 = ptrtoint ptr %51 to i64
   %53 = zext i32 %47 to i64
-  %54 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %53, %55
   %57 = add i64 %56, %52
@@ -21508,7 +21508,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI31ShenandoahConcUpda
   %35 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = zext i32 %31 to i64
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %39 = zext nneg i32 %38 to i64
   %40 = shl i64 %37, %39
   %41 = add i64 %40, %36
@@ -21722,7 +21722,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass15oop_oop_iterateI9narrowO
   %36 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = zext i32 %32 to i64
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %40 = zext nneg i32 %39 to i64
   %41 = shl i64 %38, %40
   %42 = add i64 %41, %37
@@ -21815,7 +21815,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_proc
   %25 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %26 = ptrtoint ptr %25 to i64
   %27 = zext i32 %20 to i64
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %29 = zext nneg i32 %28 to i64
   %30 = shl i64 %27, %29
   %31 = add i64 %30, %26
@@ -21915,7 +21915,7 @@ _ZN16InstanceRefKlass12try_discoverI9narrowOop31ShenandoahConcUpdateRefsClosureE
   %32 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %33 = ptrtoint ptr %32 to i64
   %34 = zext i32 %27 to i64
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %36 = zext nneg i32 %35 to i64
   %37 = shl i64 %34, %36
   %38 = add i64 %37, %33
@@ -21967,7 +21967,7 @@ _ZN16InstanceRefKlass11do_referentI9narrowOop31ShenandoahConcUpdateRefsClosure14
   %74 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %75 = ptrtoint ptr %74 to i64
   %76 = zext i32 %69 to i64
-  %77 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %77 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %78 = zext nneg i32 %77 to i64
   %79 = shl i64 %76, %78
   %80 = add i64 %79, %75
@@ -22025,7 +22025,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass22oop_oop_iterate_fieldsI9
   %14 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = zext i32 %9 to i64
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %18 = zext nneg i32 %17 to i64
   %19 = shl i64 %16, %18
   %20 = add i64 %19, %15
@@ -22077,7 +22077,7 @@ _ZN16InstanceRefKlass11do_referentI9narrowOop31ShenandoahConcUpdateRefsClosure14
   %56 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %57 = ptrtoint ptr %56 to i64
   %58 = zext i32 %51 to i64
-  %59 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %60 = zext nneg i32 %59 to i64
   %61 = shl i64 %58, %60
   %62 = add i64 %61, %57
@@ -22542,7 +22542,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateI9narr
   %35 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = zext i32 %31 to i64
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %39 = zext nneg i32 %38 to i64
   %40 = shl i64 %37, %39
   %41 = add i64 %40, %36
@@ -22633,7 +22633,7 @@ _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.
   %95 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %96 = ptrtoint ptr %95 to i64
   %97 = zext i32 %91 to i64
-  %98 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %98 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %99 = zext nneg i32 %98 to i64
   %100 = shl i64 %97, %99
   %101 = add i64 %100, %96
@@ -22912,7 +22912,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   %35 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = zext i32 %31 to i64
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %39 = zext nneg i32 %38 to i64
   %40 = shl i64 %37, %39
   %41 = add i64 %40, %36
@@ -23291,7 +23291,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass22oop_oop_iterate_h
   %18 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = zext i32 %13 to i64
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %22 = zext nneg i32 %21 to i64
   %23 = shl i64 %20, %22
   %24 = add i64 %23, %19
@@ -23339,7 +23339,7 @@ _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.
   %56 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %57 = ptrtoint ptr %56 to i64
   %58 = zext i32 %51 to i64
-  %59 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %60 = zext nneg i32 %59 to i64
   %61 = shl i64 %58, %60
   %62 = add i64 %61, %57
@@ -23766,7 +23766,7 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass15oop_oop_iterateI9narrowOop3
   %46 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %47 = ptrtoint ptr %46 to i64
   %48 = zext i32 %42 to i64
-  %49 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %50 = zext nneg i32 %49 to i64
   %51 = shl i64 %48, %50
   %52 = add i64 %51, %47
@@ -23908,7 +23908,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI30ShenandoahS
   %45 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %46 = ptrtoint ptr %45 to i64
   %47 = zext i32 %41 to i64
-  %48 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %49 = zext nneg i32 %48 to i64
   %50 = shl i64 %47, %49
   %51 = add i64 %50, %46
@@ -24067,7 +24067,7 @@ define linkonce_odr hidden void @_ZN30ShenandoahSTWUpdateRefsClosure6do_oopEP9na
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %3 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -24229,7 +24229,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_boundedI
   %46 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %47 = ptrtoint ptr %46 to i64
   %48 = zext i32 %42 to i64
-  %49 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %50 = zext nneg i32 %49 to i64
   %51 = shl i64 %48, %50
   %52 = add i64 %51, %47
@@ -24329,7 +24329,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_proc
   %32 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %33 = ptrtoint ptr %32 to i64
   %34 = zext i32 %27 to i64
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %36 = zext nneg i32 %35 to i64
   %37 = shl i64 %34, %36
   %38 = add i64 %37, %33
@@ -24433,7 +24433,7 @@ _ZN16InstanceRefKlass12try_discoverI9narrowOop30ShenandoahSTWUpdateRefsClosureEE
   %39 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %40 = ptrtoint ptr %39 to i64
   %41 = zext i32 %34 to i64
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %43 = zext nneg i32 %42 to i64
   %44 = shl i64 %41, %43
   %45 = add i64 %44, %40
@@ -24490,7 +24490,7 @@ _ZN16InstanceRefKlass11do_referentI9narrowOop30ShenandoahSTWUpdateRefsClosureK10
   %82 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %83 = ptrtoint ptr %82 to i64
   %84 = zext i32 %77 to i64
-  %85 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %85 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %86 = zext nneg i32 %85 to i64
   %87 = shl i64 %84, %86
   %88 = add i64 %87, %83
@@ -24552,7 +24552,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass22oop_oop_iterate_fieldsI9
   %21 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %22 = ptrtoint ptr %21 to i64
   %23 = zext i32 %16 to i64
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %25 = zext nneg i32 %24 to i64
   %26 = shl i64 %23, %25
   %27 = add i64 %26, %22
@@ -24609,7 +24609,7 @@ _ZN16InstanceRefKlass11do_referentI9narrowOop30ShenandoahSTWUpdateRefsClosureK10
   %64 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %65 = ptrtoint ptr %64 to i64
   %66 = zext i32 %59 to i64
-  %67 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %68 = zext nneg i32 %67 to i64
   %69 = shl i64 %66, %68
   %70 = add i64 %69, %65
@@ -25151,7 +25151,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_bound
   %45 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %46 = ptrtoint ptr %45 to i64
   %47 = zext i32 %41 to i64
-  %48 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %49 = zext nneg i32 %48 to i64
   %50 = shl i64 %47, %49
   %51 = add i64 %50, %46
@@ -25240,7 +25240,7 @@ _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.e
   %102 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %103 = ptrtoint ptr %102 to i64
   %104 = zext i32 %98 to i64
-  %105 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %105 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %106 = zext nneg i32 %105 to i64
   %107 = shl i64 %104, %106
   %108 = add i64 %107, %103
@@ -25545,7 +25545,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
   %45 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %46 = ptrtoint ptr %45 to i64
   %47 = zext i32 %41 to i64
-  %48 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %49 = zext nneg i32 %48 to i64
   %50 = shl i64 %47, %49
   %51 = add i64 %50, %46
@@ -25833,7 +25833,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass30oop_oop_iterate_h
   %24 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %25 = ptrtoint ptr %24 to i64
   %26 = zext i32 %19 to i64
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %28 = zext nneg i32 %27 to i64
   %29 = shl i64 %26, %28
   %30 = add i64 %29, %25
@@ -25881,7 +25881,7 @@ _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.e
   %60 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %61 = ptrtoint ptr %60 to i64
   %62 = zext i32 %55 to i64
-  %63 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %64 = zext nneg i32 %63 to i64
   %65 = shl i64 %62, %64
   %66 = add i64 %65, %61
@@ -26009,7 +26009,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i:      ; preds = %46, %30
   %60 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %61 = ptrtoint ptr %60 to i64
   %62 = zext i32 %56 to i64
-  %63 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %64 = zext nneg i32 %63 to i64
   %65 = shl i64 %62, %64
   %66 = add i64 %65, %61
@@ -26508,7 +26508,7 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass23oop_oop_iterate_boundedI9na
   %51 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %52 = ptrtoint ptr %51 to i64
   %53 = zext i32 %47 to i64
-  %54 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %53, %55
   %57 = add i64 %56, %52
@@ -26630,7 +26630,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI30ShenandoahSTWUpdat
   %35 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = zext i32 %31 to i64
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %39 = zext nneg i32 %38 to i64
   %40 = shl i64 %37, %39
   %41 = add i64 %40, %36
@@ -26924,7 +26924,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass15oop_oop_iterateI9narrowO
   %36 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = zext i32 %32 to i64
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %40 = zext nneg i32 %39 to i64
   %41 = shl i64 %38, %40
   %42 = add i64 %41, %37
@@ -27007,7 +27007,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_proc
   %24 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %25 = ptrtoint ptr %24 to i64
   %26 = zext i32 %19 to i64
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %28 = zext nneg i32 %27 to i64
   %29 = shl i64 %26, %28
   %30 = add i64 %29, %25
@@ -27053,7 +27053,7 @@ _ZN16InstanceRefKlass11do_referentI9narrowOop30ShenandoahSTWUpdateRefsClosure14A
   %61 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %62 = ptrtoint ptr %61 to i64
   %63 = zext i32 %56 to i64
-  %64 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %65 = zext nneg i32 %64 to i64
   %66 = shl i64 %63, %65
   %67 = add i64 %66, %62
@@ -27100,7 +27100,7 @@ _ZN16InstanceRefKlass11do_referentI9narrowOop30ShenandoahSTWUpdateRefsClosure14A
   %100 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %101 = ptrtoint ptr %100 to i64
   %102 = zext i32 %95 to i64
-  %103 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %103 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %104 = zext nneg i32 %103 to i64
   %105 = shl i64 %102, %104
   %106 = add i64 %105, %101
@@ -27194,7 +27194,7 @@ _ZN16InstanceRefKlass12try_discoverI9narrowOop30ShenandoahSTWUpdateRefsClosureEE
   %32 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %33 = ptrtoint ptr %32 to i64
   %34 = zext i32 %27 to i64
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %36 = zext nneg i32 %35 to i64
   %37 = shl i64 %34, %36
   %38 = add i64 %37, %33
@@ -27240,7 +27240,7 @@ _ZN16InstanceRefKlass11do_referentI9narrowOop30ShenandoahSTWUpdateRefsClosure14A
   %69 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %70 = ptrtoint ptr %69 to i64
   %71 = zext i32 %64 to i64
-  %72 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %73 = zext nneg i32 %72 to i64
   %74 = shl i64 %71, %73
   %75 = add i64 %74, %70
@@ -27607,7 +27607,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateI9narr
   %35 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = zext i32 %31 to i64
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %39 = zext nneg i32 %38 to i64
   %40 = shl i64 %37, %39
   %41 = add i64 %40, %36
@@ -27692,7 +27692,7 @@ _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.e
   %90 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %91 = ptrtoint ptr %90 to i64
   %92 = zext i32 %86 to i64
-  %93 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %93 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %94 = zext nneg i32 %93 to i64
   %95 = shl i64 %92, %94
   %96 = add i64 %95, %91
@@ -27965,7 +27965,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   %35 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = zext i32 %31 to i64
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %39 = zext nneg i32 %38 to i64
   %40 = shl i64 %37, %39
   %41 = add i64 %40, %36
@@ -28167,7 +28167,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass15oop_oop_iterateI9
   %21 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %22 = ptrtoint ptr %21 to i64
   %23 = zext i32 %16 to i64
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %25 = zext nneg i32 %24 to i64
   %26 = shl i64 %23, %25
   %27 = add i64 %26, %22
@@ -28209,7 +28209,7 @@ _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.e
   %54 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %55 = ptrtoint ptr %54 to i64
   %56 = zext i32 %49 to i64
-  %57 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %58 = zext nneg i32 %57 to i64
   %59 = shl i64 %56, %58
   %60 = add i64 %59, %55
@@ -28651,7 +28651,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI30ShenandoahSTWUpdat
   %46 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %47 = ptrtoint ptr %46 to i64
   %48 = zext i32 %42 to i64
-  %49 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %50 = zext nneg i32 %49 to i64
   %51 = shl i64 %48, %50
   %52 = add i64 %51, %47
@@ -28839,7 +28839,7 @@ define linkonce_odr hidden void @_ZN28ShenandoahUpdateHeapRefsTaskILb0EE7do_work
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %9, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV30ShenandoahSTWUpdateRefsClosure, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV30ShenandoahSTWUpdateRefsClosure, i64 16), ptr %5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
@@ -28897,7 +28897,7 @@ _ZN24ShenandoahRegionIterator4nextEv.exit:        ; preds = %2
 
 38:                                               ; preds = %34
   %39 = call noundef ptr @_ZNK20ShenandoahHeapRegion22humongous_start_regionEv(ptr noundef nonnull align 8 dereferenceable(96) %.012) #26
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV35ShenandoahObjectToOopBoundedClosureI30ShenandoahSTWUpdateRefsClosureE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV35ShenandoahObjectToOopBoundedClosureI30ShenandoahSTWUpdateRefsClosureE, i64 16), ptr %3, align 8
   store ptr %5, ptr %24, align 8
   store ptr %36, ptr %25, align 8
   %40 = ptrtoint ptr %29 to i64
@@ -28911,7 +28911,7 @@ _ZN24ShenandoahRegionIterator4nextEv.exit:        ; preds = %2
   br label %_ZN14ShenandoahHeap25marked_object_oop_iterateI30ShenandoahSTWUpdateRefsClosureEEvP20ShenandoahHeapRegionPT_PP12HeapWordImpl.exit
 
 46:                                               ; preds = %32
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahObjectToOopClosureI30ShenandoahSTWUpdateRefsClosureE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahObjectToOopClosureI30ShenandoahSTWUpdateRefsClosureE, i64 16), ptr %4, align 8
   store ptr %5, ptr %23, align 8
   call void @_ZN14ShenandoahHeap21marked_object_iterateI28ShenandoahObjectToOopClosureI30ShenandoahSTWUpdateRefsClosureEEEvP20ShenandoahHeapRegionPT_PP12HeapWordImpl(ptr noundef nonnull align 8 dereferenceable(2657) %33, ptr noundef nonnull %.012, ptr noundef nonnull %4, ptr noundef %29)
   br label %_ZN14ShenandoahHeap25marked_object_oop_iterateI30ShenandoahSTWUpdateRefsClosureEEvP20ShenandoahHeapRegionPT_PP12HeapWordImpl.exit

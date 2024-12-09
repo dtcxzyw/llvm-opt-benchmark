@@ -712,10 +712,10 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %42
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %59, %5
-  %61 = load i64, ptr getelementptr inbounds (i8, ptr @prte_attribute_t_class, i64 56), align 8
+  %61 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prte_attribute_t_class, i64 56), align 8
   %62 = tail call noalias noundef ptr @malloc(i64 noundef %61) #13
   %63 = load i32, ptr @pmix_class_init_epoch, align 4
-  %64 = load i32, ptr getelementptr inbounds (i8, ptr @prte_attribute_t_class, i64 32), align 8
+  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_attribute_t_class, i64 32), align 8
   %.not.i72 = icmp eq i32 %63, %64
   br i1 %.not.i72, label %66, label %65
 
@@ -1195,10 +1195,10 @@ define ptr @prte_fetch_attribute(ptr noundef readonly %0, ptr noundef readonly %
 ; Function Attrs: nounwind uwtable
 define i32 @prte_prepend_attribute(ptr noundef %0, i16 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = zext i1 %2 to i8
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @prte_attribute_t_class, i64 56), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prte_attribute_t_class, i64 56), align 8
   %8 = tail call noalias noundef ptr @malloc(i64 noundef %7) #13
   %9 = load i32, ptr @pmix_class_init_epoch, align 4
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @prte_attribute_t_class, i64 32), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_attribute_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %9, %10
   br i1 %.not.i, label %12, label %11
 

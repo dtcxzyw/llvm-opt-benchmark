@@ -1151,7 +1151,7 @@ do.end5:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !8
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9inspector12RequestQueueESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i.i, align 8, !noalias !8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9inspector12RequestQueueESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i.i, align 8, !noalias !8
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 16
   store ptr %call6, ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !8
   %lock_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 24
@@ -1233,7 +1233,7 @@ _ZN4node9inspector12_GLOBAL__N_116RequestQueueDataC2EP9uv_loop_s.exit: ; preds =
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i5, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN4node9inspector12_GLOBAL__N_116RequestQueueDataEPFvS4_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN4node9inspector12_GLOBAL__N_116RequestQueueDataEPFvS4_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i5, align 8
   %_M_impl.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i5, i64 16
   store ptr @_ZN4node9inspector12_GLOBAL__N_116RequestQueueData12CloseAndFreeEPS2_, ptr %_M_impl.i.i.i.i.i, align 8
   %_M_ptr.i.i3.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i5, i64 24
@@ -1318,7 +1318,7 @@ if.then.i.i.i.i.thread:                           ; preds = %if.then.i.i.i11
   %add.i.i.i.i.i15 = add nsw i32 %6, 1
   store i32 %add.i.i.i.i.i15, ptr %_M_use_count.i.i.i.i12, align 4
   %id_267 = getelementptr inbounds nuw i8, ptr %this, i64 184
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector19InspectorIoDelegateE, i64 16), ptr %call7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9inspector19InspectorIoDelegateE, i64 16), ptr %call7, align 8
   %request_queue_.i268 = getelementptr inbounds nuw i8, ptr %call7, i64 8
   store ptr %call6, ptr %request_queue_.i268, align 8
   %_M_refcount.i.i.i269 = getelementptr inbounds nuw i8, ptr %call7, i64 16
@@ -1333,7 +1333,7 @@ if.else.i.i.i.i.i16:                              ; preds = %if.then.i.i.i11
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i.i.i.i16, %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEEC2ERKS4_.exit
   %8 = phi i8 [ %.pre, %if.else.i.i.i.i.i16 ], [ %.pre265, %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEEC2ERKS4_.exit ]
   %id_ = getelementptr inbounds nuw i8, ptr %this, i64 184
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector19InspectorIoDelegateE, i64 16), ptr %call7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9inspector19InspectorIoDelegateE, i64 16), ptr %call7, align 8
   %request_queue_.i = getelementptr inbounds nuw i8, ptr %call7, i64 8
   store ptr %call6, ptr %request_queue_.i, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %call7, i64 16
@@ -2197,7 +2197,7 @@ if.then.i.i.i.i4.thread:                          ; preds = %if.then.i.i.i.i
   %3 = load i32, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !23
   %add.i.i.i.i.i.i = add nsw i32 %3, 1
   store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector17IoSessionDelegateE, i64 16), ptr %call2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9inspector17IoSessionDelegateE, i64 16), ptr %call2, align 8
   %request_queue_.i1520 = getelementptr inbounds nuw i8, ptr %call2, i64 8
   store ptr %call4.val, ptr %request_queue_.i1520, align 8
   %_M_refcount.i.i.i21621 = getelementptr inbounds nuw i8, ptr %call2, i64 16
@@ -2205,7 +2205,7 @@ if.then.i.i.i.i4.thread:                          ; preds = %if.then.i.i.i.i
   br label %if.then.i.i.i.i.i.i7
 
 _ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.exit: ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector17IoSessionDelegateE, i64 16), ptr %call2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9inspector17IoSessionDelegateE, i64 16), ptr %call2, align 8
   %request_queue_.i = getelementptr inbounds nuw i8, ptr %call2, i64 8
   store ptr %call4.val, ptr %request_queue_.i, align 8
   %_M_refcount.i.i.i2 = getelementptr inbounds nuw i8, ptr %call2, i64 16
@@ -2217,7 +2217,7 @@ if.then.i.i.i.i4:                                 ; preds = %if.then.i.i.i.i
   %.pre = load i32, ptr %session_id.addr, align 4
   %.pre18 = load i8, ptr @__libc_single_threaded, align 1
   %5 = icmp eq i8 %.pre18, 0
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector17IoSessionDelegateE, i64 16), ptr %call2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9inspector17IoSessionDelegateE, i64 16), ptr %call2, align 8
   %request_queue_.i15 = getelementptr inbounds nuw i8, ptr %call2, i64 8
   store ptr %call4.val, ptr %request_queue_.i15, align 8
   %_M_refcount.i.i.i216 = getelementptr inbounds nuw i8, ptr %call2, i64 16
@@ -2554,7 +2554,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node9inspector19InspectorIoDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector19InspectorIoDelegateE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9inspector19InspectorIoDelegateE, i64 16), ptr %this, align 8
   %target_id_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %target_id_) #18
   %script_path_ = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -3217,7 +3217,7 @@ declare void @uv_fs_req_cleanup(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node9inspector17IoSessionDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector17IoSessionDelegateE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9inspector17IoSessionDelegateE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -3298,7 +3298,7 @@ _ZNSt10shared_ptrIN4node9inspector12RequestQueueEED2Ev.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node9inspector17IoSessionDelegateD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector17IoSessionDelegateE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9inspector17IoSessionDelegateE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null

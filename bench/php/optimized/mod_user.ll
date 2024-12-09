@@ -82,25 +82,25 @@ define hidden range(i32 -1, 1) i32 @ps_open_user(ptr nocapture readnone %0, ptr 
   store ptr %21, ptr %17, align 16
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 262, ptr %27, align 8
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  store ptr %6, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
   %29 = call i32 @__sigsetjmp(ptr noundef nonnull %6, i32 noundef 0) #9
   %30 = icmp eq i32 %29, 0
   call void @llvm.assume(i1 %30)
-  %31 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  %31 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %3
-  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %34, align 8
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
   br label %ps_call_handler.exit
 
 35:                                               ; preds = %3
-  store i8 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
-  %36 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 192), ptr noundef nonnull %5, i32 noundef 2, ptr noundef nonnull %4, ptr noundef null) #10
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
+  %36 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 192), ptr noundef nonnull %5, i32 noundef 2, ptr noundef nonnull %4, ptr noundef null) #10
   %37 = icmp eq i32 %36, -1
   br i1 %37, label %38, label %40
 
@@ -121,7 +121,7 @@ define hidden range(i32 -1, 1) i32 @ps_open_user(ptr nocapture readnone %0, ptr 
   br label %45
 
 45:                                               ; preds = %44, %40, %38
-  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %45
@@ -133,8 +133,8 @@ define hidden range(i32 -1, 1) i32 @ps_open_user(ptr nocapture readnone %0, ptr 
   br i1 %exitcond.not.i, label %ps_call_handler.exit, label %.lr.ph.i
 
 ps_call_handler.exit:                             ; preds = %.lr.ph.i, %33
-  store ptr %28, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 344), align 8
+  store ptr %28, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 344), align 8
   %47 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef %5)
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #10
   ret i32 %47
@@ -144,30 +144,30 @@ ps_call_handler.exit:                             ; preds = %.lr.ph.i, %33
 define hidden range(i32 -1, 1) i32 @ps_close_user(ptr nocapture readnone %0) #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 344), align 8
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 344), align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %26
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  store ptr %3, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
   %8 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #9
   %.not = icmp eq i32 %8, 0
   call void @llvm.assume(i1 %.not)
-  %9 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %6
-  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %12, align 8
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
   br label %24
 
 13:                                               ; preds = %6
-  store i8 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
-  %14 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 208), ptr noundef nonnull %2, i32 noundef 0, ptr noundef null, ptr noundef null) #10
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
+  %14 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 208), ptr noundef nonnull %2, i32 noundef 0, ptr noundef null, ptr noundef null) #10
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %16, label %18
 
@@ -188,12 +188,12 @@ define hidden range(i32 -1, 1) i32 @ps_close_user(ptr nocapture readnone %0) #0 
   br label %23
 
 23:                                               ; preds = %22, %18, %16
-  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   br label %24
 
 24:                                               ; preds = %23, %11
-  store ptr %7, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 344), align 8
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 344), align 8
   %25 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef %2)
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #10
   br label %26
@@ -224,18 +224,18 @@ define hidden range(i32 -1, 1) i32 @ps_read_user(ptr nocapture readnone %0, ptr 
   %.sink = phi i32 [ 262, %10 ], [ 6, %4 ]
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.sink, ptr %14, align 8
-  %15 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  %15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   %16 = trunc i8 %15 to i1
   br i1 %16, label %ps_call_handler.exit.thread, label %17
 
 ps_call_handler.exit.thread:                      ; preds = %13
-  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
   br label %37
 
 17:                                               ; preds = %13
-  store i8 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
-  %18 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 224), ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %5, ptr noundef null) #10
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
+  %18 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 224), ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %5, ptr noundef null) #10
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %20, label %22
 
@@ -256,7 +256,7 @@ ps_call_handler.exit.thread:                      ; preds = %13
   br label %ps_call_handler.exit
 
 ps_call_handler.exit:                             ; preds = %20, %22, %26
-  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #10
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.pre = load i8, ptr %.phi.trans.insert, align 8
@@ -332,20 +332,20 @@ define hidden range(i32 -1, 1) i32 @ps_write_user(ptr nocapture readnone %0, ptr
   %.sink19 = phi i32 [ 262, %19 ], [ 6, %13 ]
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %.sink19, ptr %23, align 8
-  %24 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  %24 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   %25 = trunc i8 %24 to i1
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %22
-  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %27, align 8
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
   br label %ps_call_handler.exit
 
 28:                                               ; preds = %22
-  store i8 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
-  %29 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 240), ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %5, ptr noundef null) #10
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
+  %29 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 240), ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %5, ptr noundef null) #10
   %30 = icmp eq i32 %29, -1
   br i1 %30, label %31, label %33
 
@@ -366,7 +366,7 @@ define hidden range(i32 -1, 1) i32 @ps_write_user(ptr nocapture readnone %0, ptr
   br label %38
 
 38:                                               ; preds = %37, %33, %31
-  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %38
@@ -404,20 +404,20 @@ define hidden range(i32 -1, 1) i32 @ps_delete_user(ptr nocapture readnone %0, pt
   %.sink = phi i32 [ 262, %8 ], [ 6, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.sink, ptr %12, align 8
-  %13 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  %13 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   %14 = trunc i8 %13 to i1
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %11
-  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %16, align 8
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
   br label %ps_call_handler.exit
 
 17:                                               ; preds = %11
-  store i8 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
-  %18 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 256), ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %3, ptr noundef null) #10
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
+  %18 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 256), ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %3, ptr noundef null) #10
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %20, label %22
 
@@ -438,7 +438,7 @@ define hidden range(i32 -1, 1) i32 @ps_delete_user(ptr nocapture readnone %0, pt
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %26, %22, %20
-  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #10
   br label %ps_call_handler.exit
 
@@ -455,18 +455,18 @@ define hidden i64 @ps_gc_user(ptr nocapture readnone %0, i64 noundef %1, ptr noc
   store i64 %1, ptr %4, align 16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 4, ptr %6, align 8
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   %8 = trunc i8 %7 to i1
   br i1 %8, label %ps_call_handler.exit.thread, label %9
 
 ps_call_handler.exit.thread:                      ; preds = %3
-  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
   br label %21
 
 9:                                                ; preds = %3
-  store i8 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
-  %10 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 272), ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %4, ptr noundef null) #10
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
+  %10 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 272), ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %4, ptr noundef null) #10
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %12, label %14
 
@@ -487,7 +487,7 @@ ps_call_handler.exit.thread:                      ; preds = %3
   br label %ps_call_handler.exit
 
 ps_call_handler.exit:                             ; preds = %12, %14, %18
-  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #10
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.pre = load i8, ptr %.phi.trans.insert, align 8
@@ -512,25 +512,25 @@ ps_call_handler.exit:                             ; preds = %12, %14, %18
 ; Function Attrs: nounwind uwtable
 define hidden ptr @ps_create_sid_user(ptr noundef %0) #0 {
   %2 = alloca %struct._zval_struct, align 8
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 296), align 8
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 296), align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %27, label %5
 
 5:                                                ; preds = %1
-  %6 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   %7 = trunc i8 %6 to i1
   br i1 %7, label %ps_call_handler.exit.thread, label %9
 
 ps_call_handler.exit.thread:                      ; preds = %5
-  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %8, align 8
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
   br label %25
 
 9:                                                ; preds = %5
-  store i8 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
-  %10 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 288), ptr noundef nonnull %2, i32 noundef 0, ptr noundef null, ptr noundef null) #10
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
+  %10 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 288), ptr noundef nonnull %2, i32 noundef 0, ptr noundef null, ptr noundef null) #10
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %ps_call_handler.exit.thread17, label %13
 
@@ -538,7 +538,7 @@ ps_call_handler.exit.thread17:                    ; preds = %9
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #10
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %12, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   br label %25
 
 13:                                               ; preds = %9
@@ -549,11 +549,11 @@ ps_call_handler.exit.thread17:                    ; preds = %9
 
 ps_call_handler.exit.thread16:                    ; preds = %13
   store i32 1, ptr %14, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   br label %26
 
 ps_call_handler.exit:                             ; preds = %13
-  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   %cond = icmp eq i8 %15, 6
   br i1 %cond, label %17, label %26
 
@@ -597,7 +597,7 @@ ps_call_handler.exit:                             ; preds = %13
 define hidden i32 @ps_validate_sid_user(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca [1 x %struct._zval_struct], align 16
   %4 = alloca %struct._zval_struct, align 8
-  %5 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 312), align 8
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 312), align 8
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %31, label %7
 
@@ -619,20 +619,20 @@ define hidden i32 @ps_validate_sid_user(ptr noundef %0, ptr noundef %1) #0 {
   %.sink = phi i32 [ 262, %11 ], [ 6, %7 ]
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.sink, ptr %15, align 8
-  %16 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %14
-  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %19, align 8
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
   br label %ps_call_handler.exit
 
 20:                                               ; preds = %14
-  store i8 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
-  %21 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 304), ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %3, ptr noundef null) #10
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
+  %21 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 304), ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %3, ptr noundef null) #10
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %23, label %25
 
@@ -653,7 +653,7 @@ define hidden i32 @ps_validate_sid_user(ptr noundef %0, ptr noundef %1) #0 {
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %29, %25, %23
-  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #10
   br label %ps_call_handler.exit
 
@@ -710,9 +710,9 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_user(ptr nocapture readn
   %.sink27 = phi i32 [ 262, %19 ], [ 6, %13 ]
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %.sink27, ptr %23, align 8
-  %24 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 328), align 8
+  %24 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 328), align 8
   %25 = icmp eq i8 %24, 0
-  %26 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  %26 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   %27 = trunc i8 %26 to i1
   br i1 %25, label %41, label %28
 
@@ -720,8 +720,8 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_user(ptr nocapture readn
   br i1 %27, label %ps_call_handler.exit.sink.split, label %29
 
 29:                                               ; preds = %28
-  store i8 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
-  %30 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 320), ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %5, ptr noundef null) #10
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
+  %30 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 320), ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %5, ptr noundef null) #10
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %32, label %34
 
@@ -742,7 +742,7 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_user(ptr nocapture readn
   br label %39
 
 39:                                               ; preds = %38, %34, %32
-  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %39
@@ -757,8 +757,8 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_user(ptr nocapture readn
   br i1 %27, label %ps_call_handler.exit.sink.split, label %42
 
 42:                                               ; preds = %41
-  store i8 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
-  %43 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds (i8, ptr @ps_globals, i64 240), ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %5, ptr noundef null) #10
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
+  %43 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 240), ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %5, ptr noundef null) #10
   %44 = icmp eq i32 %43, -1
   br i1 %44, label %45, label %47
 
@@ -779,7 +779,7 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_user(ptr nocapture readn
   br label %52
 
 52:                                               ; preds = %51, %47, %45
-  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   br label %.lr.ph.i20
 
 .lr.ph.i20:                                       ; preds = %.lr.ph.i20, %52
@@ -791,7 +791,7 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_user(ptr nocapture readn
   br i1 %exitcond.not.i23, label %ps_call_handler.exit, label %.lr.ph.i20
 
 ps_call_handler.exit.sink.split:                  ; preds = %41, %28
-  store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %54, align 8
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
@@ -833,7 +833,7 @@ define internal fastcc range(i32 -1, 1) i32 @verify_bool_return_type_userland_ca
   ]
 
 7:                                                ; preds = %5
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not17 = icmp eq ptr %8, null
   br i1 %.not17, label %9, label %19
 
@@ -843,7 +843,7 @@ define internal fastcc range(i32 -1, 1) i32 @verify_bool_return_type_userland_ca
   br label %19
 
 11:                                               ; preds = %5
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not16 = icmp eq ptr %12, null
   br i1 %.not16, label %13, label %19
 
@@ -853,7 +853,7 @@ define internal fastcc range(i32 -1, 1) i32 @verify_bool_return_type_userland_ca
   br label %19
 
 15:                                               ; preds = %5, %1
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %17, label %19
 

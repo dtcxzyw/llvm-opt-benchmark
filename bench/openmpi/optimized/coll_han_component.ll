@@ -88,20 +88,20 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @han_open() #0 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 288), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 288), align 8
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %0
   %3 = tail call i32 @opal_output_open(ptr noundef null) #11
-  store i32 %3, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 288), align 8
+  store i32 %3, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 284), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 288), align 8
   tail call void @opal_output_set_verbosity(i32 noundef %3, i32 noundef %4) #11
   br label %7
 
 5:                                                ; preds = %0
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
-  store i32 %6, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_base_framework, i64 76), align 4
+  store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 284), align 4
   br label %7
 
 7:                                                ; preds = %5, %2
@@ -112,42 +112,42 @@ define internal i32 @han_open() #0 {
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @han_close() #0 {
   tail call void @mca_coll_han_free_dynamic_rules() #11
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 352), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 352), align 8
   tail call void @free(ptr noundef %1) #11
-  store ptr null, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 352), align 8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 360), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 352), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 360), align 8
   tail call void @free(ptr noundef %2) #11
-  store ptr null, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 360), align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 368), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 360), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 368), align 8
   tail call void @free(ptr noundef %3) #11
-  store ptr null, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 368), align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 376), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 368), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 376), align 8
   tail call void @free(ptr noundef %4) #11
-  store ptr null, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 376), align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 384), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 376), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 384), align 8
   tail call void @free(ptr noundef %5) #11
-  store ptr null, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 384), align 8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 392), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 384), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 392), align 8
   tail call void @free(ptr noundef %6) #11
-  store ptr null, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 392), align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 400), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 392), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 400), align 8
   tail call void @free(ptr noundef %7) #11
-  store ptr null, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 400), align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 408), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 400), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 408), align 8
   tail call void @free(ptr noundef %8) #11
-  store ptr null, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 408), align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 416), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 408), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 416), align 8
   tail call void @free(ptr noundef %9) #11
-  store ptr null, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 416), align 8
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 424), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 416), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 424), align 8
   tail call void @free(ptr noundef %10) #11
-  store ptr null, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 424), align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 432), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 424), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 432), align 8
   tail call void @free(ptr noundef %11) #11
-  store ptr null, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 432), align 8
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 440), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 432), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 440), align 8
   tail call void @free(ptr noundef %12) #11
-  store ptr null, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 440), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 440), align 8
   ret i32 0
 }
 
@@ -168,18 +168,18 @@ define internal range(i32 -1, 1) i32 @han_register() #0 {
   %13 = alloca [128 x i8], align 16
   %14 = alloca [256 x i8], align 16
   %15 = alloca ptr, align 8
-  %16 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 280)) #11
-  store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 288), align 8
-  %17 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 288)) #11
-  store i32 65536, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 292), align 4
-  %18 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 292)) #11
-  store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 296), align 8
+  %16 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 280)) #11
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 288), align 8
+  %17 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 288)) #11
+  store i32 65536, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 292), align 4
+  %18 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 292)) #11
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 296), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   store ptr null, ptr %12, align 8
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 352), align 8
-  %20 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 352)) #11
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 352), align 8
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 352), align 8
+  %20 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 352)) #11
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 352), align 8
   %22 = call i64 @strtol(ptr noundef %21, ptr noundef nonnull %12, i32 noundef 10) #11
   %23 = trunc i64 %22 to i32
   %24 = load ptr, ptr %12, align 8
@@ -193,15 +193,15 @@ define internal range(i32 -1, 1) i32 @han_register() #0 {
 mca_coll_han_query_module_from_mca.exit:          ; preds = %0, %26
   %.0.i = phi i32 [ %27, %26 ], [ %23, %0 ]
   %28 = tail call i32 @llvm.smax.i32(i32 %.0.i, i32 0)
-  store i32 %28, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 296), align 8
+  store i32 %28, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 296), align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 300), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 300), align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr null, ptr %11, align 8
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
-  store ptr %29, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 360), align 8
-  %30 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 360)) #11
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 360), align 8
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 360), align 8
+  %30 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 360)) #11
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 360), align 8
   %32 = call i64 @strtol(ptr noundef %31, ptr noundef nonnull %11, i32 noundef 10) #11
   %33 = trunc i64 %32 to i32
   %34 = load ptr, ptr %11, align 8
@@ -215,17 +215,17 @@ mca_coll_han_query_module_from_mca.exit:          ; preds = %0, %26
 mca_coll_han_query_module_from_mca.exit157:       ; preds = %mca_coll_han_query_module_from_mca.exit, %36
   %.0.i156 = phi i32 [ %37, %36 ], [ %33, %mca_coll_han_query_module_from_mca.exit ]
   %38 = tail call i32 @llvm.smax.i32(i32 %.0.i156, i32 0)
-  store i32 %38, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 300), align 4
+  store i32 %38, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 300), align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  store i32 65536, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 304), align 8
-  %39 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 304)) #11
-  store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 308), align 4
+  store i32 65536, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 304), align 8
+  %39 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 304)) #11
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 308), align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store ptr null, ptr %10, align 8
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
-  store ptr %40, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 368), align 8
-  %41 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 368)) #11
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 368), align 8
+  store ptr %40, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 368), align 8
+  %41 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 368)) #11
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 368), align 8
   %43 = call i64 @strtol(ptr noundef %42, ptr noundef nonnull %10, i32 noundef 10) #11
   %44 = trunc i64 %43 to i32
   %45 = load ptr, ptr %10, align 8
@@ -239,15 +239,15 @@ mca_coll_han_query_module_from_mca.exit157:       ; preds = %mca_coll_han_query_
 mca_coll_han_query_module_from_mca.exit160:       ; preds = %mca_coll_han_query_module_from_mca.exit157, %47
   %.0.i159 = phi i32 [ %48, %47 ], [ %44, %mca_coll_han_query_module_from_mca.exit157 ]
   %49 = tail call i32 @llvm.smax.i32(i32 %.0.i159, i32 0)
-  store i32 %49, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 308), align 4
+  store i32 %49, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 308), align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 312), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 312), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
-  store ptr %50, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 376), align 8
-  %51 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 376)) #11
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 376), align 8
+  store ptr %50, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 376), align 8
+  %51 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 376)) #11
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 376), align 8
   %53 = call i64 @strtol(ptr noundef %52, ptr noundef nonnull %9, i32 noundef 10) #11
   %54 = trunc i64 %53 to i32
   %55 = load ptr, ptr %9, align 8
@@ -261,17 +261,17 @@ mca_coll_han_query_module_from_mca.exit160:       ; preds = %mca_coll_han_query_
 mca_coll_han_query_module_from_mca.exit163:       ; preds = %mca_coll_han_query_module_from_mca.exit160, %57
   %.0.i162 = phi i32 [ %58, %57 ], [ %54, %mca_coll_han_query_module_from_mca.exit160 ]
   %59 = tail call i32 @llvm.smax.i32(i32 %.0.i162, i32 0)
-  store i32 %59, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 312), align 8
+  store i32 %59, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 312), align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  store i32 65536, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 316), align 4
-  %60 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 316)) #11
-  store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 320), align 8
+  store i32 65536, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 316), align 4
+  %60 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 316)) #11
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 320), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
-  store ptr %61, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 384), align 8
-  %62 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.25, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 384)) #11
-  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 384), align 8
+  store ptr %61, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 384), align 8
+  %62 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.25, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 384)) #11
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 384), align 8
   %64 = call i64 @strtol(ptr noundef %63, ptr noundef nonnull %8, i32 noundef 10) #11
   %65 = trunc i64 %64 to i32
   %66 = load ptr, ptr %8, align 8
@@ -285,15 +285,15 @@ mca_coll_han_query_module_from_mca.exit163:       ; preds = %mca_coll_han_query_
 mca_coll_han_query_module_from_mca.exit166:       ; preds = %mca_coll_han_query_module_from_mca.exit163, %68
   %.0.i165 = phi i32 [ %69, %68 ], [ %65, %mca_coll_han_query_module_from_mca.exit163 ]
   %70 = tail call i32 @llvm.smax.i32(i32 %.0.i165, i32 0)
-  store i32 %70, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 320), align 8
+  store i32 %70, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 320), align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 324), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 324), align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
-  store ptr %71, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 392), align 8
-  %72 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.27, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 392)) #11
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 392), align 8
+  store ptr %71, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 392), align 8
+  %72 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.27, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 392)) #11
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 392), align 8
   %74 = call i64 @strtol(ptr noundef %73, ptr noundef nonnull %7, i32 noundef 10) #11
   %75 = trunc i64 %74 to i32
   %76 = load ptr, ptr %7, align 8
@@ -307,15 +307,15 @@ mca_coll_han_query_module_from_mca.exit166:       ; preds = %mca_coll_han_query_
 mca_coll_han_query_module_from_mca.exit169:       ; preds = %mca_coll_han_query_module_from_mca.exit166, %78
   %.0.i168 = phi i32 [ %79, %78 ], [ %75, %mca_coll_han_query_module_from_mca.exit166 ]
   %80 = tail call i32 @llvm.smax.i32(i32 %.0.i168, i32 0)
-  store i32 %80, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 324), align 4
+  store i32 %80, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 324), align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 328), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 328), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
-  store ptr %81, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 400), align 8
-  %82 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 400)) #11
-  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 400), align 8
+  store ptr %81, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 400), align 8
+  %82 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 400)) #11
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 400), align 8
   %84 = call i64 @strtol(ptr noundef %83, ptr noundef nonnull %6, i32 noundef 10) #11
   %85 = trunc i64 %84 to i32
   %86 = load ptr, ptr %6, align 8
@@ -329,15 +329,15 @@ mca_coll_han_query_module_from_mca.exit169:       ; preds = %mca_coll_han_query_
 mca_coll_han_query_module_from_mca.exit172:       ; preds = %mca_coll_han_query_module_from_mca.exit169, %88
   %.0.i171 = phi i32 [ %89, %88 ], [ %85, %mca_coll_han_query_module_from_mca.exit169 ]
   %90 = tail call i32 @llvm.smax.i32(i32 %.0.i171, i32 0)
-  store i32 %90, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 328), align 8
+  store i32 %90, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 328), align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 332), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 332), align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
-  store ptr %91, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 408), align 8
-  %92 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 408)) #11
-  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 408), align 8
+  store ptr %91, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 408), align 8
+  %92 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 408)) #11
+  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 408), align 8
   %94 = call i64 @strtol(ptr noundef %93, ptr noundef nonnull %5, i32 noundef 10) #11
   %95 = trunc i64 %94 to i32
   %96 = load ptr, ptr %5, align 8
@@ -351,15 +351,15 @@ mca_coll_han_query_module_from_mca.exit172:       ; preds = %mca_coll_han_query_
 mca_coll_han_query_module_from_mca.exit175:       ; preds = %mca_coll_han_query_module_from_mca.exit172, %98
   %.0.i174 = phi i32 [ %99, %98 ], [ %95, %mca_coll_han_query_module_from_mca.exit172 ]
   %100 = tail call i32 @llvm.smax.i32(i32 %.0.i174, i32 0)
-  store i32 %100, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 332), align 4
+  store i32 %100, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 332), align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 336), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 336), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
-  store ptr %101, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 416), align 8
-  %102 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 416)) #11
-  %103 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 416), align 8
+  store ptr %101, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 416), align 8
+  %102 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 416)) #11
+  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 416), align 8
   %104 = call i64 @strtol(ptr noundef %103, ptr noundef nonnull %4, i32 noundef 10) #11
   %105 = trunc i64 %104 to i32
   %106 = load ptr, ptr %4, align 8
@@ -373,15 +373,15 @@ mca_coll_han_query_module_from_mca.exit175:       ; preds = %mca_coll_han_query_
 mca_coll_han_query_module_from_mca.exit178:       ; preds = %mca_coll_han_query_module_from_mca.exit175, %108
   %.0.i177 = phi i32 [ %109, %108 ], [ %105, %mca_coll_han_query_module_from_mca.exit175 ]
   %110 = tail call i32 @llvm.smax.i32(i32 %.0.i177, i32 0)
-  store i32 %110, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 336), align 8
+  store i32 %110, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 336), align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 340), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 340), align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
-  store ptr %111, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 424), align 8
-  %112 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 424)) #11
-  %113 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 424), align 8
+  store ptr %111, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 424), align 8
+  %112 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 424)) #11
+  %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 424), align 8
   %114 = call i64 @strtol(ptr noundef %113, ptr noundef nonnull %3, i32 noundef 10) #11
   %115 = trunc i64 %114 to i32
   %116 = load ptr, ptr %3, align 8
@@ -395,15 +395,15 @@ mca_coll_han_query_module_from_mca.exit178:       ; preds = %mca_coll_han_query_
 mca_coll_han_query_module_from_mca.exit181:       ; preds = %mca_coll_han_query_module_from_mca.exit178, %118
   %.0.i180 = phi i32 [ %119, %118 ], [ %115, %mca_coll_han_query_module_from_mca.exit178 ]
   %120 = tail call i32 @llvm.smax.i32(i32 %.0.i180, i32 0)
-  store i32 %120, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 340), align 4
+  store i32 %120, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 340), align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 344), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 344), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
-  store ptr %121, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 432), align 8
-  %122 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 432)) #11
-  %123 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 432), align 8
+  store ptr %121, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 432), align 8
+  %122 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 432)) #11
+  %123 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 432), align 8
   %124 = call i64 @strtol(ptr noundef %123, ptr noundef nonnull %2, i32 noundef 10) #11
   %125 = trunc i64 %124 to i32
   %126 = load ptr, ptr %2, align 8
@@ -417,15 +417,15 @@ mca_coll_han_query_module_from_mca.exit181:       ; preds = %mca_coll_han_query_
 mca_coll_han_query_module_from_mca.exit184:       ; preds = %mca_coll_han_query_module_from_mca.exit181, %128
   %.0.i183 = phi i32 [ %129, %128 ], [ %125, %mca_coll_han_query_module_from_mca.exit181 ]
   %130 = tail call i32 @llvm.smax.i32(i32 %.0.i183, i32 0)
-  store i32 %130, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 344), align 8
+  store i32 %130, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 344), align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 348), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 348), align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store ptr null, ptr %1, align 8
   %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
-  store ptr %131, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 440), align 8
-  %132 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 440)) #11
-  %133 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 440), align 8
+  store ptr %131, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 440), align 8
+  %132 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 440)) #11
+  %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 440), align 8
   %134 = call i64 @strtol(ptr noundef %133, ptr noundef nonnull %1, i32 noundef 10) #11
   %135 = trunc i64 %134 to i32
   %136 = load ptr, ptr %1, align 8
@@ -439,10 +439,10 @@ mca_coll_han_query_module_from_mca.exit184:       ; preds = %mca_coll_han_query_
 mca_coll_han_query_module_from_mca.exit187:       ; preds = %mca_coll_han_query_module_from_mca.exit184, %138
   %.0.i186 = phi i32 [ %139, %138 ], [ %135, %mca_coll_han_query_module_from_mca.exit184 ]
   %140 = tail call i32 @llvm.smax.i32(i32 %.0.i186, i32 0)
-  store i32 %140, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 348), align 4
+  store i32 %140, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 348), align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  store i8 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 448), align 8
-  %141 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 448)) #11
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 448), align 8
+  %141 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 448)) #11
   %142 = tail call i32 @mca_coll_han_init_algorithms() #11
   %143 = icmp eq i32 %142, -1
   br i1 %143, label %257, label %.preheader200
@@ -454,24 +454,24 @@ mca_coll_han_query_module_from_mca.exit187:       ; preds = %mca_coll_han_query_
   br i1 %145, label %146, label %183
 
 146:                                              ; preds = %.preheader200
-  %147 = getelementptr inbounds nuw [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 944), i64 0, i64 %indvars.iv
+  %147 = getelementptr inbounds nuw [22 x i32], ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 944), i64 0, i64 %indvars.iv
   %148 = load i32, ptr %147, align 4
   %149 = icmp eq i32 %148, 0
   br i1 %149, label %183, label %150
 
 150:                                              ; preds = %146
-  %151 = getelementptr inbounds nuw [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 472), i64 0, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw [22 x i32], ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 472), i64 0, i64 %indvars.iv
   store i32 0, ptr %151, align 4
   %152 = call ptr @mca_coll_base_colltype_to_str(i32 noundef %144) #11
   %153 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 128, ptr noundef nonnull @.str.46, ptr noundef %152) #11
   %154 = call ptr @mca_coll_base_colltype_to_str(i32 noundef %144) #11
   %155 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 256, ptr noundef nonnull @.str.47, ptr noundef %154) #11
-  %156 = getelementptr inbounds nuw [22 x ptr], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1032), i64 0, i64 %indvars.iv
+  %156 = getelementptr inbounds nuw [22 x ptr], ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 1032), i64 0, i64 %indvars.iv
   %157 = load ptr, ptr %156, align 8
   %158 = call i32 @mca_base_var_enum_create(ptr noundef nonnull %13, ptr noundef %157, ptr noundef nonnull %15) #11
   %159 = load ptr, ptr %15, align 8
   %160 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 0, ptr noundef %159, i32 noundef 0, i32 noundef 4, i32 noundef 4, i32 noundef 5, ptr noundef nonnull %151) #11
-  %161 = getelementptr inbounds nuw [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 560), i64 0, i64 %indvars.iv
+  %161 = getelementptr inbounds nuw [22 x i32], ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 560), i64 0, i64 %indvars.iv
   store i32 %160, ptr %161, align 4
   %162 = load ptr, ptr %15, align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
@@ -534,7 +534,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br i1 %.not152, label %.split150, label %.split
 
 .split:                                           ; preds = %.preheader199
-  %184 = getelementptr inbounds nuw [22 x i8], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 449), i64 0, i64 %indvars.iv222
+  %184 = getelementptr inbounds nuw [22 x i8], ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 449), i64 0, i64 %indvars.iv222
   store i8 0, ptr %184, align 1
   %185 = trunc nuw nsw i64 %indvars.iv222 to i32
   switch i32 %185, label %is_simple_implemented.exit [
@@ -546,7 +546,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   ]
 
 .split150:                                        ; preds = %.preheader199
-  store i8 1, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 458), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 458), align 2
   br label %186
 
 186:                                              ; preds = %.split, %.split150, %.split, %.split, %.split, %.split
@@ -554,7 +554,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   %187 = call ptr @mca_coll_base_colltype_to_str(i32 noundef %.pre-phi) #11
   %188 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 128, ptr noundef nonnull @.str.48, ptr noundef %187) #11
   %189 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 256, ptr noundef nonnull @.str.49, ptr noundef %187, ptr noundef %187) #11
-  %190 = getelementptr inbounds nuw [22 x i8], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 449), i64 0, i64 %indvars.iv222
+  %190 = getelementptr inbounds nuw [22 x i8], ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 449), i64 0, i64 %indvars.iv222
   %191 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 8, i32 noundef 4, i32 noundef 1, ptr noundef nonnull %190) #11
   br label %is_simple_implemented.exit
 
@@ -564,7 +564,7 @@ is_simple_implemented.exit:                       ; preds = %.split, %186
   br i1 %exitcond225.not, label %192, label %.preheader199, !llvm.loop !7
 
 192:                                              ; preds = %is_simple_implemented.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 680), i8 0, i64 264, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 680), i8 0, i64 264, i1 false)
   br label %193
 
 193:                                              ; preds = %192, %198
@@ -574,13 +574,13 @@ is_simple_implemented.exit:                       ; preds = %.split, %186
   br i1 %195, label %.preheader198, label %198
 
 .preheader198:                                    ; preds = %193
-  %196 = getelementptr inbounds nuw [22 x [3 x i32]], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 680), i64 0, i64 %indvars.iv229, i64 0
+  %196 = getelementptr inbounds nuw [22 x [3 x i32]], ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 680), i64 0, i64 %indvars.iv229, i64 0
   store i32 3, ptr %196, align 4
   %.idx = mul nuw nsw i64 %indvars.iv229, 12
-  %gep270 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 680), i64 4), i64 %.idx
+  %gep270 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 680), i64 4), i64 %.idx
   store i32 3, ptr %gep270, align 4
   %197 = mul nuw nsw i64 %indvars.iv229, 12
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 688), i64 %197
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 688), i64 %197
   store i32 6, ptr %gep, align 4
   br label %198
 
@@ -688,7 +688,7 @@ mca_coll_han_topo_lvl_to_str.exit195.split:       ; preds = %mca_coll_han_topo_l
   br i1 %237, label %.split216.us, label %mca_coll_han_topo_lvl_to_str.exit195.split
 
 .split216.us:                                     ; preds = %mca_coll_han_topo_lvl_to_str.exit195.split.us, %mca_coll_han_topo_lvl_to_str.exit195.split
-  %238 = getelementptr inbounds nuw [22 x [3 x i32]], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 680), i64 0, i64 %indvars.iv246, i64 %indvars.iv242
+  %238 = getelementptr inbounds nuw [22 x [3 x i32]], ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 680), i64 0, i64 %indvars.iv246, i64 %indvars.iv242
   %239 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull %238) #11
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next243, 3
@@ -700,37 +700,37 @@ mca_coll_han_topo_lvl_to_str.exit195.split:       ; preds = %mca_coll_han_topo_l
   br i1 %exitcond249.not, label %240, label %.preheader197, !llvm.loop !12
 
 240:                                              ; preds = %.loopexit
-  store i8 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 648), align 8
-  %241 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 648)) #11
-  store ptr null, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 656), align 8
-  %242 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 656)) #11
-  store i8 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 649), align 1
-  %243 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 649)) #11
-  %244 = load i8, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 649), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 648), align 8
+  %241 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 648)) #11
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 656), align 8
+  %242 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 656)) #11
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 649), align 1
+  %243 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 649)) #11
+  %244 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 649), align 1
   %245 = trunc i8 %244 to i1
-  %246 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 656), align 8
+  %246 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 656), align 8
   %.not = icmp ne ptr %246, null
   %or.cond154.not = select i1 %245, i1 true, i1 %.not
   br i1 %or.cond154.not, label %247, label %255
 
 247:                                              ; preds = %240
-  %248 = load i8, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 648), align 8
+  %248 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 648), align 8
   %249 = trunc i8 %248 to i1
   br i1 %249, label %255, label %250
 
 250:                                              ; preds = %247
-  %251 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
+  %251 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 284), align 4
   %252 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 0, i32 noundef %251) #11
   br i1 %252, label %253, label %255
 
 253:                                              ; preds = %250
-  %254 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
+  %254 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 284), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %254, ptr noundef nonnull @.str.59) #11
   br label %255
 
 255:                                              ; preds = %240, %253, %250, %247
-  store i32 10, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1208), align 8
-  %256 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1208)) #11
+  store i32 10, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 1208), align 8
+  %256 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 1208)) #11
   br label %257
 
 257:                                              ; preds = %mca_coll_han_query_module_from_mca.exit187, %255

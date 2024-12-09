@@ -39,7 +39,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %10 = tail call i32 @log_init(ptr noundef nonnull @.str, ptr noundef nonnull byval(%struct.log_options_t) align 8 @__const.main.opts, i32 noundef 24, ptr noundef null) #8
   tail call void @slurm_init(ptr noundef null) #8
   tail call void @parse_command_line(i32 noundef %0, ptr noundef %1) #8
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 84), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 84), align 4
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %16, label %12
 
@@ -51,7 +51,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %16
 
 16:                                               ; preds = %12, %2
-  %17 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 24), align 8
+  %17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %220
 
@@ -59,7 +59,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8)
   call void @slurm_init_trigger_msg(ptr noundef nonnull %7) #8
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 20), align 4
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 20), align 4
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %38, label %21
 
@@ -69,7 +69,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 128, ptr noundef nonnull @.str.2, i32 noundef %20) #8
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %8, ptr %24, align 8
-  %25 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 19), align 1
+  %25 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 19), align 1
   %26 = trunc i8 %25 to i1
   br i1 %26, label %27, label %31
 
@@ -81,7 +81,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %31
 
 31:                                               ; preds = %27, %21
-  %32 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 74), align 2
+  %32 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 74), align 2
   %33 = trunc i8 %32 to i1
   br i1 %33, label %34, label %53
 
@@ -93,7 +93,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %53
 
 38:                                               ; preds = %19
-  %39 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 18), align 2
+  %39 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 18), align 2
   %40 = trunc i8 %39 to i1
   br i1 %40, label %41, label %43
 
@@ -114,7 +114,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 48:                                               ; preds = %43
   store i16 2, ptr %46, align 8
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 48), align 8
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 48), align 8
   %.not2.i = icmp eq ptr %49, null
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br i1 %.not2.i, label %52, label %51
@@ -140,7 +140,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %60
 
 60:                                               ; preds = %56, %53
-  %61 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 39), align 1
+  %61 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 39), align 1
   %62 = trunc i8 %61 to i1
   br i1 %62, label %63, label %67
 
@@ -152,7 +152,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %67
 
 67:                                               ; preds = %63, %60
-  %68 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 40), align 8
+  %68 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8
   %69 = trunc i8 %68 to i1
   br i1 %69, label %70, label %74
 
@@ -164,7 +164,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %74
 
 74:                                               ; preds = %70, %67
-  %75 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 57), align 1
+  %75 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 57), align 1
   %76 = trunc i8 %75 to i1
   br i1 %76, label %77, label %81
 
@@ -176,7 +176,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %81
 
 81:                                               ; preds = %77, %74
-  %82 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 56), align 8
+  %82 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 56), align 8
   %83 = trunc i8 %82 to i1
   br i1 %83, label %84, label %88
 
@@ -188,7 +188,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %88
 
 88:                                               ; preds = %84, %81
-  %89 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 59), align 1
+  %89 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 59), align 1
   %90 = trunc i8 %89 to i1
   br i1 %90, label %91, label %95
 
@@ -200,7 +200,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %95
 
 95:                                               ; preds = %91, %88
-  %96 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 41), align 1
+  %96 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 41), align 1
   %97 = trunc i8 %96 to i1
   br i1 %97, label %98, label %102
 
@@ -212,7 +212,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %102
 
 102:                                              ; preds = %98, %95
-  %103 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 58), align 2
+  %103 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 58), align 2
   %104 = trunc i8 %103 to i1
   br i1 %104, label %105, label %109
 
@@ -224,7 +224,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %109
 
 109:                                              ; preds = %105, %102
-  %110 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 73), align 1
+  %110 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 73), align 1
   %111 = trunc i8 %110 to i1
   br i1 %111, label %112, label %116
 
@@ -236,7 +236,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %116
 
 116:                                              ; preds = %112, %109
-  %117 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 27), align 1
+  %117 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 27), align 1
   %118 = trunc i8 %117 to i1
   br i1 %118, label %119, label %124
 
@@ -250,7 +250,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %124
 
 124:                                              ; preds = %119, %116
-  %125 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 28), align 4
+  %125 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 28), align 4
   %126 = trunc i8 %125 to i1
   br i1 %126, label %127, label %132
 
@@ -264,7 +264,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %132
 
 132:                                              ; preds = %127, %124
-  %133 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 29), align 1
+  %133 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 29), align 1
   %134 = trunc i8 %133 to i1
   br i1 %134, label %135, label %140
 
@@ -278,7 +278,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %140
 
 140:                                              ; preds = %135, %132
-  %141 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 30), align 2
+  %141 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 30), align 2
   %142 = trunc i8 %141 to i1
   br i1 %142, label %143, label %148
 
@@ -292,7 +292,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %148
 
 148:                                              ; preds = %143, %140
-  %149 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 31), align 1
+  %149 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 31), align 1
   %150 = trunc i8 %149 to i1
   br i1 %150, label %151, label %156
 
@@ -306,7 +306,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %156
 
 156:                                              ; preds = %151, %148
-  %157 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 32), align 8
+  %157 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 32), align 8
   %158 = trunc i8 %157 to i1
   br i1 %158, label %159, label %164
 
@@ -320,7 +320,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %164
 
 164:                                              ; preds = %159, %156
-  %165 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 33), align 1
+  %165 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 33), align 1
   %166 = trunc i8 %165 to i1
   br i1 %166, label %167, label %172
 
@@ -334,7 +334,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %172
 
 172:                                              ; preds = %167, %164
-  %173 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 34), align 2
+  %173 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 34), align 2
   %174 = trunc i8 %173 to i1
   br i1 %174, label %175, label %180
 
@@ -348,7 +348,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %180
 
 180:                                              ; preds = %175, %172
-  %181 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 35), align 1
+  %181 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 35), align 1
   %182 = trunc i8 %181 to i1
   br i1 %182, label %183, label %188
 
@@ -362,7 +362,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %188
 
 188:                                              ; preds = %183, %180
-  %189 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 36), align 4
+  %189 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 36), align 4
   %190 = trunc i8 %189 to i1
   br i1 %190, label %191, label %196
 
@@ -376,7 +376,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %196
 
 196:                                              ; preds = %191, %188
-  %197 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 37), align 1
+  %197 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 37), align 1
   %198 = trunc i8 %197 to i1
   br i1 %198, label %199, label %204
 
@@ -390,14 +390,14 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %204
 
 204:                                              ; preds = %199, %196
-  %205 = load i16, ptr getelementptr inbounds (i8, ptr @params, i64 16), align 8
+  %205 = load i16, ptr getelementptr inbounds nuw (i8, ptr @params, i64 16), align 8
   store i16 %205, ptr %7, align 8
-  %206 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 60), align 4
+  %206 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 60), align 4
   %207 = trunc i32 %206 to i16
   %208 = xor i16 %207, -32768
   %209 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i16 %208, ptr %209, align 8
-  %210 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 64), align 8
+  %210 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 64), align 8
   %211 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %210, ptr %211, align 8
   %212 = call i32 @slurm_set_trigger(ptr noundef nonnull %7) #8
@@ -432,7 +432,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br label %603
 
 220:                                              ; preds = %16
-  %221 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 25), align 1
+  %221 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 25), align 1
   %222 = trunc i8 %221 to i1
   br i1 %222, label %223, label %564
 
@@ -486,7 +486,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not68.i, label %244, label %558
 
 244:                                              ; preds = %239, %.lr.ph.i5
-  %245 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 19), align 1
+  %245 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 19), align 1
   %246 = trunc i8 %245 to i1
   br i1 %246, label %247, label %252
 
@@ -499,7 +499,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not69.i, label %252, label %558
 
 252:                                              ; preds = %247, %244
-  %253 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 20), align 4
+  %253 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 20), align 4
   %.not70.i = icmp eq i32 %253, 0
   br i1 %.not70.i, label %265, label %254
 
@@ -521,7 +521,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not72.i, label %265, label %558
 
 265:                                              ; preds = %260, %252
-  %266 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 39), align 1
+  %266 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 39), align 1
   %267 = trunc i8 %266 to i1
   br i1 %267, label %268, label %276
 
@@ -542,7 +542,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not75.i, label %276, label %558
 
 276:                                              ; preds = %273, %265
-  %277 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 40), align 8
+  %277 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8
   %278 = trunc i8 %277 to i1
   br i1 %278, label %279, label %288
 
@@ -562,7 +562,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not77.i, label %288, label %558
 
 288:                                              ; preds = %285, %276
-  %289 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 57), align 1
+  %289 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 57), align 1
   %290 = trunc i8 %289 to i1
   br i1 %290, label %291, label %300
 
@@ -582,7 +582,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not79.i, label %300, label %558
 
 300:                                              ; preds = %297, %288
-  %301 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 48), align 8
+  %301 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 48), align 8
   %.not80.i = icmp eq ptr %301, null
   br i1 %.not80.i, label %307, label %302
 
@@ -595,7 +595,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not81.i, label %307, label %558
 
 307:                                              ; preds = %302, %300
-  %308 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 56), align 8
+  %308 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 56), align 8
   %309 = trunc i8 %308 to i1
   br i1 %309, label %310, label %319
 
@@ -615,7 +615,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not83.i, label %319, label %558
 
 319:                                              ; preds = %316, %307
-  %320 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 59), align 1
+  %320 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 59), align 1
   %321 = trunc i8 %320 to i1
   br i1 %321, label %322, label %330
 
@@ -636,7 +636,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not86.i, label %330, label %558
 
 330:                                              ; preds = %327, %319
-  %331 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 41), align 1
+  %331 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 41), align 1
   %332 = trunc i8 %331 to i1
   br i1 %332, label %333, label %342
 
@@ -656,7 +656,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not88.i, label %342, label %558
 
 342:                                              ; preds = %339, %330
-  %343 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 58), align 2
+  %343 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 58), align 2
   %344 = trunc i8 %343 to i1
   br i1 %344, label %345, label %354
 
@@ -676,7 +676,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not90.i, label %354, label %558
 
 354:                                              ; preds = %351, %342
-  %355 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 74), align 2
+  %355 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 74), align 2
   %356 = trunc i8 %355 to i1
   br i1 %356, label %357, label %366
 
@@ -696,7 +696,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not92.i, label %366, label %558
 
 366:                                              ; preds = %363, %354
-  %367 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 76), align 4
+  %367 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 76), align 4
   %.not93.i = icmp eq i32 %367, 0
   br i1 %.not93.i, label %373, label %368
 
@@ -709,7 +709,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not94.i, label %373, label %558
 
 373:                                              ; preds = %368, %366
-  %374 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 80), align 8
+  %374 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 80), align 8
   %.not95.i = icmp eq i32 %374, -2
   br i1 %.not95.i, label %380, label %375
 
@@ -722,7 +722,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not96.i, label %380, label %558
 
 380:                                              ; preds = %375, %373
-  %381 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 27), align 1
+  %381 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 27), align 1
   %382 = trunc i8 %381 to i1
   br i1 %382, label %383, label %392
 
@@ -742,7 +742,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not98.i, label %392, label %558
 
 392:                                              ; preds = %389, %380
-  %393 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 28), align 4
+  %393 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 28), align 4
   %394 = trunc i8 %393 to i1
   br i1 %394, label %395, label %404
 
@@ -762,7 +762,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not100.i, label %404, label %558
 
 404:                                              ; preds = %401, %392
-  %405 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 29), align 1
+  %405 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 29), align 1
   %406 = trunc i8 %405 to i1
   br i1 %406, label %407, label %416
 
@@ -782,7 +782,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not102.i, label %416, label %558
 
 416:                                              ; preds = %413, %404
-  %417 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 30), align 2
+  %417 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 30), align 2
   %418 = trunc i8 %417 to i1
   br i1 %418, label %419, label %428
 
@@ -802,7 +802,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not104.i, label %428, label %558
 
 428:                                              ; preds = %425, %416
-  %429 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 31), align 1
+  %429 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 31), align 1
   %430 = trunc i8 %429 to i1
   br i1 %430, label %431, label %440
 
@@ -822,7 +822,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not106.i, label %440, label %558
 
 440:                                              ; preds = %437, %428
-  %441 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 32), align 8
+  %441 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 32), align 8
   %442 = trunc i8 %441 to i1
   br i1 %442, label %443, label %452
 
@@ -842,7 +842,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not108.i, label %452, label %558
 
 452:                                              ; preds = %449, %440
-  %453 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 33), align 1
+  %453 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 33), align 1
   %454 = trunc i8 %453 to i1
   br i1 %454, label %455, label %464
 
@@ -862,7 +862,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not110.i, label %464, label %558
 
 464:                                              ; preds = %461, %452
-  %465 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 34), align 2
+  %465 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 34), align 2
   %466 = trunc i8 %465 to i1
   br i1 %466, label %467, label %476
 
@@ -882,7 +882,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not112.i, label %476, label %558
 
 476:                                              ; preds = %473, %464
-  %477 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 35), align 1
+  %477 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 35), align 1
   %478 = trunc i8 %477 to i1
   br i1 %478, label %479, label %488
 
@@ -902,7 +902,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not114.i, label %488, label %558
 
 488:                                              ; preds = %485, %476
-  %489 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 36), align 4
+  %489 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 36), align 4
   %490 = trunc i8 %489 to i1
   br i1 %490, label %491, label %500
 
@@ -922,7 +922,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not116.i, label %500, label %558
 
 500:                                              ; preds = %497, %488
-  %501 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 37), align 1
+  %501 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 37), align 1
   %502 = trunc i8 %501 to i1
   br i1 %502, label %503, label %512
 
@@ -946,7 +946,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %513, label %514, label %518
 
 514:                                              ; preds = %512
-  %515 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 38), align 2
+  %515 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 38), align 2
   %516 = trunc i8 %515 to i1
   br i1 %516, label %518, label %517
 
@@ -1026,7 +1026,7 @@ _get_trigger.exit:                                ; preds = %225, %._crit_edge.i
   br label %603
 
 564:                                              ; preds = %220
-  %565 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 26), align 2
+  %565 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 26), align 2
   %566 = trunc i8 %565 to i1
   br i1 %566, label %567, label %601
 
@@ -1034,13 +1034,13 @@ _get_trigger.exit:                                ; preds = %225, %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4)
   call void @slurm_init_trigger_msg(ptr noundef nonnull %3) #8
-  %568 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 76), align 4
+  %568 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 76), align 4
   %569 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %568, ptr %569, align 4
-  %570 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 80), align 8
+  %570 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 80), align 8
   %571 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i32 %570, ptr %571, align 4
-  %572 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 20), align 4
+  %572 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 20), align 4
   %.not.i7 = icmp eq i32 %572, 0
   br i1 %.not.i7, label %577, label %573
 
@@ -1058,7 +1058,7 @@ _get_trigger.exit:                                ; preds = %225, %._crit_edge.i
   br i1 %.not1.i, label %583, label %579
 
 579:                                              ; preds = %577
-  %580 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 72), align 8
+  %580 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 72), align 8
   %581 = trunc i8 %580 to i1
   br i1 %581, label %_clear_trigger.exit, label %582
 
@@ -1067,7 +1067,7 @@ _get_trigger.exit:                                ; preds = %225, %._crit_edge.i
   br label %_clear_trigger.exit
 
 583:                                              ; preds = %577
-  %584 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 20), align 4
+  %584 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 20), align 4
   %.not2.i9 = icmp eq i32 %584, 0
   br i1 %.not2.i9, label %591, label %585
 
@@ -1083,7 +1083,7 @@ _get_trigger.exit:                                ; preds = %225, %._crit_edge.i
   br label %_clear_trigger.exit
 
 591:                                              ; preds = %583
-  %592 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 80), align 8
+  %592 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 80), align 8
   %.not3.i10 = icmp eq i32 %592, -2
   %593 = call i32 @get_log_level() #8
   %594 = icmp sgt i32 %593, 3

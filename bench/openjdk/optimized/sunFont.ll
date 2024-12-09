@@ -122,7 +122,7 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 264
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
-  store ptr %13, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 208), align 8
+  store ptr %13, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 208), align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %initFontIDs.exit, label %15
 
@@ -131,7 +131,7 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 264
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #11
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 216), align 8
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 216), align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %initFontIDs.exit, label %21
 
@@ -148,7 +148,7 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 264
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr %30(ptr noundef nonnull %0, ptr noundef nonnull %25, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #11
-  store ptr %31, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 224), align 8
+  store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 224), align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %initFontIDs.exit, label %33
 
@@ -165,12 +165,12 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 168
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr %42(ptr noundef nonnull %0, ptr noundef nonnull %37) #11
-  store ptr %43, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 136), align 8
+  store ptr %43, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 136), align 8
   %44 = load ptr, ptr %0, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 264
   %46 = load ptr, ptr %45, align 8
   %47 = tail call ptr %46(ptr noundef nonnull %0, ptr noundef %43, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10) #11
-  store ptr %47, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 144), align 8
+  store ptr %47, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 144), align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %initFontIDs.exit, label %49
 
@@ -178,9 +178,9 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %50 = load ptr, ptr %0, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 752
   %52 = load ptr, ptr %51, align 8
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 136), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 136), align 8
   %54 = tail call ptr %52(ptr noundef nonnull %0, ptr noundef %53, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #11
-  store ptr %54, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 152), align 8
+  store ptr %54, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 152), align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %initFontIDs.exit, label %56
 
@@ -188,9 +188,9 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %57 = load ptr, ptr %0, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 752
   %59 = load ptr, ptr %58, align 8
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 136), align 8
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 136), align 8
   %61 = tail call ptr %59(ptr noundef nonnull %0, ptr noundef %60, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.12) #11
-  store ptr %61, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 160), align 8
+  store ptr %61, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 160), align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %initFontIDs.exit, label %63
 
@@ -207,7 +207,7 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 168
   %72 = load ptr, ptr %71, align 8
   %73 = tail call ptr %72(ptr noundef nonnull %0, ptr noundef nonnull %67) #11
-  store ptr %73, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 192), align 8
+  store ptr %73, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 192), align 8
   %74 = icmp eq ptr %73, null
   br i1 %74, label %initFontIDs.exit, label %75
 
@@ -216,7 +216,7 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 264
   %78 = load ptr, ptr %77, align 8
   %79 = tail call ptr %78(ptr noundef nonnull %0, ptr noundef nonnull %73, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.15) #11
-  store ptr %79, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 200), align 8
+  store ptr %79, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 200), align 8
   %80 = icmp eq ptr %79, null
   br i1 %80, label %initFontIDs.exit, label %81
 
@@ -233,12 +233,12 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 168
   %90 = load ptr, ptr %89, align 8
   %91 = tail call ptr %90(ptr noundef nonnull %0, ptr noundef nonnull %85) #11
-  store ptr %91, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 80), align 8
+  store ptr %91, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 80), align 8
   %92 = load ptr, ptr %0, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 264
   %94 = load ptr, ptr %93, align 8
   %95 = tail call ptr %94(ptr noundef nonnull %0, ptr noundef %91, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.17) #11
-  store ptr %95, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 88), align 8
+  store ptr %95, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 88), align 8
   %96 = icmp eq ptr %95, null
   br i1 %96, label %initFontIDs.exit, label %97
 
@@ -246,9 +246,9 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %98 = load ptr, ptr %0, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 264
   %100 = load ptr, ptr %99, align 8
-  %101 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 80), align 8
+  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 80), align 8
   %102 = tail call ptr %100(ptr noundef nonnull %0, ptr noundef %101, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.18) #11
-  store ptr %102, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 96), align 8
+  store ptr %102, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 96), align 8
   %103 = icmp eq ptr %102, null
   br i1 %103, label %initFontIDs.exit, label %104
 
@@ -256,9 +256,9 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %105 = load ptr, ptr %0, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 752
   %107 = load ptr, ptr %106, align 8
-  %108 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 80), align 8
+  %108 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 80), align 8
   %109 = tail call ptr %107(ptr noundef nonnull %0, ptr noundef %108, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #11
-  store ptr %109, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 104), align 8
+  store ptr %109, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 104), align 8
   %110 = icmp eq ptr %109, null
   br i1 %110, label %initFontIDs.exit, label %111
 
@@ -266,9 +266,9 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %112 = load ptr, ptr %0, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 752
   %114 = load ptr, ptr %113, align 8
-  %115 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 80), align 8
+  %115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 80), align 8
   %116 = tail call ptr %114(ptr noundef nonnull %0, ptr noundef %115, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.12) #11
-  store ptr %116, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 112), align 8
+  store ptr %116, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 112), align 8
   %117 = icmp eq ptr %116, null
   br i1 %117, label %initFontIDs.exit, label %118
 
@@ -276,9 +276,9 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %119 = load ptr, ptr %0, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 752
   %121 = load ptr, ptr %120, align 8
-  %122 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 80), align 8
+  %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 80), align 8
   %123 = tail call ptr %121(ptr noundef nonnull %0, ptr noundef %122, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.12) #11
-  store ptr %123, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 120), align 8
+  store ptr %123, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 120), align 8
   %124 = icmp eq ptr %123, null
   br i1 %124, label %initFontIDs.exit, label %125
 
@@ -286,9 +286,9 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %126 = load ptr, ptr %0, align 8
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 752
   %128 = load ptr, ptr %127, align 8
-  %129 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 80), align 8
+  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 80), align 8
   %130 = tail call ptr %128(ptr noundef nonnull %0, ptr noundef %129, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.12) #11
-  store ptr %130, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 128), align 8
+  store ptr %130, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 128), align 8
   %131 = icmp eq ptr %130, null
   br i1 %131, label %initFontIDs.exit, label %132
 
@@ -305,12 +305,12 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 168
   %141 = load ptr, ptr %140, align 8
   %142 = tail call ptr %141(ptr noundef nonnull %0, ptr noundef nonnull %136) #11
-  store ptr %142, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 168), align 8
+  store ptr %142, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 168), align 8
   %143 = load ptr, ptr %0, align 8
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 264
   %145 = load ptr, ptr %144, align 8
   %146 = tail call ptr %145(ptr noundef nonnull %0, ptr noundef %142, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.22) #11
-  store ptr %146, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 176), align 8
+  store ptr %146, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 176), align 8
   %147 = icmp eq ptr %146, null
   br i1 %147, label %initFontIDs.exit, label %148
 
@@ -318,9 +318,9 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %149 = load ptr, ptr %0, align 8
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 264
   %151 = load ptr, ptr %150, align 8
-  %152 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 168), align 8
+  %152 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 168), align 8
   %153 = tail call ptr %151(ptr noundef nonnull %0, ptr noundef %152, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.17) #11
-  store ptr %153, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 184), align 8
+  store ptr %153, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 184), align 8
   %154 = icmp eq ptr %153, null
   br i1 %154, label %initFontIDs.exit, label %155
 
@@ -337,7 +337,7 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 264
   %164 = load ptr, ptr %163, align 8
   %165 = tail call ptr %164(ptr noundef nonnull %0, ptr noundef nonnull %159, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25) #11
-  store ptr %165, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 24), align 8
+  store ptr %165, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 24), align 8
   %166 = icmp eq ptr %165, null
   br i1 %166, label %initFontIDs.exit, label %167
 
@@ -346,7 +346,7 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 264
   %170 = load ptr, ptr %169, align 8
   %171 = tail call ptr %170(ptr noundef nonnull %0, ptr noundef nonnull %159, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27) #11
-  store ptr %171, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 32), align 8
+  store ptr %171, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 32), align 8
   %172 = icmp eq ptr %171, null
   br i1 %172, label %initFontIDs.exit, label %173
 
@@ -364,7 +364,7 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 264
   %182 = load ptr, ptr %181, align 8
   %183 = tail call ptr %182(ptr noundef nonnull %0, ptr noundef nonnull %159, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31) #11
-  store ptr %183, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 8), align 8
+  store ptr %183, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 8), align 8
   %184 = icmp eq ptr %183, null
   br i1 %184, label %initFontIDs.exit, label %185
 
@@ -373,7 +373,7 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 264
   %188 = load ptr, ptr %187, align 8
   %189 = tail call ptr %188(ptr noundef nonnull %0, ptr noundef nonnull %159, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33) #11
-  store ptr %189, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 16), align 8
+  store ptr %189, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 16), align 8
   %190 = icmp eq ptr %189, null
   br i1 %190, label %initFontIDs.exit, label %191
 
@@ -390,7 +390,7 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 264
   %200 = load ptr, ptr %199, align 8
   %201 = tail call ptr %200(ptr noundef nonnull %0, ptr noundef nonnull %195, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25) #11
-  store ptr %201, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 40), align 8
+  store ptr %201, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 40), align 8
   %202 = icmp eq ptr %201, null
   br i1 %202, label %initFontIDs.exit, label %203
 
@@ -407,7 +407,7 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 264
   %212 = load ptr, ptr %211, align 8
   %213 = tail call ptr %212(ptr noundef nonnull %0, ptr noundef nonnull %207, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37) #11
-  store ptr %213, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 48), align 8
+  store ptr %213, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 48), align 8
   %214 = icmp eq ptr %213, null
   br i1 %214, label %initFontIDs.exit, label %215
 
@@ -416,7 +416,7 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 264
   %218 = load ptr, ptr %217, align 8
   %219 = tail call ptr %218(ptr noundef nonnull %0, ptr noundef nonnull %207, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39) #11
-  store ptr %219, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 56), align 8
+  store ptr %219, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 56), align 8
   %220 = icmp eq ptr %219, null
   br i1 %220, label %initFontIDs.exit, label %221
 
@@ -425,7 +425,7 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 264
   %224 = load ptr, ptr %223, align 8
   %225 = tail call ptr %224(ptr noundef nonnull %0, ptr noundef nonnull %207, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41) #11
-  store ptr %225, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 64), align 8
+  store ptr %225, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 64), align 8
   %226 = icmp eq ptr %225, null
   br i1 %226, label %initFontIDs.exit, label %227
 
@@ -434,7 +434,7 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 752
   %230 = load ptr, ptr %229, align 8
   %231 = tail call ptr %230(ptr noundef nonnull %0, ptr noundef nonnull %207, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43) #11
-  store ptr %231, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 72), align 8
+  store ptr %231, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 72), align 8
   %232 = icmp eq ptr %231, null
   br i1 %232, label %initFontIDs.exit, label %233
 
@@ -451,7 +451,7 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 752
   %242 = load ptr, ptr %241, align 8
   %243 = tail call ptr %242(ptr noundef nonnull %0, ptr noundef nonnull %237, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.12) #11
-  store ptr %243, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 232), align 8
+  store ptr %243, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 232), align 8
   %244 = icmp eq ptr %243, null
   br i1 %244, label %initFontIDs.exit, label %245
 
@@ -460,7 +460,7 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 752
   %248 = load ptr, ptr %247, align 8
   %249 = tail call ptr %248(ptr noundef nonnull %0, ptr noundef nonnull %237, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.12) #11
-  store ptr %249, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 240), align 8
+  store ptr %249, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 240), align 8
   %250 = icmp eq ptr %249, null
   br i1 %250, label %initFontIDs.exit, label %251
 
@@ -469,7 +469,7 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 752
   %254 = load ptr, ptr %253, align 8
   %255 = tail call ptr %254(ptr noundef nonnull %0, ptr noundef nonnull %237, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.48) #11
-  store ptr %255, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 248), align 8
+  store ptr %255, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 248), align 8
   %256 = icmp eq ptr %255, null
   br i1 %256, label %initFontIDs.exit, label %257
 
@@ -478,7 +478,7 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 752
   %260 = load ptr, ptr %259, align 8
   %261 = tail call ptr %260(ptr noundef nonnull %0, ptr noundef nonnull %237, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50) #11
-  store ptr %261, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 256), align 8
+  store ptr %261, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 256), align 8
   %262 = icmp eq ptr %261, null
   br i1 %262, label %initFontIDs.exit, label %263
 
@@ -487,7 +487,7 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 752
   %266 = load ptr, ptr %265, align 8
   %267 = tail call ptr %266(ptr noundef nonnull %0, ptr noundef nonnull %237, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52) #11
-  store ptr %267, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 264), align 8
+  store ptr %267, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 264), align 8
   %268 = icmp eq ptr %267, null
   br i1 %268, label %initFontIDs.exit, label %269
 
@@ -496,7 +496,7 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 752
   %272 = load ptr, ptr %271, align 8
   %273 = tail call ptr %272(ptr noundef nonnull %0, ptr noundef nonnull %237, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54) #11
-  store ptr %273, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 272), align 8
+  store ptr %273, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 272), align 8
   %274 = icmp eq ptr %273, null
   br i1 %274, label %initFontIDs.exit, label %275
 
@@ -505,7 +505,7 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 752
   %278 = load ptr, ptr %277, align 8
   %279 = tail call ptr %278(ptr noundef nonnull %0, ptr noundef nonnull %237, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.52) #11
-  store ptr %279, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 280), align 8
+  store ptr %279, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 280), align 8
   %280 = icmp eq ptr %279, null
   br i1 %280, label %initFontIDs.exit, label %281
 
@@ -514,7 +514,7 @@ define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture 
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 752
   %284 = load ptr, ptr %283, align 8
   %285 = tail call ptr %284(ptr noundef nonnull %0, ptr noundef nonnull %237, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.52) #11
-  store ptr %285, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 288), align 8
+  store ptr %285, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 288), align 8
   %286 = icmp eq ptr %285, null
   br i1 %286, label %initFontIDs.exit, label %287
 

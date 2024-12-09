@@ -164,7 +164,7 @@ declare void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceabl
 define hidden void @_ZN5Arena29start_chunk_pool_cleaner_taskEv() local_unnamed_addr #0 align 2 {
   %1 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 9, i32 noundef 0) #11
   tail call void @_ZN12PeriodicTaskC2Em(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef 5000) #11
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV16ChunkPoolCleaner, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV16ChunkPoolCleaner, i64 16), ptr %1, align 8
   tail call void @_ZN12PeriodicTask6enrollEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
   ret void
 }

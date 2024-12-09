@@ -299,7 +299,7 @@ define hidden void @_ZN18JfrRecorderService5clearEv(ptr noundef nonnull align 8 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV14JfrVMOperationI18JfrRecorderServiceXadL_ZNS0_15safepoint_clearEvEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV14JfrVMOperationI18JfrRecorderServiceXadL_ZNS0_15safepoint_clearEvEEE, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %0, ptr %4, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -381,7 +381,7 @@ define hidden void @_ZN18JfrRecorderService19pre_safepoint_clearEv(ptr nocapture
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV29ClearObjectAllocationSampling, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV29ClearObjectAllocationSampling, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN28JfrJavaThreadIteratorAdapterC1Eb(ptr noundef nonnull align 8 dereferenceable(73) %5, i1 noundef zeroext true) #14
   %6 = call noundef zeroext i1 @_ZNK28JfrJavaThreadIteratorAdapter8has_nextEv(ptr noundef nonnull align 8 dereferenceable(73) %5) #14
@@ -427,7 +427,7 @@ define hidden void @_ZN18JfrRecorderService22invoke_safepoint_clearEv(ptr nounde
   %2 = alloca %class.JfrVMOperation, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV14JfrVMOperationI18JfrRecorderServiceXadL_ZNS0_15safepoint_clearEvEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV14JfrVMOperationI18JfrRecorderServiceXadL_ZNS0_15safepoint_clearEvEEE, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %0, ptr %4, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -911,7 +911,7 @@ define hidden void @_ZN18JfrRecorderService5writeEv(ptr noundef nonnull align 8 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV14JfrVMOperationI18JfrRecorderServiceXadL_ZNS0_15safepoint_writeEvEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV14JfrVMOperationI18JfrRecorderServiceXadL_ZNS0_15safepoint_writeEvEEE, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %0, ptr %4, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -1025,7 +1025,7 @@ define hidden void @_ZN18JfrRecorderService22invoke_safepoint_writeEv(ptr nounde
   %2 = alloca %class.JfrVMOperation.2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV14JfrVMOperationI18JfrRecorderServiceXadL_ZNS0_15safepoint_writeEvEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV14JfrVMOperationI18JfrRecorderServiceXadL_ZNS0_15safepoint_writeEvEEE, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %0, ptr %4, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)

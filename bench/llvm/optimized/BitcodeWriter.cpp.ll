@@ -646,7 +646,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -658,7 +658,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEED2Ev(ptr n
   br label %_ZNSt8functionIFvRKjEED2Ev.exit
 
 _ZNSt8functionIFvRKjEED2Ev.exit:                  ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -691,7 +691,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -703,7 +703,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr n
   br label %_ZNSt8functionIFvRKbEED2Ev.exit
 
 _ZNSt8functionIFvRKbEED2Ev.exit:                  ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -957,7 +957,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit25:         ; preds = %_ZN4llvm15Bitstream
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm13BitcodeWriterC2ERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #28
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL14FlushThreshold, i64 128), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL14FlushThreshold, i64 128), align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(152) %3, ptr noundef nonnull %5, i64 noundef 0) #27
   %6 = tail call noundef zeroext i1 @_ZN4llvm19raw_svector_ostream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %1) #27
@@ -1136,7 +1136,7 @@ define dso_local void @_ZN4llvm13BitcodeWriter9writeBlobEjjNS_9StringRefE(ptr no
   store i32 1, ptr %10, align 8, !noalias !11
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 1, ptr %11, align 4, !noalias !11
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8, !noalias !11
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8, !noalias !11
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %12, i8 0, i64 528, i1 false), !noalias !11
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -2126,7 +2126,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119ModuleBitcodeWriter5writeEv(ptr 
   store i32 1, ptr %40, align 8, !noalias !17
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 12
   store i32 1, ptr %41, align 4, !noalias !17
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %39, align 8, !noalias !17
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %39, align 8, !noalias !17
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %42, i8 0, i64 528, i1 false), !noalias !17
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 32
@@ -2309,7 +2309,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit28.i: ; preds = %_ZNSt16_Sp_co
   store i32 1, ptr %127, align 8, !noalias !23
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 12
   store i32 1, ptr %128, align 4, !noalias !23
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %126, align 8, !noalias !23
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %126, align 8, !noalias !23
   %129 = getelementptr inbounds nuw i8, ptr %126, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %129, i8 0, i64 528, i1 false), !noalias !23
   %130 = getelementptr inbounds nuw i8, ptr %126, i64 32
@@ -2506,7 +2506,7 @@ _ZL24writeIdentificationBlockRN4llvm15BitstreamWriterE.exit: ; preds = %_ZN4llvm
   store i32 1, ptr %212, align 8, !noalias !29
   %213 = getelementptr inbounds nuw i8, ptr %211, i64 12
   store i32 1, ptr %213, align 4, !noalias !29
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %211, align 8, !noalias !29
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %211, align 8, !noalias !29
   %214 = getelementptr inbounds nuw i8, ptr %211, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %214, i8 0, i64 528, i1 false), !noalias !29
   %215 = getelementptr inbounds nuw i8, ptr %211, i64 32
@@ -2670,7 +2670,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit96.i: ; preds = %_ZNSt16_Sp_co
   store i32 1, ptr %292, align 8, !noalias !35
   %293 = getelementptr inbounds nuw i8, ptr %291, i64 12
   store i32 1, ptr %293, align 4, !noalias !35
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %291, align 8, !noalias !35
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %291, align 8, !noalias !35
   %294 = getelementptr inbounds nuw i8, ptr %291, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %294, i8 0, i64 528, i1 false), !noalias !35
   %295 = getelementptr inbounds nuw i8, ptr %291, i64 32
@@ -2874,7 +2874,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit144.i: ; preds = %_ZNSt16_Sp_c
   store i32 1, ptr %390, align 8, !noalias !41
   %391 = getelementptr inbounds nuw i8, ptr %389, i64 12
   store i32 1, ptr %391, align 4, !noalias !41
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %389, align 8, !noalias !41
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %389, align 8, !noalias !41
   %392 = getelementptr inbounds nuw i8, ptr %389, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %392, i8 0, i64 528, i1 false), !noalias !41
   %393 = getelementptr inbounds nuw i8, ptr %389, i64 32
@@ -3078,7 +3078,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit192.i: ; preds = %_ZNSt16_Sp_c
   store i32 1, ptr %488, align 8, !noalias !47
   %489 = getelementptr inbounds nuw i8, ptr %487, i64 12
   store i32 1, ptr %489, align 4, !noalias !47
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %487, align 8, !noalias !47
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %487, align 8, !noalias !47
   %490 = getelementptr inbounds nuw i8, ptr %487, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %490, i8 0, i64 528, i1 false), !noalias !47
   %491 = getelementptr inbounds nuw i8, ptr %487, i64 32
@@ -3262,7 +3262,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit234.i: ; preds = %_ZNSt16_Sp_c
   store i32 1, ptr %577, align 8, !noalias !53
   %578 = getelementptr inbounds nuw i8, ptr %576, i64 12
   store i32 1, ptr %578, align 4, !noalias !53
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %576, align 8, !noalias !53
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %576, align 8, !noalias !53
   %579 = getelementptr inbounds nuw i8, ptr %576, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %579, i8 0, i64 528, i1 false), !noalias !53
   %580 = getelementptr inbounds nuw i8, ptr %576, i64 32
@@ -3466,7 +3466,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit282.i: ; preds = %_ZNSt16_Sp_c
   store i32 1, ptr %675, align 8, !noalias !59
   %676 = getelementptr inbounds nuw i8, ptr %674, i64 12
   store i32 1, ptr %676, align 4, !noalias !59
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %674, align 8, !noalias !59
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %674, align 8, !noalias !59
   %677 = getelementptr inbounds nuw i8, ptr %674, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %677, i8 0, i64 528, i1 false), !noalias !59
   %678 = getelementptr inbounds nuw i8, ptr %674, i64 32
@@ -5589,7 +5589,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit.i:             ; preds = %1742, %_ZN12_GLOBAL
   store i32 1, ptr %1760, align 8, !noalias !71
   %1761 = getelementptr inbounds nuw i8, ptr %1759, i64 12
   store i32 1, ptr %1761, align 4, !noalias !71
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1759, align 8, !noalias !71
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1759, align 8, !noalias !71
   %1762 = getelementptr inbounds nuw i8, ptr %1759, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %1762, i8 0, i64 528, i1 false), !noalias !71
   %1763 = getelementptr inbounds nuw i8, ptr %1759, i64 32
@@ -5773,7 +5773,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit45.i: ; preds = %_ZNSt16_Sp_co
   store i32 1, ptr %1849, align 8, !noalias !77
   %1850 = getelementptr inbounds nuw i8, ptr %1848, i64 12
   store i32 1, ptr %1850, align 4, !noalias !77
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1848, align 8, !noalias !77
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1848, align 8, !noalias !77
   %1851 = getelementptr inbounds nuw i8, ptr %1848, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %1851, i8 0, i64 528, i1 false), !noalias !77
   %1852 = getelementptr inbounds nuw i8, ptr %1848, i64 32
@@ -5972,7 +5972,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit73.i: ; preds = %_ZNSt16_Sp_co
   %1953 = zext i32 %1952 to i64
   %1954 = add nuw nsw i64 %1953, %1951
   %1955 = sub nsw i64 %1949, %1954
-  %1956 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL14IndexThreshold, i64 128), align 8
+  %1956 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL14IndexThreshold, i64 128), align 8
   %1957 = zext i32 %1956 to i64
   %1958 = icmp ugt i64 %1955, %1957
   br i1 %1958, label %1959, label %1961
@@ -6082,7 +6082,7 @@ _ZNSt6vectorImSaImEE7reserveEm.exit.i:            ; preds = %_ZNSt12_Vector_base
   %2023 = zext i32 %2022 to i64
   %2024 = add nuw nsw i64 %2023, %2021
   %2025 = sub nsw i64 %2019, %2024
-  %2026 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL14IndexThreshold, i64 128), align 8
+  %2026 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL14IndexThreshold, i64 128), align 8
   %2027 = zext i32 %2026 to i64
   %2028 = icmp ugt i64 %2025, %2027
   br i1 %2028, label %2029, label %_ZNSt6vectorImSaImEE5clearEv.exit.i
@@ -6180,7 +6180,7 @@ _ZNSt6vectorImSaImEE5clearEv.exit.i:              ; preds = %2071, %._crit_edge.
   store i32 1, ptr %2078, align 8, !noalias !83
   %2079 = getelementptr inbounds nuw i8, ptr %2077, i64 12
   store i32 1, ptr %2079, align 4, !noalias !83
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2077, align 8, !noalias !83
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2077, align 8, !noalias !83
   %2080 = getelementptr inbounds nuw i8, ptr %2077, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %2080, i8 0, i64 528, i1 false), !noalias !83
   %2081 = getelementptr inbounds nuw i8, ptr %2077, i64 32
@@ -6835,7 +6835,7 @@ _ZNK4llvm15BitstreamWriter15GetCurrentBitNoEv.exit.i96: ; preds = %_ZNK4llvm15Bi
   store i32 1, ptr %2380, align 8, !noalias !93
   %2381 = getelementptr inbounds nuw i8, ptr %2379, i64 12
   store i32 1, ptr %2381, align 4, !noalias !93
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2379, align 8, !noalias !93
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2379, align 8, !noalias !93
   %2382 = getelementptr inbounds nuw i8, ptr %2379, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %2382, i8 0, i64 528, i1 false), !noalias !93
   %2383 = getelementptr inbounds nuw i8, ptr %2379, i64 32
@@ -7463,7 +7463,7 @@ _ZN12_GLOBAL__N_118IndexBitcodeWriterC2ERN4llvm15BitstreamWriterERNS1_18StringTa
   store i32 1, ptr %109, align 8, !noalias !103
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 12
   store i32 1, ptr %110, align 4, !noalias !103
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %108, align 8, !noalias !103
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %108, align 8, !noalias !103
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %111, i8 0, i64 528, i1 false), !noalias !103
   %112 = getelementptr inbounds nuw i8, ptr %108, i64 32
@@ -7667,7 +7667,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit28.i.i: ; preds = %_ZNSt16_Sp_
   store i32 1, ptr %206, align 8, !noalias !109
   %207 = getelementptr inbounds nuw i8, ptr %205, i64 12
   store i32 1, ptr %207, align 4, !noalias !109
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %205, align 8, !noalias !109
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %205, align 8, !noalias !109
   %208 = getelementptr inbounds nuw i8, ptr %205, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %208, i8 0, i64 528, i1 false), !noalias !109
   %209 = getelementptr inbounds nuw i8, ptr %205, i64 32
@@ -7872,7 +7872,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit76.i.i: ; preds = %_ZNSt16_Sp_
   store i32 1, ptr %304, align 8, !noalias !115
   %305 = getelementptr inbounds nuw i8, ptr %303, i64 12
   store i32 1, ptr %305, align 4, !noalias !115
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %303, align 8, !noalias !115
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %303, align 8, !noalias !115
   %306 = getelementptr inbounds nuw i8, ptr %303, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %306, i8 0, i64 528, i1 false), !noalias !115
   %307 = getelementptr inbounds nuw i8, ptr %303, i64 32
@@ -8077,7 +8077,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit124.i.i: ; preds = %_ZNSt16_Sp
   store i32 1, ptr %402, align 8, !noalias !121
   %403 = getelementptr inbounds nuw i8, ptr %401, i64 12
   store i32 1, ptr %403, align 4, !noalias !121
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %401, align 8, !noalias !121
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %401, align 8, !noalias !121
   %404 = getelementptr inbounds nuw i8, ptr %401, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %404, i8 0, i64 528, i1 false), !noalias !121
   %405 = getelementptr inbounds nuw i8, ptr %401, i64 32
@@ -9098,7 +9098,7 @@ _ZL17getStringEncodingN4llvm9StringRefE.exit.thread.i.i: ; preds = %65, %_ZL17ge
   store i32 1, ptr %68, align 8, !noalias !134
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 12
   store i32 1, ptr %69, align 4, !noalias !134
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %67, align 8, !noalias !134
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %67, align 8, !noalias !134
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %70, i8 0, i64 528, i1 false), !noalias !134
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 32
@@ -10169,7 +10169,7 @@ _ZN4llvm9isBitcodeEPKhS1_.exit.thread:            ; preds = %56, %60, %_ZN4llvm1
   store i32 1, ptr %80, align 4
   %81 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %11, align 8
   %82 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr %8, ptr %82, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef null, i64 noundef 0, i32 noundef 0) #27
@@ -13031,7 +13031,7 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5
   store ptr null, ptr %1, align 8, !noalias !221
   %155 = load ptr, ptr %2, align 8, !noalias !224
   store ptr null, ptr %2, align 8, !noalias !224
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %158 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
@@ -13789,7 +13789,7 @@ _ZN4llvm15BitstreamWriter19EnterBlockInfoBlockEv.exit: ; preds = %1, %28
   store i32 1, ptr %30, align 8, !noalias !248
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 12
   store i32 1, ptr %31, align 4, !noalias !248
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29, align 8, !noalias !248
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29, align 8, !noalias !248
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %32, i8 0, i64 528, i1 false), !noalias !248
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 32
@@ -14039,7 +14039,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit48: ; preds = %129, %141, %_ZN
   store i32 1, ptr %147, align 8, !noalias !254
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 12
   store i32 1, ptr %148, align 4, !noalias !254
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %146, align 8, !noalias !254
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %146, align 8, !noalias !254
   %149 = getelementptr inbounds nuw i8, ptr %146, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %149, i8 0, i64 528, i1 false), !noalias !254
   %150 = getelementptr inbounds nuw i8, ptr %146, i64 32
@@ -14289,7 +14289,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit89: ; preds = %246, %258, %_ZN
   store i32 1, ptr %264, align 8, !noalias !260
   %265 = getelementptr inbounds nuw i8, ptr %263, i64 12
   store i32 1, ptr %265, align 4, !noalias !260
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %263, align 8, !noalias !260
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %263, align 8, !noalias !260
   %266 = getelementptr inbounds nuw i8, ptr %263, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %266, i8 0, i64 528, i1 false), !noalias !260
   %267 = getelementptr inbounds nuw i8, ptr %263, i64 32
@@ -14539,7 +14539,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit130: ; preds = %363, %375, %_Z
   store i32 1, ptr %381, align 8, !noalias !266
   %382 = getelementptr inbounds nuw i8, ptr %380, i64 12
   store i32 1, ptr %382, align 4, !noalias !266
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %380, align 8, !noalias !266
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %380, align 8, !noalias !266
   %383 = getelementptr inbounds nuw i8, ptr %380, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %383, i8 0, i64 528, i1 false), !noalias !266
   %384 = getelementptr inbounds nuw i8, ptr %380, i64 32
@@ -14789,7 +14789,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit171: ; preds = %480, %492, %_Z
   store i32 1, ptr %498, align 8, !noalias !272
   %499 = getelementptr inbounds nuw i8, ptr %497, i64 12
   store i32 1, ptr %499, align 4, !noalias !272
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %497, align 8, !noalias !272
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %497, align 8, !noalias !272
   %500 = getelementptr inbounds nuw i8, ptr %497, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %500, i8 0, i64 528, i1 false), !noalias !272
   %501 = getelementptr inbounds nuw i8, ptr %497, i64 32
@@ -15001,7 +15001,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit200: ; preds = %581, %593, %_Z
   store i32 1, ptr %599, align 8, !noalias !278
   %600 = getelementptr inbounds nuw i8, ptr %598, i64 12
   store i32 1, ptr %600, align 4, !noalias !278
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %598, align 8, !noalias !278
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %598, align 8, !noalias !278
   %601 = getelementptr inbounds nuw i8, ptr %598, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %601, i8 0, i64 528, i1 false), !noalias !278
   %602 = getelementptr inbounds nuw i8, ptr %598, i64 32
@@ -15211,7 +15211,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit229: ; preds = %680, %692, %_Z
   store i32 1, ptr %698, align 8, !noalias !284
   %699 = getelementptr inbounds nuw i8, ptr %697, i64 12
   store i32 1, ptr %699, align 4, !noalias !284
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %697, align 8, !noalias !284
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %697, align 8, !noalias !284
   %700 = getelementptr inbounds nuw i8, ptr %697, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %700, i8 0, i64 528, i1 false), !noalias !284
   %701 = getelementptr inbounds nuw i8, ptr %697, i64 32
@@ -15462,7 +15462,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit270: ; preds = %798, %810, %_Z
   store i32 1, ptr %816, align 8, !noalias !290
   %817 = getelementptr inbounds nuw i8, ptr %815, i64 12
   store i32 1, ptr %817, align 4, !noalias !290
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %815, align 8, !noalias !290
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %815, align 8, !noalias !290
   %818 = getelementptr inbounds nuw i8, ptr %815, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %818, i8 0, i64 528, i1 false), !noalias !290
   %819 = getelementptr inbounds nuw i8, ptr %815, i64 32
@@ -15652,7 +15652,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit293: ; preds = %888, %900, %_Z
   store i32 1, ptr %906, align 8, !noalias !296
   %907 = getelementptr inbounds nuw i8, ptr %905, i64 12
   store i32 1, ptr %907, align 4, !noalias !296
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %905, align 8, !noalias !296
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %905, align 8, !noalias !296
   %908 = getelementptr inbounds nuw i8, ptr %905, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %908, i8 0, i64 528, i1 false), !noalias !296
   %909 = getelementptr inbounds nuw i8, ptr %905, i64 32
@@ -15923,7 +15923,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit340: ; preds = %1015, %1027, %
   store i32 1, ptr %1033, align 8, !noalias !302
   %1034 = getelementptr inbounds nuw i8, ptr %1032, i64 12
   store i32 1, ptr %1034, align 4, !noalias !302
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1032, align 8, !noalias !302
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1032, align 8, !noalias !302
   %1035 = getelementptr inbounds nuw i8, ptr %1032, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %1035, i8 0, i64 528, i1 false), !noalias !302
   %1036 = getelementptr inbounds nuw i8, ptr %1032, i64 32
@@ -16153,7 +16153,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit375: ; preds = %1123, %1135, %
   store i32 1, ptr %1141, align 8, !noalias !308
   %1142 = getelementptr inbounds nuw i8, ptr %1140, i64 12
   store i32 1, ptr %1142, align 4, !noalias !308
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1140, align 8, !noalias !308
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1140, align 8, !noalias !308
   %1143 = getelementptr inbounds nuw i8, ptr %1140, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %1143, i8 0, i64 528, i1 false), !noalias !308
   %1144 = getelementptr inbounds nuw i8, ptr %1140, i64 32
@@ -16403,7 +16403,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit416: ; preds = %1240, %1252, %
   store i32 1, ptr %1258, align 8, !noalias !314
   %1259 = getelementptr inbounds nuw i8, ptr %1257, i64 12
   store i32 1, ptr %1259, align 4, !noalias !314
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1257, align 8, !noalias !314
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1257, align 8, !noalias !314
   %1260 = getelementptr inbounds nuw i8, ptr %1257, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %1260, i8 0, i64 528, i1 false), !noalias !314
   %1261 = getelementptr inbounds nuw i8, ptr %1257, i64 32
@@ -16653,7 +16653,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit457: ; preds = %1357, %1369, %
   store i32 1, ptr %1375, align 8, !noalias !320
   %1376 = getelementptr inbounds nuw i8, ptr %1374, i64 12
   store i32 1, ptr %1376, align 4, !noalias !320
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1374, align 8, !noalias !320
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1374, align 8, !noalias !320
   %1377 = getelementptr inbounds nuw i8, ptr %1374, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %1377, i8 0, i64 528, i1 false), !noalias !320
   %1378 = getelementptr inbounds nuw i8, ptr %1374, i64 32
@@ -16923,7 +16923,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit504: ; preds = %1483, %1495, %
   store i32 1, ptr %1501, align 8, !noalias !326
   %1502 = getelementptr inbounds nuw i8, ptr %1500, i64 12
   store i32 1, ptr %1502, align 4, !noalias !326
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1500, align 8, !noalias !326
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1500, align 8, !noalias !326
   %1503 = getelementptr inbounds nuw i8, ptr %1500, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %1503, i8 0, i64 528, i1 false), !noalias !326
   %1504 = getelementptr inbounds nuw i8, ptr %1500, i64 32
@@ -17174,7 +17174,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit545: ; preds = %1601, %1613, %
   store i32 1, ptr %1619, align 8, !noalias !332
   %1620 = getelementptr inbounds nuw i8, ptr %1618, i64 12
   store i32 1, ptr %1620, align 4, !noalias !332
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1618, align 8, !noalias !332
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1618, align 8, !noalias !332
   %1621 = getelementptr inbounds nuw i8, ptr %1618, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %1621, i8 0, i64 528, i1 false), !noalias !332
   %1622 = getelementptr inbounds nuw i8, ptr %1618, i64 32
@@ -17445,7 +17445,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit592: ; preds = %1728, %1740, %
   store i32 1, ptr %1746, align 8, !noalias !338
   %1747 = getelementptr inbounds nuw i8, ptr %1745, i64 12
   store i32 1, ptr %1747, align 4, !noalias !338
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1745, align 8, !noalias !338
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1745, align 8, !noalias !338
   %1748 = getelementptr inbounds nuw i8, ptr %1745, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %1748, i8 0, i64 528, i1 false), !noalias !338
   %1749 = getelementptr inbounds nuw i8, ptr %1745, i64 32
@@ -17635,7 +17635,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit615: ; preds = %1818, %1830, %
   store i32 1, ptr %1836, align 8, !noalias !344
   %1837 = getelementptr inbounds nuw i8, ptr %1835, i64 12
   store i32 1, ptr %1837, align 4, !noalias !344
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1835, align 8, !noalias !344
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1835, align 8, !noalias !344
   %1838 = getelementptr inbounds nuw i8, ptr %1835, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %1838, i8 0, i64 528, i1 false), !noalias !344
   %1839 = getelementptr inbounds nuw i8, ptr %1835, i64 32
@@ -17845,7 +17845,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit644: ; preds = %1917, %1929, %
   store i32 1, ptr %1935, align 8, !noalias !350
   %1936 = getelementptr inbounds nuw i8, ptr %1934, i64 12
   store i32 1, ptr %1936, align 4, !noalias !350
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1934, align 8, !noalias !350
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1934, align 8, !noalias !350
   %1937 = getelementptr inbounds nuw i8, ptr %1934, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %1937, i8 0, i64 528, i1 false), !noalias !350
   %1938 = getelementptr inbounds nuw i8, ptr %1934, i64 32
@@ -18035,7 +18035,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit667: ; preds = %2007, %2019, %
   store i32 1, ptr %2025, align 8, !noalias !356
   %2026 = getelementptr inbounds nuw i8, ptr %2024, i64 12
   store i32 1, ptr %2026, align 4, !noalias !356
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2024, align 8, !noalias !356
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2024, align 8, !noalias !356
   %2027 = getelementptr inbounds nuw i8, ptr %2024, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %2027, i8 0, i64 528, i1 false), !noalias !356
   %2028 = getelementptr inbounds nuw i8, ptr %2024, i64 32
@@ -18317,7 +18317,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit714: ; preds = %2145, %2157, %
   store i32 1, ptr %2163, align 8, !noalias !362
   %2164 = getelementptr inbounds nuw i8, ptr %2162, i64 12
   store i32 1, ptr %2164, align 4, !noalias !362
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2162, align 8, !noalias !362
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2162, align 8, !noalias !362
   %2165 = getelementptr inbounds nuw i8, ptr %2162, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %2165, i8 0, i64 528, i1 false), !noalias !362
   %2166 = getelementptr inbounds nuw i8, ptr %2162, i64 32
@@ -19087,7 +19087,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt
   store i32 1, ptr %231, align 8, !noalias !375
   %232 = getelementptr inbounds nuw i8, ptr %230, i64 12
   store i32 1, ptr %232, align 4, !noalias !375
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %230, align 8, !noalias !375
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %230, align 8, !noalias !375
   %233 = getelementptr inbounds nuw i8, ptr %230, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %233, i8 0, i64 528, i1 false), !noalias !375
   %234 = getelementptr inbounds nuw i8, ptr %230, i64 32
@@ -19491,7 +19491,7 @@ _ZL17getStringEncodingN4llvm9StringRefE.exit.thread: ; preds = %416, %_ZL17getSt
   store i32 1, ptr %419, align 8, !noalias !381
   %420 = getelementptr inbounds nuw i8, ptr %418, i64 12
   store i32 1, ptr %420, align 4, !noalias !381
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %418, align 8, !noalias !381
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %418, align 8, !noalias !381
   %421 = getelementptr inbounds nuw i8, ptr %418, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %421, i8 0, i64 528, i1 false), !noalias !381
   %422 = getelementptr inbounds nuw i8, ptr %418, i64 32
@@ -22003,7 +22003,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit672: ; preds = %_ZN4llv
   store i32 1, ptr %1710, align 8, !noalias !394
   %1711 = getelementptr inbounds nuw i8, ptr %1709, i64 12
   store i32 1, ptr %1711, align 4, !noalias !394
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1709, align 8, !noalias !394
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1709, align 8, !noalias !394
   %1712 = getelementptr inbounds nuw i8, ptr %1709, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %1712, i8 0, i64 528, i1 false), !noalias !394
   %1713 = getelementptr inbounds nuw i8, ptr %1709, i64 32
@@ -27170,7 +27170,7 @@ _ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_if
   store i32 1, ptr %70, align 8, !noalias !429
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 12
   store i32 1, ptr %71, align 4, !noalias !429
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %69, align 8, !noalias !429
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %69, align 8, !noalias !429
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %72, i8 0, i64 528, i1 false), !noalias !429
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 32
@@ -27416,7 +27416,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit: ; preds = %_ZN4llvm15Bitstre
   store i32 1, ptr %191, align 8, !noalias !435
   %192 = getelementptr inbounds nuw i8, ptr %190, i64 12
   store i32 1, ptr %192, align 4, !noalias !435
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %190, align 8, !noalias !435
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %190, align 8, !noalias !435
   %193 = getelementptr inbounds nuw i8, ptr %190, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %193, i8 0, i64 528, i1 false), !noalias !435
   %194 = getelementptr inbounds nuw i8, ptr %190, i64 32
@@ -27607,7 +27607,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit112: ; preds = %_ZNSt10shared_
   store i32 1, ptr %283, align 8, !noalias !441
   %284 = getelementptr inbounds nuw i8, ptr %282, i64 12
   store i32 1, ptr %284, align 4, !noalias !441
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %282, align 8, !noalias !441
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %282, align 8, !noalias !441
   %285 = getelementptr inbounds nuw i8, ptr %282, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %285, i8 0, i64 528, i1 false), !noalias !441
   %286 = getelementptr inbounds nuw i8, ptr %282, i64 32
@@ -27928,7 +27928,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit196: ; preds = %_ZN4llvm15Bits
   store i32 1, ptr %432, align 8, !noalias !447
   %433 = getelementptr inbounds nuw i8, ptr %431, i64 12
   store i32 1, ptr %433, align 4, !noalias !447
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %431, align 8, !noalias !447
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %431, align 8, !noalias !447
   %434 = getelementptr inbounds nuw i8, ptr %431, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %434, i8 0, i64 528, i1 false), !noalias !447
   %435 = getelementptr inbounds nuw i8, ptr %431, i64 32
@@ -28249,7 +28249,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit280: ; preds = %_ZN4llvm15Bits
   store i32 1, ptr %581, align 8, !noalias !453
   %582 = getelementptr inbounds nuw i8, ptr %580, i64 12
   store i32 1, ptr %582, align 4, !noalias !453
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %580, align 8, !noalias !453
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %580, align 8, !noalias !453
   %583 = getelementptr inbounds nuw i8, ptr %580, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %583, i8 0, i64 528, i1 false), !noalias !453
   %584 = getelementptr inbounds nuw i8, ptr %580, i64 32
@@ -28473,7 +28473,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit334: ; preds = %_ZN4llvm15Bits
   store i32 1, ptr %688, align 8, !noalias !459
   %689 = getelementptr inbounds nuw i8, ptr %687, i64 12
   store i32 1, ptr %689, align 4, !noalias !459
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %687, align 8, !noalias !459
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %687, align 8, !noalias !459
   %690 = getelementptr inbounds nuw i8, ptr %687, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %690, i8 0, i64 528, i1 false), !noalias !459
   %691 = getelementptr inbounds nuw i8, ptr %687, i64 32
@@ -28717,7 +28717,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit394: ; preds = %_ZN4llvm15Bits
   store i32 1, ptr %804, align 8, !noalias !465
   %805 = getelementptr inbounds nuw i8, ptr %803, i64 12
   store i32 1, ptr %805, align 4, !noalias !465
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %803, align 8, !noalias !465
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %803, align 8, !noalias !465
   %806 = getelementptr inbounds nuw i8, ptr %803, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %806, i8 0, i64 528, i1 false), !noalias !465
   %807 = getelementptr inbounds nuw i8, ptr %803, i64 32
@@ -28921,7 +28921,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit442: ; preds = %_ZN4llvm15Bits
   store i32 1, ptr %902, align 8, !noalias !471
   %903 = getelementptr inbounds nuw i8, ptr %901, i64 12
   store i32 1, ptr %903, align 4, !noalias !471
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %901, align 8, !noalias !471
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %901, align 8, !noalias !471
   %904 = getelementptr inbounds nuw i8, ptr %901, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %904, i8 0, i64 528, i1 false), !noalias !471
   %905 = getelementptr inbounds nuw i8, ptr %901, i64 32
@@ -29145,7 +29145,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit496: ; preds = %_ZN4llvm15Bits
   store i32 1, ptr %1009, align 8, !noalias !477
   %1010 = getelementptr inbounds nuw i8, ptr %1008, i64 12
   store i32 1, ptr %1010, align 4, !noalias !477
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1008, align 8, !noalias !477
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1008, align 8, !noalias !477
   %1011 = getelementptr inbounds nuw i8, ptr %1008, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %1011, i8 0, i64 528, i1 false), !noalias !477
   %1012 = getelementptr inbounds nuw i8, ptr %1008, i64 32
@@ -29349,7 +29349,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit544: ; preds = %_ZN4llvm15Bits
   store i32 1, ptr %1107, align 8, !noalias !483
   %1108 = getelementptr inbounds nuw i8, ptr %1106, i64 12
   store i32 1, ptr %1108, align 4, !noalias !483
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1106, align 8, !noalias !483
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1106, align 8, !noalias !483
   %1109 = getelementptr inbounds nuw i8, ptr %1106, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %1109, i8 0, i64 528, i1 false), !noalias !483
   %1110 = getelementptr inbounds nuw i8, ptr %1106, i64 32
@@ -30535,7 +30535,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit81.i: ; preds = %1661, 
   br i1 %.not.i589, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit81.i, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit74.i
-  %1668 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL19WriteRelBFToSummary, i64 128), align 8
+  %1668 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL19WriteRelBFToSummary, i64 128), align 8
   %1669 = trunc i8 %1668 to i1
   br i1 %1669, label %1670, label %1676
 
@@ -34651,7 +34651,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119ModuleBitcodeWriter14writeConsta
   store i32 1, ptr %21, align 8, !noalias !519
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 12
   store i32 1, ptr %22, align 4, !noalias !519
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20, align 8, !noalias !519
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20, align 8, !noalias !519
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %23, i8 0, i64 528, i1 false), !noalias !519
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 32
@@ -34837,7 +34837,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit207: ; preds = %_ZN4llvm15Bits
   store i32 1, ptr %112, align 8, !noalias !525
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 12
   store i32 1, ptr %113, align 4, !noalias !525
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %111, align 8, !noalias !525
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %111, align 8, !noalias !525
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %114, i8 0, i64 528, i1 false), !noalias !525
   %115 = getelementptr inbounds nuw i8, ptr %111, i64 32
@@ -35021,7 +35021,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit249: ; preds = %_ZN4llvm15Bits
   store i32 1, ptr %201, align 8, !noalias !531
   %202 = getelementptr inbounds nuw i8, ptr %200, i64 12
   store i32 1, ptr %202, align 4, !noalias !531
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %200, align 8, !noalias !531
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %200, align 8, !noalias !531
   %203 = getelementptr inbounds nuw i8, ptr %200, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %203, i8 0, i64 528, i1 false), !noalias !531
   %204 = getelementptr inbounds nuw i8, ptr %200, i64 32
@@ -35205,7 +35205,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit291: ; preds = %_ZN4llvm15Bits
   store i32 1, ptr %290, align 8, !noalias !537
   %291 = getelementptr inbounds nuw i8, ptr %289, i64 12
   store i32 1, ptr %291, align 4, !noalias !537
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %289, align 8, !noalias !537
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %289, align 8, !noalias !537
   %292 = getelementptr inbounds nuw i8, ptr %289, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %292, i8 0, i64 528, i1 false), !noalias !537
   %293 = getelementptr inbounds nuw i8, ptr %289, i64 32
@@ -37278,7 +37278,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_119ModuleBitcodeWriter22crea
   store i32 1, ptr %4, align 8, !noalias !554
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !554
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !554
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !554
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %6, i8 0, i64 528, i1 false), !noalias !554
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -37542,7 +37542,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_119ModuleBitcodeWriter25crea
   store i32 1, ptr %4, align 8, !noalias !560
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !560
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !560
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !560
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %6, i8 0, i64 528, i1 false), !noalias !560
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -38029,7 +38029,7 @@ _ZN4llvm15BitstreamWriter11FlushToWordEv.exit:    ; preds = %._crit_edge, %92
   store i32 1, ptr %116, align 8, !noalias !566
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 12
   store i32 1, ptr %117, align 4, !noalias !566
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %115, align 8, !noalias !566
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %115, align 8, !noalias !566
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %118, i8 0, i64 528, i1 false), !noalias !566
   %119 = getelementptr inbounds nuw i8, ptr %115, i64 32
@@ -61506,7 +61506,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombine
   store i32 1, ptr %42, align 8, !noalias !641
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i32 1, ptr %43, align 4, !noalias !641
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %41, align 8, !noalias !641
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %41, align 8, !noalias !641
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %44, i8 0, i64 528, i1 false), !noalias !641
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 32
@@ -61751,7 +61751,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit: ; preds = %_ZN4llvm15Bitstre
   store i32 1, ptr %162, align 8, !noalias !647
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 12
   store i32 1, ptr %163, align 4, !noalias !647
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %161, align 8, !noalias !647
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %161, align 8, !noalias !647
   %164 = getelementptr inbounds nuw i8, ptr %161, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %164, i8 0, i64 528, i1 false), !noalias !647
   %165 = getelementptr inbounds nuw i8, ptr %161, i64 32
@@ -61940,7 +61940,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit123: ; preds = %_ZNSt10shared_
   store i32 1, ptr %252, align 8, !noalias !653
   %253 = getelementptr inbounds nuw i8, ptr %251, i64 12
   store i32 1, ptr %253, align 4, !noalias !653
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %251, align 8, !noalias !653
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %251, align 8, !noalias !653
   %254 = getelementptr inbounds nuw i8, ptr %251, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %254, i8 0, i64 528, i1 false), !noalias !653
   %255 = getelementptr inbounds nuw i8, ptr %251, i64 32
@@ -62305,7 +62305,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit219: ; preds = %_ZN4llvm15Bits
   store i32 1, ptr %422, align 8, !noalias !659
   %423 = getelementptr inbounds nuw i8, ptr %421, i64 12
   store i32 1, ptr %423, align 4, !noalias !659
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %421, align 8, !noalias !659
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %421, align 8, !noalias !659
   %424 = getelementptr inbounds nuw i8, ptr %421, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %424, i8 0, i64 528, i1 false), !noalias !659
   %425 = getelementptr inbounds nuw i8, ptr %421, i64 32
@@ -62550,7 +62550,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit279: ; preds = %_ZN4llvm15Bits
   store i32 1, ptr %538, align 8, !noalias !665
   %539 = getelementptr inbounds nuw i8, ptr %537, i64 12
   store i32 1, ptr %539, align 4, !noalias !665
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %537, align 8, !noalias !665
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %537, align 8, !noalias !665
   %540 = getelementptr inbounds nuw i8, ptr %537, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %540, i8 0, i64 528, i1 false), !noalias !665
   %541 = getelementptr inbounds nuw i8, ptr %537, i64 32
@@ -62774,7 +62774,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit333: ; preds = %_ZN4llvm15Bits
   store i32 1, ptr %645, align 8, !noalias !671
   %646 = getelementptr inbounds nuw i8, ptr %644, i64 12
   store i32 1, ptr %646, align 4, !noalias !671
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %644, align 8, !noalias !671
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %644, align 8, !noalias !671
   %647 = getelementptr inbounds nuw i8, ptr %644, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %647, i8 0, i64 528, i1 false), !noalias !671
   %648 = getelementptr inbounds nuw i8, ptr %644, i64 32
@@ -63019,7 +63019,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit393: ; preds = %_ZN4llvm15Bits
   store i32 1, ptr %761, align 8, !noalias !677
   %762 = getelementptr inbounds nuw i8, ptr %760, i64 12
   store i32 1, ptr %762, align 4, !noalias !677
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %760, align 8, !noalias !677
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %760, align 8, !noalias !677
   %763 = getelementptr inbounds nuw i8, ptr %760, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %763, i8 0, i64 528, i1 false), !noalias !677
   %764 = getelementptr inbounds nuw i8, ptr %760, i64 32
@@ -69564,7 +69564,7 @@ declare noundef ptr @_ZNK4llvm6Module17getGlobalVariableENS_9StringRefEb(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -69804,10 +69804,10 @@ define internal void @_GLOBAL__sub_I_BitcodeWriter.cpp() #22 section ".text.star
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL14IndexThreshold, i32 noundef 0, i32 noundef 0)
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL14IndexThreshold, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL14IndexThreshold, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL14IndexThreshold, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL14IndexThreshold, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL14IndexThreshold, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL14IndexThreshold, align 8
   tail call void @_ZN4llvm2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL14IndexThreshold, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL14IndexThreshold) #27
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL14IndexThreshold, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL14IndexThreshold, i64 152), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL14IndexThreshold, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL14IndexThreshold, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL14IndexThreshold, i64 176), align 8
@@ -69827,10 +69827,10 @@ define internal void @_GLOBAL__sub_I_BitcodeWriter.cpp() #22 section ".text.star
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL14FlushThreshold, i32 noundef 0, i32 noundef 0)
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL14FlushThreshold, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL14FlushThreshold, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL14FlushThreshold, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL14FlushThreshold, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL14FlushThreshold, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL14FlushThreshold, align 8
   call void @_ZN4llvm2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL14FlushThreshold, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL14FlushThreshold) #27
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL14FlushThreshold, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL14FlushThreshold, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL14FlushThreshold, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL14FlushThreshold, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL14FlushThreshold, i64 176), align 8
@@ -69852,10 +69852,10 @@ define internal void @_GLOBAL__sub_I_BitcodeWriter.cpp() #22 section ".text.star
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL19WriteRelBFToSummary, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL19WriteRelBFToSummary, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL19WriteRelBFToSummary, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL19WriteRelBFToSummary, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL19WriteRelBFToSummary, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL19WriteRelBFToSummary, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL19WriteRelBFToSummary, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL19WriteRelBFToSummary, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL19WriteRelBFToSummary) #27
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL19WriteRelBFToSummary, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL19WriteRelBFToSummary, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL19WriteRelBFToSummary, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL19WriteRelBFToSummary, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL19WriteRelBFToSummary, i64 176), align 8

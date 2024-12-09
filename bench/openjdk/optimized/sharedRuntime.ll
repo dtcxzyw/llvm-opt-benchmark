@@ -3280,7 +3280,7 @@ declare void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable
 define hidden void @_ZN13SharedRuntime25throw_AbstractMethodErrorEP10JavaThread(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %2, align 4
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1264), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1264), align 8
   %4 = tail call ptr @_ZN10Exceptions13new_exceptionEP10JavaThreadP6SymbolPKcNS_22ExceptionMsgToUtf8ModeE(ptr noundef %0, ptr noundef %3, ptr noundef null, i32 noundef 0) #18
   tail call void @_ZN13SharedRuntime30throw_and_post_jvmti_exceptionEP10JavaThread6Handle(ptr noundef %0, ptr %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -3353,7 +3353,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit:                 ; preds = %_ZN18SafepointMecha
 define hidden void @_ZN13SharedRuntime34throw_IncompatibleClassChangeErrorEP10JavaThread(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %2, align 4
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1320), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1320), align 8
   %4 = tail call ptr @_ZN10Exceptions13new_exceptionEP10JavaThreadP6SymbolPKcNS_22ExceptionMsgToUtf8ModeE(ptr noundef %0, ptr noundef %3, ptr noundef nonnull @.str.25, i32 noundef 0) #18
   tail call void @_ZN13SharedRuntime30throw_and_post_jvmti_exceptionEP10JavaThread6Handle(ptr noundef %0, ptr %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -3426,7 +3426,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit:                 ; preds = %_ZN18SafepointMecha
 define hidden void @_ZN13SharedRuntime25throw_ArithmeticExceptionEP10JavaThread(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %2, align 4
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1048), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1048), align 8
   %4 = tail call ptr @_ZN10Exceptions13new_exceptionEP10JavaThreadP6SymbolPKcNS_22ExceptionMsgToUtf8ModeE(ptr noundef %0, ptr noundef %3, ptr noundef nonnull @.str.26, i32 noundef 0) #18
   tail call void @_ZN13SharedRuntime30throw_and_post_jvmti_exceptionEP10JavaThread6Handle(ptr noundef %0, ptr %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -3499,7 +3499,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit:                 ; preds = %_ZN18SafepointMecha
 define hidden void @_ZN13SharedRuntime26throw_NullPointerExceptionEP10JavaThread(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %2, align 4
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1200), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1200), align 8
   %4 = tail call ptr @_ZN10Exceptions13new_exceptionEP10JavaThreadP6SymbolPKcNS_22ExceptionMsgToUtf8ModeE(ptr noundef %0, ptr noundef %3, ptr noundef null, i32 noundef 0) #18
   tail call void @_ZN13SharedRuntime30throw_and_post_jvmti_exceptionEP10JavaThread6Handle(ptr noundef %0, ptr %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -3572,7 +3572,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit:                 ; preds = %_ZN18SafepointMecha
 define hidden void @_ZN13SharedRuntime34throw_NullPointerException_at_callEP10JavaThread(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %2, align 4
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1200), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1200), align 8
   %4 = tail call ptr @_ZN10Exceptions13new_exceptionEP10JavaThreadP6SymbolPKcNS_22ExceptionMsgToUtf8ModeE(ptr noundef %0, ptr noundef %3, ptr noundef null, i32 noundef 0) #18
   tail call void @_ZN13SharedRuntime30throw_and_post_jvmti_exceptionEP10JavaThread6Handle(ptr noundef %0, ptr %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -3715,7 +3715,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit:                 ; preds = %_ZN18SafepointMecha
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13SharedRuntime31throw_StackOverflowError_commonEP10JavaThreadb(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.methodHandle, align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 200), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 200), align 8
   %5 = tail call noundef ptr @_ZN13InstanceKlass17allocate_instanceEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(464) %4, ptr noundef %0) #18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -4176,7 +4176,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %_ZN25WeakPreserveExceptionMarkC2EP6Thread.exit
 
 _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %27
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1368), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1368), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %5, ptr noundef nonnull @.str.9, i32 noundef 1011, ptr noundef %28, ptr noundef null) #18
   %29 = load ptr, ptr %24, align 8
   %.not.i6 = icmp eq ptr %29, null
@@ -5240,7 +5240,7 @@ _ZNK5frame6senderEP11RegisterMap.exit:            ; preds = %.thread, %_ZNK11Reg
   br i1 %151, label %152, label %154
 
 152:                                              ; preds = %150
-  %153 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1192), align 8
+  %153 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1192), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str.9, i32 noundef 1201, ptr noundef %153, ptr noundef null) #18
   br label %213
 
@@ -5286,7 +5286,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %167, %169
   br i1 %171, label %173, label %.critedge
 
 173:                                              ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit.thread, %_ZN6HandleC2EP6ThreadP7oopDesc.exit
-  %174 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1200), align 8
+  %174 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1200), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str.9, i32 noundef 1210, ptr noundef %174, ptr noundef null) #18
   br label %213
 
@@ -6204,7 +6204,7 @@ _ZNK5frame17is_compiled_frameEv.exit:             ; preds = %_ZNK7nmethod14is_ja
 56:                                               ; preds = %51
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %58, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 120
   store ptr null, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 128
@@ -6394,7 +6394,7 @@ define hidden noundef ptr @_ZN13SharedRuntime20handle_unsafe_accessEP10JavaThrea
   %6 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 2, i32 noundef 0) #18
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @.str.64, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV26UnsafeAccessErrorHandshake, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV26UnsafeAccessErrorHandshake, i64 16), ptr %6, align 8
   tail call void @_ZN9Handshake7executeEP21AsyncHandshakeClosureP10JavaThread(ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(1800) %0) #18
   br label %_ZN10JavaThread31set_pending_unsafe_access_errorEv.exit
 
@@ -6471,7 +6471,7 @@ define hidden void @_ZN13SharedRuntime22fixup_callers_callsiteEP6MethodPh(ptr no
   store i64 %46, ptr %44, align 8
   %47 = getelementptr inbounds i8, ptr %1, i64 -4
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %48, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 120
   store ptr null, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 128
@@ -6517,7 +6517,7 @@ define hidden void @_ZN13SharedRuntime16slow_arraycopy_CEP7oopDesciS1_iiP10JavaT
   br i1 %or.cond, label %10, label %12
 
 10:                                               ; preds = %6
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1200), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1200), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %5, ptr noundef nonnull @.str.9, i32 noundef 1808, ptr noundef %11, ptr noundef null) #18
   br label %31
 
@@ -6684,7 +6684,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
 
 _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN18Bytecode_checkcastC2EP6MethodPh.exit, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  %41 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 384), align 16
+  %41 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 384), align 16
   %42 = and i16 %41, 128
   %.not.i.i = icmp eq i16 %42, 0
   %.0.i.i.i.i.i = load i16, ptr %40, align 1
@@ -6701,7 +6701,7 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN18Bytecode
 
 .split7:                                          ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
   %48 = load ptr, ptr %4, align 8
-  %49 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 384), align 16
+  %49 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 384), align 16
   %50 = and i16 %49, 128
   %.not.i.i8 = icmp eq i16 %50, 0
   %.0.i.i.i.i.i9 = load i16, ptr %40, align 1
@@ -7228,9 +7228,9 @@ switch.lookup:                                    ; preds = %.lr.ph.i
 _ZN18AdapterFingerPrintC2EiP9BasicType.exit:      ; preds = %._crit_edge.i, %42
   store ptr %34, ptr %8, align 8
   call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull %6) #18
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV9Assembler, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV9Assembler, i64 16), ptr %9, align 8
   call void @_ZN9Assembler15init_attributesEv(ptr noundef nonnull align 8 dereferenceable(40) %9) #18
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV14MacroAssembler, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV14MacroAssembler, i64 16), ptr %9, align 8
   %65 = call noundef ptr @_ZN13SharedRuntime23generate_i2c2i_adaptersEP14MacroAssembleriiPK9BasicTypePK9VMRegPairP18AdapterFingerPrint(ptr noundef nonnull %9, i32 noundef %1, i32 noundef %31, ptr noundef %2, ptr noundef %30, ptr noundef %34) #18
   store ptr %65, ptr %10, align 8
   %66 = call noundef ptr @_ZN11AdapterBlob6createEP10CodeBuffer(ptr noundef nonnull %6) #18
@@ -8205,9 +8205,9 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %21
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 184
   call void @_ZN11CodeSection22initialize_shared_locsEP9relocInfoi(ptr noundef nonnull align 8 dereferenceable(88) %48, ptr noundef nonnull %4, i32 noundef 80) #18
   call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull %2) #18
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV9Assembler, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV9Assembler, i64 16), ptr %5, align 8
   call void @_ZN9Assembler15init_attributesEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #18
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV14MacroAssembler, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV14MacroAssembler, i64 16), ptr %5, align 8
   %49 = load ptr, ptr %0, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8
@@ -8565,33 +8565,33 @@ define hidden noundef ptr @_ZN13SharedRuntime21find_callee_argumentsEP6SymbolbbP
   %33 = getelementptr inbounds nuw %class.VMRegPair, ptr %7, i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
-  %.not37 = icmp ult ptr %35, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not37 = icmp ult ptr %35, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   br i1 %.not37, label %44, label %36
 
 36:                                               ; preds = %.lr.ph41
   %37 = call noundef i32 @_ZN13SharedRuntime24out_preserve_stack_slotsEv() #18
   %38 = ptrtoint ptr %35 to i64
   %39 = trunc i64 %38 to i32
-  %40 = add i32 %39, sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32))
+  %40 = add i32 %39, sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32))
   %41 = add i32 %40, %37
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617), i64 %42
+  %43 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %42
   br label %44
 
 44:                                               ; preds = %36, %.lr.ph41
   %.034 = phi ptr [ %43, %36 ], [ %35, %.lr.ph41 ]
   %45 = load ptr, ptr %33, align 8
-  %.not38 = icmp ult ptr %45, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not38 = icmp ult ptr %45, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   br i1 %.not38, label %54, label %46
 
 46:                                               ; preds = %44
   %47 = call noundef i32 @_ZN13SharedRuntime24out_preserve_stack_slotsEv() #18
   %48 = ptrtoint ptr %45 to i64
   %49 = trunc i64 %48 to i32
-  %50 = add i32 %49, sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32))
+  %50 = add i32 %49, sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32))
   %51 = add i32 %50, %47
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617), i64 %52
+  %53 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %52
   br label %54
 
 54:                                               ; preds = %46, %44

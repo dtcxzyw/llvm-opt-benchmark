@@ -65,7 +65,7 @@ entry:
   store ptr null, ptr %m_env.i.i, align 8
   %m_completion.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i8 1, ptr %m_completion.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV26lackr_model_converter_lazy, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV26lackr_model_converter_lazy, i64 16), ptr %call, align 8
   %m2.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %m, ptr %m2.i, align 8
   %model_constructor.i = getelementptr inbounds nuw i8, ptr %call, i64 40
@@ -92,7 +92,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26lackr_model_converter_lazyD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV26lackr_model_converter_lazy, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV26lackr_model_converter_lazy, i64 16), ptr %this, align 8
   %model_constructor = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %model_constructor, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -125,7 +125,7 @@ _ZN3refI23lackr_model_constructorED2Ev.exit:      ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26lackr_model_converter_lazyD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV26lackr_model_converter_lazy, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV26lackr_model_converter_lazy, i64 16), ptr %this, align 8
   %model_constructor.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %model_constructor.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null

@@ -2865,7 +2865,7 @@ _ZNSt16allocator_traitsISaIN3nix8PosTable6OriginEEE9constructIS2_JRKS2_EEEvRS3_P
   %49 = load i64, ptr @_ZN3nix4Expr7nrExprsE, align 8
   %50 = add i64 %49, 1
   store i64 %50, ptr @_ZN3nix4Expr7nrExprsE, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix7ExprIntE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix7ExprIntE, i64 16), ptr %9, align 8
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -2882,7 +2882,7 @@ _ZNSt16allocator_traitsISaIN3nix8PosTable6OriginEEE9constructIS2_JRKS2_EEEvRS3_P
   %58 = load i64, ptr @_ZN3nix4Expr7nrExprsE, align 8
   %59 = add i64 %58, 1
   store i64 %59, ptr @_ZN3nix4Expr7nrExprsE, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10ExprLambdaE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10ExprLambdaE, i64 16), ptr %11, align 8
   %60 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %57, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %11, i64 12
@@ -3361,7 +3361,7 @@ define void @_ZTv0_n48_N3nix34ValuePrintingTests_vPrimOpApp_Test8TestBodyEv(ptr 
 define void @_ZN3nix33ValuePrintingTests_vExternal_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct.MyExternal, align 8
   %3 = alloca %"struct.nix::Value", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVZN3nix33ValuePrintingTests_vExternal_Test8TestBodyEvE10MyExternal, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVZN3nix33ValuePrintingTests_vExternal_Test8TestBodyEvE10MyExternal, i64 16), ptr %2, align 8
   store i32 15, ptr %3, align 8
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %2, ptr %.sroa.24.0..sroa_idx, align 8
@@ -3386,7 +3386,7 @@ define void @_ZTv0_n48_N3nix33ValuePrintingTests_vExternal_Test8TestBodyEv(ptr n
   %7 = getelementptr inbounds i8, ptr %0, i64 %6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVZN3nix33ValuePrintingTests_vExternal_Test8TestBodyEvE10MyExternal, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVZN3nix33ValuePrintingTests_vExternal_Test8TestBodyEvE10MyExternal, i64 16), ptr %2, align 8
   store i32 15, ptr %3, align 8
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %2, ptr %.sroa.24.0..sroa_idx.i, align 8
@@ -5635,7 +5635,7 @@ define void @_ZN3nix40ValuePrintingTests_ansiColorsAssert_Test8TestBodyEv(ptr no
   %11 = load i64, ptr @_ZN3nix4Expr7nrExprsE, align 8
   %12 = add i64 %11, 1
   store i64 %12, ptr @_ZN3nix4Expr7nrExprsE, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix7ExprVarE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix7ExprVarE, i64 16), ptr %2, align 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -5745,7 +5745,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 64:                                               ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, %59, %46, %28
   %65 = load i64, ptr @_ZN3nix4Expr7nrExprsE, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix7ExprIntE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix7ExprIntE, i64 16), ptr %4, align 8
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -5754,7 +5754,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i64 1, ptr %67, align 8
   %69 = add i64 %65, 2
   store i64 %69, ptr @_ZN3nix4Expr7nrExprsE, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10ExprAssertE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10ExprAssertE, i64 16), ptr %5, align 8
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %71 = load i32, ptr @_ZN3nix5noPosE, align 4
   store i32 %71, ptr %70, align 8
@@ -6091,7 +6091,7 @@ _ZNSt16allocator_traitsISaIN3nix8PosTable6OriginEEE9constructIS2_JRKS2_EEEvRS3_P
   %51 = load i64, ptr @_ZN3nix4Expr7nrExprsE, align 8
   %52 = add i64 %51, 1
   store i64 %52, ptr @_ZN3nix4Expr7nrExprsE, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix7ExprIntE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix7ExprIntE, i64 16), ptr %9, align 8
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -6108,7 +6108,7 @@ _ZNSt16allocator_traitsISaIN3nix8PosTable6OriginEEE9constructIS2_JRKS2_EEEvRS3_P
   %60 = load i64, ptr @_ZN3nix4Expr7nrExprsE, align 8
   %61 = add i64 %60, 1
   store i64 %61, ptr @_ZN3nix4Expr7nrExprsE, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10ExprLambdaE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10ExprLambdaE, i64 16), ptr %11, align 8
   %62 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %59, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %11, i64 12
@@ -7224,13 +7224,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix12LibStoreTestD0Ev(ptr noundef %0) unna
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix28ValuePrintingTests_tInt_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ValuePrintingTests_tInt_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix28ValuePrintingTests_tInt_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ValuePrintingTests_tInt_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix28ValuePrintingTests_tInt_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ValuePrintingTests_tInt_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ValuePrintingTests_tInt_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix28ValuePrintingTests_tInt_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix28ValuePrintingTests_tInt_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -7311,13 +7311,13 @@ _ZN3nix28ValuePrintingTests_tInt_TestD2Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix28ValuePrintingTests_tInt_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ValuePrintingTests_tInt_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix28ValuePrintingTests_tInt_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ValuePrintingTests_tInt_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix28ValuePrintingTests_tInt_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ValuePrintingTests_tInt_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ValuePrintingTests_tInt_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix28ValuePrintingTests_tInt_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix28ValuePrintingTests_tInt_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -7403,13 +7403,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ValuePrintingTests_tInt_TestD1Ev(ptr 
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ValuePrintingTests_tInt_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix28ValuePrintingTests_tInt_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ValuePrintingTests_tInt_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix28ValuePrintingTests_tInt_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ValuePrintingTests_tInt_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ValuePrintingTests_tInt_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix28ValuePrintingTests_tInt_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix28ValuePrintingTests_tInt_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -7500,13 +7500,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ValuePrintingTests_tInt_TestD0Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix29ValuePrintingTests_tBool_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tBool_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tBool_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tBool_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tBool_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tBool_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tBool_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tBool_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tBool_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -7587,13 +7587,13 @@ _ZN3nix29ValuePrintingTests_tBool_TestD2Ev.exit:  ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix29ValuePrintingTests_tBool_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tBool_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tBool_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tBool_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tBool_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tBool_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tBool_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tBool_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tBool_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -7679,13 +7679,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix29ValuePrintingTests_tBool_TestD1Ev(ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tBool_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tBool_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tBool_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tBool_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tBool_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tBool_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tBool_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tBool_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -7776,13 +7776,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix29ValuePrintingTests_tBool_TestD0Ev(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix31ValuePrintingTests_tString_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_tString_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_tString_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_tString_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_tString_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_tString_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_tString_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_tString_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_tString_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -7863,13 +7863,13 @@ _ZN3nix31ValuePrintingTests_tString_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix31ValuePrintingTests_tString_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_tString_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_tString_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_tString_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_tString_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_tString_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_tString_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_tString_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_tString_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -7955,13 +7955,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix31ValuePrintingTests_tString_TestD1Ev(p
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_tString_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_tString_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_tString_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_tString_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_tString_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_tString_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_tString_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_tString_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -8052,13 +8052,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix31ValuePrintingTests_tString_TestD0Ev(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix29ValuePrintingTests_tPath_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tPath_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tPath_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tPath_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tPath_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tPath_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tPath_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tPath_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tPath_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -8139,13 +8139,13 @@ _ZN3nix29ValuePrintingTests_tPath_TestD2Ev.exit:  ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix29ValuePrintingTests_tPath_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tPath_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tPath_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tPath_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tPath_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tPath_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tPath_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tPath_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tPath_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -8231,13 +8231,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix29ValuePrintingTests_tPath_TestD1Ev(ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tPath_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tPath_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tPath_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tPath_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tPath_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tPath_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tPath_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tPath_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -8328,13 +8328,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix29ValuePrintingTests_tPath_TestD0Ev(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix29ValuePrintingTests_tNull_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tNull_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tNull_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tNull_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tNull_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tNull_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tNull_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tNull_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tNull_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -8415,13 +8415,13 @@ _ZN3nix29ValuePrintingTests_tNull_TestD2Ev.exit:  ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix29ValuePrintingTests_tNull_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tNull_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tNull_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tNull_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tNull_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tNull_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tNull_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tNull_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tNull_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -8507,13 +8507,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix29ValuePrintingTests_tNull_TestD1Ev(ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tNull_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tNull_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tNull_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tNull_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tNull_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tNull_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tNull_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tNull_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -8604,13 +8604,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix29ValuePrintingTests_tNull_TestD0Ev(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix30ValuePrintingTests_tAttrs_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_tAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_tAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_tAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_tAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_tAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_tAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_tAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_tAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -8691,13 +8691,13 @@ _ZN3nix30ValuePrintingTests_tAttrs_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix30ValuePrintingTests_tAttrs_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_tAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_tAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_tAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_tAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_tAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_tAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_tAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_tAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -8783,13 +8783,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix30ValuePrintingTests_tAttrs_TestD1Ev(pt
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_tAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_tAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_tAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_tAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_tAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_tAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_tAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_tAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -8880,13 +8880,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix30ValuePrintingTests_tAttrs_TestD0Ev(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix29ValuePrintingTests_tList_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tList_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tList_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tList_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tList_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tList_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tList_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tList_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tList_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -8967,13 +8967,13 @@ _ZN3nix29ValuePrintingTests_tList_TestD2Ev.exit:  ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix29ValuePrintingTests_tList_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tList_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tList_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tList_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tList_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tList_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tList_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tList_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tList_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -9059,13 +9059,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix29ValuePrintingTests_tList_TestD1Ev(ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tList_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tList_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tList_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tList_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tList_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix29ValuePrintingTests_tList_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tList_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix29ValuePrintingTests_tList_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -9156,13 +9156,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix29ValuePrintingTests_tList_TestD0Ev(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix30ValuePrintingTests_vThunk_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_vThunk_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_vThunk_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_vThunk_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_vThunk_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_vThunk_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_vThunk_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_vThunk_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_vThunk_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -9243,13 +9243,13 @@ _ZN3nix30ValuePrintingTests_vThunk_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix30ValuePrintingTests_vThunk_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_vThunk_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_vThunk_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_vThunk_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_vThunk_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_vThunk_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_vThunk_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_vThunk_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_vThunk_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -9335,13 +9335,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix30ValuePrintingTests_vThunk_TestD1Ev(pt
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_vThunk_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_vThunk_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_vThunk_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_vThunk_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_vThunk_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_vThunk_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_vThunk_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_vThunk_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -9432,13 +9432,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix30ValuePrintingTests_vThunk_TestD0Ev(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix28ValuePrintingTests_vApp_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ValuePrintingTests_vApp_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix28ValuePrintingTests_vApp_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ValuePrintingTests_vApp_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix28ValuePrintingTests_vApp_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ValuePrintingTests_vApp_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ValuePrintingTests_vApp_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix28ValuePrintingTests_vApp_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix28ValuePrintingTests_vApp_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -9519,13 +9519,13 @@ _ZN3nix28ValuePrintingTests_vApp_TestD2Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix28ValuePrintingTests_vApp_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ValuePrintingTests_vApp_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix28ValuePrintingTests_vApp_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ValuePrintingTests_vApp_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix28ValuePrintingTests_vApp_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ValuePrintingTests_vApp_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ValuePrintingTests_vApp_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix28ValuePrintingTests_vApp_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix28ValuePrintingTests_vApp_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -9611,13 +9611,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ValuePrintingTests_vApp_TestD1Ev(ptr 
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ValuePrintingTests_vApp_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix28ValuePrintingTests_vApp_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ValuePrintingTests_vApp_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix28ValuePrintingTests_vApp_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ValuePrintingTests_vApp_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix28ValuePrintingTests_vApp_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix28ValuePrintingTests_vApp_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix28ValuePrintingTests_vApp_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -9708,13 +9708,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ValuePrintingTests_vApp_TestD0Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix31ValuePrintingTests_vLambda_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_vLambda_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_vLambda_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_vLambda_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_vLambda_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_vLambda_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_vLambda_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_vLambda_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_vLambda_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -9795,13 +9795,13 @@ _ZN3nix31ValuePrintingTests_vLambda_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix31ValuePrintingTests_vLambda_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_vLambda_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_vLambda_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_vLambda_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_vLambda_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_vLambda_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_vLambda_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_vLambda_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_vLambda_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -9887,13 +9887,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix31ValuePrintingTests_vLambda_TestD1Ev(p
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_vLambda_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_vLambda_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_vLambda_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_vLambda_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_vLambda_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_vLambda_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_vLambda_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_vLambda_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -9984,13 +9984,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix31ValuePrintingTests_vLambda_TestD0Ev(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix31ValuePrintingTests_vPrimOp_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_vPrimOp_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_vPrimOp_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_vPrimOp_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_vPrimOp_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_vPrimOp_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_vPrimOp_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_vPrimOp_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_vPrimOp_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -10071,13 +10071,13 @@ _ZN3nix31ValuePrintingTests_vPrimOp_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix31ValuePrintingTests_vPrimOp_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_vPrimOp_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_vPrimOp_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_vPrimOp_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_vPrimOp_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_vPrimOp_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_vPrimOp_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_vPrimOp_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_vPrimOp_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -10163,13 +10163,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix31ValuePrintingTests_vPrimOp_TestD1Ev(p
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_vPrimOp_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_vPrimOp_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_vPrimOp_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_vPrimOp_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_vPrimOp_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix31ValuePrintingTests_vPrimOp_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_vPrimOp_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix31ValuePrintingTests_vPrimOp_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -10260,13 +10260,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix31ValuePrintingTests_vPrimOp_TestD0Ev(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix34ValuePrintingTests_vPrimOpApp_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_vPrimOpApp_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_vPrimOpApp_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_vPrimOpApp_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_vPrimOpApp_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_vPrimOpApp_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_vPrimOpApp_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_vPrimOpApp_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_vPrimOpApp_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -10347,13 +10347,13 @@ _ZN3nix34ValuePrintingTests_vPrimOpApp_TestD2Ev.exit: ; preds = %1, %22, %35, %_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix34ValuePrintingTests_vPrimOpApp_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_vPrimOpApp_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_vPrimOpApp_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_vPrimOpApp_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_vPrimOpApp_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_vPrimOpApp_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_vPrimOpApp_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_vPrimOpApp_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_vPrimOpApp_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -10439,13 +10439,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix34ValuePrintingTests_vPrimOpApp_TestD1E
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_vPrimOpApp_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_vPrimOpApp_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_vPrimOpApp_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_vPrimOpApp_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_vPrimOpApp_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_vPrimOpApp_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_vPrimOpApp_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_vPrimOpApp_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -10536,13 +10536,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix34ValuePrintingTests_vPrimOpApp_TestD0E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix33ValuePrintingTests_vExternal_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix33ValuePrintingTests_vExternal_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix33ValuePrintingTests_vExternal_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix33ValuePrintingTests_vExternal_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix33ValuePrintingTests_vExternal_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix33ValuePrintingTests_vExternal_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix33ValuePrintingTests_vExternal_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix33ValuePrintingTests_vExternal_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix33ValuePrintingTests_vExternal_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -10623,13 +10623,13 @@ _ZN3nix33ValuePrintingTests_vExternal_TestD2Ev.exit: ; preds = %1, %22, %35, %_Z
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix33ValuePrintingTests_vExternal_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix33ValuePrintingTests_vExternal_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix33ValuePrintingTests_vExternal_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix33ValuePrintingTests_vExternal_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix33ValuePrintingTests_vExternal_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix33ValuePrintingTests_vExternal_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix33ValuePrintingTests_vExternal_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix33ValuePrintingTests_vExternal_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix33ValuePrintingTests_vExternal_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -10715,13 +10715,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix33ValuePrintingTests_vExternal_TestD1Ev
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix33ValuePrintingTests_vExternal_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix33ValuePrintingTests_vExternal_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix33ValuePrintingTests_vExternal_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix33ValuePrintingTests_vExternal_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix33ValuePrintingTests_vExternal_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix33ValuePrintingTests_vExternal_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix33ValuePrintingTests_vExternal_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix33ValuePrintingTests_vExternal_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -10812,13 +10812,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix33ValuePrintingTests_vExternal_TestD0Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix30ValuePrintingTests_vFloat_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_vFloat_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_vFloat_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_vFloat_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_vFloat_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_vFloat_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_vFloat_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_vFloat_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_vFloat_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -10899,13 +10899,13 @@ _ZN3nix30ValuePrintingTests_vFloat_TestD2Ev.exit: ; preds = %1, %22, %35, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix30ValuePrintingTests_vFloat_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_vFloat_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_vFloat_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_vFloat_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_vFloat_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_vFloat_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_vFloat_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_vFloat_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_vFloat_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -10991,13 +10991,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix30ValuePrintingTests_vFloat_TestD1Ev(pt
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_vFloat_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_vFloat_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_vFloat_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_vFloat_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_vFloat_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix30ValuePrintingTests_vFloat_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_vFloat_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix30ValuePrintingTests_vFloat_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -11088,13 +11088,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix30ValuePrintingTests_vFloat_TestD0Ev(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix34ValuePrintingTests_vBlackhole_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_vBlackhole_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_vBlackhole_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_vBlackhole_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_vBlackhole_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_vBlackhole_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_vBlackhole_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_vBlackhole_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_vBlackhole_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -11175,13 +11175,13 @@ _ZN3nix34ValuePrintingTests_vBlackhole_TestD2Ev.exit: ; preds = %1, %22, %35, %_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix34ValuePrintingTests_vBlackhole_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_vBlackhole_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_vBlackhole_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_vBlackhole_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_vBlackhole_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_vBlackhole_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_vBlackhole_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_vBlackhole_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_vBlackhole_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -11267,13 +11267,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix34ValuePrintingTests_vBlackhole_TestD1E
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_vBlackhole_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_vBlackhole_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_vBlackhole_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_vBlackhole_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_vBlackhole_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_vBlackhole_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_vBlackhole_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_vBlackhole_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -11364,13 +11364,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix34ValuePrintingTests_vBlackhole_TestD0E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix34ValuePrintingTests_depthAttrs_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_depthAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_depthAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_depthAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_depthAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_depthAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_depthAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_depthAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_depthAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -11451,13 +11451,13 @@ _ZN3nix34ValuePrintingTests_depthAttrs_TestD2Ev.exit: ; preds = %1, %22, %35, %_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix34ValuePrintingTests_depthAttrs_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_depthAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_depthAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_depthAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_depthAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_depthAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_depthAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_depthAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_depthAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -11543,13 +11543,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix34ValuePrintingTests_depthAttrs_TestD1E
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_depthAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_depthAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_depthAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_depthAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_depthAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix34ValuePrintingTests_depthAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_depthAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix34ValuePrintingTests_depthAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -11640,13 +11640,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix34ValuePrintingTests_depthAttrs_TestD0E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix33ValuePrintingTests_depthList_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix33ValuePrintingTests_depthList_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix33ValuePrintingTests_depthList_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix33ValuePrintingTests_depthList_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix33ValuePrintingTests_depthList_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix33ValuePrintingTests_depthList_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix33ValuePrintingTests_depthList_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix33ValuePrintingTests_depthList_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix33ValuePrintingTests_depthList_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -11727,13 +11727,13 @@ _ZN3nix33ValuePrintingTests_depthList_TestD2Ev.exit: ; preds = %1, %22, %35, %_Z
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix33ValuePrintingTests_depthList_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix33ValuePrintingTests_depthList_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix33ValuePrintingTests_depthList_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix33ValuePrintingTests_depthList_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix33ValuePrintingTests_depthList_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix33ValuePrintingTests_depthList_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix33ValuePrintingTests_depthList_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix33ValuePrintingTests_depthList_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix33ValuePrintingTests_depthList_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -11819,13 +11819,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix33ValuePrintingTests_depthList_TestD1Ev
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix33ValuePrintingTests_depthList_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix33ValuePrintingTests_depthList_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix33ValuePrintingTests_depthList_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix33ValuePrintingTests_depthList_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix33ValuePrintingTests_depthList_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix33ValuePrintingTests_depthList_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix33ValuePrintingTests_depthList_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix33ValuePrintingTests_depthList_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -11940,13 +11940,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix19StringPrintingTestsD0Ev(ptr noundef %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix44StringPrintingTests_maxLengthTruncation_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44StringPrintingTests_maxLengthTruncation_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44StringPrintingTests_maxLengthTruncation_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44StringPrintingTests_maxLengthTruncation_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44StringPrintingTests_maxLengthTruncation_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44StringPrintingTests_maxLengthTruncation_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44StringPrintingTests_maxLengthTruncation_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44StringPrintingTests_maxLengthTruncation_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44StringPrintingTests_maxLengthTruncation_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -12027,13 +12027,13 @@ _ZN3nix44StringPrintingTests_maxLengthTruncation_TestD2Ev.exit: ; preds = %1, %2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix44StringPrintingTests_maxLengthTruncation_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44StringPrintingTests_maxLengthTruncation_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44StringPrintingTests_maxLengthTruncation_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44StringPrintingTests_maxLengthTruncation_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44StringPrintingTests_maxLengthTruncation_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44StringPrintingTests_maxLengthTruncation_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44StringPrintingTests_maxLengthTruncation_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44StringPrintingTests_maxLengthTruncation_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44StringPrintingTests_maxLengthTruncation_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -12119,13 +12119,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix44StringPrintingTests_maxLengthTruncati
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44StringPrintingTests_maxLengthTruncation_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44StringPrintingTests_maxLengthTruncation_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44StringPrintingTests_maxLengthTruncation_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44StringPrintingTests_maxLengthTruncation_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44StringPrintingTests_maxLengthTruncation_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44StringPrintingTests_maxLengthTruncation_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44StringPrintingTests_maxLengthTruncation_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44StringPrintingTests_maxLengthTruncation_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -12216,13 +12216,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix44StringPrintingTests_maxLengthTruncati
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix38ValuePrintingTests_attrsTypeFirst_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_attrsTypeFirst_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_attrsTypeFirst_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_attrsTypeFirst_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_attrsTypeFirst_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_attrsTypeFirst_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_attrsTypeFirst_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_attrsTypeFirst_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_attrsTypeFirst_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -12303,13 +12303,13 @@ _ZN3nix38ValuePrintingTests_attrsTypeFirst_TestD2Ev.exit: ; preds = %1, %22, %35
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix38ValuePrintingTests_attrsTypeFirst_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_attrsTypeFirst_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_attrsTypeFirst_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_attrsTypeFirst_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_attrsTypeFirst_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_attrsTypeFirst_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_attrsTypeFirst_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_attrsTypeFirst_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_attrsTypeFirst_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -12395,13 +12395,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix38ValuePrintingTests_attrsTypeFirst_Tes
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_attrsTypeFirst_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_attrsTypeFirst_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_attrsTypeFirst_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_attrsTypeFirst_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_attrsTypeFirst_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_attrsTypeFirst_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_attrsTypeFirst_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_attrsTypeFirst_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -12492,13 +12492,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix38ValuePrintingTests_attrsTypeFirst_Tes
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix37ValuePrintingTests_ansiColorsInt_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix37ValuePrintingTests_ansiColorsInt_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix37ValuePrintingTests_ansiColorsInt_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix37ValuePrintingTests_ansiColorsInt_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix37ValuePrintingTests_ansiColorsInt_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix37ValuePrintingTests_ansiColorsInt_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix37ValuePrintingTests_ansiColorsInt_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix37ValuePrintingTests_ansiColorsInt_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix37ValuePrintingTests_ansiColorsInt_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -12579,13 +12579,13 @@ _ZN3nix37ValuePrintingTests_ansiColorsInt_TestD2Ev.exit: ; preds = %1, %22, %35,
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix37ValuePrintingTests_ansiColorsInt_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix37ValuePrintingTests_ansiColorsInt_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix37ValuePrintingTests_ansiColorsInt_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix37ValuePrintingTests_ansiColorsInt_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix37ValuePrintingTests_ansiColorsInt_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix37ValuePrintingTests_ansiColorsInt_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix37ValuePrintingTests_ansiColorsInt_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix37ValuePrintingTests_ansiColorsInt_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix37ValuePrintingTests_ansiColorsInt_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -12671,13 +12671,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix37ValuePrintingTests_ansiColorsInt_Test
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix37ValuePrintingTests_ansiColorsInt_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix37ValuePrintingTests_ansiColorsInt_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix37ValuePrintingTests_ansiColorsInt_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix37ValuePrintingTests_ansiColorsInt_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix37ValuePrintingTests_ansiColorsInt_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix37ValuePrintingTests_ansiColorsInt_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix37ValuePrintingTests_ansiColorsInt_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix37ValuePrintingTests_ansiColorsInt_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -12768,13 +12768,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix37ValuePrintingTests_ansiColorsInt_Test
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix39ValuePrintingTests_ansiColorsFloat_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsFloat_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsFloat_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsFloat_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsFloat_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsFloat_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsFloat_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsFloat_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsFloat_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -12855,13 +12855,13 @@ _ZN3nix39ValuePrintingTests_ansiColorsFloat_TestD2Ev.exit: ; preds = %1, %22, %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix39ValuePrintingTests_ansiColorsFloat_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsFloat_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsFloat_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsFloat_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsFloat_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsFloat_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsFloat_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsFloat_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsFloat_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -12947,13 +12947,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix39ValuePrintingTests_ansiColorsFloat_Te
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsFloat_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsFloat_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsFloat_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsFloat_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsFloat_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsFloat_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsFloat_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsFloat_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -13044,13 +13044,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix39ValuePrintingTests_ansiColorsFloat_Te
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix38ValuePrintingTests_ansiColorsBool_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsBool_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsBool_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsBool_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsBool_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsBool_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsBool_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsBool_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsBool_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -13131,13 +13131,13 @@ _ZN3nix38ValuePrintingTests_ansiColorsBool_TestD2Ev.exit: ; preds = %1, %22, %35
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix38ValuePrintingTests_ansiColorsBool_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsBool_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsBool_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsBool_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsBool_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsBool_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsBool_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsBool_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsBool_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -13223,13 +13223,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix38ValuePrintingTests_ansiColorsBool_Tes
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsBool_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsBool_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsBool_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsBool_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsBool_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsBool_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsBool_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsBool_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -13320,13 +13320,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix38ValuePrintingTests_ansiColorsBool_Tes
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix40ValuePrintingTests_ansiColorsString_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsString_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsString_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsString_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsString_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsString_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsString_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsString_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsString_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -13407,13 +13407,13 @@ _ZN3nix40ValuePrintingTests_ansiColorsString_TestD2Ev.exit: ; preds = %1, %22, %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix40ValuePrintingTests_ansiColorsString_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsString_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsString_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsString_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsString_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsString_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsString_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsString_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsString_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -13499,13 +13499,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix40ValuePrintingTests_ansiColorsString_T
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsString_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsString_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsString_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsString_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsString_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsString_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsString_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsString_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -13596,13 +13596,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix40ValuePrintingTests_ansiColorsString_T
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix46ValuePrintingTests_ansiColorsStringElided_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsStringElided_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsStringElided_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsStringElided_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsStringElided_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsStringElided_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsStringElided_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsStringElided_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsStringElided_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -13683,13 +13683,13 @@ _ZN3nix46ValuePrintingTests_ansiColorsStringElided_TestD2Ev.exit: ; preds = %1, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix46ValuePrintingTests_ansiColorsStringElided_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsStringElided_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsStringElided_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsStringElided_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsStringElided_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsStringElided_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsStringElided_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsStringElided_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsStringElided_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -13775,13 +13775,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix46ValuePrintingTests_ansiColorsStringEl
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsStringElided_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsStringElided_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsStringElided_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsStringElided_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsStringElided_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsStringElided_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsStringElided_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsStringElided_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -13872,13 +13872,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix46ValuePrintingTests_ansiColorsStringEl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix38ValuePrintingTests_ansiColorsPath_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsPath_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsPath_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsPath_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsPath_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsPath_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsPath_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsPath_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsPath_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -13959,13 +13959,13 @@ _ZN3nix38ValuePrintingTests_ansiColorsPath_TestD2Ev.exit: ; preds = %1, %22, %35
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix38ValuePrintingTests_ansiColorsPath_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsPath_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsPath_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsPath_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsPath_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsPath_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsPath_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsPath_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsPath_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -14051,13 +14051,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix38ValuePrintingTests_ansiColorsPath_Tes
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsPath_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsPath_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsPath_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsPath_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsPath_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsPath_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsPath_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsPath_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -14148,13 +14148,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix38ValuePrintingTests_ansiColorsPath_Tes
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix38ValuePrintingTests_ansiColorsNull_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsNull_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsNull_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsNull_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsNull_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsNull_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsNull_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsNull_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsNull_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -14235,13 +14235,13 @@ _ZN3nix38ValuePrintingTests_ansiColorsNull_TestD2Ev.exit: ; preds = %1, %22, %35
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix38ValuePrintingTests_ansiColorsNull_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsNull_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsNull_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsNull_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsNull_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsNull_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsNull_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsNull_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsNull_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -14327,13 +14327,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix38ValuePrintingTests_ansiColorsNull_Tes
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsNull_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsNull_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsNull_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsNull_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsNull_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsNull_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsNull_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsNull_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -14424,13 +14424,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix38ValuePrintingTests_ansiColorsNull_Tes
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix39ValuePrintingTests_ansiColorsAttrs_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -14511,13 +14511,13 @@ _ZN3nix39ValuePrintingTests_ansiColorsAttrs_TestD2Ev.exit: ; preds = %1, %22, %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix39ValuePrintingTests_ansiColorsAttrs_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -14603,13 +14603,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix39ValuePrintingTests_ansiColorsAttrs_Te
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsAttrs_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsAttrs_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsAttrs_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsAttrs_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -14700,13 +14700,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix39ValuePrintingTests_ansiColorsAttrs_Te
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix44ValuePrintingTests_ansiColorsDerivation_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsDerivation_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsDerivation_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsDerivation_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsDerivation_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsDerivation_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsDerivation_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsDerivation_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsDerivation_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -14787,13 +14787,13 @@ _ZN3nix44ValuePrintingTests_ansiColorsDerivation_TestD2Ev.exit: ; preds = %1, %2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix44ValuePrintingTests_ansiColorsDerivation_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsDerivation_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsDerivation_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsDerivation_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsDerivation_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsDerivation_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsDerivation_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsDerivation_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsDerivation_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -14879,13 +14879,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix44ValuePrintingTests_ansiColorsDerivati
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsDerivation_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsDerivation_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsDerivation_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsDerivation_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsDerivation_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsDerivation_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsDerivation_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsDerivation_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -14976,13 +14976,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix44ValuePrintingTests_ansiColorsDerivati
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix39ValuePrintingTests_ansiColorsError_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsError_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsError_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsError_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsError_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsError_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsError_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsError_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsError_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -15063,13 +15063,13 @@ _ZN3nix39ValuePrintingTests_ansiColorsError_TestD2Ev.exit: ; preds = %1, %22, %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix39ValuePrintingTests_ansiColorsError_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsError_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsError_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsError_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsError_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsError_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsError_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsError_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsError_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -15155,13 +15155,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix39ValuePrintingTests_ansiColorsError_Te
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsError_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsError_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsError_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsError_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsError_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsError_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsError_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsError_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -15252,13 +15252,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix39ValuePrintingTests_ansiColorsError_Te
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix49ValuePrintingTests_ansiColorsDerivationError_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -15339,13 +15339,13 @@ _ZN3nix49ValuePrintingTests_ansiColorsDerivationError_TestD2Ev.exit: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix49ValuePrintingTests_ansiColorsDerivationError_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -15431,13 +15431,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix49ValuePrintingTests_ansiColorsDerivati
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -15528,13 +15528,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix49ValuePrintingTests_ansiColorsDerivati
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix40ValuePrintingTests_ansiColorsAssert_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsAssert_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsAssert_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsAssert_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsAssert_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsAssert_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsAssert_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsAssert_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsAssert_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -15615,13 +15615,13 @@ _ZN3nix40ValuePrintingTests_ansiColorsAssert_TestD2Ev.exit: ; preds = %1, %22, %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix40ValuePrintingTests_ansiColorsAssert_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsAssert_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsAssert_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsAssert_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsAssert_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsAssert_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsAssert_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsAssert_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsAssert_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -15707,13 +15707,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix40ValuePrintingTests_ansiColorsAssert_T
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsAssert_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsAssert_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsAssert_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsAssert_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsAssert_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsAssert_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsAssert_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsAssert_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -15804,13 +15804,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix40ValuePrintingTests_ansiColorsAssert_T
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix38ValuePrintingTests_ansiColorsList_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsList_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsList_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsList_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsList_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsList_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsList_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsList_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsList_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -15891,13 +15891,13 @@ _ZN3nix38ValuePrintingTests_ansiColorsList_TestD2Ev.exit: ; preds = %1, %22, %35
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix38ValuePrintingTests_ansiColorsList_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsList_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsList_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsList_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsList_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsList_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsList_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsList_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsList_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -15983,13 +15983,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix38ValuePrintingTests_ansiColorsList_Tes
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsList_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsList_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsList_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsList_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsList_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsList_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsList_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix38ValuePrintingTests_ansiColorsList_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -16080,13 +16080,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix38ValuePrintingTests_ansiColorsList_Tes
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix40ValuePrintingTests_ansiColorsLambda_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsLambda_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsLambda_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsLambda_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsLambda_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsLambda_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsLambda_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsLambda_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsLambda_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -16167,13 +16167,13 @@ _ZN3nix40ValuePrintingTests_ansiColorsLambda_TestD2Ev.exit: ; preds = %1, %22, %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix40ValuePrintingTests_ansiColorsLambda_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsLambda_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsLambda_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsLambda_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsLambda_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsLambda_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsLambda_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsLambda_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsLambda_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -16259,13 +16259,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix40ValuePrintingTests_ansiColorsLambda_T
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsLambda_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsLambda_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsLambda_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsLambda_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsLambda_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsLambda_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsLambda_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsLambda_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -16356,13 +16356,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix40ValuePrintingTests_ansiColorsLambda_T
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix40ValuePrintingTests_ansiColorsPrimOp_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -16443,13 +16443,13 @@ _ZN3nix40ValuePrintingTests_ansiColorsPrimOp_TestD2Ev.exit: ; preds = %1, %22, %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix40ValuePrintingTests_ansiColorsPrimOp_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -16535,13 +16535,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix40ValuePrintingTests_ansiColorsPrimOp_T
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -16632,13 +16632,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix40ValuePrintingTests_ansiColorsPrimOp_T
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -16719,13 +16719,13 @@ _ZN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestD2Ev.exit: ; preds = %1, %22
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -16811,13 +16811,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix43ValuePrintingTests_ansiColorsPrimOpAp
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -16908,13 +16908,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix43ValuePrintingTests_ansiColorsPrimOpAp
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix39ValuePrintingTests_ansiColorsThunk_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsThunk_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsThunk_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsThunk_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsThunk_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsThunk_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsThunk_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsThunk_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsThunk_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -16995,13 +16995,13 @@ _ZN3nix39ValuePrintingTests_ansiColorsThunk_TestD2Ev.exit: ; preds = %1, %22, %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix39ValuePrintingTests_ansiColorsThunk_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsThunk_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsThunk_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsThunk_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsThunk_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsThunk_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsThunk_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsThunk_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsThunk_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -17087,13 +17087,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix39ValuePrintingTests_ansiColorsThunk_Te
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsThunk_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsThunk_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsThunk_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsThunk_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsThunk_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsThunk_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsThunk_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix39ValuePrintingTests_ansiColorsThunk_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -17184,13 +17184,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix39ValuePrintingTests_ansiColorsThunk_Te
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix43ValuePrintingTests_ansiColorsBlackhole_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -17271,13 +17271,13 @@ _ZN3nix43ValuePrintingTests_ansiColorsBlackhole_TestD2Ev.exit: ; preds = %1, %22
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix43ValuePrintingTests_ansiColorsBlackhole_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -17363,13 +17363,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix43ValuePrintingTests_ansiColorsBlackhol
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -17460,13 +17460,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix43ValuePrintingTests_ansiColorsBlackhol
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -17547,13 +17547,13 @@ _ZN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestD2Ev.exit: ; preds = %1,
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -17639,13 +17639,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix47ValuePrintingTests_ansiColorsAttrsRep
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -17736,13 +17736,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix47ValuePrintingTests_ansiColorsAttrsRep
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix46ValuePrintingTests_ansiColorsListRepeated_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -17823,13 +17823,13 @@ _ZN3nix46ValuePrintingTests_ansiColorsListRepeated_TestD2Ev.exit: ; preds = %1, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix46ValuePrintingTests_ansiColorsListRepeated_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -17915,13 +17915,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix46ValuePrintingTests_ansiColorsListRepe
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -18012,13 +18012,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix46ValuePrintingTests_ansiColorsListRepe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix36ValuePrintingTests_listRepeated_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ValuePrintingTests_listRepeated_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix36ValuePrintingTests_listRepeated_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ValuePrintingTests_listRepeated_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix36ValuePrintingTests_listRepeated_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ValuePrintingTests_listRepeated_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ValuePrintingTests_listRepeated_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix36ValuePrintingTests_listRepeated_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix36ValuePrintingTests_listRepeated_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -18099,13 +18099,13 @@ _ZN3nix36ValuePrintingTests_listRepeated_TestD2Ev.exit: ; preds = %1, %22, %35, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix36ValuePrintingTests_listRepeated_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ValuePrintingTests_listRepeated_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix36ValuePrintingTests_listRepeated_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ValuePrintingTests_listRepeated_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix36ValuePrintingTests_listRepeated_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ValuePrintingTests_listRepeated_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ValuePrintingTests_listRepeated_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix36ValuePrintingTests_listRepeated_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix36ValuePrintingTests_listRepeated_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -18191,13 +18191,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix36ValuePrintingTests_listRepeated_TestD
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ValuePrintingTests_listRepeated_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix36ValuePrintingTests_listRepeated_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ValuePrintingTests_listRepeated_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix36ValuePrintingTests_listRepeated_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ValuePrintingTests_listRepeated_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix36ValuePrintingTests_listRepeated_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix36ValuePrintingTests_listRepeated_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix36ValuePrintingTests_listRepeated_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -18288,13 +18288,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix36ValuePrintingTests_listRepeated_TestD
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -18375,13 +18375,13 @@ _ZN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestD2Ev.exit: ; preds = %1, %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -18467,13 +18467,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix45ValuePrintingTests_ansiColorsAttrsEli
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -18564,13 +18564,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix45ValuePrintingTests_ansiColorsAttrsEli
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix44ValuePrintingTests_ansiColorsListElided_TestD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsListElided_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsListElided_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsListElided_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsListElided_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsListElided_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsListElided_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsListElided_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsListElided_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -18651,13 +18651,13 @@ _ZN3nix44ValuePrintingTests_ansiColorsListElided_TestD2Ev.exit: ; preds = %1, %2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix44ValuePrintingTests_ansiColorsListElided_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsListElided_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsListElided_TestE0_NS_11LibExprTestE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsListElided_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsListElided_TestE0_NS_11LibExprTestE, i64 96), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %3) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsListElided_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsListElided_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsListElided_TestE0_NS_12LibStoreTestE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsListElided_TestE0_NS_12LibStoreTestE, i64 96), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -18743,13 +18743,13 @@ define linkonce_odr void @_ZTv0_n24_N3nix44ValuePrintingTests_ansiColorsListElid
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsListElided_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsListElided_TestE0_NS_11LibExprTestE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsListElided_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsListElided_TestE0_NS_11LibExprTestE, i64 96), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN3nix9EvalStateD1Ev(ptr noundef nonnull align 8 dereferenceable(1248) %7) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsListElided_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsListElided_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsListElided_TestE0_NS_12LibStoreTestE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3nix44ValuePrintingTests_ansiColorsListElided_TestE0_NS_12LibStoreTestE, i64 96), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -18974,7 +18974,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix28ValuePrintingTests_tInt_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix28ValuePrintingTests_tInt_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -18984,8 +18984,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ValuePrintingTests_tInt_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ValuePrintingTests_tInt_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix28ValuePrintingTests_tInt_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix28ValuePrintingTests_tInt_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -19751,7 +19751,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix29ValuePrintingTests_tBool_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix29ValuePrintingTests_tBool_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -19761,8 +19761,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix29ValuePrintingTests_tBool_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix29ValuePrintingTests_tBool_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix29ValuePrintingTests_tBool_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix29ValuePrintingTests_tBool_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -19795,7 +19795,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix31ValuePrintingTests_tString_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix31ValuePrintingTests_tString_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -19805,8 +19805,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix31ValuePrintingTests_tString_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix31ValuePrintingTests_tString_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix31ValuePrintingTests_tString_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix31ValuePrintingTests_tString_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -19839,7 +19839,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix29ValuePrintingTests_tPath_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix29ValuePrintingTests_tPath_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -19849,8 +19849,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix29ValuePrintingTests_tPath_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix29ValuePrintingTests_tPath_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix29ValuePrintingTests_tPath_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix29ValuePrintingTests_tPath_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -19883,7 +19883,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix29ValuePrintingTests_tNull_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix29ValuePrintingTests_tNull_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -19893,8 +19893,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix29ValuePrintingTests_tNull_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix29ValuePrintingTests_tNull_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix29ValuePrintingTests_tNull_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix29ValuePrintingTests_tNull_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -19927,7 +19927,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix30ValuePrintingTests_tAttrs_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix30ValuePrintingTests_tAttrs_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -19937,8 +19937,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30ValuePrintingTests_tAttrs_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30ValuePrintingTests_tAttrs_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix30ValuePrintingTests_tAttrs_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix30ValuePrintingTests_tAttrs_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -21082,7 +21082,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix29ValuePrintingTests_tList_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix29ValuePrintingTests_tList_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -21092,8 +21092,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix29ValuePrintingTests_tList_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix29ValuePrintingTests_tList_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix29ValuePrintingTests_tList_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix29ValuePrintingTests_tList_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -21126,7 +21126,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix30ValuePrintingTests_vThunk_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix30ValuePrintingTests_vThunk_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -21136,8 +21136,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30ValuePrintingTests_vThunk_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30ValuePrintingTests_vThunk_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix30ValuePrintingTests_vThunk_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix30ValuePrintingTests_vThunk_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -21170,7 +21170,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix28ValuePrintingTests_vApp_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix28ValuePrintingTests_vApp_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -21180,8 +21180,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ValuePrintingTests_vApp_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ValuePrintingTests_vApp_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix28ValuePrintingTests_vApp_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix28ValuePrintingTests_vApp_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -21214,7 +21214,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix31ValuePrintingTests_vLambda_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix31ValuePrintingTests_vLambda_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -21224,8 +21224,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix31ValuePrintingTests_vLambda_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix31ValuePrintingTests_vLambda_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix31ValuePrintingTests_vLambda_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix31ValuePrintingTests_vLambda_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -22331,7 +22331,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix31ValuePrintingTests_vPrimOp_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix31ValuePrintingTests_vPrimOp_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22341,8 +22341,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix31ValuePrintingTests_vPrimOp_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix31ValuePrintingTests_vPrimOp_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix31ValuePrintingTests_vPrimOp_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix31ValuePrintingTests_vPrimOp_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -22375,7 +22375,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix34Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix34ValuePrintingTests_vPrimOpApp_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix34ValuePrintingTests_vPrimOpApp_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22385,8 +22385,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix34Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix34ValuePrintingTests_vPrimOpApp_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix34ValuePrintingTests_vPrimOpApp_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix34ValuePrintingTests_vPrimOpApp_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix34ValuePrintingTests_vPrimOpApp_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -22419,7 +22419,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix33Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix33ValuePrintingTests_vExternal_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix33ValuePrintingTests_vExternal_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22429,8 +22429,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix33Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix33ValuePrintingTests_vExternal_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix33ValuePrintingTests_vExternal_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix33ValuePrintingTests_vExternal_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix33ValuePrintingTests_vExternal_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -22521,7 +22521,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix30ValuePrintingTests_vFloat_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix30ValuePrintingTests_vFloat_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22531,8 +22531,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30ValuePrintingTests_vFloat_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30ValuePrintingTests_vFloat_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix30ValuePrintingTests_vFloat_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix30ValuePrintingTests_vFloat_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -22565,7 +22565,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix34Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix34ValuePrintingTests_vBlackhole_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix34ValuePrintingTests_vBlackhole_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22575,8 +22575,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix34Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix34ValuePrintingTests_vBlackhole_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix34ValuePrintingTests_vBlackhole_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix34ValuePrintingTests_vBlackhole_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix34ValuePrintingTests_vBlackhole_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -22609,7 +22609,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix34Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix34ValuePrintingTests_depthAttrs_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix34ValuePrintingTests_depthAttrs_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22619,8 +22619,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix34Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix34ValuePrintingTests_depthAttrs_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix34ValuePrintingTests_depthAttrs_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix34ValuePrintingTests_depthAttrs_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix34ValuePrintingTests_depthAttrs_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -22653,7 +22653,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix33Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix33ValuePrintingTests_depthList_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix33ValuePrintingTests_depthList_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22663,8 +22663,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix33Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix33ValuePrintingTests_depthList_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix33ValuePrintingTests_depthList_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix33ValuePrintingTests_depthList_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix33ValuePrintingTests_depthList_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -22697,7 +22697,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix44St
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix44StringPrintingTests_maxLengthTruncation_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix44StringPrintingTests_maxLengthTruncation_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22707,8 +22707,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix44St
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix44StringPrintingTests_maxLengthTruncation_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix44StringPrintingTests_maxLengthTruncation_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix44StringPrintingTests_maxLengthTruncation_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix44StringPrintingTests_maxLengthTruncation_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -22741,7 +22741,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix38Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix38ValuePrintingTests_attrsTypeFirst_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix38ValuePrintingTests_attrsTypeFirst_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22751,8 +22751,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix38Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix38ValuePrintingTests_attrsTypeFirst_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix38ValuePrintingTests_attrsTypeFirst_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix38ValuePrintingTests_attrsTypeFirst_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix38ValuePrintingTests_attrsTypeFirst_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -22785,7 +22785,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix37Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix37ValuePrintingTests_ansiColorsInt_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix37ValuePrintingTests_ansiColorsInt_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22795,8 +22795,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix37Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix37ValuePrintingTests_ansiColorsInt_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix37ValuePrintingTests_ansiColorsInt_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix37ValuePrintingTests_ansiColorsInt_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix37ValuePrintingTests_ansiColorsInt_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -22829,7 +22829,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix39Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix39ValuePrintingTests_ansiColorsFloat_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix39ValuePrintingTests_ansiColorsFloat_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22839,8 +22839,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix39Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsFloat_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsFloat_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsFloat_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsFloat_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -22873,7 +22873,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix38Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix38ValuePrintingTests_ansiColorsBool_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix38ValuePrintingTests_ansiColorsBool_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22883,8 +22883,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix38Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsBool_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsBool_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsBool_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsBool_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -22917,7 +22917,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix40Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ValuePrintingTests_ansiColorsString_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix40ValuePrintingTests_ansiColorsString_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22927,8 +22927,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix40Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsString_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsString_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsString_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsString_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -22961,7 +22961,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix46Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix46ValuePrintingTests_ansiColorsStringElided_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix46ValuePrintingTests_ansiColorsStringElided_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22971,8 +22971,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix46Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix46ValuePrintingTests_ansiColorsStringElided_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix46ValuePrintingTests_ansiColorsStringElided_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix46ValuePrintingTests_ansiColorsStringElided_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix46ValuePrintingTests_ansiColorsStringElided_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -23005,7 +23005,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix38Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix38ValuePrintingTests_ansiColorsPath_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix38ValuePrintingTests_ansiColorsPath_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -23015,8 +23015,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix38Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsPath_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsPath_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsPath_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsPath_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -23051,7 +23051,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix38Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix38ValuePrintingTests_ansiColorsNull_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix38ValuePrintingTests_ansiColorsNull_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -23061,8 +23061,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix38Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsNull_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsNull_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsNull_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsNull_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -23095,7 +23095,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix39Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix39ValuePrintingTests_ansiColorsAttrs_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix39ValuePrintingTests_ansiColorsAttrs_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -23105,8 +23105,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix39Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsAttrs_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsAttrs_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsAttrs_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsAttrs_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -23139,7 +23139,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix44Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix44ValuePrintingTests_ansiColorsDerivation_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix44ValuePrintingTests_ansiColorsDerivation_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -23149,8 +23149,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix44Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix44ValuePrintingTests_ansiColorsDerivation_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix44ValuePrintingTests_ansiColorsDerivation_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix44ValuePrintingTests_ansiColorsDerivation_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix44ValuePrintingTests_ansiColorsDerivation_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -23183,7 +23183,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix39Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix39ValuePrintingTests_ansiColorsError_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix39ValuePrintingTests_ansiColorsError_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -23193,8 +23193,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix39Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsError_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsError_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsError_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsError_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -23227,7 +23227,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix49Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -23237,8 +23237,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix49Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -23271,7 +23271,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix40Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ValuePrintingTests_ansiColorsAssert_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix40ValuePrintingTests_ansiColorsAssert_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -23281,8 +23281,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix40Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsAssert_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsAssert_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsAssert_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsAssert_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -23315,7 +23315,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix38Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix38ValuePrintingTests_ansiColorsList_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix38ValuePrintingTests_ansiColorsList_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -23325,8 +23325,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix38Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsList_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsList_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsList_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsList_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -23359,7 +23359,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix40Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ValuePrintingTests_ansiColorsLambda_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix40ValuePrintingTests_ansiColorsLambda_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -23369,8 +23369,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix40Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsLambda_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsLambda_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsLambda_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsLambda_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -23403,7 +23403,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix40Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -23413,8 +23413,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix40Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -23447,7 +23447,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix43Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -23457,8 +23457,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix43Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -23491,7 +23491,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix39Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix39ValuePrintingTests_ansiColorsThunk_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix39ValuePrintingTests_ansiColorsThunk_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -23501,8 +23501,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix39Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsThunk_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsThunk_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsThunk_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsThunk_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -23535,7 +23535,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix43Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -23545,8 +23545,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix43Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -23579,7 +23579,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix47Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -23589,8 +23589,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix47Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -23623,7 +23623,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix46Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -23633,8 +23633,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix46Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -23667,7 +23667,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix36Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix36ValuePrintingTests_listRepeated_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix36ValuePrintingTests_listRepeated_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -23677,8 +23677,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix36Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix36ValuePrintingTests_listRepeated_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix36ValuePrintingTests_listRepeated_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix36ValuePrintingTests_listRepeated_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix36ValuePrintingTests_listRepeated_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -23711,7 +23711,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix45Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -23721,8 +23721,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix45Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -23755,7 +23755,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix44Va
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix44ValuePrintingTests_ansiColorsListElided_TestE, i64 16))
+  invoke void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix44ValuePrintingTests_ansiColorsListElided_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -23765,8 +23765,8 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix44Va
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix44ValuePrintingTests_ansiColorsListElided_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix44ValuePrintingTests_ansiColorsListElided_TestE, i64 104), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix44ValuePrintingTests_ansiColorsListElided_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix44ValuePrintingTests_ansiColorsListElided_TestE, i64 104), ptr %3, align 8
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -23793,10 +23793,10 @@ define linkonce_odr void @_ZN3nix11LibExprTest14SetUpTestSuiteEv() #4 comdat ali
   store ptr %1, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 0, ptr %3, align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3nix12evalSettingsE, i64 248), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN3nix12evalSettingsE, i64 248), align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8
-  invoke void %6(ptr noundef nonnull align 8 dereferenceable(185) getelementptr inbounds (i8, ptr @_ZN3nix12evalSettingsE, i64 248), ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke void %6(ptr noundef nonnull align 8 dereferenceable(185) getelementptr inbounds nuw (i8, ptr @_ZN3nix12evalSettingsE, i64 248), ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %_ZN3nix7SettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEaSERKS9_.exit unwind label %16
 
 _ZN3nix7SettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEaSERKS9_.exit: ; preds = %0
@@ -24271,7 +24271,7 @@ define internal void @_GLOBAL__sub_I_print.cc() #9 section ".text.startup" perso
           to label %136 unwind label %155
 
 136:                                              ; preds = %134
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ValuePrintingTests_tInt_TestEEE, i64 16), ptr %135, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ValuePrintingTests_tInt_TestEEE, i64 16), ptr %135, align 8
   %137 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef null, ptr noundef null, ptr noundef nonnull %124, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %131, ptr noundef %133, ptr noundef nonnull %135)
           to label %138 unwind label %155
 
@@ -24370,7 +24370,7 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %166 unwind label %185
 
 166:                                              ; preds = %164
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ValuePrintingTests_tBool_TestEEE, i64 16), ptr %165, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ValuePrintingTests_tBool_TestEEE, i64 16), ptr %165, align 8
   %167 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef null, ptr noundef nonnull %121, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %161, ptr noundef %163, ptr noundef nonnull %165)
           to label %168 unwind label %185
 
@@ -24463,7 +24463,7 @@ __cxx_global_var_init.9.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %196 unwind label %215
 
 196:                                              ; preds = %194
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ValuePrintingTests_tString_TestEEE, i64 16), ptr %195, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ValuePrintingTests_tString_TestEEE, i64 16), ptr %195, align 8
   %197 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.13, ptr noundef null, ptr noundef null, ptr noundef nonnull %118, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %191, ptr noundef %193, ptr noundef nonnull %195)
           to label %198 unwind label %215
 
@@ -24556,7 +24556,7 @@ __cxx_global_var_init.12.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %226 unwind label %245
 
 226:                                              ; preds = %224
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ValuePrintingTests_tPath_TestEEE, i64 16), ptr %225, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ValuePrintingTests_tPath_TestEEE, i64 16), ptr %225, align 8
   %227 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef null, ptr noundef null, ptr noundef nonnull %115, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %221, ptr noundef %223, ptr noundef nonnull %225)
           to label %228 unwind label %245
 
@@ -24649,7 +24649,7 @@ __cxx_global_var_init.16.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %256 unwind label %275
 
 256:                                              ; preds = %254
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ValuePrintingTests_tNull_TestEEE, i64 16), ptr %255, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ValuePrintingTests_tNull_TestEEE, i64 16), ptr %255, align 8
   %257 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.21, ptr noundef null, ptr noundef null, ptr noundef nonnull %112, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %251, ptr noundef %253, ptr noundef nonnull %255)
           to label %258 unwind label %275
 
@@ -24742,7 +24742,7 @@ __cxx_global_var_init.20.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %286 unwind label %305
 
 286:                                              ; preds = %284
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ValuePrintingTests_tAttrs_TestEEE, i64 16), ptr %285, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ValuePrintingTests_tAttrs_TestEEE, i64 16), ptr %285, align 8
   %287 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.24, ptr noundef null, ptr noundef null, ptr noundef nonnull %109, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %281, ptr noundef %283, ptr noundef nonnull %285)
           to label %288 unwind label %305
 
@@ -24835,7 +24835,7 @@ __cxx_global_var_init.23.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %316 unwind label %335
 
 316:                                              ; preds = %314
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ValuePrintingTests_tList_TestEEE, i64 16), ptr %315, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ValuePrintingTests_tList_TestEEE, i64 16), ptr %315, align 8
   %317 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.29, ptr noundef null, ptr noundef null, ptr noundef nonnull %106, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %311, ptr noundef %313, ptr noundef nonnull %315)
           to label %318 unwind label %335
 
@@ -24928,7 +24928,7 @@ __cxx_global_var_init.28.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %346 unwind label %365
 
 346:                                              ; preds = %344
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ValuePrintingTests_vThunk_TestEEE, i64 16), ptr %345, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ValuePrintingTests_vThunk_TestEEE, i64 16), ptr %345, align 8
   %347 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.32, ptr noundef null, ptr noundef null, ptr noundef nonnull %103, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %341, ptr noundef %343, ptr noundef nonnull %345)
           to label %348 unwind label %365
 
@@ -25021,7 +25021,7 @@ __cxx_global_var_init.31.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %376 unwind label %395
 
 376:                                              ; preds = %374
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ValuePrintingTests_vApp_TestEEE, i64 16), ptr %375, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ValuePrintingTests_vApp_TestEEE, i64 16), ptr %375, align 8
   %377 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.35, ptr noundef null, ptr noundef null, ptr noundef nonnull %100, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %371, ptr noundef %373, ptr noundef nonnull %375)
           to label %378 unwind label %395
 
@@ -25114,7 +25114,7 @@ __cxx_global_var_init.34.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %406 unwind label %425
 
 406:                                              ; preds = %404
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ValuePrintingTests_vLambda_TestEEE, i64 16), ptr %405, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ValuePrintingTests_vLambda_TestEEE, i64 16), ptr %405, align 8
   %407 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.37, ptr noundef null, ptr noundef null, ptr noundef nonnull %97, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %401, ptr noundef %403, ptr noundef nonnull %405)
           to label %408 unwind label %425
 
@@ -25207,7 +25207,7 @@ __cxx_global_var_init.36.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %436 unwind label %455
 
 436:                                              ; preds = %434
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ValuePrintingTests_vPrimOp_TestEEE, i64 16), ptr %435, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ValuePrintingTests_vPrimOp_TestEEE, i64 16), ptr %435, align 8
   %437 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.43, ptr noundef null, ptr noundef null, ptr noundef nonnull %94, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %431, ptr noundef %433, ptr noundef nonnull %435)
           to label %438 unwind label %455
 
@@ -25300,7 +25300,7 @@ __cxx_global_var_init.42.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %466 unwind label %485
 
 466:                                              ; preds = %464
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ValuePrintingTests_vPrimOpApp_TestEEE, i64 16), ptr %465, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ValuePrintingTests_vPrimOpApp_TestEEE, i64 16), ptr %465, align 8
   %467 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.46, ptr noundef null, ptr noundef null, ptr noundef nonnull %91, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %461, ptr noundef %463, ptr noundef nonnull %465)
           to label %468 unwind label %485
 
@@ -25393,7 +25393,7 @@ __cxx_global_var_init.45.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %496 unwind label %515
 
 496:                                              ; preds = %494
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix33ValuePrintingTests_vExternal_TestEEE, i64 16), ptr %495, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix33ValuePrintingTests_vExternal_TestEEE, i64 16), ptr %495, align 8
   %497 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.49, ptr noundef null, ptr noundef null, ptr noundef nonnull %88, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %491, ptr noundef %493, ptr noundef nonnull %495)
           to label %498 unwind label %515
 
@@ -25486,7 +25486,7 @@ __cxx_global_var_init.48.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %526 unwind label %545
 
 526:                                              ; preds = %524
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ValuePrintingTests_vFloat_TestEEE, i64 16), ptr %525, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ValuePrintingTests_vFloat_TestEEE, i64 16), ptr %525, align 8
   %527 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.52, ptr noundef null, ptr noundef null, ptr noundef nonnull %85, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %521, ptr noundef %523, ptr noundef nonnull %525)
           to label %528 unwind label %545
 
@@ -25579,7 +25579,7 @@ __cxx_global_var_init.51.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %556 unwind label %575
 
 556:                                              ; preds = %554
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ValuePrintingTests_vBlackhole_TestEEE, i64 16), ptr %555, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ValuePrintingTests_vBlackhole_TestEEE, i64 16), ptr %555, align 8
   %557 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef null, ptr noundef null, ptr noundef nonnull %82, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %551, ptr noundef %553, ptr noundef nonnull %555)
           to label %558 unwind label %575
 
@@ -25672,7 +25672,7 @@ __cxx_global_var_init.54.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %586 unwind label %605
 
 586:                                              ; preds = %584
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ValuePrintingTests_depthAttrs_TestEEE, i64 16), ptr %585, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ValuePrintingTests_depthAttrs_TestEEE, i64 16), ptr %585, align 8
   %587 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.58, ptr noundef null, ptr noundef null, ptr noundef nonnull %79, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %581, ptr noundef %583, ptr noundef nonnull %585)
           to label %588 unwind label %605
 
@@ -25765,7 +25765,7 @@ __cxx_global_var_init.57.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %616 unwind label %635
 
 616:                                              ; preds = %614
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix33ValuePrintingTests_depthList_TestEEE, i64 16), ptr %615, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix33ValuePrintingTests_depthList_TestEEE, i64 16), ptr %615, align 8
   %617 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.64, ptr noundef null, ptr noundef null, ptr noundef nonnull %76, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %611, ptr noundef %613, ptr noundef nonnull %615)
           to label %618 unwind label %635
 
@@ -25858,7 +25858,7 @@ __cxx_global_var_init.63.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %646 unwind label %665
 
 646:                                              ; preds = %644
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix44StringPrintingTests_maxLengthTruncation_TestEEE, i64 16), ptr %645, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix44StringPrintingTests_maxLengthTruncation_TestEEE, i64 16), ptr %645, align 8
   %647 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, ptr noundef null, ptr noundef null, ptr noundef nonnull %73, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix19StringPrintingTestsEE6dummy_E, ptr noundef %641, ptr noundef %643, ptr noundef nonnull %645)
           to label %648 unwind label %665
 
@@ -25951,7 +25951,7 @@ __cxx_global_var_init.68.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %676 unwind label %695
 
 676:                                              ; preds = %674
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38ValuePrintingTests_attrsTypeFirst_TestEEE, i64 16), ptr %675, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38ValuePrintingTests_attrsTypeFirst_TestEEE, i64 16), ptr %675, align 8
   %677 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.82, ptr noundef null, ptr noundef null, ptr noundef nonnull %70, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %671, ptr noundef %673, ptr noundef nonnull %675)
           to label %678 unwind label %695
 
@@ -26044,7 +26044,7 @@ __cxx_global_var_init.81.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %706 unwind label %725
 
 706:                                              ; preds = %704
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37ValuePrintingTests_ansiColorsInt_TestEEE, i64 16), ptr %705, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37ValuePrintingTests_ansiColorsInt_TestEEE, i64 16), ptr %705, align 8
   %707 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.88, ptr noundef null, ptr noundef null, ptr noundef nonnull %67, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %701, ptr noundef %703, ptr noundef nonnull %705)
           to label %708 unwind label %725
 
@@ -26137,7 +26137,7 @@ __cxx_global_var_init.87.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %736 unwind label %755
 
 736:                                              ; preds = %734
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39ValuePrintingTests_ansiColorsFloat_TestEEE, i64 16), ptr %735, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39ValuePrintingTests_ansiColorsFloat_TestEEE, i64 16), ptr %735, align 8
   %737 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.91, ptr noundef null, ptr noundef null, ptr noundef nonnull %64, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %731, ptr noundef %733, ptr noundef nonnull %735)
           to label %738 unwind label %755
 
@@ -26230,7 +26230,7 @@ __cxx_global_var_init.90.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %766 unwind label %785
 
 766:                                              ; preds = %764
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38ValuePrintingTests_ansiColorsBool_TestEEE, i64 16), ptr %765, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38ValuePrintingTests_ansiColorsBool_TestEEE, i64 16), ptr %765, align 8
   %767 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.94, ptr noundef null, ptr noundef null, ptr noundef nonnull %61, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %761, ptr noundef %763, ptr noundef nonnull %765)
           to label %768 unwind label %785
 
@@ -26323,7 +26323,7 @@ __cxx_global_var_init.93.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %796 unwind label %815
 
 796:                                              ; preds = %794
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40ValuePrintingTests_ansiColorsString_TestEEE, i64 16), ptr %795, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40ValuePrintingTests_ansiColorsString_TestEEE, i64 16), ptr %795, align 8
   %797 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.97, ptr noundef null, ptr noundef null, ptr noundef nonnull %58, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %791, ptr noundef %793, ptr noundef nonnull %795)
           to label %798 unwind label %815
 
@@ -26416,7 +26416,7 @@ __cxx_global_var_init.96.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %826 unwind label %845
 
 826:                                              ; preds = %824
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix46ValuePrintingTests_ansiColorsStringElided_TestEEE, i64 16), ptr %825, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix46ValuePrintingTests_ansiColorsStringElided_TestEEE, i64 16), ptr %825, align 8
   %827 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.100, ptr noundef null, ptr noundef null, ptr noundef nonnull %55, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %821, ptr noundef %823, ptr noundef nonnull %825)
           to label %828 unwind label %845
 
@@ -26509,7 +26509,7 @@ __cxx_global_var_init.99.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %856 unwind label %875
 
 856:                                              ; preds = %854
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38ValuePrintingTests_ansiColorsPath_TestEEE, i64 16), ptr %855, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38ValuePrintingTests_ansiColorsPath_TestEEE, i64 16), ptr %855, align 8
   %857 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.103, ptr noundef null, ptr noundef null, ptr noundef nonnull %52, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %851, ptr noundef %853, ptr noundef nonnull %855)
           to label %858 unwind label %875
 
@@ -26602,7 +26602,7 @@ __cxx_global_var_init.102.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %886 unwind label %905
 
 886:                                              ; preds = %884
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38ValuePrintingTests_ansiColorsNull_TestEEE, i64 16), ptr %885, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38ValuePrintingTests_ansiColorsNull_TestEEE, i64 16), ptr %885, align 8
   %887 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.106, ptr noundef null, ptr noundef null, ptr noundef nonnull %49, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %881, ptr noundef %883, ptr noundef nonnull %885)
           to label %888 unwind label %905
 
@@ -26695,7 +26695,7 @@ __cxx_global_var_init.105.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %916 unwind label %935
 
 916:                                              ; preds = %914
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39ValuePrintingTests_ansiColorsAttrs_TestEEE, i64 16), ptr %915, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39ValuePrintingTests_ansiColorsAttrs_TestEEE, i64 16), ptr %915, align 8
   %917 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.109, ptr noundef null, ptr noundef null, ptr noundef nonnull %46, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %911, ptr noundef %913, ptr noundef nonnull %915)
           to label %918 unwind label %935
 
@@ -26788,7 +26788,7 @@ __cxx_global_var_init.108.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %946 unwind label %965
 
 946:                                              ; preds = %944
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix44ValuePrintingTests_ansiColorsDerivation_TestEEE, i64 16), ptr %945, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix44ValuePrintingTests_ansiColorsDerivation_TestEEE, i64 16), ptr %945, align 8
   %947 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.112, ptr noundef null, ptr noundef null, ptr noundef nonnull %43, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %941, ptr noundef %943, ptr noundef nonnull %945)
           to label %948 unwind label %965
 
@@ -26881,7 +26881,7 @@ __cxx_global_var_init.111.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %976 unwind label %995
 
 976:                                              ; preds = %974
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39ValuePrintingTests_ansiColorsError_TestEEE, i64 16), ptr %975, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39ValuePrintingTests_ansiColorsError_TestEEE, i64 16), ptr %975, align 8
   %977 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.117, ptr noundef null, ptr noundef null, ptr noundef nonnull %40, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %971, ptr noundef %973, ptr noundef nonnull %975)
           to label %978 unwind label %995
 
@@ -26974,7 +26974,7 @@ __cxx_global_var_init.116.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1006 unwind label %1025
 
 1006:                                             ; preds = %1004
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix49ValuePrintingTests_ansiColorsDerivationError_TestEEE, i64 16), ptr %1005, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix49ValuePrintingTests_ansiColorsDerivationError_TestEEE, i64 16), ptr %1005, align 8
   %1007 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.122, ptr noundef null, ptr noundef null, ptr noundef nonnull %37, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %1001, ptr noundef %1003, ptr noundef nonnull %1005)
           to label %1008 unwind label %1025
 
@@ -27067,7 +27067,7 @@ __cxx_global_var_init.121.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1036 unwind label %1055
 
 1036:                                             ; preds = %1034
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40ValuePrintingTests_ansiColorsAssert_TestEEE, i64 16), ptr %1035, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40ValuePrintingTests_ansiColorsAssert_TestEEE, i64 16), ptr %1035, align 8
   %1037 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.125, ptr noundef null, ptr noundef null, ptr noundef nonnull %34, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %1031, ptr noundef %1033, ptr noundef nonnull %1035)
           to label %1038 unwind label %1055
 
@@ -27160,7 +27160,7 @@ __cxx_global_var_init.124.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1066 unwind label %1085
 
 1066:                                             ; preds = %1064
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38ValuePrintingTests_ansiColorsList_TestEEE, i64 16), ptr %1065, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38ValuePrintingTests_ansiColorsList_TestEEE, i64 16), ptr %1065, align 8
   %1067 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.129, ptr noundef null, ptr noundef null, ptr noundef nonnull %31, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %1061, ptr noundef %1063, ptr noundef nonnull %1065)
           to label %1068 unwind label %1085
 
@@ -27253,7 +27253,7 @@ __cxx_global_var_init.128.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1096 unwind label %1115
 
 1096:                                             ; preds = %1094
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40ValuePrintingTests_ansiColorsLambda_TestEEE, i64 16), ptr %1095, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40ValuePrintingTests_ansiColorsLambda_TestEEE, i64 16), ptr %1095, align 8
   %1097 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.132, ptr noundef null, ptr noundef null, ptr noundef nonnull %28, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %1091, ptr noundef %1093, ptr noundef nonnull %1095)
           to label %1098 unwind label %1115
 
@@ -27346,7 +27346,7 @@ __cxx_global_var_init.131.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1126 unwind label %1145
 
 1126:                                             ; preds = %1124
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40ValuePrintingTests_ansiColorsPrimOp_TestEEE, i64 16), ptr %1125, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40ValuePrintingTests_ansiColorsPrimOp_TestEEE, i64 16), ptr %1125, align 8
   %1127 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.136, ptr noundef null, ptr noundef null, ptr noundef nonnull %25, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %1121, ptr noundef %1123, ptr noundef nonnull %1125)
           to label %1128 unwind label %1145
 
@@ -27439,7 +27439,7 @@ __cxx_global_var_init.135.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1156 unwind label %1175
 
 1156:                                             ; preds = %1154
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestEEE, i64 16), ptr %1155, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestEEE, i64 16), ptr %1155, align 8
   %1157 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.139, ptr noundef null, ptr noundef null, ptr noundef nonnull %22, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %1151, ptr noundef %1153, ptr noundef nonnull %1155)
           to label %1158 unwind label %1175
 
@@ -27532,7 +27532,7 @@ __cxx_global_var_init.138.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1186 unwind label %1205
 
 1186:                                             ; preds = %1184
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39ValuePrintingTests_ansiColorsThunk_TestEEE, i64 16), ptr %1185, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39ValuePrintingTests_ansiColorsThunk_TestEEE, i64 16), ptr %1185, align 8
   %1187 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.142, ptr noundef null, ptr noundef null, ptr noundef nonnull %19, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %1181, ptr noundef %1183, ptr noundef nonnull %1185)
           to label %1188 unwind label %1205
 
@@ -27625,7 +27625,7 @@ __cxx_global_var_init.141.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1216 unwind label %1235
 
 1216:                                             ; preds = %1214
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix43ValuePrintingTests_ansiColorsBlackhole_TestEEE, i64 16), ptr %1215, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix43ValuePrintingTests_ansiColorsBlackhole_TestEEE, i64 16), ptr %1215, align 8
   %1217 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef nonnull %16, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %1211, ptr noundef %1213, ptr noundef nonnull %1215)
           to label %1218 unwind label %1235
 
@@ -27718,7 +27718,7 @@ __cxx_global_var_init.144.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1246 unwind label %1265
 
 1246:                                             ; preds = %1244
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestEEE, i64 16), ptr %1245, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestEEE, i64 16), ptr %1245, align 8
   %1247 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.148, ptr noundef null, ptr noundef null, ptr noundef nonnull %13, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %1241, ptr noundef %1243, ptr noundef nonnull %1245)
           to label %1248 unwind label %1265
 
@@ -27811,7 +27811,7 @@ __cxx_global_var_init.147.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1276 unwind label %1295
 
 1276:                                             ; preds = %1274
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix46ValuePrintingTests_ansiColorsListRepeated_TestEEE, i64 16), ptr %1275, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix46ValuePrintingTests_ansiColorsListRepeated_TestEEE, i64 16), ptr %1275, align 8
   %1277 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.152, ptr noundef null, ptr noundef null, ptr noundef nonnull %10, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %1271, ptr noundef %1273, ptr noundef nonnull %1275)
           to label %1278 unwind label %1295
 
@@ -27904,7 +27904,7 @@ __cxx_global_var_init.151.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1306 unwind label %1325
 
 1306:                                             ; preds = %1304
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36ValuePrintingTests_listRepeated_TestEEE, i64 16), ptr %1305, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36ValuePrintingTests_listRepeated_TestEEE, i64 16), ptr %1305, align 8
   %1307 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.155, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %1301, ptr noundef %1303, ptr noundef nonnull %1305)
           to label %1308 unwind label %1325
 
@@ -27997,7 +27997,7 @@ __cxx_global_var_init.154.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1336 unwind label %1355
 
 1336:                                             ; preds = %1334
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestEEE, i64 16), ptr %1335, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestEEE, i64 16), ptr %1335, align 8
   %1337 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.159, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %1331, ptr noundef %1333, ptr noundef nonnull %1335)
           to label %1338 unwind label %1355
 
@@ -28090,7 +28090,7 @@ __cxx_global_var_init.158.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1366 unwind label %1385
 
 1366:                                             ; preds = %1364
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix44ValuePrintingTests_ansiColorsListElided_TestEEE, i64 16), ptr %1365, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix44ValuePrintingTests_ansiColorsListElided_TestEEE, i64 16), ptr %1365, align 8
   %1367 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.164, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix18ValuePrintingTestsEE6dummy_E, ptr noundef %1361, ptr noundef %1363, ptr noundef nonnull %1365)
           to label %1368 unwind label %1385
 

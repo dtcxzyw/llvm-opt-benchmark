@@ -119,10 +119,10 @@ define internal fastcc i32 @nbc_bcast_init(ptr noundef %0, i32 noundef %1, ptr n
 40:                                               ; preds = %36, %17, %31, %27, %25, %23, %35, %34
   %.074 = phi i64 [ 16384, %34 ], [ 16384, %35 ], [ 16384, %23 ], [ 16384, %25 ], [ 16384, %27 ], [ %33, %31 ], [ 16384, %17 ], [ 16384, %36 ]
   %.073 = phi i32 [ 1, %34 ], [ 2, %35 ], [ %., %23 ], [ 0, %25 ], [ 1, %27 ], [ 2, %31 ], [ 0, %17 ], [ %.86, %36 ]
-  %41 = load i64, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 56), align 8
+  %41 = load i64, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 56), align 8
   %42 = tail call noalias ptr @malloc(i64 noundef %41) #5
   %43 = load i32, ptr @opal_class_init_epoch, align 4
-  %44 = load i32, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 32), align 8
+  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 32), align 8
   %.not.i = icmp eq i32 %43, %44
   br i1 %.not.i, label %46, label %45
 
@@ -655,10 +655,10 @@ define i32 @ompi_coll_libnbc_ibcast_inter(ptr noundef %0, i32 noundef %1, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @nbc_bcast_inter_init(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 56), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 56), align 8
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #5
   %11 = load i32, ptr @opal_class_init_epoch, align 4
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 32), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 32), align 8
   %.not.i = icmp eq i32 %11, %12
   br i1 %.not.i, label %14, label %13
 

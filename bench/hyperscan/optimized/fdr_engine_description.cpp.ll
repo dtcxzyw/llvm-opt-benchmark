@@ -57,7 +57,7 @@ entry:
   store i64 %3, ptr %ref.tmp.sroa.24.0.code_target.i.sroa_idx, align 8
   %numBuckets.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 %4, ptr %numBuckets.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue220FDREngineDescriptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue220FDREngineDescriptionE, i64 16), ptr %this, align 8
   %schemeWidth = getelementptr inbounds nuw i8, ptr %this, i64 36
   %schemeWidth2 = getelementptr inbounds nuw i8, ptr %def, i64 4
   %5 = load i32, ptr %schemeWidth2, align 4
@@ -126,7 +126,7 @@ if.then.i:                                        ; preds = %_ZNSt6vectorIN3ue22
   store i64 %6, ptr %ref.tmp.sroa.24.0.code_target.i.sroa_idx.i.i.i.i, align 8
   %numBuckets.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 8, ptr %numBuckets.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue220FDREngineDescriptionE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue220FDREngineDescriptionE, i64 16), ptr %3, align 8
   %schemeWidth.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i32 64, ptr %schemeWidth.i.i.i.i, align 4
   %stride.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -359,7 +359,7 @@ _ZN5boost11make_uniqueIN3ue220FDREngineDescriptionEJRS2_EEENS_10enable_if_IXntsr
   %id.i.i.i = getelementptr inbounds nuw i8, ptr %call.i54, i64 8
   %id2.i.i.i = getelementptr inbounds nuw i8, ptr %best.2, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %id.i.i.i, ptr noundef nonnull align 8 dereferenceable(28) %id2.i.i.i, i64 28, i1 false), !noalias !9
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue220FDREngineDescriptionE, i64 16), ptr %call.i54, align 8, !noalias !9
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue220FDREngineDescriptionE, i64 16), ptr %call.i54, align 8, !noalias !9
   %schemeWidth.i.i = getelementptr inbounds nuw i8, ptr %call.i54, i64 36
   %schemeWidth2.i.i = getelementptr inbounds nuw i8, ptr %best.2, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %schemeWidth.i.i, ptr noundef nonnull align 4 dereferenceable(12) %schemeWidth2.i.i, i64 12, i1 false), !noalias !9
@@ -500,7 +500,7 @@ _ZN5boost11make_uniqueIN3ue220FDREngineDescriptionEJRS2_EEENS_10enable_if_IXntsr
   %id.i.i.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 8
   %id2.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %id.i.i.i, ptr noundef nonnull align 8 dereferenceable(28) %id2.i.i.i, i64 28, i1 false), !noalias !12
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue220FDREngineDescriptionE, i64 16), ptr %call.i3, align 8, !noalias !12
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue220FDREngineDescriptionE, i64 16), ptr %call.i3, align 8, !noalias !12
   %schemeWidth.i.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 36
   %schemeWidth2.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %schemeWidth.i.i, ptr noundef nonnull align 4 dereferenceable(12) %schemeWidth2.i.i, i64 12, i1 false), !noalias !12
@@ -632,7 +632,7 @@ invoke.cont:                                      ; preds = %_ZNSt12_Vector_base
   store i64 %6, ptr %ref.tmp.sroa.24.0.code_target.i.sroa_idx.i.i.i, align 8
   %numBuckets.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 32
   store i32 %7, ptr %numBuckets.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue220FDREngineDescriptionE, i64 16), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue220FDREngineDescriptionE, i64 16), ptr %add.ptr, align 8
   %schemeWidth.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 36
   %schemeWidth2.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 4
   %8 = load i32, ptr %schemeWidth2.i.i.i, align 4
@@ -652,7 +652,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %id.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 8
   %id2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %id.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(28) %id2.i.i.i.i.i.i.i.i, i64 28, i1 false), !alias.scope !20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue220FDREngineDescriptionE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !15, !noalias !18
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue220FDREngineDescriptionE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !15, !noalias !18
   %schemeWidth.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 36
   %schemeWidth2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %schemeWidth.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %schemeWidth2.i.i.i.i.i.i.i, i64 12, i1 false), !alias.scope !20
@@ -678,7 +678,7 @@ for.body.i.i.i20:                                 ; preds = %_ZNSt6vectorIN3ue22
   %id.i.i.i.i.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i21, i64 8
   %id2.i.i.i.i.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i22, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %id.i.i.i.i.i.i.i.i23, ptr noundef nonnull align 8 dereferenceable(28) %id2.i.i.i.i.i.i.i.i24, i64 28, i1 false), !alias.scope !27
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue220FDREngineDescriptionE, i64 16), ptr %__cur.07.i.i.i21, align 8, !alias.scope !22, !noalias !25
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue220FDREngineDescriptionE, i64 16), ptr %__cur.07.i.i.i21, align 8, !alias.scope !22, !noalias !25
   %schemeWidth.i.i.i.i.i.i.i25 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i21, i64 36
   %schemeWidth2.i.i.i.i.i.i.i26 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i22, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %schemeWidth.i.i.i.i.i.i.i25, ptr noundef nonnull align 4 dereferenceable(12) %schemeWidth2.i.i.i.i.i.i.i26, i64 12, i1 false), !alias.scope !27

@@ -20858,7 +20858,7 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17h57e1e857b53
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %1, %63
-  %10 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN95_$LT$meilisearch..search..insert_geo_distance..GEO_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h75d30d4fb4829919E", i64 32) acquire, align 8
+  %10 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN95_$LT$meilisearch..search..insert_geo_distance..GEO_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h75d30d4fb4829919E", i64 32) acquire, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split
@@ -20886,7 +20886,7 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17h57e1e857b53
   unreachable
 
 16:                                               ; preds = %.backedge
-  %17 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @"_ZN95_$LT$meilisearch..search..insert_geo_distance..GEO_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h75d30d4fb4829919E", i64 32), i32 0, i32 2 acquire acquire, align 4
+  %17 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @"_ZN95_$LT$meilisearch..search..insert_geo_distance..GEO_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h75d30d4fb4829919E", i64 32), i32 0, i32 2 acquire acquire, align 4
   %.sroa.18.0.in.i = extractvalue { i32, i1 } %17, 1
   br i1 %.sroa.18.0.in.i, label %23, label %.backedge.backedge
 
@@ -20914,7 +20914,7 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17h57e1e857b53
 
 23:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  store ptr getelementptr inbounds (i8, ptr @"_ZN95_$LT$meilisearch..search..insert_geo_distance..GEO_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h75d30d4fb4829919E", i64 32), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZN95_$LT$meilisearch..search..insert_geo_distance..GEO_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h75d30d4fb4829919E", i64 32), ptr %8, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 1, ptr %24, align 8
   %.val = load ptr, ptr %0, align 8, !nonnull !9, !align !80, !noundef !9
@@ -21043,12 +21043,12 @@ _ZN4core3ops8function6FnOnce9call_once17h9a529e4d644be2dfE.exit.i.i: ; preds = %
   resume { ptr, i32 } %eh.lpad-body
 
 61:                                               ; preds = %.backedge
-  %62 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @"_ZN95_$LT$meilisearch..search..insert_geo_distance..GEO_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h75d30d4fb4829919E", i64 32), i32 2, i32 3 monotonic acquire, align 4
+  %62 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @"_ZN95_$LT$meilisearch..search..insert_geo_distance..GEO_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h75d30d4fb4829919E", i64 32), i32 2, i32 3 monotonic acquire, align 4
   %.sroa.18.0.in.i17 = extractvalue { i32, i1 } %62, 1
   br i1 %.sroa.18.0.in.i17, label %63, label %.backedge.backedge
 
 63:                                               ; preds = %61, %.backedge
-  %64 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17hfc21e6bb1d6271e2E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN95_$LT$meilisearch..search..insert_geo_distance..GEO_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h75d30d4fb4829919E", i64 32), i32 noundef 3, i64 undef, i32 noundef 1000000000)
+  %64 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17hfc21e6bb1d6271e2E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN95_$LT$meilisearch..search..insert_geo_distance..GEO_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h75d30d4fb4829919E", i64 32), i32 noundef 3, i64 undef, i32 noundef 1000000000)
   br label %.backedge.sink.split
 }
 
@@ -21226,7 +21226,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h6b22b48569af470fE(pt
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hf3f94cab58b1c327E.llvm.3021571406010367114"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %11, ptr noundef nonnull @anon.4274f88979834c3c083b31457f2e0a9e.1416, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @anon.4274f88979834c3c083b31457f2e0a9e.1416, i64 48))
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hf3f94cab58b1c327E.llvm.3021571406010367114"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %11, ptr noundef nonnull @anon.4274f88979834c3c083b31457f2e0a9e.1416, ptr noundef nonnull readonly getelementptr inbounds nuw (i8, ptr @anon.4274f88979834c3c083b31457f2e0a9e.1416, i64 48))
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hb638757171cf8481E.exit.i.i.i.i" unwind label %61, !noalias !3573
 
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hb638757171cf8481E.exit.i.i.i.i": ; preds = %.noexc15
@@ -22380,7 +22380,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h98cf2cd98653bb00E(pt
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h4b104c1dba193280E.llvm.3021571406010367114"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %11, ptr noundef nonnull @anon.4274f88979834c3c083b31457f2e0a9e.1454, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @anon.4274f88979834c3c083b31457f2e0a9e.1454, i64 32))
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h4b104c1dba193280E.llvm.3021571406010367114"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %11, ptr noundef nonnull @anon.4274f88979834c3c083b31457f2e0a9e.1454, ptr noundef nonnull readonly getelementptr inbounds nuw (i8, ptr @anon.4274f88979834c3c083b31457f2e0a9e.1454, i64 32))
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hd35380e02c6ee3f1E.exit.i.i.i.i" unwind label %61, !noalias !3710
 
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hd35380e02c6ee3f1E.exit.i.i.i.i": ; preds = %.noexc15
@@ -25338,7 +25338,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17hda47b06063a88e5eE(pt
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h4b104c1dba193280E.llvm.3021571406010367114"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %11, ptr noundef nonnull @anon.4274f88979834c3c083b31457f2e0a9e.1442, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @anon.4274f88979834c3c083b31457f2e0a9e.1442, i64 16))
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h4b104c1dba193280E.llvm.3021571406010367114"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %11, ptr noundef nonnull @anon.4274f88979834c3c083b31457f2e0a9e.1442, ptr noundef nonnull readonly getelementptr inbounds nuw (i8, ptr @anon.4274f88979834c3c083b31457f2e0a9e.1442, i64 16))
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hd35380e02c6ee3f1E.exit.i.i.i.i" unwind label %61, !noalias !4052
 
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hd35380e02c6ee3f1E.exit.i.i.i.i": ; preds = %.noexc15
@@ -74291,7 +74291,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE.llvm.14059
   %.val.i.i.i.i = load ptr, ptr @_ZN11meilisearch9analytics17segment_analytics16SearchAggregator10from_query2RE17he058a51489c15796E, align 8, !noalias !13514
   %201 = load ptr, ptr %183, align 8, !alias.scope !13509, !noalias !13505, !nonnull !9, !noundef !9
   %202 = load i64, ptr %184, align 8, !alias.scope !13509, !noalias !13505, !noundef !9
-  %.val1.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN11meilisearch9analytics17segment_analytics16SearchAggregator10from_query2RE17he058a51489c15796E, i64 8), align 8, !noalias !13514
+  %.val1.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN11meilisearch9analytics17segment_analytics16SearchAggregator10from_query2RE17he058a51489c15796E, i64 8), align 8, !noalias !13514
   %203 = invoke fastcc noundef zeroext i1 @_ZN5regex5regex6string5Regex11is_match_at17h84d2b18e3b45511fE(ptr %.val.i.i.i.i, ptr %.val1.i.i.i.i, ptr noalias noundef nonnull readonly align 1 %201, i64 noundef %202)
           to label %204 unwind label %199
 
@@ -89250,7 +89250,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE.llvm.14059
   %.val.i.i.i.i = load ptr, ptr @_ZN11meilisearch9analytics17segment_analytics17SimilarAggregator10from_query2RE17h8bc0056530d0f182E, align 8, !noalias !16909
   %163 = load ptr, ptr %145, align 8, !alias.scope !16904, !noalias !16900, !nonnull !9, !noundef !9
   %164 = load i64, ptr %146, align 8, !alias.scope !16904, !noalias !16900, !noundef !9
-  %.val1.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN11meilisearch9analytics17segment_analytics17SimilarAggregator10from_query2RE17h8bc0056530d0f182E, i64 8), align 8, !noalias !16909
+  %.val1.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN11meilisearch9analytics17segment_analytics17SimilarAggregator10from_query2RE17h8bc0056530d0f182E, i64 8), align 8, !noalias !16909
   %165 = invoke fastcc noundef zeroext i1 @_ZN5regex5regex6string5Regex11is_match_at17h84d2b18e3b45511fE(ptr %.val.i.i.i.i, ptr %.val1.i.i.i.i, ptr noalias noundef nonnull readonly align 1 %163, i64 noundef %164)
           to label %166 unwind label %161
 
@@ -94053,7 +94053,7 @@ define void @_ZN11meilisearch6routes7indexes9documents18documents_by_query17h501
   br i1 %87, label %88, label %.thread235
 
 88:                                               ; preds = %85
-  %89 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11meilisearch6routes7indexes9documents18documents_by_query10__CALLSITE17h4e38edf603b931deE, i64 16) monotonic, align 8
+  %89 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN11meilisearch6routes7indexes9documents18documents_by_query10__CALLSITE17h4e38edf603b931deE, i64 16) monotonic, align 8
   switch i8 %89, label %90 [
     i8 0, label %.thread235
     i8 1, label %.thread232
@@ -108862,7 +108862,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE.llvm.14059
   call void @llvm.experimental.noalias.scope.decl(metadata !20181)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53), !noalias !20184
   store ptr @"_ZN95_$LT$meilisearch..search..insert_geo_distance..GEO_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h75d30d4fb4829919E", ptr %53, align 8, !noalias !20184
-  %992 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN95_$LT$meilisearch..search..insert_geo_distance..GEO_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h75d30d4fb4829919E", i64 32) acquire, align 8, !noalias !20189
+  %992 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN95_$LT$meilisearch..search..insert_geo_distance..GEO_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h75d30d4fb4829919E", i64 32) acquire, align 8, !noalias !20189
   %993 = icmp eq i32 %992, 4
   br i1 %993, label %"_ZN95_$LT$meilisearch..search..insert_geo_distance..GEO_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref17hea4a960577ed40d7E.exit.i.i.i", label %994
 
@@ -115304,7 +115304,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN95_$LT$meilisearch..
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN95_$LT$meilisearch..search..insert_geo_distance..GEO_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h75d30d4fb4829919E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN95_$LT$meilisearch..search..insert_geo_distance..GEO_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h75d30d4fb4829919E", i64 32) acquire, align 8, !noalias !21190
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN95_$LT$meilisearch..search..insert_geo_distance..GEO_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h75d30d4fb4829919E", i64 32) acquire, align 8, !noalias !21190
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17h41583e1f1253b0cfE.exit, label %7
 
@@ -115334,7 +115334,7 @@ define void @"_ZN95_$LT$meilisearch..search..insert_geo_distance..GEO_REGEX$u20$
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN95_$LT$meilisearch..search..insert_geo_distance..GEO_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h75d30d4fb4829919E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN95_$LT$meilisearch..search..insert_geo_distance..GEO_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h75d30d4fb4829919E", i64 32) acquire, align 8, !noalias !21193
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN95_$LT$meilisearch..search..insert_geo_distance..GEO_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h75d30d4fb4829919E", i64 32) acquire, align 8, !noalias !21193
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN95_$LT$meilisearch..search..insert_geo_distance..GEO_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref17hea4a960577ed40d7E.exit", label %7
 

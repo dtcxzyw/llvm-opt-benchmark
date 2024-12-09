@@ -656,7 +656,7 @@ mkAttr.exit234:                                   ; preds = %gv_strdup.exit.i230
 
 252:                                              ; preds = %79
   %253 = load ptr, ptr @L, align 8
-  %254 = load i64, ptr getelementptr inbounds (i8, ptr @liststk, i64 8), align 8
+  %254 = load i64, ptr getelementptr inbounds nuw (i8, ptr @liststk, i64 8), align 8
   %255 = icmp eq i64 %254, 0
   br i1 %255, label %popAlist.exit, label %256
 
@@ -666,7 +666,7 @@ mkAttr.exit234:                                   ; preds = %gv_strdup.exit.i230
   %259 = getelementptr i8, ptr %258, i64 -8
   %260 = load ptr, ptr %259, align 8
   %261 = add i64 %254, -1
-  store i64 %261, ptr getelementptr inbounds (i8, ptr @liststk, i64 8), align 8
+  store i64 %261, ptr getelementptr inbounds nuw (i8, ptr @liststk, i64 8), align 8
   br label %popAlist.exit
 
 popAlist.exit:                                    ; preds = %252, %256
@@ -977,7 +977,7 @@ declare void @gmllexeof() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @cleanup() unnamed_addr #0 {
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @liststk, i64 8), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @liststk, i64 8), align 8
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %._crit_edge, label %.lr.ph
 
@@ -988,14 +988,14 @@ define internal fastcc void @cleanup() unnamed_addr #0 {
   %6 = getelementptr i8, ptr %5, i64 -8
   %7 = load ptr, ptr %6, align 8
   %8 = add i64 %3, -1
-  store i64 %8, ptr getelementptr inbounds (i8, ptr @liststk, i64 8), align 8
+  store i64 %8, ptr getelementptr inbounds nuw (i8, ptr @liststk, i64 8), align 8
   %9 = tail call i32 @dtclose(ptr noundef %7) #20
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @liststk, i64 8), align 8
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @liststk, i64 8), align 8
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
-  store i64 0, ptr getelementptr inbounds (i8, ptr @liststk, i64 8), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @liststk, i64 8), align 8
   %12 = load ptr, ptr @liststk, align 8
   tail call void @free(ptr noundef %12) #20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @liststk, i8 0, i64 24, i1 false)
@@ -1310,8 +1310,8 @@ define internal fastcc void @pushAlist() unnamed_addr #0 {
   br i1 %.not, label %31, label %4
 
 4:                                                ; preds = %0
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @liststk, i64 8), align 8
-  %6 = load i64, ptr getelementptr inbounds (i8, ptr @liststk, i64 16), align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @liststk, i64 8), align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @liststk, i64 16), align 8
   %7 = icmp eq i64 %5, %6
   br i1 %7, label %8, label %._crit_edge.i.i.i.i
 
@@ -1334,15 +1334,15 @@ define internal fastcc void @pushAlist() unnamed_addr #0 {
   br i1 %15, label %22, label %16
 
 16:                                               ; preds = %11
-  %17 = load i64, ptr getelementptr inbounds (i8, ptr @liststk, i64 16), align 8
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @liststk, i64 16), align 8
   %18 = shl i64 %17, 3
   %19 = getelementptr inbounds i8, ptr %14, i64 %18
   %20 = sub i64 %spec.select.i.i.i.i, %17
   %21 = shl i64 %20, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %19, i8 0, i64 %21, i1 false)
   store ptr %14, ptr @liststk, align 8
-  store i64 %spec.select.i.i.i.i, ptr getelementptr inbounds (i8, ptr @liststk, i64 16), align 8
-  %.pre1.i.i.i.i = load i64, ptr getelementptr inbounds (i8, ptr @liststk, i64 8), align 8
+  store i64 %spec.select.i.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @liststk, i64 16), align 8
+  %.pre1.i.i.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @liststk, i64 8), align 8
   br label %stack_push.exit
 
 22:                                               ; preds = %11, %8
@@ -1358,9 +1358,9 @@ stack_push.exit:                                  ; preds = %._crit_edge.i.i.i.i
   %27 = phi ptr [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %14, %16 ]
   %28 = getelementptr inbounds ptr, ptr %27, i64 %26
   store ptr %3, ptr %28, align 8
-  %29 = load i64, ptr getelementptr inbounds (i8, ptr @liststk, i64 8), align 8
+  %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @liststk, i64 8), align 8
   %30 = add i64 %29, 1
-  store i64 %30, ptr getelementptr inbounds (i8, ptr @liststk, i64 8), align 8
+  store i64 %30, ptr getelementptr inbounds nuw (i8, ptr @liststk, i64 8), align 8
   br label %31
 
 31:                                               ; preds = %stack_push.exit, %0

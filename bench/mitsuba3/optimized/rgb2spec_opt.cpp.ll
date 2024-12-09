@@ -366,8 +366,8 @@ define hidden noundef double @_Z3sqrd(double noundef %0) local_unnamed_addr #4 {
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_Z7cie_labPd(ptr nocapture noundef %0) local_unnamed_addr #5 {
   %2 = load double, ptr @xyz_whitepoint, align 16
-  %3 = load double, ptr getelementptr inbounds (i8, ptr @xyz_whitepoint, i64 8), align 8
-  %4 = load double, ptr getelementptr inbounds (i8, ptr @xyz_whitepoint, i64 16), align 16
+  %3 = load double, ptr getelementptr inbounds nuw (i8, ptr @xyz_whitepoint, i64 8), align 8
+  %4 = load double, ptr getelementptr inbounds nuw (i8, ptr @xyz_whitepoint, i64 16), align 16
   br label %5
 
 5:                                                ; preds = %1, %5
@@ -381,11 +381,11 @@ define hidden void @_Z7cie_labPd(ptr nocapture noundef %0) local_unnamed_addr #5
   %9 = load double, ptr %8, align 8
   %10 = fmul contract double %7, %9
   %11 = fadd contract double %.02640, %10
-  %12 = getelementptr inbounds nuw [3 x double], ptr getelementptr inbounds (i8, ptr @rgb_to_xyz, i64 24), i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [3 x double], ptr getelementptr inbounds nuw (i8, ptr @rgb_to_xyz, i64 24), i64 0, i64 %indvars.iv
   %13 = load double, ptr %12, align 8
   %14 = fmul contract double %7, %13
   %15 = fadd contract double %.02739, %14
-  %16 = getelementptr inbounds nuw [3 x double], ptr getelementptr inbounds (i8, ptr @rgb_to_xyz, i64 48), i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [3 x double], ptr getelementptr inbounds nuw (i8, ptr @rgb_to_xyz, i64 48), i64 0, i64 %indvars.iv
   %17 = load double, ptr %16, align 8
   %18 = fmul contract double %7, %17
   %19 = fadd contract double %.02838, %18

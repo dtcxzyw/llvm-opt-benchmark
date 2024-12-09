@@ -123614,7 +123614,7 @@ define void @_ZN14deltalake_core5table10DeltaTable27get_app_transaction_version1
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.sroa.5, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @anon.e68c98984d05f4ab0d2a6f8791335996.964.llvm.240573438051967091, i64 8), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.sroa.5, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @anon.e68c98984d05f4ab0d2a6f8791335996.964.llvm.240573438051967091, i64 8), i64 24, i1 false)
   br label %27
 
 17:                                               ; preds = %8

@@ -133,7 +133,7 @@ setInterpreterVersion.exit:                       ; preds = %22, %27, %34
   %49 = load ptr, ptr %0, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 488
   %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 224), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 224), align 8
   call void (ptr, ptr, ptr, ...) %51(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %52, ptr noundef nonnull %47) #19
   %53 = load ptr, ptr %16, align 8
   %54 = load ptr, ptr %40, align 8
@@ -307,7 +307,7 @@ define internal i64 @ReadTTFontFileFunc(ptr nocapture noundef readonly %0, i64 n
 33:                                               ; preds = %25
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 392
   %35 = load ptr, ptr %34, align 8
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 208), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 208), align 8
   %37 = tail call i32 (ptr, ptr, ptr, ...) %35(ptr noundef nonnull %7, ptr noundef %32, ptr noundef %36, ptr noundef nonnull %29, i64 noundef %1, i64 noundef %spec.select) #19
   %38 = load ptr, ptr %7, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 1824
@@ -334,7 +334,7 @@ define internal i64 @ReadTTFontFileFunc(ptr nocapture noundef readonly %0, i64 n
 47:                                               ; preds = %25
   %48 = getelementptr inbounds nuw i8, ptr %30, i64 272
   %49 = load ptr, ptr %48, align 8
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 216), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 216), align 8
   %51 = tail call ptr (ptr, ptr, ptr, ...) %49(ptr noundef nonnull %7, ptr noundef %32, ptr noundef %50, i64 noundef %1, i64 noundef %spec.select) #19
   %52 = load ptr, ptr %7, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 1824
@@ -413,7 +413,7 @@ define internal i64 @ReadTTFontFileFunc(ptr nocapture noundef readonly %0, i64 n
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %102 = load ptr, ptr %101, align 8
-  %103 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 208), align 8
+  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 208), align 8
   %104 = tail call i32 (ptr, ptr, ptr, ...) %100(ptr noundef nonnull %7, ptr noundef %102, ptr noundef %103, ptr noundef %97, i64 noundef %1, i32 noundef %94) #19
   %105 = load ptr, ptr %7, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 1824
@@ -683,8 +683,8 @@ define ptr @Java_sun_font_FreetypeFontScaler_getFontMetricsNative(ptr noundef %0
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 224
   %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 192), align 8
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 200), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 192), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 200), align 8
   %17 = tail call ptr (ptr, ptr, ptr, ...) %14(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %16, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00) #19
   br label %134
 
@@ -697,8 +697,8 @@ define ptr @Java_sun_font_FreetypeFontScaler_getFontMetricsNative(ptr noundef %0
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 224
   %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 192), align 8
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 200), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 192), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 200), align 8
   %26 = tail call ptr (ptr, ptr, ptr, ...) %23(ptr noundef nonnull %0, ptr noundef %24, ptr noundef %25, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00) #19
   tail call fastcc void @invalidateJavaScaler(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7)
   br label %134
@@ -777,8 +777,8 @@ define ptr @Java_sun_font_FreetypeFontScaler_getFontMetricsNative(ptr noundef %0
   %88 = load ptr, ptr %0, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 224
   %90 = load ptr, ptr %89, align 8
-  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 192), align 8
-  %92 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 200), align 8
+  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 192), align 8
+  %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 200), align 8
   %93 = load i64, ptr %6, align 8
   %94 = sitofp i64 %93 to float
   %95 = fmul float %94, 0x3EF0000000000000
@@ -1321,13 +1321,13 @@ define void @Java_sun_font_FreetypeFontScaler_getGlyphMetricsNative(ptr noundef 
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 888
   %13 = load ptr, ptr %12, align 8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 152), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 152), align 8
   %15 = load float, ptr %10, align 8
   tail call void %13(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %14, float noundef %15) #19
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 888
   %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 160), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 160), align 8
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %21 = load float, ptr %20, align 4
   tail call void %18(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %19, float noundef %21) #19
@@ -1338,12 +1338,12 @@ define void @Java_sun_font_FreetypeFontScaler_getGlyphMetricsNative(ptr noundef 
   %23 = load ptr, ptr %0, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 888
   %25 = load ptr, ptr %24, align 8
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 152), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 152), align 8
   tail call void %25(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %26, float noundef 0.000000e+00) #19
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 888
   %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 160), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 160), align 8
   tail call void %29(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %30, float noundef 0.000000e+00) #19
   br label %31
 
@@ -1611,8 +1611,8 @@ addToGP.exit.i:                                   ; preds = %39, %35
   %64 = load ptr, ptr %0, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 224
   %66 = load ptr, ptr %65, align 8
-  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 168), align 8
-  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 176), align 8
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 168), align 8
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 176), align 8
   %69 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %70 = load i32, ptr %69, align 8
   %71 = load i32, ptr %9, align 8
@@ -1656,8 +1656,8 @@ getGlyphGeneralPath.exit:                         ; preds = %78, %80
   %83 = load ptr, ptr %0, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 224
   %85 = load ptr, ptr %84, align 8
-  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 168), align 8
-  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 184), align 8
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 168), align 8
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 184), align 8
   %88 = call ptr (ptr, ptr, ptr, ...) %85(ptr noundef nonnull %0, ptr noundef %86, ptr noundef %87) #19
   br label %89
 
@@ -1721,8 +1721,8 @@ getFTOutline.exit.thread:                         ; preds = %17, %15, %6, %11, %
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 224
   %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 80), align 8
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 88), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 80), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 88), align 8
   %39 = tail call ptr (ptr, ptr, ptr, ...) %36(ptr noundef nonnull %0, ptr noundef %37, ptr noundef %38) #19
   br label %80
 
@@ -1750,8 +1750,8 @@ getFTOutline.exit.thread:                         ; preds = %17, %15, %6, %11, %
   %52 = load ptr, ptr %0, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 224
   %54 = load ptr, ptr %53, align 8
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 80), align 8
-  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 88), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 80), align 8
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 88), align 8
   %57 = call ptr (ptr, ptr, ptr, ...) %54(ptr noundef nonnull %0, ptr noundef %55, ptr noundef %56) #19
   br label %80
 
@@ -1759,8 +1759,8 @@ getFTOutline.exit.thread:                         ; preds = %17, %15, %6, %11, %
   %59 = load ptr, ptr %0, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 224
   %61 = load ptr, ptr %60, align 8
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 80), align 8
-  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 96), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 80), align 8
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 96), align 8
   %64 = sitofp i64 %43 to float
   %65 = fmul float %64, 1.562500e-02
   %66 = fpext float %65 to double
@@ -1862,8 +1862,8 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphVectorOutlineNative(ptr nou
   %19 = load ptr, ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 224
   %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 168), align 8
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 184), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 168), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 184), align 8
   %24 = tail call ptr (ptr, ptr, ptr, ...) %21(ptr noundef nonnull %0, ptr noundef %22, ptr noundef %23) #19
   br label %105
 
@@ -1978,8 +1978,8 @@ addToGP.exit:                                     ; preds = %61, %57, %35, %38, 
   %88 = load ptr, ptr %0, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 224
   %90 = load ptr, ptr %89, align 8
-  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 168), align 8
-  %92 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 176), align 8
+  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 168), align 8
+  %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 176), align 8
   %93 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %94 = load i32, ptr %93, align 8
   %95 = load i32, ptr %10, align 8
@@ -1991,8 +1991,8 @@ addToGP.exit:                                     ; preds = %61, %57, %35, %38, 
   %99 = load ptr, ptr %0, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 224
   %101 = load ptr, ptr %100, align 8
-  %102 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 168), align 8
-  %103 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 184), align 8
+  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 168), align 8
+  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 184), align 8
   %104 = call ptr (ptr, ptr, ptr, ...) %101(ptr noundef nonnull %0, ptr noundef %102, ptr noundef %103) #19
   br label %105
 
@@ -2200,8 +2200,8 @@ getFTOutline.exit.thread:                         ; preds = %17, %15, %7, %11, %
   %49 = load ptr, ptr %0, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 224
   %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 136), align 8
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 144), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 136), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 144), align 8
   %54 = tail call ptr (ptr, ptr, ptr, ...) %51(ptr noundef nonnull %0, ptr noundef %52, ptr noundef %53, double noundef %.0, double noundef %.017) #19
   ret ptr %54
 }

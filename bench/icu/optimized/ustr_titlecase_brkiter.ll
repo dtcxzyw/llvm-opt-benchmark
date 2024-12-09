@@ -303,7 +303,7 @@ new.notnull:                                      ; preds = %sw.bb8
           to label %new.cont unwind label %lpad10
 
 new.cont:                                         ; preds = %new.notnull
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7524WholeStringBreakIteratorE, i64 16), ptr %call9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7524WholeStringBreakIteratorE, i64 16), ptr %call9, align 8
   %length.i = getelementptr inbounds nuw i8, ptr %call9, i64 480
   store i32 0, ptr %length.i, align 8
   br label %sw.epilog

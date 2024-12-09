@@ -3446,7 +3446,7 @@ _ZN7tracing4span4Span8do_enter17h4bb6ad0db6f4173aE.exit: ; preds = %.noexc77, %.
   br i1 %45, label %46, label %.thread122
 
 46:                                               ; preds = %43
-  %47 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3rpc4peer4Peer14add_connection10__CALLSITE17h2dd10f2740c998e5E, i64 16) monotonic, align 8
+  %47 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN3rpc4peer4Peer14add_connection10__CALLSITE17h2dd10f2740c998e5E, i64 16) monotonic, align 8
   switch i8 %47, label %48 [
     i8 0, label %.thread122
     i8 1, label %.thread118
@@ -9287,7 +9287,7 @@ common.ret:                                       ; preds = %1834, %1675, %"_ZN4
   br i1 %1555, label %1556, label %.thread135.i.i
 
 1556:                                             ; preds = %1553
-  %1557 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hcc12012c327f203bE", i64 16) monotonic, align 8, !noalias !2161
+  %1557 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hcc12012c327f203bE", i64 16) monotonic, align 8, !noalias !2161
   switch i8 %1557, label %1558 [
     i8 0, label %.thread135.i.i
     i8 1, label %.thread.i.i
@@ -12477,7 +12477,7 @@ _ZN4core3ops8function6FnOnce9call_once17h312f83832f781bcdE.exit.i.i: ; preds = %
   br i1 %139, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h923d00cdc18dbacbE.exit.i", label %_ZN4core3ops8function6FnOnce9call_once17h312f83832f781bcdE.exit.thread2.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17h312f83832f781bcdE.exit.thread2.i.i: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h312f83832f781bcdE.exit.i.i, %136
-  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %138, %_ZN4core3ops8function6FnOnce9call_once17h312f83832f781bcdE.exit.i.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %136 ]
+  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %138, %_ZN4core3ops8function6FnOnce9call_once17h312f83832f781bcdE.exit.i.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %136 ]
   %140 = load ptr, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !2517, !noundef !5
   store ptr null, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !2517
   %141 = icmp eq ptr %140, null
@@ -13558,7 +13558,7 @@ _ZN4core3ops8function6FnOnce9call_once17h312f83832f781bcdE.exit.i.i: ; preds = %
   br i1 %103, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3f4f74650ab6c9a8E.exit.thread.i", label %_ZN4core3ops8function6FnOnce9call_once17h312f83832f781bcdE.exit.thread2.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17h312f83832f781bcdE.exit.thread2.i.i: ; preds = %.noexc.i, %100
-  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %102, %.noexc.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %100 ]
+  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %102, %.noexc.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %100 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !2667
   %104 = load ptr, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !2668, !noundef !5
   store ptr null, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !2668
@@ -14665,7 +14665,7 @@ _ZN4core3ops8function6FnOnce9call_once17h312f83832f781bcdE.exit.i.i: ; preds = %
   br i1 %78, label %116, label %_ZN4core3ops8function6FnOnce9call_once17h312f83832f781bcdE.exit.thread2.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17h312f83832f781bcdE.exit.thread2.i.i: ; preds = %.noexc.i, %75
-  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %77, %.noexc.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %75 ]
+  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %77, %.noexc.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %75 ]
   %79 = load ptr, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !2861, !noundef !5
   store ptr null, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !2861
   %80 = icmp eq ptr %79, null
@@ -15895,7 +15895,7 @@ _ZN4core3ops8function6FnOnce9call_once17h312f83832f781bcdE.exit.i.i: ; preds = %
   br i1 %97, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hb844216c3e186376E.exit.i", label %_ZN4core3ops8function6FnOnce9call_once17h312f83832f781bcdE.exit.thread2.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17h312f83832f781bcdE.exit.thread2.i.i: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h312f83832f781bcdE.exit.i.i, %94
-  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %96, %_ZN4core3ops8function6FnOnce9call_once17h312f83832f781bcdE.exit.i.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %94 ]
+  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %96, %_ZN4core3ops8function6FnOnce9call_once17h312f83832f781bcdE.exit.i.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %94 ]
   %98 = load ptr, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !3015, !noundef !5
   store ptr null, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !3015
   %99 = icmp eq ptr %98, null
@@ -16418,7 +16418,7 @@ _ZN4core3ops8function6FnOnce9call_once17h312f83832f781bcdE.exit.i.i: ; preds = %
   br i1 %95, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc94dd75c99c41b6eE.exit.i", label %_ZN4core3ops8function6FnOnce9call_once17h312f83832f781bcdE.exit.thread2.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17h312f83832f781bcdE.exit.thread2.i.i: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h312f83832f781bcdE.exit.i.i, %92
-  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %94, %_ZN4core3ops8function6FnOnce9call_once17h312f83832f781bcdE.exit.i.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %92 ]
+  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %94, %_ZN4core3ops8function6FnOnce9call_once17h312f83832f781bcdE.exit.i.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %92 ]
   %96 = load ptr, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !3084, !noundef !5
   store ptr null, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !3084
   %97 = icmp eq ptr %96, null
@@ -16760,7 +16760,7 @@ _ZN4core3ops8function6FnOnce9call_once17hccfac40b649dcc66E.exit.i: ; preds = %8
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h5c412ba833f60ea2E.exit": ; preds = %_ZN4core3ops8function6FnOnce9call_once17hccfac40b649dcc66E.exit.i, %8
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %10, %_ZN4core3ops8function6FnOnce9call_once17hccfac40b649dcc66E.exit.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4sync4mpmc5waker17current_thread_id5DUMMY29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb096bde4fb57311bE", i64 1), %8 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %10, %_ZN4core3ops8function6FnOnce9call_once17hccfac40b649dcc66E.exit.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4sync4mpmc5waker17current_thread_id5DUMMY29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb096bde4fb57311bE", i64 1), %8 ]
   %13 = ptrtoint ptr %.sroa.0.0.i.i.i2.i to i64
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !5, !noundef !5

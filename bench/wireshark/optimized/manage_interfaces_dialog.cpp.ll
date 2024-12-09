@@ -128,8 +128,8 @@ define void @_ZN22ManageInterfacesDialogC2EP7QWidget(ptr noundef nonnull align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22ManageInterfacesDialog, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22ManageInterfacesDialog, i64 488), ptr %26, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22ManageInterfacesDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22ManageInterfacesDialog, i64 488), ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %29 = invoke noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #16
           to label %30 unwind label %280
@@ -1420,7 +1420,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i125:   ; preds = %187
   %195 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
   store i32 0, ptr %196, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %195, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %195, align 8
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 12
   store i32 40, ptr %197, align 4
   %198 = getelementptr inbounds nuw i8, ptr %195, i64 16
@@ -1681,7 +1681,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i173:   ; preds = %281
   %289 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 8
   store i32 0, ptr %290, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %289, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %289, align 8
   %291 = getelementptr inbounds nuw i8, ptr %289, i64 12
   store i32 328, ptr %291, align 4
   %292 = getelementptr inbounds nuw i8, ptr %289, i64 16
@@ -2609,9 +2609,9 @@ declare void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN22ManageInterfacesDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8), (16, 24)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22ManageInterfacesDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22ManageInterfacesDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22ManageInterfacesDialog, i64 488), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22ManageInterfacesDialog, i64 488), ptr %2, align 8
   %3 = invoke noundef i32 @_ZNK7QDialog6resultEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %4 unwind label %19
 

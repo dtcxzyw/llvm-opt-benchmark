@@ -1774,7 +1774,7 @@ define dso_local noundef range(i32 -12, 1) i32 @badblocks_init(ptr nocapture nou
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = sext i1 %4 to i32
   store i32 %6, ptr %5, align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %8 = tail call noalias noundef align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 4096) #10
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %8, ptr %9, align 8
@@ -1816,7 +1816,7 @@ define dso_local noundef range(i32 -22, 1) i32 @devm_init_badblocks(ptr noundef 
   br label %13
 
 10:                                               ; preds = %4
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %12 = tail call noalias noundef align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 4096) #10
   br label %13
 

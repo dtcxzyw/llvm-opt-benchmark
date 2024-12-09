@@ -399,7 +399,7 @@ define noundef zeroext i1 @_ZN3log10set_logger17h4bbdc804813591e3E(ptr noundef n
 
 6:                                                ; preds = %2
   store ptr %0, ptr @_ZN3log6LOGGER17h7df7beb1b06e255dE, align 8, !noalias !64
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @_ZN3log6LOGGER17h7df7beb1b06e255dE, i64 8), align 8, !noalias !64
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZN3log6LOGGER17h7df7beb1b06e255dE, i64 8), align 8, !noalias !64
   tail call void @_ZN4core4sync6atomic12atomic_store17h265a075e39f617f6E.llvm.9080322772985218481(ptr noundef nonnull @_ZN3log5STATE17ha079c5667def49c9E, i64 noundef 2, i8 noundef 4)
   br label %_ZN3log16set_logger_inner17hc1ea35fa1eef8b95E.exit
 
@@ -426,7 +426,7 @@ define noundef zeroext i1 @_ZN3log15set_logger_racy17h9db570fc5d439206E(ptr noun
 
 6:                                                ; preds = %2
   store ptr %0, ptr @_ZN3log6LOGGER17h7df7beb1b06e255dE, align 8
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @_ZN3log6LOGGER17h7df7beb1b06e255dE, i64 8), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZN3log6LOGGER17h7df7beb1b06e255dE, i64 8), align 8
   store atomic i64 2, ptr @_ZN3log5STATE17ha079c5667def49c9E seq_cst, align 8
   br label %12
 
@@ -466,7 +466,7 @@ define { ptr, ptr } @_ZN3log6logger17h40c9ea145472b379E() unnamed_addr #6 {
   %1 = load atomic i64, ptr @_ZN3log5STATE17ha079c5667def49c9E acquire, align 8
   %.not = icmp eq i64 %1, 2
   %2 = load ptr, ptr @_ZN3log6LOGGER17h7df7beb1b06e255dE, align 8, !nonnull !7, !align !8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3log6LOGGER17h7df7beb1b06e255dE, i64 8), align 8, !nonnull !7, !align !72
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN3log6LOGGER17h7df7beb1b06e255dE, i64 8), align 8, !nonnull !7, !align !72
   %.sroa.3.0 = select i1 %.not, ptr %3, ptr @anon.da3fca9e6d1d8035af543c408d9d567e.23.llvm.778753998846166598
   %.sroa.0.0 = select i1 %.not, ptr %2, ptr @_ZN3log6logger3NOP17he6d7cdcfa0245171E.llvm.778753998846166598
   %4 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0

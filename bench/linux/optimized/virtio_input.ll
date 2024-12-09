@@ -90,7 +90,7 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   br i1 %31, label %417, label %32
 
 32:                                               ; preds = %1
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %34 = tail call noalias align 8 dereferenceable_or_null(744) ptr @kmalloc_trace(ptr noundef %33, i32 noundef 3520, i64 noundef 744) #11
   %35 = icmp eq ptr %34, null
   br i1 %35, label %417, label %36
@@ -1035,7 +1035,7 @@ define internal i32 @virtinput_status(ptr nocapture noundef readonly %0, i32 nou
   br i1 %18, label %40, label %19
 
 19:                                               ; preds = %4
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 24), align 8
   %21 = tail call noalias align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %20, i32 noundef 2336, i64 noundef 8) #11
   %22 = icmp eq ptr %21, null
   br i1 %22, label %40, label %23

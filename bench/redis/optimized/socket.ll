@@ -196,7 +196,7 @@ if.end:                                           ; preds = %if.then, %if.then5
   br i1 %tobool8.not, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.end
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 96), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 96), align 8
   %5 = load i32, ptr %fd3, align 8
   tail call void @aeDeleteFileEvent(ptr noundef %4, i32 noundef %5, i32 noundef 2) #9
   br label %if.end11
@@ -385,7 +385,7 @@ entry:
 
 while.body:                                       ; preds = %entry, %do.end13
   %dec2 = phi i32 [ 999, %entry ], [ %dec, %do.end13 ]
-  %call = call i32 @anetTcpAccept(ptr noundef nonnull getelementptr inbounds (i8, ptr @server, i64 1592), i32 noundef %fd, ptr noundef nonnull %cip, i64 noundef 46, ptr noundef nonnull %cport) #9
+  %call = call i32 @anetTcpAccept(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @server, i64 1592), i32 noundef %fd, ptr noundef nonnull %cip, i64 noundef 46, ptr noundef nonnull %cport) #9
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %if.then, label %do.body8
 
@@ -393,17 +393,17 @@ if.then:                                          ; preds = %while.body
   %call1 = tail call ptr @__errno_location() #10
   %0 = load i32, ptr %call1, align 4
   %cmp2.not = icmp eq i32 %0, 11
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 3696), align 8
   %cmp4 = icmp sgt i32 %1, 3
   %or.cond = select i1 %cmp2.not, i1 true, i1 %cmp4
   br i1 %or.cond, label %while.end, label %if.end
 
 if.end:                                           ; preds = %if.then
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @server, i64 1592)) #9
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @server, i64 1592)) #9
   br label %while.end
 
 do.body8:                                         ; preds = %while.body
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 3696), align 8
   %cmp9 = icmp sgt i32 %2, 1
   br i1 %cmp9, label %do.end13, label %if.end11
 
@@ -540,7 +540,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 96), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 96), align 8
   tail call void @aeDeleteFileEvent(ptr noundef %1, i32 noundef %0, i32 noundef 3) #9
   %2 = load i32, ptr %fd, align 8
   %call = tail call i32 @close(i32 noundef %2) #9
@@ -591,7 +591,7 @@ if.end:                                           ; preds = %entry
   store i32 1, ptr %state3, align 8
   %conn_handler = getelementptr inbounds nuw i8, ptr %conn, i64 40
   store ptr %connect_handler, ptr %conn_handler, align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 96), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 96), align 8
   %2 = load ptr, ptr %conn, align 8
   %ae_handler = getelementptr inbounds nuw i8, ptr %2, i64 32
   %3 = load ptr, ptr %ae_handler, align 8
@@ -837,7 +837,7 @@ if.end:                                           ; preds = %entry
   %.sink = or disjoint i16 %2, %masksel
   store i16 %.sink, ptr %flags4, align 4
   %tobool9.not = icmp eq ptr %func, null
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 96), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 96), align 8
   %fd = getelementptr inbounds nuw i8, ptr %conn, i64 16
   %4 = load i32, ptr %fd, align 8
   br i1 %tobool9.not, label %if.then10, label %if.else11
@@ -873,7 +873,7 @@ entry:
 if.end:                                           ; preds = %entry
   store ptr %func, ptr %read_handler, align 8
   %tobool.not = icmp eq ptr %func, null
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 96), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 96), align 8
   %fd = getelementptr inbounds nuw i8, ptr %conn, i64 16
   %2 = load i32, ptr %fd, align 8
   br i1 %tobool.not, label %if.then3, label %if.else

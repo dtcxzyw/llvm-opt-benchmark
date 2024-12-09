@@ -283,13 +283,13 @@ define dso_local void @tty_audit_add_data(ptr nocapture noundef readonly %0, ptr
   br label %71
 
 42:                                               ; preds = %37
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %44 = tail call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %43, i32 noundef 3520, i64 noundef 56) #10
   %45 = icmp eq ptr %44, null
   br i1 %45, label %52, label %46
 
 46:                                               ; preds = %42
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %48 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %47, i32 noundef 3264, i64 noundef 4096) #10
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 48
   store ptr %48, ptr %49, align 8

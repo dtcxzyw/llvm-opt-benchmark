@@ -40,8 +40,8 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq22stream_listener_base_tE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq22stream_listener_base_tE, i64 248), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq22stream_listener_base_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq22stream_listener_base_tE, i64 248), ptr %0, align 8
   %_s = getelementptr inbounds nuw i8, ptr %this, i64 1464
   store i32 -1, ptr %_s, align 8
   %_handle = getelementptr inbounds nuw i8, ptr %this, i64 1472
@@ -74,9 +74,9 @@ declare void @_ZN3zmq5own_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1444
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq22stream_listener_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1520) initializes((0, 8), (1448, 1456)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq22stream_listener_base_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq22stream_listener_base_tE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 1448
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq22stream_listener_base_tE, i64 248), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq22stream_listener_base_tE, i64 248), ptr %add.ptr, align 8
   %_s = getelementptr inbounds nuw i8, ptr %this, i64 1464
   %0 = load i32, ptr %_s, align 8
   %cmp.not = icmp eq i32 %0, -1

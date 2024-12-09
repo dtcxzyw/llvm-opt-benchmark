@@ -147,15 +147,15 @@ thread-pre-split:                                 ; preds = %39, %47
   br i1 %.not60, label %62, label %54
 
 54:                                               ; preds = %53
-  %55 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_request_empty, i64 68), align 4
+  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_empty, i64 68), align 4
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %55, ptr %56, align 4
-  %57 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_request_empty, i64 64), align 8
+  %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_empty, i64 64), align 8
   store i32 %57, ptr %4, align 8
-  %58 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_request_empty, i64 80), align 8
+  %58 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_empty, i64 80), align 8
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %58, ptr %59, align 8
-  %60 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_request_empty, i64 76), align 4
+  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_empty, i64 76), align 4
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %60, ptr %61, align 4
   br label %62
@@ -165,7 +165,7 @@ thread-pre-split:                                 ; preds = %39, %47
   br label %101
 
 63:                                               ; preds = %thread-pre-split
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 152), align 8
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 152), align 8
   %65 = sext i32 %1 to i64
   %66 = tail call i32 %64(ptr noundef %0, i64 noundef %65, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) #4
   %.not59 = icmp eq i32 %66, 0
@@ -194,7 +194,7 @@ thread-pre-split:                                 ; preds = %39, %47
 .lr.ph.i:                                         ; preds = %71, %.lr.ph.preheader.i
   %75 = phi i8 [ %.pre15.i, %.lr.ph.preheader.i ], [ %89, %71 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %71 ]
-  %76 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 88), align 8
+  %76 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_errcodes_intern, i64 88), align 8
   %77 = sext i32 %76 to i64
   %.not.i = icmp slt i64 %indvars.iv.i, %77
   tail call void @llvm.assume(i1 %.not.i)
@@ -202,20 +202,20 @@ thread-pre-split:                                 ; preds = %39, %47
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %.lr.ph.i
-  %80 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #4
+  %80 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_errcodes_intern, i64 32)) #4
   %.pre.i.i = load i8, ptr @opal_uses_threads, align 1
   br label %81
 
 81:                                               ; preds = %79, %.lr.ph.i
   %82 = phi i8 [ %75, %.lr.ph.i ], [ %.pre.i.i, %79 ]
-  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_errcodes_intern, i64 112), align 8
   %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv.i
   %85 = load ptr, ptr %84, align 8
   %86 = trunc i8 %82 to i1
   br i1 %86, label %87, label %opal_pointer_array_get_item.exit.i
 
 87:                                               ; preds = %81
-  %88 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #4
+  %88 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_errcodes_intern, i64 32)) #4
   %.pre.i = load i8, ptr @opal_uses_threads, align 1
   br label %opal_pointer_array_get_item.exit.i
 

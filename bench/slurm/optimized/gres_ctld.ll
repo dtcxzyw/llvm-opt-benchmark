@@ -3690,7 +3690,7 @@ define internal fastcc void @_set_type_tres_cnt(ptr noundef %0, ptr noundef %1, 
 6:                                                ; preds = %3
   store i1 true, ptr @_set_type_tres_cnt.first_run, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_set_type_tres_cnt.tres_rec, i8 0, i64 40, i1 false)
-  store ptr @.str.53, ptr getelementptr inbounds (i8, ptr @_set_type_tres_cnt.tres_rec, i64 40), align 8
+  store ptr @.str.53, ptr getelementptr inbounds nuw (i8, ptr @_set_type_tres_cnt.tres_rec, i64 40), align 8
   br label %7
 
 7:                                                ; preds = %6, %3
@@ -3723,7 +3723,7 @@ define internal fastcc void @_set_type_tres_cnt(ptr noundef %0, ptr noundef %1, 
   %17 = phi ptr [ %15, %.lr.ph ], [ %42, %40 ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_set_type_tres_cnt.tres_rec, i64 32), align 8
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_set_type_tres_cnt.tres_rec, i64 32), align 8
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %21 = load i32, ptr %20, align 8
   switch i32 %21, label %40 [
@@ -3743,7 +3743,7 @@ define internal fastcc void @_set_type_tres_cnt(ptr noundef %0, ptr noundef %1, 
 
 29:                                               ; preds = %22
   call void @slurm_xfree(ptr noundef nonnull %4) #8
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_set_type_tres_cnt.tres_rec, i64 32), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_set_type_tres_cnt.tres_rec, i64 32), align 8
   %31 = call ptr @xstrdup(ptr noundef %30) #8
   store ptr %31, ptr %4, align 8
   br label %32
@@ -3827,7 +3827,7 @@ define internal fastcc void @_set_type_tres_cnt(ptr noundef %0, ptr noundef %1, 
 69:                                               ; preds = %64
   %70 = load ptr, ptr %45, align 8
   %71 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.54, ptr noundef %70, ptr noundef nonnull %68) #8
-  store ptr %71, ptr getelementptr inbounds (i8, ptr @_set_type_tres_cnt.tres_rec, i64 32), align 8
+  store ptr %71, ptr getelementptr inbounds nuw (i8, ptr @_set_type_tres_cnt.tres_rec, i64 32), align 8
   %72 = call i32 @assoc_mgr_find_tres_pos(ptr noundef nonnull @_set_type_tres_cnt.tres_rec, i1 noundef zeroext true) #8
   %.not77 = icmp eq i32 %72, -1
   br i1 %.not77, label %76, label %73
@@ -3839,7 +3839,7 @@ define internal fastcc void @_set_type_tres_cnt(ptr noundef %0, ptr noundef %1, 
   br label %76
 
 76:                                               ; preds = %73, %69
-  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @_set_type_tres_cnt.tres_rec, i64 32)) #8
+  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_set_type_tres_cnt.tres_rec, i64 32)) #8
   br label %.outer.backedge
 
 77:                                               ; preds = %64
@@ -3847,7 +3847,7 @@ define internal fastcc void @_set_type_tres_cnt(ptr noundef %0, ptr noundef %1, 
 
 78:                                               ; preds = %77
   %79 = load ptr, ptr %45, align 8
-  store ptr %79, ptr getelementptr inbounds (i8, ptr @_set_type_tres_cnt.tres_rec, i64 32), align 8
+  store ptr %79, ptr getelementptr inbounds nuw (i8, ptr @_set_type_tres_cnt.tres_rec, i64 32), align 8
   %80 = call i32 @assoc_mgr_find_tres_pos2(ptr noundef nonnull @_set_type_tres_cnt.tres_rec, i1 noundef zeroext true) #8
   %.not76 = icmp eq i32 %80, -1
   br i1 %.not76, label %.outer.backedge, label %81
@@ -3883,7 +3883,7 @@ define internal fastcc void @_set_type_tres_cnt(ptr noundef %0, ptr noundef %1, 
 96:                                               ; preds = %91
   %97 = load ptr, ptr %45, align 8
   %98 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.54, ptr noundef %97, ptr noundef nonnull %95) #8
-  store ptr %98, ptr getelementptr inbounds (i8, ptr @_set_type_tres_cnt.tres_rec, i64 32), align 8
+  store ptr %98, ptr getelementptr inbounds nuw (i8, ptr @_set_type_tres_cnt.tres_rec, i64 32), align 8
   %99 = load ptr, ptr %90, align 8
   %100 = getelementptr inbounds nuw i64, ptr %99, i64 %indvars.iv
   %101 = load i64, ptr %100, align 8
@@ -3898,7 +3898,7 @@ define internal fastcc void @_set_type_tres_cnt(ptr noundef %0, ptr noundef %1, 
   br label %106
 
 106:                                              ; preds = %103, %96
-  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @_set_type_tres_cnt.tres_rec, i64 32)) #8
+  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_set_type_tres_cnt.tres_rec, i64 32)) #8
   %.pre = load i16, ptr %87, align 8
   br label %107
 
@@ -4101,7 +4101,7 @@ _step_get_gres_needed.exit:                       ; preds = %66, %72, %77, %84, 
   br i1 %.not48, label %106, label %97
 
 97:                                               ; preds = %_step_get_gres_needed.exit
-  %98 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %98 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %99 = and i64 %98, 2
   %.not49 = icmp eq i64 %99, 0
   br i1 %.not49, label %106, label %100
@@ -5596,11 +5596,11 @@ define internal fastcc void @_gres_2_tres_str_internal(ptr noundef nonnull %0, p
 5:                                                ; preds = %4
   store i1 true, ptr @_gres_2_tres_str_internal.first_run, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_gres_2_tres_str_internal.tres_req, i8 0, i64 32, i1 false)
-  store ptr @.str.53, ptr getelementptr inbounds (i8, ptr @_gres_2_tres_str_internal.tres_req, i64 40), align 8
+  store ptr @.str.53, ptr getelementptr inbounds nuw (i8, ptr @_gres_2_tres_str_internal.tres_req, i64 40), align 8
   br label %6
 
 6:                                                ; preds = %5, %4
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @_gres_2_tres_str_internal.tres_req, i64 32), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_gres_2_tres_str_internal.tres_req, i64 32), align 8
   %7 = tail call ptr @assoc_mgr_find_tres_rec(ptr noundef nonnull @_gres_2_tres_str_internal.tres_req) #8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
@@ -5615,9 +5615,9 @@ define internal fastcc void @_gres_2_tres_str_internal(ptr noundef nonnull %0, p
 
 10:                                               ; preds = %9
   %11 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.54, ptr noundef %1, ptr noundef nonnull %2) #8
-  store ptr %11, ptr getelementptr inbounds (i8, ptr @_gres_2_tres_str_internal.tres_req, i64 32), align 8
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @_gres_2_tres_str_internal.tres_req, i64 32), align 8
   %12 = tail call ptr @assoc_mgr_find_tres_rec(ptr noundef nonnull @_gres_2_tres_str_internal.tres_req) #8
-  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @_gres_2_tres_str_internal.tres_req, i64 32)) #8
+  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_gres_2_tres_str_internal.tres_req, i64 32)) #8
   %.not14 = icmp eq ptr %12, null
   br i1 %.not14, label %14, label %13
 
@@ -5722,7 +5722,7 @@ define dso_local i64 @gres_ctld_step_test(ptr nocapture noundef readonly %0) loc
 
 55:                                               ; preds = %50
   %56 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %57 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %57 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %58 = and i64 %57, 2
   %.not41 = icmp eq i64 %58, 0
   br i1 %.not41, label %.loopexit, label %59
@@ -5872,7 +5872,7 @@ define dso_local i64 @gres_ctld_step_test(ptr nocapture noundef readonly %0) loc
   br i1 %132, label %133, label %.thread110.i
 
 133:                                              ; preds = %131
-  %134 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %134 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %135 = and i64 %134, 2
   %.not102.i = icmp eq i64 %135, 0
   br i1 %.not102.i, label %.thread116.i, label %136

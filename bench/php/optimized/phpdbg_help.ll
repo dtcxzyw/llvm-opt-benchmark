@@ -114,7 +114,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @phpdbg_do_help_aliases(ptr nocapture readnone %0) #0 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %3 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 3, i32 noundef %2, ptr noundef nonnull @.str.17) #6
   %4 = load ptr, ptr @phpdbg_prompt_commands, align 8
   %.not34 = icmp eq ptr %4, null
@@ -132,7 +132,7 @@ define hidden noundef i32 @phpdbg_do_help_aliases(ptr nocapture readnone %0) #0 
   ]
 
 9:                                                ; preds = %.lr.ph36
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %11 = getelementptr inbounds nuw i8, ptr %storemerge35, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 3, i32 noundef %10, ptr noundef nonnull @.str.18, i32 noundef %8, ptr noundef nonnull %5, ptr noundef %12) #6
@@ -154,7 +154,7 @@ define hidden noundef i32 @phpdbg_do_help_aliases(ptr nocapture readnone %0) #0 
 .lr.ph:                                           ; preds = %16, %.lr.ph
   %23 = phi i8 [ %32, %.lr.ph ], [ %22, %16 ]
   %.033 = phi ptr [ %30, %.lr.ph ], [ %15, %16 ]
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %25 = sext i8 %23 to i32
   %26 = load ptr, ptr %.033, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.033, i64 16
@@ -196,7 +196,7 @@ get_command.exit.loopexit:                        ; preds = %.lr.ph43.i
 get_command.exit:                                 ; preds = %1, %get_command.exit.loopexit
   %43 = phi ptr [ %.pre, %get_command.exit.loopexit ], [ null, %1 ]
   %.2 = phi ptr [ %.129, %get_command.exit.loopexit ], [ @phpdbg_prompt_commands, %1 ]
-  %44 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %45 = getelementptr inbounds nuw i8, ptr %.2, i64 32
   %46 = load i8, ptr %45, align 8
   %47 = sext i8 %46 to i32
@@ -217,7 +217,7 @@ get_command.exit:                                 ; preds = %1, %get_command.exi
 .lr.ph39:                                         ; preds = %get_command.exit, %.lr.ph39
   %59 = phi i8 [ %71, %.lr.ph39 ], [ %58, %get_command.exit ]
   %.138 = phi ptr [ %69, %.lr.ph39 ], [ %56, %get_command.exit ]
-  %60 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %61 = load i8, ptr %45, align 8
   %62 = sext i8 %61 to i32
   %63 = sext i8 %59 to i32
@@ -282,9 +282,9 @@ declare i64 @zend_spprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unn
 define internal fastcc void @pretty_print(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call ptr @phpdbg_get_prompt() #6
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1560), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1560), align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
-  %6 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2176), align 8
   %.fr158 = freeze i64 %6
   %7 = and i64 %.fr158, 131072
   %8 = lshr exact i64 %7, 15
@@ -541,14 +541,14 @@ define internal fastcc void @pretty_print(ptr noundef %0) unnamed_addr #0 {
   br i1 %112, label %113, label %118
 
 113:                                              ; preds = %.split157.us
-  %114 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %114 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %115 = trunc i64 %110 to i32
   %116 = sub i32 %115, %39
   %117 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %114, ptr noundef nonnull @.str.81, i32 noundef %116) #6
   br label %118
 
 118:                                              ; preds = %113, %.split157.us
-  %119 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %119 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %120 = tail call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %119, ptr noundef nonnull @.str.82, ptr noundef %41) #6
   tail call void @_efree(ptr noundef %41) #6
   ret void
@@ -841,7 +841,7 @@ get_help.exit33:                                  ; preds = %83, %80
   br label %130
 
 86:                                               ; preds = %60
-  %87 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %87 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %88 = load i8, ptr %17, align 1
   %89 = sext i8 %88 to i32
   %90 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %87, ptr noundef nonnull @.str.15, i32 noundef %89) #6
@@ -943,7 +943,7 @@ get_help.exit53:                                  ; preds = %124, %121
   br label %130
 
 127:                                              ; preds = %get_command.exit48
-  %128 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %128 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %129 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %128, ptr noundef nonnull @.str.16, ptr noundef %17) #6
   br label %130
 

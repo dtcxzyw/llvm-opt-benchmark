@@ -38,7 +38,7 @@ $_ZTIN3zmq20worker_poller_base_tE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq13poller_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq13poller_base_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq13poller_base_tE, i64 16), ptr %this, align 8
   %_load.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load atomic i32, ptr %_load.i seq_cst, align 8
   %cmp.not = icmp eq i32 %0, 0
@@ -284,7 +284,7 @@ return:                                           ; preds = %if.end9, %if.then6,
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq20worker_poller_base_tC2ERKNS_12thread_ctx_tE(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(136) %ctx_) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq13poller_base_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq13poller_base_tE, i64 16), ptr %this, align 8
   %_clock.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN3zmq7clock_tC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_clock.i)
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -299,7 +299,7 @@ entry:
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
   %_load.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 0, ptr %_load.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq20worker_poller_base_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq20worker_poller_base_tE, i64 16), ptr %this, align 8
   %_ctx = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr %ctx_, ptr %_ctx, align 8
   %_worker = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -380,7 +380,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3zmq20worker_poller_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq20worker_poller_base_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq20worker_poller_base_tE, i64 16), ptr %this, align 8
   %_thread_affinity_cpus.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
@@ -395,7 +395,7 @@ terminate.lpad.i.i.i:                             ; preds = %entry
   unreachable
 
 _ZN3zmq8thread_tD2Ev.exit:                        ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq13poller_base_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq13poller_base_tE, i64 16), ptr %this, align 8
   %_load.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %3 = load atomic i32, ptr %_load.i.i seq_cst, align 8
   %cmp.not.i = icmp eq i32 %3, 0

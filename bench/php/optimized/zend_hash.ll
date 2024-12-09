@@ -212,7 +212,7 @@ define void @_zend_hash_init(ptr nocapture noundef writeonly initializes((0, 32)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 -2, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @uninitialized_bucket, i64 8), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @uninitialized_bucket, i64 8), ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -259,7 +259,7 @@ define noalias noundef ptr @_zend_new_array_0() local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 -2, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr getelementptr inbounds (i8, ptr @uninitialized_bucket, i64 8), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @uninitialized_bucket, i64 8), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -286,7 +286,7 @@ define noalias noundef ptr @_zend_new_array(i32 noundef %0) local_unnamed_addr #
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 -2, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr getelementptr inbounds (i8, ptr @uninitialized_bucket, i64 8), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @uninitialized_bucket, i64 8), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -856,8 +856,8 @@ define void @zend_hash_rehash(ptr noundef %0) local_unnamed_addr #8 {
   br i1 %.not218, label %_zend_hash_iterators_update.exit236, label %30
 
 30:                                               ; preds = %26
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %33 = zext i32 %32 to i64
   %34 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %31, i64 %33
   %.not219259 = icmp eq i32 %32, 0
@@ -1027,8 +1027,8 @@ define void @zend_hash_rehash(ptr noundef %0) local_unnamed_addr #8 {
   br i1 %125, label %91, label %.loopexit
 
 126:                                              ; preds = %.preheader244._crit_edge
-  %127 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %128 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %128 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %129 = zext i32 %128 to i64
   %130 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %127, i64 %129
   %.not15.i = icmp eq i32 %128, 0
@@ -1122,8 +1122,8 @@ zend_hash_iterators_lower_pos.exit:               ; preds = %137, %126
 .preheader241:                                    ; preds = %170
   %171 = load i8, ptr %86, align 2
   %172 = icmp eq i8 %171, 0
-  %.pr.us = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
-  %173 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %.pr.us = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
+  %173 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   br i1 %172, label %.preheader241.split.us, label %.preheader241.split
 
 .preheader241.split.us:                           ; preds = %.preheader241
@@ -1213,8 +1213,8 @@ _zend_hash_iterators_update.exit.thread:          ; preds = %188
   br i1 %.not.i221, label %_zend_hash_iterators_update.exit.loopexit, label %.lr.ph.i220
 
 _zend_hash_iterators_update.exit.loopexit:        ; preds = %199
-  %.pr.pre = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %.pr.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   br label %_zend_hash_iterators_update.exit
 
 _zend_hash_iterators_update.exit:                 ; preds = %_zend_hash_iterators_update.exit.loopexit, %.preheader241.split
@@ -1307,8 +1307,8 @@ zend_hash_iterators_lower_pos.exit231:            ; preds = %211, %_zend_hash_it
   br i1 %.not214, label %_zend_hash_iterators_update.exit236, label %238
 
 238:                                              ; preds = %.loopexit245
-  %239 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %240 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %239 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %240 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %241 = zext i32 %240 to i64
   %242 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %239, i64 %241
   %.not9.i232 = icmp eq i32 %240, 0
@@ -1755,16 +1755,16 @@ zend_array_recalc_elements.exit.thread:           ; preds = %5, %zend_array_reca
   br label %zend_array_recalc_elements.exit22
 
 27:                                               ; preds = %1
-  %28 = icmp eq ptr %0, getelementptr inbounds (i8, ptr @executor_globals, i64 304)
+  %28 = icmp eq ptr %0, getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304)
   br i1 %28, label %29, label %47
 
 29:                                               ; preds = %27
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 332), align 4
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 320), align 8
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 328), align 8
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 332), align 4
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 320), align 8
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 328), align 8
   %33 = zext i32 %32 to i64
   %34 = getelementptr inbounds nuw %struct._Bucket, ptr %31, i64 %33
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 312), align 8
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 312), align 8
   %36 = and i32 %35, 4
   %.not.i12 = icmp eq i32 %36, 0
   tail call void @llvm.assume(i1 %.not.i12)
@@ -1876,8 +1876,8 @@ define i32 @zend_hash_get_current_pos(ptr nocapture noundef readonly %0) local_u
 
 ; Function Attrs: nounwind uwtable
 define i32 @zend_hash_iterator_add(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1008), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1008), align 8
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %3, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -1904,7 +1904,7 @@ define i32 @zend_hash_iterator_add(ptr noundef %0, i32 noundef %1) local_unnamed
   store ptr %0, ptr %.02835, align 8
   %15 = getelementptr inbounds nuw i8, ptr %.02835, i64 8
   store i32 %1, ptr %15, align 8
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %17 = ptrtoint ptr %.02835 to i64
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
@@ -1913,7 +1913,7 @@ define i32 @zend_hash_iterator_add(ptr noundef %0, i32 noundef %1) local_unnamed
   %22 = getelementptr inbounds nuw i8, ptr %.02835, i64 12
   store i32 %21, ptr %22, align 4
   %23 = add i32 %21, 1
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %25 = icmp ugt i32 %23, %24
   br i1 %25, label %.sink.split, label %56
 
@@ -1923,9 +1923,9 @@ define i32 @zend_hash_iterator_add(ptr noundef %0, i32 noundef %1) local_unnamed
   br i1 %.not32, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %26, %11
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %29 = icmp eq ptr %28, getelementptr inbounds (i8, ptr @executor_globals, i64 1024)
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1008), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %29 = icmp eq ptr %28, getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1024)
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1008), align 8
   %31 = add i32 %30, 8
   %32 = zext i32 %31 to i64
   %33 = shl nuw nsw i64 %32, 4
@@ -1933,17 +1933,17 @@ define i32 @zend_hash_iterator_add(ptr noundef %0, i32 noundef %1) local_unnamed
 
 34:                                               ; preds = %._crit_edge
   %35 = tail call noalias ptr @_emalloc(i64 noundef %33) #27
-  store ptr %35, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1008), align 8
+  store ptr %35, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1008), align 8
   %37 = zext i32 %36 to i64
   %38 = shl nuw nsw i64 %37, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %35, ptr nonnull align 8 getelementptr inbounds (i8, ptr @executor_globals, i64 1024), i64 %38, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %35, ptr nonnull align 8 getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1024), i64 %38, i1 false)
   br label %41
 
 39:                                               ; preds = %._crit_edge
   %40 = tail call ptr @_erealloc(ptr noundef %28, i64 noundef %33) #30
-  store ptr %40, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1008), align 8
+  store ptr %40, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1008), align 8
   %.pre37 = zext i32 %.pre to i64
   br label %41
 
@@ -1953,13 +1953,13 @@ define i32 @zend_hash_iterator_add(ptr noundef %0, i32 noundef %1) local_unnamed
   %43 = phi ptr [ %40, %39 ], [ %35, %34 ]
   %44 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %43, i64 %.pre-phi
   %45 = add i32 %42, 8
-  store i32 %45, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1008), align 8
+  store i32 %45, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1008), align 8
   store ptr %0, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 %1, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %47, i8 0, i64 112, i1 false)
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %49 = ptrtoint ptr %44 to i64
   %50 = ptrtoint ptr %48 to i64
   %51 = sub i64 %49, %50
@@ -1973,7 +1973,7 @@ define i32 @zend_hash_iterator_add(ptr noundef %0, i32 noundef %1) local_unnamed
 .sink.split:                                      ; preds = %14, %41
   %.sink = phi i32 [ %55, %41 ], [ %23, %14 ]
   %.0.ph = phi i32 [ %53, %41 ], [ %21, %14 ]
-  store i32 %.sink, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  store i32 %.sink, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   br label %56
 
 56:                                               ; preds = %.sink.split, %14
@@ -1989,7 +1989,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define i32 @zend_hash_iterator_pos(i32 noundef %0, ptr noundef %1) local_unnamed_addr #14 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %4 = zext i32 %0 to i64
   %5 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %3, i64 %4
   %6 = icmp ne i32 %0, -1
@@ -2172,7 +2172,7 @@ define i32 @zend_hash_iterator_pos(i32 noundef %0, ptr noundef %1) local_unnamed
 ; Function Attrs: nounwind uwtable
 define i32 @zend_hash_iterator_pos_ex(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %5 = zext i32 %0 to i64
   %6 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %4, i64 %5
   %7 = icmp ne i32 %0, -1
@@ -2639,8 +2639,8 @@ define noundef ptr @zend_array_dup(ptr noundef %0) local_unnamed_addr #5 {
   br i1 %.not1839, label %zend_array_dup_ht_iterators.exit, label %171
 
 171:                                              ; preds = %168
-  %172 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %173 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %172 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %173 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %174 = zext i32 %173 to i64
   %175 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %172, i64 %174
   %.not12.i = icmp eq i32 %173, 0
@@ -2656,7 +2656,7 @@ define noundef ptr @zend_array_dup(ptr noundef %0) local_unnamed_addr #5 {
   %179 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %180 = load i32, ptr %179, align 8
   %181 = tail call i32 @zend_hash_iterator_add(ptr noundef %2, i32 noundef %180)
-  %182 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %182 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %183 = zext i32 %181 to i64
   %184 = getelementptr inbounds nuw i8, ptr %.013.i, i64 12
   %185 = load i32, ptr %184, align 4
@@ -2749,8 +2749,8 @@ define noundef ptr @zend_array_dup(ptr noundef %0) local_unnamed_addr #5 {
   br i1 %.not1833, label %zend_array_dup_ht_iterators.exit, label %227
 
 227:                                              ; preds = %224
-  %228 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %229 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %228 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %229 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %230 = zext i32 %229 to i64
   %231 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %228, i64 %230
   %.not12.i1887 = icmp eq i32 %229, 0
@@ -2766,7 +2766,7 @@ define noundef ptr @zend_array_dup(ptr noundef %0) local_unnamed_addr #5 {
   %235 = getelementptr inbounds nuw i8, ptr %.013.i1889, i64 8
   %236 = load i32, ptr %235, align 8
   %237 = tail call i32 @zend_hash_iterator_add(ptr noundef %2, i32 noundef %236)
-  %238 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %238 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %239 = zext i32 %237 to i64
   %240 = getelementptr inbounds nuw i8, ptr %.013.i1889, i64 12
   %241 = load i32, ptr %240, align 4
@@ -2859,8 +2859,8 @@ define noundef ptr @zend_array_dup(ptr noundef %0) local_unnamed_addr #5 {
   br i1 %.not1761, label %zend_array_dup_ht_iterators.exit1896.preheader, label %298
 
 298:                                              ; preds = %297
-  %299 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %300 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %299 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %300 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %301 = zext i32 %300 to i64
   %302 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %299, i64 %301
   %.not12.i1892 = icmp eq i32 %300, 0
@@ -2876,7 +2876,7 @@ define noundef ptr @zend_array_dup(ptr noundef %0) local_unnamed_addr #5 {
   %306 = getelementptr inbounds nuw i8, ptr %.013.i1894, i64 8
   %307 = load i32, ptr %306, align 8
   %308 = tail call i32 @zend_hash_iterator_add(ptr noundef nonnull %2, i32 noundef %307)
-  %309 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %309 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %310 = zext i32 %308 to i64
   %311 = getelementptr inbounds nuw i8, ptr %.013.i1894, i64 12
   %312 = load i32, ptr %311, align 4
@@ -3123,8 +3123,8 @@ zend_array_dup_ht_iterators.exit1896:             ; preds = %zend_array_dup_ht_i
   %442 = load i32, ptr %255, align 8
   %443 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %442, ptr %443, align 8
-  %444 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %445 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %444 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %445 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %446 = zext i32 %445 to i64
   %447 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %444, i64 %446
   %.not15.i = icmp eq i32 %445, 0
@@ -3266,8 +3266,8 @@ zend_hash_iterators_lower_pos.exit:               ; preds = %454, %441
 .preheader2018:                                   ; preds = %514
   %515 = load i8, ptr %376, align 2
   %516 = icmp eq i8 %515, 0
-  %.pr.us = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
-  %517 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %.pr.us = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
+  %517 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   br i1 %516, label %.preheader2018.split.us, label %.preheader2018.split
 
 .preheader2018.split.us:                          ; preds = %.preheader2018
@@ -3358,8 +3358,8 @@ _zend_hash_iterators_update.exit.thread:          ; preds = %533
   br i1 %.not.i1900, label %_zend_hash_iterators_update.exit.loopexit, label %.lr.ph.i1899
 
 _zend_hash_iterators_update.exit.loopexit:        ; preds = %544
-  %.pr.pre = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
-  %.pre2166 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %.pr.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
+  %.pre2166 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   br label %_zend_hash_iterators_update.exit
 
 _zend_hash_iterators_update.exit:                 ; preds = %_zend_hash_iterators_update.exit.loopexit, %.preheader2018.split
@@ -3419,8 +3419,8 @@ zend_hash_iterators_lower_pos.exit1910:           ; preds = %556, %_zend_hash_it
   br i1 %.not1761, label %zend_array_dup_ht_iterators.exit1915.preheader, label %564
 
 564:                                              ; preds = %563
-  %565 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %566 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %565 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %566 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %567 = zext i32 %566 to i64
   %568 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %565, i64 %567
   %.not12.i1911 = icmp eq i32 %566, 0
@@ -3436,7 +3436,7 @@ zend_hash_iterators_lower_pos.exit1910:           ; preds = %556, %_zend_hash_it
   %572 = getelementptr inbounds nuw i8, ptr %.013.i1913, i64 8
   %573 = load i32, ptr %572, align 8
   %574 = tail call i32 @zend_hash_iterator_add(ptr noundef nonnull %2, i32 noundef %573)
-  %575 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %575 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %576 = zext i32 %574 to i64
   %577 = getelementptr inbounds nuw i8, ptr %.013.i1913, i64 12
   %578 = load i32, ptr %577, align 4
@@ -3689,8 +3689,8 @@ zend_array_dup_ht_iterators.exit1915:             ; preds = %zend_array_dup_ht_i
   %704 = load i32, ptr %255, align 8
   %705 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %704, ptr %705, align 8
-  %706 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %707 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %706 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %707 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %708 = zext i32 %707 to i64
   %709 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %706, i64 %708
   %.not15.i1916 = icmp eq i32 %707, 0
@@ -3835,8 +3835,8 @@ zend_hash_iterators_lower_pos.exit1925:           ; preds = %716, %703
 .preheader2024:                                   ; preds = %774
   %775 = load i8, ptr %640, align 2
   %776 = icmp eq i8 %775, 0
-  %.pr1992.us = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
-  %777 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %.pr1992.us = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
+  %777 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   br i1 %776, label %.preheader2024.split.us, label %.preheader2024.split
 
 .preheader2024.split.us:                          ; preds = %.preheader2024
@@ -3927,8 +3927,8 @@ _zend_hash_iterators_update.exit1930.thread:      ; preds = %793
   br i1 %.not.i1929, label %_zend_hash_iterators_update.exit1930.loopexit, label %.lr.ph.i1927
 
 _zend_hash_iterators_update.exit1930.loopexit:    ; preds = %804
-  %.pr1992.pre = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
-  %.pre2160 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %.pr1992.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
+  %.pre2160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   br label %_zend_hash_iterators_update.exit1930
 
 _zend_hash_iterators_update.exit1930:             ; preds = %_zend_hash_iterators_update.exit1930.loopexit, %.preheader2024.split
@@ -4245,8 +4245,8 @@ zend_hash_iterators_lower_pos.exit1940:           ; preds = %816, %_zend_hash_it
   %958 = load i32, ptr %255, align 8
   %959 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %958, ptr %959, align 8
-  %960 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %961 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %960 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %961 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %962 = zext i32 %961 to i64
   %963 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %960, i64 %962
   %.not15.i1941 = icmp eq i32 %961, 0
@@ -4407,8 +4407,8 @@ zend_hash_iterators_lower_pos.exit1950:           ; preds = %970, %957
 .preheader2006:                                   ; preds = %1040
   %1041 = load i8, ptr %882, align 2
   %1042 = icmp eq i8 %1041, 0
-  %.pr2002.us = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
-  %1043 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %.pr2002.us = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
+  %1043 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   br i1 %1042, label %.preheader2006.split.us, label %.preheader2006.split
 
 .preheader2006.split.us:                          ; preds = %.preheader2006
@@ -4499,8 +4499,8 @@ _zend_hash_iterators_update.exit1955.thread:      ; preds = %1059
   br i1 %.not.i1954, label %_zend_hash_iterators_update.exit1955.loopexit, label %.lr.ph.i1952
 
 _zend_hash_iterators_update.exit1955.loopexit:    ; preds = %1070
-  %.pr2002.pre = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
-  %.pre2185 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %.pr2002.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
+  %.pre2185 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   br label %_zend_hash_iterators_update.exit1955
 
 _zend_hash_iterators_update.exit1955:             ; preds = %_zend_hash_iterators_update.exit1955.loopexit, %.preheader2006.split
@@ -4840,8 +4840,8 @@ zend_hash_iterators_lower_pos.exit1965:           ; preds = %1082, %_zend_hash_i
   %1234 = load i32, ptr %255, align 8
   %1235 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %1234, ptr %1235, align 8
-  %1236 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %1237 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %1236 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %1237 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %1238 = zext i32 %1237 to i64
   %1239 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %1236, i64 %1238
   %.not15.i1966 = icmp eq i32 %1237, 0
@@ -5005,8 +5005,8 @@ zend_hash_iterators_lower_pos.exit1975:           ; preds = %1246, %1233
 .preheader2012:                                   ; preds = %1314
   %1315 = load i8, ptr %1160, align 2
   %1316 = icmp eq i8 %1315, 0
-  %.pr2004.us = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
-  %1317 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %.pr2004.us = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
+  %1317 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   br i1 %1316, label %.preheader2012.split.us, label %.preheader2012.split
 
 .preheader2012.split.us:                          ; preds = %.preheader2012
@@ -5097,8 +5097,8 @@ _zend_hash_iterators_update.exit1980.thread:      ; preds = %1333
   br i1 %.not.i1979, label %_zend_hash_iterators_update.exit1980.loopexit, label %.lr.ph.i1977
 
 _zend_hash_iterators_update.exit1980.loopexit:    ; preds = %1344
-  %.pr2004.pre = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
-  %.pre2176 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %.pr2004.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
+  %.pre2176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   br label %_zend_hash_iterators_update.exit1980
 
 _zend_hash_iterators_update.exit1980:             ; preds = %_zend_hash_iterators_update.exit1980.loopexit, %.preheader2012.split
@@ -5188,7 +5188,7 @@ zend_array_dup_ht_iterators.exit:                 ; preds = %243, %187, %227, %1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define void @zend_hash_iterator_del(i32 noundef %0) local_unnamed_addr #14 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %3 = zext i32 %0 to i64
   %4 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %2, i64 %3
   %5 = icmp ne i32 %0, -1
@@ -5225,13 +5225,13 @@ define void @zend_hash_iterator_del(i32 noundef %0) local_unnamed_addr #14 {
   br label %17
 
 17:                                               ; preds = %16, %13
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %19 = add i32 %18, -1
   %20 = icmp eq i32 %0, %19
   br i1 %20, label %.preheader, label %29
 
 .preheader:                                       ; preds = %17
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   br label %22
 
 22:                                               ; preds = %.preheader, %23
@@ -5252,7 +5252,7 @@ define void @zend_hash_iterator_del(i32 noundef %0) local_unnamed_addr #14 {
 
 .critedge:                                        ; preds = %22, %.critedge.split.loop.exit23
   %.0.lcssa = phi i32 [ %28, %.critedge.split.loop.exit23 ], [ 0, %22 ]
-  store i32 %.0.lcssa, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  store i32 %.0.lcssa, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   br label %29
 
 29:                                               ; preds = %.critedge, %17
@@ -5261,7 +5261,7 @@ define void @zend_hash_iterator_del(i32 noundef %0) local_unnamed_addr #14 {
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define internal fastcc void @zend_hash_remove_iterator_copies(i32 noundef range(i32 0, -1) %0) unnamed_addr #14 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %3 = zext i32 %0 to i64
   %4 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %2, i64 %3, i32 2
   %5 = load i32, ptr %4, align 4
@@ -5274,7 +5274,7 @@ define internal fastcc void @zend_hash_remove_iterator_copies(i32 noundef range(
   %7 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %2, i64 %6, i32 2
   %8 = load i32, ptr %7, align 4
   store i32 %.015, ptr %7, align 4
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %10 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %9, i64 %6
   %11 = icmp ne i32 %.015, -1
   tail call void @llvm.assume(i1 %11)
@@ -5310,13 +5310,13 @@ define internal fastcc void @zend_hash_remove_iterator_copies(i32 noundef range(
   br label %23
 
 23:                                               ; preds = %22, %19
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %25 = add i32 %24, -1
   %26 = icmp eq i32 %.015, %25
   br i1 %26, label %.preheader, label %zend_hash_iterator_del.exit
 
 .preheader:                                       ; preds = %23
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   br label %28
 
 28:                                               ; preds = %.preheader, %29
@@ -5337,7 +5337,7 @@ define internal fastcc void @zend_hash_remove_iterator_copies(i32 noundef range(
 
 .critedge.i:                                      ; preds = %28, %.critedge.i.split.loop.exit
   %.0.i.lcssa = phi i32 [ %34, %.critedge.i.split.loop.exit ], [ 0, %28 ]
-  store i32 %.0.i.lcssa, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  store i32 %.0.i.lcssa, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   br label %zend_hash_iterator_del.exit
 
 zend_hash_iterator_del.exit:                      ; preds = %23, %.critedge.i
@@ -5351,8 +5351,8 @@ zend_hash_iterator_del.exit:                      ; preds = %23, %.critedge.i
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @zend_hash_iterators_lower_pos(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #12 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %3, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5388,8 +5388,8 @@ define i32 @zend_hash_iterators_lower_pos(ptr noundef readonly %0, i32 noundef %
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_zend_hash_iterators_update(ptr noundef readnone %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #15 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %6 = zext i32 %5 to i64
   %7 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %4, i64 %6
   %.not9 = icmp eq i32 %5, 0
@@ -5422,8 +5422,8 @@ define void @_zend_hash_iterators_update(ptr noundef readnone %0, i32 noundef %1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @zend_hash_iterators_advance(ptr noundef readnone %0, i32 noundef %1) local_unnamed_addr #15 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %3, i64 %5
   %.not7 = icmp eq i32 %4, 0
@@ -10124,8 +10124,8 @@ define void @zend_hash_packed_del_val(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %.not48, label %.loopexit, label %33
 
 33:                                               ; preds = %.critedge
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %34, i64 %36
   %.not4952 = icmp eq i32 %35, 0
@@ -10312,8 +10312,8 @@ define void @zend_hash_del_bucket(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %.not96, label %.loopexit, label %75
 
 75:                                               ; preds = %.critedge
-  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %77 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %77 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %78 = zext i32 %77 to i64
   %79 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %76, i64 %78
   %.not97102 = icmp eq i32 %77, 0
@@ -10526,8 +10526,8 @@ split:                                            ; preds = %split.loopexit, %._
   br i1 %.not104, label %.loopexit, label %88
 
 88:                                               ; preds = %.critedge2
-  %89 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %90 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %90 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %91 = zext i32 %90 to i64
   %92 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %89, i64 %91
   %.not105118 = icmp eq i32 %90, 0
@@ -10791,8 +10791,8 @@ define range(i32 -1, 1) i32 @zend_hash_del_ind(ptr noundef %0, ptr noundef %1) l
   br i1 %.not121, label %.loopexit, label %116
 
 116:                                              ; preds = %.critedge2
-  %117 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %118 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %118 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %119 = zext i32 %118 to i64
   %120 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %117, i64 %119
   %.not122136 = icmp eq i32 %118, 0
@@ -11145,8 +11145,8 @@ define range(i32 -1, 1) i32 @zend_hash_str_del_ind(ptr noundef %0, ptr nocapture
   br i1 %.not153, label %.loopexit, label %190
 
 190:                                              ; preds = %.critedge2
-  %191 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %192 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %191 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %192 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %193 = zext i32 %192 to i64
   %194 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %191, i64 %193
   %.not154178 = icmp eq i32 %192, 0
@@ -11468,8 +11468,8 @@ define range(i32 -1, 1) i32 @zend_hash_str_del(ptr noundef %0, ptr nocapture nou
   br i1 %.not142, label %.loopexit, label %173
 
 173:                                              ; preds = %.critedge2
-  %174 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %175 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %174 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %175 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %176 = zext i32 %175 to i64
   %177 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %174, i64 %176
   %.not143166 = icmp eq i32 %175, 0
@@ -11588,8 +11588,8 @@ define range(i32 -1, 1) i32 @zend_hash_index_del(ptr noundef %0, i64 noundef %1)
   br i1 %.not137, label %.loopexit144, label %37
 
 37:                                               ; preds = %.critedge
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %40 = zext i32 %39 to i64
   %41 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %38, i64 %40
   %.not138151 = icmp eq i32 %39, 0
@@ -11716,8 +11716,8 @@ define range(i32 -1, 1) i32 @zend_hash_index_del(ptr noundef %0, i64 noundef %1)
   br i1 %.not132, label %.loopexit, label %102
 
 102:                                              ; preds = %.critedge2
-  %103 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %104 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %105 = zext i32 %104 to i64
   %106 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %103, i64 %105
   %.not133159 = icmp eq i32 %104, 0
@@ -11837,8 +11837,8 @@ define void @zend_hash_destroy(ptr noundef readonly %0) local_unnamed_addr #0 {
   br i1 %.not132, label %_zend_hash_iterators_remove.exit, label %29
 
 29:                                               ; preds = %.loopexit150
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %32 = zext i32 %31 to i64
   %33 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %30, i64 %32
   %.not7.i = icmp eq i32 %31, 0
@@ -12051,8 +12051,8 @@ define void @zend_hash_destroy(ptr noundef readonly %0) local_unnamed_addr #0 {
   br i1 %.not127, label %_zend_hash_iterators_remove.exit, label %120
 
 120:                                              ; preds = %.loopexit
-  %121 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %122 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %122 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %123 = zext i32 %122 to i64
   %124 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %121, i64 %123
   %.not7.i135 = icmp eq i32 %122, 0
@@ -12471,8 +12471,8 @@ define void @zend_array_destroy(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not147, label %_zend_hash_iterators_remove.exit, label %176
 
 176:                                              ; preds = %173
-  %177 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %178 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %177 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %178 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %179 = zext i32 %178 to i64
   %180 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %177, i64 %179
   %.not7.i = icmp eq i32 %178, 0
@@ -13150,8 +13150,8 @@ define void @zend_hash_graceful_destroy(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not176, label %.loopexit185, label %37
 
 37:                                               ; preds = %.critedge
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %40 = zext i32 %39 to i64
   %41 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %38, i64 %40
   %.not177189 = icmp eq i32 %39, 0
@@ -13340,8 +13340,8 @@ define void @zend_hash_graceful_destroy(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not169, label %.loopexit, label %130
 
 130:                                              ; preds = %.critedge2
-  %131 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %132 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %132 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %133 = zext i32 %132 to i64
   %134 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %131, i64 %133
   %.not170195 = icmp eq i32 %132, 0
@@ -13495,8 +13495,8 @@ define void @zend_hash_graceful_reverse_destroy(ptr noundef %0) local_unnamed_ad
   br i1 %.not180, label %.loopexit189, label %41
 
 41:                                               ; preds = %.critedge
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %43 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %44 = zext i32 %43 to i64
   %45 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %42, i64 %44
   %.not181194 = icmp eq i32 %43, 0
@@ -13685,8 +13685,8 @@ define void @zend_hash_graceful_reverse_destroy(ptr noundef %0) local_unnamed_ad
   br i1 %.not172, label %.loopexit, label %132
 
 132:                                              ; preds = %.critedge2
-  %133 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %134 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %134 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %135 = zext i32 %134 to i64
   %136 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %133, i64 %135
   %.not173201 = icmp eq i32 %134, 0
@@ -13855,8 +13855,8 @@ define void @zend_hash_apply(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %.not175, label %.loopexit186, label %51
 
 51:                                               ; preds = %.critedge
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %53 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %54 = zext i32 %53 to i64
   %55 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %52, i64 %54
   %.not176191 = icmp eq i32 %53, 0
@@ -14052,8 +14052,8 @@ define void @zend_hash_apply(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %.not169, label %.loopexit, label %146
 
 146:                                              ; preds = %.critedge2
-  %147 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %148 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %147 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %148 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %149 = zext i32 %148 to i64
   %150 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %147, i64 %149
   %.not170197 = icmp eq i32 %148, 0
@@ -14205,8 +14205,8 @@ define void @zend_hash_apply_with_argument(ptr noundef %0, ptr nocapture noundef
   br i1 %.not177, label %.loopexit188, label %52
 
 52:                                               ; preds = %.critedge
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %54 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %55 = zext i32 %54 to i64
   %56 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %53, i64 %55
   %.not178193 = icmp eq i32 %54, 0
@@ -14402,8 +14402,8 @@ define void @zend_hash_apply_with_argument(ptr noundef %0, ptr nocapture noundef
   br i1 %.not171, label %.loopexit, label %147
 
 147:                                              ; preds = %.critedge2
-  %148 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %149 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %148 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %149 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %150 = zext i32 %149 to i64
   %151 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %148, i64 %150
   %.not172199 = icmp eq i32 %149, 0
@@ -14562,8 +14562,8 @@ define void @zend_hash_apply_with_arguments(ptr noundef %0, ptr nocapture nounde
   br i1 %.not180, label %.loopexit191, label %56
 
 56:                                               ; preds = %.critedge
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %58 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %59 = zext i32 %58 to i64
   %60 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %57, i64 %59
   %.not181196 = icmp eq i32 %58, 0
@@ -14765,8 +14765,8 @@ define void @zend_hash_apply_with_arguments(ptr noundef %0, ptr nocapture nounde
   br i1 %.not174, label %.loopexit, label %154
 
 154:                                              ; preds = %.critedge2
-  %155 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %156 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %156 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %157 = zext i32 %156 to i64
   %158 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %155, i64 %157
   %.not175201 = icmp eq i32 %156, 0
@@ -14922,8 +14922,8 @@ define void @zend_hash_reverse_apply(ptr noundef %0, ptr nocapture noundef reado
   br i1 %.not182, label %.loopexit195, label %49
 
 49:                                               ; preds = %.critedge
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %51 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %52 = zext i32 %51 to i64
   %53 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %50, i64 %52
   %.not183207 = icmp eq i32 %51, 0
@@ -15114,8 +15114,8 @@ define void @zend_hash_reverse_apply(ptr noundef %0, ptr nocapture noundef reado
   br i1 %.not177, label %.loopexit, label %138
 
 138:                                              ; preds = %.critedge2
-  %139 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %140 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %140 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %141 = zext i32 %140 to i64
   %142 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %139, i64 %141
   %.not178212 = icmp eq i32 %140, 0
@@ -18601,7 +18601,7 @@ define noundef ptr @zend_symtable_to_proptable(ptr noundef %0) local_unnamed_add
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 12
   store i32 -2, ptr %31, align 4
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store ptr getelementptr inbounds (i8, ptr @uninitialized_bucket, i64 8), ptr %32, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @uninitialized_bucket, i64 8), ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store i32 0, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 28
@@ -18894,7 +18894,7 @@ _zend_handle_numeric_str_ex.exit:                 ; preds = %44, %47
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 12
   store i32 -2, ptr %73, align 4
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  store ptr getelementptr inbounds (i8, ptr @uninitialized_bucket, i64 8), ptr %74, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @uninitialized_bucket, i64 8), ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %70, i64 24
   store i32 0, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %70, i64 28
@@ -19206,8 +19206,8 @@ declare void @gc_possible_root(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @zend_array_dup_ht_iterators(ptr noundef readnone %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1012), align 4
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %3, i64 %5
   %.not12 = icmp eq i32 %4, 0
@@ -19223,7 +19223,7 @@ define internal fastcc void @zend_array_dup_ht_iterators(ptr noundef readnone %0
   %10 = getelementptr inbounds nuw i8, ptr %.013, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = tail call i32 @zend_hash_iterator_add(ptr noundef %1, i32 noundef %11)
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %14 = zext i32 %12 to i64
   %15 = getelementptr inbounds nuw i8, ptr %.013, i64 12
   %16 = load i32, ptr %15, align 4

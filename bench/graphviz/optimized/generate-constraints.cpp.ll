@@ -207,7 +207,7 @@ _ZNSt6vectorI5EventSaIS0_EE7reserveEm.exit:       ; preds = %18, %_ZNSt12_Vector
   store i32 1, ptr %46, align 8, !noalias !4
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i32 1, ptr %47, align 4, !noalias !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14NodeESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %41, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14NodeESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %41, align 8, !noalias !4
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %.val83, ptr %48, align 8, !noalias !4
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 24
@@ -2884,7 +2884,7 @@ _ZNSt6vectorI5EventSaIS0_EE7reserveEm.exit:       ; preds = %15, %_ZNSt12_Vector
   store i32 1, ptr %45, align 8, !noalias !31
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 12
   store i32 1, ptr %46, align 4, !noalias !31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14NodeESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %40, align 8, !noalias !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14NodeESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %40, align 8, !noalias !31
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store ptr %.val63, ptr %47, align 8, !noalias !31
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 24

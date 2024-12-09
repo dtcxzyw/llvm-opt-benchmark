@@ -68,7 +68,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN2cv6xphoto23grayDctDenoisingInvokerC2ERKNS_3MatERSt6vectorIS2_SaIS2_EEdi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 28), (32, 48)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, double noundef %3, i32 noundef %4) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6xphoto23grayDctDenoisingInvokerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6xphoto23grayDctDenoisingInvokerE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -372,7 +372,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %53, %56
   store i32 0, ptr %15, align 4
   %60 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 %45, ptr %60, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6xphoto23grayDctDenoisingInvokerE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6xphoto23grayDctDenoisingInvokerE, i64 16), ptr %16, align 8
   %61 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %0, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %16, i64 16

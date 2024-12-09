@@ -622,7 +622,7 @@ define internal fastcc ptr @udp6_lib_lookup2(ptr noundef %0, ptr noundef %1, i16
   %77 = add nuw nsw i32 %67, %76
   %78 = getelementptr inbounds nuw i8, ptr %20, i64 124
   %79 = load volatile i32, ptr %78, align 4
-  %80 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !11
+  %80 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !11
   %81 = icmp eq i32 %79, %80
   %82 = zext i1 %81 to i32
   %83 = add nuw nsw i32 %77, %82
@@ -742,7 +742,7 @@ define internal fastcc ptr @udp6_lib_lookup2(ptr noundef %0, ptr noundef %1, i16
   %159 = add nuw nsw i32 %149, %158
   %160 = getelementptr inbounds nuw i8, ptr %20, i64 124
   %161 = load volatile i32, ptr %160, align 4
-  %162 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !11
+  %162 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !11
   %163 = icmp eq i32 %161, %162
   %164 = zext i1 %163 to i32
   %165 = add nuw nsw i32 %159, %164
@@ -5318,7 +5318,7 @@ xfrm6_policy_check.exit.thread:                   ; preds = %80, %89, %xfrm6_pol
   br label %298
 
 298:                                              ; preds = %297, %292, %288
-  %299 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !77
+  %299 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !77
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %301 = load volatile i32, ptr %300, align 4
   %302 = icmp eq i32 %301, %299
@@ -5408,11 +5408,11 @@ xfrm6_policy_check.exit.thread:                   ; preds = %80, %89, %xfrm6_pol
 349:                                              ; preds = %343, %338
   %350 = phi i32 [ %344, %343 ], [ %.ph, %338 ]
   tail call void @kfree_skb_reason(ptr noundef %1, i32 noundef %350) #14
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_udp_fail_queue_rcv_skb, i64 8), i32 2) #14
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_udp_fail_queue_rcv_skb, i64 8), i32 2) #14
           to label %400 [label %351], !srcloc !10
 
 351:                                              ; preds = %349
-  %352 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !84
+  %352 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !84
   %353 = zext i32 %352 to i64
   %354 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %353) #14, !srcloc !85
   %355 = icmp ult i8 %354, 2
@@ -5421,9 +5421,9 @@ xfrm6_policy_check.exit.thread:                   ; preds = %80, %89, %xfrm6_pol
   br i1 %356, label %400, label %357
 
 357:                                              ; preds = %351
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !86
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !86
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !87
-  %358 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_udp_fail_queue_rcv_skb, i64 72), align 8
+  %358 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_udp_fail_queue_rcv_skb, i64 72), align 8
   %359 = icmp eq ptr %358, null
   br i1 %359, label %364, label %360
 
@@ -5435,7 +5435,7 @@ xfrm6_policy_check.exit.thread:                   ; preds = %80, %89, %xfrm6_pol
 
 364:                                              ; preds = %360, %357
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !88
-  %365 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !89
+  %365 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !89
   %366 = icmp ult i8 %365, 2
   tail call void @llvm.assume(i1 %366)
   %367 = icmp eq i8 %365, 0

@@ -2076,13 +2076,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %163 = load ptr, ptr getelementptr inbounds (i8, ptr @H5O_msg_class_g, i64 200), align 8
+  %163 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5O_msg_class_g, i64 200), align 8
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %166 = load ptr, ptr getelementptr inbounds (i8, ptr @H5O_MSG_REFCOUNT, i64 32), align 16
+  %166 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5O_MSG_REFCOUNT, i64 32), align 16
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 284
-  %169 = load ptr, ptr getelementptr inbounds (i8, ptr @H5O_MSG_CONT, i64 32), align 16
+  %169 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5O_MSG_CONT, i64 32), align 16
   %170 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %171 = ptrtoint ptr %154 to i64
   br label %172

@@ -11528,7 +11528,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 32
   %40 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %39) #19
   %41 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZZ9mupGetVarE6szName, ptr noundef nonnull dereferenceable(1) %40, i64 noundef 1024) #19
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZ9mupGetVarE6szName, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZ9mupGetVarE6szName, i64 1023), align 1
   store ptr @_ZZ9mupGetVarE6szName, ptr %2, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 64
   %43 = load ptr, ptr %42, align 8
@@ -11935,7 +11935,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 32
   %57 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %56) #19
   %58 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZZ13mupGetExprVarE6szName, ptr noundef nonnull dereferenceable(1) %57, i64 noundef 1024) #19
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZ13mupGetExprVarE6szName, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZ13mupGetExprVarE6szName, i64 1023), align 1
   store ptr @_ZZ13mupGetExprVarE6szName, ptr %2, align 8
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 64
   %60 = load ptr, ptr %59, align 8
@@ -12914,7 +12914,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 32
   %57 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %56) #19
   %58 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZZ11mupGetConstE6szName, ptr noundef nonnull dereferenceable(1) %57, i64 noundef 1024) #19
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZ11mupGetConstE6szName, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZ11mupGetConstE6szName, i64 1023), align 1
   store ptr @_ZZ11mupGetConstE6szName, ptr %2, align 8
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 64
   %60 = load double, ptr %59, align 8

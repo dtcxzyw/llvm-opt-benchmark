@@ -29,21 +29,21 @@ define hidden void @VP8LEncDspInitSSE2() local_unnamed_addr #0 {
   store ptr @VectorMismatch_SSE2, ptr @VP8LVectorMismatch, align 8
   store ptr @BundleColorMap_SSE2, ptr @VP8LBundleColorMap, align 8
   store ptr @PredictorSub0_SSE2, ptr @VP8LPredictorsSub, align 16
-  store ptr @PredictorSub1_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 8), align 8
-  store ptr @PredictorSub2_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 16), align 16
-  store ptr @PredictorSub3_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 24), align 8
-  store ptr @PredictorSub4_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 32), align 16
-  store ptr @PredictorSub5_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 40), align 8
-  store ptr @PredictorSub6_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 48), align 16
-  store ptr @PredictorSub7_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 56), align 8
-  store ptr @PredictorSub8_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 64), align 16
-  store ptr @PredictorSub9_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 72), align 8
-  store ptr @PredictorSub10_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 80), align 16
-  store ptr @PredictorSub11_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 88), align 8
-  store ptr @PredictorSub12_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 96), align 16
-  store ptr @PredictorSub13_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 104), align 8
-  store ptr @PredictorSub0_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 112), align 16
-  store ptr @PredictorSub0_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 120), align 8
+  store ptr @PredictorSub1_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 8), align 8
+  store ptr @PredictorSub2_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 16), align 16
+  store ptr @PredictorSub3_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 24), align 8
+  store ptr @PredictorSub4_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 32), align 16
+  store ptr @PredictorSub5_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 40), align 8
+  store ptr @PredictorSub6_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 48), align 16
+  store ptr @PredictorSub7_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 56), align 8
+  store ptr @PredictorSub8_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 64), align 16
+  store ptr @PredictorSub9_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 72), align 8
+  store ptr @PredictorSub10_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 80), align 16
+  store ptr @PredictorSub11_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 88), align 8
+  store ptr @PredictorSub12_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 96), align 16
+  store ptr @PredictorSub13_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 104), align 8
+  store ptr @PredictorSub0_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 112), align 16
+  store ptr @PredictorSub0_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 120), align 8
   ret void
 }
 
@@ -1066,7 +1066,7 @@ define internal void @PredictorSub1_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not30, label %22, label %13
 
 13:                                               ; preds = %._crit_edge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 8), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 8), align 8
   %15 = zext nneg i32 %.0.lcssa to i64
   %16 = getelementptr inbounds nuw i32, ptr %0, i64 %15
   %17 = icmp eq ptr %1, null
@@ -1115,7 +1115,7 @@ define internal void @PredictorSub2_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not30, label %22, label %13
 
 13:                                               ; preds = %._crit_edge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 16), align 16
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 16), align 16
   %15 = zext nneg i32 %.0.lcssa to i64
   %16 = getelementptr inbounds nuw i32, ptr %0, i64 %15
   %17 = icmp eq ptr %1, null
@@ -1165,7 +1165,7 @@ define internal void @PredictorSub3_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not30, label %23, label %14
 
 14:                                               ; preds = %._crit_edge
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 24), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 24), align 8
   %16 = zext nneg i32 %.0.lcssa to i64
   %17 = getelementptr inbounds nuw i32, ptr %0, i64 %16
   %18 = icmp eq ptr %1, null
@@ -1215,7 +1215,7 @@ define internal void @PredictorSub4_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not30, label %21, label %12
 
 12:                                               ; preds = %._crit_edge
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 32), align 16
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 32), align 16
   %14 = zext nneg i32 %.0.lcssa to i64
   %15 = getelementptr inbounds nuw i32, ptr %0, i64 %14
   %16 = icmp eq ptr %1, null
@@ -1280,7 +1280,7 @@ define internal void @PredictorSub5_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not34, label %35, label %28
 
 28:                                               ; preds = %._crit_edge
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 40), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 40), align 8
   %30 = zext nneg i32 %.0.lcssa to i64
   %31 = getelementptr inbounds nuw i32, ptr %0, i64 %30
   %32 = getelementptr inbounds nuw i32, ptr %1, i64 %30
@@ -1337,7 +1337,7 @@ define internal void @PredictorSub6_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not31, label %29, label %22
 
 22:                                               ; preds = %._crit_edge
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 48), align 16
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 48), align 16
   %24 = zext nneg i32 %.0.lcssa to i64
   %25 = getelementptr inbounds nuw i32, ptr %0, i64 %24
   %26 = getelementptr inbounds nuw i32, ptr %1, i64 %24
@@ -1393,7 +1393,7 @@ define internal void @PredictorSub7_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not31, label %28, label %21
 
 21:                                               ; preds = %._crit_edge
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 56), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 56), align 8
   %23 = zext nneg i32 %.0.lcssa to i64
   %24 = getelementptr inbounds nuw i32, ptr %0, i64 %23
   %25 = getelementptr inbounds nuw i32, ptr %1, i64 %23
@@ -1449,7 +1449,7 @@ define internal void @PredictorSub8_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not31, label %28, label %21
 
 21:                                               ; preds = %._crit_edge
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 64), align 16
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 64), align 16
   %23 = zext nneg i32 %.0.lcssa to i64
   %24 = getelementptr inbounds nuw i32, ptr %0, i64 %23
   %25 = getelementptr inbounds nuw i32, ptr %1, i64 %23
@@ -1506,7 +1506,7 @@ define internal void @PredictorSub9_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not31, label %29, label %22
 
 22:                                               ; preds = %._crit_edge
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 72), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 72), align 8
   %24 = zext nneg i32 %.0.lcssa to i64
   %25 = getelementptr inbounds nuw i32, ptr %0, i64 %24
   %26 = getelementptr inbounds nuw i32, ptr %1, i64 %24
@@ -1579,7 +1579,7 @@ define internal void @PredictorSub10_SSE2(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %.not37, label %45, label %38
 
 38:                                               ; preds = %._crit_edge
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 80), align 16
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 80), align 16
   %40 = zext nneg i32 %.0.lcssa to i64
   %41 = getelementptr inbounds nuw i32, ptr %0, i64 %40
   %42 = getelementptr inbounds nuw i32, ptr %1, i64 %40
@@ -1662,7 +1662,7 @@ define internal void @PredictorSub11_SSE2(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %.not47, label %56, label %49
 
 49:                                               ; preds = %._crit_edge
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 88), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 88), align 8
   %51 = zext nneg i32 %.0.lcssa to i64
   %52 = getelementptr inbounds nuw i32, ptr %0, i64 %51
   %53 = getelementptr inbounds nuw i32, ptr %1, i64 %51
@@ -1731,7 +1731,7 @@ define internal void @PredictorSub12_SSE2(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %.not80, label %42, label %35
 
 35:                                               ; preds = %._crit_edge
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 96), align 16
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 96), align 16
   %37 = zext nneg i32 %.0.lcssa to i64
   %38 = getelementptr inbounds nuw i32, ptr %0, i64 %37
   %39 = getelementptr inbounds nuw i32, ptr %1, i64 %37
@@ -1808,7 +1808,7 @@ define internal void @PredictorSub13_SSE2(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %.not82, label %49, label %42
 
 42:                                               ; preds = %._crit_edge
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 104), align 8
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 104), align 8
   %44 = zext nneg i32 %.0.lcssa to i64
   %45 = getelementptr inbounds nuw i32, ptr %0, i64 %44
   %46 = getelementptr inbounds nuw i32, ptr %1, i64 %44

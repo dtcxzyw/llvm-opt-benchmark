@@ -281,7 +281,7 @@ define noalias ptr @php_url_scanner_adapt_single_url(ptr nocapture noundef reado
   br label %106
 
 106:                                              ; preds = %80, %93, %92, %99
-  %107 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 200), align 8
+  %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 200), align 8
   call fastcc void @append_modified_url(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %107)
   %108 = load ptr, ptr %8, align 8
   %.not236 = icmp eq ptr %108, null
@@ -590,7 +590,7 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
 
 107:                                              ; preds = %104
   %108 = tail call ptr @zend_string_tolower_ex(ptr noundef nonnull %106, i1 noundef zeroext false) #16
-  %109 = tail call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @basic_globals, i64 1056), ptr noundef %108) #16
+  %109 = tail call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1056), ptr noundef %108) #16
   %.not893 = icmp eq ptr %109, null
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %111 = load i32, ptr %110, align 4
@@ -1577,13 +1577,13 @@ define internal fastcc void @php_url_scanner_add_var_impl(ptr noundef %0, i64 no
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %.not = icmp eq i32 %5, 0
-  %11 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1224), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1000)
+  %11 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1224), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1000)
   %12 = load i32, ptr %11, align 8
   %.not626 = icmp eq i32 %12, 0
   br i1 %.not626, label %13, label %15
 
 13:                                               ; preds = %6
-  %. = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1112), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 888)
+  %. = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1112), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 888)
   %php_url_scanner_output_handler.php_url_scanner_session_handler = select i1 %.not, ptr @php_url_scanner_output_handler, ptr @php_url_scanner_session_handler
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %., i8 0, i64 160, i1 false)
   %14 = tail call i32 @php_output_start_internal(ptr noundef nonnull @.str.4, i64 noundef 12, ptr noundef nonnull %php_url_scanner_output_handler.php_url_scanner_session_handler, i64 noundef 0, i32 noundef 112) #16
@@ -1591,7 +1591,7 @@ define internal fastcc void @php_url_scanner_add_var_impl(ptr noundef %0, i64 no
   br label %15
 
 15:                                               ; preds = %13, %6
-  %16 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1208), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 984)
+  %16 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1208), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 984)
   %17 = load ptr, ptr %16, align 8
   %.not627 = icmp eq ptr %17, null
   br i1 %.not627, label %34, label %18
@@ -1603,11 +1603,11 @@ define internal fastcc void @php_url_scanner_add_var_impl(ptr noundef %0, i64 no
   br i1 %.not628, label %34, label %21
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 200), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 200), align 8
   %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #17
   %24 = add i64 %23, %20
-  %.val = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1216), align 8
-  %.val687 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 992), align 8
+  %.val = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1216), align 8
+  %.val687 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 992), align 8
   %25 = select i1 %.not, i64 %.val, i64 %.val687
   %.not629 = icmp ult i64 %24, %25
   br i1 %.not629, label %27, label %26
@@ -1960,8 +1960,8 @@ define internal fastcc void @php_url_scanner_add_var_impl(ptr noundef %0, i64 no
   %195 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %196 = load i64, ptr %195, align 8
   %197 = add i64 %196, %190
-  %.val688 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1216), align 8
-  %.val689 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 992), align 8
+  %.val688 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1216), align 8
+  %.val689 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 992), align 8
   %198 = select i1 %.not, i64 %.val688, i64 %.val689
   %.not658 = icmp ult i64 %197, %198
   br i1 %.not658, label %200, label %199
@@ -1995,8 +1995,8 @@ define internal fastcc void @php_url_scanner_add_var_impl(ptr noundef %0, i64 no
   %210 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %211 = load i64, ptr %210, align 8
   %212 = add i64 %211, 1
-  %.val690 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1216), align 8
-  %.val691 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 992), align 8
+  %.val690 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1216), align 8
+  %.val691 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 992), align 8
   %213 = select i1 %.not, i64 %.val690, i64 %.val691
   %.not660 = icmp ult i64 %212, %213
   br i1 %.not660, label %215, label %214
@@ -2037,8 +2037,8 @@ define internal fastcc void @php_url_scanner_add_var_impl(ptr noundef %0, i64 no
   %230 = getelementptr inbounds nuw i8, ptr %228, i64 16
   %231 = load i64, ptr %230, align 8
   %232 = add i64 %231, %225
-  %.val692 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1216), align 8
-  %.val693 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 992), align 8
+  %.val692 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1216), align 8
+  %.val693 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 992), align 8
   %233 = select i1 %.not, i64 %.val692, i64 %.val693
   %.not664 = icmp ult i64 %232, %233
   br i1 %.not664, label %235, label %234
@@ -2064,7 +2064,7 @@ define internal fastcc void @php_url_scanner_add_var_impl(ptr noundef %0, i64 no
   br label %242
 
 242:                                              ; preds = %235, %223, %215
-  %243 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1192), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 968)
+  %243 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1192), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 968)
   %244 = load ptr, ptr %243, align 8
   %.not665 = icmp eq ptr %244, null
   br i1 %.not665, label %250, label %245
@@ -2073,8 +2073,8 @@ define internal fastcc void @php_url_scanner_add_var_impl(ptr noundef %0, i64 no
   %246 = getelementptr inbounds nuw i8, ptr %244, i64 16
   %247 = load i64, ptr %246, align 8
   %248 = add i64 %247, 27
-  %.val694 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1200), align 8
-  %.val695 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 976), align 8
+  %.val694 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1200), align 8
+  %.val695 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 976), align 8
   %249 = select i1 %.not, i64 %.val694, i64 %.val695
   %.not666 = icmp ult i64 %248, %249
   br i1 %.not666, label %251, label %250
@@ -2117,8 +2117,8 @@ define internal fastcc void @php_url_scanner_add_var_impl(ptr noundef %0, i64 no
   %266 = getelementptr inbounds nuw i8, ptr %264, i64 16
   %267 = load i64, ptr %266, align 8
   %268 = add i64 %267, %261
-  %.val696 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1200), align 8
-  %.val697 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 976), align 8
+  %.val696 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1200), align 8
+  %.val697 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 976), align 8
   %269 = select i1 %.not, i64 %.val696, i64 %.val697
   %.not670 = icmp ult i64 %268, %269
   br i1 %.not670, label %271, label %270
@@ -2152,8 +2152,8 @@ define internal fastcc void @php_url_scanner_add_var_impl(ptr noundef %0, i64 no
   %281 = getelementptr inbounds nuw i8, ptr %279, i64 16
   %282 = load i64, ptr %281, align 8
   %283 = add i64 %282, 9
-  %.val698 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1200), align 8
-  %.val699 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 976), align 8
+  %.val698 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1200), align 8
+  %.val699 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 976), align 8
   %284 = select i1 %.not, i64 %.val698, i64 %.val699
   %.not672 = icmp ult i64 %283, %284
   br i1 %.not672, label %286, label %285
@@ -2196,8 +2196,8 @@ define internal fastcc void @php_url_scanner_add_var_impl(ptr noundef %0, i64 no
   %301 = getelementptr inbounds nuw i8, ptr %299, i64 16
   %302 = load i64, ptr %301, align 8
   %303 = add i64 %302, %296
-  %.val700 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1200), align 8
-  %.val701 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 976), align 8
+  %.val700 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1200), align 8
+  %.val701 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 976), align 8
   %304 = select i1 %.not, i64 %.val700, i64 %.val701
   %.not676 = icmp ult i64 %303, %304
   br i1 %.not676, label %306, label %305
@@ -2231,8 +2231,8 @@ define internal fastcc void @php_url_scanner_add_var_impl(ptr noundef %0, i64 no
   %316 = getelementptr inbounds nuw i8, ptr %314, i64 16
   %317 = load i64, ptr %316, align 8
   %318 = add i64 %317, 4
-  %.val702 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1200), align 8
-  %.val703 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 976), align 8
+  %.val702 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1200), align 8
+  %.val703 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 976), align 8
   %319 = select i1 %.not, i64 %.val702, i64 %.val703
   %.not678 = icmp ult i64 %318, %319
   br i1 %.not678, label %321, label %320
@@ -2384,7 +2384,7 @@ define noundef i32 @php_url_scanner_add_var(ptr noundef %0, i64 noundef %1, ptr 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define noundef i32 @php_url_scanner_reset_session_vars() local_unnamed_addr #4 {
-  %.val8.i = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 968), align 8
+  %.val8.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 968), align 8
   %.not6.i = icmp eq ptr %.val8.i, null
   br i1 %.not6.i, label %3, label %1
 
@@ -2394,7 +2394,7 @@ define noundef i32 @php_url_scanner_reset_session_vars() local_unnamed_addr #4 {
   br label %3
 
 3:                                                ; preds = %1, %0
-  %.val10.i = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 984), align 8
+  %.val10.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 984), align 8
   %.not7.i = icmp eq ptr %.val10.i, null
   br i1 %.not7.i, label %php_url_scanner_reset_vars_impl.exit, label %4
 
@@ -2409,7 +2409,7 @@ php_url_scanner_reset_vars_impl.exit:             ; preds = %3, %4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define noundef i32 @php_url_scanner_reset_vars() local_unnamed_addr #4 {
-  %.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1192), align 8
+  %.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1192), align 8
   %.not6.i = icmp eq ptr %.val.i, null
   br i1 %.not6.i, label %3, label %1
 
@@ -2419,7 +2419,7 @@ define noundef i32 @php_url_scanner_reset_vars() local_unnamed_addr #4 {
   br label %3
 
 3:                                                ; preds = %1, %0
-  %.val9.i = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1208), align 8
+  %.val9.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1208), align 8
   %.not7.i = icmp eq ptr %.val9.i, null
   br i1 %.not7.i, label %php_url_scanner_reset_vars_impl.exit, label %4
 
@@ -2449,7 +2449,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_url_scanner_reset_var_impl(ptr 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %.not = icmp eq i32 %2, 0
-  %8 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1208), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 984)
+  %8 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1208), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 984)
   %9 = load ptr, ptr %8, align 8
   %.not523 = icmp eq ptr %9, null
   br i1 %.not523, label %403, label %10
@@ -2503,7 +2503,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_url_scanner_reset_var_impl(ptr 
 
 35:                                               ; preds = %33, %34, %17
   %36 = load i64, ptr %15, align 8
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 408), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 408), align 8
   %38 = call ptr @php_escape_html_entities_ex(ptr noundef nonnull %14, i64 noundef %36, i32 noundef 0, i32 noundef 11, ptr noundef %37, i1 noundef zeroext false, i1 noundef zeroext true) #16
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -2909,7 +2909,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_url_scanner_reset_var_impl(ptr 
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 24
   %231 = getelementptr inbounds i8, ptr %230, i64 %228
   %232 = getelementptr inbounds i8, ptr %.0458601, i64 %227
-  %233 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 200), align 8
+  %233 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 200), align 8
   %234 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %233) #17
   %235 = icmp ult ptr %232, %231
   br i1 %235, label %.lr.ph629, label %.thread602
@@ -2942,8 +2942,8 @@ define internal fastcc range(i32 -1, 1) i32 @php_url_scanner_reset_var_impl(ptr 
   br i1 %248, label %249, label %.thread605
 
 249:                                              ; preds = %.thread602, %239
-  %.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1192), align 8
-  %.val8.i = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 968), align 8
+  %.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1192), align 8
+  %.val8.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 968), align 8
   %250 = select i1 %.not, ptr %.val.i, ptr %.val8.i
   %.not6.i = icmp eq ptr %250, null
   br i1 %.not6.i, label %253, label %251
@@ -2954,8 +2954,8 @@ define internal fastcc range(i32 -1, 1) i32 @php_url_scanner_reset_var_impl(ptr 
   br label %253
 
 253:                                              ; preds = %251, %249
-  %.val9.i = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1208), align 8
-  %.val10.i = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 984), align 8
+  %.val9.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1208), align 8
+  %.val10.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 984), align 8
   %254 = select i1 %.not, ptr %.val9.i, ptr %.val10.i
   %.not7.i = icmp eq ptr %254, null
   br i1 %.not7.i, label %php_url_scanner_reset_vars_impl.exit, label %255
@@ -3001,7 +3001,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_url_scanner_reset_var_impl(ptr 
   %273 = load i64, ptr %272, align 8
   %274 = getelementptr inbounds [1 x i8], ptr %271, i64 0, i64 %273
   store i8 0, ptr %274, align 1
-  %275 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1192), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 968)
+  %275 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1192), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 968)
   %276 = load ptr, ptr %275, align 8
   %.ptr642 = getelementptr inbounds nuw i8, ptr %276, i64 24
   %277 = load ptr, ptr %7, align 8
@@ -3097,8 +3097,8 @@ define internal fastcc range(i32 -1, 1) i32 @php_url_scanner_reset_var_impl(ptr 
   br label %.thread614
 
 .thread610:                                       ; preds = %304, %314, %294, %288, %318
-  %.val.i582 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1192), align 8
-  %.val8.i583 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 968), align 8
+  %.val.i582 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1192), align 8
+  %.val8.i583 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 968), align 8
   %319 = select i1 %.not, ptr %.val.i582, ptr %.val8.i583
   %.not6.i584 = icmp eq ptr %319, null
   br i1 %.not6.i584, label %322, label %320
@@ -3109,8 +3109,8 @@ define internal fastcc range(i32 -1, 1) i32 @php_url_scanner_reset_var_impl(ptr 
   br label %322
 
 322:                                              ; preds = %320, %.thread610
-  %.val9.i585 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1208), align 8
-  %.val10.i586 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 984), align 8
+  %.val9.i585 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1208), align 8
+  %.val10.i586 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 984), align 8
   %323 = select i1 %.not, ptr %.val9.i585, ptr %.val10.i586
   %.not7.i587 = icmp eq ptr %323, null
   br i1 %.not7.i587, label %php_url_scanner_reset_vars_impl.exit, label %324
@@ -3310,30 +3310,30 @@ declare void @zend_unregister_ini_entries_ex(i32 noundef, i32 noundef) local_unn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef i32 @zm_activate_url_scanner_ex(i32 noundef %0, i32 noundef %1) local_unnamed_addr #5 {
-  store i32 0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1000), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1040), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1044), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1224), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1264), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1268), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1000), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1040), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1044), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1224), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1264), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1268), align 4
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @zm_deactivate_url_scanner_ex(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1000), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1000), align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
   tail call fastcc void @php_url_scanner_ex_deactivate(i32 noundef 1)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1000), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1040), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1044), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1000), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1040), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1044), align 4
   br label %5
 
 5:                                                ; preds = %4, %2
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 968), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 968), align 8
   %.not58 = icmp eq ptr %6, null
   br i1 %.not58, label %18, label %7
 
@@ -3358,12 +3358,12 @@ define hidden noundef i32 @zm_deactivate_url_scanner_ex(i32 noundef %0, i32 noun
   br label %17
 
 17:                                               ; preds = %11, %16, %7
-  store ptr null, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 968), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 968), align 8
   br label %18
 
 18:                                               ; preds = %17, %5
-  store i64 0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 976), align 8
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 984), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 976), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 984), align 8
   %.not60 = icmp eq ptr %19, null
   br i1 %.not60, label %31, label %20
 
@@ -3388,24 +3388,24 @@ define hidden noundef i32 @zm_deactivate_url_scanner_ex(i32 noundef %0, i32 noun
   br label %30
 
 30:                                               ; preds = %24, %29, %20
-  store ptr null, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 984), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 984), align 8
   br label %31
 
 31:                                               ; preds = %30, %18
-  store i64 0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 992), align 8
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1224), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 992), align 8
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1224), align 8
   %.not62 = icmp eq i32 %32, 0
   br i1 %.not62, label %34, label %33
 
 33:                                               ; preds = %31
   tail call fastcc void @php_url_scanner_ex_deactivate(i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1224), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1264), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1268), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1224), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1264), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1268), align 4
   br label %34
 
 34:                                               ; preds = %33, %31
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1192), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1192), align 8
   %.not63 = icmp eq ptr %35, null
   br i1 %.not63, label %47, label %36
 
@@ -3430,12 +3430,12 @@ define hidden noundef i32 @zm_deactivate_url_scanner_ex(i32 noundef %0, i32 noun
   br label %46
 
 46:                                               ; preds = %40, %45, %36
-  store ptr null, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1192), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1192), align 8
   br label %47
 
 47:                                               ; preds = %46, %34
-  store i64 0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1200), align 8
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1208), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1200), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1208), align 8
   %.not65 = icmp eq ptr %48, null
   br i1 %.not65, label %60, label %49
 
@@ -3460,19 +3460,19 @@ define hidden noundef i32 @zm_deactivate_url_scanner_ex(i32 noundef %0, i32 noun
   br label %59
 
 59:                                               ; preds = %53, %58, %49
-  store ptr null, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1208), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1208), align 8
   br label %60
 
 60:                                               ; preds = %59, %47
-  store i64 0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1216), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1216), align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @php_url_scanner_ex_deactivate(i32 noundef range(i32 0, 2) %0) unnamed_addr #0 {
   %.not = icmp eq i32 %0, 0
-  %. = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1112), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 888)
-  %2 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1176), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 952)
+  %. = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1112), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 888)
+  %2 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1176), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 952)
   %3 = load ptr, ptr %2, align 8
   %.not80 = icmp eq ptr %3, null
   br i1 %.not80, label %15, label %4
@@ -3502,9 +3502,9 @@ define internal fastcc void @php_url_scanner_ex_deactivate(i32 noundef range(i32
   br label %15
 
 15:                                               ; preds = %14, %1
-  %16 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960)
+  %16 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1184), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 960)
   store i64 0, ptr %16, align 8
-  %17 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1160), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 936)
+  %17 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1160), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 936)
   %18 = load ptr, ptr %17, align 8
   %.not82 = icmp eq ptr %18, null
   br i1 %.not82, label %30, label %19
@@ -3534,7 +3534,7 @@ define internal fastcc void @php_url_scanner_ex_deactivate(i32 noundef range(i32
   br label %30
 
 30:                                               ; preds = %29, %15
-  %31 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1168), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 944)
+  %31 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1168), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 944)
   store i64 0, ptr %31, align 8
   %32 = load ptr, ptr %., align 8
   %.not84 = icmp eq ptr %32, null
@@ -3565,9 +3565,9 @@ define internal fastcc void @php_url_scanner_ex_deactivate(i32 noundef range(i32
   br label %44
 
 44:                                               ; preds = %43, %30
-  %45 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1120), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 896)
+  %45 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1120), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 896)
   store i64 0, ptr %45, align 8
-  %46 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1128), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 904)
+  %46 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1128), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 904)
   %47 = load ptr, ptr %46, align 8
   %.not86 = icmp eq ptr %47, null
   br i1 %.not86, label %59, label %48
@@ -3597,9 +3597,9 @@ define internal fastcc void @php_url_scanner_ex_deactivate(i32 noundef range(i32
   br label %59
 
 59:                                               ; preds = %58, %44
-  %60 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1136), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 912)
+  %60 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1136), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 912)
   store i64 0, ptr %60, align 8
-  %61 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1248), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1024)
+  %61 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1248), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1024)
   %62 = load ptr, ptr %61, align 8
   %.not88 = icmp eq ptr %62, null
   br i1 %.not88, label %74, label %63
@@ -3629,7 +3629,7 @@ define internal fastcc void @php_url_scanner_ex_deactivate(i32 noundef range(i32
   br label %74
 
 74:                                               ; preds = %73, %59
-  %75 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1256), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1032)
+  %75 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1256), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1032)
   store i64 0, ptr %75, align 8
   ret void
 }
@@ -3676,9 +3676,9 @@ declare ptr @php_escape_html_entities_ex(ptr noundef, i64 noundef, i32 noundef, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @php_url_scanner_session_handler_impl(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %.not = icmp eq i32 %5, 0
-  %. = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1112), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 888)
-  %.val = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1208), align 8
-  %.val137 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 984), align 8
+  %. = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1112), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 888)
+  %.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1208), align 8
+  %.val137 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 984), align 8
   %7 = select i1 %.not, ptr %.val, ptr %.val137
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8
@@ -3688,7 +3688,7 @@ define internal fastcc void @php_url_scanner_session_handler_impl(ptr noundef %0
 10:                                               ; preds = %6
   %11 = and i32 %4, 12
   %12 = icmp ne i32 %11, 0
-  %13 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1160), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 936)
+  %13 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1160), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 936)
   %14 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %20, label %15
@@ -3697,8 +3697,8 @@ define internal fastcc void @php_url_scanner_session_handler_impl(ptr noundef %0
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %1
-  %.val138 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1168), align 8
-  %.val139 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 944), align 8
+  %.val138 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1168), align 8
+  %.val139 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 944), align 8
   %19 = select i1 %.not, i64 %.val138, i64 %.val139
   %.not247.i.i = icmp ult i64 %18, %19
   br i1 %.not247.i.i, label %21, label %20
@@ -3726,7 +3726,7 @@ define internal fastcc void @php_url_scanner_session_handler_impl(ptr noundef %0
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %31 = load i64, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %29, i64 %31
-  %33 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1240), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1016)
+  %33 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1240), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1016)
   %34 = load i32, ptr %33, align 8
   switch i32 %34, label %35 [
     i32 0, label %.preheader335.i.i
@@ -3753,8 +3753,8 @@ define internal fastcc void @php_url_scanner_session_handler_impl(ptr noundef %0
   br i1 %.not248356.i.i, label %.lr.ph.i.i, label %.loopexit.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader335.i.i
-  %36 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1176), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 952)
-  %37 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960)
+  %36 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1176), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 952)
+  %37 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1184), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 960)
   %38 = load i8, ptr %.0220.ph.i.i, align 1
   %.not249.i186.i = icmp eq i8 %38, 60
   br i1 %.not249.i186.i, label %._crit_edge.i, label %.preheader333.i.preheader.i
@@ -3865,7 +3865,7 @@ passthru.exit283.i.i:                             ; preds = %67, %62
 
 81:                                               ; preds = %76
   %82 = getelementptr inbounds nuw i8, ptr %.1221.i.i, i64 1
-  %83 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1176), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 952)
+  %83 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1176), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 952)
   %84 = load ptr, ptr %83, align 8
   %.not.i284.i.i = icmp eq ptr %84, null
   br i1 %.not.i284.i.i, label %90, label %85
@@ -3874,8 +3874,8 @@ passthru.exit283.i.i:                             ; preds = %67, %62
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %87 = load i64, ptr %86, align 8
   %88 = add i64 %87, 1
-  %.val150 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), align 8
-  %.val151 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960), align 8
+  %.val150 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1184), align 8
+  %.val151 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 960), align 8
   %89 = select i1 %.not, i64 %.val150, i64 %.val151
   %.not28.i285.i.i = icmp ult i64 %88, %89
   br i1 %.not28.i285.i.i, label %passthru.exit291.i.i, label %90
@@ -3937,7 +3937,7 @@ passthru.exit291.i.i:                             ; preds = %90, %85
   br i1 %110, label %.loopexit.i.i, label %.lr.ph359.i.i
 
 .lr.ph359.i.i:                                    ; preds = %.preheader329.i.i
-  %111 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1176), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 952)
+  %111 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1176), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 952)
   br label %112
 
 112:                                              ; preds = %passthru.exit299.i.i, %.lr.ph359.i.i
@@ -4007,8 +4007,8 @@ passthru.exit291.i.i:                             ; preds = %90, %85
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %142 = load i64, ptr %141, align 8
   %143 = add i64 %142, %138
-  %.val140 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), align 8
-  %.val141 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960), align 8
+  %.val140 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1184), align 8
+  %.val141 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 960), align 8
   %144 = select i1 %.not, i64 %.val140, i64 %.val141
   %.not28.i293.i.i = icmp ult i64 %143, %144
   br i1 %.not28.i293.i.i, label %passthru.exit299.i.i, label %145
@@ -4071,7 +4071,7 @@ passthru.exit299.i.i:                             ; preds = %145, %140
 
 167:                                              ; preds = %164, %161
   %168 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 1
-  %169 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1176), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 952)
+  %169 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1176), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 952)
   %170 = load ptr, ptr %169, align 8
   %.not.i300.i.i = icmp eq ptr %170, null
   br i1 %.not.i300.i.i, label %176, label %171
@@ -4080,8 +4080,8 @@ passthru.exit299.i.i:                             ; preds = %145, %140
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %173 = load i64, ptr %172, align 8
   %174 = add i64 %173, 1
-  %.val146 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), align 8
-  %.val147 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960), align 8
+  %.val146 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1184), align 8
+  %.val147 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 960), align 8
   %175 = select i1 %.not, i64 %.val146, i64 %.val147
   %.not28.i301.i.i = icmp ult i64 %174, %175
   br i1 %.not28.i301.i.i, label %passthru.exit307.i.i, label %176
@@ -4170,7 +4170,7 @@ passthru.exit307.i.i:                             ; preds = %176, %171
   br i1 %.not261.i.i, label %207, label %.preheader320.i.i
 
 207:                                              ; preds = %202
-  %208 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1176), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 952)
+  %208 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1176), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 952)
   %209 = ptrtoint ptr %201 to i64
   %210 = sub i64 %209, %193
   %211 = load ptr, ptr %208, align 8
@@ -4181,8 +4181,8 @@ passthru.exit307.i.i:                             ; preds = %176, %171
   %213 = getelementptr inbounds nuw i8, ptr %211, i64 16
   %214 = load i64, ptr %213, align 8
   %215 = add i64 %214, %210
-  %.val142 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), align 8
-  %.val143 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960), align 8
+  %.val142 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1184), align 8
+  %.val143 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 960), align 8
   %216 = select i1 %.not, i64 %.val142, i64 %.val143
   %.not28.i.i = icmp ult i64 %215, %216
   br i1 %.not28.i.i, label %passthru.exit.i, label %217
@@ -4275,7 +4275,7 @@ passthru.exit.i:                                  ; preds = %217, %212
 
 252:                                              ; preds = %289, %281, %273, %269, %250
   %.18.i.i = phi ptr [ %251, %250 ], [ %270, %269 ], [ %274, %273 ], [ %270, %281 ], [ %274, %289 ]
-  %253 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1176), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 952)
+  %253 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1176), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 952)
   %254 = ptrtoint ptr %.18.i.i to i64
   %255 = sub i64 %254, %.pre-phi.i
   %256 = load ptr, ptr %253, align 8
@@ -4286,8 +4286,8 @@ passthru.exit.i:                                  ; preds = %217, %212
   %258 = getelementptr inbounds nuw i8, ptr %256, i64 16
   %259 = load i64, ptr %258, align 8
   %260 = add i64 %259, %255
-  %.val144 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), align 8
-  %.val145 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960), align 8
+  %.val144 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1184), align 8
+  %.val145 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 960), align 8
   %261 = select i1 %.not, i64 %.val144, i64 %.val145
   %.not28.i309.i.i = icmp ult i64 %260, %261
   br i1 %.not28.i309.i.i, label %passthru.exit315.i.i, label %262
@@ -4397,7 +4397,7 @@ xx_mainloop.exit.i:                               ; preds = %297, %.loopexit.i.i
   %299 = phi ptr [ %.pre394.i.i, %297 ], [ %.pre395.i.i, %.loopexit.i.i ]
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 16
   store i64 %.0218.i.i, ptr %300, align 8
-  %301 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1176), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 952)
+  %301 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1176), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 952)
   %302 = load ptr, ptr %301, align 8
   %.not.i = icmp eq ptr %302, null
   br i1 %.not.i, label %305, label %.thread
@@ -4451,8 +4451,8 @@ xx_mainloop.exit.i:                               ; preds = %297, %.loopexit.i.i
   %323 = getelementptr inbounds nuw i8, ptr %.pre218.pre.i, i64 16
   %324 = load i64, ptr %323, align 8
   %325 = add i64 %324, %321
-  %.val148 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), align 8
-  %.val149 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960), align 8
+  %.val148 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1184), align 8
+  %.val149 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 960), align 8
   %326 = select i1 %.not, i64 %.val148, i64 %.val149
   %.not143.i = icmp ult i64 %325, %326
   br i1 %.not143.i, label %330, label %327
@@ -4506,9 +4506,9 @@ xx_mainloop.exit.i:                               ; preds = %297, %.loopexit.i.i
 
 352:                                              ; preds = %330, %346, %351
   store ptr null, ptr %13, align 8
-  %353 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1168), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 944)
+  %353 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1168), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 944)
   store i64 0, ptr %353, align 8
-  %354 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1144), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 920)
+  %354 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1144), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 920)
   %355 = load ptr, ptr %354, align 8
   %.not146.i = icmp eq ptr %355, null
   br i1 %.not146.i, label %367, label %356
@@ -4538,9 +4538,9 @@ xx_mainloop.exit.i:                               ; preds = %297, %.loopexit.i.i
   br label %367
 
 367:                                              ; preds = %366, %352
-  %368 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1152), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 928)
+  %368 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1152), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 928)
   store i64 0, ptr %368, align 8
-  %369 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1248), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1024)
+  %369 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1248), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1024)
   %370 = load ptr, ptr %369, align 8
   %.not148.i = icmp eq ptr %370, null
   br i1 %.not148.i, label %382, label %371
@@ -4570,7 +4570,7 @@ xx_mainloop.exit.i:                               ; preds = %297, %.loopexit.i.i
   br label %382
 
 382:                                              ; preds = %381, %367
-  %383 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1256), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1032)
+  %383 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1256), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1032)
   store i64 0, ptr %383, align 8
   %.pre217.i = load ptr, ptr %301, align 8
   br label %384
@@ -4611,7 +4611,7 @@ xx_mainloop.exit.i:                               ; preds = %297, %.loopexit.i.i
   br label %url_adapt_ext.exit
 
 url_adapt_ext.exit:                               ; preds = %384, %401
-  %402 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960)
+  %402 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1184), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 960)
   store i64 0, ptr %402, align 8
   store ptr %389, ptr %2, align 8
   %spec.select = tail call i64 @llvm.umin.i64(i64 %.1131, i64 4294967295)
@@ -4619,7 +4619,7 @@ url_adapt_ext.exit:                               ; preds = %384, %401
   br label %479
 
 403:                                              ; preds = %6
-  %404 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1160), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 936)
+  %404 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1160), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 936)
   %405 = load ptr, ptr %404, align 8
   %.not118 = icmp eq ptr %405, null
   br i1 %.not118, label %477, label %406
@@ -4631,7 +4631,7 @@ url_adapt_ext.exit:                               ; preds = %384, %401
   br i1 %.not119, label %477, label %409
 
 409:                                              ; preds = %406
-  %410 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1176), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 952)
+  %410 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1176), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 952)
   %411 = getelementptr inbounds nuw i8, ptr %405, i64 24
   %412 = load ptr, ptr %410, align 8
   %.not120 = icmp eq ptr %412, null
@@ -4641,8 +4641,8 @@ url_adapt_ext.exit:                               ; preds = %384, %401
   %414 = getelementptr inbounds nuw i8, ptr %412, i64 16
   %415 = load i64, ptr %414, align 8
   %416 = add i64 %415, %408
-  %.val152 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), align 8
-  %.val153 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960), align 8
+  %.val152 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1184), align 8
+  %.val153 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 960), align 8
   %417 = select i1 %.not, i64 %.val152, i64 %.val153
   %.not121 = icmp ult i64 %416, %417
   br i1 %.not121, label %419, label %418
@@ -4673,8 +4673,8 @@ url_adapt_ext.exit:                               ; preds = %384, %401
   %428 = getelementptr inbounds nuw i8, ptr %426, i64 16
   %429 = load i64, ptr %428, align 8
   %430 = add i64 %429, %1
-  %.val154 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), align 8
-  %.val155 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960), align 8
+  %.val154 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1184), align 8
+  %.val155 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 960), align 8
   %431 = select i1 %.not, i64 %.val154, i64 %.val155
   %.not123 = icmp ult i64 %430, %431
   br i1 %.not123, label %433, label %432
@@ -4737,7 +4737,7 @@ url_adapt_ext.exit:                               ; preds = %384, %401
   br label %461
 
 461:                                              ; preds = %460, %433
-  %462 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1168), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 944)
+  %462 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1168), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 944)
   store i64 0, ptr %462, align 8
   %463 = load ptr, ptr %410, align 8
   %.not126 = icmp eq ptr %463, null
@@ -4768,7 +4768,7 @@ url_adapt_ext.exit:                               ; preds = %384, %401
   br label %475
 
 475:                                              ; preds = %474, %461
-  %476 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960)
+  %476 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1184), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 960)
   store i64 0, ptr %476, align 8
   br label %479
 
@@ -4972,7 +4972,7 @@ define internal fastcc void @handle_form(ptr noundef %0) unnamed_addr #0 {
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %15 = load i32, ptr %14, align 4
   %.not.i = icmp eq i32 %15, 0
-  %16 = select i1 %.not.i, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1280), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1056)
+  %16 = select i1 %.not.i, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1280), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1056)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 1
@@ -5040,8 +5040,8 @@ define internal fastcc void @handle_form(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not38.i, label %check_host_whitelist.exit.thread.sink.split, label %48
 
 48:                                               ; preds = %45
-  %.val.i = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1308), align 4
-  %.val39.i = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1084), align 4
+  %.val.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1308), align 4
+  %.val39.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1084), align 4
   %49 = select i1 %.not.i, i32 %.val.i, i32 %.val39.i
   %.not40.i = icmp eq i32 %49, 0
   br i1 %.not40.i, label %50, label %check_host_whitelist.exit
@@ -5051,7 +5051,7 @@ define internal fastcc void @handle_form(ptr noundef %0) unnamed_addr #0 {
   %52 = load ptr, ptr @zend_known_strings, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 528
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef %54) #16
+  %55 = tail call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304), ptr noundef %54) #16
   %.not.i.i = icmp eq ptr %55, null
   br i1 %.not.i.i, label %check_host_whitelist.exit, label %56
 
@@ -5448,7 +5448,7 @@ define internal fastcc void @handle_val(ptr noundef initializes((40, 48)) %0, pt
 
 97:                                               ; preds = %95
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %99 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 200), align 8
+  %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 200), align 8
   tail call fastcc void @append_modified_url(ptr noundef nonnull %6, ptr noundef nonnull %96, ptr noundef nonnull %98, ptr noundef %99)
   br label %122
 
@@ -5600,7 +5600,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_ini_on_update_tags(ptr noundef 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = tail call noalias ptr @_estrndup(ptr noundef nonnull %5, i64 noundef %7) #16
-  %9 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1272), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1048)
+  %9 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1272), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1048)
   %10 = load ptr, ptr %9, align 8
   %.not145 = icmp eq ptr %10, null
   br i1 %.not145, label %12, label %11
@@ -5762,7 +5762,7 @@ define internal fastcc void @php_ini_on_update_hosts(ptr noundef %0, i32 noundef
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %.not = icmp eq i32 %1, 0
-  %. = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1280), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1056)
+  %. = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1280), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1056)
   tail call void @zend_hash_clean(ptr noundef nonnull %.) #16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16

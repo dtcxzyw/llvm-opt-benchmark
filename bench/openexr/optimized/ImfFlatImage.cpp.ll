@@ -33,7 +33,7 @@ define void @_ZN7Imf_3_29FlatImageC2Ev(ptr noundef nonnull align 8 dereferenceab
 entry:
   %ref.tmp = alloca %"class.Imath_3_2::Box", align 4
   tail call void @_ZN7Imf_3_25ImageC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_29FlatImageE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_29FlatImageE, i64 16), ptr %this, align 8
   %max.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i32 0, ptr %ref.tmp, align 4
   %y3.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
@@ -65,7 +65,7 @@ declare void @_ZN7Imf_3_25ImageD2Ev(ptr noundef nonnull align 8 dereferenceable(
 define void @_ZN7Imf_3_29FlatImageC2ERKN9Imath_3_23BoxINS1_4Vec2IiEEEENS_9LevelModeENS_17LevelRoundingModeE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 4 dereferenceable(16) %dataWindow, i32 noundef %levelMode, i32 noundef %levelRoundingMode) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN7Imf_3_25ImageC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_29FlatImageE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_29FlatImageE, i64 16), ptr %this, align 8
   invoke void @_ZN7Imf_3_25Image6resizeERKN9Imath_3_23BoxINS1_4Vec2IiEEEENS_9LevelModeENS_17LevelRoundingModeE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 4 dereferenceable(16) %dataWindow, i32 noundef %levelMode, i32 noundef %levelRoundingMode)
           to label %invoke.cont unwind label %lpad
 

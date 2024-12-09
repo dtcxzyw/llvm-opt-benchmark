@@ -149,7 +149,7 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   br label %16
 
 14:                                               ; preds = %10
-  %15 = tail call i32 @sysfs_merge_group(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @rc6_attr_group, i64 40)) #5
+  %15 = tail call i32 @sysfs_merge_group(ptr noundef %1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @rc6_attr_group, i64 40)) #5
   br label %16
 
 16:                                               ; preds = %14, %12
@@ -195,7 +195,7 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   br label %45
 
 43:                                               ; preds = %39
-  %44 = tail call i32 @sysfs_merge_group(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @rc6p_attr_group, i64 40)) #5
+  %44 = tail call i32 @sysfs_merge_group(ptr noundef %1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @rc6p_attr_group, i64 40)) #5
   br label %45
 
 45:                                               ; preds = %43, %41
@@ -240,7 +240,7 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   br label %71
 
 69:                                               ; preds = %65
-  %70 = tail call i32 @sysfs_merge_group(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @media_rc6_attr_group, i64 40)) #5
+  %70 = tail call i32 @sysfs_merge_group(ptr noundef %1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @media_rc6_attr_group, i64 40)) #5
   br label %71
 
 71:                                               ; preds = %69, %67

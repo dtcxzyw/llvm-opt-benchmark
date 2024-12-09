@@ -37,7 +37,7 @@ define ptr @ompi_datatype_match_size(i32 noundef %0, i16 noundef zeroext %1, i16
 
 12:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_datatype_f_to_c_table, i64 88), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_datatype_f_to_c_table, i64 88), align 8
   %14 = sext i32 %13 to i64
   %.not17 = icmp slt i64 %indvars.iv, %14
   br i1 %.not17, label %15, label %opal_pointer_array_get_item.exit
@@ -48,20 +48,20 @@ define ptr @ompi_datatype_match_size(i32 noundef %0, i16 noundef zeroext %1, i16
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %15
-  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_datatype_f_to_c_table, i64 32)) #2
+  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_datatype_f_to_c_table, i64 32)) #2
   %.pre.i = load i8, ptr @opal_uses_threads, align 1
   br label %20
 
 20:                                               ; preds = %18, %15
   %21 = phi i8 [ %16, %15 ], [ %.pre.i, %18 ]
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_datatype_f_to_c_table, i64 112), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_datatype_f_to_c_table, i64 112), align 8
   %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %25 = trunc i8 %21 to i1
   br i1 %25, label %26, label %opal_pointer_array_get_item.exit
 
 26:                                               ; preds = %20
-  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_datatype_f_to_c_table, i64 32)) #2
+  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_datatype_f_to_c_table, i64 32)) #2
   br label %opal_pointer_array_get_item.exit
 
 opal_pointer_array_get_item.exit:                 ; preds = %12, %20, %26

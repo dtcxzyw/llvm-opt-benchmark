@@ -119,7 +119,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE7reserveEm.exit: ; preds = %entry, 
   %call2 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %call2, i8 0, i64 96, i1 false)
   tail call void @_ZN6Assimp12BaseImporterC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %call2) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp13XFileImporterE, i64 16), ptr %call2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp13XFileImporterE, i64 16), ptr %call2, align 8
   %mBuffer.i = getelementptr inbounds nuw i8, ptr %call2, i64 72
   tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mBuffer.i) #19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mBuffer.i, i8 0, i64 24, i1 false)
@@ -1109,7 +1109,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit473: ; preds = 
   %call56 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %call56, i8 0, i64 72, i1 false)
   tail call void @_ZN6Assimp12BaseImporterC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %call56) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp11DXFImporterE, i64 16), ptr %call56, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp11DXFImporterE, i64 16), ptr %call56, align 8
   %78 = load ptr, ptr %_M_finish.i.i51, align 8
   %79 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i476 = icmp eq ptr %78, %79
@@ -1174,7 +1174,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit503: ; preds = 
   %call58 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %call58, i8 0, i64 72, i1 false)
   tail call void @_ZN6Assimp12BaseImporterC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %call58) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp11NFFImporterE, i64 16), ptr %call58, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp11NFFImporterE, i64 16), ptr %call58, align 8
   %83 = load ptr, ptr %_M_finish.i.i51, align 8
   %84 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i506 = icmp eq ptr %83, %84
@@ -1239,7 +1239,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit533: ; preds = 
   %call60 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %call60, i8 0, i64 72, i1 false)
   tail call void @_ZN6Assimp12BaseImporterC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %call60) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp11RAWImporterE, i64 16), ptr %call60, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp11RAWImporterE, i64 16), ptr %call60, align 8
   %88 = load ptr, ptr %_M_finish.i.i51, align 8
   %89 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i536 = icmp eq ptr %88, %89
@@ -1304,7 +1304,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit563: ; preds = 
   %call62 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %call62, i8 0, i64 72, i1 false)
   tail call void @_ZN6Assimp12BaseImporterC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %call62) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp11SIBImporterE, i64 16), ptr %call62, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp11SIBImporterE, i64 16), ptr %call62, align 8
   %93 = load ptr, ptr %_M_finish.i.i51, align 8
   %94 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i566 = icmp eq ptr %93, %94
@@ -1369,7 +1369,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit593: ; preds = 
   %call64 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %call64, i8 0, i64 72, i1 false)
   tail call void @_ZN6Assimp12BaseImporterC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %call64) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp11OFFImporterE, i64 16), ptr %call64, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp11OFFImporterE, i64 16), ptr %call64, align 8
   %98 = load ptr, ptr %_M_finish.i.i51, align 8
   %99 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i596 = icmp eq ptr %98, %99
@@ -1764,7 +1764,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit773: ; preds = 
   %call86 = tail call noalias noundef nonnull dereferenceable(312) ptr @_Znwm(i64 noundef 312) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(312) %call86, i8 0, i64 312, i1 false)
   tail call void @_ZN6Assimp12BaseImporterC2Ev(ptr noundef nonnull align 8 dereferenceable(312) %call86) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp11B3DImporterE, i64 16), ptr %call86, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp11B3DImporterE, i64 16), ptr %call86, align 8
   %_buf.i = getelementptr inbounds nuw i8, ptr %call86, i64 80
   %_vertices.i = getelementptr inbounds nuw i8, ptr %call86, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %_buf.i, i8 0, i64 96, i1 false)
@@ -2163,7 +2163,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit953: ; preds = 
   %call108 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %call108, i8 0, i64 160, i1 false)
   tail call void @_ZN6Assimp12BaseImporterC2Ev(ptr noundef nonnull align 8 dereferenceable(160) %call108) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp4Ogre12OgreImporterE, i64 16), ptr %call108, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp4Ogre12OgreImporterE, i64 16), ptr %call108, align 8
   %m_userDefinedMaterialLibFile.i = getelementptr inbounds nuw i8, ptr %call108, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_userDefinedMaterialLibFile.i) #19
   %158 = getelementptr inbounds nuw i8, ptr %call108, i64 120
@@ -2372,7 +2372,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit1043: ; preds =
   %call118 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %call118, i8 0, i64 72, i1 false)
   tail call void @_ZN6Assimp12BaseImporterC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %call118) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp11COBImporterE, i64 16), ptr %call118, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp11COBImporterE, i64 16), ptr %call118, align 8
   %174 = load ptr, ptr %_M_finish.i.i51, align 8
   %175 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i1046 = icmp eq ptr %174, %175
@@ -2569,7 +2569,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit1133: ; preds =
   %call128 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %call128, i8 0, i64 72, i1 false)
   tail call void @_ZN6Assimp12BaseImporterC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %call128) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp11NDOImporterE, i64 16), ptr %call128, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp11NDOImporterE, i64 16), ptr %call128, align 8
   %189 = load ptr, ptr %_M_finish.i.i51, align 8
   %190 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i1136 = icmp eq ptr %189, %190
@@ -2634,7 +2634,7 @@ invoke.cont132:                                   ; preds = %_ZNSt6vectorIPN6Ass
   %call130 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %call130, i8 0, i64 88, i1 false)
   tail call void @_ZN6Assimp12BaseImporterC2Ev(ptr noundef nonnull align 8 dereferenceable(84) %call130) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp11IFCImporterE, i64 16), ptr %call130, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp11IFCImporterE, i64 16), ptr %call130, align 8
   %settings.i = getelementptr inbounds nuw i8, ptr %call130, i64 72
   store i8 0, ptr %settings.i, align 4
   %useCustomTriangulation.i.i = getelementptr inbounds nuw i8, ptr %call130, i64 73
@@ -2775,7 +2775,7 @@ invoke.cont140:                                   ; preds = %_ZNSt6vectorIPN6Ass
   %call138 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %call138, i8 0, i64 88, i1 false)
   tail call void @_ZN6Assimp12BaseImporterC2Ev(ptr noundef nonnull align 8 dereferenceable(87) %call138) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp11FBXImporterE, i64 16), ptr %call138, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp11FBXImporterE, i64 16), ptr %call138, align 8
   %mSettings.i = getelementptr inbounds nuw i8, ptr %call138, i64 72
   store i8 1, ptr %mSettings.i, align 1
   %readAllLayers.i.i = getelementptr inbounds nuw i8, ptr %call138, i64 73
@@ -2860,7 +2860,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit1253: ; preds =
   %call142 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call142, i8 0, i64 80, i1 false)
   tail call void @_ZN6Assimp12BaseImporterC2Ev(ptr noundef nonnull align 8 dereferenceable(74) %call142) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp14AssbinImporterE, i64 16), ptr %call142, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp14AssbinImporterE, i64 16), ptr %call142, align 8
   %209 = load ptr, ptr %_M_finish.i.i51, align 8
   %210 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i1256 = icmp eq ptr %209, %210
@@ -3057,7 +3057,7 @@ _ZNSt6vectorIPN6Assimp12BaseImporterESaIS2_EE9push_backEOS2_.exit1343: ; preds =
   %call152 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %call152, i8 0, i64 72, i1 false)
   tail call void @_ZN6Assimp12BaseImporterC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %call152) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp12D3MFImporterE, i64 16), ptr %call152, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp12D3MFImporterE, i64 16), ptr %call152, align 8
   %224 = load ptr, ptr %_M_finish.i.i51, align 8
   %225 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i1346 = icmp eq ptr %224, %225

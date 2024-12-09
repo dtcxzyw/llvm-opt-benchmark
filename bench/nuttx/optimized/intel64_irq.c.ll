@@ -7,9 +7,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.idt_entry_s = type { i16, i16, i8, i8, i16, i32, i32 }
 
 @g_interrupt_stack = global [8192 x i8] zeroinitializer, align 16
-@g_interrupt_stack_end = local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @g_interrupt_stack, i64 8176), align 8
+@g_interrupt_stack_end = local_unnamed_addr global ptr getelementptr inbounds nuw (i8, ptr @g_interrupt_stack, i64 8176), align 8
 @g_isr_stack = global [8192 x i8] zeroinitializer, align 16
-@g_isr_stack_end = local_unnamed_addr global ptr getelementptr inbounds (i8, ptr @g_isr_stack, i64 8176), align 8
+@g_isr_stack_end = local_unnamed_addr global ptr getelementptr inbounds nuw (i8, ptr @g_isr_stack, i64 8176), align 8
 @g_current_regs = local_unnamed_addr global ptr null, align 8
 @idt_ptr = local_unnamed_addr global %struct.idt_ptr_s zeroinitializer, align 1
 @g_ist64 = external local_unnamed_addr global ptr, align 8
@@ -189,7 +189,7 @@ up_apic_init.exit:                                ; preds = %32
   br i1 %exitcond.not.i, label %up_ioapic_init.exit, label %.lr.ph.i, !llvm.loop !14
 
 up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_init.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) getelementptr inbounds (i8, ptr @g_idt_entries, i64 192), i8 0, i64 3904, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) getelementptr inbounds nuw (i8, ptr @g_idt_entries, i64 192), i8 0, i64 3904, i1 false)
   store i16 ptrtoint (ptr @vector_isr0 to i16), ptr @g_idt_entries, align 16
   %50 = lshr i64 ptrtoint (ptr @vector_isr0 to i64), 16
   %51 = trunc i64 %50 to i16

@@ -1184,7 +1184,7 @@ define dso_local i64 @tcp_splice_read(ptr nocapture noundef readonly %0, ptr noc
   %28 = load i32, ptr @rps_cpu_mask, align 4
   %29 = xor i32 %28, -1
   %30 = and i32 %20, %29
-  %31 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #22, !srcloc !18
+  %31 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #22, !srcloc !18
   %32 = or i32 %30, %31
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %34 = zext i32 %27 to i64
@@ -6594,7 +6594,7 @@ define dso_local void @__tcp_close(ptr noundef %0, i64 noundef %1) local_unnamed
   store ptr null, ptr %182, align 8
   tail call void @_raw_write_unlock_bh(ptr noundef nonnull %179) #22
   %183 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !79
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #22, !srcloc !80
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #22, !srcloc !80
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !81
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @_raw_spin_lock(ptr noundef nonnull %184) #22
@@ -7360,7 +7360,7 @@ define dso_local noundef i32 @tcp_disconnect(ptr noundef %0, i32 %1) #0 align 16
   br i1 %65, label %72, label %66
 
 66:                                               ; preds = %57, %53
-  %67 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #25, !srcloc !89
+  %67 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #25, !srcloc !89
   %68 = and i32 %67, 65280
   %69 = icmp eq i32 %68, 0
   %70 = select i1 %69, i32 3264, i32 2080
@@ -11398,7 +11398,7 @@ define internal fastcc i32 @tcp_zerocopy_receive(ptr noundef %0, ptr nocapture n
   %75 = load i32, ptr @rps_cpu_mask, align 4
   %76 = xor i32 %75, -1
   %77 = and i32 %67, %76
-  %78 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #22, !srcloc !18
+  %78 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #22, !srcloc !18
   %79 = or i32 %77, %78
   %80 = getelementptr inbounds nuw i8, ptr %68, i64 64
   %81 = zext i32 %74 to i64
@@ -11669,7 +11669,7 @@ thread-pre-split:                                 ; preds = %.thread95, %133, %1
   br label %.thread46
 
 242:                                              ; preds = %229
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #22
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #22
           to label %244 [label %243], !srcloc !17
 
 243:                                              ; preds = %242
@@ -11679,7 +11679,7 @@ thread-pre-split:                                 ; preds = %.thread95, %133, %1
 244:                                              ; preds = %243, %242
   %245 = getelementptr inbounds nuw i8, ptr %233, i64 176
   tail call void @down_read(ptr noundef nonnull %245) #22
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #22
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #22
           to label %247 [label %246], !srcloc !17
 
 246:                                              ; preds = %244
@@ -11699,7 +11699,7 @@ thread-pre-split:                                 ; preds = %.thread95, %133, %1
   br i1 %254, label %258, label %255
 
 255:                                              ; preds = %251, %247
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #22
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #22
           to label %257 [label %256], !srcloc !17
 
 256:                                              ; preds = %255
@@ -12906,7 +12906,7 @@ define dso_local noundef i32 @tcp_abort(ptr noundef %0, i32 noundef %1) #0 align
 
 6:                                                ; preds = %2
   %7 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !79
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #22, !srcloc !80
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #22, !srcloc !80
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !81
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -12933,7 +12933,7 @@ define dso_local noundef i32 @tcp_abort(ptr noundef %0, i32 noundef %1) #0 align
 
 21:                                               ; preds = %19, %15
   %22 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !79
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #22, !srcloc !80
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #22, !srcloc !80
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !81
   tail call void @inet_twsk_deschedule_put(ptr noundef %0) #22
   tail call void @__local_bh_enable_ip(i64 noundef %22, i32 noundef 512) #22
@@ -13013,7 +13013,7 @@ define dso_local noundef i32 @tcp_abort(ptr noundef %0, i32 noundef %1) #0 align
 
 63:                                               ; preds = %62, %23
   %64 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !79
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #22, !srcloc !80
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #22, !srcloc !80
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !81
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @_raw_spin_lock(ptr noundef nonnull %65) #22
@@ -13086,13 +13086,13 @@ define dso_local void @tcp_init() local_unnamed_addr #15 section ".init.text" al
   %5 = load i64, ptr @thash_entries, align 8
   tail call void @inet_hashinfo2_init(ptr noundef nonnull @tcp_hashinfo, ptr noundef nonnull @.str.16, i64 noundef %5, i32 noundef 21, i64 noundef 0, i64 noundef 65536) #22
   %6 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str.17, i32 noundef 72, i32 noundef 0, i32 noundef 270336, ptr noundef null) #22
-  store ptr %6, ptr getelementptr inbounds (i8, ptr @tcp_hashinfo, i64 24), align 8
+  store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 24), align 8
   %7 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str.18, i32 noundef 72, i32 noundef 0, i32 noundef 270336, ptr noundef null) #22
-  store ptr %7, ptr getelementptr inbounds (i8, ptr @tcp_hashinfo, i64 40), align 8
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 40), align 8
   %8 = load i64, ptr @thash_entries, align 8
   %9 = icmp eq i64 %8, 0
   %10 = select i1 %9, i64 524288, i64 0
-  %11 = tail call ptr @alloc_large_system_hash(ptr noundef nonnull @.str.19, i64 noundef 8, i64 noundef %8, i32 noundef 17, i32 noundef 0, ptr noundef null, ptr noundef nonnull getelementptr inbounds (i8, ptr @tcp_hashinfo, i64 16), i64 noundef 0, i64 noundef %10) #22
+  %11 = tail call ptr @alloc_large_system_hash(ptr noundef nonnull @.str.19, i64 noundef 8, i64 noundef %8, i32 noundef 17, i32 noundef 0, ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 16), i64 noundef 0, i64 noundef %10) #22
   store ptr %11, ptr @tcp_hashinfo, align 64
   br label %12
 
@@ -13106,7 +13106,7 @@ define dso_local void @tcp_init() local_unnamed_addr #15 section ".init.text" al
   %19 = getelementptr %struct.inet_ehash_bucket, ptr %18, i64 %14
   store ptr %17, ptr %19, align 8
   %20 = add i32 %13, 1
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @tcp_hashinfo, i64 16), align 16
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 16), align 16
   %22 = icmp ugt i32 %20, %21
   br i1 %22, label %23, label %12, !llvm.loop !111
 
@@ -13120,42 +13120,42 @@ define dso_local void @tcp_init() local_unnamed_addr #15 section ".init.text" al
   unreachable
 
 27:                                               ; preds = %23
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @tcp_hashinfo, i64 16), align 16
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 16), align 16
   %29 = add i32 %28, 1
   %30 = zext i32 %29 to i64
-  %31 = tail call ptr @alloc_large_system_hash(ptr noundef nonnull @.str.21, i64 noundef 32, i64 noundef %30, i32 noundef 17, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @tcp_hashinfo, i64 56), ptr noundef null, i64 noundef 0, i64 noundef 65536) #22
-  store ptr %31, ptr getelementptr inbounds (i8, ptr @tcp_hashinfo, i64 32), align 32
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @tcp_hashinfo, i64 56), align 8
+  %31 = tail call ptr @alloc_large_system_hash(ptr noundef nonnull @.str.21, i64 noundef 32, i64 noundef %30, i32 noundef 17, i32 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 56), ptr noundef null, i64 noundef 0, i64 noundef 65536) #22
+  store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 32), align 32
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 56), align 8
   %33 = shl nuw i32 1, %32
-  store i32 %33, ptr getelementptr inbounds (i8, ptr @tcp_hashinfo, i64 56), align 8
+  store i32 %33, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 56), align 8
   %34 = zext i32 %33 to i64
   %35 = getelementptr %struct.inet_bind_hashbucket, ptr %31, i64 %34
-  store ptr %35, ptr getelementptr inbounds (i8, ptr @tcp_hashinfo, i64 48), align 16
+  store ptr %35, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 48), align 16
   br label %36
 
 36:                                               ; preds = %36, %27
   %37 = phi i64 [ 0, %27 ], [ %46, %36 ]
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @tcp_hashinfo, i64 32), align 32
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 32), align 32
   %39 = getelementptr %struct.inet_bind_hashbucket, ptr %38, i64 %37
   store i32 0, ptr %39, align 8
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @tcp_hashinfo, i64 32), align 32
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 32), align 32
   %41 = getelementptr %struct.inet_bind_hashbucket, ptr %40, i64 %37, i32 1
   store ptr null, ptr %41, align 8
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @tcp_hashinfo, i64 48), align 16
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 48), align 16
   %43 = getelementptr %struct.inet_bind_hashbucket, ptr %42, i64 %37
   store i32 0, ptr %43, align 8
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @tcp_hashinfo, i64 48), align 16
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 48), align 16
   %45 = getelementptr %struct.inet_bind_hashbucket, ptr %44, i64 %37, i32 1
   store ptr null, ptr %45, align 8
   %46 = add nuw nsw i64 %37, 1
-  %47 = load i32, ptr getelementptr inbounds (i8, ptr @tcp_hashinfo, i64 56), align 8
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 56), align 8
   %48 = zext i32 %47 to i64
   %49 = icmp samesign ult i64 %46, %48
   br i1 %49, label %36, label %50, !llvm.loop !112
 
 50:                                               ; preds = %36
-  store i8 0, ptr getelementptr inbounds (i8, ptr @tcp_hashinfo, i64 72), align 8
-  %51 = load i32, ptr getelementptr inbounds (i8, ptr @tcp_hashinfo, i64 16), align 16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 72), align 8
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 16), align 16
   %52 = add i32 %51, 1
   %53 = sdiv i32 %52, 2
   store i32 %53, ptr @sysctl_tcp_max_orphans, align 4
@@ -13165,26 +13165,26 @@ define dso_local void @tcp_init() local_unnamed_addr #15 section ".init.text" al
   %57 = lshr i64 %56, 2
   %58 = mul nuw nsw i64 %57, 3
   store i64 %58, ptr @sysctl_tcp_mem, align 16
-  store i64 %56, ptr getelementptr inbounds (i8, ptr @sysctl_tcp_mem, i64 8), align 8
+  store i64 %56, ptr getelementptr inbounds nuw (i8, ptr @sysctl_tcp_mem, i64 8), align 8
   %59 = mul nuw nsw i64 %57, 6
-  store i64 %59, ptr getelementptr inbounds (i8, ptr @sysctl_tcp_mem, i64 16), align 16
+  store i64 %59, ptr getelementptr inbounds nuw (i8, ptr @sysctl_tcp_mem, i64 16), align 16
   %60 = tail call i64 @nr_free_buffer_pages() #22
   %61 = shl i64 %60, 5
   %62 = tail call i64 @llvm.umin.i64(i64 %61, i64 4194304)
   %63 = trunc nuw nsw i64 %62 to i32
   %64 = tail call i64 @llvm.umin.i64(i64 %61, i64 6291456)
   %65 = trunc nuw nsw i64 %64 to i32
-  store i32 4096, ptr getelementptr inbounds (i8, ptr @init_net, i64 724), align 4
-  store i32 16384, ptr getelementptr inbounds (i8, ptr @init_net, i64 728), align 8
+  store i32 4096, ptr getelementptr inbounds nuw (i8, ptr @init_net, i64 724), align 4
+  store i32 16384, ptr getelementptr inbounds nuw (i8, ptr @init_net, i64 728), align 8
   %66 = tail call i32 @llvm.umax.i32(i32 %63, i32 65536)
-  store i32 %66, ptr getelementptr inbounds (i8, ptr @init_net, i64 732), align 4
-  store i32 4096, ptr getelementptr inbounds (i8, ptr @init_net, i64 744), align 8
-  store i32 131072, ptr getelementptr inbounds (i8, ptr @init_net, i64 748), align 4
+  store i32 %66, ptr getelementptr inbounds nuw (i8, ptr @init_net, i64 732), align 4
+  store i32 4096, ptr getelementptr inbounds nuw (i8, ptr @init_net, i64 744), align 8
+  store i32 131072, ptr getelementptr inbounds nuw (i8, ptr @init_net, i64 748), align 4
   %67 = tail call i32 @llvm.umax.i32(i32 %65, i32 131072)
-  store i32 %67, ptr getelementptr inbounds (i8, ptr @init_net, i64 752), align 16
-  %68 = load i32, ptr getelementptr inbounds (i8, ptr @tcp_hashinfo, i64 16), align 16
+  store i32 %67, ptr getelementptr inbounds nuw (i8, ptr @init_net, i64 752), align 16
+  %68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 16), align 16
   %69 = add i32 %68, 1
-  %70 = load i32, ptr getelementptr inbounds (i8, ptr @tcp_hashinfo, i64 56), align 8
+  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 56), align 8
   %71 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, i32 noundef %69, i32 noundef %70) #26
   tail call void @tcp_v4_init() #22
   tail call void @tcp_metrics_init() #22
@@ -13640,7 +13640,7 @@ define internal fastcc i32 @tcp_zerocopy_vm_insert_batch(ptr noundef nonnull %0,
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc void @mmap_read_unlock(ptr noundef %0) unnamed_addr #6 align 16 {
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #22
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #22
           to label %3 [label %2], !srcloc !17
 
 2:                                                ; preds = %1

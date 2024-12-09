@@ -108,9 +108,9 @@ define void @_ZN18FunnelStringDialogC2EP7QWidget7QString5QListISt4pairIS2_S2_EEP
   %12 = alloca %"struct.std::pair", align 8
   %13 = alloca %"class.QtPrivate::QForeachContainer", align 8
   tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i32 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18FunnelStringDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18FunnelStringDialog, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18FunnelStringDialog, i64 488), ptr %14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18FunnelStringDialog, i64 488), ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
           to label %17 unwind label %92
@@ -1105,9 +1105,9 @@ declare void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) u
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN18FunnelStringDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8), (16, 24)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18FunnelStringDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18FunnelStringDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18FunnelStringDialog, i64 488), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18FunnelStringDialog, i64 488), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3284,7 +3284,7 @@ _ZN9QtPrivate15FunctionPointerIM7QWidgetFbvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.e
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_funnel_string_dialog.cpp() #14 section ".text.startup" {
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) @_ZL14dialog_helper_, ptr noundef null)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24FunnelStringDialogHelper, i64 16), ptr @_ZL14dialog_helper_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24FunnelStringDialogHelper, i64 16), ptr @_ZL14dialog_helper_, align 8
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN24FunnelStringDialogHelperD2Ev, ptr nonnull @_ZL14dialog_helper_, ptr nonnull @__dso_handle) #18
   ret void
 }

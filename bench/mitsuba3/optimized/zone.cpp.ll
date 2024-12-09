@@ -10,9 +10,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN6asmjit9_abi_1_104Zone5_initEmmPKNS0_7Support9TemporaryE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZN6asmjit9_abi_1_104Zone10_zeroBlockE, i64 24), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_104Zone10_zeroBlockE, i64 24), ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN6asmjit9_abi_1_104Zone10_zeroBlockE, i64 24), ptr %5, align 8, !tbaa !8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_104Zone10_zeroBlockE, i64 24), ptr %5, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @_ZN6asmjit9_abi_1_104Zone10_zeroBlockE, ptr %6, align 8, !tbaa !9
   %7 = and i64 %1, 1152921504606846975
@@ -75,9 +75,9 @@ define dso_local void @_ZN6asmjit9_abi_1_104Zone5resetENS0_11ResetPolicyE(ptr no
   br i1 %7, label %8, label %.preheader5
 
 8:                                                ; preds = %6
-  store ptr getelementptr inbounds (i8, ptr @_ZN6asmjit9_abi_1_104Zone10_zeroBlockE, i64 24), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_104Zone10_zeroBlockE, i64 24), ptr %0, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN6asmjit9_abi_1_104Zone10_zeroBlockE, i64 24), ptr %9, align 8, !tbaa !8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_104Zone10_zeroBlockE, i64 24), ptr %9, align 8, !tbaa !8
   store ptr @_ZN6asmjit9_abi_1_104Zone10_zeroBlockE, ptr %3, align 8, !tbaa !9
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !17

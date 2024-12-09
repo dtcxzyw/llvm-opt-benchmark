@@ -524,7 +524,7 @@ _Z17is_reference_type9BasicTypeb.exit.thread:     ; preds = %.preheader50, %25
 
 33:                                               ; preds = %29
   tail call void @_ZN8ciObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %31) #10
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTV12ciNullObject, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTV12ciNullObject, i64 16), ptr %31, align 8
   br label %34
 
 34:                                               ; preds = %33, %29
@@ -544,1277 +544,1277 @@ _Z17is_reference_type9BasicTypeb.exit.thread:     ; preds = %.preheader50, %25
   br label %42
 
 42:                                               ; preds = %39, %34
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
   %44 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %43) #10
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %42
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
   %47 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %46)
   store ptr %47, ptr @_ZN5ciEnv13_String_klassE, align 8
   br label %48
 
 48:                                               ; preds = %45, %42
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
   %50 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %49) #10
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %48
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
   %53 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %52)
   store ptr %53, ptr @_ZN5ciEnv12_Class_klassE, align 8
   br label %54
 
 54:                                               ; preds = %51, %48
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 24), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 24), align 8
   %56 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %55) #10
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %54
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 24), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 24), align 8
   %59 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %58)
   store ptr %59, ptr @_ZN5ciEnv16_Cloneable_klassE, align 8
   br label %60
 
 60:                                               ; preds = %57, %54
-  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 32), align 8
+  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 32), align 8
   %62 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %61) #10
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %60
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 32), align 8
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 32), align 8
   %65 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %64)
   store ptr %65, ptr @_ZN5ciEnv18_ClassLoader_klassE, align 8
   br label %66
 
 66:                                               ; preds = %63, %60
-  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 40), align 8
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 40), align 8
   %68 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %67) #10
   br i1 %68, label %69, label %72
 
 69:                                               ; preds = %66
-  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 40), align 8
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 40), align 8
   %71 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %70)
   store ptr %71, ptr @_ZN5ciEnv19_Serializable_klassE, align 8
   br label %72
 
 72:                                               ; preds = %69, %66
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 48), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 48), align 8
   %74 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %73) #10
   br i1 %74, label %75, label %78
 
 75:                                               ; preds = %72
-  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 48), align 8
+  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 48), align 8
   %77 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %76)
   store ptr %77, ptr @_ZN5ciEnv13_System_klassE, align 8
   br label %78
 
 78:                                               ; preds = %75, %72
-  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 56), align 8
+  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 56), align 8
   %80 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %79) #10
   br i1 %80, label %81, label %84
 
 81:                                               ; preds = %78
-  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 56), align 8
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 56), align 8
   %83 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %82)
   store ptr %83, ptr @_ZN5ciEnv16_Throwable_klassE, align 8
   br label %84
 
 84:                                               ; preds = %81, %78
-  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 64), align 8
+  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 64), align 8
   %86 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %85) #10
   br i1 %86, label %87, label %90
 
 87:                                               ; preds = %84
-  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 64), align 8
+  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 64), align 8
   %89 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %88)
   store ptr %89, ptr @_ZN5ciEnv12_Error_klassE, align 8
   br label %90
 
 90:                                               ; preds = %87, %84
-  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 72), align 8
+  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 72), align 8
   %92 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %91) #10
   br i1 %92, label %93, label %96
 
 93:                                               ; preds = %90
-  %94 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 72), align 8
+  %94 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 72), align 8
   %95 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %94)
   store ptr %95, ptr @_ZN5ciEnv16_Exception_klassE, align 8
   br label %96
 
 96:                                               ; preds = %93, %90
-  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 80), align 8
+  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 80), align 8
   %98 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %97) #10
   br i1 %98, label %99, label %102
 
 99:                                               ; preds = %96
-  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 80), align 8
+  %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 80), align 8
   %101 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %100)
   store ptr %101, ptr @_ZN5ciEnv23_RuntimeException_klassE, align 8
   br label %102
 
 102:                                              ; preds = %99, %96
-  %103 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 88), align 8
+  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 88), align 8
   %104 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %103) #10
   br i1 %104, label %105, label %108
 
 105:                                              ; preds = %102
-  %106 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 88), align 8
+  %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 88), align 8
   %107 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %106)
   store ptr %107, ptr @_ZN5ciEnv22_SecurityManager_klassE, align 8
   br label %108
 
 108:                                              ; preds = %105, %102
-  %109 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 96), align 8
+  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 96), align 8
   %110 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %109) #10
   br i1 %110, label %111, label %114
 
 111:                                              ; preds = %108
-  %112 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 96), align 8
+  %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 96), align 8
   %113 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %112)
   store ptr %113, ptr @_ZN5ciEnv23_ProtectionDomain_klassE, align 8
   br label %114
 
 114:                                              ; preds = %111, %108
-  %115 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 104), align 8
+  %115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 104), align 8
   %116 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %115) #10
   br i1 %116, label %117, label %120
 
 117:                                              ; preds = %114
-  %118 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 104), align 8
+  %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 104), align 8
   %119 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %118)
   store ptr %119, ptr @_ZN5ciEnv27_AccessControlContext_klassE, align 8
   br label %120
 
 120:                                              ; preds = %117, %114
-  %121 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 112), align 8
+  %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 112), align 8
   %122 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %121) #10
   br i1 %122, label %123, label %126
 
 123:                                              ; preds = %120
-  %124 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 112), align 8
+  %124 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 112), align 8
   %125 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %124)
   store ptr %125, ptr @_ZN5ciEnv23_AccessController_klassE, align 8
   br label %126
 
 126:                                              ; preds = %123, %120
-  %127 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 120), align 8
+  %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 120), align 8
   %128 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %127) #10
   br i1 %128, label %129, label %132
 
 129:                                              ; preds = %126
-  %130 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 120), align 8
+  %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 120), align 8
   %131 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %130)
   store ptr %131, ptr @_ZN5ciEnv24_SecureClassLoader_klassE, align 8
   br label %132
 
 132:                                              ; preds = %129, %126
-  %133 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 128), align 8
+  %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 128), align 8
   %134 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %133) #10
   br i1 %134, label %135, label %138
 
 135:                                              ; preds = %132
-  %136 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 128), align 8
+  %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 128), align 8
   %137 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %136)
   store ptr %137, ptr @_ZN5ciEnv29_ClassNotFoundException_klassE, align 8
   br label %138
 
 138:                                              ; preds = %135, %132
-  %139 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 136), align 8
+  %139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 136), align 8
   %140 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %139) #10
   br i1 %140, label %141, label %144
 
 141:                                              ; preds = %138
-  %142 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 136), align 8
+  %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 136), align 8
   %143 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %142)
   store ptr %143, ptr @_ZN5ciEnv13_Record_klassE, align 8
   br label %144
 
 144:                                              ; preds = %141, %138
-  %145 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 144), align 8
+  %145 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 144), align 8
   %146 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %145) #10
   br i1 %146, label %147, label %150
 
 147:                                              ; preds = %144
-  %148 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 144), align 8
+  %148 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 144), align 8
   %149 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %148)
   store ptr %149, ptr @_ZN5ciEnv27_NoClassDefFoundError_klassE, align 8
   br label %150
 
 150:                                              ; preds = %147, %144
-  %151 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 152), align 8
+  %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 152), align 8
   %152 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %151) #10
   br i1 %152, label %153, label %156
 
 153:                                              ; preds = %150
-  %154 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 152), align 8
+  %154 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 152), align 8
   %155 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %154)
   store ptr %155, ptr @_ZN5ciEnv19_LinkageError_klassE, align 8
   br label %156
 
 156:                                              ; preds = %153, %150
-  %157 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 160), align 8
+  %157 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 160), align 8
   %158 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %157) #10
   br i1 %158, label %159, label %162
 
 159:                                              ; preds = %156
-  %160 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 160), align 8
+  %160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 160), align 8
   %161 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %160)
   store ptr %161, ptr @_ZN5ciEnv25_ClassCastException_klassE, align 8
   br label %162
 
 162:                                              ; preds = %159, %156
-  %163 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 168), align 8
+  %163 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 168), align 8
   %164 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %163) #10
   br i1 %164, label %165, label %168
 
 165:                                              ; preds = %162
-  %166 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 168), align 8
+  %166 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 168), align 8
   %167 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %166)
   store ptr %167, ptr @_ZN5ciEnv26_ArrayStoreException_klassE, align 8
   br label %168
 
 168:                                              ; preds = %165, %162
-  %169 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 176), align 8
+  %169 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 176), align 8
   %170 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %169) #10
   br i1 %170, label %171, label %174
 
 171:                                              ; preds = %168
-  %172 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 176), align 8
+  %172 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 176), align 8
   %173 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %172)
   store ptr %173, ptr @_ZN5ciEnv26_VirtualMachineError_klassE, align 8
   br label %174
 
 174:                                              ; preds = %171, %168
-  %175 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 184), align 8
+  %175 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 184), align 8
   %176 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %175) #10
   br i1 %176, label %177, label %180
 
 177:                                              ; preds = %174
-  %178 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 184), align 8
+  %178 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 184), align 8
   %179 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %178)
   store ptr %179, ptr @_ZN5ciEnv20_InternalError_klassE, align 8
   br label %180
 
 180:                                              ; preds = %177, %174
-  %181 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 192), align 8
+  %181 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 192), align 8
   %182 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %181) #10
   br i1 %182, label %183, label %186
 
 183:                                              ; preds = %180
-  %184 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 192), align 8
+  %184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 192), align 8
   %185 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %184)
   store ptr %185, ptr @_ZN5ciEnv23_OutOfMemoryError_klassE, align 8
   br label %186
 
 186:                                              ; preds = %183, %180
-  %187 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 200), align 8
+  %187 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 200), align 8
   %188 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %187) #10
   br i1 %188, label %189, label %192
 
 189:                                              ; preds = %186
-  %190 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 200), align 8
+  %190 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 200), align 8
   %191 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %190)
   store ptr %191, ptr @_ZN5ciEnv25_StackOverflowError_klassE, align 8
   br label %192
 
 192:                                              ; preds = %189, %186
-  %193 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 208), align 8
+  %193 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 208), align 8
   %194 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %193) #10
   br i1 %194, label %195, label %198
 
 195:                                              ; preds = %192
-  %196 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 208), align 8
+  %196 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 208), align 8
   %197 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %196)
   store ptr %197, ptr @_ZN5ciEnv35_IllegalMonitorStateException_klassE, align 8
   br label %198
 
 198:                                              ; preds = %195, %192
-  %199 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 216), align 8
+  %199 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 216), align 8
   %200 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %199) #10
   br i1 %200, label %201, label %204
 
 201:                                              ; preds = %198
-  %202 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 216), align 8
+  %202 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 216), align 8
   %203 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %202)
   store ptr %203, ptr @_ZN5ciEnv16_Reference_klassE, align 8
   br label %204
 
 204:                                              ; preds = %201, %198
-  %205 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 224), align 8
+  %205 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 224), align 8
   %206 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %205) #10
   br i1 %206, label %207, label %210
 
 207:                                              ; preds = %204
-  %208 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 224), align 8
+  %208 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 224), align 8
   %209 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %208)
   store ptr %209, ptr @_ZN5ciEnv20_SoftReference_klassE, align 8
   br label %210
 
 210:                                              ; preds = %207, %204
-  %211 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 232), align 8
+  %211 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 232), align 8
   %212 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %211) #10
   br i1 %212, label %213, label %216
 
 213:                                              ; preds = %210
-  %214 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 232), align 8
+  %214 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 232), align 8
   %215 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %214)
   store ptr %215, ptr @_ZN5ciEnv20_WeakReference_klassE, align 8
   br label %216
 
 216:                                              ; preds = %213, %210
-  %217 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 240), align 8
+  %217 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 240), align 8
   %218 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %217) #10
   br i1 %218, label %219, label %222
 
 219:                                              ; preds = %216
-  %220 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 240), align 8
+  %220 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 240), align 8
   %221 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %220)
   store ptr %221, ptr @_ZN5ciEnv21_FinalReference_klassE, align 8
   br label %222
 
 222:                                              ; preds = %219, %216
-  %223 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 248), align 8
+  %223 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 248), align 8
   %224 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %223) #10
   br i1 %224, label %225, label %228
 
 225:                                              ; preds = %222
-  %226 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 248), align 8
+  %226 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 248), align 8
   %227 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %226)
   store ptr %227, ptr @_ZN5ciEnv23_PhantomReference_klassE, align 8
   br label %228
 
 228:                                              ; preds = %225, %222
-  %229 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 256), align 8
+  %229 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 256), align 8
   %230 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %229) #10
   br i1 %230, label %231, label %234
 
 231:                                              ; preds = %228
-  %232 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 256), align 8
+  %232 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 256), align 8
   %233 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %232)
   store ptr %233, ptr @_ZN5ciEnv16_Finalizer_klassE, align 8
   br label %234
 
 234:                                              ; preds = %231, %228
-  %235 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 264), align 8
+  %235 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 264), align 8
   %236 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %235) #10
   br i1 %236, label %237, label %240
 
 237:                                              ; preds = %234
-  %238 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 264), align 8
+  %238 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 264), align 8
   %239 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %238)
   store ptr %239, ptr @_ZN5ciEnv13_Thread_klassE, align 8
   br label %240
 
 240:                                              ; preds = %237, %234
-  %241 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 272), align 8
+  %241 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 272), align 8
   %242 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %241) #10
   br i1 %242, label %243, label %246
 
 243:                                              ; preds = %240
-  %244 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 272), align 8
+  %244 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 272), align 8
   %245 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %244)
   store ptr %245, ptr @_ZN5ciEnv25_Thread_FieldHolder_klassE, align 8
   br label %246
 
 246:                                              ; preds = %243, %240
-  %247 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 280), align 8
+  %247 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 280), align 8
   %248 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %247) #10
   br i1 %248, label %249, label %252
 
 249:                                              ; preds = %246
-  %250 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 280), align 8
+  %250 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 280), align 8
   %251 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %250)
   store ptr %251, ptr @_ZN5ciEnv23_Thread_Constants_klassE, align 8
   br label %252
 
 252:                                              ; preds = %249, %246
-  %253 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 288), align 8
+  %253 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 288), align 8
   %254 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %253) #10
   br i1 %254, label %255, label %258
 
 255:                                              ; preds = %252
-  %256 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 288), align 8
+  %256 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 288), align 8
   %257 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %256)
   store ptr %257, ptr @_ZN5ciEnv18_ThreadGroup_klassE, align 8
   br label %258
 
 258:                                              ; preds = %255, %252
-  %259 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 296), align 8
+  %259 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 296), align 8
   %260 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %259) #10
   br i1 %260, label %261, label %264
 
 261:                                              ; preds = %258
-  %262 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 296), align 8
+  %262 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 296), align 8
   %263 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %262)
   store ptr %263, ptr @_ZN5ciEnv24_BaseVirtualThread_klassE, align 8
   br label %264
 
 264:                                              ; preds = %261, %258
-  %265 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 304), align 8
+  %265 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 304), align 8
   %266 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %265) #10
   br i1 %266, label %267, label %270
 
 267:                                              ; preds = %264
-  %268 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 304), align 8
+  %268 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 304), align 8
   %269 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %268)
   store ptr %269, ptr @_ZN5ciEnv20_VirtualThread_klassE, align 8
   br label %270
 
 270:                                              ; preds = %267, %264
-  %271 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 312), align 8
+  %271 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 312), align 8
   %272 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %271) #10
   br i1 %272, label %273, label %276
 
 273:                                              ; preds = %270
-  %274 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 312), align 8
+  %274 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 312), align 8
   %275 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %274)
   store ptr %275, ptr @_ZN5ciEnv25_BoundVirtualThread_klassE, align 8
   br label %276
 
 276:                                              ; preds = %273, %270
-  %277 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 320), align 8
+  %277 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 320), align 8
   %278 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %277) #10
   br i1 %278, label %279, label %282
 
 279:                                              ; preds = %276
-  %280 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 320), align 8
+  %280 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 320), align 8
   %281 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %280)
   store ptr %281, ptr @_ZN5ciEnv17_Properties_klassE, align 8
   br label %282
 
 282:                                              ; preds = %279, %276
-  %283 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 328), align 8
+  %283 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 328), align 8
   %284 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %283) #10
   br i1 %284, label %285, label %288
 
 285:                                              ; preds = %282
-  %286 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 328), align 8
+  %286 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 328), align 8
   %287 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %286)
   store ptr %287, ptr @_ZN5ciEnv13_Module_klassE, align 8
   br label %288
 
 288:                                              ; preds = %285, %282
-  %289 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 336), align 8
+  %289 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 336), align 8
   %290 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %289) #10
   br i1 %290, label %291, label %294
 
 291:                                              ; preds = %288
-  %292 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 336), align 8
+  %292 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 336), align 8
   %293 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %292)
   store ptr %293, ptr @_ZN5ciEnv31_reflect_AccessibleObject_klassE, align 8
   br label %294
 
 294:                                              ; preds = %291, %288
-  %295 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 344), align 8
+  %295 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 344), align 8
   %296 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %295) #10
   br i1 %296, label %297, label %300
 
 297:                                              ; preds = %294
-  %298 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 344), align 8
+  %298 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 344), align 8
   %299 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %298)
   store ptr %299, ptr @_ZN5ciEnv20_reflect_Field_klassE, align 8
   br label %300
 
 300:                                              ; preds = %297, %294
-  %301 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 352), align 8
+  %301 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 352), align 8
   %302 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %301) #10
   br i1 %302, label %303, label %306
 
 303:                                              ; preds = %300
-  %304 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 352), align 8
+  %304 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 352), align 8
   %305 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %304)
   store ptr %305, ptr @_ZN5ciEnv24_reflect_Parameter_klassE, align 8
   br label %306
 
 306:                                              ; preds = %303, %300
-  %307 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 360), align 8
+  %307 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 360), align 8
   %308 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %307) #10
   br i1 %308, label %309, label %312
 
 309:                                              ; preds = %306
-  %310 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 360), align 8
+  %310 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 360), align 8
   %311 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %310)
   store ptr %311, ptr @_ZN5ciEnv21_reflect_Method_klassE, align 8
   br label %312
 
 312:                                              ; preds = %309, %306
-  %313 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 368), align 8
+  %313 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 368), align 8
   %314 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %313) #10
   br i1 %314, label %315, label %318
 
 315:                                              ; preds = %312
-  %316 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 368), align 8
+  %316 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 368), align 8
   %317 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %316)
   store ptr %317, ptr @_ZN5ciEnv26_reflect_Constructor_klassE, align 8
   br label %318
 
 318:                                              ; preds = %315, %312
-  %319 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 376), align 8
+  %319 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 376), align 8
   %320 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %319) #10
   br i1 %320, label %321, label %324
 
 321:                                              ; preds = %318
-  %322 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 376), align 8
+  %322 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 376), align 8
   %323 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %322)
   store ptr %323, ptr @_ZN5ciEnv15_Runnable_klassE, align 8
   br label %324
 
 324:                                              ; preds = %321, %318
-  %325 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 384), align 8
+  %325 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 384), align 8
   %326 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %325) #10
   br i1 %326, label %327, label %330
 
 327:                                              ; preds = %324
-  %328 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 384), align 8
+  %328 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 384), align 8
   %329 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %328)
   store ptr %329, ptr @_ZN5ciEnv24_ContinuationScope_klassE, align 8
   br label %330
 
 330:                                              ; preds = %327, %324
-  %331 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 392), align 8
+  %331 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 392), align 8
   %332 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %331) #10
   br i1 %332, label %333, label %336
 
 333:                                              ; preds = %330
-  %334 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 392), align 8
+  %334 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 392), align 8
   %335 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %334)
   store ptr %335, ptr @_ZN5ciEnv19_Continuation_klassE, align 8
   br label %336
 
 336:                                              ; preds = %333, %330
-  %337 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
+  %337 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
   %338 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %337) #10
   br i1 %338, label %339, label %342
 
 339:                                              ; preds = %336
-  %340 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
+  %340 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
   %341 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %340)
   store ptr %341, ptr @_ZN5ciEnv17_StackChunk_klassE, align 8
   br label %342
 
 342:                                              ; preds = %339, %336
-  %343 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 408), align 8
+  %343 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 408), align 8
   %344 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %343) #10
   br i1 %344, label %345, label %348
 
 345:                                              ; preds = %342
-  %346 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 408), align 8
+  %346 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 408), align 8
   %347 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %346)
   store ptr %347, ptr @_ZN5ciEnv33_reflect_MethodAccessorImpl_klassE, align 8
   br label %348
 
 348:                                              ; preds = %345, %342
-  %349 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 416), align 8
+  %349 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 416), align 8
   %350 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %349) #10
   br i1 %350, label %351, label %354
 
 351:                                              ; preds = %348
-  %352 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 416), align 8
+  %352 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 416), align 8
   %353 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %352)
   store ptr %353, ptr @_ZN5ciEnv36_reflect_DelegatingClassLoader_klassE, align 8
   br label %354
 
 354:                                              ; preds = %351, %348
-  %355 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 424), align 8
+  %355 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 424), align 8
   %356 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %355) #10
   br i1 %356, label %357, label %360
 
 357:                                              ; preds = %354
-  %358 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 424), align 8
+  %358 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 424), align 8
   %359 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %358)
   store ptr %359, ptr @_ZN5ciEnv27_reflect_ConstantPool_klassE, align 8
   br label %360
 
 360:                                              ; preds = %357, %354
-  %361 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 432), align 8
+  %361 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 432), align 8
   %362 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %361) #10
   br i1 %362, label %363, label %366
 
 363:                                              ; preds = %360
-  %364 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 432), align 8
+  %364 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 432), align 8
   %365 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %364)
   store ptr %365, ptr @_ZN5ciEnv30_reflect_CallerSensitive_klassE, align 8
   br label %366
 
 366:                                              ; preds = %363, %360
-  %367 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 440), align 8
+  %367 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 440), align 8
   %368 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %367) #10
   br i1 %368, label %369, label %372
 
 369:                                              ; preds = %366
-  %370 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 440), align 8
+  %370 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 440), align 8
   %371 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %370)
   store ptr %371, ptr @_ZN5ciEnv61_reflect_DirectConstructorHandleAccessor_NativeAccessor_klassE, align 8
   br label %372
 
 372:                                              ; preds = %369, %366
-  %373 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 448), align 8
+  %373 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 448), align 8
   %374 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %373) #10
   br i1 %374, label %375, label %378
 
 375:                                              ; preds = %372
-  %376 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 448), align 8
+  %376 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 448), align 8
   %377 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %376)
   store ptr %377, ptr @_ZN5ciEnv51_reflect_SerializationConstructorAccessorImpl_klassE, align 8
   br label %378
 
 378:                                              ; preds = %375, %372
-  %379 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 456), align 8
+  %379 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 456), align 8
   %380 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %379) #10
   br i1 %380, label %381, label %384
 
 381:                                              ; preds = %378
-  %382 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 456), align 8
+  %382 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 456), align 8
   %383 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %382)
   store ptr %383, ptr @_ZN5ciEnv25_DirectMethodHandle_klassE, align 8
   br label %384
 
 384:                                              ; preds = %381, %378
-  %385 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 464), align 8
+  %385 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 464), align 8
   %386 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %385) #10
   br i1 %386, label %387, label %390
 
 387:                                              ; preds = %384
-  %388 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 464), align 8
+  %388 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 464), align 8
   %389 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %388)
   store ptr %389, ptr @_ZN5ciEnv19_MethodHandle_klassE, align 8
   br label %390
 
 390:                                              ; preds = %387, %384
-  %391 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 472), align 8
+  %391 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 472), align 8
   %392 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %391) #10
   br i1 %392, label %393, label %396
 
 393:                                              ; preds = %390
-  %394 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 472), align 8
+  %394 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 472), align 8
   %395 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %394)
   store ptr %395, ptr @_ZN5ciEnv16_VarHandle_klassE, align 8
   br label %396
 
 396:                                              ; preds = %393, %390
-  %397 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 480), align 8
+  %397 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 480), align 8
   %398 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %397) #10
   br i1 %398, label %399, label %402
 
 399:                                              ; preds = %396
-  %400 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 480), align 8
+  %400 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 480), align 8
   %401 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %400)
   store ptr %401, ptr @_ZN5ciEnv17_MemberName_klassE, align 8
   br label %402
 
 402:                                              ; preds = %399, %396
-  %403 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 488), align 8
+  %403 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 488), align 8
   %404 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %403) #10
   br i1 %404, label %405, label %408
 
 405:                                              ; preds = %402
-  %406 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 488), align 8
+  %406 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 488), align 8
   %407 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %406)
   store ptr %407, ptr @_ZN5ciEnv25_ResolvedMethodName_klassE, align 8
   br label %408
 
 408:                                              ; preds = %405, %402
-  %409 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 496), align 8
+  %409 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 496), align 8
   %410 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %409) #10
   br i1 %410, label %411, label %414
 
 411:                                              ; preds = %408
-  %412 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 496), align 8
+  %412 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 496), align 8
   %413 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %412)
   store ptr %413, ptr @_ZN5ciEnv26_MethodHandleNatives_klassE, align 8
   br label %414
 
 414:                                              ; preds = %411, %408
-  %415 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 504), align 8
+  %415 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 504), align 8
   %416 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %415) #10
   br i1 %416, label %417, label %420
 
 417:                                              ; preds = %414
-  %418 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 504), align 8
+  %418 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 504), align 8
   %419 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %418)
   store ptr %419, ptr @_ZN5ciEnv17_LambdaForm_klassE, align 8
   br label %420
 
 420:                                              ; preds = %417, %414
-  %421 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 512), align 8
+  %421 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 512), align 8
   %422 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %421) #10
   br i1 %422, label %423, label %426
 
 423:                                              ; preds = %420
-  %424 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 512), align 8
+  %424 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 512), align 8
   %425 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %424)
   store ptr %425, ptr @_ZN5ciEnv17_MethodType_klassE, align 8
   br label %426
 
 426:                                              ; preds = %423, %420
-  %427 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 520), align 8
+  %427 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 520), align 8
   %428 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %427) #10
   br i1 %428, label %429, label %432
 
 429:                                              ; preds = %426
-  %430 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 520), align 8
+  %430 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 520), align 8
   %431 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %430)
   store ptr %431, ptr @_ZN5ciEnv27_BootstrapMethodError_klassE, align 8
   br label %432
 
 432:                                              ; preds = %429, %426
-  %433 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 528), align 8
+  %433 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 528), align 8
   %434 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %433) #10
   br i1 %434, label %435, label %438
 
 435:                                              ; preds = %432
-  %436 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 528), align 8
+  %436 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 528), align 8
   %437 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %436)
   store ptr %437, ptr @_ZN5ciEnv15_CallSite_klassE, align 8
   br label %438
 
 438:                                              ; preds = %435, %432
-  %439 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 536), align 8
+  %439 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 536), align 8
   %440 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %439) #10
   br i1 %440, label %441, label %444
 
 441:                                              ; preds = %438
-  %442 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 536), align 8
+  %442 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 536), align 8
   %443 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %442)
   store ptr %443, ptr @_ZN5ciEnv23_NativeEntryPoint_klassE, align 8
   br label %444
 
 444:                                              ; preds = %441, %438
-  %445 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 544), align 8
+  %445 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 544), align 8
   %446 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %445) #10
   br i1 %446, label %447, label %450
 
 447:                                              ; preds = %444
-  %448 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 544), align 8
+  %448 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 544), align 8
   %449 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %448)
   store ptr %449, ptr @_ZN5ciEnv20_ABIDescriptor_klassE, align 8
   br label %450
 
 450:                                              ; preds = %447, %444
-  %451 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 552), align 8
+  %451 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 552), align 8
   %452 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %451) #10
   br i1 %452, label %453, label %456
 
 453:                                              ; preds = %450
-  %454 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 552), align 8
+  %454 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 552), align 8
   %455 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %454)
   store ptr %455, ptr @_ZN5ciEnv16_VMStorage_klassE, align 8
   br label %456
 
 456:                                              ; preds = %453, %450
-  %457 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 560), align 8
+  %457 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 560), align 8
   %458 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %457) #10
   br i1 %458, label %459, label %462
 
 459:                                              ; preds = %456
-  %460 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 560), align 8
+  %460 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 560), align 8
   %461 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %460)
   store ptr %461, ptr @_ZN5ciEnv15_CallConv_klassE, align 8
   br label %462
 
 462:                                              ; preds = %459, %456
-  %463 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 568), align 8
+  %463 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 568), align 8
   %464 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %463) #10
   br i1 %464, label %465, label %468
 
 465:                                              ; preds = %462
-  %466 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 568), align 8
+  %466 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 568), align 8
   %467 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %466)
   store ptr %467, ptr @_ZN5ciEnv14_Context_klassE, align 8
   br label %468
 
 468:                                              ; preds = %465, %462
-  %469 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 576), align 8
+  %469 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 576), align 8
   %470 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %469) #10
   br i1 %470, label %471, label %474
 
 471:                                              ; preds = %468
-  %472 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 576), align 8
+  %472 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 576), align 8
   %473 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %472)
   store ptr %473, ptr @_ZN5ciEnv23_ConstantCallSite_klassE, align 8
   br label %474
 
 474:                                              ; preds = %471, %468
-  %475 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 584), align 8
+  %475 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 584), align 8
   %476 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %475) #10
   br i1 %476, label %477, label %480
 
 477:                                              ; preds = %474
-  %478 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 584), align 8
+  %478 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 584), align 8
   %479 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %478)
   store ptr %479, ptr @_ZN5ciEnv22_MutableCallSite_klassE, align 8
   br label %480
 
 480:                                              ; preds = %477, %474
-  %481 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 592), align 8
+  %481 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 592), align 8
   %482 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %481) #10
   br i1 %482, label %483, label %486
 
 483:                                              ; preds = %480
-  %484 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 592), align 8
+  %484 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 592), align 8
   %485 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %484)
   store ptr %485, ptr @_ZN5ciEnv23_VolatileCallSite_klassE, align 8
   br label %486
 
 486:                                              ; preds = %483, %480
-  %487 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 600), align 8
+  %487 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 600), align 8
   %488 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %487) #10
   br i1 %488, label %489, label %492
 
 489:                                              ; preds = %486
-  %490 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 600), align 8
+  %490 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 600), align 8
   %491 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %490)
   store ptr %491, ptr @_ZN5ciEnv32_AssertionStatusDirectives_klassE, align 8
   br label %492
 
 492:                                              ; preds = %489, %486
-  %493 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 608), align 8
+  %493 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 608), align 8
   %494 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %493) #10
   br i1 %494, label %495, label %498
 
 495:                                              ; preds = %492
-  %496 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 608), align 8
+  %496 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 608), align 8
   %497 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %496)
   store ptr %497, ptr @_ZN5ciEnv19_StringBuffer_klassE, align 8
   br label %498
 
 498:                                              ; preds = %495, %492
-  %499 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 616), align 8
+  %499 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 616), align 8
   %500 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %499) #10
   br i1 %500, label %501, label %504
 
 501:                                              ; preds = %498
-  %502 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 616), align 8
+  %502 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 616), align 8
   %503 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %502)
   store ptr %503, ptr @_ZN5ciEnv20_StringBuilder_klassE, align 8
   br label %504
 
 504:                                              ; preds = %501, %498
-  %505 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 624), align 8
+  %505 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 624), align 8
   %506 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %505) #10
   br i1 %506, label %507, label %510
 
 507:                                              ; preds = %504
-  %508 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 624), align 8
+  %508 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 624), align 8
   %509 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %508)
   store ptr %509, ptr @_ZN5ciEnv22_UnsafeConstants_klassE, align 8
   br label %510
 
 510:                                              ; preds = %507, %504
-  %511 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 632), align 8
+  %511 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 632), align 8
   %512 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %511) #10
   br i1 %512, label %513, label %516
 
 513:                                              ; preds = %510
-  %514 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 632), align 8
+  %514 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 632), align 8
   %515 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %514)
   store ptr %515, ptr @_ZN5ciEnv22_internal_Unsafe_klassE, align 8
   br label %516
 
 516:                                              ; preds = %513, %510
-  %517 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 640), align 8
+  %517 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 640), align 8
   %518 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %517) #10
   br i1 %518, label %519, label %522
 
 519:                                              ; preds = %516
-  %520 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 640), align 8
+  %520 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 640), align 8
   %521 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %520)
   store ptr %521, ptr @_ZN5ciEnv21_module_Modules_klassE, align 8
   br label %522
 
 522:                                              ; preds = %519, %516
-  %523 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 648), align 8
+  %523 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 648), align 8
   %524 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %523) #10
   br i1 %524, label %525, label %528
 
 525:                                              ; preds = %522
-  %526 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 648), align 8
+  %526 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 648), align 8
   %527 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %526)
   store ptr %527, ptr @_ZN5ciEnv27_ByteArrayInputStream_klassE, align 8
   br label %528
 
 528:                                              ; preds = %525, %522
-  %529 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 656), align 8
+  %529 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 656), align 8
   %530 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %529) #10
   br i1 %530, label %531, label %534
 
 531:                                              ; preds = %528
-  %532 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 656), align 8
+  %532 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 656), align 8
   %533 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %532)
   store ptr %533, ptr @_ZN5ciEnv10_URL_klassE, align 8
   br label %534
 
 534:                                              ; preds = %531, %528
-  %535 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 664), align 8
+  %535 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 664), align 8
   %536 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %535) #10
   br i1 %536, label %537, label %540
 
 537:                                              ; preds = %534
-  %538 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 664), align 8
+  %538 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 664), align 8
   %539 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %538)
   store ptr %539, ptr @_ZN5ciEnv21_URLClassLoader_klassE, align 8
   br label %540
 
 540:                                              ; preds = %537, %534
-  %541 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 672), align 8
+  %541 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 672), align 8
   %542 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %541) #10
   br i1 %542, label %543, label %546
 
 543:                                              ; preds = %540
-  %544 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 672), align 8
+  %544 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 672), align 8
   %545 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %544)
   store ptr %545, ptr @_ZN5ciEnv11_Enum_klassE, align 8
   br label %546
 
 546:                                              ; preds = %543, %540
-  %547 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 680), align 8
+  %547 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 680), align 8
   %548 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %547) #10
   br i1 %548, label %549, label %552
 
 549:                                              ; preds = %546
-  %550 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 680), align 8
+  %550 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 680), align 8
   %551 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %550)
   store ptr %551, ptr @_ZN5ciEnv19_Jar_Manifest_klassE, align 8
   br label %552
 
 552:                                              ; preds = %549, %546
-  %553 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 688), align 8
+  %553 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 688), align 8
   %554 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %553) #10
   br i1 %554, label %555, label %558
 
 555:                                              ; preds = %552
-  %556 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 688), align 8
+  %556 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 688), align 8
   %557 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %556)
   store ptr %557, ptr @_ZN5ciEnv45_jdk_internal_loader_BuiltinClassLoader_klassE, align 8
   br label %558
 
 558:                                              ; preds = %555, %552
-  %559 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 696), align 8
+  %559 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 696), align 8
   %560 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %559) #10
   br i1 %560, label %561, label %564
 
 561:                                              ; preds = %558
-  %562 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 696), align 8
+  %562 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 696), align 8
   %563 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %562)
   store ptr %563, ptr @_ZN5ciEnv39_jdk_internal_loader_ClassLoaders_klassE, align 8
   br label %564
 
 564:                                              ; preds = %561, %558
-  %565 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 704), align 8
+  %565 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 704), align 8
   %566 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %565) #10
   br i1 %566, label %567, label %570
 
 567:                                              ; preds = %564
-  %568 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 704), align 8
+  %568 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 704), align 8
   %569 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %568)
   store ptr %569, ptr @_ZN5ciEnv54_jdk_internal_loader_ClassLoaders_AppClassLoader_klassE, align 8
   br label %570
 
 570:                                              ; preds = %567, %564
-  %571 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 712), align 8
+  %571 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 712), align 8
   %572 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %571) #10
   br i1 %572, label %573, label %576
 
 573:                                              ; preds = %570
-  %574 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 712), align 8
+  %574 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 712), align 8
   %575 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %574)
   store ptr %575, ptr @_ZN5ciEnv59_jdk_internal_loader_ClassLoaders_PlatformClassLoader_klassE, align 8
   br label %576
 
 576:                                              ; preds = %573, %570
-  %577 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 720), align 8
+  %577 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 720), align 8
   %578 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %577) #10
   br i1 %578, label %579, label %582
 
 579:                                              ; preds = %576
-  %580 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 720), align 8
+  %580 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 720), align 8
   %581 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %580)
   store ptr %581, ptr @_ZN5ciEnv17_CodeSource_klassE, align 8
   br label %582
 
 582:                                              ; preds = %579, %576
-  %583 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 728), align 8
+  %583 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 728), align 8
   %584 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %583) #10
   br i1 %584, label %585, label %588
 
 585:                                              ; preds = %582
-  %586 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 728), align 8
+  %586 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 728), align 8
   %587 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %586)
   store ptr %587, ptr @_ZN5ciEnv24_ConcurrentHashMap_klassE, align 8
   br label %588
 
 588:                                              ; preds = %585, %582
-  %589 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 736), align 8
+  %589 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 736), align 8
   %590 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %589) #10
   br i1 %590, label %591, label %594
 
 591:                                              ; preds = %588
-  %592 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 736), align 8
+  %592 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 736), align 8
   %593 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %592)
   store ptr %593, ptr @_ZN5ciEnv16_ArrayList_klassE, align 8
   br label %594
 
 594:                                              ; preds = %591, %588
-  %595 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 744), align 8
+  %595 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 744), align 8
   %596 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %595) #10
   br i1 %596, label %597, label %600
 
 597:                                              ; preds = %594
-  %598 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 744), align 8
+  %598 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 744), align 8
   %599 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %598)
   store ptr %599, ptr @_ZN5ciEnv24_StackTraceElement_klassE, align 8
   br label %600
 
 600:                                              ; preds = %597, %594
-  %601 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 752), align 8
+  %601 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 752), align 8
   %602 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %601) #10
   br i1 %602, label %603, label %606
 
 603:                                              ; preds = %600
-  %604 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 752), align 8
+  %604 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 752), align 8
   %605 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %604)
   store ptr %605, ptr @_ZN5ciEnv17_nio_Buffer_klassE, align 8
   br label %606
 
 606:                                              ; preds = %603, %600
-  %607 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 760), align 8
+  %607 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 760), align 8
   %608 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %607) #10
   br i1 %608, label %609, label %612
 
 609:                                              ; preds = %606
-  %610 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 760), align 8
+  %610 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 760), align 8
   %611 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %610)
   store ptr %611, ptr @_ZN5ciEnv18_StackWalker_klassE, align 8
   br label %612
 
 612:                                              ; preds = %609, %606
-  %613 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 768), align 8
+  %613 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 768), align 8
   %614 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %613) #10
   br i1 %614, label %615, label %618
 
 615:                                              ; preds = %612
-  %616 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 768), align 8
+  %616 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 768), align 8
   %617 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %616)
   store ptr %617, ptr @_ZN5ciEnv26_AbstractStackWalker_klassE, align 8
   br label %618
 
 618:                                              ; preds = %615, %612
-  %619 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 776), align 8
+  %619 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 776), align 8
   %620 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %619) #10
   br i1 %620, label %621, label %624
 
 621:                                              ; preds = %618
-  %622 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 776), align 8
+  %622 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 776), align 8
   %623 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %622)
   store ptr %623, ptr @_ZN5ciEnv21_ClassFrameInfo_klassE, align 8
   br label %624
 
 624:                                              ; preds = %621, %618
-  %625 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 784), align 8
+  %625 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 784), align 8
   %626 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %625) #10
   br i1 %626, label %627, label %630
 
 627:                                              ; preds = %624
-  %628 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 784), align 8
+  %628 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 784), align 8
   %629 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %628)
   store ptr %629, ptr @_ZN5ciEnv21_StackFrameInfo_klassE, align 8
   br label %630
 
 630:                                              ; preds = %627, %624
-  %631 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 792), align 8
+  %631 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 792), align 8
   %632 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %631) #10
   br i1 %632, label %633, label %636
 
 633:                                              ; preds = %630
-  %634 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 792), align 8
+  %634 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 792), align 8
   %635 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %634)
   store ptr %635, ptr @_ZN5ciEnv25_LiveStackFrameInfo_klassE, align 8
   br label %636
 
 636:                                              ; preds = %633, %630
-  %637 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 800), align 8
+  %637 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 800), align 8
   %638 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %637) #10
   br i1 %638, label %639, label %642
 
 639:                                              ; preds = %636
-  %640 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 800), align 8
+  %640 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 800), align 8
   %641 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %640)
   store ptr %641, ptr @_ZN5ciEnv61_java_util_concurrent_locks_AbstractOwnableSynchronizer_klassE, align 8
   br label %642
 
 642:                                              ; preds = %639, %636
-  %643 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 808), align 8
+  %643 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 808), align 8
   %644 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %643) #10
   br i1 %644, label %645, label %648
 
 645:                                              ; preds = %642
-  %646 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 808), align 8
+  %646 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 808), align 8
   %647 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %646)
   store ptr %647, ptr @_ZN5ciEnv14_Boolean_klassE, align 8
   br label %648
 
 648:                                              ; preds = %645, %642
-  %649 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 816), align 8
+  %649 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 816), align 8
   %650 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %649) #10
   br i1 %650, label %651, label %654
 
 651:                                              ; preds = %648
-  %652 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 816), align 8
+  %652 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 816), align 8
   %653 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %652)
   store ptr %653, ptr @_ZN5ciEnv16_Character_klassE, align 8
   br label %654
 
 654:                                              ; preds = %651, %648
-  %655 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 824), align 8
+  %655 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 824), align 8
   %656 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %655) #10
   br i1 %656, label %657, label %660
 
 657:                                              ; preds = %654
-  %658 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 824), align 8
+  %658 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 824), align 8
   %659 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %658)
   store ptr %659, ptr @_ZN5ciEnv12_Float_klassE, align 8
   br label %660
 
 660:                                              ; preds = %657, %654
-  %661 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 832), align 8
+  %661 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 832), align 8
   %662 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %661) #10
   br i1 %662, label %663, label %666
 
 663:                                              ; preds = %660
-  %664 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 832), align 8
+  %664 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 832), align 8
   %665 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %664)
   store ptr %665, ptr @_ZN5ciEnv13_Double_klassE, align 8
   br label %666
 
 666:                                              ; preds = %663, %660
-  %667 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 840), align 8
+  %667 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 840), align 8
   %668 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %667) #10
   br i1 %668, label %669, label %672
 
 669:                                              ; preds = %666
-  %670 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 840), align 8
+  %670 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 840), align 8
   %671 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %670)
   store ptr %671, ptr @_ZN5ciEnv11_Byte_klassE, align 8
   br label %672
 
 672:                                              ; preds = %669, %666
-  %673 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 848), align 8
+  %673 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 848), align 8
   %674 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %673) #10
   br i1 %674, label %675, label %678
 
 675:                                              ; preds = %672
-  %676 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 848), align 8
+  %676 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 848), align 8
   %677 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %676)
   store ptr %677, ptr @_ZN5ciEnv12_Short_klassE, align 8
   br label %678
 
 678:                                              ; preds = %675, %672
-  %679 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 856), align 8
+  %679 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 856), align 8
   %680 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %679) #10
   br i1 %680, label %681, label %684
 
 681:                                              ; preds = %678
-  %682 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 856), align 8
+  %682 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 856), align 8
   %683 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %682)
   store ptr %683, ptr @_ZN5ciEnv14_Integer_klassE, align 8
   br label %684
 
 684:                                              ; preds = %681, %678
-  %685 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 864), align 8
+  %685 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 864), align 8
   %686 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %685) #10
   br i1 %686, label %687, label %690
 
 687:                                              ; preds = %684
-  %688 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 864), align 8
+  %688 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 864), align 8
   %689 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %688)
   store ptr %689, ptr @_ZN5ciEnv11_Long_klassE, align 8
   br label %690
 
 690:                                              ; preds = %687, %684
-  %691 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 872), align 8
+  %691 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 872), align 8
   %692 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %691) #10
   br i1 %692, label %693, label %696
 
 693:                                              ; preds = %690
-  %694 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 872), align 8
+  %694 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 872), align 8
   %695 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %694)
   store ptr %695, ptr @_ZN5ciEnv15_Iterator_klassE, align 8
   br label %696
 
 696:                                              ; preds = %693, %690
-  %697 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 880), align 8
+  %697 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 880), align 8
   %698 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %697) #10
   br i1 %698, label %699, label %702
 
 699:                                              ; preds = %696
-  %700 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 880), align 8
+  %700 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 880), align 8
   %701 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %700)
   store ptr %701, ptr @_ZN5ciEnv22_RecordComponent_klassE, align 8
   br label %702
 
 702:                                              ; preds = %699, %696
-  %703 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 888), align 8
+  %703 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 888), align 8
   %704 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %703) #10
   br i1 %704, label %705, label %708
 
 705:                                              ; preds = %702
-  %706 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 888), align 8
+  %706 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 888), align 8
   %707 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %706)
   store ptr %707, ptr @_ZN5ciEnv27_vector_VectorSupport_klassE, align 8
   br label %708
 
 708:                                              ; preds = %705, %702
-  %709 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 896), align 8
+  %709 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 896), align 8
   %710 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %709) #10
   br i1 %710, label %711, label %714
 
 711:                                              ; preds = %708
-  %712 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 896), align 8
+  %712 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 896), align 8
   %713 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %712)
   store ptr %713, ptr @_ZN5ciEnv27_vector_VectorPayload_klassE, align 8
   br label %714
 
 714:                                              ; preds = %711, %708
-  %715 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 904), align 8
+  %715 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 904), align 8
   %716 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %715) #10
   br i1 %716, label %717, label %720
 
 717:                                              ; preds = %714
-  %718 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 904), align 8
+  %718 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 904), align 8
   %719 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %718)
   store ptr %719, ptr @_ZN5ciEnv20_vector_Vector_klassE, align 8
   br label %720
 
 720:                                              ; preds = %717, %714
-  %721 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 912), align 8
+  %721 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 912), align 8
   %722 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %721) #10
   br i1 %722, label %723, label %726
 
 723:                                              ; preds = %720
-  %724 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 912), align 8
+  %724 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 912), align 8
   %725 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %724)
   store ptr %725, ptr @_ZN5ciEnv24_vector_VectorMask_klassE, align 8
   br label %726
 
 726:                                              ; preds = %723, %720
-  %727 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 920), align 8
+  %727 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 920), align 8
   %728 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %727) #10
   br i1 %728, label %729, label %732
 
 729:                                              ; preds = %726
-  %730 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 920), align 8
+  %730 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 920), align 8
   %731 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %730)
   store ptr %731, ptr @_ZN5ciEnv27_vector_VectorShuffle_klassE, align 8
   br label %732
 
 732:                                              ; preds = %729, %726
-  %733 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 928), align 8
+  %733 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 928), align 8
   %734 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %733) #10
   br i1 %734, label %735, label %738
 
 735:                                              ; preds = %732
-  %736 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 928), align 8
+  %736 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 928), align 8
   %737 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %736)
   store ptr %737, ptr @_ZN5ciEnv19_FillerObject_klassE, align 8
   br label %738
@@ -1882,7 +1882,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %.lr.ph, %_ZNK10ciMe
   br i1 %exitcond62.not, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.loopexit, %738
-  %762 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8576), align 8
+  %762 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8576), align 8
   %763 = tail call noundef ptr @_ZN15ciObjectFactory10get_symbolEP6Symbol(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %762)
   store ptr %763, ptr @_ZN5ciEnv18_unloaded_cisymbolE, align 8
   %764 = load ptr, ptr %0, align 8
@@ -2552,7 +2552,7 @@ _ZNK7oopDesc11is_instanceEv.exit.thread:          ; preds = %2
 
 _ZN25java_lang_invoke_CallSite11is_instanceEP7oopDesc.exit: ; preds = %41, %51
   %.0.i.i29 = phi ptr [ %50, %41 ], [ %52, %51 ]
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 528), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 528), align 8
   %54 = tail call noundef zeroext i1 @_ZNK5Klass14is_subclass_ofEPKS_(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i29, ptr noundef %53) #10
   br i1 %54, label %55, label %61
 
@@ -2564,7 +2564,7 @@ _ZN25java_lang_invoke_CallSite11is_instanceEP7oopDesc.exit: ; preds = %41, %51
 
 59:                                               ; preds = %55
   tail call void @_ZN8ciObjectC2E6Handle(ptr noundef nonnull align 8 dereferenceable(41) %57, ptr nonnull %.0.i.i.i.i.i) #10
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTV10ciCallSite, i64 16), ptr %57, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTV10ciCallSite, i64 16), ptr %57, align 8
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 40
   store i8 0, ptr %60, align 8
   br label %180
@@ -2584,13 +2584,13 @@ _ZN27java_lang_invoke_MemberName11is_instanceEP7oopDesc.exit: ; preds = %61
   %70 = shl i64 %68, %69
   %71 = add i64 %70, %67
   %72 = inttoptr i64 %71 to ptr
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 480), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 480), align 8
   %74 = icmp eq ptr %73, %72
   br i1 %74, label %78, label %83
 
 _ZN27java_lang_invoke_MemberName11is_instanceEP7oopDesc.exit.thread: ; preds = %61
   %75 = load ptr, ptr %7, align 8
-  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 480), align 8
+  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 480), align 8
   %77 = icmp eq ptr %75, %76
   br i1 %77, label %78, label %.thread
 
@@ -2602,7 +2602,7 @@ _ZN27java_lang_invoke_MemberName11is_instanceEP7oopDesc.exit.thread: ; preds = %
 
 82:                                               ; preds = %78
   tail call void @_ZN8ciObjectC2E6Handle(ptr noundef nonnull align 8 dereferenceable(40) %80, ptr nonnull %.0.i.i.i.i.i) #10
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTV12ciMemberName, i64 16), ptr %80, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTV12ciMemberName, i64 16), ptr %80, align 8
   br label %180
 
 83:                                               ; preds = %_ZN27java_lang_invoke_MemberName11is_instanceEP7oopDesc.exit
@@ -2622,7 +2622,7 @@ _ZN27java_lang_invoke_MemberName11is_instanceEP7oopDesc.exit.thread: ; preds = %
 
 _ZN29java_lang_invoke_MethodHandle11is_instanceEP7oopDesc.exit: ; preds = %83, %.thread
   %.0.i.i35 = phi ptr [ %91, %83 ], [ %92, %.thread ]
-  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 464), align 8
+  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 464), align 8
   %94 = tail call noundef zeroext i1 @_ZNK5Klass14is_subclass_ofEPKS_(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i35, ptr noundef %93) #10
   br i1 %94, label %95, label %100
 
@@ -2634,7 +2634,7 @@ _ZN29java_lang_invoke_MethodHandle11is_instanceEP7oopDesc.exit: ; preds = %83, %
 
 99:                                               ; preds = %95
   tail call void @_ZN8ciObjectC2E6Handle(ptr noundef nonnull align 8 dereferenceable(40) %97, ptr nonnull %.0.i.i.i.i.i) #10
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTV14ciMethodHandle, i64 16), ptr %97, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTV14ciMethodHandle, i64 16), ptr %97, align 8
   br label %180
 
 100:                                              ; preds = %_ZN29java_lang_invoke_MethodHandle11is_instanceEP7oopDesc.exit
@@ -2660,7 +2660,7 @@ _ZN29java_lang_invoke_MethodHandle11is_instanceEP7oopDesc.exit: ; preds = %83, %
 
 _ZN27java_lang_invoke_MethodType11is_instanceEP7oopDesc.exit: ; preds = %103, %113
   %.0.i.i38 = phi ptr [ %112, %103 ], [ %114, %113 ]
-  %115 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 512), align 8
+  %115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 512), align 8
   %116 = icmp eq ptr %.0.i.i38, %115
   %117 = load ptr, ptr %0, align 8
   %118 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 40, ptr noundef %117) #10
@@ -2672,7 +2672,7 @@ _ZN27java_lang_invoke_MethodType11is_instanceEP7oopDesc.exit: ; preds = %103, %1
 
 121:                                              ; preds = %120
   tail call void @_ZN8ciObjectC2E6Handle(ptr noundef nonnull align 8 dereferenceable(40) %118, ptr nonnull %.0.i.i.i.i.i) #10
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTV12ciMethodType, i64 16), ptr %118, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTV12ciMethodType, i64 16), ptr %118, align 8
   br label %180
 
 122:                                              ; preds = %_ZN27java_lang_invoke_MethodType11is_instanceEP7oopDesc.exit
@@ -2680,7 +2680,7 @@ _ZN27java_lang_invoke_MethodType11is_instanceEP7oopDesc.exit: ; preds = %103, %1
 
 123:                                              ; preds = %122
   tail call void @_ZN8ciObjectC2E6Handle(ptr noundef nonnull align 8 dereferenceable(40) %118, ptr nonnull %.0.i.i.i.i.i) #10
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTV10ciInstance, i64 16), ptr %118, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTV10ciInstance, i64 16), ptr %118, align 8
   br label %180
 
 _ZNK7oopDesc11is_objArrayEv.exit:                 ; preds = %_ZNK7oopDesc11is_instanceEv.exit
@@ -2723,7 +2723,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit: ; preds = %136, %138
 
 143:                                              ; preds = %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit
   tail call void @_ZN8ciObjectC2E6Handle(ptr noundef nonnull align 8 dereferenceable(44) %141, ptr nonnull %.0.i.i.i.i.i43) #10
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTV7ciArray, i64 16), ptr %141, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTV7ciArray, i64 16), ptr %141, align 8
   %144 = getelementptr inbounds nuw i8, ptr %141, i64 40
   %145 = load ptr, ptr %.0.i.i.i.i.i43, align 8
   %146 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -2732,7 +2732,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit: ; preds = %136, %138
   %149 = getelementptr inbounds nuw i8, ptr %145, i64 %148
   %150 = load i32, ptr %149, align 4
   store i32 %150, ptr %144, align 8
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTV10ciObjArray, i64 16), ptr %141, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTV10ciObjArray, i64 16), ptr %141, align 8
   br label %180
 
 _ZNK7oopDesc12is_typeArrayEv.exit:                ; preds = %_ZNK7oopDesc11is_objArrayEv.exit.thread, %_ZNK7oopDesc11is_objArrayEv.exit
@@ -2772,7 +2772,7 @@ _ZN15typeArrayHandleC2EP6ThreadP16typeArrayOopDesc.exit: ; preds = %163, %165
 
 170:                                              ; preds = %_ZN15typeArrayHandleC2EP6ThreadP16typeArrayOopDesc.exit
   tail call void @_ZN8ciObjectC2E6Handle(ptr noundef nonnull align 8 dereferenceable(44) %168, ptr nonnull %.0.i.i.i.i.i49) #10
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTV7ciArray, i64 16), ptr %168, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTV7ciArray, i64 16), ptr %168, align 8
   %171 = getelementptr inbounds nuw i8, ptr %168, i64 40
   %172 = load ptr, ptr %.0.i.i.i.i.i49, align 8
   %173 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -2781,7 +2781,7 @@ _ZN15typeArrayHandleC2EP6ThreadP16typeArrayOopDesc.exit: ; preds = %163, %165
   %176 = getelementptr inbounds nuw i8, ptr %172, i64 %175
   %177 = load i32, ptr %176, align 4
   store i32 %177, ptr %171, align 8
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTV11ciTypeArray, i64 16), ptr %168, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTV11ciTypeArray, i64 16), ptr %168, align 8
   br label %180
 
 178:                                              ; preds = %_ZNK7oopDesc12is_typeArrayEv.exit
@@ -3499,7 +3499,7 @@ define hidden noundef ptr @_ZN15ciObjectFactory21get_unloaded_instanceEP15ciInst
 
 20:                                               ; preds = %._crit_edge
   tail call void @_ZN8ciObjectC2EP7ciKlass(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef %1) #10
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTV10ciInstance, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTV10ciInstance, i64 16), ptr %18, align 8
   br label %21
 
 21:                                               ; preds = %20, %._crit_edge

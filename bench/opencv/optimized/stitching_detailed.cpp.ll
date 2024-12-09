@@ -3069,7 +3069,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %.lr.ph.i.i.i.i
   store i32 1, ptr %626, align 8, !noalias !10
   %627 = getelementptr inbounds nuw i8, ptr %625, i64 12
   store i32 1, ptr %627, align 4, !noalias !10
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail27AffineBestOf2NearestMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %625, align 8, !noalias !10
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail27AffineBestOf2NearestMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %625, align 8, !noalias !10
   %628 = getelementptr inbounds nuw i8, ptr %625, i64 16
   %629 = load i8, ptr @try_cuda, align 1, !noalias !10
   %630 = trunc i8 %629 to i1
@@ -3084,7 +3084,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail27AffineBestOf2
   br label %.body
 
 633:                                              ; preds = %.noexc478
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN2cv6detail27AffineBestOf2NearestMatcherE, i64 16), ptr %628, align 8, !noalias !10
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN2cv6detail27AffineBestOf2NearestMatcherE, i64 16), ptr %628, align 8, !noalias !10
   %634 = getelementptr inbounds nuw i8, ptr %625, i64 64
   store i8 0, ptr %634, align 8, !noalias !10
   store ptr %628, ptr %21, align 8
@@ -3279,7 +3279,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i32 1, ptr %718, align 8, !noalias !15
   %719 = getelementptr inbounds nuw i8, ptr %717, i64 12
   store i32 1, ptr %719, align 4, !noalias !15
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail26BestOf2NearestRangeMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %717, align 8, !noalias !15
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail26BestOf2NearestRangeMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %717, align 8, !noalias !15
   %720 = getelementptr inbounds nuw i8, ptr %717, i64 16
   %721 = load i8, ptr @try_cuda, align 1, !noalias !15
   %722 = trunc i8 %721 to i1
@@ -3862,9 +3862,9 @@ _ZNSt6vectorIN2cv5Size_IiEESaIS2_EEaSERKS4_.exit: ; preds = %.lr.ph.i.i.i.i.i531
   store i32 1, ptr %960, align 8, !noalias !28
   %961 = getelementptr inbounds nuw i8, ptr %958, i64 12
   store i32 1, ptr %961, align 4, !noalias !28
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail20AffineBasedEstimatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %958, align 8, !noalias !28
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail20AffineBasedEstimatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %958, align 8, !noalias !28
   %962 = getelementptr inbounds nuw i8, ptr %958, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail20AffineBasedEstimatorE, i64 16), ptr %962, align 8, !noalias !28
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail20AffineBasedEstimatorE, i64 16), ptr %962, align 8, !noalias !28
   store ptr %962, ptr %29, align 8
   %963 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %964 = load i8, ptr @__libc_single_threaded, align 1
@@ -4018,9 +4018,9 @@ _ZN2cv3PtrINS_6detail9EstimatorEEaSINS1_20AffineBasedEstimatorEEERS3_RKNS0_IT_EE
   store i32 1, ptr %1029, align 8, !noalias !33
   %1030 = getelementptr inbounds nuw i8, ptr %1027, i64 12
   store i32 1, ptr %1030, align 4, !noalias !33
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail24HomographyBasedEstimatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1027, align 8, !noalias !33
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail24HomographyBasedEstimatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1027, align 8, !noalias !33
   %1031 = getelementptr inbounds nuw i8, ptr %1027, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail24HomographyBasedEstimatorE, i64 16), ptr %1031, align 8, !noalias !33
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail24HomographyBasedEstimatorE, i64 16), ptr %1031, align 8, !noalias !33
   %1032 = getelementptr inbounds nuw i8, ptr %1027, i64 24
   store i8 0, ptr %1032, align 8, !noalias !33
   store ptr %1031, ptr %29, align 8
@@ -4938,9 +4938,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %1355, %1358
   store i32 1, ptr %1438, align 8, !noalias !49
   %1439 = getelementptr inbounds nuw i8, ptr %1436, i64 12
   store i32 1, ptr %1439, align 4, !noalias !49
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11PlaneWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1436, align 8, !noalias !49
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11PlaneWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1436, align 8, !noalias !49
   %1440 = getelementptr inbounds nuw i8, ptr %1436, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv11PlaneWarperE, i64 16), ptr %1440, align 8, !noalias !49
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv11PlaneWarperE, i64 16), ptr %1440, align 8, !noalias !49
   store ptr %1440, ptr %57, align 8, !alias.scope !46
   %1441 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %1436, ptr %1441, align 8, !alias.scope !46
@@ -4968,9 +4968,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %1355, %1358
   store i32 1, ptr %1451, align 8, !noalias !55
   %1452 = getelementptr inbounds nuw i8, ptr %1449, i64 12
   store i32 1, ptr %1452, align 4, !noalias !55
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12AffineWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1449, align 8, !noalias !55
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12AffineWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1449, align 8, !noalias !55
   %1453 = getelementptr inbounds nuw i8, ptr %1449, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12AffineWarperE, i64 16), ptr %1453, align 8, !noalias !55
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12AffineWarperE, i64 16), ptr %1453, align 8, !noalias !55
   store ptr %1453, ptr %58, align 8, !alias.scope !52
   %1454 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %1449, ptr %1454, align 8, !alias.scope !52
@@ -4993,9 +4993,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %1355, %1358
   store i32 1, ptr %1462, align 8, !noalias !61
   %1463 = getelementptr inbounds nuw i8, ptr %1460, i64 12
   store i32 1, ptr %1463, align 4, !noalias !61
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv17CylindricalWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1460, align 8, !noalias !61
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv17CylindricalWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1460, align 8, !noalias !61
   %1464 = getelementptr inbounds nuw i8, ptr %1460, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv17CylindricalWarperE, i64 16), ptr %1464, align 8, !noalias !61
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv17CylindricalWarperE, i64 16), ptr %1464, align 8, !noalias !61
   store ptr %1464, ptr %59, align 8, !alias.scope !58
   %1465 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %1460, ptr %1465, align 8, !alias.scope !58
@@ -5018,9 +5018,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %1355, %1358
   store i32 1, ptr %1473, align 8, !noalias !67
   %1474 = getelementptr inbounds nuw i8, ptr %1471, i64 12
   store i32 1, ptr %1474, align 4, !noalias !67
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv15SphericalWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1471, align 8, !noalias !67
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv15SphericalWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1471, align 8, !noalias !67
   %1475 = getelementptr inbounds nuw i8, ptr %1471, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15SphericalWarperE, i64 16), ptr %1475, align 8, !noalias !67
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15SphericalWarperE, i64 16), ptr %1475, align 8, !noalias !67
   store ptr %1475, ptr %60, align 8, !alias.scope !64
   %1476 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %1471, ptr %1476, align 8, !alias.scope !64
@@ -5043,9 +5043,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %1355, %1358
   store i32 1, ptr %1484, align 8, !noalias !73
   %1485 = getelementptr inbounds nuw i8, ptr %1482, i64 12
   store i32 1, ptr %1485, align 4, !noalias !73
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv13FisheyeWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1482, align 8, !noalias !73
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv13FisheyeWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1482, align 8, !noalias !73
   %1486 = getelementptr inbounds nuw i8, ptr %1482, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv13FisheyeWarperE, i64 16), ptr %1486, align 8, !noalias !73
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv13FisheyeWarperE, i64 16), ptr %1486, align 8, !noalias !73
   store ptr %1486, ptr %61, align 8, !alias.scope !70
   %1487 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr %1482, ptr %1487, align 8, !alias.scope !70
@@ -5068,9 +5068,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %1355, %1358
   store i32 1, ptr %1495, align 8, !noalias !79
   %1496 = getelementptr inbounds nuw i8, ptr %1493, i64 12
   store i32 1, ptr %1496, align 4, !noalias !79
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv19StereographicWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1493, align 8, !noalias !79
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv19StereographicWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1493, align 8, !noalias !79
   %1497 = getelementptr inbounds nuw i8, ptr %1493, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv19StereographicWarperE, i64 16), ptr %1497, align 8, !noalias !79
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv19StereographicWarperE, i64 16), ptr %1497, align 8, !noalias !79
   store ptr %1497, ptr %62, align 8, !alias.scope !76
   %1498 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %1493, ptr %1498, align 8, !alias.scope !76
@@ -5093,9 +5093,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %1355, %1358
   store i32 1, ptr %1506, align 8, !noalias !85
   %1507 = getelementptr inbounds nuw i8, ptr %1504, i64 12
   store i32 1, ptr %1507, align 4, !noalias !85
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv27CompressedRectilinearWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1504, align 8, !noalias !85
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv27CompressedRectilinearWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1504, align 8, !noalias !85
   %1508 = getelementptr inbounds nuw i8, ptr %1504, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv27CompressedRectilinearWarperE, i64 16), ptr %1508, align 8, !noalias !85
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv27CompressedRectilinearWarperE, i64 16), ptr %1508, align 8, !noalias !85
   %1509 = getelementptr inbounds nuw i8, ptr %1504, i64 24
   store float 2.000000e+00, ptr %1509, align 8, !noalias !85
   %1510 = getelementptr inbounds nuw i8, ptr %1504, i64 28
@@ -5122,9 +5122,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %1355, %1358
   store i32 1, ptr %1519, align 8, !noalias !91
   %1520 = getelementptr inbounds nuw i8, ptr %1517, i64 12
   store i32 1, ptr %1520, align 4, !noalias !91
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv27CompressedRectilinearWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1517, align 8, !noalias !91
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv27CompressedRectilinearWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1517, align 8, !noalias !91
   %1521 = getelementptr inbounds nuw i8, ptr %1517, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv27CompressedRectilinearWarperE, i64 16), ptr %1521, align 8, !noalias !91
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv27CompressedRectilinearWarperE, i64 16), ptr %1521, align 8, !noalias !91
   %1522 = getelementptr inbounds nuw i8, ptr %1517, i64 24
   store float 1.500000e+00, ptr %1522, align 8, !noalias !91
   %1523 = getelementptr inbounds nuw i8, ptr %1517, i64 28
@@ -5151,9 +5151,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %1355, %1358
   store i32 1, ptr %1532, align 8, !noalias !97
   %1533 = getelementptr inbounds nuw i8, ptr %1530, i64 12
   store i32 1, ptr %1533, align 4, !noalias !97
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv35CompressedRectilinearPortraitWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1530, align 8, !noalias !97
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv35CompressedRectilinearPortraitWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1530, align 8, !noalias !97
   %1534 = getelementptr inbounds nuw i8, ptr %1530, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv35CompressedRectilinearPortraitWarperE, i64 16), ptr %1534, align 8, !noalias !97
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv35CompressedRectilinearPortraitWarperE, i64 16), ptr %1534, align 8, !noalias !97
   %1535 = getelementptr inbounds nuw i8, ptr %1530, i64 24
   store float 2.000000e+00, ptr %1535, align 8, !noalias !97
   %1536 = getelementptr inbounds nuw i8, ptr %1530, i64 28
@@ -5180,9 +5180,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %1355, %1358
   store i32 1, ptr %1545, align 8, !noalias !103
   %1546 = getelementptr inbounds nuw i8, ptr %1543, i64 12
   store i32 1, ptr %1546, align 4, !noalias !103
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv35CompressedRectilinearPortraitWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1543, align 8, !noalias !103
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv35CompressedRectilinearPortraitWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1543, align 8, !noalias !103
   %1547 = getelementptr inbounds nuw i8, ptr %1543, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv35CompressedRectilinearPortraitWarperE, i64 16), ptr %1547, align 8, !noalias !103
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv35CompressedRectilinearPortraitWarperE, i64 16), ptr %1547, align 8, !noalias !103
   %1548 = getelementptr inbounds nuw i8, ptr %1543, i64 24
   store float 1.500000e+00, ptr %1548, align 8, !noalias !103
   %1549 = getelementptr inbounds nuw i8, ptr %1543, i64 28
@@ -5209,9 +5209,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %1355, %1358
   store i32 1, ptr %1558, align 8, !noalias !109
   %1559 = getelementptr inbounds nuw i8, ptr %1556, i64 12
   store i32 1, ptr %1559, align 4, !noalias !109
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12PaniniWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1556, align 8, !noalias !109
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12PaniniWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1556, align 8, !noalias !109
   %1560 = getelementptr inbounds nuw i8, ptr %1556, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12PaniniWarperE, i64 16), ptr %1560, align 8, !noalias !109
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12PaniniWarperE, i64 16), ptr %1560, align 8, !noalias !109
   %1561 = getelementptr inbounds nuw i8, ptr %1556, i64 24
   store float 2.000000e+00, ptr %1561, align 8, !noalias !109
   %1562 = getelementptr inbounds nuw i8, ptr %1556, i64 28
@@ -5238,9 +5238,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %1355, %1358
   store i32 1, ptr %1571, align 8, !noalias !115
   %1572 = getelementptr inbounds nuw i8, ptr %1569, i64 12
   store i32 1, ptr %1572, align 4, !noalias !115
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12PaniniWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1569, align 8, !noalias !115
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12PaniniWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1569, align 8, !noalias !115
   %1573 = getelementptr inbounds nuw i8, ptr %1569, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12PaniniWarperE, i64 16), ptr %1573, align 8, !noalias !115
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12PaniniWarperE, i64 16), ptr %1573, align 8, !noalias !115
   %1574 = getelementptr inbounds nuw i8, ptr %1569, i64 24
   store float 1.500000e+00, ptr %1574, align 8, !noalias !115
   %1575 = getelementptr inbounds nuw i8, ptr %1569, i64 28
@@ -5267,9 +5267,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %1355, %1358
   store i32 1, ptr %1584, align 8, !noalias !121
   %1585 = getelementptr inbounds nuw i8, ptr %1582, i64 12
   store i32 1, ptr %1585, align 4, !noalias !121
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv20PaniniPortraitWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1582, align 8, !noalias !121
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv20PaniniPortraitWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1582, align 8, !noalias !121
   %1586 = getelementptr inbounds nuw i8, ptr %1582, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv20PaniniPortraitWarperE, i64 16), ptr %1586, align 8, !noalias !121
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv20PaniniPortraitWarperE, i64 16), ptr %1586, align 8, !noalias !121
   %1587 = getelementptr inbounds nuw i8, ptr %1582, i64 24
   store float 2.000000e+00, ptr %1587, align 8, !noalias !121
   %1588 = getelementptr inbounds nuw i8, ptr %1582, i64 28
@@ -5296,9 +5296,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %1355, %1358
   store i32 1, ptr %1597, align 8, !noalias !127
   %1598 = getelementptr inbounds nuw i8, ptr %1595, i64 12
   store i32 1, ptr %1598, align 4, !noalias !127
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv20PaniniPortraitWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1595, align 8, !noalias !127
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv20PaniniPortraitWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1595, align 8, !noalias !127
   %1599 = getelementptr inbounds nuw i8, ptr %1595, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv20PaniniPortraitWarperE, i64 16), ptr %1599, align 8, !noalias !127
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv20PaniniPortraitWarperE, i64 16), ptr %1599, align 8, !noalias !127
   %1600 = getelementptr inbounds nuw i8, ptr %1595, i64 24
   store float 1.500000e+00, ptr %1600, align 8, !noalias !127
   %1601 = getelementptr inbounds nuw i8, ptr %1595, i64 28
@@ -5325,9 +5325,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %1355, %1358
   store i32 1, ptr %1610, align 8, !noalias !133
   %1611 = getelementptr inbounds nuw i8, ptr %1608, i64 12
   store i32 1, ptr %1611, align 4, !noalias !133
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv14MercatorWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1608, align 8, !noalias !133
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv14MercatorWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1608, align 8, !noalias !133
   %1612 = getelementptr inbounds nuw i8, ptr %1608, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv14MercatorWarperE, i64 16), ptr %1612, align 8, !noalias !133
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv14MercatorWarperE, i64 16), ptr %1612, align 8, !noalias !133
   store ptr %1612, ptr %71, align 8, !alias.scope !130
   %1613 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %1608, ptr %1613, align 8, !alias.scope !130
@@ -5350,9 +5350,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %1355, %1358
   store i32 1, ptr %1621, align 8, !noalias !139
   %1622 = getelementptr inbounds nuw i8, ptr %1619, i64 12
   store i32 1, ptr %1622, align 4, !noalias !139
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv24TransverseMercatorWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1619, align 8, !noalias !139
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv24TransverseMercatorWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1619, align 8, !noalias !139
   %1623 = getelementptr inbounds nuw i8, ptr %1619, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv24TransverseMercatorWarperE, i64 16), ptr %1623, align 8, !noalias !139
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv24TransverseMercatorWarperE, i64 16), ptr %1623, align 8, !noalias !139
   store ptr %1623, ptr %72, align 8, !alias.scope !136
   %1624 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store ptr %1619, ptr %1624, align 8, !alias.scope !136
@@ -5767,9 +5767,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %1355, %1358
   store i32 1, ptr %1831, align 8, !noalias !147
   %1832 = getelementptr inbounds nuw i8, ptr %1829, i64 12
   store i32 1, ptr %1832, align 4, !noalias !147
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail12NoSeamFinderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1829, align 8, !noalias !147
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail12NoSeamFinderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1829, align 8, !noalias !147
   %1833 = getelementptr inbounds nuw i8, ptr %1829, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail12NoSeamFinderE, i64 16), ptr %1833, align 8, !noalias !147
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail12NoSeamFinderE, i64 16), ptr %1833, align 8, !noalias !147
   store ptr %1833, ptr %90, align 8, !alias.scope !144
   %1834 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store ptr %1829, ptr %1834, align 8, !alias.scope !144
@@ -5797,11 +5797,11 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %1355, %1358
   store i32 1, ptr %1844, align 8, !noalias !153
   %1845 = getelementptr inbounds nuw i8, ptr %1842, i64 12
   store i32 1, ptr %1845, align 4, !noalias !153
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail17VoronoiSeamFinderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1842, align 8, !noalias !153
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail17VoronoiSeamFinderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1842, align 8, !noalias !153
   %1846 = getelementptr inbounds nuw i8, ptr %1842, i64 16
   %1847 = getelementptr inbounds nuw i8, ptr %1842, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %1847, i8 0, i64 96, i1 false), !noalias !153
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN2cv6detail17VoronoiSeamFinderE, i64 16), ptr %1846, align 8, !noalias !153
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN2cv6detail17VoronoiSeamFinderE, i64 16), ptr %1846, align 8, !noalias !153
   store ptr %1846, ptr %91, align 8, !alias.scope !150
   %1848 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store ptr %1842, ptr %1848, align 8, !alias.scope !150
@@ -10011,7 +10011,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_6detail21BestOf2NearestMatcherEJ
   store i32 1, ptr %3, align 8, !noalias !173
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 1, ptr %4, align 4, !noalias !173
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail21BestOf2NearestMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !173
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail21BestOf2NearestMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !173
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i8, ptr @try_cuda, align 1, !noalias !173
   %7 = trunc i8 %6 to i1
@@ -10885,7 +10885,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_6detail20BundleAdjusterReprojEJE
   store i32 1, ptr %3, align 8, !noalias !185
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 1, ptr %4, align 4, !noalias !185
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail20BundleAdjusterReprojESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !185
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail20BundleAdjusterReprojESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !185
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   invoke void @_ZN2cv6detail18BundleAdjusterBaseC2Eii(ptr noundef nonnull align 8 dereferenceable(472) %5, i32 noundef 7, i32 noundef 2)
           to label %_ZNSt10shared_ptrIN2cv6detail20BundleAdjusterReprojEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail20BundleAdjusterReprojESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !185
@@ -10897,7 +10897,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail20BundleAdjuste
   resume { ptr, i32 } %6
 
 _ZNSt10shared_ptrIN2cv6detail20BundleAdjusterReprojEED2Ev.exit: ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv6detail20BundleAdjusterReprojE, i64 16), ptr %5, align 8, !noalias !185
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv6detail20BundleAdjusterReprojE, i64 16), ptr %5, align 8, !noalias !185
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 296
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #26, !noalias !185
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 392
@@ -11110,7 +11110,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_6detail17BundleAdjusterRayEJEEEN
   store i32 1, ptr %3, align 8, !noalias !188
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 1, ptr %4, align 4, !noalias !188
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail17BundleAdjusterRayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !188
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail17BundleAdjusterRayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !188
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   invoke void @_ZN2cv6detail18BundleAdjusterBaseC2Eii(ptr noundef nonnull align 8 dereferenceable(472) %5, i32 noundef 4, i32 noundef 3)
           to label %_ZNSt10shared_ptrIN2cv6detail17BundleAdjusterRayEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail17BundleAdjusterRayESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !188
@@ -11122,7 +11122,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail17BundleAdjuste
   resume { ptr, i32 } %6
 
 _ZNSt10shared_ptrIN2cv6detail17BundleAdjusterRayEED2Ev.exit: ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv6detail17BundleAdjusterRayE, i64 16), ptr %5, align 8, !noalias !188
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv6detail17BundleAdjusterRayE, i64 16), ptr %5, align 8, !noalias !188
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 296
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #26, !noalias !188
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 392
@@ -11335,7 +11335,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_6detail27BundleAdjusterAffinePar
   store i32 1, ptr %3, align 8, !noalias !191
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 1, ptr %4, align 4, !noalias !191
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail27BundleAdjusterAffinePartialESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !191
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail27BundleAdjusterAffinePartialESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !191
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   invoke void @_ZN2cv6detail18BundleAdjusterBaseC2Eii(ptr noundef nonnull align 8 dereferenceable(472) %5, i32 noundef 4, i32 noundef 2)
           to label %_ZNSt10shared_ptrIN2cv6detail27BundleAdjusterAffinePartialEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail27BundleAdjusterAffinePartialESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !191
@@ -11347,7 +11347,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail27BundleAdjuste
   resume { ptr, i32 } %6
 
 _ZNSt10shared_ptrIN2cv6detail27BundleAdjusterAffinePartialEED2Ev.exit: ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv6detail27BundleAdjusterAffinePartialE, i64 16), ptr %5, align 8, !noalias !191
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv6detail27BundleAdjusterAffinePartialE, i64 16), ptr %5, align 8, !noalias !191
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 296
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #26, !noalias !191
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 392
@@ -11560,7 +11560,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_6detail16NoBundleAdjusterEJEEENS
   store i32 1, ptr %3, align 8, !noalias !194
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 1, ptr %4, align 4, !noalias !194
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail16NoBundleAdjusterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !194
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail16NoBundleAdjusterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !194
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   invoke void @_ZN2cv6detail18BundleAdjusterBaseC2Eii(ptr noundef nonnull align 8 dereferenceable(280) %5, i32 noundef 0, i32 noundef 0)
           to label %_ZNSt10shared_ptrIN2cv6detail16NoBundleAdjusterEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail16NoBundleAdjusterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !194
@@ -11572,7 +11572,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail16NoBundleAdjus
   resume { ptr, i32 } %6
 
 _ZNSt10shared_ptrIN2cv6detail16NoBundleAdjusterEED2Ev.exit: ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv6detail16NoBundleAdjusterE, i64 16), ptr %5, align 8, !noalias !194
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv6detail16NoBundleAdjusterE, i64 16), ptr %5, align 8, !noalias !194
   store ptr %5, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8
@@ -14766,7 +14766,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_6detail18GraphCutSeamFinderEJNS1
   store i32 1, ptr %3, align 8, !noalias !201
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 1, ptr %4, align 4, !noalias !201
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail18GraphCutSeamFinderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !201
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail18GraphCutSeamFinderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !201
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   invoke void @_ZN2cv6detail18GraphCutSeamFinderC1Eiff(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %.0.val, float noundef 1.000000e+04, float noundef 1.000000e+03)
           to label %_ZNSt10shared_ptrIN2cv6detail18GraphCutSeamFinderEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail18GraphCutSeamFinderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !201
@@ -14986,7 +14986,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_6detail12DpSeamFinderEJNS2_12Cos
   store i32 1, ptr %3, align 8, !noalias !204
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 1, ptr %4, align 4, !noalias !204
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail12DpSeamFinderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !204
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail12DpSeamFinderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !204
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   invoke void @_ZN2cv6detail12DpSeamFinderC1ENS1_12CostFunctionE(ptr noundef nonnull align 8 dereferenceable(1056) %5, i32 noundef %.0.val)
           to label %_ZNSt10shared_ptrIN2cv6detail12DpSeamFinderEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail12DpSeamFinderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !204
@@ -17604,7 +17604,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 define linkonce_odr hidden void @_ZN2cv6detail18BundleAdjusterBaseC2Eii(ptr noundef nonnull align 8 dereferenceable(280) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Mat", align 8
   %5 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv6detail18BundleAdjusterBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv6detail18BundleAdjusterBaseE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #26
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -17870,7 +17870,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6detail16NoBundleAdjusterD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv6detail18BundleAdjusterBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv6detail18BundleAdjusterBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -17890,7 +17890,7 @@ _ZN2cv6detail18BundleAdjusterBaseD2Ev.exit:       ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6detail16NoBundleAdjusterD0Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv6detail18BundleAdjusterBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv6detail18BundleAdjusterBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -18643,9 +18643,9 @@ _ZN2cv3PtrINS_6detail11PlaneWarperEED2Ev.exit:
   store i32 1, ptr %4, align 8, !noalias !225
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !225
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail11PlaneWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !225
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail11PlaneWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !225
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv6detail11PlaneWarperE, i64 16), ptr %6, align 8, !noalias !225
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv6detail11PlaneWarperE, i64 16), ptr %6, align 8, !noalias !225
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store float %2, ptr %7, align 8, !noalias !225
   store ptr %6, ptr %0, align 8
@@ -18810,11 +18810,11 @@ _ZN2cv3PtrINS_6detail12AffineWarperEED2Ev.exit:
   store i32 1, ptr %4, align 8, !noalias !230
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !230
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail12AffineWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !230
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail12AffineWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !230
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store float %2, ptr %7, align 8, !noalias !230
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv6detail12AffineWarperE, i64 16), ptr %6, align 8, !noalias !230
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv6detail12AffineWarperE, i64 16), ptr %6, align 8, !noalias !230
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %8, align 8
@@ -18956,9 +18956,9 @@ _ZN2cv3PtrINS_6detail17CylindricalWarperEED2Ev.exit:
   store i32 1, ptr %4, align 8, !noalias !235
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !235
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail17CylindricalWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !235
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail17CylindricalWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !235
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN2cv6detail17CylindricalWarperE, i64 16), ptr %6, align 8, !noalias !235
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN2cv6detail17CylindricalWarperE, i64 16), ptr %6, align 8, !noalias !235
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store float %2, ptr %7, align 8, !noalias !235
   store ptr %6, ptr %0, align 8
@@ -19111,9 +19111,9 @@ _ZN2cv3PtrINS_6detail15SphericalWarperEED2Ev.exit:
   store i32 1, ptr %4, align 8, !noalias !240
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !240
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail15SphericalWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !240
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail15SphericalWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !240
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN2cv6detail15SphericalWarperE, i64 16), ptr %6, align 8, !noalias !240
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN2cv6detail15SphericalWarperE, i64 16), ptr %6, align 8, !noalias !240
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store float %2, ptr %7, align 8, !noalias !240
   store ptr %6, ptr %0, align 8
@@ -19260,9 +19260,9 @@ _ZN2cv3PtrINS_6detail13FisheyeWarperEED2Ev.exit:
   store i32 1, ptr %4, align 8, !noalias !245
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !245
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail13FisheyeWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !245
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail13FisheyeWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !245
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN2cv6detail13FisheyeWarperE, i64 16), ptr %6, align 8, !noalias !245
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN2cv6detail13FisheyeWarperE, i64 16), ptr %6, align 8, !noalias !245
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store float %2, ptr %7, align 8, !noalias !245
   store ptr %6, ptr %0, align 8
@@ -20413,9 +20413,9 @@ _ZN2cv3PtrINS_6detail19StereographicWarperEED2Ev.exit:
   store i32 1, ptr %4, align 8, !noalias !263
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !263
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail19StereographicWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !263
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail19StereographicWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !263
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN2cv6detail19StereographicWarperE, i64 16), ptr %6, align 8, !noalias !263
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN2cv6detail19StereographicWarperE, i64 16), ptr %6, align 8, !noalias !263
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store float %2, ptr %7, align 8, !noalias !263
   store ptr %6, ptr %0, align 8
@@ -21591,9 +21591,9 @@ _ZN2cv3PtrINS_6detail27CompressedRectilinearWarperEED2Ev.exit:
   store i32 1, ptr %6, align 8, !noalias !280
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !280
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail27CompressedRectilinearWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !280
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail27CompressedRectilinearWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !280
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN2cv6detail27CompressedRectilinearWarperE, i64 16), ptr %8, align 8, !noalias !280
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN2cv6detail27CompressedRectilinearWarperE, i64 16), ptr %8, align 8, !noalias !280
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 184
   store float %.val1, ptr %10, align 8, !noalias !280
@@ -22788,9 +22788,9 @@ _ZN2cv3PtrINS_6detail35CompressedRectilinearPortraitWarperEED2Ev.exit:
   store i32 1, ptr %6, align 8, !noalias !297
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !297
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail35CompressedRectilinearPortraitWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !297
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail35CompressedRectilinearPortraitWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !297
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN2cv6detail35CompressedRectilinearPortraitWarperE, i64 16), ptr %8, align 8, !noalias !297
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN2cv6detail35CompressedRectilinearPortraitWarperE, i64 16), ptr %8, align 8, !noalias !297
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 184
   store float %.val1, ptr %10, align 8, !noalias !297
@@ -23984,9 +23984,9 @@ _ZN2cv3PtrINS_6detail12PaniniWarperEED2Ev.exit:
   store i32 1, ptr %6, align 8, !noalias !314
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !314
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail12PaniniWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !314
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail12PaniniWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !314
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN2cv6detail12PaniniWarperE, i64 16), ptr %8, align 8, !noalias !314
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN2cv6detail12PaniniWarperE, i64 16), ptr %8, align 8, !noalias !314
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 184
   store float %.val1, ptr %10, align 8, !noalias !314
@@ -25264,9 +25264,9 @@ _ZN2cv3PtrINS_6detail20PaniniPortraitWarperEED2Ev.exit:
   store i32 1, ptr %6, align 8, !noalias !331
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !331
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail20PaniniPortraitWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !331
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail20PaniniPortraitWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !331
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN2cv6detail20PaniniPortraitWarperE, i64 16), ptr %8, align 8, !noalias !331
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN2cv6detail20PaniniPortraitWarperE, i64 16), ptr %8, align 8, !noalias !331
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 184
   store float %.val1, ptr %10, align 8, !noalias !331
@@ -26545,9 +26545,9 @@ _ZN2cv3PtrINS_6detail14MercatorWarperEED2Ev.exit:
   store i32 1, ptr %4, align 8, !noalias !348
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !348
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail14MercatorWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !348
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail14MercatorWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !348
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN2cv6detail14MercatorWarperE, i64 16), ptr %6, align 8, !noalias !348
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN2cv6detail14MercatorWarperE, i64 16), ptr %6, align 8, !noalias !348
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store float %2, ptr %7, align 8, !noalias !348
   store ptr %6, ptr %0, align 8
@@ -27689,9 +27689,9 @@ _ZN2cv3PtrINS_6detail24TransverseMercatorWarperEED2Ev.exit:
   store i32 1, ptr %4, align 8, !noalias !365
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !365
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail24TransverseMercatorWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !365
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail24TransverseMercatorWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !365
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN2cv6detail24TransverseMercatorWarperE, i64 16), ptr %6, align 8, !noalias !365
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN2cv6detail24TransverseMercatorWarperE, i64 16), ptr %6, align 8, !noalias !365
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store float %2, ptr %7, align 8, !noalias !365
   store ptr %6, ptr %0, align 8

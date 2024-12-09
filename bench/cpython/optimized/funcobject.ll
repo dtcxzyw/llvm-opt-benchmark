@@ -1064,7 +1064,7 @@ define hidden ptr @_PyFunction_FromConstructor(ptr nocapture noundef readonly %c
 entry:
   %module = alloca ptr, align 8
   %0 = load ptr, ptr %constr, align 8
-  %call = call i32 @PyDict_GetItemRef(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31712), ptr noundef nonnull %module) #7
+  %call = call i32 @PyDict_GetItemRef(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31712), ptr noundef nonnull %module) #7
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -1396,7 +1396,7 @@ if.end.i29:                                       ; preds = %if.end11
   br label %Py_INCREF.exit31
 
 Py_INCREF.exit31:                                 ; preds = %if.end11, %if.end.i29
-  %call12 = call i32 @PyDict_GetItemRef(ptr noundef nonnull %globals, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31712), ptr noundef nonnull %module) #7
+  %call12 = call i32 @PyDict_GetItemRef(ptr noundef nonnull %globals, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31712), ptr noundef nonnull %module) #7
   %cmp13 = icmp slt i32 %call12, 0
   br i1 %cmp13, label %error, label %if.end15
 
@@ -3149,7 +3149,7 @@ if.then1.i85:                                     ; preds = %if.end.i82
 do.body64:                                        ; preds = %if.end.i82, %if.then1.i85, %if.then61, %do.body57
   %func_name = getelementptr inbounds nuw i8, ptr %op, i64 32
   %35 = load ptr, ptr %func_name, align 8
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr %func_name, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), ptr %func_name, align 8
   %36 = load i64, ptr %35, align 8
   %37 = and i64 %36, 2147483648
   %cmp.i209.not = icmp eq i64 %37, 0
@@ -3168,7 +3168,7 @@ if.then1.i76:                                     ; preds = %if.end.i73
 do.body66:                                        ; preds = %do.body64, %if.then1.i76, %if.end.i73
   %func_qualname = getelementptr inbounds nuw i8, ptr %op, i64 40
   %38 = load ptr, ptr %func_qualname, align 8
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr %func_qualname, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), ptr %func_qualname, align 8
   %39 = load i64, ptr %38, align 8
   %40 = and i64 %39, 2147483648
   %cmp.i213.not = icmp eq i64 %40, 0
@@ -3263,7 +3263,7 @@ PyObject_TypeCheck.exit:                          ; preds = %if.end
   br i1 %tobool3.i.not, label %if.then20, label %if.end22
 
 if.then20:                                        ; preds = %PyObject_TypeCheck.exit
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @PyCode_Type, i64 24), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyCode_Type, i64 24), align 8
   call void @_PyArg_BadArgument(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.50, ptr noundef %5, ptr noundef %.pre) #7
   br label %exit
 
@@ -3365,7 +3365,7 @@ if.end8.i:                                        ; preds = %land.lhs.true3.i, %
   br i1 %tobool11.not.i, label %if.then12.i, label %if.end21.i
 
 if.end8.i.thread:                                 ; preds = %if.end30
-  %closure.val32.i70 = load ptr, ptr getelementptr inbounds (i8, ptr @_Py_NoneStruct, i64 8), align 8
+  %closure.val32.i70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_NoneStruct, i64 8), align 8
   %25 = getelementptr i8, ptr %closure.val32.i70, i64 168
   %call9.val.i71 = load i64, ptr %25, align 8
   %26 = and i64 %call9.val.i71, 67108864
@@ -5281,13 +5281,13 @@ entry:
   %value.i9 = alloca ptr, align 8
   %value.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
-  %call.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %wrapped, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31552), ptr noundef nonnull %value.i) #7
+  %call.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %wrapped, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31552), ptr noundef nonnull %value.i) #7
   %0 = load ptr, ptr %value.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %functools_copy_attr.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call1.i = call i32 @PyObject_SetAttr(ptr noundef %wrapper, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31552), ptr noundef nonnull %0) #7
+  %call1.i = call i32 @PyObject_SetAttr(ptr noundef %wrapper, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31552), ptr noundef nonnull %0) #7
   %1 = load ptr, ptr %value.i, align 8
   %2 = load i64, ptr %1, align 8
   %3 = and i64 %2, 2147483648
@@ -5312,13 +5312,13 @@ functools_copy_attr.exit:                         ; preds = %entry, %if.then.i, 
 
 do.body1:                                         ; preds = %functools_copy_attr.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i9)
-  %call.i10 = call i32 @PyObject_GetOptionalAttr(ptr noundef %wrapped, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31712), ptr noundef nonnull %value.i9) #7
+  %call.i10 = call i32 @PyObject_GetOptionalAttr(ptr noundef %wrapped, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31712), ptr noundef nonnull %value.i9) #7
   %4 = load ptr, ptr %value.i9, align 8
   %cmp.not.i11 = icmp eq ptr %4, null
   br i1 %cmp.not.i11, label %functools_copy_attr.exit20, label %if.then.i12
 
 if.then.i12:                                      ; preds = %do.body1
-  %call1.i13 = call i32 @PyObject_SetAttr(ptr noundef %wrapper, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31712), ptr noundef nonnull %4) #7
+  %call1.i13 = call i32 @PyObject_SetAttr(ptr noundef %wrapper, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31712), ptr noundef nonnull %4) #7
   %5 = load ptr, ptr %value.i9, align 8
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 2147483648
@@ -5343,13 +5343,13 @@ functools_copy_attr.exit20:                       ; preds = %do.body1, %if.then.
 
 do.body7:                                         ; preds = %functools_copy_attr.exit20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i21)
-  %call.i22 = call i32 @PyObject_GetOptionalAttr(ptr noundef %wrapped, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32616), ptr noundef nonnull %value.i21) #7
+  %call.i22 = call i32 @PyObject_GetOptionalAttr(ptr noundef %wrapped, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 32616), ptr noundef nonnull %value.i21) #7
   %8 = load ptr, ptr %value.i21, align 8
   %cmp.not.i23 = icmp eq ptr %8, null
   br i1 %cmp.not.i23, label %functools_copy_attr.exit32, label %if.then.i24
 
 if.then.i24:                                      ; preds = %do.body7
-  %call1.i25 = call i32 @PyObject_SetAttr(ptr noundef %wrapper, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32616), ptr noundef nonnull %8) #7
+  %call1.i25 = call i32 @PyObject_SetAttr(ptr noundef %wrapper, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 32616), ptr noundef nonnull %8) #7
   %9 = load ptr, ptr %value.i21, align 8
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 2147483648
@@ -5374,13 +5374,13 @@ functools_copy_attr.exit32:                       ; preds = %do.body7, %if.then.
 
 do.body13:                                        ; preds = %functools_copy_attr.exit32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i33)
-  %call.i34 = call i32 @PyObject_GetOptionalAttr(ptr noundef %wrapped, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28576), ptr noundef nonnull %value.i33) #7
+  %call.i34 = call i32 @PyObject_GetOptionalAttr(ptr noundef %wrapped, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 28576), ptr noundef nonnull %value.i33) #7
   %12 = load ptr, ptr %value.i33, align 8
   %cmp.not.i35 = icmp eq ptr %12, null
   br i1 %cmp.not.i35, label %functools_copy_attr.exit44, label %if.then.i36
 
 if.then.i36:                                      ; preds = %do.body13
-  %call1.i37 = call i32 @PyObject_SetAttr(ptr noundef %wrapper, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28576), ptr noundef nonnull %12) #7
+  %call1.i37 = call i32 @PyObject_SetAttr(ptr noundef %wrapper, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 28576), ptr noundef nonnull %12) #7
   %13 = load ptr, ptr %value.i33, align 8
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, 2147483648
@@ -5405,13 +5405,13 @@ functools_copy_attr.exit44:                       ; preds = %do.body13, %if.then
 
 do.body19:                                        ; preds = %functools_copy_attr.exit44
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i45)
-  %call.i46 = call i32 @PyObject_GetOptionalAttr(ptr noundef %wrapped, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26920), ptr noundef nonnull %value.i45) #7
+  %call.i46 = call i32 @PyObject_GetOptionalAttr(ptr noundef %wrapped, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26920), ptr noundef nonnull %value.i45) #7
   %16 = load ptr, ptr %value.i45, align 8
   %cmp.not.i47 = icmp eq ptr %16, null
   br i1 %cmp.not.i47, label %functools_copy_attr.exit56, label %if.then.i48
 
 if.then.i48:                                      ; preds = %do.body19
-  %call1.i49 = call i32 @PyObject_SetAttr(ptr noundef %wrapper, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26920), ptr noundef nonnull %16) #7
+  %call1.i49 = call i32 @PyObject_SetAttr(ptr noundef %wrapper, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26920), ptr noundef nonnull %16) #7
   %17 = load ptr, ptr %value.i45, align 8
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, 2147483648

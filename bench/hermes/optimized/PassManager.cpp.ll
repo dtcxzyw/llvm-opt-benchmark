@@ -114,7 +114,7 @@ if.else15:                                        ; preds = %if.else
 
 return:                                           ; preds = %if.else, %entry
   %.sink37 = phi i32 [ 1, %entry ], [ 0, %if.else ]
-  %.sink33 = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN6hermes12_GLOBAL__N_110DumpModuleE, i64 16), %entry ], [ getelementptr inbounds (i8, ptr @_ZTVN6hermes12_GLOBAL__N_112DumpFunctionE, i64 16), %if.else ]
+  %.sink33 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes12_GLOBAL__N_110DumpModuleE, i64 16), %entry ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes12_GLOBAL__N_112DumpFunctionE, i64 16), %if.else ]
   store ptr null, ptr %pass, align 8
   %2 = load ptr, ptr %this, align 8
   %call13 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4dbgsEv() #14
@@ -230,7 +230,7 @@ if.else15.i:                                      ; preds = %if.else.i
 
 _ZNSt10unique_ptrIN6hermes4PassESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.else.i, %if.then
   %.sink37.i = phi i32 [ 1, %if.then ], [ 0, %if.else.i ]
-  %.sink33.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN6hermes12_GLOBAL__N_110DumpModuleE, i64 16), %if.then ], [ getelementptr inbounds (i8, ptr @_ZTVN6hermes12_GLOBAL__N_112DumpFunctionE, i64 16), %if.else.i ]
+  %.sink33.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes12_GLOBAL__N_110DumpModuleE, i64 16), %if.then ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes12_GLOBAL__N_112DumpFunctionE, i64 16), %if.else.i ]
   %15 = load ptr, ptr %this, align 8, !noalias !7
   %call13.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4dbgsEv() #14, !noalias !7
   %call.i9.i = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #17, !noalias !7
@@ -720,7 +720,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6hermes12_GLOBAL__N_110DumpModuleD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes12_GLOBAL__N_110DumpModuleE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes12_GLOBAL__N_110DumpModuleE, i64 16), ptr %this, align 8
   %pass_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %pass_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -741,7 +741,7 @@ _ZNSt10unique_ptrIN6hermes10ModulePassESt14default_deleteIS1_EED2Ev.exit: ; pred
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6hermes12_GLOBAL__N_110DumpModuleD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes12_GLOBAL__N_110DumpModuleE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes12_GLOBAL__N_110DumpModuleE, i64 16), ptr %this, align 8
   %pass_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %pass_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -1001,7 +1001,7 @@ declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5w
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6hermes12_GLOBAL__N_112DumpFunctionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes12_GLOBAL__N_112DumpFunctionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes12_GLOBAL__N_112DumpFunctionE, i64 16), ptr %this, align 8
   %pass_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %pass_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -1022,7 +1022,7 @@ _ZNSt10unique_ptrIN6hermes12FunctionPassESt14default_deleteIS1_EED2Ev.exit: ; pr
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6hermes12_GLOBAL__N_112DumpFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes12_GLOBAL__N_112DumpFunctionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes12_GLOBAL__N_112DumpFunctionE, i64 16), ptr %this, align 8
   %pass_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %pass_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null

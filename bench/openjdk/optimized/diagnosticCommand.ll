@@ -1373,7 +1373,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 2, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI8HelpDCmdE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI8HelpDCmdE, i64 16), ptr %1, align 8
   %7 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %1) #17
   %8 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1386,7 +1386,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 0, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI11VersionDCmdE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI11VersionDCmdE, i64 16), ptr %8, align 8
   %14 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %8) #17
   %15 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -1399,7 +1399,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 0, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI15CommandLineDCmdE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI15CommandLineDCmdE, i64 16), ptr %15, align 8
   %21 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %15) #17
   %22 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -1412,7 +1412,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i32 0, ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI25PrintSystemPropertiesDCmdE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI25PrintSystemPropertiesDCmdE, i64 16), ptr %22, align 8
   %28 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %22) #17
   %29 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -1425,7 +1425,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store i32 1, ptr %34, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI16PrintVMFlagsDCmdE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI16PrintVMFlagsDCmdE, i64 16), ptr %29, align 8
   %35 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %29) #17
   %36 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -1438,7 +1438,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store i32 2, ptr %41, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI13SetVMFlagDCmdE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI13SetVMFlagDCmdE, i64 16), ptr %36, align 8
   %42 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %36) #17
   %43 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -1451,7 +1451,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %47, align 4
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store i32 0, ptr %48, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI22VMDynamicLibrariesDCmdE, i64 16), ptr %43, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI22VMDynamicLibrariesDCmdE, i64 16), ptr %43, align 8
   %49 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %43) #17
   %50 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -1464,7 +1464,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %54, align 4
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store i32 1, ptr %55, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI12VMUptimeDCmdE, i64 16), ptr %50, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI12VMUptimeDCmdE, i64 16), ptr %50, align 8
   %56 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %50) #17
   %57 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -1477,7 +1477,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %61, align 4
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 24
   store i32 0, ptr %62, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI10VMInfoDCmdE, i64 16), ptr %57, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI10VMInfoDCmdE, i64 16), ptr %57, align 8
   %63 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %57) #17
   %64 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
@@ -1490,7 +1490,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %68, align 4
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 24
   store i32 0, ptr %69, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI12SystemGCDCmdE, i64 16), ptr %64, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI12SystemGCDCmdE, i64 16), ptr %64, align 8
   %70 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %64) #17
   %71 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
@@ -1503,7 +1503,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %75, align 4
   %76 = getelementptr inbounds nuw i8, ptr %71, i64 24
   store i32 0, ptr %76, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI19RunFinalizationDCmdE, i64 16), ptr %71, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI19RunFinalizationDCmdE, i64 16), ptr %71, align 8
   %77 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %71) #17
   %78 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -1516,7 +1516,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %82, align 4
   %83 = getelementptr inbounds nuw i8, ptr %78, i64 24
   store i32 0, ptr %83, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI12HeapInfoDCmdE, i64 16), ptr %78, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI12HeapInfoDCmdE, i64 16), ptr %78, align 8
   %84 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %78) #17
   %85 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
@@ -1529,7 +1529,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %89, align 4
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 24
   store i32 0, ptr %90, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI17FinalizerInfoDCmdE, i64 16), ptr %85, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI17FinalizerInfoDCmdE, i64 16), ptr %85, align 8
   %91 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %85) #17
   %92 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
@@ -1542,7 +1542,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 3, ptr %96, align 4
   %97 = getelementptr inbounds nuw i8, ptr %92, i64 24
   store i32 5, ptr %97, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI12HeapDumpDCmdE, i64 16), ptr %92, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI12HeapDumpDCmdE, i64 16), ptr %92, align 8
   %98 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %92) #17
   %99 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
@@ -1555,7 +1555,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %103, align 4
   %104 = getelementptr inbounds nuw i8, ptr %99, i64 24
   store i32 2, ptr %104, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI18ClassHistogramDCmdE, i64 16), ptr %99, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI18ClassHistogramDCmdE, i64 16), ptr %99, align 8
   %105 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %99) #17
   %106 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
@@ -1568,7 +1568,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %110, align 4
   %111 = getelementptr inbounds nuw i8, ptr %106, i64 24
   store i32 1, ptr %111, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI20SystemDictionaryDCmdE, i64 16), ptr %106, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI20SystemDictionaryDCmdE, i64 16), ptr %106, align 8
   %112 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %106) #17
   %113 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
@@ -1581,7 +1581,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %117, align 4
   %118 = getelementptr inbounds nuw i8, ptr %113, i64 24
   store i32 3, ptr %118, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI18ClassHierarchyDCmdE, i64 16), ptr %113, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI18ClassHierarchyDCmdE, i64 16), ptr %113, align 8
   %119 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %113) #17
   %120 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
@@ -1594,7 +1594,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %124, align 4
   %125 = getelementptr inbounds nuw i8, ptr %120, i64 24
   store i32 1, ptr %125, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI11ClassesDCmdE, i64 16), ptr %120, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI11ClassesDCmdE, i64 16), ptr %120, align 8
   %126 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %120) #17
   %127 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
@@ -1607,7 +1607,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %131, align 4
   %132 = getelementptr inbounds nuw i8, ptr %127, i64 24
   store i32 1, ptr %132, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI15SymboltableDCmdE, i64 16), ptr %127, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI15SymboltableDCmdE, i64 16), ptr %127, align 8
   %133 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %127) #17
   %134 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
@@ -1620,7 +1620,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %138, align 4
   %139 = getelementptr inbounds nuw i8, ptr %134, i64 24
   store i32 1, ptr %139, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI15StringtableDCmdE, i64 16), ptr %134, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI15StringtableDCmdE, i64 16), ptr %134, align 8
   %140 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %134) #17
   %141 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
@@ -1633,7 +1633,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %145, align 4
   %146 = getelementptr inbounds nuw i8, ptr %141, i64 24
   store i32 8, ptr %146, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplIN9metaspace13MetaspaceDCmdEE, i64 16), ptr %141, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplIN9metaspace13MetaspaceDCmdEE, i64 16), ptr %141, align 8
   %147 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %141) #17
   %148 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
@@ -1646,7 +1646,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %152, align 4
   %153 = getelementptr inbounds nuw i8, ptr %148, i64 24
   store i32 2, ptr %153, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI12EventLogDCmdE, i64 16), ptr %148, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI12EventLogDCmdE, i64 16), ptr %148, align 8
   %154 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %148) #17
   %155 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
@@ -1659,7 +1659,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %159, align 4
   %160 = getelementptr inbounds nuw i8, ptr %155, i64 24
   store i32 2, ptr %160, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI18JVMTIAgentLoadDCmdE, i64 16), ptr %155, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI18JVMTIAgentLoadDCmdE, i64 16), ptr %155, align 8
   %161 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %155) #17
   %162 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
@@ -1672,7 +1672,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %166, align 4
   %167 = getelementptr inbounds nuw i8, ptr %162, i64 24
   store i32 0, ptr %167, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI17JVMTIDataDumpDCmdE, i64 16), ptr %162, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI17JVMTIDataDumpDCmdE, i64 16), ptr %162, align 8
   %168 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %162) #17
   %169 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
@@ -1685,7 +1685,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %173, align 4
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
   store i32 2, ptr %174, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI14ThreadDumpDCmdE, i64 16), ptr %169, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI14ThreadDumpDCmdE, i64 16), ptr %169, align 8
   %175 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %169) #17
   %176 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
@@ -1698,7 +1698,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %180, align 4
   %181 = getelementptr inbounds nuw i8, ptr %176, i64 24
   store i32 3, ptr %181, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI20ThreadDumpToFileDCmdE, i64 16), ptr %176, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI20ThreadDumpToFileDCmdE, i64 16), ptr %176, align 8
   %182 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %176) #17
   %183 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
@@ -1711,7 +1711,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %187, align 4
   %188 = getelementptr inbounds nuw i8, ptr %183, i64 24
   store i32 0, ptr %188, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI20ClassLoaderStatsDCmdE, i64 16), ptr %183, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI20ClassLoaderStatsDCmdE, i64 16), ptr %183, align 8
   %189 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %183) #17
   %190 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
@@ -1724,7 +1724,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %194, align 4
   %195 = getelementptr inbounds nuw i8, ptr %190, i64 24
   store i32 3, ptr %195, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI24ClassLoaderHierarchyDCmdE, i64 16), ptr %190, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI24ClassLoaderHierarchyDCmdE, i64 16), ptr %190, align 8
   %196 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %190) #17
   %197 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
@@ -1737,7 +1737,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %201, align 4
   %202 = getelementptr inbounds nuw i8, ptr %197, i64 24
   store i32 0, ptr %202, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI16CompileQueueDCmdE, i64 16), ptr %197, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI16CompileQueueDCmdE, i64 16), ptr %197, align 8
   %203 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %197) #17
   %204 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
@@ -1750,7 +1750,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %208, align 4
   %209 = getelementptr inbounds nuw i8, ptr %204, i64 24
   store i32 0, ptr %209, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI12CodeListDCmdE, i64 16), ptr %204, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI12CodeListDCmdE, i64 16), ptr %204, align 8
   %210 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %204) #17
   %211 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
@@ -1763,7 +1763,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %215, align 4
   %216 = getelementptr inbounds nuw i8, ptr %211, i64 24
   store i32 0, ptr %216, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI13CodeCacheDCmdE, i64 16), ptr %211, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI13CodeCacheDCmdE, i64 16), ptr %211, align 8
   %217 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %211) #17
   %218 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 8
@@ -1776,7 +1776,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %222, align 4
   %223 = getelementptr inbounds nuw i8, ptr %218, i64 24
   store i32 1, ptr %223, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI11PerfMapDCmdE, i64 16), ptr %218, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI11PerfMapDCmdE, i64 16), ptr %218, align 8
   %224 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %218) #17
   %225 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 8
@@ -1789,7 +1789,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %229, align 4
   %230 = getelementptr inbounds nuw i8, ptr %225, i64 24
   store i32 0, ptr %230, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI17TrimCLibcHeapDCmdE, i64 16), ptr %225, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI17TrimCLibcHeapDCmdE, i64 16), ptr %225, align 8
   %231 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %225) #17
   %232 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
@@ -1802,7 +1802,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %236, align 4
   %237 = getelementptr inbounds nuw i8, ptr %232, i64 24
   store i32 0, ptr %237, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI14MallocInfoDcmdE, i64 16), ptr %232, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI14MallocInfoDcmdE, i64 16), ptr %232, align 8
   %238 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %232) #17
   %239 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 8
@@ -1815,7 +1815,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %243, align 4
   %244 = getelementptr inbounds nuw i8, ptr %239, i64 24
   store i32 0, ptr %244, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI13SystemMapDCmdE, i64 16), ptr %239, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI13SystemMapDCmdE, i64 16), ptr %239, align 8
   %245 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %239) #17
   %246 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 8
@@ -1828,7 +1828,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %250, align 4
   %251 = getelementptr inbounds nuw i8, ptr %246, i64 24
   store i32 1, ptr %251, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI17SystemDumpMapDCmdE, i64 16), ptr %246, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI17SystemDumpMapDCmdE, i64 16), ptr %246, align 8
   %252 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %246) #17
   %253 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
@@ -1841,7 +1841,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %257, align 4
   %258 = getelementptr inbounds nuw i8, ptr %253, i64 24
   store i32 2, ptr %258, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI21CodeHeapAnalyticsDCmdE, i64 16), ptr %253, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI21CodeHeapAnalyticsDCmdE, i64 16), ptr %253, align 8
   %259 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %253) #17
   %260 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 8
@@ -1854,7 +1854,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %264, align 4
   %265 = getelementptr inbounds nuw i8, ptr %260, i64 24
   store i32 0, ptr %265, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI27CompilerDirectivesPrintDCmdE, i64 16), ptr %260, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI27CompilerDirectivesPrintDCmdE, i64 16), ptr %260, align 8
   %266 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %260) #17
   %267 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 8
@@ -1867,7 +1867,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %271, align 4
   %272 = getelementptr inbounds nuw i8, ptr %267, i64 24
   store i32 1, ptr %272, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI25CompilerDirectivesAddDCmdE, i64 16), ptr %267, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI25CompilerDirectivesAddDCmdE, i64 16), ptr %267, align 8
   %273 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %267) #17
   %274 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 8
@@ -1880,7 +1880,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %278, align 4
   %279 = getelementptr inbounds nuw i8, ptr %274, i64 24
   store i32 0, ptr %279, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI28CompilerDirectivesRemoveDCmdE, i64 16), ptr %274, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI28CompilerDirectivesRemoveDCmdE, i64 16), ptr %274, align 8
   %280 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %274) #17
   %281 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
@@ -1893,7 +1893,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %285, align 4
   %286 = getelementptr inbounds nuw i8, ptr %281, i64 24
   store i32 0, ptr %286, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI27CompilerDirectivesClearDCmdE, i64 16), ptr %281, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI27CompilerDirectivesClearDCmdE, i64 16), ptr %281, align 8
   %287 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %281) #17
   %288 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 8
@@ -1906,7 +1906,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %292, align 4
   %293 = getelementptr inbounds nuw i8, ptr %288, i64 24
   store i32 2, ptr %293, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI30CompilationMemoryStatisticDCmdE, i64 16), ptr %288, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI30CompilationMemoryStatisticDCmdE, i64 16), ptr %288, align 8
   %294 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %288) #17
   %295 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 8
@@ -1919,7 +1919,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 3, ptr %299, align 4
   %300 = getelementptr inbounds nuw i8, ptr %295, i64 24
   store i32 21, ptr %300, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI18JMXStartRemoteDCmdE, i64 16), ptr %295, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI18JMXStartRemoteDCmdE, i64 16), ptr %295, align 8
   %301 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %295) #17
   %302 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 8
@@ -1932,7 +1932,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 3, ptr %306, align 4
   %307 = getelementptr inbounds nuw i8, ptr %302, i64 24
   store i32 0, ptr %307, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI17JMXStartLocalDCmdE, i64 16), ptr %302, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI17JMXStartLocalDCmdE, i64 16), ptr %302, align 8
   %308 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %302) #17
   %309 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 8
@@ -1945,7 +1945,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 3, ptr %313, align 4
   %314 = getelementptr inbounds nuw i8, ptr %309, i64 24
   store i32 0, ptr %314, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI17JMXStopRemoteDCmdE, i64 16), ptr %309, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI17JMXStopRemoteDCmdE, i64 16), ptr %309, align 8
   %315 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %309) #17
   %316 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 8
@@ -1958,7 +1958,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 3, ptr %320, align 4
   %321 = getelementptr inbounds nuw i8, ptr %316, i64 24
   store i32 0, ptr %321, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI13JMXStatusDCmdE, i64 16), ptr %316, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI13JMXStatusDCmdE, i64 16), ptr %316, align 8
   %322 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %316) #17
   %323 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 8
@@ -1971,7 +1971,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %327, align 4
   %328 = getelementptr inbounds nuw i8, ptr %323, i64 24
   store i32 0, ptr %328, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI19DebugOnCmdStartDCmdE, i64 16), ptr %323, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI19DebugOnCmdStartDCmdE, i64 16), ptr %323, align 8
   %329 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %323) #17
   %330 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 8
@@ -1984,7 +1984,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %334, align 4
   %335 = getelementptr inbounds nuw i8, ptr %330, i64 24
   store i32 2, ptr %335, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI21DumpSharedArchiveDCmdE, i64 16), ptr %330, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI21DumpSharedArchiveDCmdE, i64 16), ptr %330, align 8
   %336 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %330) #17
   %337 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 8
@@ -1997,7 +1997,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
   store i32 7, ptr %341, align 4
   %342 = getelementptr inbounds nuw i8, ptr %337, i64 24
   store i32 7, ptr %342, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI7NMTDCmdE, i64 16), ptr %337, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI7NMTDCmdE, i64 16), ptr %337, align 8
   %343 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %337) #17
   ret void
 }
@@ -2013,7 +2013,7 @@ define hidden void @_ZN8HelpDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 
   store i8 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV8HelpDCmd, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV8HelpDCmd, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %9, align 8
@@ -2031,7 +2031,7 @@ define hidden void @_ZN8HelpDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 
   store i8 0, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 90
   store i8 0, ptr %16, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %8, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr null, ptr %18, align 8
@@ -2043,7 +2043,7 @@ define hidden void @_ZN8HelpDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 
   store ptr @.str.9, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %22, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %17, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8) #17
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %17) #17
   ret void
@@ -2270,9 +2270,9 @@ define hidden void @_ZN11VersionDCmd7executeE10DCmdSourceP10JavaThread(ptr nocap
   %7 = tail call noundef ptr @_ZN19Abstract_VM_Version10vm_releaseEv() #17
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str.19, ptr noundef %6, ptr noundef %7) #17
   %.sroa.0.0.copyload = load i32, ptr @_ZN11JDK_Version8_currentE, align 4
-  %.sroa.3.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @_ZN11JDK_Version8_currentE, i64 4), align 4
-  %.sroa.5.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @_ZN11JDK_Version8_currentE, i64 8), align 4
-  %.sroa.7.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @_ZN11JDK_Version8_currentE, i64 12), align 4
+  %.sroa.3.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN11JDK_Version8_currentE, i64 4), align 4
+  %.sroa.5.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN11JDK_Version8_currentE, i64 8), align 4
+  %.sroa.7.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN11JDK_Version8_currentE, i64 12), align 4
   %8 = icmp sgt i32 %.sroa.7.0.copyload, 0
   %9 = load ptr, ptr %4, align 8
   br i1 %8, label %10, label %11
@@ -2302,7 +2302,7 @@ define hidden void @_ZN16PrintVMFlagsDCmdC2EP12outputStreamb(ptr noundef nonnull
   store i8 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV16PrintVMFlagsDCmd, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV16PrintVMFlagsDCmd, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %9, align 8
@@ -2320,7 +2320,7 @@ define hidden void @_ZN16PrintVMFlagsDCmdC2EP12outputStreamb(ptr noundef nonnull
   store i8 0, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 90
   store i8 0, ptr %16, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %8, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8) #17
   ret void
 }
@@ -2359,7 +2359,7 @@ define hidden void @_ZN13SetVMFlagDCmdC2EP12outputStreamb(ptr noundef nonnull al
   store i8 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV13SetVMFlagDCmd, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV13SetVMFlagDCmd, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %9, align 8
@@ -2377,7 +2377,7 @@ define hidden void @_ZN13SetVMFlagDCmdC2EP12outputStreamb(ptr noundef nonnull al
   store i8 1, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 90
   store i8 0, ptr %16, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %8, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr null, ptr %18, align 8
@@ -2389,7 +2389,7 @@ define hidden void @_ZN13SetVMFlagDCmdC2EP12outputStreamb(ptr noundef nonnull al
   store ptr @.str.9, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %22, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %17, align 8
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8) #17
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %17) #17
   ret void
@@ -2457,7 +2457,7 @@ define hidden void @_ZN18JVMTIAgentLoadDCmdC2EP12outputStreamb(ptr noundef nonnu
   store i8 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV18JVMTIAgentLoadDCmd, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV18JVMTIAgentLoadDCmd, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %9, align 8
@@ -2475,7 +2475,7 @@ define hidden void @_ZN18JVMTIAgentLoadDCmdC2EP12outputStreamb(ptr noundef nonnu
   store i8 1, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 90
   store i8 0, ptr %16, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %8, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr null, ptr %18, align 8
@@ -2487,7 +2487,7 @@ define hidden void @_ZN18JVMTIAgentLoadDCmdC2EP12outputStreamb(ptr noundef nonnu
   store ptr @.str.9, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %22, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %17, align 8
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8) #17
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %17) #17
   ret void
@@ -2593,7 +2593,7 @@ declare void @_ZN2os4freeEPv(ptr noundef) local_unnamed_addr #1
 define hidden void @_ZN25PrintSystemPropertiesDCmd7executeE10DCmdSourceP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, i32 %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %class.JavaValue, align 8
   %5 = alloca %class.JavaCallArguments, align 8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8936), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8936), align 8
   %7 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %6, ptr null, ptr null, i1 noundef zeroext true, ptr noundef %2) #17
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -2644,8 +2644,8 @@ define hidden void @_ZN25PrintSystemPropertiesDCmd7executeE10DCmdSourceP10JavaTh
   store i32 0, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 112
   store i8 0, ptr %33, align 8
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7312), align 8
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9056), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7312), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9056), align 8
   call void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef %35, ptr noundef %34, ptr noundef nonnull %5, ptr noundef nonnull %2) #17
   %36 = load ptr, ptr %8, align 8
   %.not22 = icmp eq ptr %36, null
@@ -2699,7 +2699,7 @@ define hidden void @_ZN12VMUptimeDCmdC2EP12outputStreamb(ptr noundef nonnull ali
   store i8 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV12VMUptimeDCmd, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV12VMUptimeDCmd, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %9, align 8
@@ -2717,7 +2717,7 @@ define hidden void @_ZN12VMUptimeDCmdC2EP12outputStreamb(ptr noundef nonnull ali
   store i8 0, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 90
   store i8 0, ptr %16, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %8, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8) #17
   ret void
 }
@@ -2779,10 +2779,10 @@ define hidden void @_ZN12SystemGCDCmd7executeE10DCmdSourceP10JavaThread(ptr noca
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19RunFinalizationDCmd7executeE10DCmdSourceP10JavaThread(ptr nocapture nonnull readnone align 8 %0, i32 %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %class.JavaValue, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 48), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 48), align 8
   store i8 14, ptr %4, align 8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3216), align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3216), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   call void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_P10JavaThread(ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %2) #17
   ret void
 }
@@ -2847,7 +2847,7 @@ define hidden void @_ZN17FinalizerInfoDCmd7executeE10DCmdSourceP10JavaThread(ptr
   br label %116
 
 22:                                               ; preds = %3
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8816), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8816), align 8
   %24 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %23, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %2) #17
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
@@ -2856,8 +2856,8 @@ define hidden void @_ZN17FinalizerInfoDCmd7executeE10DCmdSourceP10JavaThread(ptr
 
 27:                                               ; preds = %22
   store i8 13, ptr %4, align 8
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8832), align 8
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8824), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8832), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8824), align 8
   call void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_P10JavaThread(ptr noundef nonnull %4, ptr noundef %24, ptr noundef %28, ptr noundef %29, ptr noundef nonnull %2) #17
   %30 = load ptr, ptr %25, align 8
   %.not28 = icmp eq ptr %30, null
@@ -2918,14 +2918,14 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %52, %62
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %66, i8 0, i64 22, i1 false)
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
-  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8848), align 8
-  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6992), align 8
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8848), align 8
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6992), align 8
   %70 = load ptr, ptr %.0.i, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 184
   %72 = load ptr, ptr %71, align 8
   %73 = call noundef ptr %72(ptr noundef nonnull align 8 dereferenceable(464) %.0.i, ptr noundef %68, ptr noundef %69, ptr noundef nonnull %5) #17
-  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8840), align 8
-  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7480), align 8
+  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8840), align 8
+  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7480), align 8
   %76 = load ptr, ptr %.0.i, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 184
   %78 = load ptr, ptr %77, align 8
@@ -3026,7 +3026,7 @@ define hidden void @_ZN12HeapDumpDCmdC2EP12outputStreamb(ptr noundef nonnull ali
   store i8 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV12HeapDumpDCmd, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV12HeapDumpDCmd, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %9, align 8
@@ -3044,7 +3044,7 @@ define hidden void @_ZN12HeapDumpDCmdC2EP12outputStreamb(ptr noundef nonnull ali
   store i8 1, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 90
   store i8 0, ptr %16, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %8, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr null, ptr %18, align 8
@@ -3062,7 +3062,7 @@ define hidden void @_ZN12HeapDumpDCmdC2EP12outputStreamb(ptr noundef nonnull ali
   store i8 0, ptr %24, align 1
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i8 0, ptr %25, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %17, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr null, ptr %27, align 8
@@ -3080,7 +3080,7 @@ define hidden void @_ZN12HeapDumpDCmdC2EP12outputStreamb(ptr noundef nonnull ali
   store i8 0, ptr %33, align 1
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 210
   store i8 0, ptr %34, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %26, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr null, ptr %36, align 8
@@ -3098,7 +3098,7 @@ define hidden void @_ZN12HeapDumpDCmdC2EP12outputStreamb(ptr noundef nonnull ali
   store i8 0, ptr %42, align 1
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 274
   store i8 0, ptr %43, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %35, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr null, ptr %45, align 8
@@ -3116,7 +3116,7 @@ define hidden void @_ZN12HeapDumpDCmdC2EP12outputStreamb(ptr noundef nonnull ali
   store i8 0, ptr %51, align 1
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 330
   store i8 0, ptr %52, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %44, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %44, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %17) #17
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8) #17
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %26) #17
@@ -3219,7 +3219,7 @@ define hidden void @_ZN18ClassHistogramDCmdC2EP12outputStreamb(ptr noundef nonnu
   store i8 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV18ClassHistogramDCmd, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV18ClassHistogramDCmd, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %9, align 8
@@ -3237,7 +3237,7 @@ define hidden void @_ZN18ClassHistogramDCmdC2EP12outputStreamb(ptr noundef nonnu
   store i8 0, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 90
   store i8 0, ptr %16, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %8, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr null, ptr %18, align 8
@@ -3255,7 +3255,7 @@ define hidden void @_ZN18ClassHistogramDCmdC2EP12outputStreamb(ptr noundef nonnu
   store i8 0, ptr %24, align 1
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 146
   store i8 0, ptr %25, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %17, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8) #17
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %17) #17
   ret void
@@ -3312,7 +3312,7 @@ define hidden void @_ZN18ClassHistogramDCmd7executeE10DCmdSourceP10JavaThread(pt
   store i8 0, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %34, align 4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV20VM_GC_HeapInspection, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV20VM_GC_HeapInspection, i64 16), ptr %4, align 8
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %23, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -3338,7 +3338,7 @@ define hidden void @_ZN14ThreadDumpDCmdC2EP12outputStreamb(ptr noundef nonnull a
   store i8 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV14ThreadDumpDCmd, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV14ThreadDumpDCmd, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %9, align 8
@@ -3356,7 +3356,7 @@ define hidden void @_ZN14ThreadDumpDCmdC2EP12outputStreamb(ptr noundef nonnull a
   store i8 0, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 90
   store i8 0, ptr %16, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %8, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr null, ptr %18, align 8
@@ -3374,7 +3374,7 @@ define hidden void @_ZN14ThreadDumpDCmdC2EP12outputStreamb(ptr noundef nonnull a
   store i8 0, ptr %24, align 1
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 146
   store i8 0, ptr %25, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %17, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8) #17
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %17) #17
   ret void
@@ -3394,7 +3394,7 @@ define hidden void @_ZN14ThreadDumpDCmd7executeE10DCmdSourceP10JavaThread(ptr no
   %13 = and i8 %11, 1
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV15VM_PrintThreads, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV15VM_PrintThreads, i64 16), ptr %4, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %7, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -3407,7 +3407,7 @@ define hidden void @_ZN14ThreadDumpDCmd7executeE10DCmdSourceP10JavaThread(ptr no
   %19 = load ptr, ptr %6, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV16VM_FindDeadlocks, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV16VM_FindDeadlocks, i64 16), ptr %5, align 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -3443,7 +3443,7 @@ define hidden void @_ZN18JMXStartRemoteDCmdC2EP12outputStreamb(ptr noundef nonnu
   store i8 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV18JMXStartRemoteDCmd, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV18JMXStartRemoteDCmd, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %9, align 8
@@ -3455,7 +3455,7 @@ define hidden void @_ZN18JMXStartRemoteDCmdC2EP12outputStreamb(ptr noundef nonnu
   store ptr @.str.9, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %13, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %8, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr null, ptr %15, align 8
@@ -3467,7 +3467,7 @@ define hidden void @_ZN18JMXStartRemoteDCmdC2EP12outputStreamb(ptr noundef nonnu
   store ptr @.str.9, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %19, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %14, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr null, ptr %21, align 8
@@ -3479,7 +3479,7 @@ define hidden void @_ZN18JMXStartRemoteDCmdC2EP12outputStreamb(ptr noundef nonnu
   store ptr @.str.9, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %25, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %20, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr null, ptr %27, align 8
@@ -3491,7 +3491,7 @@ define hidden void @_ZN18JMXStartRemoteDCmdC2EP12outputStreamb(ptr noundef nonnu
   store ptr @.str.9, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %31, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %26, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr null, ptr %33, align 8
@@ -3503,7 +3503,7 @@ define hidden void @_ZN18JMXStartRemoteDCmdC2EP12outputStreamb(ptr noundef nonnu
   store ptr @.str.9, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 336
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %37, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %32, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store ptr null, ptr %39, align 8
@@ -3515,7 +3515,7 @@ define hidden void @_ZN18JMXStartRemoteDCmdC2EP12outputStreamb(ptr noundef nonnu
   store ptr @.str.9, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 400
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %43, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %38, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %38, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr null, ptr %45, align 8
@@ -3527,7 +3527,7 @@ define hidden void @_ZN18JMXStartRemoteDCmdC2EP12outputStreamb(ptr noundef nonnu
   store ptr @.str.9, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 464
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %49, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %44, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %44, align 8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 496
   store ptr null, ptr %51, align 8
@@ -3539,7 +3539,7 @@ define hidden void @_ZN18JMXStartRemoteDCmdC2EP12outputStreamb(ptr noundef nonnu
   store ptr @.str.9, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 528
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %55, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %50, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %50, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 560
   store ptr null, ptr %57, align 8
@@ -3551,7 +3551,7 @@ define hidden void @_ZN18JMXStartRemoteDCmdC2EP12outputStreamb(ptr noundef nonnu
   store ptr @.str.9, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 592
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %61, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %56, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %56, align 8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store ptr null, ptr %63, align 8
@@ -3563,7 +3563,7 @@ define hidden void @_ZN18JMXStartRemoteDCmdC2EP12outputStreamb(ptr noundef nonnu
   store ptr @.str.9, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 656
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %67, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %62, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %62, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 688
   store ptr null, ptr %69, align 8
@@ -3575,7 +3575,7 @@ define hidden void @_ZN18JMXStartRemoteDCmdC2EP12outputStreamb(ptr noundef nonnu
   store ptr @.str.9, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 720
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %73, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %68, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %68, align 8
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 752
   store ptr null, ptr %75, align 8
@@ -3587,7 +3587,7 @@ define hidden void @_ZN18JMXStartRemoteDCmdC2EP12outputStreamb(ptr noundef nonnu
   store ptr @.str.9, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 784
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %79, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %74, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %74, align 8
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 816
   store ptr null, ptr %81, align 8
@@ -3599,7 +3599,7 @@ define hidden void @_ZN18JMXStartRemoteDCmdC2EP12outputStreamb(ptr noundef nonnu
   store ptr @.str.9, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 848
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %85, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %80, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %80, align 8
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 880
   store ptr null, ptr %87, align 8
@@ -3611,7 +3611,7 @@ define hidden void @_ZN18JMXStartRemoteDCmdC2EP12outputStreamb(ptr noundef nonnu
   store ptr @.str.9, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 912
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %91, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %86, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %86, align 8
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 944
   store ptr null, ptr %93, align 8
@@ -3623,7 +3623,7 @@ define hidden void @_ZN18JMXStartRemoteDCmdC2EP12outputStreamb(ptr noundef nonnu
   store ptr @.str.9, ptr %96, align 8
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 976
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %97, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %92, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %92, align 8
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   store ptr null, ptr %99, align 8
@@ -3635,7 +3635,7 @@ define hidden void @_ZN18JMXStartRemoteDCmdC2EP12outputStreamb(ptr noundef nonnu
   store ptr @.str.52, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %103, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %98, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %98, align 8
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   store ptr null, ptr %105, align 8
@@ -3647,7 +3647,7 @@ define hidden void @_ZN18JMXStartRemoteDCmdC2EP12outputStreamb(ptr noundef nonnu
   store ptr @.str.9, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %109, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %104, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %104, align 8
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   store ptr null, ptr %111, align 8
@@ -3659,7 +3659,7 @@ define hidden void @_ZN18JMXStartRemoteDCmdC2EP12outputStreamb(ptr noundef nonnu
   store ptr @.str.9, ptr %114, align 8
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %115, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %110, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %110, align 8
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   store ptr null, ptr %117, align 8
@@ -3671,7 +3671,7 @@ define hidden void @_ZN18JMXStartRemoteDCmdC2EP12outputStreamb(ptr noundef nonnu
   store ptr @.str.52, ptr %120, align 8
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %121, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %116, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %116, align 8
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 1264
   store ptr null, ptr %123, align 8
@@ -3683,7 +3683,7 @@ define hidden void @_ZN18JMXStartRemoteDCmdC2EP12outputStreamb(ptr noundef nonnu
   store ptr @.str.52, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %127, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %122, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %122, align 8
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   store ptr null, ptr %129, align 8
@@ -3695,7 +3695,7 @@ define hidden void @_ZN18JMXStartRemoteDCmdC2EP12outputStreamb(ptr noundef nonnu
   store ptr @.str.9, ptr %132, align 8
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 1360
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %133, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %128, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %128, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8) #17
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %14) #17
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %20) #17
@@ -3777,7 +3777,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %35, %33
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %20, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
   %storemerge.i = phi ptr [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %20 ]
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8616), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8616), align 8
   %38 = call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %37, ptr %storemerge.i, ptr null, i1 noundef zeroext true, ptr noundef nonnull %2) #17
   %39 = load ptr, ptr %18, align 8
   %.not21 = icmp eq ptr %39, null
@@ -4424,8 +4424,8 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %20, %_ZN10HandleAre
   br i1 %.not22, label %401, label %404
 
 401:                                              ; preds = %397
-  %402 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8760), align 8
-  %403 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7136), align 8
+  %402 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8760), align 8
+  %403 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7136), align 8
   call void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_6HandleP10JavaThread(ptr noundef nonnull %5, ptr noundef %38, ptr noundef %402, ptr noundef %403, ptr %399, ptr noundef nonnull %2) #17
   br label %404
 
@@ -4482,9 +4482,9 @@ define internal fastcc void @_ZL15loadAgentModuleP10JavaThread(ptr noundef %0) u
   br i1 %.not, label %17, label %21
 
 17:                                               ; preds = %1
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 640), align 8
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9016), align 8
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9024), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 640), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9016), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9024), align 8
   call void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_6HandleP10JavaThread(ptr noundef nonnull %3, ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr %14, ptr noundef nonnull %0) #17
   br label %21
 
@@ -4547,7 +4547,7 @@ define hidden void @_ZN17JMXStartLocalDCmdC2EP12outputStreamb(ptr nocapture noun
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %4, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV17JMXStartLocalDCmd, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV17JMXStartLocalDCmd, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -4606,7 +4606,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %33, %31
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %18, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
   %storemerge.i = phi ptr [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %18 ]
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8616), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8616), align 8
   %36 = call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %35, ptr %storemerge.i, ptr null, i1 noundef zeroext true, ptr noundef nonnull %2) #17
   %37 = load ptr, ptr %16, align 8
   %.not16 = icmp eq ptr %37, null
@@ -4614,8 +4614,8 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %18, %_ZN10HandleAre
 
 38:                                               ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit
   store i8 14, ptr %5, align 8
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8768), align 8
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8768), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   call void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_P10JavaThread(ptr noundef nonnull %5, ptr noundef %36, ptr noundef %39, ptr noundef %40, ptr noundef nonnull %2) #17
   br label %41
 
@@ -4700,7 +4700,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %33, %31
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %18, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
   %storemerge.i = phi ptr [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %18 ]
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8616), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8616), align 8
   %36 = call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %35, ptr %storemerge.i, ptr null, i1 noundef zeroext true, ptr noundef nonnull %2) #17
   %37 = load ptr, ptr %16, align 8
   %.not16 = icmp eq ptr %37, null
@@ -4708,8 +4708,8 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %18, %_ZN10HandleAre
 
 38:                                               ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit
   store i8 14, ptr %5, align 8
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8776), align 8
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8776), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   call void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_P10JavaThread(ptr noundef nonnull %5, ptr noundef %36, ptr noundef %39, ptr noundef %40, ptr noundef nonnull %2) #17
   br label %41
 
@@ -4746,7 +4746,7 @@ define hidden void @_ZN13JMXStatusDCmdC2EP12outputStreamb(ptr nocapture noundef 
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %4, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV13JMXStatusDCmd, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV13JMXStatusDCmd, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -4805,7 +4805,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %33, %31
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %18, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
   %storemerge.i = phi ptr [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %18 ]
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8616), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8616), align 8
   %36 = call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %35, ptr %storemerge.i, ptr null, i1 noundef zeroext true, ptr noundef nonnull %2) #17
   %37 = load ptr, ptr %16, align 8
   %.not25 = icmp eq ptr %37, null
@@ -4813,8 +4813,8 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %18, %_ZN10HandleAre
 
 38:                                               ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit
   store i8 12, ptr %5, align 8
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8784), align 8
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7360), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8784), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7360), align 8
   call void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_P10JavaThread(ptr noundef nonnull %5, ptr noundef %36, ptr noundef %39, ptr noundef %40, ptr noundef nonnull %2) #17
   %41 = load ptr, ptr %16, align 8
   %.not26 = icmp eq ptr %41, null
@@ -4878,7 +4878,7 @@ define hidden void @_ZN22VMDynamicLibrariesDCmdC2EP12outputStreamb(ptr nocapture
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %4, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV22VMDynamicLibrariesDCmd, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV22VMDynamicLibrariesDCmd, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -4901,7 +4901,7 @@ define hidden void @_ZN16CompileQueueDCmd7executeE10DCmdSourceP10JavaThread(ptr 
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV20VM_PrintCompileQueue, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV20VM_PrintCompileQueue, i64 16), ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %6, ptr %8, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %4) #17
@@ -4937,7 +4937,7 @@ define hidden void @_ZN11PerfMapDCmdC2EP12outputStreamb(ptr noundef nonnull alig
   store i8 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV11PerfMapDCmd, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV11PerfMapDCmd, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %9, align 8
@@ -4955,7 +4955,7 @@ define hidden void @_ZN11PerfMapDCmdC2EP12outputStreamb(ptr noundef nonnull alig
   store i8 0, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 90
   store i8 0, ptr %16, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %8, align 8
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8) #17
   ret void
 }
@@ -4983,7 +4983,7 @@ define hidden void @_ZN21CodeHeapAnalyticsDCmdC2EP12outputStreamb(ptr noundef no
   store i8 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV21CodeHeapAnalyticsDCmd, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV21CodeHeapAnalyticsDCmd, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %9, align 8
@@ -5001,7 +5001,7 @@ define hidden void @_ZN21CodeHeapAnalyticsDCmdC2EP12outputStreamb(ptr noundef no
   store i8 0, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 90
   store i8 0, ptr %16, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %8, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr null, ptr %18, align 8
@@ -5019,7 +5019,7 @@ define hidden void @_ZN21CodeHeapAnalyticsDCmdC2EP12outputStreamb(ptr noundef no
   store i8 0, ptr %24, align 1
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i8 0, ptr %25, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %17, align 8
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8) #17
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %17) #17
   ret void
@@ -5033,7 +5033,7 @@ define hidden void @_ZN21CodeHeapAnalyticsDCmd7executeE10DCmdSourceP10JavaThread
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @_ZN10Exceptions6fthrowEP10JavaThreadPKciP6SymbolS3_z(ptr noundef %2, ptr noundef nonnull @.str.121, i32 noundef 884, ptr noundef %8, ptr noundef nonnull @.str.122, i64 noundef %5) #17
   br label %14
 
@@ -5062,7 +5062,7 @@ define hidden void @_ZN12EventLogDCmdC2EP12outputStreamb(ptr noundef nonnull ali
   store i8 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV12EventLogDCmd, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV12EventLogDCmd, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %9, align 8
@@ -5074,7 +5074,7 @@ define hidden void @_ZN12EventLogDCmdC2EP12outputStreamb(ptr noundef nonnull ali
   store ptr @.str.9, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %13, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %8, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr null, ptr %15, align 8
@@ -5086,7 +5086,7 @@ define hidden void @_ZN12EventLogDCmdC2EP12outputStreamb(ptr noundef nonnull ali
   store ptr @.str.9, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %19, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %14, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8) #17
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %14) #17
   ret void
@@ -5275,7 +5275,7 @@ define hidden void @_ZN25CompilerDirectivesAddDCmdC2EP12outputStreamb(ptr nounde
   store i8 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV25CompilerDirectivesAddDCmd, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV25CompilerDirectivesAddDCmd, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %9, align 8
@@ -5293,7 +5293,7 @@ define hidden void @_ZN25CompilerDirectivesAddDCmdC2EP12outputStreamb(ptr nounde
   store i8 1, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 90
   store i8 0, ptr %16, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %8, align 8
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8) #17
   ret void
 }
@@ -5335,7 +5335,7 @@ define hidden void @_ZN18ClassHierarchyDCmdC2EP12outputStreamb(ptr noundef nonnu
   store i8 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV18ClassHierarchyDCmd, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV18ClassHierarchyDCmd, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %9, align 8
@@ -5353,7 +5353,7 @@ define hidden void @_ZN18ClassHierarchyDCmdC2EP12outputStreamb(ptr noundef nonnu
   store i8 0, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 90
   store i8 0, ptr %16, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %8, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr null, ptr %18, align 8
@@ -5371,7 +5371,7 @@ define hidden void @_ZN18ClassHierarchyDCmdC2EP12outputStreamb(ptr noundef nonnu
   store i8 0, ptr %24, align 1
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 146
   store i8 0, ptr %25, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %17, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr null, ptr %27, align 8
@@ -5383,7 +5383,7 @@ define hidden void @_ZN18ClassHierarchyDCmdC2EP12outputStreamb(ptr noundef nonnu
   store ptr @.str.9, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %31, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %26, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8) #17
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %17) #17
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %26) #17
@@ -5405,7 +5405,7 @@ define hidden void @_ZN18ClassHierarchyDCmd7executeE10DCmdSourceP10JavaThread(pt
   %14 = and i8 %10, 1
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV22VM_PrintClassHierarchy, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV22VM_PrintClassHierarchy, i64 16), ptr %4, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %6, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -5427,7 +5427,7 @@ define hidden void @_ZN11ClassesDCmdC2EP12outputStreamb(ptr noundef nonnull alig
   store i8 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV11ClassesDCmd, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV11ClassesDCmd, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %9, align 8
@@ -5445,7 +5445,7 @@ define hidden void @_ZN11ClassesDCmdC2EP12outputStreamb(ptr noundef nonnull alig
   store i8 0, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 90
   store i8 0, ptr %16, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %8, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8) #17
   ret void
 }
@@ -5460,7 +5460,7 @@ define hidden void @_ZN11ClassesDCmd7executeE10DCmdSourceP10JavaThread(ptr nocap
   %9 = and i8 %8, 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV15VM_PrintClasses, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV15VM_PrintClasses, i64 16), ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %6, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -5478,7 +5478,7 @@ define hidden void @_ZN21DumpSharedArchiveDCmdC2EP12outputStreamb(ptr noundef no
   store i8 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV21DumpSharedArchiveDCmd, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV21DumpSharedArchiveDCmd, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %9, align 8
@@ -5496,7 +5496,7 @@ define hidden void @_ZN21DumpSharedArchiveDCmdC2EP12outputStreamb(ptr noundef no
   store i8 1, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 90
   store i8 0, ptr %16, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %8, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr null, ptr %18, align 8
@@ -5514,7 +5514,7 @@ define hidden void @_ZN21DumpSharedArchiveDCmdC2EP12outputStreamb(ptr noundef no
   store i8 0, ptr %24, align 1
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i8 0, ptr %25, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %17, align 8
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8) #17
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %17) #17
   ret void
@@ -5588,7 +5588,7 @@ define hidden void @_ZN21DumpSharedArchiveDCmd7executeE10DCmdSourceP10JavaThread
 
 40:                                               ; preds = %35, %34
   %.sroa.0.0 = phi ptr [ null, %34 ], [ %37, %35 ]
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9288), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9288), align 8
   %42 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %41, ptr null, ptr null, i1 noundef zeroext true, ptr noundef %2) #17
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8
@@ -5618,8 +5618,8 @@ define hidden void @_ZN21DumpSharedArchiveDCmd7executeE10DCmdSourceP10JavaThread
   store i32 2, ptr %52, align 8
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %55, ptr %56, align 8
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9208), align 8
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9216), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9208), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9216), align 8
   call void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef nonnull %4, ptr noundef %42, ptr noundef %57, ptr noundef %58, ptr noundef nonnull %5, ptr noundef nonnull %2) #17
   %59 = load ptr, ptr %43, align 8
   %.not17 = icmp eq ptr %59, null
@@ -5820,7 +5820,7 @@ define hidden void @_ZN20ThreadDumpToFileDCmdC2EP12outputStreamb(ptr noundef non
   store i8 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV20ThreadDumpToFileDCmd, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV20ThreadDumpToFileDCmd, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %9, align 8
@@ -5838,7 +5838,7 @@ define hidden void @_ZN20ThreadDumpToFileDCmdC2EP12outputStreamb(ptr noundef non
   store i8 0, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 90
   store i8 0, ptr %16, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %8, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr null, ptr %18, align 8
@@ -5856,7 +5856,7 @@ define hidden void @_ZN20ThreadDumpToFileDCmdC2EP12outputStreamb(ptr noundef non
   store i8 0, ptr %24, align 1
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 146
   store i8 0, ptr %25, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %17, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr null, ptr %27, align 8
@@ -5874,7 +5874,7 @@ define hidden void @_ZN20ThreadDumpToFileDCmdC2EP12outputStreamb(ptr noundef non
   store i8 1, ptr %33, align 1
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 210
   store i8 0, ptr %34, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %26, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8) #17
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %17) #17
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %26) #17
@@ -5891,18 +5891,18 @@ define hidden void @_ZN20ThreadDumpToFileDCmd7executeE10DCmdSourceP10JavaThread(
 6:                                                ; preds = %3
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(5) @.str.163) #18
   %8 = icmp eq i32 %7, 0
-  %spec.select = select i1 %8, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9352), ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9344)
+  %spec.select = select i1 %8, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9352), ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9344)
   br label %.thread
 
 .thread:                                          ; preds = %3, %6
-  %.in = phi ptr [ %spec.select, %6 ], [ getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9344), %3 ]
+  %.in = phi ptr [ %spec.select, %6 ], [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9344), %3 ]
   %.in7 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %9 = load ptr, ptr %.in7, align 8
   %.in6.in = getelementptr inbounds nuw i8, ptr %0, i64 91
   %.in6 = load i8, ptr %.in6.in, align 1
   %10 = trunc i8 %.in6 to i1
   %11 = load ptr, ptr %.in, align 8
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7144), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7144), align 8
   tail call void @_ZN20ThreadDumpToFileDCmd10dumpToFileEP6SymbolS1_PKcbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %11, ptr noundef %12, ptr noundef %9, i1 noundef zeroext %10, ptr noundef %2)
   ret void
 }
@@ -5930,7 +5930,7 @@ define hidden void @_ZN20ThreadDumpToFileDCmd10dumpToFileEP6SymbolS1_PKcbP10Java
   br i1 %.not, label %23, label %60
 
 23:                                               ; preds = %6
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9336), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9336), align 8
   %25 = call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %24, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %5) #17
   %26 = load ptr, ptr %21, align 8
   %.not28 = icmp eq ptr %26, null
@@ -6027,7 +6027,7 @@ define hidden void @_ZN30CompilationMemoryStatisticDCmdC2EP12outputStreamb(ptr n
   store i8 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV30CompilationMemoryStatisticDCmd, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV30CompilationMemoryStatisticDCmd, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %9, align 8
@@ -6045,7 +6045,7 @@ define hidden void @_ZN30CompilationMemoryStatisticDCmdC2EP12outputStreamb(ptr n
   store i8 0, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 90
   store i8 0, ptr %16, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %8, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr null, ptr %18, align 8
@@ -6063,7 +6063,7 @@ define hidden void @_ZN30CompilationMemoryStatisticDCmdC2EP12outputStreamb(ptr n
   store i8 0, ptr %24, align 1
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 146
   store i8 0, ptr %25, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr %17, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8) #17
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %17) #17
   ret void
@@ -6099,7 +6099,7 @@ define hidden void @_ZN13SystemMapDCmdC2EP12outputStreamb(ptr nocapture noundef 
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %4, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV13SystemMapDCmd, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV13SystemMapDCmd, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -6122,7 +6122,7 @@ define hidden void @_ZN17SystemDumpMapDCmdC2EP12outputStreamb(ptr noundef nonnul
   store i8 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV17SystemDumpMapDCmd, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV17SystemDumpMapDCmd, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %9, align 8
@@ -6140,7 +6140,7 @@ define hidden void @_ZN17SystemDumpMapDCmdC2EP12outputStreamb(ptr noundef nonnul
   store i8 0, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 90
   store i8 0, ptr %16, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %8, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8) #17
   ret void
 }
@@ -6256,7 +6256,7 @@ define linkonce_odr hidden void @_ZN4DCmd5parseEP7CmdLinecP10JavaThread(ptr noun
   br i1 %brmerge.not, label %17, label %19
 
 17:                                               ; preds = %4
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str.182, i32 noundef 290, ptr noundef %18, ptr noundef nonnull @.str.183) #17
   br label %19
 
@@ -6456,7 +6456,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -6475,7 +6475,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -6494,7 +6494,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -6513,7 +6513,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -6532,7 +6532,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %22 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = sub i64 %14, %23
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %26 = zext nneg i32 %25 to i64
   %27 = lshr i64 %24, %26
   %28 = trunc i64 %27 to i32
@@ -6560,7 +6560,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -7020,7 +7020,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -7039,7 +7039,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -7058,7 +7058,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -7077,7 +7077,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -7096,7 +7096,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %22 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = sub i64 %14, %23
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %26 = zext nneg i32 %25 to i64
   %27 = lshr i64 %24, %26
   %28 = trunc i64 %27 to i32
@@ -7124,7 +7124,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -7392,7 +7392,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI8HelpDCmdE24create
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV8HelpDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV8HelpDCmd, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %8, align 8
@@ -7410,7 +7410,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI8HelpDCmdE24create
   store i8 0, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 90
   store i8 0, ptr %15, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %7, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store ptr null, ptr %17, align 8
@@ -7422,7 +7422,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI8HelpDCmdE24create
   store ptr @.str.9, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %21, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %16, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7) #17
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %16) #17
   ret ptr %3
@@ -7461,7 +7461,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI11VersionDCmdE24cr
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV11VersionDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV11VersionDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -7498,7 +7498,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI15CommandLineDCmdE
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV15CommandLineDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV15CommandLineDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -7545,7 +7545,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI25PrintSystemPrope
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV25PrintSystemPropertiesDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV25PrintSystemPropertiesDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -7584,7 +7584,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI16PrintVMFlagsDCmd
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV16PrintVMFlagsDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV16PrintVMFlagsDCmd, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %8, align 8
@@ -7602,7 +7602,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI16PrintVMFlagsDCmd
   store i8 0, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 90
   store i8 0, ptr %15, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %7, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7) #17
   ret ptr %3
 }
@@ -7642,7 +7642,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI13SetVMFlagDCmdE24
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV13SetVMFlagDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV13SetVMFlagDCmd, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %8, align 8
@@ -7660,7 +7660,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI13SetVMFlagDCmdE24
   store i8 1, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 90
   store i8 0, ptr %15, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %7, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store ptr null, ptr %17, align 8
@@ -7672,7 +7672,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI13SetVMFlagDCmdE24
   store ptr @.str.9, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %21, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %16, align 8
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7) #17
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %16) #17
   ret ptr %3
@@ -7711,7 +7711,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI22VMDynamicLibrari
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV22VMDynamicLibrariesDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV22VMDynamicLibrariesDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -7750,7 +7750,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI12VMUptimeDCmdE24c
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV12VMUptimeDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV12VMUptimeDCmd, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %8, align 8
@@ -7768,7 +7768,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI12VMUptimeDCmdE24c
   store i8 0, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 90
   store i8 0, ptr %15, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %7, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7) #17
   ret ptr %3
 }
@@ -7806,7 +7806,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI10VMInfoDCmdE24cre
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV10VMInfoDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV10VMInfoDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -7843,7 +7843,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI12SystemGCDCmdE24c
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV12SystemGCDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV12SystemGCDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -7880,7 +7880,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI19RunFinalizationD
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV19RunFinalizationDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV19RunFinalizationDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -7917,7 +7917,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI12HeapInfoDCmdE24c
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV12HeapInfoDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV12HeapInfoDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -7954,7 +7954,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI17FinalizerInfoDCm
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV17FinalizerInfoDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV17FinalizerInfoDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -8026,7 +8026,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI18ClassHistogramDC
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV18ClassHistogramDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV18ClassHistogramDCmd, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %8, align 8
@@ -8044,7 +8044,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI18ClassHistogramDC
   store i8 0, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 90
   store i8 0, ptr %15, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %7, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store ptr null, ptr %17, align 8
@@ -8062,7 +8062,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI18ClassHistogramDC
   store i8 0, ptr %23, align 1
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 146
   store i8 0, ptr %24, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %16, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7) #17
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %16) #17
   ret ptr %3
@@ -8138,7 +8138,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI18ClassHierarchyDC
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV18ClassHierarchyDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV18ClassHierarchyDCmd, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %8, align 8
@@ -8156,7 +8156,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI18ClassHierarchyDC
   store i8 0, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 90
   store i8 0, ptr %15, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %7, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store ptr null, ptr %17, align 8
@@ -8174,7 +8174,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI18ClassHierarchyDC
   store i8 0, ptr %23, align 1
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 146
   store i8 0, ptr %24, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %16, align 8
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 160
   store ptr null, ptr %26, align 8
@@ -8186,7 +8186,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI18ClassHierarchyDC
   store ptr @.str.9, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %30, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %25, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7) #17
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %16) #17
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %25) #17
@@ -8228,7 +8228,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI11ClassesDCmdE24cr
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV11ClassesDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV11ClassesDCmd, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %8, align 8
@@ -8246,7 +8246,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI11ClassesDCmdE24cr
   store i8 0, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 90
   store i8 0, ptr %15, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %7, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7) #17
   ret ptr %3
 }
@@ -8391,7 +8391,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI12EventLogDCmdE24c
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV12EventLogDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV12EventLogDCmd, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %8, align 8
@@ -8403,7 +8403,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI12EventLogDCmdE24c
   store ptr @.str.9, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %12, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %7, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store ptr null, ptr %14, align 8
@@ -8415,7 +8415,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI12EventLogDCmdE24c
   store ptr @.str.9, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %18, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %13, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7) #17
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %13) #17
   ret ptr %3
@@ -8456,7 +8456,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI18JVMTIAgentLoadDC
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV18JVMTIAgentLoadDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV18JVMTIAgentLoadDCmd, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %8, align 8
@@ -8474,7 +8474,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI18JVMTIAgentLoadDC
   store i8 1, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 90
   store i8 0, ptr %15, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %7, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store ptr null, ptr %17, align 8
@@ -8486,7 +8486,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI18JVMTIAgentLoadDC
   store ptr @.str.9, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %21, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %16, align 8
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7) #17
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %16) #17
   ret ptr %3
@@ -8525,7 +8525,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI17JVMTIDataDumpDCm
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV17JVMTIDataDumpDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV17JVMTIDataDumpDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -8564,7 +8564,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI14ThreadDumpDCmdE2
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV14ThreadDumpDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV14ThreadDumpDCmd, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %8, align 8
@@ -8582,7 +8582,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI14ThreadDumpDCmdE2
   store i8 0, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 90
   store i8 0, ptr %15, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %7, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store ptr null, ptr %17, align 8
@@ -8600,7 +8600,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI14ThreadDumpDCmdE2
   store i8 0, ptr %23, align 1
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 146
   store i8 0, ptr %24, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %16, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7) #17
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %16) #17
   ret ptr %3
@@ -8641,7 +8641,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI20ThreadDumpToFile
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV20ThreadDumpToFileDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV20ThreadDumpToFileDCmd, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %8, align 8
@@ -8659,7 +8659,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI20ThreadDumpToFile
   store i8 0, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 90
   store i8 0, ptr %15, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %7, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store ptr null, ptr %17, align 8
@@ -8677,7 +8677,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI20ThreadDumpToFile
   store i8 0, ptr %23, align 1
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 146
   store i8 0, ptr %24, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %16, align 8
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 168
   store ptr null, ptr %26, align 8
@@ -8695,7 +8695,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI20ThreadDumpToFile
   store i8 1, ptr %32, align 1
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 210
   store i8 0, ptr %33, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %25, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7) #17
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %16) #17
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %25) #17
@@ -8735,7 +8735,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI20ClassLoaderStats
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV20ClassLoaderStatsDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV20ClassLoaderStatsDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -8807,7 +8807,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI16CompileQueueDCmd
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV16CompileQueueDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV16CompileQueueDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -8844,7 +8844,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI12CodeListDCmdE24c
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV12CodeListDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV12CodeListDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -8881,7 +8881,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI13CodeCacheDCmdE24
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV13CodeCacheDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV13CodeCacheDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -8920,7 +8920,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI11PerfMapDCmdE24cr
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV11PerfMapDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV11PerfMapDCmd, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %8, align 8
@@ -8938,7 +8938,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI11PerfMapDCmdE24cr
   store i8 0, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 90
   store i8 0, ptr %15, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %7, align 8
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7) #17
   ret ptr %3
 }
@@ -8976,7 +8976,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI17TrimCLibcHeapDCm
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV17TrimCLibcHeapDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV17TrimCLibcHeapDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -9013,7 +9013,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI14MallocInfoDcmdE2
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV14MallocInfoDcmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV14MallocInfoDcmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -9050,7 +9050,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI13SystemMapDCmdE24
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV13SystemMapDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV13SystemMapDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -9089,7 +9089,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI17SystemDumpMapDCm
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV17SystemDumpMapDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV17SystemDumpMapDCmd, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %8, align 8
@@ -9107,7 +9107,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI17SystemDumpMapDCm
   store i8 0, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 90
   store i8 0, ptr %15, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %7, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7) #17
   ret ptr %3
 }
@@ -9147,7 +9147,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI21CodeHeapAnalytic
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV21CodeHeapAnalyticsDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV21CodeHeapAnalyticsDCmd, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %8, align 8
@@ -9165,7 +9165,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI21CodeHeapAnalytic
   store i8 0, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 90
   store i8 0, ptr %15, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %7, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store ptr null, ptr %17, align 8
@@ -9183,7 +9183,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI21CodeHeapAnalytic
   store i8 0, ptr %23, align 1
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 154
   store i8 0, ptr %24, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %16, align 8
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7) #17
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %16) #17
   ret ptr %3
@@ -9222,7 +9222,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI27CompilerDirectiv
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV27CompilerDirectivesPrintDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV27CompilerDirectivesPrintDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -9261,7 +9261,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI25CompilerDirectiv
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV25CompilerDirectivesAddDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV25CompilerDirectivesAddDCmd, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %8, align 8
@@ -9279,7 +9279,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI25CompilerDirectiv
   store i8 1, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 90
   store i8 0, ptr %15, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %7, align 8
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7) #17
   ret ptr %3
 }
@@ -9317,7 +9317,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI28CompilerDirectiv
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV28CompilerDirectivesRemoveDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV28CompilerDirectivesRemoveDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -9354,7 +9354,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI27CompilerDirectiv
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV27CompilerDirectivesClearDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV27CompilerDirectivesClearDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -9393,7 +9393,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI30CompilationMemor
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV30CompilationMemoryStatisticDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV30CompilationMemoryStatisticDCmd, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %8, align 8
@@ -9411,7 +9411,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI30CompilationMemor
   store i8 0, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 90
   store i8 0, ptr %15, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %7, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store ptr null, ptr %17, align 8
@@ -9429,7 +9429,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI30CompilationMemor
   store i8 0, ptr %23, align 1
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 146
   store i8 0, ptr %24, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr %16, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7) #17
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %16) #17
   ret ptr %3
@@ -9501,7 +9501,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI17JMXStartLocalDCm
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV17JMXStartLocalDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV17JMXStartLocalDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -9538,7 +9538,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI17JMXStopRemoteDCm
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV17JMXStopRemoteDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV17JMXStopRemoteDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -9575,7 +9575,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI13JMXStatusDCmdE24
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV13JMXStatusDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV13JMXStatusDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -9612,7 +9612,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI19DebugOnCmdStartD
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV19DebugOnCmdStartDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV19DebugOnCmdStartDCmd, i64 16), ptr %3, align 8
   ret ptr %3
 }
 
@@ -9651,7 +9651,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI21DumpSharedArchiv
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV21DumpSharedArchiveDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV21DumpSharedArchiveDCmd, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %8, align 8
@@ -9669,7 +9669,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI21DumpSharedArchiv
   store i8 1, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 90
   store i8 0, ptr %15, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %7, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store ptr null, ptr %17, align 8
@@ -9687,7 +9687,7 @@ define linkonce_odr hidden noundef ptr @_ZNK15DCmdFactoryImplI21DumpSharedArchiv
   store i8 0, ptr %23, align 1
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 154
   store i8 0, ptr %24, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %16, align 8
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7) #17
   tail call void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %16) #17
   ret ptr %3

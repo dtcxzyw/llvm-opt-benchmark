@@ -440,7 +440,7 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
 
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit58: ; preds = %12
   %14 = ptrtoint ptr %11 to i64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10logical_orIxELb0EEE, i64 16), ptr %13, align 8, !tbaa !15, !noalias !24
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10logical_orIxELb0EEE, i64 16), ptr %13, align 8, !tbaa !15, !noalias !24
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %9, ptr %15, align 8, !tbaa !17, !noalias !24
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -549,7 +549,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit28.thread126: ; preds = %43
   %45 = ptrtoint ptr %38 to i64
   %46 = ptrtoint ptr %42 to i64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111conditionalE, i64 16), ptr %44, align 8, !tbaa !15, !noalias !30
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111conditionalE, i64 16), ptr %44, align 8, !tbaa !15, !noalias !30
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i64 %34, ptr %47, align 8, !tbaa !17, !noalias !30
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -657,7 +657,7 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
 
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit18: ; preds = %12
   %14 = ptrtoint ptr %11 to i64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt11logical_andIxELb0EEE, i64 16), ptr %13, align 8, !tbaa !15, !noalias !33
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt11logical_andIxELb0EEE, i64 16), ptr %13, align 8, !tbaa !15, !noalias !33
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %9, ptr %15, align 8, !tbaa !17, !noalias !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -787,7 +787,7 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_11
   resume { ptr, i32 } %21
 
 22:                                               ; preds = %4, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5
-  %.sink8 = phi ptr [ getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10logical_orIxELb0EEE, i64 16), %16 ], [ getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt11logical_andIxELb0EEE, i64 16), %15 ], [ getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt12not_equal_toIxELb0EEE, i64 16), %14 ], [ getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt8equal_toIxELb0EEE, i64 16), %13 ], [ getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10less_equalIxELb0EEE, i64 16), %12 ], [ getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt13greater_equalIxELb0EEE, i64 16), %11 ], [ getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt4lessIxELb0EEE, i64 16), %10 ], [ getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7greaterIxELb0EEE, i64 16), %9 ], [ getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt5minusIxELb0EEE, i64 16), %8 ], [ getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt4plusIxELb0EEE, i64 16), %7 ], [ getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7modulusIxELb1EEE, i64 16), %6 ], [ getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10multipliesIxELb0EEE, i64 16), %5 ], [ getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7dividesIxELb1EEE, i64 16), %4 ]
+  %.sink8 = phi ptr [ getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10logical_orIxELb0EEE, i64 16), %16 ], [ getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt11logical_andIxELb0EEE, i64 16), %15 ], [ getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt12not_equal_toIxELb0EEE, i64 16), %14 ], [ getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt8equal_toIxELb0EEE, i64 16), %13 ], [ getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10less_equalIxELb0EEE, i64 16), %12 ], [ getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt13greater_equalIxELb0EEE, i64 16), %11 ], [ getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt4lessIxELb0EEE, i64 16), %10 ], [ getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7greaterIxELb0EEE, i64 16), %9 ], [ getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt5minusIxELb0EEE, i64 16), %8 ], [ getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt4plusIxELb0EEE, i64 16), %7 ], [ getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7modulusIxELb1EEE, i64 16), %6 ], [ getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10multipliesIxELb0EEE, i64 16), %5 ], [ getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7dividesIxELb1EEE, i64 16), %4 ]
   %23 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #16, !noalias !37
   %24 = load i64, ptr %2, align 8, !tbaa !17, !noalias !37
   store ptr null, ptr %2, align 8, !tbaa !17, !noalias !37
@@ -1497,7 +1497,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit: ;
           to label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19make_exprINS3_5unaryISt11logical_notIxEEEJSt10unique_ptrINS2_4exprESt14default_deleteISA_EEEEESD_DpOT0_.exit unwind label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit
 
 _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19make_exprINS3_5unaryISt11logical_notIxEEEJSt10unique_ptrINS2_4exprESt14default_deleteISA_EEEEESD_DpOT0_.exit: ; preds = %15
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryISt11logical_notIxEEE, i64 16), ptr %16, align 8, !tbaa !15, !noalias !44
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryISt11logical_notIxEEE, i64 16), ptr %16, align 8, !tbaa !15, !noalias !44
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit6.sink.split
 
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit: ; preds = %21, %15
@@ -1516,7 +1516,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
           to label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19make_exprINS3_5unaryISt6negateIxEEEJSt10unique_ptrINS2_4exprESt14default_deleteISA_EEEEESD_DpOT0_.exit unwind label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit
 
 _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19make_exprINS3_5unaryISt6negateIxEEEJSt10unique_ptrINS2_4exprESt14default_deleteISA_EEEEESD_DpOT0_.exit: ; preds = %21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryISt6negateIxEEE, i64 16), ptr %22, align 8, !tbaa !15, !noalias !47
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryISt6negateIxEEE, i64 16), ptr %22, align 8, !tbaa !15, !noalias !47
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit6.sink.split
 
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit6.sink.split: ; preds = %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19make_exprINS3_5unaryISt6negateIxEEEJSt10unique_ptrINS2_4exprESt14default_deleteISA_EEEEESD_DpOT0_.exit, %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19make_exprINS3_5unaryISt11logical_notIxEEEJSt10unique_ptrINS2_4exprESt14default_deleteISA_EEEEESD_DpOT0_.exit
@@ -1567,7 +1567,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
   tail call fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19tokenizer4stepEv(ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !50
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
   %31 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16numberE, i64 16), ptr %31, align 8, !tbaa !15, !noalias !53
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16numberE, i64 16), ptr %31, align 8, !tbaa !15, !noalias !53
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %.val2.i, ptr %32, align 8, !tbaa !56, !noalias !53
   store ptr %31, ptr %0, align 8, !tbaa !17, !alias.scope !53
@@ -1577,7 +1577,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19make_exprINS3_8identityEJEEES
   tail call fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19tokenizer4stepEv(ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !50
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
   %33 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_18identityE, i64 16), ptr %33, align 8, !tbaa !15, !noalias !59
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_18identityE, i64 16), ptr %33, align 8, !tbaa !15, !noalias !59
   store ptr %33, ptr %0, align 8, !tbaa !17, !alias.scope !59
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit14
 

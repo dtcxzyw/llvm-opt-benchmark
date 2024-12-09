@@ -12,11 +12,11 @@ define void @_ZN6icu_758numparse4impl12ParsedNumberC2Ev(ptr noundef nonnull alig
 invoke.cont3:
   tail call void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %this)
   %prefix = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %prefix, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %prefix, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i16 2, ptr %fUnion2.i, align 8
   %suffix = getelementptr inbounds nuw i8, ptr %this, i64 144
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %suffix, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %suffix, align 8
   %fUnion2.i3 = getelementptr inbounds nuw i8, ptr %this, i64 152
   store i16 2, ptr %fUnion2.i3, align 8
   %bogus.i = getelementptr inbounds nuw i8, ptr %this, i64 8

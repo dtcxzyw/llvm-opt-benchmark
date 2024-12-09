@@ -103,9 +103,9 @@ define void @_ZN11AboutDialogC2EP7QWidget(ptr noundef nonnull align 8 dereferenc
   %12 = alloca %class.QString, align 8
   %13 = alloca %class.QString, align 8
   tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i32 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11AboutDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11AboutDialog, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11AboutDialog, i64 488), ptr %14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11AboutDialog, i64 488), ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #12
           to label %17 unwind label %124
@@ -773,7 +773,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i41:  ; preds = %_ZN9QtPrivate8RefCo
   %60 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #12
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i32 0, ptr %61, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %60, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 12
   store i32 20, ptr %62, align 4
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 16
@@ -1125,7 +1125,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i89:  ; preds = %_ZN9QtPrivate8RefCo
   %172 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #12
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
   store i32 0, ptr %173, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %172, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %172, align 8
   %174 = getelementptr inbounds nuw i8, ptr %172, i64 12
   store i32 40, ptr %174, align 4
   %175 = getelementptr inbounds nuw i8, ptr %172, i64 16
@@ -2100,9 +2100,9 @@ declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN11AboutDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 24)) %0) unnamed_addr #5 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11AboutDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11AboutDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11AboutDialog, i64 488), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11AboutDialog, i64 488), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

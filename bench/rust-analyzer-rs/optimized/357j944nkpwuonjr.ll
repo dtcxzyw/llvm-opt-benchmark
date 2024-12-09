@@ -117723,7 +117723,7 @@ define internal fastcc void @"_ZN74_$LT$rust_analyzer..lsp..ext..CodeAction$u20$
   br i1 %120, label %121, label %122
 
 121:                                              ; preds = %113
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i7.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @anon.c91e04c7d383ba7521049835a0a71fd2.89.llvm.9266542439947230232, i64 8), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i7.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @anon.c91e04c7d383ba7521049835a0a71fd2.89.llvm.9266542439947230232, i64 8), i64 24, i1 false)
   br label %132
 
 122:                                              ; preds = %113

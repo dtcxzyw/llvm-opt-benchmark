@@ -67,7 +67,7 @@ define dso_local void @lock_slurmctld(ptr nocapture noundef readonly byval(%stru
   ]
 
 14:                                               ; preds = %11
-  %15 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_locks, i64 56)) #6
+  %15 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @slurmctld_locks, i64 56)) #6
   %.not36 = icmp eq i32 %15, 0
   br i1 %.not36, label %22, label %16
 
@@ -78,7 +78,7 @@ define dso_local void @lock_slurmctld(ptr nocapture noundef readonly byval(%stru
   unreachable
 
 18:                                               ; preds = %11
-  %19 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_locks, i64 56)) #6
+  %19 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @slurmctld_locks, i64 56)) #6
   %.not35 = icmp eq i32 %19, 0
   br i1 %.not35, label %22, label %20
 
@@ -97,7 +97,7 @@ define dso_local void @lock_slurmctld(ptr nocapture noundef readonly byval(%stru
   ]
 
 25:                                               ; preds = %22
-  %26 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_locks, i64 112)) #6
+  %26 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @slurmctld_locks, i64 112)) #6
   %.not38 = icmp eq i32 %26, 0
   br i1 %.not38, label %33, label %27
 
@@ -108,7 +108,7 @@ define dso_local void @lock_slurmctld(ptr nocapture noundef readonly byval(%stru
   unreachable
 
 29:                                               ; preds = %22
-  %30 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_locks, i64 112)) #6
+  %30 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @slurmctld_locks, i64 112)) #6
   %.not37 = icmp eq i32 %30, 0
   br i1 %.not37, label %33, label %31
 
@@ -127,7 +127,7 @@ define dso_local void @lock_slurmctld(ptr nocapture noundef readonly byval(%stru
   ]
 
 36:                                               ; preds = %33
-  %37 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_locks, i64 168)) #6
+  %37 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @slurmctld_locks, i64 168)) #6
   %.not40 = icmp eq i32 %37, 0
   br i1 %.not40, label %44, label %38
 
@@ -138,7 +138,7 @@ define dso_local void @lock_slurmctld(ptr nocapture noundef readonly byval(%stru
   unreachable
 
 40:                                               ; preds = %33
-  %41 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_locks, i64 168)) #6
+  %41 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @slurmctld_locks, i64 168)) #6
   %.not39 = icmp eq i32 %41, 0
   br i1 %.not39, label %44, label %42
 
@@ -157,7 +157,7 @@ define dso_local void @lock_slurmctld(ptr nocapture noundef readonly byval(%stru
   ]
 
 47:                                               ; preds = %44
-  %48 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_locks, i64 224)) #6
+  %48 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @slurmctld_locks, i64 224)) #6
   %.not42 = icmp eq i32 %48, 0
   br i1 %.not42, label %55, label %49
 
@@ -168,7 +168,7 @@ define dso_local void @lock_slurmctld(ptr nocapture noundef readonly byval(%stru
   unreachable
 
 51:                                               ; preds = %44
-  %52 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_locks, i64 224)) #6
+  %52 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @slurmctld_locks, i64 224)) #6
   %.not41 = icmp eq i32 %52, 0
   br i1 %.not41, label %55, label %53
 
@@ -202,7 +202,7 @@ define dso_local void @unlock_slurmctld(ptr nocapture noundef readonly byval(%st
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_locks, i64 224)) #6
+  %5 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @slurmctld_locks, i64 224)) #6
   %.not14 = icmp eq i32 %5, 0
   br i1 %.not14, label %8, label %6
 
@@ -219,7 +219,7 @@ define dso_local void @unlock_slurmctld(ptr nocapture noundef readonly byval(%st
   br i1 %.not15, label %15, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_locks, i64 168)) #6
+  %12 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @slurmctld_locks, i64 168)) #6
   %.not16 = icmp eq i32 %12, 0
   br i1 %.not16, label %15, label %13
 
@@ -236,7 +236,7 @@ define dso_local void @unlock_slurmctld(ptr nocapture noundef readonly byval(%st
   br i1 %.not17, label %22, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_locks, i64 112)) #6
+  %19 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @slurmctld_locks, i64 112)) #6
   %.not18 = icmp eq i32 %19, 0
   br i1 %.not18, label %22, label %20
 
@@ -253,7 +253,7 @@ define dso_local void @unlock_slurmctld(ptr nocapture noundef readonly byval(%st
   br i1 %.not19, label %29, label %25
 
 25:                                               ; preds = %22
-  %26 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_locks, i64 56)) #6
+  %26 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @slurmctld_locks, i64 56)) #6
   %.not20 = icmp eq i32 %26, 0
   br i1 %.not20, label %29, label %27
 

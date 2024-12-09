@@ -8426,7 +8426,7 @@ _ZNSt10shared_ptrIiED2Ev.exit:
   store i32 1, ptr %32, align 8, !noalias !191
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 12
   store i32 1, ptr %33, align 4, !noalias !191
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %31, align 8, !noalias !191
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %31, align 8, !noalias !191
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i32 123, ptr %34, align 4, !noalias !191
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -10010,7 +10010,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTV48ProxyInvocationTests_TestArgumentForwarding_Test, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV48ProxyInvocationTests_TestArgumentForwarding_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -10040,7 +10040,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTV35ProxyInvocationTests_TestThrow_Test, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV35ProxyInvocationTests_TestThrow_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -10068,7 +10068,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTV55ProxyInvocationTests_TestMultipleDispatches_Unique_Test, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV55ProxyInvocationTests_TestMultipleDispatches_Unique_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -10124,7 +10124,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTV59ProxyInvocationTests_TestMultipleDispatches_Duplicated_Test, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV59ProxyInvocationTests_TestMultipleDispatches_Duplicated_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -10163,7 +10163,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTV49ProxyInvocationTests_TestRecursiveDefinition_Test, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV49ProxyInvocationTests_TestRecursiveDefinition_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -10202,7 +10202,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTV38ProxyInvocationTests_TestAccessor_Test, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV38ProxyInvocationTests_TestAccessor_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -10241,7 +10241,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTV48ProxyInvocationTests_TestOverloadResolution_Test, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV48ProxyInvocationTests_TestOverloadResolution_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -10269,7 +10269,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTV38ProxyInvocationTests_TestNoexcept_Test, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV38ProxyInvocationTests_TestNoexcept_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -10297,7 +10297,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTV45ProxyInvocationTests_TestFunctionPointer_Test, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV45ProxyInvocationTests_TestFunctionPointer_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -10325,7 +10325,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTV51ProxyInvocationTests_TestMemberDispatchDefault_Test, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV51ProxyInvocationTests_TestMemberDispatchDefault_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -10428,7 +10428,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTV49ProxyInvocationTests_TestFreeDispatchDefault_Test, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV49ProxyInvocationTests_TestFreeDispatchDefault_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -10456,7 +10456,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTV46ProxyInvocationTests_TestObserverDispatch_Test, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV46ProxyInvocationTests_TestObserverDispatch_Test, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -12958,7 +12958,7 @@ define internal void @_GLOBAL__sub_I_proxy_invocation_tests.cpp() #22 section ".
           to label %48 unwind label %71
 
 48:                                               ; preds = %46
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI48ProxyInvocationTests_TestArgumentForwarding_TestEE, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI48ProxyInvocationTests_TestArgumentForwarding_TestEE, i64 16), ptr %47, align 8
   %49 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef nonnull %34, ptr noundef %41, ptr noundef %43, ptr noundef %45, ptr noundef nonnull %47)
           to label %50 unwind label %71
 
@@ -13065,7 +13065,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %84 unwind label %107
 
 84:                                               ; preds = %82
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI35ProxyInvocationTests_TestThrow_TestEE, i64 16), ptr %83, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI35ProxyInvocationTests_TestThrow_TestEE, i64 16), ptr %83, align 8
   %85 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.16, ptr noundef null, ptr noundef null, ptr noundef nonnull %31, ptr noundef %77, ptr noundef %79, ptr noundef %81, ptr noundef nonnull %83)
           to label %86 unwind label %107
 
@@ -13166,7 +13166,7 @@ __cxx_global_var_init.15.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %120 unwind label %143
 
 120:                                              ; preds = %118
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI55ProxyInvocationTests_TestMultipleDispatches_Unique_TestEE, i64 16), ptr %119, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI55ProxyInvocationTests_TestMultipleDispatches_Unique_TestEE, i64 16), ptr %119, align 8
   %121 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.22, ptr noundef null, ptr noundef null, ptr noundef nonnull %28, ptr noundef %113, ptr noundef %115, ptr noundef %117, ptr noundef nonnull %119)
           to label %122 unwind label %143
 
@@ -13267,7 +13267,7 @@ __cxx_global_var_init.21.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %156 unwind label %179
 
 156:                                              ; preds = %154
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI59ProxyInvocationTests_TestMultipleDispatches_Duplicated_TestEE, i64 16), ptr %155, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI59ProxyInvocationTests_TestMultipleDispatches_Duplicated_TestEE, i64 16), ptr %155, align 8
   %157 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.28, ptr noundef null, ptr noundef null, ptr noundef nonnull %25, ptr noundef %149, ptr noundef %151, ptr noundef %153, ptr noundef nonnull %155)
           to label %158 unwind label %179
 
@@ -13368,7 +13368,7 @@ __cxx_global_var_init.27.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %192 unwind label %215
 
 192:                                              ; preds = %190
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI49ProxyInvocationTests_TestRecursiveDefinition_TestEE, i64 16), ptr %191, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI49ProxyInvocationTests_TestRecursiveDefinition_TestEE, i64 16), ptr %191, align 8
   %193 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.30, ptr noundef null, ptr noundef null, ptr noundef nonnull %22, ptr noundef %185, ptr noundef %187, ptr noundef %189, ptr noundef nonnull %191)
           to label %194 unwind label %215
 
@@ -13469,7 +13469,7 @@ __cxx_global_var_init.29.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %228 unwind label %251
 
 228:                                              ; preds = %226
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI38ProxyInvocationTests_TestAccessor_TestEE, i64 16), ptr %227, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI38ProxyInvocationTests_TestAccessor_TestEE, i64 16), ptr %227, align 8
   %229 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.33, ptr noundef null, ptr noundef null, ptr noundef nonnull %19, ptr noundef %221, ptr noundef %223, ptr noundef %225, ptr noundef nonnull %227)
           to label %230 unwind label %251
 
@@ -13570,7 +13570,7 @@ __cxx_global_var_init.32.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %264 unwind label %287
 
 264:                                              ; preds = %262
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI48ProxyInvocationTests_TestOverloadResolution_TestEE, i64 16), ptr %263, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI48ProxyInvocationTests_TestOverloadResolution_TestEE, i64 16), ptr %263, align 8
   %265 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.36, ptr noundef null, ptr noundef null, ptr noundef nonnull %16, ptr noundef %257, ptr noundef %259, ptr noundef %261, ptr noundef nonnull %263)
           to label %266 unwind label %287
 
@@ -13671,7 +13671,7 @@ __cxx_global_var_init.35.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %300 unwind label %323
 
 300:                                              ; preds = %298
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI38ProxyInvocationTests_TestNoexcept_TestEE, i64 16), ptr %299, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI38ProxyInvocationTests_TestNoexcept_TestEE, i64 16), ptr %299, align 8
   %301 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.46, ptr noundef null, ptr noundef null, ptr noundef nonnull %13, ptr noundef %293, ptr noundef %295, ptr noundef %297, ptr noundef nonnull %299)
           to label %302 unwind label %323
 
@@ -13772,7 +13772,7 @@ __cxx_global_var_init.45.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %336 unwind label %359
 
 336:                                              ; preds = %334
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI45ProxyInvocationTests_TestFunctionPointer_TestEE, i64 16), ptr %335, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI45ProxyInvocationTests_TestFunctionPointer_TestEE, i64 16), ptr %335, align 8
   %337 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.49, ptr noundef null, ptr noundef null, ptr noundef nonnull %10, ptr noundef %329, ptr noundef %331, ptr noundef %333, ptr noundef nonnull %335)
           to label %338 unwind label %359
 
@@ -13873,7 +13873,7 @@ __cxx_global_var_init.48.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %372 unwind label %395
 
 372:                                              ; preds = %370
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI51ProxyInvocationTests_TestMemberDispatchDefault_TestEE, i64 16), ptr %371, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI51ProxyInvocationTests_TestMemberDispatchDefault_TestEE, i64 16), ptr %371, align 8
   %373 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.53, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef %365, ptr noundef %367, ptr noundef %369, ptr noundef nonnull %371)
           to label %374 unwind label %395
 
@@ -13974,7 +13974,7 @@ __cxx_global_var_init.52.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %408 unwind label %431
 
 408:                                              ; preds = %406
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI49ProxyInvocationTests_TestFreeDispatchDefault_TestEE, i64 16), ptr %407, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI49ProxyInvocationTests_TestFreeDispatchDefault_TestEE, i64 16), ptr %407, align 8
   %409 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.63, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef %401, ptr noundef %403, ptr noundef %405, ptr noundef nonnull %407)
           to label %410 unwind label %431
 
@@ -14075,7 +14075,7 @@ __cxx_global_var_init.62.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %444 unwind label %467
 
 444:                                              ; preds = %442
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI46ProxyInvocationTests_TestObserverDispatch_TestEE, i64 16), ptr %443, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI46ProxyInvocationTests_TestObserverDispatch_TestEE, i64 16), ptr %443, align 8
   %445 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.66, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, ptr noundef %437, ptr noundef %439, ptr noundef %441, ptr noundef nonnull %443)
           to label %446 unwind label %467
 

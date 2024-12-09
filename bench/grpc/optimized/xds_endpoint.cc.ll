@@ -1336,7 +1336,7 @@ call.i19.noexc:                                   ; preds = %cond.true
           to label %.noexc23 unwind label %lpad32
 
 .noexc23:                                         ; preds = %call.i19.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.15, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.15, i64 6))
           to label %cond.end unwind label %ehcleanup42.thread
 
 ehcleanup42.thread:                               ; preds = %.noexc23
@@ -1752,9 +1752,9 @@ invoke.cont.i:                                    ; preds = %_ZNSt8optionalINSt7
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !48
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i26.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN9grpc_core19XdsEndpointResourceESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i26.i, align 8, !noalias !48
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN9grpc_core19XdsEndpointResourceESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i26.i, align 8, !noalias !48
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i26.i, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core19XdsEndpointResourceE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !48
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core19XdsEndpointResourceE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !48
   %priorities.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i26.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %priorities.i.i.i.i.i.i.i.i.i, i8 0, i64 32, i1 false), !noalias !48
   store ptr %call5.i.i.i3.i.i.i.i26.i, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !45, !noalias !42
@@ -2844,7 +2844,7 @@ if.end.i207.i:                                    ; preds = %.noexc.i.i.i
           to label %invoke.cont.i210.i unwind label %lpad.i209.i, !noalias !52
 
 invoke.cont.i210.i:                               ; preds = %if.end.i207.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i208.i, ptr noundef nonnull @.str.38, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.38, i64 9)) #20, !noalias !52
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i208.i, ptr noundef nonnull @.str.38, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.38, i64 9)) #20, !noalias !52
   store ptr null, ptr %__guard.i.i, align 8, !noalias !52
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp79.i.i, i64 noundef 9)
           to label %invoke.cont.i86.i.i unwind label %lpad.i209.i, !noalias !52
@@ -3585,7 +3585,7 @@ call.i112.noexc.i:                                ; preds = %if.then167.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(344) %230, i8 0, i64 312, i1 false), !noalias !78
   %refs_.i.i.i113.i = getelementptr inbounds nuw i8, ptr %call.i112115.i, i64 8
   store i64 1, ptr %refs_.i.i.i113.i, align 8, !noalias !78
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core19XdsEndpointResource10DropConfigE, i64 16), ptr %call.i112115.i, align 8, !noalias !78
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core19XdsEndpointResource10DropConfigE, i64 16), ptr %call.i112115.i, align 8, !noalias !78
   %drop_category_list_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i112115.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %drop_category_list_.i.i.i, i8 0, i64 25, i1 false), !noalias !78
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %seeder.i.i.i.i.i), !noalias !78
@@ -4412,7 +4412,7 @@ call.i.noexc:                                     ; preds = %cond.true
           to label %.noexc unwind label %lpad.body.thread5
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.59, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.59, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.59, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.59, i64 2))
           to label %cleanup.action unwind label %lpad.body.thread
 
 lpad.body.thread:                                 ; preds = %.noexc
@@ -5258,7 +5258,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core19XdsEndpointResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core19XdsEndpointResourceE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core19XdsEndpointResourceE, i64 16), ptr %this, align 8
   %drop_config = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %drop_config, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -5324,7 +5324,7 @@ _ZNSt6vectorIN9grpc_core19XdsEndpointResource8PriorityESaIS2_EED2Ev.exit: ; pred
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core19XdsEndpointResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core19XdsEndpointResourceE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core19XdsEndpointResourceE, i64 16), ptr %this, align 8
   %drop_config.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %drop_config.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -5489,7 +5489,7 @@ invoke.cont:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6, ptr noundef nonnull align 8 dereferenceable(32) %args3) #20
   %refs_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 1, ptr %refs_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15XdsLocalityNameE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core15XdsLocalityNameE, i64 16), ptr %call, align 8
   %region_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %region_.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #20
   %zone_.i = getelementptr inbounds nuw i8, ptr %call, i64 48
@@ -5635,7 +5635,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core15XdsLocalityNameD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15XdsLocalityNameE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core15XdsLocalityNameE, i64 16), ptr %this, align 8
   %human_readable_string_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %human_readable_string_) #20
   %sub_zone_ = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -5650,7 +5650,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core15XdsLocalityNameD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15XdsLocalityNameE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core15XdsLocalityNameE, i64 16), ptr %this, align 8
   %human_readable_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %human_readable_string_.i) #20
   %sub_zone_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -7004,7 +7004,7 @@ _ZNSt12_Vector_baseIN9grpc_core19XdsEndpointResource10DropConfig12DropCategoryES
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core19XdsEndpointResource10DropConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core19XdsEndpointResource10DropConfigE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core19XdsEndpointResource10DropConfigE, i64 16), ptr %this, align 8
   %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_) #20
   %drop_category_list_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -7041,7 +7041,7 @@ _ZNSt6vectorIN9grpc_core19XdsEndpointResource10DropConfig12DropCategoryESaIS3_EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core19XdsEndpointResource10DropConfigD0Ev(ptr noundef nonnull align 8 dereferenceable(344) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core19XdsEndpointResource10DropConfigE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core19XdsEndpointResource10DropConfigE, i64 16), ptr %this, align 8
   %mu_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i) #20
   %drop_category_list_.i = getelementptr inbounds nuw i8, ptr %this, i64 16

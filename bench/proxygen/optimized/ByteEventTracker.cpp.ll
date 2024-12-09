@@ -115,7 +115,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen16ByteEventTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen16ByteEventTrackerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen16ByteEventTrackerE, i64 16), ptr %this, align 8
   %m_header.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_header.i.i, align 8
   %tobool.not.i2.i = icmp eq ptr %0, null
@@ -713,7 +713,7 @@ common.resume:                                    ; preds = %lpad3, %lpad.body, 
 
 _ZNSt8functionIFvRN8proxygen9ByteEventEEEC2ERKS4_.exit: ; preds = %entry, %invoke.cont.i
   %7 = phi ptr [ null, %entry ], [ %2, %invoke.cont.i ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ByteEventE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen9ByteEventE, i64 16), ptr %this, align 8
   %listHook.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listHook.i, i8 0, i64 16, i1 false)
   %eventType_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -771,7 +771,7 @@ terminate.lpad.i.i9:                              ; preds = %if.then.i.i7
   unreachable
 
 _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit: ; preds = %_ZNSt8functionIFvRN8proxygen9ByteEventEEEC2ERKS4_.exit, %invoke.cont, %if.then.i.i7
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen20TransactionByteEventE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen20TransactionByteEventE, i64 16), ptr %this, align 8
   %txn_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %txn, ptr %txn_, align 8
   invoke void @_ZN8proxygen15HTTPTransaction26incrementPendingByteEventsEv(ptr noundef nonnull align 8 dereferenceable(912) %txn)
@@ -1009,7 +1009,7 @@ invoke.cont33:                                    ; preds = %invoke.cont17
   %bf.load25 = load i64, ptr %byteOffset_24, align 8
   %bf.cast = and i64 %bf.load25, 7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ByteEventE, i64 16), ptr %ref.tmp21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen9ByteEventE, i64 16), ptr %ref.tmp21, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listHook.i, i8 0, i64 16, i1 false)
   %bf.lshr2696 = add i64 %bf.load25, %add2795
   %bf.value9.i = and i64 %bf.lshr2696, -32
@@ -1020,7 +1020,7 @@ invoke.cont33:                                    ; preds = %invoke.cont17
           to label %cleanup.action unwind label %cleanup.action47
 
 cleanup.action:                                   ; preds = %invoke.cont33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ByteEventE, i64 16), ptr %ref.tmp21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen9ByteEventE, i64 16), ptr %ref.tmp21, align 8
   %6 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i45 = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i45, label %_ZN8proxygen9ByteEventD2Ev.exit, label %if.then.i.i.i46
@@ -1297,7 +1297,7 @@ if.end111:                                        ; preds = %if.then87, %while.e
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen9ByteEventD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ByteEventE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen9ByteEventE, i64 16), ptr %this, align 8
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -1367,7 +1367,7 @@ common.resume:                                    ; preds = %if.then.i.i12, %lpa
 
 _ZNSt8functionIFvRN8proxygen9ByteEventEEEC2ERKS4_.exit: ; preds = %entry, %invoke.cont.i
   %7 = phi ptr [ null, %entry ], [ %2, %invoke.cont.i ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ByteEventE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen9ByteEventE, i64 16), ptr %this, align 8
   %listHook.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listHook.i, i8 0, i64 16, i1 false)
   %eventType_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1423,7 +1423,7 @@ terminate.lpad.i.i8:                              ; preds = %if.then.i.i6
   unreachable
 
 _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit: ; preds = %_ZNSt8functionIFvRN8proxygen9ByteEventEEEC2ERKS4_.exit, %invoke.cont, %if.then.i.i6
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13PingByteEventE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen13PingByteEventE, i64 16), ptr %this, align 8
   %pingRequestReceivedTime_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i64 %pingRequestReceivedTime.coerce, ptr %pingRequestReceivedTime_, align 8
   ret void
@@ -1761,14 +1761,14 @@ while.end:                                        ; preds = %entry, %_ZN6google1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen20TransactionByteEventD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen20TransactionByteEventE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen20TransactionByteEventE, i64 16), ptr %this, align 8
   %txn_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %txn_, align 8
   invoke void @_ZN8proxygen15HTTPTransaction26decrementPendingByteEventsEv(ptr noundef nonnull align 8 dereferenceable(912) %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ByteEventE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen9ByteEventE, i64 16), ptr %this, align 8
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
@@ -1800,14 +1800,14 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen20TransactionByteEventD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen20TransactionByteEventE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen20TransactionByteEventE, i64 16), ptr %this, align 8
   %txn_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %txn_.i, align 8
   invoke void @_ZN8proxygen15HTTPTransaction26decrementPendingByteEventsEv(ptr noundef nonnull align 8 dereferenceable(912) %0)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ByteEventE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen9ByteEventE, i64 16), ptr %this, align 8
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -1854,7 +1854,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen9ByteEventD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ByteEventE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen9ByteEventE, i64 16), ptr %this, align 8
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null

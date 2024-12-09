@@ -216,27 +216,27 @@ define hidden noundef i32 @zend_jit_leave_nested_func_helper(i32 noundef %0, ptr
   br i1 %.not73, label %103, label %94
 
 94:                                               ; preds = %90
-  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 472), align 8
+  %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 472), align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %99 = icmp eq ptr %1, %98
   tail call void @llvm.assume(i1 %99)
   %100 = load ptr, ptr %97, align 8
-  store ptr %100, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 456), align 8
+  store ptr %100, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 456), align 8
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %102 = load ptr, ptr %101, align 8
-  store ptr %102, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 464), align 8
-  store ptr %97, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 472), align 8
+  store ptr %102, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 464), align 8
+  store ptr %97, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 472), align 8
   tail call void @_efree(ptr noundef %95) #6
   br label %104
 
 103:                                              ; preds = %90
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 456), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 456), align 8
   br label %104
 
 104:                                              ; preds = %103, %94
-  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not74 = icmp eq ptr %105, null
   %106 = load ptr, ptr %92, align 8
   br i1 %.not74, label %115, label %107
@@ -537,13 +537,13 @@ define hidden noundef zeroext i1 @zend_jit_deprecated_helper(ptr noundef %0) loc
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @zend_deprecated_function(ptr noundef %3) #6
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %65, label %5
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 880), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 880), align 8
   %.not45 = icmp eq ptr %7, null
   br i1 %.not45, label %17, label %8
 
@@ -641,23 +641,23 @@ define hidden noundef zeroext i1 @zend_jit_deprecated_helper(ptr noundef %0) loc
   br i1 %.not52, label %64, label %55
 
 55:                                               ; preds = %52
-  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 472), align 8
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 472), align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %60 = icmp eq ptr %0, %59
   tail call void @llvm.assume(i1 %60)
   %61 = load ptr, ptr %58, align 8
-  store ptr %61, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 456), align 8
+  store ptr %61, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 456), align 8
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %63 = load ptr, ptr %62, align 8
-  store ptr %63, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 464), align 8
-  store ptr %58, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 472), align 8
+  store ptr %63, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 464), align 8
+  store ptr %58, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 472), align 8
   tail call void @_efree(ptr noundef %56) #6
   br label %65
 
 64:                                               ; preds = %52
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 456), align 8
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 456), align 8
   br label %65
 
 65:                                               ; preds = %1, %55, %64
@@ -790,7 +790,7 @@ define hidden i32 @zend_jit_func_counter_helper(ptr noundef %0) local_unnamed_ad
   %7 = getelementptr inbounds [6 x ptr], ptr %4, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 80), align 8
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 80), align 8
   %11 = add nsw i64 %10, 32530
   %12 = sdiv i64 %11, %10
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 152
@@ -840,7 +840,7 @@ define hidden i32 @zend_jit_loop_counter_helper(ptr noundef %0) local_unnamed_ad
   %7 = getelementptr inbounds [6 x ptr], ptr %4, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 72), align 8
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 72), align 8
   %11 = add nsw i64 %10, 32530
   %12 = sdiv i64 %11, %10
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 152
@@ -880,9 +880,9 @@ define hidden i32 @zend_jit_loop_counter_helper(ptr noundef %0) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @zend_jit_get_constant(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 448), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 448), align 8
   %6 = load ptr, ptr %0, align 8
   %7 = tail call ptr @zend_hash_find_known_hash(ptr noundef %5, ptr noundef %6) #6
   %.not = icmp eq ptr %7, null
@@ -895,7 +895,7 @@ define hidden ptr @zend_jit_get_constant(ptr nocapture noundef readonly %0, i32 
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 448), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 448), align 8
   %13 = load ptr, ptr %11, align 8
   %14 = tail call ptr @zend_hash_find_known_hash(ptr noundef %12, ptr noundef %13) #6
   %.not32 = icmp eq ptr %14, null
@@ -921,7 +921,7 @@ define hidden ptr @zend_jit_get_constant(ptr nocapture noundef readonly %0, i32 
   %25 = getelementptr inbounds i8, ptr %3, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 0, ptr %26, align 8
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 448), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 448), align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 28
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
@@ -949,7 +949,7 @@ define hidden ptr @zend_jit_get_constant(ptr nocapture noundef readonly %0, i32 
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str.3, ptr noundef nonnull %47) #6
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not35 = icmp eq ptr %48, null
   %.028. = select i1 %.not35, ptr %.028, ptr null
   br label %56
@@ -971,9 +971,9 @@ define hidden ptr @zend_jit_get_constant(ptr nocapture noundef readonly %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @zend_jit_check_constant(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 448), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 448), align 8
   %5 = load ptr, ptr %0, align 8
   %6 = tail call ptr @zend_hash_find_known_hash(ptr noundef %4, ptr noundef %5) #6
   %.not = icmp eq ptr %6, null
@@ -985,7 +985,7 @@ define hidden ptr @zend_jit_check_constant(ptr nocapture noundef readonly %0) lo
   br i1 %.not30, label %.thread, label %16
 
 .thread:                                          ; preds = %1, %7
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 448), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 448), align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %11 = load i32, ptr %10, align 4
   %12 = zext i32 %11 to i64
@@ -1009,7 +1009,7 @@ define hidden ptr @zend_jit_check_constant(ptr nocapture noundef readonly %0) lo
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @zend_jit_func_trace_helper(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 80), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 80), align 8
   %3 = add nsw i64 %2, 32530
   %4 = sdiv i64 %3, %2
   %5 = trunc i64 %4 to i16
@@ -1053,7 +1053,7 @@ define hidden i32 @zend_jit_func_trace_helper(ptr noundef %0) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @zend_jit_ret_trace_helper(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 88), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 88), align 8
   %3 = add nsw i64 %2, 32530
   %4 = sdiv i64 %3, %2
   %5 = trunc i64 %4 to i16
@@ -1097,7 +1097,7 @@ define hidden i32 @zend_jit_ret_trace_helper(ptr noundef %0) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @zend_jit_loop_trace_helper(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 72), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 72), align 8
   %3 = add nsw i64 %2, 32530
   %4 = sdiv i64 %3, %2
   %5 = trunc i64 %4 to i16
@@ -1559,7 +1559,7 @@ define hidden range(i32 0, 128) i32 @zend_jit_trace_execute(ptr noundef %0, ptr 
   store ptr %.0602, ptr %182, align 8
   %183 = add nsw i32 %.1648, 1
   %184 = sext i32 %183 to i64
-  %185 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 152), align 8
+  %185 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 152), align 8
   %186 = add nsw i64 %185, -2
   %.not724 = icmp sgt i64 %186, %184
   br i1 %.not724, label %187, label %zend_jit_trace_bad_stop_event.exit.thread
@@ -1575,7 +1575,7 @@ define hidden range(i32 0, 128) i32 @zend_jit_trace_execute(ptr noundef %0, ptr 
   store ptr %.0635, ptr %190, align 8
   %191 = add nsw i32 %.1648, 2
   %192 = sext i32 %191 to i64
-  %193 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 152), align 8
+  %193 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 152), align 8
   %194 = add nsw i64 %193, -2
   %.not726 = icmp sgt i64 %194, %192
   br i1 %.not726, label %195, label %zend_jit_trace_bad_stop_event.exit.thread
@@ -1593,7 +1593,7 @@ define hidden range(i32 0, 128) i32 @zend_jit_trace_execute(ptr noundef %0, ptr 
   store ptr %.0633, ptr %199, align 8
   %200 = add nsw i32 %.3650, 1
   %201 = sext i32 %200 to i64
-  %202 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 152), align 8
+  %202 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 152), align 8
   %203 = add nsw i64 %202, -2
   %.not728 = icmp sgt i64 %203, %201
   br i1 %.not728, label %204, label %zend_jit_trace_bad_stop_event.exit.thread
@@ -1913,7 +1913,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   store ptr %353, ptr %354, align 8
   %355 = add nsw i32 %.5, 1
   %356 = sext i32 %355 to i64
-  %357 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 152), align 8
+  %357 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 152), align 8
   %358 = add nsw i64 %357, -2
   %.not741 = icmp sgt i64 %358, %356
   br i1 %.not741, label %359, label %zend_jit_trace_bad_stop_event.exit.thread
@@ -1932,7 +1932,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   br i1 %365, label %.critedge, label %366
 
 366:                                              ; preds = %364
-  %367 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  %367 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %368 = icmp eq ptr %.0605, %367
   %spec.select797 = select i1 %368, i32 0, i32 %363
   %369 = load ptr, ptr %367, align 8
@@ -2003,7 +2003,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   store ptr %.3656, ptr %406, align 8
   %407 = add nsw i32 %.6, 1
   %408 = sext i32 %407 to i64
-  %409 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 152), align 8
+  %409 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 152), align 8
   %410 = add nsw i64 %409, -2
   %.not763 = icmp sgt i64 %410, %408
   br i1 %.not763, label %411, label %zend_jit_trace_bad_stop_event.exit.thread
@@ -2038,13 +2038,13 @@ zend_jit_trace_recursive_call_count.exit:         ; preds = %.lr.ph.i, %411
 421:                                              ; preds = %zend_jit_trace_recursive_call_count.exit
   %422 = add nsw i32 %.0.lcssa.i, 1
   %423 = sext i32 %422 to i64
-  %424 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 128), align 8
+  %424 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 128), align 8
   %.not765 = icmp sgt i64 %424, %423
   br i1 %.not765, label %428, label %.critedge
 
 425:                                              ; preds = %zend_jit_trace_recursive_call_count.exit
   %426 = sext i32 %.0.lcssa.i to i64
-  %427 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 128), align 8
+  %427 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 128), align 8
   %.not764 = icmp sgt i64 %427, %426
   br i1 %.not764, label %428, label %zend_jit_trace_bad_stop_event.exit.thread
 
@@ -2064,7 +2064,7 @@ zend_jit_trace_recursive_call_count.exit:         ; preds = %.lr.ph.i, %411
   br i1 %436, label %437, label %538
 
 437:                                              ; preds = %433
-  %438 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 136), align 8
+  %438 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 136), align 8
   %439 = icmp sgt i64 %438, 0
   %or.cond = select i1 %66, i1 %439, i1 false
   br i1 %or.cond, label %440, label %zend_jit_trace_has_recursive_ret.exit.thread
@@ -2129,7 +2129,7 @@ zend_jit_trace_has_recursive_ret.exit:            ; preds = %457
   store ptr %.3656, ptr %469, align 8
   %470 = add nsw i32 %.6, 1
   %471 = sext i32 %470 to i64
-  %472 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 152), align 8
+  %472 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 152), align 8
   %473 = add nsw i64 %472, -2
   %.not757 = icmp sgt i64 %473, %471
   br i1 %.not757, label %474, label %zend_jit_trace_bad_stop_event.exit.thread
@@ -2163,13 +2163,13 @@ zend_jit_trace_recursive_ret_count.exit:          ; preds = %.lr.ph.i822, %474
 483:                                              ; preds = %zend_jit_trace_recursive_ret_count.exit
   %484 = add nsw i32 %.0.lcssa.i819, 1
   %485 = sext i32 %484 to i64
-  %486 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 136), align 8
+  %486 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 136), align 8
   %.not759 = icmp sgt i64 %486, %485
   br i1 %.not759, label %490, label %.critedge
 
 487:                                              ; preds = %zend_jit_trace_recursive_ret_count.exit
   %488 = sext i32 %.0.lcssa.i819 to i64
-  %489 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 136), align 8
+  %489 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 136), align 8
   %.not758 = icmp sgt i64 %489, %488
   br i1 %.not758, label %490, label %zend_jit_trace_bad_stop_event.exit.thread
 
@@ -2195,7 +2195,7 @@ zend_jit_trace_has_recursive_ret.exit.thread:     ; preds = %437, %.lr.ph.i817, 
   br i1 %.not752, label %514, label %499
 
 499:                                              ; preds = %zend_jit_trace_has_recursive_ret.exit.thread
-  %500 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 104), align 8
+  %500 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 104), align 8
   %501 = trunc i64 %500 to i32
   %502 = add i32 %501, -1
   br label %504
@@ -2207,20 +2207,20 @@ zend_jit_trace_has_recursive_ret.exit.thread:     ; preds = %437, %.lr.ph.i817, 
 
 504:                                              ; preds = %503, %499
   %indvars.iv.i826 = phi i64 [ 0, %499 ], [ %indvars.iv.next.i827, %503 ]
-  %505 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 192), i64 %indvars.iv.i826
+  %505 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 192), i64 %indvars.iv.i826
   %506 = load ptr, ptr %505, align 8
   %507 = icmp eq ptr %506, %8
   br i1 %507, label %508, label %503
 
 508:                                              ; preds = %504
-  %509 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 704), i64 %indvars.iv.i826
+  %509 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 704), i64 %indvars.iv.i826
   %510 = load i8, ptr %509, align 1
   %511 = zext i8 %510 to i32
   %.not.i829 = icmp sgt i32 %502, %511
   br i1 %.not.i829, label %zend_jit_trace_bad_stop_event.exit.thread, label %zend_jit_trace_bad_stop_event.exit
 
 zend_jit_trace_bad_stop_event.exit:               ; preds = %508
-  %512 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 768), i64 %indvars.iv.i826
+  %512 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 768), i64 %indvars.iv.i826
   %513 = load i8, ptr %512, align 1
   %.not753 = icmp eq i8 %513, 16
   br i1 %.not753, label %514, label %zend_jit_trace_bad_stop_event.exit.thread
@@ -2243,7 +2243,7 @@ zend_jit_trace_bad_stop_event.exit:               ; preds = %508
   br i1 %522, label %523, label %.critedge
 
 523:                                              ; preds = %519
-  %524 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 104), align 8
+  %524 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 104), align 8
   %525 = trunc i64 %524 to i32
   %526 = add i32 %525, -1
   br label %528
@@ -2255,20 +2255,20 @@ zend_jit_trace_bad_stop_event.exit:               ; preds = %508
 
 528:                                              ; preds = %527, %523
   %indvars.iv.i830 = phi i64 [ 0, %523 ], [ %indvars.iv.next.i831, %527 ]
-  %529 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 192), i64 %indvars.iv.i830
+  %529 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 192), i64 %indvars.iv.i830
   %530 = load ptr, ptr %529, align 8
   %531 = icmp eq ptr %530, %8
   br i1 %531, label %532, label %527
 
 532:                                              ; preds = %528
-  %533 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 704), i64 %indvars.iv.i830
+  %533 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 704), i64 %indvars.iv.i830
   %534 = load i8, ptr %533, align 1
   %535 = zext i8 %534 to i32
   %.not.i834 = icmp sgt i32 %526, %535
   br i1 %.not.i834, label %zend_jit_trace_bad_stop_event.exit.thread, label %zend_jit_trace_bad_stop_event.exit835
 
 zend_jit_trace_bad_stop_event.exit835:            ; preds = %532
-  %536 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 768), i64 %indvars.iv.i830
+  %536 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 768), i64 %indvars.iv.i830
   %537 = load i8, ptr %536, align 1
   %.not756 = icmp eq i8 %537, 17
   br i1 %.not756, label %.critedge, label %zend_jit_trace_bad_stop_event.exit.thread
@@ -2284,7 +2284,7 @@ zend_jit_trace_bad_stop_event.exit835:            ; preds = %532
   store ptr %.3656, ptr %542, align 8
   %543 = add nsw i32 %.6, 1
   %544 = sext i32 %543 to i64
-  %545 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 152), align 8
+  %545 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 152), align 8
   %546 = add nsw i64 %545, -2
   %.not748 = icmp sgt i64 %546, %544
   br i1 %.not748, label %547, label %zend_jit_trace_bad_stop_event.exit.thread
@@ -2373,7 +2373,7 @@ zend_jit_trace_bad_stop_event.exit835:            ; preds = %532
 584:                                              ; preds = %581, %567
   %.0575 = phi ptr [ %583, %581 ], [ %557, %567 ]
   %585 = load ptr, ptr %.1606, align 8
-  %586 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 144), align 8
+  %586 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 144), align 8
   %587 = icmp eq i64 %586, 0
   br i1 %587, label %588, label %.critedge805
 
@@ -2450,7 +2450,7 @@ zend_jit_trace_bad_stop_event.exit835:            ; preds = %532
   store ptr %.1871, ptr %614, align 8
   %615 = add nsw i32 %.7, 1
   %616 = sext i32 %615 to i64
-  %617 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 152), align 8
+  %617 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 152), align 8
   %618 = add nsw i64 %617, -2
   %.not777 = icmp sgt i64 %618, %616
   br i1 %.not777, label %._crit_edge1173, label %zend_jit_trace_bad_stop_event.exit.thread
@@ -2495,7 +2495,7 @@ zend_jit_trace_bad_stop_event.exit835:            ; preds = %532
   br i1 %or.cond808, label %637, label %.loopexit
 
 637:                                              ; preds = %633
-  %638 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 104), align 8
+  %638 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 104), align 8
   %639 = trunc i64 %638 to i32
   %640 = add i32 %639, -1
   br label %642
@@ -2507,20 +2507,20 @@ zend_jit_trace_bad_stop_event.exit835:            ; preds = %532
 
 642:                                              ; preds = %641, %637
   %indvars.iv.i836 = phi i64 [ 0, %637 ], [ %indvars.iv.next.i837, %641 ]
-  %643 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 192), i64 %indvars.iv.i836
+  %643 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 192), i64 %indvars.iv.i836
   %644 = load ptr, ptr %643, align 8
   %645 = icmp eq ptr %644, %8
   br i1 %645, label %646, label %641
 
 646:                                              ; preds = %642
-  %647 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 704), i64 %indvars.iv.i836
+  %647 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 704), i64 %indvars.iv.i836
   %648 = load i8, ptr %647, align 1
   %649 = zext i8 %648 to i32
   %.not.i840 = icmp sgt i32 %640, %649
   br i1 %.not.i840, label %zend_jit_trace_bad_stop_event.exit.thread, label %zend_jit_trace_bad_stop_event.exit841
 
 zend_jit_trace_bad_stop_event.exit841:            ; preds = %646
-  %650 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 768), i64 %indvars.iv.i836
+  %650 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 768), i64 %indvars.iv.i836
   %651 = load i8, ptr %650, align 1
   %.not791 = icmp eq i8 %651, 20
   br i1 %.not791, label %.loopexit, label %zend_jit_trace_bad_stop_event.exit.thread
@@ -2560,7 +2560,7 @@ zend_jit_trace_bad_stop_event.exit841:            ; preds = %646
   br i1 %or.cond814, label %690, label %665
 
 665:                                              ; preds = %664
-  %666 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 104), align 8
+  %666 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 104), align 8
   %667 = sdiv i64 %666, 2
   %668 = trunc i64 %667 to i32
   br label %670
@@ -2572,20 +2572,20 @@ zend_jit_trace_bad_stop_event.exit841:            ; preds = %646
 
 670:                                              ; preds = %669, %665
   %indvars.iv.i842 = phi i64 [ 0, %665 ], [ %indvars.iv.next.i843, %669 ]
-  %671 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 192), i64 %indvars.iv.i842
+  %671 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 192), i64 %indvars.iv.i842
   %672 = load ptr, ptr %671, align 8
   %673 = icmp eq ptr %672, %620
   br i1 %673, label %674, label %669
 
 674:                                              ; preds = %670
-  %675 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 704), i64 %indvars.iv.i842
+  %675 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 704), i64 %indvars.iv.i842
   %676 = load i8, ptr %675, align 1
   %677 = zext i8 %676 to i32
   %.not.i846 = icmp sgt i32 %668, %677
   br i1 %.not.i846, label %zend_jit_trace_bad_stop_event.exit847.thread, label %zend_jit_trace_bad_stop_event.exit847
 
 zend_jit_trace_bad_stop_event.exit847:            ; preds = %674
-  %678 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 768), i64 %indvars.iv.i842
+  %678 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 768), i64 %indvars.iv.i842
   %679 = load i8, ptr %678, align 1
   switch i8 %679, label %zend_jit_trace_bad_stop_event.exit847.thread [
     i8 19, label %690
@@ -2602,20 +2602,20 @@ zend_jit_trace_bad_stop_event.exit847.thread:     ; preds = %669, %674, %zend_ji
 
 .preheader:                                       ; preds = %zend_jit_trace_bad_stop_event.exit847.thread, %680
   %indvars.iv.i848 = phi i64 [ %indvars.iv.next.i849, %680 ], [ 0, %zend_jit_trace_bad_stop_event.exit847.thread ]
-  %681 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 192), i64 %indvars.iv.i848
+  %681 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 192), i64 %indvars.iv.i848
   %682 = load ptr, ptr %681, align 8
   %683 = icmp eq ptr %682, %8
   br i1 %683, label %684, label %680
 
 684:                                              ; preds = %.preheader
-  %685 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 704), i64 %indvars.iv.i848
+  %685 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 704), i64 %indvars.iv.i848
   %686 = load i8, ptr %685, align 1
   %687 = zext i8 %686 to i32
   %.not.i852 = icmp sgt i32 %668, %687
   br i1 %.not.i852, label %zend_jit_trace_bad_stop_event.exit.thread, label %zend_jit_trace_bad_stop_event.exit853
 
 zend_jit_trace_bad_stop_event.exit853:            ; preds = %684
-  %688 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 768), i64 %indvars.iv.i848
+  %688 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 768), i64 %indvars.iv.i848
   %689 = load i8, ptr %688, align 1
   %.not786 = icmp eq i8 %689, 19
   br i1 %.not786, label %690, label %zend_jit_trace_bad_stop_event.exit.thread
@@ -2645,7 +2645,7 @@ zend_jit_trace_bad_stop_event.exit853:            ; preds = %684
 
 701:                                              ; preds = %690
   %702 = sext i32 %.0615.ph1456 to i64
-  %703 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 120), align 8
+  %703 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 120), align 8
   %704 = icmp sgt i64 %703, %702
   br i1 %704, label %705, label %zend_jit_trace_bad_stop_event.exit.thread
 
@@ -2669,7 +2669,7 @@ zend_jit_trace_bad_stop_event.exit853:            ; preds = %684
   store ptr %620, ptr %712, align 8
   %713 = add nsw i32 %.8, 1
   %714 = sext i32 %713 to i64
-  %715 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 152), align 8
+  %715 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 152), align 8
   %716 = add nsw i64 %715, -2
   %.not783 = icmp sgt i64 %716, %714
   %. = select i1 %.not783, i32 9, i32 11
@@ -2697,7 +2697,7 @@ zend_jit_trace_bad_stop_event.exit.thread:        ; preds = %176, %188, %196, %3
   br i1 %or.cond9, label %722, label %.critedge
 
 722:                                              ; preds = %720
-  %723 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 104), align 8
+  %723 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 104), align 8
   %724 = sdiv i64 %723, 2
   %725 = trunc i64 %724 to i32
   br label %727
@@ -2709,20 +2709,20 @@ zend_jit_trace_bad_stop_event.exit.thread:        ; preds = %176, %188, %196, %3
 
 727:                                              ; preds = %726, %722
   %indvars.iv.i854 = phi i64 [ 0, %722 ], [ %indvars.iv.next.i855, %726 ]
-  %728 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 192), i64 %indvars.iv.i854
+  %728 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 192), i64 %indvars.iv.i854
   %729 = load ptr, ptr %728, align 8
   %730 = icmp eq ptr %729, %8
   br i1 %730, label %731, label %726
 
 731:                                              ; preds = %727
-  %732 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 704), i64 %indvars.iv.i854
+  %732 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 704), i64 %indvars.iv.i854
   %733 = load i8, ptr %732, align 1
   %734 = zext i8 %733 to i32
   %.not.i858 = icmp sgt i32 %725, %734
   br i1 %.not.i858, label %.critedge, label %zend_jit_trace_bad_stop_event.exit859
 
 zend_jit_trace_bad_stop_event.exit859:            ; preds = %731
-  %735 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 768), i64 %indvars.iv.i854
+  %735 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 768), i64 %indvars.iv.i854
   %736 = load i8, ptr %735, align 1
   %737 = icmp eq i8 %736, 14
   br i1 %737, label %.loopexit, label %.critedge

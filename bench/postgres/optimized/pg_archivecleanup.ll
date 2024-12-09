@@ -566,7 +566,7 @@ IsBackupHistoryFileName.exit:                     ; preds = %.thread9
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !7
 
 55:                                               ; preds = %IsBackupHistoryFileName.exit, %IsPartialXLogFileName.exit, %IsXLogFileName.exit
-  %56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) getelementptr inbounds (i8, ptr @exclusiveCleanupFileName, i64 8)) #13
+  %56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) getelementptr inbounds nuw (i8, ptr @exclusiveCleanupFileName, i64 8)) #13
   %57 = icmp sgt i32 %56, -1
   br i1 %57, label %.backedge, label %58
 

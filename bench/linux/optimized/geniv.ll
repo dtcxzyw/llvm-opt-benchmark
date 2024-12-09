@@ -33,7 +33,7 @@ define dso_local ptr @aead_geniv_alloc(ptr noundef %0, ptr noundef %1) #0 align 
   br label %60
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %11 = call noalias noundef align 8 dereferenceable_or_null(560) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 560) #6
   %12 = icmp eq ptr %11, null
   br i1 %12, label %60, label %13

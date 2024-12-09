@@ -5417,7 +5417,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_122ConstantArrayExpansionESt14default_deleteIS1_
   %22 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24, !noalias !31
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 0, ptr %23, align 8, !noalias !31
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_122ConstantArrayExpansionE, i64 16), ptr %22, align 8, !noalias !31
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_122ConstantArrayExpansionE, i64 16), ptr %22, align 8, !noalias !31
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i64 %.sroa.0.0.copyload.i, ptr %24, align 8, !noalias !31
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
@@ -5663,7 +5663,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit63: ; pre
   %143 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24, !noalias !35
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store i32 1, ptr %144, align 8, !noalias !35
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_115RecordExpansionE, i64 16), ptr %143, align 8, !noalias !35
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_115RecordExpansionE, i64 16), ptr %143, align 8, !noalias !35
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %146 = getelementptr inbounds nuw i8, ptr %143, i64 32
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %145, ptr noundef nonnull %146, i64 noundef 1) #21, !noalias !35
@@ -5728,7 +5728,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_116ComplexExpansionESt14default_deleteIS1_EED2Ev
   %170 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24, !noalias !38
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   store i32 2, ptr %171, align 8, !noalias !38
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_116ComplexExpansionE, i64 16), ptr %170, align 8, !noalias !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_116ComplexExpansionE, i64 16), ptr %170, align 8, !noalias !38
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 16
   store i64 %.sroa.0.0.copyload.i68, ptr %172, align 8, !noalias !38
   store ptr %170, ptr %0, align 8
@@ -5738,7 +5738,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_111NoExpansionESt14default_deleteIS1_EED2Ev.exit
   %173 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24, !noalias !41
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
   store i32 3, ptr %174, align 8, !noalias !41
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_111NoExpansionE, i64 16), ptr %173, align 8, !noalias !41
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_111NoExpansionE, i64 16), ptr %173, align 8, !noalias !41
   store ptr %173, ptr %0, align 8
   br label %_ZN4llvm11SmallVectorIPKN5clang16CXXBaseSpecifierELj1EED2Ev.exit
 
@@ -8419,7 +8419,7 @@ _ZNK4llvm12DenormalModeneES0_.exit.thread:        ; preds = %_ZNK4llvm12Denormal
   store i32 1, ptr %77, align 4, !noalias !104
   %78 = getelementptr inbounds nuw i8, ptr %14, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false), !noalias !104
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %14, align 8, !noalias !104
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %14, align 8, !noalias !104
   %79 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store ptr %17, ptr %79, align 8, !noalias !104
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef null, i64 noundef 0, i32 noundef 0) #21
@@ -8470,7 +8470,7 @@ _ZNK4llvm12DenormalModeneES0_.exit48.thread:      ; preds = %_ZNK4llvm12Denormal
   store i32 1, ptr %95, align 4, !noalias !107
   %96 = getelementptr inbounds nuw i8, ptr %13, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %96, i8 0, i64 24, i1 false), !noalias !107
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %13, align 8, !noalias !107
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %13, align 8, !noalias !107
   %97 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store ptr %18, ptr %97, align 8, !noalias !107
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef null, i64 noundef 0, i32 noundef 0) #21
@@ -9432,7 +9432,7 @@ _ZNK4llvm12DenormalModeneES0_.exit.thread:        ; preds = %3
   store i32 1, ptr %14, align 4, !noalias !133
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false), !noalias !133
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %5, align 8, !noalias !133
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %5, align 8, !noalias !133
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %8, ptr %16, align 8, !noalias !133
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef null, i64 noundef 0, i32 noundef 0) #21
@@ -9475,7 +9475,7 @@ _ZNK4llvm12DenormalModeneES0_.exit3.thread:       ; preds = %20
   store i32 1, ptr %29, align 4, !noalias !136
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false), !noalias !136
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %4, align 8, !noalias !136
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %4, align 8, !noalias !136
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %9, ptr %31, align 8, !noalias !136
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef null, i64 noundef 0, i32 noundef 0) #21
@@ -15103,7 +15103,7 @@ _ZN5clang7CodeGen15CodeGenFunction28makeNaturalAddressForPointerEPN4llvm5ValueEN
   %.sink.i.i = select i1 %762, ptr %.sroa.21146.0.copyload, ptr null
   %storemerge.i.i = select i1 %762, i64 %.sroa.31147.0.copyload, i64 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.6.i.7.i.7.i.7..sroa_idx, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_118CopyBackSwiftErrorE, i64 16), ptr %761, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_118CopyBackSwiftErrorE, i64 16), ptr %761, align 8
   %764 = getelementptr inbounds nuw i8, ptr %761, i64 8
   store i64 %.sink10.i.i, ptr %764, align 8
   %.sroa.48.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %761, i64 16
@@ -22853,7 +22853,7 @@ define internal fastcc void @_ZN5clang7CodeGen15CodeGenFunction19pushFullExprCle
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %9 = tail call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %8, i32 noundef 3, i64 noundef 64) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_118DestroyUnpassedArgE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_118DestroyUnpassedArgE, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -22880,7 +22880,7 @@ define internal fastcc void @_ZN5clang7CodeGen15CodeGenFunction19pushFullExprCle
   %22 = tail call noundef ptr @_ZN4llvm11PointerType3getEPNS_4TypeEj(ptr noundef %.sroa.2.0.copyload, i32 noundef %21) #21, !noalias !402
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %24 = tail call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %23, i32 noundef 3, i64 noundef 56) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_118DestroyUnpassedArgEJNS0_7AddressENS_8QualTypeEEEE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_118DestroyUnpassedArgEJNS0_7AddressENS_8QualTypeEEEE, i64 16), ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %2, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -26990,7 +26990,7 @@ _ZNK5clang7CodeGen15CodeGenFunction17isCleanupPadScopeEv.exit.thread: ; preds = 
 1664:                                             ; preds = %1661
   %1665 = getelementptr inbounds nuw i8, ptr %1, i64 2216
   %1666 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %1665, i32 noundef 11, i64 noundef 24) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction15CallLifetimeEndE, i64 16), ptr %1666, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction15CallLifetimeEndE, i64 16), ptr %1666, align 8
   %1667 = getelementptr inbounds nuw i8, ptr %1666, i64 8
   %1668 = and i64 %.sroa.02293.0.copyload, -8
   %1669 = inttoptr i64 %1668 to ptr
@@ -27003,7 +27003,7 @@ _ZNK5clang7CodeGen15CodeGenFunction17isCleanupPadScopeEv.exit.thread: ; preds = 
   %1672 = call i64 @_ZN5clang7CodeGen19DominatingLLVMValue4saveERNS0_15CodeGenFunctionEPN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull %.02381)
   %1673 = getelementptr inbounds nuw i8, ptr %1, i64 2216
   %1674 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %1673, i32 noundef 11, i64 noundef 40) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupINS0_15CodeGenFunction15CallLifetimeEndEJNS0_10RawAddressEPN4llvm5ValueEEEE, i64 16), ptr %1674, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupINS0_15CodeGenFunction15CallLifetimeEndEJNS0_10RawAddressEPN4llvm5ValueEEEE, i64 16), ptr %1674, align 8
   %1675 = getelementptr inbounds nuw i8, ptr %1674, i64 8
   store i64 %1672, ptr %1675, align 8
   %1676 = getelementptr inbounds nuw i8, ptr %1674, i64 16
@@ -29509,7 +29509,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   %11 = getelementptr inbounds %"class.clang::CodeGen::CodeGenFunction::CallLifetimeEnd", ptr %9, i64 %10
   %.sroa.06.0.copyload = load i64, ptr %1, align 8
   %12 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction15CallLifetimeEndE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction15CallLifetimeEndE, i64 16), ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = and i64 %.sroa.06.0.copyload, -8
   %15 = inttoptr i64 %14 to ptr
@@ -31596,7 +31596,7 @@ declare noundef ptr @_ZNK5clang13CXXRecordDecl14DefinitionData16getBasesSlowCase
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_115RecordExpansionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_115RecordExpansionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_115RecordExpansionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #21
   %4 = load ptr, ptr %2, align 8
@@ -31626,7 +31626,7 @@ _ZN4llvm11SmallVectorIPKN5clang16CXXBaseSpecifierELj1EED2Ev.exit: ; preds = %_ZN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_115RecordExpansionD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_115RecordExpansionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_115RecordExpansionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #21
   %4 = load ptr, ptr %2, align 8
@@ -33721,7 +33721,7 @@ define internal fastcc void @"_ZZL22addNoBuiltinAttributesRN4llvm11AttrBuilderER
   %3 = alloca %"class.llvm::SmallString", align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %4, i64 noundef 32) #21
-  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.103, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.103, i64 11))
+  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.103, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.103, i64 11))
   %5 = getelementptr inbounds i8, ptr %0, i64 %1
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %0, ptr noundef %5)
   %6 = load ptr, ptr %3, align 8
@@ -37626,7 +37626,7 @@ _ZN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_118DestroyUnpa
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !601
   %.sroa.0.0.copyload.i = load i64, ptr %32, align 8, !noalias !598
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_118DestroyUnpassedArgE, i64 16), ptr %6, align 8, !alias.scope !598
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_118DestroyUnpassedArgE, i64 16), ptr %6, align 8, !alias.scope !598
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.0.i.i.i, ptr %33, align 8, !alias.scope !598
   %.sroa.414.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -38004,7 +38004,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   %8 = getelementptr inbounds %"class.clang::CodeGen::CodeGenFunction::CallLifetimeEnd", ptr %6, i64 %7
   %.sroa.06.0.copyload = load i64, ptr %1, align 8
   %9 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction15CallLifetimeEndE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction15CallLifetimeEndE, i64 16), ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = and i64 %.sroa.06.0.copyload, -8
   %12 = inttoptr i64 %11 to ptr
@@ -38020,7 +38020,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
 .lr.ph.i.i.i.i.i.i:                               ; preds = %3, %.lr.ph.i.i.i.i.i.i
   %.09.i.i.i.i.i.i = phi ptr [ %20, %.lr.ph.i.i.i.i.i.i ], [ %6, %3 ]
   %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %19, %.lr.ph.i.i.i.i.i.i ], [ %14, %3 ]
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction15CallLifetimeEndE, i64 16), ptr %.09.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction15CallLifetimeEndE, i64 16), ptr %.09.i.i.i.i.i.i, align 8
   %17 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)

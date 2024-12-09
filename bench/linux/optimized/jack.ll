@@ -41,7 +41,7 @@ define dso_local noundef range(i32 -12, 1) i32 @snd_jack_add_new_kctl(ptr nounde
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %8
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %13 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3520, i64 noundef 48) #5
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %16
@@ -90,7 +90,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_jack_new(ptr noundef %0, ptr
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %15 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %14, i32 noundef 3520, i64 noundef 48) #5
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %18
@@ -111,7 +111,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_jack_new(ptr noundef %0, ptr
 
 22:                                               ; preds = %18, %6
   %23 = phi ptr [ %15, %18 ], [ null, %6 ]
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %25 = tail call noalias align 8 dereferenceable_or_null(224) ptr @kmalloc_trace(ptr noundef %24, i32 noundef 3520, i64 noundef 224) #5
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27

@@ -173,7 +173,7 @@ define hidden void @_ZN17opencv_tensorflow12OpDef_ArgDefC2EPN6google8protobuf5Ar
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow12OpDef_ArgDefE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow12OpDef_ArgDefE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -195,7 +195,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 2
@@ -231,7 +231,7 @@ _ZN6google8protobuf11MessageLiteD2Ev.exit:        ; preds = %1, %11, %13
 define hidden void @_ZN17opencv_tensorflow12OpDef_ArgDefC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 16), (64, 68)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow12OpDef_ArgDefE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow12OpDef_ArgDefE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -560,7 +560,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %32, %_ZN17opencv_tensorflow12OpDef_ArgDef10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %50 = phi i64 [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %30, %32 ], [ %30, %_ZN17opencv_tensorflow12OpDef_ArgDef10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %51 = and i64 %50, 2
   %.not.i.i.i = icmp eq i64 %51, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %52
@@ -2110,7 +2110,7 @@ define hidden void @_ZN17opencv_tensorflow13OpDef_AttrDefC2EPN6google8protobuf5A
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDef_AttrDefE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDef_AttrDefE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2128,7 +2128,7 @@ define hidden void @_ZN17opencv_tensorflow13OpDef_AttrDefC2EPN6google8protobuf5A
 define hidden void @_ZN17opencv_tensorflow13OpDef_AttrDefC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 16), (68, 72)) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDef_AttrDefE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDef_AttrDefE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2397,7 +2397,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %13, %10, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %31 = phi i64 [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %11, %13 ], [ %11, %10 ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %32 = and i64 %31, 2
   %.not.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %33
@@ -3884,7 +3884,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK17opencv_tensorflow13OpDef_AttrDef11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z40descriptor_table_op_5fdef_2eproto_getterv, ptr noundef nonnull @_ZL38descriptor_table_op_5fdef_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL36file_level_metadata_op_5fdef_2eproto, i64 16))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z40descriptor_table_op_5fdef_2eproto_getterv, ptr noundef nonnull @_ZL38descriptor_table_op_5fdef_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL36file_level_metadata_op_5fdef_2eproto, i64 16))
   ret { ptr, ptr } %2
 }
 
@@ -3902,7 +3902,7 @@ define hidden void @_ZN17opencv_tensorflow5OpDefC2EPN6google8protobuf5ArenaEb(pt
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow5OpDefE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow5OpDefE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3982,7 +3982,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf16RepeatedPtrFieldIN17opencv
 define hidden void @_ZN17opencv_tensorflow5OpDefC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow5OpDefE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow5OpDefE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -4414,7 +4414,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow12OpDef_ArgDefEED2Ev.e
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow12OpDef_ArgDefEED2Ev.exit7: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow12OpDef_ArgDefEED2Ev.exit, %73
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %77 = load i64, ptr %2, align 8
   %78 = and i64 %77, 2
   %.not.i.i.i = icmp eq i64 %78, 0
@@ -4749,7 +4749,7 @@ _ZN17opencv_tensorflow5OpDef22_internal_mutable_nameB5cxx11Ev.exit: ; preds = %6
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow12OpDef_ArgDefEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit.i.i.i: ; preds = %103, %100
   %.sink.i.i.i.i.i.i = phi ptr [ %101, %100 ], [ %104, %103 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow12OpDef_ArgDefE, i64 16), ptr %.sink.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow12OpDef_ArgDefE, i64 16), ptr %.sink.i.i.i.i.i.i, align 8
   %107 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i.i.i, i64 64
   store i32 0, ptr %107, align 4
   %108 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i.i.i, i64 16
@@ -4838,7 +4838,7 @@ _ZN17opencv_tensorflow5OpDef23_internal_add_input_argEv.exit: ; preds = %91, %_Z
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow12OpDef_ArgDefEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit.i.i.i47: ; preds = %146, %143
   %.sink.i.i.i.i.i.i48 = phi ptr [ %144, %143 ], [ %147, %146 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow12OpDef_ArgDefE, i64 16), ptr %.sink.i.i.i.i.i.i48, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow12OpDef_ArgDefE, i64 16), ptr %.sink.i.i.i.i.i.i48, align 8
   %150 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i.i.i48, i64 64
   store i32 0, ptr %150, align 4
   %151 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i.i.i48, i64 16
@@ -4923,7 +4923,7 @@ _ZN17opencv_tensorflow5OpDef24_internal_add_output_argEv.exit: ; preds = %134, %
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow13OpDef_AttrDefEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit.i.i.i: ; preds = %189, %186
   %.sink.i.i.i.i.i.i51 = phi ptr [ %187, %186 ], [ %190, %189 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDef_AttrDefE, i64 16), ptr %.sink.i.i.i.i.i.i51, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDef_AttrDefE, i64 16), ptr %.sink.i.i.i.i.i.i51, align 8
   %193 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i.i.i51, i64 68
   store i32 0, ptr %193, align 4
   %194 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i.i.i51, i64 16
@@ -5051,7 +5051,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %24
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN17opencv_tensorflow13OpDeprecationEEEPT_PNS0_5ArenaE.exit.i: ; preds = %253, %250
   %.sink.i.i.i = phi ptr [ %251, %250 ], [ %254, %253 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDeprecationE, i64 16), ptr %.sink.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDeprecationE, i64 16), ptr %.sink.i.i.i, align 8
   %257 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 28
   store i32 0, ptr %257, align 4
   %258 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 16
@@ -6282,7 +6282,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %83
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN17opencv_tensorflow13OpDeprecationEEEPT_PNS0_5ArenaE.exit.i: ; preds = %89, %86
   %.sink.i.i.i = phi ptr [ %87, %86 ], [ %90, %89 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDeprecationE, i64 16), ptr %.sink.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDeprecationE, i64 16), ptr %.sink.i.i.i, align 8
   %93 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 28
   store i32 0, ptr %93, align 4
   %94 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 16
@@ -6644,7 +6644,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK17opencv_tensorflow5OpDef11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z40descriptor_table_op_5fdef_2eproto_getterv, ptr noundef nonnull @_ZL38descriptor_table_op_5fdef_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL36file_level_metadata_op_5fdef_2eproto, i64 32))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z40descriptor_table_op_5fdef_2eproto_getterv, ptr noundef nonnull @_ZL38descriptor_table_op_5fdef_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL36file_level_metadata_op_5fdef_2eproto, i64 32))
   ret { ptr, ptr } %2
 }
 
@@ -6655,7 +6655,7 @@ define hidden void @_ZN17opencv_tensorflow13OpDeprecationC2EPN6google8protobuf5A
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDeprecationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDeprecationE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6669,7 +6669,7 @@ define hidden void @_ZN17opencv_tensorflow13OpDeprecationC2EPN6google8protobuf5A
 define hidden void @_ZN17opencv_tensorflow13OpDeprecationC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 16), (28, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDeprecationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDeprecationE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6828,7 +6828,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %15, %_ZN17opencv_tensorflow13OpDeprecation10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %33 = phi i64 [ %.pre2, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %14, %15 ], [ %14, %_ZN17opencv_tensorflow13OpDeprecation10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %34 = and i64 %33, 2
   %.not.i.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %35
@@ -7403,7 +7403,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK17opencv_tensorflow13OpDeprecation11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z40descriptor_table_op_5fdef_2eproto_getterv, ptr noundef nonnull @_ZL38descriptor_table_op_5fdef_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL36file_level_metadata_op_5fdef_2eproto, i64 48))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z40descriptor_table_op_5fdef_2eproto_getterv, ptr noundef nonnull @_ZL38descriptor_table_op_5fdef_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL36file_level_metadata_op_5fdef_2eproto, i64 48))
   ret { ptr, ptr } %2
 }
 
@@ -7414,7 +7414,7 @@ define hidden void @_ZN17opencv_tensorflow6OpListC2EPN6google8protobuf5ArenaEb(p
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow6OpListE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow6OpListE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7451,7 +7451,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf16RepeatedPtrFieldIN17opencv
 define hidden void @_ZN17opencv_tensorflow6OpListC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow6OpListE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow6OpListE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -7616,7 +7616,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow5OpDefEED2Ev.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit, %27
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %31 = load i64, ptr %2, align 8
   %32 = and i64 %31, 2
   %.not.i.i.i = icmp eq i64 %32, 0
@@ -7830,7 +7830,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
   %69 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #20
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i64 0, ptr %70, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow5OpDefE, i64 16), ptr %69, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow5OpDefE, i64 16), ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 124
   store i32 0, ptr %72, align 4
@@ -7844,7 +7844,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = ptrtoint ptr %66 to i64
   store i64 %77, ptr %76, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow5OpDefE, i64 16), ptr %75, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow5OpDefE, i64 16), ptr %75, align 8
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 16
   store ptr %66, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 24
@@ -8365,7 +8365,7 @@ define hidden void @_ZN17opencv_tensorflow6OpList12InternalSwapEPS0_(ptr nocaptu
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK17opencv_tensorflow6OpList11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z40descriptor_table_op_5fdef_2eproto_getterv, ptr noundef nonnull @_ZL38descriptor_table_op_5fdef_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL36file_level_metadata_op_5fdef_2eproto, i64 64))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z40descriptor_table_op_5fdef_2eproto_getterv, ptr noundef nonnull @_ZL38descriptor_table_op_5fdef_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL36file_level_metadata_op_5fdef_2eproto, i64 64))
   ret { ptr, ptr } %2
 }
 
@@ -8389,7 +8389,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN17open
 
 10:                                               ; preds = %3, %6
   %.sink = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow12OpDef_ArgDefE, i64 16), ptr %.sink, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow12OpDef_ArgDefE, i64 16), ptr %.sink, align 8
   %11 = getelementptr inbounds nuw i8, ptr %.sink, i64 64
   store i32 0, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %.sink, i64 16
@@ -8427,7 +8427,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN17open
 
 10:                                               ; preds = %3, %6
   %.sink = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDef_AttrDefE, i64 16), ptr %.sink, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDef_AttrDefE, i64 16), ptr %.sink, align 8
   %11 = getelementptr inbounds nuw i8, ptr %.sink, i64 68
   store i32 0, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %.sink, i64 16
@@ -8450,7 +8450,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN17open
   %4 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow5OpDefE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow5OpDefE, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 124
   store i32 0, ptr %7, align 4
@@ -8464,7 +8464,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN17open
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = ptrtoint ptr %0 to i64
   store i64 %12, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow5OpDefE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow5OpDefE, i64 16), ptr %10, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -8514,7 +8514,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN17open
 
 10:                                               ; preds = %3, %6
   %.sink = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDeprecationE, i64 16), ptr %.sink, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDeprecationE, i64 16), ptr %.sink, align 8
   %11 = getelementptr inbounds nuw i8, ptr %.sink, i64 28
   store i32 0, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %.sink, i64 16
@@ -8533,7 +8533,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN17open
   %4 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow6OpListE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow6OpListE, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, i8 0, i64 28, i1 false)
   br label %13
@@ -8543,7 +8543,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN17open
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = ptrtoint ptr %0 to i64
   store i64 %10, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow6OpListE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow6OpListE, i64 16), ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -8577,7 +8577,7 @@ define linkonce_odr hidden noundef ptr @_ZNK17opencv_tensorflow12OpDef_ArgDef3Ne
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN17opencv_tensorflow12OpDef_ArgDefEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow12OpDef_ArgDefE, i64 16), ptr %.sink.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow12OpDef_ArgDefE, i64 16), ptr %.sink.i.i, align 8
   %11 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 64
   store i32 0, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 16
@@ -8637,7 +8637,7 @@ define linkonce_odr hidden noundef ptr @_ZNK17opencv_tensorflow13OpDef_AttrDef3N
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN17opencv_tensorflow13OpDef_AttrDefEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDef_AttrDefE, i64 16), ptr %.sink.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDef_AttrDefE, i64 16), ptr %.sink.i.i, align 8
   %11 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 68
   store i32 0, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 16
@@ -8667,7 +8667,7 @@ define linkonce_odr hidden noundef ptr @_ZNK17opencv_tensorflow5OpDef3NewEPN6goo
   %5 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #20
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow5OpDefE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow5OpDefE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 124
   store i32 0, ptr %8, align 4
@@ -8681,7 +8681,7 @@ define linkonce_odr hidden noundef ptr @_ZNK17opencv_tensorflow5OpDef3NewEPN6goo
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = ptrtoint ptr %1 to i64
   store i64 %13, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow5OpDefE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow5OpDefE, i64 16), ptr %11, align 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %1, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -8738,7 +8738,7 @@ define linkonce_odr hidden noundef ptr @_ZNK17opencv_tensorflow13OpDeprecation3N
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN17opencv_tensorflow13OpDeprecationEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDeprecationE, i64 16), ptr %.sink.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDeprecationE, i64 16), ptr %.sink.i.i, align 8
   %11 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 28
   store i32 0, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 16
@@ -8764,7 +8764,7 @@ define linkonce_odr hidden noundef ptr @_ZNK17opencv_tensorflow6OpList3NewEPN6go
   %5 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow6OpListE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow6OpListE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %7, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN17opencv_tensorflow6OpListEEEPT_PNS0_5ArenaE.exit
@@ -8774,7 +8774,7 @@ define linkonce_odr hidden noundef ptr @_ZNK17opencv_tensorflow6OpList3NewEPN6go
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = ptrtoint ptr %1 to i64
   store i64 %11, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow6OpListE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow6OpListE, i64 16), ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -8976,7 +8976,7 @@ _ZN17opencv_tensorflow12OpDef_ArgDefC2EPN6google8protobuf5ArenaEb.exit.us: ; pre
   %23 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #20
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow12OpDef_ArgDefE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow12OpDef_ArgDefE, i64 16), ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 64
   store i32 0, ptr %25, align 4
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -9003,7 +9003,7 @@ _ZN17opencv_tensorflow12OpDef_ArgDefC2EPN6google8protobuf5ArenaEb.exit4: ; preds
   %33 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 72, ptr noundef nonnull @_ZTIN17opencv_tensorflow12OpDef_ArgDefE)
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i64 %21, ptr %34, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow12OpDef_ArgDefE, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow12OpDef_ArgDefE, i64 16), ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 64
   store i32 0, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -9096,7 +9096,7 @@ _ZN17opencv_tensorflow13OpDef_AttrDefC2EPN6google8protobuf5ArenaEb.exit.us: ; pr
   %23 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #20
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDef_AttrDefE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDef_AttrDefE, i64 16), ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 68
   store i32 0, ptr %25, align 4
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -9119,7 +9119,7 @@ _ZN17opencv_tensorflow13OpDef_AttrDefC2EPN6google8protobuf5ArenaEb.exit4: ; pred
   %31 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 72, ptr noundef nonnull @_ZTIN17opencv_tensorflow13OpDef_AttrDefE)
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %21, ptr %32, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDef_AttrDefE, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDef_AttrDefE, i64 16), ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 68
   store i32 0, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -9206,7 +9206,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow5OpDefEE16N
   %23 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #20
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow5OpDefE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow5OpDefE, i64 16), ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 124
   store i32 0, ptr %26, align 4
@@ -9231,7 +9231,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow5OpDefEE16N
   %32 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 128, ptr noundef nonnull @_ZTIN17opencv_tensorflow5OpDefE)
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i64 %21, ptr %33, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow5OpDefE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow5OpDefE, i64 16), ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %19, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 24

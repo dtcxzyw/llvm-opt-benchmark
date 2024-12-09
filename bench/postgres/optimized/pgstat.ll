@@ -257,14 +257,14 @@ pgstat_reset_after_failure.exit.i:                ; preds = %30
   br i1 %.not39.i, label %.preheader.i.backedge, label %.loopexit.i
 
 94:                                               ; preds = %85, %69
-  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
+  %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
   %96 = call ptr @dshash_find_or_insert(ptr noundef %95, ptr noundef nonnull %3, ptr noundef nonnull %2) #17
   %97 = load i8, ptr %2, align 1
   %98 = trunc i8 %97 to i1
   br i1 %98, label %99, label %109
 
 99:                                               ; preds = %94
-  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
+  %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
   call void @dshash_release_lock(ptr noundef %100, ptr noundef %96) #17
   %101 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
   br i1 %101, label %102, label %.loopexit.i
@@ -282,7 +282,7 @@ pgstat_reset_after_failure.exit.i:                ; preds = %30
 109:                                              ; preds = %94
   %110 = load i32, ptr %3, align 4
   %111 = call ptr @pgstat_init_entry(i32 noundef %110, ptr noundef %96) #17
-  %112 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
+  %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
   call void @dshash_release_lock(ptr noundef %112, ptr noundef %96) #17
   %113 = load i32, ptr %3, align 4
   %114 = zext i32 %113 to i64
@@ -500,122 +500,122 @@ define dso_local void @pgstat_before_server_shutdown(i32 noundef %0, i64 noundef
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %22
-  store i8 0, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 46), align 2
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 46), align 2
   br label %30
 
 27:                                               ; preds = %22
-  %28 = load i8, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 46), align 2
+  %28 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 46), align 2
   %29 = trunc i8 %28 to i1
   br i1 %29, label %pgstat_build_snapshot_fixed.exit.i, label %30
 
 30:                                               ; preds = %27, %26
   tail call void @pgstat_archiver_snapshot_cb() #17
-  store i8 1, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 46), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 46), align 2
   br label %pgstat_build_snapshot_fixed.exit.i
 
 pgstat_build_snapshot_fixed.exit.i:               ; preds = %30, %27
-  %31 = tail call i64 @fwrite(ptr noundef nonnull getelementptr inbounds (i8, ptr @pgStatLocal, i64 56), i64 noundef 136, i64 noundef 1, ptr noundef nonnull %15)
+  %31 = tail call i64 @fwrite(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 56), i64 noundef 136, i64 noundef 1, ptr noundef nonnull %15)
   %32 = load i32, ptr @pgstat_fetch_consistency, align 4
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %pgstat_build_snapshot_fixed.exit.i
-  store i8 0, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 47), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 47), align 1
   br label %38
 
 35:                                               ; preds = %pgstat_build_snapshot_fixed.exit.i
-  %36 = load i8, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 47), align 1
+  %36 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 47), align 1
   %37 = trunc i8 %36 to i1
   br i1 %37, label %pgstat_build_snapshot_fixed.exit47.i, label %38
 
 38:                                               ; preds = %35, %34
   tail call void @pgstat_bgwriter_snapshot_cb() #17
-  store i8 1, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 47), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 47), align 1
   br label %pgstat_build_snapshot_fixed.exit47.i
 
 pgstat_build_snapshot_fixed.exit47.i:             ; preds = %38, %35
-  %39 = tail call i64 @fwrite(ptr noundef nonnull getelementptr inbounds (i8, ptr @pgStatLocal, i64 192), i64 noundef 32, i64 noundef 1, ptr noundef nonnull %15)
+  %39 = tail call i64 @fwrite(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 192), i64 noundef 32, i64 noundef 1, ptr noundef nonnull %15)
   %40 = load i32, ptr @pgstat_fetch_consistency, align 4
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %pgstat_build_snapshot_fixed.exit47.i
-  store i8 0, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 48), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 48), align 8
   br label %46
 
 43:                                               ; preds = %pgstat_build_snapshot_fixed.exit47.i
-  %44 = load i8, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 48), align 8
+  %44 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 48), align 8
   %45 = trunc i8 %44 to i1
   br i1 %45, label %pgstat_build_snapshot_fixed.exit48.i, label %46
 
 46:                                               ; preds = %43, %42
   tail call void @pgstat_checkpointer_snapshot_cb() #17
-  store i8 1, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 48), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 48), align 8
   br label %pgstat_build_snapshot_fixed.exit48.i
 
 pgstat_build_snapshot_fixed.exit48.i:             ; preds = %46, %43
-  %47 = tail call i64 @fwrite(ptr noundef nonnull getelementptr inbounds (i8, ptr @pgStatLocal, i64 224), i64 noundef 72, i64 noundef 1, ptr noundef nonnull %15)
+  %47 = tail call i64 @fwrite(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 224), i64 noundef 72, i64 noundef 1, ptr noundef nonnull %15)
   %48 = load i32, ptr @pgstat_fetch_consistency, align 4
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %51
 
 50:                                               ; preds = %pgstat_build_snapshot_fixed.exit48.i
-  store i8 0, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 49), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 49), align 1
   br label %54
 
 51:                                               ; preds = %pgstat_build_snapshot_fixed.exit48.i
-  %52 = load i8, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 49), align 1
+  %52 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 49), align 1
   %53 = trunc i8 %52 to i1
   br i1 %53, label %pgstat_build_snapshot_fixed.exit49.i, label %54
 
 54:                                               ; preds = %51, %50
   tail call void @pgstat_io_snapshot_cb() #17
-  store i8 1, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 49), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 49), align 1
   br label %pgstat_build_snapshot_fixed.exit49.i
 
 pgstat_build_snapshot_fixed.exit49.i:             ; preds = %54, %51
-  %55 = tail call i64 @fwrite(ptr noundef nonnull getelementptr inbounds (i8, ptr @pgStatLocal, i64 296), i64 noundef 16392, i64 noundef 1, ptr noundef nonnull %15)
+  %55 = tail call i64 @fwrite(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 296), i64 noundef 16392, i64 noundef 1, ptr noundef nonnull %15)
   %56 = load i32, ptr @pgstat_fetch_consistency, align 4
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %pgstat_build_snapshot_fixed.exit49.i
-  store i8 0, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 50), align 2
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 50), align 2
   br label %62
 
 59:                                               ; preds = %pgstat_build_snapshot_fixed.exit49.i
-  %60 = load i8, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 50), align 2
+  %60 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 50), align 2
   %61 = trunc i8 %60 to i1
   br i1 %61, label %pgstat_build_snapshot_fixed.exit50.i, label %62
 
 62:                                               ; preds = %59, %58
   tail call void @pgstat_slru_snapshot_cb() #17
-  store i8 1, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 50), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 50), align 2
   br label %pgstat_build_snapshot_fixed.exit50.i
 
 pgstat_build_snapshot_fixed.exit50.i:             ; preds = %62, %59
-  %63 = tail call i64 @fwrite(ptr noundef nonnull getelementptr inbounds (i8, ptr @pgStatLocal, i64 16688), i64 noundef 512, i64 noundef 1, ptr noundef nonnull %15)
+  %63 = tail call i64 @fwrite(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16688), i64 noundef 512, i64 noundef 1, ptr noundef nonnull %15)
   %64 = load i32, ptr @pgstat_fetch_consistency, align 4
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %pgstat_build_snapshot_fixed.exit50.i
-  store i8 0, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 51), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 51), align 1
   br label %70
 
 67:                                               ; preds = %pgstat_build_snapshot_fixed.exit50.i
-  %68 = load i8, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 51), align 1
+  %68 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 51), align 1
   %69 = trunc i8 %68 to i1
   br i1 %69, label %pgstat_build_snapshot_fixed.exit51.i, label %70
 
 70:                                               ; preds = %67, %66
   tail call void @pgstat_wal_snapshot_cb() #17
-  store i8 1, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 51), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 51), align 1
   br label %pgstat_build_snapshot_fixed.exit51.i
 
 pgstat_build_snapshot_fixed.exit51.i:             ; preds = %70, %67
-  %71 = tail call i64 @fwrite(ptr noundef nonnull getelementptr inbounds (i8, ptr @pgStatLocal, i64 17200), i64 noundef 72, i64 noundef 1, ptr noundef nonnull %15)
-  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
+  %71 = tail call i64 @fwrite(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17200), i64 noundef 72, i64 noundef 1, ptr noundef nonnull %15)
+  %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
   call void @dshash_seq_init(ptr noundef nonnull %4, ptr noundef %72, i1 noundef zeroext false) #17
   %73 = call ptr @dshash_seq_next(ptr noundef nonnull %4) #17
   %.not52.i = icmp eq ptr %73, null
@@ -638,7 +638,7 @@ pgstat_build_snapshot_fixed.exit51.i:             ; preds = %70, %67
   br i1 %80, label %.backedge.i, label %81
 
 81:                                               ; preds = %77
-  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
   %83 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %84 = load i64, ptr %83, align 8
   %85 = call ptr @dsa_get_address(ptr noundef %82, i64 noundef %84) #17
@@ -758,7 +758,7 @@ define dso_local range(i64 0, 10001) i64 @pgstat_report_stat(i1 noundef zeroext 
 
 4:                                                ; preds = %3, %1
   %.019 = phi i8 [ 1, %3 ], [ %2, %1 ]
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatPending, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatPending, i64 8), align 8
   %6 = icmp eq ptr %5, null
   %7 = icmp eq ptr %5, @pgStatPending
   %spec.select.i = or i1 %6, %7
@@ -816,7 +816,7 @@ define dso_local range(i64 0, 10001) i64 @pgstat_report_stat(i1 noundef zeroext 
   tail call void @pgstat_update_dbstats(i64 noundef %.018) #17
   %34 = trunc nuw i8 %.1 to i1
   %35 = xor i1 %34, true
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatPending, i64 8), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatPending, i64 8), align 8
   %37 = icmp eq ptr %36, @pgStatPending
   %.not1821.i = icmp eq ptr %36, null
   %.not18.i = or i1 %37, %.not1821.i
@@ -920,7 +920,7 @@ define internal void @pgstat_shutdown_hook(i32 %0, i64 %1) #0 {
 5:                                                ; preds = %4, %2
   %6 = tail call i64 @pgstat_report_stat(i1 noundef zeroext true)
   store ptr @pgStatPending, ptr @pgStatPending, align 8
-  store ptr @pgStatPending, ptr getelementptr inbounds (i8, ptr @pgStatPending, i64 8), align 8
+  store ptr @pgStatPending, ptr getelementptr inbounds nuw (i8, ptr @pgStatPending, i64 8), align 8
   tail call void @pgstat_detach_shmem() #17
   ret void
 }
@@ -1024,16 +1024,16 @@ declare void @pgstat_reset_entries_of_kind(i32 noundef, i64 noundef) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgstat_clear_snapshot() local_unnamed_addr #0 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds (i8, ptr @pgStatLocal, i64 40), i8 0, i64 12, i1 false)
-  store ptr null, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 17280), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 24), align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 17272), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 40), i8 0, i64 12, i1 false)
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17280), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 24), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17272), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %0
   tail call void @MemoryContextDelete(ptr noundef nonnull %1) #17
-  store ptr null, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 17272), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17272), align 8
   br label %3
 
 3:                                                ; preds = %2, %0
@@ -1072,7 +1072,7 @@ define dso_local ptr @pgstat_fetch_entry(i32 noundef %0, i32 noundef %1, i32 nou
   br i1 %14, label %15, label %61
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 17280), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17280), align 8
   %.sroa.4.0.insert.ext30 = zext i32 %1 to i64
   %.sroa.4.0.insert.shift31 = shl nuw i64 %.sroa.4.0.insert.ext30, 32
   %.sroa.019.0.insert.insert25 = or disjoint i64 %.sroa.4.0.insert.shift31, %7
@@ -1151,7 +1151,7 @@ pgstat_snapshot_lookup.exit:                      ; preds = %.lr.ph.i.i
   br i1 %60, label %104, label %61
 
 61:                                               ; preds = %59, %12
-  store i32 %13, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 24), align 8
+  store i32 %13, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 24), align 8
   %62 = tail call ptr @pgstat_get_entry_ref(i32 noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext false, ptr noundef null) #17
   %63 = icmp eq ptr %62, null
   br i1 %63, label %69, label %64
@@ -1169,7 +1169,7 @@ pgstat_snapshot_lookup.exit:                      ; preds = %.lr.ph.i.i
   br i1 %71, label %72, label %104
 
 72:                                               ; preds = %69
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 17280), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17280), align 8
   %.sroa.4.0.insert.ext26 = zext i32 %1 to i64
   %.sroa.4.0.insert.shift27 = shl nuw i64 %.sroa.4.0.insert.ext26, 32
   %.sroa.019.0.insert.insert22 = or disjoint i64 %.sroa.4.0.insert.shift27, %7
@@ -1191,7 +1191,7 @@ pgstat_snapshot_lookup.exit:                      ; preds = %.lr.ph.i.i
   br label %90
 
 84:                                               ; preds = %76
-  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 17272), align 8
+  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17272), align 8
   %86 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %87 = load i32, ptr %86, align 4
   %88 = zext i32 %87 to i64
@@ -1215,7 +1215,7 @@ pgstat_snapshot_lookup.exit:                      ; preds = %.lr.ph.i.i
   br i1 %99, label %100, label %104
 
 100:                                              ; preds = %90
-  %101 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 17280), align 8
+  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17280), align 8
   %.sroa.4.0.insert.ext = zext i32 %1 to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
   %.sroa.019.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %7
@@ -1235,16 +1235,16 @@ define internal fastcc void @pgstat_prep_snapshot() unnamed_addr #0 {
   br i1 %.b3, label %1, label %4
 
 1:                                                ; preds = %0
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds (i8, ptr @pgStatLocal, i64 40), i8 0, i64 12, i1 false)
-  store ptr null, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 17280), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 24), align 8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 17272), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 40), i8 0, i64 12, i1 false)
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17280), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 24), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17272), align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %pgstat_clear_snapshot.exit, label %3
 
 3:                                                ; preds = %1
   tail call void @MemoryContextDelete(ptr noundef nonnull %2) #17
-  store ptr null, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 17272), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17272), align 8
   br label %pgstat_clear_snapshot.exit
 
 pgstat_clear_snapshot.exit:                       ; preds = %1, %3
@@ -1255,20 +1255,20 @@ pgstat_clear_snapshot.exit:                       ; preds = %1, %3
 4:                                                ; preds = %pgstat_clear_snapshot.exit, %0
   %5 = load i32, ptr @pgstat_fetch_consistency, align 4
   %6 = icmp eq i32 %5, 0
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 17280), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17280), align 8
   %8 = icmp ne ptr %7, null
   %or.cond = select i1 %6, i1 true, i1 %8
   br i1 %or.cond, label %23, label %9
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 17272), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17272), align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %11, label %14
 
 11:                                               ; preds = %9
   %12 = load ptr, ptr @TopMemoryContext, align 8
   %13 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %12, ptr noundef nonnull @.str.10, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #17
-  store ptr %13, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 17272), align 8
+  store ptr %13, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17272), align 8
   br label %14
 
 14:                                               ; preds = %11, %9
@@ -1286,7 +1286,7 @@ pgstat_clear_snapshot.exit:                       ; preds = %1, %3
   store i32 1023, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 921, ptr %22, align 8
-  store ptr %16, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 17280), align 8
+  store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17280), align 8
   br label %23
 
 23:                                               ; preds = %4, %14
@@ -1297,15 +1297,15 @@ pgstat_clear_snapshot.exit:                       ; preds = %1, %3
 define internal fastcc void @pgstat_build_snapshot() unnamed_addr #0 {
   %1 = alloca %struct.dshash_seq_status, align 8
   %2 = alloca i8, align 1
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 24), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 24), align 8
   %4 = icmp eq i32 %3, 2
   br i1 %4, label %60, label %5
 
 5:                                                ; preds = %0
   tail call fastcc void @pgstat_prep_snapshot()
   %6 = tail call i64 @GetCurrentTimestamp() #17
-  store i64 %6, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 32), align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
+  store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 32), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
   call void @dshash_seq_init(ptr noundef nonnull %1, ptr noundef %7, i1 noundef zeroext false) #17
   %8 = call ptr @dshash_seq_next(ptr noundef nonnull %1) #17
   %.not25 = icmp eq ptr %8, null
@@ -1337,16 +1337,16 @@ define internal fastcc void @pgstat_build_snapshot() unnamed_addr #0 {
   br i1 %22, label %.backedge, label %23
 
 23:                                               ; preds = %19
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = call ptr @dsa_get_address(ptr noundef %24, i64 noundef %26) #17
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 17280), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17280), align 8
   %.sroa.0.0.copyload = load i64, ptr %9, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
   %29 = call fastcc ptr @pgstat_snapshot_insert(ptr noundef %28, i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, ptr noundef %2)
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 17272), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17272), align 8
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = zext i32 %32 to i64
@@ -1383,7 +1383,7 @@ define internal fastcc void @pgstat_build_snapshot() unnamed_addr #0 {
 48:                                               ; preds = %44
   %49 = load i32, ptr @pgstat_fetch_consistency, align 4
   %50 = icmp eq i32 %49, 0
-  %51 = getelementptr [12 x i8], ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 40), i64 0, i64 %indvars.iv
+  %51 = getelementptr [12 x i8], ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 40), i64 0, i64 %indvars.iv
   br i1 %50, label %52, label %53
 
 52:                                               ; preds = %48
@@ -1408,7 +1408,7 @@ pgstat_build_snapshot_fixed.exit:                 ; preds = %56, %53, %44
   br i1 %exitcond.not, label %59, label %44, !llvm.loop !10
 
 59:                                               ; preds = %pgstat_build_snapshot_fixed.exit
-  store i32 2, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 24), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 24), align 8
   br label %60
 
 60:                                               ; preds = %0, %59
@@ -1844,16 +1844,16 @@ define dso_local i64 @pgstat_get_stat_snapshot_timestamp(ptr nocapture noundef w
   br i1 %.b2, label %2, label %5
 
 2:                                                ; preds = %1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds (i8, ptr @pgStatLocal, i64 40), i8 0, i64 12, i1 false)
-  store ptr null, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 17280), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 24), align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 17272), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 40), i8 0, i64 12, i1 false)
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17280), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 24), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17272), align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %pgstat_clear_snapshot.exit, label %4
 
 4:                                                ; preds = %2
   tail call void @MemoryContextDelete(ptr noundef nonnull %3) #17
-  store ptr null, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 17272), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17272), align 8
   br label %pgstat_clear_snapshot.exit
 
 pgstat_clear_snapshot.exit:                       ; preds = %2, %4
@@ -1862,13 +1862,13 @@ pgstat_clear_snapshot.exit:                       ; preds = %2, %4
   br label %5
 
 5:                                                ; preds = %pgstat_clear_snapshot.exit, %1
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 24), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 24), align 8
   %7 = icmp eq i32 %6, 2
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %5
   store i8 1, ptr %0, align 1
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 32), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 32), align 8
   br label %11
 
 10:                                               ; preds = %5
@@ -1904,16 +1904,16 @@ define dso_local void @pgstat_snapshot_fixed(i32 noundef %0) local_unnamed_addr 
   br i1 %.b1, label %2, label %5
 
 2:                                                ; preds = %1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds (i8, ptr @pgStatLocal, i64 40), i8 0, i64 12, i1 false)
-  store ptr null, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 17280), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 24), align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 17272), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 40), i8 0, i64 12, i1 false)
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17280), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 24), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17272), align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %pgstat_clear_snapshot.exit, label %4
 
 4:                                                ; preds = %2
   tail call void @MemoryContextDelete(ptr noundef nonnull %3) #17
-  store ptr null, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 17272), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17272), align 8
   br label %pgstat_clear_snapshot.exit
 
 pgstat_clear_snapshot.exit:                       ; preds = %2, %4
@@ -1933,7 +1933,7 @@ pgstat_clear_snapshot.exit:                       ; preds = %2, %4
 9:                                                ; preds = %5
   %10 = zext i32 %0 to i64
   %11 = icmp eq i32 %6, 0
-  %12 = getelementptr [12 x i8], ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 40), i64 0, i64 %10
+  %12 = getelementptr [12 x i8], ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 40), i64 0, i64 %10
   br i1 %11, label %13, label %14
 
 13:                                               ; preds = %9
@@ -1984,7 +1984,7 @@ define dso_local ptr @pgstat_prep_pending_entry(i32 noundef %0, i32 noundef %1, 
   %20 = tail call ptr @MemoryContextAllocZero(ptr noundef %19, i64 noundef %18) #17
   store ptr %20, ptr %11, align 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatPending, i64 8), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatPending, i64 8), align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %._crit_edge.i
 
@@ -1993,7 +1993,7 @@ define dso_local ptr @pgstat_prep_pending_entry(i32 noundef %0, i32 noundef %1, 
   br label %dlist_push_tail.exit
 
 24:                                               ; preds = %14
-  store ptr @pgStatPending, ptr getelementptr inbounds (i8, ptr @pgStatPending, i64 8), align 8
+  store ptr @pgStatPending, ptr getelementptr inbounds nuw (i8, ptr @pgStatPending, i64 8), align 8
   br label %dlist_push_tail.exit
 
 dlist_push_tail.exit:                             ; preds = %._crit_edge.i, %24

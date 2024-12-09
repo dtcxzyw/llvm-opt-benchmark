@@ -420,7 +420,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFuncti
   store i64 %8, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %9 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #45
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15HioImageFactoryINS_12Hio_StbImageEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15HioImageFactoryINS_12Hio_StbImageEEE, i64 16), ptr %9, align 8
   store ptr %9, ptr %3, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__6TfType10SetFactoryESt10unique_ptrINS0_11FactoryBaseESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %3)
           to label %10 unwind label %15
@@ -559,7 +559,7 @@ declare noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__20HioGetComponentCount
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__12Hio_StbImageC2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12Hio_StbImageE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12Hio_StbImageE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #46
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3555,16 +3555,16 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_t
   %fputc.i = call i32 @fputc(i32 1, ptr %218)
   %287 = call i64 @fwrite(ptr noundef nonnull %9, i64 noundef 1, i64 noundef 64, ptr noundef %218)
   %288 = call i64 @fwrite(ptr noundef nonnull %10, i64 noundef 1, i64 noundef 24, ptr noundef %218)
-  %289 = call i64 @fwrite(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE24std_dc_luminance_nrcodes, i64 1), i64 noundef 1, i64 noundef 16, ptr noundef %218)
+  %289 = call i64 @fwrite(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE24std_dc_luminance_nrcodes, i64 1), i64 noundef 1, i64 noundef 16, ptr noundef %218)
   %290 = call i64 @fwrite(ptr noundef nonnull @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE23std_dc_luminance_values, i64 noundef 1, i64 noundef 12, ptr noundef %218)
   %fputc21.i = call i32 @fputc(i32 16, ptr %218)
-  %291 = call i64 @fwrite(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE24std_ac_luminance_nrcodes, i64 1), i64 noundef 1, i64 noundef 16, ptr noundef %218)
+  %291 = call i64 @fwrite(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE24std_ac_luminance_nrcodes, i64 1), i64 noundef 1, i64 noundef 16, ptr noundef %218)
   %292 = call i64 @fwrite(ptr noundef nonnull @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE23std_ac_luminance_values, i64 noundef 1, i64 noundef 162, ptr noundef %218)
   %fputc22.i = call i32 @fputc(i32 1, ptr %218)
-  %293 = call i64 @fwrite(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE26std_dc_chrominance_nrcodes, i64 1), i64 noundef 1, i64 noundef 16, ptr noundef %218)
+  %293 = call i64 @fwrite(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE26std_dc_chrominance_nrcodes, i64 1), i64 noundef 1, i64 noundef 16, ptr noundef %218)
   %294 = call i64 @fwrite(ptr noundef nonnull @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE25std_dc_chrominance_values, i64 noundef 1, i64 noundef 12, ptr noundef %218)
   %fputc23.i = call i32 @fputc(i32 17, ptr %218)
-  %295 = call i64 @fwrite(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE26std_ac_chrominance_nrcodes, i64 1), i64 noundef 1, i64 noundef 16, ptr noundef %218)
+  %295 = call i64 @fwrite(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE26std_ac_chrominance_nrcodes, i64 1), i64 noundef 1, i64 noundef 16, ptr noundef %218)
   %296 = call i64 @fwrite(ptr noundef nonnull @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE25std_ac_chrominance_values, i64 noundef 1, i64 noundef 162, ptr noundef %218)
   %297 = call i64 @fwrite(ptr noundef nonnull @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE5head2, i64 noundef 1, i64 noundef 14, ptr noundef %218)
   store i32 0, ptr %11, align 4
@@ -7198,7 +7198,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__8HioImageEEC2INS0_12Hio_Stb
   store i32 1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %18, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12Hio_StbImageELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12Hio_StbImageELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %3, ptr %19, align 8
   store ptr %6, ptr %5, align 8
@@ -42415,12 +42415,12 @@ _ZL10stbi__getnP13stbi__contextPhi.exit.thread:   ; preds = %558, %_ZL10stbi__ge
   %633 = trunc nuw i32 %632 to i8
   store i8 %633, ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, align 16
   %634 = trunc i32 %67 to i8
-  store i8 %634, ptr getelementptr inbounds (i8, ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, i64 1), align 1
+  store i8 %634, ptr getelementptr inbounds nuw (i8, ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, i64 1), align 1
   %635 = lshr i32 %69, 8
   %636 = trunc nuw i32 %635 to i8
-  store i8 %636, ptr getelementptr inbounds (i8, ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, i64 2), align 2
+  store i8 %636, ptr getelementptr inbounds nuw (i8, ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, i64 2), align 2
   %637 = trunc i32 %69 to i8
-  store i8 %637, ptr getelementptr inbounds (i8, ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, i64 3), align 1
+  store i8 %637, ptr getelementptr inbounds nuw (i8, ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, i64 3), align 1
   %638 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
   store ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, ptr %638, align 8
   br label %.loopexit

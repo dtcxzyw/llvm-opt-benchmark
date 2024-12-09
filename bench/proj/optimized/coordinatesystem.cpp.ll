@@ -627,12 +627,12 @@ $_ZTISt15_Sp_counted_ptrIPN5osgeo4proj2cs17TemporalMeasureCSELN9__gnu_cxx12_Lock
 define hidden void @_ZN5osgeo4proj2cs8MeridianC2ERKNS0_6common5AngleE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i64 80), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i64 80), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i64 120), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i64 160), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i64 120), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i64 160), ptr %3, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %6 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
           to label %.noexc unwind label %11
@@ -676,13 +676,13 @@ declare void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5osgeo4proj2cs8MeridianD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 32), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i64 80), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i64 80), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i64 120), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i64 120), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i64 160), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i64 160), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
@@ -776,12 +776,12 @@ define linkonce_odr hidden void @_ZN5osgeo4proj2cs8Meridian14nn_make_sharedIS2_J
 
 .noexc:                                           ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i64 80), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i64 80), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i64 120), ptr %6, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i64 160), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i64 120), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i64 160), ptr %4, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %7 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
           to label %.noexc.i unwind label %10
@@ -850,7 +850,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2cs8MeridianEED2Ev.exit: ; preds = %12
   store i32 1, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 1, ptr %29, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs8MeridianELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs8MeridianELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14, align 8
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %3, ptr %30, align 8
   store ptr %3, ptr %0, align 8
@@ -1126,12 +1126,12 @@ define hidden void @_ZThn40_NK5osgeo4proj2cs8Meridian13_exportToJSONEPNS0_2io13J
 define hidden void @_ZN5osgeo4proj2cs20CoordinateSystemAxisC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs20CoordinateSystemAxisE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs20CoordinateSystemAxisE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs20CoordinateSystemAxisE, i64 80), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs20CoordinateSystemAxisE, i64 80), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs20CoordinateSystemAxisE, i64 120), ptr %4, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs20CoordinateSystemAxisE, i64 160), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs20CoordinateSystemAxisE, i64 120), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs20CoordinateSystemAxisE, i64 160), ptr %2, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %5 = invoke noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #24
           to label %.noexc unwind label %10
@@ -1452,12 +1452,12 @@ define linkonce_odr void @_ZN5osgeo4proj2cs20CoordinateSystemAxis14nn_make_share
 
 .noexc:                                           ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs20CoordinateSystemAxisE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs20CoordinateSystemAxisE, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs20CoordinateSystemAxisE, i64 80), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs20CoordinateSystemAxisE, i64 80), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs20CoordinateSystemAxisE, i64 120), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs20CoordinateSystemAxisE, i64 160), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs20CoordinateSystemAxisE, i64 120), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs20CoordinateSystemAxisE, i64 160), ptr %3, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %6 = invoke noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #24
           to label %.noexc.i unwind label %9
@@ -1525,7 +1525,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEED2Ev.exit: ; preds = %1
   store i32 1, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %25, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs20CoordinateSystemAxisELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs20CoordinateSystemAxisELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13, align 8
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %2, ptr %26, align 8
   store ptr %2, ptr %0, align 8
@@ -3255,12 +3255,12 @@ declare void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 d
 define hidden void @_ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_2cs16CoordinateSystem7PrivateEJRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS3_20CoordinateSystemAxisEEEESaISD_EEEEESt10unique_ptrIT_St14default_deleteISJ_EEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.86") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %7 unwind label %8
@@ -3371,13 +3371,13 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5osgeo4proj2cs16CoordinateSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 32), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
@@ -4122,13 +4122,13 @@ define hidden noundef zeroext i1 @_ZThn16_NK5osgeo4proj2cs16CoordinateSystem15_i
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5osgeo4proj2cs11SphericalCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 32), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %6, null
@@ -4201,12 +4201,12 @@ define void @_ZThn40_N5osgeo4proj2cs11SphericalCSD0Ev(ptr noundef %0) unnamed_ad
 define hidden void @_ZN5osgeo4proj2cs11SphericalCSC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_2cs16CoordinateSystem7PrivateEJRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS3_20CoordinateSystemAxisEEEESaISD_EEEEESt10unique_ptrIT_St14default_deleteISJ_EEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.86") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %_ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE.exit unwind label %7
@@ -4219,10 +4219,10 @@ define hidden void @_ZN5osgeo4proj2cs11SphericalCSC2ERKSt6vectorIN7dropbox6oxyge
   resume { ptr, i32 } %8
 
 _ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE.exit: ; preds = %2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs11SphericalCSE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs11SphericalCSE, i64 88), ptr %4, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs11SphericalCSE, i64 128), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs11SphericalCSE, i64 168), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs11SphericalCSE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs11SphericalCSE, i64 88), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs11SphericalCSE, i64 128), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs11SphericalCSE, i64 168), ptr %3, align 8
   ret void
 }
 
@@ -4594,12 +4594,12 @@ define linkonce_odr hidden void @_ZN5osgeo4proj2cs11SphericalCS14nn_make_sharedI
 
 .noexc:                                           ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %6, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_2cs16CoordinateSystem7PrivateEJRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS3_20CoordinateSystemAxisEEEESaISD_EEEEESt10unique_ptrIT_St14default_deleteISJ_EEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.86") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %10 unwind label %8
@@ -4612,10 +4612,10 @@ define linkonce_odr hidden void @_ZN5osgeo4proj2cs11SphericalCS14nn_make_sharedI
   br label %.body
 
 10:                                               ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs11SphericalCSE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs11SphericalCSE, i64 88), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs11SphericalCSE, i64 128), ptr %6, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs11SphericalCSE, i64 168), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs11SphericalCSE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs11SphericalCSE, i64 88), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs11SphericalCSE, i64 128), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs11SphericalCSE, i64 168), ptr %4, align 8
   %11 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
           to label %_ZNSt10shared_ptrIN5osgeo4proj2cs11SphericalCSEED2Ev.exit unwind label %12
 
@@ -4654,7 +4654,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2cs11SphericalCSEED2Ev.exit: ; preds = %10
   store i32 1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 1, ptr %23, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs11SphericalCSELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs11SphericalCSELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %3, ptr %24, align 8
   store ptr %3, ptr %0, align 8
@@ -5192,13 +5192,13 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSyste
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5osgeo4proj2cs13EllipsoidalCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 32), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %6, null
@@ -5271,12 +5271,12 @@ define void @_ZThn40_N5osgeo4proj2cs13EllipsoidalCSD0Ev(ptr noundef %0) unnamed_
 define hidden void @_ZN5osgeo4proj2cs13EllipsoidalCSC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_2cs16CoordinateSystem7PrivateEJRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS3_20CoordinateSystemAxisEEEESaISD_EEEEESt10unique_ptrIT_St14default_deleteISJ_EEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.86") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %_ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE.exit unwind label %7
@@ -5289,10 +5289,10 @@ define hidden void @_ZN5osgeo4proj2cs13EllipsoidalCSC2ERKSt6vectorIN7dropbox6oxy
   resume { ptr, i32 } %8
 
 _ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE.exit: ; preds = %2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs13EllipsoidalCSE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs13EllipsoidalCSE, i64 88), ptr %4, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs13EllipsoidalCSE, i64 128), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs13EllipsoidalCSE, i64 168), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs13EllipsoidalCSE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs13EllipsoidalCSE, i64 88), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs13EllipsoidalCSE, i64 128), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs13EllipsoidalCSE, i64 168), ptr %3, align 8
   ret void
 }
 
@@ -5637,12 +5637,12 @@ define linkonce_odr hidden void @_ZN5osgeo4proj2cs13EllipsoidalCS14nn_make_share
 
 .noexc:                                           ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %6, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_2cs16CoordinateSystem7PrivateEJRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS3_20CoordinateSystemAxisEEEESaISD_EEEEESt10unique_ptrIT_St14default_deleteISJ_EEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.86") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %10 unwind label %8
@@ -5655,10 +5655,10 @@ define linkonce_odr hidden void @_ZN5osgeo4proj2cs13EllipsoidalCS14nn_make_share
   br label %.body
 
 10:                                               ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs13EllipsoidalCSE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs13EllipsoidalCSE, i64 88), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs13EllipsoidalCSE, i64 128), ptr %6, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs13EllipsoidalCSE, i64 168), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs13EllipsoidalCSE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs13EllipsoidalCSE, i64 88), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs13EllipsoidalCSE, i64 128), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs13EllipsoidalCSE, i64 168), ptr %4, align 8
   %11 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
           to label %_ZNSt10shared_ptrIN5osgeo4proj2cs13EllipsoidalCSEED2Ev.exit unwind label %12
 
@@ -5697,7 +5697,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2cs13EllipsoidalCSEED2Ev.exit: ; preds = %10
   store i32 1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 1, ptr %23, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs13EllipsoidalCSELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs13EllipsoidalCSELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %3, ptr %24, align 8
   store ptr %3, ptr %0, align 8
@@ -8348,13 +8348,13 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5osgeo4proj2cs10VerticalCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 32), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %6, null
@@ -8499,12 +8499,12 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateS
 
 .noexc:                                           ; preds = %_ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %35, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %36, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %34, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %36, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %34, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_2cs16CoordinateSystem7PrivateEJRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS3_20CoordinateSystemAxisEEEESaISD_EEEEESt10unique_ptrIT_St14default_deleteISJ_EEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.86") align 8 %37, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE.exit unwind label %38
@@ -8690,10 +8690,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit: ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit, %99, %112, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs10VerticalCSE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs10VerticalCSE, i64 88), ptr %35, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs10VerticalCSE, i64 128), ptr %36, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs10VerticalCSE, i64 168), ptr %34, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs10VerticalCSE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs10VerticalCSE, i64 88), ptr %35, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs10VerticalCSE, i64 128), ptr %36, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs10VerticalCSE, i64 168), ptr %34, align 8
   ret void
 
 117:                                              ; preds = %_ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i.i.i
@@ -8774,7 +8774,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2cs10VerticalCSEED2Ev.exit: ; preds = %4
   store i32 1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %17, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs10VerticalCSELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs10VerticalCSELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %3, ptr %18, align 8
   store ptr %3, ptr %0, align 8
@@ -9130,7 +9130,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2cs10VerticalCSEED2Ev.exit: ; preds = %4
   store i32 1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %17, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs10VerticalCSELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs10VerticalCSELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %3, ptr %18, align 8
   store ptr %3, ptr %0, align 8
@@ -9244,13 +9244,13 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5osgeo4proj2cs11CartesianCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 32), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %6, null
@@ -9323,12 +9323,12 @@ define void @_ZThn40_N5osgeo4proj2cs11CartesianCSD0Ev(ptr noundef %0) unnamed_ad
 define hidden void @_ZN5osgeo4proj2cs11CartesianCSC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_2cs16CoordinateSystem7PrivateEJRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS3_20CoordinateSystemAxisEEEESaISD_EEEEESt10unique_ptrIT_St14default_deleteISJ_EEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.86") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %_ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE.exit unwind label %7
@@ -9341,10 +9341,10 @@ define hidden void @_ZN5osgeo4proj2cs11CartesianCSC2ERKSt6vectorIN7dropbox6oxyge
   resume { ptr, i32 } %8
 
 _ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE.exit: ; preds = %2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs11CartesianCSE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs11CartesianCSE, i64 88), ptr %4, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs11CartesianCSE, i64 128), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs11CartesianCSE, i64 168), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs11CartesianCSE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs11CartesianCSE, i64 88), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs11CartesianCSE, i64 128), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs11CartesianCSE, i64 168), ptr %3, align 8
   ret void
 }
 
@@ -9689,12 +9689,12 @@ define linkonce_odr hidden void @_ZN5osgeo4proj2cs11CartesianCS14nn_make_sharedI
 
 .noexc:                                           ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %6, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_2cs16CoordinateSystem7PrivateEJRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS3_20CoordinateSystemAxisEEEESaISD_EEEEESt10unique_ptrIT_St14default_deleteISJ_EEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.86") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %10 unwind label %8
@@ -9707,10 +9707,10 @@ define linkonce_odr hidden void @_ZN5osgeo4proj2cs11CartesianCS14nn_make_sharedI
   br label %.body
 
 10:                                               ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs11CartesianCSE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs11CartesianCSE, i64 88), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs11CartesianCSE, i64 128), ptr %6, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs11CartesianCSE, i64 168), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs11CartesianCSE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs11CartesianCSE, i64 88), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs11CartesianCSE, i64 128), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs11CartesianCSE, i64 168), ptr %4, align 8
   %11 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
           to label %_ZNSt10shared_ptrIN5osgeo4proj2cs11CartesianCSEED2Ev.exit unwind label %12
 
@@ -9749,7 +9749,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2cs11CartesianCSEED2Ev.exit: ; preds = %10
   store i32 1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 1, ptr %23, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs11CartesianCSELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs11CartesianCSELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %3, ptr %24, align 8
   store ptr %3, ptr %0, align 8
@@ -13503,13 +13503,13 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5osgeo4proj2cs8AffineCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 32), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %6, null
@@ -13582,12 +13582,12 @@ define void @_ZThn40_N5osgeo4proj2cs8AffineCSD0Ev(ptr noundef %0) unnamed_addr #
 define hidden void @_ZN5osgeo4proj2cs8AffineCSC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_2cs16CoordinateSystem7PrivateEJRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS3_20CoordinateSystemAxisEEEESaISD_EEEEESt10unique_ptrIT_St14default_deleteISJ_EEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.86") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %_ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE.exit unwind label %7
@@ -13600,10 +13600,10 @@ define hidden void @_ZN5osgeo4proj2cs8AffineCSC2ERKSt6vectorIN7dropbox6oxygen2nn
   resume { ptr, i32 } %8
 
 _ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE.exit: ; preds = %2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs8AffineCSE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs8AffineCSE, i64 88), ptr %4, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs8AffineCSE, i64 128), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs8AffineCSE, i64 168), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs8AffineCSE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs8AffineCSE, i64 88), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs8AffineCSE, i64 128), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs8AffineCSE, i64 168), ptr %3, align 8
   ret void
 }
 
@@ -13948,12 +13948,12 @@ define linkonce_odr hidden void @_ZN5osgeo4proj2cs8AffineCS14nn_make_sharedIS2_J
 
 .noexc:                                           ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %6, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_2cs16CoordinateSystem7PrivateEJRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS3_20CoordinateSystemAxisEEEESaISD_EEEEESt10unique_ptrIT_St14default_deleteISJ_EEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.86") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %10 unwind label %8
@@ -13966,10 +13966,10 @@ define linkonce_odr hidden void @_ZN5osgeo4proj2cs8AffineCS14nn_make_sharedIS2_J
   br label %.body
 
 10:                                               ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs8AffineCSE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs8AffineCSE, i64 88), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs8AffineCSE, i64 128), ptr %6, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs8AffineCSE, i64 168), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs8AffineCSE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs8AffineCSE, i64 88), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs8AffineCSE, i64 128), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs8AffineCSE, i64 168), ptr %4, align 8
   %11 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
           to label %_ZNSt10shared_ptrIN5osgeo4proj2cs8AffineCSEED2Ev.exit unwind label %12
 
@@ -14008,7 +14008,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2cs8AffineCSEED2Ev.exit: ; preds = %10
   store i32 1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 1, ptr %23, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs8AffineCSELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs8AffineCSELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %3, ptr %24, align 8
   store ptr %3, ptr %0, align 8
@@ -14959,13 +14959,13 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5osgeo4proj2cs9OrdinalCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 32), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %6, null
@@ -15038,12 +15038,12 @@ define void @_ZThn40_N5osgeo4proj2cs9OrdinalCSD0Ev(ptr noundef %0) unnamed_addr 
 define hidden void @_ZN5osgeo4proj2cs9OrdinalCSC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_2cs16CoordinateSystem7PrivateEJRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS3_20CoordinateSystemAxisEEEESaISD_EEEEESt10unique_ptrIT_St14default_deleteISJ_EEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.86") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %_ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE.exit unwind label %7
@@ -15056,10 +15056,10 @@ define hidden void @_ZN5osgeo4proj2cs9OrdinalCSC2ERKSt6vectorIN7dropbox6oxygen2n
   resume { ptr, i32 } %8
 
 _ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE.exit: ; preds = %2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs9OrdinalCSE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs9OrdinalCSE, i64 88), ptr %4, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs9OrdinalCSE, i64 128), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs9OrdinalCSE, i64 168), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs9OrdinalCSE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs9OrdinalCSE, i64 88), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs9OrdinalCSE, i64 128), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs9OrdinalCSE, i64 168), ptr %3, align 8
   ret void
 }
 
@@ -15088,12 +15088,12 @@ define linkonce_odr hidden void @_ZN5osgeo4proj2cs9OrdinalCS14nn_make_sharedIS2_
 
 .noexc:                                           ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %6, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_2cs16CoordinateSystem7PrivateEJRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS3_20CoordinateSystemAxisEEEESaISD_EEEEESt10unique_ptrIT_St14default_deleteISJ_EEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.86") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %10 unwind label %8
@@ -15106,10 +15106,10 @@ define linkonce_odr hidden void @_ZN5osgeo4proj2cs9OrdinalCS14nn_make_sharedIS2_
   br label %.body
 
 10:                                               ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs9OrdinalCSE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs9OrdinalCSE, i64 88), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs9OrdinalCSE, i64 128), ptr %6, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs9OrdinalCSE, i64 168), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs9OrdinalCSE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs9OrdinalCSE, i64 88), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs9OrdinalCSE, i64 128), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs9OrdinalCSE, i64 168), ptr %4, align 8
   %11 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
           to label %_ZNSt10shared_ptrIN5osgeo4proj2cs9OrdinalCSEED2Ev.exit unwind label %12
 
@@ -15148,7 +15148,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2cs9OrdinalCSEED2Ev.exit: ; preds = %10
   store i32 1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 1, ptr %23, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs9OrdinalCSELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs9OrdinalCSELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %3, ptr %24, align 8
   store ptr %3, ptr %0, align 8
@@ -15248,13 +15248,13 @@ _ZNSt10shared_ptrIN5osgeo4proj2cs9OrdinalCSEED2Ev.exit: ; preds = %1, %20, %33, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5osgeo4proj2cs12ParametricCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 32), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %6, null
@@ -15327,12 +15327,12 @@ define void @_ZThn40_N5osgeo4proj2cs12ParametricCSD0Ev(ptr noundef %0) unnamed_a
 define hidden void @_ZN5osgeo4proj2cs12ParametricCSC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_2cs16CoordinateSystem7PrivateEJRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS3_20CoordinateSystemAxisEEEESaISD_EEEEESt10unique_ptrIT_St14default_deleteISJ_EEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.86") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %_ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE.exit unwind label %7
@@ -15345,10 +15345,10 @@ define hidden void @_ZN5osgeo4proj2cs12ParametricCSC2ERKSt6vectorIN7dropbox6oxyg
   resume { ptr, i32 } %8
 
 _ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE.exit: ; preds = %2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs12ParametricCSE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs12ParametricCSE, i64 88), ptr %4, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs12ParametricCSE, i64 128), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs12ParametricCSE, i64 168), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs12ParametricCSE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs12ParametricCSE, i64 88), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs12ParametricCSE, i64 128), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs12ParametricCSE, i64 168), ptr %3, align 8
   ret void
 }
 
@@ -15637,12 +15637,12 @@ define linkonce_odr hidden void @_ZN5osgeo4proj2cs12ParametricCS14nn_make_shared
 
 .noexc:                                           ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %6, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_2cs16CoordinateSystem7PrivateEJRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS3_20CoordinateSystemAxisEEEESaISD_EEEEESt10unique_ptrIT_St14default_deleteISJ_EEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.86") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %10 unwind label %8
@@ -15655,10 +15655,10 @@ define linkonce_odr hidden void @_ZN5osgeo4proj2cs12ParametricCS14nn_make_shared
   br label %.body
 
 10:                                               ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs12ParametricCSE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs12ParametricCSE, i64 88), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs12ParametricCSE, i64 128), ptr %6, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs12ParametricCSE, i64 168), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs12ParametricCSE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs12ParametricCSE, i64 88), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs12ParametricCSE, i64 128), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs12ParametricCSE, i64 168), ptr %4, align 8
   %11 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
           to label %_ZNSt10shared_ptrIN5osgeo4proj2cs12ParametricCSEED2Ev.exit unwind label %12
 
@@ -15697,7 +15697,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2cs12ParametricCSEED2Ev.exit: ; preds = %10
   store i32 1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 1, ptr %23, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs12ParametricCSELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs12ParametricCSELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %3, ptr %24, align 8
   store ptr %3, ptr %0, align 8
@@ -16276,13 +16276,13 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5osgeo4proj2cs10TemporalCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 32), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %6, null
@@ -16420,12 +16420,12 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateS
 
 .noexc:                                           ; preds = %_ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %35, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %36, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %34, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %36, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %34, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_2cs16CoordinateSystem7PrivateEJRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS3_20CoordinateSystemAxisEEEESaISD_EEEEESt10unique_ptrIT_St14default_deleteISJ_EEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.86") align 8 %37, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE.exit unwind label %38
@@ -16611,10 +16611,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit: ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit, %99, %112, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs10TemporalCSE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs10TemporalCSE, i64 88), ptr %35, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs10TemporalCSE, i64 128), ptr %36, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs10TemporalCSE, i64 168), ptr %34, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs10TemporalCSE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs10TemporalCSE, i64 88), ptr %35, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs10TemporalCSE, i64 128), ptr %36, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs10TemporalCSE, i64 168), ptr %34, align 8
   ret void
 
 117:                                              ; preds = %_ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i.i.i
@@ -16635,13 +16635,13 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5osgeo4proj2cs18DateTimeTemporalCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 32), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i = icmp eq ptr %6, null
@@ -16713,13 +16713,13 @@ define void @_ZThn40_N5osgeo4proj2cs18DateTimeTemporalCSD0Ev(ptr noundef %0) unn
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5osgeo4proj2cs18DateTimeTemporalCSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
   tail call void @_ZN5osgeo4proj2cs10TemporalCSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs18DateTimeTemporalCSE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs18DateTimeTemporalCSE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs18DateTimeTemporalCSE, i64 88), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs18DateTimeTemporalCSE, i64 88), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs18DateTimeTemporalCSE, i64 128), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs18DateTimeTemporalCSE, i64 128), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs18DateTimeTemporalCSE, i64 168), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs18DateTimeTemporalCSE, i64 168), ptr %5, align 8
   ret void
 }
 
@@ -16747,13 +16747,13 @@ define linkonce_odr hidden void @_ZN5osgeo4proj2cs18DateTimeTemporalCS14nn_make_
           to label %4 unwind label %23
 
 4:                                                ; preds = %2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs18DateTimeTemporalCSE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs18DateTimeTemporalCSE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs18DateTimeTemporalCSE, i64 88), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs18DateTimeTemporalCSE, i64 88), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs18DateTimeTemporalCSE, i64 128), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs18DateTimeTemporalCSE, i64 128), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs18DateTimeTemporalCSE, i64 168), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs18DateTimeTemporalCSE, i64 168), ptr %7, align 8
   %8 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
           to label %_ZNSt10shared_ptrIN5osgeo4proj2cs18DateTimeTemporalCSEED2Ev.exit unwind label %9
 
@@ -16792,7 +16792,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2cs18DateTimeTemporalCSEED2Ev.exit: ; preds = %4
   store i32 1, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 1, ptr %20, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs18DateTimeTemporalCSELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs18DateTimeTemporalCSELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %3, ptr %21, align 8
   store ptr %3, ptr %0, align 8
@@ -16907,13 +16907,13 @@ define hidden void @_ZNK5osgeo4proj2cs18DateTimeTemporalCS11getWKT2TypeB5cxx11Eb
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5osgeo4proj2cs15TemporalCountCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 32), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i = icmp eq ptr %6, null
@@ -16985,13 +16985,13 @@ define void @_ZThn40_N5osgeo4proj2cs15TemporalCountCSD0Ev(ptr noundef %0) unname
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5osgeo4proj2cs15TemporalCountCSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
   tail call void @_ZN5osgeo4proj2cs10TemporalCSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs15TemporalCountCSE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs15TemporalCountCSE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs15TemporalCountCSE, i64 88), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs15TemporalCountCSE, i64 88), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs15TemporalCountCSE, i64 128), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs15TemporalCountCSE, i64 128), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs15TemporalCountCSE, i64 168), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs15TemporalCountCSE, i64 168), ptr %5, align 8
   ret void
 }
 
@@ -17019,13 +17019,13 @@ define linkonce_odr hidden void @_ZN5osgeo4proj2cs15TemporalCountCS14nn_make_sha
           to label %4 unwind label %23
 
 4:                                                ; preds = %2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs15TemporalCountCSE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs15TemporalCountCSE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs15TemporalCountCSE, i64 88), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs15TemporalCountCSE, i64 88), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs15TemporalCountCSE, i64 128), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs15TemporalCountCSE, i64 128), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs15TemporalCountCSE, i64 168), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs15TemporalCountCSE, i64 168), ptr %7, align 8
   %8 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
           to label %_ZNSt10shared_ptrIN5osgeo4proj2cs15TemporalCountCSEED2Ev.exit unwind label %9
 
@@ -17064,7 +17064,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2cs15TemporalCountCSEED2Ev.exit: ; preds = %4
   store i32 1, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 1, ptr %20, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs15TemporalCountCSELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs15TemporalCountCSELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %3, ptr %21, align 8
   store ptr %3, ptr %0, align 8
@@ -17179,13 +17179,13 @@ define hidden void @_ZNK5osgeo4proj2cs15TemporalCountCS11getWKT2TypeB5cxx11Eb(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5osgeo4proj2cs17TemporalMeasureCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 32), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 128), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 168), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i = icmp eq ptr %6, null
@@ -17257,13 +17257,13 @@ define void @_ZThn40_N5osgeo4proj2cs17TemporalMeasureCSD0Ev(ptr noundef %0) unna
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5osgeo4proj2cs17TemporalMeasureCSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
   tail call void @_ZN5osgeo4proj2cs10TemporalCSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs17TemporalMeasureCSE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs17TemporalMeasureCSE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs17TemporalMeasureCSE, i64 88), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs17TemporalMeasureCSE, i64 88), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs17TemporalMeasureCSE, i64 128), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs17TemporalMeasureCSE, i64 128), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs17TemporalMeasureCSE, i64 168), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs17TemporalMeasureCSE, i64 168), ptr %5, align 8
   ret void
 }
 
@@ -17291,13 +17291,13 @@ define linkonce_odr hidden void @_ZN5osgeo4proj2cs17TemporalMeasureCS14nn_make_s
           to label %4 unwind label %23
 
 4:                                                ; preds = %2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs17TemporalMeasureCSE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs17TemporalMeasureCSE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs17TemporalMeasureCSE, i64 88), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs17TemporalMeasureCSE, i64 88), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs17TemporalMeasureCSE, i64 128), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs17TemporalMeasureCSE, i64 128), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs17TemporalMeasureCSE, i64 168), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5osgeo4proj2cs17TemporalMeasureCSE, i64 168), ptr %7, align 8
   %8 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
           to label %_ZNSt10shared_ptrIN5osgeo4proj2cs17TemporalMeasureCSEED2Ev.exit unwind label %9
 
@@ -17336,7 +17336,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2cs17TemporalMeasureCSEED2Ev.exit: ; preds = %4
   store i32 1, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 1, ptr %20, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs17TemporalMeasureCSELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs17TemporalMeasureCSELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %3, ptr %21, align 8
   store ptr %3, ptr %0, align 8

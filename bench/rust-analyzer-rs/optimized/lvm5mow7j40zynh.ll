@@ -44504,7 +44504,7 @@ split:                                            ; preds = %"_ZN63_$LT$hir_expa
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !6821
   store ptr @anon.429fe5f01d29dee238e7a404dd0129a6.138.llvm.15602210471604820194, ptr %11, align 8, !noalias !6821
   %177 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.429fe5f01d29dee238e7a404dd0129a6.138.llvm.15602210471604820194, i64 544), ptr %177, align 8, !noalias !6821
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.429fe5f01d29dee238e7a404dd0129a6.138.llvm.15602210471604820194, i64 544), ptr %177, align 8, !noalias !6821
   %178 = invoke { i8, i8 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hedce68f23714d734E.llvm.15602210471604820194"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %12)
           to label %179 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

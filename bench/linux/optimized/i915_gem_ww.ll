@@ -28,7 +28,7 @@ define dso_local void @i915_gem_ww_ctx_init(ptr noundef initializes((0, 24)) %0,
   store i32 0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i16 0, ptr %10, align 4
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @reservation_ww_class, i64 24), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reservation_ww_class, i64 24), align 8
   %12 = trunc i32 %11 to i16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i16 %12, ptr %13, align 2

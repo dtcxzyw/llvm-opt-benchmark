@@ -211,7 +211,7 @@ define internal void @"_ZN117_$LT$signal_hook..iterator..backend..PendingSignals
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28), !noalias !15
   store ptr @anon.9dd555b167f93cc210fe76094ee5a483.21, ptr %28, align 8, !noalias !15
   %55 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.9dd555b167f93cc210fe76094ee5a483.21, i64 20), ptr %55, align 8, !noalias !15
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.9dd555b167f93cc210fe76094ee5a483.21, i64 20), ptr %55, align 8, !noalias !15
   br label %56
 
 56:                                               ; preds = %58, %51

@@ -72,7 +72,7 @@ entry:
   %0 = load i32, ptr @ident_config_given, align 4
   %and = and i32 %0, 1
   %tobool = icmp ne i32 %and, 0
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 8), align 8
   %tobool1 = icmp ne i64 %1, 0
   %or.cond = select i1 %tobool, i1 true, i1 %tobool1
   br i1 %or.cond, label %if.end, label %if.then
@@ -92,7 +92,7 @@ if.then.xgetpwuid_self.exit_crit_edge:            ; preds = %if.then
 
 if.then.i:                                        ; preds = %if.then
   store ptr @.str.17, ptr @xgetpwuid_self.fallback, align 8
-  store ptr @.str.18, ptr getelementptr inbounds (i8, ptr @xgetpwuid_self.fallback, i64 24), align 8
+  store ptr @.str.18, ptr getelementptr inbounds nuw (i8, ptr @xgetpwuid_self.fallback, i64 24), align 8
   store i1 true, ptr @default_name_is_bogus, align 4
   br label %xgetpwuid_self.exit
 
@@ -192,7 +192,7 @@ copy_gecos.exit:                                  ; preds = %for.cond.i, %for.co
   br label %if.end
 
 if.end:                                           ; preds = %copy_gecos.exit, %entry
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 16), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 16), align 8
   ret ptr %21
 }
 
@@ -208,7 +208,7 @@ entry:
   %0 = load i32, ptr @ident_config_given, align 4
   %and = and i32 %0, 2
   %tobool = icmp ne i32 %and, 0
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @git_default_email, i64 8), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_default_email, i64 8), align 8
   %tobool1 = icmp ne i64 %1, 0
   %or.cond = select i1 %tobool, i1 true, i1 %tobool1
   br i1 %or.cond, label %if.end15, label %if.then
@@ -248,7 +248,7 @@ if.else.xgetpwuid_self.exit_crit_edge:            ; preds = %if.else
 
 if.then.i:                                        ; preds = %if.else
   store ptr @.str.17, ptr @xgetpwuid_self.fallback, align 8
-  store ptr @.str.18, ptr getelementptr inbounds (i8, ptr @xgetpwuid_self.fallback, i64 24), align 8
+  store ptr @.str.18, ptr getelementptr inbounds nuw (i8, ptr @xgetpwuid_self.fallback, i64 24), align 8
   store i1 true, ptr @default_email_is_bogus, align 4
   br label %xgetpwuid_self.exit
 
@@ -393,7 +393,7 @@ if.end14:                                         ; preds = %add_domainname.exit
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end14, %entry
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_email, i64 16), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_default_email, i64 16), align 8
   ret ptr %13
 }
 
@@ -756,20 +756,20 @@ entry:
 
 if.then:                                          ; preds = %entry
   %cmp = icmp eq i32 %whose_ident, 1
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @git_author_email, i64 8), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_author_email, i64 8), align 8
   %tobool9 = icmp ne i64 %3, 0
   %or.cond = select i1 %cmp, i1 %tobool9, i1 false
   br i1 %or.cond, label %if.end17, label %if.else
 
 if.else:                                          ; preds = %if.then
   %cmp11 = icmp eq i32 %whose_ident, 2
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @git_committer_email, i64 8), align 8
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_committer_email, i64 8), align 8
   %tobool14 = icmp ne i64 %4, 0
   %or.cond3 = select i1 %cmp11, i1 %tobool14, i1 false
   br i1 %or.cond3, label %if.end17, label %if.then19
 
 if.end17:                                         ; preds = %if.then, %if.else
-  %email.addr.0.in = phi ptr [ getelementptr inbounds (i8, ptr @git_committer_email, i64 16), %if.else ], [ getelementptr inbounds (i8, ptr @git_author_email, i64 16), %if.then ]
+  %email.addr.0.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @git_committer_email, i64 16), %if.else ], [ getelementptr inbounds nuw (i8, ptr @git_author_email, i64 16), %if.then ]
   %email.addr.0 = load ptr, ptr %email.addr.0.in, align 8
   %tobool18.not = icmp eq ptr %email.addr.0, null
   br i1 %tobool18.not, label %if.then19, label %if.end35
@@ -815,20 +815,20 @@ if.then37:                                        ; preds = %if.end35
 
 if.then39:                                        ; preds = %if.then37
   %cmp40 = icmp eq i32 %whose_ident, 1
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @git_author_name, i64 8), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_author_name, i64 8), align 8
   %tobool43 = icmp ne i64 %7, 0
   %or.cond7 = select i1 %cmp40, i1 %tobool43, i1 false
   br i1 %or.cond7, label %if.end53, label %if.else45
 
 if.else45:                                        ; preds = %if.then39
   %cmp46 = icmp eq i32 %whose_ident, 2
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @git_committer_name, i64 8), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_committer_name, i64 8), align 8
   %tobool49 = icmp ne i64 %8, 0
   %or.cond9 = select i1 %cmp46, i1 %tobool49, i1 false
   br i1 %or.cond9, label %if.end53, label %if.then55
 
 if.end53:                                         ; preds = %if.then39, %if.else45
-  %name.addr.1.in = phi ptr [ getelementptr inbounds (i8, ptr @git_committer_name, i64 16), %if.else45 ], [ getelementptr inbounds (i8, ptr @git_author_name, i64 16), %if.then39 ]
+  %name.addr.1.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @git_committer_name, i64 16), %if.else45 ], [ getelementptr inbounds nuw (i8, ptr @git_author_name, i64 16), %if.then39 ]
   %name.addr.1 = load ptr, ptr %name.addr.1.in, align 8
   %tobool54.not.not = icmp eq ptr %name.addr.1, null
   br i1 %tobool54.not.not, label %if.then55, label %if.end72
@@ -901,7 +901,7 @@ if.end81.if.end83.thread_crit_edge:               ; preds = %if.end81
 
 if.then.i:                                        ; preds = %if.end81
   store ptr @.str.17, ptr @xgetpwuid_self.fallback, align 8
-  store ptr @.str.18, ptr getelementptr inbounds (i8, ptr @xgetpwuid_self.fallback, i64 24), align 8
+  store ptr @.str.18, ptr getelementptr inbounds nuw (i8, ptr @xgetpwuid_self.fallback, i64 24), align 8
   br label %if.end91
 
 if.end83:                                         ; preds = %if.end72
@@ -1039,7 +1039,7 @@ if.then109:                                       ; preds = %if.then105
   unreachable
 
 if.else112:                                       ; preds = %land.lhs.true101, %strbuf_addch.exit70
-  %28 = load i64, ptr getelementptr inbounds (i8, ptr @git_default_date, i64 8), align 8
+  %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_default_date, i64 8), align 8
   %tobool.not.i71 = icmp eq i64 %28, 0
   br i1 %tobool.not.i71, label %if.then.i72, label %ident_default_date.exit
 
@@ -1048,7 +1048,7 @@ if.then.i72:                                      ; preds = %if.else112
   br label %ident_default_date.exit
 
 ident_default_date.exit:                          ; preds = %if.else112, %if.then.i72
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_date, i64 16), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_default_date, i64 16), align 8
   %call.i73 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #19
   tail call void @strbuf_add(ptr noundef nonnull %arrayidx, ptr noundef %29, i64 noundef %call.i73) #18
   br label %if.end115

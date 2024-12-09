@@ -107,7 +107,7 @@ $_ZTVN4llvh13format_objectIJjjjPKcS2_EEE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl6OptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh2cl6OptionE, i64 16), ptr %this, align 8
   %Subs.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %CurArray.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %CurArray.i.i.i.i.i, align 8
@@ -177,7 +177,7 @@ _ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit: ; preds = %
   br i1 %tobool.i.i5, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL5Stats, i64 152), align 8
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL5Stats, i64 152), align 8
   %tobool.i.i6 = trunc i8 %7 to i1
   br i1 %tobool.i.i6, label %if.then8, label %lor.lhs.false
 
@@ -284,7 +284,7 @@ entry:
 define hidden noundef zeroext i1 @_ZN4llvh20AreStatisticsEnabledEv() local_unnamed_addr #3 {
 entry:
   %.b1 = load i1, ptr @_ZL7Enabled, align 1
-  %0 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL5Stats, i64 152), align 8
+  %0 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL5Stats, i64 152), align 8
   %tobool.i.i = trunc i8 %0 to i1
   %1 = select i1 %.b1, i1 true, i1 %tobool.i.i
   ret i1 %1
@@ -600,7 +600,7 @@ for.body34:                                       ; preds = %for.body34.lr.ph, %
   %Desc.i = getelementptr inbounds nuw i8, ptr %32, i64 16
   %35 = load ptr, ptr %Desc.i, align 8
   store ptr @.str.9, ptr %Fmt.i.i.i, align 8, !alias.scope !11
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh13format_objectIJjjjPKcS2_EEE, i64 16), ptr %ref.tmp35, align 8, !alias.scope !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh13format_objectIJjjjPKcS2_EEE, i64 16), ptr %ref.tmp35, align 8, !alias.scope !11
   store ptr %35, ptr %Vals.i.i, align 8, !alias.scope !11
   store ptr %34, ptr %27, align 8, !alias.scope !11
   store i32 %MaxDebugTypeLen.0.lcssa, ptr %28, align 8, !alias.scope !11
@@ -994,7 +994,7 @@ declare noundef ptr @_ZN4llvh10TimerGroup18printAllJSONValuesERNS_11raw_ostreamE
 define hidden void @_ZN4llvh15PrintStatisticsEv() local_unnamed_addr #0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.22", align 8
-  %0 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL5Stats, i64 152), align 8
+  %0 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL5Stats, i64 152), align 8
   %tobool.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i, label %_ZNSt10unique_ptrIN4llvh14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit, label %if.end
 
@@ -2776,7 +2776,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %0 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL5Stats, i64 152), align 8
+  %0 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL5Stats, i64 152), align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %_ZNSt10unique_ptrIN4llvh14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit.i.i, label %lor.lhs.false.i
 
@@ -3008,12 +3008,12 @@ entry:
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL5Stats, i64 104), align 8
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL5Stats, i64 144), align 8
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL5Stats, i64 152), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL5Stats, i64 160), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL5Stats, i64 160), align 8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL5Stats, i64 169), align 1
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL5Stats, i64 168), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL5Stats, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL5Stats, align 8
   tail call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL5Stats, i64 176), ptr noundef nonnull align 8 dereferenceable(145) @_ZL5Stats) #21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL5Stats, i64 176), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL5Stats, i64 176), align 8
   tail call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(184) @_ZL5Stats, ptr nonnull align 1 dereferenceable(6) @.str, i64 5) #21
   store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @_ZL5Stats, i64 40), align 8
   store i64 62, ptr getelementptr inbounds nuw (i8, ptr @_ZL5Stats, i64 48), align 8
@@ -3036,12 +3036,12 @@ entry:
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL11StatsAsJSON, i64 104), align 8
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL11StatsAsJSON, i64 144), align 8
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL11StatsAsJSON, i64 152), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL11StatsAsJSON, i64 160), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL11StatsAsJSON, i64 160), align 8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL11StatsAsJSON, i64 169), align 1
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL11StatsAsJSON, i64 168), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL11StatsAsJSON, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL11StatsAsJSON, align 8
   tail call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL11StatsAsJSON, i64 176), ptr noundef nonnull align 8 dereferenceable(145) @_ZL11StatsAsJSON) #21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL11StatsAsJSON, i64 176), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL11StatsAsJSON, i64 176), align 8
   tail call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(184) @_ZL11StatsAsJSON, ptr nonnull align 1 dereferenceable(11) @.str.3, i64 10) #21
   store ptr @.str.4, ptr getelementptr inbounds nuw (i8, ptr @_ZL11StatsAsJSON, i64 40), align 8
   store i64 31, ptr getelementptr inbounds nuw (i8, ptr @_ZL11StatsAsJSON, i64 48), align 8

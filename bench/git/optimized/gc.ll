@@ -1024,7 +1024,7 @@ if.end267:                                        ; preds = %if.end257
   store ptr @report_pack_garbage, ptr @report_garbage, align 8
   %65 = load ptr, ptr @the_repository, align 8
   call void @reprepare_packed_git(ptr noundef %65) #20
-  %66 = load i64, ptr getelementptr inbounds (i8, ptr @pack_garbage, i64 8), align 8
+  %66 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pack_garbage, i64 8), align 8
   %cmp268.not = icmp eq i64 %66, 0
   br i1 %cmp268.not, label %if.end271, label %if.then270
 
@@ -1033,7 +1033,7 @@ if.then270:                                       ; preds = %if.end267
   %objects = getelementptr inbounds nuw i8, ptr %67, i64 16
   %68 = load ptr, ptr %objects, align 8
   call void @close_object_store(ptr noundef %68) #20
-  %69 = load i64, ptr getelementptr inbounds (i8, ptr @pack_garbage, i64 8), align 8
+  %69 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pack_garbage, i64 8), align 8
   %cmp3.not.i = icmp eq i64 %69, 0
   br i1 %cmp3.not.i, label %clean_pack_garbage.exit, label %for.body.i56
 
@@ -1044,7 +1044,7 @@ for.body.i56:                                     ; preds = %if.then270, %for.bo
   %71 = load ptr, ptr %arrayidx.i, align 8
   %call.i57 = call i32 @unlink_or_warn(ptr noundef %71) #20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %72 = load i64, ptr getelementptr inbounds (i8, ptr @pack_garbage, i64 8), align 8
+  %72 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pack_garbage, i64 8), align 8
   %cmp.i58 = icmp ugt i64 %72, %indvars.iv.next.i
   br i1 %cmp.i58, label %for.body.i56, label %clean_pack_garbage.exit, !llvm.loop !7
 
@@ -2151,27 +2151,27 @@ if.end.i.i:                                       ; preds = %if.then.i
   br i1 %tobool2.not.i.i, label %if.then3.i.i, label %initialize_maintenance_strategy.exit.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  store i32 0, ptr getelementptr inbounds (i8, ptr @tasks, i64 148), align 4
-  %bf.load.i.i = load i8, ptr getelementptr inbounds (i8, ptr @tasks, i64 184), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @tasks, i64 148), align 4
+  %bf.load.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @tasks, i64 184), align 8
   %bf.set.i.i = or i8 %bf.load.i.i, 1
-  store i8 %bf.set.i.i, ptr getelementptr inbounds (i8, ptr @tasks, i64 184), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @tasks, i64 188), align 4
-  %bf.load4.i.i = load i8, ptr getelementptr inbounds (i8, ptr @tasks, i64 24), align 8
+  store i8 %bf.set.i.i, ptr getelementptr inbounds nuw (i8, ptr @tasks, i64 184), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @tasks, i64 188), align 4
+  %bf.load4.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @tasks, i64 24), align 8
   %bf.set6.i.i = or i8 %bf.load4.i.i, 1
-  store i8 %bf.set6.i.i, ptr getelementptr inbounds (i8, ptr @tasks, i64 24), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @tasks, i64 28), align 4
-  %bf.load7.i.i = load i8, ptr getelementptr inbounds (i8, ptr @tasks, i64 104), align 8
+  store i8 %bf.set6.i.i, ptr getelementptr inbounds nuw (i8, ptr @tasks, i64 24), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @tasks, i64 28), align 4
+  %bf.load7.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @tasks, i64 104), align 8
   %bf.set9.i.i = or i8 %bf.load7.i.i, 1
-  store i8 %bf.set9.i.i, ptr getelementptr inbounds (i8, ptr @tasks, i64 104), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @tasks, i64 108), align 4
-  %bf.load10.i.i = load i8, ptr getelementptr inbounds (i8, ptr @tasks, i64 64), align 16
+  store i8 %bf.set9.i.i, ptr getelementptr inbounds nuw (i8, ptr @tasks, i64 104), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @tasks, i64 108), align 4
+  %bf.load10.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @tasks, i64 64), align 16
   %bf.set12.i.i = or i8 %bf.load10.i.i, 1
-  store i8 %bf.set12.i.i, ptr getelementptr inbounds (i8, ptr @tasks, i64 64), align 16
-  store i32 2, ptr getelementptr inbounds (i8, ptr @tasks, i64 68), align 4
-  %bf.load13.i.i = load i8, ptr getelementptr inbounds (i8, ptr @tasks, i64 224), align 16
+  store i8 %bf.set12.i.i, ptr getelementptr inbounds nuw (i8, ptr @tasks, i64 64), align 16
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @tasks, i64 68), align 4
+  %bf.load13.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @tasks, i64 224), align 16
   %bf.set15.i.i = or i8 %bf.load13.i.i, 1
-  store i8 %bf.set15.i.i, ptr getelementptr inbounds (i8, ptr @tasks, i64 224), align 16
-  store i32 1, ptr getelementptr inbounds (i8, ptr @tasks, i64 228), align 4
+  store i8 %bf.set15.i.i, ptr getelementptr inbounds nuw (i8, ptr @tasks, i64 224), align 16
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @tasks, i64 228), align 4
   br label %initialize_maintenance_strategy.exit.i
 
 initialize_maintenance_strategy.exit.i:           ; preds = %if.then3.i.i, %if.end.i.i, %if.then.i

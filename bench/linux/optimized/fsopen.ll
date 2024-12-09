@@ -165,7 +165,7 @@ define internal fastcc i64 @__se_sys_fsopen(i64 noundef %0, i64 noundef %1) unna
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, -65281
   store i32 %24, ptr %22, align 4
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %26 = tail call noalias noundef align 8 dereferenceable_or_null(80) ptr @kmalloc_trace(ptr noundef %25, i32 noundef 3520, i64 noundef 80) #7
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 104
   store ptr %26, ptr %27, align 8
@@ -281,7 +281,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_fspick(i
   %39 = and i32 %38, -65281
   %40 = or disjoint i32 %39, 1024
   store i32 %40, ptr %37, align 4
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %42 = call noalias noundef align 8 dereferenceable_or_null(80) ptr @kmalloc_trace(ptr noundef %41, i32 noundef 3520, i64 noundef 80) #7
   %43 = getelementptr inbounds nuw i8, ptr %31, i64 104
   store ptr %42, ptr %43, align 8

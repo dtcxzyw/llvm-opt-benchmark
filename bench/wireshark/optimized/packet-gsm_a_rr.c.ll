@@ -4796,7 +4796,7 @@ define internal noundef zeroext i16 @de_rr_cell_select_indic(ptr noundef %0, ptr
 
 14:                                               ; preds = %7
   %15 = ashr exact i32 %11, 3
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 160), align 16
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 160), align 16
   %17 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %15, i32 noundef -1, i32 noundef %16, ptr noundef nonnull %9, ptr noundef nonnull @.str.1799) #10
   br label %18
 
@@ -4907,7 +4907,7 @@ define internal noundef zeroext i16 @de_rr_cell_select_indic(ptr noundef %0, ptr
   %99 = ashr i32 %94, 3
   %100 = lshr i32 %98, 3
   %101 = add nuw nsw i32 %100, 1
-  %102 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 52), align 4
+  %102 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 52), align 4
   %103 = call ptr @proto_tree_add_subtree(ptr noundef %41, ptr noundef %0, i32 noundef %99, i32 noundef %101, i32 noundef %102, ptr noundef null, ptr noundef nonnull @.str.1264) #10
   %104 = load i32, ptr @hf_gsm_a_rr_field_bit_long, align 4
   %105 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %103, i32 noundef %104, ptr noundef %0, i32 noundef %99, i32 noundef %101, ptr noundef null, ptr noundef nonnull @.str.1782, i32 noundef %98) #10
@@ -5064,7 +5064,7 @@ f_k.exit:                                         ; preds = %greatest_power_of_2
 
 173:                                              ; preds = %7
   %174 = ashr exact i32 %11, 3
-  %175 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 4), align 4
+  %175 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 4), align 4
   %176 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %174, i32 noundef -1, i32 noundef %175, ptr noundef nonnull %9, ptr noundef nonnull @.str.1268) #10
   br label %177
 
@@ -5142,7 +5142,7 @@ f_k.exit:                                         ; preds = %greatest_power_of_2
   %233 = ashr i32 %228, 3
   %234 = lshr i32 %232, 3
   %235 = add nuw nsw i32 %234, 1
-  %236 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 56), align 8
+  %236 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 56), align 8
   %237 = call ptr @proto_tree_add_subtree(ptr noundef %176, ptr noundef %0, i32 noundef %233, i32 noundef %235, i32 noundef %236, ptr noundef null, ptr noundef nonnull @.str.1268) #10
   %238 = load i32, ptr @hf_gsm_a_rr_field_bit_long, align 4
   %239 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %237, i32 noundef %238, ptr noundef %0, i32 noundef %233, i32 noundef %235, ptr noundef null, ptr noundef nonnull @.str.1782, i32 noundef %232) #10
@@ -5305,7 +5305,7 @@ f_k.exit291:                                      ; preds = %greatest_power_of_2
 
 313:                                              ; preds = %7
   %314 = ashr exact i32 %11, 3
-  %315 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 236), align 4
+  %315 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 236), align 4
   %316 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %314, i32 noundef -1, i32 noundef %315, ptr noundef nonnull %9, ptr noundef nonnull @.str.1807) #10
   br label %317
 
@@ -5366,7 +5366,7 @@ f_k.exit291:                                      ; preds = %greatest_power_of_2
 354:                                              ; preds = %344
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %355 = ashr i32 %345, 3
-  %356 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 92), align 4
+  %356 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 92), align 4
   %357 = call ptr @proto_tree_add_subtree(ptr noundef %316, ptr noundef %0, i32 noundef %355, i32 noundef -1, i32 noundef %356, ptr noundef nonnull %8, ptr noundef nonnull @.str.1788) #10
   %358 = call fastcc i32 @de_rr_eutran_pcid(ptr noundef %0, ptr noundef %357, i32 noundef %345)
   %359 = add i32 %358, %345
@@ -6047,7 +6047,7 @@ define internal zeroext i16 @de_rr_ia_rest_oct(ptr noundef %0, ptr noundef %1, p
 63:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   %64 = and i32 %3, 536870911
-  %65 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 200), align 8
+  %65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 200), align 8
   %66 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %64, i32 noundef -1, i32 noundef %65, ptr noundef nonnull %16, ptr noundef nonnull @.str.1801) #10
   %67 = load i32, ptr @hf_gsm_a_rr_extended_ra, align 4
   %68 = call ptr @proto_tree_add_bits_item(ptr noundef %66, i32 noundef %67, ptr noundef %0, i32 noundef range(i32 4, -3) %57, i32 noundef 5, i32 noundef 0) #10
@@ -6491,7 +6491,7 @@ de_rr_ia_rest_oct_egprs_packet_uplink_assignment.exit: ; preds = %233, %235, %24
 
 391:                                              ; preds = %56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  %392 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 204), align 4
+  %392 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 204), align 4
   %393 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %51, i32 noundef -1, i32 noundef %392, ptr noundef nonnull %15, ptr noundef nonnull @.str.1802) #10
   call fastcc void @de_tbf_starting_time(ptr noundef %0, ptr noundef %393, i32 noundef range(i32 4, -3) %57)
   %394 = add i32 %22, 20
@@ -6521,7 +6521,7 @@ de_rr_ia_rest_oct_egprs_packet_uplink_assignment.exit: ; preds = %233, %235, %24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   %411 = ashr i32 %404, 3
-  %412 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 208), align 16
+  %412 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 208), align 16
   %413 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %411, i32 noundef -1, i32 noundef %412, ptr noundef nonnull %12, ptr noundef nonnull @.str.1803) #10
   %414 = add i32 %22, 27
   %415 = load i32, ptr @hf_gsm_a_rr_mcc_mnc_parameters, align 4
@@ -6617,7 +6617,7 @@ de_rr_ia_rest_oct_tmgi.exit.i:                    ; preds = %422, %410
   %480 = add i32 %478, %476
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   %481 = ashr i32 %480, 3
-  %482 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 212), align 4
+  %482 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 212), align 4
   %483 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %481, i32 noundef -1, i32 noundef %482, ptr noundef nonnull %11, ptr noundef nonnull @.str.1804) #10
   %484 = add i32 %480, 1
   %485 = load i32, ptr @hf_gsm_a_rr_timing_adv_present, align 4
@@ -6822,7 +6822,7 @@ de_rr_ia_rest_oct_multiple_blocks_packet_downlink_assignment.exit: ; preds = %39
 
 620:                                              ; preds = %611
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %621 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 216), align 8
+  %621 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 216), align 8
   %622 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %619, i32 noundef -1, i32 noundef %621, ptr noundef nonnull %10, ptr noundef nonnull @.str.1236) #10
   %623 = or disjoint i32 %22, 5
   %624 = load i32, ptr @hf_gsm_a_rr_packet_uplink_assignment, align 4
@@ -7099,7 +7099,7 @@ de_rr_ia_rest_oct_packet_uplink_assignment.exit:  ; preds = %795, %797, %801, %8
 
 819:                                              ; preds = %611
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %820 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 220), align 4
+  %820 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 220), align 4
   %821 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %619, i32 noundef -1, i32 noundef %820, ptr noundef nonnull %9, ptr noundef nonnull @.str.1229) #10
   %822 = load i32, ptr @hf_gsm_a_rr_tlli, align 4
   %823 = call ptr @proto_tree_add_bits_item(ptr noundef %821, i32 noundef %822, ptr noundef %0, i32 noundef range(i32 4, -3) %612, i32 noundef 32, i32 noundef 0) #10
@@ -7376,7 +7376,7 @@ de_rr_ia_rest_oct_packet_downlink_assignment.exit: ; preds = %950, %952, %1001
   %1010 = zext nneg i16 %21 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %1011 = and i32 %3, 536870911
-  %1012 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 224), align 16
+  %1012 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 224), align 16
   %1013 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %1011, i32 noundef -1, i32 noundef %1012, ptr noundef nonnull %8, ptr noundef nonnull @.str.1805) #10
   %1014 = icmp ult i32 %604, %1010
   br i1 %1014, label %1015, label %de_rr_ia_rest_oct_second_part_packet_assignment.exit
@@ -8372,7 +8372,7 @@ define internal zeroext i16 @de_rr_si2ter_rest_oct(ptr noundef %0, ptr noundef %
   br i1 %.not142, label %._crit_edge, label %69
 
 69:                                               ; preds = %._crit_edge154
-  %70 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 4), align 4
+  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 4), align 4
   %71 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %.pre155, i32 noundef -1, i32 noundef %70, ptr noundef nonnull %8, ptr noundef nonnull @.str.1268) #10
   %72 = load i32, ptr @hf_gsm_a_rr_utran_tdd_description_earlier_version_bit_reserved1, align 4
   %73 = add i32 %.1, 2
@@ -8426,7 +8426,7 @@ define internal zeroext i16 @de_rr_si2ter_rest_oct(ptr noundef %0, ptr noundef %
 
 106:                                              ; preds = %._crit_edge
   %107 = ashr i32 %98, 3
-  %108 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 8), align 8
+  %108 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 8), align 8
   %109 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %107, i32 noundef -1, i32 noundef %108, ptr noundef nonnull %8, ptr noundef nonnull @.str.1272) #10
   %110 = load i32, ptr @hf_gsm_a_rr_qsearch_i, align 4
   %111 = call ptr @proto_tree_add_bits_item(ptr noundef %109, i32 noundef %110, ptr noundef %0, i32 noundef %98, i32 noundef 4, i32 noundef 0) #10
@@ -8509,7 +8509,7 @@ define internal zeroext i16 @de_rr_si2ter_rest_oct(ptr noundef %0, ptr noundef %
 
 164:                                              ; preds = %154
   %165 = ashr i32 %155, 3
-  %166 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 12), align 4
+  %166 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 12), align 4
   %167 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %165, i32 noundef -1, i32 noundef %166, ptr noundef nonnull %8, ptr noundef nonnull @.str.1278) #10
   %168 = load i32, ptr @hf_gsm_a_rr_fdd_qmin_offset, align 4
   %169 = call ptr @proto_tree_add_bits_item(ptr noundef %167, i32 noundef %168, ptr noundef %0, i32 noundef %155, i32 noundef 3, i32 noundef 0) #10
@@ -8568,7 +8568,7 @@ define internal zeroext i16 @de_rr_si2quater_rest_oct(ptr noundef %0, ptr nounde
   br i1 %.not, label %._crit_edge482, label %35
 
 35:                                               ; preds = %7
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 16), align 16
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 16), align 16
   %37 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %.pre483, i32 noundef -1, i32 noundef %36, ptr noundef nonnull %8, ptr noundef nonnull @.str.1422) #10
   %38 = load i32, ptr @hf_gsm_a_rr_gsm_report_type, align 4
   %39 = call ptr @proto_tree_add_bits_item(ptr noundef %37, i32 noundef %38, ptr noundef %0, i32 noundef %29, i32 noundef 1, i32 noundef 0) #10
@@ -8675,7 +8675,7 @@ define internal zeroext i16 @de_rr_si2quater_rest_oct(ptr noundef %0, ptr nounde
   br i1 %.not431, label %._crit_edge481, label %107
 
 107:                                              ; preds = %97
-  %108 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 36), align 4
+  %108 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 36), align 4
   %109 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %.pre485, i32 noundef -1, i32 noundef %108, ptr noundef nonnull %8, ptr noundef nonnull @.str.1432) #10
   %110 = load i32, ptr @hf_gsm_a_rr_network_control_order, align 4
   %111 = call ptr @proto_tree_add_bits_item(ptr noundef %109, i32 noundef %110, ptr noundef %0, i32 noundef %98, i32 noundef 2, i32 noundef 0) #10
@@ -8729,7 +8729,7 @@ define internal zeroext i16 @de_rr_si2quater_rest_oct(ptr noundef %0, ptr nounde
 
 144:                                              ; preds = %._crit_edge481
   %145 = ashr i32 %136, 3
-  %146 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 40), align 8
+  %146 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 40), align 8
   %147 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %145, i32 noundef -1, i32 noundef %146, ptr noundef nonnull %8, ptr noundef nonnull @.str.1783) #10
   %148 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %136, i32 noundef 8) #10
   %149 = zext i8 %148 to i32
@@ -8756,7 +8756,7 @@ define internal zeroext i16 @de_rr_si2quater_rest_oct(ptr noundef %0, ptr nounde
 
 166:                                              ; preds = %144
   %167 = ashr i32 %154, 3
-  %168 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 44), align 4
+  %168 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 44), align 4
   %169 = call ptr @proto_tree_add_subtree(ptr noundef %147, ptr noundef %0, i32 noundef %167, i32 noundef -1, i32 noundef %168, ptr noundef nonnull %9, ptr noundef nonnull @.str.1438) #10
   %170 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %154, i32 noundef 7) #10
   %171 = load i32, ptr @hf_gsm_a_rr_number_cells, align 4
@@ -8818,7 +8818,7 @@ define internal zeroext i16 @de_rr_si2quater_rest_oct(ptr noundef %0, ptr nounde
   br i1 %.not435, label %._crit_edge480, label %199
 
 199:                                              ; preds = %189
-  %200 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 48), align 16
+  %200 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 48), align 16
   %201 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %.pre487, i32 noundef -1, i32 noundef %200, ptr noundef nonnull %8, ptr noundef nonnull @.str.1440) #10
   %202 = add i32 %.7, 2
   %203 = load i32, ptr @hf_gsm_a_rr_index_start_3g, align 4
@@ -8920,7 +8920,7 @@ define internal zeroext i16 @de_rr_si2quater_rest_oct(ptr noundef %0, ptr nounde
   br i1 %.not440, label %._crit_edge479, label %266
 
 266:                                              ; preds = %._crit_edge480
-  %267 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 8), align 8
+  %267 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 8), align 8
   %268 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %.pre489, i32 noundef -1, i32 noundef %267, ptr noundef nonnull %8, ptr noundef nonnull @.str.1272) #10
   %269 = load i32, ptr @hf_gsm_a_rr_qsearch_i, align 4
   %270 = call ptr @proto_tree_add_bits_item(ptr noundef %268, i32 noundef %269, ptr noundef %0, i32 noundef %258, i32 noundef 4, i32 noundef 0) #10
@@ -9003,7 +9003,7 @@ define internal zeroext i16 @de_rr_si2quater_rest_oct(ptr noundef %0, ptr nounde
 
 326:                                              ; preds = %._crit_edge479
   %327 = ashr i32 %318, 3
-  %328 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 60), align 4
+  %328 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 60), align 4
   %329 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %327, i32 noundef -1, i32 noundef %328, ptr noundef nonnull %8, ptr noundef nonnull @.str.1447) #10
   %330 = load i32, ptr @hf_gsm_a_rr_qsearch_p, align 4
   %331 = call ptr @proto_tree_add_bits_item(ptr noundef %329, i32 noundef %330, ptr noundef %0, i32 noundef %318, i32 noundef 4, i32 noundef 0) #10
@@ -9149,7 +9149,7 @@ define internal zeroext i16 @de_rr_si2quater_rest_oct(ptr noundef %0, ptr nounde
   br i1 %.not449, label %._crit_edge478, label %429
 
 429:                                              ; preds = %419
-  %430 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 12), align 4
+  %430 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 12), align 4
   %431 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %.pre491, i32 noundef -1, i32 noundef %430, ptr noundef nonnull %8, ptr noundef nonnull @.str.1278) #10
   %432 = load i32, ptr @hf_gsm_a_rr_fdd_qmin_offset, align 4
   %433 = call ptr @proto_tree_add_bits_item(ptr noundef %431, i32 noundef %432, ptr noundef %0, i32 noundef %420, i32 noundef 3, i32 noundef 0) #10
@@ -9383,7 +9383,7 @@ define internal zeroext i16 @de_rr_si3_rest_oct(ptr noundef %0, ptr noundef %1, 
 
 37:                                               ; preds = %33
   %38 = ashr i32 %34, 3
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 112), align 16
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 112), align 16
   %40 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef %39, ptr noundef null, ptr noundef nonnull @.str.1610) #10
   %41 = load i32, ptr @hf_gsm_a_rr_gprs_ra_colour, align 4
   %42 = tail call ptr @proto_tree_add_bits_item(ptr noundef %40, i32 noundef %41, ptr noundef %0, i32 noundef %34, i32 noundef 3, i32 noundef 0) #10
@@ -9454,7 +9454,7 @@ define internal zeroext i16 @de_rr_si4_rest_oct(ptr noundef %0, ptr noundef %1, 
   %12 = shl nuw nsw i32 %11, 3
   %13 = shl i32 %3, 3
   %14 = ashr exact i32 %13, 3
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 116), align 4
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 116), align 4
   %16 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %14, i32 noundef -1, i32 noundef %15, ptr noundef nonnull %8, ptr noundef nonnull @.str.1791) #10
   %17 = call fastcc i32 @de_rr_rest_oct_opt_sel_param(ptr noundef %0, ptr noundef %16, i32 noundef %13)
   %18 = add i32 %17, %13
@@ -9480,7 +9480,7 @@ define internal zeroext i16 @de_rr_si4_rest_oct(ptr noundef %0, ptr noundef %1, 
 
 30:                                               ; preds = %26
   %31 = ashr i32 %27, 3
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 112), align 16
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 112), align 16
   %33 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %0, i32 noundef %31, i32 noundef 1, i32 noundef %32, ptr noundef null, ptr noundef nonnull @.str.1610) #10
   %34 = load i32, ptr @hf_gsm_a_rr_gprs_ra_colour, align 4
   %35 = call ptr @proto_tree_add_bits_item(ptr noundef %33, i32 noundef %34, ptr noundef %0, i32 noundef %27, i32 noundef 3, i32 noundef 0) #10
@@ -9505,7 +9505,7 @@ define internal zeroext i16 @de_rr_si4_rest_oct(ptr noundef %0, ptr noundef %1, 
 
 47:                                               ; preds = %40
   %48 = ashr i32 %44, 3
-  %49 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 120), align 8
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 120), align 8
   %50 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %48, i32 noundef -1, i32 noundef %49, ptr noundef nonnull %8, ptr noundef nonnull @.str.1618) #10
   %51 = add i32 %.1, 2
   %52 = load i32, ptr @hf_gsm_a_rr_lsa_parameters, align 4
@@ -9515,7 +9515,7 @@ define internal zeroext i16 @de_rr_si4_rest_oct(ptr noundef %0, ptr noundef %1, 
 
 54:                                               ; preds = %47
   %55 = ashr i32 %51, 3
-  %56 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 124), align 4
+  %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 124), align 4
   %57 = call ptr @proto_tree_add_subtree(ptr noundef %50, ptr noundef %0, i32 noundef %55, i32 noundef -1, i32 noundef %56, ptr noundef nonnull %9, ptr noundef nonnull @.str.1620) #10
   %58 = load i32, ptr @hf_gsm_a_rr_prio_thr, align 4
   %59 = call ptr @proto_tree_add_bits_item(ptr noundef %57, i32 noundef %58, ptr noundef %0, i32 noundef %51, i32 noundef 3, i32 noundef 0) #10
@@ -9577,7 +9577,7 @@ define internal zeroext i16 @de_rr_si4_rest_oct(ptr noundef %0, ptr noundef %1, 
 
 96:                                               ; preds = %92
   %97 = ashr i32 %93, 3
-  %98 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 128), align 16
+  %98 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 128), align 16
   %99 = call ptr @proto_tree_add_subtree(ptr noundef %50, ptr noundef %0, i32 noundef %97, i32 noundef %4, i32 noundef %98, ptr noundef nonnull %9, ptr noundef nonnull @.str.1792) #10
   br label %100
 
@@ -9685,7 +9685,7 @@ define internal zeroext i16 @de_rr_si6_rest_oct(ptr noundef %0, ptr noundef %1, 
 
 15:                                               ; preds = %7
   %16 = ashr exact i32 %11, 3
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 132), align 4
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 132), align 4
   %18 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %16, i32 noundef -1, i32 noundef %17, ptr noundef nonnull %8, ptr noundef nonnull @.str.1626) #10
   %19 = load i32, ptr @hf_gsm_a_rr_paging_channel_restructuring, align 4
   %20 = call ptr @proto_tree_add_bits_item(ptr noundef %18, i32 noundef %19, ptr noundef %0, i32 noundef %12, i32 noundef 1, i32 noundef 0) #10
@@ -9729,7 +9729,7 @@ define internal zeroext i16 @de_rr_si6_rest_oct(ptr noundef %0, ptr noundef %1, 
 
 45:                                               ; preds = %41
   %46 = ashr i32 %42, 3
-  %47 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 136), align 8
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 136), align 8
   %48 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %46, i32 noundef -1, i32 noundef %47, ptr noundef nonnull %8, ptr noundef nonnull @.str.1793) #10
   %49 = load i32, ptr @hf_gsm_a_rr_vbs_vgcs_inband_notifications, align 4
   %50 = call ptr @proto_tree_add_bits_item(ptr noundef %48, i32 noundef %49, ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef 0) #10
@@ -9889,7 +9889,7 @@ define internal zeroext i16 @de_rr_si13_rest_oct(ptr noundef %0, ptr noundef %1,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %34 = ashr i32 %33, 3
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 140), align 4
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 140), align 4
   %36 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %34, i32 noundef -1, i32 noundef %35, ptr noundef nonnull %8, ptr noundef nonnull @.str.1794) #10
   %37 = load i32, ptr @hf_gsm_a_rr_hsn, align 4
   %38 = call ptr @proto_tree_add_bits_item(ptr noundef %36, i32 noundef %37, ptr noundef %0, i32 noundef range(i32 11, 4) %33, i32 noundef 6, i32 noundef 0) #10
@@ -10008,7 +10008,7 @@ de_rr_rest_oct_gprs_mobile_allocation.exit:       ; preds = %.preheader.i, %.lr.
   %108 = call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %107, ptr noundef %0, i32 noundef %98, i32 noundef 4, i32 noundef 0) #10
   %109 = add i32 %.1, 5
   %110 = lshr i32 %109, 3
-  %111 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 156), align 4
+  %111 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 156), align 4
   %112 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %110, i32 noundef -1, i32 noundef %111, ptr noundef nonnull %10, ptr noundef nonnull @.str.1798) #10
   %113 = load i32, ptr @hf_gsm_a_rr_pbcch_pb, align 4
   %114 = call ptr @proto_tree_add_bits_item(ptr noundef %112, i32 noundef %113, ptr noundef %0, i32 noundef %109, i32 noundef 4, i32 noundef 0) #10
@@ -10215,7 +10215,7 @@ define internal zeroext i16 @de_rr_si21_rest_oct(ptr noundef %0, ptr noundef %1,
 
 25:                                               ; preds = %7
   %26 = ashr i32 %20, 3
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 240), align 16
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 240), align 16
   %28 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %26, i32 noundef -1, i32 noundef %27, ptr noundef nonnull %8, ptr noundef nonnull @.str.1808) #10
   %29 = load i32, ptr @hf_gsm_a_rr_eab_auth_mask, align 4
   %30 = call ptr @proto_tree_add_bits_item(ptr noundef %28, i32 noundef %29, ptr noundef %0, i32 noundef %20, i32 noundef 10, i32 noundef 0) #10
@@ -10306,7 +10306,7 @@ define internal noundef zeroext i16 @de_rr_time_diff(ptr noundef %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i16 @de_rr_tmsi_ptmsi(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #2 {
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_elem, i64 276), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_elem, i64 276), align 4
   %9 = tail call ptr @val_to_str_ext_const(i32 noundef 69, ptr noundef nonnull @gsm_rr_elem_strings_ext, ptr noundef nonnull @.str.84) #10
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 3, i32 noundef %8, ptr noundef null, ptr noundef %9) #10
   %11 = load i32, ptr @hf_gsm_a_tmsi, align 4
@@ -10478,7 +10478,7 @@ define internal noundef zeroext i16 @de_rr_ded_serv_inf(ptr noundef %0, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i16 @de_rr_carrier_ind(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #2 {
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_elem, i64 328), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_elem, i64 328), align 8
   %9 = tail call ptr @val_to_str_ext_const(i32 noundef 82, ptr noundef nonnull @gsm_rr_elem_strings_ext, ptr noundef nonnull @.str.84) #10
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 3, i32 noundef %8, ptr noundef null, ptr noundef %9) #10
   %11 = load i32, ptr @hf_gsm_a_rr_carrier_ind, align 4
@@ -11755,7 +11755,7 @@ define internal fastcc void @dissect_channel_list_n_range(ptr noundef %0, ptr no
   %7 = alloca [64 x i32], align 16
   %8 = alloca [1024 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %8, i8 0, i64 1024, i1 false)
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_elem, i64 156), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_elem, i64 156), align 4
   %10 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.1778, i32 noundef %5) #10
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %12 = icmp eq i32 %5, 1024
@@ -12023,7 +12023,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #0
 define internal fastcc i32 @de_rr_eutran_not_allowed_cells(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = ashr i32 %2, 3
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 92), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 92), align 4
   %7 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %5, i32 noundef -1, i32 noundef %6, ptr noundef nonnull %4, ptr noundef nonnull @.str.1788) #10
   %8 = call fastcc i32 @de_rr_eutran_pcid(ptr noundef %0, ptr noundef %7, i32 noundef %2)
   %9 = add i32 %8, %2
@@ -12264,7 +12264,7 @@ define internal fastcc i32 @de_rr_rest_oct_gprs_cell_options(ptr noundef %0, ptr
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = ashr i32 %2, 3
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 144), align 16
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 144), align 16
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %4, ptr noundef nonnull @.str.1795) #10
   %9 = load i32, ptr @hf_gsm_a_rr_nmo, align 4
   %10 = call ptr @proto_tree_add_bits_item(ptr noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef 0) #10
@@ -12327,7 +12327,7 @@ define internal fastcc i32 @de_rr_rest_oct_gprs_cell_options(ptr noundef %0, ptr
 
 59:                                               ; preds = %49
   %60 = ashr i32 %50, 3
-  %61 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 148), align 4
+  %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 148), align 4
   %62 = call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %60, i32 noundef -1, i32 noundef %61, ptr noundef nonnull %5, ptr noundef nonnull @.str.1796) #10
   %63 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %50, i32 noundef 6) #10
   %64 = load i32, ptr @hf_gsm_a_rr_extension_length, align 4
@@ -12495,7 +12495,7 @@ define internal fastcc i32 @de_rr_rest_oct_gprs_cell_options(ptr noundef %0, ptr
 define internal fastcc noundef i32 @de_rr_rest_oct_gprs_power_control_parameters(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = ashr i32 %2, 3
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 152), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 152), align 8
   %7 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %5, i32 noundef -1, i32 noundef %6, ptr noundef nonnull %4, ptr noundef nonnull @.str.1797) #10
   %8 = load i32, ptr @hf_gsm_a_rr_alpha, align 4
   %9 = call ptr @proto_tree_add_bits_item(ptr noundef %7, i32 noundef %8, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef 0) #10
@@ -13233,7 +13233,7 @@ define internal fastcc i32 @de_rr_si2quater_meas_info_utran_fdd_desc(ptr noundef
   %56 = ashr i32 %51, 3
   %57 = lshr i32 %55, 3
   %58 = add nuw nsw i32 %57, 1
-  %59 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 52), align 4
+  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 52), align 4
   %60 = call ptr @proto_tree_add_subtree(ptr noundef %9, ptr noundef %0, i32 noundef %56, i32 noundef %58, i32 noundef %59, ptr noundef nonnull %5, ptr noundef nonnull @.str.1264) #10
   %61 = load i32, ptr @hf_gsm_a_rr_field_bit_long, align 4
   %62 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %60, i32 noundef %61, ptr noundef %0, i32 noundef %56, i32 noundef %58, ptr noundef null, ptr noundef nonnull @.str.1782, i32 noundef %55) #10
@@ -13403,7 +13403,7 @@ define internal fastcc i32 @de_rr_si2quater_meas_info_utran_tdd_desc(ptr noundef
   %4 = alloca ptr, align 8
   %5 = alloca [64 x i32], align 16
   %6 = ashr i32 %2, 3
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 4), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 4), align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %4, ptr noundef nonnull @.str.1268) #10
   %9 = add i32 %2, 1
   %10 = load i32, ptr @hf_gsm_a_rr_bandwidth_tdd_present, align 4
@@ -13469,7 +13469,7 @@ define internal fastcc i32 @de_rr_si2quater_meas_info_utran_tdd_desc(ptr noundef
   %55 = ashr i32 %50, 3
   %56 = lshr i32 %54, 3
   %57 = add nuw nsw i32 %56, 1
-  %58 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 56), align 8
+  %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 56), align 8
   %59 = call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %55, i32 noundef %57, i32 noundef %58, ptr noundef nonnull %4, ptr noundef nonnull @.str.1268) #10
   %60 = load i32, ptr @hf_gsm_a_rr_field_bit_long, align 4
   %61 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %59, i32 noundef %60, ptr noundef %0, i32 noundef %55, i32 noundef %57, ptr noundef null, ptr noundef nonnull @.str.1782, i32 noundef %54) #10
@@ -13644,7 +13644,7 @@ f_k.exit:                                         ; preds = %greatest_power_of_2
 define internal fastcc noundef i32 @de_rr_3g_add_meas_param_desc2(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = ashr i32 %2, 3
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 64), align 16
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 64), align 16
   %7 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %5, i32 noundef -1, i32 noundef %6, ptr noundef nonnull %4, ptr noundef nonnull @.str.1455) #10
   %8 = add i32 %2, 1
   %9 = load i32, ptr @hf_gsm_a_rr_fdd_reporting_threshold_2_present, align 4
@@ -13684,7 +13684,7 @@ define internal fastcc i32 @de_rr_priority_and_eutran_param_desc(ptr noundef %0,
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = ashr i32 %2, 3
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 68), align 4
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 68), align 4
   %13 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %11, i32 noundef -1, i32 noundef %12, ptr noundef nonnull %9, ptr noundef nonnull @.str.1463) #10
   %14 = add i32 %2, 1
   %15 = load i32, ptr @hf_gsm_a_rr_serving_cell_priority_parameters_description, align 4
@@ -13703,7 +13703,7 @@ define internal fastcc i32 @de_rr_priority_and_eutran_param_desc(ptr noundef %0,
   %24 = ashr i32 %23, 3
   %25 = sub nsw i32 %24, %.pre
   %26 = add nsw i32 %25, 1
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 72), align 8
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 72), align 8
   %28 = call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef %.pre, i32 noundef %26, i32 noundef %27, ptr noundef nonnull %10, ptr noundef nonnull @.str.1395) #10
   %29 = load i32, ptr @hf_gsm_a_rr_serving_cell_priority_param_geran_priority, align 4
   %30 = call ptr @proto_tree_add_bits_item(ptr noundef %28, i32 noundef %29, ptr noundef %0, i32 noundef %14, i32 noundef 3, i32 noundef 0) #10
@@ -13745,7 +13745,7 @@ define internal fastcc i32 @de_rr_priority_and_eutran_param_desc(ptr noundef %0,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %53 = ashr i32 %44, 3
-  %54 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 76), align 4
+  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 76), align 4
   %55 = call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef %53, i32 noundef -1, i32 noundef %54, ptr noundef nonnull %7, ptr noundef nonnull @.str.1397) #10
   %56 = load i32, ptr @hf_gsm_a_rr_3g_priority_param_desc_utran_start, align 4
   %57 = call ptr @proto_tree_add_bits_item(ptr noundef %55, i32 noundef %56, ptr noundef %0, i32 noundef %44, i32 noundef 1, i32 noundef 0) #10
@@ -13797,7 +13797,7 @@ define internal fastcc i32 @de_rr_priority_and_eutran_param_desc(ptr noundef %0,
 
 91:                                               ; preds = %81
   %92 = ashr i32 %82, 3
-  %93 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 80), align 16
+  %93 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 80), align 16
   %94 = call ptr @proto_tree_add_subtree(ptr noundef %55, ptr noundef %0, i32 noundef %92, i32 noundef 1, i32 noundef %93, ptr noundef nonnull %8, ptr noundef nonnull @.str.1786) #10
   br label %95
 
@@ -13923,7 +13923,7 @@ de_rr_3g_priority_param_desc.exit:                ; preds = %81
 170:                                              ; preds = %161
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %171 = ashr i32 %162, 3
-  %172 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 84), align 4
+  %172 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 84), align 4
   %173 = call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef %171, i32 noundef -1, i32 noundef %172, ptr noundef nonnull %6, ptr noundef nonnull @.str.1399) #10
   %174 = load i32, ptr @hf_gsm_a_rr_eutran_ccn_active, align 4
   %175 = call ptr @proto_tree_add_bits_item(ptr noundef %173, i32 noundef %174, ptr noundef %0, i32 noundef %162, i32 noundef 1, i32 noundef 0) #10
@@ -14157,7 +14157,7 @@ de_rr_3g_priority_param_desc.exit:                ; preds = %81
 332:                                              ; preds = %322
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %333 = ashr i32 %323, 3
-  %334 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 88), align 8
+  %334 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 88), align 8
   %335 = call ptr @proto_tree_add_subtree(ptr noundef %173, ptr noundef %0, i32 noundef %333, i32 noundef -1, i32 noundef %334, ptr noundef nonnull %5, ptr noundef nonnull @.str.1787) #10
   br label %336
 
@@ -14309,7 +14309,7 @@ de_rr_eutran_neighbour_cells.exit.i:              ; preds = %404, %394
 
 433:                                              ; preds = %.preheader.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %434 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 96), align 16
+  %434 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 96), align 16
   %435 = call ptr @proto_tree_add_subtree(ptr noundef %173, ptr noundef %0, i32 noundef %432, i32 noundef -1, i32 noundef %434, ptr noundef nonnull %4, ptr noundef nonnull @.str.1789) #10
   br label %436
 
@@ -14364,7 +14364,7 @@ de_rr_eutran_param_desc.exit:                     ; preds = %.preheader.i
 define internal fastcc i32 @de_rr_3g_csg_desc(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = ashr i32 %2, 3
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 100), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 100), align 4
   %7 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %5, i32 noundef -1, i32 noundef %6, ptr noundef nonnull %4, ptr noundef nonnull @.str.1465) #10
   br label %.loopexit
 
@@ -14507,7 +14507,7 @@ define internal fastcc i32 @de_rr_3g_csg_desc(ptr noundef %0, ptr noundef %1, i3
 define internal fastcc i32 @de_rr_eutran_csg_desc(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = ashr i32 %2, 3
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 104), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 104), align 8
   %7 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %5, i32 noundef -1, i32 noundef %6, ptr noundef nonnull %4, ptr noundef nonnull @.str.1515) #10
   br label %8
 
@@ -14949,7 +14949,7 @@ define internal fastcc i32 @de_rr_rest_oct_opt_sel_param(ptr noundef %0, ptr nou
 
 8:                                                ; preds = %3
   %9 = ashr i32 %5, 3
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 108), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 108), align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %4, ptr noundef nonnull @.str.1790) #10
   %12 = load i32, ptr @hf_gsm_a_rr_cbq, align 4
   %13 = call ptr @proto_tree_add_bits_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0) #10
@@ -18900,7 +18900,7 @@ define internal void @sacch_rr_enh_meas_report(ptr noundef %0, ptr noundef %1, p
 
 29:                                               ; preds = %5
   %30 = and i32 %3, 536870911
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 180), align 4
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 180), align 4
   %32 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %30, i32 noundef -1, i32 noundef %31, ptr noundef nonnull %6, ptr noundef nonnull @.str.1517) #10
   %33 = load i32, ptr @hf_gsm_a_rr_dtx_used, align 4
   %34 = call ptr @proto_tree_add_bits_item(ptr noundef %32, i32 noundef %33, ptr noundef %0, i32 noundef %23, i32 noundef 1, i32 noundef 0) #10
@@ -18948,7 +18948,7 @@ define internal void @sacch_rr_enh_meas_report(ptr noundef %0, ptr noundef %1, p
 
 64:                                               ; preds = %54
   %65 = lshr i32 %55, 3
-  %66 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 184), align 8
+  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 184), align 8
   %67 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %65, i32 noundef -1, i32 noundef %66, ptr noundef nonnull %6, ptr noundef nonnull @.str.1519) #10
   %68 = load i32, ptr @hf_gsm_a_rr_bcch_freq_ncell, align 4
   %69 = call ptr @proto_tree_add_bits_item(ptr noundef %67, i32 noundef %68, ptr noundef %0, i32 noundef %55, i32 noundef 5, i32 noundef 0) #10
@@ -18976,7 +18976,7 @@ define internal void @sacch_rr_enh_meas_report(ptr noundef %0, ptr noundef %1, p
 
 87:                                               ; preds = %77
   %88 = lshr i32 %78, 3
-  %89 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 188), align 4
+  %89 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 188), align 4
   %90 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %88, i32 noundef -1, i32 noundef %89, ptr noundef null, ptr noundef nonnull @.str.1521) #10
   %91 = add i32 %4, %3
   %.not168 = icmp ugt i32 %88, %91
@@ -19030,7 +19030,7 @@ define internal void @sacch_rr_enh_meas_report(ptr noundef %0, ptr noundef %1, p
 
 121:                                              ; preds = %117
   %122 = lshr i32 %118, 3
-  %123 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 228), align 4
+  %123 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 228), align 4
   %124 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %122, i32 noundef -1, i32 noundef %123, ptr noundef nonnull %6, ptr noundef nonnull @.str.1806) #10
   %125 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %118, i32 noundef 7) #10
   %126 = add i8 %125, 1
@@ -19098,7 +19098,7 @@ define internal void @sacch_rr_enh_meas_report(ptr noundef %0, ptr noundef %1, p
   %.neg = sub i32 %10, %160
   %171 = add i32 %.neg, %170
   %172 = ashr i32 %160, 3
-  %173 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 232), align 8
+  %173 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 232), align 8
   %174 = call ptr @proto_tree_add_subtree(ptr noundef %124, ptr noundef %0, i32 noundef %172, i32 noundef -1, i32 noundef %173, ptr noundef null, ptr noundef nonnull @.str.1523) #10
   %175 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %160, i32 noundef 2) #10
   %176 = load i32, ptr @hf_gsm_a_rr_eutran_mr_n_eutran, align 4
@@ -19303,7 +19303,7 @@ define internal void @sacch_rr_meas_info(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not365, label %._crit_edge425, label %118
 
 118:                                              ; preds = %108
-  %119 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 48), align 16
+  %119 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 48), align 16
   %120 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %.pre, i32 noundef -1, i32 noundef %119, ptr noundef nonnull %11, ptr noundef nonnull @.str.1440) #10
   %121 = add i32 %.4, 2
   %122 = load i32, ptr @hf_gsm_a_rr_3g_wait_present, align 4
@@ -19421,7 +19421,7 @@ define internal void @sacch_rr_meas_info(ptr noundef %0, ptr noundef %1, ptr nou
   br label %260
 
 197:                                              ; preds = %187
-  %198 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 176), align 16
+  %198 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 176), align 16
   %199 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %.pre430, i32 noundef -1, i32 noundef %198, ptr noundef nonnull %12, ptr noundef nonnull @.str.1502) #10
   %200 = add i32 %.10, 17
   %201 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %200, i32 noundef 5) #10
@@ -19563,7 +19563,7 @@ define internal void @sacch_rr_meas_info(ptr noundef %0, ptr noundef %1, ptr nou
 
 270:                                              ; preds = %._crit_edge425
   %271 = ashr i32 %262, 3
-  %272 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 8), align 8
+  %272 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 8), align 8
   %273 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %271, i32 noundef -1, i32 noundef %272, ptr noundef nonnull %11, ptr noundef nonnull @.str.1272) #10
   %274 = load i32, ptr @hf_gsm_a_rr_qsearch_c, align 4
   %275 = call ptr @proto_tree_add_bits_item(ptr noundef %273, i32 noundef %274, ptr noundef %0, i32 noundef %262, i32 noundef 4, i32 noundef 0) #10
@@ -19825,7 +19825,7 @@ define internal void @sacch_rr_meas_info(ptr noundef %0, ptr noundef %1, ptr nou
 450:                                              ; preds = %440
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   %451 = ashr i32 %441, 3
-  %452 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 192), align 16
+  %452 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 192), align 16
   %453 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %451, i32 noundef -1, i32 noundef %452, ptr noundef nonnull %10, ptr noundef nonnull @.str.1461) #10
   %454 = load i32, ptr @hf_gsm_a_rr_3g_priority_param_desc_utran_start, align 4
   %455 = call ptr @proto_tree_add_bits_item(ptr noundef %453, i32 noundef %454, ptr noundef %0, i32 noundef %441, i32 noundef 1, i32 noundef 0) #10
@@ -19885,7 +19885,7 @@ define internal void @sacch_rr_meas_info(ptr noundef %0, ptr noundef %1, ptr nou
 493:                                              ; preds = %483
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %494 = ashr i32 %484, 3
-  %495 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 196), align 4
+  %495 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 196), align 4
   %496 = call ptr @proto_tree_add_subtree(ptr noundef %453, ptr noundef %0, i32 noundef %494, i32 noundef -1, i32 noundef %495, ptr noundef nonnull %9, ptr noundef nonnull @.str.1800) #10
   br label %497
 
@@ -19952,7 +19952,7 @@ de_rr_3g_supplementary_param_desc_mi.exit:        ; preds = %483, %450
 529:                                              ; preds = %520
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %530 = ashr i32 %521, 3
-  %531 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 84), align 4
+  %531 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 84), align 4
   %532 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %530, i32 noundef -1, i32 noundef %531, ptr noundef nonnull %8, ptr noundef nonnull @.str.1399) #10
   %533 = load i32, ptr @hf_gsm_a_rr_eutran_start, align 4
   %534 = call ptr @proto_tree_add_bits_item(ptr noundef %532, i32 noundef %533, ptr noundef %0, i32 noundef %521, i32 noundef 1, i32 noundef 0) #10
@@ -19998,7 +19998,7 @@ de_rr_3g_supplementary_param_desc_mi.exit:        ; preds = %483, %450
 561:                                              ; preds = %551
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %562 = ashr i32 %552, 3
-  %563 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 88), align 8
+  %563 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 88), align 8
   %564 = call ptr @proto_tree_add_subtree(ptr noundef %532, ptr noundef %0, i32 noundef %562, i32 noundef -1, i32 noundef %563, ptr noundef nonnull %7, ptr noundef nonnull @.str.1787) #10
   br label %565
 
@@ -20170,7 +20170,7 @@ de_rr_eutran_param_desc_mi.exit:                  ; preds = %630, %606
 669:                                              ; preds = %660
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %670 = ashr i32 %661, 3
-  %671 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 104), align 8
+  %671 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 104), align 8
   %672 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %670, i32 noundef -1, i32 noundef %671, ptr noundef nonnull %6, ptr noundef nonnull @.str.1515) #10
   br label %673
 
@@ -20236,7 +20236,7 @@ define internal void @dtap_rr_ec_imm_ass_type_2(ptr noundef %0, ptr noundef %1, 
 
 21:                                               ; preds = %17, %5
   %.0 = phi i32 [ %20, %17 ], [ %11, %5 ]
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_elem, i64 340), align 4
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_elem, i64 340), align 4
   %23 = tail call ptr @val_to_str_ext_const(i32 noundef 85, ptr noundef nonnull @gsm_rr_elem_strings_ext, ptr noundef nonnull @.str.84) #10
   %24 = lshr i32 %.0, 3
   %25 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %24, i32 noundef 2, i32 noundef %22, ptr noundef null, ptr noundef nonnull @.str.2962, ptr noundef %23, ptr noundef nonnull @.str.84) #10
@@ -20249,7 +20249,7 @@ define internal void @dtap_rr_ec_imm_ass_type_2(ptr noundef %0, ptr noundef %1, 
   %32 = tail call fastcc zeroext i16 @de_rr_ec_pkt_ch_dsc2(ptr noundef %0, ptr noundef %1, i32 noundef %31)
   %33 = zext i16 %32 to i32
   %34 = add i32 %31, %33
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_elem, i64 352), align 16
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_elem, i64 352), align 16
   %36 = tail call ptr @val_to_str_ext_const(i32 noundef 88, ptr noundef nonnull @gsm_rr_elem_strings_ext, ptr noundef nonnull @.str.84) #10
   %37 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %35, ptr noundef null, ptr noundef %36) #10
   %38 = load i32, ptr @hf_gsm_a_rr_ec_enhanced_access_burst, align 4
@@ -20411,7 +20411,7 @@ define internal void @dtap_rr_ec_imm_ass_rej(ptr noundef %0, ptr noundef %1, ptr
 
 21:                                               ; preds = %17, %5
   %.0 = phi i32 [ %20, %17 ], [ %11, %5 ]
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_elem, i64 340), align 4
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_elem, i64 340), align 4
   %23 = tail call ptr @val_to_str_ext_const(i32 noundef 85, ptr noundef nonnull @gsm_rr_elem_strings_ext, ptr noundef nonnull @.str.84) #10
   %24 = lshr i32 %.0, 3
   %25 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %24, i32 noundef 2, i32 noundef %22, ptr noundef null, ptr noundef nonnull @.str.2962, ptr noundef %23, ptr noundef nonnull @.str.2963) #10
@@ -20437,7 +20437,7 @@ define internal void @dtap_rr_ec_imm_ass_rej(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not47, label %58, label %44
 
 44:                                               ; preds = %21
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_elem, i64 340), align 4
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_elem, i64 340), align 4
   %46 = tail call ptr @val_to_str_ext_const(i32 noundef 85, ptr noundef nonnull @gsm_rr_elem_strings_ext, ptr noundef nonnull @.str.84) #10
   %47 = lshr i32 %35, 3
   %48 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %47, i32 noundef 2, i32 noundef %45, ptr noundef null, ptr noundef nonnull @.str.2962, ptr noundef %46, ptr noundef nonnull @.str.2964) #10
@@ -20467,7 +20467,7 @@ define internal void @dtap_rr_ec_imm_ass_rej(ptr noundef %0, ptr noundef %1, ptr
 
 67:                                               ; preds = %58
   %68 = add i32 %.1, 1
-  %69 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_elem, i64 340), align 4
+  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_elem, i64 340), align 4
   %70 = tail call ptr @val_to_str_ext_const(i32 noundef 85, ptr noundef nonnull @gsm_rr_elem_strings_ext, ptr noundef nonnull @.str.84) #10
   %71 = lshr i32 %68, 3
   %72 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %71, i32 noundef 2, i32 noundef %69, ptr noundef null, ptr noundef nonnull @.str.2962, ptr noundef %70, ptr noundef nonnull @.str.2965) #10
@@ -20658,7 +20658,7 @@ define internal void @dtap_rr_ec_paging_req(ptr noundef %0, ptr noundef %1, ptr 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i16 @de_rr_ec_pkt_ch_dsc2(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 {
   %4 = lshr i32 %2, 3
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_elem, i64 348), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gsm_rr_elem, i64 348), align 4
   %6 = tail call ptr @val_to_str_ext_const(i32 noundef 87, ptr noundef nonnull @gsm_rr_elem_strings_ext, ptr noundef nonnull @.str.84) #10
   %7 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %4, i32 noundef 2, i32 noundef %5, ptr noundef null, ptr noundef %6) #10
   %8 = load i32, ptr @hf_gsm_a_rr_ec_qhfi, align 4

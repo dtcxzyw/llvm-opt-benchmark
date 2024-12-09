@@ -33,7 +33,7 @@ $_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE5writeILN8LogL
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17JfrEventThrottlerC2E10JfrEventId(ptr noundef nonnull align 8 dereferenceable(142) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN18JfrAdaptiveSamplerC2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0) #9
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV17JfrEventThrottler, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV17JfrEventThrottler, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
@@ -62,7 +62,7 @@ define hidden noundef zeroext i1 @_ZN17JfrEventThrottler6createEv() local_unname
 
 3:                                                ; preds = %0
   tail call void @_ZN18JfrAdaptiveSamplerC2Ev(ptr noundef nonnull align 8 dereferenceable(142) %1) #9
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV17JfrEventThrottler, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV17JfrEventThrottler, i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)

@@ -2269,7 +2269,7 @@ _ZN5vcpkgL16serialize_stringENS_10StringViewERKNSt7__cxx1112basic_stringIcSt11ch
   store i64 %39, ptr %40, align 8, !alias.scope !39
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %39, ptr %41, align 8, !alias.scope !39
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 16), ptr %4, align 8, !alias.scope !39
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 16), ptr %4, align 8, !alias.scope !39
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %1, ptr %42, align 8, !alias.scope !39
   call void @_ZN3fmt3v106detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr nonnull @.str.7, i64 7, i64 31, ptr nonnull %5, ptr null)
@@ -2416,7 +2416,7 @@ _ZN5vcpkgL16serialize_stringENS_10StringViewERKNSt7__cxx1112basic_stringIcSt11ch
           to label %.noexc117 unwind label %130
 
 .noexc117:                                        ; preds = %.noexc116
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 4))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %89
 
 89:                                               ; preds = %.noexc117

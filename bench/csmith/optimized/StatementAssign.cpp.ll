@@ -1129,7 +1129,7 @@ _ZN24FunctionInvocationBinary12get_tmp_var2B5cxx11Ev.exit: ; preds = %_ZN24Funct
           to label %.noexc unwind label %132
 
 .noexc:                                           ; preds = %118
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15StatementAssign, i64 16), ptr %115, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15StatementAssign, i64 16), ptr %115, align 8
   %119 = getelementptr inbounds nuw i8, ptr %115, i64 32
   store i32 %3, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %115, i64 40
@@ -1616,7 +1616,7 @@ define dso_local noundef zeroext i1 @_ZNK15StatementAssign28has_uncertain_call_r
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15StatementAssignC2EP5BlockRK3LhsRK10Expression10eAssignOpsPK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(41) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %4, ptr noundef %5) unnamed_addr #4 align 2 {
   tail call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15StatementAssign, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15StatementAssign, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %4, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1639,7 +1639,7 @@ declare void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15StatementAssignC2EP5BlockRK3Lhs10eAssignOpsRK10ExpressionPS7_PK11SafeOpFlagsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(41) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15StatementAssign, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15StatementAssign, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %3, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1686,7 +1686,7 @@ declare void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32))
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN15StatementAssignD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15StatementAssign, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15StatementAssign, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48

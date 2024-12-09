@@ -903,7 +903,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !21
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -1328,7 +1328,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLiblsERSoRKNS_4
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8QuantLib30MultiplicativePriceSeasonalityC2ERKNS_4DateENS_9FrequencyERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %seasonalityBaseDate, i32 noundef %frequency, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %seasonalityFactors) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN8QuantLib30MultiplicativePriceSeasonalityE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN8QuantLib30MultiplicativePriceSeasonalityE, i64 16), ptr %this, align 8, !tbaa !3
   %seasonalityBaseDate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %seasonalityBaseDate_)
   %seasonalityFactors_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -3053,7 +3053,7 @@ unreachable:                                      ; preds = %invoke.cont19
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib30MultiplicativePriceSeasonalityD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN8QuantLib30MultiplicativePriceSeasonalityE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN8QuantLib30MultiplicativePriceSeasonalityE, i64 16), ptr %this, align 8, !tbaa !3
   %seasonalityFactors_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %seasonalityFactors_.i, align 8, !tbaa !18
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -3091,7 +3091,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib30MultiplicativePriceSeasonalityD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN8QuantLib30MultiplicativePriceSeasonalityE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN8QuantLib30MultiplicativePriceSeasonalityE, i64 16), ptr %this, align 8, !tbaa !3
   %seasonalityFactors_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %seasonalityFactors_, align 8, !tbaa !18
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -3113,7 +3113,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib18KerkhofSeasonalityD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN8QuantLib30MultiplicativePriceSeasonalityE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN8QuantLib30MultiplicativePriceSeasonalityE, i64 16), ptr %this, align 8, !tbaa !3
   %seasonalityFactors_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %seasonalityFactors_.i, align 8, !tbaa !18
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

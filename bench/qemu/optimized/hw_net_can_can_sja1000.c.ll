@@ -1552,17 +1552,17 @@ if.then19.i:                                      ; preds = %if.end15.i
   %92 = load i32, ptr %frames, align 8
   %shr.i.i59 = lshr i32 %92, 21
   %conv25.i = trunc i32 %shr.i.i59 to i8
-  store i8 %conv25.i, ptr getelementptr inbounds (i8, ptr @can_sja_receive.rcv, i64 1), align 1
+  store i8 %conv25.i, ptr getelementptr inbounds nuw (i8, ptr @can_sja_receive.rcv, i64 1), align 1
   %shr.i34.i = lshr i32 %92, 13
   %conv29.i = trunc i32 %shr.i34.i to i8
-  store i8 %conv29.i, ptr getelementptr inbounds (i8, ptr @can_sja_receive.rcv, i64 2), align 1
+  store i8 %conv29.i, ptr getelementptr inbounds nuw (i8, ptr @can_sja_receive.rcv, i64 2), align 1
   %93 = load i32, ptr %frames, align 8
   %shr.i36.i = lshr i32 %93, 5
   %conv33.i = trunc i32 %shr.i36.i to i8
-  store i8 %conv33.i, ptr getelementptr inbounds (i8, ptr @can_sja_receive.rcv, i64 3), align 1
+  store i8 %conv33.i, ptr getelementptr inbounds nuw (i8, ptr @can_sja_receive.rcv, i64 3), align 1
   %94 = trunc i32 %93 to i8
   %call36.tr.i = shl i8 %94, 3
-  store i8 %call36.tr.i, ptr getelementptr inbounds (i8, ptr @can_sja_receive.rcv, i64 4), align 1
+  store i8 %call36.tr.i, ptr getelementptr inbounds nuw (i8, ptr @can_sja_receive.rcv, i64 4), align 1
   %cmp391.not.i = icmp eq i8 %85, 0
   br i1 %cmp391.not.i, label %if.end27, label %for.body.lr.ph.i
 
@@ -1575,7 +1575,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx41.i = getelementptr [64 x i8], ptr %data.i60, i64 0, i64 %indvars.iv.i
   %95 = load i8, ptr %arrayidx41.i, align 1
-  %gep.i = getelementptr i8, ptr getelementptr inbounds (i8, ptr @can_sja_receive.rcv, i64 5), i64 %indvars.iv.i
+  %gep.i = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @can_sja_receive.rcv, i64 5), i64 %indvars.iv.i
   store i8 %95, ptr %gep.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1584,11 +1584,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 if.else.i62:                                      ; preds = %if.end15.i
   %shr.i40.i = lshr i32 %90, 3
   %conv47.i = trunc i32 %shr.i40.i to i8
-  store i8 %conv47.i, ptr getelementptr inbounds (i8, ptr @can_sja_receive.rcv, i64 1), align 1
+  store i8 %conv47.i, ptr getelementptr inbounds nuw (i8, ptr @can_sja_receive.rcv, i64 1), align 1
   %96 = load i32, ptr %frames, align 8
   %97 = trunc i32 %96 to i8
   %call50.tr.i = shl i8 %97, 5
-  store i8 %call50.tr.i, ptr getelementptr inbounds (i8, ptr @can_sja_receive.rcv, i64 2), align 1
+  store i8 %call50.tr.i, ptr getelementptr inbounds nuw (i8, ptr @can_sja_receive.rcv, i64 2), align 1
   %cmp554.not.i = icmp eq i8 %85, 0
   br i1 %cmp554.not.i, label %if.end27, label %for.body57.lr.ph.i
 
@@ -1601,7 +1601,7 @@ for.body57.i:                                     ; preds = %for.body57.i, %for.
   %indvars.iv7.i = phi i64 [ 0, %for.body57.lr.ph.i ], [ %indvars.iv.next8.i, %for.body57.i ]
   %arrayidx60.i = getelementptr [64 x i8], ptr %data58.i, i64 0, i64 %indvars.iv7.i
   %98 = load i8, ptr %arrayidx60.i, align 1
-  %gep3.i = getelementptr i8, ptr getelementptr inbounds (i8, ptr @can_sja_receive.rcv, i64 3), i64 %indvars.iv7.i
+  %gep3.i = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @can_sja_receive.rcv, i64 3), i64 %indvars.iv7.i
   store i8 %98, ptr %gep3.i, align 1
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %exitcond11.not.i = icmp eq i64 %indvars.iv.next8.i, %wide.trip.count10.i
@@ -1716,7 +1716,7 @@ if.end6.i:                                        ; preds = %if.else
   %126 = and i8 %125, 16
   %127 = or disjoint i8 %126, %call10.tr.i
   %or2617.i = or disjoint i8 %127, %120
-  store i8 %or2617.i, ptr getelementptr inbounds (i8, ptr @can_sja_receive.rcv, i64 1), align 1
+  store i8 %or2617.i, ptr getelementptr inbounds nuw (i8, ptr @can_sja_receive.rcv, i64 1), align 1
   %cmp281.not.i = icmp eq i8 %120, 0
   br i1 %cmp281.not.i, label %if.end82, label %for.body.lr.ph.i75
 
@@ -1729,7 +1729,7 @@ for.body.i78:                                     ; preds = %for.body.i78, %for.
   %indvars.iv.i79 = phi i64 [ 0, %for.body.lr.ph.i75 ], [ %indvars.iv.next.i81, %for.body.i78 ]
   %arrayidx30.i = getelementptr [64 x i8], ptr %data.i76, i64 0, i64 %indvars.iv.i79
   %128 = load i8, ptr %arrayidx30.i, align 1
-  %gep.i80 = getelementptr i8, ptr getelementptr inbounds (i8, ptr @can_sja_receive.rcv, i64 2), i64 %indvars.iv.i79
+  %gep.i80 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @can_sja_receive.rcv, i64 2), i64 %indvars.iv.i79
   store i8 %128, ptr %gep.i80, align 1
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i79, 1
   %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, %wide.trip.count.i77

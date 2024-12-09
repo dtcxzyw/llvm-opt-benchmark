@@ -474,7 +474,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_zip_streamable_read_h
   br i1 %.not, label %34, label %30
 
 30:                                               ; preds = %25
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_cryptor, i64 24), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_cryptor, i64 24), align 8
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 8072
   %33 = tail call i32 %31(ptr noundef nonnull %32) #21
   br label %34
@@ -486,7 +486,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_zip_streamable_read_h
   br i1 %.not51, label %40, label %37
 
 37:                                               ; preds = %34
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_hmac, i64 24), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_hmac, i64 24), align 8
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 8168
   tail call void %38(ptr noundef nonnull %39) #21
   br label %40
@@ -1080,7 +1080,7 @@ define internal noundef i32 @archive_read_format_zip_cleanup(ptr nocapture nound
   br i1 %.not34, label %36, label %33
 
 33:                                               ; preds = %28
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd8_functions, i64 16), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd8_functions, i64 16), align 8
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 576
   tail call void %34(ptr noundef nonnull %35) #21
   br label %36
@@ -1111,7 +1111,7 @@ define internal noundef i32 @archive_read_format_zip_cleanup(ptr nocapture nound
   br i1 %.not37, label %50, label %46
 
 46:                                               ; preds = %.loopexit
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_cryptor, i64 24), align 8
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_cryptor, i64 24), align 8
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 8072
   %49 = tail call i32 %47(ptr noundef nonnull %48) #21
   br label %50
@@ -1123,7 +1123,7 @@ define internal noundef i32 @archive_read_format_zip_cleanup(ptr nocapture nound
   br i1 %.not38, label %56, label %53
 
 53:                                               ; preds = %50
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_hmac, i64 24), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_hmac, i64 24), align 8
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 8168
   tail call void %54(ptr noundef nonnull %55) #21
   br label %56
@@ -1791,7 +1791,7 @@ slurp_central_directory.exit.thread:              ; preds = %._crit_edge.i, %264
   br i1 %.not67, label %295, label %291
 
 291:                                              ; preds = %288
-  %292 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_cryptor, i64 24), align 8
+  %292 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_cryptor, i64 24), align 8
   %293 = getelementptr inbounds nuw i8, ptr %9, i64 8072
   %294 = call i32 %292(ptr noundef nonnull %293) #21
   br label %295
@@ -1803,7 +1803,7 @@ slurp_central_directory.exit.thread:              ; preds = %._crit_edge.i, %264
   br i1 %.not68, label %301, label %298
 
 298:                                              ; preds = %295
-  %299 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_hmac, i64 24), align 8
+  %299 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_hmac, i64 24), align 8
   %300 = getelementptr inbounds nuw i8, ptr %9, i64 8168
   call void %299(ptr noundef nonnull %300) #21
   br label %301
@@ -3917,7 +3917,7 @@ thread-pre-split:                                 ; preds = %32, %45, %41
 
 116:                                              ; preds = %81
   store i64 %.1, ptr %7, align 8
-  %117 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_cryptor, i64 16), align 8
+  %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_cryptor, i64 16), align 8
   %118 = getelementptr inbounds nuw i8, ptr %10, i64 8072
   %119 = call i32 %117(ptr noundef nonnull %118, ptr noundef %33, i64 noundef %.1, ptr noundef %67, ptr noundef nonnull %7) #21
   br label %trad_enc_decrypt_update.exit
@@ -4017,7 +4017,7 @@ trad_enc_decrypt_update.exit:                     ; preds = %87, %82, %116
   br i1 %.not112, label %168, label %165
 
 165:                                              ; preds = %162
-  %166 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_hmac, i64 8), align 8
+  %166 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_hmac, i64 8), align 8
   %167 = getelementptr inbounds nuw i8, ptr %10, i64 8168
   call void %166(ptr noundef nonnull %167, ptr noundef %33, i64 noundef %144) #21
   %.pre = load i64, ptr %6, align 8
@@ -4346,7 +4346,7 @@ define internal fastcc range(i32 -30, 1) i32 @check_authentication_code(ptr noun
 
 10:                                               ; preds = %2
   store i64 20, ptr %4, align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_hmac, i64 16), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_hmac, i64 16), align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8168
   call void %11(ptr noundef nonnull %12, ptr noundef nonnull %3, ptr noundef nonnull %4) #21
   %13 = icmp eq ptr %1, null
@@ -4774,7 +4774,7 @@ define internal fastcc range(i32 -30, 1) i32 @init_WinZip_AES_decryption(ptr nou
   br i1 %51, label %._crit_edge, label %33
 
 52:                                               ; preds = %42
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_cryptor, i64 8), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_cryptor, i64 8), align 8
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8072
   %55 = call i32 %53(ptr noundef nonnull %54, ptr noundef nonnull %2, i64 noundef %.055) #21
   %.not60 = icmp eq i32 %55, 0
@@ -4792,7 +4792,7 @@ define internal fastcc range(i32 -30, 1) i32 @init_WinZip_AES_decryption(ptr nou
   br i1 %.not61, label %64, label %61
 
 61:                                               ; preds = %57
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_cryptor, i64 24), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_cryptor, i64 24), align 8
   %63 = call i32 %62(ptr noundef nonnull %54) #21
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.89) #21
   br label %87
@@ -5423,10 +5423,10 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_data_none(ptr noundef %0,
   %194 = load i64, ptr %193, align 8
   %spec.select1321 = call i64 @llvm.umin.i64(i64 %148, i64 %194)
   store i64 %spec.select1321, ptr %7, align 8
-  %195 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_hmac, i64 8), align 8
+  %195 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_hmac, i64 8), align 8
   %196 = getelementptr inbounds nuw i8, ptr %10, i64 8168
   call void %195(ptr noundef nonnull %196, ptr noundef %.0104, i64 noundef %spec.select1321) #21
-  %197 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_cryptor, i64 16), align 8
+  %197 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_cryptor, i64 16), align 8
   %198 = getelementptr inbounds nuw i8, ptr %10, i64 8072
   %199 = getelementptr inbounds nuw i8, ptr %10, i64 8016
   %200 = load ptr, ptr %199, align 8
@@ -5945,7 +5945,7 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_data_zipx_ppmd(ptr nounde
   br i1 %.not.i, label %16, label %13
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd8_functions, i64 16), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd8_functions, i64 16), align 8
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 576
   tail call void %14(ptr noundef nonnull %15) #21
   store i8 0, ptr %11, align 8
@@ -5993,7 +5993,7 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_data_zipx_ppmd(ptr nounde
   br label %zipx_ppmd8_init.exit.thread
 
 37:                                               ; preds = %26
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd8_functions, i64 8), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd8_functions, i64 8), align 8
   %39 = shl nuw nsw i32 %29, 24
   %40 = shl nuw nsw i32 %30, 16
   %41 = or disjoint i32 %39, %40
@@ -6009,7 +6009,7 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_data_zipx_ppmd(ptr nounde
 
 46:                                               ; preds = %37
   store i8 1, ptr %11, align 8
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd8_functions, i64 32), align 8
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd8_functions, i64 32), align 8
   %48 = tail call i32 %47(ptr noundef nonnull %18) #21
   %.not49.i = icmp eq i32 %48, 0
   br i1 %.not49.i, label %49, label %50
@@ -6019,7 +6019,7 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_data_zipx_ppmd(ptr nounde
   br label %zipx_ppmd8_init.exit.thread
 
 50:                                               ; preds = %46
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd8_functions, i64 24), align 8
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd8_functions, i64 24), align 8
   tail call void %51(ptr noundef nonnull %18, i32 noundef %32, i32 noundef %33) #21
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %53 = load ptr, ptr %52, align 8
@@ -6058,7 +6058,7 @@ zipx_ppmd8_init.exit:                             ; preds = %50
 68:                                               ; preds = %63
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 568
   store i64 0, ptr %69, align 8
-  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd8_functions, i64 40), align 8
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd8_functions, i64 40), align 8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 576
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 7969
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 168
@@ -6119,7 +6119,7 @@ zipx_ppmd8_init.exit:                             ; preds = %50
   br i1 %.not45, label %106, label %103
 
 103:                                              ; preds = %.loopexit
-  %104 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd8_functions, i64 16), align 8
+  %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd8_functions, i64 16), align 8
   call void %104(ptr noundef nonnull %71) #21
   %105 = getelementptr inbounds nuw i8, ptr %7, i64 7968
   store i8 0, ptr %105, align 8

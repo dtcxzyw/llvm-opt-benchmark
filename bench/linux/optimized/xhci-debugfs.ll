@@ -298,7 +298,7 @@ define dso_local void @xhci_debugfs_create_endpoint(ptr nocapture noundef readno
   br i1 %12, label %13, label %35
 
 13:                                               ; preds = %7
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %15 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %14, i32 noundef 3520, i64 noundef 64) #13
   %16 = icmp eq ptr %15, null
   br i1 %16, label %35, label %17
@@ -430,7 +430,7 @@ define dso_local void @xhci_debugfs_create_slot(ptr nocapture noundef readonly %
   %4 = sext i32 %1 to i64
   %5 = getelementptr [256 x ptr], ptr %3, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %8 = tail call noalias align 8 dereferenceable_or_null(296) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 296) #13
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %10
@@ -637,7 +637,7 @@ define internal void @xhci_debugfs_regset(ptr noundef %0, i32 noundef %1, ptr no
   %7 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #14
   %8 = load ptr, ptr %0, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %10 = tail call noalias align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 88) #13
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.thread, label %12
@@ -1731,7 +1731,7 @@ define internal i32 @xhci_ring_open(ptr nocapture noundef readonly %0, ptr nound
   br i1 %27, label %28, label %19
 
 28:                                               ; preds = %22, %19
-  %29 = phi ptr [ %24, %22 ], [ getelementptr inbounds (i8, ptr @ring_files, i64 48), %19 ]
+  %29 = phi ptr [ %24, %22 ], [ getelementptr inbounds nuw (i8, ptr @ring_files, i64 48), %19 ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 592
@@ -2264,7 +2264,7 @@ define internal i32 @xhci_context_open(ptr nocapture noundef readonly %0, ptr no
   br i1 %27, label %28, label %19
 
 28:                                               ; preds = %22, %19
-  %29 = phi ptr [ %24, %22 ], [ getelementptr inbounds (i8, ptr @context_files, i64 32), %19 ]
+  %29 = phi ptr [ %24, %22 ], [ getelementptr inbounds nuw (i8, ptr @context_files, i64 32), %19 ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 592

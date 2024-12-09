@@ -41462,7 +41462,7 @@ default.unreachable236:                           ; preds = %178
   br i1 %72, label %131, label %135
 
 131:                                              ; preds = %130
-  %132 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN14language_model8provider5cloud36zed_cloud_provider_additional_models17ADDITIONAL_MODELS17h630afb99a5ba86dbE, i64 24) acquire, align 8
+  %132 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14language_model8provider5cloud36zed_cloud_provider_additional_models17ADDITIONAL_MODELS17h630afb99a5ba86dbE, i64 24) acquire, align 8
   %133 = icmp eq i32 %132, 4
   br i1 %133, label %137, label %134
 
@@ -41471,7 +41471,7 @@ default.unreachable236:                           ; preds = %178
   store ptr @_ZN14language_model8provider5cloud36zed_cloud_provider_additional_models17ADDITIONAL_MODELS17h630afb99a5ba86dbE, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr %9, ptr %8, align 8
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17he1e04a8208fc124dE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN14language_model8provider5cloud36zed_cloud_provider_additional_models17ADDITIONAL_MODELS17h630afb99a5ba86dbE, i64 24), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.187ff28613c2c65f7ccbfd9ddb5a172b.343)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17he1e04a8208fc124dE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN14language_model8provider5cloud36zed_cloud_provider_additional_models17ADDITIONAL_MODELS17h630afb99a5ba86dbE, i64 24), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.187ff28613c2c65f7ccbfd9ddb5a172b.343)
           to label %.noexc47 unwind label %.thread155.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc47:                                         ; preds = %134
@@ -41486,8 +41486,8 @@ default.unreachable236:                           ; preds = %178
           to label %140 unwind label %.thread155.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 137:                                              ; preds = %.noexc47, %131
-  %138 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN14language_model8provider5cloud36zed_cloud_provider_additional_models17ADDITIONAL_MODELS17h630afb99a5ba86dbE, i64 8), align 8, !nonnull !5, !noundef !5
-  %139 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN14language_model8provider5cloud36zed_cloud_provider_additional_models17ADDITIONAL_MODELS17h630afb99a5ba86dbE, i64 16), align 8, !noundef !5
+  %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN14language_model8provider5cloud36zed_cloud_provider_additional_models17ADDITIONAL_MODELS17h630afb99a5ba86dbE, i64 8), align 8, !nonnull !5, !noundef !5
+  %139 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN14language_model8provider5cloud36zed_cloud_provider_additional_models17ADDITIONAL_MODELS17h630afb99a5ba86dbE, i64 16), align 8, !noundef !5
   br label %135
 
 140:                                              ; preds = %135
@@ -64928,7 +64928,7 @@ _ZN4core3ops8function6FnOnce9call_once17h20eb9f37dd66b466E.exit.i.i.i.i: ; preds
   br label %"_ZN4core3ptr97drop_in_place$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17hffb326be96568ef9E.exit.i"
 
 141:                                              ; preds = %.noexc109.i, %132
-  %.sroa.0.0.i.i.i2.i.i.i.i = phi ptr [ %134, %.noexc109.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %132 ]
+  %.sroa.0.0.i.i.i2.i.i.i.i = phi ptr [ %134, %.noexc109.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %132 ]
   %142 = load i64, ptr %.sroa.0.0.i.i.i2.i.i.i.i, align 8, !noalias !17415, !noundef !5
   %143 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i.i.i.i, i64 8
   %144 = load i64, ptr %143, align 8, !noalias !17415, !noundef !5

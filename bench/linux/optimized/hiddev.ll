@@ -297,7 +297,7 @@ define dso_local i32 @hiddev_connect(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %35, label %.thread, label %36
 
 36:                                               ; preds = %33, %2
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %38 = tail call noalias noundef align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %37, i32 noundef 3520, i64 noundef 104) #14
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.thread, label %40
@@ -941,7 +941,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr nocaptu
   br i1 %134, label %135, label %hiddev_ioctl_string.exit
 
 135:                                              ; preds = %123
-  %136 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %137 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %136, i32 noundef 3264, i64 noundef 256) #14
   %138 = icmp eq ptr %137, null
   br i1 %138, label %hiddev_ioctl_string.exit, label %139
@@ -1162,7 +1162,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr nocaptu
 
 275:                                              ; preds = %274, %270
   %.val14 = phi ptr [ %.val14.pre, %274 ], [ %19, %270 ]
-  %276 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 104), align 8
+  %276 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 104), align 8
   %277 = tail call noalias align 8 dereferenceable_or_null(4124) ptr @kmalloc_trace(ptr noundef %276, i32 noundef 3264, i64 noundef 4124) #14
   %278 = icmp eq ptr %277, null
   br i1 %278, label %hiddev_ioctl_string.exit, label %279

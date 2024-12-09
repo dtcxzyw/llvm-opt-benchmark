@@ -71,13 +71,13 @@ $_ZNSt10_HashtableIN4llvm3pdb11PDB_SymTypeESt4pairIKS2_iESaIS5_ENSt8__detail10_S
 @_ZTVN4llvm3pdb20PDBSymbolTypeManagedE = external unnamed_addr constant { [6 x ptr] }, align 8
 @_ZTVN4llvm3pdb22PDBSymbolTypeDimensionE = external unnamed_addr constant { [6 x ptr] }, align 8
 @_ZTVN4llvm3pdb16PDBSymbolUnknownE = external unnamed_addr constant { [6 x ptr] }, align 8
-@switch.table._ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionERNS0_13IPDBRawSymbolE = private unnamed_addr constant [30 x ptr] [ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb12PDBSymbolExeE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb18PDBSymbolCompilandE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb25PDBSymbolCompilandDetailsE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb21PDBSymbolCompilandEnvE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb13PDBSymbolFuncE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb14PDBSymbolBlockE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb13PDBSymbolDataE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb19PDBSymbolAnnotationE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb14PDBSymbolLabelE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb21PDBSymbolPublicSymbolE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb16PDBSymbolTypeUDTE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb17PDBSymbolTypeEnumE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb24PDBSymbolTypeFunctionSigE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb20PDBSymbolTypePointerE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb18PDBSymbolTypeArrayE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb20PDBSymbolTypeBuiltinE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb20PDBSymbolTypeTypedefE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb22PDBSymbolTypeBaseClassE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb19PDBSymbolTypeFriendE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb24PDBSymbolTypeFunctionArgE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb23PDBSymbolFuncDebugStartE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb21PDBSymbolFuncDebugEndE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb23PDBSymbolUsingNamespaceE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb24PDBSymbolTypeVTableShapeE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb19PDBSymbolTypeVTableE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb15PDBSymbolCustomE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb14PDBSymbolThunkE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb19PDBSymbolTypeCustomE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb20PDBSymbolTypeManagedE, i64 16), ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb22PDBSymbolTypeDimensionE, i64 16)], align 8
+@switch.table._ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionERNS0_13IPDBRawSymbolE = private unnamed_addr constant [30 x ptr] [ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb12PDBSymbolExeE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb18PDBSymbolCompilandE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb25PDBSymbolCompilandDetailsE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb21PDBSymbolCompilandEnvE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb13PDBSymbolFuncE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb14PDBSymbolBlockE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb13PDBSymbolDataE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb19PDBSymbolAnnotationE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb14PDBSymbolLabelE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb21PDBSymbolPublicSymbolE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb16PDBSymbolTypeUDTE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb17PDBSymbolTypeEnumE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb24PDBSymbolTypeFunctionSigE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb20PDBSymbolTypePointerE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb18PDBSymbolTypeArrayE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb20PDBSymbolTypeBuiltinE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb20PDBSymbolTypeTypedefE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb22PDBSymbolTypeBaseClassE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb19PDBSymbolTypeFriendE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb24PDBSymbolTypeFunctionArgE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb23PDBSymbolFuncDebugStartE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb21PDBSymbolFuncDebugEndE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb23PDBSymbolUsingNamespaceE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb24PDBSymbolTypeVTableShapeE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb19PDBSymbolTypeVTableE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb15PDBSymbolCustomE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb14PDBSymbolThunkE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb19PDBSymbolTypeCustomE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb20PDBSymbolTypeManagedE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb22PDBSymbolTypeDimensionE, i64 16)], align 8
 
 @_ZN4llvm3pdb9PDBSymbolD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm3pdb9PDBSymbolD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4llvm3pdb9PDBSymbolC2ERKNS0_11IPDBSessionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb9PDBSymbolE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb9PDBSymbolE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -87,7 +87,7 @@ define dso_local void @_ZN4llvm3pdb9PDBSymbolC2ERKNS0_11IPDBSessionE(ptr nocaptu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4llvm3pdb9PDBSymbolC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb9PDBSymbolE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb9PDBSymbolE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -103,7 +103,7 @@ define dso_local void @_ZN4llvm3pdb9PDBSymbolC2EOS1_(ptr nocapture noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm3pdb9PDBSymbolD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb9PDBSymbolE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb9PDBSymbolE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -148,7 +148,7 @@ switch.lookup:                                    ; preds = %3
   br label %9
 
 9:                                                ; preds = %3, %switch.lookup
-  %.sink = phi ptr [ %switch.load, %switch.lookup ], [ getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb16PDBSymbolUnknownE, i64 16), %3 ]
+  %.sink = phi ptr [ %switch.load, %switch.lookup ], [ getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb16PDBSymbolUnknownE, i64 16), %3 ]
   store ptr %.sink, ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
@@ -179,7 +179,7 @@ switch.lookup:                                    ; preds = %3
   br label %_ZNSt10unique_ptrIN4llvm3pdb13IPDBRawSymbolESt14default_deleteIS2_EEaSEOS5_.exit
 
 _ZNSt10unique_ptrIN4llvm3pdb13IPDBRawSymbolESt14default_deleteIS2_EEaSEOS5_.exit: ; preds = %3, %switch.lookup
-  %.sink.i = phi ptr [ %switch.load, %switch.lookup ], [ getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb16PDBSymbolUnknownE, i64 16), %3 ]
+  %.sink.i = phi ptr [ %switch.load, %switch.lookup ], [ getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb16PDBSymbolUnknownE, i64 16), %3 ]
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %.sink.i, ptr %9, align 8, !noalias !4
   store ptr %9, ptr %0, align 8, !alias.scope !4
@@ -214,7 +214,7 @@ switch.lookup:                                    ; preds = %3
   br label %_ZN4llvm3pdb9PDBSymbol12createSymbolERKNS0_11IPDBSessionENS0_11PDB_SymTypeE.exit
 
 _ZN4llvm3pdb9PDBSymbol12createSymbolERKNS0_11IPDBSessionENS0_11PDB_SymTypeE.exit: ; preds = %3, %switch.lookup
-  %.sink.i = phi ptr [ %switch.load, %switch.lookup ], [ getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb16PDBSymbolUnknownE, i64 16), %3 ]
+  %.sink.i = phi ptr [ %switch.load, %switch.lookup ], [ getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3pdb16PDBSymbolUnknownE, i64 16), %3 ]
   store ptr %.sink.i, ptr %8, align 8, !noalias !7
   store ptr %8, ptr %0, align 8, !alias.scope !7
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 24

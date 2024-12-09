@@ -552,7 +552,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i: ; pred
   store i32 1, ptr %40, align 8, !noalias !16
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 12
   store i32 1, ptr %41, align 4, !noalias !16
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11large_kinfu6ParamsESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %39, align 8, !noalias !16
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11large_kinfu6ParamsESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %39, align 8, !noalias !16
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(260) %42, ptr noundef nonnull readonly align 8 dereferenceable(260) %2, i64 104, i1 false), !noalias !16
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 120
@@ -9750,7 +9750,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv5kinfu13SubmapManagerINS_3MatEE15c
   store i32 1, ptr %19, align 8, !noalias !266
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 1, ptr %20, align 4, !noalias !266
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv5kinfu6SubmapINS0_3MatEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18, align 8, !noalias !266
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv5kinfu6SubmapINS0_3MatEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18, align 8, !noalias !266
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   invoke void @_ZN2cv5kinfu6SubmapINS_3MatEEC2EiRKNS0_12VolumeParamsERKNS_7Affine3IfEEi(ptr noundef nonnull align 8 dereferenceable(264) %21, i32 noundef %16, ptr noundef nonnull align 4 dereferenceable(104) %17, ptr noundef nonnull align 4 dereferenceable(64) %3, i32 noundef %2)
           to label %_ZN2cvL7makePtrINS_5kinfu6SubmapINS_3MatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEiEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5kinfu6SubmapINS1_3MatEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !266
@@ -10875,7 +10875,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 define linkonce_odr hidden void @_ZN2cv5kinfu6SubmapINS_3MatEEC2EiRKNS0_12VolumeParamsERKNS_7Affine3IfEEi(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(104) %2, ptr noundef nonnull align 4 dereferenceable(64) %3, i32 noundef %4) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cv::Matx.3", align 4
   %7 = alloca %"struct.cv::Ptr.108", align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN2cv5kinfu6SubmapINS_3MatEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN2cv5kinfu6SubmapINS_3MatEEE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -11052,7 +11052,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiN2cv5kinfu6SubmapINS2_3MatEE14PoseConstraintEESt10_Sel
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv5kinfu6SubmapINS_3MatEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN2cv5kinfu6SubmapINS_3MatEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN2cv5kinfu6SubmapINS_3MatEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -15564,7 +15564,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv5kinfu13SubmapManagerINS_4UMatEE15
   store i32 1, ptr %19, align 8, !noalias !418
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 1, ptr %20, align 4, !noalias !418
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv5kinfu6SubmapINS0_4UMatEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18, align 8, !noalias !418
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv5kinfu6SubmapINS0_4UMatEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18, align 8, !noalias !418
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   invoke void @_ZN2cv5kinfu6SubmapINS_4UMatEEC2EiRKNS0_12VolumeParamsERKNS_7Affine3IfEEi(ptr noundef nonnull align 8 dereferenceable(264) %21, i32 noundef %16, ptr noundef nonnull align 4 dereferenceable(104) %17, ptr noundef nonnull align 4 dereferenceable(64) %3, i32 noundef %2)
           to label %_ZN2cvL7makePtrINS_5kinfu6SubmapINS_4UMatEEEJiNS1_12VolumeParamsENS_7Affine3IfEEiEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5kinfu6SubmapINS1_4UMatEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !418
@@ -16380,7 +16380,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 define linkonce_odr hidden void @_ZN2cv5kinfu6SubmapINS_4UMatEEC2EiRKNS0_12VolumeParamsERKNS_7Affine3IfEEi(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(104) %2, ptr noundef nonnull align 4 dereferenceable(64) %3, i32 noundef %4) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cv::Matx.3", align 4
   %7 = alloca %"struct.cv::Ptr.108", align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN2cv5kinfu6SubmapINS_4UMatEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN2cv5kinfu6SubmapINS_4UMatEEE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -16476,7 +16476,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiN2cv5kinfu6SubmapINS2_4UMatEE14PoseConstraintEESt10_Se
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv5kinfu6SubmapINS_4UMatEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN2cv5kinfu6SubmapINS_4UMatEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN2cv5kinfu6SubmapINS_4UMatEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null

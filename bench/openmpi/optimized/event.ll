@@ -378,7 +378,7 @@ define dso_local range(i32 1, 0) i32 @psched_notify_event(i32 noundef %0, ptr no
   store i32 %0, ptr %8, align 4
   store i8 %2, ptr %9, align 1
   store i64 %4, ptr %10, align 8
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @prte_pmix_server_globals, i64 8), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_pmix_server_globals, i64 8), align 8
   %or.cond = icmp ult i32 %13, 64
   br i1 %or.cond, label %14, label %24
 
@@ -398,26 +398,26 @@ define dso_local range(i32 1, 0) i32 @psched_notify_event(i32 noundef %0, ptr no
   br label %24
 
 24:                                               ; preds = %7, %14, %19
-  %25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_init_lock, i64 128)) #11
-  %26 = load volatile i8, ptr getelementptr inbounds (i8, ptr @prte_init_lock, i64 216), align 8
+  %25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 128)) #11
+  %26 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 216), align 8
   %27 = trunc i8 %26 to i1
   br i1 %27, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %24, %.lr.ph
-  %28 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_init_lock, i64 168), ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_init_lock, i64 128)) #11
-  %29 = load volatile i8, ptr getelementptr inbounds (i8, ptr @prte_init_lock, i64 216), align 8
+  %28 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 168), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 128)) #11
+  %29 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 216), align 8
   %30 = trunc i8 %29 to i1
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %24
   fence acquire
-  store volatile i8 1, ptr getelementptr inbounds (i8, ptr @prte_init_lock, i64 216), align 8
+  store volatile i8 1, ptr getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 216), align 8
   %31 = load i8, ptr @prte_initialized, align 1
   %32 = trunc i8 %31 to i1
-  store volatile i8 0, ptr getelementptr inbounds (i8, ptr @prte_init_lock, i64 216), align 8
+  store volatile i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 216), align 8
   fence release
-  %33 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_init_lock, i64 168)) #11
-  %34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_init_lock, i64 128)) #11
+  %33 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 168)) #11
+  %34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 128)) #11
   br i1 %32, label %35, label %.loopexit
 
 35:                                               ; preds = %._crit_edge
@@ -443,7 +443,7 @@ define dso_local range(i32 1, 0) i32 @psched_notify_event(i32 noundef %0, ptr no
   br i1 %43, label %44, label %72
 
 44:                                               ; preds = %._crit_edge132
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 72), align 8
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 72), align 8
   %46 = icmp sgt i32 %45, 0
   br i1 %46, label %47, label %70
 
@@ -456,7 +456,7 @@ define dso_local range(i32 1, 0) i32 @psched_notify_event(i32 noundef %0, ptr no
   %53 = sitofp i64 %52 to double
   %54 = fdiv double %53, 1.000000e+06
   %55 = fadd double %54, %50
-  %56 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 76), align 4
+  %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4
   %or.cond115 = icmp ult i32 %56, 64
   br i1 %or.cond115, label %57, label %70
 
@@ -483,13 +483,13 @@ define dso_local range(i32 1, 0) i32 @psched_notify_event(i32 noundef %0, ptr no
   br label %70
 
 70:                                               ; preds = %47, %57, %67, %44
-  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_state, i64 48), align 8
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_state, i64 48), align 8
   tail call void %71(ptr noundef %1, i32 noundef 9) #11
   br label %.loopexit
 
 72:                                               ; preds = %._crit_edge132
   call void @PMIx_Data_buffer_construct(ptr noundef nonnull %11) #11
-  %73 = call i32 @PMIx_Data_pack(ptr noundef null, ptr noundef nonnull %11, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_process_info, i64 256), i32 noundef 1, i16 noundef zeroext 40) #11
+  %73 = call i32 @PMIx_Data_pack(ptr noundef null, ptr noundef nonnull %11, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 256), i32 noundef 1, i16 noundef zeroext 40) #11
   switch i32 %73, label %74 [
     i32 0, label %77
     i32 -2, label %76

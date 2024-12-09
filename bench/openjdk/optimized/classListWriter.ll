@@ -849,13 +849,13 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %5, %7
   br i1 %.not.i.i1, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit2.thread, label %9
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit2.thread: ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN15ClassListWriter31WriteResolveConstantsCLDClosureE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN15ClassListWriter31WriteResolveConstantsCLDClosureE, i64 16), ptr %1, align 8
   call void @_ZN20ClassLoaderDataGraph13loaded_cld_doEP10CLDClosure(ptr noundef nonnull %1) #11
   br label %_ZN11MutexLockerD2Ev.exit
 
 9:                                                ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %8) #11
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN15ClassListWriter31WriteResolveConstantsCLDClosureE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN15ClassListWriter31WriteResolveConstantsCLDClosureE, i64 16), ptr %1, align 8
   call void @_ZN20ClassLoaderDataGraph13loaded_cld_doEP10CLDClosure(ptr noundef nonnull %1) #11
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %8) #11
   br label %_ZN11MutexLockerD2Ev.exit
@@ -890,22 +890,22 @@ define hidden void @_ZN15ClassListWriter28write_resolved_constants_forEP13Instan
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9248), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9248), align 8
   %12 = icmp eq ptr %10, %11
   br i1 %12, label %_ZN12ResourceMarkD2Ev.exit, label %13
 
 13:                                               ; preds = %8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9256), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9256), align 8
   %15 = icmp eq ptr %10, %14
   br i1 %15, label %_ZN12ResourceMarkD2Ev.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9264), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9264), align 8
   %18 = icmp eq ptr %10, %17
   br i1 %18, label %_ZN12ResourceMarkD2Ev.exit, label %_ZN18LambdaFormInvokers24may_be_regenerated_classEP6Symbol.exit
 
 _ZN18LambdaFormInvokers24may_be_regenerated_classEP6Symbol.exit: ; preds = %16
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9272), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9272), align 8
   %20 = icmp eq ptr %10, %19
   br i1 %20, label %_ZN12ResourceMarkD2Ev.exit, label %21
 

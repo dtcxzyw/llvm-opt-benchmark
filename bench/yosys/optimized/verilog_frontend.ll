@@ -575,7 +575,7 @@ define linkonce_odr void @_ZN5Yosys15VerilogFrontendC2Ev(ptr noundef nonnull ali
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys15VerilogFrontendE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys15VerilogFrontendE, i64 16), ptr %0, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -636,7 +636,7 @@ define linkonce_odr void @_ZN5Yosys15VerilogDefaultsC2Ev(ptr noundef nonnull ali
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys15VerilogDefaultsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys15VerilogDefaultsE, i64 16), ptr %0, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -697,7 +697,7 @@ define linkonce_odr void @_ZN5Yosys14VerilogDefinesC2Ev(ptr noundef nonnull alig
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys14VerilogDefinesE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys14VerilogDefinesE, i64 16), ptr %0, align 8
   ret void
 
 9:                                                ; preds = %1

@@ -144,7 +144,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 34:                                               ; preds = %29
   %35 = load i32, ptr @pmix_class_init_epoch, align 4
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_cli_result_t_class, i64 32), align 8
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_cli_result_t_class, i64 32), align 8
   %.not108 = icmp eq i32 %35, %36
   br i1 %.not108, label %38, label %37
 
@@ -541,7 +541,7 @@ pmix_cmd_line_get_param.exit153:                  ; preds = %.lr.ph.i148
 237:                                              ; preds = %222
   call void @PMIx_Info_free(ptr noundef %141, i64 noundef 3) #12
   %238 = load i32, ptr @pmix_class_init_epoch, align 4
-  %239 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 32), align 8
+  %239 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mutex_t_class, i64 32), align 8
   %.not120 = icmp eq i32 %238, %239
   br i1 %.not120, label %241, label %240
 
@@ -640,7 +640,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i160, %265
 pmix_obj_run_destructors.exit167:                 ; preds = %.lr.ph.i164, %276
   %284 = call i32 @pthread_cond_destroy(ptr noundef nonnull %251) #12
   %285 = load i32, ptr @pmix_class_init_epoch, align 4
-  %286 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 32), align 8
+  %286 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mutex_t_class, i64 32), align 8
   %.not122 = icmp eq i32 %285, %286
   br i1 %.not122, label %288, label %287
 
@@ -875,7 +875,7 @@ define internal void @evhandler_reg_callbk(i32 noundef %0, i64 noundef %1, ptr n
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr @stderr, align 8
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @myproc, i64 256), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @myproc, i64 256), align 4
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.51, ptr noundef nonnull @myproc, i32 noundef %6, i32 noundef %0, i64 noundef %1) #13
   br label %8
 

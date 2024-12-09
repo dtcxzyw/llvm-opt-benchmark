@@ -1766,7 +1766,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25RISCVVInversePseudosTable11getBaseI
   br i1 %30, label %_ZSt7advanceIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoEZNS1_11getBaseInfoEjhhE7KeyTypeZNS1_11getBaseInfoEjhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !4
 
 _ZSt11lower_boundIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoEZNS1_11getBaseInfoEjhhE7KeyTypeZNS1_11getBaseInfoEjhhE4CompET_S7_S7_RKT0_T1_.exit: ; preds = %.thread27.i.i
-  %31 = icmp eq ptr %29, getelementptr inbounds (i8, ptr @_ZN4llvm25RISCVVInversePseudosTableL25RISCVVInversePseudosTableE, i64 68118)
+  %31 = icmp eq ptr %29, getelementptr inbounds nuw (i8, ptr @_ZN4llvm25RISCVVInversePseudosTableL25RISCVVInversePseudosTableE, i64 68118)
   br i1 %31, label %42, label %32
 
 32:                                               ; preds = %_ZSt11lower_boundIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoEZNS1_11getBaseInfoEjhhE7KeyTypeZNS1_11getBaseInfoEjhhE4CompET_S7_S7_RKT0_T1_.exit
@@ -1891,7 +1891,7 @@ _ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %3, %14
 define internal noundef nonnull ptr @_ZL27createRISCVMCObjectFileInfoRN4llvm9MCContextEbb(ptr noundef nonnull align 1 %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #2 {
   %4 = tail call noalias noundef nonnull dereferenceable(912) ptr @_Znwm(i64 noundef 912) #20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(912) %4, i8 0, i64 912, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm21RISCVMCObjectFileInfoE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm21RISCVMCObjectFileInfoE, i64 16), ptr %4, align 8
   tail call void @_ZN4llvm16MCObjectFileInfo20initMCObjectFileInfoERNS_9MCContextEbb(ptr noundef nonnull align 8 dereferenceable(912) %4, ptr noundef nonnull align 1 %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #19
   ret ptr %4
 }
@@ -1901,7 +1901,7 @@ define internal noalias noundef nonnull ptr @_ZL22createRISCVMCInstrInfov() #2 {
   %1 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %2, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZN4llvm10RISCVDescsE, i64 441920), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10RISCVDescsE, i64 441920), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @_ZN4llvm21RISCVInstrNameIndicesE, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1993,7 +1993,7 @@ define internal noalias noundef nonnull ptr @_ZL24createRISCVMCInstPrinterRKN4ll
   store i8 1, ptr %14, align 2
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 51
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %15, i8 0, i64 7, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm16RISCVInstPrinterE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm16RISCVInstPrinterE, i64 16), ptr %6, align 8
   ret ptr %6
 }
 
@@ -2034,7 +2034,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %5, %10, %_ZN4llvmeq
   %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 247, ptr %.sroa.28.0..sroa_idx.i, align 8
   tail call void @_ZN4llvm15MCSubtargetInfoC2ERKNS_6TripleENS_9StringRefES4_S4_NS_8ArrayRefINS_18SubtargetFeatureKVEEENS5_INS_18SubtargetSubTypeKVEEEPKNS_19MCWriteProcResEntryEPKNS_19MCWriteLatencyEntryEPKNS_18MCReadAdvanceEntryEPKNS_10InstrStageEPKjSN_(ptr noundef nonnull align 8 dereferenceable(288) %12, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %.sroa.013.0, i64 %.sroa.4.0, ptr %.sroa.013.0, i64 %.sroa.4.0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %8, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %7, ptr noundef nonnull byval(%"class.llvm::ArrayRef.1") align 8 %6, ptr noundef nonnull @_ZN4llvm22RISCVWriteProcResTableE, ptr noundef nonnull @_ZN4llvm22RISCVWriteLatencyTableE, ptr noundef nonnull @_ZN4llvm21RISCVReadAdvanceTableE, ptr noundef null, ptr noundef null, ptr noundef null) #19
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN4llvm23RISCVGenMCSubtargetInfoE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN4llvm23RISCVGenMCSubtargetInfoE, i64 16), ptr %12, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -2119,7 +2119,7 @@ define internal noalias noundef nonnull ptr @_ZL24createRISCVInstrAnalysisPKN4ll
   %2 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTVN12_GLOBAL__N_120RISCVMCInstrAnalysisE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTVN12_GLOBAL__N_120RISCVMCInstrAnalysisE, i64 16), ptr %2, align 8
   %scevgep.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %scevgep.i, i8 0, i64 256, i1 false)
   ret ptr %2
@@ -2141,7 +2141,7 @@ define internal noundef nonnull ptr @_ZL29createRISCVNullTargetStreamerRN4llvm10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm23RISCVGenMCSubtargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #2 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN4llvm15MCSubtargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN4llvm15MCSubtargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -2155,7 +2155,7 @@ define linkonce_odr hidden void @_ZN4llvm23RISCVGenMCSubtargetInfoD2Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm23RISCVGenMCSubtargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #2 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN4llvm15MCSubtargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN4llvm15MCSubtargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96

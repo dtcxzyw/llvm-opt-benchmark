@@ -223,11 +223,11 @@ if.end15:                                         ; preds = %if.end12
   call void @throttle_config(ptr noundef nonnull %ts, i32 noundef %4, ptr noundef nonnull %cfg) #7
   %list = getelementptr inbounds nuw i8, ptr %call.i, i64 392
   store ptr null, ptr %list, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @throttle_groups, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @throttle_groups, i64 8), align 8
   %tql_prev = getelementptr inbounds nuw i8, ptr %call.i, i64 400
   store ptr %5, ptr %tql_prev, align 8
   store ptr %call.i, ptr %5, align 8
-  store ptr %list, ptr getelementptr inbounds (i8, ptr @throttle_groups, i64 8), align 8
+  store ptr %list, ptr getelementptr inbounds nuw (i8, ptr @throttle_groups, i64 8), align 8
   %is_initialized = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store i8 1, ptr %is_initialized, align 8
   br label %return
@@ -1371,7 +1371,7 @@ if.then1:                                         ; preds = %do.body
   br label %if.end
 
 if.else:                                          ; preds = %do.body
-  store ptr %2, ptr getelementptr inbounds (i8, ptr @throttle_groups, i64 8), align 8
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @throttle_groups, i64 8), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then1

@@ -590,11 +590,11 @@ declare void @__cxa_end_catch() local_unnamed_addr
 ; Function Attrs: nofree nounwind uwtable
 define internal void @_GLOBAL__sub_I_SocketOptionMap.cpp() #13 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN5folly20emptySocketOptionMapE, i64 8), align 8, !tbaa !44
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN5folly20emptySocketOptionMapE, i64 16), align 8, !tbaa !7
-  store ptr getelementptr inbounds (i8, ptr @_ZN5folly20emptySocketOptionMapE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN5folly20emptySocketOptionMapE, i64 24), align 8, !tbaa !34
-  store ptr getelementptr inbounds (i8, ptr @_ZN5folly20emptySocketOptionMapE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN5folly20emptySocketOptionMapE, i64 32), align 8, !tbaa !45
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5folly20emptySocketOptionMapE, i64 40), align 8, !tbaa !46
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly20emptySocketOptionMapE, i64 8), align 8, !tbaa !44
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly20emptySocketOptionMapE, i64 16), align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly20emptySocketOptionMapE, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly20emptySocketOptionMapE, i64 24), align 8, !tbaa !34
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly20emptySocketOptionMapE, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly20emptySocketOptionMapE, i64 32), align 8, !tbaa !45
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly20emptySocketOptionMapE, i64 40), align 8, !tbaa !46
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pairIKS1_S2_EEED2Ev, ptr nonnull @_ZN5folly20emptySocketOptionMapE, ptr nonnull @__dso_handle) #16
   ret void
 }

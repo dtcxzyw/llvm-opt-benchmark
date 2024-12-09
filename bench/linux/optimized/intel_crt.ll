@@ -143,7 +143,7 @@ define dso_local void @intel_crt_init(ptr noundef %0) local_unnamed_addr #0 alig
   br label %27
 
 27:                                               ; preds = %25, %11
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %29 = tail call noalias noundef align 8 dereferenceable_or_null(400) ptr @kmalloc_trace(ptr noundef %28, i32 noundef 3520, i64 noundef 400) #6
   %30 = icmp eq ptr %29, null
   br i1 %30, label %141, label %31

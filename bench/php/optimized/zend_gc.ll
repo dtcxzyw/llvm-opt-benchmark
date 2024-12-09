@@ -36,11 +36,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @gc_globals_ctor() local_unnamed_addr #0 {
-  store i8 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 8), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 10), align 2
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 9), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 10), align 2
   store ptr null, ptr @gc_globals, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(61) getelementptr inbounds (i8, ptr @gc_globals, i64 11), i8 0, i64 61, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(61) getelementptr inbounds nuw (i8, ptr @gc_globals, i64 11), i8 0, i64 61, i1 false)
   ret void
 }
 
@@ -67,12 +67,12 @@ define hidden void @gc_reset() local_unnamed_addr #2 {
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %0
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) getelementptr inbounds (i8, ptr @gc_globals, i64 9), i8 0, i64 7, i1 false)
-  store i32 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 32), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 36), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @gc_globals, i64 48), i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) getelementptr inbounds nuw (i8, ptr @gc_globals, i64 9), i8 0, i64 7, i1 false)
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 32), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 36), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @gc_globals, i64 48), i8 0, i64 24, i1 false)
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -91,7 +91,7 @@ define hidden void @gc_reset() local_unnamed_addr #2 {
 
 13:                                               ; preds = %4, %7
   %.0 = phi i64 [ %12, %7 ], [ 0, %4 ]
-  store i64 %.0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 40), align 8
+  store i64 %.0, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 40), align 8
   ret void
 }
 
@@ -99,9 +99,9 @@ define hidden void @gc_reset() local_unnamed_addr #2 {
 define zeroext i1 @gc_enable(i1 noundef zeroext %0) local_unnamed_addr #2 {
   %2 = alloca %struct.timespec, align 8
   %3 = zext i1 %0 to i8
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 8), align 8
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 8), align 8
   %5 = trunc i8 %4 to i1
-  store i8 %3, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 8), align 8
+  store i8 %3, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 8), align 8
   br i1 %0, label %6, label %19
 
 6:                                                ; preds = %1
@@ -114,15 +114,15 @@ define zeroext i1 @gc_enable(i1 noundef zeroext %0) local_unnamed_addr #2 {
   %10 = tail call noalias dereferenceable_or_null(131072) ptr @__zend_malloc(i64 noundef 131072) #16
   store ptr %10, ptr @gc_globals, align 8
   store ptr null, ptr %10, align 8
-  store i32 16384, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
-  store i32 10001, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 20), align 4
+  store i32 16384, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 24), align 8
+  store i32 10001, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 20), align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) getelementptr inbounds (i8, ptr @gc_globals, i64 9), i8 0, i64 7, i1 false)
-  store i32 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 32), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 36), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @gc_globals, i64 48), i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) getelementptr inbounds nuw (i8, ptr @gc_globals, i64 9), i8 0, i64 7, i1 false)
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 32), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 36), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @gc_globals, i64 48), i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %11 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #15
   %12 = icmp eq i32 %11, 0
@@ -138,7 +138,7 @@ define zeroext i1 @gc_enable(i1 noundef zeroext %0) local_unnamed_addr #2 {
 
 gc_reset.exit:                                    ; preds = %9, %13
   %.0.i = phi i64 [ %18, %13 ], [ 0, %9 ]
-  store i64 %.0.i, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 40), align 8
+  store i64 %.0.i, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 40), align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %19
 
@@ -151,7 +151,7 @@ declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @gc_enabled() local_unnamed_addr #4 {
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 8), align 8
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 8), align 8
   %2 = trunc i8 %1 to i1
   ret i1 %2
 }
@@ -159,27 +159,27 @@ define zeroext i1 @gc_enabled() local_unnamed_addr #4 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @gc_protect(i1 noundef zeroext %0) local_unnamed_addr #5 {
   %2 = zext i1 %0 to i8
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 10), align 2
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 10), align 2
   %4 = trunc i8 %3 to i1
-  store i8 %2, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 10), align 2
+  store i8 %2, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 10), align 2
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @gc_protected() local_unnamed_addr #4 {
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 10), align 2
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 10), align 2
   %2 = trunc i8 %1 to i1
   ret i1 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define void @gc_possible_root(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 10), align 2
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 10), align 2
   %3 = trunc i8 %2 to i1
   br i1 %3, label %gc_possible_root_when_full.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %16, label %6
 
@@ -194,32 +194,32 @@ define void @gc_possible_root(ptr noundef %0) local_unnamed_addr #2 {
   tail call void @llvm.assume(i1 %13)
   %14 = trunc i64 %11 to i32
   %15 = lshr i32 %14, 3
-  store i32 %15, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  store i32 %15, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
   br label %112
 
 16:                                               ; preds = %4
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 20), align 4
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 20), align 4
   %19 = icmp ult i32 %17, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %16
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 24), align 8
   %22 = icmp ne i32 %17, %21
   tail call void @llvm.assume(i1 %22)
   %23 = add nuw i32 %17, 1
-  store i32 %23, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  store i32 %23, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   %.pre19 = load ptr, ptr @gc_globals, align 8
   %.pre20 = zext i32 %17 to i64
   br label %112
 
 24:                                               ; preds = %16
-  %25 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 8), align 8
+  %25 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 8), align 8
   %26 = trunc i8 %25 to i1
   br i1 %26, label %27, label %.thread
 
 27:                                               ; preds = %24
-  %28 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
+  %28 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 9), align 1
   %29 = trunc i8 %28 to i1
   br i1 %29, label %.thread, label %30
 
@@ -230,7 +230,7 @@ define void @gc_possible_root(ptr noundef %0) local_unnamed_addr #2 {
   %33 = load ptr, ptr @gc_collect_cycles, align 8
   %34 = tail call i32 %33() #15
   %35 = icmp slt i32 %34, 100
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 20), align 4
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 20), align 4
   br i1 %35, label %37, label %52
 
 37:                                               ; preds = %30
@@ -240,7 +240,7 @@ define void @gc_possible_root(ptr noundef %0) local_unnamed_addr #2 {
 39:                                               ; preds = %37
   %40 = tail call i32 @llvm.umin.i32(i32 %36, i32 999990000)
   %spec.store.select.i.i = add nuw nsw i32 %40, 10000
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 24), align 8
   %42 = icmp ugt i32 %spec.store.select.i.i, %41
   br i1 %42, label %gc_grow_root_buffer.exit.i.i, label %50
 
@@ -255,7 +255,7 @@ gc_grow_root_buffer.exit.i.i:                     ; preds = %39
   %48 = shl nuw nsw i64 %spec.store.select.i.i.i, 3
   %49 = tail call ptr @__zend_realloc(ptr noundef %47, i64 noundef %48) #17
   store ptr %49, ptr @gc_globals, align 8
-  store i32 %46, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
+  store i32 %46, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 24), align 8
   br label %50
 
 50:                                               ; preds = %gc_grow_root_buffer.exit.i.i, %39
@@ -274,7 +274,7 @@ gc_grow_root_buffer.exit.i.i:                     ; preds = %39
 
 .sink.split.i.i:                                  ; preds = %54, %50
   %spec.store.select1.sink.i.i = phi i32 [ %spec.store.select1.i.i, %54 ], [ %spec.store.select.i.i, %50 ]
-  store i32 %spec.store.select1.sink.i.i, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 20), align 4
+  store i32 %spec.store.select1.sink.i.i, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 20), align 4
   br label %gc_adjust_threshold.exit.i
 
 gc_adjust_threshold.exit.i:                       ; preds = %.sink.split.i.i, %52, %50, %37
@@ -297,7 +297,7 @@ gc_adjust_threshold.exit.i:                       ; preds = %.sink.split.i.i, %5
   br i1 %.not.i, label %64, label %gc_possible_root_when_full.exit
 
 64:                                               ; preds = %61
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
   %.not27.i = icmp eq i32 %.pre, 0
   br i1 %.not27.i, label %.thread, label %65
 
@@ -312,18 +312,18 @@ gc_adjust_threshold.exit.i:                       ; preds = %.sink.split.i.i, %5
   tail call void @llvm.assume(i1 %72)
   %73 = trunc i64 %70 to i32
   %74 = lshr i32 %73, 3
-  store i32 %74, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  store i32 %74, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
   br label %97
 
 .thread:                                          ; preds = %24, %27, %64
-  %75 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
-  %76 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
+  %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
+  %76 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 24), align 8
   %.not28.i = icmp eq i32 %75, %76
   br i1 %.not28.i, label %79, label %77
 
 77:                                               ; preds = %.thread
   %78 = add i32 %75, 1
-  store i32 %78, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  store i32 %78, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   br label %97
 
 79:                                               ; preds = %.thread
@@ -331,16 +331,16 @@ gc_adjust_threshold.exit.i:                       ; preds = %.sink.split.i.i, %5
   br i1 %80, label %81, label %85
 
 81:                                               ; preds = %79
-  %82 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 11), align 1
+  %82 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 11), align 1
   %83 = trunc i8 %82 to i1
   br i1 %83, label %85, label %84
 
 84:                                               ; preds = %81
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str) #15
-  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 10), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 11), align 1
-  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 9), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 10), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 11), align 1
+  %.pre.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 24), align 8
   br label %gc_grow_root_buffer.exit.i
 
 85:                                               ; preds = %81, %79
@@ -354,18 +354,18 @@ gc_adjust_threshold.exit.i:                       ; preds = %.sink.split.i.i, %5
   %91 = shl nuw nsw i64 %spec.store.select.i30.i, 3
   %92 = tail call ptr @__zend_realloc(ptr noundef %90, i64 noundef %91) #17
   store ptr %92, ptr @gc_globals, align 8
-  store i32 %89, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
+  store i32 %89, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 24), align 8
   br label %gc_grow_root_buffer.exit.i
 
 gc_grow_root_buffer.exit.i:                       ; preds = %85, %84
   %93 = phi i32 [ %.pre.i, %84 ], [ %89, %85 ]
-  %94 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  %94 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   %.not29.i = icmp eq i32 %94, %93
   br i1 %.not29.i, label %gc_possible_root_when_full.exit, label %95
 
 95:                                               ; preds = %gc_grow_root_buffer.exit.i
   %96 = add i32 %94, 1
-  store i32 %96, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  store i32 %96, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   br label %97
 
 97:                                               ; preds = %95, %77, %65
@@ -384,9 +384,9 @@ gc_grow_root_buffer.exit.i:                       ; preds = %85, %84
   %108 = or disjoint i32 %107, %104
   %109 = or i32 %108, -1073741824
   store i32 %109, ptr %102, align 4
-  %110 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  %110 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   %111 = add i32 %110, 1
-  store i32 %111, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  store i32 %111, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   br label %gc_possible_root_when_full.exit
 
 112:                                              ; preds = %20, %6
@@ -405,9 +405,9 @@ gc_grow_root_buffer.exit.i:                       ; preds = %85, %84
   %122 = or disjoint i32 %121, %118
   %123 = or i32 %122, -1073741824
   store i32 %123, ptr %116, align 4
-  %124 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  %124 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   %125 = add i32 %124, 1
-  store i32 %125, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  store i32 %125, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   br label %gc_possible_root_when_full.exit
 
 gc_possible_root_when_full.exit:                  ; preds = %97, %gc_grow_root_buffer.exit.i, %61, %60, %1, %112
@@ -422,7 +422,7 @@ define void @gc_remove_from_buffer(ptr noundef %0) local_unnamed_addr #6 {
   %5 = and i32 %4, 1048575
   %6 = and i32 %3, 1023
   store i32 %6, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   %8 = icmp ugt i32 %7, 524287
   br i1 %8, label %9, label %33
 
@@ -457,7 +457,7 @@ gc_remove_compressed.exit.loopexit:               ; preds = %.preheader.i
 
 gc_remove_compressed.exit:                        ; preds = %gc_remove_compressed.exit.loopexit, %9
   %.0.i = phi ptr [ %12, %9 ], [ %27, %gc_remove_compressed.exit.loopexit ]
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
   %29 = zext i32 %28 to i64
   %30 = shl nuw nsw i64 %29, 3
   %31 = or disjoint i64 %30, 1
@@ -471,7 +471,7 @@ gc_remove_compressed.exit:                        ; preds = %gc_remove_compresse
   %35 = load ptr, ptr @gc_globals, align 8
   %36 = zext nneg i32 %5 to i64
   %37 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %35, i64 %36
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
   %39 = zext i32 %38 to i64
   %40 = shl nuw nsw i64 %39, 3
   %41 = or disjoint i64 %40, 1
@@ -487,10 +487,10 @@ gc_remove_compressed.exit:                        ; preds = %gc_remove_compresse
   %47 = sub i64 %45, %46
   %storemerge11.in = lshr exact i64 %47, 3
   %storemerge11 = trunc i64 %storemerge11.in to i32
-  store i32 %storemerge11, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
-  %storemerge.in = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  store i32 %storemerge11, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
+  %storemerge.in = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   %storemerge = add i32 %storemerge.in, -1
-  store i32 %storemerge, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  store i32 %storemerge, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   ret void
 }
 
@@ -529,14 +529,14 @@ define i32 @zend_gc_collect_cycles() local_unnamed_addr #2 {
 
 22:                                               ; preds = %0, %18
   %.0.neg430 = phi i64 [ %.neg429, %18 ], [ 0, %0 ]
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %zend_gc_remove_root_tmpvars.exit, label %24
 
 24:                                               ; preds = %22
-  %25 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
+  %25 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 9), align 1
   %26 = trunc i8 %25 to i1
-  %.037.i = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  %.037.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %.not38.i = icmp ne ptr %.037.i, null
   %or.cond306.not = select i1 %26, i1 %.not38.i, i1 false
   br i1 %or.cond306.not, label %.lr.ph40.i, label %zend_gc_remove_root_tmpvars.exit
@@ -613,7 +613,7 @@ define i32 @zend_gc_collect_cycles() local_unnamed_addr #2 {
   %69 = and i32 %68, 1048575
   %70 = and i32 %66, 1023
   store i32 %70, ptr %65, align 4
-  %71 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   %72 = icmp ugt i32 %71, 524287
   br i1 %72, label %73, label %97
 
@@ -648,7 +648,7 @@ gc_remove_compressed.exit.i.i.loopexit:           ; preds = %.preheader.i.i.i
 
 gc_remove_compressed.exit.i.i:                    ; preds = %gc_remove_compressed.exit.i.i.loopexit, %73
   %.0.i.i.i = phi ptr [ %76, %73 ], [ %91, %gc_remove_compressed.exit.i.i.loopexit ]
-  %92 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  %92 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
   %93 = zext i32 %92 to i64
   %94 = shl nuw nsw i64 %93, 3
   %95 = or disjoint i64 %94, 1
@@ -662,7 +662,7 @@ gc_remove_compressed.exit.i.i:                    ; preds = %gc_remove_compresse
   %99 = load ptr, ptr @gc_globals, align 8
   %100 = zext nneg i32 %69 to i64
   %101 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %99, i64 %100
-  %102 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  %102 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
   %103 = zext i32 %102 to i64
   %104 = shl nuw nsw i64 %103, 3
   %105 = or disjoint i64 %104, 1
@@ -678,10 +678,10 @@ gc_remove_from_buffer.exit.i:                     ; preds = %97, %gc_remove_comp
   %110 = sub i64 %108, %109
   %storemerge11.in.i.i = lshr exact i64 %110, 3
   %storemerge11.i.i = trunc i64 %storemerge11.in.i.i to i32
-  store i32 %storemerge11.i.i, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
-  %storemerge.in.i.i = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  store i32 %storemerge11.i.i, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
+  %storemerge.in.i.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   %storemerge.i.i = add i32 %storemerge.in.i.i, -1
-  store i32 %storemerge.i.i, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  store i32 %storemerge.i.i, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   %.pre.i = load i32, ptr %42, align 8
   br label %111
 
@@ -719,7 +719,7 @@ zend_gc_remove_root_tmpvars.exit:                 ; preds = %.loopexit.i, %24, %
 
 126:                                              ; preds = %124
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %127 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
+  %127 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 9), align 1
   %128 = trunc i8 %127 to i1
   br i1 %128, label %129, label %138
 
@@ -738,12 +738,12 @@ zend_gc_remove_root_tmpvars.exit:                 ; preds = %.loopexit.i, %24, %
   br label %1531
 
 138:                                              ; preds = %126
-  %139 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 32), align 8
+  %139 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 32), align 8
   %140 = add i32 %139, 1
-  store i32 %140, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 32), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
+  store i32 %140, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 32), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 9), align 1
   %141 = add i32 %125, 1
-  %142 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  %142 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   %.not.i.i = icmp eq i32 %141, %142
   %143 = load ptr, ptr @gc_globals, align 8
   br i1 %.not.i.i, label %gc_compact.exit.i.thread, label %146
@@ -762,8 +762,8 @@ gc_compact.exit.i.thread:                         ; preds = %138
   br i1 %150, label %.preheader36.preheader.i.i, label %gc_compact.exit.i.thread520
 
 gc_compact.exit.i.thread520:                      ; preds = %146
-  store i32 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
-  store i32 %141, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
+  store i32 %141, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   %151 = zext i32 %141 to i64
   %.idx.i523 = shl nuw nsw i64 %151, 3
   %152 = getelementptr inbounds nuw i8, ptr %143, i64 %.idx.i523
@@ -833,12 +833,12 @@ gc_compact.exit.i.thread520:                      ; preds = %146
   br i1 %186, label %.preheader36.i.i, label %gc_compact.exit.i
 
 gc_compact.exit.i:                                ; preds = %168, %185
-  %.pre.i.i = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  %.pre.i.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   %.pre = load ptr, ptr @gc_globals, align 8
   %.pre519 = add i32 %.pre.i.i, 1
   %187 = icmp eq i32 %.pre.i.i, 0
-  store i32 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
-  store i32 %.pre519, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
+  store i32 %.pre519, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   %188 = zext i32 %.pre519 to i64
   %.idx.i = shl nuw nsw i64 %188, 3
   %189 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx.i
@@ -1269,7 +1269,7 @@ gc_stack_next.exit283.i.i:                        ; preds = %366, %363, %359
   br i1 %.not267.i.i, label %.loopexit.i11.i, label %.lr.ph342.i.i
 
 377:                                              ; preds = %203
-  %378 = icmp ne ptr %.0184.i.i, getelementptr inbounds (i8, ptr @executor_globals, i64 304)
+  %378 = icmp ne ptr %.0184.i.i, getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304)
   call void @llvm.assume(i1 %378)
   br label %.loopexit294.i.i
 
@@ -1487,7 +1487,7 @@ gc_mark_grey.exit.i:                              ; preds = %470, %462
   br i1 %.not.i153, label %gc_mark_roots.exit, label %.lr.ph.i151
 
 gc_mark_roots.exit:                               ; preds = %471
-  %.pre516 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  %.pre516 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   %.not19.i = icmp eq i32 %.pre516, 1
   br i1 %.not19.i, label %gc_scan_roots.exit.thread, label %.lr.ph.preheader.i154
 
@@ -1500,7 +1500,7 @@ gc_scan_roots.exit.thread:                        ; preds = %gc_compact.exit.i, 
   br label %.lr.ph.i155
 
 .preheader.i:                                     ; preds = %487
-  %.pre26.i = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  %.pre26.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   %.not1821.i = icmp eq i32 %.pre516, %.pre26.i
   br i1 %.not1821.i, label %gc_scan_roots.exit, label %.lr.ph23.i
 
@@ -1561,7 +1561,7 @@ gc_scan_roots.exit.thread:                        ; preds = %gc_compact.exit.i, 
   %503 = load ptr, ptr %491, align 8
   call fastcc void @gc_scan(ptr noundef %503, ptr noundef nonnull %15)
   %.pre27.i = load ptr, ptr @gc_globals, align 8
-  %.pre29.i = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  %.pre29.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   br label %504
 
 504:                                              ; preds = %500, %496, %.lr.ph23.i
@@ -1602,7 +1602,7 @@ gc_scan_roots.exit:                               ; preds = %504, %.preheader.i
 520:                                              ; preds = %516
   %521 = and i32 %518, 1023
   store i32 %521, ptr %517, align 4
-  %522 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  %522 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
   %523 = zext i32 %522 to i64
   %524 = shl nuw nsw i64 %523, 3
   %525 = or disjoint i64 %524, 1
@@ -1614,10 +1614,10 @@ gc_scan_roots.exit:                               ; preds = %504, %.preheader.i
   %530 = sub i64 %528, %529
   %531 = lshr exact i64 %530, 3
   %532 = trunc i64 %531 to i32
-  store i32 %532, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
-  %533 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  store i32 %532, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
+  %533 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   %534 = add i32 %533, -1
-  store i32 %534, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  store i32 %534, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   br label %535
 
 535:                                              ; preds = %520, %516, %.lr.ph.i161
@@ -1627,13 +1627,13 @@ gc_scan_roots.exit:                               ; preds = %504, %.preheader.i
   br i1 %.not.i162, label %._crit_edge.loopexit.i, label %.lr.ph.i161
 
 ._crit_edge.loopexit.i:                           ; preds = %535
-  %.pre.i163 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  %.pre.i163 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %gc_scan_roots.exit.thread, %._crit_edge.loopexit.i, %gc_scan_roots.exit
   %537 = phi ptr [ %536, %._crit_edge.loopexit.i ], [ %507, %gc_scan_roots.exit ], [ %472, %gc_scan_roots.exit.thread ]
   %538 = phi i32 [ %.pre.i163, %._crit_edge.loopexit.i ], [ 1, %gc_scan_roots.exit ], [ 1, %gc_scan_roots.exit.thread ]
-  %539 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  %539 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   %540 = add i32 %539, 1
   %.not.i.i164 = icmp eq i32 %540, %538
   br i1 %.not.i.i164, label %gc_compact.exit.i167, label %541
@@ -1713,14 +1713,14 @@ gc_scan_roots.exit:                               ; preds = %504, %.preheader.i
   br i1 %580, label %.preheader36.i.i218, label %.loopexit.loopexit.i.i228
 
 .loopexit.loopexit.i.i228:                        ; preds = %579, %562
-  %.pre.i.i229 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  %.pre.i.i229 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   br label %.loopexit.i.i166
 
 .loopexit.i.i166:                                 ; preds = %.loopexit.loopexit.i.i228, %542, %541
   %581 = phi i32 [ %.pre.i.i229, %.loopexit.loopexit.i.i228 ], [ %539, %542 ], [ 0, %541 ]
-  store i32 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
   %582 = add i32 %581, 1
-  store i32 %582, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  store i32 %582, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   br label %gc_compact.exit.i167
 
 gc_compact.exit.i167:                             ; preds = %.loopexit.i.i166, %._crit_edge.i
@@ -1790,7 +1790,7 @@ gc_compact.exit.i167:                             ; preds = %.loopexit.i.i166, %
   br i1 %.not261.i.i202, label %607, label %658
 
 607:                                              ; preds = %606
-  %608 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  %608 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
   %.not.i285 = icmp eq i32 %608, 0
   br i1 %.not.i285, label %619, label %609
 
@@ -1805,18 +1805,18 @@ gc_compact.exit.i167:                             ; preds = %.loopexit.i.i166, %
   call void @llvm.assume(i1 %616)
   %617 = trunc i64 %614 to i32
   %618 = lshr i32 %617, 3
-  store i32 %618, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  store i32 %618, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
   br label %642
 
 619:                                              ; preds = %607
-  %620 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
-  %621 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
+  %620 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
+  %621 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 24), align 8
   %.not19.i288 = icmp eq i32 %620, %621
   br i1 %.not19.i288, label %624, label %622
 
 622:                                              ; preds = %619
   %623 = add i32 %620, 1
-  store i32 %623, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  store i32 %623, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   br label %642
 
 624:                                              ; preds = %619
@@ -1824,16 +1824,16 @@ gc_compact.exit.i167:                             ; preds = %.loopexit.i.i166, %
   br i1 %625, label %626, label %630
 
 626:                                              ; preds = %624
-  %627 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 11), align 1
+  %627 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 11), align 1
   %628 = trunc i8 %627 to i1
   br i1 %628, label %630, label %629
 
 629:                                              ; preds = %626
   call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str) #15
-  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 10), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 11), align 1
-  %.pre.i293 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 9), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 10), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 11), align 1
+  %.pre.i293 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 24), align 8
   br label %gc_grow_root_buffer.exit.i291
 
 630:                                              ; preds = %626, %624
@@ -1847,18 +1847,18 @@ gc_compact.exit.i167:                             ; preds = %.loopexit.i.i166, %
   %636 = shl nuw nsw i64 %spec.store.select.i.i290, 3
   %637 = call ptr @__zend_realloc(ptr noundef %635, i64 noundef %636) #17
   store ptr %637, ptr @gc_globals, align 8
-  store i32 %634, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
+  store i32 %634, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 24), align 8
   br label %gc_grow_root_buffer.exit.i291
 
 gc_grow_root_buffer.exit.i291:                    ; preds = %630, %629
   %638 = phi i32 [ %.pre.i293, %629 ], [ %634, %630 ]
-  %639 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  %639 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   %.not20.i292 = icmp eq i32 %639, %638
   br i1 %.not20.i292, label %gc_add_garbage.exit294, label %640
 
 640:                                              ; preds = %gc_grow_root_buffer.exit.i291
   %641 = add i32 %639, 1
-  store i32 %641, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  store i32 %641, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   br label %642
 
 642:                                              ; preds = %640, %622, %609
@@ -1879,9 +1879,9 @@ gc_grow_root_buffer.exit.i291:                    ; preds = %630, %629
   %654 = shl nuw nsw i32 %.0.i287, 10
   %655 = or disjoint i32 %653, %654
   store i32 %655, ptr %604, align 4
-  %656 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  %656 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   %657 = add i32 %656, 1
-  store i32 %657, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  store i32 %657, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   br label %gc_add_garbage.exit294
 
 gc_add_garbage.exit294:                           ; preds = %gc_grow_root_buffer.exit.i291, %642
@@ -2273,7 +2273,7 @@ gc_stack_next.exit291.i.i:                        ; preds = %820, %817, %814
   br i1 %.not259.i.i182, label %832, label %.loopexit302.i.i
 
 832:                                              ; preds = %831
-  %833 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  %833 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
   %.not.i280 = icmp eq i32 %833, 0
   br i1 %.not.i280, label %844, label %834
 
@@ -2288,18 +2288,18 @@ gc_stack_next.exit291.i.i:                        ; preds = %820, %817, %814
   call void @llvm.assume(i1 %841)
   %842 = trunc i64 %839 to i32
   %843 = lshr i32 %842, 3
-  store i32 %843, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  store i32 %843, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
   br label %867
 
 844:                                              ; preds = %832
-  %845 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
-  %846 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
+  %845 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
+  %846 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 24), align 8
   %.not19.i282 = icmp eq i32 %845, %846
   br i1 %.not19.i282, label %849, label %847
 
 847:                                              ; preds = %844
   %848 = add i32 %845, 1
-  store i32 %848, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  store i32 %848, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   br label %867
 
 849:                                              ; preds = %844
@@ -2307,16 +2307,16 @@ gc_stack_next.exit291.i.i:                        ; preds = %820, %817, %814
   br i1 %850, label %851, label %855
 
 851:                                              ; preds = %849
-  %852 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 11), align 1
+  %852 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 11), align 1
   %853 = trunc i8 %852 to i1
   br i1 %853, label %855, label %854
 
 854:                                              ; preds = %851
   call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str) #15
-  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 10), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 11), align 1
-  %.pre.i284 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 9), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 10), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 11), align 1
+  %.pre.i284 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 24), align 8
   br label %gc_grow_root_buffer.exit.i
 
 855:                                              ; preds = %851, %849
@@ -2330,18 +2330,18 @@ gc_stack_next.exit291.i.i:                        ; preds = %820, %817, %814
   %861 = shl nuw nsw i64 %spec.store.select.i.i, 3
   %862 = call ptr @__zend_realloc(ptr noundef %860, i64 noundef %861) #17
   store ptr %862, ptr @gc_globals, align 8
-  store i32 %859, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
+  store i32 %859, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 24), align 8
   br label %gc_grow_root_buffer.exit.i
 
 gc_grow_root_buffer.exit.i:                       ; preds = %855, %854
   %863 = phi i32 [ %.pre.i284, %854 ], [ %859, %855 ]
-  %864 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  %864 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   %.not20.i = icmp eq i32 %864, %863
   br i1 %.not20.i, label %.loopexit302.i.i, label %865
 
 865:                                              ; preds = %gc_grow_root_buffer.exit.i
   %866 = add i32 %864, 1
-  store i32 %866, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  store i32 %866, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   br label %867
 
 867:                                              ; preds = %865, %847, %834
@@ -2363,9 +2363,9 @@ gc_grow_root_buffer.exit.i:                       ; preds = %855, %854
   %880 = shl nuw nsw i32 %.0.i281, 10
   %881 = or disjoint i32 %879, %880
   store i32 %881, ptr %877, align 4
-  %882 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  %882 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   %883 = add i32 %882, 1
-  store i32 %883, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  store i32 %883, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   br label %.loopexit302.i.i
 
 .loopexit302.i.i:                                 ; preds = %785, %867, %gc_grow_root_buffer.exit.i, %831, %761
@@ -2585,7 +2585,7 @@ gc_collect_white.exit.i:                          ; preds = %972, %964
   br i1 %exitcond507, label %gc_collect_roots.exit, label %.lr.ph67.i
 
 gc_collect_roots.exit:                            ; preds = %974
-  %.pre517 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  %.pre517 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   %.not135 = icmp eq i32 %.pre517, 0
   br i1 %.not135, label %976, label %979
 
@@ -2595,7 +2595,7 @@ gc_collect_roots.exit.thread:                     ; preds = %gc_compact.exit.i16
 
 .thread:                                          ; preds = %gc_collect_roots.exit.thread
   call void @zend_fiber_switch_block() #15
-  %975 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  %975 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   br label %1312
 
 976:                                              ; preds = %gc_collect_roots.exit.thread, %gc_collect_roots.exit
@@ -2612,14 +2612,14 @@ gc_collect_roots.exit.thread:                     ; preds = %gc_compact.exit.i16
   br i1 %.not.i233, label %gc_stack_free.exit, label %.lr.ph.i232
 
 gc_stack_free.exit:                               ; preds = %.lr.ph.i232, %976
-  store i8 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 9), align 1
   br label %.loopexit
 
 979:                                              ; preds = %gc_collect_roots.exit
   %980 = and i32 %.1297, 1
   %981 = icmp eq i32 %980, 0
   call void @zend_fiber_switch_block() #15
-  %982 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  %982 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   br i1 %981, label %1312, label %983
 
 983:                                              ; preds = %979
@@ -2733,7 +2733,7 @@ gc_stack_free.exit:                               ; preds = %.lr.ph.i232, %976
   %1026 = lshr i32 %.lcssa363, 10
   %1027 = and i32 %.lcssa363, 1023
   store i32 %1027, ptr %1025, align 4
-  %1028 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  %1028 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   %1029 = icmp ugt i32 %1028, 524287
   %1030 = load ptr, ptr @gc_globals, align 8
   %1031 = zext nneg i32 %1026 to i64
@@ -2768,7 +2768,7 @@ gc_remove_compressed.exit.i.i251.loopexit:        ; preds = %.preheader.i.i.i248
 
 gc_remove_compressed.exit.i.i251:                 ; preds = %gc_remove_compressed.exit.i.i251.loopexit, %1033
   %.0.i.i.i252 = phi ptr [ %1032, %1033 ], [ %1048, %gc_remove_compressed.exit.i.i251.loopexit ]
-  %1049 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  %1049 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
   %1050 = zext i32 %1049 to i64
   %1051 = shl nuw nsw i64 %1050, 3
   %1052 = or disjoint i64 %1051, 1
@@ -2777,7 +2777,7 @@ gc_remove_compressed.exit.i.i251:                 ; preds = %gc_remove_compresse
   br label %gc_remove_from_buffer.exit.i242
 
 1054:                                             ; preds = %.lr.ph.i239._crit_edge
-  %1055 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  %1055 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
   %1056 = zext i32 %1055 to i64
   %1057 = shl nuw nsw i64 %1056, 3
   %1058 = or disjoint i64 %1057, 1
@@ -2793,10 +2793,10 @@ gc_remove_from_buffer.exit.i242:                  ; preds = %1054, %gc_remove_co
   %1063 = sub i64 %1061, %1062
   %storemerge11.in.i.i244 = lshr exact i64 %1063, 3
   %storemerge11.i.i245 = trunc i64 %storemerge11.in.i.i244 to i32
-  store i32 %storemerge11.i.i245, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
-  %storemerge.in.i.i246 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  store i32 %storemerge11.i.i245, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
+  %storemerge.in.i.i246 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   %storemerge.i.i247 = add i32 %storemerge.in.i.i246, -1
-  store i32 %storemerge.i.i247, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  store i32 %storemerge.i.i247, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   br label %.loopexit235.i
 
 .lr.ph399:                                        ; preds = %.lr.ph.i239.preheader, %.lr.ph.i239
@@ -2980,7 +2980,7 @@ gc_stack_next.exit209.i:                          ; preds = %1121, %1118, %1115
   %1135 = lshr i32 %1131, 10
   %1136 = and i32 %1131, 1023
   store i32 %1136, ptr %1130, align 4
-  %1137 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  %1137 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   %1138 = icmp ugt i32 %1137, 524287
   %1139 = load ptr, ptr @gc_globals, align 8
   %1140 = zext nneg i32 %1135 to i64
@@ -3015,7 +3015,7 @@ gc_remove_compressed.exit.i218.i.loopexit:        ; preds = %.preheader.i.i215.i
 
 gc_remove_compressed.exit.i218.i:                 ; preds = %gc_remove_compressed.exit.i218.i.loopexit, %1142
   %.0.i.i219.i = phi ptr [ %1141, %1142 ], [ %1157, %gc_remove_compressed.exit.i218.i.loopexit ]
-  %1158 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  %1158 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
   %1159 = zext i32 %1158 to i64
   %1160 = shl nuw nsw i64 %1159, 3
   %1161 = or disjoint i64 %1160, 1
@@ -3024,7 +3024,7 @@ gc_remove_compressed.exit.i218.i:                 ; preds = %gc_remove_compresse
   br label %gc_remove_from_buffer.exit220.i
 
 1163:                                             ; preds = %1134
-  %1164 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  %1164 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
   %1165 = zext i32 %1164 to i64
   %1166 = shl nuw nsw i64 %1165, 3
   %1167 = or disjoint i64 %1166, 1
@@ -3040,10 +3040,10 @@ gc_remove_from_buffer.exit220.i:                  ; preds = %1163, %gc_remove_co
   %1172 = sub i64 %1170, %1171
   %storemerge11.in.i211.i = lshr exact i64 %1172, 3
   %storemerge11.i212.i = trunc i64 %storemerge11.in.i211.i to i32
-  store i32 %storemerge11.i212.i, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
-  %storemerge.in.i213.i = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  store i32 %storemerge11.i212.i, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
+  %storemerge.in.i213.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   %storemerge.i214.i = add i32 %storemerge.in.i213.i, -1
-  store i32 %storemerge.i214.i, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  store i32 %storemerge.i214.i, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   br label %1198
 
 1173:                                             ; preds = %1204, %.loopexit234.i
@@ -3357,17 +3357,17 @@ gc_remove_nested_data_from_buffer.exit:           ; preds = %1247, %1255
 1296:                                             ; preds = %._crit_edge417, %1291
   %.0111 = phi i64 [ %1295, %1291 ], [ 0, %._crit_edge417 ]
   %1297 = add i64 %.0111, %.0110.neg433
-  %1298 = load i64, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 56), align 8
+  %1298 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 56), align 8
   %1299 = add i64 %1297, %1298
-  store i64 %1299, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 56), align 8
-  %1300 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 10), align 2
+  store i64 %1299, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 56), align 8
+  %1300 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 10), align 2
   %1301 = trunc i8 %1300 to i1
   br i1 %1301, label %1302, label %1312
 
 1302:                                             ; preds = %1296
-  %1303 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1640), align 8
+  %1303 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1640), align 8
   call void @_efree(ptr noundef %1303) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @executor_globals, i64 1624), i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1624), i8 0, i64 24, i1 false)
   call void @zend_fiber_switch_unblock() #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %1304 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %11) #15
@@ -3440,7 +3440,7 @@ gc_stack_free.exit258:                            ; preds = %.lr.ph.i254, %1312
 1334:                                             ; preds = %1328
   %1335 = or disjoint i64 %1329, 1
   %1336 = inttoptr i64 %1335 to ptr
-  %1337 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 840), align 8
+  %1337 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 840), align 8
   %1338 = getelementptr inbounds nuw i8, ptr %1330, i64 8
   %1339 = load i32, ptr %1338, align 8
   %1340 = zext i32 %1339 to i64
@@ -3483,18 +3483,18 @@ gc_stack_free.exit258:                            ; preds = %.lr.ph.i254, %1312
   br label %1366
 
 1366:                                             ; preds = %1356, %1334
-  %1367 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 856), align 8
+  %1367 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 856), align 8
   %1368 = sext i32 %1367 to i64
   %1369 = shl nsw i64 %1368, 1
   %1370 = or disjoint i64 %1369, 1
   %1371 = inttoptr i64 %1370 to ptr
-  %1372 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 840), align 8
+  %1372 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 840), align 8
   %1373 = load i32, ptr %1338, align 8
   %1374 = zext i32 %1373 to i64
   %1375 = getelementptr inbounds nuw ptr, ptr %1372, i64 %1374
   store ptr %1371, ptr %1375, align 8
   %1376 = load i32, ptr %1338, align 8
-  store i32 %1376, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 856), align 8
+  store i32 %1376, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 856), align 8
   br label %1380
 
 1377:                                             ; preds = %1328
@@ -3529,7 +3529,7 @@ gc_stack_free.exit258:                            ; preds = %.lr.ph.i254, %1312
 1388:                                             ; preds = %.lr.ph427
   %1389 = and i64 %1385, -4
   %1390 = inttoptr i64 %1389 to ptr
-  %1391 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  %1391 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
   %1392 = zext i32 %1391 to i64
   %1393 = shl nuw nsw i64 %1392, 3
   %1394 = or disjoint i64 %1393, 1
@@ -3541,10 +3541,10 @@ gc_stack_free.exit258:                            ; preds = %.lr.ph.i254, %1312
   %1399 = sub i64 %1397, %1398
   %1400 = lshr exact i64 %1399, 3
   %1401 = trunc i64 %1400 to i32
-  store i32 %1401, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
-  %1402 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  store i32 %1401, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
+  %1402 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   %1403 = add i32 %1402, -1
-  store i32 %1403, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  store i32 %1403, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   call void @_efree(ptr noundef %1390) #15
   br label %1404
 
@@ -3569,23 +3569,23 @@ gc_stack_free.exit258:                            ; preds = %.lr.ph.i254, %1312
 1412:                                             ; preds = %1407, %._crit_edge428
   %.0114 = phi i64 [ %1411, %1407 ], [ 0, %._crit_edge428 ]
   %1413 = add i64 %.0114, %.0113.neg436
-  %1414 = load i64, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 64), align 8
+  %1414 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 64), align 8
   %1415 = add i64 %1413, %1414
-  store i64 %1415, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 64), align 8
+  store i64 %1415, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 64), align 8
   call void @zend_fiber_switch_unblock() #15
-  %1416 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 36), align 4
+  %1416 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 36), align 4
   %1417 = add i32 %1416, %.0120
-  store i32 %1417, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 36), align 4
+  store i32 %1417, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 36), align 4
   %1418 = add nsw i32 %.0120, %.0128
-  store i8 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
-  %.pr304 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 9), align 1
+  %.pr304 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   %1419 = add i32 %.pr304, 1
-  %1420 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  %1420 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   %.not.i259 = icmp eq i32 %1419, %1420
   br i1 %.not.i259, label %gc_compact.exit, label %1422
 
 .thread533:                                       ; preds = %124
-  %1421 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  %1421 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   %.not.i259536 = icmp eq i32 %1421, 1
   br i1 %.not.i259536, label %gc_compact.exit, label %.loopexit.i261
 
@@ -3665,16 +3665,16 @@ gc_stack_free.exit258:                            ; preds = %.lr.ph.i254, %1312
   br i1 %1462, label %.preheader36.i, label %.loopexit.loopexit.i
 
 .loopexit.loopexit.i:                             ; preds = %1461, %1444
-  %.pre.i265 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  %.pre.i265 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   br label %.loopexit.i261
 
 .loopexit.i261:                                   ; preds = %.thread533, %.loopexit.loopexit.i, %1423, %1422
   %.1129537546 = phi i32 [ %1418, %.loopexit.loopexit.i ], [ %1418, %1423 ], [ %1418, %1422 ], [ %.0128, %.thread533 ]
   %.1126539545 = phi i1 [ %.2127, %.loopexit.loopexit.i ], [ %.2127, %1423 ], [ %.2127, %1422 ], [ %.0125, %.thread533 ]
   %1463 = phi i32 [ %.pre.i265, %.loopexit.loopexit.i ], [ %.pr304, %1423 ], [ 0, %1422 ], [ 0, %.thread533 ]
-  store i32 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
   %1464 = add i32 %1463, 1
-  store i32 %1464, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  store i32 %1464, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   br label %gc_compact.exit
 
 gc_compact.exit:                                  ; preds = %.thread533, %1412, %.loopexit.i261
@@ -3686,10 +3686,10 @@ gc_compact.exit:                                  ; preds = %.thread533, %1412, 
 
 .loopexit:                                        ; preds = %gc_compact.exit, %gc_stack_free.exit
   %.2130 = phi i32 [ %.0128, %gc_stack_free.exit ], [ %.1129538, %gc_compact.exit ]
-  %1466 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1640), align 8
+  %1466 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1640), align 8
   call void @_efree(ptr noundef %1466) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @executor_globals, i64 1624), i8 0, i64 24, i1 false)
-  %.03041.i = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1624), i8 0, i64 24, i1 false)
+  %.03041.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %.not42.i = icmp eq ptr %.03041.i, null
   br i1 %.not42.i, label %zend_gc_check_root_tmpvars.exit, label %.lr.ph44.i
 
@@ -3815,9 +3815,9 @@ zend_gc_check_root_tmpvars.exit:                  ; preds = %.loopexit.i272, %.l
   %.0116.sink = phi i64 [ %137, %132 ], [ 0, %129 ], [ %1311, %1306 ], [ 0, %1302 ], [ %1530, %1525 ], [ 0, %zend_gc_check_root_tmpvars.exit ]
   %.0123 = phi i32 [ 0, %132 ], [ 0, %129 ], [ 0, %1306 ], [ 0, %1302 ], [ %.2130, %1525 ], [ %.2130, %zend_gc_check_root_tmpvars.exit ]
   %1532 = add i64 %.0116.sink, %.0.neg430
-  %1533 = load i64, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 48), align 8
+  %1533 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 48), align 8
   %1534 = add i64 %1532, %1533
-  store i64 %1534, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 48), align 8
+  store i64 %1534, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 48), align 8
   ret i32 %.0123
 }
 
@@ -3834,30 +3834,30 @@ declare void @_efree(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: nounwind uwtable
 define void @zend_gc_get_status(ptr nocapture noundef writeonly initializes((0, 3), (4, 56)) %0) local_unnamed_addr #2 {
   %2 = alloca %struct.timespec, align 8
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 9), align 1
   %4 = and i8 %3, 1
   store i8 %4, ptr %0, align 8
-  %5 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 10), align 2
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 10), align 2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %7 = and i8 %5, 1
   store i8 %7, ptr %6, align 1
-  %8 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 11), align 1
+  %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 11), align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %10 = and i8 %8, 1
   store i8 %10, ptr %9, align 2
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 32), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 32), align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %11, ptr %12, align 4
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 36), align 4
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 36), align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %13, ptr %14, align 8
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 20), align 4
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 20), align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %15, ptr %16, align 4
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 24), align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %17, ptr %18, align 8
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %19, ptr %20, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -3875,17 +3875,17 @@ define void @zend_gc_get_status(ptr nocapture noundef writeonly initializes((0, 
 
 29:                                               ; preds = %1, %23
   %.0 = phi i64 [ %28, %23 ], [ 0, %1 ]
-  %30 = load i64, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 40), align 8
+  %30 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 40), align 8
   %31 = sub i64 %.0, %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %31, ptr %32, align 8
-  %33 = load i64, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 48), align 8
+  %33 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 48), align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %33, ptr %34, align 8
-  %35 = load i64, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 56), align 8
+  %35 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 56), align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %35, ptr %36, align 8
-  %37 = load i64, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 64), align 8
+  %37 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 64), align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %37, ptr %38, align 8
   ret void
@@ -3893,9 +3893,9 @@ define void @zend_gc_get_status(ptr nocapture noundef writeonly initializes((0, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @zend_get_gc_buffer_create() local_unnamed_addr #5 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1640), align 8
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1624), align 8
-  ret ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1624)
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1640), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1624), align 8
+  ret ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1624)
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4407,7 +4407,7 @@ gc_stack_next.exit278.i:                          ; preds = %188, %185, %182
   br i1 %.not260.i, label %.loopexit.i, label %.lr.ph337.i
 
 199:                                              ; preds = %21
-  %200 = icmp ne ptr %.0175.i, getelementptr inbounds (i8, ptr @executor_globals, i64 304)
+  %200 = icmp ne ptr %.0175.i, getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304)
   call void @llvm.assume(i1 %200)
   br label %.loopexit289.i
 
@@ -4890,7 +4890,7 @@ gc_stack_next.exit243:                            ; preds = %394, %391, %387
   br i1 %.not226, label %.loopexit254, label %.lr.ph332
 
 405:                                              ; preds = %.lr.ph454
-  %406 = icmp ne ptr %.0142293453, getelementptr inbounds (i8, ptr @executor_globals, i64 304)
+  %406 = icmp ne ptr %.0142293453, getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304)
   call void @llvm.assume(i1 %406)
   br label %.loopexit257
 
@@ -5092,7 +5092,7 @@ declare ptr @zend_weakmap_get_object_entry_gc(ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @gc_extra_root(ptr noundef %0) unnamed_addr #2 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %13, label %3
 
@@ -5107,21 +5107,21 @@ define internal fastcc void @gc_extra_root(ptr noundef %0) unnamed_addr #2 {
   tail call void @llvm.assume(i1 %10)
   %11 = trunc i64 %8 to i32
   %12 = lshr i32 %11, 3
-  store i32 %12, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
+  store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4
   br label %39
 
 13:                                               ; preds = %1
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 20), align 4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 20), align 4
   %16 = icmp ult i32 %14, %15
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 24), align 8
   br i1 %16, label %18, label %21
 
 18:                                               ; preds = %13
   %19 = icmp ne i32 %14, %17
   tail call void @llvm.assume(i1 %19)
   %20 = add nuw i32 %14, 1
-  store i32 %20, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  store i32 %20, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   br label %39
 
 21:                                               ; preds = %13
@@ -5129,16 +5129,16 @@ define internal fastcc void @gc_extra_root(ptr noundef %0) unnamed_addr #2 {
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %21
-  %24 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 11), align 1
+  %24 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 11), align 1
   %25 = trunc i8 %24 to i1
   br i1 %25, label %27, label %26
 
 26:                                               ; preds = %23
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str) #15
-  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 10), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 11), align 1
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 9), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 10), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 11), align 1
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 24), align 8
   br label %gc_grow_root_buffer.exit
 
 27:                                               ; preds = %23, %21
@@ -5152,18 +5152,18 @@ define internal fastcc void @gc_extra_root(ptr noundef %0) unnamed_addr #2 {
   %33 = shl nuw nsw i64 %spec.store.select.i, 3
   %34 = tail call ptr @__zend_realloc(ptr noundef %32, i64 noundef %33) #17
   store ptr %34, ptr @gc_globals, align 8
-  store i32 %31, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
+  store i32 %31, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 24), align 8
   br label %gc_grow_root_buffer.exit
 
 gc_grow_root_buffer.exit:                         ; preds = %26, %27
   %35 = phi i32 [ %.pre, %26 ], [ %31, %27 ]
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   %.not21 = icmp eq i32 %36, %35
   br i1 %.not21, label %56, label %37
 
 37:                                               ; preds = %gc_grow_root_buffer.exit
   %38 = add i32 %36, 1
-  store i32 %38, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  store i32 %38, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 16), align 8
   br label %39
 
 39:                                               ; preds = %18, %37, %3
@@ -5186,9 +5186,9 @@ gc_grow_root_buffer.exit:                         ; preds = %26, %27
   %52 = and i32 %50, -1073740801
   %53 = or i32 %52, %51
   store i32 %53, ptr %40, align 4
-  %54 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   %55 = add i32 %54, 1
-  store i32 %55, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  store i32 %55, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 28), align 4
   br label %56
 
 56:                                               ; preds = %gc_grow_root_buffer.exit, %39

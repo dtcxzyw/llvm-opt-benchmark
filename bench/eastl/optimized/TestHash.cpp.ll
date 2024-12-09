@@ -4132,7 +4132,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl9hashtableIiNS_4pairIKii
 entry:
   %0 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not = icmp eq ptr %0, null
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not = icmp eq ptr %1, inttoptr (i64 -1 to ptr)
   %or.cond = select i1 %cmp.not, i1 %cmp2.not, i1 false
   br i1 %or.cond, label %if.end4, label %return
@@ -7289,7 +7289,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl9hashtableIiNS_4pairIKii
 entry:
   %0 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not = icmp eq ptr %0, null
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not = icmp eq ptr %1, inttoptr (i64 -1 to ptr)
   %or.cond = select i1 %cmp.not, i1 %cmp2.not, i1 false
   br i1 %or.cond, label %if.end4, label %return
@@ -13074,7 +13074,7 @@ invoke.cont74:                                    ; preds = %_ZN5eastl8hash_setI
   store i64 0, ptr %mnElementCount.i420, align 8
   %95 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i421 = icmp eq ptr %95, null
-  %96 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i = icmp eq ptr %96, inttoptr (i64 -1 to ptr)
   %or.cond.i = select i1 %cmp.not.i421, i1 %cmp2.not.i, i1 false
   br i1 %or.cond.i, label %while.cond.i.i.i438, label %invoke.cont75
@@ -13305,7 +13305,7 @@ lpad73:                                           ; preds = %lpad73.loopexit.spl
 for.end:                                          ; preds = %for.inc
   %118 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i448 = icmp eq ptr %118, null
-  %119 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i449 = icmp eq ptr %119, inttoptr (i64 -1 to ptr)
   %or.cond.i450 = select i1 %cmp.not.i448, i1 %cmp2.not.i449, i1 false
   br i1 %or.cond.i450, label %if.end4.i452, label %invoke.cont89
@@ -13437,7 +13437,7 @@ invoke.cont97:                                    ; preds = %invoke.cont95, %del
   store i64 0, ptr %mnElementCount.i420, align 8
   %134 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i521 = icmp eq ptr %134, null
-  %135 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i522 = icmp eq ptr %135, inttoptr (i64 -1 to ptr)
   %or.cond.i523 = select i1 %cmp.not.i521, i1 %cmp2.not.i522, i1 false
   br i1 %or.cond.i523, label %while.cond.i.i.i560, label %invoke.cont98
@@ -13562,7 +13562,7 @@ for.inc116:                                       ; preds = %call.i.i.i.i.i.i.i.
 for.end118:                                       ; preds = %for.inc116
   %148 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i594 = icmp eq ptr %148, null
-  %149 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i595 = icmp eq ptr %149, inttoptr (i64 -1 to ptr)
   %or.cond.i596 = select i1 %cmp.not.i594, i1 %cmp2.not.i595, i1 false
   br i1 %or.cond.i596, label %if.end4.i598, label %invoke.cont119
@@ -13694,7 +13694,7 @@ invoke.cont127:                                   ; preds = %invoke.cont125, %de
   store i64 0, ptr %mnElementCount.i420, align 8
   %164 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i667 = icmp eq ptr %164, null
-  %165 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %165 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i668 = icmp eq ptr %165, inttoptr (i64 -1 to ptr)
   %or.cond.i669 = select i1 %cmp.not.i667, i1 %cmp2.not.i668, i1 false
   br i1 %or.cond.i669, label %while.cond.i.i.i706, label %invoke.cont128
@@ -14723,7 +14723,7 @@ _ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiE
 invoke.cont316:                                   ; preds = %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE11bucket_sizeEm.exit
   %304 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i981 = icmp eq ptr %304, null
-  %305 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %305 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i982 = icmp eq ptr %305, inttoptr (i64 -1 to ptr)
   %or.cond.i983 = select i1 %cmp.not.i981, i1 %cmp2.not.i982, i1 false
   br i1 %or.cond.i983, label %if.end4.i985, label %invoke.cont318
@@ -14893,7 +14893,7 @@ invoke.cont323:                                   ; preds = %_ZN5eastl9hashtable
   %329 = phi i64 [ %conv2.i1033, %_ZN5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE8DoRehashEm.exit.i ], [ %315, %call.i.noexc ]
   %330 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i1065 = icmp ne ptr %330, null
-  %331 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %331 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i1066 = icmp ne ptr %331, inttoptr (i64 -1 to ptr)
   %or.cond.i1067.not11076 = select i1 %cmp.not.i1065, i1 true, i1 %cmp2.not.i1066
   %cmp5.i1071 = icmp eq i64 %329, 0
@@ -15031,7 +15031,7 @@ invoke.cont346:                                   ; preds = %while.end.i.i1132, 
   store i64 0, ptr %mnElementCount.i933, align 8
   %347 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i1137 = icmp eq ptr %347, null
-  %348 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %348 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i1138 = icmp eq ptr %348, inttoptr (i64 -1 to ptr)
   %or.cond.i1139 = select i1 %cmp.not.i1137, i1 %cmp2.not.i1138, i1 false
   br i1 %or.cond.i1139, label %if.end4.i1141, label %invoke.cont347
@@ -15191,7 +15191,7 @@ invoke.cont363:                                   ; preds = %invoke.cont361, %de
   store i64 0, ptr %mnElementCount.i933, align 8
   %366 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i1233 = icmp eq ptr %366, null
-  %367 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %367 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i1234 = icmp eq ptr %367, inttoptr (i64 -1 to ptr)
   %or.cond.i1235 = select i1 %cmp.not.i1233, i1 %cmp2.not.i1234, i1 false
   br i1 %or.cond.i1235, label %while.cond.i.i.i1272, label %invoke.cont364
@@ -16155,7 +16155,7 @@ _ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiE
 invoke.cont470:                                   ; preds = %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i.i
   %495 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i1602 = icmp eq ptr %495, null
-  %496 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %496 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i1603 = icmp eq ptr %496, inttoptr (i64 -1 to ptr)
   %or.cond.i1604 = select i1 %cmp.not.i1602, i1 %cmp2.not.i1603, i1 false
   br i1 %or.cond.i1604, label %if.end4.i1606, label %invoke.cont472
@@ -16238,7 +16238,7 @@ invoke.cont472:                                   ; preds = %for.end.i1633, %if.
 invoke.cont474:                                   ; preds = %invoke.cont472
   %505 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i1651 = icmp eq ptr %505, null
-  %506 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %506 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i1652 = icmp eq ptr %506, inttoptr (i64 -1 to ptr)
   %or.cond.i1653 = select i1 %cmp.not.i1651, i1 %cmp2.not.i1652, i1 false
   br i1 %or.cond.i1653, label %if.end4.i1655, label %invoke.cont476
@@ -17053,7 +17053,7 @@ _ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiE
 invoke.cont537:                                   ; preds = %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i.i2021
   %618 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i2032 = icmp eq ptr %618, null
-  %619 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %619 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i2033 = icmp eq ptr %619, inttoptr (i64 -1 to ptr)
   %or.cond.i2034 = select i1 %cmp.not.i2032, i1 %cmp2.not.i2033, i1 false
   br i1 %or.cond.i2034, label %if.end4.i2036, label %invoke.cont539
@@ -17136,7 +17136,7 @@ invoke.cont539:                                   ; preds = %for.end.i2063, %if.
 invoke.cont541:                                   ; preds = %invoke.cont539
   %628 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i2081 = icmp eq ptr %628, null
-  %629 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %629 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i2082 = icmp eq ptr %629, inttoptr (i64 -1 to ptr)
   %or.cond.i2083 = select i1 %cmp.not.i2081, i1 %cmp2.not.i2082, i1 false
   br i1 %or.cond.i2083, label %if.end4.i2085, label %invoke.cont543
@@ -17219,7 +17219,7 @@ invoke.cont543:                                   ; preds = %for.end.i2112, %if.
 invoke.cont545:                                   ; preds = %invoke.cont543
   %638 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i2130 = icmp eq ptr %638, null
-  %639 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %639 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i2131 = icmp eq ptr %639, inttoptr (i64 -1 to ptr)
   %or.cond.i2132 = select i1 %cmp.not.i2130, i1 %cmp2.not.i2131, i1 false
   br i1 %or.cond.i2132, label %if.end4.i2134, label %invoke.cont547
@@ -17304,7 +17304,7 @@ invoke.cont547:                                   ; preds = %for.end.i2161, %if.
 invoke.cont549:                                   ; preds = %invoke.cont547
   %648 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i2179 = icmp eq ptr %648, null
-  %649 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %649 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i2180 = icmp eq ptr %649, inttoptr (i64 -1 to ptr)
   %or.cond.i2181 = select i1 %cmp.not.i2179, i1 %cmp2.not.i2180, i1 false
   br i1 %or.cond.i2181, label %if.end4.i2183, label %invoke.cont551
@@ -17387,7 +17387,7 @@ invoke.cont551:                                   ; preds = %for.end.i2210, %if.
 invoke.cont553:                                   ; preds = %invoke.cont551
   %658 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i2228 = icmp eq ptr %658, null
-  %659 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %659 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i2229 = icmp eq ptr %659, inttoptr (i64 -1 to ptr)
   %or.cond.i2230 = select i1 %cmp.not.i2228, i1 %cmp2.not.i2229, i1 false
   br i1 %or.cond.i2230, label %if.end4.i2232, label %invoke.cont555
@@ -17484,7 +17484,7 @@ invoke.cont560:                                   ; preds = %invoke.cont559
 invoke.cont561:                                   ; preds = %invoke.cont560
   %668 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i2277 = icmp eq ptr %668, null
-  %669 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %669 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i2278 = icmp eq ptr %669, inttoptr (i64 -1 to ptr)
   %or.cond.i2279 = select i1 %cmp.not.i2277, i1 %cmp2.not.i2278, i1 false
   br i1 %or.cond.i2279, label %if.end4.i2281, label %invoke.cont562
@@ -17567,7 +17567,7 @@ invoke.cont562:                                   ; preds = %for.end.i2308, %if.
 invoke.cont564:                                   ; preds = %invoke.cont562
   %678 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i2326 = icmp eq ptr %678, null
-  %679 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %679 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i2327 = icmp eq ptr %679, inttoptr (i64 -1 to ptr)
   %or.cond.i2328 = select i1 %cmp.not.i2326, i1 %cmp2.not.i2327, i1 false
   br i1 %or.cond.i2328, label %if.end4.i2330, label %invoke.cont566
@@ -17650,7 +17650,7 @@ invoke.cont566:                                   ; preds = %for.end.i2357, %if.
 invoke.cont568:                                   ; preds = %invoke.cont566
   %688 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i2375 = icmp eq ptr %688, null
-  %689 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %689 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i2376 = icmp eq ptr %689, inttoptr (i64 -1 to ptr)
   %or.cond.i2377 = select i1 %cmp.not.i2375, i1 %cmp2.not.i2376, i1 false
   br i1 %or.cond.i2377, label %if.end4.i2379, label %invoke.cont570
@@ -17735,7 +17735,7 @@ invoke.cont570:                                   ; preds = %for.end.i2406, %if.
 invoke.cont572:                                   ; preds = %invoke.cont570
   %698 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i2424 = icmp eq ptr %698, null
-  %699 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %699 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i2425 = icmp eq ptr %699, inttoptr (i64 -1 to ptr)
   %or.cond.i2426 = select i1 %cmp.not.i2424, i1 %cmp2.not.i2425, i1 false
   br i1 %or.cond.i2426, label %if.end4.i2428, label %invoke.cont574
@@ -17818,7 +17818,7 @@ invoke.cont574:                                   ; preds = %for.end.i2455, %if.
 invoke.cont576:                                   ; preds = %invoke.cont574
   %708 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i2473 = icmp eq ptr %708, null
-  %709 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %709 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i2474 = icmp eq ptr %709, inttoptr (i64 -1 to ptr)
   %or.cond.i2475 = select i1 %cmp.not.i2473, i1 %cmp2.not.i2474, i1 false
   br i1 %or.cond.i2475, label %if.end4.i2477, label %invoke.cont578
@@ -17915,7 +17915,7 @@ invoke.cont584:                                   ; preds = %invoke.cont582
 invoke.cont586:                                   ; preds = %invoke.cont584
   %718 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i2522 = icmp eq ptr %718, null
-  %719 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %719 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i2523 = icmp eq ptr %719, inttoptr (i64 -1 to ptr)
   %or.cond.i2524 = select i1 %cmp.not.i2522, i1 %cmp2.not.i2523, i1 false
   br i1 %or.cond.i2524, label %if.end4.i2526, label %invoke.cont588
@@ -18002,7 +18002,7 @@ invoke.cont588:                                   ; preds = %for.end.i2553, %if.
 invoke.cont590:                                   ; preds = %invoke.cont588
   %728 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i2571 = icmp eq ptr %728, null
-  %729 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %729 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i2572 = icmp eq ptr %729, inttoptr (i64 -1 to ptr)
   %or.cond.i2573 = select i1 %cmp.not.i2571, i1 %cmp2.not.i2572, i1 false
   br i1 %or.cond.i2573, label %if.end4.i2575, label %invoke.cont592
@@ -18089,7 +18089,7 @@ invoke.cont592:                                   ; preds = %for.end.i2602, %if.
 invoke.cont594:                                   ; preds = %invoke.cont592
   %738 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i2620 = icmp eq ptr %738, null
-  %739 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %739 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i2621 = icmp eq ptr %739, inttoptr (i64 -1 to ptr)
   %or.cond.i2622 = select i1 %cmp.not.i2620, i1 %cmp2.not.i2621, i1 false
   br i1 %or.cond.i2622, label %if.end4.i2624, label %invoke.cont596
@@ -18993,7 +18993,7 @@ if.then.i2880:                                    ; preds = %for.end628
 invoke.cont629:                                   ; preds = %if.then.i2880, %for.end628
   %868 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i2882 = icmp ne ptr %868, null
-  %869 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %869 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i2883 = icmp ne ptr %869, inttoptr (i64 -1 to ptr)
   %or.cond.i2884.not9870 = select i1 %cmp.not.i2882, i1 true, i1 %cmp2.not.i2883
   %cmp5.i2888 = icmp eq i64 %862, 0
@@ -19070,7 +19070,7 @@ invoke.cont630:                                   ; preds = %for.end.i2912, %if.
 invoke.cont632:                                   ; preds = %invoke.cont630
   %874 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i2929 = icmp eq ptr %874, null
-  %875 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %875 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i2930 = icmp eq ptr %875, inttoptr (i64 -1 to ptr)
   %or.cond.i2931 = select i1 %cmp.not.i2929, i1 %cmp2.not.i2930, i1 false
   br i1 %or.cond.i2931, label %if.end4.i2933, label %invoke.cont634
@@ -19537,7 +19537,7 @@ invoke.cont719:                                   ; preds = %invoke.cont710
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp3.i3132)
   %922 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i3135 = icmp eq ptr %922, null
-  %923 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %923 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i3136 = icmp eq ptr %923, inttoptr (i64 -1 to ptr)
   %or.cond.i3137 = select i1 %cmp.not.i3135, i1 %cmp2.not.i3136, i1 false
   br i1 %or.cond.i3137, label %if.end4.i3139, label %invoke.cont721
@@ -19624,7 +19624,7 @@ invoke.cont721:                                   ; preds = %for.end.i3166, %if.
 invoke.cont723:                                   ; preds = %invoke.cont721
   %932 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i3184 = icmp eq ptr %932, null
-  %933 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %933 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i3185 = icmp eq ptr %933, inttoptr (i64 -1 to ptr)
   %or.cond.i3186 = select i1 %cmp.not.i3184, i1 %cmp2.not.i3185, i1 false
   br i1 %or.cond.i3186, label %if.end4.i3188, label %invoke.cont725
@@ -19711,7 +19711,7 @@ invoke.cont725:                                   ; preds = %for.end.i3215, %if.
 invoke.cont727:                                   ; preds = %invoke.cont725
   %942 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i3233 = icmp eq ptr %942, null
-  %943 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %943 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i3234 = icmp eq ptr %943, inttoptr (i64 -1 to ptr)
   %or.cond.i3235 = select i1 %cmp.not.i3233, i1 %cmp2.not.i3234, i1 false
   br i1 %or.cond.i3235, label %if.end4.i3237, label %invoke.cont729
@@ -19798,7 +19798,7 @@ invoke.cont729:                                   ; preds = %for.end.i3264, %if.
 invoke.cont731:                                   ; preds = %invoke.cont729
   %952 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i3282 = icmp eq ptr %952, null
-  %953 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %953 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i3283 = icmp eq ptr %953, inttoptr (i64 -1 to ptr)
   %or.cond.i3284 = select i1 %cmp.not.i3282, i1 %cmp2.not.i3283, i1 false
   br i1 %or.cond.i3284, label %if.end4.i3286, label %invoke.cont733
@@ -20115,7 +20115,7 @@ _ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiE
 invoke.cont769:                                   ; preds = %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i.i3492
   %993 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i3503 = icmp eq ptr %993, null
-  %994 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %994 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i3504 = icmp eq ptr %994, inttoptr (i64 -1 to ptr)
   %or.cond.i3505 = select i1 %cmp.not.i3503, i1 %cmp2.not.i3504, i1 false
   br i1 %or.cond.i3505, label %if.end4.i3507, label %invoke.cont771
@@ -20198,7 +20198,7 @@ invoke.cont771:                                   ; preds = %for.end.i3534, %if.
 invoke.cont773:                                   ; preds = %invoke.cont771
   %1003 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i3552 = icmp eq ptr %1003, null
-  %1004 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %1004 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i3553 = icmp eq ptr %1004, inttoptr (i64 -1 to ptr)
   %or.cond.i3554 = select i1 %cmp.not.i3552, i1 %cmp2.not.i3553, i1 false
   br i1 %or.cond.i3554, label %if.end4.i3556, label %invoke.cont775
@@ -20348,7 +20348,7 @@ _ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiE
 invoke.cont779:                                   ; preds = %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i.i3623
   %1022 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i3634 = icmp eq ptr %1022, null
-  %1023 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %1023 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i3635 = icmp eq ptr %1023, inttoptr (i64 -1 to ptr)
   %or.cond.i3636 = select i1 %cmp.not.i3634, i1 %cmp2.not.i3635, i1 false
   br i1 %or.cond.i3636, label %if.end4.i3638, label %invoke.cont781
@@ -20431,7 +20431,7 @@ invoke.cont781:                                   ; preds = %for.end.i3665, %if.
 invoke.cont783:                                   ; preds = %invoke.cont781
   %1032 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i3683 = icmp eq ptr %1032, null
-  %1033 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %1033 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i3684 = icmp eq ptr %1033, inttoptr (i64 -1 to ptr)
   %or.cond.i3685 = select i1 %cmp.not.i3683, i1 %cmp2.not.i3684, i1 false
   br i1 %or.cond.i3685, label %if.end4.i3687, label %invoke.cont785
@@ -20528,7 +20528,7 @@ invoke.cont787:                                   ; preds = %invoke.cont785
 invoke.cont789:                                   ; preds = %invoke.cont787
   %1042 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i3740 = icmp eq ptr %1042, null
-  %1043 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %1043 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i3741 = icmp eq ptr %1043, inttoptr (i64 -1 to ptr)
   %or.cond.i3742 = select i1 %cmp.not.i3740, i1 %cmp2.not.i3741, i1 false
   br i1 %or.cond.i3742, label %if.end4.i3744, label %invoke.cont790
@@ -20611,7 +20611,7 @@ invoke.cont790:                                   ; preds = %for.end.i3771, %if.
 invoke.cont792:                                   ; preds = %invoke.cont790
   %1052 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i3789 = icmp eq ptr %1052, null
-  %1053 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %1053 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i3790 = icmp eq ptr %1053, inttoptr (i64 -1 to ptr)
   %or.cond.i3791 = select i1 %cmp.not.i3789, i1 %cmp2.not.i3790, i1 false
   br i1 %or.cond.i3791, label %if.end4.i3793, label %invoke.cont794
@@ -20744,7 +20744,7 @@ _ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiE
 invoke.cont798:                                   ; preds = %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i.i3856
   %1071 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i3867 = icmp eq ptr %1071, null
-  %1072 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %1072 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i3868 = icmp eq ptr %1072, inttoptr (i64 -1 to ptr)
   %or.cond.i3869 = select i1 %cmp.not.i3867, i1 %cmp2.not.i3868, i1 false
   br i1 %or.cond.i3869, label %if.end4.i3871, label %invoke.cont800
@@ -21198,7 +21198,7 @@ invoke.cont832:                                   ; preds = %for.end824
 invoke.cont836:                                   ; preds = %invoke.cont832
   %1105 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i4089 = icmp eq ptr %1105, null
-  %1106 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %1106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i4090 = icmp eq ptr %1106, inttoptr (i64 -1 to ptr)
   %or.cond.i4091 = select i1 %cmp.not.i4089, i1 %cmp2.not.i4090, i1 false
   br i1 %or.cond.i4091, label %if.end4.i4093, label %invoke.cont837
@@ -21297,7 +21297,7 @@ invoke.cont846:                                   ; preds = %invoke.cont842
 invoke.cont849:                                   ; preds = %invoke.cont846
   %1115 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   %cmp.not.i4140 = icmp eq ptr %1115, null
-  %1116 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %1116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp2.not.i4141 = icmp eq ptr %1116, inttoptr (i64 -1 to ptr)
   %or.cond.i4142 = select i1 %cmp.not.i4140, i1 %cmp2.not.i4141, i1 false
   br i1 %or.cond.i4142, label %if.end4.i4144, label %invoke.cont850
@@ -25385,7 +25385,7 @@ while.cond.i.i.i5955:                             ; preds = %if.end.i5916, %whil
 _ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i: ; preds = %while.cond.i.i.i5955, %if.end.i5916
   %retval.sroa.4.0.i.i5919 = phi ptr [ @_ZN5eastl18gpEmptyBucketArrayE, %if.end.i5916 ], [ %storemerge.i.i.i5957, %while.cond.i.i.i5955 ]
   %retval.sroa.0.0.i.i5920 = phi ptr [ %1687, %if.end.i5916 ], [ %1688, %while.cond.i.i.i5955 ]
-  %1689 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %1689 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp.i.not35.i5926 = icmp eq ptr %retval.sroa.0.0.i.i5920, %1689
   br i1 %cmp.i.not35.i5926, label %invoke.cont1693, label %for.body.i5929
 
@@ -27492,7 +27492,7 @@ while.cond.i.i.i7025:                             ; preds = %if.end.i6989, %whil
 _ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i: ; preds = %while.cond.i.i.i7025, %if.end.i6989
   %retval.sroa.4.0.i.i6992 = phi ptr [ @_ZN5eastl18gpEmptyBucketArrayE, %if.end.i6989 ], [ %storemerge.i.i.i7027, %while.cond.i.i.i7025 ]
   %retval.sroa.0.0.i.i6993 = phi ptr [ %1991, %if.end.i6989 ], [ %1992, %while.cond.i.i.i7025 ]
-  %1993 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
+  %1993 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8
   %cmp.i.not36.i = icmp eq ptr %retval.sroa.0.0.i.i6993, %1993
   br i1 %cmp.i.not36.i, label %invoke.cont1879, label %for.body.i7001
 
@@ -29829,7 +29829,7 @@ while.cond.i.i8182:                               ; preds = %_ZN5eastl8hash_mapI
 _ZN5eastl9hashtableIP15HashRegressionANS_4pairIKS2_15HashRegressionBEENS_9allocatorENS_9use_firstIS6_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit: ; preds = %while.cond.i.i8182, %_ZN5eastl8hash_mapIiPNS_12basic_stringIcNS_9allocatorEEENS_4hashIiEENS_8equal_toIiEES2_Lb0EED2Ev.exit
   %it2124.sroa.0.1 = phi ptr [ %2327, %_ZN5eastl8hash_mapIiPNS_12basic_stringIcNS_9allocatorEEENS_4hashIiEENS_8equal_toIiEES2_Lb0EED2Ev.exit ], [ %2328, %while.cond.i.i8182 ]
   %it2124.sroa.7.1 = phi ptr [ @_ZN5eastl18gpEmptyBucketArrayE, %_ZN5eastl8hash_mapIiPNS_12basic_stringIcNS_9allocatorEEENS_4hashIiEENS_8equal_toIiEES2_Lb0EED2Ev.exit ], [ %storemerge.i.i8184, %while.cond.i.i8182 ]
-  %2329 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8, !noalias !916
+  %2329 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8, !noalias !916
   %cmp.i8190.not10353 = icmp eq ptr %it2124.sroa.0.1, %2329
   br i1 %cmp.i8190.not10353, label %for.end2137, label %for.body2130
 
@@ -29853,7 +29853,7 @@ while.body.i.i8196:                               ; preds = %for.body2130, %whil
 _ZN5eastl18hashtable_iteratorINS_4pairIKP15HashRegressionA15HashRegressionBEELb0ELb0EEppEi.exit: ; preds = %while.body.i.i8196, %for.body2130
   %it2124.sroa.0.2 = phi ptr [ %storemerge1.i.i8194, %for.body2130 ], [ %storemerge.i.i8198, %while.body.i.i8196 ]
   %it2124.sroa.7.2 = phi ptr [ %it2124.sroa.7.010355, %for.body2130 ], [ %incdec.ptr.i.i8197, %while.body.i.i8196 ]
-  %2331 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8, !noalias !916
+  %2331 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 8), align 8, !noalias !916
   %cmp.i8190.not = icmp eq ptr %it2124.sroa.0.2, %2331
   br i1 %cmp.i8190.not, label %for.end2137, label %for.body2130
 
@@ -30899,7 +30899,7 @@ if.then.i.i.i.i8827:                              ; preds = %delete.notnull.i.i.
   %mnNextResize.i.i.i8806 = getelementptr inbounds nuw i8, ptr %myMap, i64 40
   store i32 0, ptr %mnNextResize.i.i.i8806, align 8
   %mAllocator.i.i8807 = getelementptr inbounds nuw i8, ptr %myMap, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mAllocator.i.i8807, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mAllocator.i.i8807, align 8
   store i64 2, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   store i64 1, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
   %call.i.i8814 = call noundef i32 @_ZNK5eastl19prime_rehash_policy18GetNextBucketCountEj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i8804, i32 noundef 5)
@@ -30933,7 +30933,7 @@ if.then.i.i.i.i8827:                              ; preds = %delete.notnull.i.i.
   %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %key, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   %mSecond.i.i.i = getelementptr inbounds nuw i8, ptr %key, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i, align 8
   %inc.i.i.i.i8818 = add i64 %2477, 2
   store i64 %inc.i.i.i.i8818, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %2479 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
@@ -30971,7 +30971,7 @@ if.then.i.i.i.i8856:                              ; preds = %if.then.i.i.i.i8827
   %mRemainingSizeField.i.i.i.i.i.i8834 = getelementptr inbounds nuw i8, ptr %value2381, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i8834, align 1
   %mSecond.i.i.i8835 = getelementptr inbounds nuw i8, ptr %value2381, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i8835, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i8835, align 8
   %inc.i.i.i.i8836 = add i64 %2484, 2
   store i64 %inc.i.i.i.i8836, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %2486 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
@@ -31013,7 +31013,7 @@ invoke.cont2393:                                  ; preds = %if.then.i.i.i.i8856
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp2390, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1, !alias.scope !1013
   %mSecond.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp2390, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i.i.i, align 8, !alias.scope !1013
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i.i.i, align 8, !alias.scope !1013
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp2390, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp2390, ptr noundef nonnull align 8 dereferenceable(32) %key, i64 24, i1 false)
@@ -31026,7 +31026,7 @@ invoke.cont2393:                                  ; preds = %if.then.i.i.i.i8856
   %mRemainingSizeField.i.i.i.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp2390, i64 55
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i2.i.i, align 1, !alias.scope !1013
   %mSecond.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp2390, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i3.i.i, align 8, !alias.scope !1013
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i3.i.i, align 8, !alias.scope !1013
   store i64 2, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8, !noalias !1013
   store i64 2, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8, !noalias !1013
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i1.i.i)
@@ -31153,7 +31153,7 @@ if.then.i.i.i.i8947:                              ; preds = %delete.notnull.i.i.
   %mnNextResize.i.i.i8907 = getelementptr inbounds nuw i8, ptr %myMap2406, i64 40
   store i32 0, ptr %mnNextResize.i.i.i8907, align 8
   %mAllocator.i.i8908 = getelementptr inbounds nuw i8, ptr %myMap2406, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mAllocator.i.i8908, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mAllocator.i.i8908, align 8
   %inc.i.i.i8909 = add i64 %2514, 2
   store i64 %inc.i.i.i8909, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %2516 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
@@ -31190,7 +31190,7 @@ if.then.i.i.i.i8947:                              ; preds = %delete.notnull.i.i.
   %mRemainingSizeField.i.i.i.i.i.i8925 = getelementptr inbounds nuw i8, ptr %key2413, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i8925, align 1
   %mSecond.i.i.i8926 = getelementptr inbounds nuw i8, ptr %key2413, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i8926, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i8926, align 8
   %inc.i.i.i.i8927 = add i64 %2522, 2
   store i64 %inc.i.i.i.i8927, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %2524 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
@@ -31228,7 +31228,7 @@ if.then.i.i.i.i8983:                              ; preds = %if.then.i.i.i.i8947
   %mRemainingSizeField.i.i.i.i.i.i8961 = getelementptr inbounds nuw i8, ptr %value2420, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i8961, align 1
   %mSecond.i.i.i8962 = getelementptr inbounds nuw i8, ptr %value2420, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i8962, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i8962, align 8
   %inc.i.i.i.i8963 = add i64 %2529, 2
   store i64 %inc.i.i.i.i8963, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %2531 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
@@ -31376,7 +31376,7 @@ if.then.i.i.i.i9063:                              ; preds = %invoke.cont.i.i9023
   %mAllocator.i.i9036 = getelementptr inbounds nuw i8, ptr %myMap2441, i64 40
   %2561 = getelementptr inbounds nuw i8, ptr %myMap2441, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2561, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mAllocator.i.i9036, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mAllocator.i.i9036, align 8
   %2562 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
   store ptr %myMap2441, ptr %myMap2441, align 8
   %mpNodeLeft.i.i.i = getelementptr inbounds nuw i8, ptr %myMap2441, i64 8
@@ -31387,7 +31387,7 @@ if.then.i.i.i.i9063:                              ; preds = %invoke.cont.i.i9023
   %mRemainingSizeField.i.i.i.i.i.i9041 = getelementptr inbounds nuw i8, ptr %key2446, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i9041, align 1
   %mSecond.i.i.i9042 = getelementptr inbounds nuw i8, ptr %key2446, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i9042, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i9042, align 8
   %inc.i.i.i.i9043 = add i64 %2559, 4
   store i64 %inc.i.i.i.i9043, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %inc2.i.i.i.i9044 = add i64 %2562, 2
@@ -31424,7 +31424,7 @@ if.then.i.i.i.i9099:                              ; preds = %if.then.i.i.i.i9063
   %mRemainingSizeField.i.i.i.i.i.i9077 = getelementptr inbounds nuw i8, ptr %value2453, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i9077, align 1
   %mSecond.i.i.i9078 = getelementptr inbounds nuw i8, ptr %value2453, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i9078, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i9078, align 8
   %inc.i.i.i.i9079 = add i64 %2567, 2
   store i64 %inc.i.i.i.i9079, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %2569 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
@@ -31466,7 +31466,7 @@ invoke.cont2465:                                  ; preds = %if.then.i.i.i.i9099
   %mRemainingSizeField.i.i.i.i.i.i.i.i9113 = getelementptr inbounds nuw i8, ptr %ref.tmp2462, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i9113, align 1, !alias.scope !1016
   %mSecond.i.i.i.i.i9114 = getelementptr inbounds nuw i8, ptr %ref.tmp2462, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i.i.i9114, align 8, !alias.scope !1016
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i.i.i9114, align 8, !alias.scope !1016
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i.i.i9112)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i.i.i9112, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp2462, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp2462, ptr noundef nonnull align 8 dereferenceable(32) %key2446, i64 24, i1 false)
@@ -31479,7 +31479,7 @@ invoke.cont2465:                                  ; preds = %if.then.i.i.i.i9099
   %mRemainingSizeField.i.i.i.i.i.i2.i.i9119 = getelementptr inbounds nuw i8, ptr %ref.tmp2462, i64 55
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i2.i.i9119, align 1, !alias.scope !1016
   %mSecond.i.i.i3.i.i9120 = getelementptr inbounds nuw i8, ptr %ref.tmp2462, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i3.i.i9120, align 8, !alias.scope !1016
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i3.i.i9120, align 8, !alias.scope !1016
   store i64 2, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8, !noalias !1016
   store i64 2, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8, !noalias !1016
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i1.i.i9111)
@@ -31571,7 +31571,7 @@ if.then.i.i.i.i9205:                              ; preds = %_ZN5eastl12basic_st
   %mAllocator.i.i9177 = getelementptr inbounds nuw i8, ptr %myMap2478, i64 40
   %2592 = getelementptr inbounds nuw i8, ptr %myMap2478, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2592, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mAllocator.i.i9177, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mAllocator.i.i9177, align 8
   %2593 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
   store ptr %myMap2478, ptr %myMap2478, align 8
   %mpNodeLeft.i.i.i9180 = getelementptr inbounds nuw i8, ptr %myMap2478, i64 8
@@ -31582,7 +31582,7 @@ if.then.i.i.i.i9205:                              ; preds = %_ZN5eastl12basic_st
   %mRemainingSizeField.i.i.i.i.i.i9183 = getelementptr inbounds nuw i8, ptr %key2483, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i9183, align 1
   %mSecond.i.i.i9184 = getelementptr inbounds nuw i8, ptr %key2483, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i9184, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i9184, align 8
   %inc.i.i.i.i9185 = add i64 %2590, 4
   store i64 %inc.i.i.i.i9185, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %inc2.i.i.i.i9186 = add i64 %2593, 2
@@ -31619,7 +31619,7 @@ if.then.i.i.i.i9241:                              ; preds = %if.then.i.i.i.i9205
   %mRemainingSizeField.i.i.i.i.i.i9219 = getelementptr inbounds nuw i8, ptr %value2490, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i9219, align 1
   %mSecond.i.i.i9220 = getelementptr inbounds nuw i8, ptr %value2490, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i9220, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i9220, align 8
   %inc.i.i.i.i9221 = add i64 %2598, 2
   store i64 %inc.i.i.i.i9221, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %2600 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
@@ -64114,7 +64114,7 @@ entry:
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
   %mSecond.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i.i.i, align 8
   %1 = load i64, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %inc.i.i.i.i.i.i = add i64 %1, 1
   store i64 %inc.i.i.i.i.i.i, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
@@ -64135,7 +64135,7 @@ entry:
   %mRemainingSizeField.i.i.i.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 55
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i3.i.i, align 1
   %mSecond.i.i.i4.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i4.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i4.i.i, align 8
   %3 = load i64, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %inc.i.i.i.i5.i.i = add i64 %3, 1
   store i64 %inc.i.i.i.i5.i.i, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
@@ -64404,7 +64404,7 @@ entry:
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
   %mSecond.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i.i.i, align 8
   %1 = load i64, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %inc.i.i.i.i.i.i = add i64 %1, 1
   store i64 %inc.i.i.i.i.i.i, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
@@ -64424,7 +64424,7 @@ entry:
   %mRemainingSizeField.i.i.i.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 55
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i2.i.i, align 1
   %mSecond.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i3.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i3.i.i, align 8
   %3 = load i64, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %inc.i.i.i.i4.i.i = add i64 %3, 1
   store i64 %inc.i.i.i.i4.i.i, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
@@ -64576,7 +64576,7 @@ entry:
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 55
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
   %mSecond.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i.i.i, align 8
   %1 = load i64, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %inc.i.i.i.i.i.i = add i64 %1, 1
   store i64 %inc.i.i.i.i.i.i, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
@@ -64597,7 +64597,7 @@ entry:
   %mRemainingSizeField.i.i.i.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 87
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i3.i.i, align 1
   %mSecond.i.i.i4.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 88
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i4.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i4.i.i, align 8
   %3 = load i64, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %inc.i.i.i.i5.i.i = add i64 %3, 1
   store i64 %inc.i.i.i.i5.i.i, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
@@ -64801,7 +64801,7 @@ entry:
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 55
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
   %mSecond.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i.i.i, align 8
   %1 = load i64, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %inc.i.i.i.i.i.i = add i64 %1, 1
   store i64 %inc.i.i.i.i.i.i, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
@@ -64821,7 +64821,7 @@ entry:
   %mRemainingSizeField.i.i.i.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 87
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i2.i.i, align 1
   %mSecond.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 88
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i3.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mSecond.i.i.i3.i.i, align 8
   %3 = load i64, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %inc.i.i.i.i4.i.i = add i64 %3, 1
   store i64 %inc.i.i.i.i4.i.i, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8

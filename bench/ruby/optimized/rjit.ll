@@ -476,7 +476,7 @@ rb_ec_ractor_hooks.exit:                          ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i32, ptr %15, align 8
   store i32 %16, ptr @rb_rjit_global_events, align 4
-  %17 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 14), align 2
+  %17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @rb_rjit_opts, i64 14), align 2
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %23
 
@@ -535,7 +535,7 @@ rb_ull2num_inline.exit:                           ; preds = %32, %35
   %40 = select i1 %not..b10, i1 %39, i1 false
   %41 = zext i1 %40 to i8
   store i8 %41, ptr @rb_rjit_call_p, align 1
-  %42 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 14), align 2
+  %42 = load i8, ptr getelementptr inbounds nuw (i8, ptr @rb_rjit_opts, i64 14), align 2
   %43 = trunc i8 %42 to i1
   br i1 %43, label %44, label %48
 
@@ -636,7 +636,7 @@ rb_vm_lock_enter.exit:                            ; preds = %10, %12
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8
   store i32 %20, ptr @rb_rjit_global_events, align 4
-  %21 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 14), align 2
+  %21 = load i8, ptr getelementptr inbounds nuw (i8, ptr @rb_rjit_opts, i64 14), align 2
   %22 = trunc i8 %21 to i1
   br i1 %22, label %23, label %27
 
@@ -695,7 +695,7 @@ rb_ull2num_inline.exit:                           ; preds = %36, %39
   %44 = select i1 %not..b10, i1 %43, i1 false
   %45 = zext i1 %44 to i8
   store i8 %45, ptr @rb_rjit_call_p, align 1
-  %46 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 14), align 2
+  %46 = load i8, ptr getelementptr inbounds nuw (i8, ptr @rb_rjit_opts, i64 14), align 2
   %47 = trunc i8 %46 to i1
   br i1 %47, label %48, label %52
 
@@ -768,7 +768,7 @@ rb_vm_lock_enter.exit:                            ; preds = %12, %14
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8
   store i32 %22, ptr @rb_rjit_global_events, align 4
-  %23 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 14), align 2
+  %23 = load i8, ptr getelementptr inbounds nuw (i8, ptr @rb_rjit_opts, i64 14), align 2
   %24 = trunc i8 %23 to i1
   br i1 %24, label %25, label %29
 
@@ -845,7 +845,7 @@ rb_ull2num_inline.exit15:                         ; preds = %45, %48
   %56 = select i1 %not..b12, i1 %55, i1 false
   %57 = zext i1 %56 to i8
   store i8 %57, ptr @rb_rjit_call_p, align 1
-  %58 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 14), align 2
+  %58 = load i8, ptr getelementptr inbounds nuw (i8, ptr @rb_rjit_opts, i64 14), align 2
   %59 = trunc i8 %58 to i1
   br i1 %59, label %60, label %64
 
@@ -919,7 +919,7 @@ rb_ec_ractor_hooks.exit:                          ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i32, ptr %15, align 8
   store i32 %16, ptr @rb_rjit_global_events, align 4
-  %17 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 14), align 2
+  %17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @rb_rjit_opts, i64 14), align 2
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %23
 
@@ -966,7 +966,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %24
   %36 = select i1 %not..b10, i1 %35, i1 false
   %37 = zext i1 %36 to i8
   store i8 %37, ptr @rb_rjit_call_p, align 1
-  %38 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 14), align 2
+  %38 = load i8, ptr getelementptr inbounds nuw (i8, ptr @rb_rjit_opts, i64 14), align 2
   %39 = trunc i8 %38 to i1
   br i1 %39, label %40, label %44
 
@@ -1131,7 +1131,7 @@ rb_vm_lock_enter.exit:                            ; preds = %1, %4
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i32, ptr %11, align 8
   store i32 %12, ptr @rb_rjit_global_events, align 4
-  %13 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 14), align 2
+  %13 = load i8, ptr getelementptr inbounds nuw (i8, ptr @rb_rjit_opts, i64 14), align 2
   %14 = trunc i8 %13 to i1
   br i1 %14, label %15, label %19
 
@@ -1235,7 +1235,7 @@ rbimpl_intern_const.exit28:                       ; preds = %.lr.ph.i26, %rb_ull
   %52 = select i1 %not..b13, i1 %51, i1 false
   %53 = zext i1 %52 to i8
   store i8 %53, ptr @rb_rjit_call_p, align 1
-  %54 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 14), align 2
+  %54 = load i8, ptr getelementptr inbounds nuw (i8, ptr @rb_rjit_opts, i64 14), align 2
   %55 = trunc i8 %54 to i1
   br i1 %55, label %56, label %60
 
@@ -1298,7 +1298,7 @@ rb_vm_lock_enter.exit:                            ; preds = %1, %4
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr @rb_rjit_global_events, align 4
-  %16 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 14), align 2
+  %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @rb_rjit_opts, i64 14), align 2
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %22
 
@@ -1370,7 +1370,7 @@ rbimpl_intern_const.exit20:                       ; preds = %.lr.ph.i18, %rb_ull
   %42 = select i1 %not..b13, i1 %41, i1 false
   %43 = zext i1 %42 to i8
   store i8 %43, ptr @rb_rjit_call_p, align 1
-  %44 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 14), align 2
+  %44 = load i8, ptr getelementptr inbounds nuw (i8, ptr @rb_rjit_opts, i64 14), align 2
   %45 = trunc i8 %44 to i1
   br i1 %45, label %46, label %50
 
@@ -1453,7 +1453,7 @@ rb_vm_lock_enter.exit:                            ; preds = %3, %6
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8
   store i32 %21, ptr @rb_rjit_global_events, align 4
-  %22 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 14), align 2
+  %22 = load i8, ptr getelementptr inbounds nuw (i8, ptr @rb_rjit_opts, i64 14), align 2
   %23 = trunc i8 %22 to i1
   br i1 %23, label %24, label %28
 
@@ -1528,7 +1528,7 @@ rbimpl_intern_const.exit26:                       ; preds = %.lr.ph.i24, %rb_ull
   %49 = select i1 %not..b18, i1 %48, i1 false
   %50 = zext i1 %49 to i8
   store i8 %50, ptr @rb_rjit_call_p, align 1
-  %51 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 14), align 2
+  %51 = load i8, ptr getelementptr inbounds nuw (i8, ptr @rb_rjit_opts, i64 14), align 2
   %52 = trunc i8 %51 to i1
   br i1 %52, label %53, label %57
 
@@ -1587,25 +1587,25 @@ rb_num2ull_inline.exit:                           ; preds = %69, %71
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_rjit_init(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) @rb_rjit_opts, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false)
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 4), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @rb_rjit_opts, i64 4), align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %1
-  store i32 64, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 4), align 4
+  store i32 64, ptr getelementptr inbounds nuw (i8, ptr @rb_rjit_opts, i64 4), align 4
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 8), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @rb_rjit_opts, i64 8), align 4
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %5
-  store i32 10, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 8), align 4
+  store i32 10, ptr getelementptr inbounds nuw (i8, ptr @rb_rjit_opts, i64 8), align 4
   br label %9
 
 9:                                                ; preds = %8, %5
-  %10 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 16), align 4
+  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @rb_rjit_opts, i64 16), align 4
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %13
 
@@ -1749,7 +1749,7 @@ rbimpl_intern_const.exit50:                       ; preds = %.lr.ph.i48, %rbimpl
   %.lcssa.i47 = phi i64 [ %.pr.i45, %rbimpl_intern_const.exit44 ], [ %40, %.lr.ph.i48 ]
   %41 = tail call i64 @rb_const_get(i64 noundef %39, i64 noundef %.lcssa.i47) #17
   store i64 %41, ptr @rb_mRJITHooks, align 8
-  %42 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 15), align 1
+  %42 = load i8, ptr getelementptr inbounds nuw (i8, ptr @rb_rjit_opts, i64 15), align 1
   %43 = trunc i8 %42 to i1
   br i1 %43, label %44, label %47
 
@@ -1761,7 +1761,7 @@ rbimpl_intern_const.exit50:                       ; preds = %.lr.ph.i48, %rbimpl
   br label %47
 
 47:                                               ; preds = %44, %rbimpl_intern_const.exit50
-  %48 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 13), align 1
+  %48 = load i8, ptr getelementptr inbounds nuw (i8, ptr @rb_rjit_opts, i64 13), align 1
   %49 = and i8 %48, 1
   %50 = xor i8 %49, 1
   store i8 %50, ptr @rb_rjit_call_p, align 1
@@ -1805,7 +1805,7 @@ rb_ec_ractor_hooks.exit:                          ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i32, ptr %15, align 8
   store i32 %16, ptr @rb_rjit_global_events, align 4
-  %17 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 14), align 2
+  %17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @rb_rjit_opts, i64 14), align 2
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %23
 
@@ -1849,7 +1849,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %24
   %33 = select i1 %not..b9, i1 %32, i1 false
   %34 = zext i1 %33 to i8
   store i8 %34, ptr @rb_rjit_call_p, align 1
-  %35 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 14), align 2
+  %35 = load i8, ptr getelementptr inbounds nuw (i8, ptr @rb_rjit_opts, i64 14), align 2
   %36 = trunc i8 %35 to i1
   br i1 %36, label %37, label %41
 

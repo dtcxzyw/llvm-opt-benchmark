@@ -1025,7 +1025,7 @@ entry:
   store i32 0, ptr %fCreationStatus.i.i.i, align 8
   %fIsPrimary.i.i.i = getelementptr inbounds nuw i8, ptr %key, i64 12
   store i8 0, ptr %fIsPrimary.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEEE, i64 16), ptr %key, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEEE, i64 16), ptr %key, align 8
   %fLoc.i = getelementptr inbounds nuw i8, ptr %key, i64 16
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i, ptr noundef nonnull align 8 dereferenceable(217) %locale)
           to label %_ZN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEEC2ERKNS_6LocaleE.exit unwind label %lpad.i
@@ -1099,7 +1099,7 @@ invoke.cont:                                      ; preds = %if.then8.i, %_ZN6ic
   %entry2.2 = phi ptr [ %entry2.1, %_ZN6icu_7512SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i ], [ %entry2.112, %if.then8.i ], [ null, %_ZN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEEC2ERKNS_6LocaleE.exit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %creationStatus.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEEE, i64 16), ptr %key, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEEE, i64 16), ptr %key, align 8
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i) #14
   call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %key) #14
   ret ptr %entry2.2
@@ -1107,7 +1107,7 @@ invoke.cont:                                      ; preds = %if.then8.i, %_ZN6ic
 lpad:                                             ; preds = %if.then.i6.i, %if.end5.thread12.i, %if.end.i
   %8 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEEE, i64 16), ptr %key, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEEE, i64 16), ptr %key, align 8
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i) #14
   br label %common.resume
 }
@@ -2216,7 +2216,7 @@ new.notnull:                                      ; preds = %if.end
   %1 = load ptr, ptr %tailoring, align 8
   %softRefCount.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %softRefCount.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519CollationCacheEntryE, i64 16), ptr %call3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519CollationCacheEntryE, i64 16), ptr %call3, align 8
   %validLocale.i = getelementptr inbounds nuw i8, ptr %call3, i64 24
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %validLocale.i, ptr noundef nonnull align 8 dereferenceable(217) %loc)
           to label %invoke.cont.i unwind label %lpad.i
@@ -2285,7 +2285,7 @@ define linkonce_odr void @_ZN6icu_7519CollationCacheEntryC2ERKNS_6LocaleEPKNS_18
 entry:
   %softRefCount.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %softRefCount.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519CollationCacheEntryE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519CollationCacheEntryE, i64 16), ptr %this, align 8
   %validLocale = getelementptr inbounds nuw i8, ptr %this, i64 24
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %validLocale, ptr noundef nonnull align 8 dereferenceable(217) %loc)
           to label %invoke.cont unwind label %lpad
@@ -2323,7 +2323,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEED2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEEE, i64 16), ptr %this, align 8
   %fLoc = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc) #14
   tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this) #14
@@ -2370,7 +2370,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %dst, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %dst, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %dst, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %cmp = icmp eq ptr %result, null
@@ -2574,7 +2574,7 @@ entry:
   %sink = alloca %"struct.(anonymous namespace)::KeywordsSink", align 8
   %call = tail call ptr @ures_open_75(ptr noundef nonnull @.str, ptr noundef %locale, ptr noundef %status)
   store ptr %call, ptr %bundle, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_112KeywordsSinkE, i64 16), ptr %sink, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_112KeywordsSinkE, i64 16), ptr %sink, align 8
   %call.i = invoke ptr @ulist_createEmptyList_75(ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad.i
 
@@ -2630,7 +2630,7 @@ invoke.cont12:                                    ; preds = %if.end11
 
 cleanup:                                          ; preds = %invoke.cont5, %invoke.cont12, %if.then10
   %retval.0 = phi ptr [ null, %if.then10 ], [ %call9, %invoke.cont12 ], [ null, %invoke.cont5 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_112KeywordsSinkE, i64 16), ptr %sink, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_112KeywordsSinkE, i64 16), ptr %sink, align 8
   %7 = load ptr, ptr %values.i, align 8
   invoke void @ulist_deleteList_75(ptr noundef %7)
           to label %_ZN12_GLOBAL__N_112KeywordsSinkD2Ev.exit unwind label %terminate.lpad.i
@@ -2674,7 +2674,7 @@ declare void @ulist_resetList_75(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_112KeywordsSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(17) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_112KeywordsSinkE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_112KeywordsSinkE, i64 16), ptr %this, align 8
   %values = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %values, align 8
   invoke void @ulist_deleteList_75(ptr noundef %0)
@@ -2722,7 +2722,7 @@ declare void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_112KeywordsSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(17) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_112KeywordsSinkE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_112KeywordsSinkE, i64 16), ptr %this, align 8
   %values.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %values.i, align 8
   invoke void @ulist_deleteList_75(ptr noundef %0)
@@ -2953,7 +2953,7 @@ declare void @ulist_deleteList_75(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEED0Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEEE, i64 16), ptr %this, align 8
   %fLoc.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i) #14
   tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) #14
@@ -2987,14 +2987,14 @@ entry:
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
 new.notnull:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512CacheKeyBaseE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512CacheKeyBaseE, i64 16), ptr %call, align 8
   %fCreationStatus.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %fCreationStatus2.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %fCreationStatus2.i.i.i, align 8
   store i32 %0, ptr %fCreationStatus.i.i.i, align 8
   %fIsPrimary.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 12
   store i8 0, ptr %fIsPrimary.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEEE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEEE, i64 16), ptr %call, align 8
   %fLoc.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   %fLoc2.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i, ptr noundef nonnull align 8 dereferenceable(217) %fLoc2.i)

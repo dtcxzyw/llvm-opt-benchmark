@@ -16925,7 +16925,7 @@ define hidden void @_ZN7welcome18base_keymap_picker26BaseKeymapSelectorDelegate3
 19:                                               ; preds = %21, %.lr.ph.i
   %.sroa.02.011.i = phi i64 [ 0, %.lr.ph.i ], [ %22, %21 ]
   %.idx = phi i64 [ 0, %.lr.ph.i ], [ %.add, %21 ]
-  %gep = getelementptr i8, ptr getelementptr inbounds (i8, ptr @anon.59f1f6d9532a4cffc64d396cb012adc0.149.llvm.2296142597076409868, i64 16), i64 %.idx
+  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @anon.59f1f6d9532a4cffc64d396cb012adc0.149.llvm.2296142597076409868, i64 16), i64 %.idx
   %.val8.i = load i8, ptr %gep, align 8, !range !4759, !noalias !5004, !noundef !4
   %20 = icmp eq i8 %.val8.i, %18
   br i1 %20, label %24, label %21
@@ -17084,7 +17084,7 @@ define void @"_ZN98_$LT$welcome..base_keymap_picker..BaseKeymapSelectorDelegate$
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   store ptr @anon.951be37f82413687ed8b2cd3dc5734bc.117.llvm.3696297339762714545, ptr %9, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.951be37f82413687ed8b2cd3dc5734bc.117.llvm.3696297339762714545, i64 96), ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.951be37f82413687ed8b2cd3dc5734bc.117.llvm.3696297339762714545, i64 96), ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h8a018db4d0d431acE.llvm.9257878908140741605"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %9)

@@ -1218,7 +1218,7 @@ entry:
 
 for.cond5.preheader.i.i:                          ; preds = %for.end18.i.i, %entry
   %list.022.i.i = phi i64 [ 0, %entry ], [ %inc21.i.i, %for.end18.i.i ]
-  %text_buffer.021.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 128), %entry ], [ %text_buffer.4.i.i, %for.end18.i.i ]
+  %text_buffer.021.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 128), %entry ], [ %text_buffer.4.i.i, %for.end18.i.i ]
   br label %for.body7.i.i
 
 for.body7.i.i:                                    ; preds = %for.inc17.i.i, %for.cond5.preheader.i.i
@@ -1312,7 +1312,7 @@ for.end18.i.i:                                    ; preds = %for.inc17.i.i
   br i1 %exitcond23.not.i.i, label %for.end22.i.i, label %for.cond5.preheader.i.i, !llvm.loop !45
 
 for.end22.i.i:                                    ; preds = %for.end18.i.i
-  %sub.ptr.sub27.i.i = sub i64 %sub.ptr.lhs.cast.i.i, ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 128) to i64)
+  %sub.ptr.sub27.i.i = sub i64 %sub.ptr.lhs.cast.i.i, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 128) to i64)
   %cmp28.not.i.i = icmp eq i64 %sub.ptr.sub27.i.i, 86
   br i1 %cmp28.not.i.i, label %__cxx_global_var_init.3.exit, label %if.then29.i.i
 

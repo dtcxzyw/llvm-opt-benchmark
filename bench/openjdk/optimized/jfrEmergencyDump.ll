@@ -165,7 +165,7 @@ define hidden void @_ZN16JfrEmergencyDump13set_dump_pathEPKc(ptr noundef readonl
 
 11:                                               ; preds = %8
   %12 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZL10_dump_path, ptr noundef nonnull dereferenceable(1) %0, i64 noundef 4097) #17
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL10_dump_path, i64 4096), align 16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL10_dump_path, i64 4096), align 16
   br label %13
 
 13:                                               ; preds = %8, %11, %6

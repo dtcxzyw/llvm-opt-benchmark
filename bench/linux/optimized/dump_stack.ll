@@ -55,7 +55,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dump_stack_print_info(ptr noundef %0) local_unnamed_addr #4 align 16 {
-  %2 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !6
+  %2 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !6
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !7
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1320
@@ -65,9 +65,9 @@ define dso_local void @dump_stack_print_info(ptr noundef %0) local_unnamed_addr 
   %9 = icmp eq i32 %8, 0
   %10 = select i1 %9, ptr @.str.2, ptr @.str.1
   %11 = tail call ptr @print_tainted() #10
-  %12 = tail call i64 @strcspn(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_uts_ns, i64 195), ptr noundef nonnull @.str.3)
+  %12 = tail call i64 @strcspn(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_uts_ns, i64 195), ptr noundef nonnull @.str.3)
   %13 = trunc i64 %12 to i32
-  %14 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %0, i32 noundef %2, i32 noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef %11, ptr noundef nonnull getelementptr inbounds (i8, ptr @init_uts_ns, i64 130), i32 noundef %13, ptr noundef nonnull getelementptr inbounds (i8, ptr @init_uts_ns, i64 195), ptr noundef nonnull @.str.2) #12
+  %14 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %0, i32 noundef %2, i32 noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef %11, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_uts_ns, i64 130), i32 noundef %13, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_uts_ns, i64 195), ptr noundef nonnull @.str.2) #12
   %15 = load i8, ptr @dump_stack_arch_desc_str, align 16
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %19, label %17

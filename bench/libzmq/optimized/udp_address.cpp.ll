@@ -28,7 +28,7 @@ define void @_ZN3zmq13udp_address_tC2Ev(ptr noundef nonnull align 8 dereferencea
 entry:
   %ref.tmp = alloca %"union.zmq::ip_addr_t", align 4
   %ref.tmp3 = alloca %"union.zmq::ip_addr_t", align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq13udp_address_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq13udp_address_tE, i64 16), ptr %this, align 8
   %_bind_interface = getelementptr inbounds nuw i8, ptr %this, i64 36
   store i32 -1, ptr %_bind_interface, align 4
   %_is_multicast = getelementptr inbounds nuw i8, ptr %this, i64 68
@@ -72,7 +72,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq13udp_address_tD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq13udp_address_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq13udp_address_tE, i64 16), ptr %this, align 8
   %_address = getelementptr inbounds nuw i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_address) #10
   ret void

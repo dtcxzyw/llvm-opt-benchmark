@@ -59,7 +59,7 @@ define dso_local void @_ZN5clang15AnalyzerOptions19printFormattedEntryERN4llvm11
   store i32 1, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm21formatted_raw_ostreamE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm21formatted_raw_ostreamE, i64 16), ptr %6, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 96
@@ -229,7 +229,7 @@ _ZN4llvm11raw_ostreamlsEc.exit31:                 ; preds = %93, %91, %_ZN4llvm1
   br i1 %.not, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit25, label %71
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit25:    ; preds = %_ZN4llvm11raw_ostreamlsEc.exit31, %68, %65, %64, %62
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm21formatted_raw_ostreamE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm21formatted_raw_ostreamE, i64 16), ptr %6, align 8
   %96 = load ptr, ptr %33, align 8
   %97 = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %96, %97

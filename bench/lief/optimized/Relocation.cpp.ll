@@ -54,7 +54,7 @@ declare void @llvm.trap() #3
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF5MachO10RelocationC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN4LIEF10RelocationC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO10RelocationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO10RelocationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -71,7 +71,7 @@ declare void @_ZN4LIEF10RelocationC2Ev(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF5MachO10RelocationC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #4 align 2 {
   tail call void @_ZN4LIEF10RelocationC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(17) %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO10RelocationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO10RelocationE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -92,7 +92,7 @@ declare void @_ZN4LIEF10RelocationC2ERKS0_(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF5MachO10RelocationC2Emh(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i8 noundef zeroext %2) unnamed_addr #4 align 2 {
   tail call void @_ZN4LIEF10RelocationC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO10RelocationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO10RelocationE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32

@@ -153,7 +153,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__26Work_GetDetachedDispatcherEv.exit: ; pred
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store i64 0, ptr %2, align 8
   %25 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #12
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN32pxrInternal_v0_24__pxrReserved__31Work_EnsureDetachedTaskProgressEvE3$_0EEEEEE", i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN32pxrInternal_v0_24__pxrReserved__31Work_EnsureDetachedTaskProgressEvE3$_0EEEEEE", i64 16), ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 %24, ptr %26, align 8
   store ptr %25, ptr %1, align 8

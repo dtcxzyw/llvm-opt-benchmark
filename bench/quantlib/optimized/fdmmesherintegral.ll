@@ -423,7 +423,7 @@ invoke.cont38:                                    ; preds = %invoke.cont37
   store i32 1, ptr %use_count_.i.i.i.i.i, align 8, !tbaa !36
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i, align 4, !tbaa !39
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib18FdmMesherCompositeEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !34
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib18FdmMesherCompositeEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !34
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call19, ptr %px_.i.i.i.i, align 8, !tbaa !40
   store ptr %call.i.i.i, ptr %pn.i, align 8, !tbaa !16

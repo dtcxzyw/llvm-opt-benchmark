@@ -678,7 +678,7 @@ do.body4.i.i.i:                                   ; preds = %if.end60
   unreachable
 
 do.end5.i.i.i:                                    ; preds = %if.end60
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4i18n15ConverterObjectE, i64 16), ptr %call61, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4i18n15ConverterObjectE, i64 16), ptr %call61, align 8
   %flags_.i = getelementptr inbounds nuw i8, ptr %call61, i64 40
   store i32 %ref.tmp35.sroa.221.0.extract.trunc, ptr %flags_.i, align 8
   call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(44) %call61) #20
@@ -1343,7 +1343,7 @@ do.body17.i.i:                                    ; preds = %if.then6.i.i
 
 _ZN4node4i18n9ConverterC2EP10UConverterPKc.exit:  ; preds = %do.end5.i.i, %if.then6.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4i18n15ConverterObjectE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4i18n15ConverterObjectE, i64 16), ptr %this, align 8
   %flags_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 %flags, ptr %flags_, align 8
   call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #20

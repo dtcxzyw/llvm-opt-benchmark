@@ -1257,7 +1257,7 @@ define internal noundef i32 @netdev_genl_netdevice_event(ptr nocapture readnone 
   %9 = phi i8 [ 4, %7 ], [ 3, %6 ], [ 2, %3 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #7
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 272
-  %11 = load i8, ptr getelementptr inbounds (i8, ptr @netdev_nl_family, i64 32), align 8
+  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @netdev_nl_family, i64 32), align 8
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %13, label %14, !prof !6
 
@@ -1269,7 +1269,7 @@ define internal noundef i32 @netdev_genl_netdevice_event(ptr nocapture readnone 
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %10, align 8
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @netdev_nl_family, i64 132), align 4
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @netdev_nl_family, i64 132), align 4
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 280
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @netlink_has_listeners(ptr noundef %18, i32 noundef %16) #7
@@ -1298,7 +1298,7 @@ define internal noundef i32 @netdev_genl_netdevice_event(ptr nocapture readnone 
   br label %netdev_genl_dev_notify.exit
 
 31:                                               ; preds = %27
-  %32 = load i8, ptr getelementptr inbounds (i8, ptr @netdev_nl_family, i64 32), align 8
+  %32 = load i8, ptr getelementptr inbounds nuw (i8, ptr @netdev_nl_family, i64 32), align 8
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %34, label %35, !prof !6
 
@@ -1310,7 +1310,7 @@ define internal noundef i32 @netdev_genl_netdevice_event(ptr nocapture readnone 
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr %10, align 8
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @netdev_nl_family, i64 132), align 4
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @netdev_nl_family, i64 132), align 4
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 280
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %25, i64 56

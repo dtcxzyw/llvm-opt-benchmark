@@ -3248,7 +3248,7 @@ _ZNK5boost10shared_ptrINS_3log11v2_mt_posix5sinks3aux12default_sinkEE29_internal
   store i32 1, ptr %14, align 8, !tbaa !113
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %15, align 4, !tbaa !115
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks3aux12default_sinkENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %3, align 8, !tbaa !17
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks3aux12default_sinkENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %3, align 8, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %16, align 8, !tbaa !116
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -3418,7 +3418,7 @@ _ZN5boost6detail15sp_counted_base7releaseEv.exit: ; preds = %.noexc, %3, %14, %1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks3aux12default_sinkENS0_13sp_ms_deleterIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks3aux12default_sinkENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !17
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks3aux12default_sinkENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !17
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !119, !range !24, !noundef !25
   %4 = trunc nuw i8 %3 to i1
@@ -3438,7 +3438,7 @@ _ZN5boost6detail13sp_ms_deleterINS_3log11v2_mt_posix5sinks3aux12default_sinkEED2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks3aux12default_sinkENS0_13sp_ms_deleterIS6_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks3aux12default_sinkENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !17
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix5sinks3aux12default_sinkENS0_13sp_ms_deleterIS6_EEEE, i64 16), ptr %0, align 8, !tbaa !17
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !119, !range !24, !noundef !25
   %4 = trunc nuw i8 %3 to i1
@@ -3823,7 +3823,7 @@ _ZN5boost10shared_ptrINS_3log11v2_mt_posix4coreEEC2IS3_EEPT_.exit: ; preds = %2
   store i32 1, ptr %16, align 8, !tbaa !113
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %17, align 4, !tbaa !115
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_3log11v2_mt_posix4coreEEE, i64 16), ptr %5, align 8, !tbaa !17
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_3log11v2_mt_posix4coreEEE, i64 16), ptr %5, align 8, !tbaa !17
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %1, ptr %18, align 8, !tbaa !126
   %19 = load ptr, ptr %0, align 8, !tbaa !62
@@ -4275,7 +4275,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix4core14implementation
 
 21:                                               ; preds = %15
   %22 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %22, align 8, !tbaa !17
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %22, align 8, !tbaa !17
   invoke void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #25
           to label %.noexc unwind label %31
 

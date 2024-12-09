@@ -126,7 +126,7 @@ define void @_ZN3re26Regexp8ToStringB5cxx11Ev(ptr noalias nonnull sret(%"class.s
 entry:
   %w = alloca %"class.re2::ToStringWalker", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 16), ptr %w, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 16), ptr %w, align 8
   %stack_.i.i = getelementptr inbounds nuw i8, ptr %w, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %stack_.i.i, i8 0, i64 80, i1 false)
   invoke void @_ZNSt11_Deque_baseIN3re29WalkStateIiEESaIS2_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %stack_.i.i, i64 noundef 0)
@@ -135,7 +135,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %stopped_early_.i.i = getelementptr inbounds nuw i8, ptr %w, i64 88
   store i8 0, ptr %stopped_early_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re214ToStringWalkerE, i64 16), ptr %w, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3re214ToStringWalkerE, i64 16), ptr %w, align 8
   %t_.i = getelementptr inbounds nuw i8, ptr %w, i64 96
   store ptr %agg.result, ptr %t_.i, align 8
   %max_visits_.i = getelementptr inbounds nuw i8, ptr %w, i64 92
@@ -164,7 +164,7 @@ lpad2:                                            ; preds = %invoke.cont, %if.th
   br label %ehcleanup
 
 if.end:                                           ; preds = %if.then, %invoke.cont3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 16), ptr %w, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 16), ptr %w, align 8
   invoke void @_ZN3re26Regexp6WalkerIiE5ResetEv(ptr noundef nonnull align 8 dereferenceable(104) %w)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
@@ -225,7 +225,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3re214ToStringWalkerD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 16), ptr %this, align 8
   invoke void @_ZN3re26Regexp6WalkerIiE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
@@ -1054,7 +1054,7 @@ declare void @_ZN3re29CharClass6DeleteEv(ptr noundef nonnull align 8 dereference
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3re214ToStringWalkerD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 16), ptr %this, align 8
   invoke void @_ZN3re26Regexp6WalkerIiE5ResetEv(ptr noundef nonnull align 8 dereferenceable(104) %this)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
@@ -1117,7 +1117,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3re26Regexp6WalkerIiED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 16), ptr %this, align 8
   invoke void @_ZN3re26Regexp6WalkerIiE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %invoke.cont unwind label %terminate.lpad
 

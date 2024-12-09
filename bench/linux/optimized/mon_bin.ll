@@ -135,7 +135,7 @@ define dso_local i32 @mon_bin_init() local_unnamed_addr #3 section ".init.text" 
 
 6:                                                ; preds = %3
   tail call void @cdev_init(ptr noundef nonnull @mon_bin_cdev, ptr noundef nonnull @mon_fops_binary) #12
-  store ptr null, ptr getelementptr inbounds (i8, ptr @mon_bin_cdev, i64 64), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @mon_bin_cdev, i64 64), align 8
   %7 = load i32, ptr @mon_bin_dev0, align 4
   %8 = tail call i32 @cdev_add(ptr noundef nonnull @mon_bin_cdev, i32 noundef %7, i32 noundef 128) #12
   %9 = icmp slt i32 %8, 0
@@ -1128,7 +1128,7 @@ define internal noundef range(i32 -19, 1) i32 @mon_bin_open(ptr nocapture nounde
   br label %73
 
 16:                                               ; preds = %10, %8
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %18 = tail call noalias align 8 dereferenceable_or_null(160) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 3520, i64 noundef 160) #15
   %19 = icmp eq ptr %18, null
   br i1 %19, label %73, label %20
@@ -1141,7 +1141,7 @@ define internal noundef range(i32 -19, 1) i32 @mon_bin_open(ptr nocapture nounde
   tail call void @__mutex_init(ptr noundef nonnull %22, ptr noundef nonnull @.str.7, ptr noundef nonnull @mon_bin_open.__key.6) #12
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 307200, ptr %23, align 4
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %25 = tail call noalias align 8 dereferenceable_or_null(1200) ptr @kmalloc_trace(ptr noundef %24, i32 noundef 3520, i64 noundef 1200) #15
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %25, ptr %26, align 8

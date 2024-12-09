@@ -31,7 +31,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_domhsh_init(i32 noundef %
   br i1 %2, label %23, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3264, i64 noundef 16) #8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %23, label %7
@@ -449,7 +449,7 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
   br i1 %204, label %205, label %.loopexit110
 
 205:                                              ; preds = %202
-  %206 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %206 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %207 = tail call noalias noundef align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %206, i32 noundef 2336, i64 noundef 64) #8
   %208 = icmp eq ptr %207, null
   br i1 %208, label %.loopexit110, label %209

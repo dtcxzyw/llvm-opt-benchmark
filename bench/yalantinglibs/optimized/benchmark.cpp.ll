@@ -2558,7 +2558,7 @@ invoke.cont:                                      ; preds = %entry
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i9.i.i, align 8
   %_M_next_resize.i.i.i10.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i10.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18struct_pack_sample, i64 16), ptr %call4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18struct_pack_sample, i64 16), ptr %call4, align 8
   %rect2s_.i = getelementptr inbounds nuw i8, ptr %call4, i64 176
   %buffer_.i = getelementptr inbounds nuw i8, ptr %call4, i64 272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %rect2s_.i, i8 0, i64 96, i1 false)
@@ -2652,7 +2652,7 @@ invoke.cont9:                                     ; preds = %invoke.cont5
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i9.i.i27, align 8
   %_M_next_resize.i.i.i10.i.i28 = getelementptr inbounds nuw i8, ptr %call10, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i10.i.i28, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN16struct_pb_sample18struct_pb_sample_tE, i64 16), ptr %call10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN16struct_pb_sample18struct_pb_sample_tE, i64 16), ptr %call10, align 8
   %rects_.i = getelementptr inbounds nuw i8, ptr %call10, i64 176
   %buffer_.i29 = getelementptr inbounds nuw i8, ptr %call10, i64 248
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %rects_.i, i8 0, i64 72, i1 false)
@@ -3173,7 +3173,7 @@ entry:
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i9.i, align 8
   %_M_next_resize.i.i.i10.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i10.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17protobuf_sample_t, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17protobuf_sample_t, i64 16), ptr %this, align 8
   %rects_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   invoke void @_ZN6mygame7rect32sC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %rects_, ptr noundef null)
           to label %invoke.cont unwind label %lpad
@@ -4366,7 +4366,7 @@ _ZNSt6vectorI5rect2IiESaIS1_EED2Ev.exit:          ; preds = %if.then.i.i.i.i.i38
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18struct_pack_sampleD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18struct_pack_sample, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18struct_pack_sample, i64 16), ptr %this, align 8
   %buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 272
   %0 = load ptr, ptr %buffer_, align 8
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 288
@@ -4503,7 +4503,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11base_sampleD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11base_sample, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11base_sample, i64 16), ptr %this, align 8
   %deser_time_elapsed_map_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
@@ -32826,7 +32826,7 @@ _ZN16struct_pb_sample8MonstersD2Ev.exit:          ; preds = %invoke.cont.i.i33, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16struct_pb_sample18struct_pb_sample_tD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN16struct_pb_sample18struct_pb_sample_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN16struct_pb_sample18struct_pb_sample_tE, i64 16), ptr %this, align 8
   %buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load ptr, ptr %buffer_, align 8
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 264
@@ -41647,7 +41647,7 @@ _ZN6mygame8MonstersaSEOS0_.exit:                  ; preds = %if.then.i38, %if.th
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17protobuf_sample_tD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17protobuf_sample_t, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17protobuf_sample_t, i64 16), ptr %this, align 8
   %buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 320
   %0 = load ptr, ptr %buffer_, align 8
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 336
@@ -41680,7 +41680,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17protobuf_sample_tD0Ev(ptr noundef nonnull align 8 dereferenceable(352) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17protobuf_sample_t, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17protobuf_sample_t, i64 16), ptr %this, align 8
   %buffer_.i = getelementptr inbounds nuw i8, ptr %this, i64 320
   %0 = load ptr, ptr %buffer_.i, align 8
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 336
@@ -49920,7 +49920,7 @@ try.cont:                                         ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIP18struct_pack_sampleLN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIP18struct_pack_sampleLN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i.i, i64 16
   store ptr %1, ptr %_M_ptr.i.i.i.i.i.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i.i, align 8
@@ -50189,7 +50189,7 @@ try.cont:                                         ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN16struct_pb_sample18struct_pb_sample_tELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN16struct_pb_sample18struct_pb_sample_tELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i.i, i64 16
   store ptr %1, ptr %_M_ptr.i.i.i.i.i.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i.i, align 8
@@ -50452,7 +50452,7 @@ try.cont:                                         ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIP17protobuf_sample_tLN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIP17protobuf_sample_tLN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i.i, i64 16
   store ptr %1, ptr %_M_ptr.i.i.i.i.i.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i.i, align 8

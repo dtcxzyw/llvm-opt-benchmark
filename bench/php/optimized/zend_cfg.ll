@@ -749,7 +749,7 @@ define void @zend_build_cfg(ptr nocapture noundef %0, ptr noundef %1, i32 nounde
   %110 = icmp eq i8 %52, 69
   %spec.select786.idx = select i1 %110, i64 32, i64 0
   %spec.select786 = getelementptr inbounds nuw i8, ptr %109, i64 %spec.select786.idx
-  %111 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 432), align 8
+  %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 432), align 8
   %112 = load ptr, ptr %spec.select786, align 8
   %113 = tail call ptr @zend_hash_find(ptr noundef %111, ptr noundef %112) #9
   %.not770 = icmp eq ptr %113, null

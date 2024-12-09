@@ -455,9 +455,9 @@ if.then.i:                                        ; preds = %if.then
   store i32 %and.i, ptr %ce_flags, align 8
   %name.i = getelementptr inbounds nuw i8, ptr %ce, i64 108
   tail call void @untracked_cache_invalidate_path(ptr noundef nonnull %3, ptr noundef nonnull %name.i, i32 noundef 1) #14
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @trace_fsmonitor, i64 8), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8
   %tobool.not.i.i = icmp eq i32 %6, 0
-  %bf.load.i.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %bf.load.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, 1
   %tobool.not4.i = icmp ne i8 %bf.clear.i.i, 0
   %tobool.not.i = select i1 %tobool.not.i.i, i1 %tobool.not4.i, i1 false
@@ -532,8 +532,8 @@ if.end9:                                          ; preds = %if.then8, %if.then5
   br label %return
 
 if.end10:                                         ; preds = %if.end3
-  store i64 0, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 8), align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %4, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
 
@@ -553,8 +553,8 @@ strbuf_setlen.exit:                               ; preds = %if.end10, %if.then4
   %7 = load i32, ptr %ce_namelen, align 8
   %conv13 = zext i32 %7 to i64
   tail call void @strbuf_add(ptr noundef nonnull @checkout_entry_ca.path, ptr noundef nonnull %name11, i64 noundef %conv13) #14
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 16), align 8
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 16), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 8), align 8
   %conv14 = trunc i64 %9 to i32
   %10 = load i32, ptr %base_dir_len, align 8
   %sext = shl i64 %9, 32
@@ -666,7 +666,7 @@ if.then66:                                        ; preds = %if.end60
 
 if.then71:                                        ; preds = %if.then66
   %18 = load ptr, ptr @stderr, align 8
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 16), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 16), align 8
   %call72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.8, ptr noundef %19) #18
   br label %return
 
@@ -698,13 +698,13 @@ if.end92:                                         ; preds = %if.then86
   br label %if.end109
 
 if.else93:                                        ; preds = %if.end81
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 16), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 16), align 8
   %call94 = call i32 @unlink(ptr noundef %23) #14
   %tobool95.not = icmp eq i32 %call94, 0
   br i1 %tobool95.not, label %if.end109, label %if.then96
 
 if.then96:                                        ; preds = %if.else93
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 16), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 16), align 8
   %call97 = call i32 (ptr, ...) @error_errno(ptr noundef nonnull @.str.9, ptr noundef %24) #14
   br label %return
 
@@ -716,8 +716,8 @@ if.else101:                                       ; preds = %check_path.exit.thr
   br i1 %tobool106.not, label %if.end109, label %return
 
 if.end109:                                        ; preds = %if.else101, %if.end92, %if.else93
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 16), align 8
-  %27 = load i64, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 8), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 16), align 8
+  %27 = load i64, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 8), align 8
   %conv110 = trunc i64 %27 to i32
   %sext57 = shl i64 %27, 32
   %conv.i = ashr exact i64 %sext57, 32
@@ -820,7 +820,7 @@ if.end121:                                        ; preds = %if.then117, %create
   br i1 %tobool123.not, label %return, label %if.end125
 
 if.end125:                                        ; preds = %if.end121
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 16), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 16), align 8
   %call126 = call fastcc i32 @write_entry(ptr noundef nonnull %ce, ptr noundef %36, ptr noundef %ca.addr.1, ptr noundef %state, i32 noundef 0, ptr noundef %nr_checkouts)
   br label %return
 
@@ -1384,9 +1384,9 @@ for.end:                                          ; preds = %for.inc, %if.then, 
 define internal fastcc void @remove_subtree() unnamed_addr #0 {
 entry:
   %st = alloca %struct.stat, align 8
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 16), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 16), align 8
   %call = tail call ptr @opendir(ptr noundef %0)
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 8), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 8), align 8
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.then, label %while.cond.preheader
 
@@ -1402,7 +1402,7 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br label %while.body
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 16), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 16), align 8
   tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.26, ptr noundef %2) #16
   unreachable
 
@@ -1410,7 +1410,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %call24 = phi ptr [ %call22, %while.body.lr.ph ], [ %call2, %strbuf_setlen.exit ]
   %3 = load i64, ptr @checkout_entry_ca.path, align 8
   %tobool.not.i.i = icmp eq i64 %3, 0
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 8), align 8
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 8), align 8
   %.neg.i = add i64 %4, 1
   %tobool.not1.i = icmp eq i64 %3, %.neg.i
   %tobool.not.i = select i1 %tobool.not.i.i, i1 true, i1 %tobool.not1.i
@@ -1418,31 +1418,31 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then.i:                                        ; preds = %while.body
   tail call void @strbuf_grow(ptr noundef nonnull @checkout_entry_ca.path, i64 noundef 1) #14
-  %.pre.i = load i64, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 8), align 8
+  %.pre.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 8), align 8
   %.pre2.i = add i64 %.pre.i, 1
   br label %strbuf_addch.exit
 
 strbuf_addch.exit:                                ; preds = %while.body, %if.then.i
   %inc.pre-phi.i = phi i64 [ %.pre2.i, %if.then.i ], [ %.neg.i, %while.body ]
   %5 = phi i64 [ %.pre.i, %if.then.i ], [ %4, %while.body ]
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 16), align 8
-  store i64 %inc.pre-phi.i, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 16), align 8
+  store i64 %inc.pre-phi.i, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 8), align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %6, i64 %5
   store i8 47, ptr %arrayidx.i, align 1
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 16), align 8
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 8), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 16), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 8), align 8
   %arrayidx3.i = getelementptr inbounds i8, ptr %7, i64 %8
   store i8 0, ptr %arrayidx3.i, align 1
   %d_name = getelementptr inbounds nuw i8, ptr %call24, i64 19
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name) #15
   tail call void @strbuf_add(ptr noundef nonnull @checkout_entry_ca.path, ptr noundef nonnull %d_name, i64 noundef %call.i) #14
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 16), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 16), align 8
   %call5 = call i32 @lstat64(ptr noundef %9, ptr noundef nonnull %st) #14
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %strbuf_addch.exit
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 16), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 16), align 8
   tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.27, ptr noundef %10) #16
   unreachable
 
@@ -1457,13 +1457,13 @@ if.then12:                                        ; preds = %if.end9
   br label %if.end19
 
 if.else:                                          ; preds = %if.end9
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 16), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 16), align 8
   %call14 = tail call i32 @unlink(ptr noundef %12) #14
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %if.end19, label %if.then16
 
 if.then16:                                        ; preds = %if.else
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 16), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 16), align 8
   tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.28, ptr noundef %13) #16
   unreachable
 
@@ -1478,8 +1478,8 @@ if.then.i16:                                      ; preds = %if.end19
   unreachable
 
 if.end.i:                                         ; preds = %if.end19
-  store i64 %conv20, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 8), align 8
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 16), align 8
+  store i64 %conv20, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 8), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %15, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
 
@@ -1495,13 +1495,13 @@ strbuf_setlen.exit:                               ; preds = %if.end.i, %if.then4
 
 while.end:                                        ; preds = %strbuf_setlen.exit, %while.cond.preheader
   %call21 = tail call i32 @closedir(ptr noundef nonnull %call)
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 16), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 16), align 8
   %call23 = tail call i32 @lstat_cache_aware_rmdir(ptr noundef %16) #14
   %tobool24.not = icmp eq i32 %call23, 0
   br i1 %tobool24.not, label %if.end27, label %if.then25
 
 if.then25:                                        ; preds = %while.end
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 16), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 16), align 8
   tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.29, ptr noundef %17) #16
   unreachable
 

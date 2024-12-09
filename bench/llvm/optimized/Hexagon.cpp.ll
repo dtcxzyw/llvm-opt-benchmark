@@ -3696,7 +3696,7 @@ define hidden noundef zeroext i1 @_ZN5clang7targets17HexagonTargetInfo20handleTa
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #10
   %27 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %27, ptr noundef nonnull align 1 dereferenceable(1) %6) #10
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.67, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.67, i64 5))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.67, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.67, i64 5))
   %28 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #10
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.012.017, i64 noundef %28, i64 noundef -1) #10
   %29 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %4) #10
@@ -4097,7 +4097,7 @@ define hidden noundef ptr @_ZN5clang7targets17HexagonTargetInfo19getHexagonCPUSu
   br i1 %23, label %"_ZN4llvm7find_ifIRA13_K9CPUSuffixZN5clang7targets17HexagonTargetInfo19getHexagonCPUSuffixENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread", label %"_ZN4llvm7find_ifIRA13_K9CPUSuffixZN5clang7targets17HexagonTargetInfo19getHexagonCPUSuffixENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread7"
 
 "_ZN4llvm7find_ifIRA13_K9CPUSuffixZN5clang7targets17HexagonTargetInfo19getHexagonCPUSuffixENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread7": ; preds = %"_ZN4llvm7find_ifIRA13_K9CPUSuffixZN5clang7targets17HexagonTargetInfo19getHexagonCPUSuffixENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread35", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7targets17HexagonTargetInfo19getHexagonCPUSuffixEN4llvm9StringRefEE3$_0EclIPK9CPUSuffixEEbT_.exit77.i.i.i.i", %"_ZN4llvm7find_ifIRA13_K9CPUSuffixZN5clang7targets17HexagonTargetInfo19getHexagonCPUSuffixENS_9StringRefEE3$_0EEDaOT_T0_.exit"
-  %.028.i.i.i.i9 = phi ptr [ %.028.i.i.i.i.ptr, %"_ZN4llvm7find_ifIRA13_K9CPUSuffixZN5clang7targets17HexagonTargetInfo19getHexagonCPUSuffixENS_9StringRefEE3$_0EEDaOT_T0_.exit" ], [ getelementptr inbounds (i8, ptr @_ZL8Suffixes, i64 384), %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7targets17HexagonTargetInfo19getHexagonCPUSuffixEN4llvm9StringRefEE3$_0EclIPK9CPUSuffixEEbT_.exit77.i.i.i.i" ], [ %.028.i.i.i.i.ptr37, %"_ZN4llvm7find_ifIRA13_K9CPUSuffixZN5clang7targets17HexagonTargetInfo19getHexagonCPUSuffixENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread35" ]
+  %.028.i.i.i.i9 = phi ptr [ %.028.i.i.i.i.ptr, %"_ZN4llvm7find_ifIRA13_K9CPUSuffixZN5clang7targets17HexagonTargetInfo19getHexagonCPUSuffixENS_9StringRefEE3$_0EEDaOT_T0_.exit" ], [ getelementptr inbounds nuw (i8, ptr @_ZL8Suffixes, i64 384), %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7targets17HexagonTargetInfo19getHexagonCPUSuffixEN4llvm9StringRefEE3$_0EclIPK9CPUSuffixEEbT_.exit77.i.i.i.i" ], [ %.028.i.i.i.i.ptr37, %"_ZN4llvm7find_ifIRA13_K9CPUSuffixZN5clang7targets17HexagonTargetInfo19getHexagonCPUSuffixENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread35" ]
   %24 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i9, i64 16
   %25 = load ptr, ptr %24, align 8
   br label %"_ZN4llvm7find_ifIRA13_K9CPUSuffixZN5clang7targets17HexagonTargetInfo19getHexagonCPUSuffixENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread"
@@ -4153,7 +4153,7 @@ define hidden { ptr, i64 } @_ZNK5clang7targets17HexagonTargetInfo17getTargetBuil
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets17HexagonTargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(565) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets17HexagonTargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets17HexagonTargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 528
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #10
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
@@ -4164,7 +4164,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17HexagonTargetInfoD2Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets17HexagonTargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(565) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets17HexagonTargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets17HexagonTargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 528
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #10
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
@@ -4530,7 +4530,7 @@ define linkonce_odr hidden void @_ZNK5clang10TargetInfo17convertConstraintB5cxx1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #10
   %10 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %4) #10
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.2441, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2441, i64 1))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.2441, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.2441, i64 1))
   br label %13
 
 11:                                               ; preds = %3

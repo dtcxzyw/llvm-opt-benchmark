@@ -66,7 +66,7 @@ define dso_local range(i32 -22, 1) i32 @register_stat_tracer(ptr noundef %0) loc
   br i1 %23, label %.loopexit10, label %16, !llvm.loop !5
 
 24:                                               ; preds = %16
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %26 = tail call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %25, i32 noundef 3520, i64 noundef 72) #7
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.loopexit10, label %28
@@ -144,8 +144,8 @@ define dso_local range(i32 -22, 1) i32 @register_stat_tracer(ptr noundef %0) loc
   br label %.loopexit10
 
 65:                                               ; preds = %42
-  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @all_stat_sessions, i64 8), align 8
-  store ptr %26, ptr getelementptr inbounds (i8, ptr @all_stat_sessions, i64 8), align 8
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @all_stat_sessions, i64 8), align 8
+  store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @all_stat_sessions, i64 8), align 8
   store ptr @all_stat_sessions, ptr %26, align 8
   store ptr %66, ptr %30, align 8
   store volatile ptr %26, ptr %66, align 8
@@ -314,7 +314,7 @@ define internal i32 @tracing_stat_open(ptr nocapture noundef readonly %0, ptr no
 
 34:                                               ; preds = %29
   %35 = load ptr, ptr %25, align 8
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %37 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %36, i32 noundef 3520, i64 noundef 32) #7
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.thread21, label %39
@@ -366,7 +366,7 @@ define internal i32 @tracing_stat_open(ptr nocapture noundef readonly %0, ptr no
   %64 = phi ptr [ %94, %88 ], [ %62, %56 ]
   %65 = phi i32 [ %92, %88 ], [ 1, %56 ]
   %66 = load ptr, ptr %25, align 8
-  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %68 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %67, i32 noundef 3520, i64 noundef 32) #7
   %69 = icmp eq ptr %68, null
   br i1 %69, label %.thread19, label %70

@@ -3220,7 +3220,7 @@ get_bit.exit94.i:                                 ; preds = %if.end.i204
 
 for.body.i.i211:                                  ; preds = %for.inc16.i.i, %get_bit.exit94.i
   %i.017.i.i = phi i64 [ 0, %get_bit.exit94.i ], [ %inc17.i.i, %for.inc16.i.i ]
-  %arrayidx2.i.i212 = getelementptr inbounds nuw [3 x [4 x i64]], ptr getelementptr inbounds (i8, ptr @g_pre_comp, i64 1536), i64 %i.017.i.i
+  %arrayidx2.i.i212 = getelementptr inbounds nuw [3 x [4 x i64]], ptr getelementptr inbounds nuw (i8, ptr @g_pre_comp, i64 1536), i64 %i.017.i.i
   %xor.i.i = xor i64 %i.017.i.i, %or33.i
   %shr.i95.i = lshr i64 %xor.i.i, 4
   %or.i.i = or i64 %shr.i95.i, %xor.i.i

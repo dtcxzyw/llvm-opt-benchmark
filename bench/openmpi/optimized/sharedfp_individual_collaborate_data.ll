@@ -67,7 +67,7 @@ define i32 @mca_sharedfp_individual_collaborate_data(ptr nocapture noundef %0, p
   br i1 %.not, label %23, label %21
 
 21:                                               ; preds = %15
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %22, ptr noundef nonnull @.str.1, i32 noundef %19) #8
   br label %23
 
@@ -118,7 +118,7 @@ define i32 @mca_sharedfp_individual_collaborate_data(ptr nocapture noundef %0, p
 
 .lr.ph:                                           ; preds = %.preheader173, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader173 ]
-  %48 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %49 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4
   %51 = trunc nuw nsw i64 %indvars.iv to i32
@@ -180,7 +180,7 @@ define i32 @mca_sharedfp_individual_collaborate_data(ptr nocapture noundef %0, p
   br i1 %.not150, label %77, label %74
 
 74:                                               ; preds = %.lr.ph180.split
-  %75 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %76 = trunc nuw nsw i64 %indvars.iv212 to i32
   call void (i32, ptr, ...) @opal_output(i32 noundef %75, ptr noundef nonnull @.str.3, i32 noundef %76, i32 noundef %.0102179) #8
   %.pre = load i32, ptr @mca_sharedfp_individual_verbose, align 4
@@ -438,7 +438,7 @@ mca_sharedfp_individual_getoffset.exit._crit_edge: ; preds = %mca_sharedfp_indiv
   br label %208
 
 201:                                              ; preds = %mca_sharedfp_individual_getoffset.exit
-  %202 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %202 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %203 = getelementptr inbounds nuw i64, ptr %.pre236, i64 %indvars.iv227
   %204 = load i64, ptr %203, align 8
   %205 = sext i32 %..012.i to i64
@@ -564,7 +564,7 @@ define i32 @mca_sharedfp_individual_get_timestamps_and_reclengths(ptr nocapture 
   br i1 %.not, label %17, label %15
 
 15:                                               ; preds = %4
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %16, ptr noundef nonnull @.str.5, i32 noundef %12) #8
   br label %17
 
@@ -616,7 +616,7 @@ define i32 @mca_sharedfp_individual_get_timestamps_and_reclengths(ptr nocapture 
   br i1 %.not69, label %46, label %43
 
 43:                                               ; preds = %41
-  %44 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %45 = load i32, ptr %10, align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %44, ptr noundef nonnull @.str.6, i32 noundef %45) #8
   br label %46
@@ -662,7 +662,7 @@ define i32 @mca_sharedfp_individual_get_timestamps_and_reclengths(ptr nocapture 
   br i1 %.not74, label %73, label %70
 
 70:                                               ; preds = %58
-  %71 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %72 = trunc nuw nsw i64 %indvars.iv to i32
   call void (i32, ptr, ...) @opal_output(i32 noundef %71, ptr noundef nonnull @.str.7, i32 noundef %72) #8
   br label %73
@@ -694,7 +694,7 @@ define i32 @mca_sharedfp_individual_get_timestamps_and_reclengths(ptr nocapture 
   br i1 %.not71, label %82, label %79
 
 79:                                               ; preds = %.lr.ph87
-  %80 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %81 = trunc nuw nsw i64 %indvars.iv95 to i32
   call void (i32, ptr, ...) @opal_output(i32 noundef %80, ptr noundef nonnull @.str.8, i32 noundef %81) #8
   br label %82
@@ -724,7 +724,7 @@ define i32 @mca_sharedfp_individual_get_timestamps_and_reclengths(ptr nocapture 
   br i1 %.not72, label %100, label %98
 
 98:                                               ; preds = %82
-  %99 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %99 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %99, ptr noundef nonnull @.str.9) #8
   br label %100
 

@@ -129,7 +129,7 @@ define void @_ZN10MainWindow11layoutPanesEv(ptr noundef nonnull align 8 derefere
   %11 = alloca %class.QList.22, align 8
   %12 = alloca %class.QString, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 252), align 4
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 252), align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 %13, ptr %9, align 4
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -138,7 +138,7 @@ define void @_ZN10MainWindow11layoutPanesEv(ptr noundef nonnull align 8 derefere
 
 15:                                               ; preds = %1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 256), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 256), align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 %16, ptr %8, align 4
   %17 = load i64, ptr %14, align 8
@@ -147,7 +147,7 @@ define void @_ZN10MainWindow11layoutPanesEv(ptr noundef nonnull align 8 derefere
 
 18:                                               ; preds = %15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 260), align 4
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 260), align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 %19, ptr %7, align 4
   %20 = load i64, ptr %14, align 8
@@ -156,7 +156,7 @@ define void @_ZN10MainWindow11layoutPanesEv(ptr noundef nonnull align 8 derefere
 
 21:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 264), align 8
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 264), align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %22, ptr %6, align 4
   %23 = load i64, ptr %14, align 8
@@ -165,7 +165,7 @@ define void @_ZN10MainWindow11layoutPanesEv(ptr noundef nonnull align 8 derefere
 
 24:                                               ; preds = %21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 12), align 4
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 12), align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 %25, ptr %5, align 4
   %26 = load i64, ptr %14, align 8
@@ -174,7 +174,7 @@ define void @_ZN10MainWindow11layoutPanesEv(ptr noundef nonnull align 8 derefere
 
 27:                                               ; preds = %24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 16), align 8
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 16), align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %28, ptr %4, align 4
   %29 = load i64, ptr %14, align 8
@@ -183,7 +183,7 @@ define void @_ZN10MainWindow11layoutPanesEv(ptr noundef nonnull align 8 derefere
 
 30:                                               ; preds = %27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 20), align 4
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 20), align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %31, ptr %3, align 4
   %32 = load i64, ptr %14, align 8
@@ -192,7 +192,7 @@ define void @_ZN10MainWindow11layoutPanesEv(ptr noundef nonnull align 8 derefere
 
 33:                                               ; preds = %30
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %34 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 24), align 8
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 24), align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 %34, ptr %2, align 4
   %35 = load i64, ptr %14, align 8
@@ -315,7 +315,7 @@ _ZNK5QListIjEeqIjEENSt9enable_ifIXsr3stdE13conjunction_vISt11disjunctionIJSt10is
           to label %87 unwind label %60
 
 87:                                               ; preds = %85
-  %88 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 252), align 4
+  %88 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 252), align 4
   switch i32 %88, label %.invoke [
     i32 2, label %89
     i32 3, label %89
@@ -343,7 +343,7 @@ _ZNK5QListIjEeqIjEENSt9enable_ifIXsr3stdE13conjunction_vISt11disjunctionIJSt10is
           to label %94 unwind label %60
 
 94:                                               ; preds = %.invoke109
-  %95 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 252), align 4
+  %95 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 252), align 4
   switch i32 %95, label %.invoke [
     i32 1, label %96
     i32 6, label %96
@@ -375,7 +375,7 @@ _ZNK5QListIjEeqIjEENSt9enable_ifIXsr3stdE13conjunction_vISt11disjunctionIJSt10is
   %.sroa.9.0.ptr92 = phi ptr [ %.sroa.9.0.ptr89, %.thread ], [ %.sroa.9.0.ptr, %97 ]
   %.sroa.5.091 = phi ptr [ %.sroa.5.0.ph, %.thread ], [ %.ptr13.ptr, %97 ]
   %99 = phi i1 [ %.ph, %.thread ], [ false, %97 ]
-  %100 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 256), align 8
+  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 256), align 8
   switch i32 %100, label %.invoke [
     i32 0, label %_ZN10MainWindow15getLayoutWidgetE21layout_pane_content_e.exit
     i32 1, label %101
@@ -414,7 +414,7 @@ _ZN10MainWindow15getLayoutWidgetE21layout_pane_content_e.exit: ; preds = %107, %
           to label %112 unwind label %60
 
 112:                                              ; preds = %110, %109
-  %113 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 260), align 4
+  %113 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 260), align 4
   switch i32 %113, label %.invoke [
     i32 0, label %_ZN10MainWindow15getLayoutWidgetE21layout_pane_content_e.exit33
     i32 1, label %114
@@ -445,7 +445,7 @@ _ZN10MainWindow15getLayoutWidgetE21layout_pane_content_e.exit33: ; preds = %120,
           to label %122 unwind label %60
 
 122:                                              ; preds = %_ZN10MainWindow15getLayoutWidgetE21layout_pane_content_e.exit33
-  %123 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 264), align 8
+  %123 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 264), align 8
   switch i32 %123, label %.invoke [
     i32 0, label %_ZN10MainWindow15getLayoutWidgetE21layout_pane_content_e.exit36
     i32 1, label %124
@@ -600,7 +600,7 @@ _ZNK23QListSpecialMethodsBaseIP7QWidgetE8containsIP9QSplitterEEbRKT_.exit: ; pre
 
 _ZNK23QListSpecialMethodsBaseIP7QWidgetE8containsIP10PacketListEEbRKT_.exit: ; preds = %176, %167, %181
   %.0.i.i.i40 = phi i1 [ %185, %181 ], [ false, %167 ], [ false, %176 ]
-  %186 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 12), align 4
+  %186 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 12), align 4
   %187 = icmp ne i32 %186, 0
   %188 = select i1 %.0.i.i.i40, i1 %187, i1 false
   %189 = load ptr, ptr %168, align 8
@@ -642,7 +642,7 @@ _ZNK23QListSpecialMethodsBaseIP7QWidgetE8containsIP10PacketListEEbRKT_.exit: ; p
 
 _ZNK23QListSpecialMethodsBaseIP7QWidgetE8containsIP9ProtoTreeEEbRKT_.exit: ; preds = %201, %192, %206
   %.0.i.i.i43 = phi i1 [ %210, %206 ], [ false, %192 ], [ false, %201 ]
-  %211 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 16), align 8
+  %211 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 16), align 8
   %212 = icmp ne i32 %211, 0
   %213 = select i1 %.0.i.i.i43, i1 %212, i1 false
   %214 = load ptr, ptr %193, align 8
@@ -684,7 +684,7 @@ _ZNK23QListSpecialMethodsBaseIP7QWidgetE8containsIP9ProtoTreeEEbRKT_.exit: ; pre
 
 _ZNK23QListSpecialMethodsBaseIP7QWidgetE8containsIP11ByteViewTabEEbRKT_.exit: ; preds = %226, %217, %231
   %.0.i.i.i46 = phi i1 [ %235, %231 ], [ false, %217 ], [ false, %226 ]
-  %236 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 20), align 4
+  %236 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 20), align 4
   %237 = icmp ne i32 %236, 0
   %238 = select i1 %.0.i.i.i46, i1 %237, i1 false
   %239 = load ptr, ptr %218, align 8
@@ -730,7 +730,7 @@ _ZNK23QListSpecialMethodsBaseIP7QWidgetE8containsIP11ByteViewTabEEbRKT_.exit: ; 
 
 _ZNK23QListSpecialMethodsBaseIP7QWidgetE8containsIP13PacketDiagramEEbRKT_.exit: ; preds = %252, %244, %257
   %.0.i.i.i49 = phi i1 [ %261, %257 ], [ false, %244 ], [ false, %252 ]
-  %262 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 24), align 8
+  %262 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 24), align 8
   %263 = icmp ne i32 %262, 0
   %264 = select i1 %.0.i.i.i49, i1 %263, i1 false
   %265 = load ptr, ptr %243, align 8
@@ -881,9 +881,9 @@ define void @_ZN10MainWindow23applyRecentPaneGeometryEv(ptr noundef nonnull alig
   %5 = alloca %class.QByteArray, align 8
   %6 = alloca %class.QList.14, align 8
   %7 = alloca %class.QList.14, align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 152), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 152), align 8
   %9 = icmp eq ptr %8, null
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 160), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 160), align 8
   %11 = icmp eq ptr %10, null
   %or.cond = select i1 %9, i1 true, i1 %11
   br i1 %or.cond, label %.critedge50.thread, label %12
@@ -903,7 +903,7 @@ define void @_ZN10MainWindow23applyRecentPaneGeometryEv(ptr noundef nonnull alig
 
 17:                                               ; preds = %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 160), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 160), align 8
   invoke void @_ZN10QByteArrayC1EPKcx(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %19, i64 noundef -1)
           to label %20 unwind label %93
 
@@ -1043,7 +1043,7 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i60:     ; preds = %_ZN10QByteArrayD2Ev
   %75 = sub i32 %74, %.sroa.0.0.copyload
   %76 = select i1 %71, i32 %73, i32 %75
   %77 = sub i32 %76, %69
-  %78 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 136), align 8
+  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 136), align 8
   %79 = icmp sgt i32 %78, 0
   br i1 %79, label %80, label %121
 
@@ -1080,7 +1080,7 @@ _ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i: ; preds = %_ZNK17
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %89 = load ptr, ptr %88, align 8
   store i32 %78, ptr %89, align 4
-  %90 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 136), align 8
+  %90 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 136), align 8
   br label %138
 
 91:                                               ; preds = %12
@@ -1225,7 +1225,7 @@ _ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i85: ; preds = %_ZNK
 138:                                              ; preds = %129, %87
   %.pn44 = phi i32 [ %90, %87 ], [ %137, %129 ]
   %.0 = sub i32 %66, %.pn44
-  %139 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 140), align 4
+  %139 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 140), align 4
   %140 = icmp sgt i32 %139, 0
   %141 = load i64, ptr %61, align 8
   %142 = icmp sgt i64 %141, 2
@@ -1268,7 +1268,7 @@ _ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i95: ; preds = %_ZNK
   %153 = load ptr, ptr %152, align 8
   %154 = getelementptr i8, ptr %153, i64 4
   store i32 %139, ptr %154, align 4
-  %155 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 140), align 4
+  %155 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 140), align 4
   %156 = sub i32 %.0, %155
   br label %219
 
@@ -1311,7 +1311,7 @@ _ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i105: ; preds = %_ZN
   %169 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %170 = load ptr, ptr %169, align 8
   store i32 %139, ptr %170, align 4
-  %171 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 140), align 4
+  %171 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 140), align 4
   %172 = load ptr, ptr %7, align 8
   %.not.i.i.i.i.i112 = icmp eq ptr %172, null
   br i1 %.not.i.i.i.i.i112, label %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i114, label %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.i.i.i.i113

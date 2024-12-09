@@ -72,7 +72,7 @@ $_ZN9QtPrivate25QMetaTypeInterfaceWrapperIjE8metaTypeE = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16CredentialsModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN18QAbstractListModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16CredentialsModel, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16CredentialsModel, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   ret void
@@ -82,7 +82,7 @@ declare void @_ZN18QAbstractListModelC2EP7QObject(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN16CredentialsModelD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16CredentialsModel, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16CredentialsModel, i64 16), ptr %0, align 8
   invoke void @_ZN16CredentialsModel5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %2 unwind label %8
 

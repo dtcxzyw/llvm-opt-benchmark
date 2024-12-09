@@ -2070,22 +2070,22 @@ define hidden void @proto_register_ipmi() local_unnamed_addr #0 {
   tail call void @expert_register_field_array(ptr noundef %7, ptr noundef nonnull @proto_register_ipmi.ei, i32 noundef 1) #13
   store ptr @.str.110, ptr getelementptr inbounds nuw (i8, ptr @ipmi_cmd_tab, i64 8), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @ipmi_cmd_tab, i64 16), align 16
-  store ptr @.str.111, ptr getelementptr inbounds (i8, ptr @ipmi_cmd_tab, i64 32), align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @ipmi_cmd_tab, i64 40), align 8
-  store ptr @.str.112, ptr getelementptr inbounds (i8, ptr @ipmi_cmd_tab, i64 56), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @ipmi_cmd_tab, i64 64), align 16
-  store ptr @.str.113, ptr getelementptr inbounds (i8, ptr @ipmi_cmd_tab, i64 80), align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @ipmi_cmd_tab, i64 88), align 8
-  store ptr @.str.114, ptr getelementptr inbounds (i8, ptr @ipmi_cmd_tab, i64 104), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @ipmi_cmd_tab, i64 112), align 16
-  store ptr @.str.115, ptr getelementptr inbounds (i8, ptr @ipmi_cmd_tab, i64 128), align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @ipmi_cmd_tab, i64 136), align 8
-  store ptr @.str.116, ptr getelementptr inbounds (i8, ptr @ipmi_cmd_tab, i64 152), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @ipmi_cmd_tab, i64 160), align 16
-  store ptr @.str.117, ptr getelementptr inbounds (i8, ptr @ipmi_cmd_tab, i64 536), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @ipmi_cmd_tab, i64 544), align 16
-  store ptr @.str.118, ptr getelementptr inbounds (i8, ptr @ipmi_cmd_tab, i64 560), align 16
-  store i32 3, ptr getelementptr inbounds (i8, ptr @ipmi_cmd_tab, i64 568), align 8
+  store ptr @.str.111, ptr getelementptr inbounds nuw (i8, ptr @ipmi_cmd_tab, i64 32), align 16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @ipmi_cmd_tab, i64 40), align 8
+  store ptr @.str.112, ptr getelementptr inbounds nuw (i8, ptr @ipmi_cmd_tab, i64 56), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @ipmi_cmd_tab, i64 64), align 16
+  store ptr @.str.113, ptr getelementptr inbounds nuw (i8, ptr @ipmi_cmd_tab, i64 80), align 16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @ipmi_cmd_tab, i64 88), align 8
+  store ptr @.str.114, ptr getelementptr inbounds nuw (i8, ptr @ipmi_cmd_tab, i64 104), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @ipmi_cmd_tab, i64 112), align 16
+  store ptr @.str.115, ptr getelementptr inbounds nuw (i8, ptr @ipmi_cmd_tab, i64 128), align 16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @ipmi_cmd_tab, i64 136), align 8
+  store ptr @.str.116, ptr getelementptr inbounds nuw (i8, ptr @ipmi_cmd_tab, i64 152), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @ipmi_cmd_tab, i64 160), align 16
+  store ptr @.str.117, ptr getelementptr inbounds nuw (i8, ptr @ipmi_cmd_tab, i64 536), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @ipmi_cmd_tab, i64 544), align 16
+  store ptr @.str.118, ptr getelementptr inbounds nuw (i8, ptr @ipmi_cmd_tab, i64 560), align 16
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @ipmi_cmd_tab, i64 568), align 8
   br label %8
 
 8:                                                ; preds = %0, %8

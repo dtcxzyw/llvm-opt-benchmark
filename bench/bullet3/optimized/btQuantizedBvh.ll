@@ -31,7 +31,7 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN14btQuantizedBvhC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(244) initializes((0, 40), (56, 60), (64, 65), (76, 84), (88, 97), (108, 116), (120, 129), (140, 148), (152, 161), (172, 180), (184, 193), (200, 204), (212, 220), (224, 233), (240, 244)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont7:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14btQuantizedBvh, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14btQuantizedBvh, i64 16), ptr %this, align 8
   %m_bvhAabbMin = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_bvhAabbMax = getelementptr inbounds nuw i8, ptr %this, i64 24
   %m_bulletVersion = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -832,7 +832,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN14btQuantizedBvhD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(244) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14btQuantizedBvh, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14btQuantizedBvh, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -3533,7 +3533,7 @@ invoke.cont:
   %1 = load i32, ptr %m_size.i, align 4
   %m_subtreeHeaderCount = getelementptr inbounds nuw i8, ptr %this, i64 240
   store i32 %1, ptr %m_subtreeHeaderCount, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14btQuantizedBvh, i64 16), ptr %o_alignedDataBuffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14btQuantizedBvh, i64 16), ptr %o_alignedDataBuffer, align 8
   %m_bvhAabbMin.i = getelementptr inbounds nuw i8, ptr %o_alignedDataBuffer, i64 8
   %m_bvhAabbMax.i = getelementptr inbounds nuw i8, ptr %o_alignedDataBuffer, i64 24
   %m_bulletVersion.i = getelementptr inbounds nuw i8, ptr %o_alignedDataBuffer, i64 56
@@ -4415,7 +4415,7 @@ if.end7:                                          ; preds = %if.end.if.end7_crit
 
 invoke.cont:                                      ; preds = %if.end7
   %add.ptr = getelementptr inbounds nuw i8, ptr %i_alignedDataBuffer, i64 248
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14btQuantizedBvh, i64 16), ptr %i_alignedDataBuffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14btQuantizedBvh, i64 16), ptr %i_alignedDataBuffer, align 8
   %m_bulletVersion.i = getelementptr inbounds nuw i8, ptr %i_alignedDataBuffer, i64 56
   store i32 326, ptr %m_bulletVersion.i, align 8
   %m_ownsMemory.i.i.i = getelementptr inbounds nuw i8, ptr %i_alignedDataBuffer, i64 96
@@ -4693,7 +4693,7 @@ return:                                           ; preds = %for.body124, %for.c
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN14btQuantizedBvhC2ERS_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(244) initializes((0, 60), (76, 84), (88, 97), (108, 116), (120, 129), (140, 148), (152, 161), (172, 180), (184, 193), (212, 220), (224, 233)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(244) %self, i1 zeroext %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont10:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14btQuantizedBvh, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14btQuantizedBvh, i64 16), ptr %this, align 8
   %m_bvhAabbMin = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_bvhAabbMin2 = getelementptr inbounds nuw i8, ptr %self, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_bvhAabbMin, ptr noundef nonnull align 8 dereferenceable(16) %m_bvhAabbMin2, i64 16, i1 false)

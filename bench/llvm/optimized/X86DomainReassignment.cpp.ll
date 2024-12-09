@@ -166,7 +166,7 @@ $_ZTVN4llvm2cl11OptionValueIbEE = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -178,7 +178,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr n
   br label %_ZNSt8functionIFvRKbEED2Ev.exit
 
 _ZNSt8functionIFvRKbEED2Ev.exit:                  ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -270,7 +270,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm31createX86DomainReassignmentPassE
   store i32 2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_121X86DomainReassignmentE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_121X86DomainReassignmentE, i64 16), ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -308,7 +308,7 @@ define internal noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBAL__N_121
   store i32 2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_121X86DomainReassignmentE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_121X86DomainReassignmentE, i64 16), ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -328,7 +328,7 @@ declare void @_ZN4llvm12PassRegistry12registerPassERKNS_8PassInfoEb(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_121X86DomainReassignmentD2Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_121X86DomainReassignmentE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_121X86DomainReassignmentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %.val1.i = load i32, ptr %3, align 8
@@ -579,7 +579,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_121X86DomainReassignment20ru
   br i1 %92, label %_ZNSt6vectorIN12_GLOBAL__N_17ClosureESaIS1_EED2Ev.exit, label %93
 
 93:                                               ; preds = %2
-  %94 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL28DisableX86DomainReassignment, i64 128), align 8
+  %94 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL28DisableX86DomainReassignment, i64 128), align 8
   %95 = trunc i8 %94 to i1
   br i1 %95, label %_ZNSt6vectorIN12_GLOBAL__N_17ClosureESaIS1_EED2Ev.exit, label %96
 
@@ -614,7 +614,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_121X86DomainReassignment20ru
   %113 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !6
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store i32 0, ptr %114, align 8, !noalias !6
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_111InstrIgnoreE, i64 16), ptr %113, align 8, !noalias !6
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_111InstrIgnoreE, i64 16), ptr %113, align 8, !noalias !6
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 1, ptr %86, align 4
   %116 = getelementptr inbounds nuw i8, ptr %86, i64 4
@@ -636,7 +636,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_111InstrIgnoreESt14default_deleteIS1_EED2Ev.exit
   %122 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !9
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   store i32 10, ptr %123, align 8, !noalias !9
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_111InstrIgnoreE, i64 16), ptr %122, align 8, !noalias !9
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_111InstrIgnoreE, i64 16), ptr %122, align 8, !noalias !9
   store i32 1, ptr %87, align 4
   %124 = getelementptr inbounds nuw i8, ptr %87, i64 4
   store i32 10, ptr %124, align 4
@@ -657,7 +657,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_111InstrIgnoreESt14default_deleteIS1_EED2Ev.exit
   %130 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !12
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   store i32 9, ptr %131, align 8, !noalias !12
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120InstrReplaceWithCopyE, i64 16), ptr %130, align 8, !noalias !12
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120InstrReplaceWithCopyE, i64 16), ptr %130, align 8, !noalias !12
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 12
   store i32 2, ptr %132, align 4, !noalias !12
   store i32 1, ptr %88, align 4
@@ -682,7 +682,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_120InstrReplaceWithCopyESt14default_deleteIS1_EE
   store i32 19, ptr %140, align 8, !noalias !15
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 12
   store i32 19, ptr %141, align 4, !noalias !15
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117InstrCOPYReplacerE, i64 16), ptr %139, align 8, !noalias !15
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117InstrCOPYReplacerE, i64 16), ptr %139, align 8, !noalias !15
   %142 = getelementptr inbounds nuw i8, ptr %139, i64 16
   store i32 1, ptr %142, align 8, !noalias !15
   store i32 1, ptr %89, align 4
@@ -711,7 +711,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_117InstrCOPYReplacerESt14default_deleteIS1_EED2E
   %154 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !18
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   store i32 2698, ptr %155, align 8, !noalias !18
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120InstrReplacerDstCOPYE, i64 16), ptr %154, align 8, !noalias !18
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120InstrReplacerDstCOPYE, i64 16), ptr %154, align 8, !noalias !18
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 12
   store i32 %153, ptr %156, align 4, !noalias !18
   store i32 1, ptr %85, align 4
@@ -741,7 +741,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %168 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !21
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
   store i32 2704, ptr %169, align 8, !noalias !21
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120InstrReplacerDstCOPYE, i64 16), ptr %168, align 8, !noalias !21
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120InstrReplacerDstCOPYE, i64 16), ptr %168, align 8, !noalias !21
   %170 = getelementptr inbounds nuw i8, ptr %168, i64 12
   store i32 %167, ptr %170, align 4, !noalias !21
   store i32 1, ptr %84, align 4
@@ -771,7 +771,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %182 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !24
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store i32 2701, ptr %183, align 8, !noalias !24
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120InstrReplacerDstCOPYE, i64 16), ptr %182, align 8, !noalias !24
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120InstrReplacerDstCOPYE, i64 16), ptr %182, align 8, !noalias !24
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 12
   store i32 %181, ptr %184, align 4, !noalias !24
   store i32 1, ptr %83, align 4
@@ -801,7 +801,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %196 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !27
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
   store i32 2706, ptr %197, align 8, !noalias !27
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120InstrReplacerDstCOPYE, i64 16), ptr %196, align 8, !noalias !27
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120InstrReplacerDstCOPYE, i64 16), ptr %196, align 8, !noalias !27
   %198 = getelementptr inbounds nuw i8, ptr %196, i64 12
   store i32 %195, ptr %198, align 4, !noalias !27
   store i32 1, ptr %82, align 4
@@ -837,7 +837,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %214 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !30
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
   store i32 2695, ptr %215, align 8, !noalias !30
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120InstrReplacerDstCOPYE, i64 16), ptr %214, align 8, !noalias !30
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120InstrReplacerDstCOPYE, i64 16), ptr %214, align 8, !noalias !30
   %216 = getelementptr inbounds nuw i8, ptr %214, i64 12
   store i32 %213, ptr %216, align 4, !noalias !30
   store i32 1, ptr %81, align 4
@@ -867,7 +867,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %228 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !33
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 8
   store i32 2699, ptr %229, align 8, !noalias !33
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120InstrReplacerDstCOPYE, i64 16), ptr %228, align 8, !noalias !33
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120InstrReplacerDstCOPYE, i64 16), ptr %228, align 8, !noalias !33
   %230 = getelementptr inbounds nuw i8, ptr %228, i64 12
   store i32 %227, ptr %230, align 4, !noalias !33
   store i32 1, ptr %80, align 4
@@ -897,7 +897,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %242 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !36
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 8
   store i32 2705, ptr %243, align 8, !noalias !36
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120InstrReplacerDstCOPYE, i64 16), ptr %242, align 8, !noalias !36
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120InstrReplacerDstCOPYE, i64 16), ptr %242, align 8, !noalias !36
   %244 = getelementptr inbounds nuw i8, ptr %242, i64 12
   store i32 %241, ptr %244, align 4, !noalias !36
   store i32 1, ptr %79, align 4
@@ -927,7 +927,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %256 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !39
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
   store i32 2697, ptr %257, align 8, !noalias !39
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120InstrReplacerDstCOPYE, i64 16), ptr %256, align 8, !noalias !39
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120InstrReplacerDstCOPYE, i64 16), ptr %256, align 8, !noalias !39
   %258 = getelementptr inbounds nuw i8, ptr %256, i64 12
   store i32 %255, ptr %258, align 4, !noalias !39
   store i32 1, ptr %78, align 4
@@ -957,7 +957,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %270 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !42
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
   store i32 2702, ptr %271, align 8, !noalias !42
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120InstrReplacerDstCOPYE, i64 16), ptr %270, align 8, !noalias !42
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120InstrReplacerDstCOPYE, i64 16), ptr %270, align 8, !noalias !42
   %272 = getelementptr inbounds nuw i8, ptr %270, i64 12
   store i32 %269, ptr %272, align 4, !noalias !42
   store i32 1, ptr %77, align 4
@@ -987,7 +987,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %284 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !45
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 8
   store i32 2707, ptr %285, align 8, !noalias !45
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120InstrReplacerDstCOPYE, i64 16), ptr %284, align 8, !noalias !45
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120InstrReplacerDstCOPYE, i64 16), ptr %284, align 8, !noalias !45
   %286 = getelementptr inbounds nuw i8, ptr %284, i64 12
   store i32 %283, ptr %286, align 4, !noalias !45
   store i32 1, ptr %76, align 4
@@ -1021,7 +1021,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %299 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !48
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 8
   store i32 2508, ptr %300, align 8, !noalias !48
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %299, align 8, !noalias !48
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %299, align 8, !noalias !48
   %301 = getelementptr inbounds nuw i8, ptr %299, i64 12
   store i32 %298, ptr %301, align 4, !noalias !48
   store i32 1, ptr %75, align 4
@@ -1051,7 +1051,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %313 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !51
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   store i32 2501, ptr %314, align 8, !noalias !51
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %313, align 8, !noalias !51
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %313, align 8, !noalias !51
   %315 = getelementptr inbounds nuw i8, ptr %313, i64 12
   store i32 %312, ptr %315, align 4, !noalias !51
   store i32 1, ptr %74, align 4
@@ -1081,7 +1081,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %327 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !54
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 8
   store i32 2509, ptr %328, align 8, !noalias !54
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %327, align 8, !noalias !54
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %327, align 8, !noalias !54
   %329 = getelementptr inbounds nuw i8, ptr %327, i64 12
   store i32 %326, ptr %329, align 4, !noalias !54
   store i32 1, ptr %73, align 4
@@ -1106,7 +1106,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %336 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !57
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 8
   store i32 4397, ptr %337, align 8, !noalias !57
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %336, align 8, !noalias !57
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %336, align 8, !noalias !57
   %338 = getelementptr inbounds nuw i8, ptr %336, i64 12
   store i32 2040, ptr %338, align 4, !noalias !57
   store i32 1, ptr %72, align 4
@@ -1131,7 +1131,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %345 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !60
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 8
   store i32 4209, ptr %346, align 8, !noalias !60
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %345, align 8, !noalias !60
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %345, align 8, !noalias !60
   %347 = getelementptr inbounds nuw i8, ptr %345, i64 12
   store i32 2036, ptr %347, align 4, !noalias !60
   store i32 1, ptr %71, align 4
@@ -1156,7 +1156,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %354 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !63
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 8
   store i32 2831, ptr %355, align 8, !noalias !63
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %354, align 8, !noalias !63
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %354, align 8, !noalias !63
   %356 = getelementptr inbounds nuw i8, ptr %354, i64 12
   store i32 2024, ptr %356, align 4, !noalias !63
   store i32 1, ptr %70, align 4
@@ -1181,7 +1181,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %363 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !66
   %364 = getelementptr inbounds nuw i8, ptr %363, i64 8
   store i32 2883, ptr %364, align 8, !noalias !66
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %363, align 8, !noalias !66
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %363, align 8, !noalias !66
   %365 = getelementptr inbounds nuw i8, ptr %363, i64 12
   store i32 2032, ptr %365, align 4, !noalias !66
   store i32 1, ptr %69, align 4
@@ -1206,7 +1206,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %372 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !69
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 8
   store i32 778, ptr %373, align 8, !noalias !69
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %372, align 8, !noalias !69
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %372, align 8, !noalias !69
   %374 = getelementptr inbounds nuw i8, ptr %372, i64 12
   store i32 1979, ptr %374, align 4, !noalias !69
   store i32 1, ptr %68, align 4
@@ -1231,7 +1231,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %381 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !72
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 8
   store i32 22123, ptr %382, align 8, !noalias !72
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %381, align 8, !noalias !72
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %381, align 8, !noalias !72
   %383 = getelementptr inbounds nuw i8, ptr %381, i64 12
   store i32 2055, ptr %383, align 4, !noalias !72
   store i32 1, ptr %67, align 4
@@ -1263,7 +1263,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %395 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !75
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 8
   store i32 4399, ptr %396, align 8, !noalias !75
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %395, align 8, !noalias !75
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %395, align 8, !noalias !75
   %397 = getelementptr inbounds nuw i8, ptr %395, i64 12
   store i32 2040, ptr %397, align 4, !noalias !75
   store i32 1, ptr %66, align 4
@@ -1288,7 +1288,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %404 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !78
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 8
   store i32 4211, ptr %405, align 8, !noalias !78
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %404, align 8, !noalias !78
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %404, align 8, !noalias !78
   %406 = getelementptr inbounds nuw i8, ptr %404, i64 12
   store i32 2036, ptr %406, align 4, !noalias !78
   store i32 1, ptr %65, align 4
@@ -1313,7 +1313,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %413 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !81
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 8
   store i32 2833, ptr %414, align 8, !noalias !81
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %413, align 8, !noalias !81
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %413, align 8, !noalias !81
   %415 = getelementptr inbounds nuw i8, ptr %413, i64 12
   store i32 2024, ptr %415, align 4, !noalias !81
   store i32 1, ptr %64, align 4
@@ -1338,7 +1338,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %422 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !84
   %423 = getelementptr inbounds nuw i8, ptr %422, i64 8
   store i32 2886, ptr %423, align 8, !noalias !84
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %422, align 8, !noalias !84
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %422, align 8, !noalias !84
   %424 = getelementptr inbounds nuw i8, ptr %422, i64 12
   store i32 2032, ptr %424, align 4, !noalias !84
   store i32 1, ptr %63, align 4
@@ -1363,7 +1363,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %431 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !87
   %432 = getelementptr inbounds nuw i8, ptr %431, i64 8
   store i32 781, ptr %432, align 8, !noalias !87
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %431, align 8, !noalias !87
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %431, align 8, !noalias !87
   %433 = getelementptr inbounds nuw i8, ptr %431, i64 12
   store i32 1979, ptr %433, align 4, !noalias !87
   store i32 1, ptr %62, align 4
@@ -1388,7 +1388,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %440 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !90
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 8
   store i32 22126, ptr %441, align 8, !noalias !90
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %440, align 8, !noalias !90
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %440, align 8, !noalias !90
   %442 = getelementptr inbounds nuw i8, ptr %440, i64 12
   store i32 2055, ptr %442, align 4, !noalias !90
   store i32 1, ptr %61, align 4
@@ -1428,7 +1428,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %459 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !93
   %460 = getelementptr inbounds nuw i8, ptr %459, i64 8
   store i32 2528, ptr %460, align 8, !noalias !93
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %459, align 8, !noalias !93
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %459, align 8, !noalias !93
   %461 = getelementptr inbounds nuw i8, ptr %459, i64 12
   store i32 %458, ptr %461, align 4, !noalias !93
   store i32 1, ptr %60, align 4
@@ -1458,7 +1458,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %473 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !96
   %474 = getelementptr inbounds nuw i8, ptr %473, i64 8
   store i32 2545, ptr %474, align 8, !noalias !96
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %473, align 8, !noalias !96
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %473, align 8, !noalias !96
   %475 = getelementptr inbounds nuw i8, ptr %473, i64 12
   store i32 %472, ptr %475, align 4, !noalias !96
   store i32 1, ptr %59, align 4
@@ -1488,7 +1488,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %487 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !99
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 8
   store i32 2520, ptr %488, align 8, !noalias !99
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %487, align 8, !noalias !99
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %487, align 8, !noalias !99
   %489 = getelementptr inbounds nuw i8, ptr %487, i64 12
   store i32 %486, ptr %489, align 4, !noalias !99
   store i32 1, ptr %58, align 4
@@ -1518,7 +1518,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %501 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !102
   %502 = getelementptr inbounds nuw i8, ptr %501, i64 8
   store i32 2538, ptr %502, align 8, !noalias !102
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %501, align 8, !noalias !102
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %501, align 8, !noalias !102
   %503 = getelementptr inbounds nuw i8, ptr %501, i64 12
   store i32 %500, ptr %503, align 4, !noalias !102
   store i32 1, ptr %57, align 4
@@ -1548,7 +1548,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %515 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !105
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 8
   store i32 2529, ptr %516, align 8, !noalias !105
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %515, align 8, !noalias !105
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %515, align 8, !noalias !105
   %517 = getelementptr inbounds nuw i8, ptr %515, i64 12
   store i32 %514, ptr %517, align 4, !noalias !105
   store i32 1, ptr %56, align 4
@@ -1578,7 +1578,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %529 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !108
   %530 = getelementptr inbounds nuw i8, ptr %529, i64 8
   store i32 2546, ptr %530, align 8, !noalias !108
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %529, align 8, !noalias !108
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %529, align 8, !noalias !108
   %531 = getelementptr inbounds nuw i8, ptr %529, i64 12
   store i32 %528, ptr %531, align 4, !noalias !108
   store i32 1, ptr %55, align 4
@@ -1603,7 +1603,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %538 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !111
   %539 = getelementptr inbounds nuw i8, ptr %538, i64 8
   store i32 4427, ptr %539, align 8, !noalias !111
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %538, align 8, !noalias !111
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %538, align 8, !noalias !111
   %540 = getelementptr inbounds nuw i8, ptr %538, i64 12
   store i32 2038, ptr %540, align 4, !noalias !111
   store i32 1, ptr %54, align 4
@@ -1628,7 +1628,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %547 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !114
   %548 = getelementptr inbounds nuw i8, ptr %547, i64 8
   store i32 4457, ptr %548, align 8, !noalias !114
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %547, align 8, !noalias !114
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %547, align 8, !noalias !114
   %549 = getelementptr inbounds nuw i8, ptr %547, i64 12
   store i32 2039, ptr %549, align 4, !noalias !114
   store i32 1, ptr %53, align 4
@@ -1653,7 +1653,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %556 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !117
   %557 = getelementptr inbounds nuw i8, ptr %556, i64 8
   store i32 4239, ptr %557, align 8, !noalias !117
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %556, align 8, !noalias !117
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %556, align 8, !noalias !117
   %558 = getelementptr inbounds nuw i8, ptr %556, i64 12
   store i32 2034, ptr %558, align 4, !noalias !117
   store i32 1, ptr %52, align 4
@@ -1678,7 +1678,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %565 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !120
   %566 = getelementptr inbounds nuw i8, ptr %565, i64 8
   store i32 4269, ptr %566, align 8, !noalias !120
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %565, align 8, !noalias !120
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %565, align 8, !noalias !120
   %567 = getelementptr inbounds nuw i8, ptr %565, i64 12
   store i32 2035, ptr %567, align 4, !noalias !120
   store i32 1, ptr %51, align 4
@@ -1703,7 +1703,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %574 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !123
   %575 = getelementptr inbounds nuw i8, ptr %574, i64 8
   store i32 588, ptr %575, align 8, !noalias !123
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %574, align 8, !noalias !123
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %574, align 8, !noalias !123
   %576 = getelementptr inbounds nuw i8, ptr %574, i64 12
   store i32 1969, ptr %576, align 4, !noalias !123
   store i32 1, ptr %50, align 4
@@ -1728,7 +1728,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %583 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !126
   %584 = getelementptr inbounds nuw i8, ptr %583, i64 8
   store i32 629, ptr %584, align 8, !noalias !126
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %583, align 8, !noalias !126
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %583, align 8, !noalias !126
   %585 = getelementptr inbounds nuw i8, ptr %583, i64 12
   store i32 1970, ptr %585, align 4, !noalias !126
   store i32 1, ptr %49, align 4
@@ -1753,7 +1753,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %592 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !129
   %593 = getelementptr inbounds nuw i8, ptr %592, i64 8
   store i32 2837, ptr %593, align 8, !noalias !129
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %592, align 8, !noalias !129
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %592, align 8, !noalias !129
   %594 = getelementptr inbounds nuw i8, ptr %592, i64 12
   store i32 2022, ptr %594, align 4, !noalias !129
   store i32 1, ptr %48, align 4
@@ -1778,7 +1778,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %601 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !132
   %602 = getelementptr inbounds nuw i8, ptr %601, i64 8
   store i32 2843, ptr %602, align 8, !noalias !132
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %601, align 8, !noalias !132
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %601, align 8, !noalias !132
   %603 = getelementptr inbounds nuw i8, ptr %601, i64 12
   store i32 2023, ptr %603, align 4, !noalias !132
   store i32 1, ptr %47, align 4
@@ -1803,7 +1803,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %610 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !135
   %611 = getelementptr inbounds nuw i8, ptr %610, i64 8
   store i32 2925, ptr %611, align 8, !noalias !135
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %610, align 8, !noalias !135
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %610, align 8, !noalias !135
   %612 = getelementptr inbounds nuw i8, ptr %610, i64 12
   store i32 2026, ptr %612, align 4, !noalias !135
   store i32 1, ptr %46, align 4
@@ -1828,7 +1828,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %619 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !138
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 8
   store i32 2966, ptr %620, align 8, !noalias !138
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %619, align 8, !noalias !138
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %619, align 8, !noalias !138
   %621 = getelementptr inbounds nuw i8, ptr %619, i64 12
   store i32 2027, ptr %621, align 4, !noalias !138
   store i32 1, ptr %45, align 4
@@ -1853,7 +1853,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %628 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !141
   %629 = getelementptr inbounds nuw i8, ptr %628, i64 8
   store i32 819, ptr %629, align 8, !noalias !141
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %628, align 8, !noalias !141
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %628, align 8, !noalias !141
   %630 = getelementptr inbounds nuw i8, ptr %628, i64 12
   store i32 1973, ptr %630, align 4, !noalias !141
   store i32 1, ptr %44, align 4
@@ -1878,7 +1878,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %637 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !144
   %638 = getelementptr inbounds nuw i8, ptr %637, i64 8
   store i32 860, ptr %638, align 8, !noalias !144
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %637, align 8, !noalias !144
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %637, align 8, !noalias !144
   %639 = getelementptr inbounds nuw i8, ptr %637, i64 12
   store i32 1978, ptr %639, align 4, !noalias !144
   store i32 1, ptr %43, align 4
@@ -1903,7 +1903,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %646 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !147
   %647 = getelementptr inbounds nuw i8, ptr %646, i64 8
   store i32 906, ptr %647, align 8, !noalias !147
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %646, align 8, !noalias !147
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %646, align 8, !noalias !147
   %648 = getelementptr inbounds nuw i8, ptr %646, i64 12
   store i32 1975, ptr %648, align 4, !noalias !147
   store i32 1, ptr %42, align 4
@@ -1928,7 +1928,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %655 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !150
   %656 = getelementptr inbounds nuw i8, ptr %655, i64 8
   store i32 912, ptr %656, align 8, !noalias !150
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %655, align 8, !noalias !150
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %655, align 8, !noalias !150
   %657 = getelementptr inbounds nuw i8, ptr %655, i64 12
   store i32 1976, ptr %657, align 4, !noalias !150
   store i32 1, ptr %41, align 4
@@ -1953,7 +1953,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %664 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !153
   %665 = getelementptr inbounds nuw i8, ptr %664, i64 8
   store i32 22164, ptr %665, align 8, !noalias !153
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %664, align 8, !noalias !153
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %664, align 8, !noalias !153
   %666 = getelementptr inbounds nuw i8, ptr %664, i64 12
   store i32 2053, ptr %666, align 4, !noalias !153
   store i32 1, ptr %40, align 4
@@ -1978,7 +1978,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %673 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !156
   %674 = getelementptr inbounds nuw i8, ptr %673, i64 8
   store i32 22205, ptr %674, align 8, !noalias !156
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %673, align 8, !noalias !156
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %673, align 8, !noalias !156
   %675 = getelementptr inbounds nuw i8, ptr %673, i64 12
   store i32 2054, ptr %675, align 4, !noalias !156
   store i32 1, ptr %39, align 4
@@ -2006,7 +2006,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %683 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !159
   %684 = getelementptr inbounds nuw i8, ptr %683, i64 8
   store i32 4429, ptr %684, align 8, !noalias !159
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %683, align 8, !noalias !159
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %683, align 8, !noalias !159
   %685 = getelementptr inbounds nuw i8, ptr %683, i64 12
   store i32 2038, ptr %685, align 4, !noalias !159
   store i32 1, ptr %38, align 4
@@ -2031,7 +2031,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %692 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !162
   %693 = getelementptr inbounds nuw i8, ptr %692, i64 8
   store i32 4241, ptr %693, align 8, !noalias !162
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %692, align 8, !noalias !162
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %692, align 8, !noalias !162
   %694 = getelementptr inbounds nuw i8, ptr %692, i64 12
   store i32 2034, ptr %694, align 4, !noalias !162
   store i32 1, ptr %37, align 4
@@ -2056,7 +2056,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %701 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !165
   %702 = getelementptr inbounds nuw i8, ptr %701, i64 8
   store i32 591, ptr %702, align 8, !noalias !165
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %701, align 8, !noalias !165
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %701, align 8, !noalias !165
   %703 = getelementptr inbounds nuw i8, ptr %701, i64 12
   store i32 1969, ptr %703, align 4, !noalias !165
   store i32 1, ptr %36, align 4
@@ -2081,7 +2081,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %710 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !168
   %711 = getelementptr inbounds nuw i8, ptr %710, i64 8
   store i32 2839, ptr %711, align 8, !noalias !168
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %710, align 8, !noalias !168
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %710, align 8, !noalias !168
   %712 = getelementptr inbounds nuw i8, ptr %710, i64 12
   store i32 2022, ptr %712, align 4, !noalias !168
   store i32 1, ptr %35, align 4
@@ -2106,7 +2106,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %719 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !171
   %720 = getelementptr inbounds nuw i8, ptr %719, i64 8
   store i32 2928, ptr %720, align 8, !noalias !171
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %719, align 8, !noalias !171
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %719, align 8, !noalias !171
   %721 = getelementptr inbounds nuw i8, ptr %719, i64 12
   store i32 2026, ptr %721, align 4, !noalias !171
   store i32 1, ptr %34, align 4
@@ -2131,7 +2131,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %728 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !174
   %729 = getelementptr inbounds nuw i8, ptr %728, i64 8
   store i32 822, ptr %729, align 8, !noalias !174
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %728, align 8, !noalias !174
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %728, align 8, !noalias !174
   %730 = getelementptr inbounds nuw i8, ptr %728, i64 12
   store i32 1973, ptr %730, align 4, !noalias !174
   store i32 1, ptr %33, align 4
@@ -2156,7 +2156,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %737 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !177
   %738 = getelementptr inbounds nuw i8, ptr %737, i64 8
   store i32 22167, ptr %738, align 8, !noalias !177
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %737, align 8, !noalias !177
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %737, align 8, !noalias !177
   %739 = getelementptr inbounds nuw i8, ptr %737, i64 12
   store i32 2053, ptr %739, align 4, !noalias !177
   store i32 1, ptr %32, align 4
@@ -2181,7 +2181,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %746 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !180
   %747 = getelementptr inbounds nuw i8, ptr %746, i64 8
   store i32 4459, ptr %747, align 8, !noalias !180
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %746, align 8, !noalias !180
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %746, align 8, !noalias !180
   %748 = getelementptr inbounds nuw i8, ptr %746, i64 12
   store i32 2039, ptr %748, align 4, !noalias !180
   store i32 1, ptr %31, align 4
@@ -2206,7 +2206,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %755 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !183
   %756 = getelementptr inbounds nuw i8, ptr %755, i64 8
   store i32 4271, ptr %756, align 8, !noalias !183
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %755, align 8, !noalias !183
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %755, align 8, !noalias !183
   %757 = getelementptr inbounds nuw i8, ptr %755, i64 12
   store i32 2035, ptr %757, align 4, !noalias !183
   store i32 1, ptr %30, align 4
@@ -2231,7 +2231,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %764 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !186
   %765 = getelementptr inbounds nuw i8, ptr %764, i64 8
   store i32 632, ptr %765, align 8, !noalias !186
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %764, align 8, !noalias !186
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %764, align 8, !noalias !186
   %766 = getelementptr inbounds nuw i8, ptr %764, i64 12
   store i32 1970, ptr %766, align 4, !noalias !186
   store i32 1, ptr %29, align 4
@@ -2256,7 +2256,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %773 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !189
   %774 = getelementptr inbounds nuw i8, ptr %773, i64 8
   store i32 2845, ptr %774, align 8, !noalias !189
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %773, align 8, !noalias !189
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %773, align 8, !noalias !189
   %775 = getelementptr inbounds nuw i8, ptr %773, i64 12
   store i32 2023, ptr %775, align 4, !noalias !189
   store i32 1, ptr %28, align 4
@@ -2281,7 +2281,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %782 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !192
   %783 = getelementptr inbounds nuw i8, ptr %782, i64 8
   store i32 2969, ptr %783, align 8, !noalias !192
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %782, align 8, !noalias !192
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %782, align 8, !noalias !192
   %784 = getelementptr inbounds nuw i8, ptr %782, i64 12
   store i32 2027, ptr %784, align 4, !noalias !192
   store i32 1, ptr %27, align 4
@@ -2306,7 +2306,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %791 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !195
   %792 = getelementptr inbounds nuw i8, ptr %791, i64 8
   store i32 863, ptr %792, align 8, !noalias !195
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %791, align 8, !noalias !195
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %791, align 8, !noalias !195
   %793 = getelementptr inbounds nuw i8, ptr %791, i64 12
   store i32 1978, ptr %793, align 4, !noalias !195
   store i32 1, ptr %26, align 4
@@ -2331,7 +2331,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %800 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !198
   %801 = getelementptr inbounds nuw i8, ptr %800, i64 8
   store i32 22208, ptr %801, align 8, !noalias !198
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %800, align 8, !noalias !198
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %800, align 8, !noalias !198
   %802 = getelementptr inbounds nuw i8, ptr %800, i64 12
   store i32 2054, ptr %802, align 4, !noalias !198
   store i32 1, ptr %25, align 4
@@ -2366,7 +2366,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %815 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !201
   %816 = getelementptr inbounds nuw i8, ptr %815, i64 8
   store i32 662, ptr %816, align 8, !noalias !201
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %815, align 8, !noalias !201
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %815, align 8, !noalias !201
   %817 = getelementptr inbounds nuw i8, ptr %815, i64 12
   store i32 1968, ptr %817, align 4, !noalias !201
   store i32 1, ptr %24, align 4
@@ -2391,7 +2391,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %824 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !204
   %825 = getelementptr inbounds nuw i8, ptr %824, i64 8
   store i32 547, ptr %825, align 8, !noalias !204
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %824, align 8, !noalias !204
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %824, align 8, !noalias !204
   %826 = getelementptr inbounds nuw i8, ptr %824, i64 12
   store i32 1971, ptr %826, align 4, !noalias !204
   store i32 1, ptr %23, align 4
@@ -2416,7 +2416,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %833 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !207
   %834 = getelementptr inbounds nuw i8, ptr %833, i64 8
   store i32 893, ptr %834, align 8, !noalias !207
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %833, align 8, !noalias !207
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %833, align 8, !noalias !207
   %835 = getelementptr inbounds nuw i8, ptr %833, i64 12
   store i32 1972, ptr %835, align 4, !noalias !207
   store i32 1, ptr %22, align 4
@@ -2446,7 +2446,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %847 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !210
   %848 = getelementptr inbounds nuw i8, ptr %847, i64 8
   store i32 2564, ptr %848, align 8, !noalias !210
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %847, align 8, !noalias !210
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %847, align 8, !noalias !210
   %849 = getelementptr inbounds nuw i8, ptr %847, i64 12
   store i32 %846, ptr %849, align 4, !noalias !210
   store i32 1, ptr %21, align 4
@@ -2476,7 +2476,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %861 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !213
   %862 = getelementptr inbounds nuw i8, ptr %861, i64 8
   store i32 2557, ptr %862, align 8, !noalias !213
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %861, align 8, !noalias !213
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %861, align 8, !noalias !213
   %863 = getelementptr inbounds nuw i8, ptr %861, i64 12
   store i32 %860, ptr %863, align 4, !noalias !213
   store i32 1, ptr %20, align 4
@@ -2506,7 +2506,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %875 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !216
   %876 = getelementptr inbounds nuw i8, ptr %875, i64 8
   store i32 2566, ptr %876, align 8, !noalias !216
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %875, align 8, !noalias !216
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %875, align 8, !noalias !216
   %877 = getelementptr inbounds nuw i8, ptr %875, i64 12
   store i32 %874, ptr %877, align 4, !noalias !216
   store i32 1, ptr %19, align 4
@@ -2531,7 +2531,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %884 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !219
   %885 = getelementptr inbounds nuw i8, ptr %884, i64 8
   store i32 2849, ptr %885, align 8, !noalias !219
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %884, align 8, !noalias !219
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %884, align 8, !noalias !219
   %886 = getelementptr inbounds nuw i8, ptr %884, i64 12
   store i32 2021, ptr %886, align 4, !noalias !219
   store i32 1, ptr %18, align 4
@@ -2556,7 +2556,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %893 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !222
   %894 = getelementptr inbounds nuw i8, ptr %893, i64 8
   store i32 2999, ptr %894, align 8, !noalias !222
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %893, align 8, !noalias !222
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %893, align 8, !noalias !222
   %895 = getelementptr inbounds nuw i8, ptr %893, i64 12
   store i32 2025, ptr %895, align 4, !noalias !222
   store i32 1, ptr %17, align 4
@@ -2581,7 +2581,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %902 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !225
   %903 = getelementptr inbounds nuw i8, ptr %902, i64 8
   store i32 4487, ptr %903, align 8, !noalias !225
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %902, align 8, !noalias !225
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %902, align 8, !noalias !225
   %904 = getelementptr inbounds nuw i8, ptr %902, i64 12
   store i32 2037, ptr %904, align 4, !noalias !225
   store i32 1, ptr %16, align 4
@@ -2606,7 +2606,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %911 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !228
   %912 = getelementptr inbounds nuw i8, ptr %911, i64 8
   store i32 4299, ptr %912, align 8, !noalias !228
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %911, align 8, !noalias !228
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %911, align 8, !noalias !228
   %913 = getelementptr inbounds nuw i8, ptr %911, i64 12
   store i32 2033, ptr %913, align 4, !noalias !228
   store i32 1, ptr %15, align 4
@@ -2631,7 +2631,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %920 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !231
   %921 = getelementptr inbounds nuw i8, ptr %920, i64 8
   store i32 22238, ptr %921, align 8, !noalias !231
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %920, align 8, !noalias !231
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %920, align 8, !noalias !231
   %922 = getelementptr inbounds nuw i8, ptr %920, i64 12
   store i32 2052, ptr %922, align 4, !noalias !231
   store i32 1, ptr %14, align 4
@@ -2659,7 +2659,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %930 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !234
   %931 = getelementptr inbounds nuw i8, ptr %930, i64 8
   store i32 665, ptr %931, align 8, !noalias !234
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %930, align 8, !noalias !234
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %930, align 8, !noalias !234
   %932 = getelementptr inbounds nuw i8, ptr %930, i64 12
   store i32 1968, ptr %932, align 4, !noalias !234
   store i32 1, ptr %13, align 4
@@ -2684,7 +2684,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %939 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !237
   %940 = getelementptr inbounds nuw i8, ptr %939, i64 8
   store i32 550, ptr %940, align 8, !noalias !237
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %939, align 8, !noalias !237
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %939, align 8, !noalias !237
   %941 = getelementptr inbounds nuw i8, ptr %939, i64 12
   store i32 1971, ptr %941, align 4, !noalias !237
   store i32 1, ptr %12, align 4
@@ -2709,7 +2709,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %948 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !240
   %949 = getelementptr inbounds nuw i8, ptr %948, i64 8
   store i32 896, ptr %949, align 8, !noalias !240
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %948, align 8, !noalias !240
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %948, align 8, !noalias !240
   %950 = getelementptr inbounds nuw i8, ptr %948, i64 12
   store i32 1972, ptr %950, align 4, !noalias !240
   store i32 1, ptr %11, align 4
@@ -2734,7 +2734,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %957 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !243
   %958 = getelementptr inbounds nuw i8, ptr %957, i64 8
   store i32 2851, ptr %958, align 8, !noalias !243
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %957, align 8, !noalias !243
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %957, align 8, !noalias !243
   %959 = getelementptr inbounds nuw i8, ptr %957, i64 12
   store i32 2021, ptr %959, align 4, !noalias !243
   store i32 1, ptr %10, align 4
@@ -2759,7 +2759,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %966 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !246
   %967 = getelementptr inbounds nuw i8, ptr %966, i64 8
   store i32 3002, ptr %967, align 8, !noalias !246
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %966, align 8, !noalias !246
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %966, align 8, !noalias !246
   %968 = getelementptr inbounds nuw i8, ptr %966, i64 12
   store i32 2025, ptr %968, align 4, !noalias !246
   store i32 1, ptr %9, align 4
@@ -2784,7 +2784,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %975 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !249
   %976 = getelementptr inbounds nuw i8, ptr %975, i64 8
   store i32 4489, ptr %976, align 8, !noalias !249
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %975, align 8, !noalias !249
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %975, align 8, !noalias !249
   %977 = getelementptr inbounds nuw i8, ptr %975, i64 12
   store i32 2037, ptr %977, align 4, !noalias !249
   store i32 1, ptr %8, align 4
@@ -2809,7 +2809,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %984 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !252
   %985 = getelementptr inbounds nuw i8, ptr %984, i64 8
   store i32 4301, ptr %985, align 8, !noalias !252
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %984, align 8, !noalias !252
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %984, align 8, !noalias !252
   %986 = getelementptr inbounds nuw i8, ptr %984, i64 12
   store i32 2033, ptr %986, align 4, !noalias !252
   store i32 1, ptr %7, align 4
@@ -2834,7 +2834,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %993 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !255
   %994 = getelementptr inbounds nuw i8, ptr %993, i64 8
   store i32 22241, ptr %994, align 8, !noalias !255
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %993, align 8, !noalias !255
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InstrReplacerE, i64 16), ptr %993, align 8, !noalias !255
   %995 = getelementptr inbounds nuw i8, ptr %993, i64 12
   store i32 2052, ptr %995, align 4, !noalias !255
   store i32 1, ptr %6, align 4
@@ -7608,7 +7608,7 @@ declare void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -7755,10 +7755,10 @@ define internal void @_GLOBAL__sub_I_X86DomainReassignment.cpp() #13 section ".t
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL28DisableX86DomainReassignment, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL28DisableX86DomainReassignment, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL28DisableX86DomainReassignment, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL28DisableX86DomainReassignment, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL28DisableX86DomainReassignment, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL28DisableX86DomainReassignment, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL28DisableX86DomainReassignment, align 8
   tail call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL28DisableX86DomainReassignment, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL28DisableX86DomainReassignment) #17
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL28DisableX86DomainReassignment, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL28DisableX86DomainReassignment, i64 152), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL28DisableX86DomainReassignment, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL28DisableX86DomainReassignment, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL28DisableX86DomainReassignment, i64 176), align 8

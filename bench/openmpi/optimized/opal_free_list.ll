@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal void @opal_free_list_construct(ptr noundef initializes((168, 176)) %0) #0 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -50,7 +50,7 @@ define internal void @opal_free_list_construct(ptr noundef initializes((168, 176
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   %13 = load i32, ptr @opal_class_init_epoch, align 4
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @opal_condition_t_class, i64 32), align 8
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_condition_t_class, i64 32), align 8
   %.not22 = icmp eq i32 %13, %14
   br i1 %.not22, label %16, label %15
 
@@ -93,7 +93,7 @@ opal_obj_run_constructors.exit28:                 ; preds = %.lr.ph.i25, %16
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store ptr null, ptr %30, align 16
   %31 = load i32, ptr @opal_class_init_epoch, align 4
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not23 = icmp eq i32 %31, %32
   br i1 %.not23, label %34, label %33
 
@@ -600,7 +600,7 @@ define i32 @opal_free_list_grow_st(ptr noundef %0, i64 noundef %1, ptr noundef w
 78:                                               ; preds = %64, %67, %54
   %.0114 = phi ptr [ %61, %67 ], [ %61, %64 ], [ null, %54 ]
   %79 = load i32, ptr @opal_class_init_epoch, align 4
-  %80 = load i32, ptr getelementptr inbounds (i8, ptr @opal_free_list_item_t_class, i64 32), align 8
+  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_free_list_item_t_class, i64 32), align 8
   %.not133 = icmp eq i32 %79, %80
   br i1 %.not133, label %82, label %81
 

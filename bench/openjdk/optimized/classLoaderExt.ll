@@ -256,7 +256,7 @@ define hidden void @_ZN14ClassLoaderExt20process_module_tableEP10JavaThreadP16Mo
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, i8 0, i64 40, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 0, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVZN14ClassLoaderExt20process_module_tableEP10JavaThreadP16ModuleEntryTableE19ModulePathsGatherer, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVZN14ClassLoaderExt20process_module_tableEP10JavaThreadP16ModuleEntryTableE19ModulePathsGatherer, i64 16), ptr %3, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16

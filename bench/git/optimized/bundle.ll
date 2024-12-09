@@ -900,7 +900,7 @@ entry:
   %0 = load ptr, ptr @the_repository, align 8
   %hash_algo = getelementptr inbounds nuw i8, ptr %0, i64 256
   %1 = load ptr, ptr %hash_algo, align 8
-  %cmp = icmp ne ptr %1, getelementptr inbounds (i8, ptr @hash_algos, i64 104)
+  %cmp = icmp ne ptr %1, getelementptr inbounds nuw (i8, ptr @hash_algos, i64 104)
   %filter = getelementptr inbounds nuw i8, ptr %revs, i64 64
   %choice = getelementptr inbounds nuw i8, ptr %revs, i64 88
   %2 = load i32, ptr %choice, align 8

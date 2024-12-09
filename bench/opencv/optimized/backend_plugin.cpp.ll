@@ -1557,7 +1557,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   store i32 1, ptr %374, align 8, !noalias !24
   %375 = getelementptr inbounds nuw i8, ptr %373, i64 12
   store i32 1, ptr %375, align 4, !noalias !24
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6plugin4impl10DynamicLibESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %373, align 8, !noalias !24
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6plugin4impl10DynamicLibESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %373, align 8, !noalias !24
   %376 = getelementptr inbounds nuw i8, ptr %373, i64 16
   invoke void @_ZN2cv6plugin4impl10DynamicLibC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(41) %376, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.098.0116)
           to label %378 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6plugin4impl10DynamicLibESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !24
@@ -3019,7 +3019,7 @@ define linkonce_odr hidden void @_ZN2cv4impl13PluginCapture6createEPK38OpenCV_Vi
   store i32 1, ptr %73, align 8, !noalias !36
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 12
   store i32 1, ptr %74, align 4, !noalias !36
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl13PluginCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %72, align 8, !noalias !36
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl13PluginCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %72, align 8, !noalias !36
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   invoke void @_ZN2cv4impl13PluginCaptureC2EPK38OpenCV_VideoIO_Capture_Plugin_API_v1_1P17CvPluginCapture_t(ptr noundef nonnull align 8 dereferenceable(24) %75, ptr noundef nonnull %1, ptr noundef nonnull %60)
           to label %_ZN2cvL7makePtrINS_4impl13PluginCaptureEJPK38OpenCV_VideoIO_Capture_Plugin_API_v1_1P17CvPluginCapture_tEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl13PluginCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !36
@@ -3118,7 +3118,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %78, %80
   store i32 1, ptr %106, align 8, !noalias !42
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 12
   store i32 1, ptr %107, align 4, !noalias !42
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl13PluginCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %105, align 8, !noalias !42
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl13PluginCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %105, align 8, !noalias !42
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 16
   invoke void @_ZN2cv4impl13PluginCaptureC2EPK38OpenCV_VideoIO_Capture_Plugin_API_v1_1P17CvPluginCapture_t(ptr noundef nonnull align 8 dereferenceable(24) %108, ptr noundef nonnull %1, ptr noundef nonnull %95)
           to label %110 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl13PluginCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i44, !noalias !42
@@ -3470,7 +3470,7 @@ define linkonce_odr hidden void @_ZN2cv4impl6legacy13PluginCapture6createEPK36Op
   store i32 1, ptr %54, align 8, !noalias !48
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 12
   store i32 1, ptr %55, align 4, !noalias !48
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl6legacy13PluginCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %53, align 8, !noalias !48
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl6legacy13PluginCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %53, align 8, !noalias !48
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
   invoke void @_ZN2cv4impl6legacy13PluginCaptureC2EPK36OpenCV_VideoIO_Plugin_API_preview_v1P17CvPluginCapture_t(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull %1, ptr noundef nonnull %43)
           to label %_ZN2cvL7makePtrINS_4impl6legacy13PluginCaptureEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P17CvPluginCapture_tEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl6legacy13PluginCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !48
@@ -4095,7 +4095,7 @@ define linkonce_odr hidden void @_ZN2cv4impl12PluginWriter6createEPK37OpenCV_Vid
   store i32 1, ptr %89, align 8, !noalias !54
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 12
   store i32 1, ptr %90, align 4, !noalias !54
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %88, align 8, !noalias !54
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %88, align 8, !noalias !54
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 16
   invoke void @_ZN2cv4impl12PluginWriterC2EPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1P16CvPluginWriter_t(ptr noundef nonnull align 8 dereferenceable(24) %91, ptr noundef nonnull %1, ptr noundef nonnull %76)
           to label %_ZN2cvL7makePtrINS_4impl12PluginWriterEJPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !54
@@ -4546,7 +4546,7 @@ _ZNK2cv15VideoParameters3getIiEET_iS2_.exit.thread: ; preds = %._crit_edge.i.i.i
   store i32 1, ptr %263, align 8, !noalias !62
   %264 = getelementptr inbounds nuw i8, ptr %262, i64 12
   store i32 1, ptr %264, align 4, !noalias !62
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %262, align 8, !noalias !62
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %262, align 8, !noalias !62
   %265 = getelementptr inbounds nuw i8, ptr %262, i64 16
   invoke void @_ZN2cv4impl12PluginWriterC2EPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1P16CvPluginWriter_t(ptr noundef nonnull align 8 dereferenceable(24) %265, ptr noundef nonnull %1, ptr noundef nonnull %252)
           to label %_ZN2cvL7makePtrINS_4impl12PluginWriterEJPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.exit95 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i94, !noalias !62
@@ -4775,7 +4775,7 @@ define linkonce_odr hidden void @_ZN2cv4impl6legacy12PluginWriter6createEPK36Ope
   store i32 1, ptr %91, align 8, !noalias !68
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 12
   store i32 1, ptr %92, align 4, !noalias !68
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl6legacy12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %90, align 8, !noalias !68
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl6legacy12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %90, align 8, !noalias !68
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 16
   invoke void @_ZN2cv4impl6legacy12PluginWriterC2EPK36OpenCV_VideoIO_Plugin_API_preview_v1P16CvPluginWriter_t(ptr noundef nonnull align 8 dereferenceable(24) %93, ptr noundef nonnull %1, ptr noundef nonnull %78)
           to label %_ZN2cvL7makePtrINS_4impl6legacy12PluginWriterEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl6legacy12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !68
@@ -5229,7 +5229,7 @@ _ZNK2cv15VideoParameters3getIiEET_iS2_.exit.thread: ; preds = %._crit_edge.i.i.i
   store i32 1, ptr %261, align 8, !noalias !74
   %262 = getelementptr inbounds nuw i8, ptr %260, i64 12
   store i32 1, ptr %262, align 4, !noalias !74
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl6legacy12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %260, align 8, !noalias !74
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl6legacy12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %260, align 8, !noalias !74
   %263 = getelementptr inbounds nuw i8, ptr %260, i64 16
   invoke void @_ZN2cv4impl6legacy12PluginWriterC2EPK36OpenCV_VideoIO_Plugin_API_preview_v1P16CvPluginWriter_t(ptr noundef nonnull align 8 dereferenceable(24) %263, ptr noundef nonnull %1, ptr noundef nonnull %250)
           to label %_ZN2cvL7makePtrINS_4impl6legacy12PluginWriterEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.exit89 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl6legacy12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i88, !noalias !74
@@ -5266,9 +5266,9 @@ _ZN2cv3PtrINS_4impl20PluginBackendFactoryEED2Ev.exit:
   store i32 1, ptr %4, align 8, !noalias !77
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !77
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl20PluginBackendFactoryESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !77
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl20PluginBackendFactoryESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !77
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv4impl20PluginBackendFactoryE, i64 16), ptr %6, align 8, !noalias !77
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv4impl20PluginBackendFactoryE, i64 16), ptr %6, align 8, !noalias !77
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %1, ptr %7, align 8, !noalias !77
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -5519,7 +5519,7 @@ _ZNK2cv4impl20PluginBackendFactory22getWriterPluginVersionB5cxx11ERiS2_.exit: ; 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv4impl13PluginBackendD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN2cv4impl13PluginBackendE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN2cv4impl13PluginBackendE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -5599,7 +5599,7 @@ _ZN2cv3PtrINS_6plugin4impl10DynamicLibEED2Ev.exit: ; preds = %1, %20, %33, %_ZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv4impl13PluginBackendD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN2cv4impl13PluginBackendE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN2cv4impl13PluginBackendE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -6715,7 +6715,7 @@ define linkonce_odr hidden void @_ZN2cv4impl13PluginCaptureC2EPK38OpenCV_VideoIO
   %5 = alloca %"class.std::allocator.0", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.0", align 1
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv4impl13PluginCaptureE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv4impl13PluginCaptureE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6787,7 +6787,7 @@ define linkonce_odr hidden void @_ZN2cv4impl13PluginCaptureC2EPK38OpenCV_VideoIO
 define linkonce_odr hidden void @_ZN2cv4impl13PluginCaptureD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv4impl13PluginCaptureE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv4impl13PluginCaptureE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -7094,7 +7094,7 @@ define linkonce_odr hidden void @_ZN2cv4impl6legacy13PluginCaptureC2EPK36OpenCV_
   %5 = alloca %"class.std::allocator.0", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.0", align 1
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv4impl6legacy13PluginCaptureE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv4impl6legacy13PluginCaptureE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7166,7 +7166,7 @@ define linkonce_odr hidden void @_ZN2cv4impl6legacy13PluginCaptureC2EPK36OpenCV_
 define linkonce_odr hidden void @_ZN2cv4impl6legacy13PluginCaptureD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv4impl6legacy13PluginCaptureE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv4impl6legacy13PluginCaptureE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -7580,7 +7580,7 @@ define linkonce_odr hidden void @_ZN2cv4impl12PluginWriterC2EPK37OpenCV_VideoIO_
   %5 = alloca %"class.std::allocator.0", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.0", align 1
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv4impl12PluginWriterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv4impl12PluginWriterE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7652,7 +7652,7 @@ define linkonce_odr hidden void @_ZN2cv4impl12PluginWriterC2EPK37OpenCV_VideoIO_
 define linkonce_odr hidden void @_ZN2cv4impl12PluginWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv4impl12PluginWriterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv4impl12PluginWriterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -8049,7 +8049,7 @@ define linkonce_odr hidden void @_ZN2cv4impl6legacy12PluginWriterC2EPK36OpenCV_V
   %5 = alloca %"class.std::allocator.0", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.0", align 1
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv4impl6legacy12PluginWriterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv4impl6legacy12PluginWriterE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8121,7 +8121,7 @@ define linkonce_odr hidden void @_ZN2cv4impl6legacy12PluginWriterC2EPK36OpenCV_V
 define linkonce_odr hidden void @_ZN2cv4impl6legacy12PluginWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv4impl6legacy12PluginWriterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv4impl6legacy12PluginWriterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 112
@@ -8792,9 +8792,9 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv4impl13PluginBackend
   store i32 1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %6, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl13PluginBackendESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl13PluginBackendESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN2cv4impl13PluginBackendE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN2cv4impl13PluginBackendE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %9 = load ptr, ptr %3, align 8
   store ptr %9, ptr %8, align 8
@@ -10393,7 +10393,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv4impl20PluginBackendFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv4impl20PluginBackendFactoryE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv4impl20PluginBackendFactoryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -10473,7 +10473,7 @@ _ZN2cv3PtrINS_4impl13PluginBackendEED2Ev.exit:    ; preds = %1, %20, %33, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv4impl20PluginBackendFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv4impl20PluginBackendFactoryE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv4impl20PluginBackendFactoryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null

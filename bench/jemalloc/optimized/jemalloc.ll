@@ -12595,7 +12595,7 @@ land.lhs.true1728.thread:                         ; preds = %lor.lhs.false1707, 
 if.else1715:                                      ; preds = %lor.lhs.false1707
   %.call1703 = call i64 @llvm.umin.i64(i64 %call1703, i64 2097152)
   %.sink2246 = call i64 @llvm.umax.i64(i64 %.call1703, i64 4096)
-  store i64 %.sink2246, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
+  store i64 %.sink2246, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_opts, i64 8), align 8
   %156 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1729 = trunc i8 %156 to i1
   br i1 %tobool1729, label %if.then1734, label %while.cond.backedge
@@ -12636,7 +12636,7 @@ land.lhs.true1769.thread:                         ; preds = %lor.lhs.false1752, 
 land.lhs.true1769:                                ; preds = %lor.lhs.false1752
   %159 = shl nuw nsw i32 %158, 5
   %mul.i = zext nneg i32 %159 to i64
-  store i64 %mul.i, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
+  store i64 %mul.i, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_opts, i64 8), align 8
   %160 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1770 = trunc i8 %160 to i1
   br i1 %tobool1770, label %if.then1775, label %while.cond.backedge
@@ -12674,7 +12674,7 @@ land.lhs.true1804.thread:                         ; preds = %lor.lhs.false1793, 
   br label %while.cond.backedge
 
 land.lhs.true1804:                                ; preds = %lor.lhs.false1793
-  store i64 %call1789, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 24), align 8
+  store i64 %call1789, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_opts, i64 24), align 8
   %164 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1805 = trunc i8 %164 to i1
   br i1 %tobool1805, label %if.then1810, label %while.cond.backedge
@@ -12713,7 +12713,7 @@ land.lhs.true1839.thread:                         ; preds = %lor.lhs.false1828, 
   br label %while.cond.backedge
 
 land.lhs.true1839:                                ; preds = %lor.lhs.false1828
-  store i64 %call1824, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 32), align 8
+  store i64 %call1824, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_opts, i64 32), align 8
   %168 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1840 = trunc i8 %168 to i1
   br i1 %tobool1840, label %if.then1845, label %while.cond.backedge
@@ -12756,7 +12756,7 @@ land.lhs.true1859.tail:                           ; preds = %sub_02159, %sub_121
   br i1 %cmp1861, label %if.then1863, label %if.end1875
 
 if.then1863:                                      ; preds = %land.lhs.true1859.tail
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 16), align 8
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_opts, i64 16), align 8
   %177 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1866 = trunc i8 %177 to i1
   br i1 %tobool1866, label %if.then1871, label %while.cond.backedge
@@ -12783,7 +12783,7 @@ land.lhs.true1896.thread:                         ; preds = %lor.lhs.false1883, 
 
 land.lhs.true1896:                                ; preds = %lor.lhs.false1883
   %179 = load i32, ptr %ratio1876, align 4
-  store i32 %179, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 16), align 8
+  store i32 %179, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_opts, i64 16), align 8
   %180 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1897 = trunc i8 %180 to i1
   br i1 %tobool1897, label %if.then1902, label %while.cond.backedge
@@ -12862,7 +12862,7 @@ land.lhs.true1976.thread:                         ; preds = %lor.lhs.false1960, 
 
 if.else1968:                                      ; preds = %lor.lhs.false1960
   %.call1956 = call i64 @llvm.umax.i64(i64 %call1956, i64 4096)
-  store i64 %.call1956, ptr getelementptr inbounds (i8, ptr @opt_hpa_sec_opts, i64 8), align 8
+  store i64 %.call1956, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_sec_opts, i64 8), align 8
   %188 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1977 = trunc i8 %188 to i1
   br i1 %tobool1977, label %if.then1982, label %while.cond.backedge
@@ -12898,7 +12898,7 @@ land.lhs.true2016.thread:                         ; preds = %lor.lhs.false2000, 
 
 if.else2008:                                      ; preds = %lor.lhs.false2000
   %.call1996 = call i64 @llvm.umax.i64(i64 %call1996, i64 4096)
-  store i64 %.call1996, ptr getelementptr inbounds (i8, ptr @opt_hpa_sec_opts, i64 16), align 8
+  store i64 %.call1996, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_sec_opts, i64 16), align 8
   %192 = load i8, ptr @opt_confirm_conf, align 1
   %tobool2017 = trunc i8 %192 to i1
   br i1 %tobool2017, label %if.then2022, label %while.cond.backedge
@@ -12937,7 +12937,7 @@ land.lhs.true2056.thread:                         ; preds = %lor.lhs.false2040, 
 
 if.else2048:                                      ; preds = %lor.lhs.false2040
   %.call2036 = call i64 @llvm.umax.i64(i64 %call2036, i64 4096)
-  store i64 %.call2036, ptr getelementptr inbounds (i8, ptr @opt_hpa_sec_opts, i64 24), align 8
+  store i64 %.call2036, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_sec_opts, i64 24), align 8
   %196 = load i8, ptr @opt_confirm_conf, align 1
   %tobool2057 = trunc i8 %196 to i1
   br i1 %tobool2057, label %if.then2062, label %while.cond.backedge
@@ -12977,7 +12977,7 @@ land.lhs.true2101.thread:                         ; preds = %lor.lhs.false2080, 
 
 if.else2092:                                      ; preds = %lor.lhs.false2080
   %.call2076 = call i64 @llvm.umin.i64(i64 %call2076, i64 512)
-  store i64 %.call2076, ptr getelementptr inbounds (i8, ptr @opt_hpa_sec_opts, i64 32), align 8
+  store i64 %.call2076, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_sec_opts, i64 32), align 8
   %200 = load i8, ptr @opt_confirm_conf, align 1
   %tobool2102 = trunc i8 %200 to i1
   br i1 %tobool2102, label %if.then2107, label %while.cond.backedge
@@ -13258,7 +13258,7 @@ while.end:                                        ; preds = %while.cond.backedge
 lor.lhs.false.i:                                  ; preds = %while.end
   %231 = load i8, ptr @opt_hpa, align 1
   %tobool.i = trunc i8 %231 to i1
-  %232 = load i32, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 16), align 8
+  %232 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_opts, i64 16), align 8
   %cmp.i692 = icmp ne i32 %232, -1
   %or.cond.not.i = select i1 %tobool.i, i1 %cmp.i692, i1 false
   br i1 %or.cond.not.i, label %if.end.i693, label %validate_hpa_settings.exit
@@ -13266,7 +13266,7 @@ lor.lhs.false.i:                                  ; preds = %while.end
 if.end.i693:                                      ; preds = %lor.lhs.false.i
   %conv.i.i694 = zext i32 %232 to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i694, 5
-  %233 = load i64, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
+  %233 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_opts, i64 8), align 8
   %add.i = add i64 %233, %mul.i.i
   %cmp3.i = icmp ugt i64 %add.i, 2097152
   br i1 %cmp3.i, label %validate_hpa_settings.exit, label %if.end5.i
@@ -13275,7 +13275,7 @@ if.end5.i:                                        ; preds = %if.end.i693
   store i1 true, ptr @had_conf_error, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %normalization_message.i, i8 0, i64 256, i1 false)
   call void @fxp_print(i32 noundef %232, ptr noundef nonnull %hpa_dirty_mult.i) #18
-  %234 = load i64, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
+  %234 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_opts, i64 8), align 8
   %235 = trunc i64 %234 to i32
   %236 = lshr i32 %235, 5
   %237 = and i32 %236, 8388480
@@ -13285,10 +13285,10 @@ if.end5.i:                                        ; preds = %if.end.i693
   br i1 %tobool8.i, label %if.end19.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end5.i
-  %239 = load i64, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
+  %239 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_opts, i64 8), align 8
   %reass.sub.i = sub i64 %239, %add.i
   %add10.i = add i64 %reass.sub.i, 2097152
-  store i64 %add10.i, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
+  store i64 %add10.i, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_opts, i64 8), align 8
   %240 = trunc i64 %add10.i to i32
   %241 = lshr i32 %240, 5
   %242 = and i32 %241, 8388480

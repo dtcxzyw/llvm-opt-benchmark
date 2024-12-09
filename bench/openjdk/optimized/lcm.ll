@@ -433,7 +433,7 @@ _ZN5Block9dominatesEPS_.exit:                     ; preds = %.lr.ph.i, %.prehead
   br i1 %218, label %_ZN5Block9dominatesEPS_.exit.thread, label %219
 
 219:                                              ; preds = %216
-  %220 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 12), align 4
+  %220 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 12), align 4
   %221 = trunc i8 %220 to i1
   br i1 %221, label %265, label %_ZN5Block9dominatesEPS_.exit.thread
 
@@ -448,7 +448,7 @@ _ZN5Block9dominatesEPS_.exit:                     ; preds = %.lr.ph.i, %.prehead
   br i1 %227, label %228, label %235
 
 228:                                              ; preds = %225, %222
-  %229 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %229 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %230 = icmp eq i32 %229, 0
   %231 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
   %232 = icmp eq i32 %231, 0
@@ -501,7 +501,7 @@ _ZN5Block9dominatesEPS_.exit:                     ; preds = %.lr.ph.i, %.prehead
   br i1 %261, label %262, label %265
 
 262:                                              ; preds = %256
-  %263 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 12), align 4
+  %263 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 12), align 4
   %264 = trunc i8 %263 to i1
   br i1 %264, label %265, label %_ZN5Block9dominatesEPS_.exit.thread
 
@@ -1647,7 +1647,7 @@ define linkonce_odr hidden void @_ZN17MachNullCheckNodeC2EP4NodeS1_j(ptr noundef
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV17MachNullCheckNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 392) (i8, ptr @_ZTV17MachNullCheckNode, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %3, ptr %9, align 8
   store i32 74, ptr %8, align 4
@@ -3130,7 +3130,7 @@ _ZN4NodenwEm.exit:                                ; preds = %167, %169
 172:                                              ; preds = %_ZN4NodenwEm.exit
   %173 = add i32 %147, 1
   tail call void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(164) %.0.i.i.i, ptr noundef nonnull %5) #8
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i, align 8
   %174 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
   store i32 %173, ptr %174, align 4
   %175 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -3155,7 +3155,7 @@ _ZN4NodenwEm.exit:                                ; preds = %167, %169
   br label %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit
 
 _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %177, %182
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV12MachProjNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV12MachProjNode, i64 16), ptr %.0.i.i.i, align 8
   %186 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %186, ptr noundef nonnull align 8 dereferenceable(96) @_ZN7RegMask5EmptyE, i64 96, i1 false)
   %187 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 160
@@ -4391,7 +4391,7 @@ _ZN4NodenwEm.exit:                                ; preds = %529, %531
   %539 = load i32, ptr %538, align 8
   %540 = or i32 %539, 64
   store i32 %540, ptr %538, align 8
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV12MachProjNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV12MachProjNode, i64 16), ptr %.0.i.i.i, align 8
   %541 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %541, ptr noundef nonnull align 8 dereferenceable(96) @_ZN7RegMask5EmptyE, i64 96, i1 false)
   %542 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 160

@@ -877,7 +877,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %.not.i.us, label %330, label %326
 
 326:                                              ; preds = %324
-  %327 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.35, i64 1))
+  %327 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.35, i64 1))
           to label %328 unwind label %.split5873.us, !noalias !9
 
 328:                                              ; preds = %326
@@ -2260,7 +2260,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit323.us:          ; preds = %929, %922, %_ZN5Yos
   br i1 %.not.i326.us, label %941, label %937
 
 937:                                              ; preds = %935
-  %938 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.45, i64 1))
+  %938 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.45, i64 1))
           to label %939 unwind label %.split6000.us, !noalias !33
 
 939:                                              ; preds = %937
@@ -13123,7 +13123,7 @@ define internal void @_ZN12_GLOBAL__N_122create_ice40_wrapcarryERNS_18ice40_wrap
   br i1 %.not.i, label %56, label %52
 
 52:                                               ; preds = %50
-  %53 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.35, i64 1))
+  %53 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.35, i64 1))
           to label %54 unwind label %64, !noalias !119
 
 54:                                               ; preds = %52
@@ -25914,7 +25914,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %7
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118Ice40WrapCarryPassE, i64 16), ptr @_ZN12_GLOBAL__N_118Ice40WrapCarryPassE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_118Ice40WrapCarryPassE, i64 16), ptr @_ZN12_GLOBAL__N_118Ice40WrapCarryPassE, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)

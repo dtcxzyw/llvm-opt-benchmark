@@ -1403,7 +1403,7 @@ thread-pre-split436:                              ; preds = %395
   br label %php_mail_build_headers_elems.exit
 
 php_mail_build_headers_elems.exit:                ; preds = %536, %488, %438, %389, %338, %288, %232, %181, %130, %79, %532, %522, %503, %485, %476, %457, %435, %426, %407, %386, %377, %358, %335, %326, %307, %285, %276, %257, %229, %220, %201, %178, %169, %150, %127, %118, %99, %76, %67, %48, %92, %132, %98, %194, %234, %200, %250, %290, %256, %351, %391, %357, %450, %490, %456, %538, %502, %498, %406, %440, %400, %306, %340, %300, %242, %149, %183, %143, %47, %81, %41
-  %541 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %541 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not271 = icmp eq ptr %541, null
   br i1 %.not271, label %554, label %542
 
@@ -2010,7 +2010,7 @@ thread-pre-split483:                              ; preds = %82
 
 101:                                              ; preds = %95
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 4, ptr noundef nonnull @.str.17) #11
-  %102 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %103 = icmp ne ptr %102, null
   call void @llvm.assume(i1 %103)
   br label %227
@@ -2027,7 +2027,7 @@ thread-pre-split483:                              ; preds = %82
 107:                                              ; preds = %106
   %108 = call ptr @php_mail_build_headers(ptr noundef nonnull %.2366482)
   store ptr %108, ptr %7, align 8
-  %109 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not417 = icmp eq ptr %109, null
   br i1 %.not417, label %.thread536, label %227
 
@@ -2448,7 +2448,7 @@ php_mail_log_to_file.exit:                        ; preds = %28, %37
   br label %51
 
 51:                                               ; preds = %49, %13, %5
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not84 = icmp eq ptr %52, null
   br i1 %.not84, label %55, label %53
 
@@ -2458,10 +2458,10 @@ php_mail_log_to_file.exit:                        ; preds = %28, %37
   br i1 %.not99, label %136, label %.sink.split
 
 55:                                               ; preds = %51
-  %56 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 577), align 1
+  %56 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 577), align 1
   %57 = trunc i8 %56 to i1
   %58 = select i1 %57, ptr @.str.28, ptr @.str.18
-  %59 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 576), align 8
+  %59 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 576), align 8
   %60 = trunc i8 %59 to i1
   br i1 %60, label %61, label %86
 

@@ -6786,7 +6786,7 @@ define void @_ZN12clap_builder7builder12value_parser15BoolValueParser3new17h6db6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { ptr, ptr } @_ZN12clap_builder7builder12value_parser15BoolValueParser15possible_values17h310570d80e5727edE.llvm.567936041081457991() unnamed_addr #13 {
-  ret { ptr, ptr } { ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.82.llvm.567936041081457991, ptr getelementptr inbounds (i8, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.82.llvm.567936041081457991, i64 32) }
+  ret { ptr, ptr } { ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.82.llvm.567936041081457991, ptr getelementptr inbounds nuw (i8, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.82.llvm.567936041081457991, i64 32) }
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6818,7 +6818,7 @@ define void @"_ZN126_$LT$clap_builder..builder..value_parser..BoolValueParser$u2
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit26.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit", %15, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit26"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
-  call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hb799068c77ddf27aE.llvm.7780793174254504545"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull @anon.8a15c8b2664a73ecad88cbf6a449d693.82.llvm.567936041081457991, ptr noundef nonnull getelementptr inbounds (i8, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.82.llvm.567936041081457991, i64 32))
+  call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hb799068c77ddf27aE.llvm.7780793174254504545"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull @anon.8a15c8b2664a73ecad88cbf6a449d693.82.llvm.567936041081457991, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.82.llvm.567936041081457991, i64 32))
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   invoke void @_ZN3std3sys4unix6os_str5Slice15to_string_lossy17haa60bcab43d2d9d6E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5)
@@ -7018,7 +7018,7 @@ define { ptr, ptr } @"_ZN126_$LT$clap_builder..builder..value_parser..BoolValueP
 _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.567936041081457991.exit: ; preds = %1
   store ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.82.llvm.567936041081457991, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.82.llvm.567936041081457991, i64 32), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.82.llvm.567936041081457991, i64 32), ptr %6, align 8
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.83.llvm.567936041081457991, 1
   ret { ptr, ptr } %8
@@ -7181,11 +7181,11 @@ define { ptr, ptr } @"_ZN128_$LT$clap_builder..builder..value_parser..FalseyValu
 _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.567936041081457991.exit: ; preds = %1
   store ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.89, ptr %3, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.89, i64 96), ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.89, i64 96), ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.95, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr getelementptr inbounds (i8, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.95, i64 96), ptr %.sroa.6.0..sroa_idx, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.95, i64 96), ptr %.sroa.6.0..sroa_idx, align 8
   %6 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %7 = insertvalue { ptr, ptr } %6, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.96, 1
   ret { ptr, ptr } %7
@@ -7520,11 +7520,11 @@ define { ptr, ptr } @"_ZN129_$LT$clap_builder..builder..value_parser..BoolishVal
 _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.567936041081457991.exit: ; preds = %1
   store ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.89, ptr %3, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.89, i64 96), ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.89, i64 96), ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.95, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr getelementptr inbounds (i8, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.95, i64 96), ptr %.sroa.6.0..sroa_idx, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.95, i64 96), ptr %.sroa.6.0..sroa_idx, align 8
   %6 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %7 = insertvalue { ptr, ptr } %6, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.97, 1
   ret { ptr, ptr } %7

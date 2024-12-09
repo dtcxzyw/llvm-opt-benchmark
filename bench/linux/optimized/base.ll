@@ -515,7 +515,7 @@ define internal i32 @proc_pid_readlink(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %24, label %25, label %51
 
 25:                                               ; preds = %20
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %27 = call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %26, i32 noundef 3264, i64 noundef 4096) #19
   %28 = icmp eq ptr %27, null
   br i1 %28, label %49, label %29
@@ -1830,7 +1830,7 @@ declare dso_local ptr @d_splice_alias(ptr noundef, ptr noundef) local_unnamed_ad
 define internal ptr @proc_tgid_base_lookup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -72
   %.val = load ptr, ptr %4, align 8
-  %5 = tail call fastcc ptr @proc_pident_lookup(ptr %.val, ptr noundef %1, ptr noundef nonnull @tgid_base_stuff, ptr noundef nonnull getelementptr inbounds (i8, ptr @tgid_base_stuff, i64 1800))
+  %5 = tail call fastcc ptr @proc_pident_lookup(ptr %.val, ptr noundef %1, ptr noundef nonnull @tgid_base_stuff, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @tgid_base_stuff, i64 1800))
   ret ptr %5
 }
 
@@ -2367,7 +2367,7 @@ define internal i32 @proc_pid_stack(ptr noundef %0, ptr nocapture readnone %1, p
   br i1 %7, label %8, label %35
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %10 = tail call noalias noundef align 8 dereferenceable_or_null(512) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3264, i64 noundef 512) #19
   %11 = icmp eq ptr %10, null
   br i1 %11, label %35, label %12
@@ -3501,7 +3501,7 @@ declare dso_local void @fput(ptr noundef) local_unnamed_addr #2
 define internal ptr @proc_attr_dir_lookup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -72
   %.val = load ptr, ptr %4, align 8
-  %5 = tail call fastcc ptr @proc_pident_lookup(ptr %.val, ptr noundef %1, ptr noundef nonnull @attr_dir_stuff, ptr noundef nonnull getelementptr inbounds (i8, ptr @attr_dir_stuff, i64 240))
+  %5 = tail call fastcc ptr @proc_pident_lookup(ptr %.val, ptr noundef %1, ptr noundef nonnull @attr_dir_stuff, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attr_dir_stuff, i64 240))
   ret ptr %5
 }
 
@@ -3978,11 +3978,11 @@ define internal fastcc noundef range(i32 -13, 1) i32 @__set_oom_adj(ptr %.168.va
   br label %68
 
 68:                                               ; preds = %65, %61, %55
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_oom_score_adj_update, i64 8), i32 2) #18
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_oom_score_adj_update, i64 8), i32 2) #18
           to label %89 [label %69], !srcloc !34
 
 69:                                               ; preds = %68
-  %70 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #18, !srcloc !35
+  %70 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #18, !srcloc !35
   %71 = zext i32 %70 to i64
   %72 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %71) #18, !srcloc !36
   %73 = icmp ult i8 %72, 2
@@ -3991,9 +3991,9 @@ define internal fastcc noundef range(i32 -13, 1) i32 @__set_oom_adj(ptr %.168.va
   br i1 %74, label %89, label %75
 
 75:                                               ; preds = %69
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !37
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !37
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !38
-  %76 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_oom_score_adj_update, i64 72), align 8
+  %76 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_oom_score_adj_update, i64 72), align 8
   %77 = icmp eq ptr %76, null
   br i1 %77, label %82, label %78
 
@@ -4005,7 +4005,7 @@ define internal fastcc noundef range(i32 -13, 1) i32 @__set_oom_adj(ptr %.168.va
 
 82:                                               ; preds = %78, %75
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !39
-  %83 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !40
+  %83 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !40
   %84 = icmp ult i8 %83, 2
   tail call void @llvm.assume(i1 %84)
   %85 = icmp eq i8 %83, 0
@@ -4023,7 +4023,7 @@ define internal fastcc noundef range(i32 -13, 1) i32 @__set_oom_adj(ptr %.168.va
 
 91:                                               ; preds = %89
   tail call void @__rcu_read_lock() #18
-  %92 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @init_task, i64 1112), align 8
+  %92 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @init_task, i64 1112), align 8
   %93 = getelementptr i8, ptr %92, i64 -1112
   %94 = icmp eq ptr %93, @init_task
   br i1 %94, label %.loopexit, label %.preheader
@@ -4868,7 +4868,7 @@ pid_update_inode.exit:                            ; preds = %19, %31, %52
 define internal ptr @proc_tid_base_lookup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -72
   %.val = load ptr, ptr %4, align 8
-  %5 = tail call fastcc ptr @proc_pident_lookup(ptr %.val, ptr noundef %1, ptr noundef nonnull @tid_base_stuff, ptr noundef nonnull getelementptr inbounds (i8, ptr @tid_base_stuff, i64 1560))
+  %5 = tail call fastcc ptr @proc_pident_lookup(ptr %.val, ptr noundef %1, ptr noundef nonnull @tid_base_stuff, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @tid_base_stuff, i64 1560))
   ret ptr %5
 }
 
@@ -5232,7 +5232,7 @@ define internal ptr @proc_map_files_lookup(ptr nocapture noundef readonly %0, pt
   br i1 %49, label %85, label %50
 
 50:                                               ; preds = %45
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #18
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #18
           to label %52 [label %51], !srcloc !34
 
 51:                                               ; preds = %50
@@ -5242,7 +5242,7 @@ define internal ptr @proc_map_files_lookup(ptr nocapture noundef readonly %0, pt
 52:                                               ; preds = %51, %50
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 176
   %54 = call i32 @down_read_killable(ptr noundef nonnull %53) #18
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #18
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #18
           to label %57 [label %55], !srcloc !34
 
 55:                                               ; preds = %52
@@ -5287,7 +5287,7 @@ define internal ptr @proc_map_files_lookup(ptr nocapture noundef readonly %0, pt
 
 .thread9:                                         ; preds = %63, %66, %59, %74, %70
   %80 = phi ptr [ %79, %74 ], [ inttoptr (i64 -2 to ptr), %70 ], [ inttoptr (i64 -2 to ptr), %59 ], [ inttoptr (i64 -2 to ptr), %66 ], [ inttoptr (i64 -2 to ptr), %63 ]
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #18
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #18
           to label %82 [label %81], !srcloc !34
 
 81:                                               ; preds = %.thread9
@@ -5363,7 +5363,7 @@ define internal ptr @proc_map_files_instantiate(ptr noundef %0, ptr noundef %1, 
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc void @mmap_read_unlock(ptr noundef nonnull %0) unnamed_addr #15 align 16 {
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #18
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #18
           to label %3 [label %2], !srcloc !34
 
 2:                                                ; preds = %1
@@ -5487,7 +5487,7 @@ define internal i32 @map_files_get_link(ptr nocapture noundef readonly %0, ptr n
   %56 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #18
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #18
           to label %58 [label %57], !srcloc !34
 
 57:                                               ; preds = %54
@@ -5497,7 +5497,7 @@ define internal i32 @map_files_get_link(ptr nocapture noundef readonly %0, ptr n
 58:                                               ; preds = %57, %54
   %59 = getelementptr inbounds nuw i8, ptr %12, i64 176
   %60 = call i32 @down_read_killable(ptr noundef nonnull %59) #18
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #18
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #18
           to label %63 [label %61], !srcloc !34
 
 61:                                               ; preds = %58
@@ -5555,7 +5555,7 @@ define internal i32 @map_files_get_link(ptr nocapture noundef readonly %0, ptr n
 
 .thread12:                                        ; preds = %69, %72, %65, %89, %76
   %91 = phi i32 [ 0, %89 ], [ -2, %76 ], [ -2, %65 ], [ -2, %72 ], [ -2, %69 ]
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #18
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #18
           to label %93 [label %92], !srcloc !34
 
 92:                                               ; preds = %.thread12
@@ -5687,7 +5687,7 @@ define internal i32 @map_files_d_revalidate(ptr nocapture noundef readonly %0, i
   %54 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #18
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #18
           to label %56 [label %55], !srcloc !34
 
 55:                                               ; preds = %52
@@ -5697,7 +5697,7 @@ define internal i32 @map_files_d_revalidate(ptr nocapture noundef readonly %0, i
 56:                                               ; preds = %55, %52
   %57 = getelementptr inbounds nuw i8, ptr %15, i64 176
   %58 = call i32 @down_read_killable(ptr noundef nonnull %57) #18
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #18
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #18
           to label %61 [label %59], !srcloc !34
 
 59:                                               ; preds = %56
@@ -5731,7 +5731,7 @@ define internal i32 @map_files_d_revalidate(ptr nocapture noundef readonly %0, i
 
 75:                                               ; preds = %74, %70, %63
   %76 = phi i1 [ false, %74 ], [ true, %70 ], [ false, %63 ]
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #18
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #18
           to label %78 [label %77], !srcloc !34
 
 77:                                               ; preds = %75
@@ -5894,7 +5894,7 @@ define internal i32 @proc_map_files_readdir(ptr nocapture noundef readonly %0, p
   br i1 %41, label %.loopexit, label %42
 
 42:                                               ; preds = %39
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #18
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #18
           to label %44 [label %43], !srcloc !34
 
 43:                                               ; preds = %42
@@ -5904,7 +5904,7 @@ define internal i32 @proc_map_files_readdir(ptr nocapture noundef readonly %0, p
 44:                                               ; preds = %43, %42
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 176
   %46 = tail call i32 @down_read_killable(ptr noundef nonnull %45) #18
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #18
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #18
           to label %49 [label %47], !srcloc !34
 
 47:                                               ; preds = %44
@@ -5993,7 +5993,7 @@ define internal i32 @proc_map_files_readdir(ptr nocapture noundef readonly %0, p
   br label %59, !llvm.loop !51
 
 95:                                               ; preds = %64
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #18
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #18
           to label %97 [label %96], !srcloc !34
 
 96:                                               ; preds = %95

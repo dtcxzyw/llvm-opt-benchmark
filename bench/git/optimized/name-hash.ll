@@ -358,9 +358,9 @@ if.end10:                                         ; preds = %hash_index_entry.ex
   store i8 %bf.set, ptr %name_hash_initialized, align 8
   %36 = load ptr, ptr %repo, align 8
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str, i32 noundef 612, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %36) #13
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @trace_perf_key, i64 8), align 8
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 8), align 8
   %tobool.not.i37 = icmp eq i32 %37, 0
-  %bf.load.i38 = load i8, ptr getelementptr inbounds (i8, ptr @trace_perf_key, i64 12), align 4
+  %bf.load.i38 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 12), align 4
   %bf.clear.i39 = and i8 %bf.load.i38, 1
   %tobool16.not42 = icmp ne i8 %bf.clear.i39, 0
   %tobool16.not = select i1 %tobool.not.i37, i1 %tobool16.not42, i1 false

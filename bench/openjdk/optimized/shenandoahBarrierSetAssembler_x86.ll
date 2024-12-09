@@ -114,7 +114,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler18arraycopy_prologueEP14Ma
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i8 0, ptr %30, align 4
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -126,7 +126,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler18arraycopy_prologueEP14Ma
   %.0 = select i1 %brmerge40, i32 3, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 21, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %37 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(40) %36) #6
   call void @_ZN9Assembler5testbE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %10, i32 noundef %.0) #6
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %8, i1 noundef zeroext true) #6
@@ -230,7 +230,7 @@ define internal fastcc void @_ZL18save_machine_stateP14MacroAssemblerbb(ptr noun
   %62 = getelementptr inbounds nuw i8, ptr %36, i64 20
   store i8 0, ptr %62, align 4
   %63 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %63, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store ptr null, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %36, i64 40
@@ -238,7 +238,7 @@ define internal fastcc void @_ZL18save_machine_stateP14MacroAssemblerbb(ptr noun
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %35)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %35, ptr noundef nonnull align 8 dereferenceable(64) %36, i64 21, i1 false)
   %66 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %67 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %67 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %67(ptr noundef nonnull align 8 dereferenceable(40) %63, ptr noundef nonnull align 8 dereferenceable(40) %66) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %34)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %34, ptr noundef nonnull align 8 dereferenceable(64) %35, i64 21, i1 false)
@@ -262,7 +262,7 @@ define internal fastcc void @_ZL18save_machine_stateP14MacroAssemblerbb(ptr noun
   %76 = getelementptr inbounds nuw i8, ptr %37, i64 20
   store i8 0, ptr %76, align 4
   %77 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %77, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %37, i64 32
   store ptr null, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %37, i64 40
@@ -293,7 +293,7 @@ define internal fastcc void @_ZL18save_machine_stateP14MacroAssemblerbb(ptr noun
   %89 = getelementptr inbounds nuw i8, ptr %38, i64 20
   store i8 0, ptr %89, align 4
   %90 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %90, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store ptr null, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %38, i64 40
@@ -324,7 +324,7 @@ define internal fastcc void @_ZL18save_machine_stateP14MacroAssemblerbb(ptr noun
   %102 = getelementptr inbounds nuw i8, ptr %39, i64 20
   store i8 0, ptr %102, align 4
   %103 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %103, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr null, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %39, i64 40
@@ -355,7 +355,7 @@ define internal fastcc void @_ZL18save_machine_stateP14MacroAssemblerbb(ptr noun
   %115 = getelementptr inbounds nuw i8, ptr %40, i64 20
   store i8 0, ptr %115, align 4
   %116 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %116, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %116, align 8
   %117 = getelementptr inbounds nuw i8, ptr %40, i64 32
   store ptr null, ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %40, i64 40
@@ -386,7 +386,7 @@ define internal fastcc void @_ZL18save_machine_stateP14MacroAssemblerbb(ptr noun
   %128 = getelementptr inbounds nuw i8, ptr %41, i64 20
   store i8 0, ptr %128, align 4
   %129 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %129, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %129, align 8
   %130 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store ptr null, ptr %130, align 8
   %131 = getelementptr inbounds nuw i8, ptr %41, i64 40
@@ -417,7 +417,7 @@ define internal fastcc void @_ZL18save_machine_stateP14MacroAssemblerbb(ptr noun
   %141 = getelementptr inbounds nuw i8, ptr %42, i64 20
   store i8 0, ptr %141, align 4
   %142 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %142, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %142, align 8
   %143 = getelementptr inbounds nuw i8, ptr %42, i64 32
   store ptr null, ptr %143, align 8
   %144 = getelementptr inbounds nuw i8, ptr %42, i64 40
@@ -448,7 +448,7 @@ define internal fastcc void @_ZL18save_machine_stateP14MacroAssemblerbb(ptr noun
   %154 = getelementptr inbounds nuw i8, ptr %43, i64 20
   store i8 0, ptr %154, align 4
   %155 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %155, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %155, align 8
   %156 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr null, ptr %156, align 8
   %157 = getelementptr inbounds nuw i8, ptr %43, i64 40
@@ -487,7 +487,7 @@ define internal fastcc void @_ZL18save_machine_stateP14MacroAssemblerbb(ptr noun
   %170 = getelementptr inbounds nuw i8, ptr %44, i64 20
   store i8 0, ptr %170, align 4
   %171 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %171, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %171, align 8
   %172 = getelementptr inbounds nuw i8, ptr %44, i64 32
   store ptr null, ptr %172, align 8
   %173 = getelementptr inbounds nuw i8, ptr %44, i64 40
@@ -495,7 +495,7 @@ define internal fastcc void @_ZL18save_machine_stateP14MacroAssemblerbb(ptr noun
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(64) %44, i64 21, i1 false)
   %174 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %175 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %175 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %175(ptr noundef nonnull align 8 dereferenceable(40) %171, ptr noundef nonnull align 8 dereferenceable(40) %174) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(64) %19, i64 21, i1 false)
@@ -519,7 +519,7 @@ define internal fastcc void @_ZL18save_machine_stateP14MacroAssemblerbb(ptr noun
   %184 = getelementptr inbounds nuw i8, ptr %45, i64 20
   store i8 0, ptr %184, align 4
   %185 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %185, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %185, align 8
   %186 = getelementptr inbounds nuw i8, ptr %45, i64 32
   store ptr null, ptr %186, align 8
   %187 = getelementptr inbounds nuw i8, ptr %45, i64 40
@@ -550,7 +550,7 @@ define internal fastcc void @_ZL18save_machine_stateP14MacroAssemblerbb(ptr noun
   %197 = getelementptr inbounds nuw i8, ptr %46, i64 20
   store i8 0, ptr %197, align 4
   %198 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %198, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %198, align 8
   %199 = getelementptr inbounds nuw i8, ptr %46, i64 32
   store ptr null, ptr %199, align 8
   %200 = getelementptr inbounds nuw i8, ptr %46, i64 40
@@ -581,7 +581,7 @@ define internal fastcc void @_ZL18save_machine_stateP14MacroAssemblerbb(ptr noun
   %210 = getelementptr inbounds nuw i8, ptr %47, i64 20
   store i8 0, ptr %210, align 4
   %211 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %211, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %211, align 8
   %212 = getelementptr inbounds nuw i8, ptr %47, i64 32
   store ptr null, ptr %212, align 8
   %213 = getelementptr inbounds nuw i8, ptr %47, i64 40
@@ -612,7 +612,7 @@ define internal fastcc void @_ZL18save_machine_stateP14MacroAssemblerbb(ptr noun
   %223 = getelementptr inbounds nuw i8, ptr %48, i64 20
   store i8 0, ptr %223, align 4
   %224 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %224, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %224, align 8
   %225 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store ptr null, ptr %225, align 8
   %226 = getelementptr inbounds nuw i8, ptr %48, i64 40
@@ -643,7 +643,7 @@ define internal fastcc void @_ZL18save_machine_stateP14MacroAssemblerbb(ptr noun
   %236 = getelementptr inbounds nuw i8, ptr %49, i64 20
   store i8 0, ptr %236, align 4
   %237 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %237, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %237, align 8
   %238 = getelementptr inbounds nuw i8, ptr %49, i64 32
   store ptr null, ptr %238, align 8
   %239 = getelementptr inbounds nuw i8, ptr %49, i64 40
@@ -674,7 +674,7 @@ define internal fastcc void @_ZL18save_machine_stateP14MacroAssemblerbb(ptr noun
   %249 = getelementptr inbounds nuw i8, ptr %50, i64 20
   store i8 0, ptr %249, align 4
   %250 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %250, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %250, align 8
   %251 = getelementptr inbounds nuw i8, ptr %50, i64 32
   store ptr null, ptr %251, align 8
   %252 = getelementptr inbounds nuw i8, ptr %50, i64 40
@@ -705,7 +705,7 @@ define internal fastcc void @_ZL18save_machine_stateP14MacroAssemblerbb(ptr noun
   %262 = getelementptr inbounds nuw i8, ptr %51, i64 20
   store i8 0, ptr %262, align 4
   %263 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %263, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %263, align 8
   %264 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store ptr null, ptr %264, align 8
   %265 = getelementptr inbounds nuw i8, ptr %51, i64 40
@@ -826,7 +826,7 @@ define internal fastcc void @_ZL21restore_machine_stateP14MacroAssemblerbb(ptr n
   %76 = getelementptr inbounds nuw i8, ptr %52, i64 20
   store i8 0, ptr %76, align 4
   %77 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %77, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %52, i64 32
   store ptr null, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %52, i64 40
@@ -840,7 +840,7 @@ define internal fastcc void @_ZL21restore_machine_stateP14MacroAssemblerbb(ptr n
 82:                                               ; preds = %71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %50, ptr noundef nonnull align 8 dereferenceable(64) %52, i64 21, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %84 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %84 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %84(ptr noundef nonnull align 8 dereferenceable(40) %77, ptr noundef nonnull align 8 dereferenceable(40) %83) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %49)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %49, ptr noundef nonnull align 8 dereferenceable(64) %50, i64 21, i1 false)
@@ -856,7 +856,7 @@ define internal fastcc void @_ZL21restore_machine_stateP14MacroAssemblerbb(ptr n
 89:                                               ; preds = %71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %51, ptr noundef nonnull align 8 dereferenceable(64) %52, i64 21, i1 false)
   %90 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %91 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %91 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %91(ptr noundef nonnull align 8 dereferenceable(40) %77, ptr noundef nonnull align 8 dereferenceable(40) %90) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %48)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %48, ptr noundef nonnull align 8 dereferenceable(64) %51, i64 21, i1 false)
@@ -885,7 +885,7 @@ _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit: ; preds = %82, %89
   %101 = getelementptr inbounds nuw i8, ptr %53, i64 20
   store i8 0, ptr %101, align 4
   %102 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %102, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %53, i64 32
   store ptr null, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %53, i64 40
@@ -941,7 +941,7 @@ _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit54: ; preds = %107, %113
   %123 = getelementptr inbounds nuw i8, ptr %54, i64 20
   store i8 0, ptr %123, align 4
   %124 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %124, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %54, i64 32
   store ptr null, ptr %125, align 8
   %126 = getelementptr inbounds nuw i8, ptr %54, i64 40
@@ -997,7 +997,7 @@ _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit55: ; preds = %129, %135
   %145 = getelementptr inbounds nuw i8, ptr %55, i64 20
   store i8 0, ptr %145, align 4
   %146 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %146, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %146, align 8
   %147 = getelementptr inbounds nuw i8, ptr %55, i64 32
   store ptr null, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %55, i64 40
@@ -1053,7 +1053,7 @@ _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit56: ; preds = %151, %157
   %167 = getelementptr inbounds nuw i8, ptr %56, i64 20
   store i8 0, ptr %167, align 4
   %168 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %168, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %168, align 8
   %169 = getelementptr inbounds nuw i8, ptr %56, i64 32
   store ptr null, ptr %169, align 8
   %170 = getelementptr inbounds nuw i8, ptr %56, i64 40
@@ -1109,7 +1109,7 @@ _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit57: ; preds = %173, %179
   %189 = getelementptr inbounds nuw i8, ptr %57, i64 20
   store i8 0, ptr %189, align 4
   %190 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %190, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %190, align 8
   %191 = getelementptr inbounds nuw i8, ptr %57, i64 32
   store ptr null, ptr %191, align 8
   %192 = getelementptr inbounds nuw i8, ptr %57, i64 40
@@ -1165,7 +1165,7 @@ _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit58: ; preds = %195, %201
   %211 = getelementptr inbounds nuw i8, ptr %58, i64 20
   store i8 0, ptr %211, align 4
   %212 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %212, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %212, align 8
   %213 = getelementptr inbounds nuw i8, ptr %58, i64 32
   store ptr null, ptr %213, align 8
   %214 = getelementptr inbounds nuw i8, ptr %58, i64 40
@@ -1221,7 +1221,7 @@ _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit59: ; preds = %217, %223
   %233 = getelementptr inbounds nuw i8, ptr %59, i64 20
   store i8 0, ptr %233, align 4
   %234 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %234, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %234, align 8
   %235 = getelementptr inbounds nuw i8, ptr %59, i64 32
   store ptr null, ptr %235, align 8
   %236 = getelementptr inbounds nuw i8, ptr %59, i64 40
@@ -1285,7 +1285,7 @@ _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit60: ; preds = %239, %245
   %258 = getelementptr inbounds nuw i8, ptr %60, i64 20
   store i8 0, ptr %258, align 4
   %259 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %259, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %259, align 8
   %260 = getelementptr inbounds nuw i8, ptr %60, i64 32
   store ptr null, ptr %260, align 8
   %261 = getelementptr inbounds nuw i8, ptr %60, i64 40
@@ -1293,7 +1293,7 @@ _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit60: ; preds = %239, %245
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(64) %60, i64 21, i1 false)
   %262 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %263 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %263 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %263(ptr noundef nonnull align 8 dereferenceable(40) %259, ptr noundef nonnull align 8 dereferenceable(40) %262) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(64) %19, i64 21, i1 false)
@@ -1317,7 +1317,7 @@ _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit60: ; preds = %239, %245
   %272 = getelementptr inbounds nuw i8, ptr %61, i64 20
   store i8 0, ptr %272, align 4
   %273 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %273, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %273, align 8
   %274 = getelementptr inbounds nuw i8, ptr %61, i64 32
   store ptr null, ptr %274, align 8
   %275 = getelementptr inbounds nuw i8, ptr %61, i64 40
@@ -1348,7 +1348,7 @@ _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit60: ; preds = %239, %245
   %285 = getelementptr inbounds nuw i8, ptr %62, i64 20
   store i8 0, ptr %285, align 4
   %286 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %286, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %286, align 8
   %287 = getelementptr inbounds nuw i8, ptr %62, i64 32
   store ptr null, ptr %287, align 8
   %288 = getelementptr inbounds nuw i8, ptr %62, i64 40
@@ -1379,7 +1379,7 @@ _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit60: ; preds = %239, %245
   %298 = getelementptr inbounds nuw i8, ptr %63, i64 20
   store i8 0, ptr %298, align 4
   %299 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %299, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %299, align 8
   %300 = getelementptr inbounds nuw i8, ptr %63, i64 32
   store ptr null, ptr %300, align 8
   %301 = getelementptr inbounds nuw i8, ptr %63, i64 40
@@ -1410,7 +1410,7 @@ _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit60: ; preds = %239, %245
   %311 = getelementptr inbounds nuw i8, ptr %64, i64 20
   store i8 0, ptr %311, align 4
   %312 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %312, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %312, align 8
   %313 = getelementptr inbounds nuw i8, ptr %64, i64 32
   store ptr null, ptr %313, align 8
   %314 = getelementptr inbounds nuw i8, ptr %64, i64 40
@@ -1441,7 +1441,7 @@ _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit60: ; preds = %239, %245
   %324 = getelementptr inbounds nuw i8, ptr %65, i64 20
   store i8 0, ptr %324, align 4
   %325 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %325, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %325, align 8
   %326 = getelementptr inbounds nuw i8, ptr %65, i64 32
   store ptr null, ptr %326, align 8
   %327 = getelementptr inbounds nuw i8, ptr %65, i64 40
@@ -1472,7 +1472,7 @@ _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit60: ; preds = %239, %245
   %337 = getelementptr inbounds nuw i8, ptr %66, i64 20
   store i8 0, ptr %337, align 4
   %338 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %338, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %338, align 8
   %339 = getelementptr inbounds nuw i8, ptr %66, i64 32
   store ptr null, ptr %339, align 8
   %340 = getelementptr inbounds nuw i8, ptr %66, i64 40
@@ -1503,7 +1503,7 @@ _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit60: ; preds = %239, %245
   %350 = getelementptr inbounds nuw i8, ptr %67, i64 20
   store i8 0, ptr %350, align 4
   %351 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %351, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %351, align 8
   %352 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr null, ptr %352, align 8
   %353 = getelementptr inbounds nuw i8, ptr %67, i64 40
@@ -1597,7 +1597,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22satb_write_barrier_preEP
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 0, ptr %31, align 4
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -1614,7 +1614,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22satb_write_barrier_preEP
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 0, ptr %39, align 4
   %40 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %40, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -1631,14 +1631,14 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22satb_write_barrier_preEP
   %47 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %47, align 4
   %48 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %48, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 0, ptr %50, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %14, i64 21, i1 false)
   %51 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %52 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %52(ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef nonnull align 8 dereferenceable(40) %51) #6
   call void @_ZN9Assembler5testbE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %15, i32 noundef 2) #6
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %10, i1 noundef zeroext true) #6
@@ -1657,7 +1657,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22satb_write_barrier_preEP
   %58 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %58, align 4
   %59 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %59, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -1706,7 +1706,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22satb_write_barrier_preEP
   %77 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i8 0, ptr %77, align 4
   %78 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %78, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -1878,7 +1878,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i8 0, ptr %50, align 4
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %51, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -1886,7 +1886,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
   %spec.select = select i1 %34, i32 1, i32 17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %10, i64 21, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %55 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %55(ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(40) %54) #6
   call void @_ZN9Assembler5testbE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %11, i32 noundef %spec.select) #6
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %8, i1 noundef zeroext true) #6
@@ -1945,7 +1945,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
   %70 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %70, i8 0, i64 9, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %71, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -1977,7 +1977,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
   %81 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 0, ptr %81, align 4
   %82 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %82, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -1998,7 +1998,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
   %90 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %90, align 4
   %91 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %91, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -2016,7 +2016,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
   %98 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %98, align 4
   %99 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %99, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -2034,7 +2034,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
   %106 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %106, align 4
   %107 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %107, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -2052,7 +2052,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
   %114 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %114, align 4
   %115 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %115, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %115, align 8
   %116 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %116, align 8
   %117 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -2070,7 +2070,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
   %122 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i8 0, ptr %122, align 4
   %123 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %123, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr null, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -2088,7 +2088,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
   %130 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i8 0, ptr %130, align 4
   %131 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %131, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %131, align 8
   %132 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %132, align 8
   %133 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -2106,7 +2106,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
   %138 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i8 0, ptr %138, align 4
   %139 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %139, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %139, align 8
   %140 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %140, align 8
   %141 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -2124,7 +2124,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
   %146 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i8 0, ptr %146, align 4
   %147 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %147, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr null, ptr %148, align 8
   %149 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -2190,7 +2190,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
   %174 = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i8 0, ptr %174, align 4
   %175 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %175, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %175, align 8
   %176 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr null, ptr %176, align 8
   %177 = getelementptr inbounds nuw i8, ptr %24, i64 40
@@ -2208,7 +2208,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
   %182 = getelementptr inbounds nuw i8, ptr %25, i64 20
   store i8 0, ptr %182, align 4
   %183 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %183, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %183, align 8
   %184 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr null, ptr %184, align 8
   %185 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -2226,7 +2226,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
   %190 = getelementptr inbounds nuw i8, ptr %26, i64 20
   store i8 0, ptr %190, align 4
   %191 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %191, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %191, align 8
   %192 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store ptr null, ptr %192, align 8
   %193 = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -2244,7 +2244,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
   %198 = getelementptr inbounds nuw i8, ptr %27, i64 20
   store i8 0, ptr %198, align 4
   %199 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %199, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %199, align 8
   %200 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr null, ptr %200, align 8
   %201 = getelementptr inbounds nuw i8, ptr %27, i64 40
@@ -2262,7 +2262,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
   %206 = getelementptr inbounds nuw i8, ptr %28, i64 20
   store i8 0, ptr %206, align 4
   %207 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %207, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %207, align 8
   %208 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store ptr null, ptr %208, align 8
   %209 = getelementptr inbounds nuw i8, ptr %28, i64 40
@@ -2280,7 +2280,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
   %214 = getelementptr inbounds nuw i8, ptr %29, i64 20
   store i8 0, ptr %214, align 4
   %215 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %215, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %215, align 8
   %216 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr null, ptr %216, align 8
   %217 = getelementptr inbounds nuw i8, ptr %29, i64 40
@@ -2298,7 +2298,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
   %222 = getelementptr inbounds nuw i8, ptr %30, i64 20
   store i8 0, ptr %222, align 4
   %223 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %223, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %223, align 8
   %224 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr null, ptr %224, align 8
   %225 = getelementptr inbounds nuw i8, ptr %30, i64 40
@@ -2316,7 +2316,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
   %230 = getelementptr inbounds nuw i8, ptr %31, i64 20
   store i8 0, ptr %230, align 4
   %231 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %231, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %231, align 8
   %232 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr null, ptr %232, align 8
   %233 = getelementptr inbounds nuw i8, ptr %31, i64 40
@@ -2338,7 +2338,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
   %239 = getelementptr inbounds nuw i8, ptr %32, i64 20
   store i8 0, ptr %239, align 4
   %240 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %240, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %240, align 8
   %241 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr null, ptr %241, align 8
   %242 = getelementptr inbounds nuw i8, ptr %32, i64 40
@@ -2467,10 +2467,10 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %8
 
 .critedge:                                        ; preds = %21, %22
   %24 = sext i32 %6 to i64
-  %25 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %24
+  %25 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %24
   %26 = ptrtoint ptr %25 to i64
   %27 = trunc i64 %26 to i32
-  %28 = sub i32 %27, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %28 = sub i32 %27, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %spec.select.i = icmp ugt i32 %28, 31
   %.not94 = icmp eq i32 %6, %.sroa.0.0.copyload.i
   %or.cond = select i1 %spec.select.i, i1 true, i1 %.not94
@@ -2642,7 +2642,7 @@ _ZN29ShenandoahBarrierSetAssembler28shenandoah_write_barrier_preEP14MacroAssembl
   %46 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 0, ptr %46, align 4
   %47 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -2674,7 +2674,7 @@ _ZN29ShenandoahBarrierSetAssembler10iu_barrierEP14MacroAssembler8RegisterS2_.exi
   %58 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 0, ptr %58, align 4
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %59, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -2726,14 +2726,14 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler29try_resolve_jobject_in_n
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i8 0, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 0, ptr %20, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 21, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %22 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %21) #6
   call void @_ZN9Assembler5testbE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %9, i32 noundef 4) #6
   call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %5, ptr noundef nonnull @.str.5, i32 noundef 653) #6
@@ -2829,14 +2829,14 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler11cmpxchg_oopEP14MacroAsse
   %52 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %52, align 4
   %53 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %53, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 0, ptr %55, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %14, i64 21, i1 false)
   %56 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %57 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %57(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(40) %56) #6
   call void @_ZN9Assembler5testbE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %15, i32 noundef 1) #6
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %11, i1 noundef zeroext true) #6
@@ -2866,7 +2866,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler11cmpxchg_oopEP14MacroAsse
   %67 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %67, align 4
   %68 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %68, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -2886,7 +2886,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler11cmpxchg_oopEP14MacroAsse
   %75 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %75, align 4
   %76 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %76, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -3201,7 +3201,7 @@ _ZN7LIR_Opr19as_pointer_registerEv.exit:          ; preds = %37, %39
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %62, i8 0, i64 9, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %63, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -3333,7 +3333,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler36generate_c1_pre_barrier_
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i8 0, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -3350,7 +3350,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler36generate_c1_pre_barrier_
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i8 0, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -3381,14 +3381,14 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler36generate_c1_pre_barrier_
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i8 0, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 0, ptr %43, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 21, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %45 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %45(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(40) %44) #6
   call void @_ZN9Assembler5testbE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %9, i32 noundef 2) #6
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %6, i1 noundef zeroext true) #6
@@ -3431,7 +3431,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler36generate_c1_pre_barrier_
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 0, ptr %60, align 4
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %61, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %13, i64 40

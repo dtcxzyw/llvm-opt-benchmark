@@ -18,7 +18,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol___memcpy_flu
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @arch_wb_cache_pmem(ptr noundef %0, i64 noundef %1) #0 align 16 {
-  %3 = load i16, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 298), align 2
+  %3 = load i16, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 298), align 2
   %4 = zext i16 %3 to i64
   %5 = getelementptr i8, ptr %0, i64 %1
   %6 = ptrtoint ptr %0 to i64
@@ -57,7 +57,7 @@ define dso_local i64 @__copy_user_flushcache(ptr noundef %0, ptr noundef %1, i32
 
 12:                                               ; preds = %7
   %13 = zext nneg i32 %2 to i64
-  %14 = load i16, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 298), align 2
+  %14 = load i16, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 298), align 2
   %15 = zext i16 %14 to i64
   %16 = getelementptr i8, ptr %0, i64 %13
   %17 = sub nsw i64 0, %15
@@ -79,7 +79,7 @@ define dso_local i64 @__copy_user_flushcache(ptr noundef %0, ptr noundef %1, i32
   br i1 %26, label %.loopexit9, label %27
 
 27:                                               ; preds = %24
-  %28 = load i16, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 298), align 2
+  %28 = load i16, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 298), align 2
   %29 = zext i16 %28 to i64
   %30 = add i64 %4, -1
   %31 = add i64 %30, %29
@@ -114,7 +114,7 @@ define dso_local i64 @__copy_user_flushcache(ptr noundef %0, ptr noundef %1, i32
 49:                                               ; preds = %45
   %50 = getelementptr i8, ptr %0, i64 %43
   %51 = getelementptr i8, ptr %50, i64 -1
-  %52 = load i16, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 298), align 2
+  %52 = load i16, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 298), align 2
   %53 = zext i16 %52 to i64
   %54 = ptrtoint ptr %51 to i64
   %55 = sub nsw i64 0, %53
@@ -151,7 +151,7 @@ define dso_local void @__memcpy_flushcache(ptr noundef %0, ptr noundef %1, i64 n
   %11 = sub i64 %10, %4
   %12 = tail call i64 @llvm.umin.i64(i64 %11, i64 %2)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %1, i64 %12, i1 false)
-  %13 = load i16, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 298), align 2
+  %13 = load i16, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 298), align 2
   %14 = zext i16 %13 to i64
   %15 = getelementptr i8, ptr %0, i64 %12
   %16 = sub nsw i64 0, %14
@@ -235,7 +235,7 @@ define dso_local void @__memcpy_flushcache(ptr noundef %0, ptr noundef %1, i64 n
   %64 = inttoptr i64 %60 to ptr
   %65 = inttoptr i64 %59 to ptr
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 1 %65, i64 %61, i1 false)
-  %66 = load i16, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 298), align 2
+  %66 = load i16, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 298), align 2
   %67 = zext i16 %66 to i64
   %68 = getelementptr i8, ptr %64, i64 %61
   %69 = sub nsw i64 0, %67

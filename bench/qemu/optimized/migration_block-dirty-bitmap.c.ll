@@ -312,8 +312,8 @@ define dso_local void @dirty_bitmap_mig_before_vm_start() local_unnamed_addr #0 
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void %1(ptr noundef nonnull getelementptr inbounds (i8, ptr @dbm_state, i64 1632), ptr noundef nonnull @.str, i32 noundef 890) #11
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @dbm_state, i64 1600), align 8
+  tail call void %1(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dbm_state, i64 1632), ptr noundef nonnull @.str, i32 noundef 890) #11
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @dbm_state, i64 1600), align 8
   %tobool = trunc i8 %2 to i1
   br i1 %tobool, label %if.else, label %if.end
 
@@ -322,10 +322,10 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @dbm_state, i64 1624), align 8
-  tail call void @g_slist_foreach(ptr noundef %3, ptr noundef nonnull @before_vm_start_handle_item, ptr noundef nonnull getelementptr inbounds (i8, ptr @dbm_state, i64 40)) #11
-  store i8 1, ptr getelementptr inbounds (i8, ptr @dbm_state, i64 1600), align 8
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @dbm_state, i64 1632), ptr noundef nonnull @.str, i32 noundef 896) #11
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dbm_state, i64 1624), align 8
+  tail call void @g_slist_foreach(ptr noundef %3, ptr noundef nonnull @before_vm_start_handle_item, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dbm_state, i64 40)) #11
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @dbm_state, i64 1600), align 8
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dbm_state, i64 1632), ptr noundef nonnull @.str, i32 noundef 896) #11
   ret void
 }
 
@@ -424,9 +424,9 @@ define dso_local void @dirty_bitmap_mig_cancel_incoming() local_unnamed_addr #0 
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void %1(ptr noundef nonnull getelementptr inbounds (i8, ptr @dbm_state, i64 1632), ptr noundef nonnull @.str, i32 noundef 941) #11
-  tail call fastcc void @cancel_incoming_locked(ptr noundef nonnull getelementptr inbounds (i8, ptr @dbm_state, i64 40))
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @dbm_state, i64 1632), ptr noundef nonnull @.str, i32 noundef 945) #11
+  tail call void %1(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dbm_state, i64 1632), ptr noundef nonnull @.str, i32 noundef 941) #11
+  tail call fastcc void @cancel_incoming_locked(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dbm_state, i64 40))
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dbm_state, i64 1632), ptr noundef nonnull @.str, i32 noundef 945) #11
   ret void
 }
 
@@ -509,8 +509,8 @@ return:                                           ; preds = %entry, %for.end
 define dso_local void @dirty_bitmap_mig_init() local_unnamed_addr #0 {
 entry:
   store ptr null, ptr @dbm_state, align 8
-  store ptr @dbm_state, ptr getelementptr inbounds (i8, ptr @dbm_state, i64 8), align 8
-  tail call void @qemu_mutex_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @dbm_state, i64 1632)) #11
+  store ptr @dbm_state, ptr getelementptr inbounds nuw (i8, ptr @dbm_state, i64 8), align 8
+  tail call void @qemu_mutex_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dbm_state, i64 1632)) #11
   %call = tail call i32 @register_savevm_live(ptr noundef nonnull @.str.2, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @savevm_dirty_bitmap_handlers, ptr noundef nonnull @dbm_state) #11
   ret void
 }

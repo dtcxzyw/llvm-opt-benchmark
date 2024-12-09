@@ -102,7 +102,7 @@ _ZN5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEED2Ev.exit: ; preds = %if.th
   store ptr %0, ptr %layout_.i, align 8, !tbaa !3
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %1, ptr %pn.i.i, align 8, !tbaa !9
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib17UniformGridMesherE, i64 16), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib17UniformGridMesherE, i64 16), ptr %this, align 8, !tbaa !10
   %dx_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %layout, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %3, null
@@ -715,7 +715,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !10
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !9
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -1002,7 +1002,7 @@ _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %ehcleanup28, %_ZNKS
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib17UniformGridMesherD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib17UniformGridMesherE, i64 16), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib17UniformGridMesherE, i64 16), ptr %this, align 8, !tbaa !10
   %locations_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %locations_, align 8, !tbaa !17
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -1060,7 +1060,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
   store ptr null, ptr %dx_, align 8, !tbaa !16
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib9FdmMesherE, i64 16), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib9FdmMesherE, i64 16), ptr %this, align 8, !tbaa !10
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %7 = load ptr, ptr %pn.i.i, align 8, !tbaa !9
   %cmp.not.i.i.i = icmp eq ptr %7, null
@@ -1106,7 +1106,7 @@ _ZN8QuantLib9FdmMesherD2Ev.exit:                  ; preds = %_ZNSt10unique_ptrIA
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib17UniformGridMesherD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib17UniformGridMesherE, i64 16), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib17UniformGridMesherE, i64 16), ptr %this, align 8, !tbaa !10
   %locations_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %locations_.i, align 8, !tbaa !17
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -1164,7 +1164,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i, %_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit.i
   store ptr null, ptr %dx_.i, align 8, !tbaa !16
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib9FdmMesherE, i64 16), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib9FdmMesherE, i64 16), ptr %this, align 8, !tbaa !10
   %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %7 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !9
   %cmp.not.i.i.i.i = icmp eq ptr %7, null
@@ -1247,7 +1247,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib9FdmMesherD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib9FdmMesherE, i64 16), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib9FdmMesherE, i64 16), ptr %this, align 8, !tbaa !10
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !9
   %cmp.not.i.i = icmp eq ptr %0, null

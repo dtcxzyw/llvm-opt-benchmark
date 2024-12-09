@@ -501,7 +501,7 @@ if.else.i.i:                                      ; preds = %for.body.i.i
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 %inc.i.i
   %11 = load i8, ptr %arrayidx8.i.i, align 1
   %idxprom.i.i = zext i8 %11 to i64
-  %arrayidx9.i.i = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @lj_char_bits, i64 1), i64 %idxprom.i.i
+  %arrayidx9.i.i = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %idxprom.i.i
   %12 = load i8, ptr %arrayidx9.i.i, align 1
   %13 = and i8 %12, 8
   %tobool11.not.i.i = icmp eq i8 %13, 0
@@ -1268,7 +1268,7 @@ while.body.lr.ph.i:                               ; preds = %cond.end
   %cmp13.i.i = icmp eq i32 %cond, 0
   %conv14.i.i = zext i1 %cmp13.i.i to i32
   %idxprom3.i.i = zext nneg i32 %cond to i64
-  %arrayidx4.i.i = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @lj_char_bits, i64 1), i64 %idxprom3.i.i
+  %arrayidx4.i.i = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %idxprom3.i.i
   %34 = trunc nuw i32 %cond to i8
   br label %while.body.i109
 
@@ -1368,7 +1368,7 @@ lor.lhs.false:                                    ; preds = %matchbracketclass.e
   %cmp13.i.i127 = icmp eq i8 %42, 0
   %conv14.i.i128 = zext i1 %cmp13.i.i127 to i32
   %idxprom3.i.i129 = zext i8 %42 to i64
-  %arrayidx4.i.i130 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @lj_char_bits, i64 1), i64 %idxprom3.i.i129
+  %arrayidx4.i.i130 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %idxprom3.i.i129
   br label %while.body.i131
 
 while.body.i131:                                  ; preds = %if.end39.i141, %lor.lhs.false
@@ -1465,7 +1465,7 @@ initthread-pre-split.backedge:                    ; preds = %matchbracketclass.e
 
 sw.default:                                       ; preds = %sw.bb12
   %idxprom = zext i8 %17 to i64
-  %arrayidx = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @lj_char_bits, i64 1), i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %idxprom
   %50 = load i8, ptr %arrayidx, align 1
   %51 = and i8 %50, 8
   %tobool48.not = icmp eq i8 %51, 0
@@ -1783,7 +1783,7 @@ if.then2.i:                                       ; preds = %if.then.i
   %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr @match_class_map, i64 0, i64 %idxprom.i
   %4 = load i8, ptr %arrayidx.i, align 1
   %idxprom3.i = zext nneg i32 %c to i64
-  %arrayidx4.i = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @lj_char_bits, i64 1), i64 %idxprom3.i
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %idxprom3.i
   %5 = load i8, ptr %arrayidx4.i, align 1
   %and612.i = and i8 %5, %4
   %and7.i = and i32 %conv2, 32
@@ -1832,7 +1832,7 @@ while.body.lr.ph.i:                               ; preds = %sw.bb3
   %cmp13.i.i = icmp eq i32 %c, 0
   %conv14.i.i = zext i1 %cmp13.i.i to i32
   %idxprom3.i.i = zext nneg i32 %c to i64
-  %arrayidx4.i.i = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @lj_char_bits, i64 1), i64 %idxprom3.i.i
+  %arrayidx4.i.i = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %idxprom3.i.i
   %7 = trunc nuw i32 %c to i8
   br label %while.body.i
 

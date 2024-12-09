@@ -3997,7 +3997,7 @@ RSTRING_PTR.exit1002:                             ; preds = %573, %583
 
 RSTRING_PTR.exit1006:                             ; preds = %675, %686
   %.sroa.2.0.i1005 = phi ptr [ %.sroa.2.0.copyload.i1004, %686 ], [ %685, %675 ]
-  %687 = load i8, ptr getelementptr inbounds (i8, ptr @pack_unpack_internal.b64_xtable, i64 47), align 1
+  %687 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pack_unpack_internal.b64_xtable, i64 47), align 1
   %688 = icmp slt i8 %687, 1
   br i1 %688, label %.preheader1109.preheader, label %.loopexit1108
 

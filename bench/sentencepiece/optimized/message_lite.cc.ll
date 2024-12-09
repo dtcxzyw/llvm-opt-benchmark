@@ -674,7 +674,7 @@ define void @_ZNK6google8protobuf11MessageLite25InitializationErrorStringB5cxx11
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 50))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 50))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %5
 
 5:                                                ; preds = %.noexc1
@@ -853,7 +853,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite13MergeFromImplEPNS0_
 _ZN6google8protobuf8internal12ParseContextC2IJPNS0_24ZeroCopyCodedInputStreamEEEEibPPKcDpOT_.exit:
   %3 = alloca %"class.google::protobuf::ZeroCopyCodedInputStream", align 8
   %4 = alloca %"class.google::protobuf::internal::ParseContext", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf24ZeroCopyCodedInputStreamE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf24ZeroCopyCodedInputStreamE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
@@ -1185,7 +1185,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite23ParseFromFileDescri
 
 32:                                               ; preds = %.thread, %28
   %33 = phi i1 [ %31, %28 ], [ false, %.thread ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io15FileInputStreamE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf2io15FileInputStreamE, i64 16), ptr %4, align 8
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %34) #17
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1195,7 +1195,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite23ParseFromFileDescri
 36:                                               ; preds = %27, %22, %.noexc3, %.noexc, %2
   %37 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io15FileInputStreamE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf2io15FileInputStreamE, i64 16), ptr %4, align 8
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %38) #17
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1256,7 +1256,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite30ParsePartialFromFil
 
 27:                                               ; preds = %23, %20
   %28 = phi i1 [ false, %20 ], [ %26, %23 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io15FileInputStreamE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf2io15FileInputStreamE, i64 16), ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %29) #17
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1266,7 +1266,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite30ParsePartialFromFil
 31:                                               ; preds = %.noexc3, %.noexc, %2
   %32 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io15FileInputStreamE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf2io15FileInputStreamE, i64 16), ptr %4, align 8
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %33) #17
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1345,7 +1345,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite16ParseFromIstreamEPS
 
 34:                                               ; preds = %.thread, %28
   %35 = phi i1 [ %33, %28 ], [ false, %.thread ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io18IstreamInputStreamE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf2io18IstreamInputStreamE, i64 16), ptr %4, align 8
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %36) #17
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1355,7 +1355,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite16ParseFromIstreamEPS
 38:                                               ; preds = %27, %22, %.noexc4, %.noexc, %2, %28
   %39 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io18IstreamInputStreamE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf2io18IstreamInputStreamE, i64 16), ptr %4, align 8
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %40) #17
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1420,7 +1420,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite23ParsePartialFromIst
 
 29:                                               ; preds = %23, %20
   %30 = phi i1 [ false, %20 ], [ %28, %23 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io18IstreamInputStreamE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf2io18IstreamInputStreamE, i64 16), ptr %4, align 8
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %31) #17
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1430,7 +1430,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite23ParsePartialFromIst
 33:                                               ; preds = %.noexc4, %.noexc, %2, %23
   %34 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io18IstreamInputStreamE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf2io18IstreamInputStreamE, i64 16), ptr %4, align 8
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %35) #17
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8

@@ -583,7 +583,7 @@ define void @_ZN2cv6legacy8tracking15TrackerBoosting6createERKNS2_6ParamsE(ptr d
           to label %.noexc unwind label %27
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZN2cv6legacy8tracking7TrackerC2Ev(ptr noundef nonnull align 8 dereferenceable(84) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv6legacy8tracking19TrackerBoostingImplE, i64 16))
+  invoke void @_ZN2cv6legacy8tracking7TrackerC2Ev(ptr noundef nonnull align 8 dereferenceable(84) %3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN2cv6legacy8tracking19TrackerBoostingImplE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -593,7 +593,7 @@ define void @_ZN2cv6legacy8tracking15TrackerBoosting6createERKNS2_6ParamsE(ptr d
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds inrange(-80, 80) (i8, ptr @_ZTVN2cv6legacy8tracking19TrackerBoostingImplE, i64 80), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-80, 80) (i8, ptr @_ZTVN2cv6legacy8tracking19TrackerBoostingImplE, i64 80), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull readonly align 4 dereferenceable(20) %1, i64 20, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -638,7 +638,7 @@ _ZN2cv3PtrINS_6legacy8tracking19TrackerBoostingImplEED2Ev.exit: ; preds = %6
   store i32 1, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 1, ptr %24, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv6legacy8tracking19TrackerBoostingImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv6legacy8tracking19TrackerBoostingImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %3, ptr %25, align 8
   store ptr %3, ptr %0, align 8
@@ -663,11 +663,11 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv6legacy8tracking19TrackerBoostingImplC1ERKNS1_15TrackerBoosting6ParamsE(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  invoke void @_ZN2cv6legacy8tracking7TrackerC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv6legacy8tracking19TrackerBoostingImplE, i64 16))
+  invoke void @_ZN2cv6legacy8tracking7TrackerC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN2cv6legacy8tracking19TrackerBoostingImplE, i64 16))
           to label %3 unwind label %6
 
 3:                                                ; preds = %2
-  store ptr getelementptr inbounds inrange(-80, 80) (i8, ptr @_ZTVN2cv6legacy8tracking19TrackerBoostingImplE, i64 80), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-80, 80) (i8, ptr @_ZTVN2cv6legacy8tracking19TrackerBoostingImplE, i64 80), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %1, i64 20, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -698,7 +698,7 @@ define void @_ZN2cv6legacy8tracking15TrackerBoosting6createEv(ptr dead_on_unwind
           to label %.noexc unwind label %28
 
 .noexc:                                           ; preds = %4
-  invoke void @_ZN2cv6legacy8tracking7TrackerC2Ev(ptr noundef nonnull align 8 dereferenceable(84) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv6legacy8tracking19TrackerBoostingImplE, i64 16))
+  invoke void @_ZN2cv6legacy8tracking7TrackerC2Ev(ptr noundef nonnull align 8 dereferenceable(84) %3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN2cv6legacy8tracking19TrackerBoostingImplE, i64 16))
           to label %7 unwind label %5
 
 5:                                                ; preds = %.noexc
@@ -708,7 +708,7 @@ define void @_ZN2cv6legacy8tracking15TrackerBoosting6createEv(ptr dead_on_unwind
   br label %.body
 
 7:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds inrange(-80, 80) (i8, ptr @_ZTVN2cv6legacy8tracking19TrackerBoostingImplE, i64 80), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-80, 80) (i8, ptr @_ZTVN2cv6legacy8tracking19TrackerBoostingImplE, i64 80), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull readonly align 4 dereferenceable(20) %2, i64 20, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -753,7 +753,7 @@ _ZN2cv3PtrINS_6legacy8tracking19TrackerBoostingImplEED2Ev.exit: ; preds = %7
   store i32 1, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 1, ptr %25, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv6legacy8tracking19TrackerBoostingImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv6legacy8tracking19TrackerBoostingImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10, align 8
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %3, ptr %26, align 8
   store ptr %3, ptr %0, align 8
@@ -982,7 +982,7 @@ _ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev.exit: ; preds = %64
   store i32 1, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %65, i64 12
   store i32 1, ptr %80, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv6detail8tracking16TrackerSamplerCSELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %65, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv6detail8tracking16TrackerSamplerCSELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %65, align 8
   %81 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store ptr %62, ptr %81, align 8
   store ptr %62, ptr %13, align 8
@@ -1488,7 +1488,7 @@ _ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit: ; preds = 
   store i32 1, ptr %315, align 8
   %316 = getelementptr inbounds nuw i8, ptr %301, i64 12
   store i32 1, ptr %316, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %301, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %301, align 8
   %317 = getelementptr inbounds nuw i8, ptr %301, i64 16
   store ptr %298, ptr %317, align 8
   store ptr %298, ptr %21, align 8
@@ -1616,7 +1616,7 @@ _ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit: ; preds = 
   store i32 1, ptr %371, align 8
   %372 = getelementptr inbounds nuw i8, ptr %356, i64 12
   store i32 1, ptr %372, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv8tracking4impl20TrackerBoostingModelELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %356, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv8tracking4impl20TrackerBoostingModelELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %356, align 8
   %373 = getelementptr inbounds nuw i8, ptr %356, i64 16
   store ptr %344, ptr %373, align 8
   %374 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1842,7 +1842,7 @@ _ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev.exit: ; preds = %429, %
   store i32 1, ptr %473, align 8
   %474 = getelementptr inbounds nuw i8, ptr %458, i64 12
   store i32 1, ptr %474, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv6detail8tracking32TrackerStateEstimatorAdaBoostingELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %458, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv6detail8tracking32TrackerStateEstimatorAdaBoostingELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %458, align 8
   %475 = getelementptr inbounds nuw i8, ptr %458, i64 16
   store ptr %446, ptr %475, align 8
   store ptr %458, ptr %457, align 8
@@ -2032,7 +2032,7 @@ _ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit: ; preds = %483
   store i32 1, ptr %567, align 8
   %568 = getelementptr inbounds nuw i8, ptr %552, i64 12
   store i32 1, ptr %568, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %552, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %552, align 8
   %569 = getelementptr inbounds nuw i8, ptr %552, i64 16
   store ptr %549, ptr %569, align 8
   store ptr %552, ptr %523, align 8
@@ -5692,7 +5692,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i32 1, ptr %877, align 8
   %878 = getelementptr inbounds nuw i8, ptr %862, i64 12
   store i32 1, ptr %878, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %862, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %862, align 8
   %879 = getelementptr inbounds nuw i8, ptr %862, i64 16
   store ptr %858, ptr %879, align 8
   store ptr %862, ptr %861, align 8

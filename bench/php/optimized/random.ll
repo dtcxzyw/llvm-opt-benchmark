@@ -173,7 +173,7 @@ define i32 @php_random_range32(ptr nocapture readonly %0, ptr %1, i32 noundef %2
   %.029 = phi i32 [ 0, %3 ], [ %14, %9 ]
   %6 = load ptr, ptr %4, align 8
   %7 = tail call { i64, i64 } %6(ptr noundef %1) #13
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %.loopexit
 
@@ -229,7 +229,7 @@ define i32 @php_random_range32(ptr nocapture readonly %0, ptr %1, i32 noundef %2
   %.2 = phi i32 [ %44, %37 ], [ 0, %.lr.ph ]
   %34 = load ptr, ptr %4, align 8
   %35 = tail call { i64, i64 } %34(ptr noundef %1) #13
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not37 = icmp eq ptr %36, null
   br i1 %.not37, label %37, label %.loopexit
 
@@ -267,7 +267,7 @@ define i64 @php_random_range64(ptr nocapture readonly %0, ptr %1, i64 noundef %2
   %.029 = phi i64 [ 0, %3 ], [ %13, %9 ]
   %6 = load ptr, ptr %4, align 8
   %7 = tail call { i64, i64 } %6(ptr noundef %1) #13
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %.loopexit
 
@@ -321,7 +321,7 @@ define i64 @php_random_range64(ptr nocapture readonly %0, ptr %1, i64 noundef %2
   %.2 = phi i64 [ %42, %36 ], [ 0, %.lr.ph ]
   %33 = load ptr, ptr %4, align 8
   %34 = tail call { i64, i64 } %33(ptr noundef %1) #13
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not37 = icmp eq ptr %35, null
   br i1 %.not37, label %36, label %.loopexit
 
@@ -501,7 +501,7 @@ define i64 @php_random_range(ptr nocapture readonly %0, ptr %1, i64 noundef %2, 
   %.029.i = phi i64 [ 0, %7 ], [ %17, %13 ]
   %10 = load ptr, ptr %8, align 8
   %11 = tail call { i64, i64 } %10(ptr noundef %1) #13
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %13, label %php_random_range64.exit
 
@@ -555,7 +555,7 @@ define i64 @php_random_range(ptr nocapture readonly %0, ptr %1, i64 noundef %2, 
   %.2.i = phi i64 [ %46, %40 ], [ 0, %.lr.ph.i ]
   %37 = load ptr, ptr %8, align 8
   %38 = tail call { i64, i64 } %37(ptr noundef %1) #13
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not37.i = icmp eq ptr %39, null
   br i1 %.not37.i, label %40, label %php_random_range64.exit
 
@@ -589,7 +589,7 @@ php_random_range64.exit:                          ; preds = %9, %.preheader.i, %
   %.029.i12 = phi i32 [ 0, %50 ], [ %62, %57 ]
   %54 = load ptr, ptr %52, align 8
   %55 = tail call { i64, i64 } %54(ptr noundef %1) #13
-  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not.i13 = icmp eq ptr %56, null
   br i1 %.not.i13, label %57, label %php_random_range32.exit
 
@@ -645,7 +645,7 @@ php_random_range64.exit:                          ; preds = %9, %.preheader.i, %
   %.2.i22 = phi i32 [ %92, %85 ], [ 0, %.lr.ph.i17 ]
   %82 = load ptr, ptr %52, align 8
   %83 = tail call { i64, i64 } %82(ptr noundef %1) #13
-  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not37.i23 = icmp eq ptr %84, null
   br i1 %.not37.i23, label %85, label %php_random_range32.exit
 
@@ -684,14 +684,14 @@ define noundef nonnull ptr @php_random_default_algo() local_unnamed_addr #6 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @php_random_default_status() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @random_globals, i64 16), align 8
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 16), align 8
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %0
   tail call void @php_random_mt19937_seed_default(ptr noundef %1) #13
-  store i8 1, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   br label %5
 
 5:                                                ; preds = %4, %0
@@ -820,17 +820,17 @@ define noundef zeroext i1 @php_random_hex2bin_le(ptr nocapture noundef readonly 
 ; Function Attrs: nounwind uwtable
 define double @php_combined_lcg() local_unnamed_addr #0 {
   %1 = load ptr, ptr @random_globals, align 8
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @random_globals, i64 8), align 8
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 8), align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %0
   tail call void @php_random_combinedlcg_seed_default(ptr noundef %1) #13
-  store i8 1, ptr getelementptr inbounds (i8, ptr @random_globals, i64 8), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 8), align 8
   br label %5
 
 5:                                                ; preds = %4, %0
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @php_random_algo_combinedlcg, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_random_algo_combinedlcg, i64 8), align 8
   %7 = tail call { i64, i64 } %6(ptr noundef %1) #13
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = uitofp i64 %8 to double
@@ -842,14 +842,14 @@ declare void @php_random_combinedlcg_seed_default(ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define void @php_mt_srand(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @random_globals, i64 16), align 8
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 16), align 8
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %php_random_default_status.exit, label %5
 
 5:                                                ; preds = %1
   tail call void @php_random_mt19937_seed_default(ptr noundef %2) #13
-  store i8 1, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   br label %php_random_default_status.exit
 
 php_random_default_status.exit:                   ; preds = %1, %5
@@ -861,15 +861,15 @@ declare void @php_random_mt19937_seed32(ptr noundef, i32 noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define i32 @php_mt_rand() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @php_random_algo_mt19937, i64 8), align 8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @random_globals, i64 16), align 8
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_random_algo_mt19937, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 16), align 8
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %php_random_default_status.exit, label %5
 
 5:                                                ; preds = %0
   tail call void @php_random_mt19937_seed_default(ptr noundef %2) #13
-  store i8 1, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   br label %php_random_default_status.exit
 
 php_random_default_status.exit:                   ; preds = %0, %5
@@ -881,15 +881,15 @@ php_random_default_status.exit:                   ; preds = %0, %5
 
 ; Function Attrs: nounwind uwtable
 define i64 @php_mt_rand_range(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @php_random_algo_mt19937, i64 16), align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @random_globals, i64 16), align 8
-  %5 = load i8, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_random_algo_mt19937, i64 16), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 16), align 8
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %php_random_default_status.exit, label %7
 
 7:                                                ; preds = %2
   tail call void @php_random_mt19937_seed_default(ptr noundef %4) #13
-  store i8 1, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   br label %php_random_default_status.exit
 
 php_random_default_status.exit:                   ; preds = %2, %7
@@ -899,14 +899,14 @@ php_random_default_status.exit:                   ; preds = %2, %7
 
 ; Function Attrs: nounwind uwtable
 define i64 @php_mt_rand_common(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @random_globals, i64 16), align 8
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 16), align 8
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %php_random_default_status.exit, label %6
 
 6:                                                ; preds = %2
   tail call void @php_random_mt19937_seed_default(ptr noundef %3) #13
-  store i8 1, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   br label %php_random_default_status.exit
 
 php_random_default_status.exit:                   ; preds = %2, %6
@@ -914,17 +914,17 @@ php_random_default_status.exit:                   ; preds = %2, %6
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 2500
   %9 = load i8, ptr %8, align 4
   %10 = icmp eq i8 %9, 0
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @random_globals, i64 16), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 16), align 8
   %12 = trunc i8 %7 to i1
   br i1 %10, label %13, label %17
 
 13:                                               ; preds = %php_random_default_status.exit
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @php_random_algo_mt19937, i64 16), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_random_algo_mt19937, i64 16), align 8
   br i1 %12, label %php_mt_rand_range.exit, label %15
 
 15:                                               ; preds = %13
   tail call void @php_random_mt19937_seed_default(ptr noundef %11) #13
-  store i8 1, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   br label %php_mt_rand_range.exit
 
 php_mt_rand_range.exit:                           ; preds = %13, %15
@@ -932,12 +932,12 @@ php_mt_rand_range.exit:                           ; preds = %13, %15
   br label %32
 
 17:                                               ; preds = %php_random_default_status.exit
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @php_random_algo_mt19937, i64 8), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_random_algo_mt19937, i64 8), align 8
   br i1 %12, label %php_random_default_status.exit8, label %19
 
 19:                                               ; preds = %17
   tail call void @php_random_mt19937_seed_default(ptr noundef %11) #13
-  store i8 1, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   br label %php_random_default_status.exit8
 
 php_random_default_status.exit8:                  ; preds = %17, %19
@@ -962,14 +962,14 @@ php_random_default_status.exit8:                  ; preds = %17, %19
 
 ; Function Attrs: nounwind uwtable
 define void @php_srand(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @random_globals, i64 16), align 8
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 16), align 8
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %php_mt_srand.exit, label %5
 
 5:                                                ; preds = %1
   tail call void @php_random_mt19937_seed_default(ptr noundef %2) #13
-  store i8 1, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   br label %php_mt_srand.exit
 
 php_mt_srand.exit:                                ; preds = %1, %5
@@ -980,15 +980,15 @@ php_mt_srand.exit:                                ; preds = %1, %5
 
 ; Function Attrs: nounwind uwtable
 define range(i64 0, 4294967296) i64 @php_rand() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @php_random_algo_mt19937, i64 8), align 8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @random_globals, i64 16), align 8
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_random_algo_mt19937, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 16), align 8
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %php_mt_rand.exit, label %5
 
 5:                                                ; preds = %0
   tail call void @php_random_mt19937_seed_default(ptr noundef %2) #13
-  store i8 1, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   br label %php_mt_rand.exit
 
 php_mt_rand.exit:                                 ; preds = %0, %5
@@ -1011,17 +1011,17 @@ define hidden void @zif_lcg_value(ptr nocapture noundef readonly %0, ptr nocaptu
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @random_globals, align 8
-  %8 = load i8, ptr getelementptr inbounds (i8, ptr @random_globals, i64 8), align 8
+  %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 8), align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %php_combined_lcg.exit, label %10
 
 10:                                               ; preds = %6
   tail call void @php_random_combinedlcg_seed_default(ptr noundef %7) #13
-  store i8 1, ptr getelementptr inbounds (i8, ptr @random_globals, i64 8), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 8), align 8
   br label %php_combined_lcg.exit
 
 php_combined_lcg.exit:                            ; preds = %6, %10
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @php_random_algo_combinedlcg, i64 8), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_random_algo_combinedlcg, i64 8), align 8
   %12 = tail call { i64, i64 } %11(ptr noundef %7) #13
   %13 = extractvalue { i64, i64 } %12, 0
   %14 = uitofp i64 %13 to double
@@ -1043,7 +1043,7 @@ define hidden void @zif_mt_srand(ptr noundef %0, ptr nocapture readnone %1) #0 {
   %4 = alloca i64, align 8
   store i64 0, ptr %3, align 8
   store i64 0, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @random_globals, i64 16), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 16), align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = icmp ugt i32 %7, 2
@@ -1146,7 +1146,7 @@ define hidden void @zif_mt_srand(ptr noundef %0, ptr nocapture readnone %1) #0 {
   br label %38
 
 38:                                               ; preds = %35, %34
-  store i8 1, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   br label %39
 
 39:                                               ; preds = %38, %.thread129
@@ -1174,15 +1174,15 @@ define hidden void @zif_mt_rand(ptr noundef %0, ptr nocapture noundef writeonly 
   ]
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @php_random_algo_mt19937, i64 8), align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @random_globals, i64 16), align 8
-  %10 = load i8, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_random_algo_mt19937, i64 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 16), align 8
+  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %php_mt_rand.exit, label %12
 
 12:                                               ; preds = %7
   tail call void @php_random_mt19937_seed_default(ptr noundef %9) #13
-  store i8 1, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   br label %php_mt_rand.exit
 
 php_mt_rand.exit:                                 ; preds = %7, %12
@@ -1255,21 +1255,21 @@ php_mt_rand.exit:                                 ; preds = %7, %12
 
 40:                                               ; preds = %.thread133
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.2) #13
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %42 = icmp ne ptr %41, null
   call void @llvm.assume(i1 %42)
   br label %74
 
 43:                                               ; preds = %.thread133
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @random_globals, i64 16), align 8
-  %45 = load i8, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 16), align 8
+  %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   %46 = trunc i8 %45 to i1
   br i1 %46, label %php_random_default_status.exit.i, label %47
 
 47:                                               ; preds = %43
   call void @php_random_mt19937_seed_default(ptr noundef %44) #13
-  store i8 1, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
-  %.pre134 = load ptr, ptr getelementptr inbounds (i8, ptr @random_globals, i64 16), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
+  %.pre134 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 16), align 8
   br label %php_random_default_status.exit.i
 
 php_random_default_status.exit.i:                 ; preds = %47, %43
@@ -1282,12 +1282,12 @@ php_random_default_status.exit.i:                 ; preds = %47, %43
   br i1 %52, label %54, label %58
 
 54:                                               ; preds = %php_random_default_status.exit.i
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @php_random_algo_mt19937, i64 16), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_random_algo_mt19937, i64 16), align 8
   br i1 %53, label %php_mt_rand_range.exit.i, label %56
 
 56:                                               ; preds = %54
   call void @php_random_mt19937_seed_default(ptr noundef %48) #13
-  store i8 1, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   br label %php_mt_rand_range.exit.i
 
 php_mt_rand_range.exit.i:                         ; preds = %56, %54
@@ -1295,12 +1295,12 @@ php_mt_rand_range.exit.i:                         ; preds = %56, %54
   br label %php_mt_rand_common.exit
 
 58:                                               ; preds = %php_random_default_status.exit.i
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @php_random_algo_mt19937, i64 8), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_random_algo_mt19937, i64 8), align 8
   br i1 %53, label %php_random_default_status.exit8.i, label %60
 
 60:                                               ; preds = %58
   call void @php_random_mt19937_seed_default(ptr noundef %48) #13
-  store i8 1, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   br label %php_random_default_status.exit8.i
 
 php_random_default_status.exit8.i:                ; preds = %60, %58
@@ -1364,15 +1364,15 @@ define hidden void @zif_rand(ptr noundef %0, ptr nocapture noundef writeonly %1)
   ]
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @php_random_algo_mt19937, i64 8), align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @random_globals, i64 16), align 8
-  %10 = load i8, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_random_algo_mt19937, i64 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 16), align 8
+  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %php_mt_rand.exit, label %12
 
 12:                                               ; preds = %7
   tail call void @php_random_mt19937_seed_default(ptr noundef %9) #13
-  store i8 1, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   br label %php_mt_rand.exit
 
 php_mt_rand.exit:                                 ; preds = %7, %12
@@ -1441,8 +1441,8 @@ php_mt_rand.exit:                                 ; preds = %7, %12
   %37 = phi i64 [ %.pre, %..thread142_crit_edge ], [ %34, %.thread124 ]
   %38 = load i64, ptr %3, align 8
   %39 = icmp slt i64 %37, %38
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @random_globals, i64 16), align 8
-  %41 = load i8, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 16), align 8
+  %41 = load i8, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   %42 = trunc i8 %41 to i1
   br i1 %39, label %43, label %71
 
@@ -1451,8 +1451,8 @@ php_mt_rand.exit:                                 ; preds = %7, %12
 
 44:                                               ; preds = %43
   call void @php_random_mt19937_seed_default(ptr noundef %40) #13
-  store i8 1, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
-  %.pre144 = load ptr, ptr getelementptr inbounds (i8, ptr @random_globals, i64 16), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
+  %.pre144 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 16), align 8
   br label %php_random_default_status.exit.i
 
 php_random_default_status.exit.i:                 ; preds = %44, %43
@@ -1465,12 +1465,12 @@ php_random_default_status.exit.i:                 ; preds = %44, %43
   br i1 %49, label %51, label %55
 
 51:                                               ; preds = %php_random_default_status.exit.i
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @php_random_algo_mt19937, i64 16), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_random_algo_mt19937, i64 16), align 8
   br i1 %50, label %php_mt_rand_range.exit.i, label %53
 
 53:                                               ; preds = %51
   call void @php_random_mt19937_seed_default(ptr noundef %45) #13
-  store i8 1, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   br label %php_mt_rand_range.exit.i
 
 php_mt_rand_range.exit.i:                         ; preds = %53, %51
@@ -1478,12 +1478,12 @@ php_mt_rand_range.exit.i:                         ; preds = %53, %51
   br label %php_mt_rand_common.exit
 
 55:                                               ; preds = %php_random_default_status.exit.i
-  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @php_random_algo_mt19937, i64 8), align 8
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_random_algo_mt19937, i64 8), align 8
   br i1 %50, label %php_random_default_status.exit8.i, label %57
 
 57:                                               ; preds = %55
   call void @php_random_mt19937_seed_default(ptr noundef %45) #13
-  store i8 1, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   br label %php_random_default_status.exit8.i
 
 php_random_default_status.exit8.i:                ; preds = %57, %55
@@ -1513,8 +1513,8 @@ php_mt_rand_common.exit:                          ; preds = %php_mt_rand_range.e
 
 72:                                               ; preds = %71
   call void @php_random_mt19937_seed_default(ptr noundef %40) #13
-  store i8 1, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
-  %.pre143 = load ptr, ptr getelementptr inbounds (i8, ptr @random_globals, i64 16), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
+  %.pre143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 16), align 8
   br label %php_random_default_status.exit.i115
 
 php_random_default_status.exit.i115:              ; preds = %72, %71
@@ -1527,12 +1527,12 @@ php_random_default_status.exit.i115:              ; preds = %72, %71
   br i1 %77, label %79, label %83
 
 79:                                               ; preds = %php_random_default_status.exit.i115
-  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @php_random_algo_mt19937, i64 16), align 8
+  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_random_algo_mt19937, i64 16), align 8
   br i1 %78, label %php_mt_rand_range.exit.i118, label %81
 
 81:                                               ; preds = %79
   call void @php_random_mt19937_seed_default(ptr noundef %73) #13
-  store i8 1, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   br label %php_mt_rand_range.exit.i118
 
 php_mt_rand_range.exit.i118:                      ; preds = %81, %79
@@ -1540,12 +1540,12 @@ php_mt_rand_range.exit.i118:                      ; preds = %81, %79
   br label %php_mt_rand_common.exit119
 
 83:                                               ; preds = %php_random_default_status.exit.i115
-  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @php_random_algo_mt19937, i64 8), align 8
+  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_random_algo_mt19937, i64 8), align 8
   br i1 %78, label %php_random_default_status.exit8.i116, label %85
 
 85:                                               ; preds = %83
   call void @php_random_mt19937_seed_default(ptr noundef %73) #13
-  store i8 1, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   br label %php_random_default_status.exit8.i116
 
 php_random_default_status.exit8.i116:             ; preds = %85, %83
@@ -1621,7 +1621,7 @@ define hidden void @zif_random_bytes(ptr noundef %0, ptr nocapture noundef write
 
 17:                                               ; preds = %.thread152
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.3) #13
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   call void @llvm.assume(i1 %19)
   br label %50
@@ -1663,7 +1663,7 @@ define hidden void @zif_random_bytes(ptr noundef %0, ptr nocapture noundef write
   br label %40
 
 40:                                               ; preds = %31, %39, %34
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %42 = icmp ne ptr %41, null
   call void @llvm.assume(i1 %42)
   br label %50
@@ -1751,7 +1751,7 @@ define hidden void @zif_random_int(ptr noundef %0, ptr nocapture noundef writeon
 
 28:                                               ; preds = %.thread129
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.4) #13
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %30 = icmp ne ptr %29, null
   call void @llvm.assume(i1 %30)
   br label %40
@@ -1762,7 +1762,7 @@ define hidden void @zif_random_int(ptr noundef %0, ptr nocapture noundef writeon
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %31
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %36 = icmp ne ptr %35, null
   call void @llvm.assume(i1 %36)
   br label %40
@@ -1895,8 +1895,8 @@ define hidden noundef i32 @zm_startup_random(i32 %0, i32 noundef %1) #0 {
   store ptr @php_random_engine_mt19937_new, ptr %66, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @random_engine_mt19937_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   store i32 16, ptr @random_engine_mt19937_object_handlers, align 8
-  store ptr @php_random_engine_common_free_object, ptr getelementptr inbounds (i8, ptr @random_engine_mt19937_object_handlers, i64 8), align 8
-  store ptr @php_random_engine_common_clone_object, ptr getelementptr inbounds (i8, ptr @random_engine_mt19937_object_handlers, i64 24), align 8
+  store ptr @php_random_engine_common_free_object, ptr getelementptr inbounds nuw (i8, ptr @random_engine_mt19937_object_handlers, i64 8), align 8
+  store ptr @php_random_engine_common_clone_object, ptr getelementptr inbounds nuw (i8, ptr @random_engine_mt19937_object_handlers, i64 24), align 8
   %67 = load ptr, ptr @random_ce_Random_Engine, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %8, i8 0, i64 512, i1 false)
@@ -1920,8 +1920,8 @@ define hidden noundef i32 @zm_startup_random(i32 %0, i32 noundef %1) #0 {
   store ptr @php_random_engine_pcgoneseq128xslrr64_new, ptr %77, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @random_engine_pcgoneseq128xslrr64_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   store i32 16, ptr @random_engine_pcgoneseq128xslrr64_object_handlers, align 8
-  store ptr @php_random_engine_common_free_object, ptr getelementptr inbounds (i8, ptr @random_engine_pcgoneseq128xslrr64_object_handlers, i64 8), align 8
-  store ptr @php_random_engine_common_clone_object, ptr getelementptr inbounds (i8, ptr @random_engine_pcgoneseq128xslrr64_object_handlers, i64 24), align 8
+  store ptr @php_random_engine_common_free_object, ptr getelementptr inbounds nuw (i8, ptr @random_engine_pcgoneseq128xslrr64_object_handlers, i64 8), align 8
+  store ptr @php_random_engine_common_clone_object, ptr getelementptr inbounds nuw (i8, ptr @random_engine_pcgoneseq128xslrr64_object_handlers, i64 24), align 8
   %78 = load ptr, ptr @random_ce_Random_Engine, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %7, i8 0, i64 512, i1 false)
@@ -1945,8 +1945,8 @@ define hidden noundef i32 @zm_startup_random(i32 %0, i32 noundef %1) #0 {
   store ptr @php_random_engine_xoshiro256starstar_new, ptr %88, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @random_engine_xoshiro256starstar_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   store i32 16, ptr @random_engine_xoshiro256starstar_object_handlers, align 8
-  store ptr @php_random_engine_common_free_object, ptr getelementptr inbounds (i8, ptr @random_engine_xoshiro256starstar_object_handlers, i64 8), align 8
-  store ptr @php_random_engine_common_clone_object, ptr getelementptr inbounds (i8, ptr @random_engine_xoshiro256starstar_object_handlers, i64 24), align 8
+  store ptr @php_random_engine_common_free_object, ptr getelementptr inbounds nuw (i8, ptr @random_engine_xoshiro256starstar_object_handlers, i64 8), align 8
+  store ptr @php_random_engine_common_clone_object, ptr getelementptr inbounds nuw (i8, ptr @random_engine_xoshiro256starstar_object_handlers, i64 24), align 8
   %89 = load ptr, ptr @random_ce_Random_CryptoSafeEngine, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %6, i8 0, i64 512, i1 false)
@@ -1970,8 +1970,8 @@ define hidden noundef i32 @zm_startup_random(i32 %0, i32 noundef %1) #0 {
   store ptr @php_random_engine_secure_new, ptr %99, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @random_engine_secure_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   store i32 16, ptr @random_engine_secure_object_handlers, align 8
-  store ptr @php_random_engine_common_free_object, ptr getelementptr inbounds (i8, ptr @random_engine_secure_object_handlers, i64 8), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @random_engine_secure_object_handlers, i64 24), align 8
+  store ptr @php_random_engine_common_free_object, ptr getelementptr inbounds nuw (i8, ptr @random_engine_secure_object_handlers, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @random_engine_secure_object_handlers, i64 24), align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -2057,8 +2057,8 @@ register_class_Random_Randomizer.exit:            ; preds = %2, %126, %133, %134
   store ptr @random_randomizer_object_handlers, ptr %136, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @random_randomizer_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   store i32 24, ptr @random_randomizer_object_handlers, align 8
-  store ptr @randomizer_free_obj, ptr getelementptr inbounds (i8, ptr @random_randomizer_object_handlers, i64 8), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @random_randomizer_object_handlers, i64 24), align 8
+  store ptr @randomizer_free_obj, ptr getelementptr inbounds nuw (i8, ptr @random_randomizer_object_handlers, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @random_randomizer_object_handlers, i64 24), align 8
   %137 = call ptr @zend_register_internal_enum(ptr noundef nonnull @.str.44, i8 noundef zeroext 0, ptr noundef nonnull @class_Random_IntervalBoundary_methods) #13
   call void @zend_enum_add_case_cstr(ptr noundef %137, ptr noundef nonnull @.str.51, ptr noundef null) #13
   call void @zend_enum_add_case_cstr(ptr noundef %137, ptr noundef nonnull @.str.52, ptr noundef null) #13
@@ -2255,8 +2255,8 @@ define internal void @randomizer_free_obj(ptr noundef %0) #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef i32 @zm_activate_random(i32 %0, i32 %1) #9 {
-  store i8 0, ptr getelementptr inbounds (i8, ptr @random_globals, i64 8), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @random_globals, i64 24), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 8
   ret i32 0
 }
 

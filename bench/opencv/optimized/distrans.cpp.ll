@@ -502,28 +502,28 @@ define internal void @_ZL10onTrackbariPv(i32 %0, ptr nocapture readnone %1) #5 p
 
 40:                                               ; preds = %38
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) @_ZZL10onTrackbariPvE6colors, i8 0, i64 32, i1 false)
-  store double 2.550000e+02, ptr getelementptr inbounds (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 32), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 40), i8 0, i64 24, i1 false)
-  store double 2.550000e+02, ptr getelementptr inbounds (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 64), align 16
-  store double 1.280000e+02, ptr getelementptr inbounds (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 72), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 80), i8 0, i64 16, i1 false)
-  store double 2.550000e+02, ptr getelementptr inbounds (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 96), align 16
-  store double 2.550000e+02, ptr getelementptr inbounds (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 104), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 112), i8 0, i64 24, i1 false)
-  store double 2.550000e+02, ptr getelementptr inbounds (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 136), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 144), i8 0, i64 24, i1 false)
-  store double 1.280000e+02, ptr getelementptr inbounds (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 168), align 8
-  store double 2.550000e+02, ptr getelementptr inbounds (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 176), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 184), i8 0, i64 16, i1 false)
-  store double 2.550000e+02, ptr getelementptr inbounds (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 200), align 8
-  store double 2.550000e+02, ptr getelementptr inbounds (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 208), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 216), i8 0, i64 24, i1 false)
-  store double 2.550000e+02, ptr getelementptr inbounds (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 240), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 248), align 8
-  store double 2.550000e+02, ptr getelementptr inbounds (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 256), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 264), align 8
-  store double 2.550000e+02, ptr getelementptr inbounds (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 272), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 280), align 8
+  store double 2.550000e+02, ptr getelementptr inbounds nuw (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 32), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 40), i8 0, i64 24, i1 false)
+  store double 2.550000e+02, ptr getelementptr inbounds nuw (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 64), align 16
+  store double 1.280000e+02, ptr getelementptr inbounds nuw (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 72), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 80), i8 0, i64 16, i1 false)
+  store double 2.550000e+02, ptr getelementptr inbounds nuw (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 96), align 16
+  store double 2.550000e+02, ptr getelementptr inbounds nuw (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 104), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 112), i8 0, i64 24, i1 false)
+  store double 2.550000e+02, ptr getelementptr inbounds nuw (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 136), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 144), i8 0, i64 24, i1 false)
+  store double 1.280000e+02, ptr getelementptr inbounds nuw (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 168), align 8
+  store double 2.550000e+02, ptr getelementptr inbounds nuw (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 176), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 184), i8 0, i64 16, i1 false)
+  store double 2.550000e+02, ptr getelementptr inbounds nuw (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 200), align 8
+  store double 2.550000e+02, ptr getelementptr inbounds nuw (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 208), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 216), i8 0, i64 24, i1 false)
+  store double 2.550000e+02, ptr getelementptr inbounds nuw (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 240), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 248), align 8
+  store double 2.550000e+02, ptr getelementptr inbounds nuw (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 256), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 264), align 8
+  store double 2.550000e+02, ptr getelementptr inbounds nuw (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 272), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZL10onTrackbariPvE6colors, i64 280), align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL10onTrackbariPvE6colors) #12
   br label %41
 

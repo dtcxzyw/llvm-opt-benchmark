@@ -820,7 +820,7 @@ invoke.cont3:
   %0 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN17grpc_event_engine12experimental24grpc_trace_ares_resolverE, i64 16) monotonic, align 8
   %refs_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental12AresResolverE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN17grpc_event_engine12experimental12AresResolverE, i64 16), ptr %this, align 8
   %mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 0, ptr %mutex_, align 8
   %shutting_down_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -836,7 +836,7 @@ invoke.cont3:
   %id_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i32 0, ptr %id_, align 8
   %callback_map_ = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %callback_map_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %callback_map_, align 8
   %slots_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %_M_engaged.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -1067,7 +1067,7 @@ declare void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN17grpc_event_engine12experimental12AresResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental12AresResolverE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN17grpc_event_engine12experimental12AresResolverE, i64 16), ptr %this, align 8
   %fd_node_list_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %fd_node_list_, align 8
   %cmp.i = icmp eq ptr %0, %fd_node_list_
@@ -2714,7 +2714,7 @@ invoke.cont17:                                    ; preds = %_ZSt17holds_alterna
 if.then.i.i35:                                    ; preds = %invoke.cont17
   %cmp.i.not.i.i.i = icmp eq i8 %5, -1
   %exception.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i, i64 8
   %.str.56..str.57 = select i1 %cmp.i.not.i.i.i, ptr @.str.56, ptr @.str.57
   store ptr %.str.56..str.57, ptr %_M_reason.i.i.i.i.i, align 8
@@ -4549,7 +4549,7 @@ invoke.cont17:                                    ; preds = %_ZSt17holds_alterna
 if.then.i.i17:                                    ; preds = %invoke.cont17
   %cmp.i.not.i.i.i = icmp eq i8 %5, -1
   %exception.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i, i64 8
   %.str.56..str.57 = select i1 %cmp.i.not.i.i.i, ptr @.str.56, ptr @.str.57
   store ptr %.str.56..str.57, ptr %_M_reason.i.i.i.i.i, align 8
@@ -5623,7 +5623,7 @@ invoke.cont17:                                    ; preds = %_ZSt17holds_alterna
 if.then.i.i21:                                    ; preds = %invoke.cont17
   %cmp.i.not.i.i.i = icmp eq i8 %5, -1
   %exception.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i, i64 8
   %.str.56..str.57 = select i1 %cmp.i.not.i.i.i, ptr @.str.56, ptr @.str.57
   store ptr %.str.56..str.57, ptr %_M_reason.i.i.i.i.i, align 8
@@ -6222,7 +6222,7 @@ call.i.noexc:                                     ; preds = %cond.true
           to label %.noexc unwind label %lpad.body.thread5
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.54, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.54, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.54, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.54, i64 2))
           to label %cleanup.action unwind label %lpad.body.thread
 
 lpad.body.thread:                                 ; preds = %.noexc
@@ -7337,7 +7337,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry

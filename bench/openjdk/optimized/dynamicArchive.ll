@@ -473,7 +473,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %50, %48, %19
   store i32 0, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr null, ptr %53, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15PointerRemarkerILb0EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV15PointerRemarkerILb0EE, i64 16), ptr %4, align 8
   %54 = load ptr, ptr %1, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 72
   %56 = load ptr, ptr %55, align 8
@@ -547,7 +547,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %50, %48, %19
   store i32 0, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr null, ptr %85, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15PointerRemarkerILb1EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV15PointerRemarkerILb1EE, i64 16), ptr %3, align 8
   %86 = load ptr, ptr %1, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 72
   %88 = load ptr, ptr %87, align 8
@@ -585,7 +585,7 @@ define hidden void @_ZNK21DynamicArchiveBuilder34remark_pointers_for_instance_kl
   store i32 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr null, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15PointerRemarkerILb1EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV15PointerRemarkerILb1EE, i64 16), ptr %4, align 8
   br label %14
 
 10:                                               ; preds = %3
@@ -595,7 +595,7 @@ define hidden void @_ZNK21DynamicArchiveBuilder34remark_pointers_for_instance_kl
   store i32 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr null, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15PointerRemarkerILb0EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV15PointerRemarkerILb0EE, i64 16), ptr %5, align 8
   br label %14
 
 14:                                               ; preds = %10, %6
@@ -1232,14 +1232,14 @@ define hidden void @_ZN14DynamicArchive12dump_at_exitEP10JavaThreadPKc(ptr nound
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %29, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV33VM_PopulateDynamicDumpSharedSpace, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV33VM_PopulateDynamicDumpSharedSpace, i64 16), ptr %4, align 8
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZN14ArchiveBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %30) #11
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV21DynamicArchiveBuilder, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV21DynamicArchiveBuilder, i64 16), ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 1096
   store ptr %1, ptr %31, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %4) #11
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV33VM_PopulateDynamicDumpSharedSpace, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV33VM_PopulateDynamicDumpSharedSpace, i64 16), ptr %4, align 8
   call void @_ZN18RegeneratedClasses7cleanupEv() #11
   call void @_ZN14ArchiveBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %30) #11
   br label %57
@@ -1346,14 +1346,14 @@ define hidden void @_ZN14DynamicArchive13dump_for_jcmdEPKcP10JavaThread(ptr noun
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV33VM_PopulateDynamicDumpSharedSpace, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV33VM_PopulateDynamicDumpSharedSpace, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZN14ArchiveBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %8) #11
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV21DynamicArchiveBuilder, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV21DynamicArchiveBuilder, i64 16), ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1096
   store ptr %0, ptr %9, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %3) #11
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV33VM_PopulateDynamicDumpSharedSpace, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV33VM_PopulateDynamicDumpSharedSpace, i64 16), ptr %3, align 8
   call void @_ZN18RegeneratedClasses7cleanupEv() #11
   call void @_ZN14ArchiveBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %8) #11
   br label %10
@@ -2267,7 +2267,7 @@ define linkonce_odr hidden void @_ZN21DynamicArchiveBuilder13iterate_rootsEP16Me
   store i32 2, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI10ArrayKlassEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI10ArrayKlassEE, i64 16), ptr %15, align 8
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %3, ptr %18, align 8
   call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %15) #11
@@ -2542,7 +2542,7 @@ _ZN14DynamicArchive18dump_array_klassesEv.exit:   ; preds = %.lr.ph.i, %57, %66
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %87 = load ptr, ptr %86, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV12WriteClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV12WriteClosure, i64 16), ptr %3, align 8
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %85, ptr %88, align 8
   call void @_ZN14ArchiveBuilder34serialize_dynamic_archivable_itemsEP16SerializeClosure(ptr noundef nonnull %3) #11

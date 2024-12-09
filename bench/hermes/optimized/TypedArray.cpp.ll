@@ -10205,7 +10205,7 @@ if.end24:                                         ; preds = %_ZN6hermes2vm6Handl
   br i1 %12, label %_ZN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb1EEC2ERNS0_7RuntimeENS0_6HandleINS0_16JSTypedArrayBaseEEENS6_INS0_8CallableEEE.exit, label %_ZN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb0EEC2ERNS0_7RuntimeENS0_6HandleINS0_16JSTypedArrayBaseEEENS6_INS0_8CallableEEE.exit
 
 _ZN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb1EEC2ERNS0_7RuntimeENS0_6HandleINS0_16JSTypedArrayBaseEEENS6_INS0_8CallableEEE.exit: ; preds = %if.end24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb1EEE, i64 16), ptr %sm, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb1EEE, i64 16), ptr %sm, align 8
   %runtime_.i = getelementptr inbounds nuw i8, ptr %sm, i64 8
   store ptr %runtime, ptr %runtime_.i, align 8
   %gcScope_.i = getelementptr inbounds nuw i8, ptr %sm, i64 16
@@ -10247,13 +10247,13 @@ _ZN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb1EEC2ERNS0_7RuntimeENS0_6Hand
   store i32 0, ptr %14, align 8
   %call33 = call noundef i32 @_ZN6hermes2vm9quickSortEPNS0_9SortModelEjj(ptr noundef nonnull %sm, i32 noundef 0, i32 noundef %4) #10
   %cmp34.not = icmp eq i32 %call33, 0
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb1EEE, i64 16), ptr %sm, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb1EEE, i64 16), ptr %sm, align 8
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope_.i) #10
   call void @_ZN6hermes2vm9SortModelD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %sm) #10
   br i1 %cmp34.not, label %return, label %if.end51
 
 _ZN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb0EEC2ERNS0_7RuntimeENS0_6HandleINS0_16JSTypedArrayBaseEEENS6_INS0_8CallableEEE.exit: ; preds = %if.end24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb0EEE, i64 16), ptr %sm37, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb0EEE, i64 16), ptr %sm37, align 8
   %runtime_.i18 = getelementptr inbounds nuw i8, ptr %sm37, i64 8
   store ptr %runtime, ptr %runtime_.i18, align 8
   %gcScope_.i19 = getelementptr inbounds nuw i8, ptr %sm37, i64 16
@@ -10295,7 +10295,7 @@ _ZN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb0EEC2ERNS0_7RuntimeENS0_6Hand
   store i32 0, ptr %16, align 8
   %call44 = call noundef i32 @_ZN6hermes2vm9quickSortEPNS0_9SortModelEjj(ptr noundef nonnull %sm37, i32 noundef 0, i32 noundef %4) #10
   %cmp45.not = icmp eq i32 %call44, 0
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb0EEE, i64 16), ptr %sm37, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb0EEE, i64 16), ptr %sm37, align 8
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope_.i19) #10
   call void @_ZN6hermes2vm9SortModelD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %sm37) #10
   br i1 %cmp45.not, label %return, label %if.end51
@@ -10317,7 +10317,7 @@ declare noundef i32 @_ZN6hermes2vm9quickSortEPNS0_9SortModelEjj(ptr noundef, i32
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb1EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb1EEE, i64 16), ptr %this, align 8
   %gcScope_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope_) #10
   tail call void @_ZN6hermes2vm9SortModelD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #10
@@ -10327,7 +10327,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb0EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb0EEE, i64 16), ptr %this, align 8
   %gcScope_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope_) #10
   tail call void @_ZN6hermes2vm9SortModelD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #10
@@ -13340,7 +13340,7 @@ cleanup:                                          ; preds = %_ZN6hermes2vm15Hand
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb1EED0Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb1EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb1EEE, i64 16), ptr %this, align 8
   %gcScope_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope_.i) #10
   tail call void @_ZN6hermes2vm9SortModelD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) #10
@@ -13550,7 +13550,7 @@ cleanup:                                          ; preds = %if.else, %if.end, %
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb0EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb0EEE, i64 16), ptr %this, align 8
   %gcScope_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope_.i) #10
   tail call void @_ZN6hermes2vm9SortModelD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) #10

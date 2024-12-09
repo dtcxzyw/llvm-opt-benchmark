@@ -4307,11 +4307,11 @@ if.then4.i:                                       ; preds = %if.end.i
   store i32 0, ptr %index.i, align 8
   %next.i = getelementptr inbounds nuw i8, ptr %call.i, i64 216
   store ptr null, ptr %next.i, align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @consoles, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @consoles, i64 8), align 8
   %tql_prev.i = getelementptr inbounds nuw i8, ptr %call.i, i64 224
   store ptr %4, ptr %tql_prev.i, align 8
   store ptr %call.i, ptr %4, align 8
-  store ptr %next.i, ptr getelementptr inbounds (i8, ptr @consoles, i64 8), align 8
+  store ptr %next.i, ptr getelementptr inbounds nuw (i8, ptr @consoles, i64 8), align 8
   br label %qemu_console_register.exit
 
 if.else.i:                                        ; preds = %if.end.i
@@ -4324,7 +4324,7 @@ lor.lhs.false9.i:                                 ; preds = %if.else.i
   br i1 %call10.i, label %if.then11.i, label %while.cond.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false9.i, %if.else.i
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @consoles, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @consoles, i64 8), align 8
   %tql_prev12.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load ptr, ptr %tql_prev12.i, align 8
   %7 = load ptr, ptr %6, align 8
@@ -4338,7 +4338,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false9.i, %
   %tql_prev19.i = getelementptr inbounds nuw i8, ptr %call.i, i64 224
   store ptr %5, ptr %tql_prev19.i, align 8
   store ptr %call.i, ptr %5, align 8
-  store ptr %next17.i, ptr getelementptr inbounds (i8, ptr @consoles, i64 8), align 8
+  store ptr %next17.i, ptr getelementptr inbounds nuw (i8, ptr @consoles, i64 8), align 8
   br label %qemu_console_register.exit
 
 while.cond.i:                                     ; preds = %lor.lhs.false9.i, %land.rhs.i
@@ -4377,7 +4377,7 @@ if.then39.i:                                      ; preds = %if.then31.i
   br label %if.end46.i
 
 if.else44.i:                                      ; preds = %if.then31.i
-  store ptr %next58.i, ptr getelementptr inbounds (i8, ptr @consoles, i64 8), align 8
+  store ptr %next58.i, ptr getelementptr inbounds nuw (i8, ptr @consoles, i64 8), align 8
   br label %if.end46.i
 
 if.end46.i:                                       ; preds = %if.else44.i, %if.then39.i

@@ -480,7 +480,7 @@ select.unfold29:                                  ; preds = %115, %109
 
 .thread24:                                        ; preds = %13, %38, %select.unfold, %.thread27, %67, %96, %select.unfold29, %.thread
   %124 = phi i32 [ 0, %.thread ], [ 0, %select.unfold29 ], [ 0, %96 ], [ %69, %67 ], [ 0, %.thread27 ], [ 0, %select.unfold ], [ 0, %38 ], [ %14, %13 ]
-  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mount_lock, i64 4)) #4
+  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mount_lock, i64 4)) #4
   %125 = load ptr, ptr %3, align 8
   %126 = icmp eq ptr %125, null
   br i1 %126, label %.loopexit, label %.preheader
@@ -508,7 +508,7 @@ select.unfold29:                                  ; preds = %115, %109
   br i1 %140, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %138, %.thread24
-  tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mount_lock, i64 4)) #4
+  tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mount_lock, i64 4)) #4
   ret i32 %124
 }
 
@@ -639,7 +639,7 @@ define internal fastcc i32 @propagate_one(ptr noundef %0, ptr noundef %1) unname
   br label %105
 
 86:                                               ; preds = %76
-  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mount_lock, i64 4)) #4
+  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mount_lock, i64 4)) #4
   tail call void @mnt_set_mountpoint(ptr noundef %0, ptr noundef %1, ptr noundef %81) #4
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %88 = load ptr, ptr %87, align 8
@@ -655,7 +655,7 @@ define internal fastcc i32 @propagate_one(ptr noundef %0, ptr noundef %1) unname
   br label %95
 
 95:                                               ; preds = %91, %86
-  tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mount_lock, i64 4)) #4
+  tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mount_lock, i64 4)) #4
   store ptr %0, ptr @last_dest, align 8
   store ptr %81, ptr @last_source, align 8
   %96 = load ptr, ptr @list, align 8

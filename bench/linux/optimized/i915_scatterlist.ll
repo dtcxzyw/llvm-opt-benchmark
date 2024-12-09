@@ -115,7 +115,7 @@ define dso_local void @i915_refct_sgt_init(ptr noundef %0, i64 noundef %1) local
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @i915_rsgt_from_mm_node(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = sub i32 0, %2
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %6 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3264, i64 noundef 40) #10
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread, label %8
@@ -306,7 +306,7 @@ define dso_local noundef ptr @i915_rsgt_from_buddy_resource(ptr noundef readonly
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %11 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3264, i64 noundef 40) #10
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.thread, label %13

@@ -171,7 +171,7 @@ $_ZTV15PerfLongCounter = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 25), (28, 32), (40, 48)) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -247,7 +247,7 @@ declare noundef i32 @_ZN2os16snprintf_checkedEPcmPKcz(ptr noundef, i64 noundef, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN8PerfDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #15
@@ -401,7 +401,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN8PerfLongC2E9CounterNSPKcN8PerfData5UnitsENS3_11VariabilityE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 25), (28, 32), (40, 48)) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfLong, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfLong, i64 16), ptr %0, align 8
   tail call void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 noundef zeroext 11, i64 noundef 8, i64 noundef 0)
   ret void
 }
@@ -409,9 +409,9 @@ define hidden void @_ZN8PerfLongC2E9CounterNSPKcN8PerfData5UnitsENS3_11Variabili
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15PerfLongVariantC2E9CounterNSPKcN8PerfData5UnitsENS3_11VariabilityEP20PerfLongSampleHelper(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 25), (28, 32), (40, 48)) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
   tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfLong, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfLong, i64 16), ptr %0, align 8
   tail call void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 noundef zeroext 11, i64 noundef 8, i64 noundef 0)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV15PerfLongVariant, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV15PerfLongVariant, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %5, ptr %7, align 8
   %.not.i = icmp eq ptr %5, null
@@ -453,7 +453,7 @@ define hidden void @_ZN15PerfLongVariant6sampleEv(ptr nocapture noundef nonnull 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13PerfByteArrayC2E9CounterNSPKcN8PerfData5UnitsENS3_11VariabilityEi(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 25), (28, 32), (40, 48)) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 align 2 {
   tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13PerfByteArray, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV13PerfByteArray, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %5, ptr %7, align 8
   %8 = sext i32 %5 to i64
@@ -490,7 +490,7 @@ define hidden void @_ZN18PerfStringConstantC2E9CounterNSPKcS2_(ptr nocapture nou
 
 .split5:                                          ; preds = %4
   tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1, ptr noundef %2, i32 noundef 5, i32 noundef 1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13PerfByteArray, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV13PerfByteArray, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 1, ptr %6, align 8
   tail call void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull align 8 dereferenceable(52) %0, i8 noundef zeroext 8, i64 noundef 1, i64 noundef 1)
@@ -513,12 +513,12 @@ define hidden void @_ZN18PerfStringConstantC2E9CounterNSPKcS2_(ptr nocapture nou
   %16 = add nsw i32 %15, 1
   %17 = tail call noundef i32 @llvm.smin.i32(i32 %14, i32 %16)
   tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1, ptr noundef %2, i32 noundef 5, i32 noundef 1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13PerfByteArray, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV13PerfByteArray, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %17, ptr %18, align 8
   %19 = sext i32 %17 to i64
   tail call void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull align 8 dereferenceable(52) %0, i8 noundef zeroext 8, i64 noundef 1, i64 noundef %19)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV10PerfString, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV10PerfString, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
   %.not.i6 = icmp eq ptr %21, null
@@ -542,7 +542,7 @@ _ZN10PerfStringC2E9CounterNSPKcN8PerfData11VariabilityEiS2_.exit.sink.split: ; p
   br label %_ZN10PerfStringC2E9CounterNSPKcN8PerfData11VariabilityEiS2_.exit
 
 _ZN10PerfStringC2E9CounterNSPKcN8PerfData11VariabilityEiS2_.exit: ; preds = %_ZN10PerfStringC2E9CounterNSPKcN8PerfData11VariabilityEiS2_.exit.sink.split, %.split, %.split5
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV18PerfStringConstant, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV18PerfStringConstant, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -1006,7 +1006,7 @@ define hidden noundef ptr @_ZN15PerfDataManager22create_string_constantE9Counter
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(52) %5) #15
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %3, ptr noundef nonnull @.str.37, i32 noundef 364, ptr noundef %12, ptr noundef null) #15
   br label %14
 
@@ -1025,9 +1025,9 @@ declare void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr nound
 define hidden noundef ptr @_ZN15PerfDataManager20create_long_constantE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 9, i32 noundef 0) #15
   tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(48) %6, i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfLong, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfLong, i64 16), ptr %6, align 8
   tail call void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 noundef zeroext 11, i64 noundef 8, i64 noundef 0)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV16PerfLongConstant, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV16PerfLongConstant, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
@@ -1044,11 +1044,11 @@ _ZN16PerfLongConstantC2E9CounterNSPKcN8PerfData5UnitsEl.exit._ZN16PerfLongConsta
   br label %_ZN16PerfLongConstantC2E9CounterNSPKcN8PerfData5UnitsEl.exit.thread
 
 _ZN16PerfLongConstantC2E9CounterNSPKcN8PerfData5UnitsEl.exit.thread: ; preds = %_ZN16PerfLongConstantC2E9CounterNSPKcN8PerfData5UnitsEl.exit._ZN16PerfLongConstantC2E9CounterNSPKcN8PerfData5UnitsEl.exit.thread_crit_edge, %5
-  %9 = phi ptr [ %.pre, %_ZN16PerfLongConstantC2E9CounterNSPKcN8PerfData5UnitsEl.exit._ZN16PerfLongConstantC2E9CounterNSPKcN8PerfData5UnitsEl.exit.thread_crit_edge ], [ getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV16PerfLongConstant, i64 16), %5 ]
+  %9 = phi ptr [ %.pre, %_ZN16PerfLongConstantC2E9CounterNSPKcN8PerfData5UnitsEl.exit._ZN16PerfLongConstantC2E9CounterNSPKcN8PerfData5UnitsEl.exit.thread_crit_edge ], [ getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV16PerfLongConstant, i64 16), %5 ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(48) %6) #15
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %4, ptr noundef nonnull @.str.37, i32 noundef 382, ptr noundef %12, ptr noundef null) #15
   br label %14
 
@@ -1078,12 +1078,12 @@ define hidden noundef ptr @_ZN15PerfDataManager22create_string_variableE9Counter
   %12 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 9, i32 noundef 0) #15
   %13 = add nsw i32 %.016, 1
   tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(52) %12, i32 noundef %0, ptr noundef %1, i32 noundef 5, i32 noundef 3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13PerfByteArray, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV13PerfByteArray, i64 16), ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store i32 %13, ptr %14, align 8
   %15 = sext i32 %13 to i64
   tail call void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull align 8 dereferenceable(52) %12, i8 noundef zeroext 8, i64 noundef 1, i64 noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV10PerfString, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV10PerfString, i64 16), ptr %12, align 8
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %17 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %17, null
@@ -1102,12 +1102,12 @@ _ZN18PerfStringVariableC2E9CounterNSPKciS2_.exit: ; preds = %11
   %27 = getelementptr i8, ptr %26, i64 -1
   store i8 0, ptr %27, align 1
   %.pr = load ptr, ptr %16, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV18PerfStringVariable, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV18PerfStringVariable, i64 16), ptr %12, align 8
   %.not = icmp eq ptr %.pr, null
   br i1 %.not, label %_ZN18PerfStringVariableC2E9CounterNSPKciS2_.exit.thread, label %37
 
 _ZN18PerfStringVariableC2E9CounterNSPKciS2_.exit.thread: ; preds = %11, %_ZN18PerfStringVariableC2E9CounterNSPKciS2_.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %12, align 8
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %29 = load ptr, ptr %28, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %29) #15
@@ -1124,7 +1124,7 @@ _ZN18PerfStringVariableC2E9CounterNSPKciS2_.exit.thread: ; preds = %11, %_ZN18Pe
 
 _ZN18PerfStringVariableD0Ev.exit:                 ; preds = %_ZN18PerfStringVariableC2E9CounterNSPKciS2_.exit.thread, %33
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull align 8 dereferenceable(52) %12) #15
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %4, ptr noundef nonnull @.str.37, i32 noundef 405, ptr noundef %36, ptr noundef null) #15
   br label %38
 
@@ -1141,7 +1141,7 @@ _ZN18PerfStringVariableD0Ev.exit:                 ; preds = %_ZN18PerfStringVari
 define hidden noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 9, i32 noundef 0) #15
   tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(56) %6, i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfLong, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfLong, i64 16), ptr %6, align 8
   tail call void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 noundef zeroext 11, i64 noundef 8, i64 noundef 0)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
@@ -1151,12 +1151,12 @@ define hidden noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNS
 _ZN16PerfLongVariableC2E9CounterNSPKcN8PerfData5UnitsEl.exit: ; preds = %5
   store i64 %3, ptr %8, align 8
   %.pr = load ptr, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV16PerfLongVariable, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV16PerfLongVariable, i64 16), ptr %6, align 8
   %.not = icmp eq ptr %.pr, null
   br i1 %.not, label %_ZN16PerfLongVariableC2E9CounterNSPKcN8PerfData5UnitsEl.exit.thread, label %18
 
 _ZN16PerfLongVariableC2E9CounterNSPKcN8PerfData5UnitsEl.exit.thread: ; preds = %5, %_ZN16PerfLongVariableC2E9CounterNSPKcN8PerfData5UnitsEl.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %10) #15
@@ -1173,7 +1173,7 @@ _ZN16PerfLongVariableC2E9CounterNSPKcN8PerfData5UnitsEl.exit.thread: ; preds = %
 
 _ZN16PerfLongVariableD0Ev.exit:                   ; preds = %_ZN16PerfLongVariableC2E9CounterNSPKcN8PerfData5UnitsEl.exit.thread, %14
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull align 8 dereferenceable(56) %6) #15
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %4, ptr noundef nonnull @.str.37, i32 noundef 423, ptr noundef %17, ptr noundef null) #15
   br label %19
 
@@ -1195,9 +1195,9 @@ define hidden noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNS
 8:                                                ; preds = %5
   %9 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 9, i32 noundef 0) #15
   tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(56) %9, i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfLong, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfLong, i64 16), ptr %9, align 8
   tail call void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 noundef zeroext 11, i64 noundef 8, i64 noundef 0)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV15PerfLongVariant, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV15PerfLongVariant, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %3, ptr %10, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -1213,14 +1213,14 @@ define hidden noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNS
   br label %_ZN16PerfLongVariableC2E9CounterNSPKcN8PerfData5UnitsEP20PerfLongSampleHelper.exit
 
 _ZN16PerfLongVariableC2E9CounterNSPKcN8PerfData5UnitsEP20PerfLongSampleHelper.exit: ; preds = %8, %11
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV16PerfLongVariable, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV16PerfLongVariable, i64 16), ptr %9, align 8
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %19, label %29
 
 19:                                               ; preds = %_ZN16PerfLongVariableC2E9CounterNSPKcN8PerfData5UnitsEP20PerfLongSampleHelper.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %9, align 8
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %21) #15
@@ -1237,7 +1237,7 @@ _ZN16PerfLongVariableC2E9CounterNSPKcN8PerfData5UnitsEP20PerfLongSampleHelper.ex
 
 _ZN16PerfLongVariableD0Ev.exit:                   ; preds = %19, %25
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull align 8 dereferenceable(56) %9) #15
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %4, ptr noundef nonnull @.str.37, i32 noundef 445, ptr noundef %28, ptr noundef null) #15
   br label %30
 
@@ -1254,7 +1254,7 @@ _ZN16PerfLongVariableD0Ev.exit:                   ; preds = %19, %25
 define hidden noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 9, i32 noundef 0) #15
   tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(56) %6, i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 2)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfLong, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfLong, i64 16), ptr %6, align 8
   tail call void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 noundef zeroext 11, i64 noundef 8, i64 noundef 0)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
@@ -1264,12 +1264,12 @@ define hidden noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSP
 _ZN15PerfLongCounterC2E9CounterNSPKcN8PerfData5UnitsEl.exit: ; preds = %5
   store i64 %3, ptr %8, align 8
   %.pr = load ptr, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV15PerfLongCounter, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV15PerfLongCounter, i64 16), ptr %6, align 8
   %.not = icmp eq ptr %.pr, null
   br i1 %.not, label %_ZN15PerfLongCounterC2E9CounterNSPKcN8PerfData5UnitsEl.exit.thread, label %18
 
 _ZN15PerfLongCounterC2E9CounterNSPKcN8PerfData5UnitsEl.exit.thread: ; preds = %5, %_ZN15PerfLongCounterC2E9CounterNSPKcN8PerfData5UnitsEl.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %10) #15
@@ -1286,7 +1286,7 @@ _ZN15PerfLongCounterC2E9CounterNSPKcN8PerfData5UnitsEl.exit.thread: ; preds = %5
 
 _ZN15PerfLongCounterD0Ev.exit:                    ; preds = %_ZN15PerfLongCounterC2E9CounterNSPKcN8PerfData5UnitsEl.exit.thread, %14
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull align 8 dereferenceable(56) %6) #15
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %4, ptr noundef nonnull @.str.37, i32 noundef 463, ptr noundef %17, ptr noundef null) #15
   br label %19
 
@@ -1308,9 +1308,9 @@ define hidden noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSP
 8:                                                ; preds = %5
   %9 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 9, i32 noundef 0) #15
   tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(56) %9, i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 2)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfLong, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfLong, i64 16), ptr %9, align 8
   tail call void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 noundef zeroext 11, i64 noundef 8, i64 noundef 0)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV15PerfLongVariant, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV15PerfLongVariant, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %3, ptr %10, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -1326,14 +1326,14 @@ define hidden noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSP
   br label %_ZN15PerfLongCounterC2E9CounterNSPKcN8PerfData5UnitsEP20PerfLongSampleHelper.exit
 
 _ZN15PerfLongCounterC2E9CounterNSPKcN8PerfData5UnitsEP20PerfLongSampleHelper.exit: ; preds = %8, %11
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV15PerfLongCounter, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV15PerfLongCounter, i64 16), ptr %9, align 8
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %19, label %29
 
 19:                                               ; preds = %_ZN15PerfLongCounterC2E9CounterNSPKcN8PerfData5UnitsEP20PerfLongSampleHelper.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %9, align 8
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %21) #15
@@ -1350,7 +1350,7 @@ _ZN15PerfLongCounterC2E9CounterNSPKcN8PerfData5UnitsEP20PerfLongSampleHelper.exi
 
 _ZN15PerfLongCounterD0Ev.exit:                    ; preds = %19, %25
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull align 8 dereferenceable(56) %9) #15
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %4, ptr noundef nonnull @.str.37, i32 noundef 485, ptr noundef %28, ptr noundef null) #15
   br label %30
 
@@ -1572,7 +1572,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN15PerfLongVariantD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #15
@@ -1593,7 +1593,7 @@ _ZN8PerfLongD2Ev.exit:                            ; preds = %1, %7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN15PerfLongVariantD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #15
@@ -1721,7 +1721,7 @@ define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE112ELS1_31E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8PerfLongD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #15
@@ -1748,7 +1748,7 @@ define linkonce_odr hidden void @_ZN8PerfLongD0Ev(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN13PerfByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #15
@@ -1775,7 +1775,7 @@ define linkonce_odr hidden void @_ZN13PerfByteArrayD0Ev(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18PerfStringConstantD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #15
@@ -1796,7 +1796,7 @@ _ZN10PerfStringD2Ev.exit:                         ; preds = %1, %7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18PerfStringConstantD0Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #15
@@ -1826,7 +1826,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10PerfStringD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #15
@@ -1965,7 +1965,7 @@ declare void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN16PerfLongConstantD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #15
@@ -1986,7 +1986,7 @@ _ZN8PerfLongD2Ev.exit:                            ; preds = %1, %7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN16PerfLongConstantD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #15
@@ -2013,7 +2013,7 @@ define linkonce_odr hidden void @_ZN16PerfLongConstant6sampleEv(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18PerfStringVariableD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #15
@@ -2034,7 +2034,7 @@ _ZN10PerfStringD2Ev.exit:                         ; preds = %1, %7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18PerfStringVariableD0Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #15
@@ -2061,7 +2061,7 @@ define linkonce_odr hidden void @_ZN18PerfStringVariable6sampleEv(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN16PerfLongVariableD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #15
@@ -2082,7 +2082,7 @@ _ZN15PerfLongVariantD2Ev.exit:                    ; preds = %1, %7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN16PerfLongVariableD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #15
@@ -2104,7 +2104,7 @@ _ZN16PerfLongVariableD2Ev.exit:                   ; preds = %1, %7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN15PerfLongCounterD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #15
@@ -2125,7 +2125,7 @@ _ZN15PerfLongVariantD2Ev.exit:                    ; preds = %1, %7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN15PerfLongCounterD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #15

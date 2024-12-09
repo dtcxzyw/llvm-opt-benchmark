@@ -300,7 +300,7 @@ define dso_local void @nlmsvc_locks_init_private(ptr nocapture noundef writeonly
 
 .thread:                                          ; preds = %6, %24
   tail call void @_raw_spin_unlock(ptr noundef nonnull %4) #9
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %27 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %26, i32 noundef 3264, i64 noundef 48) #10
   tail call void @_raw_spin_lock(ptr noundef nonnull %4) #9
   br label %28
@@ -404,7 +404,7 @@ define dso_local range(i32 0, 812974081) i32 @nlmsvc_lock(ptr noundef %0, ptr no
   br i1 %31, label %.thread, label %32
 
 32:                                               ; preds = %29
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %34 = tail call noalias noundef align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %33, i32 noundef 3520, i64 noundef 112) #10
   %35 = icmp eq ptr %34, null
   br i1 %35, label %71, label %36
@@ -677,8 +677,8 @@ define dso_local range(i32 0, 812974081) i32 @nlmsvc_lock(ptr noundef %0, ptr no
   br label %192
 
 192:                                              ; preds = %188, %187, %183, %182
-  %193 = load ptr, ptr getelementptr inbounds (i8, ptr @nlm_blocked, i64 8), align 8
-  store ptr %176, ptr getelementptr inbounds (i8, ptr @nlm_blocked, i64 8), align 8
+  %193 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @nlm_blocked, i64 8), align 8
+  store ptr %176, ptr getelementptr inbounds nuw (i8, ptr @nlm_blocked, i64 8), align 8
   store ptr @nlm_blocked, ptr %176, align 8
   %194 = getelementptr inbounds nuw i8, ptr %105, i64 16
   store ptr %193, ptr %194, align 8
@@ -2084,8 +2084,8 @@ nlmsvc_insert_block_locked.exit:                  ; preds = %59, %63
   br label %143
 
 143:                                              ; preds = %139, %138, %134, %133
-  %144 = load ptr, ptr getelementptr inbounds (i8, ptr @nlm_blocked, i64 8), align 8
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @nlm_blocked, i64 8), align 8
+  %144 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @nlm_blocked, i64 8), align 8
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @nlm_blocked, i64 8), align 8
   store ptr @nlm_blocked, ptr %19, align 8
   %145 = getelementptr i8, ptr %19, i64 8
   store ptr %144, ptr %145, align 8
@@ -2204,8 +2204,8 @@ nlmsvc_insert_block_locked.exit10:                ; preds = %169, %173
   br label %199
 
 199:                                              ; preds = %195, %194, %190, %189
-  %200 = load ptr, ptr getelementptr inbounds (i8, ptr @nlm_blocked, i64 8), align 8
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @nlm_blocked, i64 8), align 8
+  %200 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @nlm_blocked, i64 8), align 8
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @nlm_blocked, i64 8), align 8
   store ptr @nlm_blocked, ptr %19, align 8
   %201 = getelementptr i8, ptr %19, i64 8
   store ptr %200, ptr %201, align 8

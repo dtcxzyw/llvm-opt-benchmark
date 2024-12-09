@@ -146,7 +146,7 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal i32 @cstate_pmu_init() #0 section ".init.text" align 16 {
-  %1 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %1 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %2 = and i64 %1, 2147483648
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %4, label %15
@@ -219,7 +219,7 @@ define internal fastcc range(i32 -19, 1) i32 @cstate_probe(ptr noundef %0) unnam
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %1
-  store i64 1018, ptr getelementptr inbounds (i8, ptr @pkg_msr, i64 80), align 16
+  store i64 1018, ptr getelementptr inbounds nuw (i8, ptr @pkg_msr, i64 80), align 16
   %.pre = load i64, ptr %2, align 8
   br label %7
 
@@ -230,7 +230,7 @@ define internal fastcc range(i32 -19, 1) i32 @cstate_probe(ptr noundef %0) unnam
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %7
-  store i64 1023, ptr getelementptr inbounds (i8, ptr @pkg_msr, i64 80), align 16
+  store i64 1023, ptr getelementptr inbounds nuw (i8, ptr @pkg_msr, i64 80), align 16
   br label %12
 
 12:                                               ; preds = %11, %7
@@ -268,7 +268,7 @@ define internal fastcc i32 @cstate_init() unnamed_addr #0 section ".init.text" a
   br i1 %4, label %21, label %5
 
 5:                                                ; preds = %0
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @cstate_core_pmu, i64 56), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cstate_core_pmu, i64 56), align 8
   %7 = tail call i32 @perf_pmu_register(ptr noundef nonnull @cstate_core_pmu, ptr noundef %6, i32 noundef -1) #7
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %21, label %9
@@ -308,7 +308,7 @@ define internal fastcc i32 @cstate_init() unnamed_addr #0 section ".init.text" a
 24:                                               ; preds = %21
   %25 = load i32, ptr @__max_die_per_package, align 4
   %26 = icmp sgt i32 %25, 1
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @cstate_pkg_pmu, i64 56), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cstate_pkg_pmu, i64 56), align 8
   %.sink = select i1 %26, ptr @.str.19, ptr %27
   %28 = tail call i32 @perf_pmu_register(ptr noundef nonnull @cstate_pkg_pmu, ptr noundef %.sink, i32 noundef -1) #7
   %29 = icmp eq i32 %28, 0
@@ -347,7 +347,7 @@ define internal fastcc i32 @cstate_init() unnamed_addr #0 section ".init.text" a
   br i1 %44, label %63, label %45
 
 45:                                               ; preds = %42
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @cstate_module_pmu, i64 56), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cstate_module_pmu, i64 56), align 8
   %47 = tail call i32 @perf_pmu_register(ptr noundef nonnull @cstate_module_pmu, ptr noundef %46, i32 noundef -1) #7
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %63, label %49
@@ -856,7 +856,7 @@ define internal noundef i32 @cstate_pmu_event_add(ptr noundef %0, i32 noundef %1
   %11 = extractvalue { i64, i64 } %9, 1
   %12 = shl i64 %11, 32
   %13 = or i64 %12, %10
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #7
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #7
           to label %15 [label %14], !srcloc !18
 
 14:                                               ; preds = %5
@@ -888,7 +888,7 @@ define internal void @cstate_pmu_event_del(ptr noundef %0, i32 %1) #3 align 16 {
   %12 = extractvalue { i64, i64 } %10, 1
   %13 = shl i64 %12, 32
   %14 = or i64 %13, %11
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #7
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #7
           to label %16 [label %15], !srcloc !18
 
 15:                                               ; preds = %6
@@ -924,7 +924,7 @@ define internal void @cstate_pmu_event_start(ptr noundef %0, i32 %1) #3 align 16
   %8 = extractvalue { i64, i64 } %6, 1
   %9 = shl i64 %8, 32
   %10 = or i64 %9, %7
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #7
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #7
           to label %12 [label %11], !srcloc !18
 
 11:                                               ; preds = %2
@@ -953,7 +953,7 @@ define internal void @cstate_pmu_event_stop(ptr noundef %0, i32 %1) #3 align 16 
   %12 = extractvalue { i64, i64 } %10, 1
   %13 = shl i64 %12, 32
   %14 = or i64 %13, %11
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #7
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #7
           to label %16 [label %15], !srcloc !18
 
 15:                                               ; preds = %6
@@ -995,7 +995,7 @@ define internal void @cstate_pmu_event_update(ptr noundef %0) #3 align 16 {
   %11 = extractvalue { i64, i64 } %9, 1
   %12 = shl i64 %11, 32
   %13 = or i64 %12, %10
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #7
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #7
           to label %15 [label %14], !srcloc !18
 
 14:                                               ; preds = %5

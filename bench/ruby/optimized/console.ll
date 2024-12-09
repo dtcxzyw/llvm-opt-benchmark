@@ -118,9 +118,9 @@ define void @Init_console() local_unnamed_addr #0 {
   %7 = tail call i64 @rb_intern(ptr noundef nonnull @.str.6) #10
   store i64 %7, ptr @rawmode_opt_ids, align 16
   %8 = tail call i64 @rb_intern(ptr noundef nonnull @.str.7) #10
-  store i64 %8, ptr getelementptr inbounds (i8, ptr @rawmode_opt_ids, i64 8), align 8
+  store i64 %8, ptr getelementptr inbounds nuw (i8, ptr @rawmode_opt_ids, i64 8), align 8
   %9 = tail call i64 @rb_intern(ptr noundef nonnull @.str.8) #10
-  store i64 %9, ptr getelementptr inbounds (i8, ptr @rawmode_opt_ids, i64 16), align 16
+  store i64 %9, ptr getelementptr inbounds nuw (i8, ptr @rawmode_opt_ids, i64 16), align 16
   %10 = tail call i64 @rb_intern(ptr noundef nonnull @.str.9) #10
   store i64 %10, ptr @id___send__, align 8
   tail call void @InitVM_console()

@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @flex128_init() #0 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 392), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 392), align 8
   %or.cond = icmp ult i32 %1, 64
   br i1 %or.cond, label %2, label %8
 
@@ -60,7 +60,7 @@ define internal noundef i32 @flex128_init() #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @flex128_finalize() #0 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 392), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 392), align 8
   %or.cond = icmp ult i32 %1, 64
   br i1 %or.cond, label %2, label %8
 

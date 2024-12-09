@@ -49,7 +49,7 @@ define i32 @mca_vprotocol_pessimist_start(i64 noundef %0, ptr noundef %1) local_
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 488
-  %11 = load i8, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 720), align 16
+  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 720), align 16
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %17
 
@@ -68,7 +68,7 @@ define i32 @mca_vprotocol_pessimist_start(i64 noundef %0, ptr noundef %1) local_
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %17, %2
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_v, i64 424), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_v, i64 424), align 8
   %20 = tail call i32 %19(i64 noundef %0, ptr noundef %1) #2
   br label %.loopexit
 

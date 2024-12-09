@@ -7118,7 +7118,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.then8:                                         ; preds = %if.end
   %arrayidx3.i = getelementptr i8, ptr %core, i64 131720
-  tail call fastcc void @e1000e_start_xmit(ptr noundef nonnull %core, ptr nonnull getelementptr inbounds (i8, ptr @e1000e_tx_ring_init.i, i64 24), ptr %arrayidx3.i)
+  tail call fastcc void @e1000e_start_xmit(ptr noundef nonnull %core, ptr nonnull getelementptr inbounds nuw (i8, ptr @e1000e_tx_ring_init.i, i64 24), ptr %arrayidx3.i)
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then8, %if.end

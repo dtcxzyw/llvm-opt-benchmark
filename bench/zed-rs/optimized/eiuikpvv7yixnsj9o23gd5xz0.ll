@@ -4222,7 +4222,7 @@ define hidden noundef align 8 ptr @"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef range(i8 0, 3) i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17h33f5f1d37422b776E() unnamed_addr #1 {
-  %1 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN4zbus5proxy12SignalStream3new28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h1c631e525e25b092E", i64 16) monotonic, align 8
+  %1 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN4zbus5proxy12SignalStream3new28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h1c631e525e25b092E", i64 16) monotonic, align 8
   %2 = icmp ult i8 %1, 3
   br i1 %2, label %switch.lookup, label %3
 
@@ -17206,7 +17206,7 @@ _ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.exit.i: ; preds = %2
   unreachable
 
 "_ZN73_$LT$std..hash..random..RandomState$u20$as$u20$core..default..Default$GT$7default17h88eafc59ef37454bE.exit": ; preds = %2, %_ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.exit.i
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %16, %_ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.exit.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %2 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %16, %_ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.exit.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %2 ]
   %19 = load i64, ptr %.sroa.0.0.i.i.i2.i, align 8, !noalias !4572, !noundef !4
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i, i64 8
   %21 = load i64, ptr %20, align 8, !noalias !4572, !noundef !4
@@ -76271,7 +76271,7 @@ default.unreachable45:                            ; preds = %40, %24, %3
   resume { ptr, i32 } %.pn6
 
 15:                                               ; preds = %3
-  %16 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5ashpd5proxy7SESSION17ha767e7315b0e2159E, i64 8) acquire, align 8
+  %16 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ashpd5proxy7SESSION17ha767e7315b0e2159E, i64 8) acquire, align 8
   %.not = icmp eq i32 %16, 4
   br i1 %.not, label %17, label %.thread46
 
@@ -76778,7 +76778,7 @@ common.ret:                                       ; preds = %"_ZN67_$LT$zbus..co
   call void @llvm.assume(i1 %160)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %.sroa.3.0.i40, ptr %6, align 8
-  %161 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5ashpd5proxy7SESSION17ha767e7315b0e2159E, i64 8) acquire, align 8
+  %161 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ashpd5proxy7SESSION17ha767e7315b0e2159E, i64 8) acquire, align 8
   %.not.i.i = icmp eq i32 %161, 4
   br i1 %.not.i.i, label %162, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h3edb36f0d424cee0E.exit.i.i"
 

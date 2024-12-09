@@ -2787,13 +2787,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit481:              ; preds = %1299, %1301
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit: ; preds = %1306, %1309
   store ptr @.str.77, ptr %1236, align 8, !alias.scope !11
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJiiEEE, i64 16), ptr %37, align 8, !alias.scope !11
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJiiEEE, i64 16), ptr %37, align 8, !alias.scope !11
   store i32 %1256, ptr %1237, align 8, !alias.scope !11
   store i32 %1254, ptr %1238, align 4, !alias.scope !11
   %1310 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %37) #19
   %1311 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #19
   store ptr @.str.78, ptr %1239, align 8, !alias.scope !14
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJPKcEEE, i64 16), ptr %38, align 8, !alias.scope !14
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJPKcEEE, i64 16), ptr %38, align 8, !alias.scope !14
   store ptr %1311, ptr %1240, align 8, !alias.scope !14
   %1312 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %38) #19
   %1313 = icmp eq i32 %1256, 0
@@ -2802,14 +2802,14 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 
 1315:                                             ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
   store ptr @.str.79, ptr %1245, align 8, !alias.scope !17
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJiPKcEEE, i64 16), ptr %39, align 8, !alias.scope !17
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJiPKcEEE, i64 16), ptr %39, align 8, !alias.scope !17
   store ptr %1314, ptr %1246, align 8, !alias.scope !17
   store i32 %1254, ptr %1247, align 8, !alias.scope !17
   br label %1317
 
 1316:                                             ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
   store ptr @.str.80, ptr %1241, align 8, !alias.scope !20
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJiiPKcEEE, i64 16), ptr %40, align 8, !alias.scope !20
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJiiPKcEEE, i64 16), ptr %40, align 8, !alias.scope !20
   store ptr %1314, ptr %1242, align 8, !alias.scope !20
   store i32 %1256, ptr %1243, align 8, !alias.scope !20
   store i32 %1254, ptr %1244, align 4, !alias.scope !20
@@ -3743,9 +3743,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit569:              ; preds = %1704, %1706
   store ptr %1618, ptr %1619, align 8, !alias.scope !32
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !alias.scope !32
   store i8 1, ptr %1620, align 8, !alias.scope !32
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRNS_9StringRefEEE, i64 16), ptr %1621, align 8, !alias.scope !32
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRNS_9StringRefEEE, i64 16), ptr %1621, align 8, !alias.scope !32
   store ptr %49, ptr %1622, align 8, !alias.scope !32
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRNS_9StringRefEEE, i64 16), ptr %1623, align 8, !alias.scope !32
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRNS_9StringRefEEE, i64 16), ptr %1623, align 8, !alias.scope !32
   store ptr %48, ptr %1624, align 8, !alias.scope !32
   store ptr %1623, ptr %1618, align 8, !alias.scope !32
   store ptr %1621, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !32

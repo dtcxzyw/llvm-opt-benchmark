@@ -638,14 +638,14 @@ define hidden range(i32 -1, 1) i32 @mbedtls_chacha20_self_test(i32 noundef %0) l
   store i32 857760878, ptr %6, align 4
   store i32 2036477234, ptr %7, align 8
   store i32 1797285236, ptr %8, align 4
-  %gep = getelementptr inbounds nuw [2 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @test_keys, i64 28), i64 0, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [2 x [32 x i8]], ptr getelementptr inbounds nuw (i8, ptr @test_keys, i64 28), i64 0, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %9, i8 0, i64 28, i1 false)
   %25 = load i32, ptr %gep, align 4
   store i32 %25, ptr %10, align 4
   store i32 %21, ptr %11, align 8
   store i32 0, ptr %12, align 4
   store i32 0, ptr %13, align 8
-  %gep22 = getelementptr inbounds nuw [2 x [12 x i8]], ptr getelementptr inbounds (i8, ptr @test_nonces, i64 8), i64 0, i64 %indvars.iv
+  %gep22 = getelementptr inbounds nuw [2 x [12 x i8]], ptr getelementptr inbounds nuw (i8, ptr @test_nonces, i64 8), i64 0, i64 %indvars.iv
   %26 = load i32, ptr %gep22, align 4
   store i32 %26, ptr %14, align 4
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 64) #10

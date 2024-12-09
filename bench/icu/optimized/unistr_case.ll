@@ -132,7 +132,7 @@ if.end:                                           ; preds = %entry
 
 _ZNK6icu_7513UnicodeString16isBufferWritableEv.exit.thread: ; preds = %if.end
   store i32 0, ptr %errorCode, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %oldString, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %oldString, align 8
   %fUnion2.i87 = getelementptr inbounds nuw i8, ptr %oldString, i64 8
   store i16 2, ptr %fUnion2.i87, align 8
   br label %cond.false
@@ -144,7 +144,7 @@ land.rhs.i:                                       ; preds = %if.end
 
 _ZNK6icu_7513UnicodeString16isBufferWritableEv.exit.thread91: ; preds = %land.rhs.i
   store i32 0, ptr %errorCode, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %oldString, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %oldString, align 8
   %fUnion2.i93 = getelementptr inbounds nuw i8, ptr %oldString, i64 8
   store i16 2, ptr %fUnion2.i93, align 8
   br label %cond.true
@@ -153,7 +153,7 @@ _ZNK6icu_7513UnicodeString16isBufferWritableEv.exit: ; preds = %land.rhs.i
   %call.i = tail call noundef i32 @_ZNK6icu_7513UnicodeString8refCountEv(ptr noundef nonnull align 8 dereferenceable(64) %this)
   %cmp.i42.not = icmp eq i32 %call.i, 1
   store i32 0, ptr %errorCode, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %oldString, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %oldString, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %oldString, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   br i1 %cmp.i42.not, label %cond.true, label %cond.false

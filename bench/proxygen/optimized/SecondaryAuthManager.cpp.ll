@@ -130,7 +130,7 @@ $_ZSt19piecewise_construct = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen20SecondaryAuthManagerC2ESt10unique_ptrIN4fizz8SelfCertESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 12), (24, 28), (32, 40)) %this, ptr nocapture noundef %cert) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen20SecondaryAuthManagerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen20SecondaryAuthManagerE, i64 16), ptr %this, align 8
   %requestIdCounter_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 0, ptr %requestIdCounter_, align 8
   %certIdCounter_ = getelementptr inbounds nuw i8, ptr %this, i64 10
@@ -187,7 +187,7 @@ _ZNSt10unique_ptrIN4fizz8SelfCertESt14default_deleteIS1_EEaSEOS4_.exit: ; preds 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen20SecondaryAuthManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen20SecondaryAuthManagerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen20SecondaryAuthManagerE, i64 16), ptr %this, align 8
   %receivedCerts_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -3213,7 +3213,7 @@ declare void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceabl
 define linkonce_odr void @_ZNSt12out_of_rangeC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #17
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %this, align 8
   ret void
 }
 

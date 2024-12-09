@@ -518,7 +518,7 @@ define dso_local void @c_abi_func_create(ptr noundef %0) local_unnamed_addr #2 {
   %2 = load i16, ptr %0, align 8
   %3 = or i16 %2, 256
   store i16 %3, ptr %0, align 8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 56), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 56), align 8
   switch i32 %4, label %11 [
     i32 1, label %5
     i32 3, label %6
@@ -618,7 +618,7 @@ define dso_local ptr @c_abi_classify_argument_type_default(ptr nocapture noundef
   br i1 %17, label %18, label %33
 
 18:                                               ; preds = %16
-  %19 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 281), align 1
+  %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 281), align 1
   %20 = trunc i8 %19 to i1
   br i1 %20, label %33, label %21
 
@@ -661,7 +661,7 @@ define dso_local ptr @c_abi_classify_argument_type_default(ptr nocapture noundef
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 255
-  %47 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 312), align 8
   %48 = icmp ult i32 %46, %47
   br i1 %48, label %49, label %.critedge
 

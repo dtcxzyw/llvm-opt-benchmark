@@ -60449,7 +60449,7 @@ _ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9E
   store i64 0, ptr @_ZN17CountingAllocator13assignOpCountE, align 8
   store i64 0, ptr @_ZN17CountingAllocator20totalAllocatedMemoryE, align 8
   store i64 0, ptr @_ZN17CountingAllocator21activeAllocatedMemoryE, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %countingAlloc, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %countingAlloc, align 8
   store i64 1, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   store i64 1, ptr @_ZN17CountingAllocator16defaultCtorCountE, align 8
   %call.i8105 = call noundef ptr @_ZN5eastl19SetDefaultAllocatorEPNS_9allocatorE(ptr noundef nonnull %countingAlloc)

@@ -382,7 +382,7 @@ _ZNSt6vectorIhSaIhEEaSEOS1_.exit:                 ; preds = %12, %23
   br label %_ZNSt10unique_ptrIN4LIEF3ELF11DataHandler7HandlerESt14default_deleteIS3_EED2Ev.exit
 
 29:                                               ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF3ELF11DataHandler17DataHandlerStreamE, i64 16), ptr %26, align 8, !noalias !6
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF3ELF11DataHandler17DataHandlerStreamE, i64 16), ptr %26, align 8, !noalias !6
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store ptr %6, ptr %30, align 8, !noalias !6
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
@@ -531,7 +531,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit28:                  ; preds = %66, %_ZNSt6vectorIh
   br label %_ZNSt10unique_ptrIN4LIEF3ELF11DataHandler7HandlerESt14default_deleteIS3_EED2Ev.exit
 
 81:                                               ; preds = %.noexc29
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF3ELF11DataHandler17DataHandlerStreamE, i64 16), ptr %78, align 8, !noalias !9
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF3ELF11DataHandler17DataHandlerStreamE, i64 16), ptr %78, align 8, !noalias !9
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 24
   store ptr %6, ptr %82, align 8, !noalias !9
   %83 = getelementptr inbounds nuw i8, ptr %78, i64 20
@@ -1975,7 +1975,7 @@ define linkonce_odr hidden void @_ZN6spdlog7details14log_msg_bufferC2ERKNS0_7log
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 378
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %3) #22
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 128

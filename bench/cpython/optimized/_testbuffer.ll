@@ -4327,7 +4327,7 @@ if.then26:                                        ; preds = %if.then22
 
 if.end28:                                         ; preds = %if.then22
   %call30 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @ndarray_memoryview_from_buffer.format, ptr noundef nonnull dereferenceable(1) %12) #14
-  store ptr @ndarray_memoryview_from_buffer.format, ptr getelementptr inbounds (i8, ptr @ndarray_memoryview_from_buffer.info, i64 40), align 8
+  store ptr @ndarray_memoryview_from_buffer.format, ptr getelementptr inbounds nuw (i8, ptr @ndarray_memoryview_from_buffer.info, i64 40), align 8
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end28, %if.else17
@@ -4351,7 +4351,7 @@ if.then37:                                        ; preds = %if.end35
   %conv = sext i32 %14 to i64
   %mul = shl nsw i64 %conv, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 @ndarray_memoryview_from_buffer.shape, ptr nonnull align 8 %16, i64 %mul, i1 false)
-  store ptr @ndarray_memoryview_from_buffer.shape, ptr getelementptr inbounds (i8, ptr @ndarray_memoryview_from_buffer.info, i64 48), align 8
+  store ptr @ndarray_memoryview_from_buffer.shape, ptr getelementptr inbounds nuw (i8, ptr @ndarray_memoryview_from_buffer.info, i64 48), align 8
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then37, %if.end35
@@ -4365,7 +4365,7 @@ if.then42:                                        ; preds = %if.end40
   %conv45 = sext i32 %18 to i64
   %mul46 = shl nsw i64 %conv45, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 @ndarray_memoryview_from_buffer.strides, ptr nonnull align 8 %17, i64 %mul46, i1 false)
-  store ptr @ndarray_memoryview_from_buffer.strides, ptr getelementptr inbounds (i8, ptr @ndarray_memoryview_from_buffer.info, i64 56), align 8
+  store ptr @ndarray_memoryview_from_buffer.strides, ptr getelementptr inbounds nuw (i8, ptr @ndarray_memoryview_from_buffer.info, i64 56), align 8
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then42, %if.end40
@@ -4379,7 +4379,7 @@ if.then49:                                        ; preds = %if.end47
   %conv52 = sext i32 %20 to i64
   %mul53 = shl nsw i64 %conv52, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 @ndarray_memoryview_from_buffer.suboffsets, ptr nonnull align 8 %19, i64 %mul53, i1 false)
-  store ptr @ndarray_memoryview_from_buffer.suboffsets, ptr getelementptr inbounds (i8, ptr @ndarray_memoryview_from_buffer.info, i64 64), align 8
+  store ptr @ndarray_memoryview_from_buffer.suboffsets, ptr getelementptr inbounds nuw (i8, ptr @ndarray_memoryview_from_buffer.info, i64 64), align 8
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then49, %if.end47

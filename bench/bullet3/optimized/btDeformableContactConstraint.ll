@@ -81,14 +81,14 @@ $_ZTV29btDeformableContactConstraint = comdat any
 define dso_local void @_ZN32btDeformableNodeAnchorConstraintC2ERKN10btSoftBody25DeformableNodeRigidAnchorERK19btContactSolverInfo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 9), (16, 48)) %this, ptr noundef nonnull align 8 dereferenceable(872) %a, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #0 align 2 {
 entry:
   %m_normal = getelementptr inbounds nuw i8, ptr %a, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %this, align 8
   %m_static.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 0, ptr %m_static.i, align 8
   %m_infoGlobal.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %infoGlobal, ptr %m_infoGlobal.i, align 8
   %m_normal.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV32btDeformableNodeAnchorConstraint, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV32btDeformableNodeAnchorConstraint, i64 16), ptr %this, align 8
   %m_anchor = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %a, ptr %m_anchor, align 8
   ret void
@@ -97,7 +97,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN32btDeformableNodeAnchorConstraintC2ERKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 9), (16, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %other) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %this, align 8
   %m_static.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_static2.i = getelementptr inbounds nuw i8, ptr %other, i64 8
   %0 = load i8, ptr %m_static2.i, align 8
@@ -110,7 +110,7 @@ entry:
   %m_normal.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %m_normal4.i = getelementptr inbounds nuw i8, ptr %other, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal4.i, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV32btDeformableNodeAnchorConstraint, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV32btDeformableNodeAnchorConstraint, i64 16), ptr %this, align 8
   %m_anchor = getelementptr inbounds nuw i8, ptr %this, i64 40
   %m_anchor2 = getelementptr inbounds nuw i8, ptr %other, i64 40
   %2 = load ptr, ptr %m_anchor2, align 8
@@ -722,14 +722,14 @@ entry:
 define dso_local void @_ZN34btDeformableRigidContactConstraintC2ERKN10btSoftBody22DeformableRigidContactERK19btContactSolverInfo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 9), (16, 81), (88, 96)) %this, ptr noundef nonnull align 8 dereferenceable(848) %c, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont6:
   %m_normal = getelementptr inbounds nuw i8, ptr %c, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %this, align 8
   %m_static.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 0, ptr %m_static.i, align 8
   %m_infoGlobal.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %infoGlobal, ptr %m_infoGlobal.i, align 8
   %m_normal.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV34btDeformableRigidContactConstraint, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV34btDeformableRigidContactConstraint, i64 16), ptr %this, align 8
   %m_total_normal_dv = getelementptr inbounds nuw i8, ptr %this, i64 40
   %m_contact = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr %c, ptr %m_contact, align 8
@@ -750,7 +750,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN34btDeformableRigidContactConstraintC2ERKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 9), (16, 81), (88, 96)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %this, align 8
   %m_static.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_static2.i = getelementptr inbounds nuw i8, ptr %other, i64 8
   %0 = load i8, ptr %m_static2.i, align 8
@@ -763,7 +763,7 @@ entry:
   %m_normal.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %m_normal4.i = getelementptr inbounds nuw i8, ptr %other, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal4.i, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV34btDeformableRigidContactConstraint, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV34btDeformableRigidContactConstraint, i64 16), ptr %this, align 8
   %m_total_normal_dv = getelementptr inbounds nuw i8, ptr %this, i64 40
   %m_total_tangent_dv = getelementptr inbounds nuw i8, ptr %this, i64 56
   %m_penetration = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -2031,14 +2031,14 @@ if.end7:                                          ; preds = %if.then2, %entry
 define dso_local void @_ZN38btDeformableNodeRigidContactConstraintC2ERKN10btSoftBody26DeformableNodeRigidContactERK19btContactSolverInfo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 9), (16, 81), (88, 104)) %this, ptr noundef nonnull align 8 dereferenceable(856) %contact, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_normal.i = getelementptr inbounds nuw i8, ptr %contact, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %this, align 8
   %m_static.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 0, ptr %m_static.i.i, align 8
   %m_infoGlobal.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %infoGlobal, ptr %m_infoGlobal.i.i, align 8
   %m_normal.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV34btDeformableRigidContactConstraint, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV34btDeformableRigidContactConstraint, i64 16), ptr %this, align 8
   %m_total_normal_dv.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %m_contact.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr %contact, ptr %m_contact.i, align 8
@@ -2051,7 +2051,7 @@ entry:
   store float 0.000000e+00, ptr %m_total_split_impulse.i, align 4
   %m_binding.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i8 0, ptr %m_binding.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV38btDeformableNodeRigidContactConstraint, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV38btDeformableNodeRigidContactConstraint, i64 16), ptr %this, align 8
   %m_node = getelementptr inbounds nuw i8, ptr %this, i64 96
   %m_node2 = getelementptr inbounds nuw i8, ptr %contact, i64 848
   %1 = load ptr, ptr %m_node2, align 8
@@ -2062,7 +2062,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN38btDeformableNodeRigidContactConstraintC2ERKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 9), (16, 81), (88, 104)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %this, align 8
   %m_static.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_static2.i.i = getelementptr inbounds nuw i8, ptr %other, i64 8
   %0 = load i8, ptr %m_static2.i.i, align 8
@@ -2075,7 +2075,7 @@ entry:
   %m_normal.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %m_normal4.i.i = getelementptr inbounds nuw i8, ptr %other, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %m_normal4.i.i, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV34btDeformableRigidContactConstraint, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV34btDeformableRigidContactConstraint, i64 16), ptr %this, align 8
   %m_total_normal_dv.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %m_total_tangent_dv.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %m_penetration.i = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -2099,7 +2099,7 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_total_normal_dv.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %m_total_normal_dv7.i, i64 16, i1 false)
   %m_total_tangent_dv9.i = getelementptr inbounds nuw i8, ptr %other, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_total_tangent_dv.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %m_total_tangent_dv9.i, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV38btDeformableNodeRigidContactConstraint, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV38btDeformableNodeRigidContactConstraint, i64 16), ptr %this, align 8
   %m_node = getelementptr inbounds nuw i8, ptr %this, i64 96
   %m_node2 = getelementptr inbounds nuw i8, ptr %other, i64 96
   %6 = load ptr, ptr %m_node2, align 8
@@ -2274,14 +2274,14 @@ define dso_local void @_ZN38btDeformableFaceRigidContactConstraintC2ERKN10btSoft
 entry:
   %frombool = zext i1 %useStrainLimiting to i8
   %m_normal.i = getelementptr inbounds nuw i8, ptr %contact, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %this, align 8
   %m_static.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 0, ptr %m_static.i.i, align 8
   %m_infoGlobal.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %infoGlobal, ptr %m_infoGlobal.i.i, align 8
   %m_normal.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV34btDeformableRigidContactConstraint, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV34btDeformableRigidContactConstraint, i64 16), ptr %this, align 8
   %m_total_normal_dv.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %m_contact.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr %contact, ptr %m_contact.i, align 8
@@ -2294,7 +2294,7 @@ entry:
   store float 0.000000e+00, ptr %m_total_split_impulse.i, align 4
   %m_binding.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i8 0, ptr %m_binding.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV38btDeformableFaceRigidContactConstraint, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV38btDeformableFaceRigidContactConstraint, i64 16), ptr %this, align 8
   %m_face = getelementptr inbounds nuw i8, ptr %this, i64 96
   %m_face2 = getelementptr inbounds nuw i8, ptr %contact, i64 848
   %1 = load ptr, ptr %m_face2, align 8
@@ -2307,7 +2307,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN38btDeformableFaceRigidContactConstraintC2ERKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(105) initializes((0, 9), (16, 81), (88, 105)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %this, align 8
   %m_static.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_static2.i.i = getelementptr inbounds nuw i8, ptr %other, i64 8
   %0 = load i8, ptr %m_static2.i.i, align 8
@@ -2320,7 +2320,7 @@ entry:
   %m_normal.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %m_normal4.i.i = getelementptr inbounds nuw i8, ptr %other, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %m_normal4.i.i, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV34btDeformableRigidContactConstraint, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV34btDeformableRigidContactConstraint, i64 16), ptr %this, align 8
   %m_total_normal_dv.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %m_total_tangent_dv.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %m_penetration.i = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -2344,7 +2344,7 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_total_normal_dv.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %m_total_normal_dv7.i, i64 16, i1 false)
   %m_total_tangent_dv9.i = getelementptr inbounds nuw i8, ptr %other, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_total_tangent_dv.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %m_total_tangent_dv9.i, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV38btDeformableFaceRigidContactConstraint, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV38btDeformableFaceRigidContactConstraint, i64 16), ptr %this, align 8
   %m_face = getelementptr inbounds nuw i8, ptr %this, i64 96
   %m_face2 = getelementptr inbounds nuw i8, ptr %other, i64 96
   %6 = load ptr, ptr %m_face2, align 8
@@ -2856,14 +2856,14 @@ if.end41:                                         ; preds = %if.then33, %if.end3
 define dso_local void @_ZN37btDeformableFaceNodeContactConstraintC2ERKN10btSoftBody25DeformableFaceNodeContactERK19btContactSolverInfo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 9), (16, 96)) %this, ptr noundef nonnull align 8 dereferenceable(88) %contact, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont8:
   %m_normal = getelementptr inbounds nuw i8, ptr %contact, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %this, align 8
   %m_static.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 0, ptr %m_static.i, align 8
   %m_infoGlobal.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %infoGlobal, ptr %m_infoGlobal.i, align 8
   %m_normal.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV37btDeformableFaceNodeContactConstraint, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV37btDeformableFaceNodeContactConstraint, i64 16), ptr %this, align 8
   %m_node = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %contact, align 8
   store ptr %0, ptr %m_node, align 8

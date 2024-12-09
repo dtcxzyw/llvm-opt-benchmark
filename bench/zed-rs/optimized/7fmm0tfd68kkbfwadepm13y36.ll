@@ -664,7 +664,7 @@ define void @"_ZN60_$LT$assets..Assets$u20$as$u20$gpui..assets..AssetSource$GT$4
   store i64 %3, ptr %7, align 8
   store ptr @anon.7f75af4656809b7e57137b5ca6f6cdb4.603, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.7f75af4656809b7e57137b5ca6f6cdb4.603, i64 4720), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.7f75af4656809b7e57137b5ca6f6cdb4.603, i64 4720), ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %6, ptr %9, align 8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h50f64aad8a368f0bE.llvm.7494475146313262915"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5)
@@ -690,7 +690,7 @@ define noundef ptr @_ZN6assets6Assets10load_fonts17h654d4edfc3742184E(ptr noalia
   store i64 5, ptr %11, align 8, !noalias !15
   store ptr @anon.7f75af4656809b7e57137b5ca6f6cdb4.603, ptr %3, align 8, !noalias !15
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.7f75af4656809b7e57137b5ca6f6cdb4.603, i64 4720), ptr %12, align 8, !noalias !15
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.7f75af4656809b7e57137b5ca6f6cdb4.603, i64 4720), ptr %12, align 8, !noalias !15
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %4, ptr %13, align 8, !noalias !15
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h50f64aad8a368f0bE.llvm.7494475146313262915"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3)

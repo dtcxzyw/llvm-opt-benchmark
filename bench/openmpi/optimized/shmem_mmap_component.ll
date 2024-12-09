@@ -40,7 +40,7 @@ define internal noundef i32 @mmap_close() #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define internal noundef i32 @mmap_query(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #1 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @mca_shmem_mmap_component, i64 272), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_shmem_mmap_component, i64 272), align 8
   store i32 %3, ptr %1, align 4
   store ptr @opal_shmem_mmap_module, ptr %0, align 8
   ret i32 0
@@ -48,8 +48,8 @@ define internal noundef i32 @mmap_query(ptr nocapture noundef writeonly initiali
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 1) i32 @mmap_register() #2 {
-  store i32 50, ptr getelementptr inbounds (i8, ptr @mca_shmem_mmap_component, i64 272), align 8
-  %1 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_shmem_mmap_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 2, i32 noundef 6, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_shmem_mmap_component, i64 272)) #5
+  store i32 50, ptr getelementptr inbounds nuw (i8, ptr @mca_shmem_mmap_component, i64 272), align 8
+  %1 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_shmem_mmap_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 2, i32 noundef 6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_shmem_mmap_component, i64 272)) #5
   %2 = icmp slt i32 %1, 0
   br i1 %2, label %11, label %3
 
@@ -78,7 +78,7 @@ define internal range(i32 -2147483648, 1) i32 @mmap_register() #2 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define internal noundef i32 @mmap_runtime_query(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture readnone %2) #1 {
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @mca_shmem_mmap_component, i64 272), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_shmem_mmap_component, i64 272), align 8
   store i32 %4, ptr %1, align 4
   store ptr @opal_shmem_mmap_module, ptr %0, align 8
   ret i32 0

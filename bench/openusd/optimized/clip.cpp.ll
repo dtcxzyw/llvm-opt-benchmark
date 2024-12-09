@@ -2043,7 +2043,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIbEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIbEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -3043,7 +3043,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIbEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIbEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -3268,7 +3268,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIhEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIhEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -3493,7 +3493,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIhEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIhEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -3718,7 +3718,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIiEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIiEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -3943,7 +3943,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIiEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIiEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -4168,7 +4168,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIjEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIjEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -4393,7 +4393,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIjEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIjEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -4618,7 +4618,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIlEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIlEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -4843,7 +4843,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIlEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIlEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -5068,7 +5068,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueImEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueImEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -5293,7 +5293,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayImEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayImEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -5518,7 +5518,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_8pxr_half4halfEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_8pxr_half4halfEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -5743,7 +5743,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_8pxr_half4halfEEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_8pxr_half4halfEEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -5968,7 +5968,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIfEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIfEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -6193,7 +6193,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIfEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIfEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -6418,7 +6418,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -6643,7 +6643,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIdEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIdEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -6868,7 +6868,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_11SdfTimeCodeEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_11SdfTimeCodeEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc16 unwind label %42
 
@@ -7114,7 +7114,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_11SdfTimeCodeEEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_11SdfTimeCodeEEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %.loopexit.split-lp
 
@@ -7354,7 +7354,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -7579,7 +7579,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -7804,7 +7804,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7TfTokenEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7TfTokenEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -8029,7 +8029,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7TfTokenEEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7TfTokenEEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -8254,7 +8254,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_12SdfAssetPathEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_12SdfAssetPathEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -8479,7 +8479,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_12SdfAssetPathEEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_12SdfAssetPathEEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -8704,7 +8704,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_14SdfOpaqueValueEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_14SdfOpaqueValueEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -8929,7 +8929,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_14SdfOpaqueValueEEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_14SdfOpaqueValueEEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -9154,7 +9154,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_17SdfPathExpressionEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_17SdfPathExpressionEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -9379,7 +9379,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_17SdfPathExpressionEEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_17SdfPathExpressionEEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -9604,7 +9604,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_10GfMatrix2dEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_10GfMatrix2dEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -9829,7 +9829,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_10GfMatrix2dEEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_10GfMatrix2dEEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -10054,7 +10054,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_10GfMatrix3dEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_10GfMatrix3dEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -10279,7 +10279,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_10GfMatrix3dEEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_10GfMatrix3dEEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -10504,7 +10504,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_10GfMatrix4dEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_10GfMatrix4dEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -10729,7 +10729,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_10GfMatrix4dEEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_10GfMatrix4dEEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -10954,7 +10954,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfQuathEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfQuathEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -11179,7 +11179,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfQuathEEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfQuathEEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -11404,7 +11404,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfQuatfEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfQuatfEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -11629,7 +11629,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfQuatfEEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfQuatfEEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -11854,7 +11854,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfQuatdEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfQuatdEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -12079,7 +12079,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfQuatdEEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfQuatdEEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -12304,7 +12304,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec2iEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec2iEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -12529,7 +12529,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec2iEEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec2iEEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -12754,7 +12754,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec2hEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec2hEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -12979,7 +12979,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec2hEEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec2hEEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -13204,7 +13204,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec2fEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec2fEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -13429,7 +13429,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec2fEEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec2fEEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -13654,7 +13654,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec2dEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec2dEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -13879,7 +13879,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec2dEEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec2dEEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -14104,7 +14104,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec3iEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec3iEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -14329,7 +14329,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec3iEEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec3iEEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -14554,7 +14554,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec3hEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec3hEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -14779,7 +14779,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec3hEEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec3hEEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -15004,7 +15004,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec3fEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec3fEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -15229,7 +15229,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec3fEEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec3fEEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -15454,7 +15454,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec3dEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec3dEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -15679,7 +15679,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec3dEEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec3dEEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -15904,7 +15904,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec4iEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec4iEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -16129,7 +16129,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec4iEEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec4iEEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -16354,7 +16354,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec4hEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec4hEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -16579,7 +16579,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec4hEEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec4hEEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -16804,7 +16804,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec4fEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec4fEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -17029,7 +17029,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec4fEEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec4fEEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -17254,7 +17254,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec4dEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec4dEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -17479,7 +17479,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_C
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 25
   store i8 0, ptr %26, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec4dEEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec4dEEEEE, i64 16), ptr %9, align 8
   %27 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %18, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %15, ptr noundef nonnull %9)
           to label %.noexc15 unwind label %42
 
@@ -19517,7 +19517,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i:                                         ; preds = %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store i32 1, ptr %84, align 4, !noalias !22
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %83, align 8, !noalias !22
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %83, align 8, !noalias !22
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 12
   store i8 0, ptr %85, align 4, !noalias !22
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 13
@@ -22398,7 +22398,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip9IsBlo
   store i8 0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 25
   store i8 0, ptr %10, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_13SdfValueBlockEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_13SdfValueBlockEEE, i64 16), ptr %5, align 8
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip16_GetLayerForClipEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.3") align 8 %6, ptr noundef nonnull align 8 dereferenceable(208) %0)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   %11 = load ptr, ptr %6, align 8
@@ -23012,7 +23012,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i:                                         ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 1, ptr %38, align 4, !noalias !46
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %37, align 8, !noalias !46
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %37, align 8, !noalias !46
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 12
   store i8 0, ptr %39, align 4, !noalias !46
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 13
@@ -25500,7 +25500,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIbEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIbEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -25915,7 +25915,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIbEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIbEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -26230,7 +26230,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIhEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIhEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -26642,7 +26642,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIhEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIhEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -26957,7 +26957,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIiEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIiEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -27369,7 +27369,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIiEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIiEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -27684,7 +27684,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIjEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIjEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -28096,7 +28096,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIjEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIjEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -28411,7 +28411,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIlEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIlEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -28823,7 +28823,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIlEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIlEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -29138,7 +29138,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueImEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueImEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -29550,7 +29550,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayImEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayImEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -29865,7 +29865,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_8pxr_half4halfEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_8pxr_half4halfEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -30277,7 +30277,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_8pxr_half4halfEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_8pxr_half4halfEEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -30592,7 +30592,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIfEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIfEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -31004,7 +31004,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIfEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIfEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -31319,7 +31319,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -31731,7 +31731,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIdEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayIdEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -32069,7 +32069,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_11SdfTimeCodeEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_11SdfTimeCodeEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -32689,7 +32689,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_11SdfTimeCodeEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_11SdfTimeCodeEEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -33084,7 +33084,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -33496,7 +33496,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -33915,7 +33915,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7TfTokenEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7TfTokenEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -34327,7 +34327,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7TfTokenEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7TfTokenEEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -34771,7 +34771,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_12SdfAssetPathEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_12SdfAssetPathEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -35601,7 +35601,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_12SdfAssetPathEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_12SdfAssetPathEEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -35926,7 +35926,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_14SdfOpaqueValueEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_14SdfOpaqueValueEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -36713,7 +36713,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_14SdfOpaqueValueEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_14SdfOpaqueValueEEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -41736,7 +41736,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_17SdfPathExpressionEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_17SdfPathExpressionEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -42635,7 +42635,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_17SdfPathExpressionEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_17SdfPathExpressionEEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -42993,7 +42993,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_10GfMatrix2dEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_10GfMatrix2dEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -43405,7 +43405,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_10GfMatrix2dEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_10GfMatrix2dEEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -43763,7 +43763,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_10GfMatrix3dEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_10GfMatrix3dEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -44175,7 +44175,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_10GfMatrix3dEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_10GfMatrix3dEEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -44533,7 +44533,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_10GfMatrix4dEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_10GfMatrix4dEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -44945,7 +44945,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_10GfMatrix4dEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_10GfMatrix4dEEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -45260,7 +45260,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfQuathEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfQuathEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -45672,7 +45672,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfQuathEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfQuathEEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -46033,7 +46033,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfQuatfEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfQuatfEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -46445,7 +46445,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfQuatfEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfQuatfEEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -46803,7 +46803,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfQuatdEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfQuatdEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -47215,7 +47215,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfQuatdEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfQuatdEEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -47530,7 +47530,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec2iEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec2iEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -47942,7 +47942,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec2iEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec2iEEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -48257,7 +48257,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec2hEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec2hEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -48669,7 +48669,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec2hEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec2hEEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -48984,7 +48984,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec2fEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec2fEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -49396,7 +49396,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec2fEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec2fEEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -49757,7 +49757,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec2dEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec2dEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -50169,7 +50169,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec2dEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec2dEEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -50530,7 +50530,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec3iEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec3iEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -50942,7 +50942,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec3iEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec3iEEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -51256,7 +51256,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec3hEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec3hEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -51668,7 +51668,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec3hEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec3hEEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -52029,7 +52029,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec3fEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec3fEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -52441,7 +52441,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec3fEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec3fEEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -52799,7 +52799,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec3dEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec3dEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -53211,7 +53211,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec3dEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec3dEEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -53572,7 +53572,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec4iEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec4iEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -53984,7 +53984,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec4iEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec4iEEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -54299,7 +54299,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec4hEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec4hEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -54711,7 +54711,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec4hEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec4hEEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -55072,7 +55072,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec4fEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec4fEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -55484,7 +55484,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec4fEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec4fEEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -55842,7 +55842,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec4dEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7GfVec4dEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1
@@ -56254,7 +56254,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i: ; pre
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %24, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec4dEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7GfVec4dEEEEE, i64 16), ptr %8, align 8
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %14, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %3, ptr noundef nonnull %8)
   %26 = load i8, ptr %23, align 8
   %27 = trunc i8 %26 to i1

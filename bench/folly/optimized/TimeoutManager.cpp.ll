@@ -107,7 +107,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly14TimeoutManagerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly14TimeoutManagerE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly14TimeoutManagerE, i64 16), ptr %this, align 8, !tbaa !7
   %cobTimeouts_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !10
@@ -246,7 +246,7 @@ _ZN5folly8FunctionIFvvEEC2EOS2_.exit.i:           ; preds = %if.end.i.i.i, %if.e
           to label %.noexc.i unwind label %lpad.i, !noalias !23
 
 .noexc.i:                                         ; preds = %_ZN5folly8FunctionIFvvEEC2EOS2_.exit.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly14TimeoutManager11CobTimeouts10CobTimeoutE, i64 16), ptr %call.i, align 16, !tbaa !7, !noalias !23
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly14TimeoutManager11CobTimeouts10CobTimeoutE, i64 16), ptr %call.i, align 16, !tbaa !7, !noalias !23
   %cob_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 192
   store ptr null, ptr %cob_.i.i, align 16, !tbaa !19, !noalias !23
   %call_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 240
@@ -451,7 +451,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt17bad_function_ca
 entry:
   %ref.tmp = alloca %"class.std::bad_function_call", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %ref.tmp, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %ref.tmp, align 8, !tbaa !7
   invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #12
           to label %invoke.cont unwind label %lpad
 
@@ -470,7 +470,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #10 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8, !tbaa !7
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #27
   unreachable
 }
@@ -523,7 +523,7 @@ declare void @_ZNSt12system_errorD1Ev(ptr noundef nonnull align 8 dereferenceabl
 define linkonce_odr void @_ZNSt12system_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #15 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !7
   %_M_code = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_code2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2, i64 16, i1 false), !tbaa.struct !39
@@ -677,7 +677,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %if.
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !7
   %_M_code = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %__ec.coerce0, ptr %_M_code, align 8, !tbaa !33
   %__ec.sroa.364.0._M_code.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -822,7 +822,7 @@ declare void @_ZN5folly12AsyncTimeoutC2EPNS_14TimeoutManagerENS1_12InternalEnumE
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly14TimeoutManager11CobTimeouts10CobTimeoutD2Ev(ptr noundef nonnull align 16 dereferenceable(272) %this) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly14TimeoutManager11CobTimeouts10CobTimeoutE, i64 16), ptr %this, align 16, !tbaa !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly14TimeoutManager11CobTimeouts10CobTimeoutE, i64 16), ptr %this, align 16, !tbaa !7
   %hook = getelementptr inbounds nuw i8, ptr %this, i64 256
   %0 = load ptr, ptr %hook, align 16, !tbaa !13
   %tobool.not.i = icmp eq ptr %0, null
@@ -856,7 +856,7 @@ _ZN5folly8FunctionIFvvEED2Ev.exit:                ; preds = %if.end.i.i, %_ZN5bo
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly14TimeoutManager11CobTimeouts10CobTimeoutD0Ev(ptr noundef nonnull align 16 dereferenceable(272) %this) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly14TimeoutManager11CobTimeouts10CobTimeoutE, i64 16), ptr %this, align 16, !tbaa !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly14TimeoutManager11CobTimeouts10CobTimeoutE, i64 16), ptr %this, align 16, !tbaa !7
   %hook.i = getelementptr inbounds nuw i8, ptr %this, i64 256
   %0 = load ptr, ptr %hook.i, align 16, !tbaa !13
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -1087,7 +1087,7 @@ while.end:                                        ; preds = %_ZN5boost9intrusive
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly14TimeoutManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly14TimeoutManagerE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly14TimeoutManagerE, i64 16), ptr %this, align 8, !tbaa !7
   %cobTimeouts_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %cobTimeouts_.i, align 8, !tbaa !18
   %cmp.i.not.i = icmp eq ptr %0, null

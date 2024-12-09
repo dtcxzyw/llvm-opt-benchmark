@@ -202,7 +202,7 @@ define internal fastcc i32 @create_app(ptr nocapture noundef readonly %0, ptr no
   %9 = alloca %struct.pmix_value, align 8
   store i8 0, ptr %3, align 1
   %10 = load i32, ptr @pmix_class_init_epoch, align 4
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_cli_result_t_class, i64 32), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_cli_result_t_class, i64 32), align 8
   %.not = icmp eq i32 %10, %11
   br i1 %.not, label %13, label %12
 
@@ -295,10 +295,10 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %13
   br i1 %53, label %.thread33, label %54
 
 54:                                               ; preds = %50
-  %55 = load i64, ptr getelementptr inbounds (i8, ptr @prte_pmix_app_t_class, i64 56), align 8
+  %55 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prte_pmix_app_t_class, i64 56), align 8
   %56 = call noalias noundef ptr @malloc(i64 noundef %55) #15
   %57 = load i32, ptr @pmix_class_init_epoch, align 4
-  %58 = load i32, ptr getelementptr inbounds (i8, ptr @prte_pmix_app_t_class, i64 32), align 8
+  %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_pmix_app_t_class, i64 32), align 8
   %.not.i210 = icmp eq i32 %57, %58
   br i1 %.not.i210, label %60, label %59
 

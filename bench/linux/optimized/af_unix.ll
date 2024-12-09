@@ -4348,7 +4348,7 @@ define internal fastcc i32 @unix_autobind(ptr noundef %0) unnamed_addr #0 align 
   br i1 %12, label %13, label %.thread10
 
 13:                                               ; preds = %9
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %15 = tail call noalias noundef align 8 dereferenceable_or_null(26) ptr @kmalloc_trace(ptr noundef %14, i32 noundef 3520, i64 noundef 26) #23
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread10, label %17

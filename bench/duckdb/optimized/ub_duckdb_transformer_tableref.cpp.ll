@@ -316,7 +316,7 @@ entry:
   store ptr null, ptr %sample.i.i.i, align 8, !tbaa !25, !noalias !3
   %query_location.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   store i64 -1, ptr %query_location.i.i.i, align 8, !tbaa !26, !noalias !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb12BaseTableRefE, i64 16), ptr %call.i, align 8, !tbaa !27, !noalias !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb12BaseTableRefE, i64 16), ptr %call.i, align 8, !tbaa !27, !noalias !3
   %catalog_name.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 80
   store ptr %1, ptr %catalog_name.i.i, align 8, !tbaa !22, !noalias !3
@@ -946,7 +946,7 @@ entry:
   store ptr null, ptr %sample.i.i.i, align 8, !tbaa !25, !noalias !44
   %query_location.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   store i64 -1, ptr %query_location.i.i.i, align 8, !tbaa !26, !noalias !44
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb7JoinRefE, i64 16), ptr %call.i, align 8, !tbaa !27, !noalias !44
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb7JoinRefE, i64 16), ptr %call.i, align 8, !tbaa !27, !noalias !44
   %left.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   %type.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %left.i.i, i8 0, i64 24, i1 false), !noalias !44
@@ -1895,7 +1895,7 @@ _ZNSt10unique_ptrIN6duckdb13EmptyTableRefESt14default_deleteIS1_EED2Ev.exit: ; p
   store ptr null, ptr %sample.i.i.i, align 8, !tbaa !25, !noalias !120
   %query_location.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   store i64 -1, ptr %query_location.i.i.i, align 8, !tbaa !26, !noalias !120
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb13EmptyTableRefE, i64 16), ptr %call.i, align 8, !tbaa !27, !noalias !120
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb13EmptyTableRefE, i64 16), ptr %call.i, align 8, !tbaa !27, !noalias !120
   store ptr %call.i, ptr %agg.result, align 8, !tbaa !42
   br label %return
 
@@ -1923,7 +1923,7 @@ if.then3:                                         ; preds = %if.end
   store ptr null, ptr %sample.i.i.i81, align 8, !tbaa !25, !noalias !125
   %query_location.i.i.i82 = getelementptr inbounds nuw i8, ptr %call.i77, i64 56
   store i64 -1, ptr %query_location.i.i.i82, align 8, !tbaa !26, !noalias !125
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb7JoinRefE, i64 16), ptr %call.i77, align 8, !tbaa !27, !noalias !125
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb7JoinRefE, i64 16), ptr %call.i77, align 8, !tbaa !27, !noalias !125
   %left.i.i = getelementptr inbounds nuw i8, ptr %call.i77, i64 64
   %type.i.i = getelementptr inbounds nuw i8, ptr %call.i77, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %left.i.i, i8 0, i64 24, i1 false), !noalias !125
@@ -2023,7 +2023,7 @@ _ZNSt10unique_ptrIN6duckdb7JoinRefESt14default_deleteIS1_EED2Ev.exit110: ; preds
   store ptr null, ptr %sample.i.i.i96, align 8, !tbaa !25, !noalias !130
   %query_location.i.i.i97 = getelementptr inbounds nuw i8, ptr %call.i92102, i64 56
   store i64 -1, ptr %query_location.i.i.i97, align 8, !tbaa !26, !noalias !130
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb7JoinRefE, i64 16), ptr %call.i92102, align 8, !tbaa !27, !noalias !130
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb7JoinRefE, i64 16), ptr %call.i92102, align 8, !tbaa !27, !noalias !130
   %left.i.i98 = getelementptr inbounds nuw i8, ptr %call.i92102, i64 64
   %type.i.i99 = getelementptr inbounds nuw i8, ptr %call.i92102, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %left.i.i98, i8 0, i64 24, i1 false), !noalias !130
@@ -3745,7 +3745,7 @@ declare void @_ZN6duckdb17InternalExceptionC1ERKNSt7__cxx1112basic_stringIcSt11c
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !27
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !27
   %raw_message_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !35
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -4150,7 +4150,7 @@ entry:
   store ptr null, ptr %sample.i.i.i, align 8, !tbaa !25, !noalias !172
   %query_location.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   store i64 -1, ptr %query_location.i.i.i, align 8, !tbaa !26, !noalias !172
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb8PivotRefE, i64 16), ptr %call.i, align 8, !tbaa !27, !noalias !172
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb8PivotRefE, i64 16), ptr %call.i, align 8, !tbaa !27, !noalias !172
   %source.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   %bound_pivot_values.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(129) %source.i.i, i8 0, i64 129, i1 false), !noalias !172

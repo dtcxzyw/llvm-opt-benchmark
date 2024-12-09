@@ -2409,7 +2409,7 @@ define dso_local i32 @drm_mode_page_flip_ioctl(ptr noundef %0, ptr nocapture nou
   br i1 %145, label %160, label %146
 
 146:                                              ; preds = %142
-  %147 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %147 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %148 = call noalias align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %147, i32 noundef 3520, i64 noundef 120) #15
   %149 = icmp eq ptr %148, null
   br i1 %149, label %189, label %150

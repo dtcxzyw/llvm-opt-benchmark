@@ -60,7 +60,7 @@ declare void @_ZN8PtrQueueC2EP11PtrQueueSet(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16SATBMarkQueueSetC2EPN10BufferNode9AllocatorE(ptr noundef nonnull align 8 dereferenceable(393) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN11PtrQueueSetC2EPN10BufferNode9AllocatorE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV16SATBMarkQueueSet, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV16SATBMarkQueueSet, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 120, i1 false)
@@ -83,7 +83,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16SATBMarkQueueSetD2Ev(ptr noundef nonnull align 8 dereferenceable(393) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV16SATBMarkQueueSet, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV16SATBMarkQueueSet, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store volatile i64 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -178,7 +178,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread: ; preds = %3
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, %8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVZN16SATBMarkQueueSet22set_active_all_threadsEbbE22SetThreadActiveClosure, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVZN16SATBMarkQueueSet22set_active_all_threadsEbbE22SetThreadActiveClosure, i64 16), ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -200,7 +200,7 @@ define hidden noundef zeroext i1 @_ZN16SATBMarkQueueSet33apply_closure_to_comple
   br i1 %8, label %9, label %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i
 
 9:                                                ; preds = %2
-  %10 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %10 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %11 = or i64 %10, 1
   br label %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i
 
@@ -285,7 +285,7 @@ define hidden noundef ptr @_ZN16SATBMarkQueueSet20get_completed_bufferEv(ptr nou
   br i1 %7, label %8, label %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit
 
 8:                                                ; preds = %1
-  %9 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %9 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %10 = or i64 %9, 1
   br label %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit
 
@@ -508,7 +508,7 @@ define hidden void @_ZN16SATBMarkQueueSet23abandon_partial_markingEv(ptr noundef
   br i1 %.not.i, label %_ZN16SATBMarkQueueSet25abandon_completed_buffersEv.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZN16SATBMarkQueueSet25abandon_completed_buffersEv.exit: ; preds = %.lr.ph.i, %1
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVZN16SATBMarkQueueSet23abandon_partial_markingEvE25AbandonThreadQueueClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVZN16SATBMarkQueueSet23abandon_partial_markingEvE25AbandonThreadQueueClosure, i64 16), ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %8, align 8
   call void @_ZN7Threads10threads_doEP13ThreadClosure(ptr noundef nonnull %2) #10

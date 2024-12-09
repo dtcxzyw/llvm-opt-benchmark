@@ -43,12 +43,12 @@ define noundef ptr @opal_btl_smcuda_common_sm_mpool_create(ptr noundef %0) local
   br i1 %15, label %16, label %27
 
 16:                                               ; preds = %1
-  %17 = load volatile i64, ptr getelementptr inbounds (i8, ptr @opal_allocator_base_framework, i64 136), align 8
+  %17 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @opal_allocator_base_framework, i64 136), align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %16
-  %20 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @opal_allocator_base_framework, i64 112), align 8
+  %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_allocator_base_framework, i64 112), align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %12, align 8

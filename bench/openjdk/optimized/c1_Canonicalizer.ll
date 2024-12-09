@@ -932,13 +932,13 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %36, %38
   store i32 1, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i3, i64 12
   store i32 0, ptr %43, align 4
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV11IntConstant, i64 16), ptr %.0.i.i.i3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV11IntConstant, i64 16), ptr %.0.i.i.i3, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i3, i64 16
   store i32 %1, ptr %44, align 8
   br label %45
 
 45:                                               ; preds = %41, %_ZN22CompilationResourceObjnwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %.0.i.i.i, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %47 = load ptr, ptr %3, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 1808
@@ -968,7 +968,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %36, %38
   %63 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef null) #9
-  store ptr getelementptr inbounds inrange(-16, 504) (i8, ptr @_ZTV8Constant, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 504) (i8, ptr @_ZTV8Constant, i64 16), ptr %.0.i.i.i, align 8
   br label %64
 
 64:                                               ; preds = %45, %_ZN11InstructionnwEm.exit
@@ -1054,13 +1054,13 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %36, %38
   store i32 2, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i3, i64 12
   store i32 1, ptr %43, align 4
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV12LongConstant, i64 16), ptr %.0.i.i.i3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV12LongConstant, i64 16), ptr %.0.i.i.i3, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i3, i64 16
   store i64 %1, ptr %44, align 8
   br label %45
 
 45:                                               ; preds = %41, %_ZN22CompilationResourceObjnwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %.0.i.i.i, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %47 = load ptr, ptr %3, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 1808
@@ -1090,7 +1090,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %36, %38
   %63 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef null) #9
-  store ptr getelementptr inbounds inrange(-16, 504) (i8, ptr @_ZTV8Constant, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 504) (i8, ptr @_ZTV8Constant, i64 16), ptr %.0.i.i.i, align 8
   br label %64
 
 64:                                               ; preds = %45, %_ZN11InstructionnwEm.exit
@@ -1324,7 +1324,7 @@ _ZN11AccessFieldC2EP11InstructioniP7ciFieldbP10ValueStackb.exit: ; preds = %8, %
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i8, ptr %15, align 8
   %17 = tail call noundef ptr @_Z12as_ValueType9BasicType(i8 noundef zeroext %16) #9
-  store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %20 = load ptr, ptr %19, align 8
@@ -1376,7 +1376,7 @@ _ZN11AccessFieldC2EP11InstructioniP7ciFieldbP10ValueStackb.exit: ; preds = %8, %
   %47 = load i32, ptr %29, align 8
   %48 = or i32 %47, 1
   store i32 %48, ptr %29, align 8
-  store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV10StoreField, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTV10StoreField, i64 16), ptr %0, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %4, ptr %49, align 8
   %50 = load ptr, ptr %9, align 8
@@ -1655,7 +1655,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %59, %61
   store i32 4, ptr %68, align 4
   %69 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store ptr %65, ptr %69, align 8
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV19StableArrayConstant, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 240) (i8, ptr @_ZTV19StableArrayConstant, i64 16), ptr %.0.i.i.i, align 8
   %70 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store i32 %66, ptr %70, align 8
   br label %73
@@ -1701,7 +1701,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %87, %89
   br i1 %91, label %111, label %92
 
 92:                                               ; preds = %_ZN11InstructionnwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %.0.i.i.i27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %.0.i.i.i27, align 8
   %93 = getelementptr inbounds nuw i8, ptr %.0.i.i.i27, i64 8
   %94 = load ptr, ptr %.pre-phi, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 1808
@@ -1731,7 +1731,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %87, %89
   %110 = getelementptr inbounds nuw i8, ptr %.0.i.i.i27, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %110, i8 0, i64 16, i1 false)
   call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i27, ptr noundef null) #9
-  store ptr getelementptr inbounds inrange(-16, 504) (i8, ptr @_ZTV8Constant, i64 16), ptr %.0.i.i.i27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 504) (i8, ptr @_ZTV8Constant, i64 16), ptr %.0.i.i.i27, align 8
   br label %111
 
 111:                                              ; preds = %92, %_ZN11InstructionnwEm.exit
@@ -1866,7 +1866,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %47, %49
   %63 = load i8, ptr %62, align 4
   %64 = and i8 %63, 1
   %65 = tail call noundef ptr @_Z12as_ValueType9BasicType(i8 noundef zeroext %59) #9
-  store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %.0.i.i.i, align 8
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %67 = load ptr, ptr %33, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 1808
@@ -1912,7 +1912,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %47, %49
   store i8 0, ptr %91, align 1
   %92 = or i32 %85, 131073
   store i32 %92, ptr %81, align 8
-  store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV12StoreIndexed, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTV12StoreIndexed, i64 16), ptr %.0.i.i.i, align 8
   %93 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 128
   store ptr %.0, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 136
@@ -2107,13 +2107,13 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %36, %38
   store i32 1, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i4, i64 12
   store i32 2, ptr %43, align 4
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV13FloatConstant, i64 16), ptr %.0.i.i.i4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV13FloatConstant, i64 16), ptr %.0.i.i.i4, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i4, i64 16
   store float %1, ptr %44, align 8
   br label %45
 
 45:                                               ; preds = %41, %_ZN22CompilationResourceObjnwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %.0.i.i.i, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %47 = load ptr, ptr %3, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 1808
@@ -2143,7 +2143,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %36, %38
   %63 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef null) #9
-  store ptr getelementptr inbounds inrange(-16, 504) (i8, ptr @_ZTV8Constant, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 504) (i8, ptr @_ZTV8Constant, i64 16), ptr %.0.i.i.i, align 8
   br label %64
 
 64:                                               ; preds = %45, %_ZN11InstructionnwEm.exit
@@ -2229,13 +2229,13 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %36, %38
   store i32 2, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i4, i64 12
   store i32 3, ptr %43, align 4
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV14DoubleConstant, i64 16), ptr %.0.i.i.i4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV14DoubleConstant, i64 16), ptr %.0.i.i.i4, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i4, i64 16
   store double %1, ptr %44, align 8
   br label %45
 
 45:                                               ; preds = %41, %_ZN22CompilationResourceObjnwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %.0.i.i.i, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %47 = load ptr, ptr %3, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 1808
@@ -2265,7 +2265,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %36, %38
   %63 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef null) #9
-  store ptr getelementptr inbounds inrange(-16, 504) (i8, ptr @_ZTV8Constant, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 504) (i8, ptr @_ZTV8Constant, i64 16), ptr %.0.i.i.i, align 8
   br label %64
 
 64:                                               ; preds = %45, %_ZN11InstructionnwEm.exit
@@ -2977,7 +2977,7 @@ declare noundef ptr @_ZN10ciInstance16java_mirror_typeEv(ptr noundef nonnull ali
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10InstanceOfC2EP7ciKlassP11InstructionP10ValueStack(ptr noundef nonnull align 8 dereferenceable(132) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 comdat align 2 {
   %5 = load ptr, ptr @intType, align 8
-  store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %8 = load ptr, ptr %7, align 8
@@ -3024,7 +3024,7 @@ define linkonce_odr hidden void @_ZN10InstanceOfC2EP7ciKlassP11InstructionP10Val
   %32 = load i32, ptr %22, align 8
   %33 = and i32 %32, -5
   store i32 %33, ptr %22, align 8
-  store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV10InstanceOf, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTV10InstanceOf, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -4663,7 +4663,7 @@ _ZN13Canonicalizer13set_canonicalEP11Instruction.exit: ; preds = %122, %509, %50
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4GotoC2EP10BlockBeginP10ValueStackb(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #1 comdat align 2 {
   %5 = load ptr, ptr @illegalType, align 8
-  store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %8 = load ptr, ptr %7, align 8
@@ -4706,7 +4706,7 @@ define linkonce_odr hidden void @_ZN4GotoC2EP10BlockBeginP10ValueStackb(ptr noun
   %masksel.i = select i1 %3, i32 16, i32 0
   %31 = or disjoint i32 %30, %masksel.i
   store i32 %31, ptr %22, align 8
-  store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV4Goto, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTV4Goto, i64 16), ptr %0, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   %33 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #9
@@ -4753,7 +4753,7 @@ _ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE6appendERKS1_.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2IfC2EP11InstructionNS0_9ConditionEbS1_P10BlockBeginS4_P10ValueStackb(ptr noundef nonnull align 8 dereferenceable(149) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8) unnamed_addr #1 comdat align 2 {
   %10 = load ptr, ptr @illegalType, align 8
-  store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %13 = load ptr, ptr %12, align 8
@@ -4795,7 +4795,7 @@ define linkonce_odr hidden void @_ZN2IfC2EP11InstructionNS0_9ConditionEbS1_P10Bl
   %35 = and i32 %34, -2065
   %masksel.i = select i1 %8, i32 16, i32 0
   %36 = or disjoint i32 %35, %masksel.i
-  store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV2If, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTV2If, i64 16), ptr %0, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %1, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 120

@@ -813,7 +813,7 @@ _ZN4NodenwEm.exit:                                ; preds = %17, %19
   store ptr %27, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
   store i32 4, ptr %29, align 4
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV7ConNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV7ConNode, i64 16), ptr %.0.i.i.i, align 8
   %30 = load ptr, ptr %2, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 1808
   %32 = load ptr, ptr %31, align 8
@@ -862,7 +862,7 @@ _ZN8ConINodeC2EPK7TypeInt.exit:                   ; preds = %22, %39, %50
   %57 = load i32, ptr %56, align 8
   %58 = or i32 %57, 16
   store i32 %58, ptr %56, align 8
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8ConINode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8ConINode, i64 16), ptr %.0.i.i.i, align 8
   store i32 6148, ptr %29, align 4
   br label %59
 

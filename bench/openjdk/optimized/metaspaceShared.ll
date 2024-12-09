@@ -524,7 +524,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %7, %9
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit3
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit3: ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %11
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23DumpClassListCLDClosure, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23DumpClassListCLDClosure, i64 16), ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 1987, ptr %12, align 8
   %13 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 15896, i8 noundef zeroext 13, i32 noundef 0) #15
@@ -538,7 +538,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit3: ; preds = %_ZN11Mutex
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %17, align 8
   call void @_ZN20ClassLoaderDataGraph13loaded_cld_doEP10CLDClosure(ptr noundef nonnull %4) #15
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23DumpClassListCLDClosure, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23DumpClassListCLDClosure, i64 16), ptr %4, align 8
   %18 = load ptr, ptr %14, align 8
   %19 = load i32, ptr %12, align 8
   %20 = zext i32 %19 to i64
@@ -588,7 +588,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN23DumpClassListC
   br label %_ZN11MutexLockerD2Ev.exit6
 
 31:                                               ; preds = %2
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1256), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1256), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %1, ptr noundef nonnull @.str.8, i32 noundef 207, ptr noundef %32, ptr noundef nonnull @.str.9) #15
   br label %_ZN11MutexLockerD2Ev.exit6
 
@@ -1736,7 +1736,7 @@ define hidden noundef ptr @_ZN26VM_PopulateDumpSharedSpace21dump_read_only_table
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 336
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 352
   %10 = load ptr, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV12WriteClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV12WriteClosure, i64 16), ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %11, align 8
   call void @_ZN15MetaspaceShared9serializeEP16SerializeClosure(ptr noundef nonnull %3)
@@ -1834,7 +1834,7 @@ _ZN26VM_PopulateDumpSharedSpace24dump_shared_symbol_tableEP13GrowableArrayIP6Sym
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 336
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 352
   %37 = load ptr, ptr %36, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV12WriteClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV12WriteClosure, i64 16), ptr %3, align 8
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %35, ptr %38, align 8
   call void @_ZN15MetaspaceShared9serializeEP16SerializeClosure(ptr noundef nonnull %3)
@@ -2186,7 +2186,7 @@ define hidden void @_ZN15MetaspaceShared19link_shared_classesEbP10JavaThread(i1 
   br i1 %.not41, label %7, label %_ZN17CollectCLDClosureD2Ev.exit
 
 7:                                                ; preds = %4, %2
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV17CollectCLDClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV17CollectCLDClosure, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #15
   store i32 0, ptr %8, align 8
@@ -2302,7 +2302,7 @@ _ZN15MetaspaceShared21may_be_eagerly_linkedEP13InstanceKlass.exit.thread: ; pred
   br i1 %.1.lcssa, label %_ZN11MutexLockerD2Ev.exit.split, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %_ZN11MutexLockerD2Ev.exit.split, %._crit_edge53, %_ZN15MetaspaceShared21may_be_eagerly_linkedEP13InstanceKlass.exit, %_ZN11MutexLockerD2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV17CollectCLDClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV17CollectCLDClosure, i64 16), ptr %3, align 8
   %53 = load i32, ptr %13, align 8
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %.lr.ph.i, label %._crit_edge.i
@@ -2414,7 +2414,7 @@ define hidden void @_ZN15MetaspaceShared16preload_and_dumpEP10JavaThread(ptr nou
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load i64, ptr %11, align 8
   call void @_ZN14ArchiveBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(1080) %2) #15
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV20StaticArchiveBuilder, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV20StaticArchiveBuilder, i64 16), ptr %2, align 8
   call void @_ZN15MetaspaceShared21preload_and_dump_implER20StaticArchiveBuilderP10JavaThread(ptr noundef nonnull align 8 dereferenceable(1080) %2, ptr noundef %0)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
@@ -2422,7 +2422,7 @@ define hidden void @_ZN15MetaspaceShared16preload_and_dumpEP10JavaThread(ptr nou
   br i1 %.not, label %_ZN15MetaspaceShared13writing_errorEPKc.exit, label %15
 
 15:                                               ; preds = %1
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 192), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 192), align 8
   %17 = load i8, ptr @UseCompressedClassPointers, align 1
   %18 = trunc i8 %17 to i1
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -2670,7 +2670,7 @@ define hidden void @_ZN15MetaspaceShared21preload_and_dump_implER20StaticArchive
 40:                                               ; preds = %38, %23
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %41, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV26VM_PopulateDumpSharedSpace, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV26VM_PopulateDumpSharedSpace, i64 16), ptr %3, align 8
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %42, i8 0, i64 16, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -2706,12 +2706,12 @@ define hidden void @_ZN15MetaspaceShared21preload_and_dump_implER20StaticArchive
   br label %_ZN15MetaspaceShared20write_static_archiveEP14ArchiveBuilderP11FileMapInfoP15ArchiveHeapInfo.exit.thread
 
 _ZN15MetaspaceShared20write_static_archiveEP14ArchiveBuilderP11FileMapInfoP15ArchiveHeapInfo.exit: ; preds = %40
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1256), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1256), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %1, ptr noundef nonnull @.str.8, i32 noundef 801, ptr noundef %57, ptr noundef nonnull @.str.36) #15
   br label %_ZN15MetaspaceShared20write_static_archiveEP14ArchiveBuilderP11FileMapInfoP15ArchiveHeapInfo.exit.thread
 
 _ZN15MetaspaceShared20write_static_archiveEP14ArchiveBuilderP11FileMapInfoP15ArchiveHeapInfo.exit.thread: ; preds = %56, %54, %51, %_ZN15MetaspaceShared20write_static_archiveEP14ArchiveBuilderP11FileMapInfoP15ArchiveHeapInfo.exit
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV26VM_PopulateDumpSharedSpace, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV26VM_PopulateDumpSharedSpace, i64 16), ptr %3, align 8
   call void @_ZN11CHeapBitMapD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %44) #15
   call void @_ZN11CHeapBitMapD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %43) #15
   br label %58
@@ -4063,7 +4063,7 @@ define hidden void @_ZN15MetaspaceShared24initialize_shared_spacesEv() local_unn
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 %10
   store ptr %13, ptr %1, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV11ReadClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV11ReadClosure, i64 16), ptr %2, align 8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %1, ptr %14, align 8
   call void @_ZN15MetaspaceShared9serializeEP16SerializeClosure(ptr noundef nonnull %2)
@@ -4085,7 +4085,7 @@ define hidden void @_ZN15MetaspaceShared24initialize_shared_spacesEv() local_unn
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 %20
   store ptr %23, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV11ReadClosure, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV11ReadClosure, i64 16), ptr %4, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %24, align 8
   call void @_ZN14ArchiveBuilder34serialize_dynamic_archivable_itemsEP16SerializeClosure(ptr noundef nonnull %4) #15
@@ -4148,7 +4148,7 @@ define hidden void @_ZN15MetaspaceShared24initialize_shared_spacesEv() local_unn
 .sink.split:                                      ; preds = %.thread, %40
   %55 = load ptr, ptr @tty, align 8
   call void @_ZN22SystemDictionaryShared20print_shared_archiveEP12outputStreamb(ptr noundef %55, i1 noundef zeroext %.not) #15
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18CountSharedSymbols, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV18CountSharedSymbols, i64 16), ptr %5, align 8
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %56, align 8
   call void @_ZN11SymbolTable17shared_symbols_doEP13SymbolClosure(ptr noundef nonnull %5) #15
@@ -5829,7 +5829,7 @@ define linkonce_odr hidden void @_ZN20StaticArchiveBuilder13iterate_rootsEP16Met
   store i32 2, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI6SymbolEE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI6SymbolEE, i64 16), ptr %10, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %9, ptr %13, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %10) #15

@@ -19,7 +19,7 @@ define hidden void @_ZN27G1RedirtyCardsLocalQueueSetC2EP22G1RedirtyCardsQueueSet
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN11PtrQueueSetC2EPN10BufferNode9AllocatorE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %4) #6
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV27G1RedirtyCardsLocalQueueSet, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV27G1RedirtyCardsLocalQueueSet, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -203,7 +203,7 @@ declare void @_ZN8PtrQueueC2EP11PtrQueueSet(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22G1RedirtyCardsQueueSetC2EPN10BufferNode9AllocatorE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN11PtrQueueSetC2EPN10BufferNode9AllocatorE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #6
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV22G1RedirtyCardsQueueSet, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV22G1RedirtyCardsQueueSet, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store volatile ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -215,7 +215,7 @@ define hidden void @_ZN22G1RedirtyCardsQueueSetC2EPN10BufferNode9AllocatorE(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22G1RedirtyCardsQueueSetD2Ev(ptr noundef nonnull align 8 dereferenceable(408) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV22G1RedirtyCardsQueueSet, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV22G1RedirtyCardsQueueSet, i64 16), ptr %0, align 8
   tail call void @_ZN11PtrQueueSetD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #6
   ret void
 }

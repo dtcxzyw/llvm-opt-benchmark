@@ -10229,7 +10229,7 @@ delete.notnull.i.i.i.i.i589:                      ; preds = %invoke.cont.i.i
 
 _ZN5eastl12fixed_vectorI10TestObjectLm1ELb1ENS_9allocatorEED2Ev.exit: ; preds = %invoke.cont.i.i, %delete.notnull.i.i.i.i.i589
   %182 = load ptr, ptr @_ZN12_GLOBAL__N_14vA64E, align 64
-  call void @_ZN5eastl6vectorI7Align64NS_22fixed_vector_allocatorILm64ELm3ELm64ELm0ELb1E15CustomAllocatorEEE20DoInsertFromIteratorIPS1_EEvPKS1_T_SA_NS_26bidirectional_iterator_tagE(ptr noundef nonnull align 8 dereferenceable(40) @_ZN12_GLOBAL__N_14vA64E, ptr noundef %182, ptr noundef nonnull @_ZN12_GLOBAL__N_13a64E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_13a64E, i64 64))
+  call void @_ZN5eastl6vectorI7Align64NS_22fixed_vector_allocatorILm64ELm3ELm64ELm0ELb1E15CustomAllocatorEEE20DoInsertFromIteratorIPS1_EEvPKS1_T_SA_NS_26bidirectional_iterator_tagE(ptr noundef nonnull align 8 dereferenceable(40) @_ZN12_GLOBAL__N_14vA64E, ptr noundef %182, ptr noundef nonnull @_ZN12_GLOBAL__N_13a64E, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_13a64E, i64 64))
   %183 = load ptr, ptr @_ZN12_GLOBAL__N_14vA64E, align 64
   %184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_14vA64E, i64 8), align 8
   %call325 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIP7Align64iEbT_S2_T0_PKcz(ptr noundef %183, ptr noundef %184, i32 noundef 0, ptr noundef nonnull @.str, i32 noundef 5, i32 noundef -1)

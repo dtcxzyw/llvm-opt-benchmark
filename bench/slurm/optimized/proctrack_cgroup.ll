@@ -291,7 +291,7 @@ define i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_unnamed_add
 
 49:                                               ; preds = %.lr.ph.split
   %50 = call i32 @_slurm_cgroup_is_pid_a_slurm_task(i64 noundef %0, i32 noundef %47)
-  %51 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 83), align 1
+  %51 = load i8, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 83), align 1
   %52 = trunc i8 %51 to i1
   %53 = icmp eq i32 %50, 1
   %or.cond = select i1 %52, i1 true, i1 %53
@@ -409,7 +409,7 @@ define range(i32 -1, 1) i32 @proctrack_p_wait(i64 noundef %0) local_unnamed_addr
 
 18:                                               ; preds = %13, %.lr.ph
   %19 = call i64 @time(ptr noundef null) #7
-  %20 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1488), align 8
+  %20 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1488), align 8
   %21 = zext i16 %20 to i64
   %22 = add nsw i64 %4, %21
   %23 = icmp sgt i64 %19, %22

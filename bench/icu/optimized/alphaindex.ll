@@ -61,7 +61,7 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7510BucketListD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510BucketListE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7510BucketListE, i64 16), ptr %this, align 8
   %bucketList_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %bucketList_, align 8
   %isnull = icmp eq ptr %0, null
@@ -113,7 +113,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7515AlphabeticIndex14ImmutableIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515AlphabeticIndex14ImmutableIndexE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7515AlphabeticIndex14ImmutableIndexE, i64 16), ptr %this, align 8
   %buckets_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %buckets_, align 8
   %isnull = icmp eq ptr %0, null
@@ -242,7 +242,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7515AlphabeticIndexC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(400) initializes((0, 36), (40, 90), (144, 154), (208, 218), (272, 282), (336, 346)) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont9:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515AlphabeticIndexE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7515AlphabeticIndexE, i64 16), ptr %this, align 8
   %inputList_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %inputList_, align 8
   %labelsIterIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -256,23 +256,23 @@ invoke.cont9:
   %initialLabels_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %inflowLabel_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %initialLabels_, i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %inflowLabel_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %inflowLabel_, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i16 2, ptr %fUnion2.i, align 8
   %overflowLabel_ = getelementptr inbounds nuw i8, ptr %this, i64 144
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %overflowLabel_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %overflowLabel_, align 8
   %fUnion2.i6 = getelementptr inbounds nuw i8, ptr %this, i64 152
   store i16 2, ptr %fUnion2.i6, align 8
   %underflowLabel_ = getelementptr inbounds nuw i8, ptr %this, i64 208
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %underflowLabel_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %underflowLabel_, align 8
   %fUnion2.i7 = getelementptr inbounds nuw i8, ptr %this, i64 216
   store i16 2, ptr %fUnion2.i7, align 8
   %overflowComparisonString_ = getelementptr inbounds nuw i8, ptr %this, i64 272
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %overflowComparisonString_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %overflowComparisonString_, align 8
   %fUnion2.i8 = getelementptr inbounds nuw i8, ptr %this, i64 280
   store i16 2, ptr %fUnion2.i8, align 8
   %emptyString_ = getelementptr inbounds nuw i8, ptr %this, i64 336
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %emptyString_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %emptyString_, align 8
   %fUnion2.i9 = getelementptr inbounds nuw i8, ptr %this, i64 344
   store i16 2, ptr %fUnion2.i9, align 8
   invoke void @_ZN6icu_7515AlphabeticIndex4initEPKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull %locale, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -477,7 +477,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7515AlphabeticIndexC2EPNS_17RuleBasedCollatorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(400) initializes((0, 36), (40, 90), (144, 154), (208, 218), (272, 282), (336, 346)) %this, ptr noundef %collator, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont9:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515AlphabeticIndexE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7515AlphabeticIndexE, i64 16), ptr %this, align 8
   %inputList_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %inputList_, align 8
   %labelsIterIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -495,23 +495,23 @@ invoke.cont9:
   %collatorPrimaryOnly_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %inflowLabel_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %collatorPrimaryOnly_, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %inflowLabel_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %inflowLabel_, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i16 2, ptr %fUnion2.i, align 8
   %overflowLabel_ = getelementptr inbounds nuw i8, ptr %this, i64 144
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %overflowLabel_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %overflowLabel_, align 8
   %fUnion2.i6 = getelementptr inbounds nuw i8, ptr %this, i64 152
   store i16 2, ptr %fUnion2.i6, align 8
   %underflowLabel_ = getelementptr inbounds nuw i8, ptr %this, i64 208
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %underflowLabel_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %underflowLabel_, align 8
   %fUnion2.i7 = getelementptr inbounds nuw i8, ptr %this, i64 216
   store i16 2, ptr %fUnion2.i7, align 8
   %overflowComparisonString_ = getelementptr inbounds nuw i8, ptr %this, i64 272
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %overflowComparisonString_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %overflowComparisonString_, align 8
   %fUnion2.i8 = getelementptr inbounds nuw i8, ptr %this, i64 280
   store i16 2, ptr %fUnion2.i8, align 8
   %emptyString_ = getelementptr inbounds nuw i8, ptr %this, i64 336
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %emptyString_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %emptyString_, align 8
   %fUnion2.i9 = getelementptr inbounds nuw i8, ptr %this, i64 344
   store i16 2, ptr %fUnion2.i9, align 8
   invoke void @_ZN6icu_7515AlphabeticIndex4initEPKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -535,7 +535,7 @@ lpad10:                                           ; preds = %invoke.cont9
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7515AlphabeticIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(400) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515AlphabeticIndexE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7515AlphabeticIndexE, i64 16), ptr %this, align 8
   %collator_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %collator_, align 8
   %isnull = icmp eq ptr %0, null
@@ -913,7 +913,7 @@ if.end89:                                         ; preds = %invoke.cont87, %inv
           to label %invoke.cont90 unwind label %lpad5
 
 invoke.cont90:                                    ; preds = %if.end89
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %upperC, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %upperC, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %upperC, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %initialLabels_103 = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -1035,7 +1035,7 @@ cleanup.thread:                                   ; preds = %if.end13
   br label %delete.notnull.i10
 
 _ZN6icu_7512LocalPointerINS_17RuleBasedCollatorEED2Ev.exit.thread: ; preds = %if.end13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515AlphabeticIndex14ImmutableIndexE, i64 16), ptr %call14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7515AlphabeticIndex14ImmutableIndexE, i64 16), ptr %call14, align 8
   %buckets_.i = getelementptr inbounds nuw i8, ptr %call14, i64 8
   store ptr %call2, ptr %buckets_.i, align 8
   %collatorPrimaryOnly_.i = getelementptr inbounds nuw i8, ptr %call14, i64 16
@@ -1219,7 +1219,7 @@ invoke.cont52:                                    ; preds = %if.end47
   br i1 %cmp.i108, label %invoke.cont58, label %cleanup500
 
 invoke.cont58:                                    ; preds = %invoke.cont52
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %temp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %temp, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %temp, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %emptyString_59 = getelementptr inbounds nuw i8, ptr %this, i64 336
@@ -2802,7 +2802,7 @@ invoke.cont83:                                    ; preds = %if.else82
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %n2.i)
   store i32 0, ptr %status.i, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %n1.i, align 8, !alias.scope !19
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %n1.i, align 8, !alias.scope !19
   store i16 2, ptr %fUnion2.i.i.i, align 8, !alias.scope !19
   %vtable.i.i = load ptr, ptr %call, align 8, !noalias !19
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 24
@@ -2822,7 +2822,7 @@ lpad.i.i:                                         ; preds = %invoke.cont83
 
 _ZNK6icu_7511Normalizer29normalizeERKNS_13UnicodeStringER10UErrorCode.exit.i: ; preds = %invoke.cont83
   call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %n2.i, align 8, !alias.scope !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %n2.i, align 8, !alias.scope !22
   store i16 2, ptr %fUnion2.i.i8.i, align 8, !alias.scope !22
   %vtable.i9.i = load ptr, ptr %call, align 8, !noalias !22
   %vfn.i10.i = getelementptr inbounds nuw i8, ptr %vtable.i9.i, i64 24
@@ -3105,7 +3105,7 @@ declare noundef i32 @_ZNK6icu_7517RuleBasedCollator7compareERKNS_13UnicodeString
 define void @_ZN6icu_7515AlphabeticIndex9separatedERKNS_13UnicodeStringE(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %item) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %srcChar.addr.i = alloca i16, align 2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %fUnion.i.i = getelementptr inbounds nuw i8, ptr %item, i64 8
@@ -3236,7 +3236,7 @@ declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6icu_7510BucketListC2EPNS_7UVectorES2_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %bucketList, ptr noundef %publicBucketList) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510BucketListE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7510BucketListE, i64 16), ptr %this, align 8
   %bucketList_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %bucketList, ptr %bucketList_, align 8
   %immutableVisibleList_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -4405,7 +4405,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7515AlphabeticIndex6BucketC2ERKNS_13UnicodeStringES4_25UAlphabeticIndexLabelType(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(64) %label, ptr noundef nonnull align 8 dereferenceable(64) %lowerBoundary, i32 noundef %type) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515AlphabeticIndex6BucketE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7515AlphabeticIndex6BucketE, i64 16), ptr %this, align 8
   %label_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %label_, ptr noundef nonnull align 8 dereferenceable(64) %label)
           to label %invoke.cont unwind label %lpad
@@ -4446,7 +4446,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7515AlphabeticIndex6BucketD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515AlphabeticIndex6BucketE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7515AlphabeticIndex6BucketE, i64 16), ptr %this, align 8
   %records_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load ptr, ptr %records_, align 8
   %isnull = icmp eq ptr %0, null

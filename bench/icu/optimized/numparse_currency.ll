@@ -518,7 +518,7 @@ define void @_ZN6icu_758numparse4impl23CombinedCurrencyMatcherC2ERKNS_6number4im
 entry:
   %ref.tmp = alloca %"class.icu_75::Locale", align 8
   %ref.tmp26 = alloca %"class.icu_75::UnicodeString", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl23CombinedCurrencyMatcherE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_758numparse4impl23CombinedCurrencyMatcherE, i64 16), ptr %this, align 8
   %fCurrency1 = getelementptr inbounds nuw i8, ptr %this, i64 16
   invoke void @_ZNK6icu_756number4impl15CurrencySymbols17getCurrencySymbolER10UErrorCode(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %fCurrency1, ptr noundef nonnull align 8 dereferenceable(232) %currencySymbols, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad
@@ -539,7 +539,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
 invoke.cont5:                                     ; preds = %invoke.cont3, %invoke.cont5
   %arrayctor.cur.idx = phi i64 [ 152, %invoke.cont3 ], [ %arrayctor.cur.add, %invoke.cont5 ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds nuw i8, ptr %this, i64 %arrayctor.cur.idx
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur.ptr.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur.ptr.ptr, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
@@ -932,7 +932,7 @@ for.cond.preheader:                               ; preds = %if.end35
 
 if.then37:                                        ; preds = %if.end35
   call void @_ZNK6icu_7513StringSegment19toTempUnicodeStringEv(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %segmentString, ptr noundef nonnull align 8 dereferenceable(17) %segment)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513ParsePositionE, i64 16), ptr %ppos, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513ParsePositionE, i64 16), ptr %ppos, align 8
   %index.i = getelementptr inbounds nuw i8, ptr %ppos, i64 8
   store i32 0, ptr %index.i, align 8
   %errorIndex.i = getelementptr inbounds nuw i8, ptr %ppos, i64 12
@@ -1060,7 +1060,7 @@ declare void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_758numparse4impl23CombinedCurrencyMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl23CombinedCurrencyMatcherE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_758numparse4impl23CombinedCurrencyMatcherE, i64 16), ptr %this, align 8
   %fLocaleName = getelementptr inbounds nuw i8, ptr %this, i64 792
   tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName) #10
   %beforeSuffixInsert = getelementptr inbounds nuw i8, ptr %this, i64 728
@@ -1089,7 +1089,7 @@ arraydestroy.done2:                               ; preds = %arraydestroy.body
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_758numparse4impl23CombinedCurrencyMatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(856) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl23CombinedCurrencyMatcherE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_758numparse4impl23CombinedCurrencyMatcherE, i64 16), ptr %this, align 8
   %fLocaleName.i = getelementptr inbounds nuw i8, ptr %this, i64 792
   tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName.i) #10
   %beforeSuffixInsert.i = getelementptr inbounds nuw i8, ptr %this, i64 728

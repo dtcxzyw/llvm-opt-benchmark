@@ -768,7 +768,7 @@ return:                                           ; preds = %for.end, %if.then
 define dso_local void @flac__analyze_finish(i64 %aopts.coerce) local_unnamed_addr #1 {
 entry:
   %tobool = icmp ugt i64 %aopts.coerce, 4294967295
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @all_, i64 524288), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @all_, i64 524288), align 8
   %cmp = icmp ne i32 %0, 0
   %or.cond = select i1 %tobool, i1 %cmp, i1 false
   br i1 %or.cond, label %if.then, label %if.end

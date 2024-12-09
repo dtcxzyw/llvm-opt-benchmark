@@ -314,7 +314,7 @@ define hidden noundef i32 @_ZNK14XDriverRequest8nworkersEv(ptr nocapture noundef
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7XDriverC2Ev(ptr noundef nonnull align 8 dereferenceable(1216) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #12
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV7XDriver, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 240) (i8, ptr @_ZTV7XDriver, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(152) %2, i32 noundef 21, ptr noundef nonnull @.str.37, i1 noundef zeroext true) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1024
@@ -554,7 +554,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7XDriver5pauseI13VM_XMarkStart
   store i8 0, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 21
   store i8 0, ptr %9, align 1
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV13VM_XMarkStart, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV13VM_XMarkStart, i64 16), ptr %3, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %3) #12
   %10 = load i8, ptr %8, align 4
   %11 = trunc i8 %10 to i1
@@ -656,12 +656,12 @@ _ZN15XRendezvousPort4waitEv.exit:                 ; preds = %.critedge.thread.i.
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN15XRendezvousPort4waitEv.exit, %55
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV13VM_XOperation, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV13VM_XOperation, i64 16), ptr %3, align 8
   %63 = call noundef i32 @_ZN4GCId7currentEv() #12
   store i32 %63, ptr %6, align 8
   store i8 0, ptr %8, align 4
   store i8 0, ptr %9, align 1
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV13VM_XMarkStart, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV13VM_XMarkStart, i64 16), ptr %3, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %3) #12
   %64 = load i8, ptr %8, align 4
   %65 = trunc i8 %64 to i1
@@ -756,7 +756,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7XDriver5pauseI11VM_XMarkEndEE
   store i8 0, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 21
   store i8 0, ptr %9, align 1
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV11VM_XMarkEnd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV11VM_XMarkEnd, i64 16), ptr %3, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %3) #12
   %10 = load i8, ptr %8, align 4
   %11 = trunc i8 %10 to i1
@@ -858,12 +858,12 @@ _ZN15XRendezvousPort4waitEv.exit:                 ; preds = %.critedge.thread.i.
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN15XRendezvousPort4waitEv.exit, %55
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV13VM_XOperation, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV13VM_XOperation, i64 16), ptr %3, align 8
   %63 = call noundef i32 @_ZN4GCId7currentEv() #12
   store i32 %63, ptr %6, align 8
   store i8 0, ptr %8, align 4
   store i8 0, ptr %9, align 1
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV11VM_XMarkEnd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV11VM_XMarkEnd, i64 16), ptr %3, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %3) #12
   %64 = load i8, ptr %8, align 4
   %65 = trunc i8 %64 to i1
@@ -1113,7 +1113,7 @@ define hidden void @_ZN7XDriver12pause_verifyEv(ptr nocapture noundef nonnull re
 8:                                                ; preds = %5, %1
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV10VM_XVerify, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV10VM_XVerify, i64 16), ptr %2, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %2) #12
   br label %10
 
@@ -1198,7 +1198,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7XDriver5pauseI17VM_XRelocateS
   store i8 0, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 21
   store i8 0, ptr %9, align 1
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV17VM_XRelocateStart, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV17VM_XRelocateStart, i64 16), ptr %3, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %3) #12
   %10 = load i8, ptr %8, align 4
   %11 = trunc i8 %10 to i1
@@ -1300,12 +1300,12 @@ _ZN15XRendezvousPort4waitEv.exit:                 ; preds = %.critedge.thread.i.
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN15XRendezvousPort4waitEv.exit, %55
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV13VM_XOperation, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV13VM_XOperation, i64 16), ptr %3, align 8
   %63 = call noundef i32 @_ZN4GCId7currentEv() #12
   store i32 %63, ptr %6, align 8
   store i8 0, ptr %8, align 4
   store i8 0, ptr %9, align 1
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV17VM_XRelocateStart, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV17VM_XRelocateStart, i64 16), ptr %3, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %3) #12
   %64 = load i8, ptr %8, align 4
   %65 = trunc i8 %64 to i1
@@ -1629,7 +1629,7 @@ _ZN7XDriver31concurrent_reset_relocation_setEv.exit: ; preds = %_ZN10XStatTimerC
 126:                                              ; preds = %123, %120
   %127 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %127, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV10VM_XVerify, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV10VM_XVerify, i64 16), ptr %5, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %5) #12
   br label %_ZN7XDriver12pause_verifyEv.exit
 
@@ -2048,7 +2048,7 @@ define linkonce_odr hidden void @_ZN12ThreadShadow22unused_initial_virtualEv(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7XDriverD2Ev(ptr noundef nonnull align 8 dereferenceable(1216) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV7XDriver, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 240) (i8, ptr @_ZTV7XDriver, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %2) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 920
@@ -2059,7 +2059,7 @@ define linkonce_odr hidden void @_ZN7XDriverD2Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7XDriverD0Ev(ptr noundef nonnull align 8 dereferenceable(1216) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV7XDriver, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 240) (i8, ptr @_ZTV7XDriver, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %2) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 920

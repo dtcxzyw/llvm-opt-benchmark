@@ -58,7 +58,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %7 = tail call ptr @xbasename(ptr noundef %6) #6
   %8 = tail call i32 @log_init(ptr noundef %7, ptr noundef nonnull byval(%struct.log_options_t) align 8 @__const.main.opts, i32 noundef 8, ptr noundef null) #6
   tail call void @parse_command_line(i32 noundef %0, ptr noundef nonnull %1) #6
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 8), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 8), align 8
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %14, label %10
 
@@ -113,21 +113,21 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %46
 
 37:                                               ; preds = %14
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 872), align 8
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 872), align 8
   store i32 %38, ptr @weight_age, align 4
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 876), align 4
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 876), align 4
   store i32 %39, ptr @weight_assoc, align 4
-  %40 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 880), align 8
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 880), align 8
   store i32 %40, ptr @weight_fs, align 4
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 884), align 4
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 884), align 4
   store i32 %41, ptr @weight_js, align 4
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 888), align 8
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 888), align 8
   store i32 %42, ptr @weight_part, align 4
-  %43 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 892), align 4
+  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 892), align 4
   store i32 %43, ptr @weight_qos, align 4
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 896), align 8
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 896), align 8
   store ptr %44, ptr @weight_tres, align 8
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 864), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 864), align 8
   br label %46
 
 46:                                               ; preds = %37, %19
@@ -146,12 +146,12 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %53 = load i8, ptr @params, align 8
   %54 = trunc i8 %53 to i1
   %spec.select = select i1 %54, i16 64, i16 0
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 16), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 16), align 8
   %.not23 = icmp eq ptr %55, null
   br i1 %.not23, label %56, label %59
 
 56:                                               ; preds = %52
-  %57 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 2), align 2
+  %57 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 2), align 2
   %58 = trunc i8 %57 to i1
   br i1 %58, label %59, label %61
 
@@ -161,7 +161,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 61:                                               ; preds = %59, %56
   %.1 = phi i16 [ %60, %59 ], [ %spec.select, %56 ]
-  %62 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 6), align 2
+  %62 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 6), align 2
   %63 = trunc i8 %62 to i1
   %64 = or i16 %.1, 96
   %spec.select46 = select i1 %63, i16 %64, i16 %.1
@@ -175,14 +175,14 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   unreachable
 
 67:                                               ; preds = %61
-  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 32), align 8
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 32), align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %70, label %143
 
 70:                                               ; preds = %67
-  %71 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 5), align 1
+  %71 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 5), align 1
   %72 = trunc i8 %71 to i1
-  %73 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 3), align 1
+  %73 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 3), align 1
   %74 = trunc i8 %73 to i1
   br i1 %72, label %75, label %109
 
@@ -190,42 +190,42 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %74, label %76, label %77
 
 76:                                               ; preds = %75
-  store ptr @.str.4, ptr getelementptr inbounds (i8, ptr @params, i64 32), align 8
+  store ptr @.str.4, ptr getelementptr inbounds nuw (i8, ptr @params, i64 32), align 8
   br label %143
 
 77:                                               ; preds = %75
   %78 = call ptr @xstrdup(ptr noundef nonnull @.str.5) #6
-  store ptr %78, ptr getelementptr inbounds (i8, ptr @params, i64 32), align 8
-  %79 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 6), align 2
+  store ptr %78, ptr getelementptr inbounds nuw (i8, ptr @params, i64 32), align 8
+  %79 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 6), align 2
   %80 = trunc i8 %79 to i1
   br i1 %80, label %81, label %85
 
 81:                                               ; preds = %77
-  %82 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 2), align 2
+  %82 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 2), align 2
   %83 = trunc i8 %82 to i1
   br i1 %83, label %85, label %84
 
 84:                                               ; preds = %81
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 32), ptr noundef nonnull @.str.6) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.6) #6
   br label %85
 
 85:                                               ; preds = %84, %81, %77
-  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 56), align 8
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 56), align 8
   %.not33 = icmp eq ptr %86, null
   br i1 %.not33, label %88, label %87
 
 87:                                               ; preds = %85
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 32), ptr noundef nonnull @.str.7) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.7) #6
   br label %88
 
 88:                                               ; preds = %87, %85
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 32), ptr noundef nonnull @.str.8) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.8) #6
   %89 = load i32, ptr @weight_age, align 4
   %.not34 = icmp eq i32 %89, 0
   br i1 %.not34, label %91, label %90
 
 90:                                               ; preds = %88
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 32), ptr noundef nonnull @.str.9) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.9) #6
   br label %91
 
 91:                                               ; preds = %90, %88
@@ -234,7 +234,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not35, label %94, label %93
 
 93:                                               ; preds = %91
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 32), ptr noundef nonnull @.str.10) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.10) #6
   br label %94
 
 94:                                               ; preds = %93, %91
@@ -243,7 +243,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not36, label %97, label %96
 
 96:                                               ; preds = %94
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 32), ptr noundef nonnull @.str.11) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.11) #6
   br label %97
 
 97:                                               ; preds = %96, %94
@@ -252,7 +252,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not37, label %100, label %99
 
 99:                                               ; preds = %97
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 32), ptr noundef nonnull @.str.12) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.12) #6
   br label %100
 
 100:                                              ; preds = %99, %97
@@ -261,7 +261,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not38, label %103, label %102
 
 102:                                              ; preds = %100
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 32), ptr noundef nonnull @.str.13) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.13) #6
   br label %103
 
 103:                                              ; preds = %102, %100
@@ -270,7 +270,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not39, label %106, label %105
 
 105:                                              ; preds = %103
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 32), ptr noundef nonnull @.str.14) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.14) #6
   br label %106
 
 106:                                              ; preds = %105, %103
@@ -279,49 +279,49 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not40, label %143, label %108
 
 108:                                              ; preds = %106
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 32), ptr noundef nonnull @.str.15) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.15) #6
   br label %143
 
 109:                                              ; preds = %70
   br i1 %74, label %110, label %111
 
 110:                                              ; preds = %109
-  store ptr @.str.16, ptr getelementptr inbounds (i8, ptr @params, i64 32), align 8
+  store ptr @.str.16, ptr getelementptr inbounds nuw (i8, ptr @params, i64 32), align 8
   br label %143
 
 111:                                              ; preds = %109
   %112 = call ptr @xstrdup(ptr noundef nonnull @.str.5) #6
-  store ptr %112, ptr getelementptr inbounds (i8, ptr @params, i64 32), align 8
-  %113 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 6), align 2
+  store ptr %112, ptr getelementptr inbounds nuw (i8, ptr @params, i64 32), align 8
+  %113 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 6), align 2
   %114 = trunc i8 %113 to i1
   br i1 %114, label %115, label %119
 
 115:                                              ; preds = %111
-  %116 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 2), align 2
+  %116 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 2), align 2
   %117 = trunc i8 %116 to i1
   br i1 %117, label %119, label %118
 
 118:                                              ; preds = %115
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 32), ptr noundef nonnull @.str.6) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.6) #6
   br label %119
 
 119:                                              ; preds = %118, %115, %111
-  %120 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 56), align 8
+  %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 56), align 8
   %.not25 = icmp eq ptr %120, null
   br i1 %.not25, label %122, label %121
 
 121:                                              ; preds = %119
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 32), ptr noundef nonnull @.str.7) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.7) #6
   br label %122
 
 122:                                              ; preds = %121, %119
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 32), ptr noundef nonnull @.str.17) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.17) #6
   %123 = load i32, ptr @weight_age, align 4
   %.not26 = icmp eq i32 %123, 0
   br i1 %.not26, label %125, label %124
 
 124:                                              ; preds = %122
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 32), ptr noundef nonnull @.str.18) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.18) #6
   br label %125
 
 125:                                              ; preds = %124, %122
@@ -330,7 +330,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not27, label %128, label %127
 
 127:                                              ; preds = %125
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 32), ptr noundef nonnull @.str.19) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.19) #6
   br label %128
 
 128:                                              ; preds = %127, %125
@@ -339,7 +339,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not28, label %131, label %130
 
 130:                                              ; preds = %128
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 32), ptr noundef nonnull @.str.20) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.20) #6
   br label %131
 
 131:                                              ; preds = %130, %128
@@ -348,7 +348,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not29, label %134, label %133
 
 133:                                              ; preds = %131
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 32), ptr noundef nonnull @.str.21) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.21) #6
   br label %134
 
 134:                                              ; preds = %133, %131
@@ -357,7 +357,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not30, label %137, label %136
 
 136:                                              ; preds = %134
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 32), ptr noundef nonnull @.str.22) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.22) #6
   br label %137
 
 137:                                              ; preds = %136, %134
@@ -366,7 +366,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not31, label %140, label %139
 
 139:                                              ; preds = %137
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 32), ptr noundef nonnull @.str.23) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.23) #6
   br label %140
 
 140:                                              ; preds = %139, %137
@@ -375,13 +375,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not32, label %143, label %142
 
 142:                                              ; preds = %140
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 32), ptr noundef nonnull @.str.24) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.24) #6
   br label %143
 
 143:                                              ; preds = %106, %108, %76, %140, %142, %110, %67
-  %144 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 32), align 8
+  %144 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 32), align 8
   %145 = call i32 @parse_format(ptr noundef %144) #6
-  %146 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 40), align 8
+  %146 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8
   %.not41 = icmp eq ptr %146, null
   br i1 %.not41, label %154, label %147
 
@@ -414,7 +414,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   call void @filter_job_list(ptr noundef %157) #6
   %158 = load ptr, ptr %3, align 8
   %159 = load ptr, ptr %158, align 8
-  %160 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 72), align 8
+  %160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 72), align 8
   %161 = call i32 @print_jobs_array(ptr noundef %159, ptr noundef %160) #6
   br label %162
 

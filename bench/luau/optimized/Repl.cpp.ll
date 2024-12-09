@@ -1329,7 +1329,7 @@ define internal noundef range(i32 1, 3) i32 @_ZL14lua_loadstringP9lua_State(ptr 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, i8 0, i64 40, i1 false), !alias.scope !5
   %15 = load i32, ptr @globalOptions, align 4, !noalias !5
   store i32 %15, ptr %6, align 8, !alias.scope !5
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @globalOptions, i64 4), align 4, !noalias !5
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @globalOptions, i64 4), align 4, !noalias !5
   store i32 %16, ptr %12, align 4, !alias.scope !5
   store i32 1, ptr %13, align 8, !alias.scope !5
   %17 = invoke noundef zeroext i1 @_Z14coverageActivev()
@@ -1521,7 +1521,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %43, i8 0, i64 40, i1 false), !alias.scope !8
   %44 = load i32, ptr @globalOptions, align 4, !noalias !8
   store i32 %44, ptr %7, align 8, !alias.scope !8
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @globalOptions, i64 4), align 4, !noalias !8
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @globalOptions, i64 4), align 4, !noalias !8
   store i32 %45, ptr %41, align 4, !alias.scope !8
   store i32 1, ptr %42, align 8, !alias.scope !8
   %46 = invoke noundef zeroext i1 @_Z14coverageActivev()
@@ -1799,7 +1799,7 @@ define dso_local void @_Z7runCodeP9lua_StateRKNSt7__cxx1112basic_stringIcSt11cha
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, i8 0, i64 40, i1 false), !alias.scope !14
   %14 = load i32, ptr @globalOptions, align 4, !noalias !14
   store i32 %14, ptr %5, align 8, !alias.scope !14
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @globalOptions, i64 4), align 4, !noalias !14
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @globalOptions, i64 4), align 4, !noalias !14
   store i32 %15, ptr %10, align 4, !alias.scope !14
   store i32 1, ptr %11, align 8, !alias.scope !14
   %16 = tail call noundef zeroext i1 @_Z14coverageActivev(), !noalias !14
@@ -2483,7 +2483,7 @@ sub_1123:                                         ; preds = %.tail.thread, %.thr
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 64:                                               ; preds = %58
-  store i32 %60, ptr getelementptr inbounds (i8, ptr @globalOptions, i64 4), align 4
+  store i32 %60, ptr getelementptr inbounds nuw (i8, ptr @globalOptions, i64 4), align 4
   br label %106
 
 .tail130.thread:                                  ; preds = %.tail121.thread.thread, %.tail130
@@ -2952,7 +2952,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit46.i: 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %175, i8 0, i64 40, i1 false), !alias.scope !23
   %219 = load i32, ptr @globalOptions, align 4, !noalias !23
   store i32 %219, ptr %10, align 8, !alias.scope !23
-  %220 = load i32, ptr getelementptr inbounds (i8, ptr @globalOptions, i64 4), align 4, !noalias !23
+  %220 = load i32, ptr getelementptr inbounds nuw (i8, ptr @globalOptions, i64 4), align 4, !noalias !23
   store i32 %220, ptr %173, align 4, !alias.scope !23
   store i32 1, ptr %174, align 8, !alias.scope !23
   %221 = invoke noundef zeroext i1 @_Z14coverageActivev()
@@ -3728,7 +3728,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
           to label %39 unwind label %.body40
 
 39:                                               ; preds = %37
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %38, ptr noundef nonnull @.str.117, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.117, i64 13)) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %38, ptr noundef nonnull @.str.117, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.117, i64 13)) #23
   store ptr null, ptr %3, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 13)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit27.i unwind label %.body40
@@ -3825,7 +3825,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit32.i: 
           to label %62 unwind label %.body38
 
 62:                                               ; preds = %60
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %61, ptr noundef nonnull @.str.117, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.117, i64 13)) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %61, ptr noundef nonnull @.str.117, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.117, i64 13)) #23
   store ptr null, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef 13)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit37.i unwind label %.body38
@@ -3965,7 +3965,7 @@ _ZL11loadHistoryPKc.exit:                         ; preds = %71, %73
           to label %94 unwind label %.body76
 
 94:                                               ; preds = %92
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %93, ptr noundef nonnull @.str.120, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.120, i64 7)) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %93, ptr noundef nonnull @.str.120, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.120, i64 7)) #23
   store ptr null, ptr %2, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 7)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %.body76

@@ -402,10 +402,10 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringEE6parser, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringEE6parser, i64 8), i8 0, i64 16, i1 false)
-  store i64 4294967295, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringEE6parser, i64 24), align 8
-  store i64 1024, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringEE6parser, i64 32), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringEE6parser, i64 40), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringEE6parser, i64 8), i8 0, i64 16, i1 false)
+  store i64 4294967295, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringEE6parser, i64 24), align 8
+  store i64 1024, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringEE6parser, i64 32), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringEE6parser, i64 40), align 8
   %0 = tail call i32 @__cxa_thread_atexit(ptr nonnull @_ZN8simdjson7haswell8ondemand6parserD2Ev, ptr nonnull @_ZZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringEE6parser, ptr nonnull @__dso_handle) #2
   store i1 true, ptr @_ZGVZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringEE6parser, align 1
   br label %if.end.i
@@ -2611,7 +2611,7 @@ invoke.cont:                                      ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i, align 8
   %_M_weak_count.i.i = getelementptr inbounds nuw i8, ptr %call, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN8facebook5velox9functions6detail17SIMDJsonExtractorELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN8facebook5velox9functions6detail17SIMDJsonExtractorELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call, align 8
   %_M_ptr.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %__p, ptr %_M_ptr.i, align 8
   store ptr %call, ptr %this, align 8

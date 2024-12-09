@@ -124,7 +124,7 @@ define dso_local noalias noundef nonnull ptr @_ZN4llvm30createRISCVLandingPadSet
   store i32 2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_120RISCVLandingPadSetupE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_120RISCVLandingPadSetupE, i64 16), ptr %1, align 8
   ret ptr %1
 }
 
@@ -142,7 +142,7 @@ define internal noalias noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBA
   store i32 2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_120RISCVLandingPadSetupE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_120RISCVLandingPadSetupE, i64 16), ptr %1, align 8
   ret ptr %1
 }
 
@@ -250,7 +250,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120RISCVLandingPadSetup20run
   br i1 %or.cond, label %22, label %.thread
 
 22:                                               ; preds = %2
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @PreferredLandingPadLabel, i64 128), align 8
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @PreferredLandingPadLabel, i64 128), align 8
   %24 = icmp ult i32 %23, 1048576
   br i1 %24, label %26, label %25
 

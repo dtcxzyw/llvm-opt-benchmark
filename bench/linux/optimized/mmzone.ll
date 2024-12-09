@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
 define dso_local ptr @first_online_pgdat() local_unnamed_addr #0 align 16 {
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 8), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 8), align 8
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %6, label %3
 
@@ -38,7 +38,7 @@ define dso_local ptr @next_online_pgdat(ptr nocapture noundef readonly %0) local
   br i1 %5, label %.thread, label %6, !prof !6
 
 6:                                                ; preds = %1
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 8), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 8), align 8
   %8 = zext nneg i32 %4 to i64
   %9 = shl nsw i64 -1, %8
   %10 = and i64 %7, %9
@@ -82,7 +82,7 @@ define dso_local ptr @next_zone(ptr noundef readonly %0) local_unnamed_addr #0 a
   br i1 %12, label %.thread, label %13, !prof !6
 
 13:                                               ; preds = %8
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 8), align 8
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 8), align 8
   %15 = zext nneg i32 %11 to i64
   %16 = shl nsw i64 -1, %15
   %17 = and i64 %14, %16

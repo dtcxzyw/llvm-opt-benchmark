@@ -378,7 +378,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3MapC2EP8IGameDef(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 16), (24, 28), (32, 40)) %this, ptr noundef %gamedef) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV3Map, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV3Map, i64 16), ptr %this, align 8, !tbaa !4
   %m_gamedef = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %gamedef, ptr %m_gamedef, align 8, !tbaa !7
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -481,7 +481,7 @@ _ZNSt8_Rb_treeIP16MapEventReceiverS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EED2Ev.e
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3MapD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV3Map, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV3Map, i64 16), ptr %this, align 8, !tbaa !4
   %m_sectors = getelementptr inbounds nuw i8, ptr %this, i64 64
   %_M_before_begin.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %__begin1.sroa.0.013 = load ptr, ptr %_M_before_begin.i.i.i, align 8, !tbaa !37
@@ -1070,7 +1070,7 @@ entry:
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call2.i11.i4, i64 %1
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !58
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
   %m_s.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %2, ptr %m_s.i, align 8, !tbaa !53
@@ -1138,7 +1138,7 @@ if.then.i.i6:                                     ; preds = %_ZN13BaseExceptionC
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i6, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24InvalidPositionException, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24InvalidPositionException, i64 16), ptr %this, align 8, !tbaa !4
   ret void
 }
 
@@ -1147,7 +1147,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
   %m_s = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s, align 8, !tbaa !56
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -7182,16 +7182,16 @@ init.check:                                       ; preds = %entry
 
 invoke.cont46:                                    ; preds = %init.check
   store i16 0, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, align 16, !tbaa !127
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 2), align 2, !tbaa !128
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 4), align 4, !tbaa !129
-  store i48 38655295497, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 6), align 2
-  store i48 -38654115831, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 12), align 4
-  store i48 42949083145, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 18), align 2
-  store i48 -34360328183, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 24), align 8
-  store i48 38655361015, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 30), align 2
-  store i48 -38654050313, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 36), align 4
-  store i48 42949148663, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 42), align 2
-  store i48 -34360262665, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 48), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 2), align 2, !tbaa !128
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 4), align 4, !tbaa !129
+  store i48 38655295497, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 6), align 2
+  store i48 -38654115831, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 12), align 4
+  store i48 42949083145, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 18), align 2
+  store i48 -34360328183, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 24), align 8
+  store i48 38655361015, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 30), align 2
+  store i48 -38654050313, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 36), align 4
+  store i48 42949148663, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 42), align 2
+  store i48 -34360262665, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 48), align 16
   %2 = tail call ptr @llvm.invariant.start.p0(i64 54, ptr nonnull @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9) #26
   br label %init.end
@@ -7446,9 +7446,9 @@ _ZN3Map10isOccludedEN3irr4core8vector3dIsEES3_ffffj.exit: ; preds = %if.then23.i
 if.end79:                                         ; preds = %_ZN3Map10isOccludedEN3irr4core8vector3dIsEES3_ffffj.exit, %if.else174.i, %if.end
   %36 = load i16, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, align 16, !tbaa !127
   %add.i246 = add i16 %36, %add.i
-  %37 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 2), align 2, !tbaa !128
+  %37 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 2), align 2, !tbaa !128
   %add8.i249 = add i16 %37, %add6.i
-  %38 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 4), align 4, !tbaa !129
+  %38 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 4), align 4, !tbaa !129
   %add13.i252 = add i16 %38, %add10.i
   %retval.sroa.2.0.insert.ext.i255 = zext i16 %add8.i249 to i48
   %retval.sroa.2.0.insert.shift.i256 = shl nuw nsw i48 %retval.sroa.2.0.insert.ext.i255, 16
@@ -7561,11 +7561,11 @@ _ZN3Map10isOccludedEN3irr4core8vector3dIsEES3_ffffj.exit67.thread: ; preds = %fo
 
 for.cond:                                         ; preds = %if.then23.i64
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_valid_position.i3) #26
-  %71 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 6), align 2, !tbaa !127
+  %71 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 6), align 2, !tbaa !127
   %add.i246.1 = add i16 %71, %add.i
-  %72 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 8), align 8, !tbaa !128
+  %72 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 8), align 8, !tbaa !128
   %add8.i249.1 = add i16 %72, %add6.i
-  %73 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 10), align 2, !tbaa !129
+  %73 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 10), align 2, !tbaa !129
   %add13.i252.1 = add i16 %73, %add10.i
   %retval.sroa.2.0.insert.ext.i255.1 = zext i16 %add8.i249.1 to i48
   %retval.sroa.2.0.insert.shift.i256.1 = shl nuw nsw i48 %retval.sroa.2.0.insert.ext.i255.1, 16
@@ -7667,11 +7667,11 @@ _ZN3Map10isOccludedEN3irr4core8vector3dIsEES3_ffffj.exit132.thread: ; preds = %f
 
 for.cond.1:                                       ; preds = %if.then23.i129
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_valid_position.i68) #26
-  %101 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 12), align 4, !tbaa !127
+  %101 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 12), align 4, !tbaa !127
   %add.i246.2 = add i16 %101, %add.i
-  %102 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 14), align 2, !tbaa !128
+  %102 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 14), align 2, !tbaa !128
   %add8.i249.2 = add i16 %102, %add6.i
-  %103 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 16), align 16, !tbaa !129
+  %103 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 16), align 16, !tbaa !129
   %add13.i252.2 = add i16 %103, %add10.i
   %retval.sroa.2.0.insert.ext.i255.2 = zext i16 %add8.i249.2 to i48
   %retval.sroa.2.0.insert.shift.i256.2 = shl nuw nsw i48 %retval.sroa.2.0.insert.ext.i255.2, 16
@@ -7773,11 +7773,11 @@ _ZN3Map10isOccludedEN3irr4core8vector3dIsEES3_ffffj.exit197.thread: ; preds = %f
 
 for.cond.2:                                       ; preds = %if.then23.i194
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_valid_position.i133) #26
-  %131 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 18), align 2, !tbaa !127
+  %131 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 18), align 2, !tbaa !127
   %add.i246.3 = add i16 %131, %add.i
-  %132 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 20), align 4, !tbaa !128
+  %132 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 20), align 4, !tbaa !128
   %add8.i249.3 = add i16 %132, %add6.i
-  %133 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 22), align 2, !tbaa !129
+  %133 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 22), align 2, !tbaa !129
   %add13.i252.3 = add i16 %133, %add10.i
   %retval.sroa.2.0.insert.ext.i255.3 = zext i16 %add8.i249.3 to i48
   %retval.sroa.2.0.insert.shift.i256.3 = shl nuw nsw i48 %retval.sroa.2.0.insert.ext.i255.3, 16
@@ -7879,11 +7879,11 @@ _ZN3Map10isOccludedEN3irr4core8vector3dIsEES3_ffffj.exit262.thread: ; preds = %f
 
 for.cond.3:                                       ; preds = %if.then23.i259
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_valid_position.i198) #26
-  %161 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 24), align 8, !tbaa !127
+  %161 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 24), align 8, !tbaa !127
   %add.i246.4 = add i16 %161, %add.i
-  %162 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 26), align 2, !tbaa !128
+  %162 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 26), align 2, !tbaa !128
   %add8.i249.4 = add i16 %162, %add6.i
-  %163 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 28), align 4, !tbaa !129
+  %163 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 28), align 4, !tbaa !129
   %add13.i252.4 = add i16 %163, %add10.i
   %retval.sroa.2.0.insert.ext.i255.4 = zext i16 %add8.i249.4 to i48
   %retval.sroa.2.0.insert.shift.i256.4 = shl nuw nsw i48 %retval.sroa.2.0.insert.ext.i255.4, 16
@@ -7985,11 +7985,11 @@ _ZN3Map10isOccludedEN3irr4core8vector3dIsEES3_ffffj.exit327.thread: ; preds = %f
 
 for.cond.4:                                       ; preds = %if.then23.i324
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_valid_position.i263) #26
-  %191 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 30), align 2, !tbaa !127
+  %191 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 30), align 2, !tbaa !127
   %add.i246.5 = add i16 %191, %add.i
-  %192 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 32), align 16, !tbaa !128
+  %192 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 32), align 16, !tbaa !128
   %add8.i249.5 = add i16 %192, %add6.i
-  %193 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 34), align 2, !tbaa !129
+  %193 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 34), align 2, !tbaa !129
   %add13.i252.5 = add i16 %193, %add10.i
   %retval.sroa.3.0.insert.ext.i253.5 = zext i16 %add13.i252.5 to i48
   %retval.sroa.3.0.insert.shift.i254.5 = shl nuw i48 %retval.sroa.3.0.insert.ext.i253.5, 32
@@ -8002,11 +8002,11 @@ for.cond.4:                                       ; preds = %if.then23.i324
   br i1 %call84.5, label %for.cond.5, label %cleanup92
 
 for.cond.5:                                       ; preds = %for.cond.4
-  %194 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 36), align 4, !tbaa !127
+  %194 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 36), align 4, !tbaa !127
   %add.i246.6 = add i16 %194, %add.i
-  %195 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 38), align 2, !tbaa !128
+  %195 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 38), align 2, !tbaa !128
   %add8.i249.6 = add i16 %195, %add6.i
-  %196 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 40), align 8, !tbaa !129
+  %196 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 40), align 8, !tbaa !129
   %add13.i252.6 = add i16 %196, %add10.i
   %retval.sroa.3.0.insert.ext.i253.6 = zext i16 %add13.i252.6 to i48
   %retval.sroa.3.0.insert.shift.i254.6 = shl nuw i48 %retval.sroa.3.0.insert.ext.i253.6, 32
@@ -8019,11 +8019,11 @@ for.cond.5:                                       ; preds = %for.cond.4
   br i1 %call84.6, label %for.cond.6, label %cleanup92
 
 for.cond.6:                                       ; preds = %for.cond.5
-  %197 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 42), align 2, !tbaa !127
+  %197 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 42), align 2, !tbaa !127
   %add.i246.7 = add i16 %197, %add.i
-  %198 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 44), align 4, !tbaa !128
+  %198 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 44), align 4, !tbaa !128
   %add8.i249.7 = add i16 %198, %add6.i
-  %199 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 46), align 2, !tbaa !129
+  %199 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 46), align 2, !tbaa !129
   %add13.i252.7 = add i16 %199, %add10.i
   %retval.sroa.3.0.insert.ext.i253.7 = zext i16 %add13.i252.7 to i48
   %retval.sroa.3.0.insert.shift.i254.7 = shl nuw i48 %retval.sroa.3.0.insert.ext.i253.7, 32
@@ -8036,11 +8036,11 @@ for.cond.6:                                       ; preds = %for.cond.5
   br i1 %call84.7, label %for.cond.7, label %cleanup92
 
 for.cond.7:                                       ; preds = %for.cond.6
-  %200 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 48), align 16, !tbaa !127
+  %200 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 48), align 16, !tbaa !127
   %add.i246.8 = add i16 %200, %add.i
-  %201 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 50), align 2, !tbaa !128
+  %201 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 50), align 2, !tbaa !128
   %add8.i249.8 = add i16 %201, %add6.i
-  %202 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 52), align 4, !tbaa !129
+  %202 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9, i64 52), align 4, !tbaa !129
   %add13.i252.8 = add i16 %202, %add10.i
   br label %cleanup92.sink.split
 
@@ -8187,7 +8187,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %MaxEdge.i.i, i8 0, i64 12, i1 false)
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_data.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8MMVManip, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8MMVManip, i64 16), ptr %this, align 8, !tbaa !4
   %m_is_dirty = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i8 0, ptr %m_is_dirty, align 8, !tbaa !262
   %m_map = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -9960,7 +9960,7 @@ invoke.cont:
   %m_area.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %m_data.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_data.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8MMVManip, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8MMVManip, i64 16), ptr %call, align 8, !tbaa !4
   %m_is_dirty.i = getelementptr inbounds nuw i8, ptr %call, i64 48
   store i8 0, ptr %m_is_dirty.i, align 8, !tbaa !262
   %m_map.i = getelementptr inbounds nuw i8, ptr %call, i64 56
@@ -10100,7 +10100,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8MMVManipD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8MMVManip, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8MMVManip, i64 16), ptr %this, align 8, !tbaa !4
   %m_loaded_blocks = getelementptr inbounds nuw i8, ptr %this, i64 64
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8, !tbaa !28
@@ -10122,7 +10122,7 @@ _ZNSt3mapIN3irr4core8vector3dIsEEhSt4lessIS3_ESaISt4pairIKS3_hEEED2Ev.exit: ; pr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8MMVManipD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8MMVManip, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8MMVManip, i64 16), ptr %this, align 8, !tbaa !4
   %m_loaded_blocks.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !28
@@ -10205,7 +10205,7 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN24InvalidPositionExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
   %m_s.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !56
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -10240,7 +10240,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
   %m_s.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !56
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -10278,9 +10278,9 @@ entry:
   %__alloc_node_gen.i.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %ref.tmp = alloca %"class.std::unordered_map.160", align 8
   %ref.tmp2 = alloca %"class.std::unordered_map.174", align 8
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT17ItemStackMetadata, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTT17ItemStackMetadata, i64 8), align 8
   store ptr %0, ptr %this, align 8, !tbaa !4
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT17ItemStackMetadata, i64 16), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTT17ItemStackMetadata, i64 16), align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %0, i64 -80
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 %vbase.offset.i
@@ -10298,7 +10298,7 @@ entry:
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i, align 8, !tbaa !34
   %_M_next_resize.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17ItemStackMetadata, i64 80), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17ItemStackMetadata, i64 80), ptr %this, align 8, !tbaa !4
   %toolcaps_overridden = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i8 0, ptr %toolcaps_overridden, align 8, !tbaa !292
   %toolcaps_override = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -10438,7 +10438,7 @@ lpad.body:                                        ; preds = %lpad, %lpad.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp2) #26
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_12ToolGroupCapESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp) #26
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp) #26
-  call void @_ZN14SimpleMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT17ItemStackMetadata, i64 8)) #26
+  call void @_ZN14SimpleMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT17ItemStackMetadata, i64 8)) #26
   resume { ptr, i32 } %eh.lpad-body
 }
 

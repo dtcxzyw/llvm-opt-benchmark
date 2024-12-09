@@ -192,9 +192,9 @@ define noundef i32 @_ZNK7TabData7protoIdEv(ptr nocapture noundef nonnull readonl
 define void @_ZN10TrafficTabC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(122) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   tail call void @_ZN19DetachableTabWidgetC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10TrafficTab, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10TrafficTab, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10TrafficTab, i64 496), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10TrafficTab, i64 496), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i8 0, ptr %6, align 8
@@ -314,9 +314,9 @@ _ZN17QArrayDataPointerIiED2Ev.exit:               ; preds = %1, %_ZN17QArrayData
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN19DetachableTabWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19DetachableTabWidget, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19DetachableTabWidget, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19DetachableTabWidget, i64 496), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19DetachableTabWidget, i64 496), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -339,9 +339,9 @@ _ZN7QStringD2Ev.exit:                             ; preds = %1, %_ZN17QArrayData
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN10TrafficTabD2Ev(ptr noundef nonnull align 8 dereferenceable(122) initializes((0, 8), (16, 24)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10TrafficTab, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10TrafficTab, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10TrafficTab, i64 496), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10TrafficTab, i64 496), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -392,8 +392,8 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i:       ; preds = %_ZN4QMapIiiED2Ev.ex
   br label %_ZN5QListIiED2Ev.exit
 
 _ZN5QListIiED2Ev.exit:                            ; preds = %_ZN4QMapIiiED2Ev.exit, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i, %20
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19DetachableTabWidget, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19DetachableTabWidget, i64 496), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19DetachableTabWidget, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19DetachableTabWidget, i64 496), ptr %2, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
   %.not.i.i.i.i = icmp eq ptr %23, null

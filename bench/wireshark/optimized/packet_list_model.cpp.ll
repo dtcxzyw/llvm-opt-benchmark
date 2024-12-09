@@ -497,7 +497,7 @@ define void @_ZN15PacketListModelC2EP7QObjectP13_capture_file(ptr noundef nonnul
   %9 = alloca %"class.QMetaObject::Connection", align 8
   %10 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN18QAbstractItemModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15PacketListModel, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15PacketListModel, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1037,7 +1037,7 @@ declare void @_ZN18QAbstractItemModelD2Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN15PacketListModelD2Ev(ptr noundef nonnull align 8 dereferenceable(164) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15PacketListModel, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15PacketListModel, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1182,7 +1182,7 @@ define void @_ZNK15PacketListModel5indexEiiRK11QModelIndex(ptr dead_on_unwind no
   %12 = load ptr, ptr %11, align 8
   %.not = icmp ne ptr %12, null
   %or.cond12.not14 = select i1 %or.cond.not17, i1 %.not, i1 false
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 8), align 8
   %.not10 = icmp slt i32 %3, %13
   %or.cond13 = select i1 %or.cond12.not14, i1 %.not10, i1 false
   br i1 %or.cond13, label %16, label %14
@@ -4252,7 +4252,7 @@ _ZN7QStringC2EPKc.exit:                           ; preds = %_ZN16PacketListReco
 60:                                               ; preds = %_ZN7QStringC2EPKc.exit
   %61 = load i64, ptr %28, align 8
   %62 = trunc i64 %61 to i32
-  %63 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 520), align 8
+  %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 520), align 8
   %64 = icmp ult i32 %63, %62
   br i1 %64, label %65, label %122
 
@@ -4306,7 +4306,7 @@ _ZN15PacketListModel2trEPKcS1_i.exit56:           ; preds = %_ZN7QStringD2Ev.exi
           to label %81 unwind label %100
 
 81:                                               ; preds = %_ZN15PacketListModel2trEPKcS1_i.exit56
-  %82 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 520), align 8
+  %82 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 520), align 8
   %83 = zext i32 %82 to i64
   invoke void @_ZNK7QString3argEyii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %83, i32 noundef 0, i32 noundef 10, i16 32)
           to label %_ZNK7QString3argEjii5QChar.exit unwind label %102
@@ -5639,7 +5639,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9SortAbortCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SortAbort, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SortAbort, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -5734,7 +5734,7 @@ define noundef i32 @_ZNK15PacketListModel8rowCountERK11QModelIndex(ptr nocapture
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK15PacketListModel11columnCountERK11QModelIndex(ptr nocapture noundef nonnull readnone align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1) unnamed_addr #17 align 2 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 8), align 8
   ret i32 %3
 }
 
@@ -5848,7 +5848,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
   %49 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %50 = load ptr, ptr %49, align 8
   %.not44 = icmp eq ptr %50, null
-  %51 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 32), align 8
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 32), align 8
   %.not45 = icmp eq i32 %51, 0
   %or.cond = select i1 %.not44, i1 true, i1 %.not45
   br i1 %or.cond, label %54, label %52
@@ -5864,7 +5864,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
   br label %_ZN7QStringD2Ev.exit51
 
 56:                                               ; preds = %46, %42, %52
-  %.0 = phi ptr [ %53, %52 ], [ getelementptr inbounds (i8, ptr @prefs, i64 122), %42 ], [ getelementptr inbounds (i8, ptr @prefs, i64 110), %46 ]
+  %.0 = phi ptr [ %53, %52 ], [ getelementptr inbounds nuw (i8, ptr @prefs, i64 122), %42 ], [ getelementptr inbounds nuw (i8, ptr @prefs, i64 110), %46 ]
   %57 = tail call { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef nonnull %.0)
   %58 = extractvalue { i64, i64 } %57, 0
   store i64 %58, ptr %5, align 8
@@ -5890,7 +5890,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
   %68 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %69 = load ptr, ptr %68, align 8
   %.not40 = icmp eq ptr %69, null
-  %70 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 32), align 8
+  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 32), align 8
   %.not41 = icmp eq i32 %70, 0
   %or.cond47 = select i1 %.not40, i1 true, i1 %.not41
   br i1 %or.cond47, label %73, label %71
@@ -5906,7 +5906,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
   br label %_ZN7QStringD2Ev.exit51
 
 75:                                               ; preds = %65, %61, %71
-  %.1 = phi ptr [ %72, %71 ], [ getelementptr inbounds (i8, ptr @prefs, i64 116), %61 ], [ getelementptr inbounds (i8, ptr @prefs, i64 104), %65 ]
+  %.1 = phi ptr [ %72, %71 ], [ getelementptr inbounds nuw (i8, ptr @prefs, i64 116), %61 ], [ getelementptr inbounds nuw (i8, ptr @prefs, i64 104), %65 ]
   %76 = tail call { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef nonnull %.1)
   %77 = extractvalue { i64, i64 } %76, 0
   store i64 %77, ptr %6, align 8
@@ -6048,7 +6048,7 @@ define void @_ZNK15PacketListModel10headerDataEiN2Qt11OrientationEi(ptr dead_on_
 
 13:                                               ; preds = %5
   %14 = icmp eq i32 %3, 1
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 8), align 8
   %16 = icmp slt i32 %2, %15
   %or.cond = select i1 %14, i1 %16, i1 false
   br i1 %or.cond, label %17, label %49

@@ -2986,7 +2986,7 @@ declare void @SSL_CTX_set_next_proto_select_cb(ptr noundef, ptr noundef, ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @cb_client_npn(ptr nocapture readnone %s, ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef writeonly initializes((0, 1)) %outlen, ptr nocapture readnone %in, i32 %inlen, ptr nocapture readnone %arg) #9 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @NEXT_PROTO_STRING, i64 1), ptr %out, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @NEXT_PROTO_STRING, i64 1), ptr %out, align 8
   store i8 9, ptr %outlen, align 1
   ret i32 0
 }
@@ -5169,7 +5169,7 @@ if.end8:                                          ; preds = %if.then4, %if.end
 
 lor.lhs.false:                                    ; preds = %if.end8
   %13 = load ptr, ptr %client_s, align 8
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %13, ptr noundef nonnull dereferenceable(9) getelementptr inbounds (i8, ptr @NEXT_PROTO_STRING, i64 1), i64 9)
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %13, ptr noundef nonnull dereferenceable(9) getelementptr inbounds nuw (i8, ptr @NEXT_PROTO_STRING, i64 1), i64 9)
   %tobool13.not = icmp eq i32 %bcmp, 0
   br i1 %tobool13.not, label %if.end15, label %return
 
@@ -5182,7 +5182,7 @@ if.end15:                                         ; preds = %if.end8, %lor.lhs.f
 
 lor.lhs.false21:                                  ; preds = %if.end15
   %15 = load ptr, ptr %server_s, align 8
-  %bcmp8 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %15, ptr noundef nonnull dereferenceable(9) getelementptr inbounds (i8, ptr @NEXT_PROTO_STRING, i64 1), i64 9)
+  %bcmp8 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %15, ptr noundef nonnull dereferenceable(9) getelementptr inbounds nuw (i8, ptr @NEXT_PROTO_STRING, i64 1), i64 9)
   %tobool24.not = icmp eq i32 %bcmp8, 0
   br i1 %tobool24.not, label %if.end26, label %return
 

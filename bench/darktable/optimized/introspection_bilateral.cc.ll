@@ -1839,7 +1839,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EE19merge_spla
 
 .loopexit24:                                      ; preds = %150, %.loopexit25
   %126 = phi i64 [ 0, %.loopexit25 ], [ %146, %150 ]
-  %127 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !131
+  %127 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !131
   %128 = and i32 %127, 512
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %356, label %256
@@ -2259,7 +2259,7 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi5ELi4EE4blurEv(ptr
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !125
   %14 = load ptr, ptr %5, align 8, !tbaa !117
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !131
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !131
   %16 = and i32 %15, 512
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %53, label %18
@@ -3022,7 +3022,7 @@ define void @tiling_callback(ptr nocapture noundef readnone %0, ptr nocapture no
   %78 = fdiv reassoc nsz arcp contract afn float %76, %77
   %79 = fadd reassoc nsz arcp contract afn float %78, 5.250000e+00
   store float %79, ptr %4, align 4, !tbaa !166
-  %80 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !131
+  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !131
   %81 = and i32 %80, 512
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %116, label %83
@@ -3167,14 +3167,14 @@ define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 nound
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %2
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 56), align 8, !tbaa !63
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 144), align 16, !tbaa !63
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 232), align 8, !tbaa !63
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 320), align 16, !tbaa !63
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 408), align 8, !tbaa !63
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 496), align 16, !tbaa !63
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 584), align 8, !tbaa !63
-  store ptr @_ZZ18introspection_initE2f5, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 512), align 16, !tbaa !63
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 56), align 8, !tbaa !63
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 144), align 16, !tbaa !63
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 232), align 8, !tbaa !63
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 320), align 16, !tbaa !63
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 408), align 8, !tbaa !63
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 496), align 16, !tbaa !63
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 584), align 8, !tbaa !63
+  store ptr @_ZZ18introspection_initE2f5, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 512), align 16, !tbaa !63
   br label %8
 
 8:                                                ; preds = %7, %2
@@ -3254,11 +3254,11 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #5 {
 13:                                               ; preds = %10
   %14 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.18)
   %15 = icmp eq i32 %14, 0
-  %16 = select i1 %15, ptr getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 352), ptr null
+  %16 = select i1 %15, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 352), ptr null
   br label %17
 
 17:                                               ; preds = %13, %10, %7, %4, %1
-  %18 = phi ptr [ @_ZL20introspection_linear, %1 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 88), %4 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 176), %7 ], [ getelementptr inbounds (i8, ptr @_ZL20introspection_linear, i64 264), %10 ], [ %16, %13 ]
+  %18 = phi ptr [ @_ZL20introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 88), %4 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 176), %7 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 264), %10 ], [ %16, %13 ]
   ret ptr %18
 }
 

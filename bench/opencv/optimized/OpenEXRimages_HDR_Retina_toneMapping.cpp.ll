@@ -412,7 +412,7 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
           to label %153 unwind label %174
 
 153:                                              ; preds = %151
-  %154 = load ptr, ptr getelementptr inbounds (i8, ptr @inputImage, i64 64), align 8
+  %154 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @inputImage, i64 64), align 8
   %155 = load i32, ptr %154, align 4
   %156 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %152, i32 noundef %155)
           to label %157 unwind label %174
@@ -422,7 +422,7 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
           to label %159 unwind label %174
 
 159:                                              ; preds = %157
-  %160 = load ptr, ptr getelementptr inbounds (i8, ptr @inputImage, i64 64), align 8
+  %160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @inputImage, i64 64), align 8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 4
   %162 = load i32, ptr %161, align 4
   %163 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %158, i32 noundef %162)
@@ -645,7 +645,7 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
   br label %469
 
 234:                                              ; preds = %209
-  %235 = load ptr, ptr getelementptr inbounds (i8, ptr @inputImage, i64 64), align 8
+  %235 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @inputImage, i64 64), align 8
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 4
   %237 = load i32, ptr %236, align 4
   %238 = load i32, ptr %235, align 4

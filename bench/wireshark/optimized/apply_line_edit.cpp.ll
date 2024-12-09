@@ -75,9 +75,9 @@ _ZN7QStringD2Ev.exit:
   %21 = alloca %"class.QMetaObject::Connection", align 8
   %22 = alloca %class.QString, align 8
   tail call void @_ZN9QLineEditC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %2)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13ApplyLineEdit, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13ApplyLineEdit, i64 16), ptr %0, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13ApplyLineEdit, i64 456), ptr %23, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13ApplyLineEdit, i64 456), ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %25, align 8
@@ -844,7 +844,7 @@ _ZN7QStringC2EPKc.exit:                           ; preds = %36
   br label %50
 
 44:                                               ; preds = %35
-  %.sroa.0.0.copyload = load i48, ptr getelementptr inbounds (i8, ptr @prefs, i64 42), align 2
+  %.sroa.0.0.copyload = load i48, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 42), align 2
   %45 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTE7color_t(i48 %.sroa.0.0.copyload)
           to label %46 unwind label %77
 
@@ -1047,9 +1047,9 @@ declare void @_ZN9QLineEditD2Ev(ptr noundef nonnull align 8 dereferenceable(40))
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN13ApplyLineEditD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8), (16, 24)) %0) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13ApplyLineEdit, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13ApplyLineEdit, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13ApplyLineEdit, i64 456), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13ApplyLineEdit, i64 456), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null

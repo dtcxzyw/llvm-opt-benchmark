@@ -273,7 +273,7 @@ define dso_local i32 @tcf_action_update_hw_stats(ptr noundef %0) #0 align 16 {
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %20
-  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !8
+  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
   %24 = load ptr, ptr %0, align 16
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 104
@@ -295,7 +295,7 @@ define dso_local i32 @tcf_action_update_hw_stats(ptr noundef %0) #0 align 16 {
 
 37:                                               ; preds = %28, %23
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !10
-  %38 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !11
+  %38 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !11
   %39 = icmp ult i8 %38, 2
   call void @llvm.assume(i1 %39)
   %40 = icmp eq i8 %38, 0
@@ -1332,7 +1332,7 @@ define dso_local i32 @tcf_register_action(ptr noundef %0, ptr noundef %1) #0 ali
   br i1 %30, label %.sink.split, label %23, !llvm.loop !43
 
 31:                                               ; preds = %23
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %33 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %32, i32 noundef 3520, i64 noundef 24) #17
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.sink.split, label %35
@@ -1340,8 +1340,8 @@ define dso_local i32 @tcf_register_action(ptr noundef %0, ptr noundef %1) #0 ali
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i32 %22, ptr %36, align 8
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @act_pernet_id_list, i64 8), align 8
-  store ptr %33, ptr getelementptr inbounds (i8, ptr @act_pernet_id_list, i64 8), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @act_pernet_id_list, i64 8), align 8
+  store ptr %33, ptr getelementptr inbounds nuw (i8, ptr @act_pernet_id_list, i64 8), align 8
   store ptr @act_pernet_id_list, ptr %33, align 8
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %37, ptr %38, align 8
@@ -1381,8 +1381,8 @@ define dso_local i32 @tcf_register_action(ptr noundef %0, ptr noundef %1) #0 ali
   br i1 %57, label %76, label %61
 
 58:                                               ; preds = %42
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @act_base, i64 8), align 8
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @act_base, i64 8), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @act_base, i64 8), align 8
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @act_base, i64 8), align 8
   store ptr @act_base, ptr %0, align 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %59, ptr %60, align 8
@@ -2357,7 +2357,7 @@ define dso_local ptr @tcf_action_init_1(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %28, label %51, label %29
 
 29:                                               ; preds = %25
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %31 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %30, i32 noundef 3520, i64 noundef 32) #17
   %32 = icmp eq ptr %31, null
   br i1 %32, label %48, label %33

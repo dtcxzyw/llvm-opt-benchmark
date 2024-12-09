@@ -28308,7 +28308,7 @@ define hidden void @_ZN4exif7isobmff13get_exif_attr17heb04c9cbdb70aefcE(ptr noal
 142:                                              ; preds = %.noexc127.i
   %143 = load i32, ptr %69, align 8, !noalias !6330
   %144 = load ptr, ptr @_ZN4exif7isobmff11HEIF_BRANDS17h827cc918e7d08a1eE, align 8, !noalias !6330, !nonnull !4, !align !5, !noundef !4
-  %145 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4exif7isobmff11HEIF_BRANDS17h827cc918e7d08a1eE, i64 8), align 8, !noalias !6330, !noundef !4
+  %145 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4exif7isobmff11HEIF_BRANDS17h827cc918e7d08a1eE, i64 8), align 8, !noalias !6330, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %46), !noalias !6335
   %146 = getelementptr inbounds [4 x i8], ptr %144, i64 %145
   store ptr %144, ptr %46, align 8, !noalias !6335

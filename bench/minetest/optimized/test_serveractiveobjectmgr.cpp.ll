@@ -346,7 +346,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8TestBase, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8TestBase, i64 16), ptr %this, align 8, !tbaa !4
   %m_test_dir = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_test_dir, align 8, !tbaa !7
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -659,7 +659,7 @@ entry:
   %agg.tmp51 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp52 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %saomgr) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15ActiveObjectMgrI18ServerActiveObjectE, i64 16), ptr %saomgr, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15ActiveObjectMgrI18ServerActiveObjectE, i64 16), ptr %saomgr, align 8, !tbaa !4
   %0 = getelementptr inbounds nuw i8, ptr %saomgr, i64 16
   store i32 0, ptr %0, align 8, !tbaa !19
   %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %saomgr, i64 24
@@ -709,7 +709,7 @@ lpad.i.i.i:                                       ; preds = %cond.false.i.i.i
   br label %common.resume
 
 _ZN6server15ActiveObjectMgrC2Ev.exit:             ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6server15ActiveObjectMgrE, i64 16), ptr %saomgr, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6server15ActiveObjectMgrE, i64 16), ptr %saomgr, align 8, !tbaa !4
   %call = invoke noundef zeroext i16 @_ZNK15ActiveObjectMgrI18ServerActiveObjectE9getFreeIdEv(ptr noundef nonnull align 8 dereferenceable(120) %saomgr)
           to label %invoke.cont unwind label %lpad
 
@@ -806,7 +806,7 @@ lpad.i:                                           ; preds = %call.i.noexc
   br label %ehcleanup71
 
 invoke.cont15:                                    ; preds = %call.i.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i86, align 8, !tbaa !4, !noalias !38
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i86, align 8, !tbaa !4, !noalias !38
   store ptr %call.i86, ptr %agg.tmp17, align 8, !tbaa !41
   %call20 = invoke noundef zeroext i1 @_ZN6server15ActiveObjectMgr14registerObjectESt10unique_ptrI18ServerActiveObjectSt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(120) %saomgr, ptr noundef nonnull %agg.tmp17)
           to label %invoke.cont19 unwind label %lpad18
@@ -1875,7 +1875,7 @@ entry:
   %agg.tmp114 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp115 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %saomgr) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15ActiveObjectMgrI18ServerActiveObjectE, i64 16), ptr %saomgr, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15ActiveObjectMgrI18ServerActiveObjectE, i64 16), ptr %saomgr, align 8, !tbaa !4
   %0 = getelementptr inbounds nuw i8, ptr %saomgr, i64 16
   store i32 0, ptr %0, align 8, !tbaa !19
   %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %saomgr, i64 24
@@ -1925,7 +1925,7 @@ lpad.i.i.i:                                       ; preds = %cond.false.i.i.i
   br label %common.resume
 
 _ZN6server15ActiveObjectMgrC2Ev.exit:             ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6server15ActiveObjectMgrE, i64 16), ptr %saomgr, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6server15ActiveObjectMgrE, i64 16), ptr %saomgr, align 8, !tbaa !4
   %call.i159 = invoke noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #34
           to label %call.i.noexc unwind label %lpad
 
@@ -1940,7 +1940,7 @@ lpad.i:                                           ; preds = %call.i.noexc
   br label %ehcleanup134
 
 invoke.cont:                                      ; preds = %call.i.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i159, align 8, !tbaa !4, !noalias !65
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i159, align 8, !tbaa !4, !noalias !65
   store ptr %call.i159, ptr %agg.tmp, align 8, !tbaa !41
   %call4 = invoke noundef zeroext i1 @_ZN6server15ActiveObjectMgr14registerObjectESt10unique_ptrI18ServerActiveObjectSt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(120) %saomgr, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont3 unwind label %lpad2
@@ -2228,7 +2228,7 @@ lpad.i179:                                        ; preds = %call.i.noexc180
   br label %ehcleanup134
 
 _ZNSt10unique_ptrI22MockServerActiveObjectSt14default_deleteIS0_EED2Ev.exit: ; preds = %call.i.noexc180
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i181, align 8, !tbaa !4, !noalias !68
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i181, align 8, !tbaa !4, !noalias !68
   store ptr %call.i181, ptr %agg.tmp62, align 8, !tbaa !41
   %call65 = invoke noundef zeroext i1 @_ZN6server15ActiveObjectMgr14registerObjectESt10unique_ptrI18ServerActiveObjectSt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(120) %saomgr, ptr noundef nonnull %agg.tmp62)
           to label %invoke.cont64 unwind label %lpad63
@@ -2591,7 +2591,7 @@ entry:
   %agg.tmp42 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp43 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %saomgr) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15ActiveObjectMgrI18ServerActiveObjectE, i64 16), ptr %saomgr, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15ActiveObjectMgrI18ServerActiveObjectE, i64 16), ptr %saomgr, align 8, !tbaa !4
   %0 = getelementptr inbounds nuw i8, ptr %saomgr, i64 16
   store i32 0, ptr %0, align 8, !tbaa !19
   %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %saomgr, i64 24
@@ -2641,7 +2641,7 @@ lpad.i.i.i:                                       ; preds = %cond.false.i.i.i
   br label %common.resume
 
 _ZN6server15ActiveObjectMgrC2Ev.exit:             ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6server15ActiveObjectMgrE, i64 16), ptr %saomgr, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6server15ActiveObjectMgrE, i64 16), ptr %saomgr, align 8, !tbaa !4
   %call.i76 = invoke noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #34
           to label %call.i.noexc unwind label %lpad
 
@@ -2656,7 +2656,7 @@ lpad.i:                                           ; preds = %call.i.noexc
   br label %ehcleanup61
 
 invoke.cont:                                      ; preds = %call.i.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i76, align 8, !tbaa !4, !noalias !71
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i76, align 8, !tbaa !4, !noalias !71
   store ptr %call.i76, ptr %agg.tmp, align 8, !tbaa !41
   %call4 = invoke noundef zeroext i1 @_ZN6server15ActiveObjectMgr14registerObjectESt10unique_ptrI18ServerActiveObjectSt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(120) %saomgr, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont3 unwind label %lpad2
@@ -3046,7 +3046,7 @@ entry:
   %message160 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %agg.tmp179 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %saomgr) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15ActiveObjectMgrI18ServerActiveObjectE, i64 16), ptr %saomgr, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15ActiveObjectMgrI18ServerActiveObjectE, i64 16), ptr %saomgr, align 8, !tbaa !4
   %0 = getelementptr inbounds nuw i8, ptr %saomgr, i64 16
   store i32 0, ptr %0, align 8, !tbaa !19
   %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %saomgr, i64 24
@@ -3096,7 +3096,7 @@ lpad.i.i.i:                                       ; preds = %cond.false.i.i.i
   br label %common.resume
 
 _ZN6server15ActiveObjectMgrC2Ev.exit:             ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6server15ActiveObjectMgrE, i64 16), ptr %saomgr, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6server15ActiveObjectMgrE, i64 16), ptr %saomgr, align 8, !tbaa !4
   %call.i234 = invoke noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #34
           to label %call.i.noexc unwind label %lpad
 
@@ -3112,7 +3112,7 @@ lpad.i:                                           ; preds = %call.i.noexc.4, %ca
   br label %ehcleanup200
 
 invoke.cont:                                      ; preds = %call.i.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i234, align 8, !tbaa !4, !noalias !74
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i234, align 8, !tbaa !4, !noalias !74
   store ptr %call.i234, ptr %agg.tmp, align 8, !tbaa !41
   %call = invoke noundef zeroext i1 @_ZN6server15ActiveObjectMgr14registerObjectESt10unique_ptrI18ServerActiveObjectSt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(120) %saomgr, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont4 unwind label %lpad3
@@ -3139,7 +3139,7 @@ call.i.noexc.1:                                   ; preds = %_ZNSt10unique_ptrI2
           to label %invoke.cont.1 unwind label %lpad.i, !noalias !74
 
 invoke.cont.1:                                    ; preds = %call.i.noexc.1
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i234.1, align 8, !tbaa !4, !noalias !74
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i234.1, align 8, !tbaa !4, !noalias !74
   store ptr %call.i234.1, ptr %agg.tmp, align 8, !tbaa !41
   %call.1 = invoke noundef zeroext i1 @_ZN6server15ActiveObjectMgr14registerObjectESt10unique_ptrI18ServerActiveObjectSt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(120) %saomgr, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont4.1 unwind label %lpad3
@@ -3166,7 +3166,7 @@ call.i.noexc.2:                                   ; preds = %_ZNSt10unique_ptrI2
           to label %invoke.cont.2 unwind label %lpad.i, !noalias !74
 
 invoke.cont.2:                                    ; preds = %call.i.noexc.2
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i234.2, align 8, !tbaa !4, !noalias !74
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i234.2, align 8, !tbaa !4, !noalias !74
   store ptr %call.i234.2, ptr %agg.tmp, align 8, !tbaa !41
   %call.2 = invoke noundef zeroext i1 @_ZN6server15ActiveObjectMgr14registerObjectESt10unique_ptrI18ServerActiveObjectSt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(120) %saomgr, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont4.2 unwind label %lpad3
@@ -3193,7 +3193,7 @@ call.i.noexc.3:                                   ; preds = %_ZNSt10unique_ptrI2
           to label %invoke.cont.3 unwind label %lpad.i, !noalias !74
 
 invoke.cont.3:                                    ; preds = %call.i.noexc.3
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i234.3, align 8, !tbaa !4, !noalias !74
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i234.3, align 8, !tbaa !4, !noalias !74
   store ptr %call.i234.3, ptr %agg.tmp, align 8, !tbaa !41
   %call.3 = invoke noundef zeroext i1 @_ZN6server15ActiveObjectMgr14registerObjectESt10unique_ptrI18ServerActiveObjectSt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(120) %saomgr, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont4.3 unwind label %lpad3
@@ -3220,7 +3220,7 @@ call.i.noexc.4:                                   ; preds = %_ZNSt10unique_ptrI2
           to label %invoke.cont.4 unwind label %lpad.i, !noalias !74
 
 invoke.cont.4:                                    ; preds = %call.i.noexc.4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i234.4, align 8, !tbaa !4, !noalias !74
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i234.4, align 8, !tbaa !4, !noalias !74
   store ptr %call.i234.4, ptr %agg.tmp, align 8, !tbaa !41
   %call.4 = invoke noundef zeroext i1 @_ZN6server15ActiveObjectMgr14registerObjectESt10unique_ptrI18ServerActiveObjectSt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(120) %saomgr, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont4.4 unwind label %lpad3
@@ -3994,7 +3994,7 @@ entry:
   %message53 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %agg.tmp72 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %saomgr) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15ActiveObjectMgrI18ServerActiveObjectE, i64 16), ptr %saomgr, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15ActiveObjectMgrI18ServerActiveObjectE, i64 16), ptr %saomgr, align 8, !tbaa !4
   %0 = getelementptr inbounds nuw i8, ptr %saomgr, i64 16
   store i32 0, ptr %0, align 8, !tbaa !19
   %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %saomgr, i64 24
@@ -4044,7 +4044,7 @@ lpad.i.i.i:                                       ; preds = %cond.false.i.i.i
   br label %common.resume
 
 _ZN6server15ActiveObjectMgrC2Ev.exit:             ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6server15ActiveObjectMgrE, i64 16), ptr %saomgr, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6server15ActiveObjectMgrE, i64 16), ptr %saomgr, align 8, !tbaa !4
   %call.i114 = invoke noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #34
           to label %call.i.noexc unwind label %lpad
 
@@ -4060,7 +4060,7 @@ lpad.i:                                           ; preds = %call.i.noexc.4, %ca
   br label %ehcleanup93
 
 invoke.cont:                                      ; preds = %call.i.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i114, align 8, !tbaa !4, !noalias !86
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i114, align 8, !tbaa !4, !noalias !86
   store ptr %call.i114, ptr %agg.tmp, align 8, !tbaa !41
   %call = invoke noundef zeroext i1 @_ZN6server15ActiveObjectMgr14registerObjectESt10unique_ptrI18ServerActiveObjectSt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(120) %saomgr, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont4 unwind label %lpad3
@@ -4087,7 +4087,7 @@ call.i.noexc.1:                                   ; preds = %_ZNSt10unique_ptrI2
           to label %invoke.cont.1 unwind label %lpad.i, !noalias !86
 
 invoke.cont.1:                                    ; preds = %call.i.noexc.1
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i114.1, align 8, !tbaa !4, !noalias !86
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i114.1, align 8, !tbaa !4, !noalias !86
   store ptr %call.i114.1, ptr %agg.tmp, align 8, !tbaa !41
   %call.1 = invoke noundef zeroext i1 @_ZN6server15ActiveObjectMgr14registerObjectESt10unique_ptrI18ServerActiveObjectSt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(120) %saomgr, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont4.1 unwind label %lpad3
@@ -4114,7 +4114,7 @@ call.i.noexc.2:                                   ; preds = %_ZNSt10unique_ptrI2
           to label %invoke.cont.2 unwind label %lpad.i, !noalias !86
 
 invoke.cont.2:                                    ; preds = %call.i.noexc.2
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i114.2, align 8, !tbaa !4, !noalias !86
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i114.2, align 8, !tbaa !4, !noalias !86
   store ptr %call.i114.2, ptr %agg.tmp, align 8, !tbaa !41
   %call.2 = invoke noundef zeroext i1 @_ZN6server15ActiveObjectMgr14registerObjectESt10unique_ptrI18ServerActiveObjectSt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(120) %saomgr, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont4.2 unwind label %lpad3
@@ -4141,7 +4141,7 @@ call.i.noexc.3:                                   ; preds = %_ZNSt10unique_ptrI2
           to label %invoke.cont.3 unwind label %lpad.i, !noalias !86
 
 invoke.cont.3:                                    ; preds = %call.i.noexc.3
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i114.3, align 8, !tbaa !4, !noalias !86
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i114.3, align 8, !tbaa !4, !noalias !86
   store ptr %call.i114.3, ptr %agg.tmp, align 8, !tbaa !41
   %call.3 = invoke noundef zeroext i1 @_ZN6server15ActiveObjectMgr14registerObjectESt10unique_ptrI18ServerActiveObjectSt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(120) %saomgr, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont4.3 unwind label %lpad3
@@ -4168,7 +4168,7 @@ call.i.noexc.4:                                   ; preds = %_ZNSt10unique_ptrI2
           to label %invoke.cont.4 unwind label %lpad.i, !noalias !86
 
 invoke.cont.4:                                    ; preds = %call.i.noexc.4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i114.4, align 8, !tbaa !4, !noalias !86
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %call.i114.4, align 8, !tbaa !4, !noalias !86
   store ptr %call.i114.4, ptr %agg.tmp, align 8, !tbaa !41
   %call.4 = invoke noundef zeroext i1 @_ZN6server15ActiveObjectMgr14registerObjectESt10unique_ptrI18ServerActiveObjectSt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(120) %saomgr, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont4.4 unwind label %lpad3
@@ -4597,16 +4597,16 @@ init.i:                                           ; preds = %init.check.i
   br label %_ZN11TestManager14getTestModulesEv.exit
 
 _ZN11TestManager14getTestModulesEv.exit:          ; preds = %init.i, %init.check.i, %entry
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !14
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !93
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !14
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !93
   %cmp.not.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN11TestManager14getTestModulesEv.exit
   store ptr %module, ptr %3, align 8, !tbaa !14
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !95
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !95
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %incdec.ptr.i, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !95
+  store ptr %incdec.ptr.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !95
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit
 
 if.else.i:                                        ; preds = %_ZN11TestManager14getTestModulesEv.exit
@@ -4652,9 +4652,9 @@ if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorIP8Test
 
 _ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
   store ptr %call5.i.i.i.i.i, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, align 8, !tbaa !96
-  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !95
+  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !95
   %add.ptr19.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
-  store ptr %add.ptr19.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !93
+  store ptr %add.ptr19.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !93
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i
@@ -4711,7 +4711,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15ActiveObjectMgrI18ServerActiveObjectED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15ActiveObjectMgrI18ServerActiveObjectE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15ActiveObjectMgrI18ServerActiveObjectE, i64 16), ptr %this, align 8, !tbaa !4
   %m_active_objects = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_iterating.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load i32, ptr %m_iterating.i, align 8, !tbaa !27
@@ -5132,7 +5132,7 @@ define linkonce_odr dso_local void @_ZN18ServerActiveObjectD2Ev(ptr noundef nonn
 entry:
   %agg.tmp.i.i = alloca %"struct.std::_Deque_iterator", align 16
   %agg.tmp2.i.i = alloca %"struct.std::_Deque_iterator", align 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18ServerActiveObject, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18ServerActiveObject, i64 16), ptr %this, align 8, !tbaa !4
   %m_messages_out = getelementptr inbounds nuw i8, ptr %this, i64 112
   %_M_start.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %_M_last4.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
@@ -5232,7 +5232,7 @@ define linkonce_odr dso_local void @_ZN22MockServerActiveObjectD0Ev(ptr noundef 
 entry:
   %agg.tmp.i.i = alloca %"struct.std::_Deque_iterator", align 16
   %agg.tmp2.i.i = alloca %"struct.std::_Deque_iterator", align 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18ServerActiveObject, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18ServerActiveObject, i64 16), ptr %this, align 8, !tbaa !4
   %m_messages_out.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %_M_start.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %_M_last4.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
@@ -5485,11 +5485,11 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store ptr getelementptr inbounds (i8, ptr @_ZZNK18ServerActiveObject14getArmorGroupsB5cxx11EvE2rvB5cxx11, i64 48), ptr @_ZZNK18ServerActiveObject14getArmorGroupsB5cxx11EvE2rvB5cxx11, align 8, !tbaa !128
-  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZNK18ServerActiveObject14getArmorGroupsB5cxx11EvE2rvB5cxx11, i64 8), align 8, !tbaa !130
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK18ServerActiveObject14getArmorGroupsB5cxx11EvE2rvB5cxx11, i64 16), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZNK18ServerActiveObject14getArmorGroupsB5cxx11EvE2rvB5cxx11, i64 32), align 8, !tbaa !131
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK18ServerActiveObject14getArmorGroupsB5cxx11EvE2rvB5cxx11, i64 40), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZNK18ServerActiveObject14getArmorGroupsB5cxx11EvE2rvB5cxx11, i64 48), ptr @_ZZNK18ServerActiveObject14getArmorGroupsB5cxx11EvE2rvB5cxx11, align 8, !tbaa !128
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZNK18ServerActiveObject14getArmorGroupsB5cxx11EvE2rvB5cxx11, i64 8), align 8, !tbaa !130
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZNK18ServerActiveObject14getArmorGroupsB5cxx11EvE2rvB5cxx11, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZNK18ServerActiveObject14getArmorGroupsB5cxx11EvE2rvB5cxx11, i64 32), align 8, !tbaa !131
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZNK18ServerActiveObject14getArmorGroupsB5cxx11EvE2rvB5cxx11, i64 40), i8 0, i64 16, i1 false)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEED2Ev, ptr nonnull @_ZZNK18ServerActiveObject14getArmorGroupsB5cxx11EvE2rvB5cxx11, ptr nonnull @__dso_handle) #31
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK18ServerActiveObject14getArmorGroupsB5cxx11EvE2rvB5cxx11) #31
   br label %init.end
@@ -5560,11 +5560,11 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store ptr getelementptr inbounds (i8, ptr @_ZZNK18ServerActiveObject16getBoneOverridesB5cxx11EvE2rvB5cxx11, i64 48), ptr @_ZZNK18ServerActiveObject16getBoneOverridesB5cxx11EvE2rvB5cxx11, align 8, !tbaa !139
-  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZNK18ServerActiveObject16getBoneOverridesB5cxx11EvE2rvB5cxx11, i64 8), align 8, !tbaa !141
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK18ServerActiveObject16getBoneOverridesB5cxx11EvE2rvB5cxx11, i64 16), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZNK18ServerActiveObject16getBoneOverridesB5cxx11EvE2rvB5cxx11, i64 32), align 8, !tbaa !131
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK18ServerActiveObject16getBoneOverridesB5cxx11EvE2rvB5cxx11, i64 40), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZNK18ServerActiveObject16getBoneOverridesB5cxx11EvE2rvB5cxx11, i64 48), ptr @_ZZNK18ServerActiveObject16getBoneOverridesB5cxx11EvE2rvB5cxx11, align 8, !tbaa !139
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZNK18ServerActiveObject16getBoneOverridesB5cxx11EvE2rvB5cxx11, i64 8), align 8, !tbaa !141
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZNK18ServerActiveObject16getBoneOverridesB5cxx11EvE2rvB5cxx11, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZNK18ServerActiveObject16getBoneOverridesB5cxx11EvE2rvB5cxx11, i64 32), align 8, !tbaa !131
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZNK18ServerActiveObject16getBoneOverridesB5cxx11EvE2rvB5cxx11, i64 40), i8 0, i64 16, i1 false)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE12BoneOverrideSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEED2Ev, ptr nonnull @_ZZNK18ServerActiveObject16getBoneOverridesB5cxx11EvE2rvB5cxx11, ptr nonnull @__dso_handle) #31
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK18ServerActiveObject16getBoneOverridesB5cxx11EvE2rvB5cxx11) #31
   br label %init.end
@@ -5586,11 +5586,11 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store ptr getelementptr inbounds (i8, ptr @_ZZNK18ServerActiveObject21getAttachmentChildIdsEvE2rv, i64 48), ptr @_ZZNK18ServerActiveObject21getAttachmentChildIdsEvE2rv, align 8, !tbaa !142
-  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZNK18ServerActiveObject21getAttachmentChildIdsEvE2rv, i64 8), align 8, !tbaa !144
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK18ServerActiveObject21getAttachmentChildIdsEvE2rv, i64 16), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZNK18ServerActiveObject21getAttachmentChildIdsEvE2rv, i64 32), align 8, !tbaa !131
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK18ServerActiveObject21getAttachmentChildIdsEvE2rv, i64 40), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZNK18ServerActiveObject21getAttachmentChildIdsEvE2rv, i64 48), ptr @_ZZNK18ServerActiveObject21getAttachmentChildIdsEvE2rv, align 8, !tbaa !142
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZNK18ServerActiveObject21getAttachmentChildIdsEvE2rv, i64 8), align 8, !tbaa !144
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZNK18ServerActiveObject21getAttachmentChildIdsEvE2rv, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZNK18ServerActiveObject21getAttachmentChildIdsEvE2rv, i64 32), align 8, !tbaa !131
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZNK18ServerActiveObject21getAttachmentChildIdsEvE2rv, i64 40), i8 0, i64 16, i1 false)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEED2Ev, ptr nonnull @_ZZNK18ServerActiveObject21getAttachmentChildIdsEvE2rv, ptr nonnull @__dso_handle) #31
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK18ServerActiveObject21getAttachmentChildIdsEvE2rv) #31
   br label %init.end
@@ -6432,23 +6432,23 @@ define internal void @_GLOBAL__sub_I_test_serveractiveobjectmgr.cpp() #26 sectio
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32), ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !50
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 24), align 8, !tbaa !13
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32), align 8, !tbaa !52
-  store ptr getelementptr inbounds (i8, ptr @_ZTV25TestServerActiveObjectMgr, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 32), ptr getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !50
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 24), align 8, !tbaa !13
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 32), align 8, !tbaa !52
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV25TestServerActiveObjectMgr, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   invoke void @_ZN11TestManager18registerTestModuleEP8TestBase(ptr noundef nonnull @_ZL15g_test_instance)
           to label %__cxx_global_var_init.1.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8TestBase, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !7
-  %cmp.i.i.i.i.i.i = icmp eq ptr %2, getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8TestBase, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !7
+  %cmp.i.i.i.i.i.i = icmp eq ptr %2, getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 32)
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %lpad.i.i
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 24), align 8, !tbaa !13
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 24), align 8, !tbaa !13
   %cmp3.i.i.i.i.i.i = icmp ult i64 %3, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
   br label %_ZN8TestBaseD2Ev.exit.i.i

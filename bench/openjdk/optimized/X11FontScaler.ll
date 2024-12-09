@@ -468,8 +468,8 @@ define ptr @Java_sun_font_NativeFont_getFontMetrics(ptr noundef %0, ptr nocaptur
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 224
   %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 192), align 8
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 200), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 192), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 200), align 8
   %22 = fpext float %12 to double
   %23 = fpext float %14 to double
   %24 = sitofp i16 %16 to double

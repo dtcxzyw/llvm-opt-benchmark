@@ -65,7 +65,7 @@ define internal noundef i32 @pmix_psensor_register(i32 %0) #1 {
 ; Function Attrs: nounwind uwtable
 define internal i32 @pmix_psensor_base_open(i32 noundef %0) #1 {
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -74,9 +74,9 @@ define internal i32 @pmix_psensor_base_open(i32 noundef %0) #1 {
   br label %5
 
 5:                                                ; preds = %4, %1
-  store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 40), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 48), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 56), i8 0, i64 64, i1 false)
+  store ptr @pmix_list_t_class, ptr getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 48), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 56), i8 0, i64 64, i1 false)
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 40), align 8
   %7 = load ptr, ptr %6, align 8
   %.not1.i = icmp eq ptr %7, null
@@ -98,13 +98,13 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
 
 13:                                               ; preds = %pmix_obj_run_constructors.exit
   %14 = tail call ptr @pmix_progress_thread_init(ptr noundef nonnull @.str.7) #8
-  store ptr %14, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 272), align 8
+  store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 272), align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %20, label %18
 
 16:                                               ; preds = %pmix_obj_run_constructors.exit
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 376), align 8
-  store ptr %17, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 272), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 376), align 8
+  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 272), align 8
   br label %18
 
 18:                                               ; preds = %13, %16
@@ -118,16 +118,16 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @pmix_psensor_base_close() #1 {
-  store i8 0, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 280), align 8
-  %1 = load volatile i64, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 264), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 280), align 8
+  %1 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 264), align 8
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %36
-  %3 = load volatile i64, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 264), align 8
+  %3 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 264), align 8
   %4 = add i64 %3, -1
-  store volatile i64 %4, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 264), align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 240), align 8
+  store volatile i64 %4, ptr getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 264), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 240), align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load volatile ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 120
@@ -135,7 +135,7 @@ define internal i32 @pmix_psensor_base_close() #1 {
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
   store volatile ptr %7, ptr %10, align 8
   %11 = load volatile ptr, ptr %8, align 8
-  store ptr %11, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 240), align 8
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 240), align 8
   %12 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #8
   %13 = icmp eq i32 %12, 35
   br i1 %13, label %14, label %16
@@ -190,7 +190,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %22
   br label %36
 
 36:                                               ; preds = %33, %35, %16
-  %37 = load volatile i64, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 264), align 8
+  %37 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 264), align 8
   %38 = icmp eq i64 %37, 0
   br i1 %38, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
@@ -214,7 +214,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %22
 pmix_obj_run_destructors.exit21:                  ; preds = %.lr.ph.i18, %._crit_edge
   %46 = load i8, ptr @use_separate_thread, align 1
   %47 = trunc i8 %46 to i1
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 272), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 272), align 8
   %.not14 = icmp ne ptr %48, null
   %or.cond.not = select i1 %47, i1 %.not14, i1 false
   br i1 %or.cond.not, label %49, label %51

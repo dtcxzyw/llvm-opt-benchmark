@@ -418,7 +418,7 @@ define dso_local i32 @ttm_pool_alloc(ptr noundef %0, ptr nocapture noundef reado
   br label %240
 
 207:                                              ; preds = %191
-  %208 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %208 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %209 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %208, i32 noundef 3264, i64 noundef 16) #9
   %210 = icmp eq ptr %209, null
   br i1 %210, label %.thread45, label %211
@@ -904,8 +904,8 @@ define internal fastcc range(i32 0, -2147483647) i32 @ttm_pool_shrink() unnamed_
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8
   store volatile ptr %4, ptr %3, align 8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @shrinker_list, i64 8), align 8
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @shrinker_list, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shrinker_list, i64 8), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @shrinker_list, i64 8), align 8
   store ptr @shrinker_list, ptr %1, align 8
   store ptr %6, ptr %2, align 8
   store volatile ptr %1, ptr %6, align 8
@@ -1048,8 +1048,8 @@ define dso_local void @ttm_pool_init(ptr noundef initializes((0, 14)) %0, ptr no
   store volatile ptr %30, ptr %31, align 8
   tail call void @_raw_spin_lock(ptr noundef nonnull @shrinker_lock) #7
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @shrinker_list, i64 8), align 8
-  store ptr %32, ptr getelementptr inbounds (i8, ptr @shrinker_list, i64 8), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shrinker_list, i64 8), align 8
+  store ptr %32, ptr getelementptr inbounds nuw (i8, ptr @shrinker_list, i64 8), align 8
   store ptr @shrinker_list, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %33, ptr %34, align 8
@@ -1319,7 +1319,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ttm_pool_mgr_init(i64 noundef %0
 5:                                                ; preds = %4, %1
   store i32 0, ptr @shrinker_lock, align 4
   store volatile ptr @shrinker_list, ptr @shrinker_list, align 8
-  store volatile ptr @shrinker_list, ptr getelementptr inbounds (i8, ptr @shrinker_list, i64 8), align 8
+  store volatile ptr @shrinker_list, ptr getelementptr inbounds nuw (i8, ptr @shrinker_list, i64 8), align 8
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1339,8 +1339,8 @@ define dso_local noundef range(i32 -12, 1) i32 @ttm_pool_mgr_init(i64 noundef %0
   store volatile ptr %13, ptr %14, align 8
   tail call void @_raw_spin_lock(ptr noundef nonnull @shrinker_lock) #7
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @shrinker_list, i64 8), align 8
-  store ptr %15, ptr getelementptr inbounds (i8, ptr @shrinker_list, i64 8), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shrinker_list, i64 8), align 8
+  store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @shrinker_list, i64 8), align 8
   store ptr @shrinker_list, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %16, ptr %17, align 8
@@ -1360,8 +1360,8 @@ define dso_local noundef range(i32 -12, 1) i32 @ttm_pool_mgr_init(i64 noundef %0
   store volatile ptr %22, ptr %23, align 8
   tail call void @_raw_spin_lock(ptr noundef nonnull @shrinker_lock) #7
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @shrinker_list, i64 8), align 8
-  store ptr %24, ptr getelementptr inbounds (i8, ptr @shrinker_list, i64 8), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shrinker_list, i64 8), align 8
+  store ptr %24, ptr getelementptr inbounds nuw (i8, ptr @shrinker_list, i64 8), align 8
   store ptr @shrinker_list, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %25, ptr %26, align 8
@@ -1381,8 +1381,8 @@ define dso_local noundef range(i32 -12, 1) i32 @ttm_pool_mgr_init(i64 noundef %0
   store volatile ptr %31, ptr %32, align 8
   tail call void @_raw_spin_lock(ptr noundef nonnull @shrinker_lock) #7
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @shrinker_list, i64 8), align 8
-  store ptr %33, ptr getelementptr inbounds (i8, ptr @shrinker_list, i64 8), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shrinker_list, i64 8), align 8
+  store ptr %33, ptr getelementptr inbounds nuw (i8, ptr @shrinker_list, i64 8), align 8
   store ptr @shrinker_list, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr %34, ptr %35, align 8
@@ -1402,8 +1402,8 @@ define dso_local noundef range(i32 -12, 1) i32 @ttm_pool_mgr_init(i64 noundef %0
   store volatile ptr %40, ptr %41, align 8
   tail call void @_raw_spin_lock(ptr noundef nonnull @shrinker_lock) #7
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @shrinker_list, i64 8), align 8
-  store ptr %42, ptr getelementptr inbounds (i8, ptr @shrinker_list, i64 8), align 8
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shrinker_list, i64 8), align 8
+  store ptr %42, ptr getelementptr inbounds nuw (i8, ptr @shrinker_list, i64 8), align 8
   store ptr @shrinker_list, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store ptr %43, ptr %44, align 8

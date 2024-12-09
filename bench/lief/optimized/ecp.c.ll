@@ -76,7 +76,7 @@ define hidden noundef nonnull ptr @mbedtls_ecp_grp_id_list() local_unnamed_addr 
   br i1 %exitcond, label %6, label %.preheader, !llvm.loop !4
 
 6:                                                ; preds = %.preheader
-  store i32 0, ptr getelementptr inbounds (i8, ptr @ecp_supported_grp_id, i64 52), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @ecp_supported_grp_id, i64 52), align 4
   store i1 true, ptr @mbedtls_ecp_grp_id_list.init_done, align 4
   br label %7
 

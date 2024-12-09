@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) @Lpk_MuxAnalize.Res, i8 0, i64 40, i1 false)
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -278,12 +278,12 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
   br i1 %201, label %221, label %202
 
 202:                                              ; preds = %192
-  %203 = load i32, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4
+  %203 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4
   %204 = icmp eq i32 %203, -1
   br i1 %204, label %220, label %205
 
 205:                                              ; preds = %202
-  %206 = load i32, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 28), align 4
+  %206 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 28), align 4
   %207 = icmp sgt i32 %206, %.0149
   br i1 %207, label %220, label %208
 
@@ -292,8 +292,8 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
   br i1 %209, label %210, label %221
 
 210:                                              ; preds = %208
-  %211 = load i32, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 16), align 4
-  %212 = load i32, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 20), align 4
+  %211 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 16), align 4
+  %212 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 20), align 4
   %213 = add nsw i32 %212, %211
   %214 = add nuw nsw i32 %194, %196
   %215 = icmp sgt i32 %213, %214
@@ -301,18 +301,18 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
 
 216:                                              ; preds = %210
   %217 = icmp eq i32 %213, %214
-  %218 = load i32, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 24), align 4
+  %218 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 24), align 4
   %219 = icmp sgt i32 %218, %.0
   %or.cond166 = select i1 %217, i1 %219, i1 false
   br i1 %or.cond166, label %220, label %221
 
 220:                                              ; preds = %216, %210, %205, %202
-  store i32 %10, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4
-  store i32 %.0148, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 36), align 4
-  store i32 %.0149, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 28), align 4
-  store i32 %.0, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 24), align 4
-  store i32 %197, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 16), align 4
-  store i32 %198, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 20), align 4
+  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4
+  store i32 %.0148, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 36), align 4
+  store i32 %.0149, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 28), align 4
+  store i32 %.0, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 24), align 4
+  store i32 %197, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 16), align 4
+  store i32 %198, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 20), align 4
   br label %221
 
 221:                                              ; preds = %208, %8, %220, %216, %192, %187, %184, %13
@@ -321,7 +321,7 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
   br i1 %exitcond.not, label %222, label %8, !llvm.loop !4
 
 222:                                              ; preds = %221
-  %223 = load i32, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4
+  %223 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4
   %224 = icmp eq i32 %223, -1
   %225 = select i1 %224, ptr null, ptr @Lpk_MuxAnalize.Res
   ret ptr %225

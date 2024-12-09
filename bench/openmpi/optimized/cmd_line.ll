@@ -148,7 +148,7 @@ define internal void @param_destructor(ptr nocapture noundef readonly %0) #2 {
 ; Function Attrs: nounwind uwtable
 define internal void @cmd_line_constructor(ptr noundef initializes((16, 24)) %0) #2 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_recursive_mutex_t_class, i64 32), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_recursive_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -177,7 +177,7 @@ define internal void @cmd_line_constructor(ptr noundef initializes((16, 24)) %0)
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   %13 = load i32, ptr @opal_class_init_epoch, align 4
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not13 = icmp eq i32 %13, %14
   br i1 %.not13, label %16, label %15
 
@@ -206,7 +206,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
 
 opal_obj_run_constructors.exit19:                 ; preds = %.lr.ph.i16, %16
   %24 = load i32, ptr @opal_class_init_epoch, align 4
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not14 = icmp eq i32 %24, %25
   br i1 %.not14, label %27, label %26
 
@@ -403,7 +403,7 @@ define range(i32 -5, 1) i32 @opal_cmd_line_create(ptr noundef %0, ptr noundef re
 
 4:                                                ; preds = %2
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @opal_cmd_line_t_class, i64 32), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_cmd_line_t_class, i64 32), align 8
   %.not = icmp eq i32 %5, %6
   br i1 %.not, label %8, label %7
 

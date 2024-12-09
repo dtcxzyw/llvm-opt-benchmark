@@ -1245,8 +1245,8 @@ entry:
   %0 = load ptr, ptr %principal_realm_.i.i, align 8
   tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %0, ptr %object.coerce) #23
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4wasi4WASIE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4wasi4WASIE, i64 168), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4wasi4WASIE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4wasi4WASIE, i64 168), ptr %1, align 8
   %memory_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   store ptr null, ptr %memory_, align 8
   %current_uvwasi_memory_ = getelementptr inbounds nuw i8, ptr %this, i64 168
@@ -1401,9 +1401,9 @@ declare ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef n
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node4wasi4WASID2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (32, 40)) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4wasi4WASIE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4wasi4WASIE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4wasi4WASIE, i64 168), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4wasi4WASIE, i64 168), ptr %add.ptr, align 8
   %uvw_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @uvwasi_destroy(ptr noundef nonnull %uvw_) #23
   %current_uvwasi_memory_ = getelementptr inbounds nuw i8, ptr %this, i64 168
@@ -1440,9 +1440,9 @@ declare void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node4wasi4WASID0Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (32, 40)) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4wasi4WASIE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4wasi4WASIE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4wasi4WASIE, i64 168), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4wasi4WASIE, i64 168), ptr %add.ptr.i, align 8
   %uvw_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @uvwasi_destroy(ptr noundef nonnull %uvw_.i) #23
   %current_uvwasi_memory_.i = getelementptr inbounds nuw i8, ptr %this, i64 168
@@ -1559,7 +1559,7 @@ _ZN4node13MemoryTracker10TrackFieldIN2v816WasmMemoryObjectEEEvPKcRKNS2_14Persist
 if.then.i:                                        ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v816WasmMemoryObjectEEEvPKcRKNS2_14PersistentBaseIT_EES5_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %call.i.i2 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i2, align 8
   %retainer_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2, i64 8
   %is_root_node_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2, i64 24
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2, i64 40

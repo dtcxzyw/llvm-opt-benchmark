@@ -20161,7 +20161,7 @@ _ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exi
           to label %while.cond.i.i.i242.preheader unwind label %lpad88
 
 while.cond.i.i.i242.preheader:                    ; preds = %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit241
-  %call2.i.i248 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %str87, ptr noundef nonnull @.str.30, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.30, i64 11))
+  %call2.i.i248 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %str87, ptr noundef nonnull @.str.30, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.30, i64 11))
           to label %while.cond.i.i249.preheader unwind label %lpad88
 
 while.cond.i.i249.preheader:                      ; preds = %while.cond.i.i.i242.preheader
@@ -20253,7 +20253,7 @@ invoke.cont117:                                   ; preds = %_ZN5eastleqIcNS_9al
   %sub.i308 = add i64 %cond.i.i307, -6
   %cond.i5.i = call noundef i64 @llvm.umin.i64(i64 %sub.i308, i64 5)
   %add.ptr9.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i303.sroa.sel.v.sroa.sel.v.sroa.sel, i64 %cond.i5.i
-  %call12.i311 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE7replaceEPKcS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(24) %str87, ptr noundef nonnull %spec.select.i.i303.sroa.sel.v.sroa.sel.v.sroa.sel, ptr noundef nonnull %add.ptr9.i, ptr noundef nonnull @.str.35, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.35, i64 12))
+  %call12.i311 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE7replaceEPKcS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(24) %str87, ptr noundef nonnull %spec.select.i.i303.sroa.sel.v.sroa.sel.v.sroa.sel, ptr noundef nonnull %add.ptr9.i, ptr noundef nonnull @.str.35, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.35, i64 12))
           to label %while.cond.i.i312.preheader unwind label %lpad88
 
 while.cond.i.i312.preheader:                      ; preds = %invoke.cont117
@@ -21383,7 +21383,7 @@ _ZNK5eastl4hashINS_12basic_stringIcNS_9allocatorEEEEclERKS3_.exit: ; preds = %_Z
   %mnSize.i.i = getelementptr inbounds nuw i8, ptr %fsc1, i64 8
   store i64 0, ptr %mnSize.i.i, align 8
   store i8 0, ptr %34, align 8
-  %call2.i1.i = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(104) %fsc1, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.70, i64 5))
+  %call2.i1.i = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(104) %fsc1, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.70, i64 5))
           to label %invoke.cont46 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %_ZNK5eastl4hashINS_12basic_stringIcNS_9allocatorEEEEclERKS3_.exit
@@ -21412,7 +21412,7 @@ invoke.cont46:                                    ; preds = %_ZNK5eastl4hashINS_
   %mnSize.i.i138 = getelementptr inbounds nuw i8, ptr %fsc2, i64 8
   store i64 0, ptr %mnSize.i.i138, align 8
   store i8 0, ptr %39, align 8
-  %call2.i1.i147 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(104) %fsc2, ptr noundef nonnull @.str.71, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.71, i64 4))
+  %call2.i1.i147 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(104) %fsc2, ptr noundef nonnull @.str.71, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.71, i64 4))
           to label %invoke.cont48 unwind label %lpad.i148
 
 lpad.i148:                                        ; preds = %invoke.cont46
@@ -21441,7 +21441,7 @@ invoke.cont48:                                    ; preds = %invoke.cont46
   %mnSize.i.i153 = getelementptr inbounds nuw i8, ptr %fsc3, i64 8
   store i64 0, ptr %mnSize.i.i153, align 8
   store i8 0, ptr %44, align 8
-  %call2.i1.i162 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(104) %fsc3, ptr noundef nonnull @.str.71, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.71, i64 4))
+  %call2.i1.i162 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(104) %fsc3, ptr noundef nonnull @.str.71, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.71, i64 4))
           to label %invoke.cont50 unwind label %lpad.i163
 
 lpad.i163:                                        ; preds = %invoke.cont48
@@ -21566,7 +21566,7 @@ invoke.cont68:                                    ; preds = %invoke.cont65
   %mnSize.i.i202 = getelementptr inbounds nuw i8, ptr %fswc1, i64 8
   store i64 0, ptr %mnSize.i.i202, align 8
   store i32 0, ptr %67, align 8
-  %call2.i1.i210 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIwNS_22fixed_vector_allocatorILm4ELm64ELm4ELm0ELb1ENS_9allocatorEEEE6appendEPKwS6_(ptr noundef nonnull align 8 dereferenceable(296) %fswc1, ptr noundef nonnull @.str.75, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.75, i64 20))
+  %call2.i1.i210 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIwNS_22fixed_vector_allocatorILm4ELm64ELm4ELm0ELb1ENS_9allocatorEEEE6appendEPKwS6_(ptr noundef nonnull align 8 dereferenceable(296) %fswc1, ptr noundef nonnull @.str.75, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.75, i64 20))
           to label %invoke.cont70 unwind label %lpad.i211
 
 lpad.i211:                                        ; preds = %invoke.cont68
@@ -21599,7 +21599,7 @@ invoke.cont70:                                    ; preds = %invoke.cont68
   %mnSize.i.i215 = getelementptr inbounds nuw i8, ptr %fswc2, i64 8
   store i64 0, ptr %mnSize.i.i215, align 8
   store i32 0, ptr %72, align 8
-  %call2.i1.i224 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIwNS_22fixed_vector_allocatorILm4ELm64ELm4ELm0ELb1ENS_9allocatorEEEE6appendEPKwS6_(ptr noundef nonnull align 8 dereferenceable(296) %fswc2, ptr noundef nonnull @.str.76, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.76, i64 16))
+  %call2.i1.i224 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIwNS_22fixed_vector_allocatorILm4ELm64ELm4ELm0ELb1ENS_9allocatorEEEE6appendEPKwS6_(ptr noundef nonnull align 8 dereferenceable(296) %fswc2, ptr noundef nonnull @.str.76, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.76, i64 16))
           to label %invoke.cont72 unwind label %lpad.i225
 
 lpad.i225:                                        ; preds = %invoke.cont70
@@ -21628,7 +21628,7 @@ invoke.cont72:                                    ; preds = %invoke.cont70
   %mnSize.i.i230 = getelementptr inbounds nuw i8, ptr %fswc3, i64 8
   store i64 0, ptr %mnSize.i.i230, align 8
   store i32 0, ptr %77, align 8
-  %call2.i1.i239 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIwNS_22fixed_vector_allocatorILm4ELm64ELm4ELm0ELb1ENS_9allocatorEEEE6appendEPKwS6_(ptr noundef nonnull align 8 dereferenceable(296) %fswc3, ptr noundef nonnull @.str.76, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.76, i64 16))
+  %call2.i1.i239 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIwNS_22fixed_vector_allocatorILm4ELm64ELm4ELm0ELb1ENS_9allocatorEEEE6appendEPKwS6_(ptr noundef nonnull align 8 dereferenceable(296) %fswc3, ptr noundef nonnull @.str.76, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.76, i64 16))
           to label %invoke.cont74 unwind label %lpad.i240
 
 lpad.i240:                                        ; preds = %invoke.cont72
@@ -21750,7 +21750,7 @@ invoke.cont92:                                    ; preds = %invoke.cont89
   %mnSize.i.i286 = getelementptr inbounds nuw i8, ptr %fsc81, i64 8
   store i64 0, ptr %mnSize.i.i286, align 8
   store i8 0, ptr %100, align 8
-  %call2.i1.i295 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(104) %fsc81, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.70, i64 5))
+  %call2.i1.i295 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(104) %fsc81, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.70, i64 5))
           to label %invoke.cont94 unwind label %lpad.i296
 
 lpad.i296:                                        ; preds = %invoke.cont92
@@ -21783,7 +21783,7 @@ invoke.cont94:                                    ; preds = %invoke.cont92
   %mnSize.i.i301 = getelementptr inbounds nuw i8, ptr %fsc82, i64 8
   store i64 0, ptr %mnSize.i.i301, align 8
   store i8 0, ptr %105, align 8
-  %call2.i1.i310 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(104) %fsc82, ptr noundef nonnull @.str.71, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.71, i64 4))
+  %call2.i1.i310 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(104) %fsc82, ptr noundef nonnull @.str.71, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.71, i64 4))
           to label %invoke.cont96 unwind label %lpad.i311
 
 lpad.i311:                                        ; preds = %invoke.cont94
@@ -21812,7 +21812,7 @@ invoke.cont96:                                    ; preds = %invoke.cont94
   %mnSize.i.i316 = getelementptr inbounds nuw i8, ptr %fsc83, i64 8
   store i64 0, ptr %mnSize.i.i316, align 8
   store i8 0, ptr %110, align 8
-  %call2.i1.i325 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(104) %fsc83, ptr noundef nonnull @.str.71, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.71, i64 4))
+  %call2.i1.i325 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(104) %fsc83, ptr noundef nonnull @.str.71, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.71, i64 4))
           to label %invoke.cont98 unwind label %lpad.i326
 
 lpad.i326:                                        ; preds = %invoke.cont96
@@ -22230,7 +22230,7 @@ cond.false.i.i.i:                                 ; preds = %if.then.i
 _ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE5clearEv.exit.i: ; preds = %cond.false.i.i.i, %cond.true.i.i.i
   %spec.select.i.i.i498 = phi ptr [ %182, %cond.true.i.i.i ], [ %fs1, %cond.false.i.i.i ]
   store i8 0, ptr %spec.select.i.i.i498, align 1
-  %call2.i.i507 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(104) %fs1, ptr noundef nonnull @.str.92, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.92, i64 3))
+  %call2.i.i507 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(104) %fs1, ptr noundef nonnull @.str.92, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.92, i64 3))
           to label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE5clearEv.exit.i.invoke.cont176_crit_edge unwind label %lpad169
 
 _ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE5clearEv.exit.i.invoke.cont176_crit_edge: ; preds = %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE5clearEv.exit.i
@@ -22423,7 +22423,7 @@ invoke.cont204:                                   ; preds = %_ZN5eastleqIcNS_22f
   %mnSize.i.i599 = getelementptr inbounds nuw i8, ptr %fs5, i64 8
   store i64 0, ptr %mnSize.i.i599, align 8
   store i8 0, ptr %216, align 8
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(104) %fs5, ptr noundef nonnull @.str.100, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.100, i64 6))
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(104) %fs5, ptr noundef nonnull @.str.100, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.100, i64 6))
           to label %invoke.cont206 unwind label %lpad.i600
 
 lpad.i600:                                        ; preds = %invoke.cont204
@@ -22500,7 +22500,7 @@ invoke.cont218:                                   ; preds = %_ZN5eastleqIcNS_22f
   %mnSize.i.i634 = getelementptr inbounds nuw i8, ptr %fs6, i64 8
   store i64 0, ptr %mnSize.i.i634, align 8
   store i8 0, ptr %229, align 8
-  %call2.i1.i643 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(104) %fs6, ptr noundef nonnull @.str.100, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.100, i64 6))
+  %call2.i1.i643 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(104) %fs6, ptr noundef nonnull @.str.100, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.100, i64 6))
           to label %invoke.cont220 unwind label %lpad.i644
 
 lpad.i644:                                        ; preds = %invoke.cont218
@@ -22794,7 +22794,7 @@ cond.false.i.i.i804:                              ; preds = %if.then.i801
 _ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE5clearEv.exit.i805: ; preds = %cond.false.i.i.i804, %cond.true.i.i.i815
   %spec.select.i.i.i806 = phi ptr [ %275, %cond.true.i.i.i815 ], [ %fs9, %cond.false.i.i.i804 ]
   store i8 0, ptr %spec.select.i.i.i806, align 1
-  %call2.i.i818 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(104) %fs9, ptr noundef nonnull @.str.122, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.122, i64 5))
+  %call2.i.i818 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(104) %fs9, ptr noundef nonnull @.str.122, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.122, i64 5))
           to label %invoke.cont293 unwind label %lpad282
 
 invoke.cont293:                                   ; preds = %invoke.cont291, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE5clearEv.exit.i805
@@ -23212,7 +23212,7 @@ invoke.cont450:                                   ; preds = %invoke.cont445
   %mnSize.i.i1024 = getelementptr inbounds nuw i8, ptr %a, i64 8
   store i64 0, ptr %mnSize.i.i1024, align 8
   store i8 0, ptr %348, align 8
-  %call2.i1.i1033 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(48) %a, ptr noundef nonnull @.str.92, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.92, i64 3))
+  %call2.i1.i1033 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(48) %a, ptr noundef nonnull @.str.92, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.92, i64 3))
           to label %invoke.cont452 unwind label %lpad.i1034
 
 lpad.i1034:                                       ; preds = %invoke.cont450
@@ -23245,7 +23245,7 @@ invoke.cont452:                                   ; preds = %invoke.cont450
   %mnSize.i.i1038 = getelementptr inbounds nuw i8, ptr %b, i64 8
   store i64 0, ptr %mnSize.i.i1038, align 8
   store i8 0, ptr %353, align 8
-  %call2.i1.i1047 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(48) %b, ptr noundef nonnull @.str.141, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.141, i64 3))
+  %call2.i1.i1047 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(48) %b, ptr noundef nonnull @.str.141, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.141, i64 3))
           to label %invoke.cont454 unwind label %lpad.i1048
 
 lpad.i1048:                                       ; preds = %invoke.cont452
@@ -23368,7 +23368,7 @@ invoke.cont460:                                   ; preds = %_ZN5eastleqIcNS_22f
           to label %invoke.cont.i1100 unwind label %lpad.i1099
 
 invoke.cont.i1100:                                ; preds = %invoke.cont460
-  %call4.i = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp462, ptr noundef nonnull @.str.143, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.143, i64 3))
+  %call4.i = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp462, ptr noundef nonnull @.str.143, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.143, i64 3))
           to label %invoke.cont463 unwind label %lpad.i1099
 
 lpad.i1099:                                       ; preds = %invoke.cont.i1100, %invoke.cont460
@@ -23472,7 +23472,7 @@ invoke.cont470:                                   ; preds = %_ZN5eastleqIcNS_22f
   %mnSize.i.i.i1152 = getelementptr inbounds nuw i8, ptr %ref.tmp472, i64 8
   store i64 0, ptr %mnSize.i.i.i1152, align 8, !alias.scope !23
   store i8 0, ptr %393, align 8, !alias.scope !23
-  %call2.i = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp472, ptr noundef nonnull @.str.143, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.143, i64 3))
+  %call2.i = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp472, ptr noundef nonnull @.str.143, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.143, i64 3))
           to label %invoke.cont.i1155 unwind label %lpad.i1154
 
 invoke.cont.i1155:                                ; preds = %invoke.cont470
@@ -23925,7 +23925,7 @@ _ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9all
   %mnSize.i.i1395 = getelementptr inbounds nuw i8, ptr %a1, i64 8
   store i64 0, ptr %mnSize.i.i1395, align 8
   store i8 0, ptr %470, align 8
-  %call2.i1.i1404 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(48) %a1, ptr noundef nonnull @.str.92, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.92, i64 3))
+  %call2.i1.i1404 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(48) %a1, ptr noundef nonnull @.str.92, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.92, i64 3))
           to label %invoke.cont514 unwind label %lpad.i1405
 
 lpad.i1405:                                       ; preds = %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE5clearEv.exit
@@ -23958,7 +23958,7 @@ invoke.cont514:                                   ; preds = %_ZN5eastl12basic_st
   %mnSize.i.i1412 = getelementptr inbounds nuw i8, ptr %b1, i64 8
   store i64 0, ptr %mnSize.i.i1412, align 8
   store i8 0, ptr %475, align 8
-  %call2.i1.i1421 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(48) %b1, ptr noundef nonnull @.str.141, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.141, i64 3))
+  %call2.i1.i1421 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(48) %b1, ptr noundef nonnull @.str.141, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.141, i64 3))
           to label %invoke.cont516 unwind label %lpad.i1422
 
 lpad.i1422:                                       ; preds = %invoke.cont514
@@ -24133,7 +24133,7 @@ _ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9all
   %mnSize.i.i1508 = getelementptr inbounds nuw i8, ptr %b2, i64 8
   store i64 0, ptr %mnSize.i.i1508, align 8
   store i8 0, ptr %505, align 8
-  %call2.i1.i1517 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(48) %b2, ptr noundef nonnull @.str.141, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.141, i64 3))
+  %call2.i1.i1517 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(48) %b2, ptr noundef nonnull @.str.141, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.141, i64 3))
           to label %invoke.cont529 unwind label %lpad.i1518
 
 lpad.i1518:                                       ; preds = %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE5clearEv.exit1505
@@ -24163,7 +24163,7 @@ invoke.cont529:                                   ; preds = %_ZN5eastl12basic_st
   %tobool.i.i.i.i1530 = icmp slt i8 %510, 0
   %511 = load ptr, ptr %b2, align 8, !noalias !35
   %spec.select.i.i.i1531 = select i1 %tobool.i.i.i.i1530, ptr %511, ptr %b2
-  %call5.i.i1546 = invoke noundef ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6insertEPKcS6_S6_(ptr noundef nonnull align 8 dereferenceable(48) %b2, ptr noundef %spec.select.i.i.i1531, ptr noundef nonnull @.str.92, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.92, i64 3))
+  %call5.i.i1546 = invoke noundef ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6insertEPKcS6_S6_(ptr noundef nonnull align 8 dereferenceable(48) %b2, ptr noundef %spec.select.i.i.i1531, ptr noundef nonnull @.str.92, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.92, i64 3))
           to label %call5.i.i.noexc1545 unwind label %lpad532
 
 call5.i.i.noexc1545:                              ; preds = %invoke.cont529
@@ -24305,7 +24305,7 @@ _ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9all
   %mnSize.i.i1604 = getelementptr inbounds nuw i8, ptr %a3, i64 8
   store i64 0, ptr %mnSize.i.i1604, align 8
   store i8 0, ptr %534, align 8
-  %call2.i1.i1613 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(48) %a3, ptr noundef nonnull @.str.92, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.92, i64 3))
+  %call2.i1.i1613 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(48) %a3, ptr noundef nonnull @.str.92, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.92, i64 3))
           to label %invoke.cont542 unwind label %lpad.i1614
 
 lpad.i1614:                                       ; preds = %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE5clearEv.exit1601
@@ -24330,7 +24330,7 @@ delete.notnull.i.i.i.i.i2863:                     ; preds = %if.then.i.i2858
 
 invoke.cont542:                                   ; preds = %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE5clearEv.exit1601
   call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  %call2.i.i1641 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(48) %a3, ptr noundef nonnull @.str.141, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.141, i64 3))
+  %call2.i.i1641 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(48) %a3, ptr noundef nonnull @.str.141, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.141, i64 3))
           to label %call2.i.i.noexc1640 unwind label %lpad545
 
 call2.i.i.noexc1640:                              ; preds = %invoke.cont542
@@ -24473,7 +24473,7 @@ _ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9all
   %mnSize.i.i1699 = getelementptr inbounds nuw i8, ptr %a4, i64 8
   store i64 0, ptr %mnSize.i.i1699, align 8
   store i8 0, ptr %561, align 8
-  %call2.i1.i1708 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(48) %a4, ptr noundef nonnull @.str.92, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.92, i64 3))
+  %call2.i1.i1708 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(48) %a4, ptr noundef nonnull @.str.92, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.92, i64 3))
           to label %invoke.cont555 unwind label %lpad.i1709
 
 lpad.i1709:                                       ; preds = %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE5clearEv.exit1696
@@ -25395,7 +25395,7 @@ _ZN5eastl12fixed_stringIcLi64ELb1E15MallocAllocatorED2Ev.exit2168: ; preds = %in
           to label %invoke.cont.i2193 unwind label %lpad.i2192
 
 invoke.cont.i2193:                                ; preds = %_ZN5eastl12fixed_stringIcLi64ELb1E15MallocAllocatorED2Ev.exit2168
-  %call4.i2197 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm32ELm1ELm0ELb1E15MallocAllocatorEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(48) %ts2, ptr noundef nonnull @.str.166, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.166, i64 4))
+  %call4.i2197 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm32ELm1ELm0ELb1E15MallocAllocatorEEE6appendEPKcS6_(ptr noundef nonnull align 8 dereferenceable(48) %ts2, ptr noundef nonnull @.str.166, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.166, i64 4))
           to label %invoke.cont683 unwind label %lpad.i2192
 
 lpad.i2192:                                       ; preds = %invoke.cont.i2193, %_ZN5eastl12fixed_stringIcLi64ELb1E15MallocAllocatorED2Ev.exit2168

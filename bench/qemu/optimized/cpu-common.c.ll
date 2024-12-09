@@ -144,12 +144,12 @@ if.else9:                                         ; preds = %if.else7
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %cpu_get_free_index.exit.thread, %cpu_get_free_index.exit, %if.else7
   %node = getelementptr inbounds nuw i8, ptr %cpu, i64 568
   store ptr null, ptr %node, align 8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @cpus_queue, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpus_queue, i64 8), align 8
   %tql_prev = getelementptr inbounds nuw i8, ptr %cpu, i64 576
   store ptr %6, ptr %tql_prev, align 8
   %7 = ptrtoint ptr %cpu to i64
   store atomic i64 %7, ptr %6 release, align 8
-  store ptr %node, ptr getelementptr inbounds (i8, ptr @cpus_queue, i64 8), align 8
+  store ptr %node, ptr getelementptr inbounds nuw (i8, ptr @cpus_queue, i64 8), align 8
   %8 = load i32, ptr @cpu_list_generation_id, align 4
   %inc = add i32 %8, 1
   store i32 %inc, ptr @cpu_list_generation_id, align 4
@@ -186,7 +186,7 @@ if.then4:                                         ; preds = %do.body
   br label %while.end
 
 if.else:                                          ; preds = %do.body
-  store ptr %2, ptr getelementptr inbounds (i8, ptr @cpus_queue, i64 8), align 8
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @cpus_queue, i64 8), align 8
   br label %while.end
 
 while.end:                                        ; preds = %if.then4, %if.else

@@ -173,7 +173,7 @@ define dso_local i32 @amd_smn_write(i16 noundef zeroext %0, i32 noundef %1, i32 
 ; Function Attrs: cold fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid optsize memory(read, argmem: none, inaccessiblemem: none)
 define dso_local noundef zeroext i1 @early_is_amd_nb(i32 noundef %0) local_unnamed_addr #2 section ".init.text" align 16 {
   %2 = and i32 %0, 65535
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 1), align 1
   switch i8 %3, label %.loopexit [
     i8 9, label %4
     i8 2, label %5
@@ -220,7 +220,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @amd_get_mmconfig_range(ptr noundef writeonly %0) local_unnamed_addr #1 align 16 {
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 1), align 1
   switch i8 %2, label %25 [
     i8 9, label %3
     i8 2, label %3
@@ -237,7 +237,7 @@ define dso_local noundef ptr @amd_get_mmconfig_range(ptr noundef writeonly %0) l
   %9 = extractvalue { i64, i64 } %7, 1
   %10 = shl i64 %9, 32
   %11 = or i64 %10, %8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #8
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #8
           to label %13 [label %12], !srcloc !9
 
 12:                                               ; preds = %6
@@ -520,7 +520,7 @@ define internal noundef i32 @init_amd_nbs() #6 section ".init.text" align 16 {
   br i1 %2, label %3, label %.thread
 
 3:                                                ; preds = %0
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 1), align 1
   %5 = icmp eq i8 %4, 9
   %6 = select i1 %5, ptr @hygon_nb_misc_ids, ptr @amd_nb_misc_ids
   br label %7
@@ -709,7 +709,7 @@ define internal noundef i32 @init_amd_nbs() #6 section ".init.text" align 16 {
   br i1 %115, label %52, label %116, !llvm.loop !19
 
 116:                                              ; preds = %.loopexit14
-  %117 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
+  %117 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 1), align 1
   %118 = icmp eq i8 %117, 2
   br i1 %118, label %119, label %131
 
@@ -721,7 +721,7 @@ define internal noundef i32 @init_amd_nbs() #6 section ".init.text" align 16 {
 
 123:                                              ; preds = %119
   %124 = icmp eq i8 %120, 21
-  %125 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 2), align 2
+  %125 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 2), align 2
   %126 = icmp ult i8 %125, 16
   %127 = select i1 %124, i1 %126, i1 false
   br i1 %127, label %128, label %131
@@ -741,14 +741,14 @@ define internal noundef i32 @init_amd_nbs() #6 section ".init.text" align 16 {
 135:                                              ; preds = %131
   %136 = load i8, ptr @boot_cpu_data, align 8
   %137 = icmp eq i8 %136, 16
-  %138 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 2), align 2
+  %138 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 2), align 2
   %139 = icmp ugt i8 %138, 7
   %140 = select i1 %137, i1 %139, i1 false
   br i1 %140, label %141, label %149
 
 141:                                              ; preds = %135
   %142 = icmp ugt i8 %138, 9
-  %143 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 3), align 1
+  %143 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 3), align 1
   %144 = icmp ne i8 %143, 0
   %145 = select i1 %142, i1 true, i1 %144
   br i1 %145, label %146, label %.thread

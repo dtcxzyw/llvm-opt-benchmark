@@ -2177,7 +2177,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPr
           to label %167 unwind label %216
 
 167:                                              ; preds = %166
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonE, i64 16), ptr %11, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDefinition3NewERKNS_15UsdSkelSkeletonE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.26") align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
           to label %168 unwind label %218
 
@@ -2630,7 +2630,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPr
 67:                                               ; preds = %66
   %68 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr null, ptr %68, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__17UsdSkelBindingAPIE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__17UsdSkelBindingAPIE, i64 16), ptr %11, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdSkelBindingAPI27GetInheritedAnimationSourceEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdPrim") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %69 unwind label %135
 
@@ -5610,7 +5610,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimC2ERKNS_18Usd_PrimDataHandleERKNS_7
 
 818:                                              ; preds = %817
   store ptr null, ptr %338, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__17UsdSkelBindingAPIE, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__17UsdSkelBindingAPIE, i64 16), ptr %33, align 8
   %819 = load ptr, ptr %339, align 8
   %820 = ptrtoint ptr %819 to i64
   %821 = and i64 %820, 7
@@ -5677,7 +5677,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i148: ; preds = %840, %
           to label %850 unwind label %923
 
 850:                                              ; preds = %849
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonE, i64 16), ptr %35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonE, i64 16), ptr %35, align 8
   %851 = load ptr, ptr %343, align 8
   %852 = ptrtoint ptr %851 to i64
   %853 = and i64 %852, 7

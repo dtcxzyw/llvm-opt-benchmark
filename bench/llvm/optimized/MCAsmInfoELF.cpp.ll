@@ -63,7 +63,7 @@ define dso_local noundef ptr @_ZNK4llvm12MCAsmInfoELF28getNonexecutableStackSect
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm12MCAsmInfoELFC2Ev(ptr noundef nonnull align 8 dereferenceable(484) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN4llvm9MCAsmInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(484) %0) #6
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm12MCAsmInfoELFE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm12MCAsmInfoELFE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 366
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 376

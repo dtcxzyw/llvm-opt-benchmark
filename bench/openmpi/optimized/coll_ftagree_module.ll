@@ -35,10 +35,10 @@ define noundef ptr @mca_coll_ftagree_comm_query(ptr noundef %0, ptr nocapture no
   br i1 %4, label %5, label %opal_obj_new.exit.thread
 
 5:                                                ; preds = %2
-  %6 = load i64, ptr getelementptr inbounds (i8, ptr @mca_coll_ftagree_module_t_class, i64 56), align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_ftagree_module_t_class, i64 56), align 8
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #5
   %8 = load i32, ptr @opal_class_init_epoch, align 4
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_ftagree_module_t_class, i64 32), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_ftagree_module_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %8, %9
   br i1 %.not.i, label %11, label %10
 

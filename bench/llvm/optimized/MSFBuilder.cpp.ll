@@ -356,7 +356,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 3, ptr %11, align 8, !noalias !7
   call void @_ZN4llvm11StringErrorC2ESt10error_codeRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(57) %8, i32 5, ptr nonnull %9, ptr noundef nonnull align 8 dereferenceable(34) %6) #18, !noalias !7
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm3msf8MSFErrorE, i64 16), ptr %8, align 8, !noalias !7
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3msf8MSFErrorE, i64 16), ptr %8, align 8, !noalias !7
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load i8, ptr %12, align 8
@@ -533,7 +533,7 @@ define dso_local void @_ZN4llvm3msf10MSFBuilder15setBlockMapAddrEj(ptr dead_on_u
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 3, ptr %21, align 8, !noalias !18
   call void @_ZN4llvm11StringErrorC2ESt10error_codeRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(57) %18, i32 2, ptr nonnull %19, ptr noundef nonnull align 8 dereferenceable(34) %5) #18, !noalias !18
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm3msf8MSFErrorE, i64 16), ptr %18, align 8, !noalias !18
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3msf8MSFErrorE, i64 16), ptr %18, align 8, !noalias !18
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !15
   br label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
@@ -602,7 +602,7 @@ _ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %39, %_ZN4llvm9BitVe
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 3, ptr %62, align 8, !noalias !24
   call void @_ZN4llvm11StringErrorC2ESt10error_codeRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(57) %59, i32 6, ptr nonnull %60, ptr noundef nonnull align 8 dereferenceable(34) %4) #18, !noalias !24
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm3msf8MSFErrorE, i64 16), ptr %59, align 8, !noalias !24
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3msf8MSFErrorE, i64 16), ptr %59, align 8, !noalias !24
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !21
   br label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
@@ -727,7 +727,7 @@ define dso_local void @_ZN4llvm3msf10MSFBuilder22setDirectoryBlocksHintENS_8Arra
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 3, ptr %40, align 8, !noalias !30
   call void @_ZN4llvm11StringErrorC2ESt10error_codeRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(57) %37, i32 1, ptr nonnull %38, ptr noundef nonnull align 8 dereferenceable(34) %5) #18, !noalias !30
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm3msf8MSFErrorE, i64 16), ptr %37, align 8, !noalias !30
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3msf8MSFErrorE, i64 16), ptr %37, align 8, !noalias !30
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !27
   br label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
@@ -825,7 +825,7 @@ _ZNK4llvm9BitVector5countEv.exit:                 ; preds = %.lr.ph.i, %8
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 3, ptr %27, align 8, !noalias !39
   call void @_ZN4llvm11StringErrorC2ESt10error_codeRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(57) %24, i32 2, ptr nonnull %25, ptr noundef nonnull align 8 dereferenceable(34) %6) #18, !noalias !39
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm3msf8MSFErrorE, i64 16), ptr %24, align 8, !noalias !39
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3msf8MSFErrorE, i64 16), ptr %24, align 8, !noalias !39
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !36
   br label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
@@ -1233,7 +1233,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %5
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 3, ptr %22, align 8, !noalias !49
   call void @_ZN4llvm11StringErrorC2ESt10error_codeRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(57) %19, i32 5, ptr nonnull %20, ptr noundef nonnull align 8 dereferenceable(34) %7) #18, !noalias !49
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm3msf8MSFErrorE, i64 16), ptr %19, align 8, !noalias !49
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3msf8MSFErrorE, i64 16), ptr %19, align 8, !noalias !49
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !46
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i8, ptr %23, align 8
@@ -1333,7 +1333,7 @@ _ZN4llvm5ErrorD2Ev.exit22:                        ; preds = %_ZN4llvm9BitVector6
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 3, ptr %75, align 8, !noalias !58
   call void @_ZN4llvm11StringErrorC2ESt10error_codeRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(57) %72, i32 1, ptr nonnull %73, ptr noundef nonnull align 8 dereferenceable(34) %6) #18, !noalias !58
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm3msf8MSFErrorE, i64 16), ptr %72, align 8, !noalias !58
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3msf8MSFErrorE, i64 16), ptr %72, align 8, !noalias !58
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !55
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %77 = load i8, ptr %76, align 8
@@ -2663,11 +2663,11 @@ _ZN4llvm5ErrorD2Ev.exit57:                        ; preds = %80, %79, %78, %77
   %83 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i8 1, ptr %83, align 8, !alias.scope !94
   %84 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail30stream_operator_format_adapterIRKNS1_31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEE, i64 16), ptr %84, align 8, !alias.scope !94
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail30stream_operator_format_adapterIRKNS1_31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEE, i64 16), ptr %84, align 8, !alias.scope !94
   %85 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store ptr %68, ptr %85, align 8, !alias.scope !94
   %86 = getelementptr inbounds nuw i8, ptr %17, i64 56
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRmEE, i64 16), ptr %86, align 8, !alias.scope !94
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRmEE, i64 16), ptr %86, align 8, !alias.scope !94
   %87 = getelementptr inbounds nuw i8, ptr %17, i64 64
   store ptr %16, ptr %87, align 8, !alias.scope !94
   store ptr %86, ptr %81, align 8, !alias.scope !94
@@ -2682,7 +2682,7 @@ _ZN4llvm5ErrorD2Ev.exit57:                        ; preds = %80, %79, %78, %77
   store i8 1, ptr %91, align 1, !noalias !102
   store ptr %17, ptr %14, align 8, !noalias !102
   call void @_ZN4llvm11StringErrorC2ESt10error_codeRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(57) %88, i32 %.0.i56, ptr nonnull %89, ptr noundef nonnull align 8 dereferenceable(34) %14) #18, !noalias !102
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm3msf8MSFErrorE, i64 16), ptr %88, align 8, !noalias !102
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3msf8MSFErrorE, i64 16), ptr %88, align 8, !noalias !102
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14), !noalias !99
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %93 = load i8, ptr %92, align 8
@@ -2720,11 +2720,11 @@ _ZN4llvm5ErrorD2Ev.exit64:                        ; preds = %95
   %107 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store i8 1, ptr %107, align 8, !alias.scope !108
   %108 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail30stream_operator_format_adapterIRKNS1_31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEE, i64 16), ptr %108, align 8, !alias.scope !108
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail30stream_operator_format_adapterIRKNS1_31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEE, i64 16), ptr %108, align 8, !alias.scope !108
   %109 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store ptr %68, ptr %109, align 8, !alias.scope !108
   %110 = getelementptr inbounds nuw i8, ptr %19, i64 56
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRmEE, i64 16), ptr %110, align 8, !alias.scope !108
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRmEE, i64 16), ptr %110, align 8, !alias.scope !108
   %111 = getelementptr inbounds nuw i8, ptr %19, i64 64
   store ptr %18, ptr %111, align 8, !alias.scope !108
   store ptr %110, ptr %105, align 8, !alias.scope !108
@@ -2739,7 +2739,7 @@ _ZN4llvm5ErrorD2Ev.exit64:                        ; preds = %95
   store i8 1, ptr %115, align 1, !noalias !116
   store ptr %19, ptr %13, align 8, !noalias !116
   call void @_ZN4llvm11StringErrorC2ESt10error_codeRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(57) %112, i32 11, ptr nonnull %113, ptr noundef nonnull align 8 dereferenceable(34) %13) #18, !noalias !116
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm3msf8MSFErrorE, i64 16), ptr %112, align 8, !noalias !116
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3msf8MSFErrorE, i64 16), ptr %112, align 8, !noalias !116
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13), !noalias !113
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %117 = load i8, ptr %116, align 8
@@ -2773,7 +2773,7 @@ _ZNSt10unique_ptrIN4llvm16FileOutputBufferESt14default_deleteIS1_EED2Ev.exit: ; 
   %127 = phi i64 [ %.pre, %119 ], [ 0, %_ZN4llvm8ExpectedISt10unique_ptrINS_16FileOutputBufferESt14default_deleteIS2_EEE9takeErrorEv.exit ]
   %128 = inttoptr i64 %127 to ptr
   store ptr null, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm20FileBufferByteStreamE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm20FileBufferByteStreamE, i64 16), ptr %21, align 8
   %129 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %130 = load ptr, ptr %128, align 8
   %131 = load ptr, ptr %130, align 8
@@ -2790,14 +2790,14 @@ _ZNSt10unique_ptrIN4llvm16FileOutputBufferESt14default_deleteIS1_EED2Ev.exit: ; 
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i64 %139, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8
   %141 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4llvm16BinaryByteStreamE, i64 16), ptr %141, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4llvm16BinaryByteStreamE, i64 16), ptr %141, align 8
   %142 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i32 1, ptr %142, align 8
   %143 = getelementptr inbounds nuw i8, ptr %21, i64 48
   store ptr %132, ptr %143, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i69 = getelementptr inbounds nuw i8, ptr %21, i64 56
   store i64 %139, ptr %.sroa.2.0..sroa_idx.i.i.i.i69, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm20FileBufferByteStream10StreamImplE, i64 16), ptr %129, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm20FileBufferByteStream10StreamImplE, i64 16), ptr %129, align 8
   %144 = getelementptr inbounds nuw i8, ptr %21, i64 64
   store i64 %127, ptr %144, align 8
   call void @_ZN4llvm18BinaryStreamWriterC1ERNS_20WritableBinaryStreamE(ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull align 8 dereferenceable(8) %21) #18
@@ -3051,7 +3051,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %246
   br i1 %256, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !132
 
 ._crit_edge.i:                                    ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN4llvm23WritableBinaryStreamRefD2Ev.exit24.i
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %10, align 8
   %257 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %258 = load ptr, ptr %257, align 8
   %.not.i.i.i.i.i.i27.i = icmp eq ptr %258, null
@@ -3292,15 +3292,15 @@ _ZN4llvm5ErrorD2Ev.exit86:                        ; preds = %_ZN4llvm18BinaryStr
   %338 = load i8, ptr %337, align 8
   %339 = and i8 %338, -2
   store i8 %339, ptr %337, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm20FileBufferByteStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm20FileBufferByteStreamE, i64 16), ptr %0, align 8
   %340 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %341, ptr noundef nonnull align 8 dereferenceable(16) %140, i64 16, i1 false)
   %342 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4llvm16BinaryByteStreamE, i64 16), ptr %342, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4llvm16BinaryByteStreamE, i64 16), ptr %342, align 8
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %343, ptr noundef nonnull align 8 dereferenceable(24) %142, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm20FileBufferByteStream10StreamImplE, i64 16), ptr %340, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm20FileBufferByteStream10StreamImplE, i64 16), ptr %340, align 8
   %344 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %345 = load i64, ptr %144, align 8
   store i64 %345, ptr %344, align 8
@@ -3323,7 +3323,7 @@ _ZNKSt14default_deleteIN4llvm3msf25WritableMappedBlockStreamEEclEPS2_.exit.i: ; 
 _ZNSt10unique_ptrIN4llvm3msf25WritableMappedBlockStreamESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4llvm3msf25WritableMappedBlockStreamEEclEPS2_.exit.i, %346, %_ZN4llvm5ErrorD2Ev.exit77, %_ZN4llvm5ErrorD2Ev.exit71
   %.sink = phi ptr [ %24, %_ZN4llvm5ErrorD2Ev.exit77 ], [ %23, %_ZN4llvm5ErrorD2Ev.exit71 ], [ %25, %346 ], [ %25, %_ZNKSt14default_deleteIN4llvm3msf25WritableMappedBlockStreamEEclEPS2_.exit.i ]
   store ptr null, ptr %.sink, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %22, align 8
   %351 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %352 = load ptr, ptr %351, align 8
   %.not.i.i.i.i.i.i88 = icmp eq ptr %352, null
@@ -3398,8 +3398,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN4llvm18BinaryStreamWriterD2Ev.exit
 
 _ZN4llvm18BinaryStreamWriterD2Ev.exit:            ; preds = %_ZNSt10unique_ptrIN4llvm3msf25WritableMappedBlockStreamESt14default_deleteIS2_EED2Ev.exit, %369, %382, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i94
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm20FileBufferByteStreamE, i64 16), ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm20FileBufferByteStream10StreamImplE, i64 16), ptr %129, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm20FileBufferByteStreamE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm20FileBufferByteStream10StreamImplE, i64 16), ptr %129, align 8
   %387 = load ptr, ptr %144, align 8
   %.not.i.i.i = icmp eq ptr %387, null
   br i1 %.not.i.i.i, label %391, label %_ZNKSt14default_deleteIN4llvm16FileOutputBufferEEclEPS1_.exit.i.i.i
@@ -3628,7 +3628,7 @@ define linkonce_odr hidden void @_ZN4llvm18BinaryStreamWriter12writeIntegerIjEEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm18BinaryStreamWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -3708,9 +3708,9 @@ _ZN4llvm23WritableBinaryStreamRefD2Ev.exit:       ; preds = %1, %20, %33, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm20FileBufferByteStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm20FileBufferByteStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm20FileBufferByteStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm20FileBufferByteStream10StreamImplE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm20FileBufferByteStream10StreamImplE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -4362,9 +4362,9 @@ declare noundef zeroext i1 @_ZN4llvm22consumeUnsignedIntegerERNS_9StringRefEjRy(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm20FileBufferByteStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm20FileBufferByteStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm20FileBufferByteStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm20FileBufferByteStream10StreamImplE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm20FileBufferByteStream10StreamImplE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -4581,7 +4581,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm12BinaryStream8getFlagsEv(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm20FileBufferByteStream10StreamImplD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm20FileBufferByteStream10StreamImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm20FileBufferByteStream10StreamImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -4601,7 +4601,7 @@ _ZNSt10unique_ptrIN4llvm16FileOutputBufferESt14default_deleteIS1_EED2Ev.exit: ; 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm20FileBufferByteStream10StreamImplD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm20FileBufferByteStream10StreamImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm20FileBufferByteStream10StreamImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -4913,7 +4913,7 @@ declare void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm18BinaryStreamWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %3, null
@@ -5002,7 +5002,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm3msf14MSFErrCate
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm3msf8MSFErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm11StringErrorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm11StringErrorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   ret void
@@ -5010,7 +5010,7 @@ define linkonce_odr hidden void @_ZN4llvm3msf8MSFErrorD2Ev(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm3msf8MSFErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm11StringErrorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm11StringErrorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #20
@@ -5031,7 +5031,7 @@ define linkonce_odr hidden void @_ZNK4llvm13ErrorInfoBase7messageB5cxx11Ev(ptr d
   store i32 1, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %0, ptr %8, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #18

@@ -99,56 +99,56 @@ define dso_local i32 @trackpoint_detect(ptr noundef %0, i1 noundef zeroext %1) l
   br i1 %1, label %16, label %104
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %18 = call noalias noundef align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 3520, i64 noundef 16) #8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %104, label %20
 
 20:                                               ; preds = %16
-  %21 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_sensitivity, i64 11), align 1
+  %21 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_sensitivity, i64 11), align 1
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 2
   store i8 %21, ptr %22, align 2
-  %23 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_speed, i64 11), align 1
+  %23 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_speed, i64 11), align 1
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 3
   store i8 %23, ptr %24, align 1
-  %25 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_reach, i64 11), align 1
+  %25 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_reach, i64 11), align 1
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 5
   store i8 %25, ptr %26, align 1
-  %27 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_draghys, i64 11), align 1
+  %27 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_draghys, i64 11), align 1
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 6
   store i8 %27, ptr %28, align 2
-  %29 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_mindrag, i64 11), align 1
+  %29 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_mindrag, i64 11), align 1
   %30 = getelementptr inbounds nuw i8, ptr %18, i64 7
   store i8 %29, ptr %30, align 1
-  %31 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_thresh, i64 11), align 1
+  %31 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_thresh, i64 11), align 1
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i8 %31, ptr %32, align 8
-  %33 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_upthresh, i64 11), align 1
+  %33 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_upthresh, i64 11), align 1
   %34 = getelementptr inbounds nuw i8, ptr %18, i64 9
   store i8 %33, ptr %34, align 1
-  %35 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_ztime, i64 11), align 1
+  %35 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_ztime, i64 11), align 1
   %36 = getelementptr inbounds nuw i8, ptr %18, i64 10
   store i8 %35, ptr %36, align 2
-  %37 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_jenks, i64 11), align 1
+  %37 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_jenks, i64 11), align 1
   %38 = getelementptr inbounds nuw i8, ptr %18, i64 11
   store i8 %37, ptr %38, align 1
-  %39 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_drift_time, i64 11), align 1
+  %39 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_drift_time, i64 11), align 1
   %40 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i8 %39, ptr %40, align 4
-  %41 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_inertia, i64 11), align 1
+  %41 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_inertia, i64 11), align 1
   %42 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i8 %41, ptr %42, align 4
-  %43 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_press_to_select, i64 11), align 1
+  %43 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_press_to_select, i64 11), align 1
   %44 = icmp ne i8 %43, 0
   %45 = getelementptr inbounds nuw i8, ptr %18, i64 13
   %46 = zext i1 %44 to i8
   store i8 %46, ptr %45, align 1
-  %47 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_skipback, i64 11), align 1
+  %47 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_skipback, i64 11), align 1
   %48 = icmp ne i8 %47, 0
   %49 = getelementptr inbounds nuw i8, ptr %18, i64 14
   %50 = zext i1 %48 to i8
   store i8 %50, ptr %49, align 2
-  %51 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_ext_dev, i64 11), align 1
+  %51 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_ext_dev, i64 11), align 1
   %52 = icmp ne i8 %51, 0
   %53 = getelementptr inbounds nuw i8, ptr %18, i64 15
   %54 = zext i1 %52 to i8
@@ -506,15 +506,15 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 89:                                               ; preds = %2
   %90 = getelementptr inbounds nuw i8, ptr %51, i64 2
   %91 = load i8, ptr %90, align 1
-  %92 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_sensitivity, i64 11), align 1
+  %92 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_sensitivity, i64 11), align 1
   %93 = icmp eq i8 %91, %92
   br i1 %93, label %.thread, label %94
 
 94:                                               ; preds = %52, %88, %89
-  %95 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_sensitivity, i64 9), align 1
+  %95 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_sensitivity, i64 9), align 1
   %96 = icmp eq i8 %95, 0
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %98 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_sensitivity, i64 8), align 8
+  %98 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_sensitivity, i64 8), align 8
   %99 = getelementptr inbounds nuw i8, ptr %51, i64 2
   %100 = load i8, ptr %99, align 1
   br i1 %96, label %101, label %105
@@ -574,7 +574,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 .thread:                                          ; preds = %89, %123
   %124 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %125 = load i8, ptr %124, align 1
-  %126 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_inertia, i64 11), align 1
+  %126 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_inertia, i64 11), align 1
   %127 = icmp eq i8 %125, %126
   br i1 %127, label %.thread15, label %128
 
@@ -585,10 +585,10 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %131, label %132, label %161
 
 132:                                              ; preds = %128
-  %133 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_inertia, i64 9), align 1
+  %133 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_inertia, i64 9), align 1
   %134 = icmp eq i8 %133, 0
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %136 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_inertia, i64 8), align 8
+  %136 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_inertia, i64 8), align 8
   %137 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %138 = load i8, ptr %137, align 1
   br i1 %134, label %139, label %143
@@ -648,7 +648,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 .thread15:                                        ; preds = %.thread, %161
   %162 = getelementptr inbounds nuw i8, ptr %51, i64 3
   %163 = load i8, ptr %162, align 1
-  %164 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_speed, i64 11), align 1
+  %164 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_speed, i64 11), align 1
   %165 = icmp eq i8 %163, %164
   br i1 %165, label %.thread16, label %166
 
@@ -659,10 +659,10 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %169, label %170, label %199
 
 170:                                              ; preds = %166
-  %171 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_speed, i64 9), align 1
+  %171 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_speed, i64 9), align 1
   %172 = icmp eq i8 %171, 0
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %174 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_speed, i64 8), align 8
+  %174 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_speed, i64 8), align 8
   %175 = getelementptr inbounds nuw i8, ptr %51, i64 3
   %176 = load i8, ptr %175, align 1
   br i1 %172, label %177, label %181
@@ -722,7 +722,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 .thread16:                                        ; preds = %.thread15, %199
   %200 = getelementptr inbounds nuw i8, ptr %51, i64 5
   %201 = load i8, ptr %200, align 1
-  %202 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_reach, i64 11), align 1
+  %202 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_reach, i64 11), align 1
   %203 = icmp eq i8 %201, %202
   br i1 %203, label %.thread17, label %204
 
@@ -733,10 +733,10 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %207, label %208, label %237
 
 208:                                              ; preds = %204
-  %209 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_reach, i64 9), align 1
+  %209 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_reach, i64 9), align 1
   %210 = icmp eq i8 %209, 0
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %212 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_reach, i64 8), align 8
+  %212 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_reach, i64 8), align 8
   %213 = getelementptr inbounds nuw i8, ptr %51, i64 5
   %214 = load i8, ptr %213, align 1
   br i1 %210, label %215, label %219
@@ -796,7 +796,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 .thread17:                                        ; preds = %.thread16, %237
   %238 = getelementptr inbounds nuw i8, ptr %51, i64 6
   %239 = load i8, ptr %238, align 1
-  %240 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_draghys, i64 11), align 1
+  %240 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_draghys, i64 11), align 1
   %241 = icmp eq i8 %239, %240
   br i1 %241, label %.thread18, label %242
 
@@ -807,10 +807,10 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %245, label %246, label %275
 
 246:                                              ; preds = %242
-  %247 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_draghys, i64 9), align 1
+  %247 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_draghys, i64 9), align 1
   %248 = icmp eq i8 %247, 0
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %250 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_draghys, i64 8), align 8
+  %250 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_draghys, i64 8), align 8
   %251 = getelementptr inbounds nuw i8, ptr %51, i64 6
   %252 = load i8, ptr %251, align 1
   br i1 %248, label %253, label %257
@@ -870,7 +870,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 .thread18:                                        ; preds = %.thread17, %275
   %276 = getelementptr inbounds nuw i8, ptr %51, i64 7
   %277 = load i8, ptr %276, align 1
-  %278 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_mindrag, i64 11), align 1
+  %278 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_mindrag, i64 11), align 1
   %279 = icmp eq i8 %277, %278
   br i1 %279, label %.thread19, label %280
 
@@ -881,10 +881,10 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %283, label %284, label %313
 
 284:                                              ; preds = %280
-  %285 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_mindrag, i64 9), align 1
+  %285 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_mindrag, i64 9), align 1
   %286 = icmp eq i8 %285, 0
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %288 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_mindrag, i64 8), align 8
+  %288 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_mindrag, i64 8), align 8
   %289 = getelementptr inbounds nuw i8, ptr %51, i64 7
   %290 = load i8, ptr %289, align 1
   br i1 %286, label %291, label %295
@@ -944,7 +944,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 .thread19:                                        ; preds = %.thread18, %313
   %314 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %315 = load i8, ptr %314, align 1
-  %316 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_thresh, i64 11), align 1
+  %316 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_thresh, i64 11), align 1
   %317 = icmp eq i8 %315, %316
   br i1 %317, label %.thread20, label %318
 
@@ -955,10 +955,10 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %321, label %322, label %351
 
 322:                                              ; preds = %318
-  %323 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_thresh, i64 9), align 1
+  %323 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_thresh, i64 9), align 1
   %324 = icmp eq i8 %323, 0
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %326 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_thresh, i64 8), align 8
+  %326 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_thresh, i64 8), align 8
   %327 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %328 = load i8, ptr %327, align 1
   br i1 %324, label %329, label %333
@@ -1018,7 +1018,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 .thread20:                                        ; preds = %.thread19, %351
   %352 = getelementptr inbounds nuw i8, ptr %51, i64 9
   %353 = load i8, ptr %352, align 1
-  %354 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_upthresh, i64 11), align 1
+  %354 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_upthresh, i64 11), align 1
   %355 = icmp eq i8 %353, %354
   br i1 %355, label %.thread21, label %356
 
@@ -1029,10 +1029,10 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %359, label %360, label %389
 
 360:                                              ; preds = %356
-  %361 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_upthresh, i64 9), align 1
+  %361 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_upthresh, i64 9), align 1
   %362 = icmp eq i8 %361, 0
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %364 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_upthresh, i64 8), align 8
+  %364 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_upthresh, i64 8), align 8
   %365 = getelementptr inbounds nuw i8, ptr %51, i64 9
   %366 = load i8, ptr %365, align 1
   br i1 %362, label %367, label %371
@@ -1092,7 +1092,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 .thread21:                                        ; preds = %.thread20, %389
   %390 = getelementptr inbounds nuw i8, ptr %51, i64 10
   %391 = load i8, ptr %390, align 1
-  %392 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_ztime, i64 11), align 1
+  %392 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_ztime, i64 11), align 1
   %393 = icmp eq i8 %391, %392
   br i1 %393, label %.thread22, label %394
 
@@ -1103,10 +1103,10 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %397, label %398, label %427
 
 398:                                              ; preds = %394
-  %399 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_ztime, i64 9), align 1
+  %399 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_ztime, i64 9), align 1
   %400 = icmp eq i8 %399, 0
   %401 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %402 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_ztime, i64 8), align 8
+  %402 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_ztime, i64 8), align 8
   %403 = getelementptr inbounds nuw i8, ptr %51, i64 10
   %404 = load i8, ptr %403, align 1
   br i1 %400, label %405, label %409
@@ -1166,7 +1166,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 .thread22:                                        ; preds = %.thread21, %427
   %428 = getelementptr inbounds nuw i8, ptr %51, i64 11
   %429 = load i8, ptr %428, align 1
-  %430 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_jenks, i64 11), align 1
+  %430 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_jenks, i64 11), align 1
   %431 = icmp eq i8 %429, %430
   br i1 %431, label %.thread23, label %432
 
@@ -1177,10 +1177,10 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %435, label %436, label %465
 
 436:                                              ; preds = %432
-  %437 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_jenks, i64 9), align 1
+  %437 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_jenks, i64 9), align 1
   %438 = icmp eq i8 %437, 0
   %439 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %440 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_jenks, i64 8), align 8
+  %440 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_jenks, i64 8), align 8
   %441 = getelementptr inbounds nuw i8, ptr %51, i64 11
   %442 = load i8, ptr %441, align 1
   br i1 %438, label %443, label %447
@@ -1240,7 +1240,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 .thread23:                                        ; preds = %.thread22, %465
   %466 = getelementptr inbounds nuw i8, ptr %51, i64 12
   %467 = load i8, ptr %466, align 1
-  %468 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_drift_time, i64 11), align 1
+  %468 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_drift_time, i64 11), align 1
   %469 = icmp eq i8 %467, %468
   br i1 %469, label %.thread24, label %470
 
@@ -1251,10 +1251,10 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %473, label %474, label %503
 
 474:                                              ; preds = %470
-  %475 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_drift_time, i64 9), align 1
+  %475 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_drift_time, i64 9), align 1
   %476 = icmp eq i8 %475, 0
   %477 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %478 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_drift_time, i64 8), align 8
+  %478 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_drift_time, i64 8), align 8
   %479 = getelementptr inbounds nuw i8, ptr %51, i64 12
   %480 = load i8, ptr %479, align 1
   br i1 %476, label %481, label %485
@@ -1319,16 +1319,16 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 .thread24:                                        ; preds = %.thread23, %503
   %504 = getelementptr inbounds nuw i8, ptr %51, i64 13
   %505 = load i8, ptr %504, align 1, !range !6, !noundef !7
-  %506 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_press_to_select, i64 11), align 1
+  %506 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_press_to_select, i64 11), align 1
   %507 = icmp eq i8 %505, %506
   br i1 %507, label %.thread25, label %508
 
 508:                                              ; preds = %._crit_edge, %.thread24
   %509 = phi i8 [ %.pre, %._crit_edge ], [ %505, %.thread24 ]
-  %510 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_press_to_select, i64 9), align 1
+  %510 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_press_to_select, i64 9), align 1
   %511 = icmp eq i8 %510, 0
   %512 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %513 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_press_to_select, i64 8), align 8
+  %513 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_press_to_select, i64 8), align 8
   br i1 %511, label %514, label %518
 
 514:                                              ; preds = %508
@@ -1386,7 +1386,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 .thread25:                                        ; preds = %.thread24, %536
   %537 = getelementptr inbounds nuw i8, ptr %51, i64 14
   %538 = load i8, ptr %537, align 1, !range !6, !noundef !7
-  %539 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_skipback, i64 11), align 1
+  %539 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_skipback, i64 11), align 1
   %540 = icmp eq i8 %538, %539
   br i1 %540, label %.thread26, label %541
 
@@ -1397,10 +1397,10 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %544, label %545, label %574
 
 545:                                              ; preds = %541
-  %546 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_skipback, i64 9), align 1
+  %546 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_skipback, i64 9), align 1
   %547 = icmp eq i8 %546, 0
   %548 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %549 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_skipback, i64 8), align 8
+  %549 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_skipback, i64 8), align 8
   %550 = getelementptr inbounds nuw i8, ptr %51, i64 14
   %551 = load i8, ptr %550, align 1, !range !6, !noundef !7
   br i1 %547, label %552, label %556
@@ -1460,7 +1460,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 .thread26:                                        ; preds = %.thread25, %574
   %575 = getelementptr inbounds nuw i8, ptr %51, i64 15
   %576 = load i8, ptr %575, align 1, !range !6, !noundef !7
-  %577 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_ext_dev, i64 11), align 1
+  %577 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_ext_dev, i64 11), align 1
   %578 = icmp eq i8 %576, %577
   br i1 %578, label %612, label %579
 
@@ -1471,10 +1471,10 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %582, label %583, label %612
 
 583:                                              ; preds = %579
-  %584 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_ext_dev, i64 9), align 1
+  %584 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_ext_dev, i64 9), align 1
   %585 = icmp eq i8 %584, 0
   %586 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %587 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_ext_dev, i64 8), align 8
+  %587 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trackpoint_attr_ext_dev, i64 8), align 8
   %588 = getelementptr inbounds nuw i8, ptr %51, i64 15
   %589 = load i8, ptr %588, align 1, !range !6, !noundef !7
   br i1 %585, label %590, label %594

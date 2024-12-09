@@ -1290,7 +1290,7 @@ mtree_entry_exchange_same_entry.exit.thread.i:    ; preds = %.thread157.i
   br i1 %.not30.i, label %367, label %356
 
 356:                                              ; preds = %353
-  %357 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_digest, i64 24), align 8
+  %357 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_digest, i64 24), align 8
   %358 = getelementptr inbounds nuw i8, ptr %8, i64 248
   %359 = call i32 %357(ptr noundef nonnull %358) #14
   %360 = icmp eq i32 %359, 0
@@ -1316,7 +1316,7 @@ mtree_entry_exchange_same_entry.exit.thread.i:    ; preds = %.thread157.i
   br i1 %.not31.i, label %381, label %370
 
 370:                                              ; preds = %367
-  %371 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_digest, i64 48), align 8
+  %371 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_digest, i64 48), align 8
   %372 = getelementptr inbounds nuw i8, ptr %8, i64 256
   %373 = call i32 %371(ptr noundef nonnull %372) #14
   %374 = icmp eq i32 %373, 0
@@ -1342,7 +1342,7 @@ mtree_entry_exchange_same_entry.exit.thread.i:    ; preds = %.thread157.i
   br i1 %.not32.i, label %395, label %384
 
 384:                                              ; preds = %381
-  %385 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_digest, i64 72), align 8
+  %385 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_digest, i64 72), align 8
   %386 = getelementptr inbounds nuw i8, ptr %8, i64 264
   %387 = call i32 %385(ptr noundef nonnull %386) #14
   %388 = icmp eq i32 %387, 0
@@ -1368,7 +1368,7 @@ mtree_entry_exchange_same_entry.exit.thread.i:    ; preds = %.thread157.i
   br i1 %.not33.i, label %409, label %398
 
 398:                                              ; preds = %395
-  %399 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_digest, i64 96), align 8
+  %399 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_digest, i64 96), align 8
   %400 = getelementptr inbounds nuw i8, ptr %8, i64 272
   %401 = call i32 %399(ptr noundef nonnull %400) #14
   %402 = icmp eq i32 %401, 0
@@ -1394,7 +1394,7 @@ mtree_entry_exchange_same_entry.exit.thread.i:    ; preds = %.thread157.i
   br i1 %.not34.i, label %sum_init.exit, label %412
 
 412:                                              ; preds = %409
-  %413 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_digest, i64 120), align 8
+  %413 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_digest, i64 120), align 8
   %414 = getelementptr inbounds nuw i8, ptr %8, i64 280
   %415 = call i32 %413(ptr noundef nonnull %414) #14
   %416 = icmp eq i32 %415, 0
@@ -2307,7 +2307,7 @@ define internal i64 @archive_write_mtree_data(ptr nocapture noundef readonly %0,
   br i1 %.not36.i, label %42, label %38
 
 38:                                               ; preds = %36
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_digest, i64 8), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_digest, i64 8), align 8
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 240
   %41 = tail call i32 %39(ptr noundef nonnull %40, ptr noundef %1, i64 noundef %spec.select) #14
   %.pre.i = load i32, ptr %16, align 8
@@ -2320,7 +2320,7 @@ define internal i64 @archive_write_mtree_data(ptr nocapture noundef readonly %0,
   br i1 %.not37.i, label %49, label %45
 
 45:                                               ; preds = %42
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_digest, i64 32), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_digest, i64 32), align 8
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %48 = tail call i32 %46(ptr noundef nonnull %47, ptr noundef %1, i64 noundef %spec.select) #14
   %.pre45.i = load i32, ptr %16, align 8
@@ -2333,7 +2333,7 @@ define internal i64 @archive_write_mtree_data(ptr nocapture noundef readonly %0,
   br i1 %.not38.i, label %56, label %52
 
 52:                                               ; preds = %49
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_digest, i64 56), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_digest, i64 56), align 8
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %55 = tail call i32 %53(ptr noundef nonnull %54, ptr noundef %1, i64 noundef %spec.select) #14
   %.pre46.i = load i32, ptr %16, align 8
@@ -2346,7 +2346,7 @@ define internal i64 @archive_write_mtree_data(ptr nocapture noundef readonly %0,
   br i1 %.not39.i, label %63, label %59
 
 59:                                               ; preds = %56
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_digest, i64 80), align 8
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_digest, i64 80), align 8
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 264
   %62 = tail call i32 %60(ptr noundef nonnull %61, ptr noundef %1, i64 noundef %spec.select) #14
   %.pre47.i = load i32, ptr %16, align 8
@@ -2359,7 +2359,7 @@ define internal i64 @archive_write_mtree_data(ptr nocapture noundef readonly %0,
   br i1 %.not40.i, label %70, label %66
 
 66:                                               ; preds = %63
-  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_digest, i64 104), align 8
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_digest, i64 104), align 8
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 272
   %69 = tail call i32 %67(ptr noundef nonnull %68, ptr noundef %1, i64 noundef %spec.select) #14
   %.pre48.i = load i32, ptr %16, align 8
@@ -2372,7 +2372,7 @@ define internal i64 @archive_write_mtree_data(ptr nocapture noundef readonly %0,
   br i1 %.not41.i, label %sum_update.exit, label %73
 
 73:                                               ; preds = %70
-  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_digest, i64 128), align 8
+  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_digest, i64 128), align 8
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 280
   %76 = tail call i32 %74(ptr noundef nonnull %75, ptr noundef %1, i64 noundef %spec.select) #14
   br label %sum_update.exit
@@ -2445,7 +2445,7 @@ define internal noundef i32 @archive_write_mtree_finish_entry(ptr nocapture noun
   br i1 %.not30.i, label %37, label %32
 
 32:                                               ; preds = %29
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_digest, i64 16), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_digest, i64 16), align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 240
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %36 = tail call i32 %33(ptr noundef nonnull %34, ptr noundef nonnull %35) #14
@@ -2459,7 +2459,7 @@ define internal noundef i32 @archive_write_mtree_finish_entry(ptr nocapture noun
   br i1 %.not31.i, label %45, label %40
 
 40:                                               ; preds = %37
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_digest, i64 40), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_digest, i64 40), align 8
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %44 = tail call i32 %41(ptr noundef nonnull %42, ptr noundef nonnull %43) #14
@@ -2473,7 +2473,7 @@ define internal noundef i32 @archive_write_mtree_finish_entry(ptr nocapture noun
   br i1 %.not32.i, label %53, label %48
 
 48:                                               ; preds = %45
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_digest, i64 64), align 8
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_digest, i64 64), align 8
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 256
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %52 = tail call i32 %49(ptr noundef nonnull %50, ptr noundef nonnull %51) #14
@@ -2487,7 +2487,7 @@ define internal noundef i32 @archive_write_mtree_finish_entry(ptr nocapture noun
   br i1 %.not33.i, label %61, label %56
 
 56:                                               ; preds = %53
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_digest, i64 88), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_digest, i64 88), align 8
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 264
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %60 = tail call i32 %57(ptr noundef nonnull %58, ptr noundef nonnull %59) #14
@@ -2501,7 +2501,7 @@ define internal noundef i32 @archive_write_mtree_finish_entry(ptr nocapture noun
   br i1 %.not34.i, label %69, label %64
 
 64:                                               ; preds = %61
-  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_digest, i64 112), align 8
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_digest, i64 112), align 8
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %68 = tail call i32 %65(ptr noundef nonnull %66, ptr noundef nonnull %67) #14
@@ -2515,7 +2515,7 @@ define internal noundef i32 @archive_write_mtree_finish_entry(ptr nocapture noun
   br i1 %.not35.i, label %sum_final.exit, label %72
 
 72:                                               ; preds = %69
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_digest, i64 136), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_digest, i64 136), align 8
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 280
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %76 = tail call i32 %73(ptr noundef nonnull %74, ptr noundef nonnull %75) #14

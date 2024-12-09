@@ -530,7 +530,7 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_756number4impl18ScientificModifierC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %this) unnamed_addr #7 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl18ScientificModifierE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl18ScientificModifierE, i64 16), ptr %this, align 8
   %fExponent = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %fExponent, align 8
   %fHandler = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -761,8 +761,8 @@ declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #14
 define void @_ZN6icu_756number4impl17ScientificHandlerC2EPKNS0_8NotationEPKNS_20DecimalFormatSymbolsEPKNS1_19MicroPropsGeneratorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef readonly %notation, ptr noundef %symbols, ptr noundef %parent) unnamed_addr #15 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl17ScientificHandlerE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl17ScientificHandlerE, i64 64), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl17ScientificHandlerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl17ScientificHandlerE, i64 64), ptr %0, align 8
   %fSettings = getelementptr inbounds nuw i8, ptr %this, i64 16
   %fUnion = getelementptr inbounds nuw i8, ptr %notation, i64 4
   %1 = load i64, ptr %fUnion, align 4

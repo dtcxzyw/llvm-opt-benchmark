@@ -153,7 +153,7 @@ if.end:                                           ; preds = %entry
   br i1 %.b.pr, label %if.then1, label %if.end2
 
 if.then1:                                         ; preds = %if.end.thread, %if.end
-  store ptr @doc_module_le, ptr getelementptr inbounds (i8, ptr @readlinemodule, i64 48), align 8
+  store ptr @doc_module_le, ptr getelementptr inbounds nuw (i8, ptr @readlinemodule, i64 48), align 8
   br label %if.end2
 
 if.end2:                                          ; preds = %if.then1, %if.end

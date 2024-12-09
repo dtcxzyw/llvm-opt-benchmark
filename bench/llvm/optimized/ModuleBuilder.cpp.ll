@@ -248,7 +248,7 @@ define dso_local noundef nonnull ptr @_ZN5clang17CreateLLVMCodeGenERNS_17Diagnos
   store ptr null, ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i8 0, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_117CodeGeneratorImplE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_117CodeGeneratorImplE, i64 16), ptr %10, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -438,7 +438,7 @@ declare void @_ZN4llvm11LLVMContext20setDiscardValueNamesEb(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_117CodeGeneratorImplD2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_117CodeGeneratorImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_117CodeGeneratorImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %2) #12
   %4 = load ptr, ptr %2, align 8

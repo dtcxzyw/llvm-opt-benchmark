@@ -388,7 +388,7 @@ define ptr @filelist(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_add
   br i1 %.not24, label %29, label %22
 
 22:                                               ; preds = %19
-  store i8 0, ptr getelementptr inbounds (i8, ptr @filelist.buff, i64 1024), align 16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @filelist.buff, i64 1024), align 16
   %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @filelist.buff) #19
   %.not25 = icmp eq i64 %23, 0
   br i1 %.not25, label %24, label %.preheader

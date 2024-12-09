@@ -75005,7 +75005,7 @@ _ZN4core3ops8function6FnOnce9call_once17h7c71919eb63f40caE.exit.i: ; preds = %9
   br label %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17hd3f39c2c5133244bE.exit"
 
 25:                                               ; preds = %9, %_ZN4core3ops8function6FnOnce9call_once17h7c71919eb63f40caE.exit.i
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %17, %_ZN4core3ops8function6FnOnce9call_once17h7c71919eb63f40caE.exit.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %9 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %17, %_ZN4core3ops8function6FnOnce9call_once17h7c71919eb63f40caE.exit.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %9 ]
   %26 = load i64, ptr %.sroa.0.0.i.i.i2.i, align 8, !noalias !20736, !noundef !12
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i, i64 8
   %28 = load i64, ptr %27, align 8, !noalias !20736, !noundef !12
@@ -75314,7 +75314,7 @@ _ZN4core3ops8function6FnOnce9call_once17h7c71919eb63f40caE.exit.i: ; preds = %4
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9fb62f966a0746e8E.exit": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h7c71919eb63f40caE.exit.i, %4
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %15, %_ZN4core3ops8function6FnOnce9call_once17h7c71919eb63f40caE.exit.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %4 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %15, %_ZN4core3ops8function6FnOnce9call_once17h7c71919eb63f40caE.exit.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %4 ]
   %18 = load i64, ptr %.sroa.0.0.i.i.i2.i, align 8, !noalias !20795, !noundef !12
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i, i64 8
   %20 = load i64, ptr %19, align 8, !noalias !20795, !noundef !12
@@ -75595,7 +75595,7 @@ _ZN4core3ops8function6FnOnce9call_once17h7c71919eb63f40caE.exit.i: ; preds = %5
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9fb62f966a0746e8E.exit": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h7c71919eb63f40caE.exit.i, %5
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %17, %_ZN4core3ops8function6FnOnce9call_once17h7c71919eb63f40caE.exit.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %5 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %17, %_ZN4core3ops8function6FnOnce9call_once17h7c71919eb63f40caE.exit.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %5 ]
   %20 = load i64, ptr %.sroa.0.0.i.i.i2.i, align 8, !noalias !20861, !noundef !12
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i, i64 8
   %22 = load i64, ptr %21, align 8, !noalias !20861, !noundef !12
@@ -77248,7 +77248,7 @@ define internal fastcc void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$29push_by
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hb9df0b26cca6387fE.exit"
 
 23:                                               ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hb9df0b26cca6387fE.exit"
-  %24 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN7tendril5OFLOW17h6b31ac0d1a233c58E, i64 8), align 8, !noundef !12
+  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN7tendril5OFLOW17h6b31ac0d1a233c58E, i64 8), align 8, !noundef !12
   %25 = load ptr, ptr @_ZN7tendril5OFLOW17h6b31ac0d1a233c58E, align 8, !nonnull !12, !align !156, !noundef !12
   tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.056909d58185468a4c5e660ab0f52ad7.402) #82
   unreachable
@@ -77397,7 +77397,7 @@ define internal fastcc void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$29push_by
 
 89:                                               ; preds = %85
   %90 = load ptr, ptr @_ZN7tendril5OFLOW17h6b31ac0d1a233c58E, align 8, !noalias !21459, !nonnull !12, !align !156, !noundef !12
-  %91 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN7tendril5OFLOW17h6b31ac0d1a233c58E, i64 8), align 8, !noalias !21459, !noundef !12
+  %91 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN7tendril5OFLOW17h6b31ac0d1a233c58E, i64 8), align 8, !noalias !21459, !noundef !12
   tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 %90, i64 noundef %91, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.056909d58185468a4c5e660ab0f52ad7.395) #82, !noalias !21459
   unreachable
 

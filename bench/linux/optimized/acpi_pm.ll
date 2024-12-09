@@ -111,7 +111,7 @@ define internal void @acpi_pm_check_blacklist(ptr nocapture noundef readonly %0)
 7:                                                ; preds = %3
   %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #7
   store ptr @acpi_pm_read_slow, ptr @clocksource_acpi_pm, align 8
-  store i32 120, ptr getelementptr inbounds (i8, ptr @clocksource_acpi_pm, i64 72), align 8
+  store i32 120, ptr getelementptr inbounds nuw (i8, ptr @clocksource_acpi_pm, i64 72), align 8
   br label %9
 
 9:                                                ; preds = %7, %3, %1
@@ -126,7 +126,7 @@ define internal void @acpi_pm_check_graylist(ptr nocapture readnone %0) #0 align
 3:                                                ; preds = %1
   %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2) #7
   store ptr @acpi_pm_read_slow, ptr @clocksource_acpi_pm, align 8
-  store i32 120, ptr getelementptr inbounds (i8, ptr @clocksource_acpi_pm, i64 72), align 8
+  store i32 120, ptr getelementptr inbounds nuw (i8, ptr @clocksource_acpi_pm, i64 72), align 8
   br label %5
 
 5:                                                ; preds = %3, %1
@@ -189,9 +189,9 @@ define internal i32 @init_acpi_pm_clocksource() #3 section ".init.text" align 16
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %27
-  %30 = load i64, ptr getelementptr inbounds (i8, ptr @clocksource_acpi_pm, i64 88), align 8
+  %30 = load i64, ptr getelementptr inbounds nuw (i8, ptr @clocksource_acpi_pm, i64 88), align 8
   %31 = or i64 %30, 2
-  store i64 %31, ptr getelementptr inbounds (i8, ptr @clocksource_acpi_pm, i64 88), align 8
+  store i64 %31, ptr getelementptr inbounds nuw (i8, ptr @clocksource_acpi_pm, i64 88), align 8
   br label %32
 
 32:                                               ; preds = %29, %27

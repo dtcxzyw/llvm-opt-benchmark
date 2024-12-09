@@ -671,7 +671,7 @@ define i32 @slurm_load_job(ptr nocapture noundef writeonly initializes((0, 8)) %
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %7, align 8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %15 = call zeroext i1 @cluster_in_federation(ptr noundef %13, ptr noundef %14) #19
   br i1 %15, label %18, label %16
 
@@ -741,7 +741,7 @@ _load_cluster_jobs.exit:                          ; preds = %27, %.thread.i, %35
   br label %42
 
 39:                                               ; preds = %18
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %41 = call fastcc i32 @_load_fed_jobs(ptr noundef %5, ptr noundef %0, i16 noundef zeroext %.010, ptr noundef %40, ptr noundef nonnull %24)
   br label %42
 
@@ -2724,7 +2724,7 @@ define i32 @slurm_load_jobs(i64 noundef %0, ptr nocapture noundef writeonly init
   %8 = load ptr, ptr @working_cluster_rec, align 8
   %.not = icmp eq ptr %8, null
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 272
-  %.015.in = select i1 %.not, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), ptr %9
+  %.015.in = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), ptr %9
   %.015 = load ptr, ptr %.015.in, align 8
   %10 = and i16 %2, 80
   %or.cond = icmp eq i16 %10, 64
@@ -3301,7 +3301,7 @@ define i32 @slurm_load_job_user(ptr nocapture noundef writeonly initializes((0, 
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %7, align 8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %15 = call zeroext i1 @cluster_in_federation(ptr noundef %13, ptr noundef %14) #19
   br i1 %15, label %18, label %16
 
@@ -3371,7 +3371,7 @@ _load_cluster_jobs.exit:                          ; preds = %27, %.thread.i, %35
   br label %42
 
 39:                                               ; preds = %18
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %41 = call fastcc i32 @_load_fed_jobs(ptr noundef %5, ptr noundef %0, i16 noundef zeroext %.010, ptr noundef %40, ptr noundef nonnull %24)
   br label %42
 
@@ -3495,7 +3495,7 @@ define range(i32 -1, 1) i32 @slurm_pid2jobid(i32 noundef %0, ptr nocapture nound
 
 30:                                               ; preds = %11
   store ptr @.str.134, ptr %6, align 8
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1288), align 8
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1288), align 8
   %32 = trunc i32 %31 to i16
   call void @slurm_set_addr(ptr noundef nonnull %3, i16 noundef zeroext %32, ptr noundef nonnull @.str.134) #19
   br label %43
@@ -3514,7 +3514,7 @@ define range(i32 -1, 1) i32 @slurm_pid2jobid(i32 noundef %0, ptr nocapture nound
 
 39:                                               ; preds = %37, %33
   %40 = phi ptr [ %38, %37 ], [ %35, %33 ]
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1288), align 8
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1288), align 8
   %42 = trunc i32 %41 to i16
   call void @slurm_set_addr(ptr noundef nonnull %3, i16 noundef zeroext %42, ptr noundef %40) #19
   call void @slurm_xfree(ptr noundef nonnull %6) #19
@@ -4224,7 +4224,7 @@ define range(i32 -1, 1) i32 @slurm_network_callerid(ptr noundef byval(%struct.ne
 
 18:                                               ; preds = %17, %16
   %.sroa.6.0 = phi i32 [ 0, %16 ], [ %.sroa.6.4.copyload, %17 ]
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1288), align 8
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1288), align 8
   %20 = trunc i32 %19 to i16
   %21 = call zeroext i16 @htons(i16 noundef zeroext %20) #20
   store i16 %13, ptr %6, align 8
@@ -4329,7 +4329,7 @@ define noundef i32 @slurm_load_job_prio(ptr nocapture noundef %0, i16 noundef ze
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %12, align 8
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %20 = call zeroext i1 @cluster_in_federation(ptr noundef %18, ptr noundef %19) #19
   br i1 %20, label %24, label %21
 
@@ -4349,7 +4349,7 @@ define noundef i32 @slurm_load_job_prio(ptr nocapture noundef %0, i16 noundef ze
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %12, align 8
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)

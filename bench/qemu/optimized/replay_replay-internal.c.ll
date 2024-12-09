@@ -586,7 +586,7 @@ define dso_local void @replay_fetch_data_kind() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @replay_file, align 8
   %tobool.not = icmp ne ptr %0, null
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 32), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @replay_state, i64 32), align 8
   %tobool1.not = icmp eq i32 %1, 0
   %or.cond = select i1 %tobool.not, i1 %tobool1.not, i1 false
   br i1 %or.cond, label %if.then.i, label %if.end11
@@ -603,13 +603,13 @@ if.then1.i:                                       ; preds = %if.then.i
 
 replay_get_byte.exit:                             ; preds = %if.then.i
   %conv = and i32 %call.i, 255
-  store i32 %conv, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
+  store i32 %conv, ptr getelementptr inbounds nuw (i8, ptr @replay_state, i64 28), align 4
   %cmp = icmp eq i32 %conv, 0
   br i1 %cmp, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %replay_get_byte.exit
   %call5 = tail call i32 @replay_get_dword()
-  store i32 %call5, ptr getelementptr inbounds (i8, ptr @replay_state, i64 24), align 8
+  store i32 %call5, ptr getelementptr inbounds nuw (i8, ptr @replay_state, i64 24), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %replay_get_byte.exit
@@ -637,8 +637,8 @@ if.end7.sink.split.i:                             ; preds = %if.else.i, %if.then
   br label %replay_check_error.exit
 
 replay_check_error.exit:                          ; preds = %if.end, %if.else.i, %if.end7.sink.split.i
-  store i32 1, ptr getelementptr inbounds (i8, ptr @replay_state, i64 32), align 8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @replay_state, i64 32), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @replay_state, i64 28), align 4
   %cmp6 = icmp ugt i32 %4, 39
   br i1 %cmp6, label %if.then8, label %if.end11
 
@@ -657,7 +657,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @replay_finish_event() local_unnamed_addr #0 {
 entry:
-  store i32 0, ptr getelementptr inbounds (i8, ptr @replay_state, i64 32), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @replay_state, i64 32), align 8
   tail call void @replay_fetch_data_kind()
   ret void
 }
@@ -789,7 +789,7 @@ declare void @qemu_cond_broadcast(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @replay_advance_current_icount(i64 noundef %current_icount) local_unnamed_addr #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @replay_state, i64 16), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @replay_state, i64 16), align 8
   %sub = sub i64 %current_icount, %0
   %conv = trunc i64 %sub to i32
   %cmp = icmp sgt i32 %conv, -1
@@ -832,9 +832,9 @@ if.then.i.i.i:                                    ; preds = %if.then2.i.i
 replay_put_event.exit:                            ; preds = %if.then7, %if.then.i.i, %if.then2.i.i, %if.then.i.i.i
   tail call void @replay_put_dword(i32 noundef %conv)
   %conv8 = and i64 %sub, 2147483647
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @replay_state, i64 16), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @replay_state, i64 16), align 8
   %add = add i64 %3, %conv8
-  store i64 %add, ptr getelementptr inbounds (i8, ptr @replay_state, i64 16), align 8
+  store i64 %add, ptr getelementptr inbounds nuw (i8, ptr @replay_state, i64 16), align 8
   br label %if.end35
 
 if.then13:                                        ; preds = %if.end
@@ -842,17 +842,17 @@ if.then13:                                        ; preds = %if.end
   br i1 %cmp14.not, label %if.end29, label %if.then16
 
 if.then16:                                        ; preds = %if.then13
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 24), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @replay_state, i64 24), align 8
   %sub17 = sub i32 %4, %conv
-  store i32 %sub17, ptr getelementptr inbounds (i8, ptr @replay_state, i64 24), align 8
+  store i32 %sub17, ptr getelementptr inbounds nuw (i8, ptr @replay_state, i64 24), align 8
   %conv18 = and i64 %sub, 2147483647
   %add19 = add i64 %conv18, %0
-  store i64 %add19, ptr getelementptr inbounds (i8, ptr @replay_state, i64 16), align 8
+  store i64 %add19, ptr getelementptr inbounds nuw (i8, ptr @replay_state, i64 16), align 8
   %cmp20 = icmp eq i32 %4, %conv
   br i1 %cmp20, label %if.then22, label %if.end29
 
 if.then22:                                        ; preds = %if.then16
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @replay_state, i64 28), align 4
   %cmp23 = icmp eq i32 %5, 0
   br i1 %cmp23, label %if.end27, label %if.else26
 
@@ -861,10 +861,10 @@ if.else26:                                        ; preds = %if.then22
   unreachable
 
 if.end27:                                         ; preds = %if.then22
-  store i32 0, ptr getelementptr inbounds (i8, ptr @replay_state, i64 32), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @replay_state, i64 32), align 8
   tail call void @replay_fetch_data_kind()
   tail call void @qemu_notify_event() #10
-  %.pre = load i64, ptr getelementptr inbounds (i8, ptr @replay_state, i64 16), align 8
+  %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @replay_state, i64 16), align 8
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then16, %if.end27, %if.then13

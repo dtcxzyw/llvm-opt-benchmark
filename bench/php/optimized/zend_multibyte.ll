@@ -86,7 +86,7 @@ define range(i32 -1, 1) i32 @zend_multibyte_set_functions(ptr nocapture noundef 
   br i1 %.not.i, label %22, label %25
 
 22:                                               ; preds = %19
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 400), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 400), align 8
   %.not.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i, label %zend_multibyte_set_script_encoding.exit.i, label %24
 
@@ -95,11 +95,11 @@ define range(i32 -1, 1) i32 @zend_multibyte_set_functions(ptr nocapture noundef 
   br label %zend_multibyte_set_script_encoding.exit.i
 
 zend_multibyte_set_script_encoding.exit.i:        ; preds = %24, %22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @compiler_globals, i64 400), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 400), i8 0, i64 16, i1 false)
   br label %zend_multibyte_set_script_encoding_by_string.exit
 
 25:                                               ; preds = %19
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @multibyte_functions, i64 48), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @multibyte_functions, i64 48), align 8
   %27 = call i32 %26(ptr noundef nonnull %20, i64 noundef %21, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext true) #12
   %28 = icmp eq i32 %27, -1
   br i1 %28, label %zend_multibyte_set_script_encoding_by_string.exit, label %29
@@ -115,7 +115,7 @@ zend_multibyte_set_script_encoding.exit.i:        ; preds = %24, %22
   br label %zend_multibyte_set_script_encoding_by_string.exit
 
 34:                                               ; preds = %29
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 400), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 400), align 8
   %.not.i5.i = icmp eq ptr %35, null
   br i1 %.not.i5.i, label %zend_multibyte_set_script_encoding.exit6.i, label %36
 
@@ -124,8 +124,8 @@ zend_multibyte_set_script_encoding.exit.i:        ; preds = %24, %22
   br label %zend_multibyte_set_script_encoding.exit6.i
 
 zend_multibyte_set_script_encoding.exit6.i:       ; preds = %36, %34
-  store ptr %32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 400), align 8
-  store i64 %30, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 408), align 8
+  store ptr %32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 400), align 8
+  store i64 %30, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 408), align 8
   br label %zend_multibyte_set_script_encoding_by_string.exit
 
 zend_multibyte_set_script_encoding_by_string.exit: ; preds = %zend_multibyte_set_script_encoding.exit.i, %25, %33, %zend_multibyte_set_script_encoding.exit6.i
@@ -153,7 +153,7 @@ define range(i32 -1, 1) i32 @zend_multibyte_set_script_encoding_by_string(ptr no
   br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 400), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 400), align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %zend_multibyte_set_script_encoding.exit, label %7
 
@@ -162,11 +162,11 @@ define range(i32 -1, 1) i32 @zend_multibyte_set_script_encoding_by_string(ptr no
   br label %zend_multibyte_set_script_encoding.exit
 
 zend_multibyte_set_script_encoding.exit:          ; preds = %5, %7
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @compiler_globals, i64 400), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 400), i8 0, i64 16, i1 false)
   br label %20
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @multibyte_functions, i64 48), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @multibyte_functions, i64 48), align 8
   %10 = call i32 %9(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext true) #12
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %20, label %12
@@ -182,7 +182,7 @@ zend_multibyte_set_script_encoding.exit:          ; preds = %5, %7
   br label %20
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 400), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 400), align 8
   %.not.i5 = icmp eq ptr %18, null
   br i1 %.not.i5, label %zend_multibyte_set_script_encoding.exit6, label %19
 
@@ -191,8 +191,8 @@ zend_multibyte_set_script_encoding.exit:          ; preds = %5, %7
   br label %zend_multibyte_set_script_encoding.exit6
 
 zend_multibyte_set_script_encoding.exit6:         ; preds = %17, %19
-  store ptr %15, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 400), align 8
-  store i64 %13, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 408), align 8
+  store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 400), align 8
+  store i64 %13, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 408), align 8
   br label %20
 
 20:                                               ; preds = %8, %zend_multibyte_set_script_encoding.exit6, %16, %zend_multibyte_set_script_encoding.exit
@@ -219,21 +219,21 @@ define ptr @zend_multibyte_get_functions() local_unnamed_addr #5 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @zend_multibyte_fetch_encoding(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @multibyte_functions, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @multibyte_functions, i64 8), align 8
   %3 = tail call ptr %2(ptr noundef %0) #12
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @zend_multibyte_get_encoding_name(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @multibyte_functions, i64 16), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @multibyte_functions, i64 16), align 8
   %3 = tail call ptr %2(ptr noundef %0) #12
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @zend_multibyte_check_lexer_compatibility(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @multibyte_functions, i64 24), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @multibyte_functions, i64 24), align 8
   %3 = tail call zeroext i1 %2(ptr noundef %0) #12
   %4 = zext i1 %3 to i32
   ret i32 %4
@@ -241,41 +241,41 @@ define range(i32 0, 2) i32 @zend_multibyte_check_lexer_compatibility(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define ptr @zend_multibyte_encoding_detector(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @multibyte_functions, i64 32), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @multibyte_functions, i64 32), align 8
   %6 = tail call ptr %5(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) #12
   ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
 define i64 @zend_multibyte_encoding_converter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @multibyte_functions, i64 40), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @multibyte_functions, i64 40), align 8
   %8 = tail call i64 %7(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) #12
   ret i64 %8
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @zend_multibyte_parse_encoding_list(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @multibyte_functions, i64 48), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @multibyte_functions, i64 48), align 8
   %7 = tail call i32 %6(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) #12
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @zend_multibyte_get_internal_encoding() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @multibyte_functions, i64 56), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @multibyte_functions, i64 56), align 8
   %2 = tail call ptr %1() #12
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define ptr @zend_multibyte_get_script_encoding() local_unnamed_addr #5 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 216), align 8
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define noundef i32 @zend_multibyte_set_script_encoding(ptr noundef %0, i64 noundef %1) local_unnamed_addr #6 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 400), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 400), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
@@ -284,8 +284,8 @@ define noundef i32 @zend_multibyte_set_script_encoding(ptr noundef %0, i64 nound
   br label %5
 
 5:                                                ; preds = %4, %2
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 400), align 8
-  store i64 %1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 408), align 8
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 400), align 8
+  store i64 %1, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 408), align 8
   ret i32 0
 }
 
@@ -294,7 +294,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define i32 @zend_multibyte_set_internal_encoding(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @multibyte_functions, i64 64), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @multibyte_functions, i64 64), align 8
   %3 = tail call i32 %2(ptr noundef %0) #12
   ret i32 %3
 }

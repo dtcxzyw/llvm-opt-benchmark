@@ -359,7 +359,7 @@ define internal fastcc noundef ptr @nlm_alloc_host(ptr nocapture noundef readonl
 
 28:                                               ; preds = %26, %13, %9
   %29 = phi ptr [ %24, %13 ], [ %1, %9 ], [ %1, %26 ]
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %31 = tail call noalias align 8 dereferenceable_or_null(608) ptr @kmalloc_trace(ptr noundef %30, i32 noundef 3264, i64 noundef 608) #10
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %34, !prof !6
@@ -1002,7 +1002,7 @@ define internal fastcc void @nlm_gc_hosts(ptr noundef %0) unnamed_addr #0 align 
 
 .loopexit8.split.us.us:                           ; preds = %.preheader7.us, %.split.us
   %6 = getelementptr i8, ptr %3, i64 8
-  %7 = icmp ult ptr %6, getelementptr inbounds (i8, ptr @nlm_server_hosts, i64 256)
+  %7 = icmp ult ptr %6, getelementptr inbounds nuw (i8, ptr @nlm_server_hosts, i64 256)
   br i1 %7, label %.split.us, label %.split10.us, !llvm.loop !28
 
 .preheader7.us:                                   ; preds = %.split.us, %.preheader7.us
@@ -1042,7 +1042,7 @@ define internal fastcc void @nlm_gc_hosts(ptr noundef %0) unnamed_addr #0 align 
 
 .loopexit8.split:                                 ; preds = %25, %.split
   %28 = getelementptr i8, ptr %14, i64 8
-  %29 = icmp ult ptr %28, getelementptr inbounds (i8, ptr @nlm_server_hosts, i64 256)
+  %29 = icmp ult ptr %28, getelementptr inbounds nuw (i8, ptr @nlm_server_hosts, i64 256)
   br i1 %29, label %.split, label %.split10.us, !llvm.loop !28
 
 .split10.us:                                      ; preds = %.loopexit8.split, %.loopexit8.split.us.us
@@ -1165,7 +1165,7 @@ nlm_destroy_host_locked.exit:                     ; preds = %79, %83, %87
 
 .loopexit:                                        ; preds = %93, %30
   %95 = getelementptr i8, ptr %31, i64 8
-  %96 = icmp ult ptr %95, getelementptr inbounds (i8, ptr @nlm_server_hosts, i64 256)
+  %96 = icmp ult ptr %95, getelementptr inbounds nuw (i8, ptr @nlm_server_hosts, i64 256)
   br i1 %96, label %30, label %97, !llvm.loop !31
 
 97:                                               ; preds = %.loopexit
@@ -1478,7 +1478,7 @@ next_host_state.exit.preheader:                   ; preds = %28, %32
 
 .loopexit.i:                                      ; preds = %34, %7
   %37 = getelementptr i8, ptr %8, i64 8
-  %38 = icmp ult ptr %37, getelementptr inbounds (i8, ptr @nlm_server_hosts, i64 256)
+  %38 = icmp ult ptr %37, getelementptr inbounds nuw (i8, ptr @nlm_server_hosts, i64 256)
   br i1 %38, label %7, label %next_host_state.exit9.thread, !llvm.loop !37
 
 next_host_state.exit9.thread:                     ; preds = %.loopexit.i, %.loopexit.i8
@@ -1539,7 +1539,7 @@ next_host_state.exit6.preheader:                  ; preds = %60, %64
 
 .loopexit.i5:                                     ; preds = %66, %39
   %69 = getelementptr i8, ptr %40, i64 8
-  %70 = icmp ult ptr %69, getelementptr inbounds (i8, ptr @nlm_client_hosts, i64 256)
+  %70 = icmp ult ptr %69, getelementptr inbounds nuw (i8, ptr @nlm_client_hosts, i64 256)
   br i1 %70, label %39, label %next_host_state.exit6.thread, !llvm.loop !37
 
 next_host_state.exit:                             ; preds = %next_host_state.exit.backedge, %next_host_state.exit.preheader
@@ -1629,7 +1629,7 @@ next_host_state.exit.backedge:                    ; preds = %106, %110
 
 .loopexit.i8:                                     ; preds = %112, %85
   %115 = getelementptr i8, ptr %86, i64 8
-  %116 = icmp ult ptr %115, getelementptr inbounds (i8, ptr @nlm_server_hosts, i64 256)
+  %116 = icmp ult ptr %115, getelementptr inbounds nuw (i8, ptr @nlm_server_hosts, i64 256)
   br i1 %116, label %85, label %next_host_state.exit9.thread, !llvm.loop !37
 
 next_host_state.exit6:                            ; preds = %next_host_state.exit6.backedge, %next_host_state.exit6.preheader
@@ -1697,7 +1697,7 @@ next_host_state.exit6.backedge:                   ; preds = %141, %145
 
 .loopexit.i11:                                    ; preds = %147, %120
   %150 = getelementptr i8, ptr %121, i64 8
-  %151 = icmp ult ptr %150, getelementptr inbounds (i8, ptr @nlm_client_hosts, i64 256)
+  %151 = icmp ult ptr %150, getelementptr inbounds nuw (i8, ptr @nlm_client_hosts, i64 256)
   br i1 %151, label %120, label %next_host_state.exit6.thread, !llvm.loop !37
 
 next_host_state.exit6.thread:                     ; preds = %.loopexit.i5, %.loopexit.i11
@@ -1735,7 +1735,7 @@ define dso_local void @nlm_shutdown_hosts_net(ptr noundef %0) local_unnamed_addr
 
 .loopexit.split.us.us:                            ; preds = %16, %.split.us
   %6 = getelementptr i8, ptr %3, i64 8
-  %7 = icmp ult ptr %6, getelementptr inbounds (i8, ptr @nlm_server_hosts, i64 256)
+  %7 = icmp ult ptr %6, getelementptr inbounds nuw (i8, ptr @nlm_server_hosts, i64 256)
   br i1 %7, label %.split.us, label %.split6.us, !llvm.loop !40
 
 .preheader.us:                                    ; preds = %.split.us, %16
@@ -1799,7 +1799,7 @@ define dso_local void @nlm_shutdown_hosts_net(ptr noundef %0) local_unnamed_addr
 
 .loopexit.split:                                  ; preds = %35, %.split
   %38 = getelementptr i8, ptr %19, i64 8
-  %39 = icmp ult ptr %38, getelementptr inbounds (i8, ptr @nlm_server_hosts, i64 256)
+  %39 = icmp ult ptr %38, getelementptr inbounds nuw (i8, ptr @nlm_server_hosts, i64 256)
   br i1 %39, label %.split, label %.split6.us, !llvm.loop !40
 
 .split6.us:                                       ; preds = %.loopexit.split, %.loopexit.split.us.us

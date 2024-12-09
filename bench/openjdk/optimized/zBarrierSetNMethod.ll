@@ -256,7 +256,7 @@ _ZN7ZLockerI14ZReentrantLockEC2EPS0_.exit:        ; preds = %5, %_ZN14ZReentrant
 24:                                               ; preds = %21
   tail call void @_ZN8ZNMethod22nmethod_patch_barriersEP7nmethod(ptr noundef nonnull %1) #9
   %25 = tail call noundef i64 @_ZN8ZNMethod5colorEP7nmethod(ptr noundef nonnull %1) #9
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV35ZUncoloredRootProcessWeakOopClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV35ZUncoloredRootProcessWeakOopClosure, i64 16), ptr %3, align 8
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %25, ptr %26, align 8
   call void @_ZN8ZNMethod21nmethod_oops_do_innerEP7nmethodP10OopClosure(ptr noundef nonnull %1, ptr noundef nonnull %3) #9

@@ -575,10 +575,10 @@ declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 define dso_local void @srun_ping() local_unnamed_addr #0 {
   %1 = alloca i64, align 8
   %2 = tail call i64 @time(ptr noundef null) #6
-  %3 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 432), align 8
+  %3 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 432), align 8
   %4 = udiv i16 %3, 3
   %5 = zext nneg i16 %4 to i64
-  %6 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
+  %6 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 720), align 8
   %7 = zext i16 %6 to i64
   %8 = add i64 %2, 1
   %9 = sub i64 %8, %5

@@ -242,7 +242,7 @@ define dso_local noalias noundef nonnull ptr @_ZN4llvm23createBitcodeWriterPassE
   store ptr @_ZN12_GLOBAL__N_116WriteBitcodePass2IDE, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 4, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_116WriteBitcodePassE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_116WriteBitcodePassE, i64 16), ptr %5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %0, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -298,7 +298,7 @@ define internal noalias noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBA
   store ptr @_ZN12_GLOBAL__N_116WriteBitcodePass2IDE, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 4, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_116WriteBitcodePassE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_116WriteBitcodePassE, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #11
   store ptr %8, ptr %7, align 8

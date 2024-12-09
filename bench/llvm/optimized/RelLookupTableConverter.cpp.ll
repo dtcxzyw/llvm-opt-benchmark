@@ -395,8 +395,8 @@ _ZN4llvm5APIntD2Ev.exit.i.i:                      ; preds = %164, %161, %_ZNK4ll
   store i8 2, ptr %44, align 1
   store i8 7, ptr %45, align 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTVN4llvm14ConstantFolderE, i64 16), ptr %35, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm24IRBuilderDefaultInserterE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTVN4llvm14ConstantFolderE, i64 16), ptr %35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm24IRBuilderDefaultInserterE, i64 16), ptr %36, align 8
   store ptr %179, ptr %47, align 8
   %181 = getelementptr inbounds nuw i8, ptr %179, i64 48
   store ptr %181, ptr %48, align 8

@@ -754,7 +754,7 @@ call1.i.noexc:                                    ; preds = %if.end.i
   br i1 %cmp.i12.i, label %invoke.cont.i, label %cleanup37.i
 
 invoke.cont.i:                                    ; preds = %call1.i.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_119NumberRangeDataSinkE, i64 16), ptr %sink.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_119NumberRangeDataSinkE, i64 16), ptr %sink.i, align 8
   %fData.i.i = getelementptr inbounds nuw i8, ptr %sink.i, i64 8
   store ptr %data, ptr %fData.i.i, align 8
   invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %dataPath.i)
@@ -906,7 +906,7 @@ if.then.i.i:                                      ; preds = %_ZN12_GLOBAL__N_119
 
 .noexc.i:                                         ; preds = %if.then.i.i
   %compiledPattern.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %compiledPattern.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %compiledPattern.i.i.i, align 8
   %fUnion2.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   store i16 2, ptr %fUnion2.i.i.i.i, align 8
   %call.i1.i.i.i = invoke noundef signext i8 @_ZN6icu_7515SimpleFormatter27applyPatternMinMaxArgumentsERKNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp2.i.i, i32 noundef 0, i32 noundef 2147483647, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -1640,7 +1640,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6icu_756number4impl10MicroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(489) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl10MicroPropsE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl10MicroPropsE, i64 16), ptr %this, align 8
   %grouping.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i16 -3, ptr %grouping.i, align 4
   %useCurrency.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1648,7 +1648,7 @@ entry:
   %decimal.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 0, ptr %decimal.i, align 4
   %currencyAsDecimal.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %currencyAsDecimal.i, align 8, !alias.scope !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %currencyAsDecimal.i, align 8, !alias.scope !4
   %fUnion2.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i16 2, ptr %fUnion2.i.i.i, align 8, !alias.scope !4
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %currencyAsDecimal.i)
@@ -1682,15 +1682,15 @@ invoke.cont3:                                     ; preds = %entry
 
 .noexc:                                           ; preds = %invoke.cont3
   %emptyWeakModifier.i = getelementptr inbounds nuw i8, ptr %this, i64 240
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl13EmptyModifierE, i64 16), ptr %emptyWeakModifier.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl13EmptyModifierE, i64 16), ptr %emptyWeakModifier.i, align 8
   %fStrong.i.i = getelementptr inbounds nuw i8, ptr %this, i64 248
   store i8 0, ptr %fStrong.i.i, align 8
   %emptyStrongModifier.i = getelementptr inbounds nuw i8, ptr %this, i64 256
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl13EmptyModifierE, i64 16), ptr %emptyStrongModifier.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl13EmptyModifierE, i64 16), ptr %emptyStrongModifier.i, align 8
   %fStrong.i2.i = getelementptr inbounds nuw i8, ptr %this, i64 264
   store i8 1, ptr %fStrong.i2.i, align 8
   %multiplier.i = getelementptr inbounds nuw i8, ptr %this, i64 272
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl23MultiplierFormatHandlerE, i64 16), ptr %multiplier.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl23MultiplierFormatHandlerE, i64 16), ptr %multiplier.i, align 8
   %fMultiplier.i.i = getelementptr inbounds nuw i8, ptr %this, i64 280
   store i32 0, ptr %fMultiplier.i.i, align 8
   %fArbitrary.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 288
@@ -1704,7 +1704,7 @@ invoke.cont3:                                     ; preds = %entry
 lpad6.i:                                          ; preds = %.noexc
   %1 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl23MultiplierFormatHandlerE, i64 16), ptr %multiplier.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl23MultiplierFormatHandlerE, i64 16), ptr %multiplier.i, align 8
   tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fMultiplier.i.i) #14
   tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %emptyStrongModifier.i) #14
   tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %emptyWeakModifier.i) #14
@@ -2502,7 +2502,7 @@ declare void @abort() local_unnamed_addr #9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl10MicroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl10MicroPropsE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl10MicroPropsE, i64 16), ptr %this, align 8
   %needToRelease.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 452
   %0 = load i8, ptr %needToRelease.i.i.i, align 4
   %tobool.not.i.i.i = icmp eq i8 %0, 0
@@ -2526,12 +2526,12 @@ _ZN6icu_756number4impl11IntMeasuresD2Ev.exit:     ; preds = %entry, %if.then.i.i
   tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %outputUnit) #14
   %helpers = getelementptr inbounds nuw i8, ptr %this, i64 216
   %mixedUnitModifier.i = getelementptr inbounds nuw i8, ptr %this, i64 312
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i64 16), ptr %mixedUnitModifier.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i64 16), ptr %mixedUnitModifier.i, align 8
   %fCompiledPattern.i.i = getelementptr inbounds nuw i8, ptr %this, i64 320
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern.i.i) #14
   tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %mixedUnitModifier.i) #14
   %multiplier.i = getelementptr inbounds nuw i8, ptr %this, i64 272
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl23MultiplierFormatHandlerE, i64 16), ptr %multiplier.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl23MultiplierFormatHandlerE, i64 16), ptr %multiplier.i, align 8
   %fMultiplier.i.i = getelementptr inbounds nuw i8, ptr %this, i64 280
   tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fMultiplier.i.i) #14
   %emptyStrongModifier.i = getelementptr inbounds nuw i8, ptr %this, i64 256
@@ -2761,7 +2761,7 @@ _ZNK6icu_7513ResourceValue16getUnicodeStringER10UErrorCode.exit: ; preds = %if.e
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %16) #14, !srcloc !10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %compiledPattern.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %compiledPattern.i, align 8
   store i16 2, ptr %fUnion2.i.i, align 8
   %call.i1.i = invoke noundef signext i8 @_ZN6icu_7515SimpleFormatter27applyPatternMinMaxArgumentsERKNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp9, i32 noundef 0, i32 noundef 2147483647, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad.i8
@@ -2853,12 +2853,12 @@ declare void @_ZN6icu_7511MeasureUnitC1Ev(ptr noundef nonnull align 8 dereferenc
 define linkonce_odr void @_ZN6icu_756number4impl10MicroPropsUt_D2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #0 comdat align 2 {
 entry:
   %mixedUnitModifier = getelementptr inbounds nuw i8, ptr %this, i64 96
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i64 16), ptr %mixedUnitModifier, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i64 16), ptr %mixedUnitModifier, align 8
   %fCompiledPattern.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern.i) #14
   tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %mixedUnitModifier) #14
   %multiplier = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl23MultiplierFormatHandlerE, i64 16), ptr %multiplier, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl23MultiplierFormatHandlerE, i64 16), ptr %multiplier, align 8
   %fMultiplier.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fMultiplier.i) #14
   %emptyStrongModifier = getelementptr inbounds nuw i8, ptr %this, i64 40

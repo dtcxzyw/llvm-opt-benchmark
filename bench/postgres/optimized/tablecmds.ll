@@ -6831,7 +6831,7 @@ define dso_local { i64, i32 } @renameatt(ptr nocapture noundef readonly %0) loca
   %.sroa.012.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
   %.sroa.012.sroa.3.0.extract.shift = lshr i64 %.sroa.012.0.copyload, 32
   %.sroa.012.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.012.sroa.3.0.extract.shift to i32
-  %.sroa.4.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.4.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   %17 = and i64 %.sroa.012.0.copyload, 4294967295
   br label %31
 
@@ -7124,7 +7124,7 @@ define dso_local { i64, i32 } @RenameConstraint(ptr nocapture noundef readonly %
 
 32:                                               ; preds = %25, %27
   %.sroa.019.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
-  %.sroa.3.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.3.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   br label %47
 
 33:                                               ; preds = %17, %16
@@ -7382,7 +7382,7 @@ define dso_local { i64, i32 } @RenameRelation(ptr noundef %0) local_unnamed_addr
   %.sroa.022.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
   %.sroa.022.sroa.3.0.extract.shift = lshr i64 %.sroa.022.0.copyload, 32
   %.sroa.022.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.022.sroa.3.0.extract.shift to i32
-  %.sroa.4.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.4.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   %20 = and i64 %.sroa.022.0.copyload, 4294967295
   br label %35
 
@@ -9781,7 +9781,7 @@ define dso_local { i64, i32 } @AlterTableNamespace(ptr noundef %0, ptr noundef w
   %.sroa.027.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
   %.sroa.027.sroa.3.0.extract.shift = lshr i64 %.sroa.027.0.copyload, 32
   %.sroa.027.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.027.sroa.3.0.extract.shift to i32
-  %.sroa.4.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.4.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   %20 = and i64 %.sroa.027.0.copyload, 4294967295
   br label %53
 
@@ -11553,7 +11553,7 @@ define internal fastcc void @ATRewriteCatalogs(ptr noundef nonnull %0, i32 nound
   %50 = alloca [33 x i8], align 16
   %51 = alloca ptr, align 8
   %.sroa.0287.0.copyload.i = load i64, ptr @InvalidObjectAddress, align 4
-  %.sroa.39.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.39.0.copyload.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %53 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 22
@@ -19702,7 +19702,7 @@ define internal fastcc { i64, i32 } @ATExecAddColumn(ptr nocapture noundef nonnu
   %.sroa.0194.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
   %.sroa.0194.sroa.4.0.extract.shift = lshr i64 %.sroa.0194.0.copyload, 32
   %.sroa.0194.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.0194.sroa.4.0.extract.shift to i32
-  %.sroa.5.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.5.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   br label %.thread241
 
 106:                                              ; preds = %46, %40
@@ -19716,7 +19716,7 @@ define internal fastcc { i64, i32 } @ATExecAddColumn(ptr nocapture noundef nonnu
   %.sroa.0194.0.copyload195 = load i64, ptr @InvalidObjectAddress, align 4
   %.sroa.0194.sroa.4.0.extract.shift198 = lshr i64 %.sroa.0194.0.copyload195, 32
   %.sroa.0194.sroa.4.0.extract.trunc199 = trunc nuw i64 %.sroa.0194.sroa.4.0.extract.shift198 to i32
-  %.sroa.5.0.copyload196 = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.5.0.copyload196 = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   br label %.thread241
 
 111:                                              ; preds = %106
@@ -20522,7 +20522,7 @@ define internal fastcc { i64, i32 } @ATExecSetIdentity(ptr nocapture noundef rea
   %.sroa.062.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
   %.sroa.062.sroa.3.0.extract.shift = lshr i64 %.sroa.062.0.copyload, 32
   %.sroa.062.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.062.sroa.3.0.extract.shift to i32
-  %.sroa.463.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.463.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   %93 = and i64 %.sroa.062.0.copyload, 4294967295
   br label %94
 
@@ -20684,7 +20684,7 @@ define internal fastcc { i64, i32 } @ATExecDropIdentity(ptr nocapture noundef re
   %.sroa.058.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
   %.sroa.058.sroa.3.0.extract.shift = lshr i64 %.sroa.058.0.copyload, 32
   %.sroa.058.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.058.sroa.3.0.extract.shift to i32
-  %.sroa.459.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.459.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   %69 = and i64 %.sroa.058.0.copyload, 4294967295
   br label %100
 
@@ -20784,7 +20784,7 @@ define internal fastcc { i64, i32 } @ATExecSetNotNull(ptr noundef nonnull %0, pt
   %.sroa.0101.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
   %.sroa.0101.sroa.5.0.extract.shift = lshr i64 %.sroa.0101.0.copyload, 32
   %.sroa.0101.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.0101.sroa.5.0.extract.shift to i32
-  %.sroa.7.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.7.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   br label %.thread125
 
 17:                                               ; preds = %8
@@ -20905,7 +20905,7 @@ define internal fastcc { i64, i32 } @ATExecSetNotNull(ptr noundef nonnull %0, pt
   %.sroa.0101.0.copyload102 = load i64, ptr @InvalidObjectAddress, align 4
   %.sroa.0101.sroa.5.0.extract.shift106 = lshr i64 %.sroa.0101.0.copyload102, 32
   %.sroa.0101.sroa.5.0.extract.trunc107 = trunc nuw i64 %.sroa.0101.sroa.5.0.extract.shift106 to i32
-  %.sroa.7.0.copyload104 = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.7.0.copyload104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   br label %.thread125
 
 ._crit_edge:                                      ; preds = %.backedge, %40
@@ -21187,7 +21187,7 @@ define internal fastcc { i64, i32 } @ATExecDropColumn(ptr noundef %0, ptr nounde
   br label %32
 
 32:                                               ; preds = %25, %27
-  %.sroa.3.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.3.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   br label %146
 
 33:                                               ; preds = %13
@@ -22984,7 +22984,7 @@ ATGetQueueEntry.exit105:                          ; preds = %146, %._crit_edge.i
   %.sroa.084.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
   %.sroa.084.sroa.3.0.extract.shift = lshr i64 %.sroa.084.0.copyload, 32
   %.sroa.084.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.084.sroa.3.0.extract.shift to i32
-  %.sroa.485.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.485.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   %187 = and i64 %.sroa.084.0.copyload, 4294967295
   br label %188
 
@@ -24225,7 +24225,7 @@ define internal fastcc { i64, i32 } @ATAddCheckNNConstraint(ptr noundef nonnull 
   %.sroa.068.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
   %.sroa.068.sroa.3.0.extract.shift = lshr i64 %.sroa.068.0.copyload, 32
   %.sroa.068.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.068.sroa.3.0.extract.shift to i32
-  %.sroa.469.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.469.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   tail call void @check_stack_depth() #13
   br i1 %5, label %9, label %10
 

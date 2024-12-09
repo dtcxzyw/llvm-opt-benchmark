@@ -34,30 +34,30 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @icount_update(ptr nocapture noundef %cpu) local_unnamed_addr #0 {
 entry:
-  %0 = atomicrmw xchg ptr getelementptr inbounds (i8, ptr @timers_state, i64 20), i32 1 seq_cst, align 4
+  %0 = atomicrmw xchg ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 20), i32 1 seq_cst, align 4
   %tobool.not3.i = icmp eq i32 %0, 0
   br i1 %tobool.not3.i, label %qemu_spin_lock.exit, label %while.cond6.preheader.i
 
 while.cond.loopexit.i:                            ; preds = %while.body16.i, %while.cond6.preheader.i
-  %1 = atomicrmw xchg ptr getelementptr inbounds (i8, ptr @timers_state, i64 20), i32 1 seq_cst, align 4
+  %1 = atomicrmw xchg ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 20), i32 1 seq_cst, align 4
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %qemu_spin_lock.exit, label %while.cond6.preheader.i, !llvm.loop !5
 
 while.cond6.preheader.i:                          ; preds = %entry, %while.cond.loopexit.i
-  %2 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) monotonic, align 4
+  %2 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 20) monotonic, align 4
   %tobool15.not2.i = icmp eq i32 %2, 0
   br i1 %tobool15.not2.i, label %while.cond.loopexit.i, label %while.body16.i
 
 while.body16.i:                                   ; preds = %while.cond6.preheader.i, %while.body16.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
-  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) monotonic, align 4
+  %3 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 20) monotonic, align 4
   %tobool15.not.i = icmp eq i32 %3, 0
   br i1 %tobool15.not.i, label %while.cond.loopexit.i, label %while.body16.i, !llvm.loop !8
 
 qemu_spin_lock.exit:                              ; preds = %while.cond.loopexit.i, %entry
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 16), align 8
   %add.i.i = add i32 %4, 1
-  store atomic i32 %add.i.i, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
+  store atomic i32 %add.i.i, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 16) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
   fence release
   %icount_budget.i.i = getelementptr inbounds nuw i8, ptr %cpu, i64 224
@@ -70,15 +70,15 @@ qemu_spin_lock.exit:                              ; preds = %while.cond.loopexit
   %8 = add i64 %7, %conv.i.i
   %sub.i.i = sub i64 %5, %8
   store i64 %8, ptr %icount_budget.i.i, align 16
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 64), align 8
   %add.i = add i64 %sub.i.i, %9
-  store atomic i64 %add.i, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
+  store atomic i64 %add.i, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 64) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   fence release
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 16), align 8
   %add.i.i3 = add i32 %10, 1
-  store atomic i32 %add.i.i3, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
-  store atomic i32 0, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) release, align 4
+  store atomic i32 %add.i.i3, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 16) monotonic, align 8
+  store atomic i32 0, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 20) release, align 4
   ret void
 }
 
@@ -89,7 +89,7 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %icount_get_raw_locked.exit, %entry
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 16) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   fence acquire
   %and.i = and i32 %1, -2
@@ -125,16 +125,16 @@ if.end.i:                                         ; preds = %if.then.i
   %8 = add i64 %7, %conv.i.i.i
   %sub.i.i.i = sub i64 %5, %8
   store i64 %8, ptr %icount_budget.i.i.i, align 16
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 64), align 8
   %add.i.i = add i64 %sub.i.i.i, %9
-  store atomic i64 %add.i.i, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
+  store atomic i64 %add.i.i, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 64) monotonic, align 8
   br label %icount_get_raw_locked.exit
 
 icount_get_raw_locked.exit:                       ; preds = %do.body, %land.lhs.true.i, %if.end.i
-  %10 = load atomic i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
+  %10 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 64) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
   fence acquire
-  %11 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
+  %11 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 16) monotonic, align 8
   %cmp.i.not = icmp eq i32 %11, %and.i
   br i1 %cmp.i.not, label %do.end, label %do.body, !llvm.loop !13
 
@@ -149,7 +149,7 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %icount_get_locked.exit, %entry
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 16) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   fence acquire
   %and.i = and i32 %1, -2
@@ -185,18 +185,18 @@ if.end.i.i:                                       ; preds = %if.then.i.i
   %8 = add i64 %7, %conv.i.i.i.i
   %sub.i.i.i.i = sub i64 %5, %8
   store i64 %8, ptr %icount_budget.i.i.i.i, align 16
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 64), align 8
   %add.i.i.i = add i64 %sub.i.i.i.i, %9
-  store atomic i64 %add.i.i.i, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
+  store atomic i64 %add.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 64) monotonic, align 8
   br label %icount_get_locked.exit
 
 icount_get_locked.exit:                           ; preds = %do.body, %land.lhs.true.i.i, %if.end.i.i
-  %10 = load atomic i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
-  %11 = load atomic i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 40) monotonic, align 8
-  %12 = load atomic i16, ptr getelementptr inbounds (i8, ptr @timers_state, i64 26) monotonic, align 2
+  %10 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 64) monotonic, align 8
+  %11 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 40) monotonic, align 8
+  %12 = load atomic i16, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 26) monotonic, align 2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
   fence acquire
-  %13 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
+  %13 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 16) monotonic, align 8
   %cmp.i.not = icmp eq i32 %13, %and.i
   br i1 %cmp.i.not, label %do.end, label %do.body, !llvm.loop !14
 
@@ -211,7 +211,7 @@ do.end:                                           ; preds = %icount_get_locked.e
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local i64 @icount_to_ns(i64 noundef %icount) local_unnamed_addr #1 {
 entry:
-  %0 = load atomic i16, ptr getelementptr inbounds (i8, ptr @timers_state, i64 26) monotonic, align 2
+  %0 = load atomic i16, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 26) monotonic, align 2
   %conv = sext i16 %0 to i64
   %sh_prom = and i64 %conv, 4294967295
   %shl = shl i64 %icount, %sh_prom
@@ -221,7 +221,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local i64 @icount_round(i64 noundef %count) local_unnamed_addr #1 {
 entry:
-  %0 = load atomic i16, ptr getelementptr inbounds (i8, ptr @timers_state, i64 26) monotonic, align 2
+  %0 = load atomic i16, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 26) monotonic, align 2
   %conv = sext i16 %0 to i32
   %shl = shl nuw i32 1, %conv
   %conv1 = sext i32 %shl to i64
@@ -304,66 +304,66 @@ if.end27:                                         ; preds = %if.end18
 if.then29:                                        ; preds = %if.end27
   %4 = load i8, ptr @icount_sleep, align 1
   %tobool30 = trunc nuw i8 %4 to i1
-  %5 = atomicrmw xchg ptr getelementptr inbounds (i8, ptr @timers_state, i64 20), i32 1 seq_cst, align 4
+  %5 = atomicrmw xchg ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 20), i32 1 seq_cst, align 4
   %tobool.not3.i = icmp eq i32 %5, 0
   br i1 %tobool.not3.i, label %qemu_spin_lock.exit, label %while.cond6.preheader.i
 
 while.cond.loopexit.i:                            ; preds = %while.body16.i, %while.cond6.preheader.i
-  %6 = atomicrmw xchg ptr getelementptr inbounds (i8, ptr @timers_state, i64 20), i32 1 seq_cst, align 4
+  %6 = atomicrmw xchg ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 20), i32 1 seq_cst, align 4
   %tobool.not.i = icmp eq i32 %6, 0
   br i1 %tobool.not.i, label %qemu_spin_lock.exit, label %while.cond6.preheader.i, !llvm.loop !5
 
 while.cond6.preheader.i:                          ; preds = %if.then29, %while.cond.loopexit.i
-  %7 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) monotonic, align 4
+  %7 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 20) monotonic, align 4
   %tobool15.not2.i = icmp eq i32 %7, 0
   br i1 %tobool15.not2.i, label %while.cond.loopexit.i, label %while.body16.i
 
 while.body16.i:                                   ; preds = %while.cond6.preheader.i, %while.body16.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
-  %8 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) monotonic, align 4
+  %8 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 20) monotonic, align 4
   %tobool15.not.i = icmp eq i32 %8, 0
   br i1 %tobool15.not.i, label %while.cond.loopexit.i, label %while.body16.i, !llvm.loop !8
 
 qemu_spin_lock.exit:                              ; preds = %while.cond.loopexit.i, %if.then29
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 16), align 8
   %add.i.i13 = add i32 %9, 1
-  store atomic i32 %add.i.i13, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
+  store atomic i32 %add.i.i13, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 16) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9
   fence release
   br i1 %tobool30, label %if.else38, label %if.then31
 
 if.then31:                                        ; preds = %qemu_spin_lock.exit
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 40), align 8
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 40), align 8
   %add = add i64 %10, %call20
-  store atomic i64 %add, ptr getelementptr inbounds (i8, ptr @timers_state, i64 40) monotonic, align 8
+  store atomic i64 %add, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 40) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   fence release
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 16), align 8
   %add.i.i12 = add i32 %11, 1
-  store atomic i32 %add.i.i12, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
-  store atomic i32 0, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) release, align 4
+  store atomic i32 %add.i.i12, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 16) monotonic, align 8
+  store atomic i32 0, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 20) release, align 4
   tail call void @qemu_clock_notify(i32 noundef 1) #9
   br label %if.end59
 
 if.else38:                                        ; preds = %qemu_spin_lock.exit
-  %12 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 48), align 8
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 48), align 8
   %cmp44 = icmp eq i64 %12, -1
   %cmp45 = icmp sgt i64 %12, %call19
   %or.cond = select i1 %cmp44, i1 true, i1 %cmp45
   br i1 %or.cond, label %if.then46, label %if.end47
 
 if.then46:                                        ; preds = %if.else38
-  store i64 %call19, ptr getelementptr inbounds (i8, ptr @timers_state, i64 48), align 8
+  store i64 %call19, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 48), align 8
   br label %if.end47
 
 if.end47:                                         ; preds = %if.else38, %if.then46
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   fence release
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 16), align 8
   %add.i.i14 = add i32 %13, 1
-  store atomic i32 %add.i.i14, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
-  store atomic i32 0, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) release, align 4
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @timers_state, i64 88), align 8
+  store atomic i32 %add.i.i14, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 16) monotonic, align 8
+  store atomic i32 0, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 20) release, align 4
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 88), align 8
   %add53 = add i64 %call20, %call19
   tail call void @timer_mod_anticipate(ptr noundef %14, i64 noundef %add53) #9
   br label %if.end59
@@ -414,7 +414,7 @@ if.end2:                                          ; preds = %if.end
   br i1 %call3, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.end2
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @timers_state, i64 88), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 88), align 8
   tail call void @timer_del(ptr noundef %1) #9
   tail call fastcc void @icount_warp_rt()
   br label %return
@@ -433,14 +433,14 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %entry
-  %0 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
+  %0 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 16) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   fence acquire
   %and.i = and i32 %0, -2
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 48), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 48), align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
   fence acquire
-  %2 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
+  %2 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 16) monotonic, align 8
   %cmp.i.not = icmp eq i32 %2, %and.i
   br i1 %cmp.i.not, label %do.end, label %do.body, !llvm.loop !15
 
@@ -449,30 +449,30 @@ do.end:                                           ; preds = %do.body
   br i1 %cmp, label %if.end38, label %if.end
 
 if.end:                                           ; preds = %do.end
-  %3 = atomicrmw xchg ptr getelementptr inbounds (i8, ptr @timers_state, i64 20), i32 1 seq_cst, align 4
+  %3 = atomicrmw xchg ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 20), i32 1 seq_cst, align 4
   %tobool.not3.i = icmp eq i32 %3, 0
   br i1 %tobool.not3.i, label %qemu_spin_lock.exit, label %while.cond6.preheader.i
 
 while.cond.loopexit.i:                            ; preds = %while.body16.i, %while.cond6.preheader.i
-  %4 = atomicrmw xchg ptr getelementptr inbounds (i8, ptr @timers_state, i64 20), i32 1 seq_cst, align 4
+  %4 = atomicrmw xchg ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 20), i32 1 seq_cst, align 4
   %tobool.not.i29 = icmp eq i32 %4, 0
   br i1 %tobool.not.i29, label %qemu_spin_lock.exit, label %while.cond6.preheader.i, !llvm.loop !5
 
 while.cond6.preheader.i:                          ; preds = %if.end, %while.cond.loopexit.i
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) monotonic, align 4
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 20) monotonic, align 4
   %tobool15.not2.i = icmp eq i32 %5, 0
   br i1 %tobool15.not2.i, label %while.cond.loopexit.i, label %while.body16.i
 
 while.body16.i:                                   ; preds = %while.cond6.preheader.i, %while.body16.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
-  %6 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) monotonic, align 4
+  %6 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 20) monotonic, align 4
   %tobool15.not.i = icmp eq i32 %6, 0
   br i1 %tobool15.not.i, label %while.cond.loopexit.i, label %while.body16.i, !llvm.loop !8
 
 qemu_spin_lock.exit:                              ; preds = %while.cond.loopexit.i, %if.end
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 16), align 8
   %add.i.i = add i32 %7, 1
-  store atomic i32 %add.i.i, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
+  store atomic i32 %add.i.i, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 16) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
   fence release
   %call3 = tail call zeroext i1 @runstate_is_running() #9
@@ -519,13 +519,13 @@ if.end.i:                                         ; preds = %if.then.i
   %16 = add i64 %15, %conv.i.i.i
   %sub.i.i.i = sub i64 %13, %16
   store i64 %16, ptr %icount_budget.i.i.i, align 16
-  %17 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64), align 8
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 64), align 8
   %add.i.i8 = add i64 %sub.i.i.i, %17
-  store atomic i64 %add.i.i8, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
+  store atomic i64 %add.i.i8, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 64) monotonic, align 8
   br label %icount_get_raw_locked.exit
 
 icount_get_raw_locked.exit:                       ; preds = %cond.true, %land.lhs.true.i, %if.end.i
-  %18 = load atomic i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
+  %18 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 64) monotonic, align 8
   %call7 = tail call i64 @replay_read_clock(i32 noundef 1, i64 noundef %18) #9
   br label %cond.end15
 
@@ -564,13 +564,13 @@ if.end.i17:                                       ; preds = %if.then.i13
   %26 = add i64 %25, %conv.i.i.i20
   %sub.i.i.i22 = sub i64 %23, %26
   store i64 %26, ptr %icount_budget.i.i.i18, align 16
-  %27 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64), align 8
+  %27 = load i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 64), align 8
   %add.i.i23 = add i64 %sub.i.i.i22, %27
-  store atomic i64 %add.i.i23, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
+  store atomic i64 %add.i.i23, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 64) monotonic, align 8
   br label %icount_get_raw_locked.exit24
 
 icount_get_raw_locked.exit24:                     ; preds = %cond.true9, %land.lhs.true.i10, %if.end.i17
-  %28 = load atomic i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
+  %28 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 64) monotonic, align 8
   %call12 = tail call i64 @replay_save_clock(i32 noundef 1, i64 noundef %call10, i64 noundef %28) #9
   br label %cond.end15
 
@@ -580,14 +580,14 @@ cond.false13:                                     ; preds = %if.then4
 
 cond.end15:                                       ; preds = %icount_get_raw_locked.exit24, %cond.false13, %icount_get_raw_locked.exit
   %cond16 = phi i64 [ %call7, %icount_get_raw_locked.exit ], [ %call12, %icount_get_raw_locked.exit24 ], [ %call14, %cond.false13 ]
-  %29 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 48), align 8
+  %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 48), align 8
   %sub = sub i64 %cond16, %29
   %30 = load i32, ptr @use_icount, align 4
   %cmp17 = icmp eq i32 %30, 2
   br i1 %cmp17, label %if.then18, label %cond.end15.if.end29_crit_edge
 
 cond.end15.if.end29_crit_edge:                    ; preds = %cond.end15
-  %.pre = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 40), align 8
+  %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 40), align 8
   br label %if.end29
 
 if.then18:                                        ; preds = %cond.end15
@@ -624,15 +624,15 @@ if.end.i.i:                                       ; preds = %if.then.i.i
   %38 = add i64 %37, %conv.i.i.i.i
   %sub.i.i.i.i = sub i64 %35, %38
   store i64 %38, ptr %icount_budget.i.i.i.i, align 16
-  %39 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64), align 8
+  %39 = load i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 64), align 8
   %add.i.i.i = add i64 %sub.i.i.i.i, %39
-  store atomic i64 %add.i.i.i, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
+  store atomic i64 %add.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 64) monotonic, align 8
   br label %icount_get_locked.exit
 
 icount_get_locked.exit:                           ; preds = %if.then18, %land.lhs.true.i.i, %if.end.i.i
-  %40 = load atomic i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
-  %41 = load atomic i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 40) monotonic, align 8
-  %42 = load atomic i16, ptr getelementptr inbounds (i8, ptr @timers_state, i64 26) monotonic, align 2
+  %40 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 64) monotonic, align 8
+  %41 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 40) monotonic, align 8
+  %42 = load atomic i16, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 26) monotonic, align 2
   %conv.i.i = sext i16 %42 to i64
   %sh_prom.i.i = and i64 %conv.i.i, 4294967295
   %shl.i.i = shl i64 %40, %sh_prom.i.i
@@ -646,17 +646,17 @@ if.end29:                                         ; preds = %cond.end15.if.end29
   %44 = phi i64 [ %41, %icount_get_locked.exit ], [ %.pre, %cond.end15.if.end29_crit_edge ]
   %warp_delta.0 = phi i64 [ %cond28, %icount_get_locked.exit ], [ %sub, %cond.end15.if.end29_crit_edge ]
   %add = add i64 %warp_delta.0, %44
-  store atomic i64 %add, ptr getelementptr inbounds (i8, ptr @timers_state, i64 40) monotonic, align 8
+  store atomic i64 %add, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 40) monotonic, align 8
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end29, %qemu_spin_lock.exit
-  store i64 -1, ptr getelementptr inbounds (i8, ptr @timers_state, i64 48), align 8
+  store i64 -1, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 48), align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   fence release
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16), align 8
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 16), align 8
   %add.i.i25 = add i32 %45, 1
-  store atomic i32 %add.i.i25, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
-  store atomic i32 0, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) release, align 4
+  store atomic i32 %add.i.i25, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 16) monotonic, align 8
+  store atomic i32 0, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 20) release, align 4
   %call36 = tail call zeroext i1 @qemu_clock_expired(i32 noundef 1) #9
   br i1 %call36, label %if.then37, label %if.end38
 
@@ -741,7 +741,7 @@ if.end28:                                         ; preds = %if.else23, %if.then
 if.then32:                                        ; preds = %if.end28
   %call.i.i.i = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #13
   call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef range(i32 1, 4) 3, i32 noundef range(i32 1, 1000001) 1, i32 noundef 0, ptr noundef nonnull @icount_timer_cb, ptr noundef null) #9
-  store ptr %call.i.i.i, ptr getelementptr inbounds (i8, ptr @timers_state, i64 88), align 8
+  store ptr %call.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 88), align 8
   %.pre = load i64, ptr %time_shift, align 8
   br label %if.end34
 
@@ -754,24 +754,24 @@ if.end34:                                         ; preds = %if.then32, %if.end2
 
 if.then38:                                        ; preds = %if.end34
   %conv39 = trunc i64 %5 to i16
-  store i16 %conv39, ptr getelementptr inbounds (i8, ptr @timers_state, i64 26), align 2
+  store i16 %conv39, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 26), align 2
   store i32 1, ptr @use_icount, align 4
   br label %return
 
 if.end40:                                         ; preds = %if.end34
   store i32 2, ptr @use_icount, align 4
-  store i16 3, ptr getelementptr inbounds (i8, ptr @timers_state, i64 26), align 2
-  store i64 -1, ptr getelementptr inbounds (i8, ptr @timers_state, i64 48), align 8
+  store i16 3, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 26), align 2
+  store i64 -1, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 48), align 8
   %call.i.i.i13 = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #13
   call void @timer_init_full(ptr noundef %call.i.i.i13, ptr noundef null, i32 noundef range(i32 1, 4) 3, i32 noundef range(i32 1, 1000001) 1000000, i32 noundef 0, ptr noundef nonnull @icount_adjust_rt, ptr noundef null) #9
-  store ptr %call.i.i.i13, ptr getelementptr inbounds (i8, ptr @timers_state, i64 72), align 8
+  store ptr %call.i.i.i13, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 72), align 8
   %call.i = call i64 @qemu_clock_get_ns(i32 noundef 3) #9
   %div.i = sdiv i64 %call.i, 1000000
   %add = add nsw i64 %div.i, 1000
   call void @timer_mod(ptr noundef %call.i.i.i13, i64 noundef %add) #9
   %call.i.i.i14 = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #13
   call void @timer_init_full(ptr noundef %call.i.i.i14, ptr noundef null, i32 noundef range(i32 1, 4) 1, i32 noundef range(i32 1, 1000001) 1, i32 noundef 0, ptr noundef nonnull @icount_adjust_vm, ptr noundef null) #9
-  store ptr %call.i.i.i14, ptr getelementptr inbounds (i8, ptr @timers_state, i64 80), align 8
+  store ptr %call.i.i.i14, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 80), align 8
   %call44 = call i64 @qemu_clock_get_ns(i32 noundef 1) #9
   %add45 = add i64 %call44, 100000000
   call void @timer_mod(ptr noundef %call.i.i.i14, i64 noundef %add45) #9
@@ -802,7 +802,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @icount_adjust_rt(ptr nocapture readnone %opaque) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @timers_state, i64 72), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 72), align 8
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 3) #9
   %div.i = sdiv i64 %call.i, 1000000
   %add = add nsw i64 %div.i, 1000
@@ -816,7 +816,7 @@ declare void @timer_mod(ptr noundef, i64 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @icount_adjust_vm(ptr nocapture readnone %opaque) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @timers_state, i64 80), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 80), align 8
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #9
   %add = add i64 %call, 100000000
   tail call void @timer_mod(ptr noundef %0, i64 noundef %add) #9
@@ -874,30 +874,30 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %0 = atomicrmw xchg ptr getelementptr inbounds (i8, ptr @timers_state, i64 20), i32 1 seq_cst, align 4
+  %0 = atomicrmw xchg ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 20), i32 1 seq_cst, align 4
   %tobool.not3.i = icmp eq i32 %0, 0
   br i1 %tobool.not3.i, label %qemu_spin_lock.exit, label %while.cond6.preheader.i
 
 while.cond.loopexit.i:                            ; preds = %while.body16.i, %while.cond6.preheader.i
-  %1 = atomicrmw xchg ptr getelementptr inbounds (i8, ptr @timers_state, i64 20), i32 1 seq_cst, align 4
+  %1 = atomicrmw xchg ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 20), i32 1 seq_cst, align 4
   %tobool.not.i30 = icmp eq i32 %1, 0
   br i1 %tobool.not.i30, label %qemu_spin_lock.exit, label %while.cond6.preheader.i, !llvm.loop !5
 
 while.cond6.preheader.i:                          ; preds = %if.end, %while.cond.loopexit.i
-  %2 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) monotonic, align 4
+  %2 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 20) monotonic, align 4
   %tobool15.not2.i = icmp eq i32 %2, 0
   br i1 %tobool15.not2.i, label %while.cond.loopexit.i, label %while.body16.i
 
 while.body16.i:                                   ; preds = %while.cond6.preheader.i, %while.body16.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
-  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) monotonic, align 4
+  %3 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 20) monotonic, align 4
   %tobool15.not.i = icmp eq i32 %3, 0
   br i1 %tobool15.not.i, label %while.cond.loopexit.i, label %while.body16.i, !llvm.loop !8
 
 qemu_spin_lock.exit:                              ; preds = %while.cond.loopexit.i, %if.end
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 16), align 8
   %add.i.i = add i32 %4, 1
-  store atomic i32 %add.i.i, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
+  store atomic i32 %add.i.i, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 16) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
   fence release
   %5 = load i32, ptr @replay_mode, align 4
@@ -940,13 +940,13 @@ if.end.i:                                         ; preds = %if.then.i
   %13 = add i64 %12, %conv.i.i.i
   %sub.i.i.i = sub i64 %10, %13
   store i64 %13, ptr %icount_budget.i.i.i, align 16
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64), align 8
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 64), align 8
   %add.i.i8 = add i64 %sub.i.i.i, %14
-  store atomic i64 %add.i.i8, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
+  store atomic i64 %add.i.i8, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 64) monotonic, align 8
   br label %icount_get_raw_locked.exit
 
 icount_get_raw_locked.exit:                       ; preds = %cond.true, %land.lhs.true.i, %if.end.i
-  %15 = load atomic i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
+  %15 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 64) monotonic, align 8
   %call3 = tail call i64 @replay_read_clock(i32 noundef 1, i64 noundef %15) #9
   br label %cond.end11
 
@@ -985,13 +985,13 @@ if.end.i17:                                       ; preds = %if.then.i13
   %23 = add i64 %22, %conv.i.i.i20
   %sub.i.i.i22 = sub i64 %20, %23
   store i64 %23, ptr %icount_budget.i.i.i18, align 16
-  %24 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64), align 8
+  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 64), align 8
   %add.i.i23 = add i64 %sub.i.i.i22, %24
-  store atomic i64 %add.i.i23, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
+  store atomic i64 %add.i.i23, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 64) monotonic, align 8
   br label %icount_get_raw_locked.exit24
 
 icount_get_raw_locked.exit24:                     ; preds = %cond.true5, %land.lhs.true.i10, %if.end.i17
-  %25 = load atomic i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
+  %25 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 64) monotonic, align 8
   %call8 = tail call i64 @replay_save_clock(i32 noundef 1, i64 noundef %call6, i64 noundef %25) #9
   br label %cond.end11
 
@@ -1035,15 +1035,15 @@ if.end.i.i:                                       ; preds = %if.then.i.i
   %32 = add i64 %31, %conv.i.i.i.i
   %sub.i.i.i.i = sub i64 %29, %32
   store i64 %32, ptr %icount_budget.i.i.i.i, align 16
-  %33 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64), align 8
+  %33 = load i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 64), align 8
   %add.i.i.i = add i64 %sub.i.i.i.i, %33
-  store atomic i64 %add.i.i.i, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
+  store atomic i64 %add.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 64) monotonic, align 8
   br label %icount_get_locked.exit
 
 icount_get_locked.exit:                           ; preds = %cond.end11, %land.lhs.true.i.i, %if.end.i.i
-  %34 = load atomic i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
-  %35 = load atomic i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 40) monotonic, align 8
-  %36 = load atomic i16, ptr getelementptr inbounds (i8, ptr @timers_state, i64 26) monotonic, align 2
+  %34 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 64) monotonic, align 8
+  %35 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 40) monotonic, align 8
+  %36 = load atomic i16, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 26) monotonic, align 2
   %conv.i.i = sext i16 %36 to i64
   %sh_prom.i.i = and i64 %conv.i.i, 4294967295
   %shl.i.i = shl i64 %34, %sh_prom.i.i
@@ -1053,7 +1053,7 @@ icount_get_locked.exit:                           ; preds = %cond.end11, %land.l
   br i1 %cmp14, label %land.lhs.true, label %if.end25
 
 land.lhs.true:                                    ; preds = %icount_get_locked.exit
-  %37 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 32), align 8
+  %37 = load i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 32), align 8
   %add = add i64 %37, 100000000
   %mul = shl nuw i64 %sub, 1
   %cmp15 = icmp slt i64 %add, %mul
@@ -1066,7 +1066,7 @@ if.end25:                                         ; preds = %icount_get_locked.e
   br i1 %cmp26, label %land.lhs.true28, label %if.end49
 
 land.lhs.true28:                                  ; preds = %if.end25
-  %38 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 32), align 8
+  %38 = load i64, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 32), align 8
   %sub29 = add i64 %38, -100000000
   %mul30 = shl i64 %sub, 1
   %cmp31 = icmp sgt i64 %sub29, %mul30
@@ -1077,7 +1077,7 @@ land.lhs.true28:                                  ; preds = %if.end25
 if.end49.sink.split:                              ; preds = %land.lhs.true28, %land.lhs.true
   %.sink = phi i16 [ -1, %land.lhs.true ], [ 1, %land.lhs.true28 ]
   %sub22 = add nsw i16 %.sink, %36
-  store atomic i16 %sub22, ptr getelementptr inbounds (i8, ptr @timers_state, i64 26) monotonic, align 2
+  store atomic i16 %sub22, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 26) monotonic, align 2
   %.pre33 = sext i16 %sub22 to i64
   %.pre34 = and i64 %.pre33, 4294967295
   %.pre35 = shl i64 %34, %.pre34
@@ -1085,15 +1085,15 @@ if.end49.sink.split:                              ; preds = %land.lhs.true28, %l
 
 if.end49:                                         ; preds = %if.end49.sink.split, %land.lhs.true, %land.lhs.true28, %if.end25
   %shl.pre-phi = phi i64 [ %.pre35, %if.end49.sink.split ], [ %shl.i.i, %land.lhs.true ], [ %shl.i.i, %land.lhs.true28 ], [ %shl.i.i, %if.end25 ]
-  store i64 %sub, ptr getelementptr inbounds (i8, ptr @timers_state, i64 32), align 8
+  store i64 %sub, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 32), align 8
   %sub52 = sub i64 %add.i, %shl.pre-phi
-  store atomic i64 %sub52, ptr getelementptr inbounds (i8, ptr @timers_state, i64 40) monotonic, align 8
+  store atomic i64 %sub52, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 40) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   fence release
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16), align 8
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 16), align 8
   %add.i.i25 = add i32 %39, 1
-  store atomic i32 %add.i.i25, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
-  store atomic i32 0, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) release, align 4
+  store atomic i32 %add.i.i25, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 16) monotonic, align 8
+  store atomic i32 0, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 20) release, align 4
   br label %return
 
 return:                                           ; preds = %entry, %if.end49

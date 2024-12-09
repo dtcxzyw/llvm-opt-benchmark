@@ -35,7 +35,7 @@ $_ZTV24InstanceClassLoaderKlass = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24InstanceClassLoaderKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(464) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN13InstanceKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(464) %0) #2
-  store ptr getelementptr inbounds inrange(-16, 328) (i8, ptr @_ZTV24InstanceClassLoaderKlass, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 328) (i8, ptr @_ZTV24InstanceClassLoaderKlass, i64 16), ptr %0, align 8
   ret void
 }
 

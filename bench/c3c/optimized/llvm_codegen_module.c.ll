@@ -51,10 +51,10 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @codegen_setup_object_names(ptr noundef %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #6
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 352), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 352), align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %11, ptr %12, align 8
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 360), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 360), align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr %13, ptr %14, align 8
   %15 = load ptr, ptr %6, align 8
@@ -81,7 +81,7 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #7
   tail call void @LLVMSetSourceFileName(ptr noundef %28, ptr noundef %32, i64 noundef %33) #6
-  %34 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 220), align 4
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 220), align 4
   switch i32 %34, label %62 [
     i32 4, label %35
     i32 2, label %.sink.split
@@ -138,7 +138,7 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
   %66 = tail call i32 (...) @target_alloca_addr_space() #6
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 292
   store i32 %66, ptr %67, align 4
-  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 40), align 8
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 40), align 8
   %.not = icmp eq ptr %68, null
   br i1 %.not, label %._crit_edge, label %69
 
@@ -154,7 +154,7 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
 
 .lr.ph106:                                        ; preds = %.lr.ph106.preheader, %91
   %indvars.iv110 = phi i64 [ 0, %.lr.ph106.preheader ], [ %indvars.iv.next111, %91 ]
-  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 40), align 8
+  %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 40), align 8
   %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv110
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
@@ -319,12 +319,12 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
   br label %156
 
 156:                                              ; preds = %154, %152
-  %157 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 216), align 8
+  %157 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 216), align 8
   %.not101 = icmp eq i32 %157, 0
   br i1 %.not101, label %220, label %158
 
 158:                                              ; preds = %156
-  %159 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 224), align 8
+  %159 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 224), align 8
   %.off = add i32 %159, -23
   %switch = icmp ult i32 %.off, 2
   %160 = load ptr, ptr @type_uint, align 8
@@ -355,7 +355,7 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
   %179 = call ptr @LLVMValueAsMetadata(ptr noundef %178) #6
   %180 = load ptr, ptr %22, align 8
   call void @LLVMAddModuleFlag(ptr noundef %180, i32 noundef 1, ptr noundef nonnull @.str.4, i64 noundef 18, ptr noundef %179) #6
-  %181 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
+  %181 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 32), align 8
   %182 = icmp eq i32 %181, 3
   %183 = select i1 %182, i64 1, i64 2
   %184 = load ptr, ptr @type_uint, align 8
@@ -370,7 +370,7 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
   br label %192
 
 192:                                              ; preds = %169, %165
-  %193 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 224), align 8
+  %193 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 224), align 8
   %194 = icmp eq i32 %193, 13
   %195 = select i1 %194, i64 1, i64 2
   %196 = load ptr, ptr @type_uint, align 8
@@ -390,15 +390,15 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
   %208 = call ptr @LLVMCreateDIBuilder(ptr noundef %207) #6
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %208, ptr %209, align 8
-  %210 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 216), align 8
+  %210 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 216), align 8
   %211 = icmp ne i32 %210, 2
-  %212 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 336), align 8
+  %212 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 336), align 8
   %.not102 = icmp eq i32 %212, 0
   %or.cond = select i1 %211, i1 true, i1 %.not102
   br i1 %or.cond, label %220, label %213
 
 213:                                              ; preds = %192
-  %214 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 36), align 4
+  %214 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 36), align 4
   %215 = call zeroext i1 @os_supports_stacktrace(i32 noundef %214) #6
   %216 = load i16, ptr %204, align 8
   %217 = select i1 %215, i16 256, i16 0
@@ -459,7 +459,7 @@ declare ptr @LLVMCreateBuilder() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @gencontext_init_file_emit(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 216), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 216), align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %23, label %4
 
@@ -476,10 +476,10 @@ define dso_local void @gencontext_init_file_emit(ptr noundef %0, ptr nocapture n
   br i1 %.not22, label %12, label %.sink.split
 
 12:                                               ; preds = %4
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 216), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 216), align 8
   %14 = icmp eq i32 %13, 2
   %15 = select i1 %14, i32 1, i32 2
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 184), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 184), align 8
   %17 = icmp ne i32 %16, 0
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %19 = load ptr, ptr %18, align 8

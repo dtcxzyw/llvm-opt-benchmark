@@ -1026,7 +1026,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 59:                                               ; preds = %.critedge61, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %60 = call noalias noundef nonnull dereferenceable(1680) ptr @_Znwm(i64 noundef 1680) #29
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_8L2MetricEEE, i64 16), ptr %60, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_8L2MetricEEE, i64 16), ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
   invoke void @_ZN8LightGBM6ConfigC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1616) %61, ptr noundef nonnull align 8 dereferenceable(1616) %1)
           to label %_ZN8LightGBM8L2MetricC2ERKNS_6ConfigE.exit unwind label %65
@@ -1034,7 +1034,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZN8LightGBM8L2MetricC2ERKNS_6ConfigE.exit:       ; preds = %59
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 1656
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM8L2MetricE, i64 16), ptr %60, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM8L2MetricE, i64 16), ptr %60, align 8
   br label %318
 
 63:                                               ; preds = %2
@@ -1086,7 +1086,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 78:                                               ; preds = %.critedge63, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit52
   %79 = call noalias noundef nonnull dereferenceable(1680) ptr @_Znwm(i64 noundef 1680) #29
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_10RMSEMetricEEE, i64 16), ptr %79, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_10RMSEMetricEEE, i64 16), ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   invoke void @_ZN8LightGBM6ConfigC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1616) %80, ptr noundef nonnull align 8 dereferenceable(1616) %1)
           to label %_ZN8LightGBM10RMSEMetricC2ERKNS_6ConfigE.exit unwind label %84
@@ -1094,7 +1094,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZN8LightGBM10RMSEMetricC2ERKNS_6ConfigE.exit:    ; preds = %78
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 1656
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM10RMSEMetricE, i64 16), ptr %79, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM10RMSEMetricE, i64 16), ptr %79, align 8
   br label %318
 
 82:                                               ; preds = %67
@@ -1146,7 +1146,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 97:                                               ; preds = %.critedge65, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit54
   %98 = call noalias noundef nonnull dereferenceable(1680) ptr @_Znwm(i64 noundef 1680) #29
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_8L1MetricEEE, i64 16), ptr %98, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_8L1MetricEEE, i64 16), ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
   invoke void @_ZN8LightGBM6ConfigC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1616) %99, ptr noundef nonnull align 8 dereferenceable(1616) %1)
           to label %_ZN8LightGBM8L1MetricC2ERKNS_6ConfigE.exit unwind label %103
@@ -1154,7 +1154,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZN8LightGBM8L1MetricC2ERKNS_6ConfigE.exit:       ; preds = %97
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 1656
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %100, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM8L1MetricE, i64 16), ptr %98, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM8L1MetricE, i64 16), ptr %98, align 8
   br label %318
 
 101:                                              ; preds = %86
@@ -1206,7 +1206,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 116:                                              ; preds = %.critedge67, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit56
   %117 = call noalias noundef nonnull dereferenceable(1680) ptr @_Znwm(i64 noundef 1680) #29
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_14QuantileMetricEEE, i64 16), ptr %117, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_14QuantileMetricEEE, i64 16), ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 40
   invoke void @_ZN8LightGBM6ConfigC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1616) %118, ptr noundef nonnull align 8 dereferenceable(1616) %1)
           to label %_ZN8LightGBM14QuantileMetricC2ERKNS_6ConfigE.exit unwind label %122
@@ -1214,7 +1214,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZN8LightGBM14QuantileMetricC2ERKNS_6ConfigE.exit: ; preds = %116
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 1656
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM14QuantileMetricE, i64 16), ptr %117, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM14QuantileMetricE, i64 16), ptr %117, align 8
   br label %318
 
 120:                                              ; preds = %105
@@ -1266,7 +1266,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 135:                                              ; preds = %.critedge69, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit58
   %136 = call noalias noundef nonnull dereferenceable(1680) ptr @_Znwm(i64 noundef 1680) #29
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_15HuberLossMetricEEE, i64 16), ptr %136, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_15HuberLossMetricEEE, i64 16), ptr %136, align 8
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 40
   invoke void @_ZN8LightGBM6ConfigC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1616) %137, ptr noundef nonnull align 8 dereferenceable(1616) %1)
           to label %_ZN8LightGBM15HuberLossMetricC2ERKNS_6ConfigE.exit unwind label %141
@@ -1274,7 +1274,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZN8LightGBM15HuberLossMetricC2ERKNS_6ConfigE.exit: ; preds = %135
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 1656
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %138, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM15HuberLossMetricE, i64 16), ptr %136, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM15HuberLossMetricE, i64 16), ptr %136, align 8
   br label %318
 
 139:                                              ; preds = %124
@@ -1326,7 +1326,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 154:                                              ; preds = %.critedge71, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit60
   %155 = call noalias noundef nonnull dereferenceable(1680) ptr @_Znwm(i64 noundef 1680) #29
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_14FairLossMetricEEE, i64 16), ptr %155, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_14FairLossMetricEEE, i64 16), ptr %155, align 8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 40
   invoke void @_ZN8LightGBM6ConfigC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1616) %156, ptr noundef nonnull align 8 dereferenceable(1616) %1)
           to label %_ZN8LightGBM14FairLossMetricC2ERKNS_6ConfigE.exit unwind label %160
@@ -1334,7 +1334,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZN8LightGBM14FairLossMetricC2ERKNS_6ConfigE.exit: ; preds = %154
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 1656
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %157, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM14FairLossMetricE, i64 16), ptr %155, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM14FairLossMetricE, i64 16), ptr %155, align 8
   br label %318
 
 158:                                              ; preds = %143
@@ -1367,7 +1367,7 @@ _ZN8LightGBM14FairLossMetricC2ERKNS_6ConfigE.exit: ; preds = %154
 
 165:                                              ; preds = %163
   %166 = call noalias noundef nonnull dereferenceable(1680) ptr @_Znwm(i64 noundef 1680) #29
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_13PoissonMetricEEE, i64 16), ptr %166, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_13PoissonMetricEEE, i64 16), ptr %166, align 8
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 40
   invoke void @_ZN8LightGBM6ConfigC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1616) %167, ptr noundef nonnull align 8 dereferenceable(1616) %1)
           to label %_ZN8LightGBM13PoissonMetricC2ERKNS_6ConfigE.exit unwind label %171
@@ -1375,7 +1375,7 @@ _ZN8LightGBM14FairLossMetricC2ERKNS_6ConfigE.exit: ; preds = %154
 _ZN8LightGBM13PoissonMetricC2ERKNS_6ConfigE.exit: ; preds = %165
   %168 = getelementptr inbounds nuw i8, ptr %166, i64 1656
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %168, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM13PoissonMetricE, i64 16), ptr %166, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM13PoissonMetricE, i64 16), ptr %166, align 8
   br label %318
 
 169:                                              ; preds = %162
@@ -1405,7 +1405,7 @@ _ZN8LightGBM13PoissonMetricC2ERKNS_6ConfigE.exit: ; preds = %165
   %177 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %178, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM19BinaryLoglossMetricE, i64 16), ptr %177, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM19BinaryLoglossMetricE, i64 16), ptr %177, align 8
   br label %318
 
 179:                                              ; preds = %173
@@ -1429,7 +1429,7 @@ _ZN8LightGBM13PoissonMetricC2ERKNS_6ConfigE.exit: ; preds = %165
   %185 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %186, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM17BinaryErrorMetricE, i64 16), ptr %185, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM17BinaryErrorMetricE, i64 16), ptr %185, align 8
   br label %318
 
 187:                                              ; preds = %181
@@ -1451,7 +1451,7 @@ _ZN8LightGBM13PoissonMetricC2ERKNS_6ConfigE.exit: ; preds = %165
 
 192:                                              ; preds = %190
   %193 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM9AUCMetricE, i64 16), ptr %193, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM9AUCMetricE, i64 16), ptr %193, align 8
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %194, i8 0, i64 24, i1 false)
   br label %318
@@ -1475,7 +1475,7 @@ _ZN8LightGBM13PoissonMetricC2ERKNS_6ConfigE.exit: ; preds = %165
 
 200:                                              ; preds = %198
   %201 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM22AveragePrecisionMetricE, i64 16), ptr %201, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM22AveragePrecisionMetricE, i64 16), ptr %201, align 8
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %202, i8 0, i64 24, i1 false)
   br label %318
@@ -1639,7 +1639,7 @@ _ZN8LightGBM13PoissonMetricC2ERKNS_6ConfigE.exit: ; preds = %165
 
 253:                                              ; preds = %251
   %254 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM18CrossEntropyMetricE, i64 16), ptr %254, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM18CrossEntropyMetricE, i64 16), ptr %254, align 8
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %255, i8 0, i64 24, i1 false)
   br label %318
@@ -1663,7 +1663,7 @@ _ZN8LightGBM13PoissonMetricC2ERKNS_6ConfigE.exit: ; preds = %165
 
 261:                                              ; preds = %259
   %262 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #29
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM24CrossEntropyLambdaMetricE, i64 16), ptr %262, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM24CrossEntropyLambdaMetricE, i64 16), ptr %262, align 8
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %263, i8 0, i64 24, i1 false)
   br label %318
@@ -1687,7 +1687,7 @@ _ZN8LightGBM13PoissonMetricC2ERKNS_6ConfigE.exit: ; preds = %165
 
 269:                                              ; preds = %267
   %270 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #29
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM25KullbackLeiblerDivergenceE, i64 16), ptr %270, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM25KullbackLeiblerDivergenceE, i64 16), ptr %270, align 8
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %271, i8 0, i64 24, i1 false)
   br label %318
@@ -1711,7 +1711,7 @@ _ZN8LightGBM13PoissonMetricC2ERKNS_6ConfigE.exit: ; preds = %165
 
 277:                                              ; preds = %275
   %278 = call noalias noundef nonnull dereferenceable(1680) ptr @_Znwm(i64 noundef 1680) #29
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_10MAPEMetricEEE, i64 16), ptr %278, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_10MAPEMetricEEE, i64 16), ptr %278, align 8
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 40
   invoke void @_ZN8LightGBM6ConfigC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1616) %279, ptr noundef nonnull align 8 dereferenceable(1616) %1)
           to label %_ZN8LightGBM10MAPEMetricC2ERKNS_6ConfigE.exit unwind label %283
@@ -1719,7 +1719,7 @@ _ZN8LightGBM13PoissonMetricC2ERKNS_6ConfigE.exit: ; preds = %165
 _ZN8LightGBM10MAPEMetricC2ERKNS_6ConfigE.exit:    ; preds = %277
   %280 = getelementptr inbounds nuw i8, ptr %278, i64 1656
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %280, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM10MAPEMetricE, i64 16), ptr %278, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM10MAPEMetricE, i64 16), ptr %278, align 8
   br label %318
 
 281:                                              ; preds = %274
@@ -1747,7 +1747,7 @@ _ZN8LightGBM10MAPEMetricC2ERKNS_6ConfigE.exit:    ; preds = %277
 
 288:                                              ; preds = %286
   %289 = call noalias noundef nonnull dereferenceable(1680) ptr @_Znwm(i64 noundef 1680) #29
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_11GammaMetricEEE, i64 16), ptr %289, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_11GammaMetricEEE, i64 16), ptr %289, align 8
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 40
   invoke void @_ZN8LightGBM6ConfigC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1616) %290, ptr noundef nonnull align 8 dereferenceable(1616) %1)
           to label %_ZN8LightGBM11GammaMetricC2ERKNS_6ConfigE.exit unwind label %294
@@ -1755,7 +1755,7 @@ _ZN8LightGBM10MAPEMetricC2ERKNS_6ConfigE.exit:    ; preds = %277
 _ZN8LightGBM11GammaMetricC2ERKNS_6ConfigE.exit:   ; preds = %288
   %291 = getelementptr inbounds nuw i8, ptr %289, i64 1656
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %291, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM11GammaMetricE, i64 16), ptr %289, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM11GammaMetricE, i64 16), ptr %289, align 8
   br label %318
 
 292:                                              ; preds = %285
@@ -1783,7 +1783,7 @@ _ZN8LightGBM11GammaMetricC2ERKNS_6ConfigE.exit:   ; preds = %288
 
 299:                                              ; preds = %297
   %300 = call noalias noundef nonnull dereferenceable(1680) ptr @_Znwm(i64 noundef 1680) #29
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_19GammaDevianceMetricEEE, i64 16), ptr %300, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_19GammaDevianceMetricEEE, i64 16), ptr %300, align 8
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 40
   invoke void @_ZN8LightGBM6ConfigC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1616) %301, ptr noundef nonnull align 8 dereferenceable(1616) %1)
           to label %_ZN8LightGBM19GammaDevianceMetricC2ERKNS_6ConfigE.exit unwind label %305
@@ -1791,7 +1791,7 @@ _ZN8LightGBM11GammaMetricC2ERKNS_6ConfigE.exit:   ; preds = %288
 _ZN8LightGBM19GammaDevianceMetricC2ERKNS_6ConfigE.exit: ; preds = %299
   %302 = getelementptr inbounds nuw i8, ptr %300, i64 1656
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %302, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM19GammaDevianceMetricE, i64 16), ptr %300, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM19GammaDevianceMetricE, i64 16), ptr %300, align 8
   br label %318
 
 303:                                              ; preds = %296
@@ -1819,7 +1819,7 @@ _ZN8LightGBM19GammaDevianceMetricC2ERKNS_6ConfigE.exit: ; preds = %299
 
 310:                                              ; preds = %308
   %311 = call noalias noundef nonnull dereferenceable(1680) ptr @_Znwm(i64 noundef 1680) #29
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_13TweedieMetricEEE, i64 16), ptr %311, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_13TweedieMetricEEE, i64 16), ptr %311, align 8
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 40
   invoke void @_ZN8LightGBM6ConfigC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1616) %312, ptr noundef nonnull align 8 dereferenceable(1616) %1)
           to label %_ZN8LightGBM13TweedieMetricC2ERKNS_6ConfigE.exit unwind label %316
@@ -1827,7 +1827,7 @@ _ZN8LightGBM19GammaDevianceMetricC2ERKNS_6ConfigE.exit: ; preds = %299
 _ZN8LightGBM13TweedieMetricC2ERKNS_6ConfigE.exit: ; preds = %310
   %313 = getelementptr inbounds nuw i8, ptr %311, i64 1656
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %313, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM13TweedieMetricE, i64 16), ptr %311, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM13TweedieMetricE, i64 16), ptr %311, align 8
   br label %318
 
 314:                                              ; preds = %307
@@ -1896,7 +1896,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8LightGBM11AucMuMetricC2ERKNS_6ConfigE(ptr noundef nonnull align 8 dereferenceable(1784) %0, ptr noundef nonnull align 8 dereferenceable(1616) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM11AucMuMetricE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM11AucMuMetricE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1970,7 +1970,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8LightGBM10NDCGMetricC2ERKNS_6ConfigE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(1616) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.8", align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM10NDCGMetricE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM10NDCGMetricE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2086,7 +2086,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdE
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8LightGBM9MapMetricC2ERKNS_6ConfigE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(1616) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM9MapMetricE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM9MapMetricE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -2129,7 +2129,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4:                   ; preds = %_ZNSt6vectorIiSaIiE
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8LightGBM25MultiSoftmaxLoglossMetricC2ERKNS_6ConfigE(ptr noundef nonnull align 8 dereferenceable(1688) %0, ptr noundef nonnull align 8 dereferenceable(1616) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16MulticlassMetricINS_25MultiSoftmaxLoglossMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16MulticlassMetricINS_25MultiSoftmaxLoglossMetricEEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2147,13 +2147,13 @@ _ZN8LightGBM16MulticlassMetricINS_25MultiSoftmaxLoglossMetricEEC2ERKNS_6ConfigE.
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %8, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM25MultiSoftmaxLoglossMetricE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM25MultiSoftmaxLoglossMetricE, i64 16), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8LightGBM16MultiErrorMetricC2ERKNS_6ConfigE(ptr noundef nonnull align 8 dereferenceable(1688) %0, ptr noundef nonnull align 8 dereferenceable(1616) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16MulticlassMetricINS_16MultiErrorMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16MulticlassMetricINS_16MultiErrorMetricEEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2171,7 +2171,7 @@ _ZN8LightGBM16MulticlassMetricINS_16MultiErrorMetricEEC2ERKNS_6ConfigE.exit: ; p
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %8, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16MultiErrorMetricE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16MultiErrorMetricE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -2195,7 +2195,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM8L2MetricD2Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_8L2MetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_8L2MetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -2231,7 +2231,7 @@ _ZN8LightGBM16RegressionMetricINS_8L2MetricEED2Ev.exit: ; preds = %_ZSt8_Destroy
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM8L2MetricD0Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_8L2MetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_8L2MetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -3542,7 +3542,7 @@ _ZNSt6vectorIaSaIaEED2Ev.exit:                    ; preds = %457, %455, %368
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RegressionMetricINS_8L2MetricEED2Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_8L2MetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_8L2MetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -3578,7 +3578,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RegressionMetricINS_8L2MetricEED0Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_8L2MetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_8L2MetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -4881,7 +4881,7 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_8L2MetricEE4EvalEPKdPKN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM10RMSEMetricD2Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_10RMSEMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_10RMSEMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -4917,7 +4917,7 @@ _ZN8LightGBM16RegressionMetricINS_10RMSEMetricEED2Ev.exit: ; preds = %_ZSt8_Dest
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM10RMSEMetricD0Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_10RMSEMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_10RMSEMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -5108,7 +5108,7 @@ define linkonce_odr void @_ZNK8LightGBM16RegressionMetricINS_10RMSEMetricEE4Eval
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RegressionMetricINS_10RMSEMetricEED2Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_10RMSEMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_10RMSEMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -5144,7 +5144,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RegressionMetricINS_10RMSEMetricEED0Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_10RMSEMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_10RMSEMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -5592,7 +5592,7 @@ declare double @sqrt(double noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM8L1MetricD2Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_8L1MetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_8L1MetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -5628,7 +5628,7 @@ _ZN8LightGBM16RegressionMetricINS_8L1MetricEED2Ev.exit: ; preds = %_ZSt8_Destroy
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM8L1MetricD0Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_8L1MetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_8L1MetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -5818,7 +5818,7 @@ define linkonce_odr void @_ZNK8LightGBM16RegressionMetricINS_8L1MetricEE4EvalEPK
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RegressionMetricINS_8L1MetricEED2Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_8L1MetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_8L1MetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -5854,7 +5854,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RegressionMetricINS_8L1MetricEED0Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_8L1MetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_8L1MetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -6302,7 +6302,7 @@ declare double @llvm.fabs.f64(double) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM14QuantileMetricD2Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_14QuantileMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_14QuantileMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -6338,7 +6338,7 @@ _ZN8LightGBM16RegressionMetricINS_14QuantileMetricEED2Ev.exit: ; preds = %_ZSt8_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM14QuantileMetricD0Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_14QuantileMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_14QuantileMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -6528,7 +6528,7 @@ define linkonce_odr void @_ZNK8LightGBM16RegressionMetricINS_14QuantileMetricEE4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RegressionMetricINS_14QuantileMetricEED2Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_14QuantileMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_14QuantileMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -6564,7 +6564,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RegressionMetricINS_14QuantileMetricEED0Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_14QuantileMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_14QuantileMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -7029,7 +7029,7 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_14QuantileMetricEE4Eval
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM15HuberLossMetricD2Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_15HuberLossMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_15HuberLossMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -7065,7 +7065,7 @@ _ZN8LightGBM16RegressionMetricINS_15HuberLossMetricEED2Ev.exit: ; preds = %_ZSt8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM15HuberLossMetricD0Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_15HuberLossMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_15HuberLossMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -7255,7 +7255,7 @@ define linkonce_odr void @_ZNK8LightGBM16RegressionMetricINS_15HuberLossMetricEE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RegressionMetricINS_15HuberLossMetricEED2Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_15HuberLossMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_15HuberLossMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -7291,7 +7291,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RegressionMetricINS_15HuberLossMetricEED0Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_15HuberLossMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_15HuberLossMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -7804,7 +7804,7 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_15HuberLossMetricEE4Eva
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM14FairLossMetricD2Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_14FairLossMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_14FairLossMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -7840,7 +7840,7 @@ _ZN8LightGBM16RegressionMetricINS_14FairLossMetricEED2Ev.exit: ; preds = %_ZSt8_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM14FairLossMetricD0Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_14FairLossMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_14FairLossMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -8030,7 +8030,7 @@ define linkonce_odr void @_ZNK8LightGBM16RegressionMetricINS_14FairLossMetricEE4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RegressionMetricINS_14FairLossMetricEED2Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_14FairLossMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_14FairLossMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -8066,7 +8066,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RegressionMetricINS_14FairLossMetricEED0Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_14FairLossMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_14FairLossMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -8546,7 +8546,7 @@ declare double @log1p(double noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM13PoissonMetricD2Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_13PoissonMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_13PoissonMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -8582,7 +8582,7 @@ _ZN8LightGBM16RegressionMetricINS_13PoissonMetricEED2Ev.exit: ; preds = %_ZSt8_D
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM13PoissonMetricD0Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_13PoissonMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_13PoissonMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -8772,7 +8772,7 @@ define linkonce_odr void @_ZNK8LightGBM16RegressionMetricINS_13PoissonMetricEE4E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RegressionMetricINS_13PoissonMetricEED2Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_13PoissonMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_13PoissonMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -8808,7 +8808,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RegressionMetricINS_13PoissonMetricEED0Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_13PoissonMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_13PoissonMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -9265,7 +9265,7 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_13PoissonMetricEE4EvalE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM19BinaryLoglossMetricD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM12BinaryMetricINS_19BinaryLoglossMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM12BinaryMetricINS_19BinaryLoglossMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -9299,7 +9299,7 @@ _ZN8LightGBM12BinaryMetricINS_19BinaryLoglossMetricEED2Ev.exit: ; preds = %_ZSt8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM19BinaryLoglossMetricD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM12BinaryMetricINS_19BinaryLoglossMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM12BinaryMetricINS_19BinaryLoglossMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -9487,7 +9487,7 @@ define linkonce_odr void @_ZNK8LightGBM12BinaryMetricINS_19BinaryLoglossMetricEE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM12BinaryMetricINS_19BinaryLoglossMetricEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM12BinaryMetricINS_19BinaryLoglossMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM12BinaryMetricINS_19BinaryLoglossMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -9521,7 +9521,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM12BinaryMetricINS_19BinaryLoglossMetricEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM12BinaryMetricINS_19BinaryLoglossMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM12BinaryMetricINS_19BinaryLoglossMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -10048,7 +10048,7 @@ define internal void @_ZNK8LightGBM12BinaryMetricINS_19BinaryLoglossMetricEE4Eva
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM17BinaryErrorMetricD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM12BinaryMetricINS_17BinaryErrorMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM12BinaryMetricINS_17BinaryErrorMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -10082,7 +10082,7 @@ _ZN8LightGBM12BinaryMetricINS_17BinaryErrorMetricEED2Ev.exit: ; preds = %_ZSt8_D
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM17BinaryErrorMetricD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM12BinaryMetricINS_17BinaryErrorMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM12BinaryMetricINS_17BinaryErrorMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -10270,7 +10270,7 @@ define linkonce_odr void @_ZNK8LightGBM12BinaryMetricINS_17BinaryErrorMetricEE4E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM12BinaryMetricINS_17BinaryErrorMetricEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM12BinaryMetricINS_17BinaryErrorMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM12BinaryMetricINS_17BinaryErrorMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -10304,7 +10304,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM12BinaryMetricINS_17BinaryErrorMetricEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM12BinaryMetricINS_17BinaryErrorMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM12BinaryMetricINS_17BinaryErrorMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -10755,7 +10755,7 @@ define internal void @_ZNK8LightGBM12BinaryMetricINS_17BinaryErrorMetricEE4EvalE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM9AUCMetricD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM9AUCMetricE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM9AUCMetricE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -10789,7 +10789,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM9AUCMetricD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM9AUCMetricE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM9AUCMetricE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -12537,7 +12537,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM22AveragePrecisionMetricD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM22AveragePrecisionMetricE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM22AveragePrecisionMetricE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -12571,7 +12571,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM22AveragePrecisionMetricD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM22AveragePrecisionMetricE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM22AveragePrecisionMetricE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -14489,7 +14489,7 @@ _ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPSt6vectorIdSaIdEES2_IS4_SaIS4_EEEE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM11AucMuMetricD2Ev(ptr noundef nonnull align 8 dereferenceable(1784) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM11AucMuMetricE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM11AucMuMetricE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1760
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -19025,7 +19025,7 @@ declare void @_ZN8LightGBM13DCGCalculator4InitERKSt6vectorIdSaIdEE(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM10NDCGMetricD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM10NDCGMetricE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM10NDCGMetricE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -21027,7 +21027,7 @@ _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37: ; pre
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM9MapMetricD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM9MapMetricE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM9MapMetricE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -21081,7 +21081,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3:                   ; preds = %_ZNSt6vectorINSt7__
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM9MapMetricD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM9MapMetricE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM9MapMetricE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -23895,7 +23895,7 @@ _ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM25MultiSoftmaxLoglossMetricD2Ev(ptr noundef nonnull align 8 dereferenceable(1688) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16MulticlassMetricINS_25MultiSoftmaxLoglossMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16MulticlassMetricINS_25MultiSoftmaxLoglossMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN8LightGBM6ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(1616) %2) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -23931,7 +23931,7 @@ _ZN8LightGBM16MulticlassMetricINS_25MultiSoftmaxLoglossMetricEED2Ev.exit: ; pred
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM25MultiSoftmaxLoglossMetricD0Ev(ptr noundef nonnull align 8 dereferenceable(1688) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16MulticlassMetricINS_25MultiSoftmaxLoglossMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16MulticlassMetricINS_25MultiSoftmaxLoglossMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN8LightGBM6ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(1616) %2) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -24155,7 +24155,7 @@ define linkonce_odr void @_ZNK8LightGBM16MulticlassMetricINS_25MultiSoftmaxLoglo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16MulticlassMetricINS_25MultiSoftmaxLoglossMetricEED2Ev(ptr noundef nonnull align 8 dereferenceable(1688) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16MulticlassMetricINS_25MultiSoftmaxLoglossMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16MulticlassMetricINS_25MultiSoftmaxLoglossMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN8LightGBM6ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(1616) %2) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -24191,7 +24191,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16MulticlassMetricINS_25MultiSoftmaxLoglossMetricEED0Ev(ptr noundef nonnull align 8 dereferenceable(1688) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16MulticlassMetricINS_25MultiSoftmaxLoglossMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16MulticlassMetricINS_25MultiSoftmaxLoglossMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN8LightGBM6ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(1616) %2) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -25104,7 +25104,7 @@ define internal void @_ZNK8LightGBM16MulticlassMetricINS_25MultiSoftmaxLoglossMe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16MultiErrorMetricD2Ev(ptr noundef nonnull align 8 dereferenceable(1688) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16MulticlassMetricINS_16MultiErrorMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16MulticlassMetricINS_16MultiErrorMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN8LightGBM6ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(1616) %2) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -25140,7 +25140,7 @@ _ZN8LightGBM16MulticlassMetricINS_16MultiErrorMetricEED2Ev.exit: ; preds = %_ZSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16MultiErrorMetricD0Ev(ptr noundef nonnull align 8 dereferenceable(1688) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16MulticlassMetricINS_16MultiErrorMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16MulticlassMetricINS_16MultiErrorMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN8LightGBM6ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(1616) %2) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -25347,7 +25347,7 @@ define linkonce_odr void @_ZNK8LightGBM16MulticlassMetricINS_16MultiErrorMetricE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16MulticlassMetricINS_16MultiErrorMetricEED2Ev(ptr noundef nonnull align 8 dereferenceable(1688) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16MulticlassMetricINS_16MultiErrorMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16MulticlassMetricINS_16MultiErrorMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN8LightGBM6ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(1616) %2) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -25383,7 +25383,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16MulticlassMetricINS_16MultiErrorMetricEED0Ev(ptr noundef nonnull align 8 dereferenceable(1688) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16MulticlassMetricINS_16MultiErrorMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16MulticlassMetricINS_16MultiErrorMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN8LightGBM6ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(1616) %2) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -26378,7 +26378,7 @@ define internal void @_ZNK8LightGBM16MulticlassMetricINS_16MultiErrorMetricEE4Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM18CrossEntropyMetricD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM18CrossEntropyMetricE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM18CrossEntropyMetricE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -26412,7 +26412,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM18CrossEntropyMetricD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM18CrossEntropyMetricE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM18CrossEntropyMetricE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -27538,7 +27538,7 @@ define internal void @_ZNK8LightGBM18CrossEntropyMetric4EvalEPKdPKNS_17Objective
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM24CrossEntropyLambdaMetricD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM24CrossEntropyLambdaMetricE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM24CrossEntropyLambdaMetricE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -27572,7 +27572,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM24CrossEntropyLambdaMetricD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM24CrossEntropyLambdaMetricE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM24CrossEntropyLambdaMetricE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -28493,7 +28493,7 @@ define internal void @_ZNK8LightGBM24CrossEntropyLambdaMetric4EvalEPKdPKNS_17Obj
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM25KullbackLeiblerDivergenceD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM25KullbackLeiblerDivergenceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM25KullbackLeiblerDivergenceE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -28527,7 +28527,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM25KullbackLeiblerDivergenceD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM25KullbackLeiblerDivergenceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM25KullbackLeiblerDivergenceE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -29577,7 +29577,7 @@ define internal void @_ZNK8LightGBM25KullbackLeiblerDivergence4EvalEPKdPKNS_17Ob
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM10MAPEMetricD2Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_10MAPEMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_10MAPEMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -29613,7 +29613,7 @@ _ZN8LightGBM16RegressionMetricINS_10MAPEMetricEED2Ev.exit: ; preds = %_ZSt8_Dest
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM10MAPEMetricD0Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_10MAPEMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_10MAPEMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -29803,7 +29803,7 @@ define linkonce_odr void @_ZNK8LightGBM16RegressionMetricINS_10MAPEMetricEE4Eval
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RegressionMetricINS_10MAPEMetricEED2Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_10MAPEMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_10MAPEMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -29839,7 +29839,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RegressionMetricINS_10MAPEMetricEED0Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_10MAPEMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_10MAPEMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -30307,7 +30307,7 @@ declare float @llvm.fabs.f32(float) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM11GammaMetricD2Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_11GammaMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_11GammaMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -30343,7 +30343,7 @@ _ZN8LightGBM16RegressionMetricINS_11GammaMetricEED2Ev.exit: ; preds = %_ZSt8_Des
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM11GammaMetricD0Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_11GammaMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_11GammaMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -30558,7 +30558,7 @@ define linkonce_odr void @_ZNK8LightGBM16RegressionMetricINS_11GammaMetricEE4Eva
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RegressionMetricINS_11GammaMetricEED2Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_11GammaMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_11GammaMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -30594,7 +30594,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RegressionMetricINS_11GammaMetricEED0Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_11GammaMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_11GammaMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -31089,7 +31089,7 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_11GammaMetricEE4EvalEPK
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM19GammaDevianceMetricD2Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_19GammaDevianceMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_19GammaDevianceMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -31125,7 +31125,7 @@ _ZN8LightGBM16RegressionMetricINS_19GammaDevianceMetricEED2Ev.exit: ; preds = %_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM19GammaDevianceMetricD0Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_19GammaDevianceMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_19GammaDevianceMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -31338,7 +31338,7 @@ define linkonce_odr void @_ZNK8LightGBM16RegressionMetricINS_19GammaDevianceMetr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RegressionMetricINS_19GammaDevianceMetricEED2Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_19GammaDevianceMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_19GammaDevianceMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -31374,7 +31374,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RegressionMetricINS_19GammaDevianceMetricEED0Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_19GammaDevianceMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_19GammaDevianceMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -31839,7 +31839,7 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_19GammaDevianceMetricEE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM13TweedieMetricD2Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_13TweedieMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_13TweedieMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -31875,7 +31875,7 @@ _ZN8LightGBM16RegressionMetricINS_13TweedieMetricEED2Ev.exit: ; preds = %_ZSt8_D
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM13TweedieMetricD0Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_13TweedieMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_13TweedieMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -32065,7 +32065,7 @@ define linkonce_odr void @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RegressionMetricINS_13TweedieMetricEED2Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_13TweedieMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_13TweedieMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -32101,7 +32101,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RegressionMetricINS_13TweedieMetricEED0Ev(ptr noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_13TweedieMetricEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM16RegressionMetricINS_13TweedieMetricEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664

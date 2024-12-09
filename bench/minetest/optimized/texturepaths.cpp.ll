@@ -104,7 +104,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_Z21clearTextureNameCachev() local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 16), align 8, !tbaa !4
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 16), align 8, !tbaa !4
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) @_ZL27g_texturename_to_path_cacheB5cxx11, ptr noundef %0)
           to label %_ZN10MutexedMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_E5clearEv.exit unwind label %terminate.lpad.i.i.i
 
@@ -116,10 +116,10 @@ terminate.lpad.i.i.i:                             ; preds = %entry
   unreachable
 
 _ZN10MutexedMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_E5clearEv.exit: ; preds = %entry
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 16), align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 24), align 8, !tbaa !12
-  store ptr getelementptr inbounds (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 32), align 8, !tbaa !13
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 40), align 8, !tbaa !14
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 16), align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 24), align 8, !tbaa !12
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 32), align 8, !tbaa !13
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 40), align 8, !tbaa !14
   ret void
 }
 
@@ -1123,7 +1123,7 @@ if.then41:                                        ; preds = %_ZNSt6vectorINSt7__
   %64 = getelementptr inbounds nuw i8, ptr %ref.tmp46, i64 16
   store ptr %64, ptr %ref.tmp46, align 8, !tbaa !15, !alias.scope !40
   %65 = load ptr, ptr @_ZN7porting10path_shareB5cxx11E, align 8, !tbaa !18, !noalias !40
-  %66 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN7porting10path_shareB5cxx11E, i64 8), align 8, !tbaa !21, !noalias !40
+  %66 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN7porting10path_shareB5cxx11E, i64 8), align 8, !tbaa !21, !noalias !40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i172) #23, !noalias !40
   store i64 %66, ptr %__dnew.i.i.i172, align 8, !tbaa !17, !noalias !40
   %cmp.i.i.i173 = icmp ugt i64 %66, 15
@@ -2006,7 +2006,7 @@ ehcleanup91:                                      ; preds = %if.then.i.i482, %_Z
   br label %ehcleanup95
 
 if.end92:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit494, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  %call1.i.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 48)) #23
+  %call1.i.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 48)) #23
   %tobool.not.i.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i.i495
 
@@ -2028,11 +2028,11 @@ invoke.cont.i497:                                 ; preds = %_ZNSt11unique_lockI
 _ZNSt11unique_lockISt5mutexED2Ev.exit13.i:        ; preds = %invoke.cont.i497, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i
   %198 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i.i12.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 48)) #23
+  %call1.i.i.i.i12.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 48)) #23
   br label %ehcleanup95
 
 _ZN10MutexedMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_E3setERKS5_S8_.exit: ; preds = %invoke.cont.i497
-  %call1.i.i.i.i6.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 48)) #23
+  %call1.i.i.i.i6.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 48)) #23
   br label %nrvo.skipdtor
 
 ehcleanup95:                                      ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit13.i, %ehcleanup91, %ehcleanup22, %ehcleanup.i, %lpad
@@ -3067,11 +3067,11 @@ define internal void @_GLOBAL__sub_I_texturepaths.cpp() #16 section ".text.start
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #23
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 8), align 8, !tbaa !72
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 16), align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 24), align 8, !tbaa !12
-  store ptr getelementptr inbounds (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 32), align 8, !tbaa !13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 40), i8 0, i64 48, i1 false)
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 8), align 8, !tbaa !72
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 16), align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 24), align 8, !tbaa !12
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 32), align 8, !tbaa !13
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZL27g_texturename_to_path_cacheB5cxx11, i64 40), i8 0, i64 48, i1 false)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN10MutexedMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev, ptr nonnull @_ZL27g_texturename_to_path_cacheB5cxx11, ptr nonnull @__dso_handle) #23
   ret void
 }

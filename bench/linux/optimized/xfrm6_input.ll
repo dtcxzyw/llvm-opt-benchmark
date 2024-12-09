@@ -193,7 +193,7 @@ define dso_local noundef i32 @xfrm6_transport_finish(ptr noundef %0, i32 noundef
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 272
   %114 = load ptr, ptr %113, align 8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @nf_hooks_needed, i64 800), i32 2) #6
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @nf_hooks_needed, i64 800), i32 2) #6
           to label %128 [label %115], !srcloc !6
 
 115:                                              ; preds = %110
@@ -534,7 +534,7 @@ define dso_local ptr @xfrm6_gro_udp_encap_rcv(ptr noundef %0, ptr noundef %1, pt
 
 33:                                               ; preds = %25
   tail call void @__rcu_read_lock() #6
-  %34 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @inet6_offloads, i64 400), align 16
+  %34 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @inet6_offloads, i64 400), align 16
   %35 = icmp eq ptr %34, null
   br i1 %35, label %63, label %36
 

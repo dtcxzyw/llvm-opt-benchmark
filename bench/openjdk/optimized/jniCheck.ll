@@ -525,7 +525,7 @@ _ZN8jniCheck15validate_handleEP10JavaThreadP8_jobject.exit: ; preds = %4
 
 _ZNK7oopDesc5klassEv.exit:                        ; preds = %16, %26
   %.0.i = phi ptr [ %25, %16 ], [ %27, %26 ]
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
   %.not = icmp eq ptr %.0.i, %28
   br i1 %.not, label %31, label %29
 
@@ -570,7 +570,7 @@ define hidden void @_ZN8jniCheck24validate_throwable_klassEP10JavaThreadP5Klass(
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 56), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 56), align 8
   %8 = tail call noundef zeroext i1 @_ZNK5Klass14is_subclass_ofEPKS_(ptr noundef nonnull align 8 dereferenceable(196) %1, ptr noundef %7) #11
   br i1 %8, label %11, label %9
 
@@ -2107,7 +2107,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %57, %67
   br i1 %71, label %72, label %75
 
 72:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 56), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 56), align 8
   %74 = tail call noundef zeroext i1 @_ZNK5Klass14is_subclass_ofEPKS_(ptr noundef nonnull align 8 dereferenceable(196) %.0.i, ptr noundef %73) #11
   br i1 %74, label %_ZN8jniCheck24validate_throwable_klassEP10JavaThreadP5Klass.exit, label %75
 
@@ -2283,7 +2283,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %53, label %54, label %57
 
 54:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 56), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 56), align 8
   %56 = tail call noundef zeroext i1 @_ZNK5Klass14is_subclass_ofEPKS_(ptr noundef nonnull align 8 dereferenceable(196) %50, ptr noundef %55) #11
   br i1 %56, label %_ZN8jniCheck24validate_throwable_klassEP10JavaThreadP5Klass.exit, label %57
 
@@ -26473,7 +26473,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 
 _ZN16java_lang_String11is_instanceEP7oopDesc.exit.i: ; preds = %65, %55
   %.0.i.i.i = phi ptr [ %64, %55 ], [ %66, %65 ]
-  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
   %68 = icmp eq ptr %.0.i.i.i, %67
   br i1 %68, label %_ZL11checkStringP10JavaThreadP8_jstring.exit, label %69
 
@@ -26670,7 +26670,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 
 _ZN16java_lang_String11is_instanceEP7oopDesc.exit.i: ; preds = %66, %56
   %.0.i.i.i = phi ptr [ %65, %56 ], [ %67, %66 ]
-  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
   %69 = icmp eq ptr %.0.i.i.i, %68
   br i1 %69, label %_ZL11checkStringP10JavaThreadP8_jstring.exit, label %70
 
@@ -26900,7 +26900,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 
 _ZN16java_lang_String11is_instanceEP7oopDesc.exit.i: ; preds = %66, %56
   %.0.i.i.i = phi ptr [ %65, %56 ], [ %67, %66 ]
-  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
   %69 = icmp eq ptr %.0.i.i.i, %68
   br i1 %69, label %_ZL11checkStringP10JavaThreadP8_jstring.exit, label %70
 
@@ -26927,7 +26927,7 @@ _ZL11checkStringP10JavaThreadP8_jstring.exit:     ; preds = %_ZN16java_lang_Stri
   br label %126
 
 78:                                               ; preds = %_ZL11checkStringP10JavaThreadP8_jstring.exit
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV13GuardedMemory, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV13GuardedMemory, i64 16), ptr %4, align 8
   %79 = getelementptr inbounds i8, ptr %2, i64 -32
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %79, ptr %80, align 8
@@ -27367,7 +27367,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 
 _ZN16java_lang_String11is_instanceEP7oopDesc.exit.i: ; preds = %65, %55
   %.0.i.i.i = phi ptr [ %64, %55 ], [ %66, %65 ]
-  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
   %68 = icmp eq ptr %.0.i.i.i, %67
   br i1 %68, label %_ZL11checkStringP10JavaThreadP8_jstring.exit, label %69
 
@@ -27564,7 +27564,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 
 _ZN16java_lang_String11is_instanceEP7oopDesc.exit.i: ; preds = %66, %56
   %.0.i.i.i = phi ptr [ %65, %56 ], [ %67, %66 ]
-  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
   %69 = icmp eq ptr %.0.i.i.i, %68
   br i1 %69, label %_ZL11checkStringP10JavaThreadP8_jstring.exit, label %70
 
@@ -27782,7 +27782,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 
 _ZN16java_lang_String11is_instanceEP7oopDesc.exit.i: ; preds = %66, %56
   %.0.i.i.i = phi ptr [ %65, %56 ], [ %67, %66 ]
-  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
   %69 = icmp eq ptr %.0.i.i.i, %68
   br i1 %69, label %_ZL11checkStringP10JavaThreadP8_jstring.exit, label %70
 
@@ -27809,7 +27809,7 @@ _ZL11checkStringP10JavaThreadP8_jstring.exit:     ; preds = %_ZN16java_lang_Stri
   br label %126
 
 78:                                               ; preds = %_ZL11checkStringP10JavaThreadP8_jstring.exit
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV13GuardedMemory, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV13GuardedMemory, i64 16), ptr %4, align 8
   %79 = getelementptr inbounds i8, ptr %2, i64 -32
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %79, ptr %80, align 8
@@ -37254,7 +37254,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 
 _ZN16java_lang_String11is_instanceEP7oopDesc.exit.i: ; preds = %68, %58
   %.0.i.i.i = phi ptr [ %67, %58 ], [ %69, %68 ]
-  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
   %71 = icmp eq ptr %.0.i.i.i, %70
   br i1 %71, label %_ZL11checkStringP10JavaThreadP8_jstring.exit, label %72
 
@@ -37451,7 +37451,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 
 _ZN16java_lang_String11is_instanceEP7oopDesc.exit.i: ; preds = %68, %58
   %.0.i.i.i = phi ptr [ %67, %58 ], [ %69, %68 ]
-  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
   %71 = icmp eq ptr %.0.i.i.i, %70
   br i1 %71, label %_ZL11checkStringP10JavaThreadP8_jstring.exit, label %72
 
@@ -37993,7 +37993,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 
 _ZN16java_lang_String11is_instanceEP7oopDesc.exit.i: ; preds = %61, %51
   %.0.i.i.i = phi ptr [ %60, %51 ], [ %62, %61 ]
-  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
   %64 = icmp eq ptr %.0.i.i.i, %63
   br i1 %64, label %_ZL11checkStringP10JavaThreadP8_jstring.exit, label %65
 
@@ -38174,7 +38174,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 
 _ZN16java_lang_String11is_instanceEP7oopDesc.exit.i: ; preds = %58, %48
   %.0.i.i.i = phi ptr [ %57, %48 ], [ %59, %58 ]
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
   %61 = icmp eq ptr %.0.i.i.i, %60
   br i1 %61, label %_ZL11checkStringP10JavaThreadP8_jstring.exit, label %62
 

@@ -9531,7 +9531,7 @@ define dso_local void @_ZN5clang21EmitSmeBuiltinZAStateERN4llvm12RecordKeeperERN
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %54, ptr noundef nonnull align 1 dereferenceable(1) %10) #21
   %55 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
   %56 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %56, ptr noundef nonnull @.str.302, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.302, i64 7)) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %56, ptr noundef nonnull @.str.302, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.302, i64 7)) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 7) #21
   br label %.sink.split.i
 
@@ -9563,7 +9563,7 @@ define dso_local void @_ZN5clang21EmitSmeBuiltinZAStateERN4llvm12RecordKeeperERN
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %72, ptr noundef nonnull align 1 dereferenceable(1) %12) #21
   %73 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #21
   %74 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %74, ptr noundef nonnull @.str.304, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.304, i64 8)) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %74, ptr noundef nonnull @.str.304, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.304, i64 8)) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef 8) #21
   br label %.sink.split.i
 
@@ -9595,7 +9595,7 @@ define dso_local void @_ZN5clang21EmitSmeBuiltinZAStateERN4llvm12RecordKeeperERN
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef %90, ptr noundef nonnull align 1 dereferenceable(1) %14) #21
   %91 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #21
   %92 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %92, ptr noundef nonnull @.str.306, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.306, i64 10)) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %92, ptr noundef nonnull @.str.306, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.306, i64 10)) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef 10) #21
   br label %.sink.split.i
 
@@ -9635,7 +9635,7 @@ define dso_local void @_ZN5clang21EmitSmeBuiltinZAStateERN4llvm12RecordKeeperERN
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %108, ptr noundef nonnull align 1 dereferenceable(1) %16) #21
   %109 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #21
   %110 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %110, ptr noundef nonnull @.str.308, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.308, i64 8)) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %110, ptr noundef nonnull @.str.308, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.308, i64 8)) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef 8) #21
   br label %.sink.split132.i
 
@@ -9667,7 +9667,7 @@ define dso_local void @_ZN5clang21EmitSmeBuiltinZAStateERN4llvm12RecordKeeperERN
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %126, ptr noundef nonnull align 1 dereferenceable(1) %18) #21
   %127 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #21
   %128 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %128, ptr noundef nonnull @.str.310, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.310, i64 9)) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %128, ptr noundef nonnull @.str.310, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.310, i64 9)) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 9) #21
   br label %.sink.split132.i
 
@@ -9699,7 +9699,7 @@ define dso_local void @_ZN5clang21EmitSmeBuiltinZAStateERN4llvm12RecordKeeperERN
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef %144, ptr noundef nonnull align 1 dereferenceable(1) %20) #21
   %145 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #21
   %146 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %146, ptr noundef nonnull @.str.312, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.312, i64 11)) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %146, ptr noundef nonnull @.str.312, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.312, i64 11)) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 11) #21
   br label %.sink.split132.i
 
@@ -10164,7 +10164,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_17SVEType3strB5cxx11Ev(ptr dead_on
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #21
   %17 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %7) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.158, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.158, i64 14))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.158, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.158, i64 14))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #21
   br label %138
 
@@ -10178,7 +10178,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_17SVEType3strB5cxx11Ev(ptr dead_on
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #21
   %22 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %22, ptr noundef nonnull align 1 dereferenceable(1) %8) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.159, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.159, i64 12))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.159, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.159, i64 12))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #21
   br label %138
 
@@ -16123,7 +16123,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_17SVEType11builtin_strB5cxx11Ev(pt
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #21
   %27 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %27, ptr noundef nonnull align 1 dereferenceable(1) %10) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.228, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.228, i64 1))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.228, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.228, i64 1))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #21
   br label %149
 
@@ -16150,7 +16150,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_17SVEType11builtin_strB5cxx11Ev(pt
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #21
   %41 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %41, ptr noundef nonnull align 1 dereferenceable(1) %11) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.18, i64 1))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.18, i64 1))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #21
   br label %149
 
@@ -16164,7 +16164,7 @@ _ZNK12_GLOBAL__N_17SVEType17isScalarPredicateEv.exit.thread: ; preds = %28, %33
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #21
   %45 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %45, ptr noundef nonnull align 1 dereferenceable(1) %12) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.229, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.229, i64 2))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.229, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.229, i64 2))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #21
   br label %149
 
@@ -20783,28 +20783,28 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 define internal void @_GLOBAL__sub_I_SveEmitter.cpp() #15 section ".text.startup" {
   tail call fastcc void @_ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj(ptr noundef nonnull align 4 dereferenceable(28) @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, ptr nonnull @.str, i64 1, i8 noundef signext 100, i32 noundef 1)
   store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 32), align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj(ptr noundef nonnull align 4 dereferenceable(28) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 40), ptr nonnull @.str.2, i64 2, i8 noundef signext 100, i32 noundef 1)
-  store ptr @.str.3, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 72), align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj(ptr noundef nonnull align 4 dereferenceable(28) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 80), ptr nonnull @.str.4, i64 1, i8 noundef signext 100, i32 noundef 1)
-  store ptr @.str.5, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 112), align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj(ptr noundef nonnull align 4 dereferenceable(28) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 120), ptr nonnull @.str.6, i64 2, i8 noundef signext 100, i32 noundef 1)
-  store ptr @.str.7, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 152), align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj(ptr noundef nonnull align 4 dereferenceable(28) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 160), ptr nonnull @.str.8, i64 1, i8 noundef signext 100, i32 noundef 1)
-  store ptr @.str.9, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 192), align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj(ptr noundef nonnull align 4 dereferenceable(28) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 200), ptr nonnull @.str.10, i64 2, i8 noundef signext 100, i32 noundef 1)
-  store ptr @.str.11, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 232), align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj(ptr noundef nonnull align 4 dereferenceable(28) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 240), ptr nonnull @.str.12, i64 1, i8 noundef signext 100, i32 noundef 1)
-  store ptr @.str.13, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 272), align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj(ptr noundef nonnull align 4 dereferenceable(28) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 280), ptr nonnull @.str.14, i64 2, i8 noundef signext 100, i32 noundef 1)
-  store ptr @.str.15, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 312), align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj(ptr noundef nonnull align 4 dereferenceable(28) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 320), ptr nonnull @.str.16, i64 1, i8 noundef signext 100, i32 noundef 1)
-  store ptr @.str.17, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 352), align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj(ptr noundef nonnull align 4 dereferenceable(28) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 360), ptr nonnull @.str.18, i64 1, i8 noundef signext 100, i32 noundef 1)
-  store ptr @.str.19, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 392), align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj(ptr noundef nonnull align 4 dereferenceable(28) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 400), ptr nonnull @.str.20, i64 1, i8 noundef signext 100, i32 noundef 1)
-  store ptr @.str.21, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 432), align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj(ptr noundef nonnull align 4 dereferenceable(28) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 440), ptr nonnull @.str.22, i64 1, i8 noundef signext 100, i32 noundef 1)
-  store ptr @.str.23, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 472), align 8
+  tail call fastcc void @_ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj(ptr noundef nonnull align 4 dereferenceable(28) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 40), ptr nonnull @.str.2, i64 2, i8 noundef signext 100, i32 noundef 1)
+  store ptr @.str.3, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 72), align 8
+  tail call fastcc void @_ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj(ptr noundef nonnull align 4 dereferenceable(28) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 80), ptr nonnull @.str.4, i64 1, i8 noundef signext 100, i32 noundef 1)
+  store ptr @.str.5, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 112), align 8
+  tail call fastcc void @_ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj(ptr noundef nonnull align 4 dereferenceable(28) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 120), ptr nonnull @.str.6, i64 2, i8 noundef signext 100, i32 noundef 1)
+  store ptr @.str.7, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 152), align 8
+  tail call fastcc void @_ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj(ptr noundef nonnull align 4 dereferenceable(28) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 160), ptr nonnull @.str.8, i64 1, i8 noundef signext 100, i32 noundef 1)
+  store ptr @.str.9, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 192), align 8
+  tail call fastcc void @_ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj(ptr noundef nonnull align 4 dereferenceable(28) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 200), ptr nonnull @.str.10, i64 2, i8 noundef signext 100, i32 noundef 1)
+  store ptr @.str.11, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 232), align 8
+  tail call fastcc void @_ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj(ptr noundef nonnull align 4 dereferenceable(28) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 240), ptr nonnull @.str.12, i64 1, i8 noundef signext 100, i32 noundef 1)
+  store ptr @.str.13, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 272), align 8
+  tail call fastcc void @_ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj(ptr noundef nonnull align 4 dereferenceable(28) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 280), ptr nonnull @.str.14, i64 2, i8 noundef signext 100, i32 noundef 1)
+  store ptr @.str.15, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 312), align 8
+  tail call fastcc void @_ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj(ptr noundef nonnull align 4 dereferenceable(28) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 320), ptr nonnull @.str.16, i64 1, i8 noundef signext 100, i32 noundef 1)
+  store ptr @.str.17, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 352), align 8
+  tail call fastcc void @_ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj(ptr noundef nonnull align 4 dereferenceable(28) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 360), ptr nonnull @.str.18, i64 1, i8 noundef signext 100, i32 noundef 1)
+  store ptr @.str.19, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 392), align 8
+  tail call fastcc void @_ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj(ptr noundef nonnull align 4 dereferenceable(28) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 400), ptr nonnull @.str.20, i64 1, i8 noundef signext 100, i32 noundef 1)
+  store ptr @.str.21, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 432), align 8
+  tail call fastcc void @_ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj(ptr noundef nonnull align 4 dereferenceable(28) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 440), ptr nonnull @.str.22, i64 1, i8 noundef signext 100, i32 noundef 1)
+  store ptr @.str.23, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110SVEEmitter12ReinterpretsE, i64 472), align 8
   ret void
 }
 

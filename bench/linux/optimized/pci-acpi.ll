@@ -1981,7 +1981,7 @@ define dso_local ptr @pci_host_bridge_acpi_msi_domain(ptr noundef %0) local_unna
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @acpi_pci_init() #7 section ".init.text" align 16 {
-  %1 = load i16, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 109), align 1
+  %1 = load i16, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 109), align 1
   %2 = and i16 %1, 8
   %3 = icmp eq i16 %2, 0
   br i1 %3, label %6, label %4
@@ -1989,7 +1989,7 @@ define internal noundef i32 @acpi_pci_init() #7 section ".init.text" align 16 {
 4:                                                ; preds = %0
   %5 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17) #10
   tail call void @pci_no_msi() #9
-  %.pre = load i16, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 109), align 1
+  %.pre = load i16, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 109), align 1
   br label %6
 
 6:                                                ; preds = %4, %0

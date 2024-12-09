@@ -24,7 +24,7 @@ define hidden void @_ZN9VMRegImpl11set_regNameEv() local_unnamed_addr #0 align 2
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
   %storemerge45 = phi i32 [ 0, %0 ], [ %spec.select.i.i, %1 ]
   %2 = sext i32 %storemerge45 to i64
-  %3 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %2
+  %3 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %2
   %4 = tail call noundef ptr @_ZNK8Register12RegisterImpl4nameEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #2
   %5 = or disjoint i64 %indvars.iv, 1
   %6 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN9VMRegImpl7regNameE, i64 0, i64 %indvars.iv
@@ -35,7 +35,7 @@ define hidden void @_ZN9VMRegImpl11set_regNameEv() local_unnamed_addr #0 align 2
   store ptr %7, ptr %8, align 8
   %9 = ptrtoint ptr %3 to i64
   %10 = trunc i64 %9 to i32
-  %11 = sub i32 %10, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %11 = sub i32 %10, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %12 = add nsw i32 %11, 1
   %or.cond.i.i = icmp ult i32 %12, 32
   %spec.select.i.i = select i1 %or.cond.i.i, i32 %12, i32 -1
@@ -46,7 +46,7 @@ define hidden void @_ZN9VMRegImpl11set_regNameEv() local_unnamed_addr #0 align 2
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %.lr.ph ], [ 64, %1 ]
   %storemerge2247 = phi i32 [ %spec.select.i.i26, %.lr.ph ], [ 0, %1 ]
   %14 = sext i32 %storemerge2247 to i64
-  %15 = getelementptr inbounds %"class.FloatRegister::FloatRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_FloatRegisterImpls, i64 1), i64 %14
+  %15 = getelementptr inbounds %"class.FloatRegister::FloatRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_FloatRegisterImpls, i64 1), i64 %14
   %16 = tail call noundef ptr @_ZNK13FloatRegister17FloatRegisterImpl4nameEv(ptr noundef nonnull align 1 dereferenceable(1) %15) #2
   %17 = or disjoint i64 %indvars.iv64, 1
   %18 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN9VMRegImpl7regNameE, i64 0, i64 %indvars.iv64
@@ -57,7 +57,7 @@ define hidden void @_ZN9VMRegImpl11set_regNameEv() local_unnamed_addr #0 align 2
   store ptr %19, ptr %20, align 8
   %21 = ptrtoint ptr %15 to i64
   %22 = trunc i64 %21 to i32
-  %23 = sub i32 %22, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_FloatRegisterImpls, i64 1) to i32)
+  %23 = sub i32 %22, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_FloatRegisterImpls, i64 1) to i32)
   %24 = add nsw i32 %23, 1
   %or.cond.i.i25 = icmp ult i32 %24, 8
   %spec.select.i.i26 = select i1 %or.cond.i.i25, i32 %24, i32 -1
@@ -68,7 +68,7 @@ define hidden void @_ZN9VMRegImpl11set_regNameEv() local_unnamed_addr #0 align 2
   %.252 = phi i32 [ %29, %34 ], [ 80, %.lr.ph ]
   %storemerge2351 = phi i32 [ %spec.select.i.i28, %34 ], [ 0, %.lr.ph ]
   %26 = sext i32 %storemerge2351 to i64
-  %27 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %26
+  %27 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %26
   %28 = sext i32 %.252 to i64
   %29 = add i32 %.252, 16
   br label %31
@@ -90,7 +90,7 @@ define hidden void @_ZN9VMRegImpl11set_regNameEv() local_unnamed_addr #0 align 2
 34:                                               ; preds = %31
   %35 = ptrtoint ptr %27 to i64
   %36 = trunc i64 %35 to i32
-  %37 = sub i32 %36, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
+  %37 = sub i32 %36, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %38 = add nsw i32 %37, 1
   %or.cond.i.i27 = icmp ult i32 %38, 32
   %spec.select.i.i28 = select i1 %or.cond.i.i27, i32 %38, i32 -1
@@ -101,7 +101,7 @@ define hidden void @_ZN9VMRegImpl11set_regNameEv() local_unnamed_addr #0 align 2
   %.457 = phi i32 [ %49, %48 ], [ %29, %.preheader41 ]
   %storemerge2456 = phi i32 [ %spec.select.i.i30, %48 ], [ 0, %.preheader41 ]
   %40 = sext i32 %storemerge2456 to i64
-  %41 = getelementptr inbounds %"class.KRegister::KRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_KRegisterImpls, i64 1), i64 %40
+  %41 = getelementptr inbounds %"class.KRegister::KRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_KRegisterImpls, i64 1), i64 %40
   %42 = sext i32 %.457 to i64
   br label %44
 
@@ -111,7 +111,7 @@ define hidden void @_ZN9VMRegImpl11set_regNameEv() local_unnamed_addr #0 align 2
   br i1 %43, label %.lr.ph59, label %._crit_edge
 
 .lr.ph59:                                         ; preds = %.preheader
-  store ptr @.str, ptr getelementptr inbounds (i8, ptr @_ZN9VMRegImpl7regNameE, i64 4864), align 8
+  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @_ZN9VMRegImpl7regNameE, i64 4864), align 8
   br label %._crit_edge
 
 44:                                               ; preds = %.preheader40, %44
@@ -127,7 +127,7 @@ define hidden void @_ZN9VMRegImpl11set_regNameEv() local_unnamed_addr #0 align 2
   %49 = trunc nsw i64 %indvars.iv.next71 to i32
   %50 = ptrtoint ptr %41 to i64
   %51 = trunc i64 %50 to i32
-  %52 = sub i32 %51, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_KRegisterImpls, i64 1) to i32)
+  %52 = sub i32 %51, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_KRegisterImpls, i64 1) to i32)
   %53 = add nsw i32 %52, 1
   %or.cond.i.i29 = icmp ult i32 %53, 8
   %spec.select.i.i30 = select i1 %or.cond.i.i29, i32 %53, i32 -1

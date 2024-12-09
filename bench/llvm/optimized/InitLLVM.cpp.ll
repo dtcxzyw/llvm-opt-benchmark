@@ -48,7 +48,7 @@ _ZNSt8optionalIN4llvm23PrettyStackTraceProgramEE7emplaceIJRiRPPKcEEENSt9enable_i
   %16 = load i32, ptr %1, align 4
   %17 = load ptr, ptr %2, align 8
   tail call void @_ZN4llvm21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #7
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm23PrettyStackTraceProgramE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm23PrettyStackTraceProgramE, i64 16), ptr %11, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %16, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 136

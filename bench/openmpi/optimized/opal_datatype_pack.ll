@@ -142,7 +142,7 @@ define range(i32 0, 2) i32 @opal_pack_homogeneous_contig_with_gaps(ptr noundef %
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %17 = load i16, ptr %16, align 4
   %18 = sext i16 %17 to i32
-  %19 = load i16, ptr getelementptr inbounds (i8, ptr @opal_datatype_uint1, i64 18), align 2
+  %19 = load i16, ptr getelementptr inbounds nuw (i8, ptr @opal_datatype_uint1, i64 18), align 2
   %20 = zext i16 %19 to i32
   %.not = icmp eq i32 %18, %20
   br i1 %.not, label %30, label %21

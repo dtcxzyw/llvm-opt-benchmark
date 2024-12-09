@@ -52,22 +52,22 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @prte_state_base_register(i32 %0) #0 {
-  store i8 0, ptr getelementptr inbounds (i8, ptr @prte_state_base, i64 5), align 1
-  %2 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_state_base, i64 5)) #9
-  store i8 0, ptr getelementptr inbounds (i8, ptr @prte_state_base, i64 6), align 2
-  %3 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_state_base, i64 6)) #9
-  store i32 0, ptr getelementptr inbounds (i8, ptr @prte_state_base, i64 8), align 4
-  %4 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_state_base, i64 8)) #9
-  store i8 0, ptr getelementptr inbounds (i8, ptr @prte_state_base, i64 12), align 4
-  %5 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_state_base, i64 12)) #9
-  store i8 1, ptr getelementptr inbounds (i8, ptr @prte_state_base, i64 13), align 1
-  %6 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_state_base, i64 13)) #9
-  store i8 0, ptr getelementptr inbounds (i8, ptr @prte_state_base, i64 14), align 2
-  %7 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_state_base, i64 14)) #9
-  store i8 0, ptr getelementptr inbounds (i8, ptr @prte_state_base, i64 15), align 1
-  %8 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_state_base, i64 15)) #9
-  store i8 0, ptr getelementptr inbounds (i8, ptr @prte_state_base, i64 16), align 4
-  %9 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_state_base, i64 16)) #9
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base, i64 5), align 1
+  %2 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_state_base, i64 5)) #9
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base, i64 6), align 2
+  %3 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_state_base, i64 6)) #9
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base, i64 8), align 4
+  %4 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_state_base, i64 8)) #9
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base, i64 12), align 4
+  %5 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_state_base, i64 12)) #9
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base, i64 13), align 1
+  %6 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_state_base, i64 13)) #9
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base, i64 14), align 2
+  %7 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_state_base, i64 14)) #9
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base, i64 15), align 1
+  %8 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_state_base, i64 15)) #9
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base, i64 16), align 4
+  %9 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef 7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_state_base, i64 16)) #9
   ret i32 0
 }
 
@@ -79,7 +79,7 @@ define internal i32 @prte_state_base_open(i32 noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @prte_state_base_close() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_state, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_state, i64 8), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %2
 

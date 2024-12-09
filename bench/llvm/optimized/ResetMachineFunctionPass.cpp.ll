@@ -101,7 +101,7 @@ define dso_local noalias noundef nonnull ptr @_ZN4llvm30createResetMachineFuncti
   store i32 2, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_120ResetMachineFunctionE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_120ResetMachineFunctionE, i64 16), ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i8 %4, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 57
@@ -123,7 +123,7 @@ define internal noalias noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBA
   store i32 2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_120ResetMachineFunctionE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_120ResetMachineFunctionE, i64 16), ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i8 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 57
@@ -253,7 +253,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120ResetMachineFunction20run
   store i32 7, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i8 1, ptr %27, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm26DiagnosticInfoISelFallbackE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm26DiagnosticInfoISelFallbackE, i64 16), ptr %3, align 8
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %25, ptr %28, align 8
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136) %25) #10

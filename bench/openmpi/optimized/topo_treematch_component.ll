@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @mca_topo_treematch_component_register() #0 {
-  %1 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_topo_treematch_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_topo_treematch_component, i64 280)) #4
+  %1 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_topo_treematch_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_topo_treematch_component, i64 280)) #4
   ret i32 0
 }
 
@@ -34,10 +34,10 @@ define internal noundef ptr @mca_topo_treematch_query(ptr nocapture readnone %0,
   br i1 %.not, label %5, label %opal_obj_new.exit.thread
 
 5:                                                ; preds = %4
-  %6 = load i64, ptr getelementptr inbounds (i8, ptr @mca_topo_treematch_module_t_class, i64 56), align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_topo_treematch_module_t_class, i64 56), align 8
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #5
   %8 = load i32, ptr @opal_class_init_epoch, align 4
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @mca_topo_treematch_module_t_class, i64 32), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_topo_treematch_module_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %8, %9
   br i1 %.not.i, label %11, label %10
 

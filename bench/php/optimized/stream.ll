@@ -811,7 +811,7 @@ define internal ptr @phar_wrapper_open_url(ptr noundef %0, ptr noundef %1, ptr n
   br label %phar_get_pharfp.exit
 
 211:                                              ; preds = %207
-  %212 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 112), align 8
+  %212 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 112), align 8
   %213 = getelementptr inbounds nuw i8, ptr %190, i64 320
   %214 = load i32, ptr %213, align 8
   %215 = zext i32 %214 to i64
@@ -850,7 +850,7 @@ phar_get_pharfp.exit:                             ; preds = %209, %211
   br label %phar_get_pharfp.exit209
 
 231:                                              ; preds = %224
-  %232 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 112), align 8
+  %232 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 112), align 8
   %233 = getelementptr inbounds nuw i8, ptr %225, i64 320
   %234 = load i32, ptr %233, align 8
   %235 = zext i32 %234 to i64
@@ -986,7 +986,7 @@ phar_get_pharfp.exit209:                          ; preds = %229, %231
   br label %348
 
 302:                                              ; preds = %293, %286
-  %303 = load i32, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 420), align 4
+  %303 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 420), align 4
   %.not185 = icmp ne i32 %303, 0
   %or.cond204 = or i1 %.not176, %.not185
   br i1 %or.cond204, label %334, label %304
@@ -997,7 +997,7 @@ phar_get_pharfp.exit209:                          ; preds = %229, %231
   %307 = load ptr, ptr %306, align 8
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 56
   %309 = load ptr, ptr %308, align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 420), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 420), align 4
   %310 = load ptr, ptr %305, align 8
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 324
   %312 = load i16, ptr %311, align 4
@@ -1020,7 +1020,7 @@ phar_get_pharfp.exit209:                          ; preds = %229, %231
   br i1 %.not189, label %323, label %324
 
 323:                                              ; preds = %319
-  store i32 0, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 420), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 420), align 4
   br label %334
 
 324:                                              ; preds = %304, %319, %314
@@ -1033,15 +1033,15 @@ phar_get_pharfp.exit209:                          ; preds = %229, %231
   %328 = ptrtoint ptr %309 to i64
   %329 = sub i64 %327, %328
   %330 = trunc i64 %329 to i32
-  store i32 %330, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 416), align 8
+  store i32 %330, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 416), align 8
   %331 = and i64 %329, 4294967295
   %332 = call noalias ptr @_estrndup(ptr noundef %309, i64 noundef %331) #14
-  store ptr %332, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 408), align 8
+  store ptr %332, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 408), align 8
   br label %334
 
 333:                                              ; preds = %324
-  store i32 0, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 416), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 408), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 416), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 408), align 8
   br label %334
 
 334:                                              ; preds = %323, %333, %326, %302
@@ -1448,9 +1448,9 @@ define internal range(i32 0, 2) i32 @phar_wrapper_unlink(ptr noundef %0, ptr nou
   %30 = load i64, ptr %29, align 8
   tail call void @phar_request_initialize() #14
   %31 = load ptr, ptr %13, align 8
-  %32 = tail call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @phar_globals, i64 56), ptr noundef %31) #14
+  %32 = tail call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phar_globals, i64 56), ptr noundef %31) #14
   %.not68 = icmp eq ptr %32, null
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 180), align 4
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 180), align 4
   %.not6976 = icmp eq i32 %33, 0
   br i1 %.not68, label %.thread, label %34
 
@@ -1598,7 +1598,7 @@ define internal range(i32 0, 2) i32 @phar_wrapper_rename(ptr noundef %0, ptr nou
   br label %26
 
 26:                                               ; preds = %23, %25, %16
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 180), align 4
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 180), align 4
   %.not524 = icmp eq i32 %27, 0
   br i1 %.not524, label %35, label %28
 
@@ -1653,7 +1653,7 @@ define internal range(i32 0, 2) i32 @phar_wrapper_rename(ptr noundef %0, ptr nou
   br label %50
 
 50:                                               ; preds = %49, %39
-  %51 = load i32, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 180), align 4
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 180), align 4
   %.not529 = icmp eq i32 %51, 0
   br i1 %.not529, label %59, label %52
 
@@ -2523,19 +2523,19 @@ define hidden noundef ptr @phar_parse_url(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %71, label %72, label %129
 
 72:                                               ; preds = %35, %68
-  %73 = load i32, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 212), align 4
+  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 212), align 4
   %.not231 = icmp eq i32 %73, 0
   br i1 %.not231, label %83, label %74
 
 74:                                               ; preds = %72
-  %75 = load i32, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 64), align 8
+  %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 64), align 8
   %76 = and i32 %75, 8
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %78, label %83
 
 78:                                               ; preds = %74
   %79 = load ptr, ptr %53, align 8
-  %80 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @phar_globals, i64 56), ptr noundef %79) #14
+  %80 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phar_globals, i64 56), ptr noundef %79) #14
   %.not232 = icmp eq ptr %80, null
   br i1 %.not232, label %83, label %81
 
@@ -2545,7 +2545,7 @@ define hidden noundef ptr @phar_parse_url(ptr noundef %0, ptr noundef %1, ptr no
 
 83:                                               ; preds = %81, %78, %74, %72
   %.0 = phi ptr [ null, %74 ], [ null, %72 ], [ %82, %81 ], [ null, %78 ]
-  %84 = load i32, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 180), align 4
+  %84 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 180), align 4
   %.not233 = icmp eq i32 %84, 0
   br i1 %.not233, label %94, label %85
 

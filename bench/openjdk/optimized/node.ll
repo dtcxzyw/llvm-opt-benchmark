@@ -54,7 +54,7 @@ $_ZN26GrowableArrayWithAllocatorIP18ParsePredicateNode13GrowableArrayIS1_EE9expa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 8)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV4Node, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV4Node, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = tail call noundef i32 @_ZN4Node4InitEi(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1)
   store i32 %4, ptr %3, align 8
@@ -199,7 +199,7 @@ _ZL15init_node_notesP7CompileiP10Node_Notes.exit: ; preds = %60, %_ZN7Compile17l
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV4Node, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV4Node, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = tail call noundef i32 @_ZN4Node4InitEi(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef 1)
   store i32 %4, ptr %3, align 8
@@ -294,7 +294,7 @@ _ZN4Node7add_outEPS_.exit:                        ; preds = %_ZN4Node8out_growEj
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV4Node, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV4Node, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = tail call noundef i32 @_ZN4Node4InitEi(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef 2)
   store i32 %5, ptr %4, align 8
@@ -475,7 +475,7 @@ _ZN4Node7add_outEPS_.exit15:                      ; preds = %_ZN4Node8out_growEj
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV4Node, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV4Node, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = tail call noundef i32 @_ZN4Node4InitEi(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef 3)
   store i32 %6, ptr %5, align 8
@@ -742,7 +742,7 @@ _ZN4Node7add_outEPS_.exit27:                      ; preds = %_ZN4Node8out_growEj
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4NodeC2EPS_S0_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV4Node, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV4Node, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = tail call noundef i32 @_ZN4Node4InitEi(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef 4)
   store i32 %7, ptr %6, align 8
@@ -1095,7 +1095,7 @@ _ZN4Node7add_outEPS_.exit39:                      ; preds = %_ZN4Node8out_growEj
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4NodeC2EPS_S0_S0_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV4Node, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV4Node, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = tail call noundef i32 @_ZN4Node4InitEi(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef 5)
   store i32 %8, ptr %7, align 8
@@ -1534,7 +1534,7 @@ _ZN4Node7add_outEPS_.exit51:                      ; preds = %_ZN4Node8out_growEj
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4NodeC2EPS_S0_S0_S0_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV4Node, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV4Node, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = tail call noundef i32 @_ZN4Node4InitEi(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef 6)
   store i32 %9, ptr %8, align 8
@@ -2059,7 +2059,7 @@ _ZN4Node7add_outEPS_.exit63:                      ; preds = %_ZN4Node8out_growEj
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4NodeC2EPS_S0_S0_S0_S0_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV4Node, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV4Node, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = tail call noundef i32 @_ZN4Node4InitEi(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef 7)
   store i32 %10, ptr %9, align 8

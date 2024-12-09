@@ -1525,7 +1525,7 @@ define dso_local void @_ZN3tev11ImageViewerC2ERKNSt3__110shared_ptrINS_22Backgro
 
 152:                                              ; preds = %5
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #41
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tev11ImageViewerE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tev11ImageViewerE, i64 16), ptr %0, align 16
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 384
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(136) %153, i8 0, i64 136, i1 false)
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 520
@@ -1786,7 +1786,7 @@ _ZNSt3__18functionIFvbEEC2ERKS2_.exit.i.i:        ; preds = %_ZNSt3__112basic_st
   %251 = load ptr, ptr %250, align 16
   %252 = ptrtoint ptr %0 to i64
   %253 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %48, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %48, align 16
   %254 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i64 %252, ptr %254, align 8
   store ptr %48, ptr %253, align 16
@@ -1794,7 +1794,7 @@ _ZNSt3__18functionIFvbEEC2ERKS2_.exit.i.i:        ; preds = %_ZNSt3__112basic_st
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %36)
   %256 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store ptr %36, ptr %256, align 16
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %36, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %36, align 16
   %257 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 %252, ptr %257, align 8
   call void @_ZNSt3__110__function12__value_funcIFvbEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(48) %36, ptr noundef nonnull align 16 dereferenceable(48) %255) #41
@@ -2067,7 +2067,7 @@ _ZNSt3__18functionIFvfEEC2ERKS2_.exit.i.i:        ; preds = %339
   %342 = getelementptr inbounds nuw i8, ptr %338, i64 244
   store float 5.000000e+00, ptr %342, align 4
   %343 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %55, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %55, align 16
   %344 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i64 %252, ptr %344, align 8
   store ptr %55, ptr %343, align 16
@@ -2075,7 +2075,7 @@ _ZNSt3__18functionIFvfEEC2ERKS2_.exit.i.i:        ; preds = %339
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %35)
   %346 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store ptr %35, ptr %346, align 16
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %35, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %35, align 16
   %347 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 %252, ptr %347, align 8
   call void @_ZNSt3__110__function12__value_funcIFvfEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(48) %35, ptr noundef nonnull align 16 dereferenceable(48) %345) #41
@@ -2143,7 +2143,7 @@ _ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS
 369:                                              ; preds = %367
   %370 = getelementptr inbounds nuw i8, ptr %368, i64 8
   store i32 0, ptr %370, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui10GridLayoutE, i64 16), ptr %368, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui10GridLayoutE, i64 16), ptr %368, align 8
   %371 = getelementptr inbounds nuw i8, ptr %368, i64 12
   store i32 1, ptr %371, align 4
   %scevgep.i = getelementptr inbounds nuw i8, ptr %368, i64 24
@@ -2225,7 +2225,7 @@ _ZNSt3__18functionIFvfEEC2ERKS2_.exit.i.i431:     ; preds = %390
   %393 = getelementptr inbounds nuw i8, ptr %389, i64 244
   store float 1.000000e+00, ptr %393, align 4
   %394 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %59, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %59, align 16
   %395 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 %252, ptr %395, align 8
   store ptr %59, ptr %394, align 16
@@ -2233,7 +2233,7 @@ _ZNSt3__18functionIFvfEEC2ERKS2_.exit.i.i431:     ; preds = %390
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %34)
   %397 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store ptr %34, ptr %397, align 16
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %34, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %34, align 16
   %398 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %252, ptr %398, align 8
   call void @_ZNSt3__110__function12__value_funcIFvfEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(48) %34, ptr noundef nonnull align 16 dereferenceable(48) %396) #41
@@ -2311,7 +2311,7 @@ _ZNSt3__18functionIFvfEEC2ERKS2_.exit.i.i448:     ; preds = %418
   %421 = getelementptr inbounds nuw i8, ptr %417, i64 244
   store float 5.000000e+00, ptr %421, align 4
   %422 = getelementptr inbounds nuw i8, ptr %62, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %62, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %62, align 16
   %423 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i64 %252, ptr %423, align 8
   store ptr %62, ptr %422, align 16
@@ -2319,7 +2319,7 @@ _ZNSt3__18functionIFvfEEC2ERKS2_.exit.i.i448:     ; preds = %418
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %33)
   %425 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr %33, ptr %425, align 16
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %33, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %33, align 16
   %426 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i64 %252, ptr %426, align 8
   call void @_ZNSt3__110__function12__value_funcIFvfEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(48) %33, ptr noundef nonnull align 16 dereferenceable(48) %424) #41
@@ -2391,7 +2391,7 @@ _ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS
   %451 = select i1 %450, i32 4, i32 3
   %452 = getelementptr inbounds nuw i8, ptr %447, i64 8
   store i32 0, ptr %452, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui10GridLayoutE, i64 16), ptr %447, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui10GridLayoutE, i64 16), ptr %447, align 8
   %453 = getelementptr inbounds nuw i8, ptr %447, i64 12
   store i32 0, ptr %453, align 4
   %scevgep.i463 = getelementptr inbounds nuw i8, ptr %447, i64 24
@@ -2443,7 +2443,7 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit469: ; preds = %448, %463
 
 467:                                              ; preds = %_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit469
   %468 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_5NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %66, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_5NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %66, align 16
   %469 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i64 %252, ptr %469, align 8
   store ptr %66, ptr %468, align 16
@@ -2553,7 +2553,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit:                ; preds = %505, %.sink.split.i
 
 509:                                              ; preds = %_ZNSt3__18functionIFvvEED2Ev.exit
   %510 = getelementptr inbounds nuw i8, ptr %69, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_6NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %69, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_6NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %69, align 16
   %511 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i64 %252, ptr %511, align 8
   store ptr %69, ptr %510, align 16
@@ -2609,7 +2609,7 @@ _ZNSt3__18functionIFvbEEC2ERKS2_.exit.i.i490:     ; preds = %_ZNSt3__112basic_st
   store i32 15, ptr %527, align 8
   %528 = load ptr, ptr %525, align 16
   %529 = getelementptr inbounds nuw i8, ptr %72, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %72, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %72, align 16
   %530 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i64 %252, ptr %530, align 8
   store ptr %72, ptr %529, align 16
@@ -2617,7 +2617,7 @@ _ZNSt3__18functionIFvbEEC2ERKS2_.exit.i.i490:     ; preds = %_ZNSt3__112basic_st
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %32)
   %532 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr %32, ptr %532, align 16
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %32, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %32, align 16
   %533 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i64 %252, ptr %533, align 8
   call void @_ZNSt3__110__function12__value_funcIFvbEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(48) %32, ptr noundef nonnull align 16 dereferenceable(48) %531) #41
@@ -3152,7 +3152,7 @@ _ZNSt3__18functionIFvfEEC2ERKS2_.exit.i.i554:     ; preds = %700
   %702 = getelementptr inbounds nuw i8, ptr %699, i64 244
   store float 1.000000e+00, ptr %702, align 4
   %703 = getelementptr inbounds nuw i8, ptr %81, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %81, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %81, align 16
   %704 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i64 %252, ptr %704, align 8
   store ptr %81, ptr %703, align 16
@@ -3160,7 +3160,7 @@ _ZNSt3__18functionIFvfEEC2ERKS2_.exit.i.i554:     ; preds = %700
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %31)
   %706 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr %31, ptr %706, align 16
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %31, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %31, align 16
   %707 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %252, ptr %707, align 8
   call void @_ZNSt3__110__function12__value_funcIFvfEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(48) %31, ptr noundef nonnull align 16 dereferenceable(48) %705) #41
@@ -3202,7 +3202,7 @@ _ZNSt3__18functionIFvRKN7nanogui5ColorEEEC2ERKS6_.exit.i.i: ; preds = %.sink.spl
   %721 = getelementptr inbounds nuw i8, ptr %699, i64 132
   store float 0.000000e+00, ptr %721, align 4
   %722 = getelementptr inbounds nuw i8, ptr %82, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEEE", i64 16), ptr %82, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEEE", i64 16), ptr %82, align 16
   %723 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store ptr %699, ptr %723, align 8
   %.sroa.2.0..sroa_idx.i565 = getelementptr inbounds nuw i8, ptr %82, i64 16
@@ -3212,7 +3212,7 @@ _ZNSt3__18functionIFvRKN7nanogui5ColorEEEC2ERKS6_.exit.i.i: ; preds = %.sink.spl
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %30)
   %725 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr %30, ptr %725, align 16
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEEE", i64 16), ptr %30, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEEE", i64 16), ptr %30, align 16
   %726 = getelementptr inbounds nuw i8, ptr %30, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %726, ptr noundef nonnull readonly align 8 dereferenceable(16) %723, i64 16, i1 false)
   call void @_ZNSt3__110__function12__value_funcIFvRKN7nanogui5ColorEEE4swapB8ne190000ERS7_(ptr noundef nonnull align 16 dereferenceable(48) %30, ptr noundef nonnull align 16 dereferenceable(48) %724) #41
@@ -3268,7 +3268,7 @@ _ZNSt3__18functionIFvRKN7nanogui5ColorEEED2Ev.exit: ; preds = %736, %.sink.split
 746:                                              ; preds = %743
   %747 = getelementptr inbounds nuw i8, ptr %745, i64 8
   store i32 0, ptr %747, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui10GridLayoutE, i64 16), ptr %745, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui10GridLayoutE, i64 16), ptr %745, align 8
   %748 = getelementptr inbounds nuw i8, ptr %745, i64 12
   store i32 0, ptr %748, align 4
   %scevgep.i574 = getelementptr inbounds nuw i8, ptr %745, i64 24
@@ -3320,7 +3320,7 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit580: ; preds = %746, %758
 
 762:                                              ; preds = %_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit580
   %763 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_11NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %84, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_11NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %84, align 16
   %764 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store i64 %252, ptr %764, align 8
   store ptr %84, ptr %763, align 16
@@ -3351,7 +3351,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit586:             ; preds = %768, %.sink.split.i
 
 772:                                              ; preds = %_ZNSt3__18functionIFvvEED2Ev.exit586
   %773 = getelementptr inbounds nuw i8, ptr %86, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_12NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %86, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_12NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %86, align 16
   %774 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store i64 %252, ptr %774, align 8
   store ptr %86, ptr %773, align 16
@@ -3382,7 +3382,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit592:             ; preds = %778, %.sink.split.i
 
 782:                                              ; preds = %_ZNSt3__18functionIFvvEED2Ev.exit592
   %783 = getelementptr inbounds nuw i8, ptr %88, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_13NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %88, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_13NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %88, align 16
   %784 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i64 %252, ptr %784, align 8
   store ptr %88, ptr %783, align 16
@@ -3413,7 +3413,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit598:             ; preds = %788, %.sink.split.i
 
 792:                                              ; preds = %_ZNSt3__18functionIFvvEED2Ev.exit598
   %793 = getelementptr inbounds nuw i8, ptr %90, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_14NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %90, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_14NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %90, align 16
   %794 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store i64 %252, ptr %794, align 8
   store ptr %90, ptr %793, align 16
@@ -3530,7 +3530,7 @@ _ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS
 847:                                              ; preds = %844
   %848 = getelementptr inbounds nuw i8, ptr %846, i64 8
   store i32 0, ptr %848, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui10GridLayoutE, i64 16), ptr %846, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui10GridLayoutE, i64 16), ptr %846, align 8
   %849 = getelementptr inbounds nuw i8, ptr %846, i64 12
   store i32 0, ptr %849, align 4
   %scevgep.i610 = getelementptr inbounds nuw i8, ptr %846, i64 24
@@ -3582,7 +3582,7 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit616: ; preds = %847, %859
 
 863:                                              ; preds = %_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit616
   %864 = getelementptr inbounds nuw i8, ptr %93, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_16NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %93, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_16NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %93, align 16
   %865 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i64 %252, ptr %865, align 8
   store ptr %93, ptr %864, align 16
@@ -3613,7 +3613,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit622:             ; preds = %869, %.sink.split.i
 
 873:                                              ; preds = %_ZNSt3__18functionIFvvEED2Ev.exit622
   %874 = getelementptr inbounds nuw i8, ptr %95, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_17NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %95, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_17NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %95, align 16
   %875 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i64 %252, ptr %875, align 8
   store ptr %95, ptr %874, align 16
@@ -3644,7 +3644,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit628:             ; preds = %879, %.sink.split.i
 
 883:                                              ; preds = %_ZNSt3__18functionIFvvEED2Ev.exit628
   %884 = getelementptr inbounds nuw i8, ptr %97, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_18NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %97, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_18NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %97, align 16
   %885 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i64 %252, ptr %885, align 8
   store ptr %97, ptr %884, align 16
@@ -3675,7 +3675,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit634:             ; preds = %889, %.sink.split.i
 
 893:                                              ; preds = %_ZNSt3__18functionIFvvEED2Ev.exit634
   %894 = getelementptr inbounds nuw i8, ptr %99, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_19NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %99, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_19NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %99, align 16
   %895 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store i64 %252, ptr %895, align 8
   store ptr %99, ptr %894, align 16
@@ -3706,7 +3706,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit640:             ; preds = %899, %.sink.split.i
 
 903:                                              ; preds = %_ZNSt3__18functionIFvvEED2Ev.exit640
   %904 = getelementptr inbounds nuw i8, ptr %101, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_20NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %101, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_20NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %101, align 16
   %905 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store i64 %252, ptr %905, align 8
   store ptr %101, ptr %904, align 16
@@ -3943,7 +3943,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 988:                                              ; preds = %986
   %989 = getelementptr inbounds nuw i8, ptr %987, i64 8
   store i32 0, ptr %989, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui10GridLayoutE, i64 16), ptr %987, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui10GridLayoutE, i64 16), ptr %987, align 8
   %990 = getelementptr inbounds nuw i8, ptr %987, i64 12
   store i32 0, ptr %990, align 4
   %scevgep.i674 = getelementptr inbounds nuw i8, ptr %987, i64 24
@@ -4015,7 +4015,7 @@ _ZNSt3__18functionIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE
   store i32 0, ptr %1010, align 8
   %1011 = load ptr, ptr %1007, align 8
   %1012 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorIS9_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSA_IcEEEEEEE", i64 16), ptr %108, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorIS9_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSA_IcEEEEEEE", i64 16), ptr %108, align 16
   %1013 = getelementptr inbounds nuw i8, ptr %108, i64 8
   store i64 %252, ptr %1013, align 8
   store ptr %108, ptr %1012, align 16
@@ -4023,7 +4023,7 @@ _ZNSt3__18functionIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %28)
   %1015 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store ptr %28, ptr %1015, align 16
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorIS9_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSA_IcEEEEEEE", i64 16), ptr %28, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorIS9_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSA_IcEEEEEEE", i64 16), ptr %28, align 16
   %1016 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 %252, ptr %1016, align 8
   call void @_ZNSt3__110__function12__value_funcIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEE4swapB8ne190000ERSB_(ptr noundef nonnull align 16 dereferenceable(48) %28, ptr noundef nonnull align 16 dereferenceable(48) %1014) #41
@@ -4092,7 +4092,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %1046 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %1047 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i64 0, ptr %1047, align 8, !noalias !16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %27, align 8, !noalias !16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %27, align 8, !noalias !16
   %1048 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr %1048, ptr %1045, align 8, !noalias !16
   store i64 500, ptr %1046, align 8, !noalias !16
@@ -4124,13 +4124,13 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 1056:                                             ; preds = %1054
   %1057 = getelementptr inbounds nuw i8, ptr %.2199.i, i64 1
   %1058 = ptrtoint ptr %1057 to i64
-  %1059 = sub i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @.str.34, i64 241) to i64), %1058
+  %1059 = sub i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @.str.34, i64 241) to i64), %1058
   %1060 = call noundef ptr @memchr(ptr noundef nonnull %1057, i32 noundef 123, i64 noundef %1059) #46, !noalias !16
   %.not194.i = icmp eq ptr %1060, null
   br i1 %.not194.i, label %1061, label %1062
 
 1061:                                             ; preds = %1056
-  invoke void @_ZZN3fmt2v96detail19parse_format_stringILb0EcZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt3__111conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderENSC_20back_insert_iteratorINS4_ISG_EEEEE4typeESG_EEEENS1_10locale_refEE14format_handlerEEvNS8_IT0_EEOT1_EN6writerclEPKcSX_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %.2199.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.34, i64 241))
+  invoke void @_ZZN3fmt2v96detail19parse_format_stringILb0EcZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt3__111conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderENSC_20back_insert_iteratorINS4_ISG_EEEEE4typeESG_EEEENS1_10locale_refEE14format_handlerEEvNS8_IT0_EEOT1_EN6writerclEPKcSX_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %.2199.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.34, i64 241))
           to label %.loopexit1134 unwind label %.loopexit.split-lp1130
 
 1062:                                             ; preds = %1056, %1054
@@ -4139,11 +4139,11 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
           to label %.noexc1062 unwind label %.loopexit1129
 
 .noexc1062:                                       ; preds = %1062
-  %1063 = invoke noundef ptr @_ZN3fmt2v96detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt3__111conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderENSC_20back_insert_iteratorINS4_ISG_EEEEE4typeESG_EEEENS1_10locale_refEE14format_handlerEEPKS5_ST_ST_OT0_(ptr noundef nonnull %.0189.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.34, i64 241), ptr noundef nonnull align 8 dereferenceable(64) %11)
+  %1063 = invoke noundef ptr @_ZN3fmt2v96detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt3__111conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderENSC_20back_insert_iteratorINS4_ISG_EEEEE4typeESG_EEEENS1_10locale_refEE14format_handlerEEPKS5_ST_ST_OT0_(ptr noundef nonnull %.0189.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.34, i64 241), ptr noundef nonnull align 8 dereferenceable(64) %11)
           to label %.noexc1063 unwind label %.loopexit1129
 
 .noexc1063:                                       ; preds = %.noexc1062
-  %.not.i1060 = icmp eq ptr %1063, getelementptr inbounds (i8, ptr @.str.34, i64 241)
+  %.not.i1060 = icmp eq ptr %1063, getelementptr inbounds nuw (i8, ptr @.str.34, i64 241)
   br i1 %.not.i1060, label %.loopexit1134, label %1054, !llvm.loop !19
 
 .loopexit1134:                                    ; preds = %.noexc1063, %1061
@@ -4234,7 +4234,7 @@ _ZNSt3__18functionIFvbEEC2ERKS2_.exit.i.i703:     ; preds = %_ZNSt3__112basic_st
   store i32 15, ptr %1088, align 8
   %1089 = load ptr, ptr %1079, align 16
   %1090 = getelementptr inbounds nuw i8, ptr %113, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %113, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %113, align 16
   %1091 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store i64 %252, ptr %1091, align 8
   store ptr %113, ptr %1090, align 16
@@ -4242,7 +4242,7 @@ _ZNSt3__18functionIFvbEEC2ERKS2_.exit.i.i703:     ; preds = %_ZNSt3__112basic_st
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %25)
   %1093 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr %25, ptr %1093, align 16
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %25, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %25, align 16
   %1094 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 %252, ptr %1094, align 8
   call void @_ZNSt3__110__function12__value_funcIFvbEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(48) %25, ptr noundef nonnull align 16 dereferenceable(48) %1092) #41
@@ -4297,7 +4297,7 @@ _ZNSt3__18functionIFvbEED2Ev.exit713:             ; preds = %1104, %.sink.split.
 1113:                                             ; preds = %1111
   %1114 = getelementptr inbounds nuw i8, ptr %1112, i64 8
   store i32 0, ptr %1114, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui10GridLayoutE, i64 16), ptr %1112, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui10GridLayoutE, i64 16), ptr %1112, align 8
   %1115 = getelementptr inbounds nuw i8, ptr %1112, i64 12
   store i32 0, ptr %1115, align 4
   %scevgep.i714 = getelementptr inbounds nuw i8, ptr %1112, i64 24
@@ -4349,7 +4349,7 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit720: ; preds = %1113, %1125
 
 1129:                                             ; preds = %_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit720
   %1130 = getelementptr inbounds nuw i8, ptr %116, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_24NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %116, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_24NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %116, align 16
   store ptr %116, ptr %1130, align 16
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %117, ptr noundef nonnull @.str.36, i64 noundef 12)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit724 unwind label %1886
@@ -4385,7 +4385,7 @@ _ZNSt3__18functionIFvbEEC2ERKS2_.exit.i.i729:     ; preds = %.sink.split.i.i726,
   store i32 4, ptr %1141, align 4
   %1142 = load ptr, ptr %1133, align 8
   %1143 = getelementptr inbounds nuw i8, ptr %118, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %118, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %118, align 16
   %1144 = getelementptr inbounds nuw i8, ptr %118, i64 8
   store i64 %252, ptr %1144, align 8
   store ptr %118, ptr %1143, align 16
@@ -4393,7 +4393,7 @@ _ZNSt3__18functionIFvbEEC2ERKS2_.exit.i.i729:     ; preds = %.sink.split.i.i726,
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %24)
   %1146 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr %24, ptr %1146, align 16
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %24, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %24, align 16
   %1147 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %252, ptr %1147, align 8
   call void @_ZNSt3__110__function12__value_funcIFvbEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(48) %24, ptr noundef nonnull align 16 dereferenceable(48) %1145) #41
@@ -4437,7 +4437,7 @@ _ZNSt3__18functionIFvbEED2Ev.exit739:             ; preds = %1157, %.sink.split.
 
 1161:                                             ; preds = %_ZNSt3__18functionIFvbEED2Ev.exit739
   %1162 = getelementptr inbounds nuw i8, ptr %120, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_26NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %120, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_26NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %120, align 16
   %1163 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store i64 %252, ptr %1163, align 8
   store ptr %120, ptr %1162, align 16
@@ -4547,7 +4547,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit758:             ; preds = %1199, %.sink.split.
 
 1203:                                             ; preds = %_ZNSt3__18functionIFvvEED2Ev.exit758
   %1204 = getelementptr inbounds nuw i8, ptr %123, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_27NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %123, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_27NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %123, align 16
   %1205 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store i64 %252, ptr %1205, align 8
   store ptr %123, ptr %1204, align 16
@@ -4713,7 +4713,7 @@ _ZN7nanogui7TextBox9set_unitsERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_
 1266:                                             ; preds = %1264
   %1267 = getelementptr inbounds nuw i8, ptr %1265, i64 8
   store i32 0, ptr %1267, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui10GridLayoutE, i64 16), ptr %1265, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui10GridLayoutE, i64 16), ptr %1265, align 8
   %1268 = getelementptr inbounds nuw i8, ptr %1265, i64 12
   store i32 0, ptr %1268, align 4
   %scevgep.i784 = getelementptr inbounds nuw i8, ptr %1265, i64 24
@@ -4765,7 +4765,7 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit790: ; preds = %1266, %1278
 
 1282:                                             ; preds = %_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit790
   %1283 = getelementptr inbounds nuw i8, ptr %129, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_29NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %129, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_29NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %129, align 16
   %1284 = getelementptr inbounds nuw i8, ptr %129, i64 8
   store i64 %252, ptr %1284, align 8
   store ptr %129, ptr %1283, align 16
@@ -4787,7 +4787,7 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit790: ; preds = %1266, %1278
   %1296 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %1297 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i64 0, ptr %1297, align 8, !noalias !26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %23, align 8, !noalias !26
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %23, align 8, !noalias !26
   %1298 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr %1298, ptr %1295, align 8, !noalias !26
   store i64 500, ptr %1296, align 8, !noalias !26
@@ -4856,7 +4856,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit805:             ; preds = %1315, %.sink.split.
 
 1319:                                             ; preds = %_ZNSt3__18functionIFvvEED2Ev.exit805
   %1320 = getelementptr inbounds nuw i8, ptr %132, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_30NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %132, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_30NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %132, align 16
   %1321 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store i64 %252, ptr %1321, align 8
   store ptr %132, ptr %1320, align 16
@@ -4878,7 +4878,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit805:             ; preds = %1315, %.sink.split.
   %1333 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %1334 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 0, ptr %1334, align 8, !noalias !35
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %21, align 8, !noalias !35
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %21, align 8, !noalias !35
   %1335 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr %1335, ptr %1332, align 8, !noalias !35
   store i64 500, ptr %1333, align 8, !noalias !35
@@ -5019,7 +5019,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit831:             ; preds = %1381, %.sink.split.
 
 1385:                                             ; preds = %_ZNSt3__18functionIFvvEED2Ev.exit831
   %1386 = getelementptr inbounds nuw i8, ptr %135, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_31NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %135, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_31NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %135, align 16
   %1387 = getelementptr inbounds nuw i8, ptr %135, i64 8
   store i64 %252, ptr %1387, align 8
   store ptr %135, ptr %1386, align 16
@@ -5041,7 +5041,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit831:             ; preds = %1381, %.sink.split.
   %1399 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %1400 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 0, ptr %1400, align 8, !noalias !44
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %19, align 8, !noalias !44
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %19, align 8, !noalias !44
   %1401 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr %1401, ptr %1398, align 8, !noalias !44
   store i64 500, ptr %1399, align 8, !noalias !44
@@ -5182,7 +5182,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit857:             ; preds = %1447, %.sink.split.
 
 1451:                                             ; preds = %_ZNSt3__18functionIFvvEED2Ev.exit857
   %1452 = getelementptr inbounds nuw i8, ptr %138, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_32NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %138, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_32NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %138, align 16
   %1453 = getelementptr inbounds nuw i8, ptr %138, i64 8
   store i64 %252, ptr %1453, align 8
   store ptr %138, ptr %1452, align 16
@@ -5209,7 +5209,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit857:             ; preds = %1447, %.sink.split.
   %1465 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %1466 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 0, ptr %1466, align 8, !noalias !53
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %17, align 8, !noalias !53
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %17, align 8, !noalias !53
   %1467 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr %1467, ptr %1464, align 8, !noalias !53
   store i64 500, ptr %1465, align 8, !noalias !53
@@ -5241,13 +5241,13 @@ _ZNSt3__18functionIFvvEED2Ev.exit857:             ; preds = %1447, %.sink.split.
 1475:                                             ; preds = %1473
   %1476 = getelementptr inbounds nuw i8, ptr %.2199.i1067, i64 1
   %1477 = ptrtoint ptr %1476 to i64
-  %1478 = sub i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @.str.45, i64 32) to i64), %1477
+  %1478 = sub i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @.str.45, i64 32) to i64), %1477
   %1479 = call noundef ptr @memchr(ptr noundef nonnull %1476, i32 noundef 123, i64 noundef %1478) #46, !noalias !53
   %.not194.i1069 = icmp eq ptr %1479, null
   br i1 %.not194.i1069, label %1480, label %1481
 
 1480:                                             ; preds = %1475
-  invoke void @_ZZN3fmt2v96detail19parse_format_stringILb0EcZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt3__111conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderENSC_20back_insert_iteratorINS4_ISG_EEEEE4typeESG_EEEENS1_10locale_refEE14format_handlerEEvNS8_IT0_EEOT1_EN6writerclEPKcSX_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %.2199.i1067, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.45, i64 32))
+  invoke void @_ZZN3fmt2v96detail19parse_format_stringILb0EcZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt3__111conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderENSC_20back_insert_iteratorINS4_ISG_EEEEE4typeESG_EEEENS1_10locale_refEE14format_handlerEEvNS8_IT0_EEOT1_EN6writerclEPKcSX_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %.2199.i1067, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.45, i64 32))
           to label %.loopexit1128 unwind label %.loopexit.split-lp1124
 
 1481:                                             ; preds = %1475, %1473
@@ -5256,11 +5256,11 @@ _ZNSt3__18functionIFvvEED2Ev.exit857:             ; preds = %1447, %.sink.split.
           to label %.noexc1073 unwind label %.loopexit1123
 
 .noexc1073:                                       ; preds = %1481
-  %1482 = invoke noundef ptr @_ZN3fmt2v96detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt3__111conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderENSC_20back_insert_iteratorINS4_ISG_EEEEE4typeESG_EEEENS1_10locale_refEE14format_handlerEEPKS5_ST_ST_OT0_(ptr noundef nonnull %.0189.i1070, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.45, i64 32), ptr noundef nonnull align 8 dereferenceable(64) %9)
+  %1482 = invoke noundef ptr @_ZN3fmt2v96detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt3__111conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderENSC_20back_insert_iteratorINS4_ISG_EEEEE4typeESG_EEEENS1_10locale_refEE14format_handlerEEPKS5_ST_ST_OT0_(ptr noundef nonnull %.0189.i1070, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.45, i64 32), ptr noundef nonnull align 8 dereferenceable(64) %9)
           to label %.noexc1074 unwind label %.loopexit1123
 
 .noexc1074:                                       ; preds = %.noexc1073
-  %.not.i1071 = icmp eq ptr %1482, getelementptr inbounds (i8, ptr @.str.45, i64 32)
+  %.not.i1071 = icmp eq ptr %1482, getelementptr inbounds nuw (i8, ptr @.str.45, i64 32)
   br i1 %.not.i1071, label %.loopexit1128, label %1473, !llvm.loop !19
 
 .loopexit1128:                                    ; preds = %.noexc1074, %1480
@@ -5443,7 +5443,7 @@ _ZNSt3__18functionIFvbEEC2ERKS2_.exit.i.i891:     ; preds = %.sink.split.i.i888,
   store i32 4, ptr %1541, align 4
   %1542 = load ptr, ptr %1533, align 8
   %1543 = getelementptr inbounds nuw i8, ptr %143, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %143, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %143, align 16
   %1544 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store i64 %252, ptr %1544, align 8
   store ptr %143, ptr %1543, align 16
@@ -5451,7 +5451,7 @@ _ZNSt3__18functionIFvbEEC2ERKS2_.exit.i.i891:     ; preds = %.sink.split.i.i888,
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15)
   %1546 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %15, ptr %1546, align 16
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %15, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %15, align 16
   %1547 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %252, ptr %1547, align 8
   call void @_ZNSt3__110__function12__value_funcIFvbEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(48) %15, ptr noundef nonnull align 16 dereferenceable(48) %1545) #41
@@ -5495,7 +5495,7 @@ _ZNSt3__18functionIFvbEED2Ev.exit901:             ; preds = %1557, %.sink.split.
 
 1561:                                             ; preds = %_ZNSt3__18functionIFvbEED2Ev.exit901
   %1562 = getelementptr inbounds nuw i8, ptr %145, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_34NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %145, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_34NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %145, align 16
   %1563 = getelementptr inbounds nuw i8, ptr %145, i64 8
   store i64 %252, ptr %1563, align 8
   store ptr %145, ptr %1562, align 16
@@ -5522,7 +5522,7 @@ _ZNSt3__18functionIFvbEED2Ev.exit901:             ; preds = %1557, %.sink.split.
   %1575 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %1576 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 0, ptr %1576, align 8, !noalias !62
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %14, align 8, !noalias !62
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %14, align 8, !noalias !62
   %1577 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %1577, ptr %1574, align 8, !noalias !62
   store i64 500, ptr %1575, align 8, !noalias !62
@@ -5554,13 +5554,13 @@ _ZNSt3__18functionIFvbEED2Ev.exit901:             ; preds = %1557, %.sink.split.
 1585:                                             ; preds = %1583
   %1586 = getelementptr inbounds nuw i8, ptr %.2199.i1079, i64 1
   %1587 = ptrtoint ptr %1586 to i64
-  %1588 = sub i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @.str.48, i64 36) to i64), %1587
+  %1588 = sub i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @.str.48, i64 36) to i64), %1587
   %1589 = call noundef ptr @memchr(ptr noundef nonnull %1586, i32 noundef 123, i64 noundef %1588) #46, !noalias !62
   %.not194.i1081 = icmp eq ptr %1589, null
   br i1 %.not194.i1081, label %1590, label %1591
 
 1590:                                             ; preds = %1585
-  invoke void @_ZZN3fmt2v96detail19parse_format_stringILb0EcZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt3__111conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderENSC_20back_insert_iteratorINS4_ISG_EEEEE4typeESG_EEEENS1_10locale_refEE14format_handlerEEvNS8_IT0_EEOT1_EN6writerclEPKcSX_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %.2199.i1079, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.48, i64 36))
+  invoke void @_ZZN3fmt2v96detail19parse_format_stringILb0EcZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt3__111conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderENSC_20back_insert_iteratorINS4_ISG_EEEEE4typeESG_EEEENS1_10locale_refEE14format_handlerEEvNS8_IT0_EEOT1_EN6writerclEPKcSX_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %.2199.i1079, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.48, i64 36))
           to label %.loopexit1122 unwind label %.loopexit.split-lp
 
 1591:                                             ; preds = %1585, %1583
@@ -5569,11 +5569,11 @@ _ZNSt3__18functionIFvbEED2Ev.exit901:             ; preds = %1557, %.sink.split.
           to label %.noexc1085 unwind label %.loopexit
 
 .noexc1085:                                       ; preds = %1591
-  %1592 = invoke noundef ptr @_ZN3fmt2v96detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt3__111conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderENSC_20back_insert_iteratorINS4_ISG_EEEEE4typeESG_EEEENS1_10locale_refEE14format_handlerEEPKS5_ST_ST_OT0_(ptr noundef nonnull %.0189.i1082, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.48, i64 36), ptr noundef nonnull align 8 dereferenceable(64) %7)
+  %1592 = invoke noundef ptr @_ZN3fmt2v96detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt3__111conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderENSC_20back_insert_iteratorINS4_ISG_EEEEE4typeESG_EEEENS1_10locale_refEE14format_handlerEEPKS5_ST_ST_OT0_(ptr noundef nonnull %.0189.i1082, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.48, i64 36), ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %.noexc1086 unwind label %.loopexit
 
 .noexc1086:                                       ; preds = %.noexc1085
-  %.not.i1083 = icmp eq ptr %1592, getelementptr inbounds (i8, ptr @.str.48, i64 36)
+  %.not.i1083 = icmp eq ptr %1592, getelementptr inbounds nuw (i8, ptr @.str.48, i64 36)
   br i1 %.not.i1083, label %.loopexit1122, label %1583, !llvm.loop !19
 
 .loopexit1122:                                    ; preds = %.noexc1086, %1590
@@ -5909,7 +5909,7 @@ _ZNSt3__18functionIFvN7nanogui5ArrayIiLm2EEEEEC2ERKS5_.exit.i.i: ; preds = %1701
   %1710 = getelementptr inbounds nuw i8, ptr %1709, i64 88
   store i8 0, ptr %1710, align 8
   %1711 = getelementptr inbounds nuw i8, ptr %147, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorIS9_EEFvN7nanogui5ArrayIiLm2EEEEEE", i64 16), ptr %147, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorIS9_EEFvN7nanogui5ArrayIiLm2EEEEEE", i64 16), ptr %147, align 16
   %1712 = getelementptr inbounds nuw i8, ptr %147, i64 8
   store i64 %252, ptr %1712, align 8
   store ptr %147, ptr %1711, align 16
@@ -5917,7 +5917,7 @@ _ZNSt3__18functionIFvN7nanogui5ArrayIiLm2EEEEEC2ERKS5_.exit.i.i: ; preds = %1701
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
   %1714 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %12, ptr %1714, align 16
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorIS9_EEFvN7nanogui5ArrayIiLm2EEEEEE", i64 16), ptr %12, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorIS9_EEFvN7nanogui5ArrayIiLm2EEEEEE", i64 16), ptr %12, align 16
   %1715 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %252, ptr %1715, align 8
   call void @_ZNSt3__110__function12__value_funcIFvN7nanogui5ArrayIiLm2EEEEE4swapB8ne190000ERS6_(ptr noundef nonnull align 16 dereferenceable(48) %12, ptr noundef nonnull align 16 dereferenceable(48) %1713) #41
@@ -7069,7 +7069,7 @@ define dso_local void @_ZN3tev11ImageViewer11setExposureEf(ptr nocapture noundef
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %18, align 8, !noalias !81
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %4, align 8, !noalias !81
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %4, align 8, !noalias !81
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %19, ptr %16, align 8, !noalias !81
   store i64 500, ptr %17, align 8, !noalias !81
@@ -7156,7 +7156,7 @@ define dso_local void @_ZN3tev11ImageViewer9setOffsetEf(ptr nocapture noundef no
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %18, align 8, !noalias !90
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %4, align 8, !noalias !90
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %4, align 8, !noalias !90
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %19, ptr %16, align 8, !noalias !90
   store i64 500, ptr %17, align 8, !noalias !90
@@ -7243,7 +7243,7 @@ define dso_local void @_ZN3tev11ImageViewer8setGammaEf(ptr nocapture noundef non
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %18, align 8, !noalias !99
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %4, align 8, !noalias !99
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %4, align 8, !noalias !99
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %19, ptr %16, align 8, !noalias !99
   store i64 500, ptr %17, align 8, !noalias !99
@@ -7782,7 +7782,7 @@ define linkonce_odr dso_local void @_ZN7nanogui6IntBoxIiEC2EPNS_6WidgetEi(ptr no
 
 8:                                                ; preds = %3
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #41
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui6IntBoxIiEE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui6IntBoxIiEE, i64 16), ptr %0, align 16
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @.str.187, i64 noundef 1)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit unwind label %25
 
@@ -8373,7 +8373,7 @@ _ZN3tev11ImageViewer9groupNameEm.exit:            ; preds = %222, %_ZNKSt3__16ve
           to label %244 unwind label %266
 
 244:                                              ; preds = %242
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %243, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %243, align 8
   %245 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %246 = load ptr, ptr %6, align 8
   store ptr %246, ptr %245, align 8
@@ -8385,7 +8385,7 @@ _ZN3tev11ImageViewer9groupNameEm.exit:            ; preds = %222, %_ZNKSt3__16ve
           to label %.noexc unwind label %.sink.split.i.i72
 
 .noexc:                                           ; preds = %244
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %248, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %248, align 8
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
   store ptr %246, ptr %249, align 8
   %250 = getelementptr inbounds nuw i8, ptr %248, i64 16
@@ -8452,7 +8452,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit:                ; preds = %.sink.split.i.i.i.i
   br label %.sink.split.i.i72.body
 
 .sink.split.i.i72.body:                           ; preds = %"_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS3_5ImageEEEbE3$_0NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit3.i", %.sink.split.i.i72
-  %269 = phi ptr [ getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i64 16), %.sink.split.i.i72 ], [ %.pre201, %"_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS3_5ImageEEEbE3$_0NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit3.i" ]
+  %269 = phi ptr [ getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i64 16), %.sink.split.i.i72 ], [ %.pre201, %"_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS3_5ImageEEEbE3$_0NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit3.i" ]
   %eh.lpad-body = phi { ptr, i32 } [ %268, %.sink.split.i.i72 ], [ %251, %"_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS3_5ImageEEEbE3$_0NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit3.i" ]
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 40
   %271 = load ptr, ptr %270, align 8
@@ -14326,7 +14326,7 @@ define dso_local void @_ZN3tev11ImageViewer16toggleHelpWindowEv(ptr noundef nonn
   %9 = load i8, ptr %8, align 8
   %10 = ptrtoint ptr %0 to i64
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer16toggleHelpWindowEvE3$_0NS_9allocatorIS4_EEFvvEEE", i64 16), ptr %2, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer16toggleHelpWindowEvE3$_0NS_9allocatorIS4_EEFvvEEE", i64 16), ptr %2, align 16
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %10, ptr %12, align 8
   store ptr %2, ptr %11, align 16
@@ -14498,13 +14498,13 @@ define linkonce_odr dso_local void @_ZN4tlog4infoEv(ptr dead_on_unwind noalias w
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 104), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 104), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), align 8
   store ptr %5, ptr %0, align 8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), align 8
   %7 = getelementptr i8, ptr %5, i64 -24
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 %8
@@ -14523,28 +14523,28 @@ define linkonce_odr hidden void @_ZNSt3__118basic_stringstreamIcNS_11char_traits
   store ptr null, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store i32 -1, ptr %17, align 8
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 32), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 32), align 8
   store ptr %18, ptr %3, align 8
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 40), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 40), align 8
   %20 = getelementptr i8, ptr %18, i64 -24
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %3, i64 %21
   store ptr %19, ptr %22, align 8
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %23, ptr %0, align 8
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 48), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 48), align 8
   %25 = getelementptr i8, ptr %23, i64 -24
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 %26
   store ptr %24, ptr %27, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 104), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 104), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %3, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(100) %4)
           to label %28 unwind label %33
 
 28:                                               ; preds = %15
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 0, i64 32, i1 false)
@@ -14559,7 +14559,7 @@ define linkonce_odr hidden void @_ZNSt3__118basic_stringstreamIcNS_11char_traits
 33:                                               ; preds = %15
   %34 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt3__114basic_iostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #41
+  tail call void @_ZNSt3__114basic_iostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #41
   br label %35
 
 35:                                               ; preds = %33, %31
@@ -14809,7 +14809,7 @@ define linkonce_odr dso_local void @_ZNSt3__118basic_stringstreamIcNS_11char_tra
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #41
   tail call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %9) #41
@@ -16999,7 +16999,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %628 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %629 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %629, align 8, !noalias !194
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %7, align 8, !noalias !194
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %7, align 8, !noalias !194
   %630 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %630, ptr %627, align 8, !noalias !194
   store i64 500, ptr %628, align 8, !noalias !194
@@ -17031,13 +17031,13 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 638:                                              ; preds = %636
   %639 = getelementptr inbounds nuw i8, ptr %.2199.i, i64 1
   %640 = ptrtoint ptr %639 to i64
-  %641 = sub i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @.str.60, i64 48) to i64), %640
+  %641 = sub i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @.str.60, i64 48) to i64), %640
   %642 = call noundef ptr @memchr(ptr noundef nonnull %639, i32 noundef 123, i64 noundef %641) #46, !noalias !194
   %.not194.i = icmp eq ptr %642, null
   br i1 %.not194.i, label %643, label %644
 
 643:                                              ; preds = %638
-  invoke void @_ZZN3fmt2v96detail19parse_format_stringILb0EcZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt3__111conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderENSC_20back_insert_iteratorINS4_ISG_EEEEE4typeESG_EEEENS1_10locale_refEE14format_handlerEEvNS8_IT0_EEOT1_EN6writerclEPKcSX_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %.2199.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.60, i64 48))
+  invoke void @_ZZN3fmt2v96detail19parse_format_stringILb0EcZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt3__111conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderENSC_20back_insert_iteratorINS4_ISG_EEEEE4typeESG_EEEENS1_10locale_refEE14format_handlerEEvNS8_IT0_EEOT1_EN6writerclEPKcSX_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %.2199.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.60, i64 48))
           to label %.loopexit231 unwind label %.loopexit.split-lp
 
 644:                                              ; preds = %638, %636
@@ -17046,11 +17046,11 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
           to label %.noexc179 unwind label %.loopexit
 
 .noexc179:                                        ; preds = %644
-  %645 = invoke noundef ptr @_ZN3fmt2v96detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt3__111conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderENSC_20back_insert_iteratorINS4_ISG_EEEEE4typeESG_EEEENS1_10locale_refEE14format_handlerEEPKS5_ST_ST_OT0_(ptr noundef nonnull %.0189.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.60, i64 48), ptr noundef nonnull align 8 dereferenceable(64) %3)
+  %645 = invoke noundef ptr @_ZN3fmt2v96detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt3__111conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderENSC_20back_insert_iteratorINS4_ISG_EEEEE4typeESG_EEEENS1_10locale_refEE14format_handlerEEPKS5_ST_ST_OT0_(ptr noundef nonnull %.0189.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.60, i64 48), ptr noundef nonnull align 8 dereferenceable(64) %3)
           to label %.noexc180 unwind label %.loopexit
 
 .noexc180:                                        ; preds = %.noexc179
-  %.not.i177 = icmp eq ptr %645, getelementptr inbounds (i8, ptr @.str.60, i64 48)
+  %.not.i177 = icmp eq ptr %645, getelementptr inbounds nuw (i8, ptr @.str.60, i64 48)
   br i1 %.not.i177, label %.loopexit231, label %636, !llvm.loop !19
 
 .loopexit231:                                     ; preds = %.noexc180, %643
@@ -17204,7 +17204,7 @@ _ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS
   %708 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %709 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %709, align 8, !noalias !203
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %5, align 8, !noalias !203
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %5, align 8, !noalias !203
   %710 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %710, ptr %707, align 8, !noalias !203
   store i64 500, ptr %708, align 8, !noalias !203
@@ -17432,7 +17432,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK7nanogui6IntBoxIiE5valueEv(ptr no
   %12 = getelementptr inbounds i8, ptr %2, i64 %11
   store ptr %9, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 80
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #41
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %13) #41
@@ -19316,7 +19316,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_
   %124 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %125 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %125, align 8, !noalias !227
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %9, align 8, !noalias !227
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %9, align 8, !noalias !227
   %126 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %126, ptr %123, align 8, !noalias !227
   store i64 500, ptr %124, align 8, !noalias !227
@@ -19523,7 +19523,7 @@ _ZN3tev11ImageCanvas18getValuesAtNanoPosEN7nanogui5ArrayIiLm2EEERKNSt3__16vector
   store i64 %.sroa.0.0.insert.ext.i140, ptr %15, align 16, !noalias !236
   call void @llvm.lifetime.start.p0(i64 536, ptr nonnull %7)
   store i64 0, ptr %194, align 8, !noalias !239
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %7, align 8, !noalias !239
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %7, align 8, !noalias !239
   store ptr %195, ptr %192, align 8, !noalias !239
   store i64 500, ptr %193, align 8, !noalias !239
   invoke void @_ZN3fmt2v96detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt3__111conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderENSB_20back_insert_iteratorINS3_ISF_EEEEE4typeESF_EEEENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @.str.108, i64 7, i64 9, ptr nonnull %15, ptr null)
@@ -19705,7 +19705,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   store i64 %.sroa.0.0.insert.ext.i151, ptr %13, align 16, !noalias !246
   call void @llvm.lifetime.start.p0(i64 536, ptr nonnull %5)
   store i64 0, ptr %261, align 8, !noalias !249
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %5, align 8, !noalias !249
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %5, align 8, !noalias !249
   store ptr %262, ptr %259, align 8, !noalias !249
   store i64 500, ptr %260, align 8, !noalias !249
   invoke void @_ZN3fmt2v96detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt3__111conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderENSB_20back_insert_iteratorINS3_ISF_EEEEE4typeESF_EEEENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr nonnull @.str.110, i64 6, i64 2, ptr nonnull %13, ptr null)
@@ -19821,7 +19821,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000EPKc.
   %358 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %359 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %359, align 8, !noalias !259
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %3, align 8, !noalias !259
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %3, align 8, !noalias !259
   %360 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %360, ptr %357, align 8, !noalias !259
   store i64 500, ptr %358, align 8, !noalias !259
@@ -20391,7 +20391,7 @@ _ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS
 
 _ZNSt3__18functionIFvvEEC2ERKS2_.exit.i.i:        ; preds = %42, %_ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEE", i64 16), ptr %9, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEE", i64 16), ptr %9, align 16
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -20403,7 +20403,7 @@ _ZNSt3__18functionIFvvEEC2ERKS2_.exit.i.i:        ; preds = %42, %_ZN7nanogui6Wi
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %7, ptr %50, align 16
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEE", i64 16), ptr %7, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEE", i64 16), ptr %7, align 16
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %0, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -20466,7 +20466,7 @@ _ZNSt3__18functionIFvvEEC2ERKS2_.exit.i.i:        ; preds = %42, %_ZN7nanogui6Wi
 
 _ZNSt3__18functionIFvbEEC2ERKS2_.exit.i.i:        ; preds = %72, %"_ZZN3tev11ImageViewer11insertImageENSt3__110shared_ptrINS_5ImageEEEmbEN3$_0D2Ev.exit"
   %75 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEE", i64 16), ptr %10, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEE", i64 16), ptr %10, align 16
   %76 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %0, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -20478,7 +20478,7 @@ _ZNSt3__18functionIFvbEEC2ERKS2_.exit.i.i:        ; preds = %72, %"_ZZN3tev11Ima
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %6, ptr %80, align 16
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEE", i64 16), ptr %6, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEE", i64 16), ptr %6, align 16
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -20531,7 +20531,7 @@ _ZNSt3__18functionIFvbEEC2ERKS2_.exit.i.i:        ; preds = %72, %"_ZZN3tev11Ima
 _ZNSt3__18functionIFvvEEC2ERKS2_.exit.i.i41:      ; preds = %.sink.split.i.i38, %96
   %100 = ptrtoint ptr %0 to i64
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_2NS_9allocatorIS7_EEFvvEEE", i64 16), ptr %11, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_2NS_9allocatorIS7_EEFvvEEE", i64 16), ptr %11, align 16
   %102 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %100, ptr %102, align 8
   store ptr %11, ptr %101, align 16
@@ -20539,7 +20539,7 @@ _ZNSt3__18functionIFvvEEC2ERKS2_.exit.i.i41:      ; preds = %.sink.split.i.i38, 
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   %104 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %5, ptr %104, align 16
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_2NS_9allocatorIS7_EEFvvEEE", i64 16), ptr %5, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_2NS_9allocatorIS7_EEFvvEEE", i64 16), ptr %5, align 16
   %105 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %100, ptr %105, align 8
   call void @_ZNSt3__110__function12__value_funcIFvvEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(48) %5, ptr noundef nonnull align 16 dereferenceable(48) %103) #41
@@ -20762,7 +20762,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit63:              ; preds = %227, %225, %17
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt16invalid_argumentC2B8ne190000EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #7 comdat align 2 {
   tail call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt16invalid_argument, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt16invalid_argument, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -22137,7 +22137,7 @@ declare noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3tev11ImageViewerD2Ev(ptr noundef nonnull align 16 dereferenceable(972) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tev11ImageViewerE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tev11ImageViewerE, i64 16), ptr %0, align 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 888
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #41
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 800
@@ -22634,7 +22634,7 @@ _ZNSt3__110unique_ptrIN4tlog6LoggerENS_14default_deleteIS2_EEE5resetB8ne190000EP
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4tlog13ConsoleOutputC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4tlog13ConsoleOutputE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4tlog13ConsoleOutputE, i64 16), ptr %0, align 8
   %2 = tail call ptr @getenv(ptr noundef nonnull @.str.112) #41
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %6, label %3
@@ -22668,7 +22668,7 @@ define linkonce_odr dso_local void @_ZNSt3__110shared_ptrIN4tlog13ConsoleOutputE
 _ZNSt3__110unique_ptrIN4tlog13ConsoleOutputENS_14default_deleteIS2_EEED2B8ne190000Ev.exit: ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__120__shared_ptr_pointerIPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EENS_9allocatorIS2_EEEE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__120__shared_ptr_pointerIPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EENS_9allocatorIS2_EEEE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = ptrtoint ptr %1 to i64
   store i64 %6, ptr %5, align 8
@@ -23139,7 +23139,7 @@ define linkonce_odr dso_local void @_ZN4tlog13ConsoleOutput13writeProgressERKNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4tlog13ConsoleOutputD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4tlog13ConsoleOutputE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4tlog13ConsoleOutputE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -23162,7 +23162,7 @@ _ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostrea
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4tlog13ConsoleOutputD0Ev(ptr noundef nonnull align 8 dereferenceable(9) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4tlog13ConsoleOutputE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4tlog13ConsoleOutputE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -23312,7 +23312,7 @@ define linkonce_odr hidden void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt12length_errorC2B8ne190000EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #7 comdat align 2 {
   tail call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12length_error, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12length_error, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -26122,11 +26122,11 @@ define linkonce_odr dso_local void @_ZN4tlog6StreamC2EPNS_6LoggerENS_9ESeverityE
   store i32 %2, ptr %4, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #43
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %8, ptr %5, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), align 8
   %10 = getelementptr i8, ptr %8, i64 -24
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 %11
@@ -26143,8 +26143,8 @@ define linkonce_odr dso_local void @_ZN4tlog6StreamC2EPNS_6LoggerENS_9ESeverityE
   store ptr null, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 144
   store i32 -1, ptr %19, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(100) %7)
           to label %24 unwind label %22
 
@@ -26156,7 +26156,7 @@ define linkonce_odr dso_local void @_ZN4tlog6StreamC2EPNS_6LoggerENS_9ESeverityE
 22:                                               ; preds = %17
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #41
+  tail call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #41
   br label %.body
 
 .body:                                            ; preds = %22, %20
@@ -26166,7 +26166,7 @@ define linkonce_odr dso_local void @_ZN4tlog6StreamC2EPNS_6LoggerENS_9ESeverityE
   resume { ptr, i32 } %.pn.i
 
 24:                                               ; preds = %17
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %7, align 8
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 32, i1 false)
@@ -27274,7 +27274,7 @@ declare void @_ZNSt3__15mutex6unlockEv(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr hidden void @_ZNSt3__125__throw_bad_function_callB8ne190000Ev() local_unnamed_addr #24 comdat {
   %1 = tail call ptr @__cxa_allocate_exception(i64 8) #41
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__117bad_function_callE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__117bad_function_callE, i64 16), ptr %1, align 8
   tail call void @__cxa_throw(ptr nonnull %1, ptr nonnull @_ZTINSt3__117bad_function_callE, ptr nonnull @_ZNSt3__117bad_function_callD2Ev) #45
   unreachable
 }
@@ -28500,7 +28500,7 @@ define linkonce_odr hidden void @_ZNSt3__120__throw_out_of_rangeB8ne190000EPKc(p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt12out_of_rangeC2B8ne190000EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #7 comdat align 2 {
   tail call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -28791,7 +28791,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorISA_EEFvbEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -28801,7 +28801,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorIS9_EEFvbEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -28858,7 +28858,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorISA_EEFvfEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -28868,7 +28868,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorIS9_EEFvfEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -28926,7 +28926,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorISA_EEFvfEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -28936,7 +28936,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorIS9_EEFvfEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -28994,7 +28994,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorISA_EEFvfEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -29004,7 +29004,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorIS9_EEFvfEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -29062,7 +29062,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE3$_5NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_5NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_5NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -29072,7 +29072,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_5NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_5NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_5NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -29129,7 +29129,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE3$_6NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_6NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_6NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -29139,7 +29139,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_6NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_6NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_6NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -29201,7 +29201,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorISA_EEFvbEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -29211,7 +29211,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorIS9_EEFvbEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -29273,7 +29273,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorISA_EEFvfEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -29283,7 +29283,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorIS9_EEFvfEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -29357,7 +29357,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorISA_EEFvRKN7nanogui5ColorEEEENS_22__allocator_destructorINSB_ISI_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   ret ptr %2
@@ -29366,7 +29366,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEE7__cloneEPNS0_6__baseISG_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef writeonly initializes((0, 24)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false)
   ret void
@@ -29442,7 +29442,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE4$_11NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_11NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_11NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -29452,7 +29452,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_11NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_11NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_11NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -29576,7 +29576,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE4$_12NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_12NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_12NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -29586,7 +29586,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_12NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_12NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_12NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -29701,7 +29701,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE4$_13NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_13NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_13NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -29711,7 +29711,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_13NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_13NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_13NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -29835,7 +29835,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE4$_14NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_14NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_14NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -29845,7 +29845,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_14NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_14NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_14NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -29969,7 +29969,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE4$_16NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_16NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_16NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -29979,7 +29979,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_16NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_16NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_16NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -30070,7 +30070,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE4$_17NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_17NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_17NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -30080,7 +30080,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_17NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_17NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_17NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -30171,7 +30171,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE4$_18NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_18NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_18NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -30181,7 +30181,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_18NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_18NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_18NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -30272,7 +30272,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE4$_19NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_19NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_19NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -30282,7 +30282,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_19NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_19NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_19NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -30373,7 +30373,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE4$_20NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_20NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_20NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -30383,7 +30383,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_20NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_20NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_20NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -30474,7 +30474,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorISA_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSB_IcEEEEEEENS_22__allocator_destructorINSB_ISL_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorIS9_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSA_IcEEEEEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorIS9_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSA_IcEEEEEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -30484,7 +30484,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorIS9_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSA_IcEEEEEE7__cloneEPNS0_6__baseISJ_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorIS9_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSA_IcEEEEEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorIS9_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSA_IcEEEEEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -30538,7 +30538,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v97vformatENS0_17basic_string_viewIc
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %10, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %11, ptr %8, align 8
   store i64 500, ptr %9, align 8
@@ -31148,7 +31148,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail18throw_format_errorEPKc(pt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3fmt2v912format_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #7 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v912format_errorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v912format_errorE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -34409,7 +34409,7 @@ define linkonce_odr dso_local ptr @_ZNK3fmt2v96detail14digit_groupingIcE5applyIN
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIiLm500ENSt3__19allocatorIiEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIiLm500ENSt3__19allocatorIiEEEE, i64 16), ptr %5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %10, ptr %7, align 8
   store i64 500, ptr %8, align 8
@@ -40473,7 +40473,7 @@ _ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000ERKc.exit
   %78 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %79 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %79, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %8, align 8
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %80, ptr %77, align 8
   store i64 500, ptr %78, align 8
@@ -41050,7 +41050,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandINS0_8app
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %15, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %7, align 8
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %16, ptr %13, align 8
   store i64 500, ptr %14, align 8
@@ -43750,7 +43750,7 @@ _ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000ERKc.exit
   %76 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %77, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %8, align 8
   %78 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %78, ptr %75, align 8
   store i64 500, ptr %76, align 8
@@ -44325,7 +44325,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandINS0_8app
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %15, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %7, align 8
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %16, ptr %13, align 8
   store i64 500, ptr %14, align 8
@@ -45102,7 +45102,7 @@ _ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit:
   %72 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %73 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %73, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %11, align 8
   %74 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %74, ptr %71, align 8
   store i64 500, ptr %72, align 8
@@ -46011,7 +46011,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail13format_dragonENS1_8basic_
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %12, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i64 16), ptr %6, align 8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %13, ptr %10, align 8
   store i64 32, ptr %11, align 8
@@ -46021,7 +46021,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail13format_dragonENS1_8basic_
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %17, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i64 16), ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %18, ptr %15, align 8
   store i64 32, ptr %16, align 8
@@ -46031,7 +46031,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail13format_dragonENS1_8basic_
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i64 16), ptr %8, align 8
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %23, ptr %20, align 8
   store i64 32, ptr %21, align 8
@@ -46041,7 +46041,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail13format_dragonENS1_8basic_
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %27, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i64 16), ptr %9, align 8
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %28, ptr %25, align 8
   store i64 32, ptr %26, align 8
@@ -47223,7 +47223,7 @@ _ZN3fmt2v96detail6bigintmLIiEERS2_T_.exit303:     ; preds = %_ZN3fmt2v96detail6b
           to label %504 unwind label %505
 
 504:                                              ; preds = %502
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v912format_errorE, i64 16), ptr %503, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v912format_errorE, i64 16), ptr %503, align 8
   invoke void @__cxa_throw(ptr nonnull %503, ptr nonnull @_ZTIN3fmt2v912format_errorE, ptr nonnull @_ZN3fmt2v912format_errorD2Ev) #45
           to label %.noexc305 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -48768,7 +48768,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6bigint6squareEv(ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i64 16), ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -50575,7 +50575,7 @@ _ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000ERKc.exit
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %57, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %6, align 8
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %58, ptr %55, align 8
   store i64 500, ptr %56, align 8
@@ -51114,7 +51114,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandINS0_8app
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %15, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %7, align 8
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %16, ptr %13, align 8
   store i64 500, ptr %14, align 8
@@ -61659,7 +61659,7 @@ _ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit:
   %72 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %73 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %73, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %11, align 8
   %74 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %74, ptr %71, align 8
   store i64 500, ptr %72, align 8
@@ -62887,7 +62887,7 @@ _ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit:
   %72 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %73 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %73, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i64 16), ptr %11, align 8
   %74 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %74, ptr %71, align 8
   store i64 500, ptr %72, align 8
@@ -64462,7 +64462,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorISA_EEFvbEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -64472,7 +64472,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorIS9_EEFvbEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -64535,13 +64535,13 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
 define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_24NS_9allocatorIS9_EEFvvEE7__cloneEv"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE4$_24NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_24NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_24NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_24NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) unnamed_addr #33 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_24NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_24NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   ret void
 }
 
@@ -64592,7 +64592,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorISA_EEFvbEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -64602,7 +64602,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorIS9_EEFvbEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -64668,7 +64668,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE4$_26NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_26NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_26NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -64678,7 +64678,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_26NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_26NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_26NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -64821,7 +64821,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE4$_27NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_27NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_27NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -64831,7 +64831,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_27NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_27NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_27NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -64998,7 +64998,7 @@ declare void @_ZN7nanogui7TextBoxC2EPNS_6WidgetERKNSt3__112basic_stringIcNS3_11c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7nanogui7TextBoxD2Ev(ptr noundef nonnull align 16 dereferenceable(432) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui7TextBoxE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui7TextBoxE, i64 16), ptr %0, align 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #41
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -65366,7 +65366,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE4$_29NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_29NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_29NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -65376,7 +65376,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_29NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_29NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_29NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -65433,7 +65433,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE4$_30NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_30NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_30NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -65443,7 +65443,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_30NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_30NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_30NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -65500,7 +65500,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE4$_31NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_31NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_31NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -65510,7 +65510,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_31NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_31NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_31NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -65654,7 +65654,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE4$_32NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_32NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_32NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -65664,7 +65664,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_32NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_32NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_32NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -65721,7 +65721,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorISA_EEFvbEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -65731,7 +65731,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorIS9_EEFvbEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -65793,7 +65793,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE4$_34NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_34NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_34NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -65803,7 +65803,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_34NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_34NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_34NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -65922,7 +65922,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS3_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorISA_EEFvN7nanogui5ArrayIiLm2EEEEEENS_22__allocator_destructorINSB_ISH_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorIS9_EEFvN7nanogui5ArrayIiLm2EEEEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorIS9_EEFvN7nanogui5ArrayIiLm2EEEEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -65932,7 +65932,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorIS9_EEFvN7nanogui5ArrayIiLm2EEEEE7__cloneEPNS0_6__baseISF_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorIS9_EEFvN7nanogui5ArrayIiLm2EEEEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorIS9_EEFvN7nanogui5ArrayIiLm2EEEEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -66071,11 +66071,11 @@ declare void @_ZNSt13exception_ptrC1ERKS_(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000ERKNS_12basic_stringIcS2_S4_EEj(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %6, ptr %0, align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), align 8
   %8 = getelementptr i8, ptr %6, i64 -24
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
@@ -66094,14 +66094,14 @@ define linkonce_odr hidden void @_ZNSt3__119basic_istringstreamIcNS_11char_trait
   store ptr null, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 144
   store i32 -1, ptr %18, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %4, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(100) %5)
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %16
   %19 = or i32 %2, 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %5, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
@@ -66131,7 +66131,7 @@ _ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ER
 
 .body:                                            ; preds = %22, %26
   %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %23, %22 ]
-  tail call void @_ZNSt3__113basic_istreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #41
+  tail call void @_ZNSt3__113basic_istreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #41
   br label %28
 
 28:                                               ; preds = %.body, %24
@@ -66152,7 +66152,7 @@ define linkonce_odr dso_local void @_ZNSt3__119basic_istringstreamIcNS_11char_tr
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #41
   tail call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %7) #41
@@ -66901,7 +66901,7 @@ _ZNSt3__111unique_lockINS_5mutexEED2B8ne190000Ev.exit4: ; preds = %27, %30
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEE", i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.val, null
@@ -66927,7 +66927,7 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEE", i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val.i = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i, null
@@ -66956,7 +66956,7 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertI
 define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEE7__cloneEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEE", i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEE", i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %2, align 8
   store ptr %5, ptr %4, align 8
@@ -66983,7 +66983,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEE7__cloneEPNS0_6__baseISA_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) unnamed_addr #35 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %3, align 8
   store ptr %5, ptr %4, align 8
@@ -67084,7 +67084,7 @@ define internal noundef nonnull align 8 dereferenceable(16) ptr @"_ZNKSt3__110__
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEE", i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.val, null
@@ -67110,7 +67110,7 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEE", i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val.i = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i, null
@@ -67139,7 +67139,7 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertI
 define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEE7__cloneEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEE", i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEE", i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %2, align 8
   store ptr %5, ptr %4, align 8
@@ -67166,7 +67166,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEE7__cloneEPNS0_6__baseISA_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) unnamed_addr #35 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %3, align 8
   store ptr %5, ptr %4, align 8
@@ -67303,7 +67303,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS3_5ImageEEEmbE3$_2NS_9allocatorIS8_EEFvvEEENS_22__allocator_destructorINS9_ISC_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_2NS_9allocatorIS7_EEFvvEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_2NS_9allocatorIS7_EEFvvEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -67313,7 +67313,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_2NS_9allocatorIS7_EEFvvEE7__cloneEPNS0_6__baseISA_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_2NS_9allocatorIS7_EEFvvEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_2NS_9allocatorIS7_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -67357,7 +67357,7 @@ define internal noundef nonnull align 8 dereferenceable(16) ptr @"_ZNKSt3__110__
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #41
   ret void
@@ -67365,7 +67365,7 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11selectI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEED0Ev"(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #41
   tail call void @_ZdlPv(ptr noundef nonnull %0) #42
@@ -67376,7 +67376,7 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11selectI
 define internal noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEE7__cloneEv"(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %2, align 8
   store ptr %5, ptr %4, align 8
@@ -67398,7 +67398,7 @@ define internal noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3tev11Imag
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef initializes((0, 16)) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %3, align 8
   store ptr %5, ptr %4, align 8
@@ -67477,7 +67477,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewer16toggleHelpWindowEvE3$_0NS_9allocatorIS5_EEFvvEEENS_22__allocator_destructorINS6_IS9_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer16toggleHelpWindowEvE3$_0NS_9allocatorIS4_EEFvvEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer16toggleHelpWindowEvE3$_0NS_9allocatorIS4_EEFvvEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -67487,7 +67487,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewer16toggleHelpWindowEvE3$_0NS_9allocatorIS4_EEFvvEE7__cloneEPNS0_6__baseIS7_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer16toggleHelpWindowEvE3$_0NS_9allocatorIS4_EEFvvEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer16toggleHelpWindowEvE3$_0NS_9allocatorIS4_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8

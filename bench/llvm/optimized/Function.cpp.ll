@@ -14851,7 +14851,7 @@ define weak_odr noundef ptr @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIiLb0ENS0_6parserIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIiLb0ENS0_6parserIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIiLb0ENS0_6parserIiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -14863,7 +14863,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIiLb0ENS0_6parserIiEEED2Ev(ptr n
   br label %_ZNSt8functionIFvRKiEED2Ev.exit
 
 _ZNSt8functionIFvRKiEED2Ev.exit:                  ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -16920,7 +16920,7 @@ _ZL16computeAddrSpacejPN4llvm6ModuleE.exit:       ; preds = %6, %8, %9
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
-  %41 = load i8, ptr getelementptr inbounds (i8, ptr @UseNewDbgInfoFormat, i64 128), align 8
+  %41 = load i8, ptr getelementptr inbounds nuw (i8, ptr @UseNewDbgInfoFormat, i64 128), align 8
   %42 = and i8 %41, 1
   store i8 %42, ptr %40, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -25096,7 +25096,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_Z
   br i1 %21, label %_ZSt7advanceIPK19IntrinsicTargetInfolEvRT_T0_.exit.i.i.i, label %"_ZN4llvm15partition_pointIRNS_8ArrayRefI19IntrinsicTargetInfoEEZL18findTargetSubtableNS_9StringRefEE3$_0RKS2_EEDaOT_T0_.exit.i", !llvm.loop !42
 
 "_ZN4llvm15partition_pointIRNS_8ArrayRefI19IntrinsicTargetInfoEEZL18findTargetSubtableNS_9StringRefEE3$_0RKS2_EEDaOT_T0_.exit.i": ; preds = %"_ZZL18findTargetSubtableN4llvm9StringRefEENK3$_0clERK19IntrinsicTargetInfo.exit.i.i.i"
-  %.not.i = icmp eq ptr %.1.i.i.i, getelementptr inbounds (i8, ptr @_ZL11TargetInfos, i64 608)
+  %.not.i = icmp eq ptr %.1.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZL11TargetInfos, i64 608)
   br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i, label %22
 
 22:                                               ; preds = %"_ZN4llvm15partition_pointIRNS_8ArrayRefI19IntrinsicTargetInfoEEZL18findTargetSubtableNS_9StringRefEE3$_0RKS2_EEDaOT_T0_.exit.i"
@@ -25122,7 +25122,7 @@ _ZL18findTargetSubtableN4llvm9StringRefE.exit:    ; preds = %23, %_ZN4llvmeqENS_
   %26 = phi ptr [ @_ZL11TargetInfos, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i ], [ %.1.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ %.1.i.i.i, %23 ]
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds ptr, ptr getelementptr inbounds (i8, ptr @_ZL18IntrinsicNameTable, i64 8), i64 %28
+  %29 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL18IntrinsicNameTable, i64 8), i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %31 = load i64, ptr %30, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -28456,7 +28456,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %4
   br i1 %19, label %.lr.ph.i.i.i, label %_ZN4llvm11lower_boundIRA10_KZNS_9Intrinsic27getIntrinsicForClangBuiltinENS_9StringRefES2_E12BuiltinEntryRS2_EEDaOT_OT0_.exit, !llvm.loop !52
 
 _ZN4llvm11lower_boundIRA10_KZNS_9Intrinsic27getIntrinsicForClangBuiltinENS_9StringRefES2_E12BuiltinEntryRS2_EEDaOT_OT0_.exit: ; preds = %.lr.ph.i.i.i
-  %.not = icmp eq ptr %.1.i.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm9Intrinsic27getIntrinsicForClangBuiltinENS_9StringRefES1_E5Names, i64 80)
+  %.not = icmp eq ptr %.1.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm9Intrinsic27getIntrinsicForClangBuiltinENS_9StringRefES1_E5Names, i64 80)
   br i1 %.not, label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread.preheader, label %20
 
 20:                                               ; preds = %_ZN4llvm11lower_boundIRA10_KZNS_9Intrinsic27getIntrinsicForClangBuiltinENS_9StringRefES2_E12BuiltinEntryRS2_EEDaOT_OT0_.exit
@@ -28516,7 +28516,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKZN4llvm9Intrinsic27getIntrinsicForClang
   br i1 %38, label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread, label %_ZN4llvm11lower_boundIRA17_KZNS_9Intrinsic27getIntrinsicForClangBuiltinENS_9StringRefES2_E11TargetEntryRS2_EEDaOT_OT0_.exit, !llvm.loop !53
 
 _ZN4llvm11lower_boundIRA17_KZNS_9Intrinsic27getIntrinsicForClangBuiltinENS_9StringRefES2_E11TargetEntryRS2_EEDaOT_OT0_.exit: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKZN4llvm9Intrinsic27getIntrinsicForClangBuiltinENS3_9StringRefES5_E11TargetEntryKS5_EEbT_RT0_.exit.i.i.i
-  %39 = icmp eq ptr %.1.i.i.i39, getelementptr inbounds (i8, ptr @_ZZN4llvm9Intrinsic27getIntrinsicForClangBuiltinENS_9StringRefES1_E11TargetTable, i64 816)
+  %39 = icmp eq ptr %.1.i.i.i39, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm9Intrinsic27getIntrinsicForClangBuiltinENS_9StringRefES1_E11TargetTable, i64 816)
   br i1 %39, label %_ZN4llvmneENS_9StringRefES0_.exit.thread, label %40
 
 40:                                               ; preds = %_ZN4llvm11lower_boundIRA17_KZNS_9Intrinsic27getIntrinsicForClangBuiltinENS_9StringRefES2_E11TargetEntryRS2_EEDaOT_OT0_.exit
@@ -28655,7 +28655,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKZN4llvm9Intrinsic24getIntrinsicForMSBui
   br i1 %16, label %5, label %_ZN4llvm11lower_boundIRA2_KZNS_9Intrinsic24getIntrinsicForMSBuiltinENS_9StringRefES2_E11TargetEntryRS2_EEDaOT_OT0_.exit, !llvm.loop !54
 
 _ZN4llvm11lower_boundIRA2_KZNS_9Intrinsic24getIntrinsicForMSBuiltinENS_9StringRefES2_E11TargetEntryRS2_EEDaOT_OT0_.exit: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKZN4llvm9Intrinsic24getIntrinsicForMSBuiltinENS3_9StringRefES5_E11TargetEntryKS5_EEbT_RT0_.exit.i.i.i
-  %17 = icmp eq ptr %.1.i.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm9Intrinsic24getIntrinsicForMSBuiltinENS_9StringRefES1_E11TargetTable, i64 96)
+  %17 = icmp eq ptr %.1.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm9Intrinsic24getIntrinsicForMSBuiltinENS_9StringRefES1_E11TargetTable, i64 96)
   br i1 %17, label %_ZN4llvmneENS_9StringRefES0_.exit.thread, label %18
 
 18:                                               ; preds = %_ZN4llvm11lower_boundIRA2_KZNS_9Intrinsic24getIntrinsicForMSBuiltinENS_9StringRefES2_E11TargetEntryRS2_EEDaOT_OT0_.exit
@@ -32652,7 +32652,7 @@ declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -33119,10 +33119,10 @@ define internal void @_GLOBAL__sub_I_Function.cpp() #21 section ".text.startup" 
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL25NonGlobalValueMaxNameSize, i32 noundef 0, i32 noundef 0)
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL25NonGlobalValueMaxNameSize, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL25NonGlobalValueMaxNameSize, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIiEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL25NonGlobalValueMaxNameSize, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIiLb0ENS0_6parserIiEEEE, i64 16), ptr @_ZL25NonGlobalValueMaxNameSize, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIiEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL25NonGlobalValueMaxNameSize, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIiLb0ENS0_6parserIiEEEE, i64 16), ptr @_ZL25NonGlobalValueMaxNameSize, align 8
   tail call void @_ZN4llvm2cl12basic_parserIiEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL25NonGlobalValueMaxNameSize, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL25NonGlobalValueMaxNameSize) #27
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIiEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL25NonGlobalValueMaxNameSize, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIiEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL25NonGlobalValueMaxNameSize, i64 152), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL25NonGlobalValueMaxNameSize, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKiEN4llvm2cl3optIiLb0ENS4_6parserIiEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL25NonGlobalValueMaxNameSize, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKiEN4llvm2cl3optIiLb0ENS4_6parserIiEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL25NonGlobalValueMaxNameSize, i64 176), align 8

@@ -1367,7 +1367,7 @@ declare ptr @_PyObject_GC_NewVar(ptr noundef, i64 noundef) local_unnamed_addr #1
 define dso_local ptr @PyFrame_New(ptr noundef %tstate, ptr noundef %code, ptr noundef %globals, ptr noundef %locals) local_unnamed_addr #0 {
 entry:
   %desc = alloca %struct.PyFrameConstructor, align 8
-  %call.i = tail call ptr @PyDict_GetItemWithError(ptr noundef %globals, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27384)) #7
+  %call.i = tail call ptr @PyDict_GetItemWithError(ptr noundef %globals, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27384)) #7
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.end5.i, label %if.then.i
 
@@ -1600,7 +1600,7 @@ return:                                           ; preds = %if.end5.i, %if.end.
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyEval_BuiltinsFromGlobals(ptr noundef %tstate, ptr noundef %globals) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @PyDict_GetItemWithError(ptr noundef %globals, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27384)) #7
+  %call = tail call ptr @PyDict_GetItemWithError(ptr noundef %globals, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27384)) #7
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.end5, label %if.then
 

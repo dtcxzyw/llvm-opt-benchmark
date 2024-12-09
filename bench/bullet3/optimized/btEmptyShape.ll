@@ -36,7 +36,7 @@ $__clang_call_terminate = comdat any
 define dso_local void @_ZN12btEmptyShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(52) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN14btConcaveShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12btEmptyShape, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12btEmptyShape, i64 16), ptr %this, align 8
   %m_shapeType = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 27, ptr %m_shapeType, align 8
   ret void

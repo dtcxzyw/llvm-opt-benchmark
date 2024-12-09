@@ -112,7 +112,7 @@ thread-pre-split:                                 ; preds = %25, %26, %36, %37, 
   br i1 %42, label %43, label %49
 
 43:                                               ; preds = %.thread, %40
-  %44 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 48), align 8
+  %44 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 48), align 8
   %45 = and i64 %44, 4398046511104
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %49, label %47

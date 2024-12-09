@@ -47,7 +47,7 @@ define internal fastcc i32 @_mca_topo_base_select(ptr noundef %0, ptr noundef %1
 
 9:                                                ; preds = %5
   %.not78 = icmp eq ptr %0, null
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 76), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_topo_base_framework, i64 76), align 4
   %11 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %10) #6
   br i1 %.not78, label %18, label %12
 
@@ -55,7 +55,7 @@ define internal fastcc i32 @_mca_topo_base_select(ptr noundef %0, ptr noundef %1
   br i1 %11, label %13, label %21
 
 13:                                               ; preds = %12
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 76), align 4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_topo_base_framework, i64 76), align 4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @ompi_comm_print_cid(ptr noundef nonnull %0) #6
@@ -66,7 +66,7 @@ define internal fastcc i32 @_mca_topo_base_select(ptr noundef %0, ptr noundef %1
   br i1 %11, label %19, label %21
 
 19:                                               ; preds = %18
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 76), align 4
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_topo_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %20, ptr noundef nonnull @.str.1) #6
   br label %21
 
@@ -75,12 +75,12 @@ define internal fastcc i32 @_mca_topo_base_select(ptr noundef %0, ptr noundef %1
   br i1 %.not79, label %38, label %22
 
 22:                                               ; preds = %21
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 76), align 4
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_topo_base_framework, i64 76), align 4
   %24 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %23) #6
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %22
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 76), align 4
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_topo_base_framework, i64 76), align 4
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 84
@@ -105,7 +105,7 @@ define internal fastcc i32 @_mca_topo_base_select(ptr noundef %0, ptr noundef %1
 
 38:                                               ; preds = %30, %21
   %39 = load i32, ptr @opal_class_init_epoch, align 4
-  %40 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not81 = icmp eq i32 %39, %40
   br i1 %.not81, label %42, label %41
 
@@ -132,8 +132,8 @@ define internal fastcc i32 @_mca_topo_base_select(ptr noundef %0, ptr noundef %1
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %42
-  %.065107 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 112), align 8
-  %.not82108 = icmp eq ptr %.065107, getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 96)
+  %.065107 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_topo_base_framework, i64 112), align 8
+  %.not82108 = icmp eq ptr %.065107, getelementptr inbounds nuw (i8, ptr @ompi_topo_base_framework, i64 96)
   br i1 %.not82108, label %opal_obj_run_destructors.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %opal_obj_run_constructors.exit
@@ -148,12 +148,12 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %42
   %.067109 = phi i32 [ -1, %.lr.ph ], [ %.269, %114 ]
   %53 = getelementptr inbounds nuw i8, ptr %.065111, i64 40
   %54 = load ptr, ptr %53, align 8
-  %55 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 76), align 4
+  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_topo_base_framework, i64 76), align 4
   %56 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %55) #6
   br i1 %56, label %57, label %61
 
 57:                                               ; preds = %52
-  %58 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 76), align 4
+  %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_topo_base_framework, i64 76), align 4
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 40
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 84
   call void (i32, ptr, ...) @opal_output(i32 noundef %58, ptr noundef nonnull @.str.3, ptr noundef nonnull %59, ptr noundef nonnull %60) #6
@@ -166,19 +166,19 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %42
   br i1 %64, label %65, label %70
 
 65:                                               ; preds = %61
-  %66 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 76), align 4
+  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_topo_base_framework, i64 76), align 4
   %67 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %66) #6
   br i1 %67, label %68, label %114
 
 68:                                               ; preds = %65
-  %69 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 76), align 4
+  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_topo_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %69, ptr noundef nonnull @.str.4) #6
   br label %114
 
 70:                                               ; preds = %61
   %71 = call ptr %63(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, i32 noundef %4) #6
   %72 = icmp eq ptr %71, null
-  %73 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 76), align 4
+  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_topo_base_framework, i64 76), align 4
   %74 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %73) #6
   br i1 %72, label %75, label %78
 
@@ -186,7 +186,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %42
   br i1 %74, label %76, label %114
 
 76:                                               ; preds = %75
-  %77 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 76), align 4
+  %77 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_topo_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %77, ptr noundef nonnull @.str.5) #6
   br label %114
 
@@ -194,7 +194,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %42
   br i1 %74, label %79, label %82
 
 79:                                               ; preds = %78
-  %80 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 76), align 4
+  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_topo_base_framework, i64 76), align 4
   %81 = load i32, ptr %6, align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %80, ptr noundef nonnull @.str.6, i32 noundef %81) #6
   br label %82
@@ -204,10 +204,10 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %42
   %84 = icmp sgt i32 %83, %.067109
   %spec.select = call i32 @llvm.smax.i32(i32 %83, i32 %.067109)
   %spec.select84 = select i1 %84, ptr %54, ptr %.064110
-  %85 = load i64, ptr getelementptr inbounds (i8, ptr @queried_module_t_class, i64 56), align 8
+  %85 = load i64, ptr getelementptr inbounds nuw (i8, ptr @queried_module_t_class, i64 56), align 8
   %86 = call noalias ptr @malloc(i64 noundef %85) #7
   %87 = load i32, ptr @opal_class_init_epoch, align 4
-  %88 = load i32, ptr getelementptr inbounds (i8, ptr @queried_module_t_class, i64 32), align 8
+  %88 = load i32, ptr getelementptr inbounds nuw (i8, ptr @queried_module_t_class, i64 32), align 8
   %.not.i85 = icmp eq i32 %87, %88
   br i1 %.not.i85, label %90, label %89
 
@@ -278,7 +278,7 @@ opal_obj_new.exit.thread105:                      ; preds = %.lr.ph.i.i, %91
   %.2 = phi ptr [ %.064110, %68 ], [ %.064110, %65 ], [ %.064110, %76 ], [ %.064110, %75 ], [ %spec.select84, %opal_obj_new.exit.thread105 ]
   %115 = getelementptr inbounds nuw i8, ptr %.065111, i64 16
   %.065 = load volatile ptr, ptr %115, align 8
-  %.not82 = icmp eq ptr %.065, getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 96)
+  %.not82 = icmp eq ptr %.065, getelementptr inbounds nuw (i8, ptr @ompi_topo_base_framework, i64 96)
   br i1 %.not82, label %._crit_edge, label %52, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %114
@@ -327,12 +327,12 @@ opal_obj_new.exit.thread105:                      ; preds = %.lr.ph.i.i, %91
   br label %173
 
 142:                                              ; preds = %132
-  %143 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 76), align 4
+  %143 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_topo_base_framework, i64 76), align 4
   %144 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %143) #6
   br i1 %144, label %145, label %149
 
 145:                                              ; preds = %142
-  %146 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 76), align 4
+  %146 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_topo_base_framework, i64 76), align 4
   %147 = load ptr, ptr %133, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 84
   call void (i32, ptr, ...) @opal_output(i32 noundef %146, ptr noundef nonnull @.str.7, ptr noundef nonnull %148) #6
@@ -456,12 +456,12 @@ opal_list_remove_first.exit104:                   ; preds = %193
   br label %132, !llvm.loop !8
 
 ._crit_edge115:                                   ; preds = %193, %117
-  %205 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 76), align 4
+  %205 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_topo_base_framework, i64 76), align 4
   %206 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %205) #6
   br i1 %206, label %207, label %210
 
 207:                                              ; preds = %._crit_edge115
-  %208 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 76), align 4
+  %208 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_topo_base_framework, i64 76), align 4
   %209 = getelementptr inbounds nuw i8, ptr %.2, i64 84
   call void (i32, ptr, ...) @opal_output(i32 noundef %208, ptr noundef nonnull @.str.8, ptr noundef nonnull %209) #6
   br label %210

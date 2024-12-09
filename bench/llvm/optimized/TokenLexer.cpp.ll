@@ -2084,7 +2084,7 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit.i.i.i.i, %233, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i, %246, %248, %203, %202
   %.097 = phi i32 [ 1, %202 ], [ 2, %203 ], [ 0, %248 ], [ 0, %246 ], [ 2, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i ], [ 2, %233 ], [ 2, %_ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit.i.i.i.i ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %13, align 8
   %249 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %50) #15
   %250 = load ptr, ptr %50, align 8
   %251 = icmp eq ptr %250, %51

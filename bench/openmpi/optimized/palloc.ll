@@ -143,7 +143,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 18:                                               ; preds = %2
   %19 = load i32, ptr @pmix_class_init_epoch, align 4
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_cli_result_t_class, i64 32), align 8
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_cli_result_t_class, i64 32), align 8
   %.not266 = icmp eq i32 %19, %20
   br i1 %.not266, label %22, label %21
 
@@ -1233,10 +1233,10 @@ pmix_cmd_line_get_param.exit506:                  ; preds = %.lr.ph.i501
 
 pmix_cmd_line_get_param.exit506.thread:           ; preds = %460, %pmix_cmd_line_get_param.exit498.thread, %pmix_cmd_line_get_param.exit506
   %.not310.not587 = phi i1 [ false, %pmix_cmd_line_get_param.exit506 ], [ true, %pmix_cmd_line_get_param.exit498.thread ], [ true, %460 ]
-  %467 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_shift_caddy_t_class, i64 56), align 8
+  %467 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_shift_caddy_t_class, i64 56), align 8
   %468 = call noalias noundef ptr @malloc(i64 noundef %467) #19
   %469 = load i32, ptr @pmix_class_init_epoch, align 4
-  %470 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_shift_caddy_t_class, i64 32), align 8
+  %470 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_shift_caddy_t_class, i64 32), align 8
   %.not.i507 = icmp eq i32 %469, %470
   br i1 %.not.i507, label %472, label %471
 
@@ -1308,7 +1308,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %472, %
   %499 = call i32 @PMIx_Info_load(ptr noundef nonnull %498, ptr noundef nonnull @.str.71, ptr noundef nonnull %468, i16 noundef zeroext 31) #15
   %500 = call i32 @PMIx_Info_load(ptr noundef %497, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73, i16 noundef zeroext 3) #15
   %501 = load i32, ptr @pmix_class_init_epoch, align 4
-  %502 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 32), align 8
+  %502 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mutex_t_class, i64 32), align 8
   %.not314 = icmp eq i32 %501, %502
   br i1 %.not314, label %504, label %503
 

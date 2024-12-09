@@ -3044,7 +3044,7 @@ entry:
   %2 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !39
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %frombool.i = zext i1 %cmp to i8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core4CallE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core4CallE, i64 16), ptr %this, align 8
   %channel_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %1, ptr %channel_.i, align 8
   %arena_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -3107,7 +3107,7 @@ invoke.cont4:                                     ; preds = %invoke.cont5.i
   %start_time_.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   store double %call.i, ptr %start_time_.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15FilterStackCallE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core15FilterStackCallE, i64 16), ptr %this, align 8
   %ext_ref_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   store i64 1, ptr %ext_ref_, align 8
   %call_combiner_ = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -4165,13 +4165,13 @@ _ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i: ; pre
   br label %_ZN9grpc_core26ApplicationCallbackExecCtxC2Ev.exit
 
 _ZN9grpc_core26ApplicationCallbackExecCtxC2Ev.exit: ; preds = %_ZN9grpc_core26ApplicationCallbackExecCtx3GetEv.exit.i.i, %_ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
   %closure_list_.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 8
   %flags_.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %closure_list_.i, i8 0, i64 32, i1 false)
   store i64 1, ptr %flags_.i, align 8
   %time_cache_.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
   %previous_.i.i.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 56
   %.not.i.i.i.i3 = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
   br i1 %.not.i.i.i.i3, label %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i, label %8
@@ -4196,7 +4196,7 @@ _ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i: ; preds
 _ZN9grpc_core15ScopedTimeCacheC2Ev.exit.i:        ; preds = %.noexc, %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i
   %11 = phi ptr [ %6, %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i ], [ %9, %.noexc ]
   store ptr %time_cache_.i, ptr %11, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i64 16), ptr %time_cache_.i, align 8
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 72
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, null
@@ -4229,7 +4229,7 @@ invoke.cont2.i:                                   ; preds = %if.then.i.i4, %invo
 lpad.i:                                           ; preds = %16, %if.then.i.i4, %12
   %17 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
   %18 = load ptr, ptr %previous_.i.i.i, align 8
   br i1 %.not.i.i.i.i3, label %_ZN9grpc_core15ScopedTimeCacheD2Ev.exit.i, label %19
 
@@ -4369,7 +4369,7 @@ if.then.i.i12:                                    ; preds = %if.end21
           to label %invoke.cont22 unwind label %lpad2
 
 invoke.cont22:                                    ; preds = %if.end21, %if.then.i.i12
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
   %42 = load i64, ptr %flags_.i, align 8
   %or.i = or i64 %42, 1
   store i64 %or.i, ptr %flags_.i, align 8
@@ -4401,7 +4401,7 @@ if.then.i.i26:                                    ; preds = %if.then.i
           to label %if.end.i20 unwind label %terminate.lpad.i15
 
 if.end.i20:                                       ; preds = %if.then.i.i26, %if.then.i, %invoke.cont2.i19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
   %47 = load ptr, ptr %previous_.i.i.i, align 8
   br i1 %.not.i.i.i.i3, label %_ZN9grpc_core7ExecCtxD2Ev.exit, label %48
 
@@ -4532,7 +4532,7 @@ _Z17grpc_stream_unrefP20grpc_stream_refcount.exit: ; preds = %entry, %if.then.i
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core7ExecCtxD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %this, align 8
   %flags_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %flags_, align 8
   %or = or i64 %0, 1
@@ -4569,7 +4569,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.end:                                           ; preds = %if.then, %if.then.i, %invoke.cont2
   %time_cache_ = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_, align 8
   %previous_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %6 = load ptr, ptr %previous_.i.i, align 8
   %.not.i.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
@@ -7456,7 +7456,7 @@ call.i.noexc:                                     ; preds = %cond.true
           to label %.noexc unwind label %lpad.body.thread5
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.96, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.96, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.96, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.96, i64 2))
           to label %cleanup.action unwind label %lpad.body.thread
 
 lpad.body.thread:                                 ; preds = %.noexc
@@ -10074,7 +10074,7 @@ entry:
   %2 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !142
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %frombool.i = zext i1 %cmp to i8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core4CallE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core4CallE, i64 16), ptr %this, align 8
   %channel_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %1, ptr %channel_.i, align 8
   %arena_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -10150,10 +10150,10 @@ invoke.cont5:                                     ; preds = %invoke.cont5.i
   %scevgep.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %scevgep.i, i8 0, i64 128, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %this, i64 280
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core16PromiseBasedCallE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core16PromiseBasedCallE, i64 208), ptr %8, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core16PromiseBasedCallE, i64 344), ptr %9, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core16PromiseBasedCallE, i64 392), ptr %10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core16PromiseBasedCallE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core16PromiseBasedCallE, i64 208), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core16PromiseBasedCallE, i64 344), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core16PromiseBasedCallE, i64 392), ptr %10, align 8
   %call_context_ = getelementptr inbounds nuw i8, ptr %this, i64 288
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(97) %call_context_, i8 0, i64 48, i1 false)
   %call.i.i.i16 = invoke { i64, i64 } @gpr_inf_future(i32 noundef 3)
@@ -10528,7 +10528,7 @@ call.i.noexc:                                     ; preds = %cond.false
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.111, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.111, i64 13))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.111, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.111, i64 13))
           to label %cleanup.action unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -11389,13 +11389,13 @@ _ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i: ; pre
   br label %_ZN9grpc_core26ApplicationCallbackExecCtxC2Ev.exit
 
 _ZN9grpc_core26ApplicationCallbackExecCtxC2Ev.exit: ; preds = %_ZN9grpc_core26ApplicationCallbackExecCtx3GetEv.exit.i.i, %_ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
   %closure_list_.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 8
   %flags_.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %closure_list_.i, i8 0, i64 32, i1 false)
   store i64 1, ptr %flags_.i, align 8
   %time_cache_.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
   %previous_.i.i.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 56
   %.not.i.i.i.i3 = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
   br i1 %.not.i.i.i.i3, label %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i, label %7
@@ -11420,7 +11420,7 @@ _ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i: ; preds
 _ZN9grpc_core15ScopedTimeCacheC2Ev.exit.i:        ; preds = %.noexc, %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i
   %10 = phi ptr [ %5, %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i ], [ %8, %.noexc ]
   store ptr %time_cache_.i, ptr %10, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i64 16), ptr %time_cache_.i, align 8
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 72
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, null
@@ -11453,7 +11453,7 @@ invoke.cont2.i:                                   ; preds = %if.then.i.i4, %invo
 lpad.i:                                           ; preds = %15, %if.then.i.i4, %11
   %16 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
   %17 = load ptr, ptr %previous_.i.i.i, align 8
   br i1 %.not.i.i.i.i3, label %_ZN9grpc_core15ScopedTimeCacheD2Ev.exit.i, label %18
 
@@ -11515,7 +11515,7 @@ if.then.i.i10:                                    ; preds = %call2.i.i.i.noexc
           to label %invoke.cont7 unwind label %lpad3
 
 invoke.cont7:                                     ; preds = %call2.i.i.i.noexc, %_ZN4absl12lts_202308026StatusD2Ev.exit, %if.then.i.i10
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
   %25 = load i64, ptr %flags_.i, align 8
   %or.i = or i64 %25, 1
   store i64 %or.i, ptr %flags_.i, align 8
@@ -11547,7 +11547,7 @@ if.then.i.i24:                                    ; preds = %if.then.i
           to label %if.end.i unwind label %terminate.lpad.i14
 
 if.end.i:                                         ; preds = %if.then.i.i24, %if.then.i, %invoke.cont2.i18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
   %30 = load ptr, ptr %previous_.i.i.i, align 8
   br i1 %.not.i.i.i.i3, label %_ZN9grpc_core7ExecCtxD2Ev.exit, label %31
 
@@ -11771,7 +11771,7 @@ invoke.cont10:                                    ; preds = %invoke.cont6
   store i64 17, ptr %name_.i.i.i.i, align 8
   %name.sroa.2.0.name_.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i56, i64 24
   store ptr @.str.57, ptr %name.sroa.2.0.name_.sroa_idx.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_16PromiseBasedCall16StartSendMessageERK7grpc_opRKNS2_10CompletionEPNS_10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEERNS0_11BulkSpawnerEE3$_0ZNS2_16StartSendMessageES5_S8_SG_SI_E3$_1EE", i64 16), ptr %call.i.i56, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_16PromiseBasedCall16StartSendMessageERK7grpc_opRKNS2_10CompletionEPNS_10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEERNS0_11BulkSpawnerEE3$_0ZNS2_16StartSendMessageES5_S8_SG_SI_E3$_1EE", i64 16), ptr %call.i.i56, align 8
   %on_complete_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i56, i64 64
   store ptr %13, ptr %on_complete_.i.i.i, align 8
   %15 = getelementptr inbounds nuw i8, ptr %call.i.i56, i64 72
@@ -12200,7 +12200,7 @@ invoke.cont5:                                     ; preds = %invoke.cont
   store i64 26, ptr %name_.i.i.i.i, align 8
   %name.sroa.2.0.name_.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i45, i64 24
   store ptr @.str.58, ptr %name.sroa.2.0.name_.sroa_idx.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_5LatchIbE4WaitEvEUlvE_ZNS_22ClientPromiseBasedCall12StartPromiseESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERKNS_16PromiseBasedCall10CompletionERNS0_11BulkSpawnerEE3$_0EE", i64 16), ptr %call.i.i45, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_5LatchIbE4WaitEvEUlvE_ZNS_22ClientPromiseBasedCall12StartPromiseESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERKNS_16PromiseBasedCall10CompletionERNS0_11BulkSpawnerEE3$_0EE", i64 16), ptr %call.i.i45, align 8
   %on_complete_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i45, i64 40
   store ptr %5, ptr %on_complete_.i.i.i, align 8
   %7 = getelementptr inbounds nuw i8, ptr %call.i.i45, i64 48
@@ -12239,7 +12239,7 @@ _ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit: ; preds = %"_ZZN9
   store i64 14, ptr %name_.i.i.i.i10, align 8
   %name.sroa.2.0.name_.sroa_idx.i.i.i.i11 = getelementptr inbounds nuw i8, ptr %call.i.i818, i64 24
   store ptr @.str.59, ptr %name.sroa.2.0.name_.sroa_idx.i.i.i.i11, align 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_22ClientPromiseBasedCall12StartPromiseESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERKNS_16PromiseBasedCall10CompletionERNS0_11BulkSpawnerEE3$_1ZNS2_12StartPromiseES7_SB_SD_E3$_2EE", i64 16), ptr %call.i.i818, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_22ClientPromiseBasedCall12StartPromiseESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERKNS_16PromiseBasedCall10CompletionERNS0_11BulkSpawnerEE3$_1ZNS2_12StartPromiseES7_SB_SD_E3$_2EE", i64 16), ptr %call.i.i818, align 16
   %on_complete_.i.i.i12 = getelementptr inbounds nuw i8, ptr %call.i.i818, i64 96
   store ptr %this, ptr %on_complete_.i.i.i12, align 16
   %started_.i.i.i13 = getelementptr inbounds nuw i8, ptr %call.i.i818, i64 104
@@ -12927,7 +12927,7 @@ _ZN9grpc_core22ClientPromiseBasedCall24StartRecvInitialMetadataEP19grpc_metadata
   store i64 21, ptr %name_.i.i.i.i.i, align 8
   %name.sroa.2.0.name_.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i23.i, i64 24
   store ptr @.str.61, ptr %name.sroa.2.0.name_.sroa_idx.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_22ClientPromiseBasedCall24StartRecvInitialMetadataEP19grpc_metadata_arrayRKNS_16PromiseBasedCall10CompletionERNS0_11BulkSpawnerEE3$_0ZNS2_24StartRecvInitialMetadataES4_S8_SA_E3$_1EE", i64 16), ptr %call.i.i23.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_22ClientPromiseBasedCall24StartRecvInitialMetadataEP19grpc_metadata_arrayRKNS_16PromiseBasedCall10CompletionERNS0_11BulkSpawnerEE3$_0ZNS2_24StartRecvInitialMetadataES4_S8_SA_E3$_1EE", i64 16), ptr %call.i.i23.i, align 8
   %36 = getelementptr inbounds nuw i8, ptr %call.i.i23.i, i64 120
   store i8 %35, ptr %36, align 1
   %started_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i23.i, i64 121
@@ -12976,7 +12976,7 @@ _ZN9grpc_core22ClientPromiseBasedCall23StartRecvStatusOnClientERKNS_16PromiseBas
   store i64 21, ptr %name_.i.i.i.i.i36, align 8
   %name.sroa.2.0.name_.sroa_idx.i.i.i.i.i37 = getelementptr inbounds nuw i8, ptr %call.i.i35.i, i64 24
   store ptr @.str.63, ptr %name.sroa.2.0.name_.sroa_idx.i.i.i.i.i37, align 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_5LatchISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE4WaitEvEUlvE_ZNS_22ClientPromiseBasedCall23StartRecvStatusOnClientERKNS_16PromiseBasedCall10CompletionEN7grpc_op12grpc_op_data29grpc_op_recv_status_on_clientERNS0_11BulkSpawnerEE3$_0EE", i64 16), ptr %call.i.i35.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_5LatchISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE4WaitEvEUlvE_ZNS_22ClientPromiseBasedCall23StartRecvStatusOnClientERKNS_16PromiseBasedCall10CompletionEN7grpc_op12grpc_op_data29grpc_op_recv_status_on_clientERNS0_11BulkSpawnerEE3$_0EE", i64 16), ptr %call.i.i35.i, align 8
   %43 = getelementptr inbounds nuw i8, ptr %call.i.i35.i, i64 80
   store i8 %42, ptr %43, align 1
   %started_.i.i.i.i38 = getelementptr inbounds nuw i8, ptr %call.i.i35.i, i64 81
@@ -13071,7 +13071,7 @@ lpad10.i:                                         ; preds = %.noexc58
   store i64 17, ptr %name_.i.i.i.i.i48, align 8
   %name.sroa.2.0.name_.sroa_idx.i.i.i.i.i49 = getelementptr inbounds nuw i8, ptr %call.i.i67.i, i64 24
   store ptr @.str.205, ptr %name.sroa.2.0.name_.sroa_idx.i.i.i.i.i49, align 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_16PromiseBasedCall16StartRecvMessageIZNS_22ClientPromiseBasedCall11CommitBatchEPK7grpc_opmRKNS2_10CompletionEE3$_0EEvRS6_SA_T_PNS_12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEEbRNS0_11BulkSpawnerEEUlvE_ZNS3_ISB_EEvSC_SA_SD_SL_bSN_EUlNS_10NextResultISJ_EEE_EE", i64 16), ptr %call.i.i67.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_16PromiseBasedCall16StartRecvMessageIZNS_22ClientPromiseBasedCall11CommitBatchEPK7grpc_opmRKNS2_10CompletionEE3$_0EEvRS6_SA_T_PNS_12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEEbRNS0_11BulkSpawnerEEUlvE_ZNS3_ISB_EEvSC_SA_SD_SL_bSN_EUlNS_10NextResultISJ_EEE_EE", i64 16), ptr %call.i.i67.i, align 8
   %53 = getelementptr inbounds nuw i8, ptr %call.i.i67.i, i64 121
   store i8 %52, ptr %53, align 1
   %started_.i.i.i.i50 = getelementptr inbounds nuw i8, ptr %call.i.i67.i, i64 122
@@ -13110,7 +13110,7 @@ invoke.cont57:                                    ; preds = %sw.bb53
   store i64 22, ptr %name_.i.i.i.i, align 8
   %name.sroa.2.0.name_.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i6163, i64 24
   store ptr @.str.60, ptr %name.sroa.2.0.name_.sroa_idx.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_22ClientPromiseBasedCall11CommitBatchEPK7grpc_opmRKNS_16PromiseBasedCall10CompletionEE3$_1ZNS2_11CommitBatchES5_mS9_E3$_2EE", i64 16), ptr %call.i.i6163, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_22ClientPromiseBasedCall11CommitBatchEPK7grpc_opmRKNS_16PromiseBasedCall10CompletionEE3$_1ZNS2_11CommitBatchES5_mS9_E3$_2EE", i64 16), ptr %call.i.i6163, align 8
   %on_complete_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i6163, i64 40
   store ptr %56, ptr %on_complete_.i.i.i, align 8
   %58 = getelementptr inbounds nuw i8, ptr %call.i.i6163, i64 48
@@ -13215,7 +13215,7 @@ entry:
   store i64 21, ptr %name_.i.i.i.i, align 8
   %name.sroa.2.0.name_.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i23, i64 24
   store ptr @.str.61, ptr %name.sroa.2.0.name_.sroa_idx.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_22ClientPromiseBasedCall24StartRecvInitialMetadataEP19grpc_metadata_arrayRKNS_16PromiseBasedCall10CompletionERNS0_11BulkSpawnerEE3$_0ZNS2_24StartRecvInitialMetadataES4_S8_SA_E3$_1EE", i64 16), ptr %call.i.i23, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_22ClientPromiseBasedCall24StartRecvInitialMetadataEP19grpc_metadata_arrayRKNS_16PromiseBasedCall10CompletionERNS0_11BulkSpawnerEE3$_0ZNS2_24StartRecvInitialMetadataES4_S8_SA_E3$_1EE", i64 16), ptr %call.i.i23, align 8
   %3 = getelementptr inbounds nuw i8, ptr %call.i.i23, i64 120
   store i8 %2, ptr %3, align 1
   %started_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i23, i64 121
@@ -13267,7 +13267,7 @@ entry:
   store i64 21, ptr %name_.i.i.i.i, align 8
   %name.sroa.2.0.name_.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i35, i64 24
   store ptr @.str.63, ptr %name.sroa.2.0.name_.sroa_idx.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_5LatchISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE4WaitEvEUlvE_ZNS_22ClientPromiseBasedCall23StartRecvStatusOnClientERKNS_16PromiseBasedCall10CompletionEN7grpc_op12grpc_op_data29grpc_op_recv_status_on_clientERNS0_11BulkSpawnerEE3$_0EE", i64 16), ptr %call.i.i35, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_5LatchISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE4WaitEvEUlvE_ZNS_22ClientPromiseBasedCall23StartRecvStatusOnClientERKNS_16PromiseBasedCall10CompletionEN7grpc_op12grpc_op_data29grpc_op_recv_status_on_clientERNS0_11BulkSpawnerEE3$_0EE", i64 16), ptr %call.i.i35, align 8
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i35, i64 80
   store i8 %4, ptr %5, align 1
   %started_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i35, i64 81
@@ -13957,13 +13957,13 @@ invoke.cont7:
   %agg.tmp31 = alloca %"class.grpc_core::ArenaPromise", align 16
   %agg.tmp37 = alloca %"struct.grpc_core::CallArgs", align 8
   tail call void @_ZN9grpc_core16PromiseBasedCallC2EPNS_5ArenaEjRK21grpc_call_create_args(ptr noundef nonnull align 8 dereferenceable(1096) %this, ptr noundef %arena, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(145) %args)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core22ServerPromiseBasedCallE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core22ServerPromiseBasedCallE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 112
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core22ServerPromiseBasedCallE, i64 216), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core22ServerPromiseBasedCallE, i64 216), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core22ServerPromiseBasedCallE, i64 352), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core22ServerPromiseBasedCallE, i64 352), ptr %add.ptr2, align 8
   %add.ptr3 = getelementptr inbounds nuw i8, ptr %this, i64 280
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core22ServerPromiseBasedCallE, i64 400), ptr %add.ptr3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core22ServerPromiseBasedCallE, i64 400), ptr %add.ptr3, align 8
   %call_context_ = getelementptr inbounds nuw i8, ptr %this, i64 1096
   %server_transport_data = getelementptr inbounds nuw i8, ptr %args, i64 48
   %0 = load ptr, ptr %server_transport_data, align 8
@@ -14171,7 +14171,7 @@ invoke.cont.i:                                    ; preds = %invoke.cont41
   store i64 14, ptr %name_.i.i.i.i.i, align 8
   %name.sroa.2.0.name_.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 24
   store ptr @.str.64, ptr %name.sroa.2.0.name_.sroa_idx.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplINS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEZNS_22ServerPromiseBasedCallC1EPS5_P21grpc_call_create_argsE3$_0EE", i64 16), ptr %call.i.i2.i, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplINS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEZNS_22ServerPromiseBasedCallC1EPS5_P21grpc_call_create_argsE3$_0EE", i64 16), ptr %call.i.i2.i, align 16
   %on_complete_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 64
   store ptr %this, ptr %on_complete_.i.i.i.i, align 16
   %started_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 72
@@ -14909,7 +14909,7 @@ call.i.noexc:                                     ; preds = %sw.bb
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.135, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.135, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.135, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.135, i64 5))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -14937,7 +14937,7 @@ call.i.noexc8:                                    ; preds = %sw.bb2
           to label %.noexc10 unwind label %lpad4
 
 .noexc10:                                         ; preds = %call.i.noexc8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.136, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.136, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.136, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.136, i64 19))
           to label %invoke.cont5 unwind label %lpad.i7
 
 lpad.i7:                                          ; preds = %.noexc10
@@ -14965,7 +14965,7 @@ call.i.noexc16:                                   ; preds = %sw.bb6
           to label %.noexc18 unwind label %lpad8
 
 .noexc18:                                         ; preds = %call.i.noexc16
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.137, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.137, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.137, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.137, i64 19))
           to label %invoke.cont9 unwind label %lpad.i15
 
 lpad.i15:                                         ; preds = %.noexc18
@@ -15325,7 +15325,7 @@ _ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.ex
   store i64 26, ptr %name_.i.i.i.i, align 8
   %name.sroa.2.0.name_.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i3739, i64 24
   store ptr @.str.58, ptr %name.sroa.2.0.name_.sroa_idx.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_22ServerPromiseBasedCall11CommitBatchEPK7grpc_opmRKNS_16PromiseBasedCall10CompletionEE3$_0ZNS2_11CommitBatchES5_mS9_E3$_1EE", i64 16), ptr %call.i.i3739, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_22ServerPromiseBasedCall11CommitBatchEPK7grpc_opmRKNS_16PromiseBasedCall10CompletionEE3$_0ZNS2_11CommitBatchES5_mS9_E3$_1EE", i64 16), ptr %call.i.i3739, align 8
   %on_complete_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i3739, i64 64
   store ptr %27, ptr %on_complete_.i.i.i, align 8
   %29 = getelementptr inbounds nuw i8, ptr %call.i.i3739, i64 72
@@ -15461,7 +15461,7 @@ lpad10.i:                                         ; preds = %.noexc58
   store i64 17, ptr %name_.i.i.i.i.i, align 8
   %name.sroa.2.0.name_.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i67.i, i64 24
   store ptr @.str.205, ptr %name.sroa.2.0.name_.sroa_idx.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_16PromiseBasedCall16StartRecvMessageIZNS_22ServerPromiseBasedCall11CommitBatchEPK7grpc_opmRKNS2_10CompletionEE3$_2EEvRS6_SA_T_PNS_12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEEbRNS0_11BulkSpawnerEEUlvE_ZNS3_ISB_EEvSC_SA_SD_SL_bSN_EUlNS_10NextResultISJ_EEE_EE", i64 16), ptr %call.i.i67.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_16PromiseBasedCall16StartRecvMessageIZNS_22ServerPromiseBasedCall11CommitBatchEPK7grpc_opmRKNS2_10CompletionEE3$_2EEvRS6_SA_T_PNS_12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEEbRNS0_11BulkSpawnerEEUlvE_ZNS3_ISB_EEvSC_SA_SD_SL_bSN_EUlNS_10NextResultISJ_EEE_EE", i64 16), ptr %call.i.i67.i, align 8
   %46 = getelementptr inbounds nuw i8, ptr %call.i.i67.i, i64 105
   store i8 %45, ptr %46, align 1
   %started_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i67.i, i64 106
@@ -15595,7 +15595,7 @@ _ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.ex
   store i64 28, ptr %name_.i.i.i.i79, align 8
   %name.sroa.2.0.name_.sroa_idx.i.i.i.i80 = getelementptr inbounds nuw i8, ptr %call.i.i7687, i64 24
   store ptr @.str.67, ptr %name.sroa.2.0.name_.sroa_idx.i.i.i.i80, align 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_22ServerPromiseBasedCall11CommitBatchEPK7grpc_opmRKNS_16PromiseBasedCall10CompletionEE3$_3ZNS2_11CommitBatchES5_mS9_E3$_4EE", i64 16), ptr %call.i.i7687, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_22ServerPromiseBasedCall11CommitBatchEPK7grpc_opmRKNS_16PromiseBasedCall10CompletionEE3$_3ZNS2_11CommitBatchES5_mS9_E3$_4EE", i64 16), ptr %call.i.i7687, align 8
   %on_complete_.i.i.i81 = getelementptr inbounds nuw i8, ptr %call.i.i7687, i64 56
   store ptr %62, ptr %on_complete_.i.i.i81, align 8
   %64 = getelementptr inbounds nuw i8, ptr %call.i.i7687, i64 64
@@ -15963,7 +15963,7 @@ entry:
   store i64 17, ptr %name_.i.i.i.i.i, align 8
   %name.sroa.2.0.name_.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i3.i, i64 24
   store ptr @.str.69, ptr %name.sroa.2.0.name_.sroa_idx.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_22ServerPromiseBasedCall15CancelWithErrorEN4absl12lts_202308026StatusEE3$_0ZNS2_15CancelWithErrorES5_E3$_1EE", i64 16), ptr %call.i.i3.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_22ServerPromiseBasedCall15CancelWithErrorEN4absl12lts_202308026StatusEE3$_0ZNS2_15CancelWithErrorES5_E3$_1EE", i64 16), ptr %call.i.i3.i, align 8
   %started_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i3.i, i64 48
   store i8 0, ptr %started_.i.i.i.i, align 8
   %1 = getelementptr inbounds nuw i8, ptr %call.i.i3.i, i64 32
@@ -16496,7 +16496,7 @@ _ZN9grpc_core13RefCountedPtrINS_11pipe_detail6CenterISt10unique_ptrINS_7MessageE
 define ptr @grpc_call_arena_alloc(ptr nocapture noundef readonly %call, i64 noundef %size) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %exec_ctx = alloca %"class.grpc_core::ExecCtx", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
   %closure_list_.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 8
   %flags_.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %closure_list_.i, i8 0, i64 32, i1 false)
@@ -16523,7 +16523,7 @@ _ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i: ; preds
 _ZN9grpc_core15ScopedTimeCacheC2Ev.exit.i:        ; preds = %2, %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i
   %5 = phi ptr [ %0, %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i ], [ %3, %2 ]
   store ptr %time_cache_.i, ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i64 16), ptr %time_cache_.i, align 8
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 72
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, null
@@ -16556,7 +16556,7 @@ invoke.cont2.i:                                   ; preds = %if.then.i.i, %invok
 lpad.i:                                           ; preds = %10, %if.then.i.i, %6
   %11 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
   %12 = load ptr, ptr %previous_.i.i.i, align 8
   br i1 %.not.i.i.i.i, label %_ZN9grpc_core15ScopedTimeCacheD2Ev.exit.i, label %13
 
@@ -16597,7 +16597,7 @@ if.else.i:                                        ; preds = %_ZN9grpc_core7ExecC
 
 invoke.cont4:                                     ; preds = %if.then.i, %if.else.i
   %retval.0.i = phi ptr [ %add.ptr3.i, %if.then.i ], [ %call4.i1, %if.else.i ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
   %18 = load i64, ptr %flags_.i, align 8
   %or.i = or i64 %18, 1
   store i64 %or.i, ptr %flags_.i, align 8
@@ -16629,7 +16629,7 @@ if.then.i.i14:                                    ; preds = %if.then.i12
           to label %if.end.i unwind label %terminate.lpad.i
 
 if.end.i:                                         ; preds = %if.then.i.i14, %if.then.i12, %invoke.cont2.i6
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
   %23 = load ptr, ptr %previous_.i.i.i, align 8
   br i1 %.not.i.i.i.i, label %_ZN9grpc_core7ExecCtxD2Ev.exit, label %24
 
@@ -16774,7 +16774,7 @@ entry:
 define void @grpc_call_unref(ptr noundef %c) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %exec_ctx = alloca %"class.grpc_core::ExecCtx", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
   %closure_list_.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 8
   %flags_.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %closure_list_.i, i8 0, i64 32, i1 false)
@@ -16801,7 +16801,7 @@ _ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i: ; preds
 _ZN9grpc_core15ScopedTimeCacheC2Ev.exit.i:        ; preds = %2, %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i
   %5 = phi ptr [ %0, %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i ], [ %3, %2 ]
   store ptr %time_cache_.i, ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i64 16), ptr %time_cache_.i, align 8
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 72
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, null
@@ -16834,7 +16834,7 @@ invoke.cont2.i:                                   ; preds = %if.then.i.i, %invok
 lpad.i:                                           ; preds = %10, %if.then.i.i, %6
   %11 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
   %12 = load ptr, ptr %previous_.i.i.i, align 8
   br i1 %.not.i.i.i.i, label %_ZN9grpc_core15ScopedTimeCacheD2Ev.exit.i, label %13
 
@@ -16860,7 +16860,7 @@ _ZN9grpc_core7ExecCtxC2Ev.exit:                   ; preds = %invoke.cont2.i, %10
           to label %invoke.cont1 unwind label %lpad
 
 invoke.cont1:                                     ; preds = %_ZN9grpc_core7ExecCtxC2Ev.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
   %16 = load i64, ptr %flags_.i, align 8
   %or.i = or i64 %16, 1
   store i64 %or.i, ptr %flags_.i, align 8
@@ -16892,7 +16892,7 @@ if.then.i.i11:                                    ; preds = %if.then.i
           to label %if.end.i unwind label %terminate.lpad.i
 
 if.end.i:                                         ; preds = %if.then.i.i11, %if.then.i, %invoke.cont2.i5
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
   %21 = load ptr, ptr %previous_.i.i.i, align 8
   br i1 %.not.i.i.i.i, label %_ZN9grpc_core7ExecCtxD2Ev.exit, label %22
 
@@ -16996,13 +16996,13 @@ _ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i: ; pre
   br label %_ZN9grpc_core26ApplicationCallbackExecCtxC2Ev.exit
 
 _ZN9grpc_core26ApplicationCallbackExecCtxC2Ev.exit: ; preds = %_ZN9grpc_core26ApplicationCallbackExecCtx3GetEv.exit.i.i, %_ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
   %closure_list_.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 8
   %flags_.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %closure_list_.i, i8 0, i64 32, i1 false)
   store i64 1, ptr %flags_.i, align 8
   %time_cache_.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
   %previous_.i.i.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 56
   %.not.i.i.i.i6 = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
   br i1 %.not.i.i.i.i6, label %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i, label %8
@@ -17027,7 +17027,7 @@ _ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i: ; preds
 _ZN9grpc_core15ScopedTimeCacheC2Ev.exit.i:        ; preds = %.noexc, %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i
   %11 = phi ptr [ %6, %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i ], [ %9, %.noexc ]
   store ptr %time_cache_.i, ptr %11, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i64 16), ptr %time_cache_.i, align 8
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 72
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, null
@@ -17060,7 +17060,7 @@ invoke.cont2.i:                                   ; preds = %if.then.i.i7, %invo
 lpad.i:                                           ; preds = %16, %if.then.i.i7, %12
   %17 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
   %18 = load ptr, ptr %previous_.i.i.i, align 8
   br i1 %.not.i.i.i.i6, label %_ZN9grpc_core15ScopedTimeCacheD2Ev.exit.i, label %19
 
@@ -17100,7 +17100,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i9
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont12, %if.then.i.i9
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
   %25 = load i64, ptr %flags_.i, align 8
   %or.i = or i64 %25, 1
   store i64 %or.i, ptr %flags_.i, align 8
@@ -17132,7 +17132,7 @@ if.then.i.i22:                                    ; preds = %if.then.i
           to label %if.end.i unwind label %terminate.lpad.i12
 
 if.end.i:                                         ; preds = %if.then.i.i22, %if.then.i, %invoke.cont2.i16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
   %30 = load ptr, ptr %previous_.i.i.i, align 8
   br i1 %.not.i.i.i.i6, label %_ZN9grpc_core7ExecCtxD2Ev.exit, label %31
 
@@ -17311,13 +17311,13 @@ _ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i: ; pre
   br label %_ZN9grpc_core26ApplicationCallbackExecCtxC2Ev.exit
 
 _ZN9grpc_core26ApplicationCallbackExecCtxC2Ev.exit: ; preds = %_ZN9grpc_core26ApplicationCallbackExecCtx3GetEv.exit.i.i, %_ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
   %closure_list_.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 8
   %flags_.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %closure_list_.i, i8 0, i64 32, i1 false)
   store i64 1, ptr %flags_.i, align 8
   %time_cache_.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
   %previous_.i.i.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 56
   %.not.i.i.i.i7 = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
   br i1 %.not.i.i.i.i7, label %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i, label %8
@@ -17342,7 +17342,7 @@ _ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i: ; preds
 _ZN9grpc_core15ScopedTimeCacheC2Ev.exit.i:        ; preds = %.noexc, %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i
   %11 = phi ptr [ %6, %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i ], [ %9, %.noexc ]
   store ptr %time_cache_.i, ptr %11, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i64 16), ptr %time_cache_.i, align 8
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 72
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, null
@@ -17375,7 +17375,7 @@ invoke.cont2.i:                                   ; preds = %if.then.i.i8, %invo
 lpad.i:                                           ; preds = %16, %if.then.i.i8, %12
   %17 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
   %18 = load ptr, ptr %previous_.i.i.i, align 8
   br i1 %.not.i.i.i.i7, label %_ZN9grpc_core15ScopedTimeCacheD2Ev.exit.i, label %19
 
@@ -17394,7 +17394,7 @@ invoke.cont:                                      ; preds = %16, %invoke.cont2.i
           to label %invoke.cont9 unwind label %lpad6
 
 invoke.cont9:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
   %21 = load i64, ptr %flags_.i, align 8
   %or.i = or i64 %21, 1
   store i64 %or.i, ptr %flags_.i, align 8
@@ -17426,7 +17426,7 @@ if.then.i.i20:                                    ; preds = %if.then.i
           to label %if.end.i unwind label %terminate.lpad.i
 
 if.end.i:                                         ; preds = %if.then.i.i20, %if.then.i, %invoke.cont2.i14
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
   %26 = load ptr, ptr %previous_.i.i.i, align 8
   br i1 %.not.i.i.i.i7, label %_ZN9grpc_core7ExecCtxD2Ev.exit, label %27
 
@@ -17683,13 +17683,13 @@ _ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i: ; pre
   br label %_ZN9grpc_core26ApplicationCallbackExecCtxC2Ev.exit
 
 _ZN9grpc_core26ApplicationCallbackExecCtxC2Ev.exit: ; preds = %_ZN9grpc_core26ApplicationCallbackExecCtx3GetEv.exit.i.i, %_ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
   %closure_list_.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 8
   %flags_.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %closure_list_.i, i8 0, i64 32, i1 false)
   store i64 1, ptr %flags_.i, align 8
   %time_cache_.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
   %previous_.i.i.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 56
   %.not.i.i.i.i8 = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
   br i1 %.not.i.i.i.i8, label %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i, label %8
@@ -17714,7 +17714,7 @@ _ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i: ; preds
 _ZN9grpc_core15ScopedTimeCacheC2Ev.exit.i:        ; preds = %.noexc, %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i
   %11 = phi ptr [ %6, %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i ], [ %9, %.noexc ]
   store ptr %time_cache_.i, ptr %11, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i64 16), ptr %time_cache_.i, align 8
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 72
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, null
@@ -17747,7 +17747,7 @@ invoke.cont2.i:                                   ; preds = %if.then.i.i9, %invo
 lpad.i:                                           ; preds = %16, %if.then.i.i9, %12
   %17 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
   %18 = load ptr, ptr %previous_.i.i.i, align 8
   br i1 %.not.i.i.i.i8, label %_ZN9grpc_core15ScopedTimeCacheD2Ev.exit.i, label %19
 
@@ -17769,7 +17769,7 @@ invoke.cont:                                      ; preds = %16, %invoke.cont2.i
           to label %invoke.cont7 unwind label %lpad4
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
   %22 = load i64, ptr %flags_.i, align 8
   %or.i = or i64 %22, 1
   store i64 %or.i, ptr %flags_.i, align 8
@@ -17801,7 +17801,7 @@ if.then.i.i21:                                    ; preds = %if.then.i
           to label %if.end.i unwind label %terminate.lpad.i
 
 if.end.i:                                         ; preds = %if.then.i.i21, %if.then.i, %invoke.cont2.i15
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
   %27 = load ptr, ptr %previous_.i.i.i, align 8
   br i1 %.not.i.i.i.i8, label %_ZN9grpc_core7ExecCtxD2Ev.exit, label %28
 
@@ -18246,7 +18246,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i5
 _ZN38grpc_transport_stream_op_batch_payloadD2Ev.exit: ; preds = %_ZN9grpc_core11SliceBufferD2Ev.exit, %if.then.i.i.i.i5
   %call_combiner_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   tail call void @_ZN9grpc_core12CallCombinerD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %call_combiner_) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core4CallE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core4CallE, i64 16), ptr %this, align 8
   %peer_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %14 = load ptr, ptr %peer_string_.i, align 8
   %cmp.i.i.i = icmp ugt ptr %14, inttoptr (i64 1 to ptr)
@@ -18392,13 +18392,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core16PromiseBasedCallD2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core16PromiseBasedCallE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core16PromiseBasedCallE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 112
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core16PromiseBasedCallE, i64 208), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core16PromiseBasedCallE, i64 208), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core16PromiseBasedCallE, i64 344), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core16PromiseBasedCallE, i64 344), ptr %add.ptr2, align 8
   %add.ptr3 = getelementptr inbounds nuw i8, ptr %this, i64 280
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core16PromiseBasedCallE, i64 392), ptr %add.ptr3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core16PromiseBasedCallE, i64 392), ptr %add.ptr3, align 8
   %cq_ = getelementptr inbounds nuw i8, ptr %this, i64 528
   %0 = load ptr, ptr %cq_, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -18476,7 +18476,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
 
 _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %_ZN38grpc_transport_stream_op_batch_payloadD2Ev.exit, %if.then.i.i, %if.then.i.i.i
   tail call void @_ZN9grpc_core5PartyD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %add.ptr) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core4CallE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core4CallE, i64 16), ptr %this, align 8
   %peer_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %11 = load ptr, ptr %peer_string_.i, align 8
   %cmp.i.i.i6 = icmp ugt ptr %11, inttoptr (i64 1 to ptr)
@@ -19121,7 +19121,7 @@ _ZZN9grpc_core22ClientPromiseBasedCall15CancelWithErrorEN4absl12lts_202308026Sta
   store i64 30, ptr %name_.i.i.i.i.i, align 8
   %name.sroa.2.0.name_.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 24
   store ptr @.str.144, ptr %name.sroa.2.0.name_.sroa_idx.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Party15ParticipantImplIZNS_22ClientPromiseBasedCall15CancelWithErrorEN4absl12lts_202308026StatusEEUlvE_ZNS2_15CancelWithErrorES5_EUlNS_5EmptyEE_EE, i64 16), ptr %call.i.i2.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core5Party15ParticipantImplIZNS_22ClientPromiseBasedCall15CancelWithErrorEN4absl12lts_202308026StatusEEUlvE_ZNS2_15CancelWithErrorES5_EUlNS_5EmptyEE_EE, i64 16), ptr %call.i.i2.i, align 8
   %started_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 48
   store i8 0, ptr %started_.i.i.i.i, align 8
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 32
@@ -19177,7 +19177,7 @@ _ZZN9grpc_core22ClientPromiseBasedCall15CancelWithErrorEN4absl12lts_202308026Sta
   store i64 17, ptr %name_.i.i.i.i.i12, align 8
   %name.sroa.2.0.name_.sroa_idx.i.i.i.i.i13 = getelementptr inbounds nuw i8, ptr %call.i.i2.i9, i64 24
   store ptr @.str.69, ptr %name.sroa.2.0.name_.sroa_idx.i.i.i.i.i13, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Party15ParticipantImplIZNS_22ClientPromiseBasedCall15CancelWithErrorEN4absl12lts_202308026StatusEEUlvE0_ZNS2_15CancelWithErrorES5_EUlNS_5EmptyEE0_EE, i64 16), ptr %call.i.i2.i9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core5Party15ParticipantImplIZNS_22ClientPromiseBasedCall15CancelWithErrorEN4absl12lts_202308026StatusEEUlvE0_ZNS2_15CancelWithErrorES5_EUlNS_5EmptyEE0_EE, i64 16), ptr %call.i.i2.i9, align 8
   %started_.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %call.i.i2.i9, i64 48
   store i8 0, ptr %started_.i.i.i.i14, align 8
   %12 = getelementptr inbounds nuw i8, ptr %call.i.i2.i9, i64 32
@@ -19810,7 +19810,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -20549,7 +20549,7 @@ declare void @_ZN9grpc_core4Fork17DoIncExecCtxCountEv() local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core7ExecCtxD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %this, align 8
   %flags_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %flags_.i, align 8
   %or.i = or i64 %0, 1
@@ -20586,7 +20586,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %invoke.cont2.i
   %time_cache_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
   %previous_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %6 = load ptr, ptr %previous_.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
@@ -21151,7 +21151,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core4CallD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core4CallE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core4CallE, i64 16), ptr %this, align 8
   %peer_string_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %peer_string_, align 8
   %cmp.i.i = icmp ugt ptr %0, inttoptr (i64 1 to ptr)
@@ -21555,7 +21555,7 @@ invoke.cont:                                      ; preds = %entry
   store i64 %name.coerce0, ptr %name_.i.i.i.i, align 8
   %name.sroa.2.0.name_.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2, i64 24
   store ptr %name.coerce1, ptr %name.sroa.2.0.name_.sroa_idx.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Party15ParticipantImplIZNS_16PromiseBasedCall12RunInContextEN4absl12lts_2023080212AnyInvocableIFvvEEEEUlvE_ZNS2_12RunInContextES7_EUlNS_5EmptyEE_EE, i64 16), ptr %call.i.i2, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core5Party15ParticipantImplIZNS_16PromiseBasedCall12RunInContextEN4absl12lts_2023080212AnyInvocableIFvvEEEEUlvE_ZNS2_12RunInContextES7_EUlNS_5EmptyEE_EE, i64 16), ptr %call.i.i2, align 16
   %started_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2, i64 64
   store i8 0, ptr %started_.i.i.i, align 16
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i2, i64 32
@@ -42164,13 +42164,13 @@ entry:
   %parent_status = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp89 = alloca %"class.absl::lts_20230802::Status", align 8
   tail call void @_ZN9grpc_core16PromiseBasedCallC2EPNS_5ArenaEjRK21grpc_call_create_args(ptr noundef nonnull align 8 dereferenceable(1096) %this, ptr noundef %arena, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(145) %args)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core22ClientPromiseBasedCallE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core22ClientPromiseBasedCallE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 112
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core22ClientPromiseBasedCallE, i64 216), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core22ClientPromiseBasedCallE, i64 216), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core22ClientPromiseBasedCallE, i64 352), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core22ClientPromiseBasedCallE, i64 352), ptr %add.ptr2, align 8
   %add.ptr3 = getelementptr inbounds nuw i8, ptr %this, i64 280
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core22ClientPromiseBasedCallE, i64 400), ptr %add.ptr3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core22ClientPromiseBasedCallE, i64 400), ptr %add.ptr3, align 8
   %send_initial_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 1096
   store i64 1, ptr %send_initial_metadata_, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 1104

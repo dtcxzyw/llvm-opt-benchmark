@@ -284,7 +284,7 @@ declare dso_local i32 @vscnprintf(ptr noundef, i64 noundef, ptr noundef, ptr nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @trace_note(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef range(i32 67108864, 67108867) %2, ptr nocapture noundef readonly %3, i64 noundef range(i64 -2147483648, 2147483648) %4, i64 noundef %5) unnamed_addr #0 align 16 {
-  %7 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #22, !srcloc !13
+  %7 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #22, !srcloc !13
   %8 = load i1, ptr @blk_tracer_enabled, align 1
   %9 = icmp eq i64 %5, 0
   %10 = select i1 %9, i64 0, i64 8
@@ -314,7 +314,7 @@ define internal fastcc void @trace_note(ptr nocapture noundef readonly %0, i32 n
 26:                                               ; preds = %22
   %27 = add nsw i64 %10, %4
   %28 = add nsw i64 %27, 48
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #21, !srcloc !14
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #21, !srcloc !14
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !15
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %30 = load ptr, ptr %29, align 8
@@ -353,7 +353,7 @@ define internal fastcc void @trace_note(ptr nocapture noundef readonly %0, i32 n
 50:                                               ; preds = %45, %42
   %51 = phi ptr [ %49, %45 ], [ null, %42 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !18
-  %52 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #21, !srcloc !19
+  %52 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #21, !srcloc !19
   %53 = icmp ult i8 %52, 2
   tail call void @llvm.assume(i1 %53)
   %54 = icmp eq i8 %52, 0
@@ -1031,7 +1031,7 @@ define internal fastcc void @__blk_add_trace(ptr nocapture noundef nonnull reado
   br i1 %70, label %71, label %178
 
 71:                                               ; preds = %65
-  %72 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #21, !srcloc !22
+  %72 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #21, !srcloc !22
   br i1 %13, label %73, label %85
 
 73:                                               ; preds = %71
@@ -1074,7 +1074,7 @@ define internal fastcc void @__blk_add_trace(ptr nocapture noundef nonnull reado
   %95 = sext i32 %6 to i64
   %96 = add nsw i64 %95, 48
   %97 = add nsw i64 %96, %15
-  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #21, !srcloc !14
+  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #21, !srcloc !14
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !15
   %98 = getelementptr inbounds nuw i8, ptr %94, i64 64
   %99 = load ptr, ptr %98, align 8
@@ -1113,7 +1113,7 @@ define internal fastcc void @__blk_add_trace(ptr nocapture noundef nonnull reado
 119:                                              ; preds = %114, %111
   %120 = phi ptr [ %118, %114 ], [ null, %111 ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !18
-  %121 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #21, !srcloc !19
+  %121 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #21, !srcloc !19
   %122 = icmp ult i8 %121, 2
   call void @llvm.assume(i1 %122)
   %123 = icmp eq i8 %121, 0
@@ -2330,7 +2330,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @do_blk_trace_setup(ptr nou
   br label %97
 
 22:                                               ; preds = %13
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %24 = tail call noalias noundef align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %23, i32 noundef 3520, i64 noundef 96) #25
   %25 = icmp eq ptr %24, null
   br i1 %25, label %97, label %26
@@ -3827,7 +3827,7 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly %0,
   br i1 %58, label %62, label %86
 
 62:                                               ; preds = %61
-  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %64 = call noalias noundef align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %63, i32 noundef 3520, i64 noundef 96) #25
   %65 = icmp eq ptr %64, null
   br i1 %65, label %.thread15, label %66
@@ -3913,7 +3913,7 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly %0,
   br i1 %103, label %104, label %.thread13
 
 104:                                              ; preds = %99
-  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %106 = call noalias noundef align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %105, i32 noundef 3520, i64 noundef 96) #25
   %107 = icmp eq ptr %106, null
   br i1 %107, label %.thread15, label %108

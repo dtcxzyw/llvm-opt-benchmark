@@ -343,7 +343,7 @@ define hidden void @_ZN17PreservedMarksSet4initEj(ptr nocapture noundef nonnull 
   store i64 -1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i64 0, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackI13PreservedMarkL8MEMFLAGS5EE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackI13PreservedMarkL8MEMFLAGS5EE, i64 16), ptr %15, align 8
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i64 255, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -370,7 +370,7 @@ define hidden void @_ZN17PreservedMarksSet7restoreEP13WorkerThreads(ptr noundef 
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = tail call noundef i32 @_ZN4GCId20current_or_undefinedEv() #7
   store i32 %6, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25RestorePreservedMarksTask, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV25RestorePreservedMarksTask, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -393,7 +393,7 @@ define hidden void @_ZN17PreservedMarksSet7restoreEP13WorkerThreads(ptr noundef 
   br label %16
 
 16:                                               ; preds = %15, %14
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25RestorePreservedMarksTask, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV25RestorePreservedMarksTask, i64 16), ptr %3, align 8
   %17 = load volatile i64, ptr %12, align 8
   %18 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %18, null
@@ -549,13 +549,13 @@ declare void @_ZN13WorkerThreads8run_taskEP10WorkerTask(ptr noundef nonnull alig
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN17PreservedMarksSet11create_taskEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 9, i32 noundef 0) #7
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV10WorkerTask, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV10WorkerTask, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @.str, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = tail call noundef i32 @_ZN4GCId20current_or_undefinedEv() #7
   store i32 %5, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25RestorePreservedMarksTask, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV25RestorePreservedMarksTask, i64 16), ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -584,7 +584,7 @@ define hidden void @_ZN17PreservedMarksSet7reclaimEv(ptr nocapture noundef nonnu
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6PaddedI14PreservedMarksLm128EED2Ev.exit ]
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds nuw %class.Padded, ptr %6, i64 %indvars.iv
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackI13PreservedMarkL8MEMFLAGS5EE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackI13PreservedMarkL8MEMFLAGS5EE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8

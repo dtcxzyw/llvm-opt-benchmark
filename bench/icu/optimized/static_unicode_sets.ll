@@ -92,12 +92,12 @@ invoke.cont7.i:                                   ; preds = %new.notnull4.i
           to label %cleanup.action13.i unwind label %lpad9.i
 
 cleanup.action13.i:                               ; preds = %invoke.cont7.i
-  store ptr %call2.i2, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 8), align 8
+  store ptr %call2.i2, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 8), align 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i) #8
   br label %cleanup.done14.i
 
 cleanup.done14.critedge.i:                        ; preds = %if.then4.i
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 8), align 8
   br label %cleanup.done14.i
 
 cleanup.done14.i:                                 ; preds = %cleanup.done14.critedge.i, %cleanup.action13.i
@@ -114,12 +114,12 @@ invoke.cont28.i:                                  ; preds = %new.notnull23.i
           to label %cleanup.action34.i unwind label %lpad30.i
 
 cleanup.action34.i:                               ; preds = %invoke.cont28.i
-  store ptr %call21.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 16), align 16
+  store ptr %call21.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 16), align 16
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp26.i) #8
   br label %cleanup.done35.i
 
 cleanup.done35.critedge.i:                        ; preds = %cleanup.done14.i
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 16), align 16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 16), align 16
   br label %cleanup.done35.i
 
 cleanup.done35.i:                                 ; preds = %cleanup.done35.critedge.i, %cleanup.action34.i
@@ -162,7 +162,7 @@ cleanup.action42.i:                               ; preds = %lpad30.i, %lpad27.i
   br label %eh.resume.i
 
 invoke.cont48.i:                                  ; preds = %cleanup.done35.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_113ParseDataSinkE, i64 16), ptr %sink.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_113ParseDataSinkE, i64 16), ptr %sink.i, align 8
   invoke void @ures_getAllItemsWithFallback_75(ptr noundef %call44.i, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %sink.i, ptr noundef nonnull align 4 dereferenceable(4) %localStatus)
           to label %invoke.cont52.i unwind label %lpad49.i
 
@@ -233,23 +233,23 @@ lpad82.loopexit.split-lp.i:                       ; preds = %if.end153.i, %invok
   br label %ehcleanup163.i
 
 if.end87.i:                                       ; preds = %cleanup.done73.i
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 56), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 56), align 8
   %call91.i = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6addAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %call58.i, ptr noundef nonnull align 8 dereferenceable(200) %12)
           to label %invoke.cont90.i unwind label %lpad82.loopexit.split-lp.i
 
 invoke.cont90.i:                                  ; preds = %if.end87.i
   store ptr null, ptr %otherGrouping.i, align 8
-  store ptr %call58.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 64), align 16
+  store ptr %call58.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 64), align 16
   %call95.i = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_112computeUnionEN6icu_757unisets3KeyES2_S2_(i32 noundef 3, i32 noundef 4)
           to label %invoke.cont94.i unwind label %lpad82.loopexit.split-lp.i
 
 invoke.cont94.i:                                  ; preds = %invoke.cont90.i
-  store ptr %call95.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 72), align 8
+  store ptr %call95.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 72), align 8
   %call97.i = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_112computeUnionEN6icu_757unisets3KeyES2_S2_(i32 noundef 5, i32 noundef 6)
           to label %invoke.cont96.i unwind label %lpad82.loopexit.split-lp.i
 
 invoke.cont96.i:                                  ; preds = %invoke.cont94.i
-  store ptr %call97.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 80), align 16
+  store ptr %call97.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 80), align 16
   %call98.i = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 200) #8
   %new.isnull99.not.i = icmp eq ptr %call98.i, null
   br i1 %new.isnull99.not.i, label %cleanup.done112.critedge.i, label %new.notnull100.i
@@ -263,12 +263,12 @@ invoke.cont105.i:                                 ; preds = %new.notnull100.i
           to label %cleanup.action111.i unwind label %lpad107.i
 
 cleanup.action111.i:                              ; preds = %invoke.cont105.i
-  store ptr %call98.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 120), align 8
+  store ptr %call98.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 120), align 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp103.i) #8
   br label %cleanup.done112.i
 
 cleanup.done112.critedge.i:                       ; preds = %invoke.cont96.i
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 120), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 120), align 8
   br label %cleanup.done112.i
 
 cleanup.done112.i:                                ; preds = %cleanup.done112.critedge.i, %cleanup.action111.i
@@ -306,12 +306,12 @@ invoke.cont133.i:                                 ; preds = %new.notnull128.i
           to label %cleanup.action139.i unwind label %lpad135.i
 
 cleanup.action139.i:                              ; preds = %invoke.cont133.i
-  store ptr %call126.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 168), align 8
+  store ptr %call126.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 168), align 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp131.i) #8
   br label %cleanup.done140.i
 
 cleanup.done140.critedge.i:                       ; preds = %if.end125.i
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 168), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 168), align 8
   br label %cleanup.done140.i
 
 cleanup.done140.i:                                ; preds = %cleanup.done140.critedge.i, %cleanup.action139.i
@@ -340,12 +340,12 @@ if.end153.i:                                      ; preds = %cleanup.done140.i
           to label %invoke.cont154.i unwind label %lpad82.loopexit.split-lp.i
 
 invoke.cont154.i:                                 ; preds = %if.end153.i
-  store ptr %call155.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 176), align 16
+  store ptr %call155.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 176), align 16
   %call157.i = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_112computeUnionEN6icu_757unisets3KeyES2_(i32 noundef 10)
           to label %invoke.cont156.i unwind label %lpad82.loopexit.split-lp.i
 
 invoke.cont156.i:                                 ; preds = %invoke.cont154.i
-  store ptr %call157.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 184), align 8
+  store ptr %call157.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 184), align 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %invoke.cont156.i
@@ -599,7 +599,7 @@ if.end:                                           ; preds = %new.notnull
   %cmp.i8 = icmp eq ptr %2, null
   %_ZN12_GLOBAL__N_116gEmptyUnicodeSetE..i9 = select i1 %cmp.i8, ptr @_ZN12_GLOBAL__N_116gEmptyUnicodeSetE, ptr %2
   %call4 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6addAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %call, ptr noundef nonnull align 8 dereferenceable(200) %_ZN12_GLOBAL__N_116gEmptyUnicodeSetE..i9)
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 64), align 16
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 64), align 16
   %cmp.i10 = icmp eq ptr %3, null
   %_ZN12_GLOBAL__N_116gEmptyUnicodeSetE..i11 = select i1 %cmp.i10, ptr @_ZN12_GLOBAL__N_116gEmptyUnicodeSetE, ptr %3
   %call6 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6addAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %call, ptr noundef nonnull align 8 dereferenceable(200) %_ZN12_GLOBAL__N_116gEmptyUnicodeSetE..i11)
@@ -628,7 +628,7 @@ lpad:                                             ; preds = %new.notnull
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %new.notnull
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 168), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 168), align 8
   %cmp.i = icmp eq ptr %1, null
   %_ZN12_GLOBAL__N_116gEmptyUnicodeSetE..i = select i1 %cmp.i, ptr @_ZN12_GLOBAL__N_116gEmptyUnicodeSetE, ptr %1
   %call2 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6addAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %call, ptr noundef nonnull align 8 dereferenceable(200) %_ZN12_GLOBAL__N_116gEmptyUnicodeSetE..i)

@@ -1542,7 +1542,7 @@ _ZN2cv3Mat2atIiEERT_i.exit218:                    ; preds = %711, %705, %698
   store i32 0, ptr %45, align 4
   %751 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i32 %750, ptr %751, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv16BatchDistInvokerE, i64 16), ptr %46, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv16BatchDistInvokerE, i64 16), ptr %46, align 8
   %752 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %12, ptr %752, align 8
   %753 = getelementptr inbounds nuw i8, ptr %46, i64 16

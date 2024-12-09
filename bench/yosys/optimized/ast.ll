@@ -9706,7 +9706,7 @@ define internal fastcc noundef ptr @_ZN5YosysL14process_moduleEPNS_5RTLIL6Design
           to label %33 unwind label %38
 
 33:                                               ; preds = %31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys3AST9AstModuleE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys3AST9AstModuleE, i64 16), ptr %32, align 8
   store ptr %32, ptr @_ZN5Yosys12AST_INTERNAL14current_moduleE, align 8
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 560
   store ptr null, ptr %34, align 8
@@ -11800,7 +11800,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit686:             ; preds = %729, %722, %_ZN5Yos
 
 _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EED2Ev.exit: ; preds = %735, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit686, %_ZNKSt3mapIN5Yosys5RTLIL8IdStringEPNS0_3AST7AstNodeESt4lessIS2_ESaISt4pairIKS2_S5_EEE5countERS9_.exit452.thread
   store i32 0, ptr @_ZN5Yosys12AST_INTERNAL26ignoreThisSignalsInInitialE, align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys12AST_INTERNAL26ignoreThisSignalsInInitialE, i64 8), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys12AST_INTERNAL26ignoreThisSignalsInInitialE, i64 8), align 8
   %738 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys12AST_INTERNAL26ignoreThisSignalsInInitialE, i64 16), align 8
   %739 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys12AST_INTERNAL26ignoreThisSignalsInInitialE, i64 24), align 8
   %.not4.i.i.i.i.i.i.i = icmp eq ptr %738, %739
@@ -12220,7 +12220,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit736:              ; preds = %878, %_ZSt8_Destroy
 
 ._crit_edge1013:                                  ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit736, %._crit_edge1009
   store i32 0, ptr @_ZN5Yosys12AST_INTERNAL26ignoreThisSignalsInInitialE, align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys12AST_INTERNAL26ignoreThisSignalsInInitialE, i64 8), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys12AST_INTERNAL26ignoreThisSignalsInInitialE, i64 8), align 8
   %887 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys12AST_INTERNAL26ignoreThisSignalsInInitialE, i64 16), align 8
   %888 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys12AST_INTERNAL26ignoreThisSignalsInInitialE, i64 24), align 8
   %.not4.i.i.i.i.i.i.i737 = icmp eq ptr %887, %888
@@ -13910,7 +13910,7 @@ declare void @_ZN5Yosys5RTLIL6Design3addEPNS0_7BindingE(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5Yosys3AST9AstModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(579) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys3AST9AstModuleE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys3AST9AstModuleE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -20528,7 +20528,7 @@ define noundef nonnull ptr @_ZNK5Yosys3AST9AstModule5cloneEv(ptr noundef nonnull
           to label %3 unwind label %73
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys3AST9AstModuleE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys3AST9AstModuleE, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 304
   %6 = load i32, ptr %5, align 4

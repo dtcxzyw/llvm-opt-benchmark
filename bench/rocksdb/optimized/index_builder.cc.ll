@@ -156,7 +156,7 @@ sw.bb:                                            ; preds = %entry
   store i8 %frombool.i.i, ptr %persist_user_defined_timestamps_.i.i, align 8
   %index_size_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i64 0, ptr %index_size_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21ShortenedIndexBuilderE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb21ShortenedIndexBuilderE, i64 16), ptr %call, align 8
   %index_block_builder_.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   invoke void @_ZN7rocksdb12BlockBuilderC1EibbNS_22BlockBasedTableOptions18DataBlockIndexTypeEdmbb(ptr noundef nonnull align 8 dereferenceable(176) %index_block_builder_.i, i32 noundef %0, i1 noundef zeroext true, i1 noundef zeroext %use_value_delta_encoding, i8 noundef signext 0, double noundef 7.500000e-01, i64 noundef %ts_sz, i1 noundef zeroext %persist_user_defined_timestamps, i1 noundef zeroext false)
           to label %.noexc unwind label %lpad
@@ -226,7 +226,7 @@ sw.bb16:                                          ; preds = %entry
   store i8 %frombool.i.i23, ptr %persist_user_defined_timestamps_.i.i26, align 8
   %index_size_.i.i27 = getelementptr inbounds nuw i8, ptr %call17, i64 32
   store i64 0, ptr %index_size_.i.i27, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21ShortenedIndexBuilderE, i64 16), ptr %call17, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb21ShortenedIndexBuilderE, i64 16), ptr %call17, align 8
   %index_block_builder_.i28 = getelementptr inbounds nuw i8, ptr %call17, i64 40
   invoke void @_ZN7rocksdb12BlockBuilderC1EibbNS_22BlockBasedTableOptions18DataBlockIndexTypeEdmbb(ptr noundef nonnull align 8 dereferenceable(176) %index_block_builder_.i28, i32 noundef %10, i1 noundef zeroext true, i1 noundef zeroext %use_value_delta_encoding, i8 noundef signext 0, double noundef 7.500000e-01, i64 noundef %ts_sz, i1 noundef zeroext %persist_user_defined_timestamps, i1 noundef zeroext false)
           to label %.noexc40 unwind label %lpad23
@@ -294,7 +294,7 @@ entry:
   store i8 %frombool.i, ptr %persist_user_defined_timestamps_.i, align 8
   %index_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %index_size_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16HashIndexBuilderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb16HashIndexBuilderE, i64 16), ptr %this, align 8
   %primary_index_builder_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %comparator_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %comparator, ptr %comparator_.i.i, align 8
@@ -304,7 +304,7 @@ entry:
   store i8 %frombool.i, ptr %persist_user_defined_timestamps_.i.i, align 8
   %index_size_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i64 0, ptr %index_size_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21ShortenedIndexBuilderE, i64 16), ptr %primary_index_builder_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb21ShortenedIndexBuilderE, i64 16), ptr %primary_index_builder_, align 8
   %index_block_builder_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZN7rocksdb12BlockBuilderC1EibbNS_22BlockBasedTableOptions18DataBlockIndexTypeEdmbb(ptr noundef nonnull align 8 dereferenceable(176) %index_block_builder_.i, i32 noundef %index_block_restart_interval, i1 noundef zeroext true, i1 noundef zeroext %use_value_delta_encoding, i8 noundef signext 0, double noundef 7.500000e-01, i64 noundef %ts_sz, i1 noundef zeroext %persist_user_defined_timestamps, i1 noundef zeroext false)
   %index_block_builder_without_seq_.i = getelementptr inbounds nuw i8, ptr %this, i64 256
@@ -570,7 +570,7 @@ entry:
   store i8 %frombool.i, ptr %persist_user_defined_timestamps_.i, align 8
   %index_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %index_size_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb23PartitionedIndexBuilderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb23PartitionedIndexBuilderE, i64 16), ptr %this, align 8
   %top_level_index_size_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %entries_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %_M_prev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -704,7 +704,7 @@ _ZNSt7__cxx1110_List_baseIN7rocksdb23PartitionedIndexBuilder5EntryESaIS3_EED2Ev.
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb23PartitionedIndexBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb23PartitionedIndexBuilderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb23PartitionedIndexBuilderE, i64 16), ptr %this, align 8
   %sub_index_builder_ = getelementptr inbounds nuw i8, ptr %this, i64 432
   %0 = load ptr, ptr %sub_index_builder_, align 8
   %isnull = icmp eq ptr %0, null
@@ -853,7 +853,7 @@ entry:
   store i8 %frombool.i.i, ptr %persist_user_defined_timestamps_.i.i, align 8
   %index_size_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i64 0, ptr %index_size_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21ShortenedIndexBuilderE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb21ShortenedIndexBuilderE, i64 16), ptr %call, align 8
   %index_block_builder_.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   invoke void @_ZN7rocksdb12BlockBuilderC1EibbNS_22BlockBasedTableOptions18DataBlockIndexTypeEdmbb(ptr noundef nonnull align 8 dereferenceable(176) %index_block_builder_.i, i32 noundef %2, i1 noundef zeroext true, i1 noundef zeroext %tobool, i8 noundef signext 0, double noundef 7.500000e-01, i64 noundef %6, i1 noundef zeroext %tobool4, i1 noundef zeroext false)
           to label %.noexc unwind label %lpad
@@ -1595,7 +1595,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb21ShortenedIndexBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21ShortenedIndexBuilderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb21ShortenedIndexBuilderE, i64 16), ptr %this, align 8
   %current_block_first_internal_key_ = getelementptr inbounds nuw i8, ptr %this, i64 416
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %current_block_first_internal_key_) #21
   %hash_and_restart_pairs_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 368
@@ -1983,7 +1983,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb16HashIndexBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(608) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16HashIndexBuilderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb16HashIndexBuilderE, i64 16), ptr %this, align 8
   %pending_entry_prefix_ = getelementptr inbounds nuw i8, ptr %this, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pending_entry_prefix_) #21
   %prefix_meta_block_ = getelementptr inbounds nuw i8, ptr %this, i64 528
@@ -1998,7 +1998,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb16HashIndexBuilderD0Ev(ptr noundef nonnull align 8 dereferenceable(608) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16HashIndexBuilderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb16HashIndexBuilderE, i64 16), ptr %this, align 8
   %pending_entry_prefix_.i = getelementptr inbounds nuw i8, ptr %this, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pending_entry_prefix_.i) #21
   %prefix_meta_block_.i = getelementptr inbounds nuw i8, ptr %this, i64 528

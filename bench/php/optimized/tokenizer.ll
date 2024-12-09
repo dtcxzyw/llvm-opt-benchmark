@@ -699,7 +699,7 @@ define hidden void @zim_PhpToken_tokenize(ptr noundef %0, ptr nocapture noundef 
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %34) #10
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %36 = icmp ne ptr %35, null
   call void @llvm.assume(i1 %36)
   br label %50
@@ -710,7 +710,7 @@ define hidden void @zim_PhpToken_tokenize(ptr noundef %0, ptr nocapture noundef 
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %37
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %42 = icmp ne ptr %41, null
   call void @llvm.assume(i1 %42)
   br label %50
@@ -722,7 +722,7 @@ define hidden void @zim_PhpToken_tokenize(ptr noundef %0, ptr nocapture noundef 
   br i1 %46, label %50, label %47
 
 47:                                               ; preds = %43
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %49 = icmp ne ptr %48, null
   call void @llvm.assume(i1 %49)
   br label %50
@@ -780,9 +780,9 @@ define internal fastcc noundef zeroext i1 @tokenize_common(ptr nocapture noundef
   %.sink.i = phi i32 [ 262, %18 ], [ 6, %15 ]
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %.sink.i, ptr %22, align 8
-  %23 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
+  %23 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 81), align 1
   %24 = and i8 %23, 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 81), align 1
   call void @zend_save_lexical_state(ptr noundef nonnull %12) #10
   %25 = load ptr, ptr @zend_empty_string, align 8
   call void @zend_prepare_string_for_scanning(ptr noundef nonnull %9, ptr noundef %25) #10
@@ -793,7 +793,7 @@ define internal fastcc noundef zeroext i1 @tokenize_common(ptr nocapture noundef
   store ptr %11, ptr %10, align 8
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %3, ptr %28, align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 424), align 8
   %29 = call noalias dereferenceable_or_null(32768) ptr @_emalloc_large(i64 noundef 32768) #11
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store ptr %30, ptr %29, align 8
@@ -802,10 +802,10 @@ define internal fastcc noundef zeroext i1 @tokenize_common(ptr nocapture noundef
   store ptr %31, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr null, ptr %33, align 8
-  store ptr %29, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
-  store i32 8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
-  store ptr @on_event, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
-  store ptr %10, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 240), align 8
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 432), align 8
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
+  store ptr @on_event, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 232), align 8
+  store ptr %10, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 240), align 8
   %34 = call i32 @zendparse() #10
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %40
@@ -823,9 +823,9 @@ define internal fastcc noundef zeroext i1 @tokenize_common(ptr nocapture noundef
   br label %41
 
 41:                                               ; preds = %40, %36
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 424), align 8
   call void @zend_ast_destroy(ptr noundef %42) #10
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 432), align 8
   br label %44
 
 44:                                               ; preds = %44, %41
@@ -838,7 +838,7 @@ define internal fastcc noundef zeroext i1 @tokenize_common(ptr nocapture noundef
 
 47:                                               ; preds = %44
   call void @zend_restore_lexical_state(ptr noundef nonnull %12) #10
-  store i8 %24, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
+  store i8 %24, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 81), align 1
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 9
   %49 = load i8, ptr %48, align 1
   %.not75.i = icmp eq i8 %49, 0
@@ -890,7 +890,7 @@ tokenize_parse.exit:                              ; preds = %47, %50, %55
   call void @zend_save_lexical_state(ptr noundef nonnull %6) #10
   %65 = load ptr, ptr @zend_empty_string, align 8
   call void @zend_prepare_string_for_scanning(ptr noundef nonnull %5, ptr noundef %65) #10
-  store i32 8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   call void @_zend_hash_init(ptr noundef nonnull %8, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #10
   %66 = call ptr @_zend_new_array_0() #10
   store ptr %66, ptr %0, align 8
@@ -911,8 +911,8 @@ tokenize_parse.exit:                              ; preds = %47, %50, %55
   %.04761.i = phi i32 [ -1, %.lr.ph.i ], [ %.1.i, %108 ]
   %73 = icmp ne i32 %72, 406
   call void @llvm.assume(i1 %73)
-  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
-  %75 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
+  %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %76 = zext i32 %75 to i64
   call fastcc void @add_token(ptr noundef nonnull %0, i32 noundef %72, ptr noundef %74, i64 noundef %76, i32 noundef %.062.i, ptr noundef %3, ptr noundef nonnull %8)
   %77 = load i8, ptr %69, align 8
@@ -961,8 +961,8 @@ tokenize_parse.exit:                              ; preds = %47, %50, %55
   br i1 %92, label %93, label %103
 
 93:                                               ; preds = %90
-  %94 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %94 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %96 = icmp ult ptr %94, %95
   br i1 %96, label %97, label %.loopexit.i
 
@@ -980,15 +980,15 @@ tokenize_parse.exit:                              ; preds = %47, %50, %55
 
 103:                                              ; preds = %101, %90, %89, %89, %89, %89
   %.1.i = phi i32 [ %91, %90 ], [ %.04761.i, %89 ], [ %.04761.i, %89 ], [ %.04761.i, %89 ], [ %.04761.i, %89 ], [ %spec.select.i, %101 ]
-  %104 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 153), align 1
+  %104 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 153), align 1
   %105 = trunc i8 %104 to i1
-  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %.pre.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br i1 %105, label %106, label %108
 
 106:                                              ; preds = %103
   %107 = add nsw i32 %.pre.i, 1
-  store i32 %107, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 153), align 1
+  store i32 %107, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 153), align 1
   br label %108
 
 108:                                              ; preds = %106, %103
@@ -1218,7 +1218,7 @@ define hidden void @zim_PhpToken_is(ptr noundef %0, ptr nocapture noundef writeo
 
 18:                                               ; preds = %11
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.15) #10
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   tail call void @llvm.assume(i1 %20)
   br label %124
@@ -1259,7 +1259,7 @@ php_token_get_text.exit:                          ; preds = %27, %31
   br i1 %.not126, label %35, label %38
 
 35:                                               ; preds = %php_token_get_text.exit.thread, %php_token_get_text.exit
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %37 = icmp ne ptr %36, null
   tail call void @llvm.assume(i1 %37)
   br label %124
@@ -1354,7 +1354,7 @@ php_token_get_text.exit:                          ; preds = %27, %31
 
 81:                                               ; preds = %74
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.15) #10
-  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %83 = icmp ne ptr %82, null
   tail call void @llvm.assume(i1 %83)
   br label %124
@@ -1401,7 +1401,7 @@ php_token_get_text.exit136:                       ; preds = %90, %94
   br i1 %.not123, label %.loopexit, label %100
 
 .loopexit:                                        ; preds = %php_token_get_text.exit136, %php_token_get_text.exit136.thread
-  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %99 = icmp ne ptr %98, null
   tail call void @llvm.assume(i1 %99)
   br label %124
@@ -1432,7 +1432,7 @@ php_token_get_text.exit136:                       ; preds = %90, %94
 112:                                              ; preds = %71
   %113 = tail call ptr @zend_zval_value_name(ptr noundef nonnull %.097) #10
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 1, ptr noundef nonnull @.str.4, ptr noundef %113) #10
-  %114 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %115 = icmp ne ptr %114, null
   tail call void @llvm.assume(i1 %115)
   br label %124
@@ -1454,7 +1454,7 @@ php_token_get_text.exit136:                       ; preds = %90, %94
 120:                                              ; preds = %7
   %121 = tail call ptr @zend_zval_value_name(ptr noundef nonnull %8) #10
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef %121) #10
-  %122 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %123 = icmp ne ptr %122, null
   tail call void @llvm.assume(i1 %123)
   br label %124
@@ -1496,7 +1496,7 @@ define hidden void @zim_PhpToken_isIgnorable(ptr nocapture noundef readonly %0, 
 
 14:                                               ; preds = %6
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.15) #10
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
   br label %25
@@ -1556,7 +1556,7 @@ define hidden void @zim_PhpToken_getTokenName(ptr nocapture noundef readonly %0,
 
 14:                                               ; preds = %6
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.15) #10
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
   br label %41
@@ -1655,7 +1655,7 @@ php_token_get_text.exit:                          ; preds = %6, %11
   br i1 %.not12, label %15, label %18
 
 15:                                               ; preds = %php_token_get_text.exit.thread, %php_token_get_text.exit
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   br label %28
@@ -1707,13 +1707,13 @@ define hidden void @on_event(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr
   ]
 
 8:                                                ; preds = %7
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %10 = icmp ugt i32 %9, 1
   %spec.select47 = select i1 %10, i32 391, i32 59
   br label %14
 
 11:                                               ; preds = %7
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %13 = icmp eq i32 %12, 3
   %spec.select = select i1 %13, i32 390, i32 291
   br label %14
@@ -1801,8 +1801,8 @@ extract_token_id_to_replace.exit.thread:          ; preds = %35, %48, %53
   br label %70
 
 59:                                               ; preds = %6
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %.not = icmp eq ptr %60, %61
   br i1 %.not, label %70, label %62
 
@@ -1811,7 +1811,7 @@ extract_token_id_to_replace.exit.thread:          ; preds = %35, %48, %53
   %64 = ptrtoint ptr %61 to i64
   %65 = ptrtoint ptr %60 to i64
   %66 = sub i64 %64, %65
-  %67 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %69 = load ptr, ptr %68, align 8
   tail call fastcc void @add_token(ptr noundef %63, i32 noundef 267, ptr noundef %60, i64 noundef %66, i32 noundef %67, ptr noundef %69, ptr noundef null)
@@ -1853,7 +1853,7 @@ define internal fastcc void @add_token(ptr nocapture noundef readonly %0, i32 no
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 80
   store i32 4, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 88
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 24), align 8
   %27 = ptrtoint ptr %2 to i64
   %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %27, %28
@@ -2048,7 +2048,7 @@ define hidden void @zif_token_get_all(ptr noundef %0, ptr nocapture noundef %1) 
   br i1 %29, label %33, label %30
 
 30:                                               ; preds = %.thread123
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %32 = icmp ne ptr %31, null
   call void @llvm.assume(i1 %32)
   br label %33

@@ -48,11 +48,11 @@ define noundef i32 @prte_plm_base_set_hnp_name() local_unnamed_addr #0 {
 6:                                                ; preds = %3
   %7 = tail call i64 @strtoul(ptr nocapture noundef nonnull %5, ptr noundef null, i32 noundef 10) #8
   %8 = trunc i64 %7 to i32
-  store i32 %8, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 256), align 8
+  store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 256), align 8
   br label %9
 
 9:                                                ; preds = %6, %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(260) getelementptr inbounds (i8, ptr @prte_process_info, i64 260), ptr noundef nonnull align 8 dereferenceable(260) @prte_process_info, i64 260, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(260) getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 260), ptr noundef nonnull align 8 dereferenceable(260) @prte_process_info, i64 260, i1 false)
   br label %23
 
 10:                                               ; preds = %0
@@ -62,8 +62,8 @@ define noundef i32 @prte_plm_base_set_hnp_name() local_unnamed_addr #0 {
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr @prte_tool_basename, align 8
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 816), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 800), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 816), align 8
   %17 = tail call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull @prte_plm_globals, ptr noundef nonnull @.str.2, ptr noundef %14, ptr noundef %15, i32 noundef %16) #8
   %.pre = load ptr, ptr @prte_plm_globals, align 8
   br label %18
@@ -73,7 +73,7 @@ define noundef i32 @prte_plm_base_set_hnp_name() local_unnamed_addr #0 {
   %20 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.3, ptr noundef %19) #8
   %21 = load ptr, ptr %1, align 8
   call void @PMIx_Load_procid(ptr noundef nonnull @prte_process_info, ptr noundef %21, i32 noundef 0) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(260) getelementptr inbounds (i8, ptr @prte_process_info, i64 260), ptr noundef nonnull align 8 dereferenceable(260) @prte_process_info, i64 260, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(260) getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 260), ptr noundef nonnull align 8 dereferenceable(260) @prte_process_info, i64 260, i1 false)
   %22 = load ptr, ptr %1, align 8
   call void @free(ptr noundef %22) #8
   br label %23
@@ -116,7 +116,7 @@ define noundef i32 @prte_plm_base_create_jobid(ptr noundef %0) local_unnamed_add
   br i1 %.b16, label %.preheader, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %7
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @prte_plm_globals, i64 8), align 8
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_plm_globals, i64 8), align 8
   br label %15
 
 .preheader:                                       ; preds = %7, %13
@@ -128,7 +128,7 @@ define noundef i32 @prte_plm_base_create_jobid(ptr noundef %0) local_unnamed_add
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %.preheader
-  store i32 %.01421, ptr getelementptr inbounds (i8, ptr @prte_plm_globals, i64 8), align 8
+  store i32 %.01421, ptr getelementptr inbounds nuw (i8, ptr @prte_plm_globals, i64 8), align 8
   br label %15
 
 13:                                               ; preds = %.preheader
@@ -161,15 +161,15 @@ define noundef i32 @prte_plm_base_create_jobid(ptr noundef %0) local_unnamed_add
   br label %30
 
 25:                                               ; preds = %15
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @prte_plm_globals, i64 8), align 8
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_plm_globals, i64 8), align 8
   %27 = add i32 %26, 1
-  store i32 %27, ptr getelementptr inbounds (i8, ptr @prte_plm_globals, i64 8), align 8
+  store i32 %27, ptr getelementptr inbounds nuw (i8, ptr @prte_plm_globals, i64 8), align 8
   %28 = icmp eq i32 %27, -1
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %25
   store i1 true, ptr @reuse, align 1
-  store i32 1, ptr getelementptr inbounds (i8, ptr @prte_plm_globals, i64 8), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @prte_plm_globals, i64 8), align 8
   br label %30
 
 30:                                               ; preds = %25, %29, %23, %15, %1, %.critedge

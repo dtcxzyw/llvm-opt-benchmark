@@ -1309,7 +1309,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr nocapture noundef
 
 34:                                               ; preds = %29
   %35 = trunc nuw i64 %27 to i32
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %37 = tail call noalias noundef align 8 dereferenceable_or_null(672) ptr @kmalloc_trace(ptr noundef %36, i32 noundef 3136, i64 noundef 672) #19
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.thread, label %39

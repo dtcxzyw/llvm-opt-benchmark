@@ -25,16 +25,16 @@ $_ZNK17EpsilonBarrierSet8print_onEP12outputStream = comdat any
 define hidden void @_ZN17EpsilonBarrierSetC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.FakeRttiSupport, align 8
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 5, i32 noundef 0) #5
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV19BarrierSetAssembler, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTV19BarrierSetAssembler, i64 16), ptr %3, align 8
   %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 5, i32 noundef 0) #5
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTV12BarrierSetC1, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTV12BarrierSetC1, i64 16), ptr %4, align 8
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 5, i32 noundef 0) #5
-  store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV12BarrierSetC2, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 352) (i8, ptr @_ZTV12BarrierSetC2, i64 16), ptr %5, align 8
   store i64 4, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 2, ptr %6, align 8
   call void @_ZN10BarrierSetC2EP19BarrierSetAssemblerP12BarrierSetC1P12BarrierSetC2P17BarrierSetNMethodP20BarrierSetStackChunkRK15FakeRttiSupportIS_NS_4NameEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef null, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(12) %2) #5
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV17EpsilonBarrierSet, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV17EpsilonBarrierSet, i64 16), ptr %0, align 8
   ret void
 }
 

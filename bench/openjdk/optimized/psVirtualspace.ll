@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN14PSVirtualSpaceC2E13ReservedSpacem(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 49)) %0, ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %1, i64 noundef %2) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV14PSVirtualSpace, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV14PSVirtualSpace, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
   %.sroa.02.0.copyload = load ptr, ptr %1, align 8
@@ -41,7 +41,7 @@ define hidden void @_ZN14PSVirtualSpaceC2E13ReservedSpacem(ptr nocapture noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define hidden void @_ZN14PSVirtualSpaceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 49)) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV14PSVirtualSpace, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV14PSVirtualSpace, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   store i64 %3, ptr %2, align 8
@@ -74,7 +74,7 @@ define hidden void @_ZN14PSVirtualSpace10initializeE13ReservedSpace(ptr nocaptur
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN14PSVirtualSpaceD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 8), (16, 49)) %0) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV14PSVirtualSpace, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV14PSVirtualSpace, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %2, i8 0, i64 33, i1 false)
   ret void

@@ -71,7 +71,7 @@ define internal i32 @prte_iof_base_open(i32 noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @prte_iof_base_close() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_iof, i64 40), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_iof, i64 40), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %2
 
@@ -559,7 +559,7 @@ define internal void @prte_iof_base_sink_destruct(ptr noundef %0) #0 {
   br i1 %.not, label %47, label %4
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @prte_iof_base_framework, i64 76), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_iof_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %5, 64
   br i1 %or.cond, label %6, label %18
 
@@ -681,7 +681,7 @@ define internal void @prte_iof_base_read_event_destruct(ptr nocapture noundef %0
 
 9:                                                ; preds = %1
   tail call void @event_free(ptr noundef %8) #12
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @prte_iof_base_framework, i64 76), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_iof_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %10, 64
   br i1 %or.cond, label %11, label %25
 
@@ -855,7 +855,7 @@ define internal void @prte_iof_base_write_event_construct(ptr noundef initialize
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 -1, ptr %4, align 8
   %5 = load i32, ptr @pmix_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %5, %6
   br i1 %.not, label %8, label %7
 
@@ -917,7 +917,7 @@ define internal void @prte_iof_base_write_event_destruct(ptr noundef %0) #0 {
   br i1 %11, label %12, label %25
 
 12:                                               ; preds = %9
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @prte_iof_base_framework, i64 76), align 4
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_iof_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %13, 64
   br i1 %or.cond, label %14, label %22
 

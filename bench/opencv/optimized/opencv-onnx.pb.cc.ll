@@ -340,7 +340,7 @@ define hidden noundef zeroext i1 @_ZN11opencv_onnx36AttributeProto_AttributeType
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN11opencv_onnx31TensorProto_DataType_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2donnx_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL49file_level_enum_descriptors_opencv_2donnx_2eproto, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL49file_level_enum_descriptors_opencv_2donnx_2eproto, i64 8), align 8
   ret ptr %1
 }
 
@@ -353,7 +353,7 @@ define hidden noundef zeroext i1 @_ZN11opencv_onnx28TensorProto_DataType_IsValid
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN11opencv_onnx18Version_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2donnx_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL49file_level_enum_descriptors_opencv_2donnx_2eproto, i64 16), align 16
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL49file_level_enum_descriptors_opencv_2donnx_2eproto, i64 16), align 16
   ret ptr %1
 }
 
@@ -384,7 +384,7 @@ define hidden void @_ZN11opencv_onnx14AttributeProtoC2EPN6google8protobuf5ArenaE
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14AttributeProtoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14AttributeProtoE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -520,7 +520,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldIfED1Ev(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 2
@@ -556,7 +556,7 @@ _ZN6google8protobuf11MessageLiteD2Ev.exit:        ; preds = %1, %11, %13
 define hidden void @_ZN11opencv_onnx14AttributeProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14AttributeProtoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14AttributeProtoE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -1104,7 +1104,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN11opencv_onnx11TensorProtoEED2Ev.exit: ; 
   tail call void @_ZN6google8protobuf13RepeatedFieldIlED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %52) #20
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN6google8protobuf13RepeatedFieldIfED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %53) #20
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %54 = load i64, ptr %2, align 8
   %55 = and i64 %54, 2
   %.not.i.i.i = icmp eq i64 %55, 0
@@ -2003,7 +2003,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit79: ; preds = %15
   %160 = call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #23
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   store i64 0, ptr %161, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %160, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %160, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %160, i64 16
   %162 = getelementptr inbounds nuw i8, ptr %160, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %.ptr.i.i.i, i8 0, i64 128, i1 false)
@@ -2015,7 +2015,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit79: ; preds = %15
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %166 = ptrtoint ptr %.0.i78 to i64
   store i64 %166, ptr %165, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %164, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %164, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %164, i64 16
   store i32 0, ptr %.ptr.i.i.i.i, align 4
   %167 = getelementptr inbounds nuw i8, ptr %164, i64 20
@@ -3660,7 +3660,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN11opencv_onnx10GraphProtoEJEEEPT_
   %66 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #23
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i64 0, ptr %67, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %66, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %66, align 8
   %.ptr.i.i.us = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %.ptr.i.i.us, i8 0, i64 128, i1 false)
@@ -3679,7 +3679,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN11opencv_onnx10GraphProtoEJEEEPT_
   %71 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %62, i64 noundef 160, ptr noundef nonnull @_ZTIN11opencv_onnx10GraphProtoE)
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i64 %64, ptr %72, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %71, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %71, align 8
   %.ptr.i.i.i93 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store i32 0, ptr %.ptr.i.i.i93, align 4
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 20
@@ -3985,7 +3985,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit85: ; preds = %21
   %224 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #23
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
   store i64 0, ptr %225, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %224, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %224, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %224, i64 16
   %226 = getelementptr inbounds nuw i8, ptr %224, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %.ptr.i.i.i, i8 0, i64 128, i1 false)
@@ -3997,7 +3997,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit85: ; preds = %21
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 8
   %230 = ptrtoint ptr %.0.i84 to i64
   store i64 %230, ptr %229, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %228, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %228, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %228, i64 16
   store i32 0, ptr %.ptr.i.i.i.i, align 4
   %231 = getelementptr inbounds nuw i8, ptr %228, i64 20
@@ -4331,7 +4331,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %92
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN11opencv_onnx19TensorProto_SegmentEEEPT_PNS0_5ArenaE.exit.i: ; preds = %98, %95
   %.sink32.i.i.i = phi ptr [ %96, %95 ], [ %99, %98 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx19TensorProto_SegmentE, i64 16), ptr %.sink32.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx19TensorProto_SegmentE, i64 16), ptr %.sink32.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink32.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr %.sink32.i.i.i, ptr %83, align 8
@@ -4552,7 +4552,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFi
   %62 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i64 0, ptr %63, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %62, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %62, align 8
   %.ptr.i.us = getelementptr inbounds nuw i8, ptr %62, i64 16
   store i32 0, ptr %.ptr.i.us, align 4
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 20
@@ -4575,7 +4575,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFi
   %69 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %58, i64 noundef 48, ptr noundef nonnull @_ZTIN11opencv_onnx14ValueInfoProtoE)
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i64 %60, ptr %70, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %69, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %69, align 8
   %.ptr.i78 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store i32 0, ptr %.ptr.i78, align 4
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 20
@@ -4658,7 +4658,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFi
   %108 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   store i64 0, ptr %109, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %108, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %108, align 8
   %.ptr.i63.us = getelementptr inbounds nuw i8, ptr %108, i64 16
   store i32 0, ptr %.ptr.i63.us, align 4
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 20
@@ -4681,7 +4681,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFi
   %115 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %104, i64 noundef 48, ptr noundef nonnull @_ZTIN11opencv_onnx14ValueInfoProtoE)
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store i64 %106, ptr %116, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %115, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %115, align 8
   %.ptr.i82 = getelementptr inbounds nuw i8, ptr %115, i64 16
   store i32 0, ptr %.ptr.i82, align 4
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 20
@@ -4764,7 +4764,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFi
   %154 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   store i64 0, ptr %155, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %154, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %154, align 8
   %.ptr.i71.us = getelementptr inbounds nuw i8, ptr %154, i64 16
   store i32 0, ptr %.ptr.i71.us, align 4
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 20
@@ -4787,7 +4787,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFi
   %161 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %150, i64 noundef 48, ptr noundef nonnull @_ZTIN11opencv_onnx14ValueInfoProtoE)
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   store i64 %152, ptr %162, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %161, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %161, align 8
   %.ptr.i86 = getelementptr inbounds nuw i8, ptr %161, i64 16
   store i32 0, ptr %.ptr.i86, align 4
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 20
@@ -5126,7 +5126,7 @@ define hidden void @_ZN11opencv_onnx14ValueInfoProtoC2EPN6google8protobuf5ArenaE
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -5144,7 +5144,7 @@ define hidden void @_ZN11opencv_onnx14ValueInfoProtoC2EPN6google8protobuf5ArenaE
 define hidden void @_ZN11opencv_onnx14ValueInfoProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -5387,7 +5387,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %25, %_ZN11opencv_onnx14ValueInfoProto10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %43 = phi i64 [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %23, %25 ], [ %23, %_ZN11opencv_onnx14ValueInfoProto10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %44 = and i64 %43, 2
   %.not.i.i.i = icmp eq i64 %44, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %45
@@ -5754,7 +5754,7 @@ _ZN11opencv_onnx9TypeProtoC2EPN6google8protobuf5ArenaEb.exit30: ; preds = %_ZNK6
 
 _ZN6google8protobuf5Arena18CreateMaybeMessageIN11opencv_onnx9TypeProtoEJEEEPT_PS1_DpOT0_.exit: ; preds = %.noexc, %_ZN11opencv_onnx9TypeProtoC2EPN6google8protobuf5ArenaEb.exit30
   %.sink58 = phi ptr [ %79, %.noexc ], [ %81, %_ZN11opencv_onnx9TypeProtoC2EPN6google8protobuf5ArenaEb.exit30 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9TypeProtoE, i64 16), ptr %.sink58, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9TypeProtoE, i64 16), ptr %.sink58, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink58, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %84 = getelementptr inbounds nuw i8, ptr %.sink58, i64 20
@@ -6310,7 +6310,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %59
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN11opencv_onnx9TypeProtoEEEPT_PNS0_5ArenaE.exit.i: ; preds = %65, %62
   %.sink35.i.i.i = phi ptr [ %63, %62 ], [ %66, %65 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9TypeProtoE, i64 16), ptr %.sink35.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9TypeProtoE, i64 16), ptr %.sink35.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i, align 4
   %69 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 20
@@ -6480,7 +6480,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %37
 
 _ZN11opencv_onnx9TypeProto29_internal_mutable_tensor_typeEv.exit: ; preds = %40, %43
   %.sink32.i.i.i = phi ptr [ %41, %40 ], [ %44, %43 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TypeProto_TensorE, i64 16), ptr %.sink32.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TypeProto_TensorE, i64 16), ptr %.sink32.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink32.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.ptr.i.i.i.i, i8 0, i64 20, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -6683,7 +6683,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK11opencv_onnx14ValueInfoProto11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 16))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 16))
   ret { ptr, ptr } %2
 }
 
@@ -6694,7 +6694,7 @@ define hidden void @_ZN11opencv_onnx9NodeProtoC2EPN6google8protobuf5ArenaEb(ptr 
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9NodeProtoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9NodeProtoE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -6769,7 +6769,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf16RepeatedPtrFieldIN11opencv
 define hidden void @_ZN11opencv_onnx9NodeProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9NodeProtoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9NodeProtoE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -7151,7 +7151,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN11opencv_onnx14AttributeProtoEED2Ev.exit:
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %56) #20
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %57) #20
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %58 = load i64, ptr %2, align 8
   %59 = and i64 %58, 2
   %.not.i.i.i = icmp eq i64 %59, 0
@@ -8572,7 +8572,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK11opencv_onnx9NodeProto11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 32))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 32))
   ret { ptr, ptr } %2
 }
 
@@ -8590,7 +8590,7 @@ define hidden void @_ZN11opencv_onnx10ModelProtoC2EPN6google8protobuf5ArenaEb(pt
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10ModelProtoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10ModelProtoE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -8670,7 +8670,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf16RepeatedPtrFieldIN11opencv
 define hidden void @_ZN11opencv_onnx10ModelProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10ModelProtoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10ModelProtoE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -9056,7 +9056,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN11opencv_onnx22StringStringEntryProtoEED2
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN11opencv_onnx18OperatorSetIdProtoEED2Ev.exit: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN11opencv_onnx22StringStringEntryProtoEED2Ev.exit, %47
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %51 = load i64, ptr %2, align 8
   %52 = and i64 %51, 2
   %.not.i.i.i = icmp eq i64 %52, 0
@@ -9763,7 +9763,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %17
   %177 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #23
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
   store i64 0, ptr %178, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %177, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %177, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %177, i64 16
   %179 = getelementptr inbounds nuw i8, ptr %177, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %.ptr.i.i.i.i, i8 0, i64 128, i1 false)
@@ -9775,7 +9775,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %17
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %183 = ptrtoint ptr %.0.i.i51 to i64
   store i64 %183, ptr %182, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %181, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %181, align 8
   %.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %181, i64 16
   store i32 0, ptr %.ptr.i.i.i.i.i, align 4
   %184 = getelementptr inbounds nuw i8, ptr %181, i64 20
@@ -9868,7 +9868,7 @@ _ZN11opencv_onnx10ModelProto23_internal_mutable_graphEv.exit: ; preds = %163, %_
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx18OperatorSetIdProtoEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit.i.i.i: ; preds = %223, %220
   %.sink35.i.i.i.i.i.i = phi ptr [ %221, %220 ], [ %224, %223 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx18OperatorSetIdProtoE, i64 16), ptr %.sink35.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx18OperatorSetIdProtoE, i64 16), ptr %.sink35.i.i.i.i.i.i, align 8
   %.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i.i.i.i, align 4
   %227 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i.i.i.i, i64 20
@@ -9952,7 +9952,7 @@ _ZN11opencv_onnx10ModelProto26_internal_add_opset_importEv.exit: ; preds = %211,
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx22StringStringEntryProtoEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit.i.i.i: ; preds = %262, %259
   %.sink35.i.i.i.i.i.i53 = phi ptr [ %260, %259 ], [ %263, %262 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx22StringStringEntryProtoE, i64 16), ptr %.sink35.i.i.i.i.i.i53, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx22StringStringEntryProtoE, i64 16), ptr %.sink35.i.i.i.i.i.i53, align 8
   %.ptr.i.i.i.i.i.i.i54 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i.i.i.i53, i64 16
   store i32 0, ptr %.ptr.i.i.i.i.i.i.i54, align 4
   %266 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i.i.i.i53, i64 20
@@ -11096,7 +11096,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %10
   %105 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #23
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store i64 0, ptr %106, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %105, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %105, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %105, i64 16
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %.ptr.i.i.i.i, i8 0, i64 128, i1 false)
@@ -11108,7 +11108,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %10
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = ptrtoint ptr %.0.i.i to i64
   store i64 %111, ptr %110, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %109, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %109, align 8
   %.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %109, i64 16
   store i32 0, ptr %.ptr.i.i.i.i.i, align 4
   %112 = getelementptr inbounds nuw i8, ptr %109, i64 20
@@ -11366,7 +11366,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK11opencv_onnx10ModelProto11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 48))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 48))
   ret { ptr, ptr } %2
 }
 
@@ -11377,7 +11377,7 @@ define hidden void @_ZN11opencv_onnx22StringStringEntryProtoC2EPN6google8protobu
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx22StringStringEntryProtoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx22StringStringEntryProtoE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -11393,7 +11393,7 @@ define hidden void @_ZN11opencv_onnx22StringStringEntryProtoC2EPN6google8protobu
 define hidden void @_ZN11opencv_onnx22StringStringEntryProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx22StringStringEntryProtoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx22StringStringEntryProtoE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -11585,7 +11585,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %20, %_ZN11opencv_onnx22StringStringEntryProto10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %38 = phi i64 [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %18, %20 ], [ %18, %_ZN11opencv_onnx22StringStringEntryProto10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %39 = and i64 %38, 2
   %.not.i.i.i = icmp eq i64 %39, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %40
@@ -12350,7 +12350,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK11opencv_onnx22StringStringEntryProto11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 64))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 64))
   ret { ptr, ptr } %2
 }
 
@@ -12361,7 +12361,7 @@ define hidden void @_ZN11opencv_onnx10GraphProtoC2EPN6google8protobuf5ArenaEb(pt
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -12447,7 +12447,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf16RepeatedPtrFieldIN11opencv
 define hidden void @_ZN11opencv_onnx10GraphProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -12895,7 +12895,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN11opencv_onnx11TensorProtoEED2Ev.exit: ; 
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN11opencv_onnx9NodeProtoEED2Ev.exit: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN11opencv_onnx11TensorProtoEED2Ev.exit, %84
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %88 = load i64, ptr %2, align 8
   %89 = and i64 %88, 2
   %.not.i.i.i = icmp eq i64 %89, 0
@@ -13212,7 +13212,7 @@ _ZN11opencv_onnx14ValueInfoProtoC2EPN6google8protobuf5ArenaEb.exit9.i.i.i: ; pre
 
 _ZN6google8protobuf5Arena18CreateMaybeMessageIN11opencv_onnx14ValueInfoProtoEJEEEPT_PS1_DpOT0_.exit.i.i.i: ; preds = %_ZN11opencv_onnx14ValueInfoProtoC2EPN6google8protobuf5ArenaEb.exit9.i.i.i, %.noexc.i.i.i
   %.sink14.i.i.i = phi ptr [ %139, %.noexc.i.i.i ], [ %141, %_ZN11opencv_onnx14ValueInfoProtoC2EPN6google8protobuf5ArenaEb.exit9.i.i.i ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %.sink14.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %.sink14.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink14.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i, align 4
   %144 = getelementptr inbounds nuw i8, ptr %.sink14.i.i.i, i64 20
@@ -13293,7 +13293,7 @@ _ZN11opencv_onnx14ValueInfoProtoC2EPN6google8protobuf5ArenaEb.exit9.i.i.i38: ; p
 
 _ZN6google8protobuf5Arena18CreateMaybeMessageIN11opencv_onnx14ValueInfoProtoEJEEEPT_PS1_DpOT0_.exit.i.i.i39: ; preds = %_ZN11opencv_onnx14ValueInfoProtoC2EPN6google8protobuf5ArenaEb.exit9.i.i.i38, %.noexc.i.i.i43
   %.sink14.i.i.i40 = phi ptr [ %177, %.noexc.i.i.i43 ], [ %179, %_ZN11opencv_onnx14ValueInfoProtoC2EPN6google8protobuf5ArenaEb.exit9.i.i.i38 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %.sink14.i.i.i40, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %.sink14.i.i.i40, align 8
   %.ptr.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %.sink14.i.i.i40, i64 16
   store i32 0, ptr %.ptr.i.i.i.i41, align 4
   %182 = getelementptr inbounds nuw i8, ptr %.sink14.i.i.i40, i64 20
@@ -13374,7 +13374,7 @@ _ZN11opencv_onnx14ValueInfoProtoC2EPN6google8protobuf5ArenaEb.exit9.i.i.i45: ; p
 
 _ZN6google8protobuf5Arena18CreateMaybeMessageIN11opencv_onnx14ValueInfoProtoEJEEEPT_PS1_DpOT0_.exit.i.i.i46: ; preds = %_ZN11opencv_onnx14ValueInfoProtoC2EPN6google8protobuf5ArenaEb.exit9.i.i.i45, %.noexc.i.i.i50
   %.sink14.i.i.i47 = phi ptr [ %215, %.noexc.i.i.i50 ], [ %217, %_ZN11opencv_onnx14ValueInfoProtoC2EPN6google8protobuf5ArenaEb.exit9.i.i.i45 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %.sink14.i.i.i47, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %.sink14.i.i.i47, align 8
   %.ptr.i.i.i.i48 = getelementptr inbounds nuw i8, ptr %.sink14.i.i.i47, i64 16
   store i32 0, ptr %.ptr.i.i.i.i48, align 4
   %220 = getelementptr inbounds nuw i8, ptr %.sink14.i.i.i47, i64 20
@@ -14277,7 +14277,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK11opencv_onnx10GraphProto11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 80))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 80))
   ret { ptr, ptr } %2
 }
 
@@ -14288,7 +14288,7 @@ define hidden void @_ZN11opencv_onnx19TensorProto_SegmentC2EPN6google8protobuf5A
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx19TensorProto_SegmentE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx19TensorProto_SegmentE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr, i8 0, i64 24, i1 false)
   ret void
@@ -14298,7 +14298,7 @@ define hidden void @_ZN11opencv_onnx19TensorProto_SegmentC2EPN6google8protobuf5A
 define hidden void @_ZN11opencv_onnx19TensorProto_SegmentC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx19TensorProto_SegmentE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx19TensorProto_SegmentE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -14396,7 +14396,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -15115,7 +15115,7 @@ define hidden void @_ZN11opencv_onnx19TensorProto_Segment12InternalSwapEPS0_(ptr
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK11opencv_onnx19TensorProto_Segment11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 96))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 96))
   ret { ptr, ptr } %2
 }
 
@@ -15133,7 +15133,7 @@ define hidden void @_ZN11opencv_onnx11TensorProtoC2EPN6google8protobuf5ArenaEb(p
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx11TensorProtoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx11TensorProtoE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -15269,7 +15269,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull alig
 define hidden void @_ZN11opencv_onnx11TensorProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(208) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx11TensorProtoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx11TensorProtoE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -15530,7 +15530,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit56._crit_edge: ; 
 128:                                              ; preds = %126
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
   store i64 0, ptr %129, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx19TensorProto_SegmentE, i64 16), ptr %127, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx19TensorProto_SegmentE, i64 16), ptr %127, align 8
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %131 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %132 = load i32, ptr %131, align 8
@@ -15759,7 +15759,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv
   tail call void @_ZN6google8protobuf13RepeatedFieldIfED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %52) #20
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN6google8protobuf13RepeatedFieldIlED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %53) #20
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %54 = load i64, ptr %2, align 8
   %55 = and i64 %54, 2
   %.not.i.i.i = icmp eq i64 %55, 0
@@ -16148,7 +16148,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %15
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN11opencv_onnx19TensorProto_SegmentEEEPT_PNS0_5ArenaE.exit.i: ; preds = %158, %155
   %.sink32.i.i.i = phi ptr [ %156, %155 ], [ %159, %158 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx19TensorProto_SegmentE, i64 16), ptr %.sink32.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx19TensorProto_SegmentE, i64 16), ptr %.sink32.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink32.i.i.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr %.sink32.i.i.i, ptr %23, align 8
@@ -17820,7 +17820,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldImE12InternalSwapEPS2_(ptr nound
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK11opencv_onnx11TensorProto11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 112))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 112))
   ret { ptr, ptr } %2
 }
 
@@ -17831,7 +17831,7 @@ define hidden void @_ZN11opencv_onnx26TensorShapeProto_DimensionC2EPN6google8pro
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx26TensorShapeProto_DimensionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx26TensorShapeProto_DimensionE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -17847,7 +17847,7 @@ define hidden void @_ZN11opencv_onnx26TensorShapeProto_DimensionC2EPN6google8pro
 define hidden void @_ZN11opencv_onnx26TensorShapeProto_DimensionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx26TensorShapeProto_DimensionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx26TensorShapeProto_DimensionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -18071,7 +18071,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %26, %_ZN11opencv_onnx26TensorShapeProto_Dimension10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %44 = phi i64 [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %24, %26 ], [ %24, %_ZN11opencv_onnx26TensorShapeProto_Dimension10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %45 = and i64 %44, 2
   %.not.i.i.i3 = icmp eq i64 %45, 0
   br i1 %.not.i.i.i3, label %_ZN6google8protobuf7MessageD2Ev.exit, label %46
@@ -19096,7 +19096,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK11opencv_onnx26TensorShapeProto_Dimension11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 128))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 128))
   ret { ptr, ptr } %2
 }
 
@@ -19107,7 +19107,7 @@ define hidden void @_ZN11opencv_onnx16TensorShapeProtoC2EPN6google8protobuf5Aren
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TensorShapeProtoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TensorShapeProtoE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -19144,7 +19144,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf16RepeatedPtrFieldIN11opencv
 define hidden void @_ZN11opencv_onnx16TensorShapeProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TensorShapeProtoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TensorShapeProtoE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -19309,7 +19309,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN11opencv_onnx26TensorShapeProto_DimensionEED2Ev.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit, %27
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %31 = load i64, ptr %2, align 8
   %32 = and i64 %31, 2
   %.not.i.i.i = icmp eq i64 %32, 0
@@ -19510,7 +19510,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx26TensorShapeProto_DimensionEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit.i.i.i: ; preds = %71, %68
   %.sink35.i.i.i.i.i.i = phi ptr [ %69, %68 ], [ %72, %71 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx26TensorShapeProto_DimensionE, i64 16), ptr %.sink35.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx26TensorShapeProto_DimensionE, i64 16), ptr %.sink35.i.i.i.i.i.i, align 8
   %.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i.i.i.i, align 4
   %75 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i.i.i.i, i64 20
@@ -19988,7 +19988,7 @@ define hidden void @_ZN11opencv_onnx16TensorShapeProto12InternalSwapEPS0_(ptr no
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK11opencv_onnx16TensorShapeProto11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 144))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 144))
   ret { ptr, ptr } %2
 }
 
@@ -20006,7 +20006,7 @@ define hidden void @_ZN11opencv_onnx16TypeProto_TensorC2EPN6google8protobuf5Aren
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TypeProto_TensorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TypeProto_TensorE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.ptr, i8 0, i64 20, i1 false)
   ret void
@@ -20016,7 +20016,7 @@ define hidden void @_ZN11opencv_onnx16TypeProto_TensorC2EPN6google8protobuf5Aren
 define hidden void @_ZN11opencv_onnx16TypeProto_TensorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TypeProto_TensorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TypeProto_TensorE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -20181,7 +20181,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %16, %_ZN11opencv_onnx16TypeProto_Tensor10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %34 = phi i64 [ %.pre3, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %15, %16 ], [ %15, %_ZN11opencv_onnx16TypeProto_Tensor10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %35 = and i64 %34, 2
   %.not.i.i.i = icmp eq i64 %35, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %36
@@ -20506,7 +20506,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %10
   %109 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store i64 0, ptr %110, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TensorShapeProtoE, i64 16), ptr %109, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TensorShapeProtoE, i64 16), ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %111, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN11opencv_onnx16TensorShapeProtoEEEPT_PNS0_5ArenaE.exit.i
@@ -20516,7 +20516,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %10
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %115 = ptrtoint ptr %.0.i.i22 to i64
   store i64 %115, ptr %114, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TensorShapeProtoE, i64 16), ptr %113, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TensorShapeProtoE, i64 16), ptr %113, align 8
   %116 = getelementptr inbounds nuw i8, ptr %113, i64 16
   store ptr %.0.i.i22, ptr %116, align 8
   %117 = getelementptr inbounds nuw i8, ptr %113, i64 24
@@ -20936,7 +20936,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %21
   %25 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %26, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TensorShapeProtoE, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TensorShapeProtoE, i64 16), ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %27, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN11opencv_onnx16TensorShapeProtoEEEPT_PNS0_5ArenaE.exit.i
@@ -20946,7 +20946,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %21
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = ptrtoint ptr %.0.i.i to i64
   store i64 %31, ptr %30, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TensorShapeProtoE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TensorShapeProtoE, i64 16), ptr %29, align 8
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %.0.i.i, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -21206,7 +21206,7 @@ define hidden void @_ZN11opencv_onnx16TypeProto_Tensor12InternalSwapEPS0_(ptr no
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK11opencv_onnx16TypeProto_Tensor11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 160))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 160))
   ret { ptr, ptr } %2
 }
 
@@ -21354,7 +21354,7 @@ define hidden void @_ZN11opencv_onnx9TypeProtoC2EPN6google8protobuf5ArenaEb(ptr 
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9TypeProtoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9TypeProtoE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -21370,7 +21370,7 @@ define hidden void @_ZN11opencv_onnx9TypeProtoC2EPN6google8protobuf5ArenaEb(ptr 
 define hidden void @_ZN11opencv_onnx9TypeProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9TypeProtoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9TypeProtoE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -21482,7 +21482,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %45
 
 55:                                               ; preds = %.noexc22, %.noexc23
   %.sink32.i.i.i = phi ptr [ %49, %.noexc22 ], [ %52, %.noexc23 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TypeProto_TensorE, i64 16), ptr %.sink32.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TypeProto_TensorE, i64 16), ptr %.sink32.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink32.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.ptr.i.i.i.i, i8 0, i64 20, i1 false)
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -21622,7 +21622,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %31, %_ZN11opencv_onnx9TypeProto10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %49 = phi i64 [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %29, %31 ], [ %29, %_ZN11opencv_onnx9TypeProto10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %50 = and i64 %49, 2
   %.not.i.i.i2 = icmp eq i64 %50, 0
   br i1 %.not.i.i.i2, label %_ZN6google8protobuf7MessageD2Ev.exit, label %51
@@ -21807,7 +21807,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %59
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN11opencv_onnx16TypeProto_TensorEEEPT_PNS0_5ArenaE.exit.i: ; preds = %65, %62
   %.sink32.i.i.i = phi ptr [ %63, %62 ], [ %66, %65 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TypeProto_TensorE, i64 16), ptr %.sink32.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TypeProto_TensorE, i64 16), ptr %.sink32.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink32.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.ptr.i.i.i.i, i8 0, i64 20, i1 false)
   store ptr %.sink32.i.i.i, ptr %10, align 8
@@ -22159,7 +22159,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK11opencv_onnx9TypeProto11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 176))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 176))
   ret { ptr, ptr } %2
 }
 
@@ -22170,7 +22170,7 @@ define hidden void @_ZN11opencv_onnx18OperatorSetIdProtoC2EPN6google8protobuf5Ar
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx18OperatorSetIdProtoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx18OperatorSetIdProtoE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -22186,7 +22186,7 @@ define hidden void @_ZN11opencv_onnx18OperatorSetIdProtoC2EPN6google8protobuf5Ar
 define hidden void @_ZN11opencv_onnx18OperatorSetIdProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx18OperatorSetIdProtoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx18OperatorSetIdProtoE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -22347,7 +22347,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %15, %_ZN11opencv_onnx18OperatorSetIdProto10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %33 = phi i64 [ %.pre2, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %14, %15 ], [ %14, %_ZN11opencv_onnx18OperatorSetIdProto10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %34 = and i64 %33, 2
   %.not.i.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %35
@@ -23096,7 +23096,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK11opencv_onnx18OperatorSetIdProto11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 192))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 192))
   ret { ptr, ptr } %2
 }
 
@@ -23146,7 +23146,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN11open
 
 10:                                               ; preds = %3, %6
   %.sink36 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %.sink36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %.sink36, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink36, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink36, i64 20
@@ -23169,7 +23169,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN11open
   %4 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #23
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9NodeProtoE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9NodeProtoE, i64 16), ptr %4, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -23216,7 +23216,7 @@ common.resume:                                    ; preds = %28, %.body
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = ptrtoint ptr %0 to i64
   store i64 %19, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9NodeProtoE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9NodeProtoE, i64 16), ptr %17, align 8
   %.ptr.i32 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 0, ptr %.ptr.i32, align 4
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 20
@@ -23275,7 +23275,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN11open
   %4 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #23
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10ModelProtoE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10ModelProtoE, i64 16), ptr %4, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %.ptr.i, i8 0, i64 56, i1 false)
@@ -23287,7 +23287,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN11open
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = ptrtoint ptr %0 to i64
   store i64 %10, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10ModelProtoE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10ModelProtoE, i64 16), ptr %8, align 8
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %.ptr.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 20
@@ -23337,7 +23337,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN11open
 
 10:                                               ; preds = %3, %6
   %.sink35 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx22StringStringEntryProtoE, i64 16), ptr %.sink35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx22StringStringEntryProtoE, i64 16), ptr %.sink35, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink35, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink35, i64 20
@@ -23358,7 +23358,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN11open
   %4 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #23
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %4, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %.ptr.i, i8 0, i64 128, i1 false)
@@ -23370,7 +23370,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN11open
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = ptrtoint ptr %0 to i64
   store i64 %10, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %8, align 8
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %.ptr.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 20
@@ -23426,7 +23426,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN11open
 
 10:                                               ; preds = %3, %6
   %.sink32 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx19TensorProto_SegmentE, i64 16), ptr %.sink32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx19TensorProto_SegmentE, i64 16), ptr %.sink32, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink32, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i, i8 0, i64 24, i1 false)
   ret ptr %.sink32
@@ -23478,7 +23478,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN11open
 
 10:                                               ; preds = %3, %6
   %.sink35 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx26TensorShapeProto_DimensionE, i64 16), ptr %.sink35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx26TensorShapeProto_DimensionE, i64 16), ptr %.sink35, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink35, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink35, i64 20
@@ -23499,7 +23499,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN11open
   %4 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TensorShapeProtoE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TensorShapeProtoE, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, i8 0, i64 28, i1 false)
   br label %13
@@ -23509,7 +23509,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN11open
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = ptrtoint ptr %0 to i64
   store i64 %10, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TensorShapeProtoE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TensorShapeProtoE, i64 16), ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -23541,7 +23541,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN11open
 
 10:                                               ; preds = %3, %6
   %.sink32 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TypeProto_TensorE, i64 16), ptr %.sink32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TypeProto_TensorE, i64 16), ptr %.sink32, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink32, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.ptr.i, i8 0, i64 20, i1 false)
   ret ptr %.sink32
@@ -23567,7 +23567,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN11open
 
 10:                                               ; preds = %3, %6
   %.sink35 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9TypeProtoE, i64 16), ptr %.sink35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9TypeProtoE, i64 16), ptr %.sink35, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink35, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink35, i64 20
@@ -23599,7 +23599,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN11open
 
 10:                                               ; preds = %3, %6
   %.sink35 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx18OperatorSetIdProtoE, i64 16), ptr %.sink35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx18OperatorSetIdProtoE, i64 16), ptr %.sink35, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink35, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink35, i64 20
@@ -23681,7 +23681,7 @@ _ZN11opencv_onnx14ValueInfoProtoC2EPN6google8protobuf5ArenaEb.exit4.i: ; preds =
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN11opencv_onnx14ValueInfoProtoEEEPT_PNS0_5ArenaE.exit: ; preds = %.noexc.i, %_ZN11opencv_onnx14ValueInfoProtoC2EPN6google8protobuf5ArenaEb.exit4.i
   %.sink9.i = phi ptr [ %4, %.noexc.i ], [ %6, %_ZN11opencv_onnx14ValueInfoProtoC2EPN6google8protobuf5ArenaEb.exit4.i ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %.sink9.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %.sink9.i, align 8
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %.sink9.i, i64 16
   store i32 0, ptr %.ptr.i.i, align 4
   %9 = getelementptr inbounds nuw i8, ptr %.sink9.i, i64 20
@@ -23711,7 +23711,7 @@ define linkonce_odr hidden noundef ptr @_ZNK11opencv_onnx9NodeProto3NewEPN6googl
   %5 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #23
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9NodeProtoE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9NodeProtoE, i64 16), ptr %5, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -23758,7 +23758,7 @@ common.resume:                                    ; preds = %29, %.body
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = ptrtoint ptr %1 to i64
   store i64 %20, ptr %19, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9NodeProtoE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9NodeProtoE, i64 16), ptr %18, align 8
   %.ptr.i1 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 0, ptr %.ptr.i1, align 4
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 20
@@ -23824,7 +23824,7 @@ define linkonce_odr hidden noundef ptr @_ZNK11opencv_onnx10ModelProto3NewEPN6goo
   %5 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #23
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10ModelProtoE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10ModelProtoE, i64 16), ptr %5, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %.ptr.i.i.i, i8 0, i64 56, i1 false)
@@ -23836,7 +23836,7 @@ define linkonce_odr hidden noundef ptr @_ZNK11opencv_onnx10ModelProto3NewEPN6goo
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = ptrtoint ptr %1 to i64
   store i64 %11, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10ModelProtoE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10ModelProtoE, i64 16), ptr %9, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %.ptr.i.i.i.i, align 4
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 20
@@ -23893,7 +23893,7 @@ define linkonce_odr hidden noundef ptr @_ZNK11opencv_onnx22StringStringEntryProt
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN11opencv_onnx22StringStringEntryProtoEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink35.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx22StringStringEntryProtoE, i64 16), ptr %.sink35.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx22StringStringEntryProtoE, i64 16), ptr %.sink35.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 20
@@ -23921,7 +23921,7 @@ define linkonce_odr hidden noundef ptr @_ZNK11opencv_onnx10GraphProto3NewEPN6goo
   %5 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #23
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %5, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %.ptr.i.i.i, i8 0, i64 128, i1 false)
@@ -23933,7 +23933,7 @@ define linkonce_odr hidden noundef ptr @_ZNK11opencv_onnx10GraphProto3NewEPN6goo
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = ptrtoint ptr %1 to i64
   store i64 %11, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %9, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %.ptr.i.i.i.i, align 4
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 20
@@ -23996,7 +23996,7 @@ define linkonce_odr hidden noundef ptr @_ZNK11opencv_onnx19TensorProto_Segment3N
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN11opencv_onnx19TensorProto_SegmentEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink32.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx19TensorProto_SegmentE, i64 16), ptr %.sink32.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx19TensorProto_SegmentE, i64 16), ptr %.sink32.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink32.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i.i.i, i8 0, i64 24, i1 false)
   ret ptr %.sink32.i.i
@@ -24062,7 +24062,7 @@ define linkonce_odr hidden noundef ptr @_ZNK11opencv_onnx26TensorShapeProto_Dime
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN11opencv_onnx26TensorShapeProto_DimensionEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink35.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx26TensorShapeProto_DimensionE, i64 16), ptr %.sink35.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx26TensorShapeProto_DimensionE, i64 16), ptr %.sink35.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 20
@@ -24090,7 +24090,7 @@ define linkonce_odr hidden noundef ptr @_ZNK11opencv_onnx16TensorShapeProto3NewE
   %5 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TensorShapeProtoE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TensorShapeProtoE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %7, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN11opencv_onnx16TensorShapeProtoEEEPT_PNS0_5ArenaE.exit
@@ -24100,7 +24100,7 @@ define linkonce_odr hidden noundef ptr @_ZNK11opencv_onnx16TensorShapeProto3NewE
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = ptrtoint ptr %1 to i64
   store i64 %11, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TensorShapeProtoE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TensorShapeProtoE, i64 16), ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -24139,7 +24139,7 @@ define linkonce_odr hidden noundef ptr @_ZNK11opencv_onnx16TypeProto_Tensor3NewE
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN11opencv_onnx16TypeProto_TensorEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink32.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TypeProto_TensorE, i64 16), ptr %.sink32.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TypeProto_TensorE, i64 16), ptr %.sink32.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink32.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.ptr.i.i.i, i8 0, i64 20, i1 false)
   ret ptr %.sink32.i.i
@@ -24172,7 +24172,7 @@ define linkonce_odr hidden noundef ptr @_ZNK11opencv_onnx9TypeProto3NewEPN6googl
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN11opencv_onnx9TypeProtoEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink35.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9TypeProtoE, i64 16), ptr %.sink35.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9TypeProtoE, i64 16), ptr %.sink35.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 20
@@ -24211,7 +24211,7 @@ define linkonce_odr hidden noundef ptr @_ZNK11opencv_onnx18OperatorSetIdProto3Ne
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN11opencv_onnx18OperatorSetIdProtoEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink35.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx18OperatorSetIdProtoE, i64 16), ptr %.sink35.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx18OperatorSetIdProtoE, i64 16), ptr %.sink35.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 20
@@ -24343,7 +24343,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldIN1
   %19 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #23
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 0, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %19, align 8
   %.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %.ptr.i.i.i.i.i, i8 0, i64 128, i1 false)
@@ -24355,7 +24355,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldIN1
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = ptrtoint ptr %16 to i64
   store i64 %25, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %23, align 8
   %.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 0, ptr %.ptr.i.i.i.i.i.i, align 4
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 20
@@ -24505,7 +24505,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal20RepeatedPt
   %20 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #23
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 0, ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9NodeProtoE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9NodeProtoE, i64 16), ptr %20, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 20
@@ -24552,7 +24552,7 @@ common.resume:                                    ; preds = %44, %.body
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = ptrtoint ptr %17 to i64
   store i64 %35, ptr %34, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9NodeProtoE, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9NodeProtoE, i64 16), ptr %33, align 8
   %.ptr.i6 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i32 0, ptr %.ptr.i6, align 4
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 20
@@ -24942,7 +24942,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN11opencv_onnx10GraphProtoEJEEEPT_
   %12 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #23
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %12, align 8
   %.ptr.i.i.us = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %.ptr.i.i.us, i8 0, i64 128, i1 false)
@@ -24960,7 +24960,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN11opencv_onnx10GraphProtoEJEEEPT_
   %17 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 160, ptr noundef nonnull @_ZTIN11opencv_onnx10GraphProtoE)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %10, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %17, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 20
@@ -25147,7 +25147,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx18OperatorSetIdPr
   %23 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx18OperatorSetIdProtoE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx18OperatorSetIdProtoE, i64 16), ptr %23, align 8
   %.ptr.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 0, ptr %.ptr.i.i.i.i.us, align 4
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 20
@@ -25168,7 +25168,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx18OperatorSetIdPr
   %29 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 40, ptr noundef nonnull @_ZTIN11opencv_onnx18OperatorSetIdProtoE)
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %21, ptr %30, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx18OperatorSetIdProtoE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx18OperatorSetIdProtoE, i64 16), ptr %29, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i32 0, ptr %.ptr.i.i.i.i, align 4
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 20
@@ -25253,7 +25253,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx22StringStringEnt
   %23 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx22StringStringEntryProtoE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx22StringStringEntryProtoE, i64 16), ptr %23, align 8
   %.ptr.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 0, ptr %.ptr.i.i.i.i.us, align 4
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 20
@@ -25274,7 +25274,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx22StringStringEnt
   %29 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 40, ptr noundef nonnull @_ZTIN11opencv_onnx22StringStringEntryProtoE)
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %21, ptr %30, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx22StringStringEntryProtoE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx22StringStringEntryProtoE, i64 16), ptr %29, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i32 0, ptr %.ptr.i.i.i.i, align 4
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 20
@@ -25453,7 +25453,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
   %23 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %23, align 8
   %.ptr.i.us = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 0, ptr %.ptr.i.us, align 4
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 20
@@ -25476,7 +25476,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
   %30 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 48, ptr noundef nonnull @_ZTIN11opencv_onnx14ValueInfoProtoE)
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %21, ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %30, align 8
   %.ptr.i5 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i32 0, ptr %.ptr.i5, align 4
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 20
@@ -25579,7 +25579,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
   %23 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx26TensorShapeProto_DimensionE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx26TensorShapeProto_DimensionE, i64 16), ptr %23, align 8
   %.ptr.i.us = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 0, ptr %.ptr.i.us, align 4
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 20
@@ -25600,7 +25600,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
   %29 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 48, ptr noundef nonnull @_ZTIN11opencv_onnx26TensorShapeProto_DimensionE)
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %21, ptr %30, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx26TensorShapeProto_DimensionE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx26TensorShapeProto_DimensionE, i64 16), ptr %29, align 8
   %.ptr.i5 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i32 0, ptr %.ptr.i5, align 4
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 20

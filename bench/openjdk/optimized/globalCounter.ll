@@ -25,7 +25,7 @@ define hidden void @_ZN13GlobalCounter17write_synchronizeEv() local_unnamed_addr
   %2 = alloca %class.SpinYield, align 8
   %3 = alloca %class.JavaThreadIteratorWithHandle, align 8
   %4 = alloca %"class.NonJavaThread::Iterator", align 8
-  %5 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 2, ptr nonnull getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128)) #5, !srcloc !6
+  %5 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 2, ptr nonnull getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128)) #5, !srcloc !6
   %6 = add i64 %5, 2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)

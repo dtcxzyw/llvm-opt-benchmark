@@ -145,7 +145,7 @@ define void @_Z15low_do_autocorrPKcPK16gmx_output_env_tS0_iiiPPffmibbbffi(ptr no
   %38 = alloca %"class.std::__cxx11::basic_string", align 8
   %39 = alloca %"class.std::allocator", align 1
   store ptr %0, ptr %27, align 8
-  %40 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL3acf, i64 24), align 8
+  %40 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL3acf, i64 24), align 8
   %41 = trunc i8 %40 to i1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26)
   %.b1.i = load i1, ptr @_ZL8bACFinit, align 1
@@ -170,7 +170,7 @@ common.resume:                                    ; preds = %58, %74, %.body, %.
   br label %common.resume
 
 _Z11get_acfnoutv.exit:                            ; preds = %16
-  %46 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL3acf, i64 12), align 4
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL3acf, i64 12), align 4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26)
   %47 = icmp eq i32 %46, -1
   br i1 %47, label %48, label %51
@@ -178,7 +178,7 @@ _Z11get_acfnoutv.exit:                            ; preds = %16
 48:                                               ; preds = %_Z11get_acfnoutv.exit
   %49 = add nsw i32 %3, 1
   %50 = sdiv i32 %49, 2
-  store i32 %50, ptr getelementptr inbounds (i8, ptr @_ZL3acf, i64 12), align 4
+  store i32 %50, ptr getelementptr inbounds nuw (i8, ptr @_ZL3acf, i64 12), align 4
   br label %52
 
 51:                                               ; preds = %_Z11get_acfnoutv.exit
@@ -1328,7 +1328,7 @@ _ZL10do_ac_coreiiPfS_im.exit:                     ; preds = %454, %290
           to label %.noexc188 unwind label %483
 
 .noexc188:                                        ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.13, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.13, i64 9))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %473
 
 473:                                              ; preds = %.noexc188
@@ -1347,7 +1347,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc190 unwind label %485
 
 .noexc190:                                        ; preds = %.noexc189
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.14, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.14, i64 4))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit193 unwind label %476
 
 476:                                              ; preds = %.noexc190
@@ -1504,7 +1504,7 @@ _ZL11average_acfbiiPPf.exit:                      ; preds = %503, %494, %490
           to label %.noexc202 unwind label %535
 
 .noexc202:                                        ; preds = %.noexc201
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.18, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.18, i64 4))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit205 unwind label %525
 
 525:                                              ; preds = %.noexc202
@@ -1523,7 +1523,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit205: ;
           to label %.noexc207 unwind label %537
 
 .noexc207:                                        ; preds = %.noexc206
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull @.str.19, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.19, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull @.str.19, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.19, i64 9))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit210 unwind label %528
 
 528:                                              ; preds = %.noexc207
@@ -1739,7 +1739,7 @@ define noundef i32 @_Z11get_acfnoutv() local_unnamed_addr #0 personality ptr @__
   resume { ptr, i32 } %5
 
 6:                                                ; preds = %0
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL3acf, i64 12), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL3acf, i64 12), align 4
   ret i32 %7
 }
 
@@ -2822,14 +2822,14 @@ define noundef ptr @_Z13add_acf_pargsPiP7t_pargs(ptr nocapture noundef %0, ptr n
   %22 = add nsw i32 %21, 8
   store i32 %22, ptr %0, align 4
   store i64 0, ptr @_ZL3acf, align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZL3acf, i64 8), align 8
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @_ZL3acf, i64 12), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL3acf, i64 16), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZL3acf, i64 20), align 4
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL3acf, i64 24), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL3acf, i64 25), align 1
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3acf, i64 28), align 4
-  store float -1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3acf, i64 32), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL3acf, i64 8), align 8
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @_ZL3acf, i64 12), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL3acf, i64 16), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL3acf, i64 20), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL3acf, i64 24), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL3acf, i64 25), align 1
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3acf, i64 28), align 4
+  store float -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3acf, i64 32), align 8
   store i1 true, ptr @_ZL8bACFinit, align 1
   ret ptr %6
 }
@@ -2845,10 +2845,10 @@ define void @_Z11do_autocorrPKcPK16gmx_output_env_tS0_iiPPffmb(ptr noundef %0, p
 
 11:                                               ; preds = %10, %9
   %12 = load ptr, ptr @_ZL3Leg, align 16
-  %13 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %12, ptr noundef nonnull @.str.67, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL3acf, i64 16)) #20
+  %13 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %12, ptr noundef nonnull @.str.67, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL3acf, i64 16)) #20
   %14 = tail call noundef i32 @_Z9sffn2effnPPKc(ptr noundef nonnull @s_ffn)
-  store i32 %14, ptr getelementptr inbounds (i8, ptr @_ZL3acf, i64 20), align 4
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL3acf, i64 16), align 8
+  store i32 %14, ptr getelementptr inbounds nuw (i8, ptr @_ZL3acf, i64 20), align 4
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL3acf, i64 16), align 8
   switch i32 %15, label %22 [
     i32 1, label %16
     i32 2, label %18
@@ -2869,13 +2869,13 @@ define void @_Z11do_autocorrPKcPK16gmx_output_env_tS0_iiPPffmb(ptr noundef %0, p
 
 22:                                               ; preds = %11, %20, %18, %16
   %.0 = phi i64 [ %7, %11 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ]
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL3acf, i64 8), align 8
-  %24 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL3acf, i64 25), align 1
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL3acf, i64 8), align 8
+  %24 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL3acf, i64 25), align 1
   %25 = trunc i8 %24 to i1
   %26 = tail call noundef zeroext i1 @_Z10bDebugModev()
-  %27 = load float, ptr getelementptr inbounds (i8, ptr @_ZL3acf, i64 28), align 4
-  %28 = load float, ptr getelementptr inbounds (i8, ptr @_ZL3acf, i64 32), align 8
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL3acf, i64 20), align 4
+  %27 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZL3acf, i64 28), align 4
+  %28 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZL3acf, i64 32), align 8
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL3acf, i64 20), align 4
   tail call void @_Z15low_do_autocorrPKcPK16gmx_output_env_tS0_iiiPPffmibbbffi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 poison, ptr noundef %5, float noundef %6, i64 noundef %.0, i32 noundef %23, i1 noundef zeroext %8, i1 noundef zeroext %25, i1 noundef zeroext %26, float noundef %27, float noundef %28, i32 noundef %29)
   ret void
 }

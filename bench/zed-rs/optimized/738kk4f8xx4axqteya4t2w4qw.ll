@@ -18636,7 +18636,7 @@ define hidden noundef ptr @_ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c
   br label %"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h47a39f4e0a7e5807E.exit"
 
 "_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h47a39f4e0a7e5807E.exit": ; preds = %1, %3
-  %.sroa.0.0.i.i = phi ptr [ %4, %3 ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1 ]
+  %.sroa.0.0.i.i = phi ptr [ %4, %3 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1 ]
   ret ptr %.sroa.0.0.i.i
 }
 
@@ -31468,7 +31468,7 @@ _ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.llvm.4626617337515605
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0a6ea2cd37451668E.llvm.4626617337515605756.exit.i.i": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.llvm.4626617337515605756.exit.i.i, %80
-  %.sroa.0.0.i.i.i169.i.i = phi ptr [ %89, %_ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.llvm.4626617337515605756.exit.i.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %80 ]
+  %.sroa.0.0.i.i.i169.i.i = phi ptr [ %89, %_ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.llvm.4626617337515605756.exit.i.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %80 ]
   %92 = load i64, ptr %.sroa.0.0.i.i.i169.i.i, align 8, !noalias !10494, !noundef !9
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i169.i.i, i64 8
   %94 = load i64, ptr %93, align 8, !noalias !10494, !noundef !9
@@ -94434,7 +94434,7 @@ _ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.llvm.4626617337515605
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0a6ea2cd37451668E.llvm.4626617337515605756.exit": ; preds = %2, %_ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.llvm.4626617337515605756.exit
-  %.sroa.0.0.i.i.i7 = phi ptr [ %6, %_ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.llvm.4626617337515605756.exit ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %2 ]
+  %.sroa.0.0.i.i.i7 = phi ptr [ %6, %_ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.llvm.4626617337515605756.exit ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %2 ]
   %9 = load i64, ptr %.sroa.0.0.i.i.i7, align 8, !noalias !20861, !noundef !9
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i7, i64 8
   %11 = load i64, ptr %10, align 8, !noalias !20861, !noundef !9
@@ -97952,7 +97952,7 @@ define hidden void @_ZN8async_io6driver8block_on17he8fe67d9d43572daE(ptr dead_on
   br label %.thread
 
 118:                                              ; preds = %2
-  %119 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN8async_io6driver8block_on10__CALLSITE17h65bd70f8d6c2518cE, i64 16) monotonic, align 8
+  %119 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN8async_io6driver8block_on10__CALLSITE17h65bd70f8d6c2518cE, i64 16) monotonic, align 8
   switch i8 %119, label %120 [
     i8 0, label %134
     i8 1, label %122
@@ -98141,7 +98141,7 @@ _ZN4core3ops8function6FnOnce9call_once17h800e641263683777E.exit.thread.i: ; pred
           to label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h27dc70e11b72407fE.exit.thread" unwind label %1062
 
 _ZN4core3ops8function6FnOnce9call_once17h800e641263683777E.exit.thread6.i: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h800e641263683777E.exit.i, %_ZN7tracing4span4Span8do_enter17h4bb6ad0db6f4173aE.llvm.4626617337515605756.exit
-  %.sroa.0.0.i.i.i8.i = phi ptr [ %175, %_ZN4core3ops8function6FnOnce9call_once17h800e641263683777E.exit.i ], [ getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on5CACHE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h7421611695398681E", i64 8), %_ZN7tracing4span4Span8do_enter17h4bb6ad0db6f4173aE.llvm.4626617337515605756.exit ]
+  %.sroa.0.0.i.i.i8.i = phi ptr [ %175, %_ZN4core3ops8function6FnOnce9call_once17h800e641263683777E.exit.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on5CACHE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h7421611695398681E", i64 8), %_ZN7tracing4span4Span8do_enter17h4bb6ad0db6f4173aE.llvm.4626617337515605756.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.432)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %105), !noalias !21382
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %105, ptr noundef nonnull align 8 dereferenceable(56) %109, i64 56, i1 false), !noalias !21383
@@ -98554,7 +98554,7 @@ _ZN4core3ops8function6FnOnce9call_once17h800e641263683777E.exit.thread6.i: ; pre
   br i1 %338, label %339, label %.thread637.i.i
 
 339:                                              ; preds = %336
-  %340 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd57ccc0b9b5793c6E", i64 16) monotonic, align 8, !noalias !21390
+  %340 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd57ccc0b9b5793c6E", i64 16) monotonic, align 8, !noalias !21390
   switch i8 %340, label %341 [
     i8 0, label %.thread637.i.i
     i8 1, label %.thread634.i.i
@@ -99007,7 +99007,7 @@ _ZN4core3ops8function6FnOnce9call_once17h800e641263683777E.exit.thread6.i: ; pre
   br i1 %488, label %490, label %.thread647.i.i
 
 490:                                              ; preds = %489
-  %491 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha51fe70fdcf3edabE", i64 16) monotonic, align 8, !noalias !21390
+  %491 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17ha51fe70fdcf3edabE", i64 16) monotonic, align 8, !noalias !21390
   switch i8 %491, label %492 [
     i8 0, label %.thread647.i.i
     i8 1, label %.thread644.i.i
@@ -99285,7 +99285,7 @@ _ZN4core3ops8function6FnOnce9call_once17h800e641263683777E.exit.thread6.i: ; pre
   br i1 %584, label %585, label %.thread653.i.i
 
 585:                                              ; preds = %582
-  %586 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd2ee5b4e84a2b5eeE", i64 16) monotonic, align 8, !noalias !21390
+  %586 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd2ee5b4e84a2b5eeE", i64 16) monotonic, align 8, !noalias !21390
   switch i8 %586, label %587 [
     i8 0, label %.thread653.i.i
     i8 1, label %.thread650.i.i
@@ -99563,7 +99563,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.10989238744551635161.exit
   br i1 %680, label %681, label %.thread659.i.i
 
 681:                                              ; preds = %678
-  %682 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17haa66b98938f4c779E", i64 16) monotonic, align 8, !noalias !21390
+  %682 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17haa66b98938f4c779E", i64 16) monotonic, align 8, !noalias !21390
   switch i8 %682, label %683 [
     i8 0, label %.thread659.i.i
     i8 1, label %.thread656.i.i
@@ -99764,7 +99764,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.10989238744551635161.exit
   br i1 %488, label %752, label %.thread665.i.i
 
 752:                                              ; preds = %751
-  %753 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9487b28c2c054d88E", i64 16) monotonic, align 8, !noalias !21390
+  %753 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h9487b28c2c054d88E", i64 16) monotonic, align 8, !noalias !21390
   switch i8 %753, label %754 [
     i8 0, label %.thread665.i.i
     i8 1, label %.thread662.i.i
@@ -100053,7 +100053,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.10989238744551635161.exit
   br i1 %848, label %849, label %.thread678.i.i
 
 849:                                              ; preds = %846
-  %850 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h7c0710c2e65ec1d1E", i64 16) monotonic, align 8, !noalias !21390
+  %850 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h7c0710c2e65ec1d1E", i64 16) monotonic, align 8, !noalias !21390
   switch i8 %850, label %851 [
     i8 0, label %.thread678.i.i
     i8 1, label %.thread675.i.i
@@ -100313,7 +100313,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.10989238744551635161.exit
   br i1 %937, label %938, label %.thread684.i.i
 
 938:                                              ; preds = %935
-  %939 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h3294e74089823fe9E", i64 16) monotonic, align 8, !noalias !21390
+  %939 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h3294e74089823fe9E", i64 16) monotonic, align 8, !noalias !21390
   switch i8 %939, label %940 [
     i8 0, label %.thread684.i.i
     i8 1, label %.thread681.i.i

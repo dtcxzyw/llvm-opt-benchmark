@@ -171,7 +171,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_010NullOutputE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_010NullOutputE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -204,7 +204,7 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_09NullInputE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_09NullInputE, i64 16), ptr %call, align 8
   %m_filename.i = getelementptr inbounds nuw i8, ptr %call, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_filename.i) #19
   %m_value.i = getelementptr inbounds nuw i8, ptr %call, i64 232

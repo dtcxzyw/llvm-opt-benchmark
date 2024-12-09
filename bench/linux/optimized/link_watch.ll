@@ -259,7 +259,7 @@ define internal fastcc void @__linkwatch_run_queue(i32 noundef range(i32 0, 2) %
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %2, align 8
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @lweventlist, i64 8), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lweventlist, i64 8), align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %2, ptr %22, align 8
   store ptr %17, ptr %2, align 8
@@ -267,7 +267,7 @@ define internal fastcc void @__linkwatch_run_queue(i32 noundef range(i32 0, 2) %
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %21, ptr %23, align 8
   store volatile ptr @lweventlist, ptr @lweventlist, align 8
-  store volatile ptr @lweventlist, ptr getelementptr inbounds (i8, ptr @lweventlist, i64 8), align 8
+  store volatile ptr @lweventlist, ptr getelementptr inbounds nuw (i8, ptr @lweventlist, i64 8), align 8
   br label %24
 
 24:                                               ; preds = %19, %16
@@ -378,8 +378,8 @@ linkwatch_urgent_event.exit:                      ; preds = %83
   br i1 %90, label %linkwatch_urgent_event.exit.thread, label %linkwatch_urgent_event.exit.thread8
 
 linkwatch_urgent_event.exit.thread8:              ; preds = %79, %66, %62, %39, %linkwatch_urgent_event.exit, %.preheader
-  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @lweventlist, i64 8), align 8
-  store ptr %27, ptr getelementptr inbounds (i8, ptr @lweventlist, i64 8), align 8
+  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lweventlist, i64 8), align 8
+  store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @lweventlist, i64 8), align 8
   store ptr @lweventlist, ptr %27, align 8
   store ptr %91, ptr %30, align 8
   store volatile ptr %27, ptr %91, align 8
@@ -591,8 +591,8 @@ linkwatch_urgent_event.exit:                      ; preds = %1, %6, %11, %20, %2
   br i1 %63, label %64, label %72
 
 64:                                               ; preds = %59
-  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @lweventlist, i64 8), align 8
-  store ptr %61, ptr getelementptr inbounds (i8, ptr @lweventlist, i64 8), align 8
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lweventlist, i64 8), align 8
+  store ptr %61, ptr getelementptr inbounds nuw (i8, ptr @lweventlist, i64 8), align 8
   store ptr @lweventlist, ptr %61, align 8
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   store ptr %65, ptr %66, align 8

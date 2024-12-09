@@ -2895,7 +2895,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 301:                                              ; preds = %298
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %24)
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau22LintMultiLineStatementE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau22LintMultiLineStatementE, i64 16), ptr %24, align 8
   %302 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %302, i8 0, i64 24, i1 false)
   %303 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -2907,7 +2907,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
           to label %307 unwind label %315
 
 307:                                              ; preds = %301
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau22LintMultiLineStatementE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau22LintMultiLineStatementE, i64 16), ptr %24, align 8
   %308 = load ptr, ptr %302, align 8
   %.not.i.i.i.i.i22 = icmp eq ptr %308, null
   br i1 %.not.i.i.i.i.i22, label %_ZN4Luau22LintMultiLineStatement7processERNS_11LintContextE.exit, label %309
@@ -2924,7 +2924,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 315:                                              ; preds = %301
   %316 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau22LintMultiLineStatementE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau22LintMultiLineStatementE, i64 16), ptr %24, align 8
   %317 = load ptr, ptr %302, align 8
   %.not.i.i.i.i3.i = icmp eq ptr %317, null
   br i1 %.not.i.i.i.i3.i, label %.body, label %318
@@ -2951,7 +2951,7 @@ _ZN4Luau22LintMultiLineStatement7processERNS_11LintContextE.exit: ; preds = %307
 
 327:                                              ; preds = %324
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23)
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau21LintSameLineStatementE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau21LintSameLineStatementE, i64 16), ptr %23, align 8
   %328 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %26, ptr %328, align 8
   %329 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -3003,7 +3003,7 @@ _ZN4Luau21LintSameLineStatement7processERNS_11LintContextE.exit: ; preds = %327
 
 344:                                              ; preds = %341
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22)
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau19LintUnreachableCodeE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau19LintUnreachableCodeE, i64 16), ptr %22, align 8
   %345 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %26, ptr %345, align 8
   %346 = load ptr, ptr %30, align 8
@@ -3030,7 +3030,7 @@ _ZN4Luau19LintUnreachableCode7processERNS_11LintContextE.exit: ; preds = %.noexc
 
 354:                                              ; preds = %351
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21)
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau15LintUnknownTypeE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau15LintUnknownTypeE, i64 16), ptr %21, align 8
   %355 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %26, ptr %355, align 8
   %356 = load ptr, ptr %30, align 8
@@ -3052,7 +3052,7 @@ _ZN4Luau15LintUnknownType7processERNS_11LintContextE.exit: ; preds = %354
 
 362:                                              ; preds = %359
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20)
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau12LintForRangeE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau12LintForRangeE, i64 16), ptr %20, align 8
   %363 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %26, ptr %363, align 8
   %364 = load ptr, ptr %30, align 8
@@ -3074,7 +3074,7 @@ _ZN4Luau12LintForRange7processERNS_11LintContextE.exit: ; preds = %362
 
 370:                                              ; preds = %367
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau24LintUnbalancedAssignmentE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau24LintUnbalancedAssignmentE, i64 16), ptr %19, align 8
   %371 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %26, ptr %371, align 8
   %372 = load ptr, ptr %30, align 8
@@ -3096,7 +3096,7 @@ _ZN4Luau24LintUnbalancedAssignment7processERNS_11LintContextE.exit: ; preds = %3
 
 378:                                              ; preds = %375
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau18LintImplicitReturnE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau18LintImplicitReturnE, i64 16), ptr %18, align 8
   %379 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %26, ptr %379, align 8
   %380 = load ptr, ptr %30, align 8
@@ -3118,7 +3118,7 @@ _ZN4Luau18LintImplicitReturn7processERNS_11LintContextE.exit: ; preds = %378
 
 386:                                              ; preds = %383
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau16LintFormatStringE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau16LintFormatStringE, i64 16), ptr %17, align 8
   %387 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %26, ptr %387, align 8
   %388 = load ptr, ptr %30, align 8
@@ -3140,7 +3140,7 @@ _ZN4Luau16LintFormatString7processERNS_11LintContextE.exit: ; preds = %386
 
 394:                                              ; preds = %391
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau16LintTableLiteralE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau16LintTableLiteralE, i64 16), ptr %16, align 8
   %395 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %26, ptr %395, align 8
   %396 = load ptr, ptr %30, align 8
@@ -3190,7 +3190,7 @@ _ZN4Luau16LintTableLiteral7processERNS_11LintContextE.exit: ; preds = %394
 
 410:                                              ; preds = %407
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau17LintDeprecatedApiE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau17LintDeprecatedApiE, i64 16), ptr %15, align 8
   %411 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %26, ptr %411, align 8
   %412 = load ptr, ptr %30, align 8
@@ -3217,7 +3217,7 @@ _ZN4Luau17LintDeprecatedApi7processERNS_11LintContextE.exit: ; preds = %410
   br i1 %.not.i33, label %_ZN4Luau19LintTableOperations7processERNS_11LintContextE.exit, label %420
 
 420:                                              ; preds = %418
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau19LintTableOperationsE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau19LintTableOperationsE, i64 16), ptr %14, align 8
   %421 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %26, ptr %421, align 8
   %422 = load ptr, ptr %30, align 8
@@ -3243,7 +3243,7 @@ _ZN4Luau19LintTableOperations7processERNS_11LintContextE.exit: ; preds = %._ZN4L
 
 428:                                              ; preds = %425
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau22LintDuplicateConditionE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau22LintDuplicateConditionE, i64 16), ptr %13, align 8
   %429 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %26, ptr %429, align 8
   %430 = load ptr, ptr %30, align 8
@@ -3265,7 +3265,7 @@ _ZN4Luau22LintDuplicateCondition7processERNS_11LintContextE.exit: ; preds = %428
 
 436:                                              ; preds = %433
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %12)
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau18LintDuplicateLocalE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau18LintDuplicateLocalE, i64 16), ptr %12, align 8
   %437 = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %437, i8 0, i64 32, i1 false)
   %438 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -3277,7 +3277,7 @@ _ZN4Luau22LintDuplicateCondition7processERNS_11LintContextE.exit: ; preds = %428
           to label %442 unwind label %445
 
 442:                                              ; preds = %436
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau18LintDuplicateLocalE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau18LintDuplicateLocalE, i64 16), ptr %12, align 8
   %443 = load ptr, ptr %437, align 8
   %.not.i.i.i.i36 = icmp eq ptr %443, null
   br i1 %.not.i.i.i.i36, label %_ZN4Luau18LintDuplicateLocal7processERNS_11LintContextE.exit, label %444
@@ -3289,7 +3289,7 @@ _ZN4Luau22LintDuplicateCondition7processERNS_11LintContextE.exit: ; preds = %428
 445:                                              ; preds = %436
   %446 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau18LintDuplicateLocalE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau18LintDuplicateLocalE, i64 16), ptr %12, align 8
   %447 = load ptr, ptr %437, align 8
   %.not.i.i.i3.i = icmp eq ptr %447, null
   br i1 %.not.i.i.i3.i, label %.body, label %448
@@ -3311,7 +3311,7 @@ _ZN4Luau18LintDuplicateLocal7processERNS_11LintContextE.exit: ; preds = %442, %4
 
 452:                                              ; preds = %449
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau19LintMisleadingAndOrE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau19LintMisleadingAndOrE, i64 16), ptr %11, align 8
   %453 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %26, ptr %453, align 8
   %454 = load ptr, ptr %30, align 8
@@ -3413,7 +3413,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   %.01828.i.i = phi i64 [ %spec.select25.i.i, %.noexc49 ], [ %496, %495 ]
   %.01927.i.i = phi i64 [ %spec.select.i.i45, %.noexc49 ], [ 29, %495 ]
   %.02126.i.i = phi i64 [ %501, %.noexc49 ], [ 0, %495 ]
-  %497 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds (i8, ptr @_ZN4LuauL13kWarningNamesE, i64 8), i64 %.02126.i.i
+  %497 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4LuauL13kWarningNamesE, i64 8), i64 %.02126.i.i
   %498 = load ptr, ptr %497, align 8
   %499 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %498) #20
   %500 = invoke noundef i64 @_ZN4Luau12editDistanceESt17basic_string_viewIcSt11char_traitsIcEES3_(i64 %492, ptr %491, i64 %499, ptr %498)
@@ -3432,7 +3432,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br i1 %502, label %_ZN4LuauL10fuzzyMatchESt17basic_string_viewIcSt11char_traitsIcEEPPKcm.exit.i, label %.tail37.thread.i.invoke
 
 _ZN4LuauL10fuzzyMatchESt17basic_string_viewIcSt11char_traitsIcEEPPKcm.exit.i: ; preds = %._crit_edge.i.i46
-  %503 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds (i8, ptr @_ZN4LuauL13kWarningNamesE, i64 8), i64 %spec.select.i.i45
+  %503 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4LuauL13kWarningNamesE, i64 8), i64 %spec.select.i.i45
   %504 = load ptr, ptr %503, align 8
   %.not81.i = icmp eq ptr %504, null
   br i1 %.not81.i, label %.tail37.thread.i.invoke, label %505
@@ -3598,7 +3598,7 @@ _ZN4LuauL12lintCommentsERNS_11LintContextERKSt6vectorINS_10HotCommentESaIS3_EE.e
 
 556:                                              ; preds = %_ZN4LuauL12lintCommentsERNS_11LintContextERKSt6vectorINS_10HotCommentESaIS3_EE.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau18LintIntegerParsingE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau18LintIntegerParsingE, i64 16), ptr %10, align 8
   %557 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %26, ptr %557, align 8
   %558 = load ptr, ptr %30, align 8
@@ -3620,7 +3620,7 @@ _ZN4Luau18LintIntegerParsing7processERNS_11LintContextE.exit: ; preds = %556
 
 564:                                              ; preds = %561
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau24LintComparisonPrecedenceE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau24LintComparisonPrecedenceE, i64 16), ptr %9, align 8
   %565 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %26, ptr %565, align 8
   %566 = load ptr, ptr %30, align 8
@@ -3705,7 +3705,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
 
 _ZN4LuauL25hasNativeCommentDirectiveERKSt6vectorINS_10HotCommentESaIS1_EE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i66
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau28LintRedundantNativeAttributeE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau28LintRedundantNativeAttributeE, i64 16), ptr %8, align 8
   %604 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %26, ptr %604, align 8
   %605 = load ptr, ptr %30, align 8
@@ -3782,7 +3782,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4Luau15LintGlobalLocal7processERNS_11LintContextE(ptr noundef nonnull align 8 dereferenceable(112) %0) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Luau::LintGlobalLocal", align 8
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau15LintGlobalLocalE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau15LintGlobalLocalE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
@@ -3896,7 +3896,7 @@ _ZN4Luau6detail14DenseHashTableINS_7AstNameESt4pairIS2_NS_11LintContext6GlobalEE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4Luau16LintLocalHygiene7processERNS_11LintContextE(ptr noundef nonnull align 8 dereferenceable(112) %0) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Luau::LintLocalHygiene", align 8
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau16LintLocalHygieneE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau16LintLocalHygieneE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 96
@@ -4002,7 +4002,7 @@ _ZN4Luau6detail14DenseHashTableINS_7AstNameESt4pairIS2_NS_11LintContext6GlobalEE
           to label %44 unwind label %.loopexit.split-lp
 
 44:                                               ; preds = %43
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau16LintLocalHygieneE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau16LintLocalHygieneE, i64 16), ptr %2, align 8
   %45 = load ptr, ptr %5, align 8
   %.not.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i, label %_ZN4Luau12DenseHashMapINS_7AstNameENS_16LintLocalHygiene6GlobalESt4hashIS1_ESt8equal_toIS1_EED2Ev.exit.i, label %46
@@ -4038,7 +4038,7 @@ _ZN4Luau16LintLocalHygieneD2Ev.exit:              ; preds = %_ZN4Luau12DenseHash
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4Luau18LintUnusedFunction7processERNS_11LintContextE(ptr noundef nonnull align 8 dereferenceable(112) %0) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Luau::LintUnusedFunction", align 8
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau18LintUnusedFunctionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau18LintUnusedFunctionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4144,7 +4144,7 @@ _ZN4Luau6detail14DenseHashTableINS_7AstNameESt4pairIS2_NS_18LintUnusedFunction6G
 
 _ZN4Luau18LintUnusedFunction6reportEv.exit:       ; preds = %18, %_ZN4Luau6detail14DenseHashTableINS_7AstNameESt4pairIS2_NS_18LintUnusedFunction6GlobalEES3_IKS2_S5_ENS0_16ItemInterfaceMapIS2_S5_EESt4hashIS2_ESt8equal_toIS2_EE8iteratorppEv.exit.i, %_ZN4Luau12DenseHashMapINS_7AstNameENS_18LintUnusedFunction6GlobalESt4hashIS1_ESt8equal_toIS1_EE5beginEv.exit.i
   %51 = phi ptr [ %.pre.pre, %_ZN4Luau12DenseHashMapINS_7AstNameENS_18LintUnusedFunction6GlobalESt4hashIS1_ESt8equal_toIS1_EE5beginEv.exit.i ], [ %39, %_ZN4Luau6detail14DenseHashTableINS_7AstNameESt4pairIS2_NS_18LintUnusedFunction6GlobalEES3_IKS2_S5_ENS0_16ItemInterfaceMapIS2_S5_EESt4hashIS2_ESt8equal_toIS2_EE8iteratorppEv.exit.i ], [ %.pre.pre, %18 ]
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau18LintUnusedFunctionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau18LintUnusedFunctionE, i64 16), ptr %2, align 8
   %.not.i.i.i3 = icmp eq ptr %51, null
   br i1 %.not.i.i.i3, label %_ZN4Luau18LintUnusedFunctionD2Ev.exit, label %52
 
@@ -4167,7 +4167,7 @@ _ZN4Luau18LintUnusedFunctionD2Ev.exit:            ; preds = %_ZN4Luau18LintUnuse
 
 53:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau18LintUnusedFunctionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau18LintUnusedFunctionE, i64 16), ptr %2, align 8
   %54 = load ptr, ptr %3, align 8
   %.not.i.i.i4 = icmp eq ptr %54, null
   br i1 %.not.i.i.i4, label %_ZN4Luau18LintUnusedFunctionD2Ev.exit5, label %55
@@ -4183,7 +4183,7 @@ _ZN4Luau18LintUnusedFunctionD2Ev.exit5:           ; preds = %53, %55
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4Luau22LintUninitializedLocal7processERNS_11LintContextE(ptr noundef nonnull align 8 dereferenceable(112) %0) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Luau::LintUninitializedLocal", align 8
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau22LintUninitializedLocalE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau22LintUninitializedLocalE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4300,7 +4300,7 @@ _ZN4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_NS_22LintUninitializedL
 
 _ZN4Luau22LintUninitializedLocal6reportEv.exit:   ; preds = %18, %_ZN4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_NS_22LintUninitializedLocal5LocalEES4_IKS3_S6_ENS0_16ItemInterfaceMapIS3_S6_EENS_16DenseHashPointerESt8equal_toIS3_EE8iteratorppEv.exit.i, %_ZN4Luau12DenseHashMapIPNS_8AstLocalENS_22LintUninitializedLocal5LocalENS_16DenseHashPointerESt8equal_toIS2_EE5beginEv.exit.i
   %60 = phi ptr [ %.pre.pre, %_ZN4Luau12DenseHashMapIPNS_8AstLocalENS_22LintUninitializedLocal5LocalENS_16DenseHashPointerESt8equal_toIS2_EE5beginEv.exit.i ], [ %48, %_ZN4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_NS_22LintUninitializedLocal5LocalEES4_IKS3_S6_ENS0_16ItemInterfaceMapIS3_S6_EENS_16DenseHashPointerESt8equal_toIS3_EE8iteratorppEv.exit.i ], [ %.pre.pre, %18 ]
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau22LintUninitializedLocalE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau22LintUninitializedLocalE, i64 16), ptr %2, align 8
   %.not.i.i.i3 = icmp eq ptr %60, null
   br i1 %.not.i.i.i3, label %_ZN4Luau22LintUninitializedLocalD2Ev.exit, label %61
 
@@ -4323,7 +4323,7 @@ _ZN4Luau22LintUninitializedLocalD2Ev.exit:        ; preds = %_ZN4Luau22LintUnini
 
 62:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau22LintUninitializedLocalE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau22LintUninitializedLocalE, i64 16), ptr %2, align 8
   %63 = load ptr, ptr %3, align 8
   %.not.i.i.i4 = icmp eq ptr %63, null
   br i1 %.not.i.i.i4, label %_ZN4Luau22LintUninitializedLocalD2Ev.exit5, label %64
@@ -4348,7 +4348,7 @@ define linkonce_odr dso_local void @_ZN4Luau21LintDuplicateFunction7processERNS_
           to label %7 unwind label %17
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau21LintDuplicateFunctionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau21LintDuplicateFunctionE, i64 16), ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i = icmp eq ptr %9, null
@@ -4645,7 +4645,7 @@ define dso_local void @_ZN4Luau16fuzzFormatStringEPKcm(ptr noundef %0, i64 nound
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, i8 0, i64 80, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau16LintFormatStringE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau16LintFormatStringE, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %6, align 8
   %7 = invoke noundef ptr @_ZN4Luau16LintFormatString17checkStringFormatEPKcm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %0, i64 noundef %1)
@@ -5152,7 +5152,7 @@ _ZN4Luau6detail14DenseHashTableINS_7AstNameESt4pairIS2_NS_15LintGlobalLocal6Glob
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau15LintGlobalLocalD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau15LintGlobalLocalE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau15LintGlobalLocalE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -7742,7 +7742,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau22LintMultiLineStatementD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau22LintMultiLineStatementE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau22LintMultiLineStatementE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -7763,7 +7763,7 @@ _ZNSt6vectorIN4Luau22LintMultiLineStatement9StatementESaIS2_EED2Ev.exit: ; preds
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau22LintMultiLineStatementD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau22LintMultiLineStatementE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau22LintMultiLineStatementE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -8264,7 +8264,7 @@ _ZN4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_NS_16LintLocalHygiene5L
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau16LintLocalHygieneD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau16LintLocalHygieneE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau16LintLocalHygieneE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -8303,7 +8303,7 @@ _ZN4Luau12DenseHashMapIPNS_8AstLocalENS_16LintLocalHygiene5LocalENS_16DenseHashP
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau16LintLocalHygieneD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau16LintLocalHygieneE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau16LintLocalHygieneE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -9396,7 +9396,7 @@ _ZN4Luau12DenseHashMapINS_7AstNameENS_16LintLocalHygiene6GlobalESt4hashIS1_ESt8e
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau18LintUnusedFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau18LintUnusedFunctionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau18LintUnusedFunctionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -9413,7 +9413,7 @@ _ZN4Luau12DenseHashMapINS_7AstNameENS_18LintUnusedFunction6GlobalESt4hashIS1_ESt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau18LintUnusedFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau18LintUnusedFunctionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau18LintUnusedFunctionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -10476,7 +10476,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau18LintImplicitReturn5v
   %7 = tail call noundef ptr @_ZN4Luau14getFallthroughEPKNS_7AstStatE(ptr noundef %6)
   %8 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVZN4Luau18LintImplicitReturn14getValueReturnEPNS_7AstStatEE7Visitor, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVZN4Luau18LintImplicitReturn14getValueReturnEPNS_7AstStatEE7Visitor, i64 16), ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %9, align 8
   %10 = load ptr, ptr %8, align 8
@@ -13409,7 +13409,7 @@ _ZN4Luau6detail14DenseHashTableINS_7AstNameESt4pairIS2_iES3_IKS2_iENS0_16ItemInt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau22LintUninitializedLocalD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau22LintUninitializedLocalE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau22LintUninitializedLocalE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -13426,7 +13426,7 @@ _ZN4Luau12DenseHashMapIPNS_8AstLocalENS_22LintUninitializedLocal5LocalENS_16Dens
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau22LintUninitializedLocalD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau22LintUninitializedLocalE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau22LintUninitializedLocalE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -13886,7 +13886,7 @@ _ZN4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_NS_22LintUninitializedL
 define linkonce_odr dso_local void @_ZN4Luau21LintDuplicateFunctionC2EPNS_11LintContextE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.17", align 1
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau21LintDuplicateFunctionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau21LintDuplicateFunctionE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
@@ -13938,7 +13938,7 @@ _ZN4Luau12DenseHashMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8L
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau21LintDuplicateFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau21LintDuplicateFunctionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau21LintDuplicateFunctionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -13976,7 +13976,7 @@ _ZN4Luau12DenseHashMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8L
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau21LintDuplicateFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau21LintDuplicateFunctionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau21LintDuplicateFunctionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -17675,7 +17675,7 @@ _ZNSt6vectorIPN4Luau7AstExprESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vec
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau18LintDuplicateLocalD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau18LintDuplicateLocalE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau18LintDuplicateLocalE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -17692,7 +17692,7 @@ _ZN4Luau12DenseHashMapIPNS_8AstLocalEPNS_7AstNodeENS_16DenseHashPointerESt8equal
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau18LintDuplicateLocalD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau18LintDuplicateLocalE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau18LintDuplicateLocalE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null

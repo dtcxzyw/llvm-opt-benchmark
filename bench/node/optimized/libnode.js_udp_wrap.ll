@@ -161,13 +161,13 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node9JSUDPWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 16)) %this, ptr noundef %env, ptr %obj.coerce) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node11UDPWrapBaseE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node11UDPWrapBaseE, i64 16), ptr %this, align 8
   %listener_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %listener_.i, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %env, ptr %obj.coerce, i32 noundef 20, double noundef -1.000000e+00) #13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9JSUDPWrapE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9JSUDPWrapE, i64 120), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9JSUDPWrapE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9JSUDPWrapE, i64 120), ptr %0, align 8
   tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
   tail call void @_ZN2v86Object32SetAlignedPointerInInternalFieldEiPv(ptr noundef nonnull align 1 dereferenceable(1) %obj.coerce, i32 noundef 2, ptr noundef nonnull %this) #13
   ret void
@@ -769,7 +769,7 @@ declare { i8, i64 } @_ZNK2v85Value12IntegerValueENS_5LocalINS_7ContextEEE(ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node9JSUDPWrap11GetPeerNameEv(ptr noalias sret(%"class.node::SocketAddress") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13SocketAddressE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13SocketAddressE, i64 16), ptr %agg.result, align 8
   %call = tail call noundef zeroext i1 @_ZN4node13SocketAddress3NewEiPKcjPS0_(i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 1337, ptr noundef nonnull %agg.result) #13
   br i1 %call, label %nrvo.skipdtor, label %do.body4
 
@@ -798,7 +798,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node9JSUDPWrap11GetSockNameEv(ptr noalias sret(%"class.node::SocketAddress") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13SocketAddressE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13SocketAddressE, i64 16), ptr %agg.result, align 8
   %call = tail call noundef zeroext i1 @_ZN4node13SocketAddress3NewEiPKcjPS0_(i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 1337, ptr noundef nonnull %agg.result) #13
   br i1 %call, label %nrvo.skipdtor, label %do.body4
 
@@ -880,13 +880,13 @@ do.body4:                                         ; preds = %if.end5.i
 
 do.end5:                                          ; preds = %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit, %if.end.i, %if.end5.i
   %call6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #15
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node11UDPWrapBaseE, i64 16), ptr %call6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node11UDPWrapBaseE, i64 16), ptr %call6, align 8
   %listener_.i.i = getelementptr inbounds nuw i8, ptr %call6, i64 8
   store ptr null, ptr %listener_.i.i, align 8
   %20 = getelementptr inbounds nuw i8, ptr %call6, i64 16
   tail call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef %retval.0.i.i, ptr nonnull %12, i32 noundef 20, double noundef -1.000000e+00) #13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9JSUDPWrapE, i64 16), ptr %call6, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9JSUDPWrapE, i64 120), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9JSUDPWrapE, i64 16), ptr %call6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9JSUDPWrapE, i64 120), ptr %20, align 8
   tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #13
   tail call void @_ZN2v86Object32SetAlignedPointerInInternalFieldEiPv(ptr noundef nonnull align 1 dereferenceable(1) %12, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(72) %call6) #13
   ret void

@@ -1431,8 +1431,8 @@ define dso_local void @_ZN4node4quic11BindingDataC2EPNS_5RealmEN2v85LocalINS4_6O
 entry:
   tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %realm, ptr %object.coerce) #19
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic11BindingDataE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic11BindingDataE, i64 168), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic11BindingDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic11BindingDataE, i64 168), ptr %0, align 8
   %packet_freelist = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %packet_freelist, i8 0, i64 24, i1 false)
   %listening_endpoints = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -4216,7 +4216,7 @@ if.then.i1204:                                    ; preds = %_ZN4node13MemoryTra
   %557 = load ptr, ptr %env_.i.i.i1206, align 8
   %isolate_.i.i1207 = getelementptr inbounds nuw i8, ptr %557, i64 88
   %558 = load ptr, ptr %isolate_.i.i1207, align 8
-  %call.i.i1208 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %558, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.101, i64 1), i32 noundef 0, i32 noundef -1) #19
+  %call.i.i1208 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %558, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.101, i64 1), i32 noundef 0, i32 noundef -1) #19
   %cmp.i.i.i.i1209 = icmp eq ptr %call.i.i1208, null
   br i1 %cmp.i.i.i.i1209, label %if.then.i.i.i1212, label %_ZNK4node4quic11BindingData17http3_alpn_stringEv.exit
 
@@ -9169,7 +9169,7 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %env_.i.i, align 8
   %isolate_.i = getelementptr inbounds nuw i8, ptr %2, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
-  %call.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.101, i64 1), i32 noundef 0, i32 noundef -1) #19
+  %call.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.101, i64 1), i32 noundef 0, i32 noundef -1) #19
   %cmp.i.i.i = icmp eq ptr %call.i, null
   br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit
 
@@ -13462,8 +13462,8 @@ entry:
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %args1, align 8
   tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(992) %call, ptr noundef %0, ptr %agg.tmp.sroa.0.0.copyload) #19
   %1 = getelementptr inbounds nuw i8, ptr %call, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic11BindingDataE, i64 16), ptr %call, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic11BindingDataE, i64 168), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic11BindingDataE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic11BindingDataE, i64 168), ptr %1, align 8
   %packet_freelist.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %packet_freelist.i, i8 0, i64 24, i1 false)
   %listening_endpoints.i = getelementptr inbounds nuw i8, ptr %call, i64 64

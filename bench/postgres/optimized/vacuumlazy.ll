@@ -1081,7 +1081,7 @@ default.unreachable:                              ; preds = %503
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16)
   store i32 %487, ptr %11, align 4
   %488 = load ptr, ptr %55, align 8
-  %489 = load i64, ptr getelementptr inbounds (i8, ptr @pgWalUsage, i64 8), align 8
+  %489 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 8), align 8
   %.val.i117.i = load i16, ptr %349, align 4
   %490 = icmp ult i16 %.val.i117.i, 25
   %491 = zext i16 %.val.i117.i to i32
@@ -1264,7 +1264,7 @@ default.unreachable:                              ; preds = %503
 
 566:                                              ; preds = %564
   %567 = trunc nuw i8 %.1145.i.i to i1
-  %568 = load i64, ptr getelementptr inbounds (i8, ptr @pgWalUsage, i64 8), align 8
+  %568 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 8), align 8
   %.not160.i.i = icmp ne i64 %489, %568
   %or.cond167.not.i.i = select i1 %567, i1 %.not160.i.i, i1 false
   br i1 %or.cond167.not.i.i, label %.thread242.i, label %587

@@ -123,7 +123,7 @@ ompi_datatype_copy_content_same_ddt.exit72:       ; preds = %.lr.ph.i63
   br label %ompi_datatype_copy_content_same_ddt.exit
 
 ompi_datatype_copy_content_same_ddt.exit72.thread: ; preds = %54, %49, %46
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 72), align 8
   %60 = add nsw i32 %.val, -1
   %61 = tail call i32 %59(ptr noundef nonnull %48, i64 noundef %25, ptr noundef %3, i32 noundef %60, i32 noundef -24, ptr noundef %5, ptr noundef null) #5
   %.not55 = icmp eq i32 %61, 0
@@ -144,7 +144,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %19, %13, %63, %12
   br i1 %65, label %66, label %ompi_datatype_copy_content_same_ddt.exit
 
 66:                                               ; preds = %ompi_datatype_copy_content_same_ddt.exit.thread
-  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 96), align 8
   %68 = sext i32 %2 to i64
   %69 = add nsw i32 %.val, 1
   %70 = tail call i32 %67(ptr noundef %1, i64 noundef %68, ptr noundef %3, i32 noundef %69, i32 noundef -24, i32 noundef 4, ptr noundef %5) #5

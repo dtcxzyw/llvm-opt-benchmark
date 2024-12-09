@@ -559,7 +559,7 @@ define void @_ZN14ockam_executor8executor8Executor9poll_task17h11f618e72fe568e9E
   br i1 %65, label %66, label %.critedge68
 
 66:                                               ; preds = %63
-  %67 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN14ockam_executor8executor8Executor9poll_task10__CALLSITE17hc854c1867c53ebfbE, i64 16) monotonic, align 8
+  %67 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN14ockam_executor8executor8Executor9poll_task10__CALLSITE17hc854c1867c53ebfbE, i64 16) monotonic, align 8
   switch i8 %67, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit [
     i8 0, label %.critedge68
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread

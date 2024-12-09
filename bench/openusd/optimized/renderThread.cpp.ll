@@ -449,7 +449,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread11StartThreadE
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 0, ptr %4, align 8
   %13 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN32pxrInternal_v0_24__pxrReserved__14HdRenderThreadEFvvEPS4_EEEEEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN32pxrInternal_v0_24__pxrReserved__14HdRenderThreadEFvvEPS4_EEEEEE, i64 16), ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16

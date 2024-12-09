@@ -526,7 +526,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %66, %69
   store i32 0, ptr %10, align 4
   %148 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %147, ptr %148, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVZN2cv3Mat12forEach_implIhZNS_6xphoto11oilPaintingERKNS_11_InputArrayERKNS_12_OutputArrayEiiiE3$_0EEvRKT0_E21PixelOperationWrapper", i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVZN2cv3Mat12forEach_implIhZNS_6xphoto11oilPaintingERKNS_11_InputArrayERKNS_12_OutputArrayEiiiE3$_0EEvRKT0_E21PixelOperationWrapper", i64 16), ptr %11, align 8
   %149 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %17, ptr %149, align 8
   %150 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -557,7 +557,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %66, %69
   br i1 %156, label %158, label %168
 
 158:                                              ; preds = %155
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6xphoto19ParallelOilPaintingIhEE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6xphoto19ParallelOilPaintingIhEE, i64 16), ptr %23, align 8
   %159 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %16, ptr %159, align 8
   %160 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -582,7 +582,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %66, %69
   br label %.body
 
 168:                                              ; preds = %155
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6xphoto19ParallelOilPaintingINS_3VecIhLi3EEEEE, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6xphoto19ParallelOilPaintingINS_3VecIhLi3EEEEE, i64 16), ptr %25, align 8
   %169 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %16, ptr %169, align 8
   %170 = getelementptr inbounds nuw i8, ptr %25, i64 16

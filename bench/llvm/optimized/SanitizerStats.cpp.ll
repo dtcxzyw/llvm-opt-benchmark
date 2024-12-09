@@ -569,8 +569,8 @@ define dso_local void @_ZN4llvm19SanitizerStatReport6finishEv(ptr nocapture noun
   %99 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %100 = getelementptr inbounds nuw i8, ptr %7, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %99, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTVN4llvm14ConstantFolderE, i64 16), ptr %88, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm24IRBuilderDefaultInserterE, i64 16), ptr %89, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTVN4llvm14ConstantFolderE, i64 16), ptr %88, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm24IRBuilderDefaultInserterE, i64 16), ptr %89, align 8
   store ptr %86, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %86, i64 48
   %102 = getelementptr inbounds nuw i8, ptr %7, i64 56

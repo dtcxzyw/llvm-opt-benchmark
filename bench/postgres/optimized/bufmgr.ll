@@ -550,9 +550,9 @@ BufferTagsEqual.exit:                             ; preds = %51
 
 58:                                               ; preds = %BufferTagsEqual.exit
   %59 = call zeroext i1 @PinLocalBuffer(ptr noundef nonnull %36, i1 noundef zeroext true) #14
-  %60 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 32), align 8
+  %60 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 32), align 8
   %61 = add i64 %60, 1
-  store i64 %61, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 32), align 8
+  store i64 %61, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 32), align 8
   br label %BufferTagsEqual.exit.thread
 
 62:                                               ; preds = %ReservePrivateRefCountEntry.exit
@@ -1116,9 +1116,9 @@ ExtendBufferedRel.exit:                           ; preds = %7
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %24
-  %29 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 32), align 8
+  %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 32), align 8
   %30 = add i64 %29, 1
-  store i64 %30, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 32), align 8
+  store i64 %30, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 32), align 8
   br label %129
 
 31:                                               ; preds = %24
@@ -1129,9 +1129,9 @@ ExtendBufferedRel.exit:                           ; preds = %7
   ]
 
 32:                                               ; preds = %31, %31, %31
-  %33 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 40), align 8
+  %33 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 40), align 8
   %34 = add i64 %33, 1
-  store i64 %34, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 40), align 8
+  store i64 %34, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 40), align 8
   br label %129
 
 35:                                               ; preds = %23
@@ -1329,9 +1329,9 @@ BufferAlloc.exit:                                 ; preds = %77, %82, %95, %103,
   ]
 
 126:                                              ; preds = %125, %125, %125
-  %127 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 8), align 8
+  %127 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 8), align 8
   %128 = add i64 %127, 1
-  store i64 %128, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 8), align 8
+  store i64 %128, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 8), align 8
   br label %129
 
 129:                                              ; preds = %125, %31, %122, %126, %28, %32
@@ -2270,9 +2270,9 @@ TerminateBufferIO.exit.i:                         ; preds = %.lr.ph.i.i143.i, %.
   br i1 %exitcond222.not.i, label %._crit_edge195.i, label %253, !llvm.loop !15
 
 ._crit_edge195.i:                                 ; preds = %TerminateBufferIO.exit.i, %243
-  %279 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 24), align 8
+  %279 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 24), align 8
   %280 = add i64 %279, %75
-  store i64 %280, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 24), align 8
+  store i64 %280, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 24), align 8
   br label %ExtendBufferedRelShared.exit
 
 ExtendBufferedRelShared.exit:                     ; preds = %72, %73, %._crit_edge195.i
@@ -2673,9 +2673,9 @@ WaitBufHdrUnlocked.exit:                          ; preds = %.lr.ph.i, %22
   %33 = load i64, ptr @VacuumPageDirty, align 8
   %34 = add i64 %33, 1
   store i64 %34, ptr @VacuumPageDirty, align 8
-  %35 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 16), align 8
+  %35 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 16), align 8
   %36 = add i64 %35, 1
-  store i64 %36, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 16), align 8
+  store i64 %36, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 16), align 8
   %37 = load i8, ptr @VacuumCostActive, align 1
   %38 = trunc i8 %37 to i1
   br i1 %38, label %39, label %43
@@ -2812,9 +2812,9 @@ define dso_local zeroext i1 @BgBufferSync(ptr noundef %0) local_unnamed_addr #0 
   %4 = call i32 @StrategySyncStart(ptr noundef nonnull %2, ptr noundef nonnull %3) #14
   %5 = load i32, ptr %3, align 4
   %6 = zext i32 %5 to i64
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @PendingBgWriterStats, i64 16), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PendingBgWriterStats, i64 16), align 8
   %8 = add i64 %7, %6
-  store i64 %8, ptr getelementptr inbounds (i8, ptr @PendingBgWriterStats, i64 16), align 8
+  store i64 %8, ptr getelementptr inbounds nuw (i8, ptr @PendingBgWriterStats, i64 16), align 8
   %9 = load i32, ptr @bgwriter_lru_maxpages, align 4
   %10 = icmp slt i32 %9, 1
   br i1 %10, label %11, label %12
@@ -2972,9 +2972,9 @@ define dso_local zeroext i1 @BgBufferSync(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not75, label %100, label %96
 
 96:                                               ; preds = %92
-  %97 = load i64, ptr getelementptr inbounds (i8, ptr @PendingBgWriterStats, i64 8), align 8
+  %97 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PendingBgWriterStats, i64 8), align 8
   %98 = add i64 %97, 1
-  store i64 %98, ptr getelementptr inbounds (i8, ptr @PendingBgWriterStats, i64 8), align 8
+  store i64 %98, ptr getelementptr inbounds nuw (i8, ptr @PendingBgWriterStats, i64 8), align 8
   br label %.loopexit
 
 99:                                               ; preds = %88
@@ -3648,9 +3648,9 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %12
   br i1 %.not100.i, label %118, label %114
 
 114:                                              ; preds = %111
-  %115 = load i64, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 56), align 8
+  %115 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 56), align 8
   %116 = add i64 %115, 1
-  store i64 %116, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 56), align 8
+  store i64 %116, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 56), align 8
   %117 = add i32 %.089121.i, 1
   br label %118
 
@@ -3695,9 +3695,9 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %12
   call void @IssuePendingWritebacks(ptr noundef nonnull %3, i32 noundef 2)
   call void @pfree(ptr noundef %.091.lcssa139.i) #14
   call void @binaryheap_free(ptr noundef nonnull %93) #14
-  %139 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 40), align 8
+  %139 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CheckpointStats, i64 40), align 8
   %140 = add i32 %139, %.089.lcssa.i
-  store i32 %140, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 40), align 8
+  store i32 %140, ptr getelementptr inbounds nuw (i8, ptr @CheckpointStats, i64 40), align 8
   br label %BufferSync.exit
 
 BufferSync.exit:                                  ; preds = %1, %._crit_edge.i, %._crit_edge125.i
@@ -5026,9 +5026,9 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %41
   call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 2, i32 noundef 6, i64 %67, i32 noundef 1) #14
   %70 = and i32 %51, -276824065
   store volatile i32 %70, ptr %50, align 4
-  %71 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 56), align 8
+  %71 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 56), align 8
   %72 = add i64 %71, 1
-  store i64 %72, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 56), align 8
+  store i64 %72, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 56), align 8
   %73 = load ptr, ptr %5, align 8
   store ptr %73, ptr @error_context_stack, align 8
   %.pre = load ptr, ptr @LocalBufferDescriptors, align 8
@@ -5334,9 +5334,9 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %18
   call void @smgrwritev(ptr noundef %.0, i32 noundef %.val, i32 noundef %51, ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @pgstat_count_io_op_time(i32 noundef 0, i32 noundef %2, i32 noundef 6, i64 %49, i32 noundef 1) #14
-  %52 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 24), align 8
+  %52 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 24), align 8
   %53 = add i64 %52, 1
-  store i64 %53, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 24), align 8
+  store i64 %53, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 24), align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   store i32 0, ptr %4, align 8
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -6355,9 +6355,9 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %41
   %68 = load i64, ptr @VacuumPageDirty, align 8
   %69 = add i64 %68, 1
   store i64 %69, ptr @VacuumPageDirty, align 8
-  %70 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 16), align 8
+  %70 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 16), align 8
   %71 = add i64 %70, 1
-  store i64 %71, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 16), align 8
+  store i64 %71, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 16), align 8
   %72 = load i8, ptr @VacuumCostActive, align 1
   %73 = trunc i8 %72 to i1
   br i1 %73, label %74, label %78
@@ -8342,7 +8342,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i24, %45
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %63 = icmp uge ptr %.0.i, @PrivateRefCountArray
-  %64 = icmp ult ptr %.0.i, getelementptr inbounds (i8, ptr @PrivateRefCountArray, i64 64)
+  %64 = icmp ult ptr %.0.i, getelementptr inbounds nuw (i8, ptr @PrivateRefCountArray, i64 64)
   %or.cond.i = select i1 %63, i1 %64, i1 false
   br i1 %or.cond.i, label %65, label %66
 

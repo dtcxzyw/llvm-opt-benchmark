@@ -50,7 +50,7 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_121TwoLevelIndexIteratorE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_121TwoLevelIndexIteratorE, i64 16), ptr %call, align 8
   %state_.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr %state, ptr %state_.i, align 8
   %first_level_iter_.i = getelementptr inbounds nuw i8, ptr %call, i64 48
@@ -153,7 +153,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_121TwoLevelIndexIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_121TwoLevelIndexIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_121TwoLevelIndexIteratorE, i64 16), ptr %this, align 8
   %first_level_iter_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %first_level_iter_, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -212,7 +212,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %delete.end, %_ZNKSt
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_121TwoLevelIndexIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_121TwoLevelIndexIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_121TwoLevelIndexIteratorE, i64 16), ptr %this, align 8
   %first_level_iter_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %first_level_iter_.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null

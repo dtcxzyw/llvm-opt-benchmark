@@ -812,9 +812,9 @@ _ZN2cv3MataSERKNS_7MatExprE.exit144:              ; preds = %243
   store i32 1, ptr %267, align 8, !noalias !37
   %268 = getelementptr inbounds nuw i8, ptr %265, i64 12
   store i32 1, ptr %268, align 4, !noalias !37
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv19EMEstimatorCallbackESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %265, align 8, !noalias !37
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv19EMEstimatorCallbackESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %265, align 8, !noalias !37
   %269 = getelementptr inbounds nuw i8, ptr %265, i64 16
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN2cv19EMEstimatorCallbackE, i64 16), ptr %269, align 8, !noalias !37
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN2cv19EMEstimatorCallbackE, i64 16), ptr %269, align 8, !noalias !37
   %270 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store ptr %269, ptr %65, align 8
   %271 = getelementptr inbounds nuw i8, ptr %65, i64 8
@@ -1245,9 +1245,9 @@ _ZN2cv3PtrINS_19PointSetRegistrator8CallbackEED2Ev.exit: ; preds = %_ZN2cv3PtrIN
   store i32 1, ptr %444, align 8, !noalias !42
   %445 = getelementptr inbounds nuw i8, ptr %442, i64 12
   store i32 1, ptr %445, align 4, !noalias !42
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv19EMEstimatorCallbackESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %442, align 8, !noalias !42
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv19EMEstimatorCallbackESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %442, align 8, !noalias !42
   %446 = getelementptr inbounds nuw i8, ptr %442, i64 16
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN2cv19EMEstimatorCallbackE, i64 16), ptr %446, align 8, !noalias !42
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN2cv19EMEstimatorCallbackE, i64 16), ptr %446, align 8, !noalias !42
   %447 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store ptr %446, ptr %71, align 8
   %448 = getelementptr inbounds nuw i8, ptr %71, i64 8

@@ -3537,7 +3537,7 @@ _ZN4NodenwEm.exit:                                ; preds = %49, %51
   %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %55, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV11ConvertNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV11ConvertNode, i64 16), ptr %.0.i.i.i, align 8
   store i32 8196, ptr %57, align 4
   %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %59 = load ptr, ptr %58, align 8
@@ -3577,7 +3577,7 @@ _ZN4NodenwEm.exit:                                ; preds = %49, %51
   br label %_ZN11ConvI2LNodeC2EP4NodePK8TypeLong.exit
 
 _ZN11ConvI2LNodeC2EP4NodePK8TypeLong.exit:        ; preds = %54, %61, %72
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV11ConvI2LNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV11ConvI2LNode, i64 16), ptr %.0.i.i.i, align 8
   br label %78
 
 78:                                               ; preds = %_ZN11ConvI2LNodeC2EP4NodePK8TypeLong.exit, %_ZN4NodenwEm.exit
@@ -3648,7 +3648,7 @@ _ZN4NodenwEm.exit24:                              ; preds = %111, %113
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i.i23, i64 56
   store ptr %117, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %.0.i.i.i23, i64 44
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV11ConvertNode, i64 16), ptr %.0.i.i.i23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV11ConvertNode, i64 16), ptr %.0.i.i.i23, align 8
   store i32 8196, ptr %119, align 4
   %120 = getelementptr inbounds nuw i8, ptr %.0.i.i.i23, i64 8
   %121 = load ptr, ptr %120, align 8
@@ -3684,7 +3684,7 @@ _ZN4NodenwEm.exit24:                              ; preds = %111, %113
   br label %_ZN11ConvI2LNodeC2EP4NodePK8TypeLong.exit28
 
 _ZN11ConvI2LNodeC2EP4NodePK8TypeLong.exit28:      ; preds = %116, %133
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV11ConvI2LNode, i64 16), ptr %.0.i.i.i23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV11ConvI2LNode, i64 16), ptr %.0.i.i.i23, align 8
   br label %139
 
 139:                                              ; preds = %_ZN11ConvI2LNodeC2EP4NodePK8TypeLong.exit28, %_ZN4NodenwEm.exit24
@@ -4096,7 +4096,7 @@ define hidden noundef ptr @_ZNK15AlignmentSolver5solveEv(ptr nocapture noundef n
 
 _Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread: ; preds = %1
   %8 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #13
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV22EmptyAlignmentSolution, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV22EmptyAlignmentSolution, i64 16), ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @.str.12, ptr %9, align 8
   br label %108
@@ -4115,7 +4115,7 @@ _Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
 
 17:                                               ; preds = %_Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit27, %10
   %18 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #13
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV22EmptyAlignmentSolution, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV22EmptyAlignmentSolution, i64 16), ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr @.str.13, ptr %19, align 8
   br label %108
@@ -4171,7 +4171,7 @@ _ZNK4Node7get_intEv.exit:                         ; preds = %27
 
 52:                                               ; preds = %33
   %53 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #13
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV22EmptyAlignmentSolution, i64 16), ptr %53, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV22EmptyAlignmentSolution, i64 16), ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr @.str.14, ptr %54, align 8
   br label %108
@@ -4215,7 +4215,7 @@ _ZNK4Node7get_intEv.exit:                         ; preds = %27
 
 86:                                               ; preds = %55
   %87 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i32 noundef 0) #13
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV24TrivialAlignmentSolution, i64 16), ptr %87, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV24TrivialAlignmentSolution, i64 16), ptr %87, align 8
   br label %108
 
 88:                                               ; preds = %55
@@ -4225,7 +4225,7 @@ _ZNK4Node7get_intEv.exit:                         ; preds = %27
 
 89:                                               ; preds = %88
   %90 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #13
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV22EmptyAlignmentSolution, i64 16), ptr %90, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV22EmptyAlignmentSolution, i64 16), ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store ptr @.str.15, ptr %91, align 8
   br label %108
@@ -4241,7 +4241,7 @@ _ZNK4Node7get_intEv.exit:                         ; preds = %27
   %100 = load ptr, ptr %0, align 8
   %101 = load ptr, ptr %41, align 8
   %102 = load i32, ptr %11, align 4
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV28ConstrainedAlignmentSolution, i64 16), ptr %99, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV28ConstrainedAlignmentSolution, i64 16), ptr %99, align 8
   %103 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store ptr %100, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %99, i64 16
@@ -4432,7 +4432,7 @@ define linkonce_odr hidden noundef ptr @_ZNK17AlignmentSolution14as_constrainedE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK22EmptyAlignmentSolution6filterEPK17AlignmentSolution(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #13
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV22EmptyAlignmentSolution, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV22EmptyAlignmentSolution, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.22, ptr %4, align 8
   ret ptr %3
@@ -4473,7 +4473,7 @@ define linkonce_odr hidden noundef ptr @_ZNK24TrivialAlignmentSolution6filterEPK
 
 6:                                                ; preds = %2
   %7 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #13
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV22EmptyAlignmentSolution, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV22EmptyAlignmentSolution, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @.str.22, ptr %8, align 8
   br label %9
@@ -4572,7 +4572,7 @@ define linkonce_odr hidden noundef ptr @_ZNK28ConstrainedAlignmentSolution6filte
 .sink.split:                                      ; preds = %26, %21, %11, %2
   %.str.27.sink = phi ptr [ @.str.22, %2 ], [ @.str.25, %11 ], [ @.str.26, %21 ], [ @.str.27, %26 ]
   %42 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #13
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV22EmptyAlignmentSolution, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV22EmptyAlignmentSolution, i64 16), ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %.str.27.sink, ptr %43, align 8
   br label %44

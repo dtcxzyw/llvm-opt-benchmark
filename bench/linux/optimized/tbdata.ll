@@ -440,7 +440,7 @@ default.unreachable26:                            ; preds = %60
 
 50:                                               ; preds = %36
   %51 = icmp eq ptr %2, null
-  %52 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
+  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %53 = icmp eq i32 %52, 0
   %or.cond = select i1 %51, i1 true, i1 %53
   br i1 %or.cond, label %.thread19, label %.preheader
@@ -522,7 +522,7 @@ default.unreachable26:                            ; preds = %60
 
 .thread17:                                        ; preds = %73, %60, %93, %.preheader
   %100 = add nuw nsw i64 %54, 1
-  %101 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
+  %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %102 = zext i32 %101 to i64
   %103 = icmp samesign ult i64 %100, %102
   br i1 %103, label %.preheader, label %.thread19, !llvm.loop !5
@@ -602,7 +602,7 @@ declare dso_local zeroext i8 @acpi_ut_valid_nameseg(ptr noundef) local_unnamed_a
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 16) i32 @acpi_tb_resize_root_table_list() local_unnamed_addr #2 align 16 {
   %1 = alloca i64, align 8
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 16), align 8
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 16), align 8
   %3 = zext i8 %2 to i32
   %4 = and i32 %3, 2
   %5 = icmp eq i32 %4, 0
@@ -615,8 +615,8 @@ define dso_local noundef range(i32 0, 16) i32 @acpi_tb_resize_root_table_list() 
 7:                                                ; preds = %0
   %8 = and i32 %3, 1
   %9 = icmp eq i32 %8, 0
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 12), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 12), align 4
   %12 = select i1 %9, i32 %10, i32 %11
   %13 = add i32 %12, 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #8
@@ -673,7 +673,7 @@ define dso_local noundef range(i32 0, 16) i32 @acpi_tb_resize_root_table_list() 
 
 .loopexit:                                        ; preds = %40, %26
   %44 = phi i32 [ 0, %26 ], [ %41, %40 ]
-  %45 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 16), align 8
+  %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 16), align 8
   %46 = and i8 %45, 1
   %47 = icmp eq i8 %46, 0
   br i1 %47, label %49, label %48
@@ -685,11 +685,11 @@ define dso_local noundef range(i32 0, 16) i32 @acpi_tb_resize_root_table_list() 
 49:                                               ; preds = %48, %.loopexit, %23
   %50 = phi i32 [ %44, %48 ], [ %44, %.loopexit ], [ 0, %23 ]
   store ptr %20, ptr @acpi_gbl_root_table_list, align 8
-  store i32 %13, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 12), align 4
-  store i32 %50, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
-  %51 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 16), align 8
+  store i32 %13, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 12), align 4
+  store i32 %50, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
+  %51 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 16), align 8
   %52 = or i8 %51, 1
-  store i8 %52, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 16), align 8
+  store i8 %52, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 16), align 8
   br label %53
 
 53:                                               ; preds = %49, %22, %6
@@ -705,8 +705,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 16) i32 @acpi_tb_get_next_table_descriptor(ptr noundef writeonly %0, ptr noundef writeonly %1) local_unnamed_addr #2 align 16 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 12), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 12), align 4
   %5 = icmp ult i32 %3, %4
   br i1 %5, label %9, label %6
 
@@ -716,13 +716,13 @@ define dso_local noundef range(i32 0, 16) i32 @acpi_tb_get_next_table_descriptor
   br i1 %8, label %._crit_edge, label %20
 
 ._crit_edge:                                      ; preds = %6
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   br label %9
 
 9:                                                ; preds = %._crit_edge, %2
   %10 = phi i32 [ %.pre, %._crit_edge ], [ %3, %2 ]
   %11 = add i32 %10, 1
-  store i32 %11, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
+  store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %12 = icmp eq ptr %0, null
   br i1 %12, label %14, label %13
 
@@ -749,7 +749,7 @@ define dso_local noundef range(i32 0, 16) i32 @acpi_tb_get_next_table_descriptor
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @acpi_tb_terminate() local_unnamed_addr #2 align 16 {
   %1 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #8
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -759,13 +759,13 @@ define dso_local void @acpi_tb_terminate() local_unnamed_addr #2 align 16 {
   %6 = getelementptr %struct.acpi_table_desc, ptr %5, i64 %4
   tail call void @acpi_tb_uninstall_table(ptr noundef %6) #8
   %7 = add nuw nsw i64 %4, 1
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %9 = zext i32 %8 to i64
   %10 = icmp samesign ult i64 %7, %9
   br i1 %10, label %.preheader, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %0
-  %11 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 16), align 8
+  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 16), align 8
   %12 = and i8 %11, 1
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %16, label %14
@@ -777,8 +777,8 @@ define dso_local void @acpi_tb_terminate() local_unnamed_addr #2 align 16 {
 
 16:                                               ; preds = %14, %.loopexit
   store ptr null, ptr @acpi_gbl_root_table_list, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 16), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %17 = tail call i32 @acpi_ut_release_mutex(i32 noundef 2) #8
   ret void
 }
@@ -799,7 +799,7 @@ define dso_local i32 @acpi_tb_delete_namespace_by_owner(i32 noundef %0) local_un
   br i1 %3, label %4, label %18
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %6 = icmp ugt i32 %5, %0
   br i1 %6, label %9, label %7
 
@@ -839,7 +839,7 @@ declare dso_local void @acpi_ut_release_write_lock(ptr noundef) local_unnamed_ad
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_tb_allocate_owner_id(i32 noundef %0) local_unnamed_addr #2 align 16 {
   %2 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #8
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %4 = icmp ugt i32 %3, %0
   br i1 %4, label %5, label %10
 
@@ -862,7 +862,7 @@ declare dso_local i32 @acpi_ut_allocate_owner_id(ptr noundef) local_unnamed_addr
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 4098) i32 @acpi_tb_release_owner_id(i32 noundef %0) local_unnamed_addr #2 align 16 {
   %2 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #8
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %4 = icmp ugt i32 %3, %0
   br i1 %4, label %5, label %9
 
@@ -885,7 +885,7 @@ declare dso_local void @acpi_ut_release_owner_id(ptr noundef) local_unnamed_addr
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 4098) i32 @acpi_tb_get_owner_id(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 align 16 {
   %3 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %5 = icmp ugt i32 %4, %0
   br i1 %5, label %6, label %11
 
@@ -906,7 +906,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_tb_get_owner_id(i32 nounde
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext range(i8 0, 9) i8 @acpi_tb_is_table_loaded(i32 noundef %0) local_unnamed_addr #2 align 16 {
   %2 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #8
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %4 = icmp ugt i32 %3, %0
   br i1 %4, label %5, label %11
 
@@ -927,7 +927,7 @@ define dso_local zeroext range(i8 0, 9) i8 @acpi_tb_is_table_loaded(i32 noundef 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @acpi_tb_set_table_loaded_flag(i32 noundef %0, i8 noundef zeroext %1) local_unnamed_addr #2 align 16 {
   %3 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %5 = icmp ugt i32 %4, %0
   br i1 %5, label %6, label %15
 
@@ -964,7 +964,7 @@ define dso_local i32 @acpi_tb_load_table(i32 noundef %0, ptr noundef %1) local_u
 
 9:                                                ; preds = %6
   %10 = call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #8
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %12 = icmp ugt i32 %11, %0
   br i1 %12, label %15, label %13
 
@@ -1055,7 +1055,7 @@ define dso_local i32 @acpi_tb_unload_table(i32 noundef %0) #2 align 16 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
   store ptr null, ptr %2, align 8, !annotation !8
   %3 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %5 = icmp ugt i32 %4, %0
   br i1 %5, label %6, label %acpi_tb_delete_namespace_by_owner.exit.thread.sink.split
 
@@ -1091,7 +1091,7 @@ define dso_local i32 @acpi_tb_unload_table(i32 noundef %0) #2 align 16 {
   br i1 %26, label %27, label %acpi_tb_delete_namespace_by_owner.exit.thread
 
 27:                                               ; preds = %24
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %29 = icmp ugt i32 %28, %0
   br i1 %29, label %30, label %acpi_tb_delete_namespace_by_owner.exit.thread.sink.split
 
@@ -1108,7 +1108,7 @@ define dso_local i32 @acpi_tb_unload_table(i32 noundef %0) #2 align 16 {
   call void @acpi_ns_delete_namespace_by_owner(i16 noundef zeroext %33) #8
   call void @acpi_ut_release_write_lock(ptr noundef nonnull @acpi_gbl_namespace_rw_lock) #8
   %38 = call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #8
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %40 = icmp ugt i32 %39, %0
   br i1 %40, label %41, label %44
 
@@ -1121,7 +1121,7 @@ define dso_local i32 @acpi_tb_unload_table(i32 noundef %0) #2 align 16 {
 44:                                               ; preds = %41, %37
   %45 = call i32 @acpi_ut_release_mutex(i32 noundef 2) #8
   %46 = call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #8
-  %47 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %48 = icmp ugt i32 %47, %0
   br i1 %48, label %49, label %acpi_tb_delete_namespace_by_owner.exit.thread.sink.split
 

@@ -283,7 +283,7 @@ define dso_local void @gro_cells_destroy(ptr nocapture noundef %0) #0 align 16 {
   br i1 %42, label %.thread, label %.preheader, !prof !9, !llvm.loop !15
 
 .thread:                                          ; preds = %.preheader, %.loopexit, %9
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %44 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %43, i32 noundef 11456, i64 noundef 24) #8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %49, label %46, !prof !5

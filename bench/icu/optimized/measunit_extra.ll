@@ -1178,7 +1178,7 @@ if.end12:                                         ; preds = %invoke.cont9
 
 invoke.cont15:                                    ; preds = %if.end12
   %4 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_111gCategoriesE, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_114CategoriesSinkE, i64 16), ptr %categoriesSink, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_114CategoriesSinkE, i64 16), ptr %categoriesSink, align 8
   %outQuantitiesArray.i = getelementptr inbounds nuw i8, ptr %categoriesSink, i64 8
   store ptr %4, ptr %outQuantitiesArray.i, align 8
   %outSize2.i = getelementptr inbounds nuw i8, ptr %categoriesSink, i64 16
@@ -1546,7 +1546,7 @@ if.then164:                                       ; preds = %invoke.cont161
 if.end165:                                        ; preds = %invoke.cont161
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call162, i8 0, i64 %conv160, i1 false)
   %80 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_112gSimpleUnitsE, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_125SimpleUnitIdentifiersSinkE, i64 16), ptr %identifierSink, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_125SimpleUnitIdentifiersSinkE, i64 16), ptr %identifierSink, align 8
   %outArray.i = getelementptr inbounds nuw i8, ptr %identifierSink, i64 8
   store ptr %80, ptr %outArray.i, align 8
   %outCategories2.i = getelementptr inbounds nuw i8, ptr %identifierSink, i64 16

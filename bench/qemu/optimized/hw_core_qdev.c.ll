@@ -363,11 +363,11 @@ define dso_local void @device_listener_register(ptr noundef initializes((24, 40)
 entry:
   %link = getelementptr inbounds nuw i8, ptr %listener, i64 24
   store ptr null, ptr %link, align 8
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @device_listeners, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @device_listeners, i64 8), align 8
   %tql_prev = getelementptr inbounds nuw i8, ptr %listener, i64 32
   store ptr %0, ptr %tql_prev, align 8
   store ptr %listener, ptr %0, align 8
-  store ptr %link, ptr getelementptr inbounds (i8, ptr @device_listeners, i64 8), align 8
+  store ptr %link, ptr getelementptr inbounds nuw (i8, ptr @device_listeners, i64 8), align 8
   %call = tail call ptr @sysbus_get_default() #14
   %call3 = tail call i32 @qbus_walk_children(ptr noundef %call, ptr noundef null, ptr noundef null, ptr noundef nonnull @device_listener_add, ptr noundef null, ptr noundef null) #14
   ret void
@@ -421,7 +421,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @device_listeners, i64 8), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @device_listeners, i64 8), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -1789,7 +1789,7 @@ if.then117:                                       ; preds = %if.end115
 if.end119:                                        ; preds = %if.then117, %if.end115
   %pending_deleted_event120 = getelementptr inbounds nuw i8, ptr %call.i, i64 57
   store i8 1, ptr %pending_deleted_event120, align 1
-  %.pn108 = load ptr, ptr getelementptr inbounds (i8, ptr @device_listeners, i64 8), align 8
+  %.pn108 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @device_listeners, i64 8), align 8
   %_listener122.0.in.in109 = getelementptr inbounds nuw i8, ptr %.pn108, i64 8
   %_listener122.0.in110 = load ptr, ptr %_listener122.0.in.in109, align 8
   %_listener122.0111 = load ptr, ptr %_listener122.0.in110, align 8

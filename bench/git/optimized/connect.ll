@@ -218,7 +218,7 @@ check_ref.exit:                                   ; preds = %do.cond.i.i, %entry
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i32 0, 2) i32 @server_supports_v2(ptr nocapture noundef readonly %c) local_unnamed_addr #1 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @server_capabilities_v2, i64 8), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server_capabilities_v2, i64 8), align 8
   %cmp7.not = icmp eq i64 %0, 0
   br i1 %cmp7.not, label %return, label %for.body.lr.ph
 
@@ -266,7 +266,7 @@ return:                                           ; preds = %land.lhs.true, %lan
 ; Function Attrs: nounwind uwtable
 define dso_local void @ensure_server_supports_v2(ptr noundef %c) local_unnamed_addr #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @server_capabilities_v2, i64 8), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server_capabilities_v2, i64 8), align 8
   %cmp7.not.i = icmp eq i64 %0, 0
   br i1 %cmp7.not.i, label %if.then, label %for.body.lr.ph.i
 
@@ -342,7 +342,7 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 0, 2) i32 @server_feature_v2(ptr nocapture noundef readonly %c, ptr nocapture noundef writeonly %v) local_unnamed_addr #3 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @server_capabilities_v2, i64 8), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server_capabilities_v2, i64 8), align 8
   %cmp7.not = icmp eq i64 %0, 0
   br i1 %cmp7.not, label %return, label %for.body.lr.ph
 
@@ -393,7 +393,7 @@ return:                                           ; preds = %for.inc, %entry, %i
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @server_supports_feature(ptr nocapture noundef readonly %c, ptr noundef %feature, i32 noundef %die_on_error) local_unnamed_addr #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @server_capabilities_v2, i64 8), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server_capabilities_v2, i64 8), align 8
   %cmp14.not = icmp eq i64 %0, 0
   br i1 %cmp14.not, label %for.end, label %for.body.lr.ph
 
@@ -801,7 +801,7 @@ if.end13.i:                                       ; preds = %if.then11.i, %if.th
   br label %process_capabilities.exit
 
 if.else.i:                                        ; preds = %if.end47.i.i.i, %while.body.i.i.i, %if.end.i.i.i, %if.end.i
-  store ptr getelementptr inbounds (i8, ptr @hash_algos, i64 104), ptr %hash_algo12.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @hash_algos, i64 104), ptr %hash_algo12.i, align 8
   br label %process_capabilities.exit
 
 process_capabilities.exit:                        ; preds = %sw.bb5, %if.end13.i, %if.else.i
@@ -1249,7 +1249,7 @@ if.end2:                                          ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @get_remote_bundle_uri(i32 noundef %fd_out, ptr noundef %reader, ptr noundef %bundles, i32 noundef %stateless_rpc) local_unnamed_addr #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @server_capabilities_v2, i64 8), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server_capabilities_v2, i64 8), align 8
   %cmp7.not.i.i = icmp eq i64 %0, 0
   br i1 %cmp7.not.i.i, label %if.then.i, label %for.body.lr.ph.i.i
 
@@ -1380,7 +1380,7 @@ return:                                           ; preds = %if.end.i, %_.exit19
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @send_capabilities(i32 noundef %fd_out, ptr nocapture noundef writeonly %reader) unnamed_addr #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @server_capabilities_v2, i64 8), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server_capabilities_v2, i64 8), align 8
   %cmp7.not.i = icmp eq i64 %0, 0
   br i1 %cmp7.not.i, label %if.else, label %for.body.lr.ph.i
 
@@ -1425,7 +1425,7 @@ for.inc.i:                                        ; preds = %do.cond.i.i, %land.
 if.end:                                           ; preds = %land.lhs.true.i, %land.lhs.true.i
   %call1 = tail call ptr @git_user_agent_sanitized() #23
   tail call void (i32, ptr, ...) @packet_write_fmt(i32 noundef %fd_out, ptr noundef nonnull @.str.60, ptr noundef %call1) #23
-  %.pr.pre = load i64, ptr getelementptr inbounds (i8, ptr @server_capabilities_v2, i64 8), align 8
+  %.pr.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @server_capabilities_v2, i64 8), align 8
   %cmp7.not.i5 = icmp eq i64 %.pr.pre, 0
   br i1 %cmp7.not.i5, label %if.else, label %for.body.lr.ph.i6
 
@@ -1488,7 +1488,7 @@ if.end8:                                          ; preds = %if.then4
 
 if.else:                                          ; preds = %for.inc.i18, %entry, %if.end
   %hash_algo11 = getelementptr inbounds nuw i8, ptr %reader, i64 72
-  store ptr getelementptr inbounds (i8, ptr @hash_algos, i64 104), ptr %hash_algo11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @hash_algos, i64 104), ptr %hash_algo11, align 8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else, %if.end8
@@ -1516,7 +1516,7 @@ entry:
   %unborn_head_target4 = getelementptr inbounds nuw i8, ptr %transport_options, i64 24
   %cond7 = select i1 %tobool.not, ptr null, ptr %unborn_head_target4
   store ptr null, ptr %list, align 8
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @server_capabilities_v2, i64 8), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server_capabilities_v2, i64 8), align 8
   %cmp7.not.i.i = icmp eq i64 %0, 0
   br i1 %cmp7.not.i.i, label %if.then.i, label %for.body.lr.ph.i.i
 
@@ -1576,7 +1576,7 @@ land.lhs.true:                                    ; preds = %ensure_server_suppo
   br i1 %tobool9.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @server_capabilities_v2, i64 8), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server_capabilities_v2, i64 8), align 8
   %cmp7.not.i.i27 = icmp eq i64 %7, 0
   br i1 %cmp7.not.i.i27, label %if.then.i43, label %for.body.lr.ph.i.i28
 
@@ -2141,7 +2141,7 @@ if.end:                                           ; preds = %if.then, %next_serv
   br i1 %tobool3.not, label %if.end6, label %while.body.preheader
 
 if.end6:                                          ; preds = %if.end
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @hash_algos, i64 104), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hash_algos, i64 104), align 8
   %call5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #25
   %tobool7.not56 = icmp eq ptr %9, null
   br i1 %tobool7.not56, label %return, label %while.body.preheader

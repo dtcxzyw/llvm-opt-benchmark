@@ -552,7 +552,7 @@ define internal fastcc void @incompatible_module_error(ptr noundef %0, ptr nound
 
 20:                                               ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(11) getelementptr inbounds (i8, ptr @magic_data, i64 24)) #19
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(11) getelementptr inbounds nuw (i8, ptr @magic_data, i64 24)) #19
   %.not18 = icmp eq i32 %22, 0
   br i1 %.not18, label %27, label %23
 
@@ -560,7 +560,7 @@ define internal fastcc void @incompatible_module_error(ptr noundef %0, ptr nound
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   tail call void @llvm.assume(i1 %24)
   %25 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef %0) #17
-  %26 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds (i8, ptr @magic_data, i64 24), ptr noundef nonnull %21) #17
+  %26 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @magic_data, i64 24), ptr noundef nonnull %21) #17
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 345, ptr noundef nonnull @__func__.incompatible_module_error) #17
   unreachable
 

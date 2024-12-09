@@ -270,7 +270,7 @@ define hidden noundef ptr @_ZN17FreeListAllocator8allocateEv(ptr noundef nonnull
   br i1 %10, label %11, label %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit
 
 11:                                               ; preds = %4
-  %12 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %12 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %13 = or i64 %12, 1
   br label %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit
 
@@ -337,7 +337,7 @@ define hidden void @_ZN17FreeListAllocator7releaseEPv(ptr noundef nonnull align 
   br i1 %8, label %9, label %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit
 
 9:                                                ; preds = %2
-  %10 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %10 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %11 = or i64 %10, 1
   br label %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit
 

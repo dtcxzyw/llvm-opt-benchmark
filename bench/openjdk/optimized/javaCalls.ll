@@ -981,7 +981,7 @@ define hidden ptr @_ZN9JavaCalls22construct_new_instanceEP13InstanceKlassP6Symbo
   %25 = load ptr, ptr %19, align 8
   %26 = ptrtoint ptr %12 to i64
   store i64 %26, ptr %25, align 8
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
   call void @_ZN9JavaCalls12call_specialEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef %27, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %28 = load ptr, ptr %9, align 8
   %.not15 = icmp eq ptr %28, null
@@ -1045,7 +1045,7 @@ define hidden ptr @_ZN9JavaCalls22construct_new_instanceEP13InstanceKlassP6Symbo
   %29 = load ptr, ptr %8, align 8
   %30 = ptrtoint ptr %20 to i64
   store i64 %30, ptr %29, align 8
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
   call void @_ZN9JavaCalls12call_specialEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef %31, ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %2)
   %32 = load ptr, ptr %17, align 8
   %.not15.i = icmp eq ptr %32, null
@@ -1111,7 +1111,7 @@ define hidden ptr @_ZN9JavaCalls22construct_new_instanceEP13InstanceKlassP6Symbo
   %31 = load ptr, ptr %9, align 8
   %32 = ptrtoint ptr %22 to i64
   store i64 %32, ptr %31, align 8
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
   call void @_ZN9JavaCalls12call_specialEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef %33, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %3)
   %34 = load ptr, ptr %19, align 8
   %.not15.i = icmp eq ptr %34, null
@@ -1182,7 +1182,7 @@ define hidden ptr @_ZN9JavaCalls22construct_new_instanceEP13InstanceKlassP6Symbo
   %35 = load ptr, ptr %10, align 8
   %36 = ptrtoint ptr %26 to i64
   store i64 %36, ptr %35, align 8
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
   call void @_ZN9JavaCalls12call_specialEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef nonnull %6, ptr noundef nonnull %0, ptr noundef %37, ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %4)
   %38 = load ptr, ptr %23, align 8
   %.not15.i = icmp eq ptr %38, null

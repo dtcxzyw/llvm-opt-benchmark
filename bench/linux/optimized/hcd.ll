@@ -2991,7 +2991,7 @@ define dso_local ptr @__usb_create_hcd(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %12, label %13, label %28
 
 13:                                               ; preds = %11
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %15 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %14, i32 noundef 3264, i64 noundef 32) #22
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 528
   store ptr %15, ptr %16, align 8
@@ -3004,7 +3004,7 @@ define dso_local ptr @__usb_create_hcd(ptr noundef %0, ptr noundef %1, ptr nound
 
 19:                                               ; preds = %13
   tail call void @__mutex_init(ptr noundef nonnull %15, ptr noundef nonnull @.str.5, ptr noundef nonnull @__usb_create_hcd.__key) #18
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %21 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %20, i32 noundef 3264, i64 noundef 32) #22
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 536
   store ptr %21, ptr %22, align 8
@@ -4155,7 +4155,7 @@ define internal fastcc range(i32 0, 255) i32 @rh_string(i32 noundef range(i32 0,
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 100, ptr noundef nonnull @.str.20, ptr noundef nonnull @init_uts_ns, ptr noundef nonnull getelementptr inbounds (i8, ptr @init_uts_ns, i64 130), ptr noundef %18) #18
+  %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 100, ptr noundef nonnull @.str.20, ptr noundef nonnull @init_uts_ns, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_uts_ns, i64 130), ptr noundef %18) #18
   br label %20
 
 default.unreachable3:                             ; preds = %4

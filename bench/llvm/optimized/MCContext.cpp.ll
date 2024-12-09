@@ -3817,7 +3817,7 @@ _ZN4llvm15SmallVectorImplIcE10resizeImplILb0EEEvm.exit: ; preds = %.critedge, %.
   store i8 0, ptr %19, align 8
   store i32 1, ptr %20, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %7, align 8
   store ptr %6, ptr %22, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef null, i64 noundef 0, i32 noundef 0) #20
   %52 = load i32, ptr %23, align 8
@@ -4375,7 +4375,7 @@ _ZNK4llvm11SmallStringILj128EE11starts_withENS_9StringRefE.exit.thread60: ; pred
   store i8 0, ptr %73, align 8
   store i32 1, ptr %74, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %12, align 8
   store ptr %11, ptr %76, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef null, i64 noundef 0, i32 noundef 0) #20
   %92 = load ptr, ptr %10, align 8
@@ -5801,7 +5801,7 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_12MCSectionELFEE8AllocateEm.exit: ; preds 
   %34 = icmp ne i32 %33, 0
   %35 = icmp eq i32 %3, 8
   tail call void @_ZN4llvm9MCSectionC2ENS0_14SectionVariantENS_9StringRefEbbPNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(200) %.0.i.i.i.i.i, i32 noundef 1, ptr %1, i64 %2, i1 noundef zeroext %34, i1 noundef zeroext %35, ptr noundef nonnull %11) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm12MCSectionELFE, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm12MCSectionELFE, i64 16), ptr %.0.i.i.i.i.i, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 148
   store i32 %3, ptr %36, align 4
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 152
@@ -6767,7 +6767,7 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_13MCSectionGOFFEE8AllocateEm.exit: ; preds
   %54 = and i32 %3, 254
   %spec.select.i.i = icmp eq i32 %54, 2
   call void @_ZN4llvm9MCSectionC2ENS0_14SectionVariantENS_9StringRefEbbPNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i.i.i.i.i, i32 noundef 2, ptr %31, i64 %32, i1 noundef zeroext %spec.select.i.i, i1 noundef zeroext false, ptr noundef null) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm13MCSectionGOFFE, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm13MCSectionGOFFE, i64 16), ptr %.0.i.i.i.i.i, align 8
   %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 152
   store ptr %4, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 160
@@ -7059,7 +7059,7 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_13MCSectionCOFFEE8AllocateEm.exit: ; preds
   %103 = and i32 %3, 128
   %104 = icmp ne i32 %103, 0
   call void @_ZN4llvm9MCSectionC2ENS0_14SectionVariantENS_9StringRefEbbPNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(176) %.0.i.i.i.i.i, i32 noundef 0, ptr %77, i64 %78, i1 noundef zeroext %102, i1 noundef zeroext %104, ptr noundef %79) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm13MCSectionCOFFE, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm13MCSectionCOFFE, i64 16), ptr %.0.i.i.i.i.i, align 8
   %105 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 148
   store i32 %3, ptr %105, align 4
   %106 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 152
@@ -7544,7 +7544,7 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_13MCSectionWasmEE8AllocateEm.exit: ; preds
   %94 = and i8 %.sroa.0.0.extract.trunc.i, -2
   %spec.select.i.i = icmp eq i8 %94, 2
   call void @_ZN4llvm9MCSectionC2ENS0_14SectionVariantENS_9StringRefEbbPNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(184) %.0.i.i.i.i.i, i32 noundef 4, ptr %51, i64 %52, i1 noundef zeroext %spec.select.i.i, i1 noundef zeroext false, ptr noundef nonnull %56) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm13MCSectionWasmE, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm13MCSectionWasmE, i64 16), ptr %.0.i.i.i.i.i, align 8
   %95 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 148
   store i32 %5, ptr %95, align 4
   %96 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 152
@@ -7923,7 +7923,7 @@ _ZNK4llvm13MCSymbolXCOFF18getUnqualifiedNameEv.exit: ; preds = %_ZN4llvm24Specif
   %115 = and i32 %3, 254
   %spec.select.i.i = icmp eq i32 %115, 2
   call void @_ZN4llvm9MCSectionC2ENS0_14SectionVariantENS_9StringRefEbbPNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(192) %.0.i.i.i.i.i, i32 noundef 5, ptr %.sroa.0.0.i3.i, i64 %.sroa.4.05.i.i, i1 noundef zeroext %spec.select.i.i, i1 noundef zeroext false, ptr noundef nonnull %77) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm14MCSectionXCOFFE, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14MCSectionXCOFFE, i64 16), ptr %.0.i.i.i.i.i, align 8
   %116 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 150
   store i8 0, ptr %116, align 1
   %117 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 152
@@ -8054,7 +8054,7 @@ _ZNK4llvm13MCSymbolXCOFF18getUnqualifiedNameEv.exit74: ; preds = %_ZN4llvm24Spec
   %178 = icmp ne i8 %.sroa.095.0.extract.trunc, 16
   %179 = and i1 %178, %177
   call void @_ZN4llvm9MCSectionC2ENS0_14SectionVariantENS_9StringRefEbbPNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(192) %.0.i.i.i.i.i59, i32 noundef 5, ptr %.sroa.0.0.i3.i66, i64 %.sroa.4.05.i.i67, i1 noundef zeroext %spec.select.i.i75, i1 noundef zeroext %179, ptr noundef null) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm14MCSectionXCOFFE, i64 16), ptr %.0.i.i.i.i.i59, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14MCSectionXCOFFE, i64 16), ptr %.0.i.i.i.i.i59, align 8
   %180 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i59, i64 148
   %181 = trunc nuw i24 %.sroa.599.0.extract.shift to i16
   %.sroa.2.0.insert.ext.i = shl i16 %181, 8
@@ -8307,7 +8307,7 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_14MCSectionSPIRVEE8AllocateEm.exit: ; pred
   %.0.i.i.i.i.i = phi ptr [ %21, %.critedge.i.i.i.i.i ], [ %16, %14 ]
   store ptr %.sink, ptr %2, align 8
   tail call void @_ZN4llvm9MCSectionC2ENS0_14SectionVariantENS_9StringRefEbbPNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(152) %.0.i.i.i.i.i, i32 noundef 6, ptr nonnull @.str, i64 0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef null) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm14MCSectionSPIRVE, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14MCSectionSPIRVE, i64 16), ptr %.0.i.i.i.i.i, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %25 = load i64, ptr %24, align 8
@@ -8421,7 +8421,7 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_20MCSectionDXContainerEE8AllocateEm.exit: 
   %34 = and i32 %3, 254
   %spec.select.i.i = icmp eq i32 %34, 2
   tail call void @_ZN4llvm9MCSectionC2ENS0_14SectionVariantENS_9StringRefEbbPNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(152) %.0.i.i.i.i.i, i32 noundef 7, ptr nonnull %11, i64 %12, i1 noundef zeroext %spec.select.i.i, i1 noundef zeroext false, ptr noundef null) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm20MCSectionDXContainerE, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm20MCSectionDXContainerE, i64 16), ptr %.0.i.i.i.i.i, align 8
   %35 = load ptr, ptr %.fca.0.extract, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %.0.i.i.i.i.i, ptr %36, align 8
@@ -8532,7 +8532,7 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_15MCSubtargetInfoEE8AllocateEm.exit: ; pre
   %.sink = phi ptr [ %23, %.critedge.i.i.i.i.i ], [ %16, %15 ]
   %.0.i.i.i.i.i = phi ptr [ %22, %.critedge.i.i.i.i.i ], [ %17, %15 ]
   store ptr %.sink, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN4llvm15MCSubtargetInfoE, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN4llvm15MCSubtargetInfoE, i64 16), ptr %.0.i.i.i.i.i, align 8
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(56) %25) #20
@@ -8898,7 +8898,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   %29 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1048) %13) #20
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %30, align 8
-  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(1048) %13, ptr noundef nonnull @.str.19, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.19, i64 7))
+  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(1048) %13, ptr noundef nonnull @.str.19, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.19, i64 7))
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread43
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread43:       ; preds = %25, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit

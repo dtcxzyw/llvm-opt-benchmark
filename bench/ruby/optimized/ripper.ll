@@ -808,186 +808,186 @@ define range(i32 0, 3) i32 @ripper_yyparse(ptr noundef %0) local_unnamed_addr #0
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %46 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 144), align 8
+  %46 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 144), align 8
   %47 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %48 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 344), align 8
-  %49 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 136), align 8
-  %50 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 152), align 8
-  %51 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 648), align 8
+  %48 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 344), align 8
+  %49 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 136), align 8
+  %50 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 152), align 8
+  %51 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 648), align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %53 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 192), align 8
-  %54 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 752), align 8
+  %53 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 192), align 8
+  %54 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 752), align 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %57 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 472), align 8
-  %58 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 608), align 8
+  %57 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 472), align 8
+  %58 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 608), align 8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 324
   %60 = getelementptr i8, ptr %0, i64 312
   %61 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %62 = getelementptr i8, ptr %0, i64 184
-  %63 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 552), align 8
+  %63 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 552), align 8
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %65 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 632), align 8
-  %66 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 88), align 8
-  %67 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 968), align 8
-  %68 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 976), align 8
-  %69 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 984), align 8
-  %70 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 912), align 8
-  %71 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 864), align 8
-  %72 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 872), align 8
+  %65 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 632), align 8
+  %66 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 88), align 8
+  %67 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 968), align 8
+  %68 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 976), align 8
+  %69 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 984), align 8
+  %70 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 912), align 8
+  %71 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 864), align 8
+  %72 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 872), align 8
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %79 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 840), align 8
-  %80 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 832), align 8
-  %81 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 712), align 8
-  %82 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 728), align 8
-  %83 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 1056), align 8
-  %84 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 1072), align 8
-  %85 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 808), align 8
-  %86 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 824), align 8
-  %87 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 672), align 8
-  %88 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 680), align 8
-  %89 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 688), align 8
-  %90 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 696), align 8
-  %91 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 104), align 8
-  %92 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 880), align 8
-  %93 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 888), align 8
-  %94 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 1024), align 8
-  %95 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 1032), align 8
-  %96 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 1040), align 8
-  %97 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 1048), align 8
-  %98 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 720), align 8
-  %99 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 1064), align 8
-  %100 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 848), align 8
-  %101 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 816), align 8
-  %102 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 368), align 8
-  %103 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 736), align 8
-  %104 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 280), align 8
-  %105 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 904), align 8
-  %106 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 168), align 8
-  %107 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 336), align 8
-  %108 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 328), align 8
+  %79 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 840), align 8
+  %80 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 832), align 8
+  %81 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 712), align 8
+  %82 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 728), align 8
+  %83 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 1056), align 8
+  %84 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 1072), align 8
+  %85 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 808), align 8
+  %86 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 824), align 8
+  %87 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 672), align 8
+  %88 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 680), align 8
+  %89 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 688), align 8
+  %90 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 696), align 8
+  %91 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 104), align 8
+  %92 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 880), align 8
+  %93 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 888), align 8
+  %94 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 1024), align 8
+  %95 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 1032), align 8
+  %96 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 1040), align 8
+  %97 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 1048), align 8
+  %98 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 720), align 8
+  %99 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 1064), align 8
+  %100 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 848), align 8
+  %101 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 816), align 8
+  %102 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 368), align 8
+  %103 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 736), align 8
+  %104 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 280), align 8
+  %105 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 904), align 8
+  %106 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 168), align 8
+  %107 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 336), align 8
+  %108 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 328), align 8
   %109 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %111 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 176), align 8
+  %111 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 176), align 8
   %112 = load i64, ptr @id_assoc, align 8
   %113 = shl i64 %112, 8
   %114 = or disjoint i64 %113, 12
-  %115 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 936), align 8
-  %116 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 448), align 8
-  %117 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 464), align 8
+  %115 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 936), align 8
+  %116 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 448), align 8
+  %117 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 464), align 8
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %119 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 1000), align 8
-  %120 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 80), align 8
-  %121 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 64), align 8
-  %122 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 96), align 8
+  %119 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 1000), align 8
+  %120 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 80), align 8
+  %121 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 64), align 8
+  %122 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 96), align 8
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %124 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 320), align 8
+  %124 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 320), align 8
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %126 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 208), align 8
-  %127 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 32), align 8
-  %128 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 1096), align 8
-  %129 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 856), align 8
-  %130 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 224), align 8
-  %131 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 504), align 8
-  %132 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 384), align 8
-  %133 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 264), align 8
-  %134 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 512), align 8
+  %126 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 208), align 8
+  %127 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 32), align 8
+  %128 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 1096), align 8
+  %129 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 856), align 8
+  %130 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 224), align 8
+  %131 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 504), align 8
+  %132 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 384), align 8
+  %133 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 264), align 8
+  %134 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 512), align 8
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %137 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %138 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 480), align 8
+  %138 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 480), align 8
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %140 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 184), align 8
-  %141 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 640), align 8
-  %142 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 376), align 8
-  %143 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 544), align 8
-  %144 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 536), align 8
-  %145 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 528), align 8
-  %146 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 520), align 8
-  %147 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 352), align 8
-  %148 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 360), align 8
+  %140 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 184), align 8
+  %141 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 640), align 8
+  %142 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 376), align 8
+  %143 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 544), align 8
+  %144 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 536), align 8
+  %145 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 528), align 8
+  %146 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 520), align 8
+  %147 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 352), align 8
+  %148 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 360), align 8
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %150 = load i64, ptr @id_warning, align 8
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %152 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %153 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 760), align 8
-  %154 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 704), align 8
-  %155 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 600), align 8
-  %156 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 216), align 8
-  %157 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 296), align 8
-  %158 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 560), align 8
+  %153 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 760), align 8
+  %154 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 704), align 8
+  %155 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 600), align 8
+  %156 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 216), align 8
+  %157 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 296), align 8
+  %158 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 560), align 8
   %159 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %160 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 784), align 8
-  %161 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 240), align 8
+  %160 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 784), align 8
+  %161 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 240), align 8
   %162 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %163 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 408), align 8
-  %164 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 232), align 8
+  %163 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 408), align 8
+  %164 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 232), align 8
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %166 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 944), align 8
-  %167 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 1008), align 8
-  %168 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 928), align 8
-  %169 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 440), align 8
-  %170 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 912), align 8
-  %171 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 304), align 8
-  %172 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 1088), align 8
-  %173 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 648), align 8
-  %174 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 1080), align 8
-  %175 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 776), align 8
-  %176 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 416), align 8
-  %177 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 584), align 8
-  %178 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 576), align 8
-  %179 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 592), align 8
-  %180 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 568), align 8
-  %181 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 72), align 8
-  %182 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 160), align 8
-  %183 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 56), align 8
-  %184 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 744), align 8
-  %185 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 200), align 8
-  %186 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 456), align 8
-  %187 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 968), align 8
-  %188 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 616), align 8
+  %166 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 944), align 8
+  %167 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 1008), align 8
+  %168 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 928), align 8
+  %169 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 440), align 8
+  %170 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 912), align 8
+  %171 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 304), align 8
+  %172 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 1088), align 8
+  %173 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 648), align 8
+  %174 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 1080), align 8
+  %175 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 776), align 8
+  %176 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 416), align 8
+  %177 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 584), align 8
+  %178 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 576), align 8
+  %179 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 592), align 8
+  %180 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 568), align 8
+  %181 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 72), align 8
+  %182 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 160), align 8
+  %183 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 56), align 8
+  %184 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 744), align 8
+  %185 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 200), align 8
+  %186 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 456), align 8
+  %187 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 968), align 8
+  %188 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 616), align 8
   %189 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %190 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 896), align 8
+  %190 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 896), align 8
   %191 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %192 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 272), align 8
-  %193 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 392), align 8
-  %194 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 40), align 8
-  %195 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 120), align 8
-  %196 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 872), align 8
-  %197 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 288), align 8
-  %198 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 248), align 8
-  %199 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 552), align 8
-  %200 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 768), align 8
-  %201 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 256), align 8
+  %192 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 272), align 8
+  %193 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 392), align 8
+  %194 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 40), align 8
+  %195 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 120), align 8
+  %196 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 872), align 8
+  %197 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 288), align 8
+  %198 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 248), align 8
+  %199 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 552), align 8
+  %200 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 768), align 8
+  %201 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 256), align 8
   %202 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %203 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %204 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 496), align 8
+  %204 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 496), align 8
   %205 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %206 = load i64, ptr @id_warn, align 8
-  %207 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 8), align 8
+  %207 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 8), align 8
   %208 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %209 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 952), align 8
-  %210 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 1016), align 8
-  %211 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 920), align 8
-  %212 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 24), align 8
+  %209 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 952), align 8
+  %210 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 1016), align 8
+  %211 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 920), align 8
+  %212 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 24), align 8
   %213 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %214 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 960), align 8
-  %215 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 16), align 8
-  %216 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 792), align 8
-  %217 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 800), align 8
-  %218 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 992), align 8
+  %214 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 960), align 8
+  %215 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 16), align 8
+  %216 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 792), align 8
+  %217 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 800), align 8
+  %218 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 992), align 8
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %220 = load i64, ptr @ripper_parser_ids, align 8
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %222 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 664), align 8
+  %222 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 664), align 8
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %224 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %225 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %225 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   br label %228
 
 226:                                              ; preds = %after_shift_error_token.exit, %8300, %after_shift.exit
@@ -15041,7 +15041,7 @@ after_shift_error_token.exit:                     ; preds = %8397, %8405, %8422
 8441:                                             ; preds = %8431, %8425
   %.019.i6531 = phi ptr [ %8432, %8431 ], [ null, %8425 ]
   %.0.i6532 = phi ptr [ %8433, %8431 ], [ null, %8425 ]
-  %8442 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %8442 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %8443 = load ptr, ptr %64, align 8
   %8444 = call i64 @rb_enc_str_new(ptr noundef nonnull @.str.65, i64 noundef 16, ptr noundef %8443) #24
   %.val.i.i6533 = load i64, ptr %38, align 8
@@ -15864,7 +15864,7 @@ define internal fastcc void @clear_block_exit(ptr nocapture noundef %0, i1 nound
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %12 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %14 = getelementptr i8, ptr %0, i64 376
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 368
@@ -16115,7 +16115,7 @@ define internal fastcc void @parser_yyerror(ptr nocapture noundef nonnull %0, pt
 27:                                               ; preds = %12, %8, %3
   %.019 = phi ptr [ %14, %12 ], [ null, %8 ], [ null, %3 ]
   %.0 = phi ptr [ %16, %12 ], [ null, %8 ], [ null, %3 ]
-  %28 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %31 = load ptr, ptr %30, align 8
@@ -16698,7 +16698,7 @@ define internal fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1) unna
 29:                                               ; preds = %14, %10, %4
   %.019.i = phi ptr [ %16, %14 ], [ null, %10 ], [ null, %4 ]
   %.0.i = phi ptr [ %18, %14 ], [ null, %10 ], [ null, %4 ]
-  %30 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %30 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.683, i64 noundef 21, ptr noundef %32) #24
@@ -17759,7 +17759,7 @@ define internal fastcc void @endless_method_name(ptr noundef %0, i64 noundef %1,
 34:                                               ; preds = %19, %15, %10
   %.019.i = phi ptr [ %21, %19 ], [ null, %15 ], [ null, %10 ]
   %.0.i5 = phi ptr [ %23, %19 ], [ null, %15 ], [ null, %10 ]
-  %35 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %35 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.532, i64 noundef 63, ptr noundef %37) #24
@@ -17954,7 +17954,7 @@ set_line_body.exit:                               ; preds = %remove_begin.exit, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @defs(i64 %.376.val, i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 312), align 8
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 312), align 8
   %5 = tail call i64 @rb_ary_entry(i64 noundef %0, i64 noundef 0) #25
   %6 = tail call i64 @rb_ary_entry(i64 noundef %0, i64 noundef 1) #25
   %7 = tail call i64 @rb_ary_entry(i64 noundef %0, i64 noundef 2) #25
@@ -17999,7 +17999,7 @@ define internal fastcc i64 @backref_error(ptr nocapture noundef readonly %0, ptr
   br label %18
 
 18:                                               ; preds = %13, %9, %3
-  %19 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 128), align 8
+  %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 128), align 8
   %20 = getelementptr i8, ptr %0, i64 376
   %.val = load i64, ptr %20, align 8
   %21 = load i64, ptr @rb_ripper_none, align 8
@@ -18129,7 +18129,7 @@ define internal fastcc noundef ptr @call_uni_op(ptr noundef %0, ptr noundef %1, 
 32:                                               ; preds = %17, %13, %7
   %.019.i.i = phi ptr [ %19, %17 ], [ null, %13 ], [ null, %7 ]
   %.0.i.i = phi ptr [ %21, %17 ], [ null, %13 ], [ null, %7 ]
-  %33 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %33 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.683, i64 noundef 21, ptr noundef %35) #24
@@ -18235,7 +18235,7 @@ define internal fastcc noundef ptr @logop(ptr noundef %0, i64 noundef range(i64 
 37:                                               ; preds = %22, %18, %12
   %.019.i.i = phi ptr [ %24, %22 ], [ null, %18 ], [ null, %12 ]
   %.0.i.i = phi ptr [ %26, %22 ], [ null, %18 ], [ null, %12 ]
-  %38 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %38 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.683, i64 noundef 21, ptr noundef %40) #24
@@ -19328,7 +19328,7 @@ define internal fastcc i64 @ripper_assignable(ptr noundef %0, i64 noundef %1, i6
   br i1 %.not, label %23, label %7
 
 7:                                                ; preds = %3
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 128), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 128), align 8
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %11 = load ptr, ptr %10, align 8
@@ -19422,7 +19422,7 @@ define internal fastcc void @anddot_multiple_assignment_check(ptr nocapture noun
 29:                                               ; preds = %14, %10, %5
   %.019.i = phi ptr [ %16, %14 ], [ null, %10 ], [ null, %5 ]
   %.0.i = phi ptr [ %18, %14 ], [ null, %10 ], [ null, %5 ]
-  %30 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %30 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.536, i64 noundef 41, ptr noundef %32) #24
@@ -19532,7 +19532,7 @@ define internal fastcc noundef ptr @const_decl(ptr nocapture noundef %0, ptr nou
 31:                                               ; preds = %16, %12, %7
   %.019.i = phi ptr [ %18, %16 ], [ null, %12 ], [ null, %7 ]
   %.0.i = phi ptr [ %20, %16 ], [ null, %12 ], [ null, %7 ]
-  %32 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %32 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.668, i64 noundef 27, ptr noundef %34) #24
@@ -19592,7 +19592,7 @@ define internal fastcc i64 @ripper_const_decl(ptr nocapture noundef %0, i64 noun
   br i1 %.not, label %21, label %6
 
 6:                                                ; preds = %2
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 128), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 128), align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.668, i64 noundef 27, ptr noundef %9) #24
@@ -19849,7 +19849,7 @@ define internal fastcc noundef ptr @call_bin_op(ptr noundef %0, ptr noundef %1, 
 33:                                               ; preds = %18, %14, %8
   %.019.i.i = phi ptr [ %20, %18 ], [ null, %14 ], [ null, %8 ]
   %.0.i.i = phi ptr [ %22, %18 ], [ null, %14 ], [ null, %8 ]
-  %34 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %34 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %36 = load ptr, ptr %35, align 8
   %37 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.683, i64 noundef 21, ptr noundef %36) #24
@@ -19914,7 +19914,7 @@ value_expr_gen.exit:                              ; preds = %6, %33, %46
 75:                                               ; preds = %60, %56, %50
   %.019.i.i15 = phi ptr [ %62, %60 ], [ null, %56 ], [ null, %50 ]
   %.0.i.i16 = phi ptr [ %64, %60 ], [ null, %56 ], [ null, %50 ]
-  %76 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %76 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %78 = load ptr, ptr %77, align 8
   %79 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.683, i64 noundef 21, ptr noundef %78) #24
@@ -20041,7 +20041,7 @@ define internal fastcc noundef ptr @match_op(ptr noundef %0, ptr noundef %1, ptr
 32:                                               ; preds = %17, %13, %7
   %.019.i.i = phi ptr [ %19, %17 ], [ null, %13 ], [ null, %7 ]
   %.0.i.i = phi ptr [ %21, %17 ], [ null, %13 ], [ null, %7 ]
-  %33 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %33 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.683, i64 noundef 21, ptr noundef %35) #24
@@ -20106,7 +20106,7 @@ value_expr_gen.exit:                              ; preds = %4, %32, %45
 74:                                               ; preds = %59, %55, %49
   %.019.i.i50 = phi ptr [ %61, %59 ], [ null, %55 ], [ null, %49 ]
   %.0.i.i51 = phi ptr [ %63, %59 ], [ null, %55 ], [ null, %49 ]
-  %75 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %75 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %77 = load ptr, ptr %76, align 8
   %78 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.683, i64 noundef 21, ptr noundef %77) #24
@@ -21869,7 +21869,7 @@ define internal fastcc noundef ptr @new_args(ptr nocapture noundef %0, ptr nound
 38:                                               ; preds = %23, %19, %13
   %.019.i = phi ptr [ %25, %23 ], [ null, %19 ], [ null, %13 ]
   %.0.i = phi ptr [ %27, %23 ], [ null, %19 ], [ null, %13 ]
-  %39 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %39 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %41 = load ptr, ptr %40, align 8
   %42 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.708, i64 noundef 23, ptr noundef %41) #24
@@ -23082,7 +23082,7 @@ define internal fastcc i64 @ripper_new_args(i64 %.376.val, i64 noundef %0, i64 n
   %6 = tail call i64 @rb_ary_entry(i64 noundef %4, i64 noundef 0) #25
   %7 = tail call i64 @rb_ary_entry(i64 noundef %4, i64 noundef 1) #25
   %8 = tail call i64 @rb_ary_entry(i64 noundef %4, i64 noundef 2) #25
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 640), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 640), align 8
   %10 = load i64, ptr @rb_ripper_none, align 8
   %11 = icmp eq i64 %0, %10
   %12 = select i1 %11, i64 4, i64 %0
@@ -23705,7 +23705,7 @@ define internal fastcc i64 @ripper_new_array_pattern(ptr nocapture noundef reado
 
 15:                                               ; preds = %11, %13, %4
   %.0 = phi i64 [ %5, %4 ], [ %14, %13 ], [ %5, %11 ]
-  %16 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 112), align 8
+  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 112), align 8
   %17 = getelementptr i8, ptr %0, i64 376
   %.val = load i64, ptr %17, align 8
   %18 = load i64, ptr @rb_ripper_none, align 8
@@ -23728,7 +23728,7 @@ define internal fastcc i64 @ripper_new_find_pattern(i64 %.376.val, i64 noundef %
   %3 = tail call i64 @rb_ary_entry(i64 noundef %1, i64 noundef 0) #25
   %4 = tail call i64 @rb_ary_entry(i64 noundef %1, i64 noundef 1) #25
   %5 = tail call i64 @rb_ary_entry(i64 noundef %1, i64 noundef 2) #25
-  %6 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 400), align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 400), align 8
   %7 = load i64, ptr @rb_ripper_none, align 8
   %8 = icmp eq i64 %0, %7
   %9 = select i1 %8, i64 4, i64 %0
@@ -23746,7 +23746,7 @@ define internal fastcc i64 @ripper_new_find_pattern(i64 %.376.val, i64 noundef %
 define internal fastcc i64 @ripper_new_hash_pattern(i64 %.376.val, i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = tail call i64 @rb_ary_entry(i64 noundef %1, i64 noundef 0) #25
   %4 = tail call i64 @rb_ary_entry(i64 noundef %1, i64 noundef 1) #25
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 432), align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 432), align 8
   %6 = load i64, ptr @rb_ripper_none, align 8
   %7 = icmp eq i64 %0, %6
   %8 = select i1 %7, i64 4, i64 %0
@@ -23836,7 +23836,7 @@ define internal fastcc i64 @ripper_new_hash_pattern_tail(ptr nocapture noundef r
   br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %3
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 968), align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 968), align 8
   %6 = getelementptr i8, ptr %0, i64 376
   %.val = load i64, ptr %6, align 8
   %7 = load i64, ptr @rb_ripper_none, align 8
@@ -24010,7 +24010,7 @@ is_private_local_id.exit.thread:                  ; preds = %10, %5, %is_private
 46:                                               ; preds = %31, %27, %22
   %.019.i = phi ptr [ %33, %31 ], [ null, %27 ], [ null, %22 ]
   %.0.i8 = phi ptr [ %35, %31 ], [ null, %27 ], [ null, %22 ]
-  %47 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %47 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.712, i64 noundef 24, ptr noundef %49) #24
@@ -24127,7 +24127,7 @@ define internal fastcc void @error_duplicate_pattern_key(ptr nocapture noundef %
 34:                                               ; preds = %19, %15, %10
   %.019.i = phi ptr [ %21, %19 ], [ null, %15 ], [ null, %10 ]
   %.0.i = phi ptr [ %23, %19 ], [ null, %15 ], [ null, %10 ]
-  %35 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %35 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.713, i64 noundef 19, ptr noundef %37) #24
@@ -25578,7 +25578,7 @@ define internal fastcc noundef i64 @ripper_heredoc_dedent(ptr nocapture noundef 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store i32 0, ptr %6, align 4
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 424), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 424), align 8
   %8 = shl nuw i32 %1, 1
   %9 = or disjoint i32 %8, 1
   %10 = zext i32 %9 to i64
@@ -26680,7 +26680,7 @@ define internal fastcc void @formal_argument(ptr noundef %0, i64 noundef %1) unn
   ]
 
 7:                                                ; preds = %2
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.555, i64 noundef 36, ptr noundef %10) #24
@@ -26697,7 +26697,7 @@ define internal fastcc void @formal_argument(ptr noundef %0, i64 noundef %1) unn
   br label %74
 
 20:                                               ; preds = %2
-  %21 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.556, i64 noundef 46, ptr noundef %23) #24
@@ -26714,7 +26714,7 @@ define internal fastcc void @formal_argument(ptr noundef %0, i64 noundef %1) unn
   br label %74
 
 33:                                               ; preds = %2
-  %34 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %34 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %36 = load ptr, ptr %35, align 8
   %37 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.557, i64 noundef 43, ptr noundef %36) #24
@@ -26731,7 +26731,7 @@ define internal fastcc void @formal_argument(ptr noundef %0, i64 noundef %1) unn
   br label %74
 
 46:                                               ; preds = %2
-  %47 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %47 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.558, i64 noundef 42, ptr noundef %49) #24
@@ -26748,7 +26748,7 @@ define internal fastcc void @formal_argument(ptr noundef %0, i64 noundef %1) unn
   br label %74
 
 59:                                               ; preds = %2
-  %60 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %60 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %62 = load ptr, ptr %61, align 8
   %63 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.559, i64 noundef 38, ptr noundef %62) #24
@@ -26788,35 +26788,35 @@ define internal fastcc void @ripper_formal_argument(ptr nocapture noundef %0, i6
   ]
 
 8:                                                ; preds = %3
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 632), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 632), align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 @rb_enc_str_new_static(ptr noundef nonnull @.str.555, i64 noundef 36, ptr noundef %11) #24
   br label %.sink.split
 
 13:                                               ; preds = %3
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 632), align 8
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 632), align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i64 @rb_enc_str_new_static(ptr noundef nonnull @.str.556, i64 noundef 46, ptr noundef %16) #24
   br label %.sink.split
 
 18:                                               ; preds = %3
-  %19 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 632), align 8
+  %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 632), align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i64 @rb_enc_str_new_static(ptr noundef nonnull @.str.557, i64 noundef 43, ptr noundef %21) #24
   br label %.sink.split
 
 23:                                               ; preds = %3
-  %24 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 632), align 8
+  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 632), align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i64 @rb_enc_str_new_static(ptr noundef nonnull @.str.558, i64 noundef 42, ptr noundef %26) #24
   br label %.sink.split
 
 28:                                               ; preds = %3
-  %29 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 632), align 8
+  %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 632), align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i64 @rb_enc_str_new_static(ptr noundef nonnull @.str.559, i64 noundef 38, ptr noundef %31) #24
@@ -34853,7 +34853,7 @@ declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @parser_yyerror0(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %6 = load ptr, ptr %5, align 8
@@ -36986,12 +36986,12 @@ parse_string.exit:                                ; preds = %parser_set_lex_stat
   %886 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %887 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %888 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %889 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %889 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %890 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %891 = getelementptr i8, ptr %0, i64 376
   %892 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %893 = getelementptr i8, ptr %0, i64 96
-  %894 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 488), align 8
+  %894 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 488), align 8
   %895 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %896 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %897 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -38323,7 +38323,7 @@ parser_set_lex_state.exit883:                     ; preds = %1373, %1378
   ]
 
 1400:                                             ; preds = %1399
-  %1401 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 624), align 8
+  %1401 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 624), align 8
   %1402 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.561, i64 noundef 15) #24
   %.val815 = load i64, ptr %891, align 8
   %1403 = load i64, ptr @rb_ripper_none, align 8
@@ -38404,7 +38404,7 @@ parser_set_lex_state.exit887:                     ; preds = %1409, %1414
   ]
 
 1436:                                             ; preds = %1435
-  %1437 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 624), align 8
+  %1437 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 624), align 8
   %1438 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.561, i64 noundef 15) #24
   %.val814 = load i64, ptr %891, align 8
   %1439 = load i64, ptr @rb_ripper_none, align 8
@@ -38773,7 +38773,7 @@ parser_set_lex_state.exit918:                     ; preds = %1557, %1562
   ]
 
 1570:                                             ; preds = %1569
-  %1571 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 624), align 8
+  %1571 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 624), align 8
   %1572 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.564, i64 noundef 13) #24
   %.val813 = load i64, ptr %891, align 8
   %1573 = load i64, ptr @rb_ripper_none, align 8
@@ -39130,7 +39130,7 @@ parser_set_lex_state.exit946:                     ; preds = %1683, %1688
   ]
 
 1724:                                             ; preds = %1723
-  %1725 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 624), align 8
+  %1725 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 624), align 8
   %1726 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.561, i64 noundef 15) #24
   %.val812 = load i64, ptr %891, align 8
   %1727 = load i64, ptr @rb_ripper_none, align 8
@@ -39408,7 +39408,7 @@ parser_set_lex_state.exit978:                     ; preds = %1831, %1834
   ]
 
 1839:                                             ; preds = %1838
-  %1840 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 624), align 8
+  %1840 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 624), align 8
   %1841 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.566, i64 noundef 14) #24
   %.val811 = load i64, ptr %891, align 8
   %1842 = load i64, ptr @rb_ripper_none, align 8
@@ -39565,7 +39565,7 @@ parser_set_lex_state.exit995:                     ; preds = %1890, %1893
   ]
 
 1898:                                             ; preds = %1897
-  %1899 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 624), align 8
+  %1899 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 624), align 8
   %1900 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.566, i64 noundef 14) #24
   %.val810 = load i64, ptr %891, align 8
   %1901 = load i64, ptr @rb_ripper_none, align 8
@@ -40044,7 +40044,7 @@ parser_set_lex_state.exit1030:                    ; preds = %2096, %2101
   ]
 
 2112:                                             ; preds = %2111
-  %2113 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 624), align 8
+  %2113 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 624), align 8
   %2114 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.570, i64 noundef 14) #24
   %.val809 = load i64, ptr %891, align 8
   %2115 = load i64, ptr @rb_ripper_none, align 8
@@ -40220,7 +40220,7 @@ parser_set_lex_state.exit1045:                    ; preds = %2176, %2181
   ]
 
 2186:                                             ; preds = %2185
-  %2187 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 624), align 8
+  %2187 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 624), align 8
   %2188 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.571, i64 noundef 14) #24
   %.val808 = load i64, ptr %891, align 8
   %2189 = load i64, ptr @rb_ripper_none, align 8
@@ -41132,7 +41132,7 @@ define internal fastcc range(i32 -1, 341) i32 @heredoc_identifier(ptr noundef %0
   ]
 
 24:                                               ; preds = %23, %23, %23
-  %25 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.620, i64 noundef 37, ptr noundef %27) #24
@@ -41344,7 +41344,7 @@ parser_is_identchar.exit93..split_crit_edge:      ; preds = %parser_is_identchar
   br i1 %144, label %145, label %158
 
 145:                                              ; preds = %.critedge
-  %146 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %146 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %148 = load ptr, ptr %147, align 8
   %149 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.621, i64 noundef 33, ptr noundef %148) #24
@@ -41843,7 +41843,7 @@ parser_set_lex_state.exit122:                     ; preds = %parser_str_new.exit
 define internal fastcc void @arg_ambiguous(ptr nocapture noundef readonly %0, i8 noundef signext range(i8 43, 48) %1) unnamed_addr #0 {
   %3 = alloca i8, align 1
   store i8 %1, ptr %3, align 1
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 48), align 8
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 48), align 8
   %5 = call i64 @rb_usascii_str_new(ptr noundef nonnull %3, i64 noundef 1) #24
   %6 = getelementptr i8, ptr %0, i64 376
   %.val = load i64, ptr %6, align 8
@@ -42081,7 +42081,7 @@ pushback.exit.thread:                             ; preds = %45
   br i1 %100, label %101, label %.thread403
 
 101:                                              ; preds = %pushback.exit.thread, %pushback.exit
-  %102 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %102 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %104 = load ptr, ptr %103, align 8
   %105 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.628, i64 noundef 30, ptr noundef %104) #24
@@ -42309,7 +42309,7 @@ pushback.exit320.thread:                          ; preds = %185
   br i1 %214, label %215, label %.thread
 
 215:                                              ; preds = %pushback.exit320.thread, %pushback.exit320
-  %216 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %216 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %218 = load ptr, ptr %217, align 8
   %219 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.628, i64 noundef 30, ptr noundef %218) #24
@@ -42537,7 +42537,7 @@ pushback.exit343.thread:                          ; preds = %277
   br i1 %329, label %330, label %.thread423
 
 330:                                              ; preds = %pushback.exit343.thread, %pushback.exit343
-  %331 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %331 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %332 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %333 = load ptr, ptr %332, align 8
   %334 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.628, i64 noundef 30, ptr noundef %333) #24
@@ -43396,7 +43396,7 @@ parser_precise_mbclen.exit:                       ; preds = %pushback.exit
   %59 = zext nneg i32 %54 to i64
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 %59
   store ptr %60, ptr %5, align 8
-  %61 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %61 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %62 = load ptr, ptr %52, align 8
   %63 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.630, i64 noundef 23, ptr noundef %62) #24
   %64 = getelementptr i8, ptr %0, i64 376
@@ -43687,7 +43687,7 @@ pushback.exit113:                                 ; preds = %parser_set_lex_stat
   ]
 
 181:                                              ; preds = %180
-  %182 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 624), align 8
+  %182 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 624), align 8
   %183 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.632, i64 noundef 14) #24
   %184 = getelementptr i8, ptr %0, i64 376
   %.val103 = load i64, ptr %184, align 8
@@ -46768,7 +46768,7 @@ tokadd.exit117:                                   ; preds = %.split87, %156
   %171 = load ptr, ptr %33, align 8
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %171, ptr %172, align 8
-  %173 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %173 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %175 = load ptr, ptr %174, align 8
   %176 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.576, i64 noundef 27, ptr noundef %175) #24
@@ -46919,7 +46919,7 @@ pushback.exit:                                    ; preds = %10, %19, %22, %26
   br i1 %.not.i, label %37, label %50
 
 37:                                               ; preds = %33
-  %38 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %38 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %40 = load ptr, ptr %39, align 8
   %41 = call i64 @rb_enc_str_new(ptr noundef nonnull @.str.587, i64 noundef 18, ptr noundef %40) #24
@@ -47135,7 +47135,7 @@ tailrecurse.backedge:                             ; preds = %61, %64
   br label %tok_hex.exit
 
 .loopexit97:                                      ; preds = %59, %56, %57, %tailrecurse, %95, %66, %102, %108, %68, %85, %91, %94, %134
-  %137 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %137 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %139 = load ptr, ptr %138, align 8
   %140 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.586, i64 noundef 31, ptr noundef %139) #24
@@ -47298,7 +47298,7 @@ tok_hex.exit.thread:                              ; preds = %41
   br label %61
 
 tok_hex.exit:                                     ; preds = %41
-  %48 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %48 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %50 = load ptr, ptr %49, align 8
   %51 = call i64 @rb_enc_str_new(ptr noundef nonnull @.str.587, i64 noundef 18, ptr noundef %50) #24
@@ -47373,7 +47373,7 @@ tokspace.exit25:                                  ; preds = %._crit_edge.i22, %7
   br label %ruby_nonempty_memcpy.exit
 
 90:                                               ; preds = %4, %1
-  %91 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %91 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %93 = load ptr, ptr %92, align 8
   %94 = call i64 @rb_enc_str_new(ptr noundef nonnull @.str.586, i64 noundef 31, ptr noundef %93) #24
@@ -47601,7 +47601,7 @@ define internal fastcc range(i32 0, 2) i32 @tokadd_codepoint(ptr noundef %0, ptr
   br i1 %34, label %35, label %52
 
 35:                                               ; preds = %33, %31
-  %36 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %36 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %38 = load ptr, ptr %37, align 8
   %39 = call i64 @rb_enc_str_new(ptr noundef nonnull @.str.577, i64 noundef 22, ptr noundef %38) #24
@@ -47626,7 +47626,7 @@ define internal fastcc range(i32 0, 2) i32 @tokadd_codepoint(ptr noundef %0, ptr
   br i1 %53, label %54, label %67
 
 54:                                               ; preds = %52
-  %55 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %55 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %57 = load ptr, ptr %56, align 8
   %58 = call i64 @rb_enc_str_new(ptr noundef nonnull @.str.578, i64 noundef 37, ptr noundef %57) #24
@@ -47648,7 +47648,7 @@ define internal fastcc range(i32 0, 2) i32 @tokadd_codepoint(ptr noundef %0, ptr
   br i1 %69, label %70, label %83
 
 70:                                               ; preds = %67
-  %71 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %71 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %73 = load ptr, ptr %72, align 8
   %74 = call i64 @rb_enc_str_new(ptr noundef nonnull @.str.579, i64 noundef 25, ptr noundef %73) #24
@@ -48670,7 +48670,7 @@ declare i64 @rb_usascii_str_new(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef range(i32 314, 318) i32 @no_digits(ptr noundef %0) unnamed_addr #0 {
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.628, i64 noundef 30, ptr noundef %4) #24
@@ -49733,7 +49733,7 @@ define internal fastcc noundef ptr @str_to_sym_node(ptr noundef %0, ptr %.32.val
 29:                                               ; preds = %14, %10, %5
   %.019.i = phi ptr [ %16, %14 ], [ null, %10 ], [ null, %5 ]
   %.0.i = phi ptr [ %18, %14 ], [ null, %10 ], [ null, %5 ]
-  %30 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %30 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.657, i64 noundef 14, ptr noundef %32) #24
@@ -50270,7 +50270,7 @@ is_private_local_id.exit:                         ; preds = %35, %40
   br i1 %.not, label %vtable_add_gen.exit36, label %is_private_local_id.exit.thread
 
 is_private_local_id.exit.thread:                  ; preds = %33, %28, %is_private_local_id.exit
-  %42 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %42 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %44 = load ptr, ptr %43, align 8
   %45 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.672, i64 noundef 24, ptr noundef %44) #24
@@ -50593,7 +50593,7 @@ is_private_local_id.exit68:                       ; preds = %165, %170
   br i1 %.not95, label %vtable_add_gen.exit36, label %is_private_local_id.exit68.thread
 
 is_private_local_id.exit68.thread:                ; preds = %163, %158, %is_private_local_id.exit68
-  %172 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %172 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %174 = load ptr, ptr %173, align 8
   %175 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.672, i64 noundef 24, ptr noundef %174) #24
@@ -52205,7 +52205,7 @@ define internal fastcc ptr @range_op(ptr noundef %0, ptr noundef %1, ptr nocaptu
 33:                                               ; preds = %18, %14, %8
   %.019.i.i = phi ptr [ %20, %18 ], [ null, %14 ], [ null, %8 ]
   %.0.i.i = phi ptr [ %22, %18 ], [ null, %14 ], [ null, %8 ]
-  %34 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 656), align 8
+  %34 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 656), align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %36 = load ptr, ptr %35, align 8
   %37 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.683, i64 noundef 21, ptr noundef %36) #24

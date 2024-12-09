@@ -108,7 +108,7 @@ define hidden void @_ZN5Phase12print_timersEv() local_unnamed_addr #0 align 2 {
   %4 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN5Phase6timersE) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.8, double noundef %4) #4
   %5 = load ptr, ptr @tty, align 8
-  %6 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 24)) #4
+  %6 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 24)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str.9, double noundef %6) #4
   %7 = load i8, ptr @DoEscapeAnalysis, align 1
   %8 = trunc i8 %7 to i1
@@ -116,37 +116,37 @@ define hidden void @_ZN5Phase12print_timersEv() local_unnamed_addr #0 align 2 {
 
 9:                                                ; preds = %0
   %10 = load ptr, ptr @tty, align 8
-  %11 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 48)) #4
+  %11 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 48)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull @.str.10, double noundef %11) #4
   %12 = load ptr, ptr @tty, align 8
-  %13 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 72)) #4
+  %13 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 72)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull @.str.11, double noundef %13) #4
   %14 = load ptr, ptr @tty, align 8
-  %15 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 96)) #4
+  %15 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 96)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull @.str.12, double noundef %15) #4
   br label %16
 
 16:                                               ; preds = %9, %0
   %17 = load ptr, ptr @tty, align 8
-  %18 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 120)) #4
+  %18 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 120)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull @.str.13, double noundef %18) #4
   %19 = load ptr, ptr @tty, align 8
-  %20 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 144)) #4
+  %20 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 144)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull @.str.14, double noundef %20) #4
   %21 = load ptr, ptr @tty, align 8
-  %22 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 168)) #4
+  %22 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 168)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str.15, double noundef %22) #4
   %23 = load ptr, ptr @tty, align 8
-  %24 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 192)) #4
+  %24 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 192)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull @.str.16, double noundef %24) #4
   %25 = load ptr, ptr @tty, align 8
-  %26 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 240)) #4
+  %26 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 240)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull @.str.17, double noundef %26) #4
   %27 = load ptr, ptr @tty, align 8
-  %28 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 216)) #4
+  %28 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 216)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef nonnull @.str.18, double noundef %28) #4
-  %29 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 144)) #4
-  %30 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 168)) #4
+  %29 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 144)) #4
+  %30 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 168)) #4
   %31 = fsub double %29, %30
   %32 = fcmp ogt double %31, 0.000000e+00
   br i1 %32, label %33, label %35
@@ -158,67 +158,67 @@ define hidden void @_ZN5Phase12print_timersEv() local_unnamed_addr #0 align 2 {
 
 35:                                               ; preds = %33, %16
   %36 = load ptr, ptr @tty, align 8
-  %37 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 264)) #4
+  %37 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 264)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull @.str.20, double noundef %37) #4
   %38 = load ptr, ptr @tty, align 8
-  %39 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 288)) #4
+  %39 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 288)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %38, ptr noundef nonnull @.str.21, double noundef %39) #4
   %40 = load ptr, ptr @tty, align 8
-  %41 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 312)) #4
+  %41 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 312)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %40, ptr noundef nonnull @.str.22, double noundef %41) #4
   %42 = load ptr, ptr @tty, align 8
-  %43 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 336)) #4
+  %43 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 336)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef nonnull @.str.23, double noundef %43) #4
   %44 = load ptr, ptr @tty, align 8
-  %45 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 360)) #4
+  %45 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 360)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %44, ptr noundef nonnull @.str.24, double noundef %45) #4
   %46 = load ptr, ptr @tty, align 8
-  %47 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 384)) #4
+  %47 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 384)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %46, ptr noundef nonnull @.str.25, double noundef %47) #4
   %48 = load ptr, ptr @tty, align 8
-  %49 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 408)) #4
+  %49 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 408)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %48, ptr noundef nonnull @.str.26, double noundef %49) #4
   %50 = load ptr, ptr @tty, align 8
-  %51 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 432)) #4
+  %51 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 432)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %50, ptr noundef nonnull @.str.27, double noundef %51) #4
   %52 = load ptr, ptr @tty, align 8
-  %53 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 456)) #4
+  %53 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 456)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %52, ptr noundef nonnull @.str.28, double noundef %53) #4
   %54 = load ptr, ptr @tty, align 8
-  %55 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 480)) #4
+  %55 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 480)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %54, ptr noundef nonnull @.str.29, double noundef %55) #4
   %56 = load ptr, ptr @tty, align 8
-  %57 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 504)) #4
+  %57 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 504)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %56, ptr noundef nonnull @.str.30, double noundef %57) #4
   %58 = load ptr, ptr @tty, align 8
-  %59 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 528)) #4
+  %59 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 528)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %58, ptr noundef nonnull @.str.31, double noundef %59) #4
   %60 = load ptr, ptr @tty, align 8
-  %61 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 552)) #4
+  %61 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 552)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %60, ptr noundef nonnull @.str.32, double noundef %61) #4
-  %62 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 24)) #4
-  %63 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 48)) #4
-  %64 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 120)) #4
+  %62 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 24)) #4
+  %63 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 48)) #4
+  %64 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 120)) #4
   %65 = fadd double %63, %64
-  %66 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 144)) #4
+  %66 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 144)) #4
   %67 = fadd double %65, %66
-  %68 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 264)) #4
+  %68 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 264)) #4
   %69 = fadd double %67, %68
-  %70 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 360)) #4
+  %70 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 360)) #4
   %71 = fadd double %69, %70
-  %72 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 384)) #4
+  %72 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 384)) #4
   %73 = fadd double %71, %72
-  %74 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 432)) #4
+  %74 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 432)) #4
   %75 = fadd double %73, %74
-  %76 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 456)) #4
+  %76 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 456)) #4
   %77 = fadd double %75, %76
-  %78 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 480)) #4
+  %78 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 480)) #4
   %79 = fadd double %77, %78
-  %80 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 504)) #4
+  %80 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 504)) #4
   %81 = fadd double %79, %80
-  %82 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 528)) #4
+  %82 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 528)) #4
   %83 = fadd double %81, %82
-  %84 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 552)) #4
+  %84 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 552)) #4
   %85 = fadd double %83, %84
   %86 = fsub double %62, %85
   %87 = fcmp ogt double %86, 0.000000e+00
@@ -231,91 +231,91 @@ define hidden void @_ZN5Phase12print_timersEv() local_unnamed_addr #0 align 2 {
 
 90:                                               ; preds = %88, %35
   %91 = load ptr, ptr @tty, align 8
-  %92 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 576)) #4
+  %92 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 576)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %91, ptr noundef nonnull @.str.34, double noundef %92) #4
   %93 = load ptr, ptr @tty, align 8
-  %94 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 600)) #4
+  %94 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 600)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %93, ptr noundef nonnull @.str.35, double noundef %94) #4
   %95 = load ptr, ptr @tty, align 8
-  %96 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 624)) #4
+  %96 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 624)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %95, ptr noundef nonnull @.str.36, double noundef %96) #4
   %97 = load ptr, ptr @tty, align 8
-  %98 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 648)) #4
+  %98 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 648)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %97, ptr noundef nonnull @.str.37, double noundef %98) #4
   %99 = load ptr, ptr @tty, align 8
-  %100 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 672)) #4
+  %100 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 672)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %99, ptr noundef nonnull @.str.38, double noundef %100) #4
   %101 = load ptr, ptr @tty, align 8
-  %102 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 696)) #4
+  %102 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 696)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %101, ptr noundef nonnull @.str.39, double noundef %102) #4
   %103 = load ptr, ptr @tty, align 8
-  %104 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 720)) #4
+  %104 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 720)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %103, ptr noundef nonnull @.str.40, double noundef %104) #4
   %105 = load ptr, ptr @tty, align 8
-  %106 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 744)) #4
+  %106 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 744)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %105, ptr noundef nonnull @.str.41, double noundef %106) #4
   %107 = load ptr, ptr @tty, align 8
-  %108 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 768)) #4
+  %108 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 768)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %107, ptr noundef nonnull @.str.42, double noundef %108) #4
   %109 = load ptr, ptr @tty, align 8
-  %110 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 792)) #4
+  %110 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 792)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %109, ptr noundef nonnull @.str.43, double noundef %110) #4
   %111 = load ptr, ptr @tty, align 8
-  %112 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 816)) #4
+  %112 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 816)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %111, ptr noundef nonnull @.str.44, double noundef %112) #4
   %113 = load ptr, ptr @tty, align 8
-  %114 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 840)) #4
+  %114 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 840)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %113, ptr noundef nonnull @.str.45, double noundef %114) #4
   %115 = load ptr, ptr @tty, align 8
-  %116 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 864)) #4
+  %116 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 864)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %115, ptr noundef nonnull @.str.46, double noundef %116) #4
   %117 = load ptr, ptr @tty, align 8
-  %118 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 888)) #4
+  %118 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 888)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %117, ptr noundef nonnull @.str.47, double noundef %118) #4
   %119 = load ptr, ptr @tty, align 8
-  %120 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 912)) #4
+  %120 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 912)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %119, ptr noundef nonnull @.str.48, double noundef %120) #4
   %121 = load ptr, ptr @tty, align 8
-  %122 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 936)) #4
+  %122 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 936)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %121, ptr noundef nonnull @.str.49, double noundef %122) #4
   %123 = load ptr, ptr @tty, align 8
-  %124 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 960)) #4
+  %124 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 960)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %123, ptr noundef nonnull @.str.50, double noundef %124) #4
   %125 = load ptr, ptr @tty, align 8
-  %126 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 984)) #4
+  %126 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 984)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %125, ptr noundef nonnull @.str.51, double noundef %126) #4
   %127 = load ptr, ptr @tty, align 8
-  %128 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1008)) #4
+  %128 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1008)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %127, ptr noundef nonnull @.str.52, double noundef %128) #4
-  %129 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 648)) #4
-  %130 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 672)) #4
-  %131 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 696)) #4
+  %129 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 648)) #4
+  %130 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 672)) #4
+  %131 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 696)) #4
   %132 = fadd double %130, %131
-  %133 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 720)) #4
+  %133 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 720)) #4
   %134 = fadd double %132, %133
-  %135 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 744)) #4
+  %135 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 744)) #4
   %136 = fadd double %134, %135
-  %137 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 768)) #4
+  %137 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 768)) #4
   %138 = fadd double %136, %137
-  %139 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 792)) #4
+  %139 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 792)) #4
   %140 = fadd double %138, %139
-  %141 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 816)) #4
+  %141 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 816)) #4
   %142 = fadd double %140, %141
-  %143 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 840)) #4
+  %143 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 840)) #4
   %144 = fadd double %142, %143
-  %145 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 864)) #4
+  %145 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 864)) #4
   %146 = fadd double %144, %145
-  %147 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 888)) #4
+  %147 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 888)) #4
   %148 = fadd double %146, %147
-  %149 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 912)) #4
+  %149 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 912)) #4
   %150 = fadd double %148, %149
-  %151 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 936)) #4
+  %151 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 936)) #4
   %152 = fadd double %150, %151
-  %153 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 960)) #4
+  %153 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 960)) #4
   %154 = fadd double %152, %153
-  %155 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 984)) #4
+  %155 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 984)) #4
   %156 = fadd double %154, %155
-  %157 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1008)) #4
+  %157 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1008)) #4
   %158 = fadd double %156, %157
   %159 = fsub double %129, %158
   %160 = fcmp ogt double %159, 0.000000e+00
@@ -328,38 +328,38 @@ define hidden void @_ZN5Phase12print_timersEv() local_unnamed_addr #0 align 2 {
 
 163:                                              ; preds = %161, %90
   %164 = load ptr, ptr @tty, align 8
-  %165 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1032)) #4
+  %165 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1032)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %164, ptr noundef nonnull @.str.53, double noundef %165) #4
   %166 = load ptr, ptr @tty, align 8
-  %167 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1056)) #4
+  %167 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1056)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %166, ptr noundef nonnull @.str.54, double noundef %167) #4
   %168 = load ptr, ptr @tty, align 8
-  %169 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1104)) #4
+  %169 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1104)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %168, ptr noundef nonnull @.str.55, double noundef %169) #4
   %170 = load ptr, ptr @tty, align 8
-  %171 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1128)) #4
+  %171 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1128)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %170, ptr noundef nonnull @.str.56, double noundef %171) #4
   %172 = load ptr, ptr @tty, align 8
-  %173 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1152)) #4
+  %173 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1152)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %172, ptr noundef nonnull @.str.57, double noundef %173) #4
   %174 = load ptr, ptr @tty, align 8
-  %175 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1176)) #4
+  %175 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1176)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %174, ptr noundef nonnull @.str.58, double noundef %175) #4
   %176 = load ptr, ptr @tty, align 8
-  %177 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1200)) #4
+  %177 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1200)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %176, ptr noundef nonnull @.str.59, double noundef %177) #4
   %178 = load ptr, ptr @tty, align 8
-  %179 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1224)) #4
+  %179 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1224)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %178, ptr noundef nonnull @.str.60, double noundef %179) #4
-  %180 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1104)) #4
-  %181 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1128)) #4
-  %182 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1152)) #4
+  %180 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1104)) #4
+  %181 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1128)) #4
+  %182 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1152)) #4
   %183 = fadd double %181, %182
-  %184 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1176)) #4
+  %184 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1176)) #4
   %185 = fadd double %183, %184
-  %186 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1200)) #4
+  %186 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1200)) #4
   %187 = fadd double %185, %186
-  %188 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1224)) #4
+  %188 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1224)) #4
   %189 = fadd double %187, %188
   %190 = fsub double %180, %189
   %191 = fcmp ogt double %190, 0.000000e+00
@@ -371,7 +371,7 @@ define hidden void @_ZN5Phase12print_timersEv() local_unnamed_addr #0 align 2 {
   br label %194
 
 194:                                              ; preds = %192, %163
-  %195 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1248)) #4
+  %195 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1248)) #4
   %196 = fcmp ogt double %195, 0.000000e+00
   br i1 %196, label %197, label %201
 
@@ -379,12 +379,12 @@ define hidden void @_ZN5Phase12print_timersEv() local_unnamed_addr #0 align 2 {
   %198 = load ptr, ptr @tty, align 8
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %198) #4
   %199 = load ptr, ptr @tty, align 8
-  %200 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1248)) #4
+  %200 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1248)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %199, ptr noundef nonnull @.str.61, double noundef %200) #4
   br label %201
 
 201:                                              ; preds = %197, %194
-  %202 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1272)) #4
+  %202 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1272)) #4
   %203 = fcmp ogt double %202, 0.000000e+00
   br i1 %203, label %204, label %208
 
@@ -392,34 +392,34 @@ define hidden void @_ZN5Phase12print_timersEv() local_unnamed_addr #0 align 2 {
   %205 = load ptr, ptr @tty, align 8
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %205) #4
   %206 = load ptr, ptr @tty, align 8
-  %207 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1272)) #4
+  %207 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1272)) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %206, ptr noundef nonnull @.str.62, double noundef %207) #4
   br label %208
 
 208:                                              ; preds = %204, %201
   %209 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN5Phase19_t_totalCompilationE) #4
   %210 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN5Phase6timersE) #4
-  %211 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 24)) #4
+  %211 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 24)) #4
   %212 = fadd double %210, %211
-  %213 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 576)) #4
+  %213 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 576)) #4
   %214 = fadd double %212, %213
-  %215 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 624)) #4
+  %215 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 624)) #4
   %216 = fadd double %214, %215
-  %217 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 648)) #4
+  %217 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 648)) #4
   %218 = fadd double %216, %217
-  %219 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1032)) #4
+  %219 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1032)) #4
   %220 = fadd double %218, %219
-  %221 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1056)) #4
+  %221 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1056)) #4
   %222 = fadd double %220, %221
-  %223 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1080)) #4
+  %223 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1080)) #4
   %224 = fadd double %222, %223
-  %225 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1104)) #4
+  %225 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1104)) #4
   %226 = fadd double %224, %225
-  %227 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1224)) #4
+  %227 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1224)) #4
   %228 = fadd double %226, %227
-  %229 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1248)) #4
+  %229 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1248)) #4
   %230 = fadd double %228, %229
-  %231 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1272)) #4
+  %231 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1272)) #4
   %232 = fadd double %230, %231
   %233 = fsub double %209, %232
   %234 = fcmp ogt double %233, 0.000000e+00

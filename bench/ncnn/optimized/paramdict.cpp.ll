@@ -36,7 +36,7 @@ $__clang_call_terminate = comdat any
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4ncnn9ParamDictC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4ncnn9ParamDictE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4ncnn9ParamDictE, i64 16), ptr %0, align 8
   %2 = tail call noalias noundef nonnull dereferenceable(2560) ptr @_Znwm(i64 noundef 2560) #15
   br label %3
 
@@ -179,7 +179,7 @@ define hidden void @_ZN4ncnn9ParamDict5clearEv(ptr nocapture noundef nonnull rea
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4ncnn9ParamDictD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4ncnn9ParamDictE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4ncnn9ParamDictE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -251,7 +251,7 @@ _ZN4ncnn16ParamDictPrivateD2Ev.exit:              ; preds = %_ZN4ncnn16ParamDict
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4ncnn9ParamDictD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4ncnn9ParamDictE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4ncnn9ParamDictE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -324,7 +324,7 @@ _ZN4ncnn9ParamDictD2Ev.exit:                      ; preds = %1, %_ZN4ncnn16Param
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4ncnn9ParamDictC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4ncnn9ParamDictE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4ncnn9ParamDictE, i64 16), ptr %0, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(2560) ptr @_Znwm(i64 noundef 2560) #15
   br label %4
 

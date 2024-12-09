@@ -408,7 +408,7 @@ define hidden noundef range(i32 -1, 1) i32 @_Z15display_captionPKc(ptr noundef %
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.cv::Scalar_", align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @src, i64 64), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @src, i64 64), align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = load i32, ptr %7, align 4
@@ -443,9 +443,9 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %1
           to label %22 unwind label %35
 
 22:                                               ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @src, i64 12), align 4
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @src, i64 12), align 4
   %24 = sdiv i32 %23, 4
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @src, i64 8), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @src, i64 8), align 8
   %26 = sdiv i32 %25, 2
   store double 2.550000e+02, ptr %6, align 8
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8

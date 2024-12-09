@@ -777,7 +777,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr25RefinerSurfaceFactoryBaseC2ERKNS0_3Far1
   %.sroa.0.0.copyload.i = load i32, ptr %6, align 4
   store i32 %.sroa.0.0.copyload.i, ptr %4, align 4
   call void @_ZN10OpenSubdiv6v3_6_03Bfr14SurfaceFactoryC2ENS0_3Sdc10SchemeTypeERKNS3_7OptionsERKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %5, ptr noundef nonnull align 1 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(19) %2)
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN10OpenSubdiv6v3_6_03Bfr25RefinerSurfaceFactoryBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN10OpenSubdiv6v3_6_03Bfr25RefinerSurfaceFactoryBaseE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 96

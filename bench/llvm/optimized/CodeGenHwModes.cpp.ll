@@ -133,7 +133,7 @@ define dso_local void @_ZN4llvm6HwModeC2EPNS_6RecordE(ptr noundef nonnull align 
   store i32 1, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %9, align 8
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %8, ptr %30, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
@@ -473,7 +473,7 @@ define dso_local void @_ZN4llvm12HwModeSelectC2EPNS_6RecordERNS_14CodeGenHwModes
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 32
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %.sroa.0.0.copyload.i = load ptr, ptr @_ZN4llvm14CodeGenHwModes15DefaultModeNameE, align 8
-  %.sroa.2.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4llvm14CodeGenHwModes15DefaultModeNameE, i64 8), align 8
+  %.sroa.2.0.copyload.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm14CodeGenHwModes15DefaultModeNameE, i64 8), align 8
   %.not.i.i = icmp eq i64 %.sroa.2.0.copyload.i.i.i, %.sroa.2.0.copyload.i
   br i1 %.not.i.i, label %47, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i
 
@@ -746,7 +746,7 @@ define dso_local noundef i32 @_ZNK4llvm14CodeGenHwModes11getHwModeIdEPNS_6Record
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %.sroa.0.0.copyload = load ptr, ptr @_ZN4llvm14CodeGenHwModes15DefaultModeNameE, align 8
-  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4llvm14CodeGenHwModes15DefaultModeNameE, i64 8), align 8
+  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm14CodeGenHwModes15DefaultModeNameE, i64 8), align 8
   %.not.i = icmp eq i64 %.sroa.2.0.copyload.i.i, %.sroa.2.0.copyload
   br i1 %.not.i, label %5, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread6
 
@@ -1057,7 +1057,7 @@ _ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit:    ; preds = %._crit_edge, %25
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %42, i64 32
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %.sroa.03.0.copyload = load ptr, ptr @_ZN4llvm14CodeGenHwModes15DefaultModeNameE, align 8
-  %.sroa.24.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4llvm14CodeGenHwModes15DefaultModeNameE, i64 8), align 8
+  %.sroa.24.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm14CodeGenHwModes15DefaultModeNameE, i64 8), align 8
   %.not.i = icmp eq i64 %.sroa.2.0.copyload.i.i, %.sroa.24.0.copyload
   br i1 %.not.i, label %44, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread31
 

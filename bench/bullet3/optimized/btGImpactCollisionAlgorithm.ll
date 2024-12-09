@@ -230,7 +230,7 @@ $_ZTIN27btGImpactCollisionAlgorithm10CreateFuncE = comdat any
 define dso_local void @_ZN27btGImpactCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27btGImpactCollisionAlgorithm, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27btGImpactCollisionAlgorithm, i64 16), ptr %this, align 8
   %m_convex_algorithm = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_convex_algorithm, i8 0, i64 16, i1 false)
   ret void
@@ -241,7 +241,7 @@ declare void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmCons
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN27btGImpactCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27btGImpactCollisionAlgorithm, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27btGImpactCollisionAlgorithm, i64 16), ptr %this, align 8
   %m_manifoldPtr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_manifoldPtr.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -317,7 +317,7 @@ declare void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN27btGImpactCollisionAlgorithmD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27btGImpactCollisionAlgorithm, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27btGImpactCollisionAlgorithm, i64 16), ptr %this, align 8
   %m_manifoldPtr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_manifoldPtr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -1127,7 +1127,7 @@ entry:
   %m_shapeType.i.i = getelementptr inbounds nuw i8, ptr %tri0, i64 8
   store i32 1, ptr %m_shapeType.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_vertices1.ptr.i.i, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17btTriangleShapeEx, i64 16), ptr %tri0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17btTriangleShapeEx, i64 16), ptr %tri0, align 8
   invoke void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %tri1)
           to label %invoke.cont unwind label %lpad
 
@@ -1136,7 +1136,7 @@ invoke.cont:                                      ; preds = %entry
   %m_shapeType.i.i9 = getelementptr inbounds nuw i8, ptr %tri1, i64 8
   store i32 1, ptr %m_shapeType.i.i9, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_vertices1.ptr.i.i8, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17btTriangleShapeEx, i64 16), ptr %tri1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17btTriangleShapeEx, i64 16), ptr %tri1, align 8
   %vtable = load ptr, ptr %shape0, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 224
   %0 = load ptr, ptr %vfn, align 8
@@ -1890,21 +1890,21 @@ invoke.cont50:                                    ; preds = %invoke.cont47
   %m_shapeType.i.i.i = getelementptr inbounds nuw i8, ptr %retriever0, i64 16
   store i32 1, ptr %m_shapeType.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_vertices1.ptr.i.i.i, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17btTriangleShapeEx, i64 16), ptr %m_trishape.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17btTriangleShapeEx, i64 16), ptr %m_trishape.i, align 8
   %m_tetrashape.i = getelementptr inbounds nuw i8, ptr %retriever0, i64 136
   invoke void @_ZN16btBU_Simplex1to4C2Ev(ptr noundef nonnull align 8 dereferenceable(184) %m_tetrashape.i)
           to label %invoke.cont.i unwind label %lpad.i54
 
 invoke.cont.i:                                    ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTV20btTetrahedronShapeEx, i64 16), ptr %m_tetrashape.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20btTetrahedronShapeEx, i64 16), ptr %m_tetrashape.i, align 8
   %m_numVertices.i.i = getelementptr inbounds nuw i8, ptr %retriever0, i64 252
   store i32 4, ptr %m_numVertices.i.i, align 4
   %m_child_retriever.i = getelementptr inbounds nuw i8, ptr %retriever0, i64 320
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18GIM_ShapeRetriever19ChildShapeRetrieverE, i64 16), ptr %m_child_retriever.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18GIM_ShapeRetriever19ChildShapeRetrieverE, i64 16), ptr %m_child_retriever.i, align 8
   %m_tri_retriever.i = getelementptr inbounds nuw i8, ptr %retriever0, i64 336
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18GIM_ShapeRetriever22TriangleShapeRetrieverE, i64 16), ptr %m_tri_retriever.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18GIM_ShapeRetriever22TriangleShapeRetrieverE, i64 16), ptr %m_tri_retriever.i, align 8
   %m_tetra_retriever.i = getelementptr inbounds nuw i8, ptr %retriever0, i64 352
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18GIM_ShapeRetriever19TetraShapeRetrieverE, i64 16), ptr %m_tetra_retriever.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18GIM_ShapeRetriever19TetraShapeRetrieverE, i64 16), ptr %m_tetra_retriever.i, align 8
   store ptr %shape0, ptr %retriever0, align 8
   %vtable.i = load ptr, ptr %shape0, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 192
@@ -1969,21 +1969,21 @@ invoke.cont51:                                    ; preds = %if.else14.i, %if.th
   %m_shapeType.i.i.i57 = getelementptr inbounds nuw i8, ptr %retriever1, i64 16
   store i32 1, ptr %m_shapeType.i.i.i57, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_vertices1.ptr.i.i.i56, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17btTriangleShapeEx, i64 16), ptr %m_trishape.i55, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17btTriangleShapeEx, i64 16), ptr %m_trishape.i55, align 8
   %m_tetrashape.i58 = getelementptr inbounds nuw i8, ptr %retriever1, i64 136
   invoke void @_ZN16btBU_Simplex1to4C2Ev(ptr noundef nonnull align 8 dereferenceable(184) %m_tetrashape.i58)
           to label %invoke.cont.i62 unwind label %lpad.i59
 
 invoke.cont.i62:                                  ; preds = %.noexc83
-  store ptr getelementptr inbounds (i8, ptr @_ZTV20btTetrahedronShapeEx, i64 16), ptr %m_tetrashape.i58, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20btTetrahedronShapeEx, i64 16), ptr %m_tetrashape.i58, align 8
   %m_numVertices.i.i63 = getelementptr inbounds nuw i8, ptr %retriever1, i64 252
   store i32 4, ptr %m_numVertices.i.i63, align 4
   %m_child_retriever.i64 = getelementptr inbounds nuw i8, ptr %retriever1, i64 320
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18GIM_ShapeRetriever19ChildShapeRetrieverE, i64 16), ptr %m_child_retriever.i64, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18GIM_ShapeRetriever19ChildShapeRetrieverE, i64 16), ptr %m_child_retriever.i64, align 8
   %m_tri_retriever.i65 = getelementptr inbounds nuw i8, ptr %retriever1, i64 336
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18GIM_ShapeRetriever22TriangleShapeRetrieverE, i64 16), ptr %m_tri_retriever.i65, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18GIM_ShapeRetriever22TriangleShapeRetrieverE, i64 16), ptr %m_tri_retriever.i65, align 8
   %m_tetra_retriever.i66 = getelementptr inbounds nuw i8, ptr %retriever1, i64 352
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18GIM_ShapeRetriever19TetraShapeRetrieverE, i64 16), ptr %m_tetra_retriever.i66, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18GIM_ShapeRetriever19TetraShapeRetrieverE, i64 16), ptr %m_tetra_retriever.i66, align 8
   store ptr %shape1, ptr %retriever1, align 8
   %vtable.i67 = load ptr, ptr %shape1, align 8
   %vfn.i68 = getelementptr inbounds nuw i8, ptr %vtable.i67, i64 192
@@ -2650,21 +2650,21 @@ invoke.cont32:                                    ; preds = %if.end29
   %m_shapeType.i.i.i = getelementptr inbounds nuw i8, ptr %retriever0, i64 16
   store i32 1, ptr %m_shapeType.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_vertices1.ptr.i.i.i, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17btTriangleShapeEx, i64 16), ptr %m_trishape.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17btTriangleShapeEx, i64 16), ptr %m_trishape.i, align 8
   %m_tetrashape.i = getelementptr inbounds nuw i8, ptr %retriever0, i64 136
   invoke void @_ZN16btBU_Simplex1to4C2Ev(ptr noundef nonnull align 8 dereferenceable(184) %m_tetrashape.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTV20btTetrahedronShapeEx, i64 16), ptr %m_tetrashape.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20btTetrahedronShapeEx, i64 16), ptr %m_tetrashape.i, align 8
   %m_numVertices.i.i = getelementptr inbounds nuw i8, ptr %retriever0, i64 252
   store i32 4, ptr %m_numVertices.i.i, align 4
   %m_child_retriever.i = getelementptr inbounds nuw i8, ptr %retriever0, i64 320
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18GIM_ShapeRetriever19ChildShapeRetrieverE, i64 16), ptr %m_child_retriever.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18GIM_ShapeRetriever19ChildShapeRetrieverE, i64 16), ptr %m_child_retriever.i, align 8
   %m_tri_retriever.i = getelementptr inbounds nuw i8, ptr %retriever0, i64 336
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18GIM_ShapeRetriever22TriangleShapeRetrieverE, i64 16), ptr %m_tri_retriever.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18GIM_ShapeRetriever22TriangleShapeRetrieverE, i64 16), ptr %m_tri_retriever.i, align 8
   %m_tetra_retriever.i = getelementptr inbounds nuw i8, ptr %retriever0, i64 352
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18GIM_ShapeRetriever19TetraShapeRetrieverE, i64 16), ptr %m_tetra_retriever.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18GIM_ShapeRetriever19TetraShapeRetrieverE, i64 16), ptr %m_tetra_retriever.i, align 8
   store ptr %shape0, ptr %retriever0, align 8
   %vtable.i = load ptr, ptr %shape0, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 192
@@ -3500,7 +3500,7 @@ entry:
   %minAABB = alloca %class.btVector3, align 4
   %maxAABB = alloca %class.btVector3, align 4
   %frombool = zext i1 %swapped to i8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV25btGImpactTriangleCallback, i64 16), ptr %tricallback, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV25btGImpactTriangleCallback, i64 16), ptr %tricallback, align 8
   %algorithm = getelementptr inbounds nuw i8, ptr %tricallback, i64 8
   store ptr %this, ptr %algorithm, align 8
   %body0Wrap2 = getelementptr inbounds nuw i8, ptr %tricallback, i64 16
@@ -3853,7 +3853,7 @@ init.check:                                       ; preds = %entry
 
 invoke.cont:                                      ; preds = %init.check
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN27btGImpactCollisionAlgorithm17registerAlgorithmEP21btCollisionDispatcherE12s_gimpact_cf, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN27btGImpactCollisionAlgorithm10CreateFuncE, i64 16), ptr @_ZZN27btGImpactCollisionAlgorithm17registerAlgorithmEP21btCollisionDispatcherE12s_gimpact_cf, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN27btGImpactCollisionAlgorithm10CreateFuncE, i64 16), ptr @_ZZN27btGImpactCollisionAlgorithm17registerAlgorithmEP21btCollisionDispatcherE12s_gimpact_cf, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN27btGImpactCollisionAlgorithm17registerAlgorithmEP21btCollisionDispatcherE12s_gimpact_cf) #15
   br label %for.body.preheader
 
@@ -4968,7 +4968,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx4.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx2, i64 16, i1 false)
   %arrayidx6.i.i = getelementptr inbounds nuw i8, ptr %tri1, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx6.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17btTriangleShapeEx, i64 16), ptr %tri1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17btTriangleShapeEx, i64 16), ptr %tri1, align 8
   %margin = getelementptr inbounds nuw i8, ptr %this, i64 44
   %0 = load float, ptr %margin, align 4
   %m_collisionMargin.i = getelementptr inbounds nuw i8, ptr %tri1, i64 64
@@ -5090,7 +5090,7 @@ entry:
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 64)
   tail call void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(64) %call, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27btGImpactCollisionAlgorithm, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27btGImpactCollisionAlgorithm, i64 16), ptr %call, align 8
   %m_convex_algorithm.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_convex_algorithm.i, i8 0, i64 16, i1 false)
   ret ptr %call

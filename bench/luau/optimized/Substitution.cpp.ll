@@ -1554,7 +1554,7 @@ define internal void @__cxx_global_var_init.51() #0 section ".text.startup" comd
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau6TarjanC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(224) initializes((0, 40)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4Luau6TarjanE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4Luau6TarjanE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr @_ZN5FFlag25LuauReusableSubstitutionsE, align 8
   %4 = trunc i8 %3 to i1
@@ -4554,7 +4554,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN4Luau6Tarjan9findDirtyEPKNS_11T
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau12SubstitutionC2EPKNS_6TxnLogEPNS_9TypeArenaE(ptr nocapture noundef nonnull align 8 dereferenceable(472) initializes((0, 40)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN4Luau6TarjanC2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4Luau12SubstitutionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4Luau12SubstitutionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 232

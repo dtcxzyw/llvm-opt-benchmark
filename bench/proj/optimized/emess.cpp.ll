@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @_Z5emessiPKcz(i32 noundef %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @emess_dat, i64 8), align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %17, label %5
 
@@ -48,7 +48,7 @@ sub_1:                                            ; preds = %sub_0
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail, %5
   %13 = load ptr, ptr @stderr, align 8
   %14 = call noundef ptr @_Z14pj_get_releasev()
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 8), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @emess_dat, i64 8), align 8
   %16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.2, ptr noundef %14, ptr noundef %15) #10
   br label %17
 
@@ -65,7 +65,7 @@ sub_1:                                            ; preds = %sub_0
 21:                                               ; preds = %19
   %22 = load ptr, ptr @stderr, align 8
   %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.3, ptr noundef nonnull %18) #10
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @emess_dat, i64 16), align 8
   %25 = icmp sgt i32 %24, 0
   %26 = load ptr, ptr @stderr, align 8
   br i1 %25, label %27, label %29

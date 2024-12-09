@@ -973,7 +973,7 @@ define noundef nonnull ptr @_ZNK2cv12MatAllocator23getBufferPoolControllerEPKc(p
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %5
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN2cv25DummyBufferPoolControllerE, i64 16), ptr @_ZZNK2cv12MatAllocator23getBufferPoolControllerEPKcE5dummy, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN2cv25DummyBufferPoolControllerE, i64 16), ptr @_ZZNK2cv12MatAllocator23getBufferPoolControllerEPKcE5dummy, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK2cv12MatAllocator23getBufferPoolControllerEPKcE5dummy) #22
   br label %8
 
@@ -1073,7 +1073,7 @@ define noundef ptr @_ZN2cv3Mat15getStdAllocatorEv() local_unnamed_addr #1 align 
           to label %7 unwind label %10
 
 7:                                                ; preds = %5
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN2cv15StdMatAllocatorE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN2cv15StdMatAllocatorE, i64 16), ptr %6, align 8
   store ptr %6, ptr @_ZZN2cv3Mat15getStdAllocatorEvE8instance, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cv3Mat15getStdAllocatorEvE8instance) #22
   br label %8

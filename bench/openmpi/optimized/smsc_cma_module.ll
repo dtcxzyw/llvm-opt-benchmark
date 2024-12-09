@@ -38,10 +38,10 @@ define noundef ptr @mca_smsc_cma_get_endpoint(ptr noundef %0) #0 {
   %2 = alloca %struct.pmix_proc, align 4
   %3 = alloca ptr, align 8
   %4 = alloca %struct.pmix_info, align 8
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @mca_smsc_cma_endpoint_t_class, i64 56), align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_smsc_cma_endpoint_t_class, i64 56), align 8
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #7
   %7 = load i32, ptr @opal_class_init_epoch, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_smsc_cma_endpoint_t_class, i64 32), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_smsc_cma_endpoint_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %7, %8
   br i1 %.not.i, label %10, label %9
 
@@ -175,12 +175,12 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %49
   br i1 %.not50, label %86, label %61
 
 61:                                               ; preds = %57
-  %62 = load i32, ptr getelementptr inbounds (i8, ptr @opal_smsc_base_framework, i64 76), align 4
+  %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_smsc_base_framework, i64 76), align 4
   %63 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 0, i32 noundef %62) #8
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %61
-  %65 = load i32, ptr getelementptr inbounds (i8, ptr @opal_smsc_base_framework, i64 76), align 4
+  %65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_smsc_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %65, ptr noundef nonnull @.str.4) #8
   br label %66
 
@@ -240,12 +240,12 @@ opal_obj_run_destructors.exit58:                  ; preds = %.lr.ph.i55, %77
   br i1 %91, label %92, label %122
 
 92:                                               ; preds = %86
-  %93 = load i32, ptr getelementptr inbounds (i8, ptr @opal_smsc_base_framework, i64 76), align 4
+  %93 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_smsc_base_framework, i64 76), align 4
   %94 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 0, i32 noundef %93) #8
   br i1 %94, label %95, label %102
 
 95:                                               ; preds = %92
-  %96 = load i32, ptr getelementptr inbounds (i8, ptr @opal_smsc_base_framework, i64 76), align 4
+  %96 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_smsc_base_framework, i64 76), align 4
   %97 = call i32 @getpid() #8
   %98 = load i32, ptr %.03872, align 8
   %99 = tail call ptr @__errno_location() #9

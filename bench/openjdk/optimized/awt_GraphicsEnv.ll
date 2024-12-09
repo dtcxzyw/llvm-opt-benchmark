@@ -149,7 +149,7 @@ define void @Java_sun_awt_X11GraphicsConfig_initIDs(ptr noundef %0, ptr noundef 
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 752
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #17
-  store ptr %12, ptr getelementptr inbounds (i8, ptr @x11GraphicsConfigIDs, i64 8), align 8
+  store ptr %12, ptr getelementptr inbounds nuw (i8, ptr @x11GraphicsConfigIDs, i64 8), align 8
   br label %13
 
 13:                                               ; preds = %8, %2
@@ -1708,7 +1708,7 @@ define void @Java_sun_awt_X11GraphicsConfig_init(ptr noundef %0, ptr noundef %1,
   %42 = load ptr, ptr %0, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 872
   %44 = load ptr, ptr %43, align 8
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @x11GraphicsConfigIDs, i64 8), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x11GraphicsConfigIDs, i64 8), align 8
   %46 = load i32, ptr %37, align 8
   tail call void %44(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %45, i32 noundef %46) #17
   %47 = getelementptr inbounds nuw i8, ptr %36, i64 96

@@ -285,7 +285,7 @@ define dso_local noundef ptr @_ZN4llvm7AArch6414createFastISelERNS_20FunctionLow
 23:                                               ; preds = %14
   %24 = call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #22
   call void @_ZN4llvm8FastISelC2ERNS_20FunctionLoweringInfoEPKNS_17TargetLibraryInfoEb(ptr noundef nonnull align 8 dereferenceable(192) %24, ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr noundef %1, i1 noundef zeroext true) #21
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_115AArch64FastISelE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_115AArch64FastISelE, i64 16), ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -1980,7 +1980,7 @@ _ZN12_GLOBAL__N_115AArch64FastISel10fastEmit_iEN4llvm3MVTES2_jm.exit.i: ; preds 
   br label %808
 
 808:                                              ; preds = %807, %805
-  %.033.ph.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_115AArch64FastISel9selectCmpEPKN4llvm11InstructionEE13CondCodeTable, i64 8), %807 ], [ @_ZZN12_GLOBAL__N_115AArch64FastISel9selectCmpEPKN4llvm11InstructionEE13CondCodeTable, %805 ]
+  %.033.ph.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_115AArch64FastISel9selectCmpEPKN4llvm11InstructionEE13CondCodeTable, i64 8), %807 ], [ @_ZZN12_GLOBAL__N_115AArch64FastISel9selectCmpEPKN4llvm11InstructionEE13CondCodeTable, %805 ]
   %809 = call i32 @_ZN4llvm8FastISel15createResultRegEPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull @_ZN4llvm7AArch6413GPR32RegClassE) #21
   %810 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %811 = load ptr, ptr %810, align 8
@@ -2576,7 +2576,7 @@ _ZNK4llvm3MVT14is128BitVectorEv.exit83:           ; preds = %_ZNK4llvm3MVT13is64
 
 165:                                              ; preds = %152, %155, %_ZNK4llvm3MVT14is128BitVectorEv.exit83, %.critedge11, %.critedge9, %150
   %.067167.sink = phi i32 [ %.067167, %152 ], [ %.069166, %155 ], [ %.069166, %_ZNK4llvm3MVT14is128BitVectorEv.exit83 ], [ %.069166, %.critedge11 ], [ %.069166, %.critedge9 ], [ %.067167, %150 ]
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_115AArch64FastISel18fastLowerArgumentsEvE9Registers, i64 16), %152 ], [ getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_115AArch64FastISel18fastLowerArgumentsEvE9Registers, i64 48), %155 ], [ getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_115AArch64FastISel18fastLowerArgumentsEvE9Registers, i64 80), %_ZNK4llvm3MVT14is128BitVectorEv.exit83 ], [ getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_115AArch64FastISel18fastLowerArgumentsEvE9Registers, i64 64), %.critedge11 ], [ getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_115AArch64FastISel18fastLowerArgumentsEvE9Registers, i64 32), %.critedge9 ], [ @_ZZN12_GLOBAL__N_115AArch64FastISel18fastLowerArgumentsEvE9Registers, %150 ]
+  %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_115AArch64FastISel18fastLowerArgumentsEvE9Registers, i64 16), %152 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_115AArch64FastISel18fastLowerArgumentsEvE9Registers, i64 48), %155 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_115AArch64FastISel18fastLowerArgumentsEvE9Registers, i64 80), %_ZNK4llvm3MVT14is128BitVectorEv.exit83 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_115AArch64FastISel18fastLowerArgumentsEvE9Registers, i64 64), %.critedge11 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_115AArch64FastISel18fastLowerArgumentsEvE9Registers, i64 32), %.critedge9 ], [ @_ZZN12_GLOBAL__N_115AArch64FastISel18fastLowerArgumentsEvE9Registers, %150 ]
   %.071 = phi ptr [ @_ZN4llvm7AArch6413GPR64RegClassE, %152 ], [ @_ZN4llvm7AArch6413FPR32RegClassE, %155 ], [ @_ZN4llvm7AArch6414FPR128RegClassE, %_ZNK4llvm3MVT14is128BitVectorEv.exit83 ], [ @_ZN4llvm7AArch6413FPR64RegClassE, %.critedge11 ], [ @_ZN4llvm7AArch6413FPR16RegClassE, %.critedge9 ], [ @_ZN4llvm7AArch6413GPR32RegClassE, %150 ]
   %.170 = phi i32 [ %.069166, %152 ], [ %156, %155 ], [ %164, %_ZNK4llvm3MVT14is128BitVectorEv.exit83 ], [ %162, %.critedge11 ], [ %154, %.critedge9 ], [ %.069166, %150 ]
   %.168 = phi i32 [ %153, %152 ], [ %.067167, %155 ], [ %.067167, %_ZNK4llvm3MVT14is128BitVectorEv.exit83 ], [ %.067167, %.critedge11 ], [ %.067167, %.critedge9 ], [ %151, %150 ]
@@ -3753,7 +3753,7 @@ _ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit: ; 
   br label %339
 
 339:                                              ; preds = %.critedge2, %338, %337, %336
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_115AArch64FastISel22fastLowerIntrinsicCallEPKN4llvm13IntrinsicInstEE12LibCallTable, i64 24), %338 ], [ getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_115AArch64FastISel22fastLowerIntrinsicCallEPKN4llvm13IntrinsicInstEE12LibCallTable, i64 16), %337 ], [ getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_115AArch64FastISel22fastLowerIntrinsicCallEPKN4llvm13IntrinsicInstEE12LibCallTable, i64 8), %336 ], [ @_ZZN12_GLOBAL__N_115AArch64FastISel22fastLowerIntrinsicCallEPKN4llvm13IntrinsicInstEE12LibCallTable, %.critedge2 ]
+  %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_115AArch64FastISel22fastLowerIntrinsicCallEPKN4llvm13IntrinsicInstEE12LibCallTable, i64 24), %338 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_115AArch64FastISel22fastLowerIntrinsicCallEPKN4llvm13IntrinsicInstEE12LibCallTable, i64 16), %337 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_115AArch64FastISel22fastLowerIntrinsicCallEPKN4llvm13IntrinsicInstEE12LibCallTable, i64 8), %336 ], [ @_ZZN12_GLOBAL__N_115AArch64FastISel22fastLowerIntrinsicCallEPKN4llvm13IntrinsicInstEE12LibCallTable, %.critedge2 ]
   %340 = getelementptr inbounds nuw [2 x i32], ptr %.sink, i64 0, i64 %334
   %.0117 = load i32, ptr %340, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)

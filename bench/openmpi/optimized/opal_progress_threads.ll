@@ -30,7 +30,7 @@ define ptr @opal_progress_thread_init(ptr noundef readonly %0) local_unnamed_add
 
 2:                                                ; preds = %1
   %3 = load i32, ptr @opal_class_init_epoch, align 4
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %3, %4
   br i1 %.not, label %6, label %5
 
@@ -40,7 +40,7 @@ define ptr @opal_progress_thread_init(ptr noundef readonly %0) local_unnamed_add
 
 6:                                                ; preds = %5, %2
   store ptr @opal_list_t_class, ptr @tracking, align 8
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @tracking, i64 8), align 8
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @tracking, i64 8), align 8
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 40), align 8
   %8 = load ptr, ptr %7, align 8
   %.not6.i = icmp eq ptr %8, null
@@ -62,8 +62,8 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %6
 12:                                               ; preds = %opal_obj_run_constructors.exit, %1
   %13 = icmp eq ptr %0, null
   %spec.select = select i1 %13, ptr @.str.2, ptr %0
-  %.03976 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @tracking, i64 32), align 8
-  %.not4677 = icmp eq ptr %.03976, getelementptr inbounds (i8, ptr @tracking, i64 16)
+  %.03976 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @tracking, i64 32), align 8
+  %.not4677 = icmp eq ptr %.03976, getelementptr inbounds nuw (i8, ptr @tracking, i64 16)
   br i1 %.not4677, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12, %24
@@ -86,14 +86,14 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %6
 24:                                               ; preds = %.lr.ph
   %25 = getelementptr inbounds nuw i8, ptr %.03978, i64 16
   %.039 = load volatile ptr, ptr %25, align 8
-  %.not46 = icmp eq ptr %.039, getelementptr inbounds (i8, ptr @tracking, i64 16)
+  %.not46 = icmp eq ptr %.039, getelementptr inbounds nuw (i8, ptr @tracking, i64 16)
   br i1 %.not46, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %24, %12
-  %26 = load i64, ptr getelementptr inbounds (i8, ptr @opal_progress_tracker_t_class, i64 56), align 8
+  %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opal_progress_tracker_t_class, i64 56), align 8
   %27 = tail call noalias ptr @malloc(i64 noundef %26) #10
   %28 = load i32, ptr @opal_class_init_epoch, align 4
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @opal_progress_tracker_t_class, i64 32), align 8
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_progress_tracker_t_class, i64 32), align 8
   %.not.i49 = icmp eq i32 %28, %29
   br i1 %.not.i49, label %31, label %30
 
@@ -237,7 +237,7 @@ opal_obj_run_destructors.exit60:                  ; preds = %.lr.ph.i57, %79
   %89 = tail call i32 @event_assign(ptr noundef nonnull %88, ptr noundef nonnull %64, i32 noundef -1, i16 noundef signext 16, ptr noundef nonnull @dummy_timeout_cb, ptr noundef nonnull %27) #8
   %90 = tail call i32 @event_add(ptr noundef nonnull %88, ptr noundef nonnull @long_timeout) #8
   %91 = load i32, ptr @opal_class_init_epoch, align 4
-  %92 = load i32, ptr getelementptr inbounds (i8, ptr @opal_thread_t_class, i64 32), align 8
+  %92 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_thread_t_class, i64 32), align 8
   %.not47 = icmp eq i32 %91, %92
   br i1 %.not47, label %94, label %93
 
@@ -325,18 +325,18 @@ opal_obj_run_destructors.exit73:                  ; preds = %.lr.ph.i70, %120
   br label %137
 
 128:                                              ; preds = %opal_obj_run_constructors.exit65
-  %129 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @tracking, i64 40), align 8
+  %129 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @tracking, i64 40), align 8
   %130 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store volatile ptr %129, ptr %130, align 8
-  %131 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @tracking, i64 40), align 8
+  %131 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @tracking, i64 40), align 8
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
   store volatile ptr %27, ptr %132, align 8
   %133 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store volatile ptr getelementptr inbounds (i8, ptr @tracking, i64 16), ptr %133, align 8
-  store volatile ptr %27, ptr getelementptr inbounds (i8, ptr @tracking, i64 40), align 8
-  %134 = load volatile i64, ptr getelementptr inbounds (i8, ptr @tracking, i64 56), align 8
+  store volatile ptr getelementptr inbounds nuw (i8, ptr @tracking, i64 16), ptr %133, align 8
+  store volatile ptr %27, ptr getelementptr inbounds nuw (i8, ptr @tracking, i64 40), align 8
+  %134 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @tracking, i64 56), align 8
   %135 = add i64 %134, 1
-  store volatile i64 %135, ptr getelementptr inbounds (i8, ptr @tracking, i64 56), align 8
+  store volatile i64 %135, ptr getelementptr inbounds nuw (i8, ptr @tracking, i64 56), align 8
   %136 = load ptr, ptr %65, align 8
   br label %137
 
@@ -381,8 +381,8 @@ define range(i32 -13, 1) i32 @opal_progress_thread_finalize(ptr noundef readonly
 2:                                                ; preds = %1
   %3 = icmp eq ptr %0, null
   %spec.select = select i1 %3, ptr @.str.2, ptr %0
-  %.020 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @tracking, i64 32), align 8
-  %.not21 = icmp eq ptr %.020, getelementptr inbounds (i8, ptr @tracking, i64 16)
+  %.020 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @tracking, i64 32), align 8
+  %.not21 = icmp eq ptr %.020, getelementptr inbounds nuw (i8, ptr @tracking, i64 16)
   br i1 %.not21, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %54
@@ -427,9 +427,9 @@ define range(i32 -13, 1) i32 @opal_progress_thread_finalize(ptr noundef readonly
   %30 = load volatile ptr, ptr %24, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store volatile ptr %29, ptr %31, align 8
-  %32 = load volatile i64, ptr getelementptr inbounds (i8, ptr @tracking, i64 56), align 8
+  %32 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @tracking, i64 56), align 8
   %33 = add i64 %32, -1
-  store volatile i64 %33, ptr getelementptr inbounds (i8, ptr @tracking, i64 56), align 8
+  store volatile i64 %33, ptr getelementptr inbounds nuw (i8, ptr @tracking, i64 56), align 8
   %34 = load volatile ptr, ptr %26, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %36 = load i8, ptr @opal_uses_threads, align 1
@@ -477,7 +477,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %46
 54:                                               ; preds = %.lr.ph
   %55 = getelementptr inbounds nuw i8, ptr %.022, i64 16
   %.0 = load volatile ptr, ptr %55, align 8
-  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @tracking, i64 16)
+  %.not = icmp eq ptr %.0, getelementptr inbounds nuw (i8, ptr @tracking, i64 16)
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %54, %2, %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %8, %1
@@ -493,8 +493,8 @@ define range(i32 -13, 1) i32 @opal_progress_thread_pause(ptr noundef readonly %0
 2:                                                ; preds = %1
   %3 = icmp eq ptr %0, null
   %spec.select = select i1 %3, ptr @.str.2, ptr %0
-  %.012 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @tracking, i64 32), align 8
-  %.not13 = icmp eq ptr %.012, getelementptr inbounds (i8, ptr @tracking, i64 16)
+  %.012 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @tracking, i64 32), align 8
+  %.not13 = icmp eq ptr %.012, getelementptr inbounds nuw (i8, ptr @tracking, i64 16)
   br i1 %.not13, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %18
@@ -523,7 +523,7 @@ define range(i32 -13, 1) i32 @opal_progress_thread_pause(ptr noundef readonly %0
 18:                                               ; preds = %.lr.ph
   %19 = getelementptr inbounds nuw i8, ptr %.014, i64 16
   %.0 = load volatile ptr, ptr %19, align 8
-  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @tracking, i64 16)
+  %.not = icmp eq ptr %.0, getelementptr inbounds nuw (i8, ptr @tracking, i64 16)
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %18, %2, %8, %12, %1
@@ -539,8 +539,8 @@ define i32 @opal_progress_thread_resume(ptr noundef readonly %0) local_unnamed_a
 2:                                                ; preds = %1
   %3 = icmp eq ptr %0, null
   %spec.select = select i1 %3, ptr @.str.2, ptr %0
-  %.012 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @tracking, i64 32), align 8
-  %.not13 = icmp eq ptr %.012, getelementptr inbounds (i8, ptr @tracking, i64 16)
+  %.012 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @tracking, i64 32), align 8
+  %.not13 = icmp eq ptr %.012, getelementptr inbounds nuw (i8, ptr @tracking, i64 16)
   br i1 %.not13, label %start_progress_engine.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %19
@@ -576,7 +576,7 @@ define i32 @opal_progress_thread_resume(ptr noundef readonly %0) local_unnamed_a
 19:                                               ; preds = %.lr.ph
   %20 = getelementptr inbounds nuw i8, ptr %.014, i64 16
   %.0 = load volatile ptr, ptr %20, align 8
-  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @tracking, i64 16)
+  %.not = icmp eq ptr %.0, getelementptr inbounds nuw (i8, ptr @tracking, i64 16)
   br i1 %.not, label %start_progress_engine.exit, label %.lr.ph, !llvm.loop !10
 
 start_progress_engine.exit:                       ; preds = %19, %2, %17, %12, %8, %1

@@ -46,7 +46,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN8QuantLib34FdmEscrowedLogInnerValueCalculatorC2EN5boost10shared_ptrINS_26EscrowedDividendAdjustmentEEENS2_INS_6PayoffEEENS2_INS_9FdmMesherEEEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %this, ptr nocapture noundef %escrowedDividendAdj, ptr nocapture noundef %payoff, ptr nocapture noundef %mesher, i64 noundef %direction) unnamed_addr #2 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib34FdmEscrowedLogInnerValueCalculatorE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib34FdmEscrowedLogInnerValueCalculatorE, i64 16), ptr %this, align 8, !tbaa !3
   %escrowedDividendAdj_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %escrowedDividendAdj, align 8, !tbaa !6
   store ptr %0, ptr %escrowedDividendAdj_, align 8, !tbaa !6
@@ -149,7 +149,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib34FdmEscrowedLogInnerValueCalculatorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib34FdmEscrowedLogInnerValueCalculatorE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib34FdmEscrowedLogInnerValueCalculatorE, i64 16), ptr %this, align 8, !tbaa !3
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !11
   %cmp.not.i.i = icmp eq ptr %0, null

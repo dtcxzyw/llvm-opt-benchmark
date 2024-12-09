@@ -61423,7 +61423,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %.sroa.0.i17.i43.i.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.0.i17.i43.i.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.0.i17.i43.i.sroa.0.0.copyload109 = load i32, ptr @anon.e68c98984d05f4ab0d2a6f8791335996.964.llvm.240573438051967091, align 8
-  %.sroa.0.i17.i43.i.sroa.5.0.copyload110 = load i8, ptr getelementptr inbounds (i8, ptr @anon.e68c98984d05f4ab0d2a6f8791335996.964.llvm.240573438051967091, i64 4), align 4
+  %.sroa.0.i17.i43.i.sroa.5.0.copyload110 = load i8, ptr getelementptr inbounds nuw (i8, ptr @anon.e68c98984d05f4ab0d2a6f8791335996.964.llvm.240573438051967091, i64 4), align 4
   %.sroa.7107.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.7107.i.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 16
   %.sroa.8108.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -61880,7 +61880,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   br i1 %173, label %174, label %175
 
 174:                                              ; preds = %.loopexit.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.0.i.i.i.sroa.9, ptr noundef nonnull align 2 dereferenceable(6) getelementptr inbounds (i8, ptr @anon.e68c98984d05f4ab0d2a6f8791335996.964.llvm.240573438051967091, i64 26), i64 6, i1 false), !noalias !15762
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.0.i.i.i.sroa.9, ptr noundef nonnull align 2 dereferenceable(6) getelementptr inbounds nuw (i8, ptr @anon.e68c98984d05f4ab0d2a6f8791335996.964.llvm.240573438051967091, i64 26), i64 6, i1 false), !noalias !15762
   br label %"_ZN88_$LT$deltalake_core..kernel..models..actions..Metadata$u20$as$u20$core..clone..Clone$GT$5clone17h5a541bb3e8818a0eE.exit.i"
 
 175:                                              ; preds = %.loopexit.i.i
@@ -63201,7 +63201,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   br i1 %577, label %578, label %579
 
 578:                                              ; preds = %569
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.0.i17.i43.i.sroa.6, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds (i8, ptr @anon.e68c98984d05f4ab0d2a6f8791335996.964.llvm.240573438051967091, i64 5), i64 3, i1 false), !noalias !15762
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.0.i17.i43.i.sroa.6, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @anon.e68c98984d05f4ab0d2a6f8791335996.964.llvm.240573438051967091, i64 5), i64 3, i1 false), !noalias !15762
   br label %"_ZN90_$LT$deltalake_core..kernel..models..actions..CommitInfo$u20$as$u20$core..clone..Clone$GT$5clone17h2ae9ad6c257e2265E.exit.i"
 
 579:                                              ; preds = %569

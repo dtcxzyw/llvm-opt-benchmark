@@ -159,9 +159,9 @@ define dso_local void @global_dirty_limits(ptr nocapture noundef writeonly initi
   %4 = load volatile i64, ptr @vm_zone_stat, align 16
   %5 = tail call i64 @llvm.smax.i64(i64 %4, i64 0)
   %6 = load i64, ptr @totalreserve_pages, align 8
-  %7 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 16), align 16
+  %7 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 16), align 16
   %8 = tail call i64 @llvm.smax.i64(i64 %7, i64 0)
-  %9 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 24), align 8
+  %9 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 24), align 8
   %10 = tail call i64 @llvm.smax.i64(i64 %9, i64 0)
   %11 = tail call i64 @llvm.usub.sat.i64(i64 %5, i64 %6)
   %12 = add nuw i64 %11, 1
@@ -222,7 +222,7 @@ define internal fastcc void @domain_dirty_limits(ptr nocapture noundef initializ
 
 32:                                               ; preds = %1
   %33 = lshr i64 %26, 2
-  %34 = load i64, ptr getelementptr inbounds (i8, ptr @global_wb_domain, i64 112), align 8
+  %34 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 112), align 8
   %35 = lshr i64 %34, 5
   %36 = add nuw nsw i64 %33, %26
   %37 = add nuw nsw i64 %36, %35
@@ -238,11 +238,11 @@ define internal fastcc void @domain_dirty_limits(ptr nocapture noundef initializ
   store i64 %42, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %43, ptr %45, align 8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_global_dirty_state, i64 8), i32 2) #10
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_global_dirty_state, i64 8), i32 2) #10
           to label %66 [label %46], !srcloc !7
 
 46:                                               ; preds = %41
-  %47 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !8
+  %47 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !8
   %48 = zext i32 %47 to i64
   %49 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %48) #10, !srcloc !9
   %50 = icmp ult i8 %49, 2
@@ -251,9 +251,9 @@ define internal fastcc void @domain_dirty_limits(ptr nocapture noundef initializ
   br i1 %51, label %66, label %52
 
 52:                                               ; preds = %46
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !10
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
-  %53 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_global_dirty_state, i64 72), align 8
+  %53 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_global_dirty_state, i64 72), align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %59, label %55
 
@@ -265,7 +265,7 @@ define internal fastcc void @domain_dirty_limits(ptr nocapture noundef initializ
 
 59:                                               ; preds = %55, %52
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
-  %60 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !13
+  %60 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !13
   %61 = icmp ult i8 %60, 2
   tail call void @llvm.assume(i1 %61)
   %62 = icmp eq i8 %60, 0
@@ -330,9 +330,9 @@ define dso_local zeroext i1 @node_dirty_ok(ptr noundef %0) local_unnamed_addr #0
   %33 = load volatile i64, ptr @vm_zone_stat, align 16
   %34 = tail call i64 @llvm.smax.i64(i64 %33, i64 0)
   %35 = load i64, ptr @totalreserve_pages, align 8
-  %36 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 16), align 16
+  %36 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 16), align 16
   %37 = tail call i64 @llvm.smax.i64(i64 %36, i64 0)
-  %38 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 24), align 8
+  %38 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 24), align 8
   %39 = tail call i64 @llvm.smax.i64(i64 %38, i64 0)
   %40 = tail call i64 @llvm.usub.sat.i64(i64 %34, i64 %35)
   %41 = add nuw i64 %40, 1
@@ -386,8 +386,8 @@ define dso_local void @wb_writeout_inc(ptr noundef %0) #0 align 16 {
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %12 = load i32, ptr %11, align 8
-  call void @__fprop_add_percpu_max(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_wb_domain, i64 8), ptr noundef nonnull %9, i32 noundef %12, i64 noundef 1) #10
-  %13 = load i64, ptr getelementptr inbounds (i8, ptr @global_wb_domain, i64 96), align 8
+  call void @__fprop_add_percpu_max(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 8), ptr noundef nonnull %9, i32 noundef %12, i64 noundef 1) #10
+  %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 96), align 8
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %15, label %20, !prof !23
 
@@ -395,8 +395,8 @@ define dso_local void @wb_writeout_inc(ptr noundef %0) #0 align 16 {
   %16 = load volatile i64, ptr @jiffies, align 64
   %17 = add i64 %16, 3000
   %18 = call noundef i64 @llvm.umax.i64(i64 %17, i64 1)
-  store i64 %18, ptr getelementptr inbounds (i8, ptr @global_wb_domain, i64 96), align 8
-  %19 = call i32 @mod_timer(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_wb_domain, i64 56), i64 noundef %18) #10
+  store i64 %18, ptr getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 96), align 8
+  %19 = call i32 @mod_timer(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 56), i64 noundef %18) #10
   br label %20
 
 20:                                               ; preds = %15, %1
@@ -613,9 +613,9 @@ define dso_local range(i64 0, 18446744073710) i64 @bdi_get_min_bytes(ptr nocaptu
   %5 = load volatile i64, ptr @vm_zone_stat, align 16
   %6 = tail call i64 @llvm.smax.i64(i64 %5, i64 0)
   %7 = load i64, ptr @totalreserve_pages, align 8
-  %8 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 16), align 16
+  %8 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 16), align 16
   %9 = tail call i64 @llvm.smax.i64(i64 %8, i64 0)
-  %10 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 24), align 8
+  %10 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 24), align 8
   %11 = tail call i64 @llvm.smax.i64(i64 %10, i64 0)
   %12 = tail call i64 @llvm.usub.sat.i64(i64 %6, i64 %7)
   %13 = add nuw i64 %12, 1
@@ -641,9 +641,9 @@ define dso_local noundef range(i32 -22, 1) i32 @bdi_set_min_bytes(ptr nocapture 
   %5 = load volatile i64, ptr @vm_zone_stat, align 16
   %6 = tail call i64 @llvm.smax.i64(i64 %5, i64 0)
   %7 = load i64, ptr @totalreserve_pages, align 8
-  %8 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 16), align 16
+  %8 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 16), align 16
   %9 = tail call i64 @llvm.smax.i64(i64 %8, i64 0)
-  %10 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 24), align 8
+  %10 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 24), align 8
   %11 = tail call i64 @llvm.smax.i64(i64 %10, i64 0)
   %12 = tail call i64 @llvm.usub.sat.i64(i64 %6, i64 %7)
   %13 = add nuw i64 %12, 1
@@ -657,9 +657,9 @@ define dso_local noundef range(i32 -22, 1) i32 @bdi_set_min_bytes(ptr nocapture 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false)
   %18 = load volatile i64, ptr @vm_zone_stat, align 16
   %19 = tail call i64 @llvm.smax.i64(i64 %18, i64 0)
-  %20 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 16), align 16
+  %20 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 16), align 16
   %21 = tail call i64 @llvm.smax.i64(i64 %20, i64 0)
-  %22 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 24), align 8
+  %22 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 24), align 8
   %23 = tail call i64 @llvm.smax.i64(i64 %22, i64 0)
   %24 = tail call i64 @llvm.usub.sat.i64(i64 %19, i64 %7)
   %25 = add nuw i64 %24, 1
@@ -720,9 +720,9 @@ define dso_local range(i64 0, 18446744073710) i64 @bdi_get_max_bytes(ptr nocaptu
   %5 = load volatile i64, ptr @vm_zone_stat, align 16
   %6 = tail call i64 @llvm.smax.i64(i64 %5, i64 0)
   %7 = load i64, ptr @totalreserve_pages, align 8
-  %8 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 16), align 16
+  %8 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 16), align 16
   %9 = tail call i64 @llvm.smax.i64(i64 %8, i64 0)
-  %10 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 24), align 8
+  %10 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 24), align 8
   %11 = tail call i64 @llvm.smax.i64(i64 %10, i64 0)
   %12 = tail call i64 @llvm.usub.sat.i64(i64 %6, i64 %7)
   %13 = add nuw i64 %12, 1
@@ -748,9 +748,9 @@ define dso_local noundef range(i32 -22, 1) i32 @bdi_set_max_bytes(ptr nocapture 
   %5 = load volatile i64, ptr @vm_zone_stat, align 16
   %6 = tail call i64 @llvm.smax.i64(i64 %5, i64 0)
   %7 = load i64, ptr @totalreserve_pages, align 8
-  %8 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 16), align 16
+  %8 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 16), align 16
   %9 = tail call i64 @llvm.smax.i64(i64 %8, i64 0)
-  %10 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 24), align 8
+  %10 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 24), align 8
   %11 = tail call i64 @llvm.smax.i64(i64 %10, i64 0)
   %12 = tail call i64 @llvm.usub.sat.i64(i64 %6, i64 %7)
   %13 = add nuw i64 %12, 1
@@ -764,9 +764,9 @@ define dso_local noundef range(i32 -22, 1) i32 @bdi_set_max_bytes(ptr nocapture 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false)
   %18 = load volatile i64, ptr @vm_zone_stat, align 16
   %19 = tail call i64 @llvm.smax.i64(i64 %18, i64 0)
-  %20 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 16), align 16
+  %20 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 16), align 16
   %21 = tail call i64 @llvm.smax.i64(i64 %20, i64 0)
-  %22 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 24), align 8
+  %22 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 24), align 8
   %23 = tail call i64 @llvm.smax.i64(i64 %22, i64 0)
   %24 = tail call i64 @llvm.usub.sat.i64(i64 %19, i64 %7)
   %25 = add nuw i64 %24, 1
@@ -841,7 +841,7 @@ define dso_local range(i64 0, 18446744073710) i64 @wb_calc_thresh(ptr noundef %0
   store i64 0, ptr %3, align 8, !annotation !19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
   store i64 0, ptr %4, align 8, !annotation !19
-  call void @fprop_fraction_percpu(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_wb_domain, i64 8), ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
+  call void @fprop_fraction_percpu(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 8), ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
   %6 = load i32, ptr @bdi_min_ratio, align 4
   %7 = sub i32 1000000, %6
   %8 = zext i32 %7 to i64
@@ -901,7 +901,7 @@ define internal fastcc void @__wb_update_bandwidth(ptr nocapture noundef readonl
   br i1 %1, label %14, label %145
 
 14:                                               ; preds = %2
-  %15 = load i64, ptr getelementptr inbounds (i8, ptr @global_wb_domain, i64 104), align 8
+  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 104), align 8
   %16 = add i64 %4, -200
   %17 = sub i64 %16, %15
   %18 = icmp slt i64 %17, 0
@@ -909,7 +909,7 @@ define internal fastcc void @__wb_update_bandwidth(ptr nocapture noundef readonl
 
 19:                                               ; preds = %14
   tail call void @_raw_spin_lock(ptr noundef nonnull @global_wb_domain) #10
-  %20 = load i64, ptr getelementptr inbounds (i8, ptr @global_wb_domain, i64 104), align 8
+  %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 104), align 8
   %21 = sub i64 %16, %20
   %22 = icmp sgt i64 %21, -1
   br i1 %22, label %23, label %40
@@ -917,7 +917,7 @@ define internal fastcc void @__wb_update_bandwidth(ptr nocapture noundef readonl
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load i64, ptr %24, align 8
-  %26 = load i64, ptr getelementptr inbounds (i8, ptr @global_wb_domain, i64 112), align 8
+  %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 112), align 8
   %27 = icmp ult i64 %26, %25
   br i1 %27, label %37, label %28
 
@@ -936,11 +936,11 @@ define internal fastcc void @__wb_update_bandwidth(ptr nocapture noundef readonl
 
 37:                                               ; preds = %33, %23
   %38 = phi i64 [ %36, %33 ], [ %25, %23 ]
-  store i64 %38, ptr getelementptr inbounds (i8, ptr @global_wb_domain, i64 112), align 8
+  store i64 %38, ptr getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 112), align 8
   br label %39
 
 39:                                               ; preds = %37, %28
-  store i64 %4, ptr getelementptr inbounds (i8, ptr @global_wb_domain, i64 104), align 8
+  store i64 %4, ptr getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 104), align 8
   br label %40
 
 40:                                               ; preds = %39, %19
@@ -957,7 +957,7 @@ define internal fastcc void @__wb_update_bandwidth(ptr nocapture noundef readonl
   %48 = load i64, ptr %47, align 8
   %49 = add i64 %48, %46
   %50 = lshr i64 %49, 1
-  %51 = load i64, ptr getelementptr inbounds (i8, ptr @global_wb_domain, i64 112), align 8
+  %51 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 112), align 8
   %52 = tail call i64 @llvm.umax.i64(i64 %51, i64 %46)
   %53 = add i64 %50, %52
   %54 = getelementptr inbounds nuw i8, ptr %42, i64 288
@@ -1053,11 +1053,11 @@ define internal fastcc void @__wb_update_bandwidth(ptr nocapture noundef readonl
   %124 = tail call i64 @llvm.umax.i64(i64 %123, i64 1)
   store volatile i64 %124, ptr %56, align 8
   store i64 %75, ptr %110, align 8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_bdi_dirty_ratelimit, i64 8), i32 2) #10
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_bdi_dirty_ratelimit, i64 8), i32 2) #10
           to label %145 [label %125], !srcloc !7
 
 125:                                              ; preds = %109
-  %126 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !25
+  %126 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !25
   %127 = zext i32 %126 to i64
   %128 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %127) #10, !srcloc !9
   %129 = icmp ult i8 %128, 2
@@ -1066,9 +1066,9 @@ define internal fastcc void @__wb_update_bandwidth(ptr nocapture noundef readonl
   br i1 %130, label %145, label %131
 
 131:                                              ; preds = %125
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !10
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !26
-  %132 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_bdi_dirty_ratelimit, i64 72), align 8
+  %132 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_bdi_dirty_ratelimit, i64 72), align 8
   %133 = icmp eq ptr %132, null
   br i1 %133, label %138, label %134
 
@@ -1080,7 +1080,7 @@ define internal fastcc void @__wb_update_bandwidth(ptr nocapture noundef readonl
 
 138:                                              ; preds = %134, %131
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !27
-  %139 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !13
+  %139 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !13
   %140 = icmp ult i8 %139, 2
   tail call void @llvm.assume(i1 %140)
   %141 = icmp eq i8 %139, 0
@@ -1188,7 +1188,7 @@ define dso_local range(i32 -11, 1) i32 @balance_dirty_pages_ratelimited_flags(pt
   %17 = icmp eq i32 %16, 0
   %18 = tail call i32 @llvm.smin.i32(i32 %14, i32 8)
   %19 = select i1 %17, i32 %14, i32 %18
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !10
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !33
   %20 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @bdp_ratelimits) #12, !srcloc !34
   %21 = inttoptr i64 %20 to ptr
@@ -1234,7 +1234,7 @@ define dso_local range(i32 -11, 1) i32 @balance_dirty_pages_ratelimited_flags(pt
 
 47:                                               ; preds = %41, %38, %32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !36
-  %48 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !13
+  %48 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !13
   %49 = icmp ult i8 %48, 2
   tail call void @llvm.assume(i1 %49)
   %50 = icmp eq i8 %48, 0
@@ -1310,21 +1310,21 @@ define internal fastcc range(i32 -11, 1) i32 @balance_dirty_pages(ptr noundef %0
 
 .backedge:                                        ; preds = %.backedge.backedge, %3
   %34 = load volatile i64, ptr @jiffies, align 64
-  %35 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 160), align 16
+  %35 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 160), align 16
   %36 = call i64 @llvm.smax.i64(i64 %35, i64 0)
   %37 = load volatile i64, ptr @vm_zone_stat, align 16
   %38 = call i64 @llvm.smax.i64(i64 %37, i64 0)
   %39 = load i64, ptr @totalreserve_pages, align 8
-  %40 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 16), align 16
+  %40 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 16), align 16
   %41 = call i64 @llvm.smax.i64(i64 %40, i64 0)
-  %42 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 24), align 8
+  %42 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 24), align 8
   %43 = call i64 @llvm.smax.i64(i64 %42, i64 0)
   %44 = call i64 @llvm.usub.sat.i64(i64 %38, i64 %39)
   %45 = add nuw i64 %44, 1
   %46 = add nuw i64 %45, %41
   %47 = add i64 %46, %43
   store i64 %47, ptr %16, align 8
-  %48 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 168), align 8
+  %48 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 168), align 8
   %49 = call i64 @llvm.smax.i64(i64 %48, i64 0)
   %50 = add nuw i64 %49, %36
   store i64 %50, ptr %17, align 8
@@ -1417,7 +1417,7 @@ define internal fastcc range(i32 -11, 1) i32 @balance_dirty_pages(ptr noundef %0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
   store i64 0, ptr %5, align 8, !annotation !19
   %98 = load ptr, ptr %8, align 8
-  call void @fprop_fraction_percpu(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_wb_domain, i64 8), ptr noundef %98, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
+  call void @fprop_fraction_percpu(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 8), ptr noundef %98, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   %99 = load i32, ptr @bdi_min_ratio, align 4
   %100 = sub i32 1000000, %99
   %101 = zext i32 %100 to i64
@@ -1513,7 +1513,7 @@ define internal fastcc range(i32 -11, 1) i32 @balance_dirty_pages(ptr noundef %0
   %169 = load ptr, ptr %6, align 8
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 288
   %171 = load volatile i64, ptr %170, align 8
-  %172 = load i64, ptr getelementptr inbounds (i8, ptr @global_wb_domain, i64 112), align 8
+  %172 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 112), align 8
   %173 = call i64 @llvm.umax.i64(i64 %172, i64 %.pre77)
   store i64 0, ptr %24, align 8
   %174 = icmp ult i64 %.pre78, %173
@@ -1761,11 +1761,11 @@ define internal fastcc range(i32 -11, 1) i32 @balance_dirty_pages(ptr noundef %0
 353:                                              ; preds = %342
   %354 = getelementptr inbounds nuw i8, ptr %345, i64 2560
   %355 = call i64 @llvm.smin.i64(i64 %351, i64 0)
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_balance_dirty_pages, i64 8), i32 2) #10
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_balance_dirty_pages, i64 8), i32 2) #10
           to label %376 [label %356], !srcloc !7
 
 356:                                              ; preds = %353
-  %357 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !40
+  %357 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !40
   %358 = zext i32 %357 to i64
   %359 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %358) #10, !srcloc !9
   %360 = icmp ult i8 %359, 2
@@ -1774,9 +1774,9 @@ define internal fastcc range(i32 -11, 1) i32 @balance_dirty_pages(ptr noundef %0
   br i1 %361, label %376, label %362
 
 362:                                              ; preds = %356
-  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !10
+  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !10
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !41
-  %363 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_balance_dirty_pages, i64 72), align 8
+  %363 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_balance_dirty_pages, i64 72), align 8
   %364 = icmp eq ptr %363, null
   br i1 %364, label %369, label %365
 
@@ -1788,7 +1788,7 @@ define internal fastcc range(i32 -11, 1) i32 @balance_dirty_pages(ptr noundef %0
 
 369:                                              ; preds = %365, %362
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !42
-  %370 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !13
+  %370 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !13
   %371 = icmp ult i8 %370, 2
   call void @llvm.assume(i1 %371)
   %372 = icmp eq i8 %370, 0
@@ -1848,11 +1848,11 @@ define internal fastcc range(i32 -11, 1) i32 @balance_dirty_pages(ptr noundef %0
   %400 = phi i64 [ %398, %395 ], [ %34, %393 ], [ %34, %339 ]
   %401 = phi i64 [ %293, %395 ], [ %351, %393 ], [ %293, %339 ]
   %402 = phi i64 [ %343, %395 ], [ %343, %393 ], [ %293, %339 ]
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_balance_dirty_pages, i64 8), i32 2) #10
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_balance_dirty_pages, i64 8), i32 2) #10
           to label %423 [label %403], !srcloc !7
 
 403:                                              ; preds = %399
-  %404 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !40
+  %404 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !40
   %405 = zext i32 %404 to i64
   %406 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %405) #10, !srcloc !9
   %407 = icmp ult i8 %406, 2
@@ -1861,9 +1861,9 @@ define internal fastcc range(i32 -11, 1) i32 @balance_dirty_pages(ptr noundef %0
   br i1 %408, label %423, label %409
 
 409:                                              ; preds = %403
-  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !10
+  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !10
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !41
-  %410 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_balance_dirty_pages, i64 72), align 8
+  %410 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_balance_dirty_pages, i64 72), align 8
   %411 = icmp eq ptr %410, null
   br i1 %411, label %416, label %412
 
@@ -1875,7 +1875,7 @@ define internal fastcc range(i32 -11, 1) i32 @balance_dirty_pages(ptr noundef %0
 
 416:                                              ; preds = %412, %409
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !42
-  %417 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !13
+  %417 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !13
   %418 = icmp ult i8 %417, 2
   call void @llvm.assume(i1 %418)
   %419 = icmp eq i8 %417, 0
@@ -1960,9 +1960,9 @@ define dso_local zeroext i1 @wb_over_bg_thresh(ptr noundef %0) local_unnamed_add
   %8 = load volatile i64, ptr @vm_zone_stat, align 16
   %9 = tail call i64 @llvm.smax.i64(i64 %8, i64 0)
   %10 = load i64, ptr @totalreserve_pages, align 8
-  %11 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 16), align 16
+  %11 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 16), align 16
   %12 = tail call i64 @llvm.smax.i64(i64 %11, i64 0)
-  %13 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 24), align 8
+  %13 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 24), align 8
   %14 = tail call i64 @llvm.smax.i64(i64 %13, i64 0)
   %15 = tail call i64 @llvm.usub.sat.i64(i64 %9, i64 %10)
   %16 = add nuw i64 %15, 1
@@ -1970,7 +1970,7 @@ define dso_local zeroext i1 @wb_over_bg_thresh(ptr noundef %0) local_unnamed_add
   %18 = add i64 %17, %14
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %18, ptr %19, align 8
-  %20 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 160), align 16
+  %20 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 160), align 16
   %21 = tail call i64 @llvm.smax.i64(i64 %20, i64 0)
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %21, ptr %22, align 8
@@ -1988,7 +1988,7 @@ define dso_local zeroext i1 @wb_over_bg_thresh(ptr noundef %0) local_unnamed_add
   store i64 0, ptr %2, align 8, !annotation !19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
   store i64 0, ptr %3, align 8, !annotation !19
-  call void @fprop_fraction_percpu(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_wb_domain, i64 8), ptr noundef nonnull %29, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
+  call void @fprop_fraction_percpu(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 8), ptr noundef nonnull %29, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
   %30 = load i32, ptr @bdi_min_ratio, align 4
   %31 = sub i32 1000000, %30
   %32 = zext i32 %31 to i64
@@ -2096,9 +2096,9 @@ define dso_local void @writeback_set_ratelimit() local_unnamed_addr #0 align 16 
   %2 = load volatile i64, ptr @vm_zone_stat, align 16
   %3 = tail call i64 @llvm.smax.i64(i64 %2, i64 0)
   %4 = load i64, ptr @totalreserve_pages, align 8
-  %5 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 16), align 16
+  %5 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 16), align 16
   %6 = tail call i64 @llvm.smax.i64(i64 %5, i64 0)
-  %7 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 24), align 8
+  %7 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 24), align 8
   %8 = tail call i64 @llvm.smax.i64(i64 %7, i64 0)
   %9 = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 %4)
   %10 = add nuw i64 %9, 1
@@ -2110,7 +2110,7 @@ define dso_local void @writeback_set_ratelimit() local_unnamed_addr #0 align 16 
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load i64, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %1) #10
-  store i64 %15, ptr getelementptr inbounds (i8, ptr @global_wb_domain, i64 112), align 8
+  store i64 %15, ptr getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 112), align 8
   %16 = load volatile i32, ptr @__num_online_cpus, align 4
   %17 = shl i32 %16, 5
   %18 = zext i32 %17 to i64
@@ -2123,10 +2123,10 @@ define dso_local void @writeback_set_ratelimit() local_unnamed_addr #0 align 16 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @page_writeback_init() local_unnamed_addr #6 section ".init.text" align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) @global_wb_domain, i8 0, i64 120, i1 false)
-  tail call void @init_timer_key(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_wb_domain, i64 56), ptr noundef nonnull @writeout_period, i32 noundef 524288, ptr noundef null, ptr noundef null) #10
+  tail call void @init_timer_key(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 56), ptr noundef nonnull @writeout_period, i32 noundef 524288, ptr noundef null, ptr noundef null) #10
   %1 = load volatile i64, ptr @jiffies, align 64
-  store i64 %1, ptr getelementptr inbounds (i8, ptr @global_wb_domain, i64 104), align 8
-  %2 = tail call i32 @fprop_global_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_wb_domain, i64 8), i32 noundef 3264) #10
+  store i64 %1, ptr getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 104), align 8
+  %2 = tail call i32 @fprop_global_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 8), i32 noundef 3264) #10
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %5, label %4, !prof !14
 
@@ -2150,9 +2150,9 @@ define internal noundef i32 @page_writeback_cpu_online(i32 %0) #0 align 16 {
   %3 = load volatile i64, ptr @vm_zone_stat, align 16
   %4 = tail call i64 @llvm.smax.i64(i64 %3, i64 0)
   %5 = load i64, ptr @totalreserve_pages, align 8
-  %6 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 16), align 16
+  %6 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 16), align 16
   %7 = tail call i64 @llvm.smax.i64(i64 %6, i64 0)
-  %8 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 24), align 8
+  %8 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 24), align 8
   %9 = tail call i64 @llvm.smax.i64(i64 %8, i64 0)
   %10 = tail call i64 @llvm.usub.sat.i64(i64 %4, i64 %5)
   %11 = add nuw i64 %10, 1
@@ -2164,7 +2164,7 @@ define internal noundef i32 @page_writeback_cpu_online(i32 %0) #0 align 16 {
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %16 = load i64, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #10
-  store i64 %16, ptr getelementptr inbounds (i8, ptr @global_wb_domain, i64 112), align 8
+  store i64 %16, ptr getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 112), align 8
   %17 = load volatile i32, ptr @__num_online_cpus, align 4
   %18 = shl i32 %17, 5
   %19 = zext i32 %18 to i64
@@ -2432,11 +2432,11 @@ define dso_local i32 @write_cache_pages(ptr noundef %0, ptr noundef %1, ptr noca
 83:                                               ; preds = %81
   %84 = load ptr, ptr %0, align 8
   %85 = call ptr @inode_to_bdi(ptr noundef %84) #10
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_wbc_writepage, i64 8), i32 2) #10
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_wbc_writepage, i64 8), i32 2) #10
           to label %106 [label %86], !srcloc !7
 
 86:                                               ; preds = %83
-  %87 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !52
+  %87 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !52
   %88 = zext i32 %87 to i64
   %89 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %88) #10, !srcloc !9
   %90 = icmp ult i8 %89, 2
@@ -2445,9 +2445,9 @@ define dso_local i32 @write_cache_pages(ptr noundef %0, ptr noundef %1, ptr noca
   br i1 %91, label %106, label %92
 
 92:                                               ; preds = %86
-  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !10
+  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !10
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !53
-  %93 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_wbc_writepage, i64 72), align 8
+  %93 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_wbc_writepage, i64 72), align 8
   %94 = icmp eq ptr %93, null
   br i1 %94, label %99, label %95
 
@@ -2459,7 +2459,7 @@ define dso_local i32 @write_cache_pages(ptr noundef %0, ptr noundef %1, ptr noca
 
 99:                                               ; preds = %95, %92
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !54
-  %100 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !13
+  %100 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !13
   %101 = icmp ult i8 %100, 2
   call void @llvm.assume(i1 %101)
   %102 = icmp eq i8 %100, 0
@@ -2603,11 +2603,11 @@ define dso_local void @folio_wait_writeback(ptr noundef %0) #0 align 16 {
 
 .preheader:                                       ; preds = %1, %26
   %5 = tail call ptr @folio_mapping(ptr noundef %0) #10
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_folio_wait_writeback, i64 8), i32 2) #10
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_folio_wait_writeback, i64 8), i32 2) #10
           to label %26 [label %6], !srcloc !7
 
 6:                                                ; preds = %.preheader
-  %7 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !58
+  %7 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !58
   %8 = zext i32 %7 to i64
   %9 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %8) #10, !srcloc !9
   %10 = icmp ult i8 %9, 2
@@ -2616,9 +2616,9 @@ define dso_local void @folio_wait_writeback(ptr noundef %0) #0 align 16 {
   br i1 %11, label %26, label %12
 
 12:                                               ; preds = %6
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !10
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !59
-  %13 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_folio_wait_writeback, i64 72), align 8
+  %13 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_folio_wait_writeback, i64 72), align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
 
@@ -2630,7 +2630,7 @@ define dso_local void @folio_wait_writeback(ptr noundef %0) #0 align 16 {
 
 19:                                               ; preds = %15, %12
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !60
-  %20 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !13
+  %20 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !13
   %21 = icmp ult i8 %20, 2
   tail call void @llvm.assume(i1 %21)
   %22 = icmp eq i8 %20, 0
@@ -3026,11 +3026,11 @@ define dso_local void @__folio_mark_dirty(ptr noundef %0, ptr noundef %1, i32 no
 
 17:                                               ; preds = %16, %15, %9
   %18 = load ptr, ptr %1, align 8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_writeback_dirty_folio, i64 8), i32 2) #10
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_writeback_dirty_folio, i64 8), i32 2) #10
           to label %39 [label %19], !srcloc !7
 
 19:                                               ; preds = %17
-  %20 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !72
+  %20 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !72
   %21 = zext i32 %20 to i64
   %22 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %21) #10, !srcloc !9
   %23 = icmp ult i8 %22, 2
@@ -3039,9 +3039,9 @@ define dso_local void @__folio_mark_dirty(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %24, label %39, label %25
 
 25:                                               ; preds = %19
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !10
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !73
-  %26 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_writeback_dirty_folio, i64 72), align 8
+  %26 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_writeback_dirty_folio, i64 72), align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %32, label %28
 
@@ -3053,7 +3053,7 @@ define dso_local void @__folio_mark_dirty(ptr noundef %0, ptr noundef %1, i32 no
 
 32:                                               ; preds = %28, %25
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !74
-  %33 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !13
+  %33 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !13
   %34 = icmp ult i8 %33, 2
   tail call void @llvm.assume(i1 %34)
   %35 = icmp eq i8 %33, 0
@@ -3554,8 +3554,8 @@ define dso_local zeroext i1 @__folio_end_writeback(ptr noundef %0) local_unnamed
   %58 = load ptr, ptr %45, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 80
   %60 = load i32, ptr %59, align 8
-  tail call void @__fprop_add_percpu_max(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_wb_domain, i64 8), ptr noundef nonnull %57, i32 noundef %60, i64 noundef %10) #10
-  %61 = load i64, ptr getelementptr inbounds (i8, ptr @global_wb_domain, i64 96), align 8
+  tail call void @__fprop_add_percpu_max(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 8), ptr noundef nonnull %57, i32 noundef %60, i64 noundef %10) #10
+  %61 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 96), align 8
   %62 = icmp eq i64 %61, 0
   br i1 %62, label %63, label %68, !prof !23
 
@@ -3563,8 +3563,8 @@ define dso_local zeroext i1 @__folio_end_writeback(ptr noundef %0) local_unnamed
   %64 = load volatile i64, ptr @jiffies, align 64
   %65 = add i64 %64, 3000
   %66 = tail call noundef i64 @llvm.umax.i64(i64 %65, i64 1)
-  store i64 %66, ptr getelementptr inbounds (i8, ptr @global_wb_domain, i64 96), align 8
-  %67 = tail call i32 @mod_timer(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_wb_domain, i64 56), i64 noundef %66) #10
+  store i64 %66, ptr getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 96), align 8
+  %67 = tail call i32 @mod_timer(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 56), i64 noundef %66) #10
   br label %68
 
 68:                                               ; preds = %63, %43
@@ -3833,11 +3833,11 @@ define dso_local noundef range(i32 -4, 1) i32 @folio_wait_writeback_killable(ptr
 
 6:                                                ; preds = %2
   %7 = tail call ptr @folio_mapping(ptr noundef %0) #10
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_folio_wait_writeback, i64 8), i32 2) #10
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_folio_wait_writeback, i64 8), i32 2) #10
           to label %28 [label %8], !srcloc !7
 
 8:                                                ; preds = %6
-  %9 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !58
+  %9 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !58
   %10 = zext i32 %9 to i64
   %11 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %10) #10, !srcloc !9
   %12 = icmp ult i8 %11, 2
@@ -3846,9 +3846,9 @@ define dso_local noundef range(i32 -4, 1) i32 @folio_wait_writeback_killable(ptr
   br i1 %13, label %28, label %14
 
 14:                                               ; preds = %8
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !10
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !59
-  %15 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_folio_wait_writeback, i64 72), align 8
+  %15 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_folio_wait_writeback, i64 72), align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %21, label %17
 
@@ -3860,7 +3860,7 @@ define dso_local noundef range(i32 -4, 1) i32 @folio_wait_writeback_killable(ptr
 
 21:                                               ; preds = %17, %14
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !60
-  %22 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !13
+  %22 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !13
   %23 = icmp ult i8 %22, 2
   tail call void @llvm.assume(i1 %23)
   %24 = icmp eq i8 %22, 0
@@ -3945,7 +3945,7 @@ define internal fastcc void @wb_dirty_limits(ptr nocapture noundef initializes((
   store i64 0, ptr %3, align 8, !annotation !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  call void @fprop_fraction_percpu(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_wb_domain, i64 8), ptr noundef %8, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
+  call void @fprop_fraction_percpu(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 8), ptr noundef %8, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
   %9 = load i32, ptr @bdi_min_ratio, align 4
   %10 = sub i32 1000000, %9
   %11 = zext i32 %10 to i64
@@ -4099,9 +4099,9 @@ define internal i32 @dirty_ratio_handler(ptr noundef %0, i32 noundef %1, ptr nou
   %16 = load volatile i64, ptr @vm_zone_stat, align 16
   %17 = tail call i64 @llvm.smax.i64(i64 %16, i64 0)
   %18 = load i64, ptr @totalreserve_pages, align 8
-  %19 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 16), align 16
+  %19 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 16), align 16
   %20 = tail call i64 @llvm.smax.i64(i64 %19, i64 0)
-  %21 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 24), align 8
+  %21 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 24), align 8
   %22 = tail call i64 @llvm.smax.i64(i64 %21, i64 0)
   %23 = tail call i64 @llvm.usub.sat.i64(i64 %17, i64 %18)
   %24 = add nuw i64 %23, 1
@@ -4113,7 +4113,7 @@ define internal i32 @dirty_ratio_handler(ptr noundef %0, i32 noundef %1, ptr nou
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %29 = load i64, ptr %28, align 8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #10
-  store i64 %29, ptr getelementptr inbounds (i8, ptr @global_wb_domain, i64 112), align 8
+  store i64 %29, ptr getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 112), align 8
   %30 = load volatile i32, ptr @__num_online_cpus, align 4
   %31 = shl i32 %30, 5
   %32 = zext i32 %31 to i64
@@ -4146,9 +4146,9 @@ define internal i32 @dirty_bytes_handler(ptr noundef %0, i32 noundef %1, ptr nou
   %16 = load volatile i64, ptr @vm_zone_stat, align 16
   %17 = tail call i64 @llvm.smax.i64(i64 %16, i64 0)
   %18 = load i64, ptr @totalreserve_pages, align 8
-  %19 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 16), align 16
+  %19 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 16), align 16
   %20 = tail call i64 @llvm.smax.i64(i64 %19, i64 0)
-  %21 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 24), align 8
+  %21 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 24), align 8
   %22 = tail call i64 @llvm.smax.i64(i64 %21, i64 0)
   %23 = tail call i64 @llvm.usub.sat.i64(i64 %17, i64 %18)
   %24 = add nuw i64 %23, 1
@@ -4160,7 +4160,7 @@ define internal i32 @dirty_bytes_handler(ptr noundef %0, i32 noundef %1, ptr nou
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %29 = load i64, ptr %28, align 8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #10
-  store i64 %29, ptr getelementptr inbounds (i8, ptr @global_wb_domain, i64 112), align 8
+  store i64 %29, ptr getelementptr inbounds nuw (i8, ptr @global_wb_domain, i64 112), align 8
   %30 = load volatile i32, ptr @__num_online_cpus, align 4
   %31 = shl i32 %30, 5
   %32 = zext i32 %31 to i64

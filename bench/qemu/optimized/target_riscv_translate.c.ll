@@ -118701,7 +118701,7 @@ if.then.i:                                        ; preds = %if.then2
   br label %dest_gpr.exit
 
 if.end.i:                                         ; preds = %if.then2
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 8), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gpr, i64 8), align 8
   br label %dest_gpr.exit
 
 dest_gpr.exit:                                    ; preds = %if.then.i, %if.end.i
@@ -118745,12 +118745,12 @@ gen_pc_plus_diff.exit:                            ; preds = %if.then2.i, %if.els
   ]
 
 sw.bb.i:                                          ; preds = %gen_pc_plus_diff.exit
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 8), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gpr, i64 8), align 8
   tail call void @tcg_gen_ext32s_i64(ptr noundef %26, ptr noundef %retval.0.i) #13
   br label %sw.epilog.i
 
 sw.bb1.i:                                         ; preds = %gen_pc_plus_diff.exit, %gen_pc_plus_diff.exit
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 8), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gpr, i64 8), align 8
   tail call void @tcg_gen_mov_i64(ptr noundef %27, ptr noundef %retval.0.i) #13
   br label %sw.epilog.i
 
@@ -118765,8 +118765,8 @@ sw.epilog.i:                                      ; preds = %sw.bb1.i, %sw.bb.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end4
 
 if.then5.i:                                       ; preds = %sw.epilog.i
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gprh, i64 8), align 8
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 8), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gprh, i64 8), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gpr, i64 8), align 8
   tail call void @tcg_gen_sari_i64(ptr noundef %29, ptr noundef %30, i64 noundef 63) #13
   br label %if.end4
 
@@ -118809,8 +118809,8 @@ do.body9.i:                                       ; preds = %if.end2
   unreachable
 
 get_gpr.exit:                                     ; preds = %if.end2
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 80), align 16
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 88), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gpr, i64 80), align 16
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gpr, i64 88), align 8
   %cmp.not.i = icmp eq i32 %2, 0
   br i1 %cmp.not.i, label %gen_set_gpr.exit, label %if.then.i
 
@@ -118969,12 +118969,12 @@ get_gpr.exit17:                                   ; preds = %if.then.i15, %sw.ep
   ]
 
 sw.bb.i20:                                        ; preds = %get_gpr.exit17
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 80), align 16
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gpr, i64 80), align 16
   tail call void @tcg_gen_ext32s_i64(ptr noundef %5, ptr noundef %retval.0.i) #13
   br label %sw.epilog.i
 
 sw.bb1.i:                                         ; preds = %get_gpr.exit17, %get_gpr.exit17
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 80), align 16
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gpr, i64 80), align 16
   tail call void @tcg_gen_mov_i64(ptr noundef %6, ptr noundef %retval.0.i) #13
   br label %sw.epilog.i
 
@@ -118989,8 +118989,8 @@ sw.epilog.i:                                      ; preds = %sw.bb1.i, %sw.bb.i2
   br i1 %cmp4.i, label %if.then5.i, label %gen_set_gpr.exit
 
 if.then5.i:                                       ; preds = %sw.epilog.i
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gprh, i64 80), align 16
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 80), align 16
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gprh, i64 80), align 16
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gpr, i64 80), align 16
   tail call void @tcg_gen_sari_i64(ptr noundef %8, ptr noundef %9, i64 noundef 63) #13
   br label %gen_set_gpr.exit
 
@@ -119003,12 +119003,12 @@ gen_set_gpr.exit:                                 ; preds = %sw.epilog.i, %if.th
   ]
 
 sw.bb.i28:                                        ; preds = %gen_set_gpr.exit
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 88), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gpr, i64 88), align 8
   tail call void @tcg_gen_ext32s_i64(ptr noundef %11, ptr noundef %retval.0.i12) #13
   br label %sw.epilog.i24
 
 sw.bb1.i23:                                       ; preds = %gen_set_gpr.exit, %gen_set_gpr.exit
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 88), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gpr, i64 88), align 8
   tail call void @tcg_gen_mov_i64(ptr noundef %12, ptr noundef %retval.0.i12) #13
   br label %sw.epilog.i24
 
@@ -119022,8 +119022,8 @@ sw.epilog.i24:                                    ; preds = %sw.bb1.i23, %sw.bb.
   br i1 %cmp4.i26, label %if.then5.i27, label %return
 
 if.then5.i27:                                     ; preds = %sw.epilog.i24
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gprh, i64 88), align 8
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 88), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gprh, i64 88), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gpr, i64 88), align 8
   tail call void @tcg_gen_sari_i64(ptr noundef %14, ptr noundef %15, i64 noundef 63) #13
   br label %return
 
@@ -119079,7 +119079,7 @@ if.then.i:                                        ; preds = %switch.lookup
   br label %dest_gpr.exit
 
 if.end.i22:                                       ; preds = %switch.lookup
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 16), align 16
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gpr, i64 16), align 16
   br label %dest_gpr.exit
 
 dest_gpr.exit:                                    ; preds = %if.then.i, %if.end.i22
@@ -119145,12 +119145,12 @@ for.end:                                          ; preds = %for.inc
   ]
 
 sw.bb.i31:                                        ; preds = %for.end
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 16), align 16
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gpr, i64 16), align 16
   tail call void @tcg_gen_ext32s_i64(ptr noundef %15, ptr noundef %retval.0.i23) #13
   br label %sw.epilog.i
 
 sw.bb1.i:                                         ; preds = %for.end, %for.end
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 16), align 16
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gpr, i64 16), align 16
   tail call void @tcg_gen_mov_i64(ptr noundef %16, ptr noundef %retval.0.i23) #13
   br label %sw.epilog.i
 
@@ -119165,8 +119165,8 @@ sw.epilog.i:                                      ; preds = %sw.bb1.i, %sw.bb.i3
   br i1 %cmp4.i, label %if.then5.i, label %return
 
 if.then5.i:                                       ; preds = %sw.epilog.i
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gprh, i64 16), align 16
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 16), align 16
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gprh, i64 16), align 16
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gpr, i64 16), align 16
   tail call void @tcg_gen_sari_i64(ptr noundef %18, ptr noundef %19, i64 noundef 63) #13
   br label %return
 
@@ -119231,7 +119231,7 @@ if.then.i:                                        ; preds = %switch.lookup
   br label %dest_gpr.exit
 
 if.end.i30:                                       ; preds = %switch.lookup
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 16), align 16
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gpr, i64 16), align 16
   br label %dest_gpr.exit
 
 dest_gpr.exit:                                    ; preds = %if.then.i, %if.end.i30
@@ -119340,12 +119340,12 @@ for.end:                                          ; preds = %for.inc
   ]
 
 sw.bb.i52:                                        ; preds = %for.end
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 16), align 16
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gpr, i64 16), align 16
   tail call void @tcg_gen_ext32s_i64(ptr noundef %25, ptr noundef %retval.0.i31) #13
   br label %sw.epilog.i48
 
 sw.bb1.i47:                                       ; preds = %for.end, %for.end
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 16), align 16
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gpr, i64 16), align 16
   tail call void @tcg_gen_mov_i64(ptr noundef %26, ptr noundef %retval.0.i31) #13
   br label %sw.epilog.i48
 
@@ -119359,8 +119359,8 @@ sw.epilog.i48:                                    ; preds = %sw.bb1.i47, %sw.bb.
   br i1 %cmp4.i50, label %if.then5.i51, label %gen_set_gpr.exit54
 
 if.then5.i51:                                     ; preds = %sw.epilog.i48
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gprh, i64 16), align 16
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 16), align 16
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gprh, i64 16), align 16
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gpr, i64 16), align 16
   tail call void @tcg_gen_sari_i64(ptr noundef %28, ptr noundef %29, i64 noundef 63) #13
   br label %gen_set_gpr.exit54
 
@@ -119378,12 +119378,12 @@ if.then25:                                        ; preds = %gen_set_gpr.exit54
   ]
 
 sw.bb.i62:                                        ; preds = %if.then25
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 80), align 16
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gpr, i64 80), align 16
   tail call void @tcg_gen_ext32s_i64(ptr noundef %32, ptr noundef %30) #13
   br label %sw.epilog.i58
 
 sw.bb1.i57:                                       ; preds = %if.then25, %if.then25
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 80), align 16
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gpr, i64 80), align 16
   tail call void @tcg_gen_mov_i64(ptr noundef %33, ptr noundef %30) #13
   br label %sw.epilog.i58
 
@@ -119397,8 +119397,8 @@ sw.epilog.i58:                                    ; preds = %sw.bb1.i57, %sw.bb.
   br i1 %cmp4.i60, label %if.then5.i61, label %if.end26
 
 if.then5.i61:                                     ; preds = %sw.epilog.i58
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gprh, i64 80), align 16
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 80), align 16
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gprh, i64 80), align 16
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gpr, i64 80), align 16
   tail call void @tcg_gen_sari_i64(ptr noundef %35, ptr noundef %36, i64 noundef 63) #13
   br label %if.end26
 
@@ -119415,7 +119415,7 @@ if.then28:                                        ; preds = %if.end26
 
 sw.bb.i68:                                        ; preds = %if.then28
   %call.i = tail call ptr @tcg_temp_new_i64() #13
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 8), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gpr, i64 8), align 8
   tail call void @tcg_gen_ext32s_i64(ptr noundef %call.i, ptr noundef %38) #13
   br label %get_gpr.exit
 
@@ -119424,7 +119424,7 @@ do.body9.i:                                       ; preds = %if.then28
   unreachable
 
 sw.epilog11.i:                                    ; preds = %if.then28, %if.then28
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 8), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cpu_gpr, i64 8), align 8
   br label %get_gpr.exit
 
 get_gpr.exit:                                     ; preds = %sw.bb.i68, %sw.epilog11.i

@@ -119,7 +119,7 @@ $_ZTV17DeadlyImportError = comdat any
 define void @_ZN6Assimp22FindInvalidDataProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(29) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #17
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp22FindInvalidDataProcessE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp22FindInvalidDataProcessE, i64 16), ptr %this, align 8
   %configEpsilon = getelementptr inbounds nuw i8, ptr %this, i64 24
   store float 0.000000e+00, ptr %configEpsilon, align 8
   %mIgnoreTexCoods = getelementptr inbounds nuw i8, ptr %this, i64 28
@@ -282,7 +282,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry

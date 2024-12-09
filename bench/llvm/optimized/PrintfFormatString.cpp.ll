@@ -768,7 +768,7 @@ define internal fastcc void @_ZL20ParsePrintfSpecifierRN5clang21analyze_format_s
   %368 = load i64, ptr %10, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %368) #12
   %369 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %369, ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.22, i64 78)) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %369, ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.22, i64 78)) #12
   %370 = load i64, ptr %10, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %370) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
@@ -1728,7 +1728,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string24ParseForm
   %8 = alloca %"class.clang::analyze_format_string::SpecifierResult", align 8
   store ptr %0, ptr %5, align 8
   store i32 0, ptr %6, align 4
-  store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN5clang21analyze_format_string19FormatStringHandlerE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN5clang21analyze_format_string19FormatStringHandlerE, i64 16), ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 392
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 384
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 64
@@ -1770,7 +1770,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string40parseForm
   %8 = alloca %"class.clang::analyze_format_string::SpecifierResult", align 8
   store ptr %0, ptr %5, align 8
   store i32 0, ptr %6, align 4
-  store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN5clang21analyze_format_string19FormatStringHandlerE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN5clang21analyze_format_string19FormatStringHandlerE, i64 16), ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 384
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 392
   br label %11

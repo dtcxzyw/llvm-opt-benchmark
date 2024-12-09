@@ -151,7 +151,7 @@ $_ZTV14RawRootClosureI10DFSClosureE = comdat any
 define weak_odr hidden void @_ZN14RootSetClosureI10BFSClosureEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 comdat($_ZN14RootSetClosureI10BFSClosureEC5EPS0_) align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV14RootSetClosureI10BFSClosureE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV14RootSetClosureI10BFSClosureE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
   ret void
@@ -163,7 +163,7 @@ define weak_odr hidden void @_ZN14RootSetClosureI10BFSClosureE7processEv(ptr nou
   %3 = alloca %class.CLDToOopClosure, align 8
   %4 = alloca %class.RawRootClosure, align 8
   call void @_ZN9MarkScopeC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15CLDToOopClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV15CLDToOopClosure, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -218,7 +218,7 @@ _ZN10OopStorage7oops_doI14RootSetClosureI10BFSClosureEEEvPT_.exit.i: ; preds = %
 _ZN13OopStorageSet14strong_oops_doI14RootSetClosureI10BFSClosureEEEvPT_.exit: ; preds = %_ZN10OopStorage7oops_doI14RootSetClosureI10BFSClosureEEEvPT_.exit.i
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV14RawRootClosureI10BFSClosureE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV14RawRootClosureI10BFSClosureE, i64 16), ptr %4, align 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %27, ptr %28, align 8
   call void @_ZN7Threads7oops_doEP10OopClosureP14NMethodClosure(ptr noundef nonnull %4, ptr noundef null) #6
@@ -275,7 +275,7 @@ define weak_odr hidden void @_ZN14RootSetClosureI10BFSClosureE6do_oopEP9narrowOo
 define weak_odr hidden void @_ZN14RootSetClosureI10DFSClosureEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 comdat($_ZN14RootSetClosureI10DFSClosureEC5EPS0_) align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV14RootSetClosureI10DFSClosureE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV14RootSetClosureI10DFSClosureE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
   ret void
@@ -287,7 +287,7 @@ define weak_odr hidden void @_ZN14RootSetClosureI10DFSClosureE7processEv(ptr nou
   %3 = alloca %class.CLDToOopClosure, align 8
   %4 = alloca %class.RawRootClosure.1, align 8
   call void @_ZN9MarkScopeC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15CLDToOopClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV15CLDToOopClosure, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -342,7 +342,7 @@ _ZN10OopStorage7oops_doI14RootSetClosureI10DFSClosureEEEvPT_.exit.i: ; preds = %
 _ZN13OopStorageSet14strong_oops_doI14RootSetClosureI10DFSClosureEEEvPT_.exit: ; preds = %_ZN10OopStorage7oops_doI14RootSetClosureI10DFSClosureEEEvPT_.exit.i
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV14RawRootClosureI10DFSClosureE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV14RawRootClosureI10DFSClosureE, i64 16), ptr %4, align 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %27, ptr %28, align 8
   call void @_ZN7Threads7oops_doEP10OopClosureP14NMethodClosure(ptr noundef nonnull %4, ptr noundef null) #6

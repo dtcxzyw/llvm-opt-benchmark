@@ -395,9 +395,9 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit: ; preds = %._crit_edge39, 
   %87 = load ptr, ptr %.sroa.030.037, align 8
   store ptr %87, ptr @_ZN12_GLOBAL__N_16moduleE, align 8
   store ptr null, ptr @_ZN12_GLOBAL__N_17last_hiE, align 8
-  store i8 5, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_17last_hiE, i64 8), align 8
+  store i8 5, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_17last_hiE, i64 8), align 8
   store ptr null, ptr @_ZN12_GLOBAL__N_17last_loE, align 8
-  store i8 5, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_17last_loE, i64 8), align 8
+  store i8 5, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_17last_loE, i64 8), align 8
   invoke void @_ZN5Yosys5RTLIL6Module16rewrite_sigspecsIFvRNS0_7SigSpecEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(560) %87, ptr noundef nonnull @_ZN12_GLOBAL__N_114hilomap_workerERN5Yosys5RTLIL7SigSpecE)
           to label %88 unwind label %90
 
@@ -869,7 +869,7 @@ _ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit:             ; preds = %_ZNK5Yosys5RTLIL15S
 
 75:                                               ; preds = %73
   store ptr %74, ptr @_ZN12_GLOBAL__N_17last_hiE, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_17last_hiE, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_17last_hiE, i64 8), align 8
   %76 = load i32, ptr %2, align 4
   %77 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %78 = trunc i8 %77 to i1
@@ -1302,7 +1302,7 @@ _ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit87:           ; preds = %.critedge
 
 230:                                              ; preds = %228
   store ptr %229, ptr @_ZN12_GLOBAL__N_17last_loE, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_17last_loE, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_17last_loE, i64 8), align 8
   %231 = load i32, ptr %17, align 4
   %232 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %233 = trunc i8 %232 to i1
@@ -3946,7 +3946,7 @@ __cxx_global_var_init.7.exit:                     ; preds = %11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_111HilomapPassE, i64 16), ptr @_ZN12_GLOBAL__N_111HilomapPassE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_111HilomapPassE, i64 16), ptr @_ZN12_GLOBAL__N_111HilomapPassE, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)

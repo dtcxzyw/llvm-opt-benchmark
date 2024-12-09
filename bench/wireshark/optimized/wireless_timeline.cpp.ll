@@ -236,7 +236,7 @@ define void @_ZN16WirelessTimeline17mouseReleaseEventEP11QMouseEvent(ptr nocaptu
   br i1 %14, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 280), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 280), align 8
   %17 = tail call ptr @frame_data_sequence_find(ptr noundef %16, i32 noundef %13)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 50
   %19 = load i16, ptr %18, align 2
@@ -281,7 +281,7 @@ define noundef i32 @_ZN16WirelessTimeline11find_packetEd(ptr nocapture noundef n
   %19 = uitofp i64 %18 to double
   %20 = tail call double @llvm.fmuladd.f64(double %15, double %19, double %5)
   %21 = fptoui double %20 to i64
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 80), align 8
   %switch = icmp ult i32 %22, 2
   br i1 %switch, label %_ZN16WirelessTimeline15find_packet_tsfEm.exit, label %23
 
@@ -358,7 +358,7 @@ define void @_ZN16WirelessTimeline20selectedFrameChangedE5QListIiE(ptr noundef n
   br i1 %.not39, label %8, label %85
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 376), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 376), align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %85, label %10
 
@@ -503,7 +503,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN16WirelessTimeline15find_packet_tsfEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(896) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 80), align 8
   %switch = icmp ult i32 %3, 2
   br i1 %switch, label %.loopexit, label %4
 
@@ -583,7 +583,7 @@ define void @_ZN16WirelessTimeline23captureFileReadFinishedEv(ptr noundef nonnul
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 80), align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %_ZN7QStringD2Ev.exit20, label %10
 
@@ -591,7 +591,7 @@ define void @_ZN16WirelessTimeline23captureFileReadFinishedEv(ptr noundef nonnul
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @g_hash_table_size(ptr noundef %12)
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 80), align 8
   %.not = icmp eq i32 %13, %14
   br i1 %.not, label %.preheader, label %_ZN7QStringD2Ev.exit20
 
@@ -601,7 +601,7 @@ define void @_ZN16WirelessTimeline23captureFileReadFinishedEv(ptr noundef nonnul
 
 16:                                               ; preds = %57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 80), align 8
   %18 = zext i32 %17 to i64
   %19 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !6
@@ -823,7 +823,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i55:    ; preds = %_ZN7QStringD2Ev.exi
   %89 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %88, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 864
   store ptr %89, ptr %90, align 8
-  %91 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
+  %91 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 80), align 8
   %92 = load ptr, ptr %11, align 8
   %93 = zext i32 %91 to i64
   %94 = inttoptr i64 %93 to ptr
@@ -1004,9 +1004,9 @@ define void @_ZN16WirelessTimelineC2EP7QWidget(ptr noundef nonnull align 8 deref
   %4 = alloca { i64, i64 }, align 8
   %5 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN7QWidgetC2EPS_6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i32 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16WirelessTimeline, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16WirelessTimeline, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16WirelessTimeline, i64 448), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16WirelessTimeline, i64 448), ptr %6, align 8
   invoke void @_ZN7QWidget9setHiddenEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext true)
           to label %7 unwind label %22
 
@@ -1092,9 +1092,9 @@ declare void @_ZN7QWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) u
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN16WirelessTimelineD2Ev(ptr noundef nonnull align 8 dereferenceable(896) initializes((0, 8), (16, 24)) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16WirelessTimeline, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16WirelessTimeline, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16WirelessTimeline, i64 448), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16WirelessTimeline, i64 448), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2120,7 +2120,7 @@ _ZN16WirelessTimeline8positionEmf.exit171:        ; preds = %161, %_ZN16Wireless
 
 192:                                              ; preds = %_ZN16WirelessTimeline8positionEmf.exit171
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %193 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 376), align 8
+  %193 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 376), align 8
   %.not = icmp eq ptr %193, null
   br i1 %.not, label %256, label %194
 
@@ -2232,7 +2232,7 @@ _ZN8QPainter8fillRectERK6QRectFN2Qt11GlobalColorE.exit179: ; preds = %_ZN16Wirel
   %262 = fadd double %261, %259
   %263 = fadd double %262, -4.000000e+04
   %264 = fptoui double %263 to i64
-  %265 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
+  %265 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 80), align 8
   switch i32 %265, label %266 [
     i32 0, label %.lr.ph
     i32 1, label %_ZN16WirelessTimeline15find_packet_tsfEm.exit
@@ -2302,7 +2302,7 @@ _ZN8QPainter8fillRectERK6QRectFN2Qt11GlobalColorE.exit179: ; preds = %_ZN16Wirel
 
 _ZN16WirelessTimeline15find_packet_tsfEm.exit:    ; preds = %.lr.ph.i, %257, %.noexc182, %._crit_edge.loopexit.i, %285
   %.0.i180 = phi i32 [ %286, %285 ], [ %265, %.noexc182 ], [ %279, %._crit_edge.loopexit.i ], [ %265, %257 ], [ %.02143.i, %.lr.ph.i ]
-  %294 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
+  %294 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 80), align 8
   %.not161241 = icmp ugt i32 %.0.i180, %294
   br i1 %.not161241, label %._crit_edge, label %.lr.ph
 
@@ -2334,7 +2334,7 @@ _ZN16WirelessTimeline15find_packet_tsfEm.exit:    ; preds = %.lr.ph.i, %257, %.n
 316:                                              ; preds = %.lr.ph, %_ZL14accumulate_rgbPA3_fiiffff.exit
   %.0138243 = phi i32 [ %.0.i180253, %.lr.ph ], [ %537, %_ZL14accumulate_rgbPA3_fiiffff.exit ]
   %.0139242 = phi i32 [ -1, %.lr.ph ], [ %.1140, %_ZL14accumulate_rgbPA3_fiiffff.exit ]
-  %317 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 280), align 8
+  %317 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 280), align 8
   %318 = invoke ptr @frame_data_sequence_find(ptr noundef %317, i32 noundef %.0138243)
           to label %319 unwind label %.loopexit
 
@@ -2718,7 +2718,7 @@ _ZL14accumulate_rgbPA3_fiiffff.exit198:           ; preds = %.lr.ph.i194
 _ZL14accumulate_rgbPA3_fiiffff.exit:              ; preds = %.lr.ph.i203, %.lr.ph.i187, %519, %361, %353, %326, %338, %_ZN16WirelessTimeline14get_wlan_radioEj.exit185
   %.1140 = phi i32 [ %.0139242, %_ZN16WirelessTimeline14get_wlan_radioEj.exit185 ], [ %.0139242, %326 ], [ %.0139242, %338 ], [ %.2, %353 ], [ %.2, %361 ], [ -1, %519 ], [ %349, %.lr.ph.i187 ], [ %521, %.lr.ph.i203 ]
   %537 = add i32 %.0138243, 1
-  %538 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
+  %538 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 80), align 8
   %.not161 = icmp ugt i32 %537, %538
   br i1 %.not161, label %._crit_edge, label %316, !llvm.loop !15
 

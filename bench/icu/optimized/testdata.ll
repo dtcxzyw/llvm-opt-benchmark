@@ -26,7 +26,7 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN8TestDataC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %this, ptr noundef %testName) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8TestData, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8TestData, i64 16), ptr %this, align 8
   %name = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %testName, ptr %name, align 8
   %fInfo = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -37,7 +37,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8TestDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8TestData, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8TestData, i64 16), ptr %this, align 8
   %fInfo = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %fInfo, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -105,7 +105,7 @@ entry:
   store ptr %testName, ptr %name.i, align 8
   %fInfo.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fInfo.i, i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10RBTestData, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10RBTestData, i64 16), ptr %this, align 8
   %fData = getelementptr inbounds nuw i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %fData, i8 0, i64 32, i1 false)
   ret void
@@ -120,7 +120,7 @@ entry:
   store ptr %call, ptr %name.i, align 8
   %fInfo.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fInfo.i, i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10RBTestData, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10RBTestData, i64 16), ptr %this, align 8
   %fData = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %data, ptr %fData, align 8
   %fHeaders = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -242,7 +242,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN10RBTestDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10RBTestData, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10RBTestData, i64 16), ptr %this, align 8
   %fData = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %fData, align 8
   invoke void @ures_close_75(ptr noundef %0)
@@ -267,7 +267,7 @@ invoke.cont3:                                     ; preds = %invoke.cont2
           to label %invoke.cont4 unwind label %terminate.lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont3
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8TestData, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8TestData, i64 16), ptr %this, align 8
   %fInfo.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %fInfo.i, align 8
   %cmp.not.i = icmp eq ptr %4, null

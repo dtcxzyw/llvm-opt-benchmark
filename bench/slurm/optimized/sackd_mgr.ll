@@ -494,7 +494,7 @@ define internal noundef i32 @_each_sackd_node(ptr nocapture noundef readonly %0,
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 128, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 184, ptr noundef nonnull @__func__._each_sackd_node) #7
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %4, ptr %5, align 8
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1288), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1288), align 8
   %7 = trunc i32 %6 to i16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -515,7 +515,7 @@ define internal noundef i32 @_each_sackd_node(ptr nocapture noundef readonly %0,
   store i16 %17, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i16 0, ptr %19, align 4
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   tail call void @set_agent_arg_r_uid(ptr noundef nonnull %3, i32 noundef %20) #7
   tail call void @agent_queue_request(ptr noundef nonnull %3) #7
   ret i32 0

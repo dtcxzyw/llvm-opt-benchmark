@@ -1501,7 +1501,7 @@ strbuf_setlen.exit25:                             ; preds = %strbuf_setlen.exit,
   %conv11 = sext i32 %len.035 to i64
   tail call void @strbuf_add(ptr noundef nonnull @enter_repo.used_path, ptr noundef nonnull %path, i64 noundef %conv11) #26
   tail call void @strbuf_add(ptr noundef nonnull @enter_repo.validated_path, ptr noundef nonnull %path, i64 noundef %conv11) #26
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @enter_repo.used_path, i64 16), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @enter_repo.used_path, i64 16), align 8
   %5 = load i8, ptr %4, align 1
   %cmp15 = icmp eq i8 %5, 126
   br i1 %cmp15, label %if.then17, label %if.end24
@@ -1518,7 +1518,7 @@ if.end21:                                         ; preds = %if.then17
 
 if.end24:                                         ; preds = %if.end21, %strbuf_setlen.exit25
   %st_mode = getelementptr inbounds nuw i8, ptr %st, i64 24
-  %.pre43 = load i64, ptr getelementptr inbounds (i8, ptr @enter_repo.used_path, i64 8), align 8
+  %.pre43 = load i64, ptr getelementptr inbounds nuw (i8, ptr @enter_repo.used_path, i64 8), align 8
   br label %for.body
 
 for.body:                                         ; preds = %if.end24, %strbuf_setlen.exit30
@@ -1528,7 +1528,7 @@ for.body:                                         ; preds = %if.end24, %strbuf_s
   %7 = load ptr, ptr %arrayidx26, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #28
   tail call void @strbuf_add(ptr noundef nonnull @enter_repo.used_path, ptr noundef %7, i64 noundef %call.i) #26
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @enter_repo.used_path, i64 16), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @enter_repo.used_path, i64 16), align 8
   %call30 = call i32 @stat64(ptr noundef %8, ptr noundef nonnull %st) #26
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %land.lhs.true, label %if.end44
@@ -1543,7 +1543,7 @@ land.lhs.true:                                    ; preds = %for.body
   ]
 
 land.lhs.true38:                                  ; preds = %land.lhs.true
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @enter_repo.used_path, i64 16), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @enter_repo.used_path, i64 16), align 8
   %call39 = tail call i32 @is_git_directory(ptr noundef %11) #26
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %if.end44, label %if.end49
@@ -1567,7 +1567,7 @@ if.end.i:                                         ; preds = %if.end44
 if.then4.i29:                                     ; preds = %if.end.i
   %arrayidx.i = getelementptr inbounds i8, ptr %13, i64 %6
   store i8 0, ptr %arrayidx.i, align 1
-  %.pre = load i64, ptr getelementptr inbounds (i8, ptr @enter_repo.used_path, i64 8), align 8
+  %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @enter_repo.used_path, i64 8), align 8
   br label %strbuf_setlen.exit30
 
 strbuf_setlen.exit30:                             ; preds = %if.end.i, %if.then4.i29
@@ -1579,7 +1579,7 @@ strbuf_setlen.exit30:                             ; preds = %if.end.i, %if.then4
 if.end49:                                         ; preds = %land.lhs.true38, %land.lhs.true
   %call.i26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #28
   tail call void @strbuf_add(ptr noundef nonnull @enter_repo.validated_path, ptr noundef %7, i64 noundef %call.i26) #26
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @enter_repo.used_path, i64 16), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @enter_repo.used_path, i64 16), align 8
   %call50 = tail call ptr @read_gitfile_gently(ptr noundef %15, ptr noundef null) #26
   %tobool51.not = icmp eq ptr %call50, null
   br i1 %tobool51.not, label %if.end53, label %if.then52
@@ -1591,13 +1591,13 @@ if.then52:                                        ; preds = %if.end49
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then52, %if.end49
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @enter_repo.used_path, i64 16), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @enter_repo.used_path, i64 16), align 8
   %call54 = tail call i32 @chdir(ptr noundef %16) #26
   %tobool55.not = icmp eq i32 %call54, 0
   br i1 %tobool55.not, label %if.end57, label %return
 
 if.end57:                                         ; preds = %if.end53
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @enter_repo.validated_path, i64 16), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @enter_repo.validated_path, i64 16), align 8
   br label %if.end67
 
 if.else:                                          ; preds = %if.end
@@ -2169,7 +2169,7 @@ if.else74:                                        ; preds = %strbuf_setlen.exit
   br label %if.end75
 
 if.end75:                                         ; preds = %if.else74, %if.then73
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @remove_leading_path.buf, i64 16), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @remove_leading_path.buf, i64 16), align 8
   br label %return
 
 return:                                           ; preds = %if.else, %if.then7, %land.lhs.true, %entry, %lor.lhs.false, %if.end75

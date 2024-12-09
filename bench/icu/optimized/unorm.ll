@@ -41,7 +41,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call1 = tail call ptr @uniset_getUnicode32Instance_75(ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 16), ptr %fn2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 16), ptr %fn2, align 8
   %norm2.i = getelementptr inbounds nuw i8, ptr %fn2, i64 8
   store ptr %call, ptr %norm2.i, align 8
   %set.i = getelementptr inbounds nuw i8, ptr %fn2, i64 16
@@ -96,7 +96,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call1 = tail call ptr @uniset_getUnicode32Instance_75(ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 16), ptr %fn2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 16), ptr %fn2, align 8
   %norm2.i = getelementptr inbounds nuw i8, ptr %fn2, i64 8
   store ptr %call, ptr %norm2.i, align 8
   %set.i = getelementptr inbounds nuw i8, ptr %fn2, i64 16
@@ -134,7 +134,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call1 = tail call ptr @uniset_getUnicode32Instance_75(ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 16), ptr %fn2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 16), ptr %fn2, align 8
   %norm2.i = getelementptr inbounds nuw i8, ptr %fn2, i64 8
   store ptr %call, ptr %norm2.i, align 8
   %set.i = getelementptr inbounds nuw i8, ptr %fn2, i64 16
@@ -186,7 +186,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 16), ptr %fn2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 16), ptr %fn2, align 8
   %norm2.i = getelementptr inbounds nuw i8, ptr %fn2, i64 8
   store ptr %call, ptr %norm2.i, align 8
   %set.i = getelementptr inbounds nuw i8, ptr %fn2, i64 16
@@ -236,7 +236,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 16), ptr %fn2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 16), ptr %fn2, align 8
   %norm2.i = getelementptr inbounds nuw i8, ptr %fn2, i64 8
   store ptr %call, ptr %norm2.i, align 8
   %set.i = getelementptr inbounds nuw i8, ptr %fn2, i64 16
@@ -322,7 +322,7 @@ if.then26:                                        ; preds = %lor.lhs.false18, %l
   br label %return
 
 if.end27:                                         ; preds = %lor.lhs.false18, %if.end12
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %destString, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %destString, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %destString, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %cmp28 = icmp eq ptr %left, %dest
@@ -479,13 +479,13 @@ if.then14:                                        ; preds = %cond.end.thread, %c
   br label %return
 
 if.end16:                                         ; preds = %cond.end
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %buffer, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   br label %while.cond37
 
 if.then18:                                        ; preds = %cond.end.thread
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %buffer, align 8
   %fUnion2.i49 = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   store i16 2, ptr %fUnion2.i49, align 8
   %call19 = invoke i32 @uiter_next32_75(ptr noundef nonnull %src)

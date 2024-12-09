@@ -142,7 +142,7 @@ define internal noundef range(i32 -19, 1) i32 @amd_iommu_pc_init() #0 section ".
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %17, %5
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @amd_iommu_events_group, i64 24), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @amd_iommu_events_group, i64 24), align 8
   tail call void @kfree(ptr noundef %20) #12
   br label %22
 
@@ -203,7 +203,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @_init_events_attrs() unnam
   br i1 %24, label %.loopexit, label %19, !llvm.loop !12
 
 .loopexit:                                        ; preds = %19, %15
-  store ptr %13, ptr getelementptr inbounds (i8, ptr @amd_iommu_events_group, i64 24), align 8
+  store ptr %13, ptr getelementptr inbounds nuw (i8, ptr @amd_iommu_events_group, i64 24), align 8
   br label %.thread
 
 .thread:                                          ; preds = %8, %.loopexit, %10
@@ -216,7 +216,7 @@ declare dso_local i32 @amd_iommu_get_num_iommus() local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc i32 @init_one_iommu(i32 noundef %0) unnamed_addr #0 section ".init.text" align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(368) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 368) #15
   %4 = icmp eq ptr %3, null
   br i1 %4, label %35, label %5
@@ -261,8 +261,8 @@ define internal fastcc i32 @init_one_iommu(i32 noundef %0) unnamed_addr #0 secti
   %28 = load i8, ptr %13, align 1
   %29 = zext i8 %28 to i32
   %30 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.51, i32 noundef %0, i32 noundef %27, i32 noundef %29) #16
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @perf_amd_iommu_list, i64 8), align 8
-  store ptr %3, ptr getelementptr inbounds (i8, ptr @perf_amd_iommu_list, i64 8), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @perf_amd_iommu_list, i64 8), align 8
+  store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @perf_amd_iommu_list, i64 8), align 8
   store ptr @perf_amd_iommu_list, ptr %3, align 8
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %31, ptr %32, align 8

@@ -81,7 +81,7 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %3, ptr %add.ptr, align 8, !tbaa !3
   %add.ptr3 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i64 184), ptr %add.ptr3, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i64 184), ptr %add.ptr3, align 8, !tbaa !3
   %WithTexture = getelementptr inbounds nuw i8, ptr %this, i64 76
   store i8 %frombool, ptr %WithTexture, align 4, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %Temp) #9
@@ -98,7 +98,7 @@ entry:
   br i1 %cmp.not.i, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1160), align 8, !tbaa !27
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 1160), align 8, !tbaa !27
   call void %7(i32 noundef %5) #9
   store i32 %5, ptr %ProgramID.i, align 8, !tbaa !23
   br label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit
@@ -148,7 +148,7 @@ if.end:                                           ; preds = %if.then, %_ZN3irr5v
   br i1 %cmp.not.i24, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit26, label %if.then.i25
 
 if.then.i25:                                      ; preds = %if.end
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1160), align 8, !tbaa !27
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 1160), align 8, !tbaa !27
   call void %16(i32 noundef 0) #9
   store i32 0, ptr %ProgramID.i, align 8, !tbaa !23
   br label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit26
@@ -178,16 +178,16 @@ entry:
   %TextureUsage = alloca i32, align 4
   %frombool = zext i1 %withTexture to i8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !3
   %DebugName.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   store ptr null, ptr %DebugName.i, align 8, !tbaa !39
   %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !41
-  tail call void @_ZN3irr5video24COpenGL3MaterialRendererC2EPNS0_18COpenGL3DriverBaseEPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 8), ptr noundef %driver, ptr noundef null, i32 noundef 0, i32 noundef 0) #9
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i64 24), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i64 304), ptr %0, align 8, !tbaa !3
+  tail call void @_ZN3irr5video24COpenGL3MaterialRendererC2EPNS0_18COpenGL3DriverBaseEPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 8), ptr noundef %driver, ptr noundef null, i32 noundef 0, i32 noundef 0) #9
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i64 304), ptr %0, align 8, !tbaa !3
   %add.ptr2 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i64 184), ptr %add.ptr2, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i64 184), ptr %add.ptr2, align 8, !tbaa !3
   %WithTexture = getelementptr inbounds nuw i8, ptr %this, i64 76
   store i8 %frombool, ptr %WithTexture, align 4, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %Temp) #9
@@ -204,7 +204,7 @@ entry:
   br i1 %cmp.not.i, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1160), align 8, !tbaa !27
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 1160), align 8, !tbaa !27
   call void %4(i32 noundef %2) #9
   store i32 %2, ptr %ProgramID.i, align 8, !tbaa !23
   br label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit
@@ -254,7 +254,7 @@ if.end:                                           ; preds = %if.then, %_ZN3irr5v
   br i1 %cmp.not.i22, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit24, label %if.then.i23
 
 if.then.i23:                                      ; preds = %if.end
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1160), align 8, !tbaa !27
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 1160), align 8, !tbaa !27
   call void %13(i32 noundef 0) #9
   store i32 0, ptr %ProgramID.i, align 8, !tbaa !23
   br label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit24
@@ -278,7 +278,7 @@ declare void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull al
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr5video18COpenGL3Renderer2DD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 8)) #9
+  tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 8)) #9
   ret void
 }
 
@@ -286,7 +286,7 @@ entry:
 define void @_ZThn8_N3irr5video18COpenGL3Renderer2DD1Ev(ptr noundef %this) unnamed_addr #4 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 8)) #9
+  tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 8)) #9
   ret void
 }
 
@@ -297,14 +297,14 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 8)) #9
+  tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 8)) #9
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr5video18COpenGL3Renderer2DD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 8)) #9
+  tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 8)) #9
   tail call void @_ZdlPv(ptr noundef nonnull %this) #10
   ret void
 }
@@ -316,7 +316,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 define void @_ZThn8_N3irr5video18COpenGL3Renderer2DD0Ev(ptr noundef %this) unnamed_addr #4 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 8)) #9
+  tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 8)) #9
   tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }
@@ -328,7 +328,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 8)) #9
+  tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 8)) #9
   tail call void @_ZdlPv(ptr noundef nonnull %3) #10
   ret void
 }
@@ -349,7 +349,7 @@ entry:
   br i1 %cmp.not.i, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 1160), align 8, !tbaa !27
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 1160), align 8, !tbaa !27
   tail call void %3(i32 noundef %1) #9
   store i32 %1, ptr %ProgramID.i, align 8, !tbaa !23
   br label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit

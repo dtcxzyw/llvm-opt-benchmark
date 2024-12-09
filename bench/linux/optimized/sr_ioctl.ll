@@ -323,7 +323,7 @@ define dso_local range(i32 0, 104) i32 @sr_disk_status(ptr nocapture noundef rea
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #9
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #9
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %7 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 32) #10
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread, label %9
@@ -415,7 +415,7 @@ define dso_local range(i32 0, 104) i32 @sr_disk_status(ptr nocapture noundef rea
 define internal fastcc range(i32 -2147483648, 1) i32 @sr_read_tocentry(ptr %.32.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.packet_command, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #9
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %4 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 32) #10
   %5 = icmp eq ptr %4, null
   br i1 %5, label %62, label %6
@@ -541,7 +541,7 @@ define dso_local range(i32 -2147483648, 1) i32 @sr_get_mcn(ptr nocapture noundef
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #9
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %7 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 32) #10
   %8 = icmp eq ptr %7, null
   br i1 %8, label %23, label %9
@@ -642,7 +642,7 @@ define dso_local range(i32 -2147483648, 1) i32 @sr_audio_ioctl(ptr nocapture nou
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #9
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %14 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 3520, i64 noundef 32) #10
   %15 = icmp eq ptr %14, null
   br i1 %15, label %32, label %16
@@ -729,7 +729,7 @@ define dso_local range(i32 -2147483648, 1) i32 @sr_audio_ioctl(ptr nocapture nou
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false), !annotation !5
   %56 = load ptr, ptr %38, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #9
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %58 = call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %57, i32 noundef 3520, i64 noundef 32) #10
   %59 = icmp eq ptr %58, null
   br i1 %59, label %.thread, label %60
@@ -872,7 +872,7 @@ define dso_local range(i32 -12, 2) i32 @sr_is_xa(ptr noundef %0) local_unnamed_a
   br i1 %5, label %84, label %6
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %8 = tail call noalias align 8 dereferenceable_or_null(2048) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3264, i64 noundef 2048) #10
   %9 = icmp eq ptr %8, null
   br i1 %9, label %84, label %10

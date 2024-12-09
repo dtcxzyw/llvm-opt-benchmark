@@ -171,7 +171,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN19PosixAttachListener4initEv() lo
 
 .critedge.thread29:                               ; preds = %.preheader31, %.preheader, %.critedge
   %48 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN19PosixAttachListener5_pathE, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 108) #18
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN19PosixAttachListener5_pathE, i64 107), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN19PosixAttachListener5_pathE, i64 107), align 1
   store i8 1, ptr @_ZN19PosixAttachListener9_has_pathE, align 1
   store volatile i32 %17, ptr @_ZN19PosixAttachListener9_listenerE, align 4
   br label %.critedge26
@@ -412,7 +412,7 @@ _ZN16ArgumentIterator4nextEv.exit:                ; preds = %59, %61
 
 68:                                               ; preds = %64
   %69 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 3104, i8 noundef zeroext 9, i32 noundef 0) #18
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15AttachOperation, i64 16), ptr %69, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV15AttachOperation, i64 16), ptr %69, align 8
   %70 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.0.1.ph) #20
   %71 = call noundef i64 @llvm.umin.i64(i64 %70, i64 16)
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
@@ -431,7 +431,7 @@ _ZN16ArgumentIterator4nextEv.exit:                ; preds = %59, %61
   br i1 %exitcond.not.i.i, label %_ZN20PosixAttachOperationC2EPc.exit, label %75, !llvm.loop !13
 
 _ZN20PosixAttachOperationC2EPc.exit:              ; preds = %75
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV20PosixAttachOperation, i64 16), ptr %69, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV20PosixAttachOperation, i64 16), ptr %69, align 8
   %77 = getelementptr inbounds nuw i8, ptr %69, i64 3100
   store i32 -1, ptr %77, align 4
   br label %78

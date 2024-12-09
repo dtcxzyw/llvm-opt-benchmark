@@ -509,7 +509,7 @@ entry:
   br i1 %or.cond.i, label %if.end.i, label %_ZN6icu_759LocaleKey27createWithCanonicalFallbackEPKNS_13UnicodeStringES3_iR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %canonicalPrimaryID.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %canonicalPrimaryID.i, align 8
   %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %canonicalPrimaryID.i, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8
   %call1.i = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513LocaleUtility21canonicalLocaleStringEPKNS_13UnicodeStringERS1_(ptr noundef nonnull %primaryID, ptr noundef nonnull align 8 dereferenceable(64) %canonicalPrimaryID.i)
@@ -561,7 +561,7 @@ entry:
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %canonicalPrimaryID, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %canonicalPrimaryID, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %canonicalPrimaryID, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call1 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513LocaleUtility21canonicalLocaleStringEPKNS_13UnicodeStringERS1_(ptr noundef nonnull %primaryID, ptr noundef nonnull align 8 dereferenceable(64) %canonicalPrimaryID)
@@ -616,7 +616,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 define void @_ZN6icu_759LocaleKeyC2ERKNS_13UnicodeStringES3_PS2_i(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(64) %primaryID, ptr noundef nonnull align 8 dereferenceable(64) %canonicalPrimaryID, ptr noundef %canonicalFallbackID, i32 noundef %kind) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7513ICUServiceKeyC2ERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(64) %primaryID)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759LocaleKeyE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_759LocaleKeyE, i64 16), ptr %this, align 8
   %_kind = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 %kind, ptr %_kind, align 8
   %_primaryID = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -625,11 +625,11 @@ entry:
 
 invoke.cont5:                                     ; preds = %entry
   %_fallbackID = getelementptr inbounds nuw i8, ptr %this, i64 144
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %_fallbackID, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %_fallbackID, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   store i16 2, ptr %fUnion2.i, align 8
   %_currentID = getelementptr inbounds nuw i8, ptr %this, i64 208
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %_currentID, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %_currentID, align 8
   %fUnion2.i6 = getelementptr inbounds nuw i8, ptr %this, i64 216
   store i16 2, ptr %fUnion2.i6, align 8
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %_fallbackID)
@@ -726,7 +726,7 @@ declare void @_ZN6icu_7513ICUServiceKeyD2Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_759LocaleKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759LocaleKeyE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_759LocaleKeyE, i64 16), ptr %this, align 8
   %_currentID = getelementptr inbounds nuw i8, ptr %this, i64 208
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %_currentID) #12
   %_fallbackID = getelementptr inbounds nuw i8, ptr %this, i64 144

@@ -116,7 +116,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_irq_get_perc
 define internal noundef i32 @irq_affinity_setup(ptr noundef %0) #0 section ".init.text" align 16 {
   %2 = load i32, ptr @nr_cpu_ids, align 4
   %3 = tail call i32 @bitmap_parselist(ptr noundef %0, ptr noundef nonnull @irq_default_affinity, i32 noundef %2) #11
-  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #12, !srcloc !5
+  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #12, !srcloc !5
   %5 = zext i32 %4 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @irq_default_affinity, i64 %5) #11, !srcloc !6
   ret i32 1
@@ -211,7 +211,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local i32 @early_irq_init() local_unnamed_addr #0 section ".init.text" align 16 {
   %1 = alloca %struct.ma_state, align 8
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 8), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 8), align 8
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %7, label %4
 
@@ -311,7 +311,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef ptr @alloc_desc(i32 noundef %0, i32 noundef %1, i32 noundef range(i32 0, 10485761) %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #1 align 16 {
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %7 = tail call noalias noundef align 8 dereferenceable_or_null(448) ptr @kmalloc_node_trace(ptr noundef %6, i32 noundef 3520, i32 noundef %1, i64 noundef 448) #14
   %8 = icmp eq ptr %7, null
   br i1 %8, label %66, label %9
@@ -430,7 +430,7 @@ define dso_local noundef range(i32 -22, 1) i32 @handle_irq_desc(ptr noundef %0) 
   br i1 %2, label %17, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !18
+  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !18
   %5 = and i32 %4, 983040
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %14
@@ -468,7 +468,7 @@ define dso_local noundef range(i32 -22, 1) i32 @generic_handle_irq(i32 noundef %
   br i1 %4, label %19, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !18
+  %6 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !18
   %7 = and i32 %6, 983040
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %16
@@ -513,7 +513,7 @@ define dso_local noundef range(i32 -22, 1) i32 @generic_handle_irq_safe(i32 noun
   br i1 %6, label %21, label %7
 
 7:                                                ; preds = %1
-  %8 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !18
+  %8 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !18
   %9 = and i32 %8, 983040
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %18
@@ -560,7 +560,7 @@ define dso_local noundef range(i32 -22, 1) i32 @generic_handle_domain_irq(ptr no
   br i1 %5, label %20, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !18
+  %7 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !18
   %8 = and i32 %7, 983040
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %17
@@ -605,7 +605,7 @@ define dso_local noundef range(i32 -22, 1) i32 @generic_handle_domain_irq_safe(p
   br i1 %7, label %22, label %8
 
 8:                                                ; preds = %2
-  %9 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !18
+  %9 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !18
   %10 = and i32 %9, 983040
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %19
@@ -646,7 +646,7 @@ define dso_local noundef range(i32 -22, 1) i32 @generic_handle_domain_irq_safe(p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @generic_handle_domain_nmi(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
-  %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !18
+  %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !18
   %4 = and i32 %3, 15728640
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %7, !prof !26
@@ -664,7 +664,7 @@ define dso_local noundef range(i32 -22, 1) i32 @generic_handle_domain_nmi(ptr no
   br i1 %10, label %25, label %11
 
 11:                                               ; preds = %7
-  %12 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !18
+  %12 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !18
   %13 = and i32 %12, 983040
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %22
@@ -1125,7 +1125,7 @@ define dso_local noundef range(i32 -22, 1) i32 @irq_set_percpu_devid_partition(i
   br i1 %9, label %10, label %18
 
 10:                                               ; preds = %6
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 24), align 8
   %12 = tail call noalias noundef align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 8) #16
   store ptr %12, ptr %7, align 8
   %13 = icmp eq ptr %12, null
@@ -1158,7 +1158,7 @@ define dso_local noundef range(i32 -22, 1) i32 @irq_set_percpu_devid(i32 noundef
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 24), align 8
   %11 = tail call noalias noundef align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 8) #16
   store ptr %11, ptr %6, align 8
   %12 = icmp eq ptr %11, null

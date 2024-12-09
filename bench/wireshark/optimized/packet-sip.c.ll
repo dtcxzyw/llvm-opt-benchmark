@@ -1682,7 +1682,7 @@ define internal void @sip_stat_init(ptr noundef %0) #0 {
 38:                                               ; preds = %34, %38
   %indvars.iv44 = phi i64 [ 1, %34 ], [ %indvars.iv.next45, %38 ]
   %39 = phi ptr [ @.str.2, %34 ], [ %47, %38 ]
-  %40 = phi ptr [ getelementptr inbounds (i8, ptr @sip_response_code_vals, i64 16), %34 ], [ %45, %38 ]
+  %40 = phi ptr [ getelementptr inbounds nuw (i8, ptr @sip_response_code_vals, i64 16), %34 ], [ %45, %38 ]
   %41 = load i32, ptr %40, align 16
   %42 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.960, i32 noundef %41, ptr noundef nonnull %39) #15
   store ptr %42, ptr %36, align 8
@@ -3561,7 +3561,7 @@ sip_is_known_sip_header.exit:                     ; preds = %336, %.loopexit.loo
   br label %.critedge1491
 
 388:                                              ; preds = %sip_is_known_sip_header.exit
-  %389 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 472), align 8
+  %389 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 472), align 8
   %390 = load i32, ptr %16, align 4
   %391 = sub i32 %390, %.012661892
   %392 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %389, ptr noundef %0, i32 noundef %.012661892, i32 noundef %391, i32 noundef %360, i32 noundef %361)
@@ -3654,7 +3654,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   br label %.critedge1491
 
 434:                                              ; preds = %sip_is_known_sip_header.exit
-  %435 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 120), align 8
+  %435 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 120), align 8
   %436 = load i32, ptr %16, align 4
   %437 = sub i32 %436, %.012661892
   %438 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %435, ptr noundef %0, i32 noundef %.012661892, i32 noundef %437, i32 noundef %360, i32 noundef %361)
@@ -3738,7 +3738,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   br i1 %.not1411, label %.critedge1491, label %479
 
 479:                                              ; preds = %478
-  %480 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 196), align 4
+  %480 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 196), align 4
   %481 = load i32, ptr %16, align 4
   %482 = sub i32 %481, %.012661892
   %483 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %480, ptr noundef %0, i32 noundef %.012661892, i32 noundef %482, i32 noundef %360, i32 noundef %361)
@@ -3760,7 +3760,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   br i1 %.not1411, label %.critedge1491, label %491
 
 491:                                              ; preds = %490
-  %492 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 204), align 4
+  %492 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 204), align 4
   %493 = load i32, ptr %16, align 4
   %494 = sub i32 %493, %.012661892
   %495 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %492, ptr noundef %0, i32 noundef %.012661892, i32 noundef %494, i32 noundef %360, i32 noundef %361)
@@ -3786,7 +3786,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   br i1 %.not1411, label %.critedge1491, label %505
 
 505:                                              ; preds = %504
-  %506 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 136), align 8
+  %506 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 136), align 8
   %507 = load i32, ptr %16, align 4
   %508 = sub i32 %507, %.012661892
   %509 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %506, ptr noundef %0, i32 noundef %.012661892, i32 noundef %508, i32 noundef %360, i32 noundef %361)
@@ -3800,7 +3800,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   br i1 %.not1411, label %.critedge1491, label %514
 
 514:                                              ; preds = %513
-  %515 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 216), align 8
+  %515 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 216), align 8
   %516 = load i32, ptr %16, align 4
   %517 = sub i32 %516, %.012661892
   %518 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %515, ptr noundef %0, i32 noundef %.012661892, i32 noundef %517, i32 noundef %360, i32 noundef %361)
@@ -3814,7 +3814,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   br i1 %.not1411, label %.critedge1491, label %522
 
 522:                                              ; preds = %521
-  %523 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 252), align 4
+  %523 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 252), align 4
   %524 = load i32, ptr %16, align 4
   %525 = sub i32 %524, %.012661892
   %526 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %523, ptr noundef %0, i32 noundef %.012661892, i32 noundef %525, i32 noundef %360, i32 noundef %361)
@@ -3836,7 +3836,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   br i1 %.not1411, label %.critedge1491, label %534
 
 534:                                              ; preds = %533
-  %535 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 284), align 4
+  %535 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 284), align 4
   %536 = load i32, ptr %16, align 4
   %537 = sub i32 %536, %.012661892
   %538 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %535, ptr noundef %0, i32 noundef %.012661892, i32 noundef %537, i32 noundef %360, i32 noundef %361)
@@ -3858,7 +3858,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   br i1 %.not1411, label %.critedge1491, label %546
 
 546:                                              ; preds = %545
-  %547 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 476), align 4
+  %547 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 476), align 4
   %548 = load i32, ptr %16, align 4
   %549 = sub i32 %548, %.012661892
   %550 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %547, ptr noundef %0, i32 noundef %.012661892, i32 noundef %549, i32 noundef %360, i32 noundef %361)
@@ -3920,7 +3920,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   %581 = call ptr @wmem_packet_scope() #15
   %582 = call ptr @tvb_get_string_enc(ptr noundef %581, ptr noundef %0, i32 noundef %360, i32 noundef %361, i32 noundef 2) #15
   %583 = call zeroext i1 @ws_strtou32(ptr noundef %582, ptr noundef null, ptr noundef nonnull %24) #15
-  %584 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 396), align 4
+  %584 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 396), align 4
   %585 = load i32, ptr %16, align 4
   %586 = sub i32 %585, %.012661892
   %587 = load i32, ptr %24, align 4
@@ -3942,7 +3942,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   br i1 %.not1411, label %605, label %598
 
 598:                                              ; preds = %591
-  %599 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 92), align 4
+  %599 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 92), align 4
   %600 = load i32, ptr %16, align 4
   %601 = sub i32 %600, %.012661892
   %602 = call ptr @proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %599, ptr noundef %0, i32 noundef %.012661892, i32 noundef %601, ptr noundef %593) #15
@@ -4028,7 +4028,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   br i1 %635, label %636, label %644
 
 636:                                              ; preds = %633
-  %637 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 92), align 4
+  %637 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 92), align 4
   %638 = load i32, ptr %16, align 4
   %639 = sub i32 %638, %.012661892
   %640 = zext nneg i32 %.11300.lcssa to i64
@@ -4050,7 +4050,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   br i1 %.not1411, label %659, label %652
 
 652:                                              ; preds = %649
-  %653 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 324), align 4
+  %653 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 324), align 4
   %654 = load i32, ptr %16, align 4
   %655 = sub i32 %654, %.012661892
   %656 = call ptr @proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %653, ptr noundef %0, i32 noundef %.012661892, i32 noundef %655, ptr noundef %651) #15
@@ -4214,7 +4214,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   %727 = load ptr, ptr @stat_info, align 8
   %728 = getelementptr inbounds nuw i8, ptr %727, i64 24
   store ptr %726, ptr %728, align 8
-  %729 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 56), align 8
+  %729 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 56), align 8
   %730 = load i32, ptr %16, align 4
   %731 = sub i32 %730, %.012661892
   %732 = call ptr @proto_tree_add_string(ptr noundef %279, i32 noundef %729, ptr noundef %0, i32 noundef %.012661892, i32 noundef %731, ptr noundef %726) #15
@@ -4264,14 +4264,14 @@ proto_item_set_hidden.exit1523:                   ; preds = %proto_item_set_gene
   %753 = call i32 @tvb_strneql(ptr noundef %0, i32 noundef %360, ptr noundef nonnull @.str.1004, i64 noundef %752) #15
   %754 = icmp eq i32 %753, 0
   %spec.select1494 = select i1 %754, i8 1, i8 %.013201886
-  %755 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 108), align 4
+  %755 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 108), align 4
   %756 = load i32, ptr %16, align 4
   %757 = sub i32 %756, %.012661892
   call fastcc void @sip_proto_tree_add_uint(ptr noundef %279, i32 noundef %755, ptr noundef %0, i32 noundef %.012661892, i32 noundef %757, i32 noundef %360, i32 noundef %361)
   br label %.critedge1491
 
 758:                                              ; preds = %sip_is_known_sip_header.exit
-  %759 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 88), align 8
+  %759 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 88), align 8
   %760 = load i32, ptr %16, align 4
   %761 = sub i32 %760, %.012661892
   %762 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %759, ptr noundef %0, i32 noundef %.012661892, i32 noundef %761, i32 noundef %360, i32 noundef %361)
@@ -4304,7 +4304,7 @@ proto_item_set_hidden.exit1523:                   ; preds = %proto_item_set_gene
   %779 = call ptr @wmem_packet_scope() #15
   %780 = call ptr @tvb_get_string_enc(ptr noundef %779, ptr noundef %0, i32 noundef %360, i32 noundef %361, i32 noundef 2) #15
   %781 = call zeroext i1 @ws_strtou32(ptr noundef %780, ptr noundef null, ptr noundef nonnull %17) #15
-  %782 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 84), align 4
+  %782 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 84), align 4
   %783 = load i32, ptr %16, align 4
   %784 = sub i32 %783, %.012661892
   %785 = load i32, ptr %17, align 4
@@ -4335,7 +4335,7 @@ proto_item_set_hidden.exit1523:                   ; preds = %proto_item_set_gene
   br label %.critedge1491
 
 802:                                              ; preds = %sip_is_known_sip_header.exit
-  %803 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 68), align 4
+  %803 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 68), align 4
   %804 = load i32, ptr %16, align 4
   %805 = sub i32 %804, %.012661892
   %806 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %803, ptr noundef %0, i32 noundef %.012661892, i32 noundef %805, i32 noundef %360, i32 noundef %361)
@@ -4908,7 +4908,7 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
   br i1 %.not1411, label %.critedge1491, label %1086
 
 1086:                                             ; preds = %1085
-  %1087 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 400), align 16
+  %1087 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 400), align 16
   %1088 = load i32, ptr %16, align 4
   %1089 = sub i32 %1088, %.012661892
   %1090 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1087, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1089, i32 noundef %360, i32 noundef %361)
@@ -4922,7 +4922,7 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
   br i1 %.not1411, label %.critedge1491, label %1094
 
 1094:                                             ; preds = %1093
-  %1095 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 336), align 16
+  %1095 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 336), align 16
   %1096 = load i32, ptr %16, align 4
   %1097 = sub i32 %1096, %.012661892
   %1098 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1095, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1097, i32 noundef %360, i32 noundef %361)
@@ -4936,7 +4936,7 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
   br i1 %.not1411, label %.critedge1491, label %1102
 
 1102:                                             ; preds = %1101
-  %1103 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 428), align 4
+  %1103 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 428), align 4
   %1104 = load i32, ptr %16, align 4
   %1105 = sub i32 %1104, %.012661892
   %1106 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1103, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1105, i32 noundef %360, i32 noundef %361)
@@ -4950,7 +4950,7 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
   br i1 %.not1411, label %.critedge1491, label %1110
 
 1110:                                             ; preds = %1109
-  %1111 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 280), align 8
+  %1111 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 280), align 8
   %1112 = load i32, ptr %16, align 4
   %1113 = sub i32 %1112, %.012661892
   %1114 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1111, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1113, i32 noundef %360, i32 noundef %361)
@@ -4964,7 +4964,7 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
   br i1 %.not1411, label %.critedge1491, label %1118
 
 1118:                                             ; preds = %1117
-  %1119 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 488), align 8
+  %1119 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 488), align 8
   %1120 = load i32, ptr %16, align 4
   %1121 = sub i32 %1120, %.012661892
   %1122 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1119, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1121, i32 noundef %360, i32 noundef %361)
@@ -4978,7 +4978,7 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
   br i1 %.not1411, label %.critedge1491, label %1126
 
 1126:                                             ; preds = %1125
-  %1127 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 328), align 8
+  %1127 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 328), align 8
   %1128 = load i32, ptr %16, align 4
   %1129 = sub i32 %1128, %.012661892
   %1130 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1127, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1129, i32 noundef %360, i32 noundef %361)
@@ -4989,7 +4989,7 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
   br label %.critedge1491
 
 1133:                                             ; preds = %sip_is_known_sip_header.exit
-  %1134 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 76), align 4
+  %1134 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 76), align 4
   %1135 = load i32, ptr %16, align 4
   %1136 = sub i32 %1135, %.012661892
   %1137 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %1134, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1136, i32 noundef %360, i32 noundef %361)
@@ -5000,7 +5000,7 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
   br label %.critedge1491
 
 1141:                                             ; preds = %sip_is_known_sip_header.exit
-  %1142 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 408), align 8
+  %1142 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 408), align 8
   %1143 = load i32, ptr %16, align 4
   %1144 = sub i32 %1143, %.012661892
   %1145 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %1142, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1144, i32 noundef %360, i32 noundef %361)
@@ -5023,7 +5023,7 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
   br i1 %1154, label %.lr.ph1779, label %.critedge1491, !llvm.loop !35
 
 1155:                                             ; preds = %sip_is_known_sip_header.exit
-  %1156 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 412), align 4
+  %1156 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 412), align 4
   %1157 = load i32, ptr %16, align 4
   %1158 = sub i32 %1157, %.012661892
   %1159 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %1156, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1158, i32 noundef %360, i32 noundef %361)
@@ -5046,7 +5046,7 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
   br i1 %1168, label %.lr.ph1777, label %.critedge1491, !llvm.loop !36
 
 1169:                                             ; preds = %sip_is_known_sip_header.exit
-  %1170 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 416), align 16
+  %1170 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 416), align 16
   %1171 = load i32, ptr %16, align 4
   %1172 = sub i32 %1171, %.012661892
   %1173 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %1170, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1172, i32 noundef %360, i32 noundef %361)
@@ -5072,7 +5072,7 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
   br i1 %.not1411, label %.critedge1491, label %1184
 
 1184:                                             ; preds = %1183
-  %1185 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 436), align 4
+  %1185 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 436), align 4
   %1186 = load i32, ptr %16, align 4
   %1187 = sub i32 %1186, %.012661892
   %1188 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1185, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1187, i32 noundef %360, i32 noundef %361)
@@ -5086,7 +5086,7 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
   br i1 %.not1411, label %.critedge1491, label %1192
 
 1192:                                             ; preds = %1191
-  %1193 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 188), align 4
+  %1193 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 188), align 4
   %1194 = load i32, ptr %16, align 4
   %1195 = sub i32 %1194, %.012661892
   %1196 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1193, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1195, i32 noundef %360, i32 noundef %361)
@@ -5100,7 +5100,7 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
   br i1 %.not1411, label %.critedge1491, label %1200
 
 1200:                                             ; preds = %1199
-  %1201 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 220), align 4
+  %1201 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 220), align 4
   %1202 = load i32, ptr %16, align 4
   %1203 = sub i32 %1202, %.012661892
   %1204 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1201, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1203, i32 noundef %360, i32 noundef %361)
@@ -5114,7 +5114,7 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
   br i1 %.not1411, label %.critedge1491, label %1208
 
 1208:                                             ; preds = %1207
-  %1209 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 112), align 16
+  %1209 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_header_array, i64 112), align 16
   %1210 = load i32, ptr %16, align 4
   %1211 = sub i32 %1210, %.012661892
   %1212 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1209, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1211, i32 noundef %360, i32 noundef %361)

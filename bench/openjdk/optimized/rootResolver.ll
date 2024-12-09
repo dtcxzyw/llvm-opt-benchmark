@@ -154,7 +154,7 @@ define hidden noundef zeroext i1 @_ZN22ReferenceToRootClosure13do_cldg_rootsEv(p
   %2 = alloca %class.ReferenceLocateClosure, align 8
   %3 = alloca %class.CLDToOopClosure, align 8
   %4 = load ptr, ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV22ReferenceLocateClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22ReferenceLocateClosure, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -163,7 +163,7 @@ define hidden noundef zeroext i1 @_ZN22ReferenceToRootClosure13do_cldg_rootsEv(p
   store i32 8, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15CLDToOopClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV15CLDToOopClosure, i64 16), ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %2, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -194,7 +194,7 @@ define hidden noundef zeroext i1 @_ZN22ReferenceToRootClosure20do_oop_storage_ro
   %11 = select i1 %10, i32 3, i32 4
   %12 = add nuw nsw i32 %.sroa.010.015, 3
   %13 = load ptr, ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV22ReferenceLocateClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22ReferenceLocateClosure, i64 16), ptr %2, align 8
   store ptr %13, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %4, i8 0, i64 33, i1 false)
   store i32 %12, ptr %5, align 8
@@ -260,14 +260,14 @@ define hidden noundef zeroext i1 @_ZN22ReferenceToRootClosure8do_rootsEv(ptr noc
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV22ReferenceLocateClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22ReferenceLocateClosure, i64 16), ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %7, i8 0, i64 33, i1 false)
   store i32 8, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15CLDToOopClosure, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV15CLDToOopClosure, i64 16), ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -296,7 +296,7 @@ define hidden noundef zeroext i1 @_ZN22ReferenceToRootClosure8do_rootsEv(ptr noc
   %23 = select i1 %22, i32 3, i32 4
   %24 = add nuw nsw i32 %.sroa.010.015.i, 3
   %25 = load ptr, ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV22ReferenceLocateClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22ReferenceLocateClosure, i64 16), ptr %2, align 8
   store ptr %25, ptr %15, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %16, i8 0, i64 33, i1 false)
   store i32 %24, ptr %17, align 8
@@ -363,7 +363,7 @@ _ZN22ReferenceToRootClosure20do_oop_storage_rootsEv.exit: ; preds = %_ZN10OopSto
 define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure21do_thread_handle_areaEP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.ReferenceLocateClosure, align 8
   %4 = load ptr, ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV22ReferenceLocateClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22ReferenceLocateClosure, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -389,7 +389,7 @@ declare void @_ZN10HandleArea7oops_doEP10OopClosure(ptr noundef nonnull align 8 
 define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure21do_thread_jni_handlesEP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.ReferenceLocateClosure, align 8
   %4 = load ptr, ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV22ReferenceLocateClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22ReferenceLocateClosure, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -503,7 +503,7 @@ define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure24do_thread_s
   %4 = alloca %class.ReferenceLocateClosure, align 8
   %5 = alloca %class.StackFrameStream, align 8
   %6 = load ptr, ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV22ReferenceLocateClosure, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22ReferenceLocateClosure, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -675,7 +675,7 @@ declare void @_ZN16JvmtiThreadState7oops_doEP10OopClosureP14NMethodClosure(ptr n
 define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure20do_java_threads_oopsEP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.ReferenceLocateClosure, align 8
   %4 = load ptr, ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV22ReferenceLocateClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22ReferenceLocateClosure, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -782,7 +782,7 @@ define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure15do_thread_r
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   %58 = load ptr, ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV22ReferenceLocateClosure, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22ReferenceLocateClosure, i64 16), ptr %4, align 8
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %58, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -805,7 +805,7 @@ define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure15do_thread_r
 69:                                               ; preds = %.loopexit7
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %70 = load ptr, ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV22ReferenceLocateClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22ReferenceLocateClosure, i64 16), ptr %3, align 8
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %70, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 16

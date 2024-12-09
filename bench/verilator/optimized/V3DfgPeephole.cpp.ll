@@ -1758,13 +1758,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZZN20V3DfgPeepholeContextC1ERKS8_ENK3$_0clE19VDfgPeepholePatternEUlhE_ET0_T_SH_SG_T1_.exit", label %.lr.ph.i, !llvm.loop !5
 
 "_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZZN20V3DfgPeepholeContextC1ERKS8_ENK3$_0clE19VDfgPeepholePatternEUlhE_ET0_T_SH_SG_T1_.exit": ; preds = %"_ZZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.exit.i", %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @v3Global, i64 824), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 824), align 8
   %.not11.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not11.i.i.i.i, label %39, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZZN20V3DfgPeepholeContextC1ERKS8_ENK3$_0clE19VDfgPeepholePatternEUlhE_ET0_T_SH_SG_T1_.exit", %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i
   %.013.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i ], [ %24, %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZZN20V3DfgPeepholeContextC1ERKS8_ENK3$_0clE19VDfgPeepholePatternEUlhE_ET0_T_SH_SG_T1_.exit" ]
-  %.0812.i.i.i.i = phi ptr [ %.19.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i ], [ getelementptr inbounds (i8, ptr @v3Global, i64 816), %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZZN20V3DfgPeepholeContextC1ERKS8_ENK3$_0clE19VDfgPeepholePatternEUlhE_ET0_T_SH_SG_T1_.exit" ]
+  %.0812.i.i.i.i = phi ptr [ %.19.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @v3Global, i64 816), %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZZN20V3DfgPeepholeContextC1ERKS8_ENK3$_0clE19VDfgPeepholePatternEUlhE_ET0_T_SH_SG_T1_.exit" ]
   %25 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 32
   %26 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i unwind label %27
@@ -1786,7 +1786,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !7
 
 _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i
-  %31 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @v3Global, i64 816)
+  %31 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds nuw (i8, ptr @v3Global, i64 816)
   br i1 %31, label %39, label %32
 
 32:                                               ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i.i
@@ -2402,7 +2402,7 @@ define linkonce_odr dso_local void @_ZN7V3Stats7addStatERKNSt7__cxx1112basic_str
           to label %.noexc8 unwind label %21
 
 .noexc8:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.70, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.70, i64 1))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %8
 
 8:                                                ; preds = %.noexc8
@@ -2412,7 +2412,7 @@ define linkonce_odr dso_local void @_ZN7V3Stats7addStatERKNSt7__cxx1112basic_str
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3Statistic, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11V3Statistic, i64 16), ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc9 unwind label %23
@@ -2538,7 +2538,7 @@ declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13V3DfgPeepholeC2ER8DfgGraphR20V3DfgPeepholeContext(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(632) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.DfgGraph::UserDataInUse", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3DfgPeephole, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13V3DfgPeephole, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9143,7 +9143,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13V3DfgPeephole8makeZeroEP8FileLin
           to label %.noexc4 unwind label %14
 
 .noexc4:                                          ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8DfgConst, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8DfgConst, i64 16), ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 72
   invoke void @_ZN8V3NumberC2EP8FileLineij(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %1, i32 noundef %2, i32 noundef 0)
           to label %_ZN8DfgConstC2ER8DfgGraphP8FileLinejj.exit unwind label %12
@@ -9526,7 +9526,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 17:                                               ; preds = %12
   %18 = trunc i32 %15 to i8
   store i8 %18, ptr %16, align 1
-  %19 = invoke noundef i32 @_ZNK9V3Options10debugLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (i8, ptr @v3Global, i64 152), ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %19 = invoke noundef i32 @_ZNK9V3Options10debugLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds nuw (i8, ptr @v3Global, i64 152), ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %20 unwind label %31
 
 20:                                               ; preds = %17
@@ -9539,7 +9539,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc20 unwind label %33
 
 .noexc20:                                         ; preds = %.noexc19
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.74, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.74, i64 118))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.74, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.74, i64 118))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23 unwind label %22
 
 22:                                               ; preds = %.noexc20
@@ -9549,14 +9549,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %.body21
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23: ; preds = %.noexc20
-  %24 = invoke noundef i32 @_ZNK9V3Options13debugSrcLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (i8, ptr @v3Global, i64 152), ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %24 = invoke noundef i32 @_ZNK9V3Options13debugSrcLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds nuw (i8, ptr @v3Global, i64 152), ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %25 unwind label %35
 
 25:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
   %26 = call i32 @llvm.umax.i32(i32 %19, i32 %24)
-  %27 = load i8, ptr getelementptr inbounds (i8, ptr @v3Global, i64 1710), align 2
+  %27 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1710), align 2
   %28 = trunc i8 %27 to i1
   br i1 %28, label %.thread, label %37
 
@@ -10436,7 +10436,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgAdd, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgAdd, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -11224,7 +11224,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgAdd, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgAdd, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -11283,7 +11283,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgAdd, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgAdd, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -11342,7 +11342,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgAdd, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgAdd, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -12445,7 +12445,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgAnd, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgAnd, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -12577,7 +12577,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgAnd, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgAnd, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -12636,7 +12636,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgAnd, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgAnd, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -12695,7 +12695,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgAnd, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgAnd, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -12832,7 +12832,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV5DfgOr, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV5DfgOr, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -12958,7 +12958,7 @@ _ZN18V3DfgCacheInternal11setOperandsEP14DfgVertexUnaryP9DfgVertex.exit.i: ; pred
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 24, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 96
   store ptr %16, ptr %18, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgNot, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgNot, i64 16), ptr %16, align 8
   call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %3)
   store ptr %16, ptr %13, align 8
   br label %_ZN18V3DfgCacheInternal11getOrCreateI6DfgNotSt13unordered_mapINS_8KeyUnaryEP14DfgVertexUnaryNS3_4HashENS3_5EqualESaISt4pairIKS3_S5_EEEJP5DfgOrEEEPT_R8DfgGraphP8FileLineP12AstNodeDTypeRT0_DpT1_.exit
@@ -13507,7 +13507,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV5DfgEq, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV5DfgEq, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -13639,7 +13639,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV5DfgOr, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV5DfgOr, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -13704,7 +13704,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgConcat, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9DfgConcat, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -13865,7 +13865,7 @@ _ZN18V3DfgCacheInternal11setOperandsEP14DfgVertexUnaryP9DfgVertex.exit.i: ; pred
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 24, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 96
   store ptr %16, ptr %18, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgRedAnd, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9DfgRedAnd, i64 16), ptr %16, align 8
   call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %3)
   store ptr %16, ptr %13, align 8
   br label %_ZN18V3DfgCacheInternal11getOrCreateI9DfgRedAndSt13unordered_mapINS_8KeyUnaryEP14DfgVertexUnaryNS3_4HashENS3_5EqualESaISt4pairIKS3_S5_EEEJP6DfgAndEEEPT_R8DfgGraphP8FileLineP12AstNodeDTypeRT0_DpT1_.exit
@@ -14600,7 +14600,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13V3DfgPeephole7makeI32EP8FileLine
           to label %.noexc4 unwind label %14
 
 .noexc4:                                          ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8DfgConst, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8DfgConst, i64 16), ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 72
   invoke void @_ZN8V3NumberC2EP8FileLineij(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %1, i32 noundef 32, i32 noundef %2)
           to label %_ZN8DfgConstC2ER8DfgGraphP8FileLinejj.exit unwind label %12
@@ -14885,7 +14885,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgConcat, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9DfgConcat, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -14944,7 +14944,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgConcat, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9DfgConcat, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -15003,7 +15003,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgConcat, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9DfgConcat, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -15062,7 +15062,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgConcat, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9DfgConcat, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -15121,7 +15121,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgShiftR, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9DfgShiftR, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -15253,7 +15253,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgShiftL, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9DfgShiftL, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -15379,7 +15379,7 @@ _ZN18V3DfgCacheInternal11setOperandsEP14DfgVertexUnaryP9DfgVertex.exit.i: ; pred
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 24, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 96
   store ptr %16, ptr %18, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgNot, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgNot, i64 16), ptr %16, align 8
   call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %3)
   store ptr %16, ptr %13, align 8
   br label %_ZN18V3DfgCacheInternal11getOrCreateI6DfgNotSt13unordered_mapINS_8KeyUnaryEP14DfgVertexUnaryNS3_4HashENS3_5EqualESaISt4pairIKS3_S5_EEEJP9DfgConcatEEEPT_R8DfgGraphP8FileLineP12AstNodeDTypeRT0_DpT1_.exit
@@ -15415,7 +15415,7 @@ _ZN18V3DfgCacheInternal11setOperandsEP6DfgSelP9DfgVertexj.exit.i.i: ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 24, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 96
   store ptr %12, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgSel, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgSel, i64 16), ptr %12, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 104
   store i32 0, ptr %15, align 8
   tail call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef %3)
@@ -16073,7 +16073,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgConcat, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9DfgConcat, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -16132,7 +16132,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgConcat, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9DfgConcat, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -16498,7 +16498,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   br i1 %exitcond.not.i.i.i, label %26, label %23, !llvm.loop !183
 
 26:                                               ; preds = %23
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7DfgCond, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7DfgCond, i64 16), ptr %21, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP16DfgVertexTernaryP9DfgVertexS3_S3_(ptr noundef nonnull %21, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   store ptr %21, ptr %18, align 8
   br label %29
@@ -17235,7 +17235,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   br i1 %exitcond.not.i.i.i, label %26, label %23, !llvm.loop !183
 
 26:                                               ; preds = %23
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7DfgCond, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7DfgCond, i64 16), ptr %21, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP16DfgVertexTernaryP9DfgVertexS3_S3_(ptr noundef nonnull %21, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   store ptr %21, ptr %18, align 8
   br label %29
@@ -17288,7 +17288,7 @@ _ZN18V3DfgCacheInternal11setOperandsEP14DfgVertexUnaryP9DfgVertex.exit.i: ; pred
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 24, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 96
   store ptr %16, ptr %18, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgNot, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgNot, i64 16), ptr %16, align 8
   call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %3)
   store ptr %16, ptr %13, align 8
   br label %_ZN18V3DfgCacheInternal11getOrCreateI6DfgNotSt13unordered_mapINS_8KeyUnaryEP14DfgVertexUnaryNS3_4HashENS3_5EqualESaISt4pairIKS3_S5_EEEJP7DfgCondEEEPT_R8DfgGraphP8FileLineP12AstNodeDTypeRT0_DpT1_.exit
@@ -17353,7 +17353,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgAdd, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgAdd, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -17412,7 +17412,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgSub, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgSub, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -17538,7 +17538,7 @@ _ZN18V3DfgCacheInternal11setOperandsEP14DfgVertexUnaryP9DfgVertex.exit.i: ; pred
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 24, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 96
   store ptr %16, ptr %18, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgNot, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgNot, i64 16), ptr %16, align 8
   call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %3)
   store ptr %16, ptr %13, align 8
   br label %_ZN18V3DfgCacheInternal11getOrCreateI6DfgNotSt13unordered_mapINS_8KeyUnaryEP14DfgVertexUnaryNS3_4HashENS3_5EqualESaISt4pairIKS3_S5_EEEJP9DfgVertexEEEPT_R8DfgGraphP8FileLineP12AstNodeDTypeRT0_DpT1_.exit
@@ -17597,7 +17597,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgAnd, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgAnd, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -17656,7 +17656,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV5DfgOr, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV5DfgOr, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -18084,7 +18084,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV5DfgEq, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV5DfgEq, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -18143,7 +18143,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgAnd, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgAnd, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -18727,7 +18727,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgMul, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgMul, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -18859,7 +18859,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgMul, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgMul, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -18918,7 +18918,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgMul, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgMul, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -18977,7 +18977,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgMul, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgMul, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -19570,7 +19570,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7DfgMulS, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7DfgMulS, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -19702,7 +19702,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7DfgMulS, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7DfgMulS, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -19761,7 +19761,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7DfgMulS, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7DfgMulS, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -19820,7 +19820,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7DfgMulS, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7DfgMulS, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -19941,7 +19941,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   br i1 %exitcond.not.i.i.i, label %26, label %23, !llvm.loop !183
 
 26:                                               ; preds = %23
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7DfgCond, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7DfgCond, i64 16), ptr %21, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP16DfgVertexTernaryP9DfgVertexS3_S3_(ptr noundef nonnull %21, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   store ptr %21, ptr %18, align 8
   br label %29
@@ -20000,7 +20000,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgNeq, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgNeq, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -20977,7 +20977,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV5DfgOr, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV5DfgOr, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -21036,7 +21036,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV5DfgOr, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV5DfgOr, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -21095,7 +21095,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV5DfgOr, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV5DfgOr, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -21148,7 +21148,7 @@ _ZN18V3DfgCacheInternal11setOperandsEP14DfgVertexUnaryP9DfgVertex.exit.i: ; pred
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 24, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 96
   store ptr %16, ptr %18, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgNot, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgNot, i64 16), ptr %16, align 8
   call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %3)
   store ptr %16, ptr %13, align 8
   br label %_ZN18V3DfgCacheInternal11getOrCreateI6DfgNotSt13unordered_mapINS_8KeyUnaryEP14DfgVertexUnaryNS3_4HashENS3_5EqualESaISt4pairIKS3_S5_EEEJP6DfgAndEEEPT_R8DfgGraphP8FileLineP12AstNodeDTypeRT0_DpT1_.exit
@@ -21207,7 +21207,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgAnd, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgAnd, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -21266,7 +21266,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgConcat, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9DfgConcat, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -21354,7 +21354,7 @@ _ZN18V3DfgCacheInternal11setOperandsEP14DfgVertexUnaryP9DfgVertex.exit.i: ; pred
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 24, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 96
   store ptr %16, ptr %18, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8DfgRedOr, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8DfgRedOr, i64 16), ptr %16, align 8
   call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %3)
   store ptr %16, ptr %13, align 8
   br label %_ZN18V3DfgCacheInternal11getOrCreateI8DfgRedOrSt13unordered_mapINS_8KeyUnaryEP14DfgVertexUnaryNS3_4HashENS3_5EqualESaISt4pairIKS3_S5_EEEJP5DfgOrEEEPT_R8DfgGraphP8FileLineP12AstNodeDTypeRT0_DpT1_.exit
@@ -21801,7 +21801,7 @@ _ZN18V3DfgCacheInternal11setOperandsEP14DfgVertexUnaryP9DfgVertex.exit.i: ; pred
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 24, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 96
   store ptr %16, ptr %18, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgRedAnd, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9DfgRedAnd, i64 16), ptr %16, align 8
   call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %3)
   store ptr %16, ptr %13, align 8
   br label %_ZN18V3DfgCacheInternal11getOrCreateI9DfgRedAndSt13unordered_mapINS_8KeyUnaryEP14DfgVertexUnaryNS3_4HashENS3_5EqualESaISt4pairIKS3_S5_EEEJP9DfgVertexEEEPT_R8DfgGraphP8FileLineP12AstNodeDTypeRT0_DpT1_.exit
@@ -21875,7 +21875,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   br i1 %exitcond.not.i.i.i, label %26, label %23, !llvm.loop !183
 
 26:                                               ; preds = %23
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7DfgCond, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7DfgCond, i64 16), ptr %21, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP16DfgVertexTernaryP9DfgVertexS3_S3_(ptr noundef nonnull %21, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   store ptr %21, ptr %18, align 8
   br label %29
@@ -21934,7 +21934,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgAnd, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgAnd, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -22300,7 +22300,7 @@ _ZN18V3DfgCacheInternal11setOperandsEP14DfgVertexUnaryP9DfgVertex.exit.i: ; pred
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 24, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 96
   store ptr %16, ptr %18, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8DfgRedOr, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8DfgRedOr, i64 16), ptr %16, align 8
   call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %3)
   store ptr %16, ptr %13, align 8
   br label %_ZN18V3DfgCacheInternal11getOrCreateI8DfgRedOrSt13unordered_mapINS_8KeyUnaryEP14DfgVertexUnaryNS3_4HashENS3_5EqualESaISt4pairIKS3_S5_EEEJP9DfgVertexEEEPT_R8DfgGraphP8FileLineP12AstNodeDTypeRT0_DpT1_.exit
@@ -22374,7 +22374,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   br i1 %exitcond.not.i.i.i, label %26, label %23, !llvm.loop !183
 
 26:                                               ; preds = %23
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7DfgCond, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7DfgCond, i64 16), ptr %21, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP16DfgVertexTernaryP9DfgVertexS3_S3_(ptr noundef nonnull %21, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   store ptr %21, ptr %18, align 8
   br label %29
@@ -22433,7 +22433,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV5DfgOr, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV5DfgOr, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -22799,7 +22799,7 @@ _ZN18V3DfgCacheInternal11setOperandsEP14DfgVertexUnaryP9DfgVertex.exit.i: ; pred
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 24, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 96
   store ptr %16, ptr %18, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgRedXor, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9DfgRedXor, i64 16), ptr %16, align 8
   call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %3)
   store ptr %16, ptr %13, align 8
   br label %_ZN18V3DfgCacheInternal11getOrCreateI9DfgRedXorSt13unordered_mapINS_8KeyUnaryEP14DfgVertexUnaryNS3_4HashENS3_5EqualESaISt4pairIKS3_S5_EEEJP9DfgVertexEEEPT_R8DfgGraphP8FileLineP12AstNodeDTypeRT0_DpT1_.exit
@@ -22946,7 +22946,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   br i1 %exitcond.not.i.i.i, label %26, label %23, !llvm.loop !183
 
 26:                                               ; preds = %23
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7DfgCond, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7DfgCond, i64 16), ptr %21, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP16DfgVertexTernaryP9DfgVertexS3_S3_(ptr noundef nonnull %21, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   store ptr %21, ptr %18, align 8
   br label %29
@@ -23005,7 +23005,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgXor, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgXor, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -23139,7 +23139,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgConcat, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9DfgConcat, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -23192,7 +23192,7 @@ _ZN18V3DfgCacheInternal11setOperandsEP14DfgVertexUnaryP9DfgVertex.exit.i: ; pred
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 24, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 96
   store ptr %16, ptr %18, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgNot, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgNot, i64 16), ptr %16, align 8
   call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %3)
   store ptr %16, ptr %13, align 8
   br label %_ZN18V3DfgCacheInternal11getOrCreateI6DfgNotSt13unordered_mapINS_8KeyUnaryEP14DfgVertexUnaryNS3_4HashENS3_5EqualESaISt4pairIKS3_S5_EEEJP6DfgSelEEEPT_R8DfgGraphP8FileLineP12AstNodeDTypeRT0_DpT1_.exit
@@ -23266,7 +23266,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   br i1 %exitcond.not.i.i.i, label %26, label %23, !llvm.loop !183
 
 26:                                               ; preds = %23
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7DfgCond, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7DfgCond, i64 16), ptr %21, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP16DfgVertexTernaryP9DfgVertexS3_S3_(ptr noundef nonnull %21, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   store ptr %21, ptr %18, align 8
   br label %29
@@ -23325,7 +23325,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgShiftL, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9DfgShiftL, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -23463,7 +23463,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgShiftL, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9DfgShiftL, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -23601,7 +23601,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgShiftR, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9DfgShiftR, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -23739,7 +23739,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10DfgShiftRS, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10DfgShiftRS, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -24669,7 +24669,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgXor, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgXor, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -24728,7 +24728,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgXor, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgXor, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -24787,7 +24787,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgXor, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgXor, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -24846,7 +24846,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6DfgXor, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6DfgXor, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -24946,7 +24946,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store ptr %18, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgConcat, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9DfgConcat, i64 16), ptr %18, align 8
   call void @_ZN18V3DfgCacheInternal11setOperandsEP15DfgVertexBinaryP9DfgVertexS3_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef %5)
   store ptr %18, ptr %15, align 8
   br label %25
@@ -25034,7 +25034,7 @@ _ZN18V3DfgCacheInternal11setOperandsEP14DfgVertexUnaryP9DfgVertex.exit.i: ; pred
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 24, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 96
   store ptr %16, ptr %18, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgRedXor, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9DfgRedXor, i64 16), ptr %16, align 8
   call void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %3)
   store ptr %16, ptr %13, align 8
   br label %_ZN18V3DfgCacheInternal11getOrCreateI9DfgRedXorSt13unordered_mapINS_8KeyUnaryEP14DfgVertexUnaryNS3_4HashENS3_5EqualESaISt4pairIKS3_S5_EEEJP6DfgXorEEEPT_R8DfgGraphP8FileLineP12AstNodeDTypeRT0_DpT1_.exit

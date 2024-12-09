@@ -45,14 +45,14 @@ define internal i32 @mca_osc_monitoring_component_init(i1 zeroext %0, i1 zeroext
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define internal i32 @mca_osc_monitoring_component_query(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2, i32 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, i32 %6) #2 {
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_osc_monitoring_component, i64 296), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_osc_monitoring_component, i64 296), align 8
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @mca_osc_monitoring_component_select(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) #1 {
-  %9 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_base_framework, i64 112), align 8
-  %.not47 = icmp eq ptr %9, getelementptr inbounds (i8, ptr @ompi_osc_base_framework, i64 96)
+  %9 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_base_framework, i64 112), align 8
+  %.not47 = icmp eq ptr %9, getelementptr inbounds nuw (i8, ptr @ompi_osc_base_framework, i64 96)
   br i1 %.not47, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %23
@@ -88,7 +88,7 @@ define internal i32 @mca_osc_monitoring_component_select(ptr noundef %0, ptr nou
 
 23:                                               ; preds = %19, %20
   %24 = phi ptr [ %22, %20 ], [ null, %19 ]
-  %.not = icmp eq ptr %24, getelementptr inbounds (i8, ptr @ompi_osc_base_framework, i64 96)
+  %.not = icmp eq ptr %24, getelementptr inbounds nuw (i8, ptr @ompi_osc_base_framework, i64 96)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %23
@@ -171,21 +171,21 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_attach(ptr noundef %0, ptr noundef %1, i64 noundef %2) #1 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 8), align 8
   %5 = tail call i32 %4(ptr noundef %0, ptr noundef %1, i64 noundef %2) #8
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_detach(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 16), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 16), align 8
   %4 = tail call i32 %3(ptr noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_free(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 24), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 24), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
@@ -278,7 +278,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %46
   br label %56
 
 56:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %50
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 32), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 32), align 8
   %58 = call i32 %57(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull %7) #8
   ret i32 %58
 }
@@ -372,7 +372,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %46
   br label %56
 
 56:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %50
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 40), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 40), align 8
   %58 = call i32 %57(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull %7) #8
   ret i32 %58
 }
@@ -465,7 +465,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %47
   br label %57
 
 57:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %51
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 48), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 48), align 8
   %59 = call i32 %58(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8) #8
   ret i32 %59
 }
@@ -557,7 +557,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %45
   br label %53
 
 53:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %49
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 56), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 56), align 8
   %55 = call i32 %54(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef nonnull %6) #8
   ret i32 %55
 }
@@ -649,7 +649,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %45
   br label %53
 
 53:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %49
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 64), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 64), align 8
   %55 = call i32 %54(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef nonnull %6) #8
   ret i32 %55
 }
@@ -747,7 +747,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %50
   br label %63
 
 63:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %54
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 72), align 8
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 72), align 8
   %65 = call i32 %64(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef nonnull %11) #8
   ret i32 %65
 }
@@ -840,7 +840,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %47
   br label %57
 
 57:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %51
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 80), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 80), align 8
   %59 = call i32 %58(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %8) #8
   ret i32 %59
 }
@@ -934,7 +934,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %47
   br label %57
 
 57:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %51
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 88), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 88), align 8
   %59 = call i32 %58(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %8) #8
   ret i32 %59
 }
@@ -1027,7 +1027,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %48
   br label %58
 
 58:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %52
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 96), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 96), align 8
   %60 = call i32 %59(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, ptr noundef %9) #8
   ret i32 %60
 }
@@ -1125,112 +1125,112 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %51
   br label %64
 
 64:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %55
-  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 104), align 8
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 104), align 8
   %66 = call i32 %65(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef nonnull %11, ptr noundef %12) #8
   ret i32 %66
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_fence(i32 noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 112), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 112), align 8
   %4 = tail call i32 %3(i32 noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_start(ptr noundef %0, i32 noundef %1, ptr noundef %2) #1 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 120), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 120), align 8
   %5 = tail call i32 %4(ptr noundef %0, i32 noundef %1, ptr noundef %2) #8
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_complete(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 128), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 128), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_post(ptr noundef %0, i32 noundef %1, ptr noundef %2) #1 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 136), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 136), align 8
   %5 = tail call i32 %4(ptr noundef %0, i32 noundef %1, ptr noundef %2) #8
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_wait(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 144), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 144), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_test(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 152), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 152), align 8
   %4 = tail call i32 %3(ptr noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_lock(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #1 {
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 160), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 160), align 8
   %6 = tail call i32 %5(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #8
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_unlock(i32 noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 168), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 168), align 8
   %4 = tail call i32 %3(i32 noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_lock_all(i32 noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 176), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 176), align 8
   %4 = tail call i32 %3(i32 noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_unlock_all(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 184), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 184), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_sync(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 192), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 192), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_flush(i32 noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 200), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 200), align 8
   %4 = tail call i32 %3(i32 noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_flush_all(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 208), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 208), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_flush_local(i32 noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 216), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 216), align 8
   %4 = tail call i32 %3(i32 noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_flush_local_all(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 224), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_portals4_template, i64 224), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
@@ -1294,21 +1294,21 @@ define internal noundef ptr @ompi_osc_monitoring_sm_set_template(ptr noundef ret
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_attach(ptr noundef %0, ptr noundef %1, i64 noundef %2) #1 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 8), align 8
   %5 = tail call i32 %4(ptr noundef %0, ptr noundef %1, i64 noundef %2) #8
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_detach(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 16), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 16), align 8
   %4 = tail call i32 %3(ptr noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_free(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 24), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 24), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
@@ -1401,7 +1401,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %46
   br label %56
 
 56:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %50
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 32), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 32), align 8
   %58 = call i32 %57(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull %7) #8
   ret i32 %58
 }
@@ -1495,7 +1495,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %46
   br label %56
 
 56:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %50
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 40), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 40), align 8
   %58 = call i32 %57(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull %7) #8
   ret i32 %58
 }
@@ -1588,7 +1588,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %47
   br label %57
 
 57:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %51
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 48), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 48), align 8
   %59 = call i32 %58(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8) #8
   ret i32 %59
 }
@@ -1680,7 +1680,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %45
   br label %53
 
 53:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %49
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 56), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 56), align 8
   %55 = call i32 %54(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef nonnull %6) #8
   ret i32 %55
 }
@@ -1772,7 +1772,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %45
   br label %53
 
 53:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %49
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 64), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 64), align 8
   %55 = call i32 %54(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef nonnull %6) #8
   ret i32 %55
 }
@@ -1870,7 +1870,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %50
   br label %63
 
 63:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %54
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 72), align 8
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 72), align 8
   %65 = call i32 %64(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef nonnull %11) #8
   ret i32 %65
 }
@@ -1963,7 +1963,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %47
   br label %57
 
 57:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %51
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 80), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 80), align 8
   %59 = call i32 %58(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %8) #8
   ret i32 %59
 }
@@ -2057,7 +2057,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %47
   br label %57
 
 57:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %51
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 88), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 88), align 8
   %59 = call i32 %58(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %8) #8
   ret i32 %59
 }
@@ -2150,7 +2150,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %48
   br label %58
 
 58:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %52
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 96), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 96), align 8
   %60 = call i32 %59(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, ptr noundef %9) #8
   ret i32 %60
 }
@@ -2248,133 +2248,133 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %51
   br label %64
 
 64:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %55
-  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 104), align 8
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 104), align 8
   %66 = call i32 %65(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef nonnull %11, ptr noundef %12) #8
   ret i32 %66
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_fence(i32 noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 112), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 112), align 8
   %4 = tail call i32 %3(i32 noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_start(ptr noundef %0, i32 noundef %1, ptr noundef %2) #1 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 120), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 120), align 8
   %5 = tail call i32 %4(ptr noundef %0, i32 noundef %1, ptr noundef %2) #8
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_complete(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 128), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 128), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_post(ptr noundef %0, i32 noundef %1, ptr noundef %2) #1 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 136), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 136), align 8
   %5 = tail call i32 %4(ptr noundef %0, i32 noundef %1, ptr noundef %2) #8
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_wait(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 144), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 144), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_test(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 152), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 152), align 8
   %4 = tail call i32 %3(ptr noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_lock(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #1 {
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 160), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 160), align 8
   %6 = tail call i32 %5(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #8
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_unlock(i32 noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 168), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 168), align 8
   %4 = tail call i32 %3(i32 noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_lock_all(i32 noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 176), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 176), align 8
   %4 = tail call i32 %3(i32 noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_unlock_all(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 184), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 184), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_sync(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 192), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 192), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_flush(i32 noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 200), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 200), align 8
   %4 = tail call i32 %3(i32 noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_flush_all(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 208), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 208), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_flush_local(i32 noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 216), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 216), align 8
   %4 = tail call i32 %3(i32 noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_flush_local_all(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 224), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_rdma_template, i64 224), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_attach(ptr noundef %0, ptr noundef %1, i64 noundef %2) #1 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 8), align 8
   %5 = tail call i32 %4(ptr noundef %0, ptr noundef %1, i64 noundef %2) #8
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_detach(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 16), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 16), align 8
   %4 = tail call i32 %3(ptr noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_free(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 24), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 24), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
@@ -2467,7 +2467,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %46
   br label %56
 
 56:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %50
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 32), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 32), align 8
   %58 = call i32 %57(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull %7) #8
   ret i32 %58
 }
@@ -2561,7 +2561,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %46
   br label %56
 
 56:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %50
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 40), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 40), align 8
   %58 = call i32 %57(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull %7) #8
   ret i32 %58
 }
@@ -2654,7 +2654,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %47
   br label %57
 
 57:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %51
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 48), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 48), align 8
   %59 = call i32 %58(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8) #8
   ret i32 %59
 }
@@ -2746,7 +2746,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %45
   br label %53
 
 53:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %49
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 56), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 56), align 8
   %55 = call i32 %54(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef nonnull %6) #8
   ret i32 %55
 }
@@ -2838,7 +2838,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %45
   br label %53
 
 53:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %49
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 64), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 64), align 8
   %55 = call i32 %54(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef nonnull %6) #8
   ret i32 %55
 }
@@ -2936,7 +2936,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %50
   br label %63
 
 63:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %54
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 72), align 8
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 72), align 8
   %65 = call i32 %64(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef nonnull %11) #8
   ret i32 %65
 }
@@ -3029,7 +3029,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %47
   br label %57
 
 57:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %51
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 80), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 80), align 8
   %59 = call i32 %58(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %8) #8
   ret i32 %59
 }
@@ -3123,7 +3123,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %47
   br label %57
 
 57:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %51
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 88), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 88), align 8
   %59 = call i32 %58(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %8) #8
   ret i32 %59
 }
@@ -3216,7 +3216,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %48
   br label %58
 
 58:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %52
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 96), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 96), align 8
   %60 = call i32 %59(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, ptr noundef %9) #8
   ret i32 %60
 }
@@ -3314,133 +3314,133 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %51
   br label %64
 
 64:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %55
-  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 104), align 8
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 104), align 8
   %66 = call i32 %65(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef nonnull %11, ptr noundef %12) #8
   ret i32 %66
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_fence(i32 noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 112), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 112), align 8
   %4 = tail call i32 %3(i32 noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_start(ptr noundef %0, i32 noundef %1, ptr noundef %2) #1 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 120), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 120), align 8
   %5 = tail call i32 %4(ptr noundef %0, i32 noundef %1, ptr noundef %2) #8
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_complete(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 128), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 128), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_post(ptr noundef %0, i32 noundef %1, ptr noundef %2) #1 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 136), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 136), align 8
   %5 = tail call i32 %4(ptr noundef %0, i32 noundef %1, ptr noundef %2) #8
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_wait(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 144), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 144), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_test(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 152), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 152), align 8
   %4 = tail call i32 %3(ptr noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_lock(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #1 {
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 160), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 160), align 8
   %6 = tail call i32 %5(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #8
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_unlock(i32 noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 168), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 168), align 8
   %4 = tail call i32 %3(i32 noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_lock_all(i32 noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 176), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 176), align 8
   %4 = tail call i32 %3(i32 noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_unlock_all(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 184), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 184), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_sync(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 192), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 192), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_flush(i32 noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 200), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 200), align 8
   %4 = tail call i32 %3(i32 noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_flush_all(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 208), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 208), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_flush_local(i32 noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 216), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 216), align 8
   %4 = tail call i32 %3(i32 noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_flush_local_all(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 224), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_ucx_template, i64 224), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_attach(ptr noundef %0, ptr noundef %1, i64 noundef %2) #1 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 8), align 8
   %5 = tail call i32 %4(ptr noundef %0, ptr noundef %1, i64 noundef %2) #8
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_detach(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 16), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 16), align 8
   %4 = tail call i32 %3(ptr noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_free(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 24), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 24), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
@@ -3533,7 +3533,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %46
   br label %56
 
 56:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %50
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 32), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 32), align 8
   %58 = call i32 %57(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull %7) #8
   ret i32 %58
 }
@@ -3627,7 +3627,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %46
   br label %56
 
 56:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %50
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 40), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 40), align 8
   %58 = call i32 %57(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull %7) #8
   ret i32 %58
 }
@@ -3720,7 +3720,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %47
   br label %57
 
 57:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %51
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 48), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 48), align 8
   %59 = call i32 %58(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8) #8
   ret i32 %59
 }
@@ -3812,7 +3812,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %45
   br label %53
 
 53:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %49
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 56), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 56), align 8
   %55 = call i32 %54(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef nonnull %6) #8
   ret i32 %55
 }
@@ -3904,7 +3904,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %45
   br label %53
 
 53:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %49
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 64), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 64), align 8
   %55 = call i32 %54(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef nonnull %6) #8
   ret i32 %55
 }
@@ -4002,7 +4002,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %50
   br label %63
 
 63:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %54
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 72), align 8
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 72), align 8
   %65 = call i32 %64(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef nonnull %11) #8
   ret i32 %65
 }
@@ -4095,7 +4095,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %47
   br label %57
 
 57:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %51
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 80), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 80), align 8
   %59 = call i32 %58(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %8) #8
   ret i32 %59
 }
@@ -4189,7 +4189,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %47
   br label %57
 
 57:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %51
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 88), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 88), align 8
   %59 = call i32 %58(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %8) #8
   ret i32 %59
 }
@@ -4282,7 +4282,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %48
   br label %58
 
 58:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %52
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 96), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 96), align 8
   %60 = call i32 %59(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, ptr noundef %9) #8
   ret i32 %60
 }
@@ -4380,112 +4380,112 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %51
   br label %64
 
 64:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %55
-  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 104), align 8
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 104), align 8
   %66 = call i32 %65(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef nonnull %11, ptr noundef %12) #8
   ret i32 %66
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_fence(i32 noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 112), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 112), align 8
   %4 = tail call i32 %3(i32 noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_start(ptr noundef %0, i32 noundef %1, ptr noundef %2) #1 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 120), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 120), align 8
   %5 = tail call i32 %4(ptr noundef %0, i32 noundef %1, ptr noundef %2) #8
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_complete(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 128), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 128), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_post(ptr noundef %0, i32 noundef %1, ptr noundef %2) #1 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 136), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 136), align 8
   %5 = tail call i32 %4(ptr noundef %0, i32 noundef %1, ptr noundef %2) #8
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_wait(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 144), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 144), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_test(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 152), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 152), align 8
   %4 = tail call i32 %3(ptr noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_lock(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #1 {
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 160), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 160), align 8
   %6 = tail call i32 %5(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #8
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_unlock(i32 noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 168), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 168), align 8
   %4 = tail call i32 %3(i32 noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_lock_all(i32 noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 176), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 176), align 8
   %4 = tail call i32 %3(i32 noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_unlock_all(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 184), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 184), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_sync(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 192), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 192), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_flush(i32 noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 200), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 200), align 8
   %4 = tail call i32 %3(i32 noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_flush_all(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 208), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 208), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_flush_local(i32 noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 216), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 216), align 8
   %4 = tail call i32 %3(i32 noundef %0, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_flush_local_all(ptr noundef %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 224), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_monitoring_module_sm_template, i64 224), align 8
   %3 = tail call i32 %2(ptr noundef %0) #8
   ret i32 %3
 }

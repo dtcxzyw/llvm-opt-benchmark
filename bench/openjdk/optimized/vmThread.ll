@@ -357,7 +357,7 @@ define hidden void @_ZN22VMOperationTimeoutTask6disarmEv(ptr noundef nonnull ali
 define hidden void @_ZN8VMThread6createEv() local_unnamed_addr #0 align 2 {
   %1 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 920, i8 noundef zeroext 2, i32 noundef 0) #13
   tail call void @_ZN11NamedThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(917) %1) #13
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV8VMThread, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV8VMThread, i64 16), ptr %1, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 916
   store volatile i8 0, ptr %2, align 4
   tail call void (ptr, ptr, ...) @_ZN11NamedThread8set_nameEPKcz(ptr noundef nonnull align 8 dereferenceable(917) %1, ptr noundef nonnull @.str.10) #13
@@ -374,7 +374,7 @@ define hidden void @_ZN8VMThread6createEv() local_unnamed_addr #0 align 2 {
   %10 = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 10000)
   %11 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 9, i32 noundef 0) #13
   tail call void @_ZN12PeriodicTaskC2Em(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %10) #13
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV22VMOperationTimeoutTask, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV22VMOperationTimeoutTask, i64 16), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store volatile i32 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -416,7 +416,7 @@ declare void @_ZN15CPUTimeCounters14create_counterEN13CPUTimeGroups11CPUTimeType
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN8VMThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(917) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN11NamedThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #13
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV8VMThread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV8VMThread, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 916
   store volatile i8 0, ptr %2, align 4
   tail call void (ptr, ptr, ...) @_ZN11NamedThread8set_nameEPKcz(ptr noundef nonnull align 8 dereferenceable(916) %0, ptr noundef nonnull @.str.10) #13
@@ -456,7 +456,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread: ; preds = %1
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, %5
   %7 = load i32, ptr @VMThreadPriority, align 4
   %8 = icmp eq i32 %7, -1
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN2os19java_to_os_priorityE, i64 36), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2os19java_to_os_priorityE, i64 36), align 4
   %10 = select i1 %8, i32 %9, i32 %7
   %11 = tail call noundef i32 @_ZN2os19set_native_priorityEP6Threadi(ptr noundef nonnull %0, i32 noundef %10) #13
   %12 = load ptr, ptr @_ZN8VMThread10_vm_threadE, align 8
@@ -804,7 +804,7 @@ _ZN13PerfTraceTimeD2Ev.exit:                      ; preds = %_ZN8JfrEventI23Even
   br i1 %107, label %108, label %111
 
 108:                                              ; preds = %106
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25ThreadTotalCPUTimeClosure, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV25ThreadTotalCPUTimeClosure, i64 16), ptr %5, align 8
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1352,7 +1352,7 @@ _ZN13MutexUnlockerD2Ev.exit:                      ; preds = %35
   %38 = load ptr, ptr @VMOperation_lock, align 8
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %38) #13
   store ptr @.str.33, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV20HandshakeALotClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV20HandshakeALotClosure, i64 16), ptr %2, align 8
   call void @_ZN9Handshake7executeEP16HandshakeClosure(ptr noundef nonnull %2) #13
   call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %38) #13
   br label %39
@@ -1460,7 +1460,7 @@ define linkonce_odr hidden void @_ZN12ThreadShadow22unused_initial_virtualEv(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8VMThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(917) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV8VMThread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV8VMThread, i64 16), ptr %0, align 8
   %2 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.34, i32 noundef 84, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36) #14
@@ -1469,7 +1469,7 @@ define linkonce_odr hidden void @_ZN8VMThreadD2Ev(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8VMThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(917) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV8VMThread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV8VMThread, i64 16), ptr %0, align 8
   %2 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.34, i32 noundef 84, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36) #14

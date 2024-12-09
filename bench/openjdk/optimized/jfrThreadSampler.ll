@@ -200,7 +200,7 @@ define hidden void @_ZN15OSThreadSampler7do_taskERK26SuspendedThreadTaskContext(
   br i1 %11, label %12, label %19
 
 12:                                               ; preds = %8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23OSThreadSamplerCallback, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23OSThreadSamplerCallback, i64 16), ptr %3, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -420,7 +420,7 @@ define hidden noundef zeroext i1 @_ZN22JfrThreadSampleClosure21sample_thread_in_
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 0, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15OSThreadSampler, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV15OSThreadSampler, i64 16), ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 17
   store i8 0, ptr %8, align 1
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -449,7 +449,7 @@ define hidden noundef zeroext i1 @_ZN22JfrThreadSampleClosure21sample_thread_in_
   br label %24
 
 24:                                               ; preds = %4, %16
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15OSThreadSampler, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV15OSThreadSampler, i64 16), ptr %5, align 8
   call void @_ZN13JfrStackTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %11) #18
   ret i1 %15
 }
@@ -463,7 +463,7 @@ define hidden noundef zeroext i1 @_ZN22JfrThreadSampleClosure23sample_thread_in_
   %5 = alloca %class.JfrNativeSamplerCallback, align 8
   %6 = alloca %class.ThreadCrashProtection, align 8
   tail call void @_ZN17StackWatermarkSet16start_processingEP10JavaThread18StackWatermarkKind(ptr noundef %1, i32 noundef 0) #18
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV24JfrNativeSamplerCallback, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV24JfrNativeSamplerCallback, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -514,7 +514,7 @@ define hidden noundef zeroext i1 @_ZN22JfrThreadSampleClosure23sample_thread_in_
   br label %32
 
 32:                                               ; preds = %20, %23
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV24JfrNativeSamplerCallback, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV24JfrNativeSamplerCallback, i64 16), ptr %5, align 8
   call void @_ZN13JfrStackTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %11) #18
   ret i1 %22
 }
@@ -899,7 +899,7 @@ _ZL22clear_transition_blockP10JavaThread.exit:    ; preds = %5, %10, %50, %49, %
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16JfrThreadSamplerC2Ellj(ptr noundef nonnull align 8 dereferenceable(993) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   tail call void @_ZN13NonJavaThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(896) %0) #18
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV16JfrThreadSampler, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV16JfrThreadSampler, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 896
   tail call void @_ZN14PosixSemaphoreC1Ej(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 0) #18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 928
@@ -933,7 +933,7 @@ declare void @_ZN13NonJavaThreadC2Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16JfrThreadSamplerD2Ev(ptr noundef nonnull align 8 dereferenceable(993) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV16JfrThreadSampler, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV16JfrThreadSampler, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 988
@@ -954,7 +954,7 @@ declare void @_ZN13NonJavaThreadD2Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16JfrThreadSamplerD0Ev(ptr noundef nonnull align 8 dereferenceable(993) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV16JfrThreadSampler, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV16JfrThreadSampler, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 988
@@ -1730,7 +1730,7 @@ define hidden void @_ZN17JfrThreadSampling14create_samplerEll(ptr nocapture noun
   %7 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 1000, i8 noundef zeroext 2, i32 noundef 0) #18
   %8 = tail call noundef i32 @_ZN12JfrOptionSet10stackdepthEv() #18
   tail call void @_ZN13NonJavaThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(993) %7) #18
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV16JfrThreadSampler, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV16JfrThreadSampler, i64 16), ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 896
   tail call void @_ZN14PosixSemaphoreC1Ej(ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 0) #18
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 928

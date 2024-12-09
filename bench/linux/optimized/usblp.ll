@@ -132,7 +132,7 @@ define internal i32 @usblp_probe(ptr noundef %0, ptr nocapture readnone %1) #2 a
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -168
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %9 = tail call noalias align 8 dereferenceable_or_null(360) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 360) #12
   %10 = icmp eq ptr %9, null
   br i1 %10, label %221, label %11
@@ -169,7 +169,7 @@ define internal i32 @usblp_probe(ptr noundef %0, ptr nocapture readnone %1) #2 a
   %28 = tail call ptr @usb_get_intf(ptr noundef %0) #11
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 208
   store ptr %28, ptr %29, align 8
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %31 = tail call noalias align 8 dereferenceable_or_null(1024) ptr @kmalloc_trace(ptr noundef %30, i32 noundef 3264, i64 noundef 1024) #12
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 352
   store ptr %31, ptr %32, align 8
@@ -177,7 +177,7 @@ define internal i32 @usblp_probe(ptr noundef %0, ptr nocapture readnone %1) #2 a
   br i1 %33, label %213, label %34
 
 34:                                               ; preds = %11
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %36 = tail call noalias align 8 dereferenceable_or_null(1024) ptr @kmalloc_trace(ptr noundef %35, i32 noundef 3264, i64 noundef 1024) #12
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 80
   store ptr %36, ptr %37, align 8
@@ -185,7 +185,7 @@ define internal i32 @usblp_probe(ptr noundef %0, ptr nocapture readnone %1) #2 a
   br i1 %38, label %213, label %39
 
 39:                                               ; preds = %34
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 24), align 8
   %41 = tail call noalias align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %40, i32 noundef 3264, i64 noundef 8) #12
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 88
   store ptr %41, ptr %42, align 8
@@ -2038,7 +2038,7 @@ declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #1 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 -2147483648, 1) i32 @usblp_hp_channel_change_request(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #2 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 24), align 8
   %5 = tail call noalias align 8 dereferenceable_or_null(1) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 1) #12
   %6 = icmp eq ptr %5, null
   br i1 %6, label %22, label %7

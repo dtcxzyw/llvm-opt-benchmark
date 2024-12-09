@@ -26,7 +26,7 @@ $_ZTV11NullDecoder = comdat any
 
 @_ZN7Decoder15_shared_decoderE = hidden local_unnamed_addr global ptr null, align 8
 @_ZN7Decoder22_error_handler_decoderE = hidden local_unnamed_addr global ptr null, align 8
-@_ZN7Decoder19_do_nothing_decoderE = hidden global %class.NullDecoder { %class.AbstractDecoder.base <{ ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV11NullDecoder, i64 16), i32 -10 }>, [4 x i8] zeroinitializer }, align 8
+@_ZN7Decoder19_do_nothing_decoderE = hidden global %class.NullDecoder { %class.AbstractDecoder.base <{ ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV11NullDecoder, i64 16), i32 -10 }>, [4 x i8] zeroinitializer }, align 8
 @SharedDecoder_lock = external local_unnamed_addr global ptr, align 8
 @_ZTV11NullDecoder = linkonce_odr hidden unnamed_addr constant { [10 x ptr] } { [10 x ptr] [ptr null, ptr null, ptr @_ZN11NullDecoderD2Ev, ptr @_ZN11NullDecoderD0Ev, ptr @_ZN11NullDecoder6decodeEPhPciPiPKcb, ptr @_ZN11NullDecoder6decodeEPhPciPiPKv, ptr @_ZN11NullDecoder8demangleEPKcPci, ptr @_ZN15AbstractDecoder15get_source_infoEPhPcmPib, ptr @_ZNK15AbstractDecoder6statusEv, ptr @_ZNK15AbstractDecoder9has_errorEv] }, comdat, align 8
 @_ZTV10ElfDecoder = external unnamed_addr constant { [10 x ptr] }, align 8
@@ -51,10 +51,10 @@ define hidden noundef ptr @_ZN7Decoder19get_shared_instanceEv() local_unnamed_ad
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10ElfDecoder, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV10ElfDecoder, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %7, align 8
-  %8 = load ptr, ptr getelementptr inbounds inrange(-72, 8) (i8, ptr @_ZTV10ElfDecoder, i64 72), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw inrange(-72, 8) (i8, ptr @_ZTV10ElfDecoder, i64 72), align 8
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(12) %4) #4
   br i1 %9, label %10, label %_ZN7Decoder14create_decoderEv.exit
 
@@ -84,10 +84,10 @@ define hidden noundef ptr @_ZN7Decoder14create_decoderEv() local_unnamed_addr #0
 2:                                                ; preds = %0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10ElfDecoder, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV10ElfDecoder, i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds inrange(-72, 8) (i8, ptr @_ZTV10ElfDecoder, i64 72), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw inrange(-72, 8) (i8, ptr @_ZTV10ElfDecoder, i64 72), align 8
   %6 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(12) %1) #4
   br i1 %6, label %7, label %11
 
@@ -117,10 +117,10 @@ define hidden noundef ptr @_ZN7Decoder26get_error_handler_instanceEv() local_unn
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10ElfDecoder, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV10ElfDecoder, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %7, align 8
-  %8 = load ptr, ptr getelementptr inbounds inrange(-72, 8) (i8, ptr @_ZTV10ElfDecoder, i64 72), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw inrange(-72, 8) (i8, ptr @_ZTV10ElfDecoder, i64 72), align 8
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(12) %4) #4
   br i1 %9, label %10, label %_ZN7Decoder14create_decoderEv.exit
 
@@ -165,10 +165,10 @@ define hidden noundef zeroext i1 @_ZN7Decoder6decodeEPhPciPiPKcb(ptr noundef %0,
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 0, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10ElfDecoder, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV10ElfDecoder, i64 16), ptr %12, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr null, ptr %15, align 8
-  %16 = load ptr, ptr getelementptr inbounds inrange(-72, 8) (i8, ptr @_ZTV10ElfDecoder, i64 72), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw inrange(-72, 8) (i8, ptr @_ZTV10ElfDecoder, i64 72), align 8
   %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(12) %12) #4
   br i1 %17, label %18, label %_ZN7Decoder14create_decoderEv.exit.i
 
@@ -214,10 +214,10 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %27, %29
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 0, ptr %35, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10ElfDecoder, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV10ElfDecoder, i64 16), ptr %33, align 8
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr null, ptr %36, align 8
-  %37 = load ptr, ptr getelementptr inbounds inrange(-72, 8) (i8, ptr @_ZTV10ElfDecoder, i64 72), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw inrange(-72, 8) (i8, ptr @_ZTV10ElfDecoder, i64 72), align 8
   %38 = tail call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(12) %33) #4
   br i1 %38, label %39, label %_ZN7Decoder14create_decoderEv.exit.i13
 
@@ -270,10 +270,10 @@ define hidden noundef zeroext i1 @_ZN7Decoder6decodeEPhPciPiPKv(ptr noundef %0, 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 0, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10ElfDecoder, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV10ElfDecoder, i64 16), ptr %11, align 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr null, ptr %14, align 8
-  %15 = load ptr, ptr getelementptr inbounds inrange(-72, 8) (i8, ptr @_ZTV10ElfDecoder, i64 72), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw inrange(-72, 8) (i8, ptr @_ZTV10ElfDecoder, i64 72), align 8
   %16 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(12) %11) #4
   br i1 %16, label %17, label %_ZN7Decoder14create_decoderEv.exit.i
 
@@ -319,10 +319,10 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %26, %28
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 0, ptr %34, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10ElfDecoder, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV10ElfDecoder, i64 16), ptr %32, align 8
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr null, ptr %35, align 8
-  %36 = load ptr, ptr getelementptr inbounds inrange(-72, 8) (i8, ptr @_ZTV10ElfDecoder, i64 72), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw inrange(-72, 8) (i8, ptr @_ZTV10ElfDecoder, i64 72), align 8
   %37 = tail call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(12) %32) #4
   br i1 %37, label %38, label %_ZN7Decoder14create_decoderEv.exit.i11
 
@@ -373,10 +373,10 @@ define hidden noundef zeroext i1 @_ZN7Decoder8demangleEPKcPci(ptr noundef %0, pt
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10ElfDecoder, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV10ElfDecoder, i64 16), ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr null, ptr %12, align 8
-  %13 = load ptr, ptr getelementptr inbounds inrange(-72, 8) (i8, ptr @_ZTV10ElfDecoder, i64 72), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw inrange(-72, 8) (i8, ptr @_ZTV10ElfDecoder, i64 72), align 8
   %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(12) %9) #4
   br i1 %14, label %15, label %_ZN7Decoder14create_decoderEv.exit.i
 
@@ -422,10 +422,10 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %24, %26
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 0, ptr %32, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10ElfDecoder, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV10ElfDecoder, i64 16), ptr %30, align 8
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr null, ptr %33, align 8
-  %34 = load ptr, ptr getelementptr inbounds inrange(-72, 8) (i8, ptr @_ZTV10ElfDecoder, i64 72), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw inrange(-72, 8) (i8, ptr @_ZTV10ElfDecoder, i64 72), align 8
   %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(12) %30) #4
   br i1 %35, label %36, label %_ZN7Decoder14create_decoderEv.exit.i7
 
@@ -481,10 +481,10 @@ define hidden noundef zeroext i1 @_ZN7Decoder15get_source_infoEPhPcmPib(ptr noun
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 0, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10ElfDecoder, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV10ElfDecoder, i64 16), ptr %11, align 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr null, ptr %14, align 8
-  %15 = load ptr, ptr getelementptr inbounds inrange(-72, 8) (i8, ptr @_ZTV10ElfDecoder, i64 72), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw inrange(-72, 8) (i8, ptr @_ZTV10ElfDecoder, i64 72), align 8
   %16 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(12) %11) #4
   br i1 %16, label %17, label %_ZN7Decoder14create_decoderEv.exit.i
 
@@ -530,10 +530,10 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %26, %28
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 0, ptr %34, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10ElfDecoder, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV10ElfDecoder, i64 16), ptr %32, align 8
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr null, ptr %35, align 8
-  %36 = load ptr, ptr getelementptr inbounds inrange(-72, 8) (i8, ptr @_ZTV10ElfDecoder, i64 72), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw inrange(-72, 8) (i8, ptr @_ZTV10ElfDecoder, i64 72), align 8
   %37 = tail call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(12) %32) #4
   br i1 %37, label %38, label %_ZN7Decoder14create_decoderEv.exit.i11
 

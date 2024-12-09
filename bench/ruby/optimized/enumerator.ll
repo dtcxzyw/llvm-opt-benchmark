@@ -2616,7 +2616,7 @@ define internal i64 @lazy_zip(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0
   br i1 %10, label %.lr.ph, label %.split27
 
 .split27:                                         ; preds = %29, %7
-  %11 = tail call fastcc i64 @lazy_add_method(i64 noundef %2, i32 noundef 0, ptr noundef null, i64 noundef %9, i64 noundef %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @lazy_zip_funcs, i64 24))
+  %11 = tail call fastcc i64 @lazy_add_method(i64 noundef %2, i32 noundef 0, ptr noundef null, i64 noundef %9, i64 noundef %9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lazy_zip_funcs, i64 24))
   br label %32
 
 .lr.ph:                                           ; preds = %7, %29

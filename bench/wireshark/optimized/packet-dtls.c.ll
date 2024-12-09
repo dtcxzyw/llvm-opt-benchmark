@@ -2603,7 +2603,7 @@ dtls_cid_length.exit:                             ; preds = %15, %18, %25, %28
   br label %decrypt_dtls_record.exit
 
 132:                                              ; preds = %128, %123
-  %133 = load i32, ptr getelementptr inbounds (i8, ptr @dtls_decrypted_data, i64 8), align 8
+  %133 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dtls_decrypted_data, i64 8), align 8
   %134 = icmp ult i32 %133, %.0261
   br i1 %134, label %135, label %140
 
@@ -2614,7 +2614,7 @@ dtls_cid_length.exit:                             ; preds = %15, %18, %25, %28
   %138 = zext nneg i32 %136 to i64
   %139 = tail call ptr @g_realloc(ptr noundef %137, i64 noundef %138) #6
   store ptr %139, ptr @dtls_decrypted_data, align 8
-  store i32 %136, ptr getelementptr inbounds (i8, ptr @dtls_decrypted_data, i64 8), align 8
+  store i32 %136, ptr getelementptr inbounds nuw (i8, ptr @dtls_decrypted_data, i64 8), align 8
   br label %140
 
 140:                                              ; preds = %135, %132
@@ -2642,7 +2642,7 @@ dtls_cid_length.exit:                             ; preds = %15, %18, %25, %28
   %149 = load ptr, ptr @dtls_decrypted_data, align 8
   %150 = zext nneg i32 %.0261 to i64
   %151 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %149, i32 noundef %105, i64 noundef %150) #6
-  store i32 %.0261, ptr getelementptr inbounds (i8, ptr @dtls_decrypted_data, i64 8), align 8
+  store i32 %.0261, ptr getelementptr inbounds nuw (i8, ptr @dtls_decrypted_data, i64 8), align 8
   store i32 %.0261, ptr @dtls_decrypted_data_avail, align 4
   br label %155
 
@@ -3371,7 +3371,7 @@ define internal fastcc void @dissect_dtls_handshake(ptr noundef %0, ptr noundef 
 
 132:                                              ; preds = %129, %127, %126
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  %133 = load i32, ptr getelementptr inbounds (i8, ptr @dissect_dtls_hf, i64 500), align 4
+  %133 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dissect_dtls_hf, i64 500), align 4
   %134 = call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %133, ptr noundef %.0247, i32 noundef 0, i32 noundef 2, i32 noundef 0) #6
   %135 = load i32, ptr @dtls_hfs, align 4
   %136 = call i32 @ssl_add_vector(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0247, ptr noundef nonnull %1, ptr noundef %29, i32 noundef 2, i32 noundef %46, ptr noundef nonnull %11, i32 noundef %135, i32 noundef 0, i32 noundef 32) #6
@@ -3384,7 +3384,7 @@ define internal fastcc void @dissect_dtls_handshake(ptr noundef %0, ptr noundef 
   br i1 %.not19.i, label %dissect_dtls_hnd_hello_verify_request.exit, label %139
 
 139:                                              ; preds = %137
-  %140 = load i32, ptr getelementptr inbounds (i8, ptr @dtls_hfs, i64 4), align 4
+  %140 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dtls_hfs, i64 4), align 4
   %141 = call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %140, ptr noundef %.0247, i32 noundef 3, i32 noundef %138, i32 noundef 0) #6
   br label %dissect_dtls_hnd_hello_verify_request.exit
 

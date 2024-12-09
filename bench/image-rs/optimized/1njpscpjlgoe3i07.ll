@@ -33403,7 +33403,7 @@ switch.lookup:
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, ptr } @_ZN5image5image11ImageFormat3all17hfb97315fe84df34fE() unnamed_addr #17 {
-  ret { ptr, ptr } { ptr @anon.1fb7ff8ae5a2b866dafd4482df872917.488, ptr getelementptr inbounds (i8, ptr @anon.1fb7ff8ae5a2b866dafd4482df872917.488, i64 15) }
+  ret { ptr, ptr } { ptr @anon.1fb7ff8ae5a2b866dafd4482df872917.488, ptr getelementptr inbounds nuw (i8, ptr @anon.1fb7ff8ae5a2b866dafd4482df872917.488, i64 15) }
 }
 
 ; Function Attrs: nonlazybind uwtable

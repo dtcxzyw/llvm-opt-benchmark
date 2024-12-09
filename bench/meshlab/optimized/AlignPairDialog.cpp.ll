@@ -414,9 +414,9 @@ define void @_ZN15AlignPairDialogC2EP6GLAreaP7QWidget(ptr noundef nonnull align 
   %12 = alloca %"class.QMetaObject::Connection", align 8
   %13 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %2, i32 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15AlignPairDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15AlignPairDialog, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15AlignPairDialog, i64 488), ptr %14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15AlignPairDialog, i64 488), ptr %14, align 8
   %15 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19
           to label %16 unwind label %117
 

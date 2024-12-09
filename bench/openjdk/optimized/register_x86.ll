@@ -106,7 +106,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden noundef ptr @_ZNK8Register12RegisterImpl4nameEv(ptr noundef nonnull align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = ptrtoint ptr %0 to i64
   %3 = trunc i64 %2 to i32
-  %4 = sub i32 %3, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %4 = sub i32 %3, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %spec.select.i = icmp ult i32 %4, 32
   br i1 %spec.select.i, label %5, label %9
 
@@ -125,7 +125,7 @@ define hidden noundef ptr @_ZNK8Register12RegisterImpl4nameEv(ptr noundef nonnul
 define hidden noundef ptr @_ZNK13FloatRegister17FloatRegisterImpl4nameEv(ptr noundef nonnull align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = ptrtoint ptr %0 to i64
   %3 = trunc i64 %2 to i32
-  %4 = sub i32 %3, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_FloatRegisterImpls, i64 1) to i32)
+  %4 = sub i32 %3, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_FloatRegisterImpls, i64 1) to i32)
   %spec.select.i = icmp ult i32 %4, 8
   br i1 %spec.select.i, label %5, label %9
 
@@ -144,7 +144,7 @@ define hidden noundef ptr @_ZNK13FloatRegister17FloatRegisterImpl4nameEv(ptr nou
 define hidden noundef ptr @_ZNK11XMMRegister15XMMRegisterImpl4nameEv(ptr noundef nonnull align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = ptrtoint ptr %0 to i64
   %3 = trunc i64 %2 to i32
-  %4 = sub i32 %3, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
+  %4 = sub i32 %3, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %spec.select.i = icmp ult i32 %4, 32
   br i1 %spec.select.i, label %5, label %9
 
@@ -163,7 +163,7 @@ define hidden noundef ptr @_ZNK11XMMRegister15XMMRegisterImpl4nameEv(ptr noundef
 define hidden noundef ptr @_ZNK9KRegister13KRegisterImpl4nameEv(ptr noundef nonnull align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = ptrtoint ptr %0 to i64
   %3 = trunc i64 %2 to i32
-  %4 = sub i32 %3, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_KRegisterImpls, i64 1) to i32)
+  %4 = sub i32 %3, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_KRegisterImpls, i64 1) to i32)
   %spec.select.i = icmp ult i32 %4, 8
   br i1 %spec.select.i, label %5, label %9
 

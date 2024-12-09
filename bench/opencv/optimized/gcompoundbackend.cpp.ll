@@ -91,9 +91,9 @@ define void @_ZN2cv4gapi8compound7backendEv(ptr dead_on_unwind noalias nocapture
   store i32 1, ptr %11, align 8, !noalias !5
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 1, ptr %12, align 4, !noalias !5
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4gapi8GBackend4PrivESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8, !noalias !5
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4gapi8GBackend4PrivESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8, !noalias !5
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN2cv4gapi8GBackend4PrivE, i64 16), ptr %13, align 8, !noalias !5
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN2cv4gapi8GBackend4PrivE, i64 16), ptr %13, align 8, !noalias !5
   store ptr %8, ptr %10, align 8, !alias.scope !5
   store ptr %13, ptr %2, align 8, !alias.scope !5
   invoke void @_ZN2cv4gapi8GBackendC1EOSt10shared_ptrINS1_4PrivEE(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN2cv4gapi8compound7backendEvE12this_backend, ptr noundef nonnull align 8 dereferenceable(16) %2)

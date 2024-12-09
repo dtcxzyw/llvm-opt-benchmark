@@ -228,7 +228,7 @@ define dso_local void @_ZN5vcpkg4Hash14get_hasher_forENS0_9AlgorithmE(ptr dead_o
 
 _ZNSt10unique_ptrIN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS2_15Sha256AlgorithmEEESt14default_deleteIS5_EED2Ev.exit: ; preds = %2
   %4 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #22, !noalias !5
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEEE, i64 16), ptr %4, align 8, !noalias !5
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEEE, i64 16), ptr %4, align 8, !noalias !5
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1779033703, ptr %5, align 4, !noalias !5
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -251,7 +251,7 @@ _ZNSt10unique_ptrIN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS2_15Sha256AlgorithmEEES
 
 _ZNSt10unique_ptrIN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS2_15Sha512AlgorithmEEESt14default_deleteIS5_EED2Ev.exit: ; preds = %2
   %14 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #22, !noalias !8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512AlgorithmEEE, i64 16), ptr %14, align 8, !noalias !8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512AlgorithmEEE, i64 16), ptr %14, align 8, !noalias !8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 7640891576956012808, ptr %15, align 8, !noalias !8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -302,7 +302,7 @@ define dso_local void @_ZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9Algorith
   ]
 
 8:                                                ; preds = %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEEE, i64 16), ptr %5, align 8, !noalias !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEEE, i64 16), ptr %5, align 8, !noalias !11
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 1779033703, ptr %9, align 8, !noalias !11
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -370,7 +370,7 @@ _ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEE18add_to_unprocess
   br i1 %.not.i.i.i, label %._crit_edge.i.i, label %30, !llvm.loop !17
 
 36:                                               ; preds = %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512AlgorithmEEE, i64 16), ptr %6, align 8, !noalias !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512AlgorithmEEE, i64 16), ptr %6, align 8, !noalias !11
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 7640891576956012808, ptr %37, align 8, !noalias !11
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -460,7 +460,7 @@ define dso_local void @_ZN5vcpkg4Hash17get_string_sha256B5cxx11ENS_10StringViewE
   %4 = alloca %"struct.vcpkg::Hash::(anonymous namespace)::ShaHasher", align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4), !noalias !23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEEE, i64 16), ptr %4, align 8, !noalias !26
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEEE, i64 16), ptr %4, align 8, !noalias !26
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1779033703, ptr %6, align 8, !noalias !26
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -653,7 +653,7 @@ _ZNKSt10error_code7messageB5cxx11Ev.exit:         ; preds = %41
   ]
 
 61:                                               ; preds = %60
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEEE, i64 16), ptr %14, align 8, !noalias !38
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEEE, i64 16), ptr %14, align 8, !noalias !38
   %62 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 1779033703, ptr %62, align 8, !noalias !38
   %63 = getelementptr inbounds nuw i8, ptr %14, i64 12
@@ -675,7 +675,7 @@ _ZNKSt10error_code7messageB5cxx11Ev.exit:         ; preds = %41
   br label %83
 
 71:                                               ; preds = %60
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512AlgorithmEEE, i64 16), ptr %15, align 8, !noalias !38
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512AlgorithmEEE, i64 16), ptr %15, align 8, !noalias !38
   %72 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 7640891576956012808, ptr %72, align 8, !noalias !38
   %73 = getelementptr inbounds nuw i8, ptr %15, i64 16

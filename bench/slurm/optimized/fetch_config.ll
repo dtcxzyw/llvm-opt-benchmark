@@ -170,7 +170,7 @@ define ptr @fetch_config(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %47 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.fetch_config) #13
   %48 = load i32, ptr @to_parent, align 4
   %49 = call i32 @close(i32 noundef %48) #13
-  %50 = load i32, ptr getelementptr inbounds (i8, ptr @to_parent, i64 4), align 4
+  %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @to_parent, i64 4), align 4
   %51 = call i32 @close(i32 noundef %50) #13
   br label %171
 
@@ -570,7 +570,7 @@ define internal fastcc void @_fetch_child(ptr noundef %0, i32 noundef %1) unname
   store ptr null, ptr %4, align 8
   %8 = call i32 @list_for_each(ptr noundef %0, ptr noundef nonnull @_print_controllers, ptr noundef nonnull %3) #13
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.24) #13
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 144), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 144), align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %_init_minimal_conf_server_config.exit, label %10
 
@@ -600,7 +600,7 @@ _init_minimal_conf_server_config.exit:            ; preds = %2, %10
   %.0.ph119 = phi i32 [ 4, %16 ], [ %35, %.lr.ph102.split.us.backedge ]
   %.041.ph117 = phi ptr [ %5, %16 ], [ %34, %.lr.ph102.split.us.backedge ]
   %18 = zext nneg i32 %.0.ph119 to i64
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @to_parent, i64 4), align 4
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @to_parent, i64 4), align 4
   %20 = call i64 @write(i32 noundef %19, ptr noundef %.041.ph117, i64 noundef %18) #13
   %21 = trunc i64 %20 to i32
   %22 = icmp slt i32 %21, 0
@@ -618,7 +618,7 @@ _init_minimal_conf_server_config.exit:            ; preds = %2, %10
   ]
 
 26:                                               ; preds = %24, %24
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @to_parent, i64 4), align 4
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @to_parent, i64 4), align 4
   %28 = call i64 @write(i32 noundef %27, ptr noundef %.041.ph117, i64 noundef %18) #13
   %29 = trunc i64 %28 to i32
   %30 = icmp slt i32 %29, 0
@@ -665,7 +665,7 @@ _init_minimal_conf_server_config.exit:            ; preds = %2, %10
   %.042.ph81 = phi ptr [ %5, %41 ], [ %60, %.lr.ph.split.us.backedge ]
   %.043.ph79 = phi i32 [ 4, %41 ], [ %61, %.lr.ph.split.us.backedge ]
   %44 = zext nneg i32 %.043.ph79 to i64
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @to_parent, i64 4), align 4
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @to_parent, i64 4), align 4
   %46 = call i64 @write(i32 noundef %45, ptr noundef %.042.ph81, i64 noundef %44) #13
   %47 = trunc i64 %46 to i32
   %48 = icmp slt i32 %47, 0
@@ -683,7 +683,7 @@ _init_minimal_conf_server_config.exit:            ; preds = %2, %10
   ]
 
 52:                                               ; preds = %50, %50
-  %53 = load i32, ptr getelementptr inbounds (i8, ptr @to_parent, i64 4), align 4
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @to_parent, i64 4), align 4
   %54 = call i64 @write(i32 noundef %53, ptr noundef %.042.ph81, i64 noundef %44) #13
   %55 = trunc i64 %54 to i32
   %56 = icmp slt i32 %55, 0
@@ -728,7 +728,7 @@ _init_minimal_conf_server_config.exit:            ; preds = %2, %10
   %.039.ph100 = phi ptr [ %69, %.lr.ph83.preheader ], [ %86, %.lr.ph83.split.us.backedge ]
   %.040.ph98 = phi i32 [ %43, %.lr.ph83.preheader ], [ %87, %.lr.ph83.split.us.backedge ]
   %70 = zext nneg i32 %.040.ph98 to i64
-  %71 = load i32, ptr getelementptr inbounds (i8, ptr @to_parent, i64 4), align 4
+  %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @to_parent, i64 4), align 4
   %72 = call i64 @write(i32 noundef %71, ptr noundef %.039.ph100, i64 noundef %70) #13
   %73 = trunc i64 %72 to i32
   %74 = icmp slt i32 %73, 0
@@ -746,7 +746,7 @@ _init_minimal_conf_server_config.exit:            ; preds = %2, %10
   ]
 
 78:                                               ; preds = %76, %76
-  %79 = load i32, ptr getelementptr inbounds (i8, ptr @to_parent, i64 4), align 4
+  %79 = load i32, ptr getelementptr inbounds nuw (i8, ptr @to_parent, i64 4), align 4
   %80 = call i64 @write(i32 noundef %79, ptr noundef %.039.ph100, i64 noundef %70) #13
   %81 = trunc i64 %80 to i32
   %82 = icmp slt i32 %81, 0
@@ -1206,7 +1206,7 @@ define ptr @new_config_response(i1 noundef zeroext %0) local_unnamed_addr #0 {
   br i1 %0, label %17, label %27
 
 17:                                               ; preds = %._crit_edge
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 920), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 920), align 8
   %.not23 = icmp eq ptr %18, null
   br i1 %.not23, label %22, label %19
 
@@ -1220,7 +1220,7 @@ define ptr @new_config_response(i1 noundef zeroext %0) local_unnamed_addr #0 {
   br label %22
 
 22:                                               ; preds = %21, %19, %17
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 320), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %.not25 = icmp eq ptr %23, null
   br i1 %.not25, label %27, label %24
 

@@ -173,7 +173,7 @@ entry:
   %ref.tmp8 = alloca %"class.std::allocator", align 1
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZN8QuantLib10IntegratorC2Edm(ptr noundef nonnull align 8 dereferenceable(40) %this, double noundef 1.000000e+00, i64 noundef 1)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib15SegmentIntegralE, i64 16), ptr %this, align 8, !tbaa !18
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib15SegmentIntegralE, i64 16), ptr %this, align 8, !tbaa !18
   %intervals_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i64 %intervals, ptr %intervals_, align 8, !tbaa !3
   %cmp.not = icmp eq i64 %intervals, 0
@@ -413,7 +413,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !18
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !18
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !27
   %cmp.not.i.i = icmp eq ptr %0, null

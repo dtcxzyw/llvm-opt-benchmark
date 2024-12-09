@@ -527,12 +527,12 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_12CharacterSetE(ptr dead_on_unwind noa
   br i1 %19, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !12
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %17
-  %.1.val.i.i.i.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 976), align 16
+  %.1.val.i.i.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 976), align 16
   %20 = icmp eq i8 %.1.val.i.i.i.i, %1
   br i1 %20, label %"_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread", label %21
 
 21:                                               ; preds = %._crit_edge.loopexit.i.i.i.i
-  %.2.val.i.i.i.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 1000), align 8
+  %.2.val.i.i.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 1000), align 8
   %22 = icmp eq i8 %.2.val.i.i.i.i, %1
   br i1 %22, label %"_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread", label %"_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread21"
 
@@ -575,7 +575,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_12CharacterSetE(ptr dead_on_unwind noa
   br label %36
 
 "_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread": ; preds = %"_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread44", %21, %._crit_edge.loopexit.i.i.i.i, %"_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit"
-  %.028.i.i.i.i17 = phi ptr [ %.028.i.i.i.i.ptr, %"_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit" ], [ getelementptr inbounds (i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 960), %._crit_edge.loopexit.i.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 984), %21 ], [ %.028.i.i.i.i.ptr46, %"_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread44" ]
+  %.028.i.i.i.i17 = phi ptr [ %.028.i.i.i.i.ptr, %"_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit" ], [ getelementptr inbounds nuw (i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 960), %._crit_edge.loopexit.i.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 984), %21 ], [ %.028.i.i.i.i.ptr46, %"_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread44" ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %.sroa.0.0.copyload.i = load i64, ptr %.028.i.i.i.i17, align 8

@@ -1023,7 +1023,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN2cv3dnn14dnn4_v202405213Net4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN2cv3dnn14dnn4_v202405213Net4ImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN2cv3dnn14dnn4_v202405213Net4ImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -1577,7 +1577,7 @@ define void @_ZN2cv3dnn14dnn4_v202405213Net4ImplC2Ev(ptr noundef nonnull align 8
   %9 = tail call noundef i64 @_ZN2cv3dnn14dnn4_v2024052125getParam_DNN_NETWORK_DUMPEv()
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN2cv3dnn14dnn4_v202405213Net4ImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN2cv3dnn14dnn4_v202405213Net4ImplE, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1669,7 +1669,7 @@ define void @_ZN2cv3dnn14dnn4_v202405213Net4ImplC2Ev(ptr noundef nonnull align 8
           to label %58 unwind label %258
 
 58:                                               ; preds = %57
-  store ptr getelementptr inbounds inrange(-16, 264) (i8, ptr @_ZTVN2cv3dnn14dnn4_v202405216detail9DataLayerE, i64 16), ptr %56, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 264) (i8, ptr @_ZTVN2cv3dnn14dnn4_v202405216detail9DataLayerE, i64 16), ptr %56, align 8
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(121) %59, i8 0, i64 121, i1 false)
   %60 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
@@ -1708,7 +1708,7 @@ define void @_ZN2cv3dnn14dnn4_v202405213Net4ImplC2Ev(ptr noundef nonnull align 8
   store i32 1, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %60, i64 12
   store i32 1, ptr %76, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3dnn14dnn4_v202405216detail9DataLayerELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %60, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3dnn14dnn4_v202405216detail9DataLayerELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %60, align 8
   %77 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store ptr %56, ptr %77, align 8
   store ptr %56, ptr %12, align 8
@@ -34524,7 +34524,7 @@ declare void @_ZN2cv3dnn14dnn4_v202405215LayerC2Ev(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v202405216detail9DataLayerD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 264) (i8, ptr @_ZTVN2cv3dnn14dnn4_v202405216detail9DataLayerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 264) (i8, ptr @_ZTVN2cv3dnn14dnn4_v202405216detail9DataLayerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208

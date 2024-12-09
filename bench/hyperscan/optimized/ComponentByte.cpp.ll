@@ -33,7 +33,7 @@ $_ZN3ue213ComponentByte14buildFollowSetERNS_18GlushkovBuildStateERKSt6vectorINS_
 define hidden void @_ZN3ue213ComponentByteC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue213ComponentByteE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue213ComponentByteE, i64 16), ptr %this, align 8
   %position = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr @_ZN3ue218GlushkovBuildState17POS_UNINITIALIZEDE, align 4
   store i32 %0, ptr %position, align 8
@@ -75,7 +75,7 @@ invoke.cont:
   %pos_end3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %1 = load i32, ptr %pos_end3.i.i, align 4
   store i32 %1, ptr %pos_end.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue213ComponentByteE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue213ComponentByteE, i64 16), ptr %call, align 8
   %position.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   %position2.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i32, ptr %position2.i, align 8

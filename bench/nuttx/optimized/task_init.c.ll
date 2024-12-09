@@ -126,7 +126,7 @@ define void @nxtask_uninit(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not16, label %5, label %6
 
 5:                                                ; preds = %1
-  store ptr %3, ptr getelementptr inbounds (i8, ptr @g_inactivetasks, i64 8), align 8
+  store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @g_inactivetasks, i64 8), align 8
   br label %8
 
 6:                                                ; preds = %1

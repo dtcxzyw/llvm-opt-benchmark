@@ -1166,8 +1166,8 @@ if.then8:                                         ; preds = %if.end6
   %sa_flags.i = getelementptr inbounds nuw i8, ptr %sa.i, i64 136
   store i32 268435456, ptr %sa_flags.i, align 8
   %call1.i = call i32 @sigaction(i32 noundef 14, ptr noundef nonnull %sa.i, ptr noundef null) #20
-  store i64 0, ptr getelementptr inbounds (i8, ptr @early_output_timer, i64 16), align 8
-  store i64 100000, ptr getelementptr inbounds (i8, ptr @early_output_timer, i64 24), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @early_output_timer, i64 16), align 8
+  store i64 100000, ptr getelementptr inbounds nuw (i8, ptr @early_output_timer, i64 24), align 8
   %call2.i = call i32 @setitimer(i32 noundef 0, ptr noundef nonnull @early_output_timer, ptr noundef null) #20
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %sa.i)
   br label %if.end9
@@ -1638,7 +1638,7 @@ entry:
   %defval100 = getelementptr inbounds nuw i8, ptr %builtin_log_options, i64 760
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %defval100, i8 0, i64 120, i1 false)
   store ptr %rev, ptr @cmd_log_init_finish.line_cb, align 8
-  store ptr %prefix, ptr getelementptr inbounds (i8, ptr @cmd_log_init_finish.line_cb, i64 8), align 8
+  store ptr %prefix, ptr getelementptr inbounds nuw (i8, ptr @cmd_log_init_finish.line_cb, i64 8), align 8
   %0 = load i32, ptr @use_mailmap_config, align 4
   store i32 %0, ptr %mailmap, align 4
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %builtin_log_options, ptr noundef nonnull @builtin_log_usage, i32 noundef 13) #20
@@ -1966,8 +1966,8 @@ if.end224:                                        ; preds = %if.end223, %lor.lhs
   br i1 %tobool230.not, label %if.end232, label %if.then231
 
 if.then231:                                       ; preds = %if.end224
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @cmd_log_init_finish.line_cb, i64 8), align 8
-  call void @line_log_init(ptr noundef nonnull %rev, ptr noundef %39, ptr noundef nonnull getelementptr inbounds (i8, ptr @cmd_log_init_finish.line_cb, i64 16)) #20
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cmd_log_init_finish.line_cb, i64 8), align 8
+  call void @line_log_init(ptr noundef nonnull %rev, ptr noundef %39, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @cmd_log_init_finish.line_cb, i64 16)) #20
   br label %if.end232
 
 if.end232:                                        ; preds = %if.then231, %if.end224
@@ -2806,15 +2806,15 @@ entry:
   store i64 1, ptr %defval477, align 16
   %ll_callback478 = getelementptr inbounds nuw i8, ptr %builtin_format_patch_options, i64 3320
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %ll_callback478, i8 0, i64 112, i1 false)
-  %bf.load = load i8, ptr getelementptr inbounds (i8, ptr @extra_hdr, i64 24), align 8
+  %bf.load = load i8, ptr getelementptr inbounds nuw (i8, ptr @extra_hdr, i64 24), align 8
   %bf.set = or i8 %bf.load, 1
-  store i8 %bf.set, ptr getelementptr inbounds (i8, ptr @extra_hdr, i64 24), align 8
-  %bf.load494 = load i8, ptr getelementptr inbounds (i8, ptr @extra_to, i64 24), align 8
+  store i8 %bf.set, ptr getelementptr inbounds nuw (i8, ptr @extra_hdr, i64 24), align 8
+  %bf.load494 = load i8, ptr getelementptr inbounds nuw (i8, ptr @extra_to, i64 24), align 8
   %bf.set496 = or i8 %bf.load494, 1
-  store i8 %bf.set496, ptr getelementptr inbounds (i8, ptr @extra_to, i64 24), align 8
-  %bf.load497 = load i8, ptr getelementptr inbounds (i8, ptr @extra_cc, i64 24), align 8
+  store i8 %bf.set496, ptr getelementptr inbounds nuw (i8, ptr @extra_to, i64 24), align 8
+  %bf.load497 = load i8, ptr getelementptr inbounds nuw (i8, ptr @extra_cc, i64 24), align 8
   %bf.set499 = or i8 %bf.load497, 1
-  store i8 %bf.set499, ptr getelementptr inbounds (i8, ptr @extra_cc, i64 24), align 8
+  store i8 %bf.set499, ptr getelementptr inbounds nuw (i8, ptr @extra_cc, i64 24), align 8
   call void @init_diff_ui_defaults() #20
   %call.i.i.i = call i32 @isatty(i32 noundef 1) #20
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
@@ -2948,7 +2948,7 @@ if.end537:                                        ; preds = %if.then535, %if.end
   %14 = load ptr, ptr %buf538, align 8
   %subject_prefix = getelementptr inbounds nuw i8, ptr %rev, i64 488
   store ptr %14, ptr %subject_prefix, align 8
-  %15 = load i64, ptr getelementptr inbounds (i8, ptr @extra_hdr, i64 8), align 8
+  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @extra_hdr, i64 8), align 8
   %cmp540347.not = icmp eq i64 %15, 0
   br i1 %cmp540347.not, label %for.end, label %for.body.lr.ph
 
@@ -2992,18 +2992,18 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %arrayidx3.i = getelementptr inbounds i8, ptr %22, i64 %23
   store i8 0, ptr %arrayidx3.i, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = load i64, ptr getelementptr inbounds (i8, ptr @extra_hdr, i64 8), align 8
+  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @extra_hdr, i64 8), align 8
   %cmp540 = icmp ugt i64 %24, %indvars.iv.next
   br i1 %cmp540, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %strbuf_addch.exit, %if.end537
-  %25 = load i64, ptr getelementptr inbounds (i8, ptr @extra_to, i64 8), align 8
+  %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @extra_to, i64 8), align 8
   %tobool542.not = icmp eq i64 %25, 0
   br i1 %tobool542.not, label %for.end564, label %if.end544
 
 if.end544:                                        ; preds = %for.end
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull @.str.97, i64 noundef 4) #20
-  %.pre = load i64, ptr getelementptr inbounds (i8, ptr @extra_to, i64 8), align 8
+  %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @extra_to, i64 8), align 8
   %26 = icmp eq i64 %.pre, 0
   br i1 %26, label %for.end564, label %for.body549.lr.ph
 
@@ -3028,7 +3028,7 @@ if.end552:                                        ; preds = %if.then551, %for.bo
   %call.i96 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #21
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %28, i64 noundef %call.i96) #20
   %indvars.iv.next377 = add nuw nsw i64 %indvars.iv376, 1
-  %29 = load i64, ptr getelementptr inbounds (i8, ptr @extra_to, i64 8), align 8
+  %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @extra_to, i64 8), align 8
   %cmp558 = icmp ugt i64 %29, %indvars.iv.next377
   br i1 %cmp558, label %if.then560, label %if.end561
 
@@ -3090,18 +3090,18 @@ strbuf_addch.exit126:                             ; preds = %strbuf_avail.exit.i
   %41 = load i64, ptr %len.i.i99, align 8
   %arrayidx3.i121 = getelementptr inbounds i8, ptr %40, i64 %41
   store i8 0, ptr %arrayidx3.i121, align 1
-  %42 = load i64, ptr getelementptr inbounds (i8, ptr @extra_to, i64 8), align 8
+  %42 = load i64, ptr getelementptr inbounds nuw (i8, ptr @extra_to, i64 8), align 8
   %cmp547 = icmp ugt i64 %42, %indvars.iv.next377
   br i1 %cmp547, label %for.body549, label %for.end564, !llvm.loop !14
 
 for.end564:                                       ; preds = %strbuf_addch.exit126, %for.end, %if.end544
-  %43 = load i64, ptr getelementptr inbounds (i8, ptr @extra_cc, i64 8), align 8
+  %43 = load i64, ptr getelementptr inbounds nuw (i8, ptr @extra_cc, i64 8), align 8
   %tobool565.not = icmp eq i64 %43, 0
   br i1 %tobool565.not, label %for.end587, label %if.end567
 
 if.end567:                                        ; preds = %for.end564
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull @.str.99, i64 noundef 4) #20
-  %.pre392 = load i64, ptr getelementptr inbounds (i8, ptr @extra_cc, i64 8), align 8
+  %.pre392 = load i64, ptr getelementptr inbounds nuw (i8, ptr @extra_cc, i64 8), align 8
   %44 = icmp eq i64 %.pre392, 0
   br i1 %44, label %for.end587, label %for.body572.lr.ph
 
@@ -3126,7 +3126,7 @@ if.end575:                                        ; preds = %if.then574, %for.bo
   %call.i129 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #21
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %46, i64 noundef %call.i129) #20
   %indvars.iv.next380 = add nuw nsw i64 %indvars.iv379, 1
-  %47 = load i64, ptr getelementptr inbounds (i8, ptr @extra_cc, i64 8), align 8
+  %47 = load i64, ptr getelementptr inbounds nuw (i8, ptr @extra_cc, i64 8), align 8
   %cmp581 = icmp ugt i64 %47, %indvars.iv.next380
   br i1 %cmp581, label %if.then583, label %if.end584
 
@@ -3188,7 +3188,7 @@ strbuf_addch.exit159:                             ; preds = %strbuf_avail.exit.i
   %59 = load i64, ptr %len.i.i132, align 8
   %arrayidx3.i154 = getelementptr inbounds i8, ptr %58, i64 %59
   store i8 0, ptr %arrayidx3.i154, align 1
-  %60 = load i64, ptr getelementptr inbounds (i8, ptr @extra_cc, i64 8), align 8
+  %60 = load i64, ptr getelementptr inbounds nuw (i8, ptr @extra_cc, i64 8), align 8
   %cmp570 = icmp ugt i64 %60, %indvars.iv.next380
   br i1 %cmp570, label %for.body572, label %for.end587, !llvm.loop !15
 
@@ -7017,8 +7017,8 @@ if.then14:                                        ; preds = %while.end
   br label %return
 
 if.end18:                                         ; preds = %while.end
-  store i64 0, ptr getelementptr inbounds (i8, ptr @early_output_timer, i64 16), align 8
-  store i64 500000, ptr getelementptr inbounds (i8, ptr @early_output_timer, i64 24), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @early_output_timer, i64 16), align 8
+  store i64 500000, ptr getelementptr inbounds nuw (i8, ptr @early_output_timer, i64 24), align 8
   %call19 = call i32 @setitimer(i32 noundef 0, ptr noundef nonnull @early_output_timer, ptr noundef null) #20
   br label %return
 

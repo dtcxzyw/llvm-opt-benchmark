@@ -115,7 +115,7 @@ _ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit:
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i8 0, ptr %36, align 4
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr null, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -134,7 +134,7 @@ _ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit:
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i8 0, ptr %45, align 4
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %46, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -153,7 +153,7 @@ _ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit:
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i8 0, ptr %54, align 4
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %55, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -172,7 +172,7 @@ _ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit:
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i8 0, ptr %63, align 4
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %64, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -191,7 +191,7 @@ _ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit:
   %72 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i8 0, ptr %72, align 4
   %73 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %73, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr null, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -199,7 +199,7 @@ _ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit:
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 21, i1 false)
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %77 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %77 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %77(ptr noundef nonnull align 8 dereferenceable(40) %73, ptr noundef nonnull align 8 dereferenceable(40) %76) #5
   call void @_ZN9Assembler6vpadddE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %67, i32 3, i32 3, ptr noundef nonnull %2, i32 noundef 2) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
@@ -216,7 +216,7 @@ _ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit:
   %83 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 0, ptr %83, align 4
   %84 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %84, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -257,7 +257,7 @@ _ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit:
   call void @_ZN9Assembler9evmovdqulE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %101, i32 14, i32 2, i32 noundef 2) #5
   %102 = load ptr, ptr %13, align 8
   call void @_ZN9Assembler9evmovdqulE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %102, i32 15, i32 21, i32 noundef 2) #5
-  %.not.i415 = icmp eq i32 ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 17) to i32), ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
+  %.not.i415 = icmp eq i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 17) to i32), ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   br i1 %.not.i415, label %_ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit416, label %103
 
 103:                                              ; preds = %_ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit
@@ -266,7 +266,7 @@ _ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit:
   br label %_ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit416
 
 _ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit416: ; preds = %_ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit, %103
-  %.not.i417 = icmp eq i32 ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 18) to i32), ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 2) to i32)
+  %.not.i417 = icmp eq i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 18) to i32), ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 2) to i32)
   br i1 %.not.i417, label %_ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit418, label %105
 
 105:                                              ; preds = %_ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit416
@@ -275,7 +275,7 @@ _ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit416: ; preds = %_ZN14MacroAs
   br label %_ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit418
 
 _ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit418: ; preds = %_ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit416, %105
-  %.not.i419 = icmp eq i32 ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 19) to i32), ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 3) to i32)
+  %.not.i419 = icmp eq i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 19) to i32), ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 3) to i32)
   br i1 %.not.i419, label %_ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit420, label %107
 
 107:                                              ; preds = %_ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit418
@@ -521,7 +521,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %88 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i8 0, ptr %88, align 4
   %89 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %89, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %89, align 8
   %90 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr null, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -540,7 +540,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %97 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 0, ptr %97, align 4
   %98 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %98, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -559,7 +559,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %106 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 0, ptr %106, align 4
   %107 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %107, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -578,7 +578,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %115 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %115, align 4
   %116 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %116, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %116, align 8
   %117 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -611,7 +611,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %131 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %131, align 4
   %132 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %132, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %132, align 8
   %133 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %133, align 8
   %134 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -619,7 +619,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %15, i64 21, i1 false)
   %135 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %136 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %136 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %136(ptr noundef nonnull align 8 dereferenceable(40) %132, ptr noundef nonnull align 8 dereferenceable(40) %135) #5
   call void @_ZN9Assembler6vpadddE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %126, i32 13, i32 3, ptr noundef nonnull %4, i32 noundef 0) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
@@ -638,7 +638,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %143 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %143, align 4
   %144 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %144, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %144, align 8
   %145 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %145, align 8
   %146 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -657,7 +657,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %152 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %152, align 4
   %153 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %153, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %153, align 8
   %154 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %154, align 8
   %155 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -678,7 +678,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %161 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i8 0, ptr %161, align 4
   %162 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %162, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %162, align 8
   %163 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr null, ptr %163, align 8
   %164 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -697,7 +697,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %170 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i8 0, ptr %170, align 4
   %171 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %171, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %171, align 8
   %172 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %172, align 8
   %173 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -716,7 +716,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %179 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i8 0, ptr %179, align 4
   %180 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %180, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %180, align 8
   %181 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %181, align 8
   %182 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -735,7 +735,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %188 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i8 0, ptr %188, align 4
   %189 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %189, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %189, align 8
   %190 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr null, ptr %190, align 8
   %191 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -754,7 +754,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %197 = getelementptr inbounds nuw i8, ptr %22, i64 20
   store i8 0, ptr %197, align 4
   %198 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %198, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %198, align 8
   %199 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr null, ptr %199, align 8
   %200 = getelementptr inbounds nuw i8, ptr %22, i64 40
@@ -762,7 +762,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %22, i64 21, i1 false)
   %201 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %202 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %202 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %202(ptr noundef nonnull align 8 dereferenceable(40) %198, ptr noundef nonnull align 8 dereferenceable(40) %201) #5
   call void @_ZN9Assembler6vpadddE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %192, i32 3, i32 3, ptr noundef nonnull %3, i32 noundef %.0) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
@@ -779,7 +779,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %208 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i8 0, ptr %208, align 4
   %209 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %209, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %209, align 8
   %210 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr null, ptr %210, align 8
   %211 = getelementptr inbounds nuw i8, ptr %23, i64 40
@@ -819,7 +819,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %226 = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i8 0, ptr %226, align 4
   %227 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %227, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %227, align 8
   %228 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr null, ptr %228, align 8
   %229 = getelementptr inbounds nuw i8, ptr %24, i64 40
@@ -838,7 +838,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %235 = getelementptr inbounds nuw i8, ptr %25, i64 20
   store i8 0, ptr %235, align 4
   %236 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %236, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %236, align 8
   %237 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr null, ptr %237, align 8
   %238 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -915,7 +915,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %270 = getelementptr inbounds nuw i8, ptr %26, i64 20
   store i8 0, ptr %270, align 4
   %271 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %271, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %271, align 8
   %272 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store ptr null, ptr %272, align 8
   %273 = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -934,7 +934,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %279 = getelementptr inbounds nuw i8, ptr %27, i64 20
   store i8 0, ptr %279, align 4
   %280 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %280, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %280, align 8
   %281 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr null, ptr %281, align 8
   %282 = getelementptr inbounds nuw i8, ptr %27, i64 40
@@ -953,7 +953,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %288 = getelementptr inbounds nuw i8, ptr %28, i64 20
   store i8 0, ptr %288, align 4
   %289 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %289, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %289, align 8
   %290 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store ptr null, ptr %290, align 8
   %291 = getelementptr inbounds nuw i8, ptr %28, i64 40
@@ -972,7 +972,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %297 = getelementptr inbounds nuw i8, ptr %29, i64 20
   store i8 0, ptr %297, align 4
   %298 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %298, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %298, align 8
   %299 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr null, ptr %299, align 8
   %300 = getelementptr inbounds nuw i8, ptr %29, i64 40
@@ -991,7 +991,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %306 = getelementptr inbounds nuw i8, ptr %30, i64 20
   store i8 0, ptr %306, align 4
   %307 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %307, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %307, align 8
   %308 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr null, ptr %308, align 8
   %309 = getelementptr inbounds nuw i8, ptr %30, i64 40
@@ -1010,7 +1010,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %315 = getelementptr inbounds nuw i8, ptr %31, i64 20
   store i8 0, ptr %315, align 4
   %316 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %316, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %316, align 8
   %317 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr null, ptr %317, align 8
   %318 = getelementptr inbounds nuw i8, ptr %31, i64 40
@@ -1029,7 +1029,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %324 = getelementptr inbounds nuw i8, ptr %32, i64 20
   store i8 0, ptr %324, align 4
   %325 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %325, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %325, align 8
   %326 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr null, ptr %326, align 8
   %327 = getelementptr inbounds nuw i8, ptr %32, i64 40
@@ -1048,7 +1048,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %333 = getelementptr inbounds nuw i8, ptr %33, i64 20
   store i8 0, ptr %333, align 4
   %334 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %334, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %334, align 8
   %335 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr null, ptr %335, align 8
   %336 = getelementptr inbounds nuw i8, ptr %33, i64 40
@@ -1069,7 +1069,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %342 = getelementptr inbounds nuw i8, ptr %34, i64 20
   store i8 0, ptr %342, align 4
   %343 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %343, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %343, align 8
   %344 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store ptr null, ptr %344, align 8
   %345 = getelementptr inbounds nuw i8, ptr %34, i64 40
@@ -1088,7 +1088,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %351 = getelementptr inbounds nuw i8, ptr %35, i64 20
   store i8 0, ptr %351, align 4
   %352 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %352, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %352, align 8
   %353 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store ptr null, ptr %353, align 8
   %354 = getelementptr inbounds nuw i8, ptr %35, i64 40
@@ -1107,7 +1107,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %360 = getelementptr inbounds nuw i8, ptr %36, i64 20
   store i8 0, ptr %360, align 4
   %361 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %361, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %361, align 8
   %362 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store ptr null, ptr %362, align 8
   %363 = getelementptr inbounds nuw i8, ptr %36, i64 40
@@ -1126,7 +1126,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %369 = getelementptr inbounds nuw i8, ptr %37, i64 20
   store i8 0, ptr %369, align 4
   %370 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %370, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %370, align 8
   %371 = getelementptr inbounds nuw i8, ptr %37, i64 32
   store ptr null, ptr %371, align 8
   %372 = getelementptr inbounds nuw i8, ptr %37, i64 40
@@ -1145,7 +1145,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %378 = getelementptr inbounds nuw i8, ptr %38, i64 20
   store i8 0, ptr %378, align 4
   %379 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %379, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %379, align 8
   %380 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store ptr null, ptr %380, align 8
   %381 = getelementptr inbounds nuw i8, ptr %38, i64 40
@@ -1164,7 +1164,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %387 = getelementptr inbounds nuw i8, ptr %39, i64 20
   store i8 0, ptr %387, align 4
   %388 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %388, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %388, align 8
   %389 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr null, ptr %389, align 8
   %390 = getelementptr inbounds nuw i8, ptr %39, i64 40
@@ -1183,7 +1183,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %396 = getelementptr inbounds nuw i8, ptr %40, i64 20
   store i8 0, ptr %396, align 4
   %397 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %397, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %397, align 8
   %398 = getelementptr inbounds nuw i8, ptr %40, i64 32
   store ptr null, ptr %398, align 8
   %399 = getelementptr inbounds nuw i8, ptr %40, i64 40
@@ -1202,7 +1202,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %405 = getelementptr inbounds nuw i8, ptr %41, i64 20
   store i8 0, ptr %405, align 4
   %406 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %406, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %406, align 8
   %407 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store ptr null, ptr %407, align 8
   %408 = getelementptr inbounds nuw i8, ptr %41, i64 40
@@ -1221,7 +1221,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %414 = getelementptr inbounds nuw i8, ptr %42, i64 20
   store i8 0, ptr %414, align 4
   %415 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %415, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %415, align 8
   %416 = getelementptr inbounds nuw i8, ptr %42, i64 32
   store ptr null, ptr %416, align 8
   %417 = getelementptr inbounds nuw i8, ptr %42, i64 40
@@ -1240,7 +1240,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %423 = getelementptr inbounds nuw i8, ptr %43, i64 20
   store i8 0, ptr %423, align 4
   %424 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %424, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %424, align 8
   %425 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr null, ptr %425, align 8
   %426 = getelementptr inbounds nuw i8, ptr %43, i64 40
@@ -1259,7 +1259,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %432 = getelementptr inbounds nuw i8, ptr %44, i64 20
   store i8 0, ptr %432, align 4
   %433 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %433, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %433, align 8
   %434 = getelementptr inbounds nuw i8, ptr %44, i64 32
   store ptr null, ptr %434, align 8
   %435 = getelementptr inbounds nuw i8, ptr %44, i64 40
@@ -1278,7 +1278,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %441 = getelementptr inbounds nuw i8, ptr %45, i64 20
   store i8 0, ptr %441, align 4
   %442 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %442, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %442, align 8
   %443 = getelementptr inbounds nuw i8, ptr %45, i64 32
   store ptr null, ptr %443, align 8
   %444 = getelementptr inbounds nuw i8, ptr %45, i64 40
@@ -1297,7 +1297,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %450 = getelementptr inbounds nuw i8, ptr %46, i64 20
   store i8 0, ptr %450, align 4
   %451 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %451, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %451, align 8
   %452 = getelementptr inbounds nuw i8, ptr %46, i64 32
   store ptr null, ptr %452, align 8
   %453 = getelementptr inbounds nuw i8, ptr %46, i64 40
@@ -1316,7 +1316,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %459 = getelementptr inbounds nuw i8, ptr %47, i64 20
   store i8 0, ptr %459, align 4
   %460 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %460, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %460, align 8
   %461 = getelementptr inbounds nuw i8, ptr %47, i64 32
   store ptr null, ptr %461, align 8
   %462 = getelementptr inbounds nuw i8, ptr %47, i64 40
@@ -1335,7 +1335,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %468 = getelementptr inbounds nuw i8, ptr %48, i64 20
   store i8 0, ptr %468, align 4
   %469 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %469, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %469, align 8
   %470 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store ptr null, ptr %470, align 8
   %471 = getelementptr inbounds nuw i8, ptr %48, i64 40
@@ -1354,7 +1354,7 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_chacha20Block_avxEv(ptr 
   %477 = getelementptr inbounds nuw i8, ptr %49, i64 20
   store i8 0, ptr %477, align 4
   %478 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %478, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %478, align 8
   %479 = getelementptr inbounds nuw i8, ptr %49, i64 32
   store ptr null, ptr %479, align 8
   %480 = getelementptr inbounds nuw i8, ptr %49, i64 40
@@ -1681,7 +1681,7 @@ define hidden void @_ZN13StubGenerator29cc20_keystream_collate_avx512E11XMMRegis
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i8 0, ptr %30, align 4
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -1701,7 +1701,7 @@ define hidden void @_ZN13StubGenerator29cc20_keystream_collate_avx512E11XMMRegis
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i8 0, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -1721,7 +1721,7 @@ define hidden void @_ZN13StubGenerator29cc20_keystream_collate_avx512E11XMMRegis
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i8 0, ptr %50, align 4
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %51, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -1741,7 +1741,7 @@ define hidden void @_ZN13StubGenerator29cc20_keystream_collate_avx512E11XMMRegis
   %60 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i8 0, ptr %60, align 4
   %61 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %61, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr null, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -1761,7 +1761,7 @@ define hidden void @_ZN13StubGenerator29cc20_keystream_collate_avx512E11XMMRegis
   %70 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 0, ptr %70, align 4
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %71, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -1781,7 +1781,7 @@ define hidden void @_ZN13StubGenerator29cc20_keystream_collate_avx512E11XMMRegis
   %80 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 0, ptr %80, align 4
   %81 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %81, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -1801,7 +1801,7 @@ define hidden void @_ZN13StubGenerator29cc20_keystream_collate_avx512E11XMMRegis
   %90 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %90, align 4
   %91 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %91, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -1821,7 +1821,7 @@ define hidden void @_ZN13StubGenerator29cc20_keystream_collate_avx512E11XMMRegis
   %100 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %100, align 4
   %101 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %101, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -1841,7 +1841,7 @@ define hidden void @_ZN13StubGenerator29cc20_keystream_collate_avx512E11XMMRegis
   %110 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %110, align 4
   %111 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %111, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -1861,7 +1861,7 @@ define hidden void @_ZN13StubGenerator29cc20_keystream_collate_avx512E11XMMRegis
   %120 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %120, align 4
   %121 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %121, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %121, align 8
   %122 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %122, align 8
   %123 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -1881,7 +1881,7 @@ define hidden void @_ZN13StubGenerator29cc20_keystream_collate_avx512E11XMMRegis
   %130 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i8 0, ptr %130, align 4
   %131 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %131, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %131, align 8
   %132 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr null, ptr %132, align 8
   %133 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -1901,7 +1901,7 @@ define hidden void @_ZN13StubGenerator29cc20_keystream_collate_avx512E11XMMRegis
   %140 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i8 0, ptr %140, align 4
   %141 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %141, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %141, align 8
   %142 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %142, align 8
   %143 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -1921,7 +1921,7 @@ define hidden void @_ZN13StubGenerator29cc20_keystream_collate_avx512E11XMMRegis
   %150 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i8 0, ptr %150, align 4
   %151 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %151, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %151, align 8
   %152 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %152, align 8
   %153 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -1941,7 +1941,7 @@ define hidden void @_ZN13StubGenerator29cc20_keystream_collate_avx512E11XMMRegis
   %160 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i8 0, ptr %160, align 4
   %161 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %161, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %161, align 8
   %162 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr null, ptr %162, align 8
   %163 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -1961,7 +1961,7 @@ define hidden void @_ZN13StubGenerator29cc20_keystream_collate_avx512E11XMMRegis
   %170 = getelementptr inbounds nuw i8, ptr %22, i64 20
   store i8 0, ptr %170, align 4
   %171 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %171, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %171, align 8
   %172 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr null, ptr %172, align 8
   %173 = getelementptr inbounds nuw i8, ptr %22, i64 40
@@ -1981,7 +1981,7 @@ define hidden void @_ZN13StubGenerator29cc20_keystream_collate_avx512E11XMMRegis
   %180 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i8 0, ptr %180, align 4
   %181 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %181, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %181, align 8
   %182 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr null, ptr %182, align 8
   %183 = getelementptr inbounds nuw i8, ptr %23, i64 40

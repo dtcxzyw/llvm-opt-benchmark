@@ -6738,9 +6738,9 @@ call5.i.i.i.i.i.i.i.i.noexc:                      ; preds = %_ZN4asio15any_io_ex
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !22
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i13, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i.i13, align 8, !noalias !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i.i13, align 8, !noalias !22
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i13, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !22
   %_M_result.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i13, i64 24
   store ptr null, ptr %_M_result.i.i.i.i.i.i.i.i.i, align 8, !noalias !22
   %_M_status.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i13, i64 32
@@ -6776,7 +6776,7 @@ ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i12
   br label %ehcleanup41
 
 .noexc46:                                         ; preds = %invoke.cont.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %call.i11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %call.i11, align 8
   %_M_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   store ptr %call.i11, ptr %_M_storage.i, align 8
   %no_delay_ = getelementptr inbounds nuw i8, ptr %this, i64 152
@@ -10286,9 +10286,9 @@ call5.i.i.i.i.i.i.i.i.noexc:                      ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !88
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i7, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !88
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i.i7, align 8, !noalias !88
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i.i7, align 8, !noalias !88
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i7, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !88
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !88
   %_M_result.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i7, i64 24
   store ptr null, ptr %_M_result.i.i.i.i.i.i.i.i.i, align 8, !noalias !88
   %_M_status.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i7, i64 32
@@ -10324,7 +10324,7 @@ ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   br label %ehcleanup30
 
 invoke.cont:                                      ; preds = %invoke.cont.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %call.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %call.i, align 8
   %_M_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   store ptr %call.i, ptr %_M_storage.i, align 8
   %has_run_or_stop_ = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -10418,7 +10418,7 @@ invoke.cont9:                                     ; preds = %invoke.cont8
   store i32 1, ptr %_M_use_count.i.i.i, align 8
   %_M_weak_count.i.i.i = getelementptr inbounds nuw i8, ptr %call.i77, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN4asio10io_contextELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i77, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN4asio10io_contextELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i77, align 8
   %_M_ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i77, i64 16
   store ptr %call6, ptr %_M_ptr.i.i, align 8
   store ptr %call.i77, ptr %_M_refcount.i.i, align 8
@@ -10467,7 +10467,7 @@ invoke.cont16:                                    ; preds = %invoke.cont15
   store i32 1, ptr %_M_use_count.i.i.i89, align 8
   %_M_weak_count.i.i.i90 = getelementptr inbounds nuw i8, ptr %call.i82, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i90, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN4asio10io_context4workELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i82, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN4asio10io_context4workELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i82, align 8
   %_M_ptr.i.i91 = getelementptr inbounds nuw i8, ptr %call.i82, i64 16
   store ptr %call12, ptr %_M_ptr.i.i91, align 8
   store ptr %call.i82, ptr %_M_refcount.i.i11, align 8
@@ -10942,7 +10942,7 @@ invoke.cont:                                      ; preds = %_ZN4asio17execution
   store ptr %this, ptr %owner_.i.i.i, align 8
   %next_.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr null, ptr %next_.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail9schedulerE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio6detail9schedulerE, i64 16), ptr %call, align 8
   %one_thread_.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   %cmp.i = icmp eq i32 %concurrency_hint, 1
   %and.i = and i32 %concurrency_hint, -65535
@@ -11487,7 +11487,7 @@ init.end:                                         ; preds = %invoke.cont, %init.
           to label %call.i.i.noexc unwind label %lpad2
 
 call.i.i.noexc:                                   ; preds = %init.end
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7easylog8appender12start_threadEvEUlvE_EEEEEE, i64 16), ptr %call.i.i2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7easylog8appender12start_threadEvEUlvE_EEEEEE, i64 16), ptr %call.i.i2, align 8
   %_M_func.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2, i64 8
   store i64 ptrtoint (ptr @_ZZN7easylog6loggerILm0EEC1EvE8appender to i64), ptr %_M_func.i.i.i, align 8
   store ptr %call.i.i2, ptr %agg.tmp.i.i, align 8
@@ -16055,7 +16055,7 @@ entry:
   store ptr %ctx, ptr %owner_.i.i, align 8
   %next_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %next_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail9schedulerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio6detail9schedulerE, i64 16), ptr %this, align 8
   %one_thread_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %cmp = icmp eq i32 %concurrency_hint, 1
   %and = and i32 %concurrency_hint, -65535
@@ -16115,7 +16115,7 @@ invoke.cont20:                                    ; preds = %if.then
           to label %call.i10.noexc unwind label %lpad22
 
 call.i10.noexc:                                   ; preds = %invoke.cont20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail12posix_thread4funcINS0_9scheduler15thread_functionEEE, i64 16), ptr %call.i1011, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio6detail12posix_thread4funcINS0_9scheduler15thread_functionEEE, i64 16), ptr %call.i1011, align 8
   %f_.i.i = getelementptr inbounds nuw i8, ptr %call.i1011, i64 8
   store ptr %this, ptr %f_.i.i, align 8
   invoke void @_ZN4asio6detail12posix_thread12start_threadEPNS1_9func_baseE(ptr noundef nonnull align 8 dereferenceable(9) %call21, ptr noundef nonnull %call.i1011)
@@ -16267,7 +16267,7 @@ if.then.i:                                        ; preds = %invoke.cont
   call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %e.i.i, i32 %call, ptr nonnull @_ZZN4asio15system_categoryEvE8instance, ptr noundef nonnull @.str.929)
   %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %exception.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %e.i.i) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12system_error, i64 16), ptr %exception.i.i.i, align 8
   %_M_code.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i, i64 16
   %_M_code2.i.i.i = getelementptr inbounds nuw i8, ptr %e.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2.i.i.i, i64 16, i1 false)
@@ -16430,7 +16430,7 @@ if.then.i.i29:                                    ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i30, %if.then.i.i29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8
   %_M_code = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %__ec.coerce0, ptr %_M_code, align 8
   %__ec.sroa.334.0._M_code.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -16705,10 +16705,10 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str.933)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio21invalid_service_ownerE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio21invalid_service_ownerE, i64 16), ptr %ref.tmp, align 8
   %exception.i = call ptr @__cxa_allocate_exception(i64 16) #33
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %exception.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio21invalid_service_ownerE, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio21invalid_service_ownerE, i64 16), ptr %exception.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN4asio21invalid_service_ownerE, ptr nonnull @_ZN4asio21invalid_service_ownerD2Ev) #38
           to label %.noexc unwind label %lpad
 
@@ -16794,10 +16794,10 @@ if.then5:                                         ; preds = %while.body, %land.l
           to label %invoke.cont7 unwind label %lpad2
 
 invoke.cont7:                                     ; preds = %if.then5
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio22service_already_existsE, i64 16), ptr %ref.tmp6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio22service_already_existsE, i64 16), ptr %ref.tmp6, align 8
   %exception.i10 = call ptr @__cxa_allocate_exception(i64 16) #33
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %exception.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio22service_already_existsE, i64 16), ptr %exception.i10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio22service_already_existsE, i64 16), ptr %exception.i10, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i10, ptr nonnull @_ZTIN4asio22service_already_existsE, ptr nonnull @_ZN4asio22service_already_existsD2Ev) #38
           to label %.noexc11 unwind label %lpad8
 
@@ -17091,8 +17091,8 @@ entry:
   %next_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %next_.i.i, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail13epoll_reactorE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail13epoll_reactorE, i64 80), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio6detail13epoll_reactorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio6detail13epoll_reactorE, i64 80), ptr %0, align 8
   %1 = load ptr, ptr %ctx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i)
   store ptr @_ZTIN4asio6detail14typeid_wrapperINS0_9schedulerEEE, ptr %key.i.i, align 8
@@ -17273,7 +17273,7 @@ if.then.i:                                        ; preds = %_ZN4asio5error19get
   call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %e.i.i, i32 %1, ptr nonnull @_ZZN4asio15system_categoryEvE8instance, ptr noundef nonnull @.str.936)
   %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %exception.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %e.i.i) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12system_error, i64 16), ptr %exception.i.i.i, align 8
   %_M_code.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i, i64 16
   %_M_code2.i.i.i = getelementptr inbounds nuw i8, ptr %e.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2.i.i.i, i64 16, i1 false)
@@ -17494,9 +17494,9 @@ terminate.lpad:                                   ; preds = %if.then7.i, %if.the
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4asio6detail13epoll_reactorD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail13epoll_reactorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio6detail13epoll_reactorE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail13epoll_reactorE, i64 80), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio6detail13epoll_reactorE, i64 80), ptr %add.ptr, align 8
   %epoll_fd_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load i32, ptr %epoll_fd_, align 8
   %cmp.not = icmp eq i32 %0, -1
@@ -18029,7 +18029,7 @@ if.then.i13:                                      ; preds = %invoke.cont
 .noexc:                                           ; preds = %if.then.i13
   %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %exception.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %e.i.i) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12system_error, i64 16), ptr %exception.i.i.i, align 8
   %_M_code.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i, i64 16
   %_M_code2.i.i.i = getelementptr inbounds nuw i8, ptr %e.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2.i.i.i, i64 16, i1 false)
@@ -18503,7 +18503,7 @@ if.then.i:                                        ; preds = %_ZN4asio5error19get
   call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %e.i.i, i32 %7, ptr nonnull @_ZZN4asio15system_categoryEvE8instance, ptr noundef nonnull @.str.935)
   %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %exception.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %e.i.i) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12system_error, i64 16), ptr %exception.i.i.i, align 8
   %_M_code.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i, i64 16
   %_M_code2.i.i.i = getelementptr inbounds nuw i8, ptr %e.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2.i.i.i, i64 16, i1 false)
@@ -18612,7 +18612,7 @@ declare i32 @epoll_wait(i32 noundef, ptr noundef, i32 noundef, i32 noundef) loca
 define linkonce_odr dso_local void @_ZN4asio6detail9schedulerD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::error_code", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail9schedulerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio6detail9schedulerE, i64 16), ptr %this, align 8
   %thread_ = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load ptr, ptr %thread_, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -19053,7 +19053,7 @@ if.then.i:                                        ; preds = %invoke.cont
   call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %e.i.i, i32 %error.0, ptr nonnull @_ZZN4asio15system_categoryEvE8instance, ptr noundef nonnull @.str.938)
   %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %exception.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %e.i.i) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12system_error, i64 16), ptr %exception.i.i.i, align 8
   %_M_code.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i, i64 16
   %_M_code2.i.i.i = getelementptr inbounds nuw i8, ptr %e.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2.i.i.i, i64 16, i1 false)
@@ -19130,7 +19130,7 @@ if.then.i:                                        ; preds = %init.i.i, %init.che
   call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %e.i.i, i32 %call, ptr nonnull @_ZZN4asio15system_categoryEvE8instance, ptr noundef nonnull @.str.939)
   %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %exception.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %e.i.i) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12system_error, i64 16), ptr %exception.i.i.i, align 8
   %_M_code.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i, i64 16
   %_M_code2.i.i.i = getelementptr inbounds nuw i8, ptr %e.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2.i.i.i, i64 16, i1 false)
@@ -20621,7 +20621,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12async_simple8ExecutorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12async_simple8ExecutorE, i64 16), ptr %this, align 8
   %_name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %_name.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #33
@@ -20658,7 +20658,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   store i8 0, ptr %2, align 8
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #33
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7coro_io15ExecutorWrapperIN4asio10io_context19basic_executor_typeISaIvELm0EEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7coro_io15ExecutorWrapperIN4asio10io_context19basic_executor_typeISaIvELm0EEEEE, i64 16), ptr %this, align 8
   %executor_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %6 = load i64, ptr %executor, align 8
   store i64 %6, ptr %executor_, align 8
@@ -20674,7 +20674,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7coro_io15ExecutorWrapperIN4asio10io_context19basic_executor_typeISaIvELm0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12async_simple8ExecutorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12async_simple8ExecutorE, i64 16), ptr %this, align 8
   %_name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_name.i, align 8
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -20700,7 +20700,7 @@ _ZN12async_simple8ExecutorD2Ev.exit:              ; preds = %_ZNKSt7__cxx1112bas
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7coro_io15ExecutorWrapperIN4asio10io_context19basic_executor_typeISaIvELm0EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12async_simple8ExecutorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12async_simple8ExecutorE, i64 16), ptr %this, align 8
   %_name.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_name.i.i, align 8
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -21109,7 +21109,7 @@ lpad:                                             ; preds = %_ZNSt8functionIFvvE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12async_simple8ExecutorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12async_simple8ExecutorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12async_simple8ExecutorE, i64 16), ptr %this, align 8
   %_name = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_name, align 8
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -21275,7 +21275,7 @@ _ZNSt8functionIFvvEEC2EOS1_.exit:                 ; preds = %entry, %if.then.i
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %_ZNSt8functionIFvvEEC2EOS1_.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12async_simple8Executor8scheduleESt8functionIFvvEENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEUlvE_EEEEEE, i64 16), ptr %call.i2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12async_simple8Executor8scheduleESt8functionIFvvEENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEUlvE_EEEEEE, i64 16), ptr %call.i2, align 8
   %_M_func.i.i = getelementptr inbounds nuw i8, ptr %call.i2, i64 8
   store ptr %this, ptr %_M_func.i.i, align 8
   %4 = getelementptr inbounds nuw i8, ptr %call.i2, i64 16
@@ -21409,7 +21409,7 @@ declare void @_ZNSt6thread6detachEv(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12async_simple8Executor8scheduleESt8functionIFvvEENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEUlvE_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12async_simple8Executor8scheduleESt8functionIFvvEENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEUlvE_EEEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12async_simple8Executor8scheduleESt8functionIFvvEENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEUlvE_EEEEEE, i64 16), ptr %this, align 8
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -21435,7 +21435,7 @@ _ZNSt6thread8_InvokerISt5tupleIJZN12async_simple8Executor8scheduleESt8functionIF
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12async_simple8Executor8scheduleESt8functionIFvvEENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEUlvE_EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12async_simple8Executor8scheduleESt8functionIFvvEENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEUlvE_EEEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12async_simple8Executor8scheduleESt8functionIFvvEENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEUlvE_EEEEEE, i64 16), ptr %this, align 8
   %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -22155,13 +22155,13 @@ if.then.i2:                                       ; preds = %sw.bb3
 
 _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit: ; preds = %sw.bb3, %if.then.i2
   %4 = phi ptr [ null, %sw.bb3 ], [ %.pre, %if.then.i2 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio19multiple_exceptionsE, i64 16), ptr %agg.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio19multiple_exceptionsE, i64 16), ptr %agg.tmp, align 8
   %first_.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   store ptr %4, ptr %first_.i, align 8
   store ptr null, ptr %agg.tmp6, align 8
   %call.i = call ptr @__cxa_allocate_exception(i64 noundef 16) #33, !noalias !207
   %call1.i = call ptr @__cxa_init_primary_exception(ptr noundef %call.i, ptr noundef nonnull @_ZTIN4asio19multiple_exceptionsE, ptr noundef nonnull @_ZNSt15__exception_ptr12__dest_thunkIN4asio19multiple_exceptionsEEEvPv) #33, !noalias !207
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio19multiple_exceptionsE, i64 16), ptr %call.i, align 8, !noalias !207
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio19multiple_exceptionsE, i64 16), ptr %call.i, align 8, !noalias !207
   %first_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %4, ptr %first_.i.i, align 8, !noalias !207
   %tobool.not.i.i.i = icmp eq ptr %4, null
@@ -22198,7 +22198,7 @@ if.then.i8:                                       ; preds = %_ZNSt15__exception_
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit9:  ; preds = %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit6.thread, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit6, %if.then.i8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio19multiple_exceptionsE, i64 16), ptr %agg.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio19multiple_exceptionsE, i64 16), ptr %agg.tmp, align 8
   br i1 %tobool.not.i.i.i, label %_ZN4asio19multiple_exceptionsD2Ev.exit, label %if.then.i.i12
 
 if.then.i.i12:                                    ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9
@@ -22225,7 +22225,7 @@ declare void @_ZSt17current_exceptionv(ptr sret(%"class.std::__exception_ptr::ex
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4asio19multiple_exceptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio19multiple_exceptionsE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio19multiple_exceptionsE, i64 16), ptr %this, align 8
   %first_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %first_, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -22258,7 +22258,7 @@ declare void @_ZNSt15__exception_ptr13exception_ptrC1EPv(ptr noundef nonnull ali
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4asio19multiple_exceptionsD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio19multiple_exceptionsE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio19multiple_exceptionsE, i64 16), ptr %this, align 8
   %first_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %first_.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -22354,9 +22354,9 @@ if.end36:                                         ; preds = %for.cond17, %if.the
   br i1 %tobool.not.i, label %if.then.i, label %_ZN4asio11aligned_newEmm.exit
 
 if.then.i:                                        ; preds = %if.end36
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %ex.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %ex.i, align 8
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #38
           to label %.noexc.i unwind label %lpad.i
 
@@ -22874,11 +22874,11 @@ invoke.cont:
   store ptr %context, ptr %owner_.i.i, align 8
   %next_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %next_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %this, align 8
   %timer_queue_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %next_.i.i3 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr null, ptr %next_.i.i3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %timer_queue_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %timer_queue_, align 8
   %timers_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %timers_.i, i8 0, i64 32, i1 false)
   %scheduler_ = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -22930,7 +22930,7 @@ invoke.cont8:                                     ; preds = %if.then.i2.i.i, %_Z
 lpad2:                                            ; preds = %invoke.cont3, %invoke.cont
   %7 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %timer_queue_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %timer_queue_, align 8
   %heap_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %8 = load ptr, ptr %heap_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %8, null
@@ -22947,7 +22947,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i.i, %l
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %this, align 8
   %heap_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %heap_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -22964,7 +22964,7 @@ _ZNSt6vectorIN4asio6detail11timer_queueINS1_18chrono_time_traitsINSt6chrono3_V21
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %this, align 8
   %scheduler_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %scheduler_, align 8
   %timer_queue_ = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -23023,7 +23023,7 @@ if.then.i3.i.i:                                   ; preds = %_ZN4asio6detail15ti
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i3.i.i, %_ZN4asio6detail15timer_queue_set5eraseEPNS0_16timer_queue_baseE.exit.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %timer_queue_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %timer_queue_, align 8
   %heap_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %6 = load ptr, ptr %heap_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %6, null
@@ -23040,7 +23040,7 @@ _ZN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %this, align 8
   %scheduler_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %scheduler_.i, align 8
   %timer_queue_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -23099,7 +23099,7 @@ if.then.i3.i.i.i:                                 ; preds = %_ZN4asio6detail15ti
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then.i3.i.i.i, %_ZN4asio6detail15timer_queue_set5eraseEPNS0_16timer_queue_baseE.exit.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %timer_queue_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %timer_queue_.i, align 8
   %heap_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %6 = load ptr, ptr %heap_.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %6, null
@@ -23123,7 +23123,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %this, align 8
   %heap_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %heap_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -24770,9 +24770,9 @@ entry:
 define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base12execute_voidERKS2_ONS_6detail17executor_functionE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ex = alloca %"class.asio::execution::bad_executor", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex, align 8
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZN4asio9execution12bad_executorD2Ev) #38
           to label %.noexc unwind label %lpad
 
@@ -24790,9 +24790,9 @@ lpad:                                             ; preds = %entry
 define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base21blocking_execute_voidERKS2_NS_6detail22executor_function_viewE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.coerce0, ptr %.coerce1) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ex = alloca %"class.asio::execution::bad_executor", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex, align 8
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZN4asio9execution12bad_executorD2Ev) #38
           to label %.noexc unwind label %lpad
 
@@ -24832,9 +24832,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 entry:
   %ex.i.i = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ex.i.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i.i, align 8
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZN4asio9execution12bad_executorD2Ev) #38
           to label %.noexc.i.i unwind label %lpad.i.i
 
@@ -24853,9 +24853,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 entry:
   %ex.i = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ex.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZN4asio9execution12bad_executorD2Ev) #38
           to label %.noexc.i unwind label %lpad.i
 
@@ -24874,9 +24874,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 entry:
   %ex.i = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ex.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZN4asio9execution12bad_executorD2Ev) #38
           to label %.noexc.i unwind label %lpad.i
 
@@ -24895,9 +24895,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 entry:
   %ex.i.i = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ex.i.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i.i, align 8
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZN4asio9execution12bad_executorD2Ev) #38
           to label %.noexc.i.i unwind label %lpad.i.i
 
@@ -24916,9 +24916,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 entry:
   %ex.i = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ex.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZN4asio9execution12bad_executorD2Ev) #38
           to label %.noexc.i unwind label %lpad.i
 
@@ -24937,9 +24937,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 entry:
   %ex.i = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ex.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZN4asio9execution12bad_executorD2Ev) #38
           to label %.noexc.i unwind label %lpad.i
 
@@ -24958,9 +24958,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 entry:
   %ex.i.i = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ex.i.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i.i, align 8
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZN4asio9execution12bad_executorD2Ev) #38
           to label %.noexc.i.i unwind label %lpad.i.i
 
@@ -24979,9 +24979,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 entry:
   %ex.i = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ex.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZN4asio9execution12bad_executorD2Ev) #38
           to label %.noexc.i unwind label %lpad.i
 
@@ -25000,9 +25000,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 entry:
   %ex.i = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ex.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZN4asio9execution12bad_executorD2Ev) #38
           to label %.noexc.i unwind label %lpad.i
 
@@ -25021,9 +25021,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 entry:
   %ex.i.i = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ex.i.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i.i, align 8
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZN4asio9execution12bad_executorD2Ev) #38
           to label %.noexc.i.i unwind label %lpad.i.i
 
@@ -25042,9 +25042,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 entry:
   %ex.i = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ex.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZN4asio9execution12bad_executorD2Ev) #38
           to label %.noexc.i unwind label %lpad.i
 
@@ -25063,9 +25063,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 entry:
   %ex.i = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ex.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZN4asio9execution12bad_executorD2Ev) #38
           to label %.noexc.i unwind label %lpad.i
 
@@ -25084,9 +25084,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 entry:
   %ex.i.i = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ex.i.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i.i, align 8
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZN4asio9execution12bad_executorD2Ev) #38
           to label %.noexc.i.i unwind label %lpad.i.i
 
@@ -25105,9 +25105,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 entry:
   %ex.i = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ex.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZN4asio9execution12bad_executorD2Ev) #38
           to label %.noexc.i unwind label %lpad.i
 
@@ -25126,9 +25126,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 entry:
   %ex.i = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ex.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZN4asio9execution12bad_executorD2Ev) #38
           to label %.noexc.i unwind label %lpad.i
 
@@ -25147,9 +25147,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 entry:
   %ex.i.i = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ex.i.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i.i, align 8
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZN4asio9execution12bad_executorD2Ev) #38
           to label %.noexc.i.i unwind label %lpad.i.i
 
@@ -25168,9 +25168,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 entry:
   %ex.i = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ex.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZN4asio9execution12bad_executorD2Ev) #38
           to label %.noexc.i unwind label %lpad.i
 
@@ -25189,9 +25189,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 entry:
   %ex.i = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ex.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZN4asio9execution12bad_executorD2Ev) #38
           to label %.noexc.i unwind label %lpad.i
 
@@ -25210,9 +25210,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 entry:
   %ex.i.i = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ex.i.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i.i, align 8
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZN4asio9execution12bad_executorD2Ev) #38
           to label %.noexc.i.i unwind label %lpad.i.i
 
@@ -25231,9 +25231,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 entry:
   %ex.i = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ex.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZN4asio9execution12bad_executorD2Ev) #38
           to label %.noexc.i unwind label %lpad.i
 
@@ -25252,9 +25252,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 entry:
   %ex.i = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ex.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %ex.i, align 8
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %exception.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZN4asio9execution12bad_executorD2Ev) #38
           to label %.noexc.i unwind label %lpad.i
 
@@ -25651,9 +25651,9 @@ if.end36:                                         ; preds = %for.cond17, %if.the
   br i1 %tobool.not.i, label %if.then.i, label %_ZN4asio11aligned_newEmm.exit
 
 if.then.i:                                        ; preds = %if.end36
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %ex.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %ex.i, align 8
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #38
           to label %.noexc.i unwind label %lpad.i
 
@@ -27824,7 +27824,7 @@ entry:
   store ptr %owner, ptr %owner_.i.i.i, align 8
   %next_.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr null, ptr %next_.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail30execution_context_service_baseINS0_23reactive_socket_serviceINS_2ip3tcpEEEEE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio6detail30execution_context_service_baseINS0_23reactive_socket_serviceINS_2ip3tcpEEEEE, i64 16), ptr %call, align 8
   %0 = load ptr, ptr %owner, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i.i.i)
   store ptr @_ZTIN4asio6detail14typeid_wrapperINS0_13epoll_reactorEEE, ptr %key.i.i.i.i, align 8
@@ -27850,7 +27850,7 @@ call.i.i.i2.i.noexc:                              ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %call.i.i.i2.i.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail23reactive_socket_serviceINS_2ip3tcpEEE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio6detail23reactive_socket_serviceINS_2ip3tcpEEE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %call.i.i.i2.i.noexc, %entry
@@ -28037,7 +28037,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt13__future_base13_State_baseV2D2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %this, align 8
   %_M_result = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_result, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -28064,7 +28064,7 @@ _ZNSt10unique_ptrINSt13__future_base12_Result_baseENS1_8_DeleterEED2Ev.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt13__future_base13_State_baseV2D0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %this, align 8
   %_M_result.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_result.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -28335,7 +28335,7 @@ if.then:                                          ; preds = %entry
   %call.i = call ptr @__cxa_allocate_exception(i64 noundef 32) #33, !noalias !461
   %call1.i = call ptr @__cxa_init_primary_exception(ptr noundef %call.i, ptr noundef nonnull @_ZTISt12future_error, ptr noundef nonnull @_ZNSt15__exception_ptr12__dest_thunkISt12future_errorEEvPv) #33, !noalias !461
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %call.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #33, !noalias !461
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12future_error, i64 16), ptr %call.i, align 8, !noalias !461
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12future_error, i64 16), ptr %call.i, align 8, !noalias !461
   %_M_code.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %_M_code2.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code.i.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2.i.i, i64 16, i1 false), !noalias !461
@@ -28482,7 +28482,7 @@ if.then.i.i8:                                     ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i9, %if.then.i.i8
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12future_error, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12future_error, i64 16), ptr %this, align 8
   %_M_code = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %__ec.coerce0, ptr %_M_code, align 8
   %__ec.sroa.313.0._M_code.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -29890,7 +29890,7 @@ lpad.i:                                           ; preds = %entry
 
 _ZNSt12system_errorC2ESt10error_code.exit:        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %e, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12system_error, i64 16), ptr %e, align 8
   %_M_code.i = getelementptr inbounds nuw i8, ptr %e, i64 16
   store i32 %agg.tmp.sroa.0.0.copyload, ptr %_M_code.i, align 8
   %__ec.sroa.31.0._M_code.sroa_idx.i = getelementptr inbounds nuw i8, ptr %e, i64 24
@@ -29898,7 +29898,7 @@ _ZNSt12system_errorC2ESt10error_code.exit:        ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   %exception.i = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %exception.i, ptr noundef nonnull align 8 dereferenceable(32) %e) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12system_error, i64 16), ptr %exception.i, align 8
   %_M_code.i2 = getelementptr inbounds nuw i8, ptr %exception.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code.i2, ptr noundef nonnull align 8 dereferenceable(16) %_M_code.i, i64 16, i1 false)
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #38
@@ -31339,7 +31339,7 @@ entry:
   %parent.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %tailIndex.i, i8 0, i64 41, i1 false)
   store ptr %parent_, ptr %parent.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE16ImplicitProducerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE16ImplicitProducerE, i64 16), ptr %this, align 8
   %nextBlockIndexCapacity = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i64 32, ptr %nextBlockIndexCapacity, align 8
   %blockIndex = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -31442,7 +31442,7 @@ invoke.cont:                                      ; preds = %for.end.i, %cond.en
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE16ImplicitProducerD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE16ImplicitProducerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE16ImplicitProducerE, i64 16), ptr %this, align 8
   %tailIndex = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load atomic i64, ptr %tailIndex monotonic, align 8
   %headIndex = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -34751,7 +34751,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIiED2Ev.exit:                    ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %executor_wrapper_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12async_simple8ExecutorE, i64 16), ptr %executor_wrapper_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12async_simple8ExecutorE, i64 16), ptr %executor_wrapper_, align 8
   %_name.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %11 = load ptr, ptr %_name.i.i, align 8
   %12 = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -36813,7 +36813,7 @@ if.end:                                           ; preds = %_ZSt17holds_alterna
 if.then.i.i3:                                     ; preds = %if.end
   %cmp.i.not.i.i.i = icmp eq i8 %0, -1
   %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -36842,7 +36842,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %cmp.i.not.i.i = icmp eq i8 %0, -1
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
   %_M_reason.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i, i64 8
   br i1 %cmp.i.not.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -36962,7 +36962,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7coro_io15io_context_poolESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7coro_io15io_context_poolESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i, align 8
   %_M_impl.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 16
   %0 = load i32, ptr %__args, align 4
   %conv.i.i.i.i.i.i = zext i32 %0 to i64
@@ -37100,7 +37100,7 @@ _ZNSt10shared_ptrIN7coro_io15io_context_poolEEC2ERKS2_.exit: ; preds = %entry, %
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %_ZNSt10shared_ptrIN7coro_io15io_context_poolEEC2ERKS2_.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io23g_block_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEEE, i64 16), ptr %call.i2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io23g_block_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEEE, i64 16), ptr %call.i2, align 8
   %_M_func.i.i = getelementptr inbounds nuw i8, ptr %call.i2, i64 8
   %5 = load ptr, ptr %ref.tmp, align 8
   store ptr %5, ptr %_M_func.i.i, align 8
@@ -37325,7 +37325,7 @@ _ZNSt10shared_ptrIN7coro_io15io_context_poolEED2Ev.exit: ; preds = %entry, %_ZN9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io23g_block_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io23g_block_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io23g_block_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEEE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -37407,7 +37407,7 @@ _ZNSt6thread8_InvokerISt5tupleIJZZN7coro_io23g_block_io_context_poolINS2_15io_co
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io23g_block_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io23g_block_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io23g_block_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEEE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -38130,7 +38130,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i, align 8
   %_M_weak_count.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6threadSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6threadSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i, align 8
   %_M_impl.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i)
   store i64 0, ptr %_M_impl.i.i, align 8
@@ -38138,7 +38138,7 @@ entry:
           to label %call.i.i.i1.i.noexc unwind label %lpad
 
 call.i.i.i1.i.noexc:                              ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7coro_io15io_context_pool3runEvEUlSt10shared_ptrIN4asio10io_contextEEE_S8_EEEEEE, i64 16), ptr %call.i.i.i1.i2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7coro_io15io_context_pool3runEvEUlSt10shared_ptrIN4asio10io_contextEEE_S8_EEEEEE, i64 16), ptr %call.i.i.i1.i2, align 8
   %_M_func.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i1.i2, i64 8
   %0 = load ptr, ptr %__args1, align 8
   store ptr %0, ptr %_M_func.i.i.i.i.i, align 8
@@ -38284,7 +38284,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7coro_io15io_context_pool3runEvEUlSt10shared_ptrIN4asio10io_contextEEE_S8_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7coro_io15io_context_pool3runEvEUlSt10shared_ptrIN4asio10io_contextEEE_S8_EEEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7coro_io15io_context_pool3runEvEUlSt10shared_ptrIN4asio10io_contextEEE_S8_EEEEEE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -38366,7 +38366,7 @@ _ZNSt6thread8_InvokerISt5tupleIJZN7coro_io15io_context_pool3runEvEUlSt10shared_p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7coro_io15io_context_pool3runEvEUlSt10shared_ptrIN4asio10io_contextEEE_S8_EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7coro_io15io_context_pool3runEvEUlSt10shared_ptrIN4asio10io_contextEEE_S8_EEEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7coro_io15io_context_pool3runEvEUlSt10shared_ptrIN4asio10io_contextEEE_S8_EEEEEE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -38909,7 +38909,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPiZN7coro_io9coro_file7op
   store i32 1, ptr %_M_use_count.i.i.i, align 8
   %_M_weak_count.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPiZN7coro_io9coro_file7open_fdESt17basic_string_viewIcSt11char_traitsIcEEiEUlS0_E_SaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt19_Sp_counted_deleterIPiZN7coro_io9coro_file7open_fdESt17basic_string_viewIcSt11char_traitsIcEEiEUlS0_E_SaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i, align 8
   %_M_impl.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i, i64 16
   store ptr %call6, ptr %_M_impl.i.i, align 8
   store ptr %call6, ptr %fd_file_, align 8
@@ -39125,7 +39125,7 @@ _ZNK12async_simple3TryIbE11checkHasTryEv.exit:    ; preds = %_ZSt17holds_alterna
 if.then.i.i34:                                    ; preds = %_ZNK12async_simple3TryIbE11checkHasTryEv.exit
   %cmp.i.not.i.i.i = icmp eq i8 %0, -1
   %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -39684,7 +39684,7 @@ _ZNSt10shared_ptrI8_IO_FILEEC2IS0_ZZN7coro_io9coro_file10async_openENSt7__cxx111
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIP8_IO_FILEZZN7coro_io9coro_file10async_openENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS2_9read_typeEENKUlvE_clEvEUlS1_E_SaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt19_Sp_counted_deleterIP8_IO_FILEZZN7coro_io9coro_file10async_openENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS2_9read_typeEENKUlvE_clEvEUlS1_E_SaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8
   %_M_impl.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   store ptr %call3, ptr %_M_impl.i.i.i.i.i, align 8
   store ptr %call3, ptr %0, align 8
@@ -39804,7 +39804,7 @@ land.lhs.true:                                    ; preds = %_ZSt17holds_alterna
 if.then.i.i1:                                     ; preds = %land.lhs.true
   %cmp.i.not.i.i.i = icmp eq i8 %0, -1
   %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -40210,7 +40210,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %cmp.i.not.i.i = icmp eq i8 %0, -1
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
   %_M_reason.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i, i64 8
   br i1 %cmp.i.not.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -40370,7 +40370,7 @@ if.end:                                           ; preds = %_ZSt17holds_alterna
 if.then.i.i3:                                     ; preds = %if.end
   %cmp.i.not.i.i.i = icmp eq i8 %0, -1
   %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -40399,7 +40399,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %cmp.i.not.i.i = icmp eq i8 %0, -1
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
   %_M_reason.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i, i64 8
   br i1 %cmp.i.not.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -40428,7 +40428,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %cmp.i.not.i.i = icmp eq i8 %0, -1
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
   %_M_reason.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i, i64 8
   br i1 %cmp.i.not.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -40518,7 +40518,7 @@ if.end:                                           ; preds = %_ZSt17holds_alterna
 if.then.i.i3:                                     ; preds = %if.end
   %cmp.i.not.i.i.i = icmp eq i8 %0, -1
   %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -40669,7 +40669,7 @@ _ZNK12async_simple3TryISt4pairISt10error_codemEE11checkHasTryEv.exit: ; preds = 
 if.then.i.i34:                                    ; preds = %_ZNK12async_simple3TryISt4pairISt10error_codemEE11checkHasTryEv.exit
   %cmp.i.not.i.i.i = icmp eq i8 %0, -1
   %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -41113,7 +41113,7 @@ land.lhs.true:                                    ; preds = %_ZSt17holds_alterna
 if.then.i.i1:                                     ; preds = %land.lhs.true
   %cmp.i.not.i.i.i = icmp eq i8 %0, -1
   %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -41498,7 +41498,7 @@ if.end:                                           ; preds = %_ZSt17holds_alterna
 if.then.i.i3:                                     ; preds = %if.end
   %cmp.i.not.i.i.i = icmp eq i8 %0, -1
   %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -41527,7 +41527,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %cmp.i.not.i.i = icmp eq i8 %0, -1
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
   %_M_reason.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i, i64 8
   br i1 %cmp.i.not.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -41556,7 +41556,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %cmp.i.not.i.i = icmp eq i8 %0, -1
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
   %_M_reason.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i, i64 8
   br i1 %cmp.i.not.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -41898,7 +41898,7 @@ do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body.i.i.i.i.i, %_ZN4asio12basic_socketINS_2ip3tcpENS_15any_io_executorEE12get_executorEv.exit
   %exception.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 8) #33, !noalias !603
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %exception.i.i.i.i.i, align 8, !noalias !603
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %exception.i.i.i.i.i, align 8, !noalias !603
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #38
           to label %.noexc unwind label %lpad
 
@@ -42205,7 +42205,7 @@ sw.default.i:                                     ; preds = %if.then18
 
 _ZN7cinatra9to_stringENS_11status_typeE.exit:     ; preds = %if.then18, %sw.bb13.i, %sw.bb15.i, %sw.bb16.i, %sw.bb17.i, %sw.default.i
   %retval.sroa.0.0.in.i = phi ptr [ @_ZN7cinatra21internal_server_errorE, %sw.default.i ], [ @_ZN7cinatra19service_unavailableE, %sw.bb17.i ], [ @_ZN7cinatra11bad_gatewayE, %sw.bb16.i ], [ @_ZN7cinatra15not_implementedE, %sw.bb15.i ], [ @_ZN7cinatra8conflictE, %sw.bb13.i ], [ @_ZN7cinatra9not_foundE, %if.then18 ]
-  %retval.sroa.20.0.in.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN7cinatra21internal_server_errorE, i64 8), %sw.default.i ], [ getelementptr inbounds (i8, ptr @_ZN7cinatra19service_unavailableE, i64 8), %sw.bb17.i ], [ getelementptr inbounds (i8, ptr @_ZN7cinatra11bad_gatewayE, i64 8), %sw.bb16.i ], [ getelementptr inbounds (i8, ptr @_ZN7cinatra15not_implementedE, i64 8), %sw.bb15.i ], [ getelementptr inbounds (i8, ptr @_ZN7cinatra8conflictE, i64 8), %sw.bb13.i ], [ getelementptr inbounds (i8, ptr @_ZN7cinatra9not_foundE, i64 8), %if.then18 ]
+  %retval.sroa.20.0.in.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7cinatra21internal_server_errorE, i64 8), %sw.default.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN7cinatra19service_unavailableE, i64 8), %sw.bb17.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN7cinatra11bad_gatewayE, i64 8), %sw.bb16.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN7cinatra15not_implementedE, i64 8), %sw.bb15.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN7cinatra8conflictE, i64 8), %sw.bb13.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN7cinatra9not_foundE, i64 8), %if.then18 ]
   %retval.sroa.20.0.i = load ptr, ptr %retval.sroa.20.0.in.i, align 8
   %retval.sroa.0.0.i = load i64, ptr %retval.sroa.0.0.in.i, align 8
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -42869,7 +42869,7 @@ if.then.i3.i.i227:                                ; preds = %_ZNKSt7__cxx1112bas
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit
 
 if.else.i.i.i232:                                 ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i224
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %head_, i64 noundef %57, i64 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN7cinatraL4CRCFB5cxx11E, i64 16), i64 noundef 2)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %head_, i64 noundef %57, i64 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN7cinatraL4CRCFB5cxx11E, i64 16), i64 noundef 2)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit: ; preds = %if.then.i3.i.i227, %if.else.i.i.i232
@@ -43670,7 +43670,7 @@ if.then.i3.i.i38:                                 ; preds = %_ZNKSt7__cxx1112bas
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit47
 
 if.else.i.i.i43:                                  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i35
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %head_, i64 noundef %21, i64 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN7cinatraL4CRCFB5cxx11E, i64 16), i64 noundef 2)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %head_, i64 noundef %21, i64 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN7cinatraL4CRCFB5cxx11E, i64 16), i64 noundef 2)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit47
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit47: ; preds = %if.then.i3.i.i38, %if.else.i.i.i43
@@ -43887,7 +43887,7 @@ if.then.i3.i.i40:                                 ; preds = %_ZNKSt7__cxx1112bas
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit
 
 if.else.i.i.i45:                                  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i37
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %head_, i64 noundef %17, i64 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN7cinatraL4CRCFB5cxx11E, i64 16), i64 noundef 2)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %head_, i64 noundef %17, i64 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN7cinatraL4CRCFB5cxx11E, i64 16), i64 noundef 2)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit: ; preds = %if.then.i3.i.i40, %if.else.i.i.i45
@@ -46878,7 +46878,7 @@ if.then3:                                         ; preds = %if.then
           to label %call.i3.noexc unwind label %lpad5
 
 call.i3.noexc:                                    ; preds = %if.then3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7cinatra16coro_http_server11async_startEvEUlvE_EEEEEE, i64 16), ptr %call.i34, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7cinatra16coro_http_server11async_startEvEUlvE_EEEEEE, i64 16), ptr %call.i34, align 8
   %_M_func.i.i = getelementptr inbounds nuw i8, ptr %call.i34, i64 8
   %3 = ptrtoint ptr %this to i64
   store i64 %3, ptr %_M_func.i.i, align 8
@@ -48864,7 +48864,7 @@ if.then.i2:                                       ; preds = %_ZN4asio6detail23re
   call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %e.i.i, i32 %retval.sroa.0.0.copyload.i, ptr %retval.sroa.26.0.copyload.i, ptr noundef nonnull @.str.1056)
   %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %exception.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %e.i.i) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12system_error, i64 16), ptr %exception.i.i.i, align 8
   %_M_code.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i, i64 16
   %_M_code2.i.i.i = getelementptr inbounds nuw i8, ptr %e.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2.i.i.i, i64 16, i1 false)
@@ -48907,7 +48907,7 @@ if.then.i:                                        ; preds = %entry
   call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %e.i.i, i32 %retval.sroa.0.0.copyload.i, ptr %retval.sroa.210.0.copyload.i, ptr noundef nonnull @.str.1057)
   %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %exception.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %e.i.i) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12system_error, i64 16), ptr %exception.i.i.i, align 8
   %_M_code.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i, i64 16
   %_M_code2.i.i.i = getelementptr inbounds nuw i8, ptr %e.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2.i.i.i, i64 16, i1 false)
@@ -49084,7 +49084,7 @@ if.then.i:                                        ; preds = %entry
   call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %e.i.i, i32 %retval.sroa.0.0.copyload.i, ptr %retval.sroa.22.0.copyload.i, ptr noundef nonnull @.str.1058)
   %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %exception.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %e.i.i) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12system_error, i64 16), ptr %exception.i.i.i, align 8
   %_M_code.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i, i64 16
   %_M_code2.i.i.i = getelementptr inbounds nuw i8, ptr %e.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2.i.i.i, i64 16, i1 false)
@@ -50451,7 +50451,7 @@ if.then.i:                                        ; preds = %entry
   call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %e.i.i, i32 %retval.sroa.0.0.copyload.i, ptr %retval.sroa.210.0.copyload.i, ptr noundef nonnull @.str.1057)
   %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %exception.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %e.i.i) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12system_error, i64 16), ptr %exception.i.i.i, align 8
   %_M_code.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i, i64 16
   %_M_code2.i.i.i = getelementptr inbounds nuw i8, ptr %e.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2.i.i.i, i64 16, i1 false)
@@ -51805,7 +51805,7 @@ if.end:                                           ; preds = %_ZSt17holds_alterna
 if.then.i.i3:                                     ; preds = %if.end
   %cmp.i.not.i.i.i = icmp eq i8 %0, -1
   %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -51834,7 +51834,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %cmp.i.not.i.i = icmp eq i8 %0, -1
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
   %_M_reason.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i, i64 8
   br i1 %cmp.i.not.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -51861,7 +51861,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i, align 8
   %_M_weak_count.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7cinatra20coro_http_connectionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7cinatra20coro_http_connectionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i, align 8
   %_M_impl.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 16
   invoke void @_ZSt10_ConstructIN7cinatra20coro_http_connectionEJRPN7coro_io15ExecutorWrapperIN4asio10io_context19basic_executor_typeISaIvELm0EEEEENS4_19basic_stream_socketINS4_2ip3tcpENS4_15any_io_executorEEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(88) %__args1)
           to label %if.then.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7cinatra20coro_http_connectionESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit7.i
@@ -52281,7 +52281,7 @@ ehcleanup17:                                      ; preds = %ehcleanup15, %lpad
 define linkonce_odr dso_local void @_ZN4asio15basic_streambufISaIcEEC2EmRKS1_(ptr noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %maximum_size, ptr noundef nonnull align 1 dereferenceable(1) %allocator) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio15basic_streambufISaIcEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio15basic_streambufISaIcEEE, i64 16), ptr %this, align 8
   %max_size_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i64 %maximum_size, ptr %max_size_, align 8
   %buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -52581,7 +52581,7 @@ _ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEES3_St4hashIS3_ESt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4asio15basic_streambufISaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio15basic_streambufISaIcEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio15basic_streambufISaIcEEE, i64 16), ptr %this, align 8
   %buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %buffer_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -52773,7 +52773,7 @@ declare void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnul
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4asio15basic_streambufISaIcEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio15basic_streambufISaIcEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio15basic_streambufISaIcEEE, i64 16), ptr %this, align 8
   %buffer_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %buffer_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -52939,7 +52939,7 @@ if.else:                                          ; preds = %if.then25
   call void @_ZNSt12length_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ex, ptr noundef nonnull @.str.1064)
   %exception.i = call ptr @__cxa_allocate_exception(i64 16) #33
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %exception.i, ptr noundef nonnull align 8 dereferenceable(16) %ex) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12length_error, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12length_error, i64 16), ptr %exception.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt12length_error, ptr nonnull @_ZNSt12length_errorD1Ev) #38
           to label %.noexc unwind label %lpad
 
@@ -53154,7 +53154,7 @@ if.end.i.i.i.i.i:                                 ; preds = %_ZNSt10_HashtableIS
 
 _ZN7cinatra11http_parserD2Ev.exit:                ; preds = %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i, %if.end.i.i.i.i.i
   %chunked_buf_ = getelementptr inbounds nuw i8, ptr %this, i64 240
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio15basic_streambufISaIcEEE, i64 16), ptr %chunked_buf_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio15basic_streambufISaIcEEE, i64 16), ptr %chunked_buf_, align 8
   %buffer_.i = getelementptr inbounds nuw i8, ptr %this, i64 312
   %9 = load ptr, ptr %buffer_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %9, null
@@ -53187,7 +53187,7 @@ if.then.i.i1:                                     ; preds = %_ZN4asio15basic_str
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i1
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %body_) #33
   %head_buf_ = getelementptr inbounds nuw i8, ptr %this, i64 112
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio15basic_streambufISaIcEEE, i64 16), ptr %head_buf_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio15basic_streambufISaIcEEE, i64 16), ptr %head_buf_, align 8
   %buffer_.i2 = getelementptr inbounds nuw i8, ptr %this, i64 184
   %13 = load ptr, ptr %buffer_.i2, align 8
   %tobool.not.i.i.i.i3 = icmp eq ptr %13, null
@@ -62696,7 +62696,7 @@ _ZNK12async_simple3TryISt4errcE11checkHasTryEv.exit: ; preds = %_ZSt17holds_alte
 if.then.i.i34:                                    ; preds = %_ZNK12async_simple3TryISt4errcE11checkHasTryEv.exit
   %cmp.i.not.i.i.i = icmp eq i8 %0, -1
   %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -64198,7 +64198,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %cmp.i.not.i.i = icmp eq i8 %0, -1
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
   %_M_reason.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i, i64 8
   br i1 %cmp.i.not.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -64256,7 +64256,7 @@ if.then:                                          ; preds = %_ZSt17holds_alterna
 if.then.i.i1:                                     ; preds = %if.then
   %cmp.i.not.i.i.i = icmp eq i8 %0, -1
   %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -64309,7 +64309,7 @@ if.else:                                          ; preds = %_ZSt17holds_alterna
 if.then.i.i7:                                     ; preds = %if.else
   %cmp.i.not.i.i.i8 = icmp eq i8 %0, -1
   %exception.i.i.i.i9 = tail call ptr @__cxa_allocate_exception(i64 16) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i9, align 8
   %_M_reason.i.i.i.i.i10 = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i9, i64 8
   br i1 %cmp.i.not.i.i.i8, label %if.then.i.i.i12, label %if.else.i.i.i11
 
@@ -68907,7 +68907,7 @@ if.end:                                           ; preds = %_ZSt17holds_alterna
 if.then.i.i3:                                     ; preds = %if.end
   %cmp.i.not.i.i.i = icmp eq i8 %0, -1
   %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -68936,7 +68936,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %cmp.i.not.i.i = icmp eq i8 %0, -1
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
   %_M_reason.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i, i64 8
   br i1 %cmp.i.not.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -89267,7 +89267,7 @@ CoroSave582:                                      ; preds = %_ZN7cinatra20coro_h
   store ptr %head_buf_, ptr %buffer2.reload.addr.i.i, align 8, !noalias !1333
   store i64 4, ptr %delim3.reload.addr.i.i, align 8, !noalias !1333
   %delim.sroa.2.0.delim3.reload.addr.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 128
-  store ptr getelementptr inbounds (i8, ptr @_ZN7cinatraL8TWO_CRCFB5cxx11E, i64 16), ptr %delim.sroa.2.0.delim3.reload.addr.sroa_idx.i.i, align 8, !noalias !1333
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN7cinatraL8TWO_CRCFB5cxx11E, i64 16), ptr %delim.sroa.2.0.delim3.reload.addr.sroa_idx.i.i, align 8, !noalias !1333
   %_M_index.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 56
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1333
   %index.addr72.i.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 184

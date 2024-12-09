@@ -103,7 +103,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN4cvc58internal6theory7strings15StringsRewriterC2EPNS1_8RewriterEPNS0_13HistogramStatINS2_7RewriteEEEj(ptr noundef nonnull align 8 dereferenceable(92) %this, ptr noundef %r, ptr noundef %statistics, i32 noundef %alphaCard) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory7strings17SequencesRewriterC2EPNS1_8RewriterEPNS0_13HistogramStatINS2_7RewriteEEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %r, ptr noundef %statistics)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory7strings15StringsRewriterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory7strings15StringsRewriterE, i64 16), ptr %this, align 8
   %d_alphaCard = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i32 %alphaCard, ptr %d_alphaCard, align 8
   ret void
@@ -12406,7 +12406,7 @@ declare noundef i32 @_ZNK4cvc58internal6String3cmpERKS1_(ptr noundef nonnull ali
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory7strings17SequencesRewriterD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory7strings17SequencesRewriterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory7strings17SequencesRewriterE, i64 16), ptr %this, align 8
   %d_false = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %d_false, align 8
   %bf.load.i.i = load i64, ptr %0, align 8

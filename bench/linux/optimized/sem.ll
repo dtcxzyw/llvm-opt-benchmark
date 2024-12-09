@@ -505,11 +505,11 @@ declare dso_local void @rhashtable_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @sem_init() local_unnamed_addr #2 section ".init.text" align 16 {
-  store i32 32000, ptr getelementptr inbounds (i8, ptr @init_ipc_ns, i64 648), align 8
-  store i32 1024000000, ptr getelementptr inbounds (i8, ptr @init_ipc_ns, i64 652), align 4
-  store i32 500, ptr getelementptr inbounds (i8, ptr @init_ipc_ns, i64 656), align 8
-  store i32 32000, ptr getelementptr inbounds (i8, ptr @init_ipc_ns, i64 660), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @init_ipc_ns, i64 664), align 8
+  store i32 32000, ptr getelementptr inbounds nuw (i8, ptr @init_ipc_ns, i64 648), align 8
+  store i32 1024000000, ptr getelementptr inbounds nuw (i8, ptr @init_ipc_ns, i64 652), align 4
+  store i32 500, ptr getelementptr inbounds nuw (i8, ptr @init_ipc_ns, i64 656), align 8
+  store i32 32000, ptr getelementptr inbounds nuw (i8, ptr @init_ipc_ns, i64 660), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @init_ipc_ns, i64 664), align 8
   tail call void @ipc_init_ids(ptr noundef nonnull @init_ipc_ns) #12
   tail call void @ipc_init_proc_interface(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 0, ptr noundef nonnull @sysvipc_sem_proc_show) #13
   ret void
@@ -1377,7 +1377,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__do_semtimedop(i32 nou
   br i1 %74, label %75, label %83
 
 75:                                               ; preds = %69
-  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %77 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %76, i32 noundef 4197824, i64 noundef 24) #16
   %78 = icmp eq ptr %77, null
   br i1 %78, label %.thread24, label %79
@@ -2830,7 +2830,7 @@ define dso_local noundef range(i32 -12, 1) i32 @copy_semundo(i64 noundef %0, ptr
   br i1 %10, label %11, label %19
 
 11:                                               ; preds = %5
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %13 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 4197824, i64 noundef 24) #16
   %14 = icmp eq ptr %13, null
   br i1 %14, label %31, label %15

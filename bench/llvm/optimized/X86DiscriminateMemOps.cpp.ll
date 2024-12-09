@@ -111,7 +111,7 @@ $_ZTVN4llvm2cl11OptionValueIbEE = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -123,7 +123,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr n
   br label %_ZNSt8functionIFvRKbEED2Ev.exit
 
 _ZNSt8functionIFvRKbEED2Ev.exit:                  ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -165,7 +165,7 @@ define dso_local noalias noundef nonnull ptr @_ZN4llvm31createX86DiscriminateMem
   store i32 2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_121X86DiscriminateMemOpsE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_121X86DiscriminateMemOpsE, i64 16), ptr %1, align 8
   ret ptr %1
 }
 
@@ -272,7 +272,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_121X86DiscriminateMemOps20ru
   %18 = alloca i32, align 4
   %19 = alloca i32, align 4
   %20 = alloca i32, align 4
-  %21 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL24EnableDiscriminateMemops, i64 128), align 8
+  %21 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL24EnableDiscriminateMemops, i64 128), align 8
   %22 = trunc i8 %21 to i1
   br i1 %22, label %23, label %479
 
@@ -388,7 +388,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS
   br i1 %.not162, label %154, label %76
 
 76:                                               ; preds = %.lr.ph
-  %77 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL26BypassPrefetchInstructions, i64 128), align 8
+  %77 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL26BypassPrefetchInstructions, i64 128), align 8
   %78 = trunc i8 %77 to i1
   br i1 %78, label %79, label %84
 
@@ -458,7 +458,7 @@ _ZNK4llvm10DILocation8getScopeEv.exit.i.i:        ; preds = %107, %103
   br i1 %.not.i.i55, label %_ZNK4llvm10DILocation16getDiscriminatorEv.exit.i, label %_ZNK4llvm10DILocation16getDiscriminatorEv.exit.thread.i
 
 _ZNK4llvm10DILocation16getDiscriminatorEv.exit.thread.i: ; preds = %_ZNK4llvm10DILocation8getScopeEv.exit.i.i
-  %114 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm21EnableFSDiscriminatorE, i64 128), align 8
+  %114 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm21EnableFSDiscriminatorE, i64 128), align 8
   %115 = trunc i8 %114 to i1
   br i1 %115, label %131, label %.thread10.i
 
@@ -484,7 +484,7 @@ _ZNK4llvm10DILocation16getDiscriminatorEv.exit.i: ; preds = %_ZNK4llvm10DILocati
   br label %_ZNK4llvm10DILocation20getBaseDiscriminatorEv.exit
 
 128:                                              ; preds = %_ZNK4llvm10DILocation16getDiscriminatorEv.exit.i
-  %129 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm21EnableFSDiscriminatorE, i64 128), align 8
+  %129 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm21EnableFSDiscriminatorE, i64 128), align 8
   %130 = trunc i8 %129 to i1
   br i1 %130, label %131, label %133
 
@@ -616,7 +616,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   br i1 %175, label %_ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E6insertEOj.exit113, label %176
 
 176:                                              ; preds = %.lr.ph184
-  %177 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL26BypassPrefetchInstructions, i64 128), align 8
+  %177 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL26BypassPrefetchInstructions, i64 128), align 8
   %178 = trunc i8 %177 to i1
   br i1 %178, label %179, label %183
 
@@ -771,7 +771,7 @@ _ZNK4llvm10DILocation8getScopeEv.exit.i.i63:      ; preds = %249, %245
   br i1 %.not.i.i65, label %_ZNK4llvm10DILocation16getDiscriminatorEv.exit.i70, label %_ZNK4llvm10DILocation16getDiscriminatorEv.exit.thread.i66
 
 _ZNK4llvm10DILocation16getDiscriminatorEv.exit.thread.i66: ; preds = %_ZNK4llvm10DILocation8getScopeEv.exit.i.i63
-  %256 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm21EnableFSDiscriminatorE, i64 128), align 8
+  %256 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm21EnableFSDiscriminatorE, i64 128), align 8
   %257 = trunc i8 %256 to i1
   br i1 %257, label %273, label %.thread10.i67
 
@@ -797,7 +797,7 @@ _ZNK4llvm10DILocation16getDiscriminatorEv.exit.i70: ; preds = %_ZNK4llvm10DILoca
   br label %_ZNK4llvm10DILocation20getBaseDiscriminatorEv.exit75
 
 270:                                              ; preds = %_ZNK4llvm10DILocation16getDiscriminatorEv.exit.i70
-  %271 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm21EnableFSDiscriminatorE, i64 128), align 8
+  %271 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm21EnableFSDiscriminatorE, i64 128), align 8
   %272 = trunc i8 %271 to i1
   br i1 %272, label %273, label %275
 
@@ -1063,7 +1063,7 @@ _ZNK4llvm10DILocation8getScopeEv.exit.i.i85:      ; preds = %375, %371
   br i1 %.not.i.i87, label %_ZNK4llvm10DILocation16getDiscriminatorEv.exit.i92, label %_ZNK4llvm10DILocation16getDiscriminatorEv.exit.thread.i88
 
 _ZNK4llvm10DILocation16getDiscriminatorEv.exit.thread.i88: ; preds = %_ZNK4llvm10DILocation8getScopeEv.exit.i.i85
-  %382 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm21EnableFSDiscriminatorE, i64 128), align 8
+  %382 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm21EnableFSDiscriminatorE, i64 128), align 8
   %383 = trunc i8 %382 to i1
   br i1 %383, label %399, label %.thread10.i89
 
@@ -1089,7 +1089,7 @@ _ZNK4llvm10DILocation16getDiscriminatorEv.exit.i92: ; preds = %_ZNK4llvm10DILoca
   br label %_ZNK4llvm10DILocation20getBaseDiscriminatorEv.exit97
 
 396:                                              ; preds = %_ZNK4llvm10DILocation16getDiscriminatorEv.exit.i92
-  %397 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm21EnableFSDiscriminatorE, i64 128), align 8
+  %397 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm21EnableFSDiscriminatorE, i64 128), align 8
   %398 = trunc i8 %397 to i1
   br i1 %398, label %399, label %401
 
@@ -3095,7 +3095,7 @@ declare noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -3229,10 +3229,10 @@ define internal void @_GLOBAL__sub_I_X86DiscriminateMemOps.cpp() #10 section ".t
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL24EnableDiscriminateMemops, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL24EnableDiscriminateMemops, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL24EnableDiscriminateMemops, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL24EnableDiscriminateMemops, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL24EnableDiscriminateMemops, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL24EnableDiscriminateMemops, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL24EnableDiscriminateMemops, align 8
   tail call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL24EnableDiscriminateMemops, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL24EnableDiscriminateMemops) #16
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL24EnableDiscriminateMemops, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL24EnableDiscriminateMemops, i64 152), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL24EnableDiscriminateMemops, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL24EnableDiscriminateMemops, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL24EnableDiscriminateMemops, i64 176), align 8
@@ -3252,10 +3252,10 @@ define internal void @_GLOBAL__sub_I_X86DiscriminateMemOps.cpp() #10 section ".t
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL26BypassPrefetchInstructions, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL26BypassPrefetchInstructions, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL26BypassPrefetchInstructions, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL26BypassPrefetchInstructions, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL26BypassPrefetchInstructions, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL26BypassPrefetchInstructions, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL26BypassPrefetchInstructions, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL26BypassPrefetchInstructions, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL26BypassPrefetchInstructions) #16
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL26BypassPrefetchInstructions, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL26BypassPrefetchInstructions, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL26BypassPrefetchInstructions, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL26BypassPrefetchInstructions, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL26BypassPrefetchInstructions, i64 176), align 8

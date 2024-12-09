@@ -464,7 +464,7 @@ dissect_payload.exit.us:                          ; preds = %mikey_dissector_loo
   ]
 
 48:                                               ; preds = %44
-  %49 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 276), align 4
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 276), align 4
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %49, ptr noundef %0, i32 noundef %.06075, i32 noundef 1, i32 noundef 0) #2
   br label %.lr.ph.i.i.preheader
 
@@ -607,24 +607,24 @@ define internal noundef i32 @dissect_payload_hdr(ptr nocapture noundef initializ
 8:                                                ; preds = %4
   %9 = load i32, ptr @hf_mikey, align 16
   %10 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %9, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 4), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 4), align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %11, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
   %13 = tail call ptr @proto_tree_get_parent(ptr noundef nonnull %3) #2
   %14 = load i8, ptr %0, align 1
   %15 = zext i8 %14 to i32
   %16 = tail call ptr @val_to_str_ext_const(i32 noundef %15, ptr noundef nonnull @data_type_vals_ext, ptr noundef nonnull @.str.278) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.281, ptr noundef %16) #2
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 276), align 4
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 276), align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %17, ptr noundef %1, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 8), align 8
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 8), align 8
   %20 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %19, ptr noundef %1, i32 noundef 3, i32 noundef 1, i32 noundef 0) #2
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 12), align 4
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 12), align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %21, ptr noundef %1, i32 noundef 3, i32 noundef 1, i32 noundef 0) #2
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 16), align 16
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 16), align 16
   %24 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %23, ptr noundef %1, i32 noundef 4, i32 noundef 4, i32 noundef 0) #2
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 20), align 4
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 20), align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %25, ptr noundef %1, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 24), align 8
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 24), align 8
   %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %27, ptr noundef %1, i32 noundef 9, i32 noundef 1, i32 noundef 0) #2
   br label %29
 
@@ -677,9 +677,9 @@ define internal range(i32 0, 65561) i32 @dissect_payload_kemac(ptr nocapture nou
   br i1 %.not, label %33, label %11
 
 11:                                               ; preds = %4
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 44), align 4
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 44), align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %12, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 48), align 16
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 48), align 16
   %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %14, ptr noundef %1, i32 noundef 2, i32 noundef 2, i32 noundef 0) #2
   %16 = icmp eq i8 %5, 0
   br i1 %16, label %17, label %28
@@ -692,7 +692,7 @@ define internal range(i32 0, 65561) i32 @dissect_payload_kemac(ptr nocapture nou
   br i1 %or.cond, label %21, label %28
 
 21:                                               ; preds = %17
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey_pl, i64 80), align 16
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey_pl, i64 80), align 16
   %23 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %22, ptr noundef %1, i32 noundef 4, i32 noundef %7, i32 noundef 0) #2
   %24 = load i32, ptr @ett_mikey_enc_data, align 4
   %25 = tail call ptr @proto_item_add_subtree(ptr noundef %23, i32 noundef %24) #2
@@ -701,12 +701,12 @@ define internal range(i32 0, 65561) i32 @dissect_payload_kemac(ptr nocapture nou
   br label %dissect_payload.exit
 
 28:                                               ; preds = %17, %11
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 52), align 4
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 52), align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %29, ptr noundef %1, i32 noundef 4, i32 noundef %7, i32 noundef 0) #2
   br label %dissect_payload.exit
 
 dissect_payload.exit:                             ; preds = %21, %28
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 56), align 8
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 56), align 8
   %32 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %31, ptr noundef %1, i32 noundef %9, i32 noundef 1, i32 noundef 0) #2
   br label %33
 
@@ -721,7 +721,7 @@ dissect_payload.exit:                             ; preds = %21, %28
 
 35:                                               ; preds = %33, %34
   %.044 = phi i32 [ 20, %34 ], [ 0, %33 ]
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 60), align 4
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 60), align 4
   %37 = add nuw nsw i32 %7, 5
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %36, ptr noundef %1, i32 noundef %37, i32 noundef %.044, i32 noundef 0) #2
   %39 = add nuw nsw i32 %.044, %37
@@ -739,15 +739,15 @@ define internal range(i32 3, 1027) i32 @dissect_payload_pke(ptr nocapture readno
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 64), align 16
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 64), align 16
   %8 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %7, ptr noundef %1, i32 noundef 1, i32 noundef 2, i32 noundef 0) #2
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 68), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 68), align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %9, ptr noundef %1, i32 noundef 1, i32 noundef 2, i32 noundef 0) #2
   br label %11
 
 11:                                               ; preds = %6, %4
   %12 = and i16 %5, 1023
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 72), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 72), align 8
   %14 = zext nneg i16 %12 to i32
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %13, ptr noundef %1, i32 noundef 3, i32 noundef %14, i32 noundef 0) #2
   %16 = add nuw nsw i32 %14, 3
@@ -771,13 +771,13 @@ switch.lookup:                                    ; preds = %4
   br i1 %.not, label %20, label %11
 
 11:                                               ; preds = %switch.lookup
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 76), align 4
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 76), align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %12, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 80), align 16
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 80), align 16
   %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %14, ptr noundef %1, i32 noundef 2, i32 noundef %switch.load, i32 noundef 0) #2
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 84), align 4
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 84), align 4
   %17 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %16, ptr noundef %1, i32 noundef %8, i32 noundef 1, i32 noundef 0) #2
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 88), align 8
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 88), align 8
   %19 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %18, ptr noundef %1, i32 noundef %8, i32 noundef 1, i32 noundef 0) #2
   br label %20
 
@@ -809,16 +809,16 @@ define internal range(i32 2, 4098) i32 @dissect_payload_sign(ptr nocapture readn
   br label %18
 
 12:                                               ; preds = %4
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 100), align 4
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 100), align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %13, ptr noundef %1, i32 noundef 0, i32 noundef 2, i32 noundef 0) #2
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 92), align 4
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 92), align 4
   %16 = zext nneg i16 %11 to i32
   %17 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %3, i32 noundef %15, ptr noundef %1, i32 noundef 0, i32 noundef 2, i32 noundef %16) #2
   br label %18
 
 18:                                               ; preds = %._crit_edge, %12
   %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %16, %12 ]
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 96), align 16
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 96), align 16
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %19, ptr noundef %1, i32 noundef 2, i32 noundef %.pre-phi, i32 noundef 0) #2
   %21 = add nuw nsw i32 %.pre-phi, 2
   ret i32 %21
@@ -835,7 +835,7 @@ define internal range(i32 0, 11) i32 @dissect_payload_t(ptr nocapture readnone %
   %8 = zext i8 %5 to i32
   %9 = tail call ptr @val_to_str_const(i32 noundef %8, ptr noundef nonnull @ts_type_vals, ptr noundef nonnull @.str.278) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.281, ptr noundef %9) #2
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 104), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 104), align 8
   %11 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %10, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
   br label %12
 
@@ -847,7 +847,7 @@ define internal range(i32 0, 11) i32 @dissect_payload_t(ptr nocapture readnone %
   ]
 
 13:                                               ; preds = %12, %12
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 108), align 4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 108), align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %14, ptr noundef %1, i32 noundef 2, i32 noundef 8, i32 noundef 2) #2
   br label %17
 
@@ -872,11 +872,11 @@ define internal range(i32 4, 65540) i32 @dissect_payload_id(ptr nocapture readno
   br label %.critedge
 
 8:                                                ; preds = %4
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 116), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 116), align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %9, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 120), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 120), align 8
   %12 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %11, ptr noundef %1, i32 noundef 2, i32 noundef 2, i32 noundef 0) #2
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 124), align 4
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 124), align 4
   %14 = zext i16 %7 to i32
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %16 = load ptr, ptr %15, align 8
@@ -907,9 +907,9 @@ define internal range(i32 4, 65540) i32 @dissect_payload_cert(ptr nocapture read
 
 9:                                                ; preds = %4
   %10 = call ptr @proto_tree_get_parent(ptr noundef nonnull %3) #2
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 128), align 16
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 128), align 16
   %12 = call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %11, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 132), align 4
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 132), align 4
   %14 = call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %13, ptr noundef %1, i32 noundef 1, i32 noundef 2, i32 noundef 0) #2
   %15 = zext i8 %6 to i32
   %16 = call ptr @val_to_str_const(i32 noundef %15, ptr noundef nonnull @cert_type_vals, ptr noundef nonnull @.str.278) #2
@@ -918,7 +918,7 @@ define internal range(i32 4, 65540) i32 @dissect_payload_cert(ptr nocapture read
 
 17:                                               ; preds = %9, %4
   %18 = call ptr @tvb_new_subset_length(ptr noundef %1, i32 noundef 4, i32 noundef %8) #2
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 136), align 8
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 136), align 8
   %20 = call i32 @dissect_x509af_Certificate(i1 noundef zeroext false, ptr noundef %18, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %3, i32 noundef %19) #2
   %21 = add nuw nsw i32 %8, 4
   ret i32 %21
@@ -927,7 +927,7 @@ define internal range(i32 4, 65540) i32 @dissect_payload_cert(ptr nocapture read
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @dissect_payload_v(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #2
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 140), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 140), align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
   switch i8 %5, label %13 [
     i8 0, label %9
@@ -939,7 +939,7 @@ define internal range(i32 0, 23) i32 @dissect_payload_v(ptr nocapture readnone %
 
 9:                                                ; preds = %4, %8
   %.09 = phi i32 [ 20, %8 ], [ 0, %4 ]
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 144), align 16
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 144), align 16
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %1, i32 noundef 2, i32 noundef %.09, i32 noundef 0) #2
   %12 = or disjoint i32 %.09, 2
   br label %13
@@ -960,11 +960,11 @@ define internal range(i32 5, 65541) i32 @dissect_payload_sp(ptr nocapture readno
 8:                                                ; preds = %4
   %9 = zext i8 %7 to i32
   %10 = tail call ptr @proto_tree_get_parent(ptr noundef nonnull %3) #2
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 148), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 148), align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %11, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 152), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 152), align 8
   %14 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %13, ptr noundef %1, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 156), align 4
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 156), align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %15, ptr noundef %1, i32 noundef 3, i32 noundef 2, i32 noundef 0) #2
   %17 = zext i8 %6 to i32
   %18 = tail call ptr @val_to_str_const(i32 noundef %9, ptr noundef nonnull @sp_prot_type_vals, ptr noundef nonnull @.str.278) #2
@@ -1005,17 +1005,17 @@ dissect_payload_sp_param.exit:                    ; preds = %.lr.ph, %dissect_pa
   %or.cond.i = select i1 %cond.i, i1 %34, i1 false
   %35 = zext i8 %32 to i64
   %36 = getelementptr [14 x i32], ptr @hf_mikey_sp_param, i64 0, i64 %35
-  %.0.in.i = select i1 %or.cond.i, ptr %36, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 160)
+  %.0.in.i = select i1 %or.cond.i, ptr %36, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 160)
   %.0.i = load i32, ptr %.0.in.i, align 4
   %37 = zext i8 %33 to i32
   %38 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %.0.i, ptr noundef %31, i32 noundef 2, i32 noundef %37, i32 noundef 0) #2
   %39 = load i32, ptr @ett_mikey_sp_param, align 4
   %40 = tail call ptr @proto_item_add_subtree(ptr noundef %38, i32 noundef %39) #2
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 164), align 4
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 164), align 4
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %41, ptr noundef %31, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
-  %43 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 168), align 8
+  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 168), align 8
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %43, ptr noundef %31, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 172), align 4
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 172), align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %45, ptr noundef %31, i32 noundef 2, i32 noundef %37, i32 noundef 0) #2
   %47 = add i32 %.03539, 2
   %48 = add i32 %47, %37
@@ -1030,9 +1030,9 @@ dissect_payload_sp_param.exit:                    ; preds = %.lr.ph, %dissect_pa
 ; Function Attrs: nounwind uwtable
 define internal range(i32 2, 258) i32 @dissect_payload_rand(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #2
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 176), align 16
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 176), align 16
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 180), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 180), align 4
   %9 = zext i8 %5 to i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %8, ptr noundef %1, i32 noundef 2, i32 noundef %9, i32 noundef 0) #2
   %11 = add nuw nsw i32 %9, 2
@@ -1046,9 +1046,9 @@ define internal noundef i32 @dissect_payload_err(ptr nocapture readnone %0, ptr 
 
 5:                                                ; preds = %4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #2
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 184), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 184), align 8
   %8 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %7, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 188), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 188), align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %9, ptr noundef %1, i32 noundef 2, i32 noundef 2, i32 noundef 0) #2
   %11 = tail call ptr @proto_tree_get_parent(ptr noundef nonnull %3) #2
   %12 = zext i8 %6 to i32
@@ -1073,13 +1073,13 @@ define internal range(i32 5, 65541) i32 @dissect_payload_idr(ptr nocapture readn
   br label %.critedge
 
 8:                                                ; preds = %4
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 112), align 16
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 112), align 16
   %10 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %9, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 116), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 116), align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %11, ptr noundef %1, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 120), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 120), align 8
   %14 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %13, ptr noundef %1, i32 noundef 3, i32 noundef 2, i32 noundef 0) #2
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 124), align 4
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 124), align 4
   %16 = zext i16 %7 to i32
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %18 = load ptr, ptr %17, align 8
@@ -1108,13 +1108,13 @@ define internal range(i32 0, 65536) i32 @dissect_payload_keydata(ptr nocapture r
 
 9:                                                ; preds = %4
   %10 = lshr i8 %5, 4
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 192), align 16
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 192), align 16
   %12 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %11, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 196), align 4
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 196), align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %13, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 200), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 200), align 8
   %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %15, ptr noundef %1, i32 noundef 2, i32 noundef 2, i32 noundef 0) #2
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 204), align 4
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 204), align 4
   %18 = zext i16 %8 to i32
   %19 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %17, ptr noundef %1, i32 noundef 4, i32 noundef %18, i32 noundef 0) #2
   %20 = tail call ptr @proto_tree_get_parent(ptr noundef nonnull %3) #2
@@ -1137,9 +1137,9 @@ define internal range(i32 0, 65536) i32 @dissect_payload_keydata(ptr nocapture r
 
 29:                                               ; preds = %26
   %30 = zext i16 %28 to i32
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 208), align 16
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 208), align 16
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %31, ptr noundef %1, i32 noundef %27, i32 noundef 2, i32 noundef 0) #2
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 212), align 4
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 212), align 4
   %34 = add nuw nsw i32 %27, 2
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %33, ptr noundef %1, i32 noundef %34, i32 noundef %30, i32 noundef 0) #2
   br label %36
@@ -1159,14 +1159,14 @@ define internal range(i32 0, 65536) i32 @dissect_payload_keydata(ptr nocapture r
 40:                                               ; preds = %39
   %41 = zext i16 %.0 to i32
   %42 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %41) #2
-  %43 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 216), align 8
+  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 216), align 8
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %43, ptr noundef %1, i32 noundef %41, i32 noundef 1, i32 noundef 0) #2
   %.not81 = icmp eq i8 %42, 0
   br i1 %.not81, label %50, label %45
 
 45:                                               ; preds = %40
   %46 = zext i8 %42 to i32
-  %47 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 220), align 4
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 220), align 4
   %48 = add nuw nsw i32 %41, 1
   %49 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %47, ptr noundef %1, i32 noundef %48, i32 noundef %46, i32 noundef 0) #2
   br label %50
@@ -1177,14 +1177,14 @@ define internal range(i32 0, 65536) i32 @dissect_payload_keydata(ptr nocapture r
   %53 = add i16 %52, %51
   %54 = zext i16 %53 to i32
   %55 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %54) #2
-  %56 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 224), align 16
+  %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 224), align 16
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %56, ptr noundef %1, i32 noundef %54, i32 noundef 1, i32 noundef 0) #2
   %.not82 = icmp eq i8 %55, 0
   br i1 %.not82, label %63, label %58
 
 58:                                               ; preds = %50
   %59 = zext i8 %55 to i32
-  %60 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 228), align 4
+  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 228), align 4
   %61 = add nuw nsw i32 %54, 1
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %60, ptr noundef %1, i32 noundef %61, i32 noundef %59, i32 noundef 0) #2
   br label %63
@@ -1198,14 +1198,14 @@ define internal range(i32 0, 65536) i32 @dissect_payload_keydata(ptr nocapture r
 67:                                               ; preds = %39
   %68 = zext i16 %.0 to i32
   %69 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %68) #2
-  %70 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 232), align 8
+  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 232), align 8
   %71 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %70, ptr noundef %1, i32 noundef %68, i32 noundef 1, i32 noundef 0) #2
   %.not80 = icmp eq i8 %69, 0
   br i1 %.not80, label %77, label %72
 
 72:                                               ; preds = %67
   %73 = zext i8 %69 to i32
-  %74 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 236), align 4
+  %74 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 236), align 4
   %75 = add nuw nsw i32 %68, 1
   %76 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %74, ptr noundef %1, i32 noundef %75, i32 noundef %73, i32 noundef 0) #2
   br label %77
@@ -1230,16 +1230,16 @@ define internal range(i32 4, 65540) i32 @dissect_payload_general_ext(ptr nocaptu
   br i1 %.not, label %.critedge, label %7
 
 7:                                                ; preds = %4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 240), align 16
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 240), align 16
   %9 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %8, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 244), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 244), align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %10, ptr noundef %1, i32 noundef 2, i32 noundef 2, i32 noundef 0) #2
   %12 = tail call ptr @proto_tree_get_parent(ptr noundef nonnull %3) #2
   %13 = zext i8 %5 to i32
   %14 = icmp eq i8 %5, 1
   %15 = zext i16 %6 to i32
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 248), align 8
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 252), align 4
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 248), align 8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 252), align 4
   %.sink = select i1 %14, i32 %17, i32 %16
   %18 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %.sink, ptr noundef %1, i32 noundef 4, i32 noundef %15, i32 noundef 0) #2
   %19 = tail call ptr @val_to_str_const(i32 noundef %13, ptr noundef nonnull @genext_type_vals, ptr noundef nonnull @.str.278) #2
@@ -1259,16 +1259,16 @@ define internal range(i32 5, 65541) i32 @dissect_payload_sakke(ptr nocapture rea
   br i1 %.not, label %13, label %6
 
 6:                                                ; preds = %4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 256), align 16
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 256), align 16
   %8 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %7, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 260), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 260), align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %9, ptr noundef %1, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 264), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 264), align 8
   %12 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %11, ptr noundef %1, i32 noundef 3, i32 noundef 2, i32 noundef 0) #2
   br label %13
 
 13:                                               ; preds = %6, %4
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 268), align 4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 268), align 4
   %15 = zext i16 %5 to i32
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %14, ptr noundef %1, i32 noundef 5, i32 noundef %15, i32 noundef 0) #2
   %17 = add nuw nsw i32 %15, 5
@@ -1286,16 +1286,16 @@ define internal fastcc noundef i32 @dissect_payload_cs_id_srtp(ptr nocapture rea
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 0) #2
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 1) #2
   %8 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 5) #2
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 28), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 28), align 4
   %10 = zext i8 %6 to i32
   %11 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef nonnull %3, i32 noundef %9, ptr noundef %1, i32 noundef 0, i32 noundef 9, ptr noundef nonnull @.str.282, i32 noundef %10, i32 noundef %7, i32 noundef %8) #2
   %12 = load i32, ptr @ett_mikey_hdr_id, align 4
   %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #2
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 32), align 16
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 32), align 16
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %14, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 36), align 4
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 36), align 4
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %16, ptr noundef %1, i32 noundef 1, i32 noundef 4, i32 noundef 0) #2
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 40), align 8
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 40), align 8
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %18, ptr noundef %1, i32 noundef 5, i32 noundef 4, i32 noundef 0) #2
   br label %20
 

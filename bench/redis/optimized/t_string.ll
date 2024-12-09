@@ -110,7 +110,7 @@ if.then2:                                         ; preds = %if.end
   %resp.i = getelementptr inbounds nuw i8, ptr %c, i64 24
   %5 = load i32, ptr %resp.i, align 8
   %idxprom.i = sext i32 %5 to i64
-  %arrayidx1.i = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom.i
+  %arrayidx1.i = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %idxprom.i
   %6 = load ptr, ptr %arrayidx1.i, align 8
   %call.i59 = call ptr @lookupKeyReadOrReply(ptr noundef %c, ptr noundef %4, ptr noundef %6) #10
   %cmp.i = icmp eq ptr %call.i59, null
@@ -152,7 +152,7 @@ cond.false:                                       ; preds = %if.then21
   %resp = getelementptr inbounds nuw i8, ptr %c, i64 24
   %8 = load i32, ptr %resp, align 8
   %idxprom = sext i32 %8 to i64
-  %arrayidx = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %idxprom
   %9 = load ptr, ptr %arrayidx, align 8
   br label %cond.end
 
@@ -170,9 +170,9 @@ if.end24:                                         ; preds = %lor.lhs.false
   %or31 = or disjoint i32 %cond30, %cond28
   %11 = load ptr, ptr %db, align 8
   call void @setKey(ptr noundef nonnull %c, ptr noundef %11, ptr noundef %key, ptr noundef %val, i32 noundef %or31) #10
-  %12 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %inc = add nsw i64 %12, 1
-  store i64 %inc, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  store i64 %inc, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %13 = load ptr, ptr %db, align 8
   %id = getelementptr inbounds nuw i8, ptr %13, i64 48
   %14 = load i32, ptr %id, align 8
@@ -190,8 +190,8 @@ if.then35:                                        ; preds = %if.end24
 if.then39:                                        ; preds = %if.then35
   %17 = load i64, ptr %milliseconds, align 8
   %call40 = call ptr @createStringObjectFromLongLong(i64 noundef %17) #10
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 584), align 8
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 616), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 584), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 616), align 8
   call void (ptr, i32, ...) @rewriteClientCommandVector(ptr noundef nonnull %c, i32 noundef 5, ptr noundef %18, ptr noundef %key, ptr noundef %val, ptr noundef %19, ptr noundef %call40) #10
   call void @decrRefCount(ptr noundef %call40) #10
   br label %if.end44
@@ -305,7 +305,7 @@ entry:
   %resp = getelementptr inbounds nuw i8, ptr %c, i64 24
   %2 = load i32, ptr %resp, align 8
   %idxprom = sext i32 %2 to i64
-  %arrayidx1 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom
+  %arrayidx1 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %idxprom
   %3 = load ptr, ptr %arrayidx1, align 8
   %call = tail call ptr @lookupKeyReadOrReply(ptr noundef %c, ptr noundef %1, ptr noundef %3) #10
   %cmp = icmp eq ptr %call, null
@@ -718,7 +718,7 @@ if.then366:                                       ; preds = %land.lhs.true361
   br label %for.inc
 
 if.else369:                                       ; preds = %if.else304, %if.else150, %if.else194, %if.else239, %land.lhs.true334, %land.lhs.true324, %land.lhs.true314, %land.lhs.true361, %land.lhs.true349, %land.lhs.true344
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8
   tail call void @addReplyErrorObject(ptr noundef %c, ptr noundef %42) #10
   br label %return
 
@@ -794,8 +794,8 @@ entry:
   %4 = load ptr, ptr %arrayidx4, align 8
   %arrayidx6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %arrayidx6, align 8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 32), align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 32), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8
   tail call void @setGenericCommand(ptr noundef %c, i32 noundef 1, ptr noundef %4, ptr noundef %5, ptr noundef null, i32 noundef 0, ptr noundef %6, ptr noundef %7)
   ret void
 }
@@ -860,7 +860,7 @@ entry:
   %resp.i = getelementptr inbounds nuw i8, ptr %c, i64 24
   %2 = load i32, ptr %resp.i, align 8
   %idxprom.i = sext i32 %2 to i64
-  %arrayidx1.i = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom.i
+  %arrayidx1.i = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %idxprom.i
   %3 = load ptr, ptr %arrayidx1.i, align 8
   %call.i = tail call ptr @lookupKeyReadOrReply(ptr noundef %c, ptr noundef %1, ptr noundef %3) #10
   %cmp.i = icmp eq ptr %call.i, null
@@ -901,7 +901,7 @@ if.end:                                           ; preds = %entry
   %resp = getelementptr inbounds nuw i8, ptr %c, i64 24
   %2 = load i32, ptr %resp, align 8
   %idxprom = sext i32 %2 to i64
-  %arrayidx1 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom
+  %arrayidx1 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %idxprom
   %3 = load ptr, ptr %arrayidx1, align 8
   %call2 = tail call ptr @lookupKeyReadOrReply(ptr noundef %c, ptr noundef %1, ptr noundef %3) #10
   %cmp3 = icmp eq ptr %call2, null
@@ -979,7 +979,7 @@ if.then20:                                        ; preds = %land.lhs.true17
   %12 = load ptr, ptr %argv, align 8
   %arrayidx22 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %13 = load ptr, ptr %arrayidx22, align 8
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5332), align 4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5332), align 4
   %call23 = call i32 @dbGenericDelete(ptr noundef %11, ptr noundef %13, i32 noundef %14, i32 noundef 2) #10
   %tobool24.not = icmp eq i32 %call23, 0
   br i1 %tobool24.not, label %cond.false, label %cond.end
@@ -990,10 +990,10 @@ cond.false:                                       ; preds = %if.then20
   unreachable
 
 cond.end:                                         ; preds = %if.then20
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5332), align 4
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5332), align 4
   %tobool27.not = icmp eq i32 %15, 0
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 408), align 8
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 400), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 408), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 400), align 8
   %cond = select i1 %tobool27.not, ptr %17, ptr %16
   %18 = load ptr, ptr %argv, align 8
   %arrayidx32 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -1011,9 +1011,9 @@ cond.end:                                         ; preds = %if.then20
   %id = getelementptr inbounds nuw i8, ptr %25, i64 48
   %26 = load i32, ptr %id, align 8
   call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.6, ptr noundef %24, i32 noundef %26) #10
-  %27 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  %27 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %inc = add nsw i64 %27, 1
-  store i64 %inc, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  store i64 %inc, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   br label %if.end78
 
 if.else:                                          ; preds = %if.end13, %land.lhs.true17
@@ -1029,7 +1029,7 @@ if.then40:                                        ; preds = %if.else
   call void @setExpire(ptr noundef nonnull %c, ptr noundef %28, ptr noundef %30, i64 noundef %31) #10
   %32 = load i64, ptr %milliseconds, align 8
   %call44 = call ptr @createStringObjectFromLongLong(i64 noundef %32) #10
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 592), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 592), align 8
   %34 = load ptr, ptr %argv, align 8
   %arrayidx46 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %35 = load ptr, ptr %arrayidx46, align 8
@@ -1047,9 +1047,9 @@ if.then40:                                        ; preds = %if.else
   %id53 = getelementptr inbounds nuw i8, ptr %41, i64 48
   %42 = load i32, ptr %id53, align 8
   call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.1, ptr noundef %40, i32 noundef %42) #10
-  %43 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  %43 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %inc54 = add nsw i64 %43, 1
-  store i64 %inc54, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  store i64 %inc54, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   br label %if.end78
 
 if.else55:                                        ; preds = %if.else
@@ -1073,7 +1073,7 @@ if.then64:                                        ; preds = %if.then58
   %arrayidx67 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %49 = load ptr, ptr %arrayidx67, align 8
   call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %47, ptr noundef %49) #10
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 576), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 576), align 8
   %51 = load ptr, ptr %argv, align 8
   %arrayidx69 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %52 = load ptr, ptr %arrayidx69, align 8
@@ -1085,9 +1085,9 @@ if.then64:                                        ; preds = %if.then58
   %id73 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %56 = load i32, ptr %id73, align 8
   call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef %54, i32 noundef %56) #10
-  %57 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  %57 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %inc74 = add nsw i64 %57, 1
-  store i64 %inc74, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  store i64 %inc74, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   br label %if.end78
 
 if.end78:                                         ; preds = %return.sink.split.i, %land.lhs.true, %if.then40, %if.then58, %if.then64, %if.else55, %if.end5, %if.end, %entry, %cond.end
@@ -1117,7 +1117,7 @@ entry:
   %resp.i = getelementptr inbounds nuw i8, ptr %c, i64 24
   %2 = load i32, ptr %resp.i, align 8
   %idxprom.i = sext i32 %2 to i64
-  %arrayidx1.i = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom.i
+  %arrayidx1.i = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %idxprom.i
   %3 = load ptr, ptr %arrayidx1.i, align 8
   %call.i = tail call ptr @lookupKeyReadOrReply(ptr noundef %c, ptr noundef %1, ptr noundef %3) #10
   %cmp.i = icmp eq ptr %call.i, null
@@ -1143,7 +1143,7 @@ if.end:                                           ; preds = %if.end4.i, %entry
   br i1 %tobool.not, label %if.end11, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 400), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 400), align 8
   %8 = load ptr, ptr %argv.i, align 8
   %arrayidx4 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load ptr, ptr %arrayidx4, align 8
@@ -1160,9 +1160,9 @@ if.then2:                                         ; preds = %if.end
   %id = getelementptr inbounds nuw i8, ptr %15, i64 48
   %16 = load i32, ptr %id, align 8
   tail call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.6, ptr noundef %14, i32 noundef %16) #10
-  %17 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %inc = add nsw i64 %17, 1
-  store i64 %inc, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  store i64 %inc, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end.i, %if.then2, %if.end
@@ -1181,7 +1181,7 @@ entry:
   %resp.i = getelementptr inbounds nuw i8, ptr %c, i64 24
   %2 = load i32, ptr %resp.i, align 8
   %idxprom.i = sext i32 %2 to i64
-  %arrayidx1.i = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom.i
+  %arrayidx1.i = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %idxprom.i
   %3 = load ptr, ptr %arrayidx1.i, align 8
   %call.i = tail call ptr @lookupKeyReadOrReply(ptr noundef %c, ptr noundef %1, ptr noundef %3) #10
   %cmp.i = icmp eq ptr %call.i, null
@@ -1219,10 +1219,10 @@ if.end:                                           ; preds = %if.end4.i, %entry
   %id = getelementptr inbounds nuw i8, ptr %13, i64 48
   %14 = load i32, ptr %id, align 8
   tail call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str, ptr noundef %12, i32 noundef %14) #10
-  %15 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %inc = add nsw i64 %15, 1
-  store i64 %inc, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 584), align 8
+  store i64 %inc, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 584), align 8
   tail call void @rewriteClientCommandArgument(ptr noundef nonnull %c, i32 noundef 0, ptr noundef %16) #10
   br label %return
 
@@ -1314,7 +1314,7 @@ sdslen.exit:                                      ; preds = %sw.bb.i, %sw.bb3.i,
   br i1 %cmp12, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.then10, %sdslen.exit
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8
   call void @addReply(ptr noundef nonnull %c, ptr noundef %13) #10
   br label %return
 
@@ -1367,7 +1367,7 @@ sdslen.exit55:                                    ; preds = %sw.bb.i52, %sw.bb3.
 
 if.end.i:                                         ; preds = %sdslen.exit55
   %add.i = add i64 %retval.0.i42, %14
-  %19 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4848), align 8
+  %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4848), align 8
   %cmp.i = icmp sgt i64 %add.i, %19
   %cmp1.i = icmp slt i64 %add.i, %14
   %or.cond.i = or i1 %cmp1.i, %cmp.i
@@ -1537,7 +1537,7 @@ sdslen.exit113:                                   ; preds = %sw.bb.i110, %sw.bb3
 
 if.end.i117:                                      ; preds = %sdslen.exit113
   %add.i118 = add i64 %retval.0.i100, %34
-  %39 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4848), align 8
+  %39 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4848), align 8
   %cmp.i119 = icmp sgt i64 %add.i118, %39
   %cmp1.i120 = icmp slt i64 %add.i118, %34
   %or.cond.i121 = or i1 %cmp1.i120, %cmp.i119
@@ -1708,9 +1708,9 @@ sdslen.exit182:                                   ; preds = %sdslen.exit163, %sw
   %id = getelementptr inbounds nuw i8, ptr %65, i64 48
   %66 = load i32, ptr %id, align 8
   call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str.9, ptr noundef %64, i32 noundef %66) #10
-  %67 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  %67 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %inc = add nsw i64 %67, 1
-  store i64 %inc, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  store i64 %inc, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   br label %if.end60
 
 if.end60:                                         ; preds = %if.end43, %sdslen.exit182, %sdslen.exit144
@@ -1860,7 +1860,7 @@ if.end6:                                          ; preds = %if.end
   %4 = load ptr, ptr %argv, align 8
   %arrayidx8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %arrayidx8, align 8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 16), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 16), align 8
   %call9 = call ptr @lookupKeyReadOrReply(ptr noundef nonnull %c, ptr noundef %5, ptr noundef %6) #10
   %cmp10 = icmp eq ptr %call9, null
   br i1 %cmp10, label %if.end60, label %lor.lhs.false
@@ -1901,7 +1901,7 @@ if.end20:                                         ; preds = %if.else, %if.then15
   br i1 %or.cond24, label %if.then28, label %if.end29
 
 if.then28:                                        ; preds = %if.end20
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 16), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 16), align 8
   call void @addReply(ptr noundef nonnull %c, ptr noundef %13) #10
   br label %if.end60
 
@@ -1952,7 +1952,7 @@ if.end42:                                         ; preds = %if.then41, %if.end3
   br i1 %or.cond1, label %if.then56, label %if.else57
 
 if.then56:                                        ; preds = %21
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 16), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 16), align 8
   call void @addReply(ptr noundef nonnull %c, ptr noundef %22) #10
   br label %if.end60
 
@@ -2079,7 +2079,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp4.not, label %for.cond, label %if.then5
 
 if.then5:                                         ; preds = %for.body
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8
   tail call void @addReply(ptr noundef nonnull %c, ptr noundef %7) #10
   br label %return
 
@@ -2166,10 +2166,10 @@ for.end39:                                        ; preds = %for.body12, %for.bo
   %sub = add nsw i32 %.lcssa, -1
   %div = sdiv i32 %sub, 2
   %conv = sext i32 %div to i64
-  %36 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  %36 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %add41 = add nsw i64 %36, %conv
-  store i64 %add41, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 32), align 8
+  store i64 %add41, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 32), align 8
   %38 = load ptr, ptr @shared, align 8
   %cond43 = select i1 %tobool.not, ptr %38, ptr %37
   tail call void @addReply(ptr noundef nonnull %c, ptr noundef %cond43) #10
@@ -2295,9 +2295,9 @@ if.end42:                                         ; preds = %if.then33, %if.else
   %id = getelementptr inbounds nuw i8, ptr %18, i64 48
   %19 = load i32, ptr %id, align 8
   call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str.11, ptr noundef %17, i32 noundef %19) #10
-  %20 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %inc = add nsw i64 %20, 1
-  store i64 %inc, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  store i64 %inc, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %21 = load i64, ptr %value, align 8
   call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %21) #10
   br label %return
@@ -2447,14 +2447,14 @@ if.end22:                                         ; preds = %if.else, %if.then15
   %id = getelementptr inbounds nuw i8, ptr %16, i64 48
   %17 = load i32, ptr %id, align 8
   call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str.14, ptr noundef %15, i32 noundef %17) #10
-  %18 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %inc = add nsw i64 %18, 1
-  store i64 %inc, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  store i64 %inc, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   call void @addReplyBulk(ptr noundef nonnull %c, ptr noundef %call13) #10
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 584), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 584), align 8
   call void @rewriteClientCommandArgument(ptr noundef nonnull %c, i32 noundef 0, ptr noundef %19) #10
   call void @rewriteClientCommandArgument(ptr noundef nonnull %c, i32 noundef 2, ptr noundef %call13) #10
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 688), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 688), align 8
   call void @rewriteClientCommandArgument(ptr noundef nonnull %c, i32 noundef 3, ptr noundef %20) #10
   br label %return
 
@@ -2567,7 +2567,7 @@ sdslen.exit:                                      ; preds = %if.end, %sw.bb.i, %
 
 if.end.i:                                         ; preds = %sdslen.exit
   %add.i = add i64 %retval.0.i, %call20
-  %22 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4848), align 8
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4848), align 8
   %cmp.i = icmp sgt i64 %add.i, %22
   %cmp1.i = icmp slt i64 %add.i, %call20
   %or.cond.i = or i1 %cmp1.i, %cmp.i
@@ -2686,9 +2686,9 @@ if.end38:                                         ; preds = %sw.bb13.i51, %sw.bb
   %id = getelementptr inbounds nuw i8, ptr %43, i64 48
   %44 = load i32, ptr %id, align 8
   tail call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str.15, ptr noundef %42, i32 noundef %44) #10
-  %45 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  %45 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %inc = add nsw i64 %45, 1
-  store i64 %inc, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  store i64 %inc, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   tail call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %totlen.0) #10
   br label %return
 
@@ -2705,7 +2705,7 @@ entry:
   %0 = load ptr, ptr %argv, align 8
   %arrayidx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8
   %call = tail call ptr @lookupKeyReadOrReply(ptr noundef %c, ptr noundef %1, ptr noundef %2) #10
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -2850,7 +2850,7 @@ if.then51:                                        ; preds = %if.end49
   br label %for.inc
 
 if.else53:                                        ; preds = %if.else37
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8
   call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %15) #10
   br label %cleanup
 
@@ -3023,7 +3023,7 @@ sdslen.exit226:                                   ; preds = %sdslen.exit207, %sw
   br i1 %cmp82, label %if.then84, label %if.then92
 
 if.then84:                                        ; preds = %sdslen.exit226
-  %33 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4848), align 8
+  %33 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4848), align 8
   %cmp85 = icmp ugt i64 %mul78, %33
   br i1 %cmp85, label %if.then87, label %if.end90
 

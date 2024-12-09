@@ -200,9 +200,9 @@ _ZN3irr4core5arrayINS_5scene10CMeshCache9MeshEntryEED2Ev.exit: ; preds = %if.the
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr5scene10CMeshCacheD1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8), (40, 48)) %this) unnamed_addr #2 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 24), ptr %this, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 24), ptr %this, align 8, !tbaa !11
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 168), ptr %add.ptr.i, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 168), ptr %add.ptr.i, align 8, !tbaa !11
   tail call void @_ZN3irr5scene10CMeshCache5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %this) #18
   %Meshes.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %Meshes.i, align 8, !tbaa !13
@@ -276,9 +276,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 24), ptr %3, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 24), ptr %3, align 8, !tbaa !11
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !11
   tail call void @_ZN3irr5scene10CMeshCache5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #18
   %Meshes.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %Meshes.i.i, align 8, !tbaa !13
@@ -348,9 +348,9 @@ _ZN3irr5scene10CMeshCacheD1Ev.exit:               ; preds = %if.then.i.i.i.i.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr5scene10CMeshCacheD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8), (40, 48)) %this) unnamed_addr #2 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 24), ptr %this, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 24), ptr %this, align 8, !tbaa !11
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !11
   tail call void @_ZN3irr5scene10CMeshCache5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %this) #18
   %Meshes.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %Meshes.i.i, align 8, !tbaa !13
@@ -428,9 +428,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 24), ptr %3, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 24), ptr %3, align 8, !tbaa !11
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 168), ptr %add.ptr.i.i.i, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 168), ptr %add.ptr.i.i.i, align 8, !tbaa !11
   tail call void @_ZN3irr5scene10CMeshCache5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #18
   %Meshes.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %Meshes.i.i.i, align 8, !tbaa !13
@@ -5001,12 +5001,12 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: nofree nounwind uwtable
 define internal void @_GLOBAL__sub_I_CMeshCache.cpp() #15 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZN3irr5sceneL14emptyNamedPathE, i64 16), ptr @_ZN3irr5sceneL14emptyNamedPathE, align 8, !tbaa !21
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN3irr5sceneL14emptyNamedPathE, i64 8), align 8, !tbaa !10
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN3irr5sceneL14emptyNamedPathE, i64 16), align 8, !tbaa !22
-  store ptr getelementptr inbounds (i8, ptr @_ZN3irr5sceneL14emptyNamedPathE, i64 48), ptr getelementptr inbounds (i8, ptr @_ZN3irr5sceneL14emptyNamedPathE, i64 32), align 8, !tbaa !21
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN3irr5sceneL14emptyNamedPathE, i64 40), align 8, !tbaa !10
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN3irr5sceneL14emptyNamedPathE, i64 48), align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN3irr5sceneL14emptyNamedPathE, i64 16), ptr @_ZN3irr5sceneL14emptyNamedPathE, align 8, !tbaa !21
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN3irr5sceneL14emptyNamedPathE, i64 8), align 8, !tbaa !10
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN3irr5sceneL14emptyNamedPathE, i64 16), align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN3irr5sceneL14emptyNamedPathE, i64 48), ptr getelementptr inbounds nuw (i8, ptr @_ZN3irr5sceneL14emptyNamedPathE, i64 32), align 8, !tbaa !21
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN3irr5sceneL14emptyNamedPathE, i64 40), align 8, !tbaa !10
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN3irr5sceneL14emptyNamedPathE, i64 48), align 8, !tbaa !22
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3irr2io10SNamedPathD2Ev, ptr nonnull @_ZN3irr5sceneL14emptyNamedPathE, ptr nonnull @__dso_handle) #18
   ret void
 }

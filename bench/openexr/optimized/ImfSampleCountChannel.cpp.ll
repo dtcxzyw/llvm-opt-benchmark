@@ -34,7 +34,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN7Imf_3_218SampleCountChannelC2ERNS_14DeepImageLevelE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(192) %level) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN7Imf_3_212ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(40) %level, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_218SampleCountChannelE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_218SampleCountChannelE, i64 16), ptr %this, align 8
   %_numSamples = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %_numSamples, i8 0, i64 56, i1 false)
   invoke void @_ZN7Imf_3_218SampleCountChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(104) %this)
@@ -60,7 +60,7 @@ declare void @_ZN7Imf_3_212ImageChannelD2Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7Imf_3_218SampleCountChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_218SampleCountChannelE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_218SampleCountChannelE, i64 16), ptr %this, align 8
   %_numSamples = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_numSamples, align 8
   %isnull = icmp eq ptr %0, null

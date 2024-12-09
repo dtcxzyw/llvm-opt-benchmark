@@ -1926,7 +1926,7 @@ invoke.cont.i:                                    ; preds = %.noexc, %.noexc.i, 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %secondary_cache.i.i.i, i8 0, i64 16, i1 false), !noalias !14
   %hash_seed.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i12, i64 64
   store i32 -2, ptr %hash_seed.i.i.i, align 8, !noalias !14
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15LRUCacheOptionsE, i64 16), ptr %ref.tmp.i12, align 8, !noalias !14
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb15LRUCacheOptionsE, i64 16), ptr %ref.tmp.i12, align 8, !noalias !14
   %high_pri_pool_ratio.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i12, i64 72
   store double 5.000000e-01, ptr %high_pri_pool_ratio.i.i, align 8, !noalias !14
   %low_pri_pool_ratio.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i12, i64 80
@@ -4017,7 +4017,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb19ShardedCacheOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb19ShardedCacheOptionsE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb19ShardedCacheOptionsE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null

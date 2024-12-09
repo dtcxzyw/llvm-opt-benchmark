@@ -3349,8 +3349,8 @@ define ptr @H5E__get_current_stack() local_unnamed_addr #0 {
 
 ._crit_edge.thread:                               ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 2056
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @H5E_stack_g, i64 2056), i64 40, i1 false)
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @H5E_stack_g, i64 2096), align 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @H5E_stack_g, i64 2056), i64 40, i1 false)
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5E_stack_g, i64 2096), align 16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 2096
   store ptr %10, ptr %11, align 8
   br label %H5E__clear_stack.exit.thread
@@ -3363,7 +3363,7 @@ define ptr @H5E__get_current_stack() local_unnamed_addr #0 {
   %14 = phi i64 [ 0, %.lr.ph ], [ %21, %19 ]
   %.02128 = phi i32 [ 0, %.lr.ph ], [ %20, %19 ]
   %15 = getelementptr inbounds nuw [32 x %struct.H5E_entry_t], ptr %12, i64 0, i64 %14
-  %16 = getelementptr inbounds nuw [32 x %struct.H5E_entry_t], ptr getelementptr inbounds (i8, ptr @H5E_stack_g, i64 8), i64 0, i64 %14
+  %16 = getelementptr inbounds nuw [32 x %struct.H5E_entry_t], ptr getelementptr inbounds nuw (i8, ptr @H5E_stack_g, i64 8), i64 0, i64 %14
   %17 = tail call fastcc i32 @H5E__copy_stack_entry(ptr noundef nonnull %15, ptr noundef nonnull %16)
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %H5E__clear_stack.exit, label %19
@@ -3377,8 +3377,8 @@ define ptr @H5E__get_current_stack() local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 2056
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @H5E_stack_g, i64 2056), i64 40, i1 false)
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @H5E_stack_g, i64 2096), align 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @H5E_stack_g, i64 2056), i64 40, i1 false)
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5E_stack_g, i64 2096), align 16
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 2096
   store ptr %24, ptr %25, align 8
   %.not.i = icmp eq i64 %.pr, 0
@@ -3590,7 +3590,7 @@ H5E__clear_stack.exit:                            ; preds = %1, %3, %6
 17:                                               ; preds = %.lr.ph, %12
   %18 = phi i64 [ 0, %.lr.ph ], [ %14, %12 ]
   %.01113 = phi i32 [ 0, %.lr.ph ], [ %13, %12 ]
-  %19 = getelementptr inbounds nuw [32 x %struct.H5E_entry_t], ptr getelementptr inbounds (i8, ptr @H5E_stack_g, i64 8), i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [32 x %struct.H5E_entry_t], ptr getelementptr inbounds nuw (i8, ptr @H5E_stack_g, i64 8), i64 0, i64 %18
   %20 = getelementptr inbounds nuw [32 x %struct.H5E_entry_t], ptr %11, i64 0, i64 %18
   %21 = tail call fastcc i32 @H5E__copy_stack_entry(ptr noundef nonnull %19, ptr noundef nonnull %20)
   %22 = icmp slt i32 %21, 0
@@ -4501,27 +4501,27 @@ define range(i32 -1, 1) i32 @H5E__pop(ptr nocapture noundef %0, i64 noundef %1) 
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @H5E_dump_api_stack() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @H5E_stack_g, i64 2056), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @H5E_stack_g, i64 2056), align 8
   %2 = icmp eq i32 %1, 1
   br i1 %2, label %3, label %8
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @H5E_stack_g, i64 2064), align 16
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5E_stack_g, i64 2064), align 16
   %.not8 = icmp eq ptr %4, null
   br i1 %.not8, label %13, label %5
 
 5:                                                ; preds = %3
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @H5E_stack_g, i64 2096), align 16
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5E_stack_g, i64 2096), align 16
   %7 = tail call i32 %4(ptr noundef %6) #16
   br label %13
 
 8:                                                ; preds = %0
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @H5E_stack_g, i64 2072), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5E_stack_g, i64 2072), align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @H5E_stack_g, i64 2096), align 16
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5E_stack_g, i64 2096), align 16
   %12 = tail call i32 %9(i64 noundef 0, ptr noundef %11) #16
   br label %13
 

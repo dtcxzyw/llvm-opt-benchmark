@@ -3155,7 +3155,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit70.i:             ; preds = %765
   %771 = load i32, ptr %295, align 8
   store i32 0, ptr %14, align 4
   store i32 %771, ptr %296, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow27HorizontalCrossSegmentationE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow27HorizontalCrossSegmentationE, i64 16), ptr %15, align 8
   store ptr %163, ptr %297, align 8
   store i32 %116, ptr %298, align 8
   store float %705, ptr %299, align 4
@@ -3173,7 +3173,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit70.i:             ; preds = %765
   %773 = load i32, ptr %281, align 8
   store i32 0, ptr %16, align 4
   store i32 %773, ptr %306, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow27HorizontalCrossSegmentationE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow27HorizontalCrossSegmentationE, i64 16), ptr %17, align 8
   store ptr %163, ptr %307, align 8
   store i32 %116, ptr %308, align 8
   store float %705, ptr %309, align 4
@@ -3305,7 +3305,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit70.i:             ; preds = %765
   %814 = load float, ptr %318, align 4
   %815 = load i32, ptr %276, align 4
   %816 = and i8 %812, 1
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow3plk6radial14TrackerInvokerE, i64 16), ptr %55, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow3plk6radial14TrackerInvokerE, i64 16), ptr %55, align 8
   store i64 0, ptr %383, align 8
   store ptr %50, ptr %384, align 8
   store ptr %41, ptr %385, align 8
@@ -3345,7 +3345,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit70.i:             ; preds = %765
   %823 = load i32, ptr %276, align 4
   %824 = load float, ptr %318, align 4
   %825 = and i8 %821, 1
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow5beplk6radial14TrackerInvokerE, i64 16), ptr %57, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow5beplk6radial14TrackerInvokerE, i64 16), ptr %57, align 8
   store i64 0, ptr %361, align 8
   store ptr %50, ptr %362, align 8
   store ptr %41, ptr %363, align 8
@@ -3388,7 +3388,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit70.i:             ; preds = %765
   %833 = load i32, ptr %276, align 4
   %834 = load float, ptr %318, align 4
   %835 = and i8 %831, 1
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow3plk3ica14TrackerInvokerE, i64 16), ptr %59, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow3plk3ica14TrackerInvokerE, i64 16), ptr %59, align 8
   store i64 0, ptr %340, align 8
   store ptr %50, ptr %341, align 8
   store ptr %41, ptr %342, align 8
@@ -3427,7 +3427,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit70.i:             ; preds = %765
   %842 = load i32, ptr %276, align 4
   %843 = load float, ptr %318, align 4
   %844 = and i8 %840, 1
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow5beplk3ica14TrackerInvokerE, i64 16), ptr %61, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow5beplk3ica14TrackerInvokerE, i64 16), ptr %61, align 8
   store i64 0, ptr %319, align 8
   store ptr %50, ptr %320, align 8
   store ptr %41, ptr %321, align 8
@@ -3472,7 +3472,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit70.i:             ; preds = %765
   %853 = load float, ptr %318, align 4
   %854 = load i32, ptr %276, align 4
   %855 = and i8 %851, 1
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow4rlof6radial14TrackerInvokerE, i64 16), ptr %63, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow4rlof6radial14TrackerInvokerE, i64 16), ptr %63, align 8
   store i64 0, ptr %478, align 8
   %856 = load float, ptr %82, align 4
   store float %856, ptr %479, align 4
@@ -3518,7 +3518,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit70.i:             ; preds = %765
   %865 = load i32, ptr %276, align 4
   %866 = load float, ptr %318, align 4
   %867 = and i8 %863, 1
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow6berlof6radial14TrackerInvokerE, i64 16), ptr %65, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow6berlof6radial14TrackerInvokerE, i64 16), ptr %65, align 8
   store i64 0, ptr %453, align 8
   %868 = load float, ptr %82, align 4
   store float %868, ptr %454, align 4
@@ -3567,7 +3567,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit70.i:             ; preds = %765
   %878 = load float, ptr %318, align 4
   %879 = load i32, ptr %276, align 4
   %880 = and i8 %876, 1
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow4rlof3ica14TrackerInvokerE, i64 16), ptr %67, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow4rlof3ica14TrackerInvokerE, i64 16), ptr %67, align 8
   store i64 0, ptr %429, align 8
   %881 = load float, ptr %82, align 4
   store float %881, ptr %430, align 4
@@ -3612,7 +3612,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit70.i:             ; preds = %765
   %890 = load i32, ptr %276, align 4
   %891 = load float, ptr %318, align 4
   %892 = and i8 %888, 1
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow6berlof3ica14TrackerInvokerE, i64 16), ptr %69, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow6berlof3ica14TrackerInvokerE, i64 16), ptr %69, align 8
   store i64 0, ptr %405, align 8
   %893 = load float, ptr %82, align 4
   store float %893, ptr %406, align 4

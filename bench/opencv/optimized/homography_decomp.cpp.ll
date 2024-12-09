@@ -3299,7 +3299,7 @@ _ZNK2cv11_InputArray6getMatEi.exit58:             ; preds = %53, %56
 78:                                               ; preds = %76
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %79, i8 0, i64 72, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv23HomographyDecomposition21HomographyDecompInriaE, i64 16), ptr %77, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv23HomographyDecomposition21HomographyDecompInriaE, i64 16), ptr %77, align 8
   store ptr %77, ptr %20, align 8
   %80 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr null, ptr %80, align 8
@@ -3336,7 +3336,7 @@ _ZNK2cv11_InputArray6getMatEi.exit58:             ; preds = %53, %56
   store i32 1, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %81, i64 12
   store i32 1, ptr %94, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv23HomographyDecomposition21HomographyDecompInriaELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %81, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv23HomographyDecomposition21HomographyDecompInriaELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %81, align 8
   %95 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store ptr %77, ptr %95, align 8
   store ptr %81, ptr %80, align 8

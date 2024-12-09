@@ -52,7 +52,7 @@ define noundef ptr @mca_allocator_basic_component_init(i1 zeroext %0, ptr nounde
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %2, ptr %14, align 8
   %15 = load i32, ptr @opal_class_init_epoch, align 4
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %15, %16
   br i1 %.not, label %18, label %17
 
@@ -81,7 +81,7 @@ define noundef ptr @mca_allocator_basic_component_init(i1 zeroext %0, ptr nounde
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %18
   %26 = load i32, ptr @opal_class_init_epoch, align 4
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not25 = icmp eq i32 %26, %27
   br i1 %.not25, label %29, label %28
 
@@ -110,7 +110,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %18
 
 opal_obj_run_constructors.exit31:                 ; preds = %.lr.ph.i28, %29
   %37 = load i32, ptr @opal_class_init_epoch, align 4
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 32), align 8
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_free_list_t_class, i64 32), align 8
   %.not26 = icmp eq i32 %37, %38
   br i1 %.not26, label %40, label %39
 

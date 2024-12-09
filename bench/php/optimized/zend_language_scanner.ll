@@ -80,13 +80,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @startup_scanner() local_unnamed_addr #0 {
-  store i8 0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 80), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #17
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #17
-  tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #17
-  store i8 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 152), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 80), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 160), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 168), align 8
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #17
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #17
+  tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96)) #17
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 152), align 8
   ret void
 }
 
@@ -96,8 +96,8 @@ declare void @zend_ptr_stack_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @shutdown_scanner() local_unnamed_addr #0 {
-  store i8 0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 80), align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 80), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 160), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %13, label %2
 
@@ -122,16 +122,16 @@ define hidden void @shutdown_scanner() local_unnamed_addr #0 {
   br label %12
 
 12:                                               ; preds = %6, %11, %2
-  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 160), align 8
   br label %13
 
 13:                                               ; preds = %0, %12
-  tail call void @zend_stack_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72)) #17
-  tail call void @zend_stack_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128)) #17
-  tail call void @zend_ptr_stack_clean(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), ptr noundef nonnull @heredoc_label_dtor, i1 noundef zeroext true) #17
-  tail call void @zend_ptr_stack_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #17
-  store i8 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 152), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
+  tail call void @zend_stack_destroy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72)) #17
+  tail call void @zend_stack_destroy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128)) #17
+  tail call void @zend_ptr_stack_clean(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96), ptr noundef nonnull @heredoc_label_dtor, i1 noundef zeroext true) #17
+  tail call void @zend_ptr_stack_destroy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96)) #17
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 152), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 232), align 8
   ret void
 }
 
@@ -150,76 +150,76 @@ declare void @zend_ptr_stack_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @zend_save_lexical_state(ptr nocapture noundef writeonly initializes((0, 4), (8, 52), (56, 148), (152, 248)) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   store i32 %2, ptr %0, align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 24), align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %7, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %9, ptr %10, align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #17
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #17
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
-  tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
+  tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96)) #17
   %16 = load ptr, ptr @language_scanner_globals, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %16, ptr %17, align 8
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %18, ptr %19, align 8
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 32), align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %20, ptr %21, align 8
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %22, ptr %23, align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 32), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 168), align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %24, ptr %25, align 8
-  %26 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
+  %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 176), align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i64 %26, ptr %27, align 8
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 184), align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %28, ptr %29, align 8
-  %30 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
+  %30 = load i64, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 192), align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i64 %30, ptr %31, align 8
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 200), align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %32, ptr %33, align 8
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 208), align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %34, ptr %35, align 8
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 216), align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %36, ptr %37, align 8
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 232), align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %38, ptr %39, align 8
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 240), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 240), align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %40, ptr %41, align 8
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 424), align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %42, ptr %43, align 8
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 432), align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %44, ptr %45, align 8
   ret void
@@ -231,88 +231,88 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define void @zend_restore_lexical_state(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
-  store i32 %2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  store ptr %4, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 24), align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  store ptr %6, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %10, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
-  tail call void @zend_stack_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72)) #17
+  store ptr %12, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
+  tail call void @zend_stack_destroy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72)) #17
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
-  tail call void @zend_stack_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128)) #17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
+  tail call void @zend_stack_destroy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128)) #17
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
-  tail call void @zend_ptr_stack_clean(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), ptr noundef nonnull @heredoc_label_dtor, i1 noundef zeroext true) #17
-  tail call void @zend_ptr_stack_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
+  tail call void @zend_ptr_stack_clean(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96), ptr noundef nonnull @heredoc_label_dtor, i1 noundef zeroext true) #17
+  tail call void @zend_ptr_stack_destroy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96)) #17
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96), ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr @language_scanner_globals, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load i32, ptr %18, align 8
-  store i32 %19, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store i32 %19, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %21 = load i32, ptr %20, align 8
-  store i32 %21, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  store i32 %21, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %23 = load ptr, ptr %22, align 8
   tail call void @zend_restore_compiled_filename(ptr noundef %23) #17
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 184), align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %26, label %25
 
 25:                                               ; preds = %1
   tail call void @_efree(ptr noundef nonnull %24) #17
-  store ptr null, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 184), align 8
   br label %26
 
 26:                                               ; preds = %25, %1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
+  store ptr %28, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 168), align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %30 = load i64, ptr %29, align 8
-  store i64 %30, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
+  store i64 %30, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 176), align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %32 = load ptr, ptr %31, align 8
-  store ptr %32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  store ptr %32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 184), align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %34 = load i64, ptr %33, align 8
-  store i64 %34, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
+  store i64 %34, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 192), align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %36 = load ptr, ptr %35, align 8
-  store ptr %36, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
+  store ptr %36, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 200), align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %38 = load ptr, ptr %37, align 8
-  store ptr %38, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
+  store ptr %38, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 208), align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %40 = load ptr, ptr %39, align 8
-  store ptr %40, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
+  store ptr %40, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 216), align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %42 = load ptr, ptr %41, align 8
-  store ptr %42, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
+  store ptr %42, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 232), align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 240), align 8
+  store ptr %44, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 240), align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %46 = load ptr, ptr %45, align 8
-  store ptr %46, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
+  store ptr %46, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 424), align 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %48 = load ptr, ptr %47, align 8
-  store ptr %48, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
+  store ptr %48, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 432), align 8
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 160), align 8
   %.not32 = icmp eq ptr %49, null
   br i1 %.not32, label %61, label %50
 
@@ -337,7 +337,7 @@ define void @zend_restore_lexical_state(ptr nocapture noundef readonly %0) local
   br label %60
 
 60:                                               ; preds = %54, %59, %50
-  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 160), align 8
   br label %61
 
 61:                                               ; preds = %26, %60
@@ -394,12 +394,12 @@ define range(i32 -1, 1) i32 @zend_lex_tstring(ptr nocapture noundef writeonly %0
   br label %40
 
 26:                                               ; preds = %10
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 232), align 8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %30, label %28
 
 28:                                               ; preds = %26
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 240), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 240), align 8
   tail call void %27(i32 noundef 1, i32 noundef 262, i32 noundef 0, ptr noundef %1, i64 noundef %13, ptr noundef %29) #17
   br label %30
 
@@ -440,17 +440,17 @@ define range(i32 -1, 1) i32 @zend_multibyte_set_filter(ptr noundef %0) local_unn
   br i1 %.not, label %3, label %zend_multibyte_find_script_encoding.exit.thread
 
 3:                                                ; preds = %1
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 417), align 1
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 417), align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %zend_multibyte_detect_unicode.exit.thread.i
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 176), align 8
   %8 = icmp ult i64 %7, 4
   br i1 %8, label %zend_multibyte_detect_unicode.exit.thread.i, label %9
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 168), align 8
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %10, ptr noundef nonnull dereferenceable(4) @.str.17, i64 4)
   %.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not.i.i, label %select.unfold.i.i, label %11
@@ -484,9 +484,9 @@ select.unfold.i.i:                                ; preds = %14, %13, %12, %11, 
 
 zend_multibyte_detect_unicode.exit.thread11.i:    ; preds = %select.unfold.i.i
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 %.038.i.i
-  store ptr %15, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
+  store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 168), align 8
   %16 = sub nuw i64 %7, %.038.i.i
-  store i64 %16, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
+  store i64 %16, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 176), align 8
   br label %zend_multibyte_find_script_encoding.exit.thread
 
 .thread.i.i:                                      ; preds = %select.unfold.i.i, %14
@@ -645,20 +645,20 @@ zend_multibyte_detect_unicode.exit.thread11.i:    ; preds = %select.unfold.i.i
   br i1 %.not.i, label %zend_multibyte_detect_unicode.exit.thread.i, label %zend_multibyte_find_script_encoding.exit.thread
 
 zend_multibyte_detect_unicode.exit.thread.i:      ; preds = %.preheader.i.i, %._crit_edge51.i.i.i, %.thread.i.i, %6, %3
-  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 400), align 8
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 400), align 8
   %.not6.i = icmp eq ptr %67, null
   br i1 %.not6.i, label %zend_multibyte_find_script_encoding.exit.thread24, label %68
 
 68:                                               ; preds = %zend_multibyte_detect_unicode.exit.thread.i
-  %69 = load i64, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 408), align 8
+  %69 = load i64, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 408), align 8
   switch i64 %69, label %70 [
     i64 0, label %zend_multibyte_find_script_encoding.exit.thread24
     i64 1, label %74
   ]
 
 70:                                               ; preds = %68
-  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
-  %72 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 168), align 8
+  %72 = load i64, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 176), align 8
   %73 = tail call ptr @zend_multibyte_encoding_detector(ptr noundef %71, i64 noundef %72, ptr noundef nonnull %67, i64 noundef %69) #17
   br label %zend_multibyte_find_script_encoding.exit
 
@@ -673,11 +673,11 @@ zend_multibyte_find_script_encoding.exit:         ; preds = %74, %70
 
 zend_multibyte_find_script_encoding.exit.thread:  ; preds = %zend_multibyte_detect_unicode.exit.thread11.i, %._crit_edge51.i.i.i, %1, %zend_multibyte_find_script_encoding.exit
   %77 = phi ptr [ %76, %zend_multibyte_find_script_encoding.exit ], [ %.039.i.i, %zend_multibyte_detect_unicode.exit.thread11.i ], [ %66, %._crit_edge51.i.i.i ], [ %0, %1 ]
-  store ptr %77, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
+  store ptr %77, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 216), align 8
   %.not11 = icmp eq ptr %2, null
   %78 = icmp eq ptr %77, %2
   %or.cond = or i1 %.not11, %78
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 200), i8 0, i64 16, i1 false)
   br i1 %or.cond, label %79, label %81
 
 79:                                               ; preds = %zend_multibyte_find_script_encoding.exit.thread
@@ -693,7 +693,7 @@ zend_multibyte_find_script_encoding.exit.thread:  ; preds = %zend_multibyte_dete
   br i1 %.not12, label %83, label %zend_multibyte_find_script_encoding.exit.thread24.sink.split
 
 83:                                               ; preds = %81
-  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
+  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 216), align 8
   %85 = tail call i32 @zend_multibyte_check_lexer_compatibility(ptr noundef %84) #17
   %.not13 = icmp eq i32 %85, 0
   %encoding_filter_script_to_intermediate.41 = select i1 %.not13, ptr @encoding_filter_script_to_intermediate, ptr null
@@ -703,8 +703,8 @@ zend_multibyte_find_script_encoding.exit.thread:  ; preds = %zend_multibyte_dete
 zend_multibyte_find_script_encoding.exit.thread24.sink.split: ; preds = %83, %81, %79
   %encoding_filter_script_to_internal.sink = phi ptr [ %encoding_filter_script_to_intermediate., %79 ], [ @encoding_filter_script_to_internal, %81 ], [ %encoding_filter_script_to_intermediate.41, %83 ]
   %.sink = phi ptr [ %encoding_filter_intermediate_to_script., %79 ], [ null, %81 ], [ %encoding_filter_intermediate_to_internal.encoding_filter_script_to_internal, %83 ]
-  store ptr %encoding_filter_script_to_internal.sink, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
-  store ptr %.sink, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
+  store ptr %encoding_filter_script_to_internal.sink, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 200), align 8
+  store ptr %.sink, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 208), align 8
   br label %zend_multibyte_find_script_encoding.exit.thread24
 
 zend_multibyte_find_script_encoding.exit.thread24: ; preds = %zend_multibyte_find_script_encoding.exit.thread24.sink.split, %zend_multibyte_detect_unicode.exit.thread.i, %68, %zend_multibyte_find_script_encoding.exit
@@ -719,14 +719,14 @@ declare i32 @zend_multibyte_check_lexer_compatibility(ptr noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define internal i64 @encoding_filter_script_to_intermediate(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 {
   %5 = load ptr, ptr @zend_multibyte_encoding_utf8, align 8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 216), align 8
   %7 = tail call i64 @zend_multibyte_encoding_converter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %5, ptr noundef %6) #17
   ret i64 %7
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @encoding_filter_intermediate_to_script(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 {
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 216), align 8
   %6 = load ptr, ptr @zend_multibyte_encoding_utf8, align 8
   %7 = tail call i64 @zend_multibyte_encoding_converter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %5, ptr noundef %6) #17
   ret i64 %7
@@ -737,7 +737,7 @@ define internal i64 @encoding_filter_script_to_internal(ptr noundef %0, ptr noun
   %5 = tail call ptr @zend_multibyte_get_internal_encoding() #17
   %6 = icmp ne ptr %5, null
   tail call void @llvm.assume(i1 %6)
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 216), align 8
   %8 = tail call i64 @zend_multibyte_encoding_converter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %5, ptr noundef %7) #17
   ret i64 %8
 }
@@ -761,36 +761,36 @@ define range(i32 -1, 1) i32 @open_file_for_scanning(ptr noundef %0) local_unname
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %1
-  call void @zend_llist_add_element(ptr noundef nonnull getelementptr inbounds (i8, ptr @compiler_globals, i64 88), ptr noundef %0) #17
+  call void @zend_llist_add_element(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 88), ptr noundef %0) #17
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 58
   store i8 1, ptr %7, align 2
   br label %77
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %9, null
   call void @llvm.assume(i1 %.not)
-  call void @zend_llist_add_element(ptr noundef nonnull getelementptr inbounds (i8, ptr @compiler_globals, i64 88), ptr noundef %0) #17
+  call void @zend_llist_add_element(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 88), ptr noundef %0) #17
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 58
   store i8 1, ptr %10, align 2
   store ptr %0, ptr @language_scanner_globals, align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 24), align 8
   %11 = load i64, ptr %3, align 8
   %.not41 = icmp eq i64 %11, -1
   br i1 %.not41, label %39, label %12
 
 12:                                               ; preds = %8
-  %13 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 416), align 8
+  %13 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 416), align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %15, label %thread-pre-split
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %2, align 8
-  store ptr %16, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
-  store i64 %11, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 168), align 8
+  store i64 %11, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 176), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 184), align 8
   %17 = call i32 @zend_multibyte_set_filter(ptr noundef null)
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 200), align 8
   %.not42 = icmp eq ptr %18, null
   br i1 %.not42, label %.thread-pre-split_crit_edge, label %19
 
@@ -799,22 +799,22 @@ define range(i32 -1, 1) i32 @open_file_for_scanning(ptr noundef %0) local_unname
   br label %thread-pre-split
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
-  %21 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
-  %22 = call i64 %18(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), ptr noundef %20, i64 noundef %21) #17
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 168), align 8
+  %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 176), align 8
+  %22 = call i64 %18(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 184), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 192), ptr noundef %20, i64 noundef %21) #17
   %23 = icmp eq i64 %22, -1
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %19
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 216), align 8
   %26 = call ptr @zend_multibyte_get_encoding_name(ptr noundef %25) #17
   call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.2, ptr noundef %26) #20
   unreachable
 
 27:                                               ; preds = %19
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 184), align 8
   store ptr %28, ptr %2, align 8
-  %29 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
+  %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 192), align 8
   store i64 %29, ptr %3, align 8
   br label %30
 
@@ -826,22 +826,22 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
 30:                                               ; preds = %thread-pre-split, %27
   %31 = phi i64 [ %.pre, %thread-pre-split ], [ %29, %27 ]
   %32 = phi ptr [ %.pr, %thread-pre-split ], [ %28, %27 ]
-  store ptr %32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
-  store ptr %32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 24), align 8
+  store ptr %32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 %31
-  store ptr %33, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  store ptr %33, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %34, label %yy_scan_buffer.exit
 
 34:                                               ; preds = %30
-  store ptr null, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 24), align 8
   br label %yy_scan_buffer.exit
 
 yy_scan_buffer.exit:                              ; preds = %30, %34
-  %35 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 152), align 8
+  %35 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 152), align 8
   %36 = trunc i8 %35 to i1
   %. = select i1 %36, i32 7, i32 8
-  store i32 %., ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store i32 %., ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %38 = load ptr, ptr %37, align 8
   %.not43 = icmp eq ptr %38, null
@@ -897,7 +897,7 @@ yy_scan_buffer.exit:                              ; preds = %30, %34
   br label %63
 
 63:                                               ; preds = %52, %62, %57
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 160), align 8
   %.not47 = icmp eq ptr %64, null
   br i1 %.not47, label %76, label %65
 
@@ -922,12 +922,12 @@ yy_scan_buffer.exit:                              ; preds = %30, %34
   br label %75
 
 75:                                               ; preds = %69, %74, %65
-  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 160), align 8
   br label %76
 
 76:                                               ; preds = %63, %75
-  store i32 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 153), align 1
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 153), align 1
   br label %77
 
 77:                                               ; preds = %76, %6
@@ -949,76 +949,76 @@ declare ptr @zend_set_compiled_filename(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define noundef ptr @compile_file(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zend_lex_state, align 8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   store i32 %4, ptr %3, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 24), align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %7, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %9, ptr %10, align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %11, ptr %12, align 8
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %13, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #17
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #17
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
-  tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
+  tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96)) #17
   %18 = load ptr, ptr @language_scanner_globals, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store ptr %18, ptr %19, align 8
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 %20, ptr %21, align 8
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 32), align 8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 152
   store ptr %22, ptr %23, align 8
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store i32 %24, ptr %25, align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 32), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 168), align 8
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 160
   store ptr %26, ptr %27, align 8
-  %28 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
+  %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 176), align 8
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 168
   store i64 %28, ptr %29, align 8
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 184), align 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 176
   store ptr %30, ptr %31, align 8
-  %32 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
+  %32 = load i64, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 192), align 8
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 184
   store i64 %32, ptr %33, align 8
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 200), align 8
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 192
   store ptr %34, ptr %35, align 8
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 208), align 8
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 200
   store ptr %36, ptr %37, align 8
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 216), align 8
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 208
   store ptr %38, ptr %39, align 8
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 232), align 8
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 216
   store ptr %40, ptr %41, align 8
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 240), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 240), align 8
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 224
   store ptr %42, ptr %43, align 8
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 424), align 8
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 232
   store ptr %44, ptr %45, align 8
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 432), align 8
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 240
   store ptr %46, ptr %47, align 8
   %48 = tail call i32 @open_file_for_scanning(ptr noundef %0)
@@ -1026,7 +1026,7 @@ define noundef ptr @compile_file(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br i1 %49, label %50, label %59
 
 50:                                               ; preds = %2
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %51, null
   br i1 %.not, label %52, label %61
 
@@ -1061,9 +1061,9 @@ declare void @zend_message_dispatcher(i64 noundef, ptr noundef) local_unnamed_ad
 define internal fastcc noundef ptr @zend_compile(i32 noundef range(i32 2, 5) %0) unnamed_addr #0 {
   %2 = alloca %struct._zend_file_context, align 8
   %3 = alloca %struct._zend_oparray_context, align 8
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
-  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 81), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 81), align 1
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 424), align 8
   %5 = tail call noalias dereferenceable_or_null(32768) ptr @_emalloc_large(i64 noundef 32768) #18
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %6, ptr %5, align 8
@@ -1072,18 +1072,18 @@ define internal fastcc noundef ptr @zend_compile(i32 noundef range(i32 2, 5) %0)
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %9, align 8
-  store ptr %5, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 432), align 8
   %10 = tail call i32 @zendparse() #17
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %27
 
 11:                                               ; preds = %1
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 48), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 48), align 8
   %14 = tail call noalias ptr @_emalloc_256() #17
   %15 = trunc nuw nsw i32 %0 to i8
   tail call void @init_op_array(ptr noundef %14, i8 noundef zeroext %15, i32 noundef 64) #17
-  store ptr %14, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 48), align 8
+  store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 48), align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %17, 67108864
@@ -1093,16 +1093,16 @@ define internal fastcc noundef ptr @zend_compile(i32 noundef range(i32 2, 5) %0)
   br i1 %.not60, label %22, label %20
 
 20:                                               ; preds = %11
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 424), align 8
   tail call void %19(ptr noundef %21) #17
   br label %22
 
 22:                                               ; preds = %20, %11
   call void @zend_file_context_begin(ptr noundef nonnull %2) #17
   call void @zend_oparray_context_begin(ptr noundef nonnull %3) #17
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 424), align 8
   call void @zend_compile_top_stmt(ptr noundef %23) #17
-  store i32 %12, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   %24 = icmp eq i32 %0, 2
   call void @zend_emit_final_return(i1 noundef zeroext %24) #17
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 160
@@ -1112,14 +1112,14 @@ define internal fastcc noundef ptr @zend_compile(i32 noundef range(i32 2, 5) %0)
   call void @pass_two(ptr noundef nonnull %14) #17
   call void @zend_oparray_context_end(ptr noundef nonnull %3) #17
   call void @zend_file_context_end(ptr noundef nonnull %2) #17
-  store ptr %13, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 48), align 8
+  store ptr %13, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 48), align 8
   br label %27
 
 27:                                               ; preds = %22, %1
   %.058 = phi ptr [ null, %1 ], [ %14, %22 ]
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 424), align 8
   call void @zend_ast_destroy(ptr noundef %28) #17
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 432), align 8
   br label %30
 
 30:                                               ; preds = %30, %27
@@ -1132,7 +1132,7 @@ define internal fastcc noundef ptr @zend_compile(i32 noundef range(i32 2, 5) %0)
 
 33:                                               ; preds = %30
   %34 = and i8 %4, 1
-  store i8 %34, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
+  store i8 %34, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 81), align 1
   ret ptr %.058
 }
 
@@ -1157,83 +1157,83 @@ define ptr @zend_compile_string_to_ast(ptr noundef %0, ptr nocapture noundef wri
   %.sink = phi i32 [ 262, %9 ], [ 6, %3 ]
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %.sink, ptr %13, align 8
-  %14 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
+  %14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 81), align 1
   %15 = and i8 %14, 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 81), align 1
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   store i32 %16, ptr %5, align 8
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 24), align 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %17, ptr %18, align 8
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %19, ptr %20, align 8
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %21, ptr %22, align 8
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %23, ptr %24, align 8
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %25, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #17
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #17
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
-  tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
+  tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96)) #17
   %30 = load ptr, ptr @language_scanner_globals, align 8
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 136
   store ptr %30, ptr %31, align 8
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 %32, ptr %33, align 8
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 32), align 8
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 152
   store ptr %34, ptr %35, align 8
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 144
   store i32 %36, ptr %37, align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 32), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 168), align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 160
   store ptr %38, ptr %39, align 8
-  %40 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
+  %40 = load i64, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 176), align 8
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 168
   store i64 %40, ptr %41, align 8
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 184), align 8
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 176
   store ptr %42, ptr %43, align 8
-  %44 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
+  %44 = load i64, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 192), align 8
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 184
   store i64 %44, ptr %45, align 8
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 200), align 8
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 192
   store ptr %46, ptr %47, align 8
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 208), align 8
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 200
   store ptr %48, ptr %49, align 8
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 216), align 8
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 208
   store ptr %50, ptr %51, align 8
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 232), align 8
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 216
   store ptr %52, ptr %53, align 8
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 240), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 240), align 8
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 224
   store ptr %54, ptr %55, align 8
-  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 424), align 8
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 232
   store ptr %56, ptr %57, align 8
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 432), align 8
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 240
   store ptr %58, ptr %59, align 8
   call void @zend_prepare_string_for_scanning(ptr noundef nonnull %4, ptr noundef %2)
-  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 424), align 8
   %60 = tail call noalias dereferenceable_or_null(32768) ptr @_emalloc_large(i64 noundef 32768) #18
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   store ptr %61, ptr %60, align 8
@@ -1242,16 +1242,16 @@ define ptr @zend_compile_string_to_ast(ptr noundef %0, ptr nocapture noundef wri
   store ptr %62, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store ptr null, ptr %64, align 8
-  store ptr %60, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
-  store i32 8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store ptr %60, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 432), align 8
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   %65 = tail call i32 @zendparse() #17
   %.not65 = icmp eq i32 %65, 0
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 424), align 8
   br i1 %.not65, label %72, label %66
 
 66:                                               ; preds = %12
   tail call void @zend_ast_destroy(ptr noundef %.pre) #17
-  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 432), align 8
   br label %68
 
 68:                                               ; preds = %68, %66
@@ -1263,15 +1263,15 @@ define ptr @zend_compile_string_to_ast(ptr noundef %0, ptr nocapture noundef wri
   br i1 %.not66, label %71, label %68
 
 71:                                               ; preds = %68
-  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 424), align 8
   br label %72
 
 72:                                               ; preds = %71, %12
   %73 = phi ptr [ null, %71 ], [ %.pre, %12 ]
-  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
+  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 432), align 8
   store ptr %74, ptr %1, align 8
   call void @zend_restore_lexical_state(ptr noundef nonnull %5)
-  store i8 %15, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
+  store i8 %15, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 81), align 1
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %76 = load i8, ptr %75, align 1
   %.not67 = icmp eq i8 %76, 0
@@ -1366,67 +1366,67 @@ define void @zend_prepare_string_for_scanning(ptr nocapture noundef initializes(
   %43 = getelementptr inbounds i8, ptr %42, i64 %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %43, i8 0, i64 33, i1 false)
   store ptr null, ptr @language_scanner_globals, align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 24), align 8
   %44 = load ptr, ptr %0, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %46 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 416), align 8
+  %46 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 416), align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %49, label %.thread
 
 .thread:                                          ; preds = %40
-  store ptr %45, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %45, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %48 = getelementptr inbounds i8, ptr %45, i64 %5
-  store ptr %48, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  store ptr %48, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   br label %66
 
 49:                                               ; preds = %40
-  store ptr %45, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
-  store i64 %5, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  store ptr %45, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 168), align 8
+  store i64 %5, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 176), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 184), align 8
   %50 = tail call ptr @zend_multibyte_get_internal_encoding() #17
   %51 = tail call i32 @zend_multibyte_set_filter(ptr noundef %50)
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 200), align 8
   %.not102 = icmp eq ptr %52, null
   br i1 %.not102, label %64, label %53
 
 53:                                               ; preds = %49
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
-  %55 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
-  %56 = tail call i64 %52(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), ptr noundef %54, i64 noundef %55) #17
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 168), align 8
+  %55 = load i64, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 176), align 8
+  %56 = tail call i64 %52(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 184), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 192), ptr noundef %54, i64 noundef %55) #17
   %57 = icmp eq i64 %56, -1
   br i1 %57, label %58, label %61
 
 58:                                               ; preds = %53
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 216), align 8
   %60 = tail call ptr @zend_multibyte_get_encoding_name(ptr noundef %59) #17
   tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.2, ptr noundef %60) #20
   unreachable
 
 61:                                               ; preds = %53
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
-  %63 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 184), align 8
+  %63 = load i64, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 192), align 8
   br label %64
 
 64:                                               ; preds = %49, %61
   %.097.ph = phi ptr [ %45, %49 ], [ %62, %61 ]
   %.096.ph = phi i64 [ %5, %49 ], [ %63, %61 ]
-  %.pr = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
-  store ptr %.097.ph, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  %.pr = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 24), align 8
+  store ptr %.097.ph, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %65 = getelementptr inbounds i8, ptr %.097.ph, i64 %.096.ph
-  store ptr %65, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  store ptr %65, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %.not.i = icmp eq ptr %.pr, null
   br i1 %.not.i, label %66, label %yy_scan_buffer.exit
 
 66:                                               ; preds = %.thread, %64
   %.097108 = phi ptr [ %45, %.thread ], [ %.097.ph, %64 ]
-  store ptr %.097108, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
+  store ptr %.097108, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 24), align 8
   br label %yy_scan_buffer.exit
 
 yy_scan_buffer.exit:                              ; preds = %64, %66
   %67 = tail call ptr @zend_set_compiled_filename(ptr noundef %1) #17
-  store i32 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 153), align 1
-  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 153), align 1
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 160), align 8
   %.not103 = icmp eq ptr %68, null
   br i1 %.not103, label %80, label %69
 
@@ -1451,7 +1451,7 @@ yy_scan_buffer.exit:                              ; preds = %64, %66
   br label %79
 
 79:                                               ; preds = %73, %78, %69
-  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 160), align 8
   br label %80
 
 80:                                               ; preds = %yy_scan_buffer.exit, %79
@@ -1481,7 +1481,7 @@ define ptr @compile_filename(i32 noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %.not, label %13, label %.thread
 
 .thread:                                          ; preds = %9
-  %12 = call ptr @zend_hash_add_empty_element(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 360), ptr noundef nonnull %11) #17
+  %12 = call ptr @zend_hash_add_empty_element(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 360), ptr noundef nonnull %11) #17
   br label %30
 
 13:                                               ; preds = %9
@@ -1499,7 +1499,7 @@ define ptr @compile_filename(i32 noundef %0, ptr noundef %1) local_unnamed_addr 
 
 20:                                               ; preds = %17, %13
   store ptr %1, ptr %10, align 8
-  %21 = call ptr @zend_hash_add_empty_element(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 360), ptr noundef nonnull %1) #17
+  %21 = call ptr @zend_hash_add_empty_element(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 360), ptr noundef nonnull %1) #17
   %22 = load i32, ptr %14, align 4
   %23 = and i32 %22, 64
   %.not24 = icmp eq i32 %23, 0
@@ -1536,12 +1536,12 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 define i64 @zend_get_scanned_file_offset() local_unnamed_addr #0 {
   %1 = alloca i64, align 8
   %2 = alloca ptr, align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 24), align 8
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %4 to i64
   %7 = sub i64 %5, %6
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 200), align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %.loopexit, label %9
 
@@ -1552,8 +1552,8 @@ define i64 @zend_get_scanned_file_offset() local_unnamed_addr #0 {
 10:                                               ; preds = %15, %9
   %.1 = phi i64 [ %7, %9 ], [ %.2, %15 ]
   store ptr null, ptr %2, align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 200), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 168), align 8
   %13 = call i64 %11(ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef %12, i64 noundef %.1) #17
   %14 = icmp eq i64 %13, -1
   br i1 %14, label %.loopexit, label %15
@@ -1599,76 +1599,76 @@ define noundef ptr @compile_string(ptr noundef %0, ptr nocapture noundef readonl
   %.sink = phi i32 [ 262, %13 ], [ 6, %9 ]
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.sink, ptr %17, align 8
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   store i32 %18, ptr %4, align 8
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 24), align 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %19, ptr %20, align 8
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %21, ptr %22, align 8
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %23, ptr %24, align 8
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %25, ptr %26, align 8
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %27, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #17
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #17
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
-  tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
+  tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96)) #17
   %32 = load ptr, ptr @language_scanner_globals, align 8
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store ptr %32, ptr %33, align 8
-  %34 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 %34, ptr %35, align 8
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 32), align 8
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store ptr %36, ptr %37, align 8
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 144
   store i32 %38, ptr %39, align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 32), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 168), align 8
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %40, ptr %41, align 8
-  %42 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
+  %42 = load i64, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 176), align 8
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 168
   store i64 %42, ptr %43, align 8
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 184), align 8
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 176
   store ptr %44, ptr %45, align 8
-  %46 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
+  %46 = load i64, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 192), align 8
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 184
   store i64 %46, ptr %47, align 8
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 200), align 8
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 192
   store ptr %48, ptr %49, align 8
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 208), align 8
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 200
   store ptr %50, ptr %51, align 8
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 216), align 8
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 208
   store ptr %52, ptr %53, align 8
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 232), align 8
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 216
   store ptr %54, ptr %55, align 8
-  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 240), align 8
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 240), align 8
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 224
   store ptr %56, ptr %57, align 8
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 424), align 8
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 232
   store ptr %58, ptr %59, align 8
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 432), align 8
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 240
   store ptr %60, ptr %61, align 8
   %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
@@ -1722,7 +1722,7 @@ switch.lookup:                                    ; preds = %82
   %84 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.compile_string, i64 0, i64 %84
   %switch.load = load i32, ptr %switch.gep, align 4
-  store i32 %switch.load, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store i32 %switch.load, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %85
 
 85:                                               ; preds = %82, %switch.lookup
@@ -1746,76 +1746,76 @@ define range(i32 -1, 1) i32 @highlight_file(ptr noundef %0, ptr noundef %1) loca
   %3 = alloca %struct._zend_lex_state, align 8
   %4 = alloca %struct._zend_file_handle, align 8
   call void @zend_stream_init_filename(ptr noundef nonnull %4, ptr noundef %0) #17
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   store i32 %5, ptr %3, align 8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 24), align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %6, ptr %7, align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %9, align 8
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %10, ptr %11, align 8
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %12, ptr %13, align 8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %14, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
-  call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
+  call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #17
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
-  call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
+  call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #17
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
-  call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
+  call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96)) #17
   %19 = load ptr, ptr @language_scanner_globals, align 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store ptr %19, ptr %20, align 8
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 %21, ptr %22, align 8
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 32), align 8
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 152
   store ptr %23, ptr %24, align 8
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store i32 %25, ptr %26, align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 32), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 168), align 8
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 160
   store ptr %27, ptr %28, align 8
-  %29 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
+  %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 176), align 8
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 168
   store i64 %29, ptr %30, align 8
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 184), align 8
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 176
   store ptr %31, ptr %32, align 8
-  %33 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
+  %33 = load i64, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 192), align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 184
   store i64 %33, ptr %34, align 8
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 200), align 8
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 192
   store ptr %35, ptr %36, align 8
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 208), align 8
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 200
   store ptr %37, ptr %38, align 8
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 216), align 8
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 208
   store ptr %39, ptr %40, align 8
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 232), align 8
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 216
   store ptr %41, ptr %42, align 8
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 240), align 8
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 240), align 8
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 224
   store ptr %43, ptr %44, align 8
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 424), align 8
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 232
   store ptr %45, ptr %46, align 8
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 432), align 8
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 240
   store ptr %47, ptr %48, align 8
   %49 = call i32 @open_file_for_scanning(ptr noundef nonnull %4)
@@ -1828,13 +1828,13 @@ define range(i32 -1, 1) i32 @highlight_file(ptr noundef %0, ptr noundef %1) loca
 
 52:                                               ; preds = %2
   call void @zend_highlight(ptr noundef %1) #17
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 184), align 8
   %.not = icmp eq ptr %53, null
   br i1 %.not, label %55, label %54
 
 54:                                               ; preds = %52
   call void @_efree(ptr noundef nonnull %53) #17
-  store ptr null, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 184), align 8
   br label %55
 
 55:                                               ; preds = %52, %54, %51
@@ -1884,76 +1884,76 @@ define void @highlight_string(ptr noundef %0, ptr noundef %1, ptr nocapture noun
   %.sink = phi i32 [ 262, %18 ], [ 6, %3 ]
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.sink, ptr %22, align 8
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   store i32 %23, ptr %4, align 8
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 24), align 8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %24, ptr %25, align 8
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %26, ptr %27, align 8
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %28, ptr %29, align 8
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %30, ptr %31, align 8
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %32, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #17
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #17
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
-  tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
+  tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96)) #17
   %37 = load ptr, ptr @language_scanner_globals, align 8
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store ptr %37, ptr %38, align 8
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 %39, ptr %40, align 8
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 32), align 8
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store ptr %41, ptr %42, align 8
-  %43 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 144
   store i32 %43, ptr %44, align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 32), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 168), align 8
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %45, ptr %46, align 8
-  %47 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
+  %47 = load i64, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 176), align 8
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 168
   store i64 %47, ptr %48, align 8
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 184), align 8
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 176
   store ptr %49, ptr %50, align 8
-  %51 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
+  %51 = load i64, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 192), align 8
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 184
   store i64 %51, ptr %52, align 8
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 200), align 8
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 192
   store ptr %53, ptr %54, align 8
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 208), align 8
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 200
   store ptr %55, ptr %56, align 8
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 216), align 8
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 208
   store ptr %57, ptr %58, align 8
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 232), align 8
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 216
   store ptr %59, ptr %60, align 8
-  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 240), align 8
+  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 240), align 8
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 224
   store ptr %61, ptr %62, align 8
-  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 424), align 8
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 232
   store ptr %63, ptr %64, align 8
-  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 432), align 8
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 240
   store ptr %65, ptr %66, align 8
   call void @zend_prepare_string_for_scanning(ptr noundef nonnull %5, ptr noundef nonnull %9)
@@ -1985,15 +1985,15 @@ define void @highlight_string(ptr noundef %0, ptr noundef %1, ptr nocapture noun
   br label %78
 
 78:                                               ; preds = %69, %77, %76, %21
-  store i32 8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   tail call void @zend_highlight(ptr noundef %1) #17
-  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 184), align 8
   %.not79 = icmp eq ptr %79, null
   br i1 %.not79, label %81, label %80
 
 80:                                               ; preds = %78
   tail call void @_efree(ptr noundef nonnull %79) #17
-  store ptr null, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 184), align 8
   br label %81
 
 81:                                               ; preds = %80, %78
@@ -2006,41 +2006,41 @@ define void @highlight_string(ptr noundef %0, ptr noundef %1, ptr nocapture noun
 define void @zend_multibyte_yyinput_again(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 200), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %12
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 184), align 8
   %.not3 = icmp eq ptr %7, null
   br i1 %.not3, label %9, label %8
 
 8:                                                ; preds = %6
   tail call void @_efree(ptr noundef nonnull %7) #17
-  store ptr null, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 184), align 8
   br label %9
 
 9:                                                ; preds = %8, %6
-  store i64 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 192), align 8
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 176), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 168), align 8
   br label %26
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 168), align 8
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 176), align 8
   %15 = call i64 %5(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %13, i64 noundef %14) #17
   %16 = icmp eq i64 %15, -1
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 216), align 8
   %19 = call ptr @zend_multibyte_get_encoding_name(ptr noundef %18) #17
   call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.2, ptr noundef %19) #20
   unreachable
 
 20:                                               ; preds = %12
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 184), align 8
   %.not4 = icmp eq ptr %21, null
   br i1 %.not4, label %23, label %22
 
@@ -2050,34 +2050,34 @@ define void @zend_multibyte_yyinput_again(ptr nocapture noundef readnone %0, ptr
 
 23:                                               ; preds = %22, %20
   %24 = load ptr, ptr %4, align 8
-  store ptr %24, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  store ptr %24, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 184), align 8
   %25 = load i64, ptr %3, align 8
-  store i64 %25, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
+  store i64 %25, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 192), align 8
   br label %26
 
 26:                                               ; preds = %23, %9
   %27 = phi i64 [ %25, %23 ], [ %10, %9 ]
   %28 = phi ptr [ %24, %23 ], [ %11, %9 ]
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 24), align 8
   %31 = ptrtoint ptr %29 to i64
   %32 = ptrtoint ptr %30 to i64
   %33 = sub i64 %31, %32
   %34 = getelementptr inbounds i8, ptr %28, i64 %33
-  store ptr %34, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %34, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = sub i64 %36, %32
   %38 = getelementptr inbounds i8, ptr %28, i64 %37
-  store ptr %38, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  store ptr %38, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %40 = ptrtoint ptr %39 to i64
   %41 = sub i64 %40, %32
   %42 = getelementptr inbounds i8, ptr %28, i64 %41
-  store ptr %42, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  store ptr %42, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %43 = getelementptr inbounds i8, ptr %28, i64 %27
-  store ptr %43, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
-  store ptr %28, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
+  store ptr %43, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
+  store ptr %28, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 24), align 8
   ret void
 }
 
@@ -2107,7 +2107,7 @@ define range(i32 -128, 407) i32 @lex_scan(ptr noundef initializes((8, 12)) %0, p
   %24 = alloca i64, align 8
   %25 = alloca i64, align 8
   %26 = alloca ptr, align 8
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %28, align 8
   %.not5988 = icmp eq ptr %1, null
@@ -2118,20 +2118,20 @@ thread-pre-split.outer:                           ; preds = %thread-pre-split.ou
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %thread-pre-split.outer, %6597
-  %.pr = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %29, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %30 = icmp slt i32 %.pr, 5
   br i1 %30, label %._crit_edge9473, label %.lr.ph9472.preheader
 
 .lr.ph9472.preheader:                             ; preds = %thread-pre-split
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = icmp samesign ult i32 %.pr, 8
   br i1 %33, label %.lr.ph20498, label %41
 
 .lr.ph20498:                                      ; preds = %.lr.ph9472.preheader
-  %.promoted = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %.promoted = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 2
   switch i32 %.pr, label %7344 [
     i32 5, label %7282
@@ -2148,7 +2148,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
 
 37:                                               ; preds = %._crit_edge9473
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 2
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %.not6050 = icmp ult ptr %38, %40
   switch i32 %.pr, label %6808 [
@@ -2165,7 +2165,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
 43:                                               ; preds = %41
   %44 = icmp samesign ult i32 %.lcssa17125, 10
   %45 = getelementptr inbounds nuw i8, ptr %.lcssa17134, i64 1
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %.not5985 = icmp ult ptr %45, %47
   br i1 %44, label %7805, label %7821
@@ -2173,7 +2173,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
 .loopexit20794:                                   ; preds = %36, %.thread13171
   %.promoted103951316013175 = phi ptr [ %.pre13076, %.thread13171 ], [ %29, %36 ]
   %48 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 16
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %50 = ptrtoint ptr %49 to i64
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %.not6071 = icmp ult ptr %48, %51
@@ -2313,8 +2313,8 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
 
 60:                                               ; preds = %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59
   %61 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %61, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %61, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %62 = icmp ugt ptr %61, %49
   br i1 %62, label %63, label %.loopexit7124
 
@@ -2328,7 +2328,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
 .preheader7117:                                   ; preds = %52, %68
   %65 = phi ptr [ %66, %68 ], [ %.promoted103951316013175, %52 ]
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 1
-  store ptr %66, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %66, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 2
   %.not6596 = icmp ult ptr %67, %51
   br i1 %.not6596, label %68, label %.loopexit
@@ -2345,7 +2345,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
 
 75:                                               ; preds = %59, %59
   %76 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %76, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %76, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %77 = load i8, ptr %76, align 1
   %78 = icmp eq i8 %77, 61
   br i1 %78, label %829, label %.loopexit7208
@@ -2368,12 +2368,12 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
 
 .loopexit7208:                                    ; preds = %414, %.loopexit7208.loopexit.split.loop.exit16814, %.loopexit7208.loopexit.split.loop.exit16817, %.loopexit7208.loopexit.split.loop.exit16820, %.loopexit7208.loopexit.split.loop.exit16823, %166, %166, %166, %166, %166, %166, %902, %807, %395, %392, %163, %791, %559, %549, %543, %541, %535, %532, %520, %418, %408, %404, %169, %161, %75, %398
   %83 = phi ptr [ %158, %166 ], [ %158, %166 ], [ %158, %166 ], [ %158, %166 ], [ %158, %166 ], [ %158, %166 ], [ %896, %902 ], [ %808, %807 ], [ %396, %395 ], [ %393, %392 ], [ %158, %163 ], [ %792, %791 ], [ %560, %559 ], [ %544, %549 ], [ %544, %543 ], [ %536, %541 ], [ %536, %535 ], [ %533, %532 ], [ %521, %520 ], [ %411, %418 ], [ %401, %408 ], [ %401, %404 ], [ %170, %169 ], [ %158, %161 ], [ %76, %75 ], [ %399, %398 ], [ %79, %.loopexit7208.loopexit.split.loop.exit16814 ], [ %80, %.loopexit7208.loopexit.split.loop.exit16817 ], [ %81, %.loopexit7208.loopexit.split.loop.exit16820 ], [ %82, %.loopexit7208.loopexit.split.loop.exit16823 ], [ %411, %414 ]
-  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %85 = ptrtoint ptr %83 to i64
   %86 = ptrtoint ptr %84 to i64
   %87 = sub i64 %85, %86
   %88 = trunc i64 %87 to i32
-  store i32 %88, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %88, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %89 = load i8, ptr %84, align 1
   %90 = sext i8 %89 to i32
   br label %.loopexit7124
@@ -2385,12 +2385,12 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
 .split.loop.exit16800:                            ; preds = %59, %.split.loop.exit
   %92 = phi ptr [ %91, %.split.loop.exit ], [ %.promoted103951316013175, %59 ]
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 1
-  store ptr %93, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %93, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %94 = ptrtoint ptr %93 to i64
   %95 = ptrtoint ptr %.promoted103951316013175 to i64
   %96 = sub i64 %94, %95
   %97 = trunc i64 %96 to i32
-  store i32 %97, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %97, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %98 = load i8, ptr %.promoted103951316013175, align 1
   %.not6527 = icmp ne i8 %98, 34
   %99 = icmp ult ptr %93, %49
@@ -2399,7 +2399,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
 .lr.ph10362:                                      ; preds = %.split.loop.exit16800, %.backedge
   %100 = phi ptr [ %126, %.backedge ], [ %93, %.split.loop.exit16800 ]
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 1
-  store ptr %101, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %101, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %102 = load i8, ptr %100, align 1
   switch i8 %102, label %.backedge [
     i8 34, label %103
@@ -2412,7 +2412,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
   %104 = ptrtoint ptr %101 to i64
   %105 = sub i64 %104, %95
   %106 = trunc i64 %105 to i32
-  store i32 %106, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %106, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %107 = zext i1 %.not6527 to i64
   %108 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 1
@@ -2450,7 +2450,7 @@ switch.early.test:                                ; preds = %114
 
 124:                                              ; preds = %122
   %125 = getelementptr inbounds nuw i8, ptr %100, i64 2
-  store ptr %125, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %125, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.lr.ph10362, %124, %122, %119, %switch.early.test
@@ -2464,15 +2464,15 @@ switch.early.test:                                ; preds = %114
   %130 = and i64 %96, 4294967295
   %131 = sub i64 %129, %94
   %132 = trunc i64 %131 to i32
-  store i32 %132, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 224), align 8
+  store i32 %132, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 224), align 8
   %133 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 %130
-  store ptr %133, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store ptr %133, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %.loopexit7124
 
 134:                                              ; preds = %59
   %135 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %135, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %135, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %136 = load i8, ptr %135, align 1
   %137 = icmp eq i8 %136, 91
   br i1 %137, label %839, label %138
@@ -2483,7 +2483,7 @@ switch.early.test:                                ; preds = %114
   %141 = ptrtoint ptr %.promoted103951316013175 to i64
   %142 = sub i64 %140, %141
   %143 = trunc i64 %142 to i32
-  store i32 %143, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %143, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %144 = icmp ult ptr %139, %49
   br i1 %144, label %.lr.ph10203.preheader, label %.loopexit6996
 
@@ -2495,7 +2495,7 @@ switch.early.test:                                ; preds = %114
 .lr.ph10203:                                      ; preds = %.lr.ph10203.preheader, %152
   %146 = phi ptr [ %147, %152 ], [ %139, %.lr.ph10203.preheader ]
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 1
-  store ptr %147, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %147, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %148 = load i8, ptr %146, align 1
   switch i8 %148, label %152 [
     i8 13, label %.loopexit6996.sink.split
@@ -2513,7 +2513,7 @@ switch.early.test:                                ; preds = %114
   br i1 %exitcond.not, label %.loopexit6996, label %.lr.ph10203
 
 .loopexit6996.sink.split:                         ; preds = %149, %.lr.ph10203, %.lr.ph10203
-  store ptr %146, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %146, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.loopexit6996
 
 .loopexit6996:                                    ; preds = %152, %.loopexit6996.sink.split, %138
@@ -2521,12 +2521,12 @@ switch.early.test:                                ; preds = %114
   %154 = ptrtoint ptr %153 to i64
   %155 = sub i64 %154, %141
   %156 = trunc i64 %155 to i32
-  store i32 %156, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %156, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br i1 %.not5988, label %.loopexit7124, label %8047
 
 157:                                              ; preds = %59
   %158 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %158, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %158, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %159 = load i8, ptr %158, align 1
   %160 = icmp ult i8 %159, 96
   br i1 %160, label %161, label %166
@@ -2553,22 +2553,22 @@ switch.early.test:                                ; preds = %114
 
 .preheader6802:                                   ; preds = %163, %166
   %167 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %167, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %167, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %168 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
   %.not652510358 = icmp ult ptr %168, %51
   br i1 %.not652510358, label %.lr.ph10359, label %.loopexit
 
 169:                                              ; preds = %59
   %170 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %170, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %170, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %171 = load i8, ptr %170, align 1
   %172 = icmp eq i8 %171, 61
   br i1 %172, label %865, label %.loopexit7208
 
 173:                                              ; preds = %59
   %174 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %174, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %174, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %174, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %174, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %175 = load i8, ptr %174, align 1
   %176 = icmp ult i8 %175, 35
   br i1 %176, label %177, label %182
@@ -2613,12 +2613,12 @@ switch.early.test:                                ; preds = %114
 
 .loopexit7215:                                    ; preds = %181, %179, %902, %190, %186
   %192 = phi ptr [ %896, %902 ], [ %174, %190 ], [ %174, %186 ], [ %174, %179 ], [ %174, %181 ]
-  %193 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %193 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %194 = ptrtoint ptr %192 to i64
   %195 = ptrtoint ptr %193 to i64
   %196 = sub i64 %194, %195
   %197 = trunc i64 %196 to i32
-  store i32 %197, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %197, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 .split.loop.exit16805:                            ; preds = %597
@@ -2628,12 +2628,12 @@ switch.early.test:                                ; preds = %114
 .split.loop.exit16807:                            ; preds = %59, %.split.loop.exit16805
   %199 = phi ptr [ %198, %.split.loop.exit16805 ], [ %.promoted103951316013175, %59 ]
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 1
-  store ptr %200, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %200, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %201 = ptrtoint ptr %200 to i64
   %202 = ptrtoint ptr %.promoted103951316013175 to i64
   %203 = sub i64 %201, %202
   %204 = trunc i64 %203 to i32
-  store i32 %204, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %204, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %205 = load i8, ptr %.promoted103951316013175, align 1
   %.not6463 = icmp ne i8 %205, 39
   %206 = icmp ult ptr %200, %49
@@ -2644,14 +2644,14 @@ switch.early.test:                                ; preds = %114
   %208 = load i8, ptr %207, align 1
   %209 = icmp eq i8 %208, 39
   %210 = getelementptr inbounds nuw i8, ptr %207, i64 1
-  store ptr %210, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %210, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br i1 %209, label %211, label %218
 
 211:                                              ; preds = %.lr.ph10349
   %212 = ptrtoint ptr %210 to i64
   %213 = sub i64 %212, %202
   %214 = trunc i64 %213 to i32
-  store i32 %214, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %214, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %215 = select i1 %.not6463, i32 -3, i32 -2
   %216 = add i32 %215, %214
   %217 = icmp ult i32 %216, 2
@@ -2666,13 +2666,13 @@ switch.early.test:                                ; preds = %114
 
 222:                                              ; preds = %218
   %223 = getelementptr inbounds nuw i8, ptr %207, i64 2
-  store ptr %223, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %223, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %226
 
 ._crit_edge10350:                                 ; preds = %226, %.split.loop.exit16807
   %224 = sub i64 %50, %202
   %225 = trunc i64 %224 to i32
-  store i32 %225, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %225, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   store i32 1, ptr %28, align 8
   br label %.loopexit6824
 
@@ -2702,9 +2702,9 @@ switch.early.test:                                ; preds = %114
   ]
 
 238:                                              ; preds = %233, %233
-  %239 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %239 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   %240 = add nsw i32 %239, 1
-  store i32 %240, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  store i32 %240, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %241
 
 241:                                              ; preds = %233, %238
@@ -2736,7 +2736,7 @@ switch.early.test:                                ; preds = %114
   store i8 0, ptr %257, align 1
   store ptr %252, ptr %0, align 8
   store i32 262, ptr %28, align 8
-  %.promoted10351 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %.promoted10351 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %258
 
 258:                                              ; preds = %267, %245
@@ -2761,7 +2761,7 @@ switch.early.test:                                ; preds = %114
 
 265:                                              ; preds = %258, %262
   %266 = add nsw i32 %259, 1
-  store i32 %266, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  store i32 %266, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %267
 
 267:                                              ; preds = %258, %265, %262
@@ -2823,9 +2823,9 @@ switch.early.test:                                ; preds = %114
   br i1 %.not6465, label %292, label %289
 
 289:                                              ; preds = %284, %286
-  %290 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %290 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   %291 = add nsw i32 %290, 1
-  store i32 %291, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  store i32 %291, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %292
 
 292:                                              ; preds = %284, %289, %286
@@ -2846,7 +2846,7 @@ switch.early.test:                                ; preds = %114
   br label %.loopexit6806
 
 .loopexit6806:                                    ; preds = %267, %231, %241, %._crit_edge10355
-  %301 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
+  %301 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 208), align 8
   %.not6467 = icmp eq ptr %301, null
   br i1 %.not6467, label %.loopexit6824, label %302
 
@@ -2914,8 +2914,8 @@ switch.early.test:                                ; preds = %114
 
 335:                                              ; preds = %59
   %336 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %336, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %336, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %336, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %336, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %337 = load i8, ptr %336, align 1
   %338 = icmp ult i8 %337, 84
   br i1 %338, label %339, label %353
@@ -3007,24 +3007,24 @@ switch.early.test:                                ; preds = %114
   %374 = ptrtoint ptr %371 to i64
   %375 = sub i64 %373, %374
   %376 = trunc i64 %375 to i32
-  store i32 %376, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %376, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %377 = load i8, ptr %371, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   store i8 %377, ptr %12, align 4
   %378 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %379 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %379 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   store i32 %379, ptr %378, align 4
-  %380 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %12) #17
+  %380 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %12) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  %381 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %381 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %382 = load i8, ptr %381, align 1
   %383 = sext i8 %382 to i32
   br label %.loopexit7124
 
 384:                                              ; preds = %59, %59
   %385 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %385, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %385, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %386 = load i8, ptr %.promoted103951316013175, align 1
   %387 = tail call fastcc i32 @exit_nesting(i8 noundef signext %386)
   %.not6446 = icmp eq i32 %387, 0
@@ -3032,14 +3032,14 @@ switch.early.test:                                ; preds = %114
   br i1 %or.cond, label %388, label %.loopexit7124
 
 388:                                              ; preds = %384
-  %389 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %389 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %390 = load i8, ptr %389, align 1
   %391 = sext i8 %390 to i32
   br label %.loopexit7124
 
 392:                                              ; preds = %59
   %393 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %393, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %393, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %394 = load i8, ptr %393, align 1
   switch i8 %394, label %.loopexit7208 [
     i8 42, label %1061
@@ -3048,7 +3048,7 @@ switch.early.test:                                ; preds = %114
 
 395:                                              ; preds = %59
   %396 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %396, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %396, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %397 = load i8, ptr %396, align 1
   switch i8 %397, label %.loopexit7208 [
     i8 43, label %1068
@@ -3057,12 +3057,12 @@ switch.early.test:                                ; preds = %114
 
 398:                                              ; preds = %59, %59, %59, %59
   %399 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %399, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %399, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.loopexit7208
 
 400:                                              ; preds = %59
   %401 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %401, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %401, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %402 = load i8, ptr %401, align 1
   %403 = icmp ult i8 %402, 61
   br i1 %403, label %404, label %406
@@ -3081,8 +3081,8 @@ switch.early.test:                                ; preds = %114
 
 410:                                              ; preds = %59
   %411 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %411, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %411, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %411, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %411, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %412 = load i8, ptr %411, align 1
   %413 = icmp ult i8 %412, 48
   br i1 %413, label %414, label %416
@@ -3101,7 +3101,7 @@ switch.early.test:                                ; preds = %114
 
 420:                                              ; preds = %59
   %421 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %421, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %421, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %422 = load i8, ptr %421, align 1
   %423 = icmp ult i8 %422, 47
   br i1 %423, label %424, label %426
@@ -3118,8 +3118,8 @@ switch.early.test:                                ; preds = %114
 
 427:                                              ; preds = %59
   %428 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %428, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %428, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %428, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %428, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %429 = load i8, ptr %428, align 1
   %430 = icmp ult i8 %429, 89
   br i1 %430, label %431, label %436
@@ -3168,7 +3168,7 @@ switch.early.test:                                ; preds = %114
   %444 = ptrtoint ptr %441 to i64
   %445 = sub i64 %443, %444
   %446 = trunc i64 %445 to i32
-  store i32 %446, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %446, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %447 = and i64 %445, 4294967295
   %448 = load i8, ptr %441, align 1
   %449 = icmp eq i8 %448, 48
@@ -3310,8 +3310,8 @@ strip_underscores.exit:                           ; preds = %453
 499:                                              ; preds = %1244, %505, %59, %59, %59, %59, %59, %59, %59, %59, %59
   %500 = phi ptr [ %1242, %1244 ], [ %506, %505 ], [ %.promoted103951316013175, %59 ], [ %.promoted103951316013175, %59 ], [ %.promoted103951316013175, %59 ], [ %.promoted103951316013175, %59 ], [ %.promoted103951316013175, %59 ], [ %.promoted103951316013175, %59 ], [ %.promoted103951316013175, %59 ], [ %.promoted103951316013175, %59 ], [ %.promoted103951316013175, %59 ]
   %501 = getelementptr inbounds nuw i8, ptr %500, i64 1
-  store ptr %501, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %501, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %501, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %501, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %502 = getelementptr inbounds nuw i8, ptr %500, i64 4
   %.not6436 = icmp ult ptr %502, %51
   br i1 %.not6436, label %503, label %.loopexit
@@ -3355,14 +3355,14 @@ strip_underscores.exit:                           ; preds = %453
 
 520:                                              ; preds = %59
   %521 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %521, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %521, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %522 = load i8, ptr %521, align 1
   %523 = icmp eq i8 %522, 58
   br i1 %523, label %1251, label %.loopexit7208
 
 524:                                              ; preds = %59
   %525 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %525, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %525, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %526 = load i8, ptr %525, align 1
   %527 = icmp ult i8 %526, 60
   br i1 %527, label %.loopexit7208.loopexit.split.loop.exit16817, label %528
@@ -3382,7 +3382,7 @@ strip_underscores.exit:                           ; preds = %453
 
 535:                                              ; preds = %59
   %536 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %536, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %536, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %537 = load i8, ptr %536, align 1
   %538 = icmp ult i8 %537, 61
   br i1 %538, label %.loopexit7208, label %539
@@ -3397,7 +3397,7 @@ strip_underscores.exit:                           ; preds = %453
 
 543:                                              ; preds = %59
   %544 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %544, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %544, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %545 = load i8, ptr %544, align 1
   %546 = icmp ult i8 %545, 61
   br i1 %546, label %.loopexit7208, label %547
@@ -3412,8 +3412,8 @@ strip_underscores.exit:                           ; preds = %453
 
 551:                                              ; preds = %59
   %552 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %552, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %552, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %552, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %552, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %553 = load i8, ptr %552, align 1
   %554 = icmp ult i8 %553, 62
   br i1 %554, label %555, label %557
@@ -3433,8 +3433,8 @@ strip_underscores.exit:                           ; preds = %453
 
 562:                                              ; preds = %59, %59
   %563 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %563, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %563, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %563, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %563, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %564 = load i8, ptr %563, align 1
   %565 = icmp ult i8 %564, 84
   br i1 %565, label %566, label %575
@@ -3483,18 +3483,18 @@ strip_underscores.exit:                           ; preds = %453
 
 .loopexit7217:                                    ; preds = %675, %903
   %584 = phi ptr [ %896, %903 ], [ %.promoted10207.pre, %675 ]
-  %585 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %585 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %586 = ptrtoint ptr %584 to i64
   %587 = ptrtoint ptr %585 to i64
   %588 = sub i64 %586, %587
   %589 = trunc i64 %588 to i32
-  store i32 %589, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %589, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7968
 
 590:                                              ; preds = %59, %59
   %591 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %591, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %591, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %591, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %591, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %592 = load i8, ptr %591, align 1
   %593 = icmp ult i8 %592, 60
   br i1 %593, label %594, label %599
@@ -3527,8 +3527,8 @@ strip_underscores.exit:                           ; preds = %453
 
 604:                                              ; preds = %59, %59
   %605 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %605, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %605, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %605, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %605, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %606 = load i8, ptr %605, align 1
   %607 = icmp ult i8 %606, 80
   br i1 %607, label %608, label %613
@@ -3563,8 +3563,8 @@ strip_underscores.exit:                           ; preds = %453
 
 618:                                              ; preds = %59, %59
   %619 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %619, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %619, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %619, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %619, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %620 = load i8, ptr %619, align 1
   %621 = icmp ult i8 %620, 80
   br i1 %621, label %622, label %627
@@ -3599,8 +3599,8 @@ strip_underscores.exit:                           ; preds = %453
 
 632:                                              ; preds = %59, %59
   %633 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %633, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %633, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %633, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %633, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %634 = load i8, ptr %633, align 1
   switch i8 %634, label %670 [
     i8 67, label %1422
@@ -3619,8 +3619,8 @@ strip_underscores.exit:                           ; preds = %453
 
 635:                                              ; preds = %59, %59
   %636 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %636, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %636, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %636, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %636, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %637 = load i8, ptr %636, align 1
   %638 = icmp ult i8 %637, 86
   br i1 %638, label %639, label %648
@@ -3663,8 +3663,8 @@ strip_underscores.exit:                           ; preds = %453
 
 652:                                              ; preds = %59, %59
   %653 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %653, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %653, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %653, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %653, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %654 = load i8, ptr %653, align 1
   %655 = icmp ult i8 %654, 80
   br i1 %655, label %656, label %657
@@ -3690,10 +3690,10 @@ strip_underscores.exit:                           ; preds = %453
 662:                                              ; preds = %._crit_edge13113, %3836, %3395, %2621, %2166, %4486, %4424, %6374, %6167, %6011, %5924, %5909, %5552, %5437, %5418, %5311, %5296, %5251, %5220, %5177, %5161, %5146, %5131, %5006, %4921, %4898, %4826, %4783, %4723, %4696, %4681, %4666, %4563, %4496, %4488, %4457, %4434, %4426, %4395, %4380, %4365, %4247, %4232, %4046, %4031, %4016, %3993, %3946, %3852, %3847, %3841, %3811, %3591, %3576, %3561, %3546, %3531, %3484, %3465, %3450, %3411, %3406, %3400, %3302, %3279, %3248, %3233, %3218, %3203, %3184, %3169, %2774, %2733, %2698, %2683, %2637, %2632, %2626, %2600, %2557, %2347, %2328, %2313, %2294, %2233, %2182, %2177, %2171, %2110, %2016, %1550, %1493, %1462, %1407, %1324, %59
   %663 = phi ptr [ %.pre13114, %._crit_edge13113 ], [ %3831, %3836 ], [ %3390, %3395 ], [ %2616, %2621 ], [ %2161, %2166 ], [ %4481, %4486 ], [ %4419, %4424 ], [ %6375, %6374 ], [ %6168, %6167 ], [ %6012, %6011 ], [ %5925, %5924 ], [ %5910, %5909 ], [ %5553, %5552 ], [ %5438, %5437 ], [ %5419, %5418 ], [ %5312, %5311 ], [ %5297, %5296 ], [ %5252, %5251 ], [ %5221, %5220 ], [ %5178, %5177 ], [ %5162, %5161 ], [ %5147, %5146 ], [ %5132, %5131 ], [ %5007, %5006 ], [ %4922, %4921 ], [ %4899, %4898 ], [ %4827, %4826 ], [ %4784, %4783 ], [ %4724, %4723 ], [ %4697, %4696 ], [ %4682, %4681 ], [ %4667, %4666 ], [ %4564, %4563 ], [ %4481, %4496 ], [ %4481, %4488 ], [ %4458, %4457 ], [ %4419, %4434 ], [ %4419, %4426 ], [ %4396, %4395 ], [ %4381, %4380 ], [ %4366, %4365 ], [ %4248, %4247 ], [ %4233, %4232 ], [ %4047, %4046 ], [ %4032, %4031 ], [ %4017, %4016 ], [ %3994, %3993 ], [ %3947, %3946 ], [ %3831, %3852 ], [ %3831, %3847 ], [ %3831, %3841 ], [ %3812, %3811 ], [ %3592, %3591 ], [ %3577, %3576 ], [ %3562, %3561 ], [ %3547, %3546 ], [ %3532, %3531 ], [ %3485, %3484 ], [ %3466, %3465 ], [ %3451, %3450 ], [ %3390, %3411 ], [ %3390, %3406 ], [ %3390, %3400 ], [ %3303, %3302 ], [ %3280, %3279 ], [ %3249, %3248 ], [ %3234, %3233 ], [ %3219, %3218 ], [ %3204, %3203 ], [ %3185, %3184 ], [ %3170, %3169 ], [ %2775, %2774 ], [ %2734, %2733 ], [ %2699, %2698 ], [ %2684, %2683 ], [ %2616, %2637 ], [ %2616, %2632 ], [ %2616, %2626 ], [ %2601, %2600 ], [ %2558, %2557 ], [ %2348, %2347 ], [ %2329, %2328 ], [ %2314, %2313 ], [ %2295, %2294 ], [ %2234, %2233 ], [ %2161, %2182 ], [ %2161, %2177 ], [ %2161, %2171 ], [ %2111, %2110 ], [ %2017, %2016 ], [ %1551, %1550 ], [ %1494, %1493 ], [ %1463, %1462 ], [ %1408, %1407 ], [ %1325, %1324 ], [ %.promoted103951316013175, %59 ]
   %664 = getelementptr inbounds nuw i8, ptr %663, i64 1
-  store ptr %664, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %664, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %664, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %664, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %665 = getelementptr inbounds nuw i8, ptr %663, i64 2
-  %666 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %666 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %667 = getelementptr inbounds nuw i8, ptr %666, i64 32
   %.not6532 = icmp ult ptr %665, %667
   br i1 %.not6532, label %668, label %.loopexit
@@ -3712,18 +3712,18 @@ strip_underscores.exit:                           ; preds = %453
   br i1 %.not6533, label %675, label %._crit_edge13113
 
 ._crit_edge13113:                                 ; preds = %670
-  %.pre13114 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  %.pre13114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %662
 
 675:                                              ; preds = %670
   %676 = icmp eq i8 %.35308, 92
-  %.promoted10207.pre = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  %.promoted10207.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br i1 %676, label %.preheader6992, label %.loopexit7217
 
 677:                                              ; preds = %59, %59
   %678 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %678, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %678, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %678, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %678, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %679 = load i8, ptr %678, align 1
   %680 = icmp ult i8 %679, 84
   br i1 %680, label %681, label %690
@@ -3766,8 +3766,8 @@ strip_underscores.exit:                           ; preds = %453
 
 694:                                              ; preds = %59, %59
   %695 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %695, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %695, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %695, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %695, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %696 = load i8, ptr %695, align 1
   %697 = and i8 %696, -33
   %or.cond70 = icmp eq i8 %697, 73
@@ -3775,8 +3775,8 @@ strip_underscores.exit:                           ; preds = %453
 
 698:                                              ; preds = %59, %59
   %699 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %699, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %699, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %699, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %699, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %700 = load i8, ptr %699, align 1
   %701 = and i8 %700, -33
   %or.cond73 = icmp eq i8 %701, 65
@@ -3784,8 +3784,8 @@ strip_underscores.exit:                           ; preds = %453
 
 702:                                              ; preds = %59, %59
   %703 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %703, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %703, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %703, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %703, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %704 = load i8, ptr %703, align 1
   %705 = icmp ult i8 %704, 70
   br i1 %705, label %706, label %707
@@ -3810,8 +3810,8 @@ strip_underscores.exit:                           ; preds = %453
 
 712:                                              ; preds = %59, %59
   %713 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %713, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %713, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %713, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %713, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %714 = load i8, ptr %713, align 1
   %715 = and i8 %714, -33
   %or.cond76 = icmp eq i8 %715, 82
@@ -3819,8 +3819,8 @@ strip_underscores.exit:                           ; preds = %453
 
 716:                                              ; preds = %59, %59
   %717 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %717, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %717, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %717, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %717, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %718 = load i8, ptr %717, align 1
   %719 = icmp ult i8 %718, 86
   br i1 %719, label %720, label %721
@@ -3845,8 +3845,8 @@ strip_underscores.exit:                           ; preds = %453
 
 726:                                              ; preds = %59, %59
   %727 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %727, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %727, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %727, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %727, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %728 = load i8, ptr %727, align 1
   %729 = and i8 %728, -33
   %or.cond79 = icmp eq i8 %729, 69
@@ -3854,8 +3854,8 @@ strip_underscores.exit:                           ; preds = %453
 
 730:                                              ; preds = %59, %59
   %731 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %731, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %731, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %731, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %731, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %732 = load i8, ptr %731, align 1
   %733 = icmp ult i8 %732, 88
   br i1 %733, label %734, label %735
@@ -3880,8 +3880,8 @@ strip_underscores.exit:                           ; preds = %453
 
 740:                                              ; preds = %59, %59
   %741 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %741, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %741, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %741, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %741, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %742 = load i8, ptr %741, align 1
   %743 = icmp ult i8 %742, 83
   br i1 %743, label %744, label %745
@@ -3906,8 +3906,8 @@ strip_underscores.exit:                           ; preds = %453
 
 750:                                              ; preds = %59, %59
   %751 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %751, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %751, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %751, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %751, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %752 = load i8, ptr %751, align 1
   %753 = icmp ult i8 %752, 84
   br i1 %753, label %754, label %755
@@ -3932,8 +3932,8 @@ strip_underscores.exit:                           ; preds = %453
 
 760:                                              ; preds = %59, %59
   %761 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %761, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %761, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %761, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %761, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %762 = load i8, ptr %761, align 1
   %763 = and i8 %762, -33
   %or.cond82 = icmp eq i8 %763, 65
@@ -3941,8 +3941,8 @@ strip_underscores.exit:                           ; preds = %453
 
 764:                                              ; preds = %59, %59
   %765 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %765, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %765, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %765, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %765, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %766 = load i8, ptr %765, align 1
   %767 = and i8 %766, -33
   %or.cond85 = icmp eq i8 %767, 72
@@ -3950,8 +3950,8 @@ strip_underscores.exit:                           ; preds = %453
 
 768:                                              ; preds = %59, %59
   %769 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %769, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %769, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %769, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %769, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %770 = load i8, ptr %769, align 1
   %771 = and i8 %770, -33
   %or.cond88 = icmp eq i8 %771, 79
@@ -3959,8 +3959,8 @@ strip_underscores.exit:                           ; preds = %453
 
 772:                                              ; preds = %59, %59
   %773 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %773, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %773, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %773, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %773, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %774 = load i8, ptr %773, align 1
   %775 = and i8 %774, -33
   %or.cond91 = icmp eq i8 %775, 73
@@ -3968,12 +3968,12 @@ strip_underscores.exit:                           ; preds = %453
 
 776:                                              ; preds = %59
   %777 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %777, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %777, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.loopexit7214
 
 778:                                              ; preds = %59
   %779 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %779, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %779, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %780 = load i8, ptr %779, align 1
   %781 = icmp ult i8 %780, 96
   br i1 %781, label %782, label %787
@@ -4000,56 +4000,56 @@ strip_underscores.exit:                           ; preds = %453
 
 .preheader7112:                                   ; preds = %784, %787
   %788 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %788, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %788, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %788, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %788, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %789 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
   %.not60889478 = icmp ult ptr %789, %51
   br i1 %.not60889478, label %.lr.ph9479, label %.loopexit
 
 790:                                              ; preds = %787, %787, %787, %787, %787, %787, %784, %782
-  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 791:                                              ; preds = %59
   %792 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %792, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %792, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %793 = load i8, ptr %792, align 1
   %794 = icmp eq i8 %793, 61
   br i1 %794, label %1666, label %.loopexit7208
 
 795:                                              ; preds = %59
   %796 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %796, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %796, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %796, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %796, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %797 = load i8, ptr %796, align 1
   %798 = icmp eq i8 %797, 95
   br i1 %798, label %1668, label %670
 
 799:                                              ; preds = %59
   %800 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %800, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store ptr %800, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %.loopexit7124
 
 801:                                              ; preds = %59
   %802 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %802, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %803 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #17
-  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store ptr %802, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %803 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64)) #17
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store i8 123, ptr %11, align 4
   %804 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %805 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %805 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   store i32 %805, ptr %804, align 4
-  %806 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %11) #17
+  %806 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %11) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   br label %.loopexit7124
 
 807:                                              ; preds = %59
   %808 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %808, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %808, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %809 = load i8, ptr %808, align 1
   switch i8 %809, label %.loopexit7208 [
     i8 61, label %1671
@@ -4058,9 +4058,9 @@ strip_underscores.exit:                           ; preds = %453
 
 810:                                              ; preds = %59
   %811 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 1
-  store ptr %811, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %812 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
+  store ptr %811, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %812 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 160), align 8
   %.not6073 = icmp eq ptr %812, null
   br i1 %.not6073, label %824, label %813
 
@@ -4085,11 +4085,11 @@ strip_underscores.exit:                           ; preds = %453
   br label %823
 
 823:                                              ; preds = %817, %822, %813
-  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 160), align 8
   br label %824
 
 824:                                              ; preds = %810, %823
-  %825 = tail call zeroext i1 @zend_stack_is_empty(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72)) #17
+  %825 = tail call zeroext i1 @zend_stack_is_empty(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72)) #17
   br i1 %825, label %827, label %826
 
 826:                                              ; preds = %824
@@ -4105,7 +4105,7 @@ strip_underscores.exit:                           ; preds = %453
 
 829:                                              ; preds = %75
   %830 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %830, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %830, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %831 = load i8, ptr %830, align 1
   %832 = icmp eq i8 %831, 61
   br i1 %832, label %1675, label %833
@@ -4116,19 +4116,19 @@ strip_underscores.exit:                           ; preds = %453
   %836 = ptrtoint ptr %.promoted103951316013175 to i64
   %837 = sub i64 %835, %836
   %838 = trunc i64 %837 to i32
-  store i32 %838, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %838, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 839:                                              ; preds = %134
   %840 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %840, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %840, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i8 91, ptr %10, align 4
   %841 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %842 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %842 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   store i32 %842, ptr %841, align 4
-  %843 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %10) #17
+  %843 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %10) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %.loopexit7124
 
@@ -4148,7 +4148,7 @@ strip_underscores.exit:                           ; preds = %453
 
 .backedge6804:                                    ; preds = %849, %857, %859, %853
   %851 = getelementptr inbounds nuw i8, ptr %844, i64 1
-  store ptr %851, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %851, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %852 = getelementptr inbounds nuw i8, ptr %844, i64 2
   %.not6525 = icmp ult ptr %852, %51
   br i1 %.not6525, label %.lr.ph10359, label %.loopexit
@@ -4175,20 +4175,20 @@ strip_underscores.exit:                           ; preds = %453
   %862 = ptrtoint ptr %.promoted103951316013175 to i64
   %863 = sub i64 %861, %862
   %864 = trunc i64 %863 to i32
-  store i32 %864, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %864, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7968
 
 865:                                              ; preds = %169
   %866 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %866, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %866, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 .loopexit6956:                                    ; preds = %2448, %2895, %2894, %2461, %2447, %2441, %2440, %1702, %1702, %877, %877, %875, %2433, %1687
   %.promoted1007810091 = phi ptr [ %871, %875 ], [ %871, %877 ], [ %1679, %1687 ], [ %1695, %1702 ], [ %2425, %2433 ], [ %1694, %2441 ], [ %2436, %2895 ], [ %871, %877 ], [ %1695, %1702 ], [ %1694, %2440 ], [ %1694, %2447 ], [ %2453, %2461 ], [ %2436, %2894 ], [ %1694, %2448 ]
   %.85318 = phi i32 [ %.05310, %875 ], [ %.05310, %877 ], [ %.11.ph, %1687 ], [ %.10.ph10075, %1702 ], [ 26, %2433 ], [ %.10.ph10075, %2441 ], [ %.10.ph10075, %2895 ], [ %.05310, %877 ], [ %.10.ph10075, %1702 ], [ %.10.ph10075, %2440 ], [ %.10.ph10075, %2447 ], [ %.16.ph, %2461 ], [ %.10.ph10075, %2894 ], [ %.10.ph10075, %2448 ]
   %867 = getelementptr inbounds nuw i8, ptr %.promoted1007810091, i64 1
-  store ptr %867, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %867, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %868 = getelementptr inbounds nuw i8, ptr %.promoted1007810091, i64 4
   %.not6524 = icmp ult ptr %868, %51
   br i1 %.not6524, label %869, label %.loopexit
@@ -4245,20 +4245,20 @@ strip_underscores.exit:                           ; preds = %453
 
 .thread6762:                                      ; preds = %2376, %2376, %2376, %2376, %2376, %2376, %2373, %2371, %1977, %2540, %2540, %2540, %2540, %2540, %2540, %2535, %2531, %3009, %3007, %3003, %2991, %2989, %2985, %1235, %1230, %1214, %.preheader7026, %3786, %3782, %2963, %2959, %4214, %4210, %3753, %3749, %4192, %4188, %3712, %3708, %3787, %3728, %2940, %1980, %1027, %1019, %1735, %2462, %2907, %1031, %1030, %1743, %2470, %3735, %4193, %3726, %1739, %2466, %2913, %3713, %1033, %1747, %2474, %2921, %3739, %1037, %1751, %2478, %2925, %1041, %1755, %2947, %3754, %4202, %2938, %1045, %1759, %2486, %2951, %3758, %1049, %1763, %2490, %1053, %1767, %2496, %2964, %3772, %1057, %1771, %2500, %2968, %1079, %1791, %1789, %1244, %1782, %1226, %1222, %1851, %1288, %1353, %2059, %1988, %1988, %1988, %1988, %1988, %1988, %2527, %1985, %1983, %3001, %2517, %2983, %2512
   %.95319.ph = phi i32 [ %.15.ph, %1988 ], [ %.15.ph, %1988 ], [ %.15.ph, %1988 ], [ %.15.ph, %1988 ], [ %.15.ph, %1988 ], [ %.15.ph, %3787 ], [ 1, %3728 ], [ 1, %2940 ], [ %.15.ph, %1980 ], [ 1, %1027 ], [ 1, %1019 ], [ 1, %1735 ], [ 1, %2462 ], [ 1, %2907 ], [ 1, %1031 ], [ 1, %1030 ], [ 1, %1743 ], [ 1, %2470 ], [ 1, %3735 ], [ 1, %4193 ], [ 1, %3726 ], [ 1, %1739 ], [ 1, %2466 ], [ 1, %2913 ], [ 1, %3713 ], [ 1, %1033 ], [ 1, %1747 ], [ 1, %2474 ], [ 1, %2921 ], [ 1, %3739 ], [ 1, %1037 ], [ 1, %1751 ], [ 1, %2478 ], [ 1, %2925 ], [ 1, %1041 ], [ 1, %1755 ], [ 1, %2947 ], [ 1, %3754 ], [ 1, %4202 ], [ 1, %2938 ], [ 1, %1045 ], [ 1, %1759 ], [ 1, %2486 ], [ 1, %2951 ], [ 1, %3758 ], [ 1, %1049 ], [ 1, %1763 ], [ 1, %2490 ], [ 1, %1053 ], [ 1, %1767 ], [ 1, %2496 ], [ 1, %2964 ], [ 1, %3772 ], [ 1, %1057 ], [ 1, %1771 ], [ 1, %2500 ], [ 1, %2968 ], [ 2, %1079 ], [ 6, %1791 ], [ 6, %1789 ], [ 3, %1244 ], [ 5, %1782 ], [ %.55315, %1226 ], [ %.55315, %1222 ], [ %.14, %1851 ], [ 2, %1288 ], [ 4, %1353 ], [ 4, %2059 ], [ %.15.ph, %1988 ], [ %.15.ph, %2527 ], [ %.15.ph, %1985 ], [ %.15.ph, %1983 ], [ %.15.ph, %3001 ], [ %.15.ph, %2517 ], [ %.15.ph, %2983 ], [ %.15.ph, %2512 ], [ 1, %3708 ], [ 1, %3712 ], [ 1, %4188 ], [ 1, %4192 ], [ 1, %3749 ], [ 1, %3753 ], [ 1, %4210 ], [ 1, %4214 ], [ 1, %2959 ], [ 1, %2963 ], [ 1, %3782 ], [ 1, %3786 ], [ 1, %.preheader7026 ], [ %.15311, %1214 ], [ %.35313, %1230 ], [ %.45314, %1235 ], [ %.15.ph, %2985 ], [ %.15.ph, %2989 ], [ %.15.ph, %2991 ], [ %.15.ph, %3003 ], [ %.15.ph, %3007 ], [ %.15.ph, %3009 ], [ %.15.ph, %2531 ], [ %.15.ph, %2535 ], [ %.15.ph, %2540 ], [ %.15.ph, %2540 ], [ %.15.ph, %2540 ], [ %.15.ph, %2540 ], [ %.15.ph, %2540 ], [ %.15.ph, %2540 ], [ %.15.ph, %1977 ], [ 13, %2371 ], [ 13, %2373 ], [ 13, %2376 ], [ 13, %2376 ], [ 13, %2376 ], [ 13, %2376 ], [ 13, %2376 ], [ 13, %2376 ]
-  %889 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
-  store ptr %889, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  %889 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %889, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %895
 
 .thread6759:                                      ; preds = %5627, %5864, %6091, %6217, %6336, %5635, %5872, %6099, %6225, %6344, %6428, %6488, %4759, %5096, %5395, %5645, %5886, %4775, %5111, %5410, %5660, %5901, %6117, %6235, %6063, %6189, %6304, %6396, %6460, %6078, %6204, %6319, %6411, %6475, %6550, %6564, %5458, %5460, %5463, %5463, %5463, %5463, %5463, %5463, %5571, %5326, %5021, %4738, %4278, %6034, %5801, %5578, %5330, %5025, %4742, %4282
   %890 = phi ptr [ %3873, %4282 ], [ %3873, %4742 ], [ %3873, %5025 ], [ %3873, %5330 ], [ %3873, %5578 ], [ %3873, %5801 ], [ %3873, %6034 ], [ %3870, %4278 ], [ %3870, %4738 ], [ %3870, %5021 ], [ %3870, %5326 ], [ %5572, %5571 ], [ %5452, %5463 ], [ %5452, %5463 ], [ %5452, %5463 ], [ %5452, %5463 ], [ %5452, %5463 ], [ %5452, %5463 ], [ %5452, %5460 ], [ %5452, %5458 ], [ %5828, %6063 ], [ %5828, %6189 ], [ %5828, %6304 ], [ %5828, %6396 ], [ %6451, %6460 ], [ %5844, %6078 ], [ %5844, %6204 ], [ %5844, %6319 ], [ %5844, %6411 ], [ %5844, %6475 ], [ %5844, %6550 ], [ %5844, %6564 ], [ %5367, %5627 ], [ %5367, %5864 ], [ %5367, %6091 ], [ %5367, %6217 ], [ %.pre1310113130, %6336 ], [ %5378, %5635 ], [ %5378, %5872 ], [ %5378, %6099 ], [ %5378, %6225 ], [ %5378, %6344 ], [ %5378, %6428 ], [ %5378, %6488 ], [ %4318, %4759 ], [ %4318, %5096 ], [ %4318, %5395 ], [ %4318, %5645 ], [ %.pre1310113131, %5886 ], [ %4336, %4775 ], [ %4336, %5111 ], [ %4336, %5410 ], [ %4336, %5660 ], [ %4336, %5901 ], [ %4336, %6117 ], [ %4336, %6235 ]
   %.95319.ph6758 = phi i32 [ 53, %4282 ], [ 53, %4742 ], [ 53, %5025 ], [ 53, %5330 ], [ 53, %5578 ], [ 53, %5801 ], [ 53, %6034 ], [ 53, %4278 ], [ 53, %4738 ], [ 53, %5021 ], [ 53, %5326 ], [ 53, %5571 ], [ %.39, %5463 ], [ %.39, %5463 ], [ %.39, %5463 ], [ %.39, %5463 ], [ %.39, %5463 ], [ %.39, %5463 ], [ %.39, %5460 ], [ %.39, %5458 ], [ 53, %6564 ], [ 53, %6550 ], [ 53, %6475 ], [ 53, %6411 ], [ 53, %6319 ], [ 53, %6204 ], [ 53, %6078 ], [ 53, %6460 ], [ 53, %6396 ], [ 53, %6304 ], [ 53, %6189 ], [ 53, %6063 ], [ 53, %6235 ], [ 53, %6117 ], [ 53, %5901 ], [ 53, %5660 ], [ 53, %5410 ], [ 53, %5111 ], [ 53, %4775 ], [ 53, %5886 ], [ 53, %5645 ], [ 53, %5395 ], [ 53, %5096 ], [ 53, %4759 ], [ 53, %6488 ], [ 53, %6428 ], [ 53, %6344 ], [ 53, %6225 ], [ 53, %6099 ], [ 53, %5872 ], [ 53, %5635 ], [ 53, %6336 ], [ 53, %6217 ], [ 53, %6091 ], [ 53, %5864 ], [ 53, %5627 ]
-  store ptr %890, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %890, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.loopexit7218
 
 .loopexit6867:                                    ; preds = %4074, %4070, %4090, %4089, %4557, %4891, %4515, %3341, %3337, %3928, %4362, %3879, %4646, %4170, %2894, %2461, %2447, %2440, %1009, %996, %995, %877, %1733, %1687, %887, %883, %880, %875, %1351, %1351, %1351, %1351, %1351, %1351, %1348, %1346, %4291, %3898, %4749, %6045, %5341, %5077, %4854, %4534, %5203, %6254, %5737, %5517, %5817, %5356, %5038, %1701, %2423, %5288, %5273, %4979, %4142, %3694, %2903, %6354, %6269, %6147, %6137, %5752, %5489, %5810, %5591, %4655, %4176, %3666, %4994, %4955, %4613, %6130, %5946, %6160, %5984, %5976, %5764, %5619, %4862, %4302, %4097, %4077, %3383, %3374, %3373, %5477, %5196, %4845, %4503, %4080, %3364, %5536, %5483, %5481, %5475, %5212, %4874, %3356, %3347, %3344, %1719, %1002
   %.95319 = phi i32 [ %.31.ph69819715, %4862 ], [ %.44, %5976 ], [ %.45, %5764 ], [ %.45, %5984 ], [ %.45, %6160 ], [ %.31.ph69819715, %4874 ], [ %.31.ph69819715, %5212 ], [ %.31.ph69819715, %5536 ], [ %.30, %5475 ], [ %.30, %5477 ], [ %.30, %5481 ], [ %.30, %5483 ], [ %.30, %5196 ], [ %.30, %4845 ], [ %.30, %4503 ], [ %.26.ph, %4080 ], [ %.18.ph, %3344 ], [ %.19, %3373 ], [ %.23.ph9888, %4302 ], [ %.369769, %5619 ], [ %.18.ph, %3347 ], [ %.18.ph, %3356 ], [ %.18.ph, %3364 ], [ %.05310, %1719 ], [ %.05310, %1002 ], [ %.19, %3374 ], [ %.20, %3383 ], [ %.26.ph, %4077 ], [ %.28, %4097 ], [ %.43, %5946 ], [ %.43, %6130 ], [ %.219969, %4613 ], [ %.219969, %4955 ], [ %.219969, %4994 ], [ %.219969, %3666 ], [ %.219969, %4176 ], [ %.219969, %4655 ], [ %.369769, %5591 ], [ %.369769, %5810 ], [ %.44, %5752 ], [ %.43, %6354 ], [ %.43, %6269 ], [ %.43, %6147 ], [ %.43, %6137 ], [ %.409571, %5489 ], [ %.219969, %5288 ], [ %.219969, %5273 ], [ %.219969, %4979 ], [ %.22.ph, %3694 ], [ %.219969, %4142 ], [ %.1710067, %2903 ], [ %.10.ph10075, %2423 ], [ %.10.ph10075, %1701 ], [ %.369769, %5038 ], [ %.369769, %5356 ], [ %.369769, %5817 ], [ %.43, %6254 ], [ %.41.ph, %5517 ], [ %.43, %5737 ], [ %.389705, %5203 ], [ %.31.ph69819715, %4534 ], [ %.31.ph69819715, %4854 ], [ %.369769, %6045 ], [ %.37.ph, %5077 ], [ %.369769, %5341 ], [ %.349880, %4749 ], [ %.23.ph9888, %3898 ], [ %.23.ph9888, %4291 ], [ %.75317, %1346 ], [ %.75317, %1348 ], [ %.75317, %1351 ], [ %.75317, %1351 ], [ %.75317, %1351 ], [ %.75317, %1351 ], [ %.75317, %1351 ], [ %.75317, %1351 ], [ %.05310, %1009 ], [ %.05310, %996 ], [ %.05310, %887 ], [ %.05310, %883 ], [ %.219969, %4646 ], [ %.219969, %4170 ], [ %.12.ph, %1733 ], [ %.16.ph, %2461 ], [ %.10.ph10075, %2447 ], [ %.10.ph10075, %2894 ], [ %.10.ph10075, %2440 ], [ %.11.ph, %1687 ], [ %.05310, %995 ], [ %.05310, %880 ], [ %.05310, %877 ], [ %.05310, %875 ], [ %.24.ph, %3879 ], [ %.29.ph, %4362 ], [ %.25.ph, %3928 ], [ %.18.ph, %3337 ], [ %.18.ph, %3341 ], [ %.32.ph, %4515 ], [ %.35.ph7093, %4891 ], [ %.33.ph7098, %4557 ], [ %.27, %4089 ], [ %.27, %4090 ], [ %.26.ph, %4070 ], [ %.26.ph, %4074 ]
-  %891 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
-  store ptr %891, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  %891 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %891, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %892 = icmp ult i32 %.95319, 48
   br i1 %892, label %893, label %.loopexit7218
 
@@ -4287,7 +4287,7 @@ strip_underscores.exit:                           ; preds = %453
   ]
 
 ..loopexit7214_crit_edge:                         ; preds = %902
-  %.pre13128 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %.pre13128 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %.loopexit7214
 
 903:                                              ; preds = %900
@@ -4297,11 +4297,11 @@ strip_underscores.exit:                           ; preds = %453
   ]
 
 ..loopexit7031_crit_edge:                         ; preds = %903
-  %.pre13140 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %.pre13140 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %.loopexit7031
 
 ..loopexit7212_crit_edge:                         ; preds = %903
-  %.pre13137 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %.pre13137 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %.loopexit7212
 
 904:                                              ; preds = %898
@@ -4315,11 +4315,11 @@ strip_underscores.exit:                           ; preds = %453
   ]
 
 ..loopexit7209.loopexit_crit_edge:                ; preds = %906
-  %.pre13126.pre = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %.pre13126.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %.loopexit7209
 
 ._crit_edge13124:                                 ; preds = %906
-  %.pre13125 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %.pre13125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %split
 
 907:                                              ; preds = %904
@@ -4383,7 +4383,7 @@ strip_underscores.exit:                           ; preds = %453
   ]
 
 ..loopexit7137_crit_edge:                         ; preds = %924
-  %.pre13120 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %.pre13120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %.loopexit7137
 
 925:                                              ; preds = %922
@@ -4463,7 +4463,7 @@ strip_underscores.exit:                           ; preds = %453
   br i1 %947, label %948, label %949
 
 948:                                              ; preds = %946
-  %.pre13139 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %.pre13139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   switch i32 %.953196761, label %.loopexit7138 [
     i32 50, label %.loopexit7134
     i32 48, label %.loopexit7141
@@ -4476,7 +4476,7 @@ strip_underscores.exit:                           ; preds = %453
   ]
 
 ..loopexit7186_crit_edge:                         ; preds = %949
-  %.pre13119 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %.pre13119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %.loopexit7186
 
 950:                                              ; preds = %944
@@ -4566,7 +4566,7 @@ strip_underscores.exit:                           ; preds = %453
   ]
 
 ._crit_edge13117:                                 ; preds = %974
-  %.pre13118 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %.pre13118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %5170
 
 975:                                              ; preds = %972
@@ -4590,11 +4590,11 @@ strip_underscores.exit:                           ; preds = %453
   ]
 
 ..loopexit7187_crit_edge:                         ; preds = %980
-  %.pre13143 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %.pre13143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %.loopexit7187
 
 981:                                              ; preds = %978
-  %.pre13141 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %.pre13141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   switch i32 %.953196761, label %.loopexit6811 [
     i32 89, label %.loopexit7164
     i32 87, label %.loopexit7127
@@ -4611,11 +4611,11 @@ strip_underscores.exit:                           ; preds = %453
   ]
 
 ..loopexit7130_crit_edge:                         ; preds = %984
-  %.pre13132 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %.pre13132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %.loopexit7130
 
 ..loopexit7149_crit_edge:                         ; preds = %984
-  %.pre13116 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %.pre13116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %.loopexit7149
 
 985:                                              ; preds = %982
@@ -4623,7 +4623,7 @@ strip_underscores.exit:                           ; preds = %453
   br i1 %986, label %987, label %..loopexit7129_crit_edge
 
 ..loopexit7129_crit_edge:                         ; preds = %985
-  %.pre13142 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %.pre13142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %.loopexit7129
 
 987:                                              ; preds = %985
@@ -4631,12 +4631,12 @@ strip_underscores.exit:                           ; preds = %453
   br i1 %988, label %.loopexit6933, label %..loopexit7126_crit_edge
 
 ..loopexit7126_crit_edge:                         ; preds = %987
-  %.pre13144 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %.pre13144 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %.loopexit7126
 
 989:                                              ; preds = %882
   %990 = getelementptr inbounds nuw i8, ptr %871, i64 1
-  store ptr %990, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %990, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %991 = getelementptr inbounds nuw i8, ptr %871, i64 2
   %.not6473 = icmp ult ptr %991, %51
   br i1 %.not6473, label %992, label %.loopexit
@@ -4659,34 +4659,34 @@ strip_underscores.exit:                           ; preds = %453
   ]
 
 .preheader6954:                                   ; preds = %995, %996
-  store ptr %991, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %991, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %997 = getelementptr inbounds nuw i8, ptr %871, i64 3
   %.not6474994110074 = icmp ult ptr %997, %51
   br i1 %.not6474994110074, label %.lr.ph9942, label %.loopexit
 
 .loopexit6894:                                    ; preds = %1719, %4160, %2433, %882, %4968, %924
-  %998 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %998 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %999 = getelementptr inbounds nuw i8, ptr %998, i64 1
-  store ptr %999, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %999, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1000:                                             ; preds = %186
   %1001 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1001, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %1001, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1002:                                             ; preds = %885
   %1003 = getelementptr inbounds nuw i8, ptr %871, i64 1
-  store ptr %1003, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1003, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1004 = load i8, ptr %1003, align 1
   %1005 = icmp eq i8 %1004, 46
   br i1 %1005, label %1719, label %.loopexit6867
 
 1006:                                             ; preds = %887
   %1007 = getelementptr inbounds nuw i8, ptr %871, i64 1
-  store ptr %1007, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1007, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1008 = getelementptr inbounds nuw i8, ptr %871, i64 2
   %.not6471 = icmp ult ptr %1008, %51
   br i1 %.not6471, label %1009, label %.loopexit
@@ -4700,8 +4700,8 @@ strip_underscores.exit:                           ; preds = %453
 
 1011:                                             ; preds = %190
   %1012 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1012, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %1012, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1013:                                             ; preds = %1016
@@ -4736,14 +4736,14 @@ strip_underscores.exit:                           ; preds = %453
 
 1016:                                             ; preds = %.preheader7026, %.preheader7026
   %1017 = getelementptr inbounds nuw i8, ptr %1015, i64 1
-  store ptr %1017, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1017, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1018 = getelementptr inbounds nuw i8, ptr %1015, i64 8
   %.not6462 = icmp ult ptr %1018, %51
   br i1 %.not6462, label %1013, label %.loopexit
 
 1019:                                             ; preds = %.preheader7026, %.preheader7026
   %1020 = getelementptr inbounds nuw i8, ptr %1015, i64 1
-  store ptr %1020, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1020, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1021 = load i8, ptr %1020, align 1
   %1022 = and i8 %1021, -33
   %or.cond112 = icmp eq i8 %1022, 82
@@ -4751,7 +4751,7 @@ strip_underscores.exit:                           ; preds = %453
 
 1023:                                             ; preds = %.preheader7026, %.preheader7026
   %1024 = getelementptr inbounds nuw i8, ptr %1015, i64 1
-  store ptr %1024, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1024, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1025 = load i8, ptr %1024, align 1
   %1026 = icmp ult i8 %1025, 80
   br i1 %1026, label %1027, label %1028
@@ -4776,7 +4776,7 @@ strip_underscores.exit:                           ; preds = %453
 
 1033:                                             ; preds = %.preheader7026, %.preheader7026
   %1034 = getelementptr inbounds nuw i8, ptr %1015, i64 1
-  store ptr %1034, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1034, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1035 = load i8, ptr %1034, align 1
   %1036 = and i8 %1035, -33
   %or.cond115 = icmp eq i8 %1036, 79
@@ -4784,7 +4784,7 @@ strip_underscores.exit:                           ; preds = %453
 
 1037:                                             ; preds = %.preheader7026, %.preheader7026
   %1038 = getelementptr inbounds nuw i8, ptr %1015, i64 1
-  store ptr %1038, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1038, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1039 = load i8, ptr %1038, align 1
   %1040 = and i8 %1039, -33
   %or.cond118 = icmp eq i8 %1040, 76
@@ -4792,7 +4792,7 @@ strip_underscores.exit:                           ; preds = %453
 
 1041:                                             ; preds = %.preheader7026, %.preheader7026
   %1042 = getelementptr inbounds nuw i8, ptr %1015, i64 1
-  store ptr %1042, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1042, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1043 = load i8, ptr %1042, align 1
   %1044 = and i8 %1043, -33
   %or.cond121 = icmp eq i8 %1044, 78
@@ -4800,7 +4800,7 @@ strip_underscores.exit:                           ; preds = %453
 
 1045:                                             ; preds = %.preheader7026, %.preheader7026
   %1046 = getelementptr inbounds nuw i8, ptr %1015, i64 1
-  store ptr %1046, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1046, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1047 = load i8, ptr %1046, align 1
   %1048 = and i8 %1047, -33
   %or.cond124 = icmp eq i8 %1048, 66
@@ -4808,7 +4808,7 @@ strip_underscores.exit:                           ; preds = %453
 
 1049:                                             ; preds = %.preheader7026, %.preheader7026
   %1050 = getelementptr inbounds nuw i8, ptr %1015, i64 1
-  store ptr %1050, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1050, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1051 = load i8, ptr %1050, align 1
   %1052 = and i8 %1051, -33
   %or.cond127 = icmp eq i8 %1052, 69
@@ -4816,7 +4816,7 @@ strip_underscores.exit:                           ; preds = %453
 
 1053:                                             ; preds = %.preheader7026, %.preheader7026
   %1054 = getelementptr inbounds nuw i8, ptr %1015, i64 1
-  store ptr %1054, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1054, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1055 = load i8, ptr %1054, align 1
   %1056 = and i8 %1055, -33
   %or.cond130 = icmp eq i8 %1056, 84
@@ -4824,7 +4824,7 @@ strip_underscores.exit:                           ; preds = %453
 
 1057:                                             ; preds = %.preheader7026, %.preheader7026
   %1058 = getelementptr inbounds nuw i8, ptr %1015, i64 1
-  store ptr %1058, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1058, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1059 = load i8, ptr %1058, align 1
   %1060 = and i8 %1059, -33
   %or.cond133 = icmp eq i8 %1060, 78
@@ -4832,56 +4832,56 @@ strip_underscores.exit:                           ; preds = %453
 
 1061:                                             ; preds = %392
   %1062 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1062, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1062, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1063 = load i8, ptr %1062, align 1
   %1064 = icmp eq i8 %1063, 61
   br i1 %1064, label %1775, label %1065
 
 1065:                                             ; preds = %1061
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1066:                                             ; preds = %392
   %1067 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1067, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %1067, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1068:                                             ; preds = %395
   %1069 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1069, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %1069, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1070:                                             ; preds = %395
   %1071 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1071, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %1071, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1072:                                             ; preds = %404
   %1073 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1073, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %1073, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1074:                                             ; preds = %406
   %1075 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1075, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %1075, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1076:                                             ; preds = %408
   %1077 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1077, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %1078 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #17
-  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store ptr %1077, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %1078 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64)) #17
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %.loopexit7124
 
 1079:                                             ; preds = %414
   %1080 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1080, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1080, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1081 = load i8, ptr %1080, align 1
   %1082 = icmp eq i8 %1081, 46
   br i1 %1082, label %1777, label %.thread6762
@@ -4889,8 +4889,8 @@ strip_underscores.exit:                           ; preds = %453
 1083:                                             ; preds = %1782, %1094, %416
   %1084 = phi ptr [ %1780, %1782 ], [ %1090, %1094 ], [ %411, %416 ]
   %1085 = getelementptr inbounds nuw i8, ptr %1084, i64 1
-  store ptr %1085, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1085, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1085, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1085, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1086 = getelementptr inbounds nuw i8, ptr %1084, i64 3
   %.not6442 = icmp ult ptr %1086, %51
   br i1 %.not6442, label %1087, label %.loopexit
@@ -4936,7 +4936,7 @@ strip_underscores.exit:                           ; preds = %453
   %1107 = ptrtoint ptr %1104 to i64
   %1108 = sub i64 %1106, %1107
   %1109 = trunc i64 %1108 to i32
-  store i32 %1109, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %1109, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %1110 = and i64 %1108, 4294967295
   %1111 = tail call ptr @memchr(ptr noundef %1104, i32 noundef 95, i64 noundef %1110) #19
   %.not6587 = icmp eq ptr %1111, null
@@ -4993,31 +4993,31 @@ strip_underscores.exit6694:                       ; preds = %1114
 
 1128:                                             ; preds = %418
   %1129 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1129, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %1129, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1130:                                             ; preds = %424
   %1131 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1131, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1131, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1131, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1131, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1132 = load i8, ptr %1131, align 1
   %1133 = icmp eq i8 %1132, 42
   br i1 %1133, label %1785, label %.loopexit7034
 
 .loopexit7034:                                    ; preds = %2511, %2507, %906, %1130
   %1134 = phi ptr [ %896, %906 ], [ %1131, %1130 ], [ %2504, %2507 ], [ %2504, %2511 ]
-  %1135 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %1135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %1136 = ptrtoint ptr %1134 to i64
   %1137 = ptrtoint ptr %1135 to i64
   %1138 = sub i64 %1136, %1137
   %1139 = trunc i64 %1138 to i32
-  store i32 %1139, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %1139, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %1140 = icmp ult i32 %1139, 3
   br i1 %1140, label %1154, label %1141
 
 1141:                                             ; preds = %.loopexit7034
-  %1142 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
+  %1142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 160), align 8
   %.not6578 = icmp eq ptr %1142, null
   br i1 %.not6578, label %1154, label %1143
 
@@ -5042,20 +5042,20 @@ strip_underscores.exit6694:                       ; preds = %1114
   br label %1153
 
 1153:                                             ; preds = %1147, %1152, %1143
-  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
-  %.promoted10211.pre = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 160), align 8
+  %.promoted10211.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %1154
 
 1154:                                             ; preds = %.loopexit7034, %1153, %1141
   %.promoted10211 = phi ptr [ %1134, %.loopexit7034 ], [ %.promoted10211.pre, %1153 ], [ %1134, %1141 ]
-  %1155 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %1155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %1156 = icmp ult ptr %.promoted10211, %1155
   br i1 %1156, label %.lr.ph10213, label %._crit_edge10214
 
 .lr.ph10213:                                      ; preds = %1154, %.lr.ph10213.backedge
   %1157 = phi ptr [ %1158, %.lr.ph10213.backedge ], [ %.promoted10211, %1154 ]
   %1158 = getelementptr inbounds nuw i8, ptr %1157, i64 1
-  store ptr %1158, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1158, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1159 = load i8, ptr %1157, align 1
   %1160 = icmp eq i8 %1159, 42
   br i1 %1160, label %1161, label %1165
@@ -5081,34 +5081,34 @@ strip_underscores.exit6694:                       ; preds = %1114
 
 1168:                                             ; preds = %._crit_edge10214
   %1169 = getelementptr inbounds nuw i8, ptr %1166, i64 1
-  store ptr %1169, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1169, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %1174
 
 1170:                                             ; preds = %._crit_edge10214
   %1171 = load ptr, ptr @zend_ce_parse_error, align 8
-  %1172 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %1172 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   %1173 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %1171, i64 noundef 0, ptr noundef nonnull @.str.5, i32 noundef %1172) #17
   br i1 %.not5988, label %._crit_edge13122, label %.loopexit7124
 
 ._crit_edge13122:                                 ; preds = %1170
-  %.pre13123 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  %.pre13123 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %1174
 
 1174:                                             ; preds = %._crit_edge13122, %1168
   %1175 = phi ptr [ %.pre13123, %._crit_edge13122 ], [ %1169, %1168 ]
-  %1176 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %1176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %1177 = ptrtoint ptr %1175 to i64
   %1178 = ptrtoint ptr %1176 to i64
   %1179 = sub i64 %1177, %1178
   %1180 = trunc i64 %1179 to i32
-  store i32 %1180, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %1180, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %1181 = and i64 %1179, 4294967295
   %1182 = getelementptr inbounds nuw i8, ptr %1176, i64 %1181
   %.not10404 = icmp eq i64 %1181, 0
   br i1 %.not10404, label %._crit_edge10222, label %.lr.ph10221.preheader
 
 .lr.ph10221.preheader:                            ; preds = %1174
-  %.promoted10218 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %.promoted10218 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %.lr.ph10221
 
 .lr.ph10221:                                      ; preds = %.lr.ph10221.preheader, %1190
@@ -5128,7 +5128,7 @@ strip_underscores.exit6694:                       ; preds = %1114
 
 1188:                                             ; preds = %.lr.ph10221, %1185
   %1189 = add nsw i32 %1183, 1
-  store i32 %1189, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  store i32 %1189, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %1190
 
 1190:                                             ; preds = %.lr.ph10221, %1188, %1185
@@ -5155,7 +5155,7 @@ strip_underscores.exit6694:                       ; preds = %1114
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1201, ptr align 1 %1176, i64 %1181, i1 false)
   %1202 = getelementptr inbounds nuw [1 x i8], ptr %1201, i64 0, i64 %1181
   store i8 0, ptr %1202, align 1
-  store ptr %1197, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
+  store ptr %1197, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 160), align 8
   br i1 %.not5988, label %.loopexit7124, label %8047
 
 1203:                                             ; preds = %._crit_edge10222
@@ -5163,19 +5163,19 @@ strip_underscores.exit6694:                       ; preds = %1114
 
 1204:                                             ; preds = %426
   %1205 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1205, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1205, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %138
 
 1206:                                             ; preds = %426
   %1207 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1207, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %1207, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1208:                                             ; preds = %514
   %1209 = getelementptr inbounds nuw i8, ptr %506, i64 1
-  store ptr %1209, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1209, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1209, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1209, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1210 = load i8, ptr %1209, align 1
   %1211 = icmp eq i8 %1210, 95
   br i1 %1211, label %.loopexit7031, label %1089
@@ -5184,7 +5184,7 @@ strip_underscores.exit6694:                       ; preds = %1114
   %.promoted99129914 = phi ptr [ %1795, %1800 ], [ %428, %.preheader7036.preheader ]
   %.15311 = phi i32 [ 14, %1800 ], [ 3, %.preheader7036.preheader ]
   %1212 = getelementptr inbounds nuw i8, ptr %.promoted99129914, i64 1
-  store ptr %1212, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1212, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1213 = getelementptr inbounds nuw i8, ptr %.promoted99129914, i64 2
   %.not6437 = icmp ult ptr %1213, %51
   br i1 %.not6437, label %1214, label %.loopexit
@@ -5199,7 +5199,7 @@ strip_underscores.exit6694:                       ; preds = %1114
   %1218 = phi ptr [ %1090, %1096 ], [ %1090, %1102 ], [ %506, %518 ], [ %506, %514 ]
   %.55315 = phi i32 [ 5, %1096 ], [ 5, %1102 ], [ 3, %518 ], [ 3, %514 ]
   %1219 = getelementptr inbounds nuw i8, ptr %1218, i64 1
-  store ptr %1219, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1219, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1220 = load i8, ptr %1219, align 1
   %1221 = icmp ult i8 %1220, 45
   br i1 %1221, label %1222, label %1224
@@ -5221,7 +5221,7 @@ strip_underscores.exit6694:                       ; preds = %1114
   %.promoted99079909 = phi ptr [ %1865, %1870 ], [ %428, %.preheader7040.preheader ]
   %.35313 = phi i32 [ 15, %1870 ], [ 3, %.preheader7040.preheader ]
   %1228 = getelementptr inbounds nuw i8, ptr %.promoted99079909, i64 1
-  store ptr %1228, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1228, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1229 = getelementptr inbounds nuw i8, ptr %.promoted99079909, i64 2
   %.not6427 = icmp ult ptr %1229, %51
   br i1 %.not6427, label %1230, label %.loopexit
@@ -5236,7 +5236,7 @@ strip_underscores.exit6694:                       ; preds = %1114
   %.promoted99029904 = phi ptr [ %1913, %1921 ], [ %428, %.preheader7044.preheader ]
   %.45314 = phi i32 [ 16, %1921 ], [ 3, %.preheader7044.preheader ]
   %1233 = getelementptr inbounds nuw i8, ptr %.promoted99029904, i64 1
-  store ptr %1233, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1233, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1234 = getelementptr inbounds nuw i8, ptr %.promoted99029904, i64 2
   %.not6423 = icmp ult ptr %1234, %51
   br i1 %.not6423, label %1235, label %.loopexit
@@ -5252,7 +5252,7 @@ strip_underscores.exit6694:                       ; preds = %1114
 
 1241:                                             ; preds = %517
   %1242 = getelementptr inbounds nuw i8, ptr %506, i64 1
-  store ptr %1242, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1242, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1243 = getelementptr inbounds nuw i8, ptr %506, i64 2
   %.not6433 = icmp ult ptr %1243, %51
   br i1 %.not6433, label %1244, label %.loopexit
@@ -5269,14 +5269,14 @@ strip_underscores.exit6694:                       ; preds = %1114
 
 1251:                                             ; preds = %520
   %1252 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1252, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %1252, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1253:                                             ; preds = %528
   %1254 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1254, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1254, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1254, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1254, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1255 = load i8, ptr %1254, align 1
   %1256 = icmp ult i8 %1255, 60
   br i1 %1256, label %.loopexit7209, label %1257
@@ -5296,69 +5296,69 @@ strip_underscores.exit6694:                       ; preds = %1114
   %1264 = ptrtoint ptr %1261 to i64
   %1265 = sub i64 %1263, %1264
   %1266 = trunc i64 %1265 to i32
-  store i32 %1266, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %1266, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1267:                                             ; preds = %530
   %1268 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1268, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1268, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1269 = load i8, ptr %1268, align 1
   %1270 = icmp eq i8 %1269, 62
   br i1 %1270, label %1993, label %1271
 
 1271:                                             ; preds = %1267
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1272:                                             ; preds = %532
   %1273 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1273, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1273, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %833
 
 1274:                                             ; preds = %539
   %1275 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1275, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1275, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1276 = load i8, ptr %1275, align 1
   %1277 = icmp eq i8 %1276, 61
   br i1 %1277, label %1995, label %1278
 
 1278:                                             ; preds = %1274
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1279:                                             ; preds = %541
   %1280 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1280, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %1280, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1281:                                             ; preds = %547
   %1282 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1282, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %1282, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1283:                                             ; preds = %549
   %1284 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1284, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1284, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1285 = load i8, ptr %1284, align 1
   %1286 = icmp eq i8 %1285, 61
   br i1 %1286, label %1997, label %1287
 
 1287:                                             ; preds = %1283
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1288:                                             ; preds = %555
   %1289 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1289, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1289, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1290 = load i8, ptr %1289, align 1
   %1291 = icmp eq i8 %1290, 62
   br i1 %1291, label %1999, label %.thread6762
 
 1292:                                             ; preds = %557
   %1293 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1293, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1293, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1294 = load i8, ptr %1293, align 1
   switch i8 %1294, label %1295 [
     i8 10, label %2002
@@ -5371,8 +5371,8 @@ strip_underscores.exit6694:                       ; preds = %1114
   %1298 = ptrtoint ptr %.promoted103951316013175 to i64
   %1299 = sub i64 %1297, %1298
   %1300 = trunc i64 %1299 to i32
-  store i32 %1300, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  store i32 8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store i32 %1300, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   %1301 = add i64 %1299, 4294967295
   %1302 = and i64 %1301, 4294967295
   %1303 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 %1302
@@ -5381,7 +5381,7 @@ strip_underscores.exit6694:                       ; preds = %1114
   br i1 %.not6400, label %1306, label %1305
 
 1305:                                             ; preds = %1295
-  store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 153), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 153), align 1
   br label %1306
 
 1306:                                             ; preds = %1305, %1295
@@ -5390,19 +5390,19 @@ strip_underscores.exit6694:                       ; preds = %1114
 
 1307:                                             ; preds = %559
   %1308 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1308, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1308, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1309 = load i8, ptr %1308, align 1
   %1310 = icmp eq i8 %1309, 61
   br i1 %1310, label %2010, label %1311
 
 1311:                                             ; preds = %1307
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1312:                                             ; preds = %577, %568
   %1313 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1313, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1313, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1313, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1313, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1314 = load i8, ptr %1313, align 1
   %1315 = and i8 %1314, -33
   %or.cond139 = icmp eq i8 %1315, 83
@@ -5410,8 +5410,8 @@ strip_underscores.exit6694:                       ; preds = %1114
 
 1316:                                             ; preds = %577, %570
   %1317 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1317, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1317, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1317, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1317, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1318 = load i8, ptr %1317, align 1
   %1319 = and i8 %1318, -33
   %or.cond142 = icmp eq i8 %1319, 68
@@ -5419,8 +5419,8 @@ strip_underscores.exit6694:                       ; preds = %1114
 
 1320:                                             ; preds = %580, %574
   %1321 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1321, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1321, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1321, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1321, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1322 = load i8, ptr %1321, align 1
   %1323 = and i8 %1322, -33
   %or.cond145 = icmp eq i8 %1323, 82
@@ -5428,8 +5428,8 @@ strip_underscores.exit6694:                       ; preds = %1114
 
 1324:                                             ; preds = %582, %574
   %1325 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1325, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1325, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1325, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1325, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1326 = load i8, ptr %1325, align 1
   %1327 = zext i8 %1326 to i64
   %1328 = or disjoint i64 %1327, 256
@@ -5455,7 +5455,7 @@ split:                                            ; preds = %1331, %._crit_edge1
   %1340 = phi ptr [ %2035, %2046 ], [ %.promoted10207, %.preheader6992 ]
   %.75317 = phi i32 [ 18, %2046 ], [ %.75317.ph, %.preheader6992 ]
   %1341 = getelementptr inbounds nuw i8, ptr %1340, i64 1
-  store ptr %1341, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1341, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1342 = getelementptr inbounds nuw i8, ptr %1340, i64 2
   %.not6534 = icmp ult ptr %1342, %3611
   br i1 %.not6534, label %1343, label %.loopexit
@@ -5486,23 +5486,23 @@ split:                                            ; preds = %1331, %._crit_edge1
   ]
 
 .preheader6944:                                   ; preds = %1348, %1351
-  store ptr %1342, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1342, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1342, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1342, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1352 = getelementptr inbounds nuw i8, ptr %1340, i64 3
   %.not653510205 = icmp ult ptr %1352, %3611
   br i1 %.not653510205, label %.lr.ph10206, label %.loopexit
 
 1353:                                             ; preds = %601
   %1354 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1354, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1354, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1355 = load i8, ptr %1354, align 1
   %1356 = icmp eq i8 %1355, 60
   br i1 %1356, label %2059, label %.thread6762
 
 1357:                                             ; preds = %601, %602
   %1358 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1358, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1358, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1358, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1358, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1359 = load i8, ptr %1358, align 1
   %1360 = and i8 %1359, -33
   %or.cond154 = icmp eq i8 %1360, 69
@@ -5510,8 +5510,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1361:                                             ; preds = %615, %610
   %1362 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1362, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1362, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1362, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1362, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1363 = load i8, ptr %1362, align 1
   %1364 = icmp ult i8 %1363, 85
   br i1 %1364, label %1365, label %1371
@@ -5550,8 +5550,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1379:                                             ; preds = %617, %612
   %1380 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1380, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1380, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1380, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1380, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1381 = load i8, ptr %1380, align 1
   %1382 = icmp ult i8 %1381, 80
   br i1 %1382, label %1383, label %1384
@@ -5576,8 +5576,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1389:                                             ; preds = %617, %612
   %1390 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1390, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1390, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1390, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1390, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1391 = load i8, ptr %1390, align 1
   %1392 = and i8 %1391, -33
   %or.cond157 = icmp eq i8 %1392, 78
@@ -5585,8 +5585,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1393:                                             ; preds = %629, %624
   %1394 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1394, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1394, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1394, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1394, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1395 = load i8, ptr %1394, align 1
   %1396 = icmp ult i8 %1395, 71
   br i1 %1396, label %1397, label %1398
@@ -5611,8 +5611,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1403:                                             ; preds = %631, %626
   %1404 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1404, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1404, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1404, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1404, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1405 = load i8, ptr %1404, align 1
   %1406 = and i8 %1405, -33
   %or.cond160 = icmp eq i8 %1406, 69
@@ -5620,8 +5620,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1407:                                             ; preds = %631, %626
   %1408 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1408, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1408, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1408, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1408, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1409 = load i8, ptr %1408, align 1
   %1410 = zext i8 %1409 to i64
   %1411 = or disjoint i64 %1410, 256
@@ -5636,7 +5636,7 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 .loopexit7193:                                    ; preds = %1414, %907
   %1416 = phi ptr [ %896, %907 ], [ %1408, %1414 ]
-  %1417 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %1417 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %1418 = ptrtoint ptr %1416 to i64
   %1419 = ptrtoint ptr %1417 to i64
   %1420 = sub i64 %1418, %1419
@@ -5645,8 +5645,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1422:                                             ; preds = %632, %632
   %1423 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1423, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1423, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1423, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1423, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1424 = load i8, ptr %1423, align 1
   %1425 = and i8 %1424, -33
   %or.cond163 = icmp eq i8 %1425, 72
@@ -5654,8 +5654,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1426:                                             ; preds = %632, %632
   %1427 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1427, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1427, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1427, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1427, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1428 = load i8, ptr %1427, align 1
   %1429 = and i8 %1428, -33
   %or.cond166 = icmp eq i8 %1429, 83
@@ -5663,8 +5663,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1430:                                             ; preds = %632, %632
   %1431 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1431, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1431, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1431, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1431, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1432 = load i8, ptr %1431, align 1
   %1433 = and i8 %1432, -33
   %or.cond169 = icmp eq i8 %1433, 80
@@ -5672,8 +5672,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1434:                                             ; preds = %632, %632
   %1435 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1435, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1435, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1435, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1435, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1436 = load i8, ptr %1435, align 1
   %1437 = icmp ult i8 %1436, 86
   br i1 %1437, label %1438, label %1439
@@ -5698,8 +5698,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1444:                                             ; preds = %632, %632
   %1445 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1445, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1445, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1445, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1445, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1446 = load i8, ptr %1445, align 1
   %1447 = and i8 %1446, -33
   %or.cond172 = icmp eq i8 %1447, 65
@@ -5707,8 +5707,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1448:                                             ; preds = %632, %632
   %1449 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1449, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1449, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1449, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1449, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1450 = load i8, ptr %1449, align 1
   %1451 = icmp ult i8 %1450, 85
   br i1 %1451, label %1452, label %1453
@@ -5733,8 +5733,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1458:                                             ; preds = %650, %641
   %1459 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1459, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1459, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1459, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1459, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1460 = load i8, ptr %1459, align 1
   %1461 = and i8 %1460, -33
   %or.cond175 = icmp eq i8 %1461, 78
@@ -5742,8 +5742,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1462:                                             ; preds = %650, %643
   %1463 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1463, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1463, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1463, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1463, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1464 = load i8, ptr %1463, align 1
   %1465 = zext i8 %1464 to i64
   %1466 = or disjoint i64 %1465, 256
@@ -5758,7 +5758,7 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 .loopexit7172:                                    ; preds = %1469, %907
   %1471 = phi ptr [ %896, %907 ], [ %1463, %1469 ]
-  %1472 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %1472 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %1473 = ptrtoint ptr %1471 to i64
   %1474 = ptrtoint ptr %1472 to i64
   %1475 = sub i64 %1473, %1474
@@ -5767,8 +5767,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1477:                                             ; preds = %651, %645
   %1478 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1478, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1478, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1478, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1478, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1479 = load i8, ptr %1478, align 1
   %1480 = and i8 %1479, -33
   %or.cond178 = icmp eq i8 %1480, 82
@@ -5776,8 +5776,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1481:                                             ; preds = %651, %647
   %1482 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1482, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1482, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1482, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1482, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1483 = load i8, ptr %1482, align 1
   %1484 = and i8 %1483, -33
   %or.cond181 = icmp eq i8 %1484, 78
@@ -5785,8 +5785,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1485:                                             ; preds = %656, %659
   %1486 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1486, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1486, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1486, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1486, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1487 = load i8, ptr %1486, align 1
   %1488 = and i8 %1487, -33
   %or.cond184 = icmp eq i8 %1488, 79
@@ -5794,8 +5794,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1489:                                             ; preds = %656, %660
   %1490 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1490, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1490, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1490, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1490, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1491 = load i8, ptr %1490, align 1
   %1492 = and i8 %1491, -33
   %or.cond187 = icmp eq i8 %1492, 84
@@ -5803,8 +5803,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1493:                                             ; preds = %692, %683
   %1494 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1494, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1494, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1494, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1494, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1495 = load i8, ptr %1494, align 1
   %1496 = zext i8 %1495 to i64
   %1497 = or disjoint i64 %1496, 256
@@ -5819,7 +5819,7 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 .loopexit7166:                                    ; preds = %1500, %907
   %1502 = phi ptr [ %896, %907 ], [ %1494, %1500 ]
-  %1503 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %1503 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %1504 = ptrtoint ptr %1502 to i64
   %1505 = ptrtoint ptr %1503 to i64
   %1506 = sub i64 %1504, %1505
@@ -5828,8 +5828,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1508:                                             ; preds = %692, %685
   %1509 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1509, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1509, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1509, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1509, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1510 = load i8, ptr %1509, align 1
   %1511 = and i8 %1510, -33
   %or.cond190 = icmp eq i8 %1511, 80
@@ -5837,8 +5837,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1512:                                             ; preds = %693, %687
   %1513 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1513, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1513, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1513, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1513, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1514 = load i8, ptr %1513, align 1
   %1515 = icmp ult i8 %1514, 85
   br i1 %1515, label %1516, label %1522
@@ -5877,8 +5877,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1530:                                             ; preds = %693, %689
   %1531 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1531, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1531, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1531, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1531, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1532 = load i8, ptr %1531, align 1
   %1533 = and i8 %1532, -33
   %or.cond193 = icmp eq i8 %1533, 83
@@ -5886,8 +5886,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1534:                                             ; preds = %694
   %1535 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1535, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1535, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1535, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1535, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1536 = load i8, ptr %1535, align 1
   %1537 = and i8 %1536, -33
   %or.cond196 = icmp eq i8 %1537, 83
@@ -5895,8 +5895,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1538:                                             ; preds = %698
   %1539 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1539, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1539, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1539, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1539, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1540 = load i8, ptr %1539, align 1
   %1541 = and i8 %1540, -33
   %or.cond199 = icmp eq i8 %1541, 84
@@ -5904,8 +5904,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1542:                                             ; preds = %706, %709
   %1543 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1543, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1543, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1543, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1543, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1544 = load i8, ptr %1543, align 1
   %1545 = and i8 %1544, -33
   %or.cond202 = icmp eq i8 %1545, 77
@@ -5913,8 +5913,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1546:                                             ; preds = %706, %710
   %1547 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1547, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1547, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1547, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1547, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1548 = load i8, ptr %1547, align 1
   %1549 = and i8 %1548, -33
   %or.cond205 = icmp eq i8 %1549, 87
@@ -5922,8 +5922,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1550:                                             ; preds = %712
   %1551 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1551, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1551, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1551, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1551, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1552 = load i8, ptr %1551, align 1
   %1553 = zext i8 %1552 to i64
   %1554 = or disjoint i64 %1553, 256
@@ -5938,7 +5938,7 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 .loopexit7155:                                    ; preds = %1557, %912
   %1559 = phi ptr [ %896, %912 ], [ %1551, %1557 ]
-  %1560 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %1560 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %1561 = ptrtoint ptr %1559 to i64
   %1562 = ptrtoint ptr %1560 to i64
   %1563 = sub i64 %1561, %1562
@@ -5947,8 +5947,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1565:                                             ; preds = %720, %723
   %1566 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1566, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1566, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1566, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1566, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1567 = load i8, ptr %1566, align 1
   %1568 = icmp ult i8 %1567, 80
   br i1 %1568, label %1569, label %1570
@@ -5973,8 +5973,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1575:                                             ; preds = %720, %724
   %1576 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1576, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1576, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1576, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1576, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1577 = load i8, ptr %1576, align 1
   %1578 = and i8 %1577, -33
   %or.cond208 = icmp eq i8 %1578, 66
@@ -5982,8 +5982,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1579:                                             ; preds = %726
   %1580 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1580, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1580, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1580, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1580, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1581 = load i8, ptr %1580, align 1
   %1582 = icmp ult i8 %1581, 85
   br i1 %1582, label %1583, label %1588
@@ -6018,8 +6018,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1593:                                             ; preds = %734, %737
   %1594 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1594, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1594, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1594, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1594, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1595 = load i8, ptr %1594, align 1
   %1596 = and i8 %1595, -33
   %or.cond211 = icmp eq i8 %1596, 65
@@ -6027,8 +6027,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1597:                                             ; preds = %734, %738
   %1598 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1598, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1598, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1598, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1598, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1599 = load i8, ptr %1598, align 1
   %1600 = and i8 %1599, -33
   %or.cond214 = icmp eq i8 %1600, 73
@@ -6036,8 +6036,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1601:                                             ; preds = %744, %747
   %1602 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1602, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1602, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1602, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1602, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1603 = load i8, ptr %1602, align 1
   %1604 = and i8 %1603, -33
   %or.cond217 = icmp eq i8 %1604, 82
@@ -6045,8 +6045,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1605:                                             ; preds = %744, %748
   %1606 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1606, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1606, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1606, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1606, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1607 = load i8, ptr %1606, align 1
   %1608 = icmp ult i8 %1607, 90
   br i1 %1608, label %1609, label %1610
@@ -6071,8 +6071,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1615:                                             ; preds = %754, %757
   %1616 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1616, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1616, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1616, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1616, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1617 = load i8, ptr %1616, align 1
   %1618 = and i8 %1617, -33
   %or.cond220 = icmp eq i8 %1618, 83
@@ -6080,8 +6080,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1619:                                             ; preds = %754, %758
   %1620 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1620, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1620, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1620, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1620, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1621 = load i8, ptr %1620, align 1
   %1622 = and i8 %1621, -33
   %or.cond223 = icmp eq i8 %1622, 69
@@ -6089,8 +6089,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1623:                                             ; preds = %760
   %1624 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1624, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1624, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1624, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1624, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1625 = load i8, ptr %1624, align 1
   %1626 = and i8 %1625, -33
   %or.cond226 = icmp eq i8 %1626, 82
@@ -6098,8 +6098,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1627:                                             ; preds = %764
   %1628 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1628, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1628, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1628, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1628, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1629 = load i8, ptr %1628, align 1
   %1630 = and i8 %1629, -33
   %or.cond229 = icmp eq i8 %1630, 73
@@ -6107,8 +6107,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1631:                                             ; preds = %768
   %1632 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1632, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1632, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1632, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1632, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1633 = load i8, ptr %1632, align 1
   %1634 = and i8 %1633, -33
   %or.cond232 = icmp eq i8 %1634, 82
@@ -6116,8 +6116,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1635:                                             ; preds = %772
   %1636 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1636, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1636, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1636, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1636, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1637 = load i8, ptr %1636, align 1
   %1638 = and i8 %1637, -33
   %or.cond235 = icmp eq i8 %1638, 69
@@ -6147,8 +6147,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 .backedge7116:                                    ; preds = %1648, %1657, %1659, %2373, %1646, %2376
   %1650 = phi ptr [ %1640, %1648 ], [ %1640, %1657 ], [ %1640, %1659 ], [ %1639, %2373 ], [ %1640, %1646 ], [ %1639, %2376 ]
   %1651 = getelementptr inbounds nuw i8, ptr %1650, i64 1
-  store ptr %1651, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1651, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1651, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1651, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1652 = getelementptr inbounds nuw i8, ptr %1650, i64 2
   %.not6088 = icmp ult ptr %1652, %51
   br i1 %.not6088, label %.lr.ph9479, label %.loopexit
@@ -6171,24 +6171,24 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 .loopexit7114:                                    ; preds = %1659, %1653, %1657, %1646, %912
   %1660 = phi ptr [ %896, %912 ], [ %1640, %1646 ], [ %1640, %1657 ], [ %1640, %1653 ], [ %1640, %1659 ]
-  %1661 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %1661 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %1662 = ptrtoint ptr %1660 to i64
   %1663 = ptrtoint ptr %1661 to i64
   %1664 = sub i64 %1662, %1663
   %1665 = trunc i64 %1664 to i32
-  store i32 %1665, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %1665, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7968
 
 1666:                                             ; preds = %791
   %1667 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1667, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %1667, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1668:                                             ; preds = %795
   %1669 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1669, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1669, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1669, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1669, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1670 = load i8, ptr %1669, align 1
   switch i8 %1670, label %670 [
     i8 67, label %2377
@@ -6211,26 +6211,26 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1671:                                             ; preds = %807
   %1672 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1672, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %1672, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1673:                                             ; preds = %807
   %1674 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 2
-  store ptr %1674, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %1674, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1675:                                             ; preds = %829
   %1676 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %1676, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %1676, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1677:                                             ; preds = %.preheader6948, %1681
   %1678 = phi ptr [ %.promoted1007810080, %.preheader6948 ], [ %1679, %1681 ]
   %1679 = getelementptr inbounds nuw i8, ptr %1678, i64 1
-  store ptr %1679, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1679, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1680 = getelementptr inbounds nuw i8, ptr %1678, i64 2
   %.not6522 = icmp ult ptr %1680, %51
   br i1 %.not6522, label %1681, label %.loopexit
@@ -6249,7 +6249,7 @@ split:                                            ; preds = %1331, %._crit_edge1
   br i1 %1688, label %.loopexit6867, label %.loopexit6956
 
 .loopexit6920:                                    ; preds = %3702
-  store ptr %3688, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3688, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1689 = getelementptr inbounds nuw i8, ptr %3686, i64 3
   %.not64749941 = icmp ult ptr %1689, %51
   br i1 %.not64749941, label %.lr.ph9942, label %.loopexit
@@ -6296,7 +6296,7 @@ split:                                            ; preds = %1331, %._crit_edge1
 .backedge6959:                                    ; preds = %1705, %2423, %1701
   %1707 = phi ptr [ %1695, %1705 ], [ %1694, %2423 ], [ %1695, %1701 ]
   %1708 = getelementptr inbounds nuw i8, ptr %1707, i64 1
-  store ptr %1708, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1708, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1709 = getelementptr inbounds nuw i8, ptr %1707, i64 2
   %.not6474 = icmp ult ptr %1709, %51
   br i1 %.not6474, label %1693, label %.loopexit
@@ -6323,7 +6323,7 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1719:                                             ; preds = %1002
   %1720 = getelementptr inbounds nuw i8, ptr %871, i64 2
-  store ptr %1720, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1720, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1721 = load i8, ptr %1720, align 1
   %1722 = icmp eq i8 %1721, 46
   br i1 %1722, label %.loopexit6894, label %.loopexit6867
@@ -6343,7 +6343,7 @@ split:                                            ; preds = %1331, %._crit_edge1
 1723:                                             ; preds = %.preheader6952, %1727
   %1724 = phi ptr [ %.promoted1007810086, %.preheader6952 ], [ %1725, %1727 ]
   %1725 = getelementptr inbounds nuw i8, ptr %1724, i64 1
-  store ptr %1725, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1725, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1726 = getelementptr inbounds nuw i8, ptr %1724, i64 2
   %.not6512 = icmp ult ptr %1726, %51
   br i1 %.not6512, label %1727, label %.loopexit
@@ -6363,7 +6363,7 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1735:                                             ; preds = %1019
   %1736 = getelementptr inbounds nuw i8, ptr %1015, i64 2
-  store ptr %1736, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1736, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1737 = load i8, ptr %1736, align 1
   %1738 = and i8 %1737, -33
   %or.cond247 = icmp eq i8 %1738, 82
@@ -6371,7 +6371,7 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1739:                                             ; preds = %1027, %1030
   %1740 = getelementptr inbounds nuw i8, ptr %1015, i64 2
-  store ptr %1740, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1740, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1741 = load i8, ptr %1740, align 1
   %1742 = and i8 %1741, -33
   %or.cond250 = icmp eq i8 %1742, 78
@@ -6379,7 +6379,7 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1743:                                             ; preds = %1027, %1031
   %1744 = getelementptr inbounds nuw i8, ptr %1015, i64 2
-  store ptr %1744, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1744, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1745 = load i8, ptr %1744, align 1
   %1746 = and i8 %1745, -33
   %or.cond253 = icmp eq i8 %1746, 79
@@ -6387,7 +6387,7 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1747:                                             ; preds = %1033
   %1748 = getelementptr inbounds nuw i8, ptr %1015, i64 2
-  store ptr %1748, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1748, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1749 = load i8, ptr %1748, align 1
   %1750 = and i8 %1749, -33
   %or.cond256 = icmp eq i8 %1750, 85
@@ -6395,7 +6395,7 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1751:                                             ; preds = %1037
   %1752 = getelementptr inbounds nuw i8, ptr %1015, i64 2
-  store ptr %1752, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1752, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1753 = load i8, ptr %1752, align 1
   %1754 = and i8 %1753, -33
   %or.cond259 = icmp eq i8 %1754, 79
@@ -6403,7 +6403,7 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1755:                                             ; preds = %1041
   %1756 = getelementptr inbounds nuw i8, ptr %1015, i64 2
-  store ptr %1756, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1756, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1757 = load i8, ptr %1756, align 1
   %1758 = and i8 %1757, -33
   %or.cond262 = icmp eq i8 %1758, 84
@@ -6411,7 +6411,7 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1759:                                             ; preds = %1045
   %1760 = getelementptr inbounds nuw i8, ptr %1015, i64 2
-  store ptr %1760, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1760, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1761 = load i8, ptr %1760, align 1
   %1762 = and i8 %1761, -33
   %or.cond265 = icmp eq i8 %1762, 74
@@ -6419,7 +6419,7 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1763:                                             ; preds = %1049
   %1764 = getelementptr inbounds nuw i8, ptr %1015, i64 2
-  store ptr %1764, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1764, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1765 = load i8, ptr %1764, align 1
   %1766 = and i8 %1765, -33
   %or.cond268 = icmp eq i8 %1766, 65
@@ -6427,7 +6427,7 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1767:                                             ; preds = %1053
   %1768 = getelementptr inbounds nuw i8, ptr %1015, i64 2
-  store ptr %1768, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1768, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1769 = load i8, ptr %1768, align 1
   %1770 = and i8 %1769, -33
   %or.cond271 = icmp eq i8 %1770, 82
@@ -6435,7 +6435,7 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1771:                                             ; preds = %1057
   %1772 = getelementptr inbounds nuw i8, ptr %1015, i64 2
-  store ptr %1772, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1772, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1773 = load i8, ptr %1772, align 1
   %1774 = and i8 %1773, -33
   %or.cond274 = icmp eq i8 %1774, 83
@@ -6443,19 +6443,19 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1775:                                             ; preds = %1061
   %1776 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %1776, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %1776, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1777:                                             ; preds = %1079
   %1778 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %1778, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %1778, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1779:                                             ; preds = %1100
   %1780 = getelementptr inbounds nuw i8, ptr %1090, i64 1
-  store ptr %1780, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1780, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1781 = getelementptr inbounds nuw i8, ptr %1090, i64 2
   %.not6443 = icmp ult ptr %1781, %51
   br i1 %.not6443, label %1782, label %.loopexit
@@ -6468,7 +6468,7 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 1785:                                             ; preds = %1130
   %1786 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %1786, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1786, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1787 = load i8, ptr %1786, align 1
   %1788 = icmp ult i8 %1787, 13
   br i1 %1788, label %1789, label %1791
@@ -6486,7 +6486,7 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 .preheader7032:                                   ; preds = %1789, %1791, %1791
   %1792 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %1792, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1792, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1793 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
   %.not64419918 = icmp ult ptr %1793, %51
   br i1 %.not64419918, label %.lr.ph9919, label %.loopexit
@@ -6494,8 +6494,8 @@ split:                                            ; preds = %1331, %._crit_edge1
 .preheader6962:                                   ; preds = %1214, %1797
   %1794 = phi ptr [ %1795, %1797 ], [ %1212, %1214 ]
   %1795 = getelementptr inbounds nuw i8, ptr %1794, i64 1
-  store ptr %1795, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1795, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1795, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1795, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1796 = getelementptr inbounds nuw i8, ptr %1794, i64 2
   %.not6439 = icmp ult ptr %1796, %51
   br i1 %.not6439, label %1797, label %.loopexit
@@ -6512,12 +6512,12 @@ split:                                            ; preds = %1331, %._crit_edge1
 
 .loopexit7039:                                    ; preds = %1800, %912
   %1802 = phi ptr [ %896, %912 ], [ %1795, %1800 ]
-  %1803 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %1803 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %1804 = ptrtoint ptr %1802 to i64
   %1805 = ptrtoint ptr %1803 to i64
   %1806 = sub i64 %1804, %1805
   %1807 = trunc i64 %1806 to i32
-  store i32 %1807, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %1807, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %1808 = add i64 %1806, 4294967294
   %1809 = and i64 %1808, 4294967295
   %1810 = getelementptr inbounds nuw i8, ptr %1803, i64 2
@@ -6640,7 +6640,7 @@ strip_underscores.exit6698:                       ; preds = %1819
   %1848 = phi ptr [ %1219, %1222 ], [ %1855, %1862 ], [ %1219, %1224 ]
   %.14 = phi i32 [ %.55315, %1222 ], [ 5, %1862 ], [ %.55315, %1224 ]
   %1849 = getelementptr inbounds nuw i8, ptr %1848, i64 1
-  store ptr %1849, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1849, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1850 = getelementptr inbounds nuw i8, ptr %1848, i64 2
   %.not6444 = icmp ult ptr %1850, %51
   br i1 %.not6444, label %1851, label %.loopexit
@@ -6658,8 +6658,8 @@ strip_underscores.exit6698:                       ; preds = %1819
 .preheader7029:                                   ; preds = %.preheader7029.preheader, %1860
   %1854 = phi ptr [ %1855, %1860 ], [ %.ph20729, %.preheader7029.preheader ]
   %1855 = getelementptr inbounds nuw i8, ptr %1854, i64 1
-  store ptr %1855, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1855, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1855, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1855, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1856 = getelementptr inbounds nuw i8, ptr %1854, i64 2
   %.not6445 = icmp ult ptr %1856, %51
   br i1 %.not6445, label %1857, label %.loopexit
@@ -6680,8 +6680,8 @@ strip_underscores.exit6698:                       ; preds = %1819
 .preheader6964:                                   ; preds = %1230, %1867
   %1864 = phi ptr [ %1865, %1867 ], [ %1228, %1230 ]
   %1865 = getelementptr inbounds nuw i8, ptr %1864, i64 1
-  store ptr %1865, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1865, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1865, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1865, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1866 = getelementptr inbounds nuw i8, ptr %1864, i64 2
   %.not6429 = icmp ult ptr %1866, %51
   br i1 %.not6429, label %1867, label %.loopexit
@@ -6698,12 +6698,12 @@ strip_underscores.exit6698:                       ; preds = %1819
 
 .loopexit7043:                                    ; preds = %1870, %913
   %1872 = phi ptr [ %896, %913 ], [ %1865, %1870 ]
-  %1873 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %1873 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %1874 = ptrtoint ptr %1872 to i64
   %1875 = ptrtoint ptr %1873 to i64
   %1876 = sub i64 %1874, %1875
   %1877 = trunc i64 %1876 to i32
-  store i32 %1877, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %1877, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %1878 = add i64 %1876, 4294967294
   %1879 = and i64 %1878, 4294967295
   %1880 = getelementptr inbounds nuw i8, ptr %1873, i64 2
@@ -6814,8 +6814,8 @@ strip_underscores.exit6702:                       ; preds = %1888
 .preheader6966:                                   ; preds = %1235, %1915
   %1912 = phi ptr [ %1913, %1915 ], [ %1233, %1235 ]
   %1913 = getelementptr inbounds nuw i8, ptr %1912, i64 1
-  store ptr %1913, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %1913, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %1913, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1913, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %1914 = getelementptr inbounds nuw i8, ptr %1912, i64 2
   %.not6425 = icmp ult ptr %1914, %51
   br i1 %.not6425, label %1915, label %.loopexit
@@ -6835,12 +6835,12 @@ strip_underscores.exit6702:                       ; preds = %1888
 
 .loopexit7047:                                    ; preds = %1921, %913
   %1923 = phi ptr [ %896, %913 ], [ %1913, %1921 ]
-  %1924 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %1924 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %1925 = ptrtoint ptr %1923 to i64
   %1926 = ptrtoint ptr %1924 to i64
   %1927 = sub i64 %1925, %1926
   %1928 = trunc i64 %1927 to i32
-  store i32 %1928, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %1928, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %1929 = add i64 %1927, 4294967294
   %1930 = and i64 %1929, 4294967295
   %1931 = getelementptr inbounds nuw i8, ptr %1924, i64 2
@@ -6987,7 +6987,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .backedge7062:                                    ; preds = %1977, %1977
   %1978 = getelementptr inbounds nuw i8, ptr %.promoted9897, i64 1
-  store ptr %1978, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1978, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1979 = getelementptr inbounds nuw i8, ptr %.promoted9897, i64 3
   %.not6402 = icmp ult ptr %1979, %51
   br i1 %.not6402, label %.lr.ph9896, label %.loopexit
@@ -7024,67 +7024,67 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .preheader7054:                                   ; preds = %1985, %1988
   %1989 = getelementptr inbounds nuw i8, ptr %.promoted9897, i64 1
-  store ptr %1989, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1989, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %1990 = getelementptr inbounds nuw i8, ptr %.promoted9897, i64 3
   %.not64039898 = icmp ult ptr %1990, %51
   br i1 %.not64039898, label %.lr.ph9899, label %.loopexit
 
 1991:                                             ; preds = %1259
   %1992 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %1992, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %1992, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1993:                                             ; preds = %1267
   %1994 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %1994, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %1994, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1995:                                             ; preds = %1274
   %1996 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %1996, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %1996, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1997:                                             ; preds = %1283
   %1998 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %1998, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %1998, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 1999:                                             ; preds = %1288
   %2000 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2000, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %2001 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #17
-  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store ptr %2000, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %2001 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64)) #17
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %.loopexit7124
 
 2002:                                             ; preds = %1292, %2006
   %2003 = phi i64 [ 2, %1292 ], [ 3, %2006 ]
   %2004 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 %2003
   %2005 = getelementptr inbounds nuw i8, ptr %2004, i64 1
-  store ptr %2005, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2005, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %1295
 
 2006:                                             ; preds = %1292
   %2007 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2007, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2007, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2008 = load i8, ptr %2007, align 1
   %2009 = icmp eq i8 %2008, 10
   br i1 %2009, label %2002, label %1295
 
 2010:                                             ; preds = %1307
   %2011 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2011, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %2011, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 2012:                                             ; preds = %1312
   %2013 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2013, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2013, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2013, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2013, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2014 = load i8, ptr %2013, align 1
   %2015 = and i8 %2014, -33
   %or.cond298 = icmp eq i8 %2015, 84
@@ -7092,8 +7092,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2016:                                             ; preds = %1316
   %2017 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2017, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2017, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2017, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2017, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2018 = load i8, ptr %2017, align 1
   %2019 = zext i8 %2018 to i64
   %2020 = or disjoint i64 %2019, 256
@@ -7108,7 +7108,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7206:                                    ; preds = %2023, %913
   %2025 = phi ptr [ %896, %913 ], [ %2017, %2023 ]
-  %2026 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %2026 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %2027 = ptrtoint ptr %2025 to i64
   %2028 = ptrtoint ptr %2026 to i64
   %2029 = sub i64 %2027, %2028
@@ -7117,8 +7117,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2031:                                             ; preds = %1320
   %2032 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2032, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2032, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2032, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2032, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2033 = load i8, ptr %2032, align 1
   %2034 = and i8 %2033, -33
   %or.cond301 = icmp eq i8 %2034, 65
@@ -7145,8 +7145,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .backedge6947:                                    ; preds = %2042, %2050, %2052, %2040
   %2044 = getelementptr inbounds nuw i8, ptr %2035, i64 1
-  store ptr %2044, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2044, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2044, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2044, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2045 = getelementptr inbounds nuw i8, ptr %2035, i64 2
   %.not6535 = icmp ult ptr %2045, %3611
   br i1 %.not6535, label %.lr.ph10206, label %.loopexit
@@ -7169,17 +7169,17 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit6946:                                    ; preds = %2046, %2052, %2050, %2040, %916
   %2053 = phi ptr [ %896, %916 ], [ %2035, %2040 ], [ %2035, %2050 ], [ %2035, %2052 ], [ %2035, %2046 ]
-  %2054 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %2054 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %2055 = ptrtoint ptr %2053 to i64
   %2056 = ptrtoint ptr %2054 to i64
   %2057 = sub i64 %2055, %2056
   %2058 = trunc i64 %2057 to i32
-  store i32 %2058, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %2058, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7968
 
 2059:                                             ; preds = %1353
   %2060 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2060, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2060, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2061 = load i8, ptr %2060, align 1
   %2062 = icmp eq i8 %2061, 60
   br i1 %2062, label %.preheader7059, label %.thread6762
@@ -7188,15 +7188,15 @@ strip_underscores.exit6706:                       ; preds = %1940
   %.promoted9894 = phi ptr [ %1254, %1257 ], [ %2060, %2059 ]
   %.15.ph = phi i32 [ 7, %1257 ], [ 4, %2059 ]
   %2063 = getelementptr inbounds nuw i8, ptr %.promoted9894, i64 1
-  store ptr %2063, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2063, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2064 = getelementptr inbounds nuw i8, ptr %.promoted9894, i64 3
   %.not64029895 = icmp ult ptr %2064, %51
   br i1 %.not64029895, label %.lr.ph9896, label %.loopexit
 
 2065:                                             ; preds = %1357
   %2066 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2066, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2066, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2066, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2066, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2067 = load i8, ptr %2066, align 1
   %2068 = and i8 %2067, -33
   %or.cond310 = icmp eq i8 %2068, 65
@@ -7204,8 +7204,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2069:                                             ; preds = %1373, %1367
   %2070 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2070, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2070, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2070, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2070, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2071 = load i8, ptr %2070, align 1
   %2072 = and i8 %2071, -33
   %or.cond313 = icmp eq i8 %2072, 76
@@ -7213,8 +7213,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2073:                                             ; preds = %1375, %1370
   %2074 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2074, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2074, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2074, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2074, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2075 = load i8, ptr %2074, align 1
   %2076 = and i8 %2075, -33
   %or.cond316 = icmp eq i8 %2076, 69
@@ -7222,8 +7222,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2077:                                             ; preds = %1377, %1370
   %2078 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2078, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2078, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2078, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2078, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2079 = load i8, ptr %2078, align 1
   %2080 = and i8 %2079, -33
   %or.cond319 = icmp eq i8 %2080, 67
@@ -7231,8 +7231,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2081:                                             ; preds = %1383, %1386
   %2082 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2082, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2082, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2082, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2082, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2083 = load i8, ptr %2082, align 1
   %2084 = and i8 %2083, -33
   %or.cond322 = icmp eq i8 %2084, 83
@@ -7240,8 +7240,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2085:                                             ; preds = %1383, %1387
   %2086 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2086, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2086, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2086, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2086, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2087 = load i8, ptr %2086, align 1
   %2088 = and i8 %2087, -33
   %or.cond325 = icmp eq i8 %2088, 78
@@ -7249,8 +7249,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2089:                                             ; preds = %1389
   %2090 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2090, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2090, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2090, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2090, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2091 = load i8, ptr %2090, align 1
   %2092 = icmp ult i8 %2091, 85
   br i1 %2092, label %2093, label %2096
@@ -7277,8 +7277,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2102:                                             ; preds = %1397, %1400
   %2103 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2103, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2103, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2103, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2103, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2104 = load i8, ptr %2103, align 1
   %2105 = and i8 %2104, -33
   %or.cond328 = icmp eq i8 %2105, 76
@@ -7286,8 +7286,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2106:                                             ; preds = %1397, %1401
   %2107 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2107, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2107, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2107, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2107, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2108 = load i8, ptr %2107, align 1
   %2109 = and i8 %2108, -33
   %or.cond331 = icmp eq i8 %2109, 65
@@ -7295,8 +7295,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2110:                                             ; preds = %1403
   %2111 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2111, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2111, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2111, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2111, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2112 = load i8, ptr %2111, align 1
   %2113 = zext i8 %2112 to i64
   %2114 = or disjoint i64 %2113, 256
@@ -7311,7 +7311,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7194:                                    ; preds = %2117, %916
   %2119 = phi ptr [ %896, %916 ], [ %2111, %2117 ]
-  %2120 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %2120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %2121 = ptrtoint ptr %2119 to i64
   %2122 = ptrtoint ptr %2120 to i64
   %2123 = sub i64 %2121, %2122
@@ -7320,8 +7320,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2125:                                             ; preds = %1422
   %2126 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2126, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2126, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2126, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2126, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2127 = load i8, ptr %2126, align 1
   %2128 = and i8 %2127, -33
   %or.cond334 = icmp eq i8 %2128, 79
@@ -7329,8 +7329,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2129:                                             ; preds = %1426
   %2130 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2130, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2130, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2130, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2130, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2131 = load i8, ptr %2130, align 1
   %2132 = and i8 %2131, -33
   %or.cond337 = icmp eq i8 %2132, 69
@@ -7338,8 +7338,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2133:                                             ; preds = %1430
   %2134 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2134, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2134, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2134, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2134, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2135 = load i8, ptr %2134, align 1
   %2136 = and i8 %2135, -33
   %or.cond340 = icmp eq i8 %2136, 84
@@ -7347,8 +7347,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2137:                                             ; preds = %1438, %1441
   %2138 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2138, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2138, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2138, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2138, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2139 = load i8, ptr %2138, align 1
   switch i8 %2139, label %670 [
     i8 68, label %2648
@@ -7365,8 +7365,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2140:                                             ; preds = %1438, %1442
   %2141 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2141, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2141, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2141, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2141, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2142 = load i8, ptr %2141, align 1
   %2143 = and i8 %2142, -33
   %or.cond343 = icmp eq i8 %2143, 77
@@ -7374,8 +7374,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2144:                                             ; preds = %1444
   %2145 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2145, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2145, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2145, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2145, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2146 = load i8, ptr %2145, align 1
   %2147 = and i8 %2146, -33
   %or.cond346 = icmp eq i8 %2147, 76
@@ -7383,8 +7383,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2148:                                             ; preds = %1452, %1455
   %2149 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2149, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2149, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2149, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2149, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2150 = load i8, ptr %2149, align 1
   %2151 = and i8 %2150, -33
   %or.cond349 = icmp eq i8 %2151, 84
@@ -7392,8 +7392,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2152:                                             ; preds = %1452, %1456
   %2153 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2153, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2153, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2153, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2153, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2154 = load i8, ptr %2153, align 1
   %2155 = and i8 %2154, -33
   %or.cond352 = icmp eq i8 %2155, 69
@@ -7401,8 +7401,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2156:                                             ; preds = %1458
   %2157 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2157, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2157, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2157, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2157, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2158 = load i8, ptr %2157, align 1
   %2159 = and i8 %2158, -33
   %or.cond355 = icmp eq i8 %2159, 65
@@ -7410,8 +7410,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2160:                                             ; preds = %1477
   %2161 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2161, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2161, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2161, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2161, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2162 = load i8, ptr %2161, align 1
   %2163 = icmp ult i8 %2162, 93
   br i1 %2163, label %2164, label %2175
@@ -7459,7 +7459,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7170:                                    ; preds = %2182, %2177, %2173, %2166, %916
   %2183 = phi ptr [ %896, %916 ], [ %2161, %2166 ], [ %2161, %2173 ], [ %2161, %2177 ], [ %2161, %2182 ]
-  %2184 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %2184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %2185 = ptrtoint ptr %2183 to i64
   %2186 = ptrtoint ptr %2184 to i64
   %2187 = sub i64 %2185, %2186
@@ -7468,8 +7468,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2189:                                             ; preds = %1481
   %2190 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2190, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2190, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2190, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2190, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2191 = load i8, ptr %2190, align 1
   %2192 = and i8 %2191, -33
   %or.cond367 = icmp eq i8 %2192, 67
@@ -7477,8 +7477,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2193:                                             ; preds = %1485
   %2194 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2194, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2194, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2194, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2194, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2195 = load i8, ptr %2194, align 1
   %2196 = and i8 %2195, -33
   %or.cond370 = icmp eq i8 %2196, 66
@@ -7486,8 +7486,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2197:                                             ; preds = %1489
   %2198 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2198, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2198, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2198, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2198, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2199 = load i8, ptr %2198, align 1
   %2200 = and i8 %2199, -33
   %or.cond373 = icmp eq i8 %2200, 79
@@ -7495,8 +7495,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2201:                                             ; preds = %1508
   %2202 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2202, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2202, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2202, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2202, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2203 = load i8, ptr %2202, align 1
   %2204 = and i8 %2203, -33
   %or.cond376 = icmp eq i8 %2204, 76
@@ -7504,8 +7504,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2205:                                             ; preds = %1524, %1518
   %2206 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2206, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2206, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2206, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2206, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2207 = load i8, ptr %2206, align 1
   %2208 = and i8 %2207, -33
   %or.cond379 = icmp eq i8 %2208, 76
@@ -7513,8 +7513,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2209:                                             ; preds = %1526, %1521
   %2210 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2210, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2210, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2210, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2210, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2211 = load i8, ptr %2210, align 1
   %2212 = and i8 %2211, -33
   %or.cond382 = icmp eq i8 %2212, 84
@@ -7522,8 +7522,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2213:                                             ; preds = %1528, %1521
   %2214 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2214, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2214, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2214, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2214, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2215 = load i8, ptr %2214, align 1
   %2216 = and i8 %2215, -33
   %or.cond385 = icmp eq i8 %2216, 69
@@ -7531,8 +7531,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2217:                                             ; preds = %1530
   %2218 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2218, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2218, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2218, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2218, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2219 = load i8, ptr %2218, align 1
   %2220 = and i8 %2219, -33
   %or.cond388 = icmp eq i8 %2220, 69
@@ -7540,8 +7540,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2221:                                             ; preds = %1534
   %2222 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2222, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2222, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2222, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2222, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2223 = load i8, ptr %2222, align 1
   %2224 = and i8 %2223, -33
   %or.cond391 = icmp eq i8 %2224, 84
@@ -7549,8 +7549,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2225:                                             ; preds = %1538
   %2226 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2226, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2226, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2226, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2226, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2227 = load i8, ptr %2226, align 1
   %2228 = and i8 %2227, -33
   %or.cond394 = icmp eq i8 %2228, 67
@@ -7558,8 +7558,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2229:                                             ; preds = %1542
   %2230 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2230, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2230, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2230, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2230, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2231 = load i8, ptr %2230, align 1
   %2232 = and i8 %2231, -33
   %or.cond397 = icmp eq i8 %2232, 69
@@ -7567,8 +7567,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2233:                                             ; preds = %1546
   %2234 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2234, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2234, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2234, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2234, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2235 = load i8, ptr %2234, align 1
   %2236 = zext i8 %2235 to i64
   %2237 = or disjoint i64 %2236, 256
@@ -7583,7 +7583,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7156:                                    ; preds = %2240, %917
   %2242 = phi ptr [ %896, %917 ], [ %2234, %2240 ]
-  %2243 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %2243 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %2244 = ptrtoint ptr %2242 to i64
   %2245 = ptrtoint ptr %2243 to i64
   %2246 = sub i64 %2244, %2245
@@ -7592,8 +7592,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2248:                                             ; preds = %1569, %1572
   %2249 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2249, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2249, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2249, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2249, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2250 = load i8, ptr %2249, align 1
   %2251 = icmp ult i8 %2250, 87
   br i1 %2251, label %2252, label %2253
@@ -7618,8 +7618,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2258:                                             ; preds = %1569, %1573
   %2259 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2259, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2259, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2259, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2259, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2260 = load i8, ptr %2259, align 1
   %2261 = and i8 %2260, -33
   %or.cond400 = icmp eq i8 %2261, 84
@@ -7627,8 +7627,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2262:                                             ; preds = %1575
   %2263 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2263, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2263, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2263, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2263, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2264 = load i8, ptr %2263, align 1
   %2265 = and i8 %2264, -33
   %or.cond403 = icmp eq i8 %2265, 76
@@ -7636,8 +7636,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2266:                                             ; preds = %1590, %1585
   %2267 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2267, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2267, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2267, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2267, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2268 = load i8, ptr %2267, align 1
   %2269 = and i8 %2268, -33
   %or.cond406 = icmp eq i8 %2269, 68
@@ -7645,8 +7645,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2270:                                             ; preds = %1592, %1587
   %2271 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2271, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2271, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2271, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2271, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2272 = load i8, ptr %2271, align 1
   %2273 = and i8 %2272, -33
   %or.cond409 = icmp eq i8 %2273, 85
@@ -7654,8 +7654,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2274:                                             ; preds = %1592, %1587
   %2275 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2275, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2275, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2275, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2275, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2276 = load i8, ptr %2275, align 1
   %2277 = and i8 %2276, -33
   %or.cond412 = icmp eq i8 %2277, 85
@@ -7663,8 +7663,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2278:                                             ; preds = %1593
   %2279 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2279, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2279, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2279, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2279, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2280 = load i8, ptr %2279, align 1
   %2281 = and i8 %2280, -33
   %or.cond415 = icmp eq i8 %2281, 84
@@ -7672,8 +7672,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2282:                                             ; preds = %1597
   %2283 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2283, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2283, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2283, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2283, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2284 = load i8, ptr %2283, align 1
   %2285 = and i8 %2284, -33
   %or.cond418 = icmp eq i8 %2285, 84
@@ -7681,8 +7681,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2286:                                             ; preds = %1601
   %2287 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2287, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2287, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2287, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2287, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2288 = load i8, ptr %2287, align 1
   %2289 = and i8 %2288, -33
   %or.cond421 = icmp eq i8 %2289, 79
@@ -7690,8 +7690,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2290:                                             ; preds = %1609, %1612
   %2291 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2291, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2291, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2291, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2291, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2292 = load i8, ptr %2291, align 1
   %2293 = and i8 %2292, -33
   %or.cond424 = icmp eq i8 %2293, 73
@@ -7699,8 +7699,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2294:                                             ; preds = %1609, %1613
   %2295 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2295, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2295, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2295, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2295, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2296 = load i8, ptr %2295, align 1
   %2297 = zext i8 %2296 to i64
   %2298 = or disjoint i64 %2297, 256
@@ -7715,7 +7715,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7142:                                    ; preds = %2301, %917
   %2303 = phi ptr [ %896, %917 ], [ %2295, %2301 ]
-  %2304 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %2304 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %2305 = ptrtoint ptr %2303 to i64
   %2306 = ptrtoint ptr %2304 to i64
   %2307 = sub i64 %2305, %2306
@@ -7724,8 +7724,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2309:                                             ; preds = %1615
   %2310 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2310, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2310, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2310, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2310, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2311 = load i8, ptr %2310, align 1
   %2312 = and i8 %2311, -33
   %or.cond427 = icmp eq i8 %2312, 69
@@ -7733,8 +7733,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2313:                                             ; preds = %1619
   %2314 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2314, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2314, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2314, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2314, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2315 = load i8, ptr %2314, align 1
   %2316 = zext i8 %2315 to i64
   %2317 = or disjoint i64 %2316, 256
@@ -7749,7 +7749,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7140:                                    ; preds = %2320, %917
   %2322 = phi ptr [ %896, %917 ], [ %2314, %2320 ]
-  %2323 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %2323 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %2324 = ptrtoint ptr %2322 to i64
   %2325 = ptrtoint ptr %2323 to i64
   %2326 = sub i64 %2324, %2325
@@ -7758,8 +7758,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2328:                                             ; preds = %1623
   %2329 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2329, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2329, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2329, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2329, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2330 = load i8, ptr %2329, align 1
   %2331 = zext i8 %2330 to i64
   %2332 = or disjoint i64 %2331, 256
@@ -7774,7 +7774,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7139:                                    ; preds = %2335, %924
   %2337 = phi ptr [ %891, %924 ], [ %2329, %2335 ]
-  %2338 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %2338 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %2339 = ptrtoint ptr %2337 to i64
   %2340 = ptrtoint ptr %2338 to i64
   %2341 = sub i64 %2339, %2340
@@ -7783,8 +7783,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2343:                                             ; preds = %1627
   %2344 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2344, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2344, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2344, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2344, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2345 = load i8, ptr %2344, align 1
   %2346 = and i8 %2345, -33
   %or.cond430 = icmp eq i8 %2346, 76
@@ -7792,8 +7792,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2347:                                             ; preds = %1631
   %2348 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2348, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2348, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2348, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2348, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2349 = load i8, ptr %2348, align 1
   %2350 = zext i8 %2349 to i64
   %2351 = or disjoint i64 %2350, 256
@@ -7817,15 +7817,15 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2362:                                             ; preds = %1635
   %2363 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2363, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2363, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2363, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2363, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2364 = load i8, ptr %2363, align 1
   %2365 = and i8 %2364, -33
   %or.cond433 = icmp eq i8 %2365, 76
   br i1 %or.cond433, label %2849, label %670
 
 2366:                                             ; preds = %1653
-  store ptr %1639, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1639, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2367 = getelementptr inbounds nuw i8, ptr %1641, i64 3
   %.not6089 = icmp ult ptr %2367, %51
   br i1 %.not6089, label %2368, label %.loopexit
@@ -7857,8 +7857,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2377:                                             ; preds = %1668, %1668
   %2378 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2378, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2378, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2378, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2378, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2379 = load i8, ptr %2378, align 1
   %2380 = and i8 %2379, -33
   %or.cond442 = icmp eq i8 %2380, 76
@@ -7866,8 +7866,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2381:                                             ; preds = %1668, %1668
   %2382 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2382, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2382, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2382, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2382, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2383 = load i8, ptr %2382, align 1
   %2384 = and i8 %2383, -33
   %or.cond445 = icmp eq i8 %2384, 73
@@ -7875,8 +7875,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2385:                                             ; preds = %1668, %1668
   %2386 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2386, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2386, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2386, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2386, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2387 = load i8, ptr %2386, align 1
   %2388 = icmp ult i8 %2387, 86
   br i1 %2388, label %2389, label %2390
@@ -7901,8 +7901,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2395:                                             ; preds = %1668, %1668
   %2396 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2396, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2396, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2396, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2396, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2397 = load i8, ptr %2396, align 1
   %2398 = and i8 %2397, -33
   %or.cond448 = icmp eq i8 %2398, 65
@@ -7910,8 +7910,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2399:                                             ; preds = %1668, %1668
   %2400 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2400, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2400, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2400, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2400, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2401 = load i8, ptr %2400, align 1
   %2402 = and i8 %2401, -33
   %or.cond451 = icmp eq i8 %2402, 73
@@ -7919,8 +7919,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2403:                                             ; preds = %1668, %1668
   %2404 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2404, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2404, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2404, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2404, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2405 = load i8, ptr %2404, align 1
   %2406 = and i8 %2405, -33
   %or.cond454 = icmp eq i8 %2406, 69
@@ -7928,8 +7928,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2407:                                             ; preds = %1668, %1668
   %2408 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2408, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2408, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2408, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2408, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2409 = load i8, ptr %2408, align 1
   %2410 = and i8 %2409, -33
   %or.cond457 = icmp eq i8 %2410, 65
@@ -7937,15 +7937,15 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2411:                                             ; preds = %1668, %1668
   %2412 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 3
-  store ptr %2412, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2412, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2412, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2412, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2413 = load i8, ptr %2412, align 1
   %2414 = and i8 %2413, -33
   %or.cond460 = icmp eq i8 %2414, 82
   br i1 %or.cond460, label %2885, label %670
 
 2415:                                             ; preds = %1712
-  store ptr %1694, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1694, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2416 = getelementptr inbounds nuw i8, ptr %1696, i64 3
   %.not6519 = icmp ult ptr %2416, %51
   br i1 %.not6519, label %2417, label %.loopexit
@@ -7966,8 +7966,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 .loopexit6957:                                    ; preds = %1712, %2895
   %.promoted1007810090 = phi ptr [ %2436, %2895 ], [ %1695, %1712 ]
   %2425 = getelementptr inbounds nuw i8, ptr %.promoted1007810090, i64 1
-  store ptr %2425, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2425, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2425, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2425, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2426 = getelementptr inbounds nuw i8, ptr %.promoted1007810090, i64 2
   %.not6517 = icmp ult ptr %2426, %51
   br i1 %.not6517, label %2427, label %.loopexit
@@ -7986,7 +7986,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %2434, label %.loopexit6894, label %.loopexit6956
 
 2435:                                             ; preds = %1715
-  store ptr %1694, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1694, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2436 = getelementptr inbounds nuw i8, ptr %1696, i64 3
   %.not6514 = icmp ult ptr %2436, %51
   br i1 %.not6514, label %2437, label %.loopexit
@@ -8009,7 +8009,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   ]
 
 2442:                                             ; preds = %1717
-  store ptr %1694, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %1694, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2443 = getelementptr inbounds nuw i8, ptr %1696, i64 3
   %.not6475 = icmp ult ptr %2443, %51
   br i1 %.not6475, label %2444, label %.loopexit
@@ -8033,7 +8033,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .preheader6915:                                   ; preds = %2448
   %2449 = getelementptr inbounds nuw i8, ptr %1694, i64 1
-  store ptr %2449, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2449, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2450 = getelementptr inbounds nuw i8, ptr %1694, i64 2
   %.not647610066 = icmp ult ptr %2450, %51
   br i1 %.not647610066, label %.lr.ph10068, label %.loopexit
@@ -8046,7 +8046,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 2451:                                             ; preds = %.preheader6950, %2455
   %2452 = phi ptr [ %.promoted1007810084, %.preheader6950 ], [ %2453, %2455 ]
   %2453 = getelementptr inbounds nuw i8, ptr %2452, i64 1
-  store ptr %2453, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2453, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2454 = getelementptr inbounds nuw i8, ptr %2452, i64 2
   %.not6510 = icmp ult ptr %2454, %51
   br i1 %.not6510, label %2455, label %.loopexit
@@ -8068,7 +8068,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2462:                                             ; preds = %1735
   %2463 = getelementptr inbounds nuw i8, ptr %1015, i64 3
-  store ptr %2463, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2463, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2464 = load i8, ptr %2463, align 1
   %2465 = and i8 %2464, -33
   %or.cond463 = icmp eq i8 %2465, 65
@@ -8076,7 +8076,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2466:                                             ; preds = %1739
   %2467 = getelementptr inbounds nuw i8, ptr %1015, i64 3
-  store ptr %2467, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2467, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2468 = load i8, ptr %2467, align 1
   %2469 = and i8 %2468, -33
   %or.cond466 = icmp eq i8 %2469, 65
@@ -8084,7 +8084,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2470:                                             ; preds = %1743
   %2471 = getelementptr inbounds nuw i8, ptr %1015, i64 3
-  store ptr %2471, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2471, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2472 = load i8, ptr %2471, align 1
   %2473 = and i8 %2472, -33
   %or.cond469 = icmp eq i8 %2473, 76
@@ -8092,7 +8092,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2474:                                             ; preds = %1747
   %2475 = getelementptr inbounds nuw i8, ptr %1015, i64 3
-  store ptr %2475, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2475, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2476 = load i8, ptr %2475, align 1
   %2477 = and i8 %2476, -33
   %or.cond472 = icmp eq i8 %2477, 66
@@ -8100,7 +8100,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2478:                                             ; preds = %1751
   %2479 = getelementptr inbounds nuw i8, ptr %1015, i64 3
-  store ptr %2479, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2479, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2480 = load i8, ptr %2479, align 1
   %2481 = and i8 %2480, -33
   %or.cond475 = icmp eq i8 %2481, 65
@@ -8108,7 +8108,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2482:                                             ; preds = %1755
   %2483 = getelementptr inbounds nuw i8, ptr %1015, i64 3
-  store ptr %2483, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2483, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2484 = load i8, ptr %2483, align 1
   %2485 = and i8 %2484, -33
   %or.cond478 = icmp eq i8 %2485, 69
@@ -8116,7 +8116,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2486:                                             ; preds = %1759
   %2487 = getelementptr inbounds nuw i8, ptr %1015, i64 3
-  store ptr %2487, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2487, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2488 = load i8, ptr %2487, align 1
   %2489 = and i8 %2488, -33
   %or.cond481 = icmp eq i8 %2489, 69
@@ -8124,7 +8124,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2490:                                             ; preds = %1763
   %2491 = getelementptr inbounds nuw i8, ptr %1015, i64 3
-  store ptr %2491, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2491, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2492 = load i8, ptr %2491, align 1
   %2493 = and i8 %2492, -33
   %or.cond484 = icmp eq i8 %2493, 76
@@ -8132,14 +8132,14 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .preheader7018:                                   ; preds = %2490
   %2494 = getelementptr inbounds nuw i8, ptr %1015, i64 4
-  store ptr %2494, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2494, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2495 = getelementptr inbounds nuw i8, ptr %1015, i64 5
   %.not64509926 = icmp ult ptr %2495, %51
   br i1 %.not64509926, label %.lr.ph9927, label %.loopexit
 
 2496:                                             ; preds = %1767
   %2497 = getelementptr inbounds nuw i8, ptr %1015, i64 3
-  store ptr %2497, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2497, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2498 = load i8, ptr %2497, align 1
   %2499 = and i8 %2498, -33
   %or.cond487 = icmp eq i8 %2499, 73
@@ -8147,7 +8147,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2500:                                             ; preds = %1771
   %2501 = getelementptr inbounds nuw i8, ptr %1015, i64 3
-  store ptr %2501, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2501, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2502 = load i8, ptr %2501, align 1
   %2503 = and i8 %2502, -33
   %or.cond490 = icmp eq i8 %2503, 69
@@ -8166,7 +8166,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .backedge7035:                                    ; preds = %2507, %2511, %2511
   %2509 = getelementptr inbounds nuw i8, ptr %2504, i64 1
-  store ptr %2509, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2509, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2510 = getelementptr inbounds nuw i8, ptr %2504, i64 2
   %.not6441 = icmp ult ptr %2510, %51
   br i1 %.not6441, label %.lr.ph9919, label %.loopexit
@@ -8179,7 +8179,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2512:                                             ; preds = %1980
   %2513 = getelementptr inbounds nuw i8, ptr %1972, i64 2
-  store ptr %2513, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2513, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2514 = load i8, ptr %2513, align 1
   %2515 = icmp eq i8 %2514, 34
   %2516 = add i8 %2514, -48
@@ -8189,7 +8189,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2517:                                             ; preds = %1980
   %2518 = getelementptr inbounds nuw i8, ptr %1972, i64 2
-  store ptr %2518, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2518, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2519 = load i8, ptr %2518, align 1
   %2520 = icmp eq i8 %2519, 39
   %2521 = add i8 %2519, -48
@@ -8232,7 +8232,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .backedge7058:                                    ; preds = %2535, %2531, %2540
   %2538 = getelementptr inbounds nuw i8, ptr %2522, i64 1
-  store ptr %2538, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2538, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2539 = getelementptr inbounds nuw i8, ptr %2522, i64 3
   %.not6403 = icmp ult ptr %2539, %51
   br i1 %.not6403, label %.lr.ph9899, label %.loopexit
@@ -8249,8 +8249,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2541:                                             ; preds = %2012
   %2542 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2542, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2542, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2542, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2542, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2543 = load i8, ptr %2542, align 1
   %2544 = and i8 %2543, -33
   %or.cond514 = icmp eq i8 %2544, 82
@@ -8258,8 +8258,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2545:                                             ; preds = %2031
   %2546 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2546, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2546, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2546, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2546, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2547 = load i8, ptr %2546, align 1
   %2548 = and i8 %2547, -33
   %or.cond517 = icmp eq i8 %2548, 89
@@ -8267,8 +8267,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2549:                                             ; preds = %2065
   %2550 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2550, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2550, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2550, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2550, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2551 = load i8, ptr %2550, align 1
   %2552 = and i8 %2551, -33
   %or.cond520 = icmp eq i8 %2552, 75
@@ -8276,8 +8276,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2553:                                             ; preds = %2069
   %2554 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2554, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2554, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2554, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2554, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2555 = load i8, ptr %2554, align 1
   %2556 = and i8 %2555, -33
   %or.cond523 = icmp eq i8 %2556, 65
@@ -8285,8 +8285,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2557:                                             ; preds = %2073
   %2558 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2558, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2558, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2558, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2558, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2559 = load i8, ptr %2558, align 1
   %2560 = zext i8 %2559 to i64
   %2561 = or disjoint i64 %2560, 256
@@ -8301,7 +8301,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7201:                                    ; preds = %2564, %925
   %2566 = phi ptr [ %891, %925 ], [ %2558, %2564 ]
-  %2567 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %2567 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %2568 = ptrtoint ptr %2566 to i64
   %2569 = ptrtoint ptr %2567 to i64
   %2570 = sub i64 %2568, %2569
@@ -8310,8 +8310,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2572:                                             ; preds = %2077
   %2573 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2573, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2573, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2573, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2573, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2574 = load i8, ptr %2573, align 1
   %2575 = and i8 %2574, -33
   %or.cond526 = icmp eq i8 %2575, 72
@@ -8319,8 +8319,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2576:                                             ; preds = %2081
   %2577 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2577, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2577, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2577, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2577, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2578 = load i8, ptr %2577, align 1
   %2579 = and i8 %2578, -33
   %or.cond529 = icmp eq i8 %2579, 83
@@ -8328,8 +8328,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2580:                                             ; preds = %2085
   %2581 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2581, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2581, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2581, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2581, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2582 = load i8, ptr %2581, align 1
   %2583 = and i8 %2582, -33
   %or.cond532 = icmp eq i8 %2583, 69
@@ -8337,8 +8337,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2584:                                             ; preds = %2098, %2095
   %2585 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2585, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2585, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2585, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2585, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2586 = load i8, ptr %2585, align 1
   %2587 = and i8 %2586, -33
   %or.cond535 = icmp eq i8 %2587, 84
@@ -8346,8 +8346,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2588:                                             ; preds = %2100, %2095
   %2589 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2589, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2589, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2589, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2589, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2590 = load i8, ptr %2589, align 1
   %2591 = and i8 %2590, -33
   %or.cond538 = icmp eq i8 %2591, 73
@@ -8355,8 +8355,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2592:                                             ; preds = %2102
   %2593 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2593, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2593, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2593, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2593, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2594 = load i8, ptr %2593, align 1
   %2595 = and i8 %2594, -33
   %or.cond541 = icmp eq i8 %2595, 65
@@ -8364,8 +8364,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2596:                                             ; preds = %2106
   %2597 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2597, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2597, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2597, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2597, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2598 = load i8, ptr %2597, align 1
   %2599 = and i8 %2598, -33
   %or.cond544 = icmp eq i8 %2599, 85
@@ -8373,8 +8373,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2600:                                             ; preds = %2125
   %2601 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2601, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2601, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2601, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2601, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2602 = load i8, ptr %2601, align 1
   %2603 = zext i8 %2602 to i64
   %2604 = or disjoint i64 %2603, 256
@@ -8389,7 +8389,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7192:                                    ; preds = %2607, %925
   %2609 = phi ptr [ %891, %925 ], [ %2601, %2607 ]
-  %2610 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %2610 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %2611 = ptrtoint ptr %2609 to i64
   %2612 = ptrtoint ptr %2610 to i64
   %2613 = sub i64 %2611, %2612
@@ -8398,8 +8398,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2615:                                             ; preds = %2129
   %2616 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2616, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2616, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2616, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2616, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2617 = load i8, ptr %2616, align 1
   %2618 = icmp ult i8 %2617, 93
   br i1 %2618, label %2619, label %2630
@@ -8447,7 +8447,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7190:                                    ; preds = %2637, %2632, %2628, %2621, %925
   %2638 = phi ptr [ %891, %925 ], [ %2616, %2621 ], [ %2616, %2628 ], [ %2616, %2632 ], [ %2616, %2637 ]
-  %2639 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %2639 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %2640 = ptrtoint ptr %2638 to i64
   %2641 = ptrtoint ptr %2639 to i64
   %2642 = sub i64 %2640, %2641
@@ -8456,8 +8456,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2644:                                             ; preds = %2133
   %2645 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2645, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2645, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2645, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2645, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2646 = load i8, ptr %2645, align 1
   %2647 = and i8 %2646, -33
   %or.cond556 = icmp eq i8 %2647, 89
@@ -8465,8 +8465,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2648:                                             ; preds = %2137, %2137
   %2649 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2649, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2649, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2649, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2649, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2650 = load i8, ptr %2649, align 1
   %2651 = and i8 %2650, -33
   %or.cond559 = icmp eq i8 %2651, 69
@@ -8474,8 +8474,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2652:                                             ; preds = %2137, %2137
   %2653 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2653, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2653, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2653, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2653, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2654 = load i8, ptr %2653, align 1
   %2655 = and i8 %2654, -33
   %or.cond562 = icmp eq i8 %2655, 79
@@ -8483,8 +8483,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2656:                                             ; preds = %2137, %2137
   %2657 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2657, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2657, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2657, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2657, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2658 = load i8, ptr %2657, align 1
   %2659 = and i8 %2658, -33
   %or.cond565 = icmp eq i8 %2659, 70
@@ -8492,8 +8492,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2660:                                             ; preds = %2137, %2137
   %2661 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2661, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2661, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2661, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2661, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2662 = load i8, ptr %2661, align 1
   %2663 = and i8 %2662, -33
   %or.cond568 = icmp eq i8 %2663, 87
@@ -8501,8 +8501,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2664:                                             ; preds = %2137, %2137
   %2665 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2665, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2665, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2665, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2665, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2666 = load i8, ptr %2665, align 1
   %2667 = and i8 %2666, -33
   %or.cond571 = icmp eq i8 %2667, 72
@@ -8510,8 +8510,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2668:                                             ; preds = %2140
   %2669 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2669, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2669, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2669, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2669, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2670 = load i8, ptr %2669, align 1
   %2671 = icmp ult i8 %2670, 32
   br i1 %2671, label %2672, label %2678
@@ -8544,8 +8544,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2683:                                             ; preds = %2144
   %2684 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2684, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2684, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2684, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2684, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2685 = load i8, ptr %2684, align 1
   %2686 = zext i8 %2685 to i64
   %2687 = or disjoint i64 %2686, 256
@@ -8560,7 +8560,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7177:                                    ; preds = %2690, %928
   %2692 = phi ptr [ %891, %928 ], [ %2684, %2690 ]
-  %2693 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %2693 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %2694 = ptrtoint ptr %2692 to i64
   %2695 = ptrtoint ptr %2693 to i64
   %2696 = sub i64 %2694, %2695
@@ -8569,8 +8569,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2698:                                             ; preds = %2148
   %2699 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2699, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2699, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2699, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2699, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2700 = load i8, ptr %2699, align 1
   %2701 = zext i8 %2700 to i64
   %2702 = or disjoint i64 %2701, 256
@@ -8585,7 +8585,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7176:                                    ; preds = %2705, %928
   %2707 = phi ptr [ %891, %928 ], [ %2699, %2705 ]
-  %2708 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %2708 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %2709 = ptrtoint ptr %2707 to i64
   %2710 = ptrtoint ptr %2708 to i64
   %2711 = sub i64 %2709, %2710
@@ -8594,8 +8594,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2713:                                             ; preds = %2152
   %2714 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2714, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2714, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2714, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2714, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2715 = load i8, ptr %2714, align 1
   %2716 = and i8 %2715, -33
   %or.cond574 = icmp eq i8 %2716, 78
@@ -8603,8 +8603,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2717:                                             ; preds = %2156
   %2718 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2718, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2718, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2718, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2718, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2719 = load i8, ptr %2718, align 1
   %2720 = and i8 %2719, -33
   %or.cond577 = icmp eq i8 %2720, 76
@@ -8612,8 +8612,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2721:                                             ; preds = %2180, %2169
   %2722 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2722, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2722, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2722, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2722, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2723 = load i8, ptr %2722, align 1
   %2724 = and i8 %2723, -33
   %or.cond580 = icmp eq i8 %2724, 65
@@ -8621,8 +8621,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2725:                                             ; preds = %2189
   %2726 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2726, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2726, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2726, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2726, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2727 = load i8, ptr %2726, align 1
   %2728 = and i8 %2727, -33
   %or.cond583 = icmp eq i8 %2728, 84
@@ -8630,8 +8630,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2729:                                             ; preds = %2193
   %2730 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2730, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2730, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2730, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2730, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2731 = load i8, ptr %2730, align 1
   %2732 = and i8 %2731, -33
   %or.cond586 = icmp eq i8 %2732, 65
@@ -8639,8 +8639,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2733:                                             ; preds = %2197
   %2734 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2734, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2734, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2734, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2734, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2735 = load i8, ptr %2734, align 1
   %2736 = zext i8 %2735 to i64
   %2737 = or disjoint i64 %2736, 256
@@ -8655,7 +8655,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7167:                                    ; preds = %2740, %928
   %2742 = phi ptr [ %891, %928 ], [ %2734, %2740 ]
-  %2743 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %2743 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %2744 = ptrtoint ptr %2742 to i64
   %2745 = ptrtoint ptr %2743 to i64
   %2746 = sub i64 %2744, %2745
@@ -8664,8 +8664,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2748:                                             ; preds = %2201
   %2749 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2749, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2749, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2749, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2749, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2750 = load i8, ptr %2749, align 1
   %2751 = and i8 %2750, -33
   %or.cond589 = icmp eq i8 %2751, 69
@@ -8673,8 +8673,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2752:                                             ; preds = %2205
   %2753 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2753, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2753, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2753, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2753, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2754 = load i8, ptr %2753, align 1
   %2755 = and i8 %2754, -33
   %or.cond592 = icmp eq i8 %2755, 85
@@ -8682,8 +8682,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2756:                                             ; preds = %2209
   %2757 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2757, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2757, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2757, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2757, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2758 = load i8, ptr %2757, align 1
   %2759 = icmp ult i8 %2758, 70
   br i1 %2759, label %2760, label %2761
@@ -8708,8 +8708,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2766:                                             ; preds = %2213
   %2767 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2767, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2767, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2767, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2767, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2768 = load i8, ptr %2767, align 1
   %2769 = and i8 %2768, -33
   %or.cond595 = icmp eq i8 %2769, 82
@@ -8717,8 +8717,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2770:                                             ; preds = %2217
   %2771 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2771, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2771, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2771, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2771, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2772 = load i8, ptr %2771, align 1
   %2773 = and i8 %2772, -33
   %or.cond598 = icmp eq i8 %2773, 84
@@ -8726,8 +8726,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2774:                                             ; preds = %2221
   %2775 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2775, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2775, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2775, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2775, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2776 = load i8, ptr %2775, align 1
   %2777 = zext i8 %2776 to i64
   %2778 = or disjoint i64 %2777, 256
@@ -8742,7 +8742,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7158:                                    ; preds = %2781, %929
   %2783 = phi ptr [ %891, %929 ], [ %2775, %2781 ]
-  %2784 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %2784 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %2785 = ptrtoint ptr %2783 to i64
   %2786 = ptrtoint ptr %2784 to i64
   %2787 = sub i64 %2785, %2786
@@ -8751,8 +8751,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2789:                                             ; preds = %2225
   %2790 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2790, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2790, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2790, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2790, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2791 = load i8, ptr %2790, align 1
   %2792 = and i8 %2791, -33
   %or.cond601 = icmp eq i8 %2792, 72
@@ -8760,8 +8760,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2793:                                             ; preds = %2229
   %2794 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2794, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2794, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2794, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2794, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2795 = load i8, ptr %2794, align 1
   %2796 = and i8 %2795, -33
   %or.cond604 = icmp eq i8 %2796, 83
@@ -8769,8 +8769,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2797:                                             ; preds = %2252, %2255
   %2798 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2798, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2798, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2798, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2798, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2799 = load i8, ptr %2798, align 1
   %2800 = and i8 %2799, -33
   %or.cond607 = icmp eq i8 %2800, 84
@@ -8778,8 +8778,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2801:                                             ; preds = %2252, %2256
   %2802 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2802, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2802, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2802, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2802, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2803 = load i8, ptr %2802, align 1
   %2804 = and i8 %2803, -33
   %or.cond610 = icmp eq i8 %2804, 65
@@ -8787,8 +8787,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2805:                                             ; preds = %2258
   %2806 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2806, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2806, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2806, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2806, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2807 = load i8, ptr %2806, align 1
   %2808 = and i8 %2807, -33
   %or.cond613 = icmp eq i8 %2808, 69
@@ -8796,8 +8796,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2809:                                             ; preds = %2262
   %2810 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2810, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2810, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2810, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2810, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2811 = load i8, ptr %2810, align 1
   %2812 = and i8 %2811, -33
   %or.cond616 = icmp eq i8 %2812, 73
@@ -8805,8 +8805,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2813:                                             ; preds = %2266
   %2814 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2814, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2814, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2814, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2814, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2815 = load i8, ptr %2814, align 1
   %2816 = and i8 %2815, -33
   %or.cond619 = icmp eq i8 %2816, 79
@@ -8814,8 +8814,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2817:                                             ; preds = %2270
   %2818 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2818, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2818, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2818, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2818, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2819 = load i8, ptr %2818, align 1
   %2820 = and i8 %2819, -33
   %or.cond622 = icmp eq i8 %2820, 73
@@ -8823,8 +8823,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2821:                                             ; preds = %2274
   %2822 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2822, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2822, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2822, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2822, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2823 = load i8, ptr %2822, align 1
   %2824 = and i8 %2823, -33
   %or.cond625 = icmp eq i8 %2824, 82
@@ -8832,8 +8832,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2825:                                             ; preds = %2278
   %2826 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2826, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2826, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2826, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2826, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2827 = load i8, ptr %2826, align 1
   %2828 = and i8 %2827, -33
   %or.cond628 = icmp eq i8 %2828, 73
@@ -8841,8 +8841,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2829:                                             ; preds = %2282
   %2830 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2830, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2830, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2830, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2830, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2831 = load i8, ptr %2830, align 1
   %2832 = and i8 %2831, -33
   %or.cond631 = icmp eq i8 %2832, 67
@@ -8850,8 +8850,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2833:                                             ; preds = %2286
   %2834 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2834, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2834, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2834, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2834, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2835 = load i8, ptr %2834, align 1
   %2836 = and i8 %2835, -33
   %or.cond634 = icmp eq i8 %2836, 87
@@ -8859,8 +8859,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2837:                                             ; preds = %2290
   %2838 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2838, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2838, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2838, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2838, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2839 = load i8, ptr %2838, align 1
   %2840 = and i8 %2839, -33
   %or.cond637 = icmp eq i8 %2840, 84
@@ -8868,8 +8868,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2841:                                             ; preds = %2309
   %2842 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2842, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2842, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2842, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2842, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2843 = load i8, ptr %2842, align 1
   %2844 = and i8 %2843, -33
   %or.cond640 = icmp eq i8 %2844, 84
@@ -8877,8 +8877,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2845:                                             ; preds = %2343
   %2846 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2846, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2846, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2846, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2846, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2847 = load i8, ptr %2846, align 1
   %2848 = and i8 %2847, -33
   %or.cond643 = icmp eq i8 %2848, 69
@@ -8886,8 +8886,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2849:                                             ; preds = %2362
   %2850 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2850, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2850, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2850, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2850, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2851 = load i8, ptr %2850, align 1
   %2852 = and i8 %2851, -33
   %or.cond646 = icmp eq i8 %2852, 68
@@ -8895,8 +8895,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2853:                                             ; preds = %2377
   %2854 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2854, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2854, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2854, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2854, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2855 = load i8, ptr %2854, align 1
   %2856 = and i8 %2855, -33
   %or.cond649 = icmp eq i8 %2856, 65
@@ -8904,8 +8904,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2857:                                             ; preds = %2381
   %2858 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2858, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2858, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2858, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2858, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2859 = load i8, ptr %2858, align 1
   %2860 = and i8 %2859, -33
   %or.cond652 = icmp eq i8 %2860, 82
@@ -8913,8 +8913,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2861:                                             ; preds = %2389, %2392
   %2862 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2862, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2862, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2862, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2862, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2863 = load i8, ptr %2862, align 1
   %2864 = and i8 %2863, -33
   %or.cond655 = icmp eq i8 %2864, 76
@@ -8922,8 +8922,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2865:                                             ; preds = %2389, %2393
   %2866 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2866, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2866, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2866, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2866, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2867 = load i8, ptr %2866, align 1
   %2868 = and i8 %2867, -33
   %or.cond658 = icmp eq i8 %2868, 78
@@ -8931,8 +8931,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2869:                                             ; preds = %2395
   %2870 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2870, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2870, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2870, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2870, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2871 = load i8, ptr %2870, align 1
   %2872 = and i8 %2871, -33
   %or.cond661 = icmp eq i8 %2872, 76
@@ -8940,8 +8940,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2873:                                             ; preds = %2399
   %2874 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2874, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2874, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2874, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2874, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2875 = load i8, ptr %2874, align 1
   %2876 = and i8 %2875, -33
   %or.cond664 = icmp eq i8 %2876, 78
@@ -8949,8 +8949,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2877:                                             ; preds = %2403
   %2878 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2878, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2878, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2878, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2878, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2879 = load i8, ptr %2878, align 1
   %2880 = and i8 %2879, -33
   %or.cond667 = icmp eq i8 %2880, 84
@@ -8958,8 +8958,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2881:                                             ; preds = %2407
   %2882 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2882, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2882, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2882, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2882, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2883 = load i8, ptr %2882, align 1
   %2884 = and i8 %2883, -33
   %or.cond670 = icmp eq i8 %2884, 77
@@ -8967,15 +8967,15 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2885:                                             ; preds = %2411
   %2886 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 4
-  store ptr %2886, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %2886, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %2886, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2886, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %2887 = load i8, ptr %2886, align 1
   %2888 = and i8 %2887, -33
   %or.cond673 = icmp eq i8 %2888, 65
   br i1 %or.cond673, label %3650, label %670
 
 2889:                                             ; preds = %2441
-  store ptr %2436, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2436, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2890 = getelementptr inbounds nuw i8, ptr %1696, i64 4
   %.not6515 = icmp ult ptr %2890, %51
   br i1 %.not6515, label %2891, label %.loopexit
@@ -9016,7 +9016,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   %.promoted99779981 = phi ptr [ %2896, %.lr.ph10068 ], [ %3654, %4142 ], [ %3687, %3694 ], [ %3687, %3696 ], [ %3687, %3702 ], [ %4607, %4632 ], [ %4606, %4979 ], [ %4606, %4984 ], [ %4973, %5273 ], [ %4973, %5278 ], [ %4988, %5288 ], [ %4988, %5293 ], [ %3654, %4149 ], [ %3654, %4150 ], [ %3654, %4177 ], [ %4607, %4615 ], [ %4607, %4624 ], [ %4607, %4636 ], [ %4606, %4950 ], [ %4606, %4989 ], [ %4988, %5294 ], [ %4607, %4621 ], [ %3687, %3701 ], [ %4988, %5290 ], [ %4606, %4985 ], [ %4973, %5279 ], [ %4973, %5275 ], [ %4606, %4981 ], [ %4607, %4628 ], [ %4961, %4963 ], [ %3654, %4144 ]
   %.17.be = phi i32 [ %.1710067, %.lr.ph10068 ], [ %.219969, %4142 ], [ %.22.ph, %3694 ], [ %.22.ph, %3696 ], [ %.22.ph, %3702 ], [ %.219969, %4632 ], [ %.219969, %4979 ], [ %.219969, %4984 ], [ %.219969, %5273 ], [ %.219969, %5278 ], [ %.219969, %5288 ], [ %.219969, %5293 ], [ %.219969, %4149 ], [ %.219969, %4150 ], [ %.219969, %4177 ], [ %.219969, %4615 ], [ %.219969, %4624 ], [ %.219969, %4636 ], [ %.219969, %4950 ], [ %.219969, %4989 ], [ %.219969, %5294 ], [ %.219969, %4621 ], [ %.22.ph, %3701 ], [ %.219969, %5290 ], [ %.219969, %4985 ], [ %.219969, %5279 ], [ %.219969, %5275 ], [ %.219969, %4981 ], [ %.219969, %4628 ], [ 26, %4963 ], [ %.219969, %4144 ]
   %2901 = getelementptr inbounds nuw i8, ptr %.promoted99779981, i64 1
-  store ptr %2901, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2901, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2902 = getelementptr inbounds nuw i8, ptr %.promoted99779981, i64 2
   %.not6476 = icmp ult ptr %2902, %51
   br i1 %.not6476, label %.lr.ph10068, label %.loopexit
@@ -9031,7 +9031,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2907:                                             ; preds = %2462
   %2908 = getelementptr inbounds nuw i8, ptr %1015, i64 4
-  store ptr %2908, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2908, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2909 = load i8, ptr %2908, align 1
   %2910 = and i8 %2909, -33
   %or.cond676 = icmp eq i8 %2910, 89
@@ -9039,14 +9039,14 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .preheader7003:                                   ; preds = %2907
   %2911 = getelementptr inbounds nuw i8, ptr %1015, i64 5
-  store ptr %2911, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2911, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2912 = getelementptr inbounds nuw i8, ptr %1015, i64 6
   %.not64619938 = icmp ult ptr %2912, %51
   br i1 %.not64619938, label %.lr.ph9939, label %.loopexit
 
 2913:                                             ; preds = %2466
   %2914 = getelementptr inbounds nuw i8, ptr %1015, i64 4
-  store ptr %2914, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2914, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2915 = load i8, ptr %2914, align 1
   %2916 = and i8 %2915, -33
   %or.cond679 = icmp eq i8 %2916, 82
@@ -9054,7 +9054,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2917:                                             ; preds = %2470
   %2918 = getelementptr inbounds nuw i8, ptr %1015, i64 4
-  store ptr %2918, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2918, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2919 = load i8, ptr %2918, align 1
   %2920 = and i8 %2919, -33
   %or.cond682 = icmp eq i8 %2920, 69
@@ -9062,7 +9062,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2921:                                             ; preds = %2474
   %2922 = getelementptr inbounds nuw i8, ptr %1015, i64 4
-  store ptr %2922, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2922, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2923 = load i8, ptr %2922, align 1
   %2924 = and i8 %2923, -33
   %or.cond685 = icmp eq i8 %2924, 76
@@ -9070,7 +9070,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2925:                                             ; preds = %2478
   %2926 = getelementptr inbounds nuw i8, ptr %1015, i64 4
-  store ptr %2926, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2926, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2927 = load i8, ptr %2926, align 1
   %2928 = and i8 %2927, -33
   %or.cond688 = icmp eq i8 %2928, 84
@@ -9079,7 +9079,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 2929:                                             ; preds = %2940, %4202, %2938
   %2930 = phi ptr [ %2936, %2940 ], [ %4203, %4202 ], [ %2936, %2938 ]
   %2931 = getelementptr inbounds nuw i8, ptr %2930, i64 1
-  store ptr %2931, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2931, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2932 = getelementptr inbounds nuw i8, ptr %2930, i64 2
   %.not6453 = icmp ult ptr %2932, %51
   br i1 %.not6453, label %2933, label %.loopexit
@@ -9106,17 +9106,17 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2941:                                             ; preds = %2940
   %2942 = getelementptr inbounds nuw i8, ptr %2936, i64 1
-  store ptr %2942, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2942, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2943 = ptrtoint ptr %2942 to i64
   %2944 = ptrtoint ptr %.promoted103951316013175 to i64
   %2945 = sub i64 %2943, %2944
   %2946 = trunc i64 %2945 to i32
-  store i32 %2946, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %2946, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 2947:                                             ; preds = %2482
   %2948 = getelementptr inbounds nuw i8, ptr %1015, i64 4
-  store ptr %2948, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2948, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2949 = load i8, ptr %2948, align 1
   %2950 = and i8 %2949, -33
   %or.cond691 = icmp eq i8 %2950, 71
@@ -9124,7 +9124,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2951:                                             ; preds = %2486
   %2952 = getelementptr inbounds nuw i8, ptr %1015, i64 4
-  store ptr %2952, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2952, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2953 = load i8, ptr %2952, align 1
   %2954 = and i8 %2953, -33
   %or.cond694 = icmp eq i8 %2954, 67
@@ -9143,7 +9143,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .backedge7021:                                    ; preds = %2959, %2963
   %2961 = getelementptr inbounds nuw i8, ptr %2956, i64 1
-  store ptr %2961, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2961, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2962 = getelementptr inbounds nuw i8, ptr %2956, i64 2
   %.not6450 = icmp ult ptr %2962, %51
   br i1 %.not6450, label %.lr.ph9927, label %.loopexit
@@ -9156,7 +9156,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2964:                                             ; preds = %2496
   %2965 = getelementptr inbounds nuw i8, ptr %1015, i64 4
-  store ptr %2965, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2965, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2966 = load i8, ptr %2965, align 1
   %2967 = and i8 %2966, -33
   %or.cond697 = icmp eq i8 %2967, 78
@@ -9164,7 +9164,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2968:                                             ; preds = %2500
   %2969 = getelementptr inbounds nuw i8, ptr %1015, i64 4
-  store ptr %2969, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2969, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2970 = load i8, ptr %2969, align 1
   %2971 = and i8 %2970, -33
   %or.cond700 = icmp eq i8 %2971, 84
@@ -9172,14 +9172,14 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .preheader7022:                                   ; preds = %2968
   %2972 = getelementptr inbounds nuw i8, ptr %1015, i64 5
-  store ptr %2972, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2972, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2973 = getelementptr inbounds nuw i8, ptr %1015, i64 6
   %.not64499923 = icmp ult ptr %2973, %51
   br i1 %.not64499923, label %.lr.ph9924, label %.loopexit
 
 2974:                                             ; preds = %2991, %2989, %2985
   %2975 = getelementptr inbounds nuw i8, ptr %2979, i64 1
-  store ptr %2975, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2975, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2976 = getelementptr inbounds nuw i8, ptr %2979, i64 4
   %.not6406 = icmp ult ptr %2976, %51
   br i1 %.not6406, label %2977, label %.loopexit
@@ -9221,7 +9221,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 2992:                                             ; preds = %3009, %3007, %3003
   %2993 = getelementptr inbounds nuw i8, ptr %2997, i64 1
-  store ptr %2993, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2993, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %2994 = getelementptr inbounds nuw i8, ptr %2997, i64 4
   %.not6405 = icmp ult ptr %2994, %51
   br i1 %.not6405, label %2995, label %.loopexit
@@ -9268,7 +9268,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 .loopexit7210:                                    ; preds = %2527, %.loopexit7210.loopexit.split.loop.exit16792, %.loopexit7057
   %3011 = phi ptr [ %3162, %.loopexit7057 ], [ %3010, %.loopexit7210.loopexit.split.loop.exit16792 ], [ %2522, %2527 ]
   %3012 = getelementptr inbounds nuw i8, ptr %3011, i64 1
-  store ptr %3012, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3012, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %3013
 
 3013:                                             ; preds = %.loopexit7057, %.loopexit7210
@@ -9277,15 +9277,15 @@ strip_underscores.exit6706:                       ; preds = %1940
   %3016 = ptrtoint ptr %.promoted103951316013175 to i64
   %3017 = sub i64 %3015, %3016
   %3018 = trunc i64 %3017 to i32
-  store i32 %3018, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %3018, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %3019 = load i8, ptr %.promoted103951316013175, align 1
   %.not6407 = icmp ne i8 %3019, 60
   %3020 = tail call noalias ptr @_emalloc_24() #17
-  %3021 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %3021 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   %3022 = add nsw i32 %3021, 1
-  store i32 %3022, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
-  %3023 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %3024 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  store i32 %3022, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
+  %3023 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %3024 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %3025 = add i32 %3023, -2
   %3026 = zext i32 %3025 to i64
   %3027 = getelementptr inbounds nuw i8, ptr %3024, i64 %3026
@@ -9336,7 +9336,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   %3048 = phi i32 [ %3038, %3043 ], [ %3046, %.sink.split ]
   %storemerge6409 = phi i32 [ 4, %3043 ], [ %storemerge6409.ph, %.sink.split ]
   %.15351 = phi ptr [ %.05350, %3043 ], [ %3045, %.sink.split ]
-  store i32 %storemerge6409, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store i32 %storemerge6409, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   %3049 = sext i32 %3048 to i64
   %3050 = tail call noalias ptr @_estrndup(ptr noundef nonnull %.15351, i64 noundef %3049) #17
   store ptr %3050, ptr %3020, align 8
@@ -9344,14 +9344,14 @@ strip_underscores.exit6706:                       ; preds = %1940
   store i8 0, ptr %3051, align 8
   %3052 = getelementptr inbounds nuw i8, ptr %3020, i64 12
   store i32 0, ptr %3052, align 4
-  %3053 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  %3054 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), align 8
-  %3055 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 100), align 4
+  %3053 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  %3054 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96), align 8
+  %3055 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 100), align 4
   %.not6410 = icmp slt i32 %3054, %3055
   br i1 %.not6410, label %._crit_edge13108, label %.preheader6808
 
 ._crit_edge13108:                                 ; preds = %3047
-  %.pre13109 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 112), align 8
+  %.pre13109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 112), align 8
   br label %3079
 
 .preheader6808:                                   ; preds = %3047
@@ -9366,10 +9366,10 @@ strip_underscores.exit6706:                       ; preds = %1940
   %3063 = and i32 %3062, -64
   %3064 = add i32 %3055, %3063
   %3065 = add i32 %3064, 64
-  store i32 %3065, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 100), align 4
-  %3066 = load i8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 120), align 8
+  store i32 %3065, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 100), align 4
+  %3066 = load i8, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 120), align 8
   %3067 = trunc i8 %3066 to i1
-  %3068 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 104), align 8
+  %3068 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 104), align 8
   %3069 = sext i32 %3065 to i64
   br i1 %3067, label %3070, label %3072
 
@@ -9383,8 +9383,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3074:                                             ; preds = %3072, %3070
   %3075 = phi ptr [ %3071, %3070 ], [ %3073, %3072 ]
-  store ptr %3075, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 104), align 8
-  %3076 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), align 8
+  store ptr %3075, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 104), align 8
+  %3076 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96), align 8
   %3077 = sext i32 %3076 to i64
   %3078 = getelementptr inbounds ptr, ptr %3075, i64 %3077
   br label %3079
@@ -9393,13 +9393,13 @@ strip_underscores.exit6706:                       ; preds = %1940
   %3080 = phi ptr [ %3078, %3074 ], [ %.pre13109, %._crit_edge13108 ]
   %3081 = phi i32 [ %3076, %3074 ], [ %3054, %._crit_edge13108 ]
   %3082 = add nsw i32 %3081, 1
-  store i32 %3082, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), align 8
+  store i32 %3082, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96), align 8
   %3083 = getelementptr inbounds nuw i8, ptr %3080, i64 8
-  store ptr %3083, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 112), align 8
+  store ptr %3083, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 112), align 8
   store ptr %3020, ptr %3080, align 8
-  %3084 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %3084 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %3085 = ptrtoint ptr %3084 to i64
-  %.promoted10331 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  %.promoted10331 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3086 = icmp ult ptr %.promoted10331, %3084
   br i1 %3086, label %.lr.ph10335.preheader, label %.critedge16
 
@@ -9427,7 +9427,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   %.15354.v = select i1 %3093, i32 2, i32 1
   %.15354 = or i32 %.15354.v, %.0535310333
   %3094 = getelementptr inbounds nuw i8, ptr %3091, i64 1
-  store ptr %3094, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3094, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3095 = add nuw nsw i32 %.0535510332, 1
   %exitcond13066.not = icmp eq ptr %3094, %3084
   br i1 %exitcond13066.not, label %.critedge16.loopexit, label %.lr.ph10335
@@ -9447,7 +9447,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %3097, label %3098, label %3099
 
 3098:                                             ; preds = %.critedge16
-  store ptr %3053, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3053, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.loopexit7124
 
 3099:                                             ; preds = %.critedge16
@@ -9489,28 +9489,28 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %.not5988, label %3119, label %.loopexit7124
 
 3119:                                             ; preds = %3116, %3115
-  store ptr %3053, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3053, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   store i32 %.05355.lcssa, ptr %3052, align 4
-  store i32 9, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store i32 9, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %.loopexit7124
 
 3120:                                             ; preds = %3106, %3112, %3105, %3099
-  store ptr %3053, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3053, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br i1 %.not6415, label %3159, label %3121
 
 3121:                                             ; preds = %3120
-  %3122 = load i8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 152), align 8
+  %3122 = load i8, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 152), align 8
   %3123 = trunc i8 %3122 to i1
   br i1 %3123, label %3159, label %3124
 
 3124:                                             ; preds = %3121
-  %3125 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
+  %3125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 160), align 8
   call void @zend_save_lexical_state(ptr noundef nonnull %20)
-  store i8 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 152), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 156), align 4
-  store i8 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 160), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 152), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 156), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 160), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 232), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 160), align 8
   %3126 = getelementptr inbounds nuw i8, ptr %20, i64 80
   call void @zend_ptr_stack_reverse_apply(ptr noundef nonnull %3126, ptr noundef nonnull @copy_heredoc_label_stack) #17
   call void @zend_exception_save() #17
@@ -9543,7 +9543,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br label %3139
 
 3139:                                             ; preds = %3137, %3132, %3129
-  %3140 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %3140 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not6419 = icmp eq ptr %3140, null
   br i1 %.not6419, label %3142, label %3141
 
@@ -9583,7 +9583,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   ]
 
 3148:                                             ; preds = %.loopexit6807, %.loopexit6807, %.loopexit6807
-  %3149 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 156), align 4
+  %3149 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 156), align 4
   %.not6421 = icmp eq i32 %3149, 0
   br i1 %.not6421, label %3153, label %3150
 
@@ -9594,15 +9594,15 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3153:                                             ; preds = %.loopexit6807, %3150, %3148
   %3154 = phi i1 [ true, %3150 ], [ false, %3148 ], [ false, %.loopexit6807 ]
-  %3155 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 156), align 4
+  %3155 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 156), align 4
   store i32 %3155, ptr %3052, align 4
-  %3156 = load i8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 160), align 8
+  %3156 = load i8, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 160), align 8
   %3157 = and i8 %3156, 1
   store i8 %3157, ptr %3051, align 8
   call void @zend_restore_lexical_state(ptr noundef nonnull %20)
-  store i8 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 152), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 153), align 1
-  store ptr %3125, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 152), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 153), align 1
+  store ptr %3125, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 160), align 8
   %3158 = icmp ne ptr %1, null
   %or.cond24 = and i1 %3158, %3154
   br i1 %or.cond24, label %.loopexit7124, label %3159
@@ -9617,15 +9617,15 @@ strip_underscores.exit6706:                       ; preds = %1940
 .loopexit7057:                                    ; preds = %2529, %.loopexit7057.loopexit13346
   %3161 = phi ptr [ %3160, %.loopexit7057.loopexit13346 ], [ %2522, %2529 ]
   %3162 = getelementptr inbounds nuw i8, ptr %3161, i64 1
-  store ptr %3162, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3162, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3163 = load i8, ptr %3162, align 1
   %3164 = icmp eq i8 %3163, 10
   br i1 %3164, label %.loopexit7210, label %3013
 
 3165:                                             ; preds = %2541
   %3166 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3166, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3166, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3166, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3166, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3167 = load i8, ptr %3166, align 1
   %3168 = and i8 %3167, -33
   %or.cond715 = icmp eq i8 %3168, 65
@@ -9633,8 +9633,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3169:                                             ; preds = %2545
   %3170 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3170, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3170, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3170, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3170, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3171 = load i8, ptr %3170, align 1
   %3172 = zext i8 %3171 to i64
   %3173 = or disjoint i64 %3172, 256
@@ -9649,7 +9649,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7205:                                    ; preds = %3176, %929
   %3178 = phi ptr [ %891, %929 ], [ %3170, %3176 ]
-  %3179 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %3179 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %3180 = ptrtoint ptr %3178 to i64
   %3181 = ptrtoint ptr %3179 to i64
   %3182 = sub i64 %3180, %3181
@@ -9658,8 +9658,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3184:                                             ; preds = %2549
   %3185 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3185, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3185, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3185, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3185, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3186 = load i8, ptr %3185, align 1
   %3187 = zext i8 %3186 to i64
   %3188 = or disjoint i64 %3187, 256
@@ -9674,7 +9674,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7204:                                    ; preds = %3191, %929
   %3193 = phi ptr [ %891, %929 ], [ %3185, %3191 ]
-  %3194 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %3194 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %3195 = ptrtoint ptr %3193 to i64
   %3196 = ptrtoint ptr %3194 to i64
   %3197 = sub i64 %3195, %3196
@@ -9683,8 +9683,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3199:                                             ; preds = %2553
   %3200 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3200, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3200, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3200, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3200, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3201 = load i8, ptr %3200, align 1
   %3202 = and i8 %3201, -33
   %or.cond718 = icmp eq i8 %3202, 66
@@ -9692,8 +9692,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3203:                                             ; preds = %2572
   %3204 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3204, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3204, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3204, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3204, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3205 = load i8, ptr %3204, align 1
   %3206 = zext i8 %3205 to i64
   %3207 = or disjoint i64 %3206, 256
@@ -9708,7 +9708,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7202:                                    ; preds = %3210, %934
   %3212 = phi ptr [ %891, %934 ], [ %3204, %3210 ]
-  %3213 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %3213 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %3214 = ptrtoint ptr %3212 to i64
   %3215 = ptrtoint ptr %3213 to i64
   %3216 = sub i64 %3214, %3215
@@ -9717,8 +9717,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3218:                                             ; preds = %2576
   %3219 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3219, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3219, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3219, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3219, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3220 = load i8, ptr %3219, align 1
   %3221 = zext i8 %3220 to i64
   %3222 = or disjoint i64 %3221, 256
@@ -9733,7 +9733,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7200:                                    ; preds = %3225, %934
   %3227 = phi ptr [ %891, %934 ], [ %3219, %3225 ]
-  %3228 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %3228 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %3229 = ptrtoint ptr %3227 to i64
   %3230 = ptrtoint ptr %3228 to i64
   %3231 = sub i64 %3229, %3230
@@ -9742,8 +9742,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3233:                                             ; preds = %2580
   %3234 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3234, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3234, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3234, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3234, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3235 = load i8, ptr %3234, align 1
   %3236 = zext i8 %3235 to i64
   %3237 = or disjoint i64 %3236, 256
@@ -9758,7 +9758,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7199:                                    ; preds = %3240, %934
   %3242 = phi ptr [ %891, %934 ], [ %3234, %3240 ]
-  %3243 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %3243 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %3244 = ptrtoint ptr %3242 to i64
   %3245 = ptrtoint ptr %3243 to i64
   %3246 = sub i64 %3244, %3245
@@ -9767,8 +9767,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3248:                                             ; preds = %2584
   %3249 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3249, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3249, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3249, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3249, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3250 = load i8, ptr %3249, align 1
   %3251 = zext i8 %3250 to i64
   %3252 = or disjoint i64 %3251, 256
@@ -9783,7 +9783,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7197:                                    ; preds = %3255, %935
   %3257 = phi ptr [ %891, %935 ], [ %3249, %3255 ]
-  %3258 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %3258 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %3259 = ptrtoint ptr %3257 to i64
   %3260 = ptrtoint ptr %3258 to i64
   %3261 = sub i64 %3259, %3260
@@ -9792,8 +9792,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3263:                                             ; preds = %2588
   %3264 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3264, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3264, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3264, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3264, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3265 = load i8, ptr %3264, align 1
   %3266 = and i8 %3265, -33
   %or.cond721 = icmp eq i8 %3266, 78
@@ -9801,8 +9801,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3267:                                             ; preds = %2592
   %3268 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3268, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3268, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3268, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3268, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3269 = load i8, ptr %3268, align 1
   %3270 = and i8 %3269, -33
   %or.cond724 = icmp eq i8 %3270, 82
@@ -9810,8 +9810,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3271:                                             ; preds = %2596
   %3272 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3272, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3272, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3272, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3272, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3273 = load i8, ptr %3272, align 1
   %3274 = and i8 %3273, -33
   %or.cond727 = icmp eq i8 %3274, 76
@@ -9819,8 +9819,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3275:                                             ; preds = %2635, %2624
   %3276 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3276, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3276, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3276, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3276, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3277 = load i8, ptr %3276, align 1
   %3278 = and i8 %3277, -33
   %or.cond730 = icmp eq i8 %3278, 70
@@ -9828,8 +9828,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3279:                                             ; preds = %2644
   %3280 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3280, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3280, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3280, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3280, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3281 = load i8, ptr %3280, align 1
   %3282 = zext i8 %3281 to i64
   %3283 = or disjoint i64 %3282, 256
@@ -9844,7 +9844,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7189:                                    ; preds = %3286, %935
   %3288 = phi ptr [ %891, %935 ], [ %3280, %3286 ]
-  %3289 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %3289 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %3290 = ptrtoint ptr %3288 to i64
   %3291 = ptrtoint ptr %3289 to i64
   %3292 = sub i64 %3290, %3291
@@ -9853,8 +9853,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3294:                                             ; preds = %2648
   %3295 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3295, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3295, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3295, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3295, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3296 = load i8, ptr %3295, align 1
   %3297 = and i8 %3296, -33
   %or.cond733 = icmp eq i8 %3297, 67
@@ -9862,8 +9862,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3298:                                             ; preds = %2652
   %3299 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3299, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3299, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3299, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3299, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3300 = load i8, ptr %3299, align 1
   %3301 = and i8 %3300, -33
   %or.cond736 = icmp eq i8 %3301, 82
@@ -9871,8 +9871,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3302:                                             ; preds = %2656
   %3303 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3303, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3303, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3303, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3303, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3304 = load i8, ptr %3303, align 1
   %3305 = zext i8 %3304 to i64
   %3306 = or disjoint i64 %3305, 256
@@ -9887,7 +9887,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7185:                                    ; preds = %3309, %935
   %3311 = phi ptr [ %891, %935 ], [ %3303, %3309 ]
-  %3312 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %3312 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %3313 = ptrtoint ptr %3311 to i64
   %3314 = ptrtoint ptr %3312 to i64
   %3315 = sub i64 %3313, %3314
@@ -9896,8 +9896,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3317:                                             ; preds = %2660
   %3318 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3318, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3318, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3318, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3318, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3319 = load i8, ptr %3318, align 1
   %3320 = and i8 %3319, -33
   %or.cond739 = icmp eq i8 %3320, 73
@@ -9905,8 +9905,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3321:                                             ; preds = %2664
   %3322 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3322, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3322, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3322, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3322, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3323 = load i8, ptr %3322, align 1
   %3324 = and i8 %3323, -33
   %or.cond742 = icmp eq i8 %3324, 73
@@ -9918,10 +9918,10 @@ strip_underscores.exit6706:                       ; preds = %1940
 .preheader7083:                                   ; preds = %4303, %.preheader7083.loopexit, %2674, %2676, %4315, %4363, %6108, %2680, %3899, %3899, %4302, %4314, %4329, %4329, %4347, %4347, %4761, %4761, %4777, %4777, %5098, %5098, %5113, %5113, %5397, %5397, %5412, %5412, %5647, %5647, %5662, %5662, %5888, %5888, %5903, %5903, %6107, %6119, %6119, %6237, %6237
   %.promoted9722 = phi ptr [ %6111, %6237 ], [ %5895, %6119 ], [ %5879, %6107 ], [ %5654, %5903 ], [ %5878, %5888 ], [ %5404, %5662 ], [ %5389, %5647 ], [ %5105, %5412 ], [ %5090, %5397 ], [ %4769, %5113 ], [ %4753, %5098 ], [ %4768, %4777 ], [ %4752, %4761 ], [ %4336, %4347 ], [ %4318, %4329 ], [ %4307, %4314 ], [ %3889, %4302 ], [ %3890, %3899 ], [ %2669, %2680 ], [ %2669, %2676 ], [ %6111, %6237 ], [ %5895, %6119 ], [ %5654, %5903 ], [ %5404, %5662 ], [ %5105, %5412 ], [ %4769, %5113 ], [ %4768, %4777 ], [ %4336, %4347 ], [ %5879, %6108 ], [ %5878, %5888 ], [ %5389, %5647 ], [ %5090, %5397 ], [ %4753, %5098 ], [ %4752, %4761 ], [ %4318, %4329 ], [ %4307, %4315 ], [ %4357, %4363 ], [ %3890, %3899 ], [ %2669, %2674 ], [ %3876, %.preheader7083.loopexit ], [ %3889, %4303 ]
   %.18.ph = phi i32 [ 53, %6237 ], [ 53, %6119 ], [ 93, %6107 ], [ 53, %5903 ], [ 53, %5888 ], [ 53, %5662 ], [ 53, %5647 ], [ 53, %5412 ], [ 53, %5397 ], [ 53, %5113 ], [ 53, %5098 ], [ 53, %4777 ], [ 53, %4761 ], [ 53, %4347 ], [ 53, %4329 ], [ 53, %4314 ], [ %.23.ph9888, %4302 ], [ %.23.ph9888, %3899 ], [ 4, %2680 ], [ 4, %2676 ], [ 53, %6237 ], [ 53, %6119 ], [ 53, %5903 ], [ 53, %5662 ], [ 53, %5412 ], [ 53, %5113 ], [ 53, %4777 ], [ 53, %4347 ], [ 93, %6108 ], [ 53, %5888 ], [ 53, %5647 ], [ 53, %5397 ], [ 53, %5098 ], [ 53, %4761 ], [ 53, %4329 ], [ 53, %4315 ], [ %.29.ph, %4363 ], [ %.23.ph9888, %3899 ], [ 4, %2674 ], [ %.24.ph, %.preheader7083.loopexit ], [ %.23.ph9888, %4303 ]
-  %3325 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %3325 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %3326 = getelementptr inbounds nuw i8, ptr %3325, i64 32
   %3327 = getelementptr inbounds nuw i8, ptr %.promoted9722, i64 1
-  store ptr %3327, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3327, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3328 = getelementptr inbounds nuw i8, ptr %.promoted9722, i64 11
   %.not62379723 = icmp ult ptr %3328, %3326
   br i1 %.not62379723, label %.lr.ph9724, label %.loopexit
@@ -9948,7 +9948,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .backedge7086:                                    ; preds = %3337, %3341, %3341
   %3339 = getelementptr inbounds nuw i8, ptr %3329, i64 1
-  store ptr %3339, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3339, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3340 = getelementptr inbounds nuw i8, ptr %3329, i64 11
   %.not6237 = icmp ult ptr %3340, %3326
   br i1 %.not6237, label %.lr.ph9724, label %.loopexit
@@ -10016,7 +10016,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   %3366 = phi ptr [ %3329, %3344 ], [ %2669, %2680 ]
   %.19 = phi i32 [ %.18.ph, %3344 ], [ 4, %2680 ]
   %3367 = getelementptr inbounds nuw i8, ptr %3366, i64 1
-  store ptr %3367, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3367, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3368 = getelementptr inbounds nuw i8, ptr %3366, i64 2
   %3369 = getelementptr inbounds nuw i8, ptr %3365, i64 32
   %.not6241 = icmp ult ptr %3368, %3369
@@ -10041,7 +10041,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .preheader7075:                                   ; preds = %3373, %3374
   %3375 = getelementptr inbounds nuw i8, ptr %3366, i64 2
-  store ptr %3375, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3375, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3376 = getelementptr inbounds nuw i8, ptr %3366, i64 3
   %.not624297269887 = icmp ult ptr %3376, %3369
   br i1 %.not624297269887, label %.lr.ph9727, label %.loopexit
@@ -10051,7 +10051,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   %3379 = phi ptr [ %3329, %3345 ], [ %2669, %2681 ]
   %.20 = phi i32 [ %.18.ph, %3345 ], [ 4, %2681 ]
   %3380 = getelementptr inbounds nuw i8, ptr %3379, i64 1
-  store ptr %3380, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3380, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3381 = getelementptr inbounds nuw i8, ptr %3379, i64 2
   %3382 = getelementptr inbounds nuw i8, ptr %3378, i64 32
   %.not6239 = icmp ult ptr %3381, %3382
@@ -10066,8 +10066,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3385:                                             ; preds = %2713
   %3386 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3386, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3386, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3386, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3386, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3387 = load i8, ptr %3386, align 1
   %3388 = and i8 %3387, -33
   %or.cond754 = icmp eq i8 %3388, 68
@@ -10075,8 +10075,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3389:                                             ; preds = %2717
   %3390 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3390, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3390, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3390, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3390, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3391 = load i8, ptr %3390, align 1
   %3392 = icmp ult i8 %3391, 93
   br i1 %3392, label %3393, label %3404
@@ -10124,7 +10124,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7173:                                    ; preds = %3411, %3406, %3402, %3395, %938
   %3412 = phi ptr [ %891, %938 ], [ %3390, %3395 ], [ %3390, %3402 ], [ %3390, %3406 ], [ %3390, %3411 ]
-  %3413 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %3413 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %3414 = ptrtoint ptr %3412 to i64
   %3415 = ptrtoint ptr %3413 to i64
   %3416 = sub i64 %3414, %3415
@@ -10133,8 +10133,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3418:                                             ; preds = %2721
   %3419 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3419, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3419, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3419, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3419, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3420 = load i8, ptr %3419, align 1
   %3421 = and i8 %3420, -33
   %or.cond766 = icmp eq i8 %3421, 67
@@ -10142,8 +10142,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3422:                                             ; preds = %2725
   %3423 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3423, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3423, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3423, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3423, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3424 = load i8, ptr %3423, align 1
   %3425 = and i8 %3424, -33
   %or.cond769 = icmp eq i8 %3425, 73
@@ -10151,8 +10151,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3426:                                             ; preds = %2729
   %3427 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3427, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3427, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3427, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3427, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3428 = load i8, ptr %3427, align 1
   %3429 = and i8 %3428, -33
   %or.cond772 = icmp eq i8 %3429, 76
@@ -10160,8 +10160,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3430:                                             ; preds = %2748
   %3431 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3431, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3431, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3431, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3431, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3432 = load i8, ptr %3431, align 1
   %3433 = and i8 %3432, -33
   %or.cond775 = icmp eq i8 %3433, 77
@@ -10169,8 +10169,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3434:                                             ; preds = %2752
   %3435 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3435, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3435, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3435, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3435, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3436 = load i8, ptr %3435, align 1
   %3437 = and i8 %3436, -33
   %or.cond778 = icmp eq i8 %3437, 68
@@ -10178,8 +10178,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3438:                                             ; preds = %2760, %2763
   %3439 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3439, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3439, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3439, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3439, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3440 = load i8, ptr %3439, align 1
   %3441 = and i8 %3440, -33
   %or.cond781 = icmp eq i8 %3441, 78
@@ -10187,8 +10187,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3442:                                             ; preds = %2760, %2764
   %3443 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3443, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3443, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3443, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3443, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3444 = load i8, ptr %3443, align 1
   %3445 = and i8 %3444, -33
   %or.cond784 = icmp eq i8 %3445, 65
@@ -10196,8 +10196,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3446:                                             ; preds = %2766
   %3447 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3447, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3447, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3447, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3447, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3448 = load i8, ptr %3447, align 1
   %3449 = and i8 %3448, -33
   %or.cond787 = icmp eq i8 %3449, 70
@@ -10205,8 +10205,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3450:                                             ; preds = %2770
   %3451 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3451, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3451, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3451, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3451, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3452 = load i8, ptr %3451, align 1
   %3453 = zext i8 %3452 to i64
   %3454 = or disjoint i64 %3453, 256
@@ -10221,7 +10221,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7159:                                    ; preds = %3457, %938
   %3459 = phi ptr [ %891, %938 ], [ %3451, %3457 ]
-  %3460 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %3460 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %3461 = ptrtoint ptr %3459 to i64
   %3462 = ptrtoint ptr %3460 to i64
   %3463 = sub i64 %3461, %3462
@@ -10230,8 +10230,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3465:                                             ; preds = %2789
   %3466 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3466, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3466, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3466, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3466, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3467 = load i8, ptr %3466, align 1
   %3468 = zext i8 %3467 to i64
   %3469 = or disjoint i64 %3468, 256
@@ -10246,7 +10246,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7157:                                    ; preds = %3472, %938
   %3474 = phi ptr [ %891, %938 ], [ %3466, %3472 ]
-  %3475 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %3475 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %3476 = ptrtoint ptr %3474 to i64
   %3477 = ptrtoint ptr %3475 to i64
   %3478 = sub i64 %3476, %3477
@@ -10255,8 +10255,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3480:                                             ; preds = %2793
   %3481 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3481, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3481, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3481, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3481, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3482 = load i8, ptr %3481, align 1
   %3483 = and i8 %3482, -33
   %or.cond790 = icmp eq i8 %3483, 80
@@ -10264,8 +10264,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3484:                                             ; preds = %2797
   %3485 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3485, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3485, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3485, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3485, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3486 = load i8, ptr %3485, align 1
   %3487 = zext i8 %3486 to i64
   %3488 = or disjoint i64 %3487, 256
@@ -10280,7 +10280,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7154:                                    ; preds = %3491, %939
   %3493 = phi ptr [ %891, %939 ], [ %3485, %3491 ]
-  %3494 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %3494 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %3495 = ptrtoint ptr %3493 to i64
   %3496 = ptrtoint ptr %3494 to i64
   %3497 = sub i64 %3495, %3496
@@ -10289,8 +10289,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3499:                                             ; preds = %2801
   %3500 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3500, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3500, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3500, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3500, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3501 = load i8, ptr %3500, align 1
   %3502 = and i8 %3501, -33
   %or.cond793 = icmp eq i8 %3502, 84
@@ -10298,8 +10298,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3503:                                             ; preds = %2805
   %3504 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3504, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3504, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3504, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3504, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3505 = load i8, ptr %3504, align 1
   %3506 = and i8 %3505, -33
   %or.cond796 = icmp eq i8 %3506, 67
@@ -10307,8 +10307,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3507:                                             ; preds = %2809
   %3508 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3508, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3508, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3508, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3508, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3509 = load i8, ptr %3508, align 1
   %3510 = and i8 %3509, -33
   %or.cond799 = icmp eq i8 %3510, 67
@@ -10316,8 +10316,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3511:                                             ; preds = %2813
   %3512 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3512, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3512, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3512, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3512, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3513 = load i8, ptr %3512, align 1
   %3514 = and i8 %3513, -33
   %or.cond802 = icmp eq i8 %3514, 78
@@ -10325,8 +10325,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3515:                                             ; preds = %2817
   %3516 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3516, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3516, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3516, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3516, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3517 = load i8, ptr %3516, align 1
   %3518 = and i8 %3517, -33
   %or.cond805 = icmp eq i8 %3518, 82
@@ -10334,8 +10334,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3519:                                             ; preds = %2821
   %3520 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3520, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3520, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3520, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3520, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3521 = load i8, ptr %3520, align 1
   %3522 = and i8 %3521, -33
   %or.cond808 = icmp eq i8 %3522, 78
@@ -10343,8 +10343,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3523:                                             ; preds = %2825
   %3524 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3524, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3524, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3524, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3524, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3525 = load i8, ptr %3524, align 1
   %3526 = and i8 %3525, -33
   %or.cond811 = icmp eq i8 %3526, 67
@@ -10352,8 +10352,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3527:                                             ; preds = %2829
   %3528 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3528, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3528, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3528, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3528, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3529 = load i8, ptr %3528, align 1
   %3530 = and i8 %3529, -33
   %or.cond814 = icmp eq i8 %3530, 72
@@ -10361,8 +10361,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3531:                                             ; preds = %2833
   %3532 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3532, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3532, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3532, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3532, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3533 = load i8, ptr %3532, align 1
   %3534 = zext i8 %3533 to i64
   %3535 = or disjoint i64 %3534, 256
@@ -10377,7 +10377,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7144:                                    ; preds = %3538, %939
   %3540 = phi ptr [ %891, %939 ], [ %3532, %3538 ]
-  %3541 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %3541 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %3542 = ptrtoint ptr %3540 to i64
   %3543 = ptrtoint ptr %3541 to i64
   %3544 = sub i64 %3542, %3543
@@ -10386,8 +10386,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3546:                                             ; preds = %2837
   %3547 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3547, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3547, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3547, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3547, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3548 = load i8, ptr %3547, align 1
   %3549 = zext i8 %3548 to i64
   %3550 = or disjoint i64 %3549, 256
@@ -10402,7 +10402,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7143:                                    ; preds = %3553, %939
   %3555 = phi ptr [ %891, %939 ], [ %3547, %3553 ]
-  %3556 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %3556 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %3557 = ptrtoint ptr %3555 to i64
   %3558 = ptrtoint ptr %3556 to i64
   %3559 = sub i64 %3557, %3558
@@ -10411,8 +10411,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3561:                                             ; preds = %2841
   %3562 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3562, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3562, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3562, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3562, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3563 = load i8, ptr %3562, align 1
   %3564 = zext i8 %3563 to i64
   %3565 = or disjoint i64 %3564, 256
@@ -10436,8 +10436,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3576:                                             ; preds = %2845
   %3577 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3577, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3577, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3577, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3577, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3578 = load i8, ptr %3577, align 1
   %3579 = zext i8 %3578 to i64
   %3580 = or disjoint i64 %3579, 256
@@ -10461,8 +10461,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3591:                                             ; preds = %2849
   %3592 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3592, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3592, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3592, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3592, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3593 = load i8, ptr %3592, align 1
   %3594 = zext i8 %3593 to i64
   %3595 = or disjoint i64 %3594, 256
@@ -10507,7 +10507,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 .preheader6992:                                   ; preds = %675, %1331, %1414, %1469, %1500, %1557, %2023, %2117, %2173, %2240, %2301, %2320, %2335, %2354, %2564, %2607, %2628, %2690, %2705, %2740, %2781, %3176, %3191, %3210, %3225, %3240, %3255, %3286, %3309, %3402, %3457, %3472, %3491, %3538, %3553, %3568, %3583, %3818, %3843, %3953, %4000, %4023, %4038, %4053, %4239, %4254, %4372, %4387, %4402, %4428, %4464, %4490, %4570, %4673, %4688, %4703, %4730, %4790, %4833, %4905, %4928, %5013, %5138, %5153, %5184, %5227, %5258, %5303, %5318, %5425, %5444, %5559, %5916, %5931, %6018, %6174, %6381, %3609
   %.promoted10207 = phi ptr [ %3592, %3609 ], [ %1325, %1331 ], [ %3170, %3176 ], [ %2017, %2023 ], [ %4667, %4673 ], [ %3185, %3191 ], [ %4697, %4703 ], [ %3249, %3255 ], [ %3234, %3240 ], [ %3219, %3225 ], [ %3204, %3210 ], [ %2558, %2564 ], [ %4682, %4688 ], [ %1408, %1414 ], [ %2111, %2117 ], [ %4248, %4254 ], [ %4233, %4239 ], [ %2601, %2607 ], [ %2616, %2628 ], [ %3812, %3818 ], [ %3280, %3286 ], [ %5297, %5303 ], [ %3831, %3843 ], [ %5312, %5318 ], [ %3303, %3309 ], [ %5007, %5013 ], [ %4724, %4730 ], [ %2684, %2690 ], [ %4366, %4372 ], [ %2699, %2705 ], [ %4784, %4790 ], [ %2161, %2173 ], [ %4396, %4402 ], [ %1463, %1469 ], [ %3390, %3402 ], [ %4381, %4387 ], [ %2734, %2740 ], [ %3947, %3953 ], [ %3451, %3457 ], [ %5147, %5153 ], [ %5132, %5138 ], [ %5438, %5444 ], [ %5910, %5916 ], [ %4419, %4428 ], [ %5419, %5425 ], [ %1494, %1500 ], [ %2775, %2781 ], [ %3466, %3472 ], [ %2234, %2240 ], [ %1551, %1557 ], [ %3994, %4000 ], [ %5178, %5184 ], [ %4458, %4464 ], [ %3485, %3491 ], [ %4017, %4023 ], [ %5925, %5931 ], [ %4481, %4490 ], [ %4827, %4833 ], [ %4047, %4053 ], [ %4032, %4038 ], [ %2295, %2301 ], [ %3547, %3553 ], [ %3532, %3538 ], [ %2314, %2320 ], [ %3562, %3568 ], [ %2329, %2335 ], [ %3577, %3583 ], [ %2348, %2354 ], [ %5221, %5227 ], [ %4564, %4570 ], [ %6012, %6018 ], [ %4899, %4905 ], [ %6375, %6381 ], [ %4922, %4928 ], [ %5553, %5559 ], [ %6168, %6174 ], [ %5252, %5258 ], [ %.promoted10207.pre, %675 ]
   %.75317.ph = phi i32 [ 50, %3609 ], [ 8, %1331 ], [ 34, %3176 ], [ 17, %2023 ], [ 68, %4673 ], [ 35, %3191 ], [ 70, %4703 ], [ 39, %3255 ], [ 38, %3240 ], [ 37, %3225 ], [ 36, %3210 ], [ 27, %2564 ], [ 69, %4688 ], [ 9, %1414 ], [ 19, %2117 ], [ 60, %4254 ], [ 59, %4239 ], [ 28, %2607 ], [ 29, %2628 ], [ 51, %3818 ], [ 40, %3286 ], [ 83, %5303 ], [ 52, %3843 ], [ 84, %5318 ], [ 41, %3309 ], [ 76, %5013 ], [ 71, %4730 ], [ 30, %2690 ], [ 61, %4372 ], [ 31, %2705 ], [ 72, %4790 ], [ 20, %2173 ], [ 63, %4402 ], [ 10, %1469 ], [ 42, %3402 ], [ 62, %4387 ], [ 32, %2740 ], [ 54, %3953 ], [ 43, %3457 ], [ 78, %5153 ], [ 77, %5138 ], [ 86, %5444 ], [ 89, %5916 ], [ 64, %4428 ], [ 85, %5425 ], [ 11, %1500 ], [ 33, %2781 ], [ 44, %3472 ], [ 21, %2240 ], [ 12, %1557 ], [ 55, %4000 ], [ 80, %5184 ], [ 65, %4464 ], [ 45, %3491 ], [ 56, %4023 ], [ 90, %5931 ], [ 66, %4490 ], [ 73, %4833 ], [ 58, %4053 ], [ 57, %4038 ], [ 22, %2301 ], [ 47, %3553 ], [ 46, %3538 ], [ 23, %2320 ], [ 48, %3568 ], [ 24, %2335 ], [ 49, %3583 ], [ 25, %2354 ], [ 81, %5227 ], [ 67, %4570 ], [ 92, %6018 ], [ 74, %4905 ], [ 95, %6381 ], [ 75, %4928 ], [ 87, %5559 ], [ 94, %6174 ], [ 82, %5258 ], [ 4, %675 ]
-  %3610 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %3610 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %3611 = getelementptr inbounds nuw i8, ptr %3610, i64 32
   br label %1339
 
@@ -10522,8 +10522,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3618:                                             ; preds = %2853
   %3619 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3619, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3619, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3619, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3619, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3620 = load i8, ptr %3619, align 1
   %3621 = and i8 %3620, -33
   %or.cond823 = icmp eq i8 %3621, 83
@@ -10531,16 +10531,16 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3622:                                             ; preds = %2857
   %3623 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3623, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3623, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3623, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3623, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3624 = load i8, ptr %3623, align 1
   %3625 = icmp eq i8 %3624, 95
   br i1 %3625, label %4103, label %670
 
 3626:                                             ; preds = %2861
   %3627 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3627, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3627, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3627, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3627, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3628 = load i8, ptr %3627, align 1
   %3629 = and i8 %3628, -33
   %or.cond826 = icmp eq i8 %3629, 69
@@ -10548,8 +10548,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3630:                                             ; preds = %2865
   %3631 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3631, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3631, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3631, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3631, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3632 = load i8, ptr %3631, align 1
   %3633 = and i8 %3632, -33
   %or.cond829 = icmp eq i8 %3633, 67
@@ -10557,8 +10557,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3634:                                             ; preds = %2869
   %3635 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3635, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3635, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3635, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3635, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3636 = load i8, ptr %3635, align 1
   %3637 = and i8 %3636, -33
   %or.cond832 = icmp eq i8 %3637, 84
@@ -10566,8 +10566,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3638:                                             ; preds = %2873
   %3639 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3639, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3639, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3639, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3639, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3640 = load i8, ptr %3639, align 1
   %3641 = and i8 %3640, -33
   %or.cond835 = icmp eq i8 %3641, 69
@@ -10575,8 +10575,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3642:                                             ; preds = %2877
   %3643 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3643, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3643, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3643, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3643, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3644 = load i8, ptr %3643, align 1
   %3645 = and i8 %3644, -33
   %or.cond838 = icmp eq i8 %3645, 72
@@ -10584,8 +10584,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3646:                                             ; preds = %2881
   %3647 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3647, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3647, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3647, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3647, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3648 = load i8, ptr %3647, align 1
   %3649 = and i8 %3648, -33
   %or.cond841 = icmp eq i8 %3649, 69
@@ -10593,8 +10593,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3650:                                             ; preds = %2885
   %3651 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 5
-  store ptr %3651, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3651, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3651, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3651, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3652 = load i8, ptr %3651, align 1
   %3653 = and i8 %3652, -33
   %or.cond844 = icmp eq i8 %3653, 73
@@ -10633,7 +10633,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   %3670 = phi ptr [ %3655, %3668 ], [ %3655, %3673 ], [ %4961, %4970 ], [ %4606, %4981 ], [ %4973, %5275 ], [ %4988, %5290 ], [ %3655, %3673 ], [ %4172, %4655 ], [ %4606, %4981 ], [ %4973, %5275 ], [ %4988, %5290 ], [ %4607, %4617 ], [ %4606, %4996 ], [ %4607, %4621 ]
   %.21.be = phi i32 [ %.219969, %3668 ], [ %.219969, %3673 ], [ 26, %4970 ], [ %.219969, %4981 ], [ %.219969, %5275 ], [ %.219969, %5290 ], [ %.219969, %3673 ], [ %.219969, %4655 ], [ %.219969, %4981 ], [ %.219969, %5275 ], [ %.219969, %5290 ], [ %.219969, %4617 ], [ %.219969, %4996 ], [ %.219969, %4621 ]
   %3671 = getelementptr inbounds nuw i8, ptr %3670, i64 1
-  store ptr %3671, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3671, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3672 = getelementptr inbounds nuw i8, ptr %3670, i64 2
   %.not6478 = icmp ult ptr %3672, %51
   br i1 %.not6478, label %.lr.ph9970, label %.loopexit
@@ -10676,7 +10676,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 3685:                                             ; preds = %.preheader6884, %3701
   %3686 = phi ptr [ %.promoted99779979, %.preheader6884 ], [ %3687, %3701 ]
   %3687 = getelementptr inbounds nuw i8, ptr %3686, i64 1
-  store ptr %3687, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3687, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3688 = getelementptr inbounds nuw i8, ptr %3686, i64 2
   %.not6506 = icmp ult ptr %3688, %51
   br i1 %.not6506, label %3689, label %.loopexit
@@ -10704,7 +10704,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   %.promoted99779980 = phi ptr [ %3687, %3696 ], [ %3687, %3696 ], [ %2896, %2905 ]
   %.21.ph = phi i32 [ %.22.ph, %3696 ], [ %.22.ph, %3696 ], [ %.1710067, %2905 ]
   %3697 = getelementptr inbounds nuw i8, ptr %.promoted99779980, i64 1
-  store ptr %3697, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3697, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3698 = getelementptr inbounds nuw i8, ptr %.promoted99779980, i64 2
   %.not64789968 = icmp ult ptr %3698, %51
   br i1 %.not64789968, label %.lr.ph9970, label %.loopexit
@@ -10734,7 +10734,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .backedge7005:                                    ; preds = %3708, %3712
   %3710 = getelementptr inbounds nuw i8, ptr %3705, i64 1
-  store ptr %3710, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3710, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3711 = getelementptr inbounds nuw i8, ptr %3705, i64 2
   %.not6461 = icmp ult ptr %3711, %51
   br i1 %.not6461, label %.lr.ph9939, label %.loopexit
@@ -10747,7 +10747,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3713:                                             ; preds = %2913
   %3714 = getelementptr inbounds nuw i8, ptr %1015, i64 5
-  store ptr %3714, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3714, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3715 = load i8, ptr %3714, align 1
   %3716 = and i8 %3715, -33
   %or.cond853 = icmp eq i8 %3716, 89
@@ -10756,7 +10756,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 3717:                                             ; preds = %3728, %4193, %3726
   %3718 = phi ptr [ %3724, %3728 ], [ %4194, %4193 ], [ %3724, %3726 ]
   %3719 = getelementptr inbounds nuw i8, ptr %3718, i64 1
-  store ptr %3719, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3719, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3720 = getelementptr inbounds nuw i8, ptr %3718, i64 2
   %.not6458 = icmp ult ptr %3720, %51
   br i1 %.not6458, label %3721, label %.loopexit
@@ -10783,17 +10783,17 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3729:                                             ; preds = %3728
   %3730 = getelementptr inbounds nuw i8, ptr %3724, i64 1
-  store ptr %3730, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3730, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3731 = ptrtoint ptr %3730 to i64
   %3732 = ptrtoint ptr %.promoted103951316013175 to i64
   %3733 = sub i64 %3731, %3732
   %3734 = trunc i64 %3733 to i32
-  store i32 %3734, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %3734, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 3735:                                             ; preds = %2917
   %3736 = getelementptr inbounds nuw i8, ptr %1015, i64 5
-  store ptr %3736, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3736, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3737 = load i8, ptr %3736, align 1
   %3738 = and i8 %3737, -33
   %or.cond856 = icmp eq i8 %3738, 65
@@ -10801,7 +10801,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3739:                                             ; preds = %2921
   %3740 = getelementptr inbounds nuw i8, ptr %1015, i64 5
-  store ptr %3740, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3740, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3741 = load i8, ptr %3740, align 1
   %3742 = and i8 %3741, -33
   %or.cond859.not = icmp eq i8 %3742, 69
@@ -10810,7 +10810,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 .preheader7010:                                   ; preds = %2925, %3739
   %.promoted9931 = phi ptr [ %2926, %2925 ], [ %3740, %3739 ]
   %3743 = getelementptr inbounds nuw i8, ptr %.promoted9931, i64 1
-  store ptr %3743, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3743, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3744 = getelementptr inbounds nuw i8, ptr %.promoted9931, i64 2
   %.not64559932 = icmp ult ptr %3744, %51
   br i1 %.not64559932, label %.lr.ph9933, label %.loopexit
@@ -10828,7 +10828,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .backedge7013:                                    ; preds = %3749, %3753
   %3751 = getelementptr inbounds nuw i8, ptr %3746, i64 1
-  store ptr %3751, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3751, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3752 = getelementptr inbounds nuw i8, ptr %3746, i64 2
   %.not6455 = icmp ult ptr %3752, %51
   br i1 %.not6455, label %.lr.ph9933, label %.loopexit
@@ -10841,7 +10841,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3754:                                             ; preds = %2947
   %3755 = getelementptr inbounds nuw i8, ptr %1015, i64 5
-  store ptr %3755, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3755, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3756 = load i8, ptr %3755, align 1
   %3757 = and i8 %3756, -33
   %or.cond862 = icmp eq i8 %3757, 69
@@ -10849,7 +10849,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3758:                                             ; preds = %2951
   %3759 = getelementptr inbounds nuw i8, ptr %1015, i64 5
-  store ptr %3759, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3759, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3760 = load i8, ptr %3759, align 1
   %3761 = and i8 %3760, -33
   %or.cond865 = icmp eq i8 %3761, 84
@@ -10857,18 +10857,18 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .preheader7014:                                   ; preds = %3758
   %3762 = getelementptr inbounds nuw i8, ptr %1015, i64 6
-  store ptr %3762, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3762, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3763 = getelementptr inbounds nuw i8, ptr %1015, i64 7
   %.not64529929 = icmp ult ptr %3763, %51
   br i1 %.not64529929, label %.lr.ph9930, label %.loopexit
 
 3764:                                             ; preds = %2963
-  store ptr %2955, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %2955, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3765 = ptrtoint ptr %2955 to i64
   %3766 = ptrtoint ptr %.promoted103951316013175 to i64
   %3767 = sub i64 %3765, %3766
   %3768 = trunc i64 %3767 to i32
-  store i32 %3768, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %3768, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br i1 %.not5988, label %.loopexit7124, label %3769
 
 3769:                                             ; preds = %3764
@@ -10878,7 +10878,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3772:                                             ; preds = %2964
   %3773 = getelementptr inbounds nuw i8, ptr %1015, i64 5
-  store ptr %3773, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3773, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3774 = load i8, ptr %3773, align 1
   %3775 = and i8 %3774, -33
   %or.cond868 = icmp eq i8 %3775, 71
@@ -10886,7 +10886,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .preheader7006:                                   ; preds = %3713, %3772
   %3776 = getelementptr inbounds nuw i8, ptr %1015, i64 6
-  store ptr %3776, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3776, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3777 = getelementptr inbounds nuw i8, ptr %1015, i64 7
   %.not64609935 = icmp ult ptr %3777, %51
   br i1 %.not64609935, label %.lr.ph9936, label %.loopexit
@@ -10904,7 +10904,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .backedge7025:                                    ; preds = %3782, %3786
   %3784 = getelementptr inbounds nuw i8, ptr %3779, i64 1
-  store ptr %3784, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3784, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3785 = getelementptr inbounds nuw i8, ptr %3779, i64 2
   %.not6449 = icmp ult ptr %3785, %51
   br i1 %.not6449, label %.lr.ph9924, label %.loopexit
@@ -10918,7 +10918,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 3787:                                             ; preds = %3001, %2983
   %3788 = phi ptr [ %2997, %3001 ], [ %2979, %2983 ]
   %3789 = getelementptr inbounds nuw i8, ptr %3788, i64 1
-  store ptr %3789, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3789, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3790 = load i8, ptr %3789, align 1
   switch i8 %3790, label %.thread6762 [
     i8 10, label %.loopexit7210.loopexit.split.loop.exit16792
@@ -10927,8 +10927,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3791:                                             ; preds = %3165
   %3792 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %3792, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3792, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3792, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3792, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3793 = load i8, ptr %3792, align 1
   %3794 = and i8 %3793, -33
   %or.cond871 = icmp eq i8 %3794, 67
@@ -10936,8 +10936,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3795:                                             ; preds = %3199
   %3796 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %3796, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3796, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3796, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3796, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3797 = load i8, ptr %3796, align 1
   %3798 = and i8 %3797, -33
   %or.cond874 = icmp eq i8 %3798, 76
@@ -10945,8 +10945,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3799:                                             ; preds = %3263
   %3800 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %3800, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3800, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3800, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3800, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3801 = load i8, ptr %3800, align 1
   %3802 = and i8 %3801, -33
   %or.cond877 = icmp eq i8 %3802, 85
@@ -10954,8 +10954,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3803:                                             ; preds = %3267
   %3804 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %3804, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3804, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3804, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3804, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3805 = load i8, ptr %3804, align 1
   %3806 = and i8 %3805, -33
   %or.cond880 = icmp eq i8 %3806, 69
@@ -10963,8 +10963,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3807:                                             ; preds = %3271
   %3808 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %3808, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3808, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3808, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3808, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3809 = load i8, ptr %3808, align 1
   %3810 = and i8 %3809, -33
   %or.cond883 = icmp eq i8 %3810, 84
@@ -10972,8 +10972,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3811:                                             ; preds = %3275
   %3812 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %3812, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3812, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3812, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3812, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3813 = load i8, ptr %3812, align 1
   %3814 = zext i8 %3813 to i64
   %3815 = or disjoint i64 %3814, 256
@@ -10988,7 +10988,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7191:                                    ; preds = %3818, %949
   %3820 = phi ptr [ %940, %949 ], [ %3812, %3818 ]
-  %3821 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %3821 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %3822 = ptrtoint ptr %3820 to i64
   %3823 = ptrtoint ptr %3821 to i64
   %3824 = sub i64 %3822, %3823
@@ -10997,8 +10997,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3826:                                             ; preds = %3294
   %3827 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %3827, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3827, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3827, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3827, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3828 = load i8, ptr %3827, align 1
   %3829 = and i8 %3828, -33
   %or.cond886 = icmp eq i8 %3829, 76
@@ -11006,8 +11006,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3830:                                             ; preds = %3298
   %3831 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %3831, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3831, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3831, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3831, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3832 = load i8, ptr %3831, align 1
   %3833 = icmp ult i8 %3832, 93
   br i1 %3833, label %3834, label %3845
@@ -11064,8 +11064,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3859:                                             ; preds = %3317
   %3860 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %3860, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3860, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3860, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3860, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3861 = load i8, ptr %3860, align 1
   %3862 = and i8 %3861, -33
   %or.cond898 = icmp eq i8 %3862, 84
@@ -11073,23 +11073,23 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3863:                                             ; preds = %3321
   %3864 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %3864, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3864, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3864, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3864, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3865 = load i8, ptr %3864, align 1
   %3866 = and i8 %3865, -33
   %or.cond901 = icmp eq i8 %3866, 76
   br i1 %or.cond901, label %4274, label %670
 
 .loopexit6932:                                    ; preds = %5385, %5374, %5364, %4314, %4345, %4327, %3356, %3364, %5851, %5835, %5825, %3349, %3354, %3360, %949, %.loopexit7178, %3869
-  %3867 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %3867 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %3868 = getelementptr inbounds nuw i8, ptr %3867, i64 4
-  store ptr %3868, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3868, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.loopexit6800.sink.split
 
 3869:                                             ; preds = %3360, %3349
   %3870 = getelementptr inbounds nuw i8, ptr %3330, i64 2
-  store ptr %3870, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3870, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3870, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3870, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3871 = load i8, ptr %3870, align 1
   %3872 = and i8 %3871, -33
   %or.cond904 = icmp eq i8 %3872, 88
@@ -11097,8 +11097,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7178:                                    ; preds = %3362, %3354
   %3873 = getelementptr inbounds nuw i8, ptr %3330, i64 2
-  store ptr %3873, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3873, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3873, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3873, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3874 = load i8, ptr %3873, align 1
   %3875 = and i8 %3874, -33
   %or.cond907 = icmp eq i8 %3875, 77
@@ -11122,13 +11122,13 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .backedge7067:                                    ; preds = %3880, %3879
   %3882 = getelementptr inbounds nuw i8, ptr %3876, i64 1
-  store ptr %3882, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3882, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3883 = getelementptr inbounds nuw i8, ptr %3876, i64 2
   %.not6361 = icmp ult ptr %3883, %6239
   br i1 %.not6361, label %.lr.ph9893, label %.loopexit
 
 .loopexit6973:                                    ; preds = %5087
-  store ptr %5071, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5071, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3884 = getelementptr inbounds nuw i8, ptr %5069, i64 3
   %.not62429726 = icmp ult ptr %3884, %3369
   br i1 %.not62429726, label %.lr.ph9727, label %.loopexit
@@ -11232,14 +11232,14 @@ strip_underscores.exit6706:                       ; preds = %1940
 .preheader7072:                                   ; preds = %4362, %.preheader7072.loopexit20702, %.preheader7072.loopexit, %4363, %5059, %5067, %5375, %5386, %5628, %5636, %5865, %5873, %6092, %6100, %6218, %6226, %6337, %6345, %6429, %6489, %3383, %5064, %5364, %5374, %5385, %5619, %5627, %5635, %5864, %5872, %6091, %6099, %6217, %6225, %6336, %6344, %6421, %6428, %6488
   %.promoted9889 = phi ptr [ %6424, %6488 ], [ %6340, %6428 ], [ %6331, %6421 ], [ %6221, %6344 ], [ %6330, %6336 ], [ %6095, %6225 ], [ %6087, %6217 ], [ %5868, %6099 ], [ %5860, %6091 ], [ %5631, %5872 ], [ %5623, %5864 ], [ %5379, %5635 ], [ %5368, %5627 ], [ %5352, %5619 ], [ %5378, %5385 ], [ %5367, %5374 ], [ %5360, %5364 ], [ %3380, %3383 ], [ %5030, %5067 ], [ %5030, %5064 ], [ %5030, %5059 ], [ %5378, %5386 ], [ %5379, %5636 ], [ %5631, %5873 ], [ %5868, %6100 ], [ %6095, %6226 ], [ %6221, %6345 ], [ %6340, %6429 ], [ %6424, %6489 ], [ %5367, %5375 ], [ %5368, %5628 ], [ %5623, %5865 ], [ %5860, %6092 ], [ %6087, %6218 ], [ %6330, %6337 ], [ %4357, %4363 ], [ %.promoted9889.ph, %.preheader7072.loopexit ], [ %5029, %.preheader7072.loopexit20702 ], [ %4357, %4362 ]
   %.25.ph = phi i32 [ 53, %6488 ], [ 53, %6428 ], [ 93, %6421 ], [ 53, %6344 ], [ 53, %6336 ], [ 53, %6225 ], [ 53, %6217 ], [ 53, %6099 ], [ 53, %6091 ], [ 53, %5872 ], [ 53, %5864 ], [ 53, %5635 ], [ 53, %5627 ], [ %.369769, %5619 ], [ 53, %5385 ], [ 53, %5374 ], [ 53, %5364 ], [ %.20, %3383 ], [ %.369769, %5067 ], [ %.369769, %5064 ], [ %.369769, %5059 ], [ 53, %5386 ], [ 53, %5636 ], [ 53, %5873 ], [ 53, %6100 ], [ 53, %6226 ], [ 53, %6345 ], [ 53, %6429 ], [ 53, %6489 ], [ 53, %5375 ], [ 53, %5628 ], [ 53, %5865 ], [ 53, %6092 ], [ 53, %6218 ], [ 53, %6337 ], [ %.29.ph, %4363 ], [ %.369769, %.preheader7072.loopexit ], [ %.369769, %.preheader7072.loopexit20702 ], [ %.29.ph, %4362 ]
-  %3922 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %3922 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %3923 = getelementptr inbounds nuw i8, ptr %3922, i64 32
   br label %3924
 
 3924:                                             ; preds = %.preheader7072, %3928
   %3925 = phi ptr [ %.promoted9889, %.preheader7072 ], [ %3926, %3928 ]
   %3926 = getelementptr inbounds nuw i8, ptr %3925, i64 1
-  store ptr %3926, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3926, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %3927 = getelementptr inbounds nuw i8, ptr %3925, i64 2
   %.not6354 = icmp ult ptr %3927, %3923
   br i1 %.not6354, label %3928, label %.loopexit
@@ -11253,8 +11253,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3930:                                             ; preds = %3385
   %3931 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %3931, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3931, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3931, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3931, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3932 = load i8, ptr %3931, align 1
   %3933 = and i8 %3932, -33
   %or.cond919 = icmp eq i8 %3933, 83
@@ -11262,8 +11262,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3934:                                             ; preds = %3409, %3398
   %3935 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %3935, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3935, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3935, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3935, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3936 = load i8, ptr %3935, align 1
   %3937 = and i8 %3936, -33
   %or.cond922 = icmp eq i8 %3937, 89
@@ -11271,8 +11271,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3938:                                             ; preds = %3418
   %3939 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %3939, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3939, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3939, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3939, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3940 = load i8, ptr %3939, align 1
   %3941 = and i8 %3940, -33
   %or.cond925 = icmp eq i8 %3941, 72
@@ -11280,8 +11280,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3942:                                             ; preds = %3422
   %3943 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %3943, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3943, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3943, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3943, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3944 = load i8, ptr %3943, align 1
   %3945 = and i8 %3944, -33
   %or.cond928 = icmp eq i8 %3945, 79
@@ -11289,8 +11289,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3946:                                             ; preds = %3426
   %3947 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %3947, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3947, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3947, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3947, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3948 = load i8, ptr %3947, align 1
   %3949 = zext i8 %3948 to i64
   %3950 = or disjoint i64 %3949, 256
@@ -11305,7 +11305,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7168:                                    ; preds = %3953, %952
   %3955 = phi ptr [ %940, %952 ], [ %3947, %3953 ]
-  %3956 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %3956 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %3957 = ptrtoint ptr %3955 to i64
   %3958 = ptrtoint ptr %3956 to i64
   %3959 = sub i64 %3957, %3958
@@ -11314,8 +11314,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3961:                                             ; preds = %3430
   %3962 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %3962, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3962, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3962, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3962, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3963 = load i8, ptr %3962, align 1
   %3964 = and i8 %3963, -33
   %or.cond931 = icmp eq i8 %3964, 69
@@ -11323,8 +11323,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3965:                                             ; preds = %3434
   %3966 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %3966, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3966, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3966, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3966, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3967 = load i8, ptr %3966, align 1
   %3968 = and i8 %3967, -33
   %or.cond934 = icmp eq i8 %3968, 69
@@ -11332,8 +11332,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3969:                                             ; preds = %3438
   %3970 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %3970, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3970, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3970, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3970, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3971 = load i8, ptr %3970, align 1
   %3972 = and i8 %3971, -33
   %or.cond937 = icmp eq i8 %3972, 67
@@ -11341,8 +11341,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3973:                                             ; preds = %3442
   %3974 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %3974, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3974, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3974, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3974, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3975 = load i8, ptr %3974, align 1
   %3976 = and i8 %3975, -33
   %or.cond940 = icmp eq i8 %3976, 68
@@ -11350,8 +11350,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3977:                                             ; preds = %3446
   %3978 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %3978, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3978, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3978, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3978, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3979 = load i8, ptr %3978, align 1
   %3980 = and i8 %3979, -33
   %or.cond943 = icmp eq i8 %3980, 65
@@ -11359,8 +11359,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3981:                                             ; preds = %3480
   %3982 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %3982, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3982, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3982, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3982, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3983 = load i8, ptr %3982, align 1
   %3984 = and i8 %3983, -33
   %or.cond946 = icmp eq i8 %3984, 65
@@ -11368,8 +11368,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3985:                                             ; preds = %3499
   %3986 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %3986, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3986, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3986, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3986, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3987 = load i8, ptr %3986, align 1
   %3988 = and i8 %3987, -33
   %or.cond949 = icmp eq i8 %3988, 69
@@ -11377,8 +11377,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3989:                                             ; preds = %3503
   %3990 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %3990, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3990, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3990, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3990, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3991 = load i8, ptr %3990, align 1
   %3992 = and i8 %3991, -33
   %or.cond952 = icmp eq i8 %3992, 84
@@ -11386,8 +11386,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 3993:                                             ; preds = %3507
   %3994 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %3994, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %3994, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %3994, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3994, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %3995 = load i8, ptr %3994, align 1
   %3996 = zext i8 %3995 to i64
   %3997 = or disjoint i64 %3996, 256
@@ -11402,7 +11402,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7151:                                    ; preds = %4000, %952
   %4002 = phi ptr [ %940, %952 ], [ %3994, %4000 ]
-  %4003 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %4003 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %4004 = ptrtoint ptr %4002 to i64
   %4005 = ptrtoint ptr %4003 to i64
   %4006 = sub i64 %4004, %4005
@@ -11411,8 +11411,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4008:                                             ; preds = %3511
   %4009 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %4009, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4009, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4009, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4009, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4010 = load i8, ptr %4009, align 1
   %4011 = and i8 %4010, -33
   %or.cond955 = icmp eq i8 %4011, 76
@@ -11420,8 +11420,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4012:                                             ; preds = %3515
   %4013 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %4013, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4013, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4013, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4013, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4014 = load i8, ptr %4013, align 1
   %4015 = and i8 %4014, -33
   %or.cond958 = icmp eq i8 %4015, 69
@@ -11429,8 +11429,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4016:                                             ; preds = %3519
   %4017 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %4017, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4017, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4017, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4017, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4018 = load i8, ptr %4017, align 1
   %4019 = zext i8 %4018 to i64
   %4020 = or disjoint i64 %4019, 256
@@ -11445,7 +11445,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7147:                                    ; preds = %4023, %952
   %4025 = phi ptr [ %940, %952 ], [ %4017, %4023 ]
-  %4026 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %4026 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %4027 = ptrtoint ptr %4025 to i64
   %4028 = ptrtoint ptr %4026 to i64
   %4029 = sub i64 %4027, %4028
@@ -11454,8 +11454,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4031:                                             ; preds = %3523
   %4032 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %4032, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4032, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4032, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4032, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4033 = load i8, ptr %4032, align 1
   %4034 = zext i8 %4033 to i64
   %4035 = or disjoint i64 %4034, 256
@@ -11470,7 +11470,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7146:                                    ; preds = %4038, %953
   %4040 = phi ptr [ %940, %953 ], [ %4032, %4038 ]
-  %4041 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %4041 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %4042 = ptrtoint ptr %4040 to i64
   %4043 = ptrtoint ptr %4041 to i64
   %4044 = sub i64 %4042, %4043
@@ -11479,8 +11479,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4046:                                             ; preds = %3527
   %4047 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %4047, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4047, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4047, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4047, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4048 = load i8, ptr %4047, align 1
   %4049 = zext i8 %4048 to i64
   %4050 = or disjoint i64 %4049, 256
@@ -11495,7 +11495,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7145:                                    ; preds = %4053, %953
   %4055 = phi ptr [ %940, %953 ], [ %4047, %4053 ]
-  %4056 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %4056 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %4057 = ptrtoint ptr %4055 to i64
   %4058 = ptrtoint ptr %4056 to i64
   %4059 = sub i64 %4057, %4058
@@ -11511,10 +11511,10 @@ strip_underscores.exit6706:                       ; preds = %1940
 .preheader7108:                                   ; preds = %4863, %.preheader7108.loopexit20759, %.preheader7108.loopexit, %4892, %5994, %6372, %3602, %6003, %3604, %3604, %4862, %4876, %4876, %5214, %5214, %5538, %5538, %5993, %6005, %6005
   %.promoted9481 = phi ptr [ %5768, %6005 ], [ %5768, %5993 ], [ %5206, %5538 ], [ %4868, %5214 ], [ %4867, %4876 ], [ %4527, %4862 ], [ %3592, %3604 ], [ %3592, %3604 ], [ %5768, %6005 ], [ %5768, %6003 ], [ %5768, %5994 ], [ %5206, %5538 ], [ %4868, %5214 ], [ %4867, %4876 ], [ %6278, %6372 ], [ %4886, %4892 ], [ %3592, %3602 ], [ %4528, %.preheader7108.loopexit ], [ %4512, %.preheader7108.loopexit20759 ], [ %4527, %4863 ]
   %.26.ph = phi i32 [ 91, %6005 ], [ 91, %5993 ], [ %.31.ph69819715, %5538 ], [ %.31.ph69819715, %5214 ], [ %.31.ph69819715, %4876 ], [ %.31.ph69819715, %4862 ], [ 50, %3604 ], [ 50, %3604 ], [ 91, %6005 ], [ 91, %6003 ], [ 91, %5994 ], [ %.31.ph69819715, %5538 ], [ %.31.ph69819715, %5214 ], [ %.31.ph69819715, %4876 ], [ 91, %6372 ], [ %.35.ph7093, %4892 ], [ 50, %3602 ], [ %.31.ph69819715, %.preheader7108.loopexit ], [ %.32.ph, %.preheader7108.loopexit20759 ], [ %.31.ph69819715, %4863 ]
-  %4061 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %4061 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %4062 = getelementptr inbounds nuw i8, ptr %4061, i64 32
   %4063 = getelementptr inbounds nuw i8, ptr %.promoted9481, i64 1
-  store ptr %4063, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4063, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4064 = getelementptr inbounds nuw i8, ptr %.promoted9481, i64 6
   %.not60919482 = icmp ult ptr %4064, %4062
   br i1 %.not60919482, label %.lr.ph9483, label %.loopexit
@@ -11536,7 +11536,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .backedge7111:                                    ; preds = %4070, %4074, %4074
   %4072 = getelementptr inbounds nuw i8, ptr %4065, i64 1
-  store ptr %4072, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4072, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4073 = getelementptr inbounds nuw i8, ptr %4065, i64 6
   %.not6091 = icmp ult ptr %4073, %4062
   br i1 %.not6091, label %.lr.ph9483, label %.loopexit
@@ -11573,7 +11573,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   %4083 = phi ptr [ %5768, %6008 ], [ %.promoted9716, %.preheader7101 ]
   %.27 = phi i32 [ 91, %6008 ], [ %.27.ph, %.preheader7101 ]
   %4084 = getelementptr inbounds nuw i8, ptr %4083, i64 1
-  store ptr %4084, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4084, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4085 = getelementptr inbounds nuw i8, ptr %4083, i64 2
   %.not6092 = icmp ult ptr %4085, %4079
   br i1 %.not6092, label %4086, label %.loopexit
@@ -11596,13 +11596,13 @@ strip_underscores.exit6706:                       ; preds = %1940
   ]
 
 .preheader6975:                                   ; preds = %4089, %4090
-  store ptr %4085, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4085, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4091 = getelementptr inbounds nuw i8, ptr %4083, i64 3
   %.not609394859714 = icmp ult ptr %4091, %4079
   br i1 %.not609394859714, label %.lr.ph9486, label %.loopexit
 
 .loopexit7107.loopexit:                           ; preds = %6008
-  %.pre13089 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %.pre13089 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   br label %.loopexit7107
 
 .loopexit7107:                                    ; preds = %.loopexit7107.loopexit, %4077, %3609
@@ -11610,7 +11610,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   %4093 = phi ptr [ %3592, %3609 ], [ %4065, %4077 ], [ %5768, %.loopexit7107.loopexit ]
   %.28 = phi i32 [ 50, %3609 ], [ %.26.ph, %4077 ], [ 91, %.loopexit7107.loopexit ]
   %4094 = getelementptr inbounds nuw i8, ptr %4093, i64 1
-  store ptr %4094, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4094, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4095 = getelementptr inbounds nuw i8, ptr %4093, i64 2
   %4096 = getelementptr inbounds nuw i8, ptr %4092, i64 32
   %.not6104 = icmp ult ptr %4095, %4096
@@ -11625,8 +11625,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4099:                                             ; preds = %3618
   %4100 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %4100, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4100, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4100, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4100, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4101 = load i8, ptr %4100, align 1
   %4102 = and i8 %4101, -33
   %or.cond970 = icmp eq i8 %4102, 83
@@ -11634,24 +11634,24 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4103:                                             ; preds = %3622
   %4104 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %4104, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4104, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4104, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4104, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4105 = load i8, ptr %4104, align 1
   %4106 = icmp eq i8 %4105, 95
   br i1 %4106, label %4563, label %670
 
 4107:                                             ; preds = %3626
   %4108 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %4108, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4108, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4108, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4108, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4109 = load i8, ptr %4108, align 1
   %4110 = icmp eq i8 %4109, 95
   br i1 %4110, label %4578, label %670
 
 4111:                                             ; preds = %3630
   %4112 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %4112, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4112, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4112, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4112, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4113 = load i8, ptr %4112, align 1
   %4114 = and i8 %4113, -33
   %or.cond973 = icmp eq i8 %4114, 84
@@ -11659,24 +11659,24 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4115:                                             ; preds = %3634
   %4116 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %4116, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4116, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4116, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4116, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4117 = load i8, ptr %4116, align 1
   %4118 = icmp eq i8 %4117, 95
   br i1 %4118, label %4586, label %670
 
 4119:                                             ; preds = %3638
   %4120 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %4120, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4120, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4120, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4120, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4121 = load i8, ptr %4120, align 1
   %4122 = icmp eq i8 %4121, 95
   br i1 %4122, label %4590, label %670
 
 4123:                                             ; preds = %3642
   %4124 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %4124, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4124, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4124, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4124, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4125 = load i8, ptr %4124, align 1
   %4126 = and i8 %4125, -33
   %or.cond976 = icmp eq i8 %4126, 79
@@ -11684,8 +11684,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4127:                                             ; preds = %3646
   %4128 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %4128, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4128, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4128, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4128, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4129 = load i8, ptr %4128, align 1
   %4130 = and i8 %4129, -33
   %or.cond979 = icmp eq i8 %4130, 83
@@ -11693,15 +11693,15 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4131:                                             ; preds = %3650
   %4132 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 6
-  store ptr %4132, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4132, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4132, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4132, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4133 = load i8, ptr %4132, align 1
   %4134 = and i8 %4133, -33
   %or.cond982 = icmp eq i8 %4134, 84
   br i1 %or.cond982, label %4602, label %670
 
 4135:                                             ; preds = %3678
-  store ptr %3654, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3654, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4136 = getelementptr inbounds nuw i8, ptr %3656, i64 3
   %.not6491 = icmp ult ptr %4136, %51
   br i1 %.not6491, label %4137, label %.loopexit
@@ -11727,7 +11727,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .preheader6869:                                   ; preds = %4144, %4144
   %4145 = getelementptr inbounds nuw i8, ptr %3654, i64 1
-  store ptr %4145, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4145, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4146 = getelementptr inbounds nuw i8, ptr %3654, i64 2
   %.not64939945 = icmp ult ptr %4146, %51
   br i1 %.not64939945, label %.lr.ph9946, label %.loopexit
@@ -11747,8 +11747,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 .loopexit6892:                                    ; preds = %3678, %4646
   %.promoted1007810089 = phi ptr [ %4163, %4646 ], [ %3655, %3678 ]
   %4152 = getelementptr inbounds nuw i8, ptr %.promoted1007810089, i64 1
-  store ptr %4152, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4152, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4152, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4152, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4153 = getelementptr inbounds nuw i8, ptr %.promoted1007810089, i64 2
   %.not6489 = icmp ult ptr %4153, %51
   br i1 %.not6489, label %4154, label %.loopexit
@@ -11767,7 +11767,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %4161, label %.loopexit6894, label %.preheader6950
 
 4162:                                             ; preds = %3681
-  store ptr %3654, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3654, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4163 = getelementptr inbounds nuw i8, ptr %3656, i64 3
   %.not6484 = icmp ult ptr %4163, %51
   br i1 %.not6484, label %4164, label %.loopexit
@@ -11788,7 +11788,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   ]
 
 4171:                                             ; preds = %3683
-  store ptr %3654, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3654, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4172 = getelementptr inbounds nuw i8, ptr %3656, i64 3
   %.not6480 = icmp ult ptr %4172, %51
   br i1 %.not6480, label %4173, label %.loopexit
@@ -11809,12 +11809,12 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %4178, label %.backedge6921, label %.preheader6952.loopexit20667
 
 4179:                                             ; preds = %3712
-  store ptr %3704, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3704, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4180 = ptrtoint ptr %3704 to i64
   %4181 = ptrtoint ptr %.promoted103951316013175 to i64
   %4182 = sub i64 %4180, %4181
   %4183 = trunc i64 %4182 to i32
-  store i32 %4183, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %4183, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 .lr.ph9936:                                       ; preds = %.preheader7006, %.backedge7009
@@ -11830,7 +11830,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .backedge7009:                                    ; preds = %4188, %4192
   %4190 = getelementptr inbounds nuw i8, ptr %4185, i64 1
-  store ptr %4190, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4190, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4191 = getelementptr inbounds nuw i8, ptr %4185, i64 2
   %.not6460 = icmp ult ptr %4191, %51
   br i1 %.not6460, label %.lr.ph9936, label %.loopexit
@@ -11843,24 +11843,24 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4193:                                             ; preds = %3735
   %4194 = getelementptr inbounds nuw i8, ptr %1015, i64 6
-  store ptr %4194, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4194, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4195 = load i8, ptr %4194, align 1
   %4196 = and i8 %4195, -33
   %or.cond988 = icmp eq i8 %4196, 78
   br i1 %or.cond988, label %3717, label %.thread6762
 
 4197:                                             ; preds = %3753
-  store ptr %3745, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3745, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4198 = ptrtoint ptr %3745 to i64
   %4199 = ptrtoint ptr %.promoted103951316013175 to i64
   %4200 = sub i64 %4198, %4199
   %4201 = trunc i64 %4200 to i32
-  store i32 %4201, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %4201, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 4202:                                             ; preds = %3754
   %4203 = getelementptr inbounds nuw i8, ptr %1015, i64 6
-  store ptr %4203, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4203, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4204 = load i8, ptr %4203, align 1
   %4205 = and i8 %4204, -33
   %or.cond991 = icmp eq i8 %4205, 82
@@ -11879,7 +11879,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .backedge7017:                                    ; preds = %4210, %4214
   %4212 = getelementptr inbounds nuw i8, ptr %4207, i64 1
-  store ptr %4212, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4212, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4213 = getelementptr inbounds nuw i8, ptr %4207, i64 2
   %.not6452 = icmp ult ptr %4213, %51
   br i1 %.not6452, label %.lr.ph9930, label %.loopexit
@@ -11891,18 +11891,18 @@ strip_underscores.exit6706:                       ; preds = %1940
   ]
 
 4215:                                             ; preds = %3786
-  store ptr %3778, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3778, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4216 = ptrtoint ptr %3778 to i64
   %4217 = ptrtoint ptr %.promoted103951316013175 to i64
   %4218 = sub i64 %4216, %4217
   %4219 = trunc i64 %4218 to i32
-  store i32 %4219, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %4219, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 4220:                                             ; preds = %3791
   %4221 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4221, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4221, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4221, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4221, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4222 = load i8, ptr %4221, align 1
   %4223 = and i8 %4222, -33
   %or.cond994 = icmp eq i8 %4223, 84
@@ -11910,8 +11910,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4224:                                             ; preds = %3795
   %4225 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4225, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4225, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4225, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4225, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4226 = load i8, ptr %4225, align 1
   %4227 = and i8 %4226, -33
   %or.cond997 = icmp eq i8 %4227, 69
@@ -11919,8 +11919,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4228:                                             ; preds = %3799
   %4229 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4229, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4229, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4229, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4229, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4230 = load i8, ptr %4229, align 1
   %4231 = and i8 %4230, -33
   %or.cond1000 = icmp eq i8 %4231, 69
@@ -11928,8 +11928,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4232:                                             ; preds = %3803
   %4233 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4233, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4233, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4233, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4233, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4234 = load i8, ptr %4233, align 1
   %4235 = zext i8 %4234 to i64
   %4236 = or disjoint i64 %4235, 256
@@ -11944,7 +11944,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7196:                                    ; preds = %4239, %953
   %4241 = phi ptr [ %940, %953 ], [ %4233, %4239 ]
-  %4242 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %4242 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %4243 = ptrtoint ptr %4241 to i64
   %4244 = ptrtoint ptr %4242 to i64
   %4245 = sub i64 %4243, %4244
@@ -11953,8 +11953,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4247:                                             ; preds = %3807
   %4248 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4248, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4248, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4248, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4248, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4249 = load i8, ptr %4248, align 1
   %4250 = zext i8 %4249 to i64
   %4251 = or disjoint i64 %4250, 256
@@ -11969,7 +11969,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7195:                                    ; preds = %4254, %958
   %4256 = phi ptr [ %940, %958 ], [ %4248, %4254 ]
-  %4257 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %4257 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %4258 = ptrtoint ptr %4256 to i64
   %4259 = ptrtoint ptr %4257 to i64
   %4260 = sub i64 %4258, %4259
@@ -11978,8 +11978,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4262:                                             ; preds = %3826
   %4263 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4263, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4263, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4263, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4263, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4264 = load i8, ptr %4263, align 1
   %4265 = and i8 %4264, -33
   %or.cond1003 = icmp eq i8 %4265, 65
@@ -11987,8 +11987,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4266:                                             ; preds = %3850, %3839
   %4267 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4267, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4267, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4267, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4267, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4268 = load i8, ptr %4267, align 1
   %4269 = and i8 %4268, -33
   %or.cond1006 = icmp eq i8 %4269, 65
@@ -11996,8 +11996,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4270:                                             ; preds = %3859
   %4271 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4271, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4271, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4271, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4271, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4272 = load i8, ptr %4271, align 1
   %4273 = and i8 %4272, -33
   %or.cond1009 = icmp eq i8 %4273, 67
@@ -12005,8 +12005,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4274:                                             ; preds = %3863
   %4275 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4275, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4275, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4275, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4275, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4276 = load i8, ptr %4275, align 1
   %4277 = and i8 %4276, -33
   %or.cond1012 = icmp eq i8 %4277, 69
@@ -12014,7 +12014,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4278:                                             ; preds = %3869
   %4279 = getelementptr inbounds nuw i8, ptr %3330, i64 3
-  store ptr %4279, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4279, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4280 = load i8, ptr %4279, align 1
   %4281 = and i8 %4280, -33
   %or.cond1015 = icmp eq i8 %4281, 84
@@ -12022,14 +12022,14 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4282:                                             ; preds = %.loopexit7178
   %4283 = getelementptr inbounds nuw i8, ptr %3330, i64 3
-  store ptr %4283, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4283, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4284 = load i8, ptr %4283, align 1
   %4285 = and i8 %4284, -33
   %or.cond1018 = icmp eq i8 %4285, 80
   br i1 %or.cond1018, label %4742, label %.thread6759
 
 4286:                                             ; preds = %3902
-  store ptr %3889, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3889, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4287 = getelementptr inbounds nuw i8, ptr %3891, i64 3
   %.not6358 = icmp ult ptr %4287, %3369
   br i1 %.not6358, label %4288, label %.loopexit
@@ -12052,13 +12052,13 @@ strip_underscores.exit6706:                       ; preds = %1940
 .backedge7080:                                    ; preds = %4292, %3898, %3902, %4291
   %4294 = phi ptr [ %3889, %4292 ], [ %3890, %3898 ], [ %3890, %3902 ], [ %3889, %4291 ]
   %4295 = getelementptr inbounds nuw i8, ptr %4294, i64 1
-  store ptr %4295, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4295, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4296 = getelementptr inbounds nuw i8, ptr %4294, i64 2
   %.not6242 = icmp ult ptr %4296, %3369
   br i1 %.not6242, label %3888, label %.loopexit
 
 4297:                                             ; preds = %3903
-  store ptr %3889, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %3889, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4298 = getelementptr inbounds nuw i8, ptr %3891, i64 3
   %.not6276 = icmp ult ptr %4298, %3369
   br i1 %.not6276, label %4299, label %.loopexit
@@ -12082,17 +12082,17 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .preheader6968:                                   ; preds = %4303
   %4304 = getelementptr inbounds nuw i8, ptr %3889, i64 1
-  store ptr %4304, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4304, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4305 = getelementptr inbounds nuw i8, ptr %3889, i64 2
   %.not62779879 = icmp ult ptr %4305, %3369
   br i1 %.not62779879, label %.lr.ph9881, label %.loopexit
 
 4306:                                             ; preds = %3911, %3921, %3917, %3912, %3905
   %4307 = getelementptr inbounds nuw i8, ptr %3891, i64 2
-  store ptr %4307, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4307, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4307, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4307, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4308 = getelementptr inbounds nuw i8, ptr %3891, i64 3
-  %4309 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %4309 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %4310 = getelementptr inbounds nuw i8, ptr %4309, i64 32
   %.not6274 = icmp ult ptr %4308, %4310
   br i1 %.not6274, label %4311, label %.loopexit
@@ -12114,10 +12114,10 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4317:                                             ; preds = %3911, %3917
   %4318 = getelementptr inbounds nuw i8, ptr %3891, i64 2
-  store ptr %4318, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4318, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4318, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4318, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4319 = getelementptr inbounds nuw i8, ptr %3891, i64 3
-  %4320 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %4320 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %4321 = getelementptr inbounds nuw i8, ptr %4320, i64 32
   %.not6260 = icmp ult ptr %4319, %4321
   br i1 %.not6260, label %4322, label %.loopexit
@@ -12155,10 +12155,10 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4335:                                             ; preds = %3911, %3919
   %4336 = getelementptr inbounds nuw i8, ptr %3891, i64 2
-  store ptr %4336, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4336, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4336, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4336, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4337 = getelementptr inbounds nuw i8, ptr %3891, i64 3
-  %4338 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %4338 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %4339 = getelementptr inbounds nuw i8, ptr %4338, i64 32
   %.not6244 = icmp ult ptr %4337, %4339
   br i1 %.not6244, label %4340, label %.loopexit
@@ -12197,14 +12197,14 @@ strip_underscores.exit6706:                       ; preds = %1940
 .preheader7068:                                   ; preds = %3928, %5050, %5364, %5374, %5385, %5619, %5627, %5635, %5864, %5872, %6091, %6099, %6217, %6225, %6336, %6344, %6421, %6428, %6488
   %.promoted9890 = phi ptr [ %6424, %6488 ], [ %6340, %6428 ], [ %6331, %6421 ], [ %6221, %6344 ], [ %6330, %6336 ], [ %6095, %6225 ], [ %6087, %6217 ], [ %5868, %6099 ], [ %5860, %6091 ], [ %5631, %5872 ], [ %5623, %5864 ], [ %5379, %5635 ], [ %5368, %5627 ], [ %5352, %5619 ], [ %5378, %5385 ], [ %5367, %5374 ], [ %5360, %5364 ], [ %5030, %5050 ], [ %3926, %3928 ]
   %.29.ph = phi i32 [ 53, %6488 ], [ 53, %6428 ], [ 93, %6421 ], [ 53, %6344 ], [ 53, %6336 ], [ 53, %6225 ], [ 53, %6217 ], [ 53, %6099 ], [ 53, %6091 ], [ 53, %5872 ], [ 53, %5864 ], [ 53, %5635 ], [ 53, %5627 ], [ %.369769, %5619 ], [ 53, %5385 ], [ 53, %5374 ], [ 53, %5364 ], [ %.369769, %5050 ], [ %.25.ph, %3928 ]
-  %4353 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %4353 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %4354 = getelementptr inbounds nuw i8, ptr %4353, i64 32
   br label %4355
 
 4355:                                             ; preds = %.preheader7068, %4362
   %4356 = phi ptr [ %.promoted9890, %.preheader7068 ], [ %4357, %4362 ]
   %4357 = getelementptr inbounds nuw i8, ptr %4356, i64 1
-  store ptr %4357, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4357, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4358 = getelementptr inbounds nuw i8, ptr %4356, i64 2
   %.not6355 = icmp ult ptr %4358, %4354
   br i1 %.not6355, label %4359, label %.loopexit
@@ -12226,8 +12226,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4365:                                             ; preds = %3930
   %4366 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4366, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4366, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4366, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4366, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4367 = load i8, ptr %4366, align 1
   %4368 = zext i8 %4367 to i64
   %4369 = or disjoint i64 %4368, 256
@@ -12242,7 +12242,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7175:                                    ; preds = %4372, %958
   %4374 = phi ptr [ %940, %958 ], [ %4366, %4372 ]
-  %4375 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %4375 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %4376 = ptrtoint ptr %4374 to i64
   %4377 = ptrtoint ptr %4375 to i64
   %4378 = sub i64 %4376, %4377
@@ -12251,8 +12251,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4380:                                             ; preds = %3934
   %4381 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4381, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4381, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4381, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4381, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4382 = load i8, ptr %4381, align 1
   %4383 = zext i8 %4382 to i64
   %4384 = or disjoint i64 %4383, 256
@@ -12267,7 +12267,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7174:                                    ; preds = %4387, %958
   %4389 = phi ptr [ %940, %958 ], [ %4381, %4387 ]
-  %4390 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %4390 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %4391 = ptrtoint ptr %4389 to i64
   %4392 = ptrtoint ptr %4390 to i64
   %4393 = sub i64 %4391, %4392
@@ -12276,8 +12276,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4395:                                             ; preds = %3938
   %4396 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4396, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4396, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4396, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4396, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4397 = load i8, ptr %4396, align 1
   %4398 = zext i8 %4397 to i64
   %4399 = or disjoint i64 %4398, 256
@@ -12292,7 +12292,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7171:                                    ; preds = %4402, %959
   %4404 = phi ptr [ %940, %959 ], [ %4396, %4402 ]
-  %4405 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %4405 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %4406 = ptrtoint ptr %4404 to i64
   %4407 = ptrtoint ptr %4405 to i64
   %4408 = sub i64 %4406, %4407
@@ -12301,8 +12301,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4410:                                             ; preds = %3942
   %4411 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4411, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4411, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4411, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4411, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4412 = load i8, ptr %4411, align 1
   %4413 = and i8 %4412, -33
   %or.cond1027 = icmp eq i8 %4413, 78
@@ -12310,8 +12310,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4414:                                             ; preds = %3961
   %4415 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4415, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4415, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4415, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4415, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4416 = load i8, ptr %4415, align 1
   %4417 = and i8 %4416, -33
   %or.cond1030 = icmp eq i8 %4417, 78
@@ -12319,8 +12319,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4418:                                             ; preds = %3965
   %4419 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4419, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4419, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4419, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4419, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4420 = load i8, ptr %4419, align 1
   %4421 = icmp ult i8 %4420, 93
   br i1 %4421, label %4422, label %4430
@@ -12356,7 +12356,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7163:                                    ; preds = %4434, %4428, %4432, %4424, %959
   %4435 = phi ptr [ %940, %959 ], [ %4419, %4424 ], [ %4419, %4432 ], [ %4419, %4428 ], [ %4419, %4434 ]
-  %4436 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %4436 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %4437 = ptrtoint ptr %4435 to i64
   %4438 = ptrtoint ptr %4436 to i64
   %4439 = sub i64 %4437, %4438
@@ -12365,8 +12365,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4441:                                             ; preds = %3969
   %4442 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4442, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4442, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4442, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4442, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4443 = load i8, ptr %4442, align 1
   %4444 = and i8 %4443, -33
   %or.cond1039 = icmp eq i8 %4444, 69
@@ -12374,8 +12374,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4445:                                             ; preds = %3973
   %4446 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4446, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4446, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4446, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4446, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4447 = load i8, ptr %4446, align 1
   %4448 = and i8 %4447, -33
   %or.cond1042 = icmp eq i8 %4448, 79
@@ -12383,8 +12383,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4449:                                             ; preds = %3977
   %4450 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4450, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4450, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4450, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4450, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4451 = load i8, ptr %4450, align 1
   %4452 = and i8 %4451, -33
   %or.cond1045 = icmp eq i8 %4452, 67
@@ -12392,8 +12392,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4453:                                             ; preds = %3981
   %4454 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4454, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4454, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4454, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4454, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4455 = load i8, ptr %4454, align 1
   %4456 = and i8 %4455, -33
   %or.cond1048 = icmp eq i8 %4456, 67
@@ -12401,8 +12401,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4457:                                             ; preds = %3985
   %4458 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4458, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4458, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4458, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4458, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4459 = load i8, ptr %4458, align 1
   %4460 = zext i8 %4459 to i64
   %4461 = or disjoint i64 %4460, 256
@@ -12417,7 +12417,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7153:                                    ; preds = %4464, %959
   %4466 = phi ptr [ %940, %959 ], [ %4458, %4464 ]
-  %4467 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %4467 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %4468 = ptrtoint ptr %4466 to i64
   %4469 = ptrtoint ptr %4467 to i64
   %4470 = sub i64 %4468, %4469
@@ -12426,8 +12426,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4472:                                             ; preds = %3989
   %4473 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4473, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4473, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4473, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4473, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4474 = load i8, ptr %4473, align 1
   %4475 = and i8 %4474, -33
   %or.cond1051 = icmp eq i8 %4475, 69
@@ -12435,8 +12435,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4476:                                             ; preds = %4008
   %4477 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4477, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4477, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4477, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4477, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4478 = load i8, ptr %4477, align 1
   %4479 = and i8 %4478, -33
   %or.cond1054 = icmp eq i8 %4479, 89
@@ -12444,8 +12444,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4480:                                             ; preds = %4012
   %4481 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4481, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4481, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4481, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4481, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4482 = load i8, ptr %4481, align 1
   %4483 = icmp ult i8 %4482, 93
   br i1 %4483, label %4484, label %4492
@@ -12481,7 +12481,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7148:                                    ; preds = %4496, %4490, %4494, %4486, %962
   %4497 = phi ptr [ %940, %962 ], [ %4481, %4486 ], [ %4481, %4494 ], [ %4481, %4490 ], [ %4481, %4496 ]
-  %4498 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %4498 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %4499 = ptrtoint ptr %4497 to i64
   %4500 = ptrtoint ptr %4498 to i64
   %4501 = sub i64 %4499, %4500
@@ -12492,7 +12492,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   %4504 = phi ptr [ %5768, %6009 ], [ %4065, %4080 ]
   %.30 = phi i32 [ 91, %6009 ], [ %.26.ph, %4080 ]
   %4505 = getelementptr inbounds nuw i8, ptr %4504, i64 1
-  store ptr %4505, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4505, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4506 = load i8, ptr %4505, align 1
   %4507 = and i8 %4506, -33
   %or.cond1063 = icmp eq i8 %4507, 82
@@ -12501,10 +12501,10 @@ strip_underscores.exit6706:                       ; preds = %1940
 .preheader7087:                                   ; preds = %4548, %4549, %4879, %4880, %5217, %5218, %5541, %5542, %4089, %4090, %4863, %4854, %4545, %4542, %4855, %4536, %4874, %5212, %5536, %5777, %5783, %5994, %4097, %4862, %4876, %5214, %5538, %5993, %5786
   %.promoted9719 = phi ptr [ %5768, %5993 ], [ %5530, %5786 ], [ %4527, %4862 ], [ %4094, %4097 ], [ %5530, %5783 ], [ %5530, %5777 ], [ %5768, %5994 ], [ %5206, %5538 ], [ %5206, %5536 ], [ %4868, %5214 ], [ %4868, %5212 ], [ %4867, %4876 ], [ %4867, %4874 ], [ %4527, %4854 ], [ %4528, %4545 ], [ %4528, %4542 ], [ %4527, %4855 ], [ %4528, %4536 ], [ %4527, %4863 ], [ %4528, %4548 ], [ %4867, %4879 ], [ %4868, %5217 ], [ %5206, %5541 ], [ %5206, %5542 ], [ %4868, %5218 ], [ %4867, %4880 ], [ %4528, %4549 ], [ %4084, %4089 ], [ %4084, %4090 ]
   %.32.ph = phi i32 [ 91, %5993 ], [ %.31.ph69819715, %5786 ], [ %.31.ph69819715, %4862 ], [ %.28, %4097 ], [ %.31.ph69819715, %5783 ], [ %.31.ph69819715, %5777 ], [ 91, %5994 ], [ %.31.ph69819715, %5538 ], [ %.31.ph69819715, %5536 ], [ %.31.ph69819715, %5214 ], [ %.31.ph69819715, %5212 ], [ %.31.ph69819715, %4876 ], [ %.31.ph69819715, %4874 ], [ %.31.ph69819715, %4536 ], [ %.31.ph69819715, %4855 ], [ %.31.ph69819715, %4542 ], [ %.31.ph69819715, %4545 ], [ %.31.ph69819715, %4854 ], [ %.31.ph69819715, %4863 ], [ %.31.ph69819715, %4548 ], [ %.31.ph69819715, %4879 ], [ %.31.ph69819715, %5217 ], [ %.31.ph69819715, %5541 ], [ %.31.ph69819715, %5542 ], [ %.31.ph69819715, %5218 ], [ %.31.ph69819715, %4880 ], [ %.31.ph69819715, %4549 ], [ %.27, %4089 ], [ %.27, %4090 ]
-  %4508 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %4508 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %4509 = getelementptr inbounds nuw i8, ptr %4508, i64 32
   %4510 = getelementptr inbounds nuw i8, ptr %.promoted9719, i64 1
-  store ptr %4510, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4510, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4511 = getelementptr inbounds nuw i8, ptr %.promoted9719, i64 2
   %.not61639720 = icmp ult ptr %4511, %4509
   br i1 %.not61639720, label %.lr.ph9721, label %.loopexit
@@ -12527,7 +12527,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .backedge7091:                                    ; preds = %4516, %4515
   %4518 = getelementptr inbounds nuw i8, ptr %4512, i64 1
-  store ptr %4518, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4518, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4519 = getelementptr inbounds nuw i8, ptr %4512, i64 2
   %.not6163 = icmp ult ptr %4519, %4509
   br i1 %.not6163, label %.lr.ph9721, label %.loopexit
@@ -12536,7 +12536,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   %4520 = phi ptr [ %6432, %6534 ], [ %5510, %5527 ]
   %.31.ph = phi i32 [ 91, %6534 ], [ %.41.ph, %5527 ]
   %4521 = getelementptr inbounds nuw i8, ptr %4520, i64 1
-  store ptr %4521, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4521, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4522 = getelementptr inbounds nuw i8, ptr %4520, i64 2
   %.not60939485 = icmp ult ptr %4522, %4079
   br i1 %.not60939485, label %.lr.ph9486, label %.loopexit
@@ -12575,7 +12575,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 .backedge6982:                                    ; preds = %4538, %4855, %4542, %4854
   %4539 = phi ptr [ %4528, %4538 ], [ %4527, %4855 ], [ %4528, %4542 ], [ %4527, %4854 ]
   %4540 = getelementptr inbounds nuw i8, ptr %4539, i64 1
-  store ptr %4540, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4540, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4541 = getelementptr inbounds nuw i8, ptr %4539, i64 2
   %.not6093 = icmp ult ptr %4541, %4079
   br i1 %.not6093, label %4526, label %.loopexit
@@ -12621,14 +12621,14 @@ strip_underscores.exit6706:                       ; preds = %1940
 .preheader7097:                                   ; preds = %4891, %6512, %.preheader7097.loopexit20683, %.preheader7097.loopexit20657, %4892, %5505, %5506, %6289, %6372, %6518, %6519, %5765, %5985, %6161, %6285, %4097, %5764, %5976, %5984, %6160, %6364, %6371, %6292
   %.promoted9717 = phi ptr [ %6278, %6371 ], [ %6278, %6364 ], [ %6156, %6292 ], [ %5980, %6160 ], [ %5758, %5984 ], [ %5748, %5976 ], [ %5757, %5764 ], [ %4094, %4097 ], [ %5484, %5506 ], [ %5484, %5505 ], [ %6432, %6519 ], [ %5757, %5765 ], [ %5758, %5985 ], [ %5980, %6161 ], [ %6156, %6289 ], [ %6156, %6285 ], [ %6278, %6372 ], [ %6432, %6518 ], [ %4886, %4892 ], [ %.promoted9717.ph, %.preheader7097.loopexit20657 ], [ %.promoted9717.ph20684, %.preheader7097.loopexit20683 ], [ %6432, %6512 ], [ %4886, %4891 ]
   %.33.ph7098 = phi i32 [ 91, %6371 ], [ 91, %6364 ], [ %.45, %6292 ], [ %.45, %6160 ], [ %.45, %5984 ], [ %.44, %5976 ], [ %.45, %5764 ], [ %.28, %4097 ], [ %.409571, %5506 ], [ %.409571, %5505 ], [ 91, %6519 ], [ %.45, %5765 ], [ %.45, %5985 ], [ %.45, %6161 ], [ %.45, %6289 ], [ %.45, %6285 ], [ 91, %6372 ], [ 91, %6518 ], [ %.35.ph7093, %4892 ], [ %.33.ph7098.ph, %.preheader7097.loopexit20657 ], [ %.33.ph7098.ph20685, %.preheader7097.loopexit20683 ], [ 91, %6512 ], [ %.35.ph7093, %4891 ]
-  %4551 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %4551 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %4552 = getelementptr inbounds nuw i8, ptr %4551, i64 32
   br label %4553
 
 4553:                                             ; preds = %.preheader7097, %4557
   %4554 = phi ptr [ %.promoted9717, %.preheader7097 ], [ %4555, %4557 ]
   %4555 = getelementptr inbounds nuw i8, ptr %4554, i64 1
-  store ptr %4555, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4555, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4556 = getelementptr inbounds nuw i8, ptr %4554, i64 2
   %.not6156 = icmp ult ptr %4556, %4552
   br i1 %.not6156, label %4557, label %.loopexit
@@ -12642,16 +12642,16 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4559:                                             ; preds = %4099
   %4560 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4560, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4560, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4560, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4560, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4561 = load i8, ptr %4560, align 1
   %4562 = icmp eq i8 %4561, 95
   br i1 %4562, label %4894, label %670
 
 4563:                                             ; preds = %4103
   %4564 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4564, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4564, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4564, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4564, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4565 = load i8, ptr %4564, align 1
   %4566 = zext i8 %4565 to i64
   %4567 = or disjoint i64 %4566, 256
@@ -12666,7 +12666,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7132:                                    ; preds = %4570, %962
   %4572 = phi ptr [ %940, %962 ], [ %4564, %4570 ]
-  %4573 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %4573 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %4574 = ptrtoint ptr %4572 to i64
   %4575 = ptrtoint ptr %4573 to i64
   %4576 = sub i64 %4574, %4575
@@ -12675,16 +12675,16 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4578:                                             ; preds = %4107
   %4579 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4579, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4579, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4579, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4579, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4580 = load i8, ptr %4579, align 1
   %4581 = icmp eq i8 %4580, 95
   br i1 %4581, label %4898, label %670
 
 4582:                                             ; preds = %4111
   %4583 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4583, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4583, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4583, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4583, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4584 = load i8, ptr %4583, align 1
   %4585 = and i8 %4584, -33
   %or.cond1066 = icmp eq i8 %4585, 73
@@ -12692,8 +12692,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4586:                                             ; preds = %4115
   %4587 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4587, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4587, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4587, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4587, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4588 = load i8, ptr %4587, align 1
   %4589 = and i8 %4588, -33
   %or.cond1069 = icmp eq i8 %4589, 67
@@ -12701,16 +12701,16 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4590:                                             ; preds = %4119
   %4591 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4591, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4591, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4591, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4591, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4592 = load i8, ptr %4591, align 1
   %4593 = icmp eq i8 %4592, 95
   br i1 %4593, label %4921, label %670
 
 4594:                                             ; preds = %4123
   %4595 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4595, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4595, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4595, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4595, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4596 = load i8, ptr %4595, align 1
   %4597 = and i8 %4596, -33
   %or.cond1072 = icmp eq i8 %4597, 68
@@ -12718,8 +12718,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4598:                                             ; preds = %4127
   %4599 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4599, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4599, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4599, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4599, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4600 = load i8, ptr %4599, align 1
   %4601 = and i8 %4600, -33
   %or.cond1075 = icmp eq i8 %4601, 80
@@ -12727,8 +12727,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4602:                                             ; preds = %4131
   %4603 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 7
-  store ptr %4603, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4603, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4603, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4603, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4604 = load i8, ptr %4603, align 1
   %4605 = icmp eq i8 %4604, 95
   br i1 %4605, label %4944, label %670
@@ -12760,7 +12760,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 .backedge6875:                                    ; preds = %4617, %4957, %5294, %4621
   %4618 = phi ptr [ %4607, %4617 ], [ %4606, %4957 ], [ %4988, %5294 ], [ %4607, %4621 ]
   %4619 = getelementptr inbounds nuw i8, ptr %4618, i64 1
-  store ptr %4619, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4619, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4620 = getelementptr inbounds nuw i8, ptr %4618, i64 2
   %.not6493 = icmp ult ptr %4620, %51
   br i1 %.not6493, label %.lr.ph9946, label %.loopexit
@@ -12804,7 +12804,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %4637, label %4987, label %.backedge6921
 
 4638:                                             ; preds = %4170
-  store ptr %4163, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4163, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4639 = getelementptr inbounds nuw i8, ptr %3656, i64 4
   %.not6486 = icmp ult ptr %4639, %51
   br i1 %.not6486, label %4640, label %.loopexit
@@ -12825,7 +12825,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   ]
 
 4647:                                             ; preds = %4176
-  store ptr %4172, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4172, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4648 = getelementptr inbounds nuw i8, ptr %3656, i64 4
   %.not6482 = icmp ult ptr %4648, %51
   br i1 %.not6482, label %4649, label %.loopexit
@@ -12846,27 +12846,27 @@ strip_underscores.exit6706:                       ; preds = %1940
   ]
 
 4656:                                             ; preds = %4192
-  store ptr %4184, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4184, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4657 = ptrtoint ptr %4184 to i64
   %4658 = ptrtoint ptr %.promoted103951316013175 to i64
   %4659 = sub i64 %4657, %4658
   %4660 = trunc i64 %4659 to i32
-  store i32 %4660, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %4660, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 4661:                                             ; preds = %4214
-  store ptr %4206, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4206, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4662 = ptrtoint ptr %4206 to i64
   %4663 = ptrtoint ptr %.promoted103951316013175 to i64
   %4664 = sub i64 %4662, %4663
   %4665 = trunc i64 %4664 to i32
-  store i32 %4665, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %4665, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 4666:                                             ; preds = %4220
   %4667 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 8
-  store ptr %4667, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4667, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4667, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4667, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4668 = load i8, ptr %4667, align 1
   %4669 = zext i8 %4668 to i64
   %4670 = or disjoint i64 %4669, 256
@@ -12881,7 +12881,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7207:                                    ; preds = %4673, %962
   %4675 = phi ptr [ %940, %962 ], [ %4667, %4673 ]
-  %4676 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %4676 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %4677 = ptrtoint ptr %4675 to i64
   %4678 = ptrtoint ptr %4676 to i64
   %4679 = sub i64 %4677, %4678
@@ -12890,8 +12890,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4681:                                             ; preds = %4224
   %4682 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 8
-  store ptr %4682, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4682, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4682, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4682, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4683 = load i8, ptr %4682, align 1
   %4684 = zext i8 %4683 to i64
   %4685 = or disjoint i64 %4684, 256
@@ -12906,7 +12906,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7203:                                    ; preds = %4688, %963
   %4690 = phi ptr [ %940, %963 ], [ %4682, %4688 ]
-  %4691 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %4691 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %4692 = ptrtoint ptr %4690 to i64
   %4693 = ptrtoint ptr %4691 to i64
   %4694 = sub i64 %4692, %4693
@@ -12915,8 +12915,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4696:                                             ; preds = %4228
   %4697 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 8
-  store ptr %4697, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4697, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4697, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4697, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4698 = load i8, ptr %4697, align 1
   %4699 = zext i8 %4698 to i64
   %4700 = or disjoint i64 %4699, 256
@@ -12931,7 +12931,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7198:                                    ; preds = %4703, %963
   %4705 = phi ptr [ %940, %963 ], [ %4697, %4703 ]
-  %4706 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %4706 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %4707 = ptrtoint ptr %4705 to i64
   %4708 = ptrtoint ptr %4706 to i64
   %4709 = sub i64 %4707, %4708
@@ -12940,8 +12940,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4711:                                             ; preds = %4262
   %4712 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 8
-  store ptr %4712, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4712, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4712, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4712, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4713 = load i8, ptr %4712, align 1
   %4714 = and i8 %4713, -33
   %or.cond1078 = icmp eq i8 %4714, 82
@@ -12949,8 +12949,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4715:                                             ; preds = %4266
   %4716 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 8
-  store ptr %4716, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4716, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4716, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4716, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4717 = load i8, ptr %4716, align 1
   %4718 = and i8 %4717, -33
   %or.cond1081 = icmp eq i8 %4718, 67
@@ -12958,8 +12958,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4719:                                             ; preds = %4270
   %4720 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 8
-  store ptr %4720, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4720, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4720, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4720, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4721 = load i8, ptr %4720, align 1
   %4722 = and i8 %4721, -33
   %or.cond1084 = icmp eq i8 %4722, 72
@@ -12967,8 +12967,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4723:                                             ; preds = %4274
   %4724 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 8
-  store ptr %4724, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4724, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4724, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4724, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4725 = load i8, ptr %4724, align 1
   %4726 = zext i8 %4725 to i64
   %4727 = or disjoint i64 %4726, 256
@@ -12983,7 +12983,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7183:                                    ; preds = %4730, %963
   %4732 = phi ptr [ %940, %963 ], [ %4724, %4730 ]
-  %4733 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %4733 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %4734 = ptrtoint ptr %4732 to i64
   %4735 = ptrtoint ptr %4733 to i64
   %4736 = sub i64 %4734, %4735
@@ -12992,7 +12992,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4738:                                             ; preds = %4278
   %4739 = getelementptr inbounds nuw i8, ptr %3330, i64 4
-  store ptr %4739, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4739, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4740 = load i8, ptr %4739, align 1
   %4741 = and i8 %4740, -33
   %or.cond1087 = icmp eq i8 %4741, 69
@@ -13000,7 +13000,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4742:                                             ; preds = %4282
   %4743 = getelementptr inbounds nuw i8, ptr %3330, i64 4
-  store ptr %4743, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4743, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4744 = load i8, ptr %4743, align 1
   %4745 = and i8 %4744, -33
   %or.cond1090 = icmp eq i8 %4745, 76
@@ -13027,7 +13027,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4751:                                             ; preds = %4333, %4332
   %4752 = getelementptr inbounds nuw i8, ptr %3891, i64 3
-  store ptr %4752, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4752, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4753 = getelementptr inbounds nuw i8, ptr %3891, i64 4
   %.not6262 = icmp ult ptr %4753, %4321
   br i1 %.not6262, label %4754, label %.loopexit
@@ -13065,7 +13065,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4767:                                             ; preds = %4351, %4350
   %4768 = getelementptr inbounds nuw i8, ptr %3891, i64 3
-  store ptr %4768, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4768, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4769 = getelementptr inbounds nuw i8, ptr %3891, i64 4
   %.not6246 = icmp ult ptr %4769, %4339
   br i1 %.not6246, label %4770, label %.loopexit
@@ -13103,8 +13103,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4783:                                             ; preds = %4410
   %4784 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 8
-  store ptr %4784, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4784, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4784, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4784, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4785 = load i8, ptr %4784, align 1
   %4786 = zext i8 %4785 to i64
   %4787 = or disjoint i64 %4786, 256
@@ -13119,7 +13119,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7169:                                    ; preds = %4790, %970
   %4792 = phi ptr [ %940, %970 ], [ %4784, %4790 ]
-  %4793 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %4793 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %4794 = ptrtoint ptr %4792 to i64
   %4795 = ptrtoint ptr %4793 to i64
   %4796 = sub i64 %4794, %4795
@@ -13128,8 +13128,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4798:                                             ; preds = %4414
   %4799 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 8
-  store ptr %4799, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4799, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4799, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4799, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4800 = load i8, ptr %4799, align 1
   %4801 = and i8 %4800, -33
   %or.cond1099 = icmp eq i8 %4801, 84
@@ -13137,8 +13137,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4802:                                             ; preds = %4432
   %4803 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 8
-  store ptr %4803, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4803, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4803, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4803, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4804 = load i8, ptr %4803, align 1
   %4805 = and i8 %4804, -33
   %or.cond1102 = icmp eq i8 %4805, 79
@@ -13146,8 +13146,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4806:                                             ; preds = %4441
   %4807 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 8
-  store ptr %4807, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4807, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4807, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4807, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4808 = load i8, ptr %4807, align 1
   %4809 = and i8 %4808, -33
   %or.cond1105 = icmp eq i8 %4809, 79
@@ -13155,8 +13155,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4810:                                             ; preds = %4445
   %4811 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 8
-  store ptr %4811, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4811, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4811, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4811, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4812 = load i8, ptr %4811, align 1
   %4813 = and i8 %4812, -33
   %or.cond1108 = icmp eq i8 %4813, 70
@@ -13164,8 +13164,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4814:                                             ; preds = %4449
   %4815 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 8
-  store ptr %4815, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4815, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4815, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4815, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4816 = load i8, ptr %4815, align 1
   %4817 = and i8 %4816, -33
   %or.cond1111 = icmp eq i8 %4817, 69
@@ -13173,8 +13173,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4818:                                             ; preds = %4453
   %4819 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 8
-  store ptr %4819, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4819, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4819, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4819, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4820 = load i8, ptr %4819, align 1
   %4821 = and i8 %4820, -33
   %or.cond1114 = icmp eq i8 %4821, 69
@@ -13182,8 +13182,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4822:                                             ; preds = %4472
   %4823 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 8
-  store ptr %4823, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4823, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4823, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4823, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4824 = load i8, ptr %4823, align 1
   %4825 = and i8 %4824, -33
   %or.cond1117 = icmp eq i8 %4825, 68
@@ -13191,8 +13191,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4826:                                             ; preds = %4476
   %4827 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 8
-  store ptr %4827, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4827, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4827, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4827, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4828 = load i8, ptr %4827, align 1
   %4829 = zext i8 %4828 to i64
   %4830 = or disjoint i64 %4829, 256
@@ -13207,7 +13207,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7150:                                    ; preds = %4833, %970
   %4835 = phi ptr [ %940, %970 ], [ %4827, %4833 ]
-  %4836 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %4836 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %4837 = ptrtoint ptr %4835 to i64
   %4838 = ptrtoint ptr %4836 to i64
   %4839 = sub i64 %4837, %4838
@@ -13216,8 +13216,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4841:                                             ; preds = %4494
   %4842 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 8
-  store ptr %4842, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4842, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4842, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4842, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4843 = load i8, ptr %4842, align 1
   %4844 = and i8 %4843, -33
   %or.cond1120 = icmp eq i8 %4844, 79
@@ -13225,14 +13225,14 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4845:                                             ; preds = %4503
   %4846 = getelementptr inbounds nuw i8, ptr %4504, i64 2
-  store ptr %4846, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4846, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4847 = load i8, ptr %4846, align 1
   %4848 = and i8 %4847, -33
   %or.cond1123 = icmp eq i8 %4848, 79
   br i1 %or.cond1123, label %5196, label %.loopexit6867
 
 4849:                                             ; preds = %4545
-  store ptr %4527, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4527, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4850 = getelementptr inbounds nuw i8, ptr %4529, i64 3
   %.not6159 = icmp ult ptr %4850, %4079
   br i1 %.not6159, label %4851, label %.loopexit
@@ -13253,7 +13253,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %4856, label %.backedge6982, label %.preheader7087
 
 4857:                                             ; preds = %4545
-  store ptr %4527, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4527, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4858 = getelementptr inbounds nuw i8, ptr %4529, i64 3
   %.not6108 = icmp ult ptr %4858, %4079
   br i1 %.not6108, label %4859, label %.loopexit
@@ -13277,14 +13277,14 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .preheader6935:                                   ; preds = %4863
   %4864 = getelementptr inbounds nuw i8, ptr %4527, i64 1
-  store ptr %4864, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4864, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4865 = getelementptr inbounds nuw i8, ptr %4527, i64 2
   %.not61099704 = icmp ult ptr %4865, %4079
   br i1 %.not61099704, label %.lr.ph9706, label %.loopexit
 
 4866:                                             ; preds = %4549, %4548
   %4867 = getelementptr inbounds nuw i8, ptr %4529, i64 2
-  store ptr %4867, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4867, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4868 = getelementptr inbounds nuw i8, ptr %4529, i64 3
   %.not6095 = icmp ult ptr %4868, %4079
   br i1 %.not6095, label %4869, label %.loopexit
@@ -13323,14 +13323,14 @@ strip_underscores.exit6706:                       ; preds = %1940
 .preheader7092:                                   ; preds = %4557, %6515, %5502, %5764, %5976, %5984, %6160, %6364, %6371
   %.promoted9718 = phi ptr [ %6278, %6371 ], [ %6278, %6364 ], [ %5980, %6160 ], [ %5758, %5984 ], [ %5748, %5976 ], [ %5757, %5764 ], [ %5484, %5502 ], [ %6432, %6515 ], [ %4555, %4557 ]
   %.35.ph7093 = phi i32 [ 91, %6371 ], [ 91, %6364 ], [ %.45, %6160 ], [ %.45, %5984 ], [ %.44, %5976 ], [ %.45, %5764 ], [ %.409571, %5502 ], [ 91, %6515 ], [ %.33.ph7098, %4557 ]
-  %4882 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %4882 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %4883 = getelementptr inbounds nuw i8, ptr %4882, i64 32
   br label %4884
 
 4884:                                             ; preds = %.preheader7092, %4891
   %4885 = phi ptr [ %.promoted9718, %.preheader7092 ], [ %4886, %4891 ]
   %4886 = getelementptr inbounds nuw i8, ptr %4885, i64 1
-  store ptr %4886, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4886, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4887 = getelementptr inbounds nuw i8, ptr %4885, i64 2
   %.not6157 = icmp ult ptr %4887, %4883
   br i1 %.not6157, label %4888, label %.loopexit
@@ -13352,16 +13352,16 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4894:                                             ; preds = %4559
   %4895 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 8
-  store ptr %4895, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4895, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4895, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4895, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4896 = load i8, ptr %4895, align 1
   %4897 = icmp eq i8 %4896, 95
   br i1 %4897, label %5220, label %670
 
 4898:                                             ; preds = %4578
   %4899 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 8
-  store ptr %4899, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4899, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4899, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4899, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4900 = load i8, ptr %4899, align 1
   %4901 = zext i8 %4900 to i64
   %4902 = or disjoint i64 %4901, 256
@@ -13376,7 +13376,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7131:                                    ; preds = %4905, %970
   %4907 = phi ptr [ %940, %970 ], [ %4899, %4905 ]
-  %4908 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %4908 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %4909 = ptrtoint ptr %4907 to i64
   %4910 = ptrtoint ptr %4908 to i64
   %4911 = sub i64 %4909, %4910
@@ -13385,8 +13385,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4913:                                             ; preds = %4582
   %4914 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 8
-  store ptr %4914, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4914, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4914, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4914, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4915 = load i8, ptr %4914, align 1
   %4916 = and i8 %4915, -33
   %or.cond1129 = icmp eq i8 %4916, 79
@@ -13394,8 +13394,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4917:                                             ; preds = %4586
   %4918 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 8
-  store ptr %4918, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4918, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4918, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4918, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4919 = load i8, ptr %4918, align 1
   %4920 = and i8 %4919, -33
   %or.cond1132 = icmp eq i8 %4920, 79
@@ -13403,8 +13403,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4921:                                             ; preds = %4590
   %4922 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 8
-  store ptr %4922, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4922, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4922, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4922, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4923 = load i8, ptr %4922, align 1
   %4924 = zext i8 %4923 to i64
   %4925 = or disjoint i64 %4924, 256
@@ -13419,7 +13419,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7128:                                    ; preds = %4928, %971
   %4930 = phi ptr [ %940, %971 ], [ %4922, %4928 ]
-  %4931 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %4931 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %4932 = ptrtoint ptr %4930 to i64
   %4933 = ptrtoint ptr %4931 to i64
   %4934 = sub i64 %4932, %4933
@@ -13428,16 +13428,16 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4936:                                             ; preds = %4594
   %4937 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 8
-  store ptr %4937, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4937, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4937, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4937, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4938 = load i8, ptr %4937, align 1
   %4939 = icmp eq i8 %4938, 95
   br i1 %4939, label %5243, label %670
 
 4940:                                             ; preds = %4598
   %4941 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 8
-  store ptr %4941, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4941, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4941, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4941, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4942 = load i8, ptr %4941, align 1
   %4943 = and i8 %4942, -33
   %or.cond1135 = icmp eq i8 %4943, 65
@@ -13445,14 +13445,14 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4944:                                             ; preds = %4602
   %4945 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 8
-  store ptr %4945, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4945, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4945, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4945, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4946 = load i8, ptr %4945, align 1
   %4947 = icmp eq i8 %4946, 95
   br i1 %4947, label %5251, label %670
 
 4948:                                             ; preds = %4626
-  store ptr %4606, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4606, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4949 = getelementptr inbounds nuw i8, ptr %4608, i64 3
   %.not6504 = icmp ult ptr %4949, %51
   br i1 %.not6504, label %4950, label %.loopexit
@@ -13476,8 +13476,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 4959:                                             ; preds = %5279, %4628
   %4960 = phi ptr [ %4973, %5279 ], [ %4607, %4628 ]
   %4961 = getelementptr inbounds nuw i8, ptr %4960, i64 1
-  store ptr %4961, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4961, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4961, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4961, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %4962 = getelementptr inbounds nuw i8, ptr %4960, i64 2
   %.not6502 = icmp ult ptr %4962, %51
   br i1 %.not6502, label %4963, label %.loopexit
@@ -13499,7 +13499,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %4971, label %.backedge6895, label %.preheader6884
 
 4972:                                             ; preds = %4634
-  store ptr %4606, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4606, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4973 = getelementptr inbounds nuw i8, ptr %4608, i64 3
   %.not6498 = icmp ult ptr %4973, %51
   br i1 %.not6498, label %4974, label %.loopexit
@@ -13536,7 +13536,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %4986, label %5266, label %.backedge6921
 
 4987:                                             ; preds = %4636
-  store ptr %4606, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4606, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %4988 = getelementptr inbounds nuw i8, ptr %4608, i64 3
   %.not6494 = icmp ult ptr %4988, %51
   br i1 %.not6494, label %4989, label %.loopexit
@@ -13559,8 +13559,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 4998:                                             ; preds = %4711
   %4999 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 9
-  store ptr %4999, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %4999, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %4999, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4999, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5000 = load i8, ptr %4999, align 1
   %5001 = and i8 %5000, -33
   %or.cond1141 = icmp eq i8 %5001, 69
@@ -13568,8 +13568,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5002:                                             ; preds = %4715
   %5003 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 9
-  store ptr %5003, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5003, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5003, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5003, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5004 = load i8, ptr %5003, align 1
   %5005 = and i8 %5004, -33
   %or.cond1144 = icmp eq i8 %5005, 72
@@ -13577,8 +13577,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5006:                                             ; preds = %4719
   %5007 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 9
-  store ptr %5007, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5007, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5007, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5007, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5008 = load i8, ptr %5007, align 1
   %5009 = zext i8 %5008 to i64
   %5010 = or disjoint i64 %5009, 256
@@ -13593,7 +13593,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7184:                                    ; preds = %5013, %971
   %5015 = phi ptr [ %940, %971 ], [ %5007, %5013 ]
-  %5016 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %5016 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %5017 = ptrtoint ptr %5015 to i64
   %5018 = ptrtoint ptr %5016 to i64
   %5019 = sub i64 %5017, %5018
@@ -13602,7 +13602,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5021:                                             ; preds = %4738
   %5022 = getelementptr inbounds nuw i8, ptr %3330, i64 5
-  store ptr %5022, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5022, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5023 = load i8, ptr %5022, align 1
   %5024 = and i8 %5023, -33
   %or.cond1147 = icmp eq i8 %5024, 78
@@ -13610,7 +13610,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5025:                                             ; preds = %4742
   %5026 = getelementptr inbounds nuw i8, ptr %3330, i64 5
-  store ptr %5026, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5026, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5027 = load i8, ptr %5026, align 1
   %5028 = and i8 %5027, -33
   %or.cond1150 = icmp eq i8 %5028, 69
@@ -13645,7 +13645,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   %5042 = phi ptr [ %5030, %5040 ], [ %5030, %5045 ], [ %5583, %5592 ], [ %5813, %6047 ], [ %5828, %5836 ], [ %5829, %6064 ], [ %6057, %6190 ], [ %6183, %6305 ], [ %6298, %6397 ], [ %6453, %6461 ], [ %6454, %6542 ], [ %5820, %5826 ], [ %5844, %5852 ], [ %5845, %6079 ], [ %6072, %6205 ], [ %6198, %6320 ], [ %6313, %6412 ], [ %6405, %6476 ], [ %6469, %6551 ], [ %6544, %6565 ], [ %5352, %5620 ], [ %5030, %5045 ], [ %5583, %5592 ], [ %5582, %5817 ], [ %5820, %5825 ], [ %5828, %5835 ], [ %5844, %5851 ], [ %5813, %6047 ], [ %5829, %6063 ], [ %5845, %6078 ], [ %6057, %6189 ], [ %6072, %6204 ], [ %6183, %6304 ], [ %6198, %6319 ], [ %6298, %6396 ], [ %6313, %6411 ], [ %6453, %6460 ], [ %6405, %6475 ], [ %6454, %6541 ], [ %6469, %6550 ], [ %6544, %6564 ], [ %5582, %5818 ]
   %.36.be = phi i32 [ %.369769, %5040 ], [ %.369769, %5045 ], [ %.369769, %5592 ], [ %.369769, %6047 ], [ 53, %5836 ], [ 53, %6064 ], [ 53, %6190 ], [ 53, %6305 ], [ 53, %6397 ], [ 53, %6461 ], [ 93, %6542 ], [ 53, %5826 ], [ 53, %5852 ], [ 53, %6079 ], [ 53, %6205 ], [ 53, %6320 ], [ 53, %6412 ], [ 53, %6476 ], [ 53, %6551 ], [ 53, %6565 ], [ %.369769, %5620 ], [ %.369769, %5045 ], [ %.369769, %5592 ], [ %.369769, %5817 ], [ 53, %5825 ], [ 53, %5835 ], [ 53, %5851 ], [ %.369769, %6047 ], [ 53, %6063 ], [ 53, %6078 ], [ 53, %6189 ], [ 53, %6204 ], [ 53, %6304 ], [ 53, %6319 ], [ 53, %6396 ], [ 53, %6411 ], [ 53, %6460 ], [ 53, %6475 ], [ 93, %6541 ], [ 53, %6550 ], [ 53, %6564 ], [ %.369769, %5818 ]
   %5043 = getelementptr inbounds nuw i8, ptr %5042, i64 1
-  store ptr %5043, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5043, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5044 = getelementptr inbounds nuw i8, ptr %5042, i64 2
   %.not6278 = icmp ult ptr %5044, %3369
   br i1 %.not6278, label %.lr.ph9770, label %.loopexit
@@ -13718,7 +13718,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 5068:                                             ; preds = %.preheader6922, %5086
   %5069 = phi ptr [ %.promoted97909792, %.preheader6922 ], [ %5070, %5086 ]
   %5070 = getelementptr inbounds nuw i8, ptr %5069, i64 1
-  store ptr %5070, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5070, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5071 = getelementptr inbounds nuw i8, ptr %5069, i64 2
   %.not6351 = icmp ult ptr %5071, %3369
   br i1 %.not6351, label %5072, label %.loopexit
@@ -13740,7 +13740,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   %.promoted97909796 = phi ptr [ %5029, %5341 ], [ %5070, %5077 ], [ %5070, %5081 ], [ %5070, %5087 ], [ %5813, %6045 ], [ %5813, %6050 ], [ %5029, %5348 ], [ %5029, %5349 ], [ %5029, %5357 ], [ %4746, %4749 ], [ %4746, %4750 ], [ %5813, %6051 ], [ %5583, %5591 ], [ %5583, %5595 ], [ %5583, %5596 ], [ %5582, %5810 ], [ %5582, %5811 ], [ %5582, %5818 ], [ %5070, %5086 ], [ %6544, %6569 ], [ %6544, %6564 ], [ %6469, %6555 ], [ %6469, %6550 ], [ %6454, %6542 ], [ %6454, %6541 ], [ %6405, %6480 ], [ %6405, %6475 ], [ %6453, %6465 ], [ %6453, %6460 ], [ %6313, %6416 ], [ %6313, %6411 ], [ %6298, %6401 ], [ %6298, %6396 ], [ %6198, %6324 ], [ %6198, %6319 ], [ %6183, %6309 ], [ %6183, %6304 ], [ %6072, %6209 ], [ %6072, %6204 ], [ %6057, %6194 ], [ %6057, %6189 ], [ %5845, %6083 ], [ %5845, %6078 ], [ %5829, %6068 ], [ %5829, %6063 ], [ %5844, %5856 ], [ %5844, %5851 ], [ %5828, %5840 ], [ %5828, %5835 ], [ %5820, %5826 ], [ %5820, %5825 ], [ %5582, %5817 ], [ %5583, %5613 ], [ %5583, %5610 ], [ %5583, %5605 ], [ %5844, %5857 ], [ %5845, %6084 ], [ %6072, %6210 ], [ %6198, %6325 ], [ %6313, %6417 ], [ %6405, %6481 ], [ %6469, %6556 ], [ %6544, %6570 ], [ %6544, %6565 ], [ %6469, %6551 ], [ %6405, %6476 ], [ %6313, %6412 ], [ %6198, %6320 ], [ %6072, %6205 ], [ %5845, %6079 ], [ %5844, %5852 ], [ %5828, %5841 ], [ %5829, %6069 ], [ %6057, %6195 ], [ %6183, %6310 ], [ %6298, %6402 ], [ %6453, %6466 ], [ %6453, %6461 ], [ %6298, %6397 ], [ %6183, %6305 ], [ %6057, %6190 ], [ %5829, %6064 ], [ %5828, %5836 ], [ %5813, %6047 ], [ %5583, %5592 ], [ %5029, %5343 ]
   %.34.be = phi i32 [ %.369769, %5341 ], [ %.37.ph, %5077 ], [ %.37.ph, %5081 ], [ %.37.ph, %5087 ], [ %.369769, %6045 ], [ %.369769, %6050 ], [ %.369769, %5348 ], [ %.369769, %5349 ], [ %.369769, %5357 ], [ %.349880, %4749 ], [ %.349880, %4750 ], [ %.369769, %6051 ], [ %.369769, %5591 ], [ %.369769, %5595 ], [ %.369769, %5596 ], [ %.369769, %5810 ], [ %.369769, %5811 ], [ %.369769, %5818 ], [ %.37.ph, %5086 ], [ 53, %6569 ], [ 53, %6564 ], [ 53, %6555 ], [ 53, %6550 ], [ 93, %6542 ], [ 93, %6541 ], [ 53, %6480 ], [ 53, %6475 ], [ 53, %6465 ], [ 53, %6460 ], [ 53, %6416 ], [ 53, %6411 ], [ 53, %6401 ], [ 53, %6396 ], [ 53, %6324 ], [ 53, %6319 ], [ 53, %6309 ], [ 53, %6304 ], [ 53, %6209 ], [ 53, %6204 ], [ 53, %6194 ], [ 53, %6189 ], [ 53, %6083 ], [ 53, %6078 ], [ 53, %6068 ], [ 53, %6063 ], [ 53, %5856 ], [ 53, %5851 ], [ 53, %5840 ], [ 53, %5835 ], [ 53, %5826 ], [ 53, %5825 ], [ %.369769, %5817 ], [ %.369769, %5613 ], [ %.369769, %5610 ], [ %.369769, %5605 ], [ 53, %5857 ], [ 53, %6084 ], [ 53, %6210 ], [ 53, %6325 ], [ 53, %6417 ], [ 53, %6481 ], [ 53, %6556 ], [ 53, %6570 ], [ 53, %6565 ], [ 53, %6551 ], [ 53, %6476 ], [ 53, %6412 ], [ 53, %6320 ], [ 53, %6205 ], [ 53, %6079 ], [ 53, %5852 ], [ 53, %5841 ], [ 53, %6069 ], [ 53, %6195 ], [ 53, %6310 ], [ 53, %6402 ], [ 53, %6466 ], [ 53, %6461 ], [ 53, %6397 ], [ 53, %6305 ], [ 53, %6190 ], [ 53, %6064 ], [ 53, %5836 ], [ %.369769, %6047 ], [ %.369769, %5592 ], [ %.369769, %5343 ]
   %5079 = getelementptr inbounds nuw i8, ptr %.promoted97909796, i64 1
-  store ptr %5079, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5079, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5080 = getelementptr inbounds nuw i8, ptr %.promoted97909796, i64 2
   %.not6277 = icmp ult ptr %5080, %3369
   br i1 %.not6277, label %.lr.ph9881, label %.loopexit
@@ -13755,7 +13755,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   %.promoted97909795 = phi ptr [ %5070, %5081 ], [ %4746, %4749 ], [ %4746, %4750 ], [ %5070, %5081 ]
   %.36.ph = phi i32 [ %.37.ph, %5081 ], [ %.349880, %4749 ], [ %.349880, %4750 ], [ %.37.ph, %5081 ]
   %5082 = getelementptr inbounds nuw i8, ptr %.promoted97909795, i64 1
-  store ptr %5082, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5082, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5083 = getelementptr inbounds nuw i8, ptr %.promoted97909795, i64 2
   %.not62789768 = icmp ult ptr %5083, %3369
   br i1 %.not62789768, label %.lr.ph9770, label %.loopexit
@@ -13773,7 +13773,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %5088, label %.loopexit6973, label %.backedge6974
 
 5089:                                             ; preds = %4765, %4764
-  store ptr %4753, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4753, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5090 = getelementptr inbounds nuw i8, ptr %3891, i64 5
   %.not6264 = icmp ult ptr %5090, %4321
   br i1 %.not6264, label %5091, label %.loopexit
@@ -13810,7 +13810,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %5103, label %5388, label %.preheader7063
 
 5104:                                             ; preds = %4781, %4780
-  store ptr %4769, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4769, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5105 = getelementptr inbounds nuw i8, ptr %3891, i64 5
   %.not6248 = icmp ult ptr %5105, %4339
   br i1 %.not6248, label %5106, label %.loopexit
@@ -13848,8 +13848,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5119:                                             ; preds = %4798
   %5120 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 9
-  store ptr %5120, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5120, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5120, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5120, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5121 = load i8, ptr %5120, align 1
   %5122 = and i8 %5121, -33
   %or.cond1171 = icmp eq i8 %5122, 83
@@ -13857,8 +13857,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5123:                                             ; preds = %4802
   %5124 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 9
-  store ptr %5124, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5124, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5124, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5124, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5125 = load i8, ptr %5124, align 1
   %5126 = and i8 %5125, -33
   %or.cond1174 = icmp eq i8 %5126, 78
@@ -13866,8 +13866,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5127:                                             ; preds = %4806
   %5128 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 9
-  store ptr %5128, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5128, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5128, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5128, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5129 = load i8, ptr %5128, align 1
   %5130 = and i8 %5129, -33
   %or.cond1177 = icmp eq i8 %5130, 70
@@ -13875,8 +13875,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5131:                                             ; preds = %4810
   %5132 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 9
-  store ptr %5132, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5132, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5132, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5132, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5133 = load i8, ptr %5132, align 1
   %5134 = zext i8 %5133 to i64
   %5135 = or disjoint i64 %5134, 256
@@ -13891,7 +13891,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7160:                                    ; preds = %5138, %971
   %5140 = phi ptr [ %940, %971 ], [ %5132, %5138 ]
-  %5141 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %5141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %5142 = ptrtoint ptr %5140 to i64
   %5143 = ptrtoint ptr %5141 to i64
   %5144 = sub i64 %5142, %5143
@@ -13900,8 +13900,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5146:                                             ; preds = %4814
   %5147 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 9
-  store ptr %5147, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5147, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5147, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5147, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5148 = load i8, ptr %5147, align 1
   %5149 = zext i8 %5148 to i64
   %5150 = or disjoint i64 %5149, 256
@@ -13916,7 +13916,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7162:                                    ; preds = %5153, %974
   %5155 = phi ptr [ %940, %974 ], [ %5147, %5153 ]
-  %5156 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %5156 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %5157 = ptrtoint ptr %5155 to i64
   %5158 = ptrtoint ptr %5156 to i64
   %5159 = sub i64 %5157, %5158
@@ -13925,8 +13925,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5161:                                             ; preds = %4818
   %5162 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 9
-  store ptr %5162, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5162, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5162, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5162, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5163 = load i8, ptr %5162, align 1
   %5164 = zext i8 %5163 to i64
   %5165 = or disjoint i64 %5164, 256
@@ -13950,8 +13950,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5177:                                             ; preds = %4822
   %5178 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 9
-  store ptr %5178, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5178, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5178, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5178, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5179 = load i8, ptr %5178, align 1
   %5180 = zext i8 %5179 to i64
   %5181 = or disjoint i64 %5180, 256
@@ -13966,7 +13966,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7152:                                    ; preds = %5184, %974
   %5186 = phi ptr [ %940, %974 ], [ %5178, %5184 ]
-  %5187 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %5187 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %5188 = ptrtoint ptr %5186 to i64
   %5189 = ptrtoint ptr %5187 to i64
   %5190 = sub i64 %5188, %5189
@@ -13975,8 +13975,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5192:                                             ; preds = %4841
   %5193 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 9
-  store ptr %5193, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5193, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5193, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5193, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5194 = load i8, ptr %5193, align 1
   %5195 = and i8 %5194, -33
   %or.cond1180 = icmp eq i8 %5195, 78
@@ -13984,7 +13984,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5196:                                             ; preds = %4845
   %5197 = getelementptr inbounds nuw i8, ptr %4504, i64 3
-  store ptr %5197, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5197, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5198 = load i8, ptr %5197, align 1
   %5199 = and i8 %5198, -33
   %or.cond1183 = icmp eq i8 %5199, 77
@@ -14010,7 +14010,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   ]
 
 5205:                                             ; preds = %4880, %4879
-  store ptr %4868, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4868, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5206 = getelementptr inbounds nuw i8, ptr %4529, i64 4
   %.not6097 = icmp ult ptr %5206, %4079
   br i1 %.not6097, label %5207, label %.loopexit
@@ -14048,8 +14048,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5220:                                             ; preds = %4894
   %5221 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 9
-  store ptr %5221, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5221, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5221, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5221, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5222 = load i8, ptr %5221, align 1
   %5223 = zext i8 %5222 to i64
   %5224 = or disjoint i64 %5223, 256
@@ -14064,7 +14064,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7133:                                    ; preds = %5227, %975
   %5229 = phi ptr [ %940, %975 ], [ %5221, %5227 ]
-  %5230 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %5230 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %5231 = ptrtoint ptr %5229 to i64
   %5232 = ptrtoint ptr %5230 to i64
   %5233 = sub i64 %5231, %5232
@@ -14073,8 +14073,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5235:                                             ; preds = %4913
   %5236 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 9
-  store ptr %5236, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5236, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5236, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5236, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5237 = load i8, ptr %5236, align 1
   %5238 = and i8 %5237, -33
   %or.cond1189 = icmp eq i8 %5238, 78
@@ -14082,8 +14082,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5239:                                             ; preds = %4917
   %5240 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 9
-  store ptr %5240, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5240, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5240, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5240, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5241 = load i8, ptr %5240, align 1
   %5242 = and i8 %5241, -33
   %or.cond1192 = icmp eq i8 %5242, 77
@@ -14091,16 +14091,16 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5243:                                             ; preds = %4936
   %5244 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 9
-  store ptr %5244, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5244, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5244, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5244, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5245 = load i8, ptr %5244, align 1
   %5246 = icmp eq i8 %5245, 95
   br i1 %5246, label %5552, label %670
 
 5247:                                             ; preds = %4940
   %5248 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 9
-  store ptr %5248, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5248, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5248, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5248, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5249 = load i8, ptr %5248, align 1
   %5250 = and i8 %5249, -33
   %or.cond1195 = icmp eq i8 %5250, 67
@@ -14108,8 +14108,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5251:                                             ; preds = %4944
   %5252 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 9
-  store ptr %5252, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5252, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5252, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5252, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5253 = load i8, ptr %5252, align 1
   %5254 = zext i8 %5253 to i64
   %5255 = or disjoint i64 %5254, 256
@@ -14124,7 +14124,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7125:                                    ; preds = %5258, %975
   %5260 = phi ptr [ %940, %975 ], [ %5252, %5258 ]
-  %5261 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %5261 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %5262 = ptrtoint ptr %5260 to i64
   %5263 = ptrtoint ptr %5261 to i64
   %5264 = sub i64 %5262, %5263
@@ -14132,7 +14132,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br label %.loopexit6800.sink.split
 
 5266:                                             ; preds = %4985
-  store ptr %4973, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4973, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5267 = getelementptr inbounds nuw i8, ptr %4608, i64 4
   %.not6499 = icmp ult ptr %5267, %51
   br i1 %.not6499, label %5268, label %.loopexit
@@ -14169,7 +14169,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %5280, label %4959, label %.backedge6921
 
 5281:                                             ; preds = %4996
-  store ptr %4988, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %4988, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5282 = getelementptr inbounds nuw i8, ptr %4608, i64 4
   %.not6496 = icmp ult ptr %5282, %51
   br i1 %.not6496, label %5283, label %.loopexit
@@ -14207,8 +14207,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5296:                                             ; preds = %4998
   %5297 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 10
-  store ptr %5297, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5297, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5297, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5297, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5298 = load i8, ptr %5297, align 1
   %5299 = zext i8 %5298 to i64
   %5300 = or disjoint i64 %5299, 256
@@ -14223,7 +14223,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7188:                                    ; preds = %5303, %975
   %5305 = phi ptr [ %940, %975 ], [ %5297, %5303 ]
-  %5306 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %5306 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %5307 = ptrtoint ptr %5305 to i64
   %5308 = ptrtoint ptr %5306 to i64
   %5309 = sub i64 %5307, %5308
@@ -14232,8 +14232,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5311:                                             ; preds = %5002
   %5312 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 10
-  store ptr %5312, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5312, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5312, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5312, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5313 = load i8, ptr %5312, align 1
   %5314 = zext i8 %5313 to i64
   %5315 = or disjoint i64 %5314, 256
@@ -14257,7 +14257,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5326:                                             ; preds = %5021
   %5327 = getelementptr inbounds nuw i8, ptr %3330, i64 6
-  store ptr %5327, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5327, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5328 = load i8, ptr %5327, align 1
   %5329 = and i8 %5328, -33
   %or.cond1204 = icmp eq i8 %5329, 68
@@ -14265,14 +14265,14 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5330:                                             ; preds = %5025
   %5331 = getelementptr inbounds nuw i8, ptr %3330, i64 6
-  store ptr %5331, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5331, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5332 = load i8, ptr %5331, align 1
   %5333 = and i8 %5332, -33
   %or.cond1207 = icmp eq i8 %5333, 77
   br i1 %or.cond1207, label %5578, label %.thread6759
 
 5334:                                             ; preds = %5048
-  store ptr %5029, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5029, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5335 = getelementptr inbounds nuw i8, ptr %5031, i64 3
   %.not6299 = icmp ult ptr %5335, %3369
   br i1 %.not6299, label %5336, label %.loopexit
@@ -14298,7 +14298,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .preheader6896:                                   ; preds = %5343, %5343
   %5344 = getelementptr inbounds nuw i8, ptr %5029, i64 1
-  store ptr %5344, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5344, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5345 = getelementptr inbounds nuw i8, ptr %5029, i64 2
   %.not63019730 = icmp ult ptr %5345, %3369
   br i1 %.not63019730, label %.lr.ph9731, label %.loopexit
@@ -14316,7 +14316,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %5350, label %.preheader7072.loopexit20702, label %.backedge6974
 
 5351:                                             ; preds = %5050
-  store ptr %5029, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5029, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5352 = getelementptr inbounds nuw i8, ptr %5031, i64 3
   %.not6295 = icmp ult ptr %5352, %3369
   br i1 %.not6295, label %5353, label %.loopexit
@@ -14338,10 +14338,10 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5359:                                             ; preds = %5064, %5067, %5059, %5055
   %5360 = getelementptr inbounds nuw i8, ptr %5031, i64 2
-  store ptr %5360, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5360, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5360, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5360, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5361 = getelementptr inbounds nuw i8, ptr %5031, i64 3
-  %5362 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %5362 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %5363 = getelementptr inbounds nuw i8, ptr %5362, i64 32
   %.not6287 = icmp ult ptr %5361, %5363
   br i1 %.not6287, label %5364, label %.loopexit
@@ -14355,10 +14355,10 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5366:                                             ; preds = %5064, %5055
   %5367 = getelementptr inbounds nuw i8, ptr %5031, i64 2
-  store ptr %5367, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5367, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5367, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5367, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5368 = getelementptr inbounds nuw i8, ptr %5031, i64 3
-  %5369 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %5369 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %5370 = getelementptr inbounds nuw i8, ptr %5369, i64 32
   %.not6288 = icmp ult ptr %5368, %5370
   br i1 %.not6288, label %5371, label %.loopexit
@@ -14381,10 +14381,10 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5377:                                             ; preds = %5065, %5057
   %5378 = getelementptr inbounds nuw i8, ptr %5031, i64 2
-  store ptr %5378, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5378, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5378, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5378, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5379 = getelementptr inbounds nuw i8, ptr %5031, i64 3
-  %5380 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %5380 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %5381 = getelementptr inbounds nuw i8, ptr %5380, i64 32
   %.not6279 = icmp ult ptr %5379, %5381
   br i1 %.not6279, label %5382, label %.loopexit
@@ -14406,7 +14406,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %or.cond1216, label %5630, label %.preheader7072
 
 5388:                                             ; preds = %5102, %5101
-  store ptr %5090, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5090, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5389 = getelementptr inbounds nuw i8, ptr %3891, i64 6
   %.not6266 = icmp ult ptr %5389, %4321
   br i1 %.not6266, label %5390, label %.loopexit
@@ -14443,7 +14443,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %5402, label %5638, label %.preheader7063
 
 5403:                                             ; preds = %5117, %5116
-  store ptr %5105, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5105, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5404 = getelementptr inbounds nuw i8, ptr %3891, i64 6
   %.not6250 = icmp ult ptr %5404, %4339
   br i1 %.not6250, label %5405, label %.loopexit
@@ -14481,8 +14481,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5418:                                             ; preds = %5119
   %5419 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 10
-  store ptr %5419, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5419, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5419, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5419, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5420 = load i8, ptr %5419, align 1
   %5421 = zext i8 %5420 to i64
   %5422 = or disjoint i64 %5421, 256
@@ -14497,7 +14497,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7165:                                    ; preds = %5425, %980
   %5427 = phi ptr [ %940, %980 ], [ %5419, %5425 ]
-  %5428 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %5428 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %5429 = ptrtoint ptr %5427 to i64
   %5430 = ptrtoint ptr %5428 to i64
   %5431 = sub i64 %5429, %5430
@@ -14506,8 +14506,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5433:                                             ; preds = %5123
   %5434 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 10
-  store ptr %5434, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5434, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5434, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5434, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5435 = load i8, ptr %5434, align 1
   %5436 = and i8 %5435, -33
   %or.cond1225 = icmp eq i8 %5436, 67
@@ -14515,8 +14515,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5437:                                             ; preds = %5127
   %5438 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 10
-  store ptr %5438, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5438, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5438, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5438, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5439 = load i8, ptr %5438, align 1
   %5440 = zext i8 %5439 to i64
   %5441 = or disjoint i64 %5440, 256
@@ -14531,7 +14531,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit7161:                                    ; preds = %5444, %980
   %5446 = phi ptr [ %940, %980 ], [ %5438, %5444 ]
-  %5447 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %5447 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %5448 = ptrtoint ptr %5446 to i64
   %5449 = ptrtoint ptr %5447 to i64
   %5450 = sub i64 %5448, %5449
@@ -14542,7 +14542,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   %5452 = phi ptr [ %5672, %5683 ], [ %5162, %5168 ]
   %.39 = phi i32 [ 88, %5683 ], [ 79, %5168 ]
   %5453 = getelementptr inbounds nuw i8, ptr %5452, i64 1
-  store ptr %5453, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5453, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5454 = getelementptr inbounds nuw i8, ptr %5452, i64 2
   %.not6202 = icmp ult ptr %5454, %51
   br i1 %.not6202, label %5455, label %.loopexit
@@ -14573,16 +14573,16 @@ strip_underscores.exit6706:                       ; preds = %1940
   ]
 
 .preheader6809:                                   ; preds = %5460, %5463
-  store ptr %5454, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5454, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5454, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5454, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5464 = getelementptr inbounds nuw i8, ptr %5452, i64 3
   %.not620310323 = icmp ult ptr %5464, %51
   br i1 %.not620310323, label %.lr.ph10324, label %.loopexit
 
 5465:                                             ; preds = %5192
   %5466 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 10
-  store ptr %5466, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5466, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5466, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5466, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5467 = load i8, ptr %5466, align 1
   %5468 = and i8 %5467, -33
   %or.cond1234 = icmp eq i8 %5468, 67
@@ -14590,7 +14590,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5469:                                             ; preds = %5196
   %5470 = getelementptr inbounds nuw i8, ptr %4504, i64 4
-  store ptr %5470, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5470, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5471 = load i8, ptr %5470, align 1
   %5472 = icmp ult i8 %5471, 95
   br i1 %5472, label %5473, label %5479
@@ -14652,7 +14652,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   %.promoted94949497 = phi ptr [ %5484, %5491 ], [ %5484, %5495 ], [ %5484, %5499 ], [ %5940, %5956 ], [ %6133, %6256 ], [ %6140, %6148 ], [ %6141, %6270 ], [ %6263, %6355 ], [ %6432, %6506 ], [ %6432, %6510 ], [ %5748, %5977 ], [ %6432, %6496 ], [ %6432, %6530 ], [ %5939, %6137 ], [ %6140, %6147 ], [ %6133, %6256 ], [ %6141, %6269 ], [ %6263, %6354 ], [ %6432, %6495 ], [ %6432, %6530 ], [ %5940, %5950 ], [ %5939, %6138 ], [ %6432, %6512 ]
   %.40.be = phi i32 [ %.409571, %5491 ], [ %.409571, %5495 ], [ %.409571, %5499 ], [ %.43, %5956 ], [ %.43, %6256 ], [ %.43, %6148 ], [ %.43, %6270 ], [ %.43, %6355 ], [ 91, %6506 ], [ 91, %6510 ], [ %.44, %5977 ], [ 91, %6496 ], [ 91, %6530 ], [ %.43, %6137 ], [ %.43, %6147 ], [ %.43, %6256 ], [ %.43, %6269 ], [ %.43, %6354 ], [ 91, %6495 ], [ 91, %6530 ], [ %.43, %5950 ], [ %.43, %6138 ], [ 91, %6512 ]
   %5497 = getelementptr inbounds nuw i8, ptr %.promoted94949497, i64 1
-  store ptr %5497, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5497, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5498 = getelementptr inbounds nuw i8, ptr %.promoted94949497, i64 2
   %.not6110 = icmp ult ptr %5498, %4079
   br i1 %.not6110, label %.lr.ph9572, label %.loopexit
@@ -14693,7 +14693,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 5508:                                             ; preds = %.preheader6903, %5526
   %5509 = phi ptr [ %.promoted95779579, %.preheader6903 ], [ %5510, %5526 ]
   %5510 = getelementptr inbounds nuw i8, ptr %5509, i64 1
-  store ptr %5510, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5510, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5511 = getelementptr inbounds nuw i8, ptr %5509, i64 2
   %.not6152 = icmp ult ptr %5511, %4079
   br i1 %.not6152, label %5512, label %.loopexit
@@ -14715,7 +14715,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   %.promoted95779583 = phi ptr [ %5730, %5737 ], [ %5510, %5517 ], [ %5510, %5521 ], [ %5510, %5527 ], [ %6133, %6254 ], [ %6133, %6259 ], [ %5747, %5753 ], [ %6432, %6528 ], [ %6432, %6533 ], [ %6432, %6534 ], [ %5730, %5743 ], [ %5730, %5744 ], [ %5200, %5203 ], [ %5200, %5204 ], [ %5940, %5948 ], [ %5940, %5957 ], [ %5940, %5963 ], [ %6133, %6260 ], [ %5940, %5965 ], [ %5939, %6130 ], [ %5939, %6131 ], [ %5939, %6138 ], [ %5940, %5968 ], [ %5940, %5969 ], [ %6140, %6153 ], [ %6141, %6275 ], [ %6263, %6360 ], [ %5730, %5739 ], [ %6140, %6152 ], [ %6141, %6274 ], [ %6263, %6359 ], [ %5510, %5526 ], [ %6432, %6496 ], [ %6432, %6495 ], [ %6263, %6354 ], [ %6141, %6269 ], [ %6140, %6147 ], [ %5939, %6137 ], [ %6348, %6449 ], [ %6348, %6447 ], [ %6348, %6442 ], [ %6432, %6530 ], [ %6263, %6355 ], [ %6141, %6270 ], [ %6140, %6148 ], [ %6133, %6256 ], [ %5940, %5956 ]
   %.38.be = phi i32 [ %.43, %5737 ], [ %.41.ph, %5517 ], [ %.41.ph, %5521 ], [ %.41.ph, %5527 ], [ %.43, %6254 ], [ %.43, %6259 ], [ %.44, %5753 ], [ 91, %6528 ], [ 91, %6533 ], [ 91, %6534 ], [ %.43, %5743 ], [ %.43, %5744 ], [ %.389705, %5203 ], [ %.389705, %5204 ], [ %.43, %5948 ], [ %.43, %5957 ], [ %.43, %5963 ], [ %.43, %6260 ], [ %.43, %5965 ], [ %.43, %6130 ], [ %.43, %6131 ], [ %.43, %6138 ], [ %.43, %5968 ], [ %.43, %5969 ], [ %.43, %6153 ], [ %.43, %6275 ], [ %.43, %6360 ], [ %.43, %5739 ], [ %.43, %6152 ], [ %.43, %6274 ], [ %.43, %6359 ], [ %.41.ph, %5526 ], [ 91, %6496 ], [ 91, %6495 ], [ %.43, %6354 ], [ %.43, %6269 ], [ %.43, %6147 ], [ %.43, %6137 ], [ %.43, %6449 ], [ %.43, %6447 ], [ %.43, %6442 ], [ 91, %6530 ], [ %.43, %6355 ], [ %.43, %6270 ], [ %.43, %6148 ], [ %.43, %6256 ], [ %.43, %5956 ]
   %5519 = getelementptr inbounds nuw i8, ptr %.promoted95779583, i64 1
-  store ptr %5519, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5519, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5520 = getelementptr inbounds nuw i8, ptr %.promoted95779583, i64 2
   %.not6109 = icmp ult ptr %5520, %4079
   br i1 %.not6109, label %.lr.ph9706, label %.loopexit
@@ -14730,7 +14730,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   %.promoted95779582 = phi ptr [ %5510, %5521 ], [ %5200, %5203 ], [ %5200, %5204 ], [ %5510, %5521 ]
   %.40.ph = phi i32 [ %.41.ph, %5521 ], [ %.389705, %5203 ], [ %.389705, %5204 ], [ %.41.ph, %5521 ]
   %5522 = getelementptr inbounds nuw i8, ptr %.promoted95779582, i64 1
-  store ptr %5522, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5522, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5523 = getelementptr inbounds nuw i8, ptr %.promoted95779582, i64 2
   %.not61109570 = icmp ult ptr %5523, %4079
   br i1 %.not61109570, label %.lr.ph9572, label %.loopexit
@@ -14748,7 +14748,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %5528, label %.loopexit6941, label %.backedge6943
 
 5529:                                             ; preds = %5218, %5217
-  store ptr %5206, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5206, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5530 = getelementptr inbounds nuw i8, ptr %4529, i64 5
   %.not6099 = icmp ult ptr %5530, %4079
   br i1 %.not6099, label %5531, label %.loopexit
@@ -14786,16 +14786,16 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5544:                                             ; preds = %5235
   %5545 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 10
-  store ptr %5545, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5545, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5545, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5545, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5546 = load i8, ptr %5545, align 1
   %5547 = icmp eq i8 %5546, 95
   br i1 %5547, label %5787, label %670
 
 5548:                                             ; preds = %5239
   %5549 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 10
-  store ptr %5549, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5549, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5549, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5549, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5550 = load i8, ptr %5549, align 1
   %5551 = and i8 %5550, -33
   %or.cond1252 = icmp eq i8 %5551, 80
@@ -14803,8 +14803,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5552:                                             ; preds = %5243
   %5553 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 10
-  store ptr %5553, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5553, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5553, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5553, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5554 = load i8, ptr %5553, align 1
   %5555 = zext i8 %5554 to i64
   %5556 = or disjoint i64 %5555, 256
@@ -14828,8 +14828,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5567:                                             ; preds = %5247
   %5568 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 10
-  store ptr %5568, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5568, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5568, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5568, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5569 = load i8, ptr %5568, align 1
   %5570 = and i8 %5569, -33
   %or.cond1255 = icmp eq i8 %5570, 69
@@ -14840,7 +14840,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   %5573 = phi i64 [ 9, %6034 ], [ 6, %5326 ]
   %5574 = getelementptr inbounds nuw i8, ptr %3330, i64 %5573
   %5575 = getelementptr inbounds nuw i8, ptr %5574, i64 1
-  store ptr %5575, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5575, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5576 = load i8, ptr %5575, align 1
   %5577 = and i8 %5576, -33
   %or.cond1258 = icmp eq i8 %5577, 83
@@ -14848,7 +14848,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5578:                                             ; preds = %5330
   %5579 = getelementptr inbounds nuw i8, ptr %3330, i64 7
-  store ptr %5579, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5579, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5580 = load i8, ptr %5579, align 1
   %5581 = and i8 %5580, -33
   %or.cond1261 = icmp eq i8 %5581, 69
@@ -14939,7 +14939,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %or.cond1270, label %.backedge6974, label %5819
 
 5614:                                             ; preds = %5356
-  store ptr %5352, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5352, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5615 = getelementptr inbounds nuw i8, ptr %5031, i64 4
   %.not6297 = icmp ult ptr %5615, %3369
   br i1 %.not6297, label %5616, label %.loopexit
@@ -14960,7 +14960,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %5621, label %.backedge6934, label %.preheader7072.loopexit
 
 5622:                                             ; preds = %5375
-  store ptr %5368, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5368, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5623 = getelementptr inbounds nuw i8, ptr %5031, i64 4
   %.not6289 = icmp ult ptr %5623, %5370
   br i1 %.not6289, label %5624, label %.loopexit
@@ -14982,7 +14982,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %or.cond1273, label %5859, label %.preheader7072
 
 5630:                                             ; preds = %5386
-  store ptr %5379, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5379, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5631 = getelementptr inbounds nuw i8, ptr %5031, i64 4
   %.not6280 = icmp ult ptr %5631, %5381
   br i1 %.not6280, label %5632, label %.loopexit
@@ -15004,7 +15004,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %or.cond1276, label %5867, label %.preheader7072
 
 5638:                                             ; preds = %5401, %5400
-  store ptr %5389, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5389, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5639 = getelementptr inbounds nuw i8, ptr %3891, i64 7
   %.not6268 = icmp ult ptr %5639, %4321
   br i1 %.not6268, label %5640, label %.loopexit
@@ -15041,7 +15041,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %5652, label %5875, label %.preheader7063
 
 5653:                                             ; preds = %5416, %5415
-  store ptr %5404, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5404, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5654 = getelementptr inbounds nuw i8, ptr %3891, i64 7
   %.not6252 = icmp ult ptr %5654, %4339
   br i1 %.not6252, label %5655, label %.loopexit
@@ -15079,8 +15079,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5668:                                             ; preds = %5433
   %5669 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 11
-  store ptr %5669, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5669, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5669, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5669, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5670 = load i8, ptr %5669, align 1
   %5671 = and i8 %5670, -33
   %or.cond1285 = icmp eq i8 %5671, 69
@@ -15107,8 +15107,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .backedge6812:                                    ; preds = %5679, %5687, %5689, %5677
   %5681 = getelementptr inbounds nuw i8, ptr %5672, i64 1
-  store ptr %5681, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5681, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5681, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5681, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5682 = getelementptr inbounds nuw i8, ptr %5672, i64 2
   %.not6203 = icmp ult ptr %5682, %51
   br i1 %.not6203, label %.lr.ph10324, label %.loopexit
@@ -15136,13 +15136,13 @@ strip_underscores.exit6706:                       ; preds = %1940
   %5693 = ptrtoint ptr %5690 to i64
   %5694 = sub i64 %5692, %5693
   %5695 = trunc i64 %5694 to i32
-  store i32 %5695, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %5695, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7968
 
 5696:                                             ; preds = %5465
   %5697 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 11
-  store ptr %5697, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5697, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5697, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5697, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5698 = load i8, ptr %5697, align 1
   %5699 = and i8 %5698, -33
   %or.cond1294 = icmp eq i8 %5699, 69
@@ -15171,7 +15171,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 .loopexit6913:                                    ; preds = %6371, %6364, %6005, %5993, %6009, %6003, %6008, %6528, %6495, %6504, %984, %.loopexit6881
   %5706 = phi ptr [ %940, %984 ], [ %5705, %.loopexit6881 ], [ %6432, %6504 ], [ %6432, %6495 ], [ %6432, %6528 ], [ %5768, %6008 ], [ %6278, %6371 ], [ %6278, %6364 ], [ %5768, %6005 ], [ %5768, %5993 ], [ %5768, %6009 ], [ %5768, %6003 ]
-  %5707 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %5707 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %5708 = ptrtoint ptr %5706 to i64
   %5709 = ptrtoint ptr %5707 to i64
   %5710 = sub i64 %5708, %5709
@@ -15179,16 +15179,16 @@ strip_underscores.exit6706:                       ; preds = %1940
   %5712 = and i64 %5710, 4294967295
   %5713 = getelementptr inbounds nuw i8, ptr %5707, i64 %5712
   %5714 = getelementptr inbounds i8, ptr %5713, i64 -1
-  store ptr %5714, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5714, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5715 = add i32 %5711, -1
-  store i32 %5715, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %5715, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %5716 = zext i32 %5715 to i64
   %5717 = getelementptr inbounds nuw i8, ptr %5707, i64 %5716
   %.not10403 = icmp eq i32 %5715, 0
   br i1 %.not10403, label %.loopexit6800, label %.lr.ph10366.preheader
 
 .lr.ph10366.preheader:                            ; preds = %.loopexit6913
-  %.promoted10363 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %.promoted10363 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %.lr.ph10366
 
 .lr.ph10366:                                      ; preds = %.lr.ph10366.preheader, %5725
@@ -15208,7 +15208,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5723:                                             ; preds = %.lr.ph10366, %5720
   %5724 = add nsw i32 %5718, 1
-  store i32 %5724, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  store i32 %5724, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %5725
 
 5725:                                             ; preds = %.lr.ph10366, %5723, %5720
@@ -15221,7 +15221,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   %5729 = phi ptr [ %6432, %6512 ], [ %5484, %5499 ]
   %.43 = phi i32 [ 91, %6512 ], [ %.409571, %5499 ]
   %5730 = getelementptr inbounds nuw i8, ptr %5729, i64 1
-  store ptr %5730, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5730, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5731 = getelementptr inbounds nuw i8, ptr %5729, i64 2
   %.not6114 = icmp ult ptr %5731, %4079
   br i1 %.not6114, label %5732, label %.loopexit
@@ -15246,7 +15246,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   ]
 
 .preheader6862:                                   ; preds = %5739, %5739
-  store ptr %5731, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5731, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5740 = getelementptr inbounds nuw i8, ptr %5729, i64 3
   %.not61169489 = icmp ult ptr %5740, %4079
   br i1 %.not61169489, label %.lr.ph9490, label %.loopexit
@@ -15267,7 +15267,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   %.promoted94949496 = phi ptr [ %5484, %5502 ], [ %6432, %6515 ]
   %.44 = phi i32 [ %.409571, %5502 ], [ 91, %6515 ]
   %5747 = getelementptr inbounds nuw i8, ptr %.promoted94949496, i64 1
-  store ptr %5747, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5747, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5748 = getelementptr inbounds nuw i8, ptr %.promoted94949496, i64 2
   %.not6139 = icmp ult ptr %5748, %4079
   br i1 %.not6139, label %5749, label %.loopexit
@@ -15291,9 +15291,9 @@ strip_underscores.exit6706:                       ; preds = %1940
   %5756 = phi ptr [ %6432, %6518 ], [ %6432, %6519 ], [ %5484, %5505 ], [ %5484, %5506 ]
   %.45 = phi i32 [ 91, %6518 ], [ 91, %6519 ], [ %.409571, %5505 ], [ %.409571, %5506 ]
   %5757 = getelementptr inbounds nuw i8, ptr %5756, i64 1
-  store ptr %5757, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5757, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5758 = getelementptr inbounds nuw i8, ptr %5756, i64 2
-  %5759 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %5759 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %5760 = getelementptr inbounds nuw i8, ptr %5759, i64 32
   %.not6130 = icmp ult ptr %5758, %5760
   br i1 %.not6130, label %5761, label %.loopexit
@@ -15315,7 +15315,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %or.cond1300, label %5979, label %.preheader7097
 
 5767:                                             ; preds = %5542, %5541
-  store ptr %5530, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5530, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5768 = getelementptr inbounds nuw i8, ptr %4529, i64 6
   %.not6101 = icmp ult ptr %5768, %4079
   br i1 %.not6101, label %5769, label %.loopexit
@@ -15369,16 +15369,16 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5787:                                             ; preds = %5544
   %5788 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 11
-  store ptr %5788, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5788, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5788, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5788, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5789 = load i8, ptr %5788, align 1
   %5790 = icmp eq i8 %5789, 95
   br i1 %5790, label %6011, label %670
 
 5791:                                             ; preds = %5548
   %5792 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 11
-  store ptr %5792, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5792, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5792, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5792, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5793 = load i8, ptr %5792, align 1
   %5794 = and i8 %5793, -33
   %or.cond1309 = icmp eq i8 %5794, 73
@@ -15386,29 +15386,29 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5795:                                             ; preds = %5567
   %5796 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 11
-  store ptr %5796, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5796, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5796, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5796, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5797 = load i8, ptr %5796, align 1
   %5798 = icmp eq i8 %5797, 95
   br i1 %5798, label %6030, label %670
 
 .loopexit6933:                                    ; preds = %6421, %6107, %6541, %5571, %987
-  %5799 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %5799 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %5800 = getelementptr inbounds nuw i8, ptr %5799, i64 4
-  store ptr %5800, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 4, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %5800, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7968
 
 5801:                                             ; preds = %5578
   %5802 = getelementptr inbounds nuw i8, ptr %3330, i64 8
-  store ptr %5802, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5802, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5803 = load i8, ptr %5802, align 1
   %5804 = and i8 %5803, -33
   %or.cond1312 = icmp eq i8 %5804, 78
   br i1 %or.cond1312, label %6034, label %.thread6759
 
 5805:                                             ; preds = %5595
-  store ptr %5582, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5582, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5806 = getelementptr inbounds nuw i8, ptr %5584, i64 3
   %.not6350 = icmp ult ptr %5806, %3369
   br i1 %.not6350, label %5807, label %.loopexit
@@ -15431,7 +15431,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   ]
 
 5812:                                             ; preds = %5596
-  store ptr %5582, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5582, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5813 = getelementptr inbounds nuw i8, ptr %5584, i64 3
   %.not6347 = icmp ult ptr %5813, %3369
   br i1 %.not6347, label %5814, label %.loopexit
@@ -15455,8 +15455,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5819:                                             ; preds = %5610, %5613, %5605, %5601
   %5820 = getelementptr inbounds nuw i8, ptr %5584, i64 2
-  store ptr %5820, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5820, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5820, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5820, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5821 = getelementptr inbounds nuw i8, ptr %5584, i64 3
   %.not6327 = icmp ult ptr %5821, %3369
   br i1 %.not6327, label %5822, label %.loopexit
@@ -15480,8 +15480,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5827:                                             ; preds = %5610, %5601
   %5828 = getelementptr inbounds nuw i8, ptr %5584, i64 2
-  store ptr %5828, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5828, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5828, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5828, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5829 = getelementptr inbounds nuw i8, ptr %5584, i64 3
   %.not6328 = icmp ult ptr %5829, %3369
   br i1 %.not6328, label %5830, label %.loopexit
@@ -15521,8 +15521,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5843:                                             ; preds = %5611, %5603
   %5844 = getelementptr inbounds nuw i8, ptr %5584, i64 2
-  store ptr %5844, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5844, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5844, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5844, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5845 = getelementptr inbounds nuw i8, ptr %5584, i64 3
   %.not6302 = icmp ult ptr %5845, %3369
   br i1 %.not6302, label %5846, label %.loopexit
@@ -15561,7 +15561,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %5858, label %6071, label %.backedge6974
 
 5859:                                             ; preds = %5628
-  store ptr %5623, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5623, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5860 = getelementptr inbounds nuw i8, ptr %5031, i64 5
   %.not6290 = icmp ult ptr %5860, %5370
   br i1 %.not6290, label %5861, label %.loopexit
@@ -15583,7 +15583,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %or.cond1315, label %6086, label %.preheader7072
 
 5867:                                             ; preds = %5636
-  store ptr %5631, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5631, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5868 = getelementptr inbounds nuw i8, ptr %5031, i64 5
   %.not6281 = icmp ult ptr %5868, %5381
   br i1 %.not6281, label %5869, label %.loopexit
@@ -15609,7 +15609,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   %5876 = phi ptr [ %4338, %6245 ], [ %4338, %6244 ], [ %4320, %5651 ], [ %4320, %5650 ]
   %5877 = phi ptr [ %6111, %6245 ], [ %6111, %6244 ], [ %5389, %5651 ], [ %5389, %5650 ]
   %5878 = getelementptr inbounds nuw i8, ptr %5877, i64 1
-  store ptr %5878, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5878, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5879 = getelementptr inbounds nuw i8, ptr %5877, i64 2
   %5880 = getelementptr inbounds nuw i8, ptr %5876, i64 32
   %.not6270 = icmp ult ptr %5879, %5880
@@ -15647,7 +15647,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %5893, label %6102, label %.preheader7063
 
 5894:                                             ; preds = %5666, %5665
-  store ptr %5654, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5654, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5895 = getelementptr inbounds nuw i8, ptr %3891, i64 8
   %.not6254 = icmp ult ptr %5895, %4339
   br i1 %.not6254, label %5896, label %.loopexit
@@ -15685,8 +15685,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5909:                                             ; preds = %5668
   %5910 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 12
-  store ptr %5910, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5910, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5910, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5910, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5911 = load i8, ptr %5910, align 1
   %5912 = zext i8 %5911 to i64
   %5913 = or disjoint i64 %5912, 256
@@ -15710,8 +15710,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 5924:                                             ; preds = %5696
   %5925 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 12
-  store ptr %5925, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5925, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5925, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5925, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5926 = load i8, ptr %5925, align 1
   %5927 = zext i8 %5926 to i64
   %5928 = or disjoint i64 %5927, 256
@@ -15760,7 +15760,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 .backedge6868:                                    ; preds = %5950, %5957, %6260, %6130, %6131
   %5951 = phi ptr [ %5940, %5950 ], [ %5940, %5957 ], [ %6133, %6260 ], [ %5939, %6130 ], [ %5939, %6131 ]
   %5952 = getelementptr inbounds nuw i8, ptr %5951, i64 1
-  store ptr %5952, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5952, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5953 = getelementptr inbounds nuw i8, ptr %5951, i64 2
   %.not6116 = icmp ult ptr %5953, %4079
   br i1 %.not6116, label %.lr.ph9490, label %.loopexit
@@ -15808,7 +15808,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %5970, label %6139, label %.backedge6943
 
 5971:                                             ; preds = %5752
-  store ptr %5748, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5748, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5972 = getelementptr inbounds nuw i8, ptr %.promoted94949496, i64 3
   %.not6141 = icmp ult ptr %5972, %4079
   br i1 %.not6141, label %5973, label %.loopexit
@@ -15829,7 +15829,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %5978, label %.backedge6914, label %.preheader7097.loopexit20657
 
 5979:                                             ; preds = %5765
-  store ptr %5758, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5758, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %5980 = getelementptr inbounds nuw i8, ptr %5756, i64 3
   %.not6131 = icmp ult ptr %5980, %5760
   br i1 %.not6131, label %5981, label %.loopexit
@@ -15851,10 +15851,10 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %or.cond1327, label %6155, label %.preheader7097
 
 .loopexit7104:                                    ; preds = %5774, %5786, %5786, %5786, %5786, %5786, %5786, %5783, %5781, %5777
-  store ptr %5768, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5768, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5768, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5768, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5987 = getelementptr inbounds nuw i8, ptr %4529, i64 7
-  %5988 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %5988 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %5989 = getelementptr inbounds nuw i8, ptr %5988, i64 32
   %.not6105 = icmp ult ptr %5987, %5989
   br i1 %.not6105, label %5990, label %.loopexit
@@ -15875,8 +15875,8 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %5995, label %.preheader7108, label %.preheader7087
 
 5996:                                             ; preds = %5774, %5775
-  store ptr %5768, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5768, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5768, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5768, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %5997 = getelementptr inbounds nuw i8, ptr %4529, i64 11
   %.not6103 = icmp ult ptr %5997, %4079
   br i1 %.not6103, label %5998, label %.loopexit
@@ -15918,8 +15918,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 6011:                                             ; preds = %5787
   %6012 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 12
-  store ptr %6012, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %6012, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %6012, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6012, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %6013 = load i8, ptr %6012, align 1
   %6014 = zext i8 %6013 to i64
   %6015 = or disjoint i64 %6014, 256
@@ -15943,8 +15943,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 6026:                                             ; preds = %5791
   %6027 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 12
-  store ptr %6027, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %6027, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %6027, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6027, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %6028 = load i8, ptr %6027, align 1
   %6029 = and i8 %6028, -33
   %or.cond1339 = icmp eq i8 %6029, 76
@@ -15952,22 +15952,22 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 6030:                                             ; preds = %5795
   %6031 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 12
-  store ptr %6031, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %6031, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %6031, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6031, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %6032 = load i8, ptr %6031, align 1
   %6033 = icmp eq i8 %6032, 95
   br i1 %6033, label %6167, label %670
 
 6034:                                             ; preds = %5801
   %6035 = getelementptr inbounds nuw i8, ptr %3330, i64 9
-  store ptr %6035, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6035, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6036 = load i8, ptr %6035, align 1
   %6037 = and i8 %6036, -33
   %or.cond1342 = icmp eq i8 %6037, 84
   br i1 %or.cond1342, label %5571, label %.thread6759
 
 6038:                                             ; preds = %5818
-  store ptr %5813, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5813, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6039 = getelementptr inbounds nuw i8, ptr %5584, i64 4
   %.not6348 = icmp ult ptr %6039, %3369
   br i1 %.not6348, label %6040, label %.loopexit
@@ -16006,13 +16006,13 @@ strip_underscores.exit6706:                       ; preds = %1940
 .backedge6902:                                    ; preds = %6051, %5591, %5595, %5810, %5811
   %6053 = phi ptr [ %5813, %6051 ], [ %5583, %5591 ], [ %5583, %5595 ], [ %5582, %5810 ], [ %5582, %5811 ]
   %6054 = getelementptr inbounds nuw i8, ptr %6053, i64 1
-  store ptr %6054, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6054, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6055 = getelementptr inbounds nuw i8, ptr %6053, i64 2
   %.not6301 = icmp ult ptr %6055, %3369
   br i1 %.not6301, label %.lr.ph9731, label %.loopexit
 
 6056:                                             ; preds = %5840, %5841
-  store ptr %5829, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5829, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6057 = getelementptr inbounds nuw i8, ptr %5584, i64 4
   %.not6330 = icmp ult ptr %6057, %3369
   br i1 %.not6330, label %6058, label %.loopexit
@@ -16051,7 +16051,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %6070, label %6182, label %.backedge6974
 
 6071:                                             ; preds = %5856, %5857
-  store ptr %5845, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5845, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6072 = getelementptr inbounds nuw i8, ptr %5584, i64 4
   %.not6304 = icmp ult ptr %6072, %3369
   br i1 %.not6304, label %6073, label %.loopexit
@@ -16090,7 +16090,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %6085, label %6197, label %.backedge6974
 
 6086:                                             ; preds = %5865
-  store ptr %5860, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5860, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6087 = getelementptr inbounds nuw i8, ptr %5031, i64 6
   %.not6291 = icmp ult ptr %6087, %5370
   br i1 %.not6291, label %6088, label %.loopexit
@@ -16112,7 +16112,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %or.cond1348, label %6212, label %.preheader7072
 
 6094:                                             ; preds = %5873
-  store ptr %5868, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5868, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6095 = getelementptr inbounds nuw i8, ptr %5031, i64 6
   %.not6282 = icmp ult ptr %6095, %5381
   br i1 %.not6282, label %6096, label %.loopexit
@@ -16134,8 +16134,8 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %or.cond1351, label %6220, label %.preheader7072
 
 6102:                                             ; preds = %5892, %5891
-  store ptr %5879, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %5879, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %5879, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5879, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %6103 = getelementptr inbounds nuw i8, ptr %5877, i64 3
   %.not6272 = icmp ult ptr %6103, %5880
   br i1 %.not6272, label %6104, label %.loopexit
@@ -16156,7 +16156,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %6109, label %.preheader7083, label %.preheader7063
 
 6110:                                             ; preds = %5907, %5906
-  store ptr %5895, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5895, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6111 = getelementptr inbounds nuw i8, ptr %3891, i64 9
   %.not6256 = icmp ult ptr %6111, %4339
   br i1 %.not6256, label %6112, label %.loopexit
@@ -16193,7 +16193,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %6124, label %6228, label %.preheader7063
 
 6125:                                             ; preds = %5963
-  store ptr %5939, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5939, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6126 = getelementptr inbounds nuw i8, ptr %5941, i64 3
   %.not6151 = icmp ult ptr %6126, %4079
   br i1 %.not6151, label %6127, label %.loopexit
@@ -16216,7 +16216,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   ]
 
 6132:                                             ; preds = %5965
-  store ptr %5939, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5939, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6133 = getelementptr inbounds nuw i8, ptr %5941, i64 3
   %.not6148 = icmp ult ptr %6133, %4079
   br i1 %.not6148, label %6134, label %.loopexit
@@ -16240,7 +16240,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 6139:                                             ; preds = %5969, %5968
   %6140 = getelementptr inbounds nuw i8, ptr %5941, i64 2
-  store ptr %6140, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6140, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6141 = getelementptr inbounds nuw i8, ptr %5941, i64 3
   %.not6118 = icmp ult ptr %6141, %4079
   br i1 %.not6118, label %6142, label %.loopexit
@@ -16279,7 +16279,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %6154, label %6262, label %.backedge6943
 
 6155:                                             ; preds = %5985
-  store ptr %5980, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %5980, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6156 = getelementptr inbounds nuw i8, ptr %5756, i64 4
   %.not6132 = icmp ult ptr %6156, %5760
   br i1 %.not6132, label %6157, label %.loopexit
@@ -16302,8 +16302,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 6163:                                             ; preds = %6026
   %6164 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 13
-  store ptr %6164, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %6164, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %6164, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6164, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %6165 = load i8, ptr %6164, align 1
   %6166 = and i8 %6165, -33
   %or.cond1360 = icmp eq i8 %6166, 69
@@ -16311,8 +16311,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 6167:                                             ; preds = %6030
   %6168 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 13
-  store ptr %6168, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %6168, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %6168, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6168, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %6169 = load i8, ptr %6168, align 1
   %6170 = zext i8 %6169 to i64
   %6171 = or disjoint i64 %6170, 256
@@ -16335,7 +16335,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br label %.loopexit6800.sink.split
 
 6182:                                             ; preds = %6068, %6069
-  store ptr %6057, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6057, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6183 = getelementptr inbounds nuw i8, ptr %5584, i64 5
   %.not6332 = icmp ult ptr %6183, %3369
   br i1 %.not6332, label %6184, label %.loopexit
@@ -16374,7 +16374,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %6196, label %6297, label %.backedge6974
 
 6197:                                             ; preds = %6083, %6084
-  store ptr %6072, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6072, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6198 = getelementptr inbounds nuw i8, ptr %5584, i64 5
   %.not6306 = icmp ult ptr %6198, %3369
   br i1 %.not6306, label %6199, label %.loopexit
@@ -16413,7 +16413,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %6211, label %6312, label %.backedge6974
 
 6212:                                             ; preds = %6092
-  store ptr %6087, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6087, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6213 = getelementptr inbounds nuw i8, ptr %5031, i64 7
   %.not6292 = icmp ult ptr %6213, %5370
   br i1 %.not6292, label %6214, label %.loopexit
@@ -16435,7 +16435,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %or.cond1363, label %6327, label %.preheader7072
 
 6220:                                             ; preds = %6100
-  store ptr %6095, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6095, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6221 = getelementptr inbounds nuw i8, ptr %5031, i64 7
   %.not6283 = icmp ult ptr %6221, %5381
   br i1 %.not6283, label %6222, label %.loopexit
@@ -16457,7 +16457,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %or.cond1366, label %6339, label %.preheader7072
 
 6228:                                             ; preds = %6123, %6122
-  store ptr %6111, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6111, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6229 = getelementptr inbounds nuw i8, ptr %3891, i64 10
   %.not6258 = icmp ult ptr %6229, %4339
   br i1 %.not6258, label %6230, label %.loopexit
@@ -16484,10 +16484,10 @@ strip_underscores.exit6706:                       ; preds = %1940
 .preheader7063:                                   ; preds = %4303, %4292, %3898, %3902, %4291, %3905, %4315, %4327, %4332, %4333, %4345, %4350, %4351, %4759, %4764, %4765, %4775, %4780, %4781, %5096, %5101, %5102, %5111, %5116, %5117, %5395, %5400, %5401, %5410, %5415, %5416, %5645, %5650, %5651, %5660, %5665, %5666, %5886, %5891, %5892, %5901, %5906, %5907, %6108, %6117, %6122, %6123, %6235, %6244, %6245, %3912, %3921, %3373, %3374, %3383, %3899, %4302, %4314, %4329, %4347, %4761, %4777, %5098, %5113, %5397, %5412, %5647, %5662, %5888, %5903, %6107, %6119, %6237
   %.promoted9891 = phi ptr [ %5879, %6107 ], [ %4307, %4314 ], [ %3889, %4302 ], [ %3380, %3383 ], [ %3367, %3374 ], [ %3367, %3373 ], [ %3890, %3921 ], [ %3890, %3912 ], [ %4336, %4351 ], [ %4768, %4781 ], [ %4769, %5117 ], [ %5105, %5416 ], [ %5404, %5666 ], [ %5654, %5907 ], [ %5895, %6123 ], [ %6111, %6245 ], [ %6111, %6244 ], [ %6111, %6237 ], [ %6111, %6235 ], [ %5895, %6122 ], [ %5895, %6119 ], [ %5895, %6117 ], [ %5654, %5906 ], [ %5654, %5903 ], [ %5654, %5901 ], [ %5404, %5665 ], [ %5404, %5662 ], [ %5404, %5660 ], [ %5105, %5415 ], [ %5105, %5412 ], [ %5105, %5410 ], [ %4769, %5116 ], [ %4769, %5113 ], [ %4769, %5111 ], [ %4768, %4780 ], [ %4768, %4777 ], [ %4768, %4775 ], [ %4336, %4350 ], [ %4336, %4347 ], [ %4336, %4345 ], [ %4318, %4333 ], [ %4752, %4765 ], [ %4753, %5102 ], [ %5090, %5401 ], [ %5389, %5651 ], [ %5878, %5892 ], [ %5879, %6108 ], [ %5878, %5891 ], [ %5878, %5888 ], [ %5878, %5886 ], [ %5389, %5650 ], [ %5389, %5647 ], [ %5389, %5645 ], [ %5090, %5400 ], [ %5090, %5397 ], [ %5090, %5395 ], [ %4753, %5101 ], [ %4753, %5098 ], [ %4753, %5096 ], [ %4752, %4764 ], [ %4752, %4761 ], [ %4752, %4759 ], [ %4318, %4332 ], [ %4318, %4329 ], [ %4318, %4327 ], [ %4307, %4315 ], [ %3890, %3905 ], [ %3890, %3899 ], [ %3889, %4292 ], [ %3890, %3898 ], [ %3890, %3902 ], [ %3889, %4291 ], [ %3889, %4303 ]
   %.24.ph = phi i32 [ 93, %6107 ], [ 53, %4314 ], [ %.23.ph9888, %4302 ], [ %.20, %3383 ], [ %.19, %3374 ], [ %.19, %3373 ], [ %.23.ph9888, %3921 ], [ %.23.ph9888, %3912 ], [ 53, %4351 ], [ 53, %4781 ], [ 53, %5117 ], [ 53, %5416 ], [ 53, %5666 ], [ 53, %5907 ], [ 53, %6123 ], [ 53, %6245 ], [ 53, %6244 ], [ 53, %6237 ], [ 53, %6235 ], [ 53, %6122 ], [ 53, %6119 ], [ 53, %6117 ], [ 53, %5906 ], [ 53, %5903 ], [ 53, %5901 ], [ 53, %5665 ], [ 53, %5662 ], [ 53, %5660 ], [ 53, %5415 ], [ 53, %5412 ], [ 53, %5410 ], [ 53, %5116 ], [ 53, %5113 ], [ 53, %5111 ], [ 53, %4780 ], [ 53, %4777 ], [ 53, %4775 ], [ 53, %4350 ], [ 53, %4347 ], [ 53, %4345 ], [ 53, %4333 ], [ 53, %4765 ], [ 53, %5102 ], [ 53, %5401 ], [ 53, %5651 ], [ 53, %5892 ], [ 93, %6108 ], [ 53, %5891 ], [ 53, %5888 ], [ 53, %5886 ], [ 53, %5650 ], [ 53, %5647 ], [ 53, %5645 ], [ 53, %5400 ], [ 53, %5397 ], [ 53, %5395 ], [ 53, %5101 ], [ 53, %5098 ], [ 53, %5096 ], [ 53, %4764 ], [ 53, %4761 ], [ 53, %4759 ], [ 53, %4332 ], [ 53, %4329 ], [ 53, %4327 ], [ 53, %4315 ], [ %.23.ph9888, %3905 ], [ %.23.ph9888, %3899 ], [ %.23.ph9888, %4291 ], [ %.23.ph9888, %3902 ], [ %.23.ph9888, %3898 ], [ %.23.ph9888, %4292 ], [ %.23.ph9888, %4303 ]
-  %6238 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %6238 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %6239 = getelementptr inbounds nuw i8, ptr %6238, i64 32
   %6240 = getelementptr inbounds nuw i8, ptr %.promoted9891, i64 1
-  store ptr %6240, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6240, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6241 = getelementptr inbounds nuw i8, ptr %.promoted9891, i64 2
   %.not63619892 = icmp ult ptr %6241, %6239
   br i1 %.not63619892, label %.lr.ph9893, label %.loopexit
@@ -16505,7 +16505,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %6246, label %5875, label %.preheader7063
 
 6247:                                             ; preds = %6138
-  store ptr %6133, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6133, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6248 = getelementptr inbounds nuw i8, ptr %5941, i64 4
   %.not6149 = icmp ult ptr %6248, %4079
   br i1 %.not6149, label %6249, label %.loopexit
@@ -16542,7 +16542,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %6261, label %.backedge6868, label %.backedge6943
 
 6262:                                             ; preds = %6152, %6153
-  store ptr %6141, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6141, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6263 = getelementptr inbounds nuw i8, ptr %5941, i64 4
   %.not6120 = icmp ult ptr %6263, %4079
   br i1 %.not6120, label %6264, label %.loopexit
@@ -16581,7 +16581,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %6276, label %6347, label %.backedge6943
 
 6277:                                             ; preds = %6161
-  store ptr %6156, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6156, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6278 = getelementptr inbounds nuw i8, ptr %5756, i64 5
   %.not6133 = icmp ult ptr %6278, %5760
   br i1 %.not6133, label %6279, label %.loopexit
@@ -16628,15 +16628,15 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 6293:                                             ; preds = %6163
   %6294 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 14
-  store ptr %6294, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %6294, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %6294, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6294, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %6295 = load i8, ptr %6294, align 1
   %6296 = and i8 %6295, -33
   %or.cond1384 = icmp eq i8 %6296, 82
   br i1 %or.cond1384, label %6374, label %670
 
 6297:                                             ; preds = %6194, %6195
-  store ptr %6183, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6183, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6298 = getelementptr inbounds nuw i8, ptr %5584, i64 6
   %.not6334 = icmp ult ptr %6298, %3369
   br i1 %.not6334, label %6299, label %.loopexit
@@ -16675,7 +16675,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %6311, label %6389, label %.backedge6974
 
 6312:                                             ; preds = %6209, %6210
-  store ptr %6198, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6198, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6313 = getelementptr inbounds nuw i8, ptr %5584, i64 6
   %.not6308 = icmp ult ptr %6313, %3369
   br i1 %.not6308, label %6314, label %.loopexit
@@ -16718,7 +16718,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   %6328 = phi ptr [ %5380, %6489 ], [ %5369, %6218 ]
   %6329 = phi ptr [ %6424, %6489 ], [ %6087, %6218 ]
   %6330 = getelementptr inbounds nuw i8, ptr %6329, i64 1
-  store ptr %6330, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6330, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6331 = getelementptr inbounds nuw i8, ptr %6329, i64 2
   %6332 = getelementptr inbounds nuw i8, ptr %6328, i64 32
   %.not6293 = icmp ult ptr %6331, %6332
@@ -16741,7 +16741,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %or.cond1387, label %6419, label %.preheader7072
 
 6339:                                             ; preds = %6226
-  store ptr %6221, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6221, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6340 = getelementptr inbounds nuw i8, ptr %5031, i64 8
   %.not6284 = icmp ult ptr %6340, %5381
   br i1 %.not6284, label %6341, label %.loopexit
@@ -16763,7 +16763,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %or.cond1390, label %6423, label %.preheader7072
 
 6347:                                             ; preds = %6274, %6275
-  store ptr %6263, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6263, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6348 = getelementptr inbounds nuw i8, ptr %5941, i64 5
   %.not6122 = icmp ult ptr %6348, %4079
   br i1 %.not6122, label %6349, label %.loopexit
@@ -16802,8 +16802,8 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %6361, label %6431, label %.backedge6943
 
 6362:                                             ; preds = %6292, %6292, %6292, %6292, %6292, %6292, %6284, %6289, %6285
-  store ptr %6278, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %6278, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %6278, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6278, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %6363 = getelementptr inbounds nuw i8, ptr %5756, i64 6
   %.not6137 = icmp ult ptr %6363, %5760
   br i1 %.not6137, label %6364, label %.loopexit
@@ -16816,8 +16816,8 @@ strip_underscores.exit6706:                       ; preds = %1940
   ]
 
 6366:                                             ; preds = %6284
-  store ptr %6278, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %6278, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %6278, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6278, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %6367 = getelementptr inbounds nuw i8, ptr %5756, i64 6
   %.not6135 = icmp ult ptr %6367, %5760
   br i1 %.not6135, label %6368, label %.loopexit
@@ -16839,8 +16839,8 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 6374:                                             ; preds = %6293
   %6375 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175, i64 15
-  store ptr %6375, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %6375, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %6375, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6375, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %6376 = load i8, ptr %6375, align 1
   %6377 = zext i8 %6376 to i64
   %6378 = or disjoint i64 %6377, 256
@@ -16863,7 +16863,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br label %.loopexit6800.sink.split
 
 6389:                                             ; preds = %6309, %6310
-  store ptr %6298, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6298, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6390 = getelementptr inbounds nuw i8, ptr %5584, i64 7
   %.not6336 = icmp ult ptr %6390, %3369
   br i1 %.not6336, label %6391, label %.loopexit
@@ -16902,7 +16902,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %6403, label %6450, label %.backedge6974
 
 6404:                                             ; preds = %6324, %6325
-  store ptr %6313, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6313, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6405 = getelementptr inbounds nuw i8, ptr %5584, i64 7
   %.not6310 = icmp ult ptr %6405, %3369
   br i1 %.not6310, label %6406, label %.loopexit
@@ -16941,8 +16941,8 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %6418, label %6468, label %.backedge6974
 
 6419:                                             ; preds = %6337
-  store ptr %6331, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %6331, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %6331, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6331, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %6420 = getelementptr inbounds nuw i8, ptr %6329, i64 3
   %.not6294 = icmp ult ptr %6420, %6332
   br i1 %.not6294, label %6421, label %.loopexit
@@ -16955,7 +16955,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   ]
 
 6423:                                             ; preds = %6345
-  store ptr %6340, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6340, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6424 = getelementptr inbounds nuw i8, ptr %5031, i64 9
   %.not6285 = icmp ult ptr %6424, %5381
   br i1 %.not6285, label %6425, label %.loopexit
@@ -16977,7 +16977,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %or.cond1393, label %6483, label %.preheader7072
 
 6431:                                             ; preds = %6359, %6360
-  store ptr %6348, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6348, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6432 = getelementptr inbounds nuw i8, ptr %5941, i64 6
   %.not6124 = icmp ult ptr %6432, %4079
   br i1 %.not6124, label %6433, label %.loopexit
@@ -17030,7 +17030,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   %6451 = phi ptr [ %5844, %6569 ], [ %5828, %6401 ], [ %5844, %6570 ], [ %5828, %6402 ]
   %6452 = phi ptr [ %6544, %6569 ], [ %6298, %6401 ], [ %6544, %6570 ], [ %6298, %6402 ]
   %6453 = getelementptr inbounds nuw i8, ptr %6452, i64 1
-  store ptr %6453, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6453, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6454 = getelementptr inbounds nuw i8, ptr %6452, i64 2
   %.not6338 = icmp ult ptr %6454, %3369
   br i1 %.not6338, label %6455, label %.loopexit
@@ -17069,7 +17069,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %6467, label %6536, label %.backedge6974
 
 6468:                                             ; preds = %6416, %6417
-  store ptr %6405, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6405, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6469 = getelementptr inbounds nuw i8, ptr %5584, i64 8
   %.not6312 = icmp ult ptr %6469, %3369
   br i1 %.not6312, label %6470, label %.loopexit
@@ -17108,7 +17108,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %6482, label %6543, label %.backedge6974
 
 6483:                                             ; preds = %6429
-  store ptr %6424, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6424, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6484 = getelementptr inbounds nuw i8, ptr %5031, i64 10
   %.not6286 = icmp ult ptr %6484, %5381
   br i1 %.not6286, label %6485, label %.loopexit
@@ -17130,8 +17130,8 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %or.cond1402, label %6327, label %.preheader7072
 
 .loopexit6880:                                    ; preds = %6439, %6438, %6442, %6449, %6447
-  store ptr %6432, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %6432, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %6432, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6432, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %6491 = getelementptr inbounds nuw i8, ptr %5941, i64 7
   %.not6127 = icmp ult ptr %6491, %4079
   br i1 %.not6127, label %6492, label %.loopexit
@@ -17154,8 +17154,8 @@ strip_underscores.exit6706:                       ; preds = %1940
   ]
 
 6497:                                             ; preds = %6439, %6438
-  store ptr %6432, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %6432, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %6432, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6432, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %6498 = getelementptr inbounds nuw i8, ptr %5941, i64 7
   %.not6128 = icmp ult ptr %6498, %4079
   br i1 %.not6128, label %6499, label %.loopexit
@@ -17215,8 +17215,8 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %6520, label %5755, label %.preheader7097
 
 6521:                                             ; preds = %6439
-  store ptr %6432, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %6432, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %6432, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6432, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %6522 = getelementptr inbounds nuw i8, ptr %5941, i64 7
   %.not6125 = icmp ult ptr %6522, %4079
   br i1 %.not6125, label %6523, label %.loopexit
@@ -17253,8 +17253,8 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %6535, label %.loopexit6941, label %.backedge6943
 
 6536:                                             ; preds = %6465, %6466
-  store ptr %6454, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %6454, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %6454, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6454, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %6537 = getelementptr inbounds nuw i8, ptr %6452, i64 3
   %.not6340 = icmp ult ptr %6537, %3369
   br i1 %.not6340, label %6538, label %.loopexit
@@ -17277,7 +17277,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   ]
 
 6543:                                             ; preds = %6480, %6481
-  store ptr %6469, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6469, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6544 = getelementptr inbounds nuw i8, ptr %5584, i64 9
   %.not6314 = icmp ult ptr %6544, %3369
   br i1 %.not6314, label %6545, label %.loopexit
@@ -17316,7 +17316,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   br i1 %.not6315, label %6557, label %.backedge6974
 
 6557:                                             ; preds = %6555, %6556
-  store ptr %6544, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6544, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6558 = getelementptr inbounds nuw i8, ptr %5584, i64 10
   %.not6317 = icmp ult ptr %6558, %3369
   br i1 %.not6317, label %6559, label %.loopexit
@@ -17356,7 +17356,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 6572:                                             ; preds = %36
   %6573 = getelementptr inbounds nuw i8, ptr %29, i64 3
-  %6574 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %6574 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %6575 = getelementptr inbounds nuw i8, ptr %6574, i64 32
   %.not6064 = icmp ult ptr %6573, %6575
   br i1 %.not6064, label %6576, label %.loopexit
@@ -17406,18 +17406,18 @@ strip_underscores.exit6706:                       ; preds = %1940
   br label %.preheader
 
 6597:                                             ; preds = %6632, %6590, %6586, %6594, %6596, %6613, %6609
-  store ptr %29, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %6598 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72)) #17
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %6598 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72)) #17
   %6599 = load i32, ptr %6598, align 4
-  store i32 %6599, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
-  tail call void @zend_stack_del_top(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72)) #17
+  store i32 %6599, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
+  tail call void @zend_stack_del_top(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72)) #17
   br label %thread-pre-split
 
 .preheader6990:                                   ; preds = %6576, %6603
   %6600 = phi ptr [ %6601, %6603 ], [ %29, %6576 ]
   %6601 = getelementptr inbounds nuw i8, ptr %6600, i64 1
-  store ptr %6601, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6601, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6602 = getelementptr inbounds nuw i8, ptr %6600, i64 2
   %.not6068 = icmp ult ptr %6602, %6575
   br i1 %.not6068, label %6603, label %.loopexit
@@ -17433,15 +17433,15 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 6609:                                             ; preds = %6586
   %6610 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store ptr %6610, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6610, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6611 = load i8, ptr %6610, align 1
   %6612 = icmp eq i8 %6611, 62
   br i1 %6612, label %6630, label %6597
 
 6613:                                             ; preds = %6588
   %6614 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store ptr %6614, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %6614, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %6614, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6614, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %6615 = load i8, ptr %6614, align 1
   %6616 = icmp eq i8 %6615, 45
   br i1 %6616, label %6632, label %6597
@@ -17449,7 +17449,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 .preheader:                                       ; preds = %.preheader.preheader, %6620
   %6617 = phi ptr [ %6618, %6620 ], [ %29, %.preheader.preheader ]
   %6618 = getelementptr inbounds nuw i8, ptr %6617, i64 1
-  store ptr %6618, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6618, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6619 = getelementptr inbounds nuw i8, ptr %6617, i64 2
   %.not6066 = icmp ult ptr %6619, %6575
   br i1 %.not6066, label %6620, label %.loopexit
@@ -17467,26 +17467,26 @@ strip_underscores.exit6706:                       ; preds = %1940
   %6627 = ptrtoint ptr %29 to i64
   %6628 = sub i64 %6626, %6627
   %6629 = trunc i64 %6628 to i32
-  store i32 %6629, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %6629, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   tail call fastcc void @yy_pop_state()
   br label %7968
 
 6630:                                             ; preds = %6609
   %6631 = getelementptr inbounds nuw i8, ptr %29, i64 2
-  store ptr %6631, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %6631, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 6632:                                             ; preds = %6613
   %6633 = getelementptr inbounds nuw i8, ptr %29, i64 2
-  store ptr %6633, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6633, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6634 = load i8, ptr %6633, align 1
   %6635 = icmp eq i8 %6634, 62
   br i1 %6635, label %6636, label %6597
 
 6636:                                             ; preds = %6632
-  store ptr %6573, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %6573, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit7124
 
 6637:                                             ; preds = %37
@@ -17509,7 +17509,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 6644:                                             ; preds = %6643, %6641
   %6645 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store ptr %6645, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6645, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %6646
 
 6646:                                             ; preds = %6693, %6706, %6702, %6698, %6691, %6644
@@ -17518,7 +17518,7 @@ strip_underscores.exit6706:                       ; preds = %1940
   %6649 = ptrtoint ptr %29 to i64
   %6650 = sub i64 %6648, %6649
   %6651 = trunc i64 %6650 to i32
-  store i32 %6651, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %6651, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %6652 = icmp ugt ptr %6647, %39
   br i1 %6652, label %6653, label %6655
 
@@ -17538,7 +17538,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 
 6659:                                             ; preds = %6655
   %6660 = getelementptr inbounds nuw i8, ptr %29, i64 2
-  store ptr %6660, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6660, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %6661
 
 6661:                                             ; preds = %6659, %6655
@@ -17549,7 +17549,7 @@ strip_underscores.exit6706:                       ; preds = %1940
 .lr.ph10317:                                      ; preds = %6661, %.backedge6821
   %6663 = phi ptr [ %6678, %.backedge6821 ], [ %.promoted10315, %6661 ]
   %6664 = getelementptr inbounds nuw i8, ptr %6663, i64 1
-  store ptr %6664, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6664, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6665 = load i8, ptr %6663, align 1
   switch i8 %6665, label %.backedge6821 [
     i8 96, label %6680
@@ -17585,7 +17585,7 @@ switch.early.test6683:                            ; preds = %6666
 
 6676:                                             ; preds = %6674
   %6677 = getelementptr inbounds nuw i8, ptr %6663, i64 2
-  store ptr %6677, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6677, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.backedge6821
 
 .backedge6821:                                    ; preds = %.lr.ph10317, %6676, %6674, %6671, %switch.early.test6683
@@ -17594,7 +17594,7 @@ switch.early.test6683:                            ; preds = %6666
   br i1 %6679, label %.lr.ph10317, label %.loopexit6820
 
 6680:                                             ; preds = %switch.early.test6683, %switch.early.test6683, %6666, %6671, %.lr.ph10317
-  store ptr %6663, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6663, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.loopexit6820
 
 .loopexit6820:                                    ; preds = %.backedge6821, %6661, %6680
@@ -17602,7 +17602,7 @@ switch.early.test6683:                            ; preds = %6666
   %6682 = ptrtoint ptr %6681 to i64
   %6683 = sub i64 %6682, %6649
   %6684 = trunc i64 %6683 to i32
-  store i32 %6684, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %6684, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %6685 = tail call fastcc i32 @zend_scan_escape_string(ptr noundef %0, ptr noundef nonnull %29, i32 noundef %6684, i8 noundef signext 96)
   %6686 = icmp eq i32 %6685, 0
   %or.cond6636 = or i1 %.not5988, %6686
@@ -17610,7 +17610,7 @@ switch.early.test6683:                            ; preds = %6666
 
 6687:                                             ; preds = %6641
   %6688 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store ptr %6688, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6688, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6689 = load i8, ptr %6688, align 1
   %6690 = icmp ult i8 %6689, 96
   br i1 %6690, label %6691, label %6696
@@ -17646,14 +17646,14 @@ switch.early.test6683:                            ; preds = %6666
 
 6704:                                             ; preds = %6643
   %6705 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store ptr %6705, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store ptr %6705, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %.loopexit7124
 
 6706:                                             ; preds = %6643
   %6707 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store ptr %6707, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6707, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6708 = load i8, ptr %6707, align 1
   %6709 = icmp eq i8 %6708, 36
   br i1 %6709, label %6736, label %6646
@@ -17661,8 +17661,8 @@ switch.early.test6683:                            ; preds = %6666
 .preheader6822:                                   ; preds = %.preheader6822.preheader, %6713
   %6710 = phi ptr [ %6711, %6713 ], [ %6688, %.preheader6822.preheader ]
   %6711 = getelementptr inbounds nuw i8, ptr %6710, i64 1
-  store ptr %6711, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %6711, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %6711, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6711, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %6712 = getelementptr inbounds nuw i8, ptr %6710, i64 5
   %.not6058 = icmp ult ptr %6712, %40
   br i1 %.not6058, label %6713, label %.loopexit
@@ -17697,55 +17697,55 @@ switch.early.test6683:                            ; preds = %6666
   %6728 = ptrtoint ptr %29 to i64
   %6729 = sub i64 %6727, %6728
   %6730 = trunc i64 %6729 to i32
-  store i32 %6730, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %6730, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7968
 
 6731:                                             ; preds = %6700
-  store ptr %38, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %6732 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #17
-  store i32 5, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store ptr %38, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %6732 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64)) #17
+  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i8 123, ptr %9, align 4
   %6733 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %6734 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %6734 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   store i32 %6734, ptr %6733, align 4
-  %6735 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %9) #17
+  %6735 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %9) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %.loopexit7124
 
 6736:                                             ; preds = %6706
-  store ptr %38, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %6737 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #17
-  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
-  %6738 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  store ptr %38, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %6737 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64)) #17
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
+  %6738 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %6739 = getelementptr inbounds nuw i8, ptr %6738, i64 1
-  store ptr %6739, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %6739, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store i8 123, ptr %8, align 4
   %6740 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %6741 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %6741 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   store i32 %6741, ptr %6740, align 4
-  %6742 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %8) #17
+  %6742 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %8) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %.loopexit7124
 
 6743:                                             ; preds = %6720
   %6744 = getelementptr inbounds nuw i8, ptr %6710, i64 2
-  store ptr %6744, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6744, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6745 = load i8, ptr %6744, align 1
   %6746 = icmp eq i8 %6745, 62
   br i1 %6746, label %6763, label %6747
 
 6747:                                             ; preds = %6797, %6797, %6797, %6797, %6797, %6797, %6772, %6772, %6772, %6772, %6772, %6772, %6794, %6769, %6792, %6773, %6767, %6748, %6743
-  store ptr %6711, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6711, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %6726
 
 6748:                                             ; preds = %6722
   %6749 = getelementptr inbounds nuw i8, ptr %6710, i64 2
-  store ptr %6749, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6749, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6750 = load i8, ptr %6749, align 1
   %6751 = icmp eq i8 %6750, 45
   br i1 %6751, label %6773, label %6747
@@ -17759,16 +17759,16 @@ switch.early.test6683:                            ; preds = %6666
   %6758 = and i64 %6756, 4294967295
   %6759 = getelementptr inbounds nuw i8, ptr %29, i64 %6758
   %6760 = getelementptr inbounds i8, ptr %6759, i64 -1
-  store ptr %6760, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6760, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6761 = add i32 %6757, -1
-  store i32 %6761, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %6762 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #17
-  store i32 6, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store i32 %6761, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %6762 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64)) #17
+  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %7968
 
 6763:                                             ; preds = %6743
   %6764 = getelementptr inbounds nuw i8, ptr %6710, i64 3
-  store ptr %6764, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6764, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6765 = load i8, ptr %6764, align 1
   %6766 = icmp ult i8 %6765, 96
   br i1 %6766, label %6767, label %6772
@@ -17795,7 +17795,7 @@ switch.early.test6683:                            ; preds = %6666
 
 6773:                                             ; preds = %6748
   %6774 = getelementptr inbounds nuw i8, ptr %6710, i64 3
-  store ptr %6774, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6774, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6775 = load i8, ptr %6774, align 1
   %6776 = icmp eq i8 %6775, 62
   br i1 %6776, label %6788, label %6747
@@ -17809,16 +17809,16 @@ switch.early.test6683:                            ; preds = %6666
   %6783 = and i64 %6781, 4294967295
   %6784 = getelementptr inbounds nuw i8, ptr %29, i64 %6783
   %6785 = getelementptr inbounds i8, ptr %6784, i64 -3
-  store ptr %6785, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6785, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6786 = add i32 %6782, -3
-  store i32 %6786, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %6787 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #17
-  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store i32 %6786, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %6787 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64)) #17
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %7968
 
 6788:                                             ; preds = %6773
   %6789 = getelementptr inbounds nuw i8, ptr %6710, i64 4
-  store ptr %6789, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6789, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6790 = load i8, ptr %6789, align 1
   %6791 = icmp ult i8 %6790, 96
   br i1 %6791, label %6792, label %6797
@@ -17851,11 +17851,11 @@ switch.early.test6683:                            ; preds = %6666
   %6803 = and i64 %6801, 4294967295
   %6804 = getelementptr inbounds nuw i8, ptr %29, i64 %6803
   %6805 = getelementptr inbounds i8, ptr %6804, i64 -4
-  store ptr %6805, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6805, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6806 = add i32 %6802, -4
-  store i32 %6806, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %6807 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #17
-  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store i32 %6806, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %6807 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64)) #17
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %7968
 
 6808:                                             ; preds = %37
@@ -17878,7 +17878,7 @@ switch.early.test6683:                            ; preds = %6666
 
 6815:                                             ; preds = %6814, %6812
   %6816 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store ptr %6816, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6816, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %6817
 
 6817:                                             ; preds = %6873, %6884, %6882, %6878, %6871, %6815
@@ -17887,8 +17887,8 @@ switch.early.test6683:                            ; preds = %6666
   %6820 = ptrtoint ptr %29 to i64
   %6821 = sub i64 %6819, %6820
   %6822 = trunc i64 %6821 to i32
-  store i32 %6822, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %6823 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 224), align 8
+  store i32 %6822, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %6823 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 224), align 8
   %.not6053 = icmp eq i32 %6823, 0
   br i1 %.not6053, label %6829, label %6824
 
@@ -17897,8 +17897,8 @@ switch.early.test6683:                            ; preds = %6666
   %6826 = sext i32 %6823 to i64
   %6827 = getelementptr i8, ptr %6825, i64 %6826
   %6828 = getelementptr i8, ptr %6827, i64 -1
-  store ptr %6828, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 224), align 8
+  store ptr %6828, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 224), align 8
   br label %.loopexit6816
 
 6829:                                             ; preds = %6817
@@ -17921,7 +17921,7 @@ switch.early.test6683:                            ; preds = %6666
 
 6837:                                             ; preds = %6833
   %6838 = getelementptr inbounds nuw i8, ptr %29, i64 2
-  store ptr %6838, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6838, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %6839
 
 6839:                                             ; preds = %6837, %6833
@@ -17932,7 +17932,7 @@ switch.early.test6683:                            ; preds = %6666
 .lr.ph10321:                                      ; preds = %6839, %.backedge6817
   %6841 = phi ptr [ %6856, %.backedge6817 ], [ %.promoted10319, %6839 ]
   %6842 = getelementptr inbounds nuw i8, ptr %6841, i64 1
-  store ptr %6842, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6842, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6843 = load i8, ptr %6841, align 1
   switch i8 %6843, label %.backedge6817 [
     i8 34, label %6858
@@ -17968,7 +17968,7 @@ switch.early.test6685:                            ; preds = %6844
 
 6854:                                             ; preds = %6852
   %6855 = getelementptr inbounds nuw i8, ptr %6841, i64 2
-  store ptr %6855, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6855, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.backedge6817
 
 .backedge6817:                                    ; preds = %.lr.ph10321, %6854, %6852, %6849, %switch.early.test6685
@@ -17977,7 +17977,7 @@ switch.early.test6685:                            ; preds = %6844
   br i1 %6857, label %.lr.ph10321, label %.loopexit6816
 
 6858:                                             ; preds = %switch.early.test6685, %switch.early.test6685, %6844, %6849, %.lr.ph10321
-  store ptr %6841, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6841, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.loopexit6816
 
 .loopexit6816:                                    ; preds = %.backedge6817, %6839, %6858, %6824
@@ -17985,7 +17985,7 @@ switch.early.test6685:                            ; preds = %6844
   %6860 = ptrtoint ptr %6859 to i64
   %6861 = sub i64 %6860, %6820
   %6862 = trunc i64 %6861 to i32
-  store i32 %6862, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %6862, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %6863 = tail call fastcc i32 @zend_scan_escape_string(ptr noundef %0, ptr noundef %29, i32 noundef %6862, i8 noundef signext 34)
   %6864 = icmp eq i32 %6863, 0
   %or.cond6645 = or i1 %.not5988, %6864
@@ -17993,14 +17993,14 @@ switch.early.test6685:                            ; preds = %6844
 
 6865:                                             ; preds = %6812
   %6866 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store ptr %6866, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store ptr %6866, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %.loopexit7124
 
 6867:                                             ; preds = %6814
   %6868 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store ptr %6868, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6868, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6869 = load i8, ptr %6868, align 1
   %6870 = icmp ult i8 %6869, 96
   br i1 %6870, label %6871, label %6876
@@ -18036,7 +18036,7 @@ switch.early.test6685:                            ; preds = %6844
 
 6884:                                             ; preds = %6814
   %6885 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store ptr %6885, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6885, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6886 = load i8, ptr %6885, align 1
   %6887 = icmp eq i8 %6886, 36
   br i1 %6887, label %6914, label %6817
@@ -18044,8 +18044,8 @@ switch.early.test6685:                            ; preds = %6844
 .preheader6818:                                   ; preds = %.preheader6818.preheader, %6891
   %6888 = phi ptr [ %6889, %6891 ], [ %6868, %.preheader6818.preheader ]
   %6889 = getelementptr inbounds nuw i8, ptr %6888, i64 1
-  store ptr %6889, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %6889, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %6889, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6889, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %6890 = getelementptr inbounds nuw i8, ptr %6888, i64 5
   %.not6051 = icmp ult ptr %6890, %40
   br i1 %.not6051, label %6891, label %.loopexit
@@ -18080,55 +18080,55 @@ switch.early.test6685:                            ; preds = %6844
   %6906 = ptrtoint ptr %29 to i64
   %6907 = sub i64 %6905, %6906
   %6908 = trunc i64 %6907 to i32
-  store i32 %6908, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %6908, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7968
 
 6909:                                             ; preds = %6880
-  store ptr %38, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %6910 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #17
-  store i32 5, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store ptr %38, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %6910 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64)) #17
+  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i8 123, ptr %7, align 4
   %6911 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %6912 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %6912 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   store i32 %6912, ptr %6911, align 4
-  %6913 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %7) #17
+  %6913 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %7) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %.loopexit7124
 
 6914:                                             ; preds = %6884
-  store ptr %38, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %6915 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #17
-  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
-  %6916 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  store ptr %38, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %6915 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64)) #17
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
+  %6916 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %6917 = getelementptr inbounds nuw i8, ptr %6916, i64 1
-  store ptr %6917, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %6917, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i8 123, ptr %6, align 4
   %6918 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %6919 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %6919 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   store i32 %6919, ptr %6918, align 4
-  %6920 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %6) #17
+  %6920 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %6) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.loopexit7124
 
 6921:                                             ; preds = %6898
   %6922 = getelementptr inbounds nuw i8, ptr %6888, i64 2
-  store ptr %6922, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6922, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6923 = load i8, ptr %6922, align 1
   %6924 = icmp eq i8 %6923, 62
   br i1 %6924, label %6941, label %6925
 
 6925:                                             ; preds = %6975, %6975, %6975, %6975, %6975, %6975, %6950, %6950, %6950, %6950, %6950, %6950, %6972, %6947, %6970, %6951, %6945, %6926, %6921
-  store ptr %6889, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6889, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %6904
 
 6926:                                             ; preds = %6900
   %6927 = getelementptr inbounds nuw i8, ptr %6888, i64 2
-  store ptr %6927, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6927, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6928 = load i8, ptr %6927, align 1
   %6929 = icmp eq i8 %6928, 45
   br i1 %6929, label %6951, label %6925
@@ -18142,16 +18142,16 @@ switch.early.test6685:                            ; preds = %6844
   %6936 = and i64 %6934, 4294967295
   %6937 = getelementptr inbounds nuw i8, ptr %29, i64 %6936
   %6938 = getelementptr inbounds i8, ptr %6937, i64 -1
-  store ptr %6938, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6938, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6939 = add i32 %6935, -1
-  store i32 %6939, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %6940 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #17
-  store i32 6, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store i32 %6939, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %6940 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64)) #17
+  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %7968
 
 6941:                                             ; preds = %6921
   %6942 = getelementptr inbounds nuw i8, ptr %6888, i64 3
-  store ptr %6942, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6942, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6943 = load i8, ptr %6942, align 1
   %6944 = icmp ult i8 %6943, 96
   br i1 %6944, label %6945, label %6950
@@ -18178,7 +18178,7 @@ switch.early.test6685:                            ; preds = %6844
 
 6951:                                             ; preds = %6926
   %6952 = getelementptr inbounds nuw i8, ptr %6888, i64 3
-  store ptr %6952, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6952, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6953 = load i8, ptr %6952, align 1
   %6954 = icmp eq i8 %6953, 62
   br i1 %6954, label %6966, label %6925
@@ -18192,16 +18192,16 @@ switch.early.test6685:                            ; preds = %6844
   %6961 = and i64 %6959, 4294967295
   %6962 = getelementptr inbounds nuw i8, ptr %29, i64 %6961
   %6963 = getelementptr inbounds i8, ptr %6962, i64 -3
-  store ptr %6963, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6963, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6964 = add i32 %6960, -3
-  store i32 %6964, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %6965 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #17
-  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store i32 %6964, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %6965 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64)) #17
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %7968
 
 6966:                                             ; preds = %6951
   %6967 = getelementptr inbounds nuw i8, ptr %6888, i64 4
-  store ptr %6967, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6967, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6968 = load i8, ptr %6967, align 1
   %6969 = icmp ult i8 %6968, 96
   br i1 %6969, label %6970, label %6975
@@ -18234,11 +18234,11 @@ switch.early.test6685:                            ; preds = %6844
   %6981 = and i64 %6979, 4294967295
   %6982 = getelementptr inbounds nuw i8, ptr %29, i64 %6981
   %6983 = getelementptr inbounds i8, ptr %6982, i64 -4
-  store ptr %6983, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6983, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %6984 = add i32 %6980, -4
-  store i32 %6984, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %6985 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #17
-  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store i32 %6984, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %6985 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64)) #17
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %7968
 
 6986:                                             ; preds = %37
@@ -18247,7 +18247,7 @@ switch.early.test6685:                            ; preds = %6844
 6987:                                             ; preds = %6986
   %6988 = load i8, ptr %29, align 1
   %6989 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store ptr %6989, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %6989, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   switch i8 %6988, label %6990 [
     i8 36, label %7165
     i8 123, label %7181
@@ -18255,9 +18255,9 @@ switch.early.test6685:                            ; preds = %6844
 
 6990:                                             ; preds = %6987, %7170, %7181, %7179, %7175, %7168
   %6991 = ptrtoint ptr %29 to i64
-  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %6992 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 104), align 8
-  %6993 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %6992 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 104), align 8
+  %6993 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96), align 8
   %6994 = sext i32 %6993 to i64
   %6995 = getelementptr ptr, ptr %6992, i64 %6994
   %6996 = getelementptr i8, ptr %6995, i64 -8
@@ -18273,7 +18273,7 @@ switch.early.test6685:                            ; preds = %6844
   br label %.loopexit7124
 
 7001:                                             ; preds = %6990
-  store ptr %29, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7002 = icmp ult ptr %29, %39
   br i1 %7002, label %.lr.ph10304, label %.loopexit6825
 
@@ -18286,7 +18286,7 @@ switch.early.test6685:                            ; preds = %6844
 7006:                                             ; preds = %.lr.ph10304, %.backedge6826
   %7007 = phi ptr [ %29, %.lr.ph10304 ], [ %7066, %.backedge6826 ]
   %7008 = getelementptr inbounds nuw i8, ptr %7007, i64 1
-  store ptr %7008, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7008, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7009 = load i8, ptr %7007, align 1
   switch i8 %7009, label %.backedge6826 [
     i8 13, label %7010
@@ -18303,7 +18303,7 @@ switch.early.test6685:                            ; preds = %6844
 
 7013:                                             ; preds = %7010
   %7014 = getelementptr inbounds nuw i8, ptr %7007, i64 2
-  store ptr %7014, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7014, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %7015
 
 7015:                                             ; preds = %7010, %7013, %7006
@@ -18335,7 +18335,7 @@ switch.early.test6685:                            ; preds = %6844
   %.15367.v = select i1 %7022, i32 2, i32 1
   %.15367 = or i32 %.15367.v, %.0536610290
   %7023 = getelementptr inbounds nuw i8, ptr %7020, i64 1
-  store ptr %7023, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7023, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7024 = add nuw nsw i32 %.0536510291, 1
   %exitcond13063.not = icmp eq ptr %7023, %scevgep13062
   br i1 %exitcond13063.not, label %.critedge26, label %.lr.ph10293
@@ -18350,14 +18350,14 @@ switch.early.test6685:                            ; preds = %6844
 7026:                                             ; preds = %.critedge26
   %7027 = sub i64 %7003, %6991
   %7028 = trunc i64 %7027 to i32
-  store i32 %7028, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %7028, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %7029 = and i64 %7027, 4294967295
   %7030 = getelementptr inbounds nuw i8, ptr %29, i64 %7029
   %.not10401 = icmp eq i64 %7029, 0
   br i1 %.not10401, label %._crit_edge10313, label %.lr.ph10312.preheader
 
 .lr.ph10312.preheader:                            ; preds = %7026
-  %.promoted10309 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %.promoted10309 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %.lr.ph10312
 
 .lr.ph10312:                                      ; preds = %.lr.ph10312.preheader, %7038
@@ -18377,7 +18377,7 @@ switch.early.test6685:                            ; preds = %6844
 
 7036:                                             ; preds = %.lr.ph10312, %7033
   %7037 = add nsw i32 %7031, 1
-  store i32 %7037, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  store i32 %7037, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %7038
 
 7038:                                             ; preds = %.lr.ph10312, %7036, %7033
@@ -18449,7 +18449,7 @@ switch.early.test6685:                            ; preds = %6844
   br i1 %.not5988, label %._crit_edge13081, label %.loopexit7124
 
 ._crit_edge13081:                                 ; preds = %7070
-  %.pre13082 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  %.pre13082 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %7073
 
 7073:                                             ; preds = %._crit_edge13081, %7068
@@ -18474,29 +18474,29 @@ switch.early.test6685:                            ; preds = %6844
 
 7087:                                             ; preds = %7080, %7086
   %.05363 = phi i32 [ 1, %7086 ], [ 2, %7080 ]
-  store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 153), align 1
-  %7088 = load i8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 152), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 153), align 1
+  %7088 = load i8, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 152), align 8
   %7089 = trunc i8 %7088 to i1
   br i1 %7089, label %7090, label %7093
 
 7090:                                             ; preds = %7087
-  store i32 %.05365.lcssa, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 156), align 4
+  store i32 %.05365.lcssa, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 156), align 4
   %7091 = icmp eq i32 %.05366.lcssa, 1
   %7092 = zext i1 %7091 to i8
-  store i8 %7092, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 160), align 8
+  store i8 %7092, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 160), align 8
   br label %7097
 
 7093:                                             ; preds = %7087
   %7094 = zext nneg i32 %.05365.lcssa to i64
   %7095 = sub nsw i64 0, %7094
   %7096 = getelementptr inbounds i8, ptr %7074, i64 %7095
-  store ptr %7096, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7096, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %7097
 
 7097:                                             ; preds = %7093, %7090
   %7098 = phi ptr [ %7096, %7093 ], [ %7074, %7090 ]
-  store i32 9, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
-  %.pre13083 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  store i32 9, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
+  %.pre13083 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %.pre13145 = ptrtoint ptr %.pre13083 to i64
   br label %.loopexit6825
 
@@ -18534,11 +18534,11 @@ switch.early.test6687:                            ; preds = %7099
 
 7111:                                             ; preds = %7109
   %7112 = getelementptr inbounds nuw i8, ptr %7007, i64 2
-  store ptr %7112, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7112, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.backedge6826
 
 7113:                                             ; preds = %switch.early.test6687, %switch.early.test6687, %7099, %7104
-  store ptr %7007, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7007, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.loopexit6825
 
 .loopexit6825:                                    ; preds = %.backedge6826, %7001, %7113, %7097
@@ -18549,7 +18549,7 @@ switch.early.test6687:                            ; preds = %7099
   %7116 = ptrtoint ptr %7115 to i64
   %7117 = sub i64 %7116, %.pre-phi13146
   %7118 = trunc i64 %7117 to i32
-  store i32 %7118, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %7118, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %7119 = sub i32 %7118, %.15364
   %7120 = zext i32 %7119 to i64
   %7121 = add nuw nsw i64 %7120, 32
@@ -18568,13 +18568,13 @@ switch.early.test6687:                            ; preds = %7099
   store i8 0, ptr %7128, align 1
   store ptr %7123, ptr %0, align 8
   store i32 262, ptr %28, align 8
-  %7129 = load i8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 152), align 8
+  %7129 = load i8, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 152), align 8
   %7130 = trunc i8 %7129 to i1
-  %7131 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %7131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not6043 = icmp ne ptr %7131, null
   %or.cond6661.not6778 = select i1 %7130, i1 true, i1 %.not6043
   %or.cond6662 = or i1 %.not5988, %or.cond6661.not6778
-  %7132 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %7132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   br i1 %or.cond6662, label %7149, label %7133
 
 7133:                                             ; preds = %.loopexit6825
@@ -18601,7 +18601,7 @@ switch.early.test6687:                            ; preds = %7099
   br i1 %.not6045, label %.thread6766, label %.loopexit7124
 
 7149:                                             ; preds = %.loopexit6825
-  %7150 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %7150 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %7151 = sub i32 %7150, %.15364
   %7152 = zext i32 %7151 to i64
   %7153 = getelementptr inbounds nuw i8, ptr %7132, i64 %7152
@@ -18609,7 +18609,7 @@ switch.early.test6687:                            ; preds = %7099
   br i1 %.not10402, label %.loopexit6824, label %.lr.ph10308.preheader
 
 .lr.ph10308.preheader:                            ; preds = %7149
-  %.promoted10305 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %.promoted10305 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %.lr.ph10308
 
 .lr.ph10308:                                      ; preds = %.lr.ph10308.preheader, %7161
@@ -18629,7 +18629,7 @@ switch.early.test6687:                            ; preds = %7099
 
 7159:                                             ; preds = %.lr.ph10308, %7156
   %7160 = add nsw i32 %7154, 1
-  store i32 %7160, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  store i32 %7160, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %7161
 
 7161:                                             ; preds = %.lr.ph10308, %7159, %7156
@@ -18680,8 +18680,8 @@ switch.early.test6687:                            ; preds = %7099
 .preheader6827:                                   ; preds = %.preheader6827.preheader, %7187
   %7184 = phi ptr [ %7185, %7187 ], [ %6989, %.preheader6827.preheader ]
   %7185 = getelementptr inbounds nuw i8, ptr %7184, i64 1
-  store ptr %7185, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %7185, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %7185, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7185, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %7186 = getelementptr inbounds nuw i8, ptr %7184, i64 5
   %.not6036 = icmp ult ptr %7186, %40
   br i1 %.not6036, label %7187, label %.loopexit
@@ -18716,55 +18716,55 @@ switch.early.test6687:                            ; preds = %7099
   %7202 = ptrtoint ptr %29 to i64
   %7203 = sub i64 %7201, %7202
   %7204 = trunc i64 %7203 to i32
-  store i32 %7204, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %7204, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7968
 
 7205:                                             ; preds = %7177
-  store ptr %38, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %7206 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #17
-  store i32 5, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store ptr %38, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %7206 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64)) #17
+  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i8 123, ptr %5, align 4
   %7207 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %7208 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %7208 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   store i32 %7208, ptr %7207, align 4
-  %7209 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %5) #17
+  %7209 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %.loopexit7124
 
 7210:                                             ; preds = %7181
-  store ptr %38, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %7211 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #17
-  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
-  %7212 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  store ptr %38, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %7211 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64)) #17
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
+  %7212 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %7213 = getelementptr inbounds nuw i8, ptr %7212, i64 1
-  store ptr %7213, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %7213, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i8 123, ptr %4, align 4
   %7214 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %7215 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %7215 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   store i32 %7215, ptr %7214, align 4
-  %7216 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %4) #17
+  %7216 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128), ptr noundef nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %.loopexit7124
 
 7217:                                             ; preds = %7194
   %7218 = getelementptr inbounds nuw i8, ptr %7184, i64 2
-  store ptr %7218, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7218, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7219 = load i8, ptr %7218, align 1
   %7220 = icmp eq i8 %7219, 62
   br i1 %7220, label %7237, label %7221
 
 7221:                                             ; preds = %7271, %7271, %7271, %7271, %7271, %7271, %7246, %7246, %7246, %7246, %7246, %7246, %7268, %7243, %7266, %7247, %7241, %7222, %7217
-  store ptr %7185, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7185, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %7200
 
 7222:                                             ; preds = %7196
   %7223 = getelementptr inbounds nuw i8, ptr %7184, i64 2
-  store ptr %7223, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7223, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7224 = load i8, ptr %7223, align 1
   %7225 = icmp eq i8 %7224, 45
   br i1 %7225, label %7247, label %7221
@@ -18778,16 +18778,16 @@ switch.early.test6687:                            ; preds = %7099
   %7232 = and i64 %7230, 4294967295
   %7233 = getelementptr inbounds nuw i8, ptr %29, i64 %7232
   %7234 = getelementptr inbounds i8, ptr %7233, i64 -1
-  store ptr %7234, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7234, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7235 = add i32 %7231, -1
-  store i32 %7235, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %7236 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #17
-  store i32 6, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store i32 %7235, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %7236 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64)) #17
+  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %7968
 
 7237:                                             ; preds = %7217
   %7238 = getelementptr inbounds nuw i8, ptr %7184, i64 3
-  store ptr %7238, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7238, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7239 = load i8, ptr %7238, align 1
   %7240 = icmp ult i8 %7239, 96
   br i1 %7240, label %7241, label %7246
@@ -18814,7 +18814,7 @@ switch.early.test6687:                            ; preds = %7099
 
 7247:                                             ; preds = %7222
   %7248 = getelementptr inbounds nuw i8, ptr %7184, i64 3
-  store ptr %7248, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7248, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7249 = load i8, ptr %7248, align 1
   %7250 = icmp eq i8 %7249, 62
   br i1 %7250, label %7262, label %7221
@@ -18828,16 +18828,16 @@ switch.early.test6687:                            ; preds = %7099
   %7257 = and i64 %7255, 4294967295
   %7258 = getelementptr inbounds nuw i8, ptr %29, i64 %7257
   %7259 = getelementptr inbounds i8, ptr %7258, i64 -3
-  store ptr %7259, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7259, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7260 = add i32 %7256, -3
-  store i32 %7260, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %7261 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #17
-  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store i32 %7260, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %7261 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64)) #17
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %7968
 
 7262:                                             ; preds = %7247
   %7263 = getelementptr inbounds nuw i8, ptr %7184, i64 4
-  store ptr %7263, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7263, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7264 = load i8, ptr %7263, align 1
   %7265 = icmp ult i8 %7264, 96
   br i1 %7265, label %7266, label %7271
@@ -18870,15 +18870,15 @@ switch.early.test6687:                            ; preds = %7099
   %7277 = and i64 %7275, 4294967295
   %7278 = getelementptr inbounds nuw i8, ptr %29, i64 %7277
   %7279 = getelementptr inbounds i8, ptr %7278, i64 -4
-  store ptr %7279, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7279, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7280 = add i32 %7276, -4
-  store i32 %7280, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %7281 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #17
-  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store i32 %7280, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %7281 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64)) #17
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %7968
 
 7282:                                             ; preds = %.lr.ph20498
-  %7283 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %7283 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %7284 = getelementptr inbounds nuw i8, ptr %7283, i64 32
   %.not6031 = icmp ult ptr %34, %7284
   br i1 %.not6031, label %7285, label %.loopexit
@@ -18909,28 +18909,28 @@ switch.early.test6687:                            ; preds = %7099
   ]
 
 .thread13171:                                     ; preds = %._crit_edge, %7330, %7288, %7290, %7293, %7293, %7293, %7293, %7293, %7293, %7304, %7311, %7306, %7314
-  store ptr %29, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %7294 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72)) #17
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %7294 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72)) #17
   %7295 = load i32, ptr %7294, align 4
-  store i32 %7295, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
-  tail call void @zend_stack_del_top(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72)) #17
-  %7296 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #17
-  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
-  %.pre13076 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %.pre13076, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  store i32 %7295, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
+  tail call void @zend_stack_del_top(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72)) #17
+  %7296 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64)) #17
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
+  %.pre13076 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %.pre13076, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %.loopexit20794
 
 .backedge7120:                                    ; preds = %7606, %7615
   %7297 = phi ptr [ %7612, %7615 ], [ %29, %7606 ]
-  store i32 8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
-  store ptr %7297, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
+  store ptr %7297, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   br label %41
 
 7298:                                             ; preds = %7293, %7290
   %7299 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store ptr %7299, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %7299, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %7299, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7299, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %7300 = load i8, ptr %7299, align 1
   %7301 = icmp ult i8 %7300, 96
   br i1 %7301, label %7302, label %7309
@@ -18984,7 +18984,7 @@ switch.early.test6687:                            ; preds = %7099
 .lr.ph:                                           ; preds = %.preheader6986, %7320
   %7325 = phi ptr [ %7326, %7320 ], [ %7299, %.preheader6986 ]
   %7326 = getelementptr inbounds nuw i8, ptr %7325, i64 1
-  store ptr %7326, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7326, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7327 = getelementptr inbounds nuw i8, ptr %7325, i64 2
   %.not6033 = icmp ult ptr %7327, %7284
   br i1 %.not6033, label %7320, label %.loopexit
@@ -19010,16 +19010,16 @@ switch.early.test6687:                            ; preds = %7099
   %7339 = and i64 %7337, 4294967295
   %7340 = getelementptr inbounds nuw i8, ptr %29, i64 %7339
   %7341 = getelementptr inbounds i8, ptr %7340, i64 -1
-  store ptr %7341, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7341, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7342 = add i32 %7338, -1
-  store i32 %7342, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %7342, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   tail call fastcc void @yy_pop_state()
-  %7343 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64)) #17
-  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  %7343 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64)) #17
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %7968
 
 7344:                                             ; preds = %.lr.ph20498
-  %7345 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %7345 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %7346 = getelementptr inbounds nuw i8, ptr %7345, i64 32
   %.not6005 = icmp ult ptr %34, %7346
   br i1 %.not6005, label %7347, label %.loopexit
@@ -19113,8 +19113,8 @@ switch.early.test6687:                            ; preds = %7099
 
 7382:                                             ; preds = %7356, %7380, %7354
   %7383 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store ptr %7383, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %7383, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %7384 = icmp ugt ptr %7383, %7345
   br i1 %7384, label %7385, label %.loopexit7124
 
@@ -19126,15 +19126,15 @@ switch.early.test6687:                            ; preds = %7099
   br label %.loopexit7124
 
 7387:                                             ; preds = %7371, %7362, %7356, %7356, %7354, %7361
-  store ptr %29, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   tail call fastcc void @yy_pop_state()
   store i32 1, ptr %28, align 8
   br label %.loopexit6824
 
 7388:                                             ; preds = %7371, %7362, %7378, %7374, %7369, %7359
   %7389 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store ptr %7389, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7389, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %7390
 
 7390:                                             ; preds = %7407, %7407, %7407, %7407, %7407, %7407, %7404, %7402, %7388
@@ -19143,14 +19143,14 @@ switch.early.test6687:                            ; preds = %7099
   %7393 = ptrtoint ptr %29 to i64
   %7394 = sub i64 %7392, %7393
   %7395 = trunc i64 %7394 to i32
-  store i32 %7395, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %7395, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %7396 = load i8, ptr %29, align 1
   %7397 = sext i8 %7396 to i32
   br label %.loopexit7124
 
 7398:                                             ; preds = %7361
   %7399 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store ptr %7399, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7399, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7400 = load i8, ptr %7399, align 1
   %7401 = icmp ult i8 %7400, 96
   br i1 %7401, label %7402, label %7407
@@ -19177,15 +19177,15 @@ switch.early.test6687:                            ; preds = %7099
 
 .preheader6829:                                   ; preds = %7404, %7407
   %7408 = getelementptr inbounds nuw i8, ptr %29, i64 2
-  store ptr %7408, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7408, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7409 = getelementptr inbounds nuw i8, ptr %29, i64 3
   %.not602810286 = icmp ult ptr %7409, %7346
   br i1 %.not602810286, label %.lr.ph10287, label %.loopexit
 
 7410:                                             ; preds = %7362
   %7411 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store ptr %7411, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %7411, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %7411, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7411, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %7412 = load i8, ptr %7411, align 1
   %7413 = icmp ult i8 %7412, 89
   br i1 %7413, label %7414, label %7423
@@ -19250,7 +19250,7 @@ switch.early.test6687:                            ; preds = %7099
   %7436 = ptrtoint ptr %7433 to i64
   %7437 = sub i64 %7435, %7436
   %7438 = trunc i64 %7437 to i32
-  store i32 %7438, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %7438, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %7439 = icmp ult i32 %7438, 19
   br i1 %7439, label %7445, label %7440
 
@@ -19266,14 +19266,14 @@ switch.early.test6687:                            ; preds = %7099
 7445:                                             ; preds = %7442, %7432
   %7446 = tail call ptr @__errno_location() #22
   store i32 0, ptr %7446, align 4
-  %7447 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %7447 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %7448 = call i64 @strtoll(ptr noundef %7447, ptr noundef nonnull %22, i32 noundef 10) #17
   store i64 %7448, ptr %0, align 8
   store i32 4, ptr %28, align 8
   %7449 = load i32, ptr %7446, align 4
   %7450 = icmp eq i32 %7449, 34
-  %.pre13078 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
-  %.pre13079 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %.pre13078 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
+  %.pre13079 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br i1 %7450, label %7456, label %7451
 
 7451:                                             ; preds = %7445
@@ -19309,8 +19309,8 @@ switch.early.test6687:                            ; preds = %7099
 .preheader6853:                                   ; preds = %7367, %7471
   %7468 = phi ptr [ %7469, %7471 ], [ %29, %7367 ]
   %7469 = getelementptr inbounds nuw i8, ptr %7468, i64 1
-  store ptr %7469, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %7469, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %7469, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7469, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %7470 = getelementptr inbounds nuw i8, ptr %7468, i64 2
   %.not6009 = icmp ult ptr %7470, %7346
   br i1 %.not6009, label %7471, label %.loopexit
@@ -19329,7 +19329,7 @@ switch.early.test6687:                            ; preds = %7099
 .preheader6855:                                   ; preds = %.preheader6855.preheader, %7480
   %7477 = phi ptr [ %7478, %7480 ], [ %29, %.preheader6855.preheader ]
   %7478 = getelementptr inbounds nuw i8, ptr %7477, i64 1
-  store ptr %7478, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7478, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7479 = getelementptr inbounds nuw i8, ptr %7477, i64 2
   %.not6007 = icmp ult ptr %7479, %7346
   br i1 %.not6007, label %7480, label %.loopexit
@@ -19348,13 +19348,13 @@ switch.early.test6687:                            ; preds = %7099
   %7488 = ptrtoint ptr %29 to i64
   %7489 = sub i64 %7487, %7488
   %7490 = trunc i64 %7489 to i32
-  store i32 %7490, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %7490, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7968
 
 7491:                                             ; preds = %7371
   %7492 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store ptr %7492, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %7492, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   tail call fastcc void @yy_pop_state()
   br label %.loopexit7124
 
@@ -19374,7 +19374,7 @@ switch.early.test6687:                            ; preds = %7099
 
 .backedge6831:                                    ; preds = %7498, %7506, %7508, %7502
   %7500 = getelementptr inbounds nuw i8, ptr %7493, i64 1
-  store ptr %7500, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7500, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7501 = getelementptr inbounds nuw i8, ptr %7493, i64 2
   %.not6028 = icmp ult ptr %7501, %7346
   br i1 %.not6028, label %.lr.ph10287, label %.loopexit
@@ -19401,14 +19401,14 @@ switch.early.test6687:                            ; preds = %7099
   %7511 = ptrtoint ptr %29 to i64
   %7512 = sub i64 %7510, %7511
   %7513 = trunc i64 %7512 to i32
-  store i32 %7513, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %7513, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7968
 
 .preheader6832:                                   ; preds = %.preheader6832.preheader, %7520
   %7514 = phi ptr [ %7515, %7520 ], [ %.ph20575, %.preheader6832.preheader ]
   %7515 = getelementptr inbounds nuw i8, ptr %7514, i64 1
-  store ptr %7515, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %7515, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %7515, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7515, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %7516 = getelementptr inbounds nuw i8, ptr %7514, i64 2
   %.not6024 = icmp ult ptr %7516, %7346
   br i1 %.not6024, label %7517, label %.loopexit
@@ -19433,7 +19433,7 @@ switch.early.test6687:                            ; preds = %7099
   %7527 = ptrtoint ptr %7524 to i64
   %7528 = sub i64 %7526, %7527
   %7529 = trunc i64 %7528 to i32
-  store i32 %7529, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %7529, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %7530 = icmp eq i32 %7529, 1
   br i1 %7530, label %7531, label %7536
 
@@ -19473,7 +19473,7 @@ switch.early.test6687:                            ; preds = %7099
   %.promoted1027910281 = phi ptr [ %7577, %7582 ], [ %7411, %.preheader6837.preheader ]
   %.49 = phi i32 [ 1, %7582 ], [ 0, %.preheader6837.preheader ]
   %7547 = getelementptr inbounds nuw i8, ptr %.promoted1027910281, i64 1
-  store ptr %7547, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7547, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7548 = getelementptr inbounds nuw i8, ptr %.promoted1027910281, i64 2
   %.not6020 = icmp ult ptr %7548, %7346
   br i1 %.not6020, label %7549, label %.loopexit
@@ -19488,7 +19488,7 @@ switch.early.test6687:                            ; preds = %7099
   %7552 = phi ptr [ %7568, %7572 ], [ %29, %7549 ], [ %29, %7557 ], [ %29, %7562 ]
   %7553 = phi ptr [ %7569, %7572 ], [ %.promoted1027910281, %7549 ], [ %.promoted1027410276, %7557 ], [ %.promoted1026910271, %7562 ]
   %.53 = phi i32 [ %.52, %7572 ], [ %.49, %7549 ], [ %.50, %7557 ], [ %.51, %7562 ]
-  store ptr %7553, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7553, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7554 = icmp eq i32 %.53, 0
   br i1 %7554, label %7432, label %.loopexit6834
 
@@ -19496,7 +19496,7 @@ switch.early.test6687:                            ; preds = %7099
   %.promoted1027410276 = phi ptr [ %7585, %7590 ], [ %7411, %.preheader6843.preheader ]
   %.50 = phi i32 [ 1, %7590 ], [ 0, %.preheader6843.preheader ]
   %7555 = getelementptr inbounds nuw i8, ptr %.promoted1027410276, i64 1
-  store ptr %7555, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7555, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7556 = getelementptr inbounds nuw i8, ptr %.promoted1027410276, i64 2
   %.not6016 = icmp ult ptr %7556, %7346
   br i1 %.not6016, label %7557, label %.loopexit
@@ -19511,7 +19511,7 @@ switch.early.test6687:                            ; preds = %7099
   %.promoted1026910271 = phi ptr [ %7593, %7600 ], [ %7411, %.preheader6849.preheader ]
   %.51 = phi i32 [ 1, %7600 ], [ 0, %.preheader6849.preheader ]
   %7560 = getelementptr inbounds nuw i8, ptr %.promoted1026910271, i64 1
-  store ptr %7560, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7560, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7561 = getelementptr inbounds nuw i8, ptr %.promoted1026910271, i64 2
   %.not6012 = icmp ult ptr %7561, %7346
   br i1 %.not6012, label %7562, label %.loopexit
@@ -19529,7 +19529,7 @@ switch.early.test6687:                            ; preds = %7099
   %7569 = phi ptr [ %7515, %7522 ], [ %7411, %7425 ], [ %7469, %7475 ]
   %.52 = phi i32 [ 1, %7522 ], [ 0, %7425 ], [ 0, %7475 ]
   %7570 = getelementptr inbounds nuw i8, ptr %7569, i64 1
-  store ptr %7570, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7570, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7571 = getelementptr inbounds nuw i8, ptr %7569, i64 2
   %.not6025 = icmp ult ptr %7571, %7346
   br i1 %.not6025, label %7572, label %.loopexit
@@ -19548,8 +19548,8 @@ switch.early.test6687:                            ; preds = %7099
 .preheader6835:                                   ; preds = %7549, %7579
   %7576 = phi ptr [ %7577, %7579 ], [ %7547, %7549 ]
   %7577 = getelementptr inbounds nuw i8, ptr %7576, i64 1
-  store ptr %7577, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %7577, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %7577, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7577, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %7578 = getelementptr inbounds nuw i8, ptr %7576, i64 2
   %.not6022 = icmp ult ptr %7578, %7346
   br i1 %.not6022, label %7579, label %.loopexit
@@ -19567,8 +19567,8 @@ switch.early.test6687:                            ; preds = %7099
 .preheader6841:                                   ; preds = %7557, %7587
   %7584 = phi ptr [ %7585, %7587 ], [ %7555, %7557 ]
   %7585 = getelementptr inbounds nuw i8, ptr %7584, i64 1
-  store ptr %7585, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %7585, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %7585, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7585, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %7586 = getelementptr inbounds nuw i8, ptr %7584, i64 2
   %.not6018 = icmp ult ptr %7586, %7346
   br i1 %.not6018, label %7587, label %.loopexit
@@ -19586,8 +19586,8 @@ switch.early.test6687:                            ; preds = %7099
 .preheader6847:                                   ; preds = %7562, %7595
   %7592 = phi ptr [ %7593, %7595 ], [ %7560, %7562 ]
   %7593 = getelementptr inbounds nuw i8, ptr %7592, i64 1
-  store ptr %7593, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %7593, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %7593, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7593, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %7594 = getelementptr inbounds nuw i8, ptr %7592, i64 2
   %.not6014 = icmp ult ptr %7594, %7346
   br i1 %.not6014, label %7595, label %.loopexit
@@ -19614,13 +19614,13 @@ switch.early.test6687:                            ; preds = %7099
   br i1 %7605, label %7607, label %7606
 
 7606:                                             ; preds = %7603, %7607
-  store ptr %29, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.backedge7120
 
 7607:                                             ; preds = %7603
   %7608 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store ptr %7608, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7608, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7609 = load i8, ptr %7608, align 1
   %.not6002 = icmp eq i8 %7609, 33
   br i1 %.not6002, label %.preheader6988, label %7606
@@ -19628,7 +19628,7 @@ switch.early.test6687:                            ; preds = %7099
 .preheader6988:                                   ; preds = %7607, %7613
   %7610 = phi ptr [ %7611, %7613 ], [ %7608, %7607 ]
   %7611 = getelementptr inbounds nuw i8, ptr %7610, i64 1
-  store ptr %7611, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7611, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7612 = getelementptr inbounds nuw i8, ptr %7610, i64 2
   %.not6003 = icmp ult ptr %7612, %32
   br i1 %.not6003, label %7613, label %.loopexit
@@ -19639,19 +19639,19 @@ switch.early.test6687:                            ; preds = %7099
   br i1 %.not6004, label %7615, label %.preheader6988
 
 7615:                                             ; preds = %7613
-  store ptr %7612, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7612, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7616 = ptrtoint ptr %7612 to i64
   %7617 = ptrtoint ptr %29 to i64
   %7618 = sub i64 %7616, %7617
   %7619 = trunc i64 %7618 to i32
-  store i32 %7619, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %7619, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %7620 = add nsw i32 %.promoted, 1
-  store i32 %7620, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  store i32 %7620, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %.backedge7120
 
 7621:                                             ; preds = %41
   %7622 = getelementptr inbounds nuw i8, ptr %.lcssa17134, i64 7
-  %7623 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %7623 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 56), align 8
   %7624 = getelementptr inbounds nuw i8, ptr %7623, i64 32
   %.not5986 = icmp ult ptr %7622, %7624
   br i1 %.not5986, label %7625, label %.loopexit
@@ -19660,7 +19660,7 @@ switch.early.test6687:                            ; preds = %7099
   %7626 = load i8, ptr %.lcssa17134, align 1
   %7627 = icmp eq i8 %7626, 60
   %7628 = getelementptr inbounds nuw i8, ptr %.lcssa17134, i64 1
-  store ptr %7628, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7628, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br i1 %7627, label %7744, label %.loopexit7122
 
 .loopexit7122.loopexit:                           ; preds = %7744
@@ -19673,23 +19673,23 @@ switch.early.test6687:                            ; preds = %7099
   %7632 = ptrtoint ptr %.lcssa17134 to i64
   %7633 = sub i64 %7631, %7632
   %7634 = trunc i64 %7633 to i32
-  store i32 %7634, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %7634, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %7635 = icmp ugt ptr %7630, %7623
   br i1 %7635, label %7636, label %.loopexit7123
 
 7636:                                             ; preds = %.loopexit7122
-  %7637 = tail call zeroext i1 @zend_stack_is_empty(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128)) #17
+  %7637 = tail call zeroext i1 @zend_stack_is_empty(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128)) #17
   br i1 %7637, label %check_nesting_at_end.exit, label %7638
 
 7638:                                             ; preds = %7636
-  %7639 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128)) #17
+  %7639 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128)) #17
   %7640 = load i8, ptr %7639, align 4
   %7641 = getelementptr inbounds nuw i8, ptr %7639, i64 4
   %7642 = load i32, ptr %7641, align 4
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3)
   %7643 = sext i8 %7640 to i32
   %7644 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 256, ptr noundef nonnull @.str.23, i32 noundef %7643) #17
-  %7645 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %7645 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   %.not.i.i = icmp eq i32 %7642, %7645
   br i1 %.not.i.i, label %report_bad_nesting.exit.i, label %7646
 
@@ -19725,12 +19725,12 @@ check_nesting_at_end.exit:                        ; preds = %7636, %report_bad_n
   %.not599310259 = icmp eq ptr %7655, null
   %7656 = getelementptr inbounds nuw i8, ptr %7655, i64 1
   %7657 = select i1 %.not599310259, ptr %7623, ptr %7656
-  store ptr %7657, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7657, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %.not599410260 = icmp ult ptr %7657, %7623
   br i1 %.not599410260, label %.lr.ph10262, label %.loopexit6858
 
 .lr.ph10262:                                      ; preds = %.loopexit7123
-  %7658 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 82), align 2
+  %7658 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 82), align 2
   %7659 = trunc i8 %7658 to i1
   br label %7660
 
@@ -19770,7 +19770,7 @@ check_nesting_at_end.exit:                        ; preds = %7636, %report_bad_n
 
 7676:                                             ; preds = %7674, %7674, %7674, %7674, %7671, %7665, %7664
   %7677 = getelementptr inbounds i8, ptr %7661, i64 -1
-  store ptr %7677, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7677, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %.loopexit6858
 
 7678:                                             ; preds = %7674, %7669, %7660
@@ -19780,7 +19780,7 @@ check_nesting_at_end.exit:                        ; preds = %7636, %report_bad_n
   %.not5993 = icmp eq ptr %7681, null
   %7682 = getelementptr inbounds nuw i8, ptr %7681, i64 1
   %7683 = select i1 %.not5993, ptr %7623, ptr %7682
-  store ptr %7683, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7683, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %.not5994 = icmp ult ptr %7683, %7623
   br i1 %.not5994, label %7660, label %.loopexit6858
 
@@ -19790,8 +19790,8 @@ check_nesting_at_end.exit:                        ; preds = %7636, %report_bad_n
   %7686 = ptrtoint ptr %.lcssa17134 to i64
   %7687 = sub i64 %7685, %7686
   %7688 = trunc i64 %7687 to i32
-  store i32 %7688, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %7689 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
+  store i32 %7688, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %7689 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 208), align 8
   %.not5996 = icmp eq ptr %7689, null
   br i1 %.not5996, label %7711, label %7690
 
@@ -19820,17 +19820,17 @@ check_nesting_at_end.exit:                        ; preds = %7636, %report_bad_n
   store i32 262, ptr %28, align 8
   %7703 = load ptr, ptr %23, align 8
   call void @_efree(ptr noundef %7703) #17
-  %7704 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %7704 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %7705 = zext i32 %7704 to i64
   %7706 = icmp ult i64 %7692, %7705
   br i1 %7706, label %7707, label %7728
 
 7707:                                             ; preds = %7690
-  %7708 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %7708 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %7709 = getelementptr inbounds nuw i8, ptr %7708, i64 %7692
-  store ptr %7709, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7709, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7710 = trunc nuw i64 %7692 to i32
-  store i32 %7710, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %7710, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7728
 
 7711:                                             ; preds = %.loopexit6858
@@ -19867,19 +19867,19 @@ thread-pre-split13155:                            ; preds = %7713, %7718
   %.sink = phi i32 [ 6, %7713 ], [ 262, %7718 ]
   store ptr %.sink16836, ptr %0, align 8
   store i32 %.sink, ptr %28, align 8
-  %.pr13156 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %.pr13156 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7728
 
 7728:                                             ; preds = %thread-pre-split13155, %7707, %7690
   %7729 = phi i32 [ %.pr13156, %thread-pre-split13155 ], [ %7710, %7707 ], [ %7704, %7690 ]
-  %7730 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %7730 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %7731 = zext i32 %7729 to i64
   %7732 = getelementptr inbounds nuw i8, ptr %7730, i64 %7731
   %.not10400 = icmp eq i32 %7729, 0
   br i1 %.not10400, label %.loopexit6824, label %.lr.ph10266.preheader
 
 .lr.ph10266.preheader:                            ; preds = %7728
-  %.promoted10263 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %.promoted10263 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %.lr.ph10266
 
 .lr.ph10266:                                      ; preds = %.lr.ph10266.preheader, %7740
@@ -19899,7 +19899,7 @@ thread-pre-split13155:                            ; preds = %7713, %7718
 
 7738:                                             ; preds = %.lr.ph10266, %7735
   %7739 = add nsw i32 %7733, 1
-  store i32 %7739, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  store i32 %7739, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %7740
 
 7740:                                             ; preds = %.lr.ph10266, %7738, %7735
@@ -19915,8 +19915,8 @@ thread-pre-split13155:                            ; preds = %7713, %7718
 
 7746:                                             ; preds = %7744
   %7747 = getelementptr inbounds nuw i8, ptr %.lcssa17134, i64 2
-  store ptr %7747, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store ptr %7747, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  store ptr %7747, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7747, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 48), align 8
   %7748 = load i8, ptr %7747, align 1
   %7749 = icmp ult i8 %7748, 80
   br i1 %7749, label %7750, label %7752
@@ -19931,37 +19931,37 @@ thread-pre-split13155:                            ; preds = %7713, %7718
   br i1 %or.cond1510, label %7760, label %7754
 
 7754:                                             ; preds = %7752, %7750, %7764
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %7755 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 82), align 2
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %7755 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 82), align 2
   %7756 = trunc i8 %7755 to i1
   br i1 %7756, label %7757, label %.loopexit7123.loopexit
 
 7757:                                             ; preds = %7754
-  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   br i1 %.not5988, label %.loopexit7124, label %8047
 
 7758:                                             ; preds = %7750
   %7759 = getelementptr inbounds nuw i8, ptr %.lcssa17134, i64 3
-  store ptr %7759, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store ptr %7759, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   br i1 %.not5988, label %.loopexit7124, label %.thread6770
 
 7760:                                             ; preds = %7752
   %7761 = getelementptr inbounds nuw i8, ptr %.lcssa17134, i64 3
-  store ptr %7761, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7761, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7762 = load i8, ptr %7761, align 1
   %7763 = and i8 %7762, -33
   %or.cond1513 = icmp eq i8 %7763, 72
   br i1 %or.cond1513, label %7765, label %7764
 
 7764:                                             ; preds = %7765, %7760
-  store ptr %7747, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7747, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %7754
 
 7765:                                             ; preds = %7760
   %7766 = getelementptr inbounds nuw i8, ptr %.lcssa17134, i64 4
-  store ptr %7766, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7766, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7767 = load i8, ptr %7766, align 1
   %7768 = and i8 %7767, -33
   %or.cond1516.not = icmp eq i8 %7768, 80
@@ -19969,7 +19969,7 @@ thread-pre-split13155:                            ; preds = %7713, %7718
 
 7769:                                             ; preds = %7765
   %7770 = getelementptr inbounds nuw i8, ptr %.lcssa17134, i64 5
-  store ptr %7770, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7770, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7771 = load i8, ptr %7770, align 1
   %7772 = icmp ult i8 %7771, 13
   br i1 %7772, label %7773, label %7775
@@ -19986,30 +19986,30 @@ thread-pre-split13155:                            ; preds = %7713, %7718
   ]
 
 7776:                                             ; preds = %7775, %7773
-  store i32 5, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %7777 = icmp eq ptr %7770, %7623
   br i1 %7777, label %7778, label %7779
 
 7778:                                             ; preds = %7776
-  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   br i1 %.not5988, label %.loopexit7124, label %8047
 
 7779:                                             ; preds = %7776
-  %7780 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 82), align 2
+  %7780 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 82), align 2
   %7781 = trunc i8 %7780 to i1
   br i1 %7781, label %7782, label %.loopexit7123.loopexit
 
 7782:                                             ; preds = %7779
-  store ptr %7747, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store ptr %7747, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   br i1 %.not5988, label %.loopexit7124, label %8047
 
 7783:                                             ; preds = %7775, %7773, %7801
   %7784 = phi i64 [ 5, %7775 ], [ 5, %7773 ], [ 6, %7801 ]
   %7785 = getelementptr inbounds nuw i8, ptr %.lcssa17134, i64 %7784
   %7786 = getelementptr inbounds nuw i8, ptr %7785, i64 1
-  store ptr %7786, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7786, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %7787
 
 7787:                                             ; preds = %7801, %7783
@@ -20018,7 +20018,7 @@ thread-pre-split13155:                            ; preds = %7713, %7718
   %7790 = ptrtoint ptr %.lcssa17134 to i64
   %7791 = sub i64 %7789, %7790
   %7792 = trunc i64 %7791 to i32
-  store i32 %7792, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %7792, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %7793 = add i64 %7791, 4294967295
   %7794 = and i64 %7793, 4294967295
   %7795 = getelementptr inbounds nuw i8, ptr %.lcssa17134, i64 %7794
@@ -20029,18 +20029,18 @@ thread-pre-split13155:                            ; preds = %7713, %7718
   ]
 
 7797:                                             ; preds = %7787, %7787
-  %7798 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %7798 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   %7799 = add nsw i32 %7798, 1
-  store i32 %7799, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  store i32 %7799, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %7800
 
 7800:                                             ; preds = %7787, %7797
-  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   br i1 %.not5988, label %.loopexit7124, label %8047
 
 7801:                                             ; preds = %7775
   %7802 = getelementptr inbounds nuw i8, ptr %.lcssa17134, i64 6
-  store ptr %7802, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7802, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7803 = load i8, ptr %7802, align 1
   %7804 = icmp eq i8 %7803, 10
   br i1 %7804, label %7783, label %7787
@@ -20049,40 +20049,40 @@ thread-pre-split13155:                            ; preds = %7713, %7718
   br i1 %.not5985, label %7806, label %.loopexit
 
 7806:                                             ; preds = %7805
-  store ptr %45, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %7807 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), align 8
+  store ptr %45, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %7807 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96), align 8
   %7808 = add nsw i32 %7807, -1
-  store i32 %7808, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), align 8
-  %7809 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 112), align 8
+  store i32 %7808, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96), align 8
+  %7809 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 112), align 8
   %7810 = getelementptr inbounds i8, ptr %7809, i64 -8
-  store ptr %7810, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 112), align 8
+  store ptr %7810, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 112), align 8
   %7811 = load ptr, ptr %7810, align 8
   %7812 = getelementptr inbounds nuw i8, ptr %7811, i64 12
   %7813 = load i32, ptr %7812, align 4
   %7814 = getelementptr inbounds nuw i8, ptr %7811, i64 8
   %7815 = load i32, ptr %7814, align 8
   %7816 = add nsw i32 %7815, %7813
-  store i32 %7816, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %7816, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %7817 = add i32 %7816, -1
   %7818 = zext i32 %7817 to i64
   %7819 = getelementptr inbounds nuw i8, ptr %45, i64 %7818
-  store ptr %7819, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7819, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7820 = load ptr, ptr %7811, align 8
   tail call void @_efree(ptr noundef %7820) #17
   tail call void @_efree(ptr noundef nonnull %7811) #17
-  store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %.loopexit7124
 
 7821:                                             ; preds = %43
   br i1 %.not5985, label %7822, label %.loopexit
 
 7822:                                             ; preds = %7821
-  store ptr %45, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %45, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7823 = ptrtoint ptr %.lcssa17134 to i64
-  store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %7824 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 104), align 8
-  %7825 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
+  %7824 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 104), align 8
+  %7825 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96), align 8
   %7826 = sext i32 %7825 to i64
   %7827 = getelementptr ptr, ptr %7824, i64 %7826
   %7828 = getelementptr i8, ptr %7827, i64 -8
@@ -20098,7 +20098,7 @@ thread-pre-split13155:                            ; preds = %7713, %7718
   br label %.loopexit7124
 
 7833:                                             ; preds = %7822
-  store ptr %.lcssa17134, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %.lcssa17134, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7834 = icmp ult ptr %.lcssa17134, %46
   br i1 %7834, label %.lr.ph10246, label %.loopexit6860
 
@@ -20113,7 +20113,7 @@ thread-pre-split13155:                            ; preds = %7713, %7718
   %.0533110244 = phi i32 [ -1, %.lr.ph10246 ], [ %.05331.be, %.backedge6861 ]
   %.0533610243 = phi i32 [ 0, %.lr.ph10246 ], [ %.05336.be, %.backedge6861 ]
   %7840 = getelementptr inbounds nuw i8, ptr %7839, i64 1
-  store ptr %7840, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7840, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7841 = load i8, ptr %7839, align 1
   switch i8 %7841, label %.backedge6861 [
     i8 13, label %7842
@@ -20127,7 +20127,7 @@ thread-pre-split13155:                            ; preds = %7713, %7718
 
 7845:                                             ; preds = %7842
   %7846 = getelementptr inbounds nuw i8, ptr %7839, i64 2
-  store ptr %7846, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7846, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %7847
 
 7847:                                             ; preds = %7842, %7845, %7838
@@ -20159,7 +20159,7 @@ thread-pre-split13155:                            ; preds = %7713, %7718
   %.35334.v = select i1 %7854, i32 2, i32 1
   %.35334 = or i32 %.35334.v, %.2533310231
   %7855 = getelementptr inbounds nuw i8, ptr %7852, i64 1
-  store ptr %7855, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7855, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7856 = add nuw nsw i32 %.2533810230, 1
   %exitcond13059.not = icmp eq ptr %7855, %scevgep13058
   br i1 %exitcond13059.not, label %.critedge30, label %.lr.ph10233
@@ -20174,14 +20174,14 @@ thread-pre-split13155:                            ; preds = %7713, %7718
 7858:                                             ; preds = %.critedge30
   %7859 = sub i64 %7835, %7823
   %7860 = trunc i64 %7859 to i32
-  store i32 %7860, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %7860, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %7861 = and i64 %7859, 4294967295
   %7862 = getelementptr inbounds nuw i8, ptr %.lcssa17134, i64 %7861
   %.not10398 = icmp eq i64 %7861, 0
   br i1 %.not10398, label %._crit_edge10257, label %.lr.ph10256.preheader
 
 .lr.ph10256.preheader:                            ; preds = %7858
-  %.promoted10253 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %.promoted10253 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %.lr.ph10256
 
 .lr.ph10256:                                      ; preds = %.lr.ph10256.preheader, %7870
@@ -20201,7 +20201,7 @@ thread-pre-split13155:                            ; preds = %7713, %7718
 
 7868:                                             ; preds = %.lr.ph10256, %7865
   %7869 = add nsw i32 %7863, 1
-  store i32 %7869, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  store i32 %7869, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %7870
 
 7870:                                             ; preds = %.lr.ph10256, %7868, %7865
@@ -20275,7 +20275,7 @@ thread-pre-split13155:                            ; preds = %7713, %7718
   br i1 %.not5988, label %._crit_edge13071, label %.loopexit7124
 
 ._crit_edge13071:                                 ; preds = %7902
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %7905
 
 7905:                                             ; preds = %._crit_edge13071, %7900
@@ -20300,16 +20300,16 @@ thread-pre-split13155:                            ; preds = %7713, %7718
 
 7919:                                             ; preds = %7912, %7918
   %.05340 = phi i32 [ 1, %7918 ], [ 2, %7912 ]
-  store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 153), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 153), align 1
   %7920 = zext nneg i32 %.25338.lcssa to i64
   %7921 = sub nsw i64 0, %7920
   %7922 = getelementptr inbounds i8, ptr %7906, i64 %7921
-  store ptr %7922, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  store ptr %7922, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
   %7923 = getelementptr inbounds nuw i8, ptr %7829, i64 12
   store i32 %.25338.lcssa, ptr %7923, align 4
-  store i32 9, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
-  %.pre13072 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  %.pre13073 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  store i32 9, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
+  %.pre13072 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 40), align 8
+  %.pre13073 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %.pre13149 = ptrtoint ptr %.pre13073 to i64
   br label %.loopexit6860
 
@@ -20323,7 +20323,7 @@ thread-pre-split13155:                            ; preds = %7713, %7718
   %7926 = ptrtoint ptr %7925 to i64
   %7927 = sub i64 %7926, %.pre-phi13150
   %7928 = trunc i64 %7927 to i32
-  store i32 %7928, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %7928, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %7929 = sub i32 %7928, %.15341
   %7930 = zext i32 %7929 to i64
   %7931 = add nuw nsw i64 %7930, 32
@@ -20342,7 +20342,7 @@ thread-pre-split13155:                            ; preds = %7713, %7718
   store i8 0, ptr %7938, align 1
   store ptr %7933, ptr %0, align 8
   store i32 262, ptr %28, align 8
-  %7939 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %7939 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7940 = icmp ne ptr %7939, null
   %7941 = icmp eq i32 %.45335, -1
   %or.cond34.not6777 = select i1 %7940, i1 true, i1 %7941
@@ -20350,7 +20350,7 @@ thread-pre-split13155:                            ; preds = %7713, %7718
   br i1 %or.cond6678, label %7951, label %7942
 
 7942:                                             ; preds = %.loopexit6860
-  %7943 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %7943 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %7944 = getelementptr inbounds i8, ptr %7943, i64 -1
   %7945 = load i8, ptr %7944, align 1
   %7946 = icmp eq i8 %7945, 10
@@ -20362,8 +20362,8 @@ thread-pre-split13155:                            ; preds = %7713, %7718
   br i1 %7950, label %7951, label %.loopexit7124
 
 7951:                                             ; preds = %.loopexit6860, %7942
-  %7952 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
-  %7953 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %7952 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
+  %7953 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %7954 = sub i32 %7953, %.15341
   %7955 = zext i32 %7954 to i64
   %7956 = getelementptr inbounds nuw i8, ptr %7952, i64 %7955
@@ -20371,7 +20371,7 @@ thread-pre-split13155:                            ; preds = %7713, %7718
   br i1 %.not10399, label %.loopexit6824, label %.lr.ph10252.preheader
 
 .lr.ph10252.preheader:                            ; preds = %7951
-  %.promoted10249 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %.promoted10249 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %.lr.ph10252
 
 .lr.ph10252:                                      ; preds = %.lr.ph10252.preheader, %7964
@@ -20391,7 +20391,7 @@ thread-pre-split13155:                            ; preds = %7713, %7718
 
 7962:                                             ; preds = %.lr.ph10252, %7959
   %7963 = add nsw i32 %7957, 1
-  store i32 %7963, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  store i32 %7963, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %7964
 
 7964:                                             ; preds = %.lr.ph10252, %7962, %7959
@@ -20403,17 +20403,17 @@ thread-pre-split13155:                            ; preds = %7713, %7718
 7968:                                             ; preds = %7509, %7486, %7333, %7272, %7251, %7226, %7200, %6976, %6955, %6930, %6904, %6798, %6777, %6752, %6726, %6625, %.loopexit6933, %.loopexit6811, %.loopexit6946, %.loopexit7114, %860, %.loopexit7217
   %.05303 = phi i32 [ 0, %.loopexit7217 ], [ 1, %.loopexit7114 ], [ 0, %.loopexit6946 ], [ 10, %.loopexit6811 ], [ 0, %.loopexit6933 ], [ 1, %860 ], [ 0, %6625 ], [ 1, %6726 ], [ 1, %6777 ], [ 1, %6798 ], [ 1, %6752 ], [ 1, %6904 ], [ 1, %6955 ], [ 1, %6976 ], [ 1, %6930 ], [ 1, %7200 ], [ 1, %7251 ], [ 1, %7272 ], [ 1, %7226 ], [ 0, %7333 ], [ 1, %7509 ], [ 0, %7486 ]
   %.3 = phi i32 [ 262, %.loopexit7217 ], [ 263, %.loopexit7114 ], [ 265, %.loopexit6946 ], [ 264, %.loopexit6811 ], [ 262, %.loopexit6933 ], [ 266, %860 ], [ 262, %6625 ], [ 266, %6726 ], [ 266, %6777 ], [ 266, %6798 ], [ 266, %6752 ], [ 266, %6904 ], [ 266, %6955 ], [ 266, %6976 ], [ 266, %6930 ], [ 266, %7200 ], [ 266, %7251 ], [ 266, %7272 ], [ 266, %7226 ], [ 270, %7333 ], [ 266, %7509 ], [ 262, %7486 ]
-  %7969 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
+  %7969 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 208), align 8
   %.not6588 = icmp eq ptr %7969, null
   br i1 %.not6588, label %7989, label %7970
 
 7970:                                             ; preds = %7968
   store i64 0, ptr %25, align 8
   store ptr null, ptr %26, align 8
-  %7971 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %7971 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %7972 = zext nneg i32 %.05303 to i64
   %7973 = getelementptr inbounds nuw i8, ptr %7971, i64 %7972
-  %7974 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %7974 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %7975 = sub i32 %7974, %.05303
   %7976 = zext i32 %7975 to i64
   %7977 = call i64 %7969(ptr noundef nonnull %26, ptr noundef nonnull %25, ptr noundef %7973, i64 noundef %7976) #17
@@ -20440,10 +20440,10 @@ thread-pre-split13155:                            ; preds = %7713, %7718
   br label %.loopexit6824
 
 7989:                                             ; preds = %7968
-  %7990 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %7990 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %7991 = sub i32 %7990, %.05303
   %7992 = icmp eq i32 %7991, 1
-  %7993 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %7993 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
   %7994 = zext nneg i32 %.05303 to i64
   %7995 = getelementptr inbounds nuw i8, ptr %7993, i64 %7994
   br i1 %7992, label %7996, label %8001
@@ -20489,15 +20489,15 @@ thread-pre-split13155:                            ; preds = %7713, %7718
 
 .loopexit7124:                                    ; preds = %1170, %7800, %7782, %7778, %7757, %1203, %1194, %.loopexit6996, %7145, %7831, %check_nesting_at_end.exit, %7385, %6999, %6831, %6653, %827, %63, %7942, %7902, %7758, %7382, %7133, %7070, %.loopexit6816, %.loopexit6820, %3764, %3153, %3116, %1306, %384, %103, %60, %.loopexit6824, %.thread6766, %7806, %7491, %7390, %7210, %7205, %6914, %6909, %6865, %6736, %6731, %6704, %6636, %6630, %4661, %4656, %4215, %4197, %4179, %3769, %3729, %3159, %3119, %3098, %2941, %2010, %1999, %1997, %1995, %1993, %1991, %1777, %1775, %1675, %1673, %1671, %1666, %1311, %1287, %1281, %1279, %1278, %1271, %.loopexit7209, %1251, %1206, %1128, %1076, %1074, %1072, %1070, %1068, %1066, %1065, %1011, %1000, %.loopexit6894, %865, %839, %833, %801, %799, %790, %471, %388, %.loopexit7214, %.loopexit7215, %.loopexit6801, %.loopexit7208
   %.05302 = phi i32 [ 404, %.loopexit7215 ], [ %383, %.loopexit7214 ], [ %90, %.loopexit7208 ], [ 406, %471 ], [ %.16769, %.thread6766 ], [ %.1, %.loopexit6824 ], [ 373, %.loopexit7209 ], [ 403, %.loopexit6894 ], [ 359, %1671 ], [ 364, %1673 ], [ 123, %801 ], [ 96, %799 ], [ 360, %1666 ], [ 398, %790 ], [ 34, %.loopexit6801 ], [ 393, %3098 ], [ 393, %3159 ], [ 393, %3119 ], [ 385, %1999 ], [ 363, %2010 ], [ 400, %1311 ], [ 371, %1281 ], [ 362, %1997 ], [ 374, %1287 ], [ 368, %1995 ], [ 366, %1278 ], [ 386, %1279 ], [ 361, %1991 ], [ 372, %1993 ], [ 370, %1271 ], [ 367, %833 ], [ 397, %1251 ], [ 355, %1206 ], [ 399, %1777 ], [ 356, %1128 ], [ 376, %1072 ], [ 353, %1074 ], [ 384, %1076 ], [ 375, %1068 ], [ 352, %1070 ], [ 402, %1775 ], [ 401, %1065 ], [ 354, %1066 ], [ %391, %388 ], [ 383, %4215 ], [ 379, %4656 ], [ 406, %3769 ], [ 381, %4661 ], [ 377, %2941 ], [ 378, %4197 ], [ 382, %3729 ], [ 380, %4179 ], [ 365, %1000 ], [ 358, %1011 ], [ 357, %865 ], [ 351, %839 ], [ 369, %1675 ], [ 384, %6630 ], [ 385, %6636 ], [ 395, %6731 ], [ 96, %6704 ], [ 396, %6736 ], [ 34, %6865 ], [ 395, %6909 ], [ 396, %6914 ], [ 395, %7205 ], [ 396, %7210 ], [ %7397, %7390 ], [ 93, %7491 ], [ 394, %7806 ], [ 405, %60 ], [ 406, %103 ], [ 406, %384 ], [ %., %1306 ], [ 406, %3116 ], [ 406, %3153 ], [ 378, %3764 ], [ 406, %.loopexit6820 ], [ 406, %.loopexit6816 ], [ 406, %7070 ], [ 406, %7133 ], [ 405, %7382 ], [ 390, %7758 ], [ 406, %7902 ], [ 406, %7942 ], [ %spec.select6680, %63 ], [ %spec.select6681, %827 ], [ %spec.select6682, %6653 ], [ %spec.select6684, %6831 ], [ %spec.select6686, %6999 ], [ %spec.select6688, %7385 ], [ %spec.select6689, %check_nesting_at_end.exit ], [ %spec.select6690, %7831 ], [ 406, %7145 ], [ 406, %1170 ], [ 389, %7782 ], [ 389, %7778 ], [ 389, %7800 ], [ 389, %7757 ], [ 387, %.loopexit6996 ], [ 387, %1203 ], [ 388, %1194 ]
-  %8012 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
+  %8012 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 232), align 8
   %.not6595 = icmp eq ptr %8012, null
   br i1 %.not6595, label %.loopexit, label %8013
 
 8013:                                             ; preds = %.loopexit7124
-  %8014 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
-  %8015 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %8014 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
+  %8015 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %8016 = zext i32 %8015 to i64
-  %8017 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 240), align 8
+  %8017 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 240), align 8
   call void %8012(i32 noundef 0, i32 noundef %.05302, i32 noundef %.05304.ph.ph, ptr noundef %8014, i64 noundef %8016, ptr noundef %8017) #17
   br label %.loopexit
 
@@ -20505,7 +20505,7 @@ thread-pre-split13155:                            ; preds = %7713, %7718
   %.sink16837 = phi i32 [ %6388, %.loopexit7129 ], [ %6181, %.loopexit7126 ], [ %6025, %.loopexit7130 ], [ %5938, %.loopexit7149 ], [ %5923, %.loopexit7164 ], [ %5566, %.loopexit7127 ], [ %5451, %.loopexit7161 ], [ %5432, %.loopexit7165 ], [ %5325, %.loopexit7187 ], [ %5310, %.loopexit7188 ], [ %5265, %.loopexit7125 ], [ %5234, %.loopexit7133 ], [ %5191, %.loopexit7152 ], [ %5176, %5170 ], [ %5160, %.loopexit7162 ], [ %5145, %.loopexit7160 ], [ %5020, %.loopexit7184 ], [ %4935, %.loopexit7128 ], [ %4912, %.loopexit7131 ], [ %4840, %.loopexit7150 ], [ %4797, %.loopexit7169 ], [ %4737, %.loopexit7183 ], [ %4710, %.loopexit7198 ], [ %4695, %.loopexit7203 ], [ %4680, %.loopexit7207 ], [ %4577, %.loopexit7132 ], [ %4502, %.loopexit7148 ], [ %4471, %.loopexit7153 ], [ %4440, %.loopexit7163 ], [ %4409, %.loopexit7171 ], [ %4394, %.loopexit7174 ], [ %4379, %.loopexit7175 ], [ %4261, %.loopexit7195 ], [ %4246, %.loopexit7196 ], [ %4060, %.loopexit7145 ], [ %4045, %.loopexit7146 ], [ %4030, %.loopexit7147 ], [ %4007, %.loopexit7151 ], [ %3960, %.loopexit7168 ], [ 4, %.loopexit6932 ], [ %3858, %.loopexit7186 ], [ %3825, %.loopexit7191 ], [ %3617, %.loopexit7134 ], [ %3590, %.loopexit7138 ], [ %3575, %.loopexit7141 ], [ %3560, %.loopexit7143 ], [ %3545, %.loopexit7144 ], [ %3498, %.loopexit7154 ], [ %3479, %.loopexit7157 ], [ %3464, %.loopexit7159 ], [ %3417, %.loopexit7173 ], [ %3316, %.loopexit7185 ], [ %3293, %.loopexit7189 ], [ %3262, %.loopexit7197 ], [ %3247, %.loopexit7199 ], [ %3232, %.loopexit7200 ], [ %3217, %.loopexit7202 ], [ %3198, %.loopexit7204 ], [ %3183, %.loopexit7205 ], [ %2788, %.loopexit7158 ], [ %2747, %.loopexit7167 ], [ %2712, %.loopexit7176 ], [ %2697, %.loopexit7177 ], [ %2643, %.loopexit7190 ], [ %2614, %.loopexit7192 ], [ %2571, %.loopexit7201 ], [ %2361, %.loopexit7137 ], [ %2342, %.loopexit7139 ], [ %2327, %.loopexit7140 ], [ %2308, %.loopexit7142 ], [ %2247, %.loopexit7156 ], [ %2188, %.loopexit7170 ], [ %2124, %.loopexit7194 ], [ %2030, %.loopexit7206 ], [ %1564, %.loopexit7155 ], [ %1507, %.loopexit7166 ], [ %1476, %.loopexit7172 ], [ %1421, %.loopexit7193 ], [ %1338, %split ]
   %.ph = phi ptr [ %6383, %.loopexit7129 ], [ %6176, %.loopexit7126 ], [ %6020, %.loopexit7130 ], [ %5933, %.loopexit7149 ], [ %5918, %.loopexit7164 ], [ %5561, %.loopexit7127 ], [ %5447, %.loopexit7161 ], [ %5428, %.loopexit7165 ], [ %5320, %.loopexit7187 ], [ %5306, %.loopexit7188 ], [ %5261, %.loopexit7125 ], [ %5230, %.loopexit7133 ], [ %5187, %.loopexit7152 ], [ %5171, %5170 ], [ %5156, %.loopexit7162 ], [ %5141, %.loopexit7160 ], [ %5016, %.loopexit7184 ], [ %4931, %.loopexit7128 ], [ %4908, %.loopexit7131 ], [ %4836, %.loopexit7150 ], [ %4793, %.loopexit7169 ], [ %4733, %.loopexit7183 ], [ %4706, %.loopexit7198 ], [ %4691, %.loopexit7203 ], [ %4676, %.loopexit7207 ], [ %4573, %.loopexit7132 ], [ %4498, %.loopexit7148 ], [ %4467, %.loopexit7153 ], [ %4436, %.loopexit7163 ], [ %4405, %.loopexit7171 ], [ %4390, %.loopexit7174 ], [ %4375, %.loopexit7175 ], [ %4257, %.loopexit7195 ], [ %4242, %.loopexit7196 ], [ %4056, %.loopexit7145 ], [ %4041, %.loopexit7146 ], [ %4026, %.loopexit7147 ], [ %4003, %.loopexit7151 ], [ %3956, %.loopexit7168 ], [ %3867, %.loopexit6932 ], [ %3853, %.loopexit7186 ], [ %3821, %.loopexit7191 ], [ %3612, %.loopexit7134 ], [ %3585, %.loopexit7138 ], [ %3570, %.loopexit7141 ], [ %3556, %.loopexit7143 ], [ %3541, %.loopexit7144 ], [ %3494, %.loopexit7154 ], [ %3475, %.loopexit7157 ], [ %3460, %.loopexit7159 ], [ %3413, %.loopexit7173 ], [ %3312, %.loopexit7185 ], [ %3289, %.loopexit7189 ], [ %3258, %.loopexit7197 ], [ %3243, %.loopexit7199 ], [ %3228, %.loopexit7200 ], [ %3213, %.loopexit7202 ], [ %3194, %.loopexit7204 ], [ %3179, %.loopexit7205 ], [ %2784, %.loopexit7158 ], [ %2743, %.loopexit7167 ], [ %2708, %.loopexit7176 ], [ %2693, %.loopexit7177 ], [ %2639, %.loopexit7190 ], [ %2610, %.loopexit7192 ], [ %2567, %.loopexit7201 ], [ %2356, %.loopexit7137 ], [ %2338, %.loopexit7139 ], [ %2323, %.loopexit7140 ], [ %2304, %.loopexit7142 ], [ %2243, %.loopexit7156 ], [ %2184, %.loopexit7170 ], [ %2120, %.loopexit7194 ], [ %2026, %.loopexit7206 ], [ %1560, %.loopexit7155 ], [ %1503, %.loopexit7166 ], [ %1472, %.loopexit7172 ], [ %1417, %.loopexit7193 ], [ %1333, %split ]
   %.4.ph = phi i32 [ 332, %.loopexit7129 ], [ 350, %.loopexit7126 ], [ 349, %.loopexit7130 ], [ 276, %.loopexit7149 ], [ 273, %.loopexit7164 ], [ 348, %.loopexit7127 ], [ 283, %.loopexit7161 ], [ 338, %.loopexit7165 ], [ 298, %.loopexit7187 ], [ 300, %.loopexit7188 ], [ 347, %.loopexit7125 ], [ 346, %.loopexit7133 ], [ 325, %.loopexit7152 ], [ 339, %5170 ], [ 335, %.loopexit7162 ], [ 319, %.loopexit7160 ], [ 303, %.loopexit7184 ], [ 343, %.loopexit7128 ], [ 344, %.loopexit7131 ], [ 327, %.loopexit7150 ], [ 310, %.loopexit7169 ], [ 294, %.loopexit7183 ], [ 308, %.loopexit7198 ], [ 342, %.loopexit7203 ], [ 322, %.loopexit7207 ], [ 345, %.loopexit7132 ], [ 275, %.loopexit7148 ], [ 324, %.loopexit7153 ], [ 272, %.loopexit7163 ], [ 297, %.loopexit7171 ], [ 316, %.loopexit7174 ], [ 337, %.loopexit7175 ], [ 305, %.loopexit7195 ], [ 299, %.loopexit7196 ], [ 302, %.loopexit7145 ], [ 321, %.loopexit7146 ], [ 313, %.loopexit7147 ], [ 326, %.loopexit7151 ], [ 320, %.loopexit7168 ], [ 336, %.loopexit6932 ], [ 296, %.loopexit7186 ], [ 288, %.loopexit7191 ], [ 281, %.loopexit7134 ], [ 293, %.loopexit7138 ], [ 329, %.loopexit7141 ], [ 334, %.loopexit7143 ], [ 317, %.loopexit7144 ], [ 280, %.loopexit7154 ], [ 306, %.loopexit7157 ], [ 330, %.loopexit7159 ], [ 323, %.loopexit7173 ], [ 290, %.loopexit7185 ], [ 331, %.loopexit7189 ], [ 312, %.loopexit7197 ], [ 285, %.loopexit7199 ], [ 333, %.loopexit7200 ], [ 315, %.loopexit7202 ], [ 307, %.loopexit7204 ], [ 341, %.loopexit7205 ], [ 340, %.loopexit7158 ], [ 309, %.loopexit7167 ], [ 286, %.loopexit7176 ], [ 274, %.loopexit7177 ], [ 289, %.loopexit7190 ], [ 291, %.loopexit7192 ], [ 304, %.loopexit7201 ], [ 278, %.loopexit7137 ], [ 328, %.loopexit7139 ], [ 318, %.loopexit7140 ], [ 314, %.loopexit7142 ], [ 284, %.loopexit7156 ], [ 295, %.loopexit7170 ], [ 286, %.loopexit7194 ], [ 279, %.loopexit7206 ], [ 277, %.loopexit7155 ], [ 287, %.loopexit7166 ], [ 311, %.loopexit7172 ], [ 292, %.loopexit7193 ], [ 301, %split ]
-  store i32 %.sink16837, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %.sink16837, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit6800
 
 .loopexit6800:                                    ; preds = %5725, %.loopexit6800.sink.split, %.loopexit6913
@@ -20521,15 +20521,15 @@ thread-pre-split13155:                            ; preds = %7713, %7718
 
 8020:                                             ; preds = %.thread6770, %.loopexit6800
   %.46774 = phi i32 [ %.46773, %.thread6770 ], [ %.4, %.loopexit6800 ]
-  %8021 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
+  %8021 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 232), align 8
   %.not6577 = icmp eq ptr %8021, null
   br i1 %.not6577, label %.loopexit, label %8022
 
 8022:                                             ; preds = %8020
-  %8023 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
-  %8024 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %8023 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
+  %8024 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %8025 = zext i32 %8024 to i64
-  %8026 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 240), align 8
+  %8026 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 240), align 8
   tail call void %8021(i32 noundef 0, i32 noundef %.46774, i32 noundef %.05304.ph.ph, ptr noundef %8023, i64 noundef %8025, ptr noundef %8026) #17
   br label %.loopexit
 
@@ -20540,14 +20540,14 @@ thread-pre-split13155:                            ; preds = %7713, %7718
   %8028 = ptrtoint ptr %.promoted103951316013175.sink to i64
   %8029 = sub i64 %8027, %8028
   %storemerge6070 = trunc i64 %8029 to i32
-  store i32 %storemerge6070, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %storemerge6070, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %8030 = and i64 %8029, 4294967295
   %8031 = getelementptr inbounds nuw i8, ptr %.promoted103951316013175.sink, i64 %8030
   %.not10405 = icmp eq i64 %8030, 0
   br i1 %.not10405, label %._crit_edge10228, label %.lr.ph10227.preheader
 
 .lr.ph10227.preheader:                            ; preds = %.loopexit16933
-  %.promoted10224 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %.promoted10224 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %.lr.ph10227
 
 .lr.ph10227:                                      ; preds = %.lr.ph10227.preheader, %8039
@@ -20567,7 +20567,7 @@ thread-pre-split13155:                            ; preds = %7713, %7718
 
 8037:                                             ; preds = %.lr.ph10227, %8034
   %8038 = add nsw i32 %8032, 1
-  store i32 %8038, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  store i32 %8038, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %8039
 
 8039:                                             ; preds = %.lr.ph10227, %8037, %8034
@@ -20577,12 +20577,12 @@ thread-pre-split13155:                            ; preds = %7713, %7718
   br i1 %8042, label %.lr.ph10227, label %._crit_edge10228
 
 ._crit_edge10228:                                 ; preds = %8039, %.loopexit16933
-  %8043 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
+  %8043 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 232), align 8
   %.not6598 = icmp eq ptr %8043, null
   br i1 %.not6598, label %8046, label %8044
 
 8044:                                             ; preds = %._crit_edge10228
-  %8045 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 240), align 8
+  %8045 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 240), align 8
   tail call void %8043(i32 noundef 0, i32 noundef 392, i32 noundef %.05304.ph.ph, ptr noundef %.promoted103951316013175.sink, i64 noundef %8030, ptr noundef %8045) #17
   br label %8046
 
@@ -20591,20 +20591,20 @@ thread-pre-split13155:                            ; preds = %7713, %7718
 
 8047:                                             ; preds = %7800, %7782, %7778, %7757, %1203, %1194, %.loopexit6996
   %.2 = phi i32 [ 388, %1194 ], [ 387, %1203 ], [ 387, %.loopexit6996 ], [ 389, %7757 ], [ 389, %7800 ], [ 389, %7778 ], [ 389, %7782 ]
-  %8048 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
+  %8048 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 232), align 8
   %.not6584 = icmp eq ptr %8048, null
   br i1 %.not6584, label %thread-pre-split.outer.backedge, label %8049
 
 8049:                                             ; preds = %8047
-  %8050 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
-  %8051 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %8050 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 32), align 8
+  %8051 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 16), align 8
   %8052 = zext i32 %8051 to i64
-  %8053 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 240), align 8
+  %8053 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 240), align 8
   tail call void %8048(i32 noundef 0, i32 noundef %.2, i32 noundef %.05304.ph.ph, ptr noundef %8050, i64 noundef %8052, ptr noundef %8053) #17
   br label %thread-pre-split.outer.backedge
 
 thread-pre-split.outer.backedge:                  ; preds = %8047, %8049, %8046
-  %.05304.ph.ph.be = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %.05304.ph.ph.be = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %thread-pre-split.outer
 
 .loopexit:                                        ; preds = %6572, %8046, %7621, %6483, %6423, %6419, %6366, %6362, %6339, %6327, %6277, %6228, %6220, %6212, %6155, %6110, %6102, %6094, %6086, %.loopexit7104, %5979, %5894, %5875, %5867, %5859, %5755, %5653, %5638, %5630, %5622, %5403, %5388, %5377, %5366, %5359, %5104, %5089, %4767, %4751, %4335, %4317, %4306, %.loopexit7107, %3717, %3377, %._crit_edge13099, %2929, %1847, %1779, %1241, %1083, %662, %499, %.loopexit20794, %.preheader7112, %.preheader7108, %.preheader7087, %.preheader7083, %.preheader7075, %.preheader7063, %.preheader7059, %.preheader7054, %.preheader7032, %.preheader7022, %.preheader7018, %.preheader7014, %.preheader7010, %.preheader7006, %.preheader7003, %7282, %7602, %.preheader6988, %.lr.ph, %.preheader7117, %.backedge7116, %2366, %.backedge7111, %5996, %5767, %5529, %5205, %4866, %4082, %.preheader6975, %4553, %4884, %.backedge7091, %.backedge7086, %.loopexit6973, %4297, %.preheader6968, %3924, %4355, %.backedge7067, %.backedge7062, %.backedge7058, %2992, %2974, %.preheader7044, %.preheader7040, %.preheader7036, %.backedge7035, %.preheader7029, %1016, %.backedge7025, %.backedge7021, %.backedge7017, %.backedge7013, %.backedge7009, %.backedge7005, %4638, %4162, %.loopexit6892, %2889, %2435, %.loopexit6957, %1006, %989, %.loopexit6956, %.preheader6954, %1339, %.preheader6944, %.preheader6990, %.loopexit6941, %4857, %.preheader6935, %.backedge7080, %4286, %.backedge6974, %.preheader6925, %.preheader6966, %.preheader6964, %.preheader6962, %.loopexit6920, %2442, %.preheader6915, %1723, %2451, %1677, %.backedge6947, %.backedge6982, %4849, %.backedge6943, %.preheader6906, %.backedge6934, %5334, %5351, %5614, %5819, %5827, %5843, %6056, %6071, %6182, %6197, %6297, %6312, %6389, %6404, %6450, %6468, %6536, %6543, %6557, %.preheader6896, %5068, %.backedge6959, %2415, %.backedge6921, %.preheader6887, %.backedge6914, %5746, %5971, %.loopexit6880, %6521, %5508, %.backedge6902, %5805, %5812, %6038, %.backedge6895, %4135, %4171, %4647, %4959, %4972, %5266, %.preheader6869, %3685, %6497, %6431, %6347, %6262, %6139, %.preheader6876, %.preheader6862, %.backedge6875, %4948, %4987, %5281, %.backedge6868, %6125, %6132, %6247, %.preheader6855, %.preheader6853, %.preheader6849, %.preheader6847, %.preheader6843, %.preheader6841, %.preheader6837, %.preheader6835, %.preheader6832, %.backedge6831, %.preheader6827, %.preheader6822, %.preheader6818, %.preheader6813, %.preheader6809, %.backedge6812, %.backedge6804, %.preheader, %.preheader6829, %.preheader6802, %8020, %8022, %.loopexit7124, %8013, %7821, %7805, %7567, %7344, %6986, %6808, %6637
@@ -20615,18 +20615,18 @@ thread-pre-split.outer.backedge:                  ; preds = %8047, %8049, %8046
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @check_nesting_at_end() unnamed_addr #0 {
   %1 = alloca [256 x i8], align 16
-  %2 = tail call zeroext i1 @zend_stack_is_empty(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128)) #17
+  %2 = tail call zeroext i1 @zend_stack_is_empty(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128)) #17
   br i1 %2, label %18, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128)) #17
+  %4 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128)) #17
   %5 = load i8, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = load i32, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %1)
   %8 = sext i8 %5 to i32
   %9 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.23, i32 noundef %8) #17
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   %.not.i = icmp eq i32 %7, %10
   br i1 %.not.i, label %report_bad_nesting.exit, label %11
 
@@ -20676,9 +20676,9 @@ define internal fastcc range(i32 -1, 1) i32 @zend_scan_escape_string(ptr noundef
   ]
 
 16:                                               ; preds = %14, %14
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   %18 = add nsw i32 %17, 1
-  store i32 %18, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  store i32 %18, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %19
 
 19:                                               ; preds = %14, %16
@@ -20709,7 +20709,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_scan_escape_string(ptr noundef
   store ptr %28, ptr %0, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 262, ptr %34, align 8
-  %.promoted = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %.promoted = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %35
 
 35:                                               ; preds = %47, %24
@@ -20740,7 +20740,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_scan_escape_string(ptr noundef
 
 45:                                               ; preds = %35, %42
   %46 = add nsw i32 %36, 1
-  store i32 %46, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  store i32 %46, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %47
 
 47:                                               ; preds = %35, %45, %42
@@ -21086,7 +21086,7 @@ switch.early.test326:                             ; preds = %.lr.ph
   br i1 %186, label %187, label %.thread
 
 187:                                              ; preds = %185
-  %188 = load i8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 152), align 8
+  %188 = load i8, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 152), align 8
   %189 = trunc i8 %188 to i1
   br i1 %189, label %.thread, label %190
 
@@ -21131,9 +21131,9 @@ switch.early.test326:                             ; preds = %.lr.ph
   br i1 %.not301, label %208, label %205
 
 205:                                              ; preds = %200, %202
-  %206 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %206 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   %207 = add nsw i32 %206, 1
-  store i32 %207, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  store i32 %207, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   br label %208
 
 208:                                              ; preds = %200, %205, %202
@@ -21154,7 +21154,7 @@ switch.early.test326:                             ; preds = %.lr.ph
   br label %.loopexit328
 
 .loopexit328:                                     ; preds = %47, %11, %19, %.loopexit
-  %217 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
+  %217 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 208), align 8
   %.not303 = icmp eq ptr %217, null
   br i1 %.not303, label %236, label %218
 
@@ -21197,7 +21197,7 @@ switch.early.test326:                             ; preds = %.lr.ph
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @exit_nesting(i8 noundef signext %0) unnamed_addr #0 {
   %2 = alloca [256 x i8], align 16
-  %3 = tail call zeroext i1 @zend_stack_is_empty(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128)) #17
+  %3 = tail call zeroext i1 @zend_stack_is_empty(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128)) #17
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %1
@@ -21207,7 +21207,7 @@ define internal fastcc range(i32 -1, 1) i32 @exit_nesting(i8 noundef signext %0)
   br label %41
 
 8:                                                ; preds = %1
-  %9 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128)) #17
+  %9 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128)) #17
   %10 = load i8, ptr %9, align 4
   %11 = icmp eq i8 %10, 123
   %12 = icmp ne i8 %0, 125
@@ -21233,7 +21233,7 @@ define internal fastcc range(i32 -1, 1) i32 @exit_nesting(i8 noundef signext %0)
   %22 = zext nneg i8 %10 to i32
   %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.23, i32 noundef %22) #17
   %24 = sext i32 %23 to i64
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   %.not.i = icmp eq i32 %21, %25
   br i1 %.not.i, label %32, label %26
 
@@ -21264,7 +21264,7 @@ report_bad_nesting.exit:                          ; preds = %32, %33
   br label %41
 
 40:                                               ; preds = %16
-  tail call void @zend_stack_del_top(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128)) #17
+  tail call void @zend_stack_del_top(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 128)) #17
   br label %41
 
 41:                                               ; preds = %40, %report_bad_nesting.exit, %4
@@ -21291,10 +21291,10 @@ declare zeroext i1 @zend_stack_is_empty(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @yy_pop_state() unnamed_addr #0 {
-  %1 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72)) #17
+  %1 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72)) #17
   %2 = load i32, ptr %1, align 4
-  store i32 %2, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
-  tail call void @zend_stack_del_top(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72)) #17
+  store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 64), align 8
+  tail call void @zend_stack_del_top(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 72)) #17
   ret void
 }
 
@@ -21318,13 +21318,13 @@ define internal void @copy_heredoc_label_stack(ptr nocapture noundef readonly %0
   %6 = sext i32 %5 to i64
   %7 = tail call noalias ptr @_estrndup(ptr noundef %3, i64 noundef %6) #17
   store ptr %7, ptr %2, align 8
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), align 8
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 100), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 100), align 4
   %.not = icmp slt i32 %8, %9
   br i1 %.not, label %._crit_edge, label %.preheader
 
 ._crit_edge:                                      ; preds = %1
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 112), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 112), align 8
   br label %33
 
 .preheader:                                       ; preds = %1
@@ -21339,10 +21339,10 @@ define internal void @copy_heredoc_label_stack(ptr nocapture noundef readonly %0
   %17 = and i32 %16, -64
   %18 = add i32 %9, %17
   %19 = add i32 %18, 64
-  store i32 %19, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 100), align 4
-  %20 = load i8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 120), align 8
+  store i32 %19, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 100), align 4
+  %20 = load i8, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 120), align 8
   %21 = trunc i8 %20 to i1
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 104), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 104), align 8
   %23 = sext i32 %19 to i64
   br i1 %21, label %24, label %26
 
@@ -21356,8 +21356,8 @@ define internal void @copy_heredoc_label_stack(ptr nocapture noundef readonly %0
 
 28:                                               ; preds = %26, %24
   %29 = phi ptr [ %25, %24 ], [ %27, %26 ]
-  store ptr %29, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 104), align 8
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), align 8
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 104), align 8
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96), align 8
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds ptr, ptr %29, i64 %31
   br label %33
@@ -21366,9 +21366,9 @@ define internal void @copy_heredoc_label_stack(ptr nocapture noundef readonly %0
   %34 = phi ptr [ %32, %28 ], [ %.pre, %._crit_edge ]
   %35 = phi i32 [ %30, %28 ], [ %8, %._crit_edge ]
   %36 = add nsw i32 %35, 1
-  store i32 %36, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), align 8
+  store i32 %36, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 96), align 8
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store ptr %37, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 112), align 8
+  store ptr %37, ptr getelementptr inbounds nuw (i8, ptr @language_scanner_globals, i64 112), align 8
   store ptr %2, ptr %34, align 8
   ret void
 }
@@ -21626,18 +21626,18 @@ next_newline.exit90:                              ; preds = %.lr.ph.i87, %90, %.
 
 .split.us:                                        ; preds = %94, %.lr.ph, %74, %.lr.ph.us
   %.us-phi = phi i32 [ %.168121.us131, %.lr.ph.us ], [ %.168121.us131, %74 ], [ %.168121, %.lr.ph ], [ %.168121, %94 ]
-  %96 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %96 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   %97 = add nsw i32 %96, %.us-phi
-  store i32 %97, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  store i32 %97, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   %98 = load ptr, ptr @zend_ce_parse_error, align 8
   %99 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %98, i64 noundef 0, ptr noundef nonnull @.str.7, i32 noundef %1) #17
   br label %127
 
 .split112.us:                                     ; preds = %94, %74
   %.us-phi113 = phi i32 [ %.168121.us131, %74 ], [ %.168121, %94 ]
-  %100 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   %101 = add nsw i32 %100, %.us-phi113
-  store i32 %101, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  store i32 %101, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
   %102 = load ptr, ptr @zend_ce_parse_error, align 8
   %103 = tail call ptr @zend_throw_exception(ptr noundef %102, ptr noundef nonnull @.str.6, i64 noundef 0) #17
   br label %127

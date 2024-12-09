@@ -772,7 +772,7 @@ define dso_local i32 @devinet_ioctl(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %68, label %99, label %108
 
 99:                                               ; preds = %98
-  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %101 = tail call noalias noundef align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %100, i32 noundef 4197824, i64 noundef 120) #20
   %102 = icmp eq ptr %101, null
   br i1 %102, label %228, label %103
@@ -2148,7 +2148,7 @@ define internal i32 @inet_rtm_newaddr(ptr nocapture noundef readonly %0, ptr nou
   br i1 %50, label %.thread, label %51
 
 51:                                               ; preds = %47
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %53 = call noalias noundef align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %52, i32 noundef 4197824, i64 noundef 120) #20
   %54 = icmp eq ptr %53, null
   br i1 %54, label %.thread, label %55
@@ -4798,12 +4798,12 @@ define internal noundef range(i32 -12, 1) i32 @devinet_init_net(ptr noundef %0) 
   br label %33
 
 31:                                               ; preds = %16, %16
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @init_net, i64 944), align 16
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_net, i64 944), align 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef align 8 dereferenceable(152) %32, i64 152, i1 false)
   br label %33
 
 33:                                               ; preds = %31, %18
-  %34 = phi ptr [ %30, %18 ], [ getelementptr inbounds (i8, ptr @init_net, i64 952), %31 ]
+  %34 = phi ptr [ %30, %18 ], [ getelementptr inbounds nuw (i8, ptr @init_net, i64 952), %31 ]
   %35 = load ptr, ptr %34, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %5, ptr noundef align 8 dereferenceable(152) %35, i64 152, i1 false)
   br label %36
@@ -5480,7 +5480,7 @@ define internal range(i32 32768, 2) i32 @inetdev_event(ptr nocapture readnone %0
   br i1 %51, label %82, label %52
 
 52:                                               ; preds = %47
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %54 = tail call noalias noundef align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %53, i32 noundef 4197824, i64 noundef 120) #20
   %55 = icmp eq ptr %54, null
   br i1 %55, label %82, label %56
@@ -5850,7 +5850,7 @@ define internal fastcc ptr @inetdev_init(ptr noundef %0) unnamed_addr #0 align 1
   br label %7
 
 7:                                                ; preds = %6, %1
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %9 = tail call noalias align 8 dereferenceable_or_null(360) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 360) #20
   %10 = icmp eq ptr %9, null
   br i1 %10, label %93, label %11

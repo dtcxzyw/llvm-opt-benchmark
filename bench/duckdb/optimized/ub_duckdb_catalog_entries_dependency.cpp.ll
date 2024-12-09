@@ -144,7 +144,7 @@ if.then.i.i33:                                    ; preds = %invoke.cont
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb15DependencyEntryE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb15DependencyEntryE, i64 16), ptr %this, align 8, !tbaa !14
   %dependent_name = getelementptr inbounds nuw i8, ptr %this, i64 104
   invoke void @_ZN6duckdb17DependencyManager10MangleNameERKNS_16CatalogEntryInfoE(ptr dead_on_unwind nonnull writable sret(%"struct.duckdb::MangledEntryName") align 8 %dependent_name, ptr noundef nonnull align 8 dereferenceable(72) %info)
           to label %invoke.cont5 unwind label %lpad4
@@ -166,7 +166,7 @@ invoke.cont12:                                    ; preds = %invoke.cont8
   %value2.i.i.i = getelementptr inbounds nuw i8, ptr %info, i64 80
   %10 = load i8, ptr %value2.i.i.i, align 8, !tbaa !16
   store i8 %10, ptr %value.i.i.i, align 8, !tbaa !16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags.i, align 8, !tbaa !14
   %subject13 = getelementptr inbounds nuw i8, ptr %this, i64 256
   invoke void @_ZN6duckdb16CatalogEntryInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %subject13, ptr noundef nonnull align 8 dereferenceable(72) %subject)
           to label %invoke.cont16 unwind label %lpad15
@@ -177,7 +177,7 @@ invoke.cont16:                                    ; preds = %invoke.cont12
   %value2.i.i.i36 = getelementptr inbounds nuw i8, ptr %info, i64 168
   %11 = load i8, ptr %value2.i.i.i36, align 8, !tbaa !16
   store i8 %11, ptr %value.i.i.i35, align 8, !tbaa !16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 16), ptr %flags.i34, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 16), ptr %flags.i34, align 8, !tbaa !14
   %side17 = getelementptr inbounds nuw i8, ptr %this, i64 344
   store i8 %side, ptr %side17, align 8, !tbaa !18
   %call = invoke noundef zeroext i1 @_ZNK6duckdb7Catalog18IsTemporaryCatalogEv(ptr noundef nonnull align 8 dereferenceable(16) %catalog)
@@ -414,7 +414,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6duckdb15DependencyEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(345) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb15DependencyEntryE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb15DependencyEntryE, i64 16), ptr %this, align 8, !tbaa !14
   %name.i.i = getelementptr inbounds nuw i8, ptr %this, i64 296
   %0 = load ptr, ptr %name.i.i, align 8, !tbaa !8
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 312
@@ -622,7 +622,7 @@ if.then.i.i.i25:                                  ; preds = %_ZN6duckdb16Mangled
 _ZN6duckdb16MangledEntryNameD2Ev.exit29:          ; preds = %if.then.i.i.i25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #15
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb22DependencySubjectEntryE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb22DependencySubjectEntryE, i64 16), ptr %this, align 8, !tbaa !14
   ret void
 
 lpad:                                             ; preds = %entry
@@ -821,7 +821,7 @@ if.then.i.i.i25:                                  ; preds = %_ZN6duckdb16Mangled
 _ZN6duckdb16MangledEntryNameD2Ev.exit29:          ; preds = %if.then.i.i.i25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #15
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb24DependencyDependentEntryE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb24DependencyDependentEntryE, i64 16), ptr %this, align 8, !tbaa !14
   ret void
 
 lpad:                                             ; preds = %entry

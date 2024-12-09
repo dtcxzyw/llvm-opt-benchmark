@@ -34,7 +34,7 @@ define hidden void @_ZN17EpsilonMemoryPoolC2EP11EpsilonHeap(ptr noundef nonnull 
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(480) %1) #3
   tail call void @_ZN10MemoryPoolC2EPKcNS_8PoolTypeEmmbb(ptr noundef nonnull align 8 dereferenceable(201) %0, ptr noundef nonnull @.str, i32 noundef 1, i64 noundef %6, i64 noundef %10, i1 noundef zeroext false, i1 noundef zeroext true) #3
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV17EpsilonMemoryPool, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV17EpsilonMemoryPool, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %1, ptr %11, align 8
   ret void

@@ -92,7 +92,7 @@ define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #3 sect
   br label %2
 
 2:                                                ; preds = %2, %1
-  %3 = phi ptr [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 736), %1 ], [ %4, %2 ]
+  %3 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 736), %1 ], [ %4, %2 ]
   %4 = getelementptr inbounds i8, ptr %3, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   %5 = icmp eq ptr %4, @_ZL9ColorMapsB5cxx11
@@ -1128,112 +1128,112 @@ __cxx_global_var_init.1.exit:                     ; preds = %0
 
 29:                                               ; preds = %__cxx_global_var_init.1.exit
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 32), ptr noundef nonnull @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 32), ptr noundef nonnull @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %30 unwind label %52
 
 30:                                               ; preds = %29
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 64), ptr noundef nonnull @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 64), ptr noundef nonnull @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %31 unwind label %54
 
 31:                                               ; preds = %30
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 96), ptr noundef nonnull @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 96), ptr noundef nonnull @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %32 unwind label %56
 
 32:                                               ; preds = %31
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 128), ptr noundef nonnull @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 128), ptr noundef nonnull @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %33 unwind label %58
 
 33:                                               ; preds = %32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 160), ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 160), ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %34 unwind label %60
 
 34:                                               ; preds = %33
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 192), ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 192), ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %35 unwind label %62
 
 35:                                               ; preds = %34
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 224), ptr noundef nonnull @.str.10, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 224), ptr noundef nonnull @.str.10, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %36 unwind label %64
 
 36:                                               ; preds = %35
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 256), ptr noundef nonnull @.str.11, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 256), ptr noundef nonnull @.str.11, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %37 unwind label %66
 
 37:                                               ; preds = %36
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 288), ptr noundef nonnull @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 288), ptr noundef nonnull @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %38 unwind label %68
 
 38:                                               ; preds = %37
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 320), ptr noundef nonnull @.str.13, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 320), ptr noundef nonnull @.str.13, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %39 unwind label %70
 
 39:                                               ; preds = %38
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 352), ptr noundef nonnull @.str.14, ptr noundef nonnull align 1 dereferenceable(1) %12)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 352), ptr noundef nonnull @.str.14, ptr noundef nonnull align 1 dereferenceable(1) %12)
           to label %40 unwind label %72
 
 40:                                               ; preds = %39
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 384), ptr noundef nonnull @.str.15, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 384), ptr noundef nonnull @.str.15, ptr noundef nonnull align 1 dereferenceable(1) %13)
           to label %41 unwind label %74
 
 41:                                               ; preds = %40
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 416), ptr noundef nonnull @.str.16, ptr noundef nonnull align 1 dereferenceable(1) %14)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 416), ptr noundef nonnull @.str.16, ptr noundef nonnull align 1 dereferenceable(1) %14)
           to label %42 unwind label %76
 
 42:                                               ; preds = %41
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 448), ptr noundef nonnull @.str.17, ptr noundef nonnull align 1 dereferenceable(1) %15)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 448), ptr noundef nonnull @.str.17, ptr noundef nonnull align 1 dereferenceable(1) %15)
           to label %43 unwind label %78
 
 43:                                               ; preds = %42
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 480), ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %16)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 480), ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %16)
           to label %44 unwind label %80
 
 44:                                               ; preds = %43
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 512), ptr noundef nonnull @.str.19, ptr noundef nonnull align 1 dereferenceable(1) %17)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 512), ptr noundef nonnull @.str.19, ptr noundef nonnull align 1 dereferenceable(1) %17)
           to label %45 unwind label %82
 
 45:                                               ; preds = %44
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 544), ptr noundef nonnull @.str.20, ptr noundef nonnull align 1 dereferenceable(1) %18)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 544), ptr noundef nonnull @.str.20, ptr noundef nonnull align 1 dereferenceable(1) %18)
           to label %46 unwind label %84
 
 46:                                               ; preds = %45
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 576), ptr noundef nonnull @.str.21, ptr noundef nonnull align 1 dereferenceable(1) %19)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 576), ptr noundef nonnull @.str.21, ptr noundef nonnull align 1 dereferenceable(1) %19)
           to label %47 unwind label %86
 
 47:                                               ; preds = %46
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 608), ptr noundef nonnull @.str.22, ptr noundef nonnull align 1 dereferenceable(1) %20)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 608), ptr noundef nonnull @.str.22, ptr noundef nonnull align 1 dereferenceable(1) %20)
           to label %48 unwind label %88
 
 48:                                               ; preds = %47
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 640), ptr noundef nonnull @.str.23, ptr noundef nonnull align 1 dereferenceable(1) %21)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 640), ptr noundef nonnull @.str.23, ptr noundef nonnull align 1 dereferenceable(1) %21)
           to label %49 unwind label %90
 
 49:                                               ; preds = %48
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 672), ptr noundef nonnull @.str.24, ptr noundef nonnull align 1 dereferenceable(1) %22)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 672), ptr noundef nonnull @.str.24, ptr noundef nonnull align 1 dereferenceable(1) %22)
           to label %50 unwind label %92
 
 50:                                               ; preds = %49
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 704), ptr noundef nonnull @.str.25, ptr noundef nonnull align 1 dereferenceable(1) %23)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 704), ptr noundef nonnull @.str.25, ptr noundef nonnull align 1 dereferenceable(1) %23)
           to label %__cxx_global_var_init.2.exit unwind label %94
 
 .thread.i:                                        ; preds = %__cxx_global_var_init.1.exit
@@ -1353,127 +1353,127 @@ __cxx_global_var_init.1.exit:                     ; preds = %0
   br label %96
 
 96:                                               ; preds = %94, %92
-  %.2152.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 704), %94 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 672), %92 ]
+  %.2152.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 704), %94 ], [ getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 672), %92 ]
   %.pn.i = phi { ptr, i32 } [ %95, %94 ], [ %93, %92 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #13
   br label %97
 
 97:                                               ; preds = %96, %90
-  %.2051.i = phi ptr [ %.2152.i, %96 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 640), %90 ]
+  %.2051.i = phi ptr [ %.2152.i, %96 ], [ getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 640), %90 ]
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %96 ], [ %91, %90 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #13
   br label %98
 
 98:                                               ; preds = %97, %88
-  %.1950.i = phi ptr [ %.2051.i, %97 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 608), %88 ]
+  %.1950.i = phi ptr [ %.2051.i, %97 ], [ getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 608), %88 ]
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %97 ], [ %89, %88 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #13
   br label %99
 
 99:                                               ; preds = %98, %86
-  %.1849.i = phi ptr [ %.1950.i, %98 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 576), %86 ]
+  %.1849.i = phi ptr [ %.1950.i, %98 ], [ getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 576), %86 ]
   %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.i, %98 ], [ %87, %86 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #13
   br label %100
 
 100:                                              ; preds = %99, %84
-  %.1748.i = phi ptr [ %.1849.i, %99 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 544), %84 ]
+  %.1748.i = phi ptr [ %.1849.i, %99 ], [ getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 544), %84 ]
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.i, %99 ], [ %85, %84 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #13
   br label %101
 
 101:                                              ; preds = %100, %82
-  %.1647.i = phi ptr [ %.1748.i, %100 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 512), %82 ]
+  %.1647.i = phi ptr [ %.1748.i, %100 ], [ getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 512), %82 ]
   %.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i, %100 ], [ %83, %82 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #13
   br label %102
 
 102:                                              ; preds = %101, %80
-  %.1546.i = phi ptr [ %.1647.i, %101 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 480), %80 ]
+  %.1546.i = phi ptr [ %.1647.i, %101 ], [ getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 480), %80 ]
   %.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.i, %101 ], [ %81, %80 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #13
   br label %103
 
 103:                                              ; preds = %102, %78
-  %.1445.i = phi ptr [ %.1546.i, %102 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 448), %78 ]
+  %.1445.i = phi ptr [ %.1546.i, %102 ], [ getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 448), %78 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %102 ], [ %79, %78 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #13
   br label %104
 
 104:                                              ; preds = %103, %76
-  %.1344.i = phi ptr [ %.1445.i, %103 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 416), %76 ]
+  %.1344.i = phi ptr [ %.1445.i, %103 ], [ getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 416), %76 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.i, %103 ], [ %77, %76 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #13
   br label %105
 
 105:                                              ; preds = %104, %74
-  %.1243.i = phi ptr [ %.1344.i, %104 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 384), %74 ]
+  %.1243.i = phi ptr [ %.1344.i, %104 ], [ getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 384), %74 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %104 ], [ %75, %74 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #13
   br label %106
 
 106:                                              ; preds = %105, %72
-  %.1142.i = phi ptr [ %.1243.i, %105 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 352), %72 ]
+  %.1142.i = phi ptr [ %.1243.i, %105 ], [ getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 352), %72 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %105 ], [ %73, %72 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #13
   br label %107
 
 107:                                              ; preds = %106, %70
-  %.1041.i = phi ptr [ %.1142.i, %106 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 320), %70 ]
+  %.1041.i = phi ptr [ %.1142.i, %106 ], [ getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 320), %70 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %106 ], [ %71, %70 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #13
   br label %108
 
 108:                                              ; preds = %107, %68
-  %.940.i = phi ptr [ %.1041.i, %107 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 288), %68 ]
+  %.940.i = phi ptr [ %.1041.i, %107 ], [ getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 288), %68 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %107 ], [ %69, %68 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #13
   br label %109
 
 109:                                              ; preds = %108, %66
-  %.839.i = phi ptr [ %.940.i, %108 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 256), %66 ]
+  %.839.i = phi ptr [ %.940.i, %108 ], [ getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 256), %66 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %108 ], [ %67, %66 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #13
   br label %110
 
 110:                                              ; preds = %109, %64
-  %.738.i = phi ptr [ %.839.i, %109 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 224), %64 ]
+  %.738.i = phi ptr [ %.839.i, %109 ], [ getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 224), %64 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %109 ], [ %65, %64 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #13
   br label %111
 
 111:                                              ; preds = %110, %62
-  %.637.i = phi ptr [ %.738.i, %110 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 192), %62 ]
+  %.637.i = phi ptr [ %.738.i, %110 ], [ getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 192), %62 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %110 ], [ %63, %62 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #13
   br label %112
 
 112:                                              ; preds = %111, %60
-  %.536.i = phi ptr [ %.637.i, %111 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 160), %60 ]
+  %.536.i = phi ptr [ %.637.i, %111 ], [ getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 160), %60 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %111 ], [ %61, %60 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #13
   br label %113
 
 113:                                              ; preds = %112, %58
-  %.435.i = phi ptr [ %.536.i, %112 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 128), %58 ]
+  %.435.i = phi ptr [ %.536.i, %112 ], [ getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 128), %58 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %112 ], [ %59, %58 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   br label %114
 
 114:                                              ; preds = %113, %56
-  %.334.i = phi ptr [ %.435.i, %113 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 96), %56 ]
+  %.334.i = phi ptr [ %.435.i, %113 ], [ getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 96), %56 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %113 ], [ %57, %56 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #13
   br label %115
 
 115:                                              ; preds = %114, %54
-  %.233.i = phi ptr [ %.334.i, %114 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 64), %54 ]
+  %.233.i = phi ptr [ %.334.i, %114 ], [ getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 64), %54 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %114 ], [ %55, %54 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   br label %116
 
 116:                                              ; preds = %115, %52
-  %.132.i = phi ptr [ %.233.i, %115 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 32), %52 ]
+  %.132.i = phi ptr [ %.233.i, %115 ], [ getelementptr inbounds nuw (i8, ptr @_ZL9ColorMapsB5cxx11, i64 32), %52 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %115 ], [ %53, %52 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #13

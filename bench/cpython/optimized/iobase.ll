@@ -959,7 +959,7 @@ define hidden noundef ptr @_PyIOBase_check_closed(ptr noundef %self, ptr nocaptu
 entry:
   %res.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i)
-  %call.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 40472), ptr noundef nonnull %res.i) #6
+  %call.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40472), ptr noundef nonnull %res.i) #6
   %cmp.i = icmp sgt i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %iobase_check_closed.exit
 
@@ -1050,7 +1050,7 @@ entry:
   %self.addr.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
   store ptr %self, ptr %self.addr.i, align 8
-  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 57432), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #6
+  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57432), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
@@ -1112,7 +1112,7 @@ entry:
   %self.addr.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
   store ptr %self, ptr %self.addr.i, align 8
-  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 56128), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #6
+  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56128), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
@@ -1174,7 +1174,7 @@ entry:
   %self.addr.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
   store ptr %self, ptr %self.addr.i, align 8
-  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 62192), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #6
+  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62192), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
@@ -1416,7 +1416,7 @@ define internal noundef ptr @iobase_iter(ptr noundef %self) #0 {
 entry:
   %res.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i)
-  %call.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 40472), ptr noundef nonnull %res.i) #6
+  %call.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40472), ptr noundef nonnull %res.i) #6
   %cmp.i = icmp sgt i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %iobase_check_closed.exit
 
@@ -1476,7 +1476,7 @@ entry:
   %self.addr.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
   store ptr %self, ptr %self.addr.i, align 8
-  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 56344), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #6
+  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56344), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
@@ -1513,7 +1513,7 @@ entry:
   %self.addr.i = alloca ptr, align 8
   %res = alloca ptr, align 8
   %call = tail call ptr @PyErr_GetRaisedException() #6
-  %call1 = call i32 @PyObject_GetOptionalAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 40472), ptr noundef nonnull %res) #6
+  %call1 = call i32 @PyObject_GetOptionalAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40472), ptr noundef nonnull %res) #6
   %cmp = icmp slt i32 %call1, 1
   br i1 %cmp, label %if.then, label %if.else
 
@@ -1551,7 +1551,7 @@ if.then4:                                         ; preds = %Py_DECREF.exit25
   br label %if.end16
 
 if.then7:                                         ; preds = %Py_DECREF.exit25
-  %call8 = call i32 @PyObject_SetAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 36056), ptr noundef nonnull @_Py_TrueStruct) #6
+  %call8 = call i32 @PyObject_SetAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 36056), ptr noundef nonnull @_Py_TrueStruct) #6
   %tobool.not = icmp eq i32 %call8, 0
   br i1 %tobool.not, label %if.end10, label %if.then9
 
@@ -1562,7 +1562,7 @@ if.then9:                                         ; preds = %if.then7
 if.end10:                                         ; preds = %if.then9, %if.then7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
   store ptr %self, ptr %self.addr.i, align 8
-  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 40424), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #6
+  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40424), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i)
   store ptr %call.i, ptr %res, align 8
   %cmp12 = icmp eq ptr %call.i, null
@@ -1659,7 +1659,7 @@ exit:                                             ; preds = %land.lhs.true19, %l
 ; Function Attrs: nounwind uwtable
 define internal ptr @_io__IOBase_tell(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %call.i = tail call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 57384), ptr noundef nonnull @.str.27, i32 noundef 0, i32 noundef 1) #6
+  %call.i = tail call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57384), ptr noundef nonnull @.str.27, i32 noundef 0, i32 noundef 1) #6
   ret ptr %call.i
 }
 
@@ -1696,7 +1696,7 @@ exit:                                             ; preds = %cond.end, %skip_opt
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @_io__IOBase_flush(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %call.i.i = tail call i32 @PyObject_HasAttrWithError(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26328)) #6
+  %call.i.i = tail call i32 @PyObject_HasAttrWithError(ptr noundef %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26328)) #6
   %tobool.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i, label %_io__IOBase_flush_impl.exit, label %if.end.i
 
@@ -1717,7 +1717,7 @@ _io__IOBase_flush_impl.exit:                      ; preds = %entry, %if.end.i, %
 ; Function Attrs: nounwind uwtable
 define internal ptr @_io__IOBase_close(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %call.i.i = tail call i32 @PyObject_HasAttrWithError(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26328)) #6
+  %call.i.i = tail call i32 @PyObject_HasAttrWithError(ptr noundef %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26328)) #6
   %cmp.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i, label %_io__IOBase_close_impl.exit, label %if.end.i
 
@@ -1728,7 +1728,7 @@ if.end.i:                                         ; preds = %entry
 if.end2.i:                                        ; preds = %if.end.i
   %call3.i = tail call i32 @_PyFile_Flush(ptr noundef %self) #6
   %call4.i = tail call ptr @PyErr_GetRaisedException() #6
-  %call5.i = tail call i32 @PyObject_SetAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26328), ptr noundef nonnull @_Py_TrueStruct) #6
+  %call5.i = tail call i32 @PyObject_SetAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26328), ptr noundef nonnull @_Py_TrueStruct) #6
   tail call void @_PyErr_ChainExceptions1(ptr noundef %call4.i) #6
   %cmp6.i = icmp slt i32 %call3.i, 0
   %cmp7.i = icmp slt i32 %call5.i, 0
@@ -1770,7 +1770,7 @@ entry:
   %call.val.i = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i.i)
   store ptr %self, ptr %self.addr.i.i, align 8
-  %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 57432), ptr noundef nonnull %self.addr.i.i, i64 noundef -9223372036854775807, ptr noundef null) #6
+  %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57432), ptr noundef nonnull %self.addr.i.i, i64 noundef -9223372036854775807, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i.i)
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %_PyIOBase_check_seekable.exit, label %if.end.i
@@ -1837,7 +1837,7 @@ entry:
   %call.val.i = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i.i)
   store ptr %self, ptr %self.addr.i.i, align 8
-  %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 56128), ptr noundef nonnull %self.addr.i.i, i64 noundef -9223372036854775807, ptr noundef null) #6
+  %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56128), ptr noundef nonnull %self.addr.i.i, i64 noundef -9223372036854775807, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i.i)
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %_PyIOBase_check_readable.exit, label %if.end.i
@@ -1904,7 +1904,7 @@ entry:
   %call.val.i = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i.i)
   store ptr %self, ptr %self.addr.i.i, align 8
-  %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 62192), ptr noundef nonnull %self.addr.i.i, i64 noundef -9223372036854775807, ptr noundef null) #6
+  %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62192), ptr noundef nonnull %self.addr.i.i, i64 noundef -9223372036854775807, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i.i)
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %_PyIOBase_check_writable.exit, label %if.end.i
@@ -1990,7 +1990,7 @@ define internal noundef ptr @_io__IOBase_isatty(ptr noundef %self, ptr nocapture
 entry:
   %res.i.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i.i)
-  %call.i.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 40472), ptr noundef nonnull %res.i.i) #6
+  %call.i.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40472), ptr noundef nonnull %res.i.i) #6
   %cmp.i.i = icmp sgt i32 %call.i.i, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %iobase_check_closed.exit.i
 
@@ -2041,7 +2041,7 @@ define internal noundef ptr @iobase_enter(ptr noundef %self, ptr nocapture readn
 entry:
   %res.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i)
-  %call.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 40472), ptr noundef nonnull %res.i) #6
+  %call.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40472), ptr noundef nonnull %res.i) #6
   %cmp.i = icmp sgt i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %iobase_check_closed.exit
 
@@ -2101,7 +2101,7 @@ entry:
   %self.addr.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
   store ptr %self, ptr %self.addr.i, align 8
-  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 40424), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #6
+  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40424), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i)
   ret ptr %call.i
 }
@@ -2137,7 +2137,7 @@ if.end4.skip_optional_crit_edge:                  ; preds = %if.end4
 skip_optional:                                    ; preds = %if.end4.skip_optional_crit_edge, %if.end
   %1 = phi i64 [ %.pre, %if.end4.skip_optional_crit_edge ], [ -1, %if.end ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %peek.i)
-  %call.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 54776), ptr noundef nonnull %peek.i) #6
+  %call.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 54776), ptr noundef nonnull %peek.i) #6
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %_io__IOBase_readline_impl.exit, label %if.end.i
 
@@ -2184,7 +2184,7 @@ while.body.i:                                     ; preds = %lor.rhs.i, %while.c
   br i1 %cmp8.not.i, label %if.end57.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %while.body.i
-  %call11.i = call ptr @PyObject_CallOneArg(ptr noundef nonnull %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848)) #6
+  %call11.i = call ptr @PyObject_CallOneArg(ptr noundef nonnull %6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3848)) #6
   %cmp12.i = icmp eq ptr %call11.i, null
   br i1 %cmp12.i, label %if.then13.i, label %if.end17.i
 
@@ -2275,7 +2275,7 @@ if.then1.i152.i:                                  ; preds = %if.end.i149.i
 
 if.end57.i:                                       ; preds = %if.then1.i152.i, %if.end.i149.i, %if.end56.i, %while.body.i
   %nreadahead.0.i = phi i64 [ %nreadahead.1.i, %if.end56.i ], [ %nreadahead.1.i, %if.then1.i152.i ], [ %nreadahead.1.i, %if.end.i149.i ], [ 1, %while.body.i ]
-  %call58.i = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 56032), ptr noundef nonnull @.str.30, i64 noundef %nreadahead.0.i) #6
+  %call58.i = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56032), ptr noundef nonnull @.str.30, i64 noundef %nreadahead.0.i) #6
   %cmp59.i = icmp eq ptr %call58.i, null
   br i1 %cmp59.i, label %if.then61.i, label %if.end66.i
 
@@ -2542,7 +2542,7 @@ if.end.i:                                         ; preds = %skip_optional
 
 if.then2.i:                                       ; preds = %skip_optional.thread, %if.end.i
   %call.i1217 = phi ptr [ %call.i, %if.end.i ], [ %call.i10, %skip_optional.thread ]
-  %call3.i = call ptr (ptr, ptr, ...) @PyObject_CallMethodObjArgs(ptr noundef nonnull %call.i1217, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 44744), ptr noundef %self, ptr noundef null) #6
+  %call3.i = call ptr (ptr, ptr, ...) @PyObject_CallMethodObjArgs(ptr noundef nonnull %call.i1217, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 44744), ptr noundef %self, ptr noundef null) #6
   %cmp4.i = icmp eq ptr %call3.i, null
   br i1 %cmp4.i, label %Py_XDECREF.exit.i, label %if.end6.i
 
@@ -2685,7 +2685,7 @@ define internal noundef ptr @_io__IOBase_writelines(ptr noundef %self, ptr nound
 entry:
   %res.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i)
-  %call.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 40472), ptr noundef nonnull %res.i) #6
+  %call.i = call i32 @PyObject_GetOptionalAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40472), ptr noundef nonnull %res.i) #6
   %cmp.i20 = icmp sgt i32 %call.i, 0
   br i1 %cmp.i20, label %if.then.i, label %iobase_check_closed.exit
 
@@ -2760,7 +2760,7 @@ if.then1.i51:                                     ; preds = %if.end.i48
   br label %return
 
 do.body:                                          ; preds = %do.body.preheader, %land.rhs
-  %call11 = call ptr (ptr, ptr, ...) @PyObject_CallMethodObjArgs(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 62248), ptr noundef nonnull %call425, ptr noundef null) #6
+  %call11 = call ptr (ptr, ptr, ...) @PyObject_CallMethodObjArgs(ptr noundef %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62248), ptr noundef nonnull %call425, ptr noundef null) #6
   %cmp12 = icmp eq ptr %call11, null
   br i1 %cmp12, label %land.rhs, label %do.end
 
@@ -2895,7 +2895,7 @@ declare ptr @PyObject_GenericGetDict(ptr noundef, ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @iobase_closed_get(ptr noundef %self, ptr nocapture readnone %context) #0 {
 entry:
-  %call.i = tail call i32 @PyObject_HasAttrWithError(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26328)) #6
+  %call.i = tail call i32 @PyObject_HasAttrWithError(ptr noundef %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26328)) #6
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -2972,7 +2972,7 @@ skip_optional:                                    ; preds = %if.end9
 if.then.i:                                        ; preds = %land.lhs.true11, %if.end, %skip_optional
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i.i)
   store ptr %self, ptr %self.addr.i.i, align 8
-  %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 56184), ptr noundef nonnull %self.addr.i.i, i64 noundef -9223372036854775807, ptr noundef null) #6
+  %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56184), ptr noundef nonnull %self.addr.i.i, i64 noundef -9223372036854775807, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i.i)
   br label %exit
 
@@ -2982,7 +2982,7 @@ if.end.i10:                                       ; preds = %skip_optional
   br i1 %cmp2.i, label %exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i10
-  %call5.i = tail call ptr (ptr, ptr, ...) @PyObject_CallMethodObjArgs(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 56232), ptr noundef nonnull %call1.i, ptr noundef null) #6
+  %call5.i = tail call ptr (ptr, ptr, ...) @PyObject_CallMethodObjArgs(ptr noundef %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56232), ptr noundef nonnull %call1.i, ptr noundef null) #6
   %cmp6.i = icmp eq ptr %call5.i, null
   %cmp7.i = icmp eq ptr %call5.i, @_Py_NoneStruct
   %or.cond.i = or i1 %cmp6.i, %cmp7.i
@@ -3078,7 +3078,7 @@ entry:
   br i1 %cmp.i, label %_io__RawIOBase_readall_impl.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %entry, %while.body.i.backedge
-  %call1.i = tail call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 56032), ptr noundef nonnull @.str.40, i32 noundef 8192) #6
+  %call1.i = tail call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56032), ptr noundef nonnull @.str.40, i32 noundef 8192) #6
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %if.then2.i, label %if.end7.i
 
@@ -3250,7 +3250,7 @@ while.end.sink.split.i:                           ; preds = %if.end.i50.i, %if.e
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.sink.split.i, %if.end.i50.i, %if.then22.i, %if.end.i77.i, %if.end13.i
-  %call28.i = tail call ptr @_PyBytes_Join(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 12040), ptr noundef nonnull %call.i) #6
+  %call28.i = tail call ptr @_PyBytes_Join(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 12040), ptr noundef nonnull %call.i) #6
   %22 = load i64, ptr %call.i, align 8
   %23 = and i64 %22, 2147483648
   %cmp.i133.not.i = icmp eq i64 %23, 0

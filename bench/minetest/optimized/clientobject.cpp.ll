@@ -133,7 +133,7 @@ define dso_local void @_ZN18ClientActiveObjectC2EtP6ClientP17ClientEnvironment(p
 entry:
   %m_id.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 %id, ptr %m_id.i, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18ClientActiveObject, i64 16), ptr %this, align 8, !tbaa !9
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18ClientActiveObject, i64 16), ptr %this, align 8, !tbaa !9
   %m_client = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %client, ptr %m_client, align 8, !tbaa !11
   %m_env = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -144,7 +144,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN18ClientActiveObjectD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18ClientActiveObject, i64 16), ptr %this, align 8, !tbaa !9
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18ClientActiveObject, i64 16), ptr %this, align 8, !tbaa !9
   ret void
 }
 
@@ -176,12 +176,12 @@ declare void @llvm.trap() #7
 define dso_local void @_ZN18ClientActiveObject6createE16ActiveObjectTypeP6ClientP17ClientEnvironment(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %agg.result, i32 noundef %type, ptr noundef %client, ptr noundef %env) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conv = trunc i32 %type to i16
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18ClientActiveObject7m_typesE, i64 24), align 8, !tbaa !15
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18ClientActiveObject7m_typesE, i64 24), align 8, !tbaa !15
   %cmp.not.not.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not.not.i.i, label %for.cond.i.i, label %if.end15.i.i
 
 for.cond.i.i:                                     ; preds = %entry, %for.body.i.i
-  %retval.sroa.0.0.in.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ getelementptr inbounds (i8, ptr @_ZN18ClientActiveObject7m_typesE, i64 16), %entry ]
+  %retval.sroa.0.0.in.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN18ClientActiveObject7m_typesE, i64 16), %entry ]
   %retval.sroa.0.0.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i, align 8, !tbaa !21
   %cmp.i.not.i.i = icmp eq ptr %retval.sroa.0.0.i.i, null
   br i1 %cmp.i.not.i.i, label %if.then, label %for.body.i.i
@@ -195,7 +195,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 if.end15.i.i:                                     ; preds = %entry
   %conv.mask = and i32 %type, 65535
   %conv.i.i.i.i = zext nneg i32 %conv.mask to i64
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18ClientActiveObject7m_typesE, i64 8), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18ClientActiveObject7m_typesE, i64 8), align 8
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i, %2
   %3 = load ptr, ptr @_ZN18ClientActiveObject7m_typesE, align 8, !tbaa !25
   %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %rem.i.i.i.i.i
@@ -317,12 +317,12 @@ cleanup:                                          ; preds = %if.end, %_ZN11Strea
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN18ClientActiveObject12registerTypeEtPFSt10unique_ptrIS_St14default_deleteIS_EEP6ClientP17ClientEnvironmentE(i16 noundef zeroext %type, ptr noundef %f) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18ClientActiveObject7m_typesE, i64 24), align 8, !tbaa !15
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18ClientActiveObject7m_typesE, i64 24), align 8, !tbaa !15
   %cmp.not.not.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not.not.i.i, label %for.cond.i.i, label %if.end15.i.i
 
 for.cond.i.i:                                     ; preds = %entry, %for.body.i.i
-  %retval.sroa.0.0.in.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ getelementptr inbounds (i8, ptr @_ZN18ClientActiveObject7m_typesE, i64 16), %entry ]
+  %retval.sroa.0.0.in.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN18ClientActiveObject7m_typesE, i64 16), %entry ]
   %retval.sroa.0.0.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i, align 8, !tbaa !21
   %cmp.i.not.i.i = icmp eq ptr %retval.sroa.0.0.i.i, null
   br i1 %cmp.i.not.i.i, label %if.end.loopexit, label %for.body.i.i
@@ -335,7 +335,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 
 if.end15.i.i:                                     ; preds = %entry
   %conv.i.i.i.i = zext i16 %type to i64
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18ClientActiveObject7m_typesE, i64 8), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18ClientActiveObject7m_typesE, i64 8), align 8
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i, %2
   %3 = load ptr, ptr @_ZN18ClientActiveObject7m_typesE, align 8, !tbaa !25
   %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %rem.i.i.i.i.i
@@ -369,7 +369,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %if.end, !llvm.loop !27
 
 if.end.loopexit:                                  ; preds = %for.cond.i.i
-  %.pre = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18ClientActiveObject7m_typesE, i64 8), align 8
+  %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18ClientActiveObject7m_typesE, i64 8), align 8
   %.pre34 = load ptr, ptr @_ZN18ClientActiveObject7m_typesE, align 8, !tbaa !25
   %.pre35 = zext i16 %type to i64
   %.pre36 = urem i64 %.pre35, %.pre
@@ -555,11 +555,11 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store ptr getelementptr inbounds (i8, ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 48), ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, align 8, !tbaa !57
-  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 8), align 8, !tbaa !59
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 16), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 32), align 8, !tbaa !60
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 40), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 48), ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, align 8, !tbaa !57
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 8), align 8, !tbaa !59
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 32), align 8, !tbaa !60
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 40), i8 0, i64 16, i1 false)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEED2Ev, ptr nonnull @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv) #19
   br label %init.end

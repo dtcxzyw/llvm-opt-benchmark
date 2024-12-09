@@ -93,7 +93,7 @@ define internal noundef range(i32 -95, 1) i32 @efivarfs_init_fs_context(ptr noca
   br i1 %2, label %3, label %12
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 56) #18
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -385,7 +385,7 @@ define internal i32 @efivarfs_callback(ptr nocapture noundef readonly %0, i64 %1
   br i1 %30, label %130, label %31
 
 31:                                               ; preds = %6
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %33 = tail call noalias align 8 dereferenceable_or_null(2168) ptr @kmalloc_trace(ptr noundef %32, i32 noundef 3520, i64 noundef 2168) #18
   %34 = icmp eq ptr %33, null
   br i1 %34, label %130, label %35
@@ -587,7 +587,7 @@ define internal noundef i32 @efivarfs_statfs(ptr nocapture noundef readonly %0, 
   %9 = load i32, ptr %8, align 16
   store i64 0, ptr %4, align 8
   store i64 0, ptr %3, align 8
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @efi, i64 12), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 12), align 4
   %11 = and i32 %10, 8192
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %20, label %13

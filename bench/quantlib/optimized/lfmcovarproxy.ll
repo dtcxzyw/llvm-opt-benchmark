@@ -145,7 +145,7 @@ _ZNK5boost10shared_ptrIN8QuantLib18LmCorrelationModelEEptEv.exit12: ; preds = %_
   store i64 %call2, ptr %size_.i, align 8, !tbaa !12
   %factors_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 %call6, ptr %factors_.i, align 8, !tbaa !15
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18LfmCovarianceProxyE, i64 16), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18LfmCovarianceProxyE, i64 16), ptr %this, align 8, !tbaa !10
   %volaModel_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %6 = load ptr, ptr %volaModel, align 8, !tbaa !16
   store ptr %6, ptr %volaModel_, align 8, !tbaa !16
@@ -522,7 +522,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !10
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !18
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -1537,7 +1537,7 @@ declare noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr no
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib18LfmCovarianceProxyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18LfmCovarianceProxyE, i64 16), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18LfmCovarianceProxyE, i64 16), ptr %this, align 8, !tbaa !10
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !18
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -1622,7 +1622,7 @@ _ZN5boost10shared_ptrIN8QuantLib17LmVolatilityModelEED2Ev.exit: ; preds = %_ZN5b
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib18LfmCovarianceProxyD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18LfmCovarianceProxyE, i64 16), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18LfmCovarianceProxyE, i64 16), ptr %this, align 8, !tbaa !10
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %pn.i.i, align 8, !tbaa !18
   %cmp.not.i.i.i = icmp eq ptr %0, null

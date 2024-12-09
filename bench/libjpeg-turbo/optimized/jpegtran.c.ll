@@ -364,13 +364,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   %129 = call i32 @jpeg_read_header(ptr noundef nonnull %4, i32 noundef 1) #11
   %130 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %131 = load i32, ptr %130, align 8
-  store i32 %131, ptr getelementptr inbounds (i8, ptr @transformoption, i64 24), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @transformoption, i64 28), align 4
+  store i32 %131, ptr getelementptr inbounds nuw (i8, ptr @transformoption, i64 24), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @transformoption, i64 28), align 4
   %132 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %133 = load i32, ptr %132, align 4
-  store i32 %133, ptr getelementptr inbounds (i8, ptr @transformoption, i64 32), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @transformoption, i64 36), align 4
-  store ptr %4, ptr getelementptr inbounds (i8, ptr @transformoption, i64 56), align 8
+  store i32 %133, ptr getelementptr inbounds nuw (i8, ptr @transformoption, i64 32), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @transformoption, i64 36), align 4
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @transformoption, i64 56), align 8
   br label %134
 
 134:                                              ; preds = %128, %124
@@ -393,7 +393,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
 
 143:                                              ; preds = %140
   %144 = call ptr @jpeg_read_coefficients(ptr noundef nonnull %4) #11
-  store ptr %144, ptr getelementptr inbounds (i8, ptr @transformoption, i64 64), align 8
+  store ptr %144, ptr getelementptr inbounds nuw (i8, ptr @transformoption, i64 64), align 8
   br label %145
 
 145:                                              ; preds = %143, %140
@@ -663,7 +663,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   unreachable
 
 58:                                               ; preds = %55
-  %59 = load i32, ptr getelementptr inbounds (i8, ptr @transformoption, i64 16), align 8
+  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @transformoption, i64 16), align 8
   %.not184 = icmp eq i32 %59, 0
   %60 = sext i32 %56 to i64
   br i1 %.not184, label %61, label %split
@@ -699,7 +699,7 @@ split:                                            ; preds = %61, %58
   unreachable
 
 75:                                               ; preds = %72
-  %76 = load i32, ptr getelementptr inbounds (i8, ptr @transformoption, i64 16), align 8
+  %76 = load i32, ptr getelementptr inbounds nuw (i8, ptr @transformoption, i64 16), align 8
   %.not181 = icmp eq i32 %76, 0
   %77 = sext i32 %73 to i64
   br i1 %.not181, label %78, label %split298
@@ -709,10 +709,10 @@ split:                                            ; preds = %61, %58
   %80 = load ptr, ptr %79, align 8
   %81 = call i32 @jtransform_parse_crop_spec(ptr noundef nonnull @transformoption, ptr noundef %80) #11
   %82 = icmp eq i32 %81, 0
-  %83 = load i32, ptr getelementptr inbounds (i8, ptr @transformoption, i64 28), align 4
+  %83 = load i32, ptr getelementptr inbounds nuw (i8, ptr @transformoption, i64 28), align 4
   %84 = icmp ne i32 %83, 0
   %or.cond = select i1 %82, i1 true, i1 %84
-  %85 = load i32, ptr getelementptr inbounds (i8, ptr @transformoption, i64 36), align 4
+  %85 = load i32, ptr getelementptr inbounds nuw (i8, ptr @transformoption, i64 36), align 4
   %86 = icmp ne i32 %85, 0
   %or.cond3 = select i1 %or.cond, i1 true, i1 %86
   br i1 %or.cond3, label %split298, label %92
@@ -853,7 +853,7 @@ select_transform.exit:                            ; preds = %95, %95
   br i1 %.not145, label %149, label %148
 
 148:                                              ; preds = %146, %144
-  store i32 1, ptr getelementptr inbounds (i8, ptr @transformoption, i64 12), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @transformoption, i64 12), align 4
   br label %294
 
 149:                                              ; preds = %146
@@ -991,7 +991,7 @@ select_transform.exit:                            ; preds = %95, %95
   br i1 %.not152, label %208, label %207
 
 207:                                              ; preds = %205
-  store i32 1, ptr getelementptr inbounds (i8, ptr @transformoption, i64 4), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @transformoption, i64 4), align 4
   br label %294
 
 208:                                              ; preds = %205
@@ -1163,7 +1163,7 @@ select_transform.exit:                            ; preds = %95, %95
   br i1 %.not161, label %275, label %274
 
 274:                                              ; preds = %272
-  store i32 1, ptr getelementptr inbounds (i8, ptr @transformoption, i64 8), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @transformoption, i64 8), align 8
   br label %294
 
 275:                                              ; preds = %272
@@ -1181,7 +1181,7 @@ select_transform.exit:                            ; preds = %95, %95
   unreachable
 
 280:                                              ; preds = %277
-  %281 = load i32, ptr getelementptr inbounds (i8, ptr @transformoption, i64 16), align 8
+  %281 = load i32, ptr getelementptr inbounds nuw (i8, ptr @transformoption, i64 16), align 8
   %.not164 = icmp eq i32 %281, 0
   %282 = sext i32 %278 to i64
   br i1 %.not164, label %283, label %split300

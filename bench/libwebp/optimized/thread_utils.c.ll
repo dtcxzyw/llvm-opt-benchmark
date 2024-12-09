@@ -358,7 +358,7 @@ define internal noundef ptr @ThreadLoop(ptr noundef %0) #4 {
   br label %9, !llvm.loop !6
 
 13:                                               ; preds = %9
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @g_worker_interface, i64 32), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_worker_interface, i64 32), align 8
   tail call void %14(ptr noundef nonnull %0) #8
   store i32 1, ptr %3, align 8
   br label %.critedge

@@ -828,7 +828,7 @@ _ZNSt10unique_ptrIN5vcpkg20IFullOverlayProviderESt14default_deleteIS1_EED2Ev.exi
 
 98:                                               ; preds = %97, %.body, %68
   %.pn52.pn = phi { ptr, i32 } [ %.pn52, %97 ], [ %53, %.body ], [ %69, %68 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg21PathsPortFileProviderE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5vcpkg21PathsPortFileProviderE, i64 16), ptr %9, align 8
   %99 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %100 = load ptr, ptr %99, align 8
   %.not.i.i = icmp eq ptr %100, null

@@ -420,7 +420,7 @@ _set_limit.exit:                                  ; preds = %50, %53, %55, %64, 
 
 178:                                              ; preds = %.thread, %176
   %179 = phi i32 [ %175, %.thread ], [ %177, %176 ]
-  %180 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1504), align 8
+  %180 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1504), align 8
   %181 = icmp ne i16 %180, 0
   %182 = icmp eq i32 %179, 0
   %or.cond3.not50 = select i1 %181, i1 %182, i1 false

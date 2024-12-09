@@ -658,7 +658,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit79:           ; preds = %.noexc78, %_ZN2cv10
   store i32 0, ptr %14, align 4
   %130 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %35, ptr %130, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv14PyrDownInvokerINS_9FixPtCastIhLi8EEEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv14PyrDownInvokerINS_9FixPtCastIhLi8EEEEE, i64 16), ptr %15, align 8
   %131 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %0, ptr %131, align 8
   %132 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -1049,7 +1049,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit79:           ; preds = %.noexc78, %_ZN2cv10
   store i32 0, ptr %14, align 4
   %130 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %35, ptr %130, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv14PyrDownInvokerINS_9FixPtCastIsLi8EEEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv14PyrDownInvokerINS_9FixPtCastIsLi8EEEEE, i64 16), ptr %15, align 8
   %131 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %0, ptr %131, align 8
   %132 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -1440,7 +1440,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit79:           ; preds = %.noexc78, %_ZN2cv10
   store i32 0, ptr %14, align 4
   %130 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %35, ptr %130, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv14PyrDownInvokerINS_9FixPtCastItLi8EEEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv14PyrDownInvokerINS_9FixPtCastItLi8EEEEE, i64 16), ptr %15, align 8
   %131 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %0, ptr %131, align 8
   %132 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -1831,7 +1831,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit79:           ; preds = %.noexc78, %_ZN2cv10
   store i32 0, ptr %14, align 4
   %130 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %35, ptr %130, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv14PyrDownInvokerINS_7FltCastIfLi8EEEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv14PyrDownInvokerINS_7FltCastIfLi8EEEEE, i64 16), ptr %15, align 8
   %131 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %0, ptr %131, align 8
   %132 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -2222,7 +2222,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit79:           ; preds = %.noexc78, %_ZN2cv10
   store i32 0, ptr %14, align 4
   %130 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %35, ptr %130, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv14PyrDownInvokerINS_7FltCastIdLi8EEEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv14PyrDownInvokerINS_7FltCastIdLi8EEEEE, i64 16), ptr %15, align 8
   %131 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %0, ptr %131, align 8
   %132 = getelementptr inbounds nuw i8, ptr %15, i64 40

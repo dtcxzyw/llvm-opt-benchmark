@@ -136,17 +136,17 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
 24:                                               ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) @job, i8 0, i64 480, i1 false)
   %25 = load i32, ptr %0, align 4
-  store i32 %25, ptr getelementptr inbounds (i8, ptr @job, i64 188), align 4
+  store i32 %25, ptr getelementptr inbounds nuw (i8, ptr @job, i64 188), align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) @step, i8 0, i64 344, i1 false)
-  store ptr @job, ptr getelementptr inbounds (i8, ptr @step, i64 32), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds (i8, ptr @step, i64 248), ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
+  store ptr @job, ptr getelementptr inbounds nuw (i8, ptr @step, i64 32), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @step, i64 248), ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
   %26 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16384, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.54, i32 noundef 147, ptr noundef nonnull @__func__._do_stat) #4
-  store ptr %26, ptr getelementptr inbounds (i8, ptr @step, i64 48), align 8
-  store i32 %2, ptr getelementptr inbounds (i8, ptr @step, i64 72), align 8
-  store i32 %3, ptr getelementptr inbounds (i8, ptr @step, i64 76), align 4
-  store i32 %4, ptr getelementptr inbounds (i8, ptr @step, i64 80), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @step, i64 264), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @step, i64 96), align 8
+  store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @step, i64 48), align 8
+  store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @step, i64 72), align 8
+  store i32 %3, ptr getelementptr inbounds nuw (i8, ptr @step, i64 76), align 4
+  store i32 %4, ptr getelementptr inbounds nuw (i8, ptr @step, i64 80), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @step, i64 264), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @step, i64 96), align 8
   %27 = call ptr @hostlist_create(ptr noundef null) #4
   %28 = load ptr, ptr %7, align 8
   %29 = load ptr, ptr %28, align 8
@@ -192,12 +192,12 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
 .lr.ph77:                                         ; preds = %41, %48
   %45 = phi ptr [ %54, %48 ], [ %36, %41 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %41 ]
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @step, i64 64), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @step, i64 64), align 8
   %.not68 = icmp eq ptr %46, null
   br i1 %.not68, label %48, label %47
 
 47:                                               ; preds = %.lr.ph77
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @step, i64 64), ptr noundef nonnull @.str.55) #4
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @step, i64 64), ptr noundef nonnull @.str.55) #4
   %.pre = load ptr, ptr %42, align 8
   br label %48
 
@@ -207,7 +207,7 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @step, i64 64), ptr noundef nonnull @.str.56, i32 noundef %53) #4
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @step, i64 64), ptr noundef nonnull @.str.56, i32 noundef %53) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = load ptr, ptr %42, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
@@ -218,15 +218,15 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
 
 .loopexit:                                        ; preds = %48, %41
   %59 = phi ptr [ %36, %41 ], [ %54, %48 ]
-  %60 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 40), align 8
+  %60 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8
   %61 = trunc i8 %60 to i1
   %62 = load ptr, ptr %59, align 8
   br i1 %61, label %63, label %64
 
 63:                                               ; preds = %.loopexit
-  store ptr %62, ptr getelementptr inbounds (i8, ptr @step, i64 48), align 8
+  store ptr %62, ptr getelementptr inbounds nuw (i8, ptr @step, i64 48), align 8
   call void @print_fields(ptr noundef nonnull @step) #4
-  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @step, i64 64)) #4
+  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @step, i64 64)) #4
   br label %.outer
 
 64:                                               ; preds = %.loopexit
@@ -291,7 +291,7 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not59, label %89, label %88
 
 88:                                               ; preds = %.outer._crit_edge
-  call void @jobacctinfo_2_stats(ptr noundef nonnull getelementptr inbounds (i8, ptr @step, i64 104), ptr noundef nonnull %.051.ph.lcssa) #4
+  call void @jobacctinfo_2_stats(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @step, i64 104), ptr noundef nonnull %.051.ph.lcssa) #4
   call void @jobacctinfo_destroy(ptr noundef nonnull %.051.ph.lcssa) #4
   br label %89
 
@@ -299,13 +299,13 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
   %.050.ph.lcssa93 = phi i32 [ 0, %.outer._crit_edge.thread ], [ %.050.ph.lcssa, %88 ], [ %.050.ph.lcssa, %.outer._crit_edge ]
   %90 = load ptr, ptr %7, align 8
   call void @slurm_job_step_pids_response_msg_free(ptr noundef %90) #4
-  %91 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 40), align 8
+  %91 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8
   %92 = trunc i8 %91 to i1
   br i1 %92, label %105, label %93
 
 93:                                               ; preds = %89
   call void @hostlist_sort(ptr noundef %27) #4
-  %94 = load ptr, ptr getelementptr inbounds (i8, ptr @step, i64 48), align 8
+  %94 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @step, i64 48), align 8
   %95 = call i64 @hostlist_ranged_string(ptr noundef %27, i64 noundef 16384, ptr noundef %94) #4
   call void @hostlist_destroy(ptr noundef %27) #4
   %.not60 = icmp eq i32 %.050.ph.lcssa93, 0
@@ -313,20 +313,20 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
 
 96:                                               ; preds = %93
   %97 = sitofp i32 %.050.ph.lcssa93 to double
-  %98 = load double, ptr getelementptr inbounds (i8, ptr @step, i64 104), align 8
+  %98 = load double, ptr getelementptr inbounds nuw (i8, ptr @step, i64 104), align 8
   %99 = fdiv double %98, %97
-  store double %99, ptr getelementptr inbounds (i8, ptr @step, i64 104), align 8
-  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @step, i64 120), align 8
+  store double %99, ptr getelementptr inbounds nuw (i8, ptr @step, i64 104), align 8
+  %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @step, i64 120), align 8
   store ptr %100, ptr %8, align 8
   %101 = call ptr @slurmdb_ave_tres_usage(ptr noundef %100, i32 noundef %.050.ph.lcssa93) #4
-  store ptr %101, ptr getelementptr inbounds (i8, ptr @step, i64 120), align 8
+  store ptr %101, ptr getelementptr inbounds nuw (i8, ptr @step, i64 120), align 8
   call void @slurm_xfree(ptr noundef nonnull %8) #4
-  %102 = load ptr, ptr getelementptr inbounds (i8, ptr @step, i64 184), align 8
+  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @step, i64 184), align 8
   store ptr %102, ptr %8, align 8
   %103 = call ptr @slurmdb_ave_tres_usage(ptr noundef %102, i32 noundef %.050.ph.lcssa93) #4
-  store ptr %103, ptr getelementptr inbounds (i8, ptr @step, i64 184), align 8
+  store ptr %103, ptr getelementptr inbounds nuw (i8, ptr @step, i64 184), align 8
   call void @slurm_xfree(ptr noundef nonnull %8) #4
-  store i32 %.050.ph.lcssa93, ptr getelementptr inbounds (i8, ptr @step, i64 56), align 8
+  store i32 %.050.ph.lcssa93, ptr getelementptr inbounds nuw (i8, ptr @step, i64 56), align 8
   br label %104
 
 104:                                              ; preds = %96, %93
@@ -334,14 +334,14 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
   br label %105
 
 105:                                              ; preds = %89, %104
-  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @step, i64 128)) #4
-  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @step, i64 192)) #4
-  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @step, i64 144)) #4
-  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @step, i64 208)) #4
-  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @step, i64 136)) #4
-  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @step, i64 200)) #4
-  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @step, i64 120)) #4
-  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @step, i64 184)) #4
+  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @step, i64 128)) #4
+  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @step, i64 192)) #4
+  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @step, i64 144)) #4
+  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @step, i64 208)) #4
+  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @step, i64 136)) #4
+  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @step, i64 200)) #4
+  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @step, i64 120)) #4
+  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @step, i64 184)) #4
   br label %106
 
 106:                                              ; preds = %105, %22
@@ -419,7 +419,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %6 = tail call ptr @list_iterator_create(ptr noundef %5) #4
   store ptr %6, ptr @print_fields_itr, align 8
   tail call void @parse_command_line(i32 noundef %0, ptr noundef %1) #4
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 24), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %10, label %8
 
@@ -435,7 +435,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 12:                                               ; preds = %8
   %13 = load ptr, ptr @print_fields_list, align 8
   tail call void @print_fields_header(ptr noundef %13) #4
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 24), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8
   %15 = tail call ptr @list_iterator_create(ptr noundef %14) #4
   %16 = tail call ptr @list_next(ptr noundef %15) #4
   %.not2635 = icmp eq ptr %16, null
@@ -552,8 +552,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 ._crit_edge:                                      ; preds = %.backedge, %12
   call void @list_iterator_destroy(ptr noundef %15) #4
-  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 8)) #4
-  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 24), align 8
+  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 8)) #4
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8
   %.not27 = icmp eq ptr %77, null
   br i1 %.not27, label %79, label %78
 
@@ -562,7 +562,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %79
 
 79:                                               ; preds = %78, %._crit_edge
-  store ptr null, ptr getelementptr inbounds (i8, ptr @params, i64 24), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8
   %80 = load ptr, ptr @print_fields_itr, align 8
   %.not28 = icmp eq ptr %80, null
   br i1 %.not28, label %82, label %81

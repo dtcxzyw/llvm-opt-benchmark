@@ -392,7 +392,7 @@ if.end5:                                          ; preds = %if.end
   %1 = load ptr, ptr @option_since, align 8
   %tobool6 = icmp ne ptr %1, null
   %or.cond = select i1 %tobool, i1 true, i1 %tobool6
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @option_not, i64 8), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_not, i64 8), align 8
   %tobool8 = icmp ne i64 %2, 0
   %or.cond2 = select i1 %or.cond, i1 true, i1 %tobool8
   br i1 %or.cond2, label %if.then9, label %if.end10
@@ -705,7 +705,7 @@ if.end150.sink.split:                             ; preds = %if.then141, %if.end
   br label %if.end150
 
 if.end150:                                        ; preds = %if.end150.sink.split, %if.end139
-  %27 = load i64, ptr getelementptr inbounds (i8, ptr @option_recurse_submodules, i64 8), align 8
+  %27 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_recurse_submodules, i64 8), align 8
   %cmp151.not = icmp eq i64 %27, 0
   br i1 %cmp151.not, label %if.end182, label %if.then152
 
@@ -719,7 +719,7 @@ if.then152:                                       ; preds = %if.end150
 
 land.rhs.preheader:                               ; preds = %if.then152
   %29 = load ptr, ptr @option_recurse_submodules, align 8
-  %30 = load i64, ptr getelementptr inbounds (i8, ptr @option_recurse_submodules, i64 8), align 8
+  %30 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_recurse_submodules, i64 8), align 8
   %add.ptr442 = getelementptr inbounds %struct.string_list_item, ptr %29, i64 %30
   %cmp154443 = icmp ult ptr %28, %add.ptr442
   br i1 %cmp154443, label %for.body, label %for.end
@@ -732,7 +732,7 @@ for.body:                                         ; preds = %land.rhs.preheader,
   %call156 = call ptr @string_list_append(ptr noundef nonnull @option_config, ptr noundef %call155) #17
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %item.0429444, i64 16
   %32 = load ptr, ptr @option_recurse_submodules, align 8
-  %33 = load i64, ptr getelementptr inbounds (i8, ptr @option_recurse_submodules, i64 8), align 8
+  %33 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_recurse_submodules, i64 8), align 8
   %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %32, i64 %33
   %cmp154 = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp154, label %for.body, label %for.end
@@ -750,9 +750,9 @@ if.then161:                                       ; preds = %for.end
   br label %if.end163
 
 if.end163:                                        ; preds = %if.then161, %for.end
-  %35 = load i64, ptr getelementptr inbounds (i8, ptr @option_required_reference, i64 8), align 8
+  %35 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_required_reference, i64 8), align 8
   %tobool164 = icmp ne i64 %35, 0
-  %36 = load i64, ptr getelementptr inbounds (i8, ptr @option_optional_reference, i64 8), align 8
+  %36 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_optional_reference, i64 8), align 8
   %tobool166 = icmp ne i64 %36, 0
   %or.cond7 = select i1 %tobool164, i1 %tobool166, i1 false
   br i1 %or.cond7, label %if.then167, label %if.else169
@@ -787,13 +787,13 @@ if.then185:                                       ; preds = %if.end182
 
 if.end186:                                        ; preds = %if.then185, %if.end182
   %git_dir.1 = phi ptr [ %40, %if.then185 ], [ %git_dir.0, %if.end182 ]
-  %41 = load i64, ptr getelementptr inbounds (i8, ptr @option_config, i64 8), align 8
+  %41 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_config, i64 8), align 8
   %cmp1.not.i = icmp eq i64 %41, 0
   br i1 %cmp1.not.i, label %write_config.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %42 = load i64, ptr getelementptr inbounds (i8, ptr @option_config, i64 8), align 8
+  %42 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_config, i64 8), align 8
   %cmp.i = icmp ugt i64 %42, %indvars.iv.next.i
   br i1 %cmp.i, label %for.body.i, label %write_config.exit, !llvm.loop !5
 
@@ -826,7 +826,7 @@ write_config.exit:                                ; preds = %for.cond.i, %if.end
   %cmp196.not = icmp eq i32 %48, -1
   %filter_submodules.1 = select i1 %cmp196.not, i32 %filter_submodules.0, i32 %48
   %cmp199 = icmp slt i32 %48, 1
-  %49 = load i32, ptr getelementptr inbounds (i8, ptr @filter_options, i64 24), align 8
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @filter_options, i64 24), align 8
   %tobool201 = icmp ne i32 %49, 0
   %or.cond9 = select i1 %cmp199, i1 true, i1 %tobool201
   br i1 %or.cond9, label %if.end204, label %if.then202
@@ -837,7 +837,7 @@ if.then202:                                       ; preds = %write_config.exit
   unreachable
 
 if.end204:                                        ; preds = %write_config.exit
-  %50 = load i64, ptr getelementptr inbounds (i8, ptr @option_recurse_submodules, i64 8), align 8
+  %50 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_recurse_submodules, i64 8), align 8
   %tobool207 = icmp ne i64 %50, 0
   %or.cond11 = select i1 %cmp199, i1 true, i1 %tobool207
   br i1 %or.cond11, label %if.end210, label %if.then208
@@ -947,9 +947,9 @@ if.then4.i187:                                    ; preds = %if.then232
   br label %if.end234
 
 if.end234:                                        ; preds = %if.then4.i187, %if.then232, %strbuf_setlen.exit
-  %66 = load i64, ptr getelementptr inbounds (i8, ptr @option_required_reference, i64 8), align 8
+  %66 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_required_reference, i64 8), align 8
   %tobool235 = icmp ne i64 %66, 0
-  %67 = load i64, ptr getelementptr inbounds (i8, ptr @option_optional_reference, i64 8), align 8
+  %67 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_optional_reference, i64 8), align 8
   %tobool237 = icmp ne i64 %67, 0
   %or.cond13 = select i1 %tobool235, i1 true, i1 %tobool237
   br i1 %or.cond13, label %if.then238, label %if.end239
@@ -1022,7 +1022,7 @@ _.exit201:                                        ; preds = %if.then257, %if.end
   br label %if.end259
 
 if.end259:                                        ; preds = %_.exit201, %if.end255
-  %79 = load i64, ptr getelementptr inbounds (i8, ptr @option_not, i64 8), align 8
+  %79 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_not, i64 8), align 8
   %tobool260.not = icmp eq i64 %79, 0
   br i1 %tobool260.not, label %if.end263, label %if.then261
 
@@ -1041,7 +1041,7 @@ _.exit206:                                        ; preds = %if.then261, %if.end
   br label %if.end263
 
 if.end263:                                        ; preds = %_.exit206, %if.end259
-  %81 = load i32, ptr getelementptr inbounds (i8, ptr @filter_options, i64 24), align 8
+  %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @filter_options, i64 24), align 8
   %tobool264.not = icmp eq i32 %81, 0
   br i1 %tobool264.not, label %if.end267, label %if.then265
 
@@ -1187,7 +1187,7 @@ if.then320:                                       ; preds = %if.end318
   br label %if.end322
 
 if.end322:                                        ; preds = %if.then320, %if.end318
-  %95 = load i64, ptr getelementptr inbounds (i8, ptr @option_not, i64 8), align 8
+  %95 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_not, i64 8), align 8
   %tobool323.not = icmp eq i64 %95, 0
   br i1 %tobool323.not, label %if.end326, label %if.then324
 
@@ -1214,7 +1214,7 @@ if.then332:                                       ; preds = %if.end330
   br label %if.end334
 
 if.end334:                                        ; preds = %if.then332, %if.end330
-  %98 = load i64, ptr getelementptr inbounds (i8, ptr @server_options, i64 8), align 8
+  %98 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server_options, i64 8), align 8
   %tobool335.not = icmp eq i64 %98, 0
   br i1 %tobool335.not, label %if.end337, label %if.then336
 
@@ -1224,7 +1224,7 @@ if.then336:                                       ; preds = %if.end334
   br label %if.end337
 
 if.end337:                                        ; preds = %if.then336, %if.end334
-  %99 = load i32, ptr getelementptr inbounds (i8, ptr @filter_options, i64 24), align 8
+  %99 = load i32, ptr getelementptr inbounds nuw (i8, ptr @filter_options, i64 24), align 8
   %tobool338.not = icmp eq i32 %99, 0
   br i1 %tobool338.not, label %if.end343, label %if.then339
 
@@ -1232,7 +1232,7 @@ if.then339:                                       ; preds = %if.end337
   %call340 = call ptr @expand_list_objects_filter_spec(ptr noundef nonnull @filter_options) #17
   %call341 = call i32 @transport_set_option(ptr noundef nonnull %call295, ptr noundef nonnull @.str.61, ptr noundef %call340) #17
   %call342 = call i32 @transport_set_option(ptr noundef nonnull %call295, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.55) #17
-  %.pre434 = load i32, ptr getelementptr inbounds (i8, ptr @filter_options, i64 24), align 8
+  %.pre434 = load i32, ptr getelementptr inbounds nuw (i8, ptr @filter_options, i64 24), align 8
   %100 = icmp ne i32 %.pre434, 0
   br label %if.end343
 
@@ -1814,7 +1814,7 @@ write_refspec_config.exit:                        ; preds = %if.end481, %if.end3
   call void @strbuf_release(ptr noundef nonnull %value.i) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %value.i)
-  %176 = load i32, ptr getelementptr inbounds (i8, ptr @filter_options, i64 24), align 8
+  %176 = load i32, ptr getelementptr inbounds nuw (i8, ptr @filter_options, i64 24), align 8
   %tobool482.not = icmp eq i32 %176, 0
   br i1 %tobool482.not, label %if.end484, label %if.then483
 
@@ -2737,7 +2737,7 @@ if.end37.i:                                       ; preds = %if.end32.i379
   %call40.i = call ptr @oid_to_hex(ptr noundef nonnull %oid.i363) #17
   %call41.i = call i32 (ptr, ...) @run_hooks_l(ptr noundef nonnull @.str.220, ptr noundef %call39.i, ptr noundef %call40.i, ptr noundef nonnull @.str.55, ptr noundef null) #17
   %tobool42.i = icmp eq i32 %call41.i, 0
-  %275 = load i64, ptr getelementptr inbounds (i8, ptr @option_recurse_submodules, i64 8), align 8
+  %275 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_recurse_submodules, i64 8), align 8
   %cmp43.i = icmp ne i64 %275, 0
   %or.cond.i382 = select i1 %tobool42.i, i1 %cmp43.i, i1 false
   br i1 %or.cond.i382, label %if.then45.i, label %checkout.exit
@@ -2792,7 +2792,7 @@ if.then70.i:                                      ; preds = %if.end68.i
 
 if.end75.i:                                       ; preds = %if.then70.i, %if.end68.i
   %tobool76.i = icmp ne i32 %filter_submodules.1, 0
-  %281 = load i32, ptr getelementptr inbounds (i8, ptr @filter_options, i64 24), align 8
+  %281 = load i32, ptr getelementptr inbounds nuw (i8, ptr @filter_options, i64 24), align 8
   %tobool78.i = icmp ne i32 %281, 0
   %or.cond3.i = select i1 %tobool76.i, i1 %tobool78.i, i1 false
   br i1 %or.cond3.i, label %if.then79.i, label %if.end83.i

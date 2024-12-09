@@ -115,21 +115,21 @@ define i32 @PMPI_Testany(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   br i1 %.not55, label %59, label %44
 
 44:                                               ; preds = %43
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 4), align 4
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_status_empty, i64 4), align 4
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %45, ptr %46, align 4
   %47 = load i32, ptr @ompi_status_empty, align 8
   store i32 %47, ptr %4, align 8
-  %48 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 16), align 8
+  %48 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_status_empty, i64 16), align 8
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %48, ptr %49, align 8
-  %50 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 12), align 4
+  %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_status_empty, i64 12), align 4
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %50, ptr %51, align 4
   br label %59
 
 52:                                               ; preds = %41
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 8), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 8), align 8
   %54 = sext i32 %0 to i64
   %55 = tail call i32 %53(i64 noundef %54, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #2
   %56 = icmp eq i32 %55, 0

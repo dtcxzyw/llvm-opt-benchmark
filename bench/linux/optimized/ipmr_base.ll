@@ -81,7 +81,7 @@ declare dso_local i32 @dev_get_iflink(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @mr_table_alloc(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readonly %4) #0 align 16 {
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %7 = tail call noalias noundef align 8 dereferenceable_or_null(3608) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 3608) #10
   %8 = icmp eq ptr %7, null
   br i1 %8, label %27, label %9

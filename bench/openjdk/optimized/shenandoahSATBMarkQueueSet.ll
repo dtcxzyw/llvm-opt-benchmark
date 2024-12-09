@@ -44,7 +44,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN26ShenandoahSATBMarkQueueSetC2EPN10BufferNode9AllocatorE(ptr noundef nonnull align 8 dereferenceable(393) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN16SATBMarkQueueSetC2EPN10BufferNode9AllocatorE(ptr noundef nonnull align 8 dereferenceable(393) %0, ptr noundef %1) #4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV26ShenandoahSATBMarkQueueSet, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV26ShenandoahSATBMarkQueueSet, i64 16), ptr %0, align 8
   ret void
 }
 

@@ -263,7 +263,7 @@ define dso_local void @unregister_nfs_version(ptr nocapture noundef %0) #0 align
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @nfs_alloc_client(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(832) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 832) #14
   %4 = icmp eq ptr %3, null
   br i1 %4, label %68, label %5
@@ -1960,7 +1960,7 @@ declare dso_local void @synchronize_rcu() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @nfs_alloc_server() #0 align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %2 = tail call noalias align 8 dereferenceable_or_null(1152) ptr @kmalloc_trace(ptr noundef %1, i32 noundef 3520, i64 noundef 1152) #14
   %3 = icmp eq ptr %2, null
   br i1 %3, label %39, label %4

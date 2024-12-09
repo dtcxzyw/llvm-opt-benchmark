@@ -203,37 +203,37 @@ define hidden noundef zeroext i1 @_ZN18JfrJavaEventWriter10initializeEv() local_
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #9
   %21 = trunc i64 %20 to i32
   %22 = call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef nonnull %2, i32 noundef %21) #10
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7000), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7000), align 8
   %24 = call noundef zeroext i1 @_ZN14JfrJavaSupport20compute_field_offsetERiP5KlassP6SymbolS4_bb(ptr noundef nonnull align 4 dereferenceable(4) @_ZL16start_pos_offset, ptr noundef %16, ptr noundef %22, ptr noundef %23, i1 noundef zeroext false, i1 noundef zeroext false) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) @__const._ZL26setup_event_writer_offsetsP10JavaThread.event_pos_name, i64 16, i1 false)
   %25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
   %26 = trunc i64 %25 to i32
   %27 = call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef nonnull %3, i32 noundef %26) #10
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7000), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7000), align 8
   %29 = call noundef zeroext i1 @_ZN14JfrJavaSupport20compute_field_offsetERiP5KlassP6SymbolS4_bb(ptr noundef nonnull align 4 dereferenceable(4) @_ZL18current_pos_offset, ptr noundef %16, ptr noundef %27, ptr noundef %28, i1 noundef zeroext false, i1 noundef zeroext false) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %4, ptr noundef nonnull align 1 dereferenceable(12) @__const._ZL26setup_event_writer_offsetsP10JavaThread.max_pos_name, i64 12, i1 false)
   %30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #9
   %31 = trunc i64 %30 to i32
   %32 = call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef nonnull %4, i32 noundef %31) #10
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7000), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7000), align 8
   %34 = call noundef zeroext i1 @_ZN14JfrJavaSupport20compute_field_offsetERiP5KlassP6SymbolS4_bb(ptr noundef nonnull align 4 dereferenceable(4) @_ZL14max_pos_offset, ptr noundef %16, ptr noundef %32, ptr noundef %33, i1 noundef zeroext false, i1 noundef zeroext false) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, ptr noundef nonnull align 1 dereferenceable(9) @__const._ZL26setup_event_writer_offsetsP10JavaThread.excluded_name, i64 9, i1 false)
   %35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #9
   %36 = trunc i64 %35 to i32
   %37 = call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef nonnull %5, i32 noundef %36) #10
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7016), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7016), align 8
   %39 = call noundef zeroext i1 @_ZN14JfrJavaSupport20compute_field_offsetERiP5KlassP6SymbolS4_bb(ptr noundef nonnull align 4 dereferenceable(4) @_ZL15excluded_offset, ptr noundef %16, ptr noundef %37, ptr noundef %38, i1 noundef zeroext false, i1 noundef zeroext false) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %6, ptr noundef nonnull align 1 dereferenceable(9) @__const._ZL26setup_event_writer_offsetsP10JavaThread.threadID_name, i64 9, i1 false)
   %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #9
   %41 = trunc i64 %40 to i32
   %42 = call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef nonnull %6, i32 noundef %41) #10
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7000), align 8
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7000), align 8
   %44 = call noundef zeroext i1 @_ZN14JfrJavaSupport20compute_field_offsetERiP5KlassP6SymbolS4_bb(ptr noundef nonnull align 4 dereferenceable(4) @_ZL16thread_id_offset, ptr noundef %16, ptr noundef %42, ptr noundef %43, i1 noundef zeroext false, i1 noundef zeroext false) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %7, ptr noundef nonnull align 1 dereferenceable(6) @__const._ZL26setup_event_writer_offsetsP10JavaThread.valid_name, i64 6, i1 false)
   %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #9
   %46 = trunc i64 %45 to i32
   %47 = call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef nonnull %7, i32 noundef %46) #10
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7016), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7016), align 8
   %49 = call noundef zeroext i1 @_ZN14JfrJavaSupport20compute_field_offsetERiP5KlassP6SymbolS4_bb(ptr noundef nonnull align 4 dereferenceable(4) @_ZL12valid_offset, ptr noundef %16, ptr noundef %47, ptr noundef %48, i1 noundef zeroext false, i1 noundef zeroext false) #10
   br label %_ZL26setup_event_writer_offsetsP10JavaThread.exit
 
@@ -452,7 +452,7 @@ declare noundef zeroext i1 @_ZNK9JfrBuffer5leaseEv(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18JfrJavaEventWriter6notifyEv() local_unnamed_addr #0 align 2 {
   %1 = alloca %class.JfrJavaEventWriterNotificationClosure, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV37JfrJavaEventWriterNotificationClosure, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV37JfrJavaEventWriterNotificationClosure, i64 16), ptr %1, align 8
   call void @_ZN7Threads10threads_doEP13ThreadClosure(ptr noundef nonnull %1) #10
   ret void
 }

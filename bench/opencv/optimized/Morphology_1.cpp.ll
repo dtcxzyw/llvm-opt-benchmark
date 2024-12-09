@@ -251,7 +251,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %79 unwind label %111
 
 79:                                               ; preds = %78
-  %80 = load i32, ptr getelementptr inbounds (i8, ptr @src, i64 12), align 4
+  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @src, i64 12), align 4
   invoke void @_ZN2cv10moveWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii(ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef %80, i32 noundef 0)
           to label %81 unwind label %113
 

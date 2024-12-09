@@ -156,9 +156,9 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4node4quic13SessionTicketC2EONS0_5StoreES3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 88)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(40) %ticket, ptr nocapture noundef nonnull align 8 dereferenceable(40) %transport_params) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic13SessionTicketE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic13SessionTicketE, i64 16), ptr %this, align 8
   %ticket_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %ticket_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %ticket_, align 8
   %store_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %store_2.i = getelementptr inbounds nuw i8, ptr %ticket, i64 8
   %0 = load ptr, ptr %store_2.i, align 8
@@ -174,7 +174,7 @@ entry:
   %length_3.i = getelementptr inbounds nuw i8, ptr %ticket, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %length_.i, ptr noundef nonnull align 8 dereferenceable(16) %length_3.i, i64 16, i1 false)
   %transport_params_ = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %transport_params_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %transport_params_, align 8
   %store_.i1 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %store_2.i2 = getelementptr inbounds nuw i8, ptr %transport_params, i64 8
   %2 = load ptr, ptr %store_2.i2, align 8
@@ -211,13 +211,13 @@ if.then:                                          ; preds = %entry
   %call6.i.i = tail call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %call.i.i) #17
   store i8 0, ptr %agg.result, align 8, !alias.scope !5
   %value_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic13SessionTicketE, i64 16), ptr %value_.i.i, align 8, !alias.scope !5
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic13SessionTicketE, i64 16), ptr %value_.i.i, align 8, !alias.scope !5
   %ticket_.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %ticket_.i.i.i, align 8, !alias.scope !5
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %ticket_.i.i.i, align 8, !alias.scope !5
   %store_.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %store_.i.i.i.i, i8 0, i64 32, i1 false), !alias.scope !5
   %transport_params_.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %transport_params_.i.i.i, align 8, !alias.scope !5
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %transport_params_.i.i.i, align 8, !alias.scope !5
   %store_.i1.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %store_.i1.i.i.i, i8 0, i64 32, i1 false), !alias.scope !5
   br label %return
@@ -246,13 +246,13 @@ if.then23:                                        ; preds = %if.end
   %call6.i.i11 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr %call.i.i10) #17
   store i8 0, ptr %agg.result, align 8, !alias.scope !8
   %value_.i.i12 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic13SessionTicketE, i64 16), ptr %value_.i.i12, align 8, !alias.scope !8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic13SessionTicketE, i64 16), ptr %value_.i.i12, align 8, !alias.scope !8
   %ticket_.i.i.i13 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %ticket_.i.i.i13, align 8, !alias.scope !8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %ticket_.i.i.i13, align 8, !alias.scope !8
   %store_.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %store_.i.i.i.i14, i8 0, i64 32, i1 false), !alias.scope !8
   %transport_params_.i.i.i15 = getelementptr inbounds nuw i8, ptr %agg.result, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %transport_params_.i.i.i15, align 8, !alias.scope !8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %transport_params_.i.i.i15, align 8, !alias.scope !8
   %store_.i1.i.i.i16 = getelementptr inbounds nuw i8, ptr %agg.result, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %store_.i1.i.i.i16, i8 0, i64 32, i1 false), !alias.scope !8
   br label %cleanup91
@@ -308,13 +308,13 @@ if.then64:                                        ; preds = %if.then62
 if.end69:                                         ; preds = %if.then64, %if.then62
   store i8 0, ptr %agg.result, align 8, !alias.scope !11
   %value_.i.i29 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic13SessionTicketE, i64 16), ptr %value_.i.i29, align 8, !alias.scope !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic13SessionTicketE, i64 16), ptr %value_.i.i29, align 8, !alias.scope !11
   %ticket_.i.i.i30 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %ticket_.i.i.i30, align 8, !alias.scope !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %ticket_.i.i.i30, align 8, !alias.scope !11
   %store_.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %store_.i.i.i.i31, i8 0, i64 32, i1 false), !alias.scope !11
   %transport_params_.i.i.i32 = getelementptr inbounds nuw i8, ptr %agg.result, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %transport_params_.i.i.i32, align 8, !alias.scope !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %transport_params_.i.i.i32, align 8, !alias.scope !11
   %store_.i1.i.i.i33 = getelementptr inbounds nuw i8, ptr %agg.result, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %store_.i1.i.i.i33, i8 0, i64 32, i1 false), !alias.scope !11
   br label %cleanup
@@ -325,13 +325,13 @@ if.end70:                                         ; preds = %if.then60
   %call6.i.i36 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr %call.i.i35) #17
   store i8 0, ptr %agg.result, align 8, !alias.scope !14
   %value_.i.i37 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic13SessionTicketE, i64 16), ptr %value_.i.i37, align 8, !alias.scope !14
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic13SessionTicketE, i64 16), ptr %value_.i.i37, align 8, !alias.scope !14
   %ticket_.i.i.i38 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %ticket_.i.i.i38, align 8, !alias.scope !14
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %ticket_.i.i.i38, align 8, !alias.scope !14
   %store_.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %store_.i.i.i.i39, i8 0, i64 32, i1 false), !alias.scope !14
   %transport_params_.i.i.i40 = getelementptr inbounds nuw i8, ptr %agg.result, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %transport_params_.i.i.i40, align 8, !alias.scope !14
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %transport_params_.i.i.i40, align 8, !alias.scope !14
   %store_.i1.i.i.i41 = getelementptr inbounds nuw i8, ptr %agg.result, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %store_.i1.i.i.i41, i8 0, i64 32, i1 false), !alias.scope !14
   br label %cleanup
@@ -339,9 +339,9 @@ if.end70:                                         ; preds = %if.then60
 if.end71:                                         ; preds = %lor.rhs
   call void @_ZN4node4quic5StoreC1EN2v85LocalINS2_15ArrayBufferViewEEENS1_6OptionE(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp73, ptr nonnull %call34, i32 noundef 0) #17
   call void @_ZN4node4quic5StoreC1EN2v85LocalINS2_15ArrayBufferViewEEENS1_6OptionE(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp82, ptr nonnull %call49, i32 noundef 0) #17
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic13SessionTicketE, i64 16), ptr %ref.tmp72, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic13SessionTicketE, i64 16), ptr %ref.tmp72, align 8
   %ticket_.i = getelementptr inbounds nuw i8, ptr %ref.tmp72, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %ticket_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %ticket_.i, align 8
   %store_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp72, i64 16
   %store_2.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp73, i64 8
   %13 = load ptr, ptr %store_2.i.i, align 8
@@ -354,7 +354,7 @@ if.end71:                                         ; preds = %lor.rhs
   %length_3.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp73, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %length_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %length_3.i.i, i64 16, i1 false)
   %transport_params_.i = getelementptr inbounds nuw i8, ptr %ref.tmp72, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %transport_params_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %transport_params_.i, align 8
   %store_.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp72, i64 56
   %store_2.i2.i = getelementptr inbounds nuw i8, ptr %ref.tmp82, i64 8
   %15 = load ptr, ptr %store_2.i2.i, align 8
@@ -369,9 +369,9 @@ if.end71:                                         ; preds = %lor.rhs
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
   store i8 1, ptr %agg.result, align 8, !alias.scope !17
   %value_.i.i42 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic13SessionTicketE, i64 16), ptr %value_.i.i42, align 8, !alias.scope !17
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic13SessionTicketE, i64 16), ptr %value_.i.i42, align 8, !alias.scope !17
   %ticket_.i.i.i43 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %ticket_.i.i.i43, align 8, !alias.scope !17
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %ticket_.i.i.i43, align 8, !alias.scope !17
   %store_.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %13, ptr %store_.i.i.i.i44, align 8, !alias.scope !17
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
@@ -381,7 +381,7 @@ if.end71:                                         ; preds = %lor.rhs
   %length_.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %length_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %length_3.i.i, i64 16, i1 false)
   %transport_params_.i.i.i45 = getelementptr inbounds nuw i8, ptr %agg.result, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %transport_params_.i.i.i45, align 8, !alias.scope !17
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %transport_params_.i.i.i45, align 8, !alias.scope !17
   %store_.i3.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 64
   store ptr %15, ptr %store_.i3.i.i.i, align 8, !alias.scope !17
   %_M_refcount.i.i.i5.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 72
@@ -1746,7 +1746,7 @@ define linkonce_odr dso_local void @_ZN4node18MemoryRetainerNodeC2EPNS_13MemoryT
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %ref.tmp = alloca %"class.v8::Local", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %this, align 8
   %retainer_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %retainer, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds nuw i8, ptr %this, i64 16

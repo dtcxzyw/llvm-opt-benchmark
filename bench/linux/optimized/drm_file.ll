@@ -116,7 +116,7 @@ define dso_local zeroext i1 @drm_dev_needs_global_mutex(ptr nocapture noundef re
 define dso_local ptr @drm_file_alloc(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %5 = tail call noalias noundef align 8 dereferenceable_or_null(368) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 368) #8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %93, label %7

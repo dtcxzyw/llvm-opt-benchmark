@@ -624,12 +624,12 @@ define internal i32 @bm_fill_super(ptr noundef %0, ptr nocapture readnone %1) #2
   br label %25
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @init_user_ns, i64 600), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_user_ns, i64 600), align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %18
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %12 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 32) #16
   %13 = icmp eq ptr %12, null
   br i1 %13, label %25, label %14
@@ -643,7 +643,7 @@ define internal i32 @bm_fill_super(ptr noundef %0, ptr nocapture readnone %1) #2
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 0, ptr %17, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !26
-  store volatile ptr %12, ptr getelementptr inbounds (i8, ptr @init_user_ns, i64 600), align 8
+  store volatile ptr %12, ptr getelementptr inbounds nuw (i8, ptr @init_user_ns, i64 600), align 8
   br label %18
 
 18:                                               ; preds = %14, %7

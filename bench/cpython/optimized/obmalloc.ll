@@ -1237,9 +1237,9 @@ if.then:                                          ; preds = %tailrecurse
   br i1 %call.i.i, label %mi_heap_get_default.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then
-  %1 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
+  %1 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
   %add.i.i.i = add i64 %1, 1
-  %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
+  %2 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %if.end.i.i
@@ -1248,13 +1248,13 @@ while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %
   br i1 %cmp.i21.i.i.i, label %land.rhs.i.i.i.i, label %_mi_stat_increase.exit.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.cond.i.i.i.i
-  %3 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
+  %3 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
   %4 = extractvalue { i64, i1 } %3, 1
   %5 = extractvalue { i64, i1 } %3, 0
   br i1 %4, label %_mi_stat_increase.exit.i, label %while.cond.i.i.i.i, !llvm.loop !5
 
 _mi_stat_increase.exit.i:                         ; preds = %land.rhs.i.i.i.i, %while.cond.i.i.i.i
-  %6 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
+  %6 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
   %7 = atomicrmw add ptr @thread_count, i64 1 monotonic, align 8
   br label %mi_heap_get_default.exit
 
@@ -6068,7 +6068,7 @@ if.else7.i.i:                                     ; preds = %if.else.i.i
 mi_bin.exit.i:                                    ; preds = %if.else7.i.i, %if.then2.i.i, %if.then.i
   %bin.0.i.i = phi i64 [ %conv.i.i, %if.then2.i.i ], [ %3, %if.else7.i.i ], [ 1, %if.then.i ]
   %block_size.idx.i.i = mul nuw nsw i64 %bin.0.i.i, 24
-  %4 = getelementptr i8, ptr getelementptr inbounds (i8, ptr @_mi_heap_empty, i64 1040), i64 %block_size.idx.i.i
+  %4 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1040), i64 %block_size.idx.i.i
   %block_size.i.i = getelementptr i8, ptr %4, i64 16
   %5 = load i64, ptr %block_size.i.i, align 8
   br label %mi_good_size.exit
@@ -6134,7 +6134,7 @@ if.else7.i:                                       ; preds = %if.else.i
 mi_bin.exit:                                      ; preds = %if.then, %if.then2.i, %if.else7.i
   %bin.0.i = phi i64 [ %conv.i, %if.then2.i ], [ %3, %if.else7.i ], [ 1, %if.then ]
   %block_size.idx.i = mul nuw nsw i64 %bin.0.i, 24
-  %4 = getelementptr i8, ptr getelementptr inbounds (i8, ptr @_mi_heap_empty, i64 1040), i64 %block_size.idx.i
+  %4 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1040), i64 %block_size.idx.i
   %block_size.i = getelementptr i8, ptr %4, i64 16
   %5 = load i64, ptr %block_size.i, align 8
   br label %return
@@ -6244,7 +6244,7 @@ if.end32.i.i:                                     ; preds = %do.end.i.i, %if.end
 
 if.end39.i.i:                                     ; preds = %if.end32.i.i
   %10 = ptrtoint ptr %add.ptr.i.i to i64
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2864), align 8
   %xor.i.i.i = xor i64 %11, %10
   %cookie.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 216
   %12 = load i64, ptr %cookie.i.i, align 8
@@ -7839,9 +7839,9 @@ if.end11:                                         ; preds = %_mi_align_up.exit
 
 if.end.i.i.i.i:                                   ; preds = %if.end11
   %sub.i.i.i = sub i64 0, %sub
-  %3 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 120), i64 %sub.i.i.i monotonic, align 8
+  %3 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120), i64 %sub.i.i.i monotonic, align 8
   %add.i.i.i.i = sub i64 %3, %sub
-  %4 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
+  %4 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
   br label %while.cond.i.i.i.i.i
 
 while.cond.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i, %if.end.i.i.i.i
@@ -7850,7 +7850,7 @@ while.cond.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i,
   br i1 %cmp.i21.i.i.i.i, label %land.rhs.i.i.i.i.i, label %mi_atomic_maxi64_relaxed.exit.i.i.i.i
 
 land.rhs.i.i.i.i.i:                               ; preds = %while.cond.i.i.i.i.i
-  %5 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i.i.i, i64 %add.i.i.i.i release monotonic, align 8
+  %5 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i.i.i, i64 %add.i.i.i.i release monotonic, align 8
   %6 = extractvalue { i64, i1 } %5, 1
   %7 = extractvalue { i64, i1 } %5, 0
   br i1 %6, label %mi_atomic_maxi64_relaxed.exit.i.i.i.i, label %while.cond.i.i.i.i.i, !llvm.loop !5
@@ -7860,11 +7860,11 @@ mi_atomic_maxi64_relaxed.exit.i.i.i.i:            ; preds = %land.rhs.i.i.i.i.i,
   br i1 %cmp4.i.i.i.i, label %if.then5.i.i.i.i, label %if.else.i.i.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %mi_atomic_maxi64_relaxed.exit.i.i.i.i
-  %8 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 %sub.i.i.i monotonic, align 8
+  %8 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 %sub.i.i.i monotonic, align 8
   br label %if.end4.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %mi_atomic_maxi64_relaxed.exit.i.i.i.i
-  %9 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 104), i64 %sub monotonic, align 8
+  %9 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 104), i64 %sub monotonic, align 8
   br label %if.end4.i.i.i.i
 
 if.end4.i.i.i.i:                                  ; preds = %if.then5.i.i.i.i, %if.else.i.i.i.i
@@ -8047,9 +8047,9 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %_mi_
   br i1 %commit, label %if.end.i.i.i.i, label %if.end.i.i12.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end4.i.i
-  %11 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 120), i64 %sub.i.i.i monotonic, align 8
+  %11 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120), i64 %sub.i.i.i monotonic, align 8
   %add.i.i.i.i = sub i64 %11, %retval.0.i.i
-  %12 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
+  %12 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
   br label %while.cond.i.i.i.i.i
 
 while.cond.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i, %if.end.i.i.i.i
@@ -8058,7 +8058,7 @@ while.cond.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i,
   br i1 %cmp.i21.i.i.i.i, label %land.rhs.i.i.i.i.i, label %mi_atomic_maxi64_relaxed.exit.i.i.i.i
 
 land.rhs.i.i.i.i.i:                               ; preds = %while.cond.i.i.i.i.i
-  %13 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i.i.i, i64 %add.i.i.i.i release monotonic, align 8
+  %13 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i.i.i, i64 %add.i.i.i.i release monotonic, align 8
   %14 = extractvalue { i64, i1 } %13, 1
   %15 = extractvalue { i64, i1 } %13, 0
   br i1 %14, label %mi_atomic_maxi64_relaxed.exit.i.i.i.i, label %while.cond.i.i.i.i.i, !llvm.loop !5
@@ -8068,17 +8068,17 @@ mi_atomic_maxi64_relaxed.exit.i.i.i.i:            ; preds = %land.rhs.i.i.i.i.i,
   br i1 %cmp4.i.i.i.i, label %if.then5.i.i.i.i, label %if.else.i.i.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %mi_atomic_maxi64_relaxed.exit.i.i.i.i
-  %16 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 %sub.i.i.i monotonic, align 8
+  %16 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 %sub.i.i.i monotonic, align 8
   br label %if.end.i.i12.i.i
 
 if.else.i.i.i.i:                                  ; preds = %mi_atomic_maxi64_relaxed.exit.i.i.i.i
-  %17 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 104), i64 %retval.0.i.i monotonic, align 8
+  %17 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 104), i64 %retval.0.i.i monotonic, align 8
   br label %if.end.i.i12.i.i
 
 if.end.i.i12.i.i:                                 ; preds = %if.else.i.i.i.i, %if.then5.i.i.i.i, %if.end4.i.i
-  %18 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 88), i64 %sub.i.i.i monotonic, align 8
+  %18 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 88), i64 %sub.i.i.i monotonic, align 8
   %add.i.i13.i.i = sub i64 %18, %retval.0.i.i
-  %19 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 80) monotonic, align 16
+  %19 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 80) monotonic, align 16
   br label %while.cond.i.i.i14.i.i
 
 while.cond.i.i.i14.i.i:                           ; preds = %land.rhs.i.i.i21.i.i, %if.end.i.i12.i.i
@@ -8087,7 +8087,7 @@ while.cond.i.i.i14.i.i:                           ; preds = %land.rhs.i.i.i21.i.
   br i1 %cmp.i21.i.i16.i.i, label %land.rhs.i.i.i21.i.i, label %mi_atomic_maxi64_relaxed.exit.i.i17.i.i
 
 land.rhs.i.i.i21.i.i:                             ; preds = %while.cond.i.i.i14.i.i
-  %20 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 80), i64 %current.0.i.i.i15.i.i, i64 %add.i.i13.i.i release monotonic, align 8
+  %20 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 80), i64 %current.0.i.i.i15.i.i, i64 %add.i.i13.i.i release monotonic, align 8
   %21 = extractvalue { i64, i1 } %20, 1
   %22 = extractvalue { i64, i1 } %20, 0
   br i1 %21, label %mi_atomic_maxi64_relaxed.exit.i.i17.i.i, label %while.cond.i.i.i14.i.i, !llvm.loop !5
@@ -8097,11 +8097,11 @@ mi_atomic_maxi64_relaxed.exit.i.i17.i.i:          ; preds = %land.rhs.i.i.i21.i.
   br i1 %cmp4.i.i18.i.i, label %if.then5.i.i20.i.i, label %if.else.i.i19.i.i
 
 if.then5.i.i20.i.i:                               ; preds = %mi_atomic_maxi64_relaxed.exit.i.i17.i.i
-  %23 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 %sub.i.i.i monotonic, align 8
+  %23 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 %sub.i.i.i monotonic, align 8
   br label %mi_os_prim_free.exit.i
 
 if.else.i.i19.i.i:                                ; preds = %mi_atomic_maxi64_relaxed.exit.i.i17.i.i
-  %24 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 72), i64 %retval.0.i.i monotonic, align 8
+  %24 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 72), i64 %retval.0.i.i monotonic, align 8
   br label %mi_os_prim_free.exit.i
 
 mi_os_prim_free.exit.i:                           ; preds = %if.else.i.i19.i.i, %if.then5.i.i20.i.i, %if.else.i22
@@ -8268,7 +8268,7 @@ if.end.i.i:                                       ; preds = %if.then5
   %committed = getelementptr inbounds nuw i8, ptr %stats, i64 96
   %sub.i = sub i64 0, %committed_size
   %cmp.i.i.i = icmp uge ptr %committed, @_mi_stats_main
-  %cmp1.i.i.i = icmp ult ptr %committed, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
+  %cmp1.i.i.i = icmp ult ptr %committed, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 640)
   %3 = select i1 %cmp.i.i.i, i1 %cmp1.i.i.i, i1 false
   %current2.i.i = getelementptr inbounds nuw i8, ptr %stats, i64 120
   br i1 %3, label %if.then1.i.i, label %if.else9.i.i
@@ -8504,7 +8504,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %cmp.i.i = icmp uge ptr %stat, @_mi_stats_main
-  %cmp1.i.i = icmp ult ptr %stat, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
+  %cmp1.i.i = icmp ult ptr %stat, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 640)
   %0 = select i1 %cmp.i.i, i1 %cmp1.i.i, i1 false
   %current2.i = getelementptr inbounds nuw i8, ptr %stat, i64 24
   br i1 %0, label %if.then1.i, label %if.else9.i
@@ -9543,9 +9543,9 @@ if.then3.i.i:                                     ; preds = %_mi_prim_free.exit.
   br label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.then3.i.i, %_mi_prim_free.exit.i.i, %if.end.i.i
-  %8 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 120), i64 -1073741824 monotonic, align 8
+  %8 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120), i64 -1073741824 monotonic, align 8
   %add.i.i.i.i = add i64 %8, -1073741824
-  %9 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
+  %9 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
   br label %while.cond.i.i.i.i.i
 
 while.cond.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i, %if.end4.i.i
@@ -9554,16 +9554,16 @@ while.cond.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i,
   br i1 %cmp.i21.i.i.i.i, label %land.rhs.i.i.i.i.i, label %mi_atomic_maxi64_relaxed.exit.i.i.i.i
 
 land.rhs.i.i.i.i.i:                               ; preds = %while.cond.i.i.i.i.i
-  %10 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i.i.i, i64 %add.i.i.i.i release monotonic, align 8
+  %10 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i.i.i, i64 %add.i.i.i.i release monotonic, align 8
   %11 = extractvalue { i64, i1 } %10, 1
   %12 = extractvalue { i64, i1 } %10, 0
   br i1 %11, label %mi_atomic_maxi64_relaxed.exit.i.i.i.i, label %while.cond.i.i.i.i.i, !llvm.loop !5
 
 mi_atomic_maxi64_relaxed.exit.i.i.i.i:            ; preds = %land.rhs.i.i.i.i.i, %while.cond.i.i.i.i.i
-  %13 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 104), i64 1073741824 monotonic, align 8
-  %14 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 88), i64 -1073741824 monotonic, align 8
+  %13 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 104), i64 1073741824 monotonic, align 8
+  %14 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 88), i64 -1073741824 monotonic, align 8
   %add.i.i13.i.i = add i64 %14, -1073741824
-  %15 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 80) monotonic, align 16
+  %15 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 80) monotonic, align 16
   br label %while.cond.i.i.i14.i.i
 
 while.cond.i.i.i14.i.i:                           ; preds = %land.rhs.i.i.i21.i.i, %mi_atomic_maxi64_relaxed.exit.i.i.i.i
@@ -9572,13 +9572,13 @@ while.cond.i.i.i14.i.i:                           ; preds = %land.rhs.i.i.i21.i.
   br i1 %cmp.i21.i.i16.i.i, label %land.rhs.i.i.i21.i.i, label %mi_atomic_maxi64_relaxed.exit.i.i17.i.i
 
 land.rhs.i.i.i21.i.i:                             ; preds = %while.cond.i.i.i14.i.i
-  %16 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 80), i64 %current.0.i.i.i15.i.i, i64 %add.i.i13.i.i release monotonic, align 8
+  %16 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 80), i64 %current.0.i.i.i15.i.i, i64 %add.i.i13.i.i release monotonic, align 8
   %17 = extractvalue { i64, i1 } %16, 1
   %18 = extractvalue { i64, i1 } %16, 0
   br i1 %17, label %mi_atomic_maxi64_relaxed.exit.i.i17.i.i, label %while.cond.i.i.i14.i.i, !llvm.loop !5
 
 mi_atomic_maxi64_relaxed.exit.i.i17.i.i:          ; preds = %land.rhs.i.i.i21.i.i, %while.cond.i.i.i14.i.i
-  %19 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 72), i64 1073741824 monotonic, align 8
+  %19 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 72), i64 1073741824 monotonic, align 8
   br label %mi_os_prim_free.exit.i
 
 mi_os_prim_free.exit.i:                           ; preds = %mi_atomic_maxi64_relaxed.exit.i.i17.i.i, %while.body.i
@@ -9613,9 +9613,9 @@ if.end4.i:                                        ; preds = %if.then3.i, %_mi_pr
   br i1 %still_committed, label %if.end.i.i.i, label %if.end.i.i12.i
 
 if.end.i.i.i:                                     ; preds = %if.end4.i
-  %21 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 120), i64 %sub.i.i12 monotonic, align 8
+  %21 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120), i64 %sub.i.i12 monotonic, align 8
   %add.i.i.i = sub i64 %21, %csize.0
-  %22 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
+  %22 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %if.end.i.i.i
@@ -9624,7 +9624,7 @@ while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %
   br i1 %cmp.i21.i.i.i, label %land.rhs.i.i.i.i, label %mi_atomic_maxi64_relaxed.exit.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.cond.i.i.i.i
-  %23 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
+  %23 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
   %24 = extractvalue { i64, i1 } %23, 1
   %25 = extractvalue { i64, i1 } %23, 0
   br i1 %24, label %mi_atomic_maxi64_relaxed.exit.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !5
@@ -9634,17 +9634,17 @@ mi_atomic_maxi64_relaxed.exit.i.i.i:              ; preds = %land.rhs.i.i.i.i, %
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.else.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %mi_atomic_maxi64_relaxed.exit.i.i.i
-  %26 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 %sub.i.i12 monotonic, align 8
+  %26 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 %sub.i.i12 monotonic, align 8
   br label %if.end.i.i12.i
 
 if.else.i.i.i:                                    ; preds = %mi_atomic_maxi64_relaxed.exit.i.i.i
-  %27 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 104), i64 %csize.0 monotonic, align 8
+  %27 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 104), i64 %csize.0 monotonic, align 8
   br label %if.end.i.i12.i
 
 if.end.i.i12.i:                                   ; preds = %if.else.i.i.i, %if.then5.i.i.i, %if.end4.i
-  %28 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 88), i64 %sub.i.i12 monotonic, align 8
+  %28 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 88), i64 %sub.i.i12 monotonic, align 8
   %add.i.i13.i = sub i64 %28, %csize.0
-  %29 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 80) monotonic, align 16
+  %29 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 80) monotonic, align 16
   br label %while.cond.i.i.i14.i
 
 while.cond.i.i.i14.i:                             ; preds = %land.rhs.i.i.i21.i, %if.end.i.i12.i
@@ -9653,7 +9653,7 @@ while.cond.i.i.i14.i:                             ; preds = %land.rhs.i.i.i21.i,
   br i1 %cmp.i21.i.i16.i, label %land.rhs.i.i.i21.i, label %mi_atomic_maxi64_relaxed.exit.i.i17.i
 
 land.rhs.i.i.i21.i:                               ; preds = %while.cond.i.i.i14.i
-  %30 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 80), i64 %current.0.i.i.i15.i, i64 %add.i.i13.i release monotonic, align 8
+  %30 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 80), i64 %current.0.i.i.i15.i, i64 %add.i.i13.i release monotonic, align 8
   %31 = extractvalue { i64, i1 } %30, 1
   %32 = extractvalue { i64, i1 } %30, 0
   br i1 %31, label %mi_atomic_maxi64_relaxed.exit.i.i17.i, label %while.cond.i.i.i14.i, !llvm.loop !5
@@ -9663,11 +9663,11 @@ mi_atomic_maxi64_relaxed.exit.i.i17.i:            ; preds = %land.rhs.i.i.i21.i,
   br i1 %cmp4.i.i18.i, label %if.then5.i.i20.i, label %if.else.i.i19.i
 
 if.then5.i.i20.i:                                 ; preds = %mi_atomic_maxi64_relaxed.exit.i.i17.i
-  %33 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 %sub.i.i12 monotonic, align 8
+  %33 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 %sub.i.i12 monotonic, align 8
   br label %if.end13
 
 if.else.i.i19.i:                                  ; preds = %mi_atomic_maxi64_relaxed.exit.i.i17.i
-  %34 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 72), i64 %csize.0 monotonic, align 8
+  %34 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 72), i64 %csize.0 monotonic, align 8
   br label %if.end13
 
 if.end13:                                         ; preds = %mi_os_prim_free.exit.i, %if.else.i.i19.i, %if.then5.i.i20.i, %if.else, %if.then10, %entry
@@ -10110,9 +10110,9 @@ if.then3.i:                                       ; preds = %_mi_prim_free.exit.
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %_mi_prim_free.exit.i, %if.end.i
-  %24 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 120), i64 -1073741824 monotonic, align 8
+  %24 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120), i64 -1073741824 monotonic, align 8
   %add.i.i.i = add i64 %24, -1073741824
-  %25 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
+  %25 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %if.end4.i
@@ -10121,16 +10121,16 @@ while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %
   br i1 %cmp.i21.i.i.i, label %land.rhs.i.i.i.i, label %mi_atomic_maxi64_relaxed.exit.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.cond.i.i.i.i
-  %26 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
+  %26 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
   %27 = extractvalue { i64, i1 } %26, 1
   %28 = extractvalue { i64, i1 } %26, 0
   br i1 %27, label %mi_atomic_maxi64_relaxed.exit.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !5
 
 mi_atomic_maxi64_relaxed.exit.i.i.i:              ; preds = %land.rhs.i.i.i.i, %while.cond.i.i.i.i
-  %29 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 104), i64 1073741824 monotonic, align 8
-  %30 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 88), i64 -1073741824 monotonic, align 8
+  %29 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 104), i64 1073741824 monotonic, align 8
+  %30 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 88), i64 -1073741824 monotonic, align 8
   %add.i.i13.i = add i64 %30, -1073741824
-  %31 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 80) monotonic, align 16
+  %31 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 80) monotonic, align 16
   br label %while.cond.i.i.i14.i
 
 while.cond.i.i.i14.i:                             ; preds = %land.rhs.i.i.i21.i, %mi_atomic_maxi64_relaxed.exit.i.i.i
@@ -10139,20 +10139,20 @@ while.cond.i.i.i14.i:                             ; preds = %land.rhs.i.i.i21.i,
   br i1 %cmp.i21.i.i16.i, label %land.rhs.i.i.i21.i, label %mi_os_prim_free.exit
 
 land.rhs.i.i.i21.i:                               ; preds = %while.cond.i.i.i14.i
-  %32 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 80), i64 %current.0.i.i.i15.i, i64 %add.i.i13.i release monotonic, align 8
+  %32 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 80), i64 %current.0.i.i.i15.i, i64 %add.i.i13.i release monotonic, align 8
   %33 = extractvalue { i64, i1 } %32, 1
   %34 = extractvalue { i64, i1 } %32, 0
   br i1 %33, label %mi_os_prim_free.exit, label %while.cond.i.i.i14.i, !llvm.loop !5
 
 mi_os_prim_free.exit:                             ; preds = %while.cond.i.i.i14.i, %land.rhs.i.i.i21.i
-  %35 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 72), i64 1073741824 monotonic, align 8
+  %35 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 72), i64 1073741824 monotonic, align 8
   br label %while.end
 
 if.end20:                                         ; preds = %if.end14
   %inc = add nuw i64 %page.060, 1
-  %36 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 120), i64 1073741824 monotonic, align 8
+  %36 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120), i64 1073741824 monotonic, align 8
   %add.i.i = add i64 %36, 1073741824
-  %37 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
+  %37 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %land.rhs.i.i.i, %if.end20
@@ -10161,16 +10161,16 @@ while.cond.i.i.i:                                 ; preds = %land.rhs.i.i.i, %if
   br i1 %cmp.i21.i.i, label %land.rhs.i.i.i, label %_mi_stat_increase.exit
 
 land.rhs.i.i.i:                                   ; preds = %while.cond.i.i.i
-  %38 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i, i64 %add.i.i release monotonic, align 8
+  %38 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i, i64 %add.i.i release monotonic, align 8
   %39 = extractvalue { i64, i1 } %38, 1
   %40 = extractvalue { i64, i1 } %38, 0
   br i1 %39, label %_mi_stat_increase.exit, label %while.cond.i.i.i, !llvm.loop !5
 
 _mi_stat_increase.exit:                           ; preds = %while.cond.i.i.i, %land.rhs.i.i.i
-  %41 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 1073741824 monotonic, align 8
-  %42 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 88), i64 1073741824 monotonic, align 8
+  %41 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 1073741824 monotonic, align 8
+  %42 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 88), i64 1073741824 monotonic, align 8
   %add.i.i34 = add i64 %42, 1073741824
-  %43 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 80) monotonic, align 16
+  %43 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 80) monotonic, align 16
   br label %while.cond.i.i.i35
 
 while.cond.i.i.i35:                               ; preds = %land.rhs.i.i.i38, %_mi_stat_increase.exit
@@ -10179,13 +10179,13 @@ while.cond.i.i.i35:                               ; preds = %land.rhs.i.i.i38, %
   br i1 %cmp.i21.i.i37, label %land.rhs.i.i.i38, label %_mi_stat_increase.exit39
 
 land.rhs.i.i.i38:                                 ; preds = %while.cond.i.i.i35
-  %44 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 80), i64 %current.0.i.i.i36, i64 %add.i.i34 release monotonic, align 8
+  %44 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 80), i64 %current.0.i.i.i36, i64 %add.i.i34 release monotonic, align 8
   %45 = extractvalue { i64, i1 } %44, 1
   %46 = extractvalue { i64, i1 } %44, 0
   br i1 %45, label %_mi_stat_increase.exit39, label %while.cond.i.i.i35, !llvm.loop !5
 
 _mi_stat_increase.exit39:                         ; preds = %while.cond.i.i.i35, %land.rhs.i.i.i38
-  %47 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 1073741824 monotonic, align 8
+  %47 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 1073741824 monotonic, align 8
   br i1 %cmp21, label %if.then22, label %if.end36
 
 if.then22:                                        ; preds = %_mi_stat_increase.exit39
@@ -11818,7 +11818,7 @@ _mi_deferred_free.exit:                           ; preds = %if.end, %land.lhs.t
   br i1 %cmp2, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %_mi_deferred_free.exit
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2848), align 8
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2848), align 8
   %cmp.i19 = icmp eq i64 %11, 0
   br i1 %cmp.i19, label %land.lhs.true4, label %_mi_is_main_thread.exit
 
@@ -12091,7 +12091,7 @@ mi_heap_visit_pages.exit43:                       ; preds = %for.inc.i40, %lor.l
 
 if.then21:                                        ; preds = %mi_heap_visit_pages.exit43
   %48 = load ptr, ptr %heap, align 8
-  %49 = load i64, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2848), align 8
+  %49 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2848), align 8
   %cmp.i44 = icmp eq i64 %49, 0
   br i1 %cmp.i44, label %land.lhs.true28, label %_mi_is_main_thread.exit47
 
@@ -12169,9 +12169,9 @@ entry:
   br i1 %call.i, label %mi_thread_init.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %0 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
+  %0 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
   %add.i.i = add i64 %0, 1
-  %1 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
+  %1 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %land.rhs.i.i.i, %if.end.i
@@ -12180,13 +12180,13 @@ while.cond.i.i.i:                                 ; preds = %land.rhs.i.i.i, %if
   br i1 %cmp.i21.i.i, label %land.rhs.i.i.i, label %_mi_stat_increase.exit
 
 land.rhs.i.i.i:                                   ; preds = %while.cond.i.i.i
-  %2 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i, i64 %add.i.i release monotonic, align 8
+  %2 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i, i64 %add.i.i release monotonic, align 8
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %_mi_stat_increase.exit, label %while.cond.i.i.i, !llvm.loop !5
 
 _mi_stat_increase.exit:                           ; preds = %while.cond.i.i.i, %land.rhs.i.i.i
-  %5 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
+  %5 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
   %6 = atomicrmw add ptr @thread_count, i64 1 monotonic, align 8
   br label %mi_thread_init.exit
 
@@ -12204,9 +12204,9 @@ entry:
   br i1 %call, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
+  %0 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
   %add.i.i = add i64 %0, 1
-  %1 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
+  %1 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %land.rhs.i.i.i, %if.end
@@ -12215,13 +12215,13 @@ while.cond.i.i.i:                                 ; preds = %land.rhs.i.i.i, %if
   br i1 %cmp.i21.i.i, label %land.rhs.i.i.i, label %_mi_stat_increase.exit
 
 land.rhs.i.i.i:                                   ; preds = %while.cond.i.i.i
-  %2 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i, i64 %add.i.i release monotonic, align 8
+  %2 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i, i64 %add.i.i release monotonic, align 8
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %_mi_stat_increase.exit, label %while.cond.i.i.i, !llvm.loop !5
 
 _mi_stat_increase.exit:                           ; preds = %while.cond.i.i.i, %land.rhs.i.i.i
-  %5 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
+  %5 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
   %6 = atomicrmw add ptr @thread_count, i64 1 monotonic, align 8
   br label %return
 
@@ -12237,9 +12237,9 @@ entry:
   br i1 %call.i.i, label %mi_heap_get_default.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %0 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
+  %0 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
   %add.i.i.i = add i64 %0, 1
-  %1 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
+  %1 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %if.end.i.i
@@ -12248,13 +12248,13 @@ while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %
   br i1 %cmp.i21.i.i.i, label %land.rhs.i.i.i.i, label %_mi_stat_increase.exit.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.cond.i.i.i.i
-  %2 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
+  %2 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %_mi_stat_increase.exit.i, label %while.cond.i.i.i.i, !llvm.loop !5
 
 _mi_stat_increase.exit.i:                         ; preds = %land.rhs.i.i.i.i, %while.cond.i.i.i.i
-  %5 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
+  %5 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
   %6 = atomicrmw add ptr @thread_count, i64 1 monotonic, align 8
   br label %mi_heap_get_default.exit
 
@@ -12275,9 +12275,9 @@ entry:
   br i1 %call.i.i.i, label %mi_heap_get_backing.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
-  %0 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
+  %0 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
   %add.i.i.i.i = add i64 %0, 1
-  %1 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
+  %1 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
   br label %while.cond.i.i.i.i.i
 
 while.cond.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i, %if.end.i.i.i
@@ -12286,13 +12286,13 @@ while.cond.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i,
   br i1 %cmp.i21.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_mi_stat_increase.exit.i.i
 
 land.rhs.i.i.i.i.i:                               ; preds = %while.cond.i.i.i.i.i
-  %2 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i.i, i64 %add.i.i.i.i release monotonic, align 8
+  %2 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i.i, i64 %add.i.i.i.i release monotonic, align 8
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %_mi_stat_increase.exit.i.i, label %while.cond.i.i.i.i.i, !llvm.loop !5
 
 _mi_stat_increase.exit.i.i:                       ; preds = %land.rhs.i.i.i.i.i, %while.cond.i.i.i.i.i
-  %5 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
+  %5 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
   %6 = atomicrmw add ptr @thread_count, i64 1 monotonic, align 8
   br label %mi_heap_get_backing.exit
 
@@ -12751,8 +12751,8 @@ mi_heap_visit_pages.exit:                         ; preds = %for.inc.i, %entry, 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %pages_free_direct.i, i8 0, i64 1032, i1 false)
   %pages.i2 = getelementptr inbounds nuw i8, ptr %heap, i64 1040
   call void @llvm.assume(i1 true) [ "align"(ptr %pages.i2, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds (i8, ptr @_mi_heap_empty, i64 1040), i64 8) ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %pages.i2, ptr noundef nonnull readonly align 16 dereferenceable(1800) getelementptr inbounds (i8, ptr @_mi_heap_empty, i64 1040), i64 1800, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1040), i64 8) ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %pages.i2, ptr noundef nonnull readonly align 16 dereferenceable(1800) getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1040), i64 1800, i1 false)
   %thread_delayed_free.i = getelementptr inbounds nuw i8, ptr %heap, i64 2840
   store atomic i64 0, ptr %thread_delayed_free.i seq_cst, align 8
   %page_count.i3 = getelementptr inbounds nuw i8, ptr %heap, i64 3024
@@ -13032,8 +13032,8 @@ if.end3:                                          ; preds = %_mi_page_queue_appe
   %pages_free_direct.i.i = getelementptr inbounds nuw i8, ptr %heap, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %pages_free_direct.i.i, i8 0, i64 1032, i1 false)
   call void @llvm.assume(i1 true) [ "align"(ptr %pages3.i, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds (i8, ptr @_mi_heap_empty, i64 1040), i64 8) ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %pages3.i, ptr noundef nonnull readonly align 16 dereferenceable(1800) getelementptr inbounds (i8, ptr @_mi_heap_empty, i64 1040), i64 1800, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1040), i64 8) ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %pages3.i, ptr noundef nonnull readonly align 16 dereferenceable(1800) getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1040), i64 1800, i1 false)
   store atomic i64 0, ptr %thread_delayed_free.i.i seq_cst, align 8
   store i64 0, ptr %page_count.i, align 8
   br label %if.end.i8
@@ -13111,9 +13111,9 @@ entry:
   br i1 %call.i.i.i, label %mi_heap_get_backing.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
-  %0 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
+  %0 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
   %add.i.i.i.i = add i64 %0, 1
-  %1 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
+  %1 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
   br label %while.cond.i.i.i.i.i
 
 while.cond.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i, %if.end.i.i.i
@@ -13122,13 +13122,13 @@ while.cond.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i,
   br i1 %cmp.i21.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_mi_stat_increase.exit.i.i
 
 land.rhs.i.i.i.i.i:                               ; preds = %while.cond.i.i.i.i.i
-  %2 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i.i, i64 %add.i.i.i.i release monotonic, align 8
+  %2 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i.i, i64 %add.i.i.i.i release monotonic, align 8
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %_mi_stat_increase.exit.i.i, label %while.cond.i.i.i.i.i, !llvm.loop !5
 
 _mi_stat_increase.exit.i.i:                       ; preds = %land.rhs.i.i.i.i.i, %while.cond.i.i.i.i.i
-  %5 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
+  %5 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
   %6 = atomicrmw add ptr @thread_count, i64 1 monotonic, align 8
   br label %mi_heap_get_backing.exit
 
@@ -13228,7 +13228,7 @@ if.end.i:                                         ; preds = %if.end
   %sub.i.i = add i64 %0, -1
   %and.i.i = and i64 %sub.i.i, -33554432
   %1 = inttoptr i64 %and.i.i to ptr
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2864), align 8
   %xor.i.i = xor i64 %2, %and.i.i
   %cookie.i = getelementptr inbounds nuw i8, ptr %1, i64 216
   %3 = load i64, ptr %cookie.i, align 8
@@ -13882,16 +13882,16 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mi_heap_main_init() unnamed_addr #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2864), align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %1 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #52, !srcloc !16
   %2 = ptrtoint ptr %1 to i64
-  store i64 %2, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2848), align 8
-  store i64 1, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
-  tail call fastcc void @mi_random_init_ex(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2888), i1 noundef zeroext false)
+  store i64 %2, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2848), align 8
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2864), align 8
+  tail call fastcc void @mi_random_init_ex(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2888), i1 noundef zeroext false)
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 3016), align 8
   %cmp.i.i.i = icmp slt i32 %3, 1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %chacha_next32.exit.i.i
@@ -13933,7 +13933,7 @@ _mi_heap_random_next.exit:                        ; preds = %chacha_next32.exit.
   store i32 %dec.i8.i.i, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 3016), align 8
   %conv2.i.i = zext i32 %8 to i64
   %or.i.i = or disjoint i64 %shl.i.i, %conv2.i.i
-  store i64 %or.i.i, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
+  store i64 %or.i.i, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2864), align 8
   %cmp.i.i.i1 = icmp slt i32 %dec.i8.i.i, 1
   br i1 %cmp.i.i.i1, label %if.then.i.i.i17, label %chacha_next32.exit.i.i2
 
@@ -13974,7 +13974,7 @@ _mi_heap_random_next.exit18:                      ; preds = %chacha_next32.exit.
   store i32 %dec.i8.i.i13, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 3016), align 8
   %conv2.i.i14 = zext i32 %14 to i64
   %or.i.i15 = or disjoint i64 %shl.i.i9, %conv2.i.i14
-  store i64 %or.i.i15, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2872), align 8
+  store i64 %or.i.i15, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2872), align 8
   %cmp.i.i.i19 = icmp slt i32 %dec.i8.i.i13, 1
   br i1 %cmp.i.i.i19, label %if.then.i.i.i35, label %chacha_next32.exit.i.i20
 
@@ -14015,7 +14015,7 @@ _mi_heap_random_next.exit36:                      ; preds = %chacha_next32.exit.
   store i32 %dec.i8.i.i31, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 3016), align 8
   %conv2.i.i32 = zext i32 %20 to i64
   %or.i.i33 = or disjoint i64 %shl.i.i27, %conv2.i.i32
-  store i64 %or.i.i33, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2880), align 8
+  store i64 %or.i.i33, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2880), align 8
   br label %if.end
 
 if.end:                                           ; preds = %_mi_heap_random_next.exit36, %entry
@@ -14061,7 +14061,7 @@ for.end:                                          ; preds = %for.inc
 ; Function Attrs: nofree nounwind memory(read) uwtable
 define hidden zeroext i1 @_mi_is_main_thread() local_unnamed_addr #18 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2848), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2848), align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %lor.end, label %lor.rhs
 
@@ -14164,9 +14164,9 @@ _mi_os_init.exit:                                 ; preds = %if.end.i.i, %if.the
   br i1 %call.i, label %mi_thread_init.exit, label %if.end.i9
 
 if.end.i9:                                        ; preds = %_mi_os_init.exit
-  %11 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
+  %11 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
   %add.i.i.i = add i64 %11, 1
-  %12 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
+  %12 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %if.end.i9
@@ -14175,13 +14175,13 @@ while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %
   br i1 %cmp.i21.i.i.i, label %land.rhs.i.i.i.i, label %_mi_stat_increase.exit.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.cond.i.i.i.i
-  %13 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
+  %13 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
   %14 = extractvalue { i64, i1 } %13, 1
   %15 = extractvalue { i64, i1 } %13, 0
   br i1 %14, label %_mi_stat_increase.exit.i, label %while.cond.i.i.i.i, !llvm.loop !5
 
 _mi_stat_increase.exit.i:                         ; preds = %land.rhs.i.i.i.i, %while.cond.i.i.i.i
-  %16 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
+  %16 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
   %17 = atomicrmw add ptr @thread_count, i64 1 monotonic, align 8
   br label %mi_thread_init.exit
 
@@ -14191,9 +14191,9 @@ mi_thread_init.exit:                              ; preds = %_mi_os_init.exit, %
   br i1 %call.i.i.i24, label %mi_stats_get_default.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %mi_thread_init.exit
-  %18 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
+  %18 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
   %add.i.i = add i64 %18, 1
-  %19 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
+  %19 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %land.rhs.i.i.i, %if.end.i.i.i
@@ -14202,13 +14202,13 @@ while.cond.i.i.i:                                 ; preds = %land.rhs.i.i.i, %if
   br i1 %cmp.i21.i.i, label %land.rhs.i.i.i, label %_mi_stat_increase.exit
 
 land.rhs.i.i.i:                                   ; preds = %while.cond.i.i.i
-  %20 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i, i64 %add.i.i release monotonic, align 8
+  %20 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i, i64 %add.i.i release monotonic, align 8
   %21 = extractvalue { i64, i1 } %20, 1
   %22 = extractvalue { i64, i1 } %20, 0
   br i1 %21, label %_mi_stat_increase.exit, label %while.cond.i.i.i, !llvm.loop !5
 
 _mi_stat_increase.exit:                           ; preds = %while.cond.i.i.i, %land.rhs.i.i.i
-  %23 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
+  %23 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
   %24 = atomicrmw add ptr @thread_count, i64 1 monotonic, align 8
   br label %mi_stats_get_default.exit
 
@@ -14323,7 +14323,7 @@ entry:
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2848), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2848), align 8
   %cmp.i24 = icmp eq i64 %2, 0
   br i1 %cmp.i24, label %if.then3, label %_mi_is_main_thread.exit
 
@@ -14579,7 +14579,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %cmp.i.i = icmp uge ptr %stat, @_mi_stats_main
-  %cmp1.i.i = icmp ult ptr %stat, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
+  %cmp1.i.i = icmp ult ptr %stat, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 640)
   %0 = select i1 %cmp.i.i, i1 %cmp1.i.i, i1 false
   %current2.i = getelementptr inbounds nuw i8, ptr %stat, i64 24
   br i1 %0, label %if.then1.i, label %if.else9.i
@@ -14677,9 +14677,9 @@ if.end3:                                          ; preds = %if.then, %entry
 
 if.end6:                                          ; preds = %if.end3
   %2 = atomicrmw sub ptr @thread_count, i64 1 monotonic, align 8
-  %3 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 312), i64 -1 monotonic, align 8
+  %3 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 312), i64 -1 monotonic, align 8
   %add.i.i = add i64 %3, -1
-  %4 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
+  %4 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %land.rhs.i.i.i, %if.end6
@@ -14688,13 +14688,13 @@ while.cond.i.i.i:                                 ; preds = %land.rhs.i.i.i, %if
   br i1 %cmp.i21.i.i, label %land.rhs.i.i.i, label %_mi_stat_decrease.exit
 
 land.rhs.i.i.i:                                   ; preds = %while.cond.i.i.i
-  %5 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i, i64 %add.i.i release monotonic, align 8
+  %5 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i, i64 %add.i.i release monotonic, align 8
   %6 = extractvalue { i64, i1 } %5, 1
   %7 = extractvalue { i64, i1 } %5, 0
   br i1 %6, label %_mi_stat_decrease.exit, label %while.cond.i.i.i, !llvm.loop !5
 
 _mi_stat_decrease.exit:                           ; preds = %while.cond.i.i.i, %land.rhs.i.i.i
-  %8 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 296), i64 1 monotonic, align 8
+  %8 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 296), i64 1 monotonic, align 8
   %thread_id = getelementptr inbounds nuw i8, ptr %heap.addr.0, i64 2848
   %9 = load i64, ptr %thread_id, align 8
   %10 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #52, !srcloc !16
@@ -14703,7 +14703,7 @@ _mi_stat_decrease.exit:                           ; preds = %while.cond.i.i.i, %
   br i1 %cmp8.not.not, label %if.end.i, label %if.end13
 
 if.end.i:                                         ; preds = %_mi_stat_decrease.exit
-  %12 = load i64, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2848), align 8
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2848), align 8
   %cmp.i13.i = icmp eq i64 %12, 0
   br i1 %cmp.i13.i, label %_mi_is_main_thread.exit.thread.i, label %_mi_is_main_thread.exit.i
 
@@ -14887,9 +14887,9 @@ entry:
   br i1 %call.i.i.i, label %mi_stats_get_default.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
-  %0 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
+  %0 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
   %add.i.i.i = add i64 %0, 1
-  %1 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
+  %1 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %if.end.i.i.i
@@ -14898,13 +14898,13 @@ while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %
   br i1 %cmp.i21.i.i.i, label %land.rhs.i.i.i.i, label %_mi_stat_increase.exit.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.cond.i.i.i.i
-  %2 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
+  %2 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %_mi_stat_increase.exit.i, label %while.cond.i.i.i.i, !llvm.loop !5
 
 _mi_stat_increase.exit.i:                         ; preds = %land.rhs.i.i.i.i, %while.cond.i.i.i.i
-  %5 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
+  %5 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
   %6 = atomicrmw add ptr @thread_count, i64 1 monotonic, align 8
   br label %mi_stats_get_default.exit
 
@@ -15629,12 +15629,12 @@ if.then.i.i.i1.i:                                 ; preds = %if.end.i.i
 
 if.end5.i:                                        ; preds = %if.then.i.i.i1.i, %if.end.i.i, %_mi_options_init.exit.i
   tail call void @mi_process_init()
-  %8 = load i8, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 3020), align 4
+  %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 3020), align 4
   %tobool.i.i = trunc i8 %8 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %mi_process_load.exit
 
 if.then.i.i:                                      ; preds = %if.end5.i
-  tail call fastcc void @mi_random_init_ex(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2888), i1 noundef zeroext false)
+  tail call fastcc void @mi_random_init_ex(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2888), i1 noundef zeroext false)
   br label %mi_process_load.exit
 
 mi_process_load.exit:                             ; preds = %if.end5.i, %if.then.i.i
@@ -16002,7 +16002,7 @@ _mi_strnlen.exit:                                 ; preds = %while.cond.i
   br i1 %cmp3.i, label %land.lhs.true2, label %if.else
 
 land.lhs.true2:                                   ; preds = %_mi_strnlen.exit
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2848), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2848), align 8
   %cmp.i8 = icmp eq i64 %2, 0
   br i1 %cmp.i8, label %if.else, label %_mi_is_main_thread.exit
 
@@ -16553,9 +16553,9 @@ if.end4:                                          ; preds = %if.end, %if.then3, 
   br i1 %still_committed, label %if.end.i.i, label %if.end.i.i12
 
 if.end.i.i:                                       ; preds = %if.end4
-  %1 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 120), i64 %sub.i monotonic, align 8
+  %1 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120), i64 %sub.i monotonic, align 8
   %add.i.i = sub i64 %1, %size
-  %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
+  %2 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %land.rhs.i.i.i, %if.end.i.i
@@ -16564,7 +16564,7 @@ while.cond.i.i.i:                                 ; preds = %land.rhs.i.i.i, %if
   br i1 %cmp.i21.i.i, label %land.rhs.i.i.i, label %mi_atomic_maxi64_relaxed.exit.i.i
 
 land.rhs.i.i.i:                                   ; preds = %while.cond.i.i.i
-  %3 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i, i64 %add.i.i release monotonic, align 8
+  %3 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i, i64 %add.i.i release monotonic, align 8
   %4 = extractvalue { i64, i1 } %3, 1
   %5 = extractvalue { i64, i1 } %3, 0
   br i1 %4, label %mi_atomic_maxi64_relaxed.exit.i.i, label %while.cond.i.i.i, !llvm.loop !5
@@ -16574,17 +16574,17 @@ mi_atomic_maxi64_relaxed.exit.i.i:                ; preds = %land.rhs.i.i.i, %wh
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %mi_atomic_maxi64_relaxed.exit.i.i
-  %6 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 %sub.i monotonic, align 8
+  %6 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 %sub.i monotonic, align 8
   br label %if.end.i.i12
 
 if.else.i.i:                                      ; preds = %mi_atomic_maxi64_relaxed.exit.i.i
-  %7 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 104), i64 %size monotonic, align 8
+  %7 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 104), i64 %size monotonic, align 8
   br label %if.end.i.i12
 
 if.end.i.i12:                                     ; preds = %if.end4, %if.then5.i.i, %if.else.i.i
-  %8 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 88), i64 %sub.i monotonic, align 8
+  %8 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 88), i64 %sub.i monotonic, align 8
   %add.i.i13 = sub i64 %8, %size
-  %9 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 80) monotonic, align 16
+  %9 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 80) monotonic, align 16
   br label %while.cond.i.i.i14
 
 while.cond.i.i.i14:                               ; preds = %land.rhs.i.i.i21, %if.end.i.i12
@@ -16593,7 +16593,7 @@ while.cond.i.i.i14:                               ; preds = %land.rhs.i.i.i21, %
   br i1 %cmp.i21.i.i16, label %land.rhs.i.i.i21, label %mi_atomic_maxi64_relaxed.exit.i.i17
 
 land.rhs.i.i.i21:                                 ; preds = %while.cond.i.i.i14
-  %10 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 80), i64 %current.0.i.i.i15, i64 %add.i.i13 release monotonic, align 8
+  %10 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 80), i64 %current.0.i.i.i15, i64 %add.i.i13 release monotonic, align 8
   %11 = extractvalue { i64, i1 } %10, 1
   %12 = extractvalue { i64, i1 } %10, 0
   br i1 %11, label %mi_atomic_maxi64_relaxed.exit.i.i17, label %while.cond.i.i.i14, !llvm.loop !5
@@ -16603,11 +16603,11 @@ mi_atomic_maxi64_relaxed.exit.i.i17:              ; preds = %land.rhs.i.i.i21, %
   br i1 %cmp4.i.i18, label %if.then5.i.i20, label %if.else.i.i19
 
 if.then5.i.i20:                                   ; preds = %mi_atomic_maxi64_relaxed.exit.i.i17
-  %13 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 %sub.i monotonic, align 8
+  %13 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 %sub.i monotonic, align 8
   br label %return
 
 if.else.i.i19:                                    ; preds = %mi_atomic_maxi64_relaxed.exit.i.i17
-  %14 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 72), i64 %size monotonic, align 8
+  %14 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 72), i64 %size monotonic, align 8
   br label %return
 
 return:                                           ; preds = %if.else.i.i19, %if.then5.i.i20, %entry
@@ -16700,9 +16700,9 @@ if.then10.i:                                      ; preds = %_mi_prim_alloc.exit
   br label %return
 
 if.end.i.i.i:                                     ; preds = %unix_mmap_prim.exit
-  %5 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 88), i64 %retval.0.i23 monotonic, align 8
+  %5 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 88), i64 %retval.0.i23 monotonic, align 8
   %add.i.i.i = add i64 %5, %retval.0.i23
-  %6 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 80) monotonic, align 16
+  %6 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 80) monotonic, align 16
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %if.end.i.i.i
@@ -16711,7 +16711,7 @@ while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %
   br i1 %cmp.i21.i.i.i, label %land.rhs.i.i.i.i, label %mi_atomic_maxi64_relaxed.exit.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.cond.i.i.i.i
-  %7 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 80), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
+  %7 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 80), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
   %8 = extractvalue { i64, i1 } %7, 1
   %9 = extractvalue { i64, i1 } %7, 0
   br i1 %8, label %mi_atomic_maxi64_relaxed.exit.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !5
@@ -16721,18 +16721,18 @@ mi_atomic_maxi64_relaxed.exit.i.i.i:              ; preds = %land.rhs.i.i.i.i, %
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.else.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %mi_atomic_maxi64_relaxed.exit.i.i.i
-  %10 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 %retval.0.i23 monotonic, align 8
+  %10 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 %retval.0.i23 monotonic, align 8
   br label %_mi_stat_increase.exit.i
 
 if.else.i.i.i:                                    ; preds = %mi_atomic_maxi64_relaxed.exit.i.i.i
   %sub.i.i.i = sub i64 0, %retval.0.i23
-  %11 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 72), i64 %sub.i.i.i monotonic, align 8
+  %11 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 72), i64 %sub.i.i.i monotonic, align 8
   br label %_mi_stat_increase.exit.i
 
 _mi_stat_increase.exit.i:                         ; preds = %if.else.i.i.i, %if.then5.i.i.i
-  %12 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 120), i64 %retval.0.i23 monotonic, align 8
+  %12 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120), i64 %retval.0.i23 monotonic, align 8
   %add.i.i17.i = add i64 %12, %retval.0.i23
-  %13 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
+  %13 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
   br label %while.cond.i.i.i18.i
 
 while.cond.i.i.i18.i:                             ; preds = %land.rhs.i.i.i26.i, %_mi_stat_increase.exit.i
@@ -16741,7 +16741,7 @@ while.cond.i.i.i18.i:                             ; preds = %land.rhs.i.i.i26.i,
   br i1 %cmp.i21.i.i20.i, label %land.rhs.i.i.i26.i, label %mi_atomic_maxi64_relaxed.exit.i.i21.i
 
 land.rhs.i.i.i26.i:                               ; preds = %while.cond.i.i.i18.i
-  %14 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i19.i, i64 %add.i.i17.i release monotonic, align 8
+  %14 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i19.i, i64 %add.i.i17.i release monotonic, align 8
   %15 = extractvalue { i64, i1 } %14, 1
   %16 = extractvalue { i64, i1 } %14, 0
   br i1 %15, label %mi_atomic_maxi64_relaxed.exit.i.i21.i, label %while.cond.i.i.i18.i, !llvm.loop !5
@@ -16750,12 +16750,12 @@ mi_atomic_maxi64_relaxed.exit.i.i21.i:            ; preds = %land.rhs.i.i.i26.i,
   br i1 %cmp4.i.i.i, label %if.then5.i.i25.i, label %if.else.i.i23.i
 
 if.then5.i.i25.i:                                 ; preds = %mi_atomic_maxi64_relaxed.exit.i.i21.i
-  %17 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 %retval.0.i23 monotonic, align 8
+  %17 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 %retval.0.i23 monotonic, align 8
   br label %if.then3
 
 if.else.i.i23.i:                                  ; preds = %mi_atomic_maxi64_relaxed.exit.i.i21.i
   %sub.i.i24.i = sub i64 0, %retval.0.i23
-  %18 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 104), i64 %sub.i.i24.i monotonic, align 8
+  %18 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 104), i64 %sub.i.i24.i monotonic, align 8
   br label %if.then3
 
 if.then3:                                         ; preds = %if.else.i.i23.i, %if.then5.i.i25.i
@@ -16803,9 +16803,9 @@ if.end14:                                         ; preds = %if.then10, %if.end
   br i1 %cmp15.not, label %if.end21, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end14
-  %1 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 88), i64 %size monotonic, align 8
+  %1 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 88), i64 %size monotonic, align 8
   %add.i.i = add i64 %1, %size
-  %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 80) monotonic, align 16
+  %2 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 80) monotonic, align 16
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %land.rhs.i.i.i, %if.end.i.i
@@ -16814,7 +16814,7 @@ while.cond.i.i.i:                                 ; preds = %land.rhs.i.i.i, %if
   br i1 %cmp.i21.i.i, label %land.rhs.i.i.i, label %mi_atomic_maxi64_relaxed.exit.i.i
 
 land.rhs.i.i.i:                                   ; preds = %while.cond.i.i.i
-  %3 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 80), i64 %current.0.i.i.i, i64 %add.i.i release monotonic, align 8
+  %3 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 80), i64 %current.0.i.i.i, i64 %add.i.i release monotonic, align 8
   %4 = extractvalue { i64, i1 } %3, 1
   %5 = extractvalue { i64, i1 } %3, 0
   br i1 %4, label %mi_atomic_maxi64_relaxed.exit.i.i, label %while.cond.i.i.i, !llvm.loop !5
@@ -16824,21 +16824,21 @@ mi_atomic_maxi64_relaxed.exit.i.i:                ; preds = %land.rhs.i.i.i, %wh
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %mi_atomic_maxi64_relaxed.exit.i.i
-  %6 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 %size monotonic, align 8
+  %6 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 %size monotonic, align 8
   br label %_mi_stat_increase.exit
 
 if.else.i.i:                                      ; preds = %mi_atomic_maxi64_relaxed.exit.i.i
   %sub.i.i = sub i64 0, %size
-  %7 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 72), i64 %sub.i.i monotonic, align 8
+  %7 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 72), i64 %sub.i.i monotonic, align 8
   br label %_mi_stat_increase.exit
 
 _mi_stat_increase.exit:                           ; preds = %if.then5.i.i, %if.else.i.i
   br i1 %commit, label %if.end.i.i16, label %if.end21
 
 if.end.i.i16:                                     ; preds = %_mi_stat_increase.exit
-  %8 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 120), i64 %size monotonic, align 8
+  %8 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120), i64 %size monotonic, align 8
   %add.i.i17 = add i64 %8, %size
-  %9 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
+  %9 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
   br label %while.cond.i.i.i18
 
 while.cond.i.i.i18:                               ; preds = %land.rhs.i.i.i26, %if.end.i.i16
@@ -16847,7 +16847,7 @@ while.cond.i.i.i18:                               ; preds = %land.rhs.i.i.i26, %
   br i1 %cmp.i21.i.i20, label %land.rhs.i.i.i26, label %mi_atomic_maxi64_relaxed.exit.i.i21
 
 land.rhs.i.i.i26:                                 ; preds = %while.cond.i.i.i18
-  %10 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i19, i64 %add.i.i17 release monotonic, align 8
+  %10 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i19, i64 %add.i.i17 release monotonic, align 8
   %11 = extractvalue { i64, i1 } %10, 1
   %12 = extractvalue { i64, i1 } %10, 0
   br i1 %11, label %mi_atomic_maxi64_relaxed.exit.i.i21, label %while.cond.i.i.i18, !llvm.loop !5
@@ -16856,12 +16856,12 @@ mi_atomic_maxi64_relaxed.exit.i.i21:              ; preds = %land.rhs.i.i.i26, %
   br i1 %cmp4.i.i, label %if.then5.i.i25, label %if.else.i.i23
 
 if.then5.i.i25:                                   ; preds = %mi_atomic_maxi64_relaxed.exit.i.i21
-  %13 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 %size monotonic, align 8
+  %13 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 %size monotonic, align 8
   br label %if.end21
 
 if.else.i.i23:                                    ; preds = %mi_atomic_maxi64_relaxed.exit.i.i21
   %sub.i.i24 = sub i64 0, %size
-  %14 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 104), i64 %sub.i.i24 monotonic, align 8
+  %14 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 104), i64 %sub.i.i24 monotonic, align 8
   br label %if.end21
 
 if.end21:                                         ; preds = %if.else.i.i23, %if.then5.i.i25, %_mi_stat_increase.exit, %if.end14
@@ -16881,9 +16881,9 @@ entry:
   br i1 %cmp.i.i.i, label %mi_os_decommit_ex.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
-  %0 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 120), i64 %sub.i.i monotonic, align 8
+  %0 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120), i64 %sub.i.i monotonic, align 8
   %add.i.i.i = sub i64 %0, %size
-  %1 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
+  %1 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %if.end.i.i.i
@@ -16892,7 +16892,7 @@ while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %
   br i1 %cmp.i21.i.i.i, label %land.rhs.i.i.i.i, label %mi_atomic_maxi64_relaxed.exit.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.cond.i.i.i.i
-  %2 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
+  %2 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %mi_atomic_maxi64_relaxed.exit.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !5
@@ -16902,11 +16902,11 @@ mi_atomic_maxi64_relaxed.exit.i.i.i:              ; preds = %land.rhs.i.i.i.i, %
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.else.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %mi_atomic_maxi64_relaxed.exit.i.i.i
-  %5 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 %sub.i.i monotonic, align 8
+  %5 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 %sub.i.i monotonic, align 8
   br label %_mi_stat_decrease.exit.i
 
 if.else.i.i.i:                                    ; preds = %mi_atomic_maxi64_relaxed.exit.i.i.i
-  %6 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 104), i64 %size monotonic, align 8
+  %6 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 104), i64 %size monotonic, align 8
   br label %_mi_stat_decrease.exit.i
 
 _mi_stat_decrease.exit.i:                         ; preds = %if.else.i.i.i, %if.then5.i.i.i
@@ -16974,14 +16974,14 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp.i.i, label %_mi_stat_increase.exit.thread, label %if.end.i.i
 
 _mi_stat_increase.exit.thread:                    ; preds = %if.end
-  %0 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 520), i64 1 monotonic, align 8
-  %1 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 512), i64 1 monotonic, align 8
+  %0 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 520), i64 1 monotonic, align 8
+  %1 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 512), i64 1 monotonic, align 8
   br label %return
 
 if.end.i.i:                                       ; preds = %if.end
-  %2 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 120), i64 %size monotonic, align 8
+  %2 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120), i64 %size monotonic, align 8
   %add.i.i = add i64 %2, %size
-  %3 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
+  %3 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %land.rhs.i.i.i, %if.end.i.i
@@ -16990,7 +16990,7 @@ while.cond.i.i.i:                                 ; preds = %land.rhs.i.i.i, %if
   br i1 %cmp.i21.i.i, label %land.rhs.i.i.i, label %mi_atomic_maxi64_relaxed.exit.i.i
 
 land.rhs.i.i.i:                                   ; preds = %while.cond.i.i.i
-  %4 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i, i64 %add.i.i release monotonic, align 8
+  %4 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i, i64 %add.i.i release monotonic, align 8
   %5 = extractvalue { i64, i1 } %4, 1
   %6 = extractvalue { i64, i1 } %4, 0
   br i1 %5, label %mi_atomic_maxi64_relaxed.exit.i.i, label %while.cond.i.i.i, !llvm.loop !5
@@ -17000,17 +17000,17 @@ mi_atomic_maxi64_relaxed.exit.i.i:                ; preds = %land.rhs.i.i.i, %wh
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %mi_atomic_maxi64_relaxed.exit.i.i
-  %7 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 %size monotonic, align 8
+  %7 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 %size monotonic, align 8
   br label %_mi_stat_increase.exit
 
 if.else.i.i:                                      ; preds = %mi_atomic_maxi64_relaxed.exit.i.i
   %sub.i.i = sub i64 0, %size
-  %8 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 104), i64 %sub.i.i monotonic, align 8
+  %8 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 104), i64 %sub.i.i monotonic, align 8
   br label %_mi_stat_increase.exit
 
 _mi_stat_increase.exit:                           ; preds = %if.then5.i.i, %if.else.i.i
-  %9 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 520), i64 1 monotonic, align 8
-  %10 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 512), i64 1 monotonic, align 8
+  %9 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 520), i64 1 monotonic, align 8
+  %10 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 512), i64 1 monotonic, align 8
   %cmp2.i = icmp eq ptr %addr, null
   br i1 %cmp2.i, label %return, label %if.end4.i
 
@@ -17070,7 +17070,7 @@ return:                                           ; preds = %if.end3, %_mi_stat_
 define hidden void @_mi_stat_counter_increase(ptr noundef %stat, i64 noundef %amount) local_unnamed_addr #17 {
 entry:
   %cmp.i = icmp uge ptr %stat, @_mi_stats_main
-  %cmp1.i = icmp ult ptr %stat, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
+  %cmp1.i = icmp ult ptr %stat, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 640)
   %0 = select i1 %cmp.i, i1 %cmp1.i, i1 false
   %count = getelementptr inbounds nuw i8, ptr %stat, i64 8
   br i1 %0, label %if.then, label %if.else
@@ -17154,7 +17154,7 @@ if.end.i.i:                                       ; preds = %cond.end16.i.i
   %cond39.i.i = inttoptr i64 %cond39.in.i.i to ptr
   %reset = getelementptr inbounds nuw i8, ptr %stats, i64 128
   %cmp.i.i.i = icmp uge ptr %reset, @_mi_stats_main
-  %cmp1.i.i.i = icmp ult ptr %reset, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
+  %cmp1.i.i.i = icmp ult ptr %reset, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 640)
   %6 = select i1 %cmp.i.i.i, i1 %cmp1.i.i.i, i1 false
   %current2.i.i = getelementptr inbounds nuw i8, ptr %stats, i64 152
   br i1 %6, label %if.then1.i.i, label %if.else9.i.i
@@ -17203,7 +17203,7 @@ if.then20.i.i:                                    ; preds = %if.else9.i.i, %if.t
 _mi_stat_increase.exit:                           ; preds = %if.then5.i.i, %if.then20.i.i
   %reset_calls = getelementptr inbounds nuw i8, ptr %stats, i64 528
   %cmp.i.i6 = icmp uge ptr %reset_calls, @_mi_stats_main
-  %cmp1.i.i7 = icmp ult ptr %reset_calls, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
+  %cmp1.i.i7 = icmp ult ptr %reset_calls, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 640)
   %16 = select i1 %cmp.i.i6, i1 %cmp1.i.i7, i1 false
   %count.i = getelementptr inbounds nuw i8, ptr %stats, i64 536
   br i1 %16, label %if.then.i, label %if.else.i
@@ -17324,7 +17324,7 @@ entry:
 if.end:                                           ; preds = %entry
   %purge_calls = getelementptr inbounds nuw i8, ptr %stats, i64 544
   %cmp.i.i = icmp uge ptr %purge_calls, @_mi_stats_main
-  %cmp1.i.i = icmp ult ptr %purge_calls, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
+  %cmp1.i.i = icmp ult ptr %purge_calls, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 640)
   %0 = select i1 %cmp.i.i, i1 %cmp1.i.i, i1 false
   %count.i = getelementptr inbounds nuw i8, ptr %stats, i64 552
   br i1 %0, label %if.then.i, label %if.else.i
@@ -17350,7 +17350,7 @@ _mi_stat_counter_increase.exit:                   ; preds = %if.then.i, %if.else
 
 if.end.i.i:                                       ; preds = %_mi_stat_counter_increase.exit
   %cmp.i.i.i = icmp uge ptr %purged, @_mi_stats_main
-  %cmp1.i.i.i = icmp ult ptr %purged, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
+  %cmp1.i.i.i = icmp ult ptr %purged, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 640)
   %5 = select i1 %cmp.i.i.i, i1 %cmp1.i.i.i, i1 false
   %current2.i.i = getelementptr inbounds nuw i8, ptr %stats, i64 184
   br i1 %5, label %if.then1.i.i, label %if.else9.i.i
@@ -17429,9 +17429,9 @@ if.then3:                                         ; preds = %_mi_stat_increase.e
   br i1 %cmp.i.i7, label %return, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then3
-  %17 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 120), i64 %sub.i.i8 monotonic, align 8
+  %17 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120), i64 %sub.i.i8 monotonic, align 8
   %add.i.i.i = sub i64 %17, %size
-  %18 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
+  %18 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %if.end.i.i.i
@@ -17440,7 +17440,7 @@ while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %
   br i1 %cmp.i21.i.i.i, label %land.rhs.i.i.i.i, label %mi_atomic_maxi64_relaxed.exit.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.cond.i.i.i.i
-  %19 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
+  %19 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
   %20 = extractvalue { i64, i1 } %19, 1
   %21 = extractvalue { i64, i1 } %19, 0
   br i1 %20, label %mi_atomic_maxi64_relaxed.exit.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !5
@@ -17450,11 +17450,11 @@ mi_atomic_maxi64_relaxed.exit.i.i.i:              ; preds = %land.rhs.i.i.i.i, %
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.else.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %mi_atomic_maxi64_relaxed.exit.i.i.i
-  %22 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 %sub.i.i8 monotonic, align 8
+  %22 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 %sub.i.i8 monotonic, align 8
   br label %_mi_stat_decrease.exit.i
 
 if.else.i.i.i:                                    ; preds = %mi_atomic_maxi64_relaxed.exit.i.i.i
-  %23 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 104), i64 %size monotonic, align 8
+  %23 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 104), i64 %size monotonic, align 8
   br label %_mi_stat_decrease.exit.i
 
 _mi_stat_decrease.exit.i:                         ; preds = %if.else.i.i.i, %if.then5.i.i.i
@@ -18003,7 +18003,7 @@ define hidden i64 @_mi_bin_size(i8 noundef zeroext %bin) local_unnamed_addr #1 {
 entry:
   %idxprom = zext i8 %bin to i64
   %block_size.idx = mul nuw nsw i64 %idxprom, 24
-  %0 = getelementptr i8, ptr getelementptr inbounds (i8, ptr @_mi_heap_empty, i64 1040), i64 %block_size.idx
+  %0 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1040), i64 %block_size.idx
   %block_size = getelementptr i8, ptr %0, i64 16
   %1 = load i64, ptr %block_size, align 8
   ret i64 %1
@@ -19204,7 +19204,7 @@ mi_page_queue_remove.exit:                        ; preds = %if.end14.i, %if.the
   %15 = load ptr, ptr %stats.i, align 8
   %pages_abandoned.i = getelementptr inbounds nuw i8, ptr %15, i64 256
   %cmp.i.i.i.i = icmp uge ptr %pages_abandoned.i, @_mi_stats_main
-  %cmp1.i.i.i.i = icmp ult ptr %pages_abandoned.i, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
+  %cmp1.i.i.i.i = icmp ult ptr %pages_abandoned.i, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 640)
   %16 = select i1 %cmp.i.i.i.i, i1 %cmp1.i.i.i.i, i1 false
   %current2.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 280
   br i1 %16, label %if.then1.i.i.i, label %if.else9.i.i.i
@@ -19280,7 +19280,7 @@ entry:
   %3 = load ptr, ptr %stats, align 8
   %pages_abandoned = getelementptr inbounds nuw i8, ptr %3, i64 256
   %cmp.i.i.i = icmp uge ptr %pages_abandoned, @_mi_stats_main
-  %cmp1.i.i.i = icmp ult ptr %pages_abandoned, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
+  %cmp1.i.i.i = icmp ult ptr %pages_abandoned, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 640)
   %4 = select i1 %cmp.i.i.i, i1 %cmp1.i.i.i, i1 false
   %current2.i.i = getelementptr inbounds nuw i8, ptr %3, i64 280
   br i1 %4, label %if.then1.i.i, label %if.else9.i.i
@@ -20797,7 +20797,7 @@ mi_page_block_size.exit:                          ; preds = %if.then.i, %_mi_seg
 
 if.end.i.i:                                       ; preds = %mi_page_block_size.exit
   %cmp.i.i.i = icmp uge ptr %page_committed, @_mi_stats_main
-  %cmp1.i.i.i = icmp ult ptr %page_committed, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
+  %cmp1.i.i.i = icmp ult ptr %page_committed, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 640)
   %6 = select i1 %cmp.i.i.i, i1 %cmp1.i.i.i, i1 false
   %current2.i.i = getelementptr inbounds nuw i8, ptr %5, i64 216
   br i1 %6, label %if.then1.i.i, label %if.else9.i.i
@@ -20867,7 +20867,7 @@ _mi_stat_decrease.exit:                           ; preds = %mi_page_block_size.
   %18 = load ptr, ptr %stats, align 8
   %pages = getelementptr inbounds nuw i8, ptr %18, i64 32
   %cmp.i.i.i16 = icmp uge ptr %pages, @_mi_stats_main
-  %cmp1.i.i.i17 = icmp ult ptr %pages, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
+  %cmp1.i.i.i17 = icmp ult ptr %pages, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 640)
   %19 = select i1 %cmp.i.i.i16, i1 %cmp1.i.i.i17, i1 false
   %current2.i.i18 = getelementptr inbounds nuw i8, ptr %18, i64 56
   br i1 %19, label %if.then1.i.i28, label %if.else9.i.i19
@@ -21095,7 +21095,7 @@ while.end:                                        ; preds = %if.end, %entry
 
 if.end.i.i11:                                     ; preds = %while.end
   %cmp.i.i.i = icmp uge ptr %page_committed, @_mi_stats_main
-  %cmp1.i.i.i = icmp ult ptr %page_committed, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
+  %cmp1.i.i.i = icmp ult ptr %page_committed, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 640)
   %13 = select i1 %cmp.i.i.i, i1 %cmp1.i.i.i, i1 false
   %current2.i.i = getelementptr inbounds nuw i8, ptr %11, i64 216
   br i1 %13, label %if.then1.i.i, label %if.else9.i.i
@@ -21354,7 +21354,7 @@ while.end:                                        ; preds = %if.end, %entry
   %10 = load ptr, ptr %stats, align 8
   %segments_abandoned = getelementptr inbounds nuw i8, ptr %10, i64 224
   %cmp.i.i.i = icmp uge ptr %segments_abandoned, @_mi_stats_main
-  %cmp1.i.i.i = icmp ult ptr %segments_abandoned, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
+  %cmp1.i.i.i = icmp ult ptr %segments_abandoned, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 640)
   %11 = select i1 %cmp.i.i.i, i1 %cmp1.i.i.i, i1 false
   %current2.i.i = getelementptr inbounds nuw i8, ptr %10, i64 248
   br i1 %11, label %if.then1.i.i, label %if.else9.i.i
@@ -21582,7 +21582,7 @@ if.end:                                           ; preds = %if.then, %entry
   %3 = load ptr, ptr %stats, align 8
   %segments_abandoned = getelementptr inbounds nuw i8, ptr %3, i64 224
   %cmp.i.i.i = icmp uge ptr %segments_abandoned, @_mi_stats_main
-  %cmp1.i.i.i = icmp ult ptr %segments_abandoned, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
+  %cmp1.i.i.i = icmp ult ptr %segments_abandoned, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 640)
   %4 = select i1 %cmp.i.i.i, i1 %cmp1.i.i.i, i1 false
   %current2.i.i = getelementptr inbounds nuw i8, ptr %3, i64 248
   br i1 %4, label %if.then1.i.i, label %if.else9.i.i
@@ -21659,7 +21659,7 @@ if.then5:                                         ; preds = %while.body
   %18 = load ptr, ptr %stats, align 8
   %pages_abandoned = getelementptr inbounds nuw i8, ptr %18, i64 256
   %cmp.i.i.i29 = icmp uge ptr %pages_abandoned, @_mi_stats_main
-  %cmp1.i.i.i30 = icmp ult ptr %pages_abandoned, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
+  %cmp1.i.i.i30 = icmp ult ptr %pages_abandoned, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 640)
   %19 = select i1 %cmp.i.i.i29, i1 %cmp1.i.i.i30, i1 false
   %current2.i.i31 = getelementptr inbounds nuw i8, ptr %18, i64 280
   br i1 %19, label %if.then1.i.i40, label %if.else9.i.i32
@@ -22316,7 +22316,7 @@ if.then4:                                         ; preds = %_mi_page_free_colle
   %19 = load ptr, ptr %stats, align 8
   %pages_abandoned = getelementptr inbounds nuw i8, ptr %19, i64 256
   %cmp.i.i.i = icmp uge ptr %pages_abandoned, @_mi_stats_main
-  %cmp1.i.i.i = icmp ult ptr %pages_abandoned, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
+  %cmp1.i.i.i = icmp ult ptr %pages_abandoned, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 640)
   %20 = select i1 %cmp.i.i.i, i1 %cmp1.i.i.i, i1 false
   %current2.i.i = getelementptr inbounds nuw i8, ptr %19, i64 280
   br i1 %20, label %if.then1.i.i, label %if.else9.i.i
@@ -23493,9 +23493,9 @@ entry:
   br i1 %call.i.i.i, label %mi_stats_get_default.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
-  %0 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
+  %0 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
   %add.i.i.i = add i64 %0, 1
-  %1 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
+  %1 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %if.end.i.i.i
@@ -23504,13 +23504,13 @@ while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %
   br i1 %cmp.i21.i.i.i, label %land.rhs.i.i.i.i, label %_mi_stat_increase.exit.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.cond.i.i.i.i
-  %2 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
+  %2 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %_mi_stat_increase.exit.i, label %while.cond.i.i.i.i, !llvm.loop !5
 
 _mi_stat_increase.exit.i:                         ; preds = %land.rhs.i.i.i.i, %while.cond.i.i.i.i
-  %5 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
+  %5 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
   %6 = atomicrmw add ptr @thread_count, i64 1 monotonic, align 8
   br label %mi_stats_get_default.exit
 
@@ -23566,16 +23566,16 @@ land.lhs.true.i58.i:                              ; preds = %if.end.i52.i
   br i1 %cmp2.i60.i, label %if.end.i63.i, label %if.end4.i54.i
 
 if.end4.i54.i:                                    ; preds = %land.lhs.true.i58.i, %if.end.i52.i
-  %11 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 32), i64 %9 monotonic, align 8
+  %11 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 32), i64 %9 monotonic, align 8
   %current7.i55.i = getelementptr inbounds nuw i8, ptr %stats, i64 56
   %12 = load i64, ptr %current7.i55.i, align 8
-  %13 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 56), i64 %12 monotonic, align 8
+  %13 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 56), i64 %12 monotonic, align 8
   %freed11.i56.i = getelementptr inbounds nuw i8, ptr %stats, i64 40
   %14 = load i64, ptr %freed11.i56.i, align 8
-  %15 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 40), i64 %14 monotonic, align 8
+  %15 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 40), i64 %14 monotonic, align 8
   %peak14.i57.i = getelementptr inbounds nuw i8, ptr %stats, i64 48
   %16 = load i64, ptr %peak14.i57.i, align 8
-  %17 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 48), i64 %16 monotonic, align 8
+  %17 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 48), i64 %16 monotonic, align 8
   br label %if.end.i63.i
 
 if.end.i63.i:                                     ; preds = %if.end4.i54.i, %land.lhs.true.i58.i
@@ -23591,16 +23591,16 @@ land.lhs.true.i69.i:                              ; preds = %if.end.i63.i
   br i1 %cmp2.i71.i, label %if.end.i74.i, label %if.end4.i65.i
 
 if.end4.i65.i:                                    ; preds = %land.lhs.true.i69.i, %if.end.i63.i
-  %20 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 %18 monotonic, align 8
+  %20 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 %18 monotonic, align 8
   %current7.i66.i = getelementptr inbounds nuw i8, ptr %stats, i64 88
   %21 = load i64, ptr %current7.i66.i, align 8
-  %22 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 88), i64 %21 monotonic, align 8
+  %22 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 88), i64 %21 monotonic, align 8
   %freed11.i67.i = getelementptr inbounds nuw i8, ptr %stats, i64 72
   %23 = load i64, ptr %freed11.i67.i, align 8
-  %24 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 72), i64 %23 monotonic, align 8
+  %24 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 72), i64 %23 monotonic, align 8
   %peak14.i68.i = getelementptr inbounds nuw i8, ptr %stats, i64 80
   %25 = load i64, ptr %peak14.i68.i, align 8
-  %26 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 80), i64 %25 monotonic, align 8
+  %26 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 80), i64 %25 monotonic, align 8
   br label %if.end.i74.i
 
 if.end.i74.i:                                     ; preds = %if.end4.i65.i, %land.lhs.true.i69.i
@@ -23616,16 +23616,16 @@ land.lhs.true.i80.i:                              ; preds = %if.end.i74.i
   br i1 %cmp2.i82.i, label %if.end.i85.i, label %if.end4.i76.i
 
 if.end4.i76.i:                                    ; preds = %land.lhs.true.i80.i, %if.end.i74.i
-  %29 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 %27 monotonic, align 8
+  %29 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 %27 monotonic, align 8
   %current7.i77.i = getelementptr inbounds nuw i8, ptr %stats, i64 120
   %30 = load i64, ptr %current7.i77.i, align 8
-  %31 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 120), i64 %30 monotonic, align 8
+  %31 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120), i64 %30 monotonic, align 8
   %freed11.i78.i = getelementptr inbounds nuw i8, ptr %stats, i64 104
   %32 = load i64, ptr %freed11.i78.i, align 8
-  %33 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 104), i64 %32 monotonic, align 8
+  %33 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 104), i64 %32 monotonic, align 8
   %peak14.i79.i = getelementptr inbounds nuw i8, ptr %stats, i64 112
   %34 = load i64, ptr %peak14.i79.i, align 8
-  %35 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112), i64 %34 monotonic, align 8
+  %35 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112), i64 %34 monotonic, align 8
   br label %if.end.i85.i
 
 if.end.i85.i:                                     ; preds = %if.end4.i76.i, %land.lhs.true.i80.i
@@ -23641,16 +23641,16 @@ land.lhs.true.i91.i:                              ; preds = %if.end.i85.i
   br i1 %cmp2.i93.i, label %if.end.i96.i, label %if.end4.i87.i
 
 if.end4.i87.i:                                    ; preds = %land.lhs.true.i91.i, %if.end.i85.i
-  %38 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 128), i64 %36 monotonic, align 8
+  %38 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 128), i64 %36 monotonic, align 8
   %current7.i88.i = getelementptr inbounds nuw i8, ptr %stats, i64 152
   %39 = load i64, ptr %current7.i88.i, align 8
-  %40 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 152), i64 %39 monotonic, align 8
+  %40 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 152), i64 %39 monotonic, align 8
   %freed11.i89.i = getelementptr inbounds nuw i8, ptr %stats, i64 136
   %41 = load i64, ptr %freed11.i89.i, align 8
-  %42 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 136), i64 %41 monotonic, align 8
+  %42 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 136), i64 %41 monotonic, align 8
   %peak14.i90.i = getelementptr inbounds nuw i8, ptr %stats, i64 144
   %43 = load i64, ptr %peak14.i90.i, align 8
-  %44 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 144), i64 %43 monotonic, align 8
+  %44 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 144), i64 %43 monotonic, align 8
   br label %if.end.i96.i
 
 if.end.i96.i:                                     ; preds = %if.end4.i87.i, %land.lhs.true.i91.i
@@ -23666,16 +23666,16 @@ land.lhs.true.i102.i:                             ; preds = %if.end.i96.i
   br i1 %cmp2.i104.i, label %if.end.i107.i, label %if.end4.i98.i
 
 if.end4.i98.i:                                    ; preds = %land.lhs.true.i102.i, %if.end.i96.i
-  %47 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 160), i64 %45 monotonic, align 8
+  %47 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 160), i64 %45 monotonic, align 8
   %current7.i99.i = getelementptr inbounds nuw i8, ptr %stats, i64 184
   %48 = load i64, ptr %current7.i99.i, align 8
-  %49 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 184), i64 %48 monotonic, align 8
+  %49 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 184), i64 %48 monotonic, align 8
   %freed11.i100.i = getelementptr inbounds nuw i8, ptr %stats, i64 168
   %50 = load i64, ptr %freed11.i100.i, align 8
-  %51 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 168), i64 %50 monotonic, align 8
+  %51 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 168), i64 %50 monotonic, align 8
   %peak14.i101.i = getelementptr inbounds nuw i8, ptr %stats, i64 176
   %52 = load i64, ptr %peak14.i101.i, align 8
-  %53 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 176), i64 %52 monotonic, align 8
+  %53 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 176), i64 %52 monotonic, align 8
   br label %if.end.i107.i
 
 if.end.i107.i:                                    ; preds = %if.end4.i98.i, %land.lhs.true.i102.i
@@ -23691,16 +23691,16 @@ land.lhs.true.i113.i:                             ; preds = %if.end.i107.i
   br i1 %cmp2.i115.i, label %if.end.i118.i, label %if.end4.i109.i
 
 if.end4.i109.i:                                   ; preds = %land.lhs.true.i113.i, %if.end.i107.i
-  %56 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 192), i64 %54 monotonic, align 8
+  %56 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 192), i64 %54 monotonic, align 8
   %current7.i110.i = getelementptr inbounds nuw i8, ptr %stats, i64 216
   %57 = load i64, ptr %current7.i110.i, align 8
-  %58 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 216), i64 %57 monotonic, align 8
+  %58 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 216), i64 %57 monotonic, align 8
   %freed11.i111.i = getelementptr inbounds nuw i8, ptr %stats, i64 200
   %59 = load i64, ptr %freed11.i111.i, align 8
-  %60 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 200), i64 %59 monotonic, align 8
+  %60 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 200), i64 %59 monotonic, align 8
   %peak14.i112.i = getelementptr inbounds nuw i8, ptr %stats, i64 208
   %61 = load i64, ptr %peak14.i112.i, align 8
-  %62 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 208), i64 %61 monotonic, align 8
+  %62 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 208), i64 %61 monotonic, align 8
   br label %if.end.i118.i
 
 if.end.i118.i:                                    ; preds = %if.end4.i109.i, %land.lhs.true.i113.i
@@ -23716,16 +23716,16 @@ land.lhs.true.i124.i:                             ; preds = %if.end.i118.i
   br i1 %cmp2.i126.i, label %if.end.i129.i, label %if.end4.i120.i
 
 if.end4.i120.i:                                   ; preds = %land.lhs.true.i124.i, %if.end.i118.i
-  %65 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 256), i64 %63 monotonic, align 8
+  %65 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 256), i64 %63 monotonic, align 8
   %current7.i121.i = getelementptr inbounds nuw i8, ptr %stats, i64 280
   %66 = load i64, ptr %current7.i121.i, align 8
-  %67 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 280), i64 %66 monotonic, align 8
+  %67 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 280), i64 %66 monotonic, align 8
   %freed11.i122.i = getelementptr inbounds nuw i8, ptr %stats, i64 264
   %68 = load i64, ptr %freed11.i122.i, align 8
-  %69 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 264), i64 %68 monotonic, align 8
+  %69 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 264), i64 %68 monotonic, align 8
   %peak14.i123.i = getelementptr inbounds nuw i8, ptr %stats, i64 272
   %70 = load i64, ptr %peak14.i123.i, align 8
-  %71 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 272), i64 %70 monotonic, align 8
+  %71 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 272), i64 %70 monotonic, align 8
   br label %if.end.i129.i
 
 if.end.i129.i:                                    ; preds = %if.end4.i120.i, %land.lhs.true.i124.i
@@ -23741,16 +23741,16 @@ land.lhs.true.i135.i:                             ; preds = %if.end.i129.i
   br i1 %cmp2.i137.i, label %if.end.i140.i, label %if.end4.i131.i
 
 if.end4.i131.i:                                   ; preds = %land.lhs.true.i135.i, %if.end.i129.i
-  %74 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 224), i64 %72 monotonic, align 8
+  %74 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 224), i64 %72 monotonic, align 8
   %current7.i132.i = getelementptr inbounds nuw i8, ptr %stats, i64 248
   %75 = load i64, ptr %current7.i132.i, align 8
-  %76 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 248), i64 %75 monotonic, align 8
+  %76 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 248), i64 %75 monotonic, align 8
   %freed11.i133.i = getelementptr inbounds nuw i8, ptr %stats, i64 232
   %77 = load i64, ptr %freed11.i133.i, align 8
-  %78 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 232), i64 %77 monotonic, align 8
+  %78 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 232), i64 %77 monotonic, align 8
   %peak14.i134.i = getelementptr inbounds nuw i8, ptr %stats, i64 240
   %79 = load i64, ptr %peak14.i134.i, align 8
-  %80 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 240), i64 %79 monotonic, align 8
+  %80 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 240), i64 %79 monotonic, align 8
   br label %if.end.i140.i
 
 if.end.i140.i:                                    ; preds = %if.end4.i131.i, %land.lhs.true.i135.i
@@ -23766,16 +23766,16 @@ land.lhs.true.i146.i:                             ; preds = %if.end.i140.i
   br i1 %cmp2.i148.i, label %if.end.i151.i, label %if.end4.i142.i
 
 if.end4.i142.i:                                   ; preds = %land.lhs.true.i146.i, %if.end.i140.i
-  %83 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 288), i64 %81 monotonic, align 8
+  %83 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 %81 monotonic, align 8
   %current7.i143.i = getelementptr inbounds nuw i8, ptr %stats, i64 312
   %84 = load i64, ptr %current7.i143.i, align 8
-  %85 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 312), i64 %84 monotonic, align 8
+  %85 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 312), i64 %84 monotonic, align 8
   %freed11.i144.i = getelementptr inbounds nuw i8, ptr %stats, i64 296
   %86 = load i64, ptr %freed11.i144.i, align 8
-  %87 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 296), i64 %86 monotonic, align 8
+  %87 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 296), i64 %86 monotonic, align 8
   %peak14.i145.i = getelementptr inbounds nuw i8, ptr %stats, i64 304
   %88 = load i64, ptr %peak14.i145.i, align 8
-  %89 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304), i64 %88 monotonic, align 8
+  %89 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304), i64 %88 monotonic, align 8
   br label %if.end.i151.i
 
 if.end.i151.i:                                    ; preds = %if.end4.i142.i, %land.lhs.true.i146.i
@@ -23791,16 +23791,16 @@ land.lhs.true.i157.i:                             ; preds = %if.end.i151.i
   br i1 %cmp2.i159.i, label %if.end.i162.i, label %if.end4.i153.i
 
 if.end4.i153.i:                                   ; preds = %land.lhs.true.i157.i, %if.end.i151.i
-  %92 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 416), i64 %90 monotonic, align 8
+  %92 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 416), i64 %90 monotonic, align 8
   %current7.i154.i = getelementptr inbounds nuw i8, ptr %stats, i64 440
   %93 = load i64, ptr %current7.i154.i, align 8
-  %94 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 440), i64 %93 monotonic, align 8
+  %94 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 440), i64 %93 monotonic, align 8
   %freed11.i155.i = getelementptr inbounds nuw i8, ptr %stats, i64 424
   %95 = load i64, ptr %freed11.i155.i, align 8
-  %96 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 424), i64 %95 monotonic, align 8
+  %96 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 424), i64 %95 monotonic, align 8
   %peak14.i156.i = getelementptr inbounds nuw i8, ptr %stats, i64 432
   %97 = load i64, ptr %peak14.i156.i, align 8
-  %98 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 432), i64 %97 monotonic, align 8
+  %98 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 432), i64 %97 monotonic, align 8
   br label %if.end.i162.i
 
 if.end.i162.i:                                    ; preds = %if.end4.i153.i, %land.lhs.true.i157.i
@@ -23816,16 +23816,16 @@ land.lhs.true.i168.i:                             ; preds = %if.end.i162.i
   br i1 %cmp2.i170.i, label %if.end.i173.i, label %if.end4.i164.i
 
 if.end4.i164.i:                                   ; preds = %land.lhs.true.i168.i, %if.end.i162.i
-  %101 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 448), i64 %99 monotonic, align 8
+  %101 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 448), i64 %99 monotonic, align 8
   %current7.i165.i = getelementptr inbounds nuw i8, ptr %stats, i64 472
   %102 = load i64, ptr %current7.i165.i, align 8
-  %103 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 472), i64 %102 monotonic, align 8
+  %103 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 472), i64 %102 monotonic, align 8
   %freed11.i166.i = getelementptr inbounds nuw i8, ptr %stats, i64 456
   %104 = load i64, ptr %freed11.i166.i, align 8
-  %105 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 456), i64 %104 monotonic, align 8
+  %105 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 456), i64 %104 monotonic, align 8
   %peak14.i167.i = getelementptr inbounds nuw i8, ptr %stats, i64 464
   %106 = load i64, ptr %peak14.i167.i, align 8
-  %107 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 464), i64 %106 monotonic, align 8
+  %107 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 464), i64 %106 monotonic, align 8
   br label %if.end.i173.i
 
 if.end.i173.i:                                    ; preds = %if.end4.i164.i, %land.lhs.true.i168.i
@@ -23841,16 +23841,16 @@ land.lhs.true.i179.i:                             ; preds = %if.end.i173.i
   br i1 %cmp2.i181.i, label %if.end.i184.i, label %if.end4.i175.i
 
 if.end4.i175.i:                                   ; preds = %land.lhs.true.i179.i, %if.end.i173.i
-  %110 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 320), i64 %108 monotonic, align 8
+  %110 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 320), i64 %108 monotonic, align 8
   %current7.i176.i = getelementptr inbounds nuw i8, ptr %stats, i64 344
   %111 = load i64, ptr %current7.i176.i, align 8
-  %112 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 344), i64 %111 monotonic, align 8
+  %112 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 344), i64 %111 monotonic, align 8
   %freed11.i177.i = getelementptr inbounds nuw i8, ptr %stats, i64 328
   %113 = load i64, ptr %freed11.i177.i, align 8
-  %114 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 328), i64 %113 monotonic, align 8
+  %114 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 328), i64 %113 monotonic, align 8
   %peak14.i178.i = getelementptr inbounds nuw i8, ptr %stats, i64 336
   %115 = load i64, ptr %peak14.i178.i, align 8
-  %116 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 336), i64 %115 monotonic, align 8
+  %116 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 336), i64 %115 monotonic, align 8
   br label %if.end.i184.i
 
 if.end.i184.i:                                    ; preds = %if.end4.i175.i, %land.lhs.true.i179.i
@@ -23866,16 +23866,16 @@ land.lhs.true.i190.i:                             ; preds = %if.end.i184.i
   br i1 %cmp2.i192.i, label %if.end.i195.i, label %if.end4.i186.i
 
 if.end4.i186.i:                                   ; preds = %land.lhs.true.i190.i, %if.end.i184.i
-  %119 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 352), i64 %117 monotonic, align 8
+  %119 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 352), i64 %117 monotonic, align 8
   %current7.i187.i = getelementptr inbounds nuw i8, ptr %stats, i64 376
   %120 = load i64, ptr %current7.i187.i, align 8
-  %121 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 376), i64 %120 monotonic, align 8
+  %121 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 376), i64 %120 monotonic, align 8
   %freed11.i188.i = getelementptr inbounds nuw i8, ptr %stats, i64 360
   %122 = load i64, ptr %freed11.i188.i, align 8
-  %123 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 360), i64 %122 monotonic, align 8
+  %123 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 360), i64 %122 monotonic, align 8
   %peak14.i189.i = getelementptr inbounds nuw i8, ptr %stats, i64 368
   %124 = load i64, ptr %peak14.i189.i, align 8
-  %125 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 368), i64 %124 monotonic, align 8
+  %125 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 368), i64 %124 monotonic, align 8
   br label %if.end.i195.i
 
 if.end.i195.i:                                    ; preds = %if.end4.i186.i, %land.lhs.true.i190.i
@@ -23891,79 +23891,79 @@ land.lhs.true.i201.i:                             ; preds = %if.end.i195.i
   br i1 %cmp2.i203.i, label %mi_stats_add.exit, label %if.end4.i197.i
 
 if.end4.i197.i:                                   ; preds = %land.lhs.true.i201.i, %if.end.i195.i
-  %128 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 384), i64 %126 monotonic, align 8
+  %128 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 384), i64 %126 monotonic, align 8
   %current7.i198.i = getelementptr inbounds nuw i8, ptr %stats, i64 408
   %129 = load i64, ptr %current7.i198.i, align 8
-  %130 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 408), i64 %129 monotonic, align 8
+  %130 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 408), i64 %129 monotonic, align 8
   %freed11.i199.i = getelementptr inbounds nuw i8, ptr %stats, i64 392
   %131 = load i64, ptr %freed11.i199.i, align 8
-  %132 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 392), i64 %131 monotonic, align 8
+  %132 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 392), i64 %131 monotonic, align 8
   %peak14.i200.i = getelementptr inbounds nuw i8, ptr %stats, i64 400
   %133 = load i64, ptr %peak14.i200.i, align 8
-  %134 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 400), i64 %133 monotonic, align 8
+  %134 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 400), i64 %133 monotonic, align 8
   br label %mi_stats_add.exit
 
 mi_stats_add.exit:                                ; preds = %land.lhs.true.i201.i, %if.end4.i197.i
   %pages_extended16.i = getelementptr inbounds nuw i8, ptr %stats, i64 480
   %135 = load i64, ptr %pages_extended16.i, align 8
-  %136 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 480), i64 %135 monotonic, align 8
+  %136 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 480), i64 %135 monotonic, align 8
   %count2.i.i = getelementptr inbounds nuw i8, ptr %stats, i64 488
   %137 = load i64, ptr %count2.i.i, align 8
-  %138 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 488), i64 %137 monotonic, align 8
+  %138 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 488), i64 %137 monotonic, align 8
   %mmap_calls17.i = getelementptr inbounds nuw i8, ptr %stats, i64 496
   %139 = load i64, ptr %mmap_calls17.i, align 8
-  %140 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 496), i64 %139 monotonic, align 8
+  %140 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 496), i64 %139 monotonic, align 8
   %count2.i209.i = getelementptr inbounds nuw i8, ptr %stats, i64 504
   %141 = load i64, ptr %count2.i209.i, align 8
-  %142 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 504), i64 %141 monotonic, align 8
+  %142 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 504), i64 %141 monotonic, align 8
   %commit_calls18.i = getelementptr inbounds nuw i8, ptr %stats, i64 512
   %143 = load i64, ptr %commit_calls18.i, align 8
-  %144 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 512), i64 %143 monotonic, align 8
+  %144 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 512), i64 %143 monotonic, align 8
   %count2.i213.i = getelementptr inbounds nuw i8, ptr %stats, i64 520
   %145 = load i64, ptr %count2.i213.i, align 8
-  %146 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 520), i64 %145 monotonic, align 8
+  %146 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 520), i64 %145 monotonic, align 8
   %reset_calls19.i = getelementptr inbounds nuw i8, ptr %stats, i64 528
   %147 = load i64, ptr %reset_calls19.i, align 8
-  %148 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 528), i64 %147 monotonic, align 8
+  %148 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 528), i64 %147 monotonic, align 8
   %count2.i217.i = getelementptr inbounds nuw i8, ptr %stats, i64 536
   %149 = load i64, ptr %count2.i217.i, align 8
-  %150 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 536), i64 %149 monotonic, align 8
+  %150 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 536), i64 %149 monotonic, align 8
   %purge_calls20.i = getelementptr inbounds nuw i8, ptr %stats, i64 544
   %151 = load i64, ptr %purge_calls20.i, align 8
-  %152 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 544), i64 %151 monotonic, align 8
+  %152 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 544), i64 %151 monotonic, align 8
   %count2.i221.i = getelementptr inbounds nuw i8, ptr %stats, i64 552
   %153 = load i64, ptr %count2.i221.i, align 8
-  %154 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 552), i64 %153 monotonic, align 8
+  %154 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 552), i64 %153 monotonic, align 8
   %page_no_retire21.i = getelementptr inbounds nuw i8, ptr %stats, i64 560
   %155 = load i64, ptr %page_no_retire21.i, align 8
-  %156 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 560), i64 %155 monotonic, align 8
+  %156 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 560), i64 %155 monotonic, align 8
   %count2.i225.i = getelementptr inbounds nuw i8, ptr %stats, i64 568
   %157 = load i64, ptr %count2.i225.i, align 8
-  %158 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 568), i64 %157 monotonic, align 8
+  %158 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 568), i64 %157 monotonic, align 8
   %searches22.i = getelementptr inbounds nuw i8, ptr %stats, i64 576
   %159 = load i64, ptr %searches22.i, align 8
-  %160 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 576), i64 %159 monotonic, align 8
+  %160 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 576), i64 %159 monotonic, align 8
   %count2.i229.i = getelementptr inbounds nuw i8, ptr %stats, i64 584
   %161 = load i64, ptr %count2.i229.i, align 8
-  %162 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 584), i64 %161 monotonic, align 8
+  %162 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 584), i64 %161 monotonic, align 8
   %normal_count23.i = getelementptr inbounds nuw i8, ptr %stats, i64 592
   %163 = load i64, ptr %normal_count23.i, align 8
-  %164 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 592), i64 %163 monotonic, align 8
+  %164 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 592), i64 %163 monotonic, align 8
   %count2.i233.i = getelementptr inbounds nuw i8, ptr %stats, i64 600
   %165 = load i64, ptr %count2.i233.i, align 8
-  %166 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 600), i64 %165 monotonic, align 8
+  %166 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 600), i64 %165 monotonic, align 8
   %huge_count24.i = getelementptr inbounds nuw i8, ptr %stats, i64 608
   %167 = load i64, ptr %huge_count24.i, align 8
-  %168 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 608), i64 %167 monotonic, align 8
+  %168 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 608), i64 %167 monotonic, align 8
   %count2.i237.i = getelementptr inbounds nuw i8, ptr %stats, i64 616
   %169 = load i64, ptr %count2.i237.i, align 8
-  %170 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 616), i64 %169 monotonic, align 8
+  %170 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 616), i64 %169 monotonic, align 8
   %large_count25.i = getelementptr inbounds nuw i8, ptr %stats, i64 624
   %171 = load i64, ptr %large_count25.i, align 8
-  %172 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 624), i64 %171 monotonic, align 8
+  %172 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 624), i64 %171 monotonic, align 8
   %count2.i241.i = getelementptr inbounds nuw i8, ptr %stats, i64 632
   %173 = load i64, ptr %count2.i241.i, align 8
-  %174 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 632), i64 %173 monotonic, align 8
+  %174 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 632), i64 %173 monotonic, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(640) %stats, i8 0, i64 640, i1 false)
   br label %if.end
 
@@ -23986,9 +23986,9 @@ entry:
   br i1 %call.i.i.i, label %mi_stats_get_default.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
-  %0 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
+  %0 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
   %add.i.i.i = add i64 %0, 1
-  %1 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
+  %1 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %if.end.i.i.i
@@ -23997,13 +23997,13 @@ while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %
   br i1 %cmp.i21.i.i.i, label %land.rhs.i.i.i.i, label %_mi_stat_increase.exit.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.cond.i.i.i.i
-  %2 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
+  %2 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %_mi_stat_increase.exit.i, label %while.cond.i.i.i.i, !llvm.loop !5
 
 _mi_stat_increase.exit.i:                         ; preds = %land.rhs.i.i.i.i, %while.cond.i.i.i.i
-  %5 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
+  %5 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
   %6 = atomicrmw add ptr @thread_count, i64 1 monotonic, align 8
   br label %mi_stats_get_default.exit
 
@@ -24166,8 +24166,8 @@ _mi_os_numa_node_count.exit:                      ; preds = %mi_stat_counter_pri
   %17 = load i64, ptr %tv_nsec.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i.i.i.i)
   %18 = load i64, ptr @mi_clock_diff, align 8
-  %19 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 120) monotonic, align 8
-  %20 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
+  %19 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120) monotonic, align 8
+  %20 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %rusage.i.i)
   %call.i.i70 = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %rusage.i.i) #45
   %rusage.val.i.i = load i64, ptr %rusage.i.i, align 8
@@ -24227,9 +24227,9 @@ entry:
   br i1 %call.i.i.i.i, label %mi_stats_print_out.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %entry
-  %0 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
+  %0 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
   %add.i.i.i.i = add i64 %0, 1
-  %1 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
+  %1 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
   br label %while.cond.i.i.i.i.i
 
 while.cond.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i, %if.end.i.i.i.i
@@ -24238,13 +24238,13 @@ while.cond.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i,
   br i1 %cmp.i21.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_mi_stat_increase.exit.i.i
 
 land.rhs.i.i.i.i.i:                               ; preds = %while.cond.i.i.i.i.i
-  %2 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i.i, i64 %add.i.i.i.i release monotonic, align 8
+  %2 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i.i, i64 %add.i.i.i.i release monotonic, align 8
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %_mi_stat_increase.exit.i.i, label %while.cond.i.i.i.i.i, !llvm.loop !5
 
 _mi_stat_increase.exit.i.i:                       ; preds = %land.rhs.i.i.i.i.i, %while.cond.i.i.i.i.i
-  %5 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
+  %5 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
   %6 = atomicrmw add ptr @thread_count, i64 1 monotonic, align 8
   br label %mi_stats_print_out.exit
 
@@ -24266,9 +24266,9 @@ entry:
   br i1 %call.i.i.i, label %mi_stats_get_default.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
-  %0 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
+  %0 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
   %add.i.i.i = add i64 %0, 1
-  %1 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
+  %1 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %if.end.i.i.i
@@ -24277,13 +24277,13 @@ while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %
   br i1 %cmp.i21.i.i.i, label %land.rhs.i.i.i.i, label %_mi_stat_increase.exit.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.cond.i.i.i.i
-  %2 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
+  %2 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %_mi_stat_increase.exit.i, label %while.cond.i.i.i.i, !llvm.loop !5
 
 _mi_stat_increase.exit.i:                         ; preds = %land.rhs.i.i.i.i, %while.cond.i.i.i.i
-  %5 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
+  %5 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
   %6 = atomicrmw add ptr @thread_count, i64 1 monotonic, align 8
   br label %mi_stats_get_default.exit
 
@@ -24325,8 +24325,8 @@ entry:
   %2 = load i64, ptr %tv_nsec.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i.i.i)
   %3 = load i64, ptr @mi_clock_diff, align 8
-  %4 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 120) monotonic, align 8
-  %5 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
+  %4 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120) monotonic, align 8
+  %5 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %rusage.i)
   %call.i = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %rusage.i) #45
   %rusage.val.i = load i64, ptr %rusage.i, align 8
@@ -25210,12 +25210,12 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @_PyMem_SetDefaultAllocator(i32 noundef %domain, ptr noundef writeonly %old_alloc) local_unnamed_addr #0 {
 entry:
-  %0 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 400), i8 0, i8 1 seq_cst seq_cst, align 1
+  %0 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400), i8 0, i8 1 seq_cst seq_cst, align 1
   %1 = extractvalue { i8, i1 } %0, 1
   br i1 %1, label %PyMutex_Lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400)) #45
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %entry, %if.then.i
@@ -25230,15 +25230,15 @@ if.then.i1:                                       ; preds = %PyMutex_Lock.exit
   ]
 
 if.end.thread.i:                                  ; preds = %if.then.i1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %old_alloc, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %old_alloc, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), i64 40, i1 false)
   br label %sw.bb.i7.i
 
 if.end.thread18.i:                                ; preds = %if.then.i1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %old_alloc, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %old_alloc, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 448), i64 40, i1 false)
   br label %sw.bb1.i6.i
 
 if.end.thread19.i:                                ; preds = %if.then.i1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %old_alloc, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 488), i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %old_alloc, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 488), i64 40, i1 false)
   br label %sw.bb2.i5.i
 
 sw.default.i.i:                                   ; preds = %if.then.i1
@@ -25253,37 +25253,37 @@ if.end.i:                                         ; preds = %sw.default.i.i, %Py
   ]
 
 sw.bb.i7.i:                                       ; preds = %if.end.i, %if.end.thread.i
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
-  store ptr @_PyMem_RawMalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 416), align 8
-  store ptr @_PyMem_RawCalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 424), align 8
-  store ptr @_PyMem_RawRealloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 432), align 8
-  store ptr @_PyMem_RawFree, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 440), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), align 8
+  store ptr @_PyMem_RawMalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 416), align 8
+  store ptr @_PyMem_RawCalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 424), align 8
+  store ptr @_PyMem_RawRealloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 432), align 8
+  store ptr @_PyMem_RawFree, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 440), align 8
   br label %set_default_allocator_unlocked.exit
 
 sw.bb1.i6.i:                                      ; preds = %if.end.i, %if.end.thread18.i
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), align 8
-  store ptr @_PyObject_Malloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 456), align 8
-  store ptr @_PyObject_Calloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 464), align 8
-  store ptr @_PyObject_Realloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 472), align 8
-  store ptr @_PyObject_Free, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 480), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 448), align 8
+  store ptr @_PyObject_Malloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 456), align 8
+  store ptr @_PyObject_Calloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 464), align 8
+  store ptr @_PyObject_Realloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 472), align 8
+  store ptr @_PyObject_Free, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 480), align 8
   br label %set_default_allocator_unlocked.exit
 
 sw.bb2.i5.i:                                      ; preds = %if.end.i, %if.end.thread19.i
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 488), align 8
-  store ptr @_PyObject_Malloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 496), align 8
-  store ptr @_PyObject_Calloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 504), align 8
-  store ptr @_PyObject_Realloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 512), align 8
-  store ptr @_PyObject_Free, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 520), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 488), align 8
+  store ptr @_PyObject_Malloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 496), align 8
+  store ptr @_PyObject_Calloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 504), align 8
+  store ptr @_PyObject_Realloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 512), align 8
+  store ptr @_PyObject_Free, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 520), align 8
   br label %set_default_allocator_unlocked.exit
 
 set_default_allocator_unlocked.exit:              ; preds = %sw.bb.i7.i, %sw.bb1.i6.i, %sw.bb2.i5.i, %if.end.i
   %retval.0.i = phi i32 [ -1, %if.end.i ], [ 0, %sw.bb2.i5.i ], [ 0, %sw.bb1.i6.i ], [ 0, %sw.bb.i7.i ]
-  %2 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 400), i8 1, i8 0 seq_cst seq_cst, align 1
+  %2 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400), i8 1, i8 0 seq_cst seq_cst, align 1
   %3 = extractvalue { i8, i1 } %2, 1
   br i1 %3, label %PyMutex_Unlock.exit, label %if.then.i2
 
 if.then.i2:                                       ; preds = %set_default_allocator_unlocked.exit
-  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400)) #45
   br label %PyMutex_Unlock.exit
 
 PyMutex_Unlock.exit:                              ; preds = %set_default_allocator_unlocked.exit, %if.then.i2
@@ -25357,12 +25357,12 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @_PyMem_SetupAllocators(i32 noundef %allocator) local_unnamed_addr #0 {
 entry:
-  %0 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 400), i8 0, i8 1 seq_cst seq_cst, align 1
+  %0 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400), i8 0, i8 1 seq_cst seq_cst, align 1
   %1 = extractvalue { i8, i1 } %0, 1
   br i1 %1, label %PyMutex_Lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400)) #45
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %entry, %if.then.i
@@ -25379,129 +25379,129 @@ PyMutex_Lock.exit:                                ; preds = %entry, %if.then.i
   ]
 
 sw.bb1.i:                                         ; preds = %PyMutex_Lock.exit
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
-  store ptr @_PyMem_RawMalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 416), align 8
-  store ptr @_PyMem_RawCalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 424), align 8
-  store ptr @_PyMem_RawRealloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 432), align 8
-  store ptr @_PyMem_RawFree, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 440), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), align 8
-  store ptr @_PyObject_Malloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 456), align 8
-  store ptr @_PyObject_Calloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 464), align 8
-  store ptr @_PyObject_Realloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 472), align 8
-  store ptr @_PyObject_Free, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 480), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), align 8
+  store ptr @_PyMem_RawMalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 416), align 8
+  store ptr @_PyMem_RawCalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 424), align 8
+  store ptr @_PyMem_RawRealloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 432), align 8
+  store ptr @_PyMem_RawFree, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 440), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 448), align 8
+  store ptr @_PyObject_Malloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 456), align 8
+  store ptr @_PyObject_Calloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 464), align 8
+  store ptr @_PyObject_Realloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 472), align 8
+  store ptr @_PyObject_Free, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 480), align 8
   br label %sw.epilog.sink.split.i
 
 set_default_allocator_unlocked.exit5.i:           ; preds = %PyMutex_Lock.exit
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
-  store ptr @_PyMem_RawMalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 416), align 8
-  store ptr @_PyMem_RawCalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 424), align 8
-  store ptr @_PyMem_RawRealloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 432), align 8
-  store ptr @_PyMem_RawFree, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 440), align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 536), ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), i64 40, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 528), ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
-  store ptr @_PyMem_DebugRawMalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 416), align 8
-  store ptr @_PyMem_DebugRawCalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 424), align 8
-  store ptr @_PyMem_DebugRawRealloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 432), align 8
-  store ptr @_PyMem_DebugRawFree, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 440), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), align 8
-  store ptr @_PyObject_Malloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 456), align 8
-  store ptr @_PyObject_Calloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 464), align 8
-  store ptr @_PyObject_Realloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 472), align 8
-  store ptr @_PyObject_Free, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 480), align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 584), ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), i64 40, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 576), ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), align 8
-  store ptr @_PyMem_DebugMalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 456), align 8
-  store ptr @_PyMem_DebugCalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 464), align 8
-  store ptr @_PyMem_DebugRealloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 472), align 8
-  store ptr @_PyMem_DebugFree, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 480), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 488), align 8
-  store ptr @_PyObject_Malloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 496), align 8
-  store ptr @_PyObject_Calloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 504), align 8
-  store ptr @_PyObject_Realloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 512), align 8
-  store ptr @_PyObject_Free, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 520), align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 632), ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 488), i64 40, i1 false)
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), align 8
+  store ptr @_PyMem_RawMalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 416), align 8
+  store ptr @_PyMem_RawCalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 424), align 8
+  store ptr @_PyMem_RawRealloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 432), align 8
+  store ptr @_PyMem_RawFree, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 440), align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 536), ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), i64 40, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 528), ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), align 8
+  store ptr @_PyMem_DebugRawMalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 416), align 8
+  store ptr @_PyMem_DebugRawCalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 424), align 8
+  store ptr @_PyMem_DebugRawRealloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 432), align 8
+  store ptr @_PyMem_DebugRawFree, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 440), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 448), align 8
+  store ptr @_PyObject_Malloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 456), align 8
+  store ptr @_PyObject_Calloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 464), align 8
+  store ptr @_PyObject_Realloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 472), align 8
+  store ptr @_PyObject_Free, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 480), align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 584), ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 448), i64 40, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 576), ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 448), align 8
+  store ptr @_PyMem_DebugMalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 456), align 8
+  store ptr @_PyMem_DebugCalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 464), align 8
+  store ptr @_PyMem_DebugRealloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 472), align 8
+  store ptr @_PyMem_DebugFree, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 480), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 488), align 8
+  store ptr @_PyObject_Malloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 496), align 8
+  store ptr @_PyObject_Calloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 504), align 8
+  store ptr @_PyObject_Realloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 512), align 8
+  store ptr @_PyObject_Free, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 520), align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 632), ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 488), i64 40, i1 false)
   br label %sw.epilog.sink.split.i
 
 sw.bb8.i:                                         ; preds = %PyMutex_Lock.exit, %PyMutex_Lock.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), ptr noundef nonnull readonly align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), ptr noundef nonnull readonly align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.pymalloc, i64 40, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 488), ptr noundef nonnull readonly align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.pymalloc, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), ptr noundef nonnull readonly align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 448), ptr noundef nonnull readonly align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.pymalloc, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 488), ptr noundef nonnull readonly align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.pymalloc, i64 40, i1 false)
   %cmp.i = icmp eq i32 %allocator, 6
   br i1 %cmp.i, label %if.end18.i.i11.i, label %sw.epilog.i
 
 if.end18.i.i11.i:                                 ; preds = %sw.bb8.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 536), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 528), ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
-  store ptr @_PyMem_DebugRawMalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 416), align 8
-  store ptr @_PyMem_DebugRawCalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 424), align 8
-  store ptr @_PyMem_DebugRawRealloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 432), align 8
-  store ptr @_PyMem_DebugRawFree, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 440), align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 584), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.pymalloc, i64 40, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 576), ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), align 8
-  store ptr @_PyMem_DebugMalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 456), align 8
-  store ptr @_PyMem_DebugCalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 464), align 8
-  store ptr @_PyMem_DebugRealloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 472), align 8
-  store ptr @_PyMem_DebugFree, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 480), align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 632), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.pymalloc, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 536), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 528), ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), align 8
+  store ptr @_PyMem_DebugRawMalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 416), align 8
+  store ptr @_PyMem_DebugRawCalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 424), align 8
+  store ptr @_PyMem_DebugRawRealloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 432), align 8
+  store ptr @_PyMem_DebugRawFree, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 440), align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 584), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.pymalloc, i64 40, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 576), ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 448), align 8
+  store ptr @_PyMem_DebugMalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 456), align 8
+  store ptr @_PyMem_DebugCalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 464), align 8
+  store ptr @_PyMem_DebugRealloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 472), align 8
+  store ptr @_PyMem_DebugFree, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 480), align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 632), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.pymalloc, i64 40, i1 false)
   br label %sw.epilog.sink.split.i
 
 sw.bb9.i:                                         ; preds = %PyMutex_Lock.exit, %PyMutex_Lock.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), ptr noundef nonnull readonly align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), ptr noundef nonnull readonly align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.mimalloc, i64 40, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 488), ptr noundef nonnull readonly align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.mimalloc_obj, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), ptr noundef nonnull readonly align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 448), ptr noundef nonnull readonly align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.mimalloc, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 488), ptr noundef nonnull readonly align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.mimalloc_obj, i64 40, i1 false)
   %cmp12.i = icmp eq i32 %allocator, 8
   br i1 %cmp12.i, label %if.end18.i.i19.i, label %sw.epilog.i
 
 if.end18.i.i19.i:                                 ; preds = %sw.bb9.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 536), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 528), ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
-  store ptr @_PyMem_DebugRawMalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 416), align 8
-  store ptr @_PyMem_DebugRawCalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 424), align 8
-  store ptr @_PyMem_DebugRawRealloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 432), align 8
-  store ptr @_PyMem_DebugRawFree, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 440), align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 584), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.mimalloc, i64 40, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 576), ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), align 8
-  store ptr @_PyMem_DebugMalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 456), align 8
-  store ptr @_PyMem_DebugCalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 464), align 8
-  store ptr @_PyMem_DebugRealloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 472), align 8
-  store ptr @_PyMem_DebugFree, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 480), align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 632), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.mimalloc_obj, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 536), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 528), ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), align 8
+  store ptr @_PyMem_DebugRawMalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 416), align 8
+  store ptr @_PyMem_DebugRawCalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 424), align 8
+  store ptr @_PyMem_DebugRawRealloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 432), align 8
+  store ptr @_PyMem_DebugRawFree, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 440), align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 584), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.mimalloc, i64 40, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 576), ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 448), align 8
+  store ptr @_PyMem_DebugMalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 456), align 8
+  store ptr @_PyMem_DebugCalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 464), align 8
+  store ptr @_PyMem_DebugRealloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 472), align 8
+  store ptr @_PyMem_DebugFree, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 480), align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 632), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.mimalloc_obj, i64 40, i1 false)
   br label %sw.epilog.sink.split.i
 
 sw.bb15.i:                                        ; preds = %PyMutex_Lock.exit, %PyMutex_Lock.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), ptr noundef nonnull readonly align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), ptr noundef nonnull readonly align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 488), ptr noundef nonnull readonly align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), ptr noundef nonnull readonly align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 448), ptr noundef nonnull readonly align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 488), ptr noundef nonnull readonly align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
   %cmp17.i = icmp eq i32 %allocator, 4
   br i1 %cmp17.i, label %if.end18.i.i28.i, label %sw.epilog.i
 
 if.end18.i.i28.i:                                 ; preds = %sw.bb15.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 536), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 528), ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
-  store ptr @_PyMem_DebugRawMalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 416), align 8
-  store ptr @_PyMem_DebugRawCalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 424), align 8
-  store ptr @_PyMem_DebugRawRealloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 432), align 8
-  store ptr @_PyMem_DebugRawFree, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 440), align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 584), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 576), ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), align 8
-  store ptr @_PyMem_DebugMalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 456), align 8
-  store ptr @_PyMem_DebugCalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 464), align 8
-  store ptr @_PyMem_DebugRealloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 472), align 8
-  store ptr @_PyMem_DebugFree, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 480), align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 632), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 536), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 528), ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), align 8
+  store ptr @_PyMem_DebugRawMalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 416), align 8
+  store ptr @_PyMem_DebugRawCalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 424), align 8
+  store ptr @_PyMem_DebugRawRealloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 432), align 8
+  store ptr @_PyMem_DebugRawFree, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 440), align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 584), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 576), ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 448), align 8
+  store ptr @_PyMem_DebugMalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 456), align 8
+  store ptr @_PyMem_DebugCalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 464), align 8
+  store ptr @_PyMem_DebugRealloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 472), align 8
+  store ptr @_PyMem_DebugFree, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 480), align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 632), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
   br label %sw.epilog.sink.split.i
 
 sw.epilog.sink.split.i:                           ; preds = %if.end18.i.i28.i, %if.end18.i.i19.i, %if.end18.i.i11.i, %set_default_allocator_unlocked.exit5.i, %sw.bb1.i
-  %.sink.i = phi ptr [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 624), %if.end18.i.i28.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 624), %if.end18.i.i19.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 624), %if.end18.i.i11.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 624), %set_default_allocator_unlocked.exit5.i ], [ null, %sw.bb1.i ]
+  %.sink.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 624), %if.end18.i.i28.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 624), %if.end18.i.i19.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 624), %if.end18.i.i11.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 624), %set_default_allocator_unlocked.exit5.i ], [ null, %sw.bb1.i ]
   %_PyMem_DebugMalloc.sink.i = phi ptr [ @_PyMem_DebugMalloc, %if.end18.i.i28.i ], [ @_PyMem_DebugMalloc, %if.end18.i.i19.i ], [ @_PyMem_DebugMalloc, %if.end18.i.i11.i ], [ @_PyMem_DebugMalloc, %set_default_allocator_unlocked.exit5.i ], [ @_PyObject_Malloc, %sw.bb1.i ]
   %_PyMem_DebugCalloc.sink.i = phi ptr [ @_PyMem_DebugCalloc, %if.end18.i.i28.i ], [ @_PyMem_DebugCalloc, %if.end18.i.i19.i ], [ @_PyMem_DebugCalloc, %if.end18.i.i11.i ], [ @_PyMem_DebugCalloc, %set_default_allocator_unlocked.exit5.i ], [ @_PyObject_Calloc, %sw.bb1.i ]
   %_PyMem_DebugRealloc.sink.i = phi ptr [ @_PyMem_DebugRealloc, %if.end18.i.i28.i ], [ @_PyMem_DebugRealloc, %if.end18.i.i19.i ], [ @_PyMem_DebugRealloc, %if.end18.i.i11.i ], [ @_PyMem_DebugRealloc, %set_default_allocator_unlocked.exit5.i ], [ @_PyObject_Realloc, %sw.bb1.i ]
   %_PyMem_DebugFree.sink.i = phi ptr [ @_PyMem_DebugFree, %if.end18.i.i28.i ], [ @_PyMem_DebugFree, %if.end18.i.i19.i ], [ @_PyMem_DebugFree, %if.end18.i.i11.i ], [ @_PyMem_DebugFree, %set_default_allocator_unlocked.exit5.i ], [ @_PyObject_Free, %sw.bb1.i ]
-  store ptr %.sink.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 488), align 8
-  store ptr %_PyMem_DebugMalloc.sink.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 496), align 8
-  store ptr %_PyMem_DebugCalloc.sink.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 504), align 8
-  store ptr %_PyMem_DebugRealloc.sink.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 512), align 8
-  store ptr %_PyMem_DebugFree.sink.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 520), align 8
+  store ptr %.sink.i, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 488), align 8
+  store ptr %_PyMem_DebugMalloc.sink.i, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 496), align 8
+  store ptr %_PyMem_DebugCalloc.sink.i, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 504), align 8
+  store ptr %_PyMem_DebugRealloc.sink.i, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 512), align 8
+  store ptr %_PyMem_DebugFree.sink.i, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 520), align 8
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.epilog.sink.split.i, %sw.bb15.i, %sw.bb9.i, %sw.bb8.i, %PyMutex_Lock.exit
@@ -25509,12 +25509,12 @@ sw.epilog.i:                                      ; preds = %sw.epilog.sink.spli
 
 set_up_allocators_unlocked.exit:                  ; preds = %PyMutex_Lock.exit, %sw.epilog.i
   %retval.0.i = phi i32 [ 0, %sw.epilog.i ], [ -1, %PyMutex_Lock.exit ]
-  %2 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 400), i8 1, i8 0 seq_cst seq_cst, align 1
+  %2 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400), i8 1, i8 0 seq_cst seq_cst, align 1
   %3 = extractvalue { i8, i1 } %2, 1
   br i1 %3, label %PyMutex_Unlock.exit, label %if.then.i1
 
 if.then.i1:                                       ; preds = %set_up_allocators_unlocked.exit
-  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400)) #45
   br label %PyMutex_Unlock.exit
 
 PyMutex_Unlock.exit:                              ; preds = %set_up_allocators_unlocked.exit, %if.then.i1
@@ -25524,96 +25524,96 @@ PyMutex_Unlock.exit:                              ; preds = %set_up_allocators_u
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @_PyMem_GetCurrentAllocatorName() local_unnamed_addr #0 {
 entry:
-  %0 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 400), i8 0, i8 1 seq_cst seq_cst, align 1
+  %0 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400), i8 0, i8 1 seq_cst seq_cst, align 1
   %1 = extractvalue { i8, i1 } %0, 1
   br i1 %1, label %PyMutex_Lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400)) #45
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %entry, %if.then.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40)
   %cmp.i.not.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp.i.not.i, label %land.lhs.true.i, label %if.end25.i
 
 land.lhs.true.i:                                  ; preds = %PyMutex_Lock.exit
-  %bcmp.i1.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40)
+  %bcmp.i1.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 448), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40)
   %cmp.i2.not.i = icmp eq i32 %bcmp.i1.i, 0
   br i1 %cmp.i2.not.i, label %land.lhs.true3.i, label %land.lhs.true8.i
 
 land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
-  %bcmp.i4.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 488), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40)
+  %bcmp.i4.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 488), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40)
   %cmp.i5.not.i = icmp eq i32 %bcmp.i4.i, 0
   br i1 %cmp.i5.not.i, label %get_current_allocator_name_unlocked.exit, label %land.lhs.true8.i
 
 land.lhs.true8.i:                                 ; preds = %land.lhs.true3.i, %land.lhs.true.i
-  %bcmp.i10.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.pymalloc, i64 40)
+  %bcmp.i10.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 448), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.pymalloc, i64 40)
   %cmp.i11.not.i = icmp eq i32 %bcmp.i10.i, 0
   br i1 %cmp.i11.not.i, label %land.lhs.true11.i, label %land.lhs.true18.i
 
 land.lhs.true11.i:                                ; preds = %land.lhs.true8.i
-  %bcmp.i13.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 488), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.pymalloc, i64 40)
+  %bcmp.i13.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 488), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.pymalloc, i64 40)
   %cmp.i14.not.i = icmp eq i32 %bcmp.i13.i, 0
   br i1 %cmp.i14.not.i, label %get_current_allocator_name_unlocked.exit, label %land.lhs.true18.i
 
 land.lhs.true18.i:                                ; preds = %land.lhs.true11.i, %land.lhs.true8.i
-  %bcmp.i19.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.mimalloc, i64 40)
+  %bcmp.i19.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 448), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.mimalloc, i64 40)
   %cmp.i20.not.i = icmp eq i32 %bcmp.i19.i, 0
   br i1 %cmp.i20.not.i, label %land.lhs.true21.i, label %if.end25.i
 
 land.lhs.true21.i:                                ; preds = %land.lhs.true18.i
-  %bcmp.i22.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 488), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.mimalloc_obj, i64 40)
+  %bcmp.i22.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 488), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.mimalloc_obj, i64 40)
   %cmp.i23.not.i = icmp eq i32 %bcmp.i22.i, 0
   br i1 %cmp.i23.not.i, label %get_current_allocator_name_unlocked.exit, label %if.end25.i
 
 if.end25.i:                                       ; preds = %land.lhs.true21.i, %land.lhs.true18.i, %PyMutex_Lock.exit
-  %bcmp.i25.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.dbg_raw, i64 40)
+  %bcmp.i25.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.dbg_raw, i64 40)
   %cmp.i26.not.i = icmp eq i32 %bcmp.i25.i, 0
   br i1 %cmp.i26.not.i, label %land.lhs.true28.i, label %if.end65.i
 
 land.lhs.true28.i:                                ; preds = %if.end25.i
-  %bcmp.i28.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.dbg_mem, i64 40)
+  %bcmp.i28.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 448), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.dbg_mem, i64 40)
   %cmp.i29.not.i = icmp eq i32 %bcmp.i28.i, 0
   br i1 %cmp.i29.not.i, label %land.lhs.true31.i, label %if.end65.i
 
 land.lhs.true31.i:                                ; preds = %land.lhs.true28.i
-  %bcmp.i31.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 488), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.dbg_obj, i64 40)
+  %bcmp.i31.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 488), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.dbg_obj, i64 40)
   %cmp.i32.not.i = icmp eq i32 %bcmp.i31.i, 0
   br i1 %cmp.i32.not.i, label %if.then34.i, label %if.end65.i
 
 if.then34.i:                                      ; preds = %land.lhs.true31.i
-  %bcmp.i34.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 536), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40)
+  %bcmp.i34.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 536), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40)
   %cmp.i35.not.i = icmp eq i32 %bcmp.i34.i, 0
   br i1 %cmp.i35.not.i, label %land.lhs.true37.i, label %if.end65.i
 
 land.lhs.true37.i:                                ; preds = %if.then34.i
-  %bcmp.i37.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 584), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40)
+  %bcmp.i37.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 584), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40)
   %cmp.i38.not.i = icmp eq i32 %bcmp.i37.i, 0
   br i1 %cmp.i38.not.i, label %land.lhs.true40.i, label %land.lhs.true47.i
 
 land.lhs.true40.i:                                ; preds = %land.lhs.true37.i
-  %bcmp.i40.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 632), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40)
+  %bcmp.i40.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 632), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40)
   %cmp.i41.not.i = icmp eq i32 %bcmp.i40.i, 0
   br i1 %cmp.i41.not.i, label %get_current_allocator_name_unlocked.exit, label %land.lhs.true47.i
 
 land.lhs.true47.i:                                ; preds = %land.lhs.true40.i, %land.lhs.true37.i
-  %bcmp.i46.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 584), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.pymalloc, i64 40)
+  %bcmp.i46.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 584), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.pymalloc, i64 40)
   %cmp.i47.not.i = icmp eq i32 %bcmp.i46.i, 0
   br i1 %cmp.i47.not.i, label %land.lhs.true50.i, label %land.lhs.true57.i
 
 land.lhs.true50.i:                                ; preds = %land.lhs.true47.i
-  %bcmp.i49.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 632), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.pymalloc, i64 40)
+  %bcmp.i49.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 632), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.pymalloc, i64 40)
   %cmp.i50.not.i = icmp eq i32 %bcmp.i49.i, 0
   br i1 %cmp.i50.not.i, label %get_current_allocator_name_unlocked.exit, label %land.lhs.true57.i
 
 land.lhs.true57.i:                                ; preds = %land.lhs.true50.i, %land.lhs.true47.i
-  %bcmp.i55.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 584), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.mimalloc, i64 40)
+  %bcmp.i55.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 584), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.mimalloc, i64 40)
   %cmp.i56.not.i = icmp eq i32 %bcmp.i55.i, 0
   br i1 %cmp.i56.not.i, label %land.lhs.true60.i, label %if.end65.i
 
 land.lhs.true60.i:                                ; preds = %land.lhs.true57.i
-  %bcmp.i58.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 632), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.mimalloc_obj, i64 40)
+  %bcmp.i58.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 632), ptr noundef nonnull readonly dereferenceable(40) @__const.get_current_allocator_name_unlocked.mimalloc_obj, i64 40)
   %cmp.i59.not.i = icmp eq i32 %bcmp.i58.i, 0
   br i1 %cmp.i59.not.i, label %get_current_allocator_name_unlocked.exit, label %if.end65.i
 
@@ -25622,12 +25622,12 @@ if.end65.i:                                       ; preds = %land.lhs.true60.i, 
 
 get_current_allocator_name_unlocked.exit:         ; preds = %land.lhs.true3.i, %land.lhs.true11.i, %land.lhs.true21.i, %land.lhs.true40.i, %land.lhs.true50.i, %land.lhs.true60.i, %if.end65.i
   %retval.0.i = phi ptr [ null, %if.end65.i ], [ @.str.40, %land.lhs.true3.i ], [ @.str.36, %land.lhs.true11.i ], [ @.str.38, %land.lhs.true21.i ], [ @.str.41, %land.lhs.true40.i ], [ @.str.37, %land.lhs.true50.i ], [ @.str.39, %land.lhs.true60.i ]
-  %2 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 400), i8 1, i8 0 seq_cst seq_cst, align 1
+  %2 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400), i8 1, i8 0 seq_cst seq_cst, align 1
   %3 = extractvalue { i8, i1 } %2, 1
   br i1 %3, label %PyMutex_Unlock.exit, label %if.then.i1
 
 if.then.i1:                                       ; preds = %get_current_allocator_name_unlocked.exit
-  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400)) #45
   br label %PyMutex_Unlock.exit
 
 PyMutex_Unlock.exit:                              ; preds = %get_current_allocator_name_unlocked.exit, %if.then.i1
@@ -25637,63 +25637,63 @@ PyMutex_Unlock.exit:                              ; preds = %get_current_allocat
 ; Function Attrs: nounwind uwtable
 define dso_local void @PyMem_SetupDebugHooks() local_unnamed_addr #0 {
 entry:
-  %0 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 400), i8 0, i8 1 seq_cst seq_cst, align 1
+  %0 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400), i8 0, i8 1 seq_cst seq_cst, align 1
   %1 = extractvalue { i8, i1 } %0, 1
   br i1 %1, label %PyMutex_Lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400)) #45
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %entry, %if.then.i
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 416), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 416), align 8
   %cmp1.i.i = icmp eq ptr %2, @_PyMem_DebugRawMalloc
   br i1 %cmp1.i.i, label %set_up_debug_hooks_domain_unlocked.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %PyMutex_Lock.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 536), ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), i64 40, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 528), ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
-  store ptr @_PyMem_DebugRawMalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 416), align 8
-  store ptr @_PyMem_DebugRawCalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 424), align 8
-  store ptr @_PyMem_DebugRawRealloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 432), align 8
-  store ptr @_PyMem_DebugRawFree, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 440), align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 536), ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), i64 40, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 528), ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), align 8
+  store ptr @_PyMem_DebugRawMalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 416), align 8
+  store ptr @_PyMem_DebugRawCalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 424), align 8
+  store ptr @_PyMem_DebugRawRealloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 432), align 8
+  store ptr @_PyMem_DebugRawFree, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 440), align 8
   br label %set_up_debug_hooks_domain_unlocked.exit.i
 
 set_up_debug_hooks_domain_unlocked.exit.i:        ; preds = %if.end.i.i, %PyMutex_Lock.exit
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 456), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 456), align 8
   %cmp5.i.i = icmp eq ptr %3, @_PyMem_DebugMalloc
   br i1 %cmp5.i.i, label %set_up_debug_hooks_domain_unlocked.exit1.i, label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %set_up_debug_hooks_domain_unlocked.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 584), ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), i64 40, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 576), ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), align 8
-  store ptr @_PyMem_DebugMalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 456), align 8
-  store ptr @_PyMem_DebugCalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 464), align 8
-  store ptr @_PyMem_DebugRealloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 472), align 8
-  store ptr @_PyMem_DebugFree, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 480), align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 584), ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 448), i64 40, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 576), ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 448), align 8
+  store ptr @_PyMem_DebugMalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 456), align 8
+  store ptr @_PyMem_DebugCalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 464), align 8
+  store ptr @_PyMem_DebugRealloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 472), align 8
+  store ptr @_PyMem_DebugFree, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 480), align 8
   br label %set_up_debug_hooks_domain_unlocked.exit1.i
 
 set_up_debug_hooks_domain_unlocked.exit1.i:       ; preds = %if.end7.i.i, %set_up_debug_hooks_domain_unlocked.exit.i
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 496), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 496), align 8
   %cmp16.i.i = icmp eq ptr %4, @_PyMem_DebugMalloc
   br i1 %cmp16.i.i, label %set_up_debug_hooks_unlocked.exit, label %if.end18.i.i
 
 if.end18.i.i:                                     ; preds = %set_up_debug_hooks_domain_unlocked.exit1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 632), ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 488), i64 40, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 624), ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 488), align 8
-  store ptr @_PyMem_DebugMalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 496), align 8
-  store ptr @_PyMem_DebugCalloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 504), align 8
-  store ptr @_PyMem_DebugRealloc, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 512), align 8
-  store ptr @_PyMem_DebugFree, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 520), align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 632), ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 488), i64 40, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 624), ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 488), align 8
+  store ptr @_PyMem_DebugMalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 496), align 8
+  store ptr @_PyMem_DebugCalloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 504), align 8
+  store ptr @_PyMem_DebugRealloc, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 512), align 8
+  store ptr @_PyMem_DebugFree, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 520), align 8
   br label %set_up_debug_hooks_unlocked.exit
 
 set_up_debug_hooks_unlocked.exit:                 ; preds = %set_up_debug_hooks_domain_unlocked.exit1.i, %if.end18.i.i
-  %5 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 400), i8 1, i8 0 seq_cst seq_cst, align 1
+  %5 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400), i8 1, i8 0 seq_cst seq_cst, align 1
   %6 = extractvalue { i8, i1 } %5, 1
   br i1 %6, label %PyMutex_Unlock.exit, label %if.then.i1
 
 if.then.i1:                                       ; preds = %set_up_debug_hooks_unlocked.exit
-  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400)) #45
   br label %PyMutex_Unlock.exit
 
 PyMutex_Unlock.exit:                              ; preds = %set_up_debug_hooks_unlocked.exit, %if.then.i1
@@ -25703,12 +25703,12 @@ PyMutex_Unlock.exit:                              ; preds = %set_up_debug_hooks_
 ; Function Attrs: nounwind uwtable
 define dso_local void @PyMem_GetAllocator(i32 noundef %domain, ptr nocapture noundef writeonly initializes((0, 40)) %allocator) local_unnamed_addr #0 {
 entry:
-  %0 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 400), i8 0, i8 1 seq_cst seq_cst, align 1
+  %0 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400), i8 0, i8 1 seq_cst seq_cst, align 1
   %1 = extractvalue { i8, i1 } %0, 1
   br i1 %1, label %PyMutex_Lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400)) #45
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %entry, %if.then.i
@@ -25719,15 +25719,15 @@ PyMutex_Lock.exit:                                ; preds = %entry, %if.then.i
   ]
 
 sw.bb.i:                                          ; preds = %PyMutex_Lock.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %allocator, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %allocator, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), i64 40, i1 false)
   br label %get_allocator_unlocked.exit
 
 sw.bb1.i:                                         ; preds = %PyMutex_Lock.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %allocator, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %allocator, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 448), i64 40, i1 false)
   br label %get_allocator_unlocked.exit
 
 sw.bb2.i:                                         ; preds = %PyMutex_Lock.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %allocator, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 488), i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %allocator, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 488), i64 40, i1 false)
   br label %get_allocator_unlocked.exit
 
 sw.default.i:                                     ; preds = %PyMutex_Lock.exit
@@ -25735,12 +25735,12 @@ sw.default.i:                                     ; preds = %PyMutex_Lock.exit
   br label %get_allocator_unlocked.exit
 
 get_allocator_unlocked.exit:                      ; preds = %sw.bb.i, %sw.bb1.i, %sw.bb2.i, %sw.default.i
-  %2 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 400), i8 1, i8 0 seq_cst seq_cst, align 1
+  %2 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400), i8 1, i8 0 seq_cst seq_cst, align 1
   %3 = extractvalue { i8, i1 } %2, 1
   br i1 %3, label %PyMutex_Unlock.exit, label %if.then.i1
 
 if.then.i1:                                       ; preds = %get_allocator_unlocked.exit
-  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400)) #45
   br label %PyMutex_Unlock.exit
 
 PyMutex_Unlock.exit:                              ; preds = %get_allocator_unlocked.exit, %if.then.i1
@@ -25750,12 +25750,12 @@ PyMutex_Unlock.exit:                              ; preds = %get_allocator_unloc
 ; Function Attrs: nounwind uwtable
 define dso_local void @PyMem_SetAllocator(i32 noundef %domain, ptr nocapture noundef readonly %allocator) local_unnamed_addr #0 {
 entry:
-  %0 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 400), i8 0, i8 1 seq_cst seq_cst, align 1
+  %0 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400), i8 0, i8 1 seq_cst seq_cst, align 1
   %1 = extractvalue { i8, i1 } %0, 1
   br i1 %1, label %PyMutex_Lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400)) #45
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %entry, %if.then.i
@@ -25766,24 +25766,24 @@ PyMutex_Lock.exit:                                ; preds = %entry, %if.then.i
   ]
 
 sw.bb.i:                                          ; preds = %PyMutex_Lock.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), ptr noundef nonnull readonly align 8 dereferenceable(40) %allocator, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), ptr noundef nonnull readonly align 8 dereferenceable(40) %allocator, i64 40, i1 false)
   br label %set_allocator_unlocked.exit
 
 sw.bb1.i:                                         ; preds = %PyMutex_Lock.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), ptr noundef nonnull readonly align 8 dereferenceable(40) %allocator, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 448), ptr noundef nonnull readonly align 8 dereferenceable(40) %allocator, i64 40, i1 false)
   br label %set_allocator_unlocked.exit
 
 sw.bb2.i:                                         ; preds = %PyMutex_Lock.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_PyRuntime, i64 488), ptr noundef nonnull readonly align 8 dereferenceable(40) %allocator, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 488), ptr noundef nonnull readonly align 8 dereferenceable(40) %allocator, i64 40, i1 false)
   br label %set_allocator_unlocked.exit
 
 set_allocator_unlocked.exit:                      ; preds = %PyMutex_Lock.exit, %sw.bb.i, %sw.bb1.i, %sw.bb2.i
-  %2 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 400), i8 1, i8 0 seq_cst seq_cst, align 1
+  %2 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400), i8 1, i8 0 seq_cst seq_cst, align 1
   %3 = extractvalue { i8, i1 } %2, 1
   br i1 %3, label %PyMutex_Unlock.exit, label %if.then.i1
 
 if.then.i1:                                       ; preds = %set_allocator_unlocked.exit
-  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400)) #45
   br label %PyMutex_Unlock.exit
 
 PyMutex_Unlock.exit:                              ; preds = %set_allocator_unlocked.exit, %if.then.i1
@@ -25793,22 +25793,22 @@ PyMutex_Unlock.exit:                              ; preds = %set_allocator_unloc
 ; Function Attrs: nounwind uwtable
 define dso_local void @PyObject_GetArenaAllocator(ptr nocapture noundef writeonly initializes((0, 24)) %allocator) local_unnamed_addr #0 {
 entry:
-  %0 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 400), i8 0, i8 1 seq_cst seq_cst, align 1
+  %0 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400), i8 0, i8 1 seq_cst seq_cst, align 1
   %1 = extractvalue { i8, i1 } %0, 1
   br i1 %1, label %PyMutex_Lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400)) #45
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %entry, %if.then.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %allocator, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_PyRuntime, i64 672), i64 24, i1 false)
-  %2 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 400), i8 1, i8 0 seq_cst seq_cst, align 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %allocator, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 672), i64 24, i1 false)
+  %2 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400), i8 1, i8 0 seq_cst seq_cst, align 1
   %3 = extractvalue { i8, i1 } %2, 1
   br i1 %3, label %PyMutex_Unlock.exit, label %if.then.i1
 
 if.then.i1:                                       ; preds = %PyMutex_Lock.exit
-  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400)) #45
   br label %PyMutex_Unlock.exit
 
 PyMutex_Unlock.exit:                              ; preds = %PyMutex_Lock.exit, %if.then.i1
@@ -25818,22 +25818,22 @@ PyMutex_Unlock.exit:                              ; preds = %PyMutex_Lock.exit, 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PyObject_SetArenaAllocator(ptr nocapture noundef readonly %allocator) local_unnamed_addr #0 {
 entry:
-  %0 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 400), i8 0, i8 1 seq_cst seq_cst, align 1
+  %0 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400), i8 0, i8 1 seq_cst seq_cst, align 1
   %1 = extractvalue { i8, i1 } %0, 1
   br i1 %1, label %PyMutex_Lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400)) #45
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %entry, %if.then.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_PyRuntime, i64 672), ptr noundef nonnull align 8 dereferenceable(24) %allocator, i64 24, i1 false)
-  %2 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 400), i8 1, i8 0 seq_cst seq_cst, align 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 672), ptr noundef nonnull align 8 dereferenceable(24) %allocator, i64 24, i1 false)
+  %2 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400), i8 1, i8 0 seq_cst seq_cst, align 1
   %3 = extractvalue { i8, i1 } %2, 1
   br i1 %3, label %PyMutex_Unlock.exit, label %if.then.i1
 
 if.then.i1:                                       ; preds = %PyMutex_Lock.exit
-  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 400)) #45
   br label %PyMutex_Unlock.exit
 
 PyMutex_Unlock.exit:                              ; preds = %PyMutex_Lock.exit, %if.then.i1
@@ -25843,8 +25843,8 @@ PyMutex_Unlock.exit:                              ; preds = %PyMutex_Lock.exit, 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyObject_VirtualAlloc(i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 680), align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 672), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 680), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 672), align 8
   %call = tail call ptr %0(ptr noundef %1, i64 noundef %size) #45
   ret ptr %call
 }
@@ -25852,8 +25852,8 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyObject_VirtualFree(ptr noundef %obj, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 688), align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 672), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 688), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 672), align 8
   tail call void %0(ptr noundef %1, ptr noundef %obj, i64 noundef %size) #45
   ret void
 }
@@ -25865,8 +25865,8 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 416), align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 416), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), align 8
   %call = tail call ptr %0(ptr noundef %1, i64 noundef %size) #45
   br label %return
 
@@ -25887,8 +25887,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 424), align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 424), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), align 8
   %call = tail call ptr %0(ptr noundef %1, i64 noundef %nelem, i64 noundef %elsize) #45
   br label %return
 
@@ -25904,8 +25904,8 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 432), align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 432), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), align 8
   %call = tail call ptr %0(ptr noundef %1, ptr noundef %ptr, i64 noundef %new_size) #45
   br label %return
 
@@ -25917,8 +25917,8 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define dso_local void @PyMem_RawFree(ptr noundef %ptr) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 440), align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 440), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), align 8
   tail call void %0(ptr noundef %1, ptr noundef %ptr) #45
   ret void
 }
@@ -25930,8 +25930,8 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 456), align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 456), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 448), align 8
   %call = tail call ptr %0(ptr noundef %1, i64 noundef %size) #45
   br label %return
 
@@ -25952,8 +25952,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 464), align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 464), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 448), align 8
   %call = tail call ptr %0(ptr noundef %1, i64 noundef %nelem, i64 noundef %elsize) #45
   br label %return
 
@@ -25969,8 +25969,8 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 472), align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 472), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 448), align 8
   %call = tail call ptr %0(ptr noundef %1, ptr noundef %ptr, i64 noundef %new_size) #45
   br label %return
 
@@ -25982,8 +25982,8 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define dso_local void @PyMem_Free(ptr noundef %ptr) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 480), align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 480), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 448), align 8
   tail call void %0(ptr noundef %1, ptr noundef %ptr) #45
   ret void
 }
@@ -25998,8 +25998,8 @@ entry:
 if.end:                                           ; preds = %entry
   %add = shl nuw nsw i64 %call, 2
   %mul = add nuw nsw i64 %add, 4
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 416), align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 416), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), align 8
   %call.i = tail call ptr %0(ptr noundef %1, i64 noundef %mul) #45
   %cmp2 = icmp eq ptr %call.i, null
   br i1 %cmp2, label %return, label %if.end4
@@ -26025,8 +26025,8 @@ entry:
   br i1 %cmp.i, label %return, label %PyMem_RawMalloc.exit
 
 PyMem_RawMalloc.exit:                             ; preds = %entry
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 416), align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 416), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), align 8
   %call.i = tail call ptr %0(ptr noundef %1, i64 noundef %add) #45
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
@@ -26049,8 +26049,8 @@ entry:
   br i1 %cmp.i, label %return, label %PyMem_Malloc.exit
 
 PyMem_Malloc.exit:                                ; preds = %entry
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 456), align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 456), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 448), align 8
   %call.i = tail call ptr %0(ptr noundef %1, i64 noundef %add) #45
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
@@ -26071,8 +26071,8 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 496), align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 488), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 496), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 488), align 8
   %call = tail call ptr %0(ptr noundef %1, i64 noundef %size) #45
   br label %return
 
@@ -26093,8 +26093,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 504), align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 488), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 504), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 488), align 8
   %call = tail call ptr %0(ptr noundef %1, i64 noundef %nelem, i64 noundef %elsize) #45
   br label %return
 
@@ -26110,8 +26110,8 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 512), align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 488), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 512), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 488), align 8
   %call = tail call ptr %0(ptr noundef %1, ptr noundef %ptr, i64 noundef %new_size) #45
   br label %return
 
@@ -26123,8 +26123,8 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define dso_local void @PyObject_Free(ptr noundef %ptr) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 520), align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 488), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 520), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 488), align 8
   tail call void %0(ptr noundef %1, ptr noundef %ptr) #45
   ret void
 }
@@ -26132,9 +26132,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden i64 @_PyInterpreterState_GetAllocatedBlocks(ptr noundef readonly %interp) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 496), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 496), align 8
   %cmp.i.not.i = icmp eq ptr %0, @_PyMem_DebugMalloc
-  %.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 640), align 8
+  %.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 640), align 8
   %retval.0.in.in.i = select i1 %cmp.i.not.i, ptr %.val.i, ptr %0
   %retval.0.in.i.not = icmp eq ptr %retval.0.in.in.i, @_PyObject_MiMalloc
   br i1 %retval.0.in.i.not, label %if.then, label %if.end
@@ -26145,9 +26145,9 @@ if.then:                                          ; preds = %entry
   br i1 %call.i.i, label %mi_heap_get_default.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then
-  %1 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
+  %1 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
   %add.i.i.i = add i64 %1, 1
-  %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
+  %2 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %if.end.i.i
@@ -26156,13 +26156,13 @@ while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %
   br i1 %cmp.i21.i.i.i, label %land.rhs.i.i.i.i, label %_mi_stat_increase.exit.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.cond.i.i.i.i
-  %3 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
+  %3 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
   %4 = extractvalue { i64, i1 } %3, 1
   %5 = extractvalue { i64, i1 } %3, 0
   br i1 %4, label %_mi_stat_increase.exit.i, label %while.cond.i.i.i.i, !llvm.loop !5
 
 _mi_stat_increase.exit.i:                         ; preds = %land.rhs.i.i.i.i, %while.cond.i.i.i.i
-  %6 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
+  %6 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
   %7 = atomicrmw add ptr @thread_count, i64 1 monotonic, align 8
   br label %mi_heap_get_default.exit
 
@@ -26209,7 +26209,7 @@ for.inc.i.i.i:                                    ; preds = %while.body.i.i.i, %
   br i1 %exitcond.not.i.i.i, label %return, label %for.body.i.i.i, !llvm.loop !67
 
 if.end:                                           ; preds = %entry
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i.not.i15 = icmp eq ptr %interp, %14
   br i1 %cmp.i.not.i15, label %if.end6, label %lor.lhs.false.i
 
@@ -26223,7 +26223,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
 has_own_state.exit:                               ; preds = %lor.lhs.false.i
   %16 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 320) monotonic, align 8
   %cmp.i3.i = icmp eq i64 %16, 0
-  %cmp1.i.i = icmp ne ptr %interp, getelementptr inbounds (i8, ptr @_PyRuntime, i64 76952)
+  %cmp1.i.i = icmp ne ptr %interp, getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 76952)
   %.not = select i1 %cmp.i3.i, i1 true, i1 %cmp1.i.i
   br i1 %.not, label %if.then5, label %if.end6
 
@@ -26290,15 +26290,15 @@ declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyInterpreterState_FinalizeAllocatedBlocks(ptr noundef %interp) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 496), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 496), align 8
   %cmp.i.not.i = icmp eq ptr %0, @_PyMem_DebugMalloc
-  %.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 640), align 8
+  %.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 640), align 8
   %retval.0.in.in.i = select i1 %cmp.i.not.i, ptr %.val.i, ptr %0
   %retval.0.in.i.not = icmp eq ptr %retval.0.in.in.i, @_PyObject_MiMalloc
   br i1 %retval.0.in.i.not, label %if.end5, label %if.end
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i.not.i3 = icmp eq ptr %interp, %1
   br i1 %cmp.i.not.i3, label %if.then3, label %lor.lhs.false.i
 
@@ -26312,7 +26312,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
 has_own_state.exit:                               ; preds = %lor.lhs.false.i
   %3 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 320) monotonic, align 8
   %cmp.i3.i = icmp eq i64 %3, 0
-  %cmp1.i.i = icmp ne ptr %interp, getelementptr inbounds (i8, ptr @_PyRuntime, i64 76952)
+  %cmp1.i.i = icmp ne ptr %interp, getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 76952)
   %.not = select i1 %cmp.i3.i, i1 true, i1 %cmp1.i.i
   br i1 %.not, label %if.end5, label %if.then3
 
@@ -26343,9 +26343,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @get_num_global_allocated_blocks(ptr noundef %runtime) unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 496), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 496), align 8
   %cmp.i.not.i = icmp eq ptr %0, @_PyMem_DebugMalloc
-  %.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 640), align 8
+  %.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 640), align 8
   %retval.0.in.in.i = select i1 %cmp.i.not.i, ptr %.val.i, ptr %0
   %retval.0.in.i.not = icmp eq ptr %retval.0.in.in.i, @_PyObject_MiMalloc
   br i1 %retval.0.in.i.not, label %if.then, label %if.end
@@ -26356,9 +26356,9 @@ if.then:                                          ; preds = %entry
   br i1 %call.i.i, label %mi_heap_get_default.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then
-  %1 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
+  %1 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
   %add.i.i.i = add i64 %1, 1
-  %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
+  %2 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %if.end.i.i
@@ -26367,13 +26367,13 @@ while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %
   br i1 %cmp.i21.i.i.i, label %land.rhs.i.i.i.i, label %_mi_stat_increase.exit.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.cond.i.i.i.i
-  %3 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
+  %3 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
   %4 = extractvalue { i64, i1 } %3, 1
   %5 = extractvalue { i64, i1 } %3, 0
   br i1 %4, label %_mi_stat_increase.exit.i, label %while.cond.i.i.i.i, !llvm.loop !5
 
 _mi_stat_increase.exit.i:                         ; preds = %land.rhs.i.i.i.i, %while.cond.i.i.i.i
-  %6 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
+  %6 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
   %7 = atomicrmw add ptr @thread_count, i64 1 monotonic, align 8
   br label %mi_heap_get_default.exit
 
@@ -26426,7 +26426,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.else10, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp6 = icmp eq ptr %15, null
   br i1 %cmp6, label %if.end23, label %if.else
 
@@ -26452,7 +26452,7 @@ PyMutex_LockFlags.exit:                           ; preds = %if.else10, %if.then
 for.body:                                         ; preds = %PyMutex_LockFlags.exit, %for.inc
   %interp11.032 = phi ptr [ %call20, %for.inc ], [ %call12, %PyMutex_LockFlags.exit ]
   %total.131 = phi i64 [ %total.2, %for.inc ], [ 0, %PyMutex_LockFlags.exit ]
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i.not.i14 = icmp eq ptr %interp11.032, %18
   br i1 %cmp.i.not.i14, label %if.then16, label %lor.lhs.false.i
 
@@ -26466,7 +26466,7 @@ lor.lhs.false.i:                                  ; preds = %for.body
 has_own_state.exit:                               ; preds = %lor.lhs.false.i
   %20 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 320) monotonic, align 8
   %cmp.i3.i = icmp eq i64 %20, 0
-  %cmp1.i.i = icmp ne ptr %interp11.032, getelementptr inbounds (i8, ptr @_PyRuntime, i64 76952)
+  %cmp1.i.i = icmp ne ptr %interp11.032, getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 76952)
   %.not = select i1 %cmp.i3.i, i1 true, i1 %cmp1.i.i
   br i1 %.not, label %for.inc, label %if.then16
 
@@ -26519,7 +26519,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %interp.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i.i, align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i.not.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.not.i.i, label %get_state.exit, label %lor.lhs.false.i.i
 
@@ -26533,7 +26533,7 @@ lor.lhs.false.i.i:                                ; preds = %entry
 has_own_state.exit.i:                             ; preds = %lor.lhs.false.i.i
   %5 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 320) monotonic, align 8
   %cmp.i3.i.i = icmp eq i64 %5, 0
-  %cmp1.i.i.i = icmp ne ptr %2, getelementptr inbounds (i8, ptr @_PyRuntime, i64 76952)
+  %cmp1.i.i.i = icmp ne ptr %2, getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 76952)
   %.not.i = select i1 %cmp.i3.i.i, i1 true, i1 %cmp1.i.i.i
   %spec.select.i = select i1 %.not.i, ptr %3, ptr %2
   br label %get_state.exit
@@ -26550,8 +26550,8 @@ if.end:                                           ; preds = %get_state.exit
   br i1 %cmp.i, label %return, label %PyMem_RawMalloc.exit
 
 PyMem_RawMalloc.exit:                             ; preds = %if.end
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 416), align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 416), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), align 8
   %call.i = tail call ptr %6(ptr noundef %7, i64 noundef %nbytes) #45
   %cmp3.not = icmp eq ptr %call.i, null
   br i1 %cmp3.not, label %return, label %if.then4
@@ -26635,7 +26635,7 @@ if.else:                                          ; preds = %if.end3
   br i1 %cmp.i, label %if.then.i22, label %if.end16.i
 
 if.then.i22:                                      ; preds = %if.else
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 696), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 696), align 8
   %cmp.i.i = icmp eq i32 %11, -1
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -26652,7 +26652,7 @@ land.rhs.i.i:                                     ; preds = %if.then.i.i
 
 land.end.i.i:                                     ; preds = %land.rhs.i.i, %if.then.i.i
   %land.ext.i.i = phi i32 [ 0, %if.then.i.i ], [ %13, %land.rhs.i.i ]
-  store i32 %land.ext.i.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 696), align 8
+  store i32 %land.ext.i.i, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 696), align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.end.i.i, %if.then.i22
@@ -26684,8 +26684,8 @@ if.end19.i.i:                                     ; preds = %if.then9.i.i
   %conv20.i.i = zext i32 %spec.select.i.i to i64
   %mul.i.i = mul nuw nsw i64 %conv20.i.i, 48
   %17 = load ptr, ptr %mgmt.i, align 8
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 432), align 8
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 432), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), align 8
   %call.i.i.i = tail call ptr %18(ptr noundef %19, ptr noundef %17, i64 noundef %mul.i.i) #45
   %cmp23.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp23.i.i, label %new_arena.exit.thread.i, label %if.end26.i.i
@@ -26736,8 +26736,8 @@ if.end60.i.i:                                     ; preds = %for.end.i.i, %if.en
   %nextarena63.i.i = getelementptr inbounds nuw i8, ptr %27, i64 32
   %28 = load ptr, ptr %nextarena63.i.i, align 8
   store ptr %28, ptr %unused_arena_objects.i.i, align 8
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 680), align 8
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 672), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 680), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 672), align 8
   %call66.i.i = tail call ptr %29(ptr noundef %30, i64 noundef 1048576) #45
   %cmp67.not.i.i = icmp eq ptr %call66.i.i, null
   br i1 %cmp67.not.i.i, label %if.then77.i.i, label %if.then69.i.i
@@ -26752,8 +26752,8 @@ if.then69.i.i:                                    ; preds = %if.end60.i.i
   br i1 %cmp.i46.i.i.i, label %if.then.i79.i.i.i, label %if.end13.i47.i.i.i
 
 if.then.i79.i.i.i:                                ; preds = %if.then69.i.i
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 424), align 8
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 424), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), align 8
   %call.i51.i.i.i = tail call ptr %33(ptr noundef %34, i64 noundef 1, i64 noundef 262144) #45
   %cmp3.i84.i.i.i = icmp eq ptr %call.i51.i.i.i, null
   br i1 %cmp3.i84.i.i.i, label %if.then72.i.i, label %if.end13.i47.thread.i.i.i
@@ -26781,8 +26781,8 @@ if.end13.i47.thread.i.i.i:                        ; preds = %if.then.i79.i.i.i
 
 if.end30.i66.i.i.i:                               ; preds = %if.end13.i47.thread.i.i.i, %if.end13.i47.i.i.i
   %conv16.i506165.i.i.i = phi i64 [ %conv16.i5058.i.i.i, %if.end13.i47.thread.i.i.i ], [ %conv16.i50.i.i.i, %if.end13.i47.i.i.i ]
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 424), align 8
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 424), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), align 8
   %call.i53.i.i.i = tail call ptr %38(ptr noundef %39, i64 noundef 1, i64 noundef 131072) #45
   %cmp33.i68.i.i.i = icmp eq ptr %call.i53.i.i.i, null
   br i1 %cmp33.i68.i.i.i, label %if.then72.i.i, label %arena_map_get.exit93.i.i.i
@@ -26825,8 +26825,8 @@ if.else.i.i.i:                                    ; preds = %if.end.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end13.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i.i
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 424), align 8
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 424), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), align 8
   %call.i55.i.i.i = tail call ptr %45(ptr noundef %46, i64 noundef 1, i64 noundef 262144) #45
   %cmp3.i.i.i.i = icmp eq ptr %call.i55.i.i.i, null
   br i1 %cmp3.i.i.i.i, label %if.then15.i.i.i, label %if.end13.i.thread.i.i.i
@@ -26854,8 +26854,8 @@ if.end13.i.thread.i.i.i:                          ; preds = %if.then.i.i.i.i
 
 if.end30.i.i.i.i:                                 ; preds = %if.end13.i.thread.i.i.i, %if.end13.i.i.i.i
   %conv16.i7275.i.i.i = phi i64 [ %conv16.i69.i.i.i, %if.end13.i.thread.i.i.i ], [ %conv16.i.i.i.i, %if.end13.i.i.i.i ]
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 424), align 8
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 424), align 8
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), align 8
   %call.i.i.i.i = tail call ptr %50(ptr noundef %51, i64 noundef 1, i64 noundef 131072) #45
   %cmp33.i.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %cmp33.i.i.i.i, label %if.then15.i.i.i, label %arena_map_get.exit.i.i.i
@@ -26887,8 +26887,8 @@ if.end20.i.i.i:                                   ; preds = %arena_map_get.exit.
   br label %if.end83.i.i
 
 if.then72.i.i:                                    ; preds = %if.then15.i.i.i, %arena_map_get.exit93.i.i.i, %if.end30.i66.i.i.i, %if.then.i79.i.i.i
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 688), align 8
-  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 672), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 688), align 8
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 672), align 8
   tail call void %55(ptr noundef %56, ptr noundef nonnull %call66.i.i, i64 noundef 1048576) #45
   br label %if.then77.i.i
 
@@ -27117,7 +27117,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %interp.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i.i, align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i.not.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.not.i.i, label %get_state.exit, label %lor.lhs.false.i.i
 
@@ -27131,7 +27131,7 @@ lor.lhs.false.i.i:                                ; preds = %entry
 has_own_state.exit.i:                             ; preds = %lor.lhs.false.i.i
   %5 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 320) monotonic, align 8
   %cmp.i3.i.i = icmp eq i64 %5, 0
-  %cmp1.i.i.i = icmp ne ptr %2, getelementptr inbounds (i8, ptr @_PyRuntime, i64 76952)
+  %cmp1.i.i.i = icmp ne ptr %2, getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 76952)
   %.not.i = select i1 %cmp.i3.i.i, i1 true, i1 %cmp1.i.i.i
   %spec.select.i = select i1 %.not.i, ptr %3, ptr %2
   br label %get_state.exit
@@ -27157,8 +27157,8 @@ land.lhs.true.i:                                  ; preds = %if.end
   br i1 %cmp1.i, label %return, label %PyMem_RawCalloc.exit
 
 PyMem_RawCalloc.exit:                             ; preds = %if.end, %land.lhs.true.i
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 424), align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 424), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), align 8
   %call.i = tail call ptr %6(ptr noundef %7, i64 noundef %nelem, i64 noundef %elsize) #45
   %cmp3.not = icmp eq ptr %call.i, null
   br i1 %cmp3.not, label %return, label %if.then4
@@ -27186,7 +27186,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %0, align 8
   %interp.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i.i, align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i.not.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.not.i.i, label %get_state.exit, label %lor.lhs.false.i.i
 
@@ -27200,7 +27200,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end
 has_own_state.exit.i:                             ; preds = %lor.lhs.false.i.i
   %5 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 320) monotonic, align 8
   %cmp.i3.i.i = icmp eq i64 %5, 0
-  %cmp1.i.i.i = icmp ne ptr %2, getelementptr inbounds (i8, ptr @_PyRuntime, i64 76952)
+  %cmp1.i.i.i = icmp ne ptr %2, getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 76952)
   %.not.i = select i1 %cmp.i3.i.i, i1 true, i1 %cmp1.i.i.i
   %spec.select.i = select i1 %.not.i, ptr %3, ptr %2
   br label %get_state.exit
@@ -27417,8 +27417,8 @@ if.end20.i.i.i:                                   ; preds = %if.end13.i.i.i25.i
   br label %arena_map_mark_used.exit.i.i
 
 arena_map_mark_used.exit.i.i:                     ; preds = %if.end20.i.i.i, %if.end13.i.i.i25.i, %if.else.i.i.i, %if.end.i.i18.i, %if.end13.i47.i.i.i, %if.end35.i.i
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 688), align 8
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 672), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 688), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 672), align 8
   %41 = load i64, ptr %arrayidx.i17.i, align 8
   %42 = inttoptr i64 %41 to ptr
   tail call void %39(ptr noundef %40, ptr noundef %42, i64 noundef 1048576) #45
@@ -27513,8 +27513,8 @@ if.end105.i.i:                                    ; preds = %if.then102.i.i, %if
   br label %if.end3
 
 if.then2:                                         ; preds = %address_in_range.exit.i, %if.end13.i.i.i.i, %get_state.exit
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 440), align 8
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 440), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), align 8
   tail call void %52(ptr noundef %53, ptr noundef nonnull %p) #45
   %raw_allocated_blocks = getelementptr inbounds nuw i8, ptr %interp.0.i, i64 5408
   %54 = load i64, ptr %raw_allocated_blocks, align 8
@@ -27534,7 +27534,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %interp.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i.i.i, align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i.not.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp, label %if.then, label %if.end
 
@@ -27551,7 +27551,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.then
 has_own_state.exit.i.i:                           ; preds = %lor.lhs.false.i.i.i
   %5 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 320) monotonic, align 8
   %cmp.i3.i.i.i = icmp eq i64 %5, 0
-  %cmp1.i.i.i.i = icmp ne ptr %2, getelementptr inbounds (i8, ptr @_PyRuntime, i64 76952)
+  %cmp1.i.i.i.i = icmp ne ptr %2, getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 76952)
   %.not.i.i = select i1 %cmp.i3.i.i.i, i1 true, i1 %cmp1.i.i.i.i
   %spec.select.i.i = select i1 %.not.i.i, ptr %3, ptr %2
   br label %get_state.exit.i
@@ -27568,8 +27568,8 @@ if.end.i:                                         ; preds = %get_state.exit.i
   br i1 %cmp.i.i, label %return, label %PyMem_RawMalloc.exit.i
 
 PyMem_RawMalloc.exit.i:                           ; preds = %if.end.i
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 416), align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 416), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), align 8
   %call.i.i = tail call ptr %6(ptr noundef %7, i64 noundef %nbytes) #45
   %cmp3.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp3.not.i, label %return, label %if.then4.i
@@ -27594,7 +27594,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end
 has_own_state.exit.i:                             ; preds = %lor.lhs.false.i.i
   %10 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 320) monotonic, align 8
   %cmp.i3.i.i = icmp eq i64 %10, 0
-  %cmp1.i.i.i = icmp ne ptr %2, getelementptr inbounds (i8, ptr @_PyRuntime, i64 76952)
+  %cmp1.i.i.i = icmp ne ptr %2, getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 76952)
   %.not.i = select i1 %cmp.i3.i.i, i1 true, i1 %cmp1.i.i.i
   %spec.select.i = select i1 %.not.i, ptr %3, ptr %2
   br label %get_state.exit
@@ -27666,7 +27666,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end8.i
 has_own_state.exit.i.i.i:                         ; preds = %lor.lhs.false.i.i.i.i
   %21 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 320) monotonic, align 8
   %cmp.i3.i.i.i.i = icmp eq i64 %21, 0
-  %cmp1.i.i.i.i.i = icmp ne ptr %2, getelementptr inbounds (i8, ptr @_PyRuntime, i64 76952)
+  %cmp1.i.i.i.i.i = icmp ne ptr %2, getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 76952)
   %.not.i.i.i = select i1 %cmp.i3.i.i.i.i, i1 true, i1 %cmp1.i.i.i.i.i
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %3, ptr %2
   br label %get_state.exit.i.i
@@ -27683,8 +27683,8 @@ if.end.i.i:                                       ; preds = %get_state.exit.i.i
   br i1 %cmp.i.i.i, label %return, label %PyMem_RawMalloc.exit.i.i
 
 PyMem_RawMalloc.exit.i.i:                         ; preds = %if.end.i.i
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 416), align 8
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 416), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), align 8
   %call.i.i.i = tail call ptr %22(ptr noundef %23, i64 noundef %nbytes) #45
   %cmp3.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp3.not.i.i, label %return, label %if.then4.i.i
@@ -27707,8 +27707,8 @@ if.end4:                                          ; preds = %address_in_range.ex
   br i1 %cmp.i, label %return, label %if.end.i10
 
 if.end.i10:                                       ; preds = %if.end4
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 432), align 8
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 432), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 408), align 8
   %call.i = tail call ptr %25(ptr noundef %26, ptr noundef nonnull %ptr, i64 noundef %nbytes) #45
   br label %return
 
@@ -28401,9 +28401,9 @@ entry:
   %numblocks.i = alloca [32 x i64], align 16
   %numfreeblocks.i = alloca [32 x i64], align 16
   %buf.i = alloca [128 x i8], align 16
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 496), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 496), align 8
   %cmp.i.not.i = icmp eq ptr %0, @_PyMem_DebugMalloc
-  %.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 640), align 8
+  %.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 640), align 8
   %retval.0.in.in.i = select i1 %cmp.i.not.i, ptr %.val.i, ptr %0
   %retval.0.in.i.not = icmp eq ptr %retval.0.in.in.i, @_PyObject_MiMalloc
   br i1 %retval.0.in.i.not, label %if.then, label %if.else
@@ -28417,9 +28417,9 @@ if.then:                                          ; preds = %entry
   br i1 %call.i.i.i, label %mi_heap_get_default.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then
-  %1 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
+  %1 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
   %add.i.i.i.i = add i64 %1, 1
-  %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
+  %2 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
   br label %while.cond.i.i.i.i.i
 
 while.cond.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i, %if.end.i.i.i
@@ -28428,13 +28428,13 @@ while.cond.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i,
   br i1 %cmp.i21.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_mi_stat_increase.exit.i.i
 
 land.rhs.i.i.i.i.i:                               ; preds = %while.cond.i.i.i.i.i
-  %3 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i.i, i64 %add.i.i.i.i release monotonic, align 8
+  %3 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i.i, i64 %add.i.i.i.i release monotonic, align 8
   %4 = extractvalue { i64, i1 } %3, 1
   %5 = extractvalue { i64, i1 } %3, 0
   br i1 %4, label %_mi_stat_increase.exit.i.i, label %while.cond.i.i.i.i.i, !llvm.loop !5
 
 _mi_stat_increase.exit.i.i:                       ; preds = %land.rhs.i.i.i.i.i, %while.cond.i.i.i.i.i
-  %6 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
+  %6 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
   %7 = atomicrmw add ptr @thread_count, i64 1 monotonic, align 8
   br label %mi_heap_get_default.exit.i
 
@@ -28558,7 +28558,7 @@ if.then3:                                         ; preds = %if.else
   %21 = load ptr, ptr %20, align 8
   %interp.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 16
   %22 = load ptr, ptr %interp.i.i.i, align 8
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i.not.i.i.i = icmp eq ptr %22, %23
   br i1 %cmp.i.not.i.i.i, label %get_state.exit.i, label %lor.lhs.false.i.i.i
 
@@ -28572,7 +28572,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.then3
 has_own_state.exit.i.i:                           ; preds = %lor.lhs.false.i.i.i
   %25 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 320) monotonic, align 8
   %cmp.i3.i.i.i = icmp eq i64 %25, 0
-  %cmp1.i.i.i.i7 = icmp ne ptr %22, getelementptr inbounds (i8, ptr @_PyRuntime, i64 76952)
+  %cmp1.i.i.i.i7 = icmp ne ptr %22, getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 76952)
   %.not.i.i = select i1 %cmp.i3.i.i.i, i1 true, i1 %cmp1.i.i.i.i7
   %spec.select.i.i = select i1 %.not.i.i, ptr %23, ptr %22
   br label %get_state.exit.i
@@ -28890,7 +28890,7 @@ if.else:                                          ; preds = %while.end.thread.i.
 
 if.end.i.i:                                       ; preds = %if.else
   %cmp.i.i.i18 = icmp uge ptr %committed, @_mi_stats_main
-  %cmp1.i.i.i = icmp ult ptr %committed, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
+  %cmp1.i.i.i = icmp ult ptr %committed, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 640)
   %7 = select i1 %cmp.i.i.i18, i1 %cmp1.i.i.i, i1 false
   %current2.i.i = getelementptr inbounds nuw i8, ptr %stats, i64 120
   br i1 %7, label %if.then1.i.i, label %if.else9.i.i
@@ -29117,9 +29117,9 @@ if.then4:                                         ; preds = %if.end3
   br i1 %call.i.i.i.i, label %mi_heap_get_backing.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then4
-  %4 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
+  %4 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
   %add.i.i.i.i.i = add i64 %4, 1
-  %5 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
+  %5 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
   br label %while.cond.i.i.i.i.i.i
 
 while.cond.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i, %if.end.i.i.i.i
@@ -29128,13 +29128,13 @@ while.cond.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.
   br i1 %cmp.i21.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i, label %_mi_stat_increase.exit.i.i.i
 
 land.rhs.i.i.i.i.i.i:                             ; preds = %while.cond.i.i.i.i.i.i
-  %6 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i.i.i, i64 %add.i.i.i.i.i release monotonic, align 8
+  %6 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i.i.i, i64 %add.i.i.i.i.i release monotonic, align 8
   %7 = extractvalue { i64, i1 } %6, 1
   %8 = extractvalue { i64, i1 } %6, 0
   br i1 %7, label %_mi_stat_increase.exit.i.i.i, label %while.cond.i.i.i.i.i.i, !llvm.loop !5
 
 _mi_stat_increase.exit.i.i.i:                     ; preds = %land.rhs.i.i.i.i.i.i, %while.cond.i.i.i.i.i.i
-  %9 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
+  %9 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
   %10 = atomicrmw add ptr @thread_count, i64 1 monotonic, align 8
   br label %mi_heap_get_backing.exit.i
 
@@ -29193,9 +29193,9 @@ if.then9:                                         ; preds = %lor.lhs.false, %if.
   br i1 %call.i.i.i.i.i, label %mi_stats_print.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then9
-  %19 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
+  %19 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 312), i64 1 monotonic, align 8
   %add.i.i.i.i.i6 = add i64 %19, 1
-  %20 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
+  %20 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304) monotonic, align 16
   br label %while.cond.i.i.i.i.i.i7
 
 while.cond.i.i.i.i.i.i7:                          ; preds = %land.rhs.i.i.i.i.i.i11, %if.end.i.i.i.i.i
@@ -29204,13 +29204,13 @@ while.cond.i.i.i.i.i.i7:                          ; preds = %land.rhs.i.i.i.i.i.
   br i1 %cmp.i21.i.i.i.i.i9, label %land.rhs.i.i.i.i.i.i11, label %_mi_stat_increase.exit.i.i.i10
 
 land.rhs.i.i.i.i.i.i11:                           ; preds = %while.cond.i.i.i.i.i.i7
-  %21 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i.i.i8, i64 %add.i.i.i.i.i6 release monotonic, align 8
+  %21 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304), i64 %current.0.i.i.i.i.i.i8, i64 %add.i.i.i.i.i6 release monotonic, align 8
   %22 = extractvalue { i64, i1 } %21, 1
   %23 = extractvalue { i64, i1 } %21, 0
   br i1 %22, label %_mi_stat_increase.exit.i.i.i10, label %while.cond.i.i.i.i.i.i7, !llvm.loop !5
 
 _mi_stat_increase.exit.i.i.i10:                   ; preds = %land.rhs.i.i.i.i.i.i11, %while.cond.i.i.i.i.i.i7
-  %24 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
+  %24 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 1 monotonic, align 8
   %25 = atomicrmw add ptr @thread_count, i64 1 monotonic, align 8
   br label %mi_stats_print.exit
 
@@ -29223,7 +29223,7 @@ mi_stats_print.exit:                              ; preds = %if.then9, %_mi_stat
   br label %if.end10
 
 if.end10:                                         ; preds = %mi_stats_print.exit, %lor.lhs.false
-  %28 = load i64, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2848), align 8
+  %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2848), align 8
   tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.49, i64 noundef %28)
   store i1 false, ptr @os_preloading, align 1
   br label %return
@@ -30361,9 +30361,9 @@ _mi_commit_mask_committed_size.exit:              ; preds = %for.inc9.i
   br i1 %cmp.i.i, label %for.body.i19.preheader, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_mi_commit_mask_committed_size.exit
-  %9 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 120), i64 %sub monotonic, align 8
+  %9 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120), i64 %sub monotonic, align 8
   %add.i.i = add i64 %9, %sub
-  %10 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
+  %10 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %land.rhs.i.i.i, %if.end.i.i
@@ -30372,7 +30372,7 @@ while.cond.i.i.i:                                 ; preds = %land.rhs.i.i.i, %if
   br i1 %cmp.i21.i.i, label %land.rhs.i.i.i, label %mi_atomic_maxi64_relaxed.exit.i.i
 
 land.rhs.i.i.i:                                   ; preds = %while.cond.i.i.i
-  %11 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i, i64 %add.i.i release monotonic, align 8
+  %11 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i, i64 %add.i.i release monotonic, align 8
   %12 = extractvalue { i64, i1 } %11, 1
   %13 = extractvalue { i64, i1 } %11, 0
   br i1 %12, label %mi_atomic_maxi64_relaxed.exit.i.i, label %while.cond.i.i.i, !llvm.loop !5
@@ -30382,12 +30382,12 @@ mi_atomic_maxi64_relaxed.exit.i.i:                ; preds = %land.rhs.i.i.i, %wh
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %mi_atomic_maxi64_relaxed.exit.i.i
-  %14 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 %sub monotonic, align 8
+  %14 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 %sub monotonic, align 8
   br label %for.body.i19.preheader
 
 if.else.i.i:                                      ; preds = %mi_atomic_maxi64_relaxed.exit.i.i
   %sub.i.i = sub i64 0, %sub
-  %15 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 104), i64 %sub.i.i monotonic, align 8
+  %15 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 104), i64 %sub.i.i monotonic, align 8
   br label %for.body.i19.preheader
 
 for.body.i19.preheader:                           ; preds = %_mi_commit_mask_committed_size.exit, %if.then5.i.i, %if.else.i.i
@@ -30534,7 +30534,7 @@ entry:
   %stats = getelementptr inbounds nuw i8, ptr %tld, i64 896
   %0 = load ptr, ptr %stats, align 8
   %cmp.i.i.i = icmp uge ptr %0, @_mi_stats_main
-  %cmp1.i.i.i = icmp ult ptr %0, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
+  %cmp1.i.i.i = icmp ult ptr %0, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 640)
   %1 = select i1 %cmp.i.i.i, i1 %cmp1.i.i.i, i1 false
   %current2.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %cmp, label %if.then, label %if.else
@@ -30898,7 +30898,7 @@ if.end18:                                         ; preds = %if.then16, %if.end
   %25 = ptrtoint ptr %24 to i64
   %thread_id = getelementptr inbounds nuw i8, ptr %call7.i, i64 256
   store atomic i64 %25, ptr %thread_id seq_cst, align 8
-  %26 = load i64, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
+  %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2864), align 8
   %xor.i = xor i64 %26, %16
   %cookie = getelementptr inbounds nuw i8, ptr %call7.i, i64 216
   store i64 %xor.i, ptr %cookie, align 8
@@ -30916,7 +30916,7 @@ if.end18:                                         ; preds = %if.then16, %if.end
 
 if.end.i.i35:                                     ; preds = %if.end18
   %cmp.i.i.i36 = icmp uge ptr %page_committed, @_mi_stats_main
-  %cmp1.i.i.i = icmp ult ptr %page_committed, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
+  %cmp1.i.i.i = icmp ult ptr %page_committed, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 640)
   %28 = select i1 %cmp.i.i.i36, i1 %cmp1.i.i.i, i1 false
   %current2.i.i = getelementptr inbounds nuw i8, ptr %27, i64 216
   br i1 %28, label %if.then1.i.i, label %if.else9.i.i
@@ -31241,9 +31241,9 @@ _mi_commit_mask_committed_size.exit.i.i:          ; preds = %for.inc9.i.i.i
   br i1 %cmp.i.i.i.i, label %_mi_stat_decrease.exit.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_mi_commit_mask_committed_size.exit.i.i
-  %10 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 120), i64 %sub.i.i.i monotonic, align 8
+  %10 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120), i64 %sub.i.i.i monotonic, align 8
   %add.i.i.i.i = sub i64 %10, %mul.i.i.i
-  %11 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
+  %11 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
   br label %while.cond.i.i.i.i.i
 
 while.cond.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i, %if.end.i.i.i.i
@@ -31252,7 +31252,7 @@ while.cond.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i,
   br i1 %cmp.i21.i.i.i.i, label %land.rhs.i.i.i.i.i, label %mi_atomic_maxi64_relaxed.exit.i.i.i.i
 
 land.rhs.i.i.i.i.i:                               ; preds = %while.cond.i.i.i.i.i
-  %12 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i.i.i, i64 %add.i.i.i.i release monotonic, align 8
+  %12 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i.i.i, i64 %add.i.i.i.i release monotonic, align 8
   %13 = extractvalue { i64, i1 } %12, 1
   %14 = extractvalue { i64, i1 } %12, 0
   br i1 %13, label %mi_atomic_maxi64_relaxed.exit.i.i.i.i, label %while.cond.i.i.i.i.i, !llvm.loop !5
@@ -31262,11 +31262,11 @@ mi_atomic_maxi64_relaxed.exit.i.i.i.i:            ; preds = %land.rhs.i.i.i.i.i,
   br i1 %cmp4.i.i.i.i, label %if.then5.i.i.i.i, label %if.else.i.i.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %mi_atomic_maxi64_relaxed.exit.i.i.i.i
-  %15 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 %sub.i.i.i monotonic, align 8
+  %15 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 %sub.i.i.i monotonic, align 8
   br label %_mi_stat_decrease.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %mi_atomic_maxi64_relaxed.exit.i.i.i.i
-  %16 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 104), i64 %mul.i.i.i monotonic, align 8
+  %16 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 104), i64 %mul.i.i.i monotonic, align 8
   br label %_mi_stat_decrease.exit.i.i
 
 _mi_stat_decrease.exit.i.i:                       ; preds = %if.else.i.i.i.i, %if.then5.i.i.i.i, %_mi_commit_mask_committed_size.exit.i.i

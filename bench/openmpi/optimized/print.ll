@@ -132,12 +132,12 @@ define i32 @pmix20_bfrop_print(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 
 6:                                                ; preds = %4
   %7 = zext i16 %3 to i32
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i = icmp sgt i32 %8, %7
   br i1 %.not.i, label %pmix_pointer_array_get_item.exit, label %pmix_pointer_array_get_item.exit.thread
 
 pmix_pointer_array_get_item.exit:                 ; preds = %6
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %10 = zext i16 %3 to i64
   %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8

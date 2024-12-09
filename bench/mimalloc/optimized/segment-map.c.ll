@@ -139,7 +139,7 @@ if.end32.i.i:                                     ; preds = %do.end.i.i, %if.end
 
 if.end39.i.i:                                     ; preds = %if.end32.i.i
   %10 = ptrtoint ptr %add.ptr.i.i to i64
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2864), align 8
   %xor.i.i.i = xor i64 %11, %10
   %cookie.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 216
   %12 = load i64, ptr %cookie.i.i, align 8

@@ -10816,7 +10816,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114AggExprEmitter19withReturnValueS
 70:                                               ; preds = %.lr.ph.i.i.i
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 2216
   %72 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %71, i32 noundef 11, i64 noundef 24) #15
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction15CallLifetimeEndE, i64 16), ptr %72, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction15CallLifetimeEndE, i64 16), ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = and i64 %.sroa.089.0.copyload, -8
   %75 = inttoptr i64 %74 to ptr
@@ -10829,7 +10829,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114AggExprEmitter19withReturnValueS
   %78 = call i64 @_ZN5clang7CodeGen19DominatingLLVMValue4saveERNS0_15CodeGenFunctionEPN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(6488) %67, ptr noundef nonnull %59)
   %79 = getelementptr inbounds nuw i8, ptr %67, i64 2216
   %80 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %79, i32 noundef 11, i64 noundef 40) #15
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupINS0_15CodeGenFunction15CallLifetimeEndEJNS0_10RawAddressEPN4llvm5ValueEEEE, i64 16), ptr %80, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupINS0_15CodeGenFunction15CallLifetimeEndEJNS0_10RawAddressEPN4llvm5ValueEEEE, i64 16), ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i64 %78, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
@@ -16598,7 +16598,7 @@ _ZN5clang7CodeGen15CodeGenFunction15getProfileCountEPKNS_4StmtE.exit: ; preds = 
 _ZN5clang7CodeGen15CodeGenFunction21ConditionalEvaluation5beginERS1_.exit: ; preds = %95, %105
   %106 = phi ptr [ %102, %95 ], [ %.pre48, %105 ]
   call void @_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb(ptr noundef nonnull align 8 dereferenceable(6488) %106, ptr noundef nonnull %19, i1 noundef zeroext false) #15
-  %107 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %107 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %108 = trunc i8 %107 to i1
   %109 = load ptr, ptr %0, align 8
   br i1 %108, label %110, label %112
@@ -16690,7 +16690,7 @@ _ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit: ; preds = %.lr.ph.i.i.i
 _ZN5clang7CodeGen15CodeGenFunction21ConditionalEvaluation5beginERS1_.exit34: ; preds = %_ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit, %143
   %144 = phi ptr [ %140, %_ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit ], [ %.pre50, %143 ]
   call void @_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb(ptr noundef nonnull align 8 dereferenceable(6488) %144, ptr noundef nonnull %27, i1 noundef zeroext false) #15
-  %145 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %145 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %146 = trunc i8 %145 to i1
   br i1 %146, label %147, label %150
 
@@ -16741,7 +16741,7 @@ _ZN5clang7CodeGen15CodeGenFunction21ConditionalEvaluation3endERS1_.exit43: ; pre
 160:                                              ; preds = %158, %_ZN5clang7CodeGen15CodeGenFunction21ConditionalEvaluation3endERS1_.exit43
   %161 = phi ptr [ %.pre51, %158 ], [ %.pre52, %_ZN5clang7CodeGen15CodeGenFunction21ConditionalEvaluation3endERS1_.exit43 ]
   call void @_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb(ptr noundef nonnull align 8 dereferenceable(6488) %161, ptr noundef nonnull %35, i1 noundef zeroext false) #15
-  %162 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %162 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %163 = trunc i8 %162 to i1
   br i1 %163, label %164, label %166
 

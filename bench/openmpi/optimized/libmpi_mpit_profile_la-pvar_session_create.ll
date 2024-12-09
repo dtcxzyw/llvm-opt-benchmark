@@ -19,10 +19,10 @@ define range(i32 0, 56) i32 @PMPI_T_pvar_session_create(ptr nocapture noundef wr
 
 3:                                                ; preds = %1
   tail call void @ompi_mpit_lock() #3
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @mca_base_pvar_session_t_class, i64 56), align 8
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_base_pvar_session_t_class, i64 56), align 8
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #4
   %6 = load i32, ptr @opal_class_init_epoch, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_base_pvar_session_t_class, i64 32), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_base_pvar_session_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %6, %7
   br i1 %.not.i, label %9, label %8
 

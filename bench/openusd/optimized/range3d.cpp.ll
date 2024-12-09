@@ -370,8 +370,8 @@ declare void @_ZSt9terminatev() local_unnamed_addr #9
 define internal void @_GLOBAL__sub_I_range3d.cpp() #10 section ".text.startup" {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange3d8UnitCubeE, i8 0, i64 24, i1 false)
   store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange3d8UnitCubeE, i64 24), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange3d8UnitCubeE, i64 32), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange3d8UnitCubeE, i64 40), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange3d8UnitCubeE, i64 32), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange3d8UnitCubeE, i64 40), align 8
   ret void
 }
 

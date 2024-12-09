@@ -1426,7 +1426,7 @@ vt_getline.exit.i:                                ; preds = %.split9.i
 
 12:                                               ; preds = %0
   store i32 0, ptr @object_id_strings, align 16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @object_id_strings, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @object_id_strings, i64 8), align 8
   br label %read_object_id_file.exit
 
 .split.i:                                         ; preds = %vt_getline.exit.i, %vt_getline.exit12.i

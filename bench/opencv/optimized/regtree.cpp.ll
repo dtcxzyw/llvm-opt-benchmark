@@ -577,7 +577,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %._crit_edge, %._cri
   store i32 %128, ptr %16, align 4
   %130 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %129, ptr %130, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4face12splitSamplesE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4face12splitSamplesE, i64 16), ptr %17, align 8
   %131 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %2, ptr %131, align 8
   %132 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -2143,7 +2143,7 @@ _ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE6resizeEm.exit: ; preds = %52, %_
   store i32 0, ptr %13, align 4
   %84 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %83, ptr %84, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4face5doSumE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4face5doSumE, i64 16), ptr %14, align 8
   %85 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %2, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -2446,7 +2446,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit: ; preds = %196, %_ZNSt12_Vec
   %212 = trunc i64 %159 to i32
   store i32 %211, ptr %18, align 4
   store i32 %212, ptr %146, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4face5doSumE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4face5doSumE, i64 16), ptr %19, align 8
   store ptr %2, ptr %147, align 8
   store ptr %17, ptr %148, align 8
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, double noundef -1.000000e+00)
@@ -2508,7 +2508,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit: ; preds = %196, %_ZNSt12_Vec
 ._crit_edge179:                                   ; preds = %217, %213
   store i32 %211, ptr %20, align 4
   store i32 %212, ptr %149, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4face13modifySamplesE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4face13modifySamplesE, i64 16), ptr %21, align 8
   store ptr %2, ptr %150, align 8
   store ptr %17, ptr %151, align 8
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, double noundef -1.000000e+00)
@@ -2657,7 +2657,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit121: ; preds = %267, %_ZNSt12_
   %283 = trunc i64 %159 to i32
   store i32 %282, ptr %24, align 4
   store i32 %283, ptr %130, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4face5doSumE, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4face5doSumE, i64 16), ptr %25, align 8
   store ptr %2, ptr %131, align 8
   store ptr %23, ptr %132, align 8
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %25, double noundef -1.000000e+00)
@@ -2719,7 +2719,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit121: ; preds = %267, %_ZNSt12_
 ._crit_edge:                                      ; preds = %288, %284
   store i32 %282, ptr %26, align 4
   store i32 %283, ptr %134, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4face13modifySamplesE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4face13modifySamplesE, i64 16), ptr %27, align 8
   store ptr %2, ptr %135, align 8
   store ptr %23, ptr %136, align 8
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %27, double noundef -1.000000e+00)

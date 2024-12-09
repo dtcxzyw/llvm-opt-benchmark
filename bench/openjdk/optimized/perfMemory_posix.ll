@@ -839,7 +839,7 @@ _ZL13get_user_nameiPiP10JavaThread.exit.i:        ; preds = %25
   br i1 %.not65.i, label %29, label %_ZL18mmap_attach_sharediPPcPmP10JavaThread.exit
 
 29:                                               ; preds = %_ZL13get_user_nameiPiP10JavaThread.exit.i
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str.26, i32 noundef 1169, ptr noundef %30, ptr noundef nonnull @.str.27) #13
   br label %_ZL18mmap_attach_sharediPPcPmP10JavaThread.exit
 
@@ -904,7 +904,7 @@ _ZL19is_directory_securePKc.exit.i:               ; preds = %.critedge3.i.i
 54:                                               ; preds = %_ZL19is_directory_securePKc.exit.i, %_ZL19is_directory_securePKc.exit.thread.i
   call void @_Z8FreeHeapPv(ptr noundef %41) #13
   call void @_Z8FreeHeapPv(ptr noundef nonnull %.013.i.ph.i) #13
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str.26, i32 noundef 1181, ptr noundef %55, ptr noundef nonnull @.str.28) #13
   br label %_ZL18mmap_attach_sharediPPcPmP10JavaThread.exit
 
@@ -931,17 +931,17 @@ _ZL19is_directory_securePKc.exit.i:               ; preds = %.critedge3.i.i
   ]
 
 68:                                               ; preds = %65
-  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str.26, i32 noundef 981, ptr noundef %69, ptr noundef nonnull @.str.28) #13
   br label %_ZL19open_sharedmem_filePKciP10JavaThread.exit.i
 
 70:                                               ; preds = %65
-  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str.26, i32 noundef 985, ptr noundef %71, ptr noundef nonnull @.str.32) #13
   br label %_ZL19open_sharedmem_filePKciP10JavaThread.exit.i
 
 72:                                               ; preds = %65
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1256), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1256), align 8
   %74 = call noundef ptr @_ZN2os8strerrorEi(i32 noundef %67) #13
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str.26, i32 noundef 989, ptr noundef %73, ptr noundef %74) #13
   br label %_ZL19open_sharedmem_filePKciP10JavaThread.exit.i
@@ -1005,7 +1005,7 @@ _ZL19open_sharedmem_filePKciP10JavaThread.exit.i: ; preds = %85, %_ZL14is_file_s
   br i1 %98, label %92, label %.critedge.i.i, !llvm.loop !19
 
 .critedge.i.i:                                    ; preds = %95
-  %99 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1256), align 8
+  %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1256), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str.26, i32 noundef 1144, ptr noundef %99, ptr noundef nonnull @.str.33) #13
   br label %_ZL18sharedmem_filesizeiP10JavaThread.exit.i
 
@@ -1022,7 +1022,7 @@ _ZL19open_sharedmem_filePKciP10JavaThread.exit.i: ; preds = %85, %_ZL14is_file_s
   br i1 %.not.i48.i, label %_ZL18sharedmem_filesizeiP10JavaThread.exit.i, label %106
 
 106:                                              ; preds = %103, %.critedge6.i.i
-  %107 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1256), align 8
+  %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1256), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str.26, i32 noundef 1150, ptr noundef %107, ptr noundef nonnull @.str.34) #13
   br label %_ZL18sharedmem_filesizeiP10JavaThread.exit.i
 
@@ -1041,7 +1041,7 @@ _ZL18sharedmem_filesizeiP10JavaThread.exit.i:     ; preds = %106, %103, %.crited
   br i1 %112, label %113, label %115
 
 113:                                              ; preds = %109
-  %114 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
+  %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str.26, i32 noundef 1221, ptr noundef %114, ptr noundef nonnull @.str.29) #13
   br label %_ZL18mmap_attach_sharediPPcPmP10JavaThread.exit
 
@@ -1633,12 +1633,12 @@ define internal fastcc noundef ptr @_ZL18get_user_name_slowiiP10JavaThread(i32 n
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %2, ptr noundef nonnull @.str.26, i32 noundef 503, ptr noundef %15, ptr noundef nonnull @.str.28) #13
   br label %118
 
 16:                                               ; preds = %10
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1256), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1256), align 8
   %18 = tail call noundef ptr @_ZN2os8strerrorEi(i32 noundef %12) #13
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %2, ptr noundef nonnull @.str.26, i32 noundef 506, ptr noundef %17, ptr noundef %18) #13
   br label %118

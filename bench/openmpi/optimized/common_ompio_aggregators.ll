@@ -269,7 +269,7 @@ cost_calc.exit62._crit_edge:                      ; preds = %69, %cost_calc.exit
   %141 = load i32, ptr %14, align 8
   %142 = sdiv i32 %141, %spec.store.select
   %143 = srem i32 %141, %spec.store.select
-  %144 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 224), align 8
+  %144 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_comm_world, i64 224), align 8
   %145 = and i32 %144, 32768
   %146 = add nsw i32 %142, 1
   %.not.i = icmp eq i32 %145, 0
@@ -368,7 +368,7 @@ define noundef i32 @mca_common_ompio_forced_grouping(ptr nocapture noundef reado
   br i1 %8, label %.lr.ph49, label %._crit_edge
 
 .lr.ph49:                                         ; preds = %3
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 224), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_comm_world, i64 224), align 8
   %10 = and i32 %9, 32768
   %11 = add nsw i32 %6, 1
   %.not = icmp eq i32 %10, 0
@@ -2146,7 +2146,7 @@ define i32 @mca_common_ompio_merge_initial_groups(ptr noundef %0, ptr nocapture 
   br i1 %118, label %138, label %119
 
 119:                                              ; preds = %112
-  %120 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
+  %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 88), align 8
   %121 = load ptr, ptr %111, align 8
   %122 = sext i32 %.0137252 to i64
   %123 = getelementptr inbounds ptr, ptr %106, i64 %122
@@ -2159,7 +2159,7 @@ define i32 @mca_common_ompio_merge_initial_groups(ptr noundef %0, ptr nocapture 
   br label %164
 
 126:                                              ; preds = %119
-  %127 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
+  %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 88), align 8
   %128 = load ptr, ptr %109, align 8
   %129 = load i32, ptr %101, align 8
   %130 = sext i32 %129 to i64
@@ -2189,7 +2189,7 @@ define i32 @mca_common_ompio_merge_initial_groups(ptr noundef %0, ptr nocapture 
   br i1 %141, label %112, label %._crit_edge254.loopexit, !llvm.loop !32
 
 .thread186:                                       ; preds = %.preheader204, %.preheader202, %4, %._crit_edge249
-  %142 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
+  %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 72), align 8
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %145 = load ptr, ptr %144, align 8
@@ -2216,7 +2216,7 @@ define i32 @mca_common_ompio_merge_initial_groups(ptr noundef %0, ptr nocapture 
   br label %.thread195
 
 156:                                              ; preds = %148
-  %157 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
+  %157 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 72), align 8
   %158 = load ptr, ptr %144, align 8
   %159 = tail call i32 %157(ptr noundef nonnull %152, i64 noundef %150, ptr noundef nonnull @ompi_mpi_int, i32 noundef -1, i32 noundef 1, ptr noundef %158, ptr noundef null) #10
   %.not175 = icmp eq i32 %159, 0
@@ -2232,7 +2232,7 @@ define i32 @mca_common_ompio_merge_initial_groups(ptr noundef %0, ptr nocapture 
 
 ._crit_edge254:                                   ; preds = %._crit_edge254.loopexit, %.preheader
   %.0137.lcssa = phi i64 [ 0, %.preheader ], [ %161, %._crit_edge254.loopexit ]
-  %162 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
+  %162 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 48), align 8
   %163 = tail call i32 %162(i64 noundef %.0137.lcssa, ptr noundef nonnull %106, ptr noundef null) #10
   br label %164
 

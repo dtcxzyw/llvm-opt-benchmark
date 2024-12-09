@@ -597,7 +597,7 @@ define internal fastcc void @_run_report(i32 noundef range(i32 0, 3) %0, i32 nou
 
 255:                                              ; preds = %252
   %256 = load ptr, ptr %19, align 8
-  %257 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %257 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %258 = tail call ptr @xstrdup(ptr noundef %257) #12
   tail call void @list_append(ptr noundef %256, ptr noundef %258) #12
   br label %_set_cond.exit

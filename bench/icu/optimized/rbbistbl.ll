@@ -507,7 +507,7 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7515RBBISymbolTableC2EPNS_15RBBIRuleScannerERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(108) initializes((0, 16), (24, 32)) %this, ptr noundef %rs, ptr noundef nonnull align 8 dereferenceable(64) %rules, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515RBBISymbolTableE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7515RBBISymbolTableE, i64 16), ptr %this, align 8
   %fRules = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %rules, ptr %fRules, align 8
   %fRuleScanner = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -588,7 +588,7 @@ declare void @_ZN6icu_7511SymbolTableD2Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7515RBBISymbolTableD2Ev(ptr noundef nonnull align 8 dereferenceable(108) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515RBBISymbolTableE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7515RBBISymbolTableE, i64 16), ptr %this, align 8
   %fHashTable = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %fHashTable, align 8
   invoke void @uhash_close_75(ptr noundef %0)
@@ -684,7 +684,7 @@ define void @_ZNK6icu_7515RBBISymbolTable14parseReferenceERKNS_13UnicodeStringER
 entry:
   %index.i = getelementptr inbounds nuw i8, ptr %pos, i64 8
   %0 = load i32, ptr %index.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %cmp17 = icmp slt i32 %0, %limit
@@ -863,7 +863,7 @@ declare ptr @uhash_put_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) lo
 define void @_ZN6icu_7520RBBISymbolTableEntryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((8, 18), (72, 80)) %this) unnamed_addr #9 align 2 {
 entry:
   %key = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %key, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %key, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i, align 8
   %val = getelementptr inbounds nuw i8, ptr %this, i64 72

@@ -40,10 +40,10 @@ define internal i32 @mca_coll_monitoring_component_init(i1 zeroext %0, i1 zeroex
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @mca_coll_monitoring_component_query(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #1 {
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @mca_coll_monitoring_module_t_class, i64 56), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_monitoring_module_t_class, i64 56), align 8
   %4 = tail call noalias ptr @malloc(i64 noundef %3) #7
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_monitoring_module_t_class, i64 32), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_monitoring_module_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %5, %6
   br i1 %.not.i, label %8, label %7
 
@@ -168,7 +168,7 @@ opal_obj_new.exit.thread53:                       ; preds = %.lr.ph.i.i, %9
   store ptr @mca_coll_monitoring_ineighbor_alltoallw, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 1712
   store volatile i32 0, ptr %62, align 8
-  %63 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_monitoring_component, i64 280), align 8
+  %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_monitoring_component, i64 280), align 8
   br label %opal_obj_new.exit.thread
 
 opal_obj_new.exit.thread:                         ; preds = %8, %opal_obj_new.exit.thread53

@@ -40,7 +40,7 @@ $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN8facebook5velox11StreamArenaC2EPNS0_6memory10MemoryPoolE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((0, 84), (88, 152)) %this, ptr noundef %pool) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox11StreamArenaE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox11StreamArenaE, i64 16), ptr %this, align 8
   %pool_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %pool, ptr %pool_, align 8
   %allocationQuantum_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -476,7 +476,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox11StreamArenaD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox11StreamArenaE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox11StreamArenaE, i64 16), ptr %this, align 8
   %tinyRanges_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %tinyRanges_, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 136

@@ -87,7 +87,7 @@ define noundef range(i32 0, 2) i32 @_ZNK5boost7archive12codecvt_nullIwE5do_inER1
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5boost7archive12codecvt_nullIwEC2Em(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #1 align 2 {
   tail call void @_ZNSt7codecvtIwc11__mbstate_tEC2Em(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5boost7archive12codecvt_nullIwEE, i64 16), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5boost7archive12codecvt_nullIwEE, i64 16), ptr %0, align 8, !tbaa !12
   ret void
 }
 

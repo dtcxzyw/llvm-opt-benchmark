@@ -343,7 +343,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit33: ; preds = %61, %64
   br label %.body
 
 95:                                               ; preds = %74
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc28ParallelGradientPaillouYColsE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc28ParallelGradientPaillouYColsE, i64 16), ptr %13, align 8
   store ptr %66, ptr %34, align 8
   store ptr %71, ptr %35, align 8
   store double %2, ptr %36, align 8
@@ -398,7 +398,7 @@ _ZN2cv8ximgproc28ParallelGradientPaillouYColsC2ERNS_3MatES3_dd.exit: ; preds = %
   %113 = getelementptr inbounds nuw %"class.cv::Mat", ptr %112, i64 %indvars.iv
   %114 = load ptr, ptr %8, align 8
   %115 = getelementptr inbounds nuw %"class.cv::Mat", ptr %114, i64 %indvars.iv
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc28ParallelGradientPaillouYRowsE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc28ParallelGradientPaillouYRowsE, i64 16), ptr %15, align 8
   store ptr %113, ptr %40, align 8
   store ptr %115, ptr %41, align 8
   store double %2, ptr %42, align 8
@@ -845,7 +845,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit33: ; preds = %61, %64
   br label %.body
 
 95:                                               ; preds = %74
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc28ParallelGradientPaillouXRowsE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc28ParallelGradientPaillouXRowsE, i64 16), ptr %13, align 8
   store ptr %66, ptr %34, align 8
   store ptr %71, ptr %35, align 8
   store double %2, ptr %36, align 8
@@ -900,7 +900,7 @@ _ZN2cv8ximgproc28ParallelGradientPaillouXRowsC2ERNS_3MatES3_dd.exit: ; preds = %
   %113 = getelementptr inbounds nuw %"class.cv::Mat", ptr %112, i64 %indvars.iv
   %114 = load ptr, ptr %8, align 8
   %115 = getelementptr inbounds nuw %"class.cv::Mat", ptr %114, i64 %indvars.iv
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc28ParallelGradientPaillouXColsE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc28ParallelGradientPaillouXColsE, i64 16), ptr %15, align 8
   store ptr %113, ptr %40, align 8
   store ptr %115, ptr %41, align 8
   store double %2, ptr %42, align 8

@@ -58,7 +58,7 @@ call.i.noexc:                                     ; preds = %if.then
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @_ZN4absl12_GLOBAL__N_118kInfiniteFutureStrE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_118kInfiniteFutureStrE, i64 15))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @_ZN4absl12_GLOBAL__N_118kInfiniteFutureStrE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4absl12_GLOBAL__N_118kInfiniteFutureStrE, i64 15))
           to label %return unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -87,7 +87,7 @@ call.i.noexc15:                                   ; preds = %if.then11
           to label %.noexc17 unwind label %lpad13
 
 .noexc17:                                         ; preds = %call.i.noexc15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @_ZN4absl12_GLOBAL__N_116kInfinitePastStrE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_116kInfinitePastStrE, i64 13))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @_ZN4absl12_GLOBAL__N_116kInfinitePastStrE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4absl12_GLOBAL__N_116kInfinitePastStrE, i64 13))
           to label %return unwind label %lpad.i14
 
 lpad.i14:                                         ; preds = %.noexc17

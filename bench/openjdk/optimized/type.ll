@@ -778,7 +778,7 @@ _ZN10TypeRawPtr4makeEPh.exit:                     ; preds = %35, %37
   store i32 0, ptr %44, align 4
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 2, ptr %45, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV10TypeRawPtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV10TypeRawPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store ptr %18, ptr %46, align 8
   %47 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
@@ -851,7 +851,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   store i32 0, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i32 2, ptr %28, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV10TypeRawPtr, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV10TypeRawPtr, i64 16), ptr %.0.i.i.i, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %0, ptr %29, align 8
   %30 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i)
@@ -917,7 +917,7 @@ _ZN7TypeInt4makeEi.exit:                          ; preds = %25, %27
   store i32 3, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 20
   store i16 0, ptr %32, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store i32 %8, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 28
@@ -965,7 +965,7 @@ _ZN7TypeInt4makeEi.exit18:                        ; preds = %53, %55
   store i32 3, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i17, i64 20
   store i16 0, ptr %60, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i17, align 8
   %61 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i17, i64 24
   store i32 %36, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i17, i64 28
@@ -1014,7 +1014,7 @@ _ZN7TypeInt4makeEi.exit21:                        ; preds = %81, %83
   store i32 3, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i20, i64 20
   store i16 0, ptr %88, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i20, align 8
   %89 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i20, i64 24
   store i32 %64, ptr %89, align 8
   %90 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i20, i64 28
@@ -1063,7 +1063,7 @@ _ZN7TypeInt4makeEi.exit24:                        ; preds = %109, %111
   store i32 3, ptr %115, align 8
   %116 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i23, i64 20
   store i16 0, ptr %116, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i23, align 8
   %117 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i23, i64 24
   store i32 %92, ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i23, i64 28
@@ -1110,7 +1110,7 @@ _ZN7TypeInt4makeEi.exit27:                        ; preds = %136, %138
   store i32 3, ptr %142, align 8
   %143 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i26, i64 20
   store i16 0, ptr %143, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i26, align 8
   %144 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i26, i64 24
   store i32 %.sroa.2.sroa.0.0.extract.trunc, ptr %144, align 8
   %145 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i26, i64 28
@@ -1157,7 +1157,7 @@ _ZN8TypeLong4makeEl.exit:                         ; preds = %163, %165
   store i32 4, ptr %169, align 8
   %170 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i29, i64 20
   store i16 0, ptr %170, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i29, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i29, align 8
   %171 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i29, i64 24
   store i32 %.sroa.2.sroa.0.0.extract.trunc, ptr %171, align 8
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i29, i64 28
@@ -1206,7 +1206,7 @@ _ZN5TypeF4makeEf.exit:                            ; preds = %190, %192
   store ptr null, ptr %195, align 8
   %196 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i31, i64 16
   store i32 32, ptr %196, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeF, i64 16), ptr %.0.i.i.i.i31, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV5TypeF, i64 16), ptr %.0.i.i.i.i31, align 8
   %197 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i31, i64 20
   store i32 %.sroa.2.sroa.0.0.extract.trunc, ptr %197, align 4
   br label %_ZNK4Type14make_narrowoopEv.exit.sink.split
@@ -1249,7 +1249,7 @@ _ZN5TypeD4makeEd.exit:                            ; preds = %215, %217
   store ptr null, ptr %220, align 8
   %221 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i33, i64 16
   store i32 35, ptr %221, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeD, i64 16), ptr %.0.i.i.i.i33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV5TypeD, i64 16), ptr %.0.i.i.i.i33, align 8
   %222 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i33, i64 24
   store i64 %1, ptr %222, align 8
   br label %_ZNK4Type14make_narrowoopEv.exit.sink.split
@@ -1361,7 +1361,7 @@ _ZN13TypeNarrowOop4makeEPK7TypePtr.exit.i:        ; preds = %279, %277
   store i32 6, ptr %283, align 8
   %284 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 24
   store ptr %.013, ptr %284, align 8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i.i.i, align 8
   br label %_ZNK4Type14make_narrowoopEv.exit.sink.split
 
 _ZNK4Type14make_narrowoopEv.exit.sink.split:      ; preds = %_ZN7TypeInt4makeEi.exit, %_ZN7TypeInt4makeEi.exit18, %_ZN7TypeInt4makeEi.exit21, %_ZN7TypeInt4makeEi.exit24, %_ZN7TypeInt4makeEi.exit27, %_ZN8TypeLong4makeEl.exit, %_ZN5TypeF4makeEf.exit, %_ZN5TypeD4makeEd.exit, %_ZN13TypeNarrowOop4makeEPK7TypePtr.exit.i
@@ -1415,7 +1415,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   store i32 3, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i16 0, ptr %25, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i, align 8
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store i32 %0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 28
@@ -1465,7 +1465,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   store i32 4, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i16 0, ptr %25, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i, align 8
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store i64 %0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
@@ -1513,7 +1513,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   store ptr null, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 32, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeF, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV5TypeF, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store float %0, ptr %25, align 4
   %26 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i)
@@ -1559,7 +1559,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   store ptr null, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 35, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeD, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV5TypeD, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store double %0, ptr %25, align 8
   %26 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i)
@@ -1657,7 +1657,7 @@ _ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0
   %50 = icmp ne ptr %.0.i.i.i.i63, null
   tail call void @llvm.assume(i1 %50)
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i63, i32 noundef 21, i32 noundef 4, ptr noundef nonnull %18, ptr noundef %17, i1 noundef zeroext %.0.i61, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
-  store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i63, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i63, align 8
   %51 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i63)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %291
@@ -1713,7 +1713,7 @@ _ZN7TypeInt4makeEi.exit:                          ; preds = %78, %80
   store i32 3, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 20
   store i16 0, ptr %85, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i, align 8
   %86 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store i32 %61, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 28
@@ -1911,7 +1911,7 @@ _ZN7TypeInt4makeEi.exit39:                        ; preds = %199, %201
   store i32 3, ptr %205, align 8
   %206 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i38, i64 20
   store i16 0, ptr %206, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i38, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i38, align 8
   %207 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i38, i64 24
   store i32 %182, ptr %207, align 8
   %208 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i38, i64 28
@@ -2576,7 +2576,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   %.0.i.i.i = phi ptr [ %14, %18 ], [ %21, %20 ]
   %22 = icmp ne ptr %.0.i.i.i, null
   tail call void @llvm.assume(i1 %22)
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV4Type, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV4Type, i64 16), ptr %.0.i.i.i, align 8
   %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store ptr null, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -2787,7 +2787,7 @@ _ZN4Type4makeENS_5TYPESE.exit:                    ; preds = %31, %33
   %.0.i.i.i.i = phi ptr [ %27, %31 ], [ %34, %33 ]
   %35 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %35)
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV4Type, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV4Type, i64 16), ptr %.0.i.i.i.i, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   store ptr null, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
@@ -2826,7 +2826,7 @@ _ZN4Type4makeENS_5TYPESE.exit62:                  ; preds = %54, %56
   %.0.i.i.i.i61 = phi ptr [ %50, %54 ], [ %57, %56 ]
   %58 = icmp ne ptr %.0.i.i.i.i61, null
   tail call void @llvm.assume(i1 %58)
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV4Type, i64 16), ptr %.0.i.i.i.i61, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV4Type, i64 16), ptr %.0.i.i.i.i61, align 8
   %59 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i61, i64 8
   store ptr null, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i61, i64 16
@@ -2865,7 +2865,7 @@ _ZN4Type4makeENS_5TYPESE.exit65:                  ; preds = %77, %79
   %.0.i.i.i.i64 = phi ptr [ %73, %77 ], [ %80, %79 ]
   %81 = icmp ne ptr %.0.i.i.i.i64, null
   tail call void @llvm.assume(i1 %81)
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV4Type, i64 16), ptr %.0.i.i.i.i64, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV4Type, i64 16), ptr %.0.i.i.i.i64, align 8
   %82 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i64, i64 8
   store ptr null, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i64, i64 16
@@ -2904,7 +2904,7 @@ _ZN4Type4makeENS_5TYPESE.exit68:                  ; preds = %100, %102
   %.0.i.i.i.i67 = phi ptr [ %96, %100 ], [ %103, %102 ]
   %104 = icmp ne ptr %.0.i.i.i.i67, null
   tail call void @llvm.assume(i1 %104)
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV4Type, i64 16), ptr %.0.i.i.i.i67, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV4Type, i64 16), ptr %.0.i.i.i.i67, align 8
   %105 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i67, i64 8
   store ptr null, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i67, i64 16
@@ -2943,7 +2943,7 @@ _ZN4Type4makeENS_5TYPESE.exit71:                  ; preds = %123, %125
   %.0.i.i.i.i70 = phi ptr [ %119, %123 ], [ %126, %125 ]
   %127 = icmp ne ptr %.0.i.i.i.i70, null
   tail call void @llvm.assume(i1 %127)
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV4Type, i64 16), ptr %.0.i.i.i.i70, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV4Type, i64 16), ptr %.0.i.i.i.i70, align 8
   %128 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i70, i64 8
   store ptr null, ptr %128, align 8
   %129 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i70, i64 16
@@ -2982,7 +2982,7 @@ _ZN4Type4makeENS_5TYPESE.exit74:                  ; preds = %146, %148
   %.0.i.i.i.i73 = phi ptr [ %142, %146 ], [ %149, %148 ]
   %150 = icmp ne ptr %.0.i.i.i.i73, null
   tail call void @llvm.assume(i1 %150)
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV4Type, i64 16), ptr %.0.i.i.i.i73, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV4Type, i64 16), ptr %.0.i.i.i.i73, align 8
   %151 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i73, i64 8
   store ptr null, ptr %151, align 8
   %152 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i73, i64 16
@@ -3021,7 +3021,7 @@ _ZN4Type4makeENS_5TYPESE.exit77:                  ; preds = %169, %171
   %.0.i.i.i.i76 = phi ptr [ %165, %169 ], [ %172, %171 ]
   %173 = icmp ne ptr %.0.i.i.i.i76, null
   tail call void @llvm.assume(i1 %173)
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV4Type, i64 16), ptr %.0.i.i.i.i76, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV4Type, i64 16), ptr %.0.i.i.i.i76, align 8
   %174 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i76, i64 8
   store ptr null, ptr %174, align 8
   %175 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i76, i64 16
@@ -3060,7 +3060,7 @@ _ZN4Type4makeENS_5TYPESE.exit80:                  ; preds = %192, %194
   %.0.i.i.i.i79 = phi ptr [ %188, %192 ], [ %195, %194 ]
   %196 = icmp ne ptr %.0.i.i.i.i79, null
   tail call void @llvm.assume(i1 %196)
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV4Type, i64 16), ptr %.0.i.i.i.i79, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV4Type, i64 16), ptr %.0.i.i.i.i79, align 8
   %197 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i79, i64 8
   store ptr null, ptr %197, align 8
   %198 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i79, i64 16
@@ -3099,7 +3099,7 @@ _ZN4Type4makeENS_5TYPESE.exit83:                  ; preds = %215, %217
   %.0.i.i.i.i82 = phi ptr [ %211, %215 ], [ %218, %217 ]
   %219 = icmp ne ptr %.0.i.i.i.i82, null
   tail call void @llvm.assume(i1 %219)
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV4Type, i64 16), ptr %.0.i.i.i.i82, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV4Type, i64 16), ptr %.0.i.i.i.i82, align 8
   %220 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i82, i64 8
   store ptr null, ptr %220, align 8
   %221 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i82, i64 16
@@ -3143,7 +3143,7 @@ _ZN5TypeF4makeEf.exit:                            ; preds = %239, %241
   store ptr null, ptr %244, align 8
   %245 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i85, i64 16
   store i32 32, ptr %245, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeF, i64 16), ptr %.0.i.i.i.i85, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV5TypeF, i64 16), ptr %.0.i.i.i.i85, align 8
   %246 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i85, i64 20
   store float %223, ptr %246, align 4
   %247 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i85)
@@ -3185,7 +3185,7 @@ _ZN5TypeF4makeEf.exit88:                          ; preds = %264, %266
   store ptr null, ptr %269, align 8
   %270 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i87, i64 16
   store i32 32, ptr %270, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeF, i64 16), ptr %.0.i.i.i.i87, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV5TypeF, i64 16), ptr %.0.i.i.i.i87, align 8
   %271 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i87, i64 20
   store float %248, ptr %271, align 4
   %272 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i87)
@@ -3226,7 +3226,7 @@ _ZN5TypeF4makeEf.exit91:                          ; preds = %288, %290
   store ptr null, ptr %293, align 8
   %294 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i90, i64 16
   store i32 32, ptr %294, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeF, i64 16), ptr %.0.i.i.i.i90, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV5TypeF, i64 16), ptr %.0.i.i.i.i90, align 8
   %295 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i90, i64 20
   store float 0.000000e+00, ptr %295, align 4
   %296 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i90)
@@ -3267,7 +3267,7 @@ _ZN5TypeF4makeEf.exit94:                          ; preds = %312, %314
   store ptr null, ptr %317, align 8
   %318 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i93, i64 16
   store i32 32, ptr %318, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeF, i64 16), ptr %.0.i.i.i.i93, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV5TypeF, i64 16), ptr %.0.i.i.i.i93, align 8
   %319 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i93, i64 20
   store float 1.000000e+00, ptr %319, align 4
   %320 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i93)
@@ -3308,7 +3308,7 @@ _ZN5TypeF4makeEf.exit97:                          ; preds = %336, %338
   store ptr null, ptr %341, align 8
   %342 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i96, i64 16
   store i32 32, ptr %342, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeF, i64 16), ptr %.0.i.i.i.i96, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV5TypeF, i64 16), ptr %.0.i.i.i.i96, align 8
   %343 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i96, i64 20
   store float 0x7FF0000000000000, ptr %343, align 4
   %344 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i96)
@@ -3349,7 +3349,7 @@ _ZN5TypeF4makeEf.exit100:                         ; preds = %360, %362
   store ptr null, ptr %365, align 8
   %366 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i99, i64 16
   store i32 32, ptr %366, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeF, i64 16), ptr %.0.i.i.i.i99, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV5TypeF, i64 16), ptr %.0.i.i.i.i99, align 8
   %367 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i99, i64 20
   store float 0xFFF0000000000000, ptr %367, align 4
   %368 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i99)
@@ -3391,7 +3391,7 @@ _ZN5TypeD4makeEd.exit:                            ; preds = %385, %387
   store ptr null, ptr %390, align 8
   %391 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i102, i64 16
   store i32 35, ptr %391, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeD, i64 16), ptr %.0.i.i.i.i102, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV5TypeD, i64 16), ptr %.0.i.i.i.i102, align 8
   %392 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i102, i64 24
   store double %369, ptr %392, align 8
   %393 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i102)
@@ -3433,7 +3433,7 @@ _ZN5TypeD4makeEd.exit105:                         ; preds = %410, %412
   store ptr null, ptr %415, align 8
   %416 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i104, i64 16
   store i32 35, ptr %416, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeD, i64 16), ptr %.0.i.i.i.i104, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV5TypeD, i64 16), ptr %.0.i.i.i.i104, align 8
   %417 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i104, i64 24
   store double %394, ptr %417, align 8
   %418 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i104)
@@ -3474,7 +3474,7 @@ _ZN5TypeD4makeEd.exit108:                         ; preds = %434, %436
   store ptr null, ptr %439, align 8
   %440 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i107, i64 16
   store i32 35, ptr %440, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeD, i64 16), ptr %.0.i.i.i.i107, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV5TypeD, i64 16), ptr %.0.i.i.i.i107, align 8
   %441 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i107, i64 24
   store double 0.000000e+00, ptr %441, align 8
   %442 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i107)
@@ -3515,7 +3515,7 @@ _ZN5TypeD4makeEd.exit111:                         ; preds = %458, %460
   store ptr null, ptr %463, align 8
   %464 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i110, i64 16
   store i32 35, ptr %464, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeD, i64 16), ptr %.0.i.i.i.i110, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV5TypeD, i64 16), ptr %.0.i.i.i.i110, align 8
   %465 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i110, i64 24
   store double 1.000000e+00, ptr %465, align 8
   %466 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i110)
@@ -3556,7 +3556,7 @@ _ZN5TypeD4makeEd.exit114:                         ; preds = %482, %484
   store ptr null, ptr %487, align 8
   %488 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i113, i64 16
   store i32 35, ptr %488, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeD, i64 16), ptr %.0.i.i.i.i113, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV5TypeD, i64 16), ptr %.0.i.i.i.i113, align 8
   %489 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i113, i64 24
   store double 0x7FF0000000000000, ptr %489, align 8
   %490 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i113)
@@ -3597,7 +3597,7 @@ _ZN5TypeD4makeEd.exit117:                         ; preds = %506, %508
   store ptr null, ptr %511, align 8
   %512 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i116, i64 16
   store i32 35, ptr %512, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeD, i64 16), ptr %.0.i.i.i.i116, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV5TypeD, i64 16), ptr %.0.i.i.i.i116, align 8
   %513 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i116, i64 24
   store double 0xFFF0000000000000, ptr %513, align 8
   %514 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i116)
@@ -3640,7 +3640,7 @@ _ZN7TypeInt4makeEi.exit:                          ; preds = %530, %532
   store i32 3, ptr %536, align 8
   %537 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i119, i64 20
   store i16 0, ptr %537, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i119, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i119, align 8
   %538 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i119, i64 24
   store i32 2147483647, ptr %538, align 8
   %539 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i119, i64 28
@@ -3685,7 +3685,7 @@ _ZN7TypeInt4makeEi.exit122:                       ; preds = %556, %558
   store i32 3, ptr %562, align 8
   %563 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i121, i64 20
   store i16 0, ptr %563, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i121, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i121, align 8
   %564 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i121, i64 24
   store i32 -2147483648, ptr %564, align 8
   %565 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i121, i64 28
@@ -3730,7 +3730,7 @@ _ZN7TypeInt4makeEi.exit125:                       ; preds = %582, %584
   store i32 3, ptr %588, align 8
   %589 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i124, i64 20
   store i16 0, ptr %589, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i124, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i124, align 8
   %590 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i124, i64 24
   store i32 -1, ptr %590, align 8
   %591 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i124, i64 28
@@ -3775,7 +3775,7 @@ _ZN7TypeInt4makeEi.exit128:                       ; preds = %608, %610
   store i32 3, ptr %614, align 8
   %615 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i127, i64 20
   store i16 0, ptr %615, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i127, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i127, align 8
   %616 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i127, i64 24
   store i32 0, ptr %616, align 8
   %617 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i127, i64 28
@@ -3820,7 +3820,7 @@ _ZN7TypeInt4makeEi.exit131:                       ; preds = %634, %636
   store i32 3, ptr %640, align 8
   %641 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i130, i64 20
   store i16 0, ptr %641, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i130, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i130, align 8
   %642 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i130, i64 24
   store i32 1, ptr %642, align 8
   %643 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i130, i64 28
@@ -3865,7 +3865,7 @@ _ZN7TypeInt4makeEiii.exit:                        ; preds = %660, %662
   store i32 3, ptr %666, align 8
   %667 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i133, i64 20
   store i16 0, ptr %667, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i133, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i133, align 8
   %668 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i133, i64 24
   store i32 0, ptr %668, align 8
   %669 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i133, i64 28
@@ -3910,7 +3910,7 @@ _ZN7TypeInt4makeEiii.exit136:                     ; preds = %686, %688
   store i32 3, ptr %692, align 8
   %693 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i135, i64 20
   store i16 0, ptr %693, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i135, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i135, align 8
   %694 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i135, i64 24
   store i32 -1, ptr %694, align 8
   %695 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i135, i64 28
@@ -3955,7 +3955,7 @@ _ZN7TypeInt4makeEiii.exit139:                     ; preds = %712, %714
   store i32 3, ptr %718, align 8
   %719 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i138, i64 20
   store i16 0, ptr %719, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i138, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i138, align 8
   %720 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i138, i64 24
   store i32 -1, ptr %720, align 8
   %721 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i138, i64 28
@@ -4000,7 +4000,7 @@ _ZN7TypeInt4makeEiii.exit142:                     ; preds = %738, %740
   store i32 3, ptr %744, align 8
   %745 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i141, i64 20
   store i16 0, ptr %745, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i141, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i141, align 8
   %746 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i141, i64 24
   store i32 1, ptr %746, align 8
   %747 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i141, i64 28
@@ -4045,7 +4045,7 @@ _ZN7TypeInt4makeEiii.exit145:                     ; preds = %764, %766
   store i32 3, ptr %770, align 8
   %771 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i144, i64 20
   store i16 0, ptr %771, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i144, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i144, align 8
   %772 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i144, i64 24
   store i32 0, ptr %772, align 8
   %773 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i144, i64 28
@@ -4090,7 +4090,7 @@ _ZN7TypeInt4makeEiii.exit148:                     ; preds = %790, %792
   store i32 3, ptr %796, align 8
   %797 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i147, i64 20
   store i16 0, ptr %797, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i147, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i147, align 8
   %798 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i147, i64 24
   store i32 -1, ptr %798, align 8
   %799 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i147, i64 28
@@ -4135,7 +4135,7 @@ _ZN7TypeInt4makeEiii.exit151:                     ; preds = %816, %818
   store i32 3, ptr %822, align 8
   %823 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i150, i64 20
   store i16 0, ptr %823, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i150, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i150, align 8
   %824 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i150, i64 24
   store i32 0, ptr %824, align 8
   %825 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i150, i64 28
@@ -4180,7 +4180,7 @@ _ZN7TypeInt4makeEiii.exit154:                     ; preds = %842, %844
   store i32 3, ptr %848, align 8
   %849 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i153, i64 20
   store i16 0, ptr %849, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i153, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i153, align 8
   %850 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i153, i64 24
   store i32 -128, ptr %850, align 8
   %851 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i153, i64 28
@@ -4225,7 +4225,7 @@ _ZN7TypeInt4makeEiii.exit157:                     ; preds = %868, %870
   store i32 3, ptr %874, align 8
   %875 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i156, i64 20
   store i16 0, ptr %875, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i156, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i156, align 8
   %876 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i156, i64 24
   store i32 0, ptr %876, align 8
   %877 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i156, i64 28
@@ -4270,7 +4270,7 @@ _ZN7TypeInt4makeEiii.exit160:                     ; preds = %894, %896
   store i32 3, ptr %900, align 8
   %901 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i159, i64 20
   store i16 0, ptr %901, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i159, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i159, align 8
   %902 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i159, i64 24
   store i32 0, ptr %902, align 8
   %903 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i159, i64 28
@@ -4315,7 +4315,7 @@ _ZN7TypeInt4makeEiii.exit163:                     ; preds = %920, %922
   store i32 3, ptr %926, align 8
   %927 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i162, i64 20
   store i16 0, ptr %927, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i162, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i162, align 8
   %928 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i162, i64 24
   store i32 -32768, ptr %928, align 8
   %929 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i162, i64 28
@@ -4360,7 +4360,7 @@ _ZN7TypeInt4makeEiii.exit166:                     ; preds = %946, %948
   store i32 3, ptr %952, align 8
   %953 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i165, i64 20
   store i16 0, ptr %953, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i165, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i165, align 8
   %954 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i165, i64 24
   store i32 0, ptr %954, align 8
   %955 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i165, i64 28
@@ -4405,7 +4405,7 @@ _ZN7TypeInt4makeEiii.exit169:                     ; preds = %972, %974
   store i32 3, ptr %978, align 8
   %979 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i168, i64 20
   store i16 0, ptr %979, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i168, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i168, align 8
   %980 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i168, i64 24
   store i32 1, ptr %980, align 8
   %981 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i168, i64 28
@@ -4450,7 +4450,7 @@ _ZN7TypeInt4makeEiii.exit172:                     ; preds = %998, %1000
   store i32 3, ptr %1004, align 8
   %1005 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i171, i64 20
   store i16 3, ptr %1005, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i171, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i171, align 8
   %1006 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i171, i64 24
   store i32 -2147483648, ptr %1006, align 8
   %1007 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i171, i64 28
@@ -4495,7 +4495,7 @@ _ZN7TypeInt4makeEiii.exit175:                     ; preds = %1024, %1026
   store i32 3, ptr %1030, align 8
   %1031 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i174, i64 20
   store i16 0, ptr %1031, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i174, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i174, align 8
   %1032 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i174, i64 24
   store i32 -2147483647, ptr %1032, align 8
   %1033 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i174, i64 28
@@ -4542,7 +4542,7 @@ _ZN8TypeLong4makeEl.exit:                         ; preds = %1051, %1053
   store i32 4, ptr %1057, align 8
   %1058 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i177, i64 20
   store i16 0, ptr %1058, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i177, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i177, align 8
   %1059 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i177, i64 24
   store i64 9223372036854775807, ptr %1059, align 8
   %1060 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i177, i64 32
@@ -4587,7 +4587,7 @@ _ZN8TypeLong4makeEl.exit180:                      ; preds = %1077, %1079
   store i32 4, ptr %1083, align 8
   %1084 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i179, i64 20
   store i16 0, ptr %1084, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i179, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i179, align 8
   %1085 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i179, i64 24
   store i64 -9223372036854775808, ptr %1085, align 8
   %1086 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i179, i64 32
@@ -4632,7 +4632,7 @@ _ZN8TypeLong4makeEl.exit183:                      ; preds = %1103, %1105
   store i32 4, ptr %1109, align 8
   %1110 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i182, i64 20
   store i16 0, ptr %1110, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i182, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i182, align 8
   %1111 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i182, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1111, i8 -1, i64 16, i1 false)
   %1112 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i182)
@@ -4675,7 +4675,7 @@ _ZN8TypeLong4makeEl.exit186:                      ; preds = %1128, %1130
   store i32 4, ptr %1134, align 8
   %1135 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i185, i64 20
   store i16 0, ptr %1135, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i185, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i185, align 8
   %1136 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i185, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1136, i8 0, i64 16, i1 false)
   %1137 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i185)
@@ -4718,7 +4718,7 @@ _ZN8TypeLong4makeEl.exit189:                      ; preds = %1153, %1155
   store i32 4, ptr %1159, align 8
   %1160 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i188, i64 20
   store i16 0, ptr %1160, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i188, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i188, align 8
   %1161 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i188, i64 24
   store i64 1, ptr %1161, align 8
   %1162 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i188, i64 32
@@ -4763,7 +4763,7 @@ _ZN8TypeLong4makeElli.exit:                       ; preds = %1179, %1181
   store i32 4, ptr %1185, align 8
   %1186 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i191, i64 20
   store i16 0, ptr %1186, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i191, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i191, align 8
   %1187 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i191, i64 24
   store i64 0, ptr %1187, align 8
   %1188 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i191, i64 32
@@ -4808,7 +4808,7 @@ _ZN8TypeLong4makeElli.exit194:                    ; preds = %1205, %1207
   store i32 4, ptr %1211, align 8
   %1212 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i193, i64 20
   store i16 3, ptr %1212, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i193, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i193, align 8
   %1213 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i193, i64 24
   store i64 -9223372036854775808, ptr %1213, align 8
   %1214 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i193, i64 32
@@ -4853,7 +4853,7 @@ _ZN8TypeLong4makeElli.exit197:                    ; preds = %1231, %1233
   store i32 4, ptr %1237, align 8
   %1238 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i196, i64 20
   store i16 0, ptr %1238, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i196, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i196, align 8
   %1239 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i196, i64 24
   store i64 -2147483648, ptr %1239, align 8
   %1240 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i196, i64 32
@@ -4898,7 +4898,7 @@ _ZN8TypeLong4makeElli.exit200:                    ; preds = %1257, %1259
   store i32 4, ptr %1263, align 8
   %1264 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i199, i64 20
   store i16 0, ptr %1264, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i199, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i199, align 8
   %1265 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i199, i64 24
   store i64 0, ptr %1265, align 8
   %1266 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i199, i64 32
@@ -4968,7 +4968,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit:                ; preds = %1297, %1299
   store ptr null, ptr %1302, align 8
   %1303 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i202, i64 16
   store i32 8, ptr %1303, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i.i202, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i.i202, align 8
   %1304 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i202, i64 20
   store i32 2, ptr %1304, align 4
   %1305 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i202, i64 24
@@ -5035,7 +5035,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit208:             ; preds = %1334, %1336
   store ptr null, ptr %1339, align 8
   %1340 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i207, i64 16
   store i32 8, ptr %1340, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i.i207, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i.i207, align 8
   %1341 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i207, i64 20
   store i32 2, ptr %1341, align 4
   %1342 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i207, i64 24
@@ -5101,7 +5101,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit214:             ; preds = %1370, %1372
   store ptr null, ptr %1375, align 8
   %1376 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i213, i64 16
   store i32 8, ptr %1376, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i.i213, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i.i213, align 8
   %1377 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i213, i64 20
   store i32 2, ptr %1377, align 4
   %1378 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i213, i64 24
@@ -5168,7 +5168,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit220:             ; preds = %1407, %1409
   store ptr null, ptr %1412, align 8
   %1413 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i219, i64 16
   store i32 8, ptr %1413, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i.i219, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i.i219, align 8
   %1414 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i219, i64 20
   store i32 2, ptr %1414, align 4
   %1415 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i219, i64 24
@@ -5235,7 +5235,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit226:             ; preds = %1444, %1446
   store ptr null, ptr %1449, align 8
   %1450 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i225, i64 16
   store i32 8, ptr %1450, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i.i225, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i.i225, align 8
   %1451 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i225, i64 20
   store i32 2, ptr %1451, align 4
   %1452 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i225, i64 24
@@ -5278,7 +5278,7 @@ _ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit: ; preds = %1469, %1471
   store ptr null, ptr %1474, align 8
   %1475 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i228, i64 16
   store i32 18, ptr %1475, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV7TypePtr, i64 16), ptr %.0.i.i.i.i228, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV7TypePtr, i64 16), ptr %.0.i.i.i.i228, align 8
   %1476 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i228, i64 24
   store ptr null, ptr %1476, align 8
   %1477 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i228, i64 32
@@ -5325,7 +5325,7 @@ _ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit231: ; preds = %1496, %1498
   store ptr null, ptr %1501, align 8
   %1502 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i230, i64 16
   store i32 18, ptr %1502, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV7TypePtr, i64 16), ptr %.0.i.i.i.i230, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV7TypePtr, i64 16), ptr %.0.i.i.i.i230, align 8
   %1503 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i230, i64 24
   store ptr null, ptr %1503, align 8
   %1504 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i230, i64 32
@@ -5372,7 +5372,7 @@ _ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit234: ; preds = %1523, %1525
   store ptr null, ptr %1528, align 8
   %1529 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i233, i64 16
   store i32 18, ptr %1529, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV7TypePtr, i64 16), ptr %.0.i.i.i.i233, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV7TypePtr, i64 16), ptr %.0.i.i.i.i233, align 8
   %1530 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i233, i64 24
   store ptr null, ptr %1530, align 8
   %1531 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i233, i64 32
@@ -5427,7 +5427,7 @@ _ZN10TypeRawPtr4makeEN7TypePtr3PTRE.exit:         ; preds = %1550, %1552
   store i32 0, ptr %1559, align 4
   %1560 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i236, i64 40
   store i32 5, ptr %1560, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV10TypeRawPtr, i64 16), ptr %.0.i.i.i.i236, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV10TypeRawPtr, i64 16), ptr %.0.i.i.i.i236, align 8
   %1561 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i236, i64 48
   store ptr null, ptr %1561, align 8
   %1562 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i236)
@@ -5476,7 +5476,7 @@ _ZN10TypeRawPtr4makeEN7TypePtr3PTRE.exit239:      ; preds = %1578, %1580
   store i32 0, ptr %1587, align 4
   %1588 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i238, i64 40
   store i32 4, ptr %1588, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV10TypeRawPtr, i64 16), ptr %.0.i.i.i.i238, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV10TypeRawPtr, i64 16), ptr %.0.i.i.i.i238, align 8
   %1589 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i238, i64 48
   store ptr null, ptr %1589, align 8
   %1590 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i238)
@@ -5559,7 +5559,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit242:             ; preds = %1633, %1635
   store ptr null, ptr %1638, align 8
   %1639 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i241, i64 16
   store i32 8, ptr %1639, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i.i241, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i.i241, align 8
   %1640 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i241, i64 20
   store i32 5, ptr %1640, align 4
   %1641 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i241, i64 24
@@ -5626,7 +5626,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit248:             ; preds = %1670, %1672
   store ptr null, ptr %1675, align 8
   %1676 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i247, i64 16
   store i32 8, ptr %1676, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i.i247, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i.i247, align 8
   %1677 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i247, i64 20
   store i32 2, ptr %1677, align 4
   %1678 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i247, i64 24
@@ -5702,7 +5702,7 @@ _ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0
   tail call void @llvm.assume(i1 %1717)
   %1718 = trunc i8 %.0.i to i1
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i321, i32 noundef 21, i32 noundef 4, ptr noundef nonnull %1682, ptr noundef %1681, i1 noundef zeroext %1718, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
-  store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i321, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i321, align 8
   %1719 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i321)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   store ptr %1719, ptr @_ZN11TypeInstPtr7NOTNULLE, align 8
@@ -5775,7 +5775,7 @@ _ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0
   tail call void @llvm.assume(i1 %1757)
   %1758 = trunc i8 %.0.i327 to i1
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i329, i32 noundef 21, i32 noundef 5, ptr noundef nonnull %1722, ptr noundef %1721, i1 noundef zeroext %1758, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
-  store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i329, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i329, align 8
   %1759 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i329)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   store ptr %1759, ptr @_ZN11TypeInstPtr6BOTTOME, align 8
@@ -5848,7 +5848,7 @@ _ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0
   tail call void @llvm.assume(i1 %1797)
   %1798 = trunc i8 %.0.i339 to i1
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i341, i32 noundef 21, i32 noundef 4, ptr noundef nonnull %1762, ptr noundef %1761, i1 noundef zeroext %1798, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
-  store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i341, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i341, align 8
   %1799 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i341)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   store ptr %1799, ptr @_ZN11TypeInstPtr6MIRRORE, align 8
@@ -5921,7 +5921,7 @@ _ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0
   tail call void @llvm.assume(i1 %1837)
   %1838 = trunc i8 %.0.i351 to i1
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i353, i32 noundef 21, i32 noundef 5, ptr noundef nonnull %1802, ptr noundef %1801, i1 noundef zeroext %1838, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
-  store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i353, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i353, align 8
   %1839 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i353)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   store ptr %1839, ptr @_ZN11TypeInstPtr4MARKE, align 8
@@ -5994,7 +5994,7 @@ _ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0
   tail call void @llvm.assume(i1 %1877)
   %1878 = trunc i8 %.0.i363 to i1
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i365, i32 noundef 21, i32 noundef 5, ptr noundef nonnull %1842, ptr noundef %1841, i1 noundef zeroext %1878, ptr noundef null, i32 noundef 8, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
-  store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i365, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i365, align 8
   %1879 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i365)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   store ptr %1879, ptr @_ZN11TypeInstPtr5KLASSE, align 8
@@ -6044,7 +6044,7 @@ _ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit: ; preds = %1896, %1
   store i32 -2000000001, ptr %1905, align 4
   %1906 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i250, i64 40
   store i32 5, ptr %1906, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %.0.i.i.i.i250, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %.0.i.i.i.i250, align 8
   %1907 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i250, i64 48
   store ptr null, ptr %1907, align 8
   %1908 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i250)
@@ -6088,7 +6088,7 @@ _ZN13TypeNarrowOop4makeEPK7TypePtr.exit:          ; preds = %1925, %1927
   store i32 6, ptr %1931, align 8
   %1932 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i252, i64 24
   store ptr %1909, ptr %1932, align 8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i.i252, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i.i252, align 8
   %1933 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i252)
   store ptr %1933, ptr @_ZN13TypeNarrowOop8NULL_PTRE, align 8
   %1934 = load ptr, ptr @_ZN11TypeInstPtr6BOTTOME, align 8
@@ -6130,7 +6130,7 @@ _ZN13TypeNarrowOop4makeEPK7TypePtr.exit255:       ; preds = %1950, %1952
   store i32 6, ptr %1956, align 8
   %1957 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i254, i64 24
   store ptr %1934, ptr %1957, align 8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i.i254, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i.i254, align 8
   %1958 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i254)
   store ptr %1958, ptr @_ZN13TypeNarrowOop6BOTTOME, align 8
   %1959 = load ptr, ptr @_ZN7TypePtr8NULL_PTRE, align 8
@@ -6172,26 +6172,26 @@ _ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE4pushERKS
   store i32 7, ptr %1981, align 8
   %1982 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i257, i64 24
   store ptr %1959, ptr %1982, align 8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV15TypeNarrowKlass, i64 16), ptr %.0.i.i.i.i257, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV15TypeNarrowKlass, i64 16), ptr %.0.i.i.i.i257, align 8
   %1983 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i257)
   store ptr %1983, ptr @_ZN15TypeNarrowKlass8NULL_PTRE, align 8
   %1984 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
   store ptr %1984, ptr @_ZN4Type9mreg2typeE, align 16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN4Type9mreg2typeE, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type9mreg2typeE, i64 8), align 8
   %1985 = load ptr, ptr @_ZN13TypeNarrowOop6BOTTOME, align 8
-  store ptr %1985, ptr getelementptr inbounds (i8, ptr @_ZN4Type9mreg2typeE, i64 16), align 16
+  store ptr %1985, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type9mreg2typeE, i64 16), align 16
   %1986 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
-  store ptr %1986, ptr getelementptr inbounds (i8, ptr @_ZN4Type9mreg2typeE, i64 24), align 8
+  store ptr %1986, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type9mreg2typeE, i64 24), align 8
   %1987 = load ptr, ptr @_ZN7TypePtr6BOTTOME, align 8
-  store ptr %1987, ptr getelementptr inbounds (i8, ptr @_ZN4Type9mreg2typeE, i64 32), align 16
+  store ptr %1987, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type9mreg2typeE, i64 32), align 16
   %1988 = load ptr, ptr @_ZN4Type5FLOATE, align 8
-  store ptr %1988, ptr getelementptr inbounds (i8, ptr @_ZN4Type9mreg2typeE, i64 40), align 8
+  store ptr %1988, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type9mreg2typeE, i64 40), align 8
   %1989 = load ptr, ptr @_ZN4Type6DOUBLEE, align 8
-  store ptr %1989, ptr getelementptr inbounds (i8, ptr @_ZN4Type9mreg2typeE, i64 48), align 16
+  store ptr %1989, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type9mreg2typeE, i64 48), align 16
   %1990 = load ptr, ptr @_ZN8TypeLong4LONGE, align 8
-  store ptr %1990, ptr getelementptr inbounds (i8, ptr @_ZN4Type9mreg2typeE, i64 56), align 8
+  store ptr %1990, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type9mreg2typeE, i64 56), align 8
   %1991 = load ptr, ptr @_ZN7TypeInt2CCE, align 8
-  store ptr %1991, ptr getelementptr inbounds (i8, ptr @_ZN4Type9mreg2typeE, i64 120), align 8
+  store ptr %1991, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type9mreg2typeE, i64 120), align 8
   %1992 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #17
   %1993 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 2, ptr %1993, align 4
@@ -6413,24 +6413,24 @@ _ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i.exit271: ; preds
   %2133 = tail call noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext 7) #17
   %2134 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i(i32 noundef 5, ptr noundef nonnull %2132, ptr noundef %2133, i1 noundef zeroext true, i32 noundef -2000000001, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   store ptr %2134, ptr @_ZN10TypeAryPtr7DOUBLESE, align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 128), align 16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 128), align 16
   %2135 = load ptr, ptr @_ZN10TypeAryPtr4OOPSE, align 8
-  store ptr %2135, ptr getelementptr inbounds (i8, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 96), align 16
-  store ptr %2135, ptr getelementptr inbounds (i8, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 104), align 8
+  store ptr %2135, ptr getelementptr inbounds nuw (i8, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 96), align 16
+  store ptr %2135, ptr getelementptr inbounds nuw (i8, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 104), align 8
   %2136 = load ptr, ptr @_ZN10TypeAryPtr5BYTESE, align 8
-  store ptr %2136, ptr getelementptr inbounds (i8, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 64), align 16
-  store ptr %2136, ptr getelementptr inbounds (i8, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 32), align 16
+  store ptr %2136, ptr getelementptr inbounds nuw (i8, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 64), align 16
+  store ptr %2136, ptr getelementptr inbounds nuw (i8, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 32), align 16
   %2137 = load ptr, ptr @_ZN10TypeAryPtr6SHORTSE, align 8
-  store ptr %2137, ptr getelementptr inbounds (i8, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 72), align 8
+  store ptr %2137, ptr getelementptr inbounds nuw (i8, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 72), align 8
   %2138 = load ptr, ptr @_ZN10TypeAryPtr5CHARSE, align 8
-  store ptr %2138, ptr getelementptr inbounds (i8, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 40), align 8
+  store ptr %2138, ptr getelementptr inbounds nuw (i8, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 40), align 8
   %2139 = load ptr, ptr @_ZN10TypeAryPtr4INTSE, align 8
-  store ptr %2139, ptr getelementptr inbounds (i8, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 80), align 16
+  store ptr %2139, ptr getelementptr inbounds nuw (i8, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 80), align 16
   %2140 = load ptr, ptr @_ZN10TypeAryPtr5LONGSE, align 8
-  store ptr %2140, ptr getelementptr inbounds (i8, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 88), align 8
+  store ptr %2140, ptr getelementptr inbounds nuw (i8, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 88), align 8
   %2141 = load ptr, ptr @_ZN10TypeAryPtr6FLOATSE, align 8
-  store ptr %2141, ptr getelementptr inbounds (i8, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 48), align 16
-  store ptr %2134, ptr getelementptr inbounds (i8, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 56), align 8
+  store ptr %2141, ptr getelementptr inbounds nuw (i8, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 48), align 16
+  store ptr %2134, ptr getelementptr inbounds nuw (i8, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 56), align 8
   %2142 = load ptr, ptr @_ZN5ciEnv13_Object_klassE, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %2142, ptr %3, align 8
@@ -6484,7 +6484,7 @@ _ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassi.exit: ; preds = %2160, %2162
   store ptr %2144, ptr %2171, align 8
   %2172 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i272, i64 56
   store ptr %2143, ptr %2172, align 8
-  store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i.i272, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i.i272, align 8
   %2173 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i272)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   store ptr %2173, ptr @_ZN16TypeInstKlassPtr6OBJECTE, align 8
@@ -6541,7 +6541,7 @@ _ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassi.exit275: ; preds = %2192, %2
   store ptr %2176, ptr %2203, align 8
   %2204 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i274, i64 56
   store ptr %2175, ptr %2204, align 8
-  store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i.i274, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i.i274, align 8
   %2205 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i274)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   store ptr %2205, ptr @_ZN16TypeInstKlassPtr14OBJECT_OR_NULLE, align 8
@@ -6628,7 +6628,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit281:             ; preds = %2251, %2253
   store ptr null, ptr %2256, align 8
   %2257 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i280, i64 16
   store i32 8, ptr %2257, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i.i280, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i.i280, align 8
   %2258 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i280, i64 20
   store i32 7, ptr %2258, align 4
   %2259 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i280, i64 24
@@ -6714,7 +6714,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit287:             ; preds = %2303, %2305
   store ptr null, ptr %2308, align 8
   %2309 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i286, i64 16
   store i32 8, ptr %2309, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i.i286, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i.i286, align 8
   %2310 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i286, i64 20
   store i32 2, ptr %2310, align 4
   %2311 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i286, i64 24
@@ -6800,7 +6800,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit293:             ; preds = %2355, %2357
   store ptr null, ptr %2360, align 8
   %2361 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i292, i64 16
   store i32 8, ptr %2361, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i.i292, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i.i292, align 8
   %2362 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i292, i64 20
   store i32 2, ptr %2362, align 4
   %2363 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i292, i64 24
@@ -6887,7 +6887,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit299:             ; preds = %2408, %2410
   store ptr null, ptr %2413, align 8
   %2414 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i298, i64 16
   store i32 8, ptr %2414, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i.i298, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i.i298, align 8
   %2415 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i298, i64 20
   store i32 2, ptr %2415, align 4
   %2416 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i298, i64 24
@@ -6974,7 +6974,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit305:             ; preds = %2461, %2463
   store ptr null, ptr %2466, align 8
   %2467 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i304, i64 16
   store i32 8, ptr %2467, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i.i304, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i.i304, align 8
   %2468 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i304, i64 20
   store i32 2, ptr %2468, align 4
   %2469 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i304, i64 24
@@ -6982,55 +6982,55 @@ _ZN9TypeTuple4makeEjPPK4Type.exit305:             ; preds = %2461, %2463
   %2470 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i304)
   store ptr %2470, ptr @_ZN9TypeTuple12LONG_CC_PAIRE, align 8
   %2471 = load ptr, ptr @_ZN13TypeNarrowOop6BOTTOME, align 8
-  store ptr %2471, ptr getelementptr inbounds (i8, ptr @_ZN4Type17_const_basic_typeE, i64 128), align 16
+  store ptr %2471, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type17_const_basic_typeE, i64 128), align 16
   %2472 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
-  store ptr %2472, ptr getelementptr inbounds (i8, ptr @_ZN4Type17_const_basic_typeE, i64 144), align 16
+  store ptr %2472, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type17_const_basic_typeE, i64 144), align 16
   %2473 = load ptr, ptr @_ZN7TypeInt4BOOLE, align 8
-  store ptr %2473, ptr getelementptr inbounds (i8, ptr @_ZN4Type17_const_basic_typeE, i64 32), align 16
+  store ptr %2473, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type17_const_basic_typeE, i64 32), align 16
   %2474 = load ptr, ptr @_ZN7TypeInt4CHARE, align 8
-  store ptr %2474, ptr getelementptr inbounds (i8, ptr @_ZN4Type17_const_basic_typeE, i64 40), align 8
+  store ptr %2474, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type17_const_basic_typeE, i64 40), align 8
   %2475 = load ptr, ptr @_ZN7TypeInt4BYTEE, align 8
-  store ptr %2475, ptr getelementptr inbounds (i8, ptr @_ZN4Type17_const_basic_typeE, i64 64), align 16
+  store ptr %2475, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type17_const_basic_typeE, i64 64), align 16
   %2476 = load ptr, ptr @_ZN7TypeInt5SHORTE, align 8
-  store ptr %2476, ptr getelementptr inbounds (i8, ptr @_ZN4Type17_const_basic_typeE, i64 72), align 8
+  store ptr %2476, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type17_const_basic_typeE, i64 72), align 8
   %2477 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
-  store ptr %2477, ptr getelementptr inbounds (i8, ptr @_ZN4Type17_const_basic_typeE, i64 80), align 16
+  store ptr %2477, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type17_const_basic_typeE, i64 80), align 16
   %2478 = load ptr, ptr @_ZN8TypeLong4LONGE, align 8
-  store ptr %2478, ptr getelementptr inbounds (i8, ptr @_ZN4Type17_const_basic_typeE, i64 88), align 8
+  store ptr %2478, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type17_const_basic_typeE, i64 88), align 8
   %2479 = load ptr, ptr @_ZN4Type5FLOATE, align 8
-  store ptr %2479, ptr getelementptr inbounds (i8, ptr @_ZN4Type17_const_basic_typeE, i64 48), align 16
+  store ptr %2479, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type17_const_basic_typeE, i64 48), align 16
   %2480 = load ptr, ptr @_ZN4Type6DOUBLEE, align 8
-  store ptr %2480, ptr getelementptr inbounds (i8, ptr @_ZN4Type17_const_basic_typeE, i64 56), align 8
+  store ptr %2480, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type17_const_basic_typeE, i64 56), align 8
   %2481 = load ptr, ptr @_ZN11TypeInstPtr6BOTTOME, align 8
-  store ptr %2481, ptr getelementptr inbounds (i8, ptr @_ZN4Type17_const_basic_typeE, i64 96), align 16
-  store ptr %2481, ptr getelementptr inbounds (i8, ptr @_ZN4Type17_const_basic_typeE, i64 104), align 8
+  store ptr %2481, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type17_const_basic_typeE, i64 96), align 16
+  store ptr %2481, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type17_const_basic_typeE, i64 104), align 8
   %2482 = load ptr, ptr @_ZN7TypePtr8NULL_PTRE, align 8
-  store ptr %2482, ptr getelementptr inbounds (i8, ptr @_ZN4Type17_const_basic_typeE, i64 112), align 16
+  store ptr %2482, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type17_const_basic_typeE, i64 112), align 16
   %2483 = load ptr, ptr @_ZN10TypeRawPtr6BOTTOME, align 8
-  store ptr %2483, ptr getelementptr inbounds (i8, ptr @_ZN4Type17_const_basic_typeE, i64 120), align 8
-  store ptr %2472, ptr getelementptr inbounds (i8, ptr @_ZN4Type17_const_basic_typeE, i64 152), align 8
+  store ptr %2483, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type17_const_basic_typeE, i64 120), align 8
+  store ptr %2472, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type17_const_basic_typeE, i64 152), align 8
   %2484 = load ptr, ptr @_ZN13TypeNarrowOop8NULL_PTRE, align 8
-  store ptr %2484, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_zero_typeE, i64 128), align 16
+  store ptr %2484, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_zero_typeE, i64 128), align 16
   %2485 = load ptr, ptr @_ZN15TypeNarrowKlass8NULL_PTRE, align 8
-  store ptr %2485, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_zero_typeE, i64 144), align 16
+  store ptr %2485, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_zero_typeE, i64 144), align 16
   %2486 = load ptr, ptr @_ZN7TypeInt4ZEROE, align 8
-  store ptr %2486, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_zero_typeE, i64 32), align 16
-  store ptr %2486, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_zero_typeE, i64 40), align 8
-  store ptr %2486, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_zero_typeE, i64 64), align 16
-  store ptr %2486, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_zero_typeE, i64 72), align 8
-  store ptr %2486, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_zero_typeE, i64 80), align 16
+  store ptr %2486, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_zero_typeE, i64 32), align 16
+  store ptr %2486, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_zero_typeE, i64 40), align 8
+  store ptr %2486, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_zero_typeE, i64 64), align 16
+  store ptr %2486, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_zero_typeE, i64 72), align 8
+  store ptr %2486, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_zero_typeE, i64 80), align 16
   %2487 = load ptr, ptr @_ZN8TypeLong4ZEROE, align 8
-  store ptr %2487, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_zero_typeE, i64 88), align 8
+  store ptr %2487, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_zero_typeE, i64 88), align 8
   %2488 = load ptr, ptr @_ZN5TypeF4ZEROE, align 8
-  store ptr %2488, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_zero_typeE, i64 48), align 16
+  store ptr %2488, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_zero_typeE, i64 48), align 16
   %2489 = load ptr, ptr @_ZN5TypeD4ZEROE, align 8
-  store ptr %2489, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_zero_typeE, i64 56), align 8
-  store ptr %2482, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_zero_typeE, i64 96), align 16
-  store ptr %2482, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_zero_typeE, i64 104), align 8
-  store ptr %2482, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_zero_typeE, i64 120), align 8
+  store ptr %2489, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_zero_typeE, i64 56), align 8
+  store ptr %2482, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_zero_typeE, i64 96), align 16
+  store ptr %2482, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_zero_typeE, i64 104), align 8
+  store ptr %2482, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_zero_typeE, i64 120), align 8
   %2490 = load ptr, ptr @_ZN4Type3TOPE, align 8
-  store ptr %2490, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_zero_typeE, i64 112), align 16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_zero_typeE, i64 152), align 8
+  store ptr %2490, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_zero_typeE, i64 112), align 16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_zero_typeE, i64 152), align 8
   %2491 = load ptr, ptr %15, align 8
   %2492 = getelementptr inbounds nuw i8, ptr %2491, i64 1808
   %2493 = load ptr, ptr %2492, align 8
@@ -7075,10 +7075,10 @@ _ZN4TypenwEm.exit:                                ; preds = %2506, %2508
   store ptr %2510, ptr %2516, align 8
   %2517 = getelementptr inbounds nuw i8, ptr %.0.i.i.i307, i64 32
   store i32 %2513, ptr %2517, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV12TypeVectMask, i64 16), ptr %.0.i.i.i307, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV12TypeVectMask, i64 16), ptr %.0.i.i.i307, align 8
   %2518 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i307)
   store ptr %2518, ptr @_ZN8TypeVect8VECTMASKE, align 8
-  store ptr %2518, ptr getelementptr inbounds (i8, ptr @_ZN4Type9mreg2typeE, i64 112), align 16
+  store ptr %2518, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type9mreg2typeE, i64 112), align 16
   %2519 = tail call noundef i32 @_ZN7Matcher15max_vector_sizeE9BasicType(i8 noundef zeroext 8) #17
   %.not.i = icmp slt i32 %2519, 4
   br i1 %.not.i, label %_ZN7Matcher21vector_size_supportedE9BasicTypei.exit.thread, label %_ZN7Matcher21vector_size_supportedE9BasicTypei.exit
@@ -7160,17 +7160,17 @@ _ZN7Matcher21vector_size_supportedE9BasicTypei.exit315: ; preds = %_ZN7Matcher21
 
 _ZN13GrowableArrayIP15ciInstanceKlassED2Ev.exit:  ; preds = %_ZN7Matcher21vector_size_supportedE9BasicTypei.exit315, %2546, %_ZN7Matcher21vector_size_supportedE9BasicTypei.exit313.thread
   %2549 = load ptr, ptr @_ZN8TypeVect5VECTAE, align 8
-  store ptr %2549, ptr getelementptr inbounds (i8, ptr @_ZN4Type9mreg2typeE, i64 64), align 16
+  store ptr %2549, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type9mreg2typeE, i64 64), align 16
   %2550 = load ptr, ptr @_ZN8TypeVect5VECTSE, align 8
-  store ptr %2550, ptr getelementptr inbounds (i8, ptr @_ZN4Type9mreg2typeE, i64 72), align 8
+  store ptr %2550, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type9mreg2typeE, i64 72), align 8
   %2551 = load ptr, ptr @_ZN8TypeVect5VECTDE, align 8
-  store ptr %2551, ptr getelementptr inbounds (i8, ptr @_ZN4Type9mreg2typeE, i64 80), align 16
+  store ptr %2551, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type9mreg2typeE, i64 80), align 16
   %2552 = load ptr, ptr @_ZN8TypeVect5VECTXE, align 8
-  store ptr %2552, ptr getelementptr inbounds (i8, ptr @_ZN4Type9mreg2typeE, i64 88), align 8
+  store ptr %2552, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type9mreg2typeE, i64 88), align 8
   %2553 = load ptr, ptr @_ZN8TypeVect5VECTYE, align 8
-  store ptr %2553, ptr getelementptr inbounds (i8, ptr @_ZN4Type9mreg2typeE, i64 96), align 16
+  store ptr %2553, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type9mreg2typeE, i64 96), align 16
   %2554 = load ptr, ptr @_ZN8TypeVect5VECTZE, align 8
-  store ptr %2554, ptr getelementptr inbounds (i8, ptr @_ZN4Type9mreg2typeE, i64 104), align 8
+  store ptr %2554, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type9mreg2typeE, i64 104), align 8
   store ptr %11, ptr %10, align 8
   store ptr null, ptr %14, align 8
   ret void
@@ -7244,7 +7244,7 @@ _ZN4TypenwEm.exit:                                ; preds = %28, %30
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   %36 = trunc i32 %.1.i to i16
   store i16 %36, ptr %35, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store i32 %0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 28
@@ -7315,7 +7315,7 @@ _ZN4TypenwEm.exit:                                ; preds = %28, %30
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   %36 = trunc i32 %.1.i to i16
   store i16 %36, ptr %35, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store i64 %0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
@@ -7363,7 +7363,7 @@ _ZN4TypenwEm.exit:                                ; preds = %19, %21
   store ptr null, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 8, ptr %25, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i, align 8
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 %0, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
@@ -7411,7 +7411,7 @@ _ZN4TypenwEm.exit:                                ; preds = %22, %24
   store ptr null, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 %0, ptr %28, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV7TypePtr, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV7TypePtr, i64 16), ptr %.0.i.i.i, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store ptr %3, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
@@ -7471,7 +7471,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   store i32 0, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i32 %0, ptr %28, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV10TypeRawPtr, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV10TypeRawPtr, i64 16), ptr %.0.i.i.i, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr null, ptr %29, align 8
   %30 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i)
@@ -7569,7 +7569,7 @@ _ZN14TypeInterfaces4makeEP13GrowableArrayIP15ciInstanceKlassE.exit: ; preds = %2
   store ptr null, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store i32 10, ptr %29, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV14TypeInterfaces, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV14TypeInterfaces, i64 16), ptr %.0.i.i.i.i, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   %31 = load ptr, ptr %6, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 1808
@@ -7676,7 +7676,7 @@ _ZN4TypenwEm.exit:                                ; preds = %20, %22
   store i32 %2, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i32 %0, ptr %30, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %.0.i.i.i, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %1, ptr %31, align 8
   %32 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i)
@@ -7724,7 +7724,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   store i32 6, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store ptr %0, ptr %25, align 8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i, align 8
   %26 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i)
   ret ptr %26
 }
@@ -7770,7 +7770,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   store i32 7, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store ptr %0, ptr %25, align 8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV15TypeNarrowKlass, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV15TypeNarrowKlass, i64 16), ptr %.0.i.i.i, align 8
   %26 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i)
   ret ptr %26
 }
@@ -7818,7 +7818,7 @@ _ZN4TypenwEm.exit:                                ; preds = %20, %22
   store ptr null, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 10, ptr %26, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV14TypeInterfaces, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV14TypeInterfaces, i64 16), ptr %.0.i.i.i, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   %28 = load ptr, ptr %3, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 1808
@@ -8005,7 +8005,7 @@ _ZN13TypeNarrowOop4makeEPK7TypePtr.exit.i:        ; preds = %29, %27
   store i32 6, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 24
   store ptr %0, ptr %34, align 8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i.i.i, align 8
   %35 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i)
   br label %_ZNK4Type14make_narrowoopEv.exit
 
@@ -8069,7 +8069,7 @@ _ZN7TypeInt4makeEiii.exit.i:                      ; preds = %63, %61
   store i32 3, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i6, i64 20
   store i16 %.1.i.i.i, ptr %68, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i.i6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i.i6, align 8
   %69 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i6, i64 24
   store i32 %39, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i6, i64 28
@@ -8117,7 +8117,7 @@ _ZN4TypenwEm.exit:                                ; preds = %87, %89
   store ptr null, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 9, ptr %94, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV7TypeAry, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV7TypeAry, i64 16), ptr %.0.i.i.i, align 8
   %95 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store ptr %.0, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
@@ -8250,7 +8250,7 @@ _ZN13TypeNarrowOop4makeEPK7TypePtr.exit.i:        ; preds = %39, %37
   store i32 6, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 24
   store ptr %14, ptr %44, align 8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i.i.i, align 8
   %45 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i)
   br label %_ZNK4Type14make_narrowoopEv.exit
 
@@ -8318,7 +8318,7 @@ _ZN15TypeNarrowKlass4makeEPK7TypePtr.exit.i:      ; preds = %79, %77
   store i32 7, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i30, i64 24
   store ptr %54, ptr %84, align 8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV15TypeNarrowKlass, i64 16), ptr %.0.i.i.i.i.i30, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV15TypeNarrowKlass, i64 16), ptr %.0.i.i.i.i.i30, align 8
   %85 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i30)
   br label %_ZNK4Type14make_narrowoopEv.exit
 
@@ -8596,7 +8596,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw [38 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %26
   %28 = load i32, ptr %27, align 16
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV4Type, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV4Type, i64 16), ptr %.0.i.i.i, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store ptr null, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -8980,7 +8980,7 @@ _ZN7TypeInt4makeEiii.exit:                        ; preds = %33, %35
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 20
   %41 = trunc i32 %.1.i.i to i16
   store i16 %41, ptr %40, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store i32 %7, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 28
@@ -9048,7 +9048,7 @@ _ZN8TypeLong4makeElli.exit:                       ; preds = %69, %71
   %76 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i12, i64 20
   %77 = trunc i32 %.1.i.i10 to i16
   store i16 %77, ptr %76, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i12, align 8
   %78 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i12, i64 24
   store i64 %0, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i12, i64 32
@@ -9126,7 +9126,7 @@ define hidden void @_ZN7TypeIntC2Eiii(ptr nocapture noundef nonnull writeonly al
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = trunc i32 %3 to i16
   store i16 %8, ptr %7, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %1, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -9251,7 +9251,7 @@ _ZN7TypeInt4makeEiii.exit:                        ; preds = %51, %53
   store i32 3, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 20
   store i16 %.1.i.i, ptr %58, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i, align 8
   %59 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store i32 %16, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 28
@@ -9336,7 +9336,7 @@ _ZN4TypenwEm.exit:                                ; preds = %33, %35
   store i32 3, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i16 %.1.i, ptr %43, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store i32 %39, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 28
@@ -9502,7 +9502,7 @@ _ZN7TypeInt4makeEiii.exit:                        ; preds = %82, %84
   store i32 3, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 20
   store i16 %.1.i.i, ptr %89, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i, align 8
   %90 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store i32 %8, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 28
@@ -9687,7 +9687,7 @@ _ZN7TypeInt4makeEiii.exit:                        ; preds = %58, %60
   store i32 3, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 20
   store i16 %.1.i.i, ptr %65, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i, align 8
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store i32 %31, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 28
@@ -9779,7 +9779,7 @@ define hidden void @_ZN8TypeLongC2Elli(ptr nocapture noundef nonnull writeonly a
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = trunc i32 %3 to i16
   store i16 %8, ptr %7, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %1, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -9904,7 +9904,7 @@ _ZN8TypeLong4makeElli.exit:                       ; preds = %51, %53
   store i32 4, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 20
   store i16 %.1.i.i, ptr %58, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i, align 8
   %59 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store i64 %16, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
@@ -9989,7 +9989,7 @@ _ZN4TypenwEm.exit:                                ; preds = %33, %35
   store i32 4, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i16 %.1.i, ptr %43, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store i64 %39, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
@@ -10165,7 +10165,7 @@ _ZN8TypeLong4makeElli.exit:                       ; preds = %87, %89
   store i32 4, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 20
   store i16 %.1.i.i, ptr %94, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i, align 8
   %95 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store i64 %8, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
@@ -10350,7 +10350,7 @@ _ZN8TypeLong4makeElli.exit:                       ; preds = %58, %60
   store i32 4, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 20
   store i16 %.1.i.i, ptr %65, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i, align 8
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store i64 %31, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
@@ -10584,7 +10584,7 @@ _ZN4TypenwEm.exit:                                ; preds = %77, %79
   store ptr null, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %.0.i.i.i13, i64 16
   store i32 8, ptr %83, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i13, align 8
   %84 = getelementptr inbounds nuw i8, ptr %.0.i.i.i13, i64 20
   store i32 %18, ptr %84, align 4
   %85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i13, i64 24
@@ -10841,7 +10841,7 @@ _ZN4TypenwEm.exit:                                ; preds = %131, %133
   store ptr null, ptr %136, align 8
   %137 = getelementptr inbounds nuw i8, ptr %.0.i.i.i42, i64 16
   store i32 8, ptr %137, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i42, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i42, align 8
   %138 = getelementptr inbounds nuw i8, ptr %.0.i.i.i42, i64 20
   store i32 %.pre-phi, ptr %138, align 4
   %139 = getelementptr inbounds nuw i8, ptr %.0.i.i.i42, i64 24
@@ -10971,7 +10971,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit:                ; preds = %66, %68
   store ptr null, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store i32 8, ptr %72, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i.i, align 8
   %73 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 20
   store i32 %.lcssa, ptr %73, align 4
   %74 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
@@ -11085,7 +11085,7 @@ _ZN4TypenwEm.exit:                                ; preds = %52, %54
   store ptr null, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 8, ptr %60, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeTuple, i64 16), ptr %.0.i.i.i, align 8
   %61 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 %58, ptr %61, align 4
   %62 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
@@ -11332,7 +11332,7 @@ _ZN7TypeInt4makeEiii.exit.i:                      ; preds = %33, %31
   store i32 3, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 20
   store i16 %.1.i.i.i, ptr %38, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i.i, align 8
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 24
   store i32 %9, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 28
@@ -11389,7 +11389,7 @@ _ZN4TypenwEm.exit:                                ; preds = %57, %59
   store ptr null, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 9, ptr %72, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV7TypeAry, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV7TypeAry, i64 16), ptr %.0.i.i.i, align 8
   %73 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store ptr %66, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
@@ -11537,7 +11537,7 @@ _ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit: ; preds = %28, %30
   store ptr null, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store i32 18, ptr %34, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV7TypePtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV7TypePtr, i64 16), ptr %.0.i.i.i.i, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store ptr %11, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
@@ -11789,7 +11789,7 @@ _ZN4TypenwEm.exit:                                ; preds = %50, %52
   store ptr %0, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
   store i32 %1, ptr %58, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV9TypeVectA, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeVectA, i64 16), ptr %.0.i.i.i, align 8
   %59 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i)
   br label %197
 
@@ -11835,7 +11835,7 @@ _ZN4TypenwEm.exit21:                              ; preds = %77, %79
   store ptr %0, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i20, i64 32
   store i32 %1, ptr %85, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV9TypeVectS, i64 16), ptr %.0.i.i.i20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeVectS, i64 16), ptr %.0.i.i.i20, align 8
   %86 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i20)
   br label %197
 
@@ -11881,7 +11881,7 @@ _ZN4TypenwEm.exit24:                              ; preds = %104, %106
   store ptr %0, ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %.0.i.i.i23, i64 32
   store i32 %1, ptr %112, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV9TypeVectD, i64 16), ptr %.0.i.i.i23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeVectD, i64 16), ptr %.0.i.i.i23, align 8
   %113 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i23)
   br label %197
 
@@ -11927,7 +11927,7 @@ _ZN4TypenwEm.exit27:                              ; preds = %131, %133
   store ptr %0, ptr %138, align 8
   %139 = getelementptr inbounds nuw i8, ptr %.0.i.i.i26, i64 32
   store i32 %1, ptr %139, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV9TypeVectX, i64 16), ptr %.0.i.i.i26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeVectX, i64 16), ptr %.0.i.i.i26, align 8
   %140 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i26)
   br label %197
 
@@ -11973,7 +11973,7 @@ _ZN4TypenwEm.exit30:                              ; preds = %158, %160
   store ptr %0, ptr %165, align 8
   %166 = getelementptr inbounds nuw i8, ptr %.0.i.i.i29, i64 32
   store i32 %1, ptr %166, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV9TypeVectY, i64 16), ptr %.0.i.i.i29, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeVectY, i64 16), ptr %.0.i.i.i29, align 8
   %167 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i29)
   br label %197
 
@@ -12019,7 +12019,7 @@ _ZN4TypenwEm.exit33:                              ; preds = %185, %187
   store ptr %0, ptr %192, align 8
   %193 = getelementptr inbounds nuw i8, ptr %.0.i.i.i32, i64 32
   store i32 %1, ptr %193, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV9TypeVectZ, i64 16), ptr %.0.i.i.i32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeVectZ, i64 16), ptr %.0.i.i.i32, align 8
   %194 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i32)
   br label %197
 
@@ -12217,7 +12217,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   store ptr null, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 %25, ptr %33, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV8TypeVect, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV8TypeVect, i64 16), ptr %.0.i.i.i, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store ptr %29, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
@@ -12351,7 +12351,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   store ptr %27, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
   store i32 %29, ptr %33, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV12TypeVectMask, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV12TypeVectMask, i64 16), ptr %.0.i.i.i, align 8
   br label %34
 
 34:                                               ; preds = %23, %_ZN4TypenwEm.exit
@@ -12423,7 +12423,7 @@ _ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit: ; preds = %31, %33
   store ptr null, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store i32 %8, ptr %37, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV7TypePtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV7TypePtr, i64 16), ptr %.0.i.i.i.i, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store ptr %12, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
@@ -12623,7 +12623,7 @@ _ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit: ; preds = %60, %62
   store ptr null, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store i32 18, ptr %66, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV7TypePtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV7TypePtr, i64 16), ptr %.0.i.i.i.i, align 8
   %67 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store ptr %.011.i, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
@@ -12807,7 +12807,7 @@ _ZNK7TypePtr16dual_speculativeEv.exit:            ; preds = %_ZNK7TypePtr11dual_
   store ptr null, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 18, ptr %43, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV7TypePtr, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV7TypePtr, i64 16), ptr %.0.i.i.i, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store ptr %.0.i1, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
@@ -12949,7 +12949,7 @@ _ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit: ; preds = %39, %41
   store ptr null, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store i32 18, ptr %45, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV7TypePtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV7TypePtr, i64 16), ptr %.0.i.i.i.i, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store ptr %20, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
@@ -13008,7 +13008,7 @@ _ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit: ; preds = %25, %27
   store ptr null, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store i32 18, ptr %32, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV7TypePtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV7TypePtr, i64 16), ptr %.0.i.i.i.i, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store ptr %6, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
@@ -13249,7 +13249,7 @@ _ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit: ; preds = %28, %30
   store ptr null, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store i32 18, ptr %34, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV7TypePtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV7TypePtr, i64 16), ptr %.0.i.i.i.i, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store ptr null, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
@@ -13672,7 +13672,7 @@ _ZN10TypeRawPtr4makeEN7TypePtr3PTRE.exit:         ; preds = %23, %25
   store i32 0, ptr %32, align 4
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %33, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV10TypeRawPtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV10TypeRawPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store ptr null, ptr %34, align 8
   %35 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
@@ -13785,7 +13785,7 @@ _ZN10TypeRawPtr4makeEN7TypePtr3PTRE.exit:         ; preds = %38, %40
   store i32 0, ptr %47, align 4
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %.020, ptr %48, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV10TypeRawPtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV10TypeRawPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store ptr null, ptr %49, align 8
   %50 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
@@ -13878,7 +13878,7 @@ _ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit: ; preds = %95, %97
   store ptr null, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i27, i64 16
   store i32 18, ptr %101, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV7TypePtr, i64 16), ptr %.0.i.i.i.i27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV7TypePtr, i64 16), ptr %.0.i.i.i.i27, align 8
   %102 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i27, i64 24
   store ptr %76, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i27, i64 32
@@ -13970,7 +13970,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   store i32 0, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i32 %28, ptr %36, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV10TypeRawPtr, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV10TypeRawPtr, i64 16), ptr %.0.i.i.i, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %30, ptr %37, align 8
   br label %38
@@ -14055,7 +14055,7 @@ _ZN10TypeRawPtr4makeEPh.exit:                     ; preds = %30, %32
   store i32 0, ptr %39, align 4
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 2, ptr %40, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV10TypeRawPtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV10TypeRawPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store ptr %13, ptr %41, align 8
   %42 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
@@ -14196,7 +14196,7 @@ define hidden void @_ZN14TypeInterfacesC2Ev(ptr nocapture noundef nonnull writeo
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 10, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV14TypeInterfaces, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV14TypeInterfaces, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
@@ -14228,7 +14228,7 @@ define hidden void @_ZN14TypeInterfacesC2EP13GrowableArrayIP15ciInstanceKlassE(p
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 10, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV14TypeInterfaces, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV14TypeInterfaces, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %7 = load ptr, ptr %6, align 8
@@ -15671,7 +15671,7 @@ define hidden void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14Ty
   store i32 %7, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %2, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV10TypeOopPtr, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV10TypeOopPtr, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %6, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -16637,7 +16637,7 @@ _ZN14TypeInterfaces4makeEP13GrowableArrayIP15ciInstanceKlassE.exit: ; preds = %4
   store ptr null, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store i32 10, ptr %49, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV14TypeInterfaces, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV14TypeInterfaces, i64 16), ptr %.0.i.i.i.i, align 8
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   %51 = load ptr, ptr %26, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 1808
@@ -16716,7 +16716,7 @@ _ZN14TypeInterfaces4makeEP13GrowableArrayIP15ciInstanceKlassE.exit24: ; preds = 
   store ptr null, ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i23, i64 16
   store i32 10, ptr %100, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV14TypeInterfaces, i64 16), ptr %.0.i.i.i.i23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV14TypeInterfaces, i64 16), ptr %.0.i.i.i.i23, align 8
   %101 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i23, i64 24
   %102 = load ptr, ptr %78, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 1808
@@ -16866,7 +16866,7 @@ _ZN4TypenwEm.exit:                                ; preds = %44, %46
   tail call void @llvm.assume(i1 %48)
   %49 = trunc nuw i8 %.0 to i1
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i, i32 noundef 21, i32 noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %49, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8)
-  store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i, align 8
   %50 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i)
   ret ptr %50
 }
@@ -16914,7 +16914,7 @@ _ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0
   %26 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %26)
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i, i32 noundef 21, i32 noundef 2, ptr noundef %5, ptr noundef %4, i1 noundef zeroext true, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
-  store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %27 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   ret ptr %27
 }
@@ -17643,7 +17643,7 @@ _ZNK14TypeInterfaces2eqEP15ciInstanceKlass.exit:  ; preds = %38, %1, %13, %.loop
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11TypeInstPtrC2EN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 20), (24, 44), (48, 80)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9) unnamed_addr #0 align 2 {
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef 21, i32 noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9)
-  store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -17715,7 +17715,7 @@ _ZN7TypeInt4makeEi.exit:                          ; preds = %27, %29
   store i32 3, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 20
   store i16 0, ptr %34, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store i32 %10, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 28
@@ -17762,7 +17762,7 @@ _ZN7TypeInt4makeEi.exit5:                         ; preds = %54, %56
   store i32 3, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i4, i64 20
   store i16 0, ptr %61, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i4, align 8
   %62 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i4, i64 24
   store i32 %.sroa.2.sroa.0.0.extract.trunc, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i4, i64 28
@@ -17810,7 +17810,7 @@ _ZN7TypeInt4makeEi.exit8:                         ; preds = %82, %84
   store i32 3, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i7, i64 20
   store i16 0, ptr %89, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i7, align 8
   %90 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i7, i64 24
   store i32 %65, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i7, i64 28
@@ -17859,7 +17859,7 @@ _ZN7TypeInt4makeEi.exit11:                        ; preds = %110, %112
   store i32 3, ptr %116, align 8
   %117 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i10, i64 20
   store i16 0, ptr %117, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i10, align 8
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i10, i64 24
   store i32 %93, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i10, i64 28
@@ -17908,7 +17908,7 @@ _ZN7TypeInt4makeEi.exit14:                        ; preds = %138, %140
   store i32 3, ptr %144, align 8
   %145 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i13, i64 20
   store i16 0, ptr %145, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i13, align 8
   %146 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i13, i64 24
   store i32 %121, ptr %146, align 8
   %147 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i13, i64 28
@@ -17953,7 +17953,7 @@ _ZN5TypeF4makeEf.exit:                            ; preds = %165, %167
   store ptr null, ptr %170, align 8
   %171 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i16, i64 16
   store i32 32, ptr %171, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeF, i64 16), ptr %.0.i.i.i.i16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV5TypeF, i64 16), ptr %.0.i.i.i.i16, align 8
   %172 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i16, i64 20
   store i32 %.sroa.2.sroa.0.0.extract.trunc, ptr %172, align 4
   br label %228
@@ -17996,7 +17996,7 @@ _ZN5TypeD4makeEd.exit:                            ; preds = %190, %192
   store ptr null, ptr %195, align 8
   %196 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i18, i64 16
   store i32 35, ptr %196, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV5TypeD, i64 16), ptr %.0.i.i.i.i18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV5TypeD, i64 16), ptr %.0.i.i.i.i18, align 8
   %197 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i18, i64 24
   store i64 %8, ptr %197, align 8
   br label %228
@@ -18041,7 +18041,7 @@ _ZN8TypeLong4makeEl.exit:                         ; preds = %215, %217
   store i32 4, ptr %221, align 8
   %222 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i20, i64 20
   store i16 0, ptr %222, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i20, align 8
   %223 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i20, i64 24
   store i32 %.sroa.2.sroa.0.0.extract.trunc, ptr %223, align 8
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i20, i64 28
@@ -18147,7 +18147,7 @@ _ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0
   %57 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %57)
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i, i32 noundef 21, i32 noundef 2, ptr noundef %10, ptr noundef %12, i1 noundef zeroext true, ptr noundef %28, i32 noundef %30, i32 noundef %32, ptr noundef %34, i32 noundef %36)
-  store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %58 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %59
 
@@ -19340,7 +19340,7 @@ _ZNK7TypePtr16dual_speculativeEv.exit:            ; preds = %_ZNK10TypeOopPtr16d
   %56 = load i32, ptr %55, align 8
   %57 = sub nsw i32 0, %56
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i, i32 noundef 21, i32 noundef %28, ptr noundef %32, ptr noundef %34, i1 noundef zeroext %38, ptr noundef %40, i32 noundef %.0.i, i32 noundef %.0.i1, ptr noundef %.0.i2, i32 noundef %57)
-  store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i, align 8
   br label %58
 
 58:                                               ; preds = %_ZNK7TypePtr16dual_speculativeEv.exit, %_ZN4TypenwEm.exit
@@ -20062,7 +20062,7 @@ _ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi.exit: ; pr
   store ptr %63, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   store ptr %65, ptr %94, align 8
-  store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %95 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   ret ptr %95
 }
@@ -20118,7 +20118,7 @@ _ZN4TypenwEm.exit:                                ; preds = %21, %23
   store ptr %1, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %2, ptr %33, align 8
-  store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i, align 8
   %34 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i)
   ret ptr %34
 }
@@ -20752,7 +20752,7 @@ define linkonce_odr hidden void @_ZN10TypeAryPtrC2EN7TypePtr3PTREP8ciObjectPK7Ty
   %12 = zext i1 %8 to i8
   %13 = load ptr, ptr @_ZN10TypeAryPtr17_array_interfacesE, align 8
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef 22, i32 noundef %1, ptr noundef %4, ptr noundef %13, i1 noundef zeroext %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef %9, i32 noundef %10)
-  store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV10TypeAryPtr, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 352) (i8, ptr @_ZTV10TypeAryPtr, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %3, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -21310,7 +21310,7 @@ _ZN7TypeInt4makeEiii.exit:                        ; preds = %67, %69
   %74 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 20
   %75 = select i1 %50, i16 3, i16 0
   store i16 %75, ptr %74, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i, align 8
   %76 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store i32 %.1233139, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 28
@@ -24859,7 +24859,7 @@ _ZN13TypeNarrowOop4makeEPK7TypePtr.exit:          ; preds = %24, %26
   store i32 6, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store ptr %7, ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i.i, align 8
   %32 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   ret ptr %32
 }
@@ -24911,7 +24911,7 @@ _ZN13TypeNarrowOop4makeEPK7TypePtr.exit:          ; preds = %24, %26
   store i32 6, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store ptr %7, ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i.i, align 8
   %32 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   ret ptr %32
 }
@@ -25203,7 +25203,7 @@ _ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit: ; preds = %37, %39
   store i32 %.0.i, ptr %46, align 4
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %4, ptr %47, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store ptr %6, ptr %48, align 8
   %49 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
@@ -25323,7 +25323,7 @@ _ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit: ; preds = %27, %29
   store i32 %10, ptr %36, align 4
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %37, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store ptr %8, ptr %38, align 8
   %39 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
@@ -25473,7 +25473,7 @@ _ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit: ; preds = %57, %59
   store i32 %.0.i, ptr %66, align 4
   %67 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %27, ptr %67, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %68 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store ptr %40, ptr %68, align 8
   %69 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
@@ -25591,7 +25591,7 @@ _ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit52: ; preds = %127, %
   store i32 %.0.i48, ptr %136, align 4
   %137 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i51, i64 40
   store i32 %98, ptr %137, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %.0.i.i.i.i51, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %.0.i.i.i.i51, align 8
   %138 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i51, i64 48
   store ptr %110, ptr %138, align 8
   %139 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i51)
@@ -25692,7 +25692,7 @@ _ZNK7TypePtr11dual_offsetEv.exit:                 ; preds = %23, %33, %34
   store i32 %.0.i, ptr %39, align 4
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i32 %28, ptr %40, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %.0.i.i.i, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %30, ptr %41, align 8
   br label %42
@@ -25715,7 +25715,7 @@ define hidden void @_ZN15TypeMetadataPtrC2EN7TypePtr3PTREP10ciMetadatai(ptr noca
   store i32 %3, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %1, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %2, ptr %11, align 8
   ret void
@@ -25768,7 +25768,7 @@ _ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit: ; preds = %18, %20
   store i32 0, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 2, ptr %28, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store ptr %0, ptr %29, align 8
   %30 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
@@ -25822,7 +25822,7 @@ _ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit: ; preds = %18, %20
   store i32 0, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 2, ptr %28, align 8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV15TypeMetadataPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store ptr %0, ptr %29, align 8
   %30 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
@@ -25931,7 +25931,7 @@ _ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi.exit: ; preds = %49, %
   store ptr %32, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   store ptr %55, ptr %63, align 8
-  store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV15TypeAryKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV15TypeAryKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %64 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store ptr %.06, ptr %64, align 8
   %65 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
@@ -25990,7 +25990,7 @@ _ZN4TypenwEm.exit:                                ; preds = %21, %23
   store ptr %2, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %26, ptr %34, align 8
-  store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV15TypeAryKlassPtr, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV15TypeAryKlassPtr, i64 16), ptr %.0.i.i.i, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   store ptr %1, ptr %35, align 8
   %36 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i)
@@ -26060,7 +26060,7 @@ _ZN16TypeInstKlassPtr4makeEP7ciKlassN4Type17InterfaceHandlingE.exit: ; preds = %
   store ptr %10, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 56
   store ptr %9, ptr %39, align 8
-  store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i.i, align 8
   %40 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %43
@@ -26142,7 +26142,7 @@ _ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi.exit: ; pr
   store ptr %12, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   store ptr %11, ptr %41, align 8
-  store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %42 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %45
 
@@ -26226,7 +26226,7 @@ _ZN16TypeInstKlassPtr4makeEP7ciKlassN4Type17InterfaceHandlingE.exit: ; preds = %
   store ptr %18, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 56
   store ptr %17, ptr %47, align 8
-  store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i.i, align 8
   %48 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %_ZN12TypeKlassPtr4makeEP7ciKlassN4Type17InterfaceHandlingE.exit
@@ -26344,7 +26344,7 @@ _ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi.exit: ; preds = %105, 
   store ptr %.sink22, ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i14.sink38, i64 56
   store ptr %110, ptr %118, align 8
-  store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV15TypeAryKlassPtr, i64 16), ptr %.0.i.i.i.i14.sink38, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV15TypeAryKlassPtr, i64 16), ptr %.0.i.i.i.i14.sink38, align 8
   %119 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i14.sink38, i64 64
   store ptr %.sink, ptr %119, align 8
   %120 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i14.sink38)
@@ -26365,7 +26365,7 @@ define hidden void @_ZN12TypeKlassPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14
   store i32 %5, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %2, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV12TypeKlassPtr, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV12TypeKlassPtr, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %3, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -26912,7 +26912,7 @@ _ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi.exit: ; pr
   store ptr %8, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   store ptr %10, ptr %53, align 8
-  store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %54 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   ret ptr %54
 }
@@ -26977,7 +26977,7 @@ _ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi.exit: ; pr
   store ptr %8, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   store ptr %10, ptr %40, align 8
-  store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %41 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   ret ptr %41
 }
@@ -27045,7 +27045,7 @@ _ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi.exit: ; pr
   store ptr %8, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   store ptr %10, ptr %41, align 8
-  store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %42 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %43
 
@@ -27161,7 +27161,7 @@ _ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi.exit: ; pr
   store ptr %16, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   store ptr %19, ptr %50, align 8
-  store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %51 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %52
 
@@ -27552,7 +27552,7 @@ _ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi.exit: ; pr
   store ptr %102, ptr %131, align 8
   %132 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   store ptr %103, ptr %132, align 8
-  store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %133 = call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
   br label %238
 
@@ -27990,7 +27990,7 @@ _ZNK7TypePtr11dual_offsetEv.exit:                 ; preds = %23, %37, %38
   store ptr %32, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %34, ptr %46, align 8
-  store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i, align 8
   br label %47
 
 47:                                               ; preds = %_ZNK7TypePtr11dual_offsetEv.exit, %_ZN4TypenwEm.exit
@@ -28881,7 +28881,7 @@ _ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi.exit: ; preds = %41, %
   store ptr %10, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   store ptr %46, ptr %54, align 8
-  store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV15TypeAryKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV15TypeAryKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store ptr %6, ptr %55, align 8
   %56 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
@@ -28949,7 +28949,7 @@ _ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi.exit: ; preds = %27, %
   store ptr %10, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   store ptr %33, ptr %41, align 8
-  store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV15TypeAryKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV15TypeAryKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store ptr %6, ptr %42, align 8
   %43 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
@@ -29020,7 +29020,7 @@ _ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi.exit: ; preds = %29, %
   store ptr %10, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   store ptr %34, ptr %42, align 8
-  store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV15TypeAryKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV15TypeAryKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store ptr %8, ptr %43, align 8
   %44 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
@@ -29147,7 +29147,7 @@ _ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi.exit: ; preds = %40, %
   store ptr %9, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   store ptr %45, ptr %53, align 8
-  store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV15TypeAryKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV15TypeAryKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store ptr %.0, ptr %54, align 8
   %55 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
@@ -29412,7 +29412,7 @@ _ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi.exit: ; preds = %104, 
   store ptr %87, ptr %116, align 8
   %117 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   store ptr %109, ptr %117, align 8
-  store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV15TypeAryKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV15TypeAryKlassPtr, i64 16), ptr %.0.i.i.i.i, align 8
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store ptr %86, ptr %118, align 8
   %119 = call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
@@ -30647,7 +30647,7 @@ _ZNK7TypePtr11dual_offsetEv.exit:                 ; preds = %23, %39, %40
   store ptr %36, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %41, ptr %49, align 8
-  store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV15TypeAryKlassPtr, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV15TypeAryKlassPtr, i64 16), ptr %.0.i.i.i, align 8
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   store ptr %32, ptr %50, align 8
   br label %51
@@ -30791,7 +30791,7 @@ _ZN4TypenwEm.exit:                                ; preds = %19, %21
   store ptr null, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 27, ptr %25, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV8TypeFunc, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV8TypeFunc, i64 16), ptr %.0.i.i.i, align 8
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store ptr %0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
@@ -30873,7 +30873,7 @@ _ZN8TypeFunc4makeEPK9TypeTupleS2_.exit:           ; preds = %41, %43
   store ptr null, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store i32 27, ptr %47, align 8
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV8TypeFunc, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV8TypeFunc, i64 16), ptr %.0.i.i.i.i, align 8
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store ptr %22, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
@@ -31349,7 +31349,7 @@ _ZN4TypenwEm.exit:                                ; preds = %19, %21
   store i32 6, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store ptr %1, ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i, align 8
   br label %28
 
 28:                                               ; preds = %24, %_ZN4TypenwEm.exit
@@ -31397,7 +31397,7 @@ _ZN4TypenwEm.exit:                                ; preds = %19, %21
   store i32 6, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store ptr %1, ptr %26, align 8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i, align 8
   %27 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i)
   ret ptr %27
 }
@@ -31734,7 +31734,7 @@ _ZN4TypenwEm.exit:                                ; preds = %19, %21
   store i32 7, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store ptr %1, ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV15TypeNarrowKlass, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV15TypeNarrowKlass, i64 16), ptr %.0.i.i.i, align 8
   br label %28
 
 28:                                               ; preds = %24, %_ZN4TypenwEm.exit
@@ -31782,7 +31782,7 @@ _ZN4TypenwEm.exit:                                ; preds = %19, %21
   store i32 7, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store ptr %1, ptr %26, align 8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV15TypeNarrowKlass, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV15TypeNarrowKlass, i64 16), ptr %.0.i.i.i, align 8
   %27 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i)
   ret ptr %27
 }
@@ -31909,234 +31909,234 @@ define internal void @_GLOBAL__sub_I_type.cpp() #12 section ".text.startup" {
   store float 0x36A0000000000000, ptr @_ZL10min_jfloat, align 4
   store float 0x47EFFFFFE0000000, ptr @_ZL10max_jfloat, align 4
   store i32 0, ptr @_ZN4Type10_type_infoE, align 16
-  store i8 99, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 4), align 4
-  store ptr @.str, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 8), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 16), align 16
+  store i8 99, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 4), align 4
+  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 16), align 16
   %1 = load i32, ptr @_ZN4Node14NotAMachineRegE, align 4
-  store i32 %1, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 20), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 24), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 32), align 16
-  store i8 99, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 36), align 4
-  store ptr @.str.5, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 40), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 48), align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 52), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 56), align 8
-  store i32 37, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 64), align 16
-  store i8 14, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 68), align 4
-  store ptr @.str.6, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 72), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 80), align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 84), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 88), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 96), align 16
-  store i8 10, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 100), align 4
-  store ptr @.str.7, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 104), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 112), align 16
-  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 116), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 120), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 128), align 16
-  store i8 11, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 132), align 4
-  store ptr @.str.8, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 136), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 144), align 16
-  store i32 7, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 148), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 152), align 8
-  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 160), align 16
-  store i8 14, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 164), align 4
-  store ptr @.str.9, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 168), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 176), align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 180), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 184), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 192), align 16
-  store i8 16, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 196), align 4
-  store ptr @.str.10, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 200), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 208), align 16
-  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 212), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 216), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 224), align 16
-  store i8 18, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 228), align 4
-  store ptr @.str.11, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 232), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 240), align 16
-  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 244), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 248), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 256), align 16
-  store i8 99, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 260), align 4
-  store ptr @.str.12, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 264), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 272), align 16
-  store i32 %1, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 276), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 280), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 288), align 16
-  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 292), align 4
-  store ptr @.str.13, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 296), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 304), align 16
-  store i32 %1, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 308), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 320), align 16
-  store i8 13, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 324), align 4
-  store ptr @.str.14, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 328), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 336), align 16
-  store i32 %1, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 340), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 344), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 352), align 16
-  store i8 99, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 356), align 4
-  store ptr @.str.15, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 360), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 368), align 16
-  store i32 14, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 372), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 376), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 384), align 16
-  store i8 99, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 388), align 4
-  store ptr @.str.16, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 392), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 400), align 16
-  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 404), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 408), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 416), align 16
-  store i8 99, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 420), align 4
-  store ptr @.str.17, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 424), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 432), align 16
-  store i32 9, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 436), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 440), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 448), align 16
-  store i8 99, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 452), align 4
-  store ptr @.str.18, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 456), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 464), align 16
-  store i32 10, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 468), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 472), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 480), align 16
-  store i8 99, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 484), align 4
-  store ptr @.str.19, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 488), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 496), align 16
-  store i32 11, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 500), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 504), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 512), align 16
-  store i8 99, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 516), align 4
-  store ptr @.str.20, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 520), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 528), align 16
-  store i32 12, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 532), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 536), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 544), align 16
-  store i8 99, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 548), align 4
-  store ptr @.str.21, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 552), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 560), align 16
-  store i32 13, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 564), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 568), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 576), align 16
-  store i8 15, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 580), align 4
-  store ptr @.str.22, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 584), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 592), align 16
-  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 596), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 600), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 608), align 16
-  store i8 15, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 612), align 4
-  store ptr @.str.23, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 616), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 624), align 16
-  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 628), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 632), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 640), align 16
-  store i8 12, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 644), align 4
-  store ptr @.str.24, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 648), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 656), align 16
-  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 660), align 4
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 664), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 672), align 16
-  store i8 12, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 676), align 4
-  store ptr @.str.25, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 680), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 688), align 16
-  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 692), align 4
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 696), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 704), align 16
-  store i8 12, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 708), align 4
-  store ptr @.str.26, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 712), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 720), align 16
-  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 724), align 4
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 728), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 736), align 16
-  store i8 17, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 740), align 4
-  store ptr @.str.27, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 744), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 752), align 16
-  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 756), align 4
-  store i32 12, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 760), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 768), align 16
-  store i8 17, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 772), align 4
-  store ptr @.str.28, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 776), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 784), align 16
-  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 788), align 4
-  store i32 12, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 792), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 800), align 16
-  store i8 17, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 804), align 4
-  store ptr @.str.29, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 808), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 816), align 16
-  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 820), align 4
-  store i32 12, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 824), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 832), align 16
-  store i8 17, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 836), align 4
-  store ptr @.str.30, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 840), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 848), align 16
-  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 852), align 4
-  store i32 12, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 856), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 864), align 16
-  store i8 12, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 868), align 4
-  store ptr @.str.31, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 872), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 880), align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 884), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 888), align 8
-  store i32 28, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 896), align 16
-  store i8 99, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 900), align 4
-  store ptr @.str.32, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 904), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 912), align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 916), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 920), align 8
-  store i32 29, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 928), align 16
-  store i8 15, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 932), align 4
-  store ptr @.str.33, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 936), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 944), align 16
-  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 948), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 952), align 8
-  store i32 30, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 960), align 16
-  store i8 99, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 964), align 4
-  store ptr @.str.34, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 968), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 976), align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 980), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 984), align 8
-  store i32 33, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 992), align 16
-  store i8 6, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 996), align 4
-  store ptr @.str.35, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1000), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1008), align 16
-  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1012), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1016), align 8
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1024), align 16
-  store i8 6, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1028), align 4
-  store ptr @.str.36, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1032), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1040), align 16
-  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1044), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1048), align 8
-  store i32 31, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1056), align 16
-  store i8 6, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1060), align 4
-  store ptr @.str.37, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1064), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1072), align 16
-  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1076), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1080), align 8
-  store i32 36, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1088), align 16
-  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1092), align 4
-  store ptr @.str.38, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1096), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1104), align 16
-  store i32 6, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1108), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1112), align 8
-  store i32 35, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1120), align 16
-  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1124), align 4
-  store ptr @.str.39, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1128), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1136), align 16
-  store i32 6, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1140), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1144), align 8
-  store i32 34, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1152), align 16
-  store i8 7, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1156), align 4
-  store ptr @.str.40, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1160), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1168), align 16
-  store i32 6, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1172), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1176), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1184), align 16
-  store i8 99, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1188), align 4
-  store ptr @.str.41, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1192), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1200), align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1204), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4Type10_type_infoE, i64 1208), align 8
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 20), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 24), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 32), align 16
+  store i8 99, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 36), align 4
+  store ptr @.str.5, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 48), align 16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 52), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 56), align 8
+  store i32 37, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 64), align 16
+  store i8 14, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 68), align 4
+  store ptr @.str.6, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 72), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 80), align 16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 84), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 88), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 96), align 16
+  store i8 10, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 100), align 4
+  store ptr @.str.7, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 104), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 112), align 16
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 116), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 120), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 128), align 16
+  store i8 11, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 132), align 4
+  store ptr @.str.8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 136), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 144), align 16
+  store i32 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 148), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 152), align 8
+  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 160), align 16
+  store i8 14, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 164), align 4
+  store ptr @.str.9, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 168), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 176), align 16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 180), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 184), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 192), align 16
+  store i8 16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 196), align 4
+  store ptr @.str.10, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 200), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 208), align 16
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 212), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 216), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 224), align 16
+  store i8 18, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 228), align 4
+  store ptr @.str.11, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 232), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 240), align 16
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 244), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 248), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 256), align 16
+  store i8 99, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 260), align 4
+  store ptr @.str.12, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 264), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 272), align 16
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 276), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 280), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 288), align 16
+  store i8 13, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 292), align 4
+  store ptr @.str.13, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 296), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 304), align 16
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 308), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 312), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 320), align 16
+  store i8 13, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 324), align 4
+  store ptr @.str.14, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 328), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 336), align 16
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 340), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 344), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 352), align 16
+  store i8 99, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 356), align 4
+  store ptr @.str.15, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 360), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 368), align 16
+  store i32 14, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 372), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 376), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 384), align 16
+  store i8 99, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 388), align 4
+  store ptr @.str.16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 392), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 400), align 16
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 404), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 408), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 416), align 16
+  store i8 99, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 420), align 4
+  store ptr @.str.17, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 424), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 432), align 16
+  store i32 9, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 436), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 440), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 448), align 16
+  store i8 99, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 452), align 4
+  store ptr @.str.18, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 456), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 464), align 16
+  store i32 10, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 468), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 472), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 480), align 16
+  store i8 99, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 484), align 4
+  store ptr @.str.19, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 488), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 496), align 16
+  store i32 11, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 500), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 504), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 512), align 16
+  store i8 99, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 516), align 4
+  store ptr @.str.20, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 520), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 528), align 16
+  store i32 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 532), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 536), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 544), align 16
+  store i8 99, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 548), align 4
+  store ptr @.str.21, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 552), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 560), align 16
+  store i32 13, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 564), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 568), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 576), align 16
+  store i8 15, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 580), align 4
+  store ptr @.str.22, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 584), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 592), align 16
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 596), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 600), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 608), align 16
+  store i8 15, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 612), align 4
+  store ptr @.str.23, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 616), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 624), align 16
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 628), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 632), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 640), align 16
+  store i8 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 644), align 4
+  store ptr @.str.24, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 648), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 656), align 16
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 660), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 664), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 672), align 16
+  store i8 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 676), align 4
+  store ptr @.str.25, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 680), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 688), align 16
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 692), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 696), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 704), align 16
+  store i8 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 708), align 4
+  store ptr @.str.26, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 712), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 720), align 16
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 724), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 728), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 736), align 16
+  store i8 17, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 740), align 4
+  store ptr @.str.27, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 744), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 752), align 16
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 756), align 4
+  store i32 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 760), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 768), align 16
+  store i8 17, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 772), align 4
+  store ptr @.str.28, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 776), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 784), align 16
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 788), align 4
+  store i32 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 792), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 800), align 16
+  store i8 17, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 804), align 4
+  store ptr @.str.29, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 808), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 816), align 16
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 820), align 4
+  store i32 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 824), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 832), align 16
+  store i8 17, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 836), align 4
+  store ptr @.str.30, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 840), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 848), align 16
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 852), align 4
+  store i32 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 856), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 864), align 16
+  store i8 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 868), align 4
+  store ptr @.str.31, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 872), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 880), align 16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 884), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 888), align 8
+  store i32 28, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 896), align 16
+  store i8 99, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 900), align 4
+  store ptr @.str.32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 904), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 912), align 16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 916), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 920), align 8
+  store i32 29, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 928), align 16
+  store i8 15, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 932), align 4
+  store ptr @.str.33, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 936), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 944), align 16
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 948), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 952), align 8
+  store i32 30, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 960), align 16
+  store i8 99, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 964), align 4
+  store ptr @.str.34, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 968), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 976), align 16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 980), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 984), align 8
+  store i32 33, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 992), align 16
+  store i8 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 996), align 4
+  store ptr @.str.35, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1000), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1008), align 16
+  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1012), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1016), align 8
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1024), align 16
+  store i8 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1028), align 4
+  store ptr @.str.36, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1032), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1040), align 16
+  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1044), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1048), align 8
+  store i32 31, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1056), align 16
+  store i8 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1060), align 4
+  store ptr @.str.37, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1064), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1072), align 16
+  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1076), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1080), align 8
+  store i32 36, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1088), align 16
+  store i8 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1092), align 4
+  store ptr @.str.38, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1096), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1104), align 16
+  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1108), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1112), align 8
+  store i32 35, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1120), align 16
+  store i8 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1124), align 4
+  store ptr @.str.39, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1128), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1136), align 16
+  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1140), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1144), align 8
+  store i32 34, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1152), align 16
+  store i8 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1156), align 4
+  store ptr @.str.40, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1160), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1168), align 16
+  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1172), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1176), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1184), align 16
+  store i8 99, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1188), align 4
+  store ptr @.str.41, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1192), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1200), align 16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1204), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type10_type_infoE, i64 1208), align 8
   ret void
 }
 

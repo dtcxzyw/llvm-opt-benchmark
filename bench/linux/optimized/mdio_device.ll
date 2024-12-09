@@ -62,7 +62,7 @@ declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) loca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @mdio_device_create(ptr noundef %0, i32 noundef %1) #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %4 = tail call noalias noundef align 8 dereferenceable_or_null(832) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 832) #7
   %5 = icmp eq ptr %4, null
   br i1 %5, label %18, label %6

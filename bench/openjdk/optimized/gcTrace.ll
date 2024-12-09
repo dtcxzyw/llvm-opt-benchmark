@@ -148,7 +148,7 @@ define hidden void @_ZN8GCTracer28report_object_count_after_gcEP17BoolObjectClos
   %27 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
   %28 = extractvalue { i64, i64 } %27, 0
   %29 = extractvalue { i64, i64 } %27, 1
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV29ObjectCountEventSenderClosure, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV29ObjectCountEventSenderClosure, i64 16), ptr %6, align 8
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %31 = load double, ptr @ObjectCountCutOffPercent, align 8
   %32 = fdiv double %31, 1.000000e+02

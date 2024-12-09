@@ -1374,7 +1374,7 @@ define internal noundef i32 @geonw_len() #3 {
 define internal nonnull ptr @geonw_name_resolution_str(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 4), align 4
   %5 = load ptr, ptr @geonw_hashtable, align 8
   %6 = tail call ptr @wmem_map_lookup(ptr noundef %5, ptr noundef %3) #12
   %7 = icmp eq ptr %6, null

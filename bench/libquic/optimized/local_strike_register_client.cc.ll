@@ -29,7 +29,7 @@ $_ZTIN3net20StrikeRegisterClientE = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net25LocalStrikeRegisterClientC2EjjjPKhNS_14StrikeRegister11StartupTypeE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this, i32 noundef %max_entries, i32 noundef %current_time_external, i32 noundef %window_secs, ptr noundef %orbit, i32 noundef %startup) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net25LocalStrikeRegisterClientE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net25LocalStrikeRegisterClientE, i64 16), ptr %this, align 8
   %m_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4base8internal8LockImplC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_)
   %strike_register_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -195,7 +195,7 @@ declare noundef i64 @_ZNK3net12QuicWallTime13ToUNIXSecondsEv(ptr noundef nonnull
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net25LocalStrikeRegisterClientD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net25LocalStrikeRegisterClientE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net25LocalStrikeRegisterClientE, i64 16), ptr %this, align 8
   %strike_register_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @_ZN3net14StrikeRegisterD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %strike_register_) #8
   %m_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -206,7 +206,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net25LocalStrikeRegisterClientD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net25LocalStrikeRegisterClientE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net25LocalStrikeRegisterClientE, i64 16), ptr %this, align 8
   %strike_register_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @_ZN3net14StrikeRegisterD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %strike_register_.i) #8
   %m_.i = getelementptr inbounds nuw i8, ptr %this, i64 8

@@ -768,9 +768,9 @@ if.then6.i:                                       ; preds = %trace_add_env.exit.
 if.end7.i:                                        ; preds = %if.then6.i, %trace_add_env.exit.i
   %53 = load ptr, ptr %cmd, align 8
   call void @sq_quote_argv_pretty(ptr noundef nonnull %buf.i, ptr noundef %53) #21
-  %54 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
+  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i14.i = icmp eq i32 %54, 0
-  %bf.load.i.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
+  %bf.load.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, 1
   %tobool10.not15.i = icmp ne i8 %bf.clear.i.i, 0
   %tobool10.not.i = select i1 %tobool.not.i14.i, i1 %tobool10.not15.i, i1 false
@@ -2904,9 +2904,9 @@ if.then.i:                                        ; preds = %if.end
   unreachable
 
 do.body.i:                                        ; preds = %if.end
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i.i = icmp eq i32 %5, 0
-  %bf.load.i.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
+  %bf.load.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, 1
   %tobool1.not23.i = icmp ne i8 %bf.clear.i.i, 0
   %tobool1.not.i = select i1 %tobool.not.i.i, i1 %tobool1.not23.i, i1 false
@@ -3587,9 +3587,9 @@ declare void @trace2_region_enter_printf_fl(ptr noundef, i32 noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @pp_cleanup(ptr noundef nonnull %pp, ptr nocapture noundef readonly %opts) unnamed_addr #2 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i = icmp eq i32 %0, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not9 = icmp ne i8 %bf.clear.i, 0
   %tobool.not = select i1 %tobool.not.i, i1 %tobool.not9, i1 false
@@ -3977,9 +3977,9 @@ if.then.i:                                        ; preds = %while.body.i
   br i1 %tobool5.not.i, label %if.end11.i, label %do.body.i
 
 do.body.i:                                        ; preds = %if.then.i
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i.i = icmp eq i32 %8, 0
-  %bf.load.i.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
+  %bf.load.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_default_key, i64 12), align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, 1
   %tobool7.not20.i = icmp ne i8 %bf.clear.i.i, 0
   %tobool7.not.i = select i1 %tobool.not.i.i, i1 %tobool7.not20.i, i1 false

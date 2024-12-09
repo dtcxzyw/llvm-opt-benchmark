@@ -1088,7 +1088,7 @@ _ZN2cv3PtrINS_4face15FacemarkLBFImplEED2Ev.exit:  ; preds = %4
   store i32 1, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %20, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv4face15FacemarkLBFImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv4face15FacemarkLBFImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %3, ptr %21, align 8
   store ptr %3, ptr %0, align 8
@@ -1109,7 +1109,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv4face15FacemarkLBFImplC1ERKNS0_11FacemarkLBF6ParamsE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(224) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds inrange(-80, 120) (i8, ptr @_ZTVN2cv4face15FacemarkLBFImplE, i64 80), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-80, 120) (i8, ptr @_ZTVN2cv4face15FacemarkLBFImplE, i64 80), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZN2cv4face11FacemarkLBF6ParamsC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %3)
           to label %4 unwind label %44
@@ -1280,7 +1280,7 @@ _ZN2cv3PtrINS_4face15FacemarkLBFImplEED2Ev.exit:  ; preds = %5
   store i32 1, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %21, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv4face15FacemarkLBFImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv4face15FacemarkLBFImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %3, ptr %22, align 8
   store ptr %3, ptr %0, align 8
@@ -3386,7 +3386,7 @@ _ZN2cv4face11FacemarkLBF6ParamsD2Ev.exit100:      ; preds = %_ZNSt6vectorIdSaIdE
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #25
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN2cv11FileStorageE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN2cv11FileStorageE, i64 16), ptr %21, align 8
   %290 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %291 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %292 = load i32, ptr %291, align 8
@@ -7499,7 +7499,7 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit19:            ; preds = %53
 83:                                               ; preds = %78, %75
   %84 = load ptr, ptr %65, align 8
   %85 = getelementptr inbounds nuw %"class.cv::face::FacemarkLBFImpl::RandomForest", ptr %84, i64 %indvars.iv
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN2cv11FileStorageE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN2cv11FileStorageE, i64 16), ptr %15, align 8
   %86 = load i32, ptr %67, align 8
   store i32 %86, ptr %66, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(32) %69)
@@ -9439,7 +9439,7 @@ define hidden void @_ZN2cv4face15FacemarkLBFImpl9loadModelENSt7__cxx1112basic_st
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #25
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN2cv11FileStorageE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN2cv11FileStorageE, i64 16), ptr %10, align 8
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %43 = load i32, ptr %42, align 8
@@ -9774,7 +9774,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %97, %99
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %101
   %102 = load ptr, ptr %42, align 8
   %103 = getelementptr inbounds nuw %"class.cv::face::FacemarkLBFImpl::RandomForest", ptr %102, i64 %indvars.iv
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN2cv11FileStorageE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN2cv11FileStorageE, i64 16), ptr %15, align 8
   %104 = load i32, ptr %54, align 8
   store i32 %104, ptr %53, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull align 8 dereferenceable(32) %56)
@@ -15606,7 +15606,7 @@ define hidden void @_ZN2cv4face15FacemarkLBFImpl12RandomForest5writeENS_11FileSt
   %26 = getelementptr inbounds nuw %"class.std::vector.61", ptr %25, i64 %indvars.iv17
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw %"class.cv::face::FacemarkLBFImpl::RandomTree", ptr %27, i64 %indvars.iv
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN2cv11FileStorageE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN2cv11FileStorageE, i64 16), ptr %4, align 8
   %29 = load i32, ptr %11, align 8
   store i32 %29, ptr %10, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
@@ -16029,7 +16029,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdE
   %154 = getelementptr inbounds nuw %"class.std::vector.61", ptr %153, i64 %indvars.iv52
   %155 = load ptr, ptr %154, align 8
   %156 = getelementptr inbounds nuw %"class.cv::face::FacemarkLBFImpl::RandomTree", ptr %155, i64 %indvars.iv
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN2cv11FileStorageE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN2cv11FileStorageE, i64 16), ptr %6, align 8
   %157 = load i32, ptr %23, align 8
   store i32 %157, ptr %22, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %25)

@@ -55,8 +55,8 @@ define internal range(i32 -1, 1) i32 @prte_mca_ras_pbs_component_query(ptr nocap
 define internal noundef i32 @ras_pbs_register() #2 {
   store i32 100, ptr @param_priority, align 4
   %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_pbs_component, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 0, ptr noundef nonnull @param_priority) #5
-  store i8 0, ptr getelementptr inbounds (i8, ptr @prte_mca_ras_pbs_component, i64 224), align 8
-  %2 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_pbs_component, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_ras_pbs_component, i64 224)) #5
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_pbs_component, i64 224), align 8
+  %2 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_pbs_component, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_mca_ras_pbs_component, i64 224)) #5
   ret i32 0
 }
 

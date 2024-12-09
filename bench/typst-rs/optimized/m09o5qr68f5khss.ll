@@ -74384,8 +74384,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
   store i8 0, ptr %104, align 8, !alias.scope !19879
   %105 = getelementptr inbounds nuw i8, ptr %97, i64 72
   store ptr null, ptr %105, align 8, !alias.scope !19879
-  %106 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..abs$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hd8428642b1d5e67eE.llvm.14728845296163125433", i64 8), align 8, !noalias !19889, !nonnull !4, !align !598, !noundef !4
-  %107 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..abs$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hd8428642b1d5e67eE.llvm.14728845296163125433", i64 16), align 8, !noalias !19889, !noundef !4
+  %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..abs$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hd8428642b1d5e67eE.llvm.14728845296163125433", i64 8), align 8, !noalias !19889, !nonnull !4, !align !598, !noundef !4
+  %107 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..abs$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hd8428642b1d5e67eE.llvm.14728845296163125433", i64 16), align 8, !noalias !19889, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %94), !noalias !19889
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19892)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19895)
@@ -74425,8 +74425,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 116:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %94), !noalias !19889
-  %117 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..pow$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h6e2d980bdfe1adecE.llvm.14728845296163125433", i64 8), align 8, !noalias !19900, !nonnull !4, !align !598, !noundef !4
-  %118 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..pow$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h6e2d980bdfe1adecE.llvm.14728845296163125433", i64 16), align 8, !noalias !19900, !noundef !4
+  %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..pow$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h6e2d980bdfe1adecE.llvm.14728845296163125433", i64 8), align 8, !noalias !19900, !nonnull !4, !align !598, !noundef !4
+  %118 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..pow$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h6e2d980bdfe1adecE.llvm.14728845296163125433", i64 16), align 8, !noalias !19900, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %92), !noalias !19900
   call void @llvm.experimental.noalias.scope.decl(metadata !19903)
   call void @llvm.experimental.noalias.scope.decl(metadata !19906)
@@ -74461,8 +74461,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 127:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i1"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %92), !noalias !19900
-  %128 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..exp$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h7cc07707bca8c42fE.llvm.14728845296163125433", i64 8), align 8, !noalias !19911, !nonnull !4, !align !598, !noundef !4
-  %129 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..exp$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h7cc07707bca8c42fE.llvm.14728845296163125433", i64 16), align 8, !noalias !19911, !noundef !4
+  %128 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..exp$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h7cc07707bca8c42fE.llvm.14728845296163125433", i64 8), align 8, !noalias !19911, !nonnull !4, !align !598, !noundef !4
+  %129 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..exp$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h7cc07707bca8c42fE.llvm.14728845296163125433", i64 16), align 8, !noalias !19911, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %90), !noalias !19911
   call void @llvm.experimental.noalias.scope.decl(metadata !19914)
   call void @llvm.experimental.noalias.scope.decl(metadata !19917)
@@ -74497,8 +74497,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 138:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i5"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %90), !noalias !19911
-  %139 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..foundations..calc..sqrt$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h7a243d468a3bc39bE.llvm.14728845296163125433", i64 8), align 8, !noalias !19922, !nonnull !4, !align !598, !noundef !4
-  %140 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..foundations..calc..sqrt$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h7a243d468a3bc39bE.llvm.14728845296163125433", i64 16), align 8, !noalias !19922, !noundef !4
+  %139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..foundations..calc..sqrt$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h7a243d468a3bc39bE.llvm.14728845296163125433", i64 8), align 8, !noalias !19922, !nonnull !4, !align !598, !noundef !4
+  %140 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..foundations..calc..sqrt$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h7a243d468a3bc39bE.llvm.14728845296163125433", i64 16), align 8, !noalias !19922, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %88), !noalias !19922
   call void @llvm.experimental.noalias.scope.decl(metadata !19925)
   call void @llvm.experimental.noalias.scope.decl(metadata !19928)
@@ -74533,8 +74533,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 149:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i9"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %88), !noalias !19922
-  %150 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..foundations..calc..root$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h2fc4d3b02bd74e23E.llvm.14728845296163125433", i64 8), align 8, !noalias !19933, !nonnull !4, !align !598, !noundef !4
-  %151 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..foundations..calc..root$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h2fc4d3b02bd74e23E.llvm.14728845296163125433", i64 16), align 8, !noalias !19933, !noundef !4
+  %150 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..foundations..calc..root$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h2fc4d3b02bd74e23E.llvm.14728845296163125433", i64 8), align 8, !noalias !19933, !nonnull !4, !align !598, !noundef !4
+  %151 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..foundations..calc..root$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h2fc4d3b02bd74e23E.llvm.14728845296163125433", i64 16), align 8, !noalias !19933, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %86), !noalias !19933
   call void @llvm.experimental.noalias.scope.decl(metadata !19936)
   call void @llvm.experimental.noalias.scope.decl(metadata !19939)
@@ -74569,8 +74569,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 160:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i13"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %86), !noalias !19933
-  %161 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..sin$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hcfda0dc8fcb68827E.llvm.14728845296163125433", i64 8), align 8, !noalias !19944, !nonnull !4, !align !598, !noundef !4
-  %162 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..sin$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hcfda0dc8fcb68827E.llvm.14728845296163125433", i64 16), align 8, !noalias !19944, !noundef !4
+  %161 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..sin$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hcfda0dc8fcb68827E.llvm.14728845296163125433", i64 8), align 8, !noalias !19944, !nonnull !4, !align !598, !noundef !4
+  %162 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..sin$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hcfda0dc8fcb68827E.llvm.14728845296163125433", i64 16), align 8, !noalias !19944, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %84), !noalias !19944
   call void @llvm.experimental.noalias.scope.decl(metadata !19947)
   call void @llvm.experimental.noalias.scope.decl(metadata !19950)
@@ -74605,8 +74605,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 171:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i17"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %84), !noalias !19944
-  %172 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..cos$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h0687c9f5d8bec7b6E.llvm.14728845296163125433", i64 8), align 8, !noalias !19955, !nonnull !4, !align !598, !noundef !4
-  %173 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..cos$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h0687c9f5d8bec7b6E.llvm.14728845296163125433", i64 16), align 8, !noalias !19955, !noundef !4
+  %172 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..cos$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h0687c9f5d8bec7b6E.llvm.14728845296163125433", i64 8), align 8, !noalias !19955, !nonnull !4, !align !598, !noundef !4
+  %173 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..cos$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h0687c9f5d8bec7b6E.llvm.14728845296163125433", i64 16), align 8, !noalias !19955, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %82), !noalias !19955
   call void @llvm.experimental.noalias.scope.decl(metadata !19958)
   call void @llvm.experimental.noalias.scope.decl(metadata !19961)
@@ -74641,8 +74641,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 182:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i21"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %82), !noalias !19955
-  %183 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..tan$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h3b250a030d39282dE.llvm.14728845296163125433", i64 8), align 8, !noalias !19966, !nonnull !4, !align !598, !noundef !4
-  %184 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..tan$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h3b250a030d39282dE.llvm.14728845296163125433", i64 16), align 8, !noalias !19966, !noundef !4
+  %183 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..tan$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h3b250a030d39282dE.llvm.14728845296163125433", i64 8), align 8, !noalias !19966, !nonnull !4, !align !598, !noundef !4
+  %184 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..tan$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h3b250a030d39282dE.llvm.14728845296163125433", i64 16), align 8, !noalias !19966, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %80), !noalias !19966
   call void @llvm.experimental.noalias.scope.decl(metadata !19969)
   call void @llvm.experimental.noalias.scope.decl(metadata !19972)
@@ -74677,8 +74677,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 193:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i25"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %80), !noalias !19966
-  %194 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..foundations..calc..asin$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h1e838b10d58919e5E.llvm.14728845296163125433", i64 8), align 8, !noalias !19977, !nonnull !4, !align !598, !noundef !4
-  %195 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..foundations..calc..asin$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h1e838b10d58919e5E.llvm.14728845296163125433", i64 16), align 8, !noalias !19977, !noundef !4
+  %194 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..foundations..calc..asin$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h1e838b10d58919e5E.llvm.14728845296163125433", i64 8), align 8, !noalias !19977, !nonnull !4, !align !598, !noundef !4
+  %195 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..foundations..calc..asin$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h1e838b10d58919e5E.llvm.14728845296163125433", i64 16), align 8, !noalias !19977, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %78), !noalias !19977
   call void @llvm.experimental.noalias.scope.decl(metadata !19980)
   call void @llvm.experimental.noalias.scope.decl(metadata !19983)
@@ -74713,8 +74713,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 204:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i29"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %78), !noalias !19977
-  %205 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..foundations..calc..acos$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h56f80008d1ddfe2fE.llvm.14728845296163125433", i64 8), align 8, !noalias !19988, !nonnull !4, !align !598, !noundef !4
-  %206 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..foundations..calc..acos$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h56f80008d1ddfe2fE.llvm.14728845296163125433", i64 16), align 8, !noalias !19988, !noundef !4
+  %205 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..foundations..calc..acos$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h56f80008d1ddfe2fE.llvm.14728845296163125433", i64 8), align 8, !noalias !19988, !nonnull !4, !align !598, !noundef !4
+  %206 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..foundations..calc..acos$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h56f80008d1ddfe2fE.llvm.14728845296163125433", i64 16), align 8, !noalias !19988, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %76), !noalias !19988
   call void @llvm.experimental.noalias.scope.decl(metadata !19991)
   call void @llvm.experimental.noalias.scope.decl(metadata !19994)
@@ -74749,8 +74749,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 215:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i33"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %76), !noalias !19988
-  %216 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..foundations..calc..atan$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17ha4f0f52042e7db46E.llvm.14728845296163125433", i64 8), align 8, !noalias !19999, !nonnull !4, !align !598, !noundef !4
-  %217 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..foundations..calc..atan$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17ha4f0f52042e7db46E.llvm.14728845296163125433", i64 16), align 8, !noalias !19999, !noundef !4
+  %216 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..foundations..calc..atan$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17ha4f0f52042e7db46E.llvm.14728845296163125433", i64 8), align 8, !noalias !19999, !nonnull !4, !align !598, !noundef !4
+  %217 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..foundations..calc..atan$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17ha4f0f52042e7db46E.llvm.14728845296163125433", i64 16), align 8, !noalias !19999, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %74), !noalias !19999
   call void @llvm.experimental.noalias.scope.decl(metadata !20002)
   call void @llvm.experimental.noalias.scope.decl(metadata !20005)
@@ -74785,8 +74785,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 226:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i37"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %74), !noalias !19999
-  %227 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN88_$LT$typst..foundations..calc..atan2$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hf8771d82d46b50d7E.llvm.14728845296163125433", i64 8), align 8, !noalias !20010, !nonnull !4, !align !598, !noundef !4
-  %228 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN88_$LT$typst..foundations..calc..atan2$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hf8771d82d46b50d7E.llvm.14728845296163125433", i64 16), align 8, !noalias !20010, !noundef !4
+  %227 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN88_$LT$typst..foundations..calc..atan2$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hf8771d82d46b50d7E.llvm.14728845296163125433", i64 8), align 8, !noalias !20010, !nonnull !4, !align !598, !noundef !4
+  %228 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN88_$LT$typst..foundations..calc..atan2$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hf8771d82d46b50d7E.llvm.14728845296163125433", i64 16), align 8, !noalias !20010, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %72), !noalias !20010
   call void @llvm.experimental.noalias.scope.decl(metadata !20013)
   call void @llvm.experimental.noalias.scope.decl(metadata !20016)
@@ -74821,8 +74821,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 237:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i41"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %72), !noalias !20010
-  %238 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..foundations..calc..sinh$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h445455caebbf2d62E.llvm.14728845296163125433", i64 8), align 8, !noalias !20021, !nonnull !4, !align !598, !noundef !4
-  %239 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..foundations..calc..sinh$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h445455caebbf2d62E.llvm.14728845296163125433", i64 16), align 8, !noalias !20021, !noundef !4
+  %238 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..foundations..calc..sinh$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h445455caebbf2d62E.llvm.14728845296163125433", i64 8), align 8, !noalias !20021, !nonnull !4, !align !598, !noundef !4
+  %239 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..foundations..calc..sinh$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h445455caebbf2d62E.llvm.14728845296163125433", i64 16), align 8, !noalias !20021, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %70), !noalias !20021
   call void @llvm.experimental.noalias.scope.decl(metadata !20024)
   call void @llvm.experimental.noalias.scope.decl(metadata !20027)
@@ -74857,8 +74857,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 248:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i45"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %70), !noalias !20021
-  %249 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..foundations..calc..cosh$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h4844e5cbda30ed83E.llvm.14728845296163125433", i64 8), align 8, !noalias !20032, !nonnull !4, !align !598, !noundef !4
-  %250 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..foundations..calc..cosh$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h4844e5cbda30ed83E.llvm.14728845296163125433", i64 16), align 8, !noalias !20032, !noundef !4
+  %249 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..foundations..calc..cosh$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h4844e5cbda30ed83E.llvm.14728845296163125433", i64 8), align 8, !noalias !20032, !nonnull !4, !align !598, !noundef !4
+  %250 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..foundations..calc..cosh$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h4844e5cbda30ed83E.llvm.14728845296163125433", i64 16), align 8, !noalias !20032, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %68), !noalias !20032
   call void @llvm.experimental.noalias.scope.decl(metadata !20035)
   call void @llvm.experimental.noalias.scope.decl(metadata !20038)
@@ -74893,8 +74893,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 259:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i49"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68), !noalias !20032
-  %260 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..foundations..calc..tanh$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h1fa06cbd1f871517E.llvm.14728845296163125433", i64 8), align 8, !noalias !20043, !nonnull !4, !align !598, !noundef !4
-  %261 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..foundations..calc..tanh$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h1fa06cbd1f871517E.llvm.14728845296163125433", i64 16), align 8, !noalias !20043, !noundef !4
+  %260 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..foundations..calc..tanh$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h1fa06cbd1f871517E.llvm.14728845296163125433", i64 8), align 8, !noalias !20043, !nonnull !4, !align !598, !noundef !4
+  %261 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..foundations..calc..tanh$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h1fa06cbd1f871517E.llvm.14728845296163125433", i64 16), align 8, !noalias !20043, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %66), !noalias !20043
   call void @llvm.experimental.noalias.scope.decl(metadata !20046)
   call void @llvm.experimental.noalias.scope.decl(metadata !20049)
@@ -74929,8 +74929,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 270:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i53"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %66), !noalias !20043
-  %271 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..log$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h37ce00f08f7ee374E.llvm.14728845296163125433", i64 8), align 8, !noalias !20054, !nonnull !4, !align !598, !noundef !4
-  %272 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..log$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h37ce00f08f7ee374E.llvm.14728845296163125433", i64 16), align 8, !noalias !20054, !noundef !4
+  %271 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..log$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h37ce00f08f7ee374E.llvm.14728845296163125433", i64 8), align 8, !noalias !20054, !nonnull !4, !align !598, !noundef !4
+  %272 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..log$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h37ce00f08f7ee374E.llvm.14728845296163125433", i64 16), align 8, !noalias !20054, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %64), !noalias !20054
   call void @llvm.experimental.noalias.scope.decl(metadata !20057)
   call void @llvm.experimental.noalias.scope.decl(metadata !20060)
@@ -74965,8 +74965,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 281:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i57"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %64), !noalias !20054
-  %282 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN85_$LT$typst..foundations..calc..ln$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h8e46c3135a3565f8E.llvm.14728845296163125433", i64 8), align 8, !noalias !20065, !nonnull !4, !align !598, !noundef !4
-  %283 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN85_$LT$typst..foundations..calc..ln$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h8e46c3135a3565f8E.llvm.14728845296163125433", i64 16), align 8, !noalias !20065, !noundef !4
+  %282 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN85_$LT$typst..foundations..calc..ln$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h8e46c3135a3565f8E.llvm.14728845296163125433", i64 8), align 8, !noalias !20065, !nonnull !4, !align !598, !noundef !4
+  %283 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN85_$LT$typst..foundations..calc..ln$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h8e46c3135a3565f8E.llvm.14728845296163125433", i64 16), align 8, !noalias !20065, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %62), !noalias !20065
   call void @llvm.experimental.noalias.scope.decl(metadata !20068)
   call void @llvm.experimental.noalias.scope.decl(metadata !20071)
@@ -75001,8 +75001,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 292:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i61"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %62), !noalias !20065
-  %293 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..foundations..calc..fact$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h272a8a8750388ca7E.llvm.14728845296163125433", i64 8), align 8, !noalias !20076, !nonnull !4, !align !598, !noundef !4
-  %294 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..foundations..calc..fact$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h272a8a8750388ca7E.llvm.14728845296163125433", i64 16), align 8, !noalias !20076, !noundef !4
+  %293 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..foundations..calc..fact$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h272a8a8750388ca7E.llvm.14728845296163125433", i64 8), align 8, !noalias !20076, !nonnull !4, !align !598, !noundef !4
+  %294 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..foundations..calc..fact$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h272a8a8750388ca7E.llvm.14728845296163125433", i64 16), align 8, !noalias !20076, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %60), !noalias !20076
   call void @llvm.experimental.noalias.scope.decl(metadata !20079)
   call void @llvm.experimental.noalias.scope.decl(metadata !20082)
@@ -75037,8 +75037,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 303:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i65"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %60), !noalias !20076
-  %304 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..foundations..calc..perm$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h8b41c52227b9bb2dE.llvm.14728845296163125433", i64 8), align 8, !noalias !20087, !nonnull !4, !align !598, !noundef !4
-  %305 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..foundations..calc..perm$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h8b41c52227b9bb2dE.llvm.14728845296163125433", i64 16), align 8, !noalias !20087, !noundef !4
+  %304 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..foundations..calc..perm$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h8b41c52227b9bb2dE.llvm.14728845296163125433", i64 8), align 8, !noalias !20087, !nonnull !4, !align !598, !noundef !4
+  %305 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..foundations..calc..perm$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h8b41c52227b9bb2dE.llvm.14728845296163125433", i64 16), align 8, !noalias !20087, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %58), !noalias !20087
   call void @llvm.experimental.noalias.scope.decl(metadata !20090)
   call void @llvm.experimental.noalias.scope.decl(metadata !20093)
@@ -75073,8 +75073,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 314:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i69"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %58), !noalias !20087
-  %315 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN88_$LT$typst..foundations..calc..binom$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hdf93af0294dd7002E.llvm.14728845296163125433", i64 8), align 8, !noalias !20098, !nonnull !4, !align !598, !noundef !4
-  %316 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN88_$LT$typst..foundations..calc..binom$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hdf93af0294dd7002E.llvm.14728845296163125433", i64 16), align 8, !noalias !20098, !noundef !4
+  %315 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN88_$LT$typst..foundations..calc..binom$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hdf93af0294dd7002E.llvm.14728845296163125433", i64 8), align 8, !noalias !20098, !nonnull !4, !align !598, !noundef !4
+  %316 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN88_$LT$typst..foundations..calc..binom$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hdf93af0294dd7002E.llvm.14728845296163125433", i64 16), align 8, !noalias !20098, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %56), !noalias !20098
   call void @llvm.experimental.noalias.scope.decl(metadata !20101)
   call void @llvm.experimental.noalias.scope.decl(metadata !20104)
@@ -75109,8 +75109,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 325:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i73"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %56), !noalias !20098
-  %326 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..gcd$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h4347800145447297E.llvm.14728845296163125433", i64 8), align 8, !noalias !20109, !nonnull !4, !align !598, !noundef !4
-  %327 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..gcd$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h4347800145447297E.llvm.14728845296163125433", i64 16), align 8, !noalias !20109, !noundef !4
+  %326 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..gcd$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h4347800145447297E.llvm.14728845296163125433", i64 8), align 8, !noalias !20109, !nonnull !4, !align !598, !noundef !4
+  %327 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..gcd$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h4347800145447297E.llvm.14728845296163125433", i64 16), align 8, !noalias !20109, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %54), !noalias !20109
   call void @llvm.experimental.noalias.scope.decl(metadata !20112)
   call void @llvm.experimental.noalias.scope.decl(metadata !20115)
@@ -75145,8 +75145,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 336:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i77"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %54), !noalias !20109
-  %337 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..lcm$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17ha5cef0a186fbd78aE.llvm.14728845296163125433", i64 8), align 8, !noalias !20120, !nonnull !4, !align !598, !noundef !4
-  %338 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..lcm$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17ha5cef0a186fbd78aE.llvm.14728845296163125433", i64 16), align 8, !noalias !20120, !noundef !4
+  %337 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..lcm$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17ha5cef0a186fbd78aE.llvm.14728845296163125433", i64 8), align 8, !noalias !20120, !nonnull !4, !align !598, !noundef !4
+  %338 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..lcm$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17ha5cef0a186fbd78aE.llvm.14728845296163125433", i64 16), align 8, !noalias !20120, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %52), !noalias !20120
   call void @llvm.experimental.noalias.scope.decl(metadata !20123)
   call void @llvm.experimental.noalias.scope.decl(metadata !20126)
@@ -75181,8 +75181,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 347:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i81"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %52), !noalias !20120
-  %348 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN88_$LT$typst..foundations..calc..floor$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17ha189e0ee003f2342E.llvm.14728845296163125433", i64 8), align 8, !noalias !20131, !nonnull !4, !align !598, !noundef !4
-  %349 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN88_$LT$typst..foundations..calc..floor$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17ha189e0ee003f2342E.llvm.14728845296163125433", i64 16), align 8, !noalias !20131, !noundef !4
+  %348 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN88_$LT$typst..foundations..calc..floor$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17ha189e0ee003f2342E.llvm.14728845296163125433", i64 8), align 8, !noalias !20131, !nonnull !4, !align !598, !noundef !4
+  %349 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN88_$LT$typst..foundations..calc..floor$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17ha189e0ee003f2342E.llvm.14728845296163125433", i64 16), align 8, !noalias !20131, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %50), !noalias !20131
   call void @llvm.experimental.noalias.scope.decl(metadata !20134)
   call void @llvm.experimental.noalias.scope.decl(metadata !20137)
@@ -75217,8 +75217,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 358:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i85"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %50), !noalias !20131
-  %359 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..foundations..calc..ceil$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hfb1563c7883c76e4E.llvm.14728845296163125433", i64 8), align 8, !noalias !20142, !nonnull !4, !align !598, !noundef !4
-  %360 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..foundations..calc..ceil$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hfb1563c7883c76e4E.llvm.14728845296163125433", i64 16), align 8, !noalias !20142, !noundef !4
+  %359 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..foundations..calc..ceil$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hfb1563c7883c76e4E.llvm.14728845296163125433", i64 8), align 8, !noalias !20142, !nonnull !4, !align !598, !noundef !4
+  %360 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..foundations..calc..ceil$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hfb1563c7883c76e4E.llvm.14728845296163125433", i64 16), align 8, !noalias !20142, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %48), !noalias !20142
   call void @llvm.experimental.noalias.scope.decl(metadata !20145)
   call void @llvm.experimental.noalias.scope.decl(metadata !20148)
@@ -75253,8 +75253,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 369:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i89"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48), !noalias !20142
-  %370 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN88_$LT$typst..foundations..calc..trunc$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h12f9a69d8956916bE.llvm.14728845296163125433", i64 8), align 8, !noalias !20153, !nonnull !4, !align !598, !noundef !4
-  %371 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN88_$LT$typst..foundations..calc..trunc$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h12f9a69d8956916bE.llvm.14728845296163125433", i64 16), align 8, !noalias !20153, !noundef !4
+  %370 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN88_$LT$typst..foundations..calc..trunc$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h12f9a69d8956916bE.llvm.14728845296163125433", i64 8), align 8, !noalias !20153, !nonnull !4, !align !598, !noundef !4
+  %371 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN88_$LT$typst..foundations..calc..trunc$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h12f9a69d8956916bE.llvm.14728845296163125433", i64 16), align 8, !noalias !20153, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %46), !noalias !20153
   call void @llvm.experimental.noalias.scope.decl(metadata !20156)
   call void @llvm.experimental.noalias.scope.decl(metadata !20159)
@@ -75289,8 +75289,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 380:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i93"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %46), !noalias !20153
-  %381 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN88_$LT$typst..foundations..calc..fract$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h3729c4ce94a65efbE.llvm.14728845296163125433", i64 8), align 8, !noalias !20164, !nonnull !4, !align !598, !noundef !4
-  %382 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN88_$LT$typst..foundations..calc..fract$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h3729c4ce94a65efbE.llvm.14728845296163125433", i64 16), align 8, !noalias !20164, !noundef !4
+  %381 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN88_$LT$typst..foundations..calc..fract$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h3729c4ce94a65efbE.llvm.14728845296163125433", i64 8), align 8, !noalias !20164, !nonnull !4, !align !598, !noundef !4
+  %382 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN88_$LT$typst..foundations..calc..fract$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h3729c4ce94a65efbE.llvm.14728845296163125433", i64 16), align 8, !noalias !20164, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %44), !noalias !20164
   call void @llvm.experimental.noalias.scope.decl(metadata !20167)
   call void @llvm.experimental.noalias.scope.decl(metadata !20170)
@@ -75325,8 +75325,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 391:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i97"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %44), !noalias !20164
-  %392 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN88_$LT$typst..foundations..calc..round$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17he2ea02641ff29f90E.llvm.14728845296163125433", i64 8), align 8, !noalias !20175, !nonnull !4, !align !598, !noundef !4
-  %393 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN88_$LT$typst..foundations..calc..round$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17he2ea02641ff29f90E.llvm.14728845296163125433", i64 16), align 8, !noalias !20175, !noundef !4
+  %392 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN88_$LT$typst..foundations..calc..round$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17he2ea02641ff29f90E.llvm.14728845296163125433", i64 8), align 8, !noalias !20175, !nonnull !4, !align !598, !noundef !4
+  %393 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN88_$LT$typst..foundations..calc..round$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17he2ea02641ff29f90E.llvm.14728845296163125433", i64 16), align 8, !noalias !20175, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %42), !noalias !20175
   call void @llvm.experimental.noalias.scope.decl(metadata !20178)
   call void @llvm.experimental.noalias.scope.decl(metadata !20181)
@@ -75361,8 +75361,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 402:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i101"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42), !noalias !20175
-  %403 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN88_$LT$typst..foundations..calc..clamp$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h6d7b7ade58f73924E.llvm.14728845296163125433", i64 8), align 8, !noalias !20186, !nonnull !4, !align !598, !noundef !4
-  %404 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN88_$LT$typst..foundations..calc..clamp$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h6d7b7ade58f73924E.llvm.14728845296163125433", i64 16), align 8, !noalias !20186, !noundef !4
+  %403 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN88_$LT$typst..foundations..calc..clamp$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h6d7b7ade58f73924E.llvm.14728845296163125433", i64 8), align 8, !noalias !20186, !nonnull !4, !align !598, !noundef !4
+  %404 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN88_$LT$typst..foundations..calc..clamp$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h6d7b7ade58f73924E.llvm.14728845296163125433", i64 16), align 8, !noalias !20186, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %40), !noalias !20186
   call void @llvm.experimental.noalias.scope.decl(metadata !20189)
   call void @llvm.experimental.noalias.scope.decl(metadata !20192)
@@ -75397,8 +75397,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 413:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i105"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40), !noalias !20186
-  %414 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..min$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h6aa097ddaffaad7eE.llvm.14728845296163125433", i64 8), align 8, !noalias !20197, !nonnull !4, !align !598, !noundef !4
-  %415 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..min$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h6aa097ddaffaad7eE.llvm.14728845296163125433", i64 16), align 8, !noalias !20197, !noundef !4
+  %414 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..min$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h6aa097ddaffaad7eE.llvm.14728845296163125433", i64 8), align 8, !noalias !20197, !nonnull !4, !align !598, !noundef !4
+  %415 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..min$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h6aa097ddaffaad7eE.llvm.14728845296163125433", i64 16), align 8, !noalias !20197, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %38), !noalias !20197
   call void @llvm.experimental.noalias.scope.decl(metadata !20200)
   call void @llvm.experimental.noalias.scope.decl(metadata !20203)
@@ -75433,8 +75433,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 424:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i109"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38), !noalias !20197
-  %425 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..max$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h213db26538c8a698E.llvm.14728845296163125433", i64 8), align 8, !noalias !20208, !nonnull !4, !align !598, !noundef !4
-  %426 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..max$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h213db26538c8a698E.llvm.14728845296163125433", i64 16), align 8, !noalias !20208, !noundef !4
+  %425 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..max$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h213db26538c8a698E.llvm.14728845296163125433", i64 8), align 8, !noalias !20208, !nonnull !4, !align !598, !noundef !4
+  %426 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..max$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h213db26538c8a698E.llvm.14728845296163125433", i64 16), align 8, !noalias !20208, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %36), !noalias !20208
   call void @llvm.experimental.noalias.scope.decl(metadata !20211)
   call void @llvm.experimental.noalias.scope.decl(metadata !20214)
@@ -75469,8 +75469,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 435:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i113"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36), !noalias !20208
-  %436 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..foundations..calc..even$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h3c3b3aab05b856d0E.llvm.14728845296163125433", i64 8), align 8, !noalias !20219, !nonnull !4, !align !598, !noundef !4
-  %437 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..foundations..calc..even$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h3c3b3aab05b856d0E.llvm.14728845296163125433", i64 16), align 8, !noalias !20219, !noundef !4
+  %436 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..foundations..calc..even$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h3c3b3aab05b856d0E.llvm.14728845296163125433", i64 8), align 8, !noalias !20219, !nonnull !4, !align !598, !noundef !4
+  %437 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..foundations..calc..even$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h3c3b3aab05b856d0E.llvm.14728845296163125433", i64 16), align 8, !noalias !20219, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34), !noalias !20219
   call void @llvm.experimental.noalias.scope.decl(metadata !20222)
   call void @llvm.experimental.noalias.scope.decl(metadata !20225)
@@ -75505,8 +75505,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 446:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i117"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34), !noalias !20219
-  %447 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..odd$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h8b50587dd9d42efcE.llvm.14728845296163125433", i64 8), align 8, !noalias !20230, !nonnull !4, !align !598, !noundef !4
-  %448 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..odd$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h8b50587dd9d42efcE.llvm.14728845296163125433", i64 16), align 8, !noalias !20230, !noundef !4
+  %447 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..odd$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h8b50587dd9d42efcE.llvm.14728845296163125433", i64 8), align 8, !noalias !20230, !nonnull !4, !align !598, !noundef !4
+  %448 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..odd$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h8b50587dd9d42efcE.llvm.14728845296163125433", i64 16), align 8, !noalias !20230, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32), !noalias !20230
   call void @llvm.experimental.noalias.scope.decl(metadata !20233)
   call void @llvm.experimental.noalias.scope.decl(metadata !20236)
@@ -75541,8 +75541,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 457:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i121"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32), !noalias !20230
-  %458 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..rem$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h53d6d52d8ba8ed19E.llvm.14728845296163125433", i64 8), align 8, !noalias !20241, !nonnull !4, !align !598, !noundef !4
-  %459 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..rem$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h53d6d52d8ba8ed19E.llvm.14728845296163125433", i64 16), align 8, !noalias !20241, !noundef !4
+  %458 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..rem$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h53d6d52d8ba8ed19E.llvm.14728845296163125433", i64 8), align 8, !noalias !20241, !nonnull !4, !align !598, !noundef !4
+  %459 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..rem$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h53d6d52d8ba8ed19E.llvm.14728845296163125433", i64 16), align 8, !noalias !20241, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30), !noalias !20241
   call void @llvm.experimental.noalias.scope.decl(metadata !20244)
   call void @llvm.experimental.noalias.scope.decl(metadata !20247)
@@ -75577,8 +75577,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 468:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i125"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30), !noalias !20241
-  %469 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN93_$LT$typst..foundations..calc..div_euclid$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h772f9b620630b475E.llvm.14728845296163125433", i64 8), align 8, !noalias !20252, !nonnull !4, !align !598, !noundef !4
-  %470 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN93_$LT$typst..foundations..calc..div_euclid$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h772f9b620630b475E.llvm.14728845296163125433", i64 16), align 8, !noalias !20252, !noundef !4
+  %469 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN93_$LT$typst..foundations..calc..div_euclid$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h772f9b620630b475E.llvm.14728845296163125433", i64 8), align 8, !noalias !20252, !nonnull !4, !align !598, !noundef !4
+  %470 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN93_$LT$typst..foundations..calc..div_euclid$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h772f9b620630b475E.llvm.14728845296163125433", i64 16), align 8, !noalias !20252, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28), !noalias !20252
   call void @llvm.experimental.noalias.scope.decl(metadata !20255)
   call void @llvm.experimental.noalias.scope.decl(metadata !20258)
@@ -75613,8 +75613,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 479:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i129"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28), !noalias !20252
-  %480 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN93_$LT$typst..foundations..calc..rem_euclid$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h7a2495afc7106ad7E.llvm.14728845296163125433", i64 8), align 8, !noalias !20263, !nonnull !4, !align !598, !noundef !4
-  %481 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN93_$LT$typst..foundations..calc..rem_euclid$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h7a2495afc7106ad7E.llvm.14728845296163125433", i64 16), align 8, !noalias !20263, !noundef !4
+  %480 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN93_$LT$typst..foundations..calc..rem_euclid$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h7a2495afc7106ad7E.llvm.14728845296163125433", i64 8), align 8, !noalias !20263, !nonnull !4, !align !598, !noundef !4
+  %481 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN93_$LT$typst..foundations..calc..rem_euclid$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h7a2495afc7106ad7E.llvm.14728845296163125433", i64 16), align 8, !noalias !20263, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26), !noalias !20263
   call void @llvm.experimental.noalias.scope.decl(metadata !20266)
   call void @llvm.experimental.noalias.scope.decl(metadata !20269)
@@ -75649,8 +75649,8 @@ _ZN5typst11foundations5scope5Scope3new17hbae2a12d1fb538a0E.exit: ; preds = %1
 
 490:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i133"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26), !noalias !20263
-  %491 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..quo$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hf6fd67e0d8da2a3dE.llvm.14728845296163125433", i64 8), align 8, !noalias !20274, !nonnull !4, !align !598, !noundef !4
-  %492 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$typst..foundations..calc..quo$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hf6fd67e0d8da2a3dE.llvm.14728845296163125433", i64 16), align 8, !noalias !20274, !noundef !4
+  %491 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..quo$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hf6fd67e0d8da2a3dE.llvm.14728845296163125433", i64 8), align 8, !noalias !20274, !nonnull !4, !align !598, !noundef !4
+  %492 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$typst..foundations..calc..quo$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hf6fd67e0d8da2a3dE.llvm.14728845296163125433", i64 16), align 8, !noalias !20274, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24), !noalias !20274
   call void @llvm.experimental.noalias.scope.decl(metadata !20277)
   call void @llvm.experimental.noalias.scope.decl(metadata !20280)
@@ -152607,7 +152607,7 @@ _ZN5typst11foundations5scope5Scope13deduplicating17h8f0843815aa89837E.exit: ; pr
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr null, ptr %12, align 8, !alias.scope !38495
   %13 = load ptr, ptr @"_ZN5typst4text3raw1_98_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..text..raw..RawLine$GT$4data4DATA17h63612920fb21e2efE.llvm.14728845296163125433", align 8, !noalias !38505, !nonnull !4, !align !598, !noundef !4
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst4text3raw1_98_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..text..raw..RawLine$GT$4data4DATA17h63612920fb21e2efE.llvm.14728845296163125433", i64 8), align 8, !noalias !38505, !noundef !4
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5typst4text3raw1_98_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..text..raw..RawLine$GT$4data4DATA17h63612920fb21e2efE.llvm.14728845296163125433", i64 8), align 8, !noalias !38505, !noundef !4
   invoke void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %4, ptr noalias noundef nonnull readonly align 1 %13, i64 noundef %14, ptr noundef nonnull align 8 @"_ZN5typst4text3raw1_98_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..text..raw..RawLine$GT$4data4DATA17h63612920fb21e2efE.llvm.14728845296163125433", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
           to label %_ZN5typst11foundations5scope5Scope11define_elem17h969f0cd740352ab3E.exit unwind label %15
 

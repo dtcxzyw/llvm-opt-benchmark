@@ -221,7 +221,7 @@ define void @_ZN10FloatValue3setERK5Value(ptr nocapture noundef nonnull writeonl
 ; Function Attrs: mustprogress uwtable
 define noalias noundef nonnull ptr @_ZNK10FloatValue5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %0) unnamed_addr #2 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10FloatValue, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10FloatValue, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load float, ptr %4, align 8
@@ -342,7 +342,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN10FloatValueC2Ef(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %0, float noundef %1) unnamed_addr #7 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10FloatValue, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10FloatValue, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %1, ptr %3, align 8
   ret void

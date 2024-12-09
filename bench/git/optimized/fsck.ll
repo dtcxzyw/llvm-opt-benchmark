@@ -219,7 +219,7 @@ for.end:                                          ; preds = %for.body
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @prepare_msg_ids() unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @msg_id_info, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @msg_id_info, i64 8), align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %for.body, label %for.end
 

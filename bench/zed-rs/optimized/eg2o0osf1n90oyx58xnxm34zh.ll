@@ -536,7 +536,7 @@ _ZN4core3ops8function6FnOnce9call_once17h08552ee6b5edc499E.exit.i: ; preds = %20
   br label %.invoke
 
 206:                                              ; preds = %.noexc103, %201
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %203, %.noexc103 ], [ getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %201 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %203, %.noexc103 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %201 ]
   store i8 1, ptr %.sroa.0.0.i.i.i2.i, align 1
   %207 = load ptr, ptr %28, align 8, !nonnull !15, !noundef !15
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 16
@@ -1039,7 +1039,7 @@ _ZN4core3ops8function6FnOnce9call_once17h08552ee6b5edc499E.exit.i132: ; preds = 
   unreachable
 
 336:                                              ; preds = %327, %.noexc135
-  %.sroa.0.0.i.i.i2.i134 = phi ptr [ %329, %.noexc135 ], [ getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %327 ]
+  %.sroa.0.0.i.i.i2.i134 = phi ptr [ %329, %.noexc135 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %327 ]
   store i8 1, ptr %.sroa.0.0.i.i.i2.i134, align 1
   %337 = invoke noundef ptr @_ZN8async_io7reactor11ReactorLock5react17hfc54f14d15cf9e4bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %20, i64 0, i32 noundef 0)
           to label %340 unwind label %338

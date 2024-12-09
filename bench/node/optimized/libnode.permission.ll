@@ -221,11 +221,11 @@ if.then.i.i.i.i.i117:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !10
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !10
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node10permission12FSPermissionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !10
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node10permission12FSPermissionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !10
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 16
   %0 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false), !noalias !10
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10permission12FSPermissionE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !10
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node10permission12FSPermissionE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !10
   tail call void @_ZN4node10permission12FSPermission9RadixTreeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19, !noalias !10
   %granted_out_fs_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 32
   tail call void @_ZN4node10permission12FSPermission9RadixTreeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %granted_out_fs_.i.i.i.i.i.i.i.i) #19, !noalias !10
@@ -242,31 +242,31 @@ if.then.i.i.i.i.i117:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i5, align 8, !noalias !16
   %_M_weak_count.i.i.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i4, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i6, align 4, !noalias !16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node10permission22ChildProcessPermissionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i4, align 8, !noalias !16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node10permission22ChildProcessPermissionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i4, align 8, !noalias !16
   %_M_impl.i.i.i.i.i.i7 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i4, i64 16
   %1 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i4, i64 24
   store i64 0, ptr %1, align 8, !noalias !16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10permission22ChildProcessPermissionE, i64 16), ptr %_M_impl.i.i.i.i.i.i7, align 8, !noalias !16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node10permission22ChildProcessPermissionE, i64 16), ptr %_M_impl.i.i.i.i.i.i7, align 8, !noalias !16
   %call5.i.i.i.i.i.i.i42 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20, !noalias !17
   %_M_use_count.i.i.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i42, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i43, align 8, !noalias !22
   %_M_weak_count.i.i.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i42, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i44, align 4, !noalias !22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node10permission16WorkerPermissionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i42, align 8, !noalias !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node10permission16WorkerPermissionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i42, align 8, !noalias !22
   %_M_impl.i.i.i.i.i.i45 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i42, i64 16
   %2 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i42, i64 24
   store i64 0, ptr %2, align 8, !noalias !22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10permission16WorkerPermissionE, i64 16), ptr %_M_impl.i.i.i.i.i.i45, align 8, !noalias !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node10permission16WorkerPermissionE, i64 16), ptr %_M_impl.i.i.i.i.i.i45, align 8, !noalias !22
   %call5.i.i.i.i.i.i.i80 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20, !noalias !23
   %_M_use_count.i.i.i.i.i.i81 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i80, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i81, align 8, !noalias !28
   %_M_weak_count.i.i.i.i.i.i82 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i80, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i82, align 4, !noalias !28
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node10permission19InspectorPermissionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i80, align 8, !noalias !28
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node10permission19InspectorPermissionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i80, align 8, !noalias !28
   %_M_impl.i.i.i.i.i.i83 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i80, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i80, i64 24
   store i64 0, ptr %3, align 8, !noalias !28
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10permission19InspectorPermissionE, i64 16), ptr %_M_impl.i.i.i.i.i.i83, align 8, !noalias !28
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node10permission19InspectorPermissionE, i64 16), ptr %_M_impl.i.i.i.i.i.i83, align 8, !noalias !28
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   store i32 0, ptr %ref.tmp6, align 8, !alias.scope !29
   %second.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp6, i64 8

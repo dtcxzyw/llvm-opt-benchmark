@@ -210,7 +210,7 @@ define linkonce_odr hidden void @_ZN5boost4urls12segments_ref6assignINS0_13segme
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %15, i8 0, i64 37, i1 false), !alias.scope !13
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail13segments_iterINS0_13segments_base8iteratorEEE, i64 16), ptr %9, align 8, !tbaa !16, !alias.scope !13
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail13segments_iterINS0_13segments_base8iteratorEEE, i64 16), ptr %9, align 8, !tbaa !16, !alias.scope !13
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %17, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false)
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 320
@@ -312,7 +312,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZN5boost4urls12segments
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #13
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %11, i8 0, i64 37, i1 false), !alias.scope !34
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail13segments_iterIPKNS_4core17basic_string_viewIcEEEE, i64 16), ptr %6, align 8, !tbaa !16, !alias.scope !34
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail13segments_iterIPKNS_4core17basic_string_viewIcEEEE, i64 16), ptr %6, align 8, !tbaa !16, !alias.scope !34
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %1, ptr %12, align 8, !tbaa !37, !alias.scope !34
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -358,7 +358,7 @@ define void @_ZN5boost4urls12segments_ref6assignESt16initializer_listINS_4core17
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #13
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %11, i8 0, i64 37, i1 false), !alias.scope !42
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail13segments_iterIPKNS_4core17basic_string_viewIcEEEE, i64 16), ptr %6, align 8, !tbaa !16, !alias.scope !42
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail13segments_iterIPKNS_4core17basic_string_viewIcEEEE, i64 16), ptr %6, align 8, !tbaa !16, !alias.scope !42
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %1, ptr %12, align 8, !tbaa !37, !alias.scope !42
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -420,7 +420,7 @@ define void @_ZN5boost4urls12segments_ref6insertENS0_13segments_base8iteratorESt
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #13, !noalias !48
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %11, i8 0, i64 37, i1 false), !alias.scope !51, !noalias !48
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail13segments_iterIPKNS_4core17basic_string_viewIcEEEE, i64 16), ptr %6, align 8, !tbaa !16, !alias.scope !51, !noalias !48
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail13segments_iterIPKNS_4core17basic_string_viewIcEEEE, i64 16), ptr %6, align 8, !tbaa !16, !alias.scope !51, !noalias !48
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %3, ptr %12, align 8, !tbaa !37, !alias.scope !51, !noalias !48
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -459,7 +459,7 @@ define void @_ZN5boost4urls12segments_ref5eraseENS0_13segments_base8iteratorES3_
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #13
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %10, i8 0, i64 37, i1 false), !alias.scope !54
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail21segments_encoded_iterIPNS_4core17basic_string_viewIcEEEE, i64 16), ptr %7, align 8, !tbaa !16, !alias.scope !54
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail21segments_encoded_iterIPNS_4core17basic_string_viewIcEEEE, i64 16), ptr %7, align 8, !tbaa !16, !alias.scope !54
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %5, ptr %11, align 8, !tbaa !57, !alias.scope !54
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -534,7 +534,7 @@ define void @_ZN5boost4urls12segments_ref7replaceENS0_13segments_base8iteratorES
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #13, !noalias !64
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %13, i8 0, i64 37, i1 false), !alias.scope !67, !noalias !64
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail13segments_iterIPKNS_4core17basic_string_viewIcEEEE, i64 16), ptr %7, align 8, !tbaa !16, !alias.scope !67, !noalias !64
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail13segments_iterIPKNS_4core17basic_string_viewIcEEEE, i64 16), ptr %7, align 8, !tbaa !16, !alias.scope !67, !noalias !64
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %4, ptr %14, align 8, !tbaa !37, !alias.scope !67, !noalias !64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 56

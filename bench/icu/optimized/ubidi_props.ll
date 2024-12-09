@@ -21,7 +21,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %for.end25
 
 if.end:                                           ; preds = %entry
-  tail call void @utrie2_enum_75(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL21ubidi_props_singleton, i64 40), ptr noundef null, ptr noundef nonnull @_ZL24_enumPropertyStartsRangePKviij, ptr noundef %sa)
+  tail call void @utrie2_enum_75(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL21ubidi_props_singleton, i64 40), ptr noundef null, ptr noundef nonnull @_ZL24_enumPropertyStartsRangePKviij, ptr noundef %sa)
   %addRange = getelementptr inbounds nuw i8, ptr %sa, i64 16
   br label %for.body
 

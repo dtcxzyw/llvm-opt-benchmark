@@ -317,7 +317,7 @@ define void @zend_objects_destroy_object(ptr noundef %0) local_unnamed_addr #0 {
 10:                                               ; preds = %6
   %11 = and i32 %8, 4
   %.not58 = icmp eq i32 %11, 0
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %.not59 = icmp eq ptr %12, null
   br i1 %.not58, label %32, label %13
 
@@ -401,7 +401,7 @@ define void @zend_objects_destroy_object(ptr noundef %0) local_unnamed_addr #0 {
   %56 = load i32, ptr %0, align 4
   %57 = add i32 %56, 1
   store i32 %57, ptr %0, align 4
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not64 = icmp eq ptr %58, null
   br i1 %.not64, label %.thread, label %60
 
@@ -419,7 +419,7 @@ define void @zend_objects_destroy_object(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 63:                                               ; preds = %60
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %.not65 = icmp eq ptr %64, null
   br i1 %.not65, label %75, label %65
 
@@ -442,23 +442,23 @@ define void @zend_objects_destroy_object(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not68, label %75, label %74
 
 74:                                               ; preds = %70
-  store ptr %71, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 880), align 8
-  store ptr getelementptr inbounds (i8, ptr @executor_globals, i64 888), ptr %64, align 8
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  store ptr %71, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 880), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 888), ptr %64, align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   br label %75
 
 75:                                               ; preds = %63, %65, %68, %74, %70
   %76 = phi ptr [ %58, %63 ], [ %58, %65 ], [ %58, %68 ], [ %.pre, %74 ], [ %58, %70 ]
-  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 880), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 880), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %78 = load ptr, ptr %2, align 8
   tail call void @zend_call_known_function(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef %78, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null) #6
   %.not69 = icmp eq ptr %76, null
   br i1 %.not69, label %83, label %79
 
 79:                                               ; preds = %75
-  store ptr %77, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 880), align 8
-  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  store ptr %77, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 880), align 8
+  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not70 = icmp eq ptr %80, null
   br i1 %.not70, label %82, label %81
 
@@ -467,7 +467,7 @@ define void @zend_objects_destroy_object(ptr noundef %0) local_unnamed_addr #0 {
   br label %83
 
 82:                                               ; preds = %79
-  store ptr %76, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  store ptr %76, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   br label %83
 
 83:                                               ; preds = %.thread, %81, %82, %75

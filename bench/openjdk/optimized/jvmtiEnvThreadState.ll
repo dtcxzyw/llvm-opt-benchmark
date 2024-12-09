@@ -679,7 +679,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %21, %_ZN10HandleAre
   store i8 0, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 0, ptr %45, align 1
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV25GetCurrentLocationClosure, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV25GetCurrentLocationClosure, i64 16), ptr %6, align 8
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr null, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 48

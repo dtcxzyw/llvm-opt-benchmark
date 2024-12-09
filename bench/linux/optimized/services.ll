@@ -129,14 +129,14 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_mls_enabled() local_unnamed_addr #0 align 16 {
-  %1 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %1 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %2 = icmp eq i8 %1, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %0
   tail call void @__rcu_read_lock() #17
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   tail call void @__rcu_read_unlock() #17
@@ -215,14 +215,14 @@ define internal fastcc range(i32 -22, 1) i32 @security_compute_validatetrans(i32
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  %12 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %12 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %13 = icmp eq i8 %12, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %13, label %119, label %14
 
 14:                                               ; preds = %5
   tail call void @__rcu_read_lock() #17
-  %15 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %15 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %15, align 8
   br i1 %4, label %28, label %18
@@ -438,14 +438,14 @@ define dso_local noundef range(i32 -22, 1) i32 @security_bounded_transition(i32 
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  %6 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %6 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %7 = icmp eq i8 %6, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %7, label %70, label %8
 
 8:                                                ; preds = %2
   tail call void @__rcu_read_lock() #17
-  %9 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %9 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %9, align 8
   %12 = tail call ptr @sidtab_search_entry(ptr noundef %11, i32 noundef %0) #17
@@ -788,13 +788,13 @@ define dso_local void @security_compute_xperms_decision(i32 noundef %0, i32 noun
   %13 = load ptr, ptr %12, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   tail call void @__rcu_read_lock() #17
-  %14 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %14 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %15 = icmp eq i8 %14, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %15, label %287, label %16
 
 16:                                               ; preds = %5
-  %17 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @sidtab_search_entry(ptr noundef %18, i32 noundef %0) #17
   %20 = icmp eq ptr %19, null
@@ -1247,7 +1247,7 @@ declare dso_local void @cond_compute_xperms(ptr noundef, ptr noundef, ptr nounde
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_compute_av(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef initializes((0, 20)) %3, ptr noundef initializes((0, 2)) %4) local_unnamed_addr #0 align 16 {
   tail call void @__rcu_read_lock() #17
-  %6 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   store i32 0, ptr %3, align 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %7, align 4
@@ -1268,7 +1268,7 @@ define dso_local void @security_compute_av(i32 noundef %0, i32 noundef %1, i16 n
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %16, align 4
   store i16 0, ptr %4, align 4
-  %17 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %17 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %18 = icmp eq i8 %17, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %18, label %157, label %19
@@ -2000,7 +2000,7 @@ define internal fastcc void @context_struct_compute_av(ptr noundef %0, ptr nound
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_compute_av_user(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef initializes((0, 20)) %3) local_unnamed_addr #0 align 16 {
   tail call void @__rcu_read_lock() #17
-  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   store i32 0, ptr %3, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %6, align 4
@@ -2020,7 +2020,7 @@ define dso_local void @security_compute_av_user(i32 noundef %0, i32 noundef %1, 
   store i32 %13, ptr %14, align 4
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %15, align 4
-  %16 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %16 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %17 = icmp eq i8 %16, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %17, label %51, label %18
@@ -2088,7 +2088,7 @@ define dso_local void @security_compute_av_user(i32 noundef %0, i32 noundef %1, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_sidtab_hash_stats(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %2 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %3 = icmp eq i8 %2, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %3, label %4, label %6
@@ -2099,7 +2099,7 @@ define dso_local i32 @security_sidtab_hash_stats(ptr noundef %0) local_unnamed_a
 
 6:                                                ; preds = %1
   tail call void @__rcu_read_lock() #17
-  %7 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @sidtab_hash_stats(ptr noundef %8, ptr noundef %0) #17
   tail call void @__rcu_read_unlock() #17
@@ -2146,7 +2146,7 @@ define internal fastcc i32 @security_sid_to_context_core(i32 noundef %0, ptr nou
 
 8:                                                ; preds = %7, %5
   store i32 0, ptr %2, align 4
-  %9 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %9 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %10 = icmp eq i8 %9, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %10, label %11, label %33
@@ -2189,7 +2189,7 @@ define internal fastcc i32 @security_sid_to_context_core(i32 noundef %0, ptr nou
 
 33:                                               ; preds = %8
   tail call void @__rcu_read_lock() #17
-  %34 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %34 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %34, align 8
   %37 = icmp eq i32 %3, 0
@@ -2284,7 +2284,7 @@ define internal fastcc i32 @security_context_to_sid_core(ptr noundef %0, i32 nou
 
 13:                                               ; preds = %9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 72, i1 false), !annotation !13
-  %14 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %14 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %15 = icmp eq i8 %14, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %15, label %.preheader, label %31
@@ -2346,7 +2346,7 @@ define internal fastcc i32 @security_context_to_sid_core(ptr noundef %0, i32 nou
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 16
   tail call void @__rcu_read_lock() #17
-  %49 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %49 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %49, align 8
   %52 = call fastcc i32 @string_to_context_struct(ptr noundef nonnull %50, ptr noundef %51, ptr noundef nonnull %11, ptr noundef nonnull %7, i32 noundef %3)
@@ -2382,7 +2382,7 @@ define internal fastcc i32 @security_context_to_sid_core(ptr noundef %0, i32 nou
   call void @ebitmap_destroy(ptr noundef nonnull %47) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %48, i8 0, i64 48, i1 false)
   call void @__rcu_read_lock() #17
-  %64 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %64 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load ptr, ptr %64, align 8
   %67 = call fastcc i32 @string_to_context_struct(ptr noundef nonnull %65, ptr noundef %66, ptr noundef nonnull %11, ptr noundef nonnull %7, i32 noundef %3)
@@ -2392,7 +2392,7 @@ define internal fastcc i32 @security_context_to_sid_core(ptr noundef %0, i32 nou
 .split:                                           ; preds = %.split.preheader, %86
   %69 = phi ptr [ %87, %86 ], [ %33, %.split.preheader ]
   call void @__rcu_read_lock() #17
-  %70 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %70 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %70, align 8
   %73 = call fastcc i32 @string_to_context_struct(ptr noundef nonnull %71, ptr noundef %72, ptr noundef nonnull %11, ptr noundef nonnull %7, i32 noundef %3)
@@ -2532,7 +2532,7 @@ define internal fastcc i32 @security_compute_sid(i32 noundef %0, i32 noundef %1,
   %17 = alloca %struct.role_trans_key, align 4
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %15) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #17
-  %18 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %18 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %19 = icmp eq i8 %18, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %19, label %40, label %20
@@ -2575,7 +2575,7 @@ define internal fastcc i32 @security_compute_sid(i32 noundef %0, i32 noundef %1,
 44:                                               ; preds = %252, %20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 72, i1 false)
   call void @__rcu_read_lock() #17
-  %45 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %45 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 608
   %47 = load i16, ptr %46, align 8
   br i1 %6, label %48, label %55
@@ -3621,7 +3621,7 @@ define internal fastcc void @context_destroy(ptr noundef initializes((0, 16)) %0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @selinux_policy_cancel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %3 = load ptr, ptr %2, align 8
   tail call void @sidtab_cancel_convert(ptr noundef %3) #17
   %4 = load ptr, ptr %0, align 8
@@ -3657,7 +3657,7 @@ define dso_local void @selinux_policy_commit(ptr nocapture noundef readonly %0) 
   %3 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
   store i64 0, ptr %2, align 8, !annotation !13
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %25, label %6
 
@@ -3690,7 +3690,7 @@ define dso_local void @selinux_policy_commit(ptr nocapture noundef readonly %0) 
   %23 = load ptr, ptr %4, align 8
   call void @sidtab_freeze_begin(ptr noundef %23, ptr noundef nonnull %2) #17
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !54
-  store volatile ptr %3, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  store volatile ptr %3, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %24 = load ptr, ptr %4, align 8
   call void @sidtab_freeze_end(ptr noundef %24, ptr noundef nonnull %2) #17
   br label %27
@@ -3699,7 +3699,7 @@ define dso_local void @selinux_policy_commit(ptr nocapture noundef readonly %0) 
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 616
   store i32 1, ptr %26, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !55
-  store volatile ptr %3, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  store volatile ptr %3, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   br label %27
 
 27:                                               ; preds = %25, %18
@@ -3817,14 +3817,14 @@ define dso_local void @selinux_policy_commit(ptr nocapture noundef readonly %0) 
   br i1 %101, label %.preheader10, label %.loopexit, !llvm.loop !58
 
 .loopexit:                                        ; preds = %53, %97, %45, %56
-  %102 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %102 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %103 = icmp eq i8 %102, 0
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %103, label %104, label %105
 
 104:                                              ; preds = %.loopexit
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !59
-  store volatile i8 1, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1
+  store volatile i8 1, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1
   call void @selinux_complete_init() #17
   br label %105
 
@@ -3879,13 +3879,13 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %1, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %10 = tail call noalias align 8 dereferenceable_or_null(624) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 624) #22
   %11 = icmp eq ptr %10, null
   br i1 %11, label %199, label %12
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 104), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 104), align 8
   %14 = tail call noalias align 8 dereferenceable_or_null(7208) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 3520, i64 noundef 7208) #22
   store ptr %14, ptr %10, align 8
   %15 = icmp eq ptr %14, null
@@ -4057,7 +4057,7 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
   br label %190
 
 123:                                              ; preds = %116
-  %124 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %124 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %125 = icmp eq i8 %124, 0
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %125, label %126, label %128
@@ -4069,7 +4069,7 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
   br label %199
 
 128:                                              ; preds = %123
-  %129 = load ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
   store ptr null, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
@@ -4153,7 +4153,7 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
   br label %187
 
 170:                                              ; preds = %.loopexit
-  %171 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %171 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %172 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %171, i32 noundef 3264, i64 noundef 32) #22
   %173 = icmp eq ptr %172, null
   br i1 %173, label %187, label %174
@@ -4236,14 +4236,14 @@ declare dso_local void @policydb_destroy(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -115, -116) i32 @security_port_sid(i8 noundef zeroext %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = alloca i32, align 4
-  %5 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %5 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %6 = icmp eq i8 %5, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %3
   tail call void @__rcu_read_lock() #17
-  %8 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %9 = getelementptr i8, ptr %8, i64 456
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
@@ -4320,7 +4320,7 @@ define dso_local range(i32 -115, -116) i32 @security_port_sid(i8 noundef zeroext
 46:                                               ; preds = %44
   call void @__rcu_read_unlock() #17
   call void @__rcu_read_lock() #17
-  %47 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %47 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %48 = getelementptr i8, ptr %47, i64 456
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
@@ -4343,14 +4343,14 @@ define dso_local range(i32 -115, -116) i32 @security_port_sid(i8 noundef zeroext
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -115, -116) i32 @security_ib_pkey_sid(i64 noundef %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = alloca i32, align 4
-  %5 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %5 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %6 = icmp eq i8 %5, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %3
   tail call void @__rcu_read_lock() #17
-  %8 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %9 = getelementptr i8, ptr %8, i64 496
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
@@ -4427,7 +4427,7 @@ define dso_local range(i32 -115, -116) i32 @security_ib_pkey_sid(i64 noundef %0,
 46:                                               ; preds = %44
   call void @__rcu_read_unlock() #17
   call void @__rcu_read_lock() #17
-  %47 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %47 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %48 = getelementptr i8, ptr %47, i64 496
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
@@ -4450,14 +4450,14 @@ define dso_local range(i32 -115, -116) i32 @security_ib_pkey_sid(i64 noundef %0,
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -115, -116) i32 @security_ib_endport_sid(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = alloca i32, align 4
-  %5 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %5 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %6 = icmp eq i8 %5, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %3
   tail call void @__rcu_read_lock() #17
-  %8 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %9 = getelementptr i8, ptr %8, i64 504
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
@@ -4529,7 +4529,7 @@ define dso_local range(i32 -115, -116) i32 @security_ib_endport_sid(ptr nocaptur
 43:                                               ; preds = %41
   call void @__rcu_read_unlock() #17
   call void @__rcu_read_lock() #17
-  %44 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %44 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %45 = getelementptr i8, ptr %44, i64 504
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
@@ -4555,14 +4555,14 @@ declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -115, -116) i32 @security_netif_sid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
-  %4 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %4 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %5 = icmp eq i8 %4, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %2
   tail call void @__rcu_read_lock() #17
-  %7 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %8 = getelementptr i8, ptr %7, i64 464
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
@@ -4628,7 +4628,7 @@ define dso_local range(i32 -115, -116) i32 @security_netif_sid(ptr nocapture nou
 38:                                               ; preds = %36
   call void @__rcu_read_unlock() #17
   call void @__rcu_read_lock() #17
-  %39 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %39 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %40 = getelementptr i8, ptr %39, i64 464
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
@@ -4654,14 +4654,14 @@ declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) loca
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -115, -116) i32 @security_node_sid(i16 noundef zeroext %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
-  %6 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %6 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %7 = icmp eq i8 %6, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %7, label %86, label %8
 
 8:                                                ; preds = %4
   tail call void @__rcu_read_lock() #17
-  %9 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %9 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   switch i32 %2, label %.split.split [
     i32 16, label %.split.us
     i32 4, label %.split.split.us
@@ -4746,7 +4746,7 @@ define dso_local noundef range(i32 -115, -116) i32 @security_node_sid(i16 nounde
 50:                                               ; preds = %48
   call void @__rcu_read_unlock() #17
   call void @__rcu_read_lock() #17
-  %51 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %51 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %52 = getelementptr i8, ptr %51, i64 488
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
@@ -4803,7 +4803,7 @@ define dso_local noundef range(i32 -115, -116) i32 @security_node_sid(i16 nounde
 78:                                               ; preds = %76
   call void @__rcu_read_unlock() #17
   call void @__rcu_read_lock() #17
-  %79 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %79 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %80 = getelementptr i8, ptr %79, i64 472
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
@@ -4863,13 +4863,13 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
   store ptr null, ptr %2, align 8
   store i32 0, ptr %3, align 4
-  %8 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %8 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %9 = icmp eq i8 %8, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %9, label %218, label %10
 
 10:                                               ; preds = %4
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %12 = tail call noalias align 8 dereferenceable_or_null(100) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 100) #22
   %13 = icmp eq ptr %12, null
   br i1 %13, label %218, label %14
@@ -4877,7 +4877,7 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
 14:                                               ; preds = %10
   store i32 0, ptr %6, align 4, !annotation !13
   tail call void @__rcu_read_lock() #17
-  %15 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %15 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %16 = load ptr, ptr %15, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   %17 = tail call ptr @sidtab_search_entry(ptr noundef %16, i32 noundef %0) #17
@@ -5001,7 +5001,7 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
 93:                                               ; preds = %91
   call void @__rcu_read_unlock() #17
   call void @__rcu_read_lock() #17
-  %94 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %94 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %95 = load ptr, ptr %94, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   %96 = call ptr @sidtab_search_entry(ptr noundef %95, i32 noundef %0) #17
@@ -5217,7 +5217,7 @@ declare dso_local i32 @avc_has_perm_noaudit(i32 noundef, i32 noundef, i16 nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -115, -116) i32 @security_genfs_sid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
-  %5 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %5 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %6 = icmp eq i8 %5, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %6, label %7, label %.preheader
@@ -5228,7 +5228,7 @@ define dso_local range(i32 -115, -116) i32 @security_genfs_sid(ptr nocapture nou
 
 .preheader:                                       ; preds = %4, %.preheader
   tail call void @__rcu_read_lock() #17
-  %8 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %9 = tail call fastcc i32 @__security_genfs_sid(ptr noundef %8, ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3)
   tail call void @__rcu_read_unlock() #17
   %10 = icmp eq i32 %9, -116
@@ -5384,13 +5384,13 @@ define dso_local range(i32 -115, -116) i32 @security_fs_use(ptr nocapture nounde
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 32
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 12), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @selinux_blob_sizes, i64 12), align 4
   %6 = sext i32 %5 to i64
   %7 = getelementptr i8, ptr %4, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %11 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %12 = icmp eq i8 %11, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -5403,7 +5403,7 @@ define dso_local range(i32 -115, -116) i32 @security_fs_use(ptr nocapture nounde
 
 .preheader4:                                      ; preds = %1, %45
   call void @__rcu_read_lock() #17
-  %15 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %15 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr i8, ptr %15, i64 480
   %18 = load ptr, ptr %17, align 8
@@ -5607,13 +5607,13 @@ thread-pre-split:                                 ; preds = %13
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @security_set_bools(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
-  %3 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %3 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %4 = icmp eq i8 %3, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %4, label %62, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = getelementptr i8, ptr %6, i64 152
   %9 = load i32, ptr %8, align 8
@@ -5698,7 +5698,7 @@ define dso_local noundef range(i32 -22, 1) i32 @security_set_bools(i32 noundef %
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 616
   store i32 %59, ptr %60, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !88
-  store volatile ptr %13, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  store volatile ptr %13, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   tail call void @synchronize_rcu() #17
   tail call void @cond_policydb_destroy_dup(ptr noundef nonnull %7) #17
   tail call void @kfree(ptr noundef %6) #17
@@ -5724,14 +5724,14 @@ declare dso_local void @evaluate_cond_nodes(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_get_bool_value(i32 noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %2 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %3 = icmp eq i8 %2, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %3, label %19, label %4
 
 4:                                                ; preds = %1
   tail call void @__rcu_read_lock() #17
-  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %6 = getelementptr i8, ptr %5, i64 152
   %7 = load i32, ptr %6, align 8
   %8 = icmp ugt i32 %7, %0
@@ -5767,7 +5767,7 @@ define dso_local i32 @security_sid_mls_copy(i32 noundef %0, i32 noundef %1, ptr 
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
-  %9 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %9 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %10 = icmp eq i8 %9, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %10, label %25, label %11
@@ -5776,7 +5776,7 @@ define dso_local i32 @security_sid_mls_copy(i32 noundef %0, i32 noundef %1, ptr 
   store ptr null, ptr %7, align 8, !annotation !13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 72, i1 false)
   tail call void @__rcu_read_lock() #17
-  %12 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %12 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
@@ -5927,7 +5927,7 @@ define dso_local i32 @security_sid_mls_copy(i32 noundef %0, i32 noundef %1, ptr 
   call void @ebitmap_destroy(ptr noundef nonnull %22) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 72, i1 false)
   call void @__rcu_read_lock() #17
-  %90 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %90 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load i32, ptr %91, align 8
   %93 = icmp eq i32 %92, 0
@@ -5994,14 +5994,14 @@ define dso_local noundef range(i32 -22, 1) i32 @security_net_peersid_resolve(i32
   br label %55
 
 12:                                               ; preds = %7
-  %13 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %13 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %14 = icmp eq i8 %13, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %14, label %55, label %15
 
 15:                                               ; preds = %12
   tail call void @__rcu_read_lock() #17
-  %16 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %16 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %16, align 8
   %19 = load i32, ptr %17, align 8
@@ -6219,14 +6219,14 @@ define internal range(i32 -12, 1) i32 @get_permissions_callback(ptr noundef %0, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 0, 2) i32 @security_get_reject_unknown() local_unnamed_addr #0 align 16 {
-  %1 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %1 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %2 = icmp eq i8 %1, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %0
   tail call void @__rcu_read_lock() #17
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 588
   %6 = load i8, ptr %5, align 4
   %7 = and i8 %6, 1
@@ -6241,14 +6241,14 @@ define dso_local range(i32 0, 2) i32 @security_get_reject_unknown() local_unname
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 0, 2) i32 @security_get_allow_unknown() local_unnamed_addr #0 align 16 {
-  %1 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %1 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %2 = icmp eq i8 %1, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %2, label %10, label %3
 
 3:                                                ; preds = %0
   tail call void @__rcu_read_lock() #17
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 588
   %6 = load i8, ptr %5, align 4
   %7 = lshr i8 %6, 1
@@ -6264,14 +6264,14 @@ define dso_local range(i32 0, 2) i32 @security_get_allow_unknown() local_unnamed
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_policycap_supported(i32 noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %2 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %3 = icmp eq i8 %2, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %1
   tail call void @__rcu_read_lock() #17
-  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 544
   %7 = zext i32 %0 to i64
   %8 = tail call i32 @ebitmap_get_bit(ptr noundef nonnull %6, i64 noundef %7) #17
@@ -6317,7 +6317,7 @@ define dso_local void @selinux_audit_rule_free(ptr noundef %0) local_unnamed_add
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @selinux_audit_rule_init(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 align 16 {
   store ptr null, ptr %3, align 8
-  %5 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %5 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %6 = icmp eq i8 %5, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %6, label %60, label %7
@@ -6346,7 +6346,7 @@ define dso_local i32 @selinux_audit_rule_init(i32 noundef %0, i32 noundef %1, pt
   br i1 %12, label %13, label %60
 
 13:                                               ; preds = %10, %8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %15 = tail call noalias align 8 dereferenceable_or_null(80) ptr @kmalloc_trace(ptr noundef %14, i32 noundef 3520, i64 noundef 80) #22
   %16 = icmp eq ptr %15, null
   br i1 %16, label %60, label %17
@@ -6355,7 +6355,7 @@ define dso_local i32 @selinux_audit_rule_init(i32 noundef %0, i32 noundef %1, pt
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %18, i8 0, i64 72, i1 false)
   tail call void @__rcu_read_lock() #17
-  %19 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %19 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 616
   %21 = load i32, ptr %20, align 8
   store i32 %21, ptr %15, align 8
@@ -6517,14 +6517,14 @@ define dso_local range(i32 -116, 2) i32 @selinux_audit_rule_match(i32 noundef %0
   br label %158
 
 9:                                                ; preds = %4
-  %10 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %10 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %11 = icmp eq i8 %10, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %11, label %158, label %12
 
 12:                                               ; preds = %9
   tail call void @__rcu_read_lock() #17
-  %13 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %13 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %14 = load i32, ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 616
   %16 = load i32, ptr %15, align 8
@@ -6794,7 +6794,7 @@ define internal noundef i32 @aurule_init() #12 section ".init.text" align 16 {
 define dso_local i32 @security_netlbl_secattr_to_sid(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.context, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #17
-  %4 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %4 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %5 = icmp eq i8 %4, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %5, label %15, label %6
@@ -6802,7 +6802,7 @@ define dso_local i32 @security_netlbl_secattr_to_sid(ptr noundef %0, ptr noundef
 6:                                                ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false), !annotation !13
   tail call void @__rcu_read_lock() #17
-  %7 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %8 = load i32, ptr %0, align 8
   %9 = and i32 %8, 2
   %10 = icmp eq i32 %9, 0
@@ -6894,7 +6894,7 @@ define dso_local i32 @security_netlbl_secattr_to_sid(ptr noundef %0, ptr noundef
 56:                                               ; preds = %54
   call void @__rcu_read_unlock() #17
   call void @__rcu_read_lock() #17
-  %57 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %57 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %58 = load i32, ptr %0, align 8
   %59 = and i32 %58, 2
   %60 = icmp eq i32 %59, 0
@@ -6902,13 +6902,13 @@ define dso_local i32 @security_netlbl_secattr_to_sid(ptr noundef %0, ptr noundef
 
 61:                                               ; preds = %54
   %62 = load i32, ptr %1, align 4
-  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 24), align 8
   %64 = call noalias align 8 dereferenceable_or_null(4) ptr @kmalloc_trace(ptr noundef %63, i32 noundef 2080, i64 noundef 4) #22
   %65 = icmp eq ptr %64, null
   br i1 %65, label %.loopexit, label %66
 
 66:                                               ; preds = %61
-  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %68 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %67, i32 noundef 2336, i64 noundef 24) #22
   %69 = icmp eq ptr %68, null
   br i1 %69, label %76, label %70
@@ -6962,14 +6962,14 @@ declare dso_local void @ebitmap_destroy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_netlbl_sid_to_secattr(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
+  %3 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %4 = icmp eq i8 %3, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   br i1 %4, label %31, label %5
 
 5:                                                ; preds = %2
   tail call void @__rcu_read_lock() #17
-  %6 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %6, align 8
   %9 = tail call ptr @sidtab_search_entry(ptr noundef %8, i32 noundef %0) #17
@@ -7021,7 +7021,7 @@ declare dso_local i32 @mls_export_netlbl_cat(ptr noundef, ptr noundef, ptr nound
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_read_policy(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.policy_file, align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %23, label %6
 
@@ -7068,7 +7068,7 @@ declare dso_local noalias ptr @vmalloc_user(i64 noundef) local_unnamed_addr #13
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_read_state_kernel(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.policy_file, align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 56), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %23, label %6
 

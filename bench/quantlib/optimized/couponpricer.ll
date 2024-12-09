@@ -593,7 +593,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !35
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !37
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -5534,22 +5534,22 @@ _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit: ; preds =
   %15 = getelementptr inbounds nuw i8, ptr %setter, i64 104
   %16 = getelementptr inbounds nuw i8, ptr %setter, i64 112
   %17 = getelementptr inbounds nuw i8, ptr %setter, i64 120
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %setter, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %3, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %4, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %5, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %6, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %7, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %8, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %9, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %10, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %11, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %12, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %13, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %14, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %15, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %16, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %17, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %setter, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %3, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %4, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %5, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %6, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %7, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %8, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %9, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %10, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %11, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %12, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %13, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %14, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %15, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %16, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %17, align 8, !tbaa !35
   %pricer_.i = getelementptr inbounds nuw i8, ptr %setter, i64 128
   store ptr %0, ptr %pricer_.i, align 8, !tbaa !153
   %pn.i.i = getelementptr inbounds nuw i8, ptr %setter, i64 136
@@ -5566,22 +5566,22 @@ for.cond.cleanup.loopexit:                        ; preds = %invoke.cont8
 
 for.cond.cleanup:                                 ; preds = %for.cond.cleanup.loopexit, %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit
   %20 = phi ptr [ %.pre, %for.cond.cleanup.loopexit ], [ %1, %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit ]
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %setter, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %3, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %4, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %5, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %6, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %7, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %8, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %9, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %10, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %11, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %12, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %13, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %14, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %15, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %16, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %17, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %setter, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %3, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %4, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %5, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %6, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %7, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %8, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %9, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %10, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %11, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %12, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %13, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %14, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %15, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %16, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %17, align 8, !tbaa !35
   %cmp.not.i.i.i = icmp eq ptr %20, null
   br i1 %cmp.not.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit, label %if.then.i.i.i7
 
@@ -5705,37 +5705,37 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 128)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %this, align 8, !tbaa !35
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr, align 8, !tbaa !35
   %add.ptr2 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2, align 8, !tbaa !35
   %add.ptr3 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3, align 8, !tbaa !35
   %add.ptr4 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4, align 8, !tbaa !35
   %add.ptr5 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5, align 8, !tbaa !35
   %add.ptr6 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6, align 8, !tbaa !35
   %add.ptr7 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7, align 8, !tbaa !35
   %add.ptr8 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8, align 8, !tbaa !35
   %add.ptr9 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9, align 8, !tbaa !35
   %add.ptr10 = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10, align 8, !tbaa !35
   %add.ptr11 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11, align 8, !tbaa !35
   %add.ptr12 = getelementptr inbounds nuw i8, ptr %this, i64 96
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12, align 8, !tbaa !35
   %add.ptr13 = getelementptr inbounds nuw i8, ptr %this, i64 104
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13, align 8, !tbaa !35
   %add.ptr14 = getelementptr inbounds nuw i8, ptr %this, i64 112
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14, align 8, !tbaa !35
   %add.ptr15 = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15, align 8, !tbaa !35
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !37
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -6188,22 +6188,22 @@ if.then.i.i80:                                    ; preds = %for.body
   br label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit
 
 _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit: ; preds = %if.then.i.i80, %for.body
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %setter, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %25, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %26, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %27, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %28, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %29, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %30, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %31, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %32, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %33, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %34, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %35, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %36, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %37, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %38, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %39, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %setter, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %25, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %26, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %27, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %28, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %29, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %30, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %31, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %32, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %33, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %34, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %35, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %36, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %37, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %38, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %39, align 8, !tbaa !35
   store ptr %63, ptr %pricer_.i, align 8, !tbaa !153
   store ptr %64, ptr %pn.i.i, align 8, !tbaa !37
   %66 = load ptr, ptr %leg, align 8, !tbaa !158
@@ -6229,22 +6229,22 @@ invoke.cont84:                                    ; preds = %.noexc, %_ZN5boost1
           to label %invoke.cont86 unwind label %lpad83
 
 invoke.cont86:                                    ; preds = %invoke.cont84
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %setter, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %25, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %26, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %27, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %28, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %29, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %30, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %31, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %32, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %33, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %34, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %35, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %36, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %37, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %38, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %39, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %setter, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %25, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %26, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %27, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %28, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %29, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %30, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %31, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %32, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %33, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %34, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %35, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %36, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %37, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %38, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %39, align 8, !tbaa !35
   %70 = load ptr, ptr %pn.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i = icmp eq ptr %70, null
   br i1 %cmp.not.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit, label %if.then.i.i.i89
@@ -6536,22 +6536,22 @@ _ZNSt16allocator_traitsISaIN8QuantLib12_GLOBAL__N_112PricerSetterEEE9constructIS
   %23 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i66, i64 104
   %24 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i66, i64 112
   %25 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i66, i64 120
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %incdec.ptr.i.i66, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %11, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %12, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %13, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %14, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %15, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %16, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %17, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %18, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %19, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %20, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %21, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %22, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %23, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %24, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %25, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %incdec.ptr.i.i66, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %11, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %12, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %13, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %14, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %15, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %16, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %17, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %18, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %19, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %20, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %21, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %22, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %23, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %24, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %25, align 8, !tbaa !35
   %pricer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i66, i64 128
   store ptr %call5.val, ptr %pricer_.i.i.i.i, align 8, !tbaa !153
   %pn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i66, i64 136
@@ -6618,22 +6618,22 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i.i.i.i.i
   %40 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 104
   %41 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 112
   %42 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 120
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %add.ptr.i.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %28, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %29, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %30, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %31, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %32, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %33, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %34, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %35, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %36, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %37, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %38, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %39, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %40, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %41, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %42, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %add.ptr.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %28, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %29, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %30, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %31, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %32, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %33, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %34, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %35, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %36, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %37, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %38, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %39, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %40, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %41, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %42, align 8, !tbaa !35
   %pricer_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 128
   store ptr %call5.val, ptr %pricer_.i.i.i.i.i, align 8, !tbaa !153
   %pn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 136
@@ -6660,22 +6660,22 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %55 = getelementptr inbounds nuw i8, ptr %__cur.03.i.i.i.i.i, i64 104
   %56 = getelementptr inbounds nuw i8, ptr %__cur.03.i.i.i.i.i, i64 112
   %57 = getelementptr inbounds nuw i8, ptr %__cur.03.i.i.i.i.i, i64 120
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %__cur.03.i.i.i.i.i, align 8, !tbaa !35, !alias.scope !167, !noalias !170
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %43, align 8, !tbaa !35, !alias.scope !167, !noalias !170
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %44, align 8, !tbaa !35, !alias.scope !167, !noalias !170
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %45, align 8, !tbaa !35, !alias.scope !167, !noalias !170
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %46, align 8, !tbaa !35, !alias.scope !167, !noalias !170
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %47, align 8, !tbaa !35, !alias.scope !167, !noalias !170
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %48, align 8, !tbaa !35, !alias.scope !167, !noalias !170
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %49, align 8, !tbaa !35, !alias.scope !167, !noalias !170
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %50, align 8, !tbaa !35, !alias.scope !167, !noalias !170
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %51, align 8, !tbaa !35, !alias.scope !167, !noalias !170
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %52, align 8, !tbaa !35, !alias.scope !167, !noalias !170
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %53, align 8, !tbaa !35, !alias.scope !167, !noalias !170
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %54, align 8, !tbaa !35, !alias.scope !167, !noalias !170
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %55, align 8, !tbaa !35, !alias.scope !167, !noalias !170
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %56, align 8, !tbaa !35, !alias.scope !167, !noalias !170
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %57, align 8, !tbaa !35, !alias.scope !167, !noalias !170
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %__cur.03.i.i.i.i.i, align 8, !tbaa !35, !alias.scope !167, !noalias !170
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %43, align 8, !tbaa !35, !alias.scope !167, !noalias !170
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %44, align 8, !tbaa !35, !alias.scope !167, !noalias !170
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %45, align 8, !tbaa !35, !alias.scope !167, !noalias !170
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %46, align 8, !tbaa !35, !alias.scope !167, !noalias !170
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %47, align 8, !tbaa !35, !alias.scope !167, !noalias !170
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %48, align 8, !tbaa !35, !alias.scope !167, !noalias !170
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %49, align 8, !tbaa !35, !alias.scope !167, !noalias !170
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %50, align 8, !tbaa !35, !alias.scope !167, !noalias !170
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %51, align 8, !tbaa !35, !alias.scope !167, !noalias !170
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %52, align 8, !tbaa !35, !alias.scope !167, !noalias !170
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %53, align 8, !tbaa !35, !alias.scope !167, !noalias !170
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %54, align 8, !tbaa !35, !alias.scope !167, !noalias !170
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %55, align 8, !tbaa !35, !alias.scope !167, !noalias !170
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %56, align 8, !tbaa !35, !alias.scope !167, !noalias !170
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %57, align 8, !tbaa !35, !alias.scope !167, !noalias !170
   %pricer_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.03.i.i.i.i.i, i64 128
   %pricer_31.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.02.i.i.i.i.i, i64 128
   %58 = load ptr, ptr %pricer_31.i.i.i.i.i.i.i.i.i, align 8, !tbaa !153, !alias.scope !170, !noalias !167
@@ -7269,7 +7269,7 @@ lpad:                                             ; preds = %if.else.i43, %if.el
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %this, align 8, !tbaa !35
   %observables_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_left.i.i, align 8, !tbaa !14
@@ -7425,7 +7425,7 @@ define linkonce_odr void @_ZN8QuantLib21BlackIborCouponPricerD1Ev(ptr noundef no
 entry:
   tail call void @_ZN8QuantLib21BlackIborCouponPricerD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @_ZTTN8QuantLib21BlackIborCouponPricerE) #29
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 216
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !35
   %observers_.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 240
   %1 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !13
@@ -7441,7 +7441,7 @@ terminate.lpad.i.i.i:                             ; preds = %entry
 
 _ZN8QuantLib10ObservableD2Ev.exit:                ; preds = %entry
   %4 = getelementptr inbounds nuw i8, ptr %this, i64 160
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %4, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %4, align 8, !tbaa !35
   %observables_.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %_M_left.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %5 = load ptr, ptr %_M_left.i.i.i, align 8, !tbaa !14
@@ -8436,37 +8436,37 @@ declare void @_ZNK8QuantLib23VolatilityTermStructure11checkStrikeEdb(ptr noundef
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 128)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %this, align 8, !tbaa !35
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
   %add.ptr2.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
   %add.ptr3.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
   %add.ptr4.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
   %add.ptr5.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
   %add.ptr6.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
   %add.ptr7.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
   %add.ptr8.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
   %add.ptr9.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
   %add.ptr10.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
   %add.ptr11.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
   %add.ptr12.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
   %add.ptr13.i = getelementptr inbounds nuw i8, ptr %this, i64 104
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
   %add.ptr14.i = getelementptr inbounds nuw i8, ptr %this, i64 112
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
   %add.ptr15.i = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %pn.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -13080,36 +13080,36 @@ unreachable:                                      ; preds = %invoke.cont16
 define internal void @_ZThn8_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-8, 120)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %this, align 8, !tbaa !35
   %add.ptr2.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
   %add.ptr3.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
   %add.ptr4.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
   %add.ptr5.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
   %add.ptr6.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
   %add.ptr7.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
   %add.ptr8.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
   %add.ptr9.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
   %add.ptr10.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
   %add.ptr11.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
   %add.ptr12.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
   %add.ptr13.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
   %add.ptr14.i = getelementptr inbounds nuw i8, ptr %this, i64 104
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
   %add.ptr15.i = getelementptr inbounds nuw i8, ptr %this, i64 112
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %1 = load ptr, ptr %pn.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -13156,36 +13156,36 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 define internal void @_ZThn8_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-8, 120)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %this, align 8, !tbaa !35
   %add.ptr2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
   %add.ptr3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
   %add.ptr4.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
   %add.ptr5.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
   %add.ptr6.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
   %add.ptr7.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
   %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
   %add.ptr9.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
   %add.ptr10.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
   %add.ptr11.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
   %add.ptr12.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
   %add.ptr13.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
   %add.ptr14.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
   %add.ptr15.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
   %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %1 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -13239,36 +13239,36 @@ entry:
 define internal void @_ZThn16_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-16, 112)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %this, align 8, !tbaa !35
   %add.ptr3.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
   %add.ptr4.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
   %add.ptr5.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
   %add.ptr6.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
   %add.ptr7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
   %add.ptr8.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
   %add.ptr9.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
   %add.ptr10.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
   %add.ptr11.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
   %add.ptr12.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
   %add.ptr13.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
   %add.ptr14.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
   %add.ptr15.i = getelementptr inbounds nuw i8, ptr %this, i64 104
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   %1 = load ptr, ptr %pn.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -13315,36 +13315,36 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 define internal void @_ZThn16_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-16, 112)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %this, align 8, !tbaa !35
   %add.ptr3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
   %add.ptr4.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
   %add.ptr5.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
   %add.ptr6.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
   %add.ptr7.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
   %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
   %add.ptr9.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
   %add.ptr10.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
   %add.ptr11.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
   %add.ptr12.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
   %add.ptr13.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
   %add.ptr14.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
   %add.ptr15.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
   %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   %1 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -13398,36 +13398,36 @@ entry:
 define internal void @_ZThn24_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-24, 104)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
   %add.ptr2.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %this, align 8, !tbaa !35
   %add.ptr4.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
   %add.ptr5.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
   %add.ptr6.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
   %add.ptr7.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
   %add.ptr8.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
   %add.ptr9.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
   %add.ptr10.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
   %add.ptr11.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
   %add.ptr12.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
   %add.ptr13.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
   %add.ptr14.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
   %add.ptr15.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %1 = load ptr, ptr %pn.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -13474,36 +13474,36 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 define internal void @_ZThn24_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-24, 104)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %this, align 8, !tbaa !35
   %add.ptr4.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
   %add.ptr5.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
   %add.ptr6.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
   %add.ptr7.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
   %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
   %add.ptr9.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
   %add.ptr10.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
   %add.ptr11.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
   %add.ptr12.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
   %add.ptr13.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
   %add.ptr14.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
   %add.ptr15.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
   %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %1 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -13562,36 +13562,36 @@ entry:
 define internal void @_ZThn32_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-32, 96)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
   %add.ptr2.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
   %add.ptr3.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %this, align 8, !tbaa !35
   %add.ptr5.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
   %add.ptr6.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
   %add.ptr7.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
   %add.ptr8.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
   %add.ptr9.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
   %add.ptr10.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
   %add.ptr11.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
   %add.ptr12.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
   %add.ptr13.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
   %add.ptr14.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
   %add.ptr15.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %1 = load ptr, ptr %pn.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -13638,36 +13638,36 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 define internal void @_ZThn32_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-32, 96)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %this, align 8, !tbaa !35
   %add.ptr5.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
   %add.ptr6.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
   %add.ptr7.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
   %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
   %add.ptr9.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
   %add.ptr10.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
   %add.ptr11.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
   %add.ptr12.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
   %add.ptr13.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
   %add.ptr14.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
   %add.ptr15.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
   %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %1 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -13723,36 +13723,36 @@ entry:
 define internal void @_ZThn40_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-40, 88)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
   %add.ptr2.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
   %add.ptr3.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
   %add.ptr4.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %this, align 8, !tbaa !35
   %add.ptr6.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
   %add.ptr7.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
   %add.ptr8.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
   %add.ptr9.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
   %add.ptr10.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
   %add.ptr11.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
   %add.ptr12.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
   %add.ptr13.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
   %add.ptr14.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
   %add.ptr15.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %1 = load ptr, ptr %pn.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -13799,36 +13799,36 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 define internal void @_ZThn40_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-40, 88)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %this, align 8, !tbaa !35
   %add.ptr6.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
   %add.ptr7.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
   %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
   %add.ptr9.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
   %add.ptr10.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
   %add.ptr11.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
   %add.ptr12.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
   %add.ptr13.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
   %add.ptr14.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
   %add.ptr15.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
   %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %1 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -13884,36 +13884,36 @@ entry:
 define internal void @_ZThn48_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-48, 80)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -48
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
   %add.ptr2.i = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
   %add.ptr3.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
   %add.ptr4.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
   %add.ptr5.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %this, align 8, !tbaa !35
   %add.ptr7.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
   %add.ptr8.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
   %add.ptr9.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
   %add.ptr10.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
   %add.ptr11.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
   %add.ptr12.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
   %add.ptr13.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
   %add.ptr14.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
   %add.ptr15.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %1 = load ptr, ptr %pn.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -13960,36 +13960,36 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 define internal void @_ZThn48_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-48, 80)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -48
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %this, align 8, !tbaa !35
   %add.ptr7.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
   %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
   %add.ptr9.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
   %add.ptr10.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
   %add.ptr11.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
   %add.ptr12.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
   %add.ptr13.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
   %add.ptr14.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
   %add.ptr15.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
   %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %1 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -14045,36 +14045,36 @@ entry:
 define internal void @_ZThn56_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-56, 72)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 -48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
   %add.ptr2.i = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
   %add.ptr3.i = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
   %add.ptr4.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
   %add.ptr5.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
   %add.ptr6.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %this, align 8, !tbaa !35
   %add.ptr8.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
   %add.ptr9.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
   %add.ptr10.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
   %add.ptr11.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
   %add.ptr12.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
   %add.ptr13.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
   %add.ptr14.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
   %add.ptr15.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %1 = load ptr, ptr %pn.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -14121,36 +14121,36 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 define internal void @_ZThn56_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-56, 72)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 -48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %this, align 8, !tbaa !35
   %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
   %add.ptr9.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
   %add.ptr10.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
   %add.ptr11.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
   %add.ptr12.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
   %add.ptr13.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
   %add.ptr14.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
   %add.ptr15.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
   %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %1 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -14206,36 +14206,36 @@ entry:
 define internal void @_ZThn64_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-64, 64)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -64
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
   %add.ptr2.i = getelementptr inbounds i8, ptr %this, i64 -48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
   %add.ptr3.i = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
   %add.ptr4.i = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
   %add.ptr5.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
   %add.ptr6.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
   %add.ptr7.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %this, align 8, !tbaa !35
   %add.ptr9.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
   %add.ptr10.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
   %add.ptr11.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
   %add.ptr12.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
   %add.ptr13.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
   %add.ptr14.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
   %add.ptr15.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %1 = load ptr, ptr %pn.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -14282,36 +14282,36 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 define internal void @_ZThn64_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-64, 64)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -64
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %this, i64 -48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %this, align 8, !tbaa !35
   %add.ptr9.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
   %add.ptr10.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
   %add.ptr11.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
   %add.ptr12.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
   %add.ptr13.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
   %add.ptr14.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
   %add.ptr15.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
   %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %1 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -14367,36 +14367,36 @@ entry:
 define internal void @_ZThn72_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-72, 56)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -72
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 -64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
   %add.ptr2.i = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
   %add.ptr3.i = getelementptr inbounds i8, ptr %this, i64 -48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
   %add.ptr4.i = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
   %add.ptr5.i = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
   %add.ptr6.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
   %add.ptr7.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
   %add.ptr8.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %this, align 8, !tbaa !35
   %add.ptr10.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
   %add.ptr11.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
   %add.ptr12.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
   %add.ptr13.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
   %add.ptr14.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
   %add.ptr15.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %1 = load ptr, ptr %pn.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -14443,36 +14443,36 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 define internal void @_ZThn72_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-72, 56)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -72
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 -64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %this, i64 -48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %this, align 8, !tbaa !35
   %add.ptr10.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
   %add.ptr11.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
   %add.ptr12.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
   %add.ptr13.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
   %add.ptr14.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
   %add.ptr15.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
   %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %1 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -14528,36 +14528,36 @@ entry:
 define internal void @_ZThn80_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-80, 48)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -80
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 -72
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
   %add.ptr2.i = getelementptr inbounds i8, ptr %this, i64 -64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
   %add.ptr3.i = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
   %add.ptr4.i = getelementptr inbounds i8, ptr %this, i64 -48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
   %add.ptr5.i = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
   %add.ptr6.i = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
   %add.ptr7.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
   %add.ptr8.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
   %add.ptr9.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %this, align 8, !tbaa !35
   %add.ptr11.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
   %add.ptr12.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
   %add.ptr13.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
   %add.ptr14.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
   %add.ptr15.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load ptr, ptr %pn.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -14604,36 +14604,36 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 define internal void @_ZThn80_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-80, 48)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -80
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 -72
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %this, i64 -64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %this, i64 -48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
   %add.ptr9.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %this, align 8, !tbaa !35
   %add.ptr11.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
   %add.ptr12.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
   %add.ptr13.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
   %add.ptr14.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
   %add.ptr15.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
   %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -14689,36 +14689,36 @@ entry:
 define internal void @_ZThn88_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-88, 40)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -88
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 -80
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
   %add.ptr2.i = getelementptr inbounds i8, ptr %this, i64 -72
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
   %add.ptr3.i = getelementptr inbounds i8, ptr %this, i64 -64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
   %add.ptr4.i = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
   %add.ptr5.i = getelementptr inbounds i8, ptr %this, i64 -48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
   %add.ptr6.i = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
   %add.ptr7.i = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
   %add.ptr8.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
   %add.ptr9.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
   %add.ptr10.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %this, align 8, !tbaa !35
   %add.ptr12.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
   %add.ptr13.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
   %add.ptr14.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
   %add.ptr15.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load ptr, ptr %pn.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -14765,36 +14765,36 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 define internal void @_ZThn88_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-88, 40)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -88
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 -80
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %this, i64 -72
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %this, i64 -64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %this, i64 -48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
   %add.ptr9.i.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %this, align 8, !tbaa !35
   %add.ptr12.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
   %add.ptr13.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
   %add.ptr14.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
   %add.ptr15.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
   %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -14850,36 +14850,36 @@ entry:
 define internal void @_ZThn96_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-96, 32)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -96
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 -88
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
   %add.ptr2.i = getelementptr inbounds i8, ptr %this, i64 -80
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
   %add.ptr3.i = getelementptr inbounds i8, ptr %this, i64 -72
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
   %add.ptr4.i = getelementptr inbounds i8, ptr %this, i64 -64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
   %add.ptr5.i = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
   %add.ptr6.i = getelementptr inbounds i8, ptr %this, i64 -48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
   %add.ptr7.i = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
   %add.ptr8.i = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
   %add.ptr9.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
   %add.ptr10.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
   %add.ptr11.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %this, align 8, !tbaa !35
   %add.ptr13.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
   %add.ptr14.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
   %add.ptr15.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %pn.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -14926,36 +14926,36 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 define internal void @_ZThn96_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-96, 32)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -96
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 -88
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %this, i64 -80
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %this, i64 -72
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %this, i64 -64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %this, i64 -48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
   %add.ptr9.i.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
   %add.ptr11.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %this, align 8, !tbaa !35
   %add.ptr13.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
   %add.ptr14.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
   %add.ptr15.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
   %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -15011,36 +15011,36 @@ entry:
 define internal void @_ZThn104_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-104, 24)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 -96
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
   %add.ptr2.i = getelementptr inbounds i8, ptr %this, i64 -88
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
   %add.ptr3.i = getelementptr inbounds i8, ptr %this, i64 -80
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
   %add.ptr4.i = getelementptr inbounds i8, ptr %this, i64 -72
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
   %add.ptr5.i = getelementptr inbounds i8, ptr %this, i64 -64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
   %add.ptr6.i = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
   %add.ptr7.i = getelementptr inbounds i8, ptr %this, i64 -48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
   %add.ptr8.i = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
   %add.ptr9.i = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
   %add.ptr10.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
   %add.ptr11.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
   %add.ptr12.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %this, align 8, !tbaa !35
   %add.ptr14.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
   %add.ptr15.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %pn.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -15087,36 +15087,36 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 define internal void @_ZThn104_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-104, 24)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 -96
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %this, i64 -88
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %this, i64 -80
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %this, i64 -72
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %this, i64 -64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %this, i64 -48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
   %add.ptr9.i.i = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
   %add.ptr11.i.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %this, align 8, !tbaa !35
   %add.ptr14.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
   %add.ptr15.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
   %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -15172,36 +15172,36 @@ entry:
 define internal void @_ZThn112_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-112, 16)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -112
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 -104
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
   %add.ptr2.i = getelementptr inbounds i8, ptr %this, i64 -96
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
   %add.ptr3.i = getelementptr inbounds i8, ptr %this, i64 -88
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
   %add.ptr4.i = getelementptr inbounds i8, ptr %this, i64 -80
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
   %add.ptr5.i = getelementptr inbounds i8, ptr %this, i64 -72
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
   %add.ptr6.i = getelementptr inbounds i8, ptr %this, i64 -64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
   %add.ptr7.i = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
   %add.ptr8.i = getelementptr inbounds i8, ptr %this, i64 -48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
   %add.ptr9.i = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
   %add.ptr10.i = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
   %add.ptr11.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
   %add.ptr12.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
   %add.ptr13.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %this, align 8, !tbaa !35
   %add.ptr15.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i, align 8, !tbaa !35
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %pn.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -15248,36 +15248,36 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 define internal void @_ZThn112_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-112, 16)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -112
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 -104
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %this, i64 -96
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %this, i64 -88
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %this, i64 -80
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %this, i64 -72
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %this, i64 -64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %this, i64 -48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
   %add.ptr9.i.i = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
   %add.ptr11.i.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %this, align 8, !tbaa !35
   %add.ptr15.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %add.ptr15.i.i, align 8, !tbaa !35
   %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -15333,36 +15333,36 @@ entry:
 define internal void @_ZThn120_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-120, 8)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 -112
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i, align 8, !tbaa !35
   %add.ptr2.i = getelementptr inbounds i8, ptr %this, i64 -104
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i, align 8, !tbaa !35
   %add.ptr3.i = getelementptr inbounds i8, ptr %this, i64 -96
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i, align 8, !tbaa !35
   %add.ptr4.i = getelementptr inbounds i8, ptr %this, i64 -88
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i, align 8, !tbaa !35
   %add.ptr5.i = getelementptr inbounds i8, ptr %this, i64 -80
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i, align 8, !tbaa !35
   %add.ptr6.i = getelementptr inbounds i8, ptr %this, i64 -72
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i, align 8, !tbaa !35
   %add.ptr7.i = getelementptr inbounds i8, ptr %this, i64 -64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i, align 8, !tbaa !35
   %add.ptr8.i = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i, align 8, !tbaa !35
   %add.ptr9.i = getelementptr inbounds i8, ptr %this, i64 -48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i, align 8, !tbaa !35
   %add.ptr10.i = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i, align 8, !tbaa !35
   %add.ptr11.i = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i, align 8, !tbaa !35
   %add.ptr12.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i, align 8, !tbaa !35
   %add.ptr13.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i, align 8, !tbaa !35
   %add.ptr14.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %this, align 8, !tbaa !35
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %pn.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -15409,36 +15409,36 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 define internal void @_ZThn120_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-120, 8)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 -112
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !35
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %this, i64 -104
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 208), ptr %add.ptr2.i.i, align 8, !tbaa !35
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %this, i64 -96
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 248), ptr %add.ptr3.i.i, align 8, !tbaa !35
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %this, i64 -88
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 288), ptr %add.ptr4.i.i, align 8, !tbaa !35
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %this, i64 -80
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 328), ptr %add.ptr5.i.i, align 8, !tbaa !35
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %this, i64 -72
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 368), ptr %add.ptr6.i.i, align 8, !tbaa !35
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %this, i64 -64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 408), ptr %add.ptr7.i.i, align 8, !tbaa !35
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 448), ptr %add.ptr8.i.i, align 8, !tbaa !35
   %add.ptr9.i.i = getelementptr inbounds i8, ptr %this, i64 -48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 488), ptr %add.ptr9.i.i, align 8, !tbaa !35
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 528), ptr %add.ptr10.i.i, align 8, !tbaa !35
   %add.ptr11.i.i = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 568), ptr %add.ptr11.i.i, align 8, !tbaa !35
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 608), ptr %add.ptr12.i.i, align 8, !tbaa !35
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 648), ptr %add.ptr13.i.i, align 8, !tbaa !35
   %add.ptr14.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 688), ptr %add.ptr14.i.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 728), ptr %this, align 8, !tbaa !35
   %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -15763,7 +15763,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #23
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib10ObservableD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !35
   %observers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8, !tbaa !13
@@ -15784,7 +15784,7 @@ _ZNSt3setIPN8QuantLib8ObserverESt4lessIS2_ESaIS2_EED2Ev.exit: ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib10ObservableD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !35
   %observers_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !13

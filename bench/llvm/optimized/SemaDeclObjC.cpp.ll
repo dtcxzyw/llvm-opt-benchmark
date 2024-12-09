@@ -4388,7 +4388,7 @@ define dso_local void @_ZN5clang8SemaObjC31ActOnSuperClassOfClassInterfaceEPNS_5
   %39 = getelementptr inbounds nuw i8, ptr %15, i64 13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %38, i8 1, i64 5, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %39, i8 0, i64 19, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_125ObjCInterfaceValidatorCCCE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_125ObjCInterfaceValidatorCCCE, i64 16), ptr %15, align 8
   %40 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %3, ptr %40, align 8
   %41 = load ptr, ptr %0, align 8
@@ -4783,7 +4783,7 @@ _ZN4llvm15isa_and_nonnullIJN5clang15TypedefNameDeclEEPNS1_9NamedDeclEEEbRKT0_.ex
   %211 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 %5, ptr %211, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJNS_15DeclarationNameEPNS_14IdentifierInfoENS_11SourceRangeEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJNS_15DeclarationNameEPNS_14IdentifierInfoENS_11SourceRangeEEEE, i64 16), ptr %11, align 8
   %212 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 3523, ptr %212, align 8
   %213 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -8281,7 +8281,7 @@ define dso_local void @_ZN5clang8SemaObjC23FindProtocolDeclarationEbbN4llvm8Arra
 27:                                               ; preds = %23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %16, i8 1, i64 5, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %17, i8 0, i64 19, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang13DeclFilterCCCINS_16ObjCProtocolDeclEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang13DeclFilterCCCINS_16ObjCProtocolDeclEEE, i64 16), ptr %7, align 8
   %28 = load ptr, ptr %0, align 8
   %29 = load ptr, ptr %.062, align 8
   %30 = ptrtoint ptr %29 to i64
@@ -9320,7 +9320,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_12PointerUnionIJPN5clang8TypeDeclEPNS2_17Ob
 214:                                              ; preds = %184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %169, i8 1, i64 5, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %170, i8 0, i64 19, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_133ObjCTypeArgOrProtocolValidatorCCCE, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_133ObjCTypeArgOrProtocolValidatorCCCE, i64 16), ptr %33, align 8
   store ptr %42, ptr %171, align 8
   store i32 %.090210, ptr %172, align 8
   %215 = load ptr, ptr %0, align 8
@@ -11487,7 +11487,7 @@ define dso_local noundef ptr @_ZN5clang8SemaObjC27ActOnStartCategoryInterfaceENS
   %32 = zext i1 %31 to i8
   store i8 %32, ptr %16, align 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJbEEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJbEEE, i64 16), ptr %13, align 8
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 3116, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -11707,7 +11707,7 @@ define dso_local noundef ptr @_ZN5clang8SemaObjC20getObjCInterfaceDeclERPKNS_14I
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %16, i8 1, i64 5, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %17, i8 0, i64 19, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang13DeclFilterCCCINS_17ObjCInterfaceDeclEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang13DeclFilterCCCINS_17ObjCInterfaceDeclEEE, i64 16), ptr %5, align 8
   %18 = load ptr, ptr %0, align 8
   %19 = load ptr, ptr %1, align 8
   %20 = ptrtoint ptr %19 to i64
@@ -12455,7 +12455,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang17ObjCInterfaceDeclENS1_9NamedDeclEEEDaPT0_.ex
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %47, i8 1, i64 5, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %48, i8 0, i64 19, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_125ObjCInterfaceValidatorCCCE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_125ObjCInterfaceValidatorCCCE, i64 16), ptr %12, align 8
   %49 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %49, align 8
   %50 = load ptr, ptr %0, align 8
@@ -15811,7 +15811,7 @@ define internal fastcc void @_ZL19WarnUndefinedMethodRN5clang4SemaEPNS_12ObjCImp
   store i32 1, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %13, align 8
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store ptr %12, ptr %28, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef null, i64 noundef 0, i32 noundef 0) #21
@@ -32825,7 +32825,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_125ObjCInterfaceValidatorCCCESt14default_deleteI
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !231
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_125ObjCInterfaceValidatorCCCE, i64 16), ptr %2, align 8, !noalias !231
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_125ObjCInterfaceValidatorCCCE, i64 16), ptr %2, align 8, !noalias !231
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8, !noalias !231
@@ -34889,7 +34889,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_133ObjCTypeArgOrProtocolValidatorCCCESt14default
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !242
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_133ObjCTypeArgOrProtocolValidatorCCCE, i64 16), ptr %2, align 8, !noalias !242
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_133ObjCTypeArgOrProtocolValidatorCCCE, i64 16), ptr %2, align 8, !noalias !242
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull readonly align 8 dereferenceable(12) %6, i64 12, i1 false), !noalias !242
@@ -39807,7 +39807,7 @@ _ZNSt10unique_ptrIN5clang13DeclFilterCCCINS0_16ObjCProtocolDeclEEESt14default_de
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !276
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang13DeclFilterCCCINS_16ObjCProtocolDeclEEE, i64 16), ptr %2, align 8, !noalias !276
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang13DeclFilterCCCINS_16ObjCProtocolDeclEEE, i64 16), ptr %2, align 8, !noalias !276
   store ptr %2, ptr %0, align 8
   ret void
 }
@@ -79219,7 +79219,7 @@ _ZNSt10unique_ptrIN5clang13DeclFilterCCCINS0_17ObjCInterfaceDeclEEESt14default_d
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !379
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang13DeclFilterCCCINS_17ObjCInterfaceDeclEEE, i64 16), ptr %2, align 8, !noalias !379
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang13DeclFilterCCCINS_17ObjCInterfaceDeclEEE, i64 16), ptr %2, align 8, !noalias !379
   store ptr %2, ptr %0, align 8
   ret void
 }

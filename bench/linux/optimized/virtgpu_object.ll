@@ -140,7 +140,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @virtio_gpu_create_object(ptr nocapture noundef readnone %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %4 = tail call noalias noundef align 8 dereferenceable_or_null(448) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 448) #7
   %5 = icmp eq ptr %4, null
   br i1 %5, label %8, label %6

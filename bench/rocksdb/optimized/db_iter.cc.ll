@@ -216,7 +216,7 @@ entry:
   %frombool1 = zext i1 %expose_blob_index to i8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb6DBIterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb6DBIterE, i64 16), ptr %this, align 8
   %prefix_extractor_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %prefix_extractor = getelementptr inbounds nuw i8, ptr %mutable_cf_options, i64 64
   %1 = load ptr, ptr %prefix_extractor, align 8

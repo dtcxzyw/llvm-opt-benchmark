@@ -121,7 +121,7 @@ define internal i32 @sr_probe(ptr noundef %0) #2 align 16 {
   br i1 %9, label %10, label %212
 
 10:                                               ; preds = %1
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %12 = tail call noalias noundef align 8 dereferenceable_or_null(216) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 216) #11
   %13 = icmp eq ptr %12, null
   br i1 %13, label %212, label %14
@@ -196,7 +196,7 @@ define internal i32 @sr_probe(ptr noundef %0) #2 align 16 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2, i8 0, i64 12, i1 false), !annotation !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
   store i64 0, ptr %3, align 8, !annotation !6
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %55 = tail call noalias align 8 dereferenceable_or_null(512) ptr @kmalloc_trace(ptr noundef %54, i32 noundef 3264, i64 noundef 512) #11
   %56 = icmp eq ptr %55, null
   %57 = load ptr, ptr %38, align 8

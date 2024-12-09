@@ -28,7 +28,7 @@ define hidden void @_ZN19MetadataOnStackMarkC2Ebb(ptr nocapture nonnull readnone
   br i1 %1, label %5, label %9
 
 5:                                                ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV22MetadataOnStackClosure, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV22MetadataOnStackClosure, i64 16), ptr %4, align 8
   call void @_ZN7Threads11metadata_doEP15MetadataClosure(ptr noundef nonnull %4) #4
   br i1 %2, label %6, label %7
 

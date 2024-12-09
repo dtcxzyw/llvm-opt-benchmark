@@ -166,8 +166,8 @@ define hidden noundef i32 @zm_startup_finfo(i32 %0, i32 noundef %1) #0 {
   store ptr @finfo_object_handlers, ptr %14, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @finfo_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   store i32 8, ptr @finfo_object_handlers, align 8
-  store ptr @finfo_objects_free, ptr getelementptr inbounds (i8, ptr @finfo_object_handlers, i64 8), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @finfo_object_handlers, i64 24), align 8
+  store ptr @finfo_objects_free, ptr getelementptr inbounds nuw (i8, ptr @finfo_object_handlers, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @finfo_object_handlers, i64 24), align 8
   call void @zend_register_long_constant(ptr noundef nonnull @.str.21, i64 noundef 13, i64 noundef 0, i32 noundef 1, i32 noundef %1) #9
   call void @zend_register_long_constant(ptr noundef nonnull @.str.27, i64 noundef 16, i64 noundef 2, i32 noundef 1, i32 noundef %1) #9
   call void @zend_register_long_constant(ptr noundef nonnull @.str.28, i64 noundef 13, i64 noundef 1040, i32 noundef 1, i32 noundef %1) #9
@@ -250,7 +250,7 @@ define hidden void @zif_finfo_open(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   call void @llvm.assume(i1 %18)
   br label %101
@@ -300,7 +300,7 @@ define hidden void @zif_finfo_open(ptr nocapture noundef readonly %0, ptr nocapt
 
 38:                                               ; preds = %37
   call void @zend_restore_error_handling(ptr noundef nonnull %7) #9
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not43 = icmp eq ptr %39, null
   br i1 %.not43, label %40, label %42
 
@@ -324,7 +324,7 @@ define hidden void @zif_finfo_open(ptr nocapture noundef readonly %0, ptr nocapt
 
 48:                                               ; preds = %47
   call void @zend_restore_error_handling(ptr noundef nonnull %7) #9
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not42 = icmp eq ptr %49, null
   br i1 %.not42, label %50, label %52
 
@@ -361,7 +361,7 @@ define hidden void @zif_finfo_open(ptr nocapture noundef readonly %0, ptr nocapt
 
 63:                                               ; preds = %61
   call void @zend_restore_error_handling(ptr noundef nonnull %7) #9
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not45 = icmp eq ptr %64, null
   br i1 %.not45, label %65, label %67
 
@@ -390,7 +390,7 @@ define hidden void @zif_finfo_open(ptr nocapture noundef readonly %0, ptr nocapt
 
 76:                                               ; preds = %73
   call void @zend_restore_error_handling(ptr noundef nonnull %7) #9
-  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not44 = icmp eq ptr %77, null
   br i1 %.not44, label %78, label %80
 
@@ -479,7 +479,7 @@ define hidden void @zif_finfo_close(ptr nocapture noundef readonly %0, ptr nocap
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %14
@@ -510,7 +510,7 @@ define hidden void @zif_finfo_set_flags(ptr noundef %0, ptr nocapture noundef wr
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   call void @llvm.assume(i1 %17)
   br label %42
@@ -525,7 +525,7 @@ define hidden void @zif_finfo_set_flags(ptr noundef %0, ptr nocapture noundef wr
 
 23:                                               ; preds = %18
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.13) #9
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
   call void @llvm.assume(i1 %25)
   br label %42
@@ -602,7 +602,7 @@ define internal fastcc void @_php_finfo_get_type(ptr noundef %0, ptr nocapture n
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %14
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %21 = icmp ne ptr %20, null
   call void @llvm.assume(i1 %21)
   br label %159
@@ -629,7 +629,7 @@ define internal fastcc void @_php_finfo_get_type(ptr noundef %0, ptr nocapture n
 32:                                               ; preds = %22
   %33 = call ptr @zend_zval_value_name(ptr noundef nonnull %23) #9
   call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 1, ptr noundef nonnull @.str.44, ptr noundef %33) #9
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %35 = icmp ne ptr %34, null
   call void @llvm.assume(i1 %35)
   br label %159
@@ -659,7 +659,7 @@ define internal fastcc void @_php_finfo_get_type(ptr noundef %0, ptr nocapture n
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %41
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %54 = icmp ne ptr %53, null
   call void @llvm.assume(i1 %54)
   br label %159
@@ -674,7 +674,7 @@ define internal fastcc void @_php_finfo_get_type(ptr noundef %0, ptr nocapture n
 
 60:                                               ; preds = %55
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.13) #9
-  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %62 = icmp ne ptr %61, null
   call void @llvm.assume(i1 %62)
   br label %159
@@ -772,13 +772,13 @@ define internal fastcc void @_php_finfo_get_type(ptr noundef %0, ptr nocapture n
   br label %112
 
 108:                                              ; preds = %103
-  %109 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
+  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 56), align 8
   %.not128 = icmp eq ptr %109, null
   br i1 %.not128, label %110, label %112
 
 110:                                              ; preds = %108
   %111 = call ptr @php_stream_context_alloc() #9
-  store ptr %111, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
+  store ptr %111, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 56), align 8
   br label %112
 
 112:                                              ; preds = %108, %110, %105

@@ -4507,7 +4507,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113FoldInvWorkerclEv(ptr noundef no
   br i1 %.not.i.i, label %68, label %64
 
 64:                                               ; preds = %62
-  %65 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.34, i64 1))
+  %65 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.34, i64 1))
           to label %66 unwind label %72, !noalias !100
 
 66:                                               ; preds = %64
@@ -18195,7 +18195,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %7
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_119GatemateFoldInvPassE, i64 16), ptr @_ZN12_GLOBAL__N_119GatemateFoldInvPassE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_119GatemateFoldInvPassE, i64 16), ptr @_ZN12_GLOBAL__N_119GatemateFoldInvPassE, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)

@@ -492,7 +492,7 @@ _ZN4llvm5ErrorD2Ev.exit.i.i:                      ; preds = %23
   store i8 5, ptr %.sroa.31.0..sroa_idx.i.i.i.i, align 8, !noalias !19
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 33
   store i8 1, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 1, !noalias !19
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %35, align 8, !noalias !19
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %35, align 8, !noalias !19
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %38, ptr noundef nonnull align 8 dereferenceable(34) %8) #17, !noalias !19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8), !noalias !19
@@ -533,7 +533,7 @@ _ZN4llvm5ErrorD2Ev.exit7.i.i:                     ; preds = %_ZNKSt8functionIFSt
   store i8 5, ptr %.sroa.31.0..sroa_idx.i.i5.i.i, align 8, !noalias !27
   %.sroa.4.0..sroa_idx.i.i6.i.i = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %.sroa.4.0..sroa_idx.i.i6.i.i, align 1, !noalias !27
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %49, align 8, !noalias !27
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %49, align 8, !noalias !27
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %52, ptr noundef nonnull align 8 dereferenceable(34) %6) #17, !noalias !27
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !27
@@ -1100,7 +1100,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %2
   store i8 5, ptr %.sroa.31.0..sroa_idx.i.i.i, align 8, !noalias !63
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 33
   store i8 1, ptr %.sroa.4.0..sroa_idx.i.i.i, align 1, !noalias !63
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %79, align 8, !noalias !63
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %79, align 8, !noalias !63
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 8
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %82, ptr noundef nonnull align 8 dereferenceable(34) %31) #17, !noalias !63
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %31), !noalias !63
@@ -1172,7 +1172,7 @@ _ZN4llvm5ErrorD2Ev.exit23.i:                      ; preds = %104
   store i8 5, ptr %.sroa.31.0..sroa_idx.i.i21.i, align 8, !noalias !74
   %.sroa.4.0..sroa_idx.i.i22.i = getelementptr inbounds nuw i8, ptr %29, i64 33
   store i8 1, ptr %.sroa.4.0..sroa_idx.i.i22.i, align 1, !noalias !74
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %112, align 8, !noalias !74
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %112, align 8, !noalias !74
   %115 = getelementptr inbounds nuw i8, ptr %112, i64 8
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %115, ptr noundef nonnull align 8 dereferenceable(34) %29) #17, !noalias !74
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %29), !noalias !74
@@ -1243,7 +1243,7 @@ _ZN4llvm5ErrorD2Ev.exit29.i:                      ; preds = %_ZNSt8functionIFSt8
   store i8 5, ptr %.sroa.31.0..sroa_idx.i.i27.i, align 8, !noalias !85
   %.sroa.4.0..sroa_idx.i.i28.i = getelementptr inbounds nuw i8, ptr %27, i64 33
   store i8 1, ptr %.sroa.4.0..sroa_idx.i.i28.i, align 1, !noalias !85
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %134, align 8, !noalias !85
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %134, align 8, !noalias !85
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 8
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %137, ptr noundef nonnull align 8 dereferenceable(34) %27) #17, !noalias !85
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27), !noalias !85
@@ -1305,7 +1305,7 @@ _ZN4llvm5ErrorD2Ev.exit35.i:                      ; preds = %147
   store i8 5, ptr %.sroa.31.0..sroa_idx.i.i33.i, align 8, !noalias !96
   %.sroa.4.0..sroa_idx.i.i34.i = getelementptr inbounds nuw i8, ptr %25, i64 33
   store i8 1, ptr %.sroa.4.0..sroa_idx.i.i34.i, align 1, !noalias !96
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %155, align 8, !noalias !96
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %155, align 8, !noalias !96
   %158 = getelementptr inbounds nuw i8, ptr %155, i64 8
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %158, ptr noundef nonnull align 8 dereferenceable(34) %25) #17, !noalias !96
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25), !noalias !96
@@ -1356,7 +1356,7 @@ _ZN4llvm5ErrorD2Ev.exit40.i:                      ; preds = %166
   store i8 5, ptr %.sroa.31.0..sroa_idx.i.i38.i, align 8, !noalias !107
   %.sroa.4.0..sroa_idx.i.i39.i = getelementptr inbounds nuw i8, ptr %23, i64 33
   store i8 1, ptr %.sroa.4.0..sroa_idx.i.i39.i, align 1, !noalias !107
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %173, align 8, !noalias !107
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %173, align 8, !noalias !107
   %176 = getelementptr inbounds nuw i8, ptr %173, i64 8
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %176, ptr noundef nonnull align 8 dereferenceable(34) %23) #17, !noalias !107
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23), !noalias !107
@@ -1578,7 +1578,7 @@ _ZN4llvm5ErrorD2Ev.exit.i166:                     ; preds = %_ZN4llvm11SmallVect
   store i8 5, ptr %.sroa.31.0..sroa_idx.i.i.i168, align 8, !noalias !127
   %.sroa.4.0..sroa_idx.i.i.i169 = getelementptr inbounds nuw i8, ptr %17, i64 33
   store i8 1, ptr %.sroa.4.0..sroa_idx.i.i.i169, align 1, !noalias !127
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %243, align 8, !noalias !127
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %243, align 8, !noalias !127
   %246 = getelementptr inbounds nuw i8, ptr %243, i64 8
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %246, ptr noundef nonnull align 8 dereferenceable(34) %17) #17, !noalias !127
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17), !noalias !127
@@ -1628,7 +1628,7 @@ _ZN4llvm5ErrorD2Ev.exit10.i:                      ; preds = %254
   store i8 5, ptr %.sroa.31.0..sroa_idx.i.i8.i, align 8, !noalias !138
   %.sroa.4.0..sroa_idx.i.i9.i = getelementptr inbounds nuw i8, ptr %15, i64 33
   store i8 1, ptr %.sroa.4.0..sroa_idx.i.i9.i, align 1, !noalias !138
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %262, align 8, !noalias !138
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %262, align 8, !noalias !138
   %265 = getelementptr inbounds nuw i8, ptr %262, i64 8
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %265, ptr noundef nonnull align 8 dereferenceable(34) %15) #17, !noalias !138
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15), !noalias !138
@@ -1781,7 +1781,7 @@ _ZN4llvm5ErrorD2Ev.exit.i183:                     ; preds = %315
   store i8 5, ptr %.sroa.31.0..sroa_idx.i.i.i185, align 8, !noalias !170
   %.sroa.4.0..sroa_idx.i.i.i186 = getelementptr inbounds nuw i8, ptr %12, i64 33
   store i8 1, ptr %.sroa.4.0..sroa_idx.i.i.i186, align 1, !noalias !170
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %322, align 8, !noalias !170
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %322, align 8, !noalias !170
   %325 = getelementptr inbounds nuw i8, ptr %322, i64 8
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %325, ptr noundef nonnull align 8 dereferenceable(34) %12) #17, !noalias !170
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !170
@@ -1828,7 +1828,7 @@ _ZN4llvm5ErrorD2Ev.exit.i.i:                      ; preds = %_ZNSt17_Function_ha
   store i8 5, ptr %.sroa.31.0..sroa_idx.i.i.i.i, align 8, !noalias !181
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 33
   store i8 1, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 1, !noalias !181
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %339, align 8, !noalias !181
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %339, align 8, !noalias !181
   %342 = getelementptr inbounds nuw i8, ptr %339, i64 8
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %342, ptr noundef nonnull align 8 dereferenceable(34) %9) #17, !noalias !181
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9), !noalias !181
@@ -1915,7 +1915,7 @@ _ZN4llvm5ErrorD2Ev.exit.i194:                     ; preds = %359
   store i8 5, ptr %.sroa.31.0..sroa_idx.i.i.i196, align 8, !noalias !195
   %.sroa.4.0..sroa_idx.i.i.i197 = getelementptr inbounds nuw i8, ptr %3, i64 33
   store i8 1, ptr %.sroa.4.0..sroa_idx.i.i.i197, align 1, !noalias !195
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %366, align 8, !noalias !195
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %366, align 8, !noalias !195
   %369 = getelementptr inbounds nuw i8, ptr %366, i64 8
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %369, ptr noundef nonnull align 8 dereferenceable(34) %3) #17, !noalias !195
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !195
@@ -2944,13 +2944,13 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   call void @llvm.experimental.noalias.scope.decl(metadata !252)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %9, align 8, !alias.scope !255, !noalias !252
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %9, align 8, !alias.scope !255, !noalias !252
   %139 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %139, ptr noundef nonnull align 8 dereferenceable(40) %19) #17, !noalias !252
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %8, align 8, !alias.scope !258, !noalias !252
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %8, align 8, !alias.scope !258, !noalias !252
   %140 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %140, ptr noundef nonnull align 8 dereferenceable(40) %139) #17, !noalias !252
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %9, align 8, !noalias !252
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %9, align 8, !noalias !252
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %139) #17, !noalias !252
   %141 = getelementptr inbounds nuw i8, ptr %18, i64 88
   store ptr @.str, ptr %18, align 8, !alias.scope !252
@@ -2963,11 +2963,11 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   %143 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store i8 1, ptr %143, align 8, !alias.scope !252
   %144 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %144, align 8, !alias.scope !252
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %144, align 8, !alias.scope !252
   %145 = getelementptr inbounds nuw i8, ptr %18, i64 48
   call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %145, ptr noundef nonnull align 8 dereferenceable(40) %140) #17
   store ptr %144, ptr %141, align 8, !alias.scope !252
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %8, align 8, !noalias !252
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %8, align 8, !noalias !252
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %140) #17
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
@@ -2991,7 +2991,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %152, %154
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %144, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %144, align 8
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %145) #17
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %19) #17
   br label %_ZN4llvm12ErrorSuccessD2Ev.exit
@@ -3017,13 +3017,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %152, %154
   call void @llvm.experimental.noalias.scope.decl(metadata !261)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %7, align 8, !alias.scope !264, !noalias !261
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %7, align 8, !alias.scope !264, !noalias !261
   %166 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %166, ptr noundef nonnull align 8 dereferenceable(40) %21) #17, !noalias !261
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %6, align 8, !alias.scope !267, !noalias !261
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %6, align 8, !alias.scope !267, !noalias !261
   %167 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %167, ptr noundef nonnull align 8 dereferenceable(40) %166) #17, !noalias !261
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %7, align 8, !noalias !261
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %7, align 8, !noalias !261
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %166) #17, !noalias !261
   %168 = getelementptr inbounds nuw i8, ptr %20, i64 88
   store ptr @.str.2, ptr %20, align 8, !alias.scope !261
@@ -3036,11 +3036,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %152, %154
   %170 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store i8 1, ptr %170, align 8, !alias.scope !261
   %171 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %171, align 8, !alias.scope !261
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %171, align 8, !alias.scope !261
   %172 = getelementptr inbounds nuw i8, ptr %20, i64 48
   call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %172, ptr noundef nonnull align 8 dereferenceable(40) %167) #17
   store ptr %171, ptr %168, align 8, !alias.scope !261
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %6, align 8, !noalias !261
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %6, align 8, !noalias !261
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %167) #17
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
@@ -3064,7 +3064,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %152, %154
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit6
 
 _ZN4llvm11raw_ostreamlsEPKc.exit6:                ; preds = %179, %181
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %171, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %171, align 8
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %172) #17
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %21) #17
   br label %_ZN4llvm12ErrorSuccessD2Ev.exit
@@ -3118,7 +3118,7 @@ declare void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"cl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_113JSONStubErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   ret void
@@ -3126,7 +3126,7 @@ define internal void @_ZN12_GLOBAL__N_113JSONStubErrorD2Ev(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_113JSONStubErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #20
@@ -3173,7 +3173,7 @@ define linkonce_odr hidden void @_ZNK4llvm13ErrorInfoBase7messageB5cxx11Ev(ptr d
   store i32 1, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %0, ptr %8, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
@@ -3387,7 +3387,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %22
   store i8 5, ptr %.sroa.31.0..sroa_idx.i.i, align 8, !noalias !273
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 33
   store i8 1, ptr %.sroa.4.0..sroa_idx.i.i, align 1, !noalias !273
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %29, align 8, !noalias !273
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %29, align 8, !noalias !273
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %32, ptr noundef nonnull align 8 dereferenceable(34) %9) #17, !noalias !273
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9), !noalias !273
@@ -3465,7 +3465,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %48
   store i8 5, ptr %.sroa.31.0..sroa_idx.i.i.i, align 8, !noalias !287
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %.sroa.4.0..sroa_idx.i.i.i, align 1, !noalias !287
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %59, align 8, !noalias !287
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %59, align 8, !noalias !287
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %62, ptr noundef nonnull align 8 dereferenceable(34) %5) #17, !noalias !287
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !287
@@ -3628,7 +3628,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %56
   store i8 5, ptr %.sroa.31.0..sroa_idx.i.i, align 8, !noalias !298
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 33
   store i8 1, ptr %.sroa.4.0..sroa_idx.i.i, align 1, !noalias !298
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %63, align 8, !noalias !298
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %63, align 8, !noalias !298
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 8
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %66, ptr noundef nonnull align 8 dereferenceable(34) %10) #17, !noalias !298
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !298
@@ -4519,7 +4519,7 @@ _ZN4llvm5ErrorD2Ev.exit44:                        ; preds = %_ZNSt6vectorIN12_GL
   store i64 %129, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !337
   store i8 5, ptr %.sroa.31.0..sroa_idx.i.i, align 8, !noalias !337
   store i8 1, ptr %.sroa.4.0..sroa_idx.i.i, align 1, !noalias !337
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %127, align 8, !noalias !337
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %127, align 8, !noalias !337
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 8
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %130, ptr noundef nonnull align 8 dereferenceable(34) %5) #17, !noalias !337
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !337
@@ -5303,7 +5303,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNKSt8functionIFSt
   store i8 5, ptr %.sroa.31.0..sroa_idx.i.i, align 8, !noalias !363
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 33
   store i8 1, ptr %.sroa.4.0..sroa_idx.i.i, align 1, !noalias !363
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %32, align 8, !noalias !363
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %32, align 8, !noalias !363
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %35, ptr noundef nonnull align 8 dereferenceable(34) %9) #17, !noalias !363
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9), !noalias !363
@@ -5378,7 +5378,7 @@ _ZN4llvm5ErrorD2Ev.exit9:                         ; preds = %_ZNKSt8functionIFSt
   store i8 5, ptr %.sroa.31.0..sroa_idx.i.i7, align 8, !noalias !377
   %.sroa.4.0..sroa_idx.i.i8 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %.sroa.4.0..sroa_idx.i.i8, align 1, !noalias !377
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %61, align 8, !noalias !377
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %61, align 8, !noalias !377
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %64, ptr noundef nonnull align 8 dereferenceable(34) %6) #17, !noalias !377
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !377
@@ -5811,7 +5811,7 @@ _ZNK4llvm4json5Value11getAsStringEv.exit:         ; preds = %.lr.ph
   store i8 5, ptr %.sroa.31.0..sroa_idx.i.i, align 8, !noalias !400
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %.sroa.4.0..sroa_idx.i.i, align 1, !noalias !400
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %27, align 8, !noalias !400
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %27, align 8, !noalias !400
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %30, ptr noundef nonnull align 8 dereferenceable(34) %6) #17, !noalias !400
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !400
@@ -5927,7 +5927,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %2
   store i8 5, ptr %.sroa.31.0..sroa_idx.i.i, align 8, !noalias !406
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 33
   store i8 1, ptr %.sroa.4.0..sroa_idx.i.i, align 1, !noalias !406
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %20, align 8, !noalias !406
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %20, align 8, !noalias !406
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %23, ptr noundef nonnull align 8 dereferenceable(34) %7) #17, !noalias !406
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !406
@@ -6015,7 +6015,7 @@ _ZN4llvm5ErrorD2Ev.exit12:                        ; preds = %44
   store i8 5, ptr %.sroa.31.0..sroa_idx.i.i10, align 8, !noalias !420
   %.sroa.4.0..sroa_idx.i.i11 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %.sroa.4.0..sroa_idx.i.i11, align 1, !noalias !420
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %57, align 8, !noalias !420
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %57, align 8, !noalias !420
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %60, ptr noundef nonnull align 8 dereferenceable(34) %5) #17, !noalias !420
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !420
@@ -6058,7 +6058,7 @@ _ZN4llvm5ErrorD2Ev.exit17:                        ; preds = %_ZNRSt8optionalIN4l
   store i64 %71, ptr %.sroa.2.0..sroa_idx.i.i14, align 8, !noalias !431
   store i8 5, ptr %.sroa.31.0..sroa_idx.i.i15, align 8, !noalias !431
   store i8 1, ptr %.sroa.4.0..sroa_idx.i.i16, align 1, !noalias !431
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %69, align 8, !noalias !431
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %69, align 8, !noalias !431
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %72, ptr noundef nonnull align 8 dereferenceable(34) %3) #17, !noalias !431
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !431
@@ -6624,7 +6624,7 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5
   store ptr null, ptr %1, align 8, !noalias !486
   %155 = load ptr, ptr %2, align 8, !noalias !489
   store ptr null, ptr %2, align 8, !noalias !489
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %158 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18
@@ -8358,7 +8358,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm4json5Array
   store i8 5, ptr %.sroa.31.0..sroa_idx.i.i, align 8, !noalias !547
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %24, i64 33
   store i8 1, ptr %.sroa.4.0..sroa_idx.i.i, align 1, !noalias !547
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %119, align 8, !noalias !547
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %119, align 8, !noalias !547
   %122 = getelementptr inbounds nuw i8, ptr %119, i64 8
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %122, ptr noundef nonnull align 8 dereferenceable(34) %24) #17, !noalias !547
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24), !noalias !547
@@ -8462,7 +8462,7 @@ _ZN4llvm5ErrorD2Ev.exit35:                        ; preds = %_ZN12_GLOBAL__N_115
   store i8 5, ptr %.sroa.31.0..sroa_idx.i.i33, align 8, !noalias !566
   %.sroa.4.0..sroa_idx.i.i34 = getelementptr inbounds nuw i8, ptr %18, i64 33
   store i8 1, ptr %.sroa.4.0..sroa_idx.i.i34, align 1, !noalias !566
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %152, align 8, !noalias !566
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %152, align 8, !noalias !566
   %155 = getelementptr inbounds nuw i8, ptr %152, i64 8
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %155, ptr noundef nonnull align 8 dereferenceable(34) %18) #17, !noalias !566
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18), !noalias !566
@@ -10813,7 +10813,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115getFormattedStrB5cxx11ERKN4llvm5
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
   %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %4) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.47, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.47, i64 11))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.47, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.47, i64 11))
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %.critedge9, %.critedge
@@ -17372,7 +17372,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit40:               ; preds = %_ZNKSt14default_del
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm7support6detail23provider_format_adapterINS_4json5ValueEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %2) #17
   ret void
@@ -17382,7 +17382,7 @@ declare void @_ZN4llvm7support6detail14format_adapter6anchorEv(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm7support6detail23provider_format_adapterINS_4json5ValueEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %2) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #20
@@ -17791,7 +17791,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN4llvm5MachO13InterfaceFi
   store i32 1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %9, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN4llvm5MachO13InterfaceFileESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN4llvm5MachO13InterfaceFileESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %5, ptr %10, align 8
   %11 = load ptr, ptr %4, align 8

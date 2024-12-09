@@ -57,7 +57,7 @@ define dso_local ptr @pack_all_stat(i16 noundef zeroext %0) local_unnamed_addr #
 15:                                               ; preds = %13, %10
   %16 = load i64, ptr @last_proc_req_start, align 8
   call void @pack_time(i64 noundef %16, ptr noundef %8) #6
-  %17 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_config, i64 392)) #6
+  %17 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 392)) #6
   %.not106 = icmp eq i32 %17, 0
   br i1 %.not106, label %20, label %18
 
@@ -73,14 +73,14 @@ define dso_local ptr @pack_all_stat(i16 noundef zeroext %0) local_unnamed_addr #
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %20
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 324), align 4
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 324), align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.pack_all_stat, i32 noundef %24) #6
   br label %25
 
 25:                                               ; preds = %23, %20
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 324), align 4
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 324), align 4
   call void @pack32(i32 noundef %26, ptr noundef %8) #6
-  %27 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_config, i64 392)) #6
+  %27 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 392)) #6
   %.not107 = icmp eq i32 %27, 0
   br i1 %.not107, label %30, label %28
 
@@ -99,73 +99,73 @@ define dso_local ptr @pack_all_stat(i16 noundef zeroext %0) local_unnamed_addr #
   call void @pack32(i32 noundef %33, ptr noundef %8) #6
   %34 = load i32, ptr %2, align 4
   call void @pack32(i32 noundef %34, ptr noundef %8) #6
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 192), align 8
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 192), align 8
   call void @pack32(i32 noundef %35, ptr noundef %8) #6
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 56), align 8
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 56), align 8
   call void @pack32(i32 noundef %36, ptr noundef %8) #6
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 60), align 4
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 60), align 4
   call void @pack32(i32 noundef %37, ptr noundef %8) #6
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 64), align 8
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 64), align 8
   call void @pack32(i32 noundef %38, ptr noundef %8) #6
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 68), align 4
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 68), align 4
   call void @pack32(i32 noundef %39, ptr noundef %8) #6
-  %40 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 72), align 8
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 72), align 8
   call void @pack32(i32 noundef %40, ptr noundef %8) #6
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 80), align 8
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 80), align 8
   call void @pack32(i32 noundef %41, ptr noundef %8) #6
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 84), align 4
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 84), align 4
   call void @pack32(i32 noundef %42, ptr noundef %8) #6
-  %43 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 76), align 4
+  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 76), align 4
   %44 = zext i32 %43 to i64
   call void @pack_time(i64 noundef %44, ptr noundef %8) #6
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 8), align 8
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 8), align 8
   call void @pack32(i32 noundef %45, ptr noundef %8) #6
-  %46 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 12), align 4
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 12), align 4
   call void @pack32(i32 noundef %46, ptr noundef %8) #6
-  %47 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 16), align 8
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 16), align 8
   call void @pack32(i32 noundef %47, ptr noundef %8) #6
-  %48 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 20), align 4
+  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 20), align 4
   call void @pack32(i32 noundef %48, ptr noundef %8) #6
-  %49 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 24), align 8
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 24), align 8
   call void @pack32(i32 noundef %49, ptr noundef %8) #6
-  call void @pack32_array(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 28), i32 noundef 6, ptr noundef %8) #6
-  %50 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 52), align 4
+  call void @pack32_array(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 28), i32 noundef 6, ptr noundef %8) #6
+  %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 52), align 4
   call void @pack32(i32 noundef %50, ptr noundef %8) #6
-  %51 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 88), align 8
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 88), align 8
   call void @pack32(i32 noundef %51, ptr noundef %8) #6
-  %52 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 92), align 4
+  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 92), align 4
   call void @pack32(i32 noundef %52, ptr noundef %8) #6
-  %53 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 104), align 8
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 104), align 8
   call void @pack32(i32 noundef %53, ptr noundef %8) #6
-  %54 = load i64, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 120), align 8
+  %54 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 120), align 8
   call void @pack64(i64 noundef %54, ptr noundef %8) #6
-  %55 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 108), align 4
+  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 108), align 4
   call void @pack32(i32 noundef %55, ptr noundef %8) #6
-  %56 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 160), align 8
+  %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 160), align 8
   call void @pack32(i32 noundef %56, ptr noundef %8) #6
-  %57 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 164), align 4
+  %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 164), align 4
   call void @pack32(i32 noundef %57, ptr noundef %8) #6
-  %58 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 168), align 8
+  %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 168), align 8
   call void @pack32(i32 noundef %58, ptr noundef %8) #6
-  %59 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 112), align 8
+  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 112), align 8
   call void @pack32(i32 noundef %59, ptr noundef %8) #6
-  %60 = load i64, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 184), align 8
+  %60 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 184), align 8
   call void @pack_time(i64 noundef %60, ptr noundef %8) #6
-  %61 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 128), align 8
+  %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 128), align 8
   call void @pack32(i32 noundef %61, ptr noundef %8) #6
-  %62 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 132), align 4
+  %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 132), align 4
   call void @pack32(i32 noundef %62, ptr noundef %8) #6
-  %63 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 172), align 4
+  %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 172), align 4
   call void @pack32(i32 noundef %63, ptr noundef %8) #6
-  %64 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 176), align 8
+  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 176), align 8
   call void @pack32(i32 noundef %64, ptr noundef %8) #6
-  %65 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 180), align 4
+  %65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 180), align 4
   call void @pack32(i32 noundef %65, ptr noundef %8) #6
-  %66 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 100), align 4
+  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 100), align 4
   call void @pack32(i32 noundef %66, ptr noundef %8) #6
-  %67 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 96), align 8
+  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 96), align 8
   call void @pack32(i32 noundef %67, ptr noundef %8) #6
-  call void @pack32_array(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 136), i32 noundef 6, ptr noundef %8) #6
+  call void @pack32_array(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 136), i32 noundef 6, ptr noundef %8) #6
   br label %128
 
 68:                                               ; preds = %7
@@ -187,7 +187,7 @@ define dso_local ptr @pack_all_stat(i16 noundef zeroext %0) local_unnamed_addr #
 75:                                               ; preds = %73, %70
   %76 = load i64, ptr @last_proc_req_start, align 8
   call void @pack_time(i64 noundef %76, ptr noundef %8) #6
-  %77 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_config, i64 392)) #6
+  %77 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 392)) #6
   %.not104 = icmp eq i32 %77, 0
   br i1 %.not104, label %80, label %78
 
@@ -203,14 +203,14 @@ define dso_local ptr @pack_all_stat(i16 noundef zeroext %0) local_unnamed_addr #
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %80
-  %84 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 324), align 4
+  %84 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 324), align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.pack_all_stat, i32 noundef %84) #6
   br label %85
 
 85:                                               ; preds = %83, %80
-  %86 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 324), align 4
+  %86 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 324), align 4
   call void @pack32(i32 noundef %86, ptr noundef %8) #6
-  %87 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_config, i64 392)) #6
+  %87 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 392)) #6
   %.not105 = icmp eq i32 %87, 0
   br i1 %.not105, label %90, label %88
 
@@ -229,70 +229,70 @@ define dso_local ptr @pack_all_stat(i16 noundef zeroext %0) local_unnamed_addr #
   call void @pack32(i32 noundef %93, ptr noundef %8) #6
   %94 = load i32, ptr %2, align 4
   call void @pack32(i32 noundef %94, ptr noundef %8) #6
-  %95 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 192), align 8
+  %95 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 192), align 8
   call void @pack32(i32 noundef %95, ptr noundef %8) #6
-  %96 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 56), align 8
+  %96 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 56), align 8
   call void @pack32(i32 noundef %96, ptr noundef %8) #6
-  %97 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 60), align 4
+  %97 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 60), align 4
   call void @pack32(i32 noundef %97, ptr noundef %8) #6
-  %98 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 64), align 8
+  %98 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 64), align 8
   call void @pack32(i32 noundef %98, ptr noundef %8) #6
-  %99 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 68), align 4
+  %99 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 68), align 4
   call void @pack32(i32 noundef %99, ptr noundef %8) #6
-  %100 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 72), align 8
+  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 72), align 8
   call void @pack32(i32 noundef %100, ptr noundef %8) #6
-  %101 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 80), align 8
+  %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 80), align 8
   call void @pack32(i32 noundef %101, ptr noundef %8) #6
-  %102 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 84), align 4
+  %102 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 84), align 4
   call void @pack32(i32 noundef %102, ptr noundef %8) #6
-  %103 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 76), align 4
+  %103 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 76), align 4
   %104 = zext i32 %103 to i64
   call void @pack_time(i64 noundef %104, ptr noundef %8) #6
-  %105 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 8), align 8
+  %105 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 8), align 8
   call void @pack32(i32 noundef %105, ptr noundef %8) #6
-  %106 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 12), align 4
+  %106 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 12), align 4
   call void @pack32(i32 noundef %106, ptr noundef %8) #6
-  %107 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 16), align 8
+  %107 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 16), align 8
   call void @pack32(i32 noundef %107, ptr noundef %8) #6
-  %108 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 20), align 4
+  %108 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 20), align 4
   call void @pack32(i32 noundef %108, ptr noundef %8) #6
-  %109 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 24), align 8
+  %109 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 24), align 8
   call void @pack32(i32 noundef %109, ptr noundef %8) #6
-  %110 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 52), align 4
+  %110 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 52), align 4
   call void @pack32(i32 noundef %110, ptr noundef %8) #6
-  %111 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 88), align 8
+  %111 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 88), align 8
   call void @pack32(i32 noundef %111, ptr noundef %8) #6
-  %112 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 92), align 4
+  %112 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 92), align 4
   call void @pack32(i32 noundef %112, ptr noundef %8) #6
-  %113 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 104), align 8
+  %113 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 104), align 8
   call void @pack32(i32 noundef %113, ptr noundef %8) #6
-  %114 = load i64, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 120), align 8
+  %114 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 120), align 8
   call void @pack64(i64 noundef %114, ptr noundef %8) #6
-  %115 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 108), align 4
+  %115 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 108), align 4
   call void @pack32(i32 noundef %115, ptr noundef %8) #6
-  %116 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 160), align 8
+  %116 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 160), align 8
   call void @pack32(i32 noundef %116, ptr noundef %8) #6
-  %117 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 164), align 4
+  %117 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 164), align 4
   call void @pack32(i32 noundef %117, ptr noundef %8) #6
-  %118 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 168), align 8
+  %118 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 168), align 8
   call void @pack32(i32 noundef %118, ptr noundef %8) #6
-  %119 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 112), align 8
+  %119 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 112), align 8
   call void @pack32(i32 noundef %119, ptr noundef %8) #6
-  %120 = load i64, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 184), align 8
+  %120 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 184), align 8
   call void @pack_time(i64 noundef %120, ptr noundef %8) #6
-  %121 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 128), align 8
+  %121 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 128), align 8
   call void @pack32(i32 noundef %121, ptr noundef %8) #6
-  %122 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 132), align 4
+  %122 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 132), align 4
   call void @pack32(i32 noundef %122, ptr noundef %8) #6
-  %123 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 172), align 4
+  %123 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 172), align 4
   call void @pack32(i32 noundef %123, ptr noundef %8) #6
-  %124 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 176), align 8
+  %124 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 176), align 8
   call void @pack32(i32 noundef %124, ptr noundef %8) #6
-  %125 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 180), align 4
+  %125 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 180), align 4
   call void @pack32(i32 noundef %125, ptr noundef %8) #6
-  %126 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 100), align 4
+  %126 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 100), align 4
   call void @pack32(i32 noundef %126, ptr noundef %8) #6
-  %127 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 96), align 8
+  %127 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 96), align 8
   call void @pack32(i32 noundef %127, ptr noundef %8) #6
   br label %128
 
@@ -339,26 +339,26 @@ declare void @pack64(i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @reset_stats(i32 noundef %0) local_unnamed_addr #0 {
-  store i32 0, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 4), align 4
   store i32 0, ptr @slurmctld_diag_stats, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 8), align 8
   %.not = icmp eq i32 %0, 0
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 16), i8 0, i64 36, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 56), i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 16), i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 56), i8 0, i64 20, i1 false)
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %1
-  store i32 0, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 88), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 88), align 8
   br label %3
 
 3:                                                ; preds = %2, %1
-  store i32 0, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 92), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 96), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 104), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 108), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 180), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 112), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 120), i8 0, i64 56, i1 false)
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 92), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 96), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 104), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 108), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 180), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 112), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 120), i8 0, i64 56, i1 false)
   %4 = tail call i64 @time(ptr noundef null) #6
   store i64 %4, ptr @last_proc_req_start, align 8
   ret void

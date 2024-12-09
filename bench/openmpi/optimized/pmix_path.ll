@@ -638,7 +638,7 @@ define range(i32 -1, 1) i32 @pmix_path_df(ptr noundef %0, ptr noundef writeonly 
   br i1 %11, label %15, label %20
 
 15:                                               ; preds = %.critedge
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_output_info, i64 148), align 4
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_output_info, i64 148), align 4
   %17 = icmp sgt i32 %16, 9
   br i1 %17, label %18, label %31
 
@@ -657,7 +657,7 @@ define range(i32 -1, 1) i32 @pmix_path_df(ptr noundef %0, ptr noundef writeonly 
   %26 = select i1 %.not, i64 %24, i64 0
   %27 = mul i64 %26, %22
   store i64 %27, ptr %1, align 8
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_output_info, i64 148), align 4
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_output_info, i64 148), align 4
   %29 = icmp sgt i32 %28, 9
   br i1 %29, label %30, label %31
 

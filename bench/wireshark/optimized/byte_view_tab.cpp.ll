@@ -112,9 +112,9 @@ define void @_ZN11ByteViewTabC2EP7QWidgetP12epan_dissect(ptr noundef nonnull ali
   %5 = alloca %class.QFontMetrics, align 8
   %6 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN10QTabWidgetC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11ByteViewTab, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11ByteViewTab, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11ByteViewTab, i64 472), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11ByteViewTab, i64 472), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48

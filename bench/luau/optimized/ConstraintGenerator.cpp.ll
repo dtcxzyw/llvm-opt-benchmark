@@ -3485,7 +3485,7 @@ define dso_local void @_ZN4Luau19ConstraintGenerator15visitModuleRootEPNS_12AstS
   store i32 1, ptr %14, align 8, !noalias !5
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !noalias !5
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4Luau5ScopeESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13, align 8, !noalias !5
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4Luau5ScopeESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13, align 8, !noalias !5
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   invoke void @_ZN4Luau5ScopeC1ERKSt10shared_ptrIS0_Ei(ptr noundef nonnull align 8 dereferenceable(848) %16, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 0)
           to label %_ZSt11make_sharedIN4Luau5ScopeEJRSt10shared_ptrIS1_EEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN4Luau5ScopeESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !5
@@ -3627,7 +3627,7 @@ _ZNSt6vectorIS_IPKN4Luau4TypeESaIS3_EESaIS5_EE12emplace_backIJEEERS5_DpOT_.exit:
   %.sroa.01.0.copyload.i = load ptr, ptr %49, align 8
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %.sroa.0.0.copyload.i = load ptr, ptr %79, align 8
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau18GlobalPrepopulatorE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau18GlobalPrepopulatorE, i64 16), ptr %3, align 8
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %78, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4675,7 +4675,7 @@ define dso_local void @_ZN4Luau19ConstraintGenerator22prepopulateGlobalScopeERKS
   %.sroa.01.0.copyload = load ptr, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %.sroa.0.0.copyload = load ptr, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau18GlobalPrepopulatorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau18GlobalPrepopulatorE, i64 16), ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -6402,7 +6402,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EEC2IN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEv
   store ptr %.sroa.12.3, ptr %20, align 8
   %67 = getelementptr inbounds nuw i8, ptr %34, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  %68 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 1152), ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %67)
+  %68 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 1152), ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %67)
           to label %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EED2Ev.exit unwind label %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EED2Ev.exit33
 
 _ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EEC2IN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEvEET_SC_RKS4_.exit.thread
@@ -6642,7 +6642,7 @@ define dso_local void @_ZN4Luau19ConstraintGenerator10childScopeEPNS_7AstNodeERK
   store i32 1, ptr %7, align 8, !noalias !42
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %8, align 4, !noalias !42
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4Luau5ScopeESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8, !noalias !42
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4Luau5ScopeESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8, !noalias !42
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   invoke void @_ZN4Luau5ScopeC1ERKSt10shared_ptrIS0_Ei(ptr noundef nonnull align 8 dereferenceable(848) %9, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 0)
           to label %_ZSt11make_sharedIN4Luau5ScopeEJRKSt10shared_ptrIS1_EEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN4Luau5ScopeESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !42
@@ -7372,7 +7372,7 @@ define dso_local noundef ptr @_ZN4Luau19ConstraintGenerator9makeUnionERKSt10shar
   store i64 %2, ptr %9, align 8
   %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %3, ptr %.sroa.211.0..sroa_idx, align 8
-  %24 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 1152), ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %9)
+  %24 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 1152), ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %9)
           to label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit unwind label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit25
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit:     ; preds = %19
@@ -7945,7 +7945,7 @@ define internal fastcc noundef ptr @"_ZZN4Luau19ConstraintGenerator16unionRefine
   store i64 %.sroa.0.0.copyload, ptr %4, align 8
   %.sroa.27.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sroa.2.0.copyload, ptr %.sroa.27.0..sroa_idx.i, align 8
-  %25 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %6, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 1216), ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %15, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %4)
+  %25 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %6, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 1216), ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %15, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %4)
           to label %_ZN4Luau19ConstraintGenerator13makeIntersectERKSt10shared_ptrINS_5ScopeEENS_8LocationEPKNS_4TypeES9_.exit unwind label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit16.i
 
 common.resume:                                    ; preds = %54, %51, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit16.i
@@ -8857,7 +8857,7 @@ _ZN4Luau3getINS_11PropositionEEEPKT_PNS_7VariantIJNS_8VariadicENS_8NegationENS_1
   store i64 %2, ptr %18, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %3, ptr %.sroa.12.0..sroa_idx, align 8
-  %214 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 1088), ptr noundef nonnull %14, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %18)
+  %214 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 1088), ptr noundef nonnull %14, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %18)
           to label %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EED2Ev.exit unwind label %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EED2Ev.exit209
 
 _ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EED2Ev.exit: ; preds = %213
@@ -10295,14 +10295,14 @@ _ZN4Luau9UnionTypeD2Ev.exit:                      ; preds = %86, %84, %69
   store i8 0, ptr %43, align 8
   store i32 0, ptr %44, align 4
   store i32 0, ptr %45, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN4Luau12_GLOBAL__N_126FindSimplificationBlockersE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTVN4Luau12_GLOBAL__N_126FindSimplificationBlockersE, i64 16), ptr %16, align 8
   store i8 0, ptr %46, align 4
   invoke void @_ZN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEE8traverseEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(60) %16, ptr noundef %.164177)
           to label %103 unwind label %107
 
 103:                                              ; preds = %.lr.ph
   %104 = load i8, ptr %46, align 4
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEEE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTVN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEEE, i64 16), ptr %16, align 8
   %105 = load ptr, ptr %42, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %105, null
   br i1 %.not.i.i.i.i.i.i, label %111, label %106
@@ -10314,7 +10314,7 @@ _ZN4Luau9UnionTypeD2Ev.exit:                      ; preds = %86, %84, %69
 107:                                              ; preds = %.lr.ph
   %108 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEEE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTVN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEEE, i64 16), ptr %16, align 8
   %109 = load ptr, ptr %42, align 8
   %.not.i.i.i.i.i2.i = icmp eq ptr %109, null
   br i1 %.not.i.i.i.i.i2.i, label %.body73, label %110
@@ -10334,14 +10334,14 @@ _ZN4Luau9UnionTypeD2Ev.exit:                      ; preds = %86, %84, %69
   store i8 0, ptr %48, align 8
   store i32 0, ptr %49, align 4
   store i32 0, ptr %50, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN4Luau12_GLOBAL__N_126FindSimplificationBlockersE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTVN4Luau12_GLOBAL__N_126FindSimplificationBlockersE, i64 16), ptr %15, align 8
   store i8 0, ptr %51, align 4
   invoke void @_ZN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEE8traverseEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(60) %15, ptr noundef %102)
           to label %114 unwind label %118
 
 114:                                              ; preds = %113
   %115 = load i8, ptr %51, align 4
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTVN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEEE, i64 16), ptr %15, align 8
   %116 = load ptr, ptr %47, align 8
   %.not.i.i.i.i.i.i77 = icmp eq ptr %116, null
   br i1 %.not.i.i.i.i.i.i77, label %122, label %117
@@ -10353,7 +10353,7 @@ _ZN4Luau9UnionTypeD2Ev.exit:                      ; preds = %86, %84, %69
 118:                                              ; preds = %113
   %119 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTVN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEEE, i64 16), ptr %15, align 8
   %120 = load ptr, ptr %47, align 8
   %.not.i.i.i.i.i2.i75 = icmp eq ptr %120, null
   br i1 %.not.i.i.i.i.i2.i75, label %.body73, label %121
@@ -10385,7 +10385,7 @@ _ZN4Luau9UnionTypeD2Ev.exit:                      ; preds = %86, %84, %69
   store ptr %102, ptr %.sroa.2.0..sroa_idx, align 8
   store ptr %129, ptr %61, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
-  %130 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 1024), ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %17)
+  %130 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 1024), ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %17)
           to label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit unwind label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit92
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit:     ; preds = %128
@@ -10430,7 +10430,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit92:   ; preds = %128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   store i64 %.sroa.010.0.copyload, ptr %14, align 8
   store i64 %.sroa.211.0.copyload, ptr %.sroa.27.0..sroa_idx.i, align 8
-  %138 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 1216), ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %14)
+  %138 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 1216), ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %14)
           to label %_ZN4Luau19ConstraintGenerator13makeIntersectERKSt10shared_ptrINS_5ScopeEENS_8LocationEPKNS_4TypeES9_.exit unwind label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit16.i
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit16.i: ; preds = %.noexc
@@ -10466,7 +10466,7 @@ _ZN4Luau19ConstraintGenerator13makeIntersectERKSt10shared_ptrINS_5ScopeEENS_8Loc
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   store i64 %.sroa.08.0.copyload, ptr %11, align 8
   store i64 %.sroa.29.0.copyload, ptr %.sroa.27.0..sroa_idx.i96, align 8
-  %143 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 1216), ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %11)
+  %143 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 1216), ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %11)
           to label %145 unwind label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit16.i97
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit16.i97: ; preds = %.noexc98
@@ -10530,7 +10530,7 @@ _ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i64 %.sroa.03.0.copyload, ptr %8, align 8
   store i64 %.sroa.2.0.copyload, ptr %.sroa.27.0..sroa_idx.i103, align 8
-  %161 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 1216), ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %8)
+  %161 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 1216), ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %8)
           to label %_ZN4Luau19ConstraintGenerator13makeIntersectERKSt10shared_ptrINS_5ScopeEENS_8LocationEPKNS_4TypeES9_.exit108 unwind label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit16.i104
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit16.i104: ; preds = %.noexc105
@@ -10895,7 +10895,7 @@ define dso_local noundef ptr @_ZN4Luau19ConstraintGenerator13makeIntersectERKSt1
   store i64 %2, ptr %9, align 8
   %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %3, ptr %.sroa.27.0..sroa_idx, align 8
-  %14 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 1216), ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %9)
+  %14 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 1216), ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %9)
           to label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit unwind label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit16
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit:     ; preds = %6
@@ -17799,7 +17799,7 @@ define dso_local noundef i32 @_ZN4Luau19ConstraintGenerator5visitERKSt10shared_p
   store i32 0, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 0, ptr %38, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN4Luau12_GLOBAL__N_111HasFreeTypeE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTVN4Luau12_GLOBAL__N_111HasFreeTypeE, i64 16), ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 60
   store i8 0, ptr %39, align 4
   invoke void @_ZN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEE8traverseEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(60) %5, ptr noundef %34)
@@ -17807,7 +17807,7 @@ define dso_local noundef i32 @_ZN4Luau19ConstraintGenerator5visitERKSt10shared_p
 
 40:                                               ; preds = %3
   %41 = load i8, ptr %39, align 4
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTVN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEEE, i64 16), ptr %5, align 8
   %42 = load ptr, ptr %35, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i.i.i.i, label %48, label %43
@@ -17819,7 +17819,7 @@ define dso_local noundef i32 @_ZN4Luau19ConstraintGenerator5visitERKSt10shared_p
 44:                                               ; preds = %3
   %45 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTVN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEEE, i64 16), ptr %5, align 8
   %46 = load ptr, ptr %35, align 8
   %.not.i.i.i.i.i2.i = icmp eq ptr %46, null
   br i1 %.not.i.i.i.i.i2.i, label %.body, label %47
@@ -18736,7 +18736,7 @@ _ZN4Luau7BindingD2Ev.exit45:                      ; preds = %_ZN4Luau7BindingaSE
   store i32 0, ptr %99, align 4
   %100 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i32 0, ptr %100, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN4Luau12_GLOBAL__N_111HasFreeTypeE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTVN4Luau12_GLOBAL__N_111HasFreeTypeE, i64 16), ptr %6, align 8
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 60
   store i8 0, ptr %101, align 4
   invoke void @_ZN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEE8traverseEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(60) %6, ptr noundef %96)
@@ -18744,7 +18744,7 @@ _ZN4Luau7BindingD2Ev.exit45:                      ; preds = %_ZN4Luau7BindingaSE
 
 102:                                              ; preds = %_ZN4Luau7BindingD2Ev.exit45
   %103 = load i8, ptr %101, align 4
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTVN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEEE, i64 16), ptr %6, align 8
   %104 = load ptr, ptr %97, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %104, null
   br i1 %.not.i.i.i.i.i.i, label %110, label %105
@@ -18756,7 +18756,7 @@ _ZN4Luau7BindingD2Ev.exit45:                      ; preds = %_ZN4Luau7BindingaSE
 106:                                              ; preds = %_ZN4Luau7BindingD2Ev.exit45
   %107 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTVN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEEE, i64 16), ptr %6, align 8
   %108 = load ptr, ptr %97, align 8
   %.not.i.i.i.i.i2.i = icmp eq ptr %108, null
   br i1 %.not.i.i.i.i.i2.i, label %.body, label %109
@@ -19395,7 +19395,7 @@ _ZNK4Luau7AstNameeqEPKc.exit49:                   ; preds = %_ZNK4Luau7AstNameeq
           to label %.noexc50 unwind label %38
 
 .noexc50:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.58, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.58, i64 35))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.58, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.58, i64 35))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %27
 
 27:                                               ; preds = %.noexc50
@@ -22439,7 +22439,7 @@ _ZN4Luau10getMutableINS_12FunctionTypeEEEPT_PKNS_4TypeE.exit: ; preds = %458
           to label %470 unwind label %.body431
 
 470:                                              ; preds = %468
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %469, ptr noundef nonnull @.str.60, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.60, i64 4)) #27
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %469, ptr noundef nonnull @.str.60, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.60, i64 4)) #27
   store ptr null, ptr %7, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %30, i64 noundef 4)
           to label %472 unwind label %.body431
@@ -23706,7 +23706,7 @@ tailrecurse:                                      ; preds = %5
           to label %.noexc281 unwind label %119
 
 .noexc281:                                        ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.81, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.81, i64 42))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.81, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.81, i64 42))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %99
 
 99:                                               ; preds = %.noexc281
@@ -25012,7 +25012,7 @@ _ZNSt8optionalIN4Luau8LocationEEaSIRKS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7i
           to label %.noexc347 unwind label %649
 
 .noexc347:                                        ; preds = %.noexc346
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull @.str.82, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.82, i64 29))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull @.str.82, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.82, i64 29))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit350 unwind label %639
 
 639:                                              ; preds = %.noexc347
@@ -25163,7 +25163,7 @@ _ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9
           to label %.noexc357 unwind label %697
 
 .noexc357:                                        ; preds = %.noexc356
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull @.str.84, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.84, i64 28))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull @.str.84, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.84, i64 28))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit360 unwind label %686
 
 686:                                              ; preds = %.noexc357
@@ -25251,7 +25251,7 @@ _ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9
           to label %.noexc372 unwind label %725
 
 .noexc372:                                        ; preds = %.noexc371
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull @.str.82, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.82, i64 29))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull @.str.82, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.82, i64 29))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit375 unwind label %714
 
 714:                                              ; preds = %.noexc372
@@ -37503,7 +37503,7 @@ _ZNSt6vectorIN4Luau7NotNullINS0_10ConstraintEEESaIS3_EE9push_backEOS3_.exit.i.i:
   store i32 0, ptr %197, align 4
   %198 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i32 0, ptr %198, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN4Luau12_GLOBAL__N_111HasFreeTypeE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTVN4Luau12_GLOBAL__N_111HasFreeTypeE, i64 16), ptr %8, align 8
   %199 = getelementptr inbounds nuw i8, ptr %8, i64 60
   store i8 0, ptr %199, align 4
   invoke void @_ZN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEE8traverseEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(60) %8, ptr noundef %194)
@@ -37511,7 +37511,7 @@ _ZNSt6vectorIN4Luau7NotNullINS0_10ConstraintEEESaIS3_EE9push_backEOS3_.exit.i.i:
 
 200:                                              ; preds = %193
   %201 = load i8, ptr %199, align 4
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTVN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEEE, i64 16), ptr %8, align 8
   %202 = load ptr, ptr %195, align 8
   %.not.i.i.i.i.i.i31 = icmp eq ptr %202, null
   br i1 %.not.i.i.i.i.i.i31, label %208, label %203
@@ -37523,7 +37523,7 @@ _ZNSt6vectorIN4Luau7NotNullINS0_10ConstraintEEESaIS3_EE9push_backEOS3_.exit.i.i:
 204:                                              ; preds = %193
   %205 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTVN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEEE, i64 16), ptr %8, align 8
   %206 = load ptr, ptr %195, align 8
   %.not.i.i.i.i.i2.i = icmp eq ptr %206, null
   br i1 %.not.i.i.i.i.i2.i, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit33, label %207
@@ -38773,7 +38773,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit39:   ; preds = %22
   store ptr %20, ptr %29, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %21, i64 16, i1 false)
-  %30 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 64), ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %9)
+  %30 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 64), ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %9)
           to label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit unwind label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit54
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit54:   ; preds = %27
@@ -38790,7 +38790,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit54:   ; preds = %27
   store ptr %20, ptr %34, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %21, i64 16, i1 false)
-  %35 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 128), ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %12)
+  %35 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 128), ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %12)
           to label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit unwind label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit69
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit69:   ; preds = %32
@@ -38908,7 +38908,7 @@ define dso_local { ptr, ptr } @_ZN4Luau19ConstraintGenerator5checkERKSt10shared_
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %65, i64 16, i1 false)
-  %66 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 192), ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %9)
+  %66 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 192), ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %9)
           to label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit unwind label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit205
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit205:  ; preds = %58
@@ -38933,7 +38933,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit205:  ; preds = %58
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %75, i64 16, i1 false)
-  %76 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 256), ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %12)
+  %76 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 256), ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %12)
           to label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit unwind label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit220
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit220:  ; preds = %68
@@ -38958,7 +38958,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit220:  ; preds = %68
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %85, i64 16, i1 false)
-  %86 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 320), ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %15)
+  %86 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 320), ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %15)
           to label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit unwind label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit235
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit235:  ; preds = %78
@@ -38983,7 +38983,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit235:  ; preds = %78
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(16) %95, i64 16, i1 false)
-  %96 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 384), ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %18)
+  %96 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 384), ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %18)
           to label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit unwind label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit250
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit250:  ; preds = %88
@@ -39008,7 +39008,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit250:  ; preds = %88
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %105, i64 16, i1 false)
-  %106 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 448), ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %21)
+  %106 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 448), ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %21)
           to label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit unwind label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit265
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit265:  ; preds = %98
@@ -39033,7 +39033,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit265:  ; preds = %98
   %115 = getelementptr inbounds nuw i8, ptr %2, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 4 dereferenceable(16) %115, i64 16, i1 false)
-  %116 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 512), ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %24)
+  %116 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 512), ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %24)
           to label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit unwind label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit280
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit280:  ; preds = %108
@@ -39058,7 +39058,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit280:  ; preds = %108
   %125 = getelementptr inbounds nuw i8, ptr %2, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 4 dereferenceable(16) %125, i64 16, i1 false)
-  %126 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 576), ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %27)
+  %126 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 576), ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %27)
           to label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit unwind label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit295
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit295:  ; preds = %118
@@ -39083,7 +39083,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit295:  ; preds = %118
   %135 = getelementptr inbounds nuw i8, ptr %2, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(16) %135, i64 16, i1 false)
-  %136 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 640), ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %30)
+  %136 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 640), ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %30)
           to label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit unwind label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit310
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit310:  ; preds = %128
@@ -39108,7 +39108,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit310:  ; preds = %128
   %145 = getelementptr inbounds nuw i8, ptr %2, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 4 dereferenceable(16) %145, i64 16, i1 false)
-  %146 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 704), ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %33)
+  %146 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 704), ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %33)
           to label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit unwind label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit325
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit325:  ; preds = %138
@@ -39133,7 +39133,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit325:  ; preds = %138
   %155 = getelementptr inbounds nuw i8, ptr %2, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 4 dereferenceable(16) %155, i64 16, i1 false)
-  %156 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 768), ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %36)
+  %156 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 768), ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %36)
           to label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit unwind label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit340
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit340:  ; preds = %148
@@ -39158,7 +39158,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit340:  ; preds = %148
   %165 = getelementptr inbounds nuw i8, ptr %2, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 4 dereferenceable(16) %165, i64 16, i1 false)
-  %166 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 832), ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %39)
+  %166 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 832), ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %39)
           to label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit unwind label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit355
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit355:  ; preds = %158
@@ -39183,7 +39183,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit355:  ; preds = %158
   %175 = getelementptr inbounds nuw i8, ptr %2, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 4 dereferenceable(16) %175, i64 16, i1 false)
-  %176 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 832), ptr noundef nonnull %40, ptr noundef nonnull %41, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %42)
+  %176 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 832), ptr noundef nonnull %40, ptr noundef nonnull %41, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %42)
           to label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit unwind label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit370
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit370:  ; preds = %168
@@ -39208,7 +39208,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit370:  ; preds = %168
   %185 = getelementptr inbounds nuw i8, ptr %2, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 4 dereferenceable(16) %185, i64 16, i1 false)
-  %186 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 896), ptr noundef nonnull %43, ptr noundef nonnull %44, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %45)
+  %186 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 896), ptr noundef nonnull %43, ptr noundef nonnull %44, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %45)
           to label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit unwind label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit385
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit385:  ; preds = %178
@@ -39233,7 +39233,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit385:  ; preds = %178
   %195 = getelementptr inbounds nuw i8, ptr %2, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 4 dereferenceable(16) %195, i64 16, i1 false)
-  %196 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 896), ptr noundef nonnull %46, ptr noundef nonnull %47, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %48)
+  %196 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 896), ptr noundef nonnull %46, ptr noundef nonnull %47, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %48)
           to label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit unwind label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit400
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit400:  ; preds = %188
@@ -39307,7 +39307,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit400:  ; preds = %188
   %235 = getelementptr inbounds nuw i8, ptr %2, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 4 dereferenceable(16) %235, i64 16, i1 false)
-  %236 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 960), ptr noundef nonnull %49, ptr noundef nonnull %50, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %51)
+  %236 = invoke noundef ptr @_ZN4Luau19ConstraintGenerator24createTypeFamilyInstanceERKNS_10TypeFamilyESt6vectorIPKNS_4TypeESaIS7_EES4_IPKNS_11TypePackVarESaISC_EERKSt10shared_ptrINS_5ScopeEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN4LuauL20kBuiltinTypeFamiliesE, i64 960), ptr noundef nonnull %49, ptr noundef nonnull %50, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.Luau::Location") align 8 %51)
           to label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit unwind label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit415
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit415:  ; preds = %228
@@ -45859,7 +45859,7 @@ define linkonce_odr dso_local void @_ZN4Luau23RecursionLimitExceptionC2Ev(ptr no
           to label %.noexc4 unwind label %12
 
 .noexc4:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.85, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.85, i64 41))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.85, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.85, i64 41))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %5
 
 5:                                                ; preds = %.noexc4
@@ -45869,7 +45869,7 @@ define linkonce_odr dso_local void @_ZN4Luau23RecursionLimitExceptionC2Ev(ptr no
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4Luau21InternalCompilerErrorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4Luau21InternalCompilerErrorE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %9 unwind label %.body5
@@ -45888,7 +45888,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store i8 0, ptr %11, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4Luau23RecursionLimitExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4Luau23RecursionLimitExceptionE, i64 16), ptr %0, align 8
   ret void
 
 12:                                               ; preds = %.noexc, %1
@@ -45906,7 +45906,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau23RecursionLimitExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) unnamed_addr #2 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4Luau21InternalCompilerErrorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4Luau21InternalCompilerErrorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -45930,7 +45930,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau23RecursionLimitExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) unnamed_addr #2 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4Luau21InternalCompilerErrorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4Luau21InternalCompilerErrorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -57606,7 +57606,7 @@ define linkonce_odr dso_local void @_ZN4Luau8VecDequeISt4pairIPKNS_9UnionTypeEmE
 
 9:                                                ; preds = %1
   %10 = tail call ptr @__cxa_allocate_exception(i64 8) #27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt20bad_array_new_length, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt20bad_array_new_length, i64 16), ptr %10, align 8
   tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTISt20bad_array_new_length, ptr nonnull @_ZNSt20bad_array_new_lengthD1Ev) #30
   unreachable
 
@@ -59782,7 +59782,7 @@ define linkonce_odr dso_local void @_ZN4Luau8VecDequeIPKNS_4TypeESaIS3_EE4growEv
 
 9:                                                ; preds = %1
   %10 = tail call ptr @__cxa_allocate_exception(i64 8) #27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt20bad_array_new_length, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt20bad_array_new_length, i64 16), ptr %10, align 8
   tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTISt20bad_array_new_length, ptr nonnull @_ZNSt20bad_array_new_lengthD1Ev) #30
   unreachable
 
@@ -60326,7 +60326,7 @@ define linkonce_odr dso_local void @_ZN4Luau8VecDequeISt4pairIPKNS_16Intersectio
 
 9:                                                ; preds = %1
   %10 = tail call ptr @__cxa_allocate_exception(i64 8) #27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt20bad_array_new_length, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt20bad_array_new_length, i64 16), ptr %10, align 8
   tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTISt20bad_array_new_length, ptr nonnull @_ZNSt20bad_array_new_lengthD1Ev) #30
   unreachable
 

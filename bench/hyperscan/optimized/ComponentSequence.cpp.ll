@@ -60,7 +60,7 @@ $_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE15_M_range_insertIN9__gnu_cxx17__norma
 define hidden void @_ZN3ue217ComponentSequenceC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue217ComponentSequenceE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue217ComponentSequenceE, i64 16), ptr %this, align 8
   %children = getelementptr inbounds nuw i8, ptr %this, i64 16
   %capture_index = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %children, i8 0, i64 32, i1 false)
@@ -78,7 +78,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue217ComponentSequenceD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue217ComponentSequenceE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue217ComponentSequenceE, i64 16), ptr %this, align 8
   %capture_name = getelementptr inbounds nuw i8, ptr %this, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %capture_name) #16
   %alternation = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -193,7 +193,7 @@ declare void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue217ComponentSequenceD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue217ComponentSequenceE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue217ComponentSequenceE, i64 16), ptr %this, align 8
   %capture_name.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %capture_name.i) #16
   %alternation.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -261,7 +261,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3ue217ComponentSequenceC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 52)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue29ComponentE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue29ComponentE, i64 16), ptr %this, align 8
   %pos_begin.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %pos_begin2.i = getelementptr inbounds nuw i8, ptr %other, i64 8
   %0 = load i32, ptr %pos_begin2.i, align 8
@@ -270,7 +270,7 @@ entry:
   %pos_end3.i = getelementptr inbounds nuw i8, ptr %other, i64 12
   %1 = load i32, ptr %pos_end3.i, align 4
   store i32 %1, ptr %pos_end.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue217ComponentSequenceE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue217ComponentSequenceE, i64 16), ptr %this, align 8
   %children = getelementptr inbounds nuw i8, ptr %this, i64 16
   %alternation = getelementptr inbounds nuw i8, ptr %this, i64 40
   %capture_index = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -1010,7 +1010,7 @@ lpad.i2:                                          ; preds = %if.end
   br label %common.resume
 
 _ZN5boost11make_uniqueIN3ue217ComponentSequenceEEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS4_St14default_deleteIS4_EEE4typeEv.exit: ; preds = %if.end
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue217ComponentSequenceE, i64 16), ptr %call.i1, align 8, !noalias !24
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue217ComponentSequenceE, i64 16), ptr %call.i1, align 8, !noalias !24
   %children.i.i = getelementptr inbounds nuw i8, ptr %call.i1, i64 16
   %capture_index.i.i = getelementptr inbounds nuw i8, ptr %call.i1, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %children.i.i, i8 0, i64 32, i1 false), !noalias !24

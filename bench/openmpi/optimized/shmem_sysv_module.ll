@@ -48,13 +48,13 @@ define internal range(i32 -1, 1) i32 @segment_create(ptr nocapture noundef initi
 12:                                               ; preds = %3
   %13 = tail call ptr @__errno_location() #9
   %14 = load i32, ptr %13, align 4
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %opal_gethostname.exit
 
 17:                                               ; preds = %12
   %18 = tail call i32 @opal_init_gethostname() #8
-  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
   br label %opal_gethostname.exit
 
 opal_gethostname.exit:                            ; preds = %12, %17
@@ -72,13 +72,13 @@ opal_gethostname.exit:                            ; preds = %12, %17
 26:                                               ; preds = %23
   %27 = tail call ptr @__errno_location() #9
   %28 = load i32, ptr %27, align 4
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %opal_gethostname.exit33
 
 31:                                               ; preds = %26
   %32 = tail call i32 @opal_init_gethostname() #8
-  %.pre.i32 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %.pre.i32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
   br label %opal_gethostname.exit33
 
 opal_gethostname.exit33:                          ; preds = %26, %31
@@ -99,13 +99,13 @@ opal_gethostname.exit33:                          ; preds = %26, %31
 42:                                               ; preds = %39
   %43 = tail call ptr @__errno_location() #9
   %44 = load i32, ptr %43, align 4
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %52
 
 47:                                               ; preds = %42
   %48 = tail call i32 @opal_init_gethostname() #8
-  %.pre.i34 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %.pre.i34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
   br label %52
 
 49:                                               ; preds = %39
@@ -171,13 +171,13 @@ define internal ptr @segment_attach(ptr nocapture noundef %0) #1 {
 10:                                               ; preds = %4
   %11 = tail call ptr @__errno_location() #9
   %12 = load i32, ptr %11, align 4
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %opal_gethostname.exit
 
 15:                                               ; preds = %10
   %16 = tail call i32 @opal_init_gethostname() #8
-  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
   br label %opal_gethostname.exit
 
 opal_gethostname.exit:                            ; preds = %10, %15
@@ -205,13 +205,13 @@ define internal range(i32 -1, 1) i32 @segment_detach(ptr nocapture noundef initi
 5:                                                ; preds = %1
   %6 = tail call ptr @__errno_location() #9
   %7 = load i32, ptr %6, align 4
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %opal_gethostname.exit
 
 10:                                               ; preds = %5
   %11 = tail call i32 @opal_init_gethostname() #8
-  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
   br label %opal_gethostname.exit
 
 opal_gethostname.exit:                            ; preds = %5, %10

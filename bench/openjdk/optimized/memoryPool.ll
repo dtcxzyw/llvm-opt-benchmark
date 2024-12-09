@@ -183,7 +183,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE0EE11_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10MemoryPoolC2EPKcNS_8PoolTypeEmmbb(ptr noundef nonnull align 8 dereferenceable(201) initializes((0, 20), (24, 41), (48, 92), (96, 200)) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10MemoryPool, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV10MemoryPool, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -356,8 +356,8 @@ define hidden noundef ptr @_ZN10MemoryPool24get_memory_pool_instanceEP10JavaThre
   store i8 0, ptr %45, align 2
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %44, ptr %46, align 8
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8880), align 8
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8904), align 8
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8880), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8904), align 8
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 75
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 76
@@ -564,7 +564,7 @@ _ZL17set_sensor_obj_atPP10SensorInfo14instanceHandle.exit: ; preds = %2, %5
 define hidden void @_ZN12CodeHeapPoolC2EP8CodeHeapPKcb(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 20), (24, 41), (48, 92), (96, 200)) %0, ptr noundef nonnull %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = tail call noundef i64 @_ZNK8CodeHeap8capacityEv(ptr noundef nonnull align 8 dereferenceable(336) %1) #10
   %6 = tail call noundef i64 @_ZNK8CodeHeap12max_capacityEv(ptr noundef nonnull align 8 dereferenceable(336) %1) #10
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10MemoryPool, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV10MemoryPool, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -606,7 +606,7 @@ define hidden void @_ZN12CodeHeapPoolC2EP8CodeHeapPKcb(ptr noundef nonnull align
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
   store volatile i8 0, ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV12CodeHeapPool, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV12CodeHeapPool, i64 16), ptr %0, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %1, ptr %28, align 8
   ret void
@@ -654,11 +654,11 @@ define hidden void @_ZN12CodeHeapPool16get_memory_usageEv(ptr dead_on_unwind noa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13MetaspacePoolC2Ev(ptr noundef nonnull align 8 dereferenceable(201) initializes((0, 20), (24, 41), (48, 92), (96, 200)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV13MetaspacePool, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV13MetaspacePool, i64 16), ptr %0, align 8
   %2 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 783) #10
   %3 = load i64, ptr @MaxMetaspaceSize, align 8
   %spec.select.i = select i1 %2, i64 -1, i64 %3
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10MemoryPool, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV10MemoryPool, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @.str.6, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -695,7 +695,7 @@ define hidden void @_ZN13MetaspacePoolC2Ev(ptr noundef nonnull align 8 dereferen
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   store volatile i8 0, ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV13MetaspacePool, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV13MetaspacePool, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -745,7 +745,7 @@ declare noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef) 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24CompressedKlassSpacePoolC2Ev(ptr noundef nonnull align 8 dereferenceable(201) initializes((0, 20), (24, 41), (48, 92), (96, 200)) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @CompressedClassSpaceSize, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10MemoryPool, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV10MemoryPool, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @.str.7, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -782,7 +782,7 @@ define hidden void @_ZN24CompressedKlassSpacePoolC2Ev(ptr noundef nonnull align 
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   store volatile i8 0, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV24CompressedKlassSpacePool, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV24CompressedKlassSpacePool, i64 16), ptr %0, align 8
   ret void
 }
 

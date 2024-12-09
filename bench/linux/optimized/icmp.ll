@@ -496,7 +496,7 @@ define dso_local void @icmp6_send(ptr noundef %0, i8 noundef zeroext %1, i8 noun
 
 185:                                              ; preds = %.thread19, %184, %181
   %186 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !12
-  call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #13, !srcloc !13
+  call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #13, !srcloc !13
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !14
   %187 = load ptr, ptr %30, align 8
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 168
@@ -826,7 +826,7 @@ define internal fastcc zeroext i1 @icmpv6_rt_has_prefsrc(ptr noundef nonnull %0,
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 108
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 116
   %15 = select i1 %12, ptr @in6addr_any, ptr %13
-  %16 = select i1 %12, ptr getelementptr inbounds (i8, ptr @in6addr_any, i64 8), ptr %14
+  %16 = select i1 %12, ptr getelementptr inbounds nuw (i8, ptr @in6addr_any, i64 8), ptr %14
   %17 = load i64, ptr %16, align 4
   %18 = load i64, ptr %15, align 4
   tail call void @__rcu_read_unlock() #13
@@ -2626,7 +2626,7 @@ define internal fastcc noundef range(i32 1, 3) i32 @icmpv6_echo_reply(ptr nounde
   %116 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 0, ptr %116, align 8
   %117 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !12
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #13, !srcloc !13
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #13, !srcloc !13
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !14
   %118 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @ipv6_icmp_sk) #13, !srcloc !17
   %119 = inttoptr i64 %118 to ptr

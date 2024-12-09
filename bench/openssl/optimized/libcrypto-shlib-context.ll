@@ -645,13 +645,13 @@ return:                                           ; preds = %if.then, %if.then2
 ; Function Attrs: nounwind uwtable
 define void @ossl_release_default_drbg_ctx() local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @default_context_int, i64 216), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @default_context_int, i64 216), align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   tail call void @ossl_rand_ctx_free(ptr noundef nonnull %0) #3
-  store ptr null, ptr getelementptr inbounds (i8, ptr @default_context_int, i64 216), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @default_context_int, i64 216), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry

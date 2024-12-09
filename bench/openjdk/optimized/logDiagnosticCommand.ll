@@ -75,7 +75,7 @@ define hidden void @_ZN20LogDiagnosticCommandC2EP12outputStreamb(ptr noundef non
   store i8 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV20LogDiagnosticCommand, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV20LogDiagnosticCommand, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %9, align 8
@@ -87,7 +87,7 @@ define hidden void @_ZN20LogDiagnosticCommandC2EP12outputStreamb(ptr noundef non
   store ptr @.str.5, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %13, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %8, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr null, ptr %15, align 8
@@ -99,7 +99,7 @@ define hidden void @_ZN20LogDiagnosticCommandC2EP12outputStreamb(ptr noundef non
   store ptr @.str.5, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %19, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %14, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr null, ptr %21, align 8
@@ -111,7 +111,7 @@ define hidden void @_ZN20LogDiagnosticCommandC2EP12outputStreamb(ptr noundef non
   store ptr @.str.5, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %25, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %20, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr null, ptr %27, align 8
@@ -123,7 +123,7 @@ define hidden void @_ZN20LogDiagnosticCommandC2EP12outputStreamb(ptr noundef non
   store ptr @.str.5, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %31, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %26, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr null, ptr %33, align 8
@@ -135,7 +135,7 @@ define hidden void @_ZN20LogDiagnosticCommandC2EP12outputStreamb(ptr noundef non
   store ptr @.str.14, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 336
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %37, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %32, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store ptr null, ptr %39, align 8
@@ -147,7 +147,7 @@ define hidden void @_ZN20LogDiagnosticCommandC2EP12outputStreamb(ptr noundef non
   store ptr @.str.14, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 392
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %43, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %38, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %38, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr null, ptr %45, align 8
@@ -159,7 +159,7 @@ define hidden void @_ZN20LogDiagnosticCommandC2EP12outputStreamb(ptr noundef non
   store ptr @.str.14, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 448
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %49, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %44, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %44, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8) #4
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %14) #4
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %20) #4
@@ -185,7 +185,7 @@ define hidden void @_ZN20LogDiagnosticCommand15registerCommandEv() local_unnamed
   store i32 7, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 7, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI20LogDiagnosticCommandE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15DCmdFactoryImplI20LogDiagnosticCommandE, i64 16), ptr %1, align 8
   %7 = tail call noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef nonnull %1) #4
   ret void
 }

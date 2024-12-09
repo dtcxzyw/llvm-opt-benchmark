@@ -255,10 +255,10 @@ define range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   store i16 256, ptr @default_mcdram, align 2
   store i16 1, ptr @default_numa, align 2
   store i32 100, ptr @mcdram_pct, align 16
-  store i32 50, ptr getelementptr inbounds (i8, ptr @mcdram_pct, i64 4), align 4
-  store i32 50, ptr getelementptr inbounds (i8, ptr @mcdram_pct, i64 8), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @mcdram_pct, i64 12), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @mcdram_pct, i64 16), align 16
+  store i32 50, ptr getelementptr inbounds nuw (i8, ptr @mcdram_pct, i64 4), align 4
+  store i32 50, ptr getelementptr inbounds nuw (i8, ptr @mcdram_pct, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @mcdram_pct, i64 12), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @mcdram_pct, i64 16), align 16
   tail call void @slurm_xfree(ptr noundef nonnull @numa_cpu_bind) #15
   %24 = tail call ptr @get_extra_conf_path(ptr noundef nonnull @.str.1) #15
   store ptr %24, ptr %19, align 8
@@ -680,7 +680,7 @@ _knl_numa_token.exit.i:                           ; preds = %select.unfold.i, %1
   br label %169
 
 169:                                              ; preds = %.critedge.i, %_knl_numa_token.exit.i
-  %170 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %170 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %171 = and i64 %170, 140737488355328
   %.not31.i = icmp eq i64 %171, 0
   br i1 %.not31.i, label %_update_cpu_bind.exit, label %.preheader.i107
@@ -827,7 +827,7 @@ _config_make_tbl.exit.thread:                     ; preds = %34, %29, %0
   br label %225
 
 225:                                              ; preds = %.loopexit, %218
-  %226 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1008), align 8
+  %226 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1008), align 8
   %.not61 = icmp eq ptr %226, null
   br i1 %.not61, label %229, label %227
 
@@ -837,7 +837,7 @@ _config_make_tbl.exit.thread:                     ; preds = %34, %29, %0
 
 229:                                              ; preds = %227, %225
   %.1 = phi i32 [ -1, %227 ], [ %.038, %225 ]
-  %230 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %230 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %231 = and i64 %230, 140737488355328
   %.not62 = icmp eq i64 %231, 0
   br i1 %.not62, label %305, label %232
@@ -2224,7 +2224,7 @@ define internal fastcc ptr @_run_script(ptr noundef %0, ptr noundef nonnull %1, 
   %50 = load i32, ptr %41, align 4
   %51 = call i32 @close(i32 noundef %50) #15
   %52 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #15
-  %53 = load i64, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 328), align 8
+  %53 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 328), align 8
   %.not475455 = icmp eq i64 %53, 0
   br i1 %.not475455, label %.lr.ph.lr.ph, label %.outer._crit_edge
 
@@ -2287,7 +2287,7 @@ define internal fastcc ptr @_run_script(ptr noundef %0, ptr noundef nonnull %1, 
   br i1 %82, label %.backedge, label %84
 
 .backedge:                                        ; preds = %79, %103
-  %83 = load i64, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 328), align 8
+  %83 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 328), align 8
   %.not47 = icmp eq i64 %83, 0
   br i1 %.not47, label %64, label %.outer._crit_edge
 
@@ -2346,7 +2346,7 @@ define internal fastcc ptr @_run_script(ptr noundef %0, ptr noundef nonnull %1, 
 
 .outer:                                           ; preds = %113, %110
   %.1 = phi i32 [ %114, %113 ], [ %.041.ph56, %110 ]
-  %117 = load i64, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 328), align 8
+  %117 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 328), align 8
   %.not4754 = icmp eq i64 %117, 0
   br i1 %.not4754, label %.lr.ph, label %.outer._crit_edge
 
@@ -2369,7 +2369,7 @@ define internal fastcc ptr @_run_script(ptr noundef %0, ptr noundef nonnull %1, 
 define internal fastcc void @_log_script_argv(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %5 = and i64 %4, 140737488355328
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %26, label %.preheader
@@ -4371,7 +4371,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @node_features_p_user_update(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 968), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 968), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
 
@@ -4416,7 +4416,7 @@ define noundef zeroext i1 @node_features_p_user_update(i32 noundef %0) local_unn
   br i1 %18, label %.loopexit, label %14
 
 ._crit_edge:                                      ; preds = %14, %.preheader
-  %19 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %20 = and i64 %19, 140737488355328
   %.not8 = icmp eq i64 %20, 0
   br i1 %.not8, label %.loopexit, label %21

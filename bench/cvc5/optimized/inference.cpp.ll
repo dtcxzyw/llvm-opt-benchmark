@@ -176,7 +176,7 @@ terminate.lpad.i33:                               ; preds = %if.then13.i.i32
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit34: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %if.then.i.i26, %if.then13.i.i32
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory9datatypes18DatatypesInferenceE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory9datatypes18DatatypesInferenceE, i64 16), ptr %this, align 8
   %d_im = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %im, ptr %d_im, align 8
   ret void
@@ -635,7 +635,7 @@ declare void @_ZN4cvc58internal6theory9datatypes16InferenceManager13processDtFac
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory9datatypes18DatatypesInferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory24SimpleTheoryInternalFactE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory24SimpleTheoryInternalFactE, i64 16), ptr %this, align 8
   %d_exp.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %d_exp.i, align 8
   %bf.load.i.i.i = load i64, ptr %0, align 8
@@ -698,7 +698,7 @@ _ZN4cvc58internal6theory24SimpleTheoryInternalFactD2Ev.exit: ; preds = %_ZN4cvc5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory9datatypes18DatatypesInferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory24SimpleTheoryInternalFactE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory24SimpleTheoryInternalFactE, i64 16), ptr %this, align 8
   %d_exp.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %d_exp.i.i, align 8
   %bf.load.i.i.i.i = load i64, ptr %0, align 8

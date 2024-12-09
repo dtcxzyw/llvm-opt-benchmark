@@ -23551,7 +23551,7 @@ define void @_ZN4call10ActiveCall12set_location17hd412696b89bdef7dE(ptr dead_on_
   br label %21
 
 12:                                               ; preds = %4
-  %13 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN6client17ZED_ALWAYS_ACTIVE17h333a794122ad8136E, i64 8) acquire, align 8
+  %13 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6client17ZED_ALWAYS_ACTIVE17h333a794122ad8136E, i64 8) acquire, align 8
   %14 = icmp eq i32 %13, 4
   br i1 %14, label %_ZN3std4sync4once4Once9call_once17hb4f8ed744b960b87E.exit, label %15
 
@@ -23560,7 +23560,7 @@ define void @_ZN4call10ActiveCall12set_location17hd412696b89bdef7dE(ptr dead_on_
   store ptr @_ZN6client17ZED_ALWAYS_ACTIVE17h333a794122ad8136E, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %7, ptr %6, align 8
-  call void @_ZN3std3sys4sync4once5futex4Once4call17h5afba6022094a7d4E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN6client17ZED_ALWAYS_ACTIVE17h333a794122ad8136E, i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cb34db00916c1dd091ae2a000c3ebc3d.79)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17h5afba6022094a7d4E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN6client17ZED_ALWAYS_ACTIVE17h333a794122ad8136E, i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cb34db00916c1dd091ae2a000c3ebc3d.79)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %_ZN3std4sync4once4Once9call_once17hb4f8ed744b960b87E.exit

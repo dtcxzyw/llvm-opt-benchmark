@@ -3534,13 +3534,13 @@ define internal fastcc i32 @register_trace_kprobe(ptr noundef %0) unnamed_addr #
 
 138:                                              ; preds = %135
   store i8 0, ptr %136, align 1
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !49
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !49
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !50
   %139 = load ptr, ptr %132, align 8
   %140 = tail call ptr @find_module(ptr noundef %139) #18
   %141 = icmp eq ptr %140, null
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !51
-  %142 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !52
+  %142 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !52
   %143 = icmp ult i8 %142, 2
   tail call void @llvm.assume(i1 %143)
   %144 = icmp eq i8 %142, 0
@@ -3580,8 +3580,8 @@ define internal fastcc i32 @register_trace_kprobe(ptr noundef %0) unnamed_addr #
   %159 = load i32, ptr %158, align 8
   %160 = or i32 %159, 32
   store i32 %160, ptr %158, align 8
-  %161 = load ptr, ptr getelementptr inbounds (i8, ptr @dyn_event_list, i64 8), align 8
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @dyn_event_list, i64 8), align 8
+  %161 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dyn_event_list, i64 8), align 8
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @dyn_event_list, i64 8), align 8
   store ptr @dyn_event_list, ptr %0, align 8
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %161, ptr %162, align 8
@@ -3635,13 +3635,13 @@ define internal fastcc i32 @register_trace_kprobe(ptr noundef %0) unnamed_addr #
 
 186:                                              ; preds = %183
   store i8 0, ptr %184, align 1
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !49
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !49
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !50
   %187 = load ptr, ptr %180, align 8
   %188 = tail call ptr @find_module(ptr noundef %187) #18
   %189 = icmp eq ptr %188, null
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !51
-  %190 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !52
+  %190 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !52
   %191 = icmp ult i8 %190, 2
   tail call void @llvm.assume(i1 %191)
   %192 = icmp eq i8 %190, 0
@@ -3688,8 +3688,8 @@ define internal fastcc i32 @register_trace_kprobe(ptr noundef %0) unnamed_addr #
   %213 = load i32, ptr %212, align 8
   %214 = or i32 %213, 32
   store i32 %214, ptr %212, align 8
-  %215 = load ptr, ptr getelementptr inbounds (i8, ptr @dyn_event_list, i64 8), align 8
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @dyn_event_list, i64 8), align 8
+  %215 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dyn_event_list, i64 8), align 8
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @dyn_event_list, i64 8), align 8
   store ptr @dyn_event_list, ptr %0, align 8
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %215, ptr %216, align 8
@@ -4831,7 +4831,7 @@ define internal fastcc void @enable_boot_kprobe_events() unnamed_addr #0 section
   br i1 %2, label %10, label %3
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ftrace_trace_arrays, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ftrace_trace_arrays, i64 8), align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 156
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 1

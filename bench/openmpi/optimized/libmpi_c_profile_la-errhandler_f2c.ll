@@ -45,7 +45,7 @@ define ptr @PMPI_Errhandler_f2c(i32 noundef %0) #0 {
 
 11:                                               ; preds = %6, %9, %3
   %12 = icmp sgt i32 %0, -1
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errhandler_f_to_c_table, i64 88), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_errhandler_f_to_c_table, i64 88), align 8
   %.not = icmp slt i32 %0, %13
   %or.cond = select i1 %12, i1 %.not, i1 false
   br i1 %or.cond, label %14, label %opal_pointer_array_get_item.exit
@@ -56,13 +56,13 @@ define ptr @PMPI_Errhandler_f2c(i32 noundef %0) #0 {
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %14
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errhandler_f_to_c_table, i64 32)) #3
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_errhandler_f_to_c_table, i64 32)) #3
   %.pre.i = load i8, ptr @opal_uses_threads, align 1
   br label %19
 
 19:                                               ; preds = %17, %14
   %20 = phi i8 [ %15, %14 ], [ %.pre.i, %17 ]
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errhandler_f_to_c_table, i64 112), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_errhandler_f_to_c_table, i64 112), align 8
   %22 = zext nneg i32 %0 to i64
   %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
@@ -70,7 +70,7 @@ define ptr @PMPI_Errhandler_f2c(i32 noundef %0) #0 {
   br i1 %25, label %26, label %opal_pointer_array_get_item.exit
 
 26:                                               ; preds = %19
-  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errhandler_f_to_c_table, i64 32)) #3
+  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_errhandler_f_to_c_table, i64 32)) #3
   br label %opal_pointer_array_get_item.exit
 
 switch.lookup:                                    ; preds = %1

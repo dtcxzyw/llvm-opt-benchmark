@@ -22907,7 +22907,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i115: ; pr
 
 invoke.cont25:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i115
   %28 = load i64, ptr %_M_string_length.i.i.i.i85, align 8, !tbaa !40
-  %29 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN14ManagedLibrary4LoadEPKcP9AdbcErrorE22kPlatformLibrarySuffixB5cxx11, i64 8), align 8, !tbaa !40
+  %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN14ManagedLibrary4LoadEPKcP9AdbcErrorE22kPlatformLibrarySuffixB5cxx11, i64 8), align 8, !tbaa !40
   %cmp29 = icmp ult i64 %28, %29
   br i1 %cmp29, label %if.then37, label %lor.lhs.false30
 
@@ -22922,7 +22922,7 @@ invoke.cont34:                                    ; preds = %lor.lhs.false30
   br i1 %cmp36.not, label %if.end40, label %invoke.cont34.if.then37_crit_edge
 
 invoke.cont34.if.then37_crit_edge:                ; preds = %invoke.cont34
-  %.pre189 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN14ManagedLibrary4LoadEPKcP9AdbcErrorE22kPlatformLibrarySuffixB5cxx11, i64 8), align 8, !tbaa !40
+  %.pre189 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN14ManagedLibrary4LoadEPKcP9AdbcErrorE22kPlatformLibrarySuffixB5cxx11, i64 8), align 8, !tbaa !40
   br label %if.then37
 
 if.then37:                                        ; preds = %invoke.cont34.if.then37_crit_edge, %invoke.cont25
@@ -23343,7 +23343,7 @@ declare void @_ZN6duckdb17InternalExceptionC1ERKNSt7__cxx1112basic_stringIcSt11c
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !104
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !104
   %raw_message_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !37
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 64

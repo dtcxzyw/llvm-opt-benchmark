@@ -511,16 +511,16 @@ define dso_local void @WalReceiverMain() local_unnamed_addr #3 {
   br i1 %195, label %208, label %209
 
 208:                                              ; preds = %207
-  store i64 9223372036854775807, ptr getelementptr inbounds (i8, ptr @wakeup, i64 8), align 8
+  store i64 9223372036854775807, ptr getelementptr inbounds nuw (i8, ptr @wakeup, i64 8), align 8
   br label %WalRcvComputeNextWakeup.exit
 
 209:                                              ; preds = %207
-  store i64 %199, ptr getelementptr inbounds (i8, ptr @wakeup, i64 8), align 8
+  store i64 %199, ptr getelementptr inbounds nuw (i8, ptr @wakeup, i64 8), align 8
   br label %WalRcvComputeNextWakeup.exit
 
 210:                                              ; preds = %203
   %. = select i1 %or.cond.not.i, i64 %190, i64 9223372036854775807
-  store i64 %., ptr getelementptr inbounds (i8, ptr @wakeup, i64 24), align 8
+  store i64 %., ptr getelementptr inbounds nuw (i8, ptr @wakeup, i64 24), align 8
   call fastcc void @XLogWalRcvSendReply(i1 noundef zeroext true, i1 noundef zeroext false)
   call fastcc void @XLogWalRcvSendHSFeedback(i1 noundef zeroext true)
   store i32 -1, ptr %22, align 4
@@ -531,11 +531,11 @@ define dso_local void @WalReceiverMain() local_unnamed_addr #3 {
   br i1 %187, label %213, label %214
 
 213:                                              ; preds = %212
-  store i64 9223372036854775807, ptr getelementptr inbounds (i8, ptr @wakeup, i64 16), align 16
+  store i64 9223372036854775807, ptr getelementptr inbounds nuw (i8, ptr @wakeup, i64 16), align 16
   br label %WalRcvComputeNextWakeup.exit
 
 214:                                              ; preds = %212
-  store i64 %190, ptr getelementptr inbounds (i8, ptr @wakeup, i64 16), align 16
+  store i64 %190, ptr getelementptr inbounds nuw (i8, ptr @wakeup, i64 16), align 16
   br label %WalRcvComputeNextWakeup.exit
 
 default.unreachable:                              ; preds = %203
@@ -628,16 +628,16 @@ ProcessWalRcvInterrupts.exit:                     ; preds = %221
   br i1 %239, label %252, label %253
 
 252:                                              ; preds = %251
-  store i64 9223372036854775807, ptr getelementptr inbounds (i8, ptr @wakeup, i64 8), align 8
+  store i64 9223372036854775807, ptr getelementptr inbounds nuw (i8, ptr @wakeup, i64 8), align 8
   br label %WalRcvComputeNextWakeup.exit113
 
 253:                                              ; preds = %251
-  store i64 %243, ptr getelementptr inbounds (i8, ptr @wakeup, i64 8), align 8
+  store i64 %243, ptr getelementptr inbounds nuw (i8, ptr @wakeup, i64 8), align 8
   br label %WalRcvComputeNextWakeup.exit113
 
 254:                                              ; preds = %247
   %.272 = select i1 %or.cond.not.i112, i64 %234, i64 9223372036854775807
-  store i64 %.272, ptr getelementptr inbounds (i8, ptr @wakeup, i64 24), align 8
+  store i64 %.272, ptr getelementptr inbounds nuw (i8, ptr @wakeup, i64 24), align 8
   call fastcc void @XLogWalRcvSendHSFeedback(i1 noundef zeroext true)
   br label %259
 
@@ -645,11 +645,11 @@ ProcessWalRcvInterrupts.exit:                     ; preds = %221
   br i1 %231, label %256, label %257
 
 256:                                              ; preds = %255
-  store i64 9223372036854775807, ptr getelementptr inbounds (i8, ptr @wakeup, i64 16), align 16
+  store i64 9223372036854775807, ptr getelementptr inbounds nuw (i8, ptr @wakeup, i64 16), align 16
   br label %WalRcvComputeNextWakeup.exit113
 
 257:                                              ; preds = %255
-  store i64 %234, ptr getelementptr inbounds (i8, ptr @wakeup, i64 16), align 16
+  store i64 %234, ptr getelementptr inbounds nuw (i8, ptr @wakeup, i64 16), align 16
   br label %WalRcvComputeNextWakeup.exit113
 
 default.unreachable143:                           ; preds = %247
@@ -693,7 +693,7 @@ WalRcvComputeNextWakeup.exit115:                  ; preds = %.lr.ph, %269
   %.sink = phi i64 [ %272, %269 ], [ 9223372036854775807, %.lr.ph ]
   %storemerge = phi i64 [ %276, %269 ], [ 9223372036854775807, %.lr.ph ]
   store i64 %.sink, ptr @wakeup, align 16
-  store i64 %storemerge, ptr getelementptr inbounds (i8, ptr @wakeup, i64 8), align 8
+  store i64 %storemerge, ptr getelementptr inbounds nuw (i8, ptr @wakeup, i64 8), align 8
   %277 = load ptr, ptr %21, align 8
   %278 = load i8, ptr %277, align 1
   %279 = getelementptr i8, ptr %277, i64 1
@@ -1375,12 +1375,12 @@ ProcessWalRcvInterrupts.exit123:                  ; preds = %575
   unreachable
 
 592:                                              ; preds = %585
-  %593 = load i64, ptr getelementptr inbounds (i8, ptr @wakeup, i64 8), align 8
+  %593 = load i64, ptr getelementptr inbounds nuw (i8, ptr @wakeup, i64 8), align 8
   %.not107 = icmp sge i64 %586, %593
   br i1 %.not107, label %594, label %595
 
 594:                                              ; preds = %592
-  store i64 9223372036854775807, ptr getelementptr inbounds (i8, ptr @wakeup, i64 8), align 8
+  store i64 9223372036854775807, ptr getelementptr inbounds nuw (i8, ptr @wakeup, i64 8), align 8
   br label %595
 
 595:                                              ; preds = %594, %592
@@ -1870,7 +1870,7 @@ define internal fastcc void @XLogWalRcvSendReply(i1 noundef zeroext %0, i1 nound
 10:                                               ; preds = %7
   %11 = load i64, ptr @XLogWalRcvSendReply.flushPtr, align 8
   %12 = icmp eq i64 %11, %.pre13
-  %13 = load i64, ptr getelementptr inbounds (i8, ptr @wakeup, i64 16), align 16
+  %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @wakeup, i64 16), align 16
   %14 = icmp slt i64 %6, %13
   %or.cond = select i1 %12, i1 %14, i1 false
   br i1 %or.cond, label %88, label %WalRcvComputeNextWakeup.exit
@@ -1883,73 +1883,73 @@ WalRcvComputeNextWakeup.exit:                     ; preds = %.WalRcvComputeNextW
   %19 = mul nuw nsw i64 %18, 1000000
   %20 = add i64 %19, %6
   %storemerge = select i1 %17, i64 9223372036854775807, i64 %20
-  store i64 %storemerge, ptr getelementptr inbounds (i8, ptr @wakeup, i64 16), align 16
+  store i64 %storemerge, ptr getelementptr inbounds nuw (i8, ptr @wakeup, i64 16), align 16
   store i64 %.pre, ptr @XLogWalRcvSendReply.writePtr, align 8
   store i64 %15, ptr @XLogWalRcvSendReply.flushPtr, align 8
   %21 = tail call i64 @GetXLogReplayRecPtr(ptr noundef null) #15
   tail call void @resetStringInfo(ptr noundef nonnull @reply_message) #15
   tail call void @enlargeStringInfo(ptr noundef nonnull @reply_message, i32 noundef 1) #15
   %22 = load ptr, ptr @reply_message, align 8
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %24 = sext i32 %23 to i64
   %25 = getelementptr i8, ptr %22, i64 %24
   store i8 114, ptr %25, align 1
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %27 = add i32 %26, 1
-  store i32 %27, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  store i32 %27, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %28 = load i64, ptr @XLogWalRcvSendReply.writePtr, align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull @reply_message, i32 noundef 8) #15
   %29 = tail call i64 @llvm.bswap.i64(i64 %28)
   %30 = load ptr, ptr @reply_message, align 8
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %32 = sext i32 %31 to i64
   %33 = getelementptr i8, ptr %30, i64 %32
   store i64 %29, ptr %33, align 1
-  %34 = load i32, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %35 = add i32 %34, 8
-  store i32 %35, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  store i32 %35, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %36 = load i64, ptr @XLogWalRcvSendReply.flushPtr, align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull @reply_message, i32 noundef 8) #15
   %37 = tail call i64 @llvm.bswap.i64(i64 %36)
   %38 = load ptr, ptr @reply_message, align 8
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %40 = sext i32 %39 to i64
   %41 = getelementptr i8, ptr %38, i64 %40
   store i64 %37, ptr %41, align 1
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %43 = add i32 %42, 8
-  store i32 %43, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  store i32 %43, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull @reply_message, i32 noundef 8) #15
   %44 = tail call i64 @llvm.bswap.i64(i64 %21)
   %45 = load ptr, ptr @reply_message, align 8
-  %46 = load i32, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %47 = sext i32 %46 to i64
   %48 = getelementptr i8, ptr %45, i64 %47
   store i64 %44, ptr %48, align 1
-  %49 = load i32, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %50 = add i32 %49, 8
-  store i32 %50, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  store i32 %50, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %51 = tail call i64 @GetCurrentTimestamp() #15
   tail call void @enlargeStringInfo(ptr noundef nonnull @reply_message, i32 noundef 8) #15
   %52 = tail call i64 @llvm.bswap.i64(i64 %51)
   %53 = load ptr, ptr @reply_message, align 8
-  %54 = load i32, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %55 = sext i32 %54 to i64
   %56 = getelementptr i8, ptr %53, i64 %55
   store i64 %52, ptr %56, align 1
-  %57 = load i32, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %58 = add i32 %57, 8
-  store i32 %58, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  store i32 %58, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %59 = zext i1 %1 to i8
   tail call void @enlargeStringInfo(ptr noundef nonnull @reply_message, i32 noundef 1) #15
   %60 = load ptr, ptr @reply_message, align 8
-  %61 = load i32, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %62 = sext i32 %61 to i64
   %63 = getelementptr i8, ptr %60, i64 %62
   store i8 %59, ptr %63, align 1
-  %64 = load i32, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %65 = add i32 %64, 1
-  store i32 %65, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  store i32 %65, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %66 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #15
   br i1 %66, label %67, label %81
 
@@ -1976,7 +1976,7 @@ WalRcvComputeNextWakeup.exit:                     ; preds = %.WalRcvComputeNextW
   %84 = load ptr, ptr %83, align 8
   %85 = load ptr, ptr @wrconn, align 8
   %86 = load ptr, ptr @reply_message, align 8
-  %87 = load i32, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  %87 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   tail call void %84(ptr noundef %85, ptr noundef %86, i32 noundef %87) #15
   br label %88
 
@@ -2003,7 +2003,7 @@ define internal fastcc void @XLogWalRcvSendHSFeedback(i1 noundef zeroext %0) unn
 
 10:                                               ; preds = %9, %6
   %11 = tail call i64 @GetCurrentTimestamp() #15
-  %12 = load i64, ptr getelementptr inbounds (i8, ptr @wakeup, i64 24), align 8
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @wakeup, i64 24), align 8
   %13 = icmp sge i64 %11, %12
   %or.cond17.not = select i1 %0, i1 true, i1 %13
   br i1 %or.cond17.not, label %WalRcvComputeNextWakeup.exit, label %95
@@ -2018,7 +2018,7 @@ WalRcvComputeNextWakeup.exit:                     ; preds = %10
   %19 = mul nuw nsw i64 %18, 1000000
   %20 = add i64 %19, %11
   %storemerge = select i1 %or.cond.not.i, i64 %20, i64 9223372036854775807
-  store i64 %storemerge, ptr getelementptr inbounds (i8, ptr @wakeup, i64 24), align 8
+  store i64 %storemerge, ptr getelementptr inbounds nuw (i8, ptr @wakeup, i64 24), align 8
   %21 = tail call zeroext i1 @HotStandbyActive() #15
   br i1 %21, label %22, label %95
 
@@ -2062,66 +2062,66 @@ WalRcvComputeNextWakeup.exit:                     ; preds = %10
   call void @resetStringInfo(ptr noundef nonnull @reply_message) #15
   call void @enlargeStringInfo(ptr noundef nonnull @reply_message, i32 noundef 1) #15
   %42 = load ptr, ptr @reply_message, align 8
-  %43 = load i32, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %44 = sext i32 %43 to i64
   %45 = getelementptr i8, ptr %42, i64 %44
   store i8 104, ptr %45, align 1
-  %46 = load i32, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %47 = add i32 %46, 1
-  store i32 %47, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  store i32 %47, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %48 = call i64 @GetCurrentTimestamp() #15
   call void @enlargeStringInfo(ptr noundef nonnull @reply_message, i32 noundef 8) #15
   %49 = call i64 @llvm.bswap.i64(i64 %48)
   %50 = load ptr, ptr @reply_message, align 8
-  %51 = load i32, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %52 = sext i32 %51 to i64
   %53 = getelementptr i8, ptr %50, i64 %52
   store i64 %49, ptr %53, align 1
-  %54 = load i32, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %55 = add i32 %54, 8
-  store i32 %55, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  store i32 %55, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %56 = load i32, ptr %2, align 4
   call void @enlargeStringInfo(ptr noundef nonnull @reply_message, i32 noundef 4) #15
   %57 = call i32 @llvm.bswap.i32(i32 %56)
   %58 = load ptr, ptr @reply_message, align 8
-  %59 = load i32, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %60 = sext i32 %59 to i64
   %61 = getelementptr i8, ptr %58, i64 %60
   store i32 %57, ptr %61, align 1
-  %62 = load i32, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %63 = add i32 %62, 4
-  store i32 %63, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  store i32 %63, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   call void @enlargeStringInfo(ptr noundef nonnull @reply_message, i32 noundef 4) #15
   %64 = call i32 @llvm.bswap.i32(i32 %spec.select)
   %65 = load ptr, ptr @reply_message, align 8
-  %66 = load i32, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %67 = sext i32 %66 to i64
   %68 = getelementptr i8, ptr %65, i64 %67
   store i32 %64, ptr %68, align 1
-  %69 = load i32, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %70 = add i32 %69, 4
-  store i32 %70, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  store i32 %70, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %71 = load i32, ptr %3, align 4
   call void @enlargeStringInfo(ptr noundef nonnull @reply_message, i32 noundef 4) #15
   %72 = call i32 @llvm.bswap.i32(i32 %71)
   %73 = load ptr, ptr @reply_message, align 8
-  %74 = load i32, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  %74 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %75 = sext i32 %74 to i64
   %76 = getelementptr i8, ptr %73, i64 %75
   store i32 %72, ptr %76, align 1
-  %77 = load i32, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  %77 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %78 = add i32 %77, 4
-  store i32 %78, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  store i32 %78, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   call void @enlargeStringInfo(ptr noundef nonnull @reply_message, i32 noundef 4) #15
   %79 = call i32 @llvm.bswap.i32(i32 %.015)
   %80 = load ptr, ptr @reply_message, align 8
-  %81 = load i32, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %82 = sext i32 %81 to i64
   %83 = getelementptr i8, ptr %80, i64 %82
   store i32 %79, ptr %83, align 1
-  %84 = load i32, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  %84 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %85 = add i32 %84, 4
-  store i32 %85, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
+  store i32 %85, ptr getelementptr inbounds nuw (i8, ptr @reply_message, i64 8), align 8
   %86 = load ptr, ptr @WalReceiverFunctions, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 88
   %88 = load ptr, ptr %87, align 8

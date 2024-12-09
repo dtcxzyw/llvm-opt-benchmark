@@ -240,14 +240,14 @@ sw.default.i:                                     ; preds = %if.end6.i
   unreachable
 
 do.body:                                          ; preds = %if.end6.i, %if.end6.i
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 16), align 8
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 16), align 8
   %add = add i64 %4, 1
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 24), align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 24), align 8
   %cmp1 = icmp ugt i64 %add, %5
   br i1 %cmp1, label %if.then2, label %do.body.do.end_crit_edge
 
 do.body.do.end_crit_edge:                         ; preds = %do.body
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 8), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 8), align 8
   br label %do.end
 
 if.then2:                                         ; preds = %do.body
@@ -255,7 +255,7 @@ if.then2:                                         ; preds = %do.body
   %mul = add i64 %6, 48
   %div7 = lshr i64 %mul, 1
   %add.div7 = tail call i64 @llvm.umax.i64(i64 %div7, i64 %add)
-  store i64 %add.div7, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 24), align 8
+  store i64 %add.div7, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 24), align 8
   %mul.ov.i = icmp ugt i64 %add.div7, 88686269585142075
   br i1 %mul.ov.i, label %if.then.i, label %st_mult.exit
 
@@ -264,11 +264,11 @@ if.then.i:                                        ; preds = %if.then2
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then2
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 8), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 8), align 8
   %mul.i = mul nuw i64 %add.div7, 208
   %call13 = tail call ptr @xrealloc(ptr noundef %7, i64 noundef %mul.i) #16
-  store ptr %call13, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 8), align 8
-  %.pre11 = load i64, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 16), align 8
+  store ptr %call13, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 8), align 8
+  %.pre11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 16), align 8
   %.pre12 = add i64 %.pre11, 1
   br label %do.end
 
@@ -286,7 +286,7 @@ do.end:                                           ; preds = %do.body.do.end_crit
   store i64 %8, ptr %id, align 8
   %checkout_counter17 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 48
   store ptr %checkout_counter, ptr %checkout_counter17, align 8
-  store i64 %inc.pre-phi, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 16), align 8
+  store i64 %inc.pre-phi, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 16), align 8
   br label %return
 
 return:                                           ; preds = %if.end6.i, %if.end6.i, %cond.end.i, %lor.lhs.false, %entry, %do.end
@@ -302,7 +302,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local i64 @pc_queue_size() local_unnamed_addr #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 16), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 16), align 8
   ret i64 %0
 }
 
@@ -560,9 +560,9 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store i32 2, ptr @parallel_checkout, align 8
-  store ptr %progress, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 32), align 8
-  store ptr %progress_cnt, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 40), align 8
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 16), align 8
+  store ptr %progress, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 32), align 8
+  store ptr %progress_cnt, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 40), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 16), align 8
   %conv = sext i32 %num_workers to i64
   %cmp1 = icmp ult i64 %1, %conv
   %conv4 = trunc i64 %1 to i32
@@ -579,7 +579,7 @@ if.then11:                                        ; preds = %if.end
 
 for.body.i:                                       ; preds = %if.then11, %for.inc.i
   %i.05.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %if.then11 ]
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 8), align 8
   %arrayidx.i = getelementptr inbounds %struct.parallel_checkout_item, ptr %2, i64 %i.05.i
   tail call void @write_pc_item(ptr noundef %arrayidx.i, ptr noundef %state)
   %status.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 56
@@ -588,12 +588,12 @@ for.body.i:                                       ; preds = %if.then11, %for.inc
   br i1 %cmp1.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 32), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 32), align 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %for.inc.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 40), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 40), align 8
   %6 = load i32, ptr %5, align 4
   %inc.i.i = add i32 %6, 1
   store i32 %inc.i.i, ptr %5, align 4
@@ -603,7 +603,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 for.inc.i:                                        ; preds = %if.then.i.i, %if.then.i, %for.body.i
   %inc.i = add nuw i64 %i.05.i, 1
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 16), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 16), align 8
   %cmp.i = icmp ult i64 %inc.i, %7
   br i1 %cmp.i, label %for.body.i, label %if.end12, !llvm.loop !5
 
@@ -652,7 +652,7 @@ if.then12.i:                                      ; preds = %if.end.i
   unreachable
 
 for.end.i:                                        ; preds = %for.cond.i
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 16), align 8
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 16), align 8
   %div.i = udiv i64 %10, %conv.i
   %rem.i = urem i64 %10, %conv.i
   br label %for.body20.i
@@ -672,7 +672,7 @@ for.body20.i:                                     ; preds = %send_batch.exit.i, 
 
 for.body.i.i:                                     ; preds = %for.body20.i, %send_one_item.exit.i.i
   %i.05.i.i = phi i64 [ %inc.i.i11, %send_one_item.exit.i.i ], [ 0, %for.body20.i ]
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 8), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 8), align 8
   %13 = getelementptr %struct.parallel_checkout_item, ptr %12, i64 %batch_beginning.030.i
   %arrayidx.i.i = getelementptr %struct.parallel_checkout_item, ptr %13, i64 %i.05.i.i
   %working_tree_encoding1.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 32
@@ -863,7 +863,7 @@ if.then.i.i28:                                    ; preds = %if.else40.i
   unreachable
 
 if.end.i.i:                                       ; preds = %if.else40.i
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @packet_buffer, i64 8), align 8
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @packet_buffer, i64 8), align 8
   %cmp2.not.i.i = icmp eq i32 %33, 1
   br i1 %cmp2.not.i.i, label %if.then4.i.i, label %if.else.i.i
 
@@ -884,7 +884,7 @@ if.then.i18.i.i:                                  ; preds = %if.else.i.i
   unreachable
 
 if.end6.i.i:                                      ; preds = %if.else.i.i, %if.then4.i.i
-  %st.0.i.i = phi ptr [ getelementptr inbounds (i8, ptr @packet_buffer, i64 16), %if.then4.i.i ], [ null, %if.else.i.i ]
+  %st.0.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @packet_buffer, i64 16), %if.then4.i.i ], [ null, %if.else.i.i ]
   %nr_items_to_complete.i.i = getelementptr inbounds nuw i8, ptr %arrayidx22.i20, i64 128
   %34 = load i64, ptr %nr_items_to_complete.i.i, align 8
   %tobool.not.i.i21 = icmp eq i64 %34, 0
@@ -910,7 +910,7 @@ if.end14.i.i:                                     ; preds = %if.end8.i.i
   store i64 %inc.i.i22, ptr %next_item_to_complete.i.i, align 8
   %dec.i.i = add i64 %34, -1
   store i64 %dec.i.i, ptr %nr_items_to_complete.i.i, align 8
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 8), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 8), align 8
   %arrayidx.i.i23 = getelementptr inbounds %struct.parallel_checkout_item, ptr %37, i64 %35
   %status19.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i23, i64 56
   store i32 %33, ptr %status19.i.i, align 8
@@ -922,17 +922,17 @@ if.then21.i.i:                                    ; preds = %if.end14.i.i
   br label %if.end23.i.i
 
 if.end23.i.i:                                     ; preds = %if.then21.i.i, %if.end14.i.i
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @packet_buffer, i64 8), align 8
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @packet_buffer, i64 8), align 8
   %cmp25.not.i.i = icmp eq i32 %38, 2
   br i1 %cmp25.not.i.i, label %if.end59.i, label %if.then27.i.i
 
 if.then27.i.i:                                    ; preds = %if.end23.i.i
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 32), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 32), align 8
   %tobool.not.i.i.i24 = icmp eq ptr %39, null
   br i1 %tobool.not.i.i.i24, label %if.end59.i, label %if.then.i20.i.i
 
 if.then.i20.i.i:                                  ; preds = %if.then27.i.i
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 40), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 40), align 8
   %41 = load i32, ptr %40, align 4
   %inc.i.i.i = add i32 %41, 1
   store i32 %inc.i.i.i, ptr %40, align 4
@@ -1024,7 +1024,7 @@ for.inc21.i:                                      ; preds = %if.then17.i, %for.b
 
 finish_workers.exit:                              ; preds = %for.inc21.i
   tail call void @free(ptr noundef %call1.i) #16
-  %.pr.pre = load i64, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 16), align 8
+  %.pr.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 16), align 8
   br label %if.end12
 
 if.end12:                                         ; preds = %for.inc.i, %finish_workers.exit
@@ -1033,7 +1033,7 @@ if.end12:                                         ; preds = %for.inc.i, %finish_
   br i1 %cmp17.not.i, label %handle_results.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end12
-  %.pre24.i = load ptr, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 8), align 8
+  %.pre24.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 8), align 8
   br label %for.body.i45
 
 for.cond2.preheader.i:                            ; preds = %for.inc.i48
@@ -1061,8 +1061,8 @@ if.then.i57:                                      ; preds = %for.body.i45
   %55 = load ptr, ptr %arrayidx.i46, align 8
   %st.i = getelementptr inbounds nuw i8, ptr %arrayidx.i46, i64 64
   tail call void @update_ce_after_write(ptr noundef %state, ptr noundef %55, ptr noundef nonnull %st.i) #16
-  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 8), align 8
-  %.pre25.i = load i64, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 16), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 8), align 8
+  %.pre25.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 16), align 8
   br label %for.inc.i48
 
 for.inc.i48:                                      ; preds = %if.then.i57, %for.body.i45
@@ -1076,7 +1076,7 @@ for.body4.i:                                      ; preds = %for.inc17.i, %for.b
   %58 = phi i64 [ %68, %for.inc17.i ], [ %50, %for.body4.outer.i ]
   %ret.022.i = phi i32 [ %ret.1.i, %for.inc17.i ], [ %ret.022.ph.i, %for.body4.outer.i ]
   %i.121.i = phi i64 [ %inc18.i, %for.inc17.i ], [ %i.121.ph.i, %for.body4.outer.i ]
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 8), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 8), align 8
   %arrayidx6.i = getelementptr inbounds %struct.parallel_checkout_item, ptr %59, i64 %i.121.i
   %status7.i = getelementptr inbounds nuw i8, ptr %arrayidx6.i, i64 56
   %60 = load i32, ptr %status7.i, align 8
@@ -1106,12 +1106,12 @@ sw.bb12.i:                                        ; preds = %for.body4.i
   %64 = load ptr, ptr %checkout_counter14.i, align 8
   %call.i51 = tail call i32 @checkout_entry_ca(ptr noundef %63, ptr noundef nonnull %ca.i, ptr noundef %state, ptr noundef null, ptr noundef %64) #16
   %or.i = or i32 %call.i51, %ret.022.i
-  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 32), align 8
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 32), align 8
   %tobool.not.i.i52 = icmp eq ptr %65, null
   br i1 %tobool.not.i.i52, label %for.inc17.i, label %if.then.i.i53
 
 if.then.i.i53:                                    ; preds = %sw.bb12.i
-  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 40), align 8
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 40), align 8
   %67 = load i32, ptr %66, align 4
   %inc.i.i54 = add i32 %67, 1
   store i32 %inc.i.i54, ptr %66, align 4
@@ -1126,7 +1126,7 @@ sw.default.i:                                     ; preds = %for.body4.i
 for.inc17.i:                                      ; preds = %if.then.i.i53, %sw.bb12.i, %if.then8.i, %sw.bb.i, %for.body4.i
   %ret.1.i = phi i32 [ %ret.022.i, %if.then8.i ], [ %ret.022.i, %sw.bb.i ], [ -1, %for.body4.i ], [ %or.i, %sw.bb12.i ], [ %or.i, %if.then.i.i53 ]
   %inc18.i = add nuw i64 %i.121.i, 1
-  %68 = load i64, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 16), align 8
+  %68 = load i64, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 16), align 8
   %cmp3.i = icmp ult i64 %inc18.i, %68
   br i1 %cmp3.i, label %for.body4.i, label %for.end19.i, !llvm.loop !16
 
@@ -1154,7 +1154,7 @@ if.then.i60:                                      ; preds = %handle_results.exit
   unreachable
 
 finish_parallel_checkout.exit:                    ; preds = %handle_results.exit
-  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 8), align 8
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 8), align 8
   tail call void @free(ptr noundef %70) #16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @parallel_checkout, i8 0, i64 48, i1 false)
   ret i32 %ret.0.lcssa29.i

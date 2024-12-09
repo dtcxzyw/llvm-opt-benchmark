@@ -180,7 +180,7 @@ define hidden range(i32 0, 2) i32 @rebuildScreenData(ptr noundef %0, i32 noundef
   %.02535 = phi i32 [ %.1, %42 ], [ 0, %2 ]
   %9 = load i32, ptr %3, align 4
   call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.rebuildScreenData, i32 noundef 87, i32 noundef %9) #9
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @screenSpace, i64 12), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 12), align 4
   %11 = sext i32 %10 to i64
   %.not29 = icmp slt i64 %indvars.iv, %11
   %.pre = load ptr, ptr @screenSpace, align 8
@@ -188,7 +188,7 @@ define hidden range(i32 0, 2) i32 @rebuildScreenData(ptr noundef %0, i32 noundef
 
 12:                                               ; preds = %.lr.ph
   %13 = add nsw i32 %10, 1
-  store i32 %13, ptr getelementptr inbounds (i8, ptr @screenSpace, i64 12), align 4
+  store i32 %13, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 12), align 4
   %14 = sext i32 %13 to i64
   %15 = shl nsw i64 %14, 6
   %16 = call ptr @realloc(ptr noundef %.pre, i64 noundef %15) #10
@@ -207,7 +207,7 @@ define hidden range(i32 0, 2) i32 @rebuildScreenData(ptr noundef %0, i32 noundef
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %22, i8 0, i64 64, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = trunc nuw i64 %indvars.iv.next to i32
-  store i32 %23, ptr getelementptr inbounds (i8, ptr @screenSpace, i64 8), align 8
+  store i32 %23, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
   %24 = load i32, ptr %3, align 4
   store i32 %24, ptr %22, align 8
   %25 = load ptr, ptr @gtk, align 8
@@ -1395,7 +1395,7 @@ define hidden range(i32 0, 2) i32 @rectanglesEqual(i64 %0, i64 %1, i64 %2, i64 %
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @checkCanCaptureAllRequiredScreens(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @screenSpace, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
   %4 = icmp sgt i32 %1, %3
   br i1 %4, label %6, label %.preheader
 
@@ -1420,7 +1420,7 @@ define hidden range(i32 0, 2) i32 @checkCanCaptureAllRequiredScreens(ptr nocaptu
   %.sroa.03.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.03.sroa.4.0.extract.shift to i32
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @screenSpace, i64 8), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
   %.not2830 = icmp sgt i32 %8, 0
   br i1 %.not2830, label %.lr.ph, label %.critedge
 

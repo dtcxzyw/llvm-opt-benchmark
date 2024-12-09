@@ -31115,7 +31115,7 @@ define internal fastcc void @_ZN5image6codecs3hdr7decoder16limit_string_len17he4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7), !noalias !3264
   store ptr @anon.b96271f4cf8a6d021d67e6f234d08bd0.208, ptr %7, align 8, !noalias !3268
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.b96271f4cf8a6d021d67e6f234d08bd0.208, i64 3), ptr %.sroa.4.0..sroa_idx, align 8, !noalias !3268
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.b96271f4cf8a6d021d67e6f234d08bd0.208, i64 3), ptr %.sroa.4.0..sroa_idx, align 8, !noalias !3268
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %1, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !3268
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24

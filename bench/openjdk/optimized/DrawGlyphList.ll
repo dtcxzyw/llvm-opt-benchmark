@@ -22,23 +22,23 @@ define hidden noundef ptr @setupBlitVector(ptr noundef %0, ptr noundef %1, i32 n
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 816
   %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 232), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 232), align 8
   %9 = tail call float %7(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %8) #10
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 816
   %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 240), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 240), align 8
   %14 = tail call float %12(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %13) #10
   %15 = sub i32 %3, %2
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 760
   %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 256), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 256), align 8
   %20 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %19) #10
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 768
   %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 264), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 264), align 8
   %25 = tail call zeroext i8 %23(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %24) #10
   %.not = icmp eq i8 %25, 0
   br i1 %.not, label %32, label %26
@@ -47,7 +47,7 @@ define hidden noundef ptr @setupBlitVector(ptr noundef %0, ptr noundef %1, i32 n
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 760
   %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 272), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 272), align 8
   %31 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %30) #10
   br label %32
 
@@ -274,12 +274,12 @@ define hidden noundef ptr @setupBlitVector(ptr noundef %0, ptr noundef %1, i32 n
   %165 = load ptr, ptr %0, align 8
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 888
   %167 = load ptr, ptr %166, align 8
-  %168 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 232), align 8
+  %168 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 232), align 8
   tail call void %167(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %168, float noundef %.0152190) #10
   %169 = load ptr, ptr %0, align 8
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 888
   %171 = load ptr, ptr %170, align 8
-  %172 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 240), align 8
+  %172 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 240), align 8
   tail call void %171(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %172, float noundef %.0154189) #10
   br label %173
 
@@ -671,7 +671,7 @@ define void @Java_sun_java2d_loops_DrawGlyphListLCD_DrawGlyphListLCD(ptr noundef
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 768
   %22 = load ptr, ptr %21, align 8
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 280), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 280), align 8
   %24 = tail call zeroext i8 %22(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %23) #10
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %26 = load ptr, ptr %25, align 8
@@ -1013,23 +1013,23 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 816
   %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 232), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 232), align 8
   %9 = tail call float %7(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %8) #10
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 816
   %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 240), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 240), align 8
   %14 = tail call float %12(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %13) #10
   %15 = sub i32 %3, %2
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 760
   %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 256), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 256), align 8
   %20 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %19) #10
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 768
   %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 264), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 264), align 8
   %25 = tail call zeroext i8 %23(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %24) #10
   %.not = icmp eq i8 %25, 0
   br i1 %.not, label %32, label %26
@@ -1038,7 +1038,7 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 760
   %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 272), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 272), align 8
   %31 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %30) #10
   br label %32
 
@@ -1047,7 +1047,7 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 768
   %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 288), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 288), align 8
   %38 = tail call zeroext i8 %36(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %37) #10
   %39 = sext i32 %15 to i64
   %40 = mul nsw i64 %39, 40
@@ -1426,12 +1426,12 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %267 = load ptr, ptr %0, align 8
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 888
   %269 = load ptr, ptr %268, align 8
-  %270 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 232), align 8
+  %270 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 232), align 8
   tail call void %269(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %270, float noundef %.0235286) #10
   %271 = load ptr, ptr %0, align 8
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 888
   %273 = load ptr, ptr %272, align 8
-  %274 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 240), align 8
+  %274 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 240), align 8
   tail call void %273(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %274, float noundef %.0237285) #10
   br label %275
 
@@ -1512,8 +1512,8 @@ declare double @pow(double noundef, double noundef) local_unnamed_addr #5
 define hidden void @initLCDGammaTables() local_unnamed_addr #6 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1208) @lcdGammaLUT, i8 0, i64 1208, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1208) @lcdInvGammaLUT, i8 0, i64 1208, i1 false)
-  store ptr @defaultGammaLUT, ptr getelementptr inbounds (i8, ptr @lcdGammaLUT, i64 320), align 16
-  store ptr @defaultInvGammaLUT, ptr getelementptr inbounds (i8, ptr @lcdInvGammaLUT, i64 320), align 16
+  store ptr @defaultGammaLUT, ptr getelementptr inbounds nuw (i8, ptr @lcdGammaLUT, i64 320), align 16
+  store ptr @defaultInvGammaLUT, ptr getelementptr inbounds nuw (i8, ptr @lcdInvGammaLUT, i64 320), align 16
   ret void
 }
 

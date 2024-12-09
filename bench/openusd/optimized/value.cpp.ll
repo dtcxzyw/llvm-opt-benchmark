@@ -1266,7 +1266,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA3_KcJRA29_S3_NSt7__c
           to label %28 unwind label %59
 
 28:                                               ; preds = %26
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15Vt_CastRegistryE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15Vt_CastRegistryE, i64 16), ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 0, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -6431,7 +6431,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZN32pxrInternal_v0_24__
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__15Vt_CastRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15Vt_CastRegistryE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15Vt_CastRegistryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISt4pairISt10type_indexS5_EPFN32pxrInternal_v0_24__pxrReserved__7VtValueERKS8_ENS7_6TfHashESt8equal_toIS6_ENS1_13tbb_allocatorIS4_IKS6_SC_EEELb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(592) %2) #16
   ret void
@@ -6439,7 +6439,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__15Vt_CastRegistry
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__15Vt_CastRegistryD0Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15Vt_CastRegistryE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15Vt_CastRegistryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISt4pairISt10type_indexS5_EPFN32pxrInternal_v0_24__pxrReserved__7VtValueERKS8_ENS7_6TfHashESt8equal_toIS6_ENS1_13tbb_allocatorIS4_IKS6_SC_EEELb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(592) %2) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #24

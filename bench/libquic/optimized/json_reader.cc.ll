@@ -291,7 +291,7 @@ call.i.noexc:                                     ; preds = %sw.bb1
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @_ZN4base10JSONReader14kInvalidEscapeE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4base10JSONReader14kInvalidEscapeE, i64 24))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @_ZN4base10JSONReader14kInvalidEscapeE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4base10JSONReader14kInvalidEscapeE, i64 24))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -319,7 +319,7 @@ call.i.noexc6:                                    ; preds = %sw.bb2
           to label %.noexc8 unwind label %lpad4
 
 .noexc8:                                          ; preds = %call.i.noexc6
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @_ZN4base10JSONReader12kSyntaxErrorE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4base10JSONReader12kSyntaxErrorE, i64 13))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @_ZN4base10JSONReader12kSyntaxErrorE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4base10JSONReader12kSyntaxErrorE, i64 13))
           to label %invoke.cont5 unwind label %lpad.i5
 
 lpad.i5:                                          ; preds = %.noexc8
@@ -347,7 +347,7 @@ call.i.noexc14:                                   ; preds = %sw.bb6
           to label %.noexc16 unwind label %lpad8
 
 .noexc16:                                         ; preds = %call.i.noexc14
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @_ZN4base10JSONReader16kUnexpectedTokenE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4base10JSONReader16kUnexpectedTokenE, i64 17))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @_ZN4base10JSONReader16kUnexpectedTokenE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4base10JSONReader16kUnexpectedTokenE, i64 17))
           to label %invoke.cont9 unwind label %lpad.i13
 
 lpad.i13:                                         ; preds = %.noexc16
@@ -375,7 +375,7 @@ call.i.noexc22:                                   ; preds = %sw.bb10
           to label %.noexc24 unwind label %lpad12
 
 .noexc24:                                         ; preds = %call.i.noexc22
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @_ZN4base10JSONReader14kTrailingCommaE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4base10JSONReader14kTrailingCommaE, i64 27))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @_ZN4base10JSONReader14kTrailingCommaE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4base10JSONReader14kTrailingCommaE, i64 27))
           to label %invoke.cont13 unwind label %lpad.i21
 
 lpad.i21:                                         ; preds = %.noexc24
@@ -403,7 +403,7 @@ call.i.noexc30:                                   ; preds = %sw.bb14
           to label %.noexc32 unwind label %lpad16
 
 .noexc32:                                         ; preds = %call.i.noexc30
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @_ZN4base10JSONReader15kTooMuchNestingE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4base10JSONReader15kTooMuchNestingE, i64 17))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @_ZN4base10JSONReader15kTooMuchNestingE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4base10JSONReader15kTooMuchNestingE, i64 17))
           to label %invoke.cont17 unwind label %lpad.i29
 
 lpad.i29:                                         ; preds = %.noexc32
@@ -431,7 +431,7 @@ call.i.noexc38:                                   ; preds = %sw.bb18
           to label %.noexc40 unwind label %lpad20
 
 .noexc40:                                         ; preds = %call.i.noexc38
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @_ZN4base10JSONReader24kUnexpectedDataAfterRootE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4base10JSONReader24kUnexpectedDataAfterRootE, i64 35))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @_ZN4base10JSONReader24kUnexpectedDataAfterRootE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4base10JSONReader24kUnexpectedDataAfterRootE, i64 35))
           to label %invoke.cont21 unwind label %lpad.i37
 
 lpad.i37:                                         ; preds = %.noexc40
@@ -459,7 +459,7 @@ call.i.noexc46:                                   ; preds = %sw.bb22
           to label %.noexc48 unwind label %lpad24
 
 .noexc48:                                         ; preds = %call.i.noexc46
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @_ZN4base10JSONReader20kUnsupportedEncodingE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4base10JSONReader20kUnsupportedEncodingE, i64 41))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @_ZN4base10JSONReader20kUnsupportedEncodingE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4base10JSONReader20kUnsupportedEncodingE, i64 41))
           to label %invoke.cont25 unwind label %lpad.i45
 
 lpad.i45:                                         ; preds = %.noexc48
@@ -487,7 +487,7 @@ call.i.noexc54:                                   ; preds = %sw.bb26
           to label %.noexc56 unwind label %lpad28
 
 .noexc56:                                         ; preds = %call.i.noexc54
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @_ZN4base10JSONReader22kUnquotedDictionaryKeyE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4base10JSONReader22kUnquotedDictionaryKeyE, i64 31))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @_ZN4base10JSONReader22kUnquotedDictionaryKeyE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4base10JSONReader22kUnquotedDictionaryKeyE, i64 31))
           to label %invoke.cont29 unwind label %lpad.i53
 
 lpad.i53:                                         ; preds = %.noexc56

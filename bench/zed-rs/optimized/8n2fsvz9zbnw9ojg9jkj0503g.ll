@@ -13767,7 +13767,7 @@ default.unreachable393:                           ; preds = %113
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11), !noalias !2145
   store ptr @anon.4c99158258ee3b3a3d86145b1761aaa8.402.llvm.2317975020751253692, ptr %10, align 8, !noalias !2145
   %133 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.4c99158258ee3b3a3d86145b1761aaa8.402.llvm.2317975020751253692, i64 1), ptr %133, align 8, !noalias !2145
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.4c99158258ee3b3a3d86145b1761aaa8.402.llvm.2317975020751253692, i64 1), ptr %133, align 8, !noalias !2145
   %134 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %12, ptr %134, align 8, !noalias !2145
   %135 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -29705,7 +29705,7 @@ define hidden void @_ZN4util7measure17he7ec91ed1799237dE(ptr noalias noundef non
   br label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h88e9027f31cfdc22E.exit"
 
 "_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h88e9027f31cfdc22E.exit": ; preds = %4, %14
-  %15 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4util7measure16ZED_MEASUREMENTS17h3b5e1a155d4a424bE, i64 4), align 4, !range !376, !noundef !4
+  %15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4util7measure16ZED_MEASUREMENTS17h3b5e1a155d4a424bE, i64 4), align 4, !range !376, !noundef !4
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %21, label %17
 
@@ -32603,7 +32603,7 @@ define internal fastcc void @_ZN5ahash12random_state11RandomState3new17h3799e629
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8, !invariant.load !4, !nonnull !4
   %8 = tail call noundef i64 %7(ptr noundef nonnull align 1 %3)
-  tail call void @_ZN5ahash12random_state11RandomState9from_keys17h5e44f12f3992ee40E(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.2f13f7ae31c46e97a8e87533050cbefc.494, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @anon.2f13f7ae31c46e97a8e87533050cbefc.494, i64 32), i64 noundef %8)
+  tail call void @_ZN5ahash12random_state11RandomState9from_keys17h5e44f12f3992ee40E(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.2f13f7ae31c46e97a8e87533050cbefc.494, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @anon.2f13f7ae31c46e97a8e87533050cbefc.494, i64 32), i64 noundef %8)
   ret void
 }
 
@@ -144776,7 +144776,7 @@ define internal fastcc noundef zeroext i1 @_ZN4gpui8elements3img6is_uri17hbedc3f
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %1, ptr %11, align 8, !noalias !41221
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr getelementptr inbounds (i8, ptr @anon.2f13f7ae31c46e97a8e87533050cbefc.967, i64 1), ptr %12, align 8, !noalias !41221
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.2f13f7ae31c46e97a8e87533050cbefc.967, i64 1), ptr %12, align 8, !noalias !41221
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 2, ptr %13, align 8, !noalias !41221
   %14 = icmp ugt i64 %1, 66

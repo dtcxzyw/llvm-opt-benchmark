@@ -129,7 +129,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   store ptr @.str, ptr @pmix_tool_basename, align 8
   %13 = call i32 @gethostname(ptr noundef nonnull %7, i64 noundef 4097) #15
   %14 = load i32, ptr @pmix_class_init_epoch, align 4
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_cli_result_t_class, i64 32), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_cli_result_t_class, i64 32), align 8
   %.not = icmp eq i32 %14, %15
   br i1 %.not, label %17, label %16
 
@@ -1010,10 +1010,10 @@ convert_signal.exit:                              ; preds = %358, %pmix_cmd_line
 
 pmix_cmd_line_get_param.exit436.thread:           ; preds = %351, %pmix_cmd_line_get_param.exit428.thread, %369
   %.8 = phi ptr [ @.str.57, %369 ], [ %.7, %pmix_cmd_line_get_param.exit428.thread ], [ %.7, %351 ]
-  %375 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_shift_caddy_t_class, i64 56), align 8
+  %375 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_shift_caddy_t_class, i64 56), align 8
   %376 = call noalias noundef ptr @malloc(i64 noundef %375) #20
   %377 = load i32, ptr @pmix_class_init_epoch, align 4
-  %378 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_shift_caddy_t_class, i64 32), align 8
+  %378 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_shift_caddy_t_class, i64 32), align 8
   %.not.i437 = icmp eq i32 %377, %378
   br i1 %.not.i437, label %380, label %379
 

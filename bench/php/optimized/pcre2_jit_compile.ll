@@ -951,7 +951,7 @@ bracketend.exit.i:                                ; preds = %156
   br i1 %250, label %251, label %254
 
 251:                                              ; preds = %248
-  %252 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 118), align 1
+  %252 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_pcre2_OP_lengths_8, i64 118), align 1
   %253 = zext i8 %252 to i64
   br label %263
 
@@ -4879,7 +4879,7 @@ sljit_emit_op2.exit68.i:                          ; preds = %emit_mov.exit123.i,
   br i1 %or.cond1981, label %1938, label %1925
 
 1925:                                             ; preds = %1922
-  %1926 = load i16, ptr getelementptr inbounds (i8, ptr @_pcre2_ucd_stage1_8, i64 2), align 2
+  %1926 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_pcre2_ucd_stage1_8, i64 2), align 2
   %1927 = zext i16 %1926 to i32
   %1928 = shl nuw nsw i32 %1927, 7
   %1929 = and i32 %1858, 127
@@ -16073,7 +16073,7 @@ define internal fastcc void @fast_forward_first_char(ptr nocapture noundef nonnu
   br i1 %.not15, label %37, label %23
 
 23:                                               ; preds = %20, %17
-  %24 = load i16, ptr getelementptr inbounds (i8, ptr @_pcre2_ucd_stage1_8, i64 2), align 2
+  %24 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_pcre2_ucd_stage1_8, i64 2), align 2
   %25 = zext i16 %24 to i32
   %26 = shl nuw nsw i32 %25, 7
   %27 = and i32 %5, 127
@@ -23066,7 +23066,7 @@ compile_recurse_matchingpath.exit:                ; preds = %1841, %1814, %sljit
   br i1 %1902, label %1903, label %1906
 
 1903:                                             ; preds = %1900
-  %1904 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 118), align 1
+  %1904 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_pcre2_OP_lengths_8, i64 118), align 1
   %1905 = zext i8 %1904 to i32
   br label %1915
 
@@ -60716,7 +60716,7 @@ char_othercase.exit:                              ; preds = %381, %397
   br i1 %or.cond, label %408, label %422
 
 408:                                              ; preds = %404
-  %409 = load i16, ptr getelementptr inbounds (i8, ptr @_pcre2_ucd_stage1_8, i64 2), align 2
+  %409 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_pcre2_ucd_stage1_8, i64 2), align 2
   %410 = zext i16 %409 to i64
   %411 = shl nuw nsw i64 %410, 7
   %412 = and i8 %292, 127

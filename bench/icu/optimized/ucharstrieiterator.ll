@@ -25,7 +25,7 @@ entry:
   %skipValue_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i8 0, ptr %skipValue_, align 8
   %str_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %str_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %str_, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i16 2, ptr %fUnion2.i, align 8
   %maxLength_ = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -101,7 +101,7 @@ entry:
   %skipValue_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i8 0, ptr %skipValue_, align 8
   %str_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %str_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %str_, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i16 2, ptr %fUnion2.i, align 8
   %maxLength_ = getelementptr inbounds nuw i8, ptr %this, i64 104

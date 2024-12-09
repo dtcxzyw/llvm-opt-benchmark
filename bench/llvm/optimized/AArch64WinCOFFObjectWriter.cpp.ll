@@ -38,7 +38,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_126AArch64WinCOFFObjectWriterESt14default_delete
   %7 = select i1 %5, i1 %6, i1 false
   %8 = select i1 %7, i32 42561, i32 43620
   tail call void @_ZN4llvm27MCWinCOFFObjectTargetWriterC2Ej(ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef %8) #8, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_126AArch64WinCOFFObjectWriterE, i64 16), ptr %4, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_126AArch64WinCOFFObjectWriterE, i64 16), ptr %4, align 8, !noalias !4
   store ptr %4, ptr %0, align 8
   ret void
 }

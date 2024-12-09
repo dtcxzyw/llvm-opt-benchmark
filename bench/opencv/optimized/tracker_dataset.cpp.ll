@@ -370,7 +370,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 50397184, ptr %17, align 8
   store ptr @_ZL5image, ptr %99, align 8
   %.sroa.015.0.copyload = load i64, ptr @_ZL11boundingBox, align 8
-  %.sroa.216.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZL11boundingBox, i64 8), align 8
+  %.sroa.216.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL11boundingBox, i64 8), align 8
   store double 2.550000e+02, ptr %18, align 8
   %101 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %101, i8 0, i64 24, i1 false)
@@ -531,7 +531,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 50397184, ptr %25, align 8
   store ptr @_ZL5image, ptr %117, align 8
   %.sroa.0.0.copyload = load i64, ptr @_ZL11boundingBox, align 8
-  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZL11boundingBox, i64 8), align 8
+  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL11boundingBox, i64 8), align 8
   store double 2.550000e+02, ptr %26, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, i8 0, i64 24, i1 false)
   invoke void @_ZN2cv9rectangleERKNS_17_InputOutputArrayENS_5Rect_IiEERKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %25, i64 %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %26, i32 noundef 2, i32 noundef 1, i32 noundef 0)
@@ -918,20 +918,20 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
 14:                                               ; preds = %13
   store i1 true, ptr @_ZL14startSelection, align 1
   store i32 %1, ptr @_ZL11boundingBox, align 8
-  store i32 %2, ptr getelementptr inbounds (i8, ptr @_ZL11boundingBox, i64 4), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL11boundingBox, i64 12), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL11boundingBox, i64 8), align 8
+  store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @_ZL11boundingBox, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL11boundingBox, i64 12), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL11boundingBox, i64 8), align 8
   br label %47
 
 15:                                               ; preds = %13
   %16 = load i32, ptr @_ZL11boundingBox, align 8
   %17 = sub nsw i32 %1, %16
   %18 = tail call i32 @llvm.abs.i32(i32 %17, i1 true)
-  store i32 %18, ptr getelementptr inbounds (i8, ptr @_ZL11boundingBox, i64 8), align 8
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL11boundingBox, i64 4), align 4
+  store i32 %18, ptr getelementptr inbounds nuw (i8, ptr @_ZL11boundingBox, i64 8), align 8
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL11boundingBox, i64 4), align 4
   %20 = sub nsw i32 %2, %19
   %21 = tail call i32 @llvm.abs.i32(i32 %20, i1 true)
-  store i32 %21, ptr getelementptr inbounds (i8, ptr @_ZL11boundingBox, i64 12), align 4
+  store i32 %21, ptr getelementptr inbounds nuw (i8, ptr @_ZL11boundingBox, i64 12), align 4
   store i8 0, ptr @_ZL6paused, align 1
   store i1 true, ptr @_ZL12selectObject, align 1
   br label %47

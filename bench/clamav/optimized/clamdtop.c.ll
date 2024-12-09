@@ -545,16 +545,16 @@ make_ip.exit.i:                                   ; preds = %90, %82, %76, %58
 .loopexit.i:                                      ; preds = %.preheader65.i, %make_ip.exit.i
   %storemerge.i = phi i64 [ 1, %make_ip.exit.i ], [ %98, %.preheader65.i ]
   %.1.i = phi ptr [ %97, %make_ip.exit.i ], [ null, %.preheader65.i ]
-  store i64 %storemerge.i, ptr getelementptr inbounds (i8, ptr @global, i64 24), align 8
+  store i64 %storemerge.i, ptr getelementptr inbounds nuw (i8, ptr @global, i64 24), align 8
   %102 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.27)
   %103 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.28)
   %104 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.29)
   %105 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.30)
   %106 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.31)
   %107 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.32)
-  %108 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 24), align 8
+  %108 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global, i64 24), align 8
   %109 = call noalias ptr @calloc(i64 noundef %108, i64 noundef 200) #28
-  store ptr %109, ptr getelementptr inbounds (i8, ptr @global, i64 16), align 8
+  store ptr %109, ptr getelementptr inbounds nuw (i8, ptr @global, i64 16), align 8
   %.not58.i = icmp eq ptr %109, null
   br i1 %.not58.i, label %110, label %111
 
@@ -564,7 +564,7 @@ make_ip.exit.i:                                   ; preds = %90, %82, %76, %58
 
 111:                                              ; preds = %.loopexit.i
   %112 = call noalias ptr @calloc(i64 noundef %108, i64 noundef 56) #28
-  store ptr %112, ptr getelementptr inbounds (i8, ptr @global, i64 32), align 8
+  store ptr %112, ptr getelementptr inbounds nuw (i8, ptr @global, i64 32), align 8
   %.not59.i = icmp eq ptr %112, null
   br i1 %.not59.i, label %127, label %.preheader.i
 
@@ -575,7 +575,7 @@ make_ip.exit.i:                                   ; preds = %90, %82, %76, %58
 .preheader.split.us.i:                            ; preds = %.preheader.i, %.critedge.us.i
   %.041.us.i = phi i32 [ %121, %.critedge.us.i ], [ 0, %.preheader.i ]
   %113 = zext i32 %.041.us.i to i64
-  %114 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 24), align 8
+  %114 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global, i64 24), align 8
   %115 = icmp ugt i64 %114, %113
   br i1 %115, label %116, label %setup_connections.exit
 
@@ -592,7 +592,7 @@ make_ip.exit.i:                                   ; preds = %90, %82, %76, %58
 .critedge.us.i:                                   ; preds = %118, %116
   %.0.us.i = phi ptr [ null, %116 ], [ %120, %118 ]
   %121 = add i32 %.041.us.i, 1
-  %122 = load ptr, ptr getelementptr inbounds (i8, ptr @global, i64 32), align 8
+  %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global, i64 32), align 8
   %123 = getelementptr inbounds nuw %struct.connection, ptr %122, i64 %113, i32 5
   store i32 %121, ptr %123, align 8
   %124 = getelementptr inbounds nuw %struct.connection, ptr %122, i64 %113
@@ -607,13 +607,13 @@ make_ip.exit.i:                                   ; preds = %90, %82, %76, %58
 .preheader.split.i:                               ; preds = %.preheader.i, %.critedge.i
   %.041.i = phi i32 [ %131, %.critedge.i ], [ 0, %.preheader.i ]
   %128 = zext i32 %.041.i to i64
-  %129 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 24), align 8
+  %129 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global, i64 24), align 8
   %130 = icmp ugt i64 %129, %128
   br i1 %130, label %.critedge.i, label %setup_connections.exit
 
 .critedge.i:                                      ; preds = %.preheader.split.i
   %131 = add i32 %.041.i, 1
-  %132 = load ptr, ptr getelementptr inbounds (i8, ptr @global, i64 32), align 8
+  %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global, i64 32), align 8
   %133 = getelementptr inbounds nuw %struct.connection, ptr %132, i64 %128, i32 5
   store i32 %131, ptr %133, align 8
   %134 = getelementptr inbounds nuw %struct.connection, ptr %132, i64 %128
@@ -631,7 +631,7 @@ setup_connections.exit:                           ; preds = %.preheader.split.i,
   %137 = call ptr @signal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #26
   %138 = call ptr @signal(i32 noundef 2, ptr noundef nonnull @sigint) #26
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %16)
-  %139 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 24), align 8
+  %139 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global, i64 24), align 8
   %140 = trunc i64 %139 to i32
   %.b = load i1, ptr @default_colors, align 4
   %141 = load ptr, ptr @stdout, align 8
@@ -973,18 +973,18 @@ init_ncurses.exit:                                ; preds = %147, %155
   %417 = call i32 @endwin() #26
   %418 = load ptr, ptr @stdscr, align 8
   %419 = call i32 @wrefresh(ptr noundef %418) #26
-  %420 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 24), align 8
+  %420 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global, i64 24), align 8
   %421 = trunc i64 %420 to i32
   call fastcc void @init_windows(i32 noundef %421)
   br label %.thread
 
 422:                                              ; preds = %416, %416
-  %423 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 24), align 8
+  %423 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global, i64 24), align 8
   %.not194 = icmp eq i64 %423, 0
   br i1 %.not194, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %422
-  %424 = load ptr, ptr getelementptr inbounds (i8, ptr @global, i64 16), align 8
+  %424 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global, i64 16), align 8
   br label %425
 
 425:                                              ; preds = %.lr.ph, %425
@@ -1002,7 +1002,7 @@ init_ncurses.exit:                                ; preds = %147, %155
   br label %.thread
 
 431:                                              ; preds = %416
-  %432 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 24), align 8
+  %432 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global, i64 24), align 8
   %433 = icmp ugt i64 %432, 1
   br i1 %433, label %434, label %.thread
 
@@ -1023,7 +1023,7 @@ init_ncurses.exit:                                ; preds = %147, %155
   br label %.thread
 
 442:                                              ; preds = %416
-  %443 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 24), align 8
+  %443 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global, i64 24), align 8
   %444 = icmp ugt i64 %443, 1
   br i1 %444, label %445, label %.thread
 
@@ -1090,7 +1090,7 @@ init_ncurses.exit:                                ; preds = %147, %155
 
 480:                                              ; preds = %475
   %481 = load ptr, ptr @status_bar_window, align 8
-  %482 = load i32, ptr getelementptr inbounds (i8, ptr @acs_map, i64 180), align 4
+  %482 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acs_map, i64 180), align 4
   %483 = call i32 @waddch(ptr noundef %481, i32 noundef %482) #26
   br label %484
 
@@ -1108,7 +1108,7 @@ init_ncurses.exit:                                ; preds = %147, %155
 
 492:                                              ; preds = %487
   %493 = load ptr, ptr @status_bar_window, align 8
-  %494 = load i32, ptr getelementptr inbounds (i8, ptr @acs_map, i64 184), align 4
+  %494 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acs_map, i64 184), align 4
   %495 = call i32 @waddch(ptr noundef %493, i32 noundef %494) #26
   br label %496
 
@@ -1145,7 +1145,7 @@ header.exit:                                      ; preds = %508
   br i1 %513, label %514, label %800
 
 514:                                              ; preds = %header.exit
-  %515 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 8), align 8
+  %515 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global, i64 8), align 8
   %516 = and i64 %515, 4294967295
   %.not.i37 = icmp eq i64 %516, 0
   br i1 %.not.i37, label %.preheader.i39, label %.lr.ph.i
@@ -1155,12 +1155,12 @@ header.exit:                                      ; preds = %508
   br label %520
 
 .preheader.i39:                                   ; preds = %520, %514
-  %518 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 24), align 8
+  %518 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global, i64 24), align 8
   %.not11.i40 = icmp eq i64 %518, 0
   br i1 %.not11.i40, label %._crit_edge190.thread.critedge, label %.lr.ph10.i
 
 .lr.ph10.i:                                       ; preds = %.preheader.i39
-  %519 = load ptr, ptr getelementptr inbounds (i8, ptr @global, i64 16), align 8
+  %519 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global, i64 16), align 8
   br label %523
 
 520:                                              ; preds = %520, %.lr.ph.i
@@ -1195,9 +1195,9 @@ free_global_stats.exit:                           ; preds = %523
 .lr.ph189:                                        ; preds = %free_global_stats.exit, %parse_stats.exit
   %533 = phi i64 [ %794, %parse_stats.exit ], [ 0, %free_global_stats.exit ]
   %.123188 = phi i32 [ %793, %parse_stats.exit ], [ 0, %free_global_stats.exit ]
-  %534 = load ptr, ptr getelementptr inbounds (i8, ptr @global, i64 16), align 8
+  %534 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global, i64 16), align 8
   %535 = getelementptr inbounds nuw %struct.stats, ptr %534, i64 %533
-  %536 = load ptr, ptr getelementptr inbounds (i8, ptr @global, i64 32), align 8
+  %536 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global, i64 32), align 8
   %537 = getelementptr inbounds nuw %struct.connection, ptr %536, i64 %533
   %538 = load i32, ptr %537, align 8
   %.not33 = icmp eq i32 %538, -1
@@ -1264,7 +1264,7 @@ reconnect.exit69:                                 ; preds = %554
   br i1 %564, label %send_string_noreconn.exit.i, label %.split.i
 
 send_string.exit.loopexit:                        ; preds = %send_string_noreconn.exit.i
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @global, i64 32), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global, i64 32), align 8
   br label %send_string.exit
 
 send_string.exit:                                 ; preds = %send_string.exit.loopexit, %.lr.ph189
@@ -1596,9 +1596,9 @@ send_string.exit:                                 ; preds = %send_string.exit.lo
   br i1 %.not9.i.i, label %715, label %731
 
 715:                                              ; preds = %713
-  %716 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 8), align 8
+  %716 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global, i64 8), align 8
   %717 = add nsw i64 %716, 1
-  store i64 %717, ptr getelementptr inbounds (i8, ptr @global, i64 8), align 8
+  store i64 %717, ptr getelementptr inbounds nuw (i8, ptr @global, i64 8), align 8
   %718 = load ptr, ptr @global, align 8
   %719 = mul i64 %717, 24
   %720 = call ptr @realloc(ptr noundef %718, i64 noundef %719) #37
@@ -1814,7 +1814,7 @@ parse_stats.exit:                                 ; preds = %.outer.backedge.i, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   %793 = add i32 %.123188, 1
   %794 = zext i32 %793 to i64
-  %795 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 24), align 8
+  %795 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global, i64 24), align 8
   %796 = icmp ugt i64 %795, %794
   br i1 %796, label %.lr.ph189, label %._crit_edge190
 
@@ -1824,7 +1824,7 @@ parse_stats.exit:                                 ; preds = %.outer.backedge.i, 
   br i1 %.not31, label %._crit_edge190.thread, label %797
 
 797:                                              ; preds = %._crit_edge190
-  %798 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 8), align 8
+  %798 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global, i64 8), align 8
   call void @qsort(ptr noundef nonnull %.pre223, i64 noundef %798, i64 noundef 24, ptr noundef nonnull @tasks_compare) #26
   br label %._crit_edge190.thread
 
@@ -1851,7 +1851,7 @@ parse_stats.exit:                                 ; preds = %.outer.backedge.i, 
   %809 = call i32 (ptr, i32, i32, ptr, ...) @mvwprintw(ptr noundef %807, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.58, ptr noundef %808) #26
   %810 = load ptr, ptr @stats_head_window, align 8
   %811 = call i32 @wattr_off(ptr noundef %810, i32 noundef 1792, ptr noundef null) #26
-  %812 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 24), align 8
+  %812 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global, i64 24), align 8
   %.not.i50 = icmp eq i64 %812, 0
   br i1 %.not.i50, label %._crit_edge.i54, label %detail_is_selected.exit.i.i
 
@@ -1860,7 +1860,7 @@ detail_is_selected.exit.i.i:                      ; preds = %800, %output_stats.
   %814 = phi i64 [ %1206, %output_stats.exit.i ], [ 0, %800 ]
   %.023.i = phi i32 [ %840, %output_stats.exit.i ], [ 0, %800 ]
   %.0922.i = phi i32 [ %spec.select.i53, %output_stats.exit.i ], [ 0, %800 ]
-  %815 = load ptr, ptr getelementptr inbounds (i8, ptr @global, i64 16), align 8
+  %815 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global, i64 16), align 8
   %816 = getelementptr inbounds nuw %struct.stats, ptr %815, i64 %814
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %6)
@@ -2574,7 +2574,7 @@ output_stats.exit.i:                              ; preds = %output_memstats.exi
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %7)
   %spec.select.i53 = call i32 @llvm.umax.i32(i32 %.0100.i.i, i32 %.0922.i)
   %1206 = zext i32 %840 to i64
-  %1207 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 24), align 8
+  %1207 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global, i64 24), align 8
   %1208 = icmp ugt i64 %1207, %1206
   br i1 %1208, label %detail_is_selected.exit.i.i, label %._crit_edge.loopexit.i
 
@@ -2592,7 +2592,7 @@ output_stats.exit.i:                              ; preds = %output_memstats.exi
   %1214 = zext i32 %1213 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %1215 = load ptr, ptr @global, align 8
-  %1216 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 8), align 8
+  %1216 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global, i64 8), align 8
   %1217 = call noalias ptr @calloc(i64 noundef %1216, i64 noundef 24) #28
   %.not.i12.i = icmp eq ptr %1217, null
   br i1 %.not.i12.i, label %1228, label %.preheader.i.i
@@ -2665,7 +2665,7 @@ detail_is_selected.exit.thread.i.i:               ; preds = %detail_is_selected.
   %1238 = call i32 @wattr_on(ptr noundef %1237, i32 noundef 1792, ptr noundef null) #26
   %1239 = load i32, ptr @detail_selected, align 4
   %1240 = icmp eq i32 %1239, -1
-  %1241 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 24), align 8
+  %1241 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global, i64 24), align 8
   %1242 = icmp ugt i64 %1241, 1
   %or.cond.i.i = select i1 %1240, i1 %1242, i1 false
   %1243 = load ptr, ptr @stats_window, align 8
@@ -2740,7 +2740,7 @@ detail_is_selected.exit.thread.i.i:               ; preds = %detail_is_selected.
   %1276 = call i32 @wattr_on(ptr noundef %1275, i32 noundef 2097152, ptr noundef null) #26
   %1277 = load i32, ptr @detail_selected, align 4
   %1278 = icmp eq i32 %1277, -1
-  %1279 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 24), align 8
+  %1279 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global, i64 24), align 8
   %1280 = icmp ugt i64 %1279, 1
   %or.cond5.i.i = select i1 %1278, i1 %1280, i1 false
   %1281 = load ptr, ptr @stats_window, align 8
@@ -2825,20 +2825,20 @@ output_queue.exit.i:                              ; preds = %1313, %._crit_edge1
   %1325 = call i32 @wrefresh(ptr noundef %1324) #26
   %1326 = load ptr, ptr @stats_window, align 8
   %1327 = call i32 @wrefresh(ptr noundef %1326) #26
-  %1328 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 24), align 8
+  %1328 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global, i64 24), align 8
   %.not15.i = icmp eq i64 %1328, 1
   br i1 %.not15.i, label %.lr.ph192.preheader, label %output_all.exit
 
 output_all.exit:                                  ; preds = %output_queue.exit.i
   %1329 = load ptr, ptr @mem_window, align 8
   %1330 = call i32 @wrefresh(ptr noundef %1329) #26
-  %.pre228 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 24), align 8
+  %.pre228 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global, i64 24), align 8
   %.not196 = icmp eq i64 %.pre228, 0
   br i1 %.not196, label %._crit_edge193, label %.lr.ph192.preheader
 
 .lr.ph192.preheader:                              ; preds = %output_queue.exit.i, %output_all.exit
   %1331 = phi i64 [ %.pre228, %output_all.exit ], [ 1, %output_queue.exit.i ]
-  %.pre230 = load ptr, ptr getelementptr inbounds (i8, ptr @global, i64 32), align 8
+  %.pre230 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global, i64 32), align 8
   br label %.lr.ph192
 
 .lr.ph192:                                        ; preds = %.lr.ph192.preheader, %1354
@@ -2880,9 +2880,9 @@ output_all.exit:                                  ; preds = %output_queue.exit.i
   unreachable
 
 reconnect.exit:                                   ; preds = %1343
-  %.pre229 = load ptr, ptr getelementptr inbounds (i8, ptr @global, i64 32), align 8
+  %.pre229 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global, i64 32), align 8
   store i32 0, ptr @tries, align 4
-  %.pre231 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 24), align 8
+  %.pre231 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global, i64 24), align 8
   br label %1354
 
 1354:                                             ; preds = %.lr.ph192, %reconnect.exit
@@ -2901,7 +2901,7 @@ reconnect.exit:                                   ; preds = %1343
   br i1 %.not32, label %1363, label %175
 
 1363:                                             ; preds = %._crit_edge193
-  %1364 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 8), align 8
+  %1364 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global, i64 8), align 8
   %1365 = and i64 %1364, 4294967295
   %.not.i56 = icmp eq i64 %1365, 0
   br i1 %.not.i56, label %.preheader.i62, label %.lr.ph.i57
@@ -2911,12 +2911,12 @@ reconnect.exit:                                   ; preds = %1343
   br label %1369
 
 .preheader.i62:                                   ; preds = %1369, %1363
-  %1367 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 24), align 8
+  %1367 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global, i64 24), align 8
   %.not11.i63 = icmp eq i64 %1367, 0
   br i1 %.not11.i63, label %free_global_stats.exit67, label %.lr.ph10.i64
 
 .lr.ph10.i64:                                     ; preds = %.preheader.i62
-  %1368 = load ptr, ptr getelementptr inbounds (i8, ptr @global, i64 16), align 8
+  %1368 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global, i64 16), align 8
   br label %1372
 
 1369:                                             ; preds = %1369, %.lr.ph.i57
@@ -3027,12 +3027,12 @@ rm_windows.exit:                                  ; preds = %23, %25
 
 29:                                               ; preds = %rm_windows.exit, %0
   store i1 false, ptr @curses_inited, align 4
-  %30 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 24), align 8
+  %30 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global, i64 24), align 8
   %.not23 = icmp eq i64 %30, 0
   br i1 %.not23, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %29
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @global, i64 32), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global, i64 32), align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
@@ -3056,11 +3056,11 @@ rm_windows.exit:                                  ; preds = %23, %25
 
 send_string_noreconn.exit:                        ; preds = %35
   %38 = tail call i64 @send(i32 noundef %34, ptr noundef nonnull @.str.5, i64 noundef 5, i32 noundef 0) #26
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @global, i64 32), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global, i64 32), align 8
   %40 = getelementptr inbounds nuw %struct.connection, ptr %39, i64 %32
   %41 = load i32, ptr %40, align 8
   %42 = tail call i32 @close(i32 noundef %41) #26
-  %.pre25 = load ptr, ptr getelementptr inbounds (i8, ptr @global, i64 32), align 8
+  %.pre25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global, i64 32), align 8
   br label %43
 
 43:                                               ; preds = %.lr.ph, %.lr.ph, %send_string_noreconn.exit
@@ -3073,24 +3073,24 @@ send_string_noreconn.exit:                        ; preds = %35
   tail call void @free(ptr noundef %48) #26
   %49 = add i32 %.022, 1
   %50 = zext i32 %49 to i64
-  %51 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 24), align 8
+  %51 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global, i64 24), align 8
   %52 = icmp ugt i64 %51, %50
   br i1 %52, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %43
   %53 = icmp samesign ugt i64 %51, 1
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @global, i64 16), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global, i64 16), align 8
   tail call void @free(ptr noundef %54) #26
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @global, i64 32), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global, i64 32), align 8
   tail call void @free(ptr noundef %55) #26
   %56 = load ptr, ptr @queue_header, align 8
   tail call void @free(ptr noundef %56) #26
   br i1 %53, label %.sink.split, label %60
 
 .critedge:                                        ; preds = %29
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @global, i64 16), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global, i64 16), align 8
   tail call void @free(ptr noundef %57) #26
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @global, i64 32), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global, i64 32), align 8
   tail call void @free(ptr noundef %58) #26
   br label %.sink.split
 
@@ -3256,7 +3256,7 @@ define internal fastcc void @resize() unnamed_addr #0 {
   br label %._crit_edge33
 
 ._crit_edge33:                                    ; preds = %.lr.ph32.preheader, %._crit_edge
-  %54 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 24), align 8
+  %54 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global, i64 24), align 8
   %55 = icmp ugt i64 %54, 1
   br i1 %55, label %56, label %.loopexit
 
@@ -3400,16 +3400,16 @@ rm_windows.exit:                                  ; preds = %17, %19
   %54 = tail call i32 @werase(ptr noundef %53) #26
   %55 = load ptr, ptr @stdscr, align 8
   %56 = tail call i32 @wrefresh(ptr noundef %55) #26
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) getelementptr inbounds (i8, ptr @status_bar_keys, i64 16), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) getelementptr inbounds nuw (i8, ptr @status_bar_keys, i64 16), i8 0, i64 64, i1 false)
   store ptr @.str.121, ptr @status_bar_keys, align 16
-  store ptr @.str.122, ptr getelementptr inbounds (i8, ptr @status_bar_keys, i64 8), align 8
-  store ptr @.str.123, ptr getelementptr inbounds (i8, ptr @status_bar_keys, i64 16), align 16
+  store ptr @.str.122, ptr getelementptr inbounds nuw (i8, ptr @status_bar_keys, i64 8), align 8
+  store ptr @.str.123, ptr getelementptr inbounds nuw (i8, ptr @status_bar_keys, i64 16), align 16
   %57 = icmp sgt i32 %0, 1
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %50
-  store ptr @.str.124, ptr getelementptr inbounds (i8, ptr @status_bar_keys, i64 24), align 8
-  store ptr @.str.125, ptr getelementptr inbounds (i8, ptr @status_bar_keys, i64 32), align 16
+  store ptr @.str.124, ptr getelementptr inbounds nuw (i8, ptr @status_bar_keys, i64 24), align 8
+  store ptr @.str.125, ptr getelementptr inbounds nuw (i8, ptr @status_bar_keys, i64 32), align 16
   br label %59
 
 59:                                               ; preds = %58, %50

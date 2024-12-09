@@ -112,7 +112,7 @@ define hidden void @_ZN23G1HeapRegionEventSender11send_eventsEv() local_unnamed_
 4:                                                ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV29VM_G1SendHeapRegionInfoEvents, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV29VM_G1SendHeapRegionInfoEvents, i64 16), ptr %1, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %1) #7
   br label %6
 
@@ -213,7 +213,7 @@ define linkonce_odr hidden void @_ZN29VM_G1SendHeapRegionInfoEvents4doitEv(ptr n
   %2 = alloca %class.DumpEventInfoClosure, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 1, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV20DumpEventInfoClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV20DumpEventInfoClosure, i64 16), ptr %2, align 8
   %4 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   call void @_ZNK15G1CollectedHeap19heap_region_iterateEP19G1HeapRegionClosure(ptr noundef nonnull align 8 dereferenceable(1488) %4, ptr noundef nonnull %2) #7
   ret void

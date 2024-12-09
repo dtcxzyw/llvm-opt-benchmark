@@ -288,11 +288,11 @@ for.inc.i:                                        ; preds = %rom_order_compare.e
 do.body17.i:                                      ; preds = %for.inc.i, %if.end4.i
   %next18.i = getelementptr inbounds nuw i8, ptr %call2, i64 104
   store ptr null, ptr %next18.i, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @roms, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @roms, i64 8), align 8
   %tql_prev20.i = getelementptr inbounds nuw i8, ptr %call2, i64 112
   store ptr %5, ptr %tql_prev20.i, align 8
   store ptr %call2, ptr %5, align 8
-  store ptr %next18.i, ptr getelementptr inbounds (i8, ptr @roms, i64 8), align 8
+  store ptr %next18.i, ptr getelementptr inbounds nuw (i8, ptr @roms, i64 8), align 8
   br label %rom_insert.exit
 
 rom_insert.exit:                                  ; preds = %do.body.i, %do.body17.i
@@ -570,11 +570,11 @@ for.inc.i:                                        ; preds = %rom_order_compare.e
 do.body17.i:                                      ; preds = %for.inc.i, %if.end4.i
   %next18.i = getelementptr inbounds nuw i8, ptr %call4, i64 104
   store ptr null, ptr %next18.i, align 8
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @roms, i64 8), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @roms, i64 8), align 8
   %tql_prev20.i = getelementptr inbounds nuw i8, ptr %call4, i64 112
   store ptr %18, ptr %tql_prev20.i, align 8
   store ptr %call4, ptr %18, align 8
-  store ptr %next18.i, ptr getelementptr inbounds (i8, ptr @roms, i64 8), align 8
+  store ptr %next18.i, ptr getelementptr inbounds nuw (i8, ptr @roms, i64 8), align 8
   br label %rom_insert.exit
 
 rom_insert.exit:                                  ; preds = %do.body.i, %do.body17.i
@@ -4678,11 +4678,11 @@ for.inc.i:                                        ; preds = %rom_order_compare.e
 do.body17.i:                                      ; preds = %for.inc.i, %if.end4.i
   %next18.i = getelementptr inbounds nuw i8, ptr %call, i64 104
   store ptr null, ptr %next18.i, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @roms, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @roms, i64 8), align 8
   %tql_prev20.i = getelementptr inbounds nuw i8, ptr %call, i64 112
   store ptr %5, ptr %tql_prev20.i, align 8
   store ptr %call, ptr %5, align 8
-  store ptr %next18.i, ptr getelementptr inbounds (i8, ptr @roms, i64 8), align 8
+  store ptr %next18.i, ptr getelementptr inbounds nuw (i8, ptr @roms, i64 8), align 8
   br label %rom_insert.exit
 
 rom_insert.exit:                                  ; preds = %do.body.i, %do.body17.i
@@ -5162,7 +5162,7 @@ if.then6:                                         ; preds = %if.end
   br label %if.end14
 
 if.else11:                                        ; preds = %if.end
-  store ptr %5, ptr getelementptr inbounds (i8, ptr @roms, i64 8), align 8
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @roms, i64 8), align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else11, %if.then6
@@ -6172,7 +6172,7 @@ if.then6.i.i:                                     ; preds = %if.end.i21.i
   br label %if.end14.i.i
 
 if.else11.i.i:                                    ; preds = %if.end.i21.i
-  store ptr %77, ptr getelementptr inbounds (i8, ptr @roms, i64 8), align 8
+  store ptr %77, ptr getelementptr inbounds nuw (i8, ptr @roms, i64 8), align 8
   br label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.else11.i.i, %if.then6.i.i

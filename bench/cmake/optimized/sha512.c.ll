@@ -577,7 +577,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %.sroa.28.01047 = phi i64 [ %81, %2 ], [ %549, %449 ]
   %.sroa.14.01046 = phi i64 [ %54, %2 ], [ %510, %449 ]
   %.sroa.0.01045 = phi i64 [ %27, %2 ], [ %471, %449 ]
-  %.010411044 = phi ptr [ getelementptr inbounds (i8, ptr @rhash_k512, i64 128), %2 ], [ %1074, %449 ]
+  %.010411044 = phi ptr [ getelementptr inbounds nuw (i8, ptr @rhash_k512, i64 128), %2 ], [ %1074, %449 ]
   %.010421043 = phi i32 [ 16, %2 ], [ %1073, %449 ]
   %450 = tail call i64 @llvm.fshl.i64(i64 %.010371064, i64 %.010371064, i64 50)
   %451 = tail call i64 @llvm.fshl.i64(i64 %.010371064, i64 %.010371064, i64 46)

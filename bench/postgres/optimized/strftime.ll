@@ -209,7 +209,7 @@ define internal fastcc ptr @_fmt(ptr nocapture noundef readonly %0, ptr noundef 
 
 44:                                               ; preds = %42
   %45 = zext nneg i32 %43 to i64
-  %46 = getelementptr [7 x ptr], ptr getelementptr inbounds (i8, ptr @C_time_locale, i64 248), i64 0, i64 %45
+  %46 = getelementptr [7 x ptr], ptr getelementptr inbounds nuw (i8, ptr @C_time_locale, i64 248), i64 0, i64 %45
   %47 = load ptr, ptr %46, align 8
   br label %48
 
@@ -245,7 +245,7 @@ define internal fastcc ptr @_fmt(ptr nocapture noundef readonly %0, ptr noundef 
 
 59:                                               ; preds = %57
   %60 = zext nneg i32 %58 to i64
-  %61 = getelementptr [7 x ptr], ptr getelementptr inbounds (i8, ptr @C_time_locale, i64 192), i64 0, i64 %60
+  %61 = getelementptr [7 x ptr], ptr getelementptr inbounds nuw (i8, ptr @C_time_locale, i64 192), i64 0, i64 %60
   %62 = load ptr, ptr %61, align 8
   br label %63
 
@@ -281,7 +281,7 @@ define internal fastcc ptr @_fmt(ptr nocapture noundef readonly %0, ptr noundef 
 
 74:                                               ; preds = %72
   %75 = zext nneg i32 %73 to i64
-  %76 = getelementptr [12 x ptr], ptr getelementptr inbounds (i8, ptr @C_time_locale, i64 96), i64 0, i64 %75
+  %76 = getelementptr [12 x ptr], ptr getelementptr inbounds nuw (i8, ptr @C_time_locale, i64 96), i64 0, i64 %75
   %77 = load ptr, ptr %76, align 8
   br label %78
 

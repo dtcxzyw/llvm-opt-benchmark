@@ -1190,7 +1190,7 @@ if.end:                                           ; preds = %entry
 
 if.then5:                                         ; preds = %if.end
   %4 = load ptr, ptr @PyExc_IndexError, align 8
-  tail call void @PyErr_SetObject(ptr noundef %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25432)) #10
+  tail call void @PyErr_SetObject(ptr noundef %4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25432)) #10
   br label %return
 
 if.end6:                                          ; preds = %if.end
@@ -4479,7 +4479,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %tp_new = getelementptr inbounds nuw i8, ptr %self.val9, i64 312
   %1 = load ptr, ptr %tp_new, align 8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @PyList_Type, i64 312), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyList_Type, i64 312), align 8
   %cmp = icmp ne ptr %1, %2
   %cmp3 = icmp eq ptr %kwargs, null
   %or.cond = or i1 %cmp3, %cmp
@@ -6990,7 +6990,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @PyExc_IndexError, align 8
-  tail call void @PyErr_SetObject(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25432)) #10
+  tail call void @PyErr_SetObject(ptr noundef %1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25432)) #10
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -7396,7 +7396,7 @@ if.end8:                                          ; preds = %if.end.if.end8_crit
 
 if.then.i:                                        ; preds = %if.end8
   %5 = load ptr, ptr @PyExc_IndexError, align 8
-  tail call void @PyErr_SetObject(ptr noundef %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25432)) #10
+  tail call void @PyErr_SetObject(ptr noundef %5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25432)) #10
   br label %return
 
 if.end.i:                                         ; preds = %if.end8
@@ -8945,7 +8945,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 49176)) #10
+  %call = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49176)) #10
   %tobool1.not = icmp eq ptr %call, null
   br i1 %tobool1.not, label %return, label %if.end
 
@@ -8974,7 +8974,7 @@ if.end.i29:                                       ; preds = %if.end7
   br i1 %cmp.i31, label %if.end20.sink.split, label %if.end20
 
 if.else:                                          ; preds = %entry
-  %call8 = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 57120)) #10
+  %call8 = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57120)) #10
   %tobool9.not = icmp eq ptr %call8, null
   br i1 %tobool9.not, label %return, label %if.end11
 
@@ -9055,7 +9055,7 @@ if.end23:                                         ; preds = %if.else.i, %if.then
   %20 = ptrtoint ptr %15 to i64
   store i64 %20, ptr %add.ptr.i.i.i, align 8
   store i64 %18, ptr %_gc_prev.i.i, align 8
-  %call24 = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 49176)) #10
+  %call24 = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49176)) #10
   %call25 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.41, ptr noundef %call24, ptr noundef nonnull %op.0.i) #10
   br label %return
 

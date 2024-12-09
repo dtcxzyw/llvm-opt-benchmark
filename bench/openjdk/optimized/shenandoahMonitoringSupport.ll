@@ -63,7 +63,7 @@ define hidden void @_ZN27ShenandoahMonitoringSupportC2EP14ShenandoahHeap(ptr nou
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   tail call void @_ZN12PeriodicTaskC2Em(ptr noundef nonnull align 8 dereferenceable(288) %4, i64 noundef 100) #6
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV36ShenandoahPeriodicCountersUpdateTask, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV36ShenandoahPeriodicCountersUpdateTask, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr nonnull %5) #6, !srcloc !6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 257
@@ -78,7 +78,7 @@ define hidden void @_ZN27ShenandoahMonitoringSupportC2EP14ShenandoahHeap(ptr nou
   store ptr %11, ptr %3, align 8
   %12 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 5, i32 noundef 0) #6
   tail call void @_ZN18GenerationCountersC2EPKciimmm(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.10, i32 noundef 0, i32 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #6
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV33ShenandoahYoungGenerationCounters, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV33ShenandoahYoungGenerationCounters, i64 16), ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %13, align 8
   %14 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 5, i32 noundef 0) #6
@@ -92,7 +92,7 @@ define hidden void @_ZN27ShenandoahMonitoringSupportC2EP14ShenandoahHeap(ptr nou
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(2657) %1) #6
   tail call void @_ZN18GenerationCountersC2EPKciimmm(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull @.str.5, i32 noundef 1, i32 noundef 1, i64 noundef %15, i64 noundef %19, i64 noundef %23) #6
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahGenerationCounters, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahGenerationCounters, i64 16), ptr %14, align 8
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %1, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24

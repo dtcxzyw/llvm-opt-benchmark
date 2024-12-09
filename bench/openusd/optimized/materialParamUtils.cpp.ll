@@ -374,7 +374,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__44UsdImagingBuildHdMaterialNet
 20:                                               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr null, ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPIE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPIE, i64 16), ptr %8, align 8
   invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L10_WalkGraphERKNS_22UsdShadeConnectableAPIEPNS_17HdMaterialNetworkEPSt13unordered_setINS_7SdfPathENS6_4HashESt8equal_toIS6_ESaIS6_EERKSt6vectorINS_7TfTokenESaISE_EESI_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %13, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, double %5)
           to label %22 unwind label %36
 
@@ -1408,7 +1408,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i201: ; preds = %359, %35
 
 364:                                              ; preds = %363
   store ptr null, ptr %246, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPIE, i64 16), ptr %48, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPIE, i64 16), ptr %48, align 8
   invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L10_WalkGraphERKNS_22UsdShadeConnectableAPIEPNS_17HdMaterialNetworkEPSt13unordered_setINS_7SdfPathENS6_4HashESt8equal_toIS6_ESaIS6_EERKSt6vectorINS_7TfTokenESaISE_EESI_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, double %5)
           to label %365 unwind label %746
 
@@ -3392,7 +3392,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit149: ; preds = %1143, %113
 1148:                                             ; preds = %.noexc158
   %1149 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr null, ptr %1149, align 8, !noalias !33
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__18UsdShadeNodeDefAPIE, i64 16), ptr %11, align 8, !noalias !33
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__18UsdShadeNodeDefAPIE, i64 16), ptr %11, align 8, !noalias !33
   %1150 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %1151 = load ptr, ptr %1150, align 8, !noalias !33
   %1152 = ptrtoint ptr %1151 to i64
@@ -4614,7 +4614,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__40UsdImagingIsHd
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr null, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPIE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPIE, i64 16), ptr %3, align 8
   %11 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L19_IsGraphTimeVaryingERKNS_22UsdShadeConnectableAPIEPSt13unordered_setINS_7SdfPathENS4_4HashESt8equal_toIS4_ESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %2)
           to label %12 unwind label %44
 
@@ -5174,7 +5174,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPrimEv.exit: ; preds = %256
 
 259:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPrimEv.exit
   store ptr null, ptr %192, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPIE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPIE, i64 16), ptr %10, align 8
   %260 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L19_IsGraphTimeVaryingERKNS_22UsdShadeConnectableAPIEPSt13unordered_setINS_7SdfPathENS4_4HashESt8equal_toIS4_ESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %1)
           to label %261 unwind label %298
 

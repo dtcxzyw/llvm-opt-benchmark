@@ -2868,7 +2868,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %.noexc172 unwind label %457
 
 .noexc172:                                        ; preds = %386
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZ4mainE3$_0EEEEEE", i64 16), ptr %389, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZ4mainE3$_0EEEEEE", i64 16), ptr %389, align 8
   %390 = getelementptr inbounds nuw i8, ptr %389, i64 8
   store ptr %92, ptr %390, align 8
   %.sroa.2224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %389, i64 16
@@ -2931,7 +2931,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i: ; preds = %396
           to label %.noexc183 unwind label %463
 
 .noexc183:                                        ; preds = %406
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZ4mainE3$_1EEEEEE", i64 16), ptr %409, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZ4mainE3$_1EEEEEE", i64 16), ptr %409, align 8
   %410 = getelementptr inbounds nuw i8, ptr %409, i64 8
   store ptr %92, ptr %410, align 8
   %.sroa.2222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %409, i64 16

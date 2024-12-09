@@ -167,13 +167,13 @@ define dso_local zeroext i1 @parse_file(ptr noundef %0) local_unnamed_addr #0 {
   %.sroa.31.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr %0, ptr %.sroa.31.0..sroa_idx, align 8
   call void @lexer_init(ptr noundef nonnull %5) #10
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @global_context, i64 84), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 84), align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %1
   call fastcc void @parse_translation_unit(ptr noundef %2)
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @global_context, i64 84), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 84), align 4
   %.not5 = icmp eq i32 %8, 0
   br label %9
 
@@ -808,10 +808,10 @@ define dso_local zeroext i1 @parse_stdin() local_unnamed_addr #0 {
   %1 = alloca [65536 x i8], align 16
   %2 = alloca %struct.ParseContext_, align 8
   store i16 -1, ptr @stdin_file, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @stdin_file, i64 8), i8 0, i64 16, i1 false)
-  store ptr @.str, ptr getelementptr inbounds (i8, ptr @stdin_file, i64 24), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @stdin_file, i64 32), align 8
-  store ptr @.str.1, ptr getelementptr inbounds (i8, ptr @stdin_file, i64 40), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @stdin_file, i64 8), i8 0, i64 16, i1 false)
+  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @stdin_file, i64 24), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @stdin_file, i64 32), align 8
+  store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @stdin_file, i64 40), align 8
   %3 = tail call i32 @getchar()
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %._crit_edge, label %.lr.ph
@@ -866,7 +866,7 @@ define dso_local zeroext i1 @parse_stdin() local_unnamed_addr #0 {
   br label %24
 
 24:                                               ; preds = %23, %._crit_edge
-  store ptr %22, ptr getelementptr inbounds (i8, ptr @stdin_file, i64 8), align 8
+  store ptr %22, ptr getelementptr inbounds nuw (i8, ptr @stdin_file, i64 8), align 8
   %25 = call ptr @unit_create(ptr noundef nonnull @stdin_file) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %2, i8 0, i64 64, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -880,13 +880,13 @@ define dso_local zeroext i1 @parse_stdin() local_unnamed_addr #0 {
   %.sroa.31.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr @stdin_file, ptr %.sroa.31.0..sroa_idx, align 8
   call void @lexer_init(ptr noundef nonnull %27) #10
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @global_context, i64 84), align 4
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 84), align 4
   %.not34 = icmp eq i32 %28, 0
   br i1 %.not34, label %29, label %31
 
 29:                                               ; preds = %24
   call fastcc void @parse_translation_unit(ptr noundef %2)
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @global_context, i64 84), align 4
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 84), align 4
   %.not35 = icmp eq i32 %30, 0
   br label %31
 

@@ -1351,7 +1351,7 @@ define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %
           to label %.noexc20 unwind label %72
 
 .noexc20:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 21))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 21))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %17
 
 17:                                               ; preds = %.noexc20
@@ -1450,7 +1450,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 50:                                               ; preds = %44
-  store i32 %46, ptr getelementptr inbounds (i8, ptr @globalOptions, i64 4), align 4
+  store i32 %46, ptr getelementptr inbounds nuw (i8, ptr @globalOptions, i64 4), align 4
   br label %.noexc22
 
 .tail55.thread.i:                                 ; preds = %.tail51.i, %.thread.i, %.tail.thread.thread.i
@@ -1684,7 +1684,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %92, i8 0, i64 48, i1 false), !alias.scope !8
   %127 = load i32, ptr @globalOptions, align 4, !noalias !8
   store i32 %127, ptr %9, align 8, !alias.scope !8
-  %128 = load i32, ptr getelementptr inbounds (i8, ptr @globalOptions, i64 4), align 4, !noalias !8
+  %128 = load i32, ptr getelementptr inbounds nuw (i8, ptr @globalOptions, i64 4), align 4, !noalias !8
   store i32 %128, ptr %91, align 4, !alias.scope !8
   store i32 1, ptr %92, align 8, !alias.scope !8
   store i8 0, ptr %10, align 1

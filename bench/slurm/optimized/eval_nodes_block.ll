@@ -353,7 +353,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
   %.0366.lcssa = phi i32 [ %34, %119 ], [ %.1367, %176 ]
   %.0346.lcssa = phi i64 [ %39, %119 ], [ %.1347, %176 ]
   call void @list_sort(ptr noundef %123, ptr noundef nonnull @eval_nodes_topo_weight_sort) #8
-  %187 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %187 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %188 = and i64 %187, 1
   %.not439 = icmp eq i64 %188, 0
   br i1 %.not439, label %191, label %189
@@ -398,7 +398,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
 210:                                              ; preds = %201, %204
   %211 = phi ptr [ %209, %204 ], [ null, %201 ]
   %.0339 = phi i32 [ %207, %204 ], [ 0, %201 ]
-  %212 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %212 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %213 = and i64 %212, 1
   %.not441 = icmp eq i64 %213, 0
   br i1 %.not441, label %218, label %214
@@ -706,7 +706,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
   br i1 %377, label %378, label %..critedge514_crit_edge
 
 378:                                              ; preds = %.thread772, %373
-  %379 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %379 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %380 = and i64 %379, 1
   %.not494 = icmp eq i64 %380, 0
   br i1 %.not494, label %.loopexit, label %381
@@ -1024,7 +1024,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
   %.0335.ph.lcssa.split = phi i32 [ %.0335.ph633, %.outer.split.split.us ], [ %.0335.ph633, %.outer.split.split ], [ %.1336.lcssa, %517 ], [ %.1336.lcssa, %.outer ]
   %.0332.ph.lcssa.split = phi i32 [ %.0332.ph634, %.outer.split.split.us ], [ %.0332.ph634, %.outer.split.split ], [ %.1333.lcssa, %517 ], [ %.1333.lcssa, %.outer ]
   call void @list_iterator_destroy(ptr noundef %446) #8
-  %521 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %521 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %522 = and i64 %521, 1
   %.not461 = icmp eq i64 %522, 0
   br i1 %.not461, label %542, label %523
@@ -1083,7 +1083,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
   br i1 %543, label %551, label %544
 
 544:                                              ; preds = %542
-  %545 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %545 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %546 = and i64 %545, 1
   %.not463 = icmp eq i64 %546, 0
   br i1 %.not463, label %.loopexit, label %547
@@ -1746,7 +1746,7 @@ _choose_best_bblock.exit:                         ; preds = %859, %.critedge78.i
 ._crit_edge692:                                   ; preds = %_choose_best_bblock.exit, %.preheader552
   %.0536.lcssa = phi i32 [ -1, %.preheader552 ], [ %.1537, %_choose_best_bblock.exit ]
   %.0530.lcssa = phi i8 [ 1, %.preheader552 ], [ %.1531, %_choose_best_bblock.exit ]
-  %864 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %864 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %865 = and i64 %864, 1
   %.not473 = icmp eq i64 %865, 0
   br i1 %.not473, label %870, label %866
@@ -1773,7 +1773,7 @@ _choose_best_bblock.exit:                         ; preds = %859, %.critedge78.i
   br i1 %875, label %883, label %876
 
 876:                                              ; preds = %874
-  %877 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %877 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %878 = and i64 %877, 1
   %.not474 = icmp eq i64 %878, 0
   br i1 %.not474, label %.loopexit553, label %879

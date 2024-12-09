@@ -453,7 +453,7 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
   br i1 %68, label %69, label %72
 
 69:                                               ; preds = %67
-  %70 = load i8, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base, i64 328), align 8
+  %70 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 328), align 8
   %71 = trunc i8 %70 to i1
   %. = select i1 %71, i16 16392, i16 16391
   br label %84
@@ -566,7 +566,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %5
-  %10 = load i8, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base, i64 328), align 8
+  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 328), align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %31
 
@@ -1007,7 +1007,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br i1 %238, label %242, label %239
 
 239:                                              ; preds = %235
-  %240 = load i8, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base, i64 328), align 8
+  %240 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 328), align 8
   %241 = trunc i8 %240 to i1
   br i1 %241, label %242, label %260
 
@@ -1217,7 +1217,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br i1 %352, label %356, label %353
 
 353:                                              ; preds = %349
-  %354 = load i8, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base, i64 328), align 8
+  %354 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 328), align 8
   %355 = trunc i8 %354 to i1
   br i1 %355, label %356, label %374
 

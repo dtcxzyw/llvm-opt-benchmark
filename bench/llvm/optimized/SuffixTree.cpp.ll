@@ -126,7 +126,7 @@ _ZN4llvm10SuffixTree10insertRootEv.exit:          ; preds = %30, %.critedge.i.i.
   store i32 -1, ptr %43, align 4
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
   store i32 -1, ptr %44, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm22SuffixTreeInternalNodeE, i64 16), ptr %.0.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm22SuffixTreeInternalNodeE, i64 16), ptr %.0.i.i.i.i.i.i.i, align 8
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 28
   store i32 -1, ptr %45, align 4
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 32
@@ -217,7 +217,7 @@ _ZN4llvm10SuffixTree18insertInternalNodeEPNS_22SuffixTreeInternalNodeEjjj.exit: 
   store i32 -1, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i32 -1, ptr %29, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm22SuffixTreeInternalNodeE, i64 16), ptr %.0.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm22SuffixTreeInternalNodeE, i64 16), ptr %.0.i.i.i.i.i.i, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 28
   store i32 -1, ptr %30, align 4
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -1161,7 +1161,7 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_18SuffixTreeLeafNodeEE8AllocateEm.exit: ; 
   store i32 -1, ptr %31, align 4
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 24
   store i32 -1, ptr %32, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm18SuffixTreeLeafNodeE, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm18SuffixTreeLeafNodeE, i64 16), ptr %.0.i.i.i.i.i, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 28
   store i32 -1, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 32
@@ -1280,7 +1280,7 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_22SuffixTreeInternalNodeEE8AllocateEm.exit
   store i32 -1, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 24
   store i32 -1, ptr %34, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm22SuffixTreeInternalNodeE, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm22SuffixTreeInternalNodeE, i64 16), ptr %.0.i.i.i.i.i, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 28
   store i32 %3, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 32

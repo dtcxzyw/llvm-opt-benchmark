@@ -16,10 +16,10 @@ define i32 @mca_topo_base_dist_graph_create_adjacent(ptr noundef %0, ptr noundef
   br i1 %.not, label %13, label %_mca_topo_base_dist_graph_create_adjacent.exit
 
 13:                                               ; preds = %11
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @mca_topo_base_comm_dist_graph_2_2_0_t_class, i64 56), align 8
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_topo_base_comm_dist_graph_2_2_0_t_class, i64 56), align 8
   %15 = tail call noalias ptr @malloc(i64 noundef %14) #7
   %16 = load i32, ptr @opal_class_init_epoch, align 4
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @mca_topo_base_comm_dist_graph_2_2_0_t_class, i64 32), align 8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_topo_base_comm_dist_graph_2_2_0_t_class, i64 32), align 8
   %.not.i.i = icmp eq i32 %16, %17
   br i1 %.not.i.i, label %19, label %18
 

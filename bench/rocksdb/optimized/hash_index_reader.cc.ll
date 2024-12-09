@@ -239,7 +239,7 @@ invoke.cont18:                                    ; preds = %if.end14
   %frombool.i.i.i = and i8 %14, 1
   store i8 %frombool.i.i.i, ptr %own_value_.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %index_block, i8 0, i64 25, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15HashIndexReaderE, i64 16), ptr %call16, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb15HashIndexReaderE, i64 16), ptr %call16, align 8
   %prefix_index_.i = getelementptr inbounds nuw i8, ptr %call16, i64 48
   store ptr null, ptr %prefix_index_.i, align 8
   %15 = load ptr, ptr %index_reader, align 8
@@ -1015,7 +1015,7 @@ delete.notnull3.i.i.i:                            ; preds = %delete.end.i.i.i
   br label %delete.end4.i.i.i
 
 delete.end4.i.i.i:                                ; preds = %delete.notnull3.i.i.i, %delete.end.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %0, align 8
   %options_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %options_.i.i.i.i.i.i.i, align 8
   %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1539,7 +1539,7 @@ declare noundef ptr @_ZN7rocksdb5Block16NewIndexIteratorEPKNS_10ComparatorEmPNS_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb15HashIndexReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15HashIndexReaderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb15HashIndexReaderE, i64 16), ptr %this, align 8
   %prefix_index_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %prefix_index_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -1566,7 +1566,7 @@ delete.notnull3.i.i.i:                            ; preds = %delete.end.i.i.i
   br label %delete.end4.i.i.i
 
 delete.end4.i.i.i:                                ; preds = %delete.notnull3.i.i.i, %delete.end.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %0, align 8
   %options_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %options_.i.i.i.i.i.i.i, align 8
   %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1600,7 +1600,7 @@ _ZNKSt14default_deleteIN7rocksdb16BlockPrefixIndexEEclEPS1_.exit.i: ; preds = %i
 
 _ZNSt10unique_ptrIN7rocksdb16BlockPrefixIndexESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN7rocksdb16BlockPrefixIndexEEclEPS1_.exit.i
   store ptr null, ptr %prefix_index_, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15BlockBasedTable17IndexReaderCommonE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb15BlockBasedTable17IndexReaderCommonE, i64 16), ptr %this, align 8
   %index_block_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cache_handle_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load ptr, ptr %cache_handle_.i.i.i, align 8
@@ -1702,7 +1702,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb15BlockBasedTable17IndexReaderCommonD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15BlockBasedTable17IndexReaderCommonE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb15BlockBasedTable17IndexReaderCommonE, i64 16), ptr %this, align 8
   %index_block_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cache_handle_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %cache_handle_.i.i, align 8

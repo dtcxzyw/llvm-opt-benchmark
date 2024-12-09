@@ -158,7 +158,7 @@ define hidden i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr noundef %1, i32 no
 
 23:                                               ; preds = %.preheader98.i
   store i8 99, ptr @FSb, align 16
-  store i8 0, ptr getelementptr inbounds (i8, ptr @RSb, i64 99), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @RSb, i64 99), align 1
   br label %32
 
 .preheader.i:                                     ; preds = %32

@@ -765,7 +765,7 @@ declare noundef ptr @_Z13mk_smt_solverR11ast_managerRK10params_refRK6symbol(ptr 
 define hidden noalias noundef ptr @_Z31mk_smt_strategic_solver_factoryRK6symbol(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %logic) local_unnamed_addr #3 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28smt_strategic_solver_factory, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28smt_strategic_solver_factory, i64 16), ptr %call, align 8
   %m_logic.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = load i64, ptr %logic, align 8
   store i64 %0, ptr %m_logic.i, align 8

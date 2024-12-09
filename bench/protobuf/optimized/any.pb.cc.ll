@@ -102,7 +102,7 @@ invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf3AnyE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf3AnyE, i64 16), ptr %this, align 8
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %1, align 8
   %value_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -124,7 +124,7 @@ entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf3AnyE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf3AnyE, i64 16), ptr %this, align 8
   %_internal_metadata_2 = getelementptr inbounds nuw i8, ptr %from, i64 8
   %1 = load i64, ptr %_internal_metadata_2, align 8
   %and.i22 = and i64 %1, 1

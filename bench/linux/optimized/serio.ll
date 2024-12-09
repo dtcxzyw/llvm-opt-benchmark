@@ -132,7 +132,7 @@ define dso_local void @serio_rescan(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -22, 1) i32 @serio_queue_event(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 5) %2) unnamed_addr #0 align 16 {
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @serio_event_lock) #10
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @serio_event_list, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @serio_event_list, i64 8), align 8
   %6 = icmp eq ptr %5, @serio_event_list
   br i1 %6, label %.loopexit, label %.preheader
 
@@ -156,7 +156,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @serio_queue_event(ptr noun
   br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !6
 
 .loopexit:                                        ; preds = %15, %11, %3
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %20 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %19, i32 noundef 2080, i64 noundef 40) #11
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %24
@@ -181,8 +181,8 @@ define internal fastcc noundef range(i32 -22, 1) i32 @serio_queue_event(ptr noun
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %1, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @serio_event_list, i64 8), align 8
-  store ptr %31, ptr getelementptr inbounds (i8, ptr @serio_event_list, i64 8), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @serio_event_list, i64 8), align 8
+  store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @serio_event_list, i64 8), align 8
   store ptr @serio_event_list, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr %32, ptr %33, align 8
@@ -1905,8 +1905,8 @@ define internal void @serio_handle_event(ptr nocapture readnone %0) #0 align 16 
 
 28:                                               ; preds = %21, %15
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 1072
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @serio_list, i64 8), align 8
-  store ptr %29, ptr getelementptr inbounds (i8, ptr @serio_list, i64 8), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @serio_list, i64 8), align 8
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @serio_list, i64 8), align 8
   store ptr @serio_list, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 1080
   store ptr %30, ptr %31, align 8

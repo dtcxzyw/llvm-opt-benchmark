@@ -312,7 +312,7 @@ _ZN5clang19ConstructionContext6createINS_40SimpleTemporaryObjectConstructionCont
   store ptr %38, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 24
   store ptr %1, ptr %69, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang40SimpleTemporaryObjectConstructionContextE, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang40SimpleTemporaryObjectConstructionContextE, i64 16), ptr %.0.i.i.i.i.i, align 8
   br label %_ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit.thread
 
 70:                                               ; preds = %39
@@ -355,7 +355,7 @@ _ZN5clang19ConstructionContext6createINS_40ElidedTemporaryObjectConstructionCont
   store ptr %38, ptr %89, align 8
   %90 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i37, i64 24
   store ptr %1, ptr %90, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang40ElidedTemporaryObjectConstructionContextE, i64 16), ptr %.0.i.i.i.i.i37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang40ElidedTemporaryObjectConstructionContextE, i64 16), ptr %.0.i.i.i.i.i37, align 8
   %91 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i37, i64 32
   store ptr %41, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i37, i64 40
@@ -408,7 +408,7 @@ _ZN5clang19ConstructionContext6createINS_40SimpleTemporaryObjectConstructionCont
   store ptr %38, ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i44, i64 24
   store ptr %1, ptr %118, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang40SimpleTemporaryObjectConstructionContextE, i64 16), ptr %.0.i.i.i.i.i44, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang40SimpleTemporaryObjectConstructionContextE, i64 16), ptr %.0.i.i.i.i.i44, align 8
   br label %_ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit.thread
 
 _ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit.thread: ; preds = %23, %_ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit, %_ZN5clang19ConstructionContext6createINS_40SimpleTemporaryObjectConstructionContextEJPKNS_20CXXBindTemporaryExprEPKNS_24MaterializeTemporaryExprEEEEPT_RNS_17BumpVectorContextEDpT0_.exit46, %_ZN5clang19ConstructionContext6createINS_40ElidedTemporaryObjectConstructionContextEJPKNS_20CXXBindTemporaryExprEPKNS_24MaterializeTemporaryExprEPKNS_16CXXConstructExprEPKS0_EEEPT_RNS_17BumpVectorContextEDpT0_.exit, %_ZN5clang19ConstructionContext6createINS_40SimpleTemporaryObjectConstructionContextEJPKNS_20CXXBindTemporaryExprEPKNS_24MaterializeTemporaryExprEEEEPT_RNS_17BumpVectorContextEDpT0_.exit
@@ -479,7 +479,7 @@ _ZN5clang19ConstructionContext6createINS_33SimpleVariableConstructionContextEJPK
   store i32 0, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
   store ptr %6, ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang33SimpleVariableConstructionContextE, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang33SimpleVariableConstructionContextE, i64 16), ptr %.0.i.i.i.i.i, align 8
   br label %171
 
 32:                                               ; preds = %2
@@ -524,7 +524,7 @@ _ZN5clang19ConstructionContext6createINS_37NewAllocatedObjectConstructionContext
   store ptr %.sink.i35, ptr %34, align 8
   %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i36, i64 8
   store i32 4, ptr %55, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang37NewAllocatedObjectConstructionContextE, i64 16), ptr %.0.i.i.i.i.i36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang37NewAllocatedObjectConstructionContextE, i64 16), ptr %.0.i.i.i.i.i36, align 8
   %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i36, i64 16
   store ptr %6, ptr %56, align 8
   br label %171
@@ -573,7 +573,7 @@ _ZN5clang19ConstructionContext6createINS_38SimpleReturnedValueConstructionContex
   store i32 7, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i43, i64 16
   store ptr %6, ptr %81, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang38SimpleReturnedValueConstructionContextE, i64 16), ptr %.0.i.i.i.i.i43, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang38SimpleReturnedValueConstructionContextE, i64 16), ptr %.0.i.i.i.i.i43, align 8
   br label %171
 
 82:                                               ; preds = %2
@@ -630,7 +630,7 @@ _ZN5clang19ConstructionContext6createINS_32LambdaCaptureConstructionContextEJPKN
   store ptr %.sink.i49, ptr %92, align 8
   %113 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i50, i64 8
   store i32 10, ptr %113, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang32LambdaCaptureConstructionContextE, i64 16), ptr %.0.i.i.i.i.i50, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang32LambdaCaptureConstructionContextE, i64 16), ptr %.0.i.i.i.i.i50, align 8
   %114 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i50, i64 16
   store ptr %6, ptr %114, align 8
   %115 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i50, i64 24
@@ -681,7 +681,7 @@ _ZN5clang19ConstructionContext6createINS_47SimpleConstructorInitializerConstruct
   store i32 2, ptr %139, align 8
   %140 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i57, i64 16
   store ptr %6, ptr %140, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang47SimpleConstructorInitializerConstructionContextE, i64 16), ptr %.0.i.i.i.i.i57, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang47SimpleConstructorInitializerConstructionContextE, i64 16), ptr %.0.i.i.i.i.i57, align 8
   br label %171
 
 141:                                              ; preds = %2
@@ -728,7 +728,7 @@ _ZN5clang19ConstructionContext6createINS_27ArgumentConstructionContextEJPKNS_4Ex
   store ptr %.sink.i63, ptr %145, align 8
   %166 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i64, i64 8
   store i32 9, ptr %166, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang27ArgumentConstructionContextE, i64 16), ptr %.0.i.i.i.i.i64, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang27ArgumentConstructionContextE, i64 16), ptr %.0.i.i.i.i.i64, align 8
   %167 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i64, i64 16
   store ptr %6, ptr %167, align 8
   %168 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i64, i64 24
@@ -796,7 +796,7 @@ _ZN5clang19ConstructionContext6createINS_40SimpleTemporaryObjectConstructionCont
   store ptr %1, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 24
   store ptr null, ptr %29, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang40SimpleTemporaryObjectConstructionContextE, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang40SimpleTemporaryObjectConstructionContextE, i64 16), ptr %.0.i.i.i.i.i, align 8
   br label %174
 
 30:                                               ; preds = %3
@@ -857,7 +857,7 @@ _ZN5clang19ConstructionContext6createINS_42CXX17ElidedCopyVariableConstructionCo
   store i32 1, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i38, i64 16
   store ptr %34, ptr %59, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang42CXX17ElidedCopyVariableConstructionContextE, i64 16), ptr %.0.i.i.i.i.i38, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang42CXX17ElidedCopyVariableConstructionContextE, i64 16), ptr %.0.i.i.i.i.i38, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i38, i64 24
   store ptr %1, ptr %60, align 8
   br label %174
@@ -906,7 +906,7 @@ _ZN5clang19ConstructionContext6createINS_47CXX17ElidedCopyReturnedValueConstruct
   store i32 8, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i45, i64 16
   store ptr %34, ptr %85, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang47CXX17ElidedCopyReturnedValueConstructionContextE, i64 16), ptr %.0.i.i.i.i.i45, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang47CXX17ElidedCopyReturnedValueConstructionContextE, i64 16), ptr %.0.i.i.i.i.i45, align 8
   %86 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i45, i64 24
   store ptr %1, ptr %86, align 8
   br label %174
@@ -960,7 +960,7 @@ _ZN5clang19ConstructionContext6createINS_27ArgumentConstructionContextEJPKNS_4Ex
   store ptr %.sink.i51, ptr %94, align 8
   %115 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i52, i64 8
   store i32 9, ptr %115, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang27ArgumentConstructionContextE, i64 16), ptr %.0.i.i.i.i.i52, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang27ArgumentConstructionContextE, i64 16), ptr %.0.i.i.i.i.i52, align 8
   %116 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i52, i64 16
   store ptr %34, ptr %116, align 8
   %117 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i52, i64 24
@@ -1013,7 +1013,7 @@ _ZN5clang19ConstructionContext6createINS_56CXX17ElidedCopyConstructorInitializer
   store i32 3, ptr %142, align 8
   %143 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i59, i64 16
   store ptr %34, ptr %143, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang56CXX17ElidedCopyConstructorInitializerConstructionContextE, i64 16), ptr %.0.i.i.i.i.i59, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang56CXX17ElidedCopyConstructorInitializerConstructionContextE, i64 16), ptr %.0.i.i.i.i.i59, align 8
   %144 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i59, i64 24
   store ptr %1, ptr %144, align 8
   br label %174
@@ -1062,7 +1062,7 @@ _ZN5clang19ConstructionContext6createINS_32LambdaCaptureConstructionContextEJPKN
   store ptr %.sink.i65, ptr %149, align 8
   %170 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i66, i64 8
   store i32 10, ptr %170, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang32LambdaCaptureConstructionContextE, i64 16), ptr %.0.i.i.i.i.i66, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang32LambdaCaptureConstructionContextE, i64 16), ptr %.0.i.i.i.i.i66, align 8
   %171 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i66, i64 16
   store ptr %34, ptr %171, align 8
   %172 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i66, i64 24

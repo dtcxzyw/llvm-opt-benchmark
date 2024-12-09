@@ -100,7 +100,7 @@ $_ZTIZN2cv10MediaFrame4ViewC1EOSt5arrayIPvLm4EEOS2_ImLm4EEOSt8functionIFvvEEEd_U
 define void @_ZN2cv4gapi3oak15OAKMediaAdapterC2ENS_5Size_IiEENS_11MediaFormatEOSt6vectorIhSaIhEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 20), (24, 48)) %0, i64 %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.0", align 1
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv4gapi3oak15OAKMediaAdapterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv4gapi3oak15OAKMediaAdapterE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -328,7 +328,7 @@ define void @_ZN2cv4gapi3oak14OAKRMatAdapterC2ERKNS_5Size_IiEEiOSt6vectorIfSaIfE
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.0", align 1
   %7 = alloca %"class.cv::Mat", align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN2cv4gapi3oak14OAKRMatAdapterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN2cv4gapi3oak14OAKRMatAdapterE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %1, align 4
   store i64 %9, ptr %8, align 8

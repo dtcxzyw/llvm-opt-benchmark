@@ -1378,7 +1378,7 @@ entry:
   %2 = load ptr, ptr %interp.i, align 8
   %3 = getelementptr i8, ptr %2, i64 416136
   %call.val = load ptr, ptr %3, align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3648), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3648), align 8
   %call2 = tail call i64 @_Py_hashtable_len(ptr noundef %4) #35
   %5 = getelementptr i8, ptr %call.val, i64 16
   %call1.val = load i64, ptr %5, align 8
@@ -1805,7 +1805,7 @@ if.then26:                                        ; preds = %if.end22
 if.end28:                                         ; preds = %if.end22
   %ob_type.i.i = getelementptr inbounds nuw i8, ptr %call24, i64 8
   store ptr @PyUnicode_Type, ptr %ob_type.i.i, align 8
-  %typeobj.val.i = load i64, ptr getelementptr inbounds (i8, ptr @PyUnicode_Type, i64 168), align 8
+  %typeobj.val.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyUnicode_Type, i64 168), align 8
   %2 = and i64 %typeobj.val.i, 512
   %tobool.not.i = icmp eq i64 %2, 0
   br i1 %tobool.not.i, label %_PyObject_Init.exit, label %if.then.i
@@ -1865,7 +1865,7 @@ if.else63:                                        ; preds = %if.else57
   br label %return
 
 return:                                           ; preds = %entry, %if.then52, %if.then61, %if.else63, %if.then55, %if.then26, %if.then20, %if.then16, %if.then10
-  %retval.0 = phi ptr [ null, %if.then16 ], [ %call21, %if.then20 ], [ %call27, %if.then26 ], [ null, %if.then10 ], [ %call24, %if.then55 ], [ %call24, %if.else63 ], [ %call24, %if.then61 ], [ %call24, %if.then52 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %entry ]
+  %retval.0 = phi ptr [ null, %if.then16 ], [ %call21, %if.then20 ], [ %call27, %if.then26 ], [ null, %if.then10 ], [ %call24, %if.then55 ], [ %call24, %if.else63 ], [ %call24, %if.then61 ], [ %call24, %if.then52 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %entry ]
   ret ptr %retval.0
 }
 
@@ -2854,7 +2854,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr %p_unicode, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), ptr %p_unicode, align 8
   %2 = load i64, ptr %0, align 8
   %3 = and i64 %2, 2147483648
   %cmp.i35.not = icmp eq i64 %3, 0
@@ -3078,13 +3078,13 @@ if.then12:                                        ; preds = %land.lhs.true10
 
 cond.true.i:                                      ; preds = %if.then12
   %idxprom.i = zext nneg i32 %0 to i64
-  %arrayidx.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i
   br label %return
 
 cond.false.i:                                     ; preds = %if.then12
   %1 = and i8 %conv, 127
   %idxprom3.i = zext nneg i8 %1 to i64
-  %arrayidx4.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i
+  %arrayidx4.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i
   br label %return
 
 if.end14:                                         ; preds = %if.end4, %land.lhs.true10
@@ -3302,7 +3302,7 @@ sw.epilog:                                        ; preds = %while.body87, %whil
   ]
 
 if.then.i83:                                      ; preds = %sw.epilog
-  %cmp2.not.i = icmp eq ptr %call20, getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216)
+  %cmp2.not.i = icmp eq ptr %call20, getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216)
   br i1 %cmp2.not.i, label %return, label %if.then3.i84
 
 if.then3.i84:                                     ; preds = %if.then.i83
@@ -3344,10 +3344,10 @@ PyUnicode_DATA.exit.i:                            ; preds = %if.end.i17.i, %if.t
   %retval.0.i.i80 = phi ptr [ %retval.0.i.i.i, %if.then.i.i ], [ %op.val3.i.i, %if.end.i17.i ]
   %30 = load i8, ptr %retval.0.i.i80, align 1
   %idxprom.i81 = zext nneg i8 %30 to i64
-  %arrayidx12.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i81
+  %arrayidx12.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i81
   %31 = and i8 %30, 127
   %idxprom14.i = zext nneg i8 %31 to i64
-  %arrayidx15.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom14.i
+  %arrayidx15.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom14.i
   %cmp1018.i = icmp slt i8 %30, 0
   %cond.i82 = select i1 %cmp1018.i, ptr %arrayidx15.i, ptr %arrayidx12.i
   %cmp16.not.i = icmp eq ptr %call20, %cond.i82
@@ -3366,12 +3366,12 @@ if.end.i.i:                                       ; preds = %if.then18.i
   br i1 %cmp.i.i, label %return.sink.split.i, label %return
 
 return.sink.split.i:                              ; preds = %if.end.i.i, %if.end.i25.i
-  %retval.0.ph.i = phi ptr [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end.i25.i ], [ %cond.i82, %if.end.i.i ]
+  %retval.0.ph.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end.i25.i ], [ %cond.i82, %if.end.i.i ]
   tail call void @_Py_Dealloc(ptr noundef nonnull %call20) #35
   br label %return
 
 return:                                           ; preds = %return.sink.split.i, %if.end.i.i, %if.then18.i, %PyUnicode_DATA.exit.i, %if.then6.i, %if.end.i25.i, %if.then3.i84, %if.then.i83, %sw.epilog, %find_maxchar_surrogates.exit, %cond.false.i, %cond.true.i, %if.end4, %if.end19, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %find_maxchar_surrogates.exit ], [ null, %if.end19 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end4 ], [ %arrayidx.i, %cond.true.i ], [ %arrayidx4.i, %cond.false.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end.i25.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then3.i84 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then.i83 ], [ %cond.i82, %if.end.i.i ], [ %cond.i82, %if.then18.i ], [ %cond.i82, %PyUnicode_DATA.exit.i ], [ %call20, %sw.epilog ], [ %call20, %if.then6.i ], [ %retval.0.ph.i, %return.sink.split.i ]
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %find_maxchar_surrogates.exit ], [ null, %if.end19 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end4 ], [ %arrayidx.i, %cond.true.i ], [ %arrayidx4.i, %cond.false.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end.i25.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then3.i84 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then.i83 ], [ %cond.i82, %if.end.i.i ], [ %cond.i82, %if.then18.i ], [ %cond.i82, %PyUnicode_DATA.exit.i ], [ %call20, %sw.epilog ], [ %call20, %if.then6.i ], [ %retval.0.ph.i, %return.sink.split.i ]
   ret ptr %retval.0
 }
 
@@ -3410,7 +3410,7 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 return:                                           ; preds = %if.end3, %if.then5, %if.then2, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ %call.i, %if.then2 ], [ null, %if.then5 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end3 ]
+  %retval.0 = phi ptr [ null, %if.then ], [ %call.i, %if.then2 ], [ null, %if.then5 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end3 ]
   ret ptr %retval.0
 }
 
@@ -3595,13 +3595,13 @@ if.then:                                          ; preds = %entry
 
 cond.true.i:                                      ; preds = %if.then
   %idxprom.i = zext nneg i8 %0 to i64
-  %arrayidx.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i
   br label %return
 
 cond.false.i:                                     ; preds = %if.then
   %1 = and i8 %0, 127
   %idxprom3.i = zext nneg i8 %1 to i64
-  %arrayidx4.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i
+  %arrayidx4.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -3669,13 +3669,13 @@ if.then2.i:                                       ; preds = %sw.bb
 
 cond.true.i.i:                                    ; preds = %if.then2.i
   %idxprom.i.i = zext nneg i8 %1 to i64
-  %arrayidx.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i
   br label %return
 
 cond.false.i.i:                                   ; preds = %if.then2.i
   %2 = and i8 %1, 127
   %idxprom3.i.i = zext nneg i8 %2 to i64
-  %arrayidx4.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i
+  %arrayidx4.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i
   br label %return
 
 if.end4.i:                                        ; preds = %sw.bb
@@ -3760,7 +3760,7 @@ sw.default:                                       ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %PyUnicode_DATA.exit.i, %ucs1lib_find_max_char.exit.i, %cond.false.i.i, %cond.true.i.i, %sw.bb, %sw.default, %sw.bb3, %sw.bb1, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %sw.default ], [ %call4, %sw.bb3 ], [ %call2, %sw.bb1 ], [ %call7.i, %PyUnicode_DATA.exit.i ], [ null, %ucs1lib_find_max_char.exit.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %sw.bb ], [ %arrayidx.i.i, %cond.true.i.i ], [ %arrayidx4.i.i, %cond.false.i.i ]
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %sw.default ], [ %call4, %sw.bb3 ], [ %call2, %sw.bb1 ], [ %call7.i, %PyUnicode_DATA.exit.i ], [ null, %ucs1lib_find_max_char.exit.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %sw.bb ], [ %arrayidx.i.i, %cond.true.i.i ], [ %arrayidx4.i.i, %cond.false.i.i ]
   ret ptr %retval.0
 }
 
@@ -3785,13 +3785,13 @@ if.then.i:                                        ; preds = %if.then2
 
 cond.true.i.i:                                    ; preds = %if.then.i
   %idxprom.i.i = zext nneg i16 %0 to i64
-  %arrayidx.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i
   br label %return
 
 cond.false.i.i:                                   ; preds = %if.then.i
   %1 = and i8 %conv.i, 127
   %idxprom3.i.i = zext nneg i8 %1 to i64
-  %arrayidx4.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i
+  %arrayidx4.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i
   br label %return
 
 if.end.i:                                         ; preds = %if.then2
@@ -4038,7 +4038,7 @@ while.body39:                                     ; preds = %while.cond36.prehea
   br i1 %cmp37, label %while.body39, label %return, !llvm.loop !30
 
 return:                                           ; preds = %while.body39, %while.cond36.preheader, %PyUnicode_DATA.exit18.i, %PyUnicode_DATA.exit.i, %if.end.i, %cond.false.i.i, %cond.true.i.i, %entry, %PyUnicode_DATA.exit, %ucs2lib_find_max_char.exit
-  %retval.0 = phi ptr [ null, %ucs2lib_find_max_char.exit ], [ %call8, %PyUnicode_DATA.exit ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %entry ], [ null, %if.end.i ], [ %call1.i, %PyUnicode_DATA.exit18.i ], [ %call1.i, %PyUnicode_DATA.exit.i ], [ %arrayidx.i.i, %cond.true.i.i ], [ %arrayidx4.i.i, %cond.false.i.i ], [ %call8, %while.cond36.preheader ], [ %call8, %while.body39 ]
+  %retval.0 = phi ptr [ null, %ucs2lib_find_max_char.exit ], [ %call8, %PyUnicode_DATA.exit ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %entry ], [ null, %if.end.i ], [ %call1.i, %PyUnicode_DATA.exit18.i ], [ %call1.i, %PyUnicode_DATA.exit.i ], [ %arrayidx.i.i, %cond.true.i.i ], [ %arrayidx4.i.i, %cond.false.i.i ], [ %call8, %while.cond36.preheader ], [ %call8, %while.body39 ]
   ret ptr %retval.0
 }
 
@@ -4062,13 +4062,13 @@ if.then.i:                                        ; preds = %if.then2
 
 cond.true.i.i:                                    ; preds = %if.then.i
   %idxprom.i.i = zext nneg i32 %0 to i64
-  %arrayidx.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i
   br label %return
 
 cond.false.i.i:                                   ; preds = %if.then.i
   %1 = and i8 %conv.i, 127
   %idxprom3.i.i = zext nneg i8 %1 to i64
-  %arrayidx4.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i
+  %arrayidx4.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i
   br label %return
 
 if.end.i:                                         ; preds = %if.then2
@@ -4386,7 +4386,7 @@ PyUnicode_DATA.exit77:                            ; preds = %if.then.i70, %if.en
   br label %return
 
 return:                                           ; preds = %while.body76, %while.body32, %while.cond73.preheader, %while.cond29.preheader, %PyUnicode_DATA.exit18.i, %PyUnicode_DATA.exit.i, %if.end.i, %cond.false.i.i, %cond.true.i.i, %entry, %PyUnicode_DATA.exit77, %ucs4lib_find_max_char.exit
-  %retval.0 = phi ptr [ null, %ucs4lib_find_max_char.exit ], [ %call6, %PyUnicode_DATA.exit77 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %entry ], [ null, %if.end.i ], [ %call1.i, %PyUnicode_DATA.exit18.i ], [ %call1.i, %PyUnicode_DATA.exit.i ], [ %arrayidx.i.i, %cond.true.i.i ], [ %arrayidx4.i.i, %cond.false.i.i ], [ %call6, %while.cond29.preheader ], [ %call6, %while.cond73.preheader ], [ %call6, %while.body32 ], [ %call6, %while.body76 ]
+  %retval.0 = phi ptr [ null, %ucs4lib_find_max_char.exit ], [ %call6, %PyUnicode_DATA.exit77 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %entry ], [ null, %if.end.i ], [ %call1.i, %PyUnicode_DATA.exit18.i ], [ %call1.i, %PyUnicode_DATA.exit.i ], [ %arrayidx.i.i, %cond.true.i.i ], [ %arrayidx4.i.i, %cond.false.i.i ], [ %call6, %while.cond29.preheader ], [ %call6, %while.cond73.preheader ], [ %call6, %while.body32 ], [ %call6, %while.body76 ]
   ret ptr %retval.0
 }
 
@@ -6566,10 +6566,10 @@ if.then2:                                         ; preds = %land.lhs.true
 if.then.i:                                        ; preds = %if.then2
   %2 = load i8, ptr %ascii, align 1
   %idxprom.i.i = zext nneg i8 %2 to i64
-  %arrayidx.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i
   %3 = and i8 %2, 127
   %idxprom3.i.i = zext nneg i8 %3 to i64
-  %arrayidx4.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i
+  %arrayidx4.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i
   %cmp.i.i86 = icmp slt i8 %2, 0
   %retval.0.i = select i1 %cmp.i.i86, ptr %arrayidx4.i.i, ptr %arrayidx.i.i
   %cmp4 = icmp eq ptr %retval.0.i, null
@@ -6886,7 +6886,7 @@ if.end19:                                         ; preds = %if.then13.if.end19_
   ]
 
 if.then.i:                                        ; preds = %if.end19
-  %cmp2.not.i = icmp eq ptr %str.0, getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216)
+  %cmp2.not.i = icmp eq ptr %str.0, getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216)
   br i1 %cmp2.not.i, label %return, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
@@ -6929,10 +6929,10 @@ PyUnicode_DATA.exit.i:                            ; preds = %if.end.i17.i, %if.t
   %retval.0.i.i = phi ptr [ %retval.0.i.i.i, %if.then.i.i ], [ %op.val3.i.i, %if.end.i17.i ]
   %14 = load i8, ptr %retval.0.i.i, align 1
   %idxprom.i = zext nneg i8 %14 to i64
-  %arrayidx12.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i
+  %arrayidx12.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i
   %15 = and i8 %14, 127
   %idxprom14.i = zext nneg i8 %15 to i64
-  %arrayidx15.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom14.i
+  %arrayidx15.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom14.i
   %cmp1018.i = icmp slt i8 %14, 0
   %cond.i = select i1 %cmp1018.i, ptr %arrayidx15.i, ptr %arrayidx12.i
   %cmp16.not.i = icmp eq ptr %str.0, %cond.i
@@ -6952,12 +6952,12 @@ if.end.i.i:                                       ; preds = %if.then18.i
 
 return.sink.split:                                ; preds = %if.end.i25.i, %if.end.i.i, %if.end.i, %if.end.i24
   %str.0.sink = phi ptr [ %1, %if.end.i24 ], [ %1, %if.end.i ], [ %str.0, %if.end.i.i ], [ %str.0, %if.end.i25.i ]
-  %retval.0.ph = phi ptr [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end.i24 ], [ null, %if.end.i ], [ %cond.i, %if.end.i.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end.i25.i ]
+  %retval.0.ph = phi ptr [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end.i24 ], [ null, %if.end.i ], [ %cond.i, %if.end.i.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end.i25.i ]
   tail call void @_Py_Dealloc(ptr noundef nonnull %str.0.sink) #35
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end.i.i, %if.then18.i, %PyUnicode_DATA.exit.i, %if.then6.i, %if.end.i25.i, %if.then3.i, %if.then.i, %if.end19, %do.body, %if.then2, %if.end.i24, %if.end.i, %if.then17, %if.end5
-  %retval.0 = phi ptr [ %1, %if.end5 ], [ null, %if.then17 ], [ null, %if.end.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end.i24 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then2 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %do.body ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end.i25.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then3.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then.i ], [ %cond.i, %if.end.i.i ], [ %cond.i, %if.then18.i ], [ %cond.i, %PyUnicode_DATA.exit.i ], [ %str.0, %if.end19 ], [ %str.0, %if.then6.i ], [ %retval.0.ph, %return.sink.split ]
+  %retval.0 = phi ptr [ %1, %if.end5 ], [ null, %if.then17 ], [ null, %if.end.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end.i24 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then2 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %do.body ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end.i25.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then3.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then.i ], [ %cond.i, %if.end.i.i ], [ %cond.i, %if.then18.i ], [ %cond.i, %PyUnicode_DATA.exit.i ], [ %str.0, %if.end19 ], [ %str.0, %if.then6.i ], [ %retval.0.ph, %return.sink.split ]
   ret ptr %retval.0
 }
 
@@ -7418,13 +7418,13 @@ if.then.i:                                        ; preds = %if.end
 
 cond.true.i.i:                                    ; preds = %if.then.i
   %idxprom.i.i = zext nneg i32 %ordinal to i64
-  %arrayidx.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i
   br label %return
 
 cond.false.i.i:                                   ; preds = %if.then.i
   %1 = and i8 %conv.i, 127
   %idxprom3.i.i = zext nneg i8 %1 to i64
-  %arrayidx4.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i
+  %arrayidx4.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i
   br label %return
 
 if.end.i:                                         ; preds = %if.end
@@ -7626,7 +7626,7 @@ if.then2:                                         ; preds = %if.end
 if.then5:                                         ; preds = %if.then2
   %call6 = tail call fastcc i32 @unicode_check_encoding_errors(ptr noundef %encoding, ptr noundef %errors)
   %cmp7 = icmp slt i32 %call6, 0
-  %spec.select = select i1 %cmp7, ptr null, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216)
+  %spec.select = select i1 %cmp7, ptr null, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216)
   br label %return
 
 if.end11:                                         ; preds = %if.then2
@@ -7667,7 +7667,7 @@ if.then28:                                        ; preds = %if.end26
   call void @PyBuffer_Release(ptr noundef nonnull %buffer) #35
   %call29 = call fastcc i32 @unicode_check_encoding_errors(ptr noundef %encoding, ptr noundef %errors)
   %cmp30 = icmp slt i32 %call29, 0
-  %spec.select21 = select i1 %cmp30, ptr null, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216)
+  %spec.select21 = select i1 %cmp30, ptr null, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216)
   br label %return
 
 if.end36:                                         ; preds = %if.end26
@@ -8008,13 +8008,13 @@ if.then2.i.i:                                     ; preds = %if.then101
 
 cond.true.i.i.i:                                  ; preds = %if.then2.i.i
   %idxprom.i.i.i = zext nneg i8 %15 to i64
-  %arrayidx.i.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i
   br label %return
 
 cond.false.i.i.i:                                 ; preds = %if.then2.i.i
   %16 = and i8 %15, 127
   %idxprom3.i.i.i = zext nneg i8 %16 to i64
-  %arrayidx4.i.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i
+  %arrayidx4.i.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i
   br label %return
 
 if.end4.i.i:                                      ; preds = %if.then101
@@ -8154,7 +8154,7 @@ Py_DECREF.exit:                                   ; preds = %if.end128, %if.then
   ]
 
 if.then.i:                                        ; preds = %Py_DECREF.exit
-  %cmp2.not.i = icmp eq ptr %call117, getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216)
+  %cmp2.not.i = icmp eq ptr %call117, getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216)
   br i1 %cmp2.not.i, label %return, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
@@ -8197,10 +8197,10 @@ PyUnicode_DATA.exit.i:                            ; preds = %if.end.i17.i, %if.t
   %retval.0.i.i73 = phi ptr [ %retval.0.i.i.i72, %if.then.i.i ], [ %op.val3.i.i, %if.end.i17.i ]
   %40 = load i8, ptr %retval.0.i.i73, align 1
   %idxprom.i74 = zext nneg i8 %40 to i64
-  %arrayidx12.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i74
+  %arrayidx12.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i74
   %41 = and i8 %40, 127
   %idxprom14.i = zext nneg i8 %41 to i64
-  %arrayidx15.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom14.i
+  %arrayidx15.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom14.i
   %cmp1018.i = icmp slt i8 %40, 0
   %cond.i = select i1 %cmp1018.i, ptr %arrayidx15.i, ptr %arrayidx12.i
   %cmp16.not.i = icmp eq ptr %call117, %cond.i
@@ -8219,7 +8219,7 @@ if.end.i.i:                                       ; preds = %if.then18.i
   br i1 %cmp.i.i, label %return.sink.split.i, label %return
 
 return.sink.split.i:                              ; preds = %if.end.i.i, %if.end.i25.i
-  %retval.0.ph.i = phi ptr [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end.i25.i ], [ %cond.i, %if.end.i.i ]
+  %retval.0.ph.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end.i25.i ], [ %cond.i, %if.end.i.i ]
   call void @_Py_Dealloc(ptr noundef nonnull %call117) #35
   br label %return
 
@@ -8240,7 +8240,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i77
   br label %return
 
 return:                                           ; preds = %if.then1.i.i, %if.end.i.i77, %if.then.i75, %if.end111, %if.end106, %return.sink.split.i, %if.end.i.i, %if.then18.i, %PyUnicode_DATA.exit.i, %if.then6.i, %if.end.i25.i, %if.then3.i, %if.then.i, %Py_DECREF.exit, %PyUnicode_DATA.exit.i.i, %ucs1lib_find_max_char.exit.i.i, %cond.false.i.i.i, %cond.true.i.i.i, %if.then101, %if.end, %entry, %if.then83, %if.then71, %if.then54, %if.then38, %if.then6
-  %retval.0 = phi ptr [ %call.i, %if.then6 ], [ %call.i64, %if.then38 ], [ %call.i65, %if.then54 ], [ %call.i66, %if.then71 ], [ %call84, %if.then83 ], [ null, %entry ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end ], [ %call7.i.i, %PyUnicode_DATA.exit.i.i ], [ null, %ucs1lib_find_max_char.exit.i.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then101 ], [ %arrayidx.i.i.i, %cond.true.i.i.i ], [ %arrayidx4.i.i.i, %cond.false.i.i.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end.i25.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then3.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then.i ], [ %cond.i, %if.end.i.i ], [ %cond.i, %if.then18.i ], [ %cond.i, %PyUnicode_DATA.exit.i ], [ %call117, %Py_DECREF.exit ], [ %call117, %if.then6.i ], [ %retval.0.ph.i, %return.sink.split.i ], [ null, %if.end106 ], [ null, %if.end111 ], [ null, %if.then.i75 ], [ null, %if.end.i.i77 ], [ null, %if.then1.i.i ]
+  %retval.0 = phi ptr [ %call.i, %if.then6 ], [ %call.i64, %if.then38 ], [ %call.i65, %if.then54 ], [ %call.i66, %if.then71 ], [ %call84, %if.then83 ], [ null, %entry ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end ], [ %call7.i.i, %PyUnicode_DATA.exit.i.i ], [ null, %ucs1lib_find_max_char.exit.i.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then101 ], [ %arrayidx.i.i.i, %cond.true.i.i.i ], [ %arrayidx4.i.i.i, %cond.false.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end.i25.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then3.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then.i ], [ %cond.i, %if.end.i.i ], [ %cond.i, %if.then18.i ], [ %cond.i, %PyUnicode_DATA.exit.i ], [ %call117, %Py_DECREF.exit ], [ %call117, %if.then6.i ], [ %retval.0.ph.i, %return.sink.split.i ], [ null, %if.end106 ], [ null, %if.end111 ], [ null, %if.then.i75 ], [ null, %if.end.i.i77 ], [ null, %if.then1.i.i ]
   ret ptr %retval.0
 }
 
@@ -8373,7 +8373,7 @@ if.then26.i:                                      ; preds = %land.lhs.true.split
 if.end28.i:                                       ; preds = %land.lhs.true.split
   %ob_type.i.i.i = getelementptr inbounds nuw i8, ptr %call24.i, i64 8
   store ptr @PyUnicode_Type, ptr %ob_type.i.i.i, align 8
-  %typeobj.val.i.i = load i64, ptr getelementptr inbounds (i8, ptr @PyUnicode_Type, i64 168), align 8
+  %typeobj.val.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyUnicode_Type, i64 168), align 8
   %1 = and i64 %typeobj.val.i.i, 512
   %tobool.not.i.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i.i, label %if.end7.thread, label %if.then.i.i
@@ -8405,7 +8405,7 @@ if.end7.thread:                                   ; preds = %if.end28.i, %if.the
 
 get_latin1_char.exit:                             ; preds = %land.lhs.true
   %idxprom.i = zext nneg i8 %0 to i64
-  %arrayidx.i21 = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i
+  %arrayidx.i21 = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i
   br label %return
 
 if.end7:                                          ; preds = %if.then26.i, %if.end.split
@@ -8961,7 +8961,7 @@ if.then1.i.i81:                                   ; preds = %if.end.i.i78
   br label %return
 
 return:                                           ; preds = %if.then1.i.i81, %if.end.i.i78, %if.then.i75, %Py_XDECREF.exit73, %entry, %ascii_decode.exit, %if.end7, %Py_XDECREF.exit57, %get_latin1_char.exit
-  %retval.0 = phi ptr [ %arrayidx.i21, %get_latin1_char.exit ], [ %call65, %Py_XDECREF.exit57 ], [ null, %if.end7 ], [ %phi.call85, %ascii_decode.exit ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %entry ], [ null, %Py_XDECREF.exit73 ], [ null, %if.then.i75 ], [ null, %if.end.i.i78 ], [ null, %if.then1.i.i81 ]
+  %retval.0 = phi ptr [ %arrayidx.i21, %get_latin1_char.exit ], [ %call65, %Py_XDECREF.exit57 ], [ null, %if.end7 ], [ %phi.call85, %ascii_decode.exit ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %entry ], [ null, %Py_XDECREF.exit73 ], [ null, %if.then.i75 ], [ null, %if.end.i.i78 ], [ null, %if.then1.i.i81 ]
   ret ptr %retval.0
 }
 
@@ -8980,13 +8980,13 @@ if.then2.i:                                       ; preds = %entry
 
 cond.true.i.i:                                    ; preds = %if.then2.i
   %idxprom.i.i = zext nneg i8 %0 to i64
-  %arrayidx.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i
   br label %_PyUnicode_FromUCS1.exit
 
 cond.false.i.i:                                   ; preds = %if.then2.i
   %1 = and i8 %0, 127
   %idxprom3.i.i = zext nneg i8 %1 to i64
-  %arrayidx4.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i
+  %arrayidx4.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i
   br label %_PyUnicode_FromUCS1.exit
 
 if.end4.i:                                        ; preds = %entry
@@ -9058,7 +9058,7 @@ PyUnicode_DATA.exit.i:                            ; preds = %if.end.i.i, %if.the
   br label %_PyUnicode_FromUCS1.exit
 
 _PyUnicode_FromUCS1.exit:                         ; preds = %entry, %cond.true.i.i, %cond.false.i.i, %ucs1lib_find_max_char.exit.i, %PyUnicode_DATA.exit.i
-  %retval.0.i = phi ptr [ %call7.i, %PyUnicode_DATA.exit.i ], [ null, %ucs1lib_find_max_char.exit.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %entry ], [ %arrayidx.i.i, %cond.true.i.i ], [ %arrayidx4.i.i, %cond.false.i.i ]
+  %retval.0.i = phi ptr [ %call7.i, %PyUnicode_DATA.exit.i ], [ null, %ucs1lib_find_max_char.exit.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %entry ], [ %arrayidx.i.i, %cond.true.i.i ], [ %arrayidx4.i.i, %cond.false.i.i ]
   ret ptr %retval.0.i
 }
 
@@ -9177,7 +9177,7 @@ if.end20:                                         ; preds = %if.end13
   ]
 
 if.then.i:                                        ; preds = %if.end20
-  %cmp2.not.i = icmp eq ptr %call10, getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216)
+  %cmp2.not.i = icmp eq ptr %call10, getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216)
   br i1 %cmp2.not.i, label %return, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
@@ -9220,10 +9220,10 @@ PyUnicode_DATA.exit.i:                            ; preds = %if.end.i17.i, %if.t
   %retval.0.i.i = phi ptr [ %retval.0.i.i.i, %if.then.i.i ], [ %op.val3.i.i, %if.end.i17.i ]
   %18 = load i8, ptr %retval.0.i.i, align 1
   %idxprom.i = zext nneg i8 %18 to i64
-  %arrayidx12.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i
+  %arrayidx12.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i
   %19 = and i8 %18, 127
   %idxprom14.i = zext nneg i8 %19 to i64
-  %arrayidx15.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom14.i
+  %arrayidx15.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom14.i
   %cmp1018.i = icmp slt i8 %18, 0
   %cond.i = select i1 %cmp1018.i, ptr %arrayidx15.i, ptr %arrayidx12.i
   %cmp16.not.i = icmp eq ptr %call10, %cond.i
@@ -9242,12 +9242,12 @@ if.end.i.i:                                       ; preds = %if.then18.i
   br i1 %cmp.i.i, label %return.sink.split.i, label %return
 
 return.sink.split.i:                              ; preds = %if.end.i.i, %if.end.i25.i
-  %retval.0.ph.i = phi ptr [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end.i25.i ], [ %cond.i, %if.end.i.i ]
+  %retval.0.ph.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end.i25.i ], [ %cond.i, %if.end.i.i ]
   tail call void @_Py_Dealloc(ptr noundef nonnull %call10) #35
   br label %return
 
 return:                                           ; preds = %return.sink.split.i, %if.end.i.i, %if.then18.i, %PyUnicode_DATA.exit.i, %if.then6.i, %if.end.i25.i, %if.then3.i, %if.then.i, %if.end20, %if.then, %if.end5, %if.then17, %if.then1.i, %if.end.i, %if.end
-  %retval.0 = phi ptr [ null, %if.end ], [ null, %if.end.i ], [ null, %if.then1.i ], [ null, %if.then17 ], [ null, %if.end5 ], [ null, %if.then ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end.i25.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then3.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then.i ], [ %cond.i, %if.end.i.i ], [ %cond.i, %if.then18.i ], [ %cond.i, %PyUnicode_DATA.exit.i ], [ %call10, %if.end20 ], [ %call10, %if.then6.i ], [ %retval.0.ph.i, %return.sink.split.i ]
+  %retval.0 = phi ptr [ null, %if.end ], [ null, %if.end.i ], [ null, %if.then1.i ], [ null, %if.then17 ], [ null, %if.end5 ], [ null, %if.then ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end.i25.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then3.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then.i ], [ %cond.i, %if.end.i.i ], [ %cond.i, %if.then18.i ], [ %cond.i, %PyUnicode_DATA.exit.i ], [ %call10, %if.end20 ], [ %call10, %if.then6.i ], [ %retval.0.ph.i, %return.sink.split.i ]
   ret ptr %retval.0
 }
 
@@ -12225,7 +12225,7 @@ if.then26.i:                                      ; preds = %land.lhs.true.split
 if.end28.i:                                       ; preds = %land.lhs.true.split
   %ob_type.i.i.i = getelementptr inbounds nuw i8, ptr %call24.i, i64 8
   store ptr @PyUnicode_Type, ptr %ob_type.i.i.i, align 8
-  %typeobj.val.i.i = load i64, ptr getelementptr inbounds (i8, ptr @PyUnicode_Type, i64 168), align 8
+  %typeobj.val.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyUnicode_Type, i64 168), align 8
   %1 = and i64 %typeobj.val.i.i, 512
   %tobool.not.i.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i.i, label %if.end12.thread, label %if.then.i.i
@@ -12268,13 +12268,13 @@ if.end9:                                          ; preds = %if.then6
 cond.true.i:                                      ; preds = %if.then6, %if.end9
   %3 = phi i8 [ %.pr, %if.end9 ], [ %0, %if.then6 ]
   %idxprom.i = zext nneg i8 %3 to i64
-  %arrayidx.i33 = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i
+  %arrayidx.i33 = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i
   br label %return
 
 cond.false.i:                                     ; preds = %if.end9
   %4 = and i8 %.pr, 127
   %idxprom3.i = zext nneg i8 %4 to i64
-  %arrayidx4.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i
+  %arrayidx4.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i
   br label %return
 
 if.end12:                                         ; preds = %if.then26.i, %if.end2.split
@@ -13895,7 +13895,7 @@ if.then1.i.i334:                                  ; preds = %if.end.i.i331
   br label %return
 
 return:                                           ; preds = %if.then1.i.i334, %if.end.i.i331, %if.then.i329, %Py_XDECREF.exit327, %cond.false.i, %cond.true.i, %if.then1, %if.then, %if.then23, %if.then25, %if.end12, %Py_XDECREF.exit309
-  %retval.0 = phi ptr [ %call156, %Py_XDECREF.exit309 ], [ null, %if.end12 ], [ %phi.call338, %if.then25 ], [ %phi.call338, %if.then23 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then1 ], [ %arrayidx.i33, %cond.true.i ], [ %arrayidx4.i, %cond.false.i ], [ null, %Py_XDECREF.exit327 ], [ null, %if.then.i329 ], [ null, %if.end.i.i331 ], [ null, %if.then1.i.i334 ]
+  %retval.0 = phi ptr [ %call156, %Py_XDECREF.exit309 ], [ null, %if.end12 ], [ %phi.call338, %if.then25 ], [ %phi.call338, %if.then23 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then1 ], [ %arrayidx.i33, %cond.true.i ], [ %arrayidx4.i, %cond.false.i ], [ null, %Py_XDECREF.exit327 ], [ null, %if.then.i329 ], [ null, %if.end.i.i331 ], [ null, %if.then1.i.i334 ]
   ret ptr %retval.0
 }
 
@@ -15976,7 +15976,7 @@ if.then1.i.i276:                                  ; preds = %if.end.i.i273
   br label %return
 
 return:                                           ; preds = %if.then1.i.i276, %if.end.i.i273, %if.then.i271, %Py_XDECREF.exit269, %if.then1.i.i233, %if.end.i.i230, %if.then.i228, %Py_XDECREF.exit226, %if.then1, %if.then, %Py_XDECREF.exit251
-  %retval.0 = phi ptr [ %call264, %Py_XDECREF.exit251 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then1 ], [ %call255, %Py_XDECREF.exit226 ], [ %call255, %if.then.i228 ], [ %call255, %if.end.i.i230 ], [ %call255, %if.then1.i.i233 ], [ null, %Py_XDECREF.exit269 ], [ null, %if.then.i271 ], [ null, %if.end.i.i273 ], [ null, %if.then1.i.i276 ]
+  %retval.0 = phi ptr [ %call264, %Py_XDECREF.exit251 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then1 ], [ %call255, %Py_XDECREF.exit226 ], [ %call255, %if.then.i228 ], [ %call255, %if.end.i.i230 ], [ %call255, %if.then1.i.i233 ], [ null, %Py_XDECREF.exit269 ], [ null, %if.then.i271 ], [ null, %if.end.i.i273 ], [ null, %if.then1.i.i276 ]
   ret ptr %retval.0
 }
 
@@ -16145,7 +16145,7 @@ if.end10:                                         ; preds = %if.end6
 
 if.then13:                                        ; preds = %if.end10
   %16 = load ptr, ptr @PyExc_TypeError, align 8
-  tail call void @PyErr_SetString(ptr noundef %16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.178, i64 3)) #35
+  tail call void @PyErr_SetString(ptr noundef %16, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.178, i64 3)) #35
   br label %if.then.i67
 
 if.end14:                                         ; preds = %if.end10
@@ -18096,7 +18096,7 @@ if.then1.i.i94:                                   ; preds = %if.end.i.i91
   br label %return
 
 return:                                           ; preds = %if.then1.i.i94, %if.end.i.i91, %if.then.i88, %Py_XDECREF.exit86, %if.then31, %if.then29, %Py_XDECREF.exit70
-  %retval.0 = phi ptr [ %call187, %Py_XDECREF.exit70 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then29 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then31 ], [ null, %Py_XDECREF.exit86 ], [ null, %if.then.i88 ], [ null, %if.end.i.i91 ], [ null, %if.then1.i.i94 ]
+  %retval.0 = phi ptr [ %call187, %Py_XDECREF.exit70 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then29 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then31 ], [ null, %Py_XDECREF.exit86 ], [ null, %if.then.i88 ], [ null, %if.end.i.i91 ], [ null, %if.then1.i.i94 ]
   ret ptr %retval.0
 }
 
@@ -18367,7 +18367,7 @@ if.end11:                                         ; preds = %if.end7
 
 if.then14:                                        ; preds = %if.end11
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  tail call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.182, i64 3)) #35
+  tail call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.182, i64 3)) #35
   %8 = load i64, ptr %call8, align 8
   %9 = and i64 %8, 2147483648
   %cmp.i78.not = icmp eq i64 %9, 0
@@ -18416,7 +18416,7 @@ if.end19:                                         ; preds = %if.end15
 
 if.then26:                                        ; preds = %if.end19
   %16 = load ptr, ptr @PyExc_TypeError, align 8
-  call void @PyErr_SetString(ptr noundef %16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.182, i64 3)) #35
+  call void @PyErr_SetString(ptr noundef %16, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.182, i64 3)) #35
   %17 = load i64, ptr %call8, align 8
   %18 = and i64 %17, 2147483648
   %cmp.i85.not = icmp eq i64 %18, 0
@@ -19767,7 +19767,7 @@ if.then1.i.i356:                                  ; preds = %if.end.i.i353
   br label %return
 
 return:                                           ; preds = %if.then1.i.i356, %if.end.i.i353, %if.then.i350, %Py_XDECREF.exit348, %if.then23, %if.then21, %Py_XDECREF.exit332
-  %retval.0 = phi ptr [ %call134, %Py_XDECREF.exit332 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then21 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then23 ], [ null, %Py_XDECREF.exit348 ], [ null, %if.then.i350 ], [ null, %if.end.i.i353 ], [ null, %if.then1.i.i356 ]
+  %retval.0 = phi ptr [ %call134, %Py_XDECREF.exit332 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then21 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then23 ], [ null, %Py_XDECREF.exit348 ], [ null, %if.then.i350 ], [ null, %if.end.i.i353 ], [ null, %if.then1.i.i356 ]
   ret ptr %retval.0
 }
 
@@ -20880,7 +20880,7 @@ if.then1.i.i283:                                  ; preds = %if.end.i.i280
   br label %return
 
 return:                                           ; preds = %if.then1.i.i283, %if.end.i.i280, %if.then.i277, %Py_XDECREF.exit275, %if.then1, %if.then, %Py_XDECREF.exit259
-  %retval.0 = phi ptr [ %call352, %Py_XDECREF.exit259 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then1 ], [ null, %Py_XDECREF.exit275 ], [ null, %if.then.i277 ], [ null, %if.end.i.i280 ], [ null, %if.then1.i.i283 ]
+  %retval.0 = phi ptr [ %call352, %Py_XDECREF.exit259 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then1 ], [ null, %Py_XDECREF.exit275 ], [ null, %if.then.i277 ], [ null, %if.end.i.i280 ], [ null, %if.then1.i.i283 ]
   ret ptr %retval.0
 }
 
@@ -21772,7 +21772,7 @@ if.then1.i.i154:                                  ; preds = %if.end.i.i151
   br label %return
 
 return:                                           ; preds = %if.then1.i.i154, %if.end.i.i151, %if.then.i148, %Py_XDECREF.exit146, %if.then1, %if.then, %Py_XDECREF.exit130
-  %retval.0 = phi ptr [ %call163, %Py_XDECREF.exit130 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then1 ], [ null, %Py_XDECREF.exit146 ], [ null, %if.then.i148 ], [ null, %if.end.i.i151 ], [ null, %if.then1.i.i154 ]
+  %retval.0 = phi ptr [ %call163, %Py_XDECREF.exit130 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then1 ], [ null, %Py_XDECREF.exit146 ], [ null, %if.then.i148 ], [ null, %if.end.i.i151 ], [ null, %if.then1.i.i154 ]
   ret ptr %retval.0
 }
 
@@ -22633,13 +22633,13 @@ if.then2.i.i:                                     ; preds = %if.then
 
 cond.true.i.i.i:                                  ; preds = %if.then2.i.i
   %idxprom.i.i.i = zext nneg i8 %0 to i64
-  %arrayidx.i.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i
   br label %return
 
 cond.false.i.i.i:                                 ; preds = %if.then2.i.i
   %1 = and i8 %0, 127
   %idxprom3.i.i.i = zext nneg i8 %1 to i64
-  %arrayidx4.i.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i
+  %arrayidx4.i.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i
   br label %return
 
 if.end4.i.i:                                      ; preds = %if.then
@@ -23680,7 +23680,7 @@ if.then1.i.i85:                                   ; preds = %if.end.i.i82
   br label %return
 
 return:                                           ; preds = %if.then1.i.i85, %if.end.i.i82, %if.then.i80, %onError, %if.end, %PyUnicode_DATA.exit.i.i, %ucs1lib_find_max_char.exit.i.i, %cond.false.i.i.i, %cond.true.i.i.i, %if.then, %if.end30
-  %retval.0 = phi ptr [ %call31, %if.end30 ], [ %call7.i.i, %PyUnicode_DATA.exit.i.i ], [ null, %ucs1lib_find_max_char.exit.i.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then ], [ %arrayidx.i.i.i, %cond.true.i.i.i ], [ %arrayidx4.i.i.i, %cond.false.i.i.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end ], [ null, %onError ], [ null, %if.then.i80 ], [ null, %if.end.i.i82 ], [ null, %if.then1.i.i85 ]
+  %retval.0 = phi ptr [ %call31, %if.end30 ], [ %call7.i.i, %PyUnicode_DATA.exit.i.i ], [ null, %ucs1lib_find_max_char.exit.i.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then ], [ %arrayidx.i.i.i, %cond.true.i.i.i ], [ %arrayidx4.i.i.i, %cond.false.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end ], [ null, %onError ], [ null, %if.then.i80 ], [ null, %if.end.i.i82 ], [ null, %if.then1.i.i85 ]
   ret ptr %retval.0
 }
 
@@ -24012,7 +24012,7 @@ if.then96:                                        ; preds = %if.end89
 if.end98:                                         ; preds = %if.end89
   %ob_type.i.i = getelementptr inbounds nuw i8, ptr %call94, i64 8
   store ptr @EncodingMapType, ptr %ob_type.i.i, align 8
-  %typeobj.val.i = load i64, ptr getelementptr inbounds (i8, ptr @EncodingMapType, i64 168), align 8
+  %typeobj.val.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @EncodingMapType, i64 168), align 8
   %31 = and i64 %typeobj.val.i, 512
   %tobool.not.i106 = icmp eq i64 %31, 0
   br i1 %tobool.not.i106, label %_PyObject_Init.exit, label %if.then.i107
@@ -26091,7 +26091,7 @@ if.end10.i:                                       ; preds = %if.end6.i90
 
 if.then13.i100:                                   ; preds = %if.end10.i
   %91 = load ptr, ptr @PyExc_TypeError, align 8
-  call void @PyErr_SetString(ptr noundef %91, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.194, i64 3)) #35
+  call void @PyErr_SetString(ptr noundef %91, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.194, i64 3)) #35
   %92 = load i64, ptr %call7.i, align 8
   %93 = and i64 %92, 2147483648
   %cmp.i61.not.i = icmp eq i64 %93, 0
@@ -27872,7 +27872,7 @@ if.end.i:                                         ; preds = %PyUnicode_MAX_CHAR_
 if.end25:                                         ; preds = %if.else, %PyUnicode_MAX_CHAR_VALUE.exit, %if.end.i
   %seplen.0 = phi i64 [ %separator.val89, %PyUnicode_MAX_CHAR_VALUE.exit ], [ %separator.val89, %if.end.i ], [ 1, %if.else ]
   %maxchar.0 = phi i32 [ %retval.0.i, %PyUnicode_MAX_CHAR_VALUE.exit ], [ %retval.0.i, %if.end.i ], [ 32, %if.else ]
-  %last_obj.0 = phi ptr [ %separator, %PyUnicode_MAX_CHAR_VALUE.exit ], [ %separator, %if.end.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 64032), %if.else ]
+  %last_obj.0 = phi ptr [ %separator, %PyUnicode_MAX_CHAR_VALUE.exit ], [ %separator, %if.end.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 64032), %if.else ]
   %seplen.0.fr = freeze i64 %seplen.0
   %cmp26161 = icmp sgt i64 %seqlen, 0
   br i1 %cmp26161, label %for.body.preheader, label %for.end.thread
@@ -28236,7 +28236,7 @@ if.then1.i.i146:                                  ; preds = %if.end.i.i143
   br label %return
 
 return:                                           ; preds = %if.then1.i.i146, %if.end.i.i143, %if.then.i140, %onError, %onError.thread, %if.then1.i.i, %if.end.i.i137, %if.then.i135, %if.end123, %if.end.i.i, %if.then4, %entry
-  %retval.0 = phi ptr [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %entry ], [ %0, %if.then4 ], [ %0, %if.end.i.i ], [ %call57213240, %if.end123 ], [ %call57213240255, %if.then.i135 ], [ %call57213240255, %if.end.i.i137 ], [ %call57213240255, %if.then1.i.i ], [ null, %onError.thread ], [ null, %onError ], [ null, %if.then.i140 ], [ null, %if.end.i.i143 ], [ null, %if.then1.i.i146 ]
+  %retval.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %entry ], [ %0, %if.then4 ], [ %0, %if.end.i.i ], [ %call57213240, %if.end123 ], [ %call57213240255, %if.then.i135 ], [ %call57213240255, %if.end.i.i137 ], [ %call57213240255, %if.then1.i.i ], [ null, %onError.thread ], [ null, %onError ], [ null, %if.then.i140 ], [ null, %if.end.i.i143 ], [ null, %if.then1.i.i146 ]
   ret ptr %retval.0
 }
 
@@ -28615,10 +28615,10 @@ if.end55.i:                                       ; preds = %land.lhs.true47.i, 
 if.then.i.i:                                      ; preds = %if.end55.i
   %15 = load i8, ptr %add.ptr.i, align 1
   %idxprom.i.i.i = zext nneg i8 %15 to i64
-  %arrayidx.i.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i
   %16 = and i8 %15, 127
   %idxprom3.i.i.i = zext nneg i8 %16 to i64
-  %arrayidx4.i.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i
+  %arrayidx4.i.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i
   %cmp.i.i54.i = icmp slt i8 %15, 0
   %retval.0.i.i29 = select i1 %cmp.i.i54.i, ptr %arrayidx4.i.i.i, ptr %arrayidx.i.i.i
   %cmp58.i = icmp eq ptr %retval.0.i.i29, null
@@ -28827,10 +28827,10 @@ if.end55.i80:                                     ; preds = %land.lhs.true47.i12
 if.then2.i.i:                                     ; preds = %if.end55.i80
   %33 = load i8, ptr %add.ptr.i81, align 1
   %idxprom.i.i.i83 = zext nneg i8 %33 to i64
-  %arrayidx.i.i.i84 = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i83
+  %arrayidx.i.i.i84 = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i83
   %34 = and i8 %33, 127
   %idxprom3.i.i.i85 = zext nneg i8 %34 to i64
-  %arrayidx4.i.i.i86 = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i85
+  %arrayidx4.i.i.i86 = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i85
   %cmp.i.i52.i = icmp slt i8 %33, 0
   %retval.0.i.i87 = select i1 %cmp.i.i52.i, ptr %arrayidx4.i.i.i86, ptr %arrayidx.i.i.i84
   %cmp58.i88 = icmp eq ptr %retval.0.i.i87, null
@@ -28905,7 +28905,7 @@ PyUnicode_DATA.exit.i.i:                          ; preds = %if.end.i.i.i119, %i
   br label %if.end61.i89
 
 if.end61.i89:                                     ; preds = %PyUnicode_DATA.exit.i.i, %if.then2.i.i, %if.end55.i80
-  %retval.0.i48.i = phi ptr [ %retval.0.i.i87, %if.then2.i.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end55.i80 ], [ %call7.i.i, %PyUnicode_DATA.exit.i.i ]
+  %retval.0.i48.i = phi ptr [ %retval.0.i.i87, %if.then2.i.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end55.i80 ], [ %call7.i.i, %PyUnicode_DATA.exit.i.i ]
   %call62.i90 = tail call i32 @PyList_Append(ptr noundef nonnull %call.i40, ptr noundef nonnull %retval.0.i48.i) #35
   %tobool63.not.i91 = icmp eq i32 %call62.i90, 0
   %42 = load i64, ptr %retval.0.i48.i, align 8
@@ -30990,7 +30990,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %cmp8 = icmp eq ptr %left, getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216)
+  %cmp8 = icmp eq ptr %left, getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216)
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.end6
@@ -30998,7 +30998,7 @@ if.then9:                                         ; preds = %if.end6
   br label %return
 
 if.end11:                                         ; preds = %if.end6
-  %cmp12 = icmp eq ptr %right, getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216)
+  %cmp12 = icmp eq ptr %right, getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216)
   br i1 %cmp12, label %if.then13, label %if.end15
 
 if.then13:                                        ; preds = %if.end11
@@ -31120,23 +31120,23 @@ if.then16:                                        ; preds = %if.then13
   br label %do.body
 
 if.end18:                                         ; preds = %lor.lhs.false9
-  %cmp20 = icmp eq ptr %0, getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216)
+  %cmp20 = icmp eq ptr %0, getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216)
   br i1 %cmp20, label %if.then21, label %if.end23
 
 if.then21:                                        ; preds = %if.end18
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   %8 = and i64 %7, 2147483648
   %cmp.i83.not = icmp eq i64 %8, 0
   br i1 %cmp.i83.not, label %if.end.i76, label %Py_DECREF.exit81
 
 if.end.i76:                                       ; preds = %if.then21
   %dec.i77 = add i64 %7, -1
-  store i64 %dec.i77, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  store i64 %dec.i77, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   %cmp.i78 = icmp eq i64 %dec.i77, 0
   br i1 %cmp.i78, label %if.then1.i79, label %Py_DECREF.exit81
 
 if.then1.i79:                                     ; preds = %if.end.i76
-  tail call void @_Py_Dealloc(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216)) #35
+  tail call void @_Py_Dealloc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216)) #35
   br label %Py_DECREF.exit81
 
 Py_DECREF.exit81:                                 ; preds = %if.then21, %if.then1.i79, %if.end.i76
@@ -31154,7 +31154,7 @@ _Py_NewRef.exit:                                  ; preds = %Py_DECREF.exit81, %
   br label %do.end
 
 if.end23:                                         ; preds = %if.end18
-  %cmp24 = icmp eq ptr %right, getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216)
+  %cmp24 = icmp eq ptr %right, getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216)
   br i1 %cmp24, label %do.end, label %if.end26
 
 if.end26:                                         ; preds = %if.end23
@@ -31841,13 +31841,13 @@ if.then.i32:                                      ; preds = %PyUnicode_DATA.exit
 
 cond.true.i.i:                                    ; preds = %if.then.i32
   %idxprom.i.i = zext nneg i8 %6 to i64
-  %arrayidx.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i
   br label %return
 
 cond.false.i.i:                                   ; preds = %if.then.i32
   %7 = and i8 %6, 127
   %idxprom3.i.i = zext nneg i8 %7 to i64
-  %arrayidx4.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i
+  %arrayidx4.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i
   br label %return
 
 if.end.i27:                                       ; preds = %PyUnicode_DATA.exit
@@ -31900,7 +31900,7 @@ PyUnicode_DATA.exit42:                            ; preds = %if.else, %if.end.i4
   br label %return
 
 return:                                           ; preds = %PyUnicode_DATA.exit.i, %if.end.i27, %cond.false.i.i, %cond.true.i.i, %if.end7, %PyUnicode_DATA.exit42, %if.then6, %if.then
-  %retval.0 = phi ptr [ %call3, %if.then ], [ null, %if.then6 ], [ %call20, %PyUnicode_DATA.exit42 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end7 ], [ %call1.i, %PyUnicode_DATA.exit.i ], [ null, %if.end.i27 ], [ %arrayidx.i.i, %cond.true.i.i ], [ %arrayidx4.i.i, %cond.false.i.i ]
+  %retval.0 = phi ptr [ %call3, %if.then ], [ null, %if.then6 ], [ %call20, %PyUnicode_DATA.exit42 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end7 ], [ %call1.i, %PyUnicode_DATA.exit.i ], [ null, %if.end.i27 ], [ %arrayidx.i.i, %cond.true.i.i ], [ %arrayidx4.i.i, %cond.false.i.i ]
   ret ptr %retval.0
 }
 
@@ -32722,7 +32722,7 @@ if.then273:                                       ; preds = %if.end271
   br i1 %cmp274, label %error, label %done
 
 done:                                             ; preds = %if.end158, %if.end271, %if.then273
-  %41 = phi ptr [ %40, %if.then273 ], [ %39, %if.end271 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end158 ]
+  %41 = phi ptr [ %40, %if.then273 ], [ %39, %if.end271 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end158 ]
   %release2.4 = phi i32 [ %release2.2, %if.then273 ], [ %release2.2, %if.end271 ], [ %release2.3, %if.end158 ]
   %release1.9 = phi i32 [ %release1.5, %if.then273 ], [ %release1.5, %if.end271 ], [ %release1.7, %if.end158 ]
   %srelease.4 = phi i32 [ %srelease.2, %if.then273 ], [ %srelease.2, %if.end271 ], [ %srelease.3, %if.end158 ]
@@ -33037,10 +33037,10 @@ if.end33.i:                                       ; preds = %land.lhs.true28.i, 
 if.then.i90.i:                                    ; preds = %if.end33.i
   %12 = load i8, ptr %add.ptr.i, align 1
   %idxprom.i.i.i = zext nneg i8 %12 to i64
-  %arrayidx.i.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i
   %13 = and i8 %12, 127
   %idxprom3.i.i.i = zext nneg i8 %13 to i64
-  %arrayidx4.i.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i
+  %arrayidx4.i.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i
   %cmp.i.i139.i = icmp slt i8 %12, 0
   %retval.0.i89.i = select i1 %cmp.i.i139.i, ptr %arrayidx4.i.i.i, ptr %arrayidx.i.i.i
   %cmp36.i = icmp eq ptr %retval.0.i89.i, null
@@ -33169,10 +33169,10 @@ if.then68.i:                                      ; preds = %while.end65.i
 if.then.i117.i:                                   ; preds = %if.then68.i
   %22 = load i8, ptr %arrayidx58.i.le, align 1
   %idxprom.i.i123.i = zext nneg i8 %22 to i64
-  %arrayidx.i.i124.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i123.i
+  %arrayidx.i.i124.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i123.i
   %23 = and i8 %22, 127
   %idxprom3.i.i120.i = zext nneg i8 %23 to i64
-  %arrayidx4.i.i121.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i120.i
+  %arrayidx4.i.i121.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i120.i
   %cmp.i.i118140.i = icmp slt i8 %22, 0
   %retval.0.i114.i = select i1 %cmp.i.i118140.i, ptr %arrayidx4.i.i121.i, ptr %arrayidx.i.i124.i
   %cmp72.i = icmp eq ptr %retval.0.i114.i, null
@@ -33412,10 +33412,10 @@ if.end33.i152:                                    ; preds = %land.lhs.true28.i19
 if.then2.i.i:                                     ; preds = %if.end33.i152
   %42 = load i8, ptr %add.ptr.i153, align 1
   %idxprom.i.i.i155 = zext nneg i8 %42 to i64
-  %arrayidx.i.i.i156 = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i155
+  %arrayidx.i.i.i156 = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i155
   %43 = and i8 %42, 127
   %idxprom3.i.i.i157 = zext nneg i8 %43 to i64
-  %arrayidx4.i.i.i158 = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i157
+  %arrayidx4.i.i.i158 = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i157
   %cmp.i.i157.i = icmp slt i8 %42, 0
   %retval.0.i87.i = select i1 %cmp.i.i157.i, ptr %arrayidx4.i.i.i158, ptr %arrayidx.i.i.i156
   %cmp36.i159 = icmp eq ptr %retval.0.i87.i, null
@@ -33490,7 +33490,7 @@ PyUnicode_DATA.exit.i.i:                          ; preds = %if.end.i.i.i187, %i
   br label %if.end39.i160
 
 if.end39.i160:                                    ; preds = %PyUnicode_DATA.exit.i.i, %if.then2.i.i, %if.end33.i152
-  %retval.0.i87147.i = phi ptr [ %retval.0.i87.i, %if.then2.i.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end33.i152 ], [ %call7.i.i, %PyUnicode_DATA.exit.i.i ]
+  %retval.0.i87147.i = phi ptr [ %retval.0.i87.i, %if.then2.i.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end33.i152 ], [ %call7.i.i, %PyUnicode_DATA.exit.i.i ]
   %cmp40.i161 = icmp samesign ult i64 %count.0174.i, 12
   br i1 %cmp40.i161, label %if.then42.i178, label %if.else.i162
 
@@ -33585,10 +33585,10 @@ if.then68.i108:                                   ; preds = %while.end65.i106
 if.then2.i98.i:                                   ; preds = %if.then68.i108
   %55 = load i8, ptr %arrayidx58.i101.le, align 1
   %idxprom.i.i105.i = zext nneg i8 %55 to i64
-  %arrayidx.i.i106.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i105.i
+  %arrayidx.i.i106.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i105.i
   %56 = and i8 %55, 127
   %idxprom3.i.i101.i = zext nneg i8 %56 to i64
-  %arrayidx4.i.i102.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i101.i
+  %arrayidx4.i.i102.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i101.i
   %cmp.i.i99158.i = icmp slt i8 %55, 0
   %retval.0.i103.i = select i1 %cmp.i.i99158.i, ptr %arrayidx4.i.i102.i, ptr %arrayidx.i.i106.i
   %cmp72.i111 = icmp eq ptr %retval.0.i103.i, null
@@ -33663,7 +33663,7 @@ PyUnicode_DATA.exit.i123.i:                       ; preds = %if.end.i.i125.i, %i
   br label %if.end75.i112
 
 if.end75.i112:                                    ; preds = %PyUnicode_DATA.exit.i123.i, %if.then2.i98.i, %if.then68.i108
-  %retval.0.i103153.i = phi ptr [ %retval.0.i103.i, %if.then2.i98.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then68.i108 ], [ %call7.i114.i, %PyUnicode_DATA.exit.i123.i ]
+  %retval.0.i103153.i = phi ptr [ %retval.0.i103.i, %if.then2.i98.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then68.i108 ], [ %call7.i114.i, %PyUnicode_DATA.exit.i123.i ]
   %cmp76.i113 = icmp slt i64 %count.1.i94, 12
   br i1 %cmp76.i113, label %if.then78.i136, label %if.else79.i114
 
@@ -34506,10 +34506,10 @@ if.then8.i.i:                                     ; preds = %for.body.i.i
 if.then.i.i.i492:                                 ; preds = %if.then8.i.i
   %125 = load i8, ptr %add.ptr.i.i486, align 1
   %idxprom.i.i.i.i = zext nneg i8 %125 to i64
-  %arrayidx.i.i.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i.i
   %126 = and i8 %125, 127
   %idxprom3.i.i.i.i = zext nneg i8 %126 to i64
-  %arrayidx4.i.i.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i.i
+  %arrayidx4.i.i.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i.i
   %cmp.i.i103.i.i = icmp slt i8 %125, 0
   %retval.0.i.i.i493 = select i1 %cmp.i.i103.i.i, ptr %arrayidx4.i.i.i.i, ptr %arrayidx.i.i.i.i
   %cmp11.i.i = icmp eq ptr %retval.0.i.i.i493, null
@@ -34646,10 +34646,10 @@ if.then35.i.i:                                    ; preds = %if.else32.i.i
 if.then.i80.i.i:                                  ; preds = %if.then35.i.i
   %136 = load i8, ptr %add.ptr36.i.i, align 1
   %idxprom.i.i86.i.i = zext nneg i8 %136 to i64
-  %arrayidx.i.i87.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i86.i.i
+  %arrayidx.i.i87.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i86.i.i
   %137 = and i8 %136, 127
   %idxprom3.i.i83.i.i = zext nneg i8 %137 to i64
-  %arrayidx4.i.i84.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i83.i.i
+  %arrayidx4.i.i84.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i83.i.i
   %cmp.i.i81102.i.i = icmp slt i8 %136, 0
   %retval.0.i77.i.i = select i1 %cmp.i.i81102.i.i, ptr %arrayidx4.i.i84.i.i, ptr %arrayidx.i.i87.i.i
   %cmp39.i.i = icmp eq ptr %retval.0.i77.i.i, null
@@ -34788,10 +34788,10 @@ if.end14.i:                                       ; preds = %while.body.i
 if.then.i.i523:                                   ; preds = %if.end14.i
   %149 = load i8, ptr %add.ptr.i511, align 1
   %idxprom.i.i.i524 = zext nneg i8 %149 to i64
-  %arrayidx.i.i75.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i524
+  %arrayidx.i.i75.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i524
   %150 = and i8 %149, 127
   %idxprom3.i.i.i525 = zext nneg i8 %150 to i64
-  %arrayidx4.i.i.i526 = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i525
+  %arrayidx4.i.i.i526 = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i525
   %cmp.i.i74118.i = icmp slt i8 %149, 0
   %retval.0.i72.i = select i1 %cmp.i.i74118.i, ptr %arrayidx4.i.i.i526, ptr %arrayidx.i.i75.i
   %cmp19.i = icmp eq ptr %retval.0.i72.i, null
@@ -34912,10 +34912,10 @@ if.else36.i:                                      ; preds = %if.end29.i, %land.l
 if.then.i96.i506:                                 ; preds = %if.else36.i
   %160 = load i8, ptr %add.ptr37.i, align 1
   %idxprom.i.i102.i = zext nneg i8 %160 to i64
-  %arrayidx.i.i103.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i102.i
+  %arrayidx.i.i103.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i102.i
   %161 = and i8 %160, 127
   %idxprom3.i.i99.i = zext nneg i8 %161 to i64
-  %arrayidx4.i.i100.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i99.i
+  %arrayidx4.i.i100.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i99.i
   %cmp.i.i97119.i = icmp slt i8 %160, 0
   %retval.0.i93.i = select i1 %cmp.i.i97119.i, ptr %arrayidx4.i.i100.i, ptr %arrayidx.i.i103.i
   %cmp40.i507 = icmp eq ptr %retval.0.i93.i, null
@@ -35082,10 +35082,10 @@ if.then8.i.i598:                                  ; preds = %for.body.i.i592
 if.then2.i.i.i:                                   ; preds = %if.then8.i.i598
   %176 = load i8, ptr %add.ptr.i.i599, align 1
   %idxprom.i.i.i.i601 = zext nneg i8 %176 to i64
-  %arrayidx.i.i.i.i602 = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i.i601
+  %arrayidx.i.i.i.i602 = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i.i601
   %177 = and i8 %176, 127
   %idxprom3.i.i.i.i603 = zext nneg i8 %177 to i64
-  %arrayidx4.i.i.i.i604 = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i.i603
+  %arrayidx4.i.i.i.i604 = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i.i603
   %cmp.i.i120.i.i = icmp slt i8 %176, 0
   %retval.0.i.i.i605 = select i1 %cmp.i.i120.i.i, ptr %arrayidx4.i.i.i.i604, ptr %arrayidx.i.i.i.i602
   %cmp11.i.i606 = icmp eq ptr %retval.0.i.i.i605, null
@@ -35156,7 +35156,7 @@ PyUnicode_DATA.exit.i.i.i:                        ; preds = %if.end.i.i.i.i636, 
   br label %if.end14.i.i607
 
 if.end14.i.i607:                                  ; preds = %PyUnicode_DATA.exit.i.i.i, %if.then2.i.i.i, %if.then8.i.i598
-  %retval.0.i109.i.i = phi ptr [ %retval.0.i.i.i605, %if.then2.i.i.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then8.i.i598 ], [ %call7.i.i.i, %PyUnicode_DATA.exit.i.i.i ]
+  %retval.0.i109.i.i = phi ptr [ %retval.0.i.i.i605, %if.then2.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then8.i.i598 ], [ %call7.i.i.i, %PyUnicode_DATA.exit.i.i.i ]
   %cmp15.i.i608 = icmp slt i64 %count.0136.i.i, 12
   br i1 %cmp15.i.i608, label %if.then17.i.i626, label %if.else.i.i609
 
@@ -35259,10 +35259,10 @@ if.then35.i.i538:                                 ; preds = %if.else32.i.i536
 if.then2.i60.i.i:                                 ; preds = %if.then35.i.i538
   %190 = load i8, ptr %add.ptr36.i.i539, align 1
   %idxprom.i.i67.i.i = zext nneg i8 %190 to i64
-  %arrayidx.i.i68.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i67.i.i
+  %arrayidx.i.i68.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i67.i.i
   %191 = and i8 %190, 127
   %idxprom3.i.i63.i.i = zext nneg i8 %191 to i64
-  %arrayidx4.i.i64.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i63.i.i
+  %arrayidx4.i.i64.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i63.i.i
   %cmp.i.i61119.i.i = icmp slt i8 %190, 0
   %retval.0.i65.i.i = select i1 %cmp.i.i61119.i.i, ptr %arrayidx4.i.i64.i.i, ptr %arrayidx.i.i68.i.i
   %cmp39.i.i541 = icmp eq ptr %retval.0.i65.i.i, null
@@ -35337,7 +35337,7 @@ PyUnicode_DATA.exit.i85.i.i:                      ; preds = %if.end.i.i87.i.i, %
   br label %if.end42.i.i542
 
 if.end42.i.i542:                                  ; preds = %PyUnicode_DATA.exit.i85.i.i, %if.then2.i60.i.i, %if.then35.i.i538
-  %retval.0.i65115.i.i = phi ptr [ %retval.0.i65.i.i, %if.then2.i60.i.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then35.i.i538 ], [ %call7.i76.i.i, %PyUnicode_DATA.exit.i85.i.i ]
+  %retval.0.i65115.i.i = phi ptr [ %retval.0.i65.i.i, %if.then2.i60.i.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then35.i.i538 ], [ %call7.i76.i.i, %PyUnicode_DATA.exit.i85.i.i ]
   %cmp43.i.i543 = icmp slt i64 %count.0.lcssa155.i.i, 12
   br i1 %cmp43.i.i543, label %if.then45.i.i570, label %if.else46.i.i544
 
@@ -35442,10 +35442,10 @@ if.end14.i693:                                    ; preds = %while.body.i688
 if.then2.i.i694:                                  ; preds = %if.end14.i693
   %206 = load i8, ptr %add.ptr.i689, align 1
   %idxprom.i.i.i695 = zext nneg i8 %206 to i64
-  %arrayidx.i.i66.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i695
+  %arrayidx.i.i66.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i695
   %207 = and i8 %206, 127
   %idxprom3.i.i.i696 = zext nneg i8 %207 to i64
-  %arrayidx4.i.i.i697 = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i696
+  %arrayidx4.i.i.i697 = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i696
   %cmp.i.i64136.i = icmp slt i8 %206, 0
   %retval.0.i65.i = select i1 %cmp.i.i64136.i, ptr %arrayidx4.i.i.i697, ptr %arrayidx.i.i66.i
   %cmp19.i698 = icmp eq ptr %retval.0.i65.i, null
@@ -35520,7 +35520,7 @@ PyUnicode_DATA.exit.i.i733:                       ; preds = %if.end.i.i72.i, %if
   br label %if.end21.i699
 
 if.end21.i699:                                    ; preds = %PyUnicode_DATA.exit.i.i733, %if.then2.i.i694, %if.end14.i693
-  %retval.0.i65126.i = phi ptr [ %retval.0.i65.i, %if.then2.i.i694 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end14.i693 ], [ %call7.i.i727, %PyUnicode_DATA.exit.i.i733 ]
+  %retval.0.i65126.i = phi ptr [ %retval.0.i65.i, %if.then2.i.i694 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end14.i693 ], [ %call7.i.i727, %PyUnicode_DATA.exit.i.i733 ]
   %cmp22.i700 = icmp samesign ult i64 %count.0163.i, 12
   br i1 %cmp22.i700, label %if.then23.i720, label %if.else24.i701
 
@@ -35607,10 +35607,10 @@ if.else36.i647:                                   ; preds = %if.end29.i711, %lan
 if.then2.i77.i:                                   ; preds = %if.else36.i647
   %220 = load i8, ptr %add.ptr37.i648, align 1
   %idxprom.i.i84.i = zext nneg i8 %220 to i64
-  %arrayidx.i.i85.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i84.i
+  %arrayidx.i.i85.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i84.i
   %221 = and i8 %220, 127
   %idxprom3.i.i80.i = zext nneg i8 %221 to i64
-  %arrayidx4.i.i81.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i80.i
+  %arrayidx4.i.i81.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i80.i
   %cmp.i.i78137.i = icmp slt i8 %220, 0
   %retval.0.i82.i = select i1 %cmp.i.i78137.i, ptr %arrayidx4.i.i81.i, ptr %arrayidx.i.i85.i
   %cmp40.i650 = icmp eq ptr %retval.0.i82.i, null
@@ -35685,7 +35685,7 @@ PyUnicode_DATA.exit.i102.i:                       ; preds = %if.end.i.i104.i, %i
   br label %if.end42.i651
 
 if.end42.i651:                                    ; preds = %PyUnicode_DATA.exit.i102.i, %if.then2.i77.i, %if.else36.i647
-  %retval.0.i82132.i = phi ptr [ %retval.0.i82.i, %if.then2.i77.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.else36.i647 ], [ %call7.i93.i, %PyUnicode_DATA.exit.i102.i ]
+  %retval.0.i82132.i = phi ptr [ %retval.0.i82.i, %if.then2.i77.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.else36.i647 ], [ %call7.i93.i, %PyUnicode_DATA.exit.i102.i ]
   %cmp43.i652 = icmp slt i64 %count.0.lcssa189.i, 12
   br i1 %cmp43.i652, label %if.then44.i678, label %if.else45.i653
 
@@ -36641,7 +36641,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %or.cond, label %if.then12, label %if.end15
 
 if.then12:                                        ; preds = %if.end
-  %call14 = tail call ptr (i64, ...) @PyTuple_Pack(i64 noundef 3, ptr noundef nonnull %str_obj, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216)) #35
+  %call14 = tail call ptr (i64, ...) @PyTuple_Pack(i64 noundef 3, ptr noundef nonnull %str_obj, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216)) #35
   br label %return
 
 if.end15:                                         ; preds = %if.end
@@ -36741,30 +36741,30 @@ if.end.i39.i:                                     ; preds = %if.then5.i
 Py_INCREF.exit41.i:                               ; preds = %if.end.i39.i, %if.then5.i
   %ob_item.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %str_obj, ptr %ob_item.i.i, align 8
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   %add.i29.i = add i32 %22, 1
   %cmp.i30.i = icmp eq i32 %add.i29.i, 0
   br i1 %cmp.i30.i, label %Py_INCREF.exit33.i, label %if.end.i31.i
 
 if.end.i31.i:                                     ; preds = %Py_INCREF.exit41.i
-  store i32 %add.i29.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  store i32 %add.i29.i, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   br label %Py_INCREF.exit33.i
 
 Py_INCREF.exit33.i:                               ; preds = %if.end.i31.i, %Py_INCREF.exit41.i
   %arrayidx.i.i = getelementptr i8, ptr %call.i, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr %arrayidx.i.i, align 8
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), ptr %arrayidx.i.i, align 8
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   %add.i21.i = add i32 %23, 1
   %cmp.i22.i = icmp eq i32 %add.i21.i, 0
   br i1 %cmp.i22.i, label %Py_INCREF.exit25.i, label %if.end.i23.i
 
 if.end.i23.i:                                     ; preds = %Py_INCREF.exit33.i
-  store i32 %add.i21.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  store i32 %add.i21.i, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   br label %Py_INCREF.exit25.i
 
 Py_INCREF.exit25.i:                               ; preds = %if.end.i23.i, %Py_INCREF.exit33.i
   %arrayidx.i36.i = getelementptr i8, ptr %call.i, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr %arrayidx.i36.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), ptr %arrayidx.i36.i, align 8
   br label %sw.epilog
 
 if.end7.i:                                        ; preds = %if.end2.i
@@ -36778,13 +36778,13 @@ if.then.i.i:                                      ; preds = %if.end7.i
 
 cond.true.i.i.i:                                  ; preds = %if.then.i.i
   %idxprom.i.i.i = zext nneg i8 %24 to i64
-  %arrayidx.i.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i
   br label %_PyUnicode_FromASCII.exit.i
 
 cond.false.i.i.i:                                 ; preds = %if.then.i.i
   %25 = and i8 %24, 127
   %idxprom3.i.i.i = zext nneg i8 %25 to i64
-  %arrayidx4.i.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i
+  %arrayidx4.i.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i
   br label %_PyUnicode_FromASCII.exit.i
 
 if.end.i38.i:                                     ; preds = %if.end7.i
@@ -36845,13 +36845,13 @@ if.then.i59.i:                                    ; preds = %Py_INCREF.exit.i
 
 cond.true.i.i64.i:                                ; preds = %if.then.i59.i
   %idxprom.i.i65.i = zext nneg i8 %31 to i64
-  %arrayidx.i.i66.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i65.i
+  %arrayidx.i.i66.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i65.i
   br label %_PyUnicode_FromASCII.exit67.i
 
 cond.false.i.i61.i:                               ; preds = %if.then.i59.i
   %32 = and i8 %31, 127
   %idxprom3.i.i62.i = zext nneg i8 %32 to i64
-  %arrayidx4.i.i63.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i62.i
+  %arrayidx4.i.i63.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i62.i
   br label %_PyUnicode_FromASCII.exit67.i
 
 if.end.i44.i:                                     ; preds = %Py_INCREF.exit.i
@@ -36939,30 +36939,30 @@ if.end.i39.i123:                                  ; preds = %if.then5.i120
 Py_INCREF.exit41.i124:                            ; preds = %if.end.i39.i123, %if.then5.i120
   %ob_item.i.i125 = getelementptr inbounds nuw i8, ptr %call.i79, i64 24
   store ptr %str_obj, ptr %ob_item.i.i125, align 8
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   %add.i29.i126 = add i32 %41, 1
   %cmp.i30.i127 = icmp eq i32 %add.i29.i126, 0
   br i1 %cmp.i30.i127, label %Py_INCREF.exit33.i129, label %if.end.i31.i128
 
 if.end.i31.i128:                                  ; preds = %Py_INCREF.exit41.i124
-  store i32 %add.i29.i126, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  store i32 %add.i29.i126, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   br label %Py_INCREF.exit33.i129
 
 Py_INCREF.exit33.i129:                            ; preds = %if.end.i31.i128, %Py_INCREF.exit41.i124
   %arrayidx.i.i130 = getelementptr i8, ptr %call.i79, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr %arrayidx.i.i130, align 8
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), ptr %arrayidx.i.i130, align 8
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   %add.i21.i131 = add i32 %42, 1
   %cmp.i22.i132 = icmp eq i32 %add.i21.i131, 0
   br i1 %cmp.i22.i132, label %Py_INCREF.exit25.i134, label %if.end.i23.i133
 
 if.end.i23.i133:                                  ; preds = %Py_INCREF.exit33.i129
-  store i32 %add.i21.i131, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  store i32 %add.i21.i131, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   br label %Py_INCREF.exit25.i134
 
 Py_INCREF.exit25.i134:                            ; preds = %if.end.i23.i133, %Py_INCREF.exit33.i129
   %arrayidx.i36.i135 = getelementptr i8, ptr %call.i79, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr %arrayidx.i36.i135, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), ptr %arrayidx.i36.i135, align 8
   br label %sw.epilog
 
 if.end7.i84:                                      ; preds = %if.end2.i81
@@ -36978,13 +36978,13 @@ if.then2.i.i:                                     ; preds = %if.end7.i84
 
 cond.true.i.i.i106:                               ; preds = %if.then2.i.i
   %idxprom.i.i.i107 = zext nneg i8 %43 to i64
-  %arrayidx.i.i.i108 = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i107
+  %arrayidx.i.i.i108 = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i107
   br label %_PyUnicode_FromUCS1.exit.i
 
 cond.false.i.i.i86:                               ; preds = %if.then2.i.i
   %44 = and i8 %43, 127
   %idxprom3.i.i.i87 = zext nneg i8 %44 to i64
-  %arrayidx4.i.i.i88 = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i87
+  %arrayidx4.i.i.i88 = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i87
   br label %_PyUnicode_FromUCS1.exit.i
 
 if.end4.i.i:                                      ; preds = %if.end7.i84
@@ -37056,7 +37056,7 @@ PyUnicode_DATA.exit.i.i116:                       ; preds = %if.end.i.i.i117, %i
   br label %_PyUnicode_FromUCS1.exit.i
 
 _PyUnicode_FromUCS1.exit.i:                       ; preds = %PyUnicode_DATA.exit.i.i116, %ucs1lib_find_max_char.exit.i.i, %cond.false.i.i.i86, %cond.true.i.i.i106, %if.end7.i84
-  %retval.0.i.i89 = phi ptr [ %call7.i.i, %PyUnicode_DATA.exit.i.i116 ], [ null, %ucs1lib_find_max_char.exit.i.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end7.i84 ], [ %arrayidx.i.i.i108, %cond.true.i.i.i106 ], [ %arrayidx4.i.i.i88, %cond.false.i.i.i86 ]
+  %retval.0.i.i89 = phi ptr [ %call7.i.i, %PyUnicode_DATA.exit.i.i116 ], [ null, %ucs1lib_find_max_char.exit.i.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end7.i84 ], [ %arrayidx.i.i.i108, %cond.true.i.i.i106 ], [ %arrayidx4.i.i.i88, %cond.false.i.i.i86 ]
   %ob_item.i37.i = getelementptr inbounds nuw i8, ptr %call.i79, i64 24
   store ptr %retval.0.i.i89, ptr %ob_item.i37.i, align 8
   %52 = load i32, ptr %sep_obj, align 8
@@ -37086,13 +37086,13 @@ if.then2.i41.i:                                   ; preds = %Py_INCREF.exit.i93
 
 cond.true.i.i47.i:                                ; preds = %if.then2.i41.i
   %idxprom.i.i48.i = zext nneg i8 %53 to i64
-  %arrayidx.i.i49.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i48.i
+  %arrayidx.i.i49.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i48.i
   br label %_PyUnicode_FromUCS1.exit86.i
 
 cond.false.i.i43.i:                               ; preds = %if.then2.i41.i
   %54 = and i8 %53, 127
   %idxprom3.i.i44.i = zext nneg i8 %54 to i64
-  %arrayidx4.i.i45.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i44.i
+  %arrayidx4.i.i45.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i44.i
   br label %_PyUnicode_FromUCS1.exit86.i
 
 if.end4.i50.i:                                    ; preds = %Py_INCREF.exit.i93
@@ -37164,7 +37164,7 @@ PyUnicode_DATA.exit.i66.i:                        ; preds = %if.end.i.i68.i, %if
   br label %_PyUnicode_FromUCS1.exit86.i
 
 _PyUnicode_FromUCS1.exit86.i:                     ; preds = %PyUnicode_DATA.exit.i66.i, %ucs1lib_find_max_char.exit.i55.i, %cond.false.i.i43.i, %cond.true.i.i47.i, %Py_INCREF.exit.i93
-  %retval.0.i46.i = phi ptr [ %call7.i57.i, %PyUnicode_DATA.exit.i66.i ], [ null, %ucs1lib_find_max_char.exit.i55.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %Py_INCREF.exit.i93 ], [ %arrayidx.i.i49.i, %cond.true.i.i47.i ], [ %arrayidx4.i.i45.i, %cond.false.i.i43.i ]
+  %retval.0.i46.i = phi ptr [ %call7.i57.i, %PyUnicode_DATA.exit.i66.i ], [ null, %ucs1lib_find_max_char.exit.i55.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %Py_INCREF.exit.i93 ], [ %arrayidx.i.i49.i, %cond.true.i.i47.i ], [ %arrayidx4.i.i45.i, %cond.false.i.i43.i ]
   %arrayidx.i88.i = getelementptr i8, ptr %call.i79, i64 40
   store ptr %retval.0.i46.i, ptr %arrayidx.i88.i, align 8
   %call10.i97 = tail call ptr @PyErr_Occurred() #35
@@ -37219,30 +37219,30 @@ if.end.i39.i167:                                  ; preds = %if.then5.i164
 Py_INCREF.exit41.i168:                            ; preds = %if.end.i39.i167, %if.then5.i164
   %ob_item.i.i169 = getelementptr inbounds nuw i8, ptr %call.i139, i64 24
   store ptr %str_obj, ptr %ob_item.i.i169, align 8
-  %66 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   %add.i29.i170 = add i32 %66, 1
   %cmp.i30.i171 = icmp eq i32 %add.i29.i170, 0
   br i1 %cmp.i30.i171, label %Py_INCREF.exit33.i173, label %if.end.i31.i172
 
 if.end.i31.i172:                                  ; preds = %Py_INCREF.exit41.i168
-  store i32 %add.i29.i170, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  store i32 %add.i29.i170, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   br label %Py_INCREF.exit33.i173
 
 Py_INCREF.exit33.i173:                            ; preds = %if.end.i31.i172, %Py_INCREF.exit41.i168
   %arrayidx.i.i174 = getelementptr i8, ptr %call.i139, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr %arrayidx.i.i174, align 8
-  %67 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), ptr %arrayidx.i.i174, align 8
+  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   %add.i21.i175 = add i32 %67, 1
   %cmp.i22.i176 = icmp eq i32 %add.i21.i175, 0
   br i1 %cmp.i22.i176, label %Py_INCREF.exit25.i178, label %if.end.i23.i177
 
 if.end.i23.i177:                                  ; preds = %Py_INCREF.exit33.i173
-  store i32 %add.i21.i175, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  store i32 %add.i21.i175, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   br label %Py_INCREF.exit25.i178
 
 Py_INCREF.exit25.i178:                            ; preds = %if.end.i23.i177, %Py_INCREF.exit33.i173
   %arrayidx.i36.i179 = getelementptr i8, ptr %call.i139, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr %arrayidx.i36.i179, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), ptr %arrayidx.i36.i179, align 8
   br label %sw.epilog
 
 if.end7.i144:                                     ; preds = %if.end2.i141
@@ -37319,30 +37319,30 @@ if.end.i39.i213:                                  ; preds = %if.then5.i210
 Py_INCREF.exit41.i214:                            ; preds = %if.end.i39.i213, %if.then5.i210
   %ob_item.i.i215 = getelementptr inbounds nuw i8, ptr %call.i183, i64 24
   store ptr %str_obj, ptr %ob_item.i.i215, align 8
-  %73 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   %add.i29.i216 = add i32 %73, 1
   %cmp.i30.i217 = icmp eq i32 %add.i29.i216, 0
   br i1 %cmp.i30.i217, label %Py_INCREF.exit33.i219, label %if.end.i31.i218
 
 if.end.i31.i218:                                  ; preds = %Py_INCREF.exit41.i214
-  store i32 %add.i29.i216, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  store i32 %add.i29.i216, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   br label %Py_INCREF.exit33.i219
 
 Py_INCREF.exit33.i219:                            ; preds = %if.end.i31.i218, %Py_INCREF.exit41.i214
   %arrayidx.i.i220 = getelementptr i8, ptr %call.i183, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr %arrayidx.i.i220, align 8
-  %74 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), ptr %arrayidx.i.i220, align 8
+  %74 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   %add.i21.i221 = add i32 %74, 1
   %cmp.i22.i222 = icmp eq i32 %add.i21.i221, 0
   br i1 %cmp.i22.i222, label %Py_INCREF.exit25.i224, label %if.end.i23.i223
 
 if.end.i23.i223:                                  ; preds = %Py_INCREF.exit33.i219
-  store i32 %add.i21.i221, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  store i32 %add.i21.i221, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   br label %Py_INCREF.exit25.i224
 
 Py_INCREF.exit25.i224:                            ; preds = %if.end.i23.i223, %Py_INCREF.exit33.i219
   %arrayidx.i36.i225 = getelementptr i8, ptr %call.i183, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr %arrayidx.i36.i225, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), ptr %arrayidx.i36.i225, align 8
   br label %sw.epilog
 
 if.end7.i188:                                     ; preds = %if.end2.i185
@@ -37458,7 +37458,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %or.cond, label %if.then12, label %if.end15
 
 if.then12:                                        ; preds = %if.end
-  %call14 = tail call ptr (i64, ...) @PyTuple_Pack(i64 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr noundef nonnull %str_obj) #35
+  %call14 = tail call ptr (i64, ...) @PyTuple_Pack(i64 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), ptr noundef nonnull %str_obj) #35
   br label %return
 
 if.end15:                                         ; preds = %if.end
@@ -37546,30 +37546,30 @@ if.end2.i:                                        ; preds = %if.end.i70
   br i1 %cmp4.i, label %if.then5.i, label %if.end7.i
 
 if.then5.i:                                       ; preds = %if.end2.i
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   %add.i37.i = add i32 %21, 1
   %cmp.i38.i = icmp eq i32 %add.i37.i, 0
   br i1 %cmp.i38.i, label %Py_INCREF.exit41.i, label %if.end.i39.i
 
 if.end.i39.i:                                     ; preds = %if.then5.i
-  store i32 %add.i37.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  store i32 %add.i37.i, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   br label %Py_INCREF.exit41.i
 
 Py_INCREF.exit41.i:                               ; preds = %if.end.i39.i, %if.then5.i
   %ob_item.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr %ob_item.i.i, align 8
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), ptr %ob_item.i.i, align 8
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   %add.i29.i = add i32 %22, 1
   %cmp.i30.i = icmp eq i32 %add.i29.i, 0
   br i1 %cmp.i30.i, label %Py_INCREF.exit33.i, label %if.end.i31.i
 
 if.end.i31.i:                                     ; preds = %Py_INCREF.exit41.i
-  store i32 %add.i29.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  store i32 %add.i29.i, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   br label %Py_INCREF.exit33.i
 
 Py_INCREF.exit33.i:                               ; preds = %if.end.i31.i, %Py_INCREF.exit41.i
   %arrayidx.i.i = getelementptr i8, ptr %call.i, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr %arrayidx.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), ptr %arrayidx.i.i, align 8
   %23 = load i32, ptr %str_obj, align 8
   %add.i21.i = add i32 %23, 1
   %cmp.i22.i = icmp eq i32 %add.i21.i, 0
@@ -37595,13 +37595,13 @@ if.then.i.i:                                      ; preds = %if.end7.i
 
 cond.true.i.i.i:                                  ; preds = %if.then.i.i
   %idxprom.i.i.i = zext nneg i8 %24 to i64
-  %arrayidx.i.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i
   br label %_PyUnicode_FromASCII.exit.i
 
 cond.false.i.i.i:                                 ; preds = %if.then.i.i
   %25 = and i8 %24, 127
   %idxprom3.i.i.i = zext nneg i8 %25 to i64
-  %arrayidx4.i.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i
+  %arrayidx4.i.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i
   br label %_PyUnicode_FromASCII.exit.i
 
 if.end.i38.i:                                     ; preds = %if.end7.i
@@ -37662,13 +37662,13 @@ if.then.i59.i:                                    ; preds = %Py_INCREF.exit.i
 
 cond.true.i.i64.i:                                ; preds = %if.then.i59.i
   %idxprom.i.i65.i = zext nneg i8 %31 to i64
-  %arrayidx.i.i66.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i65.i
+  %arrayidx.i.i66.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i65.i
   br label %_PyUnicode_FromASCII.exit67.i
 
 cond.false.i.i61.i:                               ; preds = %if.then.i59.i
   %32 = and i8 %31, 127
   %idxprom3.i.i62.i = zext nneg i8 %32 to i64
-  %arrayidx4.i.i63.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i62.i
+  %arrayidx4.i.i63.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i62.i
   br label %_PyUnicode_FromASCII.exit67.i
 
 if.end.i44.i:                                     ; preds = %Py_INCREF.exit.i
@@ -37744,30 +37744,30 @@ if.end2.i81:                                      ; preds = %if.end.i78
   br i1 %cmp4.i83, label %if.then5.i120, label %if.end7.i84
 
 if.then5.i120:                                    ; preds = %if.end2.i81
-  %40 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   %add.i37.i121 = add i32 %40, 1
   %cmp.i38.i122 = icmp eq i32 %add.i37.i121, 0
   br i1 %cmp.i38.i122, label %Py_INCREF.exit41.i124, label %if.end.i39.i123
 
 if.end.i39.i123:                                  ; preds = %if.then5.i120
-  store i32 %add.i37.i121, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  store i32 %add.i37.i121, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   br label %Py_INCREF.exit41.i124
 
 Py_INCREF.exit41.i124:                            ; preds = %if.end.i39.i123, %if.then5.i120
   %ob_item.i.i125 = getelementptr inbounds nuw i8, ptr %call.i79, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr %ob_item.i.i125, align 8
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), ptr %ob_item.i.i125, align 8
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   %add.i29.i126 = add i32 %41, 1
   %cmp.i30.i127 = icmp eq i32 %add.i29.i126, 0
   br i1 %cmp.i30.i127, label %Py_INCREF.exit33.i129, label %if.end.i31.i128
 
 if.end.i31.i128:                                  ; preds = %Py_INCREF.exit41.i124
-  store i32 %add.i29.i126, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  store i32 %add.i29.i126, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   br label %Py_INCREF.exit33.i129
 
 Py_INCREF.exit33.i129:                            ; preds = %if.end.i31.i128, %Py_INCREF.exit41.i124
   %arrayidx.i.i130 = getelementptr i8, ptr %call.i79, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr %arrayidx.i.i130, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), ptr %arrayidx.i.i130, align 8
   %42 = load i32, ptr %str_obj, align 8
   %add.i21.i131 = add i32 %42, 1
   %cmp.i22.i132 = icmp eq i32 %add.i21.i131, 0
@@ -37795,13 +37795,13 @@ if.then2.i.i:                                     ; preds = %if.end7.i84
 
 cond.true.i.i.i106:                               ; preds = %if.then2.i.i
   %idxprom.i.i.i107 = zext nneg i8 %43 to i64
-  %arrayidx.i.i.i108 = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i107
+  %arrayidx.i.i.i108 = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i107
   br label %_PyUnicode_FromUCS1.exit.i
 
 cond.false.i.i.i86:                               ; preds = %if.then2.i.i
   %44 = and i8 %43, 127
   %idxprom3.i.i.i87 = zext nneg i8 %44 to i64
-  %arrayidx4.i.i.i88 = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i87
+  %arrayidx4.i.i.i88 = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i87
   br label %_PyUnicode_FromUCS1.exit.i
 
 if.end4.i.i:                                      ; preds = %if.end7.i84
@@ -37873,7 +37873,7 @@ PyUnicode_DATA.exit.i.i116:                       ; preds = %if.end.i.i.i117, %i
   br label %_PyUnicode_FromUCS1.exit.i
 
 _PyUnicode_FromUCS1.exit.i:                       ; preds = %PyUnicode_DATA.exit.i.i116, %ucs1lib_find_max_char.exit.i.i, %cond.false.i.i.i86, %cond.true.i.i.i106, %if.end7.i84
-  %retval.0.i.i89 = phi ptr [ %call7.i.i, %PyUnicode_DATA.exit.i.i116 ], [ null, %ucs1lib_find_max_char.exit.i.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end7.i84 ], [ %arrayidx.i.i.i108, %cond.true.i.i.i106 ], [ %arrayidx4.i.i.i88, %cond.false.i.i.i86 ]
+  %retval.0.i.i89 = phi ptr [ %call7.i.i, %PyUnicode_DATA.exit.i.i116 ], [ null, %ucs1lib_find_max_char.exit.i.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end7.i84 ], [ %arrayidx.i.i.i108, %cond.true.i.i.i106 ], [ %arrayidx4.i.i.i88, %cond.false.i.i.i86 ]
   %ob_item.i37.i = getelementptr inbounds nuw i8, ptr %call.i79, i64 24
   store ptr %retval.0.i.i89, ptr %ob_item.i37.i, align 8
   %52 = load i32, ptr %sep_obj, align 8
@@ -37903,13 +37903,13 @@ if.then2.i41.i:                                   ; preds = %Py_INCREF.exit.i93
 
 cond.true.i.i47.i:                                ; preds = %if.then2.i41.i
   %idxprom.i.i48.i = zext nneg i8 %53 to i64
-  %arrayidx.i.i49.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i48.i
+  %arrayidx.i.i49.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i48.i
   br label %_PyUnicode_FromUCS1.exit86.i
 
 cond.false.i.i43.i:                               ; preds = %if.then2.i41.i
   %54 = and i8 %53, 127
   %idxprom3.i.i44.i = zext nneg i8 %54 to i64
-  %arrayidx4.i.i45.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i44.i
+  %arrayidx4.i.i45.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i44.i
   br label %_PyUnicode_FromUCS1.exit86.i
 
 if.end4.i50.i:                                    ; preds = %Py_INCREF.exit.i93
@@ -37981,7 +37981,7 @@ PyUnicode_DATA.exit.i66.i:                        ; preds = %if.end.i.i68.i, %if
   br label %_PyUnicode_FromUCS1.exit86.i
 
 _PyUnicode_FromUCS1.exit86.i:                     ; preds = %PyUnicode_DATA.exit.i66.i, %ucs1lib_find_max_char.exit.i55.i, %cond.false.i.i43.i, %cond.true.i.i47.i, %Py_INCREF.exit.i93
-  %retval.0.i46.i = phi ptr [ %call7.i57.i, %PyUnicode_DATA.exit.i66.i ], [ null, %ucs1lib_find_max_char.exit.i55.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %Py_INCREF.exit.i93 ], [ %arrayidx.i.i49.i, %cond.true.i.i47.i ], [ %arrayidx4.i.i45.i, %cond.false.i.i43.i ]
+  %retval.0.i46.i = phi ptr [ %call7.i57.i, %PyUnicode_DATA.exit.i66.i ], [ null, %ucs1lib_find_max_char.exit.i55.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %Py_INCREF.exit.i93 ], [ %arrayidx.i.i49.i, %cond.true.i.i47.i ], [ %arrayidx4.i.i45.i, %cond.false.i.i43.i ]
   %arrayidx.i88.i = getelementptr i8, ptr %call.i79, i64 40
   store ptr %retval.0.i46.i, ptr %arrayidx.i88.i, align 8
   %call10.i97 = tail call ptr @PyErr_Occurred() #35
@@ -38024,30 +38024,30 @@ if.end2.i141:                                     ; preds = %if.end.i138
   br i1 %cmp4.i143, label %if.then5.i164, label %if.end7.i144
 
 if.then5.i164:                                    ; preds = %if.end2.i141
-  %65 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  %65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   %add.i37.i165 = add i32 %65, 1
   %cmp.i38.i166 = icmp eq i32 %add.i37.i165, 0
   br i1 %cmp.i38.i166, label %Py_INCREF.exit41.i168, label %if.end.i39.i167
 
 if.end.i39.i167:                                  ; preds = %if.then5.i164
-  store i32 %add.i37.i165, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  store i32 %add.i37.i165, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   br label %Py_INCREF.exit41.i168
 
 Py_INCREF.exit41.i168:                            ; preds = %if.end.i39.i167, %if.then5.i164
   %ob_item.i.i169 = getelementptr inbounds nuw i8, ptr %call.i139, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr %ob_item.i.i169, align 8
-  %66 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), ptr %ob_item.i.i169, align 8
+  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   %add.i29.i170 = add i32 %66, 1
   %cmp.i30.i171 = icmp eq i32 %add.i29.i170, 0
   br i1 %cmp.i30.i171, label %Py_INCREF.exit33.i173, label %if.end.i31.i172
 
 if.end.i31.i172:                                  ; preds = %Py_INCREF.exit41.i168
-  store i32 %add.i29.i170, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  store i32 %add.i29.i170, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   br label %Py_INCREF.exit33.i173
 
 Py_INCREF.exit33.i173:                            ; preds = %if.end.i31.i172, %Py_INCREF.exit41.i168
   %arrayidx.i.i174 = getelementptr i8, ptr %call.i139, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr %arrayidx.i.i174, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), ptr %arrayidx.i.i174, align 8
   %67 = load i32, ptr %str_obj, align 8
   %add.i21.i175 = add i32 %67, 1
   %cmp.i22.i176 = icmp eq i32 %add.i21.i175, 0
@@ -38124,30 +38124,30 @@ if.end2.i185:                                     ; preds = %if.end.i182
   br i1 %cmp4.i187, label %if.then5.i210, label %if.end7.i188
 
 if.then5.i210:                                    ; preds = %if.end2.i185
-  %72 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   %add.i37.i211 = add i32 %72, 1
   %cmp.i38.i212 = icmp eq i32 %add.i37.i211, 0
   br i1 %cmp.i38.i212, label %Py_INCREF.exit41.i214, label %if.end.i39.i213
 
 if.end.i39.i213:                                  ; preds = %if.then5.i210
-  store i32 %add.i37.i211, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  store i32 %add.i37.i211, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   br label %Py_INCREF.exit41.i214
 
 Py_INCREF.exit41.i214:                            ; preds = %if.end.i39.i213, %if.then5.i210
   %ob_item.i.i215 = getelementptr inbounds nuw i8, ptr %call.i183, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr %ob_item.i.i215, align 8
-  %73 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), ptr %ob_item.i.i215, align 8
+  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   %add.i29.i216 = add i32 %73, 1
   %cmp.i30.i217 = icmp eq i32 %add.i29.i216, 0
   br i1 %cmp.i30.i217, label %Py_INCREF.exit33.i219, label %if.end.i31.i218
 
 if.end.i31.i218:                                  ; preds = %Py_INCREF.exit41.i214
-  store i32 %add.i29.i216, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), align 8
+  store i32 %add.i29.i216, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), align 8
   br label %Py_INCREF.exit33.i219
 
 Py_INCREF.exit33.i219:                            ; preds = %if.end.i31.i218, %Py_INCREF.exit41.i214
   %arrayidx.i.i220 = getelementptr i8, ptr %call.i183, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr %arrayidx.i.i220, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), ptr %arrayidx.i.i220, align 8
   %74 = load i32, ptr %str_obj, align 8
   %add.i21.i221 = add i32 %74, 1
   %cmp.i22.i222 = icmp eq i32 %add.i21.i221, 0
@@ -38438,10 +38438,10 @@ if.end35.i:                                       ; preds = %Py_UNICODE_ISSPACE.
 if.then.i84.i:                                    ; preds = %if.end35.i
   %12 = load i8, ptr %add.ptr.i, align 1
   %idxprom.i.i.i = zext nneg i8 %12 to i64
-  %arrayidx.i.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i
   %13 = and i8 %12, 127
   %idxprom3.i.i.i = zext nneg i8 %13 to i64
-  %arrayidx4.i.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i
+  %arrayidx4.i.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i
   %cmp.i.i141.i = icmp slt i8 %12, 0
   %retval.0.i83.i = select i1 %cmp.i.i141.i, ptr %arrayidx4.i.i.i, ptr %arrayidx.i.i.i
   %cmp41.i = icmp eq ptr %retval.0.i83.i, null
@@ -38565,10 +38565,10 @@ if.then73.i:                                      ; preds = %Py_UNICODE_ISSPACE.
 if.then.i111.i:                                   ; preds = %if.then73.i
   %22 = load i8, ptr %retval.0.i, align 1
   %idxprom.i.i117.i = zext nneg i8 %22 to i64
-  %arrayidx.i.i118.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i117.i
+  %arrayidx.i.i118.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i117.i
   %23 = and i8 %22, 127
   %idxprom3.i.i114.i = zext nneg i8 %23 to i64
-  %arrayidx4.i.i115.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i114.i
+  %arrayidx4.i.i115.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i114.i
   %cmp.i.i112140.i = icmp slt i8 %22, 0
   %retval.0.i108.i = select i1 %cmp.i.i112140.i, ptr %arrayidx4.i.i115.i, ptr %arrayidx.i.i118.i
   %cmp78.i = icmp eq ptr %retval.0.i108.i, null
@@ -38806,10 +38806,10 @@ if.end35.i169:                                    ; preds = %Py_UNICODE_ISSPACE.
 if.then2.i.i:                                     ; preds = %if.end35.i169
   %42 = load i8, ptr %add.ptr.i170, align 1
   %idxprom.i.i.i173 = zext nneg i8 %42 to i64
-  %arrayidx.i.i.i174 = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i173
+  %arrayidx.i.i.i174 = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i173
   %43 = and i8 %42, 127
   %idxprom3.i.i.i175 = zext nneg i8 %43 to i64
-  %arrayidx4.i.i.i176 = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i175
+  %arrayidx4.i.i.i176 = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i175
   %cmp.i.i160.i = icmp slt i8 %42, 0
   %retval.0.i81.i = select i1 %cmp.i.i160.i, ptr %arrayidx4.i.i.i176, ptr %arrayidx.i.i.i174
   %cmp41.i177 = icmp eq ptr %retval.0.i81.i, null
@@ -38884,7 +38884,7 @@ PyUnicode_DATA.exit.i.i:                          ; preds = %if.end.i.i.i206, %i
   br label %if.end44.i178
 
 if.end44.i178:                                    ; preds = %PyUnicode_DATA.exit.i.i, %if.then2.i.i, %if.end35.i169
-  %retval.0.i81145.i = phi ptr [ %retval.0.i81.i, %if.then2.i.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end35.i169 ], [ %call7.i.i, %PyUnicode_DATA.exit.i.i ]
+  %retval.0.i81145.i = phi ptr [ %retval.0.i81.i, %if.then2.i.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end35.i169 ], [ %call7.i.i, %PyUnicode_DATA.exit.i.i ]
   %cmp45.i179 = icmp samesign ult i64 %count.0186.i, 12
   br i1 %cmp45.i179, label %if.then47.i197, label %if.else.i180
 
@@ -38972,10 +38972,10 @@ if.then73.i117:                                   ; preds = %Py_UNICODE_ISSPACE.
 if.then2.i92.i:                                   ; preds = %if.then73.i117
   %55 = load i8, ptr %retval.0.i85, align 1
   %idxprom.i.i99.i = zext nneg i8 %55 to i64
-  %arrayidx.i.i100.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i99.i
+  %arrayidx.i.i100.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i99.i
   %56 = and i8 %55, 127
   %idxprom3.i.i95.i = zext nneg i8 %56 to i64
-  %arrayidx4.i.i96.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i95.i
+  %arrayidx4.i.i96.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i95.i
   %cmp.i.i93159.i = icmp slt i8 %55, 0
   %retval.0.i97.i = select i1 %cmp.i.i93159.i, ptr %arrayidx4.i.i96.i, ptr %arrayidx.i.i100.i
   %cmp78.i140 = icmp eq ptr %retval.0.i97.i, null
@@ -39878,10 +39878,10 @@ if.then9.i.i:                                     ; preds = %for.body.i.i
 if.then.i.i.i487:                                 ; preds = %if.then9.i.i
   %125 = load i8, ptr %gep.i.i, align 1
   %idxprom.i.i.i.i = zext nneg i8 %125 to i64
-  %arrayidx.i.i.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i.i
   %126 = and i8 %125, 127
   %idxprom3.i.i.i.i = zext nneg i8 %126 to i64
-  %arrayidx4.i.i.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i.i
+  %arrayidx4.i.i.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i.i
   %cmp.i.i98.i.i = icmp slt i8 %125, 0
   %retval.0.i.i.i488 = select i1 %cmp.i.i98.i.i, ptr %arrayidx4.i.i.i.i, ptr %arrayidx.i.i.i.i
   %cmp15.i.i = icmp eq ptr %retval.0.i.i.i488, null
@@ -40009,10 +40009,10 @@ if.then39.i.i:                                    ; preds = %if.else36.i.i
 if.then.i75.i.i:                                  ; preds = %if.then39.i.i
   %136 = load i8, ptr %retval.0.i460, align 1
   %idxprom.i.i81.i.i = zext nneg i8 %136 to i64
-  %arrayidx.i.i82.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i81.i.i
+  %arrayidx.i.i82.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i81.i.i
   %137 = and i8 %136, 127
   %idxprom3.i.i78.i.i = zext nneg i8 %137 to i64
-  %arrayidx4.i.i79.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i78.i.i
+  %arrayidx4.i.i79.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i78.i.i
   %cmp.i.i7697.i.i = icmp slt i8 %136, 0
   %retval.0.i72.i.i = select i1 %cmp.i.i7697.i.i, ptr %arrayidx4.i.i79.i.i, ptr %arrayidx.i.i82.i.i
   %cmp44.i.i = icmp eq ptr %retval.0.i72.i.i, null
@@ -40157,10 +40157,10 @@ if.end13.i:                                       ; preds = %while.body.i
 if.then.i.i513:                                   ; preds = %if.end13.i
   %149 = load i8, ptr %add.ptr.i503, align 1
   %idxprom.i.i.i514 = zext nneg i8 %149 to i64
-  %arrayidx.i.i74.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i514
+  %arrayidx.i.i74.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i514
   %150 = and i8 %149, 127
   %idxprom3.i.i.i515 = zext nneg i8 %150 to i64
-  %arrayidx4.i.i.i516 = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i515
+  %arrayidx4.i.i.i516 = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i515
   %cmp.i.i73116.i = icmp slt i8 %149, 0
   %retval.0.i71.i = select i1 %cmp.i.i73116.i, ptr %arrayidx4.i.i.i516, ptr %arrayidx.i.i74.i
   %cmp18.i = icmp eq ptr %retval.0.i71.i, null
@@ -40277,10 +40277,10 @@ if.else34.i:                                      ; preds = %if.end28.i, %land.l
 if.then.i94.i:                                    ; preds = %if.else34.i
   %160 = load i8, ptr %retval.0.i460, align 1
   %idxprom.i.i100.i = zext nneg i8 %160 to i64
-  %arrayidx.i.i101.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i100.i
+  %arrayidx.i.i101.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i100.i
   %161 = and i8 %160, 127
   %idxprom3.i.i97.i = zext nneg i8 %161 to i64
-  %arrayidx4.i.i98.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i97.i
+  %arrayidx4.i.i98.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i97.i
   %cmp.i.i95117.i = icmp slt i8 %160, 0
   %retval.0.i91.i = select i1 %cmp.i.i95117.i, ptr %arrayidx4.i.i98.i, ptr %arrayidx.i.i101.i
   %cmp38.i = icmp eq ptr %retval.0.i91.i, null
@@ -40445,10 +40445,10 @@ if.then9.i.i581:                                  ; preds = %for.body.i.i575
 if.then2.i.i.i:                                   ; preds = %if.then9.i.i581
   %176 = load i8, ptr %gep.i.i582, align 1
   %idxprom.i.i.i.i584 = zext nneg i8 %176 to i64
-  %arrayidx.i.i.i.i585 = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i.i584
+  %arrayidx.i.i.i.i585 = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i.i584
   %177 = and i8 %176, 127
   %idxprom3.i.i.i.i586 = zext nneg i8 %177 to i64
-  %arrayidx4.i.i.i.i587 = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i.i586
+  %arrayidx4.i.i.i.i587 = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i.i586
   %cmp.i.i117.i.i = icmp slt i8 %176, 0
   %retval.0.i.i.i588 = select i1 %cmp.i.i117.i.i, ptr %arrayidx4.i.i.i.i587, ptr %arrayidx.i.i.i.i585
   %cmp15.i.i589 = icmp eq ptr %retval.0.i.i.i588, null
@@ -40523,7 +40523,7 @@ PyUnicode_DATA.exit.i.i.i:                        ; preds = %if.end.i.i.i.i621, 
   br label %if.end18.i.i590
 
 if.end18.i.i590:                                  ; preds = %PyUnicode_DATA.exit.i.i.i, %if.then2.i.i.i, %if.then9.i.i581
-  %retval.0.i106.i.i = phi ptr [ %retval.0.i.i.i588, %if.then2.i.i.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then9.i.i581 ], [ %call7.i.i.i, %PyUnicode_DATA.exit.i.i.i ]
+  %retval.0.i106.i.i = phi ptr [ %retval.0.i.i.i588, %if.then2.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then9.i.i581 ], [ %call7.i.i.i, %PyUnicode_DATA.exit.i.i.i ]
   %cmp19.i.i591 = icmp ult i64 %count.0133.i.i, 12
   br i1 %cmp19.i.i591, label %if.then21.i.i610, label %if.else.i.i592
 
@@ -40617,10 +40617,10 @@ if.then39.i.i540:                                 ; preds = %if.else36.i.i526
 if.then2.i57.i.i:                                 ; preds = %if.then39.i.i540
   %190 = load i8, ptr %retval.0.i460, align 1
   %idxprom.i.i64.i.i = zext nneg i8 %190 to i64
-  %arrayidx.i.i65.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i64.i.i
+  %arrayidx.i.i65.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i64.i.i
   %191 = and i8 %190, 127
   %idxprom3.i.i60.i.i = zext nneg i8 %191 to i64
-  %arrayidx4.i.i61.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i60.i.i
+  %arrayidx4.i.i61.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i60.i.i
   %cmp.i.i58116.i.i = icmp slt i8 %190, 0
   %retval.0.i62.i.i = select i1 %cmp.i.i58116.i.i, ptr %arrayidx4.i.i61.i.i, ptr %arrayidx.i.i65.i.i
   %cmp44.i.i542 = icmp eq ptr %retval.0.i62.i.i, null
@@ -40695,7 +40695,7 @@ PyUnicode_DATA.exit.i82.i.i:                      ; preds = %if.end.i.i84.i.i, %
   br label %if.end47.i.i543
 
 if.end47.i.i543:                                  ; preds = %PyUnicode_DATA.exit.i82.i.i, %if.then2.i57.i.i, %if.then39.i.i540
-  %retval.0.i62112.i.i = phi ptr [ %retval.0.i62.i.i, %if.then2.i57.i.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then39.i.i540 ], [ %call7.i73.i.i, %PyUnicode_DATA.exit.i82.i.i ]
+  %retval.0.i62112.i.i = phi ptr [ %retval.0.i62.i.i, %if.then2.i57.i.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then39.i.i540 ], [ %call7.i73.i.i, %PyUnicode_DATA.exit.i82.i.i ]
   %cmp48.i.i544 = icmp slt i64 %count.0.lcssa151.i.i, 12
   br i1 %cmp48.i.i544, label %if.then50.i.i561, label %if.else51.i.i545
 
@@ -40803,10 +40803,10 @@ if.end13.i676:                                    ; preds = %while.body.i673
 if.then2.i.i680:                                  ; preds = %if.end13.i676
   %206 = load i8, ptr %add.ptr.i678, align 1
   %idxprom.i.i.i681 = zext nneg i8 %206 to i64
-  %arrayidx.i.i65.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i681
+  %arrayidx.i.i65.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i681
   %207 = and i8 %206, 127
   %idxprom3.i.i.i682 = zext nneg i8 %207 to i64
-  %arrayidx4.i.i.i683 = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i682
+  %arrayidx4.i.i.i683 = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i682
   %cmp.i.i63135.i = icmp slt i8 %206, 0
   %retval.0.i64.i = select i1 %cmp.i.i63135.i, ptr %arrayidx4.i.i.i683, ptr %arrayidx.i.i65.i
   %cmp18.i684 = icmp eq ptr %retval.0.i64.i, null
@@ -40881,7 +40881,7 @@ PyUnicode_DATA.exit.i.i720:                       ; preds = %if.end.i.i70.i, %if
   br label %if.end20.i685
 
 if.end20.i685:                                    ; preds = %PyUnicode_DATA.exit.i.i720, %if.then2.i.i680, %if.end13.i676
-  %retval.0.i64125.i = phi ptr [ %retval.0.i64.i, %if.then2.i.i680 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end13.i676 ], [ %call7.i.i712, %PyUnicode_DATA.exit.i.i720 ]
+  %retval.0.i64125.i = phi ptr [ %retval.0.i64.i, %if.then2.i.i680 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end13.i676 ], [ %call7.i.i712, %PyUnicode_DATA.exit.i.i720 ]
   %cmp21.i686 = icmp samesign ult i64 %count.0160.i, 12
   br i1 %cmp21.i686, label %if.then22.i704, label %if.else23.i687
 
@@ -40964,10 +40964,10 @@ if.else34.i632:                                   ; preds = %if.end28.i697, %lan
 if.then2.i76.i:                                   ; preds = %if.else34.i632
   %220 = load i8, ptr %retval.0.i460, align 1
   %idxprom.i.i83.i = zext nneg i8 %220 to i64
-  %arrayidx.i.i84.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i83.i
+  %arrayidx.i.i84.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i83.i
   %221 = and i8 %220, 127
   %idxprom3.i.i79.i = zext nneg i8 %221 to i64
-  %arrayidx4.i.i80.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i79.i
+  %arrayidx4.i.i80.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i79.i
   %cmp.i.i77136.i = icmp slt i8 %220, 0
   %retval.0.i81.i633 = select i1 %cmp.i.i77136.i, ptr %arrayidx4.i.i80.i, ptr %arrayidx.i.i84.i
   %cmp38.i634 = icmp eq ptr %retval.0.i81.i633, null
@@ -41042,7 +41042,7 @@ PyUnicode_DATA.exit.i101.i:                       ; preds = %if.end.i.i103.i, %i
   br label %if.end40.i635
 
 if.end40.i635:                                    ; preds = %PyUnicode_DATA.exit.i101.i, %if.then2.i76.i, %if.else34.i632
-  %retval.0.i81131.i = phi ptr [ %retval.0.i81.i633, %if.then2.i76.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.else34.i632 ], [ %call7.i92.i, %PyUnicode_DATA.exit.i101.i ]
+  %retval.0.i81131.i = phi ptr [ %retval.0.i81.i633, %if.then2.i76.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.else34.i632 ], [ %call7.i92.i, %PyUnicode_DATA.exit.i101.i ]
   %cmp41.i636 = icmp slt i64 %count.0.lcssa189.i, 12
   br i1 %cmp41.i636, label %if.then42.i664, label %if.else43.i637
 
@@ -42847,13 +42847,13 @@ if.then.i89:                                      ; preds = %if.then107
 
 cond.true.i.i:                                    ; preds = %if.then.i89
   %idxprom.i.i = zext nneg i8 %30 to i64
-  %arrayidx.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i
   br label %_PyUnicode_FromASCII.exit
 
 cond.false.i.i:                                   ; preds = %if.then.i89
   %31 = and i8 %30, 127
   %idxprom3.i.i = zext nneg i8 %31 to i64
-  %arrayidx4.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i
+  %arrayidx4.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i
   br label %_PyUnicode_FromASCII.exit
 
 if.end.i84:                                       ; preds = %if.then107
@@ -46531,7 +46531,7 @@ if.else5.i:                                       ; preds = %if.else.i
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end, %if.else5.i, %if.then3.i, %skip_optional_pos
-  %unicode.0.i = phi ptr [ %call4.i, %if.then3.i ], [ %call6.i, %if.else5.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %skip_optional_pos ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end ]
+  %unicode.0.i = phi ptr [ %call4.i, %if.then3.i ], [ %call6.i, %if.else5.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %skip_optional_pos ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end ]
   %cmp8.i = icmp ne ptr %unicode.0.i, null
   %cmp10.i = icmp ne ptr %type, @PyUnicode_Type
   %or.cond1.i = and i1 %cmp10.i, %cmp8.i
@@ -46679,7 +46679,7 @@ declare void @PyObject_Free(ptr noundef) #1
 define hidden void @_PyUnicode_InitState(ptr noundef readnone %interp) local_unnamed_addr #18 {
 entry:
   %linebreak.i = alloca [8 x i16], align 16
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i.not = icmp eq ptr %interp, %0
   br i1 %cmp.i.not, label %if.end, label %return
 
@@ -46723,14 +46723,14 @@ define hidden void @_PyUnicode_InitGlobalObjects(ptr noalias nocapture writeonly
 entry:
   %hashtable_alloc.i = alloca %struct._Py_hashtable_allocator_t, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hashtable_alloc.i)
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i.not.i = icmp eq ptr %interp, %0
   br i1 %cmp.i.not.i, label %if.then.i, label %if.end3.i
 
 if.then.i:                                        ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %hashtable_alloc.i, ptr noundef nonnull align 8 dereferenceable(16) @__const.init_interned_dict.hashtable_alloc, i64 16, i1 false)
   %call1.i = call ptr @_Py_hashtable_new_full(ptr noundef nonnull @hashtable_unicode_hash, ptr noundef nonnull @hashtable_unicode_compare, ptr noundef null, ptr noundef null, ptr noundef nonnull %hashtable_alloc.i) #35
-  store ptr %call1.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3648), align 8
+  store ptr %call1.i, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3648), align 8
   %cmp.i = icmp eq ptr %call1.i, null
   br i1 %cmp.i, label %if.then, label %if.end3.i
 
@@ -46755,7 +46755,7 @@ if.end:                                           ; preds = %if.end3.i
   %cached_objects.i = getelementptr inbounds nuw i8, ptr %interp, i64 416136
   store ptr %call4.i, ptr %cached_objects.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %hashtable_alloc.i)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i3.not = icmp eq ptr %interp, %1
   br i1 %cmp.i3.not, label %if.then3, label %if.end4
 
@@ -46775,1389 +46775,1389 @@ return:                                           ; preds = %if.end4, %if.then
 define internal fastcc void @_PyUnicode_InitStaticStrings(ptr noundef readonly %interp) unnamed_addr #0 {
 entry:
   %string = alloca ptr, align 8
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25744), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25744), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25800), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25800), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25856), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25856), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25904), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25904), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25960), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25960), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 26008), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26008), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 26056), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26056), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 26112), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26112), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 26160), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26160), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 26216), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26216), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 26264), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26264), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 26328), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26328), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 26384), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26384), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 26440), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26440), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 26488), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26488), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 26552), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26552), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 26600), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26600), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 26656), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26656), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 26712), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26712), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 26768), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26768), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 26816), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26816), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 26864), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26864), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 26920), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26920), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 26976), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26976), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 27032), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27032), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 27104), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27104), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 27160), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27160), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 27216), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27216), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 27272), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27272), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 27328), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27328), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 27384), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27384), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 27440), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27440), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 27496), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27496), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 27552), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27552), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 27608), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27608), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 27664), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27664), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 27728), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27728), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 27784), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27784), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 27840), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27840), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 27904), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27904), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 27960), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27960), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 28016), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 28016), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 28072), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 28072), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 28144), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 28144), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 28192), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 28192), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 28248), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 28248), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 28304), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 28304), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 28360), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 28360), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 28416), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 28416), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 28472), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 28472), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 28520), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 28520), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 28576), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 28576), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 28624), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 28624), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 28680), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 28680), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 28728), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 28728), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 28784), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 28784), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 28840), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 28840), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 28896), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 28896), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 28952), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 28952), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 29008), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 29008), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 29064), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 29064), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 29112), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 29112), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 29160), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 29160), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 29216), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 29216), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 29280), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 29280), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 29336), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 29336), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 29392), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 29392), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 29448), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 29448), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 29512), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 29512), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 29568), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 29568), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 29616), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 29616), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 29672), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 29672), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 29728), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 29728), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 29784), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 29784), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 29840), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 29840), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 29896), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 29896), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 29952), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 29952), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 30008), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 30008), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 30064), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 30064), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 30120), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 30120), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 30176), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 30176), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 30232), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 30232), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 30296), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 30296), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 30360), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 30360), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 30408), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 30408), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 30464), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 30464), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 30512), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 30512), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 30568), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 30568), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 30624), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 30624), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 30688), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 30688), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 30744), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 30744), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 30800), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 30800), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 30856), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 30856), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 30912), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 30912), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 30960), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 30960), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 31008), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31008), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 31064), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31064), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 31120), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31120), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 31176), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31176), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 31232), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31232), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 31280), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31280), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 31336), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31336), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 31392), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31392), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 31448), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31448), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 31504), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31504), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 31552), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31552), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 31608), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31608), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 31664), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31664), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 31712), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31712), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 31768), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31768), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 31816), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31816), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 31864), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31864), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 31912), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31912), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 31968), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31968), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 32024), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 32024), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 32080), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 32080), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 32136), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 32136), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 32184), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 32184), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 32240), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 32240), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 32296), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 32296), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 32352), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 32352), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 32408), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 32408), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 32464), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 32464), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 32512), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 32512), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 32560), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 32560), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 32616), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 32616), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 32672), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 32672), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 32728), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 32728), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 32784), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 32784), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 32840), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 32840), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 32896), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 32896), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 32952), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 32952), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 33016), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 33016), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 33072), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 33072), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 33128), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 33128), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 33184), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 33184), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 33240), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 33240), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 33296), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 33296), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 33352), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 33352), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 33408), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 33408), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 33456), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 33456), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 33512), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 33512), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 33568), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 33568), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 33624), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 33624), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 33680), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 33680), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 33736), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 33736), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 33792), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 33792), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 33848), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 33848), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 33896), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 33896), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 33952), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 33952), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 34008), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 34008), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 34064), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 34064), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 34120), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 34120), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 34176), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 34176), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 34232), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 34232), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 34288), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 34288), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 34344), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 34344), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 34392), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 34392), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 34440), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 34440), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 34504), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 34504), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 34568), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 34568), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 34624), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 34624), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 34680), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 34680), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 34736), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 34736), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 34816), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 34816), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 34888), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 34888), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 34952), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 34952), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 35024), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35024), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 35088), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35088), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 35152), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35152), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 35208), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35208), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 35256), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35256), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 35312), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35312), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 35368), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35368), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 35416), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35416), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 35472), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35472), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 35528), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35528), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 35584), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35584), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 35640), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35640), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 35712), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35712), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 35768), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35768), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 35824), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35824), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 35880), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35880), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 35936), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35936), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 36000), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 36000), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 36056), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 36056), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 36112), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 36112), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 36168), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 36168), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 36224), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 36224), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 36272), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 36272), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 36328), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 36328), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 36392), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 36392), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 36448), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 36448), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 36496), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 36496), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 36560), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 36560), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 36616), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 36616), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 36664), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 36664), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 36728), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 36728), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 36776), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 36776), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 36840), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 36840), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 36888), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 36888), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 36944), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 36944), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 37000), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37000), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 37056), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37056), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 37112), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37112), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 37176), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37176), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 37232), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37232), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 37280), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37280), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 37352), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37352), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 37424), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37424), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 37480), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37480), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 37528), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37528), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 37576), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37576), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 37624), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37624), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 37672), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37672), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 37720), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37720), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 37784), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37784), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 37840), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37840), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 37896), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37896), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 37952), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37952), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 38000), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 38000), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 38048), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 38048), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 38104), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 38104), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 38152), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 38152), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 38216), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 38216), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 38264), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 38264), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 38312), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 38312), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 38360), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 38360), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 38416), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 38416), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 38480), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 38480), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 38536), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 38536), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 38584), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 38584), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 38640), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 38640), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 38688), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 38688), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 38736), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 38736), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 38784), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 38784), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 38840), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 38840), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 38888), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 38888), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 38936), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 38936), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 38984), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 38984), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 39040), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 39040), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 39096), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 39096), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 39152), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 39152), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 39200), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 39200), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 39248), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 39248), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 39304), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 39304), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 39360), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 39360), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 39408), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 39408), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 39464), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 39464), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 39512), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 39512), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 39560), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 39560), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 39616), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 39616), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 39672), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 39672), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 39736), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 39736), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 39784), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 39784), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 39832), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 39832), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 39880), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 39880), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 39944), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 39944), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 40000), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40000), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 40056), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40056), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 40104), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40104), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 40152), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40152), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 40208), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40208), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 40256), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40256), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 40312), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40312), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 40376), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40376), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 40424), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40424), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 40472), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40472), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 40520), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40520), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 40568), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40568), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 40616), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40616), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 40672), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40672), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 40728), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40728), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 40776), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40776), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 40832), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40832), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 40896), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40896), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 40952), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40952), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 41008), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 41008), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 41064), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 41064), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 41120), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 41120), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 41184), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 41184), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 41240), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 41240), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 41288), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 41288), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 41344), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 41344), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 41400), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 41400), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 41464), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 41464), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 41520), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 41520), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 41576), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 41576), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 41632), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 41632), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 41680), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 41680), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 41728), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 41728), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 41784), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 41784), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 41840), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 41840), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 41888), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 41888), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 41936), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 41936), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 41992), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 41992), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 42040), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 42040), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 42088), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 42088), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 42136), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 42136), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 42184), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 42184), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 42232), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 42232), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 42288), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 42288), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 42336), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 42336), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 42384), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 42384), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 42432), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 42432), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 42488), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 42488), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 42536), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 42536), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 42584), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 42584), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 42632), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 42632), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 42688), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 42688), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 42736), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 42736), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 42784), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 42784), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 42840), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 42840), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 42896), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 42896), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 42944), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 42944), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 42992), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 42992), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 43048), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 43048), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 43112), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 43112), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 43160), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 43160), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 43216), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 43216), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 43272), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 43272), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 43320), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 43320), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 43368), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 43368), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 43424), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 43424), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 43480), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 43480), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 43528), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 43528), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 43576), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 43576), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 43632), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 43632), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 43680), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 43680), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 43736), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 43736), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 43784), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 43784), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 43840), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 43840), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 43896), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 43896), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 43952), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 43952), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 44000), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 44000), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 44056), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 44056), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 44104), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 44104), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 44160), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 44160), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 44216), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 44216), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 44264), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 44264), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 44320), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 44320), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 44368), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 44368), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 44416), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 44416), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 44464), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 44464), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 44520), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 44520), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 44576), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 44576), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 44632), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 44632), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 44696), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 44696), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 44744), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 44744), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 44792), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 44792), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 44848), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 44848), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 44896), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 44896), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 44952), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 44952), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 45000), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 45000), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 45048), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 45048), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 45096), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 45096), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 45144), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 45144), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 45192), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 45192), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 45240), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 45240), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 45288), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 45288), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 45336), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 45336), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 45384), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 45384), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 45440), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 45440), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 45496), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 45496), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 45544), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 45544), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 45600), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 45600), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 45656), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 45656), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 45704), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 45704), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 45752), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 45752), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 45808), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 45808), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 45864), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 45864), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 45912), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 45912), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 45960), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 45960), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 46016), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 46016), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 46064), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 46064), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 46120), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 46120), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 46176), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 46176), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 46232), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 46232), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 46280), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 46280), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 46328), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 46328), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 46376), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 46376), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 46424), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 46424), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 46472), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 46472), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 46528), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 46528), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 46576), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 46576), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 46624), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 46624), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 46680), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 46680), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 46736), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 46736), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 46792), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 46792), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 46848), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 46848), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 46896), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 46896), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 46952), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 46952), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 47000), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 47000), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 47048), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 47048), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 47104), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 47104), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 47152), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 47152), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 47200), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 47200), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 47248), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 47248), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 47304), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 47304), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 47352), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 47352), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 47400), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 47400), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 47448), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 47448), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 47496), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 47496), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 47544), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 47544), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 47592), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 47592), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 47648), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 47648), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 47696), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 47696), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 47744), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 47744), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 47800), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 47800), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 47848), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 47848), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 47904), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 47904), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 47960), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 47960), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 48008), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 48008), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 48064), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 48064), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 48120), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 48120), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 48168), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 48168), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 48224), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 48224), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 48280), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 48280), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 48328), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 48328), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 48384), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 48384), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 48432), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 48432), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 48488), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 48488), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 48544), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 48544), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 48600), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 48600), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 48648), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 48648), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 48704), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 48704), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 48760), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 48760), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 48816), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 48816), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 48864), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 48864), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 48920), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 48920), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 48976), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 48976), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 49032), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49032), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 49080), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49080), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 49128), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49128), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 49176), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49176), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 49224), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49224), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 49280), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49280), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 49336), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49336), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 49384), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49384), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 49432), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49432), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 49488), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49488), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 49536), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49536), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 49584), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49584), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 49632), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49632), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 49680), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49680), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 49728), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49728), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 49776), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49776), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 49824), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49824), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 49872), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49872), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 49920), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49920), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 49976), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49976), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 50032), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50032), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 50088), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50088), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 50144), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50144), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 50200), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50200), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 50248), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50248), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 50304), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50304), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 50352), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50352), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 50400), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50400), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 50448), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50448), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 50496), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50496), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 50544), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50544), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 50600), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50600), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 50648), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50648), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 50704), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50704), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 50752), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50752), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 50800), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50800), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 50848), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50848), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 50896), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50896), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 50952), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50952), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 51000), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 51000), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 51048), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 51048), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 51096), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 51096), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 51152), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 51152), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 51208), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 51208), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 51264), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 51264), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 51312), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 51312), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 51368), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 51368), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 51424), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 51424), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 51480), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 51480), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 51536), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 51536), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 51584), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 51584), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 51640), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 51640), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 51696), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 51696), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 51744), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 51744), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 51792), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 51792), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 51840), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 51840), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 51888), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 51888), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 51944), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 51944), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 51992), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 51992), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 52040), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 52040), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 52088), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 52088), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 52136), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 52136), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 52184), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 52184), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 52232), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 52232), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 52288), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 52288), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 52352), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 52352), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 52416), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 52416), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 52464), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 52464), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 52520), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 52520), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 52584), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 52584), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 52640), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 52640), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 52688), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 52688), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 52736), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 52736), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 52792), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 52792), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 52848), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 52848), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 52896), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 52896), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 52952), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 52952), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 53000), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53000), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 53048), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53048), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 53104), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53104), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 53160), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53160), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 53208), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53208), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 53256), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53256), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 53304), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53304), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 53352), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53352), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 53400), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53400), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 53448), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53448), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 53496), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53496), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 53544), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53544), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 53600), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53600), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 53656), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53656), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 53712), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53712), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 53768), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53768), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 53824), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53824), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 53872), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53872), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 53920), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53920), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 53968), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53968), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 54016), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 54016), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 54072), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 54072), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 54128), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 54128), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 54176), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 54176), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 54224), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 54224), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 54272), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 54272), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 54320), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 54320), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 54376), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 54376), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 54432), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 54432), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 54480), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 54480), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 54528), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 54528), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 54576), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 54576), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 54624), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 54624), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 54680), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 54680), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 54728), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 54728), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 54776), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 54776), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 54824), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 54824), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 54880), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 54880), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 54936), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 54936), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 54984), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 54984), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 55040), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 55040), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 55088), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 55088), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 55136), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 55136), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 55184), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 55184), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 55232), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 55232), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 55280), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 55280), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 55328), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 55328), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 55392), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 55392), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 55448), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 55448), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 55504), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 55504), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 55568), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 55568), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 55632), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 55632), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 55680), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 55680), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 55736), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 55736), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 55784), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 55784), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 55832), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 55832), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 55880), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 55880), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 55936), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 55936), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 55984), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 55984), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 56032), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56032), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 56080), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56080), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 56128), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56128), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 56184), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56184), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 56232), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56232), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 56288), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56288), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 56344), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56344), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 56400), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56400), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 56456), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56456), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 56504), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56504), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 56568), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56568), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 56624), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56624), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 56672), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56672), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 56720), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56720), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 56768), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56768), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 56816), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56816), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 56864), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56864), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 56920), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56920), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 56968), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56968), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 57024), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57024), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 57072), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57072), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 57120), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57120), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 57176), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57176), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 57224), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57224), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 57272), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57272), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 57328), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57328), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 57384), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57384), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 57432), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57432), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 57488), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57488), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 57544), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57544), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 57592), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57592), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 57640), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57640), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 57688), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57688), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 57744), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57744), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 57800), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57800), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 57856), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57856), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 57904), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57904), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 57952), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57952), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 58008), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 58008), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 58056), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 58056), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 58112), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 58112), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 58168), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 58168), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 58224), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 58224), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 58272), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 58272), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 58328), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 58328), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 58376), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 58376), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 58424), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 58424), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 58480), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 58480), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 58544), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 58544), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 58592), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 58592), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 58640), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 58640), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 58688), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 58688), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 58736), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 58736), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 58800), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 58800), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 58848), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 58848), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 58904), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 58904), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 58960), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 58960), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 59008), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 59008), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 59064), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 59064), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 59112), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 59112), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 59160), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 59160), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 59208), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 59208), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 59256), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 59256), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 59304), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 59304), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 59352), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 59352), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 59408), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 59408), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 59464), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 59464), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 59520), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 59520), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 59568), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 59568), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 59624), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 59624), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 59672), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 59672), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 59720), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 59720), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 59792), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 59792), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 59840), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 59840), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 59888), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 59888), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 59936), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 59936), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 60000), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60000), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 60048), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60048), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 60104), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60104), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 60160), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60160), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 60216), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60216), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 60264), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60264), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 60312), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60312), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 60368), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60368), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 60416), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60416), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 60464), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60464), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 60520), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60520), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 60568), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60568), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 60616), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60616), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 60664), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60664), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 60720), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60720), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 60768), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60768), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 60824), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60824), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 60880), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60880), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 60936), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60936), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 60984), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60984), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 61040), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 61040), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 61088), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 61088), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 61136), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 61136), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 61184), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 61184), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 61240), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 61240), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 61288), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 61288), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 61336), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 61336), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 61384), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 61384), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 61432), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 61432), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 61488), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 61488), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 61536), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 61536), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 61592), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 61592), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 61640), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 61640), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 61688), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 61688), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 61736), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 61736), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 61784), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 61784), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 61840), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 61840), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 61896), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 61896), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 61944), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 61944), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 61992), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 61992), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62040), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62040), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62088), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62088), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62136), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62136), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62192), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62192), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62248), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62248), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62296), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62296), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62352), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62352), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62400), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62400), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62448), ptr %string, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62448), ptr %string, align 8
   call void @_PyUnicode_InternInPlace(ptr noundef %interp, ptr noundef nonnull %string)
   ret void
 }
@@ -48225,7 +48225,7 @@ if.end5:                                          ; preds = %lor.lhs.false
   br i1 %tobool7.not, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end5
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3648), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3648), align 8
   %call10 = tail call ptr @_Py_hashtable_get(ptr noundef %5, ptr noundef nonnull %0) #35
   %cmp11.not = icmp eq ptr %call10, null
   %cmp12.not = icmp eq ptr %call10, %0
@@ -48267,7 +48267,7 @@ if.end15:                                         ; preds = %if.end9
   br i1 %tobool16.not, label %if.end25, label %if.then17
 
 if.then17:                                        ; preds = %if.end15
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3648), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3648), align 8
   %call18 = tail call i32 @_Py_hashtable_set(ptr noundef %11, ptr noundef nonnull %0, ptr noundef nonnull %0) #35
   %cmp19 = icmp eq i32 %call18, 0
   br i1 %cmp19, label %if.then20, label %return
@@ -48439,18 +48439,18 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.end.i.i, %if.then1.i.i
   store ptr null, ptr %0, align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i7.not.i = icmp eq ptr %interp, %3
   br i1 %cmp.i7.not.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3648), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3648), align 8
   %cmp2.not.i = icmp eq ptr %4, null
   br i1 %cmp2.not.i, label %return, label %if.then3.i
 
 if.then3.i:                                       ; preds = %land.lhs.true.i
   tail call void @_Py_hashtable_destroy(ptr noundef nonnull %4) #35
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3648), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3648), align 8
   br label %return
 
 return:                                           ; preds = %if.then3.i, %land.lhs.true.i, %if.end.i, %entry
@@ -48604,13 +48604,13 @@ if.then.i19:                                      ; preds = %PyUnicode_READ.exit
 
 cond.true.i.i:                                    ; preds = %if.then.i19
   %idxprom.i.i = zext nneg i32 %retval.0.i1224 to i64
-  %arrayidx.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i
   br label %return
 
 cond.false.i.i:                                   ; preds = %if.then.i19
   %9 = and i8 %conv.i20, 127
   %idxprom3.i.i = zext nneg i8 %9 to i64
-  %arrayidx4.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i
+  %arrayidx4.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i
   br label %return
 
 if.end.i15:                                       ; preds = %PyUnicode_READ.exit
@@ -48715,7 +48715,7 @@ if.then2:                                         ; preds = %if.end
   %inc = add nsw i64 %1, 1
   store i64 %inc, ptr %it_index, align 8
   %idxprom = zext i8 %3 to i64
-  %arrayidx = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom
+  %arrayidx = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom
   br label %return
 
 if.end6:                                          ; preds = %if.end
@@ -48825,7 +48825,7 @@ if.end10.i.i:                                     ; preds = %if.end.i15.i.i
   store ptr %10, ptr %errors16.i.i, align 8, !noalias !256
   %error_handler18.i.i = getelementptr inbounds nuw i8, ptr %0, i64 267736
   store i32 %call1.i.i, ptr %error_handler18.i.i, align 8, !noalias !256
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8, !noalias !256
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 352), align 8, !noalias !256
   %cmp.i23.not.i.i = icmp eq ptr %0, %11
   br i1 %cmp.i23.not.i.i, label %if.then20.i.i, label %if.end
 
@@ -56444,13 +56444,13 @@ if.then.i:                                        ; preds = %if.else
 
 cond.true.i.i:                                    ; preds = %if.then.i
   %idxprom.i.i = zext nneg i8 %3 to i64
-  %arrayidx.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i
   br label %_PyUnicode_FromASCII.exit
 
 cond.false.i.i:                                   ; preds = %if.then.i
   %4 = and i8 %3, 127
   %idxprom3.i.i = zext nneg i8 %4 to i64
-  %arrayidx4.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i
+  %arrayidx4.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i
   br label %_PyUnicode_FromASCII.exit
 
 if.end.i:                                         ; preds = %if.else
@@ -56750,7 +56750,7 @@ PyUnicode_DATA.exit90:                            ; preds = %if.then.i83, %if.en
   br label %return
 
 return:                                           ; preds = %for.body, %for.body35, %entry, %PyUnicode_DATA.exit90, %PyUnicode_DATA.exit50, %PyUnicode_MAX_CHAR_VALUE.exit, %if.then7, %if.then2
-  %retval.0 = phi ptr [ %call3, %if.then2 ], [ null, %if.then7 ], [ null, %PyUnicode_MAX_CHAR_VALUE.exit ], [ %call11, %PyUnicode_DATA.exit50 ], [ %call11, %PyUnicode_DATA.exit90 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %entry ], [ %call11, %for.body35 ], [ %call11, %for.body ]
+  %retval.0 = phi ptr [ %call3, %if.then2 ], [ null, %if.then7 ], [ null, %PyUnicode_MAX_CHAR_VALUE.exit ], [ %call11, %PyUnicode_DATA.exit50 ], [ %call11, %PyUnicode_DATA.exit90 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %entry ], [ %call11, %for.body35 ], [ %call11, %for.body ]
   ret ptr %retval.0
 }
 
@@ -56842,13 +56842,13 @@ if.then.i15:                                      ; preds = %PyUnicode_READ.exit
 
 cond.true.i.i:                                    ; preds = %if.then.i15
   %idxprom.i.i = zext nneg i32 %retval.0.i719 to i64
-  %arrayidx.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i
   br label %return
 
 cond.false.i.i:                                   ; preds = %if.then.i15
   %11 = and i8 %conv.i16, 127
   %idxprom3.i.i = zext nneg i8 %11 to i64
-  %arrayidx4.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i
+  %arrayidx4.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i
   br label %return
 
 if.end.i11:                                       ; preds = %PyUnicode_READ.exit
@@ -57199,7 +57199,7 @@ if.else74:                                        ; preds = %if.else
   br label %return
 
 return:                                           ; preds = %PyUnicode_WRITE.exit, %if.end17, %if.end55, %if.then12, %land.lhs.true, %if.else74, %if.then34, %if.then30, %if.end8
-  %retval.0 = phi ptr [ %call9, %if.end8 ], [ %call31, %if.then30 ], [ %call36, %if.then34 ], [ null, %if.else74 ], [ null, %land.lhs.true ], [ null, %if.then12 ], [ null, %if.end55 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end17 ], [ %call56, %PyUnicode_WRITE.exit ]
+  %retval.0 = phi ptr [ %call9, %if.end8 ], [ %call31, %if.then30 ], [ %call36, %if.then34 ], [ null, %if.else74 ], [ null, %land.lhs.true ], [ null, %if.then12 ], [ null, %if.end55 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end17 ], [ %call56, %PyUnicode_WRITE.exit ]
   ret ptr %retval.0
 }
 
@@ -58409,7 +58409,7 @@ for.end66.i:                                      ; preds = %for.inc64.i
   ]
 
 if.then.i82.i:                                    ; preds = %for.end66.i
-  %cmp2.not.i.i = icmp eq ptr %call30.i, getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216)
+  %cmp2.not.i.i = icmp eq ptr %call30.i, getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216)
   br i1 %cmp2.not.i.i, label %exit, label %if.then3.i83.i
 
 if.then3.i83.i:                                   ; preds = %if.then.i82.i
@@ -58451,10 +58451,10 @@ PyUnicode_DATA.exit.i.i:                          ; preds = %if.end.i17.i.i, %if
   %retval.0.i.i81.i = phi ptr [ %retval.0.i.i.i.i, %if.then.i.i.i ], [ %op.val3.i.i.i, %if.end.i17.i.i ]
   %28 = load i8, ptr %retval.0.i.i81.i, align 1
   %idxprom.i.i = zext nneg i8 %28 to i64
-  %arrayidx12.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i
+  %arrayidx12.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i
   %29 = and i8 %28, 127
   %idxprom14.i.i = zext nneg i8 %29 to i64
-  %arrayidx15.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom14.i.i
+  %arrayidx15.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom14.i.i
   %cmp1018.i.i = icmp slt i8 %28, 0
   %cond.i.i = select i1 %cmp1018.i.i, ptr %arrayidx15.i.i, ptr %arrayidx12.i.i
   %cmp16.not.i.i = icmp eq ptr %call30.i, %cond.i.i
@@ -58473,7 +58473,7 @@ if.end.i.i.i:                                     ; preds = %if.then18.i.i
   br i1 %cmp.i.i.i, label %return.sink.split.i.i, label %exit
 
 return.sink.split.i.i:                            ; preds = %if.end.i.i.i, %if.end.i25.i.i
-  %retval.0.ph.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end.i25.i.i ], [ %cond.i.i, %if.end.i.i.i ]
+  %retval.0.ph.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end.i25.i.i ], [ %cond.i.i, %if.end.i.i.i ]
   call void @_Py_Dealloc(ptr noundef nonnull %call30.i) #35
   br label %exit
 
@@ -58483,7 +58483,7 @@ overflow.i:                                       ; preds = %if.else.us134.i, %i
   br label %exit
 
 exit:                                             ; preds = %overflow.i, %return.sink.split.i.i, %if.end.i.i.i, %if.then18.i.i, %PyUnicode_DATA.exit.i.i, %if.then6.i.i, %if.end.i25.i.i, %if.then3.i83.i, %if.then.i82.i, %for.end66.i, %if.end28.i, %if.then26.i, %land.lhs.true17, %cond.end9
-  %return_value.0 = phi ptr [ null, %land.lhs.true17 ], [ null, %cond.end9 ], [ null, %overflow.i ], [ %call27.i, %if.then26.i ], [ null, %if.end28.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.end.i25.i.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then3.i83.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.then.i82.i ], [ %cond.i.i, %if.end.i.i.i ], [ %cond.i.i, %if.then18.i.i ], [ %cond.i.i, %PyUnicode_DATA.exit.i.i ], [ %call30.i, %for.end66.i ], [ %call30.i, %if.then6.i.i ], [ %retval.0.ph.i.i, %return.sink.split.i.i ]
+  %return_value.0 = phi ptr [ null, %land.lhs.true17 ], [ null, %cond.end9 ], [ null, %overflow.i ], [ %call27.i, %if.then26.i ], [ null, %if.end28.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.end.i25.i.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then3.i83.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.then.i82.i ], [ %cond.i.i, %if.end.i.i.i ], [ %cond.i.i, %if.then18.i.i ], [ %cond.i.i, %PyUnicode_DATA.exit.i.i ], [ %call30.i, %for.end66.i ], [ %call30.i, %if.then6.i.i ], [ %retval.0.ph.i.i, %return.sink.split.i.i ]
   ret ptr %return_value.0
 }
 
@@ -64114,7 +64114,7 @@ if.end28.i.i:                                     ; preds = %if.else18.i.i
   br i1 %cmp29.i.i, label %render_field.exit.i.thread, label %if.end32.i.i
 
 if.end32.i.i:                                     ; preds = %if.end28.i.i, %if.else18.i.i
-  %format_spec_object.042.i.i = phi ptr [ %call25.i.i, %if.end28.i.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %if.else18.i.i ]
+  %format_spec_object.042.i.i = phi ptr [ %call25.i.i, %if.end28.i.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %if.else18.i.i ]
   %call33.i.i = call ptr @PyObject_Format(ptr noundef nonnull %fieldobj.1.i, ptr noundef nonnull %format_spec_object.042.i.i) #35
   %cmp35.i.i = icmp eq ptr %call33.i.i, null
   br i1 %cmp35.i.i, label %if.then.i.i25.i, label %if.end38.i.i
@@ -66206,10 +66206,10 @@ if.else16:                                        ; preds = %if.end12
 if.then.i.i:                                      ; preds = %if.else16
   %conv.i.i = trunc nuw i32 %7 to i8
   %idxprom.i.i.i = zext nneg i32 %7 to i64
-  %arrayidx.i.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr [128 x %struct.anon.762], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62496), i64 0, i64 %idxprom.i.i.i
   %9 = and i8 %conv.i.i, 127
   %idxprom3.i.i.i = zext nneg i8 %9 to i64
-  %arrayidx4.i.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i
+  %arrayidx4.i.i.i = getelementptr [128 x %struct.anon.763], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 68640), i64 0, i64 %idxprom3.i.i.i
   %cmp.i.i.i100 = icmp slt i8 %conv.i.i, 0
   %conversion_str.1 = select i1 %cmp.i.i.i100, ptr %arrayidx4.i.i.i, ptr %arrayidx.i.i.i
   %cmp19 = icmp eq ptr %conversion_str.1, null
@@ -66378,7 +66378,7 @@ SubString_new_object.exit:                        ; preds = %entry
   br label %return
 
 return:                                           ; preds = %entry, %SubString_new_object.exit
-  %retval.0 = phi ptr [ %call.i, %SubString_new_object.exit ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), %entry ]
+  %retval.0 = phi ptr [ %call.i, %SubString_new_object.exit ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), %entry ]
   ret ptr %retval.0
 }
 
@@ -66413,7 +66413,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define internal ptr @unicodeiter_reduce(ptr nocapture noundef readonly %it, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %call = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 49176)) #35
+  %call = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49176)) #35
   %it_seq = getelementptr inbounds nuw i8, ptr %it, i64 24
   %0 = load ptr, ptr %it_seq, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -66426,7 +66426,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call6 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.315, ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216)) #35
+  %call6 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.315, ptr noundef %call, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216)) #35
   br label %return
 
 return:                                           ; preds = %if.else, %if.then

@@ -180,7 +180,7 @@ $_ZTVN4llvm2cl11OptionValueIjEE = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -192,7 +192,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEED2Ev(ptr n
   br label %_ZNSt8functionIFvRKjEED2Ev.exit
 
 _ZNSt8functionIFvRKjEED2Ev.exit:                  ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -1886,7 +1886,7 @@ define dso_local void @_ZN4llvm15AliasSetTracker3addERKNS_14MemoryLocationE(ptr 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i32, ptr %8, align 8
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
   %11 = icmp ugt i32 %9, %10
   br i1 %11, label %12, label %_ZN4llvm15AliasSetTracker17addMemoryLocationENS_14MemoryLocationENS_8AliasSet13AccessLatticeE.exit
 
@@ -1916,7 +1916,7 @@ define dso_local noundef nonnull align 8 dereferenceable(68) ptr @_ZN4llvm15Alia
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load i32, ptr %13, align 8
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
   %16 = icmp ugt i32 %14, %15
   br i1 %16, label %17, label %19
 
@@ -1967,7 +1967,7 @@ define dso_local void @_ZN4llvm15AliasSetTracker3addEPNS_8LoadInstE(ptr noundef 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load i32, ptr %22, align 8
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
   %25 = icmp ugt i32 %23, %24
   br i1 %25, label %26, label %_ZN4llvm15AliasSetTracker17addMemoryLocationENS_14MemoryLocationENS_8AliasSet13AccessLatticeE.exit
 
@@ -2169,7 +2169,7 @@ define dso_local void @_ZN4llvm15AliasSetTracker3addEPNS_9StoreInstE(ptr noundef
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load i32, ptr %22, align 8
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
   %25 = icmp ugt i32 %23, %24
   br i1 %25, label %26, label %_ZN4llvm15AliasSetTracker17addMemoryLocationENS_14MemoryLocationENS_8AliasSet13AccessLatticeE.exit
 
@@ -2207,7 +2207,7 @@ define dso_local void @_ZN4llvm15AliasSetTracker3addEPNS_9VAArgInstE(ptr noundef
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i32, ptr %12, align 8
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
   %15 = icmp ugt i32 %13, %14
   br i1 %15, label %16, label %_ZN4llvm15AliasSetTracker17addMemoryLocationENS_14MemoryLocationENS_8AliasSet13AccessLatticeE.exit
 
@@ -2242,7 +2242,7 @@ define dso_local void @_ZN4llvm15AliasSetTracker3addEPNS_13AnyMemSetInstE(ptr no
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i32, ptr %12, align 8
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
   %15 = icmp ugt i32 %13, %14
   br i1 %15, label %16, label %_ZN4llvm15AliasSetTracker17addMemoryLocationENS_14MemoryLocationENS_8AliasSet13AccessLatticeE.exit
 
@@ -2279,7 +2279,7 @@ define dso_local void @_ZN4llvm15AliasSetTracker3addEPNS_18AnyMemTransferInstE(p
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
   %17 = icmp ugt i32 %15, %16
   br i1 %17, label %18, label %_ZN4llvm15AliasSetTracker17addMemoryLocationENS_14MemoryLocationENS_8AliasSet13AccessLatticeE.exit
 
@@ -2304,7 +2304,7 @@ _ZN4llvm15AliasSetTracker17addMemoryLocationENS_14MemoryLocationENS_8AliasSet13A
 25:                                               ; preds = %_ZN4llvm15AliasSetTracker17addMemoryLocationENS_14MemoryLocationENS_8AliasSet13AccessLatticeE.exit
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load i32, ptr %26, align 8
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
   %29 = icmp ugt i32 %27, %28
   br i1 %29, label %30, label %_ZN4llvm15AliasSetTracker17addMemoryLocationENS_14MemoryLocationENS_8AliasSet13AccessLatticeE.exit5
 
@@ -2370,7 +2370,7 @@ define dso_local void @_ZN4llvm15AliasSetTracker3addEPNS_11InstructionE(ptr noun
 32:                                               ; preds = %25
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load i32, ptr %33, align 8
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
   %36 = icmp ugt i32 %34, %35
   br i1 %36, label %37, label %_ZN4llvm15AliasSetTracker17addMemoryLocationENS_14MemoryLocationENS_8AliasSet13AccessLatticeE.exit.i
 
@@ -2424,7 +2424,7 @@ _ZN4llvm15AliasSetTracker3addEPNS_8LoadInstE.exit: ; preds = %24, %_ZN4llvm15Ali
 58:                                               ; preds = %51
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %60 = load i32, ptr %59, align 8
-  %61 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
+  %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
   %62 = icmp ugt i32 %60, %61
   br i1 %62, label %63, label %_ZN4llvm15AliasSetTracker17addMemoryLocationENS_14MemoryLocationENS_8AliasSet13AccessLatticeE.exit.i42
 
@@ -2463,7 +2463,7 @@ _ZN4llvm15AliasSetTracker3addEPNS_9StoreInstE.exit: ; preds = %50, %_ZN4llvm15Al
 74:                                               ; preds = %67
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %76 = load i32, ptr %75, align 8
-  %77 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
+  %77 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
   %78 = icmp ugt i32 %76, %77
   br i1 %78, label %79, label %_ZN4llvm15AliasSetTracker3addEPNS_9VAArgInstE.exit
 
@@ -2531,7 +2531,7 @@ _ZN4llvm8dyn_castINS_13AnyMemSetInstENS_11InstructionEEEDcPT0_.exit: ; preds = %
 105:                                              ; preds = %_ZN4llvm8dyn_castINS_13AnyMemSetInstENS_11InstructionEEEDcPT0_.exit
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %107 = load i32, ptr %106, align 8
-  %108 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
+  %108 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
   %109 = icmp ugt i32 %107, %108
   br i1 %109, label %110, label %_ZN4llvm15AliasSetTracker3addEPNS_13AnyMemSetInstE.exit
 
@@ -2684,7 +2684,7 @@ _ZN4llvm12PatternMatch5matchINS_8CallBaseENS0_17IntrinsicID_matchEEEbPT_RKT0_.ex
 
 184:                                              ; preds = %174
   %185 = load i32, ptr %159, align 8
-  %186 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
+  %186 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
   %187 = icmp ugt i32 %185, %186
   br i1 %187, label %188, label %_ZN4llvm15AliasSetTracker17addMemoryLocationENS_14MemoryLocationENS_8AliasSet13AccessLatticeE.exit
 
@@ -2850,7 +2850,7 @@ define dso_local void @_ZN4llvm15AliasSetTracker3addERKS0_(ptr noundef nonnull a
 
 32:                                               ; preds = %24
   %33 = load i32, ptr %8, align 8
-  %34 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
   %35 = icmp ugt i32 %33, %34
   br i1 %35, label %36, label %_ZN4llvm15AliasSetTracker17addMemoryLocationENS_14MemoryLocationENS_8AliasSet13AccessLatticeE.exit
 
@@ -2876,7 +2876,7 @@ _ZN4llvm15AliasSetTracker17addMemoryLocationENS_14MemoryLocationENS_8AliasSet13A
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull align 8 dereferenceable(68) ptr @_ZN4llvm15AliasSetTracker17mergeAllAliasSetsEv(ptr noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
   %.not28 = icmp eq i32 %2, 0
   br i1 %.not28, label %_ZNSt6vectorIPN4llvm8AliasSetESaIS2_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIPN4llvm8AliasSetESaIS2_EE13_M_deallocateEPS2_m.exit.i
 
@@ -3792,7 +3792,7 @@ _ZN4llvm11AAQueryInfoC2ERNS_9AAResultsEPNS_11CaptureInfoE.exit.i: ; preds = %.lr
   store i8 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 505
   store i8 1, ptr %19, align 1
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm17SimpleCaptureInfoE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm17SimpleCaptureInfoE, i64 16), ptr %12, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 520
   store i32 1, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 524
@@ -4245,7 +4245,7 @@ declare void @_ZN4llvm11CaptureInfoD2Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -6401,10 +6401,10 @@ define internal void @_GLOBAL__sub_I_AliasSetTracker.cpp() #13 section ".text.st
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL19SaturationThreshold, i32 noundef 0, i32 noundef 0)
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL19SaturationThreshold, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL19SaturationThreshold, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL19SaturationThreshold, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL19SaturationThreshold, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL19SaturationThreshold, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL19SaturationThreshold, align 8
   tail call void @_ZN4llvm2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL19SaturationThreshold, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL19SaturationThreshold) #18
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL19SaturationThreshold, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL19SaturationThreshold, i64 152), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL19SaturationThreshold, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL19SaturationThreshold, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL19SaturationThreshold, i64 176), align 8

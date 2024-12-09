@@ -923,7 +923,7 @@ declare noundef ptr @_ZN6icu_756Locale19getAvailableLocalesERi(ptr noundef nonnu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7513BreakIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(479) initializes((0, 9), (165, 166), (322, 323)) %this) unnamed_addr #11 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513BreakIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513BreakIteratorE, i64 16), ptr %this, align 8
   %requestLocale = getelementptr inbounds nuw i8, ptr %this, i64 322
   store i8 0, ptr %requestLocale, align 2
   %actualLocale = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -936,7 +936,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6icu_7513BreakIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(479) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(479) %other) unnamed_addr #12 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513BreakIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513BreakIteratorE, i64 16), ptr %this, align 8
   %actualLocale = getelementptr inbounds nuw i8, ptr %this, i64 8
   %actualLocale2 = getelementptr inbounds nuw i8, ptr %other, i64 8
   %call = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %actualLocale, ptr noundef nonnull dereferenceable(1) %actualLocale2, i64 noundef 157) #19
@@ -1598,7 +1598,7 @@ return:                                           ; preds = %entry, %if.end3, %i
 define void @_ZN6icu_7513BreakIteratorC2ERKNS_6LocaleES3_(ptr noundef nonnull align 8 dereferenceable(479) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(217) %valid, ptr noundef nonnull align 8 dereferenceable(217) %actual) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %locBased = alloca %"class.icu_75::LocaleBased", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513BreakIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513BreakIteratorE, i64 16), ptr %this, align 8
   %validLocale = getelementptr inbounds nuw i8, ptr %this, i64 165
   %actualLocale = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %validLocale, ptr %locBased, align 8
@@ -1749,7 +1749,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #19
   %0 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0) #19, !srcloc !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523ICUBreakIteratorServiceE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7523ICUBreakIteratorServiceE, i64 16), ptr %this, align 8
   store i32 0, ptr %status, align 4
   %call = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 144) #19
   %new.isnull = icmp eq ptr %call, null
@@ -1761,7 +1761,7 @@ new.notnull:                                      ; preds = %invoke.cont3
           to label %_ZN6icu_7523ICUBreakIteratorFactoryC2Ev.exit unwind label %lpad4
 
 _ZN6icu_7523ICUBreakIteratorFactoryC2Ev.exit:     ; preds = %new.notnull
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523ICUBreakIteratorFactoryE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7523ICUBreakIteratorFactoryE, i64 16), ptr %call, align 8
   br label %new.cont
 
 new.cont:                                         ; preds = %_ZN6icu_7523ICUBreakIteratorFactoryC2Ev.exit, %invoke.cont3

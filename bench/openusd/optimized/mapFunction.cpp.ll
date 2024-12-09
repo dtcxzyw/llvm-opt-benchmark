@@ -449,7 +449,7 @@ _ZNSt10shared_ptrISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EEC2IS3
   store i32 1, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %59, i64 12
   store i32 1, ptr %72, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt19_Sp_counted_deleterIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ESt14default_deleteIA_S3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %59, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt19_Sp_counted_deleterIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ESt14default_deleteIA_S3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %59, align 8
   %73 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store ptr %57, ptr %73, align 8
   store ptr %59, ptr %58, align 8

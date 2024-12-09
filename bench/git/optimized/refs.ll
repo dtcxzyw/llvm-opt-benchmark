@@ -852,7 +852,7 @@ if.end31.us.us.us:                                ; preds = %for.body.us.us.us
   br i1 %tobool34.not.us.us.us, label %if.then35, label %if.end41.us.us.us
 
 if.end41.us.us.us:                                ; preds = %if.end31.us.us.us
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
   %call.i38.us.us.us = call fastcc range(i32 -1, 1) i32 @check_or_sanitize_refname(ptr noundef %1, i32 noundef 1, ptr noundef null)
   %tobool47.not.us.us.us = icmp eq i32 %call.i38.us.us.us, 0
   %inc.us.us.us = add nuw nsw i32 %symref_count.090.us.us.us, 1
@@ -878,7 +878,7 @@ if.end31.us.us:                                   ; preds = %for.body.us.us
   br i1 %tobool34.not.us.us, label %if.then35, label %if.end41.us.us
 
 if.end41.us.us:                                   ; preds = %if.end31.us.us
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
   %call.i38.us.us = call fastcc range(i32 -1, 1) i32 @check_or_sanitize_refname(ptr noundef %3, i32 noundef 1, ptr noundef null)
   %tobool47.not.us.us = icmp eq i32 %call.i38.us.us, 0
   %inc.us.us = add nuw nsw i32 %symref_count.090.us.us, 1
@@ -906,7 +906,7 @@ if.end31.us.us102:                                ; preds = %for.body.us.us96
   br i1 %tobool34.not.us.us109, label %if.then35, label %if.end41.us.us110
 
 if.end41.us.us110:                                ; preds = %if.end31.us.us102
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
   %call.i38.us.us111 = call fastcc range(i32 -1, 1) i32 @check_or_sanitize_refname(ptr noundef %5, i32 noundef 1, ptr noundef null)
   %tobool47.not.us.us112 = icmp eq i32 %call.i38.us.us111, 0
   br i1 %tobool47.not.us.us112, label %for.inc.us.us114, label %if.then48.us.us113
@@ -940,7 +940,7 @@ if.end31.us:                                      ; preds = %for.body.us
   br i1 %tobool34.not.us, label %if.then35, label %if.end41.us
 
 if.end41.us:                                      ; preds = %if.end31.us
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
   %call.i38.us = call fastcc range(i32 -1, 1) i32 @check_or_sanitize_refname(ptr noundef %7, i32 noundef 1, ptr noundef null)
   %tobool47.not.us = icmp eq i32 %call.i38.us, 0
   br i1 %tobool47.not.us, label %for.inc.us, label %if.then48.us
@@ -1066,7 +1066,7 @@ if.then38.else:                                   ; preds = %if.then38
   br label %return
 
 if.end41:                                         ; preds = %if.end31.cont
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %spec.select, i8 0, i64 32, i1 false)
   %16 = load ptr, ptr @the_repository, align 8
   %hash_algo.i32 = getelementptr inbounds nuw i8, ptr %16, i64 256
@@ -1296,7 +1296,7 @@ if.end31.us.us.us.i:                              ; preds = %for.body.us.us.us.i
   br i1 %tobool34.not.us.us.us.i, label %refs_resolve_ref_unsafe.exit.loopexit, label %if.end41.us.us.us.i
 
 if.end41.us.us.us.i:                              ; preds = %if.end31.us.us.us.i
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
   %call.i38.us.us.us.i = call fastcc range(i32 -1, 1) i32 @check_or_sanitize_refname(ptr noundef %1, i32 noundef 1, ptr noundef null)
   %tobool47.not.us.us.us.i = icmp eq i32 %call.i38.us.us.us.i, 0
   %inc.us.us.us.i = add nuw nsw i32 %symref_count.090.us.us.us.i, 1
@@ -1382,7 +1382,7 @@ if.end31.us.us.us.i.i:                            ; preds = %for.body.us.us.us.i
   br i1 %tobool34.not.us.us.us.i.i, label %refs_ref_exists.exit.loopexit, label %if.end41.us.us.us.i.i
 
 if.end41.us.us.us.i.i:                            ; preds = %if.end31.us.us.us.i.i
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
   %call.i38.us.us.us.i.i = call fastcc range(i32 -1, 1) i32 @check_or_sanitize_refname(ptr noundef %7, i32 noundef 1, ptr noundef null)
   %tobool47.not.us.us.us.i.i = icmp eq i32 %call.i38.us.us.us.i.i, 0
   %inc.us.us.us.i.i = add nuw nsw i32 %symref_count.090.us.us.us.i.i, 1
@@ -2360,7 +2360,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.then:                                          ; preds = %for.body
   %sub.ptr.rhs.cast = ptrtoint ptr %p.07 to i64
-  %sub.ptr.sub = sub i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @ref_rev_parse_rules, i64 48) to i64), %sub.ptr.rhs.cast
+  %sub.ptr.sub = sub i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @ref_rev_parse_rules, i64 48) to i64), %sub.ptr.rhs.cast
   %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 3
   %conv4 = trunc i64 %sub.ptr.div to i32
   br label %return
@@ -4969,7 +4969,7 @@ if.end31.us.us.us.i.i:                            ; preds = %refs_read_raw_ref.e
   br i1 %tobool34.not.us.us.us.i.i, label %refs_ref_exists.exit, label %if.end41.us.us.us.i.i
 
 if.end41.us.us.us.i.i:                            ; preds = %if.end31.us.us.us.i.i
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
   %27 = load i8, ptr %26, align 1
   %.not.i = icmp eq i8 %27, 64
   br i1 %.not.i, label %entry.tail.i, label %while.body.i.preheader
@@ -5742,7 +5742,7 @@ do_for_each_ref.exit:                             ; preds = %entry, %refs_ref_it
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @for_each_replace_ref(ptr noundef %r, ptr noundef %fn, ptr noundef %cb_data) local_unnamed_addr #5 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @ref_namespace, i64 80), align 16
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ref_namespace, i64 80), align 16
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #22
   %conv = trunc i64 %call to i32
   %refs_private.i.i = getelementptr inbounds nuw i8, ptr %r, i64 32

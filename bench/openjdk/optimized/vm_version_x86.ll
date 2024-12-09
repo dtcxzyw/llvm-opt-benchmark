@@ -471,7 +471,7 @@ define hidden void @_ZN10VM_Version22get_processor_featuresEv() local_unnamed_ad
   store i64 %17, ptr @_ZN19Abstract_VM_Version13_cpu_featuresE, align 8
   %18 = tail call noundef i32 @_ZN10VM_Version16threads_per_coreEv()
   store i32 %18, ptr @_ZN19Abstract_VM_Version31_logical_processors_per_packageE, align 4
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %19, label %_ZN10VM_Version12L1_line_sizeEv.exit [
     i32 1970169159, label %20
     i32 1869052232, label %24
@@ -481,18 +481,18 @@ define hidden void @_ZN10VM_Version22get_processor_featuresEv() local_unnamed_ad
   ]
 
 20:                                               ; preds = %16
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 36), align 4
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 36), align 4
   %22 = and i32 %21, 4095
   %23 = add nuw nsw i32 %22, 1
   br label %_ZN10VM_Version12L1_line_sizeEv.exit
 
 24:                                               ; preds = %16, %16
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 208), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 208), align 8
   %26 = and i32 %25, 255
   br label %_ZN10VM_Version12L1_line_sizeEv.exit
 
 27:                                               ; preds = %16, %16
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 36), align 4
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 36), align 4
   %29 = and i32 %28, 4095
   %30 = add nuw nsw i32 %29, 1
   br label %_ZN10VM_Version12L1_line_sizeEv.exit
@@ -527,7 +527,7 @@ _ZN10VM_Version12L1_line_sizeEv.exit:             ; preds = %16, %20, %24, %27
   br label %39
 
 39:                                               ; preds = %35, %38
-  %40 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 28), align 4
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 28), align 4
   %41 = and i32 %40, 524288
   %.not78 = icmp eq i32 %41, 0
   br i1 %.not78, label %42, label %44
@@ -539,7 +539,7 @@ _ZN10VM_Version12L1_line_sizeEv.exit:             ; preds = %16, %20, %24, %27
   unreachable
 
 44:                                               ; preds = %39
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 20), align 4
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 20), align 4
   %46 = and i32 %45, 65280
   %47 = icmp eq i32 %46, 2048
   br i1 %47, label %50, label %48
@@ -555,7 +555,7 @@ _ZN10VM_Version12L1_line_sizeEv.exit:             ; preds = %16, %20, %24, %27
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %50
-  %53 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 20), align 4
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 20), align 4
   %54 = lshr i32 %53, 5
   %55 = and i32 %54, 2040
   store i32 %55, ptr @_ZN19Abstract_VM_Version27_data_cache_line_flush_sizeE, align 4
@@ -563,7 +563,7 @@ _ZN10VM_Version12L1_line_sizeEv.exit:             ; preds = %16, %20, %24, %27
 
 56:                                               ; preds = %52, %50
   %57 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 26) #14
-  %58 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   %59 = icmp eq i32 %58, 1970169159
   %or.cond139 = select i1 %57, i1 %59, i1 false
   %60 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
@@ -728,7 +728,7 @@ _ZN10VM_Version12L1_line_sizeEv.exit:             ; preds = %16, %20, %24, %27
   br i1 %119, label %120, label %138
 
 120:                                              ; preds = %.thread107
-  %121 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %121 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   %122 = icmp eq i32 %121, 1970169159
   br i1 %122, label %_ZN10VM_Version20is_intel_family_coreEv.exit.i, label %.sink.split264
 
@@ -841,7 +841,7 @@ _ZN10VM_Version16is_intel_skylakeEv.exit:         ; preds = %_ZN10VM_Version20is
   br label %172
 
 172:                                              ; preds = %169, %.thread116
-  %173 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %173 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   %174 = icmp eq i32 %173, 1970169159
   br i1 %174, label %175, label %_ZN10VM_Version17is_knights_familyEv.exit.thread117
 
@@ -879,7 +879,7 @@ _ZN10VM_Version17is_knights_familyEv.exit.thread117: ; preds = %_ZN10VM_Version1
   br i1 %189, label %190, label %228
 
 190:                                              ; preds = %_ZN10VM_Version17is_knights_familyEv.exit.thread117
-  %191 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %191 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   %192 = icmp eq i32 %191, 1970169159
   br i1 %192, label %_ZN10VM_Version20is_intel_family_coreEv.exit.i92, label %_ZN10VM_Version29compute_has_intel_jcc_erratumEv.exit
 
@@ -958,7 +958,7 @@ _ZN10VM_Version29compute_has_intel_jcc_erratumEv.exit: ; preds = %190, %_ZN10VM_
 228:                                              ; preds = %_ZN10VM_Version17is_knights_familyEv.exit.thread117
   %229 = load i8, ptr @IntelJccErratumMitigation, align 1
   %230 = and i8 %229, 1
-  %.pre243 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %.pre243 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   br label %231
 
 231:                                              ; preds = %228, %_ZN10VM_Version29compute_has_intel_jcc_erratumEv.exit
@@ -979,16 +979,16 @@ _ZN10VM_Version29compute_has_intel_jcc_erratumEv.exit: ; preds = %190, %_ZN10VM_
   br i1 %235, label %_ZN10VM_Version27supports_processor_topologyEv.exit.i, label %.thread.i
 
 _ZN10VM_Version27supports_processor_topologyEv.exit.i: ; preds = %233
-  %236 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
+  %236 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
   %237 = and i32 %236, 31
-  %238 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
+  %238 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
   %239 = and i32 %238, 65535
   %240 = or i32 %239, %237
   %.not24.i = icmp eq i32 %240, 0
   br i1 %.not24.i, label %.thread.i, label %241
 
 241:                                              ; preds = %_ZN10VM_Version27supports_processor_topologyEv.exit.i
-  %242 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
+  %242 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
   %.lhs.trunc.i = trunc i32 %242 to i16
   %.rhs.trunc.i = trunc i32 %238 to i16
   %243 = udiv i16 %.lhs.trunc.i, %.rhs.trunc.i
@@ -997,13 +997,13 @@ _ZN10VM_Version27supports_processor_topologyEv.exit.i: ; preds = %233
   br i1 %.not25.i, label %.thread.i, label %_ZN10VM_Version13cores_per_cpuEv.exit
 
 .thread.i:                                        ; preds = %241, %_ZN10VM_Version27supports_processor_topologyEv.exit.i, %233
-  %244 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
+  %244 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
   %245 = lshr i32 %244, 26
   %246 = add nuw nsw i32 %245, 1
   br label %_ZN10VM_Version13cores_per_cpuEv.exit
 
 247:                                              ; preds = %231, %231
-  %248 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 240), align 8
+  %248 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 240), align 8
   %249 = and i32 %248, 255
   %250 = add nuw nsw i32 %249, 1
   br label %_ZN10VM_Version13cores_per_cpuEv.exit
@@ -1014,16 +1014,16 @@ _ZN10VM_Version27supports_processor_topologyEv.exit.i: ; preds = %233
   br i1 %253, label %_ZN10VM_Version27supports_processor_topologyEv.exit13.i, label %.thread17.i
 
 _ZN10VM_Version27supports_processor_topologyEv.exit13.i: ; preds = %251
-  %254 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
+  %254 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
   %255 = and i32 %254, 31
-  %256 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
+  %256 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
   %257 = and i32 %256, 65535
   %258 = or i32 %257, %255
   %.not.i = icmp eq i32 %258, 0
   br i1 %.not.i, label %.thread17.i, label %259
 
 259:                                              ; preds = %_ZN10VM_Version27supports_processor_topologyEv.exit13.i
-  %260 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
+  %260 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
   %.lhs.trunc20.i = trunc i32 %260 to i16
   %.rhs.trunc21.i = trunc i32 %256 to i16
   %261 = udiv i16 %.lhs.trunc20.i, %.rhs.trunc21.i
@@ -1032,7 +1032,7 @@ _ZN10VM_Version27supports_processor_topologyEv.exit13.i: ; preds = %251
   br i1 %.not23.i, label %.thread17.i, label %_ZN10VM_Version13cores_per_cpuEv.exit
 
 .thread17.i:                                      ; preds = %259, %_ZN10VM_Version27supports_processor_topologyEv.exit13.i, %251
-  %262 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
+  %262 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
   %263 = lshr i32 %262, 26
   %264 = add nuw nsw i32 %263, 1
   br label %_ZN10VM_Version13cores_per_cpuEv.exit
@@ -1634,7 +1634,7 @@ _ZN10VM_Version13cores_per_cpuEv.exit:            ; preds = %231, %241, %.thread
 
 .preheader23.i:                                   ; preds = %507, %510
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %510 ], [ 0, %507 ]
-  %511 = getelementptr inbounds nuw [64 x i32], ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 400), i64 0, i64 %indvars.iv.i
+  %511 = getelementptr inbounds nuw [64 x i32], ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 400), i64 0, i64 %indvars.iv.i
   %512 = load i32, ptr %511, align 4
   %.not18.i = icmp eq i32 %512, -889275714
   br i1 %.not18.i, label %510, label %_ZN10VM_Version23os_supports_avx_vectorsEv.exit
@@ -1651,7 +1651,7 @@ _ZN10VM_Version13cores_per_cpuEv.exit:            ; preds = %231, %241, %.thread
 
 .preheader21.i:                                   ; preds = %513, %515
   %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %515 ], [ 0, %513 ]
-  %516 = getelementptr inbounds nuw [32 x i32], ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 272), i64 0, i64 %indvars.iv33.i
+  %516 = getelementptr inbounds nuw [32 x i32], ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 272), i64 0, i64 %indvars.iv33.i
   %517 = load i32, ptr %516, align 4
   %.not.i94 = icmp eq i32 %517, -889275714
   br i1 %.not.i94, label %515, label %.preheader.i
@@ -1663,7 +1663,7 @@ _ZN10VM_Version13cores_per_cpuEv.exit:            ; preds = %231, %241, %.thread
 
 .preheader.i:                                     ; preds = %.preheader21.i, %518
   %indvars.iv37.i = phi i64 [ %indvars.iv.next38.i, %518 ], [ 0, %.preheader21.i ]
-  %519 = getelementptr inbounds nuw [64 x i32], ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 400), i64 0, i64 %indvars.iv37.i
+  %519 = getelementptr inbounds nuw [64 x i32], ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 400), i64 0, i64 %indvars.iv37.i
   %520 = load i32, ptr %519, align 4
   %.not17.i = icmp eq i32 %520, -889275714
   br i1 %.not17.i, label %518, label %_ZN10VM_Version23os_supports_avx_vectorsEv.exit
@@ -1814,7 +1814,7 @@ _Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   br label %573
 
 573:                                              ; preds = %572, %570
-  %574 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %574 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %574, label %627 [
     i32 1953391939, label %575
     i32 1750278176, label %575
@@ -1947,7 +1947,7 @@ _Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %626, %623, %621
-  %.pr258 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %.pr258 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   br label %627
 
 627:                                              ; preds = %thread-pre-split, %573
@@ -2172,7 +2172,7 @@ thread-pre-split123:                              ; preds = %690, %688, %685
   br label %thread-pre-split126
 
 thread-pre-split126:                              ; preds = %710, %713, %715, %696, %.thread125
-  %.pr127 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %.pr127 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   br label %716
 
 716:                                              ; preds = %627, %thread-pre-split126
@@ -2686,7 +2686,7 @@ switch.early.test:                                ; preds = %809
   br label %925
 
 925:                                              ; preds = %.sink.split326, %921, %919
-  %926 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %926 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   %927 = icmp eq i32 %926, 1752462657
   %928 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
   %929 = icmp sgt i32 %928, 24
@@ -2702,7 +2702,7 @@ switch.early.test:                                ; preds = %809
   br label %933
 
 933:                                              ; preds = %930, %932, %925
-  %934 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %934 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   %935 = icmp eq i32 %934, 1970169159
   %936 = load i64, ptr @MaxVectorSize, align 8
   %937 = icmp sgt i64 %936, 16
@@ -2783,7 +2783,7 @@ switch.early.test:                                ; preds = %809
   br label %969
 
 969:                                              ; preds = %.sink.split331, %967, %961
-  %970 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %970 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %970, label %_ZN10VM_Version18prefetch_data_sizeEv.exit [
     i32 1970169159, label %971
     i32 1869052232, label %975
@@ -2793,18 +2793,18 @@ switch.early.test:                                ; preds = %809
   ]
 
 971:                                              ; preds = %969
-  %972 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 36), align 4
+  %972 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 36), align 4
   %973 = and i32 %972, 4095
   %974 = add nuw nsw i32 %973, 1
   br label %_ZN10VM_Version18prefetch_data_sizeEv.exit
 
 975:                                              ; preds = %969, %969
-  %976 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 208), align 8
+  %976 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 208), align 8
   %977 = and i32 %976, 255
   br label %_ZN10VM_Version18prefetch_data_sizeEv.exit
 
 978:                                              ; preds = %969, %969
-  %979 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 36), align 4
+  %979 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 36), align 4
   %980 = and i32 %979, 4095
   %981 = add nuw nsw i32 %980, 1
   br label %_ZN10VM_Version18prefetch_data_sizeEv.exit
@@ -2844,7 +2844,7 @@ _ZN10VM_Version18prefetch_data_sizeEv.exit:       ; preds = %969, %971, %975, %9
 
 995:                                              ; preds = %994, %986
   %996 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 745) #14
-  %.pre253 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %.pre253 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   br i1 %996, label %997, label %1017
 
 997:                                              ; preds = %995
@@ -2940,7 +2940,7 @@ _ZN10VM_Version26allocate_prefetch_distanceEb.exit: ; preds = %1000, %1011, %101
   br label %1036
 
 1036:                                             ; preds = %1030, %1032, %1035, %1021, %1017
-  %1037 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %1037 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %1037, label %1047 [
     i32 1953391939, label %1038
     i32 1750278176, label %1038
@@ -3040,7 +3040,7 @@ define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZNK10VM_Version9Cp
   br i1 %.not68, label %11, label %17
 
 11:                                               ; preds = %1
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %12, label %19 [
     i32 1869052232, label %13
     i32 1752462657, label %13
@@ -3068,7 +3068,7 @@ define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZNK10VM_Version9Cp
   br i1 %.not70, label %24, label %30
 
 24:                                               ; preds = %19
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %25, label %32 [
     i32 1869052232, label %26
     i32 1752462657, label %26
@@ -3294,7 +3294,7 @@ define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZNK10VM_Version9Cp
   %.44 = or i64 %.43, %.34
   %.45 = or i64 %.44, %167
   %.46 = or i64 %.45, %172
-  %173 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %173 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %173, label %200 [
     i32 1869052232, label %.thread
     i32 1752462657, label %.thread
@@ -3433,7 +3433,7 @@ _ZN10VM_Version28is_intel_tsc_synched_at_initEv.exit: ; preds = %236, %_ZN10VM_V
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef range(i32 32, 4097) i32 @_ZN10VM_Version12L1_line_sizeEv() local_unnamed_addr #3 align 2 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %1, label %13 [
     i32 1970169159, label %2
     i32 1869052232, label %6
@@ -3443,18 +3443,18 @@ define hidden noundef range(i32 32, 4097) i32 @_ZN10VM_Version12L1_line_sizeEv()
   ]
 
 2:                                                ; preds = %0
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 36), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 36), align 4
   %4 = and i32 %3, 4095
   %5 = add nuw nsw i32 %4, 1
   br label %13
 
 6:                                                ; preds = %0, %0
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 208), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 208), align 8
   %8 = and i32 %7, 255
   br label %13
 
 9:                                                ; preds = %0, %0
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 36), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 36), align 4
   %11 = and i32 %10, 4095
   %12 = add nuw nsw i32 %11, 1
   br label %13
@@ -3483,7 +3483,7 @@ define hidden noundef zeroext i1 @_ZN10VM_Version21os_supports_apx_egprsEv() loc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN10VM_Version29compute_has_intel_jcc_erratumEv() local_unnamed_addr #3 align 2 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   %2 = icmp eq i32 %1, 1970169159
   br i1 %2, label %_ZN10VM_Version20is_intel_family_coreEv.exit, label %_ZN10VM_Version20is_intel_family_coreEv.exit.thread
 
@@ -3563,7 +3563,7 @@ declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unna
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef range(i32 1, 65536) i32 @_ZN10VM_Version13cores_per_cpuEv() local_unnamed_addr #3 align 2 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %1, label %34 [
     i32 1970169159, label %2
     i32 1869052232, label %16
@@ -3578,16 +3578,16 @@ define hidden noundef range(i32 1, 65536) i32 @_ZN10VM_Version13cores_per_cpuEv(
   br i1 %4, label %_ZN10VM_Version27supports_processor_topologyEv.exit, label %.thread
 
 _ZN10VM_Version27supports_processor_topologyEv.exit: ; preds = %2
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
   %6 = and i32 %5, 31
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
   %8 = and i32 %7, 65535
   %9 = or i32 %8, %6
   %.not24 = icmp eq i32 %9, 0
   br i1 %.not24, label %.thread, label %10
 
 10:                                               ; preds = %_ZN10VM_Version27supports_processor_topologyEv.exit
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
   %.lhs.trunc = trunc i32 %11 to i16
   %.rhs.trunc = trunc i32 %7 to i16
   %12 = udiv i16 %.lhs.trunc, %.rhs.trunc
@@ -3596,13 +3596,13 @@ _ZN10VM_Version27supports_processor_topologyEv.exit: ; preds = %2
   br i1 %.not25, label %.thread, label %34
 
 .thread:                                          ; preds = %2, %_ZN10VM_Version27supports_processor_topologyEv.exit, %10
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
   %14 = lshr i32 %13, 26
   %15 = add nuw nsw i32 %14, 1
   br label %34
 
 16:                                               ; preds = %0, %0
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 240), align 8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 240), align 8
   %18 = and i32 %17, 255
   %19 = add nuw nsw i32 %18, 1
   br label %34
@@ -3613,16 +3613,16 @@ _ZN10VM_Version27supports_processor_topologyEv.exit: ; preds = %2
   br i1 %22, label %_ZN10VM_Version27supports_processor_topologyEv.exit13, label %.thread17
 
 _ZN10VM_Version27supports_processor_topologyEv.exit13: ; preds = %20
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
   %24 = and i32 %23, 31
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
   %26 = and i32 %25, 65535
   %27 = or i32 %26, %24
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %.thread17, label %28
 
 28:                                               ; preds = %_ZN10VM_Version27supports_processor_topologyEv.exit13
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
   %.lhs.trunc20 = trunc i32 %29 to i16
   %.rhs.trunc21 = trunc i32 %25 to i16
   %30 = udiv i16 %.lhs.trunc20, %.rhs.trunc21
@@ -3631,7 +3631,7 @@ _ZN10VM_Version27supports_processor_topologyEv.exit13: ; preds = %20
   br i1 %.not23, label %.thread17, label %34
 
 .thread17:                                        ; preds = %20, %_ZN10VM_Version27supports_processor_topologyEv.exit13, %28
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
   %32 = lshr i32 %31, 26
   %33 = add nuw nsw i32 %32, 1
   br label %34
@@ -3643,7 +3643,7 @@ _ZN10VM_Version27supports_processor_topologyEv.exit13: ; preds = %20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef range(i32 1, 65536) i32 @_ZN10VM_Version16threads_per_coreEv() local_unnamed_addr #3 align 2 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   %2 = icmp eq i32 %1, 1970169159
   %3 = load i32, ptr @_ZN10VM_Version11_cpuid_infoE, align 8
   %4 = icmp ugt i32 %3, 10
@@ -3651,9 +3651,9 @@ define hidden noundef range(i32 1, 65536) i32 @_ZN10VM_Version16threads_per_core
   br i1 %or.cond, label %_ZN10VM_Version27supports_processor_topologyEv.exit, label %_ZN10VM_Version27supports_processor_topologyEv.exit.thread
 
 _ZN10VM_Version27supports_processor_topologyEv.exit: ; preds = %0
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
   %6 = and i32 %5, 31
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
   %8 = and i32 %7, 65535
   %9 = or i32 %8, %6
   %.not4 = icmp eq i32 %9, 0
@@ -3669,16 +3669,16 @@ _ZN10VM_Version27supports_processor_topologyEv.exit.thread: ; preds = %0
   br i1 %4, label %_ZN10VM_Version27supports_processor_topologyEv.exit2, label %_ZN10VM_Version27supports_processor_topologyEv.exit2.thread
 
 _ZN10VM_Version27supports_processor_topologyEv.exit2: ; preds = %10
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
   %12 = and i32 %11, 31
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
   %14 = and i32 %13, 65535
   %15 = or i32 %14, %12
   %.not5 = icmp eq i32 %15, 0
   br i1 %.not5, label %_ZN10VM_Version27supports_processor_topologyEv.exit2.thread, label %59
 
 _ZN10VM_Version27supports_processor_topologyEv.exit2.thread: ; preds = %_ZN10VM_Version27supports_processor_topologyEv.exit, %_ZN10VM_Version27supports_processor_topologyEv.exit.thread, %10, %_ZN10VM_Version27supports_processor_topologyEv.exit2
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 28), align 4
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 28), align 4
   %17 = and i32 %16, 268435456
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %59, label %18
@@ -3689,14 +3689,14 @@ _ZN10VM_Version27supports_processor_topologyEv.exit2.thread: ; preds = %_ZN10VM_
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %18
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 252), align 4
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 252), align 4
   %23 = lshr i32 %22, 8
   %24 = and i32 %23, 255
   %25 = add nuw nsw i32 %24, 1
   br label %59
 
 26:                                               ; preds = %18
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 20), align 4
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 20), align 4
   %28 = lshr i32 %27, 16
   switch i32 %1, label %_ZN10VM_Version13cores_per_cpuEv.exit [
     i32 1970169159, label %29
@@ -3710,16 +3710,16 @@ _ZN10VM_Version27supports_processor_topologyEv.exit2.thread: ; preds = %_ZN10VM_
   br i1 %4, label %_ZN10VM_Version27supports_processor_topologyEv.exit.i, label %.thread.i
 
 _ZN10VM_Version27supports_processor_topologyEv.exit.i: ; preds = %29
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
   %31 = and i32 %30, 31
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
   %33 = and i32 %32, 65535
   %34 = or i32 %33, %31
   %.not24.i = icmp eq i32 %34, 0
   br i1 %.not24.i, label %.thread.i, label %35
 
 35:                                               ; preds = %_ZN10VM_Version27supports_processor_topologyEv.exit.i
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
   %.lhs.trunc.i = trunc i32 %36 to i16
   %.rhs.trunc.i = trunc i32 %32 to i16
   %37 = udiv i16 %.lhs.trunc.i, %.rhs.trunc.i
@@ -3728,13 +3728,13 @@ _ZN10VM_Version27supports_processor_topologyEv.exit.i: ; preds = %29
   br i1 %.not25.i, label %.thread.i, label %_ZN10VM_Version13cores_per_cpuEv.exit
 
 .thread.i:                                        ; preds = %35, %_ZN10VM_Version27supports_processor_topologyEv.exit.i, %29
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
   %39 = lshr i32 %38, 26
   %40 = add nuw nsw i32 %39, 1
   br label %_ZN10VM_Version13cores_per_cpuEv.exit
 
 41:                                               ; preds = %26, %26
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 240), align 8
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 240), align 8
   %43 = and i32 %42, 255
   %44 = add nuw nsw i32 %43, 1
   br label %_ZN10VM_Version13cores_per_cpuEv.exit
@@ -3743,16 +3743,16 @@ _ZN10VM_Version27supports_processor_topologyEv.exit.i: ; preds = %29
   br i1 %4, label %_ZN10VM_Version27supports_processor_topologyEv.exit13.i, label %.thread17.i
 
 _ZN10VM_Version27supports_processor_topologyEv.exit13.i: ; preds = %45
-  %46 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
   %47 = and i32 %46, 31
-  %48 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
+  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
   %49 = and i32 %48, 65535
   %50 = or i32 %49, %47
   %.not.i = icmp eq i32 %50, 0
   br i1 %.not.i, label %.thread17.i, label %51
 
 51:                                               ; preds = %_ZN10VM_Version27supports_processor_topologyEv.exit13.i
-  %52 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
+  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
   %.lhs.trunc20.i = trunc i32 %52 to i16
   %.rhs.trunc21.i = trunc i32 %48 to i16
   %53 = udiv i16 %.lhs.trunc20.i, %.rhs.trunc21.i
@@ -3761,7 +3761,7 @@ _ZN10VM_Version27supports_processor_topologyEv.exit13.i: ; preds = %45
   br i1 %.not23.i, label %.thread17.i, label %_ZN10VM_Version13cores_per_cpuEv.exit
 
 .thread17.i:                                      ; preds = %51, %_ZN10VM_Version27supports_processor_topologyEv.exit13.i, %45
-  %54 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
+  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
   %55 = lshr i32 %54, 26
   %56 = add nuw nsw i32 %55, 1
   br label %_ZN10VM_Version13cores_per_cpuEv.exit
@@ -3796,7 +3796,7 @@ define hidden noundef zeroext i1 @_ZN10VM_Version23os_supports_avx_vectorsEv() l
 
 .preheader23:                                     ; preds = %0, %.preheader23
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader23 ], [ 0, %0 ]
-  %3 = getelementptr inbounds nuw [64 x i32], ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 400), i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [64 x i32], ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 400), i64 0, i64 %indvars.iv
   %4 = load i32, ptr %3, align 4
   %.not18 = icmp eq i32 %4, -889275714
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3816,14 +3816,14 @@ define hidden noundef zeroext i1 @_ZN10VM_Version23os_supports_avx_vectorsEv() l
 
 .preheader21:                                     ; preds = %5, %7
   %indvars.iv33 = phi i64 [ %indvars.iv.next34, %7 ], [ 0, %5 ]
-  %8 = getelementptr inbounds nuw [32 x i32], ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 272), i64 0, i64 %indvars.iv33
+  %8 = getelementptr inbounds nuw [32 x i32], ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 272), i64 0, i64 %indvars.iv33
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, -889275714
   br i1 %.not, label %7, label %.preheader
 
 .preheader:                                       ; preds = %.preheader21, %.preheader
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %.preheader ], [ 0, %.preheader21 ]
-  %10 = getelementptr inbounds nuw [64 x i32], ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 400), i64 0, i64 %indvars.iv37
+  %10 = getelementptr inbounds nuw [64 x i32], ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 400), i64 0, i64 %indvars.iv37
   %11 = load i32, ptr %10, align 4
   %.not17 = icmp eq i32 %11, -889275714
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
@@ -3838,7 +3838,7 @@ define hidden noundef zeroext i1 @_ZN10VM_Version23os_supports_avx_vectorsEv() l
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef range(i32 128, 513) i32 @_ZN10VM_Version26allocate_prefetch_distanceEb(i1 noundef zeroext %0) local_unnamed_addr #3 align 2 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %2, label %6 [
     i32 1869052232, label %3
     i32 1752462657, label %3
@@ -4006,7 +4006,7 @@ define hidden noundef zeroext i1 @_ZN10VM_Version29is_default_intel_cascade_lake
   br i1 %or.cond, label %6, label %27
 
 6:                                                ; preds = %2
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   %8 = icmp eq i32 %7, 1970169159
   br i1 %8, label %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i, label %_ZN10VM_Version21is_intel_cascade_lakeEv.exit
 
@@ -4043,7 +4043,7 @@ _ZN10VM_Version21is_intel_cascade_lakeEv.exit:    ; preds = %6, %_ZN10VM_Version
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN10VM_Version21is_intel_cascade_lakeEv() local_unnamed_addr #3 align 2 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   %2 = icmp eq i32 %1, 1970169159
   br i1 %2, label %_ZN10VM_Version20is_intel_family_coreEv.exit.i, label %_ZN10VM_Version16is_intel_skylakeEv.exit
 
@@ -4076,7 +4076,7 @@ _ZN10VM_Version16is_intel_skylakeEv.exit:         ; preds = %0, %_ZN10VM_Version
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN10VM_Version14avx3_thresholdEv() local_unnamed_addr #1 align 2 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   %2 = icmp eq i32 %1, 1970169159
   br i1 %2, label %_ZN10VM_Version20is_intel_family_coreEv.exit, label %_ZN10VM_Version20is_intel_family_coreEv.exit.thread
 
@@ -4146,7 +4146,7 @@ define hidden void @_ZN10VM_Version10initializeEv() local_unnamed_addr #1 align 
   %19 = phi ptr [ %.pre, %17 ], [ %15, %0 ]
   call void @_ZN10CodeBufferC1EP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef %19) #14
   call void @_ZN17StubCodeGeneratorC2EP10CodeBufferb(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %1, i1 noundef zeroext false) #14
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV24VM_Version_StubGenerator, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV24VM_Version_StubGenerator, i64 16), ptr %2, align 8
   %20 = call noundef ptr @_ZN24VM_Version_StubGenerator21generate_get_cpu_infoEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
   store ptr %20, ptr @_ZL17get_cpu_info_stub, align 8
   %21 = call noundef ptr @_ZN24VM_Version_StubGenerator20generate_detect_virtEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
@@ -4551,7 +4551,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %237 = getelementptr inbounds nuw i8, ptr %49, i64 20
   store i8 0, ptr %237, align 4
   %238 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %238, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %238, align 8
   %239 = getelementptr inbounds nuw i8, ptr %49, i64 32
   store ptr null, ptr %239, align 8
   %240 = getelementptr inbounds nuw i8, ptr %49, i64 40
@@ -4594,7 +4594,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %258 = getelementptr inbounds nuw i8, ptr %50, i64 20
   store i8 0, ptr %258, align 4
   %259 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %259, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %259, align 8
   %260 = getelementptr inbounds nuw i8, ptr %50, i64 32
   store ptr null, ptr %260, align 8
   %261 = getelementptr inbounds nuw i8, ptr %50, i64 40
@@ -4625,7 +4625,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %273 = getelementptr inbounds nuw i8, ptr %51, i64 20
   store i8 0, ptr %273, align 4
   %274 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %274, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %274, align 8
   %275 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store ptr null, ptr %275, align 8
   %276 = getelementptr inbounds nuw i8, ptr %51, i64 40
@@ -4633,7 +4633,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef nonnull align 8 dereferenceable(64) %51, i64 21, i1 false)
   %277 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %278 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %278 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %274, ptr noundef nonnull align 8 dereferenceable(40) %277) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %268, i32 6, ptr noundef nonnull %28) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %28)
@@ -4650,7 +4650,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %284 = getelementptr inbounds nuw i8, ptr %52, i64 20
   store i8 0, ptr %284, align 4
   %285 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %285, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %285, align 8
   %286 = getelementptr inbounds nuw i8, ptr %52, i64 32
   store ptr null, ptr %286, align 8
   %287 = getelementptr inbounds nuw i8, ptr %52, i64 40
@@ -4669,7 +4669,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %293 = getelementptr inbounds nuw i8, ptr %53, i64 20
   store i8 0, ptr %293, align 4
   %294 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %294, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %294, align 8
   %295 = getelementptr inbounds nuw i8, ptr %53, i64 32
   store ptr null, ptr %295, align 8
   %296 = getelementptr inbounds nuw i8, ptr %53, i64 40
@@ -4688,7 +4688,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %302 = getelementptr inbounds nuw i8, ptr %54, i64 20
   store i8 0, ptr %302, align 4
   %303 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %303, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %303, align 8
   %304 = getelementptr inbounds nuw i8, ptr %54, i64 32
   store ptr null, ptr %304, align 8
   %305 = getelementptr inbounds nuw i8, ptr %54, i64 40
@@ -4707,7 +4707,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %311 = getelementptr inbounds nuw i8, ptr %55, i64 20
   store i8 0, ptr %311, align 4
   %312 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %312, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %312, align 8
   %313 = getelementptr inbounds nuw i8, ptr %55, i64 32
   store ptr null, ptr %313, align 8
   %314 = getelementptr inbounds nuw i8, ptr %55, i64 40
@@ -4736,7 +4736,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %325 = getelementptr inbounds nuw i8, ptr %56, i64 20
   store i8 0, ptr %325, align 4
   %326 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %326, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %326, align 8
   %327 = getelementptr inbounds nuw i8, ptr %56, i64 32
   store ptr null, ptr %327, align 8
   %328 = getelementptr inbounds nuw i8, ptr %56, i64 40
@@ -4760,7 +4760,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %335 = getelementptr inbounds nuw i8, ptr %57, i64 20
   store i8 0, ptr %335, align 4
   %336 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %336, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %336, align 8
   %337 = getelementptr inbounds nuw i8, ptr %57, i64 32
   store ptr null, ptr %337, align 8
   %338 = getelementptr inbounds nuw i8, ptr %57, i64 40
@@ -4779,7 +4779,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %344 = getelementptr inbounds nuw i8, ptr %58, i64 20
   store i8 0, ptr %344, align 4
   %345 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %345, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %345, align 8
   %346 = getelementptr inbounds nuw i8, ptr %58, i64 32
   store ptr null, ptr %346, align 8
   %347 = getelementptr inbounds nuw i8, ptr %58, i64 40
@@ -4798,7 +4798,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %353 = getelementptr inbounds nuw i8, ptr %59, i64 20
   store i8 0, ptr %353, align 4
   %354 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %354, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %354, align 8
   %355 = getelementptr inbounds nuw i8, ptr %59, i64 32
   store ptr null, ptr %355, align 8
   %356 = getelementptr inbounds nuw i8, ptr %59, i64 40
@@ -4817,7 +4817,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %362 = getelementptr inbounds nuw i8, ptr %60, i64 20
   store i8 0, ptr %362, align 4
   %363 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %363, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %363, align 8
   %364 = getelementptr inbounds nuw i8, ptr %60, i64 32
   store ptr null, ptr %364, align 8
   %365 = getelementptr inbounds nuw i8, ptr %60, i64 40
@@ -4854,7 +4854,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %380 = getelementptr inbounds nuw i8, ptr %61, i64 20
   store i8 0, ptr %380, align 4
   %381 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %381, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %381, align 8
   %382 = getelementptr inbounds nuw i8, ptr %61, i64 32
   store ptr null, ptr %382, align 8
   %383 = getelementptr inbounds nuw i8, ptr %61, i64 40
@@ -4878,7 +4878,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %390 = getelementptr inbounds nuw i8, ptr %62, i64 20
   store i8 0, ptr %390, align 4
   %391 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %391, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %391, align 8
   %392 = getelementptr inbounds nuw i8, ptr %62, i64 32
   store ptr null, ptr %392, align 8
   %393 = getelementptr inbounds nuw i8, ptr %62, i64 40
@@ -4897,7 +4897,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %399 = getelementptr inbounds nuw i8, ptr %63, i64 20
   store i8 0, ptr %399, align 4
   %400 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %400, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %400, align 8
   %401 = getelementptr inbounds nuw i8, ptr %63, i64 32
   store ptr null, ptr %401, align 8
   %402 = getelementptr inbounds nuw i8, ptr %63, i64 40
@@ -4916,7 +4916,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %408 = getelementptr inbounds nuw i8, ptr %64, i64 20
   store i8 0, ptr %408, align 4
   %409 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %409, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %409, align 8
   %410 = getelementptr inbounds nuw i8, ptr %64, i64 32
   store ptr null, ptr %410, align 8
   %411 = getelementptr inbounds nuw i8, ptr %64, i64 40
@@ -4935,7 +4935,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %417 = getelementptr inbounds nuw i8, ptr %65, i64 20
   store i8 0, ptr %417, align 4
   %418 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %418, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %418, align 8
   %419 = getelementptr inbounds nuw i8, ptr %65, i64 32
   store ptr null, ptr %419, align 8
   %420 = getelementptr inbounds nuw i8, ptr %65, i64 40
@@ -4972,7 +4972,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %435 = getelementptr inbounds nuw i8, ptr %66, i64 20
   store i8 0, ptr %435, align 4
   %436 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %436, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %436, align 8
   %437 = getelementptr inbounds nuw i8, ptr %66, i64 32
   store ptr null, ptr %437, align 8
   %438 = getelementptr inbounds nuw i8, ptr %66, i64 40
@@ -4996,7 +4996,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %445 = getelementptr inbounds nuw i8, ptr %67, i64 20
   store i8 0, ptr %445, align 4
   %446 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %446, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %446, align 8
   %447 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr null, ptr %447, align 8
   %448 = getelementptr inbounds nuw i8, ptr %67, i64 40
@@ -5015,7 +5015,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %454 = getelementptr inbounds nuw i8, ptr %68, i64 20
   store i8 0, ptr %454, align 4
   %455 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %455, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %455, align 8
   %456 = getelementptr inbounds nuw i8, ptr %68, i64 32
   store ptr null, ptr %456, align 8
   %457 = getelementptr inbounds nuw i8, ptr %68, i64 40
@@ -5034,7 +5034,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %463 = getelementptr inbounds nuw i8, ptr %69, i64 20
   store i8 0, ptr %463, align 4
   %464 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %464, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %464, align 8
   %465 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store ptr null, ptr %465, align 8
   %466 = getelementptr inbounds nuw i8, ptr %69, i64 40
@@ -5053,7 +5053,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %472 = getelementptr inbounds nuw i8, ptr %70, i64 20
   store i8 0, ptr %472, align 4
   %473 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %473, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %473, align 8
   %474 = getelementptr inbounds nuw i8, ptr %70, i64 32
   store ptr null, ptr %474, align 8
   %475 = getelementptr inbounds nuw i8, ptr %70, i64 40
@@ -5076,7 +5076,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %483 = getelementptr inbounds nuw i8, ptr %71, i64 20
   store i8 0, ptr %483, align 4
   %484 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %484, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %484, align 8
   %485 = getelementptr inbounds nuw i8, ptr %71, i64 32
   store ptr null, ptr %485, align 8
   %486 = getelementptr inbounds nuw i8, ptr %71, i64 40
@@ -5111,7 +5111,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %500 = getelementptr inbounds nuw i8, ptr %72, i64 20
   store i8 0, ptr %500, align 4
   %501 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %501, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %501, align 8
   %502 = getelementptr inbounds nuw i8, ptr %72, i64 32
   store ptr null, ptr %502, align 8
   %503 = getelementptr inbounds nuw i8, ptr %72, i64 40
@@ -5135,7 +5135,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %510 = getelementptr inbounds nuw i8, ptr %73, i64 20
   store i8 0, ptr %510, align 4
   %511 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %511, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %511, align 8
   %512 = getelementptr inbounds nuw i8, ptr %73, i64 32
   store ptr null, ptr %512, align 8
   %513 = getelementptr inbounds nuw i8, ptr %73, i64 40
@@ -5154,7 +5154,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %519 = getelementptr inbounds nuw i8, ptr %74, i64 20
   store i8 0, ptr %519, align 4
   %520 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %520, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %520, align 8
   %521 = getelementptr inbounds nuw i8, ptr %74, i64 32
   store ptr null, ptr %521, align 8
   %522 = getelementptr inbounds nuw i8, ptr %74, i64 40
@@ -5173,7 +5173,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %528 = getelementptr inbounds nuw i8, ptr %75, i64 20
   store i8 0, ptr %528, align 4
   %529 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %529, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %529, align 8
   %530 = getelementptr inbounds nuw i8, ptr %75, i64 32
   store ptr null, ptr %530, align 8
   %531 = getelementptr inbounds nuw i8, ptr %75, i64 40
@@ -5192,7 +5192,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %537 = getelementptr inbounds nuw i8, ptr %76, i64 20
   store i8 0, ptr %537, align 4
   %538 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %538, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %538, align 8
   %539 = getelementptr inbounds nuw i8, ptr %76, i64 32
   store ptr null, ptr %539, align 8
   %540 = getelementptr inbounds nuw i8, ptr %76, i64 40
@@ -5217,7 +5217,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %549 = getelementptr inbounds nuw i8, ptr %77, i64 20
   store i8 0, ptr %549, align 4
   %550 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %550, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %550, align 8
   %551 = getelementptr inbounds nuw i8, ptr %77, i64 32
   store ptr null, ptr %551, align 8
   %552 = getelementptr inbounds nuw i8, ptr %77, i64 40
@@ -5241,7 +5241,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %559 = getelementptr inbounds nuw i8, ptr %78, i64 20
   store i8 0, ptr %559, align 4
   %560 = getelementptr inbounds nuw i8, ptr %78, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %560, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %560, align 8
   %561 = getelementptr inbounds nuw i8, ptr %78, i64 32
   store ptr null, ptr %561, align 8
   %562 = getelementptr inbounds nuw i8, ptr %78, i64 40
@@ -5260,7 +5260,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %568 = getelementptr inbounds nuw i8, ptr %79, i64 20
   store i8 0, ptr %568, align 4
   %569 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %569, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %569, align 8
   %570 = getelementptr inbounds nuw i8, ptr %79, i64 32
   store ptr null, ptr %570, align 8
   %571 = getelementptr inbounds nuw i8, ptr %79, i64 40
@@ -5279,7 +5279,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %577 = getelementptr inbounds nuw i8, ptr %80, i64 20
   store i8 0, ptr %577, align 4
   %578 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %578, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %578, align 8
   %579 = getelementptr inbounds nuw i8, ptr %80, i64 32
   store ptr null, ptr %579, align 8
   %580 = getelementptr inbounds nuw i8, ptr %80, i64 40
@@ -5298,7 +5298,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %586 = getelementptr inbounds nuw i8, ptr %81, i64 20
   store i8 0, ptr %586, align 4
   %587 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %587, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %587, align 8
   %588 = getelementptr inbounds nuw i8, ptr %81, i64 32
   store ptr null, ptr %588, align 8
   %589 = getelementptr inbounds nuw i8, ptr %81, i64 40
@@ -5327,7 +5327,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %600 = getelementptr inbounds nuw i8, ptr %82, i64 20
   store i8 0, ptr %600, align 4
   %601 = getelementptr inbounds nuw i8, ptr %82, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %601, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %601, align 8
   %602 = getelementptr inbounds nuw i8, ptr %82, i64 32
   store ptr null, ptr %602, align 8
   %603 = getelementptr inbounds nuw i8, ptr %82, i64 40
@@ -5351,7 +5351,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %610 = getelementptr inbounds nuw i8, ptr %83, i64 20
   store i8 0, ptr %610, align 4
   %611 = getelementptr inbounds nuw i8, ptr %83, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %611, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %611, align 8
   %612 = getelementptr inbounds nuw i8, ptr %83, i64 32
   store ptr null, ptr %612, align 8
   %613 = getelementptr inbounds nuw i8, ptr %83, i64 40
@@ -5370,7 +5370,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %619 = getelementptr inbounds nuw i8, ptr %84, i64 20
   store i8 0, ptr %619, align 4
   %620 = getelementptr inbounds nuw i8, ptr %84, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %620, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %620, align 8
   %621 = getelementptr inbounds nuw i8, ptr %84, i64 32
   store ptr null, ptr %621, align 8
   %622 = getelementptr inbounds nuw i8, ptr %84, i64 40
@@ -5393,7 +5393,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %630 = getelementptr inbounds nuw i8, ptr %85, i64 20
   store i8 0, ptr %630, align 4
   %631 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %631, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %631, align 8
   %632 = getelementptr inbounds nuw i8, ptr %85, i64 32
   store ptr null, ptr %632, align 8
   %633 = getelementptr inbounds nuw i8, ptr %85, i64 40
@@ -5418,7 +5418,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %642 = getelementptr inbounds nuw i8, ptr %86, i64 20
   store i8 0, ptr %642, align 4
   %643 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %643, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %643, align 8
   %644 = getelementptr inbounds nuw i8, ptr %86, i64 32
   store ptr null, ptr %644, align 8
   %645 = getelementptr inbounds nuw i8, ptr %86, i64 40
@@ -5442,7 +5442,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %652 = getelementptr inbounds nuw i8, ptr %87, i64 20
   store i8 0, ptr %652, align 4
   %653 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %653, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %653, align 8
   %654 = getelementptr inbounds nuw i8, ptr %87, i64 32
   store ptr null, ptr %654, align 8
   %655 = getelementptr inbounds nuw i8, ptr %87, i64 40
@@ -5461,7 +5461,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %661 = getelementptr inbounds nuw i8, ptr %88, i64 20
   store i8 0, ptr %661, align 4
   %662 = getelementptr inbounds nuw i8, ptr %88, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %662, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %662, align 8
   %663 = getelementptr inbounds nuw i8, ptr %88, i64 32
   store ptr null, ptr %663, align 8
   %664 = getelementptr inbounds nuw i8, ptr %88, i64 40
@@ -5480,7 +5480,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %670 = getelementptr inbounds nuw i8, ptr %89, i64 20
   store i8 0, ptr %670, align 4
   %671 = getelementptr inbounds nuw i8, ptr %89, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %671, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %671, align 8
   %672 = getelementptr inbounds nuw i8, ptr %89, i64 32
   store ptr null, ptr %672, align 8
   %673 = getelementptr inbounds nuw i8, ptr %89, i64 40
@@ -5499,7 +5499,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %679 = getelementptr inbounds nuw i8, ptr %90, i64 20
   store i8 0, ptr %679, align 4
   %680 = getelementptr inbounds nuw i8, ptr %90, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %680, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %680, align 8
   %681 = getelementptr inbounds nuw i8, ptr %90, i64 32
   store ptr null, ptr %681, align 8
   %682 = getelementptr inbounds nuw i8, ptr %90, i64 40
@@ -5526,7 +5526,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %692 = getelementptr inbounds nuw i8, ptr %91, i64 20
   store i8 0, ptr %692, align 4
   %693 = getelementptr inbounds nuw i8, ptr %91, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %693, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %693, align 8
   %694 = getelementptr inbounds nuw i8, ptr %91, i64 32
   store ptr null, ptr %694, align 8
   %695 = getelementptr inbounds nuw i8, ptr %91, i64 40
@@ -5550,7 +5550,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %702 = getelementptr inbounds nuw i8, ptr %92, i64 20
   store i8 0, ptr %702, align 4
   %703 = getelementptr inbounds nuw i8, ptr %92, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %703, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %703, align 8
   %704 = getelementptr inbounds nuw i8, ptr %92, i64 32
   store ptr null, ptr %704, align 8
   %705 = getelementptr inbounds nuw i8, ptr %92, i64 40
@@ -5569,7 +5569,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %711 = getelementptr inbounds nuw i8, ptr %93, i64 20
   store i8 0, ptr %711, align 4
   %712 = getelementptr inbounds nuw i8, ptr %93, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %712, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %712, align 8
   %713 = getelementptr inbounds nuw i8, ptr %93, i64 32
   store ptr null, ptr %713, align 8
   %714 = getelementptr inbounds nuw i8, ptr %93, i64 40
@@ -5622,7 +5622,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %737 = getelementptr inbounds nuw i8, ptr %94, i64 20
   store i8 0, ptr %737, align 4
   %738 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %738, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %738, align 8
   %739 = getelementptr inbounds nuw i8, ptr %94, i64 32
   store ptr null, ptr %739, align 8
   %740 = getelementptr inbounds nuw i8, ptr %94, i64 40
@@ -5646,7 +5646,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %747 = getelementptr inbounds nuw i8, ptr %95, i64 20
   store i8 0, ptr %747, align 4
   %748 = getelementptr inbounds nuw i8, ptr %95, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %748, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %748, align 8
   %749 = getelementptr inbounds nuw i8, ptr %95, i64 32
   store ptr null, ptr %749, align 8
   %750 = getelementptr inbounds nuw i8, ptr %95, i64 40
@@ -5665,7 +5665,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %756 = getelementptr inbounds nuw i8, ptr %96, i64 20
   store i8 0, ptr %756, align 4
   %757 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %757, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %757, align 8
   %758 = getelementptr inbounds nuw i8, ptr %96, i64 32
   store ptr null, ptr %758, align 8
   %759 = getelementptr inbounds nuw i8, ptr %96, i64 40
@@ -5684,7 +5684,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %765 = getelementptr inbounds nuw i8, ptr %97, i64 20
   store i8 0, ptr %765, align 4
   %766 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %766, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %766, align 8
   %767 = getelementptr inbounds nuw i8, ptr %97, i64 32
   store ptr null, ptr %767, align 8
   %768 = getelementptr inbounds nuw i8, ptr %97, i64 40
@@ -5703,7 +5703,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %774 = getelementptr inbounds nuw i8, ptr %98, i64 20
   store i8 0, ptr %774, align 4
   %775 = getelementptr inbounds nuw i8, ptr %98, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %775, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %775, align 8
   %776 = getelementptr inbounds nuw i8, ptr %98, i64 32
   store ptr null, ptr %776, align 8
   %777 = getelementptr inbounds nuw i8, ptr %98, i64 40
@@ -5728,7 +5728,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %786 = getelementptr inbounds nuw i8, ptr %99, i64 20
   store i8 0, ptr %786, align 4
   %787 = getelementptr inbounds nuw i8, ptr %99, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %787, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %787, align 8
   %788 = getelementptr inbounds nuw i8, ptr %99, i64 32
   store ptr null, ptr %788, align 8
   %789 = getelementptr inbounds nuw i8, ptr %99, i64 40
@@ -5752,7 +5752,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %796 = getelementptr inbounds nuw i8, ptr %100, i64 20
   store i8 0, ptr %796, align 4
   %797 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %797, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %797, align 8
   %798 = getelementptr inbounds nuw i8, ptr %100, i64 32
   store ptr null, ptr %798, align 8
   %799 = getelementptr inbounds nuw i8, ptr %100, i64 40
@@ -5771,7 +5771,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %805 = getelementptr inbounds nuw i8, ptr %101, i64 20
   store i8 0, ptr %805, align 4
   %806 = getelementptr inbounds nuw i8, ptr %101, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %806, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %806, align 8
   %807 = getelementptr inbounds nuw i8, ptr %101, i64 32
   store ptr null, ptr %807, align 8
   %808 = getelementptr inbounds nuw i8, ptr %101, i64 40
@@ -5790,7 +5790,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %814 = getelementptr inbounds nuw i8, ptr %102, i64 20
   store i8 0, ptr %814, align 4
   %815 = getelementptr inbounds nuw i8, ptr %102, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %815, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %815, align 8
   %816 = getelementptr inbounds nuw i8, ptr %102, i64 32
   store ptr null, ptr %816, align 8
   %817 = getelementptr inbounds nuw i8, ptr %102, i64 40
@@ -5809,7 +5809,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %823 = getelementptr inbounds nuw i8, ptr %103, i64 20
   store i8 0, ptr %823, align 4
   %824 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %824, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %824, align 8
   %825 = getelementptr inbounds nuw i8, ptr %103, i64 32
   store ptr null, ptr %825, align 8
   %826 = getelementptr inbounds nuw i8, ptr %103, i64 40
@@ -5834,7 +5834,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %835 = getelementptr inbounds nuw i8, ptr %104, i64 20
   store i8 0, ptr %835, align 4
   %836 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %836, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %836, align 8
   %837 = getelementptr inbounds nuw i8, ptr %104, i64 32
   store ptr null, ptr %837, align 8
   %838 = getelementptr inbounds nuw i8, ptr %104, i64 40
@@ -5858,7 +5858,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %845 = getelementptr inbounds nuw i8, ptr %105, i64 20
   store i8 0, ptr %845, align 4
   %846 = getelementptr inbounds nuw i8, ptr %105, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %846, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %846, align 8
   %847 = getelementptr inbounds nuw i8, ptr %105, i64 32
   store ptr null, ptr %847, align 8
   %848 = getelementptr inbounds nuw i8, ptr %105, i64 40
@@ -5877,7 +5877,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %854 = getelementptr inbounds nuw i8, ptr %106, i64 20
   store i8 0, ptr %854, align 4
   %855 = getelementptr inbounds nuw i8, ptr %106, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %855, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %855, align 8
   %856 = getelementptr inbounds nuw i8, ptr %106, i64 32
   store ptr null, ptr %856, align 8
   %857 = getelementptr inbounds nuw i8, ptr %106, i64 40
@@ -5896,7 +5896,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %863 = getelementptr inbounds nuw i8, ptr %107, i64 20
   store i8 0, ptr %863, align 4
   %864 = getelementptr inbounds nuw i8, ptr %107, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %864, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %864, align 8
   %865 = getelementptr inbounds nuw i8, ptr %107, i64 32
   store ptr null, ptr %865, align 8
   %866 = getelementptr inbounds nuw i8, ptr %107, i64 40
@@ -5915,7 +5915,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %872 = getelementptr inbounds nuw i8, ptr %108, i64 20
   store i8 0, ptr %872, align 4
   %873 = getelementptr inbounds nuw i8, ptr %108, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %873, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %873, align 8
   %874 = getelementptr inbounds nuw i8, ptr %108, i64 32
   store ptr null, ptr %874, align 8
   %875 = getelementptr inbounds nuw i8, ptr %108, i64 40
@@ -5940,7 +5940,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %884 = getelementptr inbounds nuw i8, ptr %109, i64 20
   store i8 0, ptr %884, align 4
   %885 = getelementptr inbounds nuw i8, ptr %109, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %885, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %885, align 8
   %886 = getelementptr inbounds nuw i8, ptr %109, i64 32
   store ptr null, ptr %886, align 8
   %887 = getelementptr inbounds nuw i8, ptr %109, i64 40
@@ -5964,7 +5964,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %894 = getelementptr inbounds nuw i8, ptr %110, i64 20
   store i8 0, ptr %894, align 4
   %895 = getelementptr inbounds nuw i8, ptr %110, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %895, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %895, align 8
   %896 = getelementptr inbounds nuw i8, ptr %110, i64 32
   store ptr null, ptr %896, align 8
   %897 = getelementptr inbounds nuw i8, ptr %110, i64 40
@@ -5983,7 +5983,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %903 = getelementptr inbounds nuw i8, ptr %111, i64 20
   store i8 0, ptr %903, align 4
   %904 = getelementptr inbounds nuw i8, ptr %111, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %904, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %904, align 8
   %905 = getelementptr inbounds nuw i8, ptr %111, i64 32
   store ptr null, ptr %905, align 8
   %906 = getelementptr inbounds nuw i8, ptr %111, i64 40
@@ -6002,7 +6002,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %912 = getelementptr inbounds nuw i8, ptr %112, i64 20
   store i8 0, ptr %912, align 4
   %913 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %913, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %913, align 8
   %914 = getelementptr inbounds nuw i8, ptr %112, i64 32
   store ptr null, ptr %914, align 8
   %915 = getelementptr inbounds nuw i8, ptr %112, i64 40
@@ -6021,7 +6021,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %921 = getelementptr inbounds nuw i8, ptr %113, i64 20
   store i8 0, ptr %921, align 4
   %922 = getelementptr inbounds nuw i8, ptr %113, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %922, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %922, align 8
   %923 = getelementptr inbounds nuw i8, ptr %113, i64 32
   store ptr null, ptr %923, align 8
   %924 = getelementptr inbounds nuw i8, ptr %113, i64 40
@@ -6046,7 +6046,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %933 = getelementptr inbounds nuw i8, ptr %114, i64 20
   store i8 0, ptr %933, align 4
   %934 = getelementptr inbounds nuw i8, ptr %114, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %934, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %934, align 8
   %935 = getelementptr inbounds nuw i8, ptr %114, i64 32
   store ptr null, ptr %935, align 8
   %936 = getelementptr inbounds nuw i8, ptr %114, i64 40
@@ -6070,7 +6070,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %943 = getelementptr inbounds nuw i8, ptr %115, i64 20
   store i8 0, ptr %943, align 4
   %944 = getelementptr inbounds nuw i8, ptr %115, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %944, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %944, align 8
   %945 = getelementptr inbounds nuw i8, ptr %115, i64 32
   store ptr null, ptr %945, align 8
   %946 = getelementptr inbounds nuw i8, ptr %115, i64 40
@@ -6089,7 +6089,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %952 = getelementptr inbounds nuw i8, ptr %116, i64 20
   store i8 0, ptr %952, align 4
   %953 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %953, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %953, align 8
   %954 = getelementptr inbounds nuw i8, ptr %116, i64 32
   store ptr null, ptr %954, align 8
   %955 = getelementptr inbounds nuw i8, ptr %116, i64 40
@@ -6108,7 +6108,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %961 = getelementptr inbounds nuw i8, ptr %117, i64 20
   store i8 0, ptr %961, align 4
   %962 = getelementptr inbounds nuw i8, ptr %117, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %962, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %962, align 8
   %963 = getelementptr inbounds nuw i8, ptr %117, i64 32
   store ptr null, ptr %963, align 8
   %964 = getelementptr inbounds nuw i8, ptr %117, i64 40
@@ -6127,7 +6127,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %970 = getelementptr inbounds nuw i8, ptr %118, i64 20
   store i8 0, ptr %970, align 4
   %971 = getelementptr inbounds nuw i8, ptr %118, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %971, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %971, align 8
   %972 = getelementptr inbounds nuw i8, ptr %118, i64 32
   store ptr null, ptr %972, align 8
   %973 = getelementptr inbounds nuw i8, ptr %118, i64 40
@@ -6146,7 +6146,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %979 = getelementptr inbounds nuw i8, ptr %119, i64 20
   store i8 0, ptr %979, align 4
   %980 = getelementptr inbounds nuw i8, ptr %119, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %980, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %980, align 8
   %981 = getelementptr inbounds nuw i8, ptr %119, i64 32
   store ptr null, ptr %981, align 8
   %982 = getelementptr inbounds nuw i8, ptr %119, i64 40
@@ -6172,7 +6172,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %990 = getelementptr inbounds nuw i8, ptr %120, i64 20
   store i8 0, ptr %990, align 4
   %991 = getelementptr inbounds nuw i8, ptr %120, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %991, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %991, align 8
   %992 = getelementptr inbounds nuw i8, ptr %120, i64 32
   store ptr null, ptr %992, align 8
   %993 = getelementptr inbounds nuw i8, ptr %120, i64 40
@@ -6197,7 +6197,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %1002 = getelementptr inbounds nuw i8, ptr %121, i64 20
   store i8 0, ptr %1002, align 4
   %1003 = getelementptr inbounds nuw i8, ptr %121, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1003, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1003, align 8
   %1004 = getelementptr inbounds nuw i8, ptr %121, i64 32
   store ptr null, ptr %1004, align 8
   %1005 = getelementptr inbounds nuw i8, ptr %121, i64 40
@@ -6237,7 +6237,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %1024 = getelementptr inbounds nuw i8, ptr %122, i64 20
   store i8 0, ptr %1024, align 4
   %1025 = getelementptr inbounds nuw i8, ptr %122, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1025, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1025, align 8
   %1026 = getelementptr inbounds nuw i8, ptr %122, i64 32
   store ptr null, ptr %1026, align 8
   %1027 = getelementptr inbounds nuw i8, ptr %122, i64 40
@@ -6261,7 +6261,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %1037 = getelementptr inbounds nuw i8, ptr %123, i64 20
   store i8 0, ptr %1037, align 4
   %1038 = getelementptr inbounds nuw i8, ptr %123, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1038, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1038, align 8
   %1039 = getelementptr inbounds nuw i8, ptr %123, i64 32
   store ptr null, ptr %1039, align 8
   %1040 = getelementptr inbounds nuw i8, ptr %123, i64 40
@@ -6285,7 +6285,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %1047 = getelementptr inbounds nuw i8, ptr %124, i64 20
   store i8 0, ptr %1047, align 4
   %1048 = getelementptr inbounds nuw i8, ptr %124, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1048, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1048, align 8
   %1049 = getelementptr inbounds nuw i8, ptr %124, i64 32
   store ptr null, ptr %1049, align 8
   %1050 = getelementptr inbounds nuw i8, ptr %124, i64 40
@@ -6304,7 +6304,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %1056 = getelementptr inbounds nuw i8, ptr %125, i64 20
   store i8 0, ptr %1056, align 4
   %1057 = getelementptr inbounds nuw i8, ptr %125, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1057, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1057, align 8
   %1058 = getelementptr inbounds nuw i8, ptr %125, i64 32
   store ptr null, ptr %1058, align 8
   %1059 = getelementptr inbounds nuw i8, ptr %125, i64 40
@@ -6326,7 +6326,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %1066 = getelementptr inbounds nuw i8, ptr %126, i64 20
   store i8 0, ptr %1066, align 4
   %1067 = getelementptr inbounds nuw i8, ptr %126, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1067, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1067, align 8
   %1068 = getelementptr inbounds nuw i8, ptr %126, i64 32
   store ptr null, ptr %1068, align 8
   %1069 = getelementptr inbounds nuw i8, ptr %126, i64 40
@@ -6352,7 +6352,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %1077 = getelementptr inbounds nuw i8, ptr %127, i64 20
   store i8 0, ptr %1077, align 4
   %1078 = getelementptr inbounds nuw i8, ptr %127, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1078, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1078, align 8
   %1079 = getelementptr inbounds nuw i8, ptr %127, i64 32
   store ptr null, ptr %1079, align 8
   %1080 = getelementptr inbounds nuw i8, ptr %127, i64 40
@@ -6377,7 +6377,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %1089 = getelementptr inbounds nuw i8, ptr %128, i64 20
   store i8 0, ptr %1089, align 4
   %1090 = getelementptr inbounds nuw i8, ptr %128, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1090, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1090, align 8
   %1091 = getelementptr inbounds nuw i8, ptr %128, i64 32
   store ptr null, ptr %1091, align 8
   %1092 = getelementptr inbounds nuw i8, ptr %128, i64 40
@@ -6411,7 +6411,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %1106 = getelementptr inbounds nuw i8, ptr %129, i64 20
   store i8 0, ptr %1106, align 4
   %1107 = getelementptr inbounds nuw i8, ptr %129, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1107, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1107, align 8
   %1108 = getelementptr inbounds nuw i8, ptr %129, i64 32
   store ptr null, ptr %1108, align 8
   %1109 = getelementptr inbounds nuw i8, ptr %129, i64 40
@@ -6437,7 +6437,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %1117 = getelementptr inbounds nuw i8, ptr %130, i64 20
   store i8 0, ptr %1117, align 4
   %1118 = getelementptr inbounds nuw i8, ptr %130, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1118, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1118, align 8
   %1119 = getelementptr inbounds nuw i8, ptr %130, i64 32
   store ptr null, ptr %1119, align 8
   %1120 = getelementptr inbounds nuw i8, ptr %130, i64 40
@@ -6462,7 +6462,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %1129 = getelementptr inbounds nuw i8, ptr %131, i64 20
   store i8 0, ptr %1129, align 4
   %1130 = getelementptr inbounds nuw i8, ptr %131, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1130, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1130, align 8
   %1131 = getelementptr inbounds nuw i8, ptr %131, i64 32
   store ptr null, ptr %1131, align 8
   %1132 = getelementptr inbounds nuw i8, ptr %131, i64 40
@@ -6489,7 +6489,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %1142 = getelementptr inbounds nuw i8, ptr %132, i64 20
   store i8 0, ptr %1142, align 4
   %1143 = getelementptr inbounds nuw i8, ptr %132, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1143, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1143, align 8
   %1144 = getelementptr inbounds nuw i8, ptr %132, i64 32
   store ptr null, ptr %1144, align 8
   %1145 = getelementptr inbounds nuw i8, ptr %132, i64 40
@@ -6513,7 +6513,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   %1152 = getelementptr inbounds nuw i8, ptr %133, i64 20
   store i8 0, ptr %1152, align 4
   %1153 = getelementptr inbounds nuw i8, ptr %133, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1153, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1153, align 8
   %1154 = getelementptr inbounds nuw i8, ptr %133, i64 32
   store ptr null, ptr %1154, align 8
   %1155 = getelementptr inbounds nuw i8, ptr %133, i64 40
@@ -6607,7 +6607,7 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit: ; preds = %1177, %1
   %1193 = getelementptr inbounds nuw i8, ptr %134, i64 20
   store i8 0, ptr %1193, align 4
   %1194 = getelementptr inbounds nuw i8, ptr %134, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1194, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1194, align 8
   %1195 = getelementptr inbounds nuw i8, ptr %134, i64 32
   store ptr null, ptr %1195, align 8
   %1196 = getelementptr inbounds nuw i8, ptr %134, i64 40
@@ -6634,7 +6634,7 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit: ; preds = %1177, %1
   %1207 = getelementptr inbounds nuw i8, ptr %135, i64 20
   store i8 0, ptr %1207, align 4
   %1208 = getelementptr inbounds nuw i8, ptr %135, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1208, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1208, align 8
   %1209 = getelementptr inbounds nuw i8, ptr %135, i64 32
   store ptr null, ptr %1209, align 8
   %1210 = getelementptr inbounds nuw i8, ptr %135, i64 40
@@ -6660,7 +6660,7 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit: ; preds = %1177, %1
   %1218 = getelementptr inbounds nuw i8, ptr %136, i64 20
   store i8 0, ptr %1218, align 4
   %1219 = getelementptr inbounds nuw i8, ptr %136, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1219, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1219, align 8
   %1220 = getelementptr inbounds nuw i8, ptr %136, i64 32
   store ptr null, ptr %1220, align 8
   %1221 = getelementptr inbounds nuw i8, ptr %136, i64 40
@@ -6685,7 +6685,7 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit: ; preds = %1177, %1
   %1230 = getelementptr inbounds nuw i8, ptr %137, i64 20
   store i8 0, ptr %1230, align 4
   %1231 = getelementptr inbounds nuw i8, ptr %137, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1231, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1231, align 8
   %1232 = getelementptr inbounds nuw i8, ptr %137, i64 32
   store ptr null, ptr %1232, align 8
   %1233 = getelementptr inbounds nuw i8, ptr %137, i64 40
@@ -6712,7 +6712,7 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit: ; preds = %1177, %1
   %1243 = getelementptr inbounds nuw i8, ptr %138, i64 20
   store i8 0, ptr %1243, align 4
   %1244 = getelementptr inbounds nuw i8, ptr %138, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1244, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1244, align 8
   %1245 = getelementptr inbounds nuw i8, ptr %138, i64 32
   store ptr null, ptr %1245, align 8
   %1246 = getelementptr inbounds nuw i8, ptr %138, i64 40
@@ -6736,7 +6736,7 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit: ; preds = %1177, %1
   %1253 = getelementptr inbounds nuw i8, ptr %139, i64 20
   store i8 0, ptr %1253, align 4
   %1254 = getelementptr inbounds nuw i8, ptr %139, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1254, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1254, align 8
   %1255 = getelementptr inbounds nuw i8, ptr %139, i64 32
   store ptr null, ptr %1255, align 8
   %1256 = getelementptr inbounds nuw i8, ptr %139, i64 40
@@ -6765,7 +6765,7 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit: ; preds = %1177, %1
   %1265 = getelementptr inbounds nuw i8, ptr %140, i64 20
   store i8 0, ptr %1265, align 4
   %1266 = getelementptr inbounds nuw i8, ptr %140, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1266, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1266, align 8
   %1267 = getelementptr inbounds nuw i8, ptr %140, i64 32
   store ptr null, ptr %1267, align 8
   %1268 = getelementptr inbounds nuw i8, ptr %140, i64 40
@@ -6789,7 +6789,7 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit: ; preds = %1177, %1
   %1275 = getelementptr inbounds nuw i8, ptr %141, i64 20
   store i8 0, ptr %1275, align 4
   %1276 = getelementptr inbounds nuw i8, ptr %141, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1276, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1276, align 8
   %1277 = getelementptr inbounds nuw i8, ptr %141, i64 32
   store ptr null, ptr %1277, align 8
   %1278 = getelementptr inbounds nuw i8, ptr %141, i64 40
@@ -6813,7 +6813,7 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit: ; preds = %1177, %1
   %1285 = getelementptr inbounds nuw i8, ptr %142, i64 20
   store i8 0, ptr %1285, align 4
   %1286 = getelementptr inbounds nuw i8, ptr %142, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1286, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1286, align 8
   %1287 = getelementptr inbounds nuw i8, ptr %142, i64 32
   store ptr null, ptr %1287, align 8
   %1288 = getelementptr inbounds nuw i8, ptr %142, i64 40
@@ -6837,7 +6837,7 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit: ; preds = %1177, %1
   %1295 = getelementptr inbounds nuw i8, ptr %143, i64 20
   store i8 0, ptr %1295, align 4
   %1296 = getelementptr inbounds nuw i8, ptr %143, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1296, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1296, align 8
   %1297 = getelementptr inbounds nuw i8, ptr %143, i64 32
   store ptr null, ptr %1297, align 8
   %1298 = getelementptr inbounds nuw i8, ptr %143, i64 40
@@ -6861,7 +6861,7 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit: ; preds = %1177, %1
   %1305 = getelementptr inbounds nuw i8, ptr %144, i64 20
   store i8 0, ptr %1305, align 4
   %1306 = getelementptr inbounds nuw i8, ptr %144, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1306, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1306, align 8
   %1307 = getelementptr inbounds nuw i8, ptr %144, i64 32
   store ptr null, ptr %1307, align 8
   %1308 = getelementptr inbounds nuw i8, ptr %144, i64 40
@@ -6900,7 +6900,7 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit: ; preds = %1177, %1
   %1318 = getelementptr inbounds nuw i8, ptr %145, i64 20
   store i8 0, ptr %1318, align 4
   %1319 = getelementptr inbounds nuw i8, ptr %145, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1319, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1319, align 8
   %1320 = getelementptr inbounds nuw i8, ptr %145, i64 32
   store ptr null, ptr %1320, align 8
   %1321 = getelementptr inbounds nuw i8, ptr %145, i64 40
@@ -6924,7 +6924,7 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit: ; preds = %1177, %1
   %1328 = getelementptr inbounds nuw i8, ptr %146, i64 20
   store i8 0, ptr %1328, align 4
   %1329 = getelementptr inbounds nuw i8, ptr %146, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1329, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1329, align 8
   %1330 = getelementptr inbounds nuw i8, ptr %146, i64 32
   store ptr null, ptr %1330, align 8
   %1331 = getelementptr inbounds nuw i8, ptr %146, i64 40
@@ -6943,7 +6943,7 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit: ; preds = %1177, %1
   %1337 = getelementptr inbounds nuw i8, ptr %147, i64 20
   store i8 0, ptr %1337, align 4
   %1338 = getelementptr inbounds nuw i8, ptr %147, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1338, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1338, align 8
   %1339 = getelementptr inbounds nuw i8, ptr %147, i64 32
   store ptr null, ptr %1339, align 8
   %1340 = getelementptr inbounds nuw i8, ptr %147, i64 40
@@ -6962,7 +6962,7 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit: ; preds = %1177, %1
   %1346 = getelementptr inbounds nuw i8, ptr %148, i64 20
   store i8 0, ptr %1346, align 4
   %1347 = getelementptr inbounds nuw i8, ptr %148, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1347, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1347, align 8
   %1348 = getelementptr inbounds nuw i8, ptr %148, i64 32
   store ptr null, ptr %1348, align 8
   %1349 = getelementptr inbounds nuw i8, ptr %148, i64 40
@@ -6981,7 +6981,7 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit: ; preds = %1177, %1
   %1355 = getelementptr inbounds nuw i8, ptr %149, i64 20
   store i8 0, ptr %1355, align 4
   %1356 = getelementptr inbounds nuw i8, ptr %149, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1356, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1356, align 8
   %1357 = getelementptr inbounds nuw i8, ptr %149, i64 32
   store ptr null, ptr %1357, align 8
   %1358 = getelementptr inbounds nuw i8, ptr %149, i64 40
@@ -7045,7 +7045,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator20generate_
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i8 0, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -7064,7 +7064,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator20generate_
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i8 0, ptr %32, align 4
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -7083,7 +7083,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator20generate_
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i8 0, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -7102,7 +7102,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator20generate_
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i8 0, ptr %50, align 4
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %51, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -7155,7 +7155,7 @@ define hidden void @_ZN10VM_Version14initialize_tscEv() local_unnamed_addr #1 al
   %19 = phi ptr [ %.pre, %17 ], [ %15, %0 ]
   call void @_ZN10CodeBufferC1EP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef %19) #14
   call void @_ZN17StubCodeGeneratorC2EP10CodeBufferb(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %1, i1 noundef zeroext false) #14
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV24VM_Version_StubGenerator, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV24VM_Version_StubGenerator, i64 16), ptr %2, align 8
   %20 = call noundef ptr @_ZN24VM_Version_StubGenerator28generate_getCPUIDBrandStringEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
   store ptr %20, ptr @_ZL24getCPUIDBrandString_stub, align 8
   call void @_ZN17StubCodeGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #14
@@ -7364,7 +7364,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   %110 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i8 0, ptr %110, align 4
   %111 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %111, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -7372,7 +7372,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(64) %20, i64 21, i1 false)
   %114 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %115 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %115 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %115(ptr noundef nonnull align 8 dereferenceable(40) %111, ptr noundef nonnull align 8 dereferenceable(40) %114) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %105, i32 6, ptr noundef nonnull %13) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
@@ -7389,7 +7389,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   %121 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i8 0, ptr %121, align 4
   %122 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %122, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %122, align 8
   %123 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr null, ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -7408,7 +7408,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   %130 = getelementptr inbounds nuw i8, ptr %22, i64 20
   store i8 0, ptr %130, align 4
   %131 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %131, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %131, align 8
   %132 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr null, ptr %132, align 8
   %133 = getelementptr inbounds nuw i8, ptr %22, i64 40
@@ -7432,7 +7432,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   %140 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i8 0, ptr %140, align 4
   %141 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %141, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %141, align 8
   %142 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr null, ptr %142, align 8
   %143 = getelementptr inbounds nuw i8, ptr %23, i64 40
@@ -7451,7 +7451,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   %149 = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i8 0, ptr %149, align 4
   %150 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %150, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %150, align 8
   %151 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr null, ptr %151, align 8
   %152 = getelementptr inbounds nuw i8, ptr %24, i64 40
@@ -7475,7 +7475,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   %159 = getelementptr inbounds nuw i8, ptr %25, i64 20
   store i8 0, ptr %159, align 4
   %160 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %160, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %160, align 8
   %161 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr null, ptr %161, align 8
   %162 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -7494,7 +7494,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   %168 = getelementptr inbounds nuw i8, ptr %26, i64 20
   store i8 0, ptr %168, align 4
   %169 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %169, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %169, align 8
   %170 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store ptr null, ptr %170, align 8
   %171 = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -7518,7 +7518,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   %178 = getelementptr inbounds nuw i8, ptr %27, i64 20
   store i8 0, ptr %178, align 4
   %179 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %179, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %179, align 8
   %180 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr null, ptr %180, align 8
   %181 = getelementptr inbounds nuw i8, ptr %27, i64 40
@@ -7541,7 +7541,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   %189 = getelementptr inbounds nuw i8, ptr %28, i64 20
   store i8 0, ptr %189, align 4
   %190 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %190, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %190, align 8
   %191 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store ptr null, ptr %191, align 8
   %192 = getelementptr inbounds nuw i8, ptr %28, i64 40
@@ -7565,7 +7565,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   %199 = getelementptr inbounds nuw i8, ptr %29, i64 20
   store i8 0, ptr %199, align 4
   %200 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %200, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %200, align 8
   %201 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr null, ptr %201, align 8
   %202 = getelementptr inbounds nuw i8, ptr %29, i64 40
@@ -7584,7 +7584,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   %208 = getelementptr inbounds nuw i8, ptr %30, i64 20
   store i8 0, ptr %208, align 4
   %209 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %209, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %209, align 8
   %210 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr null, ptr %210, align 8
   %211 = getelementptr inbounds nuw i8, ptr %30, i64 40
@@ -7608,7 +7608,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   %218 = getelementptr inbounds nuw i8, ptr %31, i64 20
   store i8 0, ptr %218, align 4
   %219 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %219, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %219, align 8
   %220 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr null, ptr %220, align 8
   %221 = getelementptr inbounds nuw i8, ptr %31, i64 40
@@ -7627,7 +7627,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   %227 = getelementptr inbounds nuw i8, ptr %32, i64 20
   store i8 0, ptr %227, align 4
   %228 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %228, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %228, align 8
   %229 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr null, ptr %229, align 8
   %230 = getelementptr inbounds nuw i8, ptr %32, i64 40
@@ -7651,7 +7651,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   %237 = getelementptr inbounds nuw i8, ptr %33, i64 20
   store i8 0, ptr %237, align 4
   %238 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %238, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %238, align 8
   %239 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr null, ptr %239, align 8
   %240 = getelementptr inbounds nuw i8, ptr %33, i64 40
@@ -7670,7 +7670,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   %246 = getelementptr inbounds nuw i8, ptr %34, i64 20
   store i8 0, ptr %246, align 4
   %247 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %247, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %247, align 8
   %248 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store ptr null, ptr %248, align 8
   %249 = getelementptr inbounds nuw i8, ptr %34, i64 40
@@ -7694,7 +7694,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   %256 = getelementptr inbounds nuw i8, ptr %35, i64 20
   store i8 0, ptr %256, align 4
   %257 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %257, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %257, align 8
   %258 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store ptr null, ptr %258, align 8
   %259 = getelementptr inbounds nuw i8, ptr %35, i64 40
@@ -7717,7 +7717,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   %267 = getelementptr inbounds nuw i8, ptr %36, i64 20
   store i8 0, ptr %267, align 4
   %268 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %268, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %268, align 8
   %269 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store ptr null, ptr %269, align 8
   %270 = getelementptr inbounds nuw i8, ptr %36, i64 40
@@ -7741,7 +7741,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   %277 = getelementptr inbounds nuw i8, ptr %37, i64 20
   store i8 0, ptr %277, align 4
   %278 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %278, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %278, align 8
   %279 = getelementptr inbounds nuw i8, ptr %37, i64 32
   store ptr null, ptr %279, align 8
   %280 = getelementptr inbounds nuw i8, ptr %37, i64 40
@@ -7760,7 +7760,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   %286 = getelementptr inbounds nuw i8, ptr %38, i64 20
   store i8 0, ptr %286, align 4
   %287 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %287, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %287, align 8
   %288 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store ptr null, ptr %288, align 8
   %289 = getelementptr inbounds nuw i8, ptr %38, i64 40
@@ -7784,7 +7784,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   %296 = getelementptr inbounds nuw i8, ptr %39, i64 20
   store i8 0, ptr %296, align 4
   %297 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %297, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %297, align 8
   %298 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr null, ptr %298, align 8
   %299 = getelementptr inbounds nuw i8, ptr %39, i64 40
@@ -7803,7 +7803,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   %305 = getelementptr inbounds nuw i8, ptr %40, i64 20
   store i8 0, ptr %305, align 4
   %306 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %306, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %306, align 8
   %307 = getelementptr inbounds nuw i8, ptr %40, i64 32
   store ptr null, ptr %307, align 8
   %308 = getelementptr inbounds nuw i8, ptr %40, i64 40
@@ -7827,7 +7827,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   %315 = getelementptr inbounds nuw i8, ptr %41, i64 20
   store i8 0, ptr %315, align 4
   %316 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %316, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %316, align 8
   %317 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store ptr null, ptr %317, align 8
   %318 = getelementptr inbounds nuw i8, ptr %41, i64 40
@@ -7846,7 +7846,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   %324 = getelementptr inbounds nuw i8, ptr %42, i64 20
   store i8 0, ptr %324, align 4
   %325 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %325, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %325, align 8
   %326 = getelementptr inbounds nuw i8, ptr %42, i64 32
   store ptr null, ptr %326, align 8
   %327 = getelementptr inbounds nuw i8, ptr %42, i64 40
@@ -7870,7 +7870,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   %334 = getelementptr inbounds nuw i8, ptr %43, i64 20
   store i8 0, ptr %334, align 4
   %335 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %335, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %335, align 8
   %336 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr null, ptr %336, align 8
   %337 = getelementptr inbounds nuw i8, ptr %43, i64 40
@@ -7938,39 +7938,39 @@ define hidden noundef ptr @_ZN10VM_Version16cpu_brand_stringEv() local_unnamed_a
 6:                                                ; preds = %3
   %7 = load ptr, ptr @_ZL24getCPUIDBrandString_stub, align 8
   tail call void %7(ptr noundef nonnull @_ZN10VM_Version11_cpuid_infoE) #14
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 152), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 152), align 8
   store i32 %8, ptr %4, align 4
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 156), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 156), align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %9, ptr %10, align 4
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 160), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 160), align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %11, ptr %12, align 4
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 164), align 4
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 164), align 4
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %13, ptr %14, align 4
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 168), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 168), align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %15, ptr %16, align 4
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 172), align 4
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 172), align 4
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %17, ptr %18, align 4
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 176), align 8
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 176), align 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %19, ptr %20, align 4
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 180), align 4
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 180), align 4
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 %21, ptr %22, align 4
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 184), align 8
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 184), align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %23, ptr %24, align 4
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 188), align 4
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 188), align 4
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 %25, ptr %26, align 4
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 192), align 8
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 192), align 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %27, ptr %28, align 4
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 196), align 4
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 196), align 4
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 %29, ptr %30, align 4
   %.pre = load ptr, ptr @_ZL17_cpu_brand_string, align 8
@@ -7987,39 +7987,39 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEn
 define hidden noundef i32 @_ZN10VM_Version25cpu_extended_brand_stringEPcm(ptr nocapture noundef writeonly initializes((0, 48)) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr @_ZL24getCPUIDBrandString_stub, align 8
   tail call void %3(ptr noundef nonnull @_ZN10VM_Version11_cpuid_infoE) #14
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 152), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 152), align 8
   store i32 %4, ptr %0, align 4
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 156), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 156), align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %5, ptr %6, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 160), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 160), align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %7, ptr %8, align 4
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 164), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 164), align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %9, ptr %10, align 4
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 168), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 168), align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %11, ptr %12, align 4
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 172), align 4
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 172), align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %13, ptr %14, align 4
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 176), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 176), align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %15, ptr %16, align 4
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 180), align 4
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 180), align 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %17, ptr %18, align 4
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 184), align 8
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 184), align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %19, ptr %20, align 4
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 188), align 4
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 188), align 4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %21, ptr %22, align 4
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 192), align 8
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 192), align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %23, ptr %24, align 4
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 196), align 4
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 196), align 4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %25, ptr %26, align 4
   ret i32 0
@@ -8027,7 +8027,7 @@ define hidden noundef i32 @_ZN10VM_Version25cpu_extended_brand_stringEPcm(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZN10VM_Version9cpu_brandEv() local_unnamed_addr #3 align 2 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 20), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 20), align 4
   %2 = and i32 %1, 255
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.loopexit, label %.preheader.preheader
@@ -8056,7 +8056,7 @@ define hidden noundef ptr @_ZN10VM_Version9cpu_brandEv() local_unnamed_addr #3 a
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN10VM_Version12cpu_is_em64tEv() local_unnamed_addr #3 align 2 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 148), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 148), align 4
   %2 = and i32 %1, 536870912
   %3 = icmp ne i32 %2, 0
   ret i1 %3
@@ -8064,7 +8064,7 @@ define hidden noundef zeroext i1 @_ZN10VM_Version12cpu_is_em64tEv() local_unname
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN10VM_Version11is_netburstEv() local_unnamed_addr #3 align 2 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   %2 = icmp eq i32 %1, 1970169159
   br i1 %2, label %3, label %11
 
@@ -8091,7 +8091,7 @@ define hidden noundef zeroext i1 @_ZN10VM_Version19supports_tscinv_extEv() local
   br i1 %.not, label %switch.edge, label %3
 
 3:                                                ; preds = %0
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %4, label %12 [
     i32 1970169159, label %switch.edge
     i32 1752462657, label %_ZN10VM_Version16is_amd_BarcelonaEv.exit
@@ -8121,7 +8121,7 @@ define hidden void @_ZN10VM_Version31resolve_cpu_information_detailsEv() local_u
   %1 = load i32, ptr @_ZN2os16_processor_countE, align 4
   store i32 %1, ptr @_ZN19Abstract_VM_Version14_no_of_threadsE, align 4
   %2 = tail call noundef i32 @_ZN10VM_Version16threads_per_coreEv()
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %3, label %_ZN10VM_Version13cores_per_cpuEv.exit [
     i32 1970169159, label %4
     i32 1869052232, label %18
@@ -8136,16 +8136,16 @@ define hidden void @_ZN10VM_Version31resolve_cpu_information_detailsEv() local_u
   br i1 %6, label %_ZN10VM_Version27supports_processor_topologyEv.exit.i, label %.thread.i
 
 _ZN10VM_Version27supports_processor_topologyEv.exit.i: ; preds = %4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
   %8 = and i32 %7, 31
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
   %10 = and i32 %9, 65535
   %11 = or i32 %10, %8
   %.not24.i = icmp eq i32 %11, 0
   br i1 %.not24.i, label %.thread.i, label %12
 
 12:                                               ; preds = %_ZN10VM_Version27supports_processor_topologyEv.exit.i
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
   %.lhs.trunc.i = trunc i32 %13 to i16
   %.rhs.trunc.i = trunc i32 %9 to i16
   %14 = udiv i16 %.lhs.trunc.i, %.rhs.trunc.i
@@ -8154,13 +8154,13 @@ _ZN10VM_Version27supports_processor_topologyEv.exit.i: ; preds = %4
   br i1 %.not25.i, label %.thread.i, label %_ZN10VM_Version13cores_per_cpuEv.exit.thread
 
 .thread.i:                                        ; preds = %12, %_ZN10VM_Version27supports_processor_topologyEv.exit.i, %4
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
   %16 = lshr i32 %15, 26
   %17 = add nuw nsw i32 %16, 1
   br label %_ZN10VM_Version13cores_per_cpuEv.exit.thread
 
 18:                                               ; preds = %0, %0
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 240), align 8
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 240), align 8
   %20 = and i32 %19, 255
   %21 = add nuw nsw i32 %20, 1
   br label %_ZN10VM_Version13cores_per_cpuEv.exit
@@ -8171,16 +8171,16 @@ _ZN10VM_Version27supports_processor_topologyEv.exit.i: ; preds = %4
   br i1 %24, label %_ZN10VM_Version27supports_processor_topologyEv.exit13.i, label %.thread17.i
 
 _ZN10VM_Version27supports_processor_topologyEv.exit13.i: ; preds = %22
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
   %26 = and i32 %25, 31
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
   %28 = and i32 %27, 65535
   %29 = or i32 %28, %26
   %.not.i = icmp eq i32 %29, 0
   br i1 %.not.i, label %.thread17.i, label %30
 
 30:                                               ; preds = %_ZN10VM_Version27supports_processor_topologyEv.exit13.i
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
   %.lhs.trunc20.i = trunc i32 %31 to i16
   %.rhs.trunc21.i = trunc i32 %27 to i16
   %32 = udiv i16 %.lhs.trunc20.i, %.rhs.trunc21.i
@@ -8189,7 +8189,7 @@ _ZN10VM_Version27supports_processor_topologyEv.exit13.i: ; preds = %22
   br i1 %.not23.i, label %.thread17.i, label %_ZN10VM_Version13cores_per_cpuEv.exit
 
 .thread17.i:                                      ; preds = %30, %_ZN10VM_Version27supports_processor_topologyEv.exit13.i, %22
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
   %34 = lshr i32 %33, 26
   %35 = add nuw nsw i32 %34, 1
   br label %_ZN10VM_Version13cores_per_cpuEv.exit
@@ -8227,16 +8227,16 @@ _ZN10VM_Version13cores_per_cpuEv.exit._crit_edge: ; preds = %_ZN10VM_Version13co
   br i1 %42, label %_ZN10VM_Version27supports_processor_topologyEv.exit.i10, label %.thread.i9
 
 _ZN10VM_Version27supports_processor_topologyEv.exit.i10: ; preds = %40
-  %43 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
+  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
   %44 = and i32 %43, 31
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
   %46 = and i32 %45, 65535
   %47 = or i32 %46, %44
   %.not24.i11 = icmp eq i32 %47, 0
   br i1 %.not24.i11, label %.thread.i9, label %48
 
 48:                                               ; preds = %_ZN10VM_Version27supports_processor_topologyEv.exit.i10
-  %49 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
   %.lhs.trunc.i12 = trunc i32 %49 to i16
   %.rhs.trunc.i13 = trunc i32 %45 to i16
   %50 = udiv i16 %.lhs.trunc.i12, %.rhs.trunc.i13
@@ -8245,13 +8245,13 @@ _ZN10VM_Version27supports_processor_topologyEv.exit.i10: ; preds = %40
   br i1 %.not25.i15, label %.thread.i9, label %_ZN10VM_Version13cores_per_cpuEv.exit16
 
 .thread.i9:                                       ; preds = %48, %_ZN10VM_Version27supports_processor_topologyEv.exit.i10, %40
-  %51 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
   %52 = lshr i32 %51, 26
   %53 = add nuw nsw i32 %52, 1
   br label %_ZN10VM_Version13cores_per_cpuEv.exit16
 
 54:                                               ; preds = %_ZN10VM_Version13cores_per_cpuEv.exit, %_ZN10VM_Version13cores_per_cpuEv.exit
-  %55 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 240), align 8
+  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 240), align 8
   %56 = and i32 %55, 255
   %57 = add nuw nsw i32 %56, 1
   br label %_ZN10VM_Version13cores_per_cpuEv.exit16
@@ -8262,16 +8262,16 @@ _ZN10VM_Version27supports_processor_topologyEv.exit.i10: ; preds = %40
   br i1 %60, label %_ZN10VM_Version27supports_processor_topologyEv.exit13.i3, label %.thread17.i1
 
 _ZN10VM_Version27supports_processor_topologyEv.exit13.i3: ; preds = %58
-  %61 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
+  %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
   %62 = and i32 %61, 31
-  %63 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
+  %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
   %64 = and i32 %63, 65535
   %65 = or i32 %64, %62
   %.not.i4 = icmp eq i32 %65, 0
   br i1 %.not.i4, label %.thread17.i1, label %66
 
 66:                                               ; preds = %_ZN10VM_Version27supports_processor_topologyEv.exit13.i3
-  %67 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
+  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
   %.lhs.trunc20.i5 = trunc i32 %67 to i16
   %.rhs.trunc21.i6 = trunc i32 %63 to i16
   %68 = udiv i16 %.lhs.trunc20.i5, %.rhs.trunc21.i6
@@ -8280,7 +8280,7 @@ _ZN10VM_Version27supports_processor_topologyEv.exit13.i3: ; preds = %58
   br i1 %.not23.i8, label %.thread17.i1, label %_ZN10VM_Version13cores_per_cpuEv.exit16
 
 .thread17.i1:                                     ; preds = %66, %_ZN10VM_Version27supports_processor_topologyEv.exit13.i3, %58
-  %69 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
+  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
   %70 = lshr i32 %69, 26
   %71 = add nuw nsw i32 %70, 1
   br label %_ZN10VM_Version13cores_per_cpuEv.exit16
@@ -8301,7 +8301,7 @@ define hidden noundef ptr @_ZN10VM_Version22cpu_family_descriptionEv() local_unn
   %4 = lshr i32 %1, 20
   %5 = and i32 %4, 255
   %6 = add nuw nsw i32 %3, %5
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   %8 = icmp eq i32 %7, 1752462657
   %9 = icmp samesign ult i32 %6, 24
   %or.cond = and i1 %8, %9
@@ -8358,9 +8358,9 @@ _ZN10VM_Version21cpu_model_descriptionEv.exit:    ; preds = %.loopexit.split.loo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN10VM_Version20cpu_type_descriptionEPcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   %4 = icmp eq i32 %3, 1970169159
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 148), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 148), align 4
   br i1 %4, label %9, label %6
 
 6:                                                ; preds = %2
@@ -8499,7 +8499,7 @@ define hidden noundef i64 @_ZN10VM_Version24cpu_write_support_stringEPcm(ptr nou
   ]
 
 8:                                                ; preds = %.preheader122
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 20), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 20), align 4
   %10 = and i32 %9, 16646144
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %37, label %19
@@ -8510,13 +8510,13 @@ define hidden noundef i64 @_ZN10VM_Version24cpu_write_support_stringEPcm(ptr nou
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %12
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
   %17 = and i32 %16, 255
   %18 = icmp samesign ult i32 %17, 51
   br i1 %18, label %37, label %19
 
 19:                                               ; preds = %8, %.preheader122, %12, %15
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 28), align 4
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 28), align 4
   %21 = and i32 %20, %.083134
   %.not116 = icmp eq i32 %21, 0
   br i1 %.not116, label %37, label %22
@@ -8556,7 +8556,7 @@ define hidden noundef i64 @_ZN10VM_Version24cpu_write_support_stringEPcm(ptr nou
   br i1 %exitcond.not, label %.preheader121.preheader, label %.preheader122, !llvm.loop !12
 
 .preheader121.preheader:                          ; preds = %37
-  %.pre160 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 24), align 8
+  %.pre160 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 24), align 8
   br label %.preheader121
 
 .preheader121:                                    ; preds = %.preheader121.preheader, %56
@@ -8588,7 +8588,7 @@ define hidden noundef i64 @_ZN10VM_Version24cpu_write_support_stringEPcm(ptr nou
   br label %112
 
 51:                                               ; preds = %44
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 24), align 8
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 24), align 8
   %52 = zext nneg i32 %47 to i64
   %53 = add i64 %.290136, %52
   %54 = load i8, ptr %.294135, align 1
@@ -8606,7 +8606,7 @@ define hidden noundef i64 @_ZN10VM_Version24cpu_write_support_stringEPcm(ptr nou
   br i1 %exitcond151.not, label %.preheader120.preheader, label %.preheader121, !llvm.loop !13
 
 .preheader120.preheader:                          ; preds = %56
-  %.pre162 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 144), align 8
+  %.pre162 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 144), align 8
   br label %.preheader120
 
 .preheader120:                                    ; preds = %.preheader120.preheader, %76
@@ -8638,7 +8638,7 @@ define hidden noundef i64 @_ZN10VM_Version24cpu_write_support_stringEPcm(ptr nou
   br label %112
 
 71:                                               ; preds = %64
-  %.pre161 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 144), align 8
+  %.pre161 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 144), align 8
   %72 = zext nneg i32 %67 to i64
   %73 = add i64 %.4140, %72
   %74 = load i8, ptr %.496139, align 1
@@ -8656,7 +8656,7 @@ define hidden noundef i64 @_ZN10VM_Version24cpu_write_support_stringEPcm(ptr nou
   br i1 %exitcond155.not, label %.preheader.preheader, label %.preheader120, !llvm.loop !14
 
 .preheader.preheader:                             ; preds = %76
-  %.pre164 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 148), align 4
+  %.pre164 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 148), align 4
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %96
@@ -8688,7 +8688,7 @@ define hidden noundef i64 @_ZN10VM_Version24cpu_write_support_stringEPcm(ptr nou
   br label %112
 
 91:                                               ; preds = %84
-  %.pre163 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 148), align 4
+  %.pre163 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 148), align 4
   %92 = zext nneg i32 %87 to i64
   %93 = add i64 %.6144, %92
   %94 = load i8, ptr %.698143, align 1
@@ -8741,7 +8741,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN10VM_Version24cpu_detailed_descri
   %7 = lshr i32 %4, 20
   %8 = and i32 %7, 255
   %9 = add nuw nsw i32 %6, %8
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   %11 = icmp eq i32 %10, 1752462657
   %12 = icmp samesign ult i32 %9, 24
   %or.cond.i = and i1 %11, %12
@@ -8842,39 +8842,39 @@ _ZN10VM_Version21cpu_model_descriptionEv.exit:    ; preds = %_ZN10VM_Version22cp
 _ZN10VM_Version16cpu_brand_stringEv.exit:         ; preds = %48
   %51 = load ptr, ptr @_ZL24getCPUIDBrandString_stub, align 8
   tail call void %51(ptr noundef nonnull @_ZN10VM_Version11_cpuid_infoE) #14
-  %52 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 152), align 8
+  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 152), align 8
   store i32 %52, ptr %49, align 4
-  %53 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 156), align 4
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 156), align 4
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store i32 %53, ptr %54, align 4
-  %55 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 160), align 8
+  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 160), align 8
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i32 %55, ptr %56, align 4
-  %57 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 164), align 4
+  %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 164), align 4
   %58 = getelementptr inbounds nuw i8, ptr %49, i64 12
   store i32 %57, ptr %58, align 4
-  %59 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 168), align 8
+  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 168), align 8
   %60 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store i32 %59, ptr %60, align 4
-  %61 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 172), align 4
+  %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 172), align 4
   %62 = getelementptr inbounds nuw i8, ptr %49, i64 20
   store i32 %61, ptr %62, align 4
-  %63 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 176), align 8
+  %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 176), align 8
   %64 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store i32 %63, ptr %64, align 4
-  %65 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 180), align 4
+  %65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 180), align 4
   %66 = getelementptr inbounds nuw i8, ptr %49, i64 28
   store i32 %65, ptr %66, align 4
-  %67 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 184), align 8
+  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 184), align 8
   %68 = getelementptr inbounds nuw i8, ptr %49, i64 32
   store i32 %67, ptr %68, align 4
-  %69 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 188), align 4
+  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 188), align 4
   %70 = getelementptr inbounds nuw i8, ptr %49, i64 36
   store i32 %69, ptr %70, align 4
-  %71 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 192), align 8
+  %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 192), align 8
   %72 = getelementptr inbounds nuw i8, ptr %49, i64 40
   store i32 %71, ptr %72, align 4
-  %73 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 196), align 4
+  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 196), align 4
   %74 = getelementptr inbounds nuw i8, ptr %49, i64 44
   store i32 %73, ptr %74, align 4
   %.pre.i = load ptr, ptr @_ZL17_cpu_brand_string, align 8
@@ -8882,7 +8882,7 @@ _ZN10VM_Version16cpu_brand_stringEv.exit:         ; preds = %48
   br i1 %75, label %_ZN10VM_Version16cpu_brand_stringEv.exit.thread, label %_ZN10VM_Version16cpu_brand_stringEv.exit.thread39
 
 _ZN10VM_Version16cpu_brand_stringEv.exit.thread:  ; preds = %48, %_ZN10VM_Version16cpu_brand_stringEv.exit
-  %76 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 20), align 4
+  %76 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 20), align 4
   %77 = and i32 %76, 255
   %.not.i = icmp eq i32 %77, 0
   br i1 %.not.i, label %_ZN10VM_Version9cpu_brandEv.exit, label %.preheader.preheader.i33
@@ -8903,12 +8903,12 @@ _ZN10VM_Version9cpu_brandEv.exit:                 ; preds = %_ZN10VM_Version16cp
 
 _ZN10VM_Version16cpu_brand_stringEv.exit.thread39: ; preds = %_ZN10VM_Version21cpu_model_descriptionEv.exit, %_ZN10VM_Version9cpu_brandEv.exit, %_ZN10VM_Version16cpu_brand_stringEv.exit
   %.021 = phi ptr [ %.pre.i, %_ZN10VM_Version16cpu_brand_stringEv.exit ], [ %spec.select31, %_ZN10VM_Version9cpu_brandEv.exit ], [ %46, %_ZN10VM_Version21cpu_model_descriptionEv.exit ]
-  %83 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %83 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   store i32 %83, ptr %3, align 4
-  %84 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 12), align 4
+  %84 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 12), align 4
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %84, ptr %85, align 4
-  %86 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 8), align 8
+  %86 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 8), align 8
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %86, ptr %87, align 4
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -8928,13 +8928,13 @@ _ZN10VM_Version16cpu_brand_stringEv.exit.thread39: ; preds = %_ZN10VM_Version21c
   %101 = lshr i32 %89, 16
   %102 = and i32 %101, 15
   %103 = and i32 %97, 3
-  %104 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 20), align 4
-  %105 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 24), align 8
-  %106 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 28), align 4
-  %107 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 136), align 8
-  %108 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 140), align 4
-  %.sroa.01.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 144), align 8
-  %.sroa.0.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 148), align 4
+  %104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 20), align 4
+  %105 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 24), align 8
+  %106 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 28), align 4
+  %107 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 136), align 8
+  %108 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 140), align 4
+  %.sroa.01.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 144), align 8
+  %.sroa.0.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 148), align 4
   %109 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.153, ptr noundef nonnull %.021, ptr noundef nonnull %3, ptr noundef nonnull %spec.select36, i32 noundef %94, ptr noundef nonnull %.022, i32 noundef %99, i32 noundef %100, i32 noundef %93, i32 noundef %102, i32 noundef %103, i32 noundef %89, i32 noundef %104, i32 noundef %105, i32 noundef %106, i32 noundef %107, i32 noundef %108, i32 %.sroa.01.0.copyload, i32 %.sroa.0.0.copyload) #14
   %110 = icmp slt i32 %109, 0
   br i1 %110, label %114, label %111
@@ -8990,39 +8990,39 @@ define hidden noundef range(i64 -195536000000000000, 87769000000000001) i64 @_ZN
 _ZN10VM_Version16cpu_brand_stringEv.exit:         ; preds = %3
   %6 = load ptr, ptr @_ZL24getCPUIDBrandString_stub, align 8
   tail call void %6(ptr noundef nonnull @_ZN10VM_Version11_cpuid_infoE) #14
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 152), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 152), align 8
   store i32 %7, ptr %4, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 156), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 156), align 4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %8, ptr %9, align 4
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 160), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 160), align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %10, ptr %11, align 4
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 164), align 4
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 164), align 4
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %12, ptr %13, align 4
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 168), align 8
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 168), align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %14, ptr %15, align 4
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 172), align 4
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 172), align 4
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %16, ptr %17, align 4
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 176), align 8
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 176), align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %18, ptr %19, align 4
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 180), align 4
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 180), align 4
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 %20, ptr %21, align 4
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 184), align 8
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 184), align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %22, ptr %23, align 4
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 188), align 4
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 188), align 4
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 %24, ptr %25, align 4
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 192), align 8
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 192), align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %26, ptr %27, align 4
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 196), align 4
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 196), align 4
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 %28, ptr %29, align 4
   %.pre.i = load ptr, ptr @_ZL17_cpu_brand_string, align 8
@@ -9139,7 +9139,7 @@ define hidden noundef range(i64 -195536000000000000, 87769000000000001) i64 @_ZN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN10VM_Version28is_intel_tsc_synched_at_initEv() local_unnamed_addr #3 align 2 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   %2 = icmp eq i32 %1, 1970169159
   br i1 %2, label %_ZN10VM_Version20is_intel_family_coreEv.exit, label %_ZN10VM_Version20is_intel_family_coreEv.exit.thread
 
@@ -9278,7 +9278,7 @@ define linkonce_odr hidden void @_ZN24VM_Version_StubGenerator19generate_vzeroup
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i8 0, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -9286,7 +9286,7 @@ define linkonce_odr hidden void @_ZN24VM_Version_StubGenerator19generate_vzeroup
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %20 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %19) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 6, ptr noundef nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
@@ -9303,7 +9303,7 @@ define linkonce_odr hidden void @_ZN24VM_Version_StubGenerator19generate_vzeroup
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i8 0, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -9326,7 +9326,7 @@ define linkonce_odr hidden void @_ZN24VM_Version_StubGenerator19generate_vzeroup
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i8 0, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %38, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr null, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -9350,7 +9350,7 @@ define linkonce_odr hidden void @_ZN24VM_Version_StubGenerator19generate_vzeroup
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i8 0, ptr %47, align 4
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %48, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 40

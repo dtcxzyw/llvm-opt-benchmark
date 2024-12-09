@@ -1011,7 +1011,7 @@ define hidden void @_ZN3mbe16DeclarativeMacro12parse_macro217ha47e5ba335706dfdE(
   %72 = getelementptr inbounds nuw i8, ptr %61, i64 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !133
   store ptr @anon.c84b1ad4650e75dcc23d0bef38e10828.4, ptr %5, align 8, !noalias !133
-  store ptr getelementptr inbounds (i8, ptr @anon.c84b1ad4650e75dcc23d0bef38e10828.4, i64 8), ptr %32, align 8, !noalias !133
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.c84b1ad4650e75dcc23d0bef38e10828.4, i64 8), ptr %32, align 8, !noalias !133
   %73 = invoke noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hdfcaab1457f4f4baE.llvm.8462471242219372772"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %72)
           to label %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$15expect_any_char17h78b1a2c85a25283bE.exit" unwind label %.loopexit.split-lp.loopexit
 

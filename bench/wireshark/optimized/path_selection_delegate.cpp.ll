@@ -32,7 +32,7 @@ $_ZN9QtPrivate11QSlotObjectIM21PathSelectionDelegateFv7QStringENS_4ListIJS2_EEEv
 ; Function Attrs: mustprogress uwtable
 define void @_ZN21PathSelectionDelegateC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN19QStyledItemDelegateC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21PathSelectionDelegate, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21PathSelectionDelegate, i64 16), ptr %0, align 8
   ret void
 }
 

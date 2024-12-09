@@ -118,13 +118,13 @@ $_ZTVN3re26Regexp6WalkerINS_4FragEEE = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3re28CompilerC2Ev(ptr noundef nonnull align 8 dereferenceable(212) initializes((0, 88)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerINS_4FragEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3re26Regexp6WalkerINS_4FragEEE, i64 16), ptr %this, align 8
   %stack_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %stack_.i, i8 0, i64 80, i1 false)
   tail call void @_ZNSt11_Deque_baseIN3re29WalkStateINS0_4FragEEESaIS3_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %stack_.i, i64 noundef 0)
   %stopped_early_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i8 0, ptr %stopped_early_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re28CompilerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3re28CompilerE, i64 16), ptr %this, align 8
   %inst_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %inst_, i8 0, i64 16, i1 false)
   %rune_cache_ = getelementptr inbounds nuw i8, ptr %this, i64 152
@@ -320,7 +320,7 @@ declare void @_ZN3re24Prog4Inst8InitFailEv(ptr noundef nonnull align 4 dereferen
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3re28CompilerD2Ev(ptr noundef nonnull align 8 dereferenceable(212) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re28CompilerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3re28CompilerE, i64 16), ptr %this, align 8
   %prog_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %prog_, align 8
   %isnull = icmp eq ptr %0, null
@@ -358,7 +358,7 @@ if.then.i.i:                                      ; preds = %_ZN4absl7debian213f
 
 _ZN3re28PODArrayINS_4Prog4InstEED2Ev.exit:        ; preds = %_ZN4absl7debian213flat_hash_mapImiNS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEED2Ev.exit, %if.then.i.i
   store ptr null, ptr %add.ptr.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerINS_4FragEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3re26Regexp6WalkerINS_4FragEEE, i64 16), ptr %this, align 8
   invoke void @_ZN3re26Regexp6WalkerINS_4FragEE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
@@ -6139,7 +6139,7 @@ declare void @llvm.trap() #20
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3re26Regexp6WalkerINS_4FragEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerINS_4FragEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3re26Regexp6WalkerINS_4FragEEE, i64 16), ptr %this, align 8
   invoke void @_ZN3re26Regexp6WalkerINS_4FragEE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %invoke.cont unwind label %terminate.lpad
 

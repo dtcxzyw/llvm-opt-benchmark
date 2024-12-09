@@ -453,7 +453,7 @@ _ZN14PhaseTraceTimeD2Ev.exit11:                   ; preds = %75, %83
   store i8 0, ptr %94, align 4
   %95 = load ptr, ptr %48, align 8
   call void @_ZN20GlobalValueNumberingC1EP2IR(ptr noundef nonnull align 8 dereferenceable(65) %5, ptr noundef %95) #8
-  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTV20GlobalValueNumbering, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 400) (i8, ptr @_ZTV20GlobalValueNumbering, i64 16), ptr %5, align 8
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %97 = load i64, ptr %96, align 8
   %98 = and i64 %97, 1
@@ -789,8 +789,8 @@ _ZN14PhaseTraceTimeD2Ev.exit6:                    ; preds = %61, %63
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12LIRGeneratorC2EP11CompilationP8ciMethod(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTV12LIRGenerator, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV12LIRGenerator, i64 416), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 384) (i8, ptr @_ZTV12LIRGenerator, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV12LIRGenerator, i64 416), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -877,9 +877,9 @@ declare void @_ZN10LinearScan14do_linear_scanEv(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12LIRGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTV12LIRGenerator, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 384) (i8, ptr @_ZTV12LIRGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV12LIRGenerator, i64 416), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV12LIRGenerator, i64 416), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 1
@@ -1165,9 +1165,9 @@ _ZN11Compilation17setup_code_bufferEP10CodeBufferi.exit: ; preds = %1
   tail call void @_ZN10CodeBuffer23initialize_oop_recorderEP11OopRecorder(ptr noundef nonnull align 8 dereferenceable(448) %3, ptr noundef %38) #8
   %39 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #8
   tail call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(44) %39, ptr noundef nonnull %3) #8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV9Assembler, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV9Assembler, i64 16), ptr %39, align 8
   tail call void @_ZN9Assembler15init_attributesEv(ptr noundef nonnull align 8 dereferenceable(44) %39) #8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17C1_MacroAssembler, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17C1_MacroAssembler, i64 16), ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store i32 0, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -2689,35 +2689,35 @@ define hidden void @_ZN11Compilation12print_timersEv() local_unnamed_addr #1 ali
   %2 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZL6timers) #8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.12, double noundef %2) #8
   %3 = load ptr, ptr @tty, align 8
-  %4 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZL6timers, i64 24)) #8
+  %4 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZL6timers, i64 24)) #8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.13, double noundef %4) #8
   %5 = load ptr, ptr @tty, align 8
-  %6 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZL6timers, i64 48)) #8
+  %6 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZL6timers, i64 48)) #8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str.14, double noundef %6) #8
   %7 = load ptr, ptr @tty, align 8
-  %8 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZL6timers, i64 72)) #8
+  %8 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZL6timers, i64 72)) #8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.15, double noundef %8) #8
   %9 = load ptr, ptr @tty, align 8
-  %10 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZL6timers, i64 120)) #8
+  %10 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZL6timers, i64 120)) #8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull @.str.16, double noundef %10) #8
   %11 = load ptr, ptr @tty, align 8
-  %12 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZL6timers, i64 96)) #8
+  %12 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZL6timers, i64 96)) #8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull @.str.17, double noundef %12) #8
   %13 = load ptr, ptr @tty, align 8
-  %14 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZL6timers, i64 144)) #8
+  %14 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZL6timers, i64 144)) #8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull @.str.18, double noundef %14) #8
   %15 = load ptr, ptr @tty, align 8
-  %16 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZL6timers, i64 168)) #8
+  %16 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZL6timers, i64 168)) #8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull @.str.19, double noundef %16) #8
-  %17 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZL6timers, i64 48)) #8
-  %18 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZL6timers, i64 72)) #8
-  %19 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZL6timers, i64 120)) #8
+  %17 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZL6timers, i64 48)) #8
+  %18 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZL6timers, i64 72)) #8
+  %19 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZL6timers, i64 120)) #8
   %20 = fadd double %18, %19
-  %21 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZL6timers, i64 96)) #8
+  %21 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZL6timers, i64 96)) #8
   %22 = fadd double %20, %21
-  %23 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZL6timers, i64 144)) #8
+  %23 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZL6timers, i64 144)) #8
   %24 = fadd double %22, %23
-  %25 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZL6timers, i64 168)) #8
+  %25 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZL6timers, i64 168)) #8
   %26 = fadd double %24, %25
   %27 = fsub double %17, %26
   %28 = fcmp ogt double %27, 0.000000e+00
@@ -2730,17 +2730,17 @@ define hidden void @_ZN11Compilation12print_timersEv() local_unnamed_addr #1 ali
 
 31:                                               ; preds = %29, %0
   %32 = load ptr, ptr @tty, align 8
-  %33 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZL6timers, i64 192)) #8
+  %33 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZL6timers, i64 192)) #8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %32, ptr noundef nonnull @.str.21, double noundef %33) #8
   %34 = load ptr, ptr @tty, align 8
-  %35 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZL6timers, i64 240)) #8
+  %35 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZL6timers, i64 240)) #8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull @.str.22, double noundef %35) #8
   %36 = load ptr, ptr @tty, align 8
-  %37 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZL6timers, i64 216)) #8
+  %37 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZL6timers, i64 216)) #8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull @.str.23, double noundef %37) #8
-  %38 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZL6timers, i64 192)) #8
-  %39 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZL6timers, i64 240)) #8
-  %40 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZL6timers, i64 216)) #8
+  %38 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZL6timers, i64 192)) #8
+  %39 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZL6timers, i64 240)) #8
+  %40 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZL6timers, i64 216)) #8
   %41 = fadd double %39, %40
   %42 = fsub double %38, %41
   %43 = fcmp ogt double %42, 0.000000e+00
@@ -2753,20 +2753,20 @@ define hidden void @_ZN11Compilation12print_timersEv() local_unnamed_addr #1 ali
 
 46:                                               ; preds = %44, %31
   %47 = load ptr, ptr @tty, align 8
-  %48 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZL6timers, i64 264)) #8
+  %48 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZL6timers, i64 264)) #8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %47, ptr noundef nonnull @.str.24, double noundef %48) #8
   %49 = load ptr, ptr @tty, align 8
-  %50 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZL6timers, i64 288)) #8
+  %50 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZL6timers, i64 288)) #8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %49, ptr noundef nonnull @.str.25, double noundef %50) #8
   %51 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZL6timers) #8
-  %52 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZL6timers, i64 24)) #8
-  %53 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZL6timers, i64 48)) #8
+  %52 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZL6timers, i64 24)) #8
+  %53 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZL6timers, i64 48)) #8
   %54 = fadd double %52, %53
-  %55 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZL6timers, i64 192)) #8
+  %55 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZL6timers, i64 192)) #8
   %56 = fadd double %54, %55
-  %57 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZL6timers, i64 264)) #8
+  %57 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZL6timers, i64 264)) #8
   %58 = fadd double %56, %57
-  %59 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZL6timers, i64 288)) #8
+  %59 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds nuw (i8, ptr @_ZL6timers, i64 288)) #8
   %60 = fadd double %58, %59
   %61 = fsub double %51, %60
   %62 = fcmp ogt double %61, 0.000000e+00
@@ -3624,7 +3624,7 @@ define linkonce_odr hidden void @_ZN14MacroAssembler22bang_stack_with_offsetEi(p
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i8 0, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 40

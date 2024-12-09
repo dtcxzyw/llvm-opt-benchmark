@@ -9131,8 +9131,8 @@ define internal fastcc void @zend_mm_safe_error(ptr nocapture noundef writeonly 
   %5 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i32 1, ptr %6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  store ptr %5, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
   %8 = call i32 @__sigsetjmp(ptr noundef nonnull %5, i32 noundef 0) #51
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
@@ -9142,7 +9142,7 @@ define internal fastcc void @zend_mm_safe_error(ptr nocapture noundef writeonly 
   unreachable
 
 11:                                               ; preds = %4
-  store ptr %7, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
   store i32 0, ptr %6, align 8
   call void @_zend_bailout(ptr noundef nonnull @.str.6, i32 noundef 390) #42
   unreachable

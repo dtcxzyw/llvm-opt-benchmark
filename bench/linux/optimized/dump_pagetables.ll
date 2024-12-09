@@ -171,7 +171,7 @@ define dso_local void @ptdump_walk_pgd_level_debugfs(ptr noundef %0, ptr noundef
   br i1 %2, label %8, label %16
 
 8:                                                ; preds = %3
-  %9 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 64), align 8
+  %9 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
   %10 = and i64 %9, 8796093022208
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %16, label %12
@@ -238,7 +238,7 @@ define dso_local void @ptdump_walk_user_pgd_level_checkwx() local_unnamed_addr #
   br i1 %4, label %38, label %5
 
 5:                                                ; preds = %0
-  %6 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 64), align 8
+  %6 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
   %7 = and i64 %6, 8796093022208
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %38, label %9
@@ -364,15 +364,15 @@ define dso_local void @ptdump_walk_pgd_level_checkwx() local_unnamed_addr #3 ali
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: none, inaccessiblemem: none)
 define internal noundef i32 @pt_dump_init() #4 section ".init.text" align 16 {
   %1 = load i64, ptr @page_offset_base, align 8
-  store i64 %1, ptr getelementptr inbounds (i8, ptr @address_markers, i64 72), align 8
+  store i64 %1, ptr getelementptr inbounds nuw (i8, ptr @address_markers, i64 72), align 8
   %2 = load i64, ptr @vmalloc_base, align 8
-  store i64 %2, ptr getelementptr inbounds (i8, ptr @address_markers, i64 96), align 16
+  store i64 %2, ptr getelementptr inbounds nuw (i8, ptr @address_markers, i64 96), align 16
   %3 = load i64, ptr @vmemmap_base, align 8
-  store i64 %3, ptr getelementptr inbounds (i8, ptr @address_markers, i64 120), align 8
+  store i64 %3, ptr getelementptr inbounds nuw (i8, ptr @address_markers, i64 120), align 8
   %4 = load i32, ptr @pgdir_shift, align 4
   %5 = zext nneg i32 %4 to i64
   %6 = shl i64 -240, %5
-  store i64 %6, ptr getelementptr inbounds (i8, ptr @address_markers, i64 48), align 16
+  store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @address_markers, i64 48), align 16
   ret i32 0
 }
 
@@ -418,7 +418,7 @@ define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 no
   br i1 %27, label %31, label %28
 
 28:                                               ; preds = %22
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @address_markers, i64 8), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @address_markers, i64 8), align 8
   %30 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %29) #9
   br label %312
 
@@ -427,7 +427,7 @@ define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 no
   br i1 %32, label %312, label %33
 
 33:                                               ; preds = %31
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @address_markers, i64 8), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @address_markers, i64 8), align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.4, ptr noundef %34) #8
   br label %312
 
@@ -531,7 +531,7 @@ define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 no
 .preheader:                                       ; preds = %93, %102
   %99 = phi i64 [ %104, %102 ], [ %96, %93 ]
   %100 = phi ptr [ %103, %102 ], [ @note_page.units, %93 ]
-  %101 = icmp eq ptr %100, getelementptr inbounds (i8, ptr @note_page.units, i64 6)
+  %101 = icmp eq ptr %100, getelementptr inbounds nuw (i8, ptr @note_page.units, i64 6)
   br i1 %101, label %.loopexit, label %102
 
 102:                                              ; preds = %.preheader
@@ -542,7 +542,7 @@ define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 no
   br i1 %106, label %.preheader, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %102, %.preheader, %93
-  %107 = phi ptr [ @note_page.units, %93 ], [ %103, %102 ], [ getelementptr inbounds (i8, ptr @note_page.units, i64 6), %.preheader ]
+  %107 = phi ptr [ @note_page.units, %93 ], [ %103, %102 ], [ getelementptr inbounds nuw (i8, ptr @note_page.units, i64 6), %.preheader ]
   %108 = phi i64 [ %96, %93 ], [ %104, %102 ], [ %99, %.preheader ]
   %109 = load i8, ptr %81, align 8, !range !6, !noundef !7
   %110 = icmp eq i8 %109, 0

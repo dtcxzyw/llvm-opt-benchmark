@@ -2707,7 +2707,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18Arch_GetSta
           to label %.noexc25 unwind label %26
 
 .noexc25:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.48, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.48, i64 74))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.48, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.48, i64 74))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %16
 
 16:                                               ; preds = %.noexc25
@@ -5597,7 +5597,7 @@ define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__L26_ArchLogP
   %6 = srem i32 %0, 64
   %narrow = sub nsw i32 0, %6
   %7 = sext i32 %narrow to i64
-  %8 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @.str.40, i64 64), i64 %7
+  %8 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @.str.40, i64 64), i64 %7
   %9 = load ptr, ptr @stderr, align 8
   %10 = tail call i32 @fputs(ptr noundef nonnull %8, ptr noundef %9) #36
   ret void
@@ -6015,7 +6015,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L30Arch_DefaultStackT
           to label %.noexc7 unwind label %26
 
 .noexc7:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.49, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.49, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.49, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.49, i64 9))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %24
 
 24:                                               ; preds = %.noexc7

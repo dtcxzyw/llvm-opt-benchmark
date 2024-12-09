@@ -449,7 +449,7 @@ define linkonce_odr hidden void @_ZN16test_main_callerclEv(ptr noundef nonnull a
   store ptr getelementptr inbounds nuw (i8, ptr @.str.4, i64 64), ptr %18, align 8, !tbaa !18
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 0, ptr %19, align 8, !tbaa !35, !alias.scope !37
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS0_13basic_cstringIKcEERKS5_EE, i64 16), ptr %5, align 8, !tbaa !40, !alias.scope !37
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS0_13basic_cstringIKcEERKS5_EE, i64 16), ptr %5, align 8, !tbaa !40, !alias.scope !37
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %20, align 8, !tbaa !13, !alias.scope !37
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 24

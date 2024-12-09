@@ -15243,7 +15243,7 @@ define hidden noundef zeroext i1 @"_ZN8worktree17BackgroundScanner14process_even
 .noexc73:                                         ; preds = %.noexc
   %49 = extractvalue { ptr, i64 } %48, 0
   %50 = extractvalue { ptr, i64 } %48, 1
-  %51 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN3git7COOKIES17h61e034fe72ac0d0fE, i64 16) acquire, align 8, !noalias !2598
+  %51 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN3git7COOKIES17h61e034fe72ac0d0fE, i64 16) acquire, align 8, !noalias !2598
   %52 = icmp eq i32 %51, 4
   br i1 %52, label %_ZN3std4sync4once4Once9call_once17h1aca9eb28ec66441E.exit.i.i.i, label %53
 
@@ -15252,7 +15252,7 @@ define hidden noundef zeroext i1 @"_ZN8worktree17BackgroundScanner14process_even
   store ptr @_ZN3git7COOKIES17h61e034fe72ac0d0fE, ptr %16, align 8, !noalias !2598
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15), !noalias !2598
   store ptr %16, ptr %15, align 8, !noalias !2598
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h43ecbb66308c3a9dE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN3git7COOKIES17h61e034fe72ac0d0fE, i64 16), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4c92262d58d8f1a437fbdfc64905f60f.141)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h43ecbb66308c3a9dE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN3git7COOKIES17h61e034fe72ac0d0fE, i64 16), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4c92262d58d8f1a437fbdfc64905f60f.141)
           to label %.noexc74 unwind label %.loopexit
 
 .noexc74:                                         ; preds = %53
@@ -15262,7 +15262,7 @@ define hidden noundef zeroext i1 @"_ZN8worktree17BackgroundScanner14process_even
 
 _ZN3std4sync4once4Once9call_once17h1aca9eb28ec66441E.exit.i.i.i: ; preds = %.noexc74, %.noexc73
   %54 = icmp ne ptr %49, null
-  %55 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3git7COOKIES17h61e034fe72ac0d0fE, i64 8), align 8, !noalias !2598
+  %55 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN3git7COOKIES17h61e034fe72ac0d0fE, i64 8), align 8, !noalias !2598
   %.not.i.i.i.i = icmp eq i64 %50, %55
   %or.cond6.i.i.i = select i1 %54, i1 %.not.i.i.i.i, i1 false
   br i1 %or.cond6.i.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.i.i.i", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.thread.i.i.i"
@@ -15285,7 +15285,7 @@ thread-pre-split.i.i.i:                           ; preds = %_ZN3std4sync4once4O
   br i1 %61, label %71, label %69
 
 62:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.thread.i.i.i"
-  %63 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN3git16FSMONITOR_DAEMON17hcfa26ac46cd959d4E, i64 16) acquire, align 8, !noalias !2598
+  %63 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN3git16FSMONITOR_DAEMON17hcfa26ac46cd959d4E, i64 16) acquire, align 8, !noalias !2598
   %64 = icmp eq i32 %63, 4
   br i1 %64, label %_ZN3std4sync4once4Once9call_once17h1aca9eb28ec66441E.exit9.i.i.i, label %65
 
@@ -15294,7 +15294,7 @@ thread-pre-split.i.i.i:                           ; preds = %_ZN3std4sync4once4O
   store ptr @_ZN3git16FSMONITOR_DAEMON17hcfa26ac46cd959d4E, ptr %14, align 8, !noalias !2598
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13), !noalias !2598
   store ptr %14, ptr %13, align 8, !noalias !2598
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h43ecbb66308c3a9dE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN3git16FSMONITOR_DAEMON17hcfa26ac46cd959d4E, i64 16), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4c92262d58d8f1a437fbdfc64905f60f.141)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h43ecbb66308c3a9dE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN3git16FSMONITOR_DAEMON17hcfa26ac46cd959d4E, i64 16), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4c92262d58d8f1a437fbdfc64905f60f.141)
           to label %.noexc75 unwind label %.loopexit
 
 .noexc75:                                         ; preds = %65
@@ -15303,7 +15303,7 @@ thread-pre-split.i.i.i:                           ; preds = %_ZN3std4sync4once4O
   br label %_ZN3std4sync4once4Once9call_once17h1aca9eb28ec66441E.exit9.i.i.i
 
 _ZN3std4sync4once4Once9call_once17h1aca9eb28ec66441E.exit9.i.i.i: ; preds = %.noexc75, %62
-  %66 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3git16FSMONITOR_DAEMON17hcfa26ac46cd959d4E, i64 8), align 8, !noalias !2598
+  %66 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN3git16FSMONITOR_DAEMON17hcfa26ac46cd959d4E, i64 8), align 8, !noalias !2598
   %.not.i10.i.i.i = icmp eq i64 %50, %66
   %or.cond8.i.i.i = select i1 %54, i1 %.not.i10.i.i.i, i1 false
   br i1 %or.cond8.i.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit13.i.i.i", label %thread-pre-split.i.i.i
@@ -15319,7 +15319,7 @@ _ZN3std4sync4once4Once9call_once17h1aca9eb28ec66441E.exit9.i.i.i: ; preds = %.no
   br i1 %70, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h21de52ec06b44bcbE.exit.i", label %71
 
 71:                                               ; preds = %69, %thread-pre-split.i.i.i
-  %72 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN3git7DOT_GIT17hcfb5d255e2744574E, i64 16) acquire, align 8, !noalias !2598
+  %72 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN3git7DOT_GIT17hcfb5d255e2744574E, i64 16) acquire, align 8, !noalias !2598
   %73 = icmp eq i32 %72, 4
   br i1 %73, label %_ZN3std4sync4once4Once9call_once17h1aca9eb28ec66441E.exit14.i.i.i, label %74
 
@@ -15328,7 +15328,7 @@ _ZN3std4sync4once4Once9call_once17h1aca9eb28ec66441E.exit9.i.i.i: ; preds = %.no
   store ptr @_ZN3git7DOT_GIT17hcfb5d255e2744574E, ptr %12, align 8, !noalias !2598
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !2598
   store ptr %12, ptr %11, align 8, !noalias !2598
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h43ecbb66308c3a9dE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN3git7DOT_GIT17hcfb5d255e2744574E, i64 16), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4c92262d58d8f1a437fbdfc64905f60f.141)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h43ecbb66308c3a9dE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN3git7DOT_GIT17hcfb5d255e2744574E, i64 16), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4c92262d58d8f1a437fbdfc64905f60f.141)
           to label %.noexc76 unwind label %.loopexit
 
 .noexc76:                                         ; preds = %74
@@ -15337,7 +15337,7 @@ _ZN3std4sync4once4Once9call_once17h1aca9eb28ec66441E.exit9.i.i.i: ; preds = %.no
   br label %_ZN3std4sync4once4Once9call_once17h1aca9eb28ec66441E.exit14.i.i.i
 
 _ZN3std4sync4once4Once9call_once17h1aca9eb28ec66441E.exit14.i.i.i: ; preds = %.noexc76, %71
-  %75 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3git7DOT_GIT17hcfb5d255e2744574E, i64 8), align 8, !noalias !2598
+  %75 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN3git7DOT_GIT17hcfb5d255e2744574E, i64 8), align 8, !noalias !2598
   %.not.i15.i.i.i = icmp eq i64 %50, %75
   %or.cond10.i.i.i = select i1 %54, i1 %.not.i15.i.i.i, i1 false
   br i1 %or.cond10.i.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit18.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h21de52ec06b44bcbE.exit.i"

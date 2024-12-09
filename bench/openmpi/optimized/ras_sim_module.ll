@@ -38,10 +38,10 @@ define internal range(i32 -13, 1) i32 @allocate(ptr noundef %0, ptr noundef %1) 
   %6 = alloca [6 x i8], align 1
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_ras_simulator_component, i64 224), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_simulator_component, i64 224), align 8
   %8 = tail call ptr @PMIx_Argv_split(ptr noundef %7, i32 noundef 44) #13
   %9 = tail call i32 @PMIx_Argv_count(ptr noundef %8) #13
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_ras_simulator_component, i64 232), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_simulator_component, i64 232), align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %.loopexit113, label %11
 
@@ -67,7 +67,7 @@ define internal range(i32 -13, 1) i32 @allocate(ptr noundef %0, ptr noundef %1) 
   br i1 %exitcond.not, label %.loopexit113, label %20, !llvm.loop !4
 
 .loopexit113:                                     ; preds = %20, %11, %2
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_ras_simulator_component, i64 240), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_simulator_component, i64 240), align 8
   %.not104 = icmp eq ptr %23, null
   br i1 %.not104, label %.loopexit, label %24
 
@@ -182,10 +182,10 @@ pmix_pointer_array_get_item.exit:                 ; preds = %40
 
 .lr.ph121:                                        ; preds = %._crit_edge, %147
   %.082119 = phi i32 [ %156, %147 ], [ 0, %._crit_edge ]
-  %78 = load i64, ptr getelementptr inbounds (i8, ptr @prte_node_t_class, i64 56), align 8
+  %78 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prte_node_t_class, i64 56), align 8
   %79 = call noalias noundef ptr @malloc(i64 noundef %78) #14
   %80 = load i32, ptr @pmix_class_init_epoch, align 4
-  %81 = load i32, ptr getelementptr inbounds (i8, ptr @prte_node_t_class, i64 32), align 8
+  %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_node_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %80, %81
   br i1 %.not.i, label %83, label %82
 
@@ -291,7 +291,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %8
   %133 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %48) #13
   %134 = getelementptr inbounds nuw i8, ptr %79, i64 240
   store ptr %48, ptr %134, align 8
-  %135 = load i32, ptr getelementptr inbounds (i8, ptr @prte_ras_base_framework, i64 76), align 4
+  %135 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ras_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %135, 64
   br i1 %or.cond, label %136, label %147
 

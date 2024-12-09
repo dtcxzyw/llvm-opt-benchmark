@@ -240,7 +240,7 @@ define hidden void @zim_DOMNodeList_count(ptr nocapture noundef readonly %0, ptr
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #3
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %14

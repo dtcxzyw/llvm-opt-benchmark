@@ -1174,7 +1174,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %ob_type.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr @PyComplex_Type, ptr %ob_type.i.i, align 8
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 168), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyComplex_Type, i64 168), align 8
   %1 = and i64 %0, 512
   %tobool.not.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i, label %_PyObject_Init.exit, label %if.then.i
@@ -1223,7 +1223,7 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %ob_type.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr @PyComplex_Type, ptr %ob_type.i.i.i, align 8
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 168), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyComplex_Type, i64 168), align 8
   %1 = and i64 %0, 512
   %tobool.not.i.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
@@ -1368,7 +1368,7 @@ return:                                           ; preds = %if.else, %if.end.i,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @try_complex_special_method(ptr noundef %op) unnamed_addr #6 {
 entry:
-  %call = tail call ptr @_PyObject_LookupSpecial(ptr noundef %op, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27904)) #14
+  %call = tail call ptr @_PyObject_LookupSpecial(ptr noundef %op, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27904)) #14
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.then
 
@@ -1818,7 +1818,7 @@ skip_optional_pos:                                ; preds = %if.end20, %if.end, 
   %r.0 = phi ptr [ %3, %if.end27 ], [ null, %if.end ], [ %3, %if.end20 ]
   %i.0 = phi ptr [ %4, %if.end27 ], [ null, %if.end ], [ null, %if.end20 ]
   %cmp.i = icmp eq ptr %r.0, null
-  %spec.select.i = select i1 %cmp.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), ptr %r.0
+  %spec.select.i = select i1 %cmp.i, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), ptr %r.0
   %5 = getelementptr i8, ptr %spec.select.i, i64 8
   %r.addr.0.val65.i = load ptr, ptr %5, align 8
   %cmp.i70.i = icmp eq ptr %r.addr.0.val65.i, @PyComplex_Type
@@ -2338,7 +2338,7 @@ if.then.i37:                                      ; preds = %if.end13
 if.end.i:                                         ; preds = %if.end13
   %ob_type.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr @PyComplex_Type, ptr %ob_type.i.i.i, align 8
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 168), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyComplex_Type, i64 168), align 8
   %9 = and i64 %8, 512
   %tobool.not.i.i = icmp eq i64 %9, 0
   br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
@@ -2504,7 +2504,7 @@ if.then.i37:                                      ; preds = %if.end13
 if.end.i:                                         ; preds = %if.end13
   %ob_type.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr @PyComplex_Type, ptr %ob_type.i.i.i, align 8
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 168), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyComplex_Type, i64 168), align 8
   %9 = and i64 %8, 512
   %tobool.not.i.i = icmp eq i64 %9, 0
   br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
@@ -2673,7 +2673,7 @@ if.then.i37:                                      ; preds = %if.end13
 if.end.i:                                         ; preds = %if.end13
   %ob_type.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr @PyComplex_Type, ptr %ob_type.i.i.i, align 8
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 168), align 8
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyComplex_Type, i64 168), align 8
   %12 = and i64 %11, 512
   %tobool.not.i.i = icmp eq i64 %12, 0
   br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
@@ -3061,7 +3061,7 @@ if.then.i53:                                      ; preds = %if.end43
 if.end.i:                                         ; preds = %if.end43
   %ob_type.i.i.i = getelementptr inbounds nuw i8, ptr %call.i45, i64 8
   store ptr @PyComplex_Type, ptr %ob_type.i.i.i, align 8
-  %35 = load i64, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 168), align 8
+  %35 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyComplex_Type, i64 168), align 8
   %36 = and i64 %35, 512
   %tobool.not.i.i47 = icmp eq i64 %36, 0
   br i1 %tobool.not.i.i47, label %_PyObject_Init.exit.i, label %if.then.i.i48
@@ -3109,7 +3109,7 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %ob_type.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr @PyComplex_Type, ptr %ob_type.i.i.i, align 8
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 168), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyComplex_Type, i64 168), align 8
   %3 = and i64 %2, 512
   %tobool.not.i.i = icmp eq i64 %3, 0
   br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
@@ -3171,7 +3171,7 @@ if.then.i:                                        ; preds = %if.else
 if.end.i:                                         ; preds = %if.else
   %ob_type.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr @PyComplex_Type, ptr %ob_type.i.i.i, align 8
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 168), align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyComplex_Type, i64 168), align 8
   %6 = and i64 %5, 512
   %tobool.not.i.i = icmp eq i64 %6, 0
   br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
@@ -3467,7 +3467,7 @@ if.then.i40:                                      ; preds = %if.end19
 if.end.i:                                         ; preds = %if.end19
   %ob_type.i.i.i = getelementptr inbounds nuw i8, ptr %call.i34, i64 8
   store ptr @PyComplex_Type, ptr %ob_type.i.i.i, align 8
-  %15 = load i64, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 168), align 8
+  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyComplex_Type, i64 168), align 8
   %16 = and i64 %15, 512
   %tobool.not.i.i = icmp eq i64 %16, 0
   br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
@@ -3588,7 +3588,7 @@ if.then.i.i:                                      ; preds = %entry
 if.end.i.i:                                       ; preds = %entry
   %ob_type.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store ptr @PyComplex_Type, ptr %ob_type.i.i.i.i, align 8
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 168), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyComplex_Type, i64 168), align 8
   %3 = and i64 %2, 512
   %tobool.not.i.i.i = icmp eq i64 %3, 0
   br i1 %tobool.not.i.i.i, label %_PyObject_Init.exit.i.i, label %if.then.i.i.i
@@ -3650,7 +3650,7 @@ if.then.i.i:                                      ; preds = %if.else.i
 if.end.i.i:                                       ; preds = %if.else.i
   %ob_type.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store ptr @PyComplex_Type, ptr %ob_type.i.i.i.i, align 8
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 168), align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyComplex_Type, i64 168), align 8
   %6 = and i64 %5, 512
   %tobool.not.i.i.i = icmp eq i64 %6, 0
   br i1 %tobool.not.i.i.i, label %_PyObject_Init.exit.i.i, label %if.then.i.i.i

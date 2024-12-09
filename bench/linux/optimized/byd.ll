@@ -117,7 +117,7 @@ define dso_local noundef range(i32 -12, 1) i32 @byd_init(ptr noundef %0) local_u
 21:                                               ; preds = %9
   call void @psmouse_set_state(ptr noundef %0, i32 noundef 4) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %23 = call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %22, i32 noundef 3520, i64 noundef 72) #6
   %24 = icmp eq ptr %23, null
   br i1 %24, label %48, label %25

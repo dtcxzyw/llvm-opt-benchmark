@@ -436,7 +436,7 @@ define dso_local ptr @nexthop_select_path(ptr noundef %0, i32 noundef %1) #0 ali
   %58 = and i32 %57, 24
   %59 = icmp eq i32 %58, 0
   %60 = select i1 %59, i32 %55, i32 0
-  %61 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @arp_tbl, i64 584), align 8
+  %61 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @arp_tbl, i64 584), align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 12
   %63 = ptrtoint ptr %53 to i64
   %64 = lshr i64 %63, 32
@@ -1353,7 +1353,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @nh_notifier_info_init(ptr 
 79:                                               ; preds = %2
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %80, align 4
-  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %82 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %81, i32 noundef 3520, i64 noundef 32) #15
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %82, ptr %83, align 8
@@ -2075,7 +2075,7 @@ define internal i32 @rtm_new_nexthop(ptr nocapture noundef readonly %0, ptr noun
   br label %.thread139
 
 289:                                              ; preds = %282
-  %290 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %290 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %291 = call noalias align 8 dereferenceable_or_null(136) ptr @kmalloc_trace(ptr noundef %290, i32 noundef 3520, i64 noundef 136) #15
   %292 = icmp eq ptr %291, null
   br i1 %292, label %.thread139, label %293
@@ -2461,7 +2461,7 @@ define internal i32 @rtm_new_nexthop(ptr nocapture noundef readonly %0, ptr noun
   br label %665
 
 503:                                              ; preds = %278
-  %504 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %504 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %505 = call noalias align 8 dereferenceable_or_null(136) ptr @kmalloc_trace(ptr noundef %504, i32 noundef 3520, i64 noundef 136) #15
   %506 = icmp eq ptr %505, null
   br i1 %506, label %.thread139, label %507
@@ -2483,7 +2483,7 @@ define internal i32 @rtm_new_nexthop(ptr nocapture noundef readonly %0, ptr noun
   store volatile ptr %514, ptr %514, align 8
   %515 = getelementptr inbounds nuw i8, ptr %505, i64 64
   store volatile ptr %514, ptr %515, align 8
-  %516 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %516 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %517 = call noalias align 8 dereferenceable_or_null(136) ptr @kmalloc_trace(ptr noundef %516, i32 noundef 3520, i64 noundef 136) #15
   %518 = icmp eq ptr %517, null
   br i1 %518, label %519, label %520
@@ -4821,7 +4821,7 @@ __nh_valid_dump_req.exit.thread:                  ; preds = %17, %.thread, %80, 
 define internal noundef range(i32 -12, 1) i32 @nexthop_net_init(ptr noundef initializes((584, 600)) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   store ptr null, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %4 = tail call noalias align 8 dereferenceable_or_null(2048) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 2048) #15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 592
   store ptr %4, ptr %5, align 8
@@ -5244,7 +5244,7 @@ define internal fastcc void @nexthop_notify(i32 noundef range(i32 104, 106) %0, 
 
 46:                                               ; preds = %39, %19
   %47 = phi i32 [ %28, %19 ], [ %45, %39 ]
-  %48 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #16, !srcloc !100
+  %48 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #16, !srcloc !100
   %49 = and i32 %48, 65280
   %50 = icmp eq i32 %49, 0
   %51 = select i1 %50, i32 3264, i32 2080
@@ -5280,7 +5280,7 @@ define internal fastcc void @nexthop_notify(i32 noundef range(i32 104, 106) %0, 
   %67 = load ptr, ptr %66, align 8
   %68 = load i32, ptr %57, align 8
   %69 = load ptr, ptr %2, align 8
-  %70 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #16, !srcloc !100
+  %70 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #16, !srcloc !100
   %71 = and i32 %70, 65280
   %72 = icmp eq i32 %71, 0
   %73 = select i1 %72, i32 3264, i32 2080
@@ -6692,7 +6692,7 @@ define internal fastcc range(i32 32770, 2) i32 @__call_nexthop_res_bucket_notifi
 .thread9:                                         ; preds = %16, %.thread10
   %40 = phi i32 [ %39, %.thread10 ], [ 0, %16 ]
   store i32 3, ptr %11, align 4
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %42 = tail call noalias align 8 dereferenceable_or_null(80) ptr @kmalloc_trace(ptr noundef %41, i32 noundef 3520, i64 noundef 80) #15
   store ptr %42, ptr %12, align 8
   %43 = icmp eq ptr %42, null

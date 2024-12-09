@@ -234,7 +234,7 @@ define dso_local void @kvm_async_pf_task_wait_schedule(i32 noundef %0) #1 align 
 .thread:                                          ; preds = %13
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %0, ptr %28, align 8
-  %29 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !11
+  %29 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !11
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 44
   store i32 %29, ptr %30, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -330,7 +330,7 @@ define dso_local void @kvm_async_pf_task_wake(i32 noundef %0) #1 align 16 {
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 44
   %17 = load i32, ptr %16, align 4
-  %18 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !15
+  %18 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !15
   %19 = icmp eq i32 %17, %18
   br i1 %19, label %20, label %35
 
@@ -399,7 +399,7 @@ define dso_local void @kvm_async_pf_task_wake(i32 noundef %0) #1 align 16 {
 
 50:                                               ; preds = %.thread
   tail call void @_raw_spin_unlock(ptr noundef %5) #17
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %52 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %51, i32 noundef 2336, i64 noundef 48) #20
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %.backedge
@@ -414,7 +414,7 @@ define dso_local void @kvm_async_pf_task_wake(i32 noundef %0) #1 align 16 {
 55:                                               ; preds = %.thread
   %56 = getelementptr inbounds nuw i8, ptr %40, i64 40
   store i32 %0, ptr %56, align 8
-  %57 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !20
+  %57 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !20
   %58 = getelementptr inbounds nuw i8, ptr %40, i64 44
   store i32 %57, ptr %58, align 4
   %59 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -492,7 +492,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
 define dso_local i32 @kvm_read_and_reset_apf_flags() #5 section ".noinstr.text" align 16 {
-  %1 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @apf_reason, i64 64)) #19, !srcloc !21
+  %1 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @apf_reason, i64 64)) #19, !srcloc !21
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %5, label %3
 
@@ -508,7 +508,7 @@ define dso_local i32 @kvm_read_and_reset_apf_flags() #5 section ".noinstr.text" 
 
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @__kvm_handle_async_pf(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 section ".noinstr.text" align 16 {
-  %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @apf_reason, i64 64)) #19, !srcloc !21
+  %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @apf_reason, i64 64)) #19, !srcloc !21
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %kvm_read_and_reset_apf_flags.exit.thread, label %kvm_read_and_reset_apf_flags.exit
 
@@ -598,7 +598,7 @@ define dso_local void @sysvec_kvm_asyncpf_interrupt(ptr noundef %0) local_unname
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %1
-  %8 = tail call i8 asm "movb %gs:$1, $0", "=q,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @pcpu_hot, i64 42)) #19, !srcloc !34
+  %8 = tail call i8 asm "movb %gs:$1, $0", "=q,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 42)) #19, !srcloc !34
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %11, label %10
 
@@ -609,14 +609,14 @@ define dso_local void @sysvec_kvm_asyncpf_interrupt(ptr noundef %0) local_unname
   br label %17
 
 11:                                               ; preds = %7
-  tail call void asm "movb $1, %gs:$0", "=*m,qi,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @pcpu_hot, i64 42), i8 1, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @pcpu_hot, i64 42)) #17, !srcloc !35
-  %12 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) getelementptr inbounds (i8, ptr @pcpu_hot, i64 32)) #19, !srcloc !36
+  tail call void asm "movb $1, %gs:$0", "=*m,qi,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 42), i8 1, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 42)) #17, !srcloc !35
+  %12 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 32)) #19, !srcloc !36
   %13 = inttoptr i64 %12 to ptr
   %14 = tail call i64 @llvm.read_register.i64(metadata !0)
   %15 = tail call { ptr, i64 } asm sideeffect "movq\09%rsp, ($3)\09\09\09\09\0Amovq\09$3, %rsp\09\09\09\09\0Acall irq_enter_rcu\09\09\09\09\0Amovq\09$4, %rdi\09\09\09\09\0Acall ${2:P}\09\09\09\09\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09call irq_exit_rcu\09\09\09\09\0Apopq\09%rsp\09\09\09\09\09\0A", "={r11},={rsp},i,{r11},r,{r11},{rsp},~{cc},~{rax},~{rcx},~{rdx},~{rsi},~{rdi},~{r8},~{r9},~{r10},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @__sysvec_kvm_asyncpf_interrupt, ptr %13, ptr %0, ptr %13, i64 %14) #17, !srcloc !37
   %16 = extractvalue { ptr, i64 } %15, 1
   tail call void @llvm.write_register.i64(metadata !0, i64 %16)
-  tail call void asm "movb $1, %gs:$0", "=*m,qi,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @pcpu_hot, i64 42), i8 0, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @pcpu_hot, i64 42)) #17, !srcloc !38
+  tail call void asm "movb $1, %gs:$0", "=*m,qi,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 42), i8 0, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 42)) #17, !srcloc !38
   br label %17
 
 17:                                               ; preds = %11, %10
@@ -634,17 +634,17 @@ define internal void @__sysvec_kvm_asyncpf_interrupt(ptr noundef %0) #1 align 16
   %3 = ptrtoint ptr %0 to i64
   tail call void asm "movq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @__irq_regs, i64 %3, ptr nonnull elementtype(ptr) @__irq_regs) #17, !srcloc !41
   tail call void @__SCT__apic_call_eoi() #17
-  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @irq_stat, i64 64), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @irq_stat, i64 64)) #17, !srcloc !42
-  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @apf_reason, i64 64)) #19, !srcloc !43
+  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @irq_stat, i64 64), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @irq_stat, i64 64)) #17, !srcloc !42
+  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @apf_reason, i64 64)) #19, !srcloc !43
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @apf_reason, i64 4)) #19, !srcloc !44
+  %7 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @apf_reason, i64 4)) #19, !srcloc !44
   tail call void @kvm_async_pf_task_wake(i32 noundef %7)
-  tail call void asm "movl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @apf_reason, i64 4), i32 0, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @apf_reason, i64 4)) #17, !srcloc !45
+  tail call void asm "movl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @apf_reason, i64 4), i32 0, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @apf_reason, i64 4)) #17, !srcloc !45
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1263947015, i32 1, i32 0) #17, !srcloc !46
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
           to label %9 [label %8], !srcloc !47
 
 8:                                                ; preds = %6
@@ -739,12 +739,12 @@ define dso_local zeroext i1 @kvm_para_available() #1 align 16 {
   br i1 %3, label %4, label %28
 
 4:                                                ; preds = %0
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 36), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 36), align 4
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %__kvm_cpuid_base.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %8 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %9 = and i64 %8, 2147483648
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %__kvm_cpuid_base.exit, label %11
@@ -797,12 +797,12 @@ define dso_local i32 @kvm_arch_para_features() local_unnamed_addr #1 align 16 {
   br i1 %3, label %4, label %28
 
 4:                                                ; preds = %0
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 36), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 36), align 4
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %__kvm_cpuid_base.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %8 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %9 = and i64 %8, 2147483648
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %__kvm_cpuid_base.exit, label %11
@@ -857,12 +857,12 @@ define dso_local i32 @kvm_arch_para_hints() #1 align 16 {
   br i1 %3, label %4, label %28
 
 4:                                                ; preds = %0
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 36), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 36), align 4
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %__kvm_cpuid_base.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %8 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %9 = and i64 %8, 2147483648
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %__kvm_cpuid_base.exit, label %11
@@ -928,7 +928,7 @@ define internal range(i32 0, -1) i32 @kvm_detect() #10 section ".init.text" alig
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal void @kvm_init_platform() #10 section ".init.text" align 16 {
   tail call void @kvmclock_init() #17
-  store ptr @kvm_apic_init, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 80), align 8
+  store ptr @kvm_apic_init, ptr getelementptr inbounds nuw (i8, ptr @x86_platform, i64 80), align 8
   ret void
 }
 
@@ -968,7 +968,7 @@ define internal void @kvm_guest_init() #10 section ".init.text" align 16 {
 19:                                               ; preds = %12
   store i1 true, ptr @has_steal_clock, align 4
   tail call void @__static_call_update(ptr noundef nonnull @__SCK__pv_steal_clock, ptr noundef nonnull @__SCT__pv_steal_clock, ptr noundef nonnull @kvm_steal_clock) #17
-  store ptr @__raw_callee_save___kvm_vcpu_is_preempted, ptr getelementptr inbounds (i8, ptr @pv_ops, i64 96), align 8
+  store ptr @__raw_callee_save___kvm_vcpu_is_preempted, ptr getelementptr inbounds nuw (i8, ptr @pv_ops, i64 96), align 8
   br label %20
 
 20:                                               ; preds = %19, %12
@@ -1029,8 +1029,8 @@ define internal void @kvm_guest_init() #10 section ".init.text" align 16 {
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %50
-  store ptr @kvm_flush_tlb_multi, ptr getelementptr inbounds (i8, ptr @pv_ops, i64 32), align 8
-  store ptr @tlb_remove_table, ptr getelementptr inbounds (i8, ptr @pv_ops, i64 40), align 8
+  store ptr @kvm_flush_tlb_multi, ptr getelementptr inbounds nuw (i8, ptr @pv_ops, i64 32), align 8
+  store ptr @tlb_remove_table, ptr getelementptr inbounds nuw (i8, ptr @pv_ops, i64 40), align 8
   %53 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26) #23
   br label %54
 
@@ -1093,7 +1093,7 @@ define internal void @kvm_guest_init() #10 section ".init.text" align 16 {
   br i1 %89, label %101, label %90
 
 90:                                               ; preds = %83
-  %91 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %91 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %92 = and i64 %91, 8
   %93 = icmp eq i64 %92, 0
   br i1 %93, label %94, label %101
@@ -1106,7 +1106,7 @@ define internal void @kvm_guest_init() #10 section ".init.text" align 16 {
   br i1 %98, label %101, label %99
 
 99:                                               ; preds = %94
-  store ptr @kvm_smp_send_call_func_ipi, ptr getelementptr inbounds (i8, ptr @smp_ops, i64 96), align 8
+  store ptr @kvm_smp_send_call_func_ipi, ptr getelementptr inbounds nuw (i8, ptr @smp_ops, i64 96), align 8
   %100 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.27) #23
   br label %101
 
@@ -1120,7 +1120,7 @@ define internal void @kvm_guest_init() #10 section ".init.text" align 16 {
   br label %106
 
 106:                                              ; preds = %104, %101
-  store ptr @kvm_crash_shutdown, ptr getelementptr inbounds (i8, ptr @machine_ops, i64 32), align 8
+  store ptr @kvm_crash_shutdown, ptr getelementptr inbounds nuw (i8, ptr @machine_ops, i64 32), align 8
   tail call void @register_syscore_ops(ptr noundef nonnull @kvm_syscore_ops) #17
   ret void
 }
@@ -1172,12 +1172,12 @@ define dso_local void @arch_haltpoll_enable(i32 noundef %0) #1 align 16 {
   br i1 %4, label %5, label %29
 
 5:                                                ; preds = %1
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 36), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 36), align 4
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %__kvm_cpuid_base.exit, label %8
 
 8:                                                ; preds = %5
-  %9 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %9 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %10 = and i64 %9, 2147483648
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %__kvm_cpuid_base.exit, label %12
@@ -1260,7 +1260,7 @@ declare dso_local i32 @smp_call_function_single(i32 noundef, ptr noundef, ptr no
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @kvm_disable_host_haltpoll(ptr nocapture readnone %0) #1 align 16 {
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1263947013, i32 0, i32 0) #17, !srcloc !46
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
           to label %3 [label %2], !srcloc !47
 
 2:                                                ; preds = %1
@@ -1279,12 +1279,12 @@ define dso_local void @arch_haltpoll_disable(i32 noundef %0) #1 align 16 {
   br i1 %4, label %5, label %29
 
 5:                                                ; preds = %1
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 36), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 36), align 4
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %__kvm_cpuid_base.exit, label %8
 
 8:                                                ; preds = %5
-  %9 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %9 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %10 = and i64 %9, 2147483648
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %__kvm_cpuid_base.exit, label %12
@@ -1343,7 +1343,7 @@ __kvm_cpuid_base.exit:                            ; preds = %5, %8, %26
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @kvm_enable_host_haltpoll(ptr nocapture readnone %0) #1 align 16 {
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1263947013, i32 1, i32 0) #17, !srcloc !46
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
           to label %3 [label %2], !srcloc !47
 
 2:                                                ; preds = %1
@@ -1379,12 +1379,12 @@ define internal fastcc zeroext i1 @pv_tlb_flush_supported() unnamed_addr #1 alig
   br i1 %5, label %6, label %30
 
 6:                                                ; preds = %0
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 36), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 36), align 4
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %__kvm_cpuid_base.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %10 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %11 = and i64 %10, 2147483648
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %__kvm_cpuid_base.exit, label %13
@@ -1438,12 +1438,12 @@ __kvm_cpuid_base.exit:                            ; preds = %6, %9, %27
   br i1 %39, label %40, label %64
 
 40:                                               ; preds = %37
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 36), align 4
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 36), align 4
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %__kvm_cpuid_base.exit1, label %43
 
 43:                                               ; preds = %40
-  %44 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %44 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %45 = and i64 %44, 2147483648
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %__kvm_cpuid_base.exit1, label %47
@@ -1497,12 +1497,12 @@ __kvm_cpuid_base.exit1:                           ; preds = %40, %43, %61
   br i1 %73, label %74, label %98
 
 74:                                               ; preds = %71
-  %75 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 36), align 4
+  %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 36), align 4
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %__kvm_cpuid_base.exit2, label %77
 
 77:                                               ; preds = %74
-  %78 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %78 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %79 = and i64 %78, 2147483648
   %80 = icmp eq i64 %79, 0
   br i1 %80, label %__kvm_cpuid_base.exit2, label %81
@@ -1551,7 +1551,7 @@ __kvm_cpuid_base.exit2:                           ; preds = %74, %77, %95
   br i1 %104, label %114, label %105
 
 105:                                              ; preds = %98
-  %106 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %106 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %107 = and i64 %106, 8
   %108 = icmp eq i64 %107, 0
   br i1 %108, label %109, label %114
@@ -1576,12 +1576,12 @@ define internal fastcc zeroext i1 @pv_ipi_supported() unnamed_addr #1 align 16 {
   br i1 %3, label %4, label %28
 
 4:                                                ; preds = %0
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 36), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 36), align 4
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %__kvm_cpuid_base.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %8 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %9 = and i64 %8, 2147483648
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %__kvm_cpuid_base.exit, label %11
@@ -1644,12 +1644,12 @@ __kvm_cpuid_base.exit:                            ; preds = %4, %7, %25
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 0, 1073807360) i32 @__kvm_cpuid_base() unnamed_addr #1 align 16 {
   %1 = alloca [3 x i32], align 4
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 36), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 36), align 4
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %24, label %4
 
 4:                                                ; preds = %0
-  %5 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %5 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %6 = and i64 %5, 2147483648
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %24, label %8
@@ -1706,13 +1706,13 @@ define internal void @kvm_apic_init() #10 section ".init.text" align 16 {
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @kvm_setup_pv_ipi() unnamed_addr #10 section ".init.text" align 16 {
-  store ptr @kvm_send_ipi_mask, ptr getelementptr inbounds (i8, ptr @__x86_apic_override, i64 40), align 8
+  store ptr @kvm_send_ipi_mask, ptr getelementptr inbounds nuw (i8, ptr @__x86_apic_override, i64 40), align 8
   %1 = load ptr, ptr @apic, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr @kvm_send_ipi_mask, ptr %2, align 8
   tail call void @__static_call_update(ptr noundef nonnull @__SCK__apic_call_send_IPI_mask, ptr noundef nonnull @__SCT__apic_call_send_IPI_mask, ptr noundef nonnull @kvm_send_ipi_mask) #17
   %3 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull @kvm_send_ipi_mask) #23
-  store ptr @kvm_send_ipi_mask_allbutself, ptr getelementptr inbounds (i8, ptr @__x86_apic_override, i64 48), align 8
+  store ptr @kvm_send_ipi_mask_allbutself, ptr getelementptr inbounds nuw (i8, ptr @__x86_apic_override, i64 48), align 8
   %4 = load ptr, ptr @apic, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr @kvm_send_ipi_mask_allbutself, ptr %5, align 8
@@ -1736,7 +1736,7 @@ declare dso_local void @__SCT__apic_call_send_IPI_mask(ptr noundef, i32 noundef)
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @kvm_send_ipi_mask_allbutself(ptr nocapture noundef readonly %0, i32 noundef %1) #1 align 16 {
-  %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !56
+  %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !56
   %4 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @__pv_cpu_mask) #19, !srcloc !57
   %5 = inttoptr i64 %4 to ptr
   %6 = load i64, ptr %0, align 8
@@ -2186,7 +2186,7 @@ define internal fastcc void @kvm_guest_cpu_offline(i1 noundef zeroext %0) unname
 
 5:                                                ; preds = %1
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1263947011, i32 0, i32 0) #17, !srcloc !46
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
           to label %7 [label %6], !srcloc !47
 
 6:                                                ; preds = %5
@@ -2199,12 +2199,12 @@ define internal fastcc void @kvm_guest_cpu_offline(i1 noundef zeroext %0) unname
   br i1 %9, label %10, label %34
 
 10:                                               ; preds = %7
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 36), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 36), align 4
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %__kvm_cpuid_base.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %14 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %15 = and i64 %14, 2147483648
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %__kvm_cpuid_base.exit, label %17
@@ -2254,7 +2254,7 @@ __kvm_cpuid_base.exit:                            ; preds = %10, %13, %31
 
 41:                                               ; preds = %34
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1263947012, i32 0, i32 0) #17, !srcloc !46
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
           to label %43 [label %42], !srcloc !47
 
 42:                                               ; preds = %41
@@ -2267,12 +2267,12 @@ __kvm_cpuid_base.exit:                            ; preds = %10, %13, %31
   br i1 %45, label %46, label %70
 
 46:                                               ; preds = %43
-  %47 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 36), align 4
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 36), align 4
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %__kvm_cpuid_base.exit4, label %49
 
 49:                                               ; preds = %46
-  %50 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %50 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %51 = and i64 %50, 2147483648
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %__kvm_cpuid_base.exit4, label %53
@@ -2322,7 +2322,7 @@ __kvm_cpuid_base.exit4:                           ; preds = %46, %49, %67
 
 77:                                               ; preds = %70
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1263947016, i32 0, i32 0) #17, !srcloc !46
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
           to label %79 [label %78], !srcloc !47
 
 78:                                               ; preds = %77
@@ -2330,13 +2330,13 @@ __kvm_cpuid_base.exit4:                           ; preds = %46, %49, %67
   br label %79
 
 79:                                               ; preds = %78, %77, %70
-  %80 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @apf_reason, i64 64)) #19, !srcloc !83
+  %80 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @apf_reason, i64 64)) #19, !srcloc !83
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %85, label %82
 
 82:                                               ; preds = %79
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1263947010, i32 0, i32 0) #17, !srcloc !46
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
           to label %84 [label %83], !srcloc !47
 
 83:                                               ; preds = %82
@@ -2344,7 +2344,7 @@ __kvm_cpuid_base.exit4:                           ; preds = %46, %49, %67
   br label %84
 
 84:                                               ; preds = %83, %82
-  tail call void asm "movl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @apf_reason, i64 64), i32 0, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @apf_reason, i64 64)) #17, !srcloc !84
+  tail call void asm "movl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @apf_reason, i64 64), i32 0, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @apf_reason, i64 64)) #17, !srcloc !84
   br label %85
 
 85:                                               ; preds = %84, %79
@@ -2364,7 +2364,7 @@ __kvm_cpuid_base.exit4:                           ; preds = %46, %49, %67
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 44
   %94 = load i32, ptr %93, align 4
-  %95 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !15
+  %95 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !15
   %96 = icmp eq i32 %94, %95
   br i1 %96, label %97, label %112
 
@@ -2434,12 +2434,12 @@ define internal fastcc void @kvm_guest_cpu_init() unnamed_addr #1 align 16 {
   br i1 %5, label %6, label %30
 
 6:                                                ; preds = %0
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 36), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 36), align 4
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %__kvm_cpuid_base.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %10 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %11 = and i64 %10, 2147483648
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %__kvm_cpuid_base.exit, label %13
@@ -2508,12 +2508,12 @@ __kvm_cpuid_base.exit:                            ; preds = %6, %9, %27
   br i1 %46, label %47, label %71
 
 47:                                               ; preds = %41
-  %48 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 36), align 4
+  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 36), align 4
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %__kvm_cpuid_base.exit1, label %50
 
 50:                                               ; preds = %47
-  %51 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %51 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %52 = and i64 %51, 2147483648
   %53 = icmp eq i64 %52, 0
   br i1 %53, label %__kvm_cpuid_base.exit1, label %54
@@ -2562,7 +2562,7 @@ __kvm_cpuid_base.exit1:                           ; preds = %47, %50, %68
   %78 = select i1 %77, i64 9, i64 13
   %79 = or i64 %78, %44
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1263947014, i32 243, i32 0) #17, !srcloc !46
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
           to label %81 [label %80], !srcloc !47
 
 80:                                               ; preds = %71
@@ -2574,7 +2574,7 @@ __kvm_cpuid_base.exit1:                           ; preds = %47, %50, %68
   %83 = lshr i64 %44, 32
   %84 = trunc nuw i64 %83 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1263947010, i32 %82, i32 %84) #17, !srcloc !46
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
           to label %86 [label %85], !srcloc !47
 
 85:                                               ; preds = %81
@@ -2582,7 +2582,7 @@ __kvm_cpuid_base.exit1:                           ; preds = %47, %50, %68
   br label %86
 
 86:                                               ; preds = %85, %81
-  tail call void asm "movl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @apf_reason, i64 64), i32 1, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @apf_reason, i64 64)) #17, !srcloc !90
+  tail call void asm "movl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @apf_reason, i64 64), i32 1, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @apf_reason, i64 64)) #17, !srcloc !90
   br label %87
 
 87:                                               ; preds = %86, %30
@@ -2591,12 +2591,12 @@ __kvm_cpuid_base.exit1:                           ; preds = %47, %50, %68
   br i1 %89, label %90, label %114
 
 90:                                               ; preds = %87
-  %91 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 36), align 4
+  %91 = load i32, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 36), align 4
   %92 = icmp slt i32 %91, 0
   br i1 %92, label %__kvm_cpuid_base.exit2, label %93
 
 93:                                               ; preds = %90
-  %94 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %94 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %95 = and i64 %94, 2147483648
   %96 = icmp eq i64 %95, 0
   br i1 %96, label %__kvm_cpuid_base.exit2, label %97
@@ -2654,7 +2654,7 @@ __kvm_cpuid_base.exit2:                           ; preds = %90, %93, %111
   %127 = lshr i64 %124, 32
   %128 = trunc nuw i64 %127 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1263947012, i32 %126, i32 %128) #17, !srcloc !46
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
           to label %130 [label %129], !srcloc !47
 
 129:                                              ; preds = %121
@@ -2666,7 +2666,7 @@ __kvm_cpuid_base.exit2:                           ; preds = %90, %93, %111
   br i1 %131, label %132, label %145
 
 132:                                              ; preds = %130
-  %133 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !93
+  %133 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !93
   %134 = sext i32 %133 to i64
   %135 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %134
   %136 = load i64, ptr %135, align 8
@@ -2678,7 +2678,7 @@ __kvm_cpuid_base.exit2:                           ; preds = %90, %93, %111
   %142 = lshr i64 %139, 32
   %143 = trunc nuw i64 %142 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1263947011, i32 %141, i32 %143) #17, !srcloc !46
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
           to label %145 [label %144], !srcloc !47
 
 144:                                              ; preds = %132
@@ -2716,12 +2716,12 @@ define internal noundef i32 @kvm_suspend() #1 align 16 {
   br i1 %3, label %4, label %28
 
 4:                                                ; preds = %0
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 36), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 36), align 4
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %__kvm_cpuid_base.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %8 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %9 = and i64 %8, 2147483648
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %__kvm_cpuid_base.exit, label %11
@@ -2772,7 +2772,7 @@ __kvm_cpuid_base.exit:                            ; preds = %4, %7, %25
 35:                                               ; preds = %28
   %36 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 1263947013) #17, !srcloc !94
   %37 = extractvalue { i64, i64 } %36, 0
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #17
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #17
           to label %42 [label %38], !srcloc !47
 
 38:                                               ; preds = %35
@@ -2798,7 +2798,7 @@ __kvm_cpuid_base.exit:                            ; preds = %4, %7, %25
 define internal void @kvm_resume() #1 align 16 {
   %1 = alloca [3 x i32], align 4
   %2 = alloca i64, align 8
-  %3 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #17, !srcloc !95
+  %3 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #17, !srcloc !95
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
   store i64 0, ptr %2, align 8, !annotation !6
   call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #17, !srcloc !59
@@ -2820,12 +2820,12 @@ define internal void @kvm_resume() #1 align 16 {
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %8
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 36), align 4
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 36), align 4
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %__kvm_cpuid_base.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %15 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %16 = and i64 %15, 2147483648
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %__kvm_cpuid_base.exit, label %18
@@ -2878,7 +2878,7 @@ __kvm_cpuid_base.exit:                            ; preds = %11, %14, %32
 
 45:                                               ; preds = %35
   call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1263947013, i32 0, i32 0) #17, !srcloc !46
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
           to label %47 [label %46], !srcloc !47
 
 46:                                               ; preds = %45

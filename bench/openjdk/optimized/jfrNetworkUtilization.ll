@@ -448,7 +448,7 @@ _ZL24write_interface_constantRK14InterfaceEntry.exit: ; preds = %118, %122
 
 134:                                              ; preds = %.loopexit
   %135 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #13
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV23JfrNetworkInterfaceName, i64 16), ptr %135, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV23JfrNetworkInterfaceName, i64 16), ptr %135, align 8
   %136 = call noundef zeroext i1 @_ZN13JfrSerializer19register_serializerE9JfrTypeIdbPS_(i32 noundef 178, i1 noundef zeroext false, ptr noundef nonnull %135) #13
   %137 = zext i1 %136 to i8
   store i8 %137, ptr @_ZZN21JfrNetworkUtilization11send_eventsEvE24is_serializer_registered, align 1

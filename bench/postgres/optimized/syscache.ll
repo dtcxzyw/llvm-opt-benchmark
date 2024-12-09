@@ -466,7 +466,7 @@ fastgetattr.exit:                                 ; preds = %73, %72, %59, %57, 
 define dso_local ptr @SearchSysCacheAttName(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
   %4 = ptrtoint ptr %1 to i64
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @SysCache, i64 48), align 16
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SysCache, i64 48), align 16
   %6 = tail call ptr @SearchCatCache2(ptr noundef %5, i64 noundef %3, i64 noundef %4) #8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %18, label %7
@@ -496,7 +496,7 @@ define dso_local ptr @SearchSysCacheAttName(i32 noundef %0, ptr noundef %1) loca
 define dso_local ptr @SearchSysCacheCopyAttName(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
   %4 = ptrtoint ptr %1 to i64
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @SysCache, i64 48), align 16
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SysCache, i64 48), align 16
   %6 = tail call ptr @SearchCatCache2(ptr noundef %5, i64 noundef %3, i64 noundef %4) #8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %SearchSysCacheAttName.exit.thread, label %7
@@ -531,7 +531,7 @@ SearchSysCacheAttName.exit.thread:                ; preds = %SearchSysCacheAttNa
 define dso_local zeroext i1 @SearchSysCacheExistsAttName(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
   %4 = ptrtoint ptr %1 to i64
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @SysCache, i64 48), align 16
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SysCache, i64 48), align 16
   %6 = tail call ptr @SearchCatCache2(ptr noundef %5, i64 noundef %3, i64 noundef %4) #8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %SearchSysCacheAttName.exit.thread, label %7
@@ -559,7 +559,7 @@ SearchSysCacheAttName.exit.thread:                ; preds = %7, %2
 define dso_local ptr @SearchSysCacheAttNum(i32 noundef %0, i16 noundef signext %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
   %4 = sext i16 %1 to i64
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @SysCache, i64 56), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SysCache, i64 56), align 8
   %6 = tail call ptr @SearchCatCache2(ptr noundef %5, i64 noundef %3, i64 noundef %4) #8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %18, label %7
@@ -589,7 +589,7 @@ define dso_local ptr @SearchSysCacheAttNum(i32 noundef %0, i16 noundef signext %
 define dso_local ptr @SearchSysCacheCopyAttNum(i32 noundef %0, i16 noundef signext %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
   %4 = sext i16 %1 to i64
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @SysCache, i64 56), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SysCache, i64 56), align 8
   %6 = tail call ptr @SearchCatCache2(ptr noundef %5, i64 noundef %3, i64 noundef %4) #8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %SearchSysCacheAttNum.exit.thread, label %7

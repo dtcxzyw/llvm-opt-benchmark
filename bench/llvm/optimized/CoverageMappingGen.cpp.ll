@@ -540,7 +540,7 @@ $_ZTVN4llvm2cl11OptionValueIbEE = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -552,7 +552,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr n
   br label %_ZNSt8functionIFvRKbEED2Ev.exit
 
 _ZNSt8functionIFvRKbEED2Ev.exit:                  ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -591,9 +591,9 @@ define dso_local noundef nonnull ptr @_ZN5clang7CodeGen24CoverageMappingModuleGe
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 432), ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 472), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 400) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 432), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 472), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -609,7 +609,7 @@ _ZNSt10unique_ptrIN5clang18PPChainedCallbacksESt14default_deleteIS1_EED2Ev.exit.
   %13 = ptrtoint ptr %12 to i64
   %14 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23, !noalias !4
   %15 = ptrtoint ptr %3 to i64
-  store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN5clang18PPChainedCallbacksE, i64 16), ptr %14, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 384) (i8, ptr @_ZTVN5clang18PPChainedCallbacksE, i64 16), ptr %14, align 8, !noalias !4
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %15, ptr %16, align 8, !noalias !4
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -619,7 +619,7 @@ _ZNSt10unique_ptrIN5clang18PPChainedCallbacksESt14default_deleteIS1_EED2Ev.exit.
 _ZNSt10unique_ptrIN5clang11PPCallbacksESt14default_deleteIS1_EED2Ev.exit: ; preds = %1, %_ZNSt10unique_ptrIN5clang18PPChainedCallbacksESt14default_deleteIS1_EED2Ev.exit.i
   %storemerge = phi ptr [ %14, %_ZNSt10unique_ptrIN5clang18PPChainedCallbacksESt14default_deleteIS1_EED2Ev.exit.i ], [ %3, %1 ]
   store ptr %storemerge, ptr %11, align 8
-  %18 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL24EmptyLineCommentCoverage, i64 128), align 8
+  %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL24EmptyLineCommentCoverage, i64 128), align 8
   %19 = trunc i8 %18 to i1
   br i1 %19, label %20, label %_ZN4llvm15unique_functionIFvRKN5clang5TokenEEED2Ev.exit
 
@@ -723,7 +723,7 @@ define dso_local void @_ZN5clang18CoverageSourceInfo15AddSkippedRangeENS_11Sourc
   %.sroa.015.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.316.0.extract.shift = lshr i64 %1, 32
   %.sroa.316.0.extract.trunc = trunc nuw i64 %.sroa.316.0.extract.shift to i32
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL24EmptyLineCommentCoverage, i64 128), align 8
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL24EmptyLineCommentCoverage, i64 128), align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %26
 
@@ -2537,7 +2537,7 @@ _ZN4llvm16DenseMapIteratorIN5clang12FileEntryRefEjNS_12DenseMapInfoIS2_vEENS_6de
   store i32 1, ptr %85, align 4
   %86 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %9, align 8
   %87 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %8, ptr %87, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
@@ -2854,7 +2854,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilderC2ERN5clang7CodeGen24CoverageMap
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 64
   %52 = load ptr, ptr %51, align 8
   %53 = call noundef ptr %52(ptr noundef nonnull align 8 dereferenceable(33) %1) #22
-  %54 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm8coverage21SystemHeadersCoverageE, i64 128), align 8
+  %54 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm8coverage21SystemHeadersCoverageE, i64 128), align 8
   %55 = trunc i8 %54 to i1
   %56 = icmp eq ptr %53, null
   %or.cond.not.i = or i1 %56, %55
@@ -4217,11 +4217,11 @@ _ZN12_GLOBAL__N_127EmptyCoverageMappingBuilderD2Ev.exit: ; preds = %_ZN4llvm11Sm
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang18CoverageSourceInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 400) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 432), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 432), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 472), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 472), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i = icmp eq ptr %5, null
@@ -4245,11 +4245,11 @@ _ZNSt6vectorIN5clang12SkippedRangeESaIS1_EED2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang18CoverageSourceInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 400) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 432), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 432), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 472), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 472), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i = icmp eq ptr %5, null
@@ -4497,10 +4497,10 @@ define linkonce_odr hidden void @_ZN5clang11PPCallbacks5EndifENS_14SourceLocatio
 ; Function Attrs: nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5clang18CoverageSourceInfoD1Ev(ptr noundef %0) unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 432), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 400) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 432), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 472), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 472), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i = icmp eq ptr %5, null
@@ -4525,10 +4525,10 @@ _ZN5clang18CoverageSourceInfoD2Ev.exit:           ; preds = %1, %6
 ; Function Attrs: nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5clang18CoverageSourceInfoD0Ev(ptr noundef %0) unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 432), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 400) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 432), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 472), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 472), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i = icmp eq ptr %5, null
@@ -4554,10 +4554,10 @@ _ZN5clang18CoverageSourceInfoD0Ev.exit:           ; preds = %1, %6
 ; Function Attrs: nounwind uwtable
 define linkonce_odr hidden void @_ZThn16_N5clang18CoverageSourceInfoD1Ev(ptr noundef %0) unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 400) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 432), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 472), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 432), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 472), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i = icmp eq ptr %5, null
@@ -4582,10 +4582,10 @@ _ZN5clang18CoverageSourceInfoD2Ev.exit:           ; preds = %1, %6
 ; Function Attrs: nounwind uwtable
 define linkonce_odr hidden void @_ZThn16_N5clang18CoverageSourceInfoD0Ev(ptr noundef %0) unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
-  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 400) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 -8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 432), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 472), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 432), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang18CoverageSourceInfoE, i64 472), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i = icmp eq ptr %5, null
@@ -9446,7 +9446,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.val.i.i.i78 = load ptr, ptr %57, align 8
   %207 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %57) #22
-  %208 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %208 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %209 = trunc i8 %208 to i1
   br i1 %209, label %216, label %210
 
@@ -9458,7 +9458,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 2168
   %215 = call i64 @_ZN4llvm8coverage24CounterExpressionBuilder8subtractENS0_7CounterES2_b(ptr noundef nonnull align 8 dereferenceable(48) %214, i64 %.sroa.08.0.copyload, i64 %.sroa.0.0.insert.insert.i.i57, i1 noundef zeroext true) #22
   call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder18createBranchRegionEPKN5clang4ExprEN4llvm8coverage7CounterES7_RKSt5arrayIsLm2EE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %213, i64 %.sroa.0.0.insert.insert.i.i57, i64 %215, i32 %.sroa.0.0.i)
-  %.pre111 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %.pre111 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   br label %216
 
 216:                                              ; preds = %210, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit77
@@ -9899,7 +9899,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14shouldVisitRHSEPKN5clang4ExprE
 221:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14shouldVisitRHSEPKN5clang4ExprE.exit.thread, %219, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14shouldVisitRHSEPKN5clang4ExprE.exit
   %.val.i.i.i81 = load ptr, ptr %58, align 8
   %222 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %58) #22
-  %223 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %223 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %224 = trunc i8 %223 to i1
   br i1 %224, label %231, label %225
 
@@ -9911,7 +9911,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14shouldVisitRHSEPKN5clang4ExprE
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 2168
   %230 = call i64 @_ZN4llvm8coverage24CounterExpressionBuilder8subtractENS0_7CounterES2_b(ptr noundef nonnull align 8 dereferenceable(48) %229, i64 %.sroa.08.0.copyload, i64 %.sroa.0.0.insert.insert.i.i59, i1 noundef zeroext true) #22
   call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder18createBranchRegionEPKN5clang4ExprEN4llvm8coverage7CounterES7_RKSt5arrayIsLm2EE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %228, i64 %230, i64 %.sroa.0.0.insert.insert.i.i59, i32 %.sroa.0.0.i)
-  %.pre114 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %.pre114 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   br label %231
 
 231:                                              ; preds = %225, %221
@@ -9968,7 +9968,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %17 = getelementptr inbounds %"class.(anonymous namespace)::SourceMappingRegion", ptr %.val.i.i.i, i64 %16
   %18 = getelementptr inbounds i8, ptr %17, i64 -52
   %19 = load i64, ptr %18, align 4
-  %20 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %20 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %21 = trunc i8 %20 to i1
   br i1 %21, label %22, label %65
 
@@ -10190,7 +10190,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %138 = load i8, ptr %137, align 4
   %139 = trunc i8 %138 to i1
   store i8 0, ptr %137, align 4
-  %140 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %140 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %141 = trunc i8 %140 to i1
   br i1 %141, label %142, label %183
 
@@ -10335,7 +10335,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20fillGapAreaWithCountEN5clang14
   br label %213
 
 213:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20fillGapAreaWithCountEN5clang14SourceLocationES2_N4llvm8coverage7CounterE.exit, %187
-  %214 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %214 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %215 = trunc i8 %214 to i1
   br i1 %215, label %216, label %252
 
@@ -10435,7 +10435,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   br label %262
 
 262:                                              ; preds = %257, %261, %256
-  %263 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %263 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %264 = trunc i8 %263 to i1
   br i1 %264, label %273, label %265
 
@@ -10791,7 +10791,7 @@ _ZN12_GLOBAL__N_119SourceMappingRegion9setEndLocEN5clang14SourceLocationE.exit: 
   br i1 %88, label %101, label %89
 
 89:                                               ; preds = %83
-  %90 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %90 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %91 = trunc i8 %90 to i1
   br i1 %91, label %101, label %92
 
@@ -10895,7 +10895,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   store i32 %144, ptr %145, align 8
   call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14handleFileExitEN5clang14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(2376) %0, i32 %140)
-  %146 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %146 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %147 = trunc i8 %146 to i1
   br i1 %147, label %282, label %148
 
@@ -11766,7 +11766,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %.sroa.0296.0.extract.trunc = trunc i64 %149 to i32
   %.sroa.5.0.extract.shift = lshr i64 %149, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
-  %150 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %150 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %151 = trunc i8 %150 to i1
   br i1 %151, label %152, label %194
 
@@ -12023,7 +12023,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %.sroa.0261.0.extract.trunc = trunc i64 %275 to i32
   %.sroa.9.0.extract.shift = lshr i64 %275, 32
   %.sroa.9.0.extract.trunc = trunc nuw i64 %.sroa.9.0.extract.shift to i32
-  %276 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %276 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %277 = trunc i8 %276 to i1
   br i1 %277, label %282, label %278
 
@@ -12221,7 +12221,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %.sroa.6.0.insert.shift252 = shl nuw i64 %.sroa.6.0.insert.ext251, 32
   %.sroa.0243.0.insert.insert246 = or disjoint i64 %.sroa.6.0.insert.shift252, %.sroa.0243.0
   %361 = call fastcc i64 @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder15propagateCountsEN4llvm8coverage7CounterEPKN5clang4StmtEb(ptr noundef nonnull align 8 dereferenceable(2376) %0, i64 %.sroa.0243.0.insert.insert246, ptr noundef nonnull %331, i1 noundef zeroext true)
-  %362 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %362 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %363 = trunc i8 %362 to i1
   br i1 %363, label %367, label %364
 
@@ -12243,7 +12243,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   br label %374
 
 _ZNK5clang6IfStmt7getElseEv.exit157.thread:       ; preds = %_ZNK5clang6IfStmt7getElseEv.exit.thread, %_ZNK5clang6IfStmt7getElseEv.exit157
-  %369 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %369 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %370 = trunc i8 %369 to i1
   br i1 %370, label %374, label %371
 
@@ -12261,7 +12261,7 @@ _ZNK5clang6IfStmt7getElseEv.exit157.thread:       ; preds = %_ZNK5clang6IfStmt7g
 374:                                              ; preds = %_ZNK5clang6IfStmt7getElseEv.exit157.thread, %371, %367, %368
   %.sroa.0261.1 = phi i32 [ %.sroa.0261.0.extract.trunc, %_ZNK5clang6IfStmt7getElseEv.exit157.thread ], [ %.sroa.0261.0.extract.trunc266, %371 ], [ %.sroa.0261.0, %368 ], [ %.sroa.0261.0, %367 ]
   %.sroa.9.1 = phi i32 [ %.sroa.9.0.extract.trunc, %_ZNK5clang6IfStmt7getElseEv.exit157.thread ], [ %.sroa.9.0.extract.trunc282, %371 ], [ %.sroa.9.0, %368 ], [ %.sroa.9.0, %367 ]
-  %375 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %375 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %376 = trunc i8 %375 to i1
   br i1 %376, label %377, label %413
 
@@ -12361,7 +12361,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   br i1 %spec.select.i190, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16coverIfConstevalEPKN5clang6IfStmtE.exit, label %423
 
 423:                                              ; preds = %420
-  %424 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %424 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %425 = trunc i8 %424 to i1
   br i1 %425, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16coverIfConstevalEPKN5clang6IfStmtE.exit, label %426
 
@@ -12425,7 +12425,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %22 = getelementptr inbounds %"class.(anonymous namespace)::SourceMappingRegion", ptr %.val.i.i.i, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -52
   %24 = load i64, ptr %23, align 4
-  %25 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %25 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %26 = trunc i8 %25 to i1
   br i1 %26, label %27, label %65
 
@@ -12627,7 +12627,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   br i1 %.not72, label %176, label %127
 
 127:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.exit99
-  %128 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %128 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %129 = trunc i8 %128 to i1
   br i1 %129, label %130, label %166
 
@@ -12726,7 +12726,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
 176:                                              ; preds = %169, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.exit99
   %.sroa.3182.0 = phi i64 [ 0, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.exit99 ], [ %.sroa.2.0.copyload.i120, %169 ]
   %.sroa.0181.0 = phi i64 [ 0, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.exit99 ], [ %.sroa.0.0.copyload.i118, %169 ]
-  %177 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %177 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %178 = trunc i8 %177 to i1
   br i1 %178, label %179, label %217
 
@@ -12865,7 +12865,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20fillGapAreaWithCountEN5clang14
   br label %242
 
 242:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20fillGapAreaWithCountEN5clang14SourceLocationES2_N4llvm8coverage7CounterE.exit, %228
-  %243 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %243 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %244 = trunc i8 %243 to i1
   br i1 %244, label %245, label %281
 
@@ -12966,7 +12966,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   br label %292
 
 292:                                              ; preds = %287, %291, %286
-  %293 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %293 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %294 = trunc i8 %293 to i1
   br i1 %294, label %299, label %295
 
@@ -13011,7 +13011,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %16 = getelementptr inbounds %"class.(anonymous namespace)::SourceMappingRegion", ptr %.val.i.i.i, i64 %15
   %17 = getelementptr inbounds i8, ptr %16, i64 -52
   %18 = load i64, ptr %17, align 4
-  %19 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %20 = trunc i8 %19 to i1
   br i1 %20, label %21, label %59
 
@@ -13199,7 +13199,7 @@ _ZN12_GLOBAL__N_119SourceMappingRegion11setStartLocEN5clang14SourceLocationE.exi
   br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.exit63
 
 _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.exit63: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_129CounterCoverageMappingBuilder13BreakContinueELb1EE9push_backES3_.exit, %_ZN12_GLOBAL__N_119SourceMappingRegion11setStartLocEN5clang14SourceLocationE.exit.i62
-  %114 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %114 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %115 = trunc i8 %114 to i1
   br i1 %115, label %116, label %119
 
@@ -13234,7 +13234,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %132 = load i8, ptr %131, align 4
   %133 = trunc i8 %132 to i1
   store i8 0, ptr %131, align 4
-  %134 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %134 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %174
 
@@ -13323,7 +13323,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %178 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %179 = load ptr, ptr %178, align 8
   %180 = call fastcc i64 @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder15propagateCountsEN4llvm8coverage7CounterEPKN5clang4StmtEb(ptr noundef nonnull align 8 dereferenceable(2376) %0, i64 %.sroa.014.0, ptr noundef %179, i1 noundef zeroext true)
-  %181 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %181 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %182 = trunc i8 %181 to i1
   br i1 %182, label %183, label %219
 
@@ -13419,7 +13419,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   br label %228
 
 228:                                              ; preds = %224, %223
-  %229 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %229 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %230 = trunc i8 %229 to i1
   br i1 %230, label %235, label %231
 
@@ -13503,7 +13503,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder17VisitContinueStmtEPKN5clang12ContinueStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %19, label %5
 
@@ -13722,7 +13722,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %24 = getelementptr inbounds %"class.(anonymous namespace)::SourceMappingRegion", ptr %.val.i.i.i, i64 %23
   %25 = getelementptr inbounds i8, ptr %24, i64 -52
   %26 = load i64, ptr %25, align 4
-  %27 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %27 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %28 = trunc i8 %27 to i1
   br i1 %28, label %29, label %67
 
@@ -13966,7 +13966,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20fillGapAreaWithCountEN5clang14
   br label %145
 
 145:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20fillGapAreaWithCountEN5clang14SourceLocationES2_N4llvm8coverage7CounterE.exit, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.exit68
-  %146 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %146 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %147 = trunc i8 %146 to i1
   br i1 %147, label %148, label %184
 
@@ -14072,7 +14072,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   br label %197
 
 197:                                              ; preds = %192, %196, %191
-  %198 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %198 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %199 = trunc i8 %198 to i1
   br i1 %199, label %205, label %200
 
@@ -14169,7 +14169,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14VisitBreakStmtEPKN5clang9BreakStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %19, label %5
 
@@ -14202,7 +14202,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14V
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_129CounterCoverageMappingBuilder20isExprInSystemHeaderEPKN5clang14BinaryOperatorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2376) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm8coverage21SystemHeadersCoverageE, i64 128), align 8
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm8coverage21SystemHeadersCoverageE, i64 128), align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit16, label %5
 
@@ -19068,7 +19068,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %17 = getelementptr inbounds %"class.(anonymous namespace)::SourceMappingRegion", ptr %.val.i.i.i, i64 %16
   %18 = getelementptr inbounds i8, ptr %17, i64 -52
   %19 = load i64, ptr %18, align 4
-  %20 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %20 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %21 = trunc i8 %20 to i1
   br i1 %21, label %22, label %59
 
@@ -19336,7 +19336,7 @@ _ZN12_GLOBAL__N_119SourceMappingRegion11setStartLocEN5clang14SourceLocationE.exi
   br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.exit101
 
 _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.exit101: ; preds = %127, %_ZN12_GLOBAL__N_119SourceMappingRegion11setStartLocEN5clang14SourceLocationE.exit.i100
-  %135 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %135 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %136 = trunc i8 %135 to i1
   br i1 %136, label %137, label %174
 
@@ -19430,7 +19430,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %.0.in.i124 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.in.v.i123
   %.0.i125 = load ptr, ptr %.0.in.i124, align 8
   %179 = call fastcc i64 @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder15propagateCountsEN4llvm8coverage7CounterEPKN5clang4StmtEb(ptr noundef nonnull align 8 dereferenceable(2376) %0, i64 %.sroa.014.0, ptr noundef %.0.i125, i1 noundef zeroext true)
-  %180 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %180 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %181 = trunc i8 %180 to i1
   br i1 %181, label %182, label %218
 
@@ -19525,7 +19525,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   br label %226
 
 226:                                              ; preds = %222, %221
-  %227 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %227 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %228 = trunc i8 %227 to i1
   br i1 %228, label %233, label %229
 
@@ -19571,7 +19571,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %13 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #22
   %14 = getelementptr inbounds %"class.(anonymous namespace)::SourceMappingRegion", ptr %.val.i.i.i, i64 %13
   %15 = getelementptr inbounds i8, ptr %14, i64 -52
-  %16 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %54
 
@@ -20316,7 +20316,7 @@ _ZN12_GLOBAL__N_119SourceMappingRegion9setEndLocEN5clang14SourceLocationE.exit: 
 
 61:                                               ; preds = %_ZN12_GLOBAL__N_119SourceMappingRegion9setEndLocEN5clang14SourceLocationE.exit, %47
   %.sroa.0115.0 = phi i32 [ %.sroa.037.0.extract.trunc, %_ZN12_GLOBAL__N_119SourceMappingRegion9setEndLocEN5clang14SourceLocationE.exit ], [ %.val, %47 ]
-  %62 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm8coverage21SystemHeadersCoverageE, i64 128), align 8
+  %62 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm8coverage21SystemHeadersCoverageE, i64 128), align 8
   %63 = trunc i8 %62 to i1
   br i1 %63, label %95, label %64
 
@@ -21173,7 +21173,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122CoverageMappingBuilder17emitSour
   %.sroa.063.068 = phi ptr [ %.val26, %.lr.ph ], [ %114, %113 ]
   %60 = getelementptr i8, ptr %.sroa.063.068, i64 32
   %.val = load i32, ptr %60, align 4
-  %61 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm8coverage21SystemHeadersCoverageE, i64 128), align 8
+  %61 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm8coverage21SystemHeadersCoverageE, i64 128), align 8
   %62 = trunc i8 %61 to i1
   br i1 %62, label %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread, label %63
 
@@ -24509,7 +24509,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -25548,10 +25548,10 @@ define internal void @_GLOBAL__sub_I_CoverageMappingGen.cpp() #6 section ".text.
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZN4llvm24EnableSingleByteCoverageE, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZN4llvm24EnableSingleByteCoverageE, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZN4llvm24EnableSingleByteCoverageE, align 8
   tail call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZN4llvm24EnableSingleByteCoverageE) #22
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 152), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 176), align 8
@@ -25571,10 +25571,10 @@ define internal void @_GLOBAL__sub_I_CoverageMappingGen.cpp() #6 section ".text.
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL24EmptyLineCommentCoverage, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL24EmptyLineCommentCoverage, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL24EmptyLineCommentCoverage, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL24EmptyLineCommentCoverage, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL24EmptyLineCommentCoverage, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL24EmptyLineCommentCoverage, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL24EmptyLineCommentCoverage, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL24EmptyLineCommentCoverage, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL24EmptyLineCommentCoverage) #22
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL24EmptyLineCommentCoverage, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL24EmptyLineCommentCoverage, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL24EmptyLineCommentCoverage, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL24EmptyLineCommentCoverage, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL24EmptyLineCommentCoverage, i64 176), align 8
@@ -25594,10 +25594,10 @@ define internal void @_GLOBAL__sub_I_CoverageMappingGen.cpp() #6 section ".text.
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZN4llvm8coverage21SystemHeadersCoverageE, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm8coverage21SystemHeadersCoverageE, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm8coverage21SystemHeadersCoverageE, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm8coverage21SystemHeadersCoverageE, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZN4llvm8coverage21SystemHeadersCoverageE, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm8coverage21SystemHeadersCoverageE, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZN4llvm8coverage21SystemHeadersCoverageE, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZN4llvm8coverage21SystemHeadersCoverageE, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZN4llvm8coverage21SystemHeadersCoverageE) #22
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm8coverage21SystemHeadersCoverageE, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm8coverage21SystemHeadersCoverageE, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4llvm8coverage21SystemHeadersCoverageE, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm8coverage21SystemHeadersCoverageE, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm8coverage21SystemHeadersCoverageE, i64 176), align 8

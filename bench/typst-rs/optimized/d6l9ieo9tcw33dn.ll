@@ -177403,7 +177403,7 @@ _ZN5typst11foundations5scope5Scope13deduplicating17h8f0843815aa89837E.exit: ; pr
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr null, ptr %12, align 8, !alias.scope !37300
   %13 = load ptr, ptr @"_ZN5typst5model5terms1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..terms..TermItem$GT$4data4DATA17hf5e7b17cb0d6d7f3E.llvm.7889846851399105414", align 8, !noalias !37310, !nonnull !4, !align !5, !noundef !4
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model5terms1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..terms..TermItem$GT$4data4DATA17hf5e7b17cb0d6d7f3E.llvm.7889846851399105414", i64 8), align 8, !noalias !37310, !noundef !4
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5typst5model5terms1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..terms..TermItem$GT$4data4DATA17hf5e7b17cb0d6d7f3E.llvm.7889846851399105414", i64 8), align 8, !noalias !37310, !noundef !4
   invoke void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %4, ptr noalias noundef nonnull readonly align 1 %13, i64 noundef %14, ptr noundef nonnull align 8 @"_ZN5typst5model5terms1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..terms..TermItem$GT$4data4DATA17hf5e7b17cb0d6d7f3E.llvm.7889846851399105414", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
           to label %_ZN5typst11foundations5scope5Scope11define_elem17hbe1947ea975fddf3E.exit unwind label %15
 

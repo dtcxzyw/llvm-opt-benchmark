@@ -317,7 +317,7 @@ define dso_local ptr @__find_pci2phy_map(i32 noundef %0) local_unnamed_addr #0 a
 
 14:                                               ; preds = %12
   tail call void @_raw_spin_unlock(ptr noundef nonnull @pci2phy_map_lock) #19
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %16 = tail call noalias align 8 dereferenceable_or_null(1048) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3264, i64 noundef 1048) #21
   tail call void @_raw_spin_lock(ptr noundef nonnull @pci2phy_map_lock) #19
   %17 = icmp eq ptr %16, null
@@ -328,8 +328,8 @@ define dso_local ptr @__find_pci2phy_map(i32 noundef %0) local_unnamed_addr #0 a
   store i32 %0, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %20, i8 -1, i64 1024, i1 false)
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @pci2phy_map_head, i64 8), align 8
-  store ptr %3, ptr getelementptr inbounds (i8, ptr @pci2phy_map_head, i64 8), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pci2phy_map_head, i64 8), align 8
+  store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @pci2phy_map_head, i64 8), align 8
   store ptr @pci2phy_map_head, ptr %3, align 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %21, ptr %22, align 8
@@ -402,7 +402,7 @@ define dso_local i64 @uncore_msr_read_counter(ptr nocapture noundef readnone %0,
   %8 = extractvalue { i64, i64 } %6, 1
   %9 = shl i64 %8, 32
   %10 = or i64 %9, %7
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #19
           to label %12 [label %11], !srcloc !14
 
 11:                                               ; preds = %2
@@ -1990,7 +1990,7 @@ define dso_local void @uncore_get_alias_name(ptr nocapture noundef writeonly %0,
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal i32 @intel_uncore_init() #9 section ".init.text" align 16 {
-  %1 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %1 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %2 = and i64 %1, 2147483648
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %4, label %62
@@ -4224,7 +4224,7 @@ define internal noundef range(i32 0, 2) i32 @uncore_pmu_hrtimer(ptr noundef %0) 
 7:                                                ; preds = %1
   %8 = getelementptr i8, ptr %0, i64 -372
   %9 = load i32, ptr %8, align 4
-  %10 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !89
+  %10 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !89
   %11 = icmp eq i32 %9, %10
   br i1 %11, label %12, label %158
 
@@ -4444,7 +4444,7 @@ declare dso_local i64 @hrtimer_forward(ptr noundef, i64 noundef, i64 noundef) lo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @uncore_pmu_enable(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !95
+  %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !95
   %3 = sext i32 %2 to i64
   %4 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %3
   %5 = load i64, ptr %4, align 8
@@ -4485,7 +4485,7 @@ define internal void @uncore_pmu_enable(ptr nocapture noundef readonly %0) #0 al
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @uncore_pmu_disable(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !96
+  %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !96
   %3 = sext i32 %2 to i64
   %4 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %3
   %5 = load i64, ptr %4, align 8

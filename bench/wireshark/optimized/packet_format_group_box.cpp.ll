@@ -77,9 +77,9 @@ define void @_ZN20PacketFormatGroupBoxC2EP7QWidget(ptr noundef nonnull align 8 d
   %17 = alloca %class.QString, align 8
   %18 = alloca %class.QString, align 8
   tail call void @_ZN9QGroupBoxC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV20PacketFormatGroupBox, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20PacketFormatGroupBox, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV20PacketFormatGroupBox, i64 456), ptr %19, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20PacketFormatGroupBox, i64 456), ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #8
           to label %22 unwind label %138
@@ -1228,9 +1228,9 @@ declare void @_ZN9QGroupBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(40))
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN20PacketFormatGroupBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV20PacketFormatGroupBox, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20PacketFormatGroupBox, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV20PacketFormatGroupBox, i64 456), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20PacketFormatGroupBox, i64 456), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

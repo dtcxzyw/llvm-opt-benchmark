@@ -94,12 +94,12 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_13BarcodeFormatE(ptr dead_on_unwind no
   br i1 %28, label %4, label %29, !llvm.loop !11
 
 29:                                               ; preds = %25
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5ZXingL5NAMESE, i64 480), align 16, !tbaa !3
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXingL5NAMESE, i64 480), align 16, !tbaa !3
   %31 = icmp eq i32 %30, %1
   br i1 %31, label %44, label %32
 
 32:                                               ; preds = %29
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5ZXingL5NAMESE, i64 504), align 8, !tbaa !3
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXingL5NAMESE, i64 504), align 8, !tbaa !3
   %34 = icmp eq i32 %33, %1
   br i1 %34, label %44, label %41
 
@@ -122,7 +122,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_13BarcodeFormatE(ptr dead_on_unwind no
   br label %50
 
 44:                                               ; preds = %38, %35, %32, %29
-  %45 = phi ptr [ %39, %38 ], [ getelementptr inbounds (i8, ptr @_ZN5ZXingL5NAMESE, i64 480), %29 ], [ getelementptr inbounds (i8, ptr @_ZN5ZXingL5NAMESE, i64 504), %32 ], [ %37, %35 ]
+  %45 = phi ptr [ %39, %38 ], [ getelementptr inbounds nuw (i8, ptr @_ZN5ZXingL5NAMESE, i64 480), %29 ], [ getelementptr inbounds nuw (i8, ptr @_ZN5ZXingL5NAMESE, i64 504), %32 ], [ %37, %35 ]
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
   %47 = load i64, ptr %46, align 8, !tbaa !18
@@ -598,7 +598,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
 
 78:                                               ; preds = %74
   %79 = ptrtoint ptr %75 to i64
-  %80 = sub i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN5ZXingL5NAMESE, i64 528) to i64), %79
+  %80 = sub i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXingL5NAMESE, i64 528) to i64), %79
   %81 = sdiv exact i64 %80, 24
   switch i64 %81, label %103 [
     i64 3, label %82
@@ -665,7 +665,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.split.loop.exit4, %.loopexit.split.loop.exit6, %.loopexit.split.loop.exit8, %103, %102, %94, %86
-  %107 = phi ptr [ getelementptr inbounds (i8, ptr @_ZN5ZXingL5NAMESE, i64 528), %103 ], [ %75, %86 ], [ %90, %94 ], [ %98, %102 ], [ %104, %.loopexit.split.loop.exit4 ], [ %105, %.loopexit.split.loop.exit6 ], [ %106, %.loopexit.split.loop.exit8 ], [ %54, %58 ]
+  %107 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN5ZXingL5NAMESE, i64 528), %103 ], [ %75, %86 ], [ %90, %94 ], [ %98, %102 ], [ %104, %.loopexit.split.loop.exit4 ], [ %105, %.loopexit.split.loop.exit6 ], [ %106, %.loopexit.split.loop.exit8 ], [ %54, %58 ]
   %108 = load ptr, ptr %1, align 8, !tbaa !24
   %109 = icmp eq ptr %108, %48
   br i1 %109, label %110, label %114
@@ -836,7 +836,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   br label %186
 
 186:                                              ; preds = %185, %182
-  %187 = icmp eq ptr %107, getelementptr inbounds (i8, ptr @_ZN5ZXingL5NAMESE, i64 528)
+  %187 = icmp eq ptr %107, getelementptr inbounds nuw (i8, ptr @_ZN5ZXingL5NAMESE, i64 528)
   br i1 %187, label %190, label %188
 
 188:                                              ; preds = %186

@@ -207,7 +207,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   call void @_efree(ptr noundef %28) #12
   call void @_efree(ptr noundef %29) #12
   call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.1, i32 noundef %50) #12
-  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %57 = icmp ne ptr %56, null
   call void @llvm.assume(i1 %57)
   br label %549
@@ -231,7 +231,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
 68:                                               ; preds = %66
   call void @_efree(ptr noundef %28) #12
   call void @_efree(ptr noundef %29) #12
-  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %70 = icmp ne ptr %69, null
   call void @llvm.assume(i1 %70)
   br label %549
@@ -266,7 +266,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   call void @_efree(ptr noundef %28) #12
   call void @_efree(ptr noundef %29) #12
   call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.2, i32 noundef %50) #12
-  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %88 = icmp ne ptr %87, null
   call void @llvm.assume(i1 %88)
   br label %549
@@ -275,7 +275,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   call void @_efree(ptr noundef %28) #12
   call void @_efree(ptr noundef %29) #12
   call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.3, i32 noundef %50) #12
-  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %91 = icmp ne ptr %90, null
   call void @llvm.assume(i1 %91)
   br label %549
@@ -362,7 +362,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   call void @_efree(ptr noundef nonnull %28) #12
   call void @_efree(ptr noundef nonnull %29) #12
   call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.5, i32 noundef %113) #12
-  %114 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %115 = icmp ne ptr %114, null
   call void @llvm.assume(i1 %115)
   br label %549
@@ -383,7 +383,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   call void @_efree(ptr noundef nonnull %28) #12
   call void @_efree(ptr noundef nonnull %29) #12
   call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.5, i32 noundef %123) #12
-  %124 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %124 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %125 = icmp ne ptr %124, null
   call void @llvm.assume(i1 %125)
   br label %549
@@ -407,7 +407,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   call void @_efree(ptr noundef nonnull %28) #12
   call void @_efree(ptr noundef nonnull %29) #12
   call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.5, i32 noundef %135) #12
-  %136 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %137 = icmp ne ptr %136, null
   call void @llvm.assume(i1 %137)
   br label %549
@@ -432,7 +432,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   call void @_efree(ptr noundef nonnull %28) #12
   call void @_efree(ptr noundef nonnull %29) #12
   call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.5, i32 noundef %148) #12
-  %149 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %150 = icmp ne ptr %149, null
   call void @llvm.assume(i1 %150)
   br label %549
@@ -457,7 +457,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   call void @_efree(ptr noundef nonnull %28) #12
   call void @_efree(ptr noundef nonnull %29) #12
   call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.5, i32 noundef %161) #12
-  %162 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %162 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %163 = icmp ne ptr %162, null
   call void @llvm.assume(i1 %163)
   br label %549
@@ -482,7 +482,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   call void @_efree(ptr noundef nonnull %28) #12
   call void @_efree(ptr noundef nonnull %29) #12
   call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.5, i32 noundef %174) #12
-  %175 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %175 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %176 = icmp ne ptr %175, null
   call void @llvm.assume(i1 %176)
   br label %549
@@ -507,7 +507,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   call void @_efree(ptr noundef nonnull %28) #12
   call void @_efree(ptr noundef nonnull %29) #12
   call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.5, i32 noundef %187) #12
-  %188 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %188 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %189 = icmp ne ptr %188, null
   call void @llvm.assume(i1 %189)
   br label %549
@@ -532,7 +532,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   call void @_efree(ptr noundef nonnull %28) #12
   call void @_efree(ptr noundef nonnull %29) #12
   call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.5, i32 noundef %200) #12
-  %201 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %201 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %202 = icmp ne ptr %201, null
   call void @llvm.assume(i1 %202)
   br label %549
@@ -1486,7 +1486,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
 
 55:                                               ; preds = %.thread1136
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.9) #12
-  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %57 = icmp ne ptr %56, null
   call void @llvm.assume(i1 %57)
   br label %.loopexit1140
@@ -1679,7 +1679,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
 
 125:                                              ; preds = %.critedge8
   call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.11, i32 noundef %109) #12
-  %126 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %126 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %127 = icmp ne ptr %126, null
   call void @llvm.assume(i1 %127)
   br label %.loopexit1140
@@ -2651,47 +2651,47 @@ define hidden noundef i32 @zm_startup_pack(i32 noundef %0, i32 noundef %1) local
 
 6:                                                ; preds = %3
   store i32 0, ptr @machine_endian_short_map, align 4
-  store i32 1, ptr getelementptr inbounds (i8, ptr @machine_endian_short_map, i64 4), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @machine_endian_short_map, i64 4), align 4
   store i32 1, ptr @big_endian_short_map, align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @big_endian_short_map, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @big_endian_short_map, i64 4), align 4
   store i32 0, ptr @little_endian_short_map, align 4
-  store i32 1, ptr getelementptr inbounds (i8, ptr @little_endian_short_map, i64 4), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @little_endian_short_map, i64 4), align 4
   store i32 0, ptr @machine_endian_long_map, align 16
-  store i32 1, ptr getelementptr inbounds (i8, ptr @machine_endian_long_map, i64 4), align 4
-  store i32 2, ptr getelementptr inbounds (i8, ptr @machine_endian_long_map, i64 8), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @machine_endian_long_map, i64 12), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @machine_endian_long_map, i64 4), align 4
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @machine_endian_long_map, i64 8), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @machine_endian_long_map, i64 12), align 4
   store i32 3, ptr @big_endian_long_map, align 16
-  store i32 2, ptr getelementptr inbounds (i8, ptr @big_endian_long_map, i64 4), align 4
-  store i32 1, ptr getelementptr inbounds (i8, ptr @big_endian_long_map, i64 8), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @big_endian_long_map, i64 12), align 4
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @big_endian_long_map, i64 4), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @big_endian_long_map, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @big_endian_long_map, i64 12), align 4
   store i32 0, ptr @little_endian_long_map, align 16
-  store i32 1, ptr getelementptr inbounds (i8, ptr @little_endian_long_map, i64 4), align 4
-  store i32 2, ptr getelementptr inbounds (i8, ptr @little_endian_long_map, i64 8), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @little_endian_long_map, i64 12), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @little_endian_long_map, i64 4), align 4
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @little_endian_long_map, i64 8), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @little_endian_long_map, i64 12), align 4
   store i32 0, ptr @machine_endian_longlong_map, align 16
-  store i32 1, ptr getelementptr inbounds (i8, ptr @machine_endian_longlong_map, i64 4), align 4
-  store i32 2, ptr getelementptr inbounds (i8, ptr @machine_endian_longlong_map, i64 8), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @machine_endian_longlong_map, i64 12), align 4
-  store i32 4, ptr getelementptr inbounds (i8, ptr @machine_endian_longlong_map, i64 16), align 16
-  store i32 5, ptr getelementptr inbounds (i8, ptr @machine_endian_longlong_map, i64 20), align 4
-  store i32 6, ptr getelementptr inbounds (i8, ptr @machine_endian_longlong_map, i64 24), align 8
-  store i32 7, ptr getelementptr inbounds (i8, ptr @machine_endian_longlong_map, i64 28), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @machine_endian_longlong_map, i64 4), align 4
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @machine_endian_longlong_map, i64 8), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @machine_endian_longlong_map, i64 12), align 4
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @machine_endian_longlong_map, i64 16), align 16
+  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @machine_endian_longlong_map, i64 20), align 4
+  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @machine_endian_longlong_map, i64 24), align 8
+  store i32 7, ptr getelementptr inbounds nuw (i8, ptr @machine_endian_longlong_map, i64 28), align 4
   store i32 7, ptr @big_endian_longlong_map, align 16
-  store i32 6, ptr getelementptr inbounds (i8, ptr @big_endian_longlong_map, i64 4), align 4
-  store i32 5, ptr getelementptr inbounds (i8, ptr @big_endian_longlong_map, i64 8), align 8
-  store i32 4, ptr getelementptr inbounds (i8, ptr @big_endian_longlong_map, i64 12), align 4
-  store i32 3, ptr getelementptr inbounds (i8, ptr @big_endian_longlong_map, i64 16), align 16
-  store i32 2, ptr getelementptr inbounds (i8, ptr @big_endian_longlong_map, i64 20), align 4
-  store i32 1, ptr getelementptr inbounds (i8, ptr @big_endian_longlong_map, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @big_endian_longlong_map, i64 28), align 4
+  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @big_endian_longlong_map, i64 4), align 4
+  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @big_endian_longlong_map, i64 8), align 8
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @big_endian_longlong_map, i64 12), align 4
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @big_endian_longlong_map, i64 16), align 16
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @big_endian_longlong_map, i64 20), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @big_endian_longlong_map, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @big_endian_longlong_map, i64 28), align 4
   store i32 0, ptr @little_endian_longlong_map, align 16
-  store i32 1, ptr getelementptr inbounds (i8, ptr @little_endian_longlong_map, i64 4), align 4
-  store i32 2, ptr getelementptr inbounds (i8, ptr @little_endian_longlong_map, i64 8), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @little_endian_longlong_map, i64 12), align 4
-  store i32 4, ptr getelementptr inbounds (i8, ptr @little_endian_longlong_map, i64 16), align 16
-  store i32 5, ptr getelementptr inbounds (i8, ptr @little_endian_longlong_map, i64 20), align 4
-  store i32 6, ptr getelementptr inbounds (i8, ptr @little_endian_longlong_map, i64 24), align 8
-  store i32 7, ptr getelementptr inbounds (i8, ptr @little_endian_longlong_map, i64 28), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @little_endian_longlong_map, i64 4), align 4
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @little_endian_longlong_map, i64 8), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @little_endian_longlong_map, i64 12), align 4
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @little_endian_longlong_map, i64 16), align 16
+  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @little_endian_longlong_map, i64 20), align 4
+  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @little_endian_longlong_map, i64 24), align 8
+  store i32 7, ptr getelementptr inbounds nuw (i8, ptr @little_endian_longlong_map, i64 28), align 4
   ret i32 0
 }
 

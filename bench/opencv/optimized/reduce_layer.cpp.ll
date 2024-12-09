@@ -1343,7 +1343,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv3dnn15ReduceLayerImp
   store i32 1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %18, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3dnn15ReduceLayerImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3dnn15ReduceLayerImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %3, ptr %19, align 8
   store ptr %6, ptr %5, align 8
@@ -1382,7 +1382,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImplC2ERKNS0_14dnn4_v202
   %21 = alloca %"class.std::__cxx11::basic_string", align 8
   %22 = alloca %"class.std::allocator.0", align 1
   tail call void @_ZN2cv3dnn14dnn4_v202405215LayerC2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0)
-  store ptr getelementptr inbounds inrange(-16, 264) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 264) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImplE, i64 16), ptr %0, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   invoke void @_ZN2cv3dnn14dnn4_v202405215Layer13setParamsFromERKNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull align 8 dereferenceable(136) %1)
@@ -6281,7 +6281,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %107
 
 47:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_9ReduceMaxIhEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_9ReduceMaxIhEEEE, i64 16), ptr %9, align 8
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -6423,7 +6423,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %84, %86
           to label %97 unwind label %112
 
 97:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIhEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIhEEEE, i64 16), ptr %11, align 8
   %98 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %99 = load ptr, ptr %98, align 8
   %.not.i.i.i.i23 = icmp eq ptr %99, null
@@ -6576,7 +6576,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %107
 
 47:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_9ReduceMinIhEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_9ReduceMinIhEEEE, i64 16), ptr %9, align 8
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -6718,7 +6718,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %84, %86
           to label %97 unwind label %112
 
 97:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIhEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIhEEEE, i64 16), ptr %11, align 8
   %98 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %99 = load ptr, ptr %98, align 8
   %.not.i.i.i.i23 = icmp eq ptr %99, null
@@ -6871,7 +6871,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %107
 
 47:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_10ReduceMeanIhEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_10ReduceMeanIhEEEE, i64 16), ptr %9, align 8
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -7013,7 +7013,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %84, %86
           to label %97 unwind label %112
 
 97:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIhEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIhEEEE, i64 16), ptr %11, align 8
   %98 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %99 = load ptr, ptr %98, align 8
   %.not.i.i.i.i23 = icmp eq ptr %99, null
@@ -7166,7 +7166,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %107
 
 47:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_9ReduceSumIhEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_9ReduceSumIhEEEE, i64 16), ptr %9, align 8
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -7308,7 +7308,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %84, %86
           to label %97 unwind label %112
 
 97:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIhEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIhEEEE, i64 16), ptr %11, align 8
   %98 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %99 = load ptr, ptr %98, align 8
   %.not.i.i.i.i23 = icmp eq ptr %99, null
@@ -7461,7 +7461,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %107
 
 47:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_8ReduceL1IhEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_8ReduceL1IhEEEE, i64 16), ptr %9, align 8
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -7603,7 +7603,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %84, %86
           to label %97 unwind label %112
 
 97:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IhEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IhEEEE, i64 16), ptr %11, align 8
   %98 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %99 = load ptr, ptr %98, align 8
   %.not.i.i.i.i23 = icmp eq ptr %99, null
@@ -7756,7 +7756,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %107
 
 47:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_8ReduceL2IhEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_8ReduceL2IhEEEE, i64 16), ptr %9, align 8
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -7898,7 +7898,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %84, %86
           to label %97 unwind label %112
 
 97:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IhEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IhEEEE, i64 16), ptr %11, align 8
   %98 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %99 = load ptr, ptr %98, align 8
   %.not.i.i.i.i23 = icmp eq ptr %99, null
@@ -8051,7 +8051,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %107
 
 47:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_10ReduceProdIhEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_10ReduceProdIhEEEE, i64 16), ptr %9, align 8
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -8193,7 +8193,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %84, %86
           to label %97 unwind label %112
 
 97:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIhEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIhEEEE, i64 16), ptr %11, align 8
   %98 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %99 = load ptr, ptr %98, align 8
   %.not.i.i.i.i23 = icmp eq ptr %99, null
@@ -8346,7 +8346,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %107
 
 47:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_15ReduceSumSquareIhEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_15ReduceSumSquareIhEEEE, i64 16), ptr %9, align 8
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -8488,7 +8488,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %84, %86
           to label %97 unwind label %112
 
 97:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIhEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIhEEEE, i64 16), ptr %11, align 8
   %98 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %99 = load ptr, ptr %98, align 8
   %.not.i.i.i.i23 = icmp eq ptr %99, null
@@ -8641,7 +8641,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %107
 
 47:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_12ReduceLogSumIhEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_12ReduceLogSumIhEEEE, i64 16), ptr %9, align 8
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -8783,7 +8783,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %84, %86
           to label %97 unwind label %112
 
 97:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIhEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIhEEEE, i64 16), ptr %11, align 8
   %98 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %99 = load ptr, ptr %98, align 8
   %.not.i.i.i.i23 = icmp eq ptr %99, null
@@ -8936,7 +8936,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %107
 
 47:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_15ReduceLogSumExpIhEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_15ReduceLogSumExpIhEEEE, i64 16), ptr %9, align 8
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -9078,7 +9078,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %84, %86
           to label %97 unwind label %112
 
 97:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIhEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIhEEEE, i64 16), ptr %11, align 8
   %98 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %99 = load ptr, ptr %98, align 8
   %.not.i.i.i.i23 = icmp eq ptr %99, null
@@ -9146,7 +9146,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIhEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIhEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10175,7 +10175,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIhEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -10277,7 +10277,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl16ReduceAllInvokerI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIhEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIhEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -10635,7 +10635,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIhEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIhEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11664,7 +11664,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIhEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -11763,7 +11763,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl16ReduceAllInvokerI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIhEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIhEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -11944,7 +11944,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIhEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIhEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -12973,7 +12973,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIhEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -13075,7 +13075,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl16ReduceAllInvokerI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIhEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIhEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -13256,7 +13256,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIhEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIhEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -14285,7 +14285,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIhEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -14383,7 +14383,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl16ReduceAllInvokerI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIhEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIhEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -14560,7 +14560,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IhEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IhEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15589,7 +15589,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IhEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -15687,7 +15687,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl16ReduceAllInvokerI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IhEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IhEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -15864,7 +15864,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IhEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IhEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -16893,7 +16893,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IhEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -17001,7 +17001,7 @@ declare double @sqrt(double noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IhEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IhEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -17185,7 +17185,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIhEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIhEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -18214,7 +18214,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIhEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -18312,7 +18312,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl16ReduceAllInvokerI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIhEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIhEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -18489,7 +18489,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIhEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIhEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -19518,7 +19518,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIhEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -19617,7 +19617,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl16ReduceAllInvokerI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIhEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIhEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -19795,7 +19795,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIhEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIhEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -20824,7 +20824,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIhEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -20931,7 +20931,7 @@ declare double @log(double noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIhEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIhEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -21114,7 +21114,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIhEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIhEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -22143,7 +22143,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIhEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -22251,7 +22251,7 @@ declare double @exp(double noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIhEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIhEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -22526,7 +22526,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %108
 
 48:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_9ReduceMaxIiEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_9ReduceMaxIiEEEE, i64 16), ptr %9, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -22668,7 +22668,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %85, %87
           to label %98 unwind label %113
 
 98:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIiEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIiEEEE, i64 16), ptr %11, align 8
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %100 = load ptr, ptr %99, align 8
   %.not.i.i.i.i23 = icmp eq ptr %100, null
@@ -22822,7 +22822,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %108
 
 48:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_9ReduceMinIiEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_9ReduceMinIiEEEE, i64 16), ptr %9, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -22964,7 +22964,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %85, %87
           to label %98 unwind label %113
 
 98:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIiEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIiEEEE, i64 16), ptr %11, align 8
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %100 = load ptr, ptr %99, align 8
   %.not.i.i.i.i23 = icmp eq ptr %100, null
@@ -23118,7 +23118,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %108
 
 48:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_10ReduceMeanIiEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_10ReduceMeanIiEEEE, i64 16), ptr %9, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -23260,7 +23260,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %85, %87
           to label %98 unwind label %113
 
 98:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIiEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIiEEEE, i64 16), ptr %11, align 8
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %100 = load ptr, ptr %99, align 8
   %.not.i.i.i.i23 = icmp eq ptr %100, null
@@ -23414,7 +23414,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %108
 
 48:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_9ReduceSumIiEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_9ReduceSumIiEEEE, i64 16), ptr %9, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -23556,7 +23556,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %85, %87
           to label %98 unwind label %113
 
 98:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIiEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIiEEEE, i64 16), ptr %11, align 8
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %100 = load ptr, ptr %99, align 8
   %.not.i.i.i.i23 = icmp eq ptr %100, null
@@ -23710,7 +23710,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %108
 
 48:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_8ReduceL1IiEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_8ReduceL1IiEEEE, i64 16), ptr %9, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -23852,7 +23852,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %85, %87
           to label %98 unwind label %113
 
 98:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IiEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IiEEEE, i64 16), ptr %11, align 8
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %100 = load ptr, ptr %99, align 8
   %.not.i.i.i.i23 = icmp eq ptr %100, null
@@ -24006,7 +24006,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %108
 
 48:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_8ReduceL2IiEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_8ReduceL2IiEEEE, i64 16), ptr %9, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -24148,7 +24148,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %85, %87
           to label %98 unwind label %113
 
 98:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IiEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IiEEEE, i64 16), ptr %11, align 8
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %100 = load ptr, ptr %99, align 8
   %.not.i.i.i.i23 = icmp eq ptr %100, null
@@ -24302,7 +24302,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %108
 
 48:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_10ReduceProdIiEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_10ReduceProdIiEEEE, i64 16), ptr %9, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -24444,7 +24444,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %85, %87
           to label %98 unwind label %113
 
 98:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIiEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIiEEEE, i64 16), ptr %11, align 8
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %100 = load ptr, ptr %99, align 8
   %.not.i.i.i.i23 = icmp eq ptr %100, null
@@ -24598,7 +24598,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %108
 
 48:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_15ReduceSumSquareIiEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_15ReduceSumSquareIiEEEE, i64 16), ptr %9, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -24740,7 +24740,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %85, %87
           to label %98 unwind label %113
 
 98:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIiEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIiEEEE, i64 16), ptr %11, align 8
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %100 = load ptr, ptr %99, align 8
   %.not.i.i.i.i23 = icmp eq ptr %100, null
@@ -24894,7 +24894,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %108
 
 48:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_12ReduceLogSumIiEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_12ReduceLogSumIiEEEE, i64 16), ptr %9, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -25036,7 +25036,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %85, %87
           to label %98 unwind label %113
 
 98:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIiEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIiEEEE, i64 16), ptr %11, align 8
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %100 = load ptr, ptr %99, align 8
   %.not.i.i.i.i23 = icmp eq ptr %100, null
@@ -25190,7 +25190,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %108
 
 48:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_15ReduceLogSumExpIiEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_15ReduceLogSumExpIiEEEE, i64 16), ptr %9, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -25332,7 +25332,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %85, %87
           to label %98 unwind label %113
 
 98:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIiEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIiEEEE, i64 16), ptr %11, align 8
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %100 = load ptr, ptr %99, align 8
   %.not.i.i.i.i23 = icmp eq ptr %100, null
@@ -25396,7 +25396,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIiEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIiEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -26425,7 +26425,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -26524,7 +26524,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl16ReduceAllInvokerI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -26705,7 +26705,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIiEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIiEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -27734,7 +27734,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -27833,7 +27833,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl16ReduceAllInvokerI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -28014,7 +28014,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIiEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIiEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -29043,7 +29043,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -29144,7 +29144,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl16ReduceAllInvokerI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -29324,7 +29324,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIiEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIiEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -30353,7 +30353,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -30451,7 +30451,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl16ReduceAllInvokerI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -30628,7 +30628,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IiEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IiEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -31657,7 +31657,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -31756,7 +31756,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl16ReduceAllInvokerI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -31934,7 +31934,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IiEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IiEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -32963,7 +32963,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -33068,7 +33068,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl16ReduceAllInvokerI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -33252,7 +33252,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIiEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIiEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -34281,7 +34281,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -34379,7 +34379,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl16ReduceAllInvokerI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -34556,7 +34556,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIiEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIiEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -35585,7 +35585,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -35684,7 +35684,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl16ReduceAllInvokerI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -35862,7 +35862,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIiEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIiEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -36891,7 +36891,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -36995,7 +36995,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl16ReduceAllInvokerI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -37178,7 +37178,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIiEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIiEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -38207,7 +38207,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -38312,7 +38312,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl16ReduceAllInvokerI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -38587,7 +38587,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %108
 
 48:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_9ReduceMaxIfEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_9ReduceMaxIfEEEE, i64 16), ptr %9, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -38729,7 +38729,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %85, %87
           to label %98 unwind label %113
 
 98:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIfEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIfEEEE, i64 16), ptr %11, align 8
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %100 = load ptr, ptr %99, align 8
   %.not.i.i.i.i23 = icmp eq ptr %100, null
@@ -38883,7 +38883,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %108
 
 48:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_9ReduceMinIfEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_9ReduceMinIfEEEE, i64 16), ptr %9, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -39025,7 +39025,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %85, %87
           to label %98 unwind label %113
 
 98:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIfEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIfEEEE, i64 16), ptr %11, align 8
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %100 = load ptr, ptr %99, align 8
   %.not.i.i.i.i23 = icmp eq ptr %100, null
@@ -39179,7 +39179,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %108
 
 48:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_10ReduceMeanIfEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_10ReduceMeanIfEEEE, i64 16), ptr %9, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -39321,7 +39321,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %85, %87
           to label %98 unwind label %113
 
 98:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIfEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIfEEEE, i64 16), ptr %11, align 8
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %100 = load ptr, ptr %99, align 8
   %.not.i.i.i.i23 = icmp eq ptr %100, null
@@ -39475,7 +39475,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %108
 
 48:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_9ReduceSumIfEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_9ReduceSumIfEEEE, i64 16), ptr %9, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -39617,7 +39617,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %85, %87
           to label %98 unwind label %113
 
 98:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIfEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIfEEEE, i64 16), ptr %11, align 8
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %100 = load ptr, ptr %99, align 8
   %.not.i.i.i.i23 = icmp eq ptr %100, null
@@ -39771,7 +39771,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %108
 
 48:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_8ReduceL1IfEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_8ReduceL1IfEEEE, i64 16), ptr %9, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -39913,7 +39913,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %85, %87
           to label %98 unwind label %113
 
 98:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IfEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IfEEEE, i64 16), ptr %11, align 8
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %100 = load ptr, ptr %99, align 8
   %.not.i.i.i.i23 = icmp eq ptr %100, null
@@ -40067,7 +40067,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %108
 
 48:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_8ReduceL2IfEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_8ReduceL2IfEEEE, i64 16), ptr %9, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -40209,7 +40209,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %85, %87
           to label %98 unwind label %113
 
 98:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IfEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IfEEEE, i64 16), ptr %11, align 8
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %100 = load ptr, ptr %99, align 8
   %.not.i.i.i.i23 = icmp eq ptr %100, null
@@ -40363,7 +40363,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %108
 
 48:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_10ReduceProdIfEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_10ReduceProdIfEEEE, i64 16), ptr %9, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -40505,7 +40505,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %85, %87
           to label %98 unwind label %113
 
 98:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIfEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIfEEEE, i64 16), ptr %11, align 8
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %100 = load ptr, ptr %99, align 8
   %.not.i.i.i.i23 = icmp eq ptr %100, null
@@ -40659,7 +40659,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %108
 
 48:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_15ReduceSumSquareIfEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_15ReduceSumSquareIfEEEE, i64 16), ptr %9, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -40801,7 +40801,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %85, %87
           to label %98 unwind label %113
 
 98:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIfEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIfEEEE, i64 16), ptr %11, align 8
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %100 = load ptr, ptr %99, align 8
   %.not.i.i.i.i23 = icmp eq ptr %100, null
@@ -40955,7 +40955,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %108
 
 48:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_12ReduceLogSumIfEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_12ReduceLogSumIfEEEE, i64 16), ptr %9, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -41097,7 +41097,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %85, %87
           to label %98 unwind label %113
 
 98:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIfEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIfEEEE, i64 16), ptr %11, align 8
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %100 = load ptr, ptr %99, align 8
   %.not.i.i.i.i23 = icmp eq ptr %100, null
@@ -41251,7 +41251,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_
   br label %108
 
 48:                                               ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_15ReduceLogSumExpIfEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerINS1_15ReduceLogSumExpIfEEEE, i64 16), ptr %9, align 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -41393,7 +41393,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %85, %87
           to label %98 unwind label %113
 
 98:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIfEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIfEEEE, i64 16), ptr %11, align 8
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %100 = load ptr, ptr %99, align 8
   %.not.i.i.i.i23 = icmp eq ptr %100, null
@@ -41457,7 +41457,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIfEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIfEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -42486,7 +42486,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIfEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -42586,7 +42586,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl16ReduceAllInvokerI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIfEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMaxIfEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -42768,7 +42768,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIfEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIfEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -43797,7 +43797,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIfEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -43897,7 +43897,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl16ReduceAllInvokerI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIfEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceMinIfEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -44079,7 +44079,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIfEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIfEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -45108,7 +45108,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIfEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -45211,7 +45211,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl16ReduceAllInvokerI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIfEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceMeanIfEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -45393,7 +45393,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIfEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIfEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -46422,7 +46422,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIfEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -46520,7 +46520,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl16ReduceAllInvokerI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIfEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_9ReduceSumIfEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -46697,7 +46697,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IfEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IfEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -47726,7 +47726,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IfEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -47827,7 +47827,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl16ReduceAllInvokerI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IfEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL1IfEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -48007,7 +48007,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IfEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IfEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -49036,7 +49036,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IfEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -49141,7 +49141,7 @@ declare float @sqrtf(float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IfEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_8ReduceL2IfEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -49319,7 +49319,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIfEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIfEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -50348,7 +50348,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIfEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -50446,7 +50446,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl16ReduceAllInvokerI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIfEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_10ReduceProdIfEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -50623,7 +50623,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIfEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIfEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -51652,7 +51652,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIfEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -51750,7 +51750,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl16ReduceAllInvokerI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIfEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceSumSquareIfEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -51927,7 +51927,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIfEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIfEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -52956,7 +52956,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIfEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -53058,7 +53058,7 @@ declare float @logf(float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIfEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_12ReduceLogSumIfEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -53236,7 +53236,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl16ReduceAllInvokerIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIfEEEC2ERKNS_3MatERS6_St6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIfEEEE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -54265,7 +54265,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit163:                 ; preds = %395, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIfEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -54366,7 +54366,7 @@ declare float @expf(float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIfEEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1_15ReduceLogSumExpIfEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null

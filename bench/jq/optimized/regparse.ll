@@ -12465,7 +12465,7 @@ onig_node_free.exit:                              ; preds = %.lr.ph125, %66
 
 .lr.ph:                                           ; preds = %67
   %73 = zext nneg i32 %58 to i64
-  %gep = getelementptr inbounds nuw i32, ptr getelementptr inbounds (i8, ptr @OnigUnicodeFolds1, i64 8), i64 %73
+  %gep = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @OnigUnicodeFolds1, i64 8), i64 %73
   %74 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 20
   %75 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 56
   %wide.trip.count = zext nneg i32 %71 to i64

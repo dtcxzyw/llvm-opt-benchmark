@@ -402,7 +402,7 @@ define internal fastcc ptr @trmalloc(i64 noundef %0, i64 noundef %1, i32 noundef
   br i1 %.not91, label %55, label %57
 
 55:                                               ; preds = %48
-  %56 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @TRhead, i64 16), align 16
+  %56 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @TRhead, i64 16), align 16
   %.not92 = icmp eq ptr %56, inttoptr (i64 285138106 to ptr)
   br i1 %.not92, label %61, label %57
 
@@ -414,13 +414,13 @@ define internal fastcc ptr @trmalloc(i64 noundef %0, i64 noundef %1, i32 noundef
   br label %is_valid_alignment.exit
 
 61:                                               ; preds = %55
-  %62 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @TRhead, i64 8), align 8
+  %62 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @TRhead, i64 8), align 8
   %.not93 = icmp eq ptr %62, null
   br i1 %.not93, label %84, label %63
 
 63:                                               ; preds = %61
   store volatile i64 1296236546, ptr %6, align 16
-  %64 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @TRhead, i64 8), align 8
+  %64 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @TRhead, i64 8), align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 144
   %66 = ptrtoint ptr %65 to i64
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -436,11 +436,11 @@ define internal fastcc ptr @trmalloc(i64 noundef %0, i64 noundef %1, i32 noundef
   %72 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6, i64 0) #17, !srcloc !6
   store volatile i64 %72, ptr %7, align 8
   %.0..0..0..0.4 = load volatile i64, ptr %7, align 8
-  %73 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @TRhead, i64 8), align 8
+  %73 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @TRhead, i64 8), align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 144
   store ptr %50, ptr %74, align 8
   store volatile i64 1296236544, ptr %8, align 16
-  %75 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @TRhead, i64 8), align 8
+  %75 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @TRhead, i64 8), align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 144
   %77 = ptrtoint ptr %76 to i64
   %78 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -459,10 +459,10 @@ define internal fastcc ptr @trmalloc(i64 noundef %0, i64 noundef %1, i32 noundef
   br label %84
 
 84:                                               ; preds = %63, %61
-  %85 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @TRhead, i64 8), align 8
+  %85 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @TRhead, i64 8), align 8
   %86 = getelementptr inbounds nuw i8, ptr %50, i64 136
   store volatile ptr %85, ptr %86, align 8
-  store volatile ptr %50, ptr getelementptr inbounds (i8, ptr @TRhead, i64 8), align 8
+  store volatile ptr %50, ptr getelementptr inbounds nuw (i8, ptr @TRhead, i64 8), align 8
   store i32 0, ptr %50, align 8
   %87 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 %2, ptr %87, align 4
@@ -946,7 +946,7 @@ define internal fastcc void @trfree(ptr noundef %0, i32 noundef %1, ptr noundef 
 147:                                              ; preds = %103
   %148 = getelementptr inbounds i8, ptr %0, i64 -24
   %149 = load volatile ptr, ptr %148, align 8
-  store volatile ptr %149, ptr getelementptr inbounds (i8, ptr @TRhead, i64 8), align 8
+  store volatile ptr %149, ptr getelementptr inbounds nuw (i8, ptr @TRhead, i64 8), align 8
   br label %150
 
 150:                                              ; preds = %147, %125
@@ -1075,7 +1075,7 @@ define i32 @MPL_trvalid2(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_u
   br i1 %.not, label %15, label %17
 
 15:                                               ; preds = %3
-  %16 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @TRhead, i64 16), align 16
+  %16 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @TRhead, i64 16), align 16
   %.not45 = icmp eq ptr %16, inttoptr (i64 285138106 to ptr)
   br i1 %.not45, label %20, label %17
 
@@ -1085,7 +1085,7 @@ define i32 @MPL_trvalid2(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_u
   br label %.loopexit
 
 20:                                               ; preds = %15
-  %21 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @TRhead, i64 8), align 8
+  %21 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @TRhead, i64 8), align 8
   %.not4654 = icmp eq ptr %21, null
   br i1 %.not4654, label %.loopexit, label %.lr.ph
 
@@ -1339,7 +1339,7 @@ define void @MPL_trdump(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   br i1 %.not.i, label %17, label %19
 
 17:                                               ; preds = %.critedge
-  %18 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @TRhead, i64 16), align 16
+  %18 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @TRhead, i64 16), align 16
   %.not21.i = icmp eq ptr %18, inttoptr (i64 285138106 to ptr)
   br i1 %.not21.i, label %21, label %19
 
@@ -1348,7 +1348,7 @@ define void @MPL_trdump(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   br label %trdump.exit
 
 21:                                               ; preds = %17
-  %22 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @TRhead, i64 8), align 8
+  %22 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @TRhead, i64 8), align 8
   %.not2225.i = icmp eq ptr %22, null
   br i1 %.not2225.i, label %trdump.exit, label %.lr.ph.i
 

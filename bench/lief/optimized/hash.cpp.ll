@@ -309,7 +309,7 @@ define noundef i64 @_ZN4LIEF5MachO4Hash4hashERKNS_6ObjectE(ptr noundef nonnull a
   %2 = alloca %"class.LIEF::MachO::Hash", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
   call void @_ZN4LIEF4HashC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO4HashE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO4HashE, i64 16), ptr %2, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8

@@ -662,7 +662,7 @@ _ZL15forwarding_findP11XForwardingmPm.exit:       ; preds = %_ZNK11XForwarding4f
 define hidden void @_ZN9XRelocate8relocateEP14XRelocationSet(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.XRelocateTask, align 8
   call void @_ZN5XTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull @.str) #8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV13XRelocateTask, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV13XRelocateTask, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -685,7 +685,7 @@ define hidden void @_ZN9XRelocate8relocateEP14XRelocationSet(ptr nocapture nound
   store volatile i64 0, ptr %15, align 8
   %16 = load ptr, ptr %0, align 8
   call void @_ZN8XWorkers3runEP5XTask(ptr noundef nonnull align 8 dereferenceable(120) %16, ptr noundef nonnull %3) #8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV13XRelocateTask, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV13XRelocateTask, i64 16), ptr %3, align 8
   %17 = load volatile i64, ptr %11, align 8
   %18 = load volatile i64, ptr %15, align 8
   call void @_ZN15XStatRelocation19set_at_relocate_endEmm(i64 noundef %17, i64 noundef %18) #8
@@ -813,13 +813,13 @@ define linkonce_odr hidden void @_ZN13XRelocateTask4workEv(ptr noundef nonnull a
   %2 = alloca %class.XRelocateClosure, align 8
   %3 = alloca %class.XRelocateClosure.17, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16XRelocateClosureI23XRelocateSmallAllocatorE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV16XRelocateClosureI23XRelocateSmallAllocatorE, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16XRelocateClosureI24XRelocateMediumAllocatorE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV16XRelocateClosureI24XRelocateMediumAllocatorE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -864,8 +864,8 @@ define linkonce_odr hidden void @_ZN13XRelocateTask4workEv(ptr noundef nonnull a
   br label %12, !llvm.loop !13
 
 _ZN18XArrayIteratorImplIP11XForwardingLb1EE4nextEPS1_.exit: ; preds = %14
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16XRelocateClosureI24XRelocateMediumAllocatorE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16XRelocateClosureI23XRelocateSmallAllocatorE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV16XRelocateClosureI24XRelocateMediumAllocatorE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV16XRelocateClosureI23XRelocateSmallAllocatorE, i64 16), ptr %2, align 8
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %29 = load ptr, ptr %28, align 8
   %.not.i.i.i = icmp eq ptr %29, null

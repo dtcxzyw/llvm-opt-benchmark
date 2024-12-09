@@ -241,7 +241,7 @@ define dso_local void @_ZNK5clang28ObjectFilePCHContainerWriter27CreatePCHContai
 _ZNSt10unique_ptrIN12_GLOBAL__N_121PCHContainerGeneratorESt14default_deleteIS1_EED2Ev.exit: ; preds = %19, %16, %7
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i8 0, ptr %21, align 8, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_121PCHContainerGeneratorE, i64 16), ptr %8, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_121PCHContainerGeneratorE, i64 16), ptr %8, align 8, !noalias !4
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %24 = load ptr, ptr %23, align 8, !noalias !4
@@ -1370,7 +1370,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_121PCHContainerGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(3696) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_121PCHContainerGeneratorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_121PCHContainerGeneratorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3688
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null

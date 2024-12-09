@@ -93,7 +93,7 @@ define hidden void @_ZN13SpaceCountersC2EPKcimP12MutableSpaceP18GenerationCounte
   %59 = load ptr, ptr %32, align 8
   %60 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef %59, ptr noundef nonnull @.str.7) #6
   %61 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 9, i32 noundef 0) #6
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN13SpaceCounters10UsedHelperE, i64 16), ptr %61, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN13SpaceCounters10UsedHelperE, i64 16), ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr %0, ptr %62, align 8
   %63 = call noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNSPKcN8PerfData5UnitsEP20PerfLongSampleHelperP10JavaThread(i32 noundef 5, ptr noundef %60, i32 noundef 2, ptr noundef nonnull %61, ptr noundef nonnull %13) #6

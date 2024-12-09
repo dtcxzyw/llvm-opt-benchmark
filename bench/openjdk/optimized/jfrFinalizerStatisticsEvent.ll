@@ -192,7 +192,7 @@ define hidden void @_ZN27JfrFinalizerStatisticsEvent15generate_eventsEv() local_
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = load i64, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV31FinalizerStatisticsEventClosure, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV31FinalizerStatisticsEventClosure, i64 16), ptr %1, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %3, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16

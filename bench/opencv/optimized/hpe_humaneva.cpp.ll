@@ -778,7 +778,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   store i32 1, ptr %248, align 8
   %249 = getelementptr inbounds nuw i8, ptr %236, i64 12
   store i32 1, ptr %249, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv8datasets15HPE_humanevaObjELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %236, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv8datasets15HPE_humanevaObjELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %236, align 8
   %250 = getelementptr inbounds nuw i8, ptr %236, i64 16
   store ptr %229, ptr %250, align 8
   store i8 %198, ptr %229, align 8
@@ -2166,7 +2166,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   store i32 1, ptr %252, align 8
   %253 = getelementptr inbounds nuw i8, ptr %240, i64 12
   store i32 1, ptr %253, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv8datasets15HPE_humanevaObjELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %240, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv8datasets15HPE_humanevaObjELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %240, align 8
   %254 = getelementptr inbounds nuw i8, ptr %240, i64 16
   store ptr %233, ptr %254, align 8
   store i8 %202, ptr %233, align 8
@@ -2898,7 +2898,7 @@ define void @_ZN2cv8datasets12HPE_humaneva6createEi(ptr dead_on_unwind noalias n
   br i1 %3, label %6, label %23
 
 6:                                                ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8datasets17HPE_humanevaImpIIE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8datasets17HPE_humanevaImpIIE, i64 16), ptr %4, align 8
   %7 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
           to label %_ZN2cv3PtrINS_8datasets17HPE_humanevaImpIIEED2Ev.exit unwind label %8
 
@@ -2939,11 +2939,11 @@ _ZN2cv3PtrINS_8datasets17HPE_humanevaImpIIEED2Ev.exit: ; preds = %6
   store i32 1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %22, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv8datasets17HPE_humanevaImpIIELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv8datasets17HPE_humanevaImpIIELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
   br label %37
 
 23:                                               ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8datasets15HPE_humanevaImpE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8datasets15HPE_humanevaImpE, i64 16), ptr %4, align 8
   %24 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
           to label %_ZN2cv3PtrINS_8datasets15HPE_humanevaImpEED2Ev.exit unwind label %25
 
@@ -2978,7 +2978,7 @@ _ZN2cv3PtrINS_8datasets15HPE_humanevaImpEED2Ev.exit: ; preds = %23
   store i32 1, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 1, ptr %36, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv8datasets15HPE_humanevaImpELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv8datasets15HPE_humanevaImpELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24, align 8
   br label %37
 
 37:                                               ; preds = %_ZN2cv3PtrINS_8datasets15HPE_humanevaImpEED2Ev.exit, %_ZN2cv3PtrINS_8datasets17HPE_humanevaImpIIEED2Ev.exit
@@ -3033,7 +3033,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8datasets7DatasetD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8datasets7DatasetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8datasets7DatasetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88

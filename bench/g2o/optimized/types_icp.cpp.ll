@@ -781,52 +781,52 @@ define void @_ZN3g2o9types_icp4initEv() local_unnamed_addr #6 personality ptr @_
   br i1 %.not, label %_ZN5Eigen16CommaInitializerINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEcmERKd.exit235, label %2
 
 _ZN5Eigen16CommaInitializerINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEcmERKd.exit235: ; preds = %0
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidxE, i64 48), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidxE, i64 48), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3g2o13Edge_V_V_GICP5dRidxE, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidxE, i64 24), i8 0, i64 16, i1 false)
-  store double 2.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidxE, i64 56), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidxE, i64 16), align 8
-  store double -2.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidxE, i64 40), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidxE, i64 64), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidxE, i64 24), i8 0, i64 16, i1 false)
+  store double 2.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidxE, i64 56), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidxE, i64 16), align 8
+  store double -2.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidxE, i64 40), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidxE, i64 64), align 8
   store double 0.000000e+00, ptr @_ZN3g2o13Edge_V_V_GICP5dRidyE, align 8, !noalias !4
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidyE, i64 24), align 8
-  store double -2.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidyE, i64 48), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidyE, i64 8), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidyE, i64 32), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidyE, i64 56), align 8
-  store double 2.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidyE, i64 16), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidyE, i64 40), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidyE, i64 64), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidyE, i64 24), align 8
+  store double -2.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidyE, i64 48), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidyE, i64 8), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidyE, i64 32), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidyE, i64 56), align 8
+  store double 2.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidyE, i64 16), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidyE, i64 40), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidyE, i64 64), align 8
   store double 0.000000e+00, ptr @_ZN3g2o13Edge_V_V_GICP5dRidzE, align 8, !noalias !7
-  store double 2.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidzE, i64 24), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidzE, i64 48), align 8
-  store double -2.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidzE, i64 8), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidzE, i64 16), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidzE, i64 32), i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidzE, i64 56), i8 0, i64 16, i1 false)
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o10VertexSCam5dRidxE, i64 48), align 8
+  store double 2.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidzE, i64 24), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidzE, i64 48), align 8
+  store double -2.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidzE, i64 8), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidzE, i64 16), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidzE, i64 32), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN3g2o13Edge_V_V_GICP5dRidzE, i64 56), i8 0, i64 16, i1 false)
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o10VertexSCam5dRidxE, i64 48), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3g2o10VertexSCam5dRidxE, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN3g2o10VertexSCam5dRidxE, i64 24), i8 0, i64 16, i1 false)
-  store double 2.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o10VertexSCam5dRidxE, i64 56), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o10VertexSCam5dRidxE, i64 16), align 8
-  store double -2.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o10VertexSCam5dRidxE, i64 40), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o10VertexSCam5dRidxE, i64 64), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN3g2o10VertexSCam5dRidxE, i64 24), i8 0, i64 16, i1 false)
+  store double 2.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o10VertexSCam5dRidxE, i64 56), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o10VertexSCam5dRidxE, i64 16), align 8
+  store double -2.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o10VertexSCam5dRidxE, i64 40), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o10VertexSCam5dRidxE, i64 64), align 8
   store double 0.000000e+00, ptr @_ZN3g2o10VertexSCam5dRidyE, align 8, !noalias !10
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o10VertexSCam5dRidyE, i64 24), align 8
-  store double -2.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o10VertexSCam5dRidyE, i64 48), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o10VertexSCam5dRidyE, i64 8), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o10VertexSCam5dRidyE, i64 32), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o10VertexSCam5dRidyE, i64 56), align 8
-  store double 2.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o10VertexSCam5dRidyE, i64 16), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o10VertexSCam5dRidyE, i64 40), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o10VertexSCam5dRidyE, i64 64), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o10VertexSCam5dRidyE, i64 24), align 8
+  store double -2.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o10VertexSCam5dRidyE, i64 48), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o10VertexSCam5dRidyE, i64 8), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o10VertexSCam5dRidyE, i64 32), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o10VertexSCam5dRidyE, i64 56), align 8
+  store double 2.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o10VertexSCam5dRidyE, i64 16), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o10VertexSCam5dRidyE, i64 40), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o10VertexSCam5dRidyE, i64 64), align 8
   store double 0.000000e+00, ptr @_ZN3g2o10VertexSCam5dRidzE, align 8, !noalias !13
-  store double 2.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o10VertexSCam5dRidzE, i64 24), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o10VertexSCam5dRidzE, i64 48), align 8
-  store double -2.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o10VertexSCam5dRidzE, i64 8), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN3g2o10VertexSCam5dRidzE, i64 16), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN3g2o10VertexSCam5dRidzE, i64 32), i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN3g2o10VertexSCam5dRidzE, i64 56), i8 0, i64 16, i1 false)
+  store double 2.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o10VertexSCam5dRidzE, i64 24), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o10VertexSCam5dRidzE, i64 48), align 8
+  store double -2.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o10VertexSCam5dRidzE, i64 8), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2o10VertexSCam5dRidzE, i64 16), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN3g2o10VertexSCam5dRidzE, i64 32), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN3g2o10VertexSCam5dRidzE, i64 56), i8 0, i64 16, i1 false)
   store i32 1, ptr @_ZN3g2o9types_icp11initializedE, align 4
   br label %2
 
@@ -844,8 +844,8 @@ define void @_ZN3g2o13Edge_V_V_GICPC2EPKS0_(ptr noundef nonnull align 8 derefere
   store ptr %6, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 592
   store ptr %5, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN3g2o13Edge_V_V_GICPE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o13Edge_V_V_GICPE, i64 264), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTVN3g2o13Edge_V_V_GICPE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o13Edge_V_V_GICPE, i64 264), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1950,9 +1950,9 @@ declare noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr nou
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3g2o10VertexSCamC2Ev(ptr noundef nonnull align 16 dereferenceable(760) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3g2o9VertexSE3C2Ev(ptr noundef nonnull align 16 dereferenceable(348) %0)
-  store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTVN3g2o10VertexSCamE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTVN3g2o10VertexSCamE, i64 16), ptr %0, align 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o10VertexSCamE, i64 288), ptr %2, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o10VertexSCamE, i64 288), ptr %2, align 16
   ret void
 }
 
@@ -1966,8 +1966,8 @@ define void @_ZN3g2o12Edge_XYZ_VSCC2Ev(ptr noundef nonnull align 8 dereferenceab
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 3, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEJNS_14VertexPointXYZENS_10VertexSCamEEEE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEJNS_14VertexPointXYZENS_10VertexSCamEEEE, i64 264), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEJNS_14VertexPointXYZENS_10VertexSCamEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEJNS_14VertexPointXYZENS_10VertexSCamEEEE, i64 264), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -2020,8 +2020,8 @@ _ZN3g2o14BaseBinaryEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEENS_14VertexPoi
   store ptr %9, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store ptr %8, ptr %28, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN3g2o12Edge_XYZ_VSCE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o12Edge_XYZ_VSCE, i64 264), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTVN3g2o12Edge_XYZ_VSCE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o12Edge_XYZ_VSCE, i64 264), ptr %3, align 8
   ret void
 }
 
@@ -2826,9 +2826,9 @@ define linkonce_odr void @_ZThn40_N3g2o13Edge_V_V_GICPD0Ev(ptr noundef %0) unnam
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3g2o10VertexSCamD2Ev(ptr noundef nonnull align 16 dereferenceable(760) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTVN3g2o10BaseVertexILi6EN5Eigen9TransformIdLi3ELi1ELi0EEEEE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTVN3g2o10BaseVertexILi6EN5Eigen9TransformIdLi3ELi1ELi0EEEEE, i64 16), ptr %0, align 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o10BaseVertexILi6EN5Eigen9TransformIdLi3ELi1ELi0EEEEE, i64 288), ptr %2, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o10BaseVertexILi6EN5Eigen9TransformIdLi3ELi1ELi0EEEEE, i64 288), ptr %2, align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %4 = load ptr, ptr %3, align 16
   %.not.i.i.i.i.i.i = icmp eq ptr %4, null
@@ -2850,9 +2850,9 @@ _ZN3g2o9VertexSE3D2Ev.exit:                       ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3g2o10VertexSCamD0Ev(ptr noundef nonnull align 16 dereferenceable(760) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTVN3g2o10BaseVertexILi6EN5Eigen9TransformIdLi3ELi1ELi0EEEEE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTVN3g2o10BaseVertexILi6EN5Eigen9TransformIdLi3ELi1ELi0EEEEE, i64 16), ptr %0, align 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o10BaseVertexILi6EN5Eigen9TransformIdLi3ELi1ELi0EEEEE, i64 288), ptr %2, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o10BaseVertexILi6EN5Eigen9TransformIdLi3ELi1ELi0EEEEE, i64 288), ptr %2, align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %4 = load ptr, ptr %3, align 16
   %.not.i.i.i.i.i.i.i = icmp eq ptr %4, null
@@ -3856,8 +3856,8 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o9VertexSE326setMinimalEstimateDat
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn64_N3g2o10VertexSCamD1Ev(ptr noundef %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -64
-  store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTVN3g2o10BaseVertexILi6EN5Eigen9TransformIdLi3ELi1ELi0EEEEE, i64 16), ptr %2, align 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o10BaseVertexILi6EN5Eigen9TransformIdLi3ELi1ELi0EEEEE, i64 288), ptr %0, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTVN3g2o10BaseVertexILi6EN5Eigen9TransformIdLi3ELi1ELi0EEEEE, i64 16), ptr %2, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o10BaseVertexILi6EN5Eigen9TransformIdLi3ELi1ELi0EEEEE, i64 288), ptr %0, align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %4, null
@@ -3880,8 +3880,8 @@ _ZN3g2o10VertexSCamD2Ev.exit:                     ; preds = %1, %5
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn64_N3g2o10VertexSCamD0Ev(ptr noundef %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -64
-  store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTVN3g2o10BaseVertexILi6EN5Eigen9TransformIdLi3ELi1ELi0EEEEE, i64 16), ptr %2, align 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o10BaseVertexILi6EN5Eigen9TransformIdLi3ELi1ELi0EEEEE, i64 288), ptr %0, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTVN3g2o10BaseVertexILi6EN5Eigen9TransformIdLi3ELi1ELi0EEEEE, i64 16), ptr %2, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o10BaseVertexILi6EN5Eigen9TransformIdLi3ELi1ELi0EEEEE, i64 288), ptr %0, align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %4, null
@@ -4511,9 +4511,9 @@ declare void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3g2o10BaseVertexILi6EN5Eigen9TransformIdLi3ELi1ELi0EEEED2Ev(ptr noundef nonnull align 16 dereferenceable(344) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTVN3g2o10BaseVertexILi6EN5Eigen9TransformIdLi3ELi1ELi0EEEEE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTVN3g2o10BaseVertexILi6EN5Eigen9TransformIdLi3ELi1ELi0EEEEE, i64 16), ptr %0, align 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o10BaseVertexILi6EN5Eigen9TransformIdLi3ELi1ELi0EEEEE, i64 288), ptr %2, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o10BaseVertexILi6EN5Eigen9TransformIdLi3ELi1ELi0EEEEE, i64 288), ptr %2, align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %4 = load ptr, ptr %3, align 16
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -4562,8 +4562,8 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o16OptimizableGraph6Vertex26setMin
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn64_N3g2o10BaseVertexILi6EN5Eigen9TransformIdLi3ELi1ELi0EEEED1Ev(ptr noundef %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -64
-  store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTVN3g2o10BaseVertexILi6EN5Eigen9TransformIdLi3ELi1ELi0EEEEE, i64 16), ptr %2, align 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o10BaseVertexILi6EN5Eigen9TransformIdLi3ELi1ELi0EEEEE, i64 288), ptr %0, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTVN3g2o10BaseVertexILi6EN5Eigen9TransformIdLi3ELi1ELi0EEEEE, i64 16), ptr %2, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o10BaseVertexILi6EN5Eigen9TransformIdLi3ELi1ELi0EEEEE, i64 288), ptr %0, align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -5721,8 +5721,8 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_8EdgeGICPEJNS_9Vert
   store double 1.000000e+00, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 3, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi3ENS_8EdgeGICPEJNS_9VertexSE3ES2_EEE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi3ENS_8EdgeGICPEJNS_9VertexSE3ES2_EEE, i64 264), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi3ENS_8EdgeGICPEJNS_9VertexSE3ES2_EEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi3ENS_8EdgeGICPEJNS_9VertexSE3ES2_EEE, i64 264), ptr %3, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store i8 0, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 520
@@ -6362,7 +6362,7 @@ _ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_
   store i32 1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %22, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13Edge_V_V_GICPEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13Edge_V_V_GICPEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %23, align 8
   store ptr %1, ptr %0, align 8
@@ -6447,7 +6447,7 @@ _ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_13Edge_V_V_GICPEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_13Edge_V_V_GICPEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_13Edge_V_V_GICPEEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #27
   %4 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -6458,7 +6458,7 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_13Edge_V_V_GICPEE
           to label %.noexc2 unwind label %7
 
 .noexc2:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @_ZTSN3g2o13Edge_V_V_GICPE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTSN3g2o13Edge_V_V_GICPE, i64 21))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @_ZTSN3g2o13Edge_V_V_GICPE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTSN3g2o13Edge_V_V_GICPE, i64 21))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %5
 
 5:                                                ; preds = %.noexc2
@@ -6540,8 +6540,8 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_13Edge_V_V
   store ptr %7, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 592
   store ptr %6, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN3g2o13Edge_V_V_GICPE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o13Edge_V_V_GICPE, i64 264), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTVN3g2o13Edge_V_V_GICPE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o13Edge_V_V_GICPE, i64 264), ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 600
   store i8 0, ptr %9, align 8
   ret ptr %2
@@ -6561,7 +6561,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3g2o24H
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_13Edge_V_V_GICPEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_13Edge_V_V_GICPEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_13Edge_V_V_GICPEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
   ret void
@@ -6569,7 +6569,7 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_13Edge_V_V_GICPEE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_13Edge_V_V_GICPEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_13Edge_V_V_GICPEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_13Edge_V_V_GICPEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #26
@@ -9795,7 +9795,7 @@ define internal void @_GLOBAL__sub_I_types_icp.cpp() #19 section ".text.startup"
           to label %12 unwind label %.body
 
 12:                                               ; preds = %10
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %11, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 13)) #27
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %11, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 13)) #27
   store ptr null, ptr %1, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 13)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body

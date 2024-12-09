@@ -1079,10 +1079,10 @@ define hidden noundef ptr @_ZN11vframeArray8allocateEP10JavaThreadiP13GrowableAr
 
 36:                                               ; preds = %60, %.preheader.i
   %indvars.iv27.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next28.i, %60 ]
-  %37 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %indvars.iv27.i
+  %37 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %indvars.iv27.i
   %38 = ptrtoint ptr %37 to i64
   %39 = trunc i64 %38 to i32
-  %40 = sub i32 %39, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %40 = sub i32 %39, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %41 = sdiv i32 %40, 64
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds [10 x i64], ptr %34, i64 0, i64 %42
@@ -1173,10 +1173,10 @@ define hidden void @_ZN11vframeArray7fill_inEP10JavaThreadiP13GrowableArrayIP14c
 
 22:                                               ; preds = %.preheader, %46
   %indvars.iv27 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next28, %46 ]
-  %23 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %indvars.iv27
+  %23 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %indvars.iv27
   %24 = ptrtoint ptr %23 to i64
   %25 = trunc i64 %24 to i32
-  %26 = sub i32 %25, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %26 = sub i32 %25, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %27 = sdiv i32 %26, 64
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds [10 x i64], ptr %20, i64 0, i64 %28
@@ -1513,12 +1513,12 @@ _ZNK15Bytecode_invoke16is_invokedynamicEv.exit:   ; preds = %_ZN15Bytecode_invok
 _ZNK15Bytecode_invoke16is_invokedynamicEv.exit.thread: ; preds = %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit, %_ZNK15Bytecode_invoke16is_invokedynamicEv.exit
   %149 = call noundef ptr @_ZNK19Bytecode_member_ref5klassEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #13
   %150 = call noundef ptr @_ZNK19Bytecode_member_ref4nameEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #13
-  %151 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2120), align 8
+  %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2120), align 8
   %152 = icmp eq ptr %149, %151
   br i1 %152, label %156, label %153
 
 153:                                              ; preds = %_ZNK15Bytecode_invoke16is_invokedynamicEv.exit.thread
-  %154 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2128), align 8
+  %154 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2128), align 8
   %155 = icmp eq ptr %149, %154
   br i1 %155, label %156, label %_ZN13MethodHandles14has_member_argEP6SymbolS1_.exit
 

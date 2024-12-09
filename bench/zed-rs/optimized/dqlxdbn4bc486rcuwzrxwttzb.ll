@@ -82564,7 +82564,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h82b1868f89f6fe8aE.exit: ; preds = %2
   br label %52
 
 "_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hf82adaca2b0cfe04E.exit": ; preds = %.noexc6
-  %42 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN2db18ALL_FILE_DB_FAILED17h08fa5073b40b3173E, i64 8) acquire, align 8, !noalias !18643
+  %42 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2db18ALL_FILE_DB_FAILED17h08fa5073b40b3173E, i64 8) acquire, align 8, !noalias !18643
   %43 = icmp eq i32 %42, 4
   br i1 %43, label %_ZN3std4sync4once4Once9call_once17h08f723c69aed4ad1E.llvm.11294416462294145432.exit.i, label %44
 
@@ -82573,7 +82573,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h82b1868f89f6fe8aE.exit: ; preds = %2
   store ptr @_ZN2db18ALL_FILE_DB_FAILED17h08fa5073b40b3173E, ptr %4, align 8, !noalias !18643
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !18643
   store ptr %4, ptr %3, align 8, !noalias !18643
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h3eb82500d8997a01E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN2db18ALL_FILE_DB_FAILED17h08fa5073b40b3173E, i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d22fb27013b61eff502e0215727da47b.301.llvm.11294416462294145432)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h3eb82500d8997a01E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN2db18ALL_FILE_DB_FAILED17h08fa5073b40b3173E, i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d22fb27013b61eff502e0215727da47b.301.llvm.11294416462294145432)
           to label %.noexc8 unwind label %40
 
 .noexc8:                                          ; preds = %44
@@ -131240,7 +131240,7 @@ define hidden void @"_ZN9workspace25notify_if_database_failed28_$u7b$$u7b$closur
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
   %5 = alloca [48 x i8], align 8
-  %6 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN2db18ALL_FILE_DB_FAILED17h08fa5073b40b3173E, i64 8) acquire, align 8, !noalias !27320
+  %6 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2db18ALL_FILE_DB_FAILED17h08fa5073b40b3173E, i64 8) acquire, align 8, !noalias !27320
   %7 = icmp eq i32 %6, 4
   br i1 %7, label %_ZN3std4sync4once4Once9call_once17h08f723c69aed4ad1E.llvm.11294416462294145432.exit, label %8
 
@@ -131249,7 +131249,7 @@ define hidden void @"_ZN9workspace25notify_if_database_failed28_$u7b$$u7b$closur
   store ptr @_ZN2db18ALL_FILE_DB_FAILED17h08fa5073b40b3173E, ptr %4, align 8, !noalias !27320
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !27320
   store ptr %4, ptr %3, align 8, !noalias !27320
-  call void @_ZN3std3sys4sync4once5futex4Once4call17h3eb82500d8997a01E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN2db18ALL_FILE_DB_FAILED17h08fa5073b40b3173E, i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d22fb27013b61eff502e0215727da47b.301.llvm.11294416462294145432)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17h3eb82500d8997a01E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN2db18ALL_FILE_DB_FAILED17h08fa5073b40b3173E, i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d22fb27013b61eff502e0215727da47b.301.llvm.11294416462294145432)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !27320
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !27320
   br label %_ZN3std4sync4once4Once9call_once17h08f723c69aed4ad1E.llvm.11294416462294145432.exit
@@ -132757,7 +132757,7 @@ define hidden void @"_ZN9workspace9Workspace3new28_$u7b$$u7b$closure$u7d$$u7d$28
 
 54:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
-  %55 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8
+  %55 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8
   %56 = icmp eq i32 %55, 4
   br i1 %56, label %58, label %57
 
@@ -132766,7 +132766,7 @@ define hidden void @"_ZN9workspace9Workspace3new28_$u7b$$u7b$closure$u7d$$u7d$28
   store ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr %9, ptr %8, align 8
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d22fb27013b61eff502e0215727da47b.301.llvm.11294416462294145432)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d22fb27013b61eff502e0215727da47b.301.llvm.11294416462294145432)
           to label %.noexc12 unwind label %44
 
 .noexc12:                                         ; preds = %57

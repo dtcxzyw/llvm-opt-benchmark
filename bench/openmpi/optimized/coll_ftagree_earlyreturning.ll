@@ -219,7 +219,7 @@ define internal void @era_agreement_info_constructor(ptr noundef initializes((16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %9, align 8
   %10 = load i32, ptr @opal_class_init_epoch, align 4
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %10, %11
   br i1 %.not, label %13, label %12
 
@@ -248,7 +248,7 @@ define internal void @era_agreement_info_constructor(ptr noundef initializes((16
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %13
   %21 = load i32, ptr @opal_class_init_epoch, align 4
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not17 = icmp eq i32 %21, %22
   br i1 %.not17, label %24, label %23
 
@@ -277,7 +277,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %13
 
 opal_obj_run_constructors.exit23:                 ; preds = %.lr.ph.i20, %24
   %32 = load i32, ptr @opal_class_init_epoch, align 4
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not18 = icmp eq i32 %32, %33
   br i1 %.not18, label %35, label %34
 
@@ -823,7 +823,7 @@ define noundef i32 @mca_coll_ftagree_era_init() local_unnamed_addr #2 {
   %switch.select32 = select i1 %switch.selectcmp31, ptr @era_tree_fn_star, ptr %switch.select
   store ptr %switch.select32, ptr @era_tree_fn, align 8
   %4 = load i32, ptr @opal_class_init_epoch, align 4
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %4, %5
   br i1 %.not, label %7, label %6
 
@@ -833,7 +833,7 @@ define noundef i32 @mca_coll_ftagree_era_init() local_unnamed_addr #2 {
 
 7:                                                ; preds = %6, %1
   store ptr @opal_mutex_t_class, ptr @era_mutex, align 8
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @era_mutex, i64 8), align 8
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @era_mutex, i64 8), align 8
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_mutex_t_class, i64 40), align 8
   %9 = load ptr, ptr %8, align 8
   %.not6.i = icmp eq ptr %9, null
@@ -850,7 +850,7 @@ define noundef i32 @mca_coll_ftagree_era_init() local_unnamed_addr #2 {
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %7
   %13 = load i32, ptr @opal_class_init_epoch, align 4
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not1 = icmp eq i32 %13, %14
   br i1 %.not1, label %16, label %15
 
@@ -860,7 +860,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %7
 
 16:                                               ; preds = %15, %opal_obj_run_constructors.exit
   store ptr @opal_mutex_t_class, ptr @era_incomplete_msg_mutex, align 8
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @era_incomplete_msg_mutex, i64 8), align 8
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @era_incomplete_msg_mutex, i64 8), align 8
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_mutex_t_class, i64 40), align 8
   %18 = load ptr, ptr %17, align 8
   %.not6.i6 = icmp eq ptr %18, null
@@ -876,10 +876,10 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %7
   br i1 %.not.i9, label %opal_obj_run_constructors.exit10, label %.lr.ph.i7, !llvm.loop !4
 
 opal_obj_run_constructors.exit10:                 ; preds = %.lr.ph.i7, %16
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_bml, i64 56), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_bml, i64 56), align 8
   %23 = tail call i32 %22(i8 noundef zeroext 49, ptr noundef nonnull @era_cb_fn, ptr noundef null) #19
   %24 = load i32, ptr @opal_class_init_epoch, align 4
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 32), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_free_list_t_class, i64 32), align 8
   %.not2 = icmp eq i32 %24, %25
   br i1 %.not2, label %27, label %26
 
@@ -889,7 +889,7 @@ opal_obj_run_constructors.exit10:                 ; preds = %.lr.ph.i7, %16
 
 27:                                               ; preds = %26, %opal_obj_run_constructors.exit10
   store ptr @opal_free_list_t_class, ptr @era_iagree_requests, align 16
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 8), align 8
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @era_iagree_requests, i64 8), align 8
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_free_list_t_class, i64 40), align 8
   %29 = load ptr, ptr %28, align 8
   %.not6.i11 = icmp eq ptr %29, null
@@ -909,7 +909,7 @@ opal_obj_run_constructors.exit15:                 ; preds = %.lr.ph.i12, %27
   %34 = sext i32 %33 to i64
   %35 = tail call i32 @opal_free_list_init(ptr noundef nonnull @era_iagree_requests, i64 noundef 192, i64 noundef %34, ptr noundef nonnull @ompi_coll_ftagree_era_iagree_request_t_class, i64 noundef 0, i64 noundef %34, i32 noundef 0, i32 noundef 2147483647, i32 noundef 1, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #19
   %36 = load i32, ptr @opal_class_init_epoch, align 4
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hash_table_t_class, i64 32), align 8
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_hash_table_t_class, i64 32), align 8
   %.not3 = icmp eq i32 %36, %37
   br i1 %.not3, label %39, label %38
 
@@ -919,7 +919,7 @@ opal_obj_run_constructors.exit15:                 ; preds = %.lr.ph.i12, %27
 
 39:                                               ; preds = %38, %opal_obj_run_constructors.exit15
   store ptr @opal_hash_table_t_class, ptr @era_passed_agreements, align 8
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @era_passed_agreements, i64 8), align 8
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @era_passed_agreements, i64 8), align 8
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_hash_table_t_class, i64 40), align 8
   %41 = load ptr, ptr %40, align 8
   %.not6.i16 = icmp eq ptr %41, null
@@ -937,7 +937,7 @@ opal_obj_run_constructors.exit15:                 ; preds = %.lr.ph.i12, %27
 opal_obj_run_constructors.exit20:                 ; preds = %.lr.ph.i17, %39
   %45 = tail call i32 @opal_hash_table_init(ptr noundef nonnull @era_passed_agreements, i64 noundef 32) #19
   %46 = load i32, ptr @opal_class_init_epoch, align 4
-  %47 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hash_table_t_class, i64 32), align 8
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_hash_table_t_class, i64 32), align 8
   %.not4 = icmp eq i32 %46, %47
   br i1 %.not4, label %49, label %48
 
@@ -947,7 +947,7 @@ opal_obj_run_constructors.exit20:                 ; preds = %.lr.ph.i17, %39
 
 49:                                               ; preds = %48, %opal_obj_run_constructors.exit20
   store ptr @opal_hash_table_t_class, ptr @era_ongoing_agreements, align 8
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @era_ongoing_agreements, i64 8), align 8
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @era_ongoing_agreements, i64 8), align 8
   %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_hash_table_t_class, i64 40), align 8
   %51 = load ptr, ptr %50, align 8
   %.not6.i21 = icmp eq ptr %51, null
@@ -965,7 +965,7 @@ opal_obj_run_constructors.exit20:                 ; preds = %.lr.ph.i17, %39
 opal_obj_run_constructors.exit25:                 ; preds = %.lr.ph.i22, %49
   %55 = tail call i32 @opal_hash_table_init(ptr noundef nonnull @era_ongoing_agreements, i64 noundef 16) #19
   %56 = load i32, ptr @opal_class_init_epoch, align 4
-  %57 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hash_table_t_class, i64 32), align 8
+  %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_hash_table_t_class, i64 32), align 8
   %.not5 = icmp eq i32 %56, %57
   br i1 %.not5, label %59, label %58
 
@@ -975,7 +975,7 @@ opal_obj_run_constructors.exit25:                 ; preds = %.lr.ph.i22, %49
 
 59:                                               ; preds = %58, %opal_obj_run_constructors.exit25
   store ptr @opal_hash_table_t_class, ptr @era_incomplete_messages, align 8
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @era_incomplete_messages, i64 8), align 8
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @era_incomplete_messages, i64 8), align 8
   %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_hash_table_t_class, i64 40), align 8
   %61 = load ptr, ptr %60, align 8
   %.not6.i26 = icmp eq ptr %61, null
@@ -1316,7 +1316,7 @@ opal_pointer_array_get_item.exit83:               ; preds = %105, %112
   %127 = load i32, ptr %126, align 4
   %128 = icmp sgt i32 %127, 0
   %.070 = select i1 %128, ptr %.2, ptr null
-  %129 = call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @era_mutex, i64 16)) #19
+  %129 = call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @era_mutex, i64 16)) #19
   %.not85 = icmp eq i32 %129, 0
   br i1 %.not85, label %156, label %130
 
@@ -2177,7 +2177,7 @@ define range(i32 -2, 1) i32 @mca_coll_ftagree_iera_intra(ptr noundef %0, i32 nou
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4.i.i.i)
-  store volatile ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 16), ptr %18, align 8
+  store volatile ptr getelementptr inbounds nuw (i8, ptr @era_iagree_requests, i64 16), ptr %18, align 8
   %.0..0..0..0..0..0..0..0..0..0.10.i.i.i = load volatile ptr, ptr %18, align 8
   %23 = load volatile i64, ptr %.0..0..0..0..0..0..0..0..0..0.10.i.i.i, align 16
   fence acquire
@@ -2186,7 +2186,7 @@ define range(i32 -2, 1) i32 @mca_coll_ftagree_iera_intra(ptr noundef %0, i32 nou
   %25 = load volatile i64, ptr %24, align 8
   store volatile i64 %25, ptr %.sroa.4.i.i.i, align 8
   %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.5.i.i.i = load volatile i64, ptr %.sroa.4.i.i.i, align 8
-  %26 = icmp eq i64 %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.5.i.i.i, ptrtoint (ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 32) to i64)
+  %26 = icmp eq i64 %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.5.i.i.i, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @era_iagree_requests, i64 32) to i64)
   br i1 %26, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %22, %opal_update_counted_pointer.exit.i.i.i
@@ -2197,7 +2197,7 @@ define range(i32 -2, 1) i32 @mca_coll_ftagree_iera_intra(ptr noundef %0, i32 nou
   %29 = load volatile ptr, ptr %28, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i)
-  store volatile ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 16), ptr %17, align 8
+  store volatile ptr getelementptr inbounds nuw (i8, ptr @era_iagree_requests, i64 16), ptr %17, align 8
   %30 = ptrtoint ptr %29 to i64
   store volatile i64 %30, ptr %.sroa.22.i.i.i.i, align 8
   %31 = add i64 %.sroa.0.06.i.i.i, 1
@@ -2223,7 +2223,7 @@ opal_update_counted_pointer.exit.i.i.i:           ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i)
   %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i = load volatile i64, ptr %.sroa.4.i.i.i, align 8
-  %35 = icmp eq i64 %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i, ptrtoint (ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 32) to i64)
+  %35 = icmp eq i64 %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @era_iagree_requests, i64 32) to i64)
   br i1 %35, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
 opal_lifo_pop_atomic.exit.i.i:                    ; preds = %.lr.ph.i.i.i
@@ -2240,10 +2240,10 @@ opal_lifo_pop_atomic.exit.i.i:                    ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i.i)
   store ptr null, ptr %19, align 8
-  %37 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @era_iagree_requests, i64 184)) #19
-  %38 = load i64, ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 96), align 16
+  %37 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @era_iagree_requests, i64 184)) #19
+  %38 = load i64, ptr getelementptr inbounds nuw (i8, ptr @era_iagree_requests, i64 96), align 16
   %39 = call i32 @opal_free_list_grow_st(ptr noundef nonnull @era_iagree_requests, i64 noundef %38, ptr noundef nonnull %19) #19
-  %40 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @era_iagree_requests, i64 184)) #19
+  %40 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @era_iagree_requests, i64 184)) #19
   %.pre.i.i = load ptr, ptr %19, align 8
   br label %opal_free_list_get_mt.exit.i
 
@@ -2254,13 +2254,13 @@ opal_free_list_get_mt.exit.i:                     ; preds = %.loopexit.i.i, %opa
 
 42:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
-  %43 = load volatile i64, ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 24), align 8
+  %43 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @era_iagree_requests, i64 24), align 8
   %44 = inttoptr i64 %43 to ptr
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load volatile ptr, ptr %45, align 8
   %47 = ptrtoint ptr %46 to i64
-  store volatile i64 %47, ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 24), align 8
-  %48 = icmp eq i64 %43, ptrtoint (ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 32) to i64)
+  store volatile i64 %47, ptr getelementptr inbounds nuw (i8, ptr @era_iagree_requests, i64 24), align 8
+  %48 = icmp eq i64 %43, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @era_iagree_requests, i64 32) to i64)
   br i1 %48, label %50, label %opal_lifo_pop_st.exit.i.i
 
 opal_lifo_pop_st.exit.i.i:                        ; preds = %42
@@ -2271,7 +2271,7 @@ opal_lifo_pop_st.exit.i.i:                        ; preds = %42
 
 50:                                               ; preds = %42
   store ptr null, ptr %16, align 8
-  %51 = load i64, ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 96), align 16
+  %51 = load i64, ptr getelementptr inbounds nuw (i8, ptr @era_iagree_requests, i64 96), align 16
   %52 = call i32 @opal_free_list_grow_st(ptr noundef nonnull @era_iagree_requests, i64 noundef %51, ptr noundef nonnull %16) #19
   %.pre.i3.i = load ptr, ptr %16, align 8
   br label %opal_free_list_get_st.exit.i
@@ -2313,7 +2313,7 @@ opal_free_list_get.exit:                          ; preds = %opal_free_list_get_
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 232
   %71 = load i32, ptr %70, align 8
   %72 = load i32, ptr @opal_class_init_epoch, align 4
-  %73 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_ftagree_era_value_t_class, i64 32), align 8
+  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_ftagree_era_value_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %72, %73
   br i1 %.not.i, label %75, label %74
 
@@ -3339,7 +3339,7 @@ define internal noundef i32 @era_iagree_req_free(ptr nocapture noundef %0) #2 {
 13:                                               ; preds = %7, %11
   %14 = load i8, ptr @opal_uses_threads, align 1
   %15 = trunc i8 %14 to i1
-  %16 = load volatile i64, ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 24), align 8
+  %16 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @era_iagree_requests, i64 24), align 8
   br i1 %15, label %17, label %30
 
 17:                                               ; preds = %13
@@ -3348,7 +3348,7 @@ define internal noundef i32 @era_iagree_req_free(ptr nocapture noundef %0) #2 {
   store volatile ptr %.04.i.i.i, ptr %18, align 8
   fence release
   %19 = ptrtoint ptr %2 to i64
-  %20 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 24), i64 %16, i64 %19 acquire monotonic, align 8
+  %20 = cmpxchg volatile ptr getelementptr inbounds nuw (i8, ptr @era_iagree_requests, i64 24), i64 %16, i64 %19 acquire monotonic, align 8
   %21 = extractvalue { i64, i1 } %20, 1
   br i1 %21, label %opal_lifo_push_atomic.exit.i.i, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
 
@@ -3358,20 +3358,20 @@ opal_atomic_compare_exchange_strong_ptr.exit.i.i.i: ; preds = %17, %opal_atomic_
   %.0.i.i.i = inttoptr i64 %23 to ptr
   store volatile ptr %.0.i.i.i, ptr %18, align 8
   fence release
-  %24 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 24), i64 %23, i64 %19 acquire monotonic, align 8
+  %24 = cmpxchg volatile ptr getelementptr inbounds nuw (i8, ptr @era_iagree_requests, i64 24), i64 %23, i64 %19 acquire monotonic, align 8
   %25 = extractvalue { i64, i1 } %24, 1
   br i1 %25, label %opal_lifo_push_atomic.exit.i.i, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
 
 opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i, %17
   %.0.lcssa.i.i.i = phi ptr [ %.04.i.i.i, %17 ], [ %.0.i.i.i, %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i ]
-  %26 = icmp ne ptr %.0.lcssa.i.i.i, getelementptr inbounds (i8, ptr @era_iagree_requests, i64 32)
-  %27 = load i64, ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 104), align 8
+  %26 = icmp ne ptr %.0.lcssa.i.i.i, getelementptr inbounds nuw (i8, ptr @era_iagree_requests, i64 32)
+  %27 = load i64, ptr getelementptr inbounds nuw (i8, ptr @era_iagree_requests, i64 104), align 8
   %.not.i.i = icmp eq i64 %27, 0
   %or.cond.i.i = select i1 %26, i1 true, i1 %.not.i.i
   br i1 %or.cond.i.i, label %opal_free_list_return.exit, label %28
 
 28:                                               ; preds = %opal_lifo_push_atomic.exit.i.i
-  %29 = load volatile i32, ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 248), align 8
+  %29 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @era_iagree_requests, i64 248), align 8
   %.not.i.i.i = icmp eq i32 %29, 0
   br i1 %.not.i.i.i, label %opal_free_list_return.exit, label %opal_free_list_return_mt.exit.sink.split.i
 
@@ -3382,23 +3382,23 @@ opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 0, ptr %33, align 8
   %34 = ptrtoint ptr %2 to i64
-  store volatile i64 %34, ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 24), align 8
+  store volatile i64 %34, ptr getelementptr inbounds nuw (i8, ptr @era_iagree_requests, i64 24), align 8
   %35 = load volatile ptr, ptr %32, align 8
-  %36 = icmp ne ptr %35, getelementptr inbounds (i8, ptr @era_iagree_requests, i64 32)
-  %37 = load i64, ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 104), align 8
+  %36 = icmp ne ptr %35, getelementptr inbounds nuw (i8, ptr @era_iagree_requests, i64 32)
+  %37 = load i64, ptr getelementptr inbounds nuw (i8, ptr @era_iagree_requests, i64 104), align 8
   %.not.i4.i = icmp eq i64 %37, 0
   %or.cond.i5.i = select i1 %36, i1 true, i1 %.not.i4.i
   br i1 %or.cond.i5.i, label %opal_free_list_return.exit, label %38
 
 38:                                               ; preds = %30
-  %39 = load volatile i32, ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 248), align 8
+  %39 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @era_iagree_requests, i64 248), align 8
   %.not.i.i6.i = icmp eq i32 %39, 0
   br i1 %.not.i.i6.i, label %opal_free_list_return.exit, label %opal_free_list_return_mt.exit.sink.split.i
 
 opal_free_list_return_mt.exit.sink.split.i:       ; preds = %38, %28
-  %40 = load volatile i32, ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 252), align 4
+  %40 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @era_iagree_requests, i64 252), align 4
   %41 = add nsw i32 %40, 1
-  store volatile i32 %41, ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 252), align 4
+  store volatile i32 %41, ptr getelementptr inbounds nuw (i8, ptr @era_iagree_requests, i64 252), align 4
   br label %opal_free_list_return.exit
 
 opal_free_list_return.exit:                       ; preds = %opal_lifo_push_atomic.exit.i.i, %28, %30, %38, %opal_free_list_return_mt.exit.sink.split.i
@@ -3683,7 +3683,7 @@ define internal void @era_bounce_event_cb(i32 %0, i32 %1, ptr noundef %2) #2 {
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @era_mutex, i64 16)) #19
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @era_mutex, i64 16)) #19
   %.not16 = icmp eq i32 %12, 0
   br i1 %.not16, label %15, label %13
 
@@ -3835,7 +3835,7 @@ era_parent.exit:                                  ; preds = %era_tree_rank_from_
 
 71:                                               ; preds = %20, %15
   %72 = load i32, ptr @opal_class_init_epoch, align 4
-  %73 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_ftagree_era_value_t_class, i64 32), align 8
+  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_ftagree_era_value_t_class, i64 32), align 8
   %.not23 = icmp eq i32 %72, %73
   br i1 %.not23, label %75, label %74
 
@@ -3866,10 +3866,10 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %75
   store i32 0, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 0, ptr %83, align 4
-  %84 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_op_band, i64 88), align 8
+  %84 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_op_band, i64 88), align 8
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %84, ptr %85, align 8
-  %86 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_int, i64 204), align 4
+  %86 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_int, i64 204), align 4
   %87 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %86, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 36
@@ -4468,7 +4468,7 @@ ompi_comm_peer_lookup.exit:                       ; preds = %40, %38, %24, %15, 
   br i1 %51, label %.thread.i, label %54
 
 .thread.i:                                        ; preds = %49, %47
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_bml, i64 8), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_bml, i64 8), align 8
   %53 = tail call i32 %52(ptr noundef nonnull %.0105) #19
   br label %54
 
@@ -6936,7 +6936,7 @@ declare i32 @ompi_group_intersection(ptr noundef, ptr noundef, ptr noundef) loca
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @era_mark_process_failed(ptr noundef %0, i32 noundef %1) unnamed_addr #2 {
   %3 = alloca %struct.timeval, align 8
-  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @era_mutex, i64 16)) #19
+  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @era_mutex, i64 16)) #19
   %.not81 = icmp eq i32 %4, 0
   br i1 %.not81, label %12, label %5
 

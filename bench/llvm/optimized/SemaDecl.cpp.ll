@@ -2028,7 +2028,7 @@ _ZNK5clang12CXXScopeSpec7isEmptyEv.exit.thread:   ; preds = %147, %138, %141, %_
   %166 = getelementptr inbounds nuw i8, ptr %22, i64 13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %165, i8 1, i64 5, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %166, i8 0, i64 19, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120TypeNameValidatorCCCE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120TypeNameValidatorCCCE, i64 16), ptr %22, align 8
   %167 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i8 1, ptr %167, align 8
   %168 = getelementptr inbounds nuw i8, ptr %22, i64 33
@@ -4752,7 +4752,7 @@ _ZNK5clang14IdentifierInfo19isEditorPlaceholderEv.exit.thread: ; preds = %7, %_Z
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %44, i8 1, i64 5, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %45, i8 0, i64 19, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120TypeNameValidatorCCCE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120TypeNameValidatorCCCE, i64 16), ptr %10, align 8
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 0, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 33
@@ -7255,7 +7255,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef
   %121 = getelementptr inbounds nuw i8, ptr %11, i64 13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %120, i8 1, i64 5, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %121, i8 0, i64 19, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang13DeclFilterCCCINS_12FunctionDeclEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang13DeclFilterCCCINS_12FunctionDeclEEE, i64 16), ptr %11, align 8
   store i64 %56, ptr %13, align 8
   %122 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %1, ptr %122, align 8
@@ -35158,7 +35158,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang9NamedDeclELb1EE9push_backES3_.exit: ;
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 3491, ptr %80, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema21SizelessTypeDiagnoserIJEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema21SizelessTypeDiagnoserIJEEE, i64 16), ptr %5, align 8
   %81 = call noundef zeroext i1 @_ZN5clang4Sema19RequireCompleteTypeENS_14SourceLocationENS_8QualTypeENS0_16CompleteTypeKindERNS0_13TypeDiagnoserE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i32 %.sroa.0.0.copyload.i, i64 %.sroa.0.0.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %5) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br i1 %81, label %92, label %82
@@ -37049,7 +37049,7 @@ _ZNK5clang7VarDecl18isStaticDataMemberEv.exit118: ; preds = %232, %238
   %.sroa.0.0.copyload.i122 = load i32, ptr %278, align 8
   store i32 2, ptr %14, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJNS0_17AbstractDiagSelIDEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJNS0_17AbstractDiagSelIDEEEE, i64 16), ptr %5, align 8
   %279 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 2624, ptr %279, align 8
   %280 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -37150,7 +37150,7 @@ _ZNK5clang10ASTContext24getAsIncompleteArrayTypeENS_8QualTypeE.exit: ; preds = %
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %332 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 2779, ptr %332, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema21SizelessTypeDiagnoserIJEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema21SizelessTypeDiagnoserIJEEE, i64 16), ptr %4, align 8
   %333 = call noundef zeroext i1 @_ZN5clang4Sema19RequireCompleteTypeENS_14SourceLocationENS_8QualTypeENS0_16CompleteTypeKindERNS0_13TypeDiagnoserE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i32 %.sroa.0.0.copyload.i128, i64 %.sroa.0.0.copyload.i129, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %4) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.pre234 = load ptr, ptr %7, align 8
@@ -37297,7 +37297,7 @@ _ZNK5clang7VarDecl18isStaticDataMemberEv.exit118.thread: ; preds = %229, %_ZNK5c
   %.sroa.0.0.copyload.i142 = load i32, ptr %409, align 8
   store i32 2, ptr %21, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJNS0_17AbstractDiagSelIDEEEE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJNS0_17AbstractDiagSelIDEEEE, i64 16), ptr %3, align 8
   %410 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 2624, ptr %410, align 8
   %411 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -66151,7 +66151,7 @@ select.unfold:                                    ; preds = %_ZN5clang13CXXMetho
   %104 = getelementptr inbounds nuw i8, ptr %17, i64 13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %103, i8 1, i64 5, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %104, i8 0, i64 19, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_125DifferentNameValidatorCCCE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_125DifferentNameValidatorCCCE, i64 16), ptr %17, align 8
   %105 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr %89, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -72089,7 +72089,7 @@ _ZNK5clang10ASTContext24getAsIncompleteArrayTypeENS_8QualTypeE.exit.thread: ; pr
   %.sroa.0.0.copyload.i181 = load i64, ptr %127, align 8
   store i32 2, ptr %19, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJNS0_17AbstractDiagSelIDEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJNS0_17AbstractDiagSelIDEEEE, i64 16), ptr %5, align 8
   %231 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 2624, ptr %231, align 8
   %232 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -75462,7 +75462,7 @@ _ZNK5clang4Type15isUndeducedTypeEv.exit.thread:   ; preds = %.loopexit, %_ZNK5cl
   %.sroa.0.0.copyload.i36 = load i32, ptr %39, align 8
   store i32 2, ptr %4, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJNS0_17AbstractDiagSelIDEEEE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJNS0_17AbstractDiagSelIDEEEE, i64 16), ptr %3, align 8
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 2624, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -81522,7 +81522,7 @@ _ZN5clang10Declarator19getFunctionTypeInfoEv.exit: ; preds = %.lr.ph.i.i, %.lr.p
   store i8 0, ptr %36, align 8
   store i32 1, ptr %37, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %9, align 8
   store ptr %8, ptr %39, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef null, i64 noundef 0, i32 noundef 0) #27
   %93 = load ptr, ptr %40, align 8
@@ -82509,7 +82509,7 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit177: ; preds = %360, %370
   %.sroa.0.0.copyload.i1.i176 = load i64, ptr %372, align 8
   store i32 0, ptr %17, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJNS0_17AbstractDiagSelIDEEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJNS0_17AbstractDiagSelIDEEEE, i64 16), ptr %7, align 8
   %373 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 2624, ptr %373, align 8
   %374 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -90549,7 +90549,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   store i32 1, ptr %569, align 4, !noalias !612
   %570 = getelementptr inbounds nuw i8, ptr %27, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %570, i8 0, i64 24, i1 false), !noalias !612
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %27, align 8, !noalias !612
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %27, align 8, !noalias !612
   %571 = getelementptr inbounds nuw i8, ptr %27, i64 48
   store ptr %26, ptr %571, align 8, !noalias !612
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef null, i64 noundef 0, i32 noundef 0) #27, !noalias !612
@@ -94594,7 +94594,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %43
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 3491, ptr %68, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema21SizelessTypeDiagnoserIJEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema21SizelessTypeDiagnoserIJEEE, i64 16), ptr %8, align 8
   %69 = call noundef zeroext i1 @_ZN5clang4Sema19RequireCompleteTypeENS_14SourceLocationENS_8QualTypeENS0_16CompleteTypeKindERNS0_13TypeDiagnoserE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i32 %1, i64 %3, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %8) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %69, label %_ZN4llvm6APSIntD2Ev.exit, label %70
@@ -95362,7 +95362,7 @@ _ZNK5clang10Declarator13isInvalidTypeEv.exit:     ; preds = %40, %36, %13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
   %76 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 3491, ptr %76, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema21SizelessTypeDiagnoserIJEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema21SizelessTypeDiagnoserIJEEE, i64 16), ptr %15, align 8
   %77 = call noundef zeroext i1 @_ZN5clang4Sema19RequireCompleteTypeENS_14SourceLocationENS_8QualTypeENS0_16CompleteTypeKindERNS0_13TypeDiagnoserE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i32 %5, i64 %60, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %15) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   br i1 %77, label %.sink.split, label %78
@@ -95603,7 +95603,7 @@ _ZNK5clang8QualType13hasQualifiersEv.exit.thread: ; preds = %165, %_ZNK5clang8Qu
   %.sroa.042.0.copyload = load i64, ptr %16, align 8
   store i32 3, ptr %25, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJNS0_17AbstractDiagSelIDEEEE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJNS0_17AbstractDiagSelIDEEEE, i64 16), ptr %14, align 8
   %183 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 2624, ptr %183, align 8
   %184 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -96699,7 +96699,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang9FieldDeclELb1EE9push_backES3_.exit: ;
 263:                                              ; preds = %255
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   store i32 3491, ptr %104, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema21SizelessTypeDiagnoserIJEEE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema21SizelessTypeDiagnoserIJEEE, i64 16), ptr %16, align 8
   %264 = call noundef zeroext i1 @_ZN5clang4Sema19RequireCompleteTypeENS_14SourceLocationENS_8QualTypeENS0_16CompleteTypeKindERNS0_13TypeDiagnoserE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i32 %.sroa.0.0.copyload.i411, i64 %.sroa.0.0.copyload.i412, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %16) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   br i1 %264, label %265, label %266
@@ -96785,7 +96785,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang9FieldDeclELb1EE9push_backES3_.exit: ;
   %.sroa.0.0.copyload.i421 = load i64, ptr %114, align 8
   store i32 4, ptr %43, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJNS0_17AbstractDiagSelIDEEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJNS0_17AbstractDiagSelIDEEEE, i64 16), ptr %15, align 8
   store i32 2624, ptr %105, align 8
   store ptr %43, ptr %106, align 8
   %301 = call noundef zeroext i1 @_ZN5clang4Sema22RequireNonAbstractTypeENS_14SourceLocationENS_8QualTypeERNS0_13TypeDiagnoserE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i32 %.sroa.0.0.copyload.i420, i64 %.sroa.0.0.copyload.i421, ptr noundef nonnull align 8 dereferenceable(8) %15) #27
@@ -105660,7 +105660,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_120TypeNameValidatorCCCESt14default_deleteIS1_EE
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !863
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120TypeNameValidatorCCCE, i64 16), ptr %2, align 8, !noalias !863
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120TypeNameValidatorCCCE, i64 16), ptr %2, align 8, !noalias !863
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i32, ptr %6, align 8, !noalias !863
@@ -121712,7 +121712,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_125DifferentNameValidatorCCCESt14default_deleteI
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !942
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_125DifferentNameValidatorCCCE, i64 16), ptr %2, align 8, !noalias !942
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_125DifferentNameValidatorCCCE, i64 16), ptr %2, align 8, !noalias !942
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !942
@@ -143632,7 +143632,7 @@ _ZNSt10unique_ptrIN5clang13DeclFilterCCCINS0_12FunctionDeclEEESt14default_delete
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !1107
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang13DeclFilterCCCINS_12FunctionDeclEEE, i64 16), ptr %2, align 8, !noalias !1107
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang13DeclFilterCCCINS_12FunctionDeclEEE, i64 16), ptr %2, align 8, !noalias !1107
   store ptr %2, ptr %0, align 8
   ret void
 }

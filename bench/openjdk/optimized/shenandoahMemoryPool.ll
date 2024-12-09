@@ -31,7 +31,7 @@ define hidden void @_ZN20ShenandoahMemoryPoolC2EP14ShenandoahHeap(ptr noundef no
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(2657) %1) #4
   tail call void @_ZN10MemoryPoolC2EPKcNS_8PoolTypeEmmbb(ptr noundef nonnull align 8 dereferenceable(201) %0, ptr noundef nonnull @.str, i32 noundef 1, i64 noundef %3, i64 noundef %7, i1 noundef zeroext true, i1 noundef zeroext true) #4
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV20ShenandoahMemoryPool, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV20ShenandoahMemoryPool, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %1, ptr %8, align 8
   ret void

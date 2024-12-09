@@ -957,7 +957,7 @@ define dso_local void @ShowUsage(ptr noundef %0) local_unnamed_addr #0 {
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @Save_t, i64 8), align 8
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Save_t, i64 8), align 8
   %11 = icmp slt i64 %9, %10
   br i1 %11, label %12, label %16
 
@@ -970,7 +970,7 @@ define dso_local void @ShowUsage(ptr noundef %0) local_unnamed_addr #0 {
 
 16:                                               ; preds = %12, %1
   %17 = phi i64 [ %15, %12 ], [ %9, %1 ]
-  %18 = load i64, ptr getelementptr inbounds (i8, ptr @Save_r, i64 8), align 8
+  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Save_r, i64 8), align 8
   %19 = icmp slt i64 %.sroa.22.0.copyload, %18
   br i1 %19, label %20, label %23
 
@@ -982,7 +982,7 @@ define dso_local void @ShowUsage(ptr noundef %0) local_unnamed_addr #0 {
   br label %23
 
 23:                                               ; preds = %20, %16
-  %24 = load i64, ptr getelementptr inbounds (i8, ptr @Save_r, i64 24), align 8
+  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Save_r, i64 24), align 8
   %25 = icmp slt i64 %.sroa.2.0.copyload, %24
   br i1 %25, label %26, label %29
 
@@ -1000,18 +1000,18 @@ define dso_local void @ShowUsage(ptr noundef %0) local_unnamed_addr #0 {
   %31 = load i64, ptr @Save_r, align 8
   %32 = sub i64 %30, %31
   %33 = load i64, ptr %.sroa.22.0..sroa_idx, align 8
-  %34 = load i64, ptr getelementptr inbounds (i8, ptr @Save_r, i64 8), align 8
+  %34 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Save_r, i64 8), align 8
   %35 = sub i64 %33, %34
   %36 = load i64, ptr %7, align 8
-  %37 = load i64, ptr getelementptr inbounds (i8, ptr @Save_r, i64 16), align 8
+  %37 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Save_r, i64 16), align 8
   %38 = sub i64 %36, %37
   %39 = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %40 = load i64, ptr getelementptr inbounds (i8, ptr @Save_r, i64 24), align 8
+  %40 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Save_r, i64 24), align 8
   %41 = sub i64 %39, %40
   %42 = load i64, ptr %3, align 8
   %43 = load i64, ptr @Save_t, align 8
   %44 = sub i64 %42, %43
-  %45 = load i64, ptr getelementptr inbounds (i8, ptr @Save_t, i64 8), align 8
+  %45 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Save_t, i64 8), align 8
   %46 = sub i64 %17, %45
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.97, i64 noundef %32, i64 noundef %35, i64 noundef %38, i64 noundef %41, i64 noundef %44, i64 noundef %46) #26
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.98, i64 noundef %.sroa.01.0.copyload, i64 noundef %.sroa.22.0.copyload, i64 noundef %.sroa.0.0.copyload, i64 noundef %.sroa.2.0.copyload) #26
@@ -1020,46 +1020,46 @@ define dso_local void @ShowUsage(ptr noundef %0) local_unnamed_addr #0 {
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.99, i64 noundef %48) #26
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %50 = load i64, ptr %49, align 8
-  %51 = load i64, ptr getelementptr inbounds (i8, ptr @Save_r, i64 88), align 8
+  %51 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Save_r, i64 88), align 8
   %52 = sub i64 %50, %51
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %54 = load i64, ptr %53, align 8
-  %55 = load i64, ptr getelementptr inbounds (i8, ptr @Save_r, i64 96), align 8
+  %55 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Save_r, i64 96), align 8
   %56 = sub i64 %54, %55
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.100, i64 noundef %52, i64 noundef %56, i64 noundef %50, i64 noundef %54) #26
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %58 = load i64, ptr %57, align 8
-  %59 = load i64, ptr getelementptr inbounds (i8, ptr @Save_r, i64 72), align 8
+  %59 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Save_r, i64 72), align 8
   %60 = sub i64 %58, %59
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %62 = load i64, ptr %61, align 8
-  %63 = load i64, ptr getelementptr inbounds (i8, ptr @Save_r, i64 64), align 8
+  %63 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Save_r, i64 64), align 8
   %64 = sub i64 %62, %63
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %66 = load i64, ptr %65, align 8
-  %67 = load i64, ptr getelementptr inbounds (i8, ptr @Save_r, i64 80), align 8
+  %67 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Save_r, i64 80), align 8
   %68 = sub i64 %66, %67
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.101, i64 noundef %60, i64 noundef %64, i64 noundef %58, i64 noundef %62, i64 noundef %68, i64 noundef %66) #26
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %70 = load i64, ptr %69, align 8
-  %71 = load i64, ptr getelementptr inbounds (i8, ptr @Save_r, i64 120), align 8
+  %71 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Save_r, i64 120), align 8
   %72 = sub i64 %70, %71
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %74 = load i64, ptr %73, align 8
-  %75 = load i64, ptr getelementptr inbounds (i8, ptr @Save_r, i64 112), align 8
+  %75 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Save_r, i64 112), align 8
   %76 = sub i64 %74, %75
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %78 = load i64, ptr %77, align 8
-  %79 = load i64, ptr getelementptr inbounds (i8, ptr @Save_r, i64 104), align 8
+  %79 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Save_r, i64 104), align 8
   %80 = sub i64 %78, %79
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.102, i64 noundef %72, i64 noundef %70, i64 noundef %76, i64 noundef %80, i64 noundef %74, i64 noundef %78) #26
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %82 = load i64, ptr %81, align 8
-  %83 = load i64, ptr getelementptr inbounds (i8, ptr @Save_r, i64 128), align 8
+  %83 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Save_r, i64 128), align 8
   %84 = sub i64 %82, %83
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %86 = load i64, ptr %85, align 8
-  %87 = load i64, ptr getelementptr inbounds (i8, ptr @Save_r, i64 136), align 8
+  %87 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Save_r, i64 136), align 8
   %88 = sub i64 %86, %87
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.103, i64 noundef %84, i64 noundef %88, i64 noundef %82, i64 noundef %86) #26
   %89 = load ptr, ptr %2, align 8
@@ -5263,13 +5263,13 @@ start_xact_command.exit135:                       ; preds = %enable_statement_ti
   call void @enlargeStringInfo(ptr noundef nonnull @row_description_buf, i32 noundef 2) #26
   %1146 = call i16 @llvm.bswap.i16(i16 %1145)
   %1147 = load ptr, ptr @row_description_buf, align 8
-  %1148 = load i32, ptr getelementptr inbounds (i8, ptr @row_description_buf, i64 8), align 8
+  %1148 = load i32, ptr getelementptr inbounds nuw (i8, ptr @row_description_buf, i64 8), align 8
   %1149 = sext i32 %1148 to i64
   %1150 = getelementptr i8, ptr %1147, i64 %1149
   store i16 %1146, ptr %1150, align 1
-  %1151 = load i32, ptr getelementptr inbounds (i8, ptr @row_description_buf, i64 8), align 8
+  %1151 = load i32, ptr getelementptr inbounds nuw (i8, ptr @row_description_buf, i64 8), align 8
   %1152 = add i32 %1151, 2
-  store i32 %1152, ptr getelementptr inbounds (i8, ptr @row_description_buf, i64 8), align 8
+  store i32 %1152, ptr getelementptr inbounds nuw (i8, ptr @row_description_buf, i64 8), align 8
   %1153 = load i32, ptr %1143, align 8
   %1154 = icmp sgt i32 %1153, 0
   br i1 %1154, label %.lr.ph.i, label %._crit_edge.i96

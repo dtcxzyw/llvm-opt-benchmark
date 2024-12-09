@@ -1169,7 +1169,7 @@ define dso_local { i64, i32 } @CreateForeignServer(ptr nocapture noundef readonl
 
 23:                                               ; preds = %15, %19
   call void @table_close(ptr noundef %6, i32 noundef 3) #8
-  %.sroa.3.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.3.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   br label %90
 
 24:                                               ; preds = %11
@@ -1538,7 +1538,7 @@ user_mapping_ddl_aclcheck.exit:                   ; preds = %15, %25, %.sink.spl
 
 45:                                               ; preds = %35, %41
   tail call void @table_close(ptr noundef %8, i32 noundef 3) #8
-  %.sroa.3.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.3.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   br label %89
 
 46:                                               ; preds = %31

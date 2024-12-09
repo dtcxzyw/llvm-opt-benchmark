@@ -2475,9 +2475,9 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
 37:                                               ; preds = %28
   %38 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @ata_scsi_rbuf_lock) #19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) @ata_scsi_rbuf, i8 0, i64 2048, i1 false)
-  store i8 -78, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 1), align 1
-  store i8 4, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 3), align 1
-  store i8 64, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 5), align 1
+  store i8 -78, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 1), align 1
+  store i8 4, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 3), align 1
+  store i8 64, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 5), align 1
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 208
@@ -2733,14 +2733,14 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
   %187 = trunc i64 %185 to i8
   %188 = add i8 %187, trunc (i64 xor (i64 ptrtoint (ptr @ata_scsi_rbuf to i64), i64 -1) to i8)
   store i8 %188, ptr @ata_scsi_rbuf, align 16
-  %189 = load i8, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 2), align 2
+  %189 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 2), align 2
   %190 = or i8 %189, %184
-  store i8 %190, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 2), align 2
+  store i8 %190, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 2), align 2
   br i1 %68, label %191, label %215
 
 191:                                              ; preds = %186
-  store i8 8, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 3), align 1
-  store i64 562949953421312, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 4), align 4
+  store i8 8, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 3), align 1
+  store i64 562949953421312, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 4), align 4
   br label %215
 
 192:                                              ; preds = %178
@@ -2748,14 +2748,14 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
   %194 = add i16 %193, add (i16 sub (i16 0, i16 ptrtoint (ptr @ata_scsi_rbuf to i16)), i16 -2)
   %195 = tail call i16 @llvm.bswap.i16(i16 %194)
   store i16 %195, ptr @ata_scsi_rbuf, align 16
-  %196 = load i8, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 3), align 1
+  %196 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 3), align 1
   %197 = or i8 %196, %184
-  store i8 %197, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 3), align 1
+  store i8 %197, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 3), align 1
   br i1 %68, label %198, label %215
 
 198:                                              ; preds = %192
-  store i8 8, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 7), align 1
-  store i64 562949953421312, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 8), align 8
+  store i8 8, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 7), align 1
+  store i64 562949953421312, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 8), align 8
   br label %215
 
 199:                                              ; preds = %92, %85, %73
@@ -2845,7 +2845,7 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
 253:                                              ; preds = %2
   %254 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @ata_scsi_rbuf_lock) #19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) @ata_scsi_rbuf, i8 0, i64 2048, i1 false)
-  store i8 8, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 3), align 1
+  store i8 8, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 3), align 1
   %255 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %256 = load ptr, ptr %255, align 8
   %257 = getelementptr inbounds nuw i8, ptr %1, i64 208
@@ -2926,7 +2926,7 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
   %308 = add i32 %307, %305
   %309 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26, i32 noundef %303, i32 noundef %308, i32 noundef %299) #22
   store i8 0, ptr @ata_scsi_rbuf, align 16
-  store i8 0, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 1), align 1
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @ata_scsi_rbuf_lock, i64 noundef %295) #19
   br label %372
 
@@ -3021,7 +3021,7 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
   %349 = phi i8 [ 0, %310 ], [ 0, %339 ], [ 0, %335 ], [ 0, %313 ], [ %321, %314 ], [ %329, %322 ], [ 0, %340 ]
   store i8 %349, ptr @ata_scsi_rbuf, align 16
   %350 = or disjoint i8 %348, %347
-  store i8 %350, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 1), align 1
+  store i8 %350, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 1), align 1
   %351 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %352 = load ptr, ptr %351, align 8
   %353 = getelementptr inbounds nuw i8, ptr %1, i64 208
@@ -3796,23 +3796,23 @@ define internal fastcc void @ata_scsiop_read_cap(ptr nocapture noundef readonly 
   store i8 %44, ptr @ata_scsi_rbuf, align 16
   %45 = lshr i64 %42, 16
   %46 = trunc i64 %45 to i8
-  store i8 %46, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 1), align 1
+  store i8 %46, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 1), align 1
   %47 = lshr i64 %42, 8
   %48 = trunc i64 %47 to i8
-  store i8 %48, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 2), align 2
+  store i8 %48, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 2), align 2
   %49 = trunc i64 %42 to i8
-  store i8 %49, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 3), align 1
+  store i8 %49, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 3), align 1
   %50 = lshr i32 %15, 24
   %51 = trunc nuw i32 %50 to i8
-  store i8 %51, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 4), align 4
+  store i8 %51, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 4), align 4
   %52 = lshr i32 %15, 16
   %53 = trunc i32 %52 to i8
-  store i8 %53, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 5), align 1
+  store i8 %53, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 5), align 1
   %54 = lshr i32 %15, 8
   %55 = trunc i32 %54 to i8
-  store i8 %55, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 6), align 2
+  store i8 %55, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 6), align 2
   %56 = trunc i32 %15 to i8
-  store i8 %56, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 7), align 1
+  store i8 %56, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 7), align 1
   br label %167
 
 57:                                               ; preds = %34
@@ -3821,43 +3821,43 @@ define internal fastcc void @ata_scsiop_read_cap(ptr nocapture noundef readonly 
   store i8 %59, ptr @ata_scsi_rbuf, align 16
   %60 = lshr i64 %5, 48
   %61 = trunc i64 %60 to i8
-  store i8 %61, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 1), align 1
+  store i8 %61, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 1), align 1
   %62 = lshr i64 %5, 40
   %63 = trunc i64 %62 to i8
-  store i8 %63, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 2), align 2
+  store i8 %63, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 2), align 2
   %64 = lshr i64 %5, 32
   %65 = trunc i64 %64 to i8
-  store i8 %65, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 3), align 1
+  store i8 %65, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 3), align 1
   %66 = lshr i64 %5, 24
   %67 = trunc i64 %66 to i8
-  store i8 %67, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 4), align 4
+  store i8 %67, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 4), align 4
   %68 = lshr i64 %5, 16
   %69 = trunc i64 %68 to i8
-  store i8 %69, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 5), align 1
+  store i8 %69, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 5), align 1
   %70 = lshr i64 %5, 8
   %71 = trunc i64 %70 to i8
-  store i8 %71, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 6), align 2
+  store i8 %71, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 6), align 2
   %72 = trunc i64 %5 to i8
-  store i8 %72, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 7), align 1
+  store i8 %72, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 7), align 1
   %73 = lshr i32 %15, 24
   %74 = trunc nuw i32 %73 to i8
-  store i8 %74, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 8), align 8
+  store i8 %74, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 8), align 8
   %75 = lshr i32 %15, 16
   %76 = trunc i32 %75 to i8
-  store i8 %76, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 9), align 1
+  store i8 %76, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 9), align 1
   %77 = lshr i32 %15, 8
   %78 = trunc i32 %77 to i8
-  store i8 %78, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 10), align 2
+  store i8 %78, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 10), align 2
   %79 = trunc i32 %15 to i8
-  store i8 %79, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 11), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 12), align 4
-  store i8 %20, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 13), align 1
+  store i8 %79, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 11), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 12), align 4
+  store i8 %20, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 13), align 1
   %80 = lshr i16 %35, 8
   %81 = trunc nuw i16 %80 to i8
   %82 = and i8 %81, 63
-  store i8 %82, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 14), align 2
+  store i8 %82, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 14), align 2
   %83 = trunc i16 %35 to i8
-  store i8 %83, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 15), align 1
+  store i8 %83, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 15), align 1
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr i8, ptr %85, i64 160
@@ -3901,7 +3901,7 @@ define internal fastcc void @ata_scsiop_read_cap(ptr nocapture noundef readonly 
 
 111:                                              ; preds = %106
   %112 = or disjoint i8 %82, -128
-  store i8 %112, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 14), align 2
+  store i8 %112, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 14), align 2
   %113 = load ptr, ptr %84, align 8
   %114 = getelementptr i8, ptr %113, i64 160
   %115 = load i16, ptr %114, align 2
@@ -3959,9 +3959,9 @@ define internal fastcc void @ata_scsiop_read_cap(ptr nocapture noundef readonly 
   %151 = load i32, ptr %150, align 8
   %152 = add i32 %151, %149
   %153 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, i32 noundef %147, i32 noundef %152) #22
-  %154 = load i8, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 14), align 2
+  %154 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 14), align 2
   %155 = or i8 %154, 64
-  store i8 %155, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 14), align 2
+  store i8 %155, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 14), align 2
   %.pre = load ptr, ptr %84, align 8
   br label %.thread
 
@@ -3981,7 +3981,7 @@ define internal fastcc void @ata_scsiop_read_cap(ptr nocapture noundef readonly 
   br i1 %165, label %166, label %167
 
 166:                                              ; preds = %161, %.thread
-  store i8 16, ptr getelementptr inbounds (i8, ptr @ata_scsi_rbuf, i64 12), align 4
+  store i8 16, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 12), align 4
   br label %167
 
 167:                                              ; preds = %166, %161, %41

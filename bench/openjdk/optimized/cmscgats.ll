@@ -1989,16 +1989,16 @@ satoi.exit:                                       ; preds = %160
 
 166:                                              ; preds = %160
   %167 = tail call i32 @atoi(ptr nocapture noundef nonnull readonly %159) #19
-  store i8 0, ptr getelementptr inbounds (i8, ptr @satob.buf, i64 32), align 16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @satob.buf, i64 32), align 16
   %.not.i68 = icmp eq i32 %167, 0
   br i1 %.not.i68, label %.thread.i, label %.lr.ph.i
 
 .thread.i:                                        ; preds = %166
-  store i8 48, ptr getelementptr inbounds (i8, ptr @satob.buf, i64 31), align 1
+  store i8 48, ptr getelementptr inbounds nuw (i8, ptr @satob.buf, i64 31), align 1
   br label %satob.exit
 
 .lr.ph.i:                                         ; preds = %166, %.lr.ph.i
-  %.116.i = phi ptr [ %171, %.lr.ph.i ], [ getelementptr inbounds (i8, ptr @satob.buf, i64 32), %166 ]
+  %.116.i = phi ptr [ %171, %.lr.ph.i ], [ getelementptr inbounds nuw (i8, ptr @satob.buf, i64 32), %166 ]
   %.01015.i = phi i32 [ %172, %.lr.ph.i ], [ %167, %166 ]
   %168 = trunc i32 %.01015.i to i8
   %169 = and i8 %168, 1
@@ -2010,7 +2010,7 @@ satoi.exit:                                       ; preds = %160
   br i1 %.not13.i, label %satob.exit, label %.lr.ph.i, !llvm.loop !23
 
 satob.exit:                                       ; preds = %.lr.ph.i, %.thread.i
-  %.1.lcssa.i = phi ptr [ getelementptr inbounds (i8, ptr @satob.buf, i64 31), %.thread.i ], [ %171, %.lr.ph.i ]
+  %.1.lcssa.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @satob.buf, i64 31), %.thread.i ], [ %171, %.lr.ph.i ]
   tail call void (ptr, ptr, ...) @Writef(ptr noundef %1, ptr noundef nonnull @.str.92, ptr noundef nonnull %.1.lcssa.i)
   br label %177
 

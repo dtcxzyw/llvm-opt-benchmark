@@ -1268,7 +1268,7 @@ proto_item_set_generated.exit338:                 ; preds = %181, %190, %193
   %294 = load i8, ptr %288, align 4
   %295 = and i8 %294, 2
   %.not320 = icmp eq i8 %295, 0
-  %296 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 436), align 4
+  %296 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 436), align 4
   %.not321 = icmp eq i32 %296, 0
   %or.cond331 = select i1 %.not320, i1 true, i1 %.not321
   br i1 %or.cond331, label %299, label %297
@@ -1287,7 +1287,7 @@ proto_item_set_generated.exit338:                 ; preds = %181, %190, %193
   %305 = or disjoint i32 %302, %304
   %306 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %305, ptr %306, align 4
-  %307 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 436), align 4
+  %307 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 436), align 4
   %.not322 = icmp eq i32 %307, 0
   br i1 %.not322, label %311, label %308
 
@@ -1469,7 +1469,7 @@ transaction_end.exit:                             ; preds = %311, %323, %333, %3
   %398 = load i8, ptr %389, align 4
   %399 = and i8 %398, 2
   %.not316 = icmp eq i8 %399, 0
-  %400 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 436), align 4
+  %400 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 436), align 4
   %.not317 = icmp eq i32 %400, 0
   %or.cond332 = select i1 %.not316, i1 true, i1 %.not317
   br i1 %or.cond332, label %403, label %401
@@ -1488,7 +1488,7 @@ transaction_end.exit:                             ; preds = %311, %323, %333, %3
   %409 = or disjoint i32 %406, %408
   %410 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %409, ptr %410, align 4
-  %411 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 436), align 4
+  %411 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 436), align 4
   %.not318 = icmp eq i32 %411, 0
   br i1 %.not318, label %415, label %412
 

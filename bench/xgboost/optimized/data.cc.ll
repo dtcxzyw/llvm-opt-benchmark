@@ -3423,7 +3423,7 @@ define linkonce_odr noundef ptr @_ZN4dmlc4data11CreateIter_IjfEEPNS_12RowBlockIt
           to label %70 unwind label %64
 
 70:                                               ; preds = %68
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterIjfEE, i64 16), ptr %69, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterIjfEE, i64 16), ptr %69, align 8, !tbaa !23
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i8 1, ptr %71, align 8, !tbaa !25
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 80
@@ -3681,7 +3681,7 @@ define linkonce_odr noundef ptr @_ZN4dmlc4data11CreateIter_ImfEEPNS_12RowBlockIt
           to label %70 unwind label %64
 
 70:                                               ; preds = %68
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterImfEE, i64 16), ptr %69, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterImfEE, i64 16), ptr %69, align 8, !tbaa !23
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i8 1, ptr %71, align 8, !tbaa !45
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 80
@@ -3939,7 +3939,7 @@ define linkonce_odr noundef ptr @_ZN4dmlc4data11CreateIter_IjiEEPNS_12RowBlockIt
           to label %70 unwind label %64
 
 70:                                               ; preds = %68
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterIjiEE, i64 16), ptr %69, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterIjiEE, i64 16), ptr %69, align 8, !tbaa !23
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i8 1, ptr %71, align 8, !tbaa !51
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 80
@@ -4197,7 +4197,7 @@ define linkonce_odr noundef ptr @_ZN4dmlc4data11CreateIter_ImiEEPNS_12RowBlockIt
           to label %70 unwind label %64
 
 70:                                               ; preds = %68
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterImiEE, i64 16), ptr %69, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterImiEE, i64 16), ptr %69, align 8, !tbaa !23
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i8 1, ptr %71, align 8, !tbaa !61
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 80
@@ -4455,7 +4455,7 @@ define linkonce_odr noundef ptr @_ZN4dmlc4data11CreateIter_IjlEEPNS_12RowBlockIt
           to label %70 unwind label %64
 
 70:                                               ; preds = %68
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterIjlEE, i64 16), ptr %69, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterIjlEE, i64 16), ptr %69, align 8, !tbaa !23
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i8 1, ptr %71, align 8, !tbaa !67
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 80
@@ -4713,7 +4713,7 @@ define linkonce_odr noundef ptr @_ZN4dmlc4data11CreateIter_ImlEEPNS_12RowBlockIt
           to label %70 unwind label %64
 
 70:                                               ; preds = %68
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterImlEE, i64 16), ptr %69, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterImlEE, i64 16), ptr %69, align 8, !tbaa !23
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i8 1, ptr %71, align 8, !tbaa !77
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 80
@@ -5231,12 +5231,12 @@ define linkonce_odr noundef ptr @_ZN4dmlc4data13CreateParser_IjfEEPNS_6ParserIT_
   br i1 %211, label %214, label %212
 
 212:                                              ; preds = %209
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %213 = call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst) #19
   br label %214
@@ -5852,12 +5852,12 @@ define linkonce_odr noundef ptr @_ZN4dmlc4data13CreateParser_ImfEEPNS_6ParserIT_
   br i1 %211, label %214, label %212
 
 212:                                              ; preds = %209
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %213 = call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegImfEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst) #19
   br label %214
@@ -6473,12 +6473,12 @@ define linkonce_odr noundef ptr @_ZN4dmlc4data13CreateParser_IjiEEPNS_6ParserIT_
   br i1 %211, label %214, label %212
 
 212:                                              ; preds = %209
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %213 = call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst) #19
   br label %214
@@ -7094,12 +7094,12 @@ define linkonce_odr noundef ptr @_ZN4dmlc4data13CreateParser_ImiEEPNS_6ParserIT_
   br i1 %211, label %214, label %212
 
 212:                                              ; preds = %209
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %213 = call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegImiEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst) #19
   br label %214
@@ -7715,12 +7715,12 @@ define linkonce_odr noundef ptr @_ZN4dmlc4data13CreateParser_IjlEEPNS_6ParserIT_
   br i1 %211, label %214, label %212
 
 212:                                              ; preds = %209
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %213 = call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst) #19
   br label %214
@@ -8336,12 +8336,12 @@ define linkonce_odr noundef ptr @_ZN4dmlc4data13CreateParser_ImlEEPNS_6ParserIT_
   br i1 %211, label %214, label %212
 
 212:                                              ; preds = %209
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %213 = call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegImlEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst) #19
   br label %214
@@ -8556,12 +8556,12 @@ define noundef nonnull ptr @_ZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEv(
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %3
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst) #19
   br label %8
@@ -8724,12 +8724,12 @@ define noundef nonnull ptr @_ZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEv(
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %3
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst) #19
   br label %8
@@ -8892,12 +8892,12 @@ define noundef nonnull ptr @_ZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEv(
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %3
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst) #19
   br label %8
@@ -9060,12 +9060,12 @@ define noundef nonnull ptr @_ZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEv(
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %3
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegImfEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst) #19
   br label %8
@@ -9228,12 +9228,12 @@ define noundef nonnull ptr @_ZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEv(
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %3
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegImiEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst) #19
   br label %8
@@ -9396,12 +9396,12 @@ define noundef nonnull ptr @_ZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEv(
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %3
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegImlEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst) #19
   br label %8
@@ -11632,7 +11632,7 @@ define linkonce_odr void @_ZN4dmlc4data17LibSVMParserParam11__DECLARE__EPNS_9par
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 144
   store ptr %23, ptr %22, align 8, !tbaa !13
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4dmlc9parameter10FieldEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %13, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4dmlc9parameter10FieldEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %13, align 8, !tbaa !23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %24 unwind label %118
 
@@ -12015,7 +12015,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(248) ptr @_ZN4dmlc9P
   store i8 0, ptr %18, align 4, !tbaa !183
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 133
   store i8 0, ptr %19, align 1, !tbaa !185
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4dmlc9parameter10FieldEntryIiEE, i64 16), ptr %6, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4dmlc9parameter10FieldEntryIiEE, i64 16), ptr %6, align 8, !tbaa !23
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store i8 0, ptr %20, align 8, !tbaa !186
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 160
@@ -12329,7 +12329,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit11:      ; preds = %.noexc, %_ZN4dmlc15
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_ED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_EE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_EE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -12350,7 +12350,7 @@ define linkonce_odr void @_ZN4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryINS
   br label %13
 
 13:                                               ; preds = %10, %6
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc9parameter16FieldAccessEntryE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc9parameter16FieldAccessEntryE, i64 16), ptr %0, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -12416,7 +12416,7 @@ define linkonce_odr void @_ZN4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryINS
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4dmlc9parameter10FieldEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_EE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_EE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -12437,7 +12437,7 @@ define linkonce_odr void @_ZN4dmlc9parameter10FieldEntryINSt7__cxx1112basic_stri
   br label %13
 
 13:                                               ; preds = %10, %6
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc9parameter16FieldAccessEntryE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc9parameter16FieldAccessEntryE, i64 16), ptr %0, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -12552,7 +12552,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIN
           to label %29 unwind label %34
 
 29:                                               ; preds = %28
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4dmlc10ParamErrorE, i64 16), ptr %27, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4dmlc10ParamErrorE, i64 16), ptr %27, align 8, !tbaa !23
   invoke void @__cxa_throw(ptr nonnull %27, ptr nonnull @_ZTIN4dmlc10ParamErrorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #31
           to label %56 unwind label %34
 
@@ -12760,13 +12760,13 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIN
 72:                                               ; preds = %70, %53
   %73 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %73, ptr %5, align 8, !tbaa !23
-  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %75 = getelementptr i8, ptr %73, i64 -24
   %76 = load i64, ptr %75, align 8
   %77 = getelementptr inbounds i8, ptr %5, i64 %76
   store ptr %74, ptr %77, align 8, !tbaa !23
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %78, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %78, align 8, !tbaa !23
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %80 = load ptr, ptr %79, align 8, !tbaa !4
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 96
@@ -12787,7 +12787,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIN
   br label %90
 
 90:                                               ; preds = %87, %83
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %78, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %78, align 8, !tbaa !23
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %91) #19
   %92 = getelementptr inbounds nuw i8, ptr %5, i64 112
@@ -13083,13 +13083,13 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIN
 131:                                              ; preds = %129
   %132 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %132, ptr %4, align 8, !tbaa !23
-  %133 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %134 = getelementptr i8, ptr %132, i64 -24
   %135 = load i64, ptr %134, align 8
   %136 = getelementptr inbounds i8, ptr %4, i64 %135
   store ptr %133, ptr %136, align 8, !tbaa !23
   %137 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %137, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %137, align 8, !tbaa !23
   %138 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %139 = load ptr, ptr %138, align 8, !tbaa !4
   %140 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -13110,7 +13110,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIN
   br label %149
 
 149:                                              ; preds = %146, %142
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %137, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %137, align 8, !tbaa !23
   %150 = getelementptr inbounds nuw i8, ptr %4, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %150) #19
   %151 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -13200,7 +13200,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIN
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_ED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_EE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_EE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -13221,7 +13221,7 @@ define linkonce_odr void @_ZN4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryINS
   br label %13
 
 13:                                               ; preds = %10, %6
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc9parameter16FieldAccessEntryE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc9parameter16FieldAccessEntryE, i64 16), ptr %0, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -13452,7 +13452,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIN
           to label %94 unwind label %101
 
 94:                                               ; preds = %93
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4dmlc10ParamErrorE, i64 16), ptr %92, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4dmlc10ParamErrorE, i64 16), ptr %92, align 8, !tbaa !23
   invoke void @__cxa_throw(ptr nonnull %92, ptr nonnull @_ZTIN4dmlc10ParamErrorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #31
           to label %149 unwind label %101
 
@@ -13514,13 +13514,13 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIN
 120:                                              ; preds = %.loopexit
   %121 = load ptr, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %121, ptr %4, align 8, !tbaa !23
-  %122 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %123 = getelementptr i8, ptr %121, i64 -24
   %124 = load i64, ptr %123, align 8
   %125 = getelementptr inbounds i8, ptr %4, i64 %124
   store ptr %122, ptr %125, align 8, !tbaa !23
   %126 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %126, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %126, align 8, !tbaa !23
   %127 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %128 = load ptr, ptr %127, align 8, !tbaa !4
   %129 = getelementptr inbounds nuw i8, ptr %4, i64 104
@@ -13541,12 +13541,12 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIN
   br label %138
 
 138:                                              ; preds = %135, %131
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %126, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %126, align 8, !tbaa !23
   %139 = getelementptr inbounds nuw i8, ptr %4, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %139) #19
-  %140 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 8), align 8
+  %140 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 8), align 8
   store ptr %140, ptr %4, align 8, !tbaa !23
-  %141 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
+  %141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   %142 = getelementptr i8, ptr %140, i64 -24
   %143 = load i64, ptr %142, align 8
   %144 = getelementptr inbounds i8, ptr %4, i64 %143
@@ -14197,13 +14197,13 @@ define linkonce_odr void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef 
 define linkonce_odr void @_ZN4dmlc15LogMessageFatal5EntryD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %2, ptr %0, align 8, !tbaa !23
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %4 = getelementptr i8, ptr %2, i64 -24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   store ptr %3, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %7, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %7, align 8, !tbaa !23
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -14224,7 +14224,7 @@ define linkonce_odr void @_ZN4dmlc15LogMessageFatal5EntryD2Ev(ptr noundef nonnul
   br label %19
 
 19:                                               ; preds = %16, %12
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %7, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %7, align 8, !tbaa !23
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -14478,13 +14478,13 @@ define linkonce_odr void @_ZN4dmlc10StackTraceB5cxx11Emm(ptr dead_on_unwind noal
 125:                                              ; preds = %121, %119
   %126 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %126, ptr %4, align 8, !tbaa !23
-  %127 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %128 = getelementptr i8, ptr %126, i64 -24
   %129 = load i64, ptr %128, align 8
   %130 = getelementptr inbounds i8, ptr %4, i64 %129
   store ptr %127, ptr %130, align 8, !tbaa !23
   %131 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %131, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %131, align 8, !tbaa !23
   %132 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %133 = load ptr, ptr %132, align 8, !tbaa !4
   %134 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -14505,7 +14505,7 @@ define linkonce_odr void @_ZN4dmlc10StackTraceB5cxx11Emm(ptr dead_on_unwind noal
   br label %143
 
 143:                                              ; preds = %140, %136
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %131, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %131, align 8, !tbaa !23
   %144 = getelementptr inbounds nuw i8, ptr %4, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %144) #19
   %145 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -14596,7 +14596,7 @@ define linkonce_odr void @_ZN4dmlc15LogMessageFatal5Entry8FinalizeEv(ptr dead_on
           to label %37 unwind label %47
 
 37:                                               ; preds = %36
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4dmlc5ErrorE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4dmlc5ErrorE, i64 16), ptr %0, align 8, !tbaa !23
   %38 = load ptr, ptr %3, align 8, !tbaa !4
   %39 = icmp eq ptr %38, %4
   br i1 %39, label %40, label %43
@@ -15020,13 +15020,13 @@ define linkonce_odr void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind noalia
 182:                                              ; preds = %180, %163
   %183 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %183, ptr %16, align 8, !tbaa !23
-  %184 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %185 = getelementptr i8, ptr %183, i64 -24
   %186 = load i64, ptr %185, align 8
   %187 = getelementptr inbounds i8, ptr %16, i64 %186
   store ptr %184, ptr %187, align 8, !tbaa !23
   %188 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %188, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %188, align 8, !tbaa !23
   %189 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %190 = load ptr, ptr %189, align 8, !tbaa !4
   %191 = getelementptr inbounds nuw i8, ptr %16, i64 96
@@ -15047,7 +15047,7 @@ define linkonce_odr void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind noalia
   br label %200
 
 200:                                              ; preds = %197, %193
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %188, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %188, align 8, !tbaa !23
   %201 = getelementptr inbounds nuw i8, ptr %16, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %201) #19
   %202 = getelementptr inbounds nuw i8, ptr %16, i64 112
@@ -15987,7 +15987,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4dmlc9parameter10FieldEntryIiED2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4dmlc9parameter10FieldEntryIiEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4dmlc9parameter10FieldEntryIiEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load ptr, ptr %3, align 8, !tbaa !19
@@ -16016,7 +16016,7 @@ define linkonce_odr void @_ZN4dmlc9parameter10FieldEntryIiED2Ev(ptr noundef nonn
   unreachable
 
 15:                                               ; preds = %8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc9parameter16FieldAccessEntryE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc9parameter16FieldAccessEntryE, i64 16), ptr %0, align 8, !tbaa !23
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -16137,7 +16137,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIi
           to label %29 unwind label %34
 
 29:                                               ; preds = %28
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4dmlc10ParamErrorE, i64 16), ptr %27, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4dmlc10ParamErrorE, i64 16), ptr %27, align 8, !tbaa !23
   invoke void @__cxa_throw(ptr nonnull %27, ptr nonnull @_ZTIN4dmlc10ParamErrorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #31
           to label %57 unwind label %34
 
@@ -16323,7 +16323,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter10FieldEntryIiE3SetEPvRKNSt7__cxx11
           to label %78 unwind label %83
 
 78:                                               ; preds = %77
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4dmlc10ParamErrorE, i64 16), ptr %76, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4dmlc10ParamErrorE, i64 16), ptr %76, align 8, !tbaa !23
   invoke void @__cxa_throw(ptr nonnull %76, ptr nonnull @_ZTIN4dmlc10ParamErrorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #31
           to label %180 unwind label %83
 
@@ -16451,13 +16451,13 @@ define linkonce_odr void @_ZNK4dmlc9parameter10FieldEntryIiE3SetEPvRKNSt7__cxx11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19
   %144 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %144, ptr %4, align 8, !tbaa !23
-  %145 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %145 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %146 = getelementptr i8, ptr %144, i64 -24
   %147 = load i64, ptr %146, align 8
   %148 = getelementptr inbounds i8, ptr %4, i64 %147
   store ptr %145, ptr %148, align 8, !tbaa !23
   %149 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %149, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %149, align 8, !tbaa !23
   %150 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %151 = load ptr, ptr %150, align 8, !tbaa !4
   %152 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -16478,7 +16478,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter10FieldEntryIiE3SetEPvRKNSt7__cxx11
   br label %161
 
 161:                                              ; preds = %158, %154
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %149, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %149, align 8, !tbaa !23
   %162 = getelementptr inbounds nuw i8, ptr %4, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %162) #19
   %163 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -16637,7 +16637,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter17FieldEntryNumericINS0_10FieldEntr
           to label %69 unwind label %74
 
 69:                                               ; preds = %68
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4dmlc10ParamErrorE, i64 16), ptr %67, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4dmlc10ParamErrorE, i64 16), ptr %67, align 8, !tbaa !23
   invoke void @__cxa_throw(ptr nonnull %67, ptr nonnull @_ZTIN4dmlc10ParamErrorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #31
           to label %211 unwind label %74
 
@@ -16754,7 +16754,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter17FieldEntryNumericINS0_10FieldEntr
           to label %126 unwind label %131
 
 126:                                              ; preds = %125
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4dmlc10ParamErrorE, i64 16), ptr %124, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4dmlc10ParamErrorE, i64 16), ptr %124, align 8, !tbaa !23
   invoke void @__cxa_throw(ptr nonnull %124, ptr nonnull @_ZTIN4dmlc10ParamErrorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #31
           to label %211 unwind label %131
 
@@ -16877,7 +16877,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter17FieldEntryNumericINS0_10FieldEntr
           to label %187 unwind label %192
 
 187:                                              ; preds = %186
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4dmlc10ParamErrorE, i64 16), ptr %185, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4dmlc10ParamErrorE, i64 16), ptr %185, align 8, !tbaa !23
   invoke void @__cxa_throw(ptr nonnull %185, ptr nonnull @_ZTIN4dmlc10ParamErrorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #31
           to label %211 unwind label %192
 
@@ -17008,13 +17008,13 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIi
 43:                                               ; preds = %41, %24
   %44 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %44, ptr %4, align 8, !tbaa !23
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %46 = getelementptr i8, ptr %44, i64 -24
   %47 = load i64, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %4, i64 %47
   store ptr %45, ptr %48, align 8, !tbaa !23
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %49, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %49, align 8, !tbaa !23
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %51 = load ptr, ptr %50, align 8, !tbaa !4
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -17035,7 +17035,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIi
   br label %61
 
 61:                                               ; preds = %58, %54
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %49, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %49, align 8, !tbaa !23
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %62) #19
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -17315,13 +17315,13 @@ define linkonce_odr void @_ZNK4dmlc9parameter10FieldEntryIiE12GetFieldInfoEv(ptr
 131:                                              ; preds = %129
   %132 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %132, ptr %4, align 8, !tbaa !23
-  %133 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %134 = getelementptr i8, ptr %132, i64 -24
   %135 = load i64, ptr %134, align 8
   %136 = getelementptr inbounds i8, ptr %4, i64 %135
   store ptr %133, ptr %136, align 8, !tbaa !23
   %137 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %137, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %137, align 8, !tbaa !23
   %138 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %139 = load ptr, ptr %138, align 8, !tbaa !4
   %140 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -17342,7 +17342,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter10FieldEntryIiE12GetFieldInfoEv(ptr
   br label %149
 
 149:                                              ; preds = %146, %142
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %137, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %137, align 8, !tbaa !23
   %150 = getelementptr inbounds nuw i8, ptr %4, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %150) #19
   %151 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -17683,7 +17683,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(248) ptr @_ZN4dmlc9p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4dmlc9parameter16FieldAccessEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc9parameter16FieldAccessEntryE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc9parameter16FieldAccessEntryE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -17913,7 +17913,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIi
           to label %94 unwind label %101
 
 94:                                               ; preds = %93
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4dmlc10ParamErrorE, i64 16), ptr %92, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4dmlc10ParamErrorE, i64 16), ptr %92, align 8, !tbaa !23
   invoke void @__cxa_throw(ptr nonnull %92, ptr nonnull @_ZTIN4dmlc10ParamErrorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #31
           to label %149 unwind label %101
 
@@ -17975,13 +17975,13 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIi
 120:                                              ; preds = %.loopexit
   %121 = load ptr, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %121, ptr %4, align 8, !tbaa !23
-  %122 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %123 = getelementptr i8, ptr %121, i64 -24
   %124 = load i64, ptr %123, align 8
   %125 = getelementptr inbounds i8, ptr %4, i64 %124
   store ptr %122, ptr %125, align 8, !tbaa !23
   %126 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %126, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %126, align 8, !tbaa !23
   %127 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %128 = load ptr, ptr %127, align 8, !tbaa !4
   %129 = getelementptr inbounds nuw i8, ptr %4, i64 104
@@ -18002,12 +18002,12 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIi
   br label %138
 
 138:                                              ; preds = %135, %131
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %126, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %126, align 8, !tbaa !23
   %139 = getelementptr inbounds nuw i8, ptr %4, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %139) #19
-  %140 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 8), align 8
+  %140 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 8), align 8
   store ptr %140, ptr %4, align 8, !tbaa !23
-  %141 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
+  %141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   %142 = getelementptr i8, ptr %140, i64 -24
   %143 = load i64, ptr %142, align 8
   %144 = getelementptr inbounds i8, ptr %4, i64 %143
@@ -18286,13 +18286,13 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIi
 131:                                              ; preds = %129
   %132 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %132, ptr %4, align 8, !tbaa !23
-  %133 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %134 = getelementptr i8, ptr %132, i64 -24
   %135 = load i64, ptr %134, align 8
   %136 = getelementptr inbounds i8, ptr %4, i64 %135
   store ptr %133, ptr %136, align 8, !tbaa !23
   %137 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %137, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %137, align 8, !tbaa !23
   %138 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %139 = load ptr, ptr %138, align 8, !tbaa !4
   %140 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -18313,7 +18313,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter14FieldEntryBaseINS0_10FieldEntryIi
   br label %149
 
 149:                                              ; preds = %146, %142
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %137, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %137, align 8, !tbaa !23
   %150 = getelementptr inbounds nuw i8, ptr %4, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %150) #19
   %151 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -18642,13 +18642,13 @@ define linkonce_odr void @_ZN4dmlc14LogCheckFormatImjEESt10unique_ptrINSt7__cxx1
   store ptr %18, ptr %0, align 8, !tbaa !83
   %51 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %51, ptr %4, align 8, !tbaa !23
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %53 = getelementptr i8, ptr %51, i64 -24
   %54 = load i64, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %4, i64 %54
   store ptr %52, ptr %55, align 8, !tbaa !23
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %56, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %56, align 8, !tbaa !23
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %58 = load ptr, ptr %57, align 8, !tbaa !4
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -18669,7 +18669,7 @@ define linkonce_odr void @_ZN4dmlc14LogCheckFormatImjEESt10unique_ptrINSt7__cxx1
   br label %68
 
 68:                                               ; preds = %65, %61
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %56, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %56, align 8, !tbaa !23
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %69) #19
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -18731,7 +18731,7 @@ define linkonce_odr void @_ZN4dmlc4data16LibFMParserParam11__DECLARE__EPNS_9para
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 144
   store ptr %23, ptr %22, align 8, !tbaa !13
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4dmlc9parameter10FieldEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %13, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4dmlc9parameter10FieldEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %13, align 8, !tbaa !23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %24 unwind label %118
 
@@ -19112,7 +19112,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(248) ptr @_ZN4dmlc9P
   store i8 0, ptr %18, align 4, !tbaa !183
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 133
   store i8 0, ptr %19, align 1, !tbaa !185
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4dmlc9parameter10FieldEntryIiEE, i64 16), ptr %6, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4dmlc9parameter10FieldEntryIiEE, i64 16), ptr %6, align 8, !tbaa !23
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store i8 0, ptr %20, align 8, !tbaa !186
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 160
@@ -19232,7 +19232,7 @@ define linkonce_odr void @_ZN4dmlc4data14CSVParserParam11__DECLARE__EPNS_9parame
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 144
   store ptr %31, ptr %30, align 8, !tbaa !13
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4dmlc9parameter10FieldEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %21, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4dmlc9parameter10FieldEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %21, align 8, !tbaa !23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %32 unwind label %238
 
@@ -19469,7 +19469,7 @@ define linkonce_odr void @_ZN4dmlc4data14CSVParserParam11__DECLARE__EPNS_9parame
   %138 = getelementptr inbounds nuw i8, ptr %129, i64 128
   %139 = getelementptr inbounds nuw i8, ptr %129, i64 144
   store ptr %139, ptr %138, align 8, !tbaa !13
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4dmlc9parameter10FieldEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %129, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4dmlc9parameter10FieldEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %129, align 8, !tbaa !23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %131, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %140 unwind label %302
 
@@ -20044,7 +20044,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(248) ptr @_ZN4dmlc9P
   store i8 0, ptr %18, align 4, !tbaa !183
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 133
   store i8 0, ptr %19, align 1, !tbaa !185
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4dmlc9parameter10FieldEntryIiEE, i64 16), ptr %6, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4dmlc9parameter10FieldEntryIiEE, i64 16), ptr %6, align 8, !tbaa !23
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store i8 0, ptr %20, align 8, !tbaa !186
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 160
@@ -20377,13 +20377,13 @@ define linkonce_odr void @_ZN4dmlc2io7URISpecC2ERKNSt7__cxx1112basic_stringIcSt1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #19
   %142 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %142, ptr %6, align 8, !tbaa !23
-  %143 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %144 = getelementptr i8, ptr %142, i64 -24
   %145 = load i64, ptr %144, align 8
   %146 = getelementptr inbounds i8, ptr %6, i64 %145
   store ptr %143, ptr %146, align 8, !tbaa !23
   %147 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %147, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %147, align 8, !tbaa !23
   %148 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %149 = load ptr, ptr %148, align 8, !tbaa !4
   %150 = getelementptr inbounds nuw i8, ptr %6, i64 96
@@ -20404,7 +20404,7 @@ define linkonce_odr void @_ZN4dmlc2io7URISpecC2ERKNSt7__cxx1112basic_stringIcSt1
   br label %159
 
 159:                                              ; preds = %156, %152
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %147, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %147, align 8, !tbaa !23
   %160 = getelementptr inbounds nuw i8, ptr %6, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %160) #19
   %161 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -20613,15 +20613,15 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit57:      ; preds = %.noexc56, %182
   %249 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %250 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %251 = load ptr, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, align 8
-  %252 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %252 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %253 = getelementptr i8, ptr %251, i64 -24
   %254 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %255 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %256 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %257 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %258 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  %259 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 8), align 8
-  %260 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
+  %259 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 8), align 8
+  %260 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   %261 = getelementptr i8, ptr %259, i64 -24
   %262 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %263 = getelementptr inbounds nuw i8, ptr %14, i64 120
@@ -20990,7 +20990,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit65:      ; preds = %.noexc64, %388
   %432 = load i64, ptr %253, align 8
   %433 = getelementptr inbounds i8, ptr %14, i64 %432
   store ptr %252, ptr %433, align 8, !tbaa !23
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %254, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %254, align 8, !tbaa !23
   %434 = load ptr, ptr %255, align 8, !tbaa !4
   %435 = icmp eq ptr %434, %256
   br i1 %435, label %436, label %439
@@ -21008,7 +21008,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit65:      ; preds = %.noexc64, %388
   br label %442
 
 442:                                              ; preds = %439, %436
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %254, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %254, align 8, !tbaa !23
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %258) #19
   store ptr %259, ptr %14, align 8, !tbaa !23
   %443 = load i64, ptr %261, align 8
@@ -21376,7 +21376,7 @@ define linkonce_odr void @_ZN4dmlc4data11DiskRowIterIjfEC2EPNS_6ParserIjfEEPKcb(
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data11DiskRowIterIjfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data11DiskRowIterIjfEE, i64 16), ptr %0, align 8, !tbaa !23
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %9, ptr %8, align 8, !tbaa !13
@@ -21842,13 +21842,13 @@ define linkonce_odr void @_ZN4dmlc5SplitERKNSt7__cxx1112basic_stringIcSt11char_t
 53:                                               ; preds = %14
   %54 = load ptr, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %54, ptr %6, align 8, !tbaa !23
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %56 = getelementptr i8, ptr %54, i64 -24
   %57 = load i64, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %6, i64 %57
   store ptr %55, ptr %58, align 8, !tbaa !23
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %59, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %59, align 8, !tbaa !23
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %61 = load ptr, ptr %60, align 8, !tbaa !4
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 104
@@ -21869,12 +21869,12 @@ define linkonce_odr void @_ZN4dmlc5SplitERKNSt7__cxx1112basic_stringIcSt11char_t
   br label %71
 
 71:                                               ; preds = %68, %64
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %59, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %59, align 8, !tbaa !23
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %72) #19
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 8), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 8), align 8
   store ptr %73, ptr %6, align 8, !tbaa !23
-  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
+  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   %75 = getelementptr i8, ptr %73, i64 -24
   %76 = load i64, ptr %75, align 8
   %77 = getelementptr inbounds i8, ptr %6, i64 %76
@@ -23054,7 +23054,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjfEEEC2Em(ptr noundef nonnull align 8 dereferenceable(416) %0, i64 noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjfEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjfEEEE, i64 16), ptr %0, align 8, !tbaa !23
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -23677,7 +23677,7 @@ define linkonce_odr void @_ZN4dmlc4data11DiskRowIterIjfE10BuildCacheEPNS_6Parser
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(416) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjfEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjfEEEE, i64 16), ptr %0, align 8, !tbaa !23
   invoke void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjfEEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(416) %0)
           to label %2 unwind label %90
 
@@ -23874,7 +23874,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjfE
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data11DiskRowIterIjfED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data11DiskRowIterIjfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data11DiskRowIterIjfEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   invoke void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjfEEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(416) %2)
           to label %3 unwind label %25
@@ -25777,7 +25777,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjfE
           to label %63 unwind label %118
 
 63:                                               ; preds = %62
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4dmlc12ScopedThreadE, i64 16), ptr %61, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4dmlc12ScopedThreadE, i64 16), ptr %61, align 8, !tbaa !23
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %65 = load i64, ptr %6, align 8, !tbaa !14
   store i64 %65, ptr %64, align 8, !tbaa !14
@@ -25930,7 +25930,7 @@ define linkonce_odr void @_ZNSt6threadC2IRZN4dmlc12ThreadedIterINS1_4data17RowBl
   %3 = alloca %"class.std::unique_ptr.239", align 8
   store i64 0, ptr %0, align 8, !tbaa !454
   %4 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerIjfEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %4, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerIjfEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %4, align 8, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %1, align 8, !tbaa !452
   store ptr %6, ptr %5, align 8, !tbaa !452
@@ -26113,7 +26113,7 @@ declare void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14defaul
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerIjfEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerIjfEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerIjfEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !407
   %4 = icmp eq ptr %3, null
@@ -26156,7 +26156,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dm
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerIjfEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerIjfEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerIjfEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !407
   %4 = icmp eq ptr %3, null
@@ -27260,7 +27260,7 @@ declare void @_ZNSt11logic_errorD1Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4dmlc12ScopedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4dmlc12ScopedThreadE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4dmlc12ScopedThreadE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %3 unwind label %8
@@ -27287,7 +27287,7 @@ define linkonce_odr void @_ZN4dmlc12ScopedThreadD2Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4dmlc12ScopedThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4dmlc12ScopedThreadE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4dmlc12ScopedThreadE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %3 unwind label %7
@@ -30981,13 +30981,13 @@ define linkonce_odr void @_ZN4dmlc14LogCheckFormatImmEESt10unique_ptrINSt7__cxx1
   store ptr %17, ptr %0, align 8, !tbaa !83
   %50 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %50, ptr %4, align 8, !tbaa !23
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %52 = getelementptr i8, ptr %50, i64 -24
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %4, i64 %53
   store ptr %51, ptr %54, align 8, !tbaa !23
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %55, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %55, align 8, !tbaa !23
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %57 = load ptr, ptr %56, align 8, !tbaa !4
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -31008,7 +31008,7 @@ define linkonce_odr void @_ZN4dmlc14LogCheckFormatImmEESt10unique_ptrINSt7__cxx1
   br label %67
 
 67:                                               ; preds = %64, %60
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %55, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %55, align 8, !tbaa !23
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %68) #19
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -31220,7 +31220,7 @@ define linkonce_odr void @_ZN4dmlc4data12BasicRowIterIjfE4InitEPNS_6ParserIjfEE(
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data12BasicRowIterIjfED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterIjfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterIjfEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN4dmlc4data17RowBlockContainerIjfED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %2) #19
   ret void
@@ -31228,7 +31228,7 @@ define linkonce_odr void @_ZN4dmlc4data12BasicRowIterIjfED2Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data12BasicRowIterIjfED0Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterIjfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterIjfEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN4dmlc4data17RowBlockContainerIjfED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %2) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 256) #30
@@ -31277,7 +31277,7 @@ define linkonce_odr void @_ZN4dmlc4data11DiskRowIterImfEC2EPNS_6ParserImfEEPKcb(
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data11DiskRowIterImfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data11DiskRowIterImfEE, i64 16), ptr %0, align 8, !tbaa !23
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %9, ptr %8, align 8, !tbaa !13
@@ -31574,7 +31574,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit9:       ; preds = %.noexc8, %81
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerImfEEEC2Em(ptr noundef nonnull align 8 dereferenceable(416) %0, i64 noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterINS_4data17RowBlockContainerImfEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterINS_4data17RowBlockContainerImfEEEE, i64 16), ptr %0, align 8, !tbaa !23
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -32194,7 +32194,7 @@ define linkonce_odr void @_ZN4dmlc4data11DiskRowIterImfE10BuildCacheEPNS_6Parser
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerImfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(416) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterINS_4data17RowBlockContainerImfEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterINS_4data17RowBlockContainerImfEEEE, i64 16), ptr %0, align 8, !tbaa !23
   invoke void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerImfEEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(416) %0)
           to label %2 unwind label %90
 
@@ -32391,7 +32391,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerImfE
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data11DiskRowIterImfED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data11DiskRowIterImfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data11DiskRowIterImfEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   invoke void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerImfEEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(416) %2)
           to label %3 unwind label %25
@@ -34198,7 +34198,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerImfE
           to label %63 unwind label %118
 
 63:                                               ; preds = %62
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4dmlc12ScopedThreadE, i64 16), ptr %61, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4dmlc12ScopedThreadE, i64 16), ptr %61, align 8, !tbaa !23
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %65 = load i64, ptr %6, align 8, !tbaa !14
   store i64 %65, ptr %64, align 8, !tbaa !14
@@ -34351,7 +34351,7 @@ define linkonce_odr void @_ZNSt6threadC2IRZN4dmlc12ThreadedIterINS1_4data17RowBl
   %3 = alloca %"class.std::unique_ptr.239", align 8
   store i64 0, ptr %0, align 8, !tbaa !454
   %4 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerImfEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %4, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerImfEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %4, align 8, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %1, align 8, !tbaa !548
   store ptr %6, ptr %5, align 8, !tbaa !548
@@ -34532,7 +34532,7 @@ define linkonce_odr void @_ZZN4dmlc12ThreadedIterINS_4data17RowBlockContainerImf
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerImfEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerImfEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerImfEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !407
   %4 = icmp eq ptr %3, null
@@ -34575,7 +34575,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dm
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerImfEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerImfEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerImfEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !407
   %4 = icmp eq ptr %3, null
@@ -38733,7 +38733,7 @@ define linkonce_odr void @_ZN4dmlc4data12BasicRowIterImfE4InitEPNS_6ParserImfEE(
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data12BasicRowIterImfED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterImfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterImfEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN4dmlc4data17RowBlockContainerImfED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %2) #19
   ret void
@@ -38741,7 +38741,7 @@ define linkonce_odr void @_ZN4dmlc4data12BasicRowIterImfED2Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data12BasicRowIterImfED0Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterImfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterImfEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN4dmlc4data17RowBlockContainerImfED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %2) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 264) #30
@@ -38789,7 +38789,7 @@ define linkonce_odr void @_ZN4dmlc4data11DiskRowIterIjiEC2EPNS_6ParserIjiEEPKcb(
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data11DiskRowIterIjiEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data11DiskRowIterIjiEE, i64 16), ptr %0, align 8, !tbaa !23
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %9, ptr %8, align 8, !tbaa !13
@@ -39086,7 +39086,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit9:       ; preds = %.noexc8, %81
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjiEEEC2Em(ptr noundef nonnull align 8 dereferenceable(416) %0, i64 noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjiEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjiEEEE, i64 16), ptr %0, align 8, !tbaa !23
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -39709,7 +39709,7 @@ define linkonce_odr void @_ZN4dmlc4data11DiskRowIterIjiE10BuildCacheEPNS_6Parser
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(416) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjiEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjiEEEE, i64 16), ptr %0, align 8, !tbaa !23
   invoke void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjiEEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(416) %0)
           to label %2 unwind label %90
 
@@ -39906,7 +39906,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjiE
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data11DiskRowIterIjiED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data11DiskRowIterIjiEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data11DiskRowIterIjiEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   invoke void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjiEEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(416) %2)
           to label %3 unwind label %25
@@ -41713,7 +41713,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjiE
           to label %63 unwind label %118
 
 63:                                               ; preds = %62
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4dmlc12ScopedThreadE, i64 16), ptr %61, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4dmlc12ScopedThreadE, i64 16), ptr %61, align 8, !tbaa !23
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %65 = load i64, ptr %6, align 8, !tbaa !14
   store i64 %65, ptr %64, align 8, !tbaa !14
@@ -41866,7 +41866,7 @@ define linkonce_odr void @_ZNSt6threadC2IRZN4dmlc12ThreadedIterINS1_4data17RowBl
   %3 = alloca %"class.std::unique_ptr.239", align 8
   store i64 0, ptr %0, align 8, !tbaa !454
   %4 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerIjiEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %4, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerIjiEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %4, align 8, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %1, align 8, !tbaa !633
   store ptr %6, ptr %5, align 8, !tbaa !633
@@ -42047,7 +42047,7 @@ define linkonce_odr void @_ZZN4dmlc12ThreadedIterINS_4data17RowBlockContainerIji
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerIjiEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerIjiEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerIjiEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !407
   %4 = icmp eq ptr %3, null
@@ -42090,7 +42090,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dm
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerIjiEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerIjiEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerIjiEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !407
   %4 = icmp eq ptr %3, null
@@ -46349,7 +46349,7 @@ define linkonce_odr void @_ZN4dmlc4data12BasicRowIterIjiE4InitEPNS_6ParserIjiEE(
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data12BasicRowIterIjiED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterIjiEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterIjiEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN4dmlc4data17RowBlockContainerIjiED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %2) #19
   ret void
@@ -46357,7 +46357,7 @@ define linkonce_odr void @_ZN4dmlc4data12BasicRowIterIjiED2Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data12BasicRowIterIjiED0Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterIjiEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterIjiEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN4dmlc4data17RowBlockContainerIjiED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %2) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 256) #30
@@ -46406,7 +46406,7 @@ define linkonce_odr void @_ZN4dmlc4data11DiskRowIterImiEC2EPNS_6ParserImiEEPKcb(
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data11DiskRowIterImiEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data11DiskRowIterImiEE, i64 16), ptr %0, align 8, !tbaa !23
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %9, ptr %8, align 8, !tbaa !13
@@ -46703,7 +46703,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit9:       ; preds = %.noexc8, %81
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerImiEEEC2Em(ptr noundef nonnull align 8 dereferenceable(416) %0, i64 noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterINS_4data17RowBlockContainerImiEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterINS_4data17RowBlockContainerImiEEEE, i64 16), ptr %0, align 8, !tbaa !23
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -47323,7 +47323,7 @@ define linkonce_odr void @_ZN4dmlc4data11DiskRowIterImiE10BuildCacheEPNS_6Parser
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerImiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(416) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterINS_4data17RowBlockContainerImiEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterINS_4data17RowBlockContainerImiEEEE, i64 16), ptr %0, align 8, !tbaa !23
   invoke void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerImiEEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(416) %0)
           to label %2 unwind label %90
 
@@ -47520,7 +47520,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerImiE
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data11DiskRowIterImiED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data11DiskRowIterImiEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data11DiskRowIterImiEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   invoke void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerImiEEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(416) %2)
           to label %3 unwind label %25
@@ -49327,7 +49327,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerImiE
           to label %63 unwind label %118
 
 63:                                               ; preds = %62
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4dmlc12ScopedThreadE, i64 16), ptr %61, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4dmlc12ScopedThreadE, i64 16), ptr %61, align 8, !tbaa !23
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %65 = load i64, ptr %6, align 8, !tbaa !14
   store i64 %65, ptr %64, align 8, !tbaa !14
@@ -49480,7 +49480,7 @@ define linkonce_odr void @_ZNSt6threadC2IRZN4dmlc12ThreadedIterINS1_4data17RowBl
   %3 = alloca %"class.std::unique_ptr.239", align 8
   store i64 0, ptr %0, align 8, !tbaa !454
   %4 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerImiEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %4, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerImiEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %4, align 8, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %1, align 8, !tbaa !715
   store ptr %6, ptr %5, align 8, !tbaa !715
@@ -49661,7 +49661,7 @@ define linkonce_odr void @_ZZN4dmlc12ThreadedIterINS_4data17RowBlockContainerImi
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerImiEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerImiEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerImiEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !407
   %4 = icmp eq ptr %3, null
@@ -49704,7 +49704,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dm
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerImiEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerImiEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerImiEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !407
   %4 = icmp eq ptr %3, null
@@ -53862,7 +53862,7 @@ define linkonce_odr void @_ZN4dmlc4data12BasicRowIterImiE4InitEPNS_6ParserImiEE(
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data12BasicRowIterImiED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterImiEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterImiEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN4dmlc4data17RowBlockContainerImiED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %2) #19
   ret void
@@ -53870,7 +53870,7 @@ define linkonce_odr void @_ZN4dmlc4data12BasicRowIterImiED2Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data12BasicRowIterImiED0Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterImiEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterImiEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN4dmlc4data17RowBlockContainerImiED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %2) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 264) #30
@@ -53918,7 +53918,7 @@ define linkonce_odr void @_ZN4dmlc4data11DiskRowIterIjlEC2EPNS_6ParserIjlEEPKcb(
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data11DiskRowIterIjlEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data11DiskRowIterIjlEE, i64 16), ptr %0, align 8, !tbaa !23
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %9, ptr %8, align 8, !tbaa !13
@@ -54215,7 +54215,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit9:       ; preds = %.noexc8, %81
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjlEEEC2Em(ptr noundef nonnull align 8 dereferenceable(416) %0, i64 noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjlEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjlEEEE, i64 16), ptr %0, align 8, !tbaa !23
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -54849,7 +54849,7 @@ define linkonce_odr void @_ZN4dmlc4data11DiskRowIterIjlE10BuildCacheEPNS_6Parser
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjlEEED2Ev(ptr noundef nonnull align 8 dereferenceable(416) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjlEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjlEEEE, i64 16), ptr %0, align 8, !tbaa !23
   invoke void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjlEEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(416) %0)
           to label %2 unwind label %90
 
@@ -55046,7 +55046,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjlE
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data11DiskRowIterIjlED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data11DiskRowIterIjlEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data11DiskRowIterIjlEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   invoke void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjlEEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(416) %2)
           to label %3 unwind label %25
@@ -56853,7 +56853,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjlE
           to label %63 unwind label %118
 
 63:                                               ; preds = %62
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4dmlc12ScopedThreadE, i64 16), ptr %61, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4dmlc12ScopedThreadE, i64 16), ptr %61, align 8, !tbaa !23
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %65 = load i64, ptr %6, align 8, !tbaa !14
   store i64 %65, ptr %64, align 8, !tbaa !14
@@ -57006,7 +57006,7 @@ define linkonce_odr void @_ZNSt6threadC2IRZN4dmlc12ThreadedIterINS1_4data17RowBl
   %3 = alloca %"class.std::unique_ptr.239", align 8
   store i64 0, ptr %0, align 8, !tbaa !454
   %4 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerIjlEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %4, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerIjlEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %4, align 8, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %1, align 8, !tbaa !800
   store ptr %6, ptr %5, align 8, !tbaa !800
@@ -57187,7 +57187,7 @@ define linkonce_odr void @_ZZN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjl
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerIjlEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerIjlEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerIjlEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !407
   %4 = icmp eq ptr %3, null
@@ -57230,7 +57230,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dm
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerIjlEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerIjlEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerIjlEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !407
   %4 = icmp eq ptr %3, null
@@ -61489,7 +61489,7 @@ define linkonce_odr void @_ZN4dmlc4data12BasicRowIterIjlE4InitEPNS_6ParserIjlEE(
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data12BasicRowIterIjlED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterIjlEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterIjlEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN4dmlc4data17RowBlockContainerIjlED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %2) #19
   ret void
@@ -61497,7 +61497,7 @@ define linkonce_odr void @_ZN4dmlc4data12BasicRowIterIjlED2Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data12BasicRowIterIjlED0Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterIjlEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterIjlEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN4dmlc4data17RowBlockContainerIjlED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %2) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 256) #30
@@ -61546,7 +61546,7 @@ define linkonce_odr void @_ZN4dmlc4data11DiskRowIterImlEC2EPNS_6ParserImlEEPKcb(
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data11DiskRowIterImlEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data11DiskRowIterImlEE, i64 16), ptr %0, align 8, !tbaa !23
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %9, ptr %8, align 8, !tbaa !13
@@ -61843,7 +61843,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit9:       ; preds = %.noexc8, %81
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerImlEEEC2Em(ptr noundef nonnull align 8 dereferenceable(416) %0, i64 noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterINS_4data17RowBlockContainerImlEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterINS_4data17RowBlockContainerImlEEEE, i64 16), ptr %0, align 8, !tbaa !23
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -62474,7 +62474,7 @@ define linkonce_odr void @_ZN4dmlc4data11DiskRowIterImlE10BuildCacheEPNS_6Parser
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerImlEEED2Ev(ptr noundef nonnull align 8 dereferenceable(416) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterINS_4data17RowBlockContainerImlEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterINS_4data17RowBlockContainerImlEEEE, i64 16), ptr %0, align 8, !tbaa !23
   invoke void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerImlEEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(416) %0)
           to label %2 unwind label %90
 
@@ -62671,7 +62671,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerImlE
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data11DiskRowIterImlED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data11DiskRowIterImlEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data11DiskRowIterImlEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   invoke void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerImlEEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(416) %2)
           to label %3 unwind label %25
@@ -64478,7 +64478,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerImlE
           to label %63 unwind label %118
 
 63:                                               ; preds = %62
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4dmlc12ScopedThreadE, i64 16), ptr %61, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4dmlc12ScopedThreadE, i64 16), ptr %61, align 8, !tbaa !23
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %65 = load i64, ptr %6, align 8, !tbaa !14
   store i64 %65, ptr %64, align 8, !tbaa !14
@@ -64631,7 +64631,7 @@ define linkonce_odr void @_ZNSt6threadC2IRZN4dmlc12ThreadedIterINS1_4data17RowBl
   %3 = alloca %"class.std::unique_ptr.239", align 8
   store i64 0, ptr %0, align 8, !tbaa !454
   %4 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerImlEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %4, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerImlEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %4, align 8, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %1, align 8, !tbaa !882
   store ptr %6, ptr %5, align 8, !tbaa !882
@@ -64812,7 +64812,7 @@ define linkonce_odr void @_ZZN4dmlc12ThreadedIterINS_4data17RowBlockContainerIml
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerImlEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerImlEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerImlEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !407
   %4 = icmp eq ptr %3, null
@@ -64855,7 +64855,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dm
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerImlEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerImlEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterINS3_4data17RowBlockContainerImlEEE4InitESt8functionIFbPPS7_EES9_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !407
   %4 = icmp eq ptr %3, null
@@ -69013,7 +69013,7 @@ define linkonce_odr void @_ZN4dmlc4data12BasicRowIterImlE4InitEPNS_6ParserImlEE(
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data12BasicRowIterImlED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterImlEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterImlEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN4dmlc4data17RowBlockContainerImlED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %2) #19
   ret void
@@ -69021,7 +69021,7 @@ define linkonce_odr void @_ZN4dmlc4data12BasicRowIterImlED2Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data12BasicRowIterImlED0Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterImlEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4dmlc4data12BasicRowIterImlEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN4dmlc4data17RowBlockContainerImlED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %2) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 264) #30
@@ -69076,18 +69076,18 @@ define linkonce_odr noundef ptr @_ZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE4F
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst) #19
   br label %9
 
 9:                                                ; preds = %7, %4, %1
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   %11 = icmp eq ptr %10, null
   br i1 %11, label %64, label %12
 
@@ -69099,7 +69099,7 @@ define linkonce_odr noundef ptr @_ZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE4F
 
 16:                                               ; preds = %33, %12
   %17 = phi ptr [ %10, %12 ], [ %39, %33 ]
-  %18 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), %12 ], [ %36, %33 ]
+  %18 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), %12 ], [ %36, %33 ]
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %20 = load i64, ptr %19, align 8, !tbaa !11
   %21 = tail call i64 @llvm.umin.i64(i64 %14, i64 %20)
@@ -69131,7 +69131,7 @@ define linkonce_odr noundef ptr @_ZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE4F
   br i1 %40, label %41, label %16, !llvm.loop !152
 
 41:                                               ; preds = %33
-  %42 = icmp eq ptr %36, getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56)
+  %42 = icmp eq ptr %36, getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56)
   br i1 %42, label %64, label %43
 
 43:                                               ; preds = %41
@@ -69185,18 +69185,18 @@ define linkonce_odr noundef ptr @_ZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE4F
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegImfEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst) #19
   br label %9
 
 9:                                                ; preds = %7, %4, %1
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   %11 = icmp eq ptr %10, null
   br i1 %11, label %64, label %12
 
@@ -69208,7 +69208,7 @@ define linkonce_odr noundef ptr @_ZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE4F
 
 16:                                               ; preds = %33, %12
   %17 = phi ptr [ %10, %12 ], [ %39, %33 ]
-  %18 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), %12 ], [ %36, %33 ]
+  %18 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), %12 ], [ %36, %33 ]
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %20 = load i64, ptr %19, align 8, !tbaa !11
   %21 = tail call i64 @llvm.umin.i64(i64 %14, i64 %20)
@@ -69240,7 +69240,7 @@ define linkonce_odr noundef ptr @_ZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE4F
   br i1 %40, label %41, label %16, !llvm.loop !154
 
 41:                                               ; preds = %33
-  %42 = icmp eq ptr %36, getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56)
+  %42 = icmp eq ptr %36, getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56)
   br i1 %42, label %64, label %43
 
 43:                                               ; preds = %41
@@ -69291,18 +69291,18 @@ define linkonce_odr noundef ptr @_ZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE4F
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst) #19
   br label %9
 
 9:                                                ; preds = %7, %4, %1
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   %11 = icmp eq ptr %10, null
   br i1 %11, label %64, label %12
 
@@ -69314,7 +69314,7 @@ define linkonce_odr noundef ptr @_ZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE4F
 
 16:                                               ; preds = %33, %12
   %17 = phi ptr [ %10, %12 ], [ %39, %33 ]
-  %18 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56), %12 ], [ %36, %33 ]
+  %18 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56), %12 ], [ %36, %33 ]
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %20 = load i64, ptr %19, align 8, !tbaa !11
   %21 = tail call i64 @llvm.umin.i64(i64 %14, i64 %20)
@@ -69346,7 +69346,7 @@ define linkonce_odr noundef ptr @_ZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE4F
   br i1 %40, label %41, label %16, !llvm.loop !156
 
 41:                                               ; preds = %33
-  %42 = icmp eq ptr %36, getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56)
+  %42 = icmp eq ptr %36, getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56)
   br i1 %42, label %64, label %43
 
 43:                                               ; preds = %41
@@ -69397,18 +69397,18 @@ define linkonce_odr noundef ptr @_ZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE4F
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegImiEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst) #19
   br label %9
 
 9:                                                ; preds = %7, %4, %1
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   %11 = icmp eq ptr %10, null
   br i1 %11, label %64, label %12
 
@@ -69420,7 +69420,7 @@ define linkonce_odr noundef ptr @_ZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE4F
 
 16:                                               ; preds = %33, %12
   %17 = phi ptr [ %10, %12 ], [ %39, %33 ]
-  %18 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56), %12 ], [ %36, %33 ]
+  %18 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56), %12 ], [ %36, %33 ]
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %20 = load i64, ptr %19, align 8, !tbaa !11
   %21 = tail call i64 @llvm.umin.i64(i64 %14, i64 %20)
@@ -69452,7 +69452,7 @@ define linkonce_odr noundef ptr @_ZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE4F
   br i1 %40, label %41, label %16, !llvm.loop !158
 
 41:                                               ; preds = %33
-  %42 = icmp eq ptr %36, getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56)
+  %42 = icmp eq ptr %36, getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56)
   br i1 %42, label %64, label %43
 
 43:                                               ; preds = %41
@@ -69503,18 +69503,18 @@ define linkonce_odr noundef ptr @_ZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE4F
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst) #19
   br label %9
 
 9:                                                ; preds = %7, %4, %1
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   %11 = icmp eq ptr %10, null
   br i1 %11, label %64, label %12
 
@@ -69526,7 +69526,7 @@ define linkonce_odr noundef ptr @_ZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE4F
 
 16:                                               ; preds = %33, %12
   %17 = phi ptr [ %10, %12 ], [ %39, %33 ]
-  %18 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56), %12 ], [ %36, %33 ]
+  %18 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56), %12 ], [ %36, %33 ]
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %20 = load i64, ptr %19, align 8, !tbaa !11
   %21 = tail call i64 @llvm.umin.i64(i64 %14, i64 %20)
@@ -69558,7 +69558,7 @@ define linkonce_odr noundef ptr @_ZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE4F
   br i1 %40, label %41, label %16, !llvm.loop !160
 
 41:                                               ; preds = %33
-  %42 = icmp eq ptr %36, getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56)
+  %42 = icmp eq ptr %36, getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56)
   br i1 %42, label %64, label %43
 
 43:                                               ; preds = %41
@@ -69609,18 +69609,18 @@ define linkonce_odr noundef ptr @_ZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE4F
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegImlEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst) #19
   br label %9
 
 9:                                                ; preds = %7, %4, %1
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   %11 = icmp eq ptr %10, null
   br i1 %11, label %64, label %12
 
@@ -69632,7 +69632,7 @@ define linkonce_odr noundef ptr @_ZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE4F
 
 16:                                               ; preds = %33, %12
   %17 = phi ptr [ %10, %12 ], [ %39, %33 ]
-  %18 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56), %12 ], [ %36, %33 ]
+  %18 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56), %12 ], [ %36, %33 ]
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %20 = load i64, ptr %19, align 8, !tbaa !11
   %21 = tail call i64 @llvm.umin.i64(i64 %14, i64 %20)
@@ -69664,7 +69664,7 @@ define linkonce_odr noundef ptr @_ZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE4F
   br i1 %40, label %41, label %16, !llvm.loop !162
 
 41:                                               ; preds = %33
-  %42 = icmp eq ptr %36, getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56)
+  %42 = icmp eq ptr %36, getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56)
   br i1 %42, label %64, label %43
 
 43:                                               ; preds = %41
@@ -70692,7 +70692,7 @@ define linkonce_odr void @_ZN4dmlc4data12LibSVMParserIjfEC2EPNS_10InputSplitERKS
   %11 = tail call i32 @llvm.smin.i32(i32 %3, i32 1)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %11, ptr %12, align 8, !tbaa !960
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data12LibSVMParserIjfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data12LibSVMParserIjfEE, i64 16), ptr %0, align 8, !tbaa !23
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %14, ptr %13, align 8, !tbaa !13
@@ -70886,7 +70886,7 @@ define linkonce_odr void @_ZN4dmlc4data14ThreadedParserIjfEC2EPNS0_10ParserImplI
   %4 = alloca %"class.std::function.234", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data14ThreadedParserIjfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data14ThreadedParserIjfEE, i64 16), ptr %0, align 8, !tbaa !23
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %1, ptr %6, align 8, !tbaa !964
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -71012,7 +71012,7 @@ define linkonce_odr void @_ZN4dmlc4data14ThreadedParserIjfEC2EPNS0_10ParserImplI
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data12LibSVMParserIjfED2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data12LibSVMParserIjfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data12LibSVMParserIjfEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -71039,7 +71039,7 @@ define linkonce_odr void @_ZN4dmlc4data12LibSVMParserIjfED2Ev(ptr noundef nonnul
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data12LibSVMParserIjfED0Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data12LibSVMParserIjfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data12LibSVMParserIjfEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -72270,7 +72270,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit71:      ; preds = %.noexc, %_ZN4dmlc15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data14TextParserBaseIjfED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data14TextParserBaseIjfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data14TextParserBaseIjfEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8, !tbaa !959
   %4 = icmp eq ptr %3, null
@@ -72294,7 +72294,7 @@ define linkonce_odr void @_ZN4dmlc4data14TextParserBaseIjfED2Ev(ptr noundef nonn
   br label %14
 
 14:                                               ; preds = %13, %9
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplIjfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplIjfEE, i64 16), ptr %0, align 8, !tbaa !23
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !1007
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -72365,7 +72365,7 @@ define linkonce_odr void @_ZN4dmlc4data14TextParserBaseIjfED0Ev(ptr noundef nonn
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data10ParserImplIjfED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplIjfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplIjfEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !1007
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -72936,7 +72936,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter12ParamManager9RunUpdateISt23_Rb_tr
           to label %216 unwind label %221
 
 216:                                              ; preds = %215
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4dmlc10ParamErrorE, i64 16), ptr %214, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4dmlc10ParamErrorE, i64 16), ptr %214, align 8, !tbaa !23
   invoke void @__cxa_throw(ptr nonnull %214, ptr nonnull @_ZTIN4dmlc10ParamErrorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #31
           to label %243 unwind label %221
 
@@ -73729,13 +73729,13 @@ define linkonce_odr void @_ZN4dmlc14LogCheckFormatINSt7__cxx1112basic_stringIcSt
   store ptr %19, ptr %0, align 8, !tbaa !83
   %52 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %52, ptr %4, align 8, !tbaa !23
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %54 = getelementptr i8, ptr %52, i64 -24
   %55 = load i64, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %4, i64 %55
   store ptr %53, ptr %56, align 8, !tbaa !23
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %57, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %57, align 8, !tbaa !23
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %59 = load ptr, ptr %58, align 8, !tbaa !4
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -73756,7 +73756,7 @@ define linkonce_odr void @_ZN4dmlc14LogCheckFormatINSt7__cxx1112basic_stringIcSt
   br label %69
 
 69:                                               ; preds = %66, %62
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %57, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %57, align 8, !tbaa !23
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %70) #19
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -73997,7 +73997,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
           to label %111 unwind label %216
 
 111:                                              ; preds = %105
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc4data14TextParserBaseIjfE8FillDataEPSt6vectorINS4_17RowBlockContainerIjfEESaIS9_EEEUlvE_EEEEEE, i64 16), ptr %110, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc4data14TextParserBaseIjfE8FillDataEPSt6vectorINS4_17RowBlockContainerIjfEESaIS9_EEEUlvE_EEEEEE, i64 16), ptr %110, align 8, !tbaa !23
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store ptr %5, ptr %112, align 8, !tbaa !83
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 16
@@ -75566,13 +75566,13 @@ define linkonce_odr void @_ZN4dmlc14LogCheckFormatIccEESt10unique_ptrINSt7__cxx1
   store ptr %41, ptr %0, align 8, !tbaa !83
   %74 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %74, ptr %6, align 8, !tbaa !23
-  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %76 = getelementptr i8, ptr %74, i64 -24
   %77 = load i64, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %6, i64 %77
   store ptr %75, ptr %78, align 8, !tbaa !23
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %79, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %79, align 8, !tbaa !23
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %81 = load ptr, ptr %80, align 8, !tbaa !4
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 96
@@ -75593,7 +75593,7 @@ define linkonce_odr void @_ZN4dmlc14LogCheckFormatIccEESt10unique_ptrINSt7__cxx1
   br label %91
 
 91:                                               ; preds = %88, %84
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %79, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %79, align 8, !tbaa !23
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %92) #19
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -75971,13 +75971,13 @@ define linkonce_odr void @_ZN4dmlc14LogCheckFormatIbbEESt10unique_ptrINSt7__cxx1
   store ptr %19, ptr %0, align 8, !tbaa !83
   %52 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %52, ptr %4, align 8, !tbaa !23
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %54 = getelementptr i8, ptr %52, i64 -24
   %55 = load i64, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %4, i64 %55
   store ptr %53, ptr %56, align 8, !tbaa !23
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %57, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %57, align 8, !tbaa !23
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %59 = load ptr, ptr %58, align 8, !tbaa !4
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -75998,7 +75998,7 @@ define linkonce_odr void @_ZN4dmlc14LogCheckFormatIbbEESt10unique_ptrINSt7__cxx1
   br label %69
 
 69:                                               ; preds = %66, %62
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %57, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %57, align 8, !tbaa !23
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %70) #19
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -76026,7 +76026,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc12ThreadedIterISt6vectorINS_4data17RowBlockContainerIjfEESaIS4_EEEC2Em(ptr noundef nonnull align 8 dereferenceable(416) %0, i64 noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterISt6vectorINS_4data17RowBlockContainerIjfEESaIS4_EEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterISt6vectorINS_4data17RowBlockContainerIjfEESaIS4_EEEE, i64 16), ptr %0, align 8, !tbaa !23
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -76210,7 +76210,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterISt6vectorINS_4data17RowBlockCon
           to label %63 unwind label %118
 
 63:                                               ; preds = %62
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4dmlc12ScopedThreadE, i64 16), ptr %61, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4dmlc12ScopedThreadE, i64 16), ptr %61, align 8, !tbaa !23
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %65 = load i64, ptr %6, align 8, !tbaa !14
   store i64 %65, ptr %64, align 8, !tbaa !14
@@ -76360,7 +76360,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterISt6vectorINS_4data17RowBlockCon
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc12ThreadedIterISt6vectorINS_4data17RowBlockContainerIjfEESaIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(416) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterISt6vectorINS_4data17RowBlockContainerIjfEESaIS4_EEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterISt6vectorINS_4data17RowBlockContainerIjfEESaIS4_EEEE, i64 16), ptr %0, align 8, !tbaa !23
   invoke void @_ZN4dmlc12ThreadedIterISt6vectorINS_4data17RowBlockContainerIjfEESaIS4_EEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(416) %0)
           to label %2 unwind label %90
 
@@ -76557,7 +76557,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterISt6vectorINS_4data17RowBlockCon
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data14ThreadedParserIjfED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data14ThreadedParserIjfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data14ThreadedParserIjfEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   invoke void @_ZN4dmlc12ThreadedIterISt6vectorINS_4data17RowBlockContainerIjfEESaIS4_EEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(416) %2)
           to label %3 unwind label %57
@@ -76622,7 +76622,7 @@ define linkonce_odr void @_ZN4dmlc4data14ThreadedParserIjfED2Ev(ptr noundef nonn
           to label %36 unwind label %59
 
 36:                                               ; preds = %35
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplIjfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplIjfEE, i64 16), ptr %0, align 8, !tbaa !23
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !1007
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -78394,7 +78394,7 @@ define linkonce_odr void @_ZNSt6threadC2IRZN4dmlc12ThreadedIterISt6vectorINS1_4d
   %3 = alloca %"class.std::unique_ptr.239", align 8
   store i64 0, ptr %0, align 8, !tbaa !454
   %4 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterISt6vectorINS3_4data17RowBlockContainerIjfEESaIS8_EEE4InitESt8functionIFbPPSA_EESC_IFvvEEEUlvE_EEEEEE, i64 16), ptr %4, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterISt6vectorINS3_4data17RowBlockContainerIjfEESaIS8_EEE4InitESt8functionIFbPPSA_EESC_IFvvEEEUlvE_EEEEEE, i64 16), ptr %4, align 8, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %1, align 8, !tbaa !1106
   store ptr %6, ptr %5, align 8, !tbaa !1106
@@ -78575,7 +78575,7 @@ define linkonce_odr void @_ZZN4dmlc12ThreadedIterISt6vectorINS_4data17RowBlockCo
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterISt6vectorINS3_4data17RowBlockContainerIjfEESaIS8_EEE4InitESt8functionIFbPPSA_EESC_IFvvEEEUlvE_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterISt6vectorINS3_4data17RowBlockContainerIjfEESaIS8_EEE4InitESt8functionIFbPPSA_EESC_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterISt6vectorINS3_4data17RowBlockContainerIjfEESaIS8_EEE4InitESt8functionIFbPPSA_EESC_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !407
   %4 = icmp eq ptr %3, null
@@ -78618,7 +78618,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dm
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterISt6vectorINS3_4data17RowBlockContainerIjfEESaIS8_EEE4InitESt8functionIFbPPSA_EESC_IFvvEEEUlvE_EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterISt6vectorINS3_4data17RowBlockContainerIjfEESaIS8_EEE4InitESt8functionIFbPPSA_EESC_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterISt6vectorINS3_4data17RowBlockContainerIjfEESaIS8_EEE4InitESt8functionIFbPPSA_EESC_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !407
   %4 = icmp eq ptr %3, null
@@ -81055,7 +81055,7 @@ define linkonce_odr void @_ZN4dmlc4data12LibSVMParserImfEC2EPNS_10InputSplitERKS
   %11 = tail call i32 @llvm.smin.i32(i32 %3, i32 1)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %11, ptr %12, align 8, !tbaa !1157
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data12LibSVMParserImfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data12LibSVMParserImfEE, i64 16), ptr %0, align 8, !tbaa !23
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %14, ptr %13, align 8, !tbaa !13
@@ -81249,7 +81249,7 @@ define linkonce_odr void @_ZN4dmlc4data14ThreadedParserImfEC2EPNS0_10ParserImplI
   %4 = alloca %"class.std::function.234", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data14ThreadedParserImfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data14ThreadedParserImfEE, i64 16), ptr %0, align 8, !tbaa !23
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %1, ptr %6, align 8, !tbaa !1161
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -81375,7 +81375,7 @@ define linkonce_odr void @_ZN4dmlc4data14ThreadedParserImfEC2EPNS0_10ParserImplI
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data12LibSVMParserImfED2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data12LibSVMParserImfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data12LibSVMParserImfEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -81402,7 +81402,7 @@ define linkonce_odr void @_ZN4dmlc4data12LibSVMParserImfED2Ev(ptr noundef nonnul
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data12LibSVMParserImfED0Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data12LibSVMParserImfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data12LibSVMParserImfEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -82625,7 +82625,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit71:      ; preds = %.noexc, %_ZN4dmlc15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data14TextParserBaseImfED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data14TextParserBaseImfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data14TextParserBaseImfEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8, !tbaa !1156
   %4 = icmp eq ptr %3, null
@@ -82649,7 +82649,7 @@ define linkonce_odr void @_ZN4dmlc4data14TextParserBaseImfED2Ev(ptr noundef nonn
   br label %14
 
 14:                                               ; preds = %13, %9
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplImfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplImfEE, i64 16), ptr %0, align 8, !tbaa !23
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !1197
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -82720,7 +82720,7 @@ define linkonce_odr void @_ZN4dmlc4data14TextParserBaseImfED0Ev(ptr noundef nonn
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data10ParserImplImfED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplImfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplImfEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !1197
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -82980,7 +82980,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
           to label %111 unwind label %216
 
 111:                                              ; preds = %105
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc4data14TextParserBaseImfE8FillDataEPSt6vectorINS4_17RowBlockContainerImfEESaIS9_EEEUlvE_EEEEEE, i64 16), ptr %110, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc4data14TextParserBaseImfE8FillDataEPSt6vectorINS4_17RowBlockContainerImfEESaIS9_EEEUlvE_EEEEEE, i64 16), ptr %110, align 8, !tbaa !23
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store ptr %5, ptr %112, align 8, !tbaa !83
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 16
@@ -84134,7 +84134,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit8:       ; preds = %.noexc7, %49
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc12ThreadedIterISt6vectorINS_4data17RowBlockContainerImfEESaIS4_EEEC2Em(ptr noundef nonnull align 8 dereferenceable(416) %0, i64 noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterISt6vectorINS_4data17RowBlockContainerImfEESaIS4_EEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterISt6vectorINS_4data17RowBlockContainerImfEESaIS4_EEEE, i64 16), ptr %0, align 8, !tbaa !23
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -84318,7 +84318,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterISt6vectorINS_4data17RowBlockCon
           to label %63 unwind label %118
 
 63:                                               ; preds = %62
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4dmlc12ScopedThreadE, i64 16), ptr %61, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4dmlc12ScopedThreadE, i64 16), ptr %61, align 8, !tbaa !23
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %65 = load i64, ptr %6, align 8, !tbaa !14
   store i64 %65, ptr %64, align 8, !tbaa !14
@@ -84468,7 +84468,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterISt6vectorINS_4data17RowBlockCon
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc12ThreadedIterISt6vectorINS_4data17RowBlockContainerImfEESaIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(416) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterISt6vectorINS_4data17RowBlockContainerImfEESaIS4_EEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4dmlc12ThreadedIterISt6vectorINS_4data17RowBlockContainerImfEESaIS4_EEEE, i64 16), ptr %0, align 8, !tbaa !23
   invoke void @_ZN4dmlc12ThreadedIterISt6vectorINS_4data17RowBlockContainerImfEESaIS4_EEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(416) %0)
           to label %2 unwind label %90
 
@@ -84665,7 +84665,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterISt6vectorINS_4data17RowBlockCon
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data14ThreadedParserImfED2Ev(ptr noundef nonnull align 8 dereferenceable(544) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data14ThreadedParserImfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data14ThreadedParserImfEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   invoke void @_ZN4dmlc12ThreadedIterISt6vectorINS_4data17RowBlockContainerImfEESaIS4_EEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(416) %2)
           to label %3 unwind label %57
@@ -84730,7 +84730,7 @@ define linkonce_odr void @_ZN4dmlc4data14ThreadedParserImfED2Ev(ptr noundef nonn
           to label %36 unwind label %59
 
 36:                                               ; preds = %35
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplImfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplImfEE, i64 16), ptr %0, align 8, !tbaa !23
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = load ptr, ptr %37, align 8, !tbaa !1197
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -86494,7 +86494,7 @@ define linkonce_odr void @_ZNSt6threadC2IRZN4dmlc12ThreadedIterISt6vectorINS1_4d
   %3 = alloca %"class.std::unique_ptr.239", align 8
   store i64 0, ptr %0, align 8, !tbaa !454
   %4 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterISt6vectorINS3_4data17RowBlockContainerImfEESaIS8_EEE4InitESt8functionIFbPPSA_EESC_IFvvEEEUlvE_EEEEEE, i64 16), ptr %4, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterISt6vectorINS3_4data17RowBlockContainerImfEESaIS8_EEE4InitESt8functionIFbPPSA_EESC_IFvvEEEUlvE_EEEEEE, i64 16), ptr %4, align 8, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %1, align 8, !tbaa !1235
   store ptr %6, ptr %5, align 8, !tbaa !1235
@@ -86675,7 +86675,7 @@ define linkonce_odr void @_ZZN4dmlc12ThreadedIterISt6vectorINS_4data17RowBlockCo
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterISt6vectorINS3_4data17RowBlockContainerImfEESaIS8_EEE4InitESt8functionIFbPPSA_EESC_IFvvEEEUlvE_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterISt6vectorINS3_4data17RowBlockContainerImfEESaIS8_EEE4InitESt8functionIFbPPSA_EESC_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterISt6vectorINS3_4data17RowBlockContainerImfEESaIS8_EEE4InitESt8functionIFbPPSA_EESC_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !407
   %4 = icmp eq ptr %3, null
@@ -86718,7 +86718,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dm
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterISt6vectorINS3_4data17RowBlockContainerImfEESaIS8_EEE4InitESt8functionIFbPPSA_EESC_IFvvEEEUlvE_EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterISt6vectorINS3_4data17RowBlockContainerImfEESaIS8_EEE4InitESt8functionIFbPPSA_EESC_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc12ThreadedIterISt6vectorINS3_4data17RowBlockContainerImfEESaIS8_EEE4InitESt8functionIFbPPSA_EESC_IFvvEEEUlvE_EEEEEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !407
   %4 = icmp eq ptr %3, null
@@ -88538,7 +88538,7 @@ define linkonce_odr void @_ZN4dmlc4data11LibFMParserIjfEC2EPNS_10InputSplitERKSt
   %11 = tail call i32 @llvm.smin.i32(i32 %3, i32 1)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %11, ptr %12, align 8, !tbaa !960
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data11LibFMParserIjfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data11LibFMParserIjfEE, i64 16), ptr %0, align 8, !tbaa !23
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %14, ptr %13, align 8, !tbaa !13
@@ -88728,7 +88728,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit6:       ; preds = %.noexc5, %35
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data11LibFMParserIjfED2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data11LibFMParserIjfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data11LibFMParserIjfEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -88755,7 +88755,7 @@ define linkonce_odr void @_ZN4dmlc4data11LibFMParserIjfED2Ev(ptr noundef nonnull
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data11LibFMParserIjfED0Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data11LibFMParserIjfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data11LibFMParserIjfEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -89884,13 +89884,13 @@ define linkonce_odr void @_ZN4dmlc14LogCheckFormatINSt7__cxx1112basic_stringIcSt
   store ptr %19, ptr %0, align 8, !tbaa !83
   %52 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %52, ptr %4, align 8, !tbaa !23
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %54 = getelementptr i8, ptr %52, i64 -24
   %55 = load i64, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %4, i64 %55
   store ptr %53, ptr %56, align 8, !tbaa !23
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %57, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %57, align 8, !tbaa !23
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %59 = load ptr, ptr %58, align 8, !tbaa !4
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -89911,7 +89911,7 @@ define linkonce_odr void @_ZN4dmlc14LogCheckFormatINSt7__cxx1112basic_stringIcSt
   br label %69
 
 69:                                               ; preds = %66, %62
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %57, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %57, align 8, !tbaa !23
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %70) #19
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -90199,7 +90199,7 @@ define linkonce_odr void @_ZN4dmlc4data11LibFMParserImfEC2EPNS_10InputSplitERKSt
   %11 = tail call i32 @llvm.smin.i32(i32 %3, i32 1)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %11, ptr %12, align 8, !tbaa !1157
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data11LibFMParserImfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data11LibFMParserImfEE, i64 16), ptr %0, align 8, !tbaa !23
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %14, ptr %13, align 8, !tbaa !13
@@ -90389,7 +90389,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit6:       ; preds = %.noexc5, %35
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data11LibFMParserImfED2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data11LibFMParserImfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data11LibFMParserImfEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -90416,7 +90416,7 @@ define linkonce_odr void @_ZN4dmlc4data11LibFMParserImfED2Ev(ptr noundef nonnull
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data11LibFMParserImfED0Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data11LibFMParserImfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data11LibFMParserImfEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -91722,7 +91722,7 @@ define linkonce_odr void @_ZN4dmlc4data9CSVParserIjfEC2EPNS_10InputSplitERKSt3ma
   %12 = tail call i32 @llvm.smin.i32(i32 %3, i32 1)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %12, ptr %13, align 8, !tbaa !960
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserIjfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserIjfEE, i64 16), ptr %0, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %15, ptr %14, align 8, !tbaa !13
@@ -91982,7 +91982,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit8:       ; preds = %.noexc7, %96
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data9CSVParserIjfED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserIjfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserIjfEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load ptr, ptr %3, align 8, !tbaa !4
@@ -92029,7 +92029,7 @@ define linkonce_odr void @_ZN4dmlc4data9CSVParserIjfED2Ev(ptr noundef nonnull al
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data9CSVParserIjfED0Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserIjfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserIjfEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load ptr, ptr %3, align 8, !tbaa !4
@@ -92927,13 +92927,13 @@ define linkonce_odr void @_ZN4dmlc14LogCheckFormatINSt7__cxx1112basic_stringIcSt
   store ptr %19, ptr %0, align 8, !tbaa !83
   %52 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %52, ptr %4, align 8, !tbaa !23
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %54 = getelementptr i8, ptr %52, i64 -24
   %55 = load i64, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %4, i64 %55
   store ptr %53, ptr %56, align 8, !tbaa !23
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %57, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %57, align 8, !tbaa !23
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %59 = load ptr, ptr %58, align 8, !tbaa !4
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -92954,7 +92954,7 @@ define linkonce_odr void @_ZN4dmlc14LogCheckFormatINSt7__cxx1112basic_stringIcSt
   br label %69
 
 69:                                               ; preds = %66, %62
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %57, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %57, align 8, !tbaa !23
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %70) #19
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -92994,7 +92994,7 @@ define linkonce_odr void @_ZN4dmlc4data9CSVParserImfEC2EPNS_10InputSplitERKSt3ma
   %12 = tail call i32 @llvm.smin.i32(i32 %3, i32 1)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %12, ptr %13, align 8, !tbaa !1157
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserImfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserImfEE, i64 16), ptr %0, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %15, ptr %14, align 8, !tbaa !13
@@ -93254,7 +93254,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit8:       ; preds = %.noexc7, %96
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data9CSVParserImfED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserImfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserImfEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8, !tbaa !4
@@ -93301,7 +93301,7 @@ define linkonce_odr void @_ZN4dmlc4data9CSVParserImfED2Ev(ptr noundef nonnull al
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data9CSVParserImfED0Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserImfEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserImfEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8, !tbaa !4
@@ -94744,7 +94744,7 @@ define linkonce_odr void @_ZN4dmlc4data9CSVParserIjiEC2EPNS_10InputSplitERKSt3ma
   %12 = tail call i32 @llvm.smin.i32(i32 %3, i32 1)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %12, ptr %13, align 8, !tbaa !1368
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserIjiEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserIjiEE, i64 16), ptr %0, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %15, ptr %14, align 8, !tbaa !13
@@ -95004,7 +95004,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit8:       ; preds = %.noexc7, %96
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data9CSVParserIjiED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserIjiEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserIjiEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load ptr, ptr %3, align 8, !tbaa !4
@@ -95051,7 +95051,7 @@ define linkonce_odr void @_ZN4dmlc4data9CSVParserIjiED2Ev(ptr noundef nonnull al
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data9CSVParserIjiED0Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserIjiEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserIjiEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load ptr, ptr %3, align 8, !tbaa !4
@@ -95893,7 +95893,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit44:      ; preds = %.noexc43, %_ZN4dmlc
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data14TextParserBaseIjiED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data14TextParserBaseIjiEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data14TextParserBaseIjiEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8, !tbaa !1367
   %4 = icmp eq ptr %3, null
@@ -95917,7 +95917,7 @@ define linkonce_odr void @_ZN4dmlc4data14TextParserBaseIjiED2Ev(ptr noundef nonn
   br label %14
 
 14:                                               ; preds = %13, %9
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplIjiEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplIjiEE, i64 16), ptr %0, align 8, !tbaa !23
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !1387
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -95988,7 +95988,7 @@ define linkonce_odr void @_ZN4dmlc4data14TextParserBaseIjiED0Ev(ptr noundef nonn
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data10ParserImplIjiED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplIjiEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplIjiEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !1387
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -96248,7 +96248,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
           to label %111 unwind label %216
 
 111:                                              ; preds = %105
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc4data14TextParserBaseIjiE8FillDataEPSt6vectorINS4_17RowBlockContainerIjiEESaIS9_EEEUlvE_EEEEEE, i64 16), ptr %110, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc4data14TextParserBaseIjiE8FillDataEPSt6vectorINS4_17RowBlockContainerIjiEESaIS9_EEEUlvE_EEEEEE, i64 16), ptr %110, align 8, !tbaa !23
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store ptr %5, ptr %112, align 8, !tbaa !83
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 16
@@ -97770,7 +97770,7 @@ define linkonce_odr void @_ZN4dmlc4data9CSVParserImiEC2EPNS_10InputSplitERKSt3ma
   %12 = tail call i32 @llvm.smin.i32(i32 %3, i32 1)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %12, ptr %13, align 8, !tbaa !1435
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserImiEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserImiEE, i64 16), ptr %0, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %15, ptr %14, align 8, !tbaa !13
@@ -98030,7 +98030,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit8:       ; preds = %.noexc7, %96
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data9CSVParserImiED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserImiEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserImiEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8, !tbaa !4
@@ -98077,7 +98077,7 @@ define linkonce_odr void @_ZN4dmlc4data9CSVParserImiED2Ev(ptr noundef nonnull al
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data9CSVParserImiED0Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserImiEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserImiEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8, !tbaa !4
@@ -98911,7 +98911,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit44:      ; preds = %.noexc43, %_ZN4dmlc
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data14TextParserBaseImiED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data14TextParserBaseImiEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data14TextParserBaseImiEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8, !tbaa !1434
   %4 = icmp eq ptr %3, null
@@ -98935,7 +98935,7 @@ define linkonce_odr void @_ZN4dmlc4data14TextParserBaseImiED2Ev(ptr noundef nonn
   br label %14
 
 14:                                               ; preds = %13, %9
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplImiEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplImiEE, i64 16), ptr %0, align 8, !tbaa !23
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !1454
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -99006,7 +99006,7 @@ define linkonce_odr void @_ZN4dmlc4data14TextParserBaseImiED0Ev(ptr noundef nonn
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data10ParserImplImiED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplImiEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplImiEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !1454
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -99266,7 +99266,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
           to label %111 unwind label %216
 
 111:                                              ; preds = %105
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc4data14TextParserBaseImiE8FillDataEPSt6vectorINS4_17RowBlockContainerImiEESaIS9_EEEUlvE_EEEEEE, i64 16), ptr %110, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc4data14TextParserBaseImiE8FillDataEPSt6vectorINS4_17RowBlockContainerImiEESaIS9_EEEUlvE_EEEEEE, i64 16), ptr %110, align 8, !tbaa !23
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store ptr %5, ptr %112, align 8, !tbaa !83
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 16
@@ -100787,7 +100787,7 @@ define linkonce_odr void @_ZN4dmlc4data9CSVParserIjlEC2EPNS_10InputSplitERKSt3ma
   %12 = tail call i32 @llvm.smin.i32(i32 %3, i32 1)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %12, ptr %13, align 8, !tbaa !1503
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserIjlEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserIjlEE, i64 16), ptr %0, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %15, ptr %14, align 8, !tbaa !13
@@ -101047,7 +101047,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit8:       ; preds = %.noexc7, %96
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data9CSVParserIjlED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserIjlEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserIjlEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load ptr, ptr %3, align 8, !tbaa !4
@@ -101094,7 +101094,7 @@ define linkonce_odr void @_ZN4dmlc4data9CSVParserIjlED2Ev(ptr noundef nonnull al
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data9CSVParserIjlED0Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserIjlEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserIjlEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load ptr, ptr %3, align 8, !tbaa !4
@@ -101935,7 +101935,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit44:      ; preds = %.noexc43, %_ZN4dmlc
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data14TextParserBaseIjlED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data14TextParserBaseIjlEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data14TextParserBaseIjlEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8, !tbaa !1502
   %4 = icmp eq ptr %3, null
@@ -101959,7 +101959,7 @@ define linkonce_odr void @_ZN4dmlc4data14TextParserBaseIjlED2Ev(ptr noundef nonn
   br label %14
 
 14:                                               ; preds = %13, %9
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplIjlEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplIjlEE, i64 16), ptr %0, align 8, !tbaa !23
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !1522
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -102030,7 +102030,7 @@ define linkonce_odr void @_ZN4dmlc4data14TextParserBaseIjlED0Ev(ptr noundef nonn
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data10ParserImplIjlED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplIjlEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplIjlEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !1522
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -102290,7 +102290,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
           to label %111 unwind label %216
 
 111:                                              ; preds = %105
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc4data14TextParserBaseIjlE8FillDataEPSt6vectorINS4_17RowBlockContainerIjlEESaIS9_EEEUlvE_EEEEEE, i64 16), ptr %110, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc4data14TextParserBaseIjlE8FillDataEPSt6vectorINS4_17RowBlockContainerIjlEESaIS9_EEEUlvE_EEEEEE, i64 16), ptr %110, align 8, !tbaa !23
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store ptr %5, ptr %112, align 8, !tbaa !83
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 16
@@ -103812,7 +103812,7 @@ define linkonce_odr void @_ZN4dmlc4data9CSVParserImlEC2EPNS_10InputSplitERKSt3ma
   %12 = tail call i32 @llvm.smin.i32(i32 %3, i32 1)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %12, ptr %13, align 8, !tbaa !1570
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserImlEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserImlEE, i64 16), ptr %0, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %15, ptr %14, align 8, !tbaa !13
@@ -104072,7 +104072,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit8:       ; preds = %.noexc7, %96
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data9CSVParserImlED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserImlEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserImlEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8, !tbaa !4
@@ -104119,7 +104119,7 @@ define linkonce_odr void @_ZN4dmlc4data9CSVParserImlED2Ev(ptr noundef nonnull al
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data9CSVParserImlED0Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserImlEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data9CSVParserImlEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8, !tbaa !4
@@ -104952,7 +104952,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit44:      ; preds = %.noexc43, %_ZN4dmlc
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data14TextParserBaseImlED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data14TextParserBaseImlEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4dmlc4data14TextParserBaseImlEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8, !tbaa !1569
   %4 = icmp eq ptr %3, null
@@ -104976,7 +104976,7 @@ define linkonce_odr void @_ZN4dmlc4data14TextParserBaseImlED2Ev(ptr noundef nonn
   br label %14
 
 14:                                               ; preds = %13, %9
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplImlEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplImlEE, i64 16), ptr %0, align 8, !tbaa !23
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !1589
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -105047,7 +105047,7 @@ define linkonce_odr void @_ZN4dmlc4data14TextParserBaseImlED0Ev(ptr noundef nonn
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc4data10ParserImplImlED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplImlEE, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4dmlc4data10ParserImplImlEE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !1589
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -105307,7 +105307,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
           to label %111 unwind label %216
 
 111:                                              ; preds = %105
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc4data14TextParserBaseImlE8FillDataEPSt6vectorINS4_17RowBlockContainerImlEESaIS9_EEEUlvE_EEEEEE, i64 16), ptr %110, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4dmlc4data14TextParserBaseImlE8FillDataEPSt6vectorINS4_17RowBlockContainerImlEESaIS9_EEEUlvE_EEEEEE, i64 16), ptr %110, align 8, !tbaa !23
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store ptr %5, ptr %112, align 8, !tbaa !83
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 16
@@ -106225,12 +106225,12 @@ define internal void @_GLOBAL__sub_I_data.cc() #27 section ".text.startup" perso
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %17
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %21 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst) #19
   br label %22
@@ -106306,12 +106306,12 @@ define internal void @_GLOBAL__sub_I_data.cc() #27 section ".text.startup" perso
   br i1 %55, label %58, label %56
 
 56:                                               ; preds = %53
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %57 = call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegImfEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst) #19
   br label %58
@@ -106383,12 +106383,12 @@ define internal void @_GLOBAL__sub_I_data.cc() #27 section ".text.startup" perso
   br i1 %89, label %92, label %90
 
 90:                                               ; preds = %87
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %91 = call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst) #19
   br label %92
@@ -106460,12 +106460,12 @@ define internal void @_GLOBAL__sub_I_data.cc() #27 section ".text.startup" perso
   br i1 %123, label %126, label %124
 
 124:                                              ; preds = %121
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %125 = call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegImfEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst) #19
   br label %126
@@ -106537,12 +106537,12 @@ define internal void @_GLOBAL__sub_I_data.cc() #27 section ".text.startup" perso
   br i1 %157, label %160, label %158
 
 158:                                              ; preds = %155
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %159 = call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegIjfEEE3GetEvE4inst) #19
   br label %160
@@ -106614,12 +106614,12 @@ define internal void @_GLOBAL__sub_I_data.cc() #27 section ".text.startup" perso
   br i1 %191, label %194, label %192
 
 192:                                              ; preds = %189
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %193 = call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegImfEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegImfEEE3GetEvE4inst) #19
   br label %194
@@ -106691,12 +106691,12 @@ define internal void @_GLOBAL__sub_I_data.cc() #27 section ".text.startup" perso
   br i1 %225, label %228, label %226
 
 226:                                              ; preds = %223
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %227 = call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegIjiEEE3GetEvE4inst) #19
   br label %228
@@ -106768,12 +106768,12 @@ define internal void @_GLOBAL__sub_I_data.cc() #27 section ".text.startup" perso
   br i1 %259, label %262, label %260
 
 260:                                              ; preds = %257
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %261 = call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegImiEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegImiEEE3GetEvE4inst) #19
   br label %262
@@ -106845,12 +106845,12 @@ define internal void @_GLOBAL__sub_I_data.cc() #27 section ".text.startup" perso
   br i1 %293, label %296, label %294
 
 294:                                              ; preds = %291
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %295 = call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegIjlEEE3GetEvE4inst) #19
   br label %296
@@ -106922,12 +106922,12 @@ define internal void @_GLOBAL__sub_I_data.cc() #27 section ".text.startup" perso
   br i1 %327, label %330, label %328
 
 328:                                              ; preds = %325
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56), align 8, !tbaa !15
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 64), align 8, !tbaa !19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 72), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 56), ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 80), align 8, !tbaa !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, i64 88), i8 0, i64 48, i1 false)
   %329 = call i32 @__cxa_atexit(ptr nonnull @_ZN4dmlc8RegistryINS_16ParserFactoryRegImlEEED2Ev, ptr nonnull @_ZZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst, ptr nonnull @__dso_handle) #19
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4dmlc8RegistryINS_16ParserFactoryRegImlEEE3GetEvE4inst) #19
   br label %330

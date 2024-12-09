@@ -20,7 +20,7 @@ entry:
   %len2 = getelementptr inbounds nuw i8, ptr %a, i64 8
   store i64 %len, ptr %len2, align 8
   %buf_history = getelementptr inbounds nuw i8, ptr %a, i64 16
-  store ptr getelementptr inbounds (i8, ptr @fake_history, i64 16), ptr %buf_history, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @fake_history, i64 16), ptr %buf_history, align 8
   %len_history = getelementptr inbounds nuw i8, ptr %a, i64 24
   store i64 0, ptr %len_history, align 8
   %start_offset = getelementptr inbounds nuw i8, ptr %a, i64 32
@@ -554,7 +554,7 @@ for.body.us:                                      ; preds = %getInitState.exit, 
   %40 = load i8, ptr %shift9.us, align 64
   %idx.ext.i161.us = zext i8 %40 to i64
   %idx.neg.i.us = sub nsw i64 0, %idx.ext.i161.us
-  %add.ptr.i162.us = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @vbs_mask_data, i64 16), i64 %idx.neg.i.us
+  %add.ptr.i162.us = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @vbs_mask_data, i64 16), i64 %idx.neg.i.us
   %41 = load <16 x i8>, ptr %add.ptr.i162.us, align 1
   %42 = bitcast <2 x i64> %state.01938.us to <16 x i8>
   %43 = call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %42, <16 x i8> %41)
@@ -1816,7 +1816,7 @@ for.body.us1942:                                  ; preds = %getInitState.exit, 
   %239 = load i8, ptr %shift9.us1949, align 64
   %idx.ext.i161.us1950 = zext i8 %239 to i64
   %idx.neg.i.us1951 = sub nsw i64 0, %idx.ext.i161.us1950
-  %add.ptr.i162.us1952 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @vbs_mask_data, i64 16), i64 %idx.neg.i.us1951
+  %add.ptr.i162.us1952 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @vbs_mask_data, i64 16), i64 %idx.neg.i.us1951
   %240 = load <16 x i8>, ptr %add.ptr.i162.us1952, align 1
   %241 = bitcast <2 x i64> %state.01938.us1945 to <16 x i8>
   %242 = call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %241, <16 x i8> %240)
@@ -2998,7 +2998,7 @@ for.body.us1963:                                  ; preds = %getInitState.exit, 
   %422 = load i8, ptr %shift9.us1970, align 64
   %idx.ext.i161.us1971 = zext i8 %422 to i64
   %idx.neg.i.us1972 = sub nsw i64 0, %idx.ext.i161.us1971
-  %add.ptr.i162.us1973 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @vbs_mask_data, i64 16), i64 %idx.neg.i.us1972
+  %add.ptr.i162.us1973 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @vbs_mask_data, i64 16), i64 %idx.neg.i.us1972
   %423 = load <16 x i8>, ptr %add.ptr.i162.us1973, align 1
   %424 = bitcast <2 x i64> %state.01938.us1966 to <16 x i8>
   %425 = call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %424, <16 x i8> %423)

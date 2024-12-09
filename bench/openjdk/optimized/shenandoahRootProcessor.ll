@@ -489,7 +489,7 @@ declare noundef zeroext i1 @_ZNK14ShenandoahHeap14unload_classesEv(ptr noundef n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN37ShenandoahConcurrentMarkThreadClosureC2EP10OopClosure(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV37ShenandoahConcurrentMarkThreadClosure, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV37ShenandoahConcurrentMarkThreadClosure, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
@@ -713,7 +713,7 @@ define hidden void @_ZN31ShenandoahConcurrentRootScanner8roots_doEP10OopClosurej
   %9 = alloca %class.NMethodToOopClosure, align 8
   %10 = alloca %class.ShenandoahConcurrentMarkThreadClosure, align 8
   %11 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15CLDToOopClosure, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV15CLDToOopClosure, i64 16), ptr %7, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -783,7 +783,7 @@ _ZN30ShenandoahClassLoaderDataRootsILb1EE6cld_doEP10CLDClosurej.exit: ; preds = 
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %40 = load i32, ptr %39, align 8
   call void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull align 8 dereferenceable(72) %8, i32 noundef %40, i32 noundef 2, i32 noundef %2) #12
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19NMethodToOopClosure, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19NMethodToOopClosure, i64 16), ptr %9, align 8
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %1, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -795,7 +795,7 @@ _ZN30ShenandoahClassLoaderDataRootsILb1EE6cld_doEP10CLDClosurej.exit: ; preds = 
   br label %45
 
 45:                                               ; preds = %_ZN30ShenandoahClassLoaderDataRootsILb1EE6cld_doEP10CLDClosurej.exit, %_ZN30ShenandoahClassLoaderDataRootsILb1EE20always_strong_cld_doEP10CLDClosurej.exit
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV37ShenandoahConcurrentMarkThreadClosure, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV37ShenandoahConcurrentMarkThreadClosure, i64 16), ptr %10, align 8
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %1, ptr %46, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
@@ -1044,7 +1044,7 @@ define hidden void @_ZN22ShenandoahRootAdjuster8roots_doEjP10OopClosure(ptr noun
   %8 = alloca %class.NMethodToOopClosure, align 8
   %9 = alloca %class.ShenandoahNMethodAndDisarmClosure, align 8
   %10 = alloca %class.CLDToOopClosure, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19NMethodToOopClosure, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19NMethodToOopClosure, i64 16), ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -1053,7 +1053,7 @@ define hidden void @_ZN22ShenandoahRootAdjuster8roots_doEjP10OopClosure(ptr noun
   store ptr %2, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i8 1, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV33ShenandoahNMethodAndDisarmClosure, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV33ShenandoahNMethodAndDisarmClosure, i64 16), ptr %9, align 8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %16 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
@@ -1061,7 +1061,7 @@ define hidden void @_ZN22ShenandoahRootAdjuster8roots_doEjP10OopClosure(ptr noun
   store ptr %18, ptr %15, align 8
   %19 = tail call noundef zeroext i1 @_ZN19ShenandoahCodeRoots29use_nmethod_barriers_for_markEv() #12
   %. = select i1 %19, ptr %9, ptr %8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15CLDToOopClosure, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV15CLDToOopClosure, i64 16), ptr %10, align 8
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %2, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -1264,12 +1264,12 @@ define hidden void @_ZN34ShenandoahHeapIterationRootScanner8roots_doEP10OopClosu
   %7 = alloca %class.CLDToOopClosure, align 8
   %8 = alloca %class.ShenandoahMarkNMethodClosure, align 8
   %9 = alloca %class.ShenandoahParallelOopsDoThreadClosure, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15CLDToOopClosure, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV15CLDToOopClosure, i64 16), ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 16, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahMarkNMethodClosure, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahMarkNMethodClosure, i64 16), ptr %8, align 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -1277,7 +1277,7 @@ define hidden void @_ZN34ShenandoahHeapIterationRootScanner8roots_doEP10OopClosu
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV37ShenandoahParallelOopsDoThreadClosure, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV37ShenandoahParallelOopsDoThreadClosure, i64 16), ptr %9, align 8
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -1803,7 +1803,7 @@ define linkonce_odr hidden void @_ZN25OopStorageSetWeakParStateILb0ELb0EE7oops_d
   br i1 %15, label %16, label %40
 
 16:                                               ; preds = %10
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV18DeadCounterClosureI10OopClosureE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV18DeadCounterClosureI10OopClosureE, i64 16), ptr %5, align 8
   store ptr %1, ptr %7, align 8
   store i64 0, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)

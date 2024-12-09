@@ -136,7 +136,7 @@ define internal void @proc_open_rsrc_dtor(ptr nocapture noundef readonly %0) #0 
   br i1 %26, label %9, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %23, %1
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @file_globals, i64 88), align 8
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 88), align 8
   %.not = icmp eq i32 %27, 0
   %spec.select = zext i1 %.not to i32
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 44
@@ -331,7 +331,7 @@ define hidden void @zif_proc_terminate(ptr noundef %0, ptr nocapture noundef wri
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %.thread119
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %28 = icmp ne ptr %27, null
   call void @llvm.assume(i1 %28)
   br label %37
@@ -397,16 +397,16 @@ define hidden void @zif_proc_close(ptr noundef %0, ptr nocapture noundef writeon
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
   br label %24
 
 19:                                               ; preds = %11
-  store i32 1, ptr getelementptr inbounds (i8, ptr @file_globals, i64 88), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 88), align 8
   %20 = load ptr, ptr %7, align 8
   tail call void @zend_list_close(ptr noundef %20) #13
-  store i32 0, ptr getelementptr inbounds (i8, ptr @file_globals, i64 88), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 88), align 8
   %21 = load i32, ptr @file_globals, align 8
   %22 = sext i32 %21 to i64
   store i64 %22, ptr %1, align 8
@@ -455,7 +455,7 @@ define hidden void @zif_proc_get_status(ptr noundef %0, ptr noundef %1) local_un
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %19)
   br label %70
@@ -720,7 +720,7 @@ define hidden void @zif_proc_open(ptr noundef %0, ptr nocapture noundef writeonl
 
 66:                                               ; preds = %62
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.10) #13
-  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %68 = icmp ne ptr %67, null
   call void @llvm.assume(i1 %68)
   br label %773

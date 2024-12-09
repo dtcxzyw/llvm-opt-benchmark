@@ -3242,7 +3242,7 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.i302: ; preds = %786, %779
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !575
   store ptr @anon.9e9bc4765699f9cbd8672f8335c8011a.8, ptr %9, align 8, !noalias !575
   %793 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.9e9bc4765699f9cbd8672f8335c8011a.8, i64 6), ptr %793, align 8, !noalias !575
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.9e9bc4765699f9cbd8672f8335c8011a.8, i64 6), ptr %793, align 8, !noalias !575
   br label %794
 
 794:                                              ; preds = %796, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.i302
@@ -3292,7 +3292,7 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit2.i: ; preds = %809, %802
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !593
   store ptr @anon.9e9bc4765699f9cbd8672f8335c8011a.9, ptr %7, align 8, !noalias !593
   %816 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.9e9bc4765699f9cbd8672f8335c8011a.9, i64 4), ptr %816, align 8, !noalias !593
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.9e9bc4765699f9cbd8672f8335c8011a.9, i64 4), ptr %816, align 8, !noalias !593
   br label %817
 
 817:                                              ; preds = %819, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit2.i
@@ -3367,7 +3367,7 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit6.i: ; preds = %832, %825
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !611
   store ptr @anon.9e9bc4765699f9cbd8672f8335c8011a.10, ptr %5, align 8, !noalias !611
   %839 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.9e9bc4765699f9cbd8672f8335c8011a.10, i64 8), ptr %839, align 8, !noalias !611
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.9e9bc4765699f9cbd8672f8335c8011a.10, i64 8), ptr %839, align 8, !noalias !611
   br label %840
 
 840:                                              ; preds = %842, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit6.i

@@ -157,7 +157,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN77_$LT$common..defaul
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h586e3e9400ebdea2E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h586e3e9400ebdea2E", i64 16) acquire, align 8, !noalias !43
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h586e3e9400ebdea2E", i64 16) acquire, align 8, !noalias !43
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17h7627a5435cc978bcE.exit, label %7
 
@@ -166,7 +166,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN77_$LT$common..defaul
   store ptr %4, ptr %3, align 8, !noalias !43
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !43
   store ptr %3, ptr %2, align 8, !noalias !43
-  call void @_ZN3std10sys_common4once5futex4Once4call17h77a8a08035c8bad9E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h586e3e9400ebdea2E", i64 16), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2e3be23e0a2f7be1ddaeadb6f174a148.14)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h77a8a08035c8bad9E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h586e3e9400ebdea2E", i64 16), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2e3be23e0a2f7be1ddaeadb6f174a148.14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !43
   br label %_ZN3std4sync4once4Once9call_once17h7627a5435cc978bcE.exit
@@ -188,7 +188,7 @@ define void @"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$lazy_static
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h586e3e9400ebdea2E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h586e3e9400ebdea2E", i64 16) acquire, align 8, !noalias !47
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h586e3e9400ebdea2E", i64 16) acquire, align 8, !noalias !47
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$core..ops..deref..Deref$GT$5deref17h0da44dc4cec4468cE.exit", label %7
 
@@ -197,7 +197,7 @@ define void @"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$lazy_static
   store ptr %4, ptr %3, align 8, !noalias !47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !47
   store ptr %3, ptr %2, align 8, !noalias !47
-  call void @_ZN3std10sys_common4once5futex4Once4call17h77a8a08035c8bad9E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h586e3e9400ebdea2E", i64 16), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2e3be23e0a2f7be1ddaeadb6f174a148.14)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h77a8a08035c8bad9E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h586e3e9400ebdea2E", i64 16), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2e3be23e0a2f7be1ddaeadb6f174a148.14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !47
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !47
   br label %"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$core..ops..deref..Deref$GT$5deref17h0da44dc4cec4468cE.exit"

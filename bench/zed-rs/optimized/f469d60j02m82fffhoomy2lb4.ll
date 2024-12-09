@@ -2089,7 +2089,7 @@ default.unreachable13:                            ; preds = %42, %2
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
-  %18 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN2db3kvp15KEY_VALUE_STORE17h2e937b7ef350bffaE, i64 48) acquire, align 8, !noalias !290
+  %18 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2db3kvp15KEY_VALUE_STORE17h2e937b7ef350bffaE, i64 48) acquire, align 8, !noalias !290
   %19 = icmp eq i32 %18, 4
   br i1 %19, label %_ZN3std4sync4once4Once9call_once17h50461f76b21cdb53E.exit.i, label %20
 
@@ -2098,7 +2098,7 @@ default.unreachable13:                            ; preds = %42, %2
   store ptr @_ZN2db3kvp15KEY_VALUE_STORE17h2e937b7ef350bffaE, ptr %9, align 8, !noalias !290
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !290
   store ptr %9, ptr %8, align 8, !noalias !290
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h99bc864f50f625a4E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN2db3kvp15KEY_VALUE_STORE17h2e937b7ef350bffaE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b2e3b5e4a89f206ec94c17271d9b7845.88)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h99bc864f50f625a4E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN2db3kvp15KEY_VALUE_STORE17h2e937b7ef350bffaE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b2e3b5e4a89f206ec94c17271d9b7845.88)
           to label %.noexc.i unwind label %32, !noalias !290
 
 .noexc.i:                                         ; preds = %20

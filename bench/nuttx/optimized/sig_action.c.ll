@@ -182,10 +182,10 @@ up_irq_restore.exit:                              ; preds = %55, %47, %43, %41
   store ptr null, ptr %20, align 8
   %83 = load ptr, ptr @g_sigfreeaction, align 8
   %.not.i100 = icmp eq ptr %83, null
-  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @g_sigfreeaction, i64 8), align 8
+  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_sigfreeaction, i64 8), align 8
   %g_sigfreeaction.sink.i = select i1 %.not.i100, ptr @g_sigfreeaction, ptr %84
   store ptr %20, ptr %g_sigfreeaction.sink.i, align 8
-  store ptr %20, ptr getelementptr inbounds (i8, ptr @g_sigfreeaction, i64 8), align 8
+  store ptr %20, ptr getelementptr inbounds nuw (i8, ptr @g_sigfreeaction, i64 8), align 8
   %85 = and i64 %82, 512
   %.not.i.i = icmp eq i64 %85, 0
   br i1 %.not.i.i, label %nxsig_release_action.exit, label %86
@@ -244,14 +244,14 @@ up_irq_restore.exit.i:                            ; preds = %92, %88
   br label %102
 
 100:                                              ; preds = %96
-  %101 = load ptr, ptr getelementptr inbounds (i8, ptr @g_sigfreeaction, i64 8), align 8
+  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_sigfreeaction, i64 8), align 8
   store ptr %.013.i.i, ptr %101, align 8
   %.pre.i.i = load ptr, ptr @g_sigfreeaction, align 8
   br label %102
 
 102:                                              ; preds = %100, %99
   %103 = phi ptr [ %.pre.i.i, %100 ], [ %.013.i.i, %99 ]
-  store ptr %.013.i.i, ptr getelementptr inbounds (i8, ptr @g_sigfreeaction, i64 8), align 8
+  store ptr %.013.i.i, ptr getelementptr inbounds nuw (i8, ptr @g_sigfreeaction, i64 8), align 8
   %104 = add nuw nsw i32 %.0912.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %104, 4
   br i1 %exitcond.not.i.i, label %105, label %96, !llvm.loop !11
@@ -356,10 +356,10 @@ define void @nxsig_release_action(ptr noundef initializes((0, 8)) %0) local_unna
   store ptr null, ptr %0, align 8
   %4 = load ptr, ptr @g_sigfreeaction, align 8
   %.not = icmp eq ptr %4, null
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @g_sigfreeaction, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_sigfreeaction, i64 8), align 8
   %g_sigfreeaction.sink = select i1 %.not, ptr @g_sigfreeaction, ptr %5
   store ptr %0, ptr %g_sigfreeaction.sink, align 8
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @g_sigfreeaction, i64 8), align 8
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @g_sigfreeaction, i64 8), align 8
   %6 = and i64 %3, 512
   %.not.i = icmp eq i64 %6, 0
   br i1 %.not.i, label %up_irq_restore.exit, label %7

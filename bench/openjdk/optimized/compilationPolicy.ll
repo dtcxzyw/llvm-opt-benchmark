@@ -634,7 +634,7 @@ define hidden noundef signext range(i8 -128, 5) i8 @_ZN17CompilationPolicy21init
   br i1 %5, label %6, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN13CompileBroker10_compilersE, i64 8), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN13CompileBroker10_compilersE, i64 8), align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit, label %8
 
@@ -3281,7 +3281,7 @@ define linkonce_odr hidden noundef signext i8 @_ZN17CompilationPolicy6commonI13L
   br i1 %12, label %13, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN13CompileBroker10_compilersE, i64 8), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN13CompileBroker10_compilersE, i64 8), align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit, label %15
 
@@ -3632,7 +3632,7 @@ define linkonce_odr hidden noundef signext i8 @_ZN17CompilationPolicy6commonI13C
   br i1 %12, label %13, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN13CompileBroker10_compilersE, i64 8), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN13CompileBroker10_compilersE, i64 8), align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit, label %15
 
@@ -4008,7 +4008,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN17CompilationPolicy17should_cr
   br i1 %8, label %9, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN13CompileBroker10_compilersE, i64 8), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN13CompileBroker10_compilersE, i64 8), align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit, label %11
 

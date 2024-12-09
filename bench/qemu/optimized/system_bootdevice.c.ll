@@ -273,7 +273,7 @@ if.then8:                                         ; preds = %do.body
   br label %if.end15
 
 if.else:                                          ; preds = %do.body
-  store ptr %4, ptr getelementptr inbounds (i8, ptr @fw_boot_order, i64 8), align 8
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @fw_boot_order, i64 8), align 8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else, %if.then8
@@ -356,7 +356,7 @@ if.then8.i:                                       ; preds = %do.body.i
   br label %if.end15.i
 
 if.else.i:                                        ; preds = %do.body.i
-  store ptr %4, ptr getelementptr inbounds (i8, ptr @fw_boot_order, i64 8), align 8
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @fw_boot_order, i64 8), align 8
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.else.i, %if.then8.i
@@ -437,7 +437,7 @@ if.then8.i49:                                     ; preds = %do.body.i45
   br label %if.end15.i51
 
 if.else.i53:                                      ; preds = %do.body.i45
-  store ptr %11, ptr getelementptr inbounds (i8, ptr @fw_boot_order, i64 8), align 8
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @fw_boot_order, i64 8), align 8
   br label %if.end15.i51
 
 if.end15.i51:                                     ; preds = %if.else.i53, %if.then8.i49
@@ -500,11 +500,11 @@ do.body:                                          ; preds = %if.else12
 
 do.body27:                                        ; preds = %for.cond
   store ptr null, ptr %call, align 8
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @fw_boot_order, i64 8), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @fw_boot_order, i64 8), align 8
   %tql_prev30 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %17, ptr %tql_prev30, align 8
   store ptr %call, ptr %17, align 8
-  store ptr %call, ptr getelementptr inbounds (i8, ptr @fw_boot_order, i64 8), align 8
+  store ptr %call, ptr getelementptr inbounds nuw (i8, ptr @fw_boot_order, i64 8), align 8
   br label %do.end33
 
 do.end33:                                         ; preds = %for.inc.i, %for.inc.us.i, %if.end15.i, %for.cond.preheader.i, %if.then, %do.body27, %do.body
@@ -833,7 +833,7 @@ if.then8.i:                                       ; preds = %do.body.i
   br label %if.end15.i
 
 if.else.i:                                        ; preds = %do.body.i
-  store ptr %6, ptr getelementptr inbounds (i8, ptr @fw_boot_order, i64 8), align 8
+  store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @fw_boot_order, i64 8), align 8
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.else.i, %if.then8.i
@@ -890,11 +890,11 @@ if.end6:                                          ; preds = %if.end
   %lsecs12 = getelementptr inbounds nuw i8, ptr %call, i64 40
   store i32 %lsecs, ptr %lsecs12, align 8
   store ptr null, ptr %call, align 8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @fw_lchs, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @fw_lchs, i64 8), align 8
   %tql_prev = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %2, ptr %tql_prev, align 8
   store ptr %call, ptr %2, align 8
-  store ptr %call, ptr getelementptr inbounds (i8, ptr @fw_lchs, i64 8), align 8
+  store ptr %call, ptr getelementptr inbounds nuw (i8, ptr @fw_lchs, i64 8), align 8
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.end6
@@ -956,7 +956,7 @@ if.then8:                                         ; preds = %do.body
   br label %if.end15
 
 if.else:                                          ; preds = %do.body
-  store ptr %4, ptr getelementptr inbounds (i8, ptr @fw_lchs, i64 8), align 8
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @fw_lchs, i64 8), align 8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else, %if.then8

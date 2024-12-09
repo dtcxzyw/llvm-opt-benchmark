@@ -54,7 +54,7 @@ $_ZN4llvm9StringMapIPN5clang4StmtENS_15MallocAllocatorEE21try_emplace_with_hashI
 define dso_local void @_ZN5clang4ento13ModelConsumerC2ERN4llvm9StringMapIPNS_4StmtENS2_15MallocAllocatorEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 9), (16, 24)) %0, ptr noundef nonnull align 1 %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN5clang4ento13ModelConsumerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN5clang4ento13ModelConsumerE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
   ret void

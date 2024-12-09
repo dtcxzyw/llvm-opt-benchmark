@@ -2346,32 +2346,32 @@ define hidden void @Init_Cont() local_unnamed_addr #0 {
   %17 = udiv i64 %10, %16
   %18 = add i64 %17, 1
   %19 = mul i64 %18, %16
-  store i64 %19, ptr getelementptr inbounds (i8, ptr @shared_fiber_pool, i64 16), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @shared_fiber_pool, i64 24), align 8
-  store i64 32, ptr getelementptr inbounds (i8, ptr @shared_fiber_pool, i64 32), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @shared_fiber_pool, i64 40), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @shared_fiber_pool, i64 48), align 8
-  store i64 %7, ptr getelementptr inbounds (i8, ptr @shared_fiber_pool, i64 56), align 8
+  store i64 %19, ptr getelementptr inbounds nuw (i8, ptr @shared_fiber_pool, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @shared_fiber_pool, i64 24), align 8
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @shared_fiber_pool, i64 32), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @shared_fiber_pool, i64 40), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @shared_fiber_pool, i64 48), align 8
+  store i64 %7, ptr getelementptr inbounds nuw (i8, ptr @shared_fiber_pool, i64 56), align 8
   tail call fastcc void @fiber_pool_expand(ptr noundef nonnull @shared_fiber_pool, i64 noundef 32)
   %20 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.2, i64 noundef 8) #9
   store i64 %20, ptr @fiber_initialize_keywords, align 16
   %21 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.3, i64 noundef 4) #9
-  store i64 %21, ptr getelementptr inbounds (i8, ptr @fiber_initialize_keywords, i64 8), align 8
+  store i64 %21, ptr getelementptr inbounds nuw (i8, ptr @fiber_initialize_keywords, i64 8), align 8
   %22 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.4, i64 noundef 7) #9
-  store i64 %22, ptr getelementptr inbounds (i8, ptr @fiber_initialize_keywords, i64 16), align 16
+  store i64 %22, ptr getelementptr inbounds nuw (i8, ptr @fiber_initialize_keywords, i64 16), align 16
   %23 = tail call ptr @getenv(ptr noundef nonnull @.str.5) #9
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %30, label %24
 
 24:                                               ; preds = %0
   %25 = tail call i32 @atoi(ptr nocapture noundef nonnull %23) #35
-  store i32 %25, ptr getelementptr inbounds (i8, ptr @shared_fiber_pool, i64 40), align 8
+  store i32 %25, ptr getelementptr inbounds nuw (i8, ptr @shared_fiber_pool, i64 40), align 8
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %.thread, label %27
 
 .thread:                                          ; preds = %24
   tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.6) #36
-  store i32 0, ptr getelementptr inbounds (i8, ptr @shared_fiber_pool, i64 40), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @shared_fiber_pool, i64 40), align 8
   br label %30
 
 27:                                               ; preds = %24

@@ -214,7 +214,7 @@ declare void @llvm.trap() #2
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3ue213RoseBuildImplC2ERNS_13ReportManagerERNS_14SomSlotManagerERNS_15SmallWriteBuildERKNS_14CompileContextERKNS_15BoundaryReportsE(ptr noundef nonnull align 8 dereferenceable(780) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(505) %rm_in, ptr noundef nonnull align 1 %ssm_in, ptr noundef nonnull align 8 dereferenceable(8) %smwr_in, ptr noundef nonnull align 8 dereferenceable(320) %cc_in, ptr noundef nonnull align 8 dereferenceable(144) %boundary_in) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue213RoseBuildImplE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue213RoseBuildImplE, i64 16), ptr %this, align 8
   %cc = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %cc_in, ptr %cc, align 8
   %g = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -573,7 +573,7 @@ entry:
   %agg.tmp2.i.i47 = alloca %"struct.std::_Deque_iterator", align 16
   %agg.tmp.i.i = alloca %"struct.std::_Deque_iterator.14", align 16
   %agg.tmp2.i.i = alloca %"struct.std::_Deque_iterator.14", align 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue213RoseBuildImplE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue213RoseBuildImplE, i64 16), ptr %this, align 8
   %mpv_outfix = getelementptr inbounds nuw i8, ptr %this, i64 712
   %0 = load ptr, ptr %mpv_outfix, align 8
   %cmp.not.i = icmp eq ptr %0, null

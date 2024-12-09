@@ -601,7 +601,7 @@ if.end22:                                         ; preds = %if.end.i20, %if.end
   %retval.0.i15.ph = phi ptr [ %10, %if.end18 ], [ %call5.i18, %if.end.i20 ]
   %nthreads.i = getelementptr inbounds nuw i8, ptr %retval.0.i15.ph, i64 24
   store i32 0, ptr %nthreads.i, align 8
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @dss_prec_names, i64 24), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dss_prec_names, i64 24), align 8
   %dss.i = getelementptr inbounds nuw i8, ptr %retval.0.i15.ph, i64 32
   store ptr %12, ptr %dss.i, align 8
   %dirty_decay_ms.i = getelementptr inbounds nuw i8, ptr %retval.0.i15.ph, i64 40
@@ -1183,7 +1183,7 @@ arenas_i.exit:                                    ; preds = %entry, %if.then11.i
   %vla = alloca ptr, i64 %6, align 16
   %nthreads.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 0, ptr %nthreads.i, align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @dss_prec_names, i64 24), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dss_prec_names, i64 24), align 8
   %dss.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %7, ptr %dss.i, align 8
   %dirty_decay_ms.i = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -1425,7 +1425,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %6 = load ptr, ptr %arrayidx.i.i, align 8
   %nthreads.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 0, ptr %nthreads.i, align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @dss_prec_names, i64 24), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dss_prec_names, i64 24), align 8
   %dss.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %7, ptr %dss.i, align 8
   %dirty_decay_ms.i = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -4714,7 +4714,7 @@ entry:
   br i1 %or.cond, label %label_return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_opts, i64 8), align 8
   store i64 %0, ptr %oldval, align 8
   %cmp3 = icmp ne ptr %oldp, null
   %cmp4 = icmp ne ptr %oldlenp, null
@@ -4751,7 +4751,7 @@ entry:
   br i1 %or.cond, label %label_return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 24), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_opts, i64 24), align 8
   store i64 %0, ptr %oldval, align 8
   %cmp3 = icmp ne ptr %oldp, null
   %cmp4 = icmp ne ptr %oldlenp, null
@@ -4788,7 +4788,7 @@ entry:
   br i1 %or.cond, label %label_return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 32), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_opts, i64 32), align 8
   store i64 %0, ptr %oldval, align 8
   %cmp3 = icmp ne ptr %oldp, null
   %cmp4 = icmp ne ptr %oldlenp, null
@@ -4825,7 +4825,7 @@ entry:
   br i1 %or.cond, label %label_return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 16), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_opts, i64 16), align 8
   store i32 %0, ptr %oldval, align 4
   %cmp3 = icmp ne ptr %oldp, null
   %cmp4 = icmp ne ptr %oldlenp, null
@@ -4899,7 +4899,7 @@ entry:
   br i1 %or.cond, label %label_return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @opt_hpa_sec_opts, i64 8), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_sec_opts, i64 8), align 8
   store i64 %0, ptr %oldval, align 8
   %cmp3 = icmp ne ptr %oldp, null
   %cmp4 = icmp ne ptr %oldlenp, null
@@ -4936,7 +4936,7 @@ entry:
   br i1 %or.cond, label %label_return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @opt_hpa_sec_opts, i64 16), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_sec_opts, i64 16), align 8
   store i64 %0, ptr %oldval, align 8
   %cmp3 = icmp ne ptr %oldp, null
   %cmp4 = icmp ne ptr %oldlenp, null
@@ -4973,7 +4973,7 @@ entry:
   br i1 %or.cond, label %label_return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @opt_hpa_sec_opts, i64 24), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_sec_opts, i64 24), align 8
   store i64 %0, ptr %oldval, align 8
   %cmp3 = icmp ne ptr %oldp, null
   %cmp4 = icmp ne ptr %oldlenp, null
@@ -5010,7 +5010,7 @@ entry:
   br i1 %or.cond, label %label_return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @opt_hpa_sec_opts, i64 32), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_sec_opts, i64 32), align 8
   store i64 %0, ptr %oldval, align 8
   %cmp3 = icmp ne ptr %oldp, null
   %cmp4 = icmp ne ptr %oldlenp, null

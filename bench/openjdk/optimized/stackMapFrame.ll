@@ -277,12 +277,12 @@ define hidden noundef ptr @_ZN13StackMapFrame19set_locals_from_argERK12methodHan
   %27 = zext i16 %25 to i64
   %28 = getelementptr inbounds nuw i64, ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
   %31 = icmp eq ptr %29, %30
   br i1 %31, label %32, label %40
 
 32:                                               ; preds = %19
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %.not = icmp eq ptr %2, %33
   br i1 %.not, label %40, label %34
 

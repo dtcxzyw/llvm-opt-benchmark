@@ -957,7 +957,7 @@ _ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit: ; preds = %if.then.i, %i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4YAML19GraphBuilderAdapterD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML19GraphBuilderAdapterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML19GraphBuilderAdapterE, i64 16), ptr %this, align 8
   %m_anchors = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_anchors, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -1006,7 +1006,7 @@ _ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEED2E
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4YAML19GraphBuilderAdapterD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML19GraphBuilderAdapterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML19GraphBuilderAdapterE, i64 16), ptr %this, align 8
   %m_anchors.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_anchors.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null

@@ -182,7 +182,7 @@ define hidden void @_ZN15GenDCmdArgument10read_valueEPKcmP10JavaThread(ptr nound
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %8
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 64, ptr noundef %13, ptr noundef nonnull @.str.4) #15
   br label %20
 
@@ -316,7 +316,7 @@ define hidden void @_ZN12DCmdArgumentIlE11parse_valueEPKcmP10JavaThread(ptr noun
 
 12:                                               ; preds = %7, %4
   %13 = phi ptr [ %1, %7 ], [ @.str.13, %4 ]
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = trunc i64 %2 to i32
@@ -426,7 +426,7 @@ define hidden void @_ZN12DCmdArgumentIbE11parse_valueEPKcmP10JavaThread(ptr noca
   %32 = tail call ptr @strncpy(ptr noundef %31, ptr noundef %1, i64 noundef %2) #15
   %33 = getelementptr inbounds i8, ptr %31, i64 %2
   store i8 0, ptr %33, align 1
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load ptr, ptr %35, align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @_ZN10Exceptions6fthrowEP10JavaThreadPKciP6SymbolS3_z(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 162, ptr noundef %34, ptr noundef nonnull @.str.16, ptr noundef %36, ptr noundef %31) #15
@@ -559,7 +559,7 @@ define hidden void @_ZN12DCmdArgumentI16NanoTimeArgumentE11parse_valueEPKcmP10Ja
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 209, ptr noundef %7, ptr noundef nonnull @.str.19) #15
   br label %63
 
@@ -575,7 +575,7 @@ define hidden void @_ZN12DCmdArgumentI16NanoTimeArgumentE11parse_valueEPKcmP10Ja
   br i1 %.not43, label %.critedge, label %.lr.ph
 
 12:                                               ; preds = %8
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 215, ptr noundef %13, ptr noundef nonnull @.str.20) #15
   br label %63
 
@@ -604,7 +604,7 @@ define hidden void @_ZN12DCmdArgumentI16NanoTimeArgumentE11parse_valueEPKcmP10Ja
   br i1 %.not39, label %23, label %21
 
 21:                                               ; preds = %.critedge.thread
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 225, ptr noundef %22, ptr noundef nonnull @.str.21) #15
   br label %63
 
@@ -620,7 +620,7 @@ define hidden void @_ZN12DCmdArgumentI16NanoTimeArgumentE11parse_valueEPKcmP10Ja
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %25
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 233, ptr noundef %29, ptr noundef nonnull @.str.23) #15
   br label %63
 
@@ -695,7 +695,7 @@ define hidden void @_ZN12DCmdArgumentI16NanoTimeArgumentE11parse_valueEPKcmP10Ja
   br label %63
 
 61:                                               ; preds = %48
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 260, ptr noundef %62, ptr noundef nonnull @.str.23) #15
   br label %63
 
@@ -888,7 +888,7 @@ define hidden void @_ZN12DCmdArgumentI18MemorySizeArgumentE11parse_valueEPKcmP10
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 306, ptr noundef %7, ptr noundef nonnull @.str.31) #15
   br label %35
 
@@ -898,7 +898,7 @@ define hidden void @_ZN12DCmdArgumentI18MemorySizeArgumentE11parse_valueEPKcmP10
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %8
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 310, ptr noundef %12, ptr noundef nonnull @.str.32) #15
   br label %35
 
@@ -953,7 +953,7 @@ define hidden void @_ZN12DCmdArgumentI18MemorySizeArgumentE11parse_valueEPKcmP10
   br label %35
 
 33:                                               ; preds = %13
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 335, ptr noundef %34, ptr noundef nonnull @.str.34) #15
   br label %35
 

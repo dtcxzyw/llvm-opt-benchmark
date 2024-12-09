@@ -150,13 +150,13 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
 41:                                               ; preds = %40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #5
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #5
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @src, i64 8), align 8
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @src, i64 8), align 8
   %43 = sitofp i32 %42 to double
   %44 = fmul double %43, 5.000000e-02
   %45 = fptosi double %44 to i32
   store i32 %45, ptr @top, align 4
   store i32 %45, ptr @bottom, align 4
-  %46 = load i32, ptr getelementptr inbounds (i8, ptr @src, i64 12), align 4
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @src, i64 12), align 4
   %47 = sitofp i32 %46 to double
   %48 = fmul double %47, 5.000000e-02
   %49 = fptosi double %48 to i32

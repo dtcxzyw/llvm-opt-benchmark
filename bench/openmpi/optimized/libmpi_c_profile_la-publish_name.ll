@@ -307,7 +307,7 @@ opal_obj_run_destructors.exit34:                  ; preds = %opal_obj_run_destru
 .lr.ph.i36:                                       ; preds = %122, %.lr.ph.preheader.i
   %126 = phi i8 [ %.pre15.i, %.lr.ph.preheader.i ], [ %140, %122 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %122 ]
-  %127 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 88), align 8
+  %127 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_errcodes_intern, i64 88), align 8
   %128 = sext i32 %127 to i64
   %.not.i37 = icmp slt i64 %indvars.iv.i, %128
   call void @llvm.assume(i1 %.not.i37)
@@ -315,20 +315,20 @@ opal_obj_run_destructors.exit34:                  ; preds = %opal_obj_run_destru
   br i1 %129, label %130, label %132
 
 130:                                              ; preds = %.lr.ph.i36
-  %131 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #6
+  %131 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_errcodes_intern, i64 32)) #6
   %.pre.i.i = load i8, ptr @opal_uses_threads, align 1
   br label %132
 
 132:                                              ; preds = %130, %.lr.ph.i36
   %133 = phi i8 [ %126, %.lr.ph.i36 ], [ %.pre.i.i, %130 ]
-  %134 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
+  %134 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_errcodes_intern, i64 112), align 8
   %135 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv.i
   %136 = load ptr, ptr %135, align 8
   %137 = trunc i8 %133 to i1
   br i1 %137, label %138, label %opal_pointer_array_get_item.exit.i
 
 138:                                              ; preds = %132
-  %139 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #6
+  %139 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_errcodes_intern, i64 32)) #6
   %.pre.i = load i8, ptr @opal_uses_threads, align 1
   br label %opal_pointer_array_get_item.exit.i
 

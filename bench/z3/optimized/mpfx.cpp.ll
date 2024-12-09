@@ -1175,7 +1175,7 @@ if.then17.i:                                      ; preds = %lor.lhs.false.i, %i
           to label %invoke.cont.i unwind label %cleanup.action.i
 
 invoke.cont.i:                                    ; preds = %if.then17.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
   %m_msg.i.i = getelementptr inbounds nuw i8, ptr %exception.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #21
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -1736,7 +1736,7 @@ entry:
 
 if.then4:                                         ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #23
   unreachable
 
@@ -1863,7 +1863,7 @@ entry:
 
 if.then3:                                         ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #23
   unreachable
 
@@ -2228,7 +2228,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager14div0_exceptionE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12mpfx_manager14div0_exceptionE, i64 16), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager14div0_exceptionE, ptr nonnull @_ZN12mpfx_manager14div0_exceptionD2Ev) #23
   unreachable
 
@@ -2568,7 +2568,7 @@ for.body46:                                       ; preds = %for.body46.preheade
 
 if.then50:                                        ; preds = %for.body46
   %exception51 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception51, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception51, align 8
   tail call void @__cxa_throw(ptr nonnull %exception51, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #23
   unreachable
 
@@ -2597,7 +2597,7 @@ if.then65.if.end71_crit_edge:                     ; preds = %if.then65
 
 if.then68:                                        ; preds = %if.then65
   %exception69 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception69, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception69, align 8
   tail call void @__cxa_throw(ptr nonnull %exception69, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #23
   unreachable
 
@@ -3385,7 +3385,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %_ZN12mpfx_manager18
 
 if.then6:                                         ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #23
   unreachable
 
@@ -3589,7 +3589,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %_ZN12mpfx_manager18
 
 if.then6:                                         ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #23
   unreachable
 
@@ -3818,7 +3818,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %invoke.cont46
 
 if.then51:                                        ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit
   %exception = call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #23
           to label %unreachable unwind label %lpad
 
@@ -4037,7 +4037,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %invoke.cont42
 
 if.then47:                                        ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit
   %exception = call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #23
           to label %unreachable unwind label %lpad
 
@@ -4315,7 +4315,7 @@ if.then24:                                        ; preds = %_ZN12mpfx_manager18
 
 if.then30:                                        ; preds = %if.then24
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #23
   unreachable
 
@@ -4607,7 +4607,7 @@ if.then18:                                        ; preds = %land.lhs.true
 
 if.then21:                                        ; preds = %if.then18
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #23
   unreachable
 
@@ -4621,7 +4621,7 @@ if.end22:                                         ; preds = %if.then18, %land.lh
 
 if.then27:                                        ; preds = %if.end22
   %exception28 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception28, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception28, align 8
   tail call void @__cxa_throw(ptr nonnull %exception28, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #23
   unreachable
 
@@ -4954,7 +4954,7 @@ land.lhs.true.if.end21_crit_edge:                 ; preds = %land.lhs.true
 
 if.then9:                                         ; preds = %land.lhs.true
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #23
   unreachable
 
@@ -5114,7 +5114,7 @@ land.lhs.true.if.end21_crit_edge:                 ; preds = %land.lhs.true
 
 if.then9:                                         ; preds = %land.lhs.true
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #23
   unreachable
 
@@ -7184,7 +7184,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -7262,7 +7262,7 @@ invoke.cont4:                                     ; preds = %if.end
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %this, align 8
   %m_msg = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #21
   ret void

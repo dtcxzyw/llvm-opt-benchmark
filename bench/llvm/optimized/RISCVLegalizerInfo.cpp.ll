@@ -562,7 +562,7 @@ define dso_local void @_ZN4llvm18RISCVLegalizerInfoC2ERKNS_14RISCVSubtargetE(ptr
   %422 = alloca %"class.std::function", align 8
   %423 = alloca [4 x %"class.llvm::LLT"], align 8
   %424 = alloca %"class.std::function", align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm13LegalizerInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm13LegalizerInfoE, i64 16), ptr %0, align 8
   br label %425
 
 425:                                              ; preds = %425, %2
@@ -581,7 +581,7 @@ define dso_local void @_ZN4llvm18RISCVLegalizerInfoC2ERKNS_14RISCVSubtargetE(ptr
 _ZN4llvm3LLT15scalable_vectorEjS0_.exit846:       ; preds = %425
   %430 = getelementptr inbounds nuw i8, ptr %0, i64 41000
   tail call void @_ZN4llvm19LegacyLegalizerInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(80040) %430) #15
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm18RISCVLegalizerInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm18RISCVLegalizerInfoE, i64 16), ptr %0, align 8
   %431 = getelementptr inbounds nuw i8, ptr %0, i64 121040
   store ptr %1, ptr %431, align 8
   %432 = getelementptr inbounds nuw i8, ptr %0, i64 121048
@@ -11987,7 +11987,7 @@ _ZN4llvm5APIntD2Ev.exit56:                        ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZN4llvm5APIntD2Ev.exit58
 
 _ZN4llvm5APIntD2Ev.exit58:                        ; preds = %_ZN4llvm5APIntD2Ev.exit56, %177, %180
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %9, align 8
   %181 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %182 = load ptr, ptr %181, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %182, null
@@ -12032,7 +12032,7 @@ declare noundef i32 @_ZN4llvm15LegalizerHelper5lowerERNS_12MachineInstrEjNS_3LLT
 define linkonce_odr hidden void @_ZN4llvm16MachineIRBuilderC2ERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -12179,7 +12179,7 @@ declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildInstrEjNS_8ArrayRefINS_5D
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm18RISCVLegalizerInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(121064) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm13LegalizerInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm13LegalizerInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 41000
   tail call void @_ZN4llvm19LegacyLegalizerInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(80040) %2) #15
   br label %3
@@ -12245,7 +12245,7 @@ _ZN4llvm13LegalizerInfoD2Ev.exit:                 ; preds = %_ZN4llvm15LegalizeR
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm18RISCVLegalizerInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(121064) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm13LegalizerInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm13LegalizerInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 41000
   tail call void @_ZN4llvm19LegacyLegalizerInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(80040) %2) #15
   br label %3

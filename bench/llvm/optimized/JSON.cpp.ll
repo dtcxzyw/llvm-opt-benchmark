@@ -1660,7 +1660,7 @@ define dso_local void @_ZNK4llvm4json4Path4Root8getErrorEv(ptr dead_on_unwind no
   store i32 1, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %4, ptr %11, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef null, i64 noundef 0, i32 noundef 0) #24
@@ -2625,7 +2625,7 @@ _ZN4llvm4json12_GLOBAL__N_16Parser9checkUTF8Ev.exit: ; preds = %18, %._crit_edge
   %28 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27, !noalias !59
   %29 = trunc i64 %.pre-phi22.i.i to i32
   %30 = trunc i64 %21 to i32
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %28, align 8, !noalias !59
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %28, align 8, !noalias !59
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr @.str.21, ptr %31, align 8, !noalias !59
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -2704,7 +2704,7 @@ _ZN4llvm4json12_GLOBAL__N_16Parser13eatWhitespaceEv.exit.i: ; preds = %.lr.ph.i.
   %52 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27, !noalias !66
   %53 = trunc i64 %.pre-phi22.i.i6 to i32
   %54 = trunc i64 %47 to i32
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %52, align 8, !noalias !66
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %52, align 8, !noalias !66
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr @.str.47, ptr %55, align 8, !noalias !66
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 16
@@ -2927,7 +2927,7 @@ _ZN4llvm4json12_GLOBAL__N_16Parser13eatWhitespaceEv.exit: ; preds = %.lr.ph.i, %
   %40 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27, !noalias !72
   %41 = trunc i64 %.pre-phi22.i to i32
   %42 = trunc i64 %35 to i32
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %40, align 8, !noalias !72
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %40, align 8, !noalias !72
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr @.str.33, ptr %43, align 8, !noalias !72
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -3059,7 +3059,7 @@ _ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit23.thread: ; preds = %72, %67, %59
   %88 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27, !noalias !75
   %89 = trunc i64 %.pre-phi22.i27 to i32
   %90 = trunc i64 %83 to i32
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %88, align 8, !noalias !75
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %88, align 8, !noalias !75
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store ptr @.str.34, ptr %91, align 8, !noalias !75
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 16
@@ -3165,7 +3165,7 @@ _ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit40.thread: ; preds = %119, %114, %
   %135 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27, !noalias !78
   %136 = trunc i64 %.pre-phi22.i44 to i32
   %137 = trunc i64 %130 to i32
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %135, align 8, !noalias !78
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %135, align 8, !noalias !78
   %138 = getelementptr inbounds nuw i8, ptr %135, i64 8
   store ptr @.str.35, ptr %138, align 8, !noalias !78
   %139 = getelementptr inbounds nuw i8, ptr %135, i64 16
@@ -3282,7 +3282,7 @@ _ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit57.thread: ; preds = %171, %166, %
   %187 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27, !noalias !81
   %188 = trunc i64 %.pre-phi22.i62 to i32
   %189 = trunc i64 %182 to i32
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %187, align 8, !noalias !81
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %187, align 8, !noalias !81
   %190 = getelementptr inbounds nuw i8, ptr %187, i64 8
   store ptr @.str.36, ptr %190, align 8, !noalias !81
   %191 = getelementptr inbounds nuw i8, ptr %187, i64 16
@@ -3567,7 +3567,7 @@ _ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit102.thread: ; preds = %.critedge21
   %278 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27, !noalias !85
   %279 = trunc i64 %.pre-phi22.i104 to i32
   %280 = trunc i64 %273 to i32
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %278, align 8, !noalias !85
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %278, align 8, !noalias !85
   %281 = getelementptr inbounds nuw i8, ptr %278, i64 8
   store ptr @.str.38, ptr %281, align 8, !noalias !85
   %282 = getelementptr inbounds nuw i8, ptr %278, i64 16
@@ -3672,7 +3672,7 @@ _ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit123.thread: ; preds = %_ZN4llvm4js
   %317 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27, !noalias !88
   %318 = trunc i64 %.pre-phi22.i125 to i32
   %319 = trunc i64 %312 to i32
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %317, align 8, !noalias !88
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %317, align 8, !noalias !88
   %320 = getelementptr inbounds nuw i8, ptr %317, i64 8
   store ptr @.str.39, ptr %320, align 8, !noalias !88
   %321 = getelementptr inbounds nuw i8, ptr %317, i64 16
@@ -3862,7 +3862,7 @@ _ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit151.thread: ; preds = %_ZN4llvm4js
   %374 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27, !noalias !96
   %375 = trunc i64 %.pre-phi22.i159 to i32
   %376 = trunc i64 %369 to i32
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %374, align 8, !noalias !96
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %374, align 8, !noalias !96
   %377 = getelementptr inbounds nuw i8, ptr %374, i64 8
   store ptr @.str.40, ptr %377, align 8, !noalias !96
   %378 = getelementptr inbounds nuw i8, ptr %374, i64 16
@@ -4087,7 +4087,7 @@ _ZN4llvm4json12_GLOBAL__N_16Parser8isNumberEc.exit.i: ; preds = %_ZN4llvm23Small
   %468 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27, !noalias !100
   %469 = trunc i64 %.pre-phi22.i.i to i32
   %470 = trunc i64 %463 to i32
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %468, align 8, !noalias !100
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %468, align 8, !noalias !100
   %471 = getelementptr inbounds nuw i8, ptr %468, i64 8
   store ptr @.str.46, ptr %471, align 8, !noalias !100
   %472 = getelementptr inbounds nuw i8, ptr %468, i64 16
@@ -4171,7 +4171,7 @@ _ZN4llvm4json12_GLOBAL__N_16Parser8isNumberEc.exit: ; preds = %_ZN4llvm4json12_G
   %500 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27, !noalias !103
   %501 = trunc i64 %.pre-phi22.i176 to i32
   %502 = trunc i64 %495 to i32
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %500, align 8, !noalias !103
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %500, align 8, !noalias !103
   %503 = getelementptr inbounds nuw i8, ptr %500, i64 8
   store ptr @.str.41, ptr %503, align 8, !noalias !103
   %504 = getelementptr inbounds nuw i8, ptr %500, i64 16
@@ -4553,7 +4553,7 @@ _ZNK4llvm4json5Value11getAsNumberEv.exit:         ; preds = %47
   %.sroa.0.0.i18 = select i1 %cond, double %58, double undef
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.7, ptr %59, align 8, !alias.scope !106
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJidEEE, i64 16), ptr %4, align 8, !alias.scope !106
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJidEEE, i64 16), ptr %4, align 8, !alias.scope !106
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store double %.sroa.0.0.i18, ptr %60, align 8, !alias.scope !106
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -6326,7 +6326,7 @@ define internal fastcc void @"_ZZZNK4llvm4json4Path4Root17printErrorContextERKNS
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #24
   %6 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %4) #24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.14, i64 7))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.14, i64 7))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #24
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -6717,7 +6717,7 @@ define internal fastcc void @_ZN4llvm4json12_GLOBAL__N_16Parser10parseErrorEPKc(
   %15 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27, !noalias !118
   %16 = trunc i64 %.pre-phi22 to i32
   %17 = trunc i64 %10 to i32
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %15, align 8, !noalias !118
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %15, align 8, !noalias !118
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %1, ptr %18, align 8, !noalias !118
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -6779,19 +6779,19 @@ define linkonce_odr hidden void @_ZNK4llvm4json10ParseError3logERNS_11raw_ostrea
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 1, ptr %10, align 8, !alias.scope !121
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKPKcEE, i64 16), ptr %11, align 8, !alias.scope !121
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKPKcEE, i64 16), ptr %11, align 8, !alias.scope !121
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %7, ptr %12, align 8, !alias.scope !121
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKjEE, i64 16), ptr %13, align 8, !alias.scope !121
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKjEE, i64 16), ptr %13, align 8, !alias.scope !121
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr %6, ptr %14, align 8, !alias.scope !121
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKjEE, i64 16), ptr %15, align 8, !alias.scope !121
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKjEE, i64 16), ptr %15, align 8, !alias.scope !121
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr %5, ptr %16, align 8, !alias.scope !121
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKjEE, i64 16), ptr %17, align 8, !alias.scope !121
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKjEE, i64 16), ptr %17, align 8, !alias.scope !121
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store ptr %4, ptr %18, align 8, !alias.scope !121
   store ptr %17, ptr %8, align 8, !alias.scope !121
@@ -6817,7 +6817,7 @@ define linkonce_odr hidden void @_ZNK4llvm13ErrorInfoBase7messageB5cxx11Ev(ptr d
   store i32 1, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %0, ptr %8, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #24
@@ -7319,7 +7319,7 @@ _ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit:   ; preds = %2
   %38 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27, !noalias !126
   %39 = trunc i64 %.pre-phi22.i to i32
   %40 = trunc i64 %33 to i32
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %38, align 8, !noalias !126
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %38, align 8, !noalias !126
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr @.str.42, ptr %41, align 8, !noalias !126
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -7388,7 +7388,7 @@ _ZN4llvm4json12_GLOBAL__N_16Parser10parseErrorEPKc.exit: ; preds = %._crit_edge.
   %68 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27, !noalias !129
   %69 = trunc i64 %.pre-phi22.i19 to i32
   %70 = trunc i64 %63 to i32
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %68, align 8, !noalias !129
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %68, align 8, !noalias !129
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store ptr @.str.43, ptr %71, align 8, !noalias !129
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 16
@@ -7706,7 +7706,7 @@ _ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit19: ; preds = %_ZN4llvm4json12_GLO
   %50 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27, !noalias !134
   %51 = trunc i64 %.pre-phi22.i to i32
   %52 = trunc i64 %45 to i32
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %50, align 8, !noalias !134
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm4json10ParseErrorE, i64 16), ptr %50, align 8, !noalias !134
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr @.str.45, ptr %53, align 8, !noalias !134
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 16

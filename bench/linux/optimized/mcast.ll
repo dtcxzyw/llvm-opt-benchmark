@@ -1260,7 +1260,7 @@ thread-pre-split:                                 ; preds = %47
 
 .loopexit13:                                      ; preds = %75, %66
   %87 = phi ptr [ null, %66 ], [ %79, %75 ]
-  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %89 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %88, i32 noundef 3520, i64 noundef 64) #14
   %90 = icmp eq ptr %89, null
   br i1 %90, label %102, label %91
@@ -2280,7 +2280,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__ipv6_dev_mc_inc(ptr noun
   br i1 %65, label %.loopexit, label %43, !llvm.loop !72
 
 .loopexit:                                        ; preds = %62, %34
-  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %67 = tail call noalias align 8 dereferenceable_or_null(208) ptr @kmalloc_trace(ptr noundef %66, i32 noundef 3520, i64 noundef 208) #14
   %68 = icmp eq ptr %67, null
   br i1 %68, label %97, label %69
@@ -2508,7 +2508,7 @@ define internal fastcc void @igmp6_group_dropped(ptr noundef %0) unnamed_addr #0
   br label %mld_ifc_event.exit
 
 54:                                               ; preds = %46, %42, %30
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %56 = call noalias align 8 dereferenceable_or_null(208) ptr @kmalloc_trace(ptr noundef %55, i32 noundef 3520, i64 noundef 208) #14
   %57 = icmp eq ptr %56, null
   br i1 %57, label %93, label %58
@@ -6032,7 +6032,7 @@ define internal fastcc void @igmp6_send(ptr noundef %0, ptr noundef %1, i32 noun
   %134 = getelementptr inbounds nuw i8, ptr %40, i64 88
   store i64 %133, ptr %134, align 8
   %135 = load ptr, ptr %65, align 8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @nf_hooks_needed, i64 848), i32 2) #13
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @nf_hooks_needed, i64 848), i32 2) #13
           to label %.thread [label %136], !srcloc !127
 
 136:                                              ; preds = %123
@@ -6751,7 +6751,7 @@ define internal fastcc void @mld_sendpack(ptr noundef nonnull initializes((88, 9
 80:                                               ; preds = %68, %63
   %81 = load ptr, ptr %49, align 8
   %82 = load ptr, ptr %14, align 8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @nf_hooks_needed, i64 848), i32 2) #13
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @nf_hooks_needed, i64 848), i32 2) #13
           to label %.thread [label %83], !srcloc !127
 
 83:                                               ; preds = %80
@@ -7402,7 +7402,7 @@ thread-pre-split:                                 ; preds = %89
   br i1 %79, label %.loopexit, label %66, !llvm.loop !145
 
 80:                                               ; preds = %66
-  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %82 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %81, i32 noundef 3264, i64 noundef 64) #14
   %83 = icmp eq ptr %82, null
   br i1 %83, label %89, label %84

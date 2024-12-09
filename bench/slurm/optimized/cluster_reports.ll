@@ -853,7 +853,7 @@ define internal fastcc void @_set_assoc_cond(ptr nocapture noundef nonnull %0, i
 
 133:                                              ; preds = %130
   %134 = load ptr, ptr %14, align 8
-  %135 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %136 = tail call ptr @xstrdup(ptr noundef %135) #10
   tail call void @list_append(ptr noundef %134, ptr noundef %136) #10
   br label %137
@@ -2522,7 +2522,7 @@ define internal fastcc void @_set_wckey_cond(ptr nocapture noundef nonnull %0, i
 
 131:                                              ; preds = %128
   %132 = load ptr, ptr %3, align 8
-  %133 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %134 = tail call ptr @xstrdup(ptr noundef %133) #10
   tail call void @list_append(ptr noundef %132, ptr noundef %134) #10
   br label %135
@@ -2732,7 +2732,7 @@ define dso_local noundef i32 @cluster_utilization(i32 noundef %0, ptr nocapture 
 
 94:                                               ; preds = %91
   %95 = load ptr, ptr %19, align 8
-  %96 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %97 = tail call ptr @xstrdup(ptr noundef %96) #10
   tail call void @list_append(ptr noundef %95, ptr noundef %97) #10
   br label %_set_cluster_cond.exit.i

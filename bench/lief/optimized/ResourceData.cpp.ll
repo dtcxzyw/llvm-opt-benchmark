@@ -38,7 +38,7 @@ $_ZNK4LIEF2PE12ResourceData5cloneEv = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN4LIEF2PE12ResourceDataD2Ev(ptr noundef nonnull align 8 dereferenceable(116) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE12ResourceDataE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF2PE12ResourceDataE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -141,7 +141,7 @@ define void @_ZN4LIEF2PE12ResourceData4swapERS1_(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF2PE12ResourceDataC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(116) %0, ptr noundef nonnull align 8 dereferenceable(116) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN4LIEF2PE12ResourceNodeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull align 8 dereferenceable(76) %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE12ResourceDataE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF2PE12ResourceDataE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -220,7 +220,7 @@ declare void @_ZN4LIEF2PE12ResourceNode4swapERS1_(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF2PE12ResourceDataC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN4LIEF2PE12ResourceNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE12ResourceDataE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF2PE12ResourceDataE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 0, i64 36, i1 false)
@@ -233,7 +233,7 @@ declare void @_ZN4LIEF2PE12ResourceNodeC2Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF2PE12ResourceDataC2ESt6vectorIhSaIhEEj(ptr noundef nonnull align 8 dereferenceable(116) %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #3 align 2 {
   tail call void @_ZN4LIEF2PE12ResourceNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE12ResourceDataE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF2PE12ResourceDataE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %4, align 8

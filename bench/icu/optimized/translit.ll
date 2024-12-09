@@ -551,7 +551,7 @@ entry:
 define void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(64) %theID, ptr noundef %adoptedFilter) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %srcChar.addr.i = alloca i16, align 2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514TransliteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514TransliteratorE, i64 16), ptr %this, align 8
   %ID = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %ID, ptr noundef nonnull align 8 dereferenceable(64) %theID)
           to label %invoke.cont unwind label %lpad
@@ -640,7 +640,7 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514TransliteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514TransliteratorE, i64 16), ptr %this, align 8
   %filter = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %filter, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -674,7 +674,7 @@ declare void @llvm.trap() #10
 define void @_ZN6icu_7514TransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(84) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(84) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %srcChar.addr.i = alloca i16, align 2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514TransliteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514TransliteratorE, i64 16), ptr %this, align 8
   %ID = getelementptr inbounds nuw i8, ptr %this, i64 8
   %ID2 = getelementptr inbounds nuw i8, ptr %other, i64 8
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %ID, ptr noundef nonnull align 8 dereferenceable(64) %ID2)
@@ -1286,7 +1286,7 @@ if.end61:                                         ; preds = %if.then47, %if.end9
   br i1 %cmp70.not, label %if.else, label %if.then71
 
 if.then71:                                        ; preds = %if.end61
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ref.tmp, align 8
   store i16 2, ptr %fUnion2.i, align 8
   %vtable77 = load ptr, ptr %text, align 8
   %vfn78 = getelementptr inbounds nuw i8, ptr %vtable77, i64 32
@@ -1345,7 +1345,7 @@ for.end:                                          ; preds = %if.end90, %if.then4
   %totalDelta.0.lcssa = phi i32 [ 0, %if.then47 ], [ %totalDelta.1, %if.end90 ]
   %add91 = add nsw i32 %totalDelta.0.lcssa, %call.i102
   %add93 = add nsw i32 %sub, %add91
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ref.tmp94, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ref.tmp94, align 8
   store i16 2, ptr %fUnion2.i106, align 8
   %vtable95 = load ptr, ptr %text, align 8
   %vfn96 = getelementptr inbounds nuw i8, ptr %vtable95, i64 32
@@ -1486,13 +1486,13 @@ if.then4.i:                                       ; preds = %if.else.i
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %if.then.i, %if.else.i, %if.then4.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %source, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %source, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %source, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %target, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %target, align 8
   %fUnion2.i30 = getelementptr inbounds nuw i8, ptr %target, i64 8
   store i16 2, ptr %fUnion2.i30, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %variant, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %variant, align 8
   %fUnion2.i31 = getelementptr inbounds nuw i8, ptr %variant, i64 8
   store i16 2, ptr %fUnion2.i31, align 8
   invoke void @_ZN6icu_7522TransliteratorIDParser7IDtoSTVERKNS_13UnicodeStringERS1_S4_S4_Ra(ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef nonnull align 8 dereferenceable(64) %source, ptr noundef nonnull align 8 dereferenceable(64) %target, ptr noundef nonnull align 8 dereferenceable(64) %variant, ptr noundef nonnull align 1 dereferenceable(1) %sawSource)
@@ -1706,7 +1706,7 @@ invoke.cont70:                                    ; preds = %invoke.cont68
           to label %invoke.cont72 unwind label %lpad67
 
 invoke.cont72:                                    ; preds = %invoke.cont70
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %s, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %s, align 8
   %fUnion2.i72 = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i16 2, ptr %fUnion2.i72, align 8
   %fBuffer.i80 = getelementptr inbounds nuw i8, ptr %s, i64 10
@@ -1809,7 +1809,7 @@ for.inc:                                          ; preds = %invoke.cont85, %inv
 
 for.end:                                          ; preds = %for.inc
   store i32 0, ptr %status, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513FieldPositionE, i64 16), ptr %pos, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513FieldPositionE, i64 16), ptr %pos, align 8
   %fField.i = getelementptr inbounds nuw i8, ptr %pos, i64 8
   store i32 -1, ptr %fField.i, align 8
   %fBeginIndex.i = getelementptr inbounds nuw i8, ptr %pos, i64 12
@@ -2006,7 +2006,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %canonID, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %canonID, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %canonID, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZN6icu_757UVectorC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %list, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -2736,7 +2736,7 @@ invoke.cont48:                                    ; preds = %sw.bb
   call void @llvm.experimental.noalias.scope.decl(metadata !12)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ref.tmp, align 8, !alias.scope !12
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ref.tmp, align 8, !alias.scope !12
   store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !12
   store i32 0, ptr %len.i, align 4, !noalias !12
   %call.i = invoke ptr @ures_getStringByKey_75(ptr noundef %call40, ptr noundef nonnull @.str.4, ptr noundef nonnull %len.i, ptr noundef nonnull %lstatus)
@@ -3458,7 +3458,7 @@ if.then45:                                        ; preds = %land.lhs.true40
   br i1 %cmp46.not, label %if.else68, label %invoke.cont48
 
 invoke.cont48:                                    ; preds = %if.then45
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %filterPattern, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %filterPattern, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %filterPattern, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call52 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7510UnicodeSet9toPatternERNS_13UnicodeStringEa(ptr noundef nonnull align 8 dereferenceable(200) %7, ptr noundef nonnull align 8 dereferenceable(64) %filterPattern, i8 noundef signext 0)

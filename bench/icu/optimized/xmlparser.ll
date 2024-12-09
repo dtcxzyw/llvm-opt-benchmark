@@ -96,7 +96,7 @@ entry:
   %ref.tmp49 = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp54 = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp59 = alloca %"class.icu_75::UnicodeString", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510UXMLParserE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7510UXMLParserE, i64 16), ptr %this, align 8
   %mXMLDecl = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull @.str, i32 noundef -1, i32 noundef 0)
           to label %invoke.cont unwind label %lpad
@@ -578,7 +578,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7510UXMLParserD2Ev(ptr noundef nonnull align 8 dereferenceable(4576) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510UXMLParserE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7510UXMLParserE, i64 16), ptr %this, align 8
   %fOneLF = getelementptr inbounds nuw i8, ptr %this, i64 4512
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fOneLF) #12
   %fElementStack = getelementptr inbounds nuw i8, ptr %this, i64 4464
@@ -650,7 +650,7 @@ entry:
   %attValue = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %src, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %src, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %src, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %0 = load i32, ptr %errorCode, align 4
@@ -2154,7 +2154,7 @@ define void @_ZN6icu_7510UXMLParser11scanContentER10UErrorCode(ptr noalias sret(
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp7 = alloca %"class.icu_75::UnicodeString", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %mXMLCharData = getelementptr inbounds nuw i8, ptr %this, i64 2696
@@ -2219,10 +2219,10 @@ invoke.cont:
   %hexString = alloca %"class.icu_75::UnicodeString", align 8
   %decimalString = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %result, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %replacement, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %replacement, align 8
   %fUnion2.i21 = getelementptr inbounds nuw i8, ptr %replacement, i64 8
   store i16 2, ptr %fUnion2.i21, align 8
   %mAmps = getelementptr inbounds nuw i8, ptr %this, i64 4040
@@ -2686,13 +2686,13 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7511UXMLElementC2EPKNS_10UXMLParserEPKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 34)) %this, ptr noundef %parser, ptr noundef %name, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511UXMLElementE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7511UXMLElementE, i64 16), ptr %this, align 8
   %fParser = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %parser, ptr %fParser, align 8
   %fName = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %name, ptr %fName, align 8
   %fContent = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fContent, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fContent, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i16 2, ptr %fUnion2.i, align 8
   %fAttNames = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -2750,7 +2750,7 @@ declare void @_ZN6icu_757UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7511UXMLElementD2Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511UXMLElementE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7511UXMLElementE, i64 16), ptr %this, align 8
   %fAttValues = getelementptr inbounds nuw i8, ptr %this, i64 128
   %count.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load i32, ptr %count.i, align 8
@@ -2866,7 +2866,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_7511UXMLElement7getTextEa(ptr noalias nonnull sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr noundef nonnull align 8 dereferenceable(216) %this, i8 noundef signext %recurse) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZNK6icu_7511UXMLElement10appendTextERNS_13UnicodeStringEa(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(64) %agg.result, i8 noundef signext %recurse)

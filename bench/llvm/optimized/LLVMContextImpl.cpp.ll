@@ -284,7 +284,7 @@ define dso_local void @_ZN4llvm15LLVMContextImplC2ERNS_11LLVMContextE(ptr nounde
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %11 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4llvm17DiagnosticHandlerE, i64 16), ptr %11, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4llvm17DiagnosticHandlerE, i64 16), ptr %11, align 8, !noalias !4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr null, ptr %12, align 8, !noalias !4
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16

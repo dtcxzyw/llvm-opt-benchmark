@@ -50,8 +50,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @zm_startup_assert(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  store i32 0, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 8), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 16), align 8
   %3 = tail call i32 @zend_register_ini_entries_ex(ptr noundef nonnull @ini_entries, i32 noundef %1, i32 noundef %0) #8
   ret i32 0
 }
@@ -60,13 +60,13 @@ declare i32 @zend_register_ini_entries_ex(ptr noundef, i32 noundef, i32 noundef)
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define hidden noundef i32 @zm_shutdown_assert(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 16), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 16), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
   tail call void @free(ptr noundef nonnull %3) #8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 16), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 16), align 8
   br label %5
 
 5:                                                ; preds = %4, %2
@@ -78,13 +78,13 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @zm_deactivate_assert(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 8), align 8
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 8), align 8
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
   tail call void @zval_ptr_dtor(ptr noundef nonnull @assert_globals) #8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 8), align 8
   br label %5
 
 5:                                                ; preds = %4, %2
@@ -107,7 +107,7 @@ define hidden void @zif_assert(ptr noundef %0, ptr nocapture noundef writeonly %
   %4 = alloca [4 x %struct._zval_struct], align 16
   %5 = alloca %struct._zval_struct, align 8
   store ptr null, ptr %3, align 8
-  %6 = load i8, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 24), align 8
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 24), align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %10, label %8
 
@@ -224,15 +224,15 @@ thread-pre-split:                                 ; preds = %29
   %50 = add i32 %49, 1
   store i32 %50, ptr %.0178.ph, align 4
   call void @zend_throw_exception_internal(ptr noundef nonnull %.0178.ph) #8
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %52 = icmp ne ptr %51, null
   call void @llvm.assume(i1 %52)
   br label %125
 
 53:                                               ; preds = %47
-  %54 = load i8, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 8), align 8
+  %54 = load i8, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 8), align 8
   %55 = icmp eq i8 %54, 0
-  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 16), align 8
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 16), align 8
   %57 = icmp ne ptr %56, null
   %or.cond = select i1 %55, i1 %57, i1 false
   br i1 %or.cond, label %.thread214, label %67
@@ -254,7 +254,7 @@ thread-pre-split:                                 ; preds = %29
   %66 = getelementptr inbounds [1 x i8], ptr %65, i64 0, i64 %58
   store i8 0, ptr %66, align 1
   store ptr %61, ptr @assert_globals, align 8
-  store i32 262, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 8), align 8
+  store i32 262, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 8), align 8
   br label %68
 
 67:                                               ; preds = %53
@@ -314,7 +314,7 @@ thread-pre-split:                                 ; preds = %29
   br label %96
 
 96:                                               ; preds = %94, %67
-  %97 = load i8, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 27), align 1
+  %97 = load i8, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 27), align 1
   %98 = trunc i8 %97 to i1
   br i1 %98, label %99, label %110
 
@@ -325,17 +325,17 @@ thread-pre-split:                                 ; preds = %29
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
   %103 = select i1 %.not198, ptr null, ptr %102
   %104 = call ptr @zend_throw_exception(ptr noundef %100, ptr noundef %103, i64 noundef 1) #8
-  %105 = load i8, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 25), align 1
+  %105 = load i8, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 25), align 1
   %106 = trunc i8 %105 to i1
   br i1 %106, label %107, label %117
 
 107:                                              ; preds = %99
-  %108 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %108 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %109 = call i32 @zend_exception_error(ptr noundef %108, i32 noundef 1) #8
   br label %117
 
 110:                                              ; preds = %96
-  %111 = load i8, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 26), align 2
+  %111 = load i8, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 26), align 2
   %112 = trunc i8 %111 to i1
   br i1 %112, label %113, label %117
 
@@ -348,13 +348,13 @@ thread-pre-split:                                 ; preds = %29
   br label %117
 
 117:                                              ; preds = %110, %113, %99, %107
-  %118 = load i8, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 25), align 1
+  %118 = load i8, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 25), align 1
   %119 = trunc i8 %118 to i1
   br i1 %119, label %120, label %123
 
 120:                                              ; preds = %117
   call void @zend_throw_unwind_exit() #8
-  %121 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %122 = icmp ne ptr %121, null
   call void @llvm.assume(i1 %122)
   br label %125
@@ -448,7 +448,7 @@ thread-pre-split:                                 ; preds = %14
   ]
 
 20:                                               ; preds = %17
-  %21 = load i8, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 24), align 8
+  %21 = load i8, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 24), align 8
   %22 = icmp eq i32 %5, 2
   br i1 %22, label %23, label %65
 
@@ -478,7 +478,7 @@ thread-pre-split:                                 ; preds = %14
   br i1 %.not559, label %37, label %.thread571
 
 37:                                               ; preds = %35
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %39 = icmp ne ptr %38, null
   call void @llvm.assume(i1 %39)
   br label %258
@@ -545,7 +545,7 @@ thread-pre-split:                                 ; preds = %14
   br label %258
 
 69:                                               ; preds = %17
-  %70 = load i8, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 25), align 1
+  %70 = load i8, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 25), align 1
   %71 = icmp eq i32 %5, 2
   br i1 %71, label %72, label %114
 
@@ -575,7 +575,7 @@ thread-pre-split:                                 ; preds = %14
   br i1 %.not555, label %86, label %.thread575
 
 86:                                               ; preds = %84
-  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %88 = icmp ne ptr %87, null
   call void @llvm.assume(i1 %88)
   br label %258
@@ -642,7 +642,7 @@ thread-pre-split:                                 ; preds = %14
   br label %258
 
 118:                                              ; preds = %17
-  %119 = load i8, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 26), align 2
+  %119 = load i8, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 26), align 2
   %120 = icmp eq i32 %5, 2
   br i1 %120, label %121, label %163
 
@@ -672,7 +672,7 @@ thread-pre-split:                                 ; preds = %14
   br i1 %.not551, label %135, label %.thread579
 
 135:                                              ; preds = %133
-  %136 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %137 = icmp ne ptr %136, null
   call void @llvm.assume(i1 %137)
   br label %258
@@ -739,13 +739,13 @@ thread-pre-split:                                 ; preds = %14
   br label %258
 
 167:                                              ; preds = %17
-  %168 = load i8, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 8), align 8
+  %168 = load i8, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 8), align 8
   %.not546 = icmp eq i8 %168, 0
   br i1 %.not546, label %177, label %169
 
 169:                                              ; preds = %167
   %170 = load ptr, ptr @assert_globals, align 8
-  %171 = load i32, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 8), align 8
+  %171 = load i32, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 8), align 8
   store ptr %170, ptr %1, align 8
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %171, ptr %172, align 8
@@ -760,7 +760,7 @@ thread-pre-split:                                 ; preds = %14
   br label %192
 
 177:                                              ; preds = %167
-  %178 = load ptr, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 16), align 8
+  %178 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 16), align 8
   %.not547 = icmp eq ptr %178, null
   br i1 %.not547, label %190, label %179
 
@@ -802,14 +802,14 @@ thread-pre-split:                                 ; preds = %14
   br i1 %197, label %198, label %199
 
 198:                                              ; preds = %194
-  store i32 0, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 8), align 8
   br label %258
 
 199:                                              ; preds = %194
   %200 = load ptr, ptr %19, align 8
   %201 = load i32, ptr %195, align 8
   store ptr %200, ptr @assert_globals, align 8
-  store i32 %201, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 8), align 8
+  store i32 %201, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 8), align 8
   %202 = and i32 %201, 65280
   %.not549 = icmp eq i32 %202, 0
   br i1 %.not549, label %258, label %203
@@ -821,7 +821,7 @@ thread-pre-split:                                 ; preds = %14
   br label %258
 
 206:                                              ; preds = %17
-  %207 = load i8, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 27), align 1
+  %207 = load i8, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 27), align 1
   %208 = icmp eq i32 %5, 2
   br i1 %208, label %209, label %251
 
@@ -851,7 +851,7 @@ thread-pre-split:                                 ; preds = %14
   br i1 %.not543, label %223, label %.thread583
 
 223:                                              ; preds = %221
-  %224 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %224 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %225 = icmp ne ptr %224, null
   call void @llvm.assume(i1 %225)
   br label %258
@@ -919,7 +919,7 @@ thread-pre-split:                                 ; preds = %14
 
 255:                                              ; preds = %17
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.6) #8
-  %256 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %256 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %257 = icmp ne ptr %256, null
   call void @llvm.assume(i1 %257)
   br label %258
@@ -1008,18 +1008,18 @@ php_must_emit_ini_deprecation.exit:               ; preds = %6, %6, %6, %12, %11
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @OnChangeCallback(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %24, label %8
 
 8:                                                ; preds = %6
-  %9 = load i8, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 8), align 8
+  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 8), align 8
   %.not24 = icmp eq i8 %9, 0
   br i1 %.not24, label %11, label %10
 
 10:                                               ; preds = %8
   tail call void @zval_ptr_dtor(ptr noundef nonnull @assert_globals) #8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 8), align 8
   br label %11
 
 11:                                               ; preds = %10, %8
@@ -1052,18 +1052,18 @@ php_must_emit_ini_deprecation.exit:               ; preds = %15, %15, %15, %16
   br i1 %.not28, label %21, label %20
 
 20:                                               ; preds = %php_must_emit_ini_deprecation.exit
-  store i32 6, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 8), align 8
+  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 8), align 8
   br label %40
 
 21:                                               ; preds = %php_must_emit_ini_deprecation.exit
   %22 = load i32, ptr %1, align 4
   %23 = add i32 %22, 1
   store i32 %23, ptr %1, align 4
-  store i32 262, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 8), align 8
+  store i32 262, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 8), align 8
   br label %40
 
 24:                                               ; preds = %6
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 16), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 16), align 8
   %.not21 = icmp eq ptr %25, null
   br i1 %.not21, label %27, label %26
 
@@ -1097,7 +1097,7 @@ php_must_emit_ini_deprecation.exit29:             ; preds = %31, %31, %31, %32
   %33 = phi i64 [ %30, %31 ], [ %30, %31 ], [ %30, %31 ], [ %.pre, %32 ]
   %34 = add i64 %33, 1
   %35 = tail call noalias ptr @__zend_malloc(i64 noundef %34) #10
-  store ptr %35, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 16), align 8
+  store ptr %35, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 16), align 8
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr nonnull align 8 %36, i64 %37, i1 false)
@@ -1106,7 +1106,7 @@ php_must_emit_ini_deprecation.exit29:             ; preds = %31, %31, %31, %32
   br label %40
 
 39:                                               ; preds = %28, %27
-  store ptr null, ptr getelementptr inbounds (i8, ptr @assert_globals, i64 16), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 16), align 8
   br label %40
 
 40:                                               ; preds = %php_must_emit_ini_deprecation.exit29, %39, %11, %12, %20, %21

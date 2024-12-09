@@ -313,7 +313,7 @@ define void @_ZN5mmu_tC2EP7simif_t12endianness_tP11processor_t(ptr noundef nonnu
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %3, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16memtracer_list_t, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16memtracer_list_t, i64 16), ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 43152
@@ -366,7 +366,7 @@ _ZN5mmu_t12flush_icacheEv.exit:                   ; preds = %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN16memtracer_list_tD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16memtracer_list_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16memtracer_list_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -383,7 +383,7 @@ _ZNSt6vectorIP11memtracer_tSaIS1_EED2Ev.exit:     ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5mmu_tD2Ev(ptr noundef nonnull align 8 dereferenceable(43168) initializes((88, 96)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16memtracer_list_t, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16memtracer_list_t, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -459,7 +459,7 @@ define void @_Z22throw_access_exceptionbm11access_type(i1 noundef zeroext %0, i6
   store i64 %1, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29trap_instruction_access_fault, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29trap_instruction_access_fault, i64 16), ptr %5, align 8
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTI29trap_instruction_access_fault, ptr nonnull @_ZN29trap_instruction_access_faultD2Ev) #26
   unreachable
 
@@ -474,7 +474,7 @@ define void @_Z22throw_access_exceptionbm11access_type(i1 noundef zeroext %0, i6
   store i64 %1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22trap_load_access_fault, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22trap_load_access_fault, i64 16), ptr %12, align 8
   tail call void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTI22trap_load_access_fault, ptr nonnull @_ZN22trap_load_access_faultD2Ev) #26
   unreachable
 
@@ -489,7 +489,7 @@ define void @_Z22throw_access_exceptionbm11access_type(i1 noundef zeroext %0, i6
   store i64 %1, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %19, align 8
   tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #26
   unreachable
 
@@ -919,7 +919,7 @@ _ZN5mmu_t9pte_storeEmmmb11access_typem.exit:      ; preds = %153, %152, %144
   store i64 %5, ptr %192, align 8
   %193 = getelementptr inbounds nuw i8, ptr %188, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %193, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27trap_instruction_page_fault, i64 16), ptr %188, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27trap_instruction_page_fault, i64 16), ptr %188, align 8
   tail call void @__cxa_throw(ptr nonnull %188, ptr nonnull @_ZTI27trap_instruction_page_fault, ptr nonnull @_ZN27trap_instruction_page_faultD2Ev) #26
   unreachable
 
@@ -934,7 +934,7 @@ _ZN5mmu_t9pte_storeEmmmb11access_typem.exit:      ; preds = %153, %152, %144
   store i64 %5, ptr %198, align 8
   %199 = getelementptr inbounds nuw i8, ptr %194, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %199, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV20trap_load_page_fault, i64 16), ptr %194, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20trap_load_page_fault, i64 16), ptr %194, align 8
   tail call void @__cxa_throw(ptr nonnull %194, ptr nonnull @_ZTI20trap_load_page_fault, ptr nonnull @_ZN20trap_load_page_faultD2Ev) #26
   unreachable
 
@@ -949,7 +949,7 @@ _ZN5mmu_t9pte_storeEmmmb11access_typem.exit:      ; preds = %153, %152, %144
   store i64 %5, ptr %205, align 8
   %206 = getelementptr inbounds nuw i8, ptr %201, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %206, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21trap_store_page_fault, i64 16), ptr %201, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21trap_store_page_fault, i64 16), ptr %201, align 8
   tail call void @__cxa_throw(ptr nonnull %201, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #26
   unreachable
 
@@ -1160,7 +1160,7 @@ _ZN5mmu_t10mmio_fetchEmmPh.exit.thread:           ; preds = %40, %_ZN5mmu_t10mmi
   store i64 %1, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %49, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29trap_instruction_access_fault, i64 16), ptr %49, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29trap_instruction_access_fault, i64 16), ptr %49, align 8
   tail call void @__cxa_throw(ptr nonnull %49, ptr nonnull @_ZTI29trap_instruction_access_fault, ptr nonnull @_ZN29trap_instruction_access_faultD2Ev) #26
   unreachable
 
@@ -1979,7 +1979,7 @@ _ZN5mmu_t9translateE17mem_access_info_tm.exit:    ; preds = %_ZNK13xlate_flags_t
   store i64 %5, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22trap_load_access_fault, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22trap_load_access_fault, i64 16), ptr %42, align 8
   tail call void @__cxa_throw(ptr nonnull %42, ptr nonnull @_ZTI22trap_load_access_fault, ptr nonnull @_ZN22trap_load_access_faultD2Ev) #26
   unreachable
 
@@ -2125,7 +2125,7 @@ _ZN5mmu_t9mmio_loadEmmPh.exit.thread:             ; preds = %_ZN5mmu_t4mmioEmmPh
   store i64 %5, ptr %122, align 8
   %123 = getelementptr inbounds nuw i8, ptr %116, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %123, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22trap_load_access_fault, i64 16), ptr %116, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22trap_load_access_fault, i64 16), ptr %116, align 8
   tail call void @__cxa_throw(ptr nonnull %116, ptr nonnull @_ZTI22trap_load_access_fault, ptr nonnull @_ZN22trap_load_access_faultD2Ev) #26
   unreachable
 
@@ -2317,7 +2317,7 @@ _ZN5mmu_t21is_misaligned_enabledEv.exit.thread:   ; preds = %57, %_ZN5mmu_t21is_
   store i64 %1, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28trap_load_address_misaligned, i64 16), ptr %64, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28trap_load_address_misaligned, i64 16), ptr %64, align 8
   tail call void @__cxa_throw(ptr nonnull %64, ptr nonnull @_ZTI28trap_load_address_misaligned, ptr nonnull @_ZN28trap_load_address_misalignedD2Ev) #26
   unreachable
 
@@ -2336,7 +2336,7 @@ _ZN5mmu_t21is_misaligned_enabledEv.exit.thread:   ; preds = %57, %_ZN5mmu_t21is_
   store i64 %1, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22trap_load_access_fault, i64 16), ptr %72, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22trap_load_access_fault, i64 16), ptr %72, align 8
   tail call void @__cxa_throw(ptr nonnull %72, ptr nonnull @_ZTI22trap_load_access_fault, ptr nonnull @_ZN22trap_load_access_faultD2Ev) #26
   unreachable
 
@@ -2631,7 +2631,7 @@ _ZN5mmu_t10mmio_storeEmmPKh.exit.thread:          ; preds = %90, %86, %76, %_ZN5
   store i64 %6, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %103, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %110, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %103, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %103, align 8
   tail call void @__cxa_throw(ptr nonnull %103, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #26
   unreachable
 
@@ -2807,7 +2807,7 @@ _ZN5mmu_t21is_misaligned_enabledEv.exit.thread:   ; preds = %75, %_ZN5mmu_t21is_
   store i64 %1, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %82, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29trap_store_address_misaligned, i64 16), ptr %82, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29trap_store_address_misaligned, i64 16), ptr %82, align 8
   tail call void @__cxa_throw(ptr nonnull %82, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #26
   unreachable
 
@@ -2825,7 +2825,7 @@ _ZN5mmu_t21is_misaligned_enabledEv.exit.thread:   ; preds = %75, %_ZN5mmu_t21is_
   store i64 %1, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %90, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %90, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %90, align 8
   tail call void @__cxa_throw(ptr nonnull %90, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #26
   unreachable
 
@@ -3268,7 +3268,7 @@ _ZN5mmu_t9pte_storeEmmmb11access_typem.exit:      ; preds = %132, %131, %125
   store i64 %168, ptr %173, align 8
   %174 = getelementptr inbounds nuw i8, ptr %167, i64 40
   store i64 %169, ptr %174, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV33trap_instruction_guest_page_fault, i64 16), ptr %167, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV33trap_instruction_guest_page_fault, i64 16), ptr %167, align 8
   tail call void @__cxa_throw(ptr nonnull %167, ptr nonnull @_ZTI33trap_instruction_guest_page_fault, ptr nonnull @_ZN33trap_instruction_guest_page_faultD2Ev) #26
   unreachable
 
@@ -3286,7 +3286,7 @@ _ZN5mmu_t9pte_storeEmmmb11access_typem.exit:      ; preds = %132, %131, %125
   store i64 %177, ptr %182, align 8
   %183 = getelementptr inbounds nuw i8, ptr %176, i64 40
   store i64 %178, ptr %183, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV26trap_load_guest_page_fault, i64 16), ptr %176, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV26trap_load_guest_page_fault, i64 16), ptr %176, align 8
   tail call void @__cxa_throw(ptr nonnull %176, ptr nonnull @_ZTI26trap_load_guest_page_fault, ptr nonnull @_ZN26trap_load_guest_page_faultD2Ev) #26
   unreachable
 
@@ -3304,7 +3304,7 @@ _ZN5mmu_t9pte_storeEmmmb11access_typem.exit:      ; preds = %132, %131, %125
   store i64 %186, ptr %191, align 8
   %192 = getelementptr inbounds nuw i8, ptr %185, i64 40
   store i64 %187, ptr %192, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27trap_store_guest_page_fault, i64 16), ptr %185, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27trap_store_guest_page_fault, i64 16), ptr %185, align 8
   tail call void @__cxa_throw(ptr nonnull %185, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #26
   unreachable
 
@@ -3447,7 +3447,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN16memtracer_list_tD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16memtracer_list_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16memtracer_list_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null

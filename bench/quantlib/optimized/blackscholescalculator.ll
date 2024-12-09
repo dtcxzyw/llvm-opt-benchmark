@@ -139,7 +139,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !14
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !16
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -209,7 +209,7 @@ entry:
   %mul = fmul double %spot, %growth
   %div = fdiv double %mul, %discount
   tail call void @_ZN8QuantLib15BlackCalculatorC2ERKN5boost10shared_ptrINS_17StrikedTypePayoffEEEddd(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(16) %payoff, double noundef %div, double noundef %stdDev, double noundef %discount)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib22BlackScholesCalculatorE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib22BlackScholesCalculatorE, i64 16), ptr %this, align 8, !tbaa !14
   %spot_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   store double %spot, ptr %spot_, align 8, !tbaa !18
   %growth_ = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -606,7 +606,7 @@ entry:
   %mul = fmul double %spot, %growth
   %div = fdiv double %mul, %discount
   tail call void @_ZN8QuantLib15BlackCalculatorC2ENS_6Option4TypeEdddd(ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %type, double noundef %strike, double noundef %div, double noundef %stdDev, double noundef %discount)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib22BlackScholesCalculatorE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib22BlackScholesCalculatorE, i64 16), ptr %this, align 8, !tbaa !14
   %spot_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   store double %spot, ptr %spot_, align 8, !tbaa !18
   %growth_ = getelementptr inbounds nuw i8, ptr %this, i64 160

@@ -90,7 +90,7 @@ $_ZNK7rocksdb10WriteBatch7Handler18WriteBeforePrepareEv = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb24TimestampRecoveryHandlerC2ERKSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEESC_(ptr noundef nonnull align 8 dereferenceable(34) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(56) %running_ts_sz, ptr noundef nonnull align 8 dereferenceable(56) %record_ts_sz) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb24TimestampRecoveryHandlerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb24TimestampRecoveryHandlerE, i64 16), ptr %this, align 8
   %running_ts_sz_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %running_ts_sz, ptr %running_ts_sz_, align 8
   %record_ts_sz_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1740,7 +1740,7 @@ _ZNSt10unique_ptrIN7rocksdb10WriteBatchESt14default_deleteIS1_EEaSEOS4_.exit: ; 
           to label %cleanup unwind label %lpad7
 
 cleanup:                                          ; preds = %if.then12, %if.then.i.i47, %_ZNSt10unique_ptrIN7rocksdb10WriteBatchESt14default_deleteIS1_EEaSEOS4_.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb24TimestampRecoveryHandlerE, i64 16), ptr %recovery_handler, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb24TimestampRecoveryHandlerE, i64 16), ptr %recovery_handler, align 8
   %new_batch_.i65 = getelementptr inbounds nuw i8, ptr %recovery_handler, i64 24
   %85 = load ptr, ptr %new_batch_.i65, align 8
   %cmp.not.i.i66 = icmp eq ptr %85, null
@@ -1798,7 +1798,7 @@ declare void @_ZN7rocksdb18WriteBatchInternal11SetSequenceEPNS_10WriteBatchEm(pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb24TimestampRecoveryHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(34) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb24TimestampRecoveryHandlerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb24TimestampRecoveryHandlerE, i64 16), ptr %this, align 8
   %new_batch_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %new_batch_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -2179,7 +2179,7 @@ declare void @_ZN7rocksdb25AppendKeyWithMaxTimestampEPNSt7__cxx1112basic_stringI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb24TimestampRecoveryHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(34) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb24TimestampRecoveryHandlerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb24TimestampRecoveryHandlerE, i64 16), ptr %this, align 8
   %new_batch_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %new_batch_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null

@@ -64,9 +64,9 @@ define void @_ZN24InterfaceToolbarLineEditC2EP7QWidget7QStringb(ptr noundef nonn
   %22 = alloca %"class.QMetaObject::Connection", align 8
   %23 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN9QLineEditC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24InterfaceToolbarLineEdit, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24InterfaceToolbarLineEdit, i64 16), ptr %0, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24InterfaceToolbarLineEdit, i64 456), ptr %24, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24InterfaceToolbarLineEdit, i64 456), ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   invoke void @_ZN18QRegularExpressionC1ERK7QString6QFlagsINS_13PatternOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 64)
           to label %26 unwind label %94
@@ -504,7 +504,7 @@ _ZN7QStringC2EPKc.exit:                           ; preds = %36
   br label %50
 
 44:                                               ; preds = %30
-  %.sroa.0.0.copyload = load i48, ptr getelementptr inbounds (i8, ptr @prefs, i64 42), align 2
+  %.sroa.0.0.copyload = load i48, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 42), align 2
   %45 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTE7color_t(i48 %.sroa.0.0.copyload)
           to label %46 unwind label %71
 

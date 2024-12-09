@@ -366,7 +366,7 @@ define dso_local void @_ZN3tev10HelpWindowC2EPN7nanogui6WidgetEbNSt3__18function
 
 159:                                              ; preds = %4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tev10HelpWindowE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tev10HelpWindowE, i64 16), ptr %0, align 16
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %161 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %162 = load ptr, ptr %161, align 16
@@ -478,7 +478,7 @@ _ZNSt3__18functionIFvvEEC2ERKS2_.exit.i.i:        ; preds = %_ZNSt3__18functionI
 209:                                              ; preds = %207
   %210 = getelementptr inbounds nuw i8, ptr %208, i64 8
   store i32 0, ptr %210, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui11GroupLayoutE, i64 16), ptr %208, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui11GroupLayoutE, i64 16), ptr %208, align 8
   %211 = getelementptr inbounds nuw i8, ptr %208, i64 12
   store i32 15, ptr %211, align 4
   %212 = getelementptr inbounds nuw i8, ptr %208, i64 16
@@ -571,7 +571,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 240:                                              ; preds = %238
   %241 = getelementptr inbounds nuw i8, ptr %239, i64 8
   store i32 0, ptr %241, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui11GroupLayoutE, i64 16), ptr %239, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui11GroupLayoutE, i64 16), ptr %239, align 8
   %242 = getelementptr inbounds nuw i8, ptr %239, i64 12
   store i32 15, ptr %242, align 4
   %243 = getelementptr inbounds nuw i8, ptr %239, i64 16
@@ -2914,7 +2914,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 1004:                                             ; preds = %1002
   %1005 = getelementptr inbounds nuw i8, ptr %1003, i64 8
   store i32 0, ptr %1005, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui11GroupLayoutE, i64 16), ptr %1003, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui11GroupLayoutE, i64 16), ptr %1003, align 8
   %1006 = getelementptr inbounds nuw i8, ptr %1003, i64 12
   store i32 15, ptr %1006, align 4
   %1007 = getelementptr inbounds nuw i8, ptr %1003, i64 16
@@ -3327,7 +3327,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 _ZNSt3__18functionIFviEEC2ERKS2_.exit.i.i:        ; preds = %.noexc794
   %1068 = ptrtoint ptr %225 to i64
   %1069 = getelementptr inbounds nuw i8, ptr %158, i64 32
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev10HelpWindowC1EPN7nanogui6WidgetEbNS_8functionIFvvEEEE3$_4NS_9allocatorISA_EEFviEEE", i64 16), ptr %158, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev10HelpWindowC1EPN7nanogui6WidgetEbNS_8functionIFvvEEEE3$_4NS_9allocatorISA_EEFviEEE", i64 16), ptr %158, align 16
   %1070 = getelementptr inbounds nuw i8, ptr %158, i64 8
   store i64 %1068, ptr %1070, align 8
   store ptr %158, ptr %1069, align 16
@@ -3335,7 +3335,7 @@ _ZNSt3__18functionIFviEEC2ERKS2_.exit.i.i:        ; preds = %.noexc794
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   %1072 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %5, ptr %1072, align 16
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev10HelpWindowC1EPN7nanogui6WidgetEbNS_8functionIFvvEEEE3$_4NS_9allocatorISA_EEFviEEE", i64 16), ptr %5, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev10HelpWindowC1EPN7nanogui6WidgetEbNS_8functionIFvvEEEE3$_4NS_9allocatorISA_EEFviEEE", i64 16), ptr %5, align 16
   %1073 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %1068, ptr %1073, align 8
   call void @_ZNSt3__110__function12__value_funcIFviEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(48) %5, ptr noundef nonnull align 16 dereferenceable(48) %1071) #19
@@ -4251,7 +4251,7 @@ _ZNSt3__18functionIFviEED2Ev.exit:                ; preds = %1083, %.sink.split.
 
 _ZNSt3__18functionIFvvEED2Ev.exit:                ; preds = %.sink.split.i.i807, %1356, %641
   %.pn350.pn = phi { ptr, i32 } [ %642, %641 ], [ %.pn350, %1356 ], [ %.pn350, %.sink.split.i.i807 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui6WindowE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui6WindowE, i64 16), ptr %0, align 16
   %1360 = getelementptr inbounds nuw i8, ptr %0, i64 136
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1360) #19
   call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(170) %0) #19
@@ -4684,7 +4684,7 @@ declare noundef zeroext i1 @_ZN7nanogui6Widget14keyboard_eventEiiii(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3tev10HelpWindowD2Ev(ptr noundef nonnull align 16 dereferenceable(224) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tev10HelpWindowE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tev10HelpWindowE, i64 16), ptr %0, align 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = load ptr, ptr %3, align 16
@@ -4704,7 +4704,7 @@ define linkonce_odr dso_local void @_ZN3tev10HelpWindowD2Ev(ptr noundef nonnull 
   br label %_ZNSt3__18functionIFvvEED2Ev.exit
 
 _ZNSt3__18functionIFvvEED2Ev.exit:                ; preds = %6, %.sink.split.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui6WindowE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui6WindowE, i64 16), ptr %0, align 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #19
   tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(170) %0) #19
@@ -4713,7 +4713,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit:                ; preds = %6, %.sink.split.i.i
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3tev10HelpWindowD0Ev(ptr noundef nonnull align 16 dereferenceable(224) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tev10HelpWindowE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tev10HelpWindowE, i64 16), ptr %0, align 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = load ptr, ptr %3, align 16
@@ -4733,7 +4733,7 @@ define linkonce_odr dso_local void @_ZN3tev10HelpWindowD0Ev(ptr noundef nonnull 
   br label %_ZN3tev10HelpWindowD2Ev.exit
 
 _ZN3tev10HelpWindowD2Ev.exit:                     ; preds = %6, %.sink.split.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui6WindowE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui6WindowE, i64 16), ptr %0, align 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #19
   tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 16 dereferenceable(224) %0) #19
@@ -4930,7 +4930,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt12length_errorC2B8ne190000EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   tail call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12length_error, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12length_error, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -5085,7 +5085,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 "_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev10HelpWindowC1EPN7nanogui6WidgetEbNS_8functionIFvvEEEE3$_4NS_9allocatorISB_EEFviEEENS_22__allocator_destructorINSC_ISF_EEEEED2B8ne190000Ev.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #20
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev10HelpWindowC1EPN7nanogui6WidgetEbNS_8functionIFvvEEEE3$_4NS_9allocatorISA_EEFviEEE", i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev10HelpWindowC1EPN7nanogui6WidgetEbNS_8functionIFvvEEEE3$_4NS_9allocatorISA_EEFviEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load i64, ptr %1, align 8
   store i64 %.val.i, ptr %3, align 8
@@ -5095,7 +5095,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZNKSt3__110__function6__funcIZN3tev10HelpWindowC1EPN7nanogui6WidgetEbNS_8functionIFvvEEEE3$_4NS_9allocatorISA_EEFviEE7__cloneEPNS0_6__baseISD_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev10HelpWindowC1EPN7nanogui6WidgetEbNS_8functionIFvvEEEE3$_4NS_9allocatorISA_EEFviEEE", i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev10HelpWindowC1EPN7nanogui6WidgetEbNS_8functionIFvvEEEE3$_4NS_9allocatorISA_EEFviEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8
   store i64 %.val.i, ptr %4, align 8
@@ -5146,7 +5146,7 @@ define internal noundef nonnull align 8 dereferenceable(16) ptr @"_ZNKSt3__110__
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr hidden void @_ZNSt3__125__throw_bad_function_callB8ne190000Ev() local_unnamed_addr #10 comdat {
   %1 = tail call ptr @__cxa_allocate_exception(i64 8) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__117bad_function_callE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__117bad_function_callE, i64 16), ptr %1, align 8
   tail call void @__cxa_throw(ptr nonnull %1, ptr nonnull @_ZTINSt3__117bad_function_callE, ptr nonnull @_ZNSt3__117bad_function_callD2Ev) #23
   unreachable
 }

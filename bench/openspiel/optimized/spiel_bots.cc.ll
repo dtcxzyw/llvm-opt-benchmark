@@ -312,7 +312,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10open_spiel20MakeUniformRandomBotEii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(5016) ptr @_Znwm(i64 noundef 5016) #22, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_116UniformRandomBotE, i64 16), ptr %4, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_116UniformRandomBotE, i64 16), ptr %4, align 8, !noalias !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1, ptr %5, align 8, !noalias !4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -389,7 +389,7 @@ define void @_ZN10open_spiel13MakePolicyBotEiSt10shared_ptrINS_6PolicyEE(ptr dea
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8, !noalias !9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !noalias !9
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_19PolicyBotE, i64 16), ptr %4, align 8, !noalias !9
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_19PolicyBotE, i64 16), ptr %4, align 8, !noalias !9
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = zext i32 %1 to i64
   store i64 %9, ptr %8, align 8, !noalias !9
@@ -436,7 +436,7 @@ define void @_ZN10open_spiel13MakePolicyBotERKNS_4GameEiiSt10shared_ptrINS_6Poli
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %5
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_19PolicyBotE, i64 16), ptr %11, align 8, !noalias !15
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_19PolicyBotE, i64 16), ptr %11, align 8, !noalias !15
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = zext i32 %3 to i64
   store i64 %13, ptr %12, align 8, !noalias !15
@@ -558,7 +558,7 @@ define void @_ZN10open_spiel28MakeFixedActionPreferenceBotEiRKSt6vectorIlSaIlEE(
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val2 = load ptr, ptr %4, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22, !noalias !18
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBotE, i64 16), ptr %5, align 8, !noalias !18
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBotE, i64 16), ptr %5, align 8, !noalias !18
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %1, ptr %6, align 8, !noalias !18
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -643,7 +643,7 @@ define void @_ZN10open_spiel21MakeStatefulRandomBotERKNS_4GameEii(ptr dead_on_un
 _ZN10open_spiel12_GLOBAL__N_116UniformRandomBotC2Eii.exit.i.i: ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 5008
   store i64 624, ptr %18, align 8, !noalias !21
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_117StatefulRandomBotE, i64 16), ptr %5, align 8, !noalias !21
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_117StatefulRandomBotE, i64 16), ptr %5, align 8, !noalias !21
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 5016
   %20 = load ptr, ptr %1, align 8, !noalias !21
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
@@ -1607,7 +1607,7 @@ define void @_ZN10open_spiel7LoadBotERKNSt7__cxx1112basic_stringIcSt11char_trait
           to label %.noexc6 unwind label %29
 
 .noexc6:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.7, i64 4))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %11
 
 11:                                               ; preds = %.noexc6
@@ -2340,7 +2340,7 @@ define linkonce_odr void @_ZN10open_spiel3Bot11ForceActionERKNS_5StateEl(ptr nou
           to label %.noexc9 unwind label %17
 
 .noexc9:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.22, i64 84))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.22, i64 84))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %14
 
 14:                                               ; preds = %.noexc9
@@ -2377,7 +2377,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc11 unwind label %26
 
 .noexc11:                                         ; preds = %.noexc10
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.23, i64 62))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.23, i64 62))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit14 unwind label %23
 
 23:                                               ; preds = %.noexc11
@@ -2759,7 +2759,7 @@ define internal noundef zeroext i1 @_ZNK10open_spiel12_GLOBAL__N_116UniformRando
 define internal void @_ZN10open_spiel12_GLOBAL__N_116UniformRandomBot5CloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(5016) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_116UniformRandomBotESt14default_deleteIS2_EED2Ev.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(5016) ptr @_Znwm(i64 noundef 5016) #22, !noalias !49
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_116UniformRandomBotE, i64 16), ptr %2, align 8, !noalias !49
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_116UniformRandomBotE, i64 16), ptr %2, align 8, !noalias !49
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5008) %3, ptr noundef nonnull readonly align 8 dereferenceable(5008) %4, i64 5008, i1 false), !noalias !49
@@ -2960,7 +2960,7 @@ define internal void @_ZNK10open_spiel12_GLOBAL__N_123UniformRandomBotFactory6Cr
           to label %.noexc14 unwind label %64
 
 .noexc14:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.25, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.25, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.25, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.25, i64 4))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %16
 
 16:                                               ; preds = %.noexc14
@@ -3037,7 +3037,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
           to label %.noexc16 unwind label %66
 
 .noexc16:                                         ; preds = %.noexc15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.25, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.25, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.25, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.25, i64 4))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit19 unwind label %38
 
 38:                                               ; preds = %.noexc16
@@ -3186,7 +3186,7 @@ _ZNK10open_spiel13GameParameter9int_valueEv.exit: ; preds = %55
   %.0 = phi i32 [ %63, %_ZNK10open_spiel13GameParameter9int_valueEv.exit ], [ %74, %70 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !55)
   %76 = call noalias noundef nonnull dereferenceable(5016) ptr @_Znwm(i64 noundef 5016) #22, !noalias !58
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_116UniformRandomBotE, i64 16), ptr %76, align 8, !noalias !58
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_116UniformRandomBotE, i64 16), ptr %76, align 8, !noalias !58
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i32 %3, ptr %77, align 8, !noalias !58
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 16
@@ -3451,7 +3451,7 @@ declare void @_ZN4absl7debian215random_internal10RandenSlow8GenerateEPKvPv(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN10open_spiel12_GLOBAL__N_19PolicyBotD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(5024) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_19PolicyBotE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_19PolicyBotE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5016
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -3531,7 +3531,7 @@ _ZNSt10shared_ptrIN10open_spiel6PolicyEED2Ev.exit: ; preds = %1, %20, %33, %_ZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN10open_spiel12_GLOBAL__N_19PolicyBotD0Ev(ptr noundef nonnull align 8 dereferenceable(5024) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_19PolicyBotE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_19PolicyBotE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5016
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -3776,7 +3776,7 @@ define internal noundef zeroext i1 @_ZNK10open_spiel12_GLOBAL__N_19PolicyBot10Is
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN10open_spiel12_GLOBAL__N_19PolicyBot5CloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(5024) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(5024) ptr @_Znwm(i64 noundef 5024) #22, !noalias !63
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_19PolicyBotE, i64 16), ptr %3, align 8, !noalias !63
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_19PolicyBotE, i64 16), ptr %3, align 8, !noalias !63
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5000) %4, ptr noundef nonnull readonly align 8 dereferenceable(5000) %5, i64 5000, i1 false), !noalias !63
@@ -3831,7 +3831,7 @@ define linkonce_odr noundef i64 @_ZN4absl7debian29BitGenRef6ImplFnISt23mersenne_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBotD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBotE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBotE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -3852,7 +3852,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBotD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBotE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBotE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -4235,7 +4235,7 @@ define internal noundef zeroext i1 @_ZNK10open_spiel12_GLOBAL__N_124FixedActionP
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBot5CloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22, !noalias !69
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBotE, i64 16), ptr %3, align 8, !noalias !69
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBotE, i64 16), ptr %3, align 8, !noalias !69
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8, !noalias !69
@@ -4812,7 +4812,7 @@ define internal void @_ZNK10open_spiel12_GLOBAL__N_128FixedActionPreferenceFacto
           to label %.noexc18 unwind label %165
 
 .noexc18:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.30, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.30, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.30, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.30, i64 7))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %22
 
 22:                                               ; preds = %.noexc18
@@ -4889,7 +4889,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
           to label %.noexc22 unwind label %167
 
 .noexc22:                                         ; preds = %.noexc21
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.30, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.30, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.30, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.30, i64 7))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit25 unwind label %44
 
 44:                                               ; preds = %.noexc22
@@ -5326,7 +5326,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZN4absl7debian216s
           to label %.noexc47 unwind label %171
 
 .noexc47:                                         ; preds = %173
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBotE, i64 16), ptr %174, align 8, !noalias !86
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBotE, i64 16), ptr %174, align 8, !noalias !86
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   store i32 %3, ptr %175, align 8, !noalias !86
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 16
@@ -5572,7 +5572,7 @@ declare void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN10open_spiel12_GLOBAL__N_117StatefulRandomBotD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(5024) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_117StatefulRandomBotE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_117StatefulRandomBotE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5016
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -5592,7 +5592,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit: ; preds
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN10open_spiel12_GLOBAL__N_117StatefulRandomBotD0Ev(ptr noundef nonnull align 8 dereferenceable(5024) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_117StatefulRandomBotE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_117StatefulRandomBotE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5016
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -5861,7 +5861,7 @@ define internal void @_ZN10open_spiel12_GLOBAL__N_117StatefulRandomBot5CloneEv(p
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5008) %4, ptr noundef nonnull readonly align 8 dereferenceable(5008) %5, i64 5008, i1 false), !noalias !92
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_117StatefulRandomBotE, i64 16), ptr %3, align 8, !noalias !92
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_117StatefulRandomBotE, i64 16), ptr %3, align 8, !noalias !92
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 5016
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 5016
   %8 = load ptr, ptr %7, align 8, !noalias !92
@@ -8058,7 +8058,7 @@ define internal void @_GLOBAL__sub_I_spiel_bots.cc() #16 section ".text.startup"
           to label %16 unwind label %.body
 
 16:                                               ; preds = %14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 14)) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 14)) #24
   store ptr null, ptr %1, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 14)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body
@@ -8076,7 +8076,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
           to label %19 unwind label %27
 
 19:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_123UniformRandomBotFactoryE, i64 16), ptr %18, align 8, !noalias !107
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_123UniformRandomBotFactoryE, i64 16), ptr %18, align 8, !noalias !107
   store ptr %18, ptr %7, align 8
   invoke void @_ZN10open_spiel13BotRegistererC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS_10BotFactoryESt14default_deleteISA_EE(ptr noundef nonnull align 1 dereferenceable(1) @_ZN10open_spiel12_GLOBAL__N_14bot0E, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %7)
           to label %20 unwind label %29
@@ -8151,7 +8151,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %20, %_ZNKSt14defaul
           to label %.noexc5.i4 unwind label %46
 
 .noexc5.i4:                                       ; preds = %.noexc.i3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 23))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 23))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i5 unwind label %37
 
 37:                                               ; preds = %.noexc5.i4
@@ -8165,7 +8165,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i5: ;
           to label %40 unwind label %48
 
 40:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i5
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_128FixedActionPreferenceFactoryE, i64 16), ptr %39, align 8, !noalias !110
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_128FixedActionPreferenceFactoryE, i64 16), ptr %39, align 8, !noalias !110
   store ptr %39, ptr %4, align 8
   invoke void @_ZN10open_spiel13BotRegistererC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS_10BotFactoryESt14default_deleteISA_EE(ptr noundef nonnull align 1 dereferenceable(1) @_ZN10open_spiel12_GLOBAL__N_14bot1E, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %4)
           to label %41 unwind label %50

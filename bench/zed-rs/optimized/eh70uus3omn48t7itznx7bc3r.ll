@@ -10191,7 +10191,7 @@ _ZN4core3ops8function6FnOnce9call_once17h37fb45b56787581dE.exit.i: ; preds = %2
   unreachable
 
 12:                                               ; preds = %2, %.noexc
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %9, %.noexc ], [ getelementptr inbounds (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %2 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %9, %.noexc ], [ getelementptr inbounds nuw (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %2 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8, !noundef !4
   %15 = icmp eq i64 %14, 0
@@ -11141,7 +11141,7 @@ define hidden noundef ptr @_ZN4core3ops8function6FnOnce9call_once17h239df4181534
   br label %"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he0ce4823f10237d5E.exit"
 
 "_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he0ce4823f10237d5E.exit": ; preds = %1, %3
-  %.sroa.0.0.i.i = phi ptr [ %4, %3 ], [ getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %1 ]
+  %.sroa.0.0.i.i = phi ptr [ %4, %3 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %1 ]
   ret ptr %.sroa.0.0.i.i
 }
 
@@ -35860,7 +35860,7 @@ _ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.1458270137554431
   unreachable
 
 "_ZN79_$LT$async_io..driver..CallOnDrop$LT$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4339122212bb3170E.llvm.14582701375544310392.exit": ; preds = %1, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit.i.i
-  %.sroa.0.0.i.i.i2.i.i = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit.i.i ], [ getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %1 ]
+  %.sroa.0.0.i.i.i2.i.i = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit.i.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %1 ]
   store i8 0, ptr %.sroa.0.0.i.i.i2.i.i, align 1, !noalias !11207
   ret void
 }
@@ -35893,7 +35893,7 @@ _ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.1458270137554431
   unreachable
 
 "_ZN79_$LT$async_io..driver..CallOnDrop$LT$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6edacd42b2a749c7E.llvm.14582701375544310392.exit": ; preds = %1, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit.i.i
-  %.sroa.0.0.i.i.i2.i.i = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit.i.i ], [ getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %1 ]
+  %.sroa.0.0.i.i.i2.i.i = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit.i.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %1 ]
   store i8 0, ptr %.sroa.0.0.i.i.i2.i.i, align 1, !noalias !11223
   %7 = load ptr, ptr %0, align 8, !alias.scope !11224, !nonnull !4, !align !6, !noundef !4
   %8 = load ptr, ptr %7, align 8, !noalias !11224, !nonnull !4, !noundef !4
@@ -44166,7 +44166,7 @@ _ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.1458270137554431
   unreachable
 
 "_ZN79_$LT$async_io..driver..CallOnDrop$LT$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h00ee90cf8c34eeaaE.llvm.14582701375544310392.exit": ; preds = %1, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit.i.i
-  %.sroa.0.0.i.i.i2.i.i = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit.i.i ], [ getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %1 ]
+  %.sroa.0.0.i.i.i2.i.i = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit.i.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %1 ]
   store i8 0, ptr %.sroa.0.0.i.i.i2.i.i, align 1, !noalias !14089
   ret void
 }
@@ -44199,7 +44199,7 @@ _ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.1458270137554431
   unreachable
 
 "_ZN79_$LT$async_io..driver..CallOnDrop$LT$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h01798c06aeb794bcE.llvm.14582701375544310392.exit": ; preds = %1, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit.i.i
-  %.sroa.0.0.i.i.i2.i.i = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit.i.i ], [ getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %1 ]
+  %.sroa.0.0.i.i.i2.i.i = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit.i.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %1 ]
   store i8 0, ptr %.sroa.0.0.i.i.i2.i.i, align 1, !noalias !14105
   %7 = load ptr, ptr %0, align 8, !alias.scope !14106, !nonnull !4, !align !6, !noundef !4
   %8 = load ptr, ptr %7, align 8, !noalias !14106, !nonnull !4, !noundef !4
@@ -88780,7 +88780,7 @@ _ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.1458270137554431
   unreachable
 
 "_ZN8async_io6driver8block_on28_$u7b$$u7b$closure$u7d$$u7d$17hb42a2fe57900f978E.llvm.14582701375544310392.exit": ; preds = %1, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit.i
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit.i ], [ getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %1 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %1 ]
   store i8 0, ptr %.sroa.0.0.i.i.i2.i, align 1, !noalias !28770
   ret void
 }
@@ -88804,7 +88804,7 @@ _ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.1458270137554431
   unreachable
 
 "_ZN8async_io6driver8block_on28_$u7b$$u7b$closure$u7d$$u7d$17h8937d24d2a4d78f4E.llvm.14582701375544310392.exit": ; preds = %1, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit.i
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit.i ], [ getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %1 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %1 ]
   store i8 0, ptr %.sroa.0.0.i.i.i2.i, align 1, !noalias !28783
   %7 = load ptr, ptr %0, align 8, !alias.scope !28771, !nonnull !4, !align !6, !noundef !4
   %8 = load ptr, ptr %7, align 8, !noalias !28771, !nonnull !4, !noundef !4
@@ -88847,7 +88847,7 @@ _ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.1458270137554431
   unreachable
 
 "_ZN8async_io6driver8block_on28_$u7b$$u7b$closure$u7d$$u7d$17heffb6e427b66b953E.llvm.14582701375544310392.exit": ; preds = %1, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit.i
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit.i ], [ getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %1 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %1 ]
   store i8 0, ptr %.sroa.0.0.i.i.i2.i, align 1, !noalias !28793
   ret void
 }
@@ -88871,7 +88871,7 @@ _ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.1458270137554431
   unreachable
 
 "_ZN8async_io6driver8block_on28_$u7b$$u7b$closure$u7d$$u7d$17h14e77b969183b676E.llvm.14582701375544310392.exit": ; preds = %1, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit.i
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit.i ], [ getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %1 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %1 ]
   store i8 0, ptr %.sroa.0.0.i.i.i2.i, align 1, !noalias !28806
   %7 = load ptr, ptr %0, align 8, !alias.scope !28794, !nonnull !4, !align !6, !noundef !4
   %8 = load ptr, ptr %7, align 8, !noalias !28794, !nonnull !4, !noundef !4
@@ -94988,7 +94988,7 @@ _ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.1458270137554431
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf5b4be1389069a7aE.llvm.14582701375544310392.exit": ; preds = %1, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit
-  %.sroa.0.0.i.i.i2 = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit ], [ getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %1 ]
+  %.sroa.0.0.i.i.i2 = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit ], [ getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %1 ]
   store i8 0, ptr %.sroa.0.0.i.i.i2, align 1, !noalias !30460
   %7 = load ptr, ptr %0, align 8, !nonnull !4, !align !6, !noundef !4
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
@@ -95031,7 +95031,7 @@ _ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.1458270137554431
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf5b4be1389069a7aE.llvm.14582701375544310392.exit": ; preds = %1, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit
-  %.sroa.0.0.i.i.i2 = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit ], [ getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %1 ]
+  %.sroa.0.0.i.i.i2 = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit ], [ getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %1 ]
   store i8 0, ptr %.sroa.0.0.i.i.i2, align 1, !noalias !30470
   %7 = load ptr, ptr %0, align 8, !nonnull !4, !align !6, !noundef !4
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
@@ -95058,7 +95058,7 @@ _ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.1458270137554431
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf5b4be1389069a7aE.llvm.14582701375544310392.exit": ; preds = %1, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit
-  %.sroa.0.0.i.i.i2 = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit ], [ getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %1 ]
+  %.sroa.0.0.i.i.i2 = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit ], [ getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %1 ]
   store i8 0, ptr %.sroa.0.0.i.i.i2, align 1, !noalias !30480
   ret void
 }
@@ -95081,7 +95081,7 @@ _ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.1458270137554431
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf5b4be1389069a7aE.llvm.14582701375544310392.exit": ; preds = %1, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit
-  %.sroa.0.0.i.i.i2 = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit ], [ getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %1 ]
+  %.sroa.0.0.i.i.i2 = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.llvm.14582701375544310392.exit ], [ getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %1 ]
   store i8 0, ptr %.sroa.0.0.i.i.i2, align 1, !noalias !30490
   ret void
 }

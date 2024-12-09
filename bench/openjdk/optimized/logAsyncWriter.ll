@@ -358,7 +358,7 @@ define hidden void @_ZN14AsyncLogWriter7enqueueER19LogFileStreamOutputN16LogMess
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14AsyncLogWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(1184) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN13NonJavaThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(896) %0) #16
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV14AsyncLogWriter, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV14AsyncLogWriter, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 896
   tail call void @_ZN14PosixSemaphoreC1Ej(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 0) #16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 928
@@ -1128,7 +1128,7 @@ define linkonce_odr hidden void @_ZN12ThreadShadow22unused_initial_virtualEv(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AsyncLogWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(1184) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV14AsyncLogWriter, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV14AsyncLogWriter, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   br label %3
 
@@ -1163,7 +1163,7 @@ _ZN17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE2E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AsyncLogWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(1184) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV14AsyncLogWriter, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV14AsyncLogWriter, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   br label %3
 

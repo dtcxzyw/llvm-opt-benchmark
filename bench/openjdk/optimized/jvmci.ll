@@ -462,7 +462,7 @@ define hidden void @_ZN5JVMCI18initialize_globalsEv() local_unnamed_addr #0 alig
   %6 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 160, i8 noundef zeroext 9, i32 noundef 0) #13
   %7 = load i32, ptr @LogEventsBufferEntries, align 4
   tail call void @_ZN8EventLogC2Ev(ptr noundef nonnull align 8 dereferenceable(160) %6) #13
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV12EventLogBaseI22FormatStringLogMessageILm256EEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV12EventLogBaseI22FormatStringLogMessageILm256EEE, i64 16), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %8, i32 noundef 0, ptr noundef nonnull @.str.9, i1 noundef zeroext true) #13
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 120
@@ -501,7 +501,7 @@ define hidden void @_ZN5JVMCI18initialize_globalsEv() local_unnamed_addr #0 alig
 _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit: ; preds = %23, %5
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 152
   store ptr %19, ptr %29, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV20FormatStringEventLogILm256EE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV20FormatStringEventLogILm256EE, i64 16), ptr %6, align 8
   store ptr %6, ptr @_ZN5JVMCI7_eventsE, align 8
   %30 = load i64, ptr @JVMCIEventLogLevel, align 8
   %31 = icmp sgt i64 %30, 1
@@ -525,7 +525,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit: ; preds = %23, %5
 38:                                               ; preds = %36
   %39 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 160, i8 noundef zeroext 9, i32 noundef 0) #13
   tail call void @_ZN8EventLogC2Ev(ptr noundef nonnull align 8 dereferenceable(160) %39) #13
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV12EventLogBaseI22FormatStringLogMessageILm256EEE, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV12EventLogBaseI22FormatStringLogMessageILm256EEE, i64 16), ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %40, i32 noundef 0, ptr noundef nonnull @.str.11, i1 noundef zeroext true) #13
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 120
@@ -564,7 +564,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit: ; preds = %23, %5
 _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit19: ; preds = %55, %38
   %61 = getelementptr inbounds nuw i8, ptr %39, i64 152
   store ptr %51, ptr %61, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV20FormatStringEventLogILm256EE, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV20FormatStringEventLogILm256EE, i64 16), ptr %39, align 8
   store ptr %39, ptr @_ZN5JVMCI15_verbose_eventsE, align 8
   br label %62
 
@@ -1285,7 +1285,7 @@ define hidden void @_ZN5JVMCI9fatal_logEPKcm(ptr noundef %0, i64 noundef %1) loc
 .loopexit:                                        ; preds = %.lr.ph, %28, %27
   %33 = load volatile i32, ptr @_ZN5JVMCI13_fatal_log_fdE, align 4
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(60) %3, i1 noundef zeroext false) #13
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV8fdStream, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV8fdStream, i64 16), ptr %3, align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i32 %33, ptr %34, align 8
   call void @_ZN8fdStream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(60) %3, ptr noundef %0, i64 noundef %1) #13

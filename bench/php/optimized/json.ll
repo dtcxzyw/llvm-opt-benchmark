@@ -193,7 +193,7 @@ define internal noundef i32 @zm_startup_json(i32 %0, i32 noundef %1) #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal noundef i32 @zm_activate_json(i32 %0, i32 %1) #1 {
-  store i32 0, ptr getelementptr inbounds (i8, ptr @json_globals, i64 8), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @json_globals, i64 8), align 4
   ret i32 0
 }
 
@@ -351,7 +351,7 @@ define i32 @php_json_encode_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   %8 = call i32 @php_json_encode_zval(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %5) #13
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 4
-  store i32 %10, ptr getelementptr inbounds (i8, ptr @json_globals, i64 8), align 4
+  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @json_globals, i64 8), align 4
   ret i32 %8
 }
 
@@ -360,7 +360,7 @@ declare i32 @php_json_encode_zval(ptr noundef, ptr noundef, i32 noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define i32 @php_json_encode(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._php_json_encoder, align 4
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @json_globals, i64 4), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @json_globals, i64 4), align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -368,7 +368,7 @@ define i32 @php_json_encode(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
   %7 = call i32 @php_json_encode_zval(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %4) #13
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i32, ptr %8, align 4
-  store i32 %9, ptr getelementptr inbounds (i8, ptr @json_globals, i64 8), align 4
+  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @json_globals, i64 8), align 4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   ret i32 %7
 }
@@ -390,7 +390,7 @@ define range(i32 -1, 1) i32 @php_json_decode_ex(ptr noundef %0, ptr noundef %1, 
   br i1 %.not10, label %13, label %14
 
 13:                                               ; preds = %10
-  store i32 %11, ptr getelementptr inbounds (i8, ptr @json_globals, i64 8), align 4
+  store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @json_globals, i64 8), align 4
   br label %20
 
 14:                                               ; preds = %10
@@ -442,7 +442,7 @@ define noundef zeroext i1 @php_json_validate_ex(ptr noundef %0, i64 noundef %1, 
 
 11:                                               ; preds = %4
   %12 = call i32 @php_json_parser_error_code(ptr noundef nonnull %5) #13
-  store i32 %12, ptr getelementptr inbounds (i8, ptr @json_globals, i64 8), align 4
+  store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @json_globals, i64 8), align 4
   br label %13
 
 13:                                               ; preds = %4, %11
@@ -540,7 +540,7 @@ define hidden void @zif_json_encode(ptr noundef %0, ptr nocapture noundef writeo
   %.not262 = icmp ne i64 %40, 0
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %42 = load i32, ptr %41, align 4
-  store i32 %42, ptr getelementptr inbounds (i8, ptr @json_globals, i64 8), align 4
+  store i32 %42, ptr getelementptr inbounds nuw (i8, ptr @json_globals, i64 8), align 4
   %.not266 = icmp eq i32 %42, 0
   %brmerge = or i1 %.not262, %.not266
   br i1 %brmerge, label %83, label %43
@@ -629,7 +629,7 @@ php_json_get_error_msg.exit:                      ; preds = %73, %switch.lookup
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.64, %73 ]
   %79 = zext i32 %74 to i64
   %80 = call ptr @zend_throw_exception(ptr noundef %76, ptr noundef nonnull %.0.i, i64 noundef %79) #13
-  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %82 = icmp ne ptr %81, null
   call void @llvm.assume(i1 %82)
   br label %141
@@ -883,7 +883,7 @@ switch.lookup:                                    ; preds = %25
 .thread255.thread:                                ; preds = %19, %.thread214, %42, %.thread255
   %.0187239263 = phi i1 [ %.3217, %.thread255 ], [ true, %19 ], [ %.3217, %.thread214 ], [ %.3217, %42 ]
   %53 = phi i64 [ %51, %.thread255 ], [ 0, %19 ], [ 0, %.thread214 ], [ 0, %42 ]
-  store i32 0, ptr getelementptr inbounds (i8, ptr @json_globals, i64 8), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @json_globals, i64 8), align 4
   %.not202 = icmp eq i64 %22, 0
   br i1 %.not202, label %54, label %59
 
@@ -892,7 +892,7 @@ switch.lookup:                                    ; preds = %25
   br i1 %.not202257, label %.thread258, label %59
 
 54:                                               ; preds = %.thread255.thread
-  store i32 4, ptr getelementptr inbounds (i8, ptr @json_globals, i64 8), align 4
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @json_globals, i64 8), align 4
   br label %57
 
 .thread258:                                       ; preds = %.thread256
@@ -914,7 +914,7 @@ switch.lookup:                                    ; preds = %25
 
 63:                                               ; preds = %59
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.3) #13
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %65 = icmp ne ptr %64, null
   call void @llvm.assume(i1 %65)
   br label %79
@@ -925,7 +925,7 @@ switch.lookup:                                    ; preds = %25
 
 68:                                               ; preds = %66
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.4, i32 noundef 2147483647) #13
-  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %70 = icmp ne ptr %69, null
   call void @llvm.assume(i1 %70)
   br label %79
@@ -1058,7 +1058,7 @@ define hidden void @zif_json_validate(ptr noundef %0, ptr nocapture noundef writ
 
 45:                                               ; preds = %.thread199
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.5) #13
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %47 = icmp ne ptr %46, null
   call void @llvm.assume(i1 %47)
   br label %71
@@ -1069,20 +1069,20 @@ define hidden void @zif_json_validate(ptr noundef %0, ptr nocapture noundef writ
   br i1 %.not156, label %49, label %51
 
 49:                                               ; preds = %.thread199.thread
-  store i32 4, ptr getelementptr inbounds (i8, ptr @json_globals, i64 8), align 4
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @json_globals, i64 8), align 4
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %50, align 8
   br label %71
 
 51:                                               ; preds = %.thread199.thread
-  store i32 0, ptr getelementptr inbounds (i8, ptr @json_globals, i64 8), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @json_globals, i64 8), align 4
   %52 = load i64, ptr %6, align 8
   %53 = icmp slt i64 %52, 1
   br i1 %53, label %54, label %57
 
 54:                                               ; preds = %51
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.3) #13
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %56 = icmp ne ptr %55, null
   call void @llvm.assume(i1 %56)
   br label %71
@@ -1093,7 +1093,7 @@ define hidden void @zif_json_validate(ptr noundef %0, ptr nocapture noundef writ
 
 59:                                               ; preds = %57
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.4, i32 noundef 2147483647) #13
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %61 = icmp ne ptr %60, null
   call void @llvm.assume(i1 %61)
   br label %71
@@ -1111,7 +1111,7 @@ define hidden void @zif_json_validate(ptr noundef %0, ptr nocapture noundef writ
 
 67:                                               ; preds = %62
   %68 = call i32 @php_json_parser_error_code(ptr noundef nonnull %3) #13
-  store i32 %68, ptr getelementptr inbounds (i8, ptr @json_globals, i64 8), align 4
+  store i32 %68, ptr getelementptr inbounds nuw (i8, ptr @json_globals, i64 8), align 4
   br label %php_json_validate_ex.exit
 
 php_json_validate_ex.exit:                        ; preds = %62, %67
@@ -1138,7 +1138,7 @@ define hidden void @zif_json_last_error(ptr nocapture noundef readonly %0, ptr n
   br label %10
 
 6:                                                ; preds = %2
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @json_globals, i64 8), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @json_globals, i64 8), align 4
   %8 = zext i32 %7 to i64
   store i64 %8, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1163,7 +1163,7 @@ define hidden void @zif_json_last_error_msg(ptr nocapture noundef readonly %0, p
   br label %20
 
 6:                                                ; preds = %2
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @json_globals, i64 8), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @json_globals, i64 8), align 4
   %8 = icmp ult i32 %7, 12
   br i1 %8, label %switch.lookup, label %php_json_get_error_msg.exit
 

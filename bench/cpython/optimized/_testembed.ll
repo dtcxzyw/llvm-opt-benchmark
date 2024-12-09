@@ -4527,7 +4527,7 @@ if.then2:                                         ; preds = %if.then
   unreachable
 
 if.end:                                           ; preds = %if.then
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3544), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3544), align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %cond.end, label %cond.false
 
@@ -4536,7 +4536,7 @@ cond.false:                                       ; preds = %if.end
   unreachable
 
 cond.end:                                         ; preds = %if.end
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3548), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3548), align 4
   %cmp3 = icmp eq i32 %1, 0
   br i1 %cmp3, label %if.end7, label %cond.false5
 
@@ -4573,7 +4573,7 @@ if.then.i:                                        ; preds = %config_set_program_
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3544), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3544), align 8
   %cmp9 = icmp eq i32 %2, 1
   br i1 %cmp9, label %cond.end12, label %cond.false11
 
@@ -4582,7 +4582,7 @@ cond.false11:                                     ; preds = %init_from_config_cl
   unreachable
 
 cond.end12:                                       ; preds = %init_from_config_clear.exit
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3548), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3548), align 4
   %cmp14 = icmp eq i32 %3, 0
   br i1 %cmp14, label %cond.end17, label %cond.false16
 

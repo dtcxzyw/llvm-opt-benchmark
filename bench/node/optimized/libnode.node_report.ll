@@ -1190,8 +1190,8 @@ if.end.i37:                                       ; preds = %if.then.i36, %if.en
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12.i) #24
   store i64 64, ptr %ref.tmp13.i, align 8
   call void @_ZN4node10JSONWriter13json_keyvalueIA9_cmEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %writer, ptr noundef nonnull align 1 dereferenceable(9) @.str.39, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13.i)
-  call void @_ZN4node10JSONWriter13json_keyvalueIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %writer, ptr noundef nonnull align 1 dereferenceable(5) @.str.40, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 832))
-  call void @_ZN4node10JSONWriter13json_keyvalueIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %writer, ptr noundef nonnull align 1 dereferenceable(9) @.str.41, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 864))
+  call void @_ZN4node10JSONWriter13json_keyvalueIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %writer, ptr noundef nonnull align 1 dereferenceable(5) @.str.40, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 832))
+  call void @_ZN4node10JSONWriter13json_keyvalueIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %writer, ptr noundef nonnull align 1 dereferenceable(9) @.str.41, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 864))
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %buf.i.i)
   call void @llvm.lifetime.start.p0(i64 800, ptr nonnull %versions_array.i.i)
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %buf.i.i) #24
@@ -1208,7 +1208,7 @@ if.end.i37:                                       ; preds = %if.then.i36, %if.en
   store i64 %29, ptr %second3.i.i.i, align 16
   %ref.tmp.sroa.5.16.second3.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 24
   store ptr %30, ptr %ref.tmp.sroa.5.16.second3.i.sroa_idx.i.i, align 8
-  %call.i35.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 32)) #24
+  %call.i35.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 32)) #24
   %31 = extractvalue { i64, ptr } %call.i35.i.i, 0
   %32 = extractvalue { i64, ptr } %call.i35.i.i, 1
   %incdec.ptr3.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 64
@@ -1219,7 +1219,7 @@ if.end.i37:                                       ; preds = %if.then.i36, %if.en
   store i64 %31, ptr %second3.i37.i.i, align 16
   %ref.tmp2.sroa.5.16.second3.i37.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 56
   store ptr %32, ptr %ref.tmp2.sroa.5.16.second3.i37.sroa_idx.i.i, align 8
-  %call.i41.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 64)) #24
+  %call.i41.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 64)) #24
   %33 = extractvalue { i64, ptr } %call.i41.i.i, 0
   %34 = extractvalue { i64, ptr } %call.i41.i.i, 1
   %incdec.ptr9.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 96
@@ -1230,7 +1230,7 @@ if.end.i37:                                       ; preds = %if.then.i36, %if.en
   store i64 %33, ptr %second3.i43.i.i, align 16
   %ref.tmp8.sroa.5.16.second3.i43.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 88
   store ptr %34, ptr %ref.tmp8.sroa.5.16.second3.i43.sroa_idx.i.i, align 8
-  %call.i47.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 96)) #24
+  %call.i47.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 96)) #24
   %35 = extractvalue { i64, ptr } %call.i47.i.i, 0
   %36 = extractvalue { i64, ptr } %call.i47.i.i, 1
   %incdec.ptr15.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 128
@@ -1241,7 +1241,7 @@ if.end.i37:                                       ; preds = %if.then.i36, %if.en
   store i64 %35, ptr %second3.i49.i.i, align 16
   %ref.tmp14.sroa.5.16.second3.i49.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 120
   store ptr %36, ptr %ref.tmp14.sroa.5.16.second3.i49.sroa_idx.i.i, align 8
-  %call.i53.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 128)) #24
+  %call.i53.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 128)) #24
   %37 = extractvalue { i64, ptr } %call.i53.i.i, 0
   %38 = extractvalue { i64, ptr } %call.i53.i.i, 1
   %incdec.ptr21.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 160
@@ -1252,7 +1252,7 @@ if.end.i37:                                       ; preds = %if.then.i36, %if.en
   store i64 %37, ptr %second3.i55.i.i, align 16
   %ref.tmp20.sroa.5.16.second3.i55.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 152
   store ptr %38, ptr %ref.tmp20.sroa.5.16.second3.i55.sroa_idx.i.i, align 8
-  %call.i59.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 160)) #24
+  %call.i59.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 160)) #24
   %39 = extractvalue { i64, ptr } %call.i59.i.i, 0
   %40 = extractvalue { i64, ptr } %call.i59.i.i, 1
   %incdec.ptr27.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 192
@@ -1263,7 +1263,7 @@ if.end.i37:                                       ; preds = %if.then.i36, %if.en
   store i64 %39, ptr %second3.i61.i.i, align 16
   %ref.tmp26.sroa.5.16.second3.i61.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 184
   store ptr %40, ptr %ref.tmp26.sroa.5.16.second3.i61.sroa_idx.i.i, align 8
-  %call.i65.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 192)) #24
+  %call.i65.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 192)) #24
   %41 = extractvalue { i64, ptr } %call.i65.i.i, 0
   %42 = extractvalue { i64, ptr } %call.i65.i.i, 1
   %incdec.ptr33.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 224
@@ -1274,7 +1274,7 @@ if.end.i37:                                       ; preds = %if.then.i36, %if.en
   store i64 %41, ptr %second3.i67.i.i, align 16
   %ref.tmp32.sroa.5.16.second3.i67.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 216
   store ptr %42, ptr %ref.tmp32.sroa.5.16.second3.i67.sroa_idx.i.i, align 8
-  %call.i71.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 224)) #24
+  %call.i71.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 224)) #24
   %43 = extractvalue { i64, ptr } %call.i71.i.i, 0
   %44 = extractvalue { i64, ptr } %call.i71.i.i, 1
   %incdec.ptr39.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 256
@@ -1285,7 +1285,7 @@ if.end.i37:                                       ; preds = %if.then.i36, %if.en
   store i64 %43, ptr %second3.i73.i.i, align 16
   %ref.tmp38.sroa.5.16.second3.i73.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 248
   store ptr %44, ptr %ref.tmp38.sroa.5.16.second3.i73.sroa_idx.i.i, align 8
-  %call.i77.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 256)) #24
+  %call.i77.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 256)) #24
   %45 = extractvalue { i64, ptr } %call.i77.i.i, 0
   %46 = extractvalue { i64, ptr } %call.i77.i.i, 1
   %incdec.ptr45.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 288
@@ -1296,7 +1296,7 @@ if.end.i37:                                       ; preds = %if.then.i36, %if.en
   store i64 %45, ptr %second3.i79.i.i, align 16
   %ref.tmp44.sroa.5.16.second3.i79.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 280
   store ptr %46, ptr %ref.tmp44.sroa.5.16.second3.i79.sroa_idx.i.i, align 8
-  %call.i83.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 288)) #24
+  %call.i83.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 288)) #24
   %47 = extractvalue { i64, ptr } %call.i83.i.i, 0
   %48 = extractvalue { i64, ptr } %call.i83.i.i, 1
   %incdec.ptr51.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 320
@@ -1307,7 +1307,7 @@ if.end.i37:                                       ; preds = %if.then.i36, %if.en
   store i64 %47, ptr %second3.i85.i.i, align 16
   %ref.tmp50.sroa.5.16.second3.i85.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 312
   store ptr %48, ptr %ref.tmp50.sroa.5.16.second3.i85.sroa_idx.i.i, align 8
-  %call.i89.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 320)) #24
+  %call.i89.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 320)) #24
   %49 = extractvalue { i64, ptr } %call.i89.i.i, 0
   %50 = extractvalue { i64, ptr } %call.i89.i.i, 1
   %incdec.ptr57.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 352
@@ -1318,7 +1318,7 @@ if.end.i37:                                       ; preds = %if.then.i36, %if.en
   store i64 %49, ptr %second3.i91.i.i, align 16
   %ref.tmp56.sroa.5.16.second3.i91.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 344
   store ptr %50, ptr %ref.tmp56.sroa.5.16.second3.i91.sroa_idx.i.i, align 8
-  %call.i95.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 352)) #24
+  %call.i95.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 352)) #24
   %51 = extractvalue { i64, ptr } %call.i95.i.i, 0
   %52 = extractvalue { i64, ptr } %call.i95.i.i, 1
   %incdec.ptr63.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 384
@@ -1329,7 +1329,7 @@ if.end.i37:                                       ; preds = %if.then.i36, %if.en
   store i64 %51, ptr %second3.i97.i.i, align 16
   %ref.tmp62.sroa.5.16.second3.i97.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 376
   store ptr %52, ptr %ref.tmp62.sroa.5.16.second3.i97.sroa_idx.i.i, align 8
-  %call.i101.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 384)) #24
+  %call.i101.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 384)) #24
   %53 = extractvalue { i64, ptr } %call.i101.i.i, 0
   %54 = extractvalue { i64, ptr } %call.i101.i.i, 1
   %incdec.ptr69.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 416
@@ -1340,7 +1340,7 @@ if.end.i37:                                       ; preds = %if.then.i36, %if.en
   store i64 %53, ptr %second3.i103.i.i, align 16
   %ref.tmp68.sroa.5.16.second3.i103.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 408
   store ptr %54, ptr %ref.tmp68.sroa.5.16.second3.i103.sroa_idx.i.i, align 8
-  %call.i107.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 416)) #24
+  %call.i107.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 416)) #24
   %55 = extractvalue { i64, ptr } %call.i107.i.i, 0
   %56 = extractvalue { i64, ptr } %call.i107.i.i, 1
   %incdec.ptr75.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 448
@@ -1351,7 +1351,7 @@ if.end.i37:                                       ; preds = %if.then.i36, %if.en
   store i64 %55, ptr %second3.i109.i.i, align 16
   %ref.tmp74.sroa.5.16.second3.i109.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 440
   store ptr %56, ptr %ref.tmp74.sroa.5.16.second3.i109.sroa_idx.i.i, align 8
-  %call.i113.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 448)) #24
+  %call.i113.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 448)) #24
   %57 = extractvalue { i64, ptr } %call.i113.i.i, 0
   %58 = extractvalue { i64, ptr } %call.i113.i.i, 1
   %incdec.ptr81.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 480
@@ -1362,7 +1362,7 @@ if.end.i37:                                       ; preds = %if.then.i36, %if.en
   store i64 %57, ptr %second3.i115.i.i, align 16
   %ref.tmp80.sroa.5.16.second3.i115.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 472
   store ptr %58, ptr %ref.tmp80.sroa.5.16.second3.i115.sroa_idx.i.i, align 8
-  %call.i119.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 480)) #24
+  %call.i119.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 480)) #24
   %59 = extractvalue { i64, ptr } %call.i119.i.i, 0
   %60 = extractvalue { i64, ptr } %call.i119.i.i, 1
   %incdec.ptr87.ptr.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 512
@@ -1373,7 +1373,7 @@ if.end.i37:                                       ; preds = %if.then.i36, %if.en
   store i64 %59, ptr %second3.i121.i.i, align 16
   %ref.tmp86.sroa.5.16.second3.i121.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 504
   store ptr %60, ptr %ref.tmp86.sroa.5.16.second3.i121.sroa_idx.i.i, align 8
-  %call.i125.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 512)) #24
+  %call.i125.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 512)) #24
   %61 = extractvalue { i64, ptr } %call.i125.i.i, 0
   %62 = extractvalue { i64, ptr } %call.i125.i.i, 1
   %incdec.ptr93.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 544
@@ -1384,7 +1384,7 @@ if.end.i37:                                       ; preds = %if.then.i36, %if.en
   store i64 %61, ptr %second3.i127.i.i, align 16
   %ref.tmp92.sroa.5.16.second3.i127.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 536
   store ptr %62, ptr %ref.tmp92.sroa.5.16.second3.i127.sroa_idx.i.i, align 8
-  %call.i131.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 544)) #24
+  %call.i131.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 544)) #24
   %63 = extractvalue { i64, ptr } %call.i131.i.i, 0
   %64 = extractvalue { i64, ptr } %call.i131.i.i, 1
   %incdec.ptr99.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 576
@@ -1395,7 +1395,7 @@ if.end.i37:                                       ; preds = %if.then.i36, %if.en
   store i64 %63, ptr %second3.i133.i.i, align 16
   %ref.tmp98.sroa.5.16.second3.i133.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 568
   store ptr %64, ptr %ref.tmp98.sroa.5.16.second3.i133.sroa_idx.i.i, align 8
-  %call.i137.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 576)) #24
+  %call.i137.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 576)) #24
   %65 = extractvalue { i64, ptr } %call.i137.i.i, 0
   %66 = extractvalue { i64, ptr } %call.i137.i.i, 1
   %incdec.ptr105.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 608
@@ -1406,7 +1406,7 @@ if.end.i37:                                       ; preds = %if.then.i36, %if.en
   store i64 %65, ptr %second3.i139.i.i, align 16
   %ref.tmp104.sroa.5.16.second3.i139.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 600
   store ptr %66, ptr %ref.tmp104.sroa.5.16.second3.i139.sroa_idx.i.i, align 8
-  %call.i143.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 608)) #24
+  %call.i143.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 608)) #24
   %67 = extractvalue { i64, ptr } %call.i143.i.i, 0
   %68 = extractvalue { i64, ptr } %call.i143.i.i, 1
   %incdec.ptr111.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 640
@@ -1417,7 +1417,7 @@ if.end.i37:                                       ; preds = %if.then.i36, %if.en
   store i64 %67, ptr %second3.i145.i.i, align 16
   %ref.tmp110.sroa.5.16.second3.i145.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 632
   store ptr %68, ptr %ref.tmp110.sroa.5.16.second3.i145.sroa_idx.i.i, align 8
-  %call.i149.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 640)) #24
+  %call.i149.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 640)) #24
   %69 = extractvalue { i64, ptr } %call.i149.i.i, 0
   %70 = extractvalue { i64, ptr } %call.i149.i.i, 1
   %incdec.ptr117.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 672
@@ -1428,7 +1428,7 @@ if.end.i37:                                       ; preds = %if.then.i36, %if.en
   store i64 %69, ptr %second3.i151.i.i, align 16
   %ref.tmp116.sroa.5.16.second3.i151.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 664
   store ptr %70, ptr %ref.tmp116.sroa.5.16.second3.i151.sroa_idx.i.i, align 8
-  %call.i155.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 672)) #24
+  %call.i155.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 672)) #24
   %71 = extractvalue { i64, ptr } %call.i155.i.i, 0
   %72 = extractvalue { i64, ptr } %call.i155.i.i, 1
   %incdec.ptr123.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 704
@@ -1439,7 +1439,7 @@ if.end.i37:                                       ; preds = %if.then.i36, %if.en
   store i64 %71, ptr %second3.i157.i.i, align 16
   %ref.tmp122.sroa.5.16.second3.i157.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 696
   store ptr %72, ptr %ref.tmp122.sroa.5.16.second3.i157.sroa_idx.i.i, align 8
-  %call.i161.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 704)) #24
+  %call.i161.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 704)) #24
   %73 = extractvalue { i64, ptr } %call.i161.i.i, 0
   %74 = extractvalue { i64, ptr } %call.i161.i.i, 1
   %incdec.ptr129.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 736
@@ -1450,7 +1450,7 @@ if.end.i37:                                       ; preds = %if.then.i36, %if.en
   store i64 %73, ptr %second3.i163.i.i, align 16
   %ref.tmp128.sroa.5.16.second3.i163.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 728
   store ptr %74, ptr %ref.tmp128.sroa.5.16.second3.i163.sroa_idx.i.i, align 8
-  %call.i167.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 736)) #24
+  %call.i167.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 736)) #24
   %75 = extractvalue { i64, ptr } %call.i167.i.i, 0
   %76 = extractvalue { i64, ptr } %call.i167.i.i, 1
   %incdec.ptr135.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 768
@@ -1461,7 +1461,7 @@ if.end.i37:                                       ; preds = %if.then.i36, %if.en
   store i64 %75, ptr %second3.i169.i.i, align 16
   %ref.tmp134.sroa.5.16.second3.i169.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %versions_array.i.i, i64 760
   store ptr %76, ptr %ref.tmp134.sroa.5.16.second3.i169.sroa_idx.i.i, align 8
-  %call.i173.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 768)) #24
+  %call.i173.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 768)) #24
   %77 = extractvalue { i64, ptr } %call.i173.i.i, 0
   %78 = extractvalue { i64, ptr } %call.i173.i.i, 1
   store i64 7, ptr %incdec.ptr135.i.i, align 16
@@ -1703,7 +1703,7 @@ _ZN4node6reportL22PrintComponentVersionsEPNS_10JSONWriterE.exit.i: ; preds = %if
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %buf.i.i)
   call void @llvm.lifetime.end.p0(i64 800, ptr nonnull %versions_array.i.i)
   call void @_ZN4node10JSONWriter16json_objectstartIPKcEEvT_(ptr noundef nonnull align 8 dereferenceable(20) %writer, ptr noundef nonnull @.str.73)
-  call void @_ZN4node10JSONWriter13json_keyvalueIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %writer, ptr noundef nonnull align 1 dereferenceable(5) @.str.74, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN4node11per_process8metadataE, i64 800))
+  call void @_ZN4node10JSONWriter13json_keyvalueIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %writer, ptr noundef nonnull align 1 dereferenceable(5) @.str.74, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 800))
   %91 = load i8, ptr %compact_.i, align 8
   %tobool.i.i.i21.i = trunc i8 %91 to i1
   br i1 %tobool.i.i.i21.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit.i.i25.i, label %if.end.i.i.i22.i
@@ -4118,7 +4118,7 @@ if.end.i.i.i345:                                  ; preds = %for.body.i339
   store i32 1, ptr %flags_.i.i.i.i.i.i.i.i, align 8, !noalias !34
   %next_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i346, i64 16
   store ptr null, ptr %next_.i.i.i.i.i.i.i.i, align 8, !noalias !34
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZZNS_6reportL15WriteNodeReportEPN2v87IsolateES2_PKcSA_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSoNS6_5LocalINS6_5ValueEEEbENK3$_0clEPNS_6worker6WorkerEEUlS2_E_EE", i64 16), ptr %call.i.i.i.i.i.i346, align 8, !noalias !34
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZZNS_6reportL15WriteNodeReportEPN2v87IsolateES2_PKcSA_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSoNS6_5LocalINS6_5ValueEEEbENK3$_0clEPNS_6worker6WorkerEEUlS2_E_EE", i64 16), ptr %call.i.i.i.i.i.i346, align 8, !noalias !34
   %callback_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i346, i64 24
   store ptr %trigger.addr, ptr %callback_.i.i.i.i.i.i.i, align 8, !noalias !34
   %ref.tmp.sroa.2.0.callback_.i.i.i.i.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i346, i64 32
@@ -11347,7 +11347,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZZNS_6reportL15WriteNodeReportEPN2v87IsolateES2_PKcSA_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSoNS6_5LocalINS6_5ValueEEEbENK3$_0clEPNS_6worker6WorkerEEUlS2_E_ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %next_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -11368,7 +11368,7 @@ _ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %ent
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZZNS_6reportL15WriteNodeReportEPN2v87IsolateES2_PKcSA_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSoNS6_5LocalINS6_5ValueEEEbENK3$_0clEPNS_6worker6WorkerEEUlS2_E_ED0Ev"(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %next_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -11437,7 +11437,7 @@ if.else.i.i:                                      ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %next_, align 8
   %cmp.not.i = icmp eq ptr %0, null

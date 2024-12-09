@@ -7564,7 +7564,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr45drop
   resume { ptr, i32 } %common.resume.op
 
 "_ZN75_$LT$theme..schema..ThemeStyleContent$u20$as$u20$core..default..Default$GT$7default17hcc353850ef1f3bccE.exit": ; preds = %2, %.noexc.i
-  %.sroa.0.0.i.i.i2.i.i = phi ptr [ %167, %.noexc.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %2 ]
+  %.sroa.0.0.i.i.i2.i.i = phi ptr [ %167, %.noexc.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %2 ]
   %177 = load i64, ptr %.sroa.0.0.i.i.i2.i.i, align 8, !noalias !561, !noundef !4
   %178 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i.i, i64 8
   %179 = load i64, ptr %178, align 8, !noalias !561, !noundef !4
@@ -7776,7 +7776,7 @@ _ZN4core3ops8function6FnOnce9call_once17h8e1d13566dcc4f6cE.exit.i: ; preds = %22
   unreachable
 
 228:                                              ; preds = %.noexc30, %222
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %224, %.noexc30 ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %222 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %224, %.noexc30 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %222 ]
   %229 = load i64, ptr %.sroa.0.0.i.i.i2.i, align 8, !noalias !571, !noundef !4
   %230 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i, i64 8
   %231 = load i64, ptr %230, align 8, !noalias !571, !noundef !4

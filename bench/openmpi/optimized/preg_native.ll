@@ -50,7 +50,7 @@ define internal range(i32 -1366, 1) i32 @generate_node_regex(ptr nocapture nound
   store ptr null, ptr %6, align 8
   store ptr null, ptr %1, align 8
   %9 = load i32, ptr @pmix_class_init_epoch, align 4
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %9, %10
   br i1 %.not, label %12, label %11
 
@@ -949,7 +949,7 @@ define internal range(i32 -1366, 1) i32 @generate_ppn(ptr noundef %0, ptr nocapt
   %4 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
   %5 = load i32, ptr @pmix_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %5, %6
   br i1 %.not, label %8, label %7
 
@@ -1732,7 +1732,7 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly %0, ptr noundef in
   br label %pmix_regex_extract_nodes.exit.thread
 
 20:                                               ; preds = %14
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_preg_base_framework, i64 76), align 4
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_preg_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %21, 64
   br i1 %or.cond.i, label %22, label %.backedge.i.preheader
 
@@ -1939,7 +1939,7 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly %0, ptr noundef in
 92:                                               ; preds = %89, %74, %69
   %.2113.i = phi i32 [ %91, %89 ], [ %71, %74 ], [ %71, %69 ]
   %.0106.i = phi ptr [ %90, %89 ], [ null, %74 ], [ null, %69 ]
-  %93 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_preg_base_framework, i64 76), align 4
+  %93 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_preg_base_framework, i64 76), align 4
   %or.cond136.i = icmp ult i32 %93, 64
   br i1 %or.cond136.i, label %94, label %102
 
@@ -2008,7 +2008,7 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly %0, ptr noundef in
   br i1 %120, label %121, label %133
 
 121:                                              ; preds = %._crit_edge.i.i
-  %122 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_preg_base_framework, i64 76), align 4
+  %122 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_preg_base_framework, i64 76), align 4
   %or.cond.i.i = icmp ult i32 %122, 64
   br i1 %or.cond.i.i, label %123, label %129
 

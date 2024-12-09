@@ -1057,10 +1057,10 @@ define hidden void @_ZN21ThreadLocalAllocStats10initializeEv() local_unnamed_add
   %2 = load i64, ptr @TLABAllocationWeight, align 8
   %3 = trunc i64 %2 to i32
   store float 0.000000e+00, ptr @_ZN21ThreadLocalAllocStats23_allocating_threads_avgE, align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN21ThreadLocalAllocStats23_allocating_threads_avgE, i64 4), align 4
-  store i32 %3, ptr getelementptr inbounds (i8, ptr @_ZN21ThreadLocalAllocStats23_allocating_threads_avgE, i64 8), align 4
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN21ThreadLocalAllocStats23_allocating_threads_avgE, i64 12), align 4
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN21ThreadLocalAllocStats23_allocating_threads_avgE, i64 16), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN21ThreadLocalAllocStats23_allocating_threads_avgE, i64 4), align 4
+  store i32 %3, ptr getelementptr inbounds nuw (i8, ptr @_ZN21ThreadLocalAllocStats23_allocating_threads_avgE, i64 8), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN21ThreadLocalAllocStats23_allocating_threads_avgE, i64 12), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN21ThreadLocalAllocStats23_allocating_threads_avgE, i64 16), align 4
   tail call void @_ZN23AdaptiveWeightedAverage6sampleEf(ptr noundef nonnull align 4 dereferenceable(20) @_ZN21ThreadLocalAllocStats23_allocating_threads_avgE, float noundef 1.000000e+00) #16
   %4 = load i8, ptr @UsePerfData, align 1
   %5 = trunc i8 %4 to i1

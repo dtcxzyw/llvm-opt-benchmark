@@ -4804,22 +4804,22 @@ declare void @_Py_Executors_InvalidateAll(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @instrument_all_executing_code_objects(ptr noundef %interp) unnamed_addr #1 {
 entry:
-  %0 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 336), i8 0, i8 1 seq_cst seq_cst, align 1
+  %0 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 336), i8 0, i8 1 seq_cst seq_cst, align 1
   %1 = extractvalue { i8, i1 } %0, 1
   br i1 %1, label %PyMutex_LockFlags.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call1.i = tail call i32 @_PyMutex_LockTimed(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 336), i64 noundef -1, i32 noundef 0) #9
+  %call1.i = tail call i32 @_PyMutex_LockTimed(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 336), i64 noundef -1, i32 noundef 0) #9
   br label %PyMutex_LockFlags.exit
 
 PyMutex_LockFlags.exit:                           ; preds = %entry, %if.then.i
   %call = tail call ptr @PyInterpreterState_ThreadHead(ptr noundef %interp) #9
-  %2 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 336), i8 1, i8 0 seq_cst seq_cst, align 1
+  %2 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 336), i8 1, i8 0 seq_cst seq_cst, align 1
   %3 = extractvalue { i8, i1 } %2, 1
   br i1 %3, label %PyMutex_Unlock.exit, label %if.then.i10
 
 if.then.i10:                                      ; preds = %PyMutex_LockFlags.exit
-  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 336)) #9
+  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 336)) #9
   br label %PyMutex_Unlock.exit
 
 PyMutex_Unlock.exit:                              ; preds = %PyMutex_LockFlags.exit, %if.then.i10
@@ -4853,22 +4853,22 @@ if.end11:                                         ; preds = %if.then, %while.bod
   br i1 %tobool4.not, label %while.end, label %while.body5, !llvm.loop !30
 
 while.end:                                        ; preds = %if.end11, %while.body
-  %5 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 336), i8 0, i8 1 seq_cst seq_cst, align 1
+  %5 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 336), i8 0, i8 1 seq_cst seq_cst, align 1
   %6 = extractvalue { i8, i1 } %5, 1
   br i1 %6, label %PyMutex_LockFlags.exit13, label %if.then.i11
 
 if.then.i11:                                      ; preds = %while.end
-  %call1.i12 = tail call i32 @_PyMutex_LockTimed(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 336), i64 noundef -1, i32 noundef 0) #9
+  %call1.i12 = tail call i32 @_PyMutex_LockTimed(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 336), i64 noundef -1, i32 noundef 0) #9
   br label %PyMutex_LockFlags.exit13
 
 PyMutex_LockFlags.exit13:                         ; preds = %while.end, %if.then.i11
   %call14 = tail call ptr @PyThreadState_Next(ptr noundef nonnull %ts.021) #9
-  %7 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 336), i8 1, i8 0 seq_cst seq_cst, align 1
+  %7 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 336), i8 1, i8 0 seq_cst seq_cst, align 1
   %8 = extractvalue { i8, i1 } %7, 1
   br i1 %8, label %PyMutex_Unlock.exit15, label %if.then.i14
 
 if.then.i14:                                      ; preds = %PyMutex_LockFlags.exit13
-  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 336)) #9
+  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 336)) #9
   br label %PyMutex_Unlock.exit15
 
 PyMutex_Unlock.exit15:                            ; preds = %PyMutex_LockFlags.exit13, %if.then.i14
@@ -5172,7 +5172,7 @@ add_power2_constant.exit:                         ; preds = %if.end.i42, %if.end
   br i1 %tobool18.not, label %for.cond, label %error
 
 for.end:                                          ; preds = %for.cond
-  %call22 = tail call i32 @PyObject_SetAttrString(ptr noundef nonnull %call8, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816)) #9
+  %call22 = tail call i32 @PyObject_SetAttrString(ptr noundef nonnull %call8, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816)) #9
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %if.end25, label %error
 

@@ -29600,7 +29600,7 @@ sub_04898:                                        ; preds = %sub_04894, %15038, 
   store i32 %15591, ptr @when_error, align 8
   %15592 = getelementptr inbounds nuw i8, ptr %.24599, i64 8
   %15593 = load ptr, ptr %15592, align 8
-  store ptr %15593, ptr getelementptr inbounds (i8, ptr @when_error, i64 8), align 8
+  store ptr %15593, ptr getelementptr inbounds nuw (i8, ptr @when_error, i64 8), align 8
   %15594 = call ptr @mm_strdup(ptr noundef nonnull @.str.1241) #17
   %15595 = getelementptr inbounds nuw i8, ptr %.24599, i64 16
   %15596 = load ptr, ptr %15595, align 8
@@ -29613,7 +29613,7 @@ sub_04898:                                        ; preds = %sub_04894, %15038, 
   store i32 %15600, ptr @when_nf, align 8
   %15601 = getelementptr inbounds nuw i8, ptr %.24599, i64 8
   %15602 = load ptr, ptr %15601, align 8
-  store ptr %15602, ptr getelementptr inbounds (i8, ptr @when_nf, i64 8), align 8
+  store ptr %15602, ptr getelementptr inbounds nuw (i8, ptr @when_nf, i64 8), align 8
   %15603 = call ptr @mm_strdup(ptr noundef nonnull @.str.1243) #17
   %15604 = getelementptr inbounds nuw i8, ptr %.24599, i64 16
   %15605 = load ptr, ptr %15604, align 8
@@ -29626,7 +29626,7 @@ sub_04898:                                        ; preds = %sub_04894, %15038, 
   store i32 %15609, ptr @when_warn, align 8
   %15610 = getelementptr inbounds nuw i8, ptr %.24599, i64 8
   %15611 = load ptr, ptr %15610, align 8
-  store ptr %15611, ptr getelementptr inbounds (i8, ptr @when_warn, i64 8), align 8
+  store ptr %15611, ptr getelementptr inbounds nuw (i8, ptr @when_warn, i64 8), align 8
   %15612 = call ptr @mm_strdup(ptr noundef nonnull @.str.1244) #17
   %15613 = getelementptr inbounds nuw i8, ptr %.24599, i64 16
   %15614 = load ptr, ptr %15613, align 8

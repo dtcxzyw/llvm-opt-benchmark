@@ -57,7 +57,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5draco17KeyframeAnimationC2Ev(ptr noundef nonnull align 8 dereferenceable(164) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN5draco10PointCloudC2Ev(ptr noundef nonnull align 8 dereferenceable(164) %0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5draco17KeyframeAnimationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5draco17KeyframeAnimationE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -343,7 +343,7 @@ _ZN5draco14PointAttributeD2Ev.exit:               ; preds = %_ZN5draco15IndexTyp
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5draco10PointCloudD2Ev(ptr noundef nonnull align 8 dereferenceable(164) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5draco10PointCloudE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5draco10PointCloudE, i64 16), ptr %0, align 8
   br label %2
 
 2:                                                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %1

@@ -504,7 +504,7 @@ _setup_mpi.exit:                                  ; preds = %208, %227
   unreachable
 
 278:                                              ; preds = %273
-  %279 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1432), align 8
+  %279 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1432), align 8
   %.not182 = icmp eq ptr %279, null
   br i1 %.not182, label %284, label %280
 

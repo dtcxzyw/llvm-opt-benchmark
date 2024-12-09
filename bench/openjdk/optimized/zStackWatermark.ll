@@ -206,7 +206,7 @@ _ZN14ZUncoloredRoot7barrierIPFv8zaddressEEEvT_P15zaddress_unsafem.exit: ; preds 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN22ZOnStackNMethodClosureC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV22ZOnStackNMethodClosure, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV22ZOnStackNMethodClosure, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -243,7 +243,7 @@ define hidden void @_ZN15ZStackWatermarkC2EP10JavaThread(ptr noundef nonnull ali
   %3 = load ptr, ptr @ZPointerStoreGoodMaskLowOrderBitsAddr, align 8
   %4 = load i32, ptr %3, align 4
   tail call void @_ZN14StackWatermarkC2EP10JavaThread18StackWatermarkKindj(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i32 noundef 0, i32 noundef %4) #12
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15ZStackWatermark, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15ZStackWatermark, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = load i64, ptr @ZPointerStoreBadMask, align 8
   store i64 %6, ptr %5, align 8
@@ -415,14 +415,14 @@ define hidden void @_ZN15ZStackWatermark12process_headEPv(ptr nocapture noundef 
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds [3 x %struct.ZColorWatermark], ptr %5, i64 0, i64 %8
   %10 = load i64, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32ZStackWatermarkProcessOopClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32ZStackWatermarkProcessOopClosure, i64 16), ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = icmp eq ptr %1, null
   %_ZN14ZUncoloredRoot7processEP15zaddress_unsafem..i.i = select i1 %12, ptr @_ZN14ZUncoloredRoot7processEP15zaddress_unsafem, ptr %1
   store ptr %_ZN14ZUncoloredRoot7processEP15zaddress_unsafem..i.i, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %10, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV22ZOnStackNMethodClosure, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV22ZOnStackNMethodClosure, i64 16), ptr %4, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
@@ -642,14 +642,14 @@ _ZN15ZStackWatermark18save_old_watermarkEv.exit:  ; preds = %2, %.loopexit.i
   %34 = phi i64 [ %8, %2 ], [ %.pre7, %.loopexit.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32ZStackWatermarkProcessOopClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32ZStackWatermarkProcessOopClosure, i64 16), ptr %3, align 8
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %36 = icmp eq ptr %1, null
   %_ZN14ZUncoloredRoot7processEP15zaddress_unsafem..i.i.i = select i1 %36, ptr @_ZN14ZUncoloredRoot7processEP15zaddress_unsafem, ptr %1
   store ptr %_ZN14ZUncoloredRoot7processEP15zaddress_unsafem..i.i.i, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %34, ptr %37, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV22ZOnStackNMethodClosure, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV22ZOnStackNMethodClosure, i64 16), ptr %4, align 8
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %39 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
@@ -771,14 +771,14 @@ define hidden void @_ZN15ZStackWatermark7processERK5frameR11RegisterMapPv(ptr no
 
 _ZNK15ZStackWatermark16prev_frame_colorERK5frame.exit: ; preds = %16
   %.sroa.0.0.copyload.i = load i64, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32ZStackWatermarkProcessOopClosure, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32ZStackWatermarkProcessOopClosure, i64 16), ptr %5, align 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %22 = icmp eq ptr %3, null
   %_ZN14ZUncoloredRoot7processEP15zaddress_unsafem..i.i = select i1 %22, ptr @_ZN14ZUncoloredRoot7processEP15zaddress_unsafem, ptr %3
   store ptr %_ZN14ZUncoloredRoot7processEP15zaddress_unsafem..i.i, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %.sroa.0.0.copyload.i, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV22ZOnStackNMethodClosure, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV22ZOnStackNMethodClosure, i64 16), ptr %6, align 8
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %25 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 48

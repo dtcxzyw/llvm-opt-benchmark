@@ -111,7 +111,7 @@ define i32 @parse(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3
   br i1 %.not114, label %52, label %.critedge
 
 29:                                               ; preds = %18
-  %30 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %30 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %31 = and i64 %30, 256
   %.not112 = icmp eq i64 %31, 0
   br i1 %.not112, label %.critedge, label %32
@@ -144,7 +144,7 @@ define i32 @parse(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3
   br label %.critedge
 
 52:                                               ; preds = %17, %22
-  %53 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %53 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %54 = and i64 %53, 256
   %.not115 = icmp eq i64 %54, 0
   br i1 %.not115, label %77, label %55
@@ -299,7 +299,7 @@ _parse_flag.exit:                                 ; preds = %121, %122
   store ptr null, ptr %129, align 8
   %130 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %5, ptr %130, align 8
-  %131 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %131 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %132 = and i64 %131, 256
   %.not.i122 = icmp eq i64 %132, 0
   br i1 %.not.i122, label %144, label %133
@@ -363,7 +363,7 @@ _parse_flag.exit:                                 ; preds = %121, %122
 
 166:                                              ; preds = %164, %159, %150
   %.0.i123 = phi i32 [ %155, %150 ], [ %163, %159 ], [ 0, %164 ]
-  %167 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %167 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %168 = and i64 %167, 256
   %.not32.i = icmp eq i64 %168, 0
   br i1 %.not32.i, label %181, label %169
@@ -432,7 +432,7 @@ _parse_list.exit:                                 ; preds = %181, %183
   br i1 %200, label %201, label %214
 
 201:                                              ; preds = %197
-  %202 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %202 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %203 = and i64 %202, 256
   %.not105.i = icmp eq i64 %203, 0
   br i1 %.not105.i, label %314, label %204
@@ -472,7 +472,7 @@ _parse_list.exit:                                 ; preds = %181, %183
   br i1 %.not97.i, label %thread-pre-split, label %314
 
 225:                                              ; preds = %215
-  %226 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %226 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %227 = and i64 %226, 256
   %.not95.i = icmp eq i64 %227, 0
   br i1 %.not95.i, label %314, label %228
@@ -512,7 +512,7 @@ thread-pre-split:                                 ; preds = %219
   %spec.select107.i.idx = select i1 %.not98.i, i64 0, i64 %247
   %spec.select107.i = getelementptr inbounds i8, ptr %0, i64 %spec.select107.i.idx
   %248 = icmp eq i32 %245, 3
-  %249 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %249 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %250 = and i64 %249, 256
   %.not103.i = icmp eq i64 %250, 0
   br i1 %248, label %251, label %269
@@ -577,7 +577,7 @@ thread-pre-split:                                 ; preds = %219
   %290 = load i32, ptr %289, align 8
   %291 = call ptr @find_parser_by_type(i32 noundef %290) #5
   %292 = call i32 @parse(ptr noundef %spec.select107.i, i64 noundef 4294967294, ptr noundef %291, ptr noundef %.083.i, ptr noundef %4, ptr noundef %190)
-  %293 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %293 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %294 = and i64 %293, 256
   %.not101.i = icmp eq i64 %294, 0
   br i1 %.not101.i, label %314, label %295
@@ -868,7 +868,7 @@ _parse_check_openapi.exit:                        ; preds = %391, %394, %398, %4
 
 .critedge:                                        ; preds = %184, %_parser_linked.exit, %343, %340, %339, %35, %32, %29, %6, %22, %_parse_check_openapi.exit, %_parse_nt_array.exit, %_parse_list.exit, %_parse_flag.exit, %77
   %.2 = phi i32 [ %16, %6 ], [ 0, %77 ], [ %425, %_parse_check_openapi.exit ], [ %.028.i, %_parse_nt_array.exit ], [ %.0.i123, %_parse_list.exit ], [ %.0.i, %_parse_flag.exit ], [ %28, %22 ], [ 0, %29 ], [ 0, %32 ], [ 0, %35 ], [ 0, %339 ], [ %342, %343 ], [ 0, %340 ], [ 0, %184 ], [ %.0.i125, %_parser_linked.exit ]
-  %430 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %430 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %431 = and i64 %430, 256
   %.not118 = icmp eq i64 %431, 0
   br i1 %.not118, label %455, label %432
@@ -930,7 +930,7 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @dump(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.foreach_list_t, align 8
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %8 = and i64 %7, 256
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %22, label %9
@@ -1156,7 +1156,7 @@ _match_flag_bit.exit.i:                           ; preds = %67
 _match_flag_bit.exit.thread.i:                    ; preds = %111, %_match_flag_bit.exit.i, %104, %78, %73, %69, %62
   %.057.in6.i = phi ptr [ @.str.38, %111 ], [ @.str.39, %_match_flag_bit.exit.i ], [ @.str.39, %69 ], [ @.str.39, %73 ], [ @.str.39, %78 ], [ @.str.39, %104 ], [ @.str.39, %62 ]
   %.25.i = phi i64 [ %.210.i, %111 ], [ %.0213.i, %_match_flag_bit.exit.i ], [ %.0213.i, %69 ], [ %.0213.i, %73 ], [ %.0213.i, %78 ], [ %.0213.i, %104 ], [ %.0213.i, %62 ]
-  %116 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %116 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %117 = and i64 %116, 256
   %.not63.i = icmp eq i64 %117, 0
   br i1 %.not63.i, label %155, label %118
@@ -1267,7 +1267,7 @@ _match_flag_bit.exit.thread.i:                    ; preds = %111, %_match_flag_b
   ]
 
 176:                                              ; preds = %173
-  %177 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %177 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %178 = and i64 %177, 256
   %.not71.i = icmp eq i64 %178, 0
   br i1 %.not71.i, label %_dump_linked.exit, label %179
@@ -1297,7 +1297,7 @@ _match_flag_bit.exit.thread.i:                    ; preds = %111, %_match_flag_b
   %196 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %197 = load i32, ptr %196, align 8
   %198 = tail call ptr @find_parser_by_type(i32 noundef %197) #5
-  %199 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %199 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %200 = and i64 %199, 256
   %.not70.i = icmp eq i64 %200, 0
   br i1 %.not70.i, label %215, label %201
@@ -1369,7 +1369,7 @@ _match_flag_bit.exit.thread.i:                    ; preds = %111, %_match_flag_b
   unreachable
 
 231:                                              ; preds = %173
-  %232 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %232 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %233 = and i64 %232, 256
   %.not68.i = icmp eq i64 %233, 0
   br i1 %.not68.i, label %249, label %234
@@ -1399,7 +1399,7 @@ _match_flag_bit.exit.thread.i:                    ; preds = %111, %_match_flag_b
   %251 = load i32, ptr %250, align 8
   %252 = tail call ptr @find_parser_by_type(i32 noundef %251) #5
   %253 = tail call i32 @dump(ptr noundef %spec.select.i, i64 noundef 4294967294, ptr noundef %252, ptr noundef %.063.i, ptr noundef %4)
-  %254 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %254 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %255 = and i64 %254, 256
   %.not69.i = icmp eq i64 %255, 0
   br i1 %.not69.i, label %_dump_linked.exit, label %256
@@ -1634,7 +1634,7 @@ _dump_list.exit:                                  ; preds = %286, %287, %289, %2
 
 .critedge:                                        ; preds = %345, %._crit_edge.i, %337, %327, %324, %161, %_dump_linked.exit, %155, %331, %321, %316, %314, %312, %309, %.preheader.i, %43, %22, %350, %_dump_list.exit, %24
   %.1 = phi i32 [ %23, %22 ], [ 0, %24 ], [ %353, %350 ], [ %.0.i71, %_dump_list.exit ], [ 9202, %43 ], [ 0, %.preheader.i ], [ %317, %316 ], [ 0, %312 ], [ 0, %314 ], [ 0, %309 ], [ 0, %321 ], [ 0, %331 ], [ 0, %155 ], [ 0, %161 ], [ %.062.i, %_dump_linked.exit ], [ %330, %327 ], [ 0, %324 ], [ 0, %337 ], [ %348, %345 ], [ 0, %._crit_edge.i ]
-  %358 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %358 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %359 = and i64 %358, 256
   %.not68 = icmp eq i64 %359, 0
   br i1 %.not68, label %374, label %360
@@ -2051,7 +2051,7 @@ define internal range(i32 1, 5) i32 @_foreach_parse_list(ptr noundef %0, ptr noc
   br i1 %.not30, label %39, label %27
 
 27:                                               ; preds = %23
-  %28 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %29 = and i64 %28, 256
   %.not32 = icmp eq i64 %29, 0
   br i1 %.not32, label %38, label %30
@@ -2185,7 +2185,7 @@ define internal range(i32 1, 5) i32 @_foreach_array_entry(ptr noundef %0, ptr no
   br i1 %.not37, label %52, label %38
 
 38:                                               ; preds = %33
-  %39 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %39 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %40 = and i64 %39, 256
   %.not39 = icmp eq i64 %40, 0
   br i1 %.not39, label %50, label %41

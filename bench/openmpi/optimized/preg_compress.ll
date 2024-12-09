@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 define internal range(i32 -1366, 1) i32 @generate_node_regex(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_compress, i64 40), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_compress, i64 40), align 8
   %6 = call zeroext i1 %5(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %3) #12
   br i1 %6, label %7, label %14
 
@@ -44,7 +44,7 @@ define internal range(i32 -1366, 1) i32 @generate_node_regex(ptr noundef %0, ptr
 define internal range(i32 -1366, 1) i32 @generate_ppn(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_compress, i64 40), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_compress, i64 40), align 8
   %6 = call zeroext i1 %5(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %3) #12
   br i1 %6, label %7, label %14
 
@@ -96,7 +96,7 @@ define internal range(i32 -1366, 1) i32 @parse_nodes(ptr noundef %0, ptr nocaptu
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 2
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_compress, i64 48), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_compress, i64 48), align 8
   %22 = call zeroext i1 %21(ptr noundef nonnull %3, ptr noundef nonnull %20, i64 noundef %15) #12
   %23 = load ptr, ptr %3, align 8
   br i1 %22, label %25, label %24
@@ -148,7 +148,7 @@ define internal range(i32 -1366, 1) i32 @parse_procs(ptr noundef %0, ptr nocaptu
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 2
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_compress, i64 48), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_compress, i64 48), align 8
   %22 = call zeroext i1 %21(ptr noundef nonnull %3, ptr noundef nonnull %20, i64 noundef %15) #12
   %23 = load ptr, ptr %3, align 8
   br i1 %22, label %25, label %24

@@ -50,7 +50,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @prte_filem_base_comm_start() local_unnamed_addr #0 {
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 820), align 4
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 820), align 4
   %2 = and i8 %1, 6
   %or.cond5 = icmp eq i8 %2, 0
   br i1 %or.cond5, label %22, label %3
@@ -60,7 +60,7 @@ define noundef i32 @prte_filem_base_comm_start() local_unnamed_addr #0 {
   br i1 %.b4, label %22, label %4
 
 4:                                                ; preds = %3
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond6 = icmp ult i32 %5, 64
   br i1 %or.cond6, label %6, label %13
 
@@ -128,7 +128,7 @@ define void @prte_filem_base_recv(i32 %0, ptr noundef %1, ptr noundef %2, i32 %3
   %22 = alloca %struct.timeval, align 8
   %23 = alloca i8, align 1
   %24 = alloca i32, align 4
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %25, 64
   br i1 %or.cond, label %26, label %33
 
@@ -165,7 +165,7 @@ define void @prte_filem_base_recv(i32 %0, ptr noundef %1, ptr noundef %2, i32 %3
   ]
 
 39:                                               ; preds = %37
-  %40 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond11 = icmp ult i32 %40, 64
   br i1 %or.cond11, label %41, label %48
 
@@ -202,7 +202,7 @@ define void @prte_filem_base_recv(i32 %0, ptr noundef %1, ptr noundef %2, i32 %3
   br label %52
 
 52:                                               ; preds = %50, %48
-  %53 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 72), align 8
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 72), align 8
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %55, label %73
 
@@ -215,7 +215,7 @@ define void @prte_filem_base_recv(i32 %0, ptr noundef %1, ptr noundef %2, i32 %3
   %61 = sitofp i64 %60 to double
   %62 = fdiv double %61, 1.000000e+06
   %63 = fadd double %62, %58
-  %64 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 76), align 4
+  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4
   %or.cond60.i = icmp ult i32 %64, 64
   br i1 %or.cond60.i, label %65, label %73
 
@@ -233,7 +233,7 @@ define void @prte_filem_base_recv(i32 %0, ptr noundef %1, ptr noundef %2, i32 %3
   br label %73
 
 73:                                               ; preds = %70, %65, %55, %52
-  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_state, i64 16), align 8
+  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_state, i64 16), align 8
   call void %74(ptr noundef null, i32 noundef 64) #7
   br label %filem_base_process_get_proc_node_name_cmd.exit
 
@@ -245,7 +245,7 @@ define void @prte_filem_base_recv(i32 %0, ptr noundef %1, ptr noundef %2, i32 %3
 78:                                               ; preds = %75
   %79 = call ptr @prte_strerror(i32 noundef -13) #7
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %79, ptr noundef nonnull @.str.2, i32 noundef 183) #7
-  %80 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 72), align 8
+  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 72), align 8
   %81 = icmp sgt i32 %80, 0
   br i1 %81, label %82, label %100
 
@@ -258,7 +258,7 @@ define void @prte_filem_base_recv(i32 %0, ptr noundef %1, ptr noundef %2, i32 %3
   %88 = sitofp i64 %87 to double
   %89 = fdiv double %88, 1.000000e+06
   %90 = fadd double %89, %85
-  %91 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 76), align 4
+  %91 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4
   %or.cond61.i = icmp ult i32 %91, 64
   br i1 %or.cond61.i, label %92, label %100
 
@@ -276,7 +276,7 @@ define void @prte_filem_base_recv(i32 %0, ptr noundef %1, ptr noundef %2, i32 %3
   br label %100
 
 100:                                              ; preds = %97, %92, %82, %78
-  %101 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_state, i64 16), align 8
+  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_state, i64 16), align 8
   call void %101(ptr noundef null, i32 noundef 64) #7
   br label %filem_base_process_get_proc_node_name_cmd.exit
 
@@ -312,7 +312,7 @@ pmix_pointer_array_get_item.exit.i:               ; preds = %108
 pmix_pointer_array_get_item.exit.thread.i:        ; preds = %117, %pmix_pointer_array_get_item.exit.i, %108, %102
   %121 = call ptr @prte_strerror(i32 noundef -13) #7
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %121, ptr noundef nonnull @.str.2, i32 noundef 190) #7
-  %122 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 72), align 8
+  %122 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 72), align 8
   %123 = icmp sgt i32 %122, 0
   br i1 %123, label %124, label %142
 
@@ -325,7 +325,7 @@ pmix_pointer_array_get_item.exit.thread.i:        ; preds = %117, %pmix_pointer_
   %130 = sitofp i64 %129 to double
   %131 = fdiv double %130, 1.000000e+06
   %132 = fadd double %131, %127
-  %133 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 76), align 4
+  %133 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4
   %or.cond62.i = icmp ult i32 %133, 64
   br i1 %or.cond62.i, label %134, label %142
 
@@ -343,7 +343,7 @@ pmix_pointer_array_get_item.exit.thread.i:        ; preds = %117, %pmix_pointer_
   br label %142
 
 142:                                              ; preds = %139, %134, %124, %pmix_pointer_array_get_item.exit.thread.i
-  %143 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_state, i64 16), align 8
+  %143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_state, i64 16), align 8
   call void %143(ptr noundef null, i32 noundef 64) #7
   br label %filem_base_process_get_proc_node_name_cmd.exit
 
@@ -363,7 +363,7 @@ pmix_pointer_array_get_item.exit.thread.i:        ; preds = %117, %pmix_pointer_
   br label %151
 
 151:                                              ; preds = %149, %144
-  %152 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 72), align 8
+  %152 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 72), align 8
   %153 = icmp sgt i32 %152, 0
   br i1 %153, label %154, label %172
 
@@ -376,7 +376,7 @@ pmix_pointer_array_get_item.exit.thread.i:        ; preds = %117, %pmix_pointer_
   %160 = sitofp i64 %159 to double
   %161 = fdiv double %160, 1.000000e+06
   %162 = fadd double %161, %157
-  %163 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 76), align 4
+  %163 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4
   %or.cond63.i = icmp ult i32 %163, 64
   br i1 %or.cond63.i, label %164, label %172
 
@@ -394,7 +394,7 @@ pmix_pointer_array_get_item.exit.thread.i:        ; preds = %117, %pmix_pointer_
   br label %172
 
 172:                                              ; preds = %169, %164, %154, %151
-  %173 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_state, i64 16), align 8
+  %173 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_state, i64 16), align 8
   call void %173(ptr noundef null, i32 noundef 64) #7
   call void @PMIx_Data_buffer_release(ptr noundef %145) #7
   br label %filem_base_process_get_proc_node_name_cmd.exit
@@ -433,7 +433,7 @@ pmix_pointer_array_get_item.exit.thread.i:        ; preds = %117, %pmix_pointer_
   br label %191
 
 191:                                              ; preds = %189, %185
-  %192 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 72), align 8
+  %192 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 72), align 8
   %193 = icmp sgt i32 %192, 0
   br i1 %193, label %194, label %212
 
@@ -446,7 +446,7 @@ pmix_pointer_array_get_item.exit.thread.i:        ; preds = %117, %pmix_pointer_
   %200 = sitofp i64 %199 to double
   %201 = fdiv double %200, 1.000000e+06
   %202 = fadd double %201, %197
-  %203 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 76), align 4
+  %203 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4
   %or.cond64.i = icmp ult i32 %203, 64
   br i1 %or.cond64.i, label %204, label %212
 
@@ -464,7 +464,7 @@ pmix_pointer_array_get_item.exit.thread.i:        ; preds = %117, %pmix_pointer_
   br label %212
 
 212:                                              ; preds = %209, %204, %194, %191
-  %213 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_state, i64 16), align 8
+  %213 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_state, i64 16), align 8
   call void %213(ptr noundef null, i32 noundef 64) #7
   call void @PMIx_Data_buffer_release(ptr noundef %145) #7
   br label %filem_base_process_get_proc_node_name_cmd.exit
@@ -480,7 +480,7 @@ filem_base_process_get_proc_node_name_cmd.exit:   ; preds = %73, %100, %142, %17
   br label %384
 
 214:                                              ; preds = %37
-  %215 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %215 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond12 = icmp ult i32 %215, 64
   br i1 %or.cond12, label %216, label %223
 
@@ -523,7 +523,7 @@ filem_base_process_get_proc_node_name_cmd.exit:   ; preds = %73, %100, %142, %17
   br label %227
 
 227:                                              ; preds = %225, %223
-  %228 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 72), align 8
+  %228 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 72), align 8
   %229 = icmp sgt i32 %228, 0
   br i1 %229, label %230, label %248
 
@@ -536,7 +536,7 @@ filem_base_process_get_proc_node_name_cmd.exit:   ; preds = %73, %100, %142, %17
   %236 = sitofp i64 %235 to double
   %237 = fdiv double %236, 1.000000e+06
   %238 = fadd double %237, %233
-  %239 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 76), align 4
+  %239 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4
   %or.cond65.i = icmp ult i32 %239, 64
   br i1 %or.cond65.i, label %240, label %248
 
@@ -554,7 +554,7 @@ filem_base_process_get_proc_node_name_cmd.exit:   ; preds = %73, %100, %142, %17
   br label %248
 
 248:                                              ; preds = %245, %240, %230, %227
-  %249 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_state, i64 16), align 8
+  %249 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_state, i64 16), align 8
   call void %249(ptr noundef null, i32 noundef 64) #7
   br label %376
 
@@ -580,7 +580,7 @@ filem_base_process_get_proc_node_name_cmd.exit:   ; preds = %73, %100, %142, %17
   br label %261
 
 261:                                              ; preds = %259, %256
-  %262 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %262 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond66.i = icmp ult i32 %262, 64
   br i1 %or.cond66.i, label %263, label %273
 
@@ -637,7 +637,7 @@ filem_base_process_get_proc_node_name_cmd.exit:   ; preds = %73, %100, %142, %17
   br label %286
 
 286:                                              ; preds = %284, %281
-  %287 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 72), align 8
+  %287 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 72), align 8
   %288 = icmp sgt i32 %287, 0
   br i1 %288, label %289, label %307
 
@@ -650,7 +650,7 @@ filem_base_process_get_proc_node_name_cmd.exit:   ; preds = %73, %100, %142, %17
   %295 = sitofp i64 %294 to double
   %296 = fdiv double %295, 1.000000e+06
   %297 = fadd double %296, %292
-  %298 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 76), align 4
+  %298 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4
   %or.cond67.i = icmp ult i32 %298, 64
   br i1 %or.cond67.i, label %299, label %307
 
@@ -668,7 +668,7 @@ filem_base_process_get_proc_node_name_cmd.exit:   ; preds = %73, %100, %142, %17
   br label %307
 
 307:                                              ; preds = %304, %299, %289, %286
-  %308 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_state, i64 16), align 8
+  %308 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_state, i64 16), align 8
   call void %308(ptr noundef null, i32 noundef 64) #7
   call void @PMIx_Data_buffer_release(ptr noundef %282) #7
   br label %376
@@ -686,7 +686,7 @@ filem_base_process_get_proc_node_name_cmd.exit:   ; preds = %73, %100, %142, %17
   br label %313
 
 313:                                              ; preds = %311, %309
-  %314 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 72), align 8
+  %314 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 72), align 8
   %315 = icmp sgt i32 %314, 0
   br i1 %315, label %316, label %334
 
@@ -699,7 +699,7 @@ filem_base_process_get_proc_node_name_cmd.exit:   ; preds = %73, %100, %142, %17
   %322 = sitofp i64 %321 to double
   %323 = fdiv double %322, 1.000000e+06
   %324 = fadd double %323, %319
-  %325 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 76), align 4
+  %325 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4
   %or.cond68.i = icmp ult i32 %325, 64
   br i1 %or.cond68.i, label %326, label %334
 
@@ -717,7 +717,7 @@ filem_base_process_get_proc_node_name_cmd.exit:   ; preds = %73, %100, %142, %17
   br label %334
 
 334:                                              ; preds = %331, %326, %316, %313
-  %335 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_state, i64 16), align 8
+  %335 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_state, i64 16), align 8
   call void %335(ptr noundef null, i32 noundef 64) #7
   call void @PMIx_Data_buffer_release(ptr noundef %282) #7
   br label %376
@@ -756,7 +756,7 @@ filem_base_process_get_proc_node_name_cmd.exit:   ; preds = %73, %100, %142, %17
   br label %353
 
 353:                                              ; preds = %351, %347
-  %354 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 72), align 8
+  %354 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 72), align 8
   %355 = icmp sgt i32 %354, 0
   br i1 %355, label %356, label %374
 
@@ -769,7 +769,7 @@ filem_base_process_get_proc_node_name_cmd.exit:   ; preds = %73, %100, %142, %17
   %362 = sitofp i64 %361 to double
   %363 = fdiv double %362, 1.000000e+06
   %364 = fadd double %363, %359
-  %365 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 76), align 4
+  %365 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4
   %or.cond69.i = icmp ult i32 %365, 64
   br i1 %or.cond69.i, label %366, label %374
 
@@ -787,7 +787,7 @@ filem_base_process_get_proc_node_name_cmd.exit:   ; preds = %73, %100, %142, %17
   br label %374
 
 374:                                              ; preds = %371, %366, %356, %353
-  %375 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_state, i64 16), align 8
+  %375 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_state, i64 16), align 8
   call void %375(ptr noundef null, i32 noundef 64) #7
   call void @PMIx_Data_buffer_release(ptr noundef %282) #7
   br label %376
@@ -835,7 +835,7 @@ filem_base_process_get_remote_path_cmd.exit:      ; preds = %253, %379, %381
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @prte_filem_base_comm_stop() local_unnamed_addr #0 {
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 820), align 4
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 820), align 4
   %2 = and i8 %1, 6
   %or.cond5 = icmp eq i8 %2, 0
   br i1 %or.cond5, label %22, label %3
@@ -845,7 +845,7 @@ define noundef i32 @prte_filem_base_comm_stop() local_unnamed_addr #0 {
   br i1 %.b4, label %22, label %4
 
 4:                                                ; preds = %3
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond6 = icmp ult i32 %5, 64
   br i1 %or.cond6, label %6, label %13
 

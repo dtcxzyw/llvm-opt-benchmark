@@ -215,9 +215,9 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %32
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %32, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %35
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28RpcServiceResponseTimeDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28RpcServiceResponseTimeDialog, i64 16), ptr %0, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28RpcServiceResponseTimeDialog, i64 568), ptr %37, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28RpcServiceResponseTimeDialog, i64 568), ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i32 %4, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 272

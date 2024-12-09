@@ -86,7 +86,7 @@ $_ZTISt15_Sp_counted_ptrIPN2cv3reg9MapProjecELN9__gnu_cxx12_Lock_policyE2EE = co
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN2cv3reg14MapperGradProjC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3reg14MapperGradProjE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3reg14MapperGradProjE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -2577,7 +2577,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit431:              ; preds = %459
   store i32 1, ptr %1072, align 8
   %1073 = getelementptr inbounds nuw i8, ptr %1057, i64 12
   store i32 1, ptr %1073, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3reg9MapProjecELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1057, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3reg9MapProjecELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1057, align 8
   %1074 = getelementptr inbounds nuw i8, ptr %1057, i64 16
   store ptr %1051, ptr %1074, align 8
   store ptr %1057, ptr %1056, align 8
@@ -3682,7 +3682,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit431:              ; preds = %459
   store i32 1, ptr %1477, align 8
   %1478 = getelementptr inbounds nuw i8, ptr %1462, i64 12
   store i32 1, ptr %1478, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3reg9MapProjecELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1462, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3reg9MapProjecELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1462, align 8
   %1479 = getelementptr inbounds nuw i8, ptr %1462, i64 16
   store ptr %1456, ptr %1479, align 8
   store ptr %1462, ptr %1461, align 8
@@ -3755,7 +3755,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit431:              ; preds = %459
   store i32 1, ptr %1510, align 8
   %1511 = getelementptr inbounds nuw i8, ptr %1495, i64 12
   store i32 1, ptr %1511, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3reg9MapProjecELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1495, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3reg9MapProjecELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1495, align 8
   %1512 = getelementptr inbounds nuw i8, ptr %1495, i64 16
   store ptr %1488, ptr %1512, align 8
   store ptr %1495, ptr %1494, align 8
@@ -4387,7 +4387,7 @@ _ZN2cv3PtrINS_3reg3MapEEC2INS1_9MapProjecEEEPT_.exit: ; preds = %4
   store i32 1, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %21, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3reg9MapProjecELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3reg9MapProjecELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %3, ptr %22, align 8
   store ptr %6, ptr %5, align 8

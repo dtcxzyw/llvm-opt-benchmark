@@ -1461,7 +1461,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @add_sysfs_param(ptr nocapt
   br i1 %11, label %12, label %26
 
 12:                                               ; preds = %8
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %14 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 3520, i64 noundef 48) #20
   store ptr %14, ptr %9, align 8
   %15 = icmp eq ptr %14, null
@@ -1470,7 +1470,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @add_sysfs_param(ptr nocapt
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @.str.26, ptr %17, align 8
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 24), align 8
   %19 = tail call noalias align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %18, i32 noundef 3520, i64 noundef 8) #20
   %20 = load ptr, ptr %9, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
@@ -2010,7 +2010,7 @@ define internal fastcc ptr @locate_module_kobject(ptr noundef %0) unnamed_addr #
   br i1 %4, label %5, label %23
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %7 = tail call noalias align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 96) #20
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10, !prof !23

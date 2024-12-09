@@ -102,7 +102,7 @@ define dso_local noundef ptr @_ZN5clang20OMPThreadPrivateDecl6CreateERNS_10ASTCo
   tail call void @_ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(48) %8, i32 noundef 12, ptr noundef %1, i32 %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr null, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang20OMPThreadPrivateDeclE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang20OMPThreadPrivateDeclE, i64 16), ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %11 = tail call noundef ptr @_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj(ptr noundef nonnull %10, ptr null, i64 0, ptr noundef null, i32 noundef %6) #10
   store ptr %11, ptr %9, align 8
@@ -150,7 +150,7 @@ define dso_local noundef ptr @_ZN5clang20OMPThreadPrivateDecl18CreateDeserialize
 define linkonce_odr hidden noundef ptr @_ZN5clang23OMPDeclarativeDirectiveINS_4DeclEE20createEmptyDirectiveINS_20OMPThreadPrivateDeclEJEEEPT_RKNS_10ASTContextENS_12GlobalDeclIDEjjDpOT0_(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 comdat align 2 {
   %5 = tail call noundef i64 @_ZN5clang11OMPChildren4sizeEjbj(i32 noundef %2, i1 noundef zeroext false, i32 noundef %3) #10
   %6 = tail call noundef ptr @_ZN5clang4DeclnwEmRKNS_10ASTContextENS_12GlobalDeclIDEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %1, i64 noundef %5) #10
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5clang4DeclE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN5clang4DeclE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, i8 0, i64 20, i1 false)
@@ -180,7 +180,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang23OMPDeclarativeDirectiveINS_4D
 _ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE.exit: ; preds = %4, %23
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr null, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang20OMPThreadPrivateDeclE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang20OMPThreadPrivateDeclE, i64 16), ptr %6, align 8
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %26 = tail call noundef ptr @_ZN5clang11OMPChildren11CreateEmptyEPvjbj(ptr noundef nonnull %25, i32 noundef %2, i1 noundef zeroext false, i32 noundef %3) #10
   store ptr %26, ptr %24, align 8
@@ -204,7 +204,7 @@ define dso_local noundef ptr @_ZN5clang15OMPAllocateDecl6CreateERNS_10ASTContext
   tail call void @_ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(48) %10, i32 noundef 14, ptr noundef %1, i32 %2)
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr null, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang15OMPAllocateDeclE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang15OMPAllocateDeclE, i64 16), ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %13 = tail call noundef ptr @_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj(ptr noundef nonnull %12, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload, ptr noundef null, i32 noundef %7) #10
   store ptr %13, ptr %11, align 8
@@ -255,7 +255,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang23OMPDeclarativeDirectiveINS_4D
   %6 = tail call noundef i64 @_ZN5clang11OMPChildren4sizeEjbj(i32 noundef %2, i1 noundef zeroext false, i32 noundef %3) #10
   %7 = tail call noundef ptr @_ZN5clang4DeclnwEmRKNS_10ASTContextENS_12GlobalDeclIDEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %1, i64 noundef %6) #10
   %.sroa.0.0.copyload = load i32, ptr %4, align 4
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5clang4DeclE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN5clang4DeclE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
@@ -287,7 +287,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang23OMPDeclarativeDirectiveINS_4D
 _ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE.exit: ; preds = %5, %25
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr null, ptr %26, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang15OMPAllocateDeclE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang15OMPAllocateDeclE, i64 16), ptr %7, align 8
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %28 = tail call noundef ptr @_ZN5clang11OMPChildren11CreateEmptyEPvjbj(ptr noundef nonnull %27, i32 noundef %2, i1 noundef zeroext false, i32 noundef %3) #10
   store ptr %28, ptr %26, align 8
@@ -310,7 +310,7 @@ define dso_local noundef ptr @_ZN5clang15OMPRequiresDecl6CreateERNS_10ASTContext
   tail call void @_ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(48) %8, i32 noundef 13, ptr noundef %1, i32 %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr null, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang15OMPRequiresDeclE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang15OMPRequiresDeclE, i64 16), ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %11 = tail call noundef ptr @_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj(ptr noundef nonnull %10, ptr %3, i64 %4, ptr noundef null, i32 noundef 0) #10
   store ptr %11, ptr %9, align 8
@@ -331,7 +331,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang23OMPDeclarativeDirectiveINS_4D
   %6 = tail call noundef i64 @_ZN5clang11OMPChildren4sizeEjbj(i32 noundef %2, i1 noundef zeroext false, i32 noundef %3) #10
   %7 = tail call noundef ptr @_ZN5clang4DeclnwEmRKNS_10ASTContextENS_12GlobalDeclIDEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %1, i64 noundef %6) #10
   %.sroa.0.0.copyload = load i32, ptr %4, align 4
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5clang4DeclE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN5clang4DeclE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
@@ -363,7 +363,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang23OMPDeclarativeDirectiveINS_4D
 _ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE.exit: ; preds = %5, %25
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr null, ptr %26, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang15OMPRequiresDeclE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang15OMPRequiresDeclE, i64 16), ptr %7, align 8
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %28 = tail call noundef ptr @_ZN5clang11OMPChildren11CreateEmptyEPvjbj(ptr noundef nonnull %27, i32 noundef %2, i1 noundef zeroext false, i32 noundef %3) #10
   store ptr %28, ptr %26, align 8
@@ -375,12 +375,12 @@ define dso_local void @_ZN5clang23OMPDeclareReductionDeclC2ENS_4Decl4KindEPNS_11
   tail call void @_ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, ptr noundef %2, i32 %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %4, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN5clang9ValueDeclE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang9ValueDeclE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %5, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN5clang11DeclContextC2ENS_4Decl4KindE(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef %1) #10
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN5clang23OMPDeclareReductionDeclE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang23OMPDeclareReductionDeclE, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %13 = ptrtoint ptr %6 to i64
@@ -493,12 +493,12 @@ define dso_local noundef ptr @_ZN5clang20OMPDeclareMapperDecl6CreateERNS_10ASTCo
   store i64 %3, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i64 %4, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN5clang23OMPDeclarativeDirectiveINS_9ValueDeclEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang23OMPDeclarativeDirectiveINS_9ValueDeclEEE, i64 16), ptr %11, align 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr null, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 64
   tail call void @_ZN5clang11DeclContextC2ENS_4Decl4KindE(ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 24) #10
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN5clang20OMPDeclareMapperDeclE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang20OMPDeclareMapperDeclE, i64 16), ptr %11, align 8
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 96
   store ptr null, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 104
@@ -537,7 +537,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang23OMPDeclarativeDirectiveINS_9V
   %.sroa.02.0.copyload = load i64, ptr %5, align 8
   %.sroa.01.0.copyload = load i64, ptr %6, align 8
   %.sroa.0.0.copyload = load i64, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5clang4DeclE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN5clang4DeclE, i64 16), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
@@ -571,12 +571,12 @@ _ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE.exit: ; preds 
   store i64 %.sroa.02.0.copyload, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i64 %.sroa.01.0.copyload, ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN5clang23OMPDeclarativeDirectiveINS_9ValueDeclEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang23OMPDeclarativeDirectiveINS_9ValueDeclEEE, i64 16), ptr %11, align 8
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr null, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 64
   tail call void @_ZN5clang11DeclContextC2ENS_4Decl4KindE(ptr noundef nonnull align 8 dereferenceable(32) %33, i32 noundef 24) #10
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN5clang20OMPDeclareMapperDeclE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang20OMPDeclareMapperDeclE, i64 16), ptr %11, align 8
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 96
   store ptr null, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 104
@@ -653,7 +653,7 @@ define dso_local noundef ptr @_ZN5clang19OMPCapturedExprDecl6CreateERNS_10ASTCon
   %6 = tail call noundef ptr @_ZN5clang4DeclnwEmRKNS_10ASTContextEPNS_11DeclContextEm(i64 noundef 104, ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1, i64 noundef 0) #10
   %7 = tail call noundef ptr @_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %3, i32 0) #10
   tail call void @_ZN5clang7VarDeclC2ENS_4Decl4KindERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES7_PKNS_14IdentifierInfoENS_8QualTypeEPNS_14TypeSourceInfoENS_12StorageClassE(ptr noundef nonnull align 8 dereferenceable(104) %6, i32 noundef 41, ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1, i32 %4, i32 %4, ptr noundef %2, i64 %3, ptr noundef %7, i32 noundef 0) #10
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN5clang19OMPCapturedExprDeclE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang19OMPCapturedExprDeclE, i64 16), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = or i32 %9, 512
@@ -667,7 +667,7 @@ declare noundef ptr @_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTy
 define dso_local noundef ptr @_ZN5clang19OMPCapturedExprDecl18CreateDeserializedERNS_10ASTContextENS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %1) local_unnamed_addr #1 align 2 {
   %3 = tail call noundef ptr @_ZN5clang4DeclnwEmRKNS_10ASTContextENS_12GlobalDeclIDEm(i64 noundef 104, ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %1, i64 noundef 0) #10
   tail call void @_ZN5clang7VarDeclC2ENS_4Decl4KindERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES7_PKNS_14IdentifierInfoENS_8QualTypeEPNS_14TypeSourceInfoENS_12StorageClassE(ptr noundef nonnull align 8 dereferenceable(104) %3, i32 noundef 41, ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef null, i32 0, i32 0, ptr noundef null, i64 0, ptr noundef null, i32 noundef 0) #10
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN5clang19OMPCapturedExprDeclE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang19OMPCapturedExprDeclE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = or i32 %5, 512
@@ -872,7 +872,7 @@ declare { ptr, i64 } @_ZN5clang11OMPChildren11getChildrenEv(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(33) %0, i32 noundef %1, ptr noundef %2, i32 %3) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5clang4DeclE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN5clang4DeclE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %17, label %6

@@ -214,12 +214,12 @@ define hidden void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_strin
 
 27:                                               ; preds = %2
   %28 = lshr i64 %12, 32
-  %29 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 24), align 8, !noalias !21, !noundef !8
+  %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 24), align 8, !noalias !21, !noundef !8
   %30 = icmp ult i64 %28, %29
   br i1 %30, label %31, label %37
 
 31:                                               ; preds = %27
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 16), align 8, !noalias !21, !nonnull !8, !align !23, !noundef !8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 16), align 8, !noalias !21, !nonnull !8, !align !23, !noundef !8
   %33 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %32, i64 0, i64 %28
   %34 = load ptr, ptr %33, align 8, !noalias !21, !nonnull !8, !align !22, !noundef !8
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8

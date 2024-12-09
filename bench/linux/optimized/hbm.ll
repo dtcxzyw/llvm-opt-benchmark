@@ -1598,7 +1598,7 @@ define dso_local noundef range(i32 -71, 1) i32 @mei_hbm_dispatch(ptr noundef %0,
 487:                                              ; preds = %480
   %488 = getelementptr inbounds nuw i8, ptr %0, i64 684
   tail call void @mei_me_cl_rm_by_uuid(ptr noundef %0, ptr noundef nonnull %488) #10
-  %489 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %489 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %490 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %489, i32 noundef 3520, i64 noundef 48) #12
   %491 = icmp eq ptr %490, null
   br i1 %491, label %498, label %492
@@ -2324,7 +2324,7 @@ thread-pre-split:                                 ; preds = %56, %60, %66
 define internal fastcc void @mei_hbm_me_cl_add(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   tail call void @mei_me_cl_rm_by_uuid(ptr noundef %0, ptr noundef nonnull %3) #10
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %5 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 48) #12
   %6 = icmp eq ptr %5, null
   br i1 %6, label %13, label %7

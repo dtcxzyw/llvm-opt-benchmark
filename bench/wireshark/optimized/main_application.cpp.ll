@@ -654,7 +654,7 @@ _ZN20QMutableListIteratorIP19_recent_item_statusEC2ER5QListIS1_E.exit: ; preds =
   br i1 %76, label %79, label %77
 
 77:                                               ; preds = %74
-  %78 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 160), align 8
+  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 160), align 8
   %.not = icmp ult i32 %.0862, %78
   %or.cond = select i1 %1, i1 true, i1 %.not
   br i1 %or.cond, label %119, label %79
@@ -989,7 +989,7 @@ define void @menu_recent_file_write_all(ptr nocapture noundef %0) local_unnamed_
   %2 = alloca %class.QString, align 8
   %3 = alloca %class.QByteArray, align 8
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16recent_captures_, i64 16), align 8
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 160), align 8
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 160), align 8
   %6 = zext i32 %5 to i64
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %4, i64 %6)
   %.0725 = add i64 %.sroa.speculated, -1
@@ -2688,7 +2688,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i274:   ; preds = %442
 
 _ZN7QStringD2Ev.exit276:                          ; preds = %442, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i274, %445
   call void @_ZN9QFontInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %53) #27
-  %447 = load ptr, ptr getelementptr inbounds (i8, ptr @prefs, i64 64), align 8
+  %447 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 64), align 8
   invoke void @g_free(ptr noundef %447)
           to label %448 unwind label %571
 
@@ -2701,7 +2701,7 @@ _ZN7QStringD2Ev.exit276:                          ; preds = %442, %_ZN17QArrayDa
           to label %451 unwind label %614
 
 451:                                              ; preds = %449
-  store ptr %450, ptr getelementptr inbounds (i8, ptr @prefs, i64 64), align 8
+  store ptr %450, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 64), align 8
   %452 = load ptr, ptr %54, align 8
   %.not.i.i.i277 = icmp eq ptr %452, null
   br i1 %.not.i.i.i277, label %_ZN7QStringD2Ev.exit280, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i278
@@ -3530,8 +3530,8 @@ define void @_ZN15MainApplication23setConfigurationProfileEPKcb(ptr noundef nonn
   br i1 %41, label %89, label %42
 
 42:                                               ; preds = %38, %37
-  %43 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 396), align 4
-  %44 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 400), align 8
+  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 396), align 4
+  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 400), align 8
   call void @_ZN15MainApplication15profileChangingEv(ptr noundef nonnull align 8 dereferenceable(216) %0)
   br i1 %2, label %45, label %50
 
@@ -3569,7 +3569,7 @@ define void @_ZN15MainApplication23setConfigurationProfileEPKcb(ptr noundef nonn
   br label %60
 
 60:                                               ; preds = %54, %50
-  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 216), align 8
+  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 216), align 8
   %.not15 = icmp eq ptr %61, null
   br i1 %.not15, label %67, label %62
 
@@ -3579,23 +3579,23 @@ define void @_ZN15MainApplication23setConfigurationProfileEPKcb(ptr noundef nonn
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %62
-  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 216), align 8
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 216), align 8
   call void @set_last_open_dir(ptr noundef %66)
   br label %67
 
 67:                                               ; preds = %65, %62, %60
-  %68 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 40), align 8
+  %68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 40), align 8
   call void @timestamp_set_type(i32 noundef %68)
-  %69 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 44), align 4
+  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 44), align 4
   call void @timestamp_set_precision(i32 noundef %69)
-  %70 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 48), align 8
+  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 48), align 8
   call void @timestamp_set_seconds_type(i32 noundef %70)
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %72 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 416), align 8
+  %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 416), align 8
   call void @_ZN6QTimer11setIntervalEi(ptr noundef nonnull align 8 dereferenceable(16) %71, i32 noundef %72)
   call void @prefs_to_capture_opts()
   call void @prefs_apply_all()
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @prefs, i64 64), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 64), align 8
   call void @_ZN15MainApplication16setMonospaceFontEPKc(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %73)
   call void @_ZN15MainApplication16freezePacketListEb(ptr noundef nonnull align 8 dereferenceable(216) %0, i1 noundef zeroext true)
   call void @_ZN15MainApplication14columnsChangedEv(ptr noundef nonnull align 8 dereferenceable(216) %0)
@@ -3618,13 +3618,13 @@ define void @_ZN15MainApplication23setConfigurationProfileEPKcb(ptr noundef nonn
   br label %79
 
 79:                                               ; preds = %75, %67
-  %80 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 396), align 4
+  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 396), align 4
   %.not17 = icmp eq i32 %80, 0
   br i1 %.not17, label %81, label %87
 
 81:                                               ; preds = %79
   %.not18 = icmp eq i32 %43, 0
-  %82 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 400), align 8
+  %82 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 400), align 8
   %.not19 = icmp eq i32 %82, %44
   %or.cond = select i1 %.not18, i1 %.not19, i1 false
   br i1 %or.cond, label %87, label %83
@@ -4071,7 +4071,7 @@ define void @_ZN15MainApplication27applyCustomColorsFromRecentEv(ptr nocapture n
   %2 = alloca %class.QString, align 8
   %3 = alloca i8, align 1
   %4 = alloca %class.QColor, align 8
-  %.0616 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 232), align 8
+  %.0616 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 232), align 8
   %.not17 = icmp eq ptr %.0616, null
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
@@ -4259,9 +4259,9 @@ define void @_ZN15MainApplication25storeCustomColorsInRecentEv(ptr nocapture non
   br i1 %.not, label %.loopexit, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 232), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 232), align 8
   tail call void @prefs_clear_string_list(ptr noundef %5)
-  store ptr null, ptr getelementptr inbounds (i8, ptr @recent, i64 232), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 232), align 8
   %6 = tail call noundef i32 @_ZN12QColorDialog11customCountEv()
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %.loopexit
@@ -4278,10 +4278,10 @@ define void @_ZN15MainApplication25storeCustomColorsInRecentEv(ptr nocapture non
   %12 = extractvalue { i64, i64 } %10, 1
   store i64 %12, ptr %8, align 8
   %13 = call noundef i32 @_ZNK6QColor3rgbEv(ptr noundef nonnull align 4 dereferenceable(14) %2) #27
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 232), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 232), align 8
   %15 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.28, i32 noundef %13)
   %16 = call ptr @g_list_append(ptr noundef %14, ptr noundef %15)
-  store ptr %16, ptr getelementptr inbounds (i8, ptr @recent, i64 232), align 8
+  store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 232), align 8
   %17 = add nuw nsw i32 %.04, 1
   %18 = call noundef i32 @_ZN12QColorDialog11customCountEv()
   %19 = icmp slt i32 %17, %18
@@ -4925,7 +4925,7 @@ define void @_ZN15MainApplicationC2ERiPPc(ptr noundef nonnull align 8 dereferenc
   %8 = alloca %class.QString, align 8
   %9 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN12QApplicationC2ERiPPci(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef %2, i32 noundef 393732)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15MainApplication, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15MainApplication, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN11QTranslatorC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null)
           to label %11 unwind label %74
@@ -4979,7 +4979,7 @@ define void @_ZN15MainApplicationC2ERiPPc(ptr noundef nonnull align 8 dereferenc
 31:                                               ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i8 1, ptr %32, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22MimeDatabaseInitThread, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22MimeDatabaseInitThread, i64 16), ptr %30, align 8
   %33 = invoke noundef ptr @_ZN11QThreadPool14globalInstanceEv()
           to label %34 unwind label %88
 
@@ -5286,7 +5286,7 @@ declare void @_ZN12QApplicationD2Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN15MainApplicationD2Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15MainApplication, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15MainApplication, i64 16), ptr %0, align 8
   store ptr null, ptr @mainApp, align 8
   invoke void @_ZN15MainApplication26clearDynamicMenuGroupItemsEv(ptr nonnull align 8 poison)
           to label %2 unwind label %32

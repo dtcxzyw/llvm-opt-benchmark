@@ -6890,7 +6890,7 @@ define internal fastcc void @_ZL16DumpRecordLayoutRN4llvm11raw_ostreamEPKN5clang
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr @.str.34, ptr %25, align 8, !alias.scope !85
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %17, align 8, !alias.scope !85
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %17, align 8, !alias.scope !85
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 %3, ptr %26, align 8, !alias.scope !85
   %27 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %17) #15
@@ -7109,7 +7109,7 @@ _ZL10isMsLayoutRKN5clang10ASTContextE.exit:       ; preds = %134, %140
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   %144 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr @.str.34, ptr %144, align 8, !alias.scope !88
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %16, align 8, !alias.scope !88
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %16, align 8, !alias.scope !88
   %145 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 %3, ptr %145, align 8, !alias.scope !88
   %146 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %16) #15
@@ -7162,7 +7162,7 @@ _ZN4llvm11raw_ostreamlsEc.exit187:                ; preds = %151, %153
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   %170 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @.str.34, ptr %170, align 8, !alias.scope !91
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %15, align 8, !alias.scope !91
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %15, align 8, !alias.scope !91
   %171 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 %3, ptr %171, align 8, !alias.scope !91
   %172 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %15) #15
@@ -7389,7 +7389,7 @@ _ZNSt17_Temporary_bufferIPPKN5clang13CXXRecordDeclES3_EC2ES4_l.exit.i.i.i: ; pre
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   %274 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @.str.34, ptr %274, align 8, !alias.scope !95
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %14, align 8, !alias.scope !95
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %14, align 8, !alias.scope !95
   %275 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 %273, ptr %275, align 8, !alias.scope !95
   %276 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %14) #15
@@ -7538,7 +7538,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %336, %343
   store i8 0, ptr %306, align 8
   store i32 1, ptr %307, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %308, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %12, align 8
   store ptr %11, ptr %309, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef null, i64 noundef 0, i32 noundef 0) #15
   %357 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef %324) #15
@@ -7657,7 +7657,7 @@ _ZL19PrintBitFieldOffsetRN4llvm11raw_ostreamEN5clang9CharUnitsEjjj.exit: ; preds
 410:                                              ; preds = %348
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   store ptr @.str.34, ptr %315, align 8, !alias.scope !101
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %10, align 8, !alias.scope !101
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %10, align 8, !alias.scope !101
   store i64 %324, ptr %316, align 8, !alias.scope !101
   %411 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %10) #15
   %412 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %314) #15
@@ -7902,7 +7902,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclENS2_15ASTRecordLay
   %.reass = add i64 %508, %invariant.op
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   store ptr @.str.34, ptr %491, align 8, !alias.scope !107
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %9, align 8, !alias.scope !107
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %9, align 8, !alias.scope !107
   store i64 %.reass, ptr %492, align 8, !alias.scope !107
   %539 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %9) #15
   %540 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %493) #15

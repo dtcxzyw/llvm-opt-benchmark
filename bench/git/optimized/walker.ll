@@ -445,7 +445,7 @@ cond.end.i.i:                                     ; preds = %cond.true.i.i, %sto
   %call4.i.i = call ptr @oid_to_hex(ptr noundef nonnull %oid.i43) #14
   %call5.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.9, ptr noundef %cond.i.i, ptr noundef %call4.i.i) #13
   %call.i.i11.i = call ptr @null_oid() #14
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @current_commit_oid, i64 32), align 4
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @current_commit_oid, i64 32), align 4
   %tobool.not.i.i.i.i = icmp eq i32 %25, 0
   br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 

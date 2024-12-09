@@ -175,12 +175,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 4) i32 @linker_find_linker_type() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 32), align 8
   %2 = tail call zeroext i1 @arch_is_wasm(i32 noundef %1) #11
   br i1 %2, label %8, label %3
 
 3:                                                ; preds = %0
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 36), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 36), align 4
   %5 = icmp ult i32 %4, 36
   br i1 %5, label %switch.lookup, label %6
 
@@ -302,7 +302,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define dso_local void @platform_linker(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 232), align 8
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 232), align 8
   %6 = icmp eq i32 %5, 2
   %7 = load i8, ptr @debug_log, align 1
   %8 = trunc i8 %7 to i1
@@ -313,7 +313,7 @@ define dso_local void @platform_linker(ptr noundef %0, ptr nocapture noundef rea
 
 10:                                               ; preds = %9
   %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3)
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 320), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 320), align 8
   %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %12)
   %putchar24 = tail call i32 @putchar(i32 10)
   br label %14
@@ -349,13 +349,13 @@ define dso_local void @platform_linker(ptr noundef %0, ptr nocapture noundef rea
   store i32 %31, ptr %.1.i, align 4
   %32 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %32, ptr %4, align 8
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 320), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 320), align 8
   %34 = load i32, ptr %.1.i, align 4
   %35 = add i32 %34, -1
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds nuw ptr, ptr %32, i64 %36
   store ptr %33, ptr %37, align 8
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 48), align 8
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 48), align 8
   %39 = icmp ult i32 %38, 8
   br i1 %39, label %switch.lookup, label %71
 
@@ -399,7 +399,7 @@ define dso_local void @platform_linker(ptr noundef %0, ptr nocapture noundef rea
   store i32 %61, ptr %.1.i33, align 4
   %62 = getelementptr inbounds nuw i8, ptr %.1.i33, i64 8
   store ptr %62, ptr %4, align 8
-  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 272), align 8
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 272), align 8
   %.not = icmp eq ptr %63, null
   %64 = select i1 %.not, ptr @.str.7, ptr %63
   %65 = load i32, ptr %.1.i33, align 4
@@ -407,7 +407,7 @@ define dso_local void @platform_linker(ptr noundef %0, ptr nocapture noundef rea
   %67 = zext i32 %66 to i64
   %68 = getelementptr inbounds nuw ptr, ptr %62, i64 %67
   store ptr %64, ptr %68, align 8
-  %69 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 228), align 4
+  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 228), align 4
   call fastcc void @append_fpie_pic_options(i32 noundef %69, ptr noundef %4)
   br label %71
 
@@ -486,7 +486,7 @@ concat_string_parts.exit:                         ; preds = %.lr.ph42.i, %.threa
   %.033.lcssa.i = phi ptr [ %85, %84 ], [ %83, %.thread57.i ], [ %92, %.lr.ph42.i ]
   %94 = getelementptr inbounds i8, ptr %.033.lcssa.i, i64 -1
   store i8 0, ptr %94, align 1
-  %95 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 170), align 2
+  %95 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 170), align 2
   %96 = trunc i8 %95 to i1
   br i1 %96, label %97, label %99
 
@@ -504,19 +504,19 @@ concat_string_parts.exit:                         ; preds = %.lr.ph42.i, %.threa
   unreachable
 
 102:                                              ; preds = %99
-  %103 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 36), align 4
+  %103 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 36), align 4
   %104 = call zeroext i1 @os_is_apple(i32 noundef %103) #11
-  %105 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 216), align 8
+  %105 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 216), align 8
   %106 = icmp eq i32 %105, 2
   %or.cond = select i1 %104, i1 %106, i1 false
   br i1 %or.cond, label %107, label %120
 
 107:                                              ; preds = %102
   call void @scratch_buffer_clear() #11
-  %108 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
+  %108 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 32), align 8
   %109 = call ptr @arch_to_linker_arch(i32 noundef %108) #11
   call void (ptr, ...) @scratch_buffer_printf(ptr noundef nonnull @.str.9, ptr noundef %109, ptr noundef %0) #11
-  %110 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 170), align 2
+  %110 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 170), align 2
   %111 = trunc i8 %110 to i1
   br i1 %111, label %112, label %115
 
@@ -1127,7 +1127,7 @@ define internal fastcc void @linker_setup(ptr noundef nonnull %0, ptr nocapture 
   br i1 %9, label %194, label %77
 
 77:                                               ; preds = %76
-  %78 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 171), align 1
+  %78 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 171), align 1
   %79 = trunc i8 %78 to i1
   br i1 %79, label %80, label %194
 
@@ -1301,7 +1301,7 @@ expand_.exit259:                                  ; preds = %120, %124
   br i1 %160, label %.sink.split.sink.split, label %.sink.split
 
 161:                                              ; preds = %148
-  %162 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 171), align 1
+  %162 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 171), align 1
   %163 = trunc i8 %162 to i1
   br i1 %163, label %164, label %194
 
@@ -1374,7 +1374,7 @@ default.unreachable:                              ; preds = %68
 
 194:                                              ; preds = %.sink.split, %68, %161, %103, %91, %76, %77, %68
   %195 = phi ptr [ @.str.39, %68 ], [ @.str.38, %161 ], [ @.str.39, %103 ], [ @.str.39, %91 ], [ @.str.39, %76 ], [ @.str.39, %77 ], [ @.str.39, %68 ], [ %.ph, %.sink.split ]
-  %196 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 36), align 4
+  %196 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 36), align 4
   switch i32 %196, label %linker_setup_windows.exit [
     i32 21, label %197
     i32 16, label %197
@@ -1462,7 +1462,7 @@ default.unreachable:                              ; preds = %68
   store i32 %225, ptr %.1.i.i, align 4
   %226 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   store ptr %226, ptr %0, align 8
-  %227 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 396), align 4
+  %227 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 396), align 4
   %228 = trunc i8 %227 to i1
   %229 = select i1 %228, ptr @.str.41, ptr @.str.42
   %230 = load i32, ptr %.1.i.i, align 4
@@ -1475,7 +1475,7 @@ default.unreachable:                              ; preds = %68
   br i1 %234, label %linker_setup_windows.exit, label %235
 
 235:                                              ; preds = %223
-  %236 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 216), align 8
+  %236 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 216), align 8
   switch i32 %236, label %259 [
     i32 -1, label %279
     i32 0, label %237
@@ -1577,12 +1577,12 @@ default.unreachable:                              ; preds = %68
 
 279:                                              ; preds = %.sink.split.i, %235
   %.099.i = phi i1 [ false, %235 ], [ %.099.ph.i, %.sink.split.i ]
-  %280 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 208), align 8
+  %280 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 208), align 8
   %.not112.i = icmp eq i32 %280, 0
   br i1 %.not112.i, label %linker_setup_windows.exit, label %281
 
 281:                                              ; preds = %279
-  %282 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 376), align 8
+  %282 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 376), align 8
   %.not113.i = icmp eq ptr %282, null
   br i1 %.not113.i, label %283, label %296
 
@@ -1592,7 +1592,7 @@ default.unreachable:                              ; preds = %68
   br i1 %.not114.i, label %296, label %285
 
 285:                                              ; preds = %283
-  %286 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
+  %286 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 32), align 8
   switch i32 %286, label %290 [
     i32 1, label %291
     i32 3, label %287
@@ -1622,11 +1622,11 @@ default.unreachable:                              ; preds = %68
 
 294:                                              ; preds = %291
   %295 = tail call ptr @scratch_buffer_copy() #11
-  store ptr %295, ptr getelementptr inbounds (i8, ptr @active_target, i64 376), align 8
+  store ptr %295, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 376), align 8
   br label %296
 
 296:                                              ; preds = %294, %291, %283, %281
-  %297 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 384), align 8
+  %297 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 384), align 8
   %.not115.i = icmp eq ptr %297, null
   br i1 %.not115.i, label %336, label %298
 
@@ -1681,7 +1681,7 @@ expand_.exit144.i:                                ; preds = %309, %305
   store i32 %324, ptr %.1.i142.i, align 4
   %325 = getelementptr inbounds nuw i8, ptr %.1.i142.i, i64 8
   store ptr %325, ptr %0, align 8
-  %326 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 384), align 8
+  %326 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 384), align 8
   %327 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.50, ptr noundef %326) #11
   %328 = load ptr, ptr %0, align 8
   %.not116.i = icmp eq ptr %328, null
@@ -1701,7 +1701,7 @@ expand_.exit144.i:                                ; preds = %309, %305
   br label %336
 
 336:                                              ; preds = %334, %296
-  %337 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 376), align 8
+  %337 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 376), align 8
   %.not117.i = icmp eq ptr %337, null
   br i1 %.not117.i, label %376, label %338
 
@@ -1756,7 +1756,7 @@ expand_.exit151.i:                                ; preds = %349, %345
   store i32 %364, ptr %.1.i149.i, align 4
   %365 = getelementptr inbounds nuw i8, ptr %.1.i149.i, i64 8
   store ptr %365, ptr %0, align 8
-  %366 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 376), align 8
+  %366 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 376), align 8
   %367 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.51, ptr noundef %366) #11
   %368 = load ptr, ptr %0, align 8
   %.not122.i = icmp eq ptr %368, null
@@ -2000,7 +2000,7 @@ expand_.exit172.i:                                ; preds = %470, %466
   br label %497
 
 497:                                              ; preds = %495, %374
-  %498 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 392), align 8
+  %498 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 392), align 8
   %499 = icmp eq i32 %498, 0
   br i1 %499, label %linker_setup_windows.exit, label %500
 
@@ -2012,7 +2012,7 @@ expand_.exit172.i:                                ; preds = %470, %466
   tail call void @global_context_add_link(ptr noundef nonnull @.str.58) #11
   tail call void @global_context_add_link(ptr noundef nonnull @.str.59) #11
   tail call void @global_context_add_link(ptr noundef nonnull @.str.60) #11
-  %501 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 392), align 8
+  %501 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 392), align 8
   %502 = icmp eq i32 %501, 2
   br i1 %502, label %503, label %504
 
@@ -2311,7 +2311,7 @@ expand_.exit215.i:                                ; preds = %647, %643
   store i32 %662, ptr %.1.i213.i, align 4
   %663 = getelementptr inbounds nuw i8, ptr %.1.i213.i, i64 8
   store ptr %663, ptr %0, align 8
-  %664 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
+  %664 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 32), align 8
   %665 = tail call ptr @arch_to_linker_arch(i32 noundef %664) #11
   %666 = load ptr, ptr %0, align 8
   %.not176.i = icmp eq ptr %666, null
@@ -2328,7 +2328,7 @@ expand_.exit215.i:                                ; preds = %647, %643
   %.0147.i = phi i64 [ %671, %667 ], [ 4294967295, %expand_.exit215.i ]
   %673 = getelementptr inbounds nuw ptr, ptr %666, i64 %.0147.i
   store ptr %665, ptr %673, align 8
-  %674 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 212), align 4
+  %674 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 212), align 4
   %675 = icmp ne i32 %674, 0
   %676 = load i32, ptr @active_target, align 8
   %677 = icmp eq i32 %676, 0
@@ -2449,12 +2449,12 @@ expand_.exit215.i:                                ; preds = %647, %643
   br label %743
 
 743:                                              ; preds = %735, %672
-  %744 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 208), align 8
+  %744 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 208), align 8
   %.not179.i = icmp eq i32 %744, 0
   br i1 %.not179.i, label %linker_setup_windows.exit, label %745
 
 745:                                              ; preds = %743
-  %746 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 368), align 8
+  %746 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 368), align 8
   %.not180.i = icmp eq ptr %746, null
   br i1 %.not180.i, label %747, label %748
 
@@ -2570,13 +2570,13 @@ expand_.exit215.i:                                ; preds = %647, %643
   store i32 %807, ptr %.1.i241.i, align 4
   %808 = getelementptr inbounds nuw i8, ptr %.1.i241.i, i64 8
   store ptr %808, ptr %0, align 8
-  %809 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 344), align 8
+  %809 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 344), align 8
   %810 = load i32, ptr %.1.i241.i, align 4
   %811 = add i32 %810, -1
   %812 = zext i32 %811 to i64
   %813 = getelementptr inbounds nuw ptr, ptr %808, i64 %812
   store ptr %809, ptr %813, align 8
-  %814 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 228), align 4
+  %814 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 228), align 4
   %815 = icmp eq i32 %814, 0
   br i1 %815, label %816, label %849
 
@@ -2636,7 +2636,7 @@ expand_.exit215.i:                                ; preds = %647, %643
   %847 = zext i32 %846 to i64
   %848 = getelementptr inbounds nuw ptr, ptr %844, i64 %847
   store ptr @.str.86, ptr %848, align 8
-  %.pr.i = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 228), align 4
+  %.pr.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 228), align 4
   br label %849
 
 849:                                              ; preds = %841, %805
@@ -2813,7 +2813,7 @@ expand_.exit215.i:                                ; preds = %647, %643
   %948 = zext i32 %947 to i64
   %949 = getelementptr inbounds nuw ptr, ptr %945, i64 %948
   store ptr @.str.89, ptr %949, align 8
-  %950 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 352), align 8
+  %950 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 352), align 8
   %.not187.i = icmp eq ptr %950, null
   %951 = load ptr, ptr %0, align 8
   %.not.i279.i = icmp eq ptr %951, null
@@ -2868,7 +2868,7 @@ expand_.exit215.i:                                ; preds = %647, %643
   store i32 %978, ptr %.1.i276.i, align 4
   %979 = getelementptr inbounds nuw i8, ptr %.1.i276.i, i64 8
   store ptr %979, ptr %0, align 8
-  %980 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 352), align 8
+  %980 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 352), align 8
   %981 = load i32, ptr %.1.i276.i, align 4
   %982 = add i32 %981, -1
   %983 = zext i32 %982 to i64
@@ -2925,7 +2925,7 @@ expand_.exit285.i:                                ; preds = %995, %991
   store i32 %1010, ptr %.1.i283.i, align 4
   %1011 = getelementptr inbounds nuw i8, ptr %.1.i283.i, i64 8
   store ptr %1011, ptr %0, align 8
-  %1012 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 368), align 8
+  %1012 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 368), align 8
   %1013 = getelementptr inbounds nuw i8, ptr %1012, i64 8
   %1014 = load i32, ptr %1013, align 4
   %1015 = getelementptr inbounds nuw i8, ptr %1012, i64 12
@@ -2949,7 +2949,7 @@ expand_.exit285.i:                                ; preds = %995, %991
   br label %1026
 
 1026:                                             ; preds = %1024, %976
-  %1027 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 360), align 8
+  %1027 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 360), align 8
   %.not190.i = icmp eq ptr %1027, null
   %1028 = load ptr, ptr %0, align 8
   %.not.i293.i = icmp eq ptr %1028, null
@@ -3004,7 +3004,7 @@ expand_.exit285.i:                                ; preds = %995, %991
   store i32 %1055, ptr %.1.i290.i, align 4
   %1056 = getelementptr inbounds nuw i8, ptr %.1.i290.i, i64 8
   store ptr %1056, ptr %0, align 8
-  %1057 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 360), align 8
+  %1057 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 360), align 8
   %1058 = load i32, ptr %.1.i290.i, align 4
   %1059 = add i32 %1058, -1
   %1060 = zext i32 %1059 to i64
@@ -3061,7 +3061,7 @@ expand_.exit299.i:                                ; preds = %1072, %1068
   store i32 %1087, ptr %.1.i297.i, align 4
   %1088 = getelementptr inbounds nuw i8, ptr %.1.i297.i, i64 8
   store ptr %1088, ptr %0, align 8
-  %1089 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 368), align 8
+  %1089 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 368), align 8
   %1090 = load i32, ptr %1089, align 4
   %1091 = getelementptr inbounds nuw i8, ptr %1089, i64 4
   %1092 = load i32, ptr %1091, align 4
@@ -3088,7 +3088,7 @@ expand_.exit299.i:                                ; preds = %1072, %1068
   br i1 %1103, label %linker_setup_windows.exit, label %1104
 
 1104:                                             ; preds = %1102
-  %1105 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 228), align 4
+  %1105 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 228), align 4
   %1106 = icmp eq i32 %1105, 0
   br i1 %1106, label %1107, label %1140
 
@@ -3148,7 +3148,7 @@ expand_.exit299.i:                                ; preds = %1072, %1068
   %1138 = zext i32 %1137 to i64
   %1139 = getelementptr inbounds nuw ptr, ptr %1135, i64 %1138
   store ptr @.str.92, ptr %1139, align 8
-  %.pr.i286 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 228), align 4
+  %.pr.i286 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 228), align 4
   br label %1140
 
 1140:                                             ; preds = %1132, %1104
@@ -3215,7 +3215,7 @@ expand_.exit299.i:                                ; preds = %1072, %1068
   br label %1176
 
 1176:                                             ; preds = %1168, %1140
-  %1177 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
+  %1177 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 32), align 8
   %1178 = icmp eq i32 %1177, 32
   br i1 %1178, label %1179, label %1212
 
@@ -3278,7 +3278,7 @@ expand_.exit299.i:                                ; preds = %1072, %1068
   br label %1212
 
 1212:                                             ; preds = %1204, %1176
-  %1213 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 208), align 8
+  %1213 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 208), align 8
   %.not223.i = icmp eq i32 %1213, 0
   br i1 %.not223.i, label %linker_setup_windows.exit, label %1214
 
@@ -3291,7 +3291,7 @@ expand_.exit299.i:                                ; preds = %1072, %1068
   unreachable
 
 1217:                                             ; preds = %1214
-  %1218 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 212), align 4
+  %1218 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 212), align 4
   %1219 = icmp ne i32 %1218, 0
   %1220 = load i32, ptr @active_target, align 8
   %1221 = icmp eq i32 %1220, 0
@@ -3357,7 +3357,7 @@ expand_.exit299.i:                                ; preds = %1072, %1068
   br label %1255
 
 1255:                                             ; preds = %1247, %1217
-  %1256 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 228), align 4
+  %1256 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 228), align 4
   switch i32 %1256, label %1257 [
     i32 -1, label %is_pie_pic.exit.i
     i32 0, label %is_pie_pic.exit.i
@@ -4312,7 +4312,7 @@ expand_.exit367.i:                                ; preds = %1758, %1754
   store i32 %1773, ptr %.1.i365.i, align 4
   %1774 = getelementptr inbounds nuw i8, ptr %.1.i365.i, i64 8
   store ptr %1774, ptr %0, align 8
-  %1775 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
+  %1775 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 32), align 8
   switch i32 %1775, label %1780 [
     i32 32, label %1781
     i32 31, label %1776
@@ -4352,7 +4352,7 @@ expand_.exit367.i:                                ; preds = %1758, %1754
   br i1 %1787, label %1788, label %1884
 
 1788:                                             ; preds = %1786
-  %1789 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 208), align 8
+  %1789 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 208), align 8
   %.not325.i = icmp eq i32 %1789, 0
   br i1 %.not325.i, label %1790, label %1819
 
@@ -4411,7 +4411,7 @@ expand_.exit367.i:                                ; preds = %1758, %1754
 
 1819:                                             ; preds = %1788
   tail call void @global_context_add_link(ptr noundef nonnull @.str.84) #11
-  %1820 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 216), align 8
+  %1820 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 216), align 8
   %1821 = icmp eq i32 %1820, 2
   br i1 %1821, label %1822, label %1855
 
@@ -4527,7 +4527,7 @@ expand_.exit367.i:                                ; preds = %1758, %1754
   br label %.sink.split.i289
 
 1884:                                             ; preds = %1786
-  %1885 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 216), align 8
+  %1885 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 216), align 8
   %1886 = icmp eq i32 %1885, 2
   br i1 %1886, label %1887, label %1920
 
@@ -4590,7 +4590,7 @@ expand_.exit367.i:                                ; preds = %1758, %1754
   br label %1920
 
 1920:                                             ; preds = %1912, %1884
-  %1921 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 228), align 4
+  %1921 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 228), align 4
   %1922 = icmp eq i32 %1921, 0
   br i1 %1922, label %1923, label %1956
 
@@ -4650,7 +4650,7 @@ expand_.exit367.i:                                ; preds = %1758, %1754
   %1954 = zext i32 %1953 to i64
   %1955 = getelementptr inbounds nuw ptr, ptr %1951, i64 %1954
   store ptr @.str.92, ptr %1955, align 8
-  %.pr.i291 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 228), align 4
+  %.pr.i291 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 228), align 4
   br label %1956
 
 1956:                                             ; preds = %1948, %1920
@@ -4717,7 +4717,7 @@ expand_.exit367.i:                                ; preds = %1758, %1754
   br label %1992
 
 1992:                                             ; preds = %1984, %1956
-  %1993 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
+  %1993 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 32), align 8
   %1994 = icmp eq i32 %1993, 32
   br i1 %1994, label %1995, label %2028
 
@@ -4780,13 +4780,13 @@ expand_.exit367.i:                                ; preds = %1758, %1754
   br label %2028
 
 2028:                                             ; preds = %2020, %1992
-  %2029 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 208), align 8
+  %2029 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 208), align 8
   %.not305.i = icmp eq i32 %2029, 0
   br i1 %.not305.i, label %linker_setup_windows.exit, label %2030
 
 2030:                                             ; preds = %2028
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
-  %2031 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 408), align 8
+  %2031 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 408), align 8
   %.not.i371.i = icmp eq ptr %2031, null
   br i1 %.not.i371.i, label %2032, label %find_linux_crt_begin.exit.i
 
@@ -4834,7 +4834,7 @@ find_linux_crt_begin.exit.i:                      ; preds = %2053, %2050, %2046,
   %.0.i372.i = phi ptr [ %2049, %2046 ], [ %2031, %2030 ], [ null, %2053 ], [ null, %2050 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
-  %2056 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 400), align 8
+  %2056 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 400), align 8
   %.not.i373.i = icmp eq ptr %2056, null
   br i1 %.not.i373.i, label %2057, label %find_linux_crt.exit.i
 
@@ -4881,7 +4881,7 @@ find_linux_crt_begin.exit.i:                      ; preds = %2053, %2050, %2046,
 find_linux_crt.exit.i:                            ; preds = %2078, %2075, %2071, %find_linux_crt_begin.exit.i
   %.0.i374.i = phi ptr [ %2074, %2071 ], [ %2056, %find_linux_crt_begin.exit.i ], [ null, %2078 ], [ null, %2075 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
-  %2081 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 212), align 4
+  %2081 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 212), align 4
   %2082 = icmp ne i32 %2081, 0
   %2083 = load i32, ptr @active_target, align 8
   %2084 = icmp eq i32 %2083, 0
@@ -4957,7 +4957,7 @@ find_linux_crt.exit.i:                            ; preds = %2078, %2075, %2071,
   unreachable
 
 2122:                                             ; preds = %2118
-  %2123 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 228), align 4
+  %2123 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 228), align 4
   switch i32 %2123, label %2124 [
     i32 -1, label %is_pie_pic.exit.i290
     i32 0, label %is_pie_pic.exit.i290
@@ -6076,7 +6076,7 @@ expand_.exit511.i:                                ; preds = %2721, %2717
   store i32 %2736, ptr %.1.i509.i, align 4
   %2737 = getelementptr inbounds nuw i8, ptr %.1.i509.i, i64 8
   store ptr %2737, ptr %0, align 8
-  %2738 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
+  %2738 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 32), align 8
   switch i32 %2738, label %2743 [
     i32 32, label %.sink.split.i289
     i32 31, label %2739
@@ -6113,7 +6113,7 @@ expand_.exit511.i:                                ; preds = %2721, %2717
   br label %linker_setup_windows.exit
 
 2748:                                             ; preds = %194
-  %2749 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 208), align 8
+  %2749 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 208), align 8
   %.not216 = icmp eq i32 %2749, 0
   br i1 %.not216, label %linker_setup_windows.exit, label %2750
 
@@ -6193,7 +6193,7 @@ linker_setup_windows.exit:                        ; preds = %.sink.split.i289, %
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %2775, %linker_setup_windows.exit
-  %2785 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 72), align 8
+  %2785 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 72), align 8
   %.not217 = icmp eq ptr %2785, null
   br i1 %.not217, label %._crit_edge330, label %2786
 
@@ -6259,7 +6259,7 @@ expand_.exit311:                                  ; preds = %2795, %2799
   store i32 %2814, ptr %.1.i309, align 4
   %2815 = getelementptr inbounds nuw i8, ptr %.1.i309, i64 8
   store ptr %2815, ptr %0, align 8
-  %2816 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 72), align 8
+  %2816 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 72), align 8
   %2817 = getelementptr inbounds nuw ptr, ptr %2816, i64 %indvars.iv348
   %2818 = load ptr, ptr %2817, align 8
   %2819 = call ptr @str_cat(ptr noundef nonnull %195, ptr noundef %2818) #11
@@ -6283,7 +6283,7 @@ expand_.exit311:                                  ; preds = %2795, %2799
   br i1 %exitcond352.not, label %._crit_edge330, label %.lr.ph329, !llvm.loop !11
 
 ._crit_edge330:                                   ; preds = %2826, %._crit_edge, %2786
-  %2828 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 96), align 8
+  %2828 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 96), align 8
   %.not218 = icmp eq ptr %2828, null
   br i1 %.not218, label %._crit_edge334, label %2829
 
@@ -6349,7 +6349,7 @@ expand_.exit311:                                  ; preds = %2795, %2799
   store i32 %2858, ptr %.1.i316, align 4
   %2859 = getelementptr inbounds nuw i8, ptr %.1.i316, i64 8
   store ptr %2859, ptr %0, align 8
-  %2860 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 96), align 8
+  %2860 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 96), align 8
   %2861 = getelementptr inbounds nuw ptr, ptr %2860, i64 %indvars.iv353
   %2862 = load ptr, ptr %2861, align 8
   %2863 = load i32, ptr %.1.i316, align 4
@@ -6362,9 +6362,9 @@ expand_.exit311:                                  ; preds = %2795, %2799
   br i1 %exitcond357.not, label %._crit_edge334, label %.lr.ph333, !llvm.loop !12
 
 ._crit_edge334:                                   ; preds = %2856, %._crit_edge330, %2829
-  %2867 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 80), align 8
+  %2867 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 80), align 8
   call fastcc void @add_linked_libs(ptr noundef %0, ptr noundef %2867, i1 noundef zeroext %10)
-  %2868 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 8), align 8
+  %2868 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 8), align 8
   %.not219 = icmp eq ptr %2868, null
   br i1 %.not219, label %._crit_edge342, label %2869
 
@@ -6380,7 +6380,7 @@ expand_.exit311:                                  ; preds = %2795, %2799
 
 .lr.ph341:                                        ; preds = %.lr.ph341.preheader, %._crit_edge338
   %indvars.iv363 = phi i64 [ 0, %.lr.ph341.preheader ], [ %indvars.iv.next364, %._crit_edge338 ]
-  %2872 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 8), align 8
+  %2872 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 8), align 8
   %2873 = getelementptr inbounds nuw ptr, ptr %2872, i64 %indvars.iv363
   %2874 = load ptr, ptr %2873, align 8
   %2875 = getelementptr inbounds nuw i8, ptr %2874, i64 32
@@ -6473,7 +6473,7 @@ expand_.exit311:                                  ; preds = %2795, %2799
   br i1 %exitcond367.not, label %._crit_edge342, label %.lr.ph341, !llvm.loop !14
 
 ._crit_edge342:                                   ; preds = %._crit_edge338, %._crit_edge334, %2869
-  %2919 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 104), align 8
+  %2919 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 104), align 8
   call fastcc void @add_linked_libs(ptr noundef %0, ptr noundef %2919, i1 noundef zeroext %10)
   ret void
 }
@@ -6498,9 +6498,9 @@ declare ptr @scratch_buffer_to_string() local_unnamed_addr #1
 define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 112), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 112), align 8
   %.not = icmp eq ptr %5, null
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 104), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 104), align 8
   %spec.select = select i1 %.not, ptr %6, ptr %5
   store ptr null, ptr %3, align 8
   %7 = call zeroext i1 @file_namesplit(ptr noundef %0, ptr noundef nonnull %3, ptr noundef null) #11
@@ -6587,7 +6587,7 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
   store i32 %48, ptr %.1.i, align 4
   %49 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %49, ptr %4, align 8
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 272), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 272), align 8
   %51 = zext i32 %47 to i64
   %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %51
   store ptr %50, ptr %52, align 8
@@ -6615,7 +6615,7 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
   br i1 %.not119, label %.critedge86, label %.critedge86.thread
 
 .critedge86:                                      ; preds = %59, %46
-  %61 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 228), align 4
+  %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 228), align 4
   call fastcc void @append_fpie_pic_options(i32 noundef %61, ptr noundef %4)
   %.pre = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %.pre, null
@@ -7002,7 +7002,7 @@ define dso_local noundef zeroext i1 @dynamic_lib_linker(ptr noundef %0, ptr noca
 
 11:                                               ; preds = %3, %8
   store ptr null, ptr %4, align 8
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 232), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 232), align 8
   %13 = icmp eq i32 %12, 2
   br i1 %13, label %14, label %37
 
@@ -7036,7 +7036,7 @@ define dso_local noundef zeroext i1 @dynamic_lib_linker(ptr noundef %0, ptr noca
   store i32 %30, ptr %.1.i, align 4
   %31 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %31, ptr %4, align 8
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 320), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 320), align 8
   %33 = load i32, ptr %.1.i, align 4
   %34 = add i32 %33, -1
   %35 = zext i32 %34 to i64
@@ -7113,7 +7113,7 @@ concat_string_parts.exit:                         ; preds = %.lr.ph42.i, %.threa
   %.033.lcssa.i = phi ptr [ %52, %51 ], [ %50, %.thread57.i ], [ %59, %.lr.ph42.i ]
   %61 = getelementptr inbounds i8, ptr %.033.lcssa.i, i64 -1
   store i8 0, ptr %61, align 1
-  %62 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 170), align 2
+  %62 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 170), align 2
   %63 = trunc i8 %62 to i1
   br i1 %63, label %64, label %66
 
@@ -7122,7 +7122,7 @@ concat_string_parts.exit:                         ; preds = %.lr.ph42.i, %.threa
   br label %66
 
 66:                                               ; preds = %64, %concat_string_parts.exit
-  %67 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 232), align 8
+  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 232), align 8
   %68 = icmp eq i32 %67, 2
   br i1 %68, label %69, label %72
 
@@ -7137,7 +7137,7 @@ concat_string_parts.exit:                         ; preds = %.lr.ph42.i, %.threa
 
 72:                                               ; preds = %66
   store ptr null, ptr %5, align 8
-  %73 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 48), align 8
+  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 48), align 8
   switch i32 %73, label %100 [
     i32 1, label %74
     i32 3, label %79
@@ -7239,7 +7239,7 @@ declare zeroext i1 @llvm_link_wasm(ptr noundef, i32 noundef, ptr noundef) local_
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @static_lib_linker(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 36), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 36), align 4
   switch i32 %4, label %7 [
     i32 28, label %8
     i32 7, label %8
@@ -7324,13 +7324,13 @@ define dso_local noundef zeroext i1 @linker(ptr noundef %0, ptr nocapture nounde
 
 24:                                               ; preds = %._crit_edge.i
   %25 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3)
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 48), align 8
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 48), align 8
   %27 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.140, ptr noundef %.033.lcssa.i, i32 noundef %26)
   %putchar44.i = call i32 @putchar(i32 10)
   br label %28
 
 28:                                               ; preds = %24, %._crit_edge.i
-  %29 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 170), align 2
+  %29 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 170), align 2
   %30 = trunc i8 %29 to i1
   br i1 %30, label %31, label %33
 
@@ -7339,7 +7339,7 @@ define dso_local noundef zeroext i1 @linker(ptr noundef %0, ptr nocapture nounde
   br label %33
 
 33:                                               ; preds = %31, %28
-  %34 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 48), align 8
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 48), align 8
   switch i32 %34, label %61 [
     i32 1, label %35
     i32 3, label %40

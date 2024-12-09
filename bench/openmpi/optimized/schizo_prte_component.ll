@@ -15,15 +15,15 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define internal noundef i32 @component_query(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 {
   store ptr @prte_schizo_prte_module, ptr %0, align 8
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @prte_mca_schizo_prte_component, i64 224), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_schizo_prte_component, i64 224), align 8
   store i32 %3, ptr %1, align 4
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @component_register() #1 {
-  store i8 1, ptr getelementptr inbounds (i8, ptr @prte_mca_schizo_prte_component, i64 228), align 4
-  %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_schizo_prte_component, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_schizo_prte_component, i64 228)) #3
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_schizo_prte_component, i64 228), align 4
+  %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_schizo_prte_component, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_mca_schizo_prte_component, i64 228)) #3
   ret i32 0
 }
 

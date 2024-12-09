@@ -309,7 +309,7 @@ define dso_local i32 @rdmacg_try_charge(ptr nocapture noundef writeonly %0, ptr 
   br i1 %63, label %.thread11, label %89
 
 .thread11:                                        ; preds = %53, %61
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %65 = tail call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %64, i32 noundef 3520, i64 noundef 72) #11
   %66 = icmp eq ptr %65, null
   br i1 %66, label %.thread12, label %67
@@ -432,8 +432,8 @@ define dso_local void @rdmacg_register_device(ptr noundef %0) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store volatile ptr %3, ptr %4, align 8
   tail call void @mutex_lock(ptr noundef nonnull @rdmacg_mutex) #8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @rdmacg_devices, i64 8), align 8
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @rdmacg_devices, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rdmacg_devices, i64 8), align 8
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @rdmacg_devices, i64 8), align 8
   store ptr @rdmacg_devices, ptr %0, align 8
   store ptr %5, ptr %2, align 8
   store volatile ptr %0, ptr %5, align 8
@@ -513,7 +513,7 @@ define internal fastcc void @free_cg_rpool_locked(ptr noundef %0) unnamed_addr #
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef ptr @rdmacg_css_alloc(ptr nocapture readnone %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(216) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 216) #11
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5
@@ -685,7 +685,7 @@ define internal noundef i32 @rdmacg_resource_read(ptr noundef %0, ptr nocapture 
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 61) #8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef 0) #8
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 32) #8
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @rdmacg_resource_names, i64 8), align 8
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rdmacg_resource_names, i64 8), align 8
   tail call void @seq_puts(ptr noundef %0, ptr noundef %43) #8
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 61) #8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef 0) #8
@@ -745,7 +745,7 @@ define internal i64 @rdmacg_resource_set_max(ptr noundef %0, ptr noundef %1, i64
   br i1 %13, label %.thread25, label %14
 
 14:                                               ; preds = %4
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 24), align 8
   %16 = call noalias noundef align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3520, i64 noundef 8) #11
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.thread25, label %18
@@ -875,7 +875,7 @@ define internal i64 @rdmacg_resource_set_max(ptr noundef %0, ptr noundef %1, i64
   br i1 %80, label %.thread19, label %105
 
 .thread19:                                        ; preds = %70, %78
-  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %82 = call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %81, i32 noundef 3520, i64 noundef 72) #11
   %83 = icmp eq ptr %82, null
   br i1 %83, label %.thread20, label %84

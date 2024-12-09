@@ -378,7 +378,7 @@ define dso_local void @ttm_bo_put(ptr noundef %0) #0 align 16 {
   br label %137
 
 137:                                              ; preds = %135, %21
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @ttm_glob, i64 24), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @ttm_glob, i64 24)) #6, !srcloc !25
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @ttm_glob, i64 24), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @ttm_glob, i64 24)) #6, !srcloc !25
   %138 = getelementptr i8, ptr %0, i64 368
   %139 = load ptr, ptr %138, align 8
   tail call void %139(ptr noundef %0) #6
@@ -1525,7 +1525,7 @@ define dso_local i32 @ttm_bo_init_reserved(ptr noundef %0, ptr noundef %1, i32 n
   %20 = select i1 %18, ptr %19, ptr %7
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr %20, ptr %21, align 8
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @ttm_glob, i64 24), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @ttm_glob, i64 24)) #6, !srcloc !46
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @ttm_glob, i64 24), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @ttm_glob, i64 24)) #6, !srcloc !46
   %22 = load i32, ptr %12, align 8
   switch i32 %22, label %33 [
     i32 0, label %23

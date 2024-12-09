@@ -512,49 +512,49 @@ define hidden void @"_ZN187_$LT$core..iter..adapters..step_by..StepBy$LT$core..o
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef zeroext i1 @_ZN18unicode_categories17UnicodeCategories14is_punctuation17he7d2a917fef1699eE.llvm.838311727041459786(i32 noundef %0) unnamed_addr #4 {
   %2 = load ptr, ptr @_ZN18unicode_categories6tables21PUNCTUATION_CONNECTOR17h55d5badb1070d831E, align 8, !nonnull !13, !align !165, !noundef !13
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18unicode_categories6tables21PUNCTUATION_CONNECTOR17h55d5badb1070d831E, i64 8), align 8, !noundef !13
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18unicode_categories6tables21PUNCTUATION_CONNECTOR17h55d5badb1070d831E, i64 8), align 8, !noundef !13
   %4 = tail call noundef zeroext i1 @_ZN18unicode_categories19table_binary_search17h2dfb9b16befa88ccE(i32 noundef %0, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3)
   br i1 %4, label %33, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr @_ZN18unicode_categories6tables16PUNCTUATION_DASH17h1227266ddeb994d2E, align 8, !nonnull !13, !align !165, !noundef !13
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18unicode_categories6tables16PUNCTUATION_DASH17h1227266ddeb994d2E, i64 8), align 8, !noundef !13
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18unicode_categories6tables16PUNCTUATION_DASH17h1227266ddeb994d2E, i64 8), align 8, !noundef !13
   %8 = tail call noundef zeroext i1 @_ZN18unicode_categories19table_binary_search17h2dfb9b16befa88ccE(i32 noundef %0, ptr noalias noundef nonnull readonly align 4 %6, i64 noundef %7)
   br i1 %8, label %33, label %9
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr @_ZN18unicode_categories6tables17PUNCTUATION_CLOSE17h487e91fa4090b999E, align 8, !nonnull !13, !align !165, !noundef !13
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18unicode_categories6tables17PUNCTUATION_CLOSE17h487e91fa4090b999E, i64 8), align 8, !noundef !13
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18unicode_categories6tables17PUNCTUATION_CLOSE17h487e91fa4090b999E, i64 8), align 8, !noundef !13
   %12 = tail call noundef zeroext i1 @_ZN18unicode_categories19table_binary_search17h2dfb9b16befa88ccE(i32 noundef %0, ptr noalias noundef nonnull readonly align 4 %10, i64 noundef %11)
   br i1 %12, label %33, label %13
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr @_ZN18unicode_categories6tables17PUNCTUATION_CLOSE17h487e91fa4090b999E, align 8, !nonnull !13, !align !165, !noundef !13
-  %15 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18unicode_categories6tables17PUNCTUATION_CLOSE17h487e91fa4090b999E, i64 8), align 8, !noundef !13
+  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18unicode_categories6tables17PUNCTUATION_CLOSE17h487e91fa4090b999E, i64 8), align 8, !noundef !13
   %16 = tail call noundef zeroext i1 @_ZN18unicode_categories19table_binary_search17h2dfb9b16befa88ccE(i32 noundef %0, ptr noalias noundef nonnull readonly align 4 %14, i64 noundef %15)
   br i1 %16, label %33, label %17
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr @_ZN18unicode_categories6tables23PUNCTUATION_FINAL_QUOTE17h5f2ac970712df976E, align 8, !nonnull !13, !align !165, !noundef !13
-  %19 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18unicode_categories6tables23PUNCTUATION_FINAL_QUOTE17h5f2ac970712df976E, i64 8), align 8, !noundef !13
+  %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18unicode_categories6tables23PUNCTUATION_FINAL_QUOTE17h5f2ac970712df976E, i64 8), align 8, !noundef !13
   %20 = tail call noundef zeroext i1 @_ZN18unicode_categories19table_binary_search17h2dfb9b16befa88ccE(i32 noundef %0, ptr noalias noundef nonnull readonly align 4 %18, i64 noundef %19)
   br i1 %20, label %33, label %21
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr @_ZN18unicode_categories6tables25PUNCTUATION_INITIAL_QUOTE17h7a939587a5db7561E, align 8, !nonnull !13, !align !165, !noundef !13
-  %23 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18unicode_categories6tables25PUNCTUATION_INITIAL_QUOTE17h7a939587a5db7561E, i64 8), align 8, !noundef !13
+  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18unicode_categories6tables25PUNCTUATION_INITIAL_QUOTE17h7a939587a5db7561E, i64 8), align 8, !noundef !13
   %24 = tail call noundef zeroext i1 @_ZN18unicode_categories19table_binary_search17h2dfb9b16befa88ccE(i32 noundef %0, ptr noalias noundef nonnull readonly align 4 %22, i64 noundef %23)
   br i1 %24, label %33, label %25
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr @_ZN18unicode_categories6tables17PUNCTUATION_OTHER17h90b5bd1b5328b273E, align 8, !nonnull !13, !align !165, !noundef !13
-  %27 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18unicode_categories6tables17PUNCTUATION_OTHER17h90b5bd1b5328b273E, i64 8), align 8, !noundef !13
+  %27 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18unicode_categories6tables17PUNCTUATION_OTHER17h90b5bd1b5328b273E, i64 8), align 8, !noundef !13
   %28 = tail call noundef zeroext i1 @_ZN18unicode_categories19table_binary_search17h2dfb9b16befa88ccE(i32 noundef %0, ptr noalias noundef nonnull readonly align 4 %26, i64 noundef %27)
   br i1 %28, label %33, label %29
 
 29:                                               ; preds = %25
   %30 = load ptr, ptr @_ZN18unicode_categories6tables16PUNCTUATION_OPEN17h7e1609d89834365fE, align 8, !nonnull !13, !align !165, !noundef !13
-  %31 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18unicode_categories6tables16PUNCTUATION_OPEN17h7e1609d89834365fE, i64 8), align 8, !noundef !13
+  %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18unicode_categories6tables16PUNCTUATION_OPEN17h7e1609d89834365fE, i64 8), align 8, !noundef !13
   %32 = tail call noundef zeroext i1 @_ZN18unicode_categories19table_binary_search17h2dfb9b16befa88ccE(i32 noundef %0, ptr noalias noundef nonnull readonly align 4 %30, i64 noundef %31)
   br label %33
 
@@ -10726,7 +10726,7 @@ define hidden void @_ZN5serde2de7Visitor8visit_u817h97edf248ff025599E(ptr noalia
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN62_$LT$char$u20$as$u20$unicode_categories..UnicodeCategories$GT$19is_punctuation_dash17hf16c0edb110080fbE.llvm.838311727041459786"(i32 noundef %0) unnamed_addr #4 {
   %2 = load ptr, ptr @_ZN18unicode_categories6tables16PUNCTUATION_DASH17h1227266ddeb994d2E, align 8, !nonnull !13, !align !165, !noundef !13
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18unicode_categories6tables16PUNCTUATION_DASH17h1227266ddeb994d2E, i64 8), align 8, !noundef !13
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18unicode_categories6tables16PUNCTUATION_DASH17h1227266ddeb994d2E, i64 8), align 8, !noundef !13
   %4 = tail call noundef zeroext i1 @_ZN18unicode_categories19table_binary_search17h2dfb9b16befa88ccE(i32 noundef %0, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3)
   ret i1 %4
 }
@@ -10734,7 +10734,7 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$char$u20$as$u20$unicode_categories.
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN62_$LT$char$u20$as$u20$unicode_categories..UnicodeCategories$GT$19is_punctuation_open17h2feb62ee61cff51bE.llvm.838311727041459786"(i32 noundef %0) unnamed_addr #4 {
   %2 = load ptr, ptr @_ZN18unicode_categories6tables16PUNCTUATION_OPEN17h7e1609d89834365fE, align 8, !nonnull !13, !align !165, !noundef !13
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18unicode_categories6tables16PUNCTUATION_OPEN17h7e1609d89834365fE, i64 8), align 8, !noundef !13
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18unicode_categories6tables16PUNCTUATION_OPEN17h7e1609d89834365fE, i64 8), align 8, !noundef !13
   %4 = tail call noundef zeroext i1 @_ZN18unicode_categories19table_binary_search17h2dfb9b16befa88ccE(i32 noundef %0, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3)
   ret i1 %4
 }
@@ -10742,7 +10742,7 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$char$u20$as$u20$unicode_categories.
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN62_$LT$char$u20$as$u20$unicode_categories..UnicodeCategories$GT$20is_punctuation_close17h48ed3a14bb0f2af1E.llvm.838311727041459786"(i32 noundef %0) unnamed_addr #4 {
   %2 = load ptr, ptr @_ZN18unicode_categories6tables17PUNCTUATION_CLOSE17h487e91fa4090b999E, align 8, !nonnull !13, !align !165, !noundef !13
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18unicode_categories6tables17PUNCTUATION_CLOSE17h487e91fa4090b999E, i64 8), align 8, !noundef !13
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18unicode_categories6tables17PUNCTUATION_CLOSE17h487e91fa4090b999E, i64 8), align 8, !noundef !13
   %4 = tail call noundef zeroext i1 @_ZN18unicode_categories19table_binary_search17h2dfb9b16befa88ccE(i32 noundef %0, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3)
   ret i1 %4
 }
@@ -10750,7 +10750,7 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$char$u20$as$u20$unicode_categories.
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN62_$LT$char$u20$as$u20$unicode_categories..UnicodeCategories$GT$20is_punctuation_other17h8adedd277d7fc77cE.llvm.838311727041459786"(i32 noundef %0) unnamed_addr #4 {
   %2 = load ptr, ptr @_ZN18unicode_categories6tables17PUNCTUATION_OTHER17h90b5bd1b5328b273E, align 8, !nonnull !13, !align !165, !noundef !13
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18unicode_categories6tables17PUNCTUATION_OTHER17h90b5bd1b5328b273E, i64 8), align 8, !noundef !13
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18unicode_categories6tables17PUNCTUATION_OTHER17h90b5bd1b5328b273E, i64 8), align 8, !noundef !13
   %4 = tail call noundef zeroext i1 @_ZN18unicode_categories19table_binary_search17h2dfb9b16befa88ccE(i32 noundef %0, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3)
   ret i1 %4
 }
@@ -10758,7 +10758,7 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$char$u20$as$u20$unicode_categories.
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN62_$LT$char$u20$as$u20$unicode_categories..UnicodeCategories$GT$24is_punctuation_connector17h95d3ae0239764ec0E.llvm.838311727041459786"(i32 noundef %0) unnamed_addr #4 {
   %2 = load ptr, ptr @_ZN18unicode_categories6tables21PUNCTUATION_CONNECTOR17h55d5badb1070d831E, align 8, !nonnull !13, !align !165, !noundef !13
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18unicode_categories6tables21PUNCTUATION_CONNECTOR17h55d5badb1070d831E, i64 8), align 8, !noundef !13
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18unicode_categories6tables21PUNCTUATION_CONNECTOR17h55d5badb1070d831E, i64 8), align 8, !noundef !13
   %4 = tail call noundef zeroext i1 @_ZN18unicode_categories19table_binary_search17h2dfb9b16befa88ccE(i32 noundef %0, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3)
   ret i1 %4
 }
@@ -10766,7 +10766,7 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$char$u20$as$u20$unicode_categories.
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN62_$LT$char$u20$as$u20$unicode_categories..UnicodeCategories$GT$26is_punctuation_final_quote17hc73e56d2fb736bdeE.llvm.838311727041459786"(i32 noundef %0) unnamed_addr #4 {
   %2 = load ptr, ptr @_ZN18unicode_categories6tables23PUNCTUATION_FINAL_QUOTE17h5f2ac970712df976E, align 8, !nonnull !13, !align !165, !noundef !13
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18unicode_categories6tables23PUNCTUATION_FINAL_QUOTE17h5f2ac970712df976E, i64 8), align 8, !noundef !13
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18unicode_categories6tables23PUNCTUATION_FINAL_QUOTE17h5f2ac970712df976E, i64 8), align 8, !noundef !13
   %4 = tail call noundef zeroext i1 @_ZN18unicode_categories19table_binary_search17h2dfb9b16befa88ccE(i32 noundef %0, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3)
   ret i1 %4
 }
@@ -10774,7 +10774,7 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$char$u20$as$u20$unicode_categories.
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN62_$LT$char$u20$as$u20$unicode_categories..UnicodeCategories$GT$28is_punctuation_initial_quote17h07f1249195aa1691E.llvm.838311727041459786"(i32 noundef %0) unnamed_addr #4 {
   %2 = load ptr, ptr @_ZN18unicode_categories6tables25PUNCTUATION_INITIAL_QUOTE17h7a939587a5db7561E, align 8, !nonnull !13, !align !165, !noundef !13
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18unicode_categories6tables25PUNCTUATION_INITIAL_QUOTE17h7a939587a5db7561E, i64 8), align 8, !noundef !13
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18unicode_categories6tables25PUNCTUATION_INITIAL_QUOTE17h7a939587a5db7561E, i64 8), align 8, !noundef !13
   %4 = tail call noundef zeroext i1 @_ZN18unicode_categories19table_binary_search17h2dfb9b16befa88ccE(i32 noundef %0, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3)
   ret i1 %4
 }

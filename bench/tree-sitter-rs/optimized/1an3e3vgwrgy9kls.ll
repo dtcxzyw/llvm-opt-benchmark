@@ -2986,7 +2986,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h01cd3ddb
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %1, %54
-  %11 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h7b21988744e614acE", i64 48) acquire, align 8
+  %11 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h7b21988744e614acE", i64 48) acquire, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split
@@ -3014,7 +3014,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h01cd3ddb
   unreachable
 
 17:                                               ; preds = %.backedge
-  %18 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h7b21988744e614acE", i64 48), i32 0, i32 2 acquire acquire, align 4
+  %18 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h7b21988744e614acE", i64 48), i32 0, i32 2 acquire acquire, align 4
   %.sroa.18.0.in.i = extractvalue { i32, i1 } %18, 1
   br i1 %.sroa.18.0.in.i, label %24, label %.backedge.backedge
 
@@ -3042,7 +3042,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h01cd3ddb
 
 24:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  store ptr getelementptr inbounds (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h7b21988744e614acE", i64 48), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h7b21988744e614acE", i64 48), ptr %9, align 8
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 1, ptr %25, align 8
   %.val = load ptr, ptr %0, align 8, !nonnull !9, !align !15, !noundef !9
@@ -3152,12 +3152,12 @@ _ZN4core3ops8function6FnOnce9call_once17h16419e74aca8b291E.exit.i.i: ; preds = %
   resume { ptr, i32 } %eh.lpad-body
 
 52:                                               ; preds = %.backedge
-  %53 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h7b21988744e614acE", i64 48), i32 2, i32 3 monotonic acquire, align 4
+  %53 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h7b21988744e614acE", i64 48), i32 2, i32 3 monotonic acquire, align 4
   %.sroa.18.0.in.i20 = extractvalue { i32, i1 } %53, 1
   br i1 %.sroa.18.0.in.i20, label %54, label %.backedge.backedge
 
 54:                                               ; preds = %.backedge, %52
-  %55 = tail call noundef zeroext i1 @_ZN3std3sys4unix5futex10futex_wait17h44b2d96d9c845f91E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h7b21988744e614acE", i64 48), i32 noundef 3, i64 undef, i32 noundef 1000000000)
+  %55 = tail call noundef zeroext i1 @_ZN3std3sys4unix5futex10futex_wait17h44b2d96d9c845f91E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h7b21988744e614acE", i64 48), i32 noundef 3, i64 undef, i32 noundef 1000000000)
   br label %.backedge.sink.split
 }
 
@@ -3175,7 +3175,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h08bb318d
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %1, %54
-  %11 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he48b353b85ff93cfE", i64 48) acquire, align 8
+  %11 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he48b353b85ff93cfE", i64 48) acquire, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split
@@ -3203,7 +3203,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h08bb318d
   unreachable
 
 17:                                               ; preds = %.backedge
-  %18 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he48b353b85ff93cfE", i64 48), i32 0, i32 2 acquire acquire, align 4
+  %18 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he48b353b85ff93cfE", i64 48), i32 0, i32 2 acquire acquire, align 4
   %.sroa.18.0.in.i = extractvalue { i32, i1 } %18, 1
   br i1 %.sroa.18.0.in.i, label %24, label %.backedge.backedge
 
@@ -3231,7 +3231,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h08bb318d
 
 24:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  store ptr getelementptr inbounds (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he48b353b85ff93cfE", i64 48), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he48b353b85ff93cfE", i64 48), ptr %9, align 8
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 1, ptr %25, align 8
   %.val = load ptr, ptr %0, align 8, !nonnull !9, !align !15, !noundef !9
@@ -3341,12 +3341,12 @@ _ZN4core3ops8function6FnOnce9call_once17h3433868a1c65c7a8E.exit.i.i: ; preds = %
   resume { ptr, i32 } %eh.lpad-body
 
 52:                                               ; preds = %.backedge
-  %53 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he48b353b85ff93cfE", i64 48), i32 2, i32 3 monotonic acquire, align 4
+  %53 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he48b353b85ff93cfE", i64 48), i32 2, i32 3 monotonic acquire, align 4
   %.sroa.18.0.in.i20 = extractvalue { i32, i1 } %53, 1
   br i1 %.sroa.18.0.in.i20, label %54, label %.backedge.backedge
 
 54:                                               ; preds = %.backedge, %52
-  %55 = tail call noundef zeroext i1 @_ZN3std3sys4unix5futex10futex_wait17h44b2d96d9c845f91E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he48b353b85ff93cfE", i64 48), i32 noundef 3, i64 undef, i32 noundef 1000000000)
+  %55 = tail call noundef zeroext i1 @_ZN3std3sys4unix5futex10futex_wait17h44b2d96d9c845f91E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he48b353b85ff93cfE", i64 48), i32 noundef 3, i64 undef, i32 noundef 1000000000)
   br label %.backedge.sink.split
 }
 
@@ -3811,7 +3811,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h3ffde81d
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %1, %54
-  %11 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd13e65a3ab1a5fd1E", i64 48) acquire, align 8
+  %11 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd13e65a3ab1a5fd1E", i64 48) acquire, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split
@@ -3839,7 +3839,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h3ffde81d
   unreachable
 
 17:                                               ; preds = %.backedge
-  %18 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd13e65a3ab1a5fd1E", i64 48), i32 0, i32 2 acquire acquire, align 4
+  %18 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd13e65a3ab1a5fd1E", i64 48), i32 0, i32 2 acquire acquire, align 4
   %.sroa.18.0.in.i = extractvalue { i32, i1 } %18, 1
   br i1 %.sroa.18.0.in.i, label %24, label %.backedge.backedge
 
@@ -3867,7 +3867,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h3ffde81d
 
 24:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  store ptr getelementptr inbounds (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd13e65a3ab1a5fd1E", i64 48), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd13e65a3ab1a5fd1E", i64 48), ptr %9, align 8
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 1, ptr %25, align 8
   %.val = load ptr, ptr %0, align 8, !nonnull !9, !align !15, !noundef !9
@@ -3977,12 +3977,12 @@ _ZN4core3ops8function6FnOnce9call_once17h78f4d6526337ed4dE.exit.i.i: ; preds = %
   resume { ptr, i32 } %eh.lpad-body
 
 52:                                               ; preds = %.backedge
-  %53 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd13e65a3ab1a5fd1E", i64 48), i32 2, i32 3 monotonic acquire, align 4
+  %53 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd13e65a3ab1a5fd1E", i64 48), i32 2, i32 3 monotonic acquire, align 4
   %.sroa.18.0.in.i20 = extractvalue { i32, i1 } %53, 1
   br i1 %.sroa.18.0.in.i20, label %54, label %.backedge.backedge
 
 54:                                               ; preds = %.backedge, %52
-  %55 = tail call noundef zeroext i1 @_ZN3std3sys4unix5futex10futex_wait17h44b2d96d9c845f91E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd13e65a3ab1a5fd1E", i64 48), i32 noundef 3, i64 undef, i32 noundef 1000000000)
+  %55 = tail call noundef zeroext i1 @_ZN3std3sys4unix5futex10futex_wait17h44b2d96d9c845f91E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd13e65a3ab1a5fd1E", i64 48), i32 noundef 3, i64 undef, i32 noundef 1000000000)
   br label %.backedge.sink.split
 }
 
@@ -4001,7 +4001,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h6c13d95b
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %1, %84
-  %12 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN89_$LT$tree_sitter_cli..generate..JSON_COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h20f1b06b22fa69e7E", i64 32) acquire, align 8
+  %12 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN89_$LT$tree_sitter_cli..generate..JSON_COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h20f1b06b22fa69e7E", i64 32) acquire, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split
@@ -4029,7 +4029,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h6c13d95b
   unreachable
 
 18:                                               ; preds = %.backedge
-  %19 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @"_ZN89_$LT$tree_sitter_cli..generate..JSON_COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h20f1b06b22fa69e7E", i64 32), i32 0, i32 2 acquire acquire, align 4
+  %19 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @"_ZN89_$LT$tree_sitter_cli..generate..JSON_COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h20f1b06b22fa69e7E", i64 32), i32 0, i32 2 acquire acquire, align 4
   %.sroa.18.0.in.i = extractvalue { i32, i1 } %19, 1
   br i1 %.sroa.18.0.in.i, label %25, label %.backedge.backedge
 
@@ -4057,7 +4057,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h6c13d95b
 
 25:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  store ptr getelementptr inbounds (i8, ptr @"_ZN89_$LT$tree_sitter_cli..generate..JSON_COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h20f1b06b22fa69e7E", i64 32), ptr %10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZN89_$LT$tree_sitter_cli..generate..JSON_COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h20f1b06b22fa69e7E", i64 32), ptr %10, align 8
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 1, ptr %26, align 8
   %.val = load ptr, ptr %0, align 8, !nonnull !9, !align !15, !noundef !9
@@ -4249,12 +4249,12 @@ _ZN4core3ops8function6FnOnce9call_once17h33549b895c7736d4E.exit.i.i: ; preds = %
   resume { ptr, i32 } %eh.lpad-body
 
 82:                                               ; preds = %.backedge
-  %83 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @"_ZN89_$LT$tree_sitter_cli..generate..JSON_COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h20f1b06b22fa69e7E", i64 32), i32 2, i32 3 monotonic acquire, align 4
+  %83 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @"_ZN89_$LT$tree_sitter_cli..generate..JSON_COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h20f1b06b22fa69e7E", i64 32), i32 2, i32 3 monotonic acquire, align 4
   %.sroa.18.0.in.i20 = extractvalue { i32, i1 } %83, 1
   br i1 %.sroa.18.0.in.i20, label %84, label %.backedge.backedge
 
 84:                                               ; preds = %.backedge, %82
-  %85 = tail call noundef zeroext i1 @_ZN3std3sys4unix5futex10futex_wait17h44b2d96d9c845f91E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN89_$LT$tree_sitter_cli..generate..JSON_COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h20f1b06b22fa69e7E", i64 32), i32 noundef 3, i64 undef, i32 noundef 1000000000)
+  %85 = tail call noundef zeroext i1 @_ZN3std3sys4unix5futex10futex_wait17h44b2d96d9c845f91E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN89_$LT$tree_sitter_cli..generate..JSON_COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h20f1b06b22fa69e7E", i64 32), i32 noundef 3, i64 undef, i32 noundef 1000000000)
   br label %.backedge.sink.split
 }
 
@@ -5347,7 +5347,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17ha21a6042
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %1, %54
-  %11 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hee5dfcc93cdfe3c0E", i64 48) acquire, align 8
+  %11 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hee5dfcc93cdfe3c0E", i64 48) acquire, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split
@@ -5375,7 +5375,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17ha21a6042
   unreachable
 
 17:                                               ; preds = %.backedge
-  %18 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hee5dfcc93cdfe3c0E", i64 48), i32 0, i32 2 acquire acquire, align 4
+  %18 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hee5dfcc93cdfe3c0E", i64 48), i32 0, i32 2 acquire acquire, align 4
   %.sroa.18.0.in.i = extractvalue { i32, i1 } %18, 1
   br i1 %.sroa.18.0.in.i, label %24, label %.backedge.backedge
 
@@ -5403,7 +5403,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17ha21a6042
 
 24:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  store ptr getelementptr inbounds (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hee5dfcc93cdfe3c0E", i64 48), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hee5dfcc93cdfe3c0E", i64 48), ptr %9, align 8
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 1, ptr %25, align 8
   %.val = load ptr, ptr %0, align 8, !nonnull !9, !align !15, !noundef !9
@@ -5513,12 +5513,12 @@ _ZN4core3ops8function6FnOnce9call_once17h5db52670ff01f966E.exit.i.i: ; preds = %
   resume { ptr, i32 } %eh.lpad-body
 
 52:                                               ; preds = %.backedge
-  %53 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hee5dfcc93cdfe3c0E", i64 48), i32 2, i32 3 monotonic acquire, align 4
+  %53 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hee5dfcc93cdfe3c0E", i64 48), i32 2, i32 3 monotonic acquire, align 4
   %.sroa.18.0.in.i20 = extractvalue { i32, i1 } %53, 1
   br i1 %.sroa.18.0.in.i20, label %54, label %.backedge.backedge
 
 54:                                               ; preds = %.backedge, %52
-  %55 = tail call noundef zeroext i1 @_ZN3std3sys4unix5futex10futex_wait17h44b2d96d9c845f91E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hee5dfcc93cdfe3c0E", i64 48), i32 noundef 3, i64 undef, i32 noundef 1000000000)
+  %55 = tail call noundef zeroext i1 @_ZN3std3sys4unix5futex10futex_wait17h44b2d96d9c845f91E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hee5dfcc93cdfe3c0E", i64 48), i32 noundef 3, i64 undef, i32 noundef 1000000000)
   br label %.backedge.sink.split
 }
 
@@ -5772,7 +5772,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17hc1177efb
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %1, %63
-  %10 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN120_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..CURLY_BRACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2efa62d8ff010fa2E", i64 32) acquire, align 8
+  %10 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN120_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..CURLY_BRACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2efa62d8ff010fa2E", i64 32) acquire, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split
@@ -5800,7 +5800,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17hc1177efb
   unreachable
 
 16:                                               ; preds = %.backedge
-  %17 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @"_ZN120_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..CURLY_BRACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2efa62d8ff010fa2E", i64 32), i32 0, i32 2 acquire acquire, align 4
+  %17 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @"_ZN120_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..CURLY_BRACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2efa62d8ff010fa2E", i64 32), i32 0, i32 2 acquire acquire, align 4
   %.sroa.18.0.in.i = extractvalue { i32, i1 } %17, 1
   br i1 %.sroa.18.0.in.i, label %23, label %.backedge.backedge
 
@@ -5828,7 +5828,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17hc1177efb
 
 23:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  store ptr getelementptr inbounds (i8, ptr @"_ZN120_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..CURLY_BRACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2efa62d8ff010fa2E", i64 32), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZN120_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..CURLY_BRACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2efa62d8ff010fa2E", i64 32), ptr %8, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 1, ptr %24, align 8
   %.val = load ptr, ptr %0, align 8, !nonnull !9, !align !15, !noundef !9
@@ -5957,12 +5957,12 @@ _ZN4core3ops8function6FnOnce9call_once17hddf3bb9d239d241aE.exit.i.i: ; preds = %
   resume { ptr, i32 } %eh.lpad-body
 
 61:                                               ; preds = %.backedge
-  %62 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @"_ZN120_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..CURLY_BRACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2efa62d8ff010fa2E", i64 32), i32 2, i32 3 monotonic acquire, align 4
+  %62 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @"_ZN120_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..CURLY_BRACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2efa62d8ff010fa2E", i64 32), i32 2, i32 3 monotonic acquire, align 4
   %.sroa.18.0.in.i19 = extractvalue { i32, i1 } %62, 1
   br i1 %.sroa.18.0.in.i19, label %63, label %.backedge.backedge
 
 63:                                               ; preds = %.backedge, %61
-  %64 = tail call noundef zeroext i1 @_ZN3std3sys4unix5futex10futex_wait17h44b2d96d9c845f91E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN120_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..CURLY_BRACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2efa62d8ff010fa2E", i64 32), i32 noundef 3, i64 undef, i32 noundef 1000000000)
+  %64 = tail call noundef zeroext i1 @_ZN3std3sys4unix5futex10futex_wait17h44b2d96d9c845f91E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN120_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..CURLY_BRACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2efa62d8ff010fa2E", i64 32), i32 noundef 3, i64 undef, i32 noundef 1000000000)
   br label %.backedge.sink.split
 }
 
@@ -18842,7 +18842,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate15prepare_grammar13exp
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22), !noalias !5018
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20), !noalias !5018
   store ptr @"_ZN120_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..CURLY_BRACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2efa62d8ff010fa2E", ptr %20, align 8, !noalias !5018
-  %68 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN120_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..CURLY_BRACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2efa62d8ff010fa2E", i64 32) acquire, align 8, !noalias !5022
+  %68 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN120_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..CURLY_BRACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2efa62d8ff010fa2E", i64 32) acquire, align 8, !noalias !5022
   %69 = icmp eq i32 %68, 4
   br i1 %69, label %74, label %70
 
@@ -19042,7 +19042,7 @@ _ZN5alloc6string6String4push17hda7d9bb0deee805fE.exit.i: ; preds = %.noexc.i, %1
 146:                                              ; preds = %.thread31.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !5053
   store ptr @anon.f31d50c2a975b2e4c3e6185a4e00145e.230, ptr %16, align 8, !noalias !5053
-  store ptr getelementptr inbounds (i8, ptr @anon.f31d50c2a975b2e4c3e6185a4e00145e.230, i64 16), ptr %84, align 8, !noalias !5053
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.f31d50c2a975b2e4c3e6185a4e00145e.230, i64 16), ptr %84, align 8, !noalias !5053
   br label %147
 
 147:                                              ; preds = %149, %146
@@ -22854,7 +22854,7 @@ default.unreachable:                              ; preds = %2
   store ptr %1, ptr %25, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   store ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hee5dfcc93cdfe3c0E", ptr %19, align 8
-  %75 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hee5dfcc93cdfe3c0E", i64 48) acquire, align 8, !noalias !5523
+  %75 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hee5dfcc93cdfe3c0E", i64 48) acquire, align 8, !noalias !5523
   %76 = icmp eq i32 %75, 4
   br i1 %76, label %95, label %77
 
@@ -22922,7 +22922,7 @@ default.unreachable:                              ; preds = %2
 91:                                               ; preds = %127, %87
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   store ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd13e65a3ab1a5fd1E", ptr %16, align 8
-  %92 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd13e65a3ab1a5fd1E", i64 48) acquire, align 8, !noalias !5526
+  %92 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd13e65a3ab1a5fd1E", i64 48) acquire, align 8, !noalias !5526
   %93 = icmp eq i32 %92, 4
   br i1 %93, label %128, label %94
 
@@ -22962,7 +22962,7 @@ default.unreachable:                              ; preds = %2
   call void @llvm.experimental.noalias.scope.decl(metadata !5532)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13), !noalias !5535
   store ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he48b353b85ff93cfE", ptr %13, align 8, !noalias !5535
-  %108 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he48b353b85ff93cfE", i64 48) acquire, align 8, !noalias !5537
+  %108 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he48b353b85ff93cfE", i64 48) acquire, align 8, !noalias !5537
   %109 = icmp eq i32 %108, 4
   br i1 %109, label %"_ZN15tree_sitter_cli8generate15prepare_grammar13expand_tokens10NfaBuilder30expand_unicode_character_class28_$u7b$$u7b$closure$u7d$$u7d$17h89d66cc89a3e9145E.exit.i", label %110
 
@@ -23012,7 +23012,7 @@ default.unreachable:                              ; preds = %2
 123:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17hfabaee00f1e58ef7E.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd13e65a3ab1a5fd1E", ptr %10, align 8
-  %124 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd13e65a3ab1a5fd1E", i64 48) acquire, align 8, !noalias !5542
+  %124 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd13e65a3ab1a5fd1E", i64 48) acquire, align 8, !noalias !5542
   %125 = icmp eq i32 %124, 4
   br i1 %125, label %235, label %126
 
@@ -23343,7 +23343,7 @@ default.unreachable:                              ; preds = %2
   call void @llvm.experimental.noalias.scope.decl(metadata !5604)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !5607
   store ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h7b21988744e614acE", ptr %6, align 8, !noalias !5607
-  %246 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h7b21988744e614acE", i64 48) acquire, align 8, !noalias !5609
+  %246 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h7b21988744e614acE", i64 48) acquire, align 8, !noalias !5609
   %247 = icmp eq i32 %246, 4
   br i1 %247, label %"_ZN15tree_sitter_cli8generate15prepare_grammar13expand_tokens10NfaBuilder30expand_unicode_character_class28_$u7b$$u7b$closure$u7d$$u7d$17hd1259f79898dcf0dE.exit.i", label %248
 
@@ -24279,7 +24279,7 @@ _ZN3std4path4Path4join17ha272842609f60636E.exit:  ; preds = %133
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21), !noalias !5810
   store ptr @anon.a1c908188362716657f0a41b2015bf97.265.llvm.11948190557966450743, ptr %21, align 8, !noalias !5810
   %167 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.a1c908188362716657f0a41b2015bf97.265.llvm.11948190557966450743, i64 160), ptr %167, align 8, !noalias !5810
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.a1c908188362716657f0a41b2015bf97.265.llvm.11948190557966450743, i64 160), ptr %167, align 8, !noalias !5810
   br label %168
 
 168:                                              ; preds = %.noexc421, %164
@@ -25531,7 +25531,7 @@ define void @_ZN15tree_sitter_cli8generate27generate_parser_for_grammar17h36f513
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr @"_ZN89_$LT$tree_sitter_cli..generate..JSON_COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h20f1b06b22fa69e7E", ptr %11, align 8
-  %23 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN89_$LT$tree_sitter_cli..generate..JSON_COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h20f1b06b22fa69e7E", i64 32) acquire, align 8, !noalias !5949
+  %23 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN89_$LT$tree_sitter_cli..generate..JSON_COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h20f1b06b22fa69e7E", i64 32) acquire, align 8, !noalias !5949
   %24 = icmp eq i32 %23, 4
   br i1 %24, label %29, label %25
 
@@ -32085,7 +32085,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN120_$LT$tree_sitter_
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN120_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..CURLY_BRACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2efa62d8ff010fa2E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN120_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..CURLY_BRACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2efa62d8ff010fa2E", i64 32) acquire, align 8, !noalias !7305
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN120_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..CURLY_BRACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2efa62d8ff010fa2E", i64 32) acquire, align 8, !noalias !7305
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17hf94baa94f84bdc3aE.exit, label %7
 
@@ -32115,7 +32115,7 @@ define void @"_ZN120_$LT$tree_sitter_cli..generate..prepare_grammar..expand_toke
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN120_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..CURLY_BRACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2efa62d8ff010fa2E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN120_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..CURLY_BRACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2efa62d8ff010fa2E", i64 32) acquire, align 8, !noalias !7308
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN120_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..CURLY_BRACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2efa62d8ff010fa2E", i64 32) acquire, align 8, !noalias !7308
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN120_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..CURLY_BRACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref17h9399a8198dc66a4cE.exit", label %7
 
@@ -32145,7 +32145,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @"_ZN121_$LT$tree_sitter_
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd13e65a3ab1a5fd1E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd13e65a3ab1a5fd1E", i64 48) acquire, align 8, !noalias !7311
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd13e65a3ab1a5fd1E", i64 48) acquire, align 8, !noalias !7311
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17h36cb1aa743998980E.exit, label %7
 
@@ -32175,7 +32175,7 @@ define void @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_toke
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd13e65a3ab1a5fd1E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd13e65a3ab1a5fd1E", i64 48) acquire, align 8, !noalias !7314
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd13e65a3ab1a5fd1E", i64 48) acquire, align 8, !noalias !7314
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORIES$u20$as$u20$core..ops..deref..Deref$GT$5deref17hfd89402adde4b8e3E.exit", label %7
 
@@ -32205,7 +32205,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @"_ZN121_$LT$tree_sitter_
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h7b21988744e614acE", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h7b21988744e614acE", i64 48) acquire, align 8, !noalias !7317
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h7b21988744e614acE", i64 48) acquire, align 8, !noalias !7317
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17h60c9e6f690504506E.exit, label %7
 
@@ -32235,7 +32235,7 @@ define void @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_toke
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h7b21988744e614acE", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h7b21988744e614acE", i64 48) acquire, align 8, !noalias !7320
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTIES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h7b21988744e614acE", i64 48) acquire, align 8, !noalias !7320
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN121_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTIES$u20$as$u20$core..ops..deref..Deref$GT$5deref17hfca116a5827acfa2E.exit", label %7
 
@@ -32265,7 +32265,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @"_ZN127_$LT$tree_sitter_
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hee5dfcc93cdfe3c0E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hee5dfcc93cdfe3c0E", i64 48) acquire, align 8, !noalias !7323
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hee5dfcc93cdfe3c0E", i64 48) acquire, align 8, !noalias !7323
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17h2105de7dada9e864E.exit, label %7
 
@@ -32295,7 +32295,7 @@ define void @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_toke
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hee5dfcc93cdfe3c0E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hee5dfcc93cdfe3c0E", i64 48) acquire, align 8, !noalias !7326
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hee5dfcc93cdfe3c0E", i64 48) acquire, align 8, !noalias !7326
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_CATEGORY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref17hab73d0d40e096a4bE.exit", label %7
 
@@ -32325,7 +32325,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @"_ZN127_$LT$tree_sitter_
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he48b353b85ff93cfE", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he48b353b85ff93cfE", i64 48) acquire, align 8, !noalias !7329
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he48b353b85ff93cfE", i64 48) acquire, align 8, !noalias !7329
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17h038cda9a00bada84E.exit, label %7
 
@@ -32355,7 +32355,7 @@ define void @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_toke
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he48b353b85ff93cfE", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he48b353b85ff93cfE", i64 48) acquire, align 8, !noalias !7332
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he48b353b85ff93cfE", i64 48) acquire, align 8, !noalias !7332
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN127_$LT$tree_sitter_cli..generate..prepare_grammar..expand_tokens..UNICODE_PROPERTY_ALIASES$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2e3600acf12c2dd1E.exit", label %7
 
@@ -32385,7 +32385,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN89_$LT$tree_sitter_c
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN89_$LT$tree_sitter_cli..generate..JSON_COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h20f1b06b22fa69e7E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN89_$LT$tree_sitter_cli..generate..JSON_COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h20f1b06b22fa69e7E", i64 32) acquire, align 8, !noalias !7335
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN89_$LT$tree_sitter_cli..generate..JSON_COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h20f1b06b22fa69e7E", i64 32) acquire, align 8, !noalias !7335
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17hbd49590f57bf6fabE.exit, label %7
 
@@ -32415,7 +32415,7 @@ define void @"_ZN89_$LT$tree_sitter_cli..generate..JSON_COMMENT_REGEX$u20$as$u20
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN89_$LT$tree_sitter_cli..generate..JSON_COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h20f1b06b22fa69e7E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN89_$LT$tree_sitter_cli..generate..JSON_COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h20f1b06b22fa69e7E", i64 32) acquire, align 8, !noalias !7338
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN89_$LT$tree_sitter_cli..generate..JSON_COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h20f1b06b22fa69e7E", i64 32) acquire, align 8, !noalias !7338
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN89_$LT$tree_sitter_cli..generate..JSON_COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdcdbd5e1d4f14ba0E.exit", label %7
 

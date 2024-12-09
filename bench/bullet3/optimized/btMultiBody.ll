@@ -147,7 +147,7 @@ invoke.cont79:
   %ref.tmp78 = alloca %struct.btMultibodyLink, align 8
   %frombool = zext i1 %fixedBase to i8
   %frombool1 = zext i1 %canSleep to i8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11btMultiBody, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11btMultiBody, i64 16), ptr %this, align 8
   %m_baseCollider = getelementptr inbounds nuw i8, ptr %this, i64 8
   %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %this, i64 68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %m_baseCollider, i8 0, i64 60, i1 false)
@@ -835,7 +835,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN11btMultiBodyD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(640) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11btMultiBody, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11btMultiBody, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 352
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null

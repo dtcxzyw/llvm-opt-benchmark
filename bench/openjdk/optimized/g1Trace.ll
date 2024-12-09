@@ -167,10 +167,10 @@ $_ZGVZ19compressed_integersvE13comp_integers = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1NewTracer10initializeEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #11
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV24G1HeapRegionTypeConstant, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV24G1HeapRegionTypeConstant, i64 16), ptr %2, align 8
   %3 = tail call noundef zeroext i1 @_ZN13JfrSerializer19register_serializerE9JfrTypeIdbPS_(i32 noundef 189, i1 noundef zeroext true, ptr noundef nonnull %2) #11
   %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #11
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV16G1YCTypeConstant, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV16G1YCTypeConstant, i64 16), ptr %4, align 8
   %5 = tail call noundef zeroext i1 @_ZN13JfrSerializer19register_serializerE9JfrTypeIdbPS_(i32 noundef 190, i1 noundef zeroext true, ptr noundef nonnull %4) #11
   ret void
 }

@@ -251,7 +251,7 @@ define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #4 sect
   br label %2
 
 2:                                                ; preds = %_ZN2cv16VideoBackendInfoD2Ev.exit, %1
-  %3 = phi ptr [ getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 320), %1 ], [ %4, %_ZN2cv16VideoBackendInfoD2Ev.exit ]
+  %3 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 320), %1 ], [ %4, %_ZN2cv16VideoBackendInfoD2Ev.exit ]
   %4 = getelementptr inbounds i8, ptr %3, i64 -40
   %5 = getelementptr inbounds i8, ptr %3, i64 -8
   %6 = load ptr, ptr %5, align 8
@@ -4082,7 +4082,7 @@ define internal fastcc void @_ZN2cv12_GLOBAL__N_120VideoBackendRegistryC2Ev() un
   %26 = alloca %"class.std::__cxx11::basic_string", align 8
   %27 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEvE10g_instance, i8 0, i64 24, i1 false)
-  invoke void @_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE13_M_assign_auxIPKS1_EEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEvE10g_instance, ptr noundef nonnull @_ZN2cv12_GLOBAL__N_116builtin_backendsE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 320))
+  invoke void @_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE13_M_assign_auxIPKS1_EEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEvE10g_instance, ptr noundef nonnull @_ZN2cv12_GLOBAL__N_116builtin_backendsE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 320))
           to label %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE6assignIPKS1_vEEvT_S7_.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE6assignIPKS1_vEEvT_S7_.exit: ; preds = %0, %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE6assignIPKS1_vEEvT_S7_.exit
@@ -8634,67 +8634,67 @@ define internal void @_GLOBAL__sub_I_videoio_registry.cpp() #4 section ".text.st
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #18
   store i32 1900, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, align 16
-  store i32 18, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 4), align 4
-  store i32 1000, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 8), align 8
-  store ptr @.str, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 16), align 16
-  tail call void @_ZN2cv26createPluginBackendFactoryENS_16VideoCaptureAPIsEPKc(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 24), i32 noundef 1900, ptr noundef nonnull @.str)
-  store i32 1800, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 40), align 8
-  store i32 19, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 44), align 4
-  store i32 1000, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 48), align 16
-  store ptr @.str.2, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 56), align 8
-  invoke void @_ZN2cv26createPluginBackendFactoryENS_16VideoCaptureAPIsEPKc(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 64), i32 noundef 1800, ptr noundef nonnull @.str.2)
+  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 4), align 4
+  store i32 1000, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 8), align 8
+  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 16), align 16
+  tail call void @_ZN2cv26createPluginBackendFactoryENS_16VideoCaptureAPIsEPKc(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 24), i32 noundef 1900, ptr noundef nonnull @.str)
+  store i32 1800, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 40), align 8
+  store i32 19, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 44), align 4
+  store i32 1000, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 48), align 16
+  store ptr @.str.2, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 56), align 8
+  invoke void @_ZN2cv26createPluginBackendFactoryENS_16VideoCaptureAPIsEPKc(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 64), i32 noundef 1800, ptr noundef nonnull @.str.2)
           to label %2 unwind label %8
 
 2:                                                ; preds = %0
-  store i32 2300, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 80), align 16
-  store i32 18, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 84), align 4
-  store i32 1000, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 88), align 8
-  store ptr @.str.3, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 96), align 16
-  invoke void @_ZN2cv26createPluginBackendFactoryENS_16VideoCaptureAPIsEPKc(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 104), i32 noundef 2300, ptr noundef nonnull @.str.3)
+  store i32 2300, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 80), align 16
+  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 84), align 4
+  store i32 1000, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 88), align 8
+  store ptr @.str.3, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 96), align 16
+  invoke void @_ZN2cv26createPluginBackendFactoryENS_16VideoCaptureAPIsEPKc(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 104), i32 noundef 2300, ptr noundef nonnull @.str.3)
           to label %3 unwind label %8
 
 3:                                                ; preds = %2
-  store i32 200, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 120), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 124), align 4
-  store i32 1000, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 128), align 16
-  store ptr @.str.4, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 136), align 8
-  invoke void @_ZN2cv20createBackendFactoryEPFNS_3PtrINS_13IVideoCaptureEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPFS2_iEPFNS0_INS_12IVideoWriterEEESA_idRKNS_5Size_IiEERKNS_21VideoWriterParametersEE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 144), ptr noundef nonnull @_ZN2cv23create_V4L_capture_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef nonnull @_ZN2cv22create_V4L_capture_camEi, ptr noundef null)
+  store i32 200, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 120), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 124), align 4
+  store i32 1000, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 128), align 16
+  store ptr @.str.4, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 136), align 8
+  invoke void @_ZN2cv20createBackendFactoryEPFNS_3PtrINS_13IVideoCaptureEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPFS2_iEPFNS0_INS_12IVideoWriterEEESA_idRKNS_5Size_IiEERKNS_21VideoWriterParametersEE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 144), ptr noundef nonnull @_ZN2cv23create_V4L_capture_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef nonnull @_ZN2cv22create_V4L_capture_camEi, ptr noundef null)
           to label %4 unwind label %8
 
 4:                                                ; preds = %3
-  store i32 2000, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 160), align 16
-  store i32 18, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 164), align 4
-  store i32 1000, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 168), align 8
-  store ptr @.str.5, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 176), align 16
-  invoke void @_ZN2cv20createBackendFactoryEPFNS_3PtrINS_13IVideoCaptureEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPFS2_iEPFNS0_INS_12IVideoWriterEEESA_idRKNS_5Size_IiEERKNS_21VideoWriterParametersEE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 184), ptr noundef nonnull @_ZN2cv21create_Images_captureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef null, ptr noundef nonnull @_ZN2cv20create_Images_writerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEidRKNS_5Size_IiEERKNS_21VideoWriterParametersE)
+  store i32 2000, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 160), align 16
+  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 164), align 4
+  store i32 1000, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 168), align 8
+  store ptr @.str.5, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 176), align 16
+  invoke void @_ZN2cv20createBackendFactoryEPFNS_3PtrINS_13IVideoCaptureEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPFS2_iEPFNS0_INS_12IVideoWriterEEESA_idRKNS_5Size_IiEERKNS_21VideoWriterParametersEE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 184), ptr noundef nonnull @_ZN2cv21create_Images_captureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef null, ptr noundef nonnull @_ZN2cv20create_Images_writerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEidRKNS_5Size_IiEERKNS_21VideoWriterParametersE)
           to label %5 unwind label %8
 
 5:                                                ; preds = %4
-  store i32 2200, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 200), align 8
-  store i32 18, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 204), align 4
-  store i32 1000, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 208), align 16
-  store ptr @.str.6, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 216), align 8
-  invoke void @_ZN2cv20createBackendFactoryEPFNS_3PtrINS_13IVideoCaptureEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPFS2_iEPFNS0_INS_12IVideoWriterEEESA_idRKNS_5Size_IiEERKNS_21VideoWriterParametersEE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 224), ptr noundef nonnull @_ZN2cv23createMotionJpegCaptureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef null, ptr noundef nonnull @_ZN2cv22createMotionJpegWriterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEidRKNS_5Size_IiEERKNS_21VideoWriterParametersE)
+  store i32 2200, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 200), align 8
+  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 204), align 4
+  store i32 1000, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 208), align 16
+  store ptr @.str.6, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 216), align 8
+  invoke void @_ZN2cv20createBackendFactoryEPFNS_3PtrINS_13IVideoCaptureEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPFS2_iEPFNS0_INS_12IVideoWriterEEESA_idRKNS_5Size_IiEERKNS_21VideoWriterParametersEE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 224), ptr noundef nonnull @_ZN2cv23createMotionJpegCaptureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef null, ptr noundef nonnull @_ZN2cv22createMotionJpegWriterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEidRKNS_5Size_IiEERKNS_21VideoWriterParametersE)
           to label %6 unwind label %8
 
 6:                                                ; preds = %5
-  store i32 2500, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 240), align 16
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 244), align 4
-  store i32 1000, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 248), align 8
-  store ptr @.str.7, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 256), align 16
-  invoke void @_ZN2cv26createPluginBackendFactoryENS_16VideoCaptureAPIsEPKc(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 264), i32 noundef 2500, ptr noundef nonnull @.str.7)
+  store i32 2500, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 240), align 16
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 244), align 4
+  store i32 1000, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 248), align 8
+  store ptr @.str.7, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 256), align 16
+  invoke void @_ZN2cv26createPluginBackendFactoryENS_16VideoCaptureAPIsEPKc(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 264), i32 noundef 2500, ptr noundef nonnull @.str.7)
           to label %7 unwind label %8
 
 7:                                                ; preds = %6
-  store i32 2600, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 280), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 284), align 4
-  store i32 1000, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 288), align 16
-  store ptr @.str.8, ptr getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 296), align 8
-  invoke void @_ZN2cv20createBackendFactoryEPFNS_3PtrINS_13IVideoCaptureEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPFS2_iEPFNS0_INS_12IVideoWriterEEESA_idRKNS_5Size_IiEERKNS_21VideoWriterParametersEE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 304), ptr noundef null, ptr noundef nonnull @_ZN2cv23create_obsensor_captureEi, ptr noundef null)
+  store i32 2600, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 280), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 284), align 4
+  store i32 1000, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 288), align 16
+  store ptr @.str.8, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 296), align 8
+  invoke void @_ZN2cv20createBackendFactoryEPFNS_3PtrINS_13IVideoCaptureEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPFS2_iEPFNS0_INS_12IVideoWriterEEESA_idRKNS_5Size_IiEERKNS_21VideoWriterParametersEE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 304), ptr noundef null, ptr noundef nonnull @_ZN2cv23create_obsensor_captureEi, ptr noundef null)
           to label %__cxx_global_var_init.1.exit unwind label %8
 
 8:                                                ; preds = %7, %6, %5, %4, %3, %2, %0
-  %.0.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 280), %7 ], [ getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 240), %6 ], [ getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 200), %5 ], [ getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 160), %4 ], [ getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 120), %3 ], [ getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 80), %2 ], [ getelementptr inbounds (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 40), %0 ]
+  %.0.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 280), %7 ], [ getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 240), %6 ], [ getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 200), %5 ], [ getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 160), %4 ], [ getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 120), %3 ], [ getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 80), %2 ], [ getelementptr inbounds nuw (i8, ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 40), %0 ]
   %9 = landingpad { ptr, i32 }
           cleanup
   br label %10

@@ -133,10 +133,10 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 
 ; Function Attrs: nounwind uwtable
 define ptr @ompi_datatype_create(i32 noundef %0) local_unnamed_addr #1 {
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_datatype_t_class, i64 56), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_datatype_t_class, i64 56), align 8
   %3 = tail call noalias ptr @malloc(i64 noundef %2) #7
   %4 = load i32, ptr @opal_class_init_epoch, align 4
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_datatype_t_class, i64 32), align 8
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_datatype_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %4, %5
   br i1 %.not.i, label %7, label %6
 
@@ -253,10 +253,10 @@ define range(i32 -2, 1) i32 @ompi_datatype_duplicate(ptr noundef %0, ptr nocaptu
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
   %7 = add i32 %6, 2
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_datatype_t_class, i64 56), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_datatype_t_class, i64 56), align 8
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #7
   %10 = load i32, ptr @opal_class_init_epoch, align 4
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_datatype_t_class, i64 32), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_datatype_t_class, i64 32), align 8
   %.not.i.i = icmp eq i32 %10, %11
   br i1 %.not.i.i, label %13, label %12
 

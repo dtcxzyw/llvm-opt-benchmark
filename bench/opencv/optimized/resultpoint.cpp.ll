@@ -24,7 +24,7 @@ $_ZTIN5zxing7CountedE = comdat any
 define hidden void @_ZN5zxing11ResultPointC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5zxing11ResultPointE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5zxing11ResultPointE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float 0.000000e+00, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -36,7 +36,7 @@ define hidden void @_ZN5zxing11ResultPointC2Ev(ptr nocapture noundef nonnull wri
 define hidden void @_ZN5zxing11ResultPointC2Eff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %0, float noundef %1, float noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5zxing11ResultPointE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5zxing11ResultPointE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float %1, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -48,7 +48,7 @@ define hidden void @_ZN5zxing11ResultPointC2Eff(ptr nocapture noundef nonnull wr
 define hidden void @_ZN5zxing11ResultPointC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5zxing11ResultPointE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5zxing11ResultPointE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = sitofp i32 %1 to float
   store float %6, ptr %5, align 4

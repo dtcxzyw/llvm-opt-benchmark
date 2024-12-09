@@ -596,13 +596,13 @@ define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFro
 119:                                              ; preds = %97
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   store ptr @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he0817a35ef2f4df0E", ptr %16, align 8
-  invoke void @_ZN3std4sync4once4Once9call_once17h7939245f6474cba1E(ptr nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he0817a35ef2f4df0E", i64 48), ptr nonnull align 8 %16, ptr nonnull align 8 @anon.f6c064d3e306e5568b2469df939b8624.4)
+  invoke void @_ZN3std4sync4once4Once9call_once17h7939245f6474cba1E(ptr nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he0817a35ef2f4df0E", i64 48), ptr nonnull align 8 %16, ptr nonnull align 8 @anon.f6c064d3e306e5568b2469df939b8624.4)
           to label %121 unwind label %358
 
 120:                                              ; preds = %97
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store ptr @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4e78c70f80464326E", ptr %15, align 8
-  invoke void @_ZN3std4sync4once4Once9call_once17h415e0d2348d81a6fE(ptr nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4e78c70f80464326E", i64 48), ptr nonnull align 8 %15, ptr nonnull align 8 @anon.f6c064d3e306e5568b2469df939b8624.4)
+  invoke void @_ZN3std4sync4once4Once9call_once17h415e0d2348d81a6fE(ptr nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4e78c70f80464326E", i64 48), ptr nonnull align 8 %15, ptr nonnull align 8 @anon.f6c064d3e306e5568b2469df939b8624.4)
           to label %125 unwind label %358
 
 121:                                              ; preds = %119
@@ -1857,7 +1857,7 @@ define void @"_ZN117_$LT$logos_codegen..mir..Mir$u20$as$u20$logos_codegen..parse
 define align 8 ptr @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2ed9caa22858e5baE"(ptr nocapture readnone align 1 %0) unnamed_addr #0 {
   %2 = alloca [8 x i8], align 8
   store ptr @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4e78c70f80464326E", ptr %2, align 8
-  call void @_ZN3std4sync4once4Once9call_once17h415e0d2348d81a6fE(ptr nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4e78c70f80464326E", i64 48), ptr nonnull align 8 %2, ptr nonnull align 8 @anon.f6c064d3e306e5568b2469df939b8624.4)
+  call void @_ZN3std4sync4once4Once9call_once17h415e0d2348d81a6fE(ptr nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4e78c70f80464326E", i64 48), ptr nonnull align 8 %2, ptr nonnull align 8 @anon.f6c064d3e306e5568b2469df939b8624.4)
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -1867,7 +1867,7 @@ define void @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$lazy_static..Laz
   %2 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4e78c70f80464326E", ptr %2, align 8
-  call void @_ZN3std4sync4once4Once9call_once17h415e0d2348d81a6fE(ptr nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4e78c70f80464326E", i64 48), ptr nonnull align 8 %2, ptr nonnull align 8 @anon.f6c064d3e306e5568b2469df939b8624.4)
+  call void @_ZN3std4sync4once4Once9call_once17h415e0d2348d81a6fE(ptr nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4e78c70f80464326E", i64 48), ptr nonnull align 8 %2, ptr nonnull align 8 @anon.f6c064d3e306e5568b2469df939b8624.4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   ret void
 }
@@ -1876,7 +1876,7 @@ define void @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$lazy_static..Laz
 define align 8 ptr @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref17h9cb8c63af6460f24E"(ptr nocapture readnone align 1 %0) unnamed_addr #0 {
   %2 = alloca [8 x i8], align 8
   store ptr @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he0817a35ef2f4df0E", ptr %2, align 8
-  call void @_ZN3std4sync4once4Once9call_once17h7939245f6474cba1E(ptr nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he0817a35ef2f4df0E", i64 48), ptr nonnull align 8 %2, ptr nonnull align 8 @anon.f6c064d3e306e5568b2469df939b8624.4)
+  call void @_ZN3std4sync4once4Once9call_once17h7939245f6474cba1E(ptr nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he0817a35ef2f4df0E", i64 48), ptr nonnull align 8 %2, ptr nonnull align 8 @anon.f6c064d3e306e5568b2469df939b8624.4)
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -1886,7 +1886,7 @@ define void @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$lazy_static..La
   %2 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he0817a35ef2f4df0E", ptr %2, align 8
-  call void @_ZN3std4sync4once4Once9call_once17h7939245f6474cba1E(ptr nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he0817a35ef2f4df0E", i64 48), ptr nonnull align 8 %2, ptr nonnull align 8 @anon.f6c064d3e306e5568b2469df939b8624.4)
+  call void @_ZN3std4sync4once4Once9call_once17h7939245f6474cba1E(ptr nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he0817a35ef2f4df0E", i64 48), ptr nonnull align 8 %2, ptr nonnull align 8 @anon.f6c064d3e306e5568b2469df939b8624.4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   ret void
 }

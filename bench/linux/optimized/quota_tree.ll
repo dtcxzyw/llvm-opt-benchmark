@@ -180,7 +180,7 @@ define dso_local i32 @qtree_write_dquot(ptr nocapture noundef %0, ptr noundef %1
 48:                                               ; preds = %44, %28
   %49 = phi i32 [ %47, %44 ], [ 0, %28 ]
   %50 = load i32, ptr @percpu_counter_batch, align 4
-  tail call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds (i8, ptr @dqstats, i64 184), i64 noundef 1, i32 noundef %50) #8
+  tail call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dqstats, i64 184), i64 noundef 1, i32 noundef %50) #8
   br label %51
 
 51:                                               ; preds = %48, %25
@@ -850,7 +850,7 @@ define dso_local i32 @qtree_read_dquot(ptr nocapture noundef readonly %0, ptr no
 79:                                               ; preds = %78, %50, %26
   %80 = phi i32 [ %52, %50 ], [ %46, %78 ], [ %29, %26 ]
   %81 = load i32, ptr @percpu_counter_batch, align 4
-  tail call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds (i8, ptr @dqstats, i64 144), i64 noundef 1, i32 noundef %81) #8
+  tail call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dqstats, i64 144), i64 noundef 1, i32 noundef %81) #8
   br label %82
 
 82:                                               ; preds = %79, %31, %13

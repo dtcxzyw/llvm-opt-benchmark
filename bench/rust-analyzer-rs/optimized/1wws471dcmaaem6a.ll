@@ -1226,7 +1226,7 @@ define hidden void @"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h3b8cfd
   br i1 %trunc.i.i.i.i, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he9de1d6b4d11952fE.exit.i", label %8
 
 8:                                                ; preds = %2
-  %9 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 16), align 8, !range !58, !noalias !59, !noundef !11
+  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 16), align 8, !range !58, !noalias !59, !noundef !11
   switch i8 %9, label %default.unreachable [
     i8 0, label %10
     i8 1, label %11
@@ -1238,7 +1238,7 @@ default.unreachable:                              ; preds = %8
 
 10:                                               ; preds = %8
   tail call void @_ZN3std3sys3pal4unix17thread_local_dtor13register_dtor17h8135a7c955e2ce6fE(ptr noundef nonnull @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, ptr noundef nonnull @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_value17h78682af5b0f082c6E), !noalias !59
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 16), align 8, !noalias !59
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 16), align 8, !noalias !59
   br label %11
 
 11:                                               ; preds = %10, %8
@@ -1275,8 +1275,7 @@ default.unreachable:                              ; preds = %8
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he9de1d6b4d11952fE.exit.i"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he9de1d6b4d11952fE.exit.i": ; preds = %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hb8eec274b65d80b6E.exit.i.i.i.i.i", %2
-  %.0.i.i.ph.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 8), %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hb8eec274b65d80b6E.exit.i.i.i.i.i" ], [ getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 8), %2 ]
-  %.07.val.i.i = load ptr, ptr %.0.i.i.ph.i.i, align 8, !noundef !11
+  %.07.val.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 8), align 8, !noundef !11
   %28 = getelementptr i8, ptr %.07.val.i.i, i64 2072
   %.07.val.val.i.i = load i64, ptr %28, align 8, !noundef !11
   br label %_ZN15crossbeam_epoch7default11with_handle17h3c673f838c1b7cc7E.exit
@@ -1405,7 +1404,7 @@ define internal fastcc noundef ptr @_ZN15crossbeam_epoch7default11with_handle17h
   br i1 %trunc.i.i.i, label %24, label %4
 
 4:                                                ; preds = %0
-  %5 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 16), align 8, !range !58, !noalias !80, !noundef !11
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 16), align 8, !range !58, !noalias !80, !noundef !11
   switch i8 %5, label %default.unreachable [
     i8 0, label %6
     i8 1, label %7
@@ -1417,7 +1416,7 @@ default.unreachable:                              ; preds = %4
 
 6:                                                ; preds = %4
   tail call void @_ZN3std3sys3pal4unix17thread_local_dtor13register_dtor17h8135a7c955e2ce6fE(ptr noundef nonnull @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, ptr noundef nonnull @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_value17h78682af5b0f082c6E), !noalias !80
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 16), align 8, !noalias !80
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 16), align 8, !noalias !80
   br label %7
 
 7:                                                ; preds = %6, %4
@@ -1454,8 +1453,7 @@ default.unreachable:                              ; preds = %4
   br label %24
 
 24:                                               ; preds = %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hb8eec274b65d80b6E.exit.i.i.i.i", %0
-  %.0.i.i.ph.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 8), %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hb8eec274b65d80b6E.exit.i.i.i.i" ], [ getelementptr inbounds (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 8), %0 ]
-  %.0.val.i = load ptr, ptr %.0.i.i.ph.i, align 8, !noundef !11
+  %.0.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h7bb2d1969e28a665E, i64 8), align 8, !noundef !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %.0.val.i, ptr %2, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.val.i, i64 2072

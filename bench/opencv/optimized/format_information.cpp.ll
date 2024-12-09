@@ -42,7 +42,7 @@ $_ZTIN5zxing6qrcode17FormatInformationE = comdat any
 define hidden void @_ZN5zxing6qrcode17FormatInformationC2EifRNS_12ErrorHandlerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 12), (16, 25), (28, 32)) %0, i32 noundef %1, float noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode17FormatInformationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode17FormatInformationE, i64 16), ptr %0, align 8
   %6 = lshr i32 %1, 3
   %7 = and i32 %6, 3
   %8 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5zxing6qrcode20ErrorCorrectionLevel7forBitsEiRNS_12ErrorHandlerE(i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(48) %3)
@@ -327,7 +327,7 @@ define hidden void @_ZN5zxing6qrcode17FormatInformation25doDecodeFormatInformati
   %121 = load i32, ptr %120, align 4
   %122 = getelementptr inbounds nuw i8, ptr %118, i64 8
   store i32 0, ptr %122, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode17FormatInformationE, i64 16), ptr %118, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode17FormatInformationE, i64 16), ptr %118, align 8
   %123 = lshr i32 %121, 3
   %124 = and i32 %123, 3
   %125 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5zxing6qrcode20ErrorCorrectionLevel7forBitsEiRNS_12ErrorHandlerE(i32 noundef %124, ptr noundef nonnull align 8 dereferenceable(48) %4)
@@ -522,7 +522,7 @@ _ZN5zxing3RefINS_6qrcode17FormatInformationEEC2ERKS3_.exit: ; preds = %135
 259:                                              ; preds = %257
   %260 = getelementptr inbounds nuw i8, ptr %258, i64 8
   store i32 0, ptr %260, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode17FormatInformationE, i64 16), ptr %258, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode17FormatInformationE, i64 16), ptr %258, align 8
   %261 = lshr i32 %.035.lcssa, 3
   %262 = and i32 %261, 3
   %263 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5zxing6qrcode20ErrorCorrectionLevel7forBitsEiRNS_12ErrorHandlerE(i32 noundef %262, ptr noundef nonnull align 8 dereferenceable(48) %4)
@@ -585,14 +585,14 @@ _ZN5zxing3RefINS_6qrcode17FormatInformationEEC2ERKS3_.exit64: ; preds = %273
   br label %_ZN5zxing3RefINS_6qrcode17FormatInformationEED2Ev.exit51
 
 _ZN5zxing3RefINS_6qrcode17FormatInformationEED2Ev.exit51: ; preds = %285, %282, %149, %146, %._crit_edge.thread
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8
   %289 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %289) #9
   ret void
 
 290:                                              ; preds = %278, %142, %140
   %.pn = phi { ptr, i32 } [ %141, %140 ], [ %143, %142 ], [ %279, %278 ]
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8
   %291 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %291) #9
   resume { ptr, i32 } %.pn

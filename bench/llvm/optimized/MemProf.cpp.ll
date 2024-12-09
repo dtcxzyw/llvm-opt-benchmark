@@ -2349,7 +2349,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %2
   store ptr @.str.1, ptr %4, align 8, !noalias !34
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 3, ptr %10, align 8, !noalias !34
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %8, align 8, !noalias !34
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %8, align 8, !noalias !34
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 9, ptr %11, align 8, !noalias !34
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -2385,7 +2385,7 @@ _ZN4llvm5ErrorD2Ev.exit10:                        ; preds = %.lr.ph
   store ptr @.str.1, ptr %3, align 8, !noalias !43
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 3, ptr %21, align 8, !noalias !43
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %19, align 8, !noalias !43
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %19, align 8, !noalias !43
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 9, ptr %22, align 8, !noalias !43
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 16

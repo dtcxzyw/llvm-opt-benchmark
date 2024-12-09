@@ -42,15 +42,15 @@ define noundef i32 @prte_rtc_base_select() local_unnamed_addr #0 {
 
 3:                                                ; preds = %0
   store i1 true, ptr @selected, align 1
-  %.03254 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rtc_base_framework, i64 320), align 8
-  %.not55 = icmp eq ptr %.03254, getelementptr inbounds (i8, ptr @prte_rtc_base_framework, i64 200)
+  %.03254 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base_framework, i64 320), align 8
+  %.not55 = icmp eq ptr %.03254, getelementptr inbounds nuw (i8, ptr @prte_rtc_base_framework, i64 200)
   br i1 %.not55, label %._crit_edge, label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %3, %104
   %.03256 = phi ptr [ %.032, %104 ], [ %.03254, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.03256, i64 144
   %5 = load ptr, ptr %4, align 8
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rtc_base_framework, i64 76), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base_framework, i64 76), align 4
   %or.cond45 = icmp ult i32 %6, 64
   br i1 %or.cond45, label %7, label %14
 
@@ -70,7 +70,7 @@ define noundef i32 @prte_rtc_base_select() local_unnamed_addr #0 {
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rtc_base_framework, i64 76), align 4
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base_framework, i64 76), align 4
   %or.cond46 = icmp ult i32 %18, 64
   br i1 %17, label %19, label %27
 
@@ -115,7 +115,7 @@ define noundef i32 @prte_rtc_base_select() local_unnamed_addr #0 {
   br i1 %or.cond, label %41, label %50
 
 41:                                               ; preds = %35
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rtc_base_framework, i64 76), align 4
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base_framework, i64 76), align 4
   %or.cond48 = icmp ult i32 %42, 64
   br i1 %or.cond48, label %43, label %104
 
@@ -142,7 +142,7 @@ define noundef i32 @prte_rtc_base_select() local_unnamed_addr #0 {
   br i1 %.not43, label %63, label %54
 
 54:                                               ; preds = %52
-  %55 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rtc_base_framework, i64 76), align 4
+  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base_framework, i64 76), align 4
   %or.cond49 = icmp ult i32 %55, 64
   br i1 %or.cond49, label %56, label %104
 
@@ -159,10 +159,10 @@ define noundef i32 @prte_rtc_base_select() local_unnamed_addr #0 {
   br label %104
 
 63:                                               ; preds = %52, %50
-  %64 = load i64, ptr getelementptr inbounds (i8, ptr @prte_rtc_base_selected_module_t_class, i64 56), align 8
+  %64 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base_selected_module_t_class, i64 56), align 8
   %65 = call noalias noundef ptr @malloc(i64 noundef %64) #6
   %66 = load i32, ptr @pmix_class_init_epoch, align 4
-  %67 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rtc_base_selected_module_t_class, i64 32), align 8
+  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base_selected_module_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %66, %67
   br i1 %.not.i, label %69, label %68
 
@@ -206,8 +206,8 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %69, %7
   store ptr %39, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %65, i64 160
   store ptr %5, ptr %84, align 8
-  %.03051 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rtc_base, i64 240), align 8
-  %.not44.not52 = icmp eq ptr %.03051, getelementptr inbounds (i8, ptr @prte_rtc_base, i64 120)
+  %.03051 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base, i64 240), align 8
+  %.not44.not52 = icmp eq ptr %.03051, getelementptr inbounds nuw (i8, ptr @prte_rtc_base, i64 120)
   br i1 %.not44.not52, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %pmix_obj_new_tma.exit, %96
@@ -227,39 +227,39 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %69, %7
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 120
   store volatile ptr %65, ptr %93, align 8
   store ptr %65, ptr %90, align 8
-  %94 = load volatile i64, ptr getelementptr inbounds (i8, ptr @prte_rtc_base, i64 264), align 8
+  %94 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base, i64 264), align 8
   %95 = add i64 %94, 1
-  store volatile i64 %95, ptr getelementptr inbounds (i8, ptr @prte_rtc_base, i64 264), align 8
+  store volatile i64 %95, ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base, i64 264), align 8
   br label %104
 
 96:                                               ; preds = %.lr.ph
   %97 = getelementptr inbounds nuw i8, ptr %.03053, i64 120
   %.030 = load ptr, ptr %97, align 8
-  %.not44.not = icmp eq ptr %.030, getelementptr inbounds (i8, ptr @prte_rtc_base, i64 120)
+  %.not44.not = icmp eq ptr %.030, getelementptr inbounds nuw (i8, ptr @prte_rtc_base, i64 120)
   br i1 %.not44.not, label %.critedge, label %.lr.ph, !llvm.loop !6
 
 .critedge:                                        ; preds = %96, %pmix_obj_new_tma.exit
-  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rtc_base, i64 248), align 8
+  %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base, i64 248), align 8
   %99 = getelementptr inbounds nuw i8, ptr %65, i64 128
   store ptr %98, ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 120
   store volatile ptr %65, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %65, i64 120
-  store ptr getelementptr inbounds (i8, ptr @prte_rtc_base, i64 120), ptr %101, align 8
-  store ptr %65, ptr getelementptr inbounds (i8, ptr @prte_rtc_base, i64 248), align 8
-  %102 = load volatile i64, ptr getelementptr inbounds (i8, ptr @prte_rtc_base, i64 264), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base, i64 120), ptr %101, align 8
+  store ptr %65, ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base, i64 248), align 8
+  %102 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base, i64 264), align 8
   %103 = add i64 %102, 1
-  store volatile i64 %103, ptr getelementptr inbounds (i8, ptr @prte_rtc_base, i64 264), align 8
+  store volatile i64 %103, ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base, i64 264), align 8
   br label %104
 
 104:                                              ; preds = %88, %.critedge, %54, %56, %61, %41, %43, %48, %19, %20, %25
   %105 = getelementptr inbounds nuw i8, ptr %.03256, i64 120
   %.032 = load ptr, ptr %105, align 8
-  %.not = icmp eq ptr %.032, getelementptr inbounds (i8, ptr @prte_rtc_base_framework, i64 200)
+  %.not = icmp eq ptr %.032, getelementptr inbounds nuw (i8, ptr @prte_rtc_base_framework, i64 200)
   br i1 %.not, label %._crit_edge, label %.lr.ph57, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %104, %3
-  %106 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rtc_base_framework, i64 76), align 4
+  %106 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base_framework, i64 76), align 4
   %107 = call i32 @pmix_output_get_verbosity(i32 noundef %106) #5
   %108 = icmp sgt i32 %107, 4
   br i1 %108, label %109, label %.loopexit
@@ -267,8 +267,8 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %69, %7
 109:                                              ; preds = %._crit_edge
   %110 = call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #5
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef %110) #5
-  %.158 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rtc_base, i64 240), align 8
-  %.not4159 = icmp eq ptr %.158, getelementptr inbounds (i8, ptr @prte_rtc_base, i64 120)
+  %.158 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base, i64 240), align 8
+  %.not4159 = icmp eq ptr %.158, getelementptr inbounds nuw (i8, ptr @prte_rtc_base, i64 120)
   br i1 %.not4159, label %.loopexit, label %.lr.ph62
 
 .lr.ph62:                                         ; preds = %109, %.lr.ph62
@@ -281,7 +281,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %69, %7
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull %113, i32 noundef %115) #5
   %116 = getelementptr inbounds nuw i8, ptr %.160, i64 120
   %.1 = load ptr, ptr %116, align 8
-  %.not41 = icmp eq ptr %.1, getelementptr inbounds (i8, ptr @prte_rtc_base, i64 120)
+  %.not41 = icmp eq ptr %.1, getelementptr inbounds nuw (i8, ptr @prte_rtc_base, i64 120)
   br i1 %.not41, label %.loopexit, label %.lr.ph62, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph62, %109, %._crit_edge, %0

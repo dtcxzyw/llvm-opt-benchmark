@@ -2881,7 +2881,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__37HdsiVelocityMotionResolvingSceneIndexC2ERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEERKSt10shared_ptrINS_21HdContainerDataSourceEE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseC2ERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__37HdsiVelocityMotionResolvingSceneIndexE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__37HdsiVelocityMotionResolvingSceneIndexE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load ptr, ptr %2, align 8
   store ptr %5, ptr %4, align 8
@@ -3305,7 +3305,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit28.i: ; preds = %184, %178
           to label %.noexc unwind label %290
 
 .noexc:                                           ; preds = %194
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceE, i64 16), ptr %197, align 8, !noalias !10
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceE, i64 16), ptr %197, align 8, !noalias !10
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %199 = load i32, ptr %2, align 4, !noalias !10
   store i32 %199, ptr %198, align 4, !noalias !10
@@ -3418,7 +3418,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceC2ERKNS_7Sdf
   store i32 1, ptr %252, align 8, !noalias !10
   %253 = getelementptr inbounds nuw i8, ptr %240, i64 12
   store i32 1, ptr %253, align 4, !noalias !10
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %240, align 8, !noalias !10
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %240, align 8, !noalias !10
   %254 = getelementptr inbounds nuw i8, ptr %240, i64 16
   store ptr %197, ptr %254, align 8, !noalias !10
   store ptr %197, ptr %195, align 8
@@ -4612,7 +4612,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__37HdsiVelocityMotionResolvingSceneIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__37HdsiVelocityMotionResolvingSceneIndexE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__37HdsiVelocityMotionResolvingSceneIndexE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -4687,7 +4687,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseE, i64 16), ptr %0, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #29
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -5740,7 +5740,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_p
           to label %.noexc unwind label %147
 
 .noexc:                                           ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceE, i64 16), ptr %42, align 8, !noalias !28
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceE, i64 16), ptr %42, align 8, !noalias !28
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %.val, ptr %43, align 8, !noalias !28
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
@@ -5877,7 +5877,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDa
   store i32 1, ptr %106, align 8, !noalias !28
   %107 = getelementptr inbounds nuw i8, ptr %95, i64 12
   store i32 1, ptr %107, align 4, !noalias !28
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %95, align 8, !noalias !28
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %95, align 8, !noalias !28
   %108 = getelementptr inbounds nuw i8, ptr %95, i64 16
   store ptr %42, ptr %108, align 8, !noalias !28
   store ptr %42, ptr %0, align 8
@@ -6752,7 +6752,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_p
           to label %.noexc unwind label %259
 
 .noexc:                                           ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceE, i64 16), ptr %145, align 8, !noalias !38
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceE, i64 16), ptr %145, align 8, !noalias !38
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   store i64 %.val, ptr %146, align 8, !noalias !38
   %147 = and i64 %.val, 7
@@ -6911,7 +6911,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDat
   store i32 1, ptr %220, align 8, !noalias !38
   %221 = getelementptr inbounds nuw i8, ptr %209, i64 12
   store i32 1, ptr %221, align 4, !noalias !38
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %209, align 8, !noalias !38
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %209, align 8, !noalias !38
   %222 = getelementptr inbounds nuw i8, ptr %209, i64 16
   store ptr %145, ptr %222, align 8, !noalias !38
   store ptr %145, ptr %0, align 8
@@ -8933,10 +8933,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIbEERKT_v.exit: ; p
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !51
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !54
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIbEE, i64 16), ptr %19, align 8, !noalias !54
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIbEE, i64 16), ptr %19, align 8, !noalias !54
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !54
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIbEE, i64 16), ptr %19, align 8, !noalias !54
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIbEE, i64 16), ptr %19, align 8, !noalias !54
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclIbEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !54
 
@@ -8975,7 +8975,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !54
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !54
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIbEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !54
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIbEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !54
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !54
   store ptr %19, ptr %0, align 8, !alias.scope !51
@@ -9010,10 +9010,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIcEERKT_v.exit: ; p
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !57
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !60
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIcEE, i64 16), ptr %19, align 8, !noalias !60
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIcEE, i64 16), ptr %19, align 8, !noalias !60
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !60
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIcEE, i64 16), ptr %19, align 8, !noalias !60
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIcEE, i64 16), ptr %19, align 8, !noalias !60
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclIcEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !60
 
@@ -9052,7 +9052,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !60
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !60
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIcEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !60
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIcEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !60
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !60
   store ptr %19, ptr %0, align 8, !alias.scope !57
@@ -9087,10 +9087,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIhEERKT_v.exit: ; p
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !63
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !66
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIhEE, i64 16), ptr %19, align 8, !noalias !66
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIhEE, i64 16), ptr %19, align 8, !noalias !66
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !66
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIhEE, i64 16), ptr %19, align 8, !noalias !66
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIhEE, i64 16), ptr %19, align 8, !noalias !66
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclIhEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !66
 
@@ -9129,7 +9129,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !66
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !66
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIhEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !66
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIhEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !66
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !66
   store ptr %19, ptr %0, align 8, !alias.scope !63
@@ -9164,10 +9164,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit: ; p
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !69
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !72
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIsEE, i64 16), ptr %19, align 8, !noalias !72
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIsEE, i64 16), ptr %19, align 8, !noalias !72
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !72
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIsEE, i64 16), ptr %19, align 8, !noalias !72
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIsEE, i64 16), ptr %19, align 8, !noalias !72
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclIsEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !72
 
@@ -9206,7 +9206,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !72
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !72
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIsEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !72
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIsEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !72
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !72
   store ptr %19, ptr %0, align 8, !alias.scope !69
@@ -9241,10 +9241,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetItEERKT_v.exit: ; p
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !75
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !78
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceItEE, i64 16), ptr %19, align 8, !noalias !78
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceItEE, i64 16), ptr %19, align 8, !noalias !78
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !78
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceItEE, i64 16), ptr %19, align 8, !noalias !78
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceItEE, i64 16), ptr %19, align 8, !noalias !78
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclItEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !78
 
@@ -9283,7 +9283,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !78
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !78
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceItEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !78
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceItEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !78
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !78
   store ptr %19, ptr %0, align 8, !alias.scope !75
@@ -9318,10 +9318,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit: ; p
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !81
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !84
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIiEE, i64 16), ptr %19, align 8, !noalias !84
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIiEE, i64 16), ptr %19, align 8, !noalias !84
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !84
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIiEE, i64 16), ptr %19, align 8, !noalias !84
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIiEE, i64 16), ptr %19, align 8, !noalias !84
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclIiEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !84
 
@@ -9360,7 +9360,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !84
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !84
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIiEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !84
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIiEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !84
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !84
   store ptr %19, ptr %0, align 8, !alias.scope !81
@@ -9395,10 +9395,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIjEERKT_v.exit: ; p
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !87
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !90
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIjEE, i64 16), ptr %19, align 8, !noalias !90
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIjEE, i64 16), ptr %19, align 8, !noalias !90
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !90
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIjEE, i64 16), ptr %19, align 8, !noalias !90
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIjEE, i64 16), ptr %19, align 8, !noalias !90
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclIjEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !90
 
@@ -9437,7 +9437,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !90
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !90
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIjEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !90
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIjEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !90
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !90
   store ptr %19, ptr %0, align 8, !alias.scope !87
@@ -9472,10 +9472,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit: ; p
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !93
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !96
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIlEE, i64 16), ptr %19, align 8, !noalias !96
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIlEE, i64 16), ptr %19, align 8, !noalias !96
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !96
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIlEE, i64 16), ptr %19, align 8, !noalias !96
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIlEE, i64 16), ptr %19, align 8, !noalias !96
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclIlEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !96
 
@@ -9514,7 +9514,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !96
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !96
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIlEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !96
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIlEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !96
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !96
   store ptr %19, ptr %0, align 8, !alias.scope !93
@@ -9549,10 +9549,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit: ; p
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !99
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !102
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceImEE, i64 16), ptr %19, align 8, !noalias !102
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceImEE, i64 16), ptr %19, align 8, !noalias !102
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !102
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceImEE, i64 16), ptr %19, align 8, !noalias !102
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceImEE, i64 16), ptr %19, align 8, !noalias !102
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclImEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !102
 
@@ -9591,7 +9591,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !102
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !102
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceImEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !102
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceImEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !102
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !102
   store ptr %19, ptr %0, align 8, !alias.scope !99
@@ -9626,10 +9626,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; p
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !105
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !108
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEE, i64 16), ptr %19, align 8, !noalias !108
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEE, i64 16), ptr %19, align 8, !noalias !108
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !108
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIdEE, i64 16), ptr %19, align 8, !noalias !108
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIdEE, i64 16), ptr %19, align 8, !noalias !108
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclIdEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !108
 
@@ -9668,7 +9668,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !108
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !108
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIdEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !108
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIdEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !108
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !108
   store ptr %19, ptr %0, align 8, !alias.scope !105
@@ -9703,10 +9703,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit: ; p
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !111
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !114
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIfEE, i64 16), ptr %19, align 8, !noalias !114
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIfEE, i64 16), ptr %19, align 8, !noalias !114
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !114
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIfEE, i64 16), ptr %19, align 8, !noalias !114
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIfEE, i64 16), ptr %19, align 8, !noalias !114
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclIfEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !114
 
@@ -9745,7 +9745,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !114
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !114
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIfEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !114
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIfEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !114
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !114
   store ptr %19, ptr %0, align 8, !alias.scope !111
@@ -9780,10 +9780,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfE
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !117
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !120
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_8pxr_half4halfEEE, i64 16), ptr %19, align 8, !noalias !120
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_8pxr_half4halfEEE, i64 16), ptr %19, align 8, !noalias !120
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !120
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_8pxr_half4halfEEE, i64 16), ptr %19, align 8, !noalias !120
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_8pxr_half4halfEEE, i64 16), ptr %19, align 8, !noalias !120
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_8pxr_half4halfEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !120
 
@@ -9822,7 +9822,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !120
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !120
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_8pxr_half4halfEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !120
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_8pxr_half4halfEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !120
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !120
   store ptr %19, ptr %0, align 8, !alias.scope !117
@@ -9857,10 +9857,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINSt7__cxx1112basic
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !123
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !126
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %19, align 8, !noalias !126
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %19, align 8, !noalias !126
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !126
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %19, align 8, !noalias !126
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %19, align 8, !noalias !126
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !126
 
@@ -9899,7 +9899,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !126
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !126
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !126
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !126
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !126
   store ptr %19, ptr %0, align 8, !alias.scope !123
@@ -9934,10 +9934,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7TfTokenEEERKT_
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !129
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !132
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7TfTokenEEE, i64 16), ptr %19, align 8, !noalias !132
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7TfTokenEEE, i64 16), ptr %19, align 8, !noalias !132
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !132
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7TfTokenEEE, i64 16), ptr %19, align 8, !noalias !132
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7TfTokenEEE, i64 16), ptr %19, align 8, !noalias !132
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7TfTokenEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !132
 
@@ -9976,7 +9976,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !132
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !132
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7TfTokenEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !132
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7TfTokenEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !132
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !132
   store ptr %19, ptr %0, align 8, !alias.scope !129
@@ -10011,10 +10011,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !135
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !138
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfVec4iEEEEE, i64 16), ptr %19, align 8, !noalias !138
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfVec4iEEEEE, i64 16), ptr %19, align 8, !noalias !138
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !138
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec4iEEEEE, i64 16), ptr %19, align 8, !noalias !138
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec4iEEEEE, i64 16), ptr %19, align 8, !noalias !138
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_7GfVec4iEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !138
 
@@ -10053,7 +10053,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !138
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !138
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfVec4iEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !138
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfVec4iEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !138
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !138
   store ptr %19, ptr %0, align 8, !alias.scope !135
@@ -10088,10 +10088,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !141
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !144
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfVec3iEEEEE, i64 16), ptr %19, align 8, !noalias !144
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfVec3iEEEEE, i64 16), ptr %19, align 8, !noalias !144
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !144
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec3iEEEEE, i64 16), ptr %19, align 8, !noalias !144
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec3iEEEEE, i64 16), ptr %19, align 8, !noalias !144
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_7GfVec3iEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !144
 
@@ -10130,7 +10130,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !144
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !144
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfVec3iEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !144
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfVec3iEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !144
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !144
   store ptr %19, ptr %0, align 8, !alias.scope !141
@@ -10165,10 +10165,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !147
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !150
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfVec2iEEEEE, i64 16), ptr %19, align 8, !noalias !150
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfVec2iEEEEE, i64 16), ptr %19, align 8, !noalias !150
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !150
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec2iEEEEE, i64 16), ptr %19, align 8, !noalias !150
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec2iEEEEE, i64 16), ptr %19, align 8, !noalias !150
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_7GfVec2iEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !150
 
@@ -10207,7 +10207,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !150
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !150
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfVec2iEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !150
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfVec2iEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !150
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !150
   store ptr %19, ptr %0, align 8, !alias.scope !147
@@ -10242,10 +10242,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !153
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !156
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfVec4hEEEEE, i64 16), ptr %19, align 8, !noalias !156
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfVec4hEEEEE, i64 16), ptr %19, align 8, !noalias !156
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !156
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec4hEEEEE, i64 16), ptr %19, align 8, !noalias !156
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec4hEEEEE, i64 16), ptr %19, align 8, !noalias !156
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_7GfVec4hEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !156
 
@@ -10284,7 +10284,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !156
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !156
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfVec4hEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !156
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfVec4hEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !156
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !156
   store ptr %19, ptr %0, align 8, !alias.scope !153
@@ -10319,10 +10319,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !159
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !162
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfVec3hEEEEE, i64 16), ptr %19, align 8, !noalias !162
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfVec3hEEEEE, i64 16), ptr %19, align 8, !noalias !162
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !162
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec3hEEEEE, i64 16), ptr %19, align 8, !noalias !162
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec3hEEEEE, i64 16), ptr %19, align 8, !noalias !162
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_7GfVec3hEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !162
 
@@ -10361,7 +10361,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !162
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !162
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfVec3hEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !162
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfVec3hEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !162
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !162
   store ptr %19, ptr %0, align 8, !alias.scope !159
@@ -10396,10 +10396,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !165
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !168
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfVec2hEEEEE, i64 16), ptr %19, align 8, !noalias !168
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfVec2hEEEEE, i64 16), ptr %19, align 8, !noalias !168
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !168
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec2hEEEEE, i64 16), ptr %19, align 8, !noalias !168
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec2hEEEEE, i64 16), ptr %19, align 8, !noalias !168
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_7GfVec2hEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !168
 
@@ -10438,7 +10438,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !168
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !168
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfVec2hEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !168
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfVec2hEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !168
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !168
   store ptr %19, ptr %0, align 8, !alias.scope !165
@@ -10473,10 +10473,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !171
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !174
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfVec4fEEEEE, i64 16), ptr %19, align 8, !noalias !174
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfVec4fEEEEE, i64 16), ptr %19, align 8, !noalias !174
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !174
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec4fEEEEE, i64 16), ptr %19, align 8, !noalias !174
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec4fEEEEE, i64 16), ptr %19, align 8, !noalias !174
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_7GfVec4fEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !174
 
@@ -10515,7 +10515,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !174
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !174
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfVec4fEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !174
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfVec4fEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !174
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !174
   store ptr %19, ptr %0, align 8, !alias.scope !171
@@ -10550,10 +10550,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !177
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !180
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfVec3fEEEEE, i64 16), ptr %19, align 8, !noalias !180
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfVec3fEEEEE, i64 16), ptr %19, align 8, !noalias !180
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !180
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec3fEEEEE, i64 16), ptr %19, align 8, !noalias !180
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec3fEEEEE, i64 16), ptr %19, align 8, !noalias !180
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_7GfVec3fEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !180
 
@@ -10592,7 +10592,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !180
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !180
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfVec3fEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !180
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfVec3fEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !180
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !180
   store ptr %19, ptr %0, align 8, !alias.scope !177
@@ -10627,10 +10627,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !183
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !186
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfVec2fEEEEE, i64 16), ptr %19, align 8, !noalias !186
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfVec2fEEEEE, i64 16), ptr %19, align 8, !noalias !186
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !186
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec2fEEEEE, i64 16), ptr %19, align 8, !noalias !186
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec2fEEEEE, i64 16), ptr %19, align 8, !noalias !186
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_7GfVec2fEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !186
 
@@ -10669,7 +10669,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !186
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !186
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfVec2fEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !186
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfVec2fEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !186
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !186
   store ptr %19, ptr %0, align 8, !alias.scope !183
@@ -10704,10 +10704,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !189
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !192
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfVec4dEEEEE, i64 16), ptr %19, align 8, !noalias !192
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfVec4dEEEEE, i64 16), ptr %19, align 8, !noalias !192
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !192
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec4dEEEEE, i64 16), ptr %19, align 8, !noalias !192
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec4dEEEEE, i64 16), ptr %19, align 8, !noalias !192
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_7GfVec4dEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !192
 
@@ -10746,7 +10746,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !192
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !192
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfVec4dEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !192
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfVec4dEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !192
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !192
   store ptr %19, ptr %0, align 8, !alias.scope !189
@@ -10781,10 +10781,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !195
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !198
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfVec3dEEEEE, i64 16), ptr %19, align 8, !noalias !198
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfVec3dEEEEE, i64 16), ptr %19, align 8, !noalias !198
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !198
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec3dEEEEE, i64 16), ptr %19, align 8, !noalias !198
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec3dEEEEE, i64 16), ptr %19, align 8, !noalias !198
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_7GfVec3dEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !198
 
@@ -10823,7 +10823,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !198
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !198
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfVec3dEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !198
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfVec3dEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !198
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !198
   store ptr %19, ptr %0, align 8, !alias.scope !195
@@ -10858,10 +10858,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !201
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !204
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfVec2dEEEEE, i64 16), ptr %19, align 8, !noalias !204
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfVec2dEEEEE, i64 16), ptr %19, align 8, !noalias !204
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !204
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec2dEEEEE, i64 16), ptr %19, align 8, !noalias !204
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec2dEEEEE, i64 16), ptr %19, align 8, !noalias !204
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_7GfVec2dEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !204
 
@@ -10900,7 +10900,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !204
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !204
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfVec2dEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !204
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfVec2dEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !204
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !204
   store ptr %19, ptr %0, align 8, !alias.scope !201
@@ -10935,10 +10935,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10G
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !207
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !210
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_10GfMatrix4fEEEEE, i64 16), ptr %19, align 8, !noalias !210
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_10GfMatrix4fEEEEE, i64 16), ptr %19, align 8, !noalias !210
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !210
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_10GfMatrix4fEEEEE, i64 16), ptr %19, align 8, !noalias !210
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_10GfMatrix4fEEEEE, i64 16), ptr %19, align 8, !noalias !210
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_10GfMatrix4fEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !210
 
@@ -10977,7 +10977,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !210
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !210
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_10GfMatrix4fEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !210
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_10GfMatrix4fEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !210
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !210
   store ptr %19, ptr %0, align 8, !alias.scope !207
@@ -11012,10 +11012,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10G
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !213
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !216
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_10GfMatrix3fEEEEE, i64 16), ptr %19, align 8, !noalias !216
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_10GfMatrix3fEEEEE, i64 16), ptr %19, align 8, !noalias !216
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !216
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_10GfMatrix3fEEEEE, i64 16), ptr %19, align 8, !noalias !216
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_10GfMatrix3fEEEEE, i64 16), ptr %19, align 8, !noalias !216
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_10GfMatrix3fEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !216
 
@@ -11054,7 +11054,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !216
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !216
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_10GfMatrix3fEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !216
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_10GfMatrix3fEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !216
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !216
   store ptr %19, ptr %0, align 8, !alias.scope !213
@@ -11089,10 +11089,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10G
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !219
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !222
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_10GfMatrix2fEEEEE, i64 16), ptr %19, align 8, !noalias !222
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_10GfMatrix2fEEEEE, i64 16), ptr %19, align 8, !noalias !222
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !222
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_10GfMatrix2fEEEEE, i64 16), ptr %19, align 8, !noalias !222
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_10GfMatrix2fEEEEE, i64 16), ptr %19, align 8, !noalias !222
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_10GfMatrix2fEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !222
 
@@ -11131,7 +11131,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !222
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !222
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_10GfMatrix2fEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !222
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_10GfMatrix2fEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !222
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !222
   store ptr %19, ptr %0, align 8, !alias.scope !219
@@ -11166,10 +11166,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10G
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !225
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !228
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_10GfMatrix4dEEEEE, i64 16), ptr %19, align 8, !noalias !228
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_10GfMatrix4dEEEEE, i64 16), ptr %19, align 8, !noalias !228
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !228
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_10GfMatrix4dEEEEE, i64 16), ptr %19, align 8, !noalias !228
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_10GfMatrix4dEEEEE, i64 16), ptr %19, align 8, !noalias !228
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_10GfMatrix4dEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !228
 
@@ -11208,7 +11208,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !228
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !228
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_10GfMatrix4dEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !228
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_10GfMatrix4dEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !228
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !228
   store ptr %19, ptr %0, align 8, !alias.scope !225
@@ -11243,10 +11243,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10G
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !231
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !234
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_10GfMatrix3dEEEEE, i64 16), ptr %19, align 8, !noalias !234
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_10GfMatrix3dEEEEE, i64 16), ptr %19, align 8, !noalias !234
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !234
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_10GfMatrix3dEEEEE, i64 16), ptr %19, align 8, !noalias !234
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_10GfMatrix3dEEEEE, i64 16), ptr %19, align 8, !noalias !234
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_10GfMatrix3dEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !234
 
@@ -11285,7 +11285,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !234
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !234
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_10GfMatrix3dEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !234
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_10GfMatrix3dEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !234
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !234
   store ptr %19, ptr %0, align 8, !alias.scope !231
@@ -11320,10 +11320,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10G
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !237
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !240
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_10GfMatrix2dEEEEE, i64 16), ptr %19, align 8, !noalias !240
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_10GfMatrix2dEEEEE, i64 16), ptr %19, align 8, !noalias !240
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !240
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_10GfMatrix2dEEEEE, i64 16), ptr %19, align 8, !noalias !240
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_10GfMatrix2dEEEEE, i64 16), ptr %19, align 8, !noalias !240
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_10GfMatrix2dEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !240
 
@@ -11362,7 +11362,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !240
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !240
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_10GfMatrix2dEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !240
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_10GfMatrix2dEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !240
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !240
   store ptr %19, ptr %0, align 8, !alias.scope !237
@@ -11397,10 +11397,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9Gf
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !243
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !246
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_9GfRange3fEEEEE, i64 16), ptr %19, align 8, !noalias !246
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_9GfRange3fEEEEE, i64 16), ptr %19, align 8, !noalias !246
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !246
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_9GfRange3fEEEEE, i64 16), ptr %19, align 8, !noalias !246
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_9GfRange3fEEEEE, i64 16), ptr %19, align 8, !noalias !246
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_9GfRange3fEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !246
 
@@ -11439,7 +11439,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !246
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !246
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_9GfRange3fEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !246
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_9GfRange3fEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !246
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !246
   store ptr %19, ptr %0, align 8, !alias.scope !243
@@ -11474,10 +11474,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9Gf
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !249
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !252
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_9GfRange3dEEEEE, i64 16), ptr %19, align 8, !noalias !252
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_9GfRange3dEEEEE, i64 16), ptr %19, align 8, !noalias !252
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !252
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_9GfRange3dEEEEE, i64 16), ptr %19, align 8, !noalias !252
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_9GfRange3dEEEEE, i64 16), ptr %19, align 8, !noalias !252
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_9GfRange3dEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !252
 
@@ -11516,7 +11516,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !252
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !252
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_9GfRange3dEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !252
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_9GfRange3dEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !252
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !252
   store ptr %19, ptr %0, align 8, !alias.scope !249
@@ -11551,10 +11551,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9Gf
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !255
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !258
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_9GfRange2fEEEEE, i64 16), ptr %19, align 8, !noalias !258
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_9GfRange2fEEEEE, i64 16), ptr %19, align 8, !noalias !258
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !258
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_9GfRange2fEEEEE, i64 16), ptr %19, align 8, !noalias !258
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_9GfRange2fEEEEE, i64 16), ptr %19, align 8, !noalias !258
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_9GfRange2fEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !258
 
@@ -11593,7 +11593,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !258
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !258
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_9GfRange2fEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !258
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_9GfRange2fEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !258
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !258
   store ptr %19, ptr %0, align 8, !alias.scope !255
@@ -11628,10 +11628,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9Gf
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !261
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !264
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_9GfRange2dEEEEE, i64 16), ptr %19, align 8, !noalias !264
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_9GfRange2dEEEEE, i64 16), ptr %19, align 8, !noalias !264
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !264
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_9GfRange2dEEEEE, i64 16), ptr %19, align 8, !noalias !264
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_9GfRange2dEEEEE, i64 16), ptr %19, align 8, !noalias !264
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_9GfRange2dEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !264
 
@@ -11670,7 +11670,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !264
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !264
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_9GfRange2dEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !264
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_9GfRange2dEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !264
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !264
   store ptr %19, ptr %0, align 8, !alias.scope !261
@@ -11705,10 +11705,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9Gf
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !267
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !270
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_9GfRange1fEEEEE, i64 16), ptr %19, align 8, !noalias !270
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_9GfRange1fEEEEE, i64 16), ptr %19, align 8, !noalias !270
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !270
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_9GfRange1fEEEEE, i64 16), ptr %19, align 8, !noalias !270
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_9GfRange1fEEEEE, i64 16), ptr %19, align 8, !noalias !270
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_9GfRange1fEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !270
 
@@ -11747,7 +11747,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !270
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !270
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_9GfRange1fEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !270
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_9GfRange1fEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !270
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !270
   store ptr %19, ptr %0, align 8, !alias.scope !267
@@ -11782,10 +11782,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9Gf
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !273
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !276
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_9GfRange1dEEEEE, i64 16), ptr %19, align 8, !noalias !276
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_9GfRange1dEEEEE, i64 16), ptr %19, align 8, !noalias !276
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !276
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_9GfRange1dEEEEE, i64 16), ptr %19, align 8, !noalias !276
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_9GfRange1dEEEEE, i64 16), ptr %19, align 8, !noalias !276
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_9GfRange1dEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !276
 
@@ -11824,7 +11824,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !276
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !276
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_9GfRange1dEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !276
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_9GfRange1dEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !276
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !276
   store ptr %19, ptr %0, align 8, !alias.scope !273
@@ -11859,10 +11859,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10G
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !279
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !282
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_10GfIntervalEEEEE, i64 16), ptr %19, align 8, !noalias !282
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_10GfIntervalEEEEE, i64 16), ptr %19, align 8, !noalias !282
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !282
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_10GfIntervalEEEEE, i64 16), ptr %19, align 8, !noalias !282
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_10GfIntervalEEEEE, i64 16), ptr %19, align 8, !noalias !282
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_10GfIntervalEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !282
 
@@ -11901,7 +11901,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !282
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !282
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_10GfIntervalEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !282
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_10GfIntervalEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !282
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !282
   store ptr %19, ptr %0, align 8, !alias.scope !279
@@ -11936,10 +11936,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_8Gf
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !285
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !288
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_8GfRect2iEEEEE, i64 16), ptr %19, align 8, !noalias !288
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_8GfRect2iEEEEE, i64 16), ptr %19, align 8, !noalias !288
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !288
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_8GfRect2iEEEEE, i64 16), ptr %19, align 8, !noalias !288
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_8GfRect2iEEEEE, i64 16), ptr %19, align 8, !noalias !288
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_8GfRect2iEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !288
 
@@ -11978,7 +11978,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !288
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !288
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_8GfRect2iEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !288
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_8GfRect2iEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !288
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !288
   store ptr %19, ptr %0, align 8, !alias.scope !285
@@ -12013,10 +12013,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !291
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !294
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfQuathEEEEE, i64 16), ptr %19, align 8, !noalias !294
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfQuathEEEEE, i64 16), ptr %19, align 8, !noalias !294
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !294
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfQuathEEEEE, i64 16), ptr %19, align 8, !noalias !294
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfQuathEEEEE, i64 16), ptr %19, align 8, !noalias !294
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_7GfQuathEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !294
 
@@ -12055,7 +12055,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !294
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !294
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfQuathEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !294
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfQuathEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !294
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !294
   store ptr %19, ptr %0, align 8, !alias.scope !291
@@ -12090,10 +12090,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !297
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !300
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfQuatfEEEEE, i64 16), ptr %19, align 8, !noalias !300
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfQuatfEEEEE, i64 16), ptr %19, align 8, !noalias !300
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !300
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfQuatfEEEEE, i64 16), ptr %19, align 8, !noalias !300
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfQuatfEEEEE, i64 16), ptr %19, align 8, !noalias !300
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_7GfQuatfEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !300
 
@@ -12132,7 +12132,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !300
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !300
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfQuatfEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !300
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfQuatfEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !300
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !300
   store ptr %19, ptr %0, align 8, !alias.scope !297
@@ -12167,10 +12167,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !303
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !306
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfQuatdEEEEE, i64 16), ptr %19, align 8, !noalias !306
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7GfQuatdEEEEE, i64 16), ptr %19, align 8, !noalias !306
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !306
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfQuatdEEEEE, i64 16), ptr %19, align 8, !noalias !306
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfQuatdEEEEE, i64 16), ptr %19, align 8, !noalias !306
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_7GfQuatdEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !306
 
@@ -12209,7 +12209,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !306
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !306
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfQuatdEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !306
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7GfQuatdEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !306
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !306
   store ptr %19, ptr %0, align 8, !alias.scope !303
@@ -12244,10 +12244,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_12G
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !309
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !312
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_12GfQuaternionEEEEE, i64 16), ptr %19, align 8, !noalias !312
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_12GfQuaternionEEEEE, i64 16), ptr %19, align 8, !noalias !312
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !312
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_12GfQuaternionEEEEE, i64 16), ptr %19, align 8, !noalias !312
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_12GfQuaternionEEEEE, i64 16), ptr %19, align 8, !noalias !312
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_12GfQuaternionEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !312
 
@@ -12286,7 +12286,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !312
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !312
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_12GfQuaternionEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !312
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_12GfQuaternionEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !312
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !312
   store ptr %19, ptr %0, align 8, !alias.scope !309
@@ -12321,10 +12321,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_11G
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !315
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !318
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_11GfDualQuathEEEEE, i64 16), ptr %19, align 8, !noalias !318
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_11GfDualQuathEEEEE, i64 16), ptr %19, align 8, !noalias !318
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !318
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_11GfDualQuathEEEEE, i64 16), ptr %19, align 8, !noalias !318
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_11GfDualQuathEEEEE, i64 16), ptr %19, align 8, !noalias !318
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_11GfDualQuathEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !318
 
@@ -12363,7 +12363,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !318
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !318
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_11GfDualQuathEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !318
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_11GfDualQuathEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !318
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !318
   store ptr %19, ptr %0, align 8, !alias.scope !315
@@ -12398,10 +12398,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_11G
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !321
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !324
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_11GfDualQuatfEEEEE, i64 16), ptr %19, align 8, !noalias !324
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_11GfDualQuatfEEEEE, i64 16), ptr %19, align 8, !noalias !324
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !324
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_11GfDualQuatfEEEEE, i64 16), ptr %19, align 8, !noalias !324
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_11GfDualQuatfEEEEE, i64 16), ptr %19, align 8, !noalias !324
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_11GfDualQuatfEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !324
 
@@ -12440,7 +12440,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !324
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !324
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_11GfDualQuatfEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !324
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_11GfDualQuatfEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !324
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !324
   store ptr %19, ptr %0, align 8, !alias.scope !321
@@ -12475,10 +12475,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_11G
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !327
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !330
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_11GfDualQuatdEEEEE, i64 16), ptr %19, align 8, !noalias !330
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_11GfDualQuatdEEEEE, i64 16), ptr %19, align 8, !noalias !330
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !330
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_11GfDualQuatdEEEEE, i64 16), ptr %19, align 8, !noalias !330
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_11GfDualQuatdEEEEE, i64 16), ptr %19, align 8, !noalias !330
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_11GfDualQuatdEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !330
 
@@ -12517,7 +12517,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !330
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !330
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_11GfDualQuatdEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !330
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_11GfDualQuatdEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !330
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !330
   store ptr %19, ptr %0, align 8, !alias.scope !327
@@ -12552,10 +12552,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIbEEEER
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !333
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !336
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayIbEEEE, i64 16), ptr %19, align 8, !noalias !336
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayIbEEEE, i64 16), ptr %19, align 8, !noalias !336
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !336
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIbEEEE, i64 16), ptr %19, align 8, !noalias !336
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIbEEEE, i64 16), ptr %19, align 8, !noalias !336
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayIbEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !336
 
@@ -12594,7 +12594,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !336
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !336
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayIbEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !336
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayIbEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !336
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !336
   store ptr %19, ptr %0, align 8, !alias.scope !333
@@ -12629,10 +12629,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIcEEEER
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !339
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !342
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayIcEEEE, i64 16), ptr %19, align 8, !noalias !342
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayIcEEEE, i64 16), ptr %19, align 8, !noalias !342
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !342
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIcEEEE, i64 16), ptr %19, align 8, !noalias !342
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIcEEEE, i64 16), ptr %19, align 8, !noalias !342
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayIcEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !342
 
@@ -12671,7 +12671,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !342
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !342
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayIcEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !342
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayIcEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !342
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !342
   store ptr %19, ptr %0, align 8, !alias.scope !339
@@ -12706,10 +12706,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIhEEEER
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !345
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !348
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayIhEEEE, i64 16), ptr %19, align 8, !noalias !348
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayIhEEEE, i64 16), ptr %19, align 8, !noalias !348
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !348
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIhEEEE, i64 16), ptr %19, align 8, !noalias !348
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIhEEEE, i64 16), ptr %19, align 8, !noalias !348
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayIhEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !348
 
@@ -12748,7 +12748,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !348
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !348
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayIhEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !348
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayIhEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !348
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !348
   store ptr %19, ptr %0, align 8, !alias.scope !345
@@ -12783,10 +12783,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIsEEEER
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !351
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !354
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayIsEEEE, i64 16), ptr %19, align 8, !noalias !354
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayIsEEEE, i64 16), ptr %19, align 8, !noalias !354
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !354
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIsEEEE, i64 16), ptr %19, align 8, !noalias !354
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIsEEEE, i64 16), ptr %19, align 8, !noalias !354
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayIsEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !354
 
@@ -12825,7 +12825,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !354
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !354
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayIsEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !354
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayIsEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !354
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !354
   store ptr %19, ptr %0, align 8, !alias.scope !351
@@ -12860,10 +12860,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayItEEEER
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !357
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !360
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayItEEEE, i64 16), ptr %19, align 8, !noalias !360
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayItEEEE, i64 16), ptr %19, align 8, !noalias !360
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !360
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayItEEEE, i64 16), ptr %19, align 8, !noalias !360
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayItEEEE, i64 16), ptr %19, align 8, !noalias !360
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayItEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !360
 
@@ -12902,7 +12902,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !360
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !360
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayItEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !360
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayItEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !360
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !360
   store ptr %19, ptr %0, align 8, !alias.scope !357
@@ -12937,10 +12937,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIiEEEER
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !363
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !366
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayIiEEEE, i64 16), ptr %19, align 8, !noalias !366
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayIiEEEE, i64 16), ptr %19, align 8, !noalias !366
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !366
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIiEEEE, i64 16), ptr %19, align 8, !noalias !366
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIiEEEE, i64 16), ptr %19, align 8, !noalias !366
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayIiEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !366
 
@@ -12979,7 +12979,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !366
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !366
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayIiEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !366
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayIiEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !366
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !366
   store ptr %19, ptr %0, align 8, !alias.scope !363
@@ -13014,10 +13014,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIjEEEER
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !369
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !372
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayIjEEEE, i64 16), ptr %19, align 8, !noalias !372
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayIjEEEE, i64 16), ptr %19, align 8, !noalias !372
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !372
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIjEEEE, i64 16), ptr %19, align 8, !noalias !372
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIjEEEE, i64 16), ptr %19, align 8, !noalias !372
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayIjEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !372
 
@@ -13056,7 +13056,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !372
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !372
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayIjEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !372
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayIjEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !372
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !372
   store ptr %19, ptr %0, align 8, !alias.scope !369
@@ -13091,10 +13091,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIlEEEER
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !375
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !378
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayIlEEEE, i64 16), ptr %19, align 8, !noalias !378
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayIlEEEE, i64 16), ptr %19, align 8, !noalias !378
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !378
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIlEEEE, i64 16), ptr %19, align 8, !noalias !378
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIlEEEE, i64 16), ptr %19, align 8, !noalias !378
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayIlEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !378
 
@@ -13133,7 +13133,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !378
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !378
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayIlEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !378
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayIlEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !378
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !378
   store ptr %19, ptr %0, align 8, !alias.scope !375
@@ -13168,10 +13168,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayImEEEER
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !381
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !384
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayImEEEE, i64 16), ptr %19, align 8, !noalias !384
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayImEEEE, i64 16), ptr %19, align 8, !noalias !384
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !384
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayImEEEE, i64 16), ptr %19, align 8, !noalias !384
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayImEEEE, i64 16), ptr %19, align 8, !noalias !384
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayImEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !384
 
@@ -13210,7 +13210,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !384
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !384
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayImEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !384
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayImEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !384
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !384
   store ptr %19, ptr %0, align 8, !alias.scope !381
@@ -13245,10 +13245,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIdEEEER
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !387
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !390
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayIdEEEE, i64 16), ptr %19, align 8, !noalias !390
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayIdEEEE, i64 16), ptr %19, align 8, !noalias !390
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !390
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIdEEEE, i64 16), ptr %19, align 8, !noalias !390
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIdEEEE, i64 16), ptr %19, align 8, !noalias !390
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayIdEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !390
 
@@ -13287,7 +13287,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !390
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !390
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayIdEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !390
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayIdEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !390
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !390
   store ptr %19, ptr %0, align 8, !alias.scope !387
@@ -13322,10 +13322,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIfEEEER
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !393
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !396
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayIfEEEE, i64 16), ptr %19, align 8, !noalias !396
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayIfEEEE, i64 16), ptr %19, align 8, !noalias !396
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !396
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIfEEEE, i64 16), ptr %19, align 8, !noalias !396
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIfEEEE, i64 16), ptr %19, align 8, !noalias !396
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayIfEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !396
 
@@ -13364,7 +13364,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !396
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !396
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayIfEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !396
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayIfEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !396
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !396
   store ptr %19, ptr %0, align 8, !alias.scope !393
@@ -13399,10 +13399,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_8px
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !399
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !402
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_8pxr_half4halfEEEEE, i64 16), ptr %19, align 8, !noalias !402
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_8pxr_half4halfEEEEE, i64 16), ptr %19, align 8, !noalias !402
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !402
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_8pxr_half4halfEEEEE, i64 16), ptr %19, align 8, !noalias !402
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_8pxr_half4halfEEEEE, i64 16), ptr %19, align 8, !noalias !402
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_8pxr_half4halfEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !402
 
@@ -13441,7 +13441,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !402
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !402
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_8pxr_half4halfEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !402
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_8pxr_half4halfEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !402
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !402
   store ptr %19, ptr %0, align 8, !alias.scope !399
@@ -13476,10 +13476,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINSt7__
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !405
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !408
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE, i64 16), ptr %19, align 8, !noalias !408
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE, i64 16), ptr %19, align 8, !noalias !408
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !408
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE, i64 16), ptr %19, align 8, !noalias !408
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE, i64 16), ptr %19, align 8, !noalias !408
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !408
 
@@ -13518,7 +13518,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !408
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !408
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !408
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !408
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !408
   store ptr %19, ptr %0, align 8, !alias.scope !405
@@ -13553,10 +13553,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Tf
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !411
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !414
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7TfTokenEEEEE, i64 16), ptr %19, align 8, !noalias !414
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7TfTokenEEEEE, i64 16), ptr %19, align 8, !noalias !414
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !414
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7TfTokenEEEEE, i64 16), ptr %19, align 8, !noalias !414
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7TfTokenEEEEE, i64 16), ptr %19, align 8, !noalias !414
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7VtArrayINS_7TfTokenEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !414
 
@@ -13595,7 +13595,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !414
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !414
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7TfTokenEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !414
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7VtArrayINS0_7TfTokenEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !414
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !414
   store ptr %19, ptr %0, align 8, !alias.scope !411
@@ -13630,10 +13630,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec4iEEERKT_
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !417
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !420
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfVec4iEEE, i64 16), ptr %19, align 8, !noalias !420
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfVec4iEEE, i64 16), ptr %19, align 8, !noalias !420
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !420
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec4iEEE, i64 16), ptr %19, align 8, !noalias !420
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec4iEEE, i64 16), ptr %19, align 8, !noalias !420
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7GfVec4iEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !420
 
@@ -13672,7 +13672,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !420
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !420
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfVec4iEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !420
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfVec4iEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !420
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !420
   store ptr %19, ptr %0, align 8, !alias.scope !417
@@ -13707,10 +13707,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec3iEEERKT_
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !423
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !426
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfVec3iEEE, i64 16), ptr %19, align 8, !noalias !426
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfVec3iEEE, i64 16), ptr %19, align 8, !noalias !426
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !426
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec3iEEE, i64 16), ptr %19, align 8, !noalias !426
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec3iEEE, i64 16), ptr %19, align 8, !noalias !426
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7GfVec3iEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !426
 
@@ -13749,7 +13749,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !426
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !426
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfVec3iEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !426
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfVec3iEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !426
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !426
   store ptr %19, ptr %0, align 8, !alias.scope !423
@@ -13784,10 +13784,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec2iEEERKT_
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !429
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !432
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfVec2iEEE, i64 16), ptr %19, align 8, !noalias !432
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfVec2iEEE, i64 16), ptr %19, align 8, !noalias !432
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !432
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec2iEEE, i64 16), ptr %19, align 8, !noalias !432
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec2iEEE, i64 16), ptr %19, align 8, !noalias !432
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7GfVec2iEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !432
 
@@ -13826,7 +13826,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !432
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !432
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfVec2iEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !432
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfVec2iEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !432
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !432
   store ptr %19, ptr %0, align 8, !alias.scope !429
@@ -13861,10 +13861,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec4hEEERKT_
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !435
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !438
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfVec4hEEE, i64 16), ptr %19, align 8, !noalias !438
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfVec4hEEE, i64 16), ptr %19, align 8, !noalias !438
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !438
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec4hEEE, i64 16), ptr %19, align 8, !noalias !438
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec4hEEE, i64 16), ptr %19, align 8, !noalias !438
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7GfVec4hEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !438
 
@@ -13903,7 +13903,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !438
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !438
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfVec4hEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !438
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfVec4hEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !438
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !438
   store ptr %19, ptr %0, align 8, !alias.scope !435
@@ -13938,10 +13938,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec3hEEERKT_
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !441
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !444
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfVec3hEEE, i64 16), ptr %19, align 8, !noalias !444
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfVec3hEEE, i64 16), ptr %19, align 8, !noalias !444
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !444
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec3hEEE, i64 16), ptr %19, align 8, !noalias !444
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec3hEEE, i64 16), ptr %19, align 8, !noalias !444
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7GfVec3hEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !444
 
@@ -13980,7 +13980,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !444
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !444
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfVec3hEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !444
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfVec3hEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !444
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !444
   store ptr %19, ptr %0, align 8, !alias.scope !441
@@ -14015,10 +14015,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec2hEEERKT_
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !447
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !450
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfVec2hEEE, i64 16), ptr %19, align 8, !noalias !450
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfVec2hEEE, i64 16), ptr %19, align 8, !noalias !450
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !450
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec2hEEE, i64 16), ptr %19, align 8, !noalias !450
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec2hEEE, i64 16), ptr %19, align 8, !noalias !450
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7GfVec2hEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !450
 
@@ -14057,7 +14057,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !450
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !450
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfVec2hEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !450
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfVec2hEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !450
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !450
   store ptr %19, ptr %0, align 8, !alias.scope !447
@@ -14092,10 +14092,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec4fEEERKT_
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !453
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !456
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfVec4fEEE, i64 16), ptr %19, align 8, !noalias !456
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfVec4fEEE, i64 16), ptr %19, align 8, !noalias !456
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !456
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec4fEEE, i64 16), ptr %19, align 8, !noalias !456
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec4fEEE, i64 16), ptr %19, align 8, !noalias !456
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7GfVec4fEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !456
 
@@ -14134,7 +14134,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !456
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !456
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfVec4fEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !456
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfVec4fEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !456
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !456
   store ptr %19, ptr %0, align 8, !alias.scope !453
@@ -14169,10 +14169,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec3fEEERKT_
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !459
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !462
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfVec3fEEE, i64 16), ptr %19, align 8, !noalias !462
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfVec3fEEE, i64 16), ptr %19, align 8, !noalias !462
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !462
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec3fEEE, i64 16), ptr %19, align 8, !noalias !462
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec3fEEE, i64 16), ptr %19, align 8, !noalias !462
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7GfVec3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !462
 
@@ -14211,7 +14211,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !462
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !462
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfVec3fEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !462
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfVec3fEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !462
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !462
   store ptr %19, ptr %0, align 8, !alias.scope !459
@@ -14246,10 +14246,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec2fEEERKT_
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !465
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !468
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfVec2fEEE, i64 16), ptr %19, align 8, !noalias !468
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfVec2fEEE, i64 16), ptr %19, align 8, !noalias !468
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !468
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec2fEEE, i64 16), ptr %19, align 8, !noalias !468
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec2fEEE, i64 16), ptr %19, align 8, !noalias !468
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7GfVec2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !468
 
@@ -14288,7 +14288,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !468
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !468
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfVec2fEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !468
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfVec2fEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !468
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !468
   store ptr %19, ptr %0, align 8, !alias.scope !465
@@ -14323,10 +14323,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec4dEEERKT_
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !471
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !474
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfVec4dEEE, i64 16), ptr %19, align 8, !noalias !474
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfVec4dEEE, i64 16), ptr %19, align 8, !noalias !474
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !474
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec4dEEE, i64 16), ptr %19, align 8, !noalias !474
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec4dEEE, i64 16), ptr %19, align 8, !noalias !474
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7GfVec4dEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !474
 
@@ -14365,7 +14365,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !474
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !474
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfVec4dEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !474
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfVec4dEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !474
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !474
   store ptr %19, ptr %0, align 8, !alias.scope !471
@@ -14400,10 +14400,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec3dEEERKT_
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !477
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !480
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfVec3dEEE, i64 16), ptr %19, align 8, !noalias !480
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfVec3dEEE, i64 16), ptr %19, align 8, !noalias !480
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !480
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec3dEEE, i64 16), ptr %19, align 8, !noalias !480
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec3dEEE, i64 16), ptr %19, align 8, !noalias !480
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7GfVec3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !480
 
@@ -14442,7 +14442,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !480
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !480
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfVec3dEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !480
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfVec3dEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !480
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !480
   store ptr %19, ptr %0, align 8, !alias.scope !477
@@ -14477,10 +14477,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec2dEEERKT_
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !483
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !486
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfVec2dEEE, i64 16), ptr %19, align 8, !noalias !486
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfVec2dEEE, i64 16), ptr %19, align 8, !noalias !486
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !486
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec2dEEE, i64 16), ptr %19, align 8, !noalias !486
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec2dEEE, i64 16), ptr %19, align 8, !noalias !486
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7GfVec2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !486
 
@@ -14519,7 +14519,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !486
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !486
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfVec2dEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !486
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfVec2dEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !486
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !486
   store ptr %19, ptr %0, align 8, !alias.scope !483
@@ -14554,10 +14554,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix4fEEE
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !489
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !492
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_10GfMatrix4fEEE, i64 16), ptr %19, align 8, !noalias !492
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_10GfMatrix4fEEE, i64 16), ptr %19, align 8, !noalias !492
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !492
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_10GfMatrix4fEEE, i64 16), ptr %19, align 8, !noalias !492
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_10GfMatrix4fEEE, i64 16), ptr %19, align 8, !noalias !492
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_10GfMatrix4fEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !492
 
@@ -14596,7 +14596,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !492
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !492
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_10GfMatrix4fEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !492
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_10GfMatrix4fEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !492
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !492
   store ptr %19, ptr %0, align 8, !alias.scope !489
@@ -14631,10 +14631,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix3fEEE
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !495
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !498
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_10GfMatrix3fEEE, i64 16), ptr %19, align 8, !noalias !498
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_10GfMatrix3fEEE, i64 16), ptr %19, align 8, !noalias !498
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !498
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_10GfMatrix3fEEE, i64 16), ptr %19, align 8, !noalias !498
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_10GfMatrix3fEEE, i64 16), ptr %19, align 8, !noalias !498
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_10GfMatrix3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !498
 
@@ -14673,7 +14673,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !498
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !498
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_10GfMatrix3fEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !498
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_10GfMatrix3fEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !498
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !498
   store ptr %19, ptr %0, align 8, !alias.scope !495
@@ -14708,10 +14708,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix2fEEE
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !501
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !504
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_10GfMatrix2fEEE, i64 16), ptr %19, align 8, !noalias !504
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_10GfMatrix2fEEE, i64 16), ptr %19, align 8, !noalias !504
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !504
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_10GfMatrix2fEEE, i64 16), ptr %19, align 8, !noalias !504
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_10GfMatrix2fEEE, i64 16), ptr %19, align 8, !noalias !504
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_10GfMatrix2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !504
 
@@ -14750,7 +14750,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !504
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !504
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_10GfMatrix2fEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !504
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_10GfMatrix2fEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !504
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !504
   store ptr %19, ptr %0, align 8, !alias.scope !501
@@ -14785,10 +14785,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix4dEEE
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !507
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !510
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_10GfMatrix4dEEE, i64 16), ptr %19, align 8, !noalias !510
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_10GfMatrix4dEEE, i64 16), ptr %19, align 8, !noalias !510
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !510
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_10GfMatrix4dEEE, i64 16), ptr %19, align 8, !noalias !510
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_10GfMatrix4dEEE, i64 16), ptr %19, align 8, !noalias !510
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_10GfMatrix4dEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !510
 
@@ -14827,7 +14827,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !510
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !510
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_10GfMatrix4dEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !510
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_10GfMatrix4dEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !510
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !510
   store ptr %19, ptr %0, align 8, !alias.scope !507
@@ -14862,10 +14862,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix3dEEE
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !513
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !516
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_10GfMatrix3dEEE, i64 16), ptr %19, align 8, !noalias !516
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_10GfMatrix3dEEE, i64 16), ptr %19, align 8, !noalias !516
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !516
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_10GfMatrix3dEEE, i64 16), ptr %19, align 8, !noalias !516
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_10GfMatrix3dEEE, i64 16), ptr %19, align 8, !noalias !516
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_10GfMatrix3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !516
 
@@ -14904,7 +14904,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !516
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !516
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_10GfMatrix3dEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !516
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_10GfMatrix3dEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !516
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !516
   store ptr %19, ptr %0, align 8, !alias.scope !513
@@ -14939,10 +14939,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix2dEEE
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !519
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !522
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_10GfMatrix2dEEE, i64 16), ptr %19, align 8, !noalias !522
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_10GfMatrix2dEEE, i64 16), ptr %19, align 8, !noalias !522
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !522
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_10GfMatrix2dEEE, i64 16), ptr %19, align 8, !noalias !522
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_10GfMatrix2dEEE, i64 16), ptr %19, align 8, !noalias !522
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_10GfMatrix2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !522
 
@@ -14981,7 +14981,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !522
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !522
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_10GfMatrix2dEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !522
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_10GfMatrix2dEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !522
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !522
   store ptr %19, ptr %0, align 8, !alias.scope !519
@@ -15016,10 +15016,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange3fEEERK
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !525
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !528
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_9GfRange3fEEE, i64 16), ptr %19, align 8, !noalias !528
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_9GfRange3fEEE, i64 16), ptr %19, align 8, !noalias !528
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !528
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_9GfRange3fEEE, i64 16), ptr %19, align 8, !noalias !528
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_9GfRange3fEEE, i64 16), ptr %19, align 8, !noalias !528
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_9GfRange3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !528
 
@@ -15058,7 +15058,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !528
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !528
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_9GfRange3fEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !528
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_9GfRange3fEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !528
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !528
   store ptr %19, ptr %0, align 8, !alias.scope !525
@@ -15093,10 +15093,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange3dEEERK
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !531
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !534
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_9GfRange3dEEE, i64 16), ptr %19, align 8, !noalias !534
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_9GfRange3dEEE, i64 16), ptr %19, align 8, !noalias !534
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !534
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_9GfRange3dEEE, i64 16), ptr %19, align 8, !noalias !534
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_9GfRange3dEEE, i64 16), ptr %19, align 8, !noalias !534
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_9GfRange3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !534
 
@@ -15135,7 +15135,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !534
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !534
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_9GfRange3dEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !534
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_9GfRange3dEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !534
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !534
   store ptr %19, ptr %0, align 8, !alias.scope !531
@@ -15170,10 +15170,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange2fEEERK
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !537
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !540
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_9GfRange2fEEE, i64 16), ptr %19, align 8, !noalias !540
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_9GfRange2fEEE, i64 16), ptr %19, align 8, !noalias !540
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !540
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_9GfRange2fEEE, i64 16), ptr %19, align 8, !noalias !540
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_9GfRange2fEEE, i64 16), ptr %19, align 8, !noalias !540
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_9GfRange2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !540
 
@@ -15212,7 +15212,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !540
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !540
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_9GfRange2fEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !540
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_9GfRange2fEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !540
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !540
   store ptr %19, ptr %0, align 8, !alias.scope !537
@@ -15247,10 +15247,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange2dEEERK
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !543
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !546
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_9GfRange2dEEE, i64 16), ptr %19, align 8, !noalias !546
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_9GfRange2dEEE, i64 16), ptr %19, align 8, !noalias !546
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !546
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_9GfRange2dEEE, i64 16), ptr %19, align 8, !noalias !546
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_9GfRange2dEEE, i64 16), ptr %19, align 8, !noalias !546
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_9GfRange2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !546
 
@@ -15289,7 +15289,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !546
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !546
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_9GfRange2dEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !546
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_9GfRange2dEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !546
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !546
   store ptr %19, ptr %0, align 8, !alias.scope !543
@@ -15324,10 +15324,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange1fEEERK
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !549
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !552
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_9GfRange1fEEE, i64 16), ptr %19, align 8, !noalias !552
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_9GfRange1fEEE, i64 16), ptr %19, align 8, !noalias !552
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !552
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_9GfRange1fEEE, i64 16), ptr %19, align 8, !noalias !552
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_9GfRange1fEEE, i64 16), ptr %19, align 8, !noalias !552
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_9GfRange1fEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !552
 
@@ -15366,7 +15366,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !552
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !552
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_9GfRange1fEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !552
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_9GfRange1fEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !552
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !552
   store ptr %19, ptr %0, align 8, !alias.scope !549
@@ -15401,10 +15401,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange1dEEERK
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !555
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !558
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_9GfRange1dEEE, i64 16), ptr %19, align 8, !noalias !558
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_9GfRange1dEEE, i64 16), ptr %19, align 8, !noalias !558
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !558
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_9GfRange1dEEE, i64 16), ptr %19, align 8, !noalias !558
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_9GfRange1dEEE, i64 16), ptr %19, align 8, !noalias !558
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_9GfRange1dEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !558
 
@@ -15443,7 +15443,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !558
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !558
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_9GfRange1dEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !558
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_9GfRange1dEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !558
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !558
   store ptr %19, ptr %0, align 8, !alias.scope !555
@@ -15478,10 +15478,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfIntervalEEE
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !561
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !564
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_10GfIntervalEEE, i64 16), ptr %19, align 8, !noalias !564
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_10GfIntervalEEE, i64 16), ptr %19, align 8, !noalias !564
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !564
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_10GfIntervalEEE, i64 16), ptr %19, align 8, !noalias !564
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_10GfIntervalEEE, i64 16), ptr %19, align 8, !noalias !564
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_10GfIntervalEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !564
 
@@ -15520,7 +15520,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !564
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !564
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_10GfIntervalEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !564
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_10GfIntervalEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !564
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !564
   store ptr %19, ptr %0, align 8, !alias.scope !561
@@ -15555,10 +15555,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8GfRect2iEEERKT
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !567
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !570
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_8GfRect2iEEE, i64 16), ptr %19, align 8, !noalias !570
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_8GfRect2iEEE, i64 16), ptr %19, align 8, !noalias !570
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !570
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_8GfRect2iEEE, i64 16), ptr %19, align 8, !noalias !570
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_8GfRect2iEEE, i64 16), ptr %19, align 8, !noalias !570
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_8GfRect2iEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !570
 
@@ -15597,7 +15597,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !570
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !570
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_8GfRect2iEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !570
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_8GfRect2iEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !570
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !570
   store ptr %19, ptr %0, align 8, !alias.scope !567
@@ -15632,10 +15632,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfQuathEEERKT_
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !573
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !576
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfQuathEEE, i64 16), ptr %19, align 8, !noalias !576
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfQuathEEE, i64 16), ptr %19, align 8, !noalias !576
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !576
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfQuathEEE, i64 16), ptr %19, align 8, !noalias !576
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfQuathEEE, i64 16), ptr %19, align 8, !noalias !576
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7GfQuathEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !576
 
@@ -15674,7 +15674,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !576
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !576
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfQuathEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !576
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfQuathEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !576
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !576
   store ptr %19, ptr %0, align 8, !alias.scope !573
@@ -15709,10 +15709,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfQuatfEEERKT_
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !579
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !582
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfQuatfEEE, i64 16), ptr %19, align 8, !noalias !582
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfQuatfEEE, i64 16), ptr %19, align 8, !noalias !582
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !582
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfQuatfEEE, i64 16), ptr %19, align 8, !noalias !582
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfQuatfEEE, i64 16), ptr %19, align 8, !noalias !582
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7GfQuatfEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !582
 
@@ -15751,7 +15751,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !582
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !582
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfQuatfEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !582
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfQuatfEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !582
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !582
   store ptr %19, ptr %0, align 8, !alias.scope !579
@@ -15786,10 +15786,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfQuatdEEERKT_
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !585
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !588
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfQuatdEEE, i64 16), ptr %19, align 8, !noalias !588
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7GfQuatdEEE, i64 16), ptr %19, align 8, !noalias !588
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !588
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfQuatdEEE, i64 16), ptr %19, align 8, !noalias !588
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfQuatdEEE, i64 16), ptr %19, align 8, !noalias !588
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_7GfQuatdEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !588
 
@@ -15828,7 +15828,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !588
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !588
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfQuatdEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !588
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_7GfQuatdEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !588
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !588
   store ptr %19, ptr %0, align 8, !alias.scope !585
@@ -15863,10 +15863,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_12GfQuaternionE
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !591
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !594
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_12GfQuaternionEEE, i64 16), ptr %19, align 8, !noalias !594
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_12GfQuaternionEEE, i64 16), ptr %19, align 8, !noalias !594
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !594
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_12GfQuaternionEEE, i64 16), ptr %19, align 8, !noalias !594
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_12GfQuaternionEEE, i64 16), ptr %19, align 8, !noalias !594
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_12GfQuaternionEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !594
 
@@ -15905,7 +15905,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !594
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !594
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_12GfQuaternionEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !594
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_12GfQuaternionEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !594
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !594
   store ptr %19, ptr %0, align 8, !alias.scope !591
@@ -15940,10 +15940,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_11GfDualQuathEE
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !597
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !600
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_11GfDualQuathEEE, i64 16), ptr %19, align 8, !noalias !600
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_11GfDualQuathEEE, i64 16), ptr %19, align 8, !noalias !600
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !600
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_11GfDualQuathEEE, i64 16), ptr %19, align 8, !noalias !600
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_11GfDualQuathEEE, i64 16), ptr %19, align 8, !noalias !600
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_11GfDualQuathEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !600
 
@@ -15982,7 +15982,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !600
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !600
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_11GfDualQuathEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !600
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_11GfDualQuathEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !600
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !600
   store ptr %19, ptr %0, align 8, !alias.scope !597
@@ -16017,10 +16017,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_11GfDualQuatfEE
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !603
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !606
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_11GfDualQuatfEEE, i64 16), ptr %19, align 8, !noalias !606
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_11GfDualQuatfEEE, i64 16), ptr %19, align 8, !noalias !606
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !606
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_11GfDualQuatfEEE, i64 16), ptr %19, align 8, !noalias !606
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_11GfDualQuatfEEE, i64 16), ptr %19, align 8, !noalias !606
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_11GfDualQuatfEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !606
 
@@ -16059,7 +16059,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !606
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !606
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_11GfDualQuatfEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !606
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_11GfDualQuatfEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !606
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !606
   store ptr %19, ptr %0, align 8, !alias.scope !603
@@ -16094,10 +16094,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_11GfDualQuatdEE
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !609
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !612
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_11GfDualQuatdEEE, i64 16), ptr %19, align 8, !noalias !612
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_11GfDualQuatdEEE, i64 16), ptr %19, align 8, !noalias !612
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !612
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_11GfDualQuatdEEE, i64 16), ptr %19, align 8, !noalias !612
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_11GfDualQuatdEEE, i64 16), ptr %19, align 8, !noalias !612
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_11GfDualQuatdEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !612
 
@@ -16136,7 +16136,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !612
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !612
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_11GfDualQuatdEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !612
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_11GfDualQuatdEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !612
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !612
   store ptr %19, ptr %0, align 8, !alias.scope !609
@@ -16171,10 +16171,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfFrustumEEERK
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !615
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !618
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_9GfFrustumEEE, i64 16), ptr %19, align 8, !noalias !618
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_9GfFrustumEEE, i64 16), ptr %19, align 8, !noalias !618
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !618
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_9GfFrustumEEE, i64 16), ptr %19, align 8, !noalias !618
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_9GfFrustumEEE, i64 16), ptr %19, align 8, !noalias !618
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_9GfFrustumEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !618
 
@@ -16213,7 +16213,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !618
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !618
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_9GfFrustumEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !618
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_9GfFrustumEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !618
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !618
   store ptr %19, ptr %0, align 8, !alias.scope !615
@@ -16248,10 +16248,10 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_15GfMultiInterv
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.val.i = load i64, ptr %2, align 8, !noalias !621
   %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !624
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_15GfMultiIntervalEEE, i64 16), ptr %19, align 8, !noalias !624
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_15GfMultiIntervalEEE, i64 16), ptr %19, align 8, !noalias !624
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !624
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_15GfMultiIntervalEEE, i64 16), ptr %19, align 8, !noalias !624
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_15GfMultiIntervalEEE, i64 16), ptr %19, align 8, !noalias !624
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclINS_15GfMultiIntervalEEESt10shared_ptrINS_16HdDataSourceBaseEERKT_.exit unwind label %22, !noalias !624
 
@@ -16290,7 +16290,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %33, align 8, !noalias !624
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4, !noalias !624
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_15GfMultiIntervalEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !624
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS0_15GfMultiIntervalEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !624
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %19, ptr %35, align 8, !noalias !624
   store ptr %19, ptr %0, align 8, !alias.scope !621
@@ -16309,10 +16309,10 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.val.i = load i64, ptr %1, align 8, !noalias !627
   %8 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26, !noalias !630
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceE, i64 16), ptr %8, align 8, !noalias !630
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceE, i64 16), ptr %8, align 8, !noalias !630
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr noundef nonnull align 8 dereferenceable(64) %9, i64 %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(8) %5, ptr noundef nonnull readonly align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 8 dereferenceable(16) %7), !noalias !630
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123_UntypedValueDataSourceE, i64 16), ptr %8, align 8, !noalias !630
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123_UntypedValueDataSourceE, i64 16), ptr %8, align 8, !noalias !630
   %10 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorclERKNS_7VtValueE.exit unwind label %11, !noalias !630
 
@@ -16351,7 +16351,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
   store i32 1, ptr %22, align 8, !noalias !630
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 1, ptr %23, align 4, !noalias !630
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123_UntypedValueDataSourceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10, align 8, !noalias !630
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123_UntypedValueDataSourceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10, align 8, !noalias !630
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %8, ptr %24, align 8, !noalias !630
   store ptr %8, ptr %0, align 8, !alias.scope !627

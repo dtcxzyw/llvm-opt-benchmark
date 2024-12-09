@@ -86,13 +86,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef i32 @zm_activate_filestat(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @basic_globals, i64 536), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @basic_globals, i64 536), i8 0, i64 16, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @zm_deactivate_filestat(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 536), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 536), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %18, label %4
 
@@ -126,11 +126,11 @@ define hidden noundef i32 @zm_deactivate_filestat(i32 noundef %0, i32 noundef %1
   br label %17
 
 17:                                               ; preds = %8, %16, %15, %4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 536), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 536), align 8
   br label %18
 
 18:                                               ; preds = %17, %2
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 544), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 544), align 8
   %.not20 = icmp eq ptr %19, null
   br i1 %.not20, label %34, label %20
 
@@ -164,7 +164,7 @@ define hidden noundef i32 @zm_deactivate_filestat(i32 noundef %0, i32 noundef %1
   br label %33
 
 33:                                               ; preds = %24, %32, %31, %20
-  store ptr null, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 544), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 544), align 8
   br label %34
 
 34:                                               ; preds = %33, %18
@@ -1216,7 +1216,7 @@ thread-pre-split:                                 ; preds = %17
 
 .critedge233:                                     ; preds = %50
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.3) #16
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %55 = icmp ne ptr %54, null
   call void @llvm.assume(i1 %55)
   br label %108
@@ -1368,7 +1368,7 @@ declare noundef i32 @utime(ptr nocapture noundef readonly, ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define void @php_clear_stat_cache(i1 noundef zeroext %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 536), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 536), align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %19, label %5
 
@@ -1402,11 +1402,11 @@ define void @php_clear_stat_cache(i1 noundef zeroext %0, ptr noundef %1, i64 nou
   br label %18
 
 18:                                               ; preds = %9, %17, %16, %5
-  store ptr null, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 536), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 536), align 8
   br label %19
 
 19:                                               ; preds = %18, %3
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 544), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 544), align 8
   %.not25 = icmp eq ptr %20, null
   br i1 %.not25, label %35, label %21
 
@@ -1440,7 +1440,7 @@ define void @php_clear_stat_cache(i1 noundef zeroext %0, ptr noundef %1, i64 nou
   br label %34
 
 34:                                               ; preds = %25, %33, %32, %21
-  store ptr null, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 544), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 544), align 8
   br label %35
 
 35:                                               ; preds = %34, %19
@@ -1730,7 +1730,7 @@ switch.lookup:                                    ; preds = %.critedge827
   br i1 %.not804, label %84, label %72
 
 72:                                               ; preds = %70
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 544), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 544), align 8
   %74 = icmp eq ptr %0, %73
   br i1 %74, label %173, label %75
 
@@ -1751,7 +1751,7 @@ switch.lookup:                                    ; preds = %.critedge827
   br i1 %83, label %173, label %.critedge
 
 84:                                               ; preds = %70
-  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 536), align 8
+  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 536), align 8
   %86 = icmp eq ptr %0, %85
   br i1 %86, label %173, label %87
 
@@ -1853,7 +1853,7 @@ switch.lookup:                                    ; preds = %.critedge827
   br i1 %.not804, label %.critedge831, label %125
 
 125:                                              ; preds = %124
-  %126 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 544), align 8
+  %126 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 544), align 8
   %.not814 = icmp eq ptr %126, null
   br i1 %.not814, label %140, label %127
 
@@ -1900,15 +1900,15 @@ switch.lookup:                                    ; preds = %.critedge827
   br label %147
 
 147:                                              ; preds = %140, %144
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 544), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) getelementptr inbounds (i8, ptr @basic_globals, i64 696), ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 544), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) getelementptr inbounds nuw (i8, ptr @basic_globals, i64 696), ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
   %148 = load i32, ptr %.0.sroa.gep840, align 8
   %149 = and i32 %148, 61440
   %150 = icmp eq i32 %149, 40960
   br i1 %150, label %173, label %.critedge831
 
 .critedge831:                                     ; preds = %124, %147
-  %151 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 536), align 8
+  %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 536), align 8
   %.not818 = icmp eq ptr %151, null
   br i1 %.not818, label %165, label %152
 
@@ -1955,25 +1955,25 @@ switch.lookup:                                    ; preds = %.critedge827
   br label %172
 
 172:                                              ; preds = %169, %165
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 536), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) getelementptr inbounds (i8, ptr @basic_globals, i64 552), ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 536), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) getelementptr inbounds nuw (i8, ptr @basic_globals, i64 552), ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
   br label %173
 
 173:                                              ; preds = %84, %94, %72, %82, %147, %172
   %.1774 = phi ptr [ %.2775922, %147 ], [ %.2775922, %172 ], [ %.0773, %82 ], [ %.0773, %72 ], [ %.0773, %94 ], [ %.0773, %84 ]
-  %.0.sroa.phi = phi ptr [ %.0.sroa.gep, %147 ], [ %.0.sroa.gep, %172 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 724), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 724), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 580), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 580), %84 ]
-  %.0.sroa.phi833 = phi ptr [ %.0.sroa.gep834, %147 ], [ %.0.sroa.gep834, %172 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 728), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 728), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 584), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 584), %84 ]
-  %.0.sroa.phi836 = phi ptr [ %.0.sroa.gep837, %147 ], [ %.0.sroa.gep837, %172 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 704), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 704), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 560), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 560), %84 ]
-  %.0.sroa.phi839 = phi ptr [ %.0.sroa.gep840, %147 ], [ %.0.sroa.gep840, %172 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 720), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 720), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 576), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 576), %84 ]
-  %.0.sroa.phi842 = phi ptr [ %.0.sroa.gep843, %147 ], [ %.0.sroa.gep843, %172 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 712), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 712), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 568), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 568), %84 ]
-  %.0.sroa.phi851 = phi ptr [ %.0.sroa.gep852, %147 ], [ %.0.sroa.gep852, %172 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 736), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 736), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 592), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 592), %84 ]
-  %.0.sroa.phi854 = phi ptr [ %.0.sroa.gep855, %147 ], [ %.0.sroa.gep855, %172 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 744), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 744), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 600), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 600), %84 ]
-  %.0.sroa.phi857 = phi ptr [ %.0.sroa.gep858, %147 ], [ %.0.sroa.gep858, %172 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 768), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 768), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 624), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 624), %84 ]
-  %.0.sroa.phi860 = phi ptr [ %.0.sroa.gep861, %147 ], [ %.0.sroa.gep861, %172 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 784), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 784), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 640), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 640), %84 ]
-  %.0.sroa.phi863 = phi ptr [ %.0.sroa.gep864, %147 ], [ %.0.sroa.gep864, %172 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 800), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 800), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 656), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 656), %84 ]
-  %.0.sroa.phi866 = phi ptr [ %.0.sroa.gep867, %147 ], [ %.0.sroa.gep867, %172 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 752), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 752), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 608), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 608), %84 ]
-  %.0.sroa.phi869 = phi ptr [ %.0.sroa.gep870, %147 ], [ %.0.sroa.gep870, %172 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 760), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 760), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 616), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 616), %84 ]
-  %.0 = phi ptr [ %4, %147 ], [ %4, %172 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 696), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 696), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 552), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 552), %84 ]
+  %.0.sroa.phi = phi ptr [ %.0.sroa.gep, %147 ], [ %.0.sroa.gep, %172 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 724), %82 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 724), %72 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 580), %94 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 580), %84 ]
+  %.0.sroa.phi833 = phi ptr [ %.0.sroa.gep834, %147 ], [ %.0.sroa.gep834, %172 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 728), %82 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 728), %72 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 584), %94 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 584), %84 ]
+  %.0.sroa.phi836 = phi ptr [ %.0.sroa.gep837, %147 ], [ %.0.sroa.gep837, %172 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 704), %82 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 704), %72 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 560), %94 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 560), %84 ]
+  %.0.sroa.phi839 = phi ptr [ %.0.sroa.gep840, %147 ], [ %.0.sroa.gep840, %172 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 720), %82 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 720), %72 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 576), %94 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 576), %84 ]
+  %.0.sroa.phi842 = phi ptr [ %.0.sroa.gep843, %147 ], [ %.0.sroa.gep843, %172 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 712), %82 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 712), %72 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 568), %94 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 568), %84 ]
+  %.0.sroa.phi851 = phi ptr [ %.0.sroa.gep852, %147 ], [ %.0.sroa.gep852, %172 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 736), %82 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 736), %72 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 592), %94 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 592), %84 ]
+  %.0.sroa.phi854 = phi ptr [ %.0.sroa.gep855, %147 ], [ %.0.sroa.gep855, %172 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 744), %82 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 744), %72 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 600), %94 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 600), %84 ]
+  %.0.sroa.phi857 = phi ptr [ %.0.sroa.gep858, %147 ], [ %.0.sroa.gep858, %172 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 768), %82 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 768), %72 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 624), %94 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 624), %84 ]
+  %.0.sroa.phi860 = phi ptr [ %.0.sroa.gep861, %147 ], [ %.0.sroa.gep861, %172 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 784), %82 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 784), %72 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 640), %94 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 640), %84 ]
+  %.0.sroa.phi863 = phi ptr [ %.0.sroa.gep864, %147 ], [ %.0.sroa.gep864, %172 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 800), %82 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 800), %72 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 656), %94 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 656), %84 ]
+  %.0.sroa.phi866 = phi ptr [ %.0.sroa.gep867, %147 ], [ %.0.sroa.gep867, %172 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 752), %82 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 752), %72 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 608), %94 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 608), %84 ]
+  %.0.sroa.phi869 = phi ptr [ %.0.sroa.gep870, %147 ], [ %.0.sroa.gep870, %172 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 760), %82 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 760), %72 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 616), %94 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 616), %84 ]
+  %.0 = phi ptr [ %4, %147 ], [ %4, %172 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 696), %82 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 696), %72 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 552), %94 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 552), %84 ]
   br i1 %or.cond3, label %174, label %.thread933
 
 174:                                              ; preds = %173

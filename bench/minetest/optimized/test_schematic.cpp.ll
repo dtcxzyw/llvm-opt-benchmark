@@ -200,7 +200,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8TestBase, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8TestBase, i64 16), ptr %this, align 8, !tbaa !4
   %m_test_dir = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_test_dir, align 8, !tbaa !7
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -454,7 +454,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss) #25
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1ESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(128) %ss, i32 noundef 28)
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %schem) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %schem, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6ObjDef, i64 16), ptr %schem, align 8, !tbaa !4
   %name.i.i = getelementptr inbounds nuw i8, ptr %schem, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %schem, i64 40
   store ptr %0, ptr %name.i.i, align 8, !tbaa !45
@@ -468,7 +468,7 @@ entry:
 lpad.i:                                           ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %schem, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6ObjDef, i64 16), ptr %schem, align 8, !tbaa !4
   %3 = load ptr, ptr %name.i.i, align 8, !tbaa !7
   %cmp.i.i.i.i.i = icmp eq ptr %3, %0
   br i1 %cmp.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i.i.i.i
@@ -484,8 +484,8 @@ if.then.i.i.i.i:                                  ; preds = %lpad.i
   br label %ehcleanup412
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9Schematic, i64 16), ptr %schem, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9Schematic, i64 64), ptr %1, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9Schematic, i64 16), ptr %schem, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9Schematic, i64 64), ptr %1, align 8, !tbaa !4
   %c_nodes.i = getelementptr inbounds nuw i8, ptr %schem, i64 136
   %schemdata.i = getelementptr inbounds nuw i8, ptr %schem, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %c_nodes.i, i8 0, i64 34, i1 false)
@@ -731,7 +731,7 @@ if.end:                                           ; preds = %invoke.cont29
 
 invoke.cont40:                                    ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %schem2) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %schem2, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6ObjDef, i64 16), ptr %schem2, align 8, !tbaa !4
   %name.i.i550 = getelementptr inbounds nuw i8, ptr %schem2, i64 24
   %40 = getelementptr inbounds nuw i8, ptr %schem2, i64 40
   store ptr %40, ptr %name.i.i550, align 8, !tbaa !45
@@ -745,7 +745,7 @@ invoke.cont40:                                    ; preds = %if.end
 lpad.i552:                                        ; preds = %invoke.cont40
   %42 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %schem2, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6ObjDef, i64 16), ptr %schem2, align 8, !tbaa !4
   %43 = load ptr, ptr %name.i.i550, align 8, !tbaa !7
   %cmp.i.i.i.i.i553 = icmp eq ptr %43, %40
   br i1 %cmp.i.i.i.i.i553, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i556, label %if.then.i.i.i.i554
@@ -761,8 +761,8 @@ if.then.i.i.i.i554:                               ; preds = %lpad.i552
   br label %ehcleanup410
 
 invoke.cont43:                                    ; preds = %invoke.cont40
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9Schematic, i64 16), ptr %schem2, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9Schematic, i64 64), ptr %41, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9Schematic, i64 16), ptr %schem2, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9Schematic, i64 64), ptr %41, align 8, !tbaa !4
   %c_nodes.i558 = getelementptr inbounds nuw i8, ptr %schem2, i64 136
   %schemdata.i559 = getelementptr inbounds nuw i8, ptr %schem2, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %c_nodes.i558, i8 0, i64 34, i1 false)
@@ -2011,15 +2011,15 @@ for.cond353.5:                                    ; preds = %for.cond353.4
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %schem) #25
   %216 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %216, ptr %ss, align 8, !tbaa !4
-  %217 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
+  %217 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %216, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %217, ptr %add.ptr.i.i, align 8, !tbaa !4
-  %218 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
+  %218 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %218, ptr %add.ptr28, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 96
   %219 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !7
   %220 = getelementptr inbounds nuw i8, ptr %ss, i64 112
@@ -2038,12 +2038,12 @@ if.then.i.i.i.i.i934:                             ; preds = %for.cond353.5
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i934, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #25
-  %222 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
+  %222 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %222, ptr %ss, align 8, !tbaa !4
-  %223 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %223 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %222, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -2457,7 +2457,7 @@ entry:
   %message = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %agg.tmp62 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %schem) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %schem, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6ObjDef, i64 16), ptr %schem, align 8, !tbaa !4
   %name.i.i = getelementptr inbounds nuw i8, ptr %schem, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %schem, i64 40
   store ptr %0, ptr %name.i.i, align 8, !tbaa !45
@@ -2471,7 +2471,7 @@ entry:
 lpad.i:                                           ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %schem, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6ObjDef, i64 16), ptr %schem, align 8, !tbaa !4
   %3 = load ptr, ptr %name.i.i, align 8, !tbaa !7
   %cmp.i.i.i.i.i = icmp eq ptr %3, %0
   br i1 %cmp.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i.i.i.i
@@ -2491,8 +2491,8 @@ common.resume:                                    ; preds = %ehcleanup83, %if.th
   resume { ptr, i32 } %common.resume.op
 
 _ZN9SchematicC2Ev.exit:                           ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9Schematic, i64 16), ptr %schem, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9Schematic, i64 64), ptr %1, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9Schematic, i64 16), ptr %schem, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9Schematic, i64 64), ptr %1, align 8, !tbaa !4
   %c_nodes.i = getelementptr inbounds nuw i8, ptr %schem, i64 136
   %schemdata.i = getelementptr inbounds nuw i8, ptr %schem, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %schemdata.i, i8 0, i64 16, i1 false)
@@ -2976,13 +2976,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit208: ; preds = %if
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %a) #25
   %62 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %62, ptr %ss, align 8, !tbaa !4
-  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %62, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %63, ptr %add.ptr.i.i, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 80
   %64 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !7
   %65 = getelementptr inbounds nuw i8, ptr %ss, i64 96
@@ -3001,7 +3001,7 @@ if.then.i.i.i.i.i209:                             ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i209, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #25
   %67 = getelementptr inbounds nuw i8, ptr %ss, i64 112
@@ -3092,9 +3092,9 @@ init.check:                                       ; preds = %entry
 init:                                             ; preds = %init.check
   store i16 126, ptr @_ZZN13TestSchematic28testFileSerializeDeserializeEPK14NodeDefManagerE11content_map, align 2, !tbaa !67
   %2 = load i16, ptr @t_CONTENT_STONE, align 2, !tbaa !67
-  store i16 %2, ptr getelementptr inbounds (i8, ptr @_ZZN13TestSchematic28testFileSerializeDeserializeEPK14NodeDefManagerE11content_map, i64 2), align 2, !tbaa !67
+  store i16 %2, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13TestSchematic28testFileSerializeDeserializeEPK14NodeDefManagerE11content_map, i64 2), align 2, !tbaa !67
   %3 = load i16, ptr @t_CONTENT_LAVA, align 2, !tbaa !67
-  store i16 %3, ptr getelementptr inbounds (i8, ptr @_ZZN13TestSchematic28testFileSerializeDeserializeEPK14NodeDefManagerE11content_map, i64 4), align 2, !tbaa !67
+  store i16 %3, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13TestSchematic28testFileSerializeDeserializeEPK14NodeDefManagerE11content_map, i64 4), align 2, !tbaa !67
   %4 = tail call ptr @llvm.invariant.start.p0(i64 6, ptr nonnull @_ZZN13TestSchematic28testFileSerializeDeserializeEPK14NodeDefManagerE11content_map)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13TestSchematic28testFileSerializeDeserializeEPK14NodeDefManagerE11content_map) #25
   br label %init.end
@@ -3112,9 +3112,9 @@ init.check3:                                      ; preds = %init.end
 init5:                                            ; preds = %init.check3
   store i16 126, ptr @_ZZN13TestSchematic28testFileSerializeDeserializeEPK14NodeDefManagerE12content_map2, align 2, !tbaa !67
   %7 = load i16, ptr @t_CONTENT_STONE, align 2, !tbaa !67
-  store i16 %7, ptr getelementptr inbounds (i8, ptr @_ZZN13TestSchematic28testFileSerializeDeserializeEPK14NodeDefManagerE12content_map2, i64 2), align 2, !tbaa !67
+  store i16 %7, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13TestSchematic28testFileSerializeDeserializeEPK14NodeDefManagerE12content_map2, i64 2), align 2, !tbaa !67
   %8 = load i16, ptr @t_CONTENT_WATER, align 2, !tbaa !67
-  store i16 %8, ptr getelementptr inbounds (i8, ptr @_ZZN13TestSchematic28testFileSerializeDeserializeEPK14NodeDefManagerE12content_map2, i64 4), align 2, !tbaa !67
+  store i16 %8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13TestSchematic28testFileSerializeDeserializeEPK14NodeDefManagerE12content_map2, i64 4), align 2, !tbaa !67
   %9 = tail call ptr @llvm.invariant.start.p0(i64 6, ptr nonnull @_ZZN13TestSchematic28testFileSerializeDeserializeEPK14NodeDefManagerE12content_map2)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13TestSchematic28testFileSerializeDeserializeEPK14NodeDefManagerE12content_map2) #25
   br label %init.end6
@@ -3166,7 +3166,7 @@ if.then.i.i227:                                   ; preds = %invoke.cont10
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i227, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #25
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %schem1) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %schem1, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6ObjDef, i64 16), ptr %schem1, align 8, !tbaa !4
   %name.i.i = getelementptr inbounds nuw i8, ptr %schem1, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %schem1, i64 40
   store ptr %14, ptr %name.i.i, align 8, !tbaa !45
@@ -3180,7 +3180,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 lpad.i:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %16 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %schem1, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6ObjDef, i64 16), ptr %schem1, align 8, !tbaa !4
   %17 = load ptr, ptr %name.i.i, align 8, !tbaa !7
   %cmp.i.i.i.i.i = icmp eq ptr %17, %14
   br i1 %cmp.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i.i.i.i229
@@ -3196,14 +3196,14 @@ if.then.i.i.i.i229:                               ; preds = %lpad.i
   br label %ehcleanup190
 
 invoke.cont15:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9Schematic, i64 16), ptr %schem1, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9Schematic, i64 64), ptr %15, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9Schematic, i64 16), ptr %schem1, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9Schematic, i64 64), ptr %15, align 8, !tbaa !4
   %c_nodes.i = getelementptr inbounds nuw i8, ptr %schem1, i64 136
   %schemdata.i = getelementptr inbounds nuw i8, ptr %schem1, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %c_nodes.i, i8 0, i64 34, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %schemdata.i, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %schem2) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %schem2, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6ObjDef, i64 16), ptr %schem2, align 8, !tbaa !4
   %name.i.i230 = getelementptr inbounds nuw i8, ptr %schem2, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %schem2, i64 40
   store ptr %19, ptr %name.i.i230, align 8, !tbaa !45
@@ -3217,7 +3217,7 @@ invoke.cont15:                                    ; preds = %_ZNSt7__cxx1112basi
 lpad.i232:                                        ; preds = %invoke.cont15
   %21 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %schem2, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6ObjDef, i64 16), ptr %schem2, align 8, !tbaa !4
   %22 = load ptr, ptr %name.i.i230, align 8, !tbaa !7
   %cmp.i.i.i.i.i233 = icmp eq ptr %22, %19
   br i1 %cmp.i.i.i.i.i233, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i236, label %if.then.i.i.i.i234
@@ -3233,8 +3233,8 @@ if.then.i.i.i.i234:                               ; preds = %lpad.i232
   br label %ehcleanup188
 
 invoke.cont17:                                    ; preds = %invoke.cont15
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9Schematic, i64 16), ptr %schem2, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9Schematic, i64 64), ptr %20, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9Schematic, i64 16), ptr %schem2, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9Schematic, i64 64), ptr %20, align 8, !tbaa !4
   %c_nodes.i238 = getelementptr inbounds nuw i8, ptr %schem2, i64 136
   %schemdata.i239 = getelementptr inbounds nuw i8, ptr %schem2, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %c_nodes.i238, i8 0, i64 34, i1 false)
@@ -3266,7 +3266,7 @@ invoke.cont21:                                    ; preds = %invoke.cont19
   %25 = insertelement <4 x i32> poison, i32 %ref.tmp30.sroa.0.0.insert.ext, i64 0
   %26 = shufflevector <4 x i32> %25, <4 x i32> poison, <4 x i32> zeroinitializer
   store <4 x i32> %26, ptr %call20, align 4
-  %27 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN13TestSchematic28testFileSerializeDeserializeEPK14NodeDefManagerE11content_map, i64 4), align 2, !tbaa !67
+  %27 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13TestSchematic28testFileSerializeDeserializeEPK14NodeDefManagerE11content_map, i64 4), align 2, !tbaa !67
   %arrayidx33.4 = getelementptr inbounds nuw i8, ptr %call20, i64 16
   %ref.tmp30.sroa.0.0.insert.ext.4 = zext i16 %27 to i32
   %ref.tmp30.sroa.0.0.insert.insert.4 = or disjoint i32 %ref.tmp30.sroa.0.0.insert.ext.4, 16711680
@@ -3281,7 +3281,7 @@ invoke.cont21:                                    ; preds = %invoke.cont19
   store i32 %ref.tmp30.sroa.0.0.insert.ext, ptr %arrayidx33.11, align 4, !tbaa.struct !70
   %arrayidx33.12 = getelementptr inbounds nuw i8, ptr %call20, i64 48
   store i32 %ref.tmp30.sroa.0.0.insert.insert.4, ptr %arrayidx33.12, align 4, !tbaa.struct !70
-  %28 = load i16, ptr getelementptr inbounds (i8, ptr @_ZZN13TestSchematic28testFileSerializeDeserializeEPK14NodeDefManagerE11content_map, i64 2), align 2, !tbaa !67
+  %28 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13TestSchematic28testFileSerializeDeserializeEPK14NodeDefManagerE11content_map, i64 2), align 2, !tbaa !67
   %arrayidx33.13 = getelementptr inbounds nuw i8, ptr %call20, i64 52
   %ref.tmp30.sroa.0.0.insert.ext.13 = zext i16 %28 to i32
   %ref.tmp30.sroa.0.0.insert.insert.13 = or disjoint i32 %ref.tmp30.sroa.0.0.insert.ext.13, 16711680
@@ -3999,16 +3999,16 @@ init.i:                                           ; preds = %init.check.i
   br label %_ZN11TestManager14getTestModulesEv.exit
 
 _ZN11TestManager14getTestModulesEv.exit:          ; preds = %init.i, %init.check.i, %entry
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !14
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !106
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !14
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !106
   %cmp.not.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN11TestManager14getTestModulesEv.exit
   store ptr %module, ptr %3, align 8, !tbaa !14
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !108
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !108
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %incdec.ptr.i, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !108
+  store ptr %incdec.ptr.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !108
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit
 
 if.else.i:                                        ; preds = %_ZN11TestManager14getTestModulesEv.exit
@@ -4054,9 +4054,9 @@ if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorIP8Test
 
 _ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
   store ptr %call5.i.i.i.i.i, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, align 8, !tbaa !109
-  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !108
+  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !108
   %add.ptr19.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
-  store ptr %add.ptr19.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !106
+  store ptr %add.ptr19.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !106
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i
@@ -4115,7 +4115,7 @@ declare void @_ZN12NodeResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6ObjDefD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6ObjDef, i64 16), ptr %this, align 8, !tbaa !4
   %name = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %name, align 8, !tbaa !7
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -5350,23 +5350,23 @@ define internal void @_GLOBAL__sub_I_test_schematic.cpp() #19 section ".text.sta
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32), ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !45
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 24), align 8, !tbaa !13
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32), align 8, !tbaa !46
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13TestSchematic, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 32), ptr getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !45
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 24), align 8, !tbaa !13
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 32), align 8, !tbaa !46
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13TestSchematic, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   invoke void @_ZN11TestManager18registerTestModuleEP8TestBase(ptr noundef nonnull @_ZL15g_test_instance)
           to label %__cxx_global_var_init.1.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8TestBase, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !7
-  %cmp.i.i.i.i.i.i = icmp eq ptr %2, getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8TestBase, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !7
+  %cmp.i.i.i.i.i.i = icmp eq ptr %2, getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 32)
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %lpad.i.i
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 24), align 8, !tbaa !13
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 24), align 8, !tbaa !13
   %cmp3.i.i.i.i.i.i = icmp ult i64 %3, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
   br label %_ZN8TestBaseD2Ev.exit.i.i

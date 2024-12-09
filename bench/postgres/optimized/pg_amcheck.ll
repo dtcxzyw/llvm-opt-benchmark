@@ -318,23 +318,23 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %19, !llvm.loop !5
 
 21:                                               ; preds = %19
-  store i8 1, ptr getelementptr inbounds (i8, ptr @opts, i64 1), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 1), align 1
   br label %.backedge
 
 22:                                               ; preds = %19
   store i8 1, ptr @opts, align 8
   %23 = load ptr, ptr @optarg, align 8
-  call fastcc void @append_database_pattern(ptr noundef nonnull getelementptr inbounds (i8, ptr @opts, i64 24), ptr noundef %23, i32 noundef %13)
+  call fastcc void @append_database_pattern(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @opts, i64 24), ptr noundef %23, i32 noundef %13)
   br label %.backedge
 
 24:                                               ; preds = %19
   store i8 1, ptr @opts, align 8
   %25 = load ptr, ptr @optarg, align 8
-  call fastcc void @append_database_pattern(ptr noundef nonnull getelementptr inbounds (i8, ptr @opts, i64 40), ptr noundef %25, i32 noundef %13)
+  call fastcc void @append_database_pattern(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @opts, i64 40), ptr noundef %25, i32 noundef %13)
   br label %.backedge
 
 26:                                               ; preds = %19
-  store i8 1, ptr getelementptr inbounds (i8, ptr @opts, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 2), align 2
   br label %.backedge
 
 27:                                               ; preds = %19
@@ -343,20 +343,20 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %.backedge
 
 30:                                               ; preds = %19
-  store i8 0, ptr getelementptr inbounds (i8, ptr @opts, i64 59), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 59), align 1
   %31 = load ptr, ptr @optarg, align 8
-  call fastcc void @append_relation_pattern_helper(ptr noundef nonnull getelementptr inbounds (i8, ptr @opts, i64 24), ptr noundef %31, i32 noundef %13, i1 noundef zeroext false, i1 noundef zeroext true)
+  call fastcc void @append_relation_pattern_helper(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @opts, i64 24), ptr noundef %31, i32 noundef %13, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %.backedge
 
 32:                                               ; preds = %19
-  store i8 1, ptr getelementptr inbounds (i8, ptr @opts, i64 57), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 57), align 1
   %33 = load ptr, ptr @optarg, align 8
-  call fastcc void @append_relation_pattern_helper(ptr noundef nonnull getelementptr inbounds (i8, ptr @opts, i64 40), ptr noundef %33, i32 noundef %13, i1 noundef zeroext false, i1 noundef zeroext true)
+  call fastcc void @append_relation_pattern_helper(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @opts, i64 40), ptr noundef %33, i32 noundef %13, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %.backedge
 
 34:                                               ; preds = %19
   %35 = load ptr, ptr @optarg, align 8
-  %36 = call zeroext i1 @option_parse_int(ptr noundef %35, ptr noundef nonnull @.str.36, i32 noundef 1, i32 noundef 2147483647, ptr noundef nonnull getelementptr inbounds (i8, ptr @opts, i64 8)) #12
+  %36 = call zeroext i1 @option_parse_int(ptr noundef %35, ptr noundef nonnull @.str.36, i32 noundef 1, i32 noundef 2147483647, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @opts, i64 8)) #12
   br i1 %36, label %.backedge, label %37
 
 37:                                               ; preds = %34
@@ -369,44 +369,44 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %.backedge
 
 41:                                               ; preds = %19
-  store i8 1, ptr getelementptr inbounds (i8, ptr @opts, i64 5), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 5), align 1
   br label %.backedge
 
 42:                                               ; preds = %19
-  store i8 0, ptr getelementptr inbounds (i8, ptr @opts, i64 59), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 59), align 1
   %43 = load ptr, ptr @optarg, align 8
-  call fastcc void @append_relation_pattern_helper(ptr noundef nonnull getelementptr inbounds (i8, ptr @opts, i64 24), ptr noundef %43, i32 noundef %13, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @append_relation_pattern_helper(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @opts, i64 24), ptr noundef %43, i32 noundef %13, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %.backedge
 
 44:                                               ; preds = %19
-  store i8 1, ptr getelementptr inbounds (i8, ptr @opts, i64 57), align 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @opts, i64 56), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 57), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 56), align 8
   %45 = load ptr, ptr @optarg, align 8
-  call fastcc void @append_relation_pattern_helper(ptr noundef nonnull getelementptr inbounds (i8, ptr @opts, i64 40), ptr noundef %45, i32 noundef %13, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @append_relation_pattern_helper(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @opts, i64 40), ptr noundef %45, i32 noundef %13, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %.backedge
 
 46:                                               ; preds = %19
-  store i8 0, ptr getelementptr inbounds (i8, ptr @opts, i64 59), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 59), align 1
   %47 = load ptr, ptr @optarg, align 8
-  call fastcc void @append_schema_pattern(ptr noundef nonnull getelementptr inbounds (i8, ptr @opts, i64 24), ptr noundef %47, i32 noundef %13)
+  call fastcc void @append_schema_pattern(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @opts, i64 24), ptr noundef %47, i32 noundef %13)
   br label %.backedge
 
 48:                                               ; preds = %19
-  store i8 1, ptr getelementptr inbounds (i8, ptr @opts, i64 58), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 58), align 2
   %49 = load ptr, ptr @optarg, align 8
-  call fastcc void @append_schema_pattern(ptr noundef nonnull getelementptr inbounds (i8, ptr @opts, i64 40), ptr noundef %49, i32 noundef %13)
+  call fastcc void @append_schema_pattern(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @opts, i64 40), ptr noundef %49, i32 noundef %13)
   br label %.backedge
 
 50:                                               ; preds = %19
-  store i8 0, ptr getelementptr inbounds (i8, ptr @opts, i64 59), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 59), align 1
   %51 = load ptr, ptr @optarg, align 8
-  call fastcc void @append_relation_pattern_helper(ptr noundef nonnull getelementptr inbounds (i8, ptr @opts, i64 24), ptr noundef %51, i32 noundef %13, i1 noundef zeroext true, i1 noundef zeroext false)
+  call fastcc void @append_relation_pattern_helper(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @opts, i64 24), ptr noundef %51, i32 noundef %13, i1 noundef zeroext true, i1 noundef zeroext false)
   br label %.backedge
 
 52:                                               ; preds = %19
-  store i8 1, ptr getelementptr inbounds (i8, ptr @opts, i64 56), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 56), align 8
   %53 = load ptr, ptr @optarg, align 8
-  call fastcc void @append_relation_pattern_helper(ptr noundef nonnull getelementptr inbounds (i8, ptr @opts, i64 40), ptr noundef %53, i32 noundef %13, i1 noundef zeroext true, i1 noundef zeroext false)
+  call fastcc void @append_relation_pattern_helper(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @opts, i64 40), ptr noundef %53, i32 noundef %13, i1 noundef zeroext true, i1 noundef zeroext false)
   br label %.backedge
 
 54:                                               ; preds = %19
@@ -415,7 +415,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %.backedge
 
 57:                                               ; preds = %19
-  store i8 1, ptr getelementptr inbounds (i8, ptr @opts, i64 3), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 3), align 1
   call void @pg_logging_increase_verbosity() #12
   br label %.backedge
 
@@ -428,19 +428,19 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %.backedge
 
 62:                                               ; preds = %19
-  store i8 1, ptr getelementptr inbounds (i8, ptr @opts, i64 92), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 92), align 4
   br label %.backedge
 
 63:                                               ; preds = %19
-  store i8 1, ptr getelementptr inbounds (i8, ptr @opts, i64 60), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 60), align 4
   br label %.backedge
 
 64:                                               ; preds = %19
-  store i8 0, ptr getelementptr inbounds (i8, ptr @opts, i64 61), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 61), align 1
   br label %.backedge
 
 65:                                               ; preds = %19
-  store i8 1, ptr getelementptr inbounds (i8, ptr @opts, i64 62), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 62), align 2
   br label %.backedge
 
 66:                                               ; preds = %19
@@ -450,7 +450,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %66
-  store ptr @.str.37, ptr getelementptr inbounds (i8, ptr @opts, i64 80), align 8
+  store ptr @.str.37, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 80), align 8
   br label %.backedge
 
 71:                                               ; preds = %66
@@ -460,7 +460,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %74, label %75, label %76
 
 75:                                               ; preds = %71
-  store ptr @.str.38, ptr getelementptr inbounds (i8, ptr @opts, i64 80), align 8
+  store ptr @.str.38, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 80), align 8
   br label %.backedge
 
 76:                                               ; preds = %71
@@ -470,7 +470,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %79, label %80, label %81
 
 80:                                               ; preds = %76
-  store ptr @.str.39, ptr getelementptr inbounds (i8, ptr @opts, i64 80), align 8
+  store ptr @.str.39, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 80), align 8
   br label %.backedge
 
 81:                                               ; preds = %76
@@ -513,7 +513,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   unreachable
 
 97:                                               ; preds = %94
-  store i64 %85, ptr getelementptr inbounds (i8, ptr @opts, i64 64), align 8
+  store i64 %85, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 64), align 8
   br label %.backedge
 
 98:                                               ; preds = %19
@@ -551,39 +551,39 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   unreachable
 
 113:                                              ; preds = %110
-  store i64 %101, ptr getelementptr inbounds (i8, ptr @opts, i64 72), align 8
+  store i64 %101, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 72), align 8
   br label %.backedge
 
 114:                                              ; preds = %19
-  store i8 1, ptr getelementptr inbounds (i8, ptr @opts, i64 89), align 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @opts, i64 88), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 89), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 88), align 8
   br label %.backedge
 
 115:                                              ; preds = %19
-  store i8 0, ptr getelementptr inbounds (i8, ptr @opts, i64 4), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 4), align 4
   br label %.backedge
 
 116:                                              ; preds = %19
-  store i8 1, ptr getelementptr inbounds (i8, ptr @opts, i64 90), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 90), align 2
   br label %.backedge
 
 117:                                              ; preds = %19
-  store i8 1, ptr getelementptr inbounds (i8, ptr @opts, i64 88), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 88), align 8
   br label %.backedge
 
 118:                                              ; preds = %19
-  store i8 1, ptr getelementptr inbounds (i8, ptr @opts, i64 12), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 12), align 4
   %119 = load ptr, ptr @optarg, align 8
   %.not230 = icmp eq ptr %119, null
   br i1 %.not230, label %.backedge, label %120
 
 120:                                              ; preds = %118
   %121 = call ptr @pg_strdup(ptr noundef nonnull %119) #12
-  store ptr %121, ptr getelementptr inbounds (i8, ptr @opts, i64 16), align 8
+  store ptr %121, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 16), align 8
   br label %.backedge
 
 122:                                              ; preds = %19
-  store i8 1, ptr getelementptr inbounds (i8, ptr @opts, i64 91), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 91), align 1
   br label %.backedge
 
 123:                                              ; preds = %19
@@ -593,9 +593,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   unreachable
 
 125:                                              ; preds = %19
-  %126 = load i64, ptr getelementptr inbounds (i8, ptr @opts, i64 72), align 8
+  %126 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 72), align 8
   %127 = icmp sgt i64 %126, -1
-  %128 = load i64, ptr getelementptr inbounds (i8, ptr @opts, i64 64), align 8
+  %128 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 64), align 8
   %129 = icmp slt i64 %126, %128
   %or.cond236 = select i1 %127, i1 %129, i1 false
   br i1 %or.cond236, label %130, label %131
@@ -647,7 +647,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %152 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr null, ptr %152, align 8
   call void @setup_cancel_handler(ptr noundef null) #12
-  %153 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 1), align 1
+  %153 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 1), align 1
   %154 = trunc i8 %153 to i1
   %.not209 = icmp eq ptr %.0189, null
   br i1 %154, label %155, label %157
@@ -682,7 +682,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 162:                                              ; preds = %160, %161
   %163 = load ptr, ptr @progname, align 8
-  %164 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 2), align 2
+  %164 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 2), align 2
   %165 = trunc i8 %164 to i1
   %166 = call ptr @connectMaintenanceDatabase(ptr noundef nonnull %8, ptr noundef %163, i1 noundef zeroext %165) #12
   call fastcc void @compile_database_list(ptr noundef %166, ptr noundef %4, ptr noundef null)
@@ -715,7 +715,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 176:                                              ; preds = %.sink.split, %167
   %177 = load ptr, ptr @progname, align 8
-  %178 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 2), align 2
+  %178 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 2), align 2
   %179 = trunc i8 %178 to i1
   %180 = call ptr @connectDatabase(ptr noundef nonnull %8, ptr noundef %177, i1 noundef zeroext %179, i1 noundef zeroext false, i1 noundef zeroext true) #12
   %181 = call ptr @PQdb(ptr noundef %180) #12
@@ -742,7 +742,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   unreachable
 
 .preheader251:                                    ; preds = %433
-  %188 = load i64, ptr getelementptr inbounds (i8, ptr @opts, i64 32), align 8
+  %188 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 32), align 8
   %.not = icmp eq i64 %188, 0
   br i1 %.not, label %.preheader, label %.lr.ph
 
@@ -770,23 +770,23 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 197:                                              ; preds = %.preheader252, %196
   %198 = load ptr, ptr @progname, align 8
-  %199 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 2), align 2
+  %199 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 2), align 2
   %200 = trunc i8 %199 to i1
   %201 = call ptr @connectDatabase(ptr noundef nonnull %8, ptr noundef %198, i1 noundef zeroext %200, i1 noundef zeroext false, i1 noundef zeroext true) #12
   br label %202
 
 202:                                              ; preds = %197, %192
   %.2 = phi ptr [ %201, %197 ], [ %.1303, %192 ]
-  %203 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 12), align 4
+  %203 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 12), align 4
   %204 = trunc i8 %203 to i1
   br i1 %204, label %205, label %212
 
 205:                                              ; preds = %202
-  %206 = load ptr, ptr getelementptr inbounds (i8, ptr @opts, i64 16), align 8
+  %206 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 16), align 8
   %207 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %206) #16
   %208 = call ptr @PQescapeIdentifier(ptr noundef %.2, ptr noundef %206, i64 noundef %207) #12
   %209 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.54, ptr noundef %208) #12
-  %210 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 2), align 2
+  %210 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 2), align 2
   %211 = trunc i8 %210 to i1
   call void @executeCommand(ptr noundef %.2, ptr noundef %209, i1 noundef zeroext %211) #12
   call void @pfree(ptr noundef %209) #12
@@ -794,7 +794,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %212
 
 212:                                              ; preds = %205, %202
-  %213 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 2), align 2
+  %213 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 2), align 2
   %214 = trunc i8 %213 to i1
   %215 = call ptr @executeQuery(ptr noundef %.2, ptr noundef nonnull @.str.55, i1 noundef zeroext %214) #12
   %216 = call i32 @PQresultStatus(ptr noundef %215) #12
@@ -824,7 +824,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 225:                                              ; preds = %220
   %226 = call ptr @PQgetvalue(ptr noundef %215, i32 noundef 0, i32 noundef 0) #12
-  %227 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 3), align 1
+  %227 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 3), align 1
   %228 = trunc i8 %227 to i1
   br i1 %228, label %229, label %232
 
@@ -839,7 +839,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %234 = call ptr @PQescapeIdentifier(ptr noundef %.2, ptr noundef %226, i64 noundef %233) #12
   %235 = getelementptr inbounds nuw i8, ptr %190, i64 8
   store ptr %234, ptr %235, align 8
-  %236 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 91), align 1
+  %236 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 91), align 1
   %237 = trunc i8 %236 to i1
   br i1 %237, label %238, label %248
 
@@ -873,13 +873,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #12
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.168) #12
-  %249 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 59), align 1
+  %249 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 59), align 1
   %250 = trunc i8 %249 to i1
   br i1 %250, label %253, label %251
 
 251:                                              ; preds = %248
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.169) #12
-  call fastcc void @append_rel_pattern_raw_cte(ptr noundef %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @opts, i64 24), ptr noundef %.2)
+  call fastcc void @append_rel_pattern_raw_cte(ptr noundef %3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @opts, i64 24), ptr noundef %.2)
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.170) #12
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.213, ptr noundef nonnull @.str.172, ptr noundef nonnull @.str.171) #12
   %252 = call ptr @PQdb(ptr noundef %.2) #12
@@ -889,23 +889,23 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %253
 
 253:                                              ; preds = %251, %248
-  %254 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 56), align 8
+  %254 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 56), align 8
   %255 = trunc i8 %254 to i1
   br i1 %255, label %262, label %256
 
 256:                                              ; preds = %253
-  %257 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 57), align 1
+  %257 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 57), align 1
   %258 = trunc i8 %257 to i1
   br i1 %258, label %262, label %259
 
 259:                                              ; preds = %256
-  %260 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 58), align 2
+  %260 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 58), align 2
   %261 = trunc i8 %260 to i1
   br i1 %261, label %262, label %264
 
 262:                                              ; preds = %259, %256, %253
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.173) #12
-  call fastcc void @append_rel_pattern_raw_cte(ptr noundef %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @opts, i64 40), ptr noundef %.2)
+  call fastcc void @append_rel_pattern_raw_cte(ptr noundef %3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @opts, i64 40), ptr noundef %.2)
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.170) #12
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.213, ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.174) #12
   %263 = call ptr @PQdb(ptr noundef %.2) #12
@@ -916,12 +916,12 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 264:                                              ; preds = %262, %259
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.176) #12
-  %265 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 59), align 1
+  %265 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 59), align 1
   %266 = trunc i8 %265 to i1
   %.str.178..str.177.i = select i1 %266, ptr @.str.178, ptr @.str.177
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull %.str.178..str.177.i) #12
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.179, i32 noundef 2, i32 noundef 403) #12
-  %267 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 59), align 1
+  %267 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 59), align 1
   %268 = trunc i8 %267 to i1
   br i1 %268, label %270, label %269
 
@@ -930,17 +930,17 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %270
 
 270:                                              ; preds = %269, %264
-  %271 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 56), align 8
+  %271 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 56), align 8
   %272 = trunc i8 %271 to i1
   br i1 %272, label %279, label %273
 
 273:                                              ; preds = %270
-  %274 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 57), align 1
+  %274 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 57), align 1
   %275 = trunc i8 %274 to i1
   br i1 %275, label %279, label %276
 
 276:                                              ; preds = %273
-  %277 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 58), align 2
+  %277 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 58), align 2
   %278 = trunc i8 %277 to i1
   br i1 %278, label %279, label %280
 
@@ -950,17 +950,17 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 280:                                              ; preds = %279, %276
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.182) #12
-  %281 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 56), align 8
+  %281 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 56), align 8
   %282 = trunc i8 %281 to i1
   br i1 %282, label %289, label %283
 
 283:                                              ; preds = %280
-  %284 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 57), align 1
+  %284 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 57), align 1
   %285 = trunc i8 %284 to i1
   br i1 %285, label %289, label %286
 
 286:                                              ; preds = %283
-  %287 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 58), align 2
+  %287 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 58), align 2
   %288 = trunc i8 %287 to i1
   br i1 %288, label %289, label %290
 
@@ -969,7 +969,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %290
 
 290:                                              ; preds = %289, %286
-  %291 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 59), align 1
+  %291 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 59), align 1
   %292 = trunc i8 %291 to i1
   br i1 %292, label %293, label %294
 
@@ -983,18 +983,18 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 295:                                              ; preds = %294, %293
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.186) #12
-  %296 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 60), align 4
+  %296 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 60), align 4
   %297 = trunc i8 %296 to i1
   br i1 %297, label %306, label %298
 
 298:                                              ; preds = %295
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.187) #12
-  %299 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 56), align 8
+  %299 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 56), align 8
   %300 = trunc i8 %299 to i1
   br i1 %300, label %304, label %301
 
 301:                                              ; preds = %298
-  %302 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 58), align 2
+  %302 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 58), align 2
   %303 = trunc i8 %302 to i1
   br i1 %303, label %304, label %305
 
@@ -1007,21 +1007,21 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %306
 
 306:                                              ; preds = %305, %295
-  %307 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 92), align 4
+  %307 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 92), align 4
   %308 = trunc i8 %307 to i1
   br i1 %308, label %319, label %309
 
 309:                                              ; preds = %306
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.190) #12
-  %310 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 57), align 1
+  %310 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 57), align 1
   %311 = trunc i8 %310 to i1
-  %312 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 58), align 2
+  %312 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 58), align 2
   %313 = trunc i8 %312 to i1
   %314 = select i1 %311, i1 true, i1 %313
   %.str.192.sink.i = select i1 %314, ptr @.str.191, ptr @.str.192
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull %.str.192.sink.i) #12
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.193, i32 noundef 403) #12
-  %315 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 60), align 4
+  %315 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 60), align 4
   %316 = trunc i8 %315 to i1
   br i1 %316, label %317, label %318
 
@@ -1034,18 +1034,18 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %319
 
 319:                                              ; preds = %318, %306
-  %320 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 60), align 4
+  %320 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 60), align 4
   %321 = trunc i8 %320 to i1
   br i1 %321, label %328, label %322
 
 322:                                              ; preds = %319
-  %323 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 92), align 4
+  %323 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 92), align 4
   %324 = trunc i8 %323 to i1
   br i1 %324, label %328, label %325
 
 325:                                              ; preds = %322
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.195) #12
-  %326 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 57), align 1
+  %326 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 57), align 1
   %327 = trunc i8 %326 to i1
   %.str.196..str.192.i = select i1 %327, ptr @.str.196, ptr @.str.192
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull %.str.196..str.192.i) #12
@@ -1055,7 +1055,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 328:                                              ; preds = %325, %322, %319
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.198) #12
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.199) #12
-  %329 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 60), align 4
+  %329 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 60), align 4
   %330 = trunc i8 %329 to i1
   br i1 %330, label %332, label %331
 
@@ -1064,7 +1064,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %332
 
 332:                                              ; preds = %331, %328
-  %333 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 92), align 4
+  %333 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 92), align 4
   %334 = trunc i8 %333 to i1
   br i1 %334, label %336, label %335
 
@@ -1073,12 +1073,12 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %336
 
 336:                                              ; preds = %335, %332
-  %337 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 60), align 4
+  %337 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 60), align 4
   %338 = trunc i8 %337 to i1
   br i1 %338, label %343, label %339
 
 339:                                              ; preds = %336
-  %340 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 92), align 4
+  %340 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 92), align 4
   %341 = trunc i8 %340 to i1
   br i1 %341, label %343, label %342
 
@@ -1089,7 +1089,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 343:                                              ; preds = %342, %339, %336
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.203) #12
   %344 = load ptr, ptr %3, align 8
-  %345 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 2), align 2
+  %345 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 2), align 2
   %346 = trunc i8 %345 to i1
   %347 = call ptr @executeQuery(ptr noundef %.2, ptr noundef %344, i1 noundef zeroext %346) #12
   %348 = call i32 @PQresultStatus(ptr noundef %347) #12
@@ -1194,7 +1194,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 390:                                              ; preds = %388
   %391 = zext nneg i32 %.075.i to i64
-  %392 = load i64, ptr getelementptr inbounds (i8, ptr @opts, i64 32), align 8
+  %392 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 32), align 8
   %.not87.i = icmp ugt i64 %392, %391
   br i1 %.not87.i, label %394, label %393
 
@@ -1204,7 +1204,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   unreachable
 
 394:                                              ; preds = %390
-  %395 = load ptr, ptr getelementptr inbounds (i8, ptr @opts, i64 24), align 8
+  %395 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 24), align 8
   %396 = getelementptr %struct.PatternInfo, ptr %395, i64 %391, i32 6
   store i8 1, ptr %396, align 2
   br label %431
@@ -1230,9 +1230,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.074.i, label %408, label %427
 
 408:                                              ; preds = %397
-  %409 = load i64, ptr getelementptr inbounds (i8, ptr @opts, i64 64), align 8
+  %409 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 64), align 8
   %410 = icmp sgt i64 %409, -1
-  %411 = load i64, ptr getelementptr inbounds (i8, ptr @opts, i64 72), align 8
+  %411 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 72), align 8
   %412 = icmp sgt i64 %411, -1
   %or.cond.i = select i1 %410, i1 true, i1 %412
   br i1 %or.cond.i, label %413, label %427
@@ -1247,7 +1247,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %417 = trunc i64 %411 to i32
   %418 = add nuw nsw i32 %417, 1
   store i32 %418, ptr %407, align 4
-  %.pre.i = load i64, ptr getelementptr inbounds (i8, ptr @opts, i64 64), align 8
+  %.pre.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 64), align 8
   br label %419
 
 419:                                              ; preds = %416, %413
@@ -1295,7 +1295,7 @@ compile_relation_list_one_db.exit:                ; preds = %431, %352
   %435 = phi i64 [ %478, %476 ], [ 0, %.preheader251 ]
   %.0167305 = phi i8 [ %.1168, %476 ], [ 0, %.preheader251 ]
   %.0178304 = phi i32 [ %477, %476 ], [ 0, %.preheader251 ]
-  %436 = load ptr, ptr getelementptr inbounds (i8, ptr @opts, i64 24), align 8
+  %436 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 24), align 8
   %437 = getelementptr %struct.PatternInfo, ptr %436, i64 %435
   %438 = getelementptr inbounds nuw i8, ptr %437, i64 34
   %439 = load i8, ptr %438, align 2
@@ -1315,7 +1315,7 @@ compile_relation_list_one_db.exit:                ; preds = %431, %352
   br i1 %.not225, label %476, label %447
 
 447:                                              ; preds = %444, %441
-  %448 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 4), align 4
+  %448 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 4), align 4
   %449 = trunc i8 %448 to i1
   %450 = getelementptr inbounds nuw i8, ptr %437, i64 32
   %451 = load i8, ptr %450, align 8
@@ -1385,7 +1385,7 @@ compile_relation_list_one_db.exit:                ; preds = %431, %352
   %.1168 = phi i8 [ %.0167305, %.lr.ph ], [ %448, %455 ], [ %448, %456 ], [ %448, %463 ], [ %448, %464 ], [ %448, %471 ], [ %448, %472 ], [ %448, %474 ], [ %448, %475 ], [ %.0167305, %444 ]
   %477 = add i32 %.0178304, 1
   %478 = sext i32 %477 to i64
-  %479 = load i64, ptr getelementptr inbounds (i8, ptr @opts, i64 32), align 8
+  %479 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 32), align 8
   %480 = icmp ugt i64 %479, %478
   br i1 %480, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
@@ -1400,7 +1400,7 @@ compile_relation_list_one_db.exit:                ; preds = %431, %352
   br i1 %.not213307, label %._crit_edge312.thread, label %.lr.ph311
 
 .lr.ph311:                                        ; preds = %.preheader
-  %482 = load i32, ptr getelementptr inbounds (i8, ptr @opts, i64 8), align 8
+  %482 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 8), align 8
   br label %486
 
 483:                                              ; preds = %._crit_edge
@@ -1447,7 +1447,7 @@ compile_relation_list_one_db.exit:                ; preds = %431, %352
 493:                                              ; preds = %._crit_edge312
   call fastcc void @progress_report(i64 noundef %487, i64 noundef 0, i64 noundef %.1242, i64 noundef 0, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext false)
   %494 = load ptr, ptr @progname, align 8
-  %495 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 2), align 2
+  %495 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 2), align 2
   %496 = trunc i8 %495 to i1
   %497 = call ptr @ParallelSlotsSetup(i32 noundef %spec.select, ptr noundef nonnull %8, ptr noundef %494, i1 noundef zeroext %496, ptr noundef null) #12
   %.not214 = icmp eq ptr %.3, null
@@ -1489,7 +1489,7 @@ compile_relation_list_one_db.exit:                ; preds = %431, %352
   br i1 %.not217, label %.thread247, label %514
 
 514:                                              ; preds = %503
-  %515 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 3), align 1
+  %515 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 3), align 1
   %516 = trunc i8 %515 to i1
   br i1 %516, label %517, label %520
 
@@ -1502,7 +1502,7 @@ compile_relation_list_one_db.exit:                ; preds = %431, %352
   %521 = getelementptr inbounds nuw i8, ptr %501, i64 12
   %522 = load i8, ptr %521, align 4
   %523 = trunc i8 %522 to i1
-  %524 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 3), align 1
+  %524 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 3), align 1
   %525 = trunc i8 %524 to i1
   br i1 %523, label %526, label %561
 
@@ -1510,7 +1510,7 @@ compile_relation_list_one_db.exit:                ; preds = %431, %352
   br i1 %525, label %527, label %541
 
 527:                                              ; preds = %526
-  %528 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 5), align 1
+  %528 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 5), align 1
   %529 = trunc i8 %528 to i1
   br i1 %529, label %530, label %534
 
@@ -1539,15 +1539,15 @@ compile_relation_list_one_db.exit:                ; preds = %431, %352
   %542 = load ptr, ptr %501, align 8
   %543 = getelementptr inbounds nuw i8, ptr %542, i64 8
   %544 = load ptr, ptr %543, align 8
-  %545 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 62), align 2
+  %545 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 62), align 2
   %546 = trunc i8 %545 to i1
   %547 = select i1 %546, ptr @.str.72, ptr @.str.73
-  %548 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 61), align 1
+  %548 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 61), align 1
   %549 = trunc i8 %548 to i1
   %550 = select i1 %549, ptr @.str.72, ptr @.str.73
-  %551 = load ptr, ptr getelementptr inbounds (i8, ptr @opts, i64 80), align 8
+  %551 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 80), align 8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.71, ptr noundef %544, ptr noundef nonnull %547, ptr noundef nonnull %550, ptr noundef %551) #12
-  %552 = load i64, ptr getelementptr inbounds (i8, ptr @opts, i64 64), align 8
+  %552 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 64), align 8
   %553 = icmp sgt i64 %552, -1
   br i1 %553, label %554, label %555
 
@@ -1556,7 +1556,7 @@ compile_relation_list_one_db.exit:                ; preds = %431, %352
   br label %555
 
 555:                                              ; preds = %554, %541
-  %556 = load i64, ptr getelementptr inbounds (i8, ptr @opts, i64 72), align 8
+  %556 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 72), align 8
   %557 = icmp sgt i64 %556, -1
   br i1 %557, label %558, label %prepare_heap_command.exit
 
@@ -1574,7 +1574,7 @@ prepare_heap_command.exit:                        ; preds = %555, %558
   br i1 %525, label %562, label %576
 
 562:                                              ; preds = %561
-  %563 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 5), align 1
+  %563 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 5), align 1
   %564 = trunc i8 %563 to i1
   br i1 %564, label %565, label %569
 
@@ -1600,18 +1600,18 @@ prepare_heap_command.exit:                        ; preds = %555, %558
 
 576:                                              ; preds = %569, %561
   call void @resetPQExpBuffer(ptr noundef nonnull %6) #12
-  %577 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 88), align 8
+  %577 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 88), align 8
   %578 = trunc i8 %577 to i1
   %579 = load ptr, ptr %501, align 8
   %580 = getelementptr inbounds nuw i8, ptr %579, i64 8
   %581 = load ptr, ptr %580, align 8
-  %582 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 90), align 2
+  %582 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 90), align 2
   %583 = trunc i8 %582 to i1
   %584 = select i1 %583, ptr @.str.72, ptr @.str.73
   br i1 %578, label %585, label %595
 
 585:                                              ; preds = %576
-  %586 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 89), align 1
+  %586 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 89), align 1
   %587 = trunc i8 %586 to i1
   %588 = select i1 %587, ptr @.str.72, ptr @.str.73
   %589 = getelementptr inbounds nuw i8, ptr %579, i64 16
@@ -1896,7 +1896,7 @@ define internal fastcc void @compile_database_list(ptr noundef %0, ptr noundef n
 
 5:                                                ; preds = %3
   %6 = tail call ptr @pg_malloc0(i64 noundef 24) #12
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 3), align 1
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 3), align 1
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %10
 
@@ -1913,12 +1913,12 @@ define internal fastcc void @compile_database_list(ptr noundef %0, ptr noundef n
 12:                                               ; preds = %10, %3
   call void @initPQExpBuffer(ptr noundef nonnull %4) #12
   call void @appendPQExpBufferStr(ptr noundef nonnull %4, ptr noundef nonnull @.str.155) #12
-  %13 = load i64, ptr getelementptr inbounds (i8, ptr @opts, i64 32), align 8
+  %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 32), align 8
   %.not27.i = icmp eq i64 %13, 0
   br i1 %.not27.i, label %31, label %.lr.ph.split.us.i.preheader
 
 .lr.ph.split.us.i.preheader:                      ; preds = %12
-  %.pre61 = load ptr, ptr getelementptr inbounds (i8, ptr @opts, i64 24), align 8
+  %.pre61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 24), align 8
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i.preheader, %24
@@ -1946,8 +1946,8 @@ define internal fastcc void @compile_database_list(ptr noundef %0, ptr noundef n
   %23 = load ptr, ptr %17, align 8
   call void @appendStringLiteralConn(ptr noundef nonnull %4, ptr noundef %23, ptr noundef %0) #12
   call void @appendPQExpBufferChar(ptr noundef nonnull %4, i8 noundef signext 41) #12
-  %.pre29.i = load i64, ptr getelementptr inbounds (i8, ptr @opts, i64 32), align 8
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @opts, i64 24), align 8
+  %.pre29.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 32), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 24), align 8
   br label %24
 
 24:                                               ; preds = %22, %.lr.ph.split.us.i
@@ -1966,7 +1966,7 @@ define internal fastcc void @compile_database_list(ptr noundef %0, ptr noundef n
 
 31:                                               ; preds = %._crit_edge.i, %12
   call void @appendPQExpBufferStr(ptr noundef nonnull %4, ptr noundef nonnull @.str.167) #12
-  %32 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 1), align 1
+  %32 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 1), align 1
   %33 = trunc i8 %32 to i1
   br i1 %33, label %append_db_pattern_cte.exit.thread, label %34
 
@@ -1976,12 +1976,12 @@ define internal fastcc void @compile_database_list(ptr noundef %0, ptr noundef n
 
 append_db_pattern_cte.exit.thread:                ; preds = %._crit_edge.i, %31
   call void @appendPQExpBufferStr(ptr noundef nonnull %4, ptr noundef nonnull @.str.156) #12
-  %35 = load i64, ptr getelementptr inbounds (i8, ptr @opts, i64 48), align 8
+  %35 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 48), align 8
   %.not27.i52 = icmp eq i64 %35, 0
   br i1 %.not27.i52, label %._crit_edge.thread.i55, label %.lr.ph.split.i.preheader
 
 .lr.ph.split.i.preheader:                         ; preds = %append_db_pattern_cte.exit.thread
-  %.pre63 = load ptr, ptr getelementptr inbounds (i8, ptr @opts, i64 40), align 8
+  %.pre63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 40), align 8
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %55
@@ -2022,8 +2022,8 @@ append_db_pattern_cte.exit.thread:                ; preds = %._crit_edge.i, %31
   %54 = load ptr, ptr %40, align 8
   call void @appendStringLiteralConn(ptr noundef nonnull %4, ptr noundef %54, ptr noundef %0) #12
   call void @appendPQExpBufferChar(ptr noundef nonnull %4, i8 noundef signext 41) #12
-  %.pre.i = load i64, ptr getelementptr inbounds (i8, ptr @opts, i64 48), align 8
-  %.pre62 = load ptr, ptr getelementptr inbounds (i8, ptr @opts, i64 40), align 8
+  %.pre.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 48), align 8
+  %.pre62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 40), align 8
   br label %55
 
 55:                                               ; preds = %53, %46, %42, %.lr.ph.split.i
@@ -2047,7 +2047,7 @@ append_db_pattern_cte.exit.thread:                ; preds = %._crit_edge.i, %31
 append_db_pattern_cte.exit56:                     ; preds = %._crit_edge.i54, %._crit_edge.thread.i55
   call void @appendPQExpBufferStr(ptr noundef nonnull %4, ptr noundef nonnull @.str.157) #12
   call void @appendPQExpBufferStr(ptr noundef nonnull %4, ptr noundef nonnull @.str.158) #12
-  %62 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 1), align 1
+  %62 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 1), align 1
   %63 = trunc i8 %62 to i1
   br i1 %63, label %65, label %64
 
@@ -2058,7 +2058,7 @@ append_db_pattern_cte.exit56:                     ; preds = %._crit_edge.i54, %.
 65:                                               ; preds = %64, %append_db_pattern_cte.exit56
   call void @appendPQExpBufferStr(ptr noundef nonnull %4, ptr noundef nonnull @.str.160) #12
   %66 = load ptr, ptr %4, align 8
-  %67 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 2), align 2
+  %67 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 2), align 2
   %68 = trunc i8 %67 to i1
   %69 = call ptr @executeQuery(ptr noundef %0, ptr noundef %66, i1 noundef zeroext %68) #12
   %70 = call i32 @PQresultStatus(ptr noundef %69) #12
@@ -2112,9 +2112,9 @@ append_db_pattern_cte.exit56:                     ; preds = %._crit_edge.i54, %.
   br i1 %86, label %87, label %99
 
 87:                                               ; preds = %85
-  %88 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 4), align 4
+  %88 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 4), align 4
   %89 = zext nneg i32 %.041 to i64
-  %90 = load i64, ptr getelementptr inbounds (i8, ptr @opts, i64 32), align 8
+  %90 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 32), align 8
   %.not51 = icmp ugt i64 %90, %89
   br i1 %.not51, label %92, label %91
 
@@ -2125,7 +2125,7 @@ append_db_pattern_cte.exit56:                     ; preds = %._crit_edge.i54, %.
 
 92:                                               ; preds = %87
   %93 = trunc i8 %88 to i1
-  %94 = load ptr, ptr getelementptr inbounds (i8, ptr @opts, i64 24), align 8
+  %94 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 24), align 8
   %95 = getelementptr %struct.PatternInfo, ptr %94, i64 %89
   %96 = load ptr, ptr %95, align 8
   br i1 %93, label %97, label %98
@@ -2147,7 +2147,7 @@ append_db_pattern_cte.exit56:                     ; preds = %._crit_edge.i54, %.
   br i1 %102, label %110, label %103
 
 103:                                              ; preds = %100, %99
-  %104 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 3), align 1
+  %104 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 3), align 1
   %105 = trunc i8 %104 to i1
   br i1 %105, label %106, label %107
 
@@ -2235,7 +2235,7 @@ define internal fastcc void @progress_report(i64 noundef range(i64 1, 0) %0, i64
   %9 = alloca [32 x i8], align 16
   %10 = alloca [32 x i8], align 16
   %11 = alloca [32 x i8], align 16
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 5), align 1
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 5), align 1
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %73
 
@@ -2267,7 +2267,7 @@ define internal fastcc void @progress_report(i64 noundef range(i64 1, 0) %0, i64
   %28 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 32, ptr noundef nonnull @.str.147, i64 noundef %0) #12
   %29 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 32, ptr noundef nonnull @.str.147, i64 noundef %3) #12
   %30 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 32, ptr noundef nonnull @.str.147, i64 noundef %2) #12
-  %31 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 3), align 1
+  %31 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 3), align 1
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %55
 
@@ -2448,7 +2448,7 @@ define internal noundef zeroext i1 @verify_heap_slot_handler(ptr noundef %0, ptr
   %60 = load ptr, ptr %59, align 8
   %61 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.88, ptr noundef %56, ptr noundef %58, ptr noundef %60) #12
   %62 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.90, ptr noundef %54) #12
-  %63 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 3), align 1
+  %63 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 3), align 1
   %64 = trunc i8 %63 to i1
   br i1 %64, label %65, label %69
 
@@ -2513,7 +2513,7 @@ should_processing_continue.exit:                  ; preds = %.loopexit, %.loopex
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @run_command(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 2), align 2
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 2), align 2
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %7
 
@@ -2553,7 +2553,7 @@ define internal noundef zeroext i1 @verify_btree_slot_handler(ptr noundef %0, pt
   br i1 %8, label %9, label %48
 
 9:                                                ; preds = %6
-  %10 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 5), align 1
+  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 5), align 1
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %16
 
@@ -2574,7 +2574,7 @@ define internal noundef zeroext i1 @verify_btree_slot_handler(ptr noundef %0, pt
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.95, ptr noundef %18, ptr noundef %20, ptr noundef %22, i32 noundef %7) #12
-  %23 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 3), align 1
+  %23 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 3), align 1
   %24 = trunc i8 %23 to i1
   br i1 %24, label %25, label %28
 
@@ -2602,7 +2602,7 @@ define internal noundef zeroext i1 @verify_btree_slot_handler(ptr noundef %0, pt
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.97, ptr noundef %34, ptr noundef %36, ptr noundef %38) #12
   %40 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.90, ptr noundef %32) #12
-  %41 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 3), align 1
+  %41 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 3), align 1
   %42 = trunc i8 %41 to i1
   br i1 %42, label %43, label %47
 

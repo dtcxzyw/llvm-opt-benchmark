@@ -913,7 +913,7 @@ Ivy_NodeFindCutsMerge.exit:                       ; preds = %.critedge2.i114, %.
 
 .critedge2:                                       ; preds = %Ivy_NodeFindCutsMerge.exit, %.critedge.preheader
   store i32 0, ptr @Ivy_NodeFindCutsTravAll.CutStore, align 4
-  store i32 256, ptr getelementptr inbounds (i8, ptr @Ivy_NodeFindCutsTravAll.CutStore, i64 8), align 4
+  store i32 256, ptr getelementptr inbounds nuw (i8, ptr @Ivy_NodeFindCutsTravAll.CutStore, i64 8), align 4
   %423 = getelementptr i8, ptr %1, i64 4
   %.val101 = load i32, ptr %423, align 4
   %424 = getelementptr i8, ptr %7, i64 8
@@ -951,7 +951,7 @@ Ivy_NodeFindCutsMerge.exit:                       ; preds = %.critedge2.i114, %.
   %442 = add nsw i32 %439, 1
   store i32 %442, ptr @Ivy_NodeFindCutsTravAll.CutStore, align 4
   %443 = sext i32 %439 to i64
-  %444 = getelementptr inbounds %struct.Ivy_Cut_t_, ptr getelementptr inbounds (i8, ptr @Ivy_NodeFindCutsTravAll.CutStore, i64 16), i64 %443
+  %444 = getelementptr inbounds %struct.Ivy_Cut_t_, ptr getelementptr inbounds nuw (i8, ptr @Ivy_NodeFindCutsTravAll.CutStore, i64 16), i64 %443
   %445 = getelementptr inbounds nuw i8, ptr %444, i64 4
   store i16 0, ptr %445, align 4
   %446 = getelementptr inbounds nuw i8, ptr %444, i64 6
@@ -997,7 +997,7 @@ Ivy_NodeFindCutsMerge.exit:                       ; preds = %.critedge2.i114, %.
 
 ._crit_edge.loopexit:                             ; preds = %465
   %.pre = load i32, ptr @Ivy_NodeFindCutsTravAll.CutStore, align 4
-  %.pre160 = load i32, ptr getelementptr inbounds (i8, ptr @Ivy_NodeFindCutsTravAll.CutStore, i64 8), align 4
+  %.pre160 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Ivy_NodeFindCutsTravAll.CutStore, i64 8), align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %437

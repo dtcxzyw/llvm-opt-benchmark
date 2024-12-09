@@ -47,7 +47,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_115ErlangGCPrinterESt14default_deleteIS1_EED2Ev.
   %1 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #10, !noalias !4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1, i8 0, i64 16, i1 false), !noalias !4
   tail call void @_ZN4llvm17GCMetadataPrinterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #11, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_115ErlangGCPrinterE, i64 16), ptr %1, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_115ErlangGCPrinterE, i64 16), ptr %1, align 8, !noalias !4
   store ptr %1, ptr %0, align 8
   ret void
 }

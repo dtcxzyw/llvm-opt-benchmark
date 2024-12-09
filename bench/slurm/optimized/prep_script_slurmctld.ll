@@ -28,12 +28,12 @@ define void @slurmctld_script(ptr noundef %0, i1 noundef zeroext %1) local_unnam
   br i1 %1, label %13, label %11
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 936), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 936), align 8
   call void @slurmscriptd_run_prepilog(i32 noundef %10, i1 noundef zeroext false, ptr noundef %12, ptr noundef %8) #3
   br label %15
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 336), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 336), align 8
   call void @slurmscriptd_run_prepilog(i32 noundef %10, i1 noundef zeroext true, ptr noundef %14, ptr noundef %8) #3
   br label %15
 

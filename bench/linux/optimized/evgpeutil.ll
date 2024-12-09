@@ -138,7 +138,7 @@ define dso_local i32 @acpi_ev_get_gpe_xrupt_block(i32 noundef %0, ptr nocapture 
   %16 = and i64 %15, 512
   %17 = icmp eq i64 %16, 0
   %18 = select i1 %17, i32 2336, i32 3520
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %20 = call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %19, i32 noundef %18, i64 noundef 32) #6
   %21 = icmp eq ptr %20, null
   br i1 %21, label %45, label %22
@@ -172,7 +172,7 @@ define dso_local i32 @acpi_ev_get_gpe_xrupt_block(i32 noundef %0, ptr nocapture 
 35:                                               ; preds = %34, %32
   %36 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
   call void @acpi_os_release_lock(ptr noundef %36, i64 noundef %25) #5
-  %37 = load i16, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 46), align 1
+  %37 = load i16, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 46), align 1
   %38 = zext i16 %37 to i32
   %39 = icmp eq i32 %0, %38
   br i1 %39, label %44, label %40
@@ -208,7 +208,7 @@ declare dso_local void @acpi_exception(ptr noundef, i32 noundef, i32 noundef, pt
 define dso_local i32 @acpi_ev_delete_gpe_xrupt(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
-  %4 = load i16, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 46), align 1
+  %4 = load i16, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 46), align 1
   %5 = zext i16 %4 to i32
   %6 = icmp eq i32 %3, %5
   br i1 %6, label %7, label %9

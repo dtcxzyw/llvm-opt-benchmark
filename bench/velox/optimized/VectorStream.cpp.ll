@@ -1803,7 +1803,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i16
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, %if.then.i.i16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox17IOBufOutputStreamE, i64 16), ptr %stream, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox17IOBufOutputStreamE, i64 16), ptr %stream, align 8
   %out_.i = getelementptr inbounds nuw i8, ptr %stream, i64 32
   %31 = load ptr, ptr %out_.i, align 8
   %cmp.not.i.i = icmp eq ptr %31, null
@@ -2066,7 +2066,7 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox17VectorStreamGroupE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox17VectorStreamGroupE, i64 16), ptr %call, align 8
   %serializer_.i = getelementptr inbounds nuw i8, ptr %call, i64 152
   store ptr null, ptr %serializer_.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
@@ -2115,7 +2115,7 @@ define linkonce_odr void @_ZN8facebook5velox17IOBufOutputStreamC2ERNS0_6memory10
 entry:
   %listener_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %listener, ptr %listener_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox17IOBufOutputStreamE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox17IOBufOutputStreamE, i64 16), ptr %this, align 8
   %arena_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   store ptr null, ptr %arena_, align 8, !alias.scope !14
@@ -2124,7 +2124,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !14
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !14
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11StreamArenaESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i3, align 8, !noalias !14
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox11StreamArenaESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i3, align 8, !noalias !14
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i3, i64 16
   invoke void @_ZN8facebook5velox11StreamArenaC1EPNS0_6memory10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(152) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull %pool)
           to label %invoke.cont unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11StreamArenaESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !14
@@ -2190,7 +2190,7 @@ declare void @_ZN5folly5IOBufC1EOS0_(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox17IOBufOutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox17IOBufOutputStreamE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox17IOBufOutputStreamE, i64 16), ptr %this, align 8
   %out_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %out_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -2432,7 +2432,7 @@ _ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_
   br i1 %.not.i, label %invoke.cont4, label %for.end
 
 for.end:                                          ; preds = %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 16), ptr %byteStream, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 16), ptr %byteStream, align 8
   %ranges_.i = getelementptr inbounds nuw i8, ptr %byteStream, i64 8
   store ptr %ranges.sroa.0.4, ptr %ranges_.i, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %byteStream, i64 16
@@ -2585,7 +2585,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIKN8facebook5velox7RowTypeEED2Ev.exit
 
 _ZNSt10shared_ptrIKN8facebook5velox7RowTypeEED2Ev.exit: ; preds = %invoke.cont21, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 16), ptr %byteStream, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 16), ptr %byteStream, align 8
   %40 = load ptr, ptr %ranges_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %40, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EED2Ev.exit33, label %if.then.i.i.i.i30
@@ -2602,7 +2602,7 @@ lpad20:                                           ; preds = %_ZNSt10shared_ptrIK
           cleanup
   call void @_ZNSt10shared_ptrIKN8facebook5velox7RowTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp19) #23
   call void @_ZNSt10shared_ptrIN8facebook5velox9RowVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 16), ptr %byteStream, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 16), ptr %byteStream, align 8
   %42 = load ptr, ptr %ranges_.i, align 8
   %tobool.not.i.i.i.i35 = icmp eq ptr %42, null
   br i1 %tobool.not.i.i.i.i35, label %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EED2Ev.exit40, label %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EED2Ev.exit40.sink.split
@@ -3720,7 +3720,7 @@ declare void @_ZN8facebook5velox11StreamArenaC2EPNS0_6memory10MemoryPoolE(ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox11StreamArenaD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox11StreamArenaE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox11StreamArenaE, i64 16), ptr %this, align 8
   %tinyRanges_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %tinyRanges_, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -3823,7 +3823,7 @@ _ZNSt6vectorISt10unique_ptrIN8facebook5velox6memory10AllocationESt14default_dele
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox17VectorStreamGroupD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox17VectorStreamGroupE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox17VectorStreamGroupE, i64 16), ptr %this, align 8
   %serializer_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %serializer_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -3845,7 +3845,7 @@ _ZNSt10unique_ptrIN8facebook5velox16VectorSerializerESt14default_deleteIS2_EED2E
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox17VectorStreamGroupD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox17VectorStreamGroupE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox17VectorStreamGroupE, i64 16), ptr %this, align 8
   %serializer_.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %serializer_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null

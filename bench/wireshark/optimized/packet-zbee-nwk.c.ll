@@ -624,7 +624,7 @@ declare void @register_init_routine(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @proto_init_zbee_nwk() #1 {
   %1 = tail call ptr @g_hash_table_new(ptr noundef nonnull @ieee802154_short_addr_hash, ptr noundef nonnull @ieee802154_short_addr_equal) #8
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @zbee_nwk_map, i64 8), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @zbee_nwk_map, i64 8), align 8
   %2 = tail call ptr @g_hash_table_new(ptr noundef nonnull @ieee802154_long_addr_hash, ptr noundef nonnull @ieee802154_long_addr_equal) #8
   store ptr %2, ptr @zbee_nwk_map, align 8
   %3 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_int_hash, ptr noundef nonnull @g_int_equal, ptr noundef nonnull @free_keyring_key, ptr noundef nonnull @free_keyring_val) #8
@@ -636,7 +636,7 @@ declare void @register_cleanup_routine(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @proto_cleanup_zbee_nwk() #1 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @zbee_nwk_map, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @zbee_nwk_map, i64 8), align 8
   tail call void @g_hash_table_destroy(ptr noundef %1) #8
   %2 = load ptr, ptr @zbee_nwk_map, align 8
   tail call void @g_hash_table_destroy(ptr noundef %2) #8
@@ -1111,7 +1111,7 @@ proto_item_set_hidden.exit313.i:                  ; preds = %203, %199, %196, %1
   store i32 %230, ptr %.0240.i, align 8
   %231 = getelementptr inbounds nuw i8, ptr %9, i64 2
   store i16 %124, ptr %231, align 2
-  %232 = load ptr, ptr getelementptr inbounds (i8, ptr @zbee_nwk_map, i64 8), align 8
+  %232 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @zbee_nwk_map, i64 8), align 8
   %233 = call ptr @g_hash_table_lookup(ptr noundef %232, ptr noundef nonnull %9) #8
   %.not255.i = icmp eq ptr %233, null
   br i1 %.not255.i, label %236, label %234
@@ -1259,7 +1259,7 @@ proto_item_set_generated.exit325.i:               ; preds = %286, %283, %282, %2
   %305 = load i16, ptr %304, align 8
   %306 = getelementptr inbounds nuw i8, ptr %9, i64 2
   store i16 %305, ptr %306, align 2
-  %307 = load ptr, ptr getelementptr inbounds (i8, ptr @zbee_nwk_map, i64 8), align 8
+  %307 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @zbee_nwk_map, i64 8), align 8
   %308 = call ptr @g_hash_table_lookup(ptr noundef %307, ptr noundef nonnull %9) #8
   %.not260.i = icmp eq ptr %308, null
   br i1 %.not260.i, label %310, label %309

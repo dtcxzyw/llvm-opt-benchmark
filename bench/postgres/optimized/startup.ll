@@ -229,32 +229,32 @@ sub_1137:                                         ; preds = %sub_0136
 .tail135.thread:                                  ; preds = %sub_1137, %sub_0136, %.tail135, %2
   %29 = load ptr, ptr %1, align 8
   %30 = tail call ptr @get_progname(ptr noundef %29) #15
-  store ptr %30, ptr getelementptr inbounds (i8, ptr @pset, i64 320), align 8
+  store ptr %30, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 320), align 8
   store ptr null, ptr @pset, align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @pset, i64 376), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 376), align 8
   tail call void @setDecimalLocale() #15
   %31 = tail call i32 @PQenv2encoding() #15
-  store i32 %31, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
+  store i32 %31, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %32 = load ptr, ptr @stdout, align 8
-  store ptr %32, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @pset, i64 24), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @pset, i64 32), i8 0, i64 16, i1 false)
+  store ptr %32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 16), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 24), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @pset, i64 32), i8 0, i64 16, i1 false)
   %33 = load ptr, ptr @stdin, align 8
-  store ptr %33, ptr getelementptr inbounds (i8, ptr @pset, i64 304), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @pset, i64 48), align 8
-  store i16 1, ptr getelementptr inbounds (i8, ptr @pset, i64 64), align 8
-  store i16 1, ptr getelementptr inbounds (i8, ptr @pset, i64 66), align 2
-  store i32 0, ptr getelementptr inbounds (i8, ptr @pset, i64 68), align 4
-  store i8 1, ptr getelementptr inbounds (i8, ptr @pset, i64 73), align 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @pset, i64 74), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @pset, i64 75), align 1
-  store i8 44, ptr getelementptr inbounds (i8, ptr @pset, i64 128), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @pset, i64 129), align 1
-  store i32 0, ptr getelementptr inbounds (i8, ptr @pset, i64 156), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @pset, i64 160), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @pset, i64 164), align 4
-  tail call void @refresh_utf8format(ptr noundef nonnull getelementptr inbounds (i8, ptr @pset, i64 48)) #15
+  store ptr %33, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 304), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 312), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 48), align 8
+  store i16 1, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 64), align 8
+  store i16 1, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 66), align 2
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 68), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 73), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 74), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 75), align 1
+  store i8 44, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 128), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 129), align 1
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 156), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 160), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 164), align 4
+  tail call void @refresh_utf8format(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pset, i64 48)) #15
   %34 = tail call ptr @getenv(ptr noundef nonnull @.str.5) #15
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %37, label %35
@@ -265,7 +265,7 @@ sub_1137:                                         ; preds = %sub_0136
 
 37:                                               ; preds = %.tail135.thread, %35
   %38 = phi i32 [ %36, %35 ], [ 0, %.tail135.thread ]
-  store i32 %38, ptr getelementptr inbounds (i8, ptr @pset, i64 148), align 4
+  store i32 %38, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 148), align 4
   %39 = load ptr, ptr @stdin, align 8
   %40 = tail call i32 @fileno(ptr noundef %39) #15
   %41 = tail call i32 @isatty(i32 noundef %40) #15
@@ -282,72 +282,72 @@ sub_1137:                                         ; preds = %sub_0136
 
 47:                                               ; preds = %42, %37
   %48 = phi i8 [ 1, %37 ], [ %46, %42 ]
-  store i8 %48, ptr getelementptr inbounds (i8, ptr @pset, i64 296), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @pset, i64 300), align 4
+  store i8 %48, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 296), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 300), align 4
   %49 = tail call ptr @CreateVariableSpace() #15
-  store ptr %49, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  store ptr %49, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   tail call void @SetVariableHooks(ptr noundef %49, ptr noundef nonnull @.str.16, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @autocommit_hook) #15
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   tail call void @SetVariableHooks(ptr noundef %50, ptr noundef nonnull @.str.100, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @on_error_stop_hook) #15
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   tail call void @SetVariableHooks(ptr noundef %51, ptr noundef nonnull @.str.84, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @quiet_hook) #15
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   tail call void @SetVariableHooks(ptr noundef %52, ptr noundef nonnull @.str.86, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @singleline_hook) #15
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   tail call void @SetVariableHooks(ptr noundef %53, ptr noundef nonnull @.str.85, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @singlestep_hook) #15
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   tail call void @SetVariableHooks(ptr noundef %54, ptr noundef nonnull @.str.101, ptr noundef nonnull @fetch_count_substitute_hook, ptr noundef nonnull @fetch_count_hook) #15
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   tail call void @SetVariableHooks(ptr noundef %55, ptr noundef nonnull @.str.102, ptr noundef null, ptr noundef nonnull @histfile_hook) #15
-  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   tail call void @SetVariableHooks(ptr noundef %56, ptr noundef nonnull @.str.103, ptr noundef nonnull @histsize_substitute_hook, ptr noundef nonnull @histsize_hook) #15
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   tail call void @SetVariableHooks(ptr noundef %57, ptr noundef nonnull @.str.104, ptr noundef nonnull @ignoreeof_substitute_hook, ptr noundef nonnull @ignoreeof_hook) #15
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   tail call void @SetVariableHooks(ptr noundef %58, ptr noundef nonnull @.str.78, ptr noundef nonnull @echo_substitute_hook, ptr noundef nonnull @echo_hook) #15
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   tail call void @SetVariableHooks(ptr noundef %59, ptr noundef nonnull @.str.82, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @echo_hidden_hook) #15
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   tail call void @SetVariableHooks(ptr noundef %60, ptr noundef nonnull @.str.105, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @on_error_rollback_hook) #15
-  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   tail call void @SetVariableHooks(ptr noundef %61, ptr noundef nonnull @.str.106, ptr noundef nonnull @comp_keyword_case_substitute_hook, ptr noundef nonnull @comp_keyword_case_hook) #15
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   tail call void @SetVariableHooks(ptr noundef %62, ptr noundef nonnull @.str.107, ptr noundef nonnull @histcontrol_substitute_hook, ptr noundef nonnull @histcontrol_hook) #15
-  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   tail call void @SetVariableHooks(ptr noundef %63, ptr noundef nonnull @.str.17, ptr noundef null, ptr noundef nonnull @prompt1_hook) #15
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   tail call void @SetVariableHooks(ptr noundef %64, ptr noundef nonnull @.str.19, ptr noundef null, ptr noundef nonnull @prompt2_hook) #15
-  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   tail call void @SetVariableHooks(ptr noundef %65, ptr noundef nonnull @.str.20, ptr noundef null, ptr noundef nonnull @prompt3_hook) #15
-  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   tail call void @SetVariableHooks(ptr noundef %66, ptr noundef nonnull @.str.108, ptr noundef nonnull @verbosity_substitute_hook, ptr noundef nonnull @verbosity_hook) #15
-  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   tail call void @SetVariableHooks(ptr noundef %67, ptr noundef nonnull @.str.22, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @show_all_results_hook) #15
-  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   tail call void @SetVariableHooks(ptr noundef %68, ptr noundef nonnull @.str.109, ptr noundef nonnull @show_context_substitute_hook, ptr noundef nonnull @show_context_hook) #15
-  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   tail call void @SetVariableHooks(ptr noundef %69, ptr noundef nonnull @.str.110, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @hide_compression_hook) #15
-  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   tail call void @SetVariableHooks(ptr noundef %70, ptr noundef nonnull @.str.111, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @hide_tableam_hook) #15
-  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   %72 = tail call zeroext i1 @SetVariable(ptr noundef %71, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #15
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   %74 = tail call zeroext i1 @SetVariable(ptr noundef %73, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #15
-  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   %76 = tail call zeroext i1 @SetVariable(ptr noundef %75, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #15
-  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   %78 = tail call zeroext i1 @SetVariable(ptr noundef %77, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13) #15
-  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   %80 = tail call zeroext i1 @SetVariable(ptr noundef %79, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #15
-  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   %82 = tail call zeroext i1 @SetVariableBool(ptr noundef %81, ptr noundef nonnull @.str.16) #15
-  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   %84 = tail call zeroext i1 @SetVariable(ptr noundef %83, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #15
-  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   %86 = tail call zeroext i1 @SetVariable(ptr noundef %85, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.18) #15
-  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   %88 = tail call zeroext i1 @SetVariable(ptr noundef %87, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21) #15
-  %89 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   %90 = tail call zeroext i1 @SetVariableBool(ptr noundef %89, ptr noundef nonnull @.str.22) #15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   br label %simple_action_list_append.exit.i.cont
@@ -426,16 +426,16 @@ simple_action_list_append.exit.i.cont.backedge:   ; preds = %simple_action_list_
   br i1 %94, label %.lr.ph.i, label %parse_psql_options.exit
 
 95:                                               ; preds = %simple_action_list_append.exit.i.cont
-  %96 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   %97 = call zeroext i1 @SetVariable(ptr noundef %96, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79) #15
   br label %simple_action_list_append.exit.i.cont.backedge
 
 98:                                               ; preds = %simple_action_list_append.exit.i.cont
-  store i32 8, ptr getelementptr inbounds (i8, ptr @pset, i64 48), align 8
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 48), align 8
   br label %simple_action_list_append.exit.i.cont.backedge
 
 99:                                               ; preds = %simple_action_list_append.exit.i.cont
-  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   %101 = call zeroext i1 @SetVariable(ptr noundef %100, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.80) #15
   br label %simple_action_list_append.exit.i.cont.backedge
 
@@ -490,12 +490,12 @@ simple_action_list_append.exit58.i.else:          ; preds = %simple_action_list_
   br label %simple_action_list_append.exit.i.cont.backedge
 
 120:                                              ; preds = %simple_action_list_append.exit.i.cont
-  %121 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   %122 = call zeroext i1 @SetVariable(ptr noundef %121, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.81) #15
   br label %simple_action_list_append.exit.i.cont.backedge
 
 123:                                              ; preds = %simple_action_list_append.exit.i.cont
-  %124 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %124 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   %125 = call zeroext i1 @SetVariableBool(ptr noundef %124, ptr noundef nonnull @.str.82) #15
   br label %simple_action_list_append.exit.i.cont.backedge
 
@@ -526,8 +526,8 @@ simple_action_list_append.exit63.i.else:          ; preds = %simple_action_list_
 133:                                              ; preds = %simple_action_list_append.exit.i.cont
   %134 = load ptr, ptr @optarg, align 8
   %135 = call ptr @pg_strdup(ptr noundef %134) #15
-  store ptr %135, ptr getelementptr inbounds (i8, ptr @pset, i64 96), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @pset, i64 104), align 8
+  store ptr %135, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 96), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 104), align 8
   br label %simple_action_list_append.exit.i.cont.backedge
 
 136:                                              ; preds = %simple_action_list_append.exit.i.cont
@@ -536,7 +536,7 @@ simple_action_list_append.exit63.i.else:          ; preds = %simple_action_list_
   br label %simple_action_list_append.exit.i.cont.backedge
 
 139:                                              ; preds = %simple_action_list_append.exit.i.cont
-  store i32 4, ptr getelementptr inbounds (i8, ptr @pset, i64 48), align 8
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 48), align 8
   br label %simple_action_list_append.exit.i.cont.backedge
 
 140:                                              ; preds = %simple_action_list_append.exit.i.cont
@@ -571,11 +571,11 @@ simple_action_list_append.exit63.i.else:          ; preds = %simple_action_list_
 155:                                              ; preds = %151
   store i8 0, ptr %154, align 1
   %156 = getelementptr i8, ptr %154, i64 1
-  %157 = call zeroext i1 @do_pset(ptr noundef %153, ptr noundef %156, ptr noundef nonnull getelementptr inbounds (i8, ptr @pset, i64 48), i1 noundef zeroext true) #15
+  %157 = call zeroext i1 @do_pset(ptr noundef %153, ptr noundef %156, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pset, i64 48), i1 noundef zeroext true) #15
   br i1 %157, label %161, label %160
 
 158:                                              ; preds = %151
-  %159 = call zeroext i1 @do_pset(ptr noundef %153, ptr noundef null, ptr noundef nonnull getelementptr inbounds (i8, ptr @pset, i64 48), i1 noundef zeroext true) #15
+  %159 = call zeroext i1 @do_pset(ptr noundef %153, ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pset, i64 48), i1 noundef zeroext true) #15
   br i1 %159, label %161, label %160
 
 160:                                              ; preds = %158, %155
@@ -588,35 +588,35 @@ simple_action_list_append.exit63.i.else:          ; preds = %simple_action_list_
   br label %simple_action_list_append.exit.i.cont.backedge
 
 162:                                              ; preds = %simple_action_list_append.exit.i.cont
-  %163 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %163 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   %164 = call zeroext i1 @SetVariableBool(ptr noundef %163, ptr noundef nonnull @.str.84) #15
   br label %simple_action_list_append.exit.i.cont.backedge
 
 165:                                              ; preds = %simple_action_list_append.exit.i.cont
   %166 = load ptr, ptr @optarg, align 8
   %167 = call ptr @pg_strdup(ptr noundef %166) #15
-  store ptr %167, ptr getelementptr inbounds (i8, ptr @pset, i64 112), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @pset, i64 120), align 8
+  store ptr %167, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 112), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 120), align 8
   br label %simple_action_list_append.exit.i.cont.backedge
 
 168:                                              ; preds = %simple_action_list_append.exit.i.cont
-  %169 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %169 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   %170 = call zeroext i1 @SetVariableBool(ptr noundef %169, ptr noundef nonnull @.str.85) #15
   br label %simple_action_list_append.exit.i.cont.backedge
 
 171:                                              ; preds = %simple_action_list_append.exit.i.cont
-  %172 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %172 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   %173 = call zeroext i1 @SetVariableBool(ptr noundef %172, ptr noundef nonnull @.str.86) #15
   br label %simple_action_list_append.exit.i.cont.backedge
 
 174:                                              ; preds = %simple_action_list_append.exit.i.cont
-  store i8 1, ptr getelementptr inbounds (i8, ptr @pset, i64 72), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 72), align 8
   br label %simple_action_list_append.exit.i.cont.backedge
 
 175:                                              ; preds = %simple_action_list_append.exit.i.cont
   %176 = load ptr, ptr @optarg, align 8
   %177 = call ptr @pg_strdup(ptr noundef %176) #15
-  store ptr %177, ptr getelementptr inbounds (i8, ptr @pset, i64 136), align 8
+  store ptr %177, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 136), align 8
   br label %simple_action_list_append.exit.i.cont.backedge
 
 178:                                              ; preds = %simple_action_list_append.exit.i.cont
@@ -632,7 +632,7 @@ simple_action_list_append.exit63.i.else:          ; preds = %simple_action_list_
   br i1 %.not52.i, label %185, label %189
 
 185:                                              ; preds = %181
-  %186 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %186 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   %187 = call zeroext i1 @DeleteVariable(ptr noundef %186, ptr noundef %183) #15
   br i1 %187, label %194, label %188
 
@@ -642,7 +642,7 @@ simple_action_list_append.exit63.i.else:          ; preds = %simple_action_list_
 
 189:                                              ; preds = %181
   store i8 0, ptr %184, align 1
-  %190 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %190 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   %191 = getelementptr i8, ptr %184, i64 1
   %192 = call zeroext i1 @SetVariable(ptr noundef %190, ptr noundef %183, ptr noundef %191) #15
   br i1 %192, label %194, label %193
@@ -661,26 +661,26 @@ simple_action_list_append.exit63.i.else:          ; preds = %simple_action_list_
   unreachable
 
 196:                                              ; preds = %simple_action_list_append.exit.i.cont
-  store i32 1, ptr getelementptr inbounds (i8, ptr @pset, i64 300), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 300), align 4
   br label %simple_action_list_append.exit.i.cont.backedge
 
 197:                                              ; preds = %simple_action_list_append.exit.i.cont
-  store i32 2, ptr getelementptr inbounds (i8, ptr @pset, i64 300), align 4
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 300), align 4
   br label %simple_action_list_append.exit.i.cont.backedge
 
 198:                                              ; preds = %simple_action_list_append.exit.i.cont
-  store i16 1, ptr getelementptr inbounds (i8, ptr @pset, i64 52), align 4
+  store i16 1, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   br label %simple_action_list_append.exit.i.cont.backedge
 
 199:                                              ; preds = %simple_action_list_append.exit.i.cont
   br label %simple_action_list_append.exit.i.cont.backedge
 
 200:                                              ; preds = %simple_action_list_append.exit.i.cont
-  store i8 1, ptr getelementptr inbounds (i8, ptr @pset, i64 104), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 104), align 8
   br label %simple_action_list_append.exit.i.cont.backedge
 
 201:                                              ; preds = %simple_action_list_append.exit.i.cont
-  store i8 1, ptr getelementptr inbounds (i8, ptr @pset, i64 120), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 120), align 8
   br label %simple_action_list_append.exit.i.cont.backedge
 
 202:                                              ; preds = %simple_action_list_append.exit.i.cont
@@ -754,11 +754,11 @@ sub_1.i:                                          ; preds = %sub_0.i
   unreachable
 
 231:                                              ; preds = %simple_action_list_append.exit.i.cont
-  store i32 3, ptr getelementptr inbounds (i8, ptr @pset, i64 48), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 48), align 8
   br label %simple_action_list_append.exit.i.cont.backedge
 
 .loopexit.i:                                      ; preds = %simple_action_list_append.exit.i.cont, %226, %.tail.i, %sub_1.i, %sub_0.i, %203
-  %232 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 320), align 8
+  %232 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 320), align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.90, ptr noundef %232) #15
   call void @exit(i32 noundef 1) #18
   unreachable
@@ -787,7 +787,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br label %250
 
 243:                                              ; preds = %238
-  %244 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 386), align 2
+  %244 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 386), align 2
   %245 = trunc i8 %244 to i1
   br i1 %245, label %250, label %246
 
@@ -817,7 +817,7 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
   br i1 %255, label %256, label %.cont.thread
 
 256:                                              ; preds = %parse_psql_options.exit
-  %257 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 296), align 8
+  %257 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 296), align 8
   %258 = trunc i8 %257 to i1
   br i1 %258, label %259, label %.cont
 
@@ -853,39 +853,39 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
   %267 = phi i1 [ false, %.cont.thread ], [ true, %.cont ]
   %268 = phi i1 [ %263, %.cont.thread ], [ false, %.cont ]
   %.sroa.28119.0132 = phi ptr [ %.sroa.28119.0.ph, %.cont.thread ], [ null, %.cont ]
-  %269 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 96), align 8
+  %269 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 96), align 8
   %.not94 = icmp eq ptr %269, null
   br i1 %.not94, label %270, label %275
 
 270:                                              ; preds = %266
-  %271 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 104), align 8
+  %271 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 104), align 8
   %272 = trunc i8 %271 to i1
   br i1 %272, label %275, label %273
 
 273:                                              ; preds = %270
   %274 = call ptr @pg_strdup(ptr noundef nonnull @.str.24) #15
-  store ptr %274, ptr getelementptr inbounds (i8, ptr @pset, i64 96), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @pset, i64 104), align 8
+  store ptr %274, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 96), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 104), align 8
   br label %275
 
 275:                                              ; preds = %273, %270, %266
-  %276 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 112), align 8
+  %276 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 112), align 8
   %.not95 = icmp eq ptr %276, null
   br i1 %.not95, label %277, label %282
 
 277:                                              ; preds = %275
-  %278 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 120), align 8
+  %278 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 120), align 8
   %279 = trunc i8 %278 to i1
   br i1 %279, label %282, label %280
 
 280:                                              ; preds = %277
   %281 = call ptr @pg_strdup(ptr noundef nonnull @.str.25) #15
-  store ptr %281, ptr getelementptr inbounds (i8, ptr @pset, i64 112), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @pset, i64 120), align 8
+  store ptr %281, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 112), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 120), align 8
   br label %282
 
 282:                                              ; preds = %280, %277, %275
-  %283 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 300), align 4
+  %283 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 300), align 4
   %284 = icmp eq i32 %283, 2
   br i1 %284, label %285, label %287
 
@@ -924,12 +924,12 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
   store ptr %289, ptr %300, align 8
   %301 = getelementptr i8, ptr %291, i64 40
   store ptr @.str.33, ptr %301, align 8
-  %302 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 320), align 8
+  %302 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 320), align 8
   %303 = getelementptr i8, ptr %292, i64 40
   store ptr %302, ptr %303, align 8
   %304 = getelementptr i8, ptr %291, i64 48
   store ptr @.str.34, ptr %304, align 8
-  %305 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 296), align 8
+  %305 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 296), align 8
   %306 = trunc i8 %305 to i1
   br i1 %306, label %310, label %307
 
@@ -962,7 +962,7 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
   %322 = icmp ne i32 %321, 0
   %323 = icmp eq ptr %.177, null
   %or.cond8.not99 = select i1 %322, i1 %323, i1 false
-  %324 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 300), align 4
+  %324 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 300), align 4
   %325 = icmp ne i32 %324, 1
   %or.cond11 = select i1 %or.cond8.not99, i1 %325, i1 false
   br i1 %or.cond11, label %326, label %338
@@ -1042,7 +1042,7 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
 
 360:                                              ; preds = %359
   %361 = call noalias ptr @fopen(ptr noundef nonnull %.sroa.13.0, ptr noundef nonnull @.str.39)
-  store ptr %361, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
+  store ptr %361, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 360), align 8
   %.not103 = icmp eq ptr %361, null
   br i1 %.not103, label %362, label %363
 
@@ -1072,7 +1072,7 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
   br i1 %371, label %372, label %375
 
 372:                                              ; preds = %369
-  %373 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 385), align 1
+  %373 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 385), align 1
   %374 = trunc i8 %373 to i1
   br i1 %374, label %441, label %376
 
@@ -1097,7 +1097,7 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
 
 379:                                              ; preds = %.lr.ph
   call void @pg_logging_config(i32 noundef 1) #15
-  %380 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 404), align 4
+  %380 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 404), align 4
   %381 = icmp eq i32 %380, 3
   br i1 %381, label %382, label %386
 
@@ -1117,7 +1117,7 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
 
 391:                                              ; preds = %.lr.ph
   call void @pg_logging_config(i32 noundef 1) #15
-  %392 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 404), align 4
+  %392 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 404), align 4
   %393 = icmp eq i32 %392, 3
   br i1 %393, label %394, label %398
 
@@ -1133,7 +1133,7 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
   %401 = load ptr, ptr %400, align 8
   %402 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %401) #16
   %403 = trunc i64 %402 to i32
-  %404 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
+  %404 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %405 = call zeroext i1 @standard_strings() #15
   call void @psql_scan_setup(ptr noundef %399, ptr noundef %401, i32 noundef %403, i32 noundef %404, i1 noundef zeroext %405) #15
   %406 = call ptr @conditional_stack_create() #15
@@ -1157,7 +1157,7 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
   br i1 %.not107, label %417, label %414
 
 414:                                              ; preds = %413
-  %415 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 385), align 1
+  %415 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 385), align 1
   %416 = trunc i8 %415 to i1
   br i1 %416, label %._crit_edge, label %417
 
@@ -1172,7 +1172,7 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
 
 419:                                              ; preds = %._crit_edge
   %420 = icmp ne i32 %.1, 0
-  %421 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 385), align 1
+  %421 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 385), align 1
   %422 = trunc i8 %421 to i1
   %423 = select i1 %420, i1 %422, i1 false
   %424 = select i1 %423, ptr @.str.42, ptr @.str.43
@@ -1181,7 +1181,7 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
   br i1 %426, label %427, label %430
 
 427:                                              ; preds = %419
-  %428 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 385), align 1
+  %428 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 385), align 1
   %429 = trunc i8 %428 to i1
   %spec.select = select i1 %429, i32 3, i32 %.1
   br label %441
@@ -1193,7 +1193,7 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
 431:                                              ; preds = %367
   call void @pg_logging_config(i32 noundef 1) #15
   call void @connection_warnings(i1 noundef zeroext true) #15
-  %432 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 386), align 2
+  %432 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 386), align 2
   %433 = trunc i8 %432 to i1
   br i1 %433, label %436, label %434
 
@@ -1211,7 +1211,7 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
 
 441:                                              ; preds = %427, %372, %430, %._crit_edge, %436
   %.3 = phi i32 [ %.1, %430 ], [ %.1, %._crit_edge ], [ %440, %436 ], [ 3, %372 ], [ %spec.select, %427 ]
-  %442 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
+  %442 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 360), align 8
   %.not108 = icmp eq ptr %442, null
   br i1 %.not108, label %445, label %443
 
@@ -1229,7 +1229,7 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
   br label %448
 
 448:                                              ; preds = %447, %445
-  %449 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 376), align 8
+  %449 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 376), align 8
   %.not110 = icmp eq ptr %449, null
   br i1 %.not110, label %451, label %450
 
@@ -1248,7 +1248,7 @@ declare void @pg_logging_set_pre_callback(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @log_pre_callback() #2 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 16), align 8
   %.not = icmp eq ptr %1, null
   %2 = load ptr, ptr @stdout, align 8
   %.not1 = icmp eq ptr %1, %2
@@ -1267,13 +1267,13 @@ declare void @pg_logging_set_locus_callback(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define internal void @log_locus_callback(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #3 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 328), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 328), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %2
   store ptr %3, ptr %0, align 8
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @pset, i64 336), align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 336), align 8
   br label %7
 
 6:                                                ; preds = %2
@@ -1563,31 +1563,31 @@ define internal ptr @bool_substitute_hook(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @autocommit_hook(ptr noundef %0) #0 {
-  %2 = tail call zeroext i1 @ParseVariableBool(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @pset, i64 384)) #15
+  %2 = tail call zeroext i1 @ParseVariableBool(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pset, i64 384)) #15
   ret i1 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @on_error_stop_hook(ptr noundef %0) #0 {
-  %2 = tail call zeroext i1 @ParseVariableBool(ptr noundef %0, ptr noundef nonnull @.str.100, ptr noundef nonnull getelementptr inbounds (i8, ptr @pset, i64 385)) #15
+  %2 = tail call zeroext i1 @ParseVariableBool(ptr noundef %0, ptr noundef nonnull @.str.100, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pset, i64 385)) #15
   ret i1 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @quiet_hook(ptr noundef %0) #0 {
-  %2 = tail call zeroext i1 @ParseVariableBool(ptr noundef %0, ptr noundef nonnull @.str.84, ptr noundef nonnull getelementptr inbounds (i8, ptr @pset, i64 386)) #15
+  %2 = tail call zeroext i1 @ParseVariableBool(ptr noundef %0, ptr noundef nonnull @.str.84, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pset, i64 386)) #15
   ret i1 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @singleline_hook(ptr noundef %0) #0 {
-  %2 = tail call zeroext i1 @ParseVariableBool(ptr noundef %0, ptr noundef nonnull @.str.86, ptr noundef nonnull getelementptr inbounds (i8, ptr @pset, i64 387)) #15
+  %2 = tail call zeroext i1 @ParseVariableBool(ptr noundef %0, ptr noundef nonnull @.str.86, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pset, i64 387)) #15
   ret i1 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @singlestep_hook(ptr noundef %0) #0 {
-  %2 = tail call zeroext i1 @ParseVariableBool(ptr noundef %0, ptr noundef nonnull @.str.85, ptr noundef nonnull getelementptr inbounds (i8, ptr @pset, i64 388)) #15
+  %2 = tail call zeroext i1 @ParseVariableBool(ptr noundef %0, ptr noundef nonnull @.str.85, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pset, i64 388)) #15
   ret i1 %2
 }
 
@@ -1607,7 +1607,7 @@ define internal ptr @fetch_count_substitute_hook(ptr noundef readnone %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @fetch_count_hook(ptr noundef %0) #0 {
-  %2 = tail call zeroext i1 @ParseVariableNum(ptr noundef %0, ptr noundef nonnull @.str.101, ptr noundef nonnull getelementptr inbounds (i8, ptr @pset, i64 392)) #15
+  %2 = tail call zeroext i1 @ParseVariableNum(ptr noundef %0, ptr noundef nonnull @.str.101, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pset, i64 392)) #15
   ret i1 %2
 }
 
@@ -1632,7 +1632,7 @@ define internal ptr @histsize_substitute_hook(ptr noundef readnone %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @histsize_hook(ptr noundef %0) #0 {
-  %2 = tail call zeroext i1 @ParseVariableNum(ptr noundef %0, ptr noundef nonnull @.str.103, ptr noundef nonnull getelementptr inbounds (i8, ptr @pset, i64 396)) #15
+  %2 = tail call zeroext i1 @ParseVariableNum(ptr noundef %0, ptr noundef nonnull @.str.103, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pset, i64 396)) #15
   ret i1 %2
 }
 
@@ -1661,7 +1661,7 @@ define internal ptr @ignoreeof_substitute_hook(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @ignoreeof_hook(ptr noundef %0) #0 {
-  %2 = tail call zeroext i1 @ParseVariableNum(ptr noundef %0, ptr noundef nonnull @.str.104, ptr noundef nonnull getelementptr inbounds (i8, ptr @pset, i64 400)) #15
+  %2 = tail call zeroext i1 @ParseVariableNum(ptr noundef %0, ptr noundef nonnull @.str.104, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pset, i64 400)) #15
   ret i1 %2
 }
 
@@ -1686,7 +1686,7 @@ define internal noundef zeroext i1 @echo_hook(ptr noundef %0) #0 {
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %1
-  store i32 1, ptr getelementptr inbounds (i8, ptr @pset, i64 404), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 404), align 4
   br label %18
 
 5:                                                ; preds = %1
@@ -1695,7 +1695,7 @@ define internal noundef zeroext i1 @echo_hook(ptr noundef %0) #0 {
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %5
-  store i32 2, ptr getelementptr inbounds (i8, ptr @pset, i64 404), align 4
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 404), align 4
   br label %18
 
 9:                                                ; preds = %5
@@ -1704,7 +1704,7 @@ define internal noundef zeroext i1 @echo_hook(ptr noundef %0) #0 {
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %9
-  store i32 3, ptr getelementptr inbounds (i8, ptr @pset, i64 404), align 4
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 404), align 4
   br label %18
 
 13:                                               ; preds = %9
@@ -1713,7 +1713,7 @@ define internal noundef zeroext i1 @echo_hook(ptr noundef %0) #0 {
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %13
-  store i32 0, ptr getelementptr inbounds (i8, ptr @pset, i64 404), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 404), align 4
   br label %18
 
 17:                                               ; preds = %13
@@ -1748,7 +1748,7 @@ define internal noundef zeroext i1 @echo_hidden_hook(ptr noundef %0) #0 {
 
 12:                                               ; preds = %1, %7
   %storemerge = phi i32 [ %10, %7 ], [ 2, %1 ]
-  store i32 %storemerge, ptr getelementptr inbounds (i8, ptr @pset, i64 408), align 8
+  store i32 %storemerge, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 408), align 8
   br label %13
 
 13:                                               ; preds = %12, %11
@@ -1779,7 +1779,7 @@ define internal noundef zeroext i1 @on_error_rollback_hook(ptr noundef %0) #0 {
 
 12:                                               ; preds = %1, %7
   %storemerge = phi i32 [ %10, %7 ], [ 1, %1 ]
-  store i32 %storemerge, ptr getelementptr inbounds (i8, ptr @pset, i64 412), align 4
+  store i32 %storemerge, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 412), align 4
   br label %13
 
 13:                                               ; preds = %12, %11
@@ -1808,7 +1808,7 @@ define internal noundef zeroext i1 @comp_keyword_case_hook(ptr noundef %0) #0 {
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %1
-  store i32 0, ptr getelementptr inbounds (i8, ptr @pset, i64 416), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 416), align 8
   br label %18
 
 5:                                                ; preds = %1
@@ -1817,7 +1817,7 @@ define internal noundef zeroext i1 @comp_keyword_case_hook(ptr noundef %0) #0 {
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %5
-  store i32 1, ptr getelementptr inbounds (i8, ptr @pset, i64 416), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 416), align 8
   br label %18
 
 9:                                                ; preds = %5
@@ -1826,7 +1826,7 @@ define internal noundef zeroext i1 @comp_keyword_case_hook(ptr noundef %0) #0 {
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %9
-  store i32 2, ptr getelementptr inbounds (i8, ptr @pset, i64 416), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 416), align 8
   br label %18
 
 13:                                               ; preds = %9
@@ -1835,7 +1835,7 @@ define internal noundef zeroext i1 @comp_keyword_case_hook(ptr noundef %0) #0 {
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %13
-  store i32 3, ptr getelementptr inbounds (i8, ptr @pset, i64 416), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 416), align 8
   br label %18
 
 17:                                               ; preds = %13
@@ -1868,7 +1868,7 @@ define internal noundef zeroext i1 @histcontrol_hook(ptr noundef %0) #0 {
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %1
-  store i32 1, ptr getelementptr inbounds (i8, ptr @pset, i64 420), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 420), align 4
   br label %18
 
 5:                                                ; preds = %1
@@ -1877,7 +1877,7 @@ define internal noundef zeroext i1 @histcontrol_hook(ptr noundef %0) #0 {
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %5
-  store i32 2, ptr getelementptr inbounds (i8, ptr @pset, i64 420), align 4
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 420), align 4
   br label %18
 
 9:                                                ; preds = %5
@@ -1886,7 +1886,7 @@ define internal noundef zeroext i1 @histcontrol_hook(ptr noundef %0) #0 {
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %9
-  store i32 3, ptr getelementptr inbounds (i8, ptr @pset, i64 420), align 4
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 420), align 4
   br label %18
 
 13:                                               ; preds = %9
@@ -1895,7 +1895,7 @@ define internal noundef zeroext i1 @histcontrol_hook(ptr noundef %0) #0 {
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %13
-  store i32 0, ptr getelementptr inbounds (i8, ptr @pset, i64 420), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 420), align 4
   br label %18
 
 17:                                               ; preds = %13
@@ -1911,7 +1911,7 @@ define internal noundef zeroext i1 @histcontrol_hook(ptr noundef %0) #0 {
 define internal noundef zeroext i1 @prompt1_hook(ptr noundef %0) #13 {
   %.not = icmp eq ptr %0, null
   %2 = select i1 %.not, ptr @.str.13, ptr %0
-  store ptr %2, ptr getelementptr inbounds (i8, ptr @pset, i64 424), align 8
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 424), align 8
   ret i1 true
 }
 
@@ -1919,7 +1919,7 @@ define internal noundef zeroext i1 @prompt1_hook(ptr noundef %0) #13 {
 define internal noundef zeroext i1 @prompt2_hook(ptr noundef %0) #13 {
   %.not = icmp eq ptr %0, null
   %2 = select i1 %.not, ptr @.str.13, ptr %0
-  store ptr %2, ptr getelementptr inbounds (i8, ptr @pset, i64 432), align 8
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 432), align 8
   ret i1 true
 }
 
@@ -1927,7 +1927,7 @@ define internal noundef zeroext i1 @prompt2_hook(ptr noundef %0) #13 {
 define internal noundef zeroext i1 @prompt3_hook(ptr noundef %0) #13 {
   %.not = icmp eq ptr %0, null
   %2 = select i1 %.not, ptr @.str.13, ptr %0
-  store ptr %2, ptr getelementptr inbounds (i8, ptr @pset, i64 440), align 8
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 440), align 8
   ret i1 true
 }
 
@@ -1972,7 +1972,7 @@ define internal noundef zeroext i1 @verbosity_hook(ptr noundef %0) #0 {
 
 14:                                               ; preds = %10, %7, %4, %1
   %.sink = phi i32 [ 1, %1 ], [ 2, %4 ], [ 0, %7 ], [ 3, %10 ]
-  store i32 %.sink, ptr getelementptr inbounds (i8, ptr @pset, i64 448), align 8
+  store i32 %.sink, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 448), align 8
   %15 = load ptr, ptr @pset, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %18, label %16
@@ -1988,7 +1988,7 @@ define internal noundef zeroext i1 @verbosity_hook(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @show_all_results_hook(ptr noundef %0) #0 {
-  %2 = tail call zeroext i1 @ParseVariableBool(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds (i8, ptr @pset, i64 452)) #15
+  %2 = tail call zeroext i1 @ParseVariableBool(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pset, i64 452)) #15
   ret i1 %2
 }
 
@@ -2028,7 +2028,7 @@ define internal noundef zeroext i1 @show_context_hook(ptr noundef %0) #0 {
 
 11:                                               ; preds = %7, %4, %1
   %.sink = phi i32 [ 0, %1 ], [ 1, %4 ], [ 2, %7 ]
-  store i32 %.sink, ptr getelementptr inbounds (i8, ptr @pset, i64 456), align 8
+  store i32 %.sink, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 456), align 8
   %12 = load ptr, ptr @pset, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %15, label %13
@@ -2044,13 +2044,13 @@ define internal noundef zeroext i1 @show_context_hook(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @hide_compression_hook(ptr noundef %0) #0 {
-  %2 = tail call zeroext i1 @ParseVariableBool(ptr noundef %0, ptr noundef nonnull @.str.110, ptr noundef nonnull getelementptr inbounds (i8, ptr @pset, i64 389)) #15
+  %2 = tail call zeroext i1 @ParseVariableBool(ptr noundef %0, ptr noundef nonnull @.str.110, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pset, i64 389)) #15
   ret i1 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @hide_tableam_hook(ptr noundef %0) #0 {
-  %2 = tail call zeroext i1 @ParseVariableBool(ptr noundef %0, ptr noundef nonnull @.str.111, ptr noundef nonnull getelementptr inbounds (i8, ptr @pset, i64 390)) #15
+  %2 = tail call zeroext i1 @ParseVariableBool(ptr noundef %0, ptr noundef nonnull @.str.111, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pset, i64 390)) #15
   ret i1 %2
 }
 

@@ -124,7 +124,7 @@ define void @_ZN2cv11xfeatures2d24BriefDescriptorExtractor6createEib(ptr dead_on
   store i32 1, ptr %5, align 8, !noalias !4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %6, align 4, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11xfeatures2d28BriefDescriptorExtractorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11xfeatures2d28BriefDescriptorExtractorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   invoke void @_ZN2cv11xfeatures2d28BriefDescriptorExtractorImplC1Eib(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %1, i1 noundef zeroext %2)
           to label %_ZN2cv3PtrINS_11xfeatures2d28BriefDescriptorExtractorImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11xfeatures2d28BriefDescriptorExtractorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !4
@@ -85106,7 +85106,7 @@ define hidden void @_ZN2cv11xfeatures2d28BriefDescriptorExtractorImplC1Eib(ptr n
   %5 = alloca %"class.std::allocator", align 1
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %6 = zext i1 %2 to i8
-  store ptr getelementptr inbounds inrange(-80, 160) (i8, ptr @_ZTVN2cv11xfeatures2d28BriefDescriptorExtractorImplE, i64 80), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-80, 160) (i8, ptr @_ZTVN2cv11xfeatures2d28BriefDescriptorExtractorImplE, i64 80), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -85151,7 +85151,7 @@ define hidden void @_ZN2cv11xfeatures2d28BriefDescriptorExtractorImplC1Eib(ptr n
 19:                                               ; preds = %17, %15
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #21
-  call void @_ZN2cv9Feature2DD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv11xfeatures2d28BriefDescriptorExtractorImplE, i64 16)) #21
+  call void @_ZN2cv9Feature2DD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN2cv11xfeatures2d28BriefDescriptorExtractorImplE, i64 16)) #21
   call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
   resume { ptr, i32 } %.pn
 

@@ -27987,7 +27987,7 @@ define internal fastcc void @"_ZN6hir_ty3mir4eval4shim46_$LT$impl$u20$hir_ty..mi
   %594 = extractvalue { ptr, i64 } %590, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %236), !noalias !4598
   store ptr @anon.8ee6e441894c40610342b4e80829890a.451, ptr %236, align 8, !noalias !4598
-  store ptr getelementptr inbounds (i8, ptr @anon.8ee6e441894c40610342b4e80829890a.451, i64 64), ptr %580, align 8, !noalias !4598
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.8ee6e441894c40610342b4e80829890a.451, i64 64), ptr %580, align 8, !noalias !4598
   %595 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hafebae801f77a302E.llvm.6150282900714191917"(ptr noalias noundef nonnull align 8 dereferenceable(16) %236)
           to label %.noexc236 unwind label %.loopexit.split-lp.loopexit
 
@@ -34639,7 +34639,7 @@ _ZN6hir_ty3mir4eval13IntervalAndTy3get17h1fcadec441930fcdE.exit700.i.i: ; preds 
   call void @llvm.experimental.noalias.scope.decl(metadata !5759)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %96), !noalias !5762
   store ptr @anon.8ee6e441894c40610342b4e80829890a.428, ptr %96, align 8, !noalias !5762
-  store ptr getelementptr inbounds (i8, ptr @anon.8ee6e441894c40610342b4e80829890a.428, i64 48), ptr %2468, align 8, !noalias !5762
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.8ee6e441894c40610342b4e80829890a.428, i64 48), ptr %2468, align 8, !noalias !5762
   call void @llvm.experimental.noalias.scope.decl(metadata !5764)
   %2498 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hafebae801f77a302E.llvm.6150282900714191917"(ptr noalias noundef nonnull align 8 dereferenceable(16) %96)
           to label %.noexc715.i.i unwind label %.loopexit.split-lp269.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, !noalias !5666
@@ -34686,7 +34686,7 @@ _ZN6hir_ty3mir4eval13IntervalAndTy3get17h1fcadec441930fcdE.exit700.i.i: ; preds 
   call void @llvm.experimental.noalias.scope.decl(metadata !5791)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %95), !noalias !5794
   store ptr @anon.8ee6e441894c40610342b4e80829890a.429, ptr %95, align 8, !noalias !5794
-  store ptr getelementptr inbounds (i8, ptr @anon.8ee6e441894c40610342b4e80829890a.429, i64 48), ptr %2467, align 8, !noalias !5794
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.8ee6e441894c40610342b4e80829890a.429, i64 48), ptr %2467, align 8, !noalias !5794
   call void @llvm.experimental.noalias.scope.decl(metadata !5796)
   %2510 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hafebae801f77a302E.llvm.6150282900714191917"(ptr noalias noundef nonnull align 8 dereferenceable(16) %95)
           to label %.noexc724.i.i unwind label %.loopexit.split-lp269.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, !noalias !5666
@@ -34733,7 +34733,7 @@ _ZN6hir_ty3mir4eval13IntervalAndTy3get17h1fcadec441930fcdE.exit700.i.i: ; preds 
   call void @llvm.experimental.noalias.scope.decl(metadata !5823)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %94), !noalias !5826
   store ptr @anon.8ee6e441894c40610342b4e80829890a.430, ptr %94, align 8, !noalias !5826
-  store ptr getelementptr inbounds (i8, ptr @anon.8ee6e441894c40610342b4e80829890a.430, i64 48), ptr %2466, align 8, !noalias !5826
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.8ee6e441894c40610342b4e80829890a.430, i64 48), ptr %2466, align 8, !noalias !5826
   call void @llvm.experimental.noalias.scope.decl(metadata !5828)
   %2521 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hafebae801f77a302E.llvm.6150282900714191917"(ptr noalias noundef nonnull align 8 dereferenceable(16) %94)
           to label %.noexc734.i.i unwind label %.loopexit.split-lp269.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, !noalias !5666

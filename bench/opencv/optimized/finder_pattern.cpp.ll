@@ -27,7 +27,7 @@ $_ZTIN5zxing6qrcode13FinderPatternE = comdat any
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5zxing6qrcode13FinderPatternC2Efff(ptr noundef nonnull align 8 dereferenceable(40) %0, float noundef %1, float noundef %2, float noundef %3) unnamed_addr #0 align 2 {
   tail call void @_ZN5zxing11ResultPointC2Eff(ptr noundef nonnull align 8 dereferenceable(20) %0, float noundef %1, float noundef %2)
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5zxing6qrcode13FinderPatternE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5zxing6qrcode13FinderPatternE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %3, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -46,7 +46,7 @@ declare void @_ZN5zxing11ResultPointC2Eff(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5zxing6qrcode13FinderPatternC2Efffi(ptr noundef nonnull align 8 dereferenceable(40) %0, float noundef %1, float noundef %2, float noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @_ZN5zxing11ResultPointC2Eff(ptr noundef nonnull align 8 dereferenceable(20) %0, float noundef %1, float noundef %2)
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5zxing6qrcode13FinderPatternE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5zxing6qrcode13FinderPatternE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %3, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -171,7 +171,7 @@ define hidden void @_ZNK5zxing6qrcode13FinderPattern15combineEstimateEfff(ptr de
           to label %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2EPS2_.exit unwind label %53
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2EPS2_.exit: ; preds = %43
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5zxing6qrcode13FinderPatternE, i64 16), ptr %44, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5zxing6qrcode13FinderPatternE, i64 16), ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 20
   store float %.014, ptr %45, align 4
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 24

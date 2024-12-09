@@ -404,7 +404,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i24
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %invoke.cont, %if.then.i.i18, %if.then13.i.i24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers4inst18HigherOrderTriggerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers4inst18HigherOrderTriggerE, i64 16), ptr %this, align 8
   %d_ho_var_apps = getelementptr inbounds nuw i8, ptr %this, i64 192
   %6 = getelementptr inbounds nuw i8, ptr %this, i64 200
   store i32 0, ptr %6, align 8
@@ -1846,7 +1846,7 @@ declare void @_ZN4cvc58internal6theory11quantifiers4inst7TriggerD2Ev(ptr noundef
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal6theory11quantifiers4inst18HigherOrderTriggerD2Ev(ptr noundef nonnull align 8 dereferenceable(560) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers4inst18HigherOrderTriggerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers4inst18HigherOrderTriggerE, i64 16), ptr %this, align 8
   %d_arg_vector = getelementptr inbounds nuw i8, ptr %this, i64 512
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 528
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8

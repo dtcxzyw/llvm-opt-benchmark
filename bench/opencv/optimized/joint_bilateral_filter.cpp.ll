@@ -499,7 +499,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %173, label %174, label %187
 
 174:                                              ; preds = %170
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc24JointBilateralFilter_32fINS_3VecIfLi1EEES3_EE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc24JointBilateralFilter_32fINS_3VecIfLi1EEES3_EE, i64 16), ptr %24, align 8
   %175 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %13, ptr %175, align 8
   %176 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -538,7 +538,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %190, label %191, label %204
 
 191:                                              ; preds = %187
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc24JointBilateralFilter_32fINS_3VecIfLi1EEENS2_IfLi3EEEEE, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc24JointBilateralFilter_32fINS_3VecIfLi1EEENS2_IfLi3EEEEE, i64 16), ptr %25, align 8
   %192 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %13, ptr %192, align 8
   %193 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -582,7 +582,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %211, label %212, label %225
 
 212:                                              ; preds = %208
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc24JointBilateralFilter_32fINS_3VecIfLi3EEENS2_IfLi1EEEEE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc24JointBilateralFilter_32fINS_3VecIfLi3EEENS2_IfLi1EEEEE, i64 16), ptr %26, align 8
   %213 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %13, ptr %213, align 8
   %214 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -621,7 +621,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %228, label %229, label %_ZNSt6vectorIfSaIfEED2Ev.exit143
 
 229:                                              ; preds = %225
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc24JointBilateralFilter_32fINS_3VecIfLi3EEES3_EE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc24JointBilateralFilter_32fINS_3VecIfLi3EEES3_EE, i64 16), ptr %27, align 8
   %230 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %13, ptr %230, align 8
   %231 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -1009,7 +1009,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %142, label %143, label %155
 
 143:                                              ; preds = %139
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc23JointBilateralFilter_8uINS_3VecIhLi1EEES3_EE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc23JointBilateralFilter_8uINS_3VecIhLi1EEES3_EE, i64 16), ptr %19, align 8
   %144 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %8, ptr %144, align 8
   %145 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -1046,7 +1046,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %158, label %159, label %171
 
 159:                                              ; preds = %155
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc23JointBilateralFilter_8uINS_3VecIhLi1EEENS2_IhLi3EEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc23JointBilateralFilter_8uINS_3VecIhLi1EEENS2_IhLi3EEEEE, i64 16), ptr %20, align 8
   %160 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %8, ptr %160, align 8
   %161 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -1088,7 +1088,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %178, label %179, label %191
 
 179:                                              ; preds = %175
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc23JointBilateralFilter_8uINS_3VecIhLi3EEENS2_IhLi1EEEEE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc23JointBilateralFilter_8uINS_3VecIhLi3EEENS2_IhLi1EEEEE, i64 16), ptr %21, align 8
   %180 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %8, ptr %180, align 8
   %181 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -1125,7 +1125,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %194, label %195, label %_ZNSt6vectorIfSaIfEED2Ev.exit123
 
 195:                                              ; preds = %191
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc23JointBilateralFilter_8uINS_3VecIhLi3EEES3_EE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc23JointBilateralFilter_8uINS_3VecIhLi3EEES3_EE, i64 16), ptr %22, align 8
   %196 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %8, ptr %196, align 8
   %197 = getelementptr inbounds nuw i8, ptr %22, i64 16

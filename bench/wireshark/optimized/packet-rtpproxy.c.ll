@@ -1082,7 +1082,7 @@ define hidden void @proto_reg_handoff_rtpproxy() local_unnamed_addr #0 {
   store i64 %17, ptr @rtpproxy_timeout_ns, align 8
   %18 = urem i32 %15, 1000
   %19 = mul nuw nsw i32 %18, 1000
-  store i32 %19, ptr getelementptr inbounds (i8, ptr @rtpproxy_timeout_ns, i64 8), align 8
+  store i32 %19, ptr getelementptr inbounds nuw (i8, ptr @rtpproxy_timeout_ns, i64 8), align 8
   ret void
 }
 

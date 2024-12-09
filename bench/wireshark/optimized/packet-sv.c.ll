@@ -434,7 +434,7 @@ define internal i32 @dissect_sv_T_smpSynch(i1 noundef zeroext %0, ptr noundef %1
   %8 = call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #3
   %9 = load i32, ptr %7, align 4
   %10 = trunc i32 %9 to i8
-  store i8 %10, ptr getelementptr inbounds (i8, ptr @sv_data, i64 2), align 2
+  store i8 %10, ptr getelementptr inbounds nuw (i8, ptr @sv_data, i64 2), align 2
   ret i32 %8
 }
 
@@ -473,7 +473,7 @@ define internal i32 @dissect_sv_Data(i1 noundef zeroext %0, ptr noundef %1, i32 
   %.035.i = phi i32 [ %2, %18 ], [ %17, %15 ]
   %22 = load i32, ptr @ett_phsmeas, align 4
   %23 = call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %1, i32 noundef %.035.i, i32 noundef %21, i32 noundef %22, ptr noundef null, ptr noundef nonnull @.str.104) #3
-  store i8 0, ptr getelementptr inbounds (i8, ptr @sv_data, i64 3), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @sv_data, i64 3), align 1
   %24 = load i32, ptr %10, align 4
   %.not.i = icmp ult i32 %24, 8
   br i1 %.not.i, label %dissect_PhsMeas1.exit, label %.lr.ph.i
@@ -499,13 +499,13 @@ define internal i32 @dissect_sv_Data(i1 noundef zeroext %0, ptr noundef %1, i32 
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %.lr.ph.split.us.i
-  %37 = getelementptr [20 x %struct._sv_phs_meas], ptr getelementptr inbounds (i8, ptr @sv_data, i64 4), i64 0, i64 %indvars.iv.i
+  %37 = getelementptr [20 x %struct._sv_phs_meas], ptr getelementptr inbounds nuw (i8, ptr @sv_data, i64 4), i64 0, i64 %indvars.iv.i
   store i32 %27, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 %29, ptr %38, align 4
-  %39 = load i8, ptr getelementptr inbounds (i8, ptr @sv_data, i64 3), align 1
+  %39 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sv_data, i64 3), align 1
   %40 = add i8 %39, 1
-  store i8 %40, ptr getelementptr inbounds (i8, ptr @sv_data, i64 3), align 1
+  store i8 %40, ptr getelementptr inbounds nuw (i8, ptr @sv_data, i64 3), align 1
   br label %41
 
 41:                                               ; preds = %36, %.lr.ph.split.us.i
@@ -545,7 +545,7 @@ define internal i32 @dissect_sv_T_smpMod(i1 noundef zeroext %0, ptr noundef %1, 
   %8 = call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #3
   %9 = load i32, ptr %7, align 4
   %10 = trunc i32 %9 to i16
-  store i16 %10, ptr getelementptr inbounds (i8, ptr @sv_data, i64 164), align 4
+  store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @sv_data, i64 164), align 4
   ret i32 %8
 }
 

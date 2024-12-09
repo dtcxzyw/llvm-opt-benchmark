@@ -44,12 +44,12 @@ define range(i32 -22, 2) i32 @timer_release(ptr noundef %0) local_unnamed_addr #
 17:                                               ; preds = %15
   %18 = load ptr, ptr %0, align 8
   store ptr %18, ptr @g_alloctimers, align 8
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @g_alloctimers, i64 8), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_alloctimers, i64 8), align 8
   %20 = icmp eq ptr %0, %19
   br i1 %20, label %21, label %.loopexit.i
 
 21:                                               ; preds = %17
-  store ptr null, ptr getelementptr inbounds (i8, ptr @g_alloctimers, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @g_alloctimers, i64 8), align 8
   br label %.loopexit.i
 
 .preheader.i:                                     ; preds = %15, %26
@@ -79,10 +79,10 @@ define range(i32 -22, 2) i32 @timer_release(ptr noundef %0) local_unnamed_addr #
   store ptr null, ptr %0, align 8
   %32 = load ptr, ptr @g_freetimers, align 8
   %.not24.i = icmp eq ptr %32, null
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @g_freetimers, i64 8), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_freetimers, i64 8), align 8
   %g_freetimers.sink.i = select i1 %.not24.i, ptr @g_freetimers, ptr %33
   store ptr %0, ptr %g_freetimers.sink.i, align 8
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @g_freetimers, i64 8), align 8
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @g_freetimers, i64 8), align 8
   %34 = and i64 %13, 512
   %.not.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i, label %timer_free.exit, label %35

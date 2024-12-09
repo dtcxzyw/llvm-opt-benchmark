@@ -183,7 +183,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !14
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !16
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -264,7 +264,7 @@ entry:
   %ref.tmp41 = alloca %"class.std::vector.20", align 8
   %covariance_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %covariance_.i, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib16PseudoRootFacadeE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib16PseudoRootFacadeE, i64 16), ptr %this, align 8, !tbaa !14
   %numberOfFactors_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %c, align 8, !tbaa !18
   %cmp.not.i = icmp eq ptr %0, null
@@ -993,7 +993,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit26:                  ; preds = %_ZNSt6vectorIdSaIdE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib11MarketModelD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib11MarketModelE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib11MarketModelE, i64 16), ptr %this, align 8, !tbaa !14
   %totalCovariance_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %totalCovariance_, align 8, !tbaa !53
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -1130,7 +1130,7 @@ entry:
   %ref.tmp371 = alloca %"class.std::__cxx11::basic_string", align 8
   %covariance_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %covariance_.i, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib16PseudoRootFacadeE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib16PseudoRootFacadeE, i64 16), ptr %this, align 8, !tbaa !14
   %numberOfFactors_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %covariancePseudoRoots, align 8, !tbaa !21
   %columns_.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2835,7 +2835,7 @@ _ZNSt12_Vector_baseIN8QuantLib6MatrixESaIS1_EED2Ev.exit: ; preds = %invoke.cont,
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib16PseudoRootFacadeD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib16PseudoRootFacadeE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib16PseudoRootFacadeE, i64 16), ptr %this, align 8, !tbaa !14
   %covariancePseudoRoots_ = getelementptr inbounds nuw i8, ptr %this, i64 256
   %0 = load ptr, ptr %covariancePseudoRoots_, align 8, !tbaa !53
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 264

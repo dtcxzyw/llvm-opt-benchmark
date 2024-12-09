@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4base16HistogramSamplesC2Em(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8), (16, 28)) %this, i64 noundef %id) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base16HistogramSamplesE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base16HistogramSamplesE, i64 16), ptr %this, align 8
   %local_meta_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 12, i1 false)
@@ -43,7 +43,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4base16HistogramSamplesC2EmPNS0_8MetadataE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 28), (32, 40)) %this, i64 noundef %id, ptr noundef %meta) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base16HistogramSamplesE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base16HistogramSamplesE, i64 16), ptr %this, align 8
   %local_meta_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %local_meta_, i8 0, i64 20, i1 false)
   %meta_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -173,7 +173,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %redundant_count3 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %4 = load i32, ptr %redundant_count, align 4
   %5 = atomicrmw volatile add ptr %redundant_count3, i32 %4 monotonic, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base12_GLOBAL__N_125SampleCountPickleIteratorE, i64 16), ptr %pickle_iter, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base12_GLOBAL__N_125SampleCountPickleIteratorE, i64 16), ptr %pickle_iter, align 8
   %iter_.i = getelementptr inbounds nuw i8, ptr %pickle_iter, i64 8
   store ptr %iter, ptr %iter_.i, align 8
   %is_done_.i = getelementptr inbounds nuw i8, ptr %pickle_iter, i64 28

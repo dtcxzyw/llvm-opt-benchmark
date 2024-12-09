@@ -379,7 +379,7 @@ define void @init_conmgr(i32 noundef %0, i32 noundef %1, ptr %2, ptr %3) local_u
   %spec.store.select = select i1 %5, i32 10, i32 %0
   %6 = icmp slt i32 %1, 1
   %spec.store.select1 = select i1 %6, i32 150, i32 %1
-  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8
 
@@ -390,8 +390,8 @@ define void @init_conmgr(i32 noundef %0, i32 noundef %1, ptr %2, ptr %3) local_u
   unreachable
 
 10:                                               ; preds = %4
-  store i8 0, ptr getelementptr inbounds (i8, ptr @mgr, i64 35), align 1
-  %11 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 37), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 35), align 1
+  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 37), align 1
   %12 = trunc i8 %11 to i1
   br i1 %12, label %18, label %13
 
@@ -406,11 +406,11 @@ define void @init_conmgr(i32 noundef %0, i32 noundef %1, ptr %2, ptr %3) local_u
   unreachable
 
 17:                                               ; preds = %13
-  store i8 1, ptr getelementptr inbounds (i8, ptr @mgr, i64 37), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 37), align 1
   br label %18
 
 18:                                               ; preds = %17, %10
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 40), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 40), align 8
   %.not22 = icmp eq ptr %19, null
   br i1 %.not22, label %30, label %20
 
@@ -422,7 +422,7 @@ define void @init_conmgr(i32 noundef %0, i32 noundef %1, ptr %2, ptr %3) local_u
   br i1 %.not26, label %24, label %23
 
 23:                                               ; preds = %20
-  store ptr %2, ptr getelementptr inbounds (i8, ptr @mgr, i64 152), align 8
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 152), align 8
   br label %24
 
 24:                                               ; preds = %23, %20
@@ -430,11 +430,11 @@ define void @init_conmgr(i32 noundef %0, i32 noundef %1, ptr %2, ptr %3) local_u
   br i1 %.not27, label %26, label %25
 
 25:                                               ; preds = %24
-  store ptr %3, ptr getelementptr inbounds (i8, ptr @mgr, i64 160), align 8
+  store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 160), align 8
   br label %26
 
 26:                                               ; preds = %24, %25
-  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not28 = icmp eq i32 %27, 0
   br i1 %.not28, label %59, label %28
 
@@ -447,18 +447,18 @@ define void @init_conmgr(i32 noundef %0, i32 noundef %1, ptr %2, ptr %3) local_u
 30:                                               ; preds = %18
   store i32 %spec.store.select1, ptr @mgr, align 8
   %31 = tail call ptr @list_create(ptr noundef null) #17
-  store ptr %31, ptr getelementptr inbounds (i8, ptr @mgr, i64 8), align 8
+  store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 8), align 8
   %32 = tail call ptr @list_create(ptr noundef null) #17
-  store ptr %32, ptr getelementptr inbounds (i8, ptr @mgr, i64 16), align 8
+  store ptr %32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 16), align 8
   %33 = tail call ptr @list_create(ptr noundef null) #17
-  store ptr %33, ptr getelementptr inbounds (i8, ptr @mgr, i64 24), align 8
-  store ptr %2, ptr getelementptr inbounds (i8, ptr @mgr, i64 152), align 8
-  store ptr %3, ptr getelementptr inbounds (i8, ptr @mgr, i64 160), align 8
+  store ptr %33, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 24), align 8
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 152), align 8
+  store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 160), align 8
   %34 = tail call ptr @new_workq(i32 noundef %spec.store.select) #17
-  store ptr %34, ptr getelementptr inbounds (i8, ptr @mgr, i64 40), align 8
+  store ptr %34, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 40), align 8
   %35 = tail call ptr @list_create(ptr noundef null) #17
-  store ptr %35, ptr getelementptr inbounds (i8, ptr @mgr, i64 112), align 8
-  %36 = tail call i32 @pipe(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 56)) #17
+  store ptr %35, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 112), align 8
+  %36 = tail call i32 @pipe(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 56)) #17
   %.not23 = icmp eq i32 %36, 0
   br i1 %.not23, label %38, label %37
 
@@ -467,11 +467,11 @@ define void @init_conmgr(i32 noundef %0, i32 noundef %1, ptr %2, ptr %3) local_u
   unreachable
 
 38:                                               ; preds = %30
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 56), align 8
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 56), align 8
   tail call void @fd_set_nonblocking(i32 noundef %39) #17
-  %40 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 60), align 4
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 60), align 4
   tail call void @fd_set_blocking(i32 noundef %40) #17
-  %41 = tail call i32 @pipe(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 64)) #17
+  %41 = tail call i32 @pipe(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 64)) #17
   %.not24 = icmp eq i32 %41, 0
   br i1 %.not24, label %43, label %42
 
@@ -480,16 +480,16 @@ define void @init_conmgr(i32 noundef %0, i32 noundef %1, ptr %2, ptr %3) local_u
   unreachable
 
 43:                                               ; preds = %38
-  %44 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 64), align 8
+  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 64), align 8
   tail call void @fd_set_nonblocking(i32 noundef %44) #17
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 68), align 4
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 68), align 4
   tail call void @fd_set_blocking(i32 noundef %45) #17
-  %46 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 144), align 8
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 144), align 8
   %47 = add nsw i32 %46, 1
   %48 = sext i32 %47 to i64
-  %49 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 136), i64 noundef %48, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 3170, ptr noundef nonnull @__func__._add_signal_work) #17
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 136), align 8
-  %51 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 144), align 8
+  %49 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 136), i64 noundef %48, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 3170, ptr noundef nonnull @__func__._add_signal_work) #17
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 136), align 8
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 144), align 8
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds %struct.signal_work_t, ptr %50, i64 %52
   store i32 -1576975286, ptr %53, align 8
@@ -501,10 +501,10 @@ define void @init_conmgr(i32 noundef %0, i32 noundef %1, ptr %2, ptr %3) local_u
   store ptr null, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %53, i64 24
   store ptr @.str.16, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %54 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 144), align 8
+  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 144), align 8
   %55 = add nsw i32 %54, 1
-  store i32 %55, ptr getelementptr inbounds (i8, ptr @mgr, i64 144), align 8
-  %56 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  store i32 %55, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 144), align 8
+  %56 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not25 = icmp eq i32 %56, 0
   br i1 %.not25, label %59, label %57
 
@@ -533,12 +533,12 @@ declare i32 @pthread_atfork(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_atfork_child() #4 {
   store i32 -1, ptr @mgr, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(31) getelementptr inbounds (i8, ptr @mgr, i64 4), i8 0, i64 31, i1 false)
-  store i8 1, ptr getelementptr inbounds (i8, ptr @mgr, i64 35), align 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @mgr, i64 36), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) getelementptr inbounds (i8, ptr @mgr, i64 37), i8 0, i64 19, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @mgr, i64 56), i8 -1, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) getelementptr inbounds (i8, ptr @mgr, i64 72), i8 0, i64 272, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(31) getelementptr inbounds nuw (i8, ptr @mgr, i64 4), i8 0, i64 31, i1 false)
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 35), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 36), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) getelementptr inbounds nuw (i8, ptr @mgr, i64 37), i8 0, i64 19, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @mgr, i64 56), i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) getelementptr inbounds nuw (i8, ptr @mgr, i64 72), i8 0, i64 272, i1 false)
   ret void
 }
 
@@ -563,7 +563,7 @@ declare void @fd_set_blocking(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @_on_signal_alarm(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %7 = and i64 %6, 1024
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %12, label %8
@@ -585,7 +585,7 @@ define internal void @_on_signal_alarm(ptr nocapture readnone %0, i32 %1, i32 %2
 
 ; Function Attrs: nounwind uwtable
 define void @free_conmgr() local_unnamed_addr #0 {
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
 
@@ -596,12 +596,12 @@ define void @free_conmgr() local_unnamed_addr #0 {
   unreachable
 
 4:                                                ; preds = %0
-  %5 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 35), align 1
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 35), align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %18
 
 7:                                                ; preds = %4
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %9 = and i64 %8, 1024
   %.not35 = icmp eq i64 %9, 0
   br i1 %.not35, label %14, label %10
@@ -616,7 +616,7 @@ define void @free_conmgr() local_unnamed_addr #0 {
   br label %14
 
 14:                                               ; preds = %13, %10, %7
-  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not36 = icmp eq i32 %15, 0
   br i1 %.not36, label %101, label %16
 
@@ -627,10 +627,10 @@ define void @free_conmgr() local_unnamed_addr #0 {
   unreachable
 
 18:                                               ; preds = %4
-  store i8 1, ptr getelementptr inbounds (i8, ptr @mgr, i64 35), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @mgr, i64 36), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 35), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 36), align 4
   tail call fastcc void @_requeue_deferred_funcs()
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not20 = icmp eq i32 %19, 0
   br i1 %.not20, label %22, label %20
 
@@ -641,7 +641,7 @@ define void @free_conmgr() local_unnamed_addr #0 {
   unreachable
 
 22:                                               ; preds = %18
-  %23 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %24 = and i64 %23, 1024
   %.not21 = icmp eq i64 %24, 0
   br i1 %.not21, label %29, label %25
@@ -657,7 +657,7 @@ define void @free_conmgr() local_unnamed_addr #0 {
 
 29:                                               ; preds = %22, %25, %28
   tail call fastcc void @_close_all_connections(i1 noundef zeroext false)
-  %30 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %30 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not.i = icmp eq i32 %30, 0
   br i1 %.not.i, label %33, label %31
 
@@ -668,7 +668,7 @@ define void @free_conmgr() local_unnamed_addr #0 {
   unreachable
 
 33:                                               ; preds = %29
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 80), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 80), align 8
   %.not10.i = icmp eq ptr %34, null
   br i1 %.not10.i, label %.loopexit.i, label %35
 
@@ -678,7 +678,7 @@ define void @free_conmgr() local_unnamed_addr #0 {
   br i1 %.not11.i, label %37, label %.loopexit.i
 
 37:                                               ; preds = %35
-  %38 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %38 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %39 = and i64 %38, 1024
   %.not12.i = icmp eq i64 %39, 0
   br i1 %.not12.i, label %46, label %40
@@ -689,13 +689,13 @@ define void @free_conmgr() local_unnamed_addr #0 {
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %40
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 80), align 8
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 80), align 8
   %45 = tail call i32 @list_count(ptr noundef %44) #17
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.211, ptr noundef nonnull @__func__._cancel_delayed_work, i32 noundef %45) #17
   br label %46
 
 46:                                               ; preds = %43, %40, %37
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 80), align 8
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 80), align 8
   %48 = tail call ptr @list_pop(ptr noundef %47) #17
   %.not1315.i = icmp eq ptr %48, null
   br i1 %.not1315.i, label %.loopexit.i, label %.lr.ph.i
@@ -705,13 +705,13 @@ define void @free_conmgr() local_unnamed_addr #0 {
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 40
   store i32 3, ptr %50, align 8
   tail call fastcc void @_handle_work(i1 noundef zeroext true, ptr noundef nonnull %49)
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 80), align 8
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 80), align 8
   %52 = tail call ptr @list_pop(ptr noundef %51) #17
   %.not13.i = icmp eq ptr %52, null
   br i1 %.not13.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %46, %35, %33
-  %53 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %53 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not14.i = icmp eq i32 %53, 0
   br i1 %.not14.i, label %_cancel_delayed_work.exit, label %54
 
@@ -722,7 +722,7 @@ define void @free_conmgr() local_unnamed_addr #0 {
   unreachable
 
 _cancel_delayed_work.exit:                        ; preds = %.loopexit.i
-  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 40), align 8
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 40), align 8
   %.not22 = icmp eq ptr %56, null
   br i1 %.not22, label %58, label %57
 
@@ -731,8 +731,8 @@ _cancel_delayed_work.exit:                        ; preds = %.loopexit.i
   br label %58
 
 58:                                               ; preds = %57, %_cancel_delayed_work.exit
-  store ptr null, ptr getelementptr inbounds (i8, ptr @mgr, i64 40), align 8
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 112), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 40), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 112), align 8
   %.not23 = icmp eq ptr %59, null
   br i1 %.not23, label %61, label %60
 
@@ -741,8 +741,8 @@ _cancel_delayed_work.exit:                        ; preds = %.loopexit.i
   br label %61
 
 61:                                               ; preds = %60, %58
-  store ptr null, ptr getelementptr inbounds (i8, ptr @mgr, i64 112), align 8
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 112), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 8), align 8
   %.not24 = icmp eq ptr %62, null
   br i1 %.not24, label %64, label %63
 
@@ -751,8 +751,8 @@ _cancel_delayed_work.exit:                        ; preds = %.loopexit.i
   br label %64
 
 64:                                               ; preds = %63, %61
-  store ptr null, ptr getelementptr inbounds (i8, ptr @mgr, i64 8), align 8
-  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 16), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 8), align 8
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 16), align 8
   %.not25 = icmp eq ptr %65, null
   br i1 %.not25, label %67, label %66
 
@@ -761,8 +761,8 @@ _cancel_delayed_work.exit:                        ; preds = %.loopexit.i
   br label %67
 
 67:                                               ; preds = %66, %64
-  store ptr null, ptr getelementptr inbounds (i8, ptr @mgr, i64 16), align 8
-  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 24), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 16), align 8
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 24), align 8
   %.not26 = icmp eq ptr %68, null
   br i1 %.not26, label %70, label %69
 
@@ -771,15 +771,15 @@ _cancel_delayed_work.exit:                        ; preds = %.loopexit.i
   br label %70
 
 70:                                               ; preds = %69, %67
-  store ptr null, ptr getelementptr inbounds (i8, ptr @mgr, i64 24), align 8
-  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 80), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 24), align 8
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 80), align 8
   %.not27 = icmp eq ptr %71, null
   br i1 %.not27, label %76, label %72
 
 72:                                               ; preds = %70
   tail call void @list_destroy(ptr noundef nonnull %71) #17
-  store ptr null, ptr getelementptr inbounds (i8, ptr @mgr, i64 80), align 8
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 104), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 80), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 104), align 8
   %74 = tail call i32 @timer_delete(ptr noundef %73) #17
   %.not28 = icmp eq i32 %74, 0
   br i1 %.not28, label %76, label %75
@@ -789,13 +789,13 @@ _cancel_delayed_work.exit:                        ; preds = %.loopexit.i
   unreachable
 
 76:                                               ; preds = %72, %70
-  %77 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 56), align 8
+  %77 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 56), align 8
   %78 = tail call i32 @close(i32 noundef %77) #17
   %.not29 = icmp eq i32 %78, 0
   br i1 %.not29, label %79, label %82
 
 79:                                               ; preds = %76
-  %80 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 60), align 4
+  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 60), align 4
   %81 = tail call i32 @close(i32 noundef %80) #17
   %.not30 = icmp eq i32 %81, 0
   br i1 %.not30, label %84, label %82
@@ -805,13 +805,13 @@ _cancel_delayed_work.exit:                        ; preds = %.loopexit.i
   br label %84
 
 84:                                               ; preds = %82, %79
-  %85 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 64), align 8
+  %85 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 64), align 8
   %86 = tail call i32 @close(i32 noundef %85) #17
   %.not31 = icmp eq i32 %86, 0
   br i1 %.not31, label %87, label %90
 
 87:                                               ; preds = %84
-  %88 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 68), align 4
+  %88 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 68), align 4
   %89 = tail call i32 @close(i32 noundef %88) #17
   %.not32 = icmp eq i32 %89, 0
   br i1 %.not32, label %92, label %90
@@ -821,7 +821,7 @@ _cancel_delayed_work.exit:                        ; preds = %.loopexit.i
   br label %92
 
 92:                                               ; preds = %87, %90
-  %93 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %93 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not33 = icmp eq i32 %93, 0
   br i1 %.not33, label %96, label %94
 
@@ -832,7 +832,7 @@ _cancel_delayed_work.exit:                        ; preds = %.loopexit.i
   unreachable
 
 96:                                               ; preds = %92
-  %97 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 208)) #17
+  %97 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 208)) #17
   %.not34 = icmp eq i32 %97, 0
   br i1 %.not34, label %101, label %98
 
@@ -853,12 +853,12 @@ declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_requeue_deferred_funcs() unnamed_addr #0 {
   %1 = alloca ptr, align 8
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 36), align 4
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 36), align 4
   %3 = trunc i8 %2 to i1
   br i1 %3, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 112), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 112), align 8
   %5 = tail call ptr @list_pop(ptr noundef %4) #17
   store ptr %5, ptr %1, align 8
   %.not1 = icmp eq ptr %5, null
@@ -872,12 +872,12 @@ define internal fastcc void @_requeue_deferred_funcs() unnamed_addr #0 {
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 36), align 4
+  %13 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 36), align 4
   %14 = trunc i8 %13 to i1
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %.lr.ph
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 40), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 40), align 8
   %17 = call i32 @workq_add_work(ptr noundef %16, ptr noundef %8, ptr noundef %10, ptr noundef %12) #17
   %.not15.i = icmp eq i32 %17, 0
   br i1 %.not15.i, label %_queue_func.exit, label %18
@@ -895,7 +895,7 @@ define internal fastcc void @_requeue_deferred_funcs() unnamed_addr #0 {
   store ptr %10, ptr %.sroa.3.0..sroa_idx.i, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %12, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 112), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 112), align 8
   call void @list_append(ptr noundef %21, ptr noundef nonnull %20) #17
   br label %_queue_func.exit
 
@@ -903,7 +903,7 @@ _queue_func.exit:                                 ; preds = %15, %19
   %22 = load ptr, ptr %1, align 8
   store i32 1573896133, ptr %22, align 8
   call void @slurm_xfree(ptr noundef nonnull %1) #17
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 112), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 112), align 8
   %24 = call ptr @list_pop(ptr noundef %23) #17
   store ptr %24, ptr %1, align 8
   %.not = icmp eq ptr %24, null
@@ -918,7 +918,7 @@ define internal fastcc void @_close_all_connections(i1 noundef zeroext %0) unnam
   br i1 %0, label %.critedge, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
 
@@ -929,11 +929,11 @@ define internal fastcc void @_close_all_connections(i1 noundef zeroext %0) unnam
   unreachable
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 8), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 8), align 8
   %8 = tail call i32 @list_for_each(ptr noundef %7, ptr noundef nonnull @_close_con_for_each, ptr noundef null) #17
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 16), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 16), align 8
   %10 = tail call i32 @list_for_each(ptr noundef %9, ptr noundef nonnull @_close_con_for_each, ptr noundef null) #17
-  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not7 = icmp eq i32 %11, 0
   br i1 %.not7, label %18, label %12
 
@@ -944,9 +944,9 @@ define internal fastcc void @_close_all_connections(i1 noundef zeroext %0) unnam
   unreachable
 
 .critedge:                                        ; preds = %1
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 8), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 8), align 8
   %15 = tail call i32 @list_for_each(ptr noundef %14, ptr noundef nonnull @_close_con_for_each, ptr noundef null) #17
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 16), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 16), align 8
   %17 = tail call i32 @list_for_each(ptr noundef %16, ptr noundef nonnull @_close_con_for_each, ptr noundef null) #17
   br label %18
 
@@ -1016,7 +1016,7 @@ define internal fastcc ptr @_add_connection(i32 noundef %0, ptr noundef readonly
   br i1 %18, label %19, label %26
 
 19:                                               ; preds = %10
-  %20 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %21 = and i64 %20, 1024
   %.not100 = icmp eq i64 %21, 0
   br i1 %.not100, label %122, label %22
@@ -1257,7 +1257,7 @@ thread-pre-split:                                 ; preds = %92, %79, %86
   br label %.thread102
 
 .thread102:                                       ; preds = %72, %90, %93, %103
-  %105 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %105 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %106 = and i64 %105, 1024
   %.not97 = icmp eq i64 %106, 0
   br i1 %.not97, label %112, label %107
@@ -1273,7 +1273,7 @@ thread-pre-split:                                 ; preds = %92, %79, %86
   br label %112
 
 112:                                              ; preds = %110, %107, %.thread102
-  %113 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %113 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not98 = icmp eq i32 %113, 0
   br i1 %.not98, label %116, label %114
 
@@ -1284,11 +1284,11 @@ thread-pre-split:                                 ; preds = %92, %79, %86
   unreachable
 
 116:                                              ; preds = %112
-  %117 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 16), align 8
-  %118 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 8), align 8
+  %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 16), align 8
+  %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 8), align 8
   %.sink = select i1 %7, ptr %117, ptr %118
   call void @list_append(ptr noundef %.sink, ptr noundef nonnull %39) #17
-  %119 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %119 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not99 = icmp eq i32 %119, 0
   br i1 %.not99, label %122, label %120
 
@@ -1333,7 +1333,7 @@ define internal void @_wrap_on_connection(ptr noundef %0, i32 %1, i32 %2, ptr no
   br i1 %.not, label %39, label %8
 
 8:                                                ; preds = %5
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %10 = and i64 %9, 1024
   %.not21 = icmp eq i64 %10, 0
   br i1 %.not21, label %18, label %11
@@ -1357,7 +1357,7 @@ define internal void @_wrap_on_connection(ptr noundef %0, i32 %1, i32 %2, ptr no
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr %19(ptr noundef nonnull %0, ptr noundef %21) #17
-  %23 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %24 = and i64 %23, 1024
   %.not22 = icmp eq i64 %24, 0
   br i1 %.not22, label %34, label %25
@@ -1389,7 +1389,7 @@ define internal void @_wrap_on_connection(ptr noundef %0, i32 %1, i32 %2, ptr no
 
 39:                                               ; preds = %5, %34
   %.0 = phi ptr [ %22, %34 ], [ %4, %5 ]
-  %40 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %40 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not24 = icmp eq i32 %40, 0
   br i1 %.not24, label %43, label %41
 
@@ -1404,7 +1404,7 @@ define internal void @_wrap_on_connection(ptr noundef %0, i32 %1, i32 %2, ptr no
   store ptr %.0, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 117
   store i8 1, ptr %45, align 1
-  %46 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %46 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not25 = icmp eq i32 %46, 0
   br i1 %.not25, label %49, label %47
 
@@ -1443,7 +1443,7 @@ define internal fastcc void @_signal_change(i1 noundef zeroext %0) unnamed_addr 
   br i1 %0, label %10, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8
 
@@ -1454,14 +1454,14 @@ define internal fastcc void @_signal_change(i1 noundef zeroext %0) unnamed_addr 
   unreachable
 
 10:                                               ; preds = %6, %1
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 52), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 52), align 4
   %.not21 = icmp eq i32 %11, 0
   br i1 %.not21, label %21, label %12
 
 12:                                               ; preds = %10
   %13 = add nsw i32 %11, 1
-  store i32 %13, ptr getelementptr inbounds (i8, ptr @mgr, i64 52), align 4
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  store i32 %13, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 52), align 4
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %15 = and i64 %14, 1024
   %.not28 = icmp eq i64 %15, 0
   br i1 %.not28, label %62, label %16
@@ -1472,12 +1472,12 @@ define internal fastcc void @_signal_change(i1 noundef zeroext %0) unnamed_addr 
   br i1 %18, label %19, label %62
 
 19:                                               ; preds = %16
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 52), align 4
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 52), align 4
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.46, ptr noundef nonnull @__func__._signal_change, i32 noundef %20) #17
   br label %62
 
 21:                                               ; preds = %10
-  %22 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %23 = and i64 %22, 1024
   %.not22 = icmp eq i64 %23, 0
   br i1 %.not22, label %28, label %24
@@ -1492,14 +1492,14 @@ define internal fastcc void @_signal_change(i1 noundef zeroext %0) unnamed_addr 
   br label %28
 
 28:                                               ; preds = %21, %24, %27
-  store i32 1, ptr getelementptr inbounds (i8, ptr @mgr, i64 52), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 52), align 4
   br i1 %0, label %.preheader, label %29
 
 .preheader:                                       ; preds = %29, %28
   br label %33
 
 29:                                               ; preds = %28
-  %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not23 = icmp eq i32 %30, 0
   br i1 %.not23, label %.preheader, label %31
 
@@ -1511,7 +1511,7 @@ define internal fastcc void @_signal_change(i1 noundef zeroext %0) unnamed_addr 
 
 33:                                               ; preds = %.backedge, %.preheader
   %34 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #17
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 60), align 4
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 60), align 4
   %36 = call i64 @write(i32 noundef %35, ptr noundef nonnull @__const._signal_change.buf, i64 noundef 1) #17
   %37 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #17
   call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @.str.48, i64 noundef 0, ptr noundef nonnull %5) #17
@@ -1528,7 +1528,7 @@ define internal fastcc void @_signal_change(i1 noundef zeroext %0) unnamed_addr 
   ]
 
 42:                                               ; preds = %39, %39
-  %43 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %43 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %44 = and i64 %43, 1024
   %.not27 = icmp eq i64 %44, 0
   br i1 %.not27, label %.backedge, label %45
@@ -1550,7 +1550,7 @@ define internal fastcc void @_signal_change(i1 noundef zeroext %0) unnamed_addr 
   unreachable
 
 50:                                               ; preds = %33
-  %51 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %51 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %52 = and i64 %51, 1024
   %.not25 = icmp eq i64 %52, 0
   br i1 %.not25, label %57, label %53
@@ -1568,7 +1568,7 @@ define internal fastcc void @_signal_change(i1 noundef zeroext %0) unnamed_addr 
   br i1 %0, label %62, label %58
 
 58:                                               ; preds = %57
-  %59 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %59 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not26 = icmp eq i32 %59, 0
   br i1 %.not26, label %62, label %60
 
@@ -1579,7 +1579,7 @@ define internal fastcc void @_signal_change(i1 noundef zeroext %0) unnamed_addr 
   unreachable
 
 62:                                               ; preds = %12, %16, %19, %58, %57
-  %63 = call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 208)) #17
+  %63 = call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 208)) #17
   %.not29 = icmp eq i32 %63, 0
   br i1 %.not29, label %67, label %64
 
@@ -1593,7 +1593,7 @@ define internal fastcc void @_signal_change(i1 noundef zeroext %0) unnamed_addr 
   br i1 %0, label %72, label %68
 
 68:                                               ; preds = %67
-  %69 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %69 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not30 = icmp eq i32 %69, 0
   br i1 %.not30, label %72, label %70
 
@@ -1624,7 +1624,7 @@ define range(i32 -1, 1) i32 @conmgr_process_fd_unix_listen(i32 noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define i32 @conmgr_run(i1 noundef zeroext %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
 
@@ -1635,12 +1635,12 @@ define i32 @conmgr_run(i1 noundef zeroext %0) local_unnamed_addr #0 {
   unreachable
 
 5:                                                ; preds = %1
-  %6 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 35), align 1
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 35), align 1
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %5
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %10 = and i64 %9, 1024
   %.not30 = icmp eq i64 %10, 0
   br i1 %.not30, label %15, label %11
@@ -1655,8 +1655,8 @@ define i32 @conmgr_run(i1 noundef zeroext %0) local_unnamed_addr #0 {
   br label %15
 
 15:                                               ; preds = %8, %11, %14
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 76), align 4
-  %17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 76), align 4
+  %17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not31 = icmp eq i32 %17, 0
   br i1 %.not31, label %55, label %18
 
@@ -1667,9 +1667,9 @@ define i32 @conmgr_run(i1 noundef zeroext %0) local_unnamed_addr #0 {
   unreachable
 
 20:                                               ; preds = %5
-  store i8 0, ptr getelementptr inbounds (i8, ptr @mgr, i64 36), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 36), align 4
   tail call fastcc void @_requeue_deferred_funcs()
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not25 = icmp eq i32 %21, 0
   br i1 %.not25, label %24, label %22
 
@@ -1687,7 +1687,7 @@ define i32 @conmgr_run(i1 noundef zeroext %0) local_unnamed_addr #0 {
   br label %46
 
 26:                                               ; preds = %24
-  %27 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %27 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not26 = icmp eq i32 %27, 0
   br i1 %.not26, label %30, label %28
 
@@ -1698,17 +1698,17 @@ define i32 @conmgr_run(i1 noundef zeroext %0) local_unnamed_addr #0 {
   unreachable
 
 30:                                               ; preds = %26
-  %31 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 32), align 8
+  %31 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 32), align 8
   %32 = trunc i8 %31 to i1
   br i1 %32, label %_queue_func.exit, label %33
 
 33:                                               ; preds = %30
-  %34 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 36), align 4
+  %34 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 36), align 4
   %35 = trunc i8 %34 to i1
   br i1 %35, label %40, label %36
 
 36:                                               ; preds = %33
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 40), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 40), align 8
   %38 = tail call i32 @workq_add_work(ptr noundef %37, ptr noundef nonnull @_watch, ptr noundef null, ptr noundef nonnull @.str.26) #17
   %.not15.i = icmp eq i32 %38, 0
   br i1 %.not15.i, label %_queue_func.exit, label %39
@@ -1726,12 +1726,12 @@ define i32 @conmgr_run(i1 noundef zeroext %0) local_unnamed_addr #0 {
   store ptr null, ptr %.sroa.3.0..sroa_idx.i, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 24
   store ptr @.str.26, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 112), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 112), align 8
   tail call void @list_append(ptr noundef %42, ptr noundef nonnull %41) #17
   br label %_queue_func.exit
 
 _queue_func.exit:                                 ; preds = %40, %36, %30
-  %43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not27 = icmp eq i32 %43, 0
   br i1 %.not27, label %46, label %44
 
@@ -1742,7 +1742,7 @@ _queue_func.exit:                                 ; preds = %40, %36, %30
   unreachable
 
 46:                                               ; preds = %25, %_queue_func.exit
-  %47 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %47 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not28 = icmp eq i32 %47, 0
   br i1 %.not28, label %50, label %48
 
@@ -1753,8 +1753,8 @@ _queue_func.exit:                                 ; preds = %40, %36, %30
   unreachable
 
 50:                                               ; preds = %46
-  %51 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 76), align 4
-  %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 76), align 4
+  %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not29 = icmp eq i32 %52, 0
   br i1 %.not29, label %55, label %53
 
@@ -1778,7 +1778,7 @@ define internal void @_watch(ptr noundef readnone %0) #0 {
   %6 = alloca [100 x i8], align 16
   store ptr null, ptr %4, align 8
   store ptr null, ptr %5, align 8
-  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8
 
@@ -1789,12 +1789,12 @@ define internal void @_watch(ptr noundef readnone %0) #0 {
   unreachable
 
 10:                                               ; preds = %1
-  %11 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 35), align 1
+  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 35), align 1
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %10
-  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not76 = icmp eq i32 %14, 0
   br i1 %.not76, label %402, label %15
 
@@ -1805,7 +1805,7 @@ define internal void @_watch(ptr noundef readnone %0) #0 {
   unreachable
 
 17:                                               ; preds = %10
-  %18 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 32), align 8
+  %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 32), align 8
   %19 = trunc i8 %18 to i1
   br i1 %19, label %20, label %26
 
@@ -1818,7 +1818,7 @@ define internal void @_watch(ptr noundef readnone %0) #0 {
   br label %402
 
 22:                                               ; preds = %20
-  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not75 = icmp eq i32 %23, 0
   br i1 %.not75, label %402, label %24
 
@@ -1829,17 +1829,17 @@ define internal void @_watch(ptr noundef readnone %0) #0 {
   unreachable
 
 26:                                               ; preds = %17
-  store i8 1, ptr getelementptr inbounds (i8, ptr @mgr, i64 32), align 8
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 120), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 32), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 120), align 8
   %.not.i = icmp eq ptr %27, null
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 144), align 8
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 144), align 8
   %29 = icmp sgt i32 %28, 0
   %or.cond.i = select i1 %.not.i, i1 %29, i1 false
   br i1 %or.cond.i, label %.lr.ph.preheader.i, label %_init_signal_handler.exit.preheader
 
 .lr.ph.preheader.i:                               ; preds = %26
-  %.pre7.i = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 136), align 8
-  %.pre8.i = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 128), align 8
+  %.pre7.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 136), align 8
+  %.pre8.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 128), align 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_register_signal_handler.exit.i, %.lr.ph.preheader.i
@@ -1853,7 +1853,7 @@ define internal void @_watch(ptr noundef readnone %0) #0 {
   br i1 %35, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 120), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 120), align 8
   %wide.trip.count.i.i = zext nneg i32 %31 to i64
   br label %38
 
@@ -1872,9 +1872,9 @@ define internal void @_watch(ptr noundef readnone %0) #0 {
 ._crit_edge.i.i:                                  ; preds = %37, %.lr.ph.i
   %42 = add nsw i32 %31, 1
   %43 = sext i32 %42 to i64
-  %44 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 120), i64 noundef %43, i64 noundef 320, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 448, ptr noundef nonnull @__func__._register_signal_handler) #17
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 120), align 8
-  %46 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 128), align 8
+  %44 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 120), i64 noundef %43, i64 noundef 320, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 448, ptr noundef nonnull @__func__._register_signal_handler) #17
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 120), align 8
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 128), align 8
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds %struct.signal_handler_t, ptr %45, i64 %47
   store i32 -1039514550, ptr %48, align 8
@@ -1893,11 +1893,11 @@ define internal void @_watch(ptr noundef readnone %0) #0 {
   unreachable
 
 55:                                               ; preds = %._crit_edge.i.i
-  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 136), align 8
-  %56 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 128), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 136), align 8
+  %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 128), align 8
   %57 = add nsw i32 %56, 1
-  store i32 %57, ptr getelementptr inbounds (i8, ptr @mgr, i64 128), align 8
-  %.pre9.i = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 144), align 8
+  store i32 %57, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 128), align 8
+  %.pre9.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 144), align 8
   br label %_register_signal_handler.exit.i
 
 _register_signal_handler.exit.i:                  ; preds = %38, %55
@@ -1918,35 +1918,35 @@ _init_signal_handler.exit.outer:                  ; preds = %_init_signal_handle
   br label %_init_signal_handler.exit
 
 _init_signal_handler.exit:                        ; preds = %_init_signal_handler.exit.backedge, %_init_signal_handler.exit.outer
-  %63 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 35), align 1
+  %63 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 35), align 1
   %64 = trunc i8 %63 to i1
   br i1 %64, label %65, label %70
 
 65:                                               ; preds = %_init_signal_handler.exit
-  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 8), align 8
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 8), align 8
   %67 = call i32 @list_for_each(ptr noundef %66, ptr noundef nonnull @_close_con_for_each, ptr noundef null) #17
-  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 16), align 8
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 16), align 8
   %69 = call i32 @list_for_each(ptr noundef %68, ptr noundef nonnull @_close_con_for_each, ptr noundef null) #17
   br label %84
 
 70:                                               ; preds = %_init_signal_handler.exit
-  %71 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 36), align 4
+  %71 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 36), align 4
   %72 = trunc i8 %71 to i1
   br i1 %72, label %73, label %84
 
 73:                                               ; preds = %70
-  %74 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 34), align 2
+  %74 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 34), align 2
   %75 = trunc i8 %74 to i1
   br i1 %75, label %79, label %76
 
 76:                                               ; preds = %73
-  %77 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 33), align 1
+  %77 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 33), align 1
   %78 = trunc i8 %77 to i1
   br i1 %78, label %79, label %.loopexit109
 
 79:                                               ; preds = %76, %73
   call fastcc void @_signal_change(i1 noundef zeroext true)
-  %80 = call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 208), ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %80 = call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 208), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not47 = icmp eq i32 %80, 0
   br i1 %.not47, label %_init_signal_handler.exit.backedge, label %81
 
@@ -1957,9 +1957,9 @@ _init_signal_handler.exit:                        ; preds = %_init_signal_handle
   br label %_init_signal_handler.exit.backedge
 
 84:                                               ; preds = %70, %65
-  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 8), align 8
+  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 8), align 8
   %86 = call i32 @list_count(ptr noundef %85) #17
-  %87 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %87 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %88 = and i64 %87, 1024
   %.not48 = icmp eq i64 %88, 0
   br i1 %.not48, label %95, label %89
@@ -1970,30 +1970,30 @@ _init_signal_handler.exit:                        ; preds = %_init_signal_handle
   br i1 %91, label %92, label %95
 
 92:                                               ; preds = %89
-  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 16), align 8
+  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 16), align 8
   %94 = call i32 @list_count(ptr noundef %93) #17
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.65, ptr noundef nonnull @__func__._watch, i32 noundef %86, i32 noundef %94) #17
   br label %95
 
 95:                                               ; preds = %84, %89, %92
-  %96 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 34), align 2
+  %96 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 34), align 2
   %97 = trunc i8 %96 to i1
   br i1 %97, label %225, label %98
 
 98:                                               ; preds = %95
-  %99 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 33), align 1
+  %99 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 33), align 1
   %100 = trunc i8 %99 to i1
   br i1 %100, label %225, label %101
 
 101:                                              ; preds = %98
-  %102 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 56), align 8
+  %102 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 56), align 8
   %103 = call i64 @read(i32 noundef %102, ptr noundef nonnull %6, i64 noundef 100) #17
   %104 = trunc i64 %103 to i32
   %105 = icmp sgt i32 %104, 0
   br i1 %105, label %106, label %114
 
 106:                                              ; preds = %101
-  %107 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %107 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %108 = and i64 %107, 1024
   %.not52 = icmp eq i64 %108, 0
   br i1 %.not52, label %113, label %109
@@ -2008,7 +2008,7 @@ _init_signal_handler.exit:                        ; preds = %_init_signal_handle
   br label %113
 
 113:                                              ; preds = %106, %109, %112
-  store i32 0, ptr getelementptr inbounds (i8, ptr @mgr, i64 52), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 52), align 4
   br label %133
 
 114:                                              ; preds = %101
@@ -2024,7 +2024,7 @@ _init_signal_handler.exit:                        ; preds = %_init_signal_handle
   ]
 
 118:                                              ; preds = %115, %114
-  %119 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %119 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %120 = and i64 %119, 1024
   %.not51 = icmp eq i64 %120, 0
   br i1 %.not51, label %133, label %121
@@ -2039,7 +2039,7 @@ _init_signal_handler.exit:                        ; preds = %_init_signal_handle
   br label %133
 
 125:                                              ; preds = %115
-  %126 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %126 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %127 = and i64 %126, 1024
   %.not50 = icmp eq i64 %127, 0
   br i1 %.not50, label %133, label %128
@@ -2058,7 +2058,7 @@ _init_signal_handler.exit:                        ; preds = %_init_signal_handle
   unreachable
 
 133:                                              ; preds = %118, %121, %124, %131, %128, %125, %113
-  %134 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 72), align 8
+  %134 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 72), align 8
   %135 = trunc i8 %134 to i1
   br i1 %135, label %.preheader108, label %225
 
@@ -2066,13 +2066,13 @@ _init_signal_handler.exit:                        ; preds = %_init_signal_handle
   %.0.i = phi i32 [ %200, %_on_signal.exit.i ], [ 0, %133 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %136 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 64), align 8
+  %136 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 64), align 8
   %137 = call i32 (i32, i64, ...) @ioctl(i32 noundef %136, i64 noundef 21531, ptr noundef nonnull %3) #17
   %.not.i.i77 = icmp eq i32 %137, 0
   br i1 %.not.i.i77, label %146, label %138
 
 138:                                              ; preds = %.preheader108
-  %139 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %139 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %140 = and i64 %139, 1024
   %.not23.i.i = icmp eq i64 %140, 0
   br i1 %.not23.i.i, label %146, label %141
@@ -2083,7 +2083,7 @@ _init_signal_handler.exit:                        ; preds = %_init_signal_handle
   br i1 %143, label %144, label %146
 
 144:                                              ; preds = %141
-  %145 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 64), align 8
+  %145 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 64), align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.82, ptr noundef nonnull @__func__._read_signal, i32 noundef %145) #17
   br label %146
 
@@ -2097,7 +2097,7 @@ _init_signal_handler.exit:                        ; preds = %_init_signal_handle
   %.018.ph80.i.i = phi i32 [ %185, %.lr.ph.i.i78.backedge ], [ 4, %146 ]
   %148 = zext nneg i32 %.018.ph80.i.i to i64
   %149 = icmp eq i32 %.018.ph80.i.i, 4
-  %150 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 64), align 8
+  %150 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 64), align 8
   %151 = call i64 @read(i32 noundef %150, ptr noundef %.017.ph82.i.i, i64 noundef %148) #17
   %152 = trunc i64 %151 to i32
   %153 = icmp eq i32 %152, 0
@@ -2126,7 +2126,7 @@ _init_signal_handler.exit:                        ; preds = %_init_signal_handle
   ]
 
 159:                                              ; preds = %157, %157
-  %160 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 64), align 8
+  %160 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 64), align 8
   %161 = call i64 @read(i32 noundef %160, ptr noundef %.017.ph82.i.i, i64 noundef %148) #17
   %162 = trunc i64 %161 to i32
   %163 = icmp eq i32 %162, 0
@@ -2155,7 +2155,7 @@ _init_signal_handler.exit:                        ; preds = %_init_signal_handle
   ]
 
 169:                                              ; preds = %167, %167
-  %170 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 64), align 8
+  %170 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 64), align 8
   %171 = call i64 @read(i32 noundef %170, ptr noundef %.017.ph82.i.i, i64 noundef %148) #17
   %172 = trunc i64 %171 to i32
   %173 = icmp eq i32 %172, 0
@@ -2217,7 +2217,7 @@ _init_signal_handler.exit:                        ; preds = %_init_signal_handle
   br i1 %194, label %_read_signal.exit.thread.i, label %195
 
 195:                                              ; preds = %191
-  %196 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 64), align 8
+  %196 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 64), align 8
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.87, ptr noundef nonnull @__func__._read_signal, i32 noundef %196) #16
   unreachable
 
@@ -2235,7 +2235,7 @@ _read_signal.exit.i:                              ; preds = %.split37.us.i.i
 
 199:                                              ; preds = %_read_signal.exit.i
   %200 = add nuw nsw i32 %.0.i, 1
-  %201 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 144), align 8
+  %201 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 144), align 8
   %202 = icmp sgt i32 %201, 0
   br i1 %202, label %.lr.ph.outer.i.i, label %.critedge.i.i
 
@@ -2243,7 +2243,7 @@ _read_signal.exit.i:                              ; preds = %.split37.us.i.i
   %.ph.i.i = phi i32 [ %.pre13.i.i, %.thread.i.i ], [ %201, %199 ]
   %indvars.iv.ph.i.i = phi i64 [ %indvars.iv.next15.i.i, %.thread.i.i ], [ 0, %199 ]
   %.011.ph.i.i = phi i1 [ true, %.thread.i.i ], [ false, %199 ]
-  %.ph18.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 136), align 8
+  %.ph18.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 136), align 8
   %203 = sext i32 %.ph.i.i to i64
   br label %.lr.ph.i4.i
 
@@ -2284,7 +2284,7 @@ _read_signal.exit.i:                              ; preds = %.split37.us.i.i
   %.sroa.8.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %215, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.0..sroa_idx.i.i.i, i8 0, i64 16, i1 false)
   call fastcc void @_handle_work(i1 noundef zeroext true, ptr noundef nonnull %215)
-  %.pre13.i.i = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 144), align 8
+  %.pre13.i.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 144), align 8
   %indvars.iv.next15.i.i = add nuw nsw i64 %indvars.iv.i.i80, 1
   %216 = sext i32 %.pre13.i.i to i64
   %217 = icmp slt i64 %indvars.iv.next15.i.i, %216
@@ -2302,7 +2302,7 @@ _on_signal.exit.i:                                ; preds = %.thread.i.i, %.crit
   br label %.preheader108, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %_read_signal.exit.i, %_read_signal.exit.thread.i
-  %219 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %219 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %220 = and i64 %219, 1024
   %.not.i79 = icmp eq i64 %220, 0
   br i1 %.not.i79, label %_handle_signals.exit, label %221
@@ -2317,27 +2317,27 @@ _on_signal.exit.i:                                ; preds = %.thread.i.i, %.crit
   br label %_handle_signals.exit
 
 _handle_signals.exit:                             ; preds = %.loopexit.i, %221, %224
-  store i8 0, ptr getelementptr inbounds (i8, ptr @mgr, i64 72), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 72), align 8
   br label %_init_signal_handler.exit.backedge
 
 225:                                              ; preds = %133, %98, %95
-  %226 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 24), align 8
+  %226 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 24), align 8
   %227 = call i32 @list_is_empty(ptr noundef %226) #17
   %.not53 = icmp eq i32 %227, 0
   br i1 %.not53, label %228, label %.loopexit
 
 228:                                              ; preds = %225
-  %229 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 33), align 1
+  %229 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 33), align 1
   %230 = trunc i8 %229 to i1
   br i1 %230, label %236, label %231
 
 231:                                              ; preds = %228
-  %232 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 34), align 2
+  %232 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 34), align 2
   %233 = trunc i8 %232 to i1
   br i1 %233, label %236, label %.preheader
 
 .preheader:                                       ; preds = %231
-  %234 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 24), align 8
+  %234 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 24), align 8
   %235 = call ptr @list_pop(ptr noundef %234) #17
   %.not54145 = icmp eq ptr %235, null
   br i1 %.not54145, label %.loopexit, label %.lr.ph
@@ -2348,12 +2348,12 @@ _handle_signals.exit:                             ; preds = %.loopexit.i, %221, 
 
 .lr.ph:                                           ; preds = %.preheader, %_queue_func.exit
   %237 = phi ptr [ %248, %_queue_func.exit ], [ %235, %.preheader ]
-  %238 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 36), align 4
+  %238 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 36), align 4
   %239 = trunc i8 %238 to i1
   br i1 %239, label %244, label %240
 
 240:                                              ; preds = %.lr.ph
-  %241 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 40), align 8
+  %241 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 40), align 8
   %242 = call i32 @workq_add_work(ptr noundef %241, ptr noundef nonnull @_connection_fd_delete, ptr noundef nonnull %237, ptr noundef nonnull @.str.70) #17
   %.not15.i = icmp eq i32 %242, 0
   br i1 %.not15.i, label %_queue_func.exit, label %243
@@ -2371,18 +2371,18 @@ _handle_signals.exit:                             ; preds = %.loopexit.i, %221, 
   store ptr %237, ptr %.sroa.3.0..sroa_idx.i, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %245, i64 24
   store ptr @.str.70, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %246 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 112), align 8
+  %246 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 112), align 8
   call void @list_append(ptr noundef %246, ptr noundef nonnull %245) #17
   br label %_queue_func.exit
 
 _queue_func.exit:                                 ; preds = %240, %244
-  %247 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 24), align 8
+  %247 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 24), align 8
   %248 = call ptr @list_pop(ptr noundef %247) #17
   %.not54 = icmp eq ptr %248, null
   br i1 %.not54, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %_queue_func.exit, %.preheader, %236, %225
-  %249 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 16), align 8
+  %249 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 16), align 8
   %250 = call i32 @list_is_empty(ptr noundef %249) #17
   %.not55 = icmp eq i32 %250, 0
   br i1 %.not55, label %251, label %_queue_func.exit88.thread
@@ -2400,17 +2400,17 @@ _queue_func.exit:                                 ; preds = %240, %244
 254:                                              ; preds = %252, %251
   %255 = phi ptr [ %253, %252 ], [ %.ph, %251 ]
   %256 = phi ptr [ %253, %252 ], [ %.ph288, %251 ]
-  %257 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 16), align 8
-  %258 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 24), align 8
+  %257 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 16), align 8
+  %258 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 24), align 8
   %259 = call i32 @list_transfer_match(ptr noundef %257, ptr noundef %258, ptr noundef nonnull @_handle_connection, ptr noundef null) #17
-  %260 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 33), align 1
+  %260 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 33), align 1
   %261 = trunc i8 %260 to i1
   br i1 %261, label %287, label %262
 
 262:                                              ; preds = %254
   %263 = load i32, ptr @mgr, align 8
   %.not57 = icmp slt i32 %86, %263
-  %264 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %264 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %265 = and i64 %264, 1024
   %.not58 = icmp eq i64 %265, 0
   br i1 %.not57, label %272, label %266
@@ -2441,13 +2441,13 @@ _queue_func.exit:                                 ; preds = %240, %244
   br label %277
 
 277:                                              ; preds = %272, %273, %276
-  store i8 1, ptr getelementptr inbounds (i8, ptr @mgr, i64 33), align 1
-  %278 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 36), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 33), align 1
+  %278 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 36), align 4
   %279 = trunc i8 %278 to i1
   br i1 %279, label %284, label %280
 
 280:                                              ; preds = %277
-  %281 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 40), align 8
+  %281 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 40), align 8
   %282 = call i32 @workq_add_work(ptr noundef %281, ptr noundef nonnull @_listen, ptr noundef %255, ptr noundef nonnull @.str.73) #17
   %.not15.i84 = icmp eq i32 %282, 0
   br i1 %.not15.i84, label %_queue_func.exit88, label %283
@@ -2465,12 +2465,12 @@ _queue_func.exit:                                 ; preds = %240, %244
   store ptr %255, ptr %.sroa.3.0..sroa_idx.i86, align 8
   %.sroa.4.0..sroa_idx.i87 = getelementptr inbounds nuw i8, ptr %285, i64 24
   store ptr @.str.73, ptr %.sroa.4.0..sroa_idx.i87, align 8
-  %286 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 112), align 8
+  %286 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 112), align 8
   call void @list_append(ptr noundef %286, ptr noundef nonnull %285) #17
   br label %_queue_func.exit88
 
 287:                                              ; preds = %254
-  %288 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %288 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %289 = and i64 %288, 1024
   %.not60 = icmp eq i64 %289, 0
   br i1 %.not60, label %_queue_func.exit88, label %290
@@ -2508,18 +2508,18 @@ _queue_func.exit88.thread:                        ; preds = %.loopexit
 
 300:                                              ; preds = %298, %.loopexit289
   %301 = phi ptr [ %299, %298 ], [ %297, %.loopexit289 ]
-  %302 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 48), align 8
+  %302 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 48), align 8
   %303 = trunc i8 %302 to i1
   br i1 %303, label %_queue_func.exit93, label %304
 
 304:                                              ; preds = %300
-  store i8 1, ptr getelementptr inbounds (i8, ptr @mgr, i64 48), align 8
-  %305 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 36), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 48), align 8
+  %305 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 36), align 4
   %306 = trunc i8 %305 to i1
   br i1 %306, label %311, label %307
 
 307:                                              ; preds = %304
-  %308 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 40), align 8
+  %308 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 40), align 8
   %309 = call i32 @workq_add_work(ptr noundef %308, ptr noundef nonnull @_inspect_connections, ptr noundef null, ptr noundef nonnull @.str.75) #17
   %.not15.i89 = icmp eq i32 %309, 0
   br i1 %.not15.i89, label %_queue_func.exit93, label %310
@@ -2537,14 +2537,14 @@ _queue_func.exit88.thread:                        ; preds = %.loopexit
   store ptr null, ptr %.sroa.3.0..sroa_idx.i91, align 8
   %.sroa.4.0..sroa_idx.i92 = getelementptr inbounds nuw i8, ptr %312, i64 24
   store ptr @.str.75, ptr %.sroa.4.0..sroa_idx.i92, align 8
-  %313 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 112), align 8
+  %313 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 112), align 8
   call void @list_append(ptr noundef %313, ptr noundef nonnull %312) #17
   br label %_queue_func.exit93
 
 _queue_func.exit93:                               ; preds = %311, %307, %300
-  %314 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 34), align 2
+  %314 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 34), align 2
   %315 = trunc i8 %314 to i1
-  %316 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %316 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %317 = and i64 %316, 1024
   %.not64 = icmp eq i64 %317, 0
   br i1 %315, label %333, label %318
@@ -2562,13 +2562,13 @@ _queue_func.exit93:                               ; preds = %311, %307, %300
   br label %323
 
 323:                                              ; preds = %318, %319, %322
-  store i8 1, ptr getelementptr inbounds (i8, ptr @mgr, i64 34), align 2
-  %324 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 36), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 34), align 2
+  %324 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 36), align 4
   %325 = trunc i8 %324 to i1
   br i1 %325, label %330, label %326
 
 326:                                              ; preds = %323
-  %327 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 40), align 8
+  %327 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 40), align 8
   %328 = call i32 @workq_add_work(ptr noundef %327, ptr noundef nonnull @_poll_connections, ptr noundef nonnull %301, ptr noundef nonnull @.str.77) #17
   %.not15.i94 = icmp eq i32 %328, 0
   br i1 %.not15.i94, label %.critedge, label %329
@@ -2586,7 +2586,7 @@ _queue_func.exit93:                               ; preds = %311, %307, %300
   store ptr %301, ptr %.sroa.3.0..sroa_idx.i96, align 8
   %.sroa.4.0..sroa_idx.i97 = getelementptr inbounds nuw i8, ptr %331, i64 24
   store ptr @.str.77, ptr %.sroa.4.0..sroa_idx.i97, align 8
-  %332 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 112), align 8
+  %332 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 112), align 8
   call void @list_append(ptr noundef %332, ptr noundef nonnull %331) #17
   br label %.critedge
 
@@ -2603,18 +2603,18 @@ _queue_func.exit93:                               ; preds = %311, %307, %300
   br label %.critedge
 
 _queue_func.exit98.thread:                        ; preds = %_queue_func.exit88.thread
-  %338 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 34), align 2
+  %338 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 34), align 2
   %339 = trunc i8 %338 to i1
   br i1 %339, label %343, label %340
 
 340:                                              ; preds = %_queue_func.exit98.thread
-  %341 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 33), align 1
+  %341 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 33), align 1
   %342 = trunc i8 %341 to i1
   br i1 %342, label %343, label %354
 
 343:                                              ; preds = %340, %_queue_func.exit98.thread
   call fastcc void @_signal_change(i1 noundef zeroext true)
-  %344 = call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 208), ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %344 = call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 208), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not65 = icmp eq i32 %344, 0
   br i1 %.not65, label %_init_signal_handler.exit.backedge, label %345
 
@@ -2630,7 +2630,7 @@ _init_signal_handler.exit.backedge:               ; preds = %345, %343, %81, %79
 .critedge:                                        ; preds = %_queue_func.exit88, %330, %326, %333, %334, %337
   %348 = phi ptr [ %295, %330 ], [ %295, %326 ], [ %295, %333 ], [ %295, %334 ], [ %295, %337 ], [ %294, %_queue_func.exit88 ]
   %349 = phi ptr [ %296, %330 ], [ %296, %326 ], [ %296, %333 ], [ %296, %334 ], [ %296, %337 ], [ %255, %_queue_func.exit88 ]
-  %350 = call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 208), ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %350 = call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 208), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not73 = icmp eq i32 %350, 0
   br i1 %.not73, label %_init_signal_handler.exit.outer.backedge, label %351
 
@@ -2644,7 +2644,7 @@ _init_signal_handler.exit.outer.backedge:         ; preds = %351, %.critedge
   br label %_init_signal_handler.exit.outer
 
 354:                                              ; preds = %340
-  %355 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %355 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %356 = and i64 %355, 1024
   %.not66 = icmp eq i64 %356, 0
   br i1 %.not66, label %361, label %357
@@ -2660,20 +2660,20 @@ _init_signal_handler.exit.outer.backedge:         ; preds = %351, %.critedge
 
 361:                                              ; preds = %354, %357, %360
   call fastcc void @_signal_change(i1 noundef zeroext true)
-  %362 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 128), align 8
+  %362 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 128), align 8
   %363 = icmp sgt i32 %362, 0
   br i1 %363, label %.lr.ph.i99, label %_fini_signal_handler.exit
 
 364:                                              ; preds = %.lr.ph.i99
   %indvars.iv.next.i102 = add nuw nsw i64 %indvars.iv.i100, 1
-  %365 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 128), align 8
+  %365 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 128), align 8
   %366 = sext i32 %365 to i64
   %367 = icmp slt i64 %indvars.iv.next.i102, %366
   br i1 %367, label %.lr.ph.i99, label %_fini_signal_handler.exit, !llvm.loop !17
 
 .lr.ph.i99:                                       ; preds = %361, %364
   %indvars.iv.i100 = phi i64 [ %indvars.iv.next.i102, %364 ], [ 0, %361 ]
-  %368 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 120), align 8
+  %368 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 120), align 8
   %369 = getelementptr inbounds nuw %struct.signal_handler_t, ptr %368, i64 %indvars.iv.i100
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 312
   %371 = load i32, ptr %370, align 8
@@ -2690,13 +2690,13 @@ _init_signal_handler.exit.outer.backedge:         ; preds = %351, %.critedge
   unreachable
 
 _fini_signal_handler.exit:                        ; preds = %364, %361
-  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 120)) #17
-  store i32 0, ptr getelementptr inbounds (i8, ptr @mgr, i64 128), align 8
+  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 120)) #17
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 128), align 8
   br label %.loopexit109
 
 .loopexit109:                                     ; preds = %76, %_fini_signal_handler.exit
-  store i8 0, ptr getelementptr inbounds (i8, ptr @mgr, i64 32), align 8
-  %378 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 256)) #17
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 32), align 8
+  %378 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 256)) #17
   %.not67 = icmp eq i32 %378, 0
   br i1 %.not67, label %381, label %379
 
@@ -2707,7 +2707,7 @@ _fini_signal_handler.exit:                        ; preds = %364, %361
   unreachable
 
 381:                                              ; preds = %.loopexit109
-  %382 = call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 296)) #17
+  %382 = call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 296)) #17
   %.not68 = icmp eq i32 %382, 0
   br i1 %.not68, label %386, label %383
 
@@ -2718,7 +2718,7 @@ _fini_signal_handler.exit:                        ; preds = %364, %361
   br label %386
 
 386:                                              ; preds = %383, %381
-  %387 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 256)) #17
+  %387 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 256)) #17
   %.not69 = icmp eq i32 %387, 0
   br i1 %.not69, label %390, label %388
 
@@ -2729,7 +2729,7 @@ _fini_signal_handler.exit:                        ; preds = %364, %361
   unreachable
 
 390:                                              ; preds = %386
-  %391 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %391 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not70 = icmp eq i32 %391, 0
   br i1 %.not70, label %394, label %392
 
@@ -2772,7 +2772,7 @@ define internal fastcc void @_queue_func(i1 noundef zeroext %0, ptr noundef %1, 
   br i1 %0, label %9, label %5
 
 5:                                                ; preds = %4
-  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %9, label %7
 
@@ -2783,12 +2783,12 @@ define internal fastcc void @_queue_func(i1 noundef zeroext %0, ptr noundef %1, 
   unreachable
 
 9:                                                ; preds = %5, %4
-  %10 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 36), align 4
+  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 36), align 4
   %11 = trunc i8 %10 to i1
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 40), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 40), align 8
   %14 = tail call i32 @workq_add_work(ptr noundef %13, ptr noundef %1, ptr noundef %2, ptr noundef %3) #17
   %.not15 = icmp eq i32 %14, 0
   br i1 %.not15, label %19, label %15
@@ -2806,7 +2806,7 @@ define internal fastcc void @_queue_func(i1 noundef zeroext %0, ptr noundef %1, 
   store ptr %2, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %3, ptr %.sroa.4.0..sroa_idx, align 8
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 112), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 112), align 8
   tail call void @list_append(ptr noundef %18, ptr noundef nonnull %17) #17
   br label %19
 
@@ -2814,7 +2814,7 @@ define internal fastcc void @_queue_func(i1 noundef zeroext %0, ptr noundef %1, 
   br i1 %0, label %24, label %20
 
 20:                                               ; preds = %19
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not16 = icmp eq i32 %21, 0
   br i1 %.not16, label %24, label %22
 
@@ -2835,7 +2835,7 @@ define noundef i32 @conmgr_queue_write_fd(ptr nocapture noundef readonly %0, ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %7, ptr align 1 %1, i64 %2, i1 false)
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %9 = and i64 %8, 1024
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %16, label %10
@@ -2852,7 +2852,7 @@ define noundef i32 @conmgr_queue_write_fd(ptr nocapture noundef readonly %0, ptr
   br label %16
 
 16:                                               ; preds = %13, %10, %3
-  %17 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %18 = and i64 %17, 16
   %.not9 = icmp eq i64 %18, 0
   br i1 %.not9, label %24, label %19
@@ -2917,7 +2917,7 @@ define i32 @conmgr_queue_write_msg(ptr nocapture noundef readonly %0, ptr nounde
   br i1 %23, label %24, label %33
 
 24:                                               ; preds = %21
-  %25 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %26 = and i64 %25, 1024
   %.not26 = icmp eq i64 %26, 0
   br i1 %.not26, label %83, label %27
@@ -2965,7 +2965,7 @@ define i32 @conmgr_queue_write_msg(ptr nocapture noundef readonly %0, ptr nounde
   %56 = load i32, ptr %55, align 4
   %57 = zext i32 %56 to i64
   %58 = call i32 @conmgr_queue_write_fd(ptr noundef %0, ptr noundef %54, i64 noundef %57)
-  %59 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %59 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %60 = and i64 %59, 67108864
   %.not28 = icmp eq i64 %60, 0
   br i1 %.not28, label %70, label %61
@@ -2985,7 +2985,7 @@ define i32 @conmgr_queue_write_msg(ptr nocapture noundef readonly %0, ptr nounde
   br label %70
 
 70:                                               ; preds = %64, %61, %51
-  %71 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %71 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %72 = and i64 %71, 1024
   %.not29 = icmp eq i64 %72, 0
   br i1 %.not29, label %96, label %73
@@ -3007,7 +3007,7 @@ define i32 @conmgr_queue_write_msg(ptr nocapture noundef readonly %0, ptr nounde
 
 83:                                               ; preds = %2, %24, %27, %30
   %.0.ph = phi i32 [ 1008, %30 ], [ 1008, %27 ], [ 1008, %24 ], [ %5, %2 ]
-  %84 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %84 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %85 = and i64 %84, 1024
   %.not30 = icmp eq i64 %85, 0
   br i1 %.not30, label %96, label %86
@@ -3080,7 +3080,7 @@ declare void @free_buf(ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define void @conmgr_queue_close_fd(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
 
@@ -3121,7 +3121,7 @@ define void @conmgr_queue_close_fd(ptr noundef %0) local_unnamed_addr #0 {
   br label %12
 
 12:                                               ; preds = %9, %11
-  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not7 = icmp eq i32 %13, 0
   br i1 %.not7, label %16, label %14
 
@@ -3137,7 +3137,7 @@ define void @conmgr_queue_close_fd(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @_deferred_close_fd(ptr noundef %0, i32 %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %9, label %7
 
@@ -3154,7 +3154,7 @@ define internal void @_deferred_close_fd(ptr noundef %0, i32 %1, i32 %2, ptr noc
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %9
-  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not11 = icmp eq i32 %14, 0
   br i1 %.not11, label %17, label %15
 
@@ -3170,7 +3170,7 @@ define internal void @_deferred_close_fd(ptr noundef %0, i32 %1, i32 %2, ptr noc
 
 18:                                               ; preds = %9
   tail call fastcc void @_close_con(i1 noundef zeroext true, ptr noundef nonnull %0)
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not10 = icmp eq i32 %19, 0
   br i1 %.not10, label %22, label %20
 
@@ -3189,7 +3189,7 @@ define internal fastcc void @_close_con(i1 noundef zeroext %0, ptr nocapture nou
   br i1 %0, label %7, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
@@ -3203,7 +3203,7 @@ define internal fastcc void @_close_con(i1 noundef zeroext %0, ptr nocapture nou
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %9 = load i8, ptr %8, align 4
   %10 = trunc i8 %9 to i1
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %12 = and i64 %11, 1024
   %.not36 = icmp eq i64 %12, 0
   br i1 %10, label %13, label %20
@@ -3272,7 +3272,7 @@ define internal fastcc void @_close_con(i1 noundef zeroext %0, ptr nocapture nou
   br i1 %47, label %48, label %59
 
 48:                                               ; preds = %45
-  %49 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %49 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %50 = and i64 %49, 1024
   %.not35 = icmp eq i64 %50, 0
   br i1 %.not35, label %59, label %51
@@ -3307,7 +3307,7 @@ define internal fastcc void @_close_con(i1 noundef zeroext %0, ptr nocapture nou
   br i1 %66, label %67, label %93
 
 67:                                               ; preds = %64
-  %68 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %68 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %69 = and i64 %68, 1024
   %.not34 = icmp eq i64 %69, 0
   br i1 %.not34, label %93, label %70
@@ -3336,7 +3336,7 @@ define internal fastcc void @_close_con(i1 noundef zeroext %0, ptr nocapture nou
   br i1 %83, label %84, label %93
 
 84:                                               ; preds = %81
-  %85 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %85 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %86 = and i64 %85, 1024
   %.not33 = icmp eq i64 %86, 0
   br i1 %.not33, label %93, label %87
@@ -3362,7 +3362,7 @@ define internal fastcc void @_close_con(i1 noundef zeroext %0, ptr nocapture nou
   br i1 %0, label %100, label %96
 
 96:                                               ; preds = %95
-  %97 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %97 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not37 = icmp eq i32 %97, 0
   br i1 %.not37, label %100, label %98
 
@@ -3404,7 +3404,7 @@ define internal range(i32 -1, 1) i32 @_create_socket(ptr noundef %0, ptr nocaptu
   %5 = alloca %struct.sockaddr_un, align 2
   %6 = alloca i32, align 4
   %7 = tail call ptr @xstrstr(ptr noundef %0, ptr noundef nonnull @_create_socket.UNIX_PREFIX) #17
-  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %11, label %9
 
@@ -3415,9 +3415,9 @@ define internal range(i32 -1, 1) i32 @_create_socket(ptr noundef %0, ptr nocaptu
   unreachable
 
 11:                                               ; preds = %2
-  %.sroa.028.0.copyload = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 152), align 8
-  %.sroa.2.0.copyload = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 160), align 8
-  %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %.sroa.028.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 152), align 8
+  %.sroa.2.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 160), align 8
+  %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not69 = icmp eq i32 %12, 0
   br i1 %.not69, label %15, label %13
 
@@ -3620,7 +3620,7 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define void @conmgr_request_shutdown() local_unnamed_addr #0 {
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %2 = and i64 %1, 1024
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %7, label %3
@@ -3635,7 +3635,7 @@ define void @conmgr_request_shutdown() local_unnamed_addr #0 {
   br label %7
 
 7:                                                ; preds = %6, %3, %0
-  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not5 = icmp eq i32 %8, 0
   br i1 %.not5, label %11, label %9
 
@@ -3646,9 +3646,9 @@ define void @conmgr_request_shutdown() local_unnamed_addr #0 {
   unreachable
 
 11:                                               ; preds = %7
-  store i8 1, ptr getelementptr inbounds (i8, ptr @mgr, i64 35), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 35), align 1
   tail call fastcc void @_signal_change(i1 noundef zeroext true)
-  %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not6 = icmp eq i32 %12, 0
   br i1 %.not6, label %15, label %13
 
@@ -3664,7 +3664,7 @@ define void @conmgr_request_shutdown() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @conmgr_quiesce(i1 noundef zeroext %0) local_unnamed_addr #0 {
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %3 = and i64 %2, 1024
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %8, label %4
@@ -3679,7 +3679,7 @@ define void @conmgr_quiesce(i1 noundef zeroext %0) local_unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %7, %4, %1
-  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not9 = icmp eq i32 %9, 0
   br i1 %.not9, label %12, label %10
 
@@ -3690,17 +3690,17 @@ define void @conmgr_quiesce(i1 noundef zeroext %0) local_unnamed_addr #0 {
   unreachable
 
 12:                                               ; preds = %8
-  %13 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 36), align 4
+  %13 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 36), align 4
   %14 = trunc i8 %13 to i1
   br i1 %14, label %18, label %15
 
 15:                                               ; preds = %12
-  %16 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 35), align 1
+  %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 35), align 1
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %12, %15
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not11 = icmp eq i32 %19, 0
   br i1 %.not11, label %28, label %20
 
@@ -3711,7 +3711,7 @@ define void @conmgr_quiesce(i1 noundef zeroext %0) local_unnamed_addr #0 {
   unreachable
 
 22:                                               ; preds = %15
-  store i8 1, ptr getelementptr inbounds (i8, ptr @mgr, i64 36), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 36), align 4
   tail call fastcc void @_signal_change(i1 noundef zeroext true)
   br i1 %0, label %23, label %24
 
@@ -3720,7 +3720,7 @@ define void @conmgr_quiesce(i1 noundef zeroext %0) local_unnamed_addr #0 {
   br label %28
 
 24:                                               ; preds = %22
-  %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not10 = icmp eq i32 %25, 0
   br i1 %.not10, label %28, label %26
 
@@ -3736,12 +3736,12 @@ define void @conmgr_quiesce(i1 noundef zeroext %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_wait_for_watch() unnamed_addr #0 {
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 32), align 8
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 32), align 8
   %2 = trunc i8 %1 to i1
   br i1 %2, label %3, label %20
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 256)) #17
+  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 256)) #17
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
@@ -3752,7 +3752,7 @@ define internal fastcc void @_wait_for_watch() unnamed_addr #0 {
   unreachable
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %8 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not11 = icmp eq i32 %8, 0
   br i1 %.not11, label %11, label %9
 
@@ -3763,7 +3763,7 @@ define internal fastcc void @_wait_for_watch() unnamed_addr #0 {
   unreachable
 
 11:                                               ; preds = %7
-  %12 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 296), ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 256)) #17
+  %12 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 296), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 256)) #17
   %.not12 = icmp eq i32 %12, 0
   br i1 %.not12, label %16, label %13
 
@@ -3774,7 +3774,7 @@ define internal fastcc void @_wait_for_watch() unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %13, %11
-  %17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 256)) #17
+  %17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 256)) #17
   %.not13 = icmp eq i32 %17, 0
   br i1 %.not13, label %20, label %18
 
@@ -3835,7 +3835,7 @@ define void @conmgr_add_delayed_work(ptr noundef %0, ptr noundef %1, i64 noundef
   %.not = icmp eq ptr %0, null
   %. = select i1 %.not, i32 5, i32 3
   store i32 %., ptr %.sroa.7.0..sroa_idx, align 4
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %12 = and i64 %11, 1024
   %.not18 = icmp eq i64 %12, 0
   br i1 %.not18, label %20, label %13
@@ -3862,7 +3862,7 @@ define internal fastcc void @_handle_work(i1 noundef zeroext %0, ptr noundef %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %6 = and i64 %5, 1024
   %.not28 = icmp eq i64 %6, 0
   br i1 %.not, label %40, label %7
@@ -4001,7 +4001,7 @@ conmgr_work_type_string.exit42:                   ; preds = %59
   br i1 %0, label %76, label %72
 
 72:                                               ; preds = %71
-  %73 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %73 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not30 = icmp eq i32 %73, 0
   br i1 %.not30, label %76, label %74
 
@@ -4046,12 +4046,12 @@ conmgr_work_type_string.exit42:                   ; preds = %59
 
 85:                                               ; preds = %83, %79
   tail call fastcc void @_update_last_time()
-  %86 = load i64, ptr getelementptr inbounds (i8, ptr @mgr, i64 88), align 8
+  %86 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 88), align 8
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %88 = load i64, ptr %87, align 8
   %89 = add nsw i64 %88, %86
   store i64 %89, ptr %87, align 8
-  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 80), align 8
+  %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 80), align 8
   tail call void @list_append(ptr noundef %90, ptr noundef nonnull %1) #17
   tail call fastcc void @_update_timer()
   br label %_handle_work_pending.exit
@@ -4065,7 +4065,7 @@ conmgr_work_type_string.exit42:                   ; preds = %59
   unreachable
 
 93:                                               ; preds = %91
-  %94 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %94 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %95 = and i64 %94, 1024
   %.not18.i = icmp eq i64 %95, 0
   br i1 %.not18.i, label %111, label %96
@@ -4122,12 +4122,12 @@ conmgr_work_type_string.exit42:                   ; preds = %59
 121:                                              ; preds = %76
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %123 = load ptr, ptr %122, align 8
-  %124 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 36), align 4
+  %124 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 36), align 4
   %125 = trunc i8 %124 to i1
   br i1 %125, label %130, label %126
 
 126:                                              ; preds = %121
-  %127 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 40), align 8
+  %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 40), align 8
   %128 = tail call i32 @workq_add_work(ptr noundef %127, ptr noundef nonnull @_wrap_work, ptr noundef nonnull %1, ptr noundef %123) #17
   %.not15.i.i = icmp eq i32 %128, 0
   br i1 %.not15.i.i, label %_handle_work_pending.exit, label %129
@@ -4145,7 +4145,7 @@ conmgr_work_type_string.exit42:                   ; preds = %59
   store ptr %1, ptr %.sroa.3.0..sroa_idx.i.i, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %131, i64 24
   store ptr %123, ptr %.sroa.4.0..sroa_idx.i.i, align 8
-  %132 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 112), align 8
+  %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 112), align 8
   tail call void @list_append(ptr noundef %132, ptr noundef nonnull %131) #17
   br label %_handle_work_pending.exit
 
@@ -4161,12 +4161,12 @@ conmgr_work_type_string.exit42:                   ; preds = %59
 137:                                              ; preds = %133
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %139 = load ptr, ptr %138, align 8
-  %140 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 36), align 4
+  %140 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 36), align 4
   %141 = trunc i8 %140 to i1
   br i1 %141, label %146, label %142
 
 142:                                              ; preds = %137
-  %143 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 40), align 8
+  %143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 40), align 8
   %144 = tail call i32 @workq_add_work(ptr noundef %143, ptr noundef nonnull @_wrap_work, ptr noundef nonnull %1, ptr noundef %139) #17
   %.not15.i.i43 = icmp eq i32 %144, 0
   br i1 %.not15.i.i43, label %_handle_work_pending.exit, label %145
@@ -4184,7 +4184,7 @@ conmgr_work_type_string.exit42:                   ; preds = %59
   store ptr %1, ptr %.sroa.3.0..sroa_idx.i.i45, align 8
   %.sroa.4.0..sroa_idx.i.i46 = getelementptr inbounds nuw i8, ptr %147, i64 24
   store ptr %139, ptr %.sroa.4.0..sroa_idx.i.i46, align 8
-  %148 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 112), align 8
+  %148 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 112), align 8
   tail call void @list_append(ptr noundef %148, ptr noundef nonnull %147) #17
   br label %_handle_work_pending.exit
 
@@ -4197,7 +4197,7 @@ _handle_work_pending.exit:                        ; preds = %146, %142, %130, %1
   br i1 %0, label %154, label %150
 
 150:                                              ; preds = %_handle_work_pending.exit
-  %151 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %151 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not31 = icmp eq i32 %151, 0
   br i1 %.not31, label %154, label %152
 
@@ -4213,7 +4213,7 @@ _handle_work_pending.exit:                        ; preds = %146, %142, %130, %1
 
 ; Function Attrs: nounwind uwtable
 define void @conmgr_add_signal_work(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
@@ -4224,12 +4224,12 @@ define void @conmgr_add_signal_work(i32 noundef %0, ptr noundef %1, ptr noundef 
   unreachable
 
 8:                                                ; preds = %4
-  %9 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 35), align 1
+  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 35), align 1
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %8
-  %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not12 = icmp eq i32 %12, 0
   br i1 %.not12, label %33, label %13
 
@@ -4240,7 +4240,7 @@ define void @conmgr_add_signal_work(i32 noundef %0, ptr noundef %1, ptr noundef 
   unreachable
 
 15:                                               ; preds = %8
-  %16 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 32), align 8
+  %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 32), align 8
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %19
 
@@ -4249,12 +4249,12 @@ define void @conmgr_add_signal_work(i32 noundef %0, ptr noundef %1, ptr noundef 
   unreachable
 
 19:                                               ; preds = %15
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 144), align 8
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 144), align 8
   %21 = add nsw i32 %20, 1
   %22 = sext i32 %21 to i64
-  %23 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 136), i64 noundef %22, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 3170, ptr noundef nonnull @__func__._add_signal_work) #17
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 136), align 8
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 144), align 8
+  %23 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 136), i64 noundef %22, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 3170, ptr noundef nonnull @__func__._add_signal_work) #17
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 136), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 144), align 8
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds %struct.signal_work_t, ptr %24, i64 %26
   store i32 -1576975286, ptr %27, align 8
@@ -4266,10 +4266,10 @@ define void @conmgr_add_signal_work(i32 noundef %0, ptr noundef %1, ptr noundef 
   store ptr %2, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr %3, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 144), align 8
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 144), align 8
   %29 = add nsw i32 %28, 1
-  store i32 %29, ptr getelementptr inbounds (i8, ptr @mgr, i64 144), align 8
-  %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  store i32 %29, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 144), align 8
+  %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not11 = icmp eq i32 %30, 0
   br i1 %.not11, label %33, label %31
 
@@ -4342,7 +4342,7 @@ declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr 
 
 ; Function Attrs: nounwind uwtable
 define i32 @conmgr_get_thread_count() local_unnamed_addr #0 {
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
 
@@ -4353,9 +4353,9 @@ define i32 @conmgr_get_thread_count() local_unnamed_addr #0 {
   unreachable
 
 4:                                                ; preds = %0
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 40), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 40), align 8
   %6 = tail call i32 @get_workq_thread_count(ptr noundef %5) #17
-  %7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not6 = icmp eq i32 %7, 0
   br i1 %.not6, label %10, label %8
 
@@ -4373,7 +4373,7 @@ declare i32 @get_workq_thread_count(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define void @conmgr_set_exit_on_error(i1 noundef zeroext %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
 
@@ -4385,8 +4385,8 @@ define void @conmgr_set_exit_on_error(i1 noundef zeroext %0) local_unnamed_addr 
 
 5:                                                ; preds = %1
   %6 = zext i1 %0 to i8
-  store i8 %6, ptr getelementptr inbounds (i8, ptr @mgr, i64 73), align 1
-  %7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  store i8 %6, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 73), align 1
+  %7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not6 = icmp eq i32 %7, 0
   br i1 %.not6, label %10, label %8
 
@@ -4402,7 +4402,7 @@ define void @conmgr_set_exit_on_error(i1 noundef zeroext %0) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @conmgr_get_exit_on_error() local_unnamed_addr #0 {
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
 
@@ -4413,8 +4413,8 @@ define zeroext i1 @conmgr_get_exit_on_error() local_unnamed_addr #0 {
   unreachable
 
 4:                                                ; preds = %0
-  %5 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 73), align 1
-  %6 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 73), align 1
+  %6 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not6 = icmp eq i32 %6, 0
   br i1 %.not6, label %9, label %7
 
@@ -4431,7 +4431,7 @@ define zeroext i1 @conmgr_get_exit_on_error() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define i32 @conmgr_get_error() local_unnamed_addr #0 {
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
 
@@ -4442,8 +4442,8 @@ define i32 @conmgr_get_error() local_unnamed_addr #0 {
   unreachable
 
 4:                                                ; preds = %0
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 76), align 4
-  %6 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 76), align 4
+  %6 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not6 = icmp eq i32 %6, 0
   br i1 %.not6, label %9, label %7
 
@@ -4723,7 +4723,7 @@ declare i32 @pthread_cond_broadcast(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @_handle_timer(ptr nocapture readnone %0) #0 {
   %2 = tail call ptr @list_create(ptr noundef nonnull @xfree_ptr) #17
-  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
 
@@ -4735,9 +4735,9 @@ define internal void @_handle_timer(ptr nocapture readnone %0) #0 {
 
 6:                                                ; preds = %1
   tail call fastcc void @_update_last_time()
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 80), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 80), align 8
   %8 = tail call i32 @list_count(ptr noundef %7) #17
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 80), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 80), align 8
   %10 = tail call i32 @list_transfer_match(ptr noundef %9, ptr noundef %2, ptr noundef nonnull @_match_work_elapsed, ptr noundef null) #17
   tail call fastcc void @_update_timer()
   %11 = tail call ptr @list_pop(ptr noundef %2) #17
@@ -4762,7 +4762,7 @@ define internal void @_handle_timer(ptr nocapture readnone %0) #0 {
   br label %17
 
 17:                                               ; preds = %._crit_edge, %16
-  %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not16 = icmp eq i32 %18, 0
   br i1 %.not16, label %21, label %19
 
@@ -4773,7 +4773,7 @@ define internal void @_handle_timer(ptr nocapture readnone %0) #0 {
   unreachable
 
 21:                                               ; preds = %17
-  %22 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %23 = and i64 %22, 1024
   %.not17 = icmp eq i64 %23, 0
   br i1 %.not17, label %28, label %24
@@ -4804,22 +4804,22 @@ declare void @xfree_ptr(ptr noundef) #5
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_update_last_time() unnamed_addr #0 {
   %1 = alloca %struct.sigevent, align 8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 80), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 80), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %.loopexit
 
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @mgr, i64 104), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 104), ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 14, ptr %5, align 8
   %6 = tail call ptr @list_create(ptr noundef nonnull @xfree_ptr) #17
-  store ptr %6, ptr getelementptr inbounds (i8, ptr @mgr, i64 80), align 8
+  store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 80), align 8
   br label %7
 
 7:                                                ; preds = %12, %3
-  %8 = call i32 @timer_create(i32 noundef 1, ptr noundef nonnull %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 104)) #17
+  %8 = call i32 @timer_create(i32 noundef 1, ptr noundef nonnull %1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 104)) #17
   switch i32 %8, label %12 [
     i32 0, label %.loopexit
     i32 -1, label %9
@@ -4843,7 +4843,7 @@ define internal fastcc void @_update_last_time() unnamed_addr #0 {
   unreachable
 
 .loopexit:                                        ; preds = %7, %0
-  %15 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 88)) #17
+  %15 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 88)) #17
   switch i32 %15, label %19 [
     i32 0, label %21
     i32 -1, label %16
@@ -4872,7 +4872,7 @@ declare i32 @list_transfer_match(ptr noundef, ptr noundef, ptr noundef, ptr noun
 define internal range(i32 0, 2) i32 @_match_work_elapsed(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @mgr, i64 88), align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 88), align 8
   %6 = sub nsw i64 %4, %5
   %7 = icmp eq i64 %4, %5
   br i1 %7, label %8, label %14
@@ -4880,7 +4880,7 @@ define internal range(i32 0, 2) i32 @_match_work_elapsed(ptr nocapture noundef r
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load i64, ptr %9, align 8
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @mgr, i64 96), align 8
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 96), align 8
   %12 = sub nsw i64 %10, %11
   %13 = icmp slt i64 %12, 1
   br label %16
@@ -4892,7 +4892,7 @@ define internal range(i32 0, 2) i32 @_match_work_elapsed(ptr nocapture noundef r
 16:                                               ; preds = %14, %8
   %.012 = phi i1 [ %13, %8 ], [ %15, %14 ]
   %.0 = phi i64 [ %12, %8 ], [ -2, %14 ]
-  %17 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %18 = and i64 %17, 1024
   %.not = icmp eq i64 %18, 0
   br i1 %.not, label %31, label %19
@@ -4925,7 +4925,7 @@ define internal fastcc void @_update_timer() unnamed_addr #0 {
   %2 = alloca %struct.foreach_delayed_work_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) @__const._update_timer.args, i64 16, i1 false)
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %4 = and i64 %3, 1024
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %6, label %5
@@ -4935,7 +4935,7 @@ define internal fastcc void @_update_timer() unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %5, %0
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 80), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 80), align 8
   %8 = call i32 @list_for_each(ptr noundef %7, ptr noundef nonnull @_foreach_delayed_work, ptr noundef nonnull %2) #17
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -4951,14 +4951,14 @@ define internal fastcc void @_update_timer() unnamed_addr #0 {
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %16, ptr %17, align 8
-  %18 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %19 = and i64 %18, 1024
   %.not24 = icmp eq i64 %19, 0
   br i1 %.not24, label %43, label %20
 
 20:                                               ; preds = %11
-  %21 = load i64, ptr getelementptr inbounds (i8, ptr @mgr, i64 88), align 8
-  %22 = load i64, ptr getelementptr inbounds (i8, ptr @mgr, i64 96), align 8
+  %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 88), align 8
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 96), align 8
   %23 = call i32 @get_log_level() #17
   %24 = icmp sgt i32 %23, 3
   br i1 %24, label %25, label %43
@@ -4979,7 +4979,7 @@ define internal fastcc void @_update_timer() unnamed_addr #0 {
   br label %43
 
 36:                                               ; preds = %6
-  %37 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %37 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %38 = and i64 %37, 1024
   %.not23 = icmp eq i64 %38, 0
   br i1 %.not23, label %43, label %39
@@ -4994,7 +4994,7 @@ define internal fastcc void @_update_timer() unnamed_addr #0 {
   br label %43
 
 43:                                               ; preds = %42, %39, %36, %11, %20, %25
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 104), align 8
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 104), align 8
   %45 = call i32 @timer_settime(ptr noundef %44, i32 noundef 1, ptr noundef nonnull %1, ptr noundef null) #17
   ret void
 }
@@ -5009,7 +5009,7 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_foreach_delayed_work(ptr noundef %0, ptr nocapture noundef %1) #0 {
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %4 = and i64 %3, 1024
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %27, label %5
@@ -5017,7 +5017,7 @@ define internal noundef i32 @_foreach_delayed_work(ptr noundef %0, ptr nocapture
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @mgr, i64 88), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 88), align 8
   %9 = sub nsw i64 %7, %8
   %10 = icmp eq i64 %7, %8
   br i1 %10, label %11, label %16
@@ -5025,7 +5025,7 @@ define internal noundef i32 @_foreach_delayed_work(ptr noundef %0, ptr nocapture
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load i64, ptr %12, align 8
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @mgr, i64 96), align 8
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 96), align 8
   %15 = sub nsw i64 %13, %14
   br label %16
 
@@ -5094,7 +5094,7 @@ declare i32 @list_is_empty(ptr noundef) local_unnamed_addr #5
 define internal void @_connection_fd_delete(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %4 = and i64 %3, 1024
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %15, label %5
@@ -5176,7 +5176,7 @@ define internal range(i32 0, 2) i32 @_handle_connection(ptr noundef %0, ptr noca
   br i1 %5, label %6, label %15
 
 6:                                                ; preds = %2
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %8 = and i64 %7, 1024
   %.not120 = icmp eq i64 %8, 0
   br i1 %.not120, label %328, label %9
@@ -5202,7 +5202,7 @@ define internal range(i32 0, 2) i32 @_handle_connection(ptr noundef %0, ptr noca
 19:                                               ; preds = %15
   %20 = load ptr, ptr %16, align 8
   %21 = tail call ptr @list_pop(ptr noundef %20) #17
-  %22 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %23 = and i64 %22, 1024
   %.not118 = icmp eq i64 %23, 0
   br i1 %.not118, label %30, label %24
@@ -5222,7 +5222,7 @@ define internal range(i32 0, 2) i32 @_handle_connection(ptr noundef %0, ptr noca
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i32 2, ptr %31, align 8
   store i8 1, ptr %3, align 4
-  %32 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %32 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %33 = and i64 %32, 1024
   %.not119 = icmp eq i64 %33, 0
   br i1 %.not119, label %65, label %34
@@ -5312,7 +5312,7 @@ conmgr_work_type_string.exit:                     ; preds = %53
   br i1 %.not92, label %86, label %77
 
 77:                                               ; preds = %74
-  %78 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %78 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %79 = and i64 %78, 1024
   %.not93 = icmp eq i64 %79, 0
   br i1 %.not93, label %328, label %80
@@ -5345,7 +5345,7 @@ conmgr_work_type_string.exit:                     ; preds = %53
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 114
   %95 = load i8, ptr %94, align 2
   %96 = trunc i8 %95 to i1
-  %97 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %97 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %98 = and i64 %97, 1024
   %.not97 = icmp eq i64 %98, 0
   br i1 %96, label %99, label %109
@@ -5394,7 +5394,7 @@ conmgr_work_type_string.exit:                     ; preds = %53
   br i1 %.not98, label %135, label %122
 
 122:                                              ; preds = %118
-  %123 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %123 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %124 = and i64 %123, 1024
   %.not117 = icmp eq i64 %124, 0
   br i1 %.not117, label %131, label %125
@@ -5434,7 +5434,7 @@ conmgr_work_type_string.exit:                     ; preds = %53
   br i1 %145, label %146, label %157
 
 146:                                              ; preds = %142
-  %147 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %147 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %148 = and i64 %147, 1024
   %.not99 = icmp eq i64 %148, 0
   br i1 %.not99, label %155, label %149
@@ -5471,7 +5471,7 @@ conmgr_work_type_string.exit:                     ; preds = %53
   br i1 %165, label %179, label %166
 
 166:                                              ; preds = %162
-  %167 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %167 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %168 = and i64 %167, 1024
   %.not101 = icmp eq i64 %168, 0
   br i1 %.not101, label %178, label %169
@@ -5501,7 +5501,7 @@ conmgr_work_type_string.exit:                     ; preds = %53
   br i1 %140, label %206, label %.thread127
 
 .thread127:                                       ; preds = %.thread126
-  %180 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %180 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %181 = and i64 %180, 1024
   %.not103 = icmp eq i64 %181, 0
   br i1 %.not103, label %328, label %182
@@ -5518,7 +5518,7 @@ conmgr_work_type_string.exit:                     ; preds = %53
   br label %328
 
 188:                                              ; preds = %179
-  %189 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %189 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %190 = and i64 %189, 1024
   %.not102 = icmp eq i64 %190, 0
   br i1 %.not102, label %328, label %191
@@ -5550,7 +5550,7 @@ conmgr_work_type_string.exit:                     ; preds = %53
   br i1 %.not104, label %239, label %209
 
 209:                                              ; preds = %206
-  %210 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %210 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %211 = and i64 %210, 1024
   %.not105 = icmp eq i64 %211, 0
   br i1 %.not105, label %218, label %212
@@ -5575,7 +5575,7 @@ conmgr_work_type_string.exit:                     ; preds = %53
   br i1 %221, label %222, label %232
 
 222:                                              ; preds = %218
-  %223 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %223 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %224 = and i64 %223, 1024
   %.not106 = icmp eq i64 %224, 0
   br i1 %.not106, label %232, label %225
@@ -5614,7 +5614,7 @@ conmgr_work_type_string.exit:                     ; preds = %53
   br i1 %242, label %243, label %252
 
 243:                                              ; preds = %239
-  %244 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %244 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %245 = and i64 %244, 1024
   %.not116 = icmp eq i64 %245, 0
   br i1 %.not116, label %328, label %246
@@ -5642,7 +5642,7 @@ conmgr_work_type_string.exit:                     ; preds = %53
   br i1 %.not107, label %269, label %258
 
 258:                                              ; preds = %255
-  %259 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %259 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %260 = and i64 %259, 1024
   %.not108 = icmp eq i64 %260, 0
   br i1 %.not108, label %267, label %261
@@ -5677,7 +5677,7 @@ conmgr_work_type_string.exit:                     ; preds = %53
   br i1 %.not110, label %275, label %290
 
 275:                                              ; preds = %269, %272
-  %276 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %276 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %277 = and i64 %276, 1024
   %.not111 = icmp eq i64 %277, 0
   br i1 %.not111, label %328, label %278
@@ -5700,7 +5700,7 @@ conmgr_work_type_string.exit:                     ; preds = %53
   br label %328
 
 290:                                              ; preds = %272
-  %291 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %291 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %292 = and i64 %291, 1024
   %.not112 = icmp eq i64 %292, 0
   br i1 %.not112, label %302, label %293
@@ -5731,7 +5731,7 @@ conmgr_work_type_string.exit:                     ; preds = %53
   br i1 %307, label %308, label %318
 
 308:                                              ; preds = %305
-  %309 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %309 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %310 = and i64 %309, 1024
   %.not114 = icmp eq i64 %310, 0
   br i1 %.not114, label %318, label %311
@@ -5753,7 +5753,7 @@ conmgr_work_type_string.exit:                     ; preds = %53
   br label %319
 
 319:                                              ; preds = %302, %318
-  %320 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %320 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %321 = and i64 %320, 1024
   %.not115 = icmp eq i64 %321, 0
   br i1 %.not115, label %328, label %322
@@ -5776,7 +5776,7 @@ conmgr_work_type_string.exit:                     ; preds = %53
 
 ; Function Attrs: nounwind uwtable
 define internal void @_listen(ptr noundef %0) #0 {
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
 
@@ -5787,12 +5787,12 @@ define internal void @_listen(ptr noundef %0) #0 {
   unreachable
 
 5:                                                ; preds = %1
-  %6 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 35), align 1
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 35), align 1
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %17
 
 8:                                                ; preds = %5
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %10 = and i64 %9, 1024
   %.not52 = icmp eq i64 %10, 0
   br i1 %.not52, label %129, label %11
@@ -5803,18 +5803,18 @@ define internal void @_listen(ptr noundef %0) #0 {
   br i1 %13, label %14, label %129
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 16), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 16), align 8
   %16 = tail call i32 @list_count(ptr noundef %15) #17
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.146, ptr noundef nonnull @.str.73, i32 noundef %16) #17
   br label %129
 
 17:                                               ; preds = %5
-  %18 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 72), align 8
+  %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 72), align 8
   %19 = trunc i8 %18 to i1
   br i1 %19, label %20, label %27
 
 20:                                               ; preds = %17
-  %21 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %22 = and i64 %21, 1024
   %.not51 = icmp eq i64 %22, 0
   br i1 %.not51, label %129, label %23
@@ -5829,12 +5829,12 @@ define internal void @_listen(ptr noundef %0) #0 {
   br label %129
 
 27:                                               ; preds = %17
-  %28 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 36), align 4
+  %28 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 36), align 4
   %29 = trunc i8 %28 to i1
   br i1 %29, label %30, label %37
 
 30:                                               ; preds = %27
-  %31 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %32 = and i64 %31, 1024
   %.not50 = icmp eq i64 %32, 0
   br i1 %.not50, label %129, label %33
@@ -5849,9 +5849,9 @@ define internal void @_listen(ptr noundef %0) #0 {
   br label %129
 
 37:                                               ; preds = %27
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 16), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 16), align 8
   %39 = tail call i32 @list_count(ptr noundef %38) #17
-  %40 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %40 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %41 = and i64 %40, 1024
   %.not42 = icmp eq i64 %41, 0
   br i1 %.not42, label %46, label %42
@@ -5870,7 +5870,7 @@ define internal void @_listen(ptr noundef %0) #0 {
   br i1 %47, label %48, label %55
 
 48:                                               ; preds = %46
-  %49 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %49 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %50 = and i64 %49, 1024
   %.not49 = icmp eq i64 %50, 0
   br i1 %.not49, label %129, label %51
@@ -5892,7 +5892,7 @@ define internal void @_listen(ptr noundef %0) #0 {
   %60 = load ptr, ptr %56, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %61, align 8
-  %62 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 64), align 8
+  %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 64), align 8
   store i32 %62, ptr %60, align 4
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store i16 1, ptr %63, align 4
@@ -5900,14 +5900,14 @@ define internal void @_listen(ptr noundef %0) #0 {
   %65 = load i32, ptr %61, align 8
   %66 = add nsw i32 %65, 1
   store i32 %66, ptr %61, align 8
-  %67 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 56), align 8
+  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 56), align 8
   store i32 %67, ptr %64, align 4
   %68 = getelementptr inbounds nuw i8, ptr %60, i64 12
   store i16 1, ptr %68, align 4
   %69 = load i32, ptr %61, align 8
   %70 = add nsw i32 %69, 1
   store i32 %70, ptr %61, align 8
-  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 16), align 8
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 16), align 8
   %72 = tail call ptr @list_iterator_create(ptr noundef %71) #17
   %73 = tail call ptr @list_next(ptr noundef %72) #17
   %.not435556 = icmp eq ptr %73, null
@@ -5946,7 +5946,7 @@ define internal void @_listen(ptr noundef %0) #0 {
   store i32 %89, ptr %.0.ph57, align 4
   %90 = getelementptr inbounds nuw i8, ptr %.0.ph57, i64 4
   store i16 1, ptr %90, align 4
-  %91 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %91 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %92 = and i64 %91, 1024
   %.not48 = icmp eq i64 %92, 0
   br i1 %.not48, label %.outer, label %93
@@ -5978,7 +5978,7 @@ define internal void @_listen(ptr noundef %0) #0 {
   br i1 %104, label %105, label %112
 
 105:                                              ; preds = %.outer._crit_edge
-  %106 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %106 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %107 = and i64 %106, 1024
   %.not47 = icmp eq i64 %107, 0
   br i1 %.not47, label %129, label %108
@@ -5993,7 +5993,7 @@ define internal void @_listen(ptr noundef %0) #0 {
   br label %129
 
 112:                                              ; preds = %.outer._crit_edge
-  %113 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %113 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not44 = icmp eq i32 %113, 0
   br i1 %.not44, label %116, label %114
 
@@ -6004,7 +6004,7 @@ define internal void @_listen(ptr noundef %0) #0 {
   unreachable
 
 116:                                              ; preds = %112
-  %117 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %117 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %118 = and i64 %117, 1024
   %.not45 = icmp eq i64 %118, 0
   br i1 %.not45, label %124, label %119
@@ -6020,9 +6020,9 @@ define internal void @_listen(ptr noundef %0) #0 {
   br label %124
 
 124:                                              ; preds = %116, %119, %122
-  %125 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 16), align 8
+  %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 16), align 8
   tail call fastcc void @_poll(ptr noundef nonnull %0, ptr noundef %125, ptr noundef nonnull @_handle_listen_event, ptr noundef nonnull @.str.73)
-  %126 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %126 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not46 = icmp eq i32 %126, 0
   br i1 %.not46, label %129, label %127
 
@@ -6033,9 +6033,9 @@ define internal void @_listen(ptr noundef %0) #0 {
   unreachable
 
 129:                                              ; preds = %124, %111, %108, %105, %54, %51, %48, %36, %33, %30, %26, %23, %20, %14, %11, %8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @mgr, i64 33), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 33), align 1
   tail call fastcc void @_signal_change(i1 noundef zeroext true)
-  %130 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %130 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not53 = icmp eq i32 %130, 0
   br i1 %.not53, label %133, label %131
 
@@ -6051,7 +6051,7 @@ define internal void @_listen(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @_inspect_connections(ptr nocapture readnone %0) #0 {
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
 
@@ -6062,14 +6062,14 @@ define internal void @_inspect_connections(ptr nocapture readnone %0) #0 {
   unreachable
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 8), align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 24), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 8), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 24), align 8
   %8 = tail call i32 @list_transfer_match(ptr noundef %6, ptr noundef %7, ptr noundef nonnull @_handle_connection, ptr noundef null) #17
   %.not8 = icmp eq i32 %8, 0
   br i1 %.not8, label %14, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 208)) #17
+  %10 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 208)) #17
   %.not9 = icmp eq i32 %10, 0
   br i1 %.not9, label %14, label %11
 
@@ -6080,8 +6080,8 @@ define internal void @_inspect_connections(ptr nocapture readnone %0) #0 {
   br label %14
 
 14:                                               ; preds = %11, %9, %5
-  store i8 0, ptr getelementptr inbounds (i8, ptr @mgr, i64 48), align 8
-  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 48), align 8
+  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not10 = icmp eq i32 %15, 0
   br i1 %.not10, label %18, label %16
 
@@ -6097,7 +6097,7 @@ define internal void @_inspect_connections(ptr nocapture readnone %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @_poll_connections(ptr noundef %0) #0 {
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
 
@@ -6108,13 +6108,13 @@ define internal void @_poll_connections(ptr noundef %0) #0 {
   unreachable
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 8), align 8
   %7 = tail call i32 @list_count(ptr noundef %6) #17
   %.not67 = icmp eq i32 %7, 0
   br i1 %.not67, label %8, label %15
 
 8:                                                ; preds = %5
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %10 = and i64 %9, 1024
   %.not68 = icmp eq i64 %10, 0
   br i1 %.not68, label %143, label %11
@@ -6129,12 +6129,12 @@ define internal void @_poll_connections(ptr noundef %0) #0 {
   br label %143
 
 15:                                               ; preds = %5
-  %16 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 72), align 8
+  %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 72), align 8
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %15
-  %19 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %20 = and i64 %19, 1024
   %.not80 = icmp eq i64 %20, 0
   br i1 %.not80, label %143, label %21
@@ -6149,12 +6149,12 @@ define internal void @_poll_connections(ptr noundef %0) #0 {
   br label %143
 
 25:                                               ; preds = %15
-  %26 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 36), align 4
+  %26 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 36), align 4
   %27 = trunc i8 %26 to i1
   br i1 %27, label %28, label %35
 
 28:                                               ; preds = %25
-  %29 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %30 = and i64 %29, 1024
   %.not79 = icmp eq i64 %30, 0
   br i1 %.not79, label %143, label %31
@@ -6177,7 +6177,7 @@ define internal void @_poll_connections(ptr noundef %0) #0 {
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %41, align 8
   %42 = load ptr, ptr %36, align 8
-  %43 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 64), align 8
+  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 64), align 8
   store i32 %43, ptr %42, align 4
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 4
   store i16 1, ptr %44, align 4
@@ -6185,7 +6185,7 @@ define internal void @_poll_connections(ptr noundef %0) #0 {
   %46 = load i32, ptr %41, align 8
   %47 = add nsw i32 %46, 1
   store i32 %47, ptr %41, align 8
-  %48 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 56), align 8
+  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 56), align 8
   store i32 %48, ptr %45, align 4
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 12
   store i16 1, ptr %49, align 4
@@ -6193,7 +6193,7 @@ define internal void @_poll_connections(ptr noundef %0) #0 {
   %51 = load i32, ptr %41, align 8
   %52 = add nsw i32 %51, 1
   store i32 %52, ptr %41, align 8
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 8), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 8), align 8
   %54 = tail call ptr @list_iterator_create(ptr noundef %53) #17
   br label %.outer
 
@@ -6214,7 +6214,7 @@ define internal void @_poll_connections(ptr noundef %0) #0 {
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %56, i64 124
-  %63 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %63 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %64 = and i64 %63, 1024
   %.not74 = icmp eq i64 %64, 0
   br i1 %.not74, label %85, label %65
@@ -6320,7 +6320,7 @@ define internal void @_poll_connections(ptr noundef %0) #0 {
   br i1 %118, label %119, label %126
 
 119:                                              ; preds = %116
-  %120 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %120 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %121 = and i64 %120, 1024
   %.not73 = icmp eq i64 %121, 0
   br i1 %.not73, label %143, label %122
@@ -6335,7 +6335,7 @@ define internal void @_poll_connections(ptr noundef %0) #0 {
   br label %143
 
 126:                                              ; preds = %116
-  %127 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %127 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not70 = icmp eq i32 %127, 0
   br i1 %.not70, label %130, label %128
 
@@ -6346,7 +6346,7 @@ define internal void @_poll_connections(ptr noundef %0) #0 {
   unreachable
 
 130:                                              ; preds = %126
-  %131 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %131 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %132 = and i64 %131, 1024
   %.not71 = icmp eq i64 %132, 0
   br i1 %.not71, label %138, label %133
@@ -6362,9 +6362,9 @@ define internal void @_poll_connections(ptr noundef %0) #0 {
   br label %138
 
 138:                                              ; preds = %130, %133, %136
-  %139 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 8), align 8
+  %139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 8), align 8
   tail call fastcc void @_poll(ptr noundef nonnull %0, ptr noundef %139, ptr noundef nonnull @_handle_poll_event, ptr noundef nonnull @.str.77)
-  %140 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %140 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not72 = icmp eq i32 %140, 0
   br i1 %.not72, label %143, label %141
 
@@ -6375,8 +6375,8 @@ define internal void @_poll_connections(ptr noundef %0) #0 {
   unreachable
 
 143:                                              ; preds = %138, %125, %122, %119, %34, %31, %28, %24, %21, %18, %14, %11, %8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @mgr, i64 34), align 2
-  %144 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 208)) #17
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 34), align 2
+  %144 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 208)) #17
   %.not81 = icmp eq i32 %144, 0
   br i1 %.not81, label %148, label %145
 
@@ -6387,7 +6387,7 @@ define internal void @_poll_connections(ptr noundef %0) #0 {
   br label %148
 
 148:                                              ; preds = %145, %143
-  %149 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %149 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not82 = icmp eq i32 %149, 0
   br i1 %.not82, label %152, label %150
 
@@ -6398,7 +6398,7 @@ define internal void @_poll_connections(ptr noundef %0) #0 {
   unreachable
 
 152:                                              ; preds = %148
-  %153 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %153 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %154 = and i64 %153, 1024
   %.not83 = icmp eq i64 %154, 0
   br i1 %.not83, label %159, label %155
@@ -6422,7 +6422,7 @@ declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef z
 define internal void @_signal_handler(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 68), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 68), align 4
   %4 = call i64 @write(i32 noundef %3, ptr noundef nonnull %2, i64 noundef 4) #17
   %.not1 = icmp eq i64 %4, 4
   br i1 %.not1, label %._crit_edge, label %.lr.ph
@@ -6439,7 +6439,7 @@ define internal void @_signal_handler(i32 noundef %0) #0 {
   ]
 
 8:                                                ; preds = %6, %6
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 68), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 68), align 4
   %10 = call i64 @write(i32 noundef %9, ptr noundef nonnull %2, i64 noundef 4) #17
   %.not = icmp eq i64 %10, 4
   br i1 %.not, label %._crit_edge, label %6
@@ -6475,7 +6475,7 @@ define internal void @_handle_write(ptr nocapture noundef %0, i32 %1, i32 %2, pt
   br i1 %.not, label %9, label %18
 
 9:                                                ; preds = %5
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %11 = and i64 %10, 1024
   %.not39 = icmp eq i64 %11, 0
   br i1 %.not39, label %106, label %12
@@ -6501,7 +6501,7 @@ define internal void @_handle_write(ptr nocapture noundef %0, i32 %1, i32 %2, pt
   %25 = load ptr, ptr %24, align 8
   %26 = zext i32 %22 to i64
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
-  %28 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %29 = and i64 %28, 1024
   %.not40 = icmp eq i64 %29, 0
   br i1 %.not40, label %38, label %30
@@ -6550,7 +6550,7 @@ define internal void @_handle_write(ptr nocapture noundef %0, i32 %1, i32 %2, pt
   br i1 %53, label %54, label %63
 
 54:                                               ; preds = %50
-  %55 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %55 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %56 = and i64 %55, 1024
   %.not46 = icmp eq i64 %56, 0
   br i1 %.not46, label %106, label %57
@@ -6576,7 +6576,7 @@ define internal void @_handle_write(ptr nocapture noundef %0, i32 %1, i32 %2, pt
   br label %106
 
 69:                                               ; preds = %49
-  %70 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %70 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %71 = and i64 %70, 1024
   %.not45 = icmp eq i64 %71, 0
   br i1 %.not45, label %106, label %72
@@ -6593,7 +6593,7 @@ define internal void @_handle_write(ptr nocapture noundef %0, i32 %1, i32 %2, pt
   br label %106
 
 78:                                               ; preds = %49
-  %79 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %79 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %80 = and i64 %79, 1024
   %.not41 = icmp eq i64 %80, 0
   br i1 %.not41, label %89, label %81
@@ -6612,7 +6612,7 @@ define internal void @_handle_write(ptr nocapture noundef %0, i32 %1, i32 %2, pt
   br label %89
 
 89:                                               ; preds = %84, %81, %78
-  %90 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %90 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %91 = and i64 %90, 16
   %.not42 = icmp eq i64 %91, 0
   br i1 %.not42, label %96, label %92
@@ -6663,7 +6663,7 @@ define internal void @_handle_read(ptr nocapture noundef initializes((115, 116))
   br i1 %10, label %11, label %20
 
 11:                                               ; preds = %5
-  %12 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %13 = and i64 %12, 1024
   %.not46 = icmp eq i64 %13, 0
   br i1 %.not46, label %132, label %14
@@ -6685,7 +6685,7 @@ define internal void @_handle_read(ptr nocapture noundef initializes((115, 116))
   br i1 %.not, label %31, label %22
 
 22:                                               ; preds = %20
-  %23 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %24 = and i64 %23, 1024
   %.not37 = icmp eq i64 %24, 0
   br i1 %.not37, label %thread-pre-split, label %25
@@ -6757,7 +6757,7 @@ thread-pre-split:                                 ; preds = %22, %25, %28
   %60 = tail call ptr @__errno_location() #18
   %61 = load i32, ptr %60, align 4
   %62 = icmp eq i32 %61, 11
-  %63 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %63 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %64 = and i64 %63, 1024
   %.not45 = icmp eq i64 %64, 0
   br i1 %62, label %65, label %72
@@ -6795,7 +6795,7 @@ thread-pre-split:                                 ; preds = %22, %25, %28
   br label %132
 
 80:                                               ; preds = %47
-  %81 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %81 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %82 = and i64 %81, 1024
   %.not41 = icmp eq i64 %82, 0
   br i1 %.not41, label %92, label %83
@@ -6815,7 +6815,7 @@ thread-pre-split:                                 ; preds = %22, %25, %28
   br label %92
 
 92:                                               ; preds = %86, %83, %80
-  %93 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %93 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not42 = icmp eq i32 %93, 0
   br i1 %.not42, label %96, label %94
 
@@ -6828,7 +6828,7 @@ thread-pre-split:                                 ; preds = %22, %25, %28
 96:                                               ; preds = %92
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i8 1, ptr %97, align 4
-  %98 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %98 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not43 = icmp eq i32 %98, 0
   br i1 %.not43, label %132, label %99
 
@@ -6839,7 +6839,7 @@ thread-pre-split:                                 ; preds = %22, %25, %28
   unreachable
 
 101:                                              ; preds = %47
-  %102 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %102 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %103 = and i64 %102, 1024
   %.not39 = icmp eq i64 %103, 0
   br i1 %.not39, label %113, label %104
@@ -6859,7 +6859,7 @@ thread-pre-split:                                 ; preds = %22, %25, %28
   br label %113
 
 113:                                              ; preds = %107, %104, %101
-  %114 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %114 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %115 = and i64 %114, 16
   %.not40 = icmp eq i64 %115, 0
   br i1 %.not40, label %126, label %116
@@ -6902,7 +6902,7 @@ define internal void @_wrap_on_data(ptr noundef %0, i32 %1, i32 %2, ptr nocaptur
   %12 = load ptr, ptr %6, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 %9, ptr %13, align 8
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %15 = and i64 %14, 1024
   %.not = icmp eq i64 %15, 0
   br i1 %.not, label %28, label %16
@@ -6947,7 +6947,7 @@ define internal void @_wrap_on_data(ptr noundef %0, i32 %1, i32 %2, ptr nocaptur
   br i1 %.not.i, label %40, label %96
 
 40:                                               ; preds = %37
-  %41 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %41 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %42 = and i64 %41, 1024
   %.not69.i = icmp eq i64 %42, 0
   br i1 %.not69.i, label %52, label %43
@@ -6979,7 +6979,7 @@ define internal void @_wrap_on_data(ptr noundef %0, i32 %1, i32 %2, ptr nocaptur
   %60 = load i32, ptr %59, align 4
   %61 = tail call i32 @ntohl(i32 noundef %60) #18
   store i32 %61, ptr %38, align 8
-  %62 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %62 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %63 = and i64 %62, 1024
   %.not71.i = icmp eq i64 %63, 0
   br i1 %.not71.i, label %83, label %64
@@ -7000,7 +7000,7 @@ define internal void @_wrap_on_data(ptr noundef %0, i32 %1, i32 %2, ptr nocaptur
   br label %thread-pre-split.i
 
 74:                                               ; preds = %52
-  %75 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %75 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %76 = and i64 %75, 1024
   %.not70.i = icmp eq i64 %76, 0
   br i1 %.not70.i, label %_on_rpc_connection_data.exit, label %77
@@ -7026,7 +7026,7 @@ thread-pre-split.i:                               ; preds = %67, %64
   br i1 %85, label %86, label %96
 
 86:                                               ; preds = %83
-  %87 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %87 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %88 = and i64 %87, 1024
   %.not72.i = icmp eq i64 %88, 0
   br i1 %.not72.i, label %_on_rpc_connection_data.exit, label %89
@@ -7052,7 +7052,7 @@ thread-pre-split.i:                               ; preds = %67, %64
   br i1 %.not73.i, label %111, label %101
 
 101:                                              ; preds = %96
-  %102 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %102 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %103 = and i64 %102, 1024
   %.not83.i = icmp eq i64 %103, 0
   br i1 %.not83.i, label %_on_rpc_connection_data.exit, label %104
@@ -7084,7 +7084,7 @@ thread-pre-split.i:                               ; preds = %67, %64
   %120 = tail call ptr @create_shadow_buf(ptr noundef nonnull %118, i32 noundef %119) #17
   %121 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 416, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 1190, ptr noundef nonnull @__func__._on_rpc_connection_data) #17
   tail call void @slurm_msg_t_init(ptr noundef %121) #17
-  %122 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %122 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %123 = and i64 %122, 16
   %.not76.i = icmp eq i64 %123, 0
   br i1 %.not76.i, label %132, label %124
@@ -7118,7 +7118,7 @@ thread-pre-split.i:                               ; preds = %67, %64
   br label %155
 
 143:                                              ; preds = %132
-  %144 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %144 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %145 = and i64 %144, 1024
   %.not78.i = icmp eq i64 %145, 0
   br i1 %.not78.i, label %155, label %146
@@ -7158,7 +7158,7 @@ thread-pre-split.i:                               ; preds = %67, %64
   br i1 %or.cond.i, label %174, label %_on_rpc_connection_data.exit
 
 162:                                              ; preds = %111
-  %163 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %163 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %164 = and i64 %163, 1024
   %.not75.i = icmp eq i64 %164, 0
   br i1 %.not75.i, label %_on_rpc_connection_data.exit, label %165
@@ -7178,7 +7178,7 @@ thread-pre-split.i:                               ; preds = %67, %64
   br label %_on_rpc_connection_data.exit
 
 174:                                              ; preds = %159
-  %175 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %175 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %176 = and i64 %175, 67108864
   %.not80.i = icmp eq i64 %176, 0
   br i1 %.not80.i, label %186, label %177
@@ -7198,7 +7198,7 @@ thread-pre-split.i:                               ; preds = %67, %64
   br label %186
 
 186:                                              ; preds = %180, %177, %174
-  %187 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %187 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %188 = and i64 %187, 1024
   %.not81.i = icmp eq i64 %188, 0
   br i1 %.not81.i, label %201, label %189
@@ -7226,7 +7226,7 @@ thread-pre-split.i:                               ; preds = %67, %64
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %205 = load ptr, ptr %204, align 8
   %206 = tail call i32 %203(ptr noundef nonnull %0, ptr noundef nonnull %.0.i, ptr noundef %205) #17
-  %207 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %207 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %208 = and i64 %207, 1024
   %.not82.i = icmp eq i64 %208, 0
   br i1 %.not82.i, label %_on_rpc_connection_data.exit, label %209
@@ -7253,7 +7253,7 @@ thread-pre-split.i:                               ; preds = %67, %64
 
 _on_rpc_connection_data.exit:                     ; preds = %212, %209, %201, %168, %165, %162, %159, %107, %104, %101, %92, %89, %86, %80, %77, %74, %31
   %.0 = phi i32 [ %36, %31 ], [ 0, %74 ], [ 0, %77 ], [ 0, %80 ], [ 1008, %86 ], [ 1008, %89 ], [ 1008, %92 ], [ %100, %101 ], [ %100, %104 ], [ %100, %107 ], [ 0, %162 ], [ 0, %165 ], [ 0, %168 ], [ %206, %212 ], [ %206, %209 ], [ %206, %201 ], [ %.063.i, %159 ]
-  %221 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %221 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %222 = and i64 %221, 1024
   %.not51 = icmp eq i64 %222, 0
   br i1 %.not51, label %236, label %223
@@ -7285,7 +7285,7 @@ _on_rpc_connection_data.exit:                     ; preds = %212, %209, %201, %1
   %239 = load ptr, ptr %238, align 8
   %240 = tail call ptr @slurm_strerror(i32 noundef %.0) #17
   %241 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.101, ptr noundef %239, ptr noundef %240) #17
-  %242 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %242 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not55 = icmp eq i32 %242, 0
   br i1 %.not55, label %245, label %243
 
@@ -7296,25 +7296,25 @@ _on_rpc_connection_data.exit:                     ; preds = %212, %209, %201, %1
   unreachable
 
 245:                                              ; preds = %237
-  %246 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 73), align 1
+  %246 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 73), align 1
   %247 = trunc i8 %246 to i1
   br i1 %247, label %248, label %249
 
 248:                                              ; preds = %245
-  store i8 1, ptr getelementptr inbounds (i8, ptr @mgr, i64 35), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 35), align 1
   br label %249
 
 249:                                              ; preds = %248, %245
-  %250 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 76), align 4
+  %250 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 76), align 4
   %.not56 = icmp eq i32 %250, 0
   br i1 %.not56, label %251, label %252
 
 251:                                              ; preds = %249
-  store i32 %.0, ptr getelementptr inbounds (i8, ptr @mgr, i64 76), align 4
+  store i32 %.0, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 76), align 4
   br label %252
 
 252:                                              ; preds = %249, %251
-  %253 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %253 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not57 = icmp eq i32 %253, 0
   br i1 %.not57, label %256, label %254
 
@@ -7325,7 +7325,7 @@ _on_rpc_connection_data.exit:                     ; preds = %212, %209, %201, %1
   unreachable
 
 256:                                              ; preds = %252
-  %257 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %257 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %258 = and i64 %257, 1024
   %.not58 = icmp eq i64 %258, 0
   br i1 %.not58, label %267, label %259
@@ -7381,7 +7381,7 @@ _on_rpc_connection_data.exit:                     ; preds = %212, %209, %201, %1
   br label %303
 
 291:                                              ; preds = %277
-  %292 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %292 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %293 = and i64 %292, 1024
   %.not54 = icmp eq i64 %293, 0
   br i1 %.not54, label %300, label %294
@@ -7428,7 +7428,7 @@ define internal void @_on_finish_wrapper(ptr nocapture noundef %0, i32 %1, i32 %
   br label %9
 
 9:                                                ; preds = %5, %8
-  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not10 = icmp eq i32 %10, 0
   br i1 %.not10, label %13, label %11
 
@@ -7443,7 +7443,7 @@ define internal void @_on_finish_wrapper(ptr nocapture noundef %0, i32 %1, i32 %
   store i8 0, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %15, align 8
-  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not11 = icmp eq i32 %16, 0
   br i1 %.not11, label %19, label %17
 
@@ -7495,7 +7495,7 @@ define internal fastcc void @_poll(ptr nocapture noundef readonly %0, ptr nounde
   ]
 
 15:                                               ; preds = %10
-  %16 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %16 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not63 = icmp eq i32 %16, 0
   br i1 %.not63, label %19, label %17
 
@@ -7506,8 +7506,8 @@ define internal fastcc void @_poll(ptr nocapture noundef readonly %0, ptr nounde
   unreachable
 
 19:                                               ; preds = %15
-  %20 = load i8, ptr getelementptr inbounds (i8, ptr @mgr, i64 73), align 1
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %20 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 73), align 1
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not64 = icmp eq i32 %21, 0
   br i1 %.not64, label %24, label %22
 
@@ -7526,7 +7526,7 @@ define internal fastcc void @_poll(ptr nocapture noundef readonly %0, ptr nounde
   br i1 %brmerge, label %36, label %29
 
 29:                                               ; preds = %24
-  %30 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %30 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %31 = and i64 %30, 1024
   %.not65 = icmp eq i64 %31, 0
   br i1 %.not65, label %.backedge, label %32
@@ -7548,7 +7548,7 @@ define internal fastcc void @_poll(ptr nocapture noundef readonly %0, ptr nounde
   unreachable
 
 37:                                               ; preds = %10
-  %38 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %38 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %39 = and i64 %38, 1024
   %.not62 = icmp eq i64 %39, 0
   br i1 %.not62, label %.loopexit, label %40
@@ -7563,7 +7563,7 @@ define internal fastcc void @_poll(ptr nocapture noundef readonly %0, ptr nounde
   br label %.loopexit
 
 44:                                               ; preds = %10
-  %45 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %45 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not = icmp eq i32 %45, 0
   br i1 %.not, label %48, label %46
 
@@ -7574,9 +7574,9 @@ define internal fastcc void @_poll(ptr nocapture noundef readonly %0, ptr nounde
   unreachable
 
 48:                                               ; preds = %44
-  %49 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 64), align 8
-  %50 = load i32, ptr getelementptr inbounds (i8, ptr @mgr, i64 56), align 8
-  %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 64), align 8
+  %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 56), align 8
+  %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not54 = icmp eq i32 %51, 0
   br i1 %.not54, label %54, label %52
 
@@ -7609,9 +7609,9 @@ define internal fastcc void @_poll(ptr nocapture noundef readonly %0, ptr nounde
   br i1 %62, label %63, label %76
 
 63:                                               ; preds = %60
-  store i8 1, ptr getelementptr inbounds (i8, ptr @mgr, i64 72), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 72), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %64 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %64 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %65 = and i64 %64, 1024
   %.not.i = icmp eq i64 %65, 0
   br i1 %.not.i, label %_handle_event_pipe.exit, label %66
@@ -7620,7 +7620,7 @@ define internal fastcc void @_poll(ptr nocapture noundef readonly %0, ptr nounde
   %67 = load i16, ptr %58, align 2
   %68 = call ptr @poll_revents_to_str(i16 noundef signext %67) #17
   store ptr %68, ptr %6, align 8
-  %69 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %69 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %70 = and i64 %69, 1024
   %.not3.i = icmp eq i64 %70, 0
   br i1 %.not3.i, label %75, label %71
@@ -7648,7 +7648,7 @@ _handle_event_pipe.exit:                          ; preds = %63, %75
 
 78:                                               ; preds = %76
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %79 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %79 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %80 = and i64 %79, 1024
   %.not.i67 = icmp eq i64 %80, 0
   br i1 %.not.i67, label %_handle_event_pipe.exit69, label %81
@@ -7656,7 +7656,7 @@ _handle_event_pipe.exit:                          ; preds = %63, %75
 81:                                               ; preds = %78
   %82 = call ptr @poll_revents_to_str(i16 noundef signext %59) #17
   store ptr %82, ptr %5, align 8
-  %83 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %83 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %84 = and i64 %83, 1024
   %.not3.i68 = icmp eq i64 %84, 0
   br i1 %.not3.i68, label %89, label %85
@@ -7681,7 +7681,7 @@ _handle_event_pipe.exit69:                        ; preds = %78, %89
 90:                                               ; preds = %76
   %91 = call ptr @list_find_first(ptr noundef %1, ptr noundef nonnull @_find_by_fd, ptr noundef nonnull %.088) #17
   %.not56 = icmp eq ptr %91, null
-  %92 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %92 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %93 = and i64 %92, 1024
   %.not57 = icmp eq i64 %93, 0
   br i1 %.not56, label %118, label %94
@@ -7693,7 +7693,7 @@ _handle_event_pipe.exit69:                        ; preds = %78, %89
   %96 = load i16, ptr %58, align 2
   %97 = call ptr @poll_revents_to_str(i16 noundef signext %96) #17
   store ptr %97, ptr %7, align 8
-  %98 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %98 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %99 = and i64 %98, 1024
   %.not59 = icmp eq i64 %99, 0
   br i1 %.not59, label %107, label %100
@@ -7715,7 +7715,7 @@ _handle_event_pipe.exit69:                        ; preds = %78, %89
   br label %108
 
 108:                                              ; preds = %94, %107
-  %109 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %109 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not60 = icmp eq i32 %109, 0
   br i1 %.not60, label %112, label %110
 
@@ -7730,7 +7730,7 @@ _handle_event_pipe.exit69:                        ; preds = %78, %89
   %114 = load i16, ptr %58, align 2
   call void %2(i32 noundef %113, ptr noundef nonnull %91, i16 noundef signext %114) #17, !callees !22
   call fastcc void @_signal_change(i1 noundef zeroext true)
-  %115 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %115 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not61 = icmp eq i32 %115, 0
   br i1 %.not61, label %124, label %116
 
@@ -7818,7 +7818,7 @@ define internal void @_handle_listen_event(i32 %0, ptr noundef %1, i16 noundef s
 32:                                               ; preds = %17
   %33 = and i16 %2, 1
   %.not17 = icmp eq i16 %33, 0
-  %34 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %34 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %35 = and i64 %34, 1024
   %.not18 = icmp eq i64 %35, 0
   br i1 %.not17, label %45, label %36
@@ -7916,7 +7916,7 @@ define internal void @_listen_accept(ptr noundef %0, i32 %1, i32 %2, ptr nocaptu
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, -1
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %12 = and i64 %11, 1024
   %.not28 = icmp eq i64 %12, 0
   br i1 %10, label %13, label %20
@@ -7964,7 +7964,7 @@ define internal void @_listen_accept(ptr noundef %0, i32 %1, i32 %2, ptr nocaptu
   ]
 
 34:                                               ; preds = %31
-  %35 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %35 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %36 = and i64 %35, 1024
   %.not27 = icmp eq i64 %36, 0
   br i1 %.not27, label %87, label %37
@@ -7981,7 +7981,7 @@ define internal void @_listen_accept(ptr noundef %0, i32 %1, i32 %2, ptr nocaptu
   br label %87
 
 43:                                               ; preds = %31
-  %44 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %44 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %45 = and i64 %44, 1024
   %.not26 = icmp eq i64 %45, 0
   br i1 %.not26, label %87, label %46
@@ -8050,7 +8050,7 @@ define internal void @_listen_accept(ptr noundef %0, i32 %1, i32 %2, ptr nocaptu
   br i1 %.not24, label %78, label %85
 
 78:                                               ; preds = %68
-  %79 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %79 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %80 = and i64 %79, 1024
   %.not25 = icmp eq i64 %80, 0
   br i1 %.not25, label %87, label %81
@@ -8156,7 +8156,7 @@ define internal void @_handle_poll_event(i32 noundef %0, ptr nocapture noundef i
   br i1 %.not23.i, label %55, label %38
 
 38:                                               ; preds = %36
-  %39 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %39 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %40 = and i64 %39, 1024
   %.not24.i = icmp eq i64 %40, 0
   br i1 %.not24.i, label %55, label %41
@@ -8232,7 +8232,7 @@ _handle_poll_event_error.exit:                    ; preds = %60, %64
   br label %81
 
 81:                                               ; preds = %73, %77
-  %82 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %82 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %83 = and i64 %82, 1024
   %.not20 = icmp eq i64 %83, 0
   br i1 %.not20, label %96, label %84
@@ -8298,7 +8298,7 @@ define internal void @_wrap_work(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %6 = and i64 %5, 1024
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %47, label %7
@@ -8413,7 +8413,7 @@ conmgr_work_status_string.exit:                   ; preds = %37
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %68 = load ptr, ptr %67, align 8
   tail call void %61(ptr noundef %62, i32 noundef %49, i32 noundef %64, ptr noundef %66, ptr noundef %68) #17
-  %69 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %69 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not.i = icmp eq i32 %69, 0
   br i1 %.not.i, label %72, label %70
 
@@ -8426,7 +8426,7 @@ conmgr_work_status_string.exit:                   ; preds = %37
 72:                                               ; preds = %59
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 124
   store i8 0, ptr %73, align 4
-  %74 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mgr, i64 168)) #17
+  %74 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #17
   %.not11.i = icmp eq i32 %74, 0
   br i1 %.not11.i, label %_wrap_con_work.exit, label %75
 
@@ -8441,7 +8441,7 @@ conmgr_work_status_string.exit:                   ; preds = %37
   unreachable
 
 _wrap_con_work.exit:                              ; preds = %72, %50
-  %78 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %78 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %79 = and i64 %78, 1024
   %.not11 = icmp eq i64 %79, 0
   br i1 %.not11, label %119, label %80

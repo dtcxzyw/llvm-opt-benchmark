@@ -268,11 +268,11 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal4prop13CadicalSolverC2ERNS0_3EnvERNS0_18StatisticsRegistryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef nonnull align 8 dereferenceable(72) %registry, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4prop14CDCLTSatSolverE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal4prop14CDCLTSatSolverE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(576) %env)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i64 264), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i64 264), ptr %0, align 8
   %d_solver = getelementptr inbounds nuw i8, ptr %this, i64 24
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   invoke void @_ZN7CaDiCaL6SolverC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %call)
@@ -431,9 +431,9 @@ declare void @_ZN7CaDiCaL6Solver3addEi(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal4prop13CadicalSolverD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 16)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i64 264), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i64 264), ptr %add.ptr, align 8
   %d_assumptions = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %d_assumptions, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -491,8 +491,8 @@ _ZNSt10unique_ptrIN7CaDiCaL6SolverESt14default_deleteIS1_EED2Ev.exit: ; preds = 
 define hidden void @_ZThn8_N4cvc58internal4prop13CadicalSolverD1Ev(ptr nocapture noundef initializes((-8, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i64 264), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i64 264), ptr %this, align 8
   %d_assumptions.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load ptr, ptr %d_assumptions.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -549,9 +549,9 @@ _ZN4cvc58internal4prop13CadicalSolverD2Ev.exit:   ; preds = %_ZNSt10unique_ptrIN
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal4prop13CadicalSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 16)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i64 264), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i64 264), ptr %add.ptr.i, align 8
   %d_assumptions.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %d_assumptions.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -609,8 +609,8 @@ _ZN4cvc58internal4prop13CadicalSolverD2Ev.exit:   ; preds = %_ZNSt10unique_ptrIN
 define hidden void @_ZThn8_N4cvc58internal4prop13CadicalSolverD0Ev(ptr noundef initializes((-8, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i64 264), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i64 264), ptr %this, align 8
   %d_assumptions.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load ptr, ptr %d_assumptions.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
@@ -669,7 +669,7 @@ define hidden void @_ZN4cvc58internal4prop13CadicalSolver16setResourceLimitEPNS0
 entry:
   %d_terminator = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4prop23ResourceLimitTerminatorE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal4prop23ResourceLimitTerminatorE, i64 16), ptr %call, align 8
   %d_resmgr.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %resmgr, ptr %d_resmgr.i, align 8
   %0 = load ptr, ptr %d_terminator, align 8
@@ -1086,7 +1086,7 @@ call.i.noexc:                                     ; preds = %cond.false
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.8, i64 19))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -2170,7 +2170,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal4prop17CadicalPropagatorC2EPNS
 entry:
   %is_lazy.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 0, ptr %is_lazy.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4prop17CadicalPropagatorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal4prop17CadicalPropagatorE, i64 16), ptr %this, align 8
   %d_proxy = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %proxy, ptr %d_proxy, align 8
   %d_context = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -6636,7 +6636,7 @@ _ZNSt11_Deque_baseIiSaIiEED2Ev.exit:              ; preds = %entry, %_ZNSt11_Deq
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal4prop17CadicalPropagatorD2Ev(ptr noundef nonnull align 8 dereferenceable(482) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4prop17CadicalPropagatorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal4prop17CadicalPropagatorE, i64 16), ptr %this, align 8
   %d_reason = getelementptr inbounds nuw i8, ptr %this, i64 400
   %0 = load ptr, ptr %d_reason, align 8
   %tobool.not.i.i = icmp eq ptr %0, null

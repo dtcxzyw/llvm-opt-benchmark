@@ -43,9 +43,9 @@ define void @_ZN8TFHandleC2EP10CHART_INFO6QColor7QPointFP6TF_KEYii(ptr noundef n
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %14, ptr noundef nonnull align 4 dereferenceable(10) %15, i64 10, i1 false)
   call void @_ZN6HandleC2EP10CHART_INFO6QColor7QPointFii(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef nonnull %9, double %3, double %4, i32 noundef %6, i32 noundef %7)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8TFHandle, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8TFHandle, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8TFHandle, i64 176), ptr %16, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8TFHandle, i64 176), ptr %16, align 8
   call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %10, i32 noundef 7) #12
   %17 = call noundef zeroext i1 @_ZNK6QColoreqERKS_(ptr noundef nonnull align 4 dereferenceable(14) %2, ptr noundef nonnull align 4 dereferenceable(14) %10) #12
   br i1 %17, label %18, label %20

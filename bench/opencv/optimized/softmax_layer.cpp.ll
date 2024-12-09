@@ -373,7 +373,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv3dnn20SoftMaxLayerIn
   store i32 1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %18, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3dnn20SoftMaxLayerInt8ImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3dnn20SoftMaxLayerInt8ImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %3, ptr %19, align 8
   store ptr %6, ptr %5, align 8
@@ -407,7 +407,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn20SoftMaxLayerInt8ImplC2ERKNS0_14dnn4
   %16 = alloca %"class.std::allocator.0", align 1
   %17 = alloca %"class.cv::Mat", align 8
   tail call void @_ZN2cv3dnn14dnn4_v202405215LayerC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  store ptr getelementptr inbounds inrange(-16, 264) (i8, ptr @_ZTVN2cv3dnn20SoftMaxLayerInt8ImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 264) (i8, ptr @_ZTVN2cv3dnn20SoftMaxLayerInt8ImplE, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %18, i8 0, i64 48, i1 false)
@@ -2949,7 +2949,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn20SoftMaxLayerInt8Impl18SoftmaxInt8In
   unreachable
 
 43:                                               ; preds = %39
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn20SoftMaxLayerInt8Impl18SoftmaxInt8InvokerILb1EEE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn20SoftMaxLayerInt8Impl18SoftmaxInt8InvokerILb1EEE, i64 16), ptr %12, align 8
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %0, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -3089,7 +3089,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn20SoftMaxLayerInt8Impl18SoftmaxInt8In
   unreachable
 
 43:                                               ; preds = %39
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn20SoftMaxLayerInt8Impl18SoftmaxInt8InvokerILb0EEE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn20SoftMaxLayerInt8Impl18SoftmaxInt8InvokerILb0EEE, i64 16), ptr %12, align 8
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %0, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -3229,7 +3229,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn20SoftMaxLayerInt8Impl29SoftmaxInt8Ou
   unreachable
 
 41:                                               ; preds = %37
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn20SoftMaxLayerInt8Impl29SoftmaxInt8OutputFloatInvokerILb1EEE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn20SoftMaxLayerInt8Impl29SoftmaxInt8OutputFloatInvokerILb1EEE, i64 16), ptr %10, align 8
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %0, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -3364,7 +3364,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn20SoftMaxLayerInt8Impl29SoftmaxInt8Ou
   unreachable
 
 41:                                               ; preds = %37
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn20SoftMaxLayerInt8Impl29SoftmaxInt8OutputFloatInvokerILb0EEE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn20SoftMaxLayerInt8Impl29SoftmaxInt8OutputFloatInvokerILb0EEE, i64 16), ptr %10, align 8
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %0, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 16

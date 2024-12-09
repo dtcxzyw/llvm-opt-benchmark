@@ -444,12 +444,12 @@ define hidden void @proto_register_xml() local_unnamed_addr #3 {
   store ptr %19, ptr @media_types, align 8
   %20 = tail call ptr @wmem_epan_scope() #10
   %21 = tail call noalias ptr @wmem_map_new(ptr noundef %20, ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #10
-  store ptr %21, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 40), align 8
-  store ptr %21, ptr getelementptr inbounds (i8, ptr @unknown_ns, i64 40), align 8
+  store ptr %21, ptr getelementptr inbounds nuw (i8, ptr @xml_ns, i64 40), align 8
+  store ptr %21, ptr getelementptr inbounds nuw (i8, ptr @unknown_ns, i64 40), align 8
   %22 = tail call ptr @wmem_epan_scope() #10
   %23 = tail call noalias ptr @wmem_map_new(ptr noundef %22, ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #10
-  store ptr %23, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 32), align 8
-  store ptr %23, ptr getelementptr inbounds (i8, ptr @unknown_ns, i64 32), align 8
+  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @xml_ns, i64 32), align 8
+  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @unknown_ns, i64 32), align 8
   %24 = load ptr, ptr @xmpli_names, align 8
   tail call void (ptr, ptr, ...) @xml_new_namespace(ptr noundef %24, ptr nonnull poison, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.64, ptr noundef null)
   %25 = tail call ptr @get_persconffile_path(ptr noundef nonnull @.str.65, i1 noundef zeroext false) #10
@@ -1024,7 +1024,7 @@ fully_qualified_name.exit.i.i:                    ; preds = %.lr.ph.i176.i.i, %2
   br label %register_dtd.exit.i
 
 register_dtd.exit.i:                              ; preds = %334, %.loopexit.i.i
-  %336 = load ptr, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 40), align 8
+  %336 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @xml_ns, i64 40), align 8
   %337 = load ptr, ptr %205, align 8
   %338 = call ptr @wmem_map_insert(ptr noundef %336, ptr noundef %337, ptr noundef nonnull %205) #10
   call void @wmem_map_foreach(ptr noundef %96, ptr noundef nonnull @free_elements, ptr noundef null) #10
@@ -1079,7 +1079,7 @@ init_xml_names.exit:                              ; preds = %353
   call void @wmem_free(ptr noundef %355, ptr noundef nonnull %15) #10
   %356 = load ptr, ptr @xml_ns, align 8
   %357 = call i32 @proto_register_protocol(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef %356) #10
-  store i32 %357, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 16), align 8
+  store i32 %357, ptr getelementptr inbounds nuw (i8, ptr @xml_ns, i64 16), align 8
   %358 = load ptr, ptr @hf_arr, align 8
   %359 = call ptr @wmem_array_get_raw(ptr noundef %358) #10
   %360 = load ptr, ptr @hf_arr, align 8
@@ -1090,10 +1090,10 @@ init_xml_names.exit:                              ; preds = %353
   %364 = getelementptr inbounds nuw i8, ptr %362, i64 8
   %365 = load i32, ptr %364, align 8
   call void @proto_register_subtree_array(ptr noundef %363, i32 noundef %365) #10
-  %366 = load i32, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 16), align 8
+  %366 = load i32, ptr getelementptr inbounds nuw (i8, ptr @xml_ns, i64 16), align 8
   %367 = call ptr @expert_register_protocol(i32 noundef %366) #10
   call void @expert_register_field_array(ptr noundef %367, ptr noundef nonnull @proto_register_xml.ei, i32 noundef 3) #10
-  %368 = load i32, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 16), align 8
+  %368 = load i32, ptr getelementptr inbounds nuw (i8, ptr @xml_ns, i64 16), align 8
   %369 = call ptr @prefs_register_protocol(i32 noundef %368, ptr noundef null) #10
   call void @prefs_register_obsolete_preference(ptr noundef %369, ptr noundef nonnull @.str.26) #10
   call void @prefs_register_obsolete_preference(ptr noundef %369, ptr noundef nonnull @.str.27) #10
@@ -1104,7 +1104,7 @@ init_xml_names.exit:                              ; preds = %353
   %371 = call ptr @g_array_free(ptr noundef %370, i32 noundef 1) #10
   call void @register_init_routine(ptr noundef nonnull @xml_init_protocol) #10
   call void @register_cleanup_routine(ptr noundef nonnull @xml_cleanup_protocol) #10
-  %372 = load i32, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 16), align 8
+  %372 = load i32, ptr getelementptr inbounds nuw (i8, ptr @xml_ns, i64 16), align 8
   %373 = call ptr @register_dissector(ptr noundef nonnull @.str.35, ptr noundef nonnull @dissect_xml, i32 noundef %372) #10
   store ptr %373, ptr @xml_handle, align 8
   %374 = call ptr @tvbparse_chars(i32 noundef -1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.231, ptr noundef null, ptr noundef null, ptr noundef null) #10
@@ -1315,7 +1315,7 @@ define internal i32 @dissect_xml(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %52 = call noalias ptr @wmem_strdup(ptr noundef %51, ptr noundef %50) #10
   %53 = call ptr @ascii_strup_inplace(ptr noundef %52) #10
   call void @g_free(ptr noundef %50) #10
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @mibenum_vals_character_sets_ext, i64 16), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mibenum_vals_character_sets_ext, i64 16), align 8
   %55 = call i32 @str_to_val(ptr noundef %53, ptr noundef %54, i32 noundef 3) #10
   br label %60
 
@@ -1423,7 +1423,7 @@ get_char_encoding.exit:                           ; preds = %60, %64
 
 114:                                              ; preds = %111
   %115 = load ptr, ptr %76, align 8
-  %116 = load i32, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 16), align 8
+  %116 = load i32, ptr getelementptr inbounds nuw (i8, ptr @xml_ns, i64 16), align 8
   call void @p_add_proto_data(ptr noundef %115, ptr noundef %1, i32 noundef %116, i32 noundef 0, ptr noundef nonnull %12) #10
   %117 = call i32 @tvb_captured_length(ptr noundef %0) #10
   ret i32 %117
@@ -1437,17 +1437,17 @@ define hidden void @proto_reg_handoff_xml() local_unnamed_addr #3 {
   tail call void @dissector_add_uint_range_with_preference(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef %2) #10
   %3 = load ptr, ptr @xml_handle, align 8
   tail call void @dissector_add_uint_range_with_preference(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, ptr noundef %3) #10
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 16), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @xml_ns, i64 16), align 8
   tail call void @heur_dissector_add(ptr noundef nonnull @.str.40, ptr noundef nonnull @dissect_xml_heur, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, i32 noundef %4, i32 noundef 0) #10
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 16), align 8
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @xml_ns, i64 16), align 8
   tail call void @heur_dissector_add(ptr noundef nonnull @.str.43, ptr noundef nonnull @dissect_xml_heur, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, i32 noundef %5, i32 noundef 0) #10
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 16), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @xml_ns, i64 16), align 8
   tail call void @heur_dissector_add(ptr noundef nonnull @.str.46, ptr noundef nonnull @dissect_xml_heur, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.48, i32 noundef %6, i32 noundef 0) #10
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 16), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @xml_ns, i64 16), align 8
   tail call void @heur_dissector_add(ptr noundef nonnull @.str.49, ptr noundef nonnull @dissect_xml_heur, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51, i32 noundef %7, i32 noundef 0) #10
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 16), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @xml_ns, i64 16), align 8
   tail call void @heur_dissector_add(ptr noundef nonnull @.str.52, ptr noundef nonnull @dissect_xml_heur, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, i32 noundef %8, i32 noundef 0) #10
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 16), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @xml_ns, i64 16), align 8
   tail call void @heur_dissector_add(ptr noundef nonnull @.str.55, ptr noundef nonnull @dissect_xml_heur, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, i32 noundef %9, i32 noundef 1) #10
   %10 = load ptr, ptr @xml_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.58, i32 noundef 5, ptr noundef %10) #10
@@ -2388,13 +2388,13 @@ define internal void @after_token(ptr nocapture noundef readonly %0, ptr nocaptu
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 20
-  %.in = select i1 %.not, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 20), ptr %15
+  %.in = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @xml_ns, i64 20), ptr %15
   %16 = load i32, ptr %.in, align 4
   br label %20
 
 17:                                               ; preds = %3
   %18 = icmp sgt i32 %11, 0
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 20), align 4
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @xml_ns, i64 20), align 4
   %spec.select = select i1 %18, i32 %11, i32 %19
   br label %20
 
@@ -2830,7 +2830,7 @@ define internal void @before_tag(ptr noundef %0, ptr nocapture readnone %1, ptr 
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 28
   %40 = load i32, ptr %39, align 4
   %41 = tail call ptr @tvb_get_string_enc(ptr noundef %34, ptr noundef %36, i32 noundef %38, i32 noundef %40, i32 noundef 0) #10
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 40), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @xml_ns, i64 40), align 8
   %43 = tail call ptr @wmem_map_lookup(ptr noundef %42, ptr noundef %33) #10
   %.not74 = icmp eq ptr %43, null
   br i1 %.not74, label %67, label %.sink.split

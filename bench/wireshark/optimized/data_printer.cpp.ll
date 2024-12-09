@@ -112,7 +112,7 @@ $_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11DataPrinterC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11DataPrinter, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11DataPrinter, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 16, ptr %3, align 8
   ret void
@@ -2178,7 +2178,7 @@ define noundef i32 @_ZNK11DataPrinter14byteLineLengthEv(ptr nocapture noundef no
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 24, 146) i32 @_ZN11DataPrinter8hexCharsEv() local_unnamed_addr #0 align 2 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 56), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 56), align 8
   %2 = icmp ult i32 %1, 4
   br i1 %2, label %switch.lookup, label %3
 

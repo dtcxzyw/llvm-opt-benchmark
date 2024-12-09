@@ -881,7 +881,7 @@ if.end6.i:                                        ; preds = %if.else.i
 prepare_credentials.exit:                         ; preds = %if.then2.i, %if.end6.i
   %storemerge.in.i = phi ptr [ %pw_gid.i, %if.then2.i ], [ %gr_gid.i, %if.end6.i ]
   %storemerge.i = load i32, ptr %storemerge.in.i, align 4
-  store i32 %storemerge.i, ptr getelementptr inbounds (i8, ptr @prepare_credentials.c, i64 8), align 8
+  store i32 %storemerge.i, ptr getelementptr inbounds nuw (i8, ptr @prepare_credentials.c, i64 8), align 8
   br label %if.end182
 
 if.end182:                                        ; preds = %land.lhs.true162, %prepare_credentials.exit, %if.end178

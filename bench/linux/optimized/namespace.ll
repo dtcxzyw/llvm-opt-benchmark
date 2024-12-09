@@ -94,7 +94,7 @@ define dso_local ptr @copy_ipcs(i64 noundef %0, ptr noundef %1, ptr noundef %2) 
   br i1 %29, label %22, label %.loopexit
 
 30:                                               ; preds = %22
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %32 = tail call noalias noundef align 8 dereferenceable_or_null(1104) ptr @kmalloc_trace(ptr noundef %31, i32 noundef 4197824, i64 noundef 1104) #6
   %33 = icmp eq ptr %32, null
   br i1 %33, label %61, label %34

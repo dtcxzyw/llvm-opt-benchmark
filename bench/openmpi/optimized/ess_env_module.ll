@@ -64,8 +64,8 @@ define internal noundef i32 @rte_init(i32 %0, ptr nocapture readnone %1) #0 {
 14:                                               ; preds = %9
   %15 = tail call i64 @strtoul(ptr nocapture noundef nonnull %10, ptr noundef null, i32 noundef 10) #3
   %16 = trunc i64 %15 to i32
-  store i32 %16, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 256), align 8
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @prte_ess_base_framework, i64 76), align 4
+  store i32 %16, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 256), align 8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ess_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %17, 64
   br i1 %or.cond.i, label %18, label %25
 
@@ -83,7 +83,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr nocapture readnone %1) #0 {
 
 25:                                               ; preds = %23, %18, %14
   %26 = load i32, ptr @prte_ess_base_num_procs, align 4
-  store i32 %26, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 792), align 8
+  store i32 %26, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 792), align 8
   br label %env_set_name.exit
 
 env_set_name.exit:                                ; preds = %7, %12, %25

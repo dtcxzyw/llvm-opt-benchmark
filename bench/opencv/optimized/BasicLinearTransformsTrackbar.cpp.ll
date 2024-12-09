@@ -385,7 +385,7 @@ define internal void @_ZL11on_trackbariPv(i32 %0, ptr nocapture readnone %1) #4 
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.cv::_InputArray", align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @image, i64 64), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @image, i64 64), align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = load i32, ptr %8, align 4
@@ -418,14 +418,14 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %2
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #8
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @image, i64 8), align 8
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @image, i64 8), align 8
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.preheader22.lr.ph, label %._crit_edge26
 
 .preheader22.lr.ph:                               ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @image, i64 12), align 4
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @image, i64 12), align 4
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %.preheader22, label %._crit_edge26
 
@@ -472,13 +472,13 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %2
 
 55:                                               ; preds = %31
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
-  %56 = load i32, ptr getelementptr inbounds (i8, ptr @image, i64 12), align 4
+  %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @image, i64 12), align 4
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next30, %57
   br i1 %58, label %.preheader, label %._crit_edge.loopexit, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %55
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @image, i64 8), align 8
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @image, i64 8), align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader22

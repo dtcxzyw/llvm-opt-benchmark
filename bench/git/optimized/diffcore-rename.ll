@@ -195,7 +195,7 @@ if.end11:                                         ; preds = %if.end.thread, %if.
   %tobool9444 = phi i1 [ %tobool9442, %if.end.thread ], [ %tobool9, %if.end ]
   %tobool12.not = icmp eq i32 %1, 0
   %spec.store.select = select i1 %tobool12.not, i32 30000, i32 %1
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp15391 = icmp sgt i32 %3, 0
   br i1 %cmp15391, label %for.body.lr.ph, label %for.end
 
@@ -383,7 +383,7 @@ if.then80:                                        ; preds = %if.else78
 
 for.inc:                                          ; preds = %add_rename_dst.exit, %if.end77, %if.then80, %if.else78, %land.lhs.true54, %land.lhs.true34, %land.lhs.true27, %if.then20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %37 = sext i32 %36 to i64
   %cmp15 = icmp slt i64 %indvars.iv.next, %37
   br i1 %cmp15, label %for.body, label %for.end, !llvm.loop !7
@@ -2170,7 +2170,7 @@ cleanup:                                          ; preds = %st_mult.exit37.i, %
   %313 = load ptr, ptr %repo2, align 8
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str, i32 noundef 1637, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, ptr noundef %313) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %outq, i8 0, i64 16, i1 false)
-  %314 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %314 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp236401 = icmp sgt i32 %314, 0
   br i1 %cmp236401, label %for.body238.lr.ph, label %do.end333
 
@@ -2319,7 +2319,7 @@ if.then.i6.i:                                     ; preds = %free_filespec_data.
 
 for.inc329:                                       ; preds = %if.then262, %if.then315, %if.then320, %if.then249, %if.then.i6.i, %free_filespec_data.exit.i, %if.then.i324
   %indvars.iv.next430 = add nuw nsw i64 %indvars.iv429, 1
-  %334 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %334 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %335 = sext i32 %334 to i64
   %cmp236 = icmp slt i64 %indvars.iv.next430, %335
   br i1 %cmp236, label %for.body238, label %do.end333, !llvm.loop !31

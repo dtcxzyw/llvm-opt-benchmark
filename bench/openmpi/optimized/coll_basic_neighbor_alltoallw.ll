@@ -115,7 +115,7 @@ thread-pre-split.i:                               ; preds = %55, %46
 
 57:                                               ; preds = %thread-pre-split.i
   %58 = add nsw i32 %.095189.i, 1
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 64), align 8
   %60 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i
   %61 = load i64, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %4, i64 %61
@@ -141,7 +141,7 @@ thread-pre-split.thread.i:                        ; preds = %57, %thread-pre-spl
 
 73:                                               ; preds = %thread-pre-split.thread.i
   %74 = add nsw i32 %.297.i, 1
-  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
+  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 64), align 8
   %76 = or disjoint i64 %indvars.iv.i, 1
   %77 = getelementptr inbounds nuw i64, ptr %6, i64 %76
   %78 = load i64, ptr %77, align 8
@@ -204,7 +204,7 @@ thread-pre-split.thread.i:                        ; preds = %57, %thread-pre-spl
   br label %ompi_request_cancel.exit.i.i
 
 ompi_request_cancel.exit.i.i:                     ; preds = %103, %100
-  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
+  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 32), align 8
   %106 = call i32 %105(ptr noundef nonnull %95, ptr noundef null) #3
   br label %111
 
@@ -261,7 +261,7 @@ thread-pre-split172.i:                            ; preds = %125, %116
 
 127:                                              ; preds = %thread-pre-split172.i
   %128 = add nsw i32 %.499194.i, 1
-  %129 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
+  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 88), align 8
   %130 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv205.i
   %131 = load i64, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %0, i64 %131
@@ -287,7 +287,7 @@ thread-pre-split172.thread.i:                     ; preds = %127, %thread-pre-sp
 
 143:                                              ; preds = %thread-pre-split172.thread.i
   %144 = add nsw i32 %.6101.i, 1
-  %145 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
+  %145 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 88), align 8
   %146 = or disjoint i64 %indvars.iv205.i, 1
   %147 = getelementptr inbounds nuw i64, ptr %2, i64 %146
   %148 = load i64, ptr %147, align 8
@@ -350,7 +350,7 @@ thread-pre-split172.thread.i:                     ; preds = %127, %thread-pre-sp
   br label %ompi_request_cancel.exit.i152.i
 
 ompi_request_cancel.exit.i152.i:                  ; preds = %173, %170
-  %175 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
+  %175 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 32), align 8
   %176 = call i32 %175(ptr noundef nonnull %165, ptr noundef null) #3
   br label %181
 
@@ -367,7 +367,7 @@ ompi_request_cancel.exit.i152.i:                  ; preds = %173, %170
 
 ._crit_edge.i:                                    ; preds = %159, %.preheader.i, %.preheader183.i
   %.499.lcssa.i = phi i32 [ %.398.i, %.preheader.i ], [ 0, %.preheader183.i ], [ %.7.i, %159 ]
-  %182 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
+  %182 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 48), align 8
   %183 = sext i32 %.499.lcssa.i to i64
   %184 = call i32 %182(i64 noundef %183, ptr noundef nonnull %34, ptr noundef null) #3
   %.not141.i = icmp eq i32 %184, 0
@@ -406,7 +406,7 @@ ompi_request_cancel.exit.i152.i:                  ; preds = %173, %170
   br label %ompi_request_cancel.exit.i164.i
 
 ompi_request_cancel.exit.i164.i:                  ; preds = %195, %192
-  %197 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
+  %197 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 32), align 8
   %198 = call i32 %197(ptr noundef nonnull %187, ptr noundef null) #3
   br label %203
 
@@ -485,7 +485,7 @@ mca_coll_basic_neighbor_alltoallw_cart.exit:      ; preds = %111, %181, %203, %2
 .lr.ph.i39:                                       ; preds = %234, %250
   %indvars.iv.i40 = phi i64 [ %indvars.iv.next.i52, %250 ], [ 0, %234 ]
   %.051106.i = phi ptr [ %251, %250 ], [ %219, %234 ]
-  %238 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
+  %238 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 64), align 8
   %239 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i40
   %240 = load i64, ptr %239, align 8
   %241 = getelementptr inbounds i8, ptr %4, i64 %240
@@ -538,7 +538,7 @@ mca_coll_basic_neighbor_alltoallw_cart.exit:      ; preds = %111, %181, %203, %2
   br label %ompi_request_cancel.exit.i.i51
 
 ompi_request_cancel.exit.i.i51:                   ; preds = %265, %262
-  %267 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
+  %267 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 32), align 8
   %268 = call i32 %267(ptr noundef nonnull %257, ptr noundef null) #3
   br label %273
 
@@ -556,7 +556,7 @@ ompi_request_cancel.exit.i.i51:                   ; preds = %265, %262
 .lr.ph109.i:                                      ; preds = %.preheader.i53, %286
   %indvars.iv119.i = phi i64 [ %indvars.iv.next120.i, %286 ], [ 0, %.preheader.i53 ]
   %.2108.i = phi ptr [ %287, %286 ], [ %251, %.preheader.i53 ]
-  %274 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
+  %274 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 88), align 8
   %275 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv119.i
   %276 = load i64, ptr %275, align 8
   %277 = getelementptr inbounds i8, ptr %0, i64 %276
@@ -616,7 +616,7 @@ ompi_request_cancel.exit.i.i51:                   ; preds = %265, %262
   br label %ompi_request_cancel.exit.i78.i
 
 ompi_request_cancel.exit.i78.i:                   ; preds = %305, %302
-  %307 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
+  %307 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 32), align 8
   %308 = call i32 %307(ptr noundef nonnull %297, ptr noundef null) #3
   br label %313
 
@@ -633,7 +633,7 @@ ompi_request_cancel.exit.i78.i:                   ; preds = %305, %302
 
 ._crit_edge.i38:                                  ; preds = %286, %.preheader.i53, %234
   %314 = phi i32 [ %252, %.preheader.i53 ], [ %235, %234 ], [ %288, %286 ]
-  %315 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
+  %315 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 48), align 8
   %316 = shl nsw i32 %314, 1
   %317 = sext i32 %316 to i64
   %318 = call i32 %315(i64 noundef %317, ptr noundef nonnull %219, ptr noundef null) #3
@@ -675,7 +675,7 @@ ompi_request_cancel.exit.i78.i:                   ; preds = %305, %302
   br label %ompi_request_cancel.exit.i90.i
 
 ompi_request_cancel.exit.i90.i:                   ; preds = %331, %328
-  %333 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
+  %333 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 32), align 8
   %334 = call i32 %333(ptr noundef nonnull %323, ptr noundef null) #3
   br label %339
 
@@ -744,7 +744,7 @@ mca_coll_basic_neighbor_alltoallw_graph.exit:     ; preds = %273, %313, %339, %2
 .lr.ph.i58:                                       ; preds = %376, %.lr.ph.preheader.i
   %indvars.iv.i59 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i71, %376 ]
   %.0114.i = phi ptr [ %360, %.lr.ph.preheader.i ], [ %377, %376 ]
-  %364 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
+  %364 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 64), align 8
   %365 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i59
   %366 = load i64, ptr %365, align 8
   %367 = getelementptr inbounds i8, ptr %4, i64 %366
@@ -795,7 +795,7 @@ mca_coll_basic_neighbor_alltoallw_graph.exit:     ; preds = %273, %313, %339, %2
   br label %ompi_request_cancel.exit.i.i70
 
 ompi_request_cancel.exit.i.i70:                   ; preds = %388, %385
-  %390 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
+  %390 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 32), align 8
   %391 = tail call i32 %390(ptr noundef nonnull %380, ptr noundef null) #3
   br label %396
 
@@ -813,7 +813,7 @@ ompi_request_cancel.exit.i.i70:                   ; preds = %388, %385
 .lr.ph117.i:                                      ; preds = %409, %.lr.ph117.preheader.i
   %indvars.iv127.i = phi i64 [ 0, %.lr.ph117.preheader.i ], [ %indvars.iv.next128.i, %409 ]
   %.2116.i = phi ptr [ %.0.lcssa.i, %.lr.ph117.preheader.i ], [ %410, %409 ]
-  %397 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
+  %397 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 88), align 8
   %398 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv127.i
   %399 = load i64, ptr %398, align 8
   %400 = getelementptr inbounds i8, ptr %0, i64 %399
@@ -870,7 +870,7 @@ ompi_request_cancel.exit.i.i70:                   ; preds = %388, %385
   br label %ompi_request_cancel.exit.i85.i
 
 ompi_request_cancel.exit.i85.i:                   ; preds = %424, %421
-  %426 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
+  %426 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 32), align 8
   %427 = tail call i32 %426(ptr noundef nonnull %416, ptr noundef null) #3
   br label %432
 
@@ -886,7 +886,7 @@ ompi_request_cancel.exit.i85.i:                   ; preds = %424, %421
   br i1 %exitcond.not.i83.i, label %mca_coll_basic_neighbor_alltoallw_dist_graph.exit, label %.lr.ph.i77.i, !llvm.loop !6
 
 ._crit_edge.i56:                                  ; preds = %409, %.preheader.i55
-  %433 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
+  %433 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 48), align 8
   %434 = sext i32 %351 to i64
   %435 = tail call i32 %433(i64 noundef %434, ptr noundef nonnull %360, ptr noundef null) #3
   %.not75.i = icmp eq i32 %435, 0
@@ -925,7 +925,7 @@ ompi_request_cancel.exit.i85.i:                   ; preds = %424, %421
   br label %ompi_request_cancel.exit.i97.i
 
 ompi_request_cancel.exit.i97.i:                   ; preds = %446, %443
-  %448 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
+  %448 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 32), align 8
   %449 = tail call i32 %448(ptr noundef nonnull %438, ptr noundef null) #3
   br label %454
 

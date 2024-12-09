@@ -783,7 +783,7 @@ _ZNSt5dequeIPhSaIS0_EE9push_backEOS0_.exit161:    ; preds = %266, %269, %_ZNSt5d
   store i32 0, ptr %31, align 4
   %275 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 %274, ptr %275, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv9finalPassE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv9finalPassE, i64 16), ptr %32, align 8
   %276 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %17, ptr %276, align 8
   %277 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -993,7 +993,7 @@ define linkonce_odr hidden void @_ZN2cv13parallelCannyC2ERKNS_3MatERS1_RSt5deque
   %17 = alloca %"class.cv::_InputArray", align 8
   %18 = alloca double, align 8
   %19 = zext i1 %7 to i8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv13parallelCannyE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv13parallelCannyE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1843,7 +1843,7 @@ _ZNSt5dequeIPhSaIS0_EE9push_backEOS0_.exit135:    ; preds = %264, %267, %_ZNSt5d
   store i32 0, ptr %33, align 4
   %273 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i32 %272, ptr %273, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv9finalPassE, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv9finalPassE, i64 16), ptr %34, align 8
   %274 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %20, ptr %274, align 8
   %275 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -2016,7 +2016,7 @@ define linkonce_odr hidden void @_ZN2cv13parallelCannyC2ERKNS_3MatES3_RS1_RSt5de
   %17 = alloca %"class.cv::_InputArray", align 8
   %18 = alloca double, align 8
   %19 = zext i1 %7 to i8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv13parallelCannyE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv13parallelCannyE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16

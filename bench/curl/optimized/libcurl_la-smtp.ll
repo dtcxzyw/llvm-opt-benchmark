@@ -719,12 +719,12 @@ lor.lhs.false19:                                  ; preds = %if.then14
   %infilesize = getelementptr inbounds nuw i8, ptr %data, i64 4600
   %9 = load i64, ptr %infilesize, align 8
   %tobool21.not = icmp eq i64 %9, 0
-  %spec.select = select i1 %tobool21.not, ptr getelementptr inbounds (i8, ptr @.str.3, i64 2), ptr @.str.3
+  %spec.select = select i1 %tobool21.not, ptr getelementptr inbounds nuw (i8, ptr @.str.3, i64 2), ptr @.str.3
   %spec.select30 = select i1 %tobool21.not, i64 3, i64 5
   br label %if.end25
 
 if.end25:                                         ; preds = %lor.lhs.false19, %if.then14
-  %.str.3.sink = phi ptr [ getelementptr inbounds (i8, ptr @.str.3, i64 2), %if.then14 ], [ %spec.select, %lor.lhs.false19 ]
+  %.str.3.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.3, i64 2), %if.then14 ], [ %spec.select, %lor.lhs.false19 ]
   %len.0 = phi i64 [ 3, %if.then14 ], [ %spec.select30, %lor.lhs.false19 ]
   %10 = load ptr, ptr @Curl_cstrdup, align 8
   %call24 = tail call ptr %10(ptr noundef nonnull %.str.3.sink) #8

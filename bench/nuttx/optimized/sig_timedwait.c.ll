@@ -76,14 +76,14 @@ define range(i32 -11, 256) i32 @nxsig_timedwait(ptr noundef %0, ptr noundef writ
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i8 6, ptr %38, align 16
   store ptr null, ptr %6, align 8
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @g_waitingforsignal, i64 8), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_waitingforsignal, i64 8), align 8
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %39, ptr %40, align 8
   %41 = load ptr, ptr @g_waitingforsignal, align 8
   %.not64 = icmp eq ptr %41, null
   %g_waitingforsignal. = select i1 %.not64, ptr @g_waitingforsignal, ptr %39
   store ptr %6, ptr %g_waitingforsignal., align 8
-  store ptr %6, ptr getelementptr inbounds (i8, ptr @g_waitingforsignal, i64 8), align 8
+  store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @g_waitingforsignal, i64 8), align 8
   br i1 %37, label %42, label %44
 
 42:                                               ; preds = %30
@@ -112,14 +112,14 @@ define range(i32 -11, 256) i32 @nxsig_timedwait(ptr noundef %0, ptr noundef writ
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i8 6, ptr %53, align 16
   store ptr null, ptr %6, align 8
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @g_waitingforsignal, i64 8), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_waitingforsignal, i64 8), align 8
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %54, ptr %55, align 8
   %56 = load ptr, ptr @g_waitingforsignal, align 8
   %.not62 = icmp eq ptr %56, null
   %g_waitingforsignal.72 = select i1 %.not62, ptr @g_waitingforsignal, ptr %54
   store ptr %6, ptr %g_waitingforsignal.72, align 8
-  store ptr %6, ptr getelementptr inbounds (i8, ptr @g_waitingforsignal, i64 8), align 8
+  store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @g_waitingforsignal, i64 8), align 8
   br i1 %52, label %57, label %59
 
 57:                                               ; preds = %49
@@ -218,7 +218,7 @@ define internal void @nxsig_timeout(i64 noundef %0) #0 {
   br i1 %.not24, label %17, label %18
 
 17:                                               ; preds = %6
-  store ptr %15, ptr getelementptr inbounds (i8, ptr @g_waitingforsignal, i64 8), align 8
+  store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @g_waitingforsignal, i64 8), align 8
   br label %20
 
 18:                                               ; preds = %6

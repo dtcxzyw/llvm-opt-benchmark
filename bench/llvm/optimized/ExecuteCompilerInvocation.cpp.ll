@@ -177,49 +177,49 @@ _ZNSt10unique_ptrIN5clang17ASTDeclListActionESt14default_deleteIS1_EED2Ev.exit.i
   %22 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %22, i8 0, i64 104, i1 false), !noalias !7
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %22) #12, !noalias !7
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang17ASTDeclListActionE, i64 16), ptr %22, align 8, !noalias !7
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang17ASTDeclListActionE, i64 16), ptr %22, align 8, !noalias !7
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
 
 _ZNSt10unique_ptrIN5clang13ASTDumpActionESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %2
   %23 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %23, i8 0, i64 104, i1 false), !noalias !10
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %23) #12, !noalias !10
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang13ASTDumpActionE, i64 16), ptr %23, align 8, !noalias !10
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang13ASTDumpActionE, i64 16), ptr %23, align 8, !noalias !10
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
 
 _ZNSt10unique_ptrIN5clang14ASTPrintActionESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %2
   %24 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %24, i8 0, i64 104, i1 false), !noalias !13
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %24) #12, !noalias !13
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang14ASTPrintActionE, i64 16), ptr %24, align 8, !noalias !13
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang14ASTPrintActionE, i64 16), ptr %24, align 8, !noalias !13
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
 
 _ZNSt10unique_ptrIN5clang13ASTViewActionESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %2
   %25 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %25, i8 0, i64 104, i1 false), !noalias !16
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %25) #12, !noalias !16
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang13ASTViewActionE, i64 16), ptr %25, align 8, !noalias !16
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang13ASTViewActionE, i64 16), ptr %25, align 8, !noalias !16
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
 
 _ZNSt10unique_ptrIN5clang25DumpCompilerOptionsActionESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %2
   %26 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %26, i8 0, i64 104, i1 false), !noalias !19
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %26) #12, !noalias !19
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang25DumpCompilerOptionsActionE, i64 16), ptr %26, align 8, !noalias !19
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang25DumpCompilerOptionsActionE, i64 16), ptr %26, align 8, !noalias !19
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
 
 _ZNSt10unique_ptrIN5clang19DumpRawTokensActionESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %2
   %27 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %27, i8 0, i64 104, i1 false), !noalias !22
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %27) #12, !noalias !22
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang19DumpRawTokensActionE, i64 16), ptr %27, align 8, !noalias !22
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang19DumpRawTokensActionE, i64 16), ptr %27, align 8, !noalias !22
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
 
 _ZNSt10unique_ptrIN5clang16DumpTokensActionESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %2
   %28 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %28, i8 0, i64 104, i1 false), !noalias !25
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %28) #12, !noalias !25
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang16DumpTokensActionE, i64 16), ptr %28, align 8, !noalias !25
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang16DumpTokensActionE, i64 16), ptr %28, align 8, !noalias !25
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
 
 _ZNSt10unique_ptrIN5clang18EmitAssemblyActionESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %2
@@ -236,7 +236,7 @@ _ZNSt10unique_ptrIN5clang15HTMLPrintActionESt14default_deleteIS1_EED2Ev.exit.i: 
   %31 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !34
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %31, i8 0, i64 104, i1 false), !noalias !34
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %31) #12, !noalias !34
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang15HTMLPrintActionE, i64 16), ptr %31, align 8, !noalias !34
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang15HTMLPrintActionE, i64 16), ptr %31, align 8, !noalias !34
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
 
 _ZNSt10unique_ptrIN5clang14EmitLLVMActionESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %2
@@ -263,7 +263,7 @@ _ZNSt10unique_ptrIN5clang16ExtractAPIActionESt14default_deleteIS1_EED2Ev.exit.i:
   %36 = tail call noalias noundef nonnull dereferenceable(832) ptr @_Znwm(i64 noundef 832) #11, !noalias !49
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(832) %36, i8 0, i64 832, i1 false), !noalias !49
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(832) %36) #12, !noalias !49
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang17ASTFrontendActionE, i64 16), ptr %36, align 8, !noalias !49
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang17ASTFrontendActionE, i64 16), ptr %36, align 8, !noalias !49
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 104
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(648) %37, i8 0, i64 16, i1 false), !noalias !49
@@ -276,7 +276,7 @@ _ZNSt10unique_ptrIN5clang16ExtractAPIActionESt14default_deleteIS1_EED2Ev.exit.i:
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 688
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 704
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %42, ptr noundef nonnull %43, i64 noundef 6) #12, !noalias !49
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang16ExtractAPIActionE, i64 16), ptr %36, align 8, !noalias !49
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang16ExtractAPIActionE, i64 16), ptr %36, align 8, !noalias !49
   %44 = getelementptr inbounds nuw i8, ptr %36, i64 752
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 768
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %44, ptr noundef nonnull %45, i64 noundef 1) #12, !noalias !49
@@ -291,63 +291,63 @@ _ZNSt10unique_ptrIN5clang33GenerateModuleFromModuleMapActionESt14default_deleteI
   %47 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !55
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %47, i8 0, i64 104, i1 false), !noalias !55
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %47) #12, !noalias !55
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN5clang33GenerateModuleFromModuleMapActionE, i64 16), ptr %47, align 8, !noalias !55
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN5clang33GenerateModuleFromModuleMapActionE, i64 16), ptr %47, align 8, !noalias !55
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
 
 _ZNSt10unique_ptrIN5clang29GenerateModuleInterfaceActionESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %2
   %48 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !58
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %48, i8 0, i64 104, i1 false), !noalias !58
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %48) #12, !noalias !58
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN5clang29GenerateModuleInterfaceActionE, i64 16), ptr %48, align 8, !noalias !58
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN5clang29GenerateModuleInterfaceActionE, i64 16), ptr %48, align 8, !noalias !58
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
 
 _ZNSt10unique_ptrIN5clang36GenerateReducedModuleInterfaceActionESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %2
   %49 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !61
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %49, i8 0, i64 104, i1 false), !noalias !61
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %49) #12, !noalias !61
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN5clang36GenerateReducedModuleInterfaceActionE, i64 16), ptr %49, align 8, !noalias !61
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN5clang36GenerateReducedModuleInterfaceActionE, i64 16), ptr %49, align 8, !noalias !61
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
 
 _ZNSt10unique_ptrIN5clang24GenerateHeaderUnitActionESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %2
   %50 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %50, i8 0, i64 104, i1 false), !noalias !64
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %50) #12, !noalias !64
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN5clang24GenerateHeaderUnitActionE, i64 16), ptr %50, align 8, !noalias !64
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN5clang24GenerateHeaderUnitActionE, i64 16), ptr %50, align 8, !noalias !64
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
 
 _ZNSt10unique_ptrIN5clang17GeneratePCHActionESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %2
   %51 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !67
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %51, i8 0, i64 104, i1 false), !noalias !67
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %51) #12, !noalias !67
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang17GeneratePCHActionE, i64 16), ptr %51, align 8, !noalias !67
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang17GeneratePCHActionE, i64 16), ptr %51, align 8, !noalias !67
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
 
 _ZNSt10unique_ptrIN5clang28GenerateInterfaceStubsActionESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %2
   %52 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !70
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %52, i8 0, i64 104, i1 false), !noalias !70
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %52) #12, !noalias !70
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang28GenerateInterfaceStubsActionE, i64 16), ptr %52, align 8, !noalias !70
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang28GenerateInterfaceStubsActionE, i64 16), ptr %52, align 8, !noalias !70
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
 
 _ZNSt10unique_ptrIN5clang14InitOnlyActionESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %2
   %53 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !73
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %53, i8 0, i64 104, i1 false), !noalias !73
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %53) #12, !noalias !73
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang14InitOnlyActionE, i64 16), ptr %53, align 8, !noalias !73
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang14InitOnlyActionE, i64 16), ptr %53, align 8, !noalias !73
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
 
 _ZNSt10unique_ptrIN5clang16SyntaxOnlyActionESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %2
   %54 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !76
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %54, i8 0, i64 104, i1 false), !noalias !76
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %54) #12, !noalias !76
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang16SyntaxOnlyActionE, i64 16), ptr %54, align 8, !noalias !76
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang16SyntaxOnlyActionE, i64 16), ptr %54, align 8, !noalias !76
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
 
 _ZNSt10unique_ptrIN5clang20DumpModuleInfoActionESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %2
   %55 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #11, !noalias !79
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %55, i8 0, i64 120, i1 false), !noalias !79
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %55) #12, !noalias !79
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang20DumpModuleInfoActionE, i64 16), ptr %55, align 8, !noalias !79
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang20DumpModuleInfoActionE, i64 16), ptr %55, align 8, !noalias !79
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false), !noalias !79
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
@@ -356,14 +356,14 @@ _ZNSt10unique_ptrIN5clang15VerifyPCHActionESt14default_deleteIS1_EED2Ev.exit.i: 
   %57 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !82
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %57, i8 0, i64 104, i1 false), !noalias !82
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %57) #12, !noalias !82
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang15VerifyPCHActionE, i64 16), ptr %57, align 8, !noalias !82
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang15VerifyPCHActionE, i64 16), ptr %57, align 8, !noalias !82
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
 
 _ZNSt10unique_ptrIN5clang19TemplightDumpActionESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %2
   %58 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !85
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %58, i8 0, i64 104, i1 false), !noalias !85
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %58) #12, !noalias !85
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang19TemplightDumpActionE, i64 16), ptr %58, align 8, !noalias !85
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang19TemplightDumpActionE, i64 16), ptr %58, align 8, !noalias !85
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
 
 59:                                               ; preds = %2
@@ -473,7 +473,7 @@ _ZNSt10unique_ptrIN5clang19PrintPreambleActionESt14default_deleteIS1_EED2Ev.exit
   %107 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !91
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %107, i8 0, i64 104, i1 false), !noalias !91
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %107) #12, !noalias !91
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang19PrintPreambleActionE, i64 16), ptr %107, align 8, !noalias !91
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang19PrintPreambleActionE, i64 16), ptr %107, align 8, !noalias !91
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
 
 108:                                              ; preds = %2
@@ -488,7 +488,7 @@ _ZNSt10unique_ptrIN5clang21RewriteIncludesActionESt14default_deleteIS1_EED2Ev.ex
   %113 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #11, !noalias !94
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %113, i8 0, i64 120, i1 false), !noalias !94
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %113) #12, !noalias !94
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang21RewriteIncludesActionE, i64 16), ptr %113, align 8, !noalias !94
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang21RewriteIncludesActionE, i64 16), ptr %113, align 8, !noalias !94
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %114, i8 0, i64 16, i1 false), !noalias !94
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
@@ -501,28 +501,28 @@ _ZNSt10unique_ptrIN5clang19RewriteMacrosActionESt14default_deleteIS1_EED2Ev.exit
   %115 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !97
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %115, i8 0, i64 104, i1 false), !noalias !97
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %115) #12, !noalias !97
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang19RewriteMacrosActionE, i64 16), ptr %115, align 8, !noalias !97
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang19RewriteMacrosActionE, i64 16), ptr %115, align 8, !noalias !97
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
 
 _ZNSt10unique_ptrIN5clang17RewriteTestActionESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %2
   %116 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !100
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %116, i8 0, i64 104, i1 false), !noalias !100
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %116) #12, !noalias !100
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang17RewriteTestActionE, i64 16), ptr %116, align 8, !noalias !100
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang17RewriteTestActionE, i64 16), ptr %116, align 8, !noalias !100
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
 
 _ZNSt10unique_ptrIN5clang17RewriteObjCActionESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %2
   %117 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !103
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %117, i8 0, i64 104, i1 false), !noalias !103
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %117) #12, !noalias !103
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang17RewriteObjCActionE, i64 16), ptr %117, align 8, !noalias !103
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang17RewriteObjCActionE, i64 16), ptr %117, align 8, !noalias !103
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
 
 _ZNSt10unique_ptrIN5clang5arcmt19MigrateSourceActionESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %2
   %118 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #11, !noalias !106
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %118, i8 0, i64 160, i1 false), !noalias !106
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(160) %118) #12, !noalias !106
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang5arcmt19MigrateSourceActionE, i64 16), ptr %118, align 8, !noalias !106
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang5arcmt19MigrateSourceActionE, i64 16), ptr %118, align 8, !noalias !106
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 104
   tail call void @_ZN5clang5arcmt12FileRemapperC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %119) #12, !noalias !106
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
@@ -531,21 +531,21 @@ _ZNSt10unique_ptrIN5clang4ento14AnalysisActionESt14default_deleteIS2_EED2Ev.exit
   %120 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !109
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %120, i8 0, i64 104, i1 false), !noalias !109
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %120) #12, !noalias !109
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang4ento14AnalysisActionE, i64 16), ptr %120, align 8, !noalias !109
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang4ento14AnalysisActionE, i64 16), ptr %120, align 8, !noalias !109
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
 
 _ZNSt10unique_ptrIN5clang20PreprocessOnlyActionESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %2
   %121 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %121, i8 0, i64 104, i1 false), !noalias !112
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %121) #12, !noalias !112
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang20PreprocessOnlyActionE, i64 16), ptr %121, align 8, !noalias !112
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang20PreprocessOnlyActionE, i64 16), ptr %121, align 8, !noalias !112
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
 
 _ZNSt10unique_ptrIN5clang46PrintDependencyDirectivesSourceMinimizerActionESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %2
   %122 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !115
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %122, i8 0, i64 104, i1 false), !noalias !115
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %122) #12, !noalias !115
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang46PrintDependencyDirectivesSourceMinimizerActionE, i64 16), ptr %122, align 8, !noalias !115
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang46PrintDependencyDirectivesSourceMinimizerActionE, i64 16), ptr %122, align 8, !noalias !115
   br label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
 
 123:                                              ; preds = %2
@@ -610,7 +610,7 @@ _ZNKSt14default_deleteIN5clang14FrontendActionEEclEPS1_.exit.i.i.i: ; preds = %1
   br label %_ZNSt10unique_ptrIN5clang14FixItRecompileESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5clang14FixItRecompileESt14default_deleteIS1_EED2Ev.exit: ; preds = %130, %_ZNKSt14default_deleteIN5clang14FrontendActionEEclEPS1_.exit.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang14FixItRecompileE, i64 16), ptr %131, align 8, !noalias !118
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang14FixItRecompileE, i64 16), ptr %131, align 8, !noalias !118
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !118
   %.pre = load ptr, ptr %16, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 144
@@ -833,7 +833,7 @@ _ZNSt10unique_ptrIN5clang24WrappingExtractAPIActionESt14default_deleteIS1_EED2Ev
   %234 = getelementptr inbounds nuw i8, ptr %223, i64 696
   %235 = getelementptr inbounds nuw i8, ptr %223, i64 712
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %234, ptr noundef nonnull %235, i64 noundef 6) #12, !noalias !140
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang24WrappingExtractAPIActionE, i64 16), ptr %223, align 8, !noalias !140
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang24WrappingExtractAPIActionE, i64 16), ptr %223, align 8, !noalias !140
   %236 = getelementptr inbounds nuw i8, ptr %223, i64 760
   store i8 0, ptr %236, align 8, !noalias !140
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !140
@@ -1271,7 +1271,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN5clang23PrintPreprocessedActionEJEE
   %2 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %2, i8 0, i64 104, i1 false)
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #12
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang23PrintPreprocessedActionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang23PrintPreprocessedActionE, i64 16), ptr %2, align 8
   store ptr %2, ptr %0, align 8
   ret void
 }

@@ -105,8 +105,8 @@ define hidden ptr @php_stream_url_wrap_http(ptr noundef %0, ptr noundef %1, ptr 
   %7 = alloca %struct._zval_struct, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %8, align 8
-  tail call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @basic_globals, i64 488)) #15
-  store i32 0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 496), align 8
+  tail call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @basic_globals, i64 488)) #15
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 496), align 8
   %9 = call fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, i32 noundef 20, i32 noundef 1, ptr noundef %7)
   %10 = load i8, ptr %8, align 8
   %11 = icmp eq i8 %10, 0
@@ -115,8 +115,8 @@ define hidden ptr @php_stream_url_wrap_http(ptr noundef %0, ptr noundef %1, ptr 
 12:                                               ; preds = %6
   %13 = load ptr, ptr %7, align 8
   %14 = load i32, ptr %8, align 8
-  store ptr %13, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 488), align 8
-  store i32 %14, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 496), align 8
+  store ptr %13, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 488), align 8
+  store i32 %14, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 496), align 8
   %15 = and i32 %14, 65280
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %19, label %16
@@ -388,7 +388,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %.024519 = phi ptr [ %.0245110, %.thread1 ], [ %120, %112 ]
   %145 = phi i1 [ %123, %.thread1 ], [ false, %112 ]
   %.02468.shrunk6 = phi i1 [ %.02468.shrunk7, %.thread1 ], [ %94, %112 ]
-  %146 = load i64, ptr getelementptr inbounds (i8, ptr @file_globals, i64 24), align 8
+  %146 = load i64, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 24), align 8
   store i64 %146, ptr %17, align 8
   br label %147
 
@@ -2219,7 +2219,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %.0244367 = phi i32 [ %.0244368, %951 ], [ %.0244368, %.thread64 ], [ %.1244455, %873 ]
   %953 = and i32 %.0244367, 8
   %.not2860 = icmp ne i32 %953, 0
-  %954 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 40), align 8
+  %954 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 40), align 8
   %.not2861 = icmp eq ptr %954, null
   %or.cond2999 = select i1 %.not2860, i1 true, i1 %.not2861
   br i1 %or.cond2999, label %994, label %955
@@ -2256,7 +2256,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %969 = load ptr, ptr %18, align 8
   %970 = getelementptr inbounds nuw i8, ptr %969, i64 16
   store i64 %.12479, ptr %970, align 8
-  %971 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 40), align 8
+  %971 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 40), align 8
   %972 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %971) #16
   %973 = add i64 %972, %.12479
   %974 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -2538,7 +2538,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %1108
 
 1106:                                             ; preds = %1099, %1097, %1096
-  %1107 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 32), align 8
+  %1107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 32), align 8
   br label %1108
 
 1108:                                             ; preds = %1106, %1103

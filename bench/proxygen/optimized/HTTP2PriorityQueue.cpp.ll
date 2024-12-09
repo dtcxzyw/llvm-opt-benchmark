@@ -304,11 +304,11 @@ define void @_ZN8proxygen18HTTP2PriorityQueue4NodeC2ERS0_PS1_mhPNS_15HTTPTransac
 entry:
   %rv.i = alloca %"struct.std::pair.42", align 8
   %ref.tmp = alloca ptr, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen22HTTP2PriorityQueueBase8BaseNodeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen22HTTP2PriorityQueueBase8BaseNodeE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen18HTTP2PriorityQueue4NodeE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen18HTTP2PriorityQueue4NodeE, i64 72), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen18HTTP2PriorityQueue4NodeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen18HTTP2PriorityQueue4NodeE, i64 72), ptr %0, align 8
   %queue_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %queue, ptr %queue_, align 8
   %parent_ = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -444,9 +444,9 @@ declare void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl10
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen18HTTP2PriorityQueue4NodeD2Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 16)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen18HTTP2PriorityQueue4NodeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen18HTTP2PriorityQueue4NodeE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen18HTTP2PriorityQueue4NodeE, i64 72), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen18HTTP2PriorityQueue4NodeE, i64 72), ptr %add.ptr, align 8
   %txn_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %txn_, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -3713,9 +3713,9 @@ cleanup.done111:                                  ; preds = %cond.true88, %cond.
 
 if.then118:                                       ; preds = %cleanup.done111
   %43 = load i64, ptr %rootNodeId_, align 8
-  %44 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN8proxygen5http215DefaultPriorityE, i64 8), align 8
+  %44 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN8proxygen5http215DefaultPriorityE, i64 8), align 8
   %frombool124 = and i8 %44, 1
-  %45 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN8proxygen5http215DefaultPriorityE, i64 9), align 1
+  %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN8proxygen5http215DefaultPriorityE, i64 9), align 1
   %agg.tmp120.sroa.4.8.insert.ext = zext i8 %45 to i64
   %agg.tmp120.sroa.4.8.insert.shift = shl nuw nsw i64 %agg.tmp120.sroa.4.8.insert.ext, 8
   %agg.tmp120.sroa.2.8.insert.ext = zext nneg i8 %frombool124 to i64
@@ -4280,9 +4280,9 @@ if.then58:                                        ; preds = %if.end50, %lor.lhs.
   br label %if.end110
 
 if.else:                                          ; preds = %lor.lhs.false
-  %35 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN8proxygen5http215DefaultPriorityE, i64 8), align 8
+  %35 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN8proxygen5http215DefaultPriorityE, i64 8), align 8
   %frombool64 = and i8 %35, 1
-  %36 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN8proxygen5http215DefaultPriorityE, i64 9), align 1
+  %36 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN8proxygen5http215DefaultPriorityE, i64 9), align 1
   %agg.tmp.sroa.4.8.insert.ext = zext i8 %36 to i64
   %agg.tmp.sroa.4.8.insert.shift = shl nuw nsw i64 %agg.tmp.sroa.4.8.insert.ext, 8
   %agg.tmp.sroa.2.8.insert.ext = zext nneg i8 %frombool64 to i64
@@ -6429,7 +6429,7 @@ while.end:                                        ; preds = %entry, %_ZN6google1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen18HTTP2PriorityQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen18HTTP2PriorityQueueE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen18HTTP2PriorityQueueE, i64 16), ptr %this, align 8
   %root_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @_ZN8proxygen18HTTP2PriorityQueue4NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %root_) #30
   %nodes_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -6461,7 +6461,7 @@ _ZN5folly10F14FastMapImPN8proxygen18HTTP2PriorityQueue4NodeENS_23HeterogeneousAc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen18HTTP2PriorityQueueD0Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen18HTTP2PriorityQueueE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen18HTTP2PriorityQueueE, i64 16), ptr %this, align 8
   %root_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @_ZN8proxygen18HTTP2PriorityQueue4NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %root_.i) #30
   %nodes_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -7463,7 +7463,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #21
 define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() local_unnamed_addr #23 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::bad_alloc", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %ref.tmp, align 8
   invoke void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #16
           to label %invoke.cont unwind label %lpad
 
@@ -7481,7 +7481,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #23 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #34
   unreachable
 }

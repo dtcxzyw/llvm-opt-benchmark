@@ -324,7 +324,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %if.then.i15.i, %if.
   call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %bytecode, ptr %add.ptr.i.i.i72, ptr noundef nonnull align 1 dereferenceable(20) %ref.tmp78, ptr noundef nonnull %add.ptr.i68)
   %call81 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #11
   %data_.i.i = getelementptr inbounds nuw i8, ptr %call81, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12VectorBuffer, i64 16), ptr %call81, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12VectorBuffer, i64 16), ptr %call81, align 8
   %bytecode_.i = getelementptr inbounds nuw i8, ptr %call81, i64 24
   %31 = load ptr, ptr %bytecode, align 8
   store ptr %31, ptr %bytecode_.i, align 8

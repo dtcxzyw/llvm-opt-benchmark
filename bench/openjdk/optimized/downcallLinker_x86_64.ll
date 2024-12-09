@@ -135,7 +135,7 @@ define hidden noundef ptr @_ZN14DowncallLinker18make_downcall_stubEP9BasicTypeiS
   %37 = load i8, ptr @PrintMethodHandleStubs, align 1
   %38 = trunc i8 %37 to i1
   call void @_ZN17StubCodeGeneratorC2EP10CodeBufferb(ptr noundef nonnull align 8 dereferenceable(96) %11, ptr noundef nonnull %10, i1 noundef zeroext %38) #9
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN14DowncallLinker13StubGeneratorE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN14DowncallLinker13StubGeneratorE, i64 16), ptr %11, align 8
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %0, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -376,7 +376,7 @@ _ZN13GrowableArrayI9VMStorageEC2Ev.exit:          ; preds = %.lr.ph.i.i.i
   %131 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i8 0, ptr %131, align 4
   %132 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %132, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %132, align 8
   %133 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr null, ptr %133, align 8
   %134 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -431,7 +431,7 @@ _ZN13GrowableArrayI9VMStorageEC2Ev.exit:          ; preds = %.lr.ph.i.i.i
   %158 = getelementptr inbounds nuw i8, ptr %22, i64 20
   store i8 0, ptr %158, align 4
   %159 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %159, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %159, align 8
   %160 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr null, ptr %160, align 8
   %161 = getelementptr inbounds nuw i8, ptr %22, i64 40
@@ -483,7 +483,7 @@ _ZN13GrowableArrayI9VMStorageEC2Ev.exit:          ; preds = %.lr.ph.i.i.i
   store i32 -1, ptr %175, align 4
   store i32 %.073172, ptr %176, align 8
   store i8 0, ptr %177, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %178, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %178, align 8
   store ptr null, ptr %179, align 8
   store i32 0, ptr %180, align 8
   %.sroa.1.0.extract.shift.i85 = lshr i64 %186, 32
@@ -501,7 +501,7 @@ _ZN13GrowableArrayI9VMStorageEC2Ev.exit:          ; preds = %.lr.ph.i.i.i
   store i32 -1, ptr %167, align 4
   store i32 %.073172, ptr %168, align 8
   store i8 0, ptr %169, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %170, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %170, align 8
   store ptr null, ptr %171, align 8
   store i32 0, ptr %172, align 8
   %.sroa.1.0.extract.shift.i89 = lshr i64 %186, 32
@@ -554,7 +554,7 @@ _ZN13GrowableArrayI9VMStorageEC2Ev.exit:          ; preds = %.lr.ph.i.i.i
   %210 = getelementptr inbounds nuw i8, ptr %25, i64 20
   store i8 0, ptr %210, align 4
   %211 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %211, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %211, align 8
   %212 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr null, ptr %212, align 8
   %213 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -601,7 +601,7 @@ _ZN13GrowableArrayI9VMStorageEC2Ev.exit:          ; preds = %.lr.ph.i.i.i
   %228 = getelementptr inbounds nuw i8, ptr %25, i64 20
   store i8 0, ptr %228, align 4
   %229 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %229, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %229, align 8
   %230 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr null, ptr %230, align 8
   %231 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -688,7 +688,7 @@ _ZN13GrowableArrayI9VMStorageEC2Ev.exit:          ; preds = %.lr.ph.i.i.i
   %265 = getelementptr inbounds nuw i8, ptr %30, i64 20
   store i8 0, ptr %265, align 4
   %266 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %266, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %266, align 8
   %267 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr null, ptr %267, align 8
   %268 = getelementptr inbounds nuw i8, ptr %30, i64 40
@@ -719,7 +719,7 @@ _ZN13GrowableArrayI9VMStorageEC2Ev.exit:          ; preds = %.lr.ph.i.i.i
   %280 = getelementptr inbounds nuw i8, ptr %31, i64 20
   store i8 0, ptr %280, align 4
   %281 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %281, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %281, align 8
   %282 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr null, ptr %282, align 8
   %283 = getelementptr inbounds nuw i8, ptr %31, i64 40
@@ -742,7 +742,7 @@ _ZN13GrowableArrayI9VMStorageEC2Ev.exit:          ; preds = %.lr.ph.i.i.i
   %291 = getelementptr inbounds nuw i8, ptr %32, i64 20
   store i8 0, ptr %291, align 4
   %292 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %292, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %292, align 8
   %293 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr null, ptr %293, align 8
   %294 = getelementptr inbounds nuw i8, ptr %32, i64 40
@@ -763,7 +763,7 @@ _ZN13GrowableArrayI9VMStorageEC2Ev.exit:          ; preds = %.lr.ph.i.i.i
   %301 = getelementptr inbounds nuw i8, ptr %33, i64 20
   store i8 0, ptr %301, align 4
   %302 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %302, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %302, align 8
   %303 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr null, ptr %303, align 8
   %304 = getelementptr inbounds nuw i8, ptr %33, i64 40
@@ -1112,7 +1112,7 @@ define hidden void @_ZNK14DowncallLinker13StubGenerator20pd_add_offset_to_oopE9V
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i8 0, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr null, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -1125,7 +1125,7 @@ define hidden void @_ZNK14DowncallLinker13StubGenerator20pd_add_offset_to_oopE9V
   %spec.select.i.i25 = select i1 %or.cond.i.i24, i32 %.sroa.1.0.extract.trunc.i23, i32 -1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 21, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %30 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %30(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %29) #9
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 21, i1 false)
@@ -1154,7 +1154,7 @@ define hidden void @_ZNK14DowncallLinker13StubGenerator20pd_add_offset_to_oopE9V
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i8 0, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -1172,7 +1172,7 @@ define hidden void @_ZNK14DowncallLinker13StubGenerator20pd_add_offset_to_oopE9V
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i8 0, ptr %50, align 4
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %51, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -1185,7 +1185,7 @@ define hidden void @_ZNK14DowncallLinker13StubGenerator20pd_add_offset_to_oopE9V
   %spec.select.i.i29 = select i1 %or.cond.i.i28, i32 %.sroa.1.0.extract.trunc.i27, i32 -1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 21, i1 false)
   %56 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %57 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %57(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %56) #9
   call void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %55, i32 %spec.select.i.i29, ptr noundef nonnull %11) #9
   %58 = load ptr, ptr %54, align 8

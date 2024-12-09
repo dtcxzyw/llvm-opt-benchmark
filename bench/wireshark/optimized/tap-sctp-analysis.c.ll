@@ -18,13 +18,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @remove_tap_listener_sctp_stat() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @sctp_tapinfo_struct, i64 16), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sctp_tapinfo_struct, i64 16), align 8
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %0
   tail call void @remove_tap_listener(ptr noundef nonnull @sctp_tapinfo_struct) #8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @sctp_tapinfo_struct, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @sctp_tapinfo_struct, i64 16), align 8
   br label %3
 
 3:                                                ; preds = %2, %0
@@ -35,7 +35,7 @@ declare void @remove_tap_listener(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @sctp_stat_scan() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @sctp_tapinfo_struct, i64 16), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sctp_tapinfo_struct, i64 16), align 8
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %register_tap_listener_sctp_stat.exit
 
@@ -51,7 +51,7 @@ define hidden void @sctp_stat_scan() local_unnamed_addr #0 {
   br label %register_tap_listener_sctp_stat.exit
 
 8:                                                ; preds = %2
-  store i32 1, ptr getelementptr inbounds (i8, ptr @sctp_tapinfo_struct, i64 16), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @sctp_tapinfo_struct, i64 16), align 8
   br label %register_tap_listener_sctp_stat.exit
 
 register_tap_listener_sctp_stat.exit:             ; preds = %8, %4, %0
@@ -60,7 +60,7 @@ register_tap_listener_sctp_stat.exit:             ; preds = %8, %4, %0
 
 ; Function Attrs: nounwind uwtable
 define hidden void @register_tap_listener_sctp_stat() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @sctp_tapinfo_struct, i64 16), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sctp_tapinfo_struct, i64 16), align 8
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %9
 
@@ -76,7 +76,7 @@ define hidden void @register_tap_listener_sctp_stat() local_unnamed_addr #0 {
   br label %9
 
 8:                                                ; preds = %2
-  store i32 1, ptr getelementptr inbounds (i8, ptr @sctp_tapinfo_struct, i64 16), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @sctp_tapinfo_struct, i64 16), align 8
   br label %9
 
 9:                                                ; preds = %8, %4, %0
@@ -90,7 +90,7 @@ define hidden noundef nonnull ptr @sctp_stat_get_info() local_unnamed_addr #2 {
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @get_sctp_assoc_info(i16 noundef zeroext %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @sctp_tapinfo_struct, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sctp_tapinfo_struct, i64 8), align 8
   %3 = tail call ptr @g_list_last(ptr noundef %2) #8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %find_assoc.exit, label %.preheader.i
@@ -465,7 +465,7 @@ copy_address.exit1268:                            ; preds = %39, %33, %45
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 84
   %76 = load i16, ptr %75, align 4
   store i16 %76, ptr %6, align 8
-  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @sctp_tapinfo_struct, i64 8), align 8
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sctp_tapinfo_struct, i64 8), align 8
   %78 = tail call ptr @g_list_last(ptr noundef %77) #8
   %.not.i = icmp eq ptr %78, null
   br i1 %.not.i, label %.loopexit1335, label %.preheader.i
@@ -1611,9 +1611,9 @@ copy_address.exit1276:                            ; preds = %copy_address.exit12
 
 706:                                              ; preds = %702, %701
   %.01105 = phi i32 [ 1, %702 ], [ 0, %701 ]
-  %707 = load ptr, ptr getelementptr inbounds (i8, ptr @sctp_tapinfo_struct, i64 8), align 8
+  %707 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sctp_tapinfo_struct, i64 8), align 8
   %708 = tail call ptr @g_list_append(ptr noundef %707, ptr noundef nonnull %90) #8
-  store ptr %708, ptr getelementptr inbounds (i8, ptr @sctp_tapinfo_struct, i64 8), align 8
+  store ptr %708, ptr getelementptr inbounds nuw (i8, ptr @sctp_tapinfo_struct, i64 8), align 8
   br label %1618
 
 709:                                              ; preds = %661

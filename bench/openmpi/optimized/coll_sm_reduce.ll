@@ -32,7 +32,7 @@ define i32 @mca_coll_sm_reduce_intra(ptr noundef %0, ptr noundef %1, i32 noundef
   %15 = getelementptr i8, ptr %3, i64 24
   %.val = load i64, ptr %15, align 8
   %16 = trunc i64 %.val to i32
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 284), align 4
   %18 = icmp slt i32 %17, %16
   br i1 %18, label %19, label %25
 
@@ -81,7 +81,7 @@ define i32 @mca_coll_sm_reduce_intra(ptr noundef %0, ptr noundef %1, i32 noundef
   %37 = getelementptr i8, ptr %3, i64 56
   %.val234.i = load i64, ptr %37, align 8
   %38 = sub nsw i64 %.val234.i, %.val233.i
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 296), align 8
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 296), align 8
   %40 = sext i32 %39 to i64
   %41 = udiv i64 %40, %.val.i
   %42 = mul i64 %41, %.val.i
@@ -113,7 +113,7 @@ ompi_datatype_is_contiguous_memory_layout.exit._crit_edge.i: ; preds = %ompi_dat
 
 ompi_datatype_is_contiguous_memory_layout.exit.thread.i: ; preds = %ompi_datatype_is_contiguous_memory_layout.exit.i, %47
   %53 = load i32, ptr @opal_class_init_epoch, align 4
-  %54 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
+  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not217.i = icmp eq i32 %53, %54
   br i1 %.not217.i, label %56, label %55
 
@@ -141,7 +141,7 @@ ompi_datatype_is_contiguous_memory_layout.exit.thread.i: ; preds = %ompi_datatyp
 
 opal_obj_run_constructors.exit.i:                 ; preds = %.lr.ph.i.i, %56
   %63 = load i32, ptr @opal_class_init_epoch, align 4
-  %64 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
+  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not218.i = icmp eq i32 %63, %64
   br i1 %.not218.i, label %66, label %65
 
@@ -336,10 +336,10 @@ ompi_datatype_copy_content_same_ddt.exit.i:       ; preds = %144, %.lr.ph.i244.i
   %.0190.i = phi i64 [ 0, %ompi_datatype_copy_content_same_ddt.exit.i ], [ %indvars.iv.next57.i, %302 ]
   %.0188.i = phi i1 [ true, %ompi_datatype_copy_content_same_ddt.exit.i ], [ %.2.i, %302 ]
   %164 = load i32, ptr %149, align 8
-  %165 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 288), align 8
+  %165 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 288), align 8
   %166 = urem i32 %164, %165
   %167 = load ptr, ptr %150, align 8
-  %168 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
+  %168 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 284), align 4
   %169 = mul nsw i32 %168, %166
   %170 = sext i32 %169 to i64
   %171 = getelementptr inbounds i8, ptr %167, i64 %170
@@ -375,7 +375,7 @@ ompi_datatype_copy_content_same_ddt.exit.i:       ; preds = %144, %.lr.ph.i244.i
   store volatile i32 %182, ptr %183, align 4
   %184 = add i32 %182, 1
   store i32 %184, ptr %149, align 8
-  %185 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 308), align 4
+  %185 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 308), align 4
   %186 = mul i32 %185, %166
   %187 = add nsw i32 %166, 1
   %188 = mul nsw i32 %185, %187
@@ -428,7 +428,7 @@ ompi_datatype_copy_content_same_ddt.exit.i:       ; preds = %144, %.lr.ph.i244.i
   %205 = load ptr, ptr %152, align 8
   %206 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %205, i64 %indvars.iv58.i
   %207 = load ptr, ptr %206, align 8
-  %208 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
+  %208 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 284), align 4
   %209 = mul nsw i32 %208, %5
   %210 = sext i32 %209 to i64
   %211 = getelementptr inbounds i8, ptr %207, i64 %210
@@ -468,7 +468,7 @@ ompi_datatype_copy_content_same_ddt.exit.i:       ; preds = %144, %.lr.ph.i244.i
 222:                                              ; preds = %.loopexit14.i
   %223 = getelementptr inbounds nuw i8, ptr %206, i64 8
   %224 = load ptr, ptr %223, align 8
-  %225 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 296), align 8
+  %225 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 296), align 8
   %226 = mul nsw i32 %225, %.pre-phi.i56
   %227 = sext i32 %226 to i64
   %228 = getelementptr inbounds i8, ptr %224, i64 %227
@@ -480,7 +480,7 @@ ompi_datatype_copy_content_same_ddt.exit.i:       ; preds = %144, %.lr.ph.i244.i
   store i64 %42, ptr %10, align 8
   %231 = getelementptr inbounds nuw i8, ptr %206, i64 8
   %232 = load ptr, ptr %231, align 8
-  %233 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 296), align 8
+  %233 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 296), align 8
   %234 = mul nsw i32 %233, %.pre-phi.i56
   %235 = sext i32 %234 to i64
   %236 = getelementptr inbounds i8, ptr %232, i64 %235
@@ -510,7 +510,7 @@ ompi_datatype_copy_content_same_ddt.exit259.i:    ; preds = %199, %.lr.ph.i250.i
   %246 = load ptr, ptr %152, align 8
   %247 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %246, i64 %indvars.iv58.i
   %248 = load ptr, ptr %247, align 8
-  %249 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
+  %249 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 284), align 4
   %250 = mul nsw i32 %249, %5
   %251 = sext i32 %250 to i64
   %252 = getelementptr inbounds i8, ptr %248, i64 %251
@@ -549,7 +549,7 @@ ompi_datatype_copy_content_same_ddt.exit259.i:    ; preds = %199, %.lr.ph.i250.i
 262:                                              ; preds = %.loopexit.i
   %263 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %264 = load ptr, ptr %263, align 8
-  %265 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 296), align 8
+  %265 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 296), align 8
   %266 = trunc nuw nsw i64 %indvars.iv53.i to i32
   %267 = mul nsw i32 %265, %266
   %268 = sext i32 %267 to i64
@@ -560,7 +560,7 @@ ompi_datatype_copy_content_same_ddt.exit259.i:    ; preds = %199, %.lr.ph.i250.i
   store i64 %42, ptr %10, align 8
   %271 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %272 = load ptr, ptr %271, align 8
-  %273 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 296), align 8
+  %273 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 296), align 8
   %274 = trunc nuw nsw i64 %indvars.iv53.i to i32
   %275 = mul nsw i32 %273, %274
   %276 = sext i32 %275 to i64
@@ -674,7 +674,7 @@ opal_obj_run_destructors.exit271.i:               ; preds = %.lr.ph.i268.i, %opa
 
 321:                                              ; preds = %31
   %322 = load i32, ptr @opal_class_init_epoch, align 4
-  %323 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
+  %323 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %322, %323
   br i1 %.not.i, label %325, label %324
 
@@ -728,10 +728,10 @@ opal_obj_run_constructors.exit276.i:              ; preds = %.lr.ph.i273.i, %325
 347:                                              ; preds = %399, %.preheader22.i
   %.2201.i = phi i64 [ %389, %399 ], [ 0, %.preheader22.i ]
   %348 = load i32, ptr %343, align 8
-  %349 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 288), align 8
+  %349 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 288), align 8
   %350 = urem i32 %348, %349
   %351 = load ptr, ptr %344, align 8
-  %352 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
+  %352 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 284), align 4
   %353 = mul nsw i32 %352, %350
   %354 = sext i32 %353 to i64
   %355 = getelementptr inbounds i8, ptr %351, i64 %354
@@ -766,7 +766,7 @@ opal_obj_run_constructors.exit276.i:              ; preds = %.lr.ph.i273.i, %325
   %370 = phi i32 [ %348, %347 ], [ %359, %362 ], [ %367, %365 ]
   %371 = add i32 %370, 1
   store i32 %371, ptr %343, align 8
-  %372 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 308), align 4
+  %372 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 308), align 4
   %373 = mul i32 %372, %350
   %374 = add nsw i32 %350, 1
   %375 = mul nsw i32 %372, %374
@@ -782,7 +782,7 @@ opal_obj_run_constructors.exit276.i:              ; preds = %.lr.ph.i273.i, %325
   store i64 %42, ptr %10, align 8
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 8
   %382 = load ptr, ptr %381, align 8
-  %383 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 296), align 8
+  %383 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 296), align 8
   %384 = mul nsw i32 %383, %.val24
   %385 = sext i32 %384 to i64
   %386 = getelementptr inbounds i8, ptr %382, i64 %385
@@ -793,7 +793,7 @@ opal_obj_run_constructors.exit276.i:              ; preds = %.lr.ph.i273.i, %325
   %389 = add i64 %388, %.3.i
   fence release
   %390 = load ptr, ptr %380, align 8
-  %391 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
+  %391 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 284), align 4
   %392 = mul nsw i32 %391, %5
   %393 = sext i32 %392 to i64
   %394 = getelementptr inbounds i8, ptr %390, i64 %393

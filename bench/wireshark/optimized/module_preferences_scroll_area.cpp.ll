@@ -191,9 +191,9 @@ define void @_ZN27ModulePreferencesScrollAreaC2EP11pref_moduleP7QWidget(ptr noun
   %58 = alloca %"class.QMetaObject::Connection", align 8
   %59 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN11QScrollAreaC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %2)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27ModulePreferencesScrollArea, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27ModulePreferencesScrollArea, i64 16), ptr %0, align 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27ModulePreferencesScrollArea, i64 488), ptr %60, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27ModulePreferencesScrollArea, i64 488), ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %62 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
           to label %63 unwind label %66
@@ -1555,7 +1555,7 @@ _ZN17QArrayDataPointerIP11QPushButtonE5derefEv.exit.i.i.i410: ; preds = %430
 433:                                              ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIP11QPushButtonEED2Ev.exit
   %434 = getelementptr inbounds nuw i8, ptr %391, i64 8
   store i32 0, ptr %434, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %391, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %391, align 8
   %435 = getelementptr inbounds nuw i8, ptr %391, i64 12
   store i32 10, ptr %435, align 4
   %436 = getelementptr inbounds nuw i8, ptr %391, i64 16
@@ -2558,7 +2558,7 @@ _ZNK7QWidget11fontMetricsEv.exit:                 ; preds = %256
 266:                                              ; preds = %264
   %267 = getelementptr inbounds nuw i8, ptr %265, i64 8
   store i32 0, ptr %267, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %265, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %265, align 8
   %268 = getelementptr inbounds nuw i8, ptr %265, i64 12
   store i32 1, ptr %268, align 4
   %269 = getelementptr inbounds nuw i8, ptr %265, i64 16
@@ -3251,7 +3251,7 @@ _ZN7QStringD2Ev.exit482:                          ; preds = %483, %_ZN17QArrayDa
 492:                                              ; preds = %490
   %493 = getelementptr inbounds nuw i8, ptr %491, i64 8
   store i32 0, ptr %493, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %491, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %491, align 8
   %494 = getelementptr inbounds nuw i8, ptr %491, i64 12
   store i32 1, ptr %494, align 4
   %495 = getelementptr inbounds nuw i8, ptr %491, i64 16
@@ -3417,7 +3417,7 @@ _ZNK7QWidget11fontMetricsEv.exit500:              ; preds = %540
 550:                                              ; preds = %548
   %551 = getelementptr inbounds nuw i8, ptr %549, i64 8
   store i32 0, ptr %551, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %549, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %549, align 8
   %552 = getelementptr inbounds nuw i8, ptr %549, i64 12
   store i32 1, ptr %552, align 4
   %553 = getelementptr inbounds nuw i8, ptr %549, i64 16
@@ -3611,7 +3611,7 @@ _ZNK7QWidget11fontMetricsEv.exit518:              ; preds = %606
 617:                                              ; preds = %615
   %618 = getelementptr inbounds nuw i8, ptr %616, i64 8
   store i32 0, ptr %618, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %616, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %616, align 8
   %619 = getelementptr inbounds nuw i8, ptr %616, i64 12
   store i32 1, ptr %619, align 4
   %620 = getelementptr inbounds nuw i8, ptr %616, i64 16
@@ -3801,7 +3801,7 @@ _ZNK7QWidget11fontMetricsEv.exit536:              ; preds = %673
 683:                                              ; preds = %681
   %684 = getelementptr inbounds nuw i8, ptr %682, i64 8
   store i32 0, ptr %684, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %682, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %682, align 8
   %685 = getelementptr inbounds nuw i8, ptr %682, i64 12
   store i32 1, ptr %685, align 4
   %686 = getelementptr inbounds nuw i8, ptr %682, i64 16
@@ -3991,7 +3991,7 @@ _ZNK7QWidget11fontMetricsEv.exit554:              ; preds = %739
 749:                                              ; preds = %747
   %750 = getelementptr inbounds nuw i8, ptr %748, i64 8
   store i32 0, ptr %750, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %748, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %748, align 8
   %751 = getelementptr inbounds nuw i8, ptr %748, i64 12
   store i32 1, ptr %751, align 4
   %752 = getelementptr inbounds nuw i8, ptr %748, i64 16
@@ -4275,7 +4275,7 @@ _ZN7QStringD2Ev.exit587:                          ; preds = %829, %_ZN17QArrayDa
 841:                                              ; preds = %839
   %842 = getelementptr inbounds nuw i8, ptr %840, i64 8
   store i32 0, ptr %842, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %840, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %840, align 8
   %843 = getelementptr inbounds nuw i8, ptr %840, i64 12
   store i32 1, ptr %843, align 4
   %844 = getelementptr inbounds nuw i8, ptr %840, i64 16
@@ -4596,7 +4596,7 @@ _ZN7QStringD2Ev.exit632:                          ; preds = %939, %_ZN17QArrayDa
 950:                                              ; preds = %948
   %951 = getelementptr inbounds nuw i8, ptr %949, i64 8
   store i32 0, ptr %951, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %949, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %949, align 8
   %952 = getelementptr inbounds nuw i8, ptr %949, i64 12
   store i32 1, ptr %952, align 4
   %953 = getelementptr inbounds nuw i8, ptr %949, i64 16
@@ -5294,7 +5294,7 @@ _ZN7QStringD2Ev.exit715:                          ; preds = %1167, %_ZN17QArrayD
 1176:                                             ; preds = %1174
   %1177 = getelementptr inbounds nuw i8, ptr %1175, i64 8
   store i32 0, ptr %1177, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %1175, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %1175, align 8
   %1178 = getelementptr inbounds nuw i8, ptr %1175, i64 12
   store i32 1, ptr %1178, align 4
   %1179 = getelementptr inbounds nuw i8, ptr %1175, i64 16
@@ -6890,9 +6890,9 @@ declare void @_ZN11QScrollAreaD2Ev(ptr noundef nonnull align 8 dereferenceable(4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN27ModulePreferencesScrollAreaD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27ModulePreferencesScrollArea, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27ModulePreferencesScrollArea, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27ModulePreferencesScrollArea, i64 488), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27ModulePreferencesScrollArea, i64 488), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

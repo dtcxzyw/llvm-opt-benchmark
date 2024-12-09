@@ -415,7 +415,7 @@ define internal void @_trig_del(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_dump_trigger_msg(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %4 = and i64 %3, 4
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %.loopexit, label %5
@@ -1127,7 +1127,7 @@ define dso_local ptr @trigger_get(i32 noundef %0, ptr nocapture noundef readnone
   br label %11
 
 11:                                               ; preds = %9, %6
-  %12 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %13 = and i64 %12, 4
   %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %_dump_trigger_msg.exit, label %14
@@ -1266,7 +1266,7 @@ define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef
   unreachable
 
 9:                                                ; preds = %3
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   %.not66 = icmp eq i32 %10, 0
   %.not67 = icmp eq i32 %10, %0
   %or.cond = or i1 %.not66, %.not67
@@ -1297,7 +1297,7 @@ define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef
 
 21:                                               ; preds = %20
   %22 = tail call i32 @list_count(ptr noundef nonnull %16) #14
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 636), align 4
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 636), align 4
   %.not69 = icmp ult i32 %22, %23
   br i1 %.not69, label %24, label %.loopexit81
 
@@ -2493,15 +2493,15 @@ _dump_trigger_state.exit:                         ; preds = %36, %47
 
 57:                                               ; preds = %._crit_edge
   tail call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const.trigger_state_save.config_read_lock) #14
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1336), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1336), align 8
   %59 = tail call ptr @xstrdup(ptr noundef %58) #14
   store ptr %59, ptr %1, align 8
   call void @_xstrcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.8) #14
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1336), align 8
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1336), align 8
   %61 = call ptr @xstrdup(ptr noundef %60) #14
   store ptr %61, ptr %3, align 8
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.9) #14
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1336), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1336), align 8
   %63 = call ptr @xstrdup(ptr noundef %62) #14
   store ptr %63, ptr %2, align 8
   call void @_xstrcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.10) #14
@@ -2676,7 +2676,7 @@ define dso_local void @trigger_state_restore() local_unnamed_addr #0 {
   store i16 -2, ptr %4, align 2
   store ptr null, ptr %7, align 8
   tail call void @lock_state_files() #14
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1336), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1336), align 8
   %10 = tail call ptr @xstrdup(ptr noundef %9) #14
   store ptr %10, ptr %5, align 8
   call void @_xstrcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.9) #14
@@ -3145,7 +3145,7 @@ define dso_local void @trigger_process() local_unnamed_addr #0 {
   store i8 1, ptr %25, align 8
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store i64 %9, ptr %37, align 8
-  %38 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %38 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %39 = and i64 %38, 4
   %.not5.i = icmp eq i64 %39, 0
   br i1 %.not5.i, label %_trigger_other_event.exitthread-pre-split, label %40
@@ -3191,7 +3191,7 @@ define dso_local void @trigger_process() local_unnamed_addr #0 {
   %64 = load i64, ptr %63, align 8
   %65 = add i64 %22, %64
   store i64 %65, ptr %63, align 8
-  %66 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %66 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %67 = and i64 %66, 4
   %.not78.i = icmp eq i64 %67, 0
   br i1 %.not78.i, label %_trigger_other_event.exitthread-pre-split, label %68
@@ -3218,7 +3218,7 @@ define dso_local void @trigger_process() local_unnamed_addr #0 {
   br label %.thread.i
 
 76:                                               ; preds = %75
-  %77 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %77 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %78 = and i64 %77, 4
   %.not77.i = icmp eq i64 %78, 0
   br i1 %.not77.i, label %_trigger_other_event.exit.thread.thread, label %79
@@ -3262,7 +3262,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
 96:                                               ; preds = %89
   store i8 1, ptr %25, align 8
   store i64 %9, ptr %93, align 8
-  %97 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %97 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %98 = and i64 %97, 4
   %.not69.i = icmp eq i64 %98, 0
   br i1 %.not69.i, label %_trigger_other_event.exit.thread123.thread, label %99
@@ -3299,7 +3299,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br label %129
 
 115:                                              ; preds = %111
-  %116 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %116 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %117 = and i64 %116, 4
   %.not76.i = icmp eq i64 %117, 0
   br i1 %.not76.i, label %125, label %118
@@ -3345,7 +3345,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br label %153
 
 139:                                              ; preds = %135
-  %140 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %140 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %141 = and i64 %140, 4
   %.not75.i = icmp eq i64 %141, 0
   br i1 %.not75.i, label %149, label %142
@@ -3392,7 +3392,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %165 = load i64, ptr %164, align 8
   %166 = sub i64 %.neg182.i, %165
   store i64 %166, ptr %164, align 8
-  %167 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %167 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %168 = and i64 %167, 4
   %.not74.i = icmp eq i64 %168, 0
   br i1 %.not74.i, label %_trigger_other_event.exitthread-pre-split, label %169
@@ -3471,7 +3471,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %205 = load i64, ptr %204, align 8
   %206 = add i64 %22, %205
   store i64 %206, ptr %204, align 8
-  %207 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %207 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %208 = and i64 %207, 4
   %.not181.i = icmp eq i64 %208, 0
   br i1 %.not181.i, label %_trigger_node_event.exit, label %209
@@ -3548,7 +3548,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %245 = load i64, ptr %244, align 8
   %246 = add i64 %22, %245
   store i64 %246, ptr %244, align 8
-  %247 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %247 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %248 = and i64 %247, 4
   %.not180.i = icmp eq i64 %248, 0
   br i1 %.not180.i, label %_trigger_node_event.exit, label %249
@@ -3625,7 +3625,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %285 = load i64, ptr %284, align 8
   %286 = add i64 %22, %285
   store i64 %286, ptr %284, align 8
-  %287 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %287 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %288 = and i64 %287, 4
   %.not179.i = icmp eq i64 %288, 0
   br i1 %.not179.i, label %_trigger_node_event.exit, label %289
@@ -3748,7 +3748,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
 
 348:                                              ; preds = %345
   store i64 %9, ptr %301, align 8
-  %349 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %349 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %350 = and i64 %349, 4
   %.not178.i = icmp eq i64 %350, 0
   br i1 %.not178.i, label %_trigger_node_event.exit, label %351
@@ -3825,7 +3825,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %387 = load i64, ptr %386, align 8
   %388 = add i64 %22, %387
   store i64 %388, ptr %386, align 8
-  %389 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %389 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %390 = and i64 %389, 4
   %.not177.i = icmp eq i64 %390, 0
   br i1 %.not177.i, label %_trigger_node_event.exit, label %391
@@ -3902,7 +3902,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %426 = load i64, ptr %425, align 8
   %427 = add i64 %22, %426
   store i64 %427, ptr %425, align 8
-  %428 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %428 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %429 = and i64 %428, 4
   %.not176.i = icmp eq i64 %429, 0
   br i1 %.not176.i, label %_trigger_node_event.exit, label %430
@@ -3979,7 +3979,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %465 = load i64, ptr %464, align 8
   %466 = add i64 %22, %465
   store i64 %466, ptr %464, align 8
-  %467 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %467 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %468 = and i64 %467, 4
   %.not175.i = icmp eq i64 %468, 0
   br i1 %.not175.i, label %_trigger_node_event.exit, label %469
@@ -4017,7 +4017,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   call void @slurm_xfree(ptr noundef nonnull %485) #14
   %486 = call ptr @xstrdup(ptr noundef nonnull @.str.50) #14
   store ptr %486, ptr %485, align 8
-  %487 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %487 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %488 = and i64 %487, 4
   %.not174.i = icmp eq i64 %488, 0
   br i1 %.not174.i, label %_trigger_node_event.exit, label %489
@@ -4059,7 +4059,7 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
   call void @slurm_xfree(ptr noundef nonnull %504) #14
   %505 = call ptr @xstrdup(ptr noundef nonnull @.str.52) #14
   store ptr %505, ptr %504, align 8
-  %506 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %506 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %507 = and i64 %506, 4
   %.not80.i = icmp eq i64 %507, 0
   br i1 %.not80.i, label %_trigger_other_event.exitthread-pre-split, label %508
@@ -4088,7 +4088,7 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
   call void @slurm_xfree(ptr noundef nonnull %518) #14
   %519 = call ptr @xstrdup(ptr noundef nonnull @.str.54) #14
   store ptr %519, ptr %518, align 8
-  %520 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %520 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %521 = and i64 %520, 4
   %.not79.i = icmp eq i64 %521, 0
   br i1 %.not79.i, label %_trigger_other_event.exitthread-pre-split, label %522
@@ -4117,7 +4117,7 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
   call void @slurm_xfree(ptr noundef nonnull %532) #14
   %533 = call ptr @xstrdup(ptr noundef nonnull @.str.56) #14
   store ptr %533, ptr %532, align 8
-  %534 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %534 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %535 = and i64 %534, 4
   %.not78.i104 = icmp eq i64 %535, 0
   br i1 %.not78.i104, label %_trigger_other_event.exitthread-pre-split, label %536
@@ -4146,7 +4146,7 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
   call void @slurm_xfree(ptr noundef nonnull %546) #14
   %547 = call ptr @xstrdup(ptr noundef nonnull @.str.58) #14
   store ptr %547, ptr %546, align 8
-  %548 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %548 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %549 = and i64 %548, 4
   %.not77.i103 = icmp eq i64 %549, 0
   br i1 %.not77.i103, label %_trigger_other_event.exitthread-pre-split, label %550
@@ -4175,7 +4175,7 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
   call void @slurm_xfree(ptr noundef nonnull %560) #14
   %561 = call ptr @xstrdup(ptr noundef nonnull @.str.60) #14
   store ptr %561, ptr %560, align 8
-  %562 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %562 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %563 = and i64 %562, 4
   %.not76.i102 = icmp eq i64 %563, 0
   br i1 %.not76.i102, label %_trigger_other_event.exitthread-pre-split, label %564
@@ -4204,7 +4204,7 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
   call void @slurm_xfree(ptr noundef nonnull %574) #14
   %575 = call ptr @xstrdup(ptr noundef nonnull @.str.62) #14
   store ptr %575, ptr %574, align 8
-  %576 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %576 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %577 = and i64 %576, 4
   %.not75.i101 = icmp eq i64 %577, 0
   br i1 %.not75.i101, label %_trigger_other_event.exitthread-pre-split, label %578
@@ -4233,7 +4233,7 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
   call void @slurm_xfree(ptr noundef nonnull %588) #14
   %589 = call ptr @xstrdup(ptr noundef nonnull @.str.64) #14
   store ptr %589, ptr %588, align 8
-  %590 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %590 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %591 = and i64 %590, 4
   %.not74.i99 = icmp eq i64 %591, 0
   br i1 %.not74.i99, label %_trigger_other_event.exitthread-pre-split, label %592
@@ -4271,7 +4271,7 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
   call void @slurm_xfree(ptr noundef nonnull %606) #14
   %607 = call ptr @xstrdup(ptr noundef nonnull @.str.66) #14
   store ptr %607, ptr %606, align 8
-  %608 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %608 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %609 = and i64 %608, 4
   %.not17.i = icmp eq i64 %609, 0
   br i1 %.not17.i, label %616, label %610
@@ -4307,7 +4307,7 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
   call void @slurm_xfree(ptr noundef nonnull %624) #14
   %625 = call ptr @xstrdup(ptr noundef nonnull @.str.68) #14
   store ptr %625, ptr %624, align 8
-  %626 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %626 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %627 = and i64 %626, 4
   %.not20.i = icmp eq i64 %627, 0
   br i1 %.not20.i, label %_trigger_other_event.exitthread-pre-split, label %628
@@ -4344,7 +4344,7 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
   call void @slurm_xfree(ptr noundef nonnull %643) #14
   %644 = call ptr @xstrdup(ptr noundef nonnull @.str.70) #14
   store ptr %644, ptr %643, align 8
-  %645 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %645 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %646 = and i64 %645, 4
   %.not20.i110 = icmp eq i64 %646, 0
   br i1 %.not20.i110, label %_trigger_other_event.exitthread-pre-split, label %647
@@ -4373,7 +4373,7 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
   call void @slurm_xfree(ptr noundef nonnull %657) #14
   %658 = call ptr @xstrdup(ptr noundef nonnull @.str.72) #14
   store ptr %658, ptr %657, align 8
-  %659 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %659 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %660 = and i64 %659, 4
   %.not19.i = icmp eq i64 %660, 0
   br i1 %.not19.i, label %_trigger_other_event.exitthread-pre-split, label %661
@@ -4453,7 +4453,7 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
   %693 = load i64, ptr %692, align 8
   %694 = add i64 %22, %693
   store i64 %694, ptr %692, align 8
-  %695 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %695 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %696 = and i64 %695, 4
   %.not38.i = icmp eq i64 %696, 0
   br i1 %.not38.i, label %_trigger_other_event.exitthread-pre-split, label %697
@@ -4528,7 +4528,7 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
   %730 = load i64, ptr %729, align 8
   %731 = add i64 %22, %730
   store i64 %731, ptr %729, align 8
-  %732 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %732 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %733 = and i64 %732, 4
   %.not35.i = icmp eq i64 %733, 0
   br i1 %.not35.i, label %_trigger_other_event.exitthread-pre-split, label %734
@@ -4569,7 +4569,7 @@ _trigger_other_event.exit.thread123:              ; preds = %_trigger_other_even
 
 _trigger_other_event.exit.thread123.thread:       ; preds = %96, %_trigger_other_event.exit.thread123
   %742 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %743 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %743 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %744 = and i64 %743, 4
   %.not85 = icmp eq i64 %744, 0
   br i1 %.not85, label %759, label %745
@@ -4757,7 +4757,7 @@ _trigger_clone.exit:                              ; preds = %781, %784
   br i1 %846, label %847, label %868
 
 847:                                              ; preds = %845
-  %848 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %848 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   %849 = icmp eq i32 %838, %848
   call void @closeall(i32 noundef 0) #14
   %850 = call i32 @setpgid(i32 noundef 0, i32 noundef 0) #14
@@ -4890,7 +4890,7 @@ thread-pre-split:                                 ; preds = %907, %905
   br i1 %912, label %.thread126, label %.thread129
 
 .thread126:                                       ; preds = %878, %911, %thread-pre-split
-  %913 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %913 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %914 = and i64 %913, 4
   %.not84 = icmp eq i64 %914, 0
   br i1 %.not84, label %921, label %915

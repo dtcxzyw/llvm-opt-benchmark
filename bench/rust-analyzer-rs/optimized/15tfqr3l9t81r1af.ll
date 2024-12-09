@@ -30620,7 +30620,7 @@ define noundef zeroext i1 @_ZN3ide19syntax_highlighting4tags6HlMods8contains17h3
 define void @_ZN3ide19syntax_highlighting4tags6HlMods4iter17h96aca902026aa603E(ptr noalias nocapture noundef writeonly sret({ { { ptr, ptr, {} } }, i32, [1 x i32] }) align 8 dereferenceable(24) initializes((0, 20)) %0, i32 noundef %1) unnamed_addr #16 {
   store ptr @anon.4403288d20c13f5dd705abcb94830296.404, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.4403288d20c13f5dd705abcb94830296.404, i64 22), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.4403288d20c13f5dd705abcb94830296.404, i64 22), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %4, align 8
   ret void

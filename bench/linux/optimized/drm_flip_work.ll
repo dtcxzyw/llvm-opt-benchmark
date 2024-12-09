@@ -26,7 +26,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_flip_wor
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_flip_work_queue(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i64, align 8
-  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #5, !srcloc !5
+  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #5, !srcloc !5
   %5 = and i32 %4, 2147483647
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %12
@@ -44,7 +44,7 @@ define dso_local void @drm_flip_work_queue(ptr noundef %0, ptr noundef %1) #0 al
 
 12:                                               ; preds = %7, %2
   %13 = phi i32 [ 2336, %2 ], [ %11, %7 ]
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %15 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %14, i32 noundef %13, i64 noundef 24) #7
   %16 = icmp eq ptr %15, null
   br i1 %16, label %25, label %17

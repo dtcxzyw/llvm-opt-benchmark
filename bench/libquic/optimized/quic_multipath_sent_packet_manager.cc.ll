@@ -49,7 +49,7 @@ $_ZTIN3net30QuicSentPacketManagerInterfaceE = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net30QuicMultipathSentPacketManagerC2EPNS_30QuicSentPacketManagerInterfaceEPNS_36QuicConnectionCloseDelegateInterfaceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef %manager, ptr noundef %delegate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNKSt6vectorIN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net30QuicMultipathSentPacketManagerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net30QuicMultipathSentPacketManagerE, i64 16), ptr %this, align 8
   %path_managers_info_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %path_managers_info_, i8 0, i64 24, i1 false)
   %delegate_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -72,7 +72,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net30QuicMultipathSentPacketManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net30QuicMultipathSentPacketManagerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net30QuicMultipathSentPacketManagerE, i64 16), ptr %this, align 8
   %path_managers_info_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %path_managers_info_, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -118,7 +118,7 @@ _ZNSt6vectorIN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoESa
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net30QuicMultipathSentPacketManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net30QuicMultipathSentPacketManagerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net30QuicMultipathSentPacketManagerE, i64 16), ptr %this, align 8
   %path_managers_info_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %path_managers_info_.i, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16

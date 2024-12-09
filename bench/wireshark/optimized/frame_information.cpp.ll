@@ -24,8 +24,8 @@ $__clang_call_terminate = comdat any
 define void @_ZN16FrameInformationC2EP11CaptureFileP11_frame_dataP7QObject(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %3)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16FrameInformation, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16FrameInformation, i64 136), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16FrameInformation, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16FrameInformation, i64 136), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %2, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -168,9 +168,9 @@ declare void @epan_dissect_fill_in_columns(ptr noundef, i32 noundef, i32 noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN16FrameInformationD2Ev(ptr noundef nonnull align 8 dereferenceable(360) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16FrameInformation, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16FrameInformation, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16FrameInformation, i64 136), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16FrameInformation, i64 136), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null

@@ -74,7 +74,7 @@ define void @_ZN4pkpy4REPLC2EPNS_2VME(ptr noundef nonnull align 8 dereferenceabl
 13:                                               ; preds = %10
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
   store i64 64, ptr %5, align 8
-  invoke void @_ZN4pkpy2_SIJRA2_KcmRA10_S1_RPS1_S3_EEENS_3StrEDpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.pkpy::Str") align 8 %4, ptr noundef nonnull align 1 dereferenceable(2) @.str.1, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(10) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN4pkpy16kPlatformStringsE, i64 40), ptr noundef nonnull align 1 dereferenceable(2) @.str.3)
+  invoke void @_ZN4pkpy2_SIJRA2_KcmRA10_S1_RPS1_S3_EEENS_3StrEDpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.pkpy::Str") align 8 %4, ptr noundef nonnull align 1 dereferenceable(2) @.str.1, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(10) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZN4pkpy16kPlatformStringsE, i64 40), ptr noundef nonnull align 1 dereferenceable(2) @.str.3)
           to label %14 unwind label %26
 
 14:                                               ; preds = %13

@@ -7690,7 +7690,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %en
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZSt11lower_boundIPKN3ue27unicaseES1_ET_S4_S4_RKT0_.exit, !llvm.loop !143
 
 _ZSt11lower_boundIPKN3ue27unicaseES1_ET_S4_S4_RKT0_.exit: ; preds = %while.body.i.i
-  %cmp.not = icmp eq ptr %3, getelementptr inbounds (i8, ptr @_ZN3ue2L16ucp_caseless_defE, i64 18032)
+  %cmp.not = icmp eq ptr %3, getelementptr inbounds nuw (i8, ptr @_ZN3ue2L16ucp_caseless_defE, i64 18032)
   br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %_ZSt11lower_boundIPKN3ue27unicaseES1_ET_S4_S4_RKT0_.exit

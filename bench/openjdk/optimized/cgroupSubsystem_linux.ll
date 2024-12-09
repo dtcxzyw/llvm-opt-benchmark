@@ -138,9 +138,9 @@ define hidden noundef ptr @_ZN22CgroupSubsystemFactory6createEv() local_unnamed_
   %24 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %19, i8 noundef zeroext 9) #13
   %25 = call noundef ptr @_ZN18CgroupV2Controller14construct_pathEPcS0_(ptr noundef %17, ptr noundef %19) #13
   %26 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 9, i32 noundef 0) #13
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV24CgroupV2MemoryController, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24CgroupV2MemoryController, i64 16), ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV18CgroupV2Controller, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV18CgroupV2Controller, i64 16), ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %23, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -160,9 +160,9 @@ define hidden noundef ptr @_ZN22CgroupSubsystemFactory6createEv() local_unnamed_
   %40 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %34, i8 noundef zeroext 9) #13
   %41 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %36, i8 noundef zeroext 9) #13
   %42 = call noundef ptr @_ZN18CgroupV2Controller14construct_pathEPcS0_(ptr noundef %34, ptr noundef %36) #13
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV21CgroupV2CpuController, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV21CgroupV2CpuController, i64 16), ptr %32, align 8
   %43 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV18CgroupV2Controller, i64 16), ptr %43, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV18CgroupV2Controller, i64 16), ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %40, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %32, i64 24
@@ -202,9 +202,9 @@ define hidden noundef ptr @_ZN22CgroupSubsystemFactory6createEv() local_unnamed_
 
 _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit: ; preds = %50
   %59 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 64, i8 noundef zeroext 9, i32 noundef 0) #13
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV17CgroupV2Subsystem, i64 16), ptr %59, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV17CgroupV2Subsystem, i64 16), ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV18CgroupV2Controller, i64 16), ptr %60, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV18CgroupV2Controller, i64 16), ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store ptr %23, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
@@ -267,9 +267,9 @@ _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit: ; preds = %50
   %82 = and i8 %.sroa.65.0.copyload, 1
   %83 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.17.0.copyload, i8 noundef zeroext 9) #13
   %84 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.22.0.copyload, i8 noundef zeroext 9) #13
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV24CgroupV1MemoryController, i64 16), ptr %81, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24CgroupV1MemoryController, i64 16), ptr %81, align 8
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV18CgroupV1Controller, i64 16), ptr %85, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV18CgroupV1Controller, i64 16), ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store ptr %83, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %81, i64 24
@@ -291,7 +291,7 @@ _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit: ; preds = %50
 94:                                               ; preds = %91
   %95 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 9, i32 noundef 0) #13
   %96 = and i8 %.sroa.65.0.copyload, 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV18CgroupV1Controller, i64 16), ptr %95, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV18CgroupV1Controller, i64 16), ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %98 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.17.0.copyload, i8 noundef zeroext 9) #13
   store ptr %98, ptr %97, align 8
@@ -315,9 +315,9 @@ _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit: ; preds = %50
   %108 = and i8 %.sroa.65.0.copyload, 1
   %109 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.17.0.copyload, i8 noundef zeroext 9) #13
   %110 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.22.0.copyload, i8 noundef zeroext 9) #13
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV21CgroupV1CpuController, i64 16), ptr %107, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV21CgroupV1CpuController, i64 16), ptr %107, align 8
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV18CgroupV1Controller, i64 16), ptr %111, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV18CgroupV1Controller, i64 16), ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %107, i64 16
   store ptr %109, ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %107, i64 24
@@ -337,7 +337,7 @@ _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit: ; preds = %50
 119:                                              ; preds = %116
   %120 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 9, i32 noundef 0) #13
   %121 = and i8 %.sroa.65.0.copyload, 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV18CgroupV1Controller, i64 16), ptr %120, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV18CgroupV1Controller, i64 16), ptr %120, align 8
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %123 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.17.0.copyload, i8 noundef zeroext 9) #13
   store ptr %123, ptr %122, align 8
@@ -359,7 +359,7 @@ _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit: ; preds = %50
 131:                                              ; preds = %128
   %132 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 9, i32 noundef 0) #13
   %133 = and i8 %.sroa.65.0.copyload, 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV18CgroupV1Controller, i64 16), ptr %132, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV18CgroupV1Controller, i64 16), ptr %132, align 8
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %135 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.17.0.copyload, i8 noundef zeroext 9) #13
   store ptr %135, ptr %134, align 8
@@ -414,7 +414,7 @@ _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit: ; preds = %50
 
 _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit83: ; preds = %.preheader
   %154 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 9, i32 noundef 0) #13
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV17CgroupV1Subsystem, i64 16), ptr %154, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV17CgroupV1Subsystem, i64 16), ptr %154, align 8
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %156 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 9, i32 noundef 0) #13
   store ptr %.1, ptr %156, align 8

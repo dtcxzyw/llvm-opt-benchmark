@@ -1021,7 +1021,7 @@ declare zeroext i1 @rbuf_switch_to_malloc(ptr noundef) local_unnamed_addr #3
 define dso_local void @process_command_ascii(ptr noundef %c, ptr noundef %command) local_unnamed_addr #0 {
 entry:
   %tokens = alloca [24 x %struct.token_s], align 16
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8
   %cmp = icmp sgt i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
 
@@ -2939,7 +2939,7 @@ if.end91:                                         ; preds = %if.then89, %if.then
   br i1 %tobool102.not, label %if.end113, label %if.then103
 
 if.then103:                                       ; preds = %if.end91
-  %30 = load i8, ptr getelementptr inbounds (i8, ptr @settings, i64 112), align 8
+  %30 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 112), align 8
   %tobool104 = trunc i8 %30 to i1
   br i1 %tobool104, label %cond.true106, label %cond.end109
 
@@ -3796,7 +3796,7 @@ while.body:                                       ; preds = %do.body, %if.end179
 if.end14:                                         ; preds = %while.body
   %6 = load ptr, ptr %thread, align 8
   %call16 = call ptr @limited_get(ptr noundef %5, i64 noundef %4, ptr noundef %6, i32 noundef %exptime.0, i1 noundef zeroext %should_touch, i1 noundef zeroext true, ptr noundef nonnull %overflow) #11
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 104), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 104), align 8
   %tobool17.not = icmp eq i32 %7, 0
   br i1 %tobool17.not, label %if.end21, label %if.then18
 
@@ -3954,7 +3954,7 @@ if.else86:                                        ; preds = %if.else
   br label %if.end89
 
 if.end89:                                         ; preds = %if.then66, %if.else86, %if.then47
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8
   %cmp90 = icmp sgt i32 %32, 1
   br i1 %cmp90, label %if.then92, label %if.end103
 
@@ -4169,7 +4169,7 @@ stop:                                             ; preds = %while.end, %do.cond
   %fail_length.0 = phi i1 [ false, %if.then51 ], [ %cmp11, %if.then174 ], [ %cmp11, %while.body ], [ false, %tokenize_command.exit ], [ false, %do.cond ], [ false, %while.end ]
   %resp.2 = phi ptr [ %resp.1115, %if.then51 ], [ %resp.1115, %if.then174 ], [ %resp.1115, %while.body ], [ %resp.1.lcssa, %while.end ], [ %67, %do.cond ], [ %resp.1.lcssa, %tokenize_command.exit ]
   %key_token.3 = phi ptr [ %key_token.2117, %if.then51 ], [ %key_token.2117, %while.body ], [ %incdec.ptr170, %if.then174 ], [ %key_token.2.lcssa, %while.end ], [ %tokens, %do.cond ], [ %tokens, %tokenize_command.exit ]
-  %68 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
+  %68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8
   %cmp194 = icmp sgt i32 %68, 1
   br i1 %cmp194, label %if.then196, label %if.end199
 
@@ -4304,7 +4304,7 @@ if.then29:                                        ; preds = %if.end24
 if.end30:                                         ; preds = %if.end24
   %add = add nuw nsw i32 %9, 2
   store i32 %add, ptr %vlen, align 4
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 104), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 104), align 8
   %tobool31.not = icmp eq i32 %10, 0
   br i1 %tobool31.not, label %if.end33, label %if.then32
 
@@ -4507,7 +4507,7 @@ if.else20:                                        ; preds = %if.else16
 
 if.then23:                                        ; preds = %if.else20
   store i32 0, ptr %limit, align 4
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @settings, i64 177), align 1
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 177), align 1
   %tobool = trunc i8 %2 to i1
   br i1 %tobool, label %if.end25, label %if.then24
 
@@ -4627,7 +4627,7 @@ if.end86:                                         ; preds = %if.else64, %if.else
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @process_shutdown_command(ptr noundef %c, ptr nocapture readonly %tokens.16.val, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
-  %0 = load i8, ptr getelementptr inbounds (i8, ptr @settings, i64 168), align 8
+  %0 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 168), align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %if.then
 
@@ -4686,7 +4686,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1, label %if.then, label %land.lhs.true23
 
 if.then:                                          ; preds = %land.lhs.true
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @settings, i64 145), align 1
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 145), align 1
   %2 = and i8 %1, 1
   %cmp2 = icmp eq i8 %2, 0
   br i1 %cmp2, label %if.then4, label %if.end
@@ -4798,7 +4798,7 @@ lor.lhs.false.i:                                  ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %12 = load double, ptr %ratio.i, align 8
-  store double %12, ptr getelementptr inbounds (i8, ptr @settings, i64 152), align 8
+  store double %12, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 152), align 8
   br label %process_slabs_automove_command.exit
 
 if.else.i:                                        ; preds = %set_noreply_maybe.exit.i
@@ -4811,7 +4811,7 @@ if.end11.i:                                       ; preds = %if.else.i
   br i1 %cmp12.i, label %if.then13.i, label %if.else14.i
 
 if.then13.i:                                      ; preds = %if.end11.i
-  store i32 0, ptr getelementptr inbounds (i8, ptr @settings, i64 148), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 148), align 4
   br label %process_slabs_automove_command.exit
 
 if.else14.i:                                      ; preds = %if.end11.i
@@ -4819,7 +4819,7 @@ if.else14.i:                                      ; preds = %if.end11.i
   br i1 %or.cond.i, label %if.then18.i, label %process_slabs_automove_command.exit
 
 if.then18.i:                                      ; preds = %if.else14.i
-  store i32 %13, ptr getelementptr inbounds (i8, ptr @settings, i64 148), align 4
+  store i32 %13, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 148), align 4
   br label %process_slabs_automove_command.exit
 
 process_slabs_automove_command.exit:              ; preds = %if.then.i, %lor.lhs.false.i, %if.end.i, %if.else.i, %if.then13.i, %if.else14.i, %if.then18.i
@@ -4881,7 +4881,7 @@ if.else6:                                         ; preds = %if.else3
   br i1 %call8, label %if.then9, label %if.end19
 
 if.then9:                                         ; preds = %if.else6
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8
   %cmp10 = icmp sgt i32 %4, 0
   br i1 %cmp10, label %if.then12, label %if.end19
 
@@ -5059,7 +5059,7 @@ if.then18:                                        ; preds = %if.end13
   br label %return
 
 if.end19:                                         ; preds = %if.end13
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 104), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 104), align 8
   %tobool20.not = icmp eq i32 %10, 0
   br i1 %tobool20.not, label %if.end22, label %if.then21
 
@@ -5270,7 +5270,7 @@ set_noreply_maybe.exit:                           ; preds = %entry, %land.lhs.tr
   %5 = load ptr, ptr %thread, align 8
   %stats5 = getelementptr inbounds nuw i8, ptr %5, i64 352
   %call7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %stats5) #11
-  %6 = load i8, ptr getelementptr inbounds (i8, ptr @settings, i64 176), align 8
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 176), align 8
   %tobool = trunc i8 %6 to i1
   br i1 %tobool, label %if.end, label %if.then
 
@@ -5312,24 +5312,24 @@ if.else:                                          ; preds = %if.end, %if.end14
 
 if.end20:                                         ; preds = %if.else, %if.then17
   %new_oldest.0 = phi i32 [ %call19, %if.then17 ], [ %9, %if.else ]
-  %10 = load i8, ptr getelementptr inbounds (i8, ptr @settings, i64 112), align 8
+  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 112), align 8
   %tobool21 = trunc i8 %10 to i1
   br i1 %tobool21, label %if.then22, label %if.else28
 
 if.then22:                                        ; preds = %if.end20
   %sub = add i32 %new_oldest.0, -1
-  store i32 %sub, ptr getelementptr inbounds (i8, ptr @settings, i64 36), align 4
+  store i32 %sub, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 36), align 4
   %11 = load volatile i32, ptr @current_time, align 4
   %cmp23.not = icmp ugt i32 %sub, %11
   br i1 %cmp23.not, label %if.end29, label %if.then25
 
 if.then25:                                        ; preds = %if.then22
   %call26 = call i64 @get_cas_id() #11
-  store i64 %call26, ptr getelementptr inbounds (i8, ptr @settings, i64 40), align 8
+  store i64 %call26, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 40), align 8
   br label %if.end29
 
 if.else28:                                        ; preds = %if.end20
-  store i32 %new_oldest.0, ptr getelementptr inbounds (i8, ptr @settings, i64 36), align 4
+  store i32 %new_oldest.0, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 36), align 4
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then22, %if.then25, %if.else28
@@ -5358,7 +5358,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1, label %if.then, label %land.lhs.true14
 
 if.then:                                          ; preds = %land.lhs.true
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @settings, i64 142), align 2
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 142), align 2
   %2 = and i8 %1, 1
   %cmp2 = icmp eq i8 %2, 0
   br i1 %cmp2, label %if.then4, label %if.end
@@ -5370,7 +5370,7 @@ if.then4:                                         ; preds = %if.then
 if.end:                                           ; preds = %if.then
   %arrayidx5 = getelementptr inbounds nuw i8, ptr %tokens, i64 32
   %3 = load ptr, ptr %arrayidx5, align 8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 196), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 196), align 4
   %call7 = tail call i32 @lru_crawler_crawl(ptr noundef %3, i32 noundef 1, ptr noundef null, i32 noundef 0, i32 noundef %4) #11
   switch i32 %call7, label %if.end151 [
     i32 0, label %sw.bb
@@ -5406,7 +5406,7 @@ land.lhs.true14:                                  ; preds = %land.lhs.true
   br i1 %cmp18, label %if.then20, label %land.lhs.true47
 
 if.then20:                                        ; preds = %land.lhs.true14
-  %5 = load i8, ptr getelementptr inbounds (i8, ptr @settings, i64 142), align 2
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 142), align 2
   %6 = and i8 %5, 1
   %cmp23 = icmp eq i8 %6, 0
   br i1 %cmp23, label %if.then25, label %if.end26
@@ -5416,7 +5416,7 @@ if.then25:                                        ; preds = %if.then20
   br label %if.end151
 
 if.end26:                                         ; preds = %if.then20
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @settings, i64 177), align 1
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 177), align 1
   %tobool27 = trunc i8 %7 to i1
   br i1 %tobool27, label %if.end29, label %if.then28
 
@@ -5474,7 +5474,7 @@ land.lhs.true47:                                  ; preds = %land.lhs.true14
   br i1 %cmp51, label %if.then53, label %land.lhs.true82
 
 if.then53:                                        ; preds = %land.lhs.true47
-  %10 = load i8, ptr getelementptr inbounds (i8, ptr @settings, i64 142), align 2
+  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 142), align 2
   %11 = and i8 %10, 1
   %cmp56 = icmp eq i8 %11, 0
   br i1 %cmp56, label %if.then58, label %if.end59
@@ -5484,7 +5484,7 @@ if.then58:                                        ; preds = %if.then53
   br label %if.end151
 
 if.end59:                                         ; preds = %if.then53
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @settings, i64 177), align 1
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 177), align 1
   %tobool60 = trunc i8 %12 to i1
   br i1 %tobool60, label %if.end62, label %if.then61
 
@@ -5553,7 +5553,7 @@ if.then92:                                        ; preds = %if.then88
 
 if.end93:                                         ; preds = %if.then88
   %16 = load i32, ptr %tocrawl, align 4
-  store i32 %16, ptr getelementptr inbounds (i8, ptr @settings, i64 196), align 4
+  store i32 %16, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 196), align 4
   call void @out_string(ptr noundef %c, ptr noundef nonnull @.str.95) #11
   br label %if.end151
 
@@ -5582,7 +5582,7 @@ if.then111:                                       ; preds = %if.end108
   br label %if.end151
 
 if.end112:                                        ; preds = %if.end108
-  store i32 %18, ptr getelementptr inbounds (i8, ptr @settings, i64 192), align 8
+  store i32 %18, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 192), align 8
   call void @out_string(ptr noundef %c, ptr noundef nonnull @.str.95) #11
   br label %if.end151
 
@@ -5658,7 +5658,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br label %set_noreply_maybe.exit
 
 set_noreply_maybe.exit:                           ; preds = %entry, %land.lhs.true.i, %if.then.i
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @settings, i64 253), align 1
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 253), align 1
   %tobool = trunc i8 %2 to i1
   br i1 %tobool, label %if.end, label %if.then
 
@@ -5807,7 +5807,7 @@ set_noreply_maybe.exit:                           ; preds = %entry, %land.lhs.tr
 if.end:                                           ; preds = %set_noreply_maybe.exit
   %3 = load i32, ptr %level, align 4
   %cond = call i32 @llvm.umin.i32(i32 %3, i32 2)
-  store i32 %cond, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
+  store i32 %cond, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8
   br label %return
 
 return:                                           ; preds = %set_noreply_maybe.exit, %if.end
@@ -5903,10 +5903,10 @@ if.then24:                                        ; preds = %if.else20
   br label %if.end74
 
 if.else25:                                        ; preds = %if.else20
-  store i32 %7, ptr getelementptr inbounds (i8, ptr @settings, i64 200), align 8
-  store i32 %8, ptr getelementptr inbounds (i8, ptr @settings, i64 204), align 4
-  store double %10, ptr getelementptr inbounds (i8, ptr @settings, i64 208), align 8
-  store double %9, ptr getelementptr inbounds (i8, ptr @settings, i64 216), align 8
+  store i32 %7, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 200), align 8
+  store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 204), align 4
+  store double %10, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 208), align 8
+  store double %9, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 216), align 8
   call void @out_string(ptr noundef nonnull %c, ptr noundef nonnull @.str.95) #11
   br label %if.end74
 
@@ -5918,7 +5918,7 @@ if.else28:                                        ; preds = %set_noreply_maybe.e
   br i1 %or.cond2, label %land.lhs.true35, label %if.else51
 
 land.lhs.true35:                                  ; preds = %if.else28
-  %11 = load i8, ptr getelementptr inbounds (i8, ptr @settings, i64 143), align 1
+  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 143), align 1
   %tobool = trunc i8 %11 to i1
   br i1 %tobool, label %if.then36, label %if.else51
 
@@ -5930,7 +5930,7 @@ if.then36:                                        ; preds = %land.lhs.true35
   br i1 %cmp40, label %if.then41, label %if.else42
 
 if.then41:                                        ; preds = %if.then36
-  store i8 0, ptr getelementptr inbounds (i8, ptr @settings, i64 144), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 144), align 8
   tail call void @out_string(ptr noundef nonnull %c, ptr noundef nonnull @.str.95) #11
   br label %if.end74
 
@@ -5940,7 +5940,7 @@ if.else42:                                        ; preds = %if.then36
   br i1 %cmp46, label %if.then47, label %if.else48
 
 if.then47:                                        ; preds = %if.else42
-  store i8 1, ptr getelementptr inbounds (i8, ptr @settings, i64 144), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 144), align 8
   tail call void @out_string(ptr noundef nonnull %c, ptr noundef nonnull @.str.95) #11
   br label %if.end74
 
@@ -5955,7 +5955,7 @@ if.else51:                                        ; preds = %land.lhs.true35, %i
   br i1 %or.cond3, label %land.lhs.true58, label %if.else71
 
 land.lhs.true58:                                  ; preds = %if.else51
-  %13 = load i8, ptr getelementptr inbounds (i8, ptr @settings, i64 143), align 1
+  %13 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 143), align 1
   %tobool59 = trunc i8 %13 to i1
   br i1 %tobool59, label %if.then60, label %if.else71
 
@@ -5975,12 +5975,12 @@ if.else65:                                        ; preds = %if.then60
   br i1 %cmp66, label %if.end69, label %if.else68
 
 if.else68:                                        ; preds = %if.else65
-  store i32 %15, ptr getelementptr inbounds (i8, ptr @settings, i64 232), align 8
+  store i32 %15, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 232), align 8
   br label %if.end69
 
 if.end69:                                         ; preds = %if.else65, %if.else68
   %.sink = phi i8 [ 1, %if.else68 ], [ 0, %if.else65 ]
-  store i8 %.sink, ptr getelementptr inbounds (i8, ptr @settings, i64 228), align 4
+  store i8 %.sink, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 228), align 4
   call void @out_string(ptr noundef nonnull %c, ptr noundef nonnull @.str.95) #11
   br label %if.end74
 
@@ -6054,7 +6054,7 @@ if.else17:                                        ; preds = %if.else
 if.then22:                                        ; preds = %if.else17
   %arrayidx23 = getelementptr inbounds nuw i8, ptr %tokens, i64 32
   %6 = load ptr, ptr %arrayidx23, align 8
-  %call25 = tail call zeroext i1 @safe_strtoul(ptr noundef %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @settings, i64 264)) #11
+  %call25 = tail call zeroext i1 @safe_strtoul(ptr noundef %6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @settings, i64 264)) #11
   br i1 %call25, label %if.else132, label %if.end133
 
 if.else28:                                        ; preds = %if.else17
@@ -6065,7 +6065,7 @@ if.else28:                                        ; preds = %if.else17
 if.then33:                                        ; preds = %if.else28
   %arrayidx34 = getelementptr inbounds nuw i8, ptr %tokens, i64 32
   %7 = load ptr, ptr %arrayidx34, align 8
-  %call36 = tail call zeroext i1 @safe_strtoul(ptr noundef %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @settings, i64 268)) #11
+  %call36 = tail call zeroext i1 @safe_strtoul(ptr noundef %7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @settings, i64 268)) #11
   br i1 %call36, label %if.else132, label %if.end133
 
 if.else39:                                        ; preds = %if.else28
@@ -6076,7 +6076,7 @@ if.else39:                                        ; preds = %if.else28
 if.then44:                                        ; preds = %if.else39
   %arrayidx45 = getelementptr inbounds nuw i8, ptr %tokens, i64 32
   %8 = load ptr, ptr %arrayidx45, align 8
-  %call47 = tail call zeroext i1 @safe_strtoul(ptr noundef %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @settings, i64 272)) #11
+  %call47 = tail call zeroext i1 @safe_strtoul(ptr noundef %8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @settings, i64 272)) #11
   br i1 %call47, label %if.else132, label %if.end133
 
 if.else50:                                        ; preds = %if.else39
@@ -6087,7 +6087,7 @@ if.else50:                                        ; preds = %if.else39
 if.then55:                                        ; preds = %if.else50
   %arrayidx56 = getelementptr inbounds nuw i8, ptr %tokens, i64 32
   %9 = load ptr, ptr %arrayidx56, align 8
-  %call58 = tail call zeroext i1 @safe_strtoul(ptr noundef %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @settings, i64 276)) #11
+  %call58 = tail call zeroext i1 @safe_strtoul(ptr noundef %9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @settings, i64 276)) #11
   br i1 %call58, label %if.else132, label %if.end133
 
 if.else61:                                        ; preds = %if.else50
@@ -6098,7 +6098,7 @@ if.else61:                                        ; preds = %if.else50
 if.then66:                                        ; preds = %if.else61
   %arrayidx67 = getelementptr inbounds nuw i8, ptr %tokens, i64 32
   %10 = load ptr, ptr %arrayidx67, align 8
-  %call69 = tail call zeroext i1 @safe_strtoul(ptr noundef %10, ptr noundef nonnull getelementptr inbounds (i8, ptr @settings, i64 284)) #11
+  %call69 = tail call zeroext i1 @safe_strtoul(ptr noundef %10, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @settings, i64 284)) #11
   br i1 %call69, label %if.else132, label %if.end133
 
 if.else72:                                        ; preds = %if.else61
@@ -6109,7 +6109,7 @@ if.else72:                                        ; preds = %if.else61
 if.then77:                                        ; preds = %if.else72
   %arrayidx78 = getelementptr inbounds nuw i8, ptr %tokens, i64 32
   %11 = load ptr, ptr %arrayidx78, align 8
-  %call80 = tail call zeroext i1 @safe_strtoul(ptr noundef %11, ptr noundef nonnull getelementptr inbounds (i8, ptr @settings, i64 288)) #11
+  %call80 = tail call zeroext i1 @safe_strtoul(ptr noundef %11, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @settings, i64 288)) #11
   br i1 %call80, label %if.else132, label %if.end133
 
 if.else83:                                        ; preds = %if.else72
@@ -6120,7 +6120,7 @@ if.else83:                                        ; preds = %if.else72
 if.then88:                                        ; preds = %if.else83
   %arrayidx89 = getelementptr inbounds nuw i8, ptr %tokens, i64 32
   %12 = load ptr, ptr %arrayidx89, align 8
-  %call91 = tail call zeroext i1 @safe_strtoul(ptr noundef %12, ptr noundef nonnull getelementptr inbounds (i8, ptr @settings, i64 292)) #11
+  %call91 = tail call zeroext i1 @safe_strtoul(ptr noundef %12, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @settings, i64 292)) #11
   br i1 %call91, label %if.else132, label %if.end133
 
 if.else94:                                        ; preds = %if.else83
@@ -6143,13 +6143,13 @@ if.else115:                                       ; preds = %if.then110
   %14 = load i32, ptr %v, align 4
   %cmp116 = icmp ne i32 %14, 0
   %frombool = zext i1 %cmp116 to i8
-  store i8 %frombool, ptr getelementptr inbounds (i8, ptr @settings, i64 312), align 8
+  store i8 %frombool, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 312), align 8
   br label %if.else132
 
 if.end129:                                        ; preds = %if.else94
   %arrayidx100 = getelementptr inbounds nuw i8, ptr %tokens, i64 32
   %15 = load ptr, ptr %arrayidx100, align 8
-  %call102 = tail call zeroext i1 @safe_strtod(ptr noundef %15, ptr noundef nonnull getelementptr inbounds (i8, ptr @settings, i64 296)) #11
+  %call102 = tail call zeroext i1 @safe_strtod(ptr noundef %15, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @settings, i64 296)) #11
   br i1 %call102, label %if.else132, label %if.end133
 
 if.else132:                                       ; preds = %lor.lhs.false, %if.then88, %if.then77, %if.then66, %if.then55, %if.then44, %if.then33, %if.then22, %if.else115, %if.end129
@@ -6575,7 +6575,7 @@ entry.tail:                                       ; preds = %sub_1
   br i1 %5, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry.tail
-  store i32 1, ptr getelementptr inbounds (i8, ptr @settings, i64 104), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 104), align 8
   tail call void @out_string(ptr noundef %c, ptr noundef nonnull @.str.95) #11
   br label %if.end11
 
@@ -6585,7 +6585,7 @@ if.else:                                          ; preds = %sub_1, %entry, %ent
   br i1 %cmp2, label %if.then3, label %if.else4
 
 if.then3:                                         ; preds = %if.else
-  store i32 0, ptr getelementptr inbounds (i8, ptr @settings, i64 104), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 104), align 8
   tail call void @out_string(ptr noundef %c, ptr noundef nonnull @.str.95) #11
   br label %if.end11
 

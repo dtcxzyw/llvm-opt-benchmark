@@ -308,7 +308,7 @@ ChooseExtendedStatisticName.exit:                 ; preds = %.lr.ph.i240, %Choos
 
 144:                                              ; preds = %138, %140
   call void @relation_close(ptr noundef %33, i32 noundef 0) #10
-  %.sroa.3.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.3.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   br label %431
 
 145:                                              ; preds = %134
@@ -1113,7 +1113,7 @@ define dso_local { i64, i32 } @AlterStatistics(ptr nocapture noundef readonly %0
 41:                                               ; preds = %.sink.split, %37, %32
   %.sroa.026.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
   %.sroa.026.sroa.3.0.extract.shift = lshr i64 %.sroa.026.0.copyload, 32
-  %.sroa.4.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.4.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   %42 = and i64 %.sroa.026.0.copyload, 4294967295
   br label %68
 

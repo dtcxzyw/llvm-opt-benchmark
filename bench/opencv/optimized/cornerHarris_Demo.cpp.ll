@@ -424,7 +424,7 @@ define hidden void @_Z17cornerHarris_demoiPv(i32 %0, ptr nocapture readnone %1) 
   %19 = alloca %"class.std::__cxx11::basic_string", align 8
   %20 = alloca %"class.std::allocator", align 1
   %21 = alloca %"class.cv::_InputArray", align 8
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @src, i64 64), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @src, i64 64), align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = load i32, ptr %22, align 4

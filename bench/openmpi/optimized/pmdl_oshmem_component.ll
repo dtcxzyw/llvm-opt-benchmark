@@ -24,27 +24,27 @@ define internal noundef i32 @component_query(ptr nocapture noundef writeonly ini
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @component_register() #1 {
-  store ptr @.str, ptr getelementptr inbounds (i8, ptr @pmix_mca_pmdl_oshmem_component, i64 224), align 8
-  %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @pmix_mca_pmdl_oshmem_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_mca_pmdl_oshmem_component, i64 224)) #3
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_pmdl_oshmem_component, i64 224), align 8
+  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_pmdl_oshmem_component, i64 224), align 8
+  %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @pmix_mca_pmdl_oshmem_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_pmdl_oshmem_component, i64 224)) #3
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_pmdl_oshmem_component, i64 224), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %0
   %4 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %2, i32 noundef 44) #3
-  store ptr %4, ptr getelementptr inbounds (i8, ptr @pmix_mca_pmdl_oshmem_component, i64 240), align 8
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_pmdl_oshmem_component, i64 240), align 8
   br label %5
 
 5:                                                ; preds = %3, %0
-  store ptr null, ptr getelementptr inbounds (i8, ptr @pmix_mca_pmdl_oshmem_component, i64 232), align 8
-  %6 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @pmix_mca_pmdl_oshmem_component, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_mca_pmdl_oshmem_component, i64 232)) #3
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_pmdl_oshmem_component, i64 232), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_pmdl_oshmem_component, i64 232), align 8
+  %6 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @pmix_mca_pmdl_oshmem_component, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_pmdl_oshmem_component, i64 232)) #3
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_pmdl_oshmem_component, i64 232), align 8
   %.not3 = icmp eq ptr %7, null
   br i1 %.not3, label %10, label %8
 
 8:                                                ; preds = %5
   %9 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %7, i32 noundef 44) #3
-  store ptr %9, ptr getelementptr inbounds (i8, ptr @pmix_mca_pmdl_oshmem_component, i64 248), align 8
+  store ptr %9, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_pmdl_oshmem_component, i64 248), align 8
   br label %10
 
 10:                                               ; preds = %8, %5

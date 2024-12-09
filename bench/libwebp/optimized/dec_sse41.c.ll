@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @VP8DspInitSSE41() local_unnamed_addr #0 {
-  store ptr @HE16_SSE41, ptr getelementptr inbounds (i8, ptr @VP8PredLuma16, i64 24), align 8
+  store ptr @HE16_SSE41, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma16, i64 24), align 8
   ret void
 }
 

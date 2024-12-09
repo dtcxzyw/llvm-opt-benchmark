@@ -1900,7 +1900,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %78 = and i16 %77, -4096
   %79 = or disjoint i16 %78, 1344
   store i16 %79, ptr %76, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle9DotSuffixE, i64 16), ptr %74, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle9DotSuffixE, i64 16), ptr %74, align 8
   %80 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 24
   store ptr %36, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 32
@@ -2326,7 +2326,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %45 = and i16 %44, -4096
   %46 = or disjoint i16 %45, 1344
   store i16 %46, ptr %43, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %40, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %40, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 %41, ptr %47, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -2696,7 +2696,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %108 = and i16 %107, -4096
   %109 = or disjoint i16 %108, 1344
   store i16 %109, ptr %106, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %104, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %104, align 8
   %110 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
   store i64 12, ptr %110, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 32
@@ -2884,7 +2884,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %205 = and i16 %204, -4096
   %206 = or disjoint i16 %205, 1344
   store i16 %206, ptr %203, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %201, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %201, align 8
   %207 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i128, i64 24
   store i64 18, ptr %207, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i129 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i128, i64 32
@@ -3060,7 +3060,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %296 = and i16 %295, -4096
   %297 = or disjoint i16 %296, 1344
   store i16 %297, ptr %294, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %292, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %292, align 8
   %298 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i151, i64 24
   store i64 17, ptr %298, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i152 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i151, i64 32
@@ -3236,7 +3236,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %387 = and i16 %386, -4096
   %388 = or disjoint i16 %387, 1344
   store i16 %388, ptr %385, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %383, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %383, align 8
   %389 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i174, i64 24
   store i64 6, ptr %389, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i175 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i174, i64 32
@@ -4967,7 +4967,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %150 = and i16 %149, -4096
   %151 = or disjoint i16 %150, 1344
   store i16 %151, ptr %148, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %146, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %146, align 8
   %152 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i92, i64 24
   store i64 19, ptr %152, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i93 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i92, i64 32
@@ -5216,7 +5216,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %265 = and i16 %264, -4096
   %266 = or disjoint i16 %265, 1344
   store i16 %266, ptr %263, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %261, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %261, align 8
   %267 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i65, i64 24
   store i64 23, ptr %267, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i65, i64 32
@@ -5678,7 +5678,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %512 = and i16 %511, -4096
   %513 = or disjoint i16 %512, 1344
   store i16 %513, ptr %510, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle23ExplicitObjectParameterE, i64 16), ptr %508, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle23ExplicitObjectParameterE, i64 16), ptr %508, align 8
   %514 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
   store ptr %472, ptr %514, align 8
   %515 = load ptr, ptr %7, align 8
@@ -9092,7 +9092,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %88 = and i16 %87, -4096
   %89 = or disjoint i16 %88, 1344
   store i16 %89, ptr %86, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12NoexceptSpecE, i64 16), ptr %84, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12NoexceptSpecE, i64 16), ptr %84, align 8
   %90 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
   store ptr %42, ptr %90, align 8
   %91 = load ptr, ptr %7, align 8
@@ -9421,7 +9421,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %251 = and i16 %250, -4096
   %252 = or disjoint i16 %251, 1344
   store i16 %252, ptr %249, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20DynamicExceptionSpecE, i64 16), ptr %247, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20DynamicExceptionSpecE, i64 16), ptr %247, align 8
   %253 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i51, i64 24
   store ptr %.0.i.i.i.i.i29, ptr %253, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i51, i64 32
@@ -9834,7 +9834,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %444 = and i16 %443, -4096
   %445 = or disjoint i16 %444, 256
   store i16 %445, ptr %442, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12FunctionTypeE, i64 16), ptr %440, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12FunctionTypeE, i64 16), ptr %440, align 8
   %446 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i115, i64 24
   store ptr %321, ptr %446, align 8
   %447 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i115, i64 32
@@ -10147,7 +10147,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %90 = and i16 %89, -4096
   %91 = or disjoint i16 %90, 1344
   store i16 %91, ptr %88, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13ObjCProtoNameE, i64 16), ptr %86, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13ObjCProtoNameE, i64 16), ptr %86, align 8
   %92 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
   store ptr %52, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 32
@@ -10341,7 +10341,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %187 = and i16 %186, -4096
   %188 = or disjoint i16 %187, 1344
   store i16 %188, ptr %185, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle17VendorExtQualTypeE, i64 16), ptr %183, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle17VendorExtQualTypeE, i64 16), ptr %183, align 8
   %189 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i53, i64 24
   store ptr %148, ptr %189, align 8
   %190 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i53, i64 32
@@ -10573,7 +10573,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %303 = and i16 %298, 4032
   %304 = or disjoint i16 %302, %303
   store i16 %304, ptr %300, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8QualTypeE, i64 16), ptr %296, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8QualTypeE, i64 16), ptr %296, align 8
   %305 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i79, i64 20
   store i32 %.2.i, ptr %305, align 4
   %306 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i79, i64 24
@@ -10762,7 +10762,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %45 = and i16 %44, -4096
   %46 = or disjoint i16 %45, 1344
   store i16 %46, ptr %43, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %40, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %40, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 %41, ptr %47, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -10951,7 +10951,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %45 = and i16 %44, -4096
   %46 = or disjoint i16 %45, 1344
   store i16 %46, ptr %43, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %40, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %40, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 %41, ptr %47, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -11140,7 +11140,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %45 = and i16 %44, -4096
   %46 = or disjoint i16 %45, 1344
   store i16 %46, ptr %43, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %40, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %40, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 %41, ptr %47, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -11329,7 +11329,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %45 = and i16 %44, -4096
   %46 = or disjoint i16 %45, 1344
   store i16 %46, ptr %43, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %40, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %40, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 %41, ptr %47, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -11518,7 +11518,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %45 = and i16 %44, -4096
   %46 = or disjoint i16 %45, 1344
   store i16 %46, ptr %43, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %40, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %40, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 %41, ptr %47, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -11707,7 +11707,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %45 = and i16 %44, -4096
   %46 = or disjoint i16 %45, 1344
   store i16 %46, ptr %43, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %40, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %40, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 %41, ptr %47, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -11896,7 +11896,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %45 = and i16 %44, -4096
   %46 = or disjoint i16 %45, 1344
   store i16 %46, ptr %43, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %40, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %40, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 %41, ptr %47, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -12085,7 +12085,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %45 = and i16 %44, -4096
   %46 = or disjoint i16 %45, 1344
   store i16 %46, ptr %43, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %40, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %40, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 %41, ptr %47, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -12274,7 +12274,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %45 = and i16 %44, -4096
   %46 = or disjoint i16 %45, 1344
   store i16 %46, ptr %43, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %40, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %40, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 %41, ptr %47, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -12468,7 +12468,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %44 = and i16 %43, -4096
   %45 = or disjoint i16 %44, 1344
   store i16 %45, ptr %42, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15TransformedTypeE, i64 16), ptr %40, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15TransformedTypeE, i64 16), ptr %40, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 %.sroa.0.0.copyload.i.i.i.i, ptr %46, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -12662,7 +12662,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %43 = and i16 %42, -4096
   %44 = or disjoint i16 %43, 1344
   store i16 %44, ptr %41, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %39, align 8
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 %.sroa.0.0.copyload.i.i.i.i, ptr %45, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -12854,7 +12854,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %43 = and i16 %42, -4096
   %44 = or disjoint i16 %43, 1344
   store i16 %44, ptr %41, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %39, align 8
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 %.sroa.0.0.copyload.i.i.i.i, ptr %45, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -13091,7 +13091,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %40 = and i16 %39, -4096
   %41 = or disjoint i16 %40, 1344
   store i16 %41, ptr %38, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12BinaryFPTypeE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12BinaryFPTypeE, i64 16), ptr %36, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %42, align 8
   %43 = load ptr, ptr %3, align 8
@@ -13811,7 +13811,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %316 = or disjoint i16 %315, %314
   %317 = or disjoint i16 %316, 1344
   store i16 %317, ptr %311, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10DeleteExprE, i64 16), ptr %309, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10DeleteExprE, i64 16), ptr %309, align 8
   %318 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
   store ptr %268, ptr %318, align 8
   %319 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 32
@@ -14376,7 +14376,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %608 = or disjoint i16 %607, %606
   %609 = or disjoint i16 %608, 1344
   store i16 %609, ptr %603, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13EnclosingExprE, i64 16), ptr %601, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13EnclosingExprE, i64 16), ptr %601, align 8
   %610 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i207, i64 24
   store i64 %.sroa.0.0.i, ptr %610, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i207, i64 32
@@ -14758,7 +14758,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %774 = and i16 %773, -4096
   %775 = or disjoint i16 %774, 1344
   store i16 %775, ptr %772, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8FoldExprE, i64 16), ptr %770, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8FoldExprE, i64 16), ptr %770, align 8
   %776 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 24
   store ptr %.037.i, ptr %776, align 8
   %777 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 32
@@ -15480,7 +15480,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %42 = and i16 %41, -4096
   %43 = or disjoint i16 %42, 1344
   store i16 %43, ptr %40, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10BitIntTypeE, i64 16), ptr %38, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10BitIntTypeE, i64 16), ptr %38, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -15674,7 +15674,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %44 = and i16 %43, -4096
   %45 = or disjoint i16 %44, 1344
   store i16 %45, ptr %42, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20PostfixQualifiedTypeE, i64 16), ptr %40, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20PostfixQualifiedTypeE, i64 16), ptr %40, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -15902,7 +15902,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %64 = and i16 %63, -4096
   %65 = or disjoint i16 %64, 1344
   store i16 %65, ptr %62, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13EnclosingExprE, i64 16), ptr %60, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13EnclosingExprE, i64 16), ptr %60, align 8
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
   store i64 8, ptr %66, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 32
@@ -16221,7 +16221,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %100 = and i16 %99, -4096
   %101 = or disjoint i16 %100, 1344
   store i16 %101, ptr %98, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10VectorTypeE, i64 16), ptr %96, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10VectorTypeE, i64 16), ptr %96, align 8
   %102 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
   store ptr %62, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 32
@@ -16398,7 +16398,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %40 = and i16 %39, -4096
   %41 = or disjoint i16 %40, 1344
   store i16 %41, ptr %38, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle22ParameterPackExpansionE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle22ParameterPackExpansionE, i64 16), ptr %36, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %42, align 8
   %43 = load ptr, ptr %3, align 8
@@ -16612,7 +16612,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %55 = and i16 %54, -4096
   %56 = or disjoint i16 %55, 1344
   store i16 %56, ptr %53, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle22ElaboratedTypeSpefTypeE, i64 16), ptr %51, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle22ElaboratedTypeSpefTypeE, i64 16), ptr %51, align 8
   %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
   store i64 %.sroa.022.0, ptr %57, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 32
@@ -16918,7 +16918,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %89 = and i16 %88, -4096
   %90 = or disjoint i16 %89, 2688
   store i16 %90, ptr %87, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle24ForwardTemplateReferenceE, i64 16), ptr %.0.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle24ForwardTemplateReferenceE, i64 16), ptr %.0.i.i.i.i.i.i.i, align 8
   %91 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 16
   store i64 %.058, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
@@ -17775,7 +17775,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %362 = and i16 %361, -4096
   %363 = or disjoint i16 %362, 1344
   store i16 %363, ptr %360, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12TemplateArgsE, i64 16), ptr %358, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12TemplateArgsE, i64 16), ptr %358, align 8
   %364 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i50, i64 24
   store ptr %.0.i.i.i.i.i27, ptr %364, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i50, i64 32
@@ -17952,7 +17952,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %44 = and i16 %43, -4096
   %45 = or disjoint i16 %44, 1344
   store i16 %45, ptr %42, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20NameWithTemplateArgsE, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20NameWithTemplateArgsE, i64 16), ptr %39, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %40, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -18133,7 +18133,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %44 = or disjoint i16 %39, %43
   %45 = or disjoint i16 %44, 1280
   store i16 %45, ptr %41, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11PointerTypeE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11PointerTypeE, i64 16), ptr %36, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %46, align 8
   %47 = load ptr, ptr %3, align 8
@@ -18314,7 +18314,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %45 = or disjoint i16 %40, %44
   %46 = or disjoint i16 %45, 1280
   store i16 %46, ptr %42, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13ReferenceTypeE, i64 16), ptr %37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13ReferenceTypeE, i64 16), ptr %37, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -18494,7 +18494,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %40 = and i16 %39, -4096
   %41 = or disjoint i16 %40, 1344
   store i16 %41, ptr %38, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20PostfixQualifiedTypeE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20PostfixQualifiedTypeE, i64 16), ptr %36, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -18674,7 +18674,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %40 = and i16 %39, -4096
   %41 = or disjoint i16 %40, 1344
   store i16 %41, ptr %38, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20PostfixQualifiedTypeE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20PostfixQualifiedTypeE, i64 16), ptr %36, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -20773,7 +20773,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %48 = or disjoint i16 %46, %47
   %49 = or disjoint i16 %48, 1344
   store i16 %49, ptr %43, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11PostfixExprE, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11PostfixExprE, i64 16), ptr %41, align 8
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -20959,7 +20959,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %45 = or disjoint i16 %43, %44
   %46 = or disjoint i16 %45, 1344
   store i16 %46, ptr %40, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle18ArraySubscriptExprE, i64 16), ptr %38, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle18ArraySubscriptExprE, i64 16), ptr %38, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -21160,7 +21160,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %49 = or disjoint i16 %47, %48
   %50 = or disjoint i16 %49, 1344
   store i16 %50, ptr %44, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10MemberExprE, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10MemberExprE, i64 16), ptr %42, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -21348,7 +21348,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %49 = or disjoint i16 %47, %48
   %50 = or disjoint i16 %49, 1344
   store i16 %50, ptr %44, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle7NewExprE, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle7NewExprE, i64 16), ptr %39, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %51, align 8
   %.sroa.25.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -21555,7 +21555,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %48 = or disjoint i16 %46, %47
   %49 = or disjoint i16 %48, 1344
   store i16 %49, ptr %43, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8CallExprE, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8CallExprE, i64 16), ptr %41, align 8
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -21759,7 +21759,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %49 = or disjoint i16 %47, %48
   %50 = or disjoint i16 %49, 1344
   store i16 %50, ptr %44, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle14ConversionExprE, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle14ConversionExprE, i64 16), ptr %42, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -21947,7 +21947,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %46 = or disjoint i16 %44, %45
   %47 = or disjoint i16 %46, 1344
   store i16 %47, ptr %41, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15ConditionalExprE, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15ConditionalExprE, i64 16), ptr %39, align 8
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -22150,7 +22150,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %49 = or disjoint i16 %47, %48
   %50 = or disjoint i16 %49, 1344
   store i16 %50, ptr %44, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8CastExprE, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8CastExprE, i64 16), ptr %42, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 %.sroa.0.0.copyload.i.i.i.i, ptr %51, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -22534,7 +22534,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %126 = and i16 %125, -4096
   %127 = or disjoint i16 %126, 1344
   store i16 %127, ptr %124, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle16FloatLiteralImplIfEE, i64 16), ptr %122, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle16FloatLiteralImplIfEE, i64 16), ptr %122, align 8
   %128 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 24
   store i64 8, ptr %128, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 32
@@ -22742,7 +22742,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %229 = and i16 %228, -4096
   %230 = or disjoint i16 %229, 1344
   store i16 %230, ptr %227, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle16FloatLiteralImplIdEE, i64 16), ptr %225, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle16FloatLiteralImplIdEE, i64 16), ptr %225, align 8
   %231 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i50, i64 24
   store i64 16, ptr %231, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i50, i64 32
@@ -22950,7 +22950,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %332 = and i16 %331, -4096
   %333 = or disjoint i16 %332, 1344
   store i16 %333, ptr %330, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle16FloatLiteralImplIeEE, i64 16), ptr %328, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle16FloatLiteralImplIeEE, i64 16), ptr %328, align 8
   %334 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i84, i64 24
   store i64 20, ptr %334, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i84, i64 32
@@ -23688,7 +23688,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %79 = and i16 %78, -4096
   %80 = or disjoint i16 %79, 1344
   store i16 %80, ptr %77, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15BracedRangeExprE, i64 16), ptr %75, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15BracedRangeExprE, i64 16), ptr %75, align 8
   %81 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
   store ptr %32, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 32
@@ -23885,7 +23885,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %43 = and i16 %42, -4096
   %44 = or disjoint i16 %43, 1344
   store i16 %44, ptr %41, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12InitListExprE, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12InitListExprE, i64 16), ptr %39, align 8
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr null, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -24154,7 +24154,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %74 = and i16 %73, -4096
   %75 = or disjoint i16 %74, 1346
   store i16 %75, ptr %72, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle29PointerToMemberConversionExprE, i64 16), ptr %70, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle29PointerToMemberConversionExprE, i64 16), ptr %70, align 8
   %76 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
   store ptr %4, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 32
@@ -24341,7 +24341,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %44 = or disjoint i16 %42, %43
   %45 = or disjoint i16 %44, 1344
   store i16 %45, ptr %39, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13EnclosingExprE, i64 16), ptr %37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13EnclosingExprE, i64 16), ptr %37, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 9, ptr %46, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -24782,7 +24782,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %174 = and i16 %173, -4096
   %175 = or disjoint i16 %174, 1344
   store i16 %175, ptr %172, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15ExprRequirementE, i64 16), ptr %170, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15ExprRequirementE, i64 16), ptr %170, align 8
   %176 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
   store ptr %124, ptr %176, align 8
   %177 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 32
@@ -24953,7 +24953,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %259 = and i16 %258, -4096
   %260 = or disjoint i16 %259, 1344
   store i16 %260, ptr %257, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15TypeRequirementE, i64 16), ptr %255, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15TypeRequirementE, i64 16), ptr %255, align 8
   %261 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i49, i64 24
   store ptr %226, ptr %261, align 8
   %262 = load ptr, ptr %7, align 8
@@ -25120,7 +25120,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %342 = and i16 %341, -4096
   %343 = or disjoint i16 %342, 1344
   store i16 %343, ptr %340, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle17NestedRequirementE, i64 16), ptr %338, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle17NestedRequirementE, i64 16), ptr %338, align 8
   %344 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i74, i64 24
   store ptr %309, ptr %344, align 8
   %345 = load ptr, ptr %5, align 8
@@ -25428,7 +25428,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %483 = and i16 %482, -4096
   %484 = or disjoint i16 %483, 1344
   store i16 %484, ptr %481, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12RequiresExprE, i64 16), ptr %479, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12RequiresExprE, i64 16), ptr %479, align 8
   %485 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i112, i64 24
   store ptr %.sroa.0120.0, ptr %485, align 8
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i112, i64 32
@@ -25903,7 +25903,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %168 = and i16 %167, -4096
   %169 = or disjoint i16 %168, 1344
   store i16 %169, ptr %166, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13SubobjectExprE, i64 16), ptr %164, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13SubobjectExprE, i64 16), ptr %164, align 8
   %170 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
   store ptr %5, ptr %170, align 8
   %171 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 32
@@ -26090,7 +26090,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %40 = and i16 %39, -4096
   %41 = or disjoint i16 %40, 1344
   store i16 %41, ptr %38, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle19SizeofParamPackExprE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle19SizeofParamPackExprE, i64 16), ptr %36, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %42, align 8
   %43 = load ptr, ptr %3, align 8
@@ -26266,7 +26266,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %40 = and i16 %39, -4096
   %41 = or disjoint i16 %40, 1344
   store i16 %41, ptr %38, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13EnclosingExprE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13EnclosingExprE, i64 16), ptr %36, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 10, ptr %42, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -26650,7 +26650,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %138 = and i16 %137, -4096
   %139 = or disjoint i16 %138, 1344
   store i16 %139, ptr %136, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20TemplateArgumentPackE, i64 16), ptr %134, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20TemplateArgumentPackE, i64 16), ptr %134, align 8
   %140 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
   store ptr %.0.i.i.i.i.i, ptr %140, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 32
@@ -26900,7 +26900,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %261 = and i16 %260, -4096
   %262 = or disjoint i16 %261, 1344
   store i16 %262, ptr %259, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle25TemplateParamQualifiedArgE, i64 16), ptr %257, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle25TemplateParamQualifiedArgE, i64 16), ptr %257, align 8
   %263 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i53, i64 24
   store ptr %220, ptr %263, align 8
   %264 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i53, i64 32
@@ -27094,7 +27094,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %43 = and i16 %42, -4096
   %44 = or disjoint i16 %43, 1344
   store i16 %44, ptr %41, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13NodeArrayNodeE, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13NodeArrayNodeE, i64 16), ptr %39, align 8
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %45, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -27286,7 +27286,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %44 = and i16 %43, -4096
   %45 = or disjoint i16 %44, 1344
   store i16 %45, ptr %42, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12InitListExprE, i64 16), ptr %40, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12InitListExprE, i64 16), ptr %40, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -27465,7 +27465,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %40 = and i16 %39, -4096
   %41 = or disjoint i16 %40, 1344
   store i16 %41, ptr %38, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle9ThrowExprE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle9ThrowExprE, i64 16), ptr %36, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %42, align 8
   %43 = load ptr, ptr %3, align 8
@@ -27694,7 +27694,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %60 = and i16 %59, -4096
   %61 = or disjoint i16 %60, 1344
   store i16 %61, ptr %58, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %56, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %56, align 8
   %62 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
   store i64 21, ptr %62, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 32
@@ -28279,7 +28279,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %48 = or disjoint i16 %46, %47
   %49 = or disjoint i16 %48, 1344
   store i16 %49, ptr %43, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10BinaryExprE, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10BinaryExprE, i64 16), ptr %41, align 8
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -28753,7 +28753,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %47 = or disjoint i16 %45, %46
   %48 = or disjoint i16 %47, 1344
   store i16 %48, ptr %42, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10PrefixExprE, i64 16), ptr %40, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10PrefixExprE, i64 16), ptr %40, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 %.0.val, ptr %49, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -30953,7 +30953,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %70 = and i16 %69, -4096
   %71 = or disjoint i16 %70, 1344
   store i16 %71, ptr %68, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle14IntegerLiteralE, i64 16), ptr %66, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle14IntegerLiteralE, i64 16), ptr %66, align 8
   %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
   store i64 %1, ptr %72, align 8
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 32
@@ -31136,7 +31136,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %42 = and i16 %41, -4096
   %43 = or disjoint i16 %42, 1344
   store i16 %43, ptr %40, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8BoolExprE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8BoolExprE, i64 16), ptr %36, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 19
   store i8 %38, ptr %44, align 1
   %45 = load ptr, ptr %3, align 8
@@ -31311,7 +31311,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %40 = and i16 %39, -4096
   %41 = or disjoint i16 %40, 1344
   store i16 %41, ptr %38, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13StringLiteralE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13StringLiteralE, i64 16), ptr %36, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %42, align 8
   %43 = load ptr, ptr %3, align 8
@@ -31579,7 +31579,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %80 = and i16 %79, -4096
   %81 = or disjoint i16 %80, 1344
   store i16 %81, ptr %78, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15UnnamedTypeNameE, i64 16), ptr %76, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15UnnamedTypeNameE, i64 16), ptr %76, align 8
   %82 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
   store i64 %.sroa.0.0.i, ptr %82, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 32
@@ -32362,7 +32362,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %437 = and i16 %436, -4096
   %438 = or disjoint i16 %437, 1344
   store i16 %438, ptr %435, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %433, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8NameTypeE, i64 16), ptr %433, align 8
   %439 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i121, i64 24
   store i64 15, ptr %439, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i122 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i121, i64 32
@@ -32539,7 +32539,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %40 = and i16 %39, -4096
   %41 = or disjoint i16 %40, 1344
   store i16 %41, ptr %38, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10LambdaExprE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10LambdaExprE, i64 16), ptr %36, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %42, align 8
   %43 = load ptr, ptr %3, align 8
@@ -32731,7 +32731,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %44 = and i16 %43, -4096
   %45 = or disjoint i16 %44, 1344
   store i16 %45, ptr %42, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11EnumLiteralE, i64 16), ptr %40, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11EnumLiteralE, i64 16), ptr %40, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -33779,7 +33779,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %59 = and i16 %58, -4096
   %60 = or disjoint i16 %59, 1280
   store i16 %60, ptr %57, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle21TypeTemplateParamDeclE, i64 16), ptr %55, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle21TypeTemplateParamDeclE, i64 16), ptr %55, align 8
   %61 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
   store ptr %21, ptr %61, align 8
   %62 = load ptr, ptr %8, align 8
@@ -33965,7 +33965,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %154 = and i16 %153, -4096
   %155 = or disjoint i16 %154, 1280
   store i16 %155, ptr %152, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle32ConstrainedTypeTemplateParamDeclE, i64 16), ptr %150, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle32ConstrainedTypeTemplateParamDeclE, i64 16), ptr %150, align 8
   %156 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i50, i64 24
   store ptr %113, ptr %156, align 8
   %157 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i50, i64 32
@@ -34153,7 +34153,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %250 = and i16 %249, -4096
   %251 = or disjoint i16 %250, 1280
   store i16 %251, ptr %248, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle24NonTypeTemplateParamDeclE, i64 16), ptr %246, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle24NonTypeTemplateParamDeclE, i64 16), ptr %246, align 8
   %252 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i77, i64 24
   store ptr %209, ptr %252, align 8
   %253 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i77, i64 32
@@ -34642,7 +34642,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %55 = and i16 %54, -4096
   %56 = or disjoint i16 %55, 1344
   store i16 %56, ptr %53, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15ClosureTypeNameE, i64 16), ptr %51, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15ClosureTypeNameE, i64 16), ptr %51, align 8
   %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.sroa.01.0.copyload.i.i.i.i, ptr %57, align 8
   %.sroa.24.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -35038,7 +35038,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %45 = and i16 %44, -4096
   %46 = or disjoint i16 %45, 1344
   store i16 %46, ptr %43, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle26SyntheticTemplateParamNameE, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle26SyntheticTemplateParamNameE, i64 16), ptr %41, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 20
   store i32 %0, ptr %47, align 4
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
@@ -35306,7 +35306,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %45 = and i16 %44, -4096
   %46 = or disjoint i16 %45, 1280
   store i16 %46, ptr %43, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle25TemplateTemplateParamDeclE, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle25TemplateTemplateParamDeclE, i64 16), ptr %41, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -35487,7 +35487,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %40 = and i16 %39, -4096
   %41 = or disjoint i16 %40, 1280
   store i16 %41, ptr %38, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle21TemplateParamPackDeclE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle21TemplateParamPackDeclE, i64 16), ptr %36, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %42, align 8
   %43 = load ptr, ptr %3, align 8
@@ -37395,7 +37395,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %42 = and i16 %41, -4096
   %43 = or disjoint i16 %42, 1344
   store i16 %43, ptr %40, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13FunctionParamE, i64 16), ptr %38, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13FunctionParamE, i64 16), ptr %38, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 %.0.val, ptr %44, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -38039,7 +38039,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %1, %._ZN4l
   store i8 42, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 9
   store i16 1344, ptr %27, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle22ParameterPackExpansionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle22ParameterPackExpansionE, i64 16), ptr %2, align 8
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %25, ptr %28, align 8
   %29 = load ptr, ptr %0, align 8
@@ -38339,7 +38339,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %43 = and i16 %42, -4096
   %44 = or disjoint i16 %43, 1344
   store i16 %44, ptr %41, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10BracedExprE, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10BracedExprE, i64 16), ptr %39, align 8
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -40585,7 +40585,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %_ZN4llvm16
   store i8 42, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 9
   store i16 1344, ptr %39, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle22ParameterPackExpansionE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle22ParameterPackExpansionE, i64 16), ptr %3, align 8
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %37, ptr %40, align 8
   call void @_ZNK4llvm16itanium_demangle22ParameterPackExpansion9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(36) %1)
@@ -41173,7 +41173,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %47 = and i16 %46, -4096
   %48 = or disjoint i16 %47, 1344
   store i16 %48, ptr %45, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13QualifiedNameE, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13QualifiedNameE, i64 16), ptr %41, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %42, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -41465,7 +41465,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %81 = and i16 %80, -4096
   %82 = or disjoint i16 %81, 1344
   store i16 %82, ptr %79, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8DtorNameE, i64 16), ptr %77, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle8DtorNameE, i64 16), ptr %77, align 8
   %83 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
   store ptr %storemerge.i, ptr %83, align 8
   %84 = load ptr, ptr %5, align 8
@@ -41676,7 +41676,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %40 = and i16 %39, -4096
   %41 = or disjoint i16 %40, 1344
   store i16 %41, ptr %38, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle19GlobalQualifiedNameE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle19GlobalQualifiedNameE, i64 16), ptr %36, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %42, align 8
   %43 = load ptr, ptr %3, align 8
@@ -41908,7 +41908,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   store i16 %59, ptr %56, align 1
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 20
   store i32 %.035, ptr %60, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle19SpecialSubstitutionE, i64 16), ptr %54, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle19SpecialSubstitutionE, i64 16), ptr %54, align 8
   %61 = load ptr, ptr %3, align 8
   call void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull %.0.i.i.i.i.i.i.i, ptr noundef %61, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   br label %62
@@ -42313,7 +42313,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %74 = and i16 %69, 4032
   %75 = or disjoint i16 %73, %74
   store i16 %75, ptr %71, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10AbiTagAttrE, i64 16), ptr %67, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10AbiTagAttrE, i64 16), ptr %67, align 8
   %76 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
   store ptr %.04, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 32
@@ -43263,7 +43263,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %108 = and i16 %107, -4096
   %109 = or disjoint i16 %108, 1344
   store i16 %109, ptr %106, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15LiteralOperatorE, i64 16), ptr %104, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15LiteralOperatorE, i64 16), ptr %104, align 8
   %110 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
   store ptr %69, ptr %110, align 8
   %111 = load ptr, ptr %4, align 8
@@ -43527,7 +43527,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %40 = and i16 %39, -4096
   %41 = or disjoint i16 %40, 1344
   store i16 %41, ptr %38, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle22ConversionOperatorTypeE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle22ConversionOperatorTypeE, i64 16), ptr %36, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %42, align 8
   %43 = load ptr, ptr %3, align 8
@@ -44166,7 +44166,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %43 = and i16 %42, -4096
   %44 = or disjoint i16 %43, 1344
   store i16 %44, ptr %41, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15PixelVectorTypeE, i64 16), ptr %38, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle15PixelVectorTypeE, i64 16), ptr %38, align 8
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %39, ptr %45, align 8
   %46 = load ptr, ptr %4, align 8
@@ -44343,7 +44343,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %41 = and i16 %40, -4096
   %42 = or disjoint i16 %41, 1344
   store i16 %42, ptr %39, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10VectorTypeE, i64 16), ptr %37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10VectorTypeE, i64 16), ptr %37, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -44754,7 +44754,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %41 = and i16 %40, -4096
   %42 = or disjoint i16 %41, 1024
   store i16 %42, ptr %39, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle9ArrayTypeE, i64 16), ptr %37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle9ArrayTypeE, i64 16), ptr %37, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -45117,7 +45117,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %45 = or disjoint i16 %40, %44
   %46 = or disjoint i16 %45, 1280
   store i16 %46, ptr %42, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle19PointerToMemberTypeE, i64 16), ptr %37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle19PointerToMemberTypeE, i64 16), ptr %37, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -45859,7 +45859,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle13ParameterPackC2ENS0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %6 = load i16, ptr %5, align 1
   %7 = and i16 %6, -4096
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13ParameterPackE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle13ParameterPackE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -48057,7 +48057,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %155 = and i16 %154, -4096
   %156 = or disjoint i16 %155, 1344
   store i16 %156, ptr %153, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle21StructuredBindingNameE, i64 16), ptr %151, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle21StructuredBindingNameE, i64 16), ptr %151, align 8
   %157 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
   store ptr %.0.i.i.i.i.i, ptr %157, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 32
@@ -48371,7 +48371,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %294 = and i16 %293, -4096
   %295 = or disjoint i16 %294, 1344
   store i16 %295, ptr %292, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12ModuleEntityE, i64 16), ptr %290, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12ModuleEntityE, i64 16), ptr %290, align 8
   %296 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i74, i64 24
   store ptr %254, ptr %296, align 8
   %297 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i74, i64 32
@@ -48554,7 +48554,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %387 = and i16 %386, -4096
   %388 = or disjoint i16 %387, 1344
   store i16 %388, ptr %385, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20MemberLikeFriendNameE, i64 16), ptr %383, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle20MemberLikeFriendNameE, i64 16), ptr %383, align 8
   %389 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i96, i64 24
   store ptr %353, ptr %389, align 8
   %390 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i96, i64 32
@@ -48732,7 +48732,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %481 = and i16 %480, -4096
   %482 = or disjoint i16 %481, 1344
   store i16 %482, ptr %479, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10NestedNameE, i64 16), ptr %477, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10NestedNameE, i64 16), ptr %477, align 8
   %483 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i118, i64 24
   store ptr %441, ptr %483, align 8
   %484 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i118, i64 32
@@ -48964,7 +48964,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %72 = and i16 %71, -4096
   %73 = or disjoint i16 %72, 1344
   store i16 %73, ptr %70, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10ModuleNameE, i64 16), ptr %67, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle10ModuleNameE, i64 16), ptr %67, align 8
   %74 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
   store ptr %68, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 32
@@ -49484,7 +49484,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %42 = and i16 %41, -4096
   %43 = or disjoint i16 %42, 1344
   store i16 %43, ptr %40, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle27ExpandedSpecialSubstitutionE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle27ExpandedSpecialSubstitutionE, i64 16), ptr %36, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 20
   store i32 %38, ptr %44, align 4
   %45 = load ptr, ptr %3, align 8
@@ -49666,7 +49666,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %46 = and i16 %45, -4096
   %47 = or disjoint i16 %46, 1344
   store i16 %47, ptr %44, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12CtorDtorNameE, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12CtorDtorNameE, i64 16), ptr %41, align 8
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %42, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -50265,7 +50265,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %41 = and i16 %40, -4096
   %42 = or disjoint i16 %41, 1344
   store i16 %42, ptr %39, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle9LocalNameE, i64 16), ptr %37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle9LocalNameE, i64 16), ptr %37, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -50925,7 +50925,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %43 = and i16 %42, -4096
   %44 = or disjoint i16 %43, 1344
   store i16 %44, ptr %41, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12EnableIfAttrE, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle12EnableIfAttrE, i64 16), ptr %39, align 8
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %45, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -51136,7 +51136,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %56 = and i16 %55, -4096
   %57 = or disjoint i16 %56, 256
   store i16 %57, ptr %54, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle16FunctionEncodingE, i64 16), ptr %50, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle16FunctionEncodingE, i64 16), ptr %50, align 8
   %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -51326,7 +51326,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %40 = and i16 %39, -4096
   %41 = or disjoint i16 %40, 1344
   store i16 %41, ptr %38, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %36, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 30, ptr %42, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -51506,7 +51506,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %40 = and i16 %39, -4096
   %41 = or disjoint i16 %40, 1344
   store i16 %41, ptr %38, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %36, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 11, ptr %42, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -51686,7 +51686,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %40 = and i16 %39, -4096
   %41 = or disjoint i16 %40, 1344
   store i16 %41, ptr %38, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %36, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 8, ptr %42, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -51866,7 +51866,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %40 = and i16 %39, -4096
   %41 = or disjoint i16 %40, 1344
   store i16 %41, ptr %38, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %36, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 13, ptr %42, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -52046,7 +52046,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %40 = and i16 %39, -4096
   %41 = or disjoint i16 %40, 1344
   store i16 %41, ptr %38, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %36, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 18, ptr %42, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -52420,7 +52420,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %40 = and i16 %39, -4096
   %41 = or disjoint i16 %40, 1344
   store i16 %41, ptr %38, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %36, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 26, ptr %42, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -52601,7 +52601,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %41 = and i16 %40, -4096
   %42 = or disjoint i16 %41, 1344
   store i16 %42, ptr %39, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle21CtorVtableSpecialNameE, i64 16), ptr %37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle21CtorVtableSpecialNameE, i64 16), ptr %37, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store ptr %.0.val, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -52792,7 +52792,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %46 = and i16 %45, -4096
   %47 = or disjoint i16 %46, 1344
   store i16 %47, ptr %44, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %41, align 8
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 %42, ptr %48, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -52972,7 +52972,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %40 = and i16 %39, -4096
   %41 = or disjoint i16 %40, 1344
   store i16 %41, ptr %38, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %36, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 40, ptr %42, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -53154,7 +53154,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %43 = and i16 %42, -4096
   %44 = or disjoint i16 %43, 1344
   store i16 %44, ptr %41, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %38, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %38, align 8
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 17, ptr %45, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -53334,7 +53334,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %40 = and i16 %39, -4096
   %41 = or disjoint i16 %40, 1344
   store i16 %41, ptr %38, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %36, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 21, ptr %42, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
@@ -53514,7 +53514,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %40 = and i16 %39, -4096
   %41 = or disjoint i16 %40, 1344
   store i16 %41, ptr %38, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %36, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   store i64 24, ptr %42, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32

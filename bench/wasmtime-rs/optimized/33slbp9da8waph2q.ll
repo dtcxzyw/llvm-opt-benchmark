@@ -12656,7 +12656,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h6e0e6d126e2139
 
 .backedge.i:                                      ; preds = %16, %.lr.ph.split.i
   %.not.i = icmp eq i64 %11, 0
-  %.0.i = select i1 %.not.i, ptr getelementptr inbounds (i8, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.85.llvm.5040841037904929774, i64 24), ptr null
+  %.0.i = select i1 %.not.i, ptr getelementptr inbounds nuw (i8, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.85.llvm.5040841037904929774, i64 24), ptr null
   %exitcond.not.i = icmp eq i64 %12, 2
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i
 
@@ -12776,7 +12776,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h711c1ffdb11028
 
 .backedge.i:                                      ; preds = %16, %.lr.ph.split.i
   %.not.i = icmp eq i64 %11, 0
-  %.0.i = select i1 %.not.i, ptr getelementptr inbounds (i8, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.82.llvm.5040841037904929774, i64 24), ptr null
+  %.0.i = select i1 %.not.i, ptr getelementptr inbounds nuw (i8, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.82.llvm.5040841037904929774, i64 24), ptr null
   %exitcond.not.i = icmp eq i64 %12, 2
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i
 
@@ -13160,7 +13160,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h89230e5ea800da
 
 .backedge.i:                                      ; preds = %16, %.lr.ph.split.i
   %.not.i = icmp eq i64 %11, 0
-  %.0.i = select i1 %.not.i, ptr getelementptr inbounds (i8, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.95.llvm.5040841037904929774, i64 24), ptr null
+  %.0.i = select i1 %.not.i, ptr getelementptr inbounds nuw (i8, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.95.llvm.5040841037904929774, i64 24), ptr null
   %exitcond.not.i = icmp eq i64 %12, 2
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i
 
@@ -13280,7 +13280,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h96ef30de4c46e3
 
 .backedge.i:                                      ; preds = %16, %.lr.ph.split.i
   %.not.i = icmp eq i64 %11, 0
-  %.0.i = select i1 %.not.i, ptr getelementptr inbounds (i8, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.85.llvm.5040841037904929774, i64 24), ptr null
+  %.0.i = select i1 %.not.i, ptr getelementptr inbounds nuw (i8, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.85.llvm.5040841037904929774, i64 24), ptr null
   %exitcond.not.i = icmp eq i64 %12, 2
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i
 
@@ -13521,7 +13521,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h99d84ed21a4691
 
 .backedge.i:                                      ; preds = %16, %.lr.ph.split.i
   %.not.i = icmp eq i64 %11, 0
-  %.0.i = select i1 %.not.i, ptr getelementptr inbounds (i8, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.82.llvm.5040841037904929774, i64 24), ptr null
+  %.0.i = select i1 %.not.i, ptr getelementptr inbounds nuw (i8, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.82.llvm.5040841037904929774, i64 24), ptr null
   %exitcond.not.i = icmp eq i64 %12, 2
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i
 
@@ -13641,7 +13641,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hb5397287527d8f
 
 .backedge.i:                                      ; preds = %16, %.lr.ph.split.i
   %.not.i = icmp eq i64 %11, 0
-  %.0.i = select i1 %.not.i, ptr getelementptr inbounds (i8, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.95.llvm.5040841037904929774, i64 24), ptr null
+  %.0.i = select i1 %.not.i, ptr getelementptr inbounds nuw (i8, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.95.llvm.5040841037904929774, i64 24), ptr null
   %exitcond.not.i = icmp eq i64 %12, 2
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i
 
@@ -13761,7 +13761,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hb7b070c2e65d35
 
 .backedge.i:                                      ; preds = %16, %.lr.ph.split.i
   %.not.i = icmp eq i64 %11, 0
-  %.0.i = select i1 %.not.i, ptr getelementptr inbounds (i8, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.87.llvm.5040841037904929774, i64 24), ptr null
+  %.0.i = select i1 %.not.i, ptr getelementptr inbounds nuw (i8, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.87.llvm.5040841037904929774, i64 24), ptr null
   %exitcond.not.i = icmp eq i64 %12, 2
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i
 

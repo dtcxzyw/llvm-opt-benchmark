@@ -790,10 +790,10 @@ invoke.cont:                                      ; preds = %_ZN8facebook5velox6
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox4dwio6common10ParseErrorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox4dwio6common10ParseErrorE, i64 16), ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #10
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6common11compression12_GLOBAL__N_123MalformedInputExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox6common11compression12_GLOBAL__N_123MalformedInputExceptionE, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %_ZN8facebook5velox6common11compressionL8toStringB5cxx11El.exit
@@ -911,12 +911,12 @@ invoke.cont8:                                     ; preds = %if.then5.i, %if.end
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox4dwio6common10ParseErrorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox4dwio6common10ParseErrorE, i64 16), ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #10
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6common11compression12_GLOBAL__N_123MalformedInputExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox6common11compression12_GLOBAL__N_123MalformedInputExceptionE, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry

@@ -1123,14 +1123,14 @@ _ZNK7nmethod14is_java_methodEv.exit.i:            ; preds = %13
 
 20:                                               ; preds = %18
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %2, i1 noundef zeroext false) #21
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %21) #21
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store i32 2, ptr %22, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE36ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %2, align 8
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 213
   %24 = load volatile i8, ptr %23, align 1
   %.not7 = icmp eq i8 %24, 0
@@ -2686,7 +2686,7 @@ _ZNK15Bytecode_invoke8is_validEv.exit:            ; preds = %146, %144, %_ZNK15B
   %151 = load i16, ptr %150, align 2
   %152 = zext i16 %151 to i32
   %153 = add nuw nsw i32 %152, 1
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23InterpreterFrameClosure, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23InterpreterFrameClosure, i64 16), ptr %9, align 8
   %154 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %154, align 8
   %155 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -2909,7 +2909,7 @@ define hidden void @_ZNK5frame26oops_compiled_arguments_doEP6SymbolbbPK11Registe
   store i8 99, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 0, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25CompiledArgumentOopFinder, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV25CompiledArgumentOopFinder, i64 16), ptr %9, align 8
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %5, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -2941,9 +2941,9 @@ define hidden void @_ZNK5frame26oops_compiled_arguments_doEP6SymbolbbPK11Registe
   %32 = load ptr, ptr %31, align 8
   %33 = ptrtoint ptr %32 to i64
   %34 = trunc i64 %33 to i32
-  %35 = sub i32 %34, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %35 = sub i32 %34, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %36 = icmp ne i32 %35, -1
-  %.not.i.i.i.i = icmp ult ptr %32, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not.i.i.i.i = icmp ult ptr %32, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   %37 = select i1 %36, i1 %.not.i.i.i.i, i1 false
   br i1 %37, label %38, label %54
 
@@ -2971,7 +2971,7 @@ define hidden void @_ZNK5frame26oops_compiled_arguments_doEP6SymbolbbPK11Registe
   br label %_ZN25CompiledArgumentOopFinder17handle_oop_offsetEv.exit
 
 54:                                               ; preds = %30
-  %55 = sub i32 %34, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
+  %55 = sub i32 %34, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %56 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
   %57 = mul nsw i32 %56, %55
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 4968
@@ -3065,9 +3065,9 @@ define hidden noundef ptr @_ZN5frame17retrieve_receiverEP11RegisterMap(ptr nocap
   %3 = tail call noundef ptr @_ZN13SharedRuntime17name_for_receiverEv() #21
   %4 = ptrtoint ptr %3 to i64
   %5 = trunc i64 %4 to i32
-  %6 = sub i32 %5, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %6 = sub i32 %5, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %7 = icmp ne i32 %6, -1
-  %.not.i.i.i = icmp ult ptr %3, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not.i.i.i = icmp ult ptr %3, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   %8 = select i1 %7, i1 %.not.i.i.i, i1 false
   br i1 %8, label %9, label %25
 
@@ -3095,7 +3095,7 @@ define hidden noundef ptr @_ZN5frame17retrieve_receiverEP11RegisterMap(ptr nocap
   br label %_ZNK5frame25oopmapreg_to_oop_locationI11RegisterMapEEPP7oopDescP9VMRegImplPKT_.exit
 
 25:                                               ; preds = %2
-  %26 = sub i32 %5, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
+  %26 = sub i32 %5, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %27 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
   %28 = mul nsw i32 %27, %26
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 4968
@@ -4163,7 +4163,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -4182,7 +4182,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -4201,7 +4201,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -4220,7 +4220,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -4239,7 +4239,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %22 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = sub i64 %14, %23
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %26 = zext nneg i32 %25 to i64
   %27 = lshr i64 %24, %26
   %28 = trunc i64 %27 to i32
@@ -4267,7 +4267,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -5178,9 +5178,9 @@ define linkonce_odr hidden void @_ZN25CompiledArgumentOopFinder17handle_oop_offs
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %8 to i64
   %12 = trunc i64 %11 to i32
-  %13 = sub i32 %12, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %13 = sub i32 %12, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %14 = icmp ne i32 %13, -1
-  %.not.i.i.i = icmp ult ptr %8, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not.i.i.i = icmp ult ptr %8, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   %15 = select i1 %14, i1 %.not.i.i.i, i1 false
   br i1 %15, label %16, label %32
 
@@ -5208,7 +5208,7 @@ define linkonce_odr hidden void @_ZN25CompiledArgumentOopFinder17handle_oop_offs
   br label %_ZNK5frame25oopmapreg_to_oop_locationI11RegisterMapEEPP7oopDescP9VMRegImplPKT_.exit
 
 32:                                               ; preds = %1
-  %33 = sub i32 %12, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
+  %33 = sub i32 %12, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %34 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
   %35 = mul nsw i32 %34, %33
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 4968
@@ -5522,7 +5522,7 @@ declare void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #21
   ret void

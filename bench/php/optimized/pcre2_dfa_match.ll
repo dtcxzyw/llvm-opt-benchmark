@@ -175,10 +175,10 @@ define i32 @php_pcre2_dfa_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   %85 = getelementptr inbounds nuw i8, ptr %11, i64 152
   store ptr null, ptr %85, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
-  %86 = load i32, ptr getelementptr inbounds (i8, ptr @_pcre2_default_match_context_8, i64 84), align 4
+  %86 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_pcre2_default_match_context_8, i64 84), align 4
   %87 = getelementptr inbounds nuw i8, ptr %11, i64 96
   store i32 %86, ptr %87, align 8
-  %88 = load i32, ptr getelementptr inbounds (i8, ptr @_pcre2_default_match_context_8, i64 88), align 8
+  %88 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_pcre2_default_match_context_8, i64 88), align 8
   %89 = getelementptr inbounds nuw i8, ptr %11, i64 100
   store i32 %88, ptr %89, align 4
   br label %112
@@ -221,7 +221,7 @@ define i32 @php_pcre2_dfa_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   br label %112
 
 112:                                              ; preds = %98, %84
-  %.sink.in = phi ptr [ %111, %98 ], [ getelementptr inbounds (i8, ptr @_pcre2_default_match_context_8, i64 80), %84 ]
+  %.sink.in = phi ptr [ %111, %98 ], [ getelementptr inbounds nuw (i8, ptr @_pcre2_default_match_context_8, i64 80), %84 ]
   %113 = phi i32 [ %109, %98 ], [ %88, %84 ]
   %114 = phi i32 [ %106, %98 ], [ %86, %84 ]
   %.0567 = phi ptr [ %.1568, %98 ], [ %65, %84 ]
@@ -458,7 +458,7 @@ define i32 @php_pcre2_dfa_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   br i1 %.not632, label %245, label %228
 
 228:                                              ; preds = %225
-  %229 = load i16, ptr getelementptr inbounds (i8, ptr @_pcre2_ucd_stage1_8, i64 2), align 2
+  %229 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_pcre2_ucd_stage1_8, i64 2), align 2
   %230 = zext i16 %229 to i32
   %231 = shl nuw nsw i32 %230, 7
   %232 = and i32 %214, 127
@@ -516,7 +516,7 @@ define i32 @php_pcre2_dfa_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   br i1 %.not636, label %277, label %263
 
 263:                                              ; preds = %260
-  %264 = load i16, ptr getelementptr inbounds (i8, ptr @_pcre2_ucd_stage1_8, i64 2), align 2
+  %264 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_pcre2_ucd_stage1_8, i64 2), align 2
   %265 = zext i16 %264 to i32
   %266 = shl nuw nsw i32 %265, 7
   %267 = and i32 %249, 127
@@ -8439,7 +8439,7 @@ switch.early.test3061:                            ; preds = %.thread3474, %1689
   br i1 %3811, label %3812, label %3815
 
 3812:                                             ; preds = %3809
-  %3813 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 118), align 1
+  %3813 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_pcre2_OP_lengths_8, i64 118), align 1
   %3814 = zext i8 %3813 to i64
   br label %3824
 
@@ -8734,7 +8734,7 @@ define internal fastcc i32 @do_callout_dfa(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %7
-  %14 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 118), align 1
+  %14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_pcre2_OP_lengths_8, i64 118), align 1
   %15 = zext i8 %14 to i64
   br label %25
 

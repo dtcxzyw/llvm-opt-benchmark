@@ -226,7 +226,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %90
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %102 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #12, !noalias !13
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17), !noalias !13
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm25SymbolRemappingParseErrorE, i64 16), ptr %102, align 8, !noalias !13
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm25SymbolRemappingParseErrorE, i64 16), ptr %102, align 8, !noalias !13
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #11, !noalias !13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !13
@@ -296,7 +296,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit50:                ; preds = %111, %_ZN4llvmeqENS
   call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %124 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #12, !noalias !27
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14), !noalias !27
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm25SymbolRemappingParseErrorE, i64 16), ptr %124, align 8, !noalias !27
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm25SymbolRemappingParseErrorE, i64 16), ptr %124, align 8, !noalias !27
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #11, !noalias !27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !27
@@ -377,7 +377,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit95:                ; preds = %_ZN4llvm12StringSwi
   call void @llvm.experimental.noalias.scope.decl(metadata !48)
   %153 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #12, !noalias !51
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11), !noalias !51
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm25SymbolRemappingParseErrorE, i64 16), ptr %153, align 8, !noalias !51
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm25SymbolRemappingParseErrorE, i64 16), ptr %153, align 8, !noalias !51
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #11, !noalias !51
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !51
@@ -440,7 +440,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit140:               ; preds = %_ZN4llvm12StringSwi
   call void @llvm.experimental.noalias.scope.decl(metadata !72)
   %178 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #12, !noalias !75
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8), !noalias !75
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm25SymbolRemappingParseErrorE, i64 16), ptr %178, align 8, !noalias !75
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm25SymbolRemappingParseErrorE, i64 16), ptr %178, align 8, !noalias !75
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #11, !noalias !75
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !75
@@ -503,7 +503,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit185:               ; preds = %_ZN4llvm12StringSwi
   call void @llvm.experimental.noalias.scope.decl(metadata !96)
   %203 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #12, !noalias !99
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !99
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm25SymbolRemappingParseErrorE, i64 16), ptr %203, align 8, !noalias !99
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm25SymbolRemappingParseErrorE, i64 16), ptr %203, align 8, !noalias !99
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #11, !noalias !99
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !99
@@ -576,7 +576,7 @@ declare void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"cl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm25SymbolRemappingParseErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm25SymbolRemappingParseErrorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm25SymbolRemappingParseErrorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -586,7 +586,7 @@ define linkonce_odr hidden void @_ZN4llvm25SymbolRemappingParseErrorD2Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm25SymbolRemappingParseErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm25SymbolRemappingParseErrorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm25SymbolRemappingParseErrorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -665,7 +665,7 @@ define linkonce_odr hidden void @_ZNK4llvm13ErrorInfoBase7messageB5cxx11Ev(ptr d
   store i32 1, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %0, ptr %8, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #11

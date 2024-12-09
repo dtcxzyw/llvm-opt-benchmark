@@ -45,25 +45,25 @@ define ptr @dbd_conn_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 no
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 68
   store i32 1, ptr %9, align 4
   %.not31 = icmp eq ptr %1, null
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %.sink36 = select i1 %.not31, ptr %10, ptr %1
   %11 = tail call ptr @slurm_xstrdup(ptr noundef %.sink36) #6
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %11, ptr %12, align 8
-  %13 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
+  %13 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 720), align 8
   %14 = zext i16 %13 to i32
   %15 = mul nuw nsw i32 %14, 1000
   %16 = add nuw nsw i32 %15, 35000
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 112
   store i32 %16, ptr %17, align 8
   %.not32 = icmp eq ptr %2, null
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 40), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 40), align 8
   %.sink = select i1 %.not32, ptr %18, ptr %2
   %19 = tail call ptr @slurm_xstrdup(ptr noundef %.sink) #6
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store ptr %19, ptr %20, align 8
   %.not33 = icmp eq i16 %3, 0
-  %21 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 64), align 8
+  %21 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 64), align 8
   %.sink35 = select i1 %.not33, i16 %21, i16 %3
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i16 %.sink35, ptr %22, align 8
@@ -171,7 +171,7 @@ define internal fastcc i32 @_connect_dbd_conn(ptr noundef initializes((72, 76)) 
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 24), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 24), align 8
   %8 = tail call ptr @slurm_xstrdup(ptr noundef %7) #6
   store ptr %8, ptr %2, align 8
   %.pre26.pre = load i16, ptr %3, align 8
@@ -298,7 +298,7 @@ define i32 @dbd_conn_check_and_reopen(ptr noundef %0) local_unnamed_addr #0 {
 12:                                               ; preds = %2, %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @slurm_xfree(ptr noundef nonnull %13) #6
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 40), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 40), align 8
   %15 = tail call ptr @slurm_xstrdup(ptr noundef %14) #6
   store ptr %15, ptr %13, align 8
   %16 = tail call fastcc i32 @_connect_dbd_conn(ptr noundef %0)
@@ -333,7 +333,7 @@ define void @dbd_conn_close(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not19, label %21, label %8
 
 8:                                                ; preds = %3
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %10 = and i64 %9, 1024
   %.not23 = icmp eq i64 %10, 0
   br i1 %.not23, label %57, label %11
@@ -359,7 +359,7 @@ define void @dbd_conn_close(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %23, label %24, label %37
 
 24:                                               ; preds = %21
-  %25 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %26 = and i64 %25, 1024
   %.not22 = icmp eq i64 %26, 0
   br i1 %.not22, label %57, label %27
@@ -396,7 +396,7 @@ define void @dbd_conn_close(ptr noundef %0) local_unnamed_addr #0 {
   br label %43
 
 43:                                               ; preds = %42, %37
-  %44 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %44 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %45 = and i64 %44, 1024
   %.not21 = icmp eq i64 %45, 0
   br i1 %.not21, label %57, label %46
@@ -454,7 +454,7 @@ define i32 @dbd_conn_send_recv_direct(i16 noundef zeroext %0, ptr noundef %1, pt
 dbd_conn_check_and_reopen.exit:                   ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   tail call void @slurm_xfree(ptr noundef nonnull %8) #6
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 40), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 40), align 8
   %10 = tail call ptr @slurm_xstrdup(ptr noundef %9) #6
   store ptr %10, ptr %8, align 8
   %11 = tail call fastcc i32 @_connect_dbd_conn(ptr noundef nonnull %4)
@@ -524,7 +524,7 @@ dbd_conn_check_and_reopen.exit:                   ; preds = %3
 
 48:                                               ; preds = %15, %dbd_conn_check_and_reopen.exit, %12, %19, %29, %47
   %.1 = phi i32 [ %18, %19 ], [ -1, %29 ], [ %.0, %47 ], [ -1, %12 ], [ -1, %dbd_conn_check_and_reopen.exit ], [ -1, %15 ]
-  %49 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %49 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %50 = and i64 %49, 67108864
   %.not37 = icmp eq i64 %50, 0
   br i1 %.not37, label %64, label %51
@@ -635,7 +635,7 @@ dbd_conn_send_recv.exit:                          ; preds = %11, %13
   %36 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %37 = load i16, ptr %36, align 8
   %38 = icmp ne i16 %37, 1434
-  %39 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 16), align 8
+  %39 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 16), align 8
   %.not44 = icmp eq i16 %39, 0
   %or.cond = select i1 %38, i1 true, i1 %.not44
   br i1 %or.cond, label %46, label %40
@@ -681,7 +681,7 @@ dbd_conn_send_recv.exit:                          ; preds = %11, %13
 
 61:                                               ; preds = %dbd_conn_send_recv.exit, %60, %18
   %.030 = phi i32 [ %.0.i, %dbd_conn_send_recv.exit ], [ -1, %18 ], [ 0, %60 ]
-  %62 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %62 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %63 = and i64 %62, 67108864
   %.not46 = icmp eq i64 %63, 0
   br i1 %.not46, label %73, label %64

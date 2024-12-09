@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @_ZN3ue212CompileErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %why) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212CompileErrorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue212CompileErrorE, i64 16), ptr %this, align 8
   %reason = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %0, ptr %reason, align 8
@@ -82,7 +82,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %i
 define hidden void @_ZN3ue212CompileErrorC2EjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this, i32 noundef %idx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %why) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212CompileErrorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue212CompileErrorE, i64 16), ptr %this, align 8
   %reason = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %0, ptr %reason, align 8
@@ -145,7 +145,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue212CompileErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212CompileErrorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue212CompileErrorE, i64 16), ptr %this, align 8
   %reason = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %reason, align 8
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -170,7 +170,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue212CompileErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212CompileErrorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue212CompileErrorE, i64 16), ptr %this, align 8
   %reason.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %reason.i, align 8
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -218,7 +218,7 @@ entry:
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %2, i64 %1
   store i8 0, ptr %arrayidx.i.i.i, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i) #8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212CompileErrorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue212CompileErrorE, i64 16), ptr %this, align 8
   %reason.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %3, ptr %reason.i, align 8
@@ -283,7 +283,7 @@ if.then.i.i12:                                    ; preds = %invoke.cont4
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue218ResourceLimitErrorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue218ResourceLimitErrorE, i64 16), ptr %this, align 8
   ret void
 
 lpad3:                                            ; preds = %if.then.i.i.i
@@ -319,7 +319,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue218ResourceLimitErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212CompileErrorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue212CompileErrorE, i64 16), ptr %this, align 8
   %reason.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %reason.i, align 8
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24

@@ -179,7 +179,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb17VolatileCacheTierD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb17VolatileCacheTierE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb17VolatileCacheTierE, i64 16), ptr %this, align 8
   %index_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %nbuckets_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load i32, ptr %nbuckets_.i, align 8
@@ -364,7 +364,7 @@ _ZN7rocksdb9WriteLockD2Ev.exit13.i:               ; preds = %_ZNSt7__cxx114listI
 
 invoke.cont:                                      ; preds = %_ZN7rocksdb9WriteLockD2Ev.exit13.i, %entry
   tail call void @_ZN7rocksdb18EvictableHashTableINS_17VolatileCacheTier9CacheDataENS1_13CacheDataHashENS1_14CacheDataEqualEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %index_) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb19PersistentCacheTierE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb19PersistentCacheTierE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %28 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %28, null
@@ -470,7 +470,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb18EvictableHashTableINS_17VolatileCacheTier9CacheDataENS1_13CacheDataHashENS1_14CacheDataEqualEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18EvictableHashTableINS_17VolatileCacheTier9CacheDataENS1_13CacheDataHashENS1_14CacheDataEqualEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb18EvictableHashTableINS_17VolatileCacheTier9CacheDataENS1_13CacheDataHashENS1_14CacheDataEqualEEE, i64 16), ptr %this, align 8
   %lru_lists_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %lru_lists_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -489,7 +489,7 @@ arraydestroy.body.preheader.i.i:                  ; preds = %delete.notnull.i.i
 arraydestroy.body.i.i:                            ; preds = %_ZN7rocksdb7LRUListINS_17VolatileCacheTier9CacheDataEED2Ev.exit.i.i, %arraydestroy.body.preheader.i.i
   %arraydestroy.elementPast.i.i = phi ptr [ %arraydestroy.element.i.i, %_ZN7rocksdb7LRUListINS_17VolatileCacheTier9CacheDataEED2Ev.exit.i.i ], [ %delete.end.i.i, %arraydestroy.body.preheader.i.i ]
   %arraydestroy.element.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i, i64 -64
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb7LRUListINS_17VolatileCacheTier9CacheDataEEE, i64 16), ptr %arraydestroy.element.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb7LRUListINS_17VolatileCacheTier9CacheDataEEE, i64 16), ptr %arraydestroy.element.i.i, align 8
   %lock_.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i, i64 -56
   invoke void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i)
           to label %invoke.cont.i.i.i unwind label %terminate.lpad.i.i.i
@@ -523,7 +523,7 @@ _ZNKSt14default_deleteIA_N7rocksdb7LRUListINS0_17VolatileCacheTier9CacheDataEEEE
 
 _ZNSt10unique_ptrIA_N7rocksdb7LRUListINS0_17VolatileCacheTier9CacheDataEEESt14default_deleteIS5_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIA_N7rocksdb7LRUListINS0_17VolatileCacheTier9CacheDataEEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i
   store ptr null, ptr %lru_lists_, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb9HashTableIPNS_17VolatileCacheTier9CacheDataENS1_13CacheDataHashENS1_14CacheDataEqualEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb9HashTableIPNS_17VolatileCacheTier9CacheDataENS1_13CacheDataHashENS1_14CacheDataEqualEEE, i64 16), ptr %this, align 8
   %locks_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %7 = load ptr, ptr %locks_.i, align 8
   %cmp.not.i.i = icmp eq ptr %7, null
@@ -1165,7 +1165,7 @@ invoke.cont14:                                    ; preds = %invoke.cont
 invoke.cont16:                                    ; preds = %invoke.cont14
   %next_.i.i = getelementptr inbounds nuw i8, ptr %call17, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %next_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb17VolatileCacheTier9CacheDataE, i64 16), ptr %call17, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb17VolatileCacheTier9CacheDataE, i64 16), ptr %call17, align 8
   %key.i = getelementptr inbounds nuw i8, ptr %call17, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %key.i, ptr noundef nonnull align 8 dereferenceable(32) %key)
           to label %invoke.cont.i unwind label %lpad.i
@@ -1548,7 +1548,7 @@ lpad.i:                                           ; preds = %.noexc
 invoke.cont:                                      ; preds = %.noexc
   %next_.i.i = getelementptr inbounds nuw i8, ptr %key, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %next_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb17VolatileCacheTier9CacheDataE, i64 16), ptr %key, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb17VolatileCacheTier9CacheDataE, i64 16), ptr %key, align 8
   %key.i = getelementptr inbounds nuw i8, ptr %key, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %key.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont.i unwind label %lpad.i9
@@ -1571,7 +1571,7 @@ lpad2.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i9
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i9 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb10LRUElementINS_17VolatileCacheTier9CacheDataEEE, i64 16), ptr %key, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb10LRUElementINS_17VolatileCacheTier9CacheDataEEE, i64 16), ptr %key, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #18
   br label %ehcleanup
 
@@ -1684,7 +1684,7 @@ if.end36:                                         ; preds = %invoke.cont24
           to label %cleanup unwind label %lpad7
 
 cleanup:                                          ; preds = %if.end36, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit, %invoke.cont30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb17VolatileCacheTier9CacheDataE, i64 16), ptr %key, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb17VolatileCacheTier9CacheDataE, i64 16), ptr %key, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key.i) #18
   ret void
@@ -1794,12 +1794,12 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb17VolatileCacheTier9CacheDataD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb17VolatileCacheTier9CacheDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb17VolatileCacheTier9CacheDataE, i64 16), ptr %this, align 8
   %value = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value) #18
   %key = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb10LRUElementINS_17VolatileCacheTier9CacheDataEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb10LRUElementINS_17VolatileCacheTier9CacheDataEEE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -1992,7 +1992,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 17))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.10, i64 17))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -2203,7 +2203,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb17VolatileCacheTier9CacheDataD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb17VolatileCacheTier9CacheDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb17VolatileCacheTier9CacheDataE, i64 16), ptr %this, align 8
   %value.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value.i) #18
   %key.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -2215,7 +2215,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb10LRUElementINS_17VolatileCacheTier9CacheDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb10LRUElementINS_17VolatileCacheTier9CacheDataEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb10LRUElementINS_17VolatileCacheTier9CacheDataEEE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -2342,7 +2342,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb7LRUListINS_17VolatileCacheTier9CacheDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb7LRUListINS_17VolatileCacheTier9CacheDataEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb7LRUListINS_17VolatileCacheTier9CacheDataEEE, i64 16), ptr %this, align 8
   %lock_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %lock_)
           to label %invoke.cont unwind label %terminate.lpad
@@ -2376,7 +2376,7 @@ declare void @_ZN7rocksdb4port5MutexD1Ev(ptr noundef nonnull align 8 dereference
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb7LRUListINS_17VolatileCacheTier9CacheDataEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb7LRUListINS_17VolatileCacheTier9CacheDataEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb7LRUListINS_17VolatileCacheTier9CacheDataEEE, i64 16), ptr %this, align 8
   %lock_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i)
           to label %invoke.cont.i unwind label %terminate.lpad.i
@@ -2412,7 +2412,7 @@ declare void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb9HashTableIPNS_17VolatileCacheTier9CacheDataENS1_13CacheDataHashENS1_14CacheDataEqualEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb9HashTableIPNS_17VolatileCacheTier9CacheDataENS1_13CacheDataHashENS1_14CacheDataEqualEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb9HashTableIPNS_17VolatileCacheTier9CacheDataENS1_13CacheDataHashENS1_14CacheDataEqualEEE, i64 16), ptr %this, align 8
   %locks_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %locks_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -2486,7 +2486,7 @@ _ZNSt10unique_ptrIA_N7rocksdb9HashTableIPNS0_17VolatileCacheTier9CacheDataENS2_1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb9HashTableIPNS_17VolatileCacheTier9CacheDataENS1_13CacheDataHashENS1_14CacheDataEqualEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb9HashTableIPNS_17VolatileCacheTier9CacheDataENS1_13CacheDataHashENS1_14CacheDataEqualEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb9HashTableIPNS_17VolatileCacheTier9CacheDataENS1_13CacheDataHashENS1_14CacheDataEqualEEE, i64 16), ptr %this, align 8
   %locks_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %locks_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null

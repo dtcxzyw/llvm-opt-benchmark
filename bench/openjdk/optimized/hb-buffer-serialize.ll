@@ -74,7 +74,7 @@ define hidden ptr @hb_buffer_serialize_format_to_string(i32 noundef %0) local_un
   br label %6
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL28_hb_buffer_serialize_formats, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL28_hb_buffer_serialize_formats, i64 8), align 8
   br label %6
 
 6:                                                ; preds = %1, %4, %2

@@ -762,7 +762,7 @@ common.resume:                                    ; preds = %42, %32
   br i1 %50, label %51, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread89
 
 51:                                               ; preds = %48
-  %52 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13wasmtime_wasi8preview1129_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..stream..StreamError$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from8CALLSITE17h6fa781409f71bd03E", i64 16) monotonic, align 8
+  %52 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN13wasmtime_wasi8preview1129_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..stream..StreamError$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from8CALLSITE17h6fa781409f71bd03E", i64 16) monotonic, align 8
   switch i8 %52, label %53 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread89
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread

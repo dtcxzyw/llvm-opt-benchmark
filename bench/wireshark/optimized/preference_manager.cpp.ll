@@ -133,7 +133,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define void @_ZN17PreferenceManagerC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 align 2 {
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17PreferenceManager, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17PreferenceManager, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -141,7 +141,7 @@ declare void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16),
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN17PreferenceManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17PreferenceManager, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17PreferenceManager, i64 16), ptr %0, align 8
   %2 = load atomic i8, ptr @_ZGVZN17PreferenceManager9factoriesEvE4inst acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %_ZN17PreferenceManager9factoriesEv.exit, !prof !4

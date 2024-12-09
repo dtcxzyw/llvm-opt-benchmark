@@ -807,7 +807,7 @@ define internal fastcc i32 @skcipher_walk_skcipher(ptr noundef initializes((48, 
   %52 = getelementptr i8, ptr %6, i64 %.v
   %53 = load i32, ptr %52, align 4
   store i32 %53, ptr %51, align 4
-  %54 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !11
+  %54 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !11
   %55 = and i32 %54, 983040
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %58, label %57, !prof !5
@@ -986,7 +986,7 @@ define internal fastcc i32 @skcipher_walk_aead_common(ptr noundef initializes((4
   %85 = load i32, ptr %84, align 4
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %85, ptr %86, align 8
-  %87 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !11
+  %87 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !11
   %88 = and i32 %87, 983040
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %91, label %90, !prof !5
@@ -1774,7 +1774,7 @@ define dso_local ptr @skcipher_alloc_instance_simple(ptr noundef %0, ptr noundef
   br label %55
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %11 = call noalias align 8 dereferenceable_or_null(584) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 584) #12
   %12 = icmp eq ptr %11, null
   br i1 %12, label %55, label %13
@@ -2070,7 +2070,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @skcipher_next_copy(ptr nou
   %32 = and i32 %28, 16
   %33 = icmp eq i32 %32, 0
   %34 = select i1 %33, i32 2080, i32 3264
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %36 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %35, i32 noundef %34, i64 noundef 48) #12
   %37 = icmp eq ptr %36, null
   br i1 %37, label %62, label %38

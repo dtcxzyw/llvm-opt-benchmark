@@ -1718,7 +1718,7 @@ define internal fastcc void @maybe_start_bgworkers() unnamed_addr #1 {
 
 45:                                               ; preds = %41, %42, %43
   store i64 0, ptr %16, align 8
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackendList, i64 8), align 8
   %.not.i.i.i.i = icmp eq ptr %46, null
   %.not151823.i.i.i.i = icmp eq ptr %46, @BackendList
   %.not1518.i.i.i.i = or i1 %.not.i.i.i.i, %.not151823.i.i.i.i
@@ -1857,7 +1857,7 @@ canAcceptConnections.exit.i.i:                    ; preds = %.lr.ph.split.us.i.i
   call void @ReportBackgroundWorkerPID(ptr noundef nonnull %7) #25
   %108 = load ptr, ptr %84, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
-  %110 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
+  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackendList, i64 8), align 8
   %111 = icmp eq ptr %110, null
   br i1 %111, label %112, label %115
 
@@ -1876,7 +1876,7 @@ canAcceptConnections.exit.i.i:                    ; preds = %.lr.ph.split.us.i.i
   store ptr %116, ptr %117, align 8
   store ptr @BackendList, ptr %109, align 8
   store ptr %109, ptr %116, align 8
-  store ptr %109, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
+  store ptr %109, ptr getelementptr inbounds nuw (i8, ptr @BackendList, i64 8), align 8
   %118 = add i32 %.050, 1
   %119 = icmp sgt i32 %118, 99
   br i1 %119, label %.loopexit.sink.split, label %bgworker_should_start_now.exit
@@ -2240,7 +2240,7 @@ process_pm_shutdown_request.exit:                 ; preds = %.sink.split14.i, %1
 
 147:                                              ; preds = %145, %143
   call void @ProcessConfigFile(i32 noundef 2) #25
-  %148 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
+  %148 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackendList, i64 8), align 8
   %.not.i.i = icmp eq ptr %148, null
   %.not182124.i.i = icmp eq ptr %148, @BackendList
   %.not1821.i.i = or i1 %.not.i.i, %.not182124.i.i
@@ -2978,7 +2978,7 @@ MaybeStartSlotSyncWorker.exit.i:                  ; preds = %426, %424, %422, %4
   br label %signal_child.exit.i69
 
 signal_child.exit.i69:                            ; preds = %454, %452, %449, %447
-  %457 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
+  %457 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackendList, i64 8), align 8
   %.not.i.i70 = icmp eq ptr %457, null
   %.not182124.i.i71 = icmp eq ptr %457, @BackendList
   %.not1821.i.i72 = or i1 %.not.i.i70, %.not182124.i.i71
@@ -3481,7 +3481,7 @@ LogChildExit.exit212:                             ; preds = %.thread.i209, %650,
   br label %.backedge.i
 
 select.unfold.preheader.i:                        ; preds = %LogChildExit.exit212
-  %660 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
+  %660 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackendList, i64 8), align 8
   %.not.i133 = icmp eq ptr %660, null
   %spec.select = select i1 %.not.i133, ptr @BackendList, ptr %660
   br label %select.unfold.i
@@ -3749,7 +3749,7 @@ signal_child.exit23.i88:                          ; preds = %756, %754, %750, %7
   br i1 %or.cond.i.i.i, label %canAcceptConnections.exit.thread.i.i, label %772
 
 772:                                              ; preds = %771
-  %773 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
+  %773 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackendList, i64 8), align 8
   %.not.i.i.i.i = icmp eq ptr %773, null
   %.not151823.i.i.i.i = icmp eq ptr %773, @BackendList
   %.not1518.i.i.i.i = or i1 %.not.i.i.i.i, %.not151823.i.i.i.i
@@ -3823,7 +3823,7 @@ canAcceptConnections.exit.i.i:                    ; preds = %CountChildren.exit.
   %808 = getelementptr inbounds nuw i8, ptr %797, i64 12
   store i32 2, ptr %808, align 4
   %809 = getelementptr inbounds nuw i8, ptr %797, i64 24
-  %810 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
+  %810 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackendList, i64 8), align 8
   %811 = icmp eq ptr %810, null
   br i1 %811, label %812, label %dlist_push_head.exit.i.i
 
@@ -3837,7 +3837,7 @@ dlist_push_head.exit.i.i:                         ; preds = %812, %807
   store ptr %813, ptr %814, align 8
   store ptr @BackendList, ptr %809, align 8
   store ptr %809, ptr %813, align 8
-  store ptr %809, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
+  store ptr %809, ptr getelementptr inbounds nuw (i8, ptr @BackendList, i64 8), align 8
   br label %StartAutovacuumWorker.exit.i
 
 815:                                              ; preds = %798
@@ -4060,7 +4060,7 @@ ConnCreate.exit:                                  ; preds = %876
   br i1 %.b17.i.i, label %928, label %906
 
 906:                                              ; preds = %905
-  %907 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
+  %907 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackendList, i64 8), align 8
   %.not.i.i.i = icmp eq ptr %907, null
   %.not151823.i.i.i = icmp eq ptr %907, @BackendList
   %.not1518.i.i.i = or i1 %.not.i.i.i, %.not151823.i.i.i
@@ -4197,7 +4197,7 @@ report_fork_failure_to_client.exit.i:             ; preds = %962, %.preheader.i.
   %971 = getelementptr inbounds nuw i8, ptr %880, i64 12
   store i32 1, ptr %971, align 4
   %972 = getelementptr inbounds nuw i8, ptr %880, i64 24
-  %973 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
+  %973 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackendList, i64 8), align 8
   %974 = icmp eq ptr %973, null
   br i1 %974, label %975, label %dlist_push_head.exit.i
 
@@ -4211,7 +4211,7 @@ dlist_push_head.exit.i:                           ; preds = %975, %970
   store ptr %976, ptr %977, align 8
   store ptr @BackendList, ptr %972, align 8
   store ptr %972, ptr %976, align 8
-  store ptr %972, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
+  store ptr %972, ptr getelementptr inbounds nuw (i8, ptr @BackendList, i64 8), align 8
   br label %BackendStartup.exit
 
 BackendStartup.exit:                              ; preds = %881, %883, %888, %890, %report_fork_failure_to_client.exit.i, %dlist_push_head.exit.i
@@ -4716,7 +4716,7 @@ define dso_local void @ClosePostmasterPorts(i1 noundef zeroext %0) local_unnamed
   br label %4
 
 4:                                                ; preds = %3, %1
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @postmaster_alive_fds, i64 4), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @postmaster_alive_fds, i64 4), align 4
   %6 = tail call i32 @close(i32 noundef %5) #25
   %.not6 = icmp eq i32 %6, 0
   br i1 %.not6, label %11, label %7
@@ -4730,7 +4730,7 @@ define dso_local void @ClosePostmasterPorts(i1 noundef zeroext %0) local_unnamed
   unreachable
 
 11:                                               ; preds = %4
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @postmaster_alive_fds, i64 4), align 4
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @postmaster_alive_fds, i64 4), align 4
   tail call void @ReleaseExternalFD() #25
   %12 = load ptr, ptr @ListenSockets, align 8
   %.not7 = icmp eq ptr %12, null
@@ -4912,7 +4912,7 @@ define dso_local void @BackgroundWorkerUnblockSignals() local_unnamed_addr #1 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @PostmasterMarkPIDForWorkerNotify(i32 noundef %0) local_unnamed_addr #13 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackendList, i64 8), align 8
   %.not = icmp eq ptr %2, null
   %.not913.not17 = icmp eq ptr %2, @BackendList
   %.not913.not = or i1 %.not, %.not913.not17
@@ -4975,7 +4975,7 @@ declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @TerminateChildren(i32 noundef range(i32 3, 16) %0) unnamed_addr #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackendList, i64 8), align 8
   %.not.i = icmp eq ptr %2, null
   %.not182124.i = icmp eq ptr %2, @BackendList
   %.not1821.i = or i1 %.not.i, %.not182124.i
@@ -5131,7 +5131,7 @@ define internal fastcc void @PostmasterStateMachine() unnamed_addr #1 {
   br i1 %.b40, label %4, label %ConfigurePostmasterWaitSet.exit80
 
 4:                                                ; preds = %3
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackendList, i64 8), align 8
   %.not.i = icmp eq ptr %5, null
   %.not151823.i = icmp eq ptr %5, @BackendList
   %.not1518.i = or i1 %.not.i, %.not151823.i
@@ -5267,7 +5267,7 @@ thread-pre-split:                                 ; preds = %CountChildren.exit
   br label %46
 
 46:                                               ; preds = %24, %.thread85
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackendList, i64 8), align 8
   %.not.i54 = icmp eq ptr %47, null
   %.not151823.i55 = icmp eq ptr %47, @BackendList
   %.not1518.i56 = or i1 %.not.i54, %.not151823.i55
@@ -5410,7 +5410,7 @@ thread-pre-split86.thread:                        ; preds = %93, %thread-pre-spl
   br i1 %or.cond28, label %102, label %thread-pre-split89
 
 102:                                              ; preds = %.thread82.thread
-  %103 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
+  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackendList, i64 8), align 8
   %.not.i70 = icmp eq ptr %103, null
   %.not151823.i71 = icmp eq ptr %103, @BackendList
   %.not1518.i72 = or i1 %.not.i70, %.not151823.i71
@@ -5457,7 +5457,7 @@ ConfigurePostmasterWaitSet.exit:                  ; preds = %113, %115
   store ptr %116, ptr @pm_wait_set, align 8
   %117 = load ptr, ptr @MyLatch, align 8
   %118 = tail call i32 @AddWaitEventToSet(ptr noundef %116, i32 noundef 1, i32 noundef -1, ptr noundef %117, ptr noundef null) #25
-  %119 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
+  %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackendList, i64 8), align 8
   %120 = icmp eq ptr %119, null
   %121 = icmp eq ptr %119, @BackendList
   %spec.select.i = or i1 %120, %121
@@ -5619,7 +5619,7 @@ declare void @ForgetUnstartedBackgroundWorkers() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @SignalSomeChildren(i32 noundef range(i32 1, 16) %0, i32 noundef range(i32 11, 16) %1) unnamed_addr #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackendList, i64 8), align 8
   %.not = icmp eq ptr %3, null
   %.not182124 = icmp eq ptr %3, @BackendList
   %.not1821 = or i1 %.not, %.not182124
@@ -5950,14 +5950,14 @@ sigquit_child.exit:                               ; preds = %46, %48
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %56, %27, %10
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackendList, i64 8), align 8
   %.not70 = icmp eq ptr %57, null
   %.not71106112 = icmp eq ptr %57, @BackendList
   %.not71106 = or i1 %.not70, %.not71106112
   br i1 %.not71106, label %select.unfold._crit_edge, label %.lr.ph111
 
 ._crit_edge.thread:                               ; preds = %.thread
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackendList, i64 8), align 8
   %.not70121 = icmp eq ptr %58, null
   %.not71106112122 = icmp eq ptr %58, @BackendList
   %.not71106123 = or i1 %.not70121, %.not71106112122
@@ -7265,7 +7265,7 @@ declare void @pq_endmsgread() local_unnamed_addr #3
 define internal fastcc void @processCancelRequest(i32 %.4.val, i32 %.8.val) unnamed_addr #1 {
   %1 = tail call i32 @llvm.bswap.i32(i32 %.4.val)
   %2 = tail call i32 @llvm.bswap.i32(i32 %.8.val)
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackendList, i64 8), align 8
   %.not = icmp eq ptr %3, null
   %.not1625 = icmp eq ptr %3, @BackendList
   %.not162 = or i1 %.not, %.not1625

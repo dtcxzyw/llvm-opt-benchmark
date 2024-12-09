@@ -1348,9 +1348,9 @@ sw.bb35:                                          ; preds = %if.end29
   %call40 = call ptr @loc_save(ptr noundef nonnull %loc) #20
   %entry41 = getelementptr inbounds nuw i8, ptr %call37, i64 32
   store ptr null, ptr %entry41, align 8
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @bdo_queue, i64 8), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @bdo_queue, i64 8), align 8
   store ptr %call37, ptr %18, align 8
-  store ptr %entry41, ptr getelementptr inbounds (i8, ptr @bdo_queue, i64 8), align 8
+  store ptr %entry41, ptr getelementptr inbounds nuw (i8, ptr @bdo_queue, i64 8), align 8
   br label %if.end651
 
 sw.bb44:                                          ; preds = %if.end29
@@ -2191,11 +2191,11 @@ sw.bb182:                                         ; preds = %if.end29
   %call3.i181 = call ptr @loc_save(ptr noundef nonnull %loc.i) #20
   %next.i = getelementptr inbounds nuw i8, ptr %call.i180, i64 40
   store ptr null, ptr %next.i, align 8
-  %313 = load ptr, ptr getelementptr inbounds (i8, ptr @device_configs, i64 8), align 8
+  %313 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @device_configs, i64 8), align 8
   %tql_prev.i = getelementptr inbounds nuw i8, ptr %call.i180, i64 48
   store ptr %313, ptr %tql_prev.i, align 8
   store ptr %call.i180, ptr %313, align 8
-  store ptr %next.i, ptr getelementptr inbounds (i8, ptr @device_configs, i64 8), align 8
+  store ptr %next.i, ptr getelementptr inbounds nuw (i8, ptr @device_configs, i64 8), align 8
   br label %if.end651
 
 sw.bb183:                                         ; preds = %if.end29
@@ -2208,11 +2208,11 @@ sw.bb183:                                         ; preds = %if.end29
   %call3.i185 = call ptr @loc_save(ptr noundef nonnull %loc.i184) #20
   %next.i186 = getelementptr inbounds nuw i8, ptr %call.i182, i64 40
   store ptr null, ptr %next.i186, align 8
-  %315 = load ptr, ptr getelementptr inbounds (i8, ptr @device_configs, i64 8), align 8
+  %315 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @device_configs, i64 8), align 8
   %tql_prev.i187 = getelementptr inbounds nuw i8, ptr %call.i182, i64 48
   store ptr %315, ptr %tql_prev.i187, align 8
   store ptr %call.i182, ptr %315, align 8
-  store ptr %next.i186, ptr getelementptr inbounds (i8, ptr @device_configs, i64 8), align 8
+  store ptr %next.i186, ptr getelementptr inbounds nuw (i8, ptr @device_configs, i64 8), align 8
   br label %if.end651
 
 sw.bb184:                                         ; preds = %if.end29
@@ -2545,11 +2545,11 @@ sw.bb361:                                         ; preds = %if.end29
   %call3.i197 = call ptr @loc_save(ptr noundef nonnull %loc.i196) #20
   %next.i198 = getelementptr inbounds nuw i8, ptr %call.i194, i64 40
   store ptr null, ptr %next.i198, align 8
-  %341 = load ptr, ptr getelementptr inbounds (i8, ptr @device_configs, i64 8), align 8
+  %341 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @device_configs, i64 8), align 8
   %tql_prev.i199 = getelementptr inbounds nuw i8, ptr %call.i194, i64 48
   store ptr %341, ptr %tql_prev.i199, align 8
   store ptr %call.i194, ptr %341, align 8
-  store ptr %next.i198, ptr getelementptr inbounds (i8, ptr @device_configs, i64 8), align 8
+  store ptr %next.i198, ptr getelementptr inbounds nuw (i8, ptr @device_configs, i64 8), align 8
   store i32 0, ptr @default_serial, align 4
   %call362 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %340, ptr noundef nonnull dereferenceable(5) @.str.56, i64 noundef 4) #23
   %cmp363 = icmp eq i32 %call362, 0
@@ -2587,11 +2587,11 @@ sw.bb377:                                         ; preds = %if.end29
   %call3.i203 = call ptr @loc_save(ptr noundef nonnull %loc.i202) #20
   %next.i204 = getelementptr inbounds nuw i8, ptr %call.i200, i64 40
   store ptr null, ptr %next.i204, align 8
-  %345 = load ptr, ptr getelementptr inbounds (i8, ptr @device_configs, i64 8), align 8
+  %345 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @device_configs, i64 8), align 8
   %tql_prev.i205 = getelementptr inbounds nuw i8, ptr %call.i200, i64 48
   store ptr %345, ptr %tql_prev.i205, align 8
   store ptr %call.i200, ptr %345, align 8
-  store ptr %next.i204, ptr getelementptr inbounds (i8, ptr @device_configs, i64 8), align 8
+  store ptr %next.i204, ptr getelementptr inbounds nuw (i8, ptr @device_configs, i64 8), align 8
   store i32 0, ptr @default_parallel, align 4
   %call378 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %344, ptr noundef nonnull dereferenceable(5) @.str.56, i64 noundef 4) #23
   %cmp379 = icmp eq i32 %call378, 0
@@ -2611,11 +2611,11 @@ sw.bb383:                                         ; preds = %if.end29
   %call3.i209 = call ptr @loc_save(ptr noundef nonnull %loc.i208) #20
   %next.i210 = getelementptr inbounds nuw i8, ptr %call.i206, i64 40
   store ptr null, ptr %next.i210, align 8
-  %347 = load ptr, ptr getelementptr inbounds (i8, ptr @device_configs, i64 8), align 8
+  %347 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @device_configs, i64 8), align 8
   %tql_prev.i211 = getelementptr inbounds nuw i8, ptr %call.i206, i64 48
   store ptr %347, ptr %tql_prev.i211, align 8
   store ptr %call.i206, ptr %347, align 8
-  store ptr %next.i210, ptr getelementptr inbounds (i8, ptr @device_configs, i64 8), align 8
+  store ptr %next.i210, ptr getelementptr inbounds nuw (i8, ptr @device_configs, i64 8), align 8
   br label %if.end651
 
 sw.bb384:                                         ; preds = %if.end29
@@ -2624,8 +2624,8 @@ sw.bb384:                                         ; preds = %if.end29
   br label %if.end651
 
 sw.bb385:                                         ; preds = %if.end29
-  store i8 1, ptr getelementptr inbounds (i8, ptr @dpy, i64 4), align 4
-  store i8 1, ptr getelementptr inbounds (i8, ptr @dpy, i64 5), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @dpy, i64 4), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @dpy, i64 5), align 1
   br label %if.end651
 
 sw.bb386:                                         ; preds = %if.end29
@@ -2782,11 +2782,11 @@ sw.bb442:                                         ; preds = %if.end29
   %call3.i221 = call ptr @loc_save(ptr noundef nonnull %loc.i220) #20
   %next.i222 = getelementptr inbounds nuw i8, ptr %call.i218, i64 40
   store ptr null, ptr %next.i222, align 8
-  %369 = load ptr, ptr getelementptr inbounds (i8, ptr @device_configs, i64 8), align 8
+  %369 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @device_configs, i64 8), align 8
   %tql_prev.i223 = getelementptr inbounds nuw i8, ptr %call.i218, i64 48
   store ptr %369, ptr %tql_prev.i223, align 8
   store ptr %call.i218, ptr %369, align 8
-  store ptr %next.i222, ptr getelementptr inbounds (i8, ptr @device_configs, i64 8), align 8
+  store ptr %next.i222, ptr getelementptr inbounds nuw (i8, ptr @device_configs, i64 8), align 8
   br label %if.end651
 
 sw.bb443:                                         ; preds = %if.end29
@@ -2834,11 +2834,11 @@ if.else459:                                       ; preds = %qobject_check_type.
 do.body461:                                       ; preds = %qobject_check_type.exit
   %next462 = getelementptr inbounds nuw i8, ptr %call450, i64 32
   store ptr null, ptr %next462, align 8
-  %374 = load ptr, ptr getelementptr inbounds (i8, ptr @device_opts, i64 8), align 8
+  %374 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @device_opts, i64 8), align 8
   %tql_prev = getelementptr inbounds nuw i8, ptr %call450, i64 40
   store ptr %374, ptr %tql_prev, align 8
   store ptr %call450, ptr %374, align 8
-  store ptr %next462, ptr getelementptr inbounds (i8, ptr @device_opts, i64 8), align 8
+  store ptr %next462, ptr getelementptr inbounds nuw (i8, ptr @device_opts, i64 8), align 8
   br label %if.end651
 
 if.else466:                                       ; preds = %sw.bb443
@@ -3221,11 +3221,11 @@ object_option_parse.exit:                         ; preds = %if.then.i234, %land
   %call1.i.i232 = call zeroext i1 @visit_type_ObjectOptions(ptr noundef %v.0.i, ptr noundef null, ptr noundef %call.i.i231, ptr noundef nonnull @error_fatal) #20
   %next.i.i = getelementptr inbounds nuw i8, ptr %call.i.i231, i64 8
   store ptr null, ptr %next.i.i, align 8
-  %405 = load ptr, ptr getelementptr inbounds (i8, ptr @object_opts, i64 8), align 8
+  %405 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @object_opts, i64 8), align 8
   %tql_prev.i.i = getelementptr inbounds nuw i8, ptr %call.i.i231, i64 16
   store ptr %405, ptr %tql_prev.i.i, align 8
   store ptr %call.i.i231, ptr %405, align 8
-  store ptr %next.i.i, ptr getelementptr inbounds (i8, ptr @object_opts, i64 8), align 8
+  store ptr %next.i.i, ptr getelementptr inbounds nuw (i8, ptr @object_opts, i64 8), align 8
   call void @visit_free(ptr noundef %v.0.i) #20
   br label %if.end651
 
@@ -3532,7 +3532,7 @@ if.then6.i.i:                                     ; preds = %if.then.i.i
   br label %if.end.i.i
 
 if.else.i.i280:                                   ; preds = %if.then.i.i
-  store ptr %431, ptr getelementptr inbounds (i8, ptr @object_opts, i64 8), align 8
+  store ptr %431, ptr getelementptr inbounds nuw (i8, ptr @object_opts, i64 8), align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i.i280, %if.then6.i.i
@@ -3663,8 +3663,8 @@ if.then7.i305:                                    ; preds = %if.then5.i303
 
 if.end11.i301:                                    ; preds = %if.end.i298
   store ptr @qemu_unlink_pidfile, ptr @qemu_unlink_pidfile_notifier, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @qemu_unlink_pidfile_notifier, i64 8), i8 0, i64 16, i1 false)
-  store ptr %call2.i299, ptr getelementptr inbounds (i8, ptr @qemu_unlink_pidfile_notifier, i64 24), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @qemu_unlink_pidfile_notifier, i64 8), i8 0, i64 16, i1 false)
+  store ptr %call2.i299, ptr getelementptr inbounds nuw (i8, ptr @qemu_unlink_pidfile_notifier, i64 24), align 8
   call void @qemu_add_exit_notifier(ptr noundef nonnull @qemu_unlink_pidfile_notifier) #20
   br label %qemu_maybe_daemonize.exit
 
@@ -4159,11 +4159,11 @@ if.then12.i414:                                   ; preds = %if.then10.i412
   %call3.i.i = call ptr @loc_save(ptr noundef nonnull %loc.i.i) #20
   %next.i.i415 = getelementptr inbounds nuw i8, ptr %call.i18.i, i64 40
   store ptr null, ptr %next.i.i415, align 8
-  %488 = load ptr, ptr getelementptr inbounds (i8, ptr @device_configs, i64 8), align 8
+  %488 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @device_configs, i64 8), align 8
   %tql_prev.i.i416 = getelementptr inbounds nuw i8, ptr %call.i18.i, i64 48
   store ptr %488, ptr %tql_prev.i.i416, align 8
   store ptr %call.i18.i, ptr %488, align 8
-  store ptr %next.i.i415, ptr getelementptr inbounds (i8, ptr @device_configs, i64 8), align 8
+  store ptr %next.i.i415, ptr getelementptr inbounds nuw (i8, ptr @device_configs, i64 8), align 8
   br label %if.end13.i417thread-pre-split
 
 if.end13.i417thread-pre-split:                    ; preds = %if.then10.i412, %if.then12.i414
@@ -4186,11 +4186,11 @@ if.then17.i418:                                   ; preds = %if.end13.i417
   %call3.i22.i = call ptr @loc_save(ptr noundef nonnull %loc.i21.i) #20
   %next.i23.i = getelementptr inbounds nuw i8, ptr %call.i19.i, i64 40
   store ptr null, ptr %next.i23.i, align 8
-  %490 = load ptr, ptr getelementptr inbounds (i8, ptr @device_configs, i64 8), align 8
+  %490 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @device_configs, i64 8), align 8
   %tql_prev.i24.i = getelementptr inbounds nuw i8, ptr %call.i19.i, i64 48
   store ptr %490, ptr %tql_prev.i24.i, align 8
   store ptr %call.i19.i, ptr %490, align 8
-  store ptr %next.i23.i, ptr getelementptr inbounds (i8, ptr @device_configs, i64 8), align 8
+  store ptr %next.i23.i, ptr getelementptr inbounds nuw (i8, ptr @device_configs, i64 8), align 8
   br label %if.end43.i
 
 if.else.i419:                                     ; preds = %if.end13.i417
@@ -4205,11 +4205,11 @@ if.then19.i:                                      ; preds = %if.else.i419
   %call3.i28.i = call ptr @loc_save(ptr noundef nonnull %loc.i27.i) #20
   %next.i29.i = getelementptr inbounds nuw i8, ptr %call.i25.i, i64 40
   store ptr null, ptr %next.i29.i, align 8
-  %491 = load ptr, ptr getelementptr inbounds (i8, ptr @device_configs, i64 8), align 8
+  %491 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @device_configs, i64 8), align 8
   %tql_prev.i30.i = getelementptr inbounds nuw i8, ptr %call.i25.i, i64 48
   store ptr %491, ptr %tql_prev.i30.i, align 8
   store ptr %call.i25.i, ptr %491, align 8
-  store ptr %next.i29.i, ptr getelementptr inbounds (i8, ptr @device_configs, i64 8), align 8
+  store ptr %next.i29.i, ptr getelementptr inbounds nuw (i8, ptr @device_configs, i64 8), align 8
   %.b14.pr.i = load i1, ptr @default_monitor, align 4
   br i1 %.b14.pr.i, label %if.end43.i, label %if.then22.i
 
@@ -4236,11 +4236,11 @@ if.then27.i:                                      ; preds = %if.else25.i
   %call3.i34.i = call ptr @loc_save(ptr noundef nonnull %loc.i33.i) #20
   %next.i35.i = getelementptr inbounds nuw i8, ptr %call.i31.i, i64 40
   store ptr null, ptr %next.i35.i, align 8
-  %493 = load ptr, ptr getelementptr inbounds (i8, ptr @device_configs, i64 8), align 8
+  %493 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @device_configs, i64 8), align 8
   %tql_prev.i36.i = getelementptr inbounds nuw i8, ptr %call.i31.i, i64 48
   store ptr %493, ptr %tql_prev.i36.i, align 8
   store ptr %call.i31.i, ptr %493, align 8
-  store ptr %next.i35.i, ptr getelementptr inbounds (i8, ptr @device_configs, i64 8), align 8
+  store ptr %next.i35.i, ptr getelementptr inbounds nuw (i8, ptr @device_configs, i64 8), align 8
   br label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.then27.i, %if.else25.i
@@ -4259,11 +4259,11 @@ if.then31.i:                                      ; preds = %if.end29.i
   %call3.i40.i = call ptr @loc_save(ptr noundef nonnull %loc.i39.i) #20
   %next.i41.i = getelementptr inbounds nuw i8, ptr %call.i37.i, i64 40
   store ptr null, ptr %next.i41.i, align 8
-  %495 = load ptr, ptr getelementptr inbounds (i8, ptr @device_configs, i64 8), align 8
+  %495 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @device_configs, i64 8), align 8
   %tql_prev.i42.i = getelementptr inbounds nuw i8, ptr %call.i37.i, i64 48
   store ptr %495, ptr %tql_prev.i42.i, align 8
   store ptr %call.i37.i, ptr %495, align 8
-  store ptr %next.i41.i, ptr getelementptr inbounds (i8, ptr @device_configs, i64 8), align 8
+  store ptr %next.i41.i, ptr getelementptr inbounds nuw (i8, ptr @device_configs, i64 8), align 8
   br label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.then31.i, %if.end29.i
@@ -4505,7 +4505,7 @@ qemu_create_default_devices.exit:                 ; preds = %if.end52.i, %select
   %521 = load ptr, ptr @current_machine, align 8
   %call.i.i425 = call ptr @object_get_class(ptr noundef %521) #20
   %call1.i.i426 = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i425, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.122, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #20
-  %522 = load i8, ptr getelementptr inbounds (i8, ptr @dpy, i64 6), align 2
+  %522 = load i8, ptr getelementptr inbounds nuw (i8, ptr @dpy, i64 6), align 2
   %tobool.i427 = trunc i8 %522 to i1
   br i1 %tobool.i427, label %if.then.i466, label %if.end.i428
 
@@ -4515,9 +4515,9 @@ if.then.i466:                                     ; preds = %qemu_create_default
 
 if.end.i428:                                      ; preds = %if.then.i466, %qemu_create_default_devices.exit
   call void @qemu_console_early_init() #20
-  %523 = load i8, ptr getelementptr inbounds (i8, ptr @dpy, i64 10), align 2
+  %523 = load i8, ptr getelementptr inbounds nuw (i8, ptr @dpy, i64 10), align 2
   %tobool1.i = trunc i8 %523 to i1
-  %524 = load i32, ptr getelementptr inbounds (i8, ptr @dpy, i64 12), align 4
+  %524 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dpy, i64 12), align 4
   %cmp.i429 = icmp ne i32 %524, 0
   %or.cond.i430 = select i1 %tobool1.i, i1 %cmp.i429, i1 false
   %525 = load i32, ptr @display_opengl, align 4
@@ -4562,7 +4562,7 @@ if.then6.i.i461:                                  ; preds = %if.then.i.i458
   br label %if.end.i.i463
 
 if.else.i.i464:                                   ; preds = %if.then.i.i458
-  store ptr %533, ptr getelementptr inbounds (i8, ptr @object_opts, i64 8), align 8
+  store ptr %533, ptr getelementptr inbounds nuw (i8, ptr @object_opts, i64 8), align 8
   br label %if.end.i.i463
 
 if.end.i.i463:                                    ; preds = %if.else.i.i464, %if.then6.i.i461
@@ -4609,7 +4609,7 @@ while.body.i.i445:                                ; preds = %if.end.i7.i, %if.en
   br i1 %cmp6.i.i, label %if.then7.i.i457, label %if.end9.i.i446
 
 if.then7.i.i457:                                  ; preds = %while.body.i.i445
-  store ptr @bdo_queue, ptr getelementptr inbounds (i8, ptr @bdo_queue, i64 8), align 8
+  store ptr @bdo_queue, ptr getelementptr inbounds nuw (i8, ptr @bdo_queue, i64 8), align 8
   br label %if.end9.i.i446
 
 if.end9.i.i446:                                   ; preds = %if.then7.i.i457, %while.body.i.i445
@@ -4807,7 +4807,7 @@ qobject_unref_impl.exit485:                       ; preds = %qemu_apply_machine_
   store i8 0, ptr %init_failed.i, align 1
   %call.i486 = call ptr @qemu_find_opts(ptr noundef nonnull @.str.89) #20
   %call1.i487 = call i32 @qemu_opts_foreach(ptr noundef %call.i486, ptr noundef nonnull @do_configure_icount, ptr noundef null, ptr noundef nonnull @error_fatal) #20
-  %558 = load ptr, ptr getelementptr inbounds (i8, ptr @qemu_accel_opts, i64 24), align 8
+  %558 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @qemu_accel_opts, i64 24), align 8
   %cmp.i488 = icmp eq ptr %558, null
   %559 = load ptr, ptr @accelerators, align 8
   %cmp2.i = icmp eq ptr %559, null
@@ -5007,7 +5007,7 @@ if.then6.i.i543:                                  ; preds = %if.then.i.i540
   br label %if.end.i.i545
 
 if.else.i.i546:                                   ; preds = %if.then.i.i540
-  store ptr %586, ptr getelementptr inbounds (i8, ptr @object_opts, i64 8), align 8
+  store ptr %586, ptr getelementptr inbounds nuw (i8, ptr @object_opts, i64 8), align 8
   br label %if.end.i.i545
 
 if.end.i.i545:                                    ; preds = %if.else.i.i546, %if.then6.i.i543
@@ -5294,7 +5294,7 @@ if.end687:                                        ; preds = %if.then686, %if.end
   br i1 %tobool.not.i563, label %qemu_init_displays.exit, label %if.then.i564
 
 if.then.i564:                                     ; preds = %if.end687
-  %612 = load ptr, ptr getelementptr inbounds (i8, ptr @qemu_spice, i64 8), align 8
+  %612 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @qemu_spice, i64 8), align 8
   call void %612() #20
   br label %qemu_init_displays.exit
 
@@ -5831,11 +5831,11 @@ if.then.i:                                        ; preds = %qobject_check_type.
   %call1.i.i = tail call zeroext i1 @visit_type_ObjectOptions(ptr noundef %call3.i, ptr noundef null, ptr noundef %call.i.i, ptr noundef nonnull @error_fatal) #20
   %next.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store ptr null, ptr %next.i.i, align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @object_opts, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @object_opts, i64 8), align 8
   %tql_prev.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
   store ptr %1, ptr %tql_prev.i.i, align 8
   store ptr %call.i.i, ptr %1, align 8
-  store ptr %next.i.i, ptr getelementptr inbounds (i8, ptr @object_opts, i64 8), align 8
+  store ptr %next.i.i, ptr getelementptr inbounds nuw (i8, ptr @object_opts, i64 8), align 8
   tail call void @visit_free(ptr noundef %call3.i) #20
   br label %qemu_record_config_group.exit
 

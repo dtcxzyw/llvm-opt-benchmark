@@ -1201,7 +1201,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv12GComputation4PrivE
   store i32 1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 1, ptr %23, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv12GComputation4PrivELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv12GComputation4PrivELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %6, ptr %24, align 8
   store ptr %11, ptr %10, align 8
@@ -2206,7 +2206,7 @@ common.resume:                                    ; preds = %84, %86, %16
   store i32 1, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 1, ptr %24, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv12GComputation4PrivELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv12GComputation4PrivELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %6, ptr %25, align 8
   store ptr %11, ptr %10, align 8
@@ -2837,7 +2837,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv12GComputation4PrivE
   store i32 1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 1, ptr %22, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv12GComputation4PrivELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv12GComputation4PrivELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10, align 8
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %5, ptr %23, align 8
   store ptr %10, ptr %9, align 8
@@ -4169,7 +4169,7 @@ _ZNSt6vectorIN2cv9GTypeInfoESaIS1_EED2Ev.exit42:  ; preds = %88
   store i32 1, ptr %116, align 8
   %117 = getelementptr inbounds nuw i8, ptr %105, i64 12
   store i32 1, ptr %117, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv9GraphInfoELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %105, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv9GraphInfoELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %105, align 8
   %118 = getelementptr inbounds nuw i8, ptr %105, i64 16
   store ptr %87, ptr %118, align 8
   store ptr %105, ptr %104, align 8

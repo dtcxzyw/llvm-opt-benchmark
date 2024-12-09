@@ -176,7 +176,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untype
   store i32 1, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 1, ptr %32, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_UntypedELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_UntypedELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14, align 8
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %13, ptr %33, align 8
   store ptr %14, ptr %7, align 8

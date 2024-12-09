@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define internal range(i32 -64, 1) i32 @init() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_host_server, i64 136), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_host_server, i64 136), align 8
   %2 = icmp eq ptr %1, null
   %. = select i1 %2, i32 -64, i32 0
   ret i32 %.
@@ -26,10 +26,10 @@ define internal range(i32 -64, 1) i32 @init() #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -156, -31) i32 @mylog(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) #1 {
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @local_caddy_t_class, i64 56), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @local_caddy_t_class, i64 56), align 8
   %9 = tail call noalias noundef ptr @malloc(i64 noundef %8) #11
   %10 = load i32, ptr @pmix_class_init_epoch, align 4
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @local_caddy_t_class, i64 32), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @local_caddy_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %10, %11
   br i1 %.not.i, label %13, label %12
 
@@ -74,7 +74,7 @@ pmix_obj_new_tma.exit.thread16:                   ; preds = %.lr.ph.i.i, %14
   store ptr %5, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 144
   store ptr %6, ptr %28, align 8
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_host_server, i64 136), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_host_server, i64 136), align 8
   tail call void %29(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef nonnull @localcbfn, ptr noundef nonnull %9) #12
   br label %pmix_obj_new_tma.exit.thread
 

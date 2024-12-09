@@ -738,7 +738,7 @@ _init_conf.exit:                                  ; preds = %86
 198:                                              ; preds = %.lr.ph.i.i
   %199 = load ptr, ptr @optarg, align 8
   %200 = call ptr @xstrdup(ptr noundef %199) #20
-  store ptr %200, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 144), align 8
+  store ptr %200, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 144), align 8
   br label %228
 
 201:                                              ; preds = %.lr.ph.i.i
@@ -1079,7 +1079,7 @@ _slurm_conf_file_exists.exit.i.i:                 ; preds = %300
   br i1 %386, label %387, label %388
 
 387:                                              ; preds = %378
-  store i64 64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  store i64 64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   br label %388
 
 388:                                              ; preds = %387, %378
@@ -1095,7 +1095,7 @@ _slurm_conf_file_exists.exit.i.i:                 ; preds = %300
   br i1 %.not6.i, label %399, label %392
 
 392:                                              ; preds = %390
-  %393 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %393 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %394 = and i64 %393, 36028797018963968
   %.not7.i = icmp eq i64 %394, 0
   br i1 %.not7.i, label %399, label %395
@@ -1350,7 +1350,7 @@ _validate_dynamic_conf.exit.i:                    ; preds = %.preheader.preheade
   store ptr %529, ptr %531, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  %532 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1104), align 8
+  %532 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1104), align 8
   %533 = call ptr @xstrstr(ptr noundef %532, ptr noundef nonnull @.str.155) #20
   %.not.i19.i = icmp eq ptr %533, null
   br i1 %.not.i19.i, label %534, label %536
@@ -1544,7 +1544,7 @@ _dynamic_init.exit:                               ; preds = %._dynamic_init.exit
   br i1 %.not61.i, label %625, label %620
 
 620:                                              ; preds = %618
-  %621 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 232), align 8
+  %621 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 232), align 8
   %622 = call ptr @xstrcasestr(ptr noundef %621, ptr noundef nonnull @.str.161) #20
   %.not62.i = icmp eq ptr %622, null
   br i1 %.not62.i, label %624, label %623
@@ -1600,7 +1600,7 @@ _dynamic_init.exit:                               ; preds = %._dynamic_init.exit
   %653 = getelementptr inbounds nuw i8, ptr %652, i64 4376
   store i16 %651, ptr %653, align 8
   %654 = zext i16 %651 to i32
-  store i32 %654, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1288), align 8
+  store i32 %654, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1288), align 8
   %655 = getelementptr inbounds nuw i8, ptr %643, i64 16
   %656 = load i16, ptr %655, align 8
   %657 = getelementptr inbounds nuw i8, ptr %652, i64 4188
@@ -2155,7 +2155,7 @@ _update_nice.exit.i:                              ; preds = %727, %725, %718, %u
 1010:                                             ; preds = %1004
   call void @slurm_conf_unlock() #20
   %1011 = call zeroext i1 @cgroup_memcg_job_confinement() #20
-  %1012 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 472), align 8
+  %1012 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 472), align 8
   %.not80.i = icmp ne i16 %1012, 0
   %brmerge82.not.i = select i1 %.not80.i, i1 %1011, i1 false
   br i1 %brmerge82.not.i, label %1013, label %_read_config.exit
@@ -2388,14 +2388,14 @@ _read_config.exit:                                ; preds = %1010
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %33)
   %1136 = call i32 @getuid() #20
-  %1137 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1168), align 8
+  %1137 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1168), align 8
   %.not40 = icmp eq i32 %1136, %1137
   br i1 %.not40, label %1142, label %1138
 
 1138:                                             ; preds = %1135
   %1139 = call ptr @uid_to_string_or_null(i32 noundef %1137) #20
   %1140 = call ptr @uid_to_string_or_null(i32 noundef %1136) #20
-  %1141 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %1141 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.5, ptr noundef %1139, i32 noundef %1141, ptr noundef %1140) #21
   unreachable
 
@@ -2894,7 +2894,7 @@ _wait_on_old_slurmd.exit:                         ; preds = %1302, %1314
   br i1 %.b5.i, label %1359, label %1511
 
 1359:                                             ; preds = %1358
-  %1360 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
+  %1360 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 720), align 8
   %1361 = call i16 @llvm.umax.i16(i16 %1360, i16 10)
   %narrow.i = lshr i16 %1361, 1
   %1362 = zext nneg i16 %narrow.i to i32
@@ -3426,7 +3426,7 @@ _msg_engine.exit:                                 ; preds = %._crit_edge.i, %156
   br label %1585
 
 1585:                                             ; preds = %1580, %1575, %_msg_engine.exit
-  %1586 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 928), align 8
+  %1586 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 928), align 8
   %1587 = zext i16 %1586 to i32
   call fastcc void @_wait_for_all_threads(i32 noundef %1587)
   call void @run_command_shutdown() #20
@@ -3916,9 +3916,9 @@ define dso_local i32 @run_script_health_check() local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.run_command_args_t, align 8
   store i32 0, ptr %1, align 4
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 424), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 424), align 8
   %.not = icmp eq ptr %6, null
-  %7 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 420), align 4
+  %7 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 420), align 4
   %.not2 = icmp eq i16 %7, 0
   %or.cond = select i1 %.not, i1 true, i1 %.not2
   br i1 %or.cond, label %49, label %8
@@ -3935,7 +3935,7 @@ define dso_local i32 @run_script_health_check() local_unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %3, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 424), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 424), align 8
   store ptr %15, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr @.str.35, ptr %16, align 8
@@ -4364,7 +4364,7 @@ define dso_local i32 @send_registration_msg(i32 noundef %0) local_unnamed_addr #
   %92 = load i32, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 216
   store i32 %92, ptr %93, align 8
-  %94 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 416), align 8
+  %94 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 416), align 8
   %95 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store i32 %94, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -5896,7 +5896,7 @@ _resource_spec_fini.exit31.i:                     ; preds = %135, %133
   br label %293
 
 136:                                              ; preds = %123
-  %137 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1072), align 8
+  %137 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1072), align 8
   %138 = tail call ptr @xstrcasestr(ptr noundef %137, ptr noundef nonnull @.str.192) #20
   %.not.not.i.i = icmp eq ptr %138, null
   %139 = load ptr, ptr @conf, align 8
@@ -6042,7 +6042,7 @@ _resource_spec_fini.exit39.i:                     ; preds = %202, %200
 
 203:                                              ; preds = %_select_spec_cores.exit.i, %_validate_and_convert_cpu_list.exit.i
   %204 = tail call i32 @getpid() #20
-  %205 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1424), align 8
+  %205 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1424), align 8
   %206 = and i32 %205, 262144
   %.not22.i = icmp eq i32 %206, 0
   %207 = tail call zeroext i1 @check_corespec_cgroup_job_confinement() #20
@@ -6311,7 +6311,7 @@ _core_spec_init.exit:                             ; preds = %12, %15, %_resource
   br i1 %305, label %314, label %306
 
 306:                                              ; preds = %304
-  %307 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
+  %307 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   %308 = and i16 %307, 16
   %.not.i2 = icmp eq i16 %308, 0
   br i1 %.not.i2, label %_memory_spec_init.exit, label %309

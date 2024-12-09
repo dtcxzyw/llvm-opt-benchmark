@@ -486,7 +486,7 @@ define internal noundef i32 @module_trace_bprintk_format_notify(ptr nocapture re
   br i1 %29, label %.thread8, label %46
 
 .thread:                                          ; preds = %.preheader, %26
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %31 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %30, i32 noundef 3264, i64 noundef 24) #14
   %32 = icmp eq ptr %31, null
   br i1 %32, label %46, label %33
@@ -500,8 +500,8 @@ define internal noundef i32 @module_trace_bprintk_format_notify(ptr nocapture re
   br i1 %38, label %45, label %39
 
 39:                                               ; preds = %33
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @trace_bprintk_fmt_list, i64 8), align 8
-  store ptr %31, ptr getelementptr inbounds (i8, ptr @trace_bprintk_fmt_list, i64 8), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @trace_bprintk_fmt_list, i64 8), align 8
+  store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @trace_bprintk_fmt_list, i64 8), align 8
   store ptr @trace_bprintk_fmt_list, ptr %31, align 8
   %41 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %40, ptr %41, align 8

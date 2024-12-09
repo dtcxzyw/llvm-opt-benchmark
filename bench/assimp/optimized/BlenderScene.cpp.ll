@@ -20800,7 +20800,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %call30 = call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #23
   %dna_type.i.i = getelementptr inbounds nuw i8, ptr %call30, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender15CustomDataLayerE, i64 16), ptr %call30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender15CustomDataLayerE, i64 16), ptr %call30, align 8
   %type.i = getelementptr inbounds nuw i8, ptr %call30, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %type.i, i8 0, i64 112, i1 false)
   store ptr %call30, ptr %p, align 8
@@ -20841,7 +20841,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender15CustomDataLayerEEC2IS2_vEEPT_.exit: ; preds 
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender15CustomDataLayerELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender15CustomDataLayerELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call30, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call.i.i.i.i, ptr %_M_refcount.i.i, align 8
@@ -21694,7 +21694,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull @.str.269, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.269, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull @.str.269, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.269, i64 6))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -21726,7 +21726,7 @@ call.i.noexc242:                                  ; preds = %invoke.cont7
           to label %.noexc244 unwind label %lpad15
 
 .noexc244:                                        ; preds = %call.i.noexc242
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, ptr noundef nonnull @.str.270, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.270, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, ptr noundef nonnull @.str.270, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.270, i64 5))
           to label %invoke.cont16 unwind label %lpad.i241
 
 lpad.i241:                                        ; preds = %.noexc244
@@ -21758,7 +21758,7 @@ call.i.noexc269:                                  ; preds = %invoke.cont18
           to label %.noexc271 unwind label %lpad29
 
 .noexc271:                                        ; preds = %call.i.noexc269
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27, ptr noundef nonnull @.str.271, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.271, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27, ptr noundef nonnull @.str.271, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.271, i64 4))
           to label %invoke.cont30 unwind label %lpad.i268
 
 lpad.i268:                                        ; preds = %.noexc271
@@ -21790,7 +21790,7 @@ call.i.noexc296:                                  ; preds = %invoke.cont32
           to label %.noexc298 unwind label %lpad43
 
 .noexc298:                                        ; preds = %call.i.noexc296
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp41, ptr noundef nonnull @.str.272, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.272, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp41, ptr noundef nonnull @.str.272, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.272, i64 5))
           to label %invoke.cont44 unwind label %lpad.i295
 
 lpad.i295:                                        ; preds = %.noexc298
@@ -21822,7 +21822,7 @@ call.i.noexc323:                                  ; preds = %invoke.cont46
           to label %.noexc325 unwind label %lpad57
 
 .noexc325:                                        ; preds = %call.i.noexc323
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55, ptr noundef nonnull @.str.273, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.273, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55, ptr noundef nonnull @.str.273, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.273, i64 19))
           to label %invoke.cont58 unwind label %lpad.i322
 
 lpad.i322:                                        ; preds = %.noexc325
@@ -21854,7 +21854,7 @@ call.i.noexc350:                                  ; preds = %invoke.cont60
           to label %.noexc352 unwind label %lpad71
 
 .noexc352:                                        ; preds = %call.i.noexc350
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69, ptr noundef nonnull @.str.274, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.274, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69, ptr noundef nonnull @.str.274, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.274, i64 5))
           to label %invoke.cont72 unwind label %lpad.i349
 
 lpad.i349:                                        ; preds = %.noexc352
@@ -21886,7 +21886,7 @@ call.i.noexc377:                                  ; preds = %invoke.cont74
           to label %.noexc379 unwind label %lpad85
 
 .noexc379:                                        ; preds = %call.i.noexc377
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp83, ptr noundef nonnull @.str.275, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.275, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp83, ptr noundef nonnull @.str.275, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.275, i64 4))
           to label %invoke.cont86 unwind label %lpad.i376
 
 lpad.i376:                                        ; preds = %.noexc379
@@ -21918,7 +21918,7 @@ call.i.noexc404:                                  ; preds = %invoke.cont88
           to label %.noexc406 unwind label %lpad99
 
 .noexc406:                                        ; preds = %call.i.noexc404
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp97, ptr noundef nonnull @.str.276, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.276, i64 13))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp97, ptr noundef nonnull @.str.276, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.276, i64 13))
           to label %invoke.cont100 unwind label %lpad.i403
 
 lpad.i403:                                        ; preds = %.noexc406
@@ -21950,7 +21950,7 @@ call.i.noexc431:                                  ; preds = %invoke.cont102
           to label %.noexc433 unwind label %lpad113
 
 .noexc433:                                        ; preds = %call.i.noexc431
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp111, ptr noundef nonnull @.str.277, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.277, i64 10))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp111, ptr noundef nonnull @.str.277, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.277, i64 10))
           to label %invoke.cont114 unwind label %lpad.i430
 
 lpad.i430:                                        ; preds = %.noexc433
@@ -21982,7 +21982,7 @@ call.i.noexc458:                                  ; preds = %invoke.cont116
           to label %.noexc460 unwind label %lpad127
 
 .noexc460:                                        ; preds = %call.i.noexc458
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp125, ptr noundef nonnull @.str.278, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.278, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp125, ptr noundef nonnull @.str.278, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.278, i64 4))
           to label %invoke.cont128 unwind label %lpad.i457
 
 lpad.i457:                                        ; preds = %.noexc460
@@ -22014,7 +22014,7 @@ call.i.noexc485:                                  ; preds = %invoke.cont130
           to label %.noexc487 unwind label %lpad141
 
 .noexc487:                                        ; preds = %call.i.noexc485
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp139, ptr noundef nonnull @.str.279, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.279, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp139, ptr noundef nonnull @.str.279, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.279, i64 6))
           to label %invoke.cont142 unwind label %lpad.i484
 
 lpad.i484:                                        ; preds = %.noexc487
@@ -22046,7 +22046,7 @@ call.i.noexc512:                                  ; preds = %invoke.cont144
           to label %.noexc514 unwind label %lpad155
 
 .noexc514:                                        ; preds = %call.i.noexc512
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp153, ptr noundef nonnull @.str.280, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.280, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp153, ptr noundef nonnull @.str.280, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.280, i64 8))
           to label %invoke.cont156 unwind label %lpad.i511
 
 lpad.i511:                                        ; preds = %.noexc514
@@ -22078,7 +22078,7 @@ call.i.noexc539:                                  ; preds = %invoke.cont158
           to label %.noexc541 unwind label %lpad169
 
 .noexc541:                                        ; preds = %call.i.noexc539
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp167, ptr noundef nonnull @.str.281, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.281, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp167, ptr noundef nonnull @.str.281, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.281, i64 8))
           to label %invoke.cont170 unwind label %lpad.i538
 
 lpad.i538:                                        ; preds = %.noexc541
@@ -22110,7 +22110,7 @@ call.i.noexc566:                                  ; preds = %invoke.cont172
           to label %.noexc568 unwind label %lpad183
 
 .noexc568:                                        ; preds = %call.i.noexc566
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp181, ptr noundef nonnull @.str.282, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.282, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp181, ptr noundef nonnull @.str.282, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.282, i64 4))
           to label %invoke.cont184 unwind label %lpad.i565
 
 lpad.i565:                                        ; preds = %.noexc568
@@ -22142,7 +22142,7 @@ call.i.noexc593:                                  ; preds = %invoke.cont186
           to label %.noexc595 unwind label %lpad197
 
 .noexc595:                                        ; preds = %call.i.noexc593
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp195, ptr noundef nonnull @.str.283, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.283, i64 11))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp195, ptr noundef nonnull @.str.283, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.283, i64 11))
           to label %invoke.cont198 unwind label %lpad.i592
 
 lpad.i592:                                        ; preds = %.noexc595
@@ -22174,7 +22174,7 @@ call.i.noexc620:                                  ; preds = %invoke.cont200
           to label %.noexc622 unwind label %lpad211
 
 .noexc622:                                        ; preds = %call.i.noexc620
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp209, ptr noundef nonnull @.str.284, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.284, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp209, ptr noundef nonnull @.str.284, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.284, i64 5))
           to label %invoke.cont212 unwind label %lpad.i619
 
 lpad.i619:                                        ; preds = %.noexc622
@@ -22206,7 +22206,7 @@ call.i.noexc647:                                  ; preds = %invoke.cont214
           to label %.noexc649 unwind label %lpad225
 
 .noexc649:                                        ; preds = %call.i.noexc647
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp223, ptr noundef nonnull @.str.285, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.285, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp223, ptr noundef nonnull @.str.285, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.285, i64 8))
           to label %invoke.cont226 unwind label %lpad.i646
 
 lpad.i646:                                        ; preds = %.noexc649
@@ -22238,7 +22238,7 @@ call.i.noexc674:                                  ; preds = %invoke.cont228
           to label %.noexc676 unwind label %lpad239
 
 .noexc676:                                        ; preds = %call.i.noexc674
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp237, ptr noundef nonnull @.str.286, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.286, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp237, ptr noundef nonnull @.str.286, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.286, i64 5))
           to label %invoke.cont240 unwind label %lpad.i673
 
 lpad.i673:                                        ; preds = %.noexc676
@@ -22270,7 +22270,7 @@ call.i.noexc701:                                  ; preds = %invoke.cont242
           to label %.noexc703 unwind label %lpad253
 
 .noexc703:                                        ; preds = %call.i.noexc701
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp251, ptr noundef nonnull @.str.287, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.287, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp251, ptr noundef nonnull @.str.287, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.287, i64 5))
           to label %invoke.cont254 unwind label %lpad.i700
 
 lpad.i700:                                        ; preds = %.noexc703
@@ -22302,7 +22302,7 @@ call.i.noexc728:                                  ; preds = %invoke.cont256
           to label %.noexc730 unwind label %lpad267
 
 .noexc730:                                        ; preds = %call.i.noexc728
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp265, ptr noundef nonnull @.str.288, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.288, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp265, ptr noundef nonnull @.str.288, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.288, i64 7))
           to label %invoke.cont268 unwind label %lpad.i727
 
 lpad.i727:                                        ; preds = %.noexc730
@@ -22334,7 +22334,7 @@ call.i.noexc755:                                  ; preds = %invoke.cont270
           to label %.noexc757 unwind label %lpad281
 
 .noexc757:                                        ; preds = %call.i.noexc755
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp279, ptr noundef nonnull @.str.289, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.289, i64 11))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp279, ptr noundef nonnull @.str.289, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.289, i64 11))
           to label %invoke.cont282 unwind label %lpad.i754
 
 lpad.i754:                                        ; preds = %.noexc757
@@ -22366,7 +22366,7 @@ call.i.noexc782:                                  ; preds = %invoke.cont284
           to label %.noexc784 unwind label %lpad295
 
 .noexc784:                                        ; preds = %call.i.noexc782
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp293, ptr noundef nonnull @.str.290, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.290, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp293, ptr noundef nonnull @.str.290, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.290, i64 8))
           to label %invoke.cont296 unwind label %lpad.i781
 
 lpad.i781:                                        ; preds = %.noexc784
@@ -22398,7 +22398,7 @@ call.i.noexc809:                                  ; preds = %invoke.cont298
           to label %.noexc811 unwind label %lpad309
 
 .noexc811:                                        ; preds = %call.i.noexc809
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp307, ptr noundef nonnull @.str.291, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.291, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp307, ptr noundef nonnull @.str.291, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.291, i64 5))
           to label %invoke.cont310 unwind label %lpad.i808
 
 lpad.i808:                                        ; preds = %.noexc811
@@ -22430,7 +22430,7 @@ call.i.noexc836:                                  ; preds = %invoke.cont312
           to label %.noexc838 unwind label %lpad323
 
 .noexc838:                                        ; preds = %call.i.noexc836
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp321, ptr noundef nonnull @.str.292, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.292, i64 12))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp321, ptr noundef nonnull @.str.292, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.292, i64 12))
           to label %invoke.cont324 unwind label %lpad.i835
 
 lpad.i835:                                        ; preds = %.noexc838
@@ -22462,7 +22462,7 @@ call.i.noexc863:                                  ; preds = %invoke.cont326
           to label %.noexc865 unwind label %lpad337
 
 .noexc865:                                        ; preds = %call.i.noexc863
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp335, ptr noundef nonnull @.str.293, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.293, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp335, ptr noundef nonnull @.str.293, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.293, i64 2))
           to label %invoke.cont338 unwind label %lpad.i862
 
 lpad.i862:                                        ; preds = %.noexc865
@@ -22494,7 +22494,7 @@ call.i.noexc890:                                  ; preds = %invoke.cont340
           to label %.noexc892 unwind label %lpad351
 
 .noexc892:                                        ; preds = %call.i.noexc890
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp349, ptr noundef nonnull @.str.294, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.294, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp349, ptr noundef nonnull @.str.294, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.294, i64 4))
           to label %invoke.cont352 unwind label %lpad.i889
 
 lpad.i889:                                        ; preds = %.noexc892
@@ -22526,7 +22526,7 @@ call.i.noexc917:                                  ; preds = %invoke.cont354
           to label %.noexc919 unwind label %lpad365
 
 .noexc919:                                        ; preds = %call.i.noexc917
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp363, ptr noundef nonnull @.str.295, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.295, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp363, ptr noundef nonnull @.str.295, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.295, i64 5))
           to label %invoke.cont366 unwind label %lpad.i916
 
 lpad.i916:                                        ; preds = %.noexc919
@@ -22558,7 +22558,7 @@ call.i.noexc944:                                  ; preds = %invoke.cont368
           to label %.noexc946 unwind label %lpad379
 
 .noexc946:                                        ; preds = %call.i.noexc944
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp377, ptr noundef nonnull @.str.296, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.296, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp377, ptr noundef nonnull @.str.296, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.296, i64 5))
           to label %invoke.cont380 unwind label %lpad.i943
 
 lpad.i943:                                        ; preds = %.noexc946
@@ -22590,7 +22590,7 @@ call.i.noexc971:                                  ; preds = %invoke.cont382
           to label %.noexc973 unwind label %lpad393
 
 .noexc973:                                        ; preds = %call.i.noexc971
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp391, ptr noundef nonnull @.str.297, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.297, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp391, ptr noundef nonnull @.str.297, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.297, i64 7))
           to label %invoke.cont394 unwind label %lpad.i970
 
 lpad.i970:                                        ; preds = %.noexc973
@@ -22622,7 +22622,7 @@ call.i.noexc998:                                  ; preds = %invoke.cont396
           to label %.noexc1000 unwind label %lpad407
 
 .noexc1000:                                       ; preds = %call.i.noexc998
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp405, ptr noundef nonnull @.str.298, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.298, i64 3))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp405, ptr noundef nonnull @.str.298, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.298, i64 3))
           to label %invoke.cont408 unwind label %lpad.i997
 
 lpad.i997:                                        ; preds = %.noexc1000
@@ -22654,7 +22654,7 @@ call.i.noexc1025:                                 ; preds = %invoke.cont410
           to label %.noexc1027 unwind label %lpad421
 
 .noexc1027:                                       ; preds = %call.i.noexc1025
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp419, ptr noundef nonnull @.str.299, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.299, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp419, ptr noundef nonnull @.str.299, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.299, i64 6))
           to label %invoke.cont422 unwind label %lpad.i1024
 
 lpad.i1024:                                       ; preds = %.noexc1027
@@ -22686,7 +22686,7 @@ call.i.noexc1052:                                 ; preds = %invoke.cont424
           to label %.noexc1054 unwind label %lpad435
 
 .noexc1054:                                       ; preds = %call.i.noexc1052
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp433, ptr noundef nonnull @.str.300, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.300, i64 18))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp433, ptr noundef nonnull @.str.300, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.300, i64 18))
           to label %invoke.cont436 unwind label %lpad.i1051
 
 lpad.i1051:                                       ; preds = %.noexc1054
@@ -22718,7 +22718,7 @@ call.i.noexc1079:                                 ; preds = %invoke.cont438
           to label %.noexc1081 unwind label %lpad449
 
 .noexc1081:                                       ; preds = %call.i.noexc1079
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp447, ptr noundef nonnull @.str.301, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.301, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp447, ptr noundef nonnull @.str.301, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.301, i64 5))
           to label %invoke.cont450 unwind label %lpad.i1078
 
 lpad.i1078:                                       ; preds = %.noexc1081
@@ -22750,7 +22750,7 @@ call.i.noexc1106:                                 ; preds = %invoke.cont452
           to label %.noexc1108 unwind label %lpad463
 
 .noexc1108:                                       ; preds = %call.i.noexc1106
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp461, ptr noundef nonnull @.str.302, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.302, i64 10))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp461, ptr noundef nonnull @.str.302, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.302, i64 10))
           to label %invoke.cont464 unwind label %lpad.i1105
 
 lpad.i1105:                                       ; preds = %.noexc1108
@@ -22782,7 +22782,7 @@ call.i.noexc1133:                                 ; preds = %invoke.cont466
           to label %.noexc1135 unwind label %lpad477
 
 .noexc1135:                                       ; preds = %call.i.noexc1133
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp475, ptr noundef nonnull @.str.303, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.303, i64 15))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp475, ptr noundef nonnull @.str.303, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.303, i64 15))
           to label %invoke.cont478 unwind label %lpad.i1132
 
 lpad.i1132:                                       ; preds = %.noexc1135
@@ -22814,7 +22814,7 @@ call.i.noexc1160:                                 ; preds = %invoke.cont480
           to label %.noexc1162 unwind label %lpad491
 
 .noexc1162:                                       ; preds = %call.i.noexc1160
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp489, ptr noundef nonnull @.str.304, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.304, i64 10))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp489, ptr noundef nonnull @.str.304, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.304, i64 10))
           to label %invoke.cont492 unwind label %lpad.i1159
 
 lpad.i1159:                                       ; preds = %.noexc1162
@@ -22846,7 +22846,7 @@ call.i.noexc1187:                                 ; preds = %invoke.cont494
           to label %.noexc1189 unwind label %lpad505
 
 .noexc1189:                                       ; preds = %call.i.noexc1187
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp503, ptr noundef nonnull @.str.305, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.305, i64 15))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp503, ptr noundef nonnull @.str.305, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.305, i64 15))
           to label %invoke.cont506 unwind label %lpad.i1186
 
 lpad.i1186:                                       ; preds = %.noexc1189
@@ -22878,7 +22878,7 @@ call.i.noexc1214:                                 ; preds = %invoke.cont508
           to label %.noexc1216 unwind label %lpad519
 
 .noexc1216:                                       ; preds = %call.i.noexc1214
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp517, ptr noundef nonnull @.str.306, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.306, i64 16))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp517, ptr noundef nonnull @.str.306, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.306, i64 16))
           to label %invoke.cont520 unwind label %lpad.i1213
 
 lpad.i1213:                                       ; preds = %.noexc1216
@@ -23334,11 +23334,11 @@ invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(1384) ptr @_Znwm(i64 noundef 1384) #23
   %dna_type.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender6ObjectE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender6ObjectE, i64 16), ptr %call, align 8
   %id.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   %dna_type.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr null, ptr %dna_type.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
   %type.i = getelementptr inbounds nuw i8, ptr %call, i64 1064
   store i32 0, ptr %type.i, align 8
   %parent.i = getelementptr inbounds nuw i8, ptr %call, i64 1232
@@ -23346,7 +23346,7 @@ invoke.cont:
   %dna_type.i.i1.i = getelementptr inbounds nuw i8, ptr %call, i64 1344
   store ptr null, ptr %dna_type.i.i1.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %parent.i, i8 0, i64 104, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %modifiers.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %modifiers.i, align 8
   %first.i.i = getelementptr inbounds nuw i8, ptr %call, i64 1352
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %first.i.i, i8 0, i64 32, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -23388,7 +23388,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender6ObjectEED2Ev.exit: ; preds = %invoke.cont
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender6ObjectELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender6ObjectELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -23485,9 +23485,9 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_5Gro
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(1088) ptr @_Znwm(i64 noundef 1088) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1072) %call, i8 0, i64 1072, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5GroupE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5GroupE, i64 16), ptr %call, align 8
   %id.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
   %gobject.i = getelementptr inbounds nuw i8, ptr %call, i64 1072
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %gobject.i, i8 0, i64 16, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -23529,7 +23529,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender5GroupEED2Ev.exit: ; preds = %invoke.cont
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5GroupELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5GroupELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -23551,7 +23551,7 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_4MTe
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %call, i8 0, i64 192, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender4MTexE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender4MTexE, i64 16), ptr %call, align 8
   %object.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %object.i, i8 0, i64 32, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -23593,7 +23593,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender4MTexEED2Ev.exit: ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender4MTexELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender4MTexELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -23615,7 +23615,7 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_5TFa
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %call, i8 0, i64 72, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5TFaceE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5TFaceE, i64 16), ptr %call, align 8
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %_ZNSt10shared_ptrIN6Assimp7Blender5TFaceEED2Ev.exit unwind label %lpad.i.i.i.i
 
@@ -23655,7 +23655,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender5TFaceEED2Ev.exit: ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5TFaceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5TFaceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -23678,10 +23678,10 @@ invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #23
   %modifier.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %call, i8 0, i64 112, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender12ModifierDataE, i64 16), ptr %modifier.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender12ModifierDataE, i64 16), ptr %modifier.i.i, align 8
   %next.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.i.i.i, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender19SubsurfModifierDataE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender19SubsurfModifierDataE, i64 16), ptr %call, align 8
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %_ZNSt10shared_ptrIN6Assimp7Blender19SubsurfModifierDataEED2Ev.exit unwind label %lpad.i.i.i.i
 
@@ -23721,7 +23721,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender19SubsurfModifierDataEED2Ev.exit: ; preds = %i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender19SubsurfModifierDataELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender19SubsurfModifierDataELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -23743,7 +23743,7 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_5MFa
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call, i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 16), ptr %call, align 8
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %_ZNSt10shared_ptrIN6Assimp7Blender5MFaceEED2Ev.exit unwind label %lpad.i.i.i.i
 
@@ -23783,7 +23783,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender5MFaceEED2Ev.exit: ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5MFaceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5MFaceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -23805,9 +23805,9 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_4Lam
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(1152) ptr @_Znwm(i64 noundef 1152) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1152) %call, i8 0, i64 1152, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender4LampE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender4LampE, i64 16), ptr %call, align 8
   %id.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %_ZNSt10shared_ptrIN6Assimp7Blender4LampEED2Ev.exit unwind label %lpad.i.i.i.i
 
@@ -23847,7 +23847,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender4LampEED2Ev.exit: ; preds = %invoke.cont
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender4LampELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender4LampELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -23869,7 +23869,7 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_13MD
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender13MDeformWeightE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender13MDeformWeightE, i64 16), ptr %call, align 8
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %_ZNSt10shared_ptrIN6Assimp7Blender13MDeformWeightEED2Ev.exit unwind label %lpad.i.i.i.i
 
@@ -23909,7 +23909,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender13MDeformWeightEED2Ev.exit: ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender13MDeformWeightELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender13MDeformWeightELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -23931,7 +23931,7 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_10Pa
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10PackedFileE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender10PackedFileE, i64 16), ptr %call, align 8
   %data.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data.i, i8 0, i64 16, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -23973,7 +23973,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender10PackedFileEED2Ev.exit: ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender10PackedFileELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender10PackedFileELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -23996,7 +23996,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23
   %dna_type.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender4BaseE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender4BaseE, i64 16), ptr %call, align 8
   %prev.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %prev.i, i8 0, i64 40, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -24038,7 +24038,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender4BaseEED2Ev.exit: ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender4BaseELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender4BaseELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -24061,7 +24061,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23
   %dna_type.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 16), ptr %call, align 8
   %flag.i = getelementptr inbounds nuw i8, ptr %call, i64 48
   store i8 0, ptr %flag.i, align 8
   %mode.i = getelementptr inbounds nuw i8, ptr %call, i64 50
@@ -24109,7 +24109,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender6MTFaceEED2Ev.exit: ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender6MTFaceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender6MTFaceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -24131,9 +24131,9 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_8Mat
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(1720) ptr @_Znwm(i64 noundef 1720) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1440) %call, i8 0, i64 1440, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8MaterialE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8MaterialE, i64 16), ptr %call, align 8
   %id.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
   %group.i = getelementptr inbounds nuw i8, ptr %call, i64 1408
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %group.i, i8 0, i64 16, i1 false)
   %scevgep.i = getelementptr inbounds nuw i8, ptr %call, i64 1432
@@ -24177,7 +24177,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender8MaterialEED2Ev.exit: ; preds = %invoke.cont
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -24199,7 +24199,7 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_8MTe
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8MTexPolyE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8MTexPolyE, i64 16), ptr %call, align 8
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %_ZNSt10shared_ptrIN6Assimp7Blender8MTexPolyEED2Ev.exit unwind label %lpad.i.i.i.i
 
@@ -24239,7 +24239,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender8MTexPolyEED2Ev.exit: ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender8MTexPolyELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender8MTexPolyELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -24261,29 +24261,29 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_4Mes
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(2528) ptr @_Znwm(i64 noundef 2528) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2528) %call, i8 0, i64 2528, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender4MeshE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender4MeshE, i64 16), ptr %call, align 8
   %id.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
   %mface.i = getelementptr inbounds nuw i8, ptr %call, i64 1096
   %vdata.i = getelementptr inbounds nuw i8, ptr %call, i64 1408
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %mface.i, i8 0, i64 312, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %vdata.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %vdata.i, align 8
   %layers.i.i = getelementptr inbounds nuw i8, ptr %call, i64 1424
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %layers.i.i, i8 0, i64 24, i1 false)
   %edata.i = getelementptr inbounds nuw i8, ptr %call, i64 1632
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %edata.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %edata.i, align 8
   %layers.i3.i = getelementptr inbounds nuw i8, ptr %call, i64 1648
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %layers.i3.i, i8 0, i64 24, i1 false)
   %fdata.i = getelementptr inbounds nuw i8, ptr %call, i64 1856
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %fdata.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %fdata.i, align 8
   %layers.i5.i = getelementptr inbounds nuw i8, ptr %call, i64 1872
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %layers.i5.i, i8 0, i64 24, i1 false)
   %pdata.i = getelementptr inbounds nuw i8, ptr %call, i64 2080
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %pdata.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %pdata.i, align 8
   %layers.i7.i = getelementptr inbounds nuw i8, ptr %call, i64 2096
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %layers.i7.i, i8 0, i64 24, i1 false)
   %ldata.i = getelementptr inbounds nuw i8, ptr %call, i64 2304
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %ldata.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %ldata.i, align 8
   %layers.i9.i = getelementptr inbounds nuw i8, ptr %call, i64 2320
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %layers.i9.i, i8 0, i64 24, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -24325,7 +24325,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender4MeshEED2Ev.exit: ; preds = %invoke.cont
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender4MeshELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender4MeshELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -24347,7 +24347,7 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_11MD
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i64 16), ptr %call, align 8
   %dw.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dw.i, i8 0, i64 24, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -24389,7 +24389,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender11MDeformVertEED2Ev.exit: ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender11MDeformVertELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender11MDeformVertELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -24411,9 +24411,9 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_5Wor
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(1064) ptr @_Znwm(i64 noundef 1064) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1064) %call, i8 0, i64 1064, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5WorldE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5WorldE, i64 16), ptr %call, align 8
   %id.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %_ZNSt10shared_ptrIN6Assimp7Blender5WorldEED2Ev.exit unwind label %lpad.i.i.i.i
 
@@ -24453,7 +24453,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender5WorldEED2Ev.exit: ; preds = %invoke.cont
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5WorldELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5WorldELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -24505,7 +24505,7 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_8MLo
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8MLoopColE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8MLoopColE, i64 16), ptr %call, align 8
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %_ZNSt10shared_ptrIN6Assimp7Blender8MLoopColEED2Ev.exit unwind label %lpad.i.i.i.i
 
@@ -24545,7 +24545,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender8MLoopColEED2Ev.exit: ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender8MLoopColELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender8MLoopColELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -24568,7 +24568,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23
   %dna_type.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MVertE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5MVertE, i64 16), ptr %call, align 8
   %flag.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store i8 0, ptr %flag.i, align 8
   %mat_nr.i = getelementptr inbounds nuw i8, ptr %call, i64 44
@@ -24614,7 +24614,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender5MVertEED2Ev.exit: ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5MVertELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5MVertELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -24636,7 +24636,7 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_5MEd
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MEdgeE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5MEdgeE, i64 16), ptr %call, align 8
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %_ZNSt10shared_ptrIN6Assimp7Blender5MEdgeEED2Ev.exit unwind label %lpad.i.i.i.i
 
@@ -24676,7 +24676,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender5MEdgeEED2Ev.exit: ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5MEdgeELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5MEdgeELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -24698,7 +24698,7 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_7MLo
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender7MLoopUVE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender7MLoopUVE, i64 16), ptr %call, align 8
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %_ZNSt10shared_ptrIN6Assimp7Blender7MLoopUVEED2Ev.exit unwind label %lpad.i.i.i.i
 
@@ -24738,7 +24738,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender7MLoopUVEED2Ev.exit: ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender7MLoopUVELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender7MLoopUVELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -24760,7 +24760,7 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_11Gr
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %call, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender11GroupObjectE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender11GroupObjectE, i64 16), ptr %call, align 8
   %prev.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %prev.i, i8 0, i64 48, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -24802,7 +24802,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender11GroupObjectEED2Ev.exit: ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender11GroupObjectELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender11GroupObjectELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -24824,7 +24824,7 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_8Lis
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %call, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %call, align 8
   %first.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %first.i, i8 0, i64 32, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -24866,7 +24866,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender8ListBaseEED2Ev.exit: ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender8ListBaseELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender8ListBaseELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -24888,7 +24888,7 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_5MLo
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MLoopE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5MLoopE, i64 16), ptr %call, align 8
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %_ZNSt10shared_ptrIN6Assimp7Blender5MLoopEED2Ev.exit unwind label %lpad.i.i.i.i
 
@@ -24928,7 +24928,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender5MLoopEED2Ev.exit: ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5MLoopELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5MLoopELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -24950,7 +24950,7 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_12Mo
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %call, i8 0, i64 88, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender12ModifierDataE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender12ModifierDataE, i64 16), ptr %call, align 8
   %next.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.i, i8 0, i64 32, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -24992,7 +24992,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender12ModifierDataEED2Ev.exit: ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender12ModifierDataELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender12ModifierDataELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -25014,7 +25014,7 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_2IDE
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(1048) ptr @_Znwm(i64 noundef 1048) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1048) %call, i8 0, i64 1048, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %call, align 8
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %_ZNSt10shared_ptrIN6Assimp7Blender2IDEED2Ev.exit unwind label %lpad.i.i.i.i
 
@@ -25054,7 +25054,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender2IDEED2Ev.exit: ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender2IDELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender2IDELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -25076,7 +25076,7 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_4MCo
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender4MColE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender4MColE, i64 16), ptr %call, align 8
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %_ZNSt10shared_ptrIN6Assimp7Blender4MColEED2Ev.exit unwind label %lpad.i.i.i.i
 
@@ -25116,7 +25116,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender4MColEED2Ev.exit: ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender4MColELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender4MColELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -25138,7 +25138,7 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_5MPo
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MPolyE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5MPolyE, i64 16), ptr %call, align 8
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %_ZNSt10shared_ptrIN6Assimp7Blender5MPolyEED2Ev.exit unwind label %lpad.i.i.i.i
 
@@ -25178,7 +25178,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender5MPolyEED2Ev.exit: ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5MPolyELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5MPolyELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -25200,15 +25200,15 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_5Sce
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(1176) ptr @_Znwm(i64 noundef 1176) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1072) %call, i8 0, i64 1072, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5SceneE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5SceneE, i64 16), ptr %call, align 8
   %id.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
   %camera.i = getelementptr inbounds nuw i8, ptr %call, i64 1064
   %base.i = getelementptr inbounds nuw i8, ptr %call, i64 1128
   %dna_type.i.i1.i = getelementptr inbounds nuw i8, ptr %call, i64 1136
   store ptr null, ptr %dna_type.i.i1.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %camera.i, i8 0, i64 64, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %base.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %base.i, align 8
   %first.i.i = getelementptr inbounds nuw i8, ptr %call, i64 1144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %first.i.i, i8 0, i64 32, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -25250,7 +25250,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender5SceneEED2Ev.exit: ; preds = %invoke.cont
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5SceneELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5SceneELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -25272,9 +25272,9 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_7Lib
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(1560) ptr @_Znwm(i64 noundef 1560) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1552) %call, i8 0, i64 1552, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender7LibraryE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender7LibraryE, i64 16), ptr %call, align 8
   %id.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
   %parent.i = getelementptr inbounds nuw i8, ptr %call, i64 1544
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %parent.i, i8 0, i64 16, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -25316,7 +25316,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender7LibraryEED2Ev.exit: ; preds = %invoke.cont
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender7LibraryELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender7LibraryELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -25339,11 +25339,11 @@ invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(1088) ptr @_Znwm(i64 noundef 1088) #23
   %dna_type.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender3TexE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender3TexE, i64 16), ptr %call, align 8
   %id.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   %dna_type.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr null, ptr %dna_type.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
   %imaflag.i = getelementptr inbounds nuw i8, ptr %call, i64 1064
   store i32 1, ptr %imaflag.i, align 8
   %type.i = getelementptr inbounds nuw i8, ptr %call, i64 1068
@@ -25389,7 +25389,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender3TexEED2Ev.exit: ; preds = %invoke.cont
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender3TexELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender3TexELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -25411,9 +25411,9 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_6Cam
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(1088) ptr @_Znwm(i64 noundef 1088) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1088) %call, i8 0, i64 1088, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender6CameraE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender6CameraE, i64 16), ptr %call, align 8
   %id.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %_ZNSt10shared_ptrIN6Assimp7Blender6CameraEED2Ev.exit unwind label %lpad.i.i.i.i
 
@@ -25453,7 +25453,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender6CameraEED2Ev.exit: ; preds = %invoke.cont
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender6CameraELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender6CameraELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -25476,10 +25476,10 @@ invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #23
   %modifier.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %call, i8 0, i64 112, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender12ModifierDataE, i64 16), ptr %modifier.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender12ModifierDataE, i64 16), ptr %modifier.i.i, align 8
   %next.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.i.i.i, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender18MirrorModifierDataE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender18MirrorModifierDataE, i64 16), ptr %call, align 8
   %mirror_ob.i = getelementptr inbounds nuw i8, ptr %call, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mirror_ob.i, i8 0, i64 16, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -25521,7 +25521,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender18MirrorModifierDataEED2Ev.exit: ; preds = %in
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender18MirrorModifierDataELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender18MirrorModifierDataELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -25543,9 +25543,9 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_5Ima
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(1368) ptr @_Znwm(i64 noundef 1368) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1368) %call, i8 0, i64 1368, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5ImageE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5ImageE, i64 16), ptr %call, align 8
   %id.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
   %packedfile.i = getelementptr inbounds nuw i8, ptr %call, i64 1336
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %packedfile.i, i8 0, i64 16, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -25587,7 +25587,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender5ImageEED2Ev.exit: ; preds = %invoke.cont
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5ImageELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5ImageELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -25609,7 +25609,7 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_10Cu
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %call, i8 0, i64 224, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %call, align 8
   %layers.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %layers.i, i8 0, i64 24, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -25651,7 +25651,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender10CustomDataEED2Ev.exit: ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender10CustomDataELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender10CustomDataELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -25674,7 +25674,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #23
   %dna_type.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender15CustomDataLayerE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender15CustomDataLayerE, i64 16), ptr %call, align 8
   %type.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %type.i, i8 0, i64 112, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -25716,7 +25716,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender15CustomDataLayerEED2Ev.exit: ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender15CustomDataLayerELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender15CustomDataLayerELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -25738,19 +25738,19 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_10Co
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(1160) ptr @_Znwm(i64 noundef 1160) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1072) %call, i8 0, i64 1072, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CollectionE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender10CollectionE, i64 16), ptr %call, align 8
   %id.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
   %gobject.i = getelementptr inbounds nuw i8, ptr %call, i64 1064
   %dna_type.i.i1.i = getelementptr inbounds nuw i8, ptr %call, i64 1072
   store ptr null, ptr %dna_type.i.i1.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %gobject.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %gobject.i, align 8
   %first.i.i = getelementptr inbounds nuw i8, ptr %call, i64 1080
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %first.i.i, i8 0, i64 32, i1 false)
   %children.i = getelementptr inbounds nuw i8, ptr %call, i64 1112
   %dna_type.i.i2.i = getelementptr inbounds nuw i8, ptr %call, i64 1120
   store ptr null, ptr %dna_type.i.i2.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %children.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %children.i, align 8
   %first.i3.i = getelementptr inbounds nuw i8, ptr %call, i64 1128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %first.i3.i, i8 0, i64 32, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -25792,7 +25792,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender10CollectionEED2Ev.exit: ; preds = %invoke.con
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender10CollectionELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender10CollectionELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -25814,7 +25814,7 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_15Co
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %call, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender15CollectionChildE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender15CollectionChildE, i64 16), ptr %call, align 8
   %next.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %next.i, i8 0, i64 48, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -25856,7 +25856,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender15CollectionChildEED2Ev.exit: ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender15CollectionChildELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender15CollectionChildELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -25878,7 +25878,7 @@ define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure8AllocateINS0_16Co
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call, i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender16CollectionObjectE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender16CollectionObjectE, i64 16), ptr %call, align 8
   %next.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i, i8 0, i64 16, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -25920,7 +25920,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender16CollectionObjectEED2Ev.exit: ; preds = %entr
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender16CollectionObjectELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender16CollectionObjectELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -25963,7 +25963,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #20
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -26255,7 +26255,7 @@ lpad.i:                                           ; preds = %entry
 _ZN17DeadlyImportErrorC2IJRA39_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA17_S1_SB_RA2_S1_EEEDpOT_.exit: ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp.i) #20
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %agg.tmp.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5ErrorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5ErrorE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -26532,7 +26532,7 @@ lpad.i:                                           ; preds = %entry
 _ZN17DeadlyImportErrorC2IJRA43_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA2_S1_EEEDpOT_.exit: ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp.i) #20
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %agg.tmp.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5ErrorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5ErrorE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -26593,7 +26593,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #20
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -26982,7 +26982,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #20
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -27107,7 +27107,7 @@ lpad.i:                                           ; preds = %entry
 _ZN17DeadlyImportErrorC2IJRA8_KcRPS1_RA17_S1_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA32_S1_RmRA2_S1_SI_EEEDpOT_.exit: ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp.i) #20
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %agg.tmp.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5ErrorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5ErrorE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -27871,7 +27871,7 @@ lpad.i:                                           ; preds = %entry
 _ZN17DeadlyImportErrorC2IJRA8_KcRPS1_RA17_S1_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA32_S1_RmEEEDpOT_.exit: ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp.i) #20
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %agg.tmp.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5ErrorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5ErrorE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -28462,7 +28462,7 @@ lpad.i:                                           ; preds = %entry
 _ZN17DeadlyImportErrorC2IJRA8_KcRPS1_RA17_S1_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA24_S1_EEEDpOT_.exit: ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp.i) #20
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %agg.tmp.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5ErrorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5ErrorE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -29494,7 +29494,7 @@ lpad.i:                                           ; preds = %entry
 _ZN17DeadlyImportErrorC2IJRA32_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA26_S1_SB_RA10_S1_EEEDpOT_.exit: ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp.i) #20
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %agg.tmp.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5ErrorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5ErrorE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -29719,11 +29719,11 @@ invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(1384) ptr @_Znwm(i64 noundef 1384) #23
   %dna_type.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender6ObjectE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender6ObjectE, i64 16), ptr %call, align 8
   %id.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   %dna_type.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr null, ptr %dna_type.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
   %type.i = getelementptr inbounds nuw i8, ptr %call, i64 1064
   store i32 0, ptr %type.i, align 8
   %parent.i = getelementptr inbounds nuw i8, ptr %call, i64 1232
@@ -29731,7 +29731,7 @@ invoke.cont:
   %dna_type.i.i1.i = getelementptr inbounds nuw i8, ptr %call, i64 1344
   store ptr null, ptr %dna_type.i.i1.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %parent.i, i8 0, i64 104, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %modifiers.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %modifiers.i, align 8
   %first.i.i = getelementptr inbounds nuw i8, ptr %call, i64 1352
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %first.i.i, i8 0, i64 32, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -29773,7 +29773,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender6ObjectEEC2IS2_vEEPT_.exit: ; preds = %invoke.
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender6ObjectELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender6ObjectELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %out, align 8
@@ -30191,7 +30191,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #20
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -30211,7 +30211,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #20
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -30762,7 +30762,7 @@ lpad.i:                                           ; preds = %entry
 _ZN17DeadlyImportErrorC2IJRA45_KcRKmRA2_S1_EEEDpOT_.exit: ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp.i) #20
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %agg.tmp.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5ErrorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5ErrorE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -31368,9 +31368,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(1384) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender6ObjectE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender6ObjectE, i64 16), ptr %this, align 8
   %modifiers = getelementptr inbounds nuw i8, ptr %this, i64 1336
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %modifiers, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %modifiers, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1376
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -31944,7 +31944,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender8ListBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -32059,7 +32059,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender8ElemBaseEED2Ev.exit: ; preds = %_ZNSt8weak_pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender8ListBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -33450,9 +33450,9 @@ define linkonce_odr hidden noundef ptr @_ZNK6Assimp7Blender9Structure9_allocateI
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(1088) ptr @_Znwm(i64 noundef 1088) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1072) %call, i8 0, i64 1072, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5GroupE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5GroupE, i64 16), ptr %call, align 8
   %id.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
   %gobject.i = getelementptr inbounds nuw i8, ptr %call, i64 1072
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %gobject.i, i8 0, i64 16, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -33494,7 +33494,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender5GroupEEC2IS2_vEEPT_.exit: ; preds = %invoke.c
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5GroupELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5GroupELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %out, align 8
@@ -33894,7 +33894,7 @@ lpad:                                             ; preds = %if.then.i5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender5GroupD2Ev(ptr noundef nonnull align 8 dereferenceable(1088) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5GroupE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5GroupE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1080
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -33975,7 +33975,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender11GroupObjectEED2Ev.exit: ; preds = %entry, %_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender5GroupD0Ev(ptr noundef nonnull align 8 dereferenceable(1088) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5GroupE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5GroupE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1080
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -35490,11 +35490,11 @@ entry:
   %ref.tmp = alloca %"struct.Assimp::Blender::ListBase", align 8
   %1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %1, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %ref.tmp, align 8
   %first.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %first.i, i8 0, i64 32, i1 false)
   %call = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN6Assimp7Blender8ListBaseaSEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %out, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %ref.tmp, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 40
   %2 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %2, null
@@ -36441,7 +36441,7 @@ define linkonce_odr hidden noundef ptr @_ZNK6Assimp7Blender9Structure9_allocateI
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %call, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender11GroupObjectE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender11GroupObjectE, i64 16), ptr %call, align 8
   %prev.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %prev.i, i8 0, i64 48, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -36483,7 +36483,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender11GroupObjectEEC2IS2_vEEPT_.exit: ; preds = %e
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender11GroupObjectELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender11GroupObjectELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %out, align 8
@@ -36883,7 +36883,7 @@ lpad:                                             ; preds = %if.then.i5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender11GroupObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender11GroupObjectE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender11GroupObjectE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -37765,7 +37765,7 @@ define linkonce_odr hidden noundef ptr @_ZNK6Assimp7Blender9Structure9_allocateI
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call, i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender16CollectionObjectE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender16CollectionObjectE, i64 16), ptr %call, align 8
   %next.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i, i8 0, i64 16, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -37807,7 +37807,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender16CollectionObjectEEC2IS2_vEEPT_.exit: ; preds
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender16CollectionObjectELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender16CollectionObjectELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %out, align 8
@@ -38207,7 +38207,7 @@ lpad:                                             ; preds = %if.then.i5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender16CollectionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender16CollectionObjectE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender16CollectionObjectE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -38288,7 +38288,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender16CollectionObjectEED2Ev.exit: ; preds = %entr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender16CollectionObjectD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender16CollectionObjectE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender16CollectionObjectE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -39015,7 +39015,7 @@ define linkonce_odr hidden noundef ptr @_ZNK6Assimp7Blender9Structure9_allocateI
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %call, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender15CollectionChildE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender15CollectionChildE, i64 16), ptr %call, align 8
   %next.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %next.i, i8 0, i64 48, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -39057,7 +39057,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender15CollectionChildEEC2IS2_vEEPT_.exit: ; preds 
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender15CollectionChildELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender15CollectionChildELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %out, align 8
@@ -39457,7 +39457,7 @@ lpad:                                             ; preds = %if.then.i5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender15CollectionChildD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender15CollectionChildE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender15CollectionChildE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -40401,19 +40401,19 @@ define linkonce_odr hidden noundef ptr @_ZNK6Assimp7Blender9Structure9_allocateI
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(1160) ptr @_Znwm(i64 noundef 1160) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1072) %call, i8 0, i64 1072, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CollectionE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender10CollectionE, i64 16), ptr %call, align 8
   %id.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
   %gobject.i = getelementptr inbounds nuw i8, ptr %call, i64 1064
   %dna_type.i.i1.i = getelementptr inbounds nuw i8, ptr %call, i64 1072
   store ptr null, ptr %dna_type.i.i1.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %gobject.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %gobject.i, align 8
   %first.i.i = getelementptr inbounds nuw i8, ptr %call, i64 1080
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %first.i.i, i8 0, i64 32, i1 false)
   %children.i = getelementptr inbounds nuw i8, ptr %call, i64 1112
   %dna_type.i.i2.i = getelementptr inbounds nuw i8, ptr %call, i64 1120
   store ptr null, ptr %dna_type.i.i2.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %children.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %children.i, align 8
   %first.i3.i = getelementptr inbounds nuw i8, ptr %call, i64 1128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %first.i3.i, i8 0, i64 32, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -40455,7 +40455,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender10CollectionEEC2IS2_vEEPT_.exit: ; preds = %in
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender10CollectionELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender10CollectionELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %out, align 8
@@ -40855,9 +40855,9 @@ lpad:                                             ; preds = %if.then.i5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender10CollectionD2Ev(ptr noundef nonnull align 8 dereferenceable(1160) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CollectionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender10CollectionE, i64 16), ptr %this, align 8
   %children = getelementptr inbounds nuw i8, ptr %this, i64 1112
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %children, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %children, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1152
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -40967,7 +40967,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZN6Assimp7Blender8ListBaseD2Ev.exit:             ; preds = %_ZNSt8weak_ptrIN6Assimp7Blender8ElemBaseEED2Ev.exit.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i8.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   %gobject = getelementptr inbounds nuw i8, ptr %this, i64 1064
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %gobject, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %gobject, align 8
   %_M_refcount.i.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 1104
   %16 = load ptr, ptr %_M_refcount.i.i.i1, align 8
   %cmp.not.i.i.i.i2 = icmp eq ptr %16, null
@@ -41818,11 +41818,11 @@ invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(1088) ptr @_Znwm(i64 noundef 1088) #23
   %dna_type.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender3TexE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender3TexE, i64 16), ptr %call, align 8
   %id.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   %dna_type.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr null, ptr %dna_type.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
   %imaflag.i = getelementptr inbounds nuw i8, ptr %call, i64 1064
   store i32 1, ptr %imaflag.i, align 8
   %type.i = getelementptr inbounds nuw i8, ptr %call, i64 1068
@@ -41868,7 +41868,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender3TexEEC2IS2_vEEPT_.exit: ; preds = %invoke.con
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender3TexELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender3TexELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %out, align 8
@@ -42268,7 +42268,7 @@ lpad:                                             ; preds = %if.then.i5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender3TexD2Ev(ptr noundef nonnull align 8 dereferenceable(1088) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender3TexE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender3TexE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1080
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -42349,7 +42349,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender5ImageEED2Ev.exit: ; preds = %entry, %_ZN9__gn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender3TexD0Ev(ptr noundef nonnull align 8 dereferenceable(1088) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender3TexE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender3TexE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1080
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -43206,7 +43206,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender10FileOffsetEEC2IS2_vEEPT_.exit: ; preds = %if
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i6, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender10FileOffsetELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender10FileOffsetELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call3, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call3, ptr %out, align 8
@@ -44008,7 +44008,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23
   %dna_type.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender4BaseE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender4BaseE, i64 16), ptr %call, align 8
   %prev.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %prev.i, i8 0, i64 40, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -44050,7 +44050,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender4BaseEEC2IS2_vEEPT_.exit: ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender4BaseELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender4BaseELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %out, align 8
@@ -44450,7 +44450,7 @@ lpad:                                             ; preds = %if.then.i5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender4BaseD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender4BaseE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender4BaseE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -45330,7 +45330,7 @@ define linkonce_odr hidden noundef ptr @_ZNK6Assimp7Blender9Structure9_allocateI
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %call, i8 0, i64 192, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender4MTexE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender4MTexE, i64 16), ptr %call, align 8
   %object.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %object.i, i8 0, i64 32, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -45372,7 +45372,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender4MTexEEC2IS2_vEEPT_.exit: ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender4MTexELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender4MTexELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %out, align 8
@@ -45772,7 +45772,7 @@ lpad:                                             ; preds = %if.then.i5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender4MTexD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender4MTexE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender4MTexE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -46642,9 +46642,9 @@ define linkonce_odr hidden noundef ptr @_ZNK6Assimp7Blender9Structure9_allocateI
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(1368) ptr @_Znwm(i64 noundef 1368) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1368) %call, i8 0, i64 1368, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5ImageE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5ImageE, i64 16), ptr %call, align 8
   %id.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
   %packedfile.i = getelementptr inbounds nuw i8, ptr %call, i64 1336
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %packedfile.i, i8 0, i64 16, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -46686,7 +46686,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender5ImageEEC2IS2_vEEPT_.exit: ; preds = %invoke.c
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5ImageELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5ImageELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %out, align 8
@@ -47086,7 +47086,7 @@ lpad:                                             ; preds = %if.then.i5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender5ImageD2Ev(ptr noundef nonnull align 8 dereferenceable(1368) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5ImageE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5ImageE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1344
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -47167,7 +47167,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender10PackedFileEED2Ev.exit: ; preds = %entry, %_Z
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender5ImageD0Ev(ptr noundef nonnull align 8 dereferenceable(1368) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5ImageE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5ImageE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1344
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -47604,7 +47604,7 @@ for.inc.i.i.i:                                    ; preds = %if.then, %for.inc.i
   %__n.addr.07.i.i.i = phi i64 [ %dec.i.i.i, %for.inc.i.i.i ], [ %__n, %if.then ]
   %3 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 16), ptr %__cur.08.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 16), ptr %__cur.08.i.i.i, align 8
   %dec.i.i.i = add i64 %__n.addr.07.i.i.i, -1
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 40
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
@@ -47636,7 +47636,7 @@ for.inc.i.i.i21:                                  ; preds = %_ZNKSt6vectorIN6Ass
   %__n.addr.07.i.i.i23 = phi i64 [ %dec.i.i.i24, %for.inc.i.i.i21 ], [ %__n, %_ZNKSt6vectorIN6Assimp7Blender5MFaceESaIS2_EE12_M_check_lenEmPKc.exit ]
   %5 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 16), ptr %__cur.08.i.i.i22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 16), ptr %__cur.08.i.i.i22, align 8
   %dec.i.i.i24 = add i64 %__n.addr.07.i.i.i23, -1
   %incdec.ptr.i.i.i25 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 40
   %cmp.not.i.i.i26 = icmp eq i64 %dec.i.i.i24, 0
@@ -47655,7 +47655,7 @@ for.body.i.i.i:                                   ; preds = %try.cont, %for.body
   %dna_type2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 8
   %6 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i, align 8, !alias.scope !143, !noalias !140
   store ptr %6, ptr %dna_type.i.i.i.i.i.i.i.i, align 8, !alias.scope !140, !noalias !143
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !140, !noalias !143
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !140, !noalias !143
   %v1.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 16
   %v12.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %v1.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(21) %v12.i.i.i.i.i.i.i, i64 21, i1 false), !alias.scope !145
@@ -48024,7 +48024,7 @@ for.inc.i.i.i:                                    ; preds = %if.then, %for.inc.i
   %__n.addr.07.i.i.i = phi i64 [ %dec.i.i.i, %for.inc.i.i.i ], [ %__n, %if.then ]
   %dna_type.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 8
   store ptr null, ptr %dna_type.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 16), ptr %__cur.08.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 16), ptr %__cur.08.i.i.i, align 8
   %flag.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 48
   store i8 0, ptr %flag.i.i.i.i.i, align 8
   %mode.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 50
@@ -48064,7 +48064,7 @@ for.inc.i.i.i21:                                  ; preds = %_ZNKSt6vectorIN6Ass
   %__n.addr.07.i.i.i23 = phi i64 [ %dec.i.i.i29, %for.inc.i.i.i21 ], [ %__n, %_ZNKSt6vectorIN6Assimp7Blender6MTFaceESaIS2_EE12_M_check_lenEmPKc.exit ]
   %dna_type.i.i.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 8
   store ptr null, ptr %dna_type.i.i.i.i.i.i24, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 16), ptr %__cur.08.i.i.i22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 16), ptr %__cur.08.i.i.i22, align 8
   %flag.i.i.i.i.i25 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 48
   store i8 0, ptr %flag.i.i.i.i.i25, align 8
   %mode.i.i.i.i.i26 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 50
@@ -48091,7 +48091,7 @@ for.body.i.i.i:                                   ; preds = %try.cont, %for.body
   %dna_type2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 8
   %4 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i, align 8, !alias.scope !152, !noalias !149
   store ptr %4, ptr %dna_type.i.i.i.i.i.i.i.i, align 8, !alias.scope !149, !noalias !152
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !149, !noalias !152
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !149, !noalias !152
   %uv.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 16
   %uv2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %uv.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %uv2.i.i.i.i.i.i.i, i64 40, i1 false), !alias.scope !154
@@ -48460,7 +48460,7 @@ for.inc.i.i.i:                                    ; preds = %if.then, %for.inc.i
   %__n.addr.07.i.i.i = phi i64 [ %dec.i.i.i, %for.inc.i.i.i ], [ %__n, %if.then ]
   %3 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5TFaceE, i64 16), ptr %__cur.08.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5TFaceE, i64 16), ptr %__cur.08.i.i.i, align 8
   %dec.i.i.i = add i64 %__n.addr.07.i.i.i, -1
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 72
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
@@ -48492,7 +48492,7 @@ for.inc.i.i.i21:                                  ; preds = %_ZNKSt6vectorIN6Ass
   %__n.addr.07.i.i.i23 = phi i64 [ %dec.i.i.i24, %for.inc.i.i.i21 ], [ %__n, %_ZNKSt6vectorIN6Assimp7Blender5TFaceESaIS2_EE12_M_check_lenEmPKc.exit ]
   %5 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5TFaceE, i64 16), ptr %__cur.08.i.i.i22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5TFaceE, i64 16), ptr %__cur.08.i.i.i22, align 8
   %dec.i.i.i24 = add i64 %__n.addr.07.i.i.i23, -1
   %incdec.ptr.i.i.i25 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 72
   %cmp.not.i.i.i26 = icmp eq i64 %dec.i.i.i24, 0
@@ -48511,7 +48511,7 @@ for.body.i.i.i:                                   ; preds = %try.cont, %for.body
   %dna_type2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 8
   %6 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i, align 8, !alias.scope !161, !noalias !158
   store ptr %6, ptr %dna_type.i.i.i.i.i.i.i.i, align 8, !alias.scope !158, !noalias !161
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5TFaceE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !158, !noalias !161
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5TFaceE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !158, !noalias !161
   %uv.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 16
   %uv2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %uv.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %uv2.i.i.i.i.i.i.i, i64 56, i1 false), !alias.scope !163
@@ -48869,7 +48869,7 @@ for.inc.i.i.i:                                    ; preds = %if.then, %for.inc.i
   %__n.addr.07.i.i.i = phi i64 [ %dec.i.i.i, %for.inc.i.i.i ], [ %__n, %if.then ]
   %dna_type.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 8
   store ptr null, ptr %dna_type.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MVertE, i64 16), ptr %__cur.08.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5MVertE, i64 16), ptr %__cur.08.i.i.i, align 8
   %flag.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 40
   store i8 0, ptr %flag.i.i.i.i.i, align 8
   %mat_nr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 44
@@ -48907,7 +48907,7 @@ for.inc.i.i.i21:                                  ; preds = %_ZNKSt6vectorIN6Ass
   %__n.addr.07.i.i.i23 = phi i64 [ %dec.i.i.i28, %for.inc.i.i.i21 ], [ %__n, %_ZNKSt6vectorIN6Assimp7Blender5MVertESaIS2_EE12_M_check_lenEmPKc.exit ]
   %dna_type.i.i.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 8
   store ptr null, ptr %dna_type.i.i.i.i.i.i24, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MVertE, i64 16), ptr %__cur.08.i.i.i22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5MVertE, i64 16), ptr %__cur.08.i.i.i22, align 8
   %flag.i.i.i.i.i25 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 40
   store i8 0, ptr %flag.i.i.i.i.i25, align 8
   %mat_nr.i.i.i.i.i26 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 44
@@ -48932,7 +48932,7 @@ for.body.i.i.i:                                   ; preds = %try.cont, %for.body
   %dna_type2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 8
   %4 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i, align 8, !alias.scope !170, !noalias !167
   store ptr %4, ptr %dna_type.i.i.i.i.i.i.i.i, align 8, !alias.scope !167, !noalias !170
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MVertE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !167, !noalias !170
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5MVertE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !167, !noalias !170
   %co.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 16
   %co2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %co.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(36) %co2.i.i.i.i.i.i.i, i64 36, i1 false), !alias.scope !172
@@ -49303,7 +49303,7 @@ for.inc.i.i.i:                                    ; preds = %if.then, %for.inc.i
   %__n.addr.07.i.i.i = phi i64 [ %dec.i.i.i, %for.inc.i.i.i ], [ %__n, %if.then ]
   %3 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MEdgeE, i64 16), ptr %__cur.08.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5MEdgeE, i64 16), ptr %__cur.08.i.i.i, align 8
   %dec.i.i.i = add i64 %__n.addr.07.i.i.i, -1
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
@@ -49335,7 +49335,7 @@ for.inc.i.i.i21:                                  ; preds = %_ZNKSt6vectorIN6Ass
   %__n.addr.07.i.i.i23 = phi i64 [ %dec.i.i.i24, %for.inc.i.i.i21 ], [ %__n, %_ZNKSt6vectorIN6Assimp7Blender5MEdgeESaIS2_EE12_M_check_lenEmPKc.exit ]
   %5 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MEdgeE, i64 16), ptr %__cur.08.i.i.i22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5MEdgeE, i64 16), ptr %__cur.08.i.i.i22, align 8
   %dec.i.i.i24 = add i64 %__n.addr.07.i.i.i23, -1
   %incdec.ptr.i.i.i25 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 32
   %cmp.not.i.i.i26 = icmp eq i64 %dec.i.i.i24, 0
@@ -49354,7 +49354,7 @@ for.body.i.i.i:                                   ; preds = %try.cont, %for.body
   %dna_type2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 8
   %6 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i, align 8, !alias.scope !179, !noalias !176
   store ptr %6, ptr %dna_type.i.i.i.i.i.i.i.i, align 8, !alias.scope !176, !noalias !179
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MEdgeE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !176, !noalias !179
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5MEdgeE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !176, !noalias !179
   %v1.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 16
   %v12.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %v1.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %v12.i.i.i.i.i.i.i, i64 12, i1 false), !alias.scope !181
@@ -49723,7 +49723,7 @@ for.inc.i.i.i:                                    ; preds = %if.then, %for.inc.i
   %__n.addr.07.i.i.i = phi i64 [ %dec.i.i.i, %for.inc.i.i.i ], [ %__n, %if.then ]
   %3 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MLoopE, i64 16), ptr %__cur.08.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5MLoopE, i64 16), ptr %__cur.08.i.i.i, align 8
   %dec.i.i.i = add i64 %__n.addr.07.i.i.i, -1
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
@@ -49755,7 +49755,7 @@ for.inc.i.i.i21:                                  ; preds = %_ZNKSt6vectorIN6Ass
   %__n.addr.07.i.i.i23 = phi i64 [ %dec.i.i.i24, %for.inc.i.i.i21 ], [ %__n, %_ZNKSt6vectorIN6Assimp7Blender5MLoopESaIS2_EE12_M_check_lenEmPKc.exit ]
   %5 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MLoopE, i64 16), ptr %__cur.08.i.i.i22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5MLoopE, i64 16), ptr %__cur.08.i.i.i22, align 8
   %dec.i.i.i24 = add i64 %__n.addr.07.i.i.i23, -1
   %incdec.ptr.i.i.i25 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 24
   %cmp.not.i.i.i26 = icmp eq i64 %dec.i.i.i24, 0
@@ -49774,7 +49774,7 @@ for.body.i.i.i:                                   ; preds = %try.cont, %for.body
   %dna_type2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 8
   %6 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i, align 8, !alias.scope !188, !noalias !185
   store ptr %6, ptr %dna_type.i.i.i.i.i.i.i.i, align 8, !alias.scope !185, !noalias !188
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MLoopE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !185, !noalias !188
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5MLoopE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !185, !noalias !188
   %v.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 16
   %v2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 16
   %7 = load i64, ptr %v2.i.i.i.i.i.i.i, align 8, !alias.scope !188, !noalias !185
@@ -50144,7 +50144,7 @@ for.inc.i.i.i:                                    ; preds = %if.then, %for.inc.i
   %__n.addr.07.i.i.i = phi i64 [ %dec.i.i.i, %for.inc.i.i.i ], [ %__n, %if.then ]
   %3 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender7MLoopUVE, i64 16), ptr %__cur.08.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender7MLoopUVE, i64 16), ptr %__cur.08.i.i.i, align 8
   %dec.i.i.i = add i64 %__n.addr.07.i.i.i, -1
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
@@ -50176,7 +50176,7 @@ for.inc.i.i.i21:                                  ; preds = %_ZNKSt6vectorIN6Ass
   %__n.addr.07.i.i.i23 = phi i64 [ %dec.i.i.i24, %for.inc.i.i.i21 ], [ %__n, %_ZNKSt6vectorIN6Assimp7Blender7MLoopUVESaIS2_EE12_M_check_lenEmPKc.exit ]
   %5 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender7MLoopUVE, i64 16), ptr %__cur.08.i.i.i22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender7MLoopUVE, i64 16), ptr %__cur.08.i.i.i22, align 8
   %dec.i.i.i24 = add i64 %__n.addr.07.i.i.i23, -1
   %incdec.ptr.i.i.i25 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 32
   %cmp.not.i.i.i26 = icmp eq i64 %dec.i.i.i24, 0
@@ -50195,7 +50195,7 @@ for.body.i.i.i:                                   ; preds = %try.cont, %for.body
   %dna_type2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 8
   %6 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i, align 8, !alias.scope !197, !noalias !194
   store ptr %6, ptr %dna_type.i.i.i.i.i.i.i.i, align 8, !alias.scope !194, !noalias !197
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender7MLoopUVE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !194, !noalias !197
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender7MLoopUVE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !194, !noalias !197
   %uv.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 16
   %uv2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %uv.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %uv2.i.i.i.i.i.i.i, i64 12, i1 false), !alias.scope !199
@@ -50564,7 +50564,7 @@ for.inc.i.i.i:                                    ; preds = %if.then, %for.inc.i
   %__n.addr.07.i.i.i = phi i64 [ %dec.i.i.i, %for.inc.i.i.i ], [ %__n, %if.then ]
   %3 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8MLoopColE, i64 16), ptr %__cur.08.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8MLoopColE, i64 16), ptr %__cur.08.i.i.i, align 8
   %dec.i.i.i = add i64 %__n.addr.07.i.i.i, -1
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
@@ -50596,7 +50596,7 @@ for.inc.i.i.i21:                                  ; preds = %_ZNKSt6vectorIN6Ass
   %__n.addr.07.i.i.i23 = phi i64 [ %dec.i.i.i24, %for.inc.i.i.i21 ], [ %__n, %_ZNKSt6vectorIN6Assimp7Blender8MLoopColESaIS2_EE12_M_check_lenEmPKc.exit ]
   %5 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8MLoopColE, i64 16), ptr %__cur.08.i.i.i22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8MLoopColE, i64 16), ptr %__cur.08.i.i.i22, align 8
   %dec.i.i.i24 = add i64 %__n.addr.07.i.i.i23, -1
   %incdec.ptr.i.i.i25 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 24
   %cmp.not.i.i.i26 = icmp eq i64 %dec.i.i.i24, 0
@@ -50615,7 +50615,7 @@ for.body.i.i.i:                                   ; preds = %try.cont, %for.body
   %dna_type2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 8
   %6 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i, align 8, !alias.scope !206, !noalias !203
   store ptr %6, ptr %dna_type.i.i.i.i.i.i.i.i, align 8, !alias.scope !203, !noalias !206
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8MLoopColE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !203, !noalias !206
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8MLoopColE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !203, !noalias !206
   %r.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 16
   %r2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 16
   %7 = load i32, ptr %r2.i.i.i.i.i.i.i, align 8, !alias.scope !206, !noalias !203
@@ -50985,7 +50985,7 @@ for.inc.i.i.i:                                    ; preds = %if.then, %for.inc.i
   %__n.addr.07.i.i.i = phi i64 [ %dec.i.i.i, %for.inc.i.i.i ], [ %__n, %if.then ]
   %3 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MPolyE, i64 16), ptr %__cur.08.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5MPolyE, i64 16), ptr %__cur.08.i.i.i, align 8
   %dec.i.i.i = add i64 %__n.addr.07.i.i.i, -1
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
@@ -51017,7 +51017,7 @@ for.inc.i.i.i21:                                  ; preds = %_ZNKSt6vectorIN6Ass
   %__n.addr.07.i.i.i23 = phi i64 [ %dec.i.i.i24, %for.inc.i.i.i21 ], [ %__n, %_ZNKSt6vectorIN6Assimp7Blender5MPolyESaIS2_EE12_M_check_lenEmPKc.exit ]
   %5 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MPolyE, i64 16), ptr %__cur.08.i.i.i22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5MPolyE, i64 16), ptr %__cur.08.i.i.i22, align 8
   %dec.i.i.i24 = add i64 %__n.addr.07.i.i.i23, -1
   %incdec.ptr.i.i.i25 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 32
   %cmp.not.i.i.i26 = icmp eq i64 %dec.i.i.i24, 0
@@ -51036,7 +51036,7 @@ for.body.i.i.i:                                   ; preds = %try.cont, %for.body
   %dna_type2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 8
   %6 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i, align 8, !alias.scope !215, !noalias !212
   store ptr %6, ptr %dna_type.i.i.i.i.i.i.i.i, align 8, !alias.scope !212, !noalias !215
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MPolyE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !212, !noalias !215
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5MPolyE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !212, !noalias !215
   %loopstart.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 16
   %loopstart2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %loopstart.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(11) %loopstart2.i.i.i.i.i.i.i, i64 11, i1 false), !alias.scope !217
@@ -51405,7 +51405,7 @@ for.inc.i.i.i:                                    ; preds = %if.then, %for.inc.i
   %__n.addr.07.i.i.i = phi i64 [ %dec.i.i.i, %for.inc.i.i.i ], [ %__n, %if.then ]
   %3 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8MTexPolyE, i64 16), ptr %__cur.08.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8MTexPolyE, i64 16), ptr %__cur.08.i.i.i, align 8
   %dec.i.i.i = add i64 %__n.addr.07.i.i.i, -1
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
@@ -51437,7 +51437,7 @@ for.inc.i.i.i21:                                  ; preds = %_ZNKSt6vectorIN6Ass
   %__n.addr.07.i.i.i23 = phi i64 [ %dec.i.i.i24, %for.inc.i.i.i21 ], [ %__n, %_ZNKSt6vectorIN6Assimp7Blender8MTexPolyESaIS2_EE12_M_check_lenEmPKc.exit ]
   %5 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8MTexPolyE, i64 16), ptr %__cur.08.i.i.i22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8MTexPolyE, i64 16), ptr %__cur.08.i.i.i22, align 8
   %dec.i.i.i24 = add i64 %__n.addr.07.i.i.i23, -1
   %incdec.ptr.i.i.i25 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 32
   %cmp.not.i.i.i26 = icmp eq i64 %dec.i.i.i24, 0
@@ -51456,7 +51456,7 @@ for.body.i.i.i:                                   ; preds = %try.cont, %for.body
   %dna_type2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 8
   %6 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i, align 8, !alias.scope !224, !noalias !221
   store ptr %6, ptr %dna_type.i.i.i.i.i.i.i.i, align 8, !alias.scope !221, !noalias !224
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8MTexPolyE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !221, !noalias !224
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8MTexPolyE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !221, !noalias !224
   %tpage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 16
   %tpage2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tpage.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %tpage2.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !226
@@ -51825,7 +51825,7 @@ for.inc.i.i.i:                                    ; preds = %if.then, %for.inc.i
   %__n.addr.07.i.i.i = phi i64 [ %dec.i.i.i, %for.inc.i.i.i ], [ %__n, %if.then ]
   %3 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i64 16), ptr %__cur.08.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i64 16), ptr %__cur.08.i.i.i, align 8
   %dw.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dw.i.i.i.i.i, i8 0, i64 24, i1 false)
   %dec.i.i.i = add i64 %__n.addr.07.i.i.i, -1
@@ -51859,7 +51859,7 @@ for.inc.i.i.i21:                                  ; preds = %_ZNKSt6vectorIN6Ass
   %__n.addr.07.i.i.i23 = phi i64 [ %dec.i.i.i25, %for.inc.i.i.i21 ], [ %__n, %_ZNKSt6vectorIN6Assimp7Blender11MDeformVertESaIS2_EE12_M_check_lenEmPKc.exit ]
   %5 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i64 16), ptr %__cur.08.i.i.i22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i64 16), ptr %__cur.08.i.i.i22, align 8
   %dw.i.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dw.i.i.i.i.i24, i8 0, i64 24, i1 false)
   %dec.i.i.i25 = add i64 %__n.addr.07.i.i.i23, -1
@@ -51880,7 +51880,7 @@ for.body.i.i.i:                                   ; preds = %try.cont, %for.body
   %dna_type2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 8
   %6 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i, align 8, !alias.scope !233, !noalias !230
   store ptr %6, ptr %dna_type.i.i.i.i.i.i.i.i, align 8, !alias.scope !230, !noalias !233
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !230, !noalias !233
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !230, !noalias !233
   %dw.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 16
   %dw2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 16
   %7 = load ptr, ptr %dw2.i.i.i.i.i.i.i, align 8, !alias.scope !233, !noalias !230
@@ -51929,7 +51929,7 @@ if.end44:                                         ; preds = %_ZSt27__uninitializ
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender11MDeformVertD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i64 16), ptr %this, align 8
   %dw = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %dw, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -51966,7 +51966,7 @@ _ZN6Assimp7Blender6vectorINS0_13MDeformWeightEED2Ev.exit: ; preds = %invoke.cont
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender11MDeformVertD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i64 16), ptr %this, align 8
   %dw.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %dw.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -52325,7 +52325,7 @@ for.inc.i.i.i:                                    ; preds = %if.then, %for.inc.i
   %__n.addr.07.i.i.i = phi i64 [ %dec.i.i.i, %for.inc.i.i.i ], [ %__n, %if.then ]
   %3 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender4MColE, i64 16), ptr %__cur.08.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender4MColE, i64 16), ptr %__cur.08.i.i.i, align 8
   %dec.i.i.i = add i64 %__n.addr.07.i.i.i, -1
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
@@ -52357,7 +52357,7 @@ for.inc.i.i.i21:                                  ; preds = %_ZNKSt6vectorIN6Ass
   %__n.addr.07.i.i.i23 = phi i64 [ %dec.i.i.i24, %for.inc.i.i.i21 ], [ %__n, %_ZNKSt6vectorIN6Assimp7Blender4MColESaIS2_EE12_M_check_lenEmPKc.exit ]
   %5 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender4MColE, i64 16), ptr %__cur.08.i.i.i22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender4MColE, i64 16), ptr %__cur.08.i.i.i22, align 8
   %dec.i.i.i24 = add i64 %__n.addr.07.i.i.i23, -1
   %incdec.ptr.i.i.i25 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 24
   %cmp.not.i.i.i26 = icmp eq i64 %dec.i.i.i24, 0
@@ -52376,7 +52376,7 @@ for.body.i.i.i:                                   ; preds = %try.cont, %for.body
   %dna_type2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 8
   %6 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i, align 8, !alias.scope !242, !noalias !239
   store ptr %6, ptr %dna_type.i.i.i.i.i.i.i.i, align 8, !alias.scope !239, !noalias !242
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender4MColE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !239, !noalias !242
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender4MColE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !239, !noalias !242
   %r.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 16
   %r2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 16
   %7 = load i32, ptr %r2.i.i.i.i.i.i.i, align 8, !alias.scope !242, !noalias !239
@@ -53261,9 +53261,9 @@ define linkonce_odr hidden noundef ptr @_ZNK6Assimp7Blender9Structure9_allocateI
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(1720) ptr @_Znwm(i64 noundef 1720) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1440) %call, i8 0, i64 1440, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8MaterialE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8MaterialE, i64 16), ptr %call, align 8
   %id.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
   %group.i = getelementptr inbounds nuw i8, ptr %call, i64 1408
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %group.i, i8 0, i64 16, i1 false)
   %scevgep.i = getelementptr inbounds nuw i8, ptr %call, i64 1432
@@ -53307,7 +53307,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender8MaterialEEC2IS2_vEEPT_.exit: ; preds = %invok
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %out, align 8
@@ -53707,7 +53707,7 @@ lpad:                                             ; preds = %if.then.i5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender8MaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(1720) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8MaterialE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8MaterialE, i64 16), ptr %this, align 8
   %invariant.gep = getelementptr inbounds nuw i8, ptr %this, i64 8
   br label %arraydestroy.body
 
@@ -54034,7 +54034,7 @@ _ZN6Assimp7Blender10CustomDataD2Ev.exit:          ; preds = %invoke.cont.i.i, %i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender10CustomDataD2Ev(ptr noundef nonnull align 8 dereferenceable(220) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %this, align 8
   %layers = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %layers, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -54142,7 +54142,7 @@ _ZN6Assimp7Blender6vectorISt10shared_ptrINS0_15CustomDataLayerEEED2Ev.exit: ; pr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender10CustomDataD0Ev(ptr noundef nonnull align 8 dereferenceable(220) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %this, align 8
   %layers.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %layers.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -54767,7 +54767,7 @@ for.inc.i.i.i:                                    ; preds = %if.then, %for.inc.i
   %__n.addr.07.i.i.i = phi i64 [ %dec.i.i.i, %for.inc.i.i.i ], [ %__n, %if.then ]
   %3 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender13MDeformWeightE, i64 16), ptr %__cur.08.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender13MDeformWeightE, i64 16), ptr %__cur.08.i.i.i, align 8
   %dec.i.i.i = add i64 %__n.addr.07.i.i.i, -1
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
@@ -54799,7 +54799,7 @@ for.inc.i.i.i21:                                  ; preds = %_ZNKSt6vectorIN6Ass
   %__n.addr.07.i.i.i23 = phi i64 [ %dec.i.i.i24, %for.inc.i.i.i21 ], [ %__n, %_ZNKSt6vectorIN6Assimp7Blender13MDeformWeightESaIS2_EE12_M_check_lenEmPKc.exit ]
   %5 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender13MDeformWeightE, i64 16), ptr %__cur.08.i.i.i22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender13MDeformWeightE, i64 16), ptr %__cur.08.i.i.i22, align 8
   %dec.i.i.i24 = add i64 %__n.addr.07.i.i.i23, -1
   %incdec.ptr.i.i.i25 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 24
   %cmp.not.i.i.i26 = icmp eq i64 %dec.i.i.i24, 0
@@ -54818,7 +54818,7 @@ for.body.i.i.i:                                   ; preds = %try.cont, %for.body
   %dna_type2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 8
   %6 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i, align 8, !alias.scope !266, !noalias !263
   store ptr %6, ptr %dna_type.i.i.i.i.i.i.i.i, align 8, !alias.scope !263, !noalias !266
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender13MDeformWeightE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !263, !noalias !266
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender13MDeformWeightE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !263, !noalias !266
   %def_nr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 16
   %def_nr2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 16
   %7 = load i64, ptr %def_nr2.i.i.i.i.i.i.i, align 8, !alias.scope !266, !noalias !263
@@ -56122,9 +56122,9 @@ define linkonce_odr hidden noundef ptr @_ZNK6Assimp7Blender9Structure9_allocateI
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(1064) ptr @_Znwm(i64 noundef 1064) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1064) %call, i8 0, i64 1064, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5WorldE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5WorldE, i64 16), ptr %call, align 8
   %id.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %_ZNSt10shared_ptrIN6Assimp7Blender5WorldEEC2IS2_vEEPT_.exit unwind label %lpad.i.i.i.i
 
@@ -56164,7 +56164,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender5WorldEEC2IS2_vEEPT_.exit: ; preds = %invoke.c
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5WorldELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5WorldELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %out, align 8
@@ -57390,9 +57390,9 @@ define linkonce_odr hidden noundef ptr @_ZNK6Assimp7Blender9Structure9_allocateI
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(1560) ptr @_Znwm(i64 noundef 1560) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1552) %call, i8 0, i64 1552, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender7LibraryE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender7LibraryE, i64 16), ptr %call, align 8
   %id.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender2IDE, i64 16), ptr %id.i, align 8
   %parent.i = getelementptr inbounds nuw i8, ptr %call, i64 1544
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %parent.i, i8 0, i64 16, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -57434,7 +57434,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender7LibraryEEC2IS2_vEEPT_.exit: ; preds = %invoke
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender7LibraryELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender7LibraryELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %out, align 8
@@ -57834,7 +57834,7 @@ lpad:                                             ; preds = %if.then.i5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender7LibraryD2Ev(ptr noundef nonnull align 8 dereferenceable(1560) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender7LibraryE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender7LibraryE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1552
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -57915,7 +57915,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender7LibraryEED2Ev.exit: ; preds = %entry, %_ZN9__
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender7LibraryD0Ev(ptr noundef nonnull align 8 dereferenceable(1560) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender7LibraryE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender7LibraryE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1552
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -58788,7 +58788,7 @@ define linkonce_odr hidden noundef ptr @_ZNK6Assimp7Blender9Structure9_allocateI
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10PackedFileE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender10PackedFileE, i64 16), ptr %call, align 8
   %data.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data.i, i8 0, i64 16, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -58830,7 +58830,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender10PackedFileEEC2IS2_vEEPT_.exit: ; preds = %en
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender10PackedFileELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender10PackedFileELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %out, align 8
@@ -59230,7 +59230,7 @@ lpad:                                             ; preds = %if.then.i5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender10PackedFileD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10PackedFileE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender10PackedFileE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -59311,7 +59311,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender10FileOffsetEED2Ev.exit: ; preds = %entry, %_Z
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender10PackedFileD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10PackedFileE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender10PackedFileE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -59639,7 +59639,7 @@ _ZN6Assimp7Blender9Structure19_defaultInitializerILi0EEclINS0_6vectorISt10shared
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender15CustomDataLayerD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender15CustomDataLayerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender15CustomDataLayerE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -59720,7 +59720,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender8ElemBaseEED2Ev.exit: ; preds = %entry, %_ZN9_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender15CustomDataLayerD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender15CustomDataLayerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender15CustomDataLayerE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -60525,9 +60525,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender19SubsurfModifierDataD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender18SharedModifierDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender18SharedModifierDataE, i64 16), ptr %this, align 8
   %modifier.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender12ModifierDataE, i64 16), ptr %modifier.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender12ModifierDataE, i64 16), ptr %modifier.i, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -60642,9 +60642,9 @@ _ZN6Assimp7Blender18SharedModifierDataD2Ev.exit:  ; preds = %_ZNSt8weak_ptrIN6As
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender19SubsurfModifierDataD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender18SharedModifierDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender18SharedModifierDataE, i64 16), ptr %this, align 8
   %modifier.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender12ModifierDataE, i64 16), ptr %modifier.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender12ModifierDataE, i64 16), ptr %modifier.i.i, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -60760,9 +60760,9 @@ _ZN6Assimp7Blender19SubsurfModifierDataD2Ev.exit: ; preds = %_ZNSt8weak_ptrIN6As
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender18SharedModifierDataD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender18SharedModifierDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender18SharedModifierDataE, i64 16), ptr %this, align 8
   %modifier = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender12ModifierDataE, i64 16), ptr %modifier, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender12ModifierDataE, i64 16), ptr %modifier, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -60877,9 +60877,9 @@ _ZN6Assimp7Blender12ModifierDataD2Ev.exit:        ; preds = %_ZNSt8weak_ptrIN6As
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender18SharedModifierDataD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender18SharedModifierDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender18SharedModifierDataE, i64 16), ptr %this, align 8
   %modifier.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender12ModifierDataE, i64 16), ptr %modifier.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender12ModifierDataE, i64 16), ptr %modifier.i, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -60995,7 +60995,7 @@ _ZN6Assimp7Blender18SharedModifierDataD2Ev.exit:  ; preds = %_ZNSt8weak_ptrIN6As
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender12ModifierDataD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender12ModifierDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender12ModifierDataE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -61110,7 +61110,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender8ElemBaseEED2Ev.exit: ; preds = %_ZNSt8weak_pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender12ModifierDataD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender12ModifierDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender12ModifierDataE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -61509,9 +61509,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender4MeshD2Ev(ptr noundef nonnull align 8 dereferenceable(2528) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender4MeshE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender4MeshE, i64 16), ptr %this, align 8
   %ldata = getelementptr inbounds nuw i8, ptr %this, i64 2304
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %ldata, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %ldata, align 8
   %layers.i = getelementptr inbounds nuw i8, ptr %this, i64 2320
   %0 = load ptr, ptr %layers.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2328
@@ -61614,7 +61614,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i.i
 
 _ZN6Assimp7Blender10CustomDataD2Ev.exit:          ; preds = %invoke.cont.i.i.i, %if.then.i.i.i.i.i
   %pdata = getelementptr inbounds nuw i8, ptr %this, i64 2080
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %pdata, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %pdata, align 8
   %layers.i1 = getelementptr inbounds nuw i8, ptr %this, i64 2096
   %14 = load ptr, ptr %layers.i1, align 8
   %_M_finish.i.i.i2 = getelementptr inbounds nuw i8, ptr %this, i64 2104
@@ -61717,7 +61717,7 @@ if.then.i.i.i.i.i25:                              ; preds = %invoke.cont.i.i.i23
 
 _ZN6Assimp7Blender10CustomDataD2Ev.exit45:        ; preds = %invoke.cont.i.i.i23, %if.then.i.i.i.i.i25
   %fdata = getelementptr inbounds nuw i8, ptr %this, i64 1856
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %fdata, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %fdata, align 8
   %layers.i46 = getelementptr inbounds nuw i8, ptr %this, i64 1872
   %28 = load ptr, ptr %layers.i46, align 8
   %_M_finish.i.i.i47 = getelementptr inbounds nuw i8, ptr %this, i64 1880
@@ -61820,7 +61820,7 @@ if.then.i.i.i.i.i70:                              ; preds = %invoke.cont.i.i.i68
 
 _ZN6Assimp7Blender10CustomDataD2Ev.exit90:        ; preds = %invoke.cont.i.i.i68, %if.then.i.i.i.i.i70
   %edata = getelementptr inbounds nuw i8, ptr %this, i64 1632
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %edata, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %edata, align 8
   %layers.i91 = getelementptr inbounds nuw i8, ptr %this, i64 1648
   %42 = load ptr, ptr %layers.i91, align 8
   %_M_finish.i.i.i92 = getelementptr inbounds nuw i8, ptr %this, i64 1656
@@ -61923,7 +61923,7 @@ if.then.i.i.i.i.i115:                             ; preds = %invoke.cont.i.i.i11
 
 _ZN6Assimp7Blender10CustomDataD2Ev.exit135:       ; preds = %invoke.cont.i.i.i113, %if.then.i.i.i.i.i115
   %vdata = getelementptr inbounds nuw i8, ptr %this, i64 1408
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %vdata, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender10CustomDataE, i64 16), ptr %vdata, align 8
   %layers.i136 = getelementptr inbounds nuw i8, ptr %this, i64 1424
   %56 = load ptr, ptr %layers.i136, align 8
   %_M_finish.i.i.i137 = getelementptr inbounds nuw i8, ptr %this, i64 1432
@@ -63040,9 +63040,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender5SceneD2Ev(ptr noundef nonnull align 8 dereferenceable(1176) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5SceneE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender5SceneE, i64 16), ptr %this, align 8
   %base = getelementptr inbounds nuw i8, ptr %this, i64 1128
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %base, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender8ListBaseE, i64 16), ptr %base, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1168
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -63564,7 +63564,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender18MirrorModifierDataD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender18MirrorModifierDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender18MirrorModifierDataE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -63599,9 +63599,9 @@ if.then.i.i.i.i:                                  ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt8weak_ptrIN6Assimp7Blender6ObjectEED2Ev.exit
 
 _ZNSt8weak_ptrIN6Assimp7Blender6ObjectEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %if.then.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender18SharedModifierDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender18SharedModifierDataE, i64 16), ptr %this, align 8
   %modifier.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender12ModifierDataE, i64 16), ptr %modifier.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp7Blender12ModifierDataE, i64 16), ptr %modifier.i, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %5 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %5, null

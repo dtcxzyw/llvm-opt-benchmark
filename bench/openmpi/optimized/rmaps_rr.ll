@@ -40,7 +40,7 @@ define internal i32 @prte_rmaps_rr_map(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not, label %18, label %8
 
 8:                                                ; preds = %2
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %9, 64
   br i1 %or.cond, label %10, label %pmix_obj_run_destructors.exit146
 
@@ -66,12 +66,12 @@ define internal i32 @prte_rmaps_rr_map(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not109, label %35, label %23
 
 23:                                               ; preds = %18
-  %24 = tail call i32 @strcasecmp(ptr noundef nonnull %22, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_rmaps_round_robin_component, i64 84)) #11
+  %24 = tail call i32 @strcasecmp(ptr noundef nonnull %22, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_mca_rmaps_round_robin_component, i64 84)) #11
   %.not110 = icmp eq i32 %24, 0
   br i1 %.not110, label %35, label %25
 
 25:                                               ; preds = %23
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %or.cond121 = icmp ult i32 %26, 64
   br i1 %or.cond121, label %27, label %pmix_obj_run_destructors.exit146
 
@@ -93,7 +93,7 @@ define internal i32 @prte_rmaps_rr_map(ptr noundef %0, ptr noundef %1) #0 {
   %37 = load i16, ptr %36, align 8
   %38 = and i16 %37, 255
   %39 = icmp samesign ugt i16 %38, 16
-  %40 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %or.cond122 = icmp ult i32 %40, 64
   br i1 %39, label %41, label %50
 
@@ -144,7 +144,7 @@ define internal i32 @prte_rmaps_rr_map(ptr noundef %0, ptr noundef %1) #0 {
 
 64:                                               ; preds = %63, %59
   %65 = phi ptr [ %.pre169, %63 ], [ %60, %59 ]
-  %66 = tail call noalias ptr @strdup(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_rmaps_round_robin_component, i64 84)) #10
+  %66 = tail call noalias ptr @strdup(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_mca_rmaps_round_robin_component, i64 84)) #10
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 128
   store ptr %66, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 460
@@ -178,7 +178,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
 
 86:                                               ; preds = %pmix_pointer_array_get_item.exit
   %87 = load i32, ptr @pmix_class_init_epoch, align 4
-  %88 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %88 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not112 = icmp eq i32 %87, %88
   br i1 %.not112, label %90, label %89
 

@@ -243,7 +243,7 @@ $_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable = comdat any
 define dso_local noundef nonnull ptr @_ZN4llvm3X8614createFastISelERNS_20FunctionLoweringInfoEPKNS_17TargetLibraryInfoE(ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #17
   tail call void @_ZN4llvm8FastISelC2ERNS_20FunctionLoweringInfoEPKNS_17TargetLibraryInfoEb(ptr noundef nonnull align 8 dereferenceable(184) %3, ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr noundef %1, i1 noundef zeroext false) #18
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_111X86FastISelE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_111X86FastISelE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1505,7 +1505,7 @@ _ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i57: ;
   br label %586
 
 586:                                              ; preds = %585, %584
-  %.050.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_111X86FastISel12X86SelectCmpEPKN4llvm11InstructionEE12SETFOpcTable, i64 6), %585 ], [ @_ZZN12_GLOBAL__N_111X86FastISel12X86SelectCmpEPKN4llvm11InstructionEE12SETFOpcTable, %584 ]
+  %.050.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_111X86FastISel12X86SelectCmpEPKN4llvm11InstructionEE12SETFOpcTable, i64 6), %585 ], [ @_ZZN12_GLOBAL__N_111X86FastISel12X86SelectCmpEPKN4llvm11InstructionEE12SETFOpcTable, %584 ]
   %587 = tail call i32 @_ZN4llvm8FastISel15createResultRegEPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull @_ZN4llvm3X8611GR8RegClassE) #18
   %588 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %589 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel18X86FastEmitCompareEPKN4llvm5ValueES4_NS1_3EVTERKNS1_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %576, ptr noundef %.095.i, i16 %514, ptr noundef nonnull align 8 dereferenceable(8) %588)
@@ -3264,7 +3264,7 @@ _ZNK4llvm4User10getOperandEj.exit.i.i:            ; preds = %1579, %1576
 
 1604:                                             ; preds = %1603, %1602, %1600
   %.not71.i.i = phi i1 [ true, %1600 ], [ false, %1603 ], [ false, %1602 ]
-  %.069.i.i = phi ptr [ null, %1600 ], [ getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_111X86FastISel22X86FastEmitCMoveSelectEN4llvm3MVTEPKNS1_11InstructionEE12SETFOpcTable, i64 6), %1603 ], [ @_ZZN12_GLOBAL__N_111X86FastISel22X86FastEmitCMoveSelectEN4llvm3MVTEPKNS1_11InstructionEE12SETFOpcTable, %1602 ]
+  %.069.i.i = phi ptr [ null, %1600 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_111X86FastISel22X86FastEmitCMoveSelectEN4llvm3MVTEPKNS1_11InstructionEE12SETFOpcTable, i64 6), %1603 ], [ @_ZZN12_GLOBAL__N_111X86FastISel22X86FastEmitCMoveSelectEN4llvm3MVTEPKNS1_11InstructionEE12SETFOpcTable, %1602 ]
   %.068.i.i = phi i32 [ %1601, %1600 ], [ 33, %1603 ], [ 33, %1602 ]
   %1605 = tail call i64 @_ZN4llvm3X8619getX86ConditionCodeENS_7CmpInst9PredicateE(i32 noundef %.068.i.i) #18
   %.sroa.0115.0.extract.trunc.i.i = trunc i64 %1605 to i32
@@ -16671,7 +16671,7 @@ _ZNK4llvm3EVTeqES0_.exit:                         ; preds = %_ZNK4llvm4User10get
   %51 = zext i1 %8 to i64
   %52 = zext i1 %.not.i.i33 to i64
   %53 = getelementptr inbounds nuw [2 x [2 x [2 x i16]]], ptr @_ZZN12_GLOBAL__N_111X86FastISel16X86SelectIntToFPEPKN4llvm11InstructionEbE7SCvtOpc, i64 0, i64 %51, i64 1, i64 %52
-  %54 = getelementptr inbounds nuw [2 x i16], ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_111X86FastISel16X86SelectIntToFPEPKN4llvm11InstructionEbE7UCvtOpc, i64 4), i64 0, i64 %52
+  %54 = getelementptr inbounds nuw [2 x i16], ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_111X86FastISel16X86SelectIntToFPEPKN4llvm11InstructionEbE7UCvtOpc, i64 4), i64 0, i64 %52
   %.in27 = select i1 %2, ptr %53, ptr %54
   br label %61
 

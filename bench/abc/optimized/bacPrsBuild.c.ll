@@ -43,7 +43,7 @@ define range(i32 0, 2) i32 @Psr_ManIsMapped(ptr nocapture noundef readonly %0) l
   %14 = load i32, ptr %13, align 4
   %15 = add nsw i32 %14, -2
   store i32 %15, ptr @Psr_BoxSignals.V, align 8
-  store i32 %15, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
+  store i32 %15, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
   %.val4.i = load ptr, ptr %6, align 8
   %.val5.i = load ptr, ptr %7, align 8
   %16 = getelementptr inbounds nuw i32, ptr %.val5.i, i64 %indvars.iv
@@ -51,7 +51,7 @@ define range(i32 0, 2) i32 @Psr_ManIsMapped(ptr nocapture noundef readonly %0) l
   %18 = sext i32 %17 to i64
   %19 = getelementptr i32, ptr %.val4.i, i64 %18
   %20 = getelementptr i8, ptr %19, i64 12
-  store ptr %20, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
+  store ptr %20, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
   %.val16 = load ptr, ptr %6, align 8
   %.val17 = load ptr, ptr %7, align 8
   %21 = getelementptr inbounds nuw i32, ptr %.val17, i64 %indvars.iv
@@ -123,7 +123,7 @@ define i32 @Psr_NtkCountObjects(ptr nocapture noundef readonly %0) local_unnamed
   %17 = load i32, ptr %16, align 4
   %18 = add nsw i32 %17, -2
   store i32 %18, ptr @Psr_BoxSignals.V, align 8
-  store i32 %18, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
+  store i32 %18, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
   %.val4.i13 = load ptr, ptr %10, align 8
   %.val5.i14 = load ptr, ptr %11, align 8
   %19 = getelementptr inbounds nuw i32, ptr %.val5.i14, i64 %indvars.iv
@@ -131,7 +131,7 @@ define i32 @Psr_NtkCountObjects(ptr nocapture noundef readonly %0) local_unnamed
   %21 = sext i32 %20 to i64
   %22 = getelementptr i32, ptr %.val4.i13, i64 %21
   %23 = getelementptr i8, ptr %22, i64 12
-  store ptr %23, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
+  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
   %.val10 = load ptr, ptr %10, align 8
   %.val11 = load ptr, ptr %11, align 8
   %24 = getelementptr inbounds nuw i32, ptr %.val11, i64 %indvars.iv
@@ -362,7 +362,7 @@ define void @Psr_ManRemapBoxes(ptr nocapture noundef readonly %0, ptr nocapture 
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, -2
   store i32 %20, ptr @Psr_BoxSignals.V, align 8
-  store i32 %20, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
+  store i32 %20, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
   %.val4.i = load ptr, ptr %7, align 8
   %.val5.i = load ptr, ptr %8, align 8
   %21 = getelementptr inbounds nuw i32, ptr %.val5.i, i64 %indvars.iv
@@ -370,7 +370,7 @@ define void @Psr_ManRemapBoxes(ptr nocapture noundef readonly %0, ptr nocapture 
   %23 = sext i32 %22 to i64
   %24 = getelementptr i32, ptr %.val4.i, i64 %23
   %25 = getelementptr i8, ptr %24, i64 12
-  store ptr %25, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
+  store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
   %.val23 = load ptr, ptr %7, align 8
   %.val24 = load ptr, ptr %8, align 8
   %26 = getelementptr inbounds nuw i32, ptr %.val24, i64 %indvars.iv
@@ -500,7 +500,7 @@ define void @Psr_ManCleanMap(ptr nocapture noundef readonly %0, ptr nocapture no
   %30 = load i32, ptr %29, align 4
   %31 = add nsw i32 %30, -2
   store i32 %31, ptr @Psr_BoxSignals.V, align 8
-  store i32 %31, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
+  store i32 %31, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
   %.val4.i = load ptr, ptr %17, align 8
   %.val5.i = load ptr, ptr %18, align 8
   %32 = getelementptr inbounds nuw i32, ptr %.val5.i, i64 %indvars.iv66
@@ -508,14 +508,14 @@ define void @Psr_ManCleanMap(ptr nocapture noundef readonly %0, ptr nocapture no
   %34 = sext i32 %33 to i64
   %35 = getelementptr i32, ptr %.val4.i, i64 %34
   %36 = getelementptr i8, ptr %35, i64 12
-  store ptr %36, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
+  store ptr %36, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
   %37 = icmp sgt i32 %30, 3
   br i1 %37, label %.lr.ph55, label %.critedge4
 
 .lr.ph55:                                         ; preds = %25, %.lr.ph55
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %.lr.ph55 ], [ 0, %25 ]
   %38 = or disjoint i64 %indvars.iv63, 1
-  %Psr_BoxSignals.V.val42 = load ptr, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
+  %Psr_BoxSignals.V.val42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
   %39 = getelementptr inbounds nuw i32, ptr %Psr_BoxSignals.V.val42, i64 %38
   %40 = load i32, ptr %39, align 4
   %.val49 = load i8, ptr %19, align 4
@@ -528,7 +528,7 @@ define void @Psr_ManCleanMap(ptr nocapture noundef readonly %0, ptr nocapture no
   store i32 -1, ptr %44, align 4
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 2
   %45 = or disjoint i64 %indvars.iv.next64, 1
-  %Psr_BoxSignals.V.val = load i32, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
+  %Psr_BoxSignals.V.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
   %46 = sext i32 %Psr_BoxSignals.V.val to i64
   %47 = icmp slt i64 %45, %46
   br i1 %47, label %.lr.ph55, label %.critedge4, !llvm.loop !15
@@ -716,7 +716,7 @@ Bac_NtkStartNames.exit:                           ; preds = %23, %Vec_IntGrow.ex
   %77 = load i32, ptr %76, align 4
   %78 = add nsw i32 %77, -2
   store i32 %78, ptr @Psr_BoxSignals.V, align 8
-  store i32 %78, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
+  store i32 %78, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
   %.val4.i = load ptr, ptr %50, align 8
   %.val5.i = load ptr, ptr %51, align 8
   %79 = getelementptr inbounds nuw i32, ptr %.val5.i, i64 %indvars.iv735
@@ -724,7 +724,7 @@ Bac_NtkStartNames.exit:                           ; preds = %23, %Vec_IntGrow.ex
   %81 = sext i32 %80 to i64
   %82 = getelementptr i32, ptr %.val4.i, i64 %81
   %83 = getelementptr i8, ptr %82, i64 12
-  store ptr %83, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
+  store ptr %83, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
   %.val345 = load ptr, ptr %50, align 8
   %.val346 = load ptr, ptr %51, align 8
   %84 = getelementptr inbounds nuw i32, ptr %.val346, i64 %indvars.iv735
@@ -1028,8 +1028,8 @@ Bac_ObjAlloc.exit:                                ; preds = %.Vec_IntGrow.exit10
   %217 = load i32, ptr %216, align 4
   %218 = shl i32 %217, 2
   tail call fastcc void @Vec_IntSetEntry(ptr noundef nonnull %7, i32 noundef %157, i32 noundef range(i32 0, -3) %218)
-  %Psr_BoxSignals.V.val388 = load i32, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
-  %Psr_BoxSignals.V.val389 = load ptr, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
+  %Psr_BoxSignals.V.val388 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
+  %Psr_BoxSignals.V.val389 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
   %219 = sext i32 %Psr_BoxSignals.V.val388 to i64
   %220 = getelementptr i32, ptr %Psr_BoxSignals.V.val389, i64 %219
   %221 = getelementptr i8, ptr %220, i64 -4
@@ -1367,13 +1367,13 @@ Bac_BoxAlloc.exit404:                             ; preds = %Bac_ObjAlloc.exit48
   store i32 %373, ptr %374, align 8
   %375 = getelementptr inbounds nuw i8, ptr %369, i64 20
   store i32 %293, ptr %375, align 4
-  %Psr_BoxSignals.V.val312680 = load i32, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
+  %Psr_BoxSignals.V.val312680 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
   %376 = icmp sgt i32 %Psr_BoxSignals.V.val312680, 0
   br i1 %376, label %.lr.ph682, label %.critedge4
 
 .lr.ph682:                                        ; preds = %Bac_BoxAlloc.exit404
   %377 = add i32 %293, 1
-  %Psr_BoxSignals.V.val338.pre759 = load ptr, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
+  %Psr_BoxSignals.V.val338.pre759 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
   br label %378
 
 378:                                              ; preds = %.lr.ph682, %428
@@ -1499,8 +1499,8 @@ Vec_IntSetEntry.exit:                             ; preds = %392, %._crit_edge.i
   %.val375 = load ptr, ptr %59, align 8
   %427 = getelementptr inbounds i32, ptr %.val375, i64 %387
   store i32 %395, ptr %427, align 4
-  %Psr_BoxSignals.V.val338.pre = load ptr, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
-  %Psr_BoxSignals.V.val312.pre = load i32, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
+  %Psr_BoxSignals.V.val338.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
+  %Psr_BoxSignals.V.val312.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
   br label %428
 
 428:                                              ; preds = %378, %Vec_IntSetEntry.exit
@@ -1831,8 +1831,8 @@ Bac_ObjAlloc.exit526:                             ; preds = %.Vec_IntGrow.exit10
   %567 = sext i32 %565 to i64
   %568 = getelementptr inbounds i32, ptr %564, i64 %567
   store i32 -1, ptr %568, align 4
-  %Psr_BoxSignals.V.val390 = load i32, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
-  %Psr_BoxSignals.V.val391 = load ptr, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
+  %Psr_BoxSignals.V.val390 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
+  %Psr_BoxSignals.V.val391 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
   %569 = sext i32 %Psr_BoxSignals.V.val390 to i64
   %570 = getelementptr i32, ptr %Psr_BoxSignals.V.val391, i64 %569
   %571 = getelementptr i8, ptr %570, i64 -4
@@ -1959,7 +1959,7 @@ Vec_IntPush.exit:                                 ; preds = %605, %Vec_IntGrow.e
   %625 = load i32, ptr %624, align 4
   %626 = add nsw i32 %625, -2
   store i32 %626, ptr @Psr_BoxSignals.V, align 8
-  store i32 %626, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
+  store i32 %626, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
   %.val4.i424 = load ptr, ptr %62, align 8
   %.val5.i425 = load ptr, ptr %63, align 8
   %627 = getelementptr inbounds nuw i32, ptr %.val5.i425, i64 %indvars.iv747
@@ -1967,7 +1967,7 @@ Vec_IntPush.exit:                                 ; preds = %605, %Vec_IntGrow.e
   %629 = sext i32 %628 to i64
   %630 = getelementptr i32, ptr %.val4.i424, i64 %629
   %631 = getelementptr i8, ptr %630, i64 12
-  store ptr %631, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
+  store ptr %631, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
   %.val343 = load ptr, ptr %62, align 8
   %.val344 = load ptr, ptr %63, align 8
   %632 = getelementptr inbounds nuw i32, ptr %.val344, i64 %indvars.iv747
@@ -2025,7 +2025,7 @@ Psr_ManNtk.exit429:                               ; preds = %642
   %indvars.iv741 = phi i64 [ %indvars.iv.next742, %Vec_IntSetEntry.exit574 ], [ 0, %.preheader ]
   %.1695 = phi i32 [ %.2, %Vec_IntSetEntry.exit574 ], [ %.0709, %.preheader ]
   %.1266694 = phi i32 [ %.2267, %Vec_IntSetEntry.exit574 ], [ %.0265708, %.preheader ]
-  %Psr_BoxSignals.V.val333 = load ptr, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
+  %Psr_BoxSignals.V.val333 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
   %656 = or disjoint i64 %indvars.iv741, 1
   %657 = getelementptr inbounds nuw i32, ptr %Psr_BoxSignals.V.val333, i64 %656
   %658 = load i32, ptr %657, align 4
@@ -2271,7 +2271,7 @@ Vec_IntSetEntry.exit574:                          ; preds = %728, %._crit_edge.i
   %760 = getelementptr inbounds i32, ptr %.val.i572, i64 %759
   store i32 %729, ptr %760, align 4
   %indvars.iv.next742 = add nuw nsw i64 %indvars.iv741, 2
-  %Psr_BoxSignals.V.val311 = load i32, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
+  %Psr_BoxSignals.V.val311 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
   %761 = add nsw i32 %Psr_BoxSignals.V.val311, -2
   %762 = sext i32 %761 to i64
   %763 = icmp slt i64 %indvars.iv.next742, %762
@@ -2530,8 +2530,8 @@ Vec_IntSetEntry.exit607:                          ; preds = %837, %._crit_edge.i
   %867 = sext i32 %773 to i64
   %868 = getelementptr inbounds i32, ptr %.val.i605, i64 %867
   store i32 %838, ptr %868, align 4
-  %Psr_BoxSignals.V.val329.pre = load ptr, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
-  %Psr_BoxSignals.V.val310.pre = load i32, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
+  %Psr_BoxSignals.V.val329.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
+  %Psr_BoxSignals.V.val310.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
   br label %869
 
 869:                                              ; preds = %764, %Vec_IntSetEntry.exit607
@@ -2555,7 +2555,7 @@ Vec_IntSetEntry.exit607:                          ; preds = %837, %._crit_edge.i
   %indvars.iv744 = phi i64 [ %indvars.iv.next745, %Vec_IntSetEntry.exit655 ], [ 0, %872 ]
   %.6702 = phi i32 [ %.7, %Vec_IntSetEntry.exit655 ], [ %.0709, %872 ]
   %.8273701 = phi i32 [ %.9274, %Vec_IntSetEntry.exit655 ], [ %.0265708, %872 ]
-  %Psr_BoxSignals.V.val324 = load ptr, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
+  %Psr_BoxSignals.V.val324 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
   %876 = or disjoint i64 %indvars.iv744, 1
   %877 = getelementptr inbounds nuw i32, ptr %Psr_BoxSignals.V.val324, i64 %876
   %878 = load i32, ptr %877, align 4
@@ -2923,7 +2923,7 @@ Vec_IntSetEntry.exit655:                          ; preds = %1002, %._crit_edge.
   %1034 = getelementptr inbounds i32, ptr %.val.i653, i64 %1033
   store i32 %1003, ptr %1034, align 4
   %indvars.iv.next745 = add nuw nsw i64 %indvars.iv744, 2
-  %Psr_BoxSignals.V.val = load i32, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
+  %Psr_BoxSignals.V.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
   %1035 = add nsw i32 %Psr_BoxSignals.V.val, -2
   %1036 = sext i32 %1035 to i64
   %1037 = icmp slt i64 %indvars.iv.next745, %1036
@@ -3845,7 +3845,7 @@ Bac_ManNtk.exit:                                  ; preds = %64, %68
   %87 = load i32, ptr %86, align 4
   %88 = add nsw i32 %87, -2
   store i32 %88, ptr @Psr_BoxSignals.V, align 8
-  store i32 %88, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
+  store i32 %88, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
   %.val4.i13.i = load ptr, ptr %80, align 8
   %.val5.i14.i = load ptr, ptr %81, align 8
   %89 = getelementptr inbounds nuw i32, ptr %.val5.i14.i, i64 %indvars.iv.i57
@@ -3853,7 +3853,7 @@ Bac_ManNtk.exit:                                  ; preds = %64, %68
   %91 = sext i32 %90 to i64
   %92 = getelementptr i32, ptr %.val4.i13.i, i64 %91
   %93 = getelementptr i8, ptr %92, i64 12
-  store ptr %93, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
+  store ptr %93, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
   %.val10.i = load ptr, ptr %80, align 8
   %.val11.i = load ptr, ptr %81, align 8
   %94 = getelementptr inbounds nuw i32, ptr %.val11.i, i64 %indvars.iv.i57
@@ -4059,7 +4059,7 @@ Bac_NtkAlloc.exit:                                ; preds = %Vec_IntGrow.exit25.
   %190 = load i32, ptr %189, align 4
   %191 = add nsw i32 %190, -2
   store i32 %191, ptr @Psr_BoxSignals.V, align 8
-  store i32 %191, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
+  store i32 %191, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
   %.val4.i.i66 = load ptr, ptr %182, align 8
   %.val5.i.i67 = load ptr, ptr %183, align 8
   %192 = getelementptr inbounds nuw i32, ptr %.val5.i.i67, i64 %indvars.iv.i63
@@ -4067,7 +4067,7 @@ Bac_NtkAlloc.exit:                                ; preds = %Vec_IntGrow.exit25.
   %194 = sext i32 %193 to i64
   %195 = getelementptr i32, ptr %.val4.i.i66, i64 %194
   %196 = getelementptr i8, ptr %195, i64 12
-  store ptr %196, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
+  store ptr %196, ptr getelementptr inbounds nuw (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
   %.val16.i = load ptr, ptr %182, align 8
   %.val17.i68 = load ptr, ptr %183, align 8
   %197 = getelementptr inbounds nuw i32, ptr %.val17.i68, i64 %indvars.iv.i63

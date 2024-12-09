@@ -1288,7 +1288,7 @@ define dso_local void @_ZN4llvm20AArch64LegalizerInfoC2ERKNS_16AArch64SubtargetE
   %1012 = alloca [2 x %"struct.std::pair.180"], align 8
   %1013 = alloca [6 x i32], align 4
   %1014 = alloca [2 x i32], align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm13LegalizerInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm13LegalizerInfoE, i64 16), ptr %0, align 8
   br label %1015
 
 1015:                                             ; preds = %1015, %2
@@ -1307,7 +1307,7 @@ define dso_local void @_ZN4llvm20AArch64LegalizerInfoC2ERKNS_16AArch64SubtargetE
 _ZN4llvm3LLT15scalable_vectorEjS0_.exit810:       ; preds = %1015
   %1020 = getelementptr inbounds nuw i8, ptr %0, i64 41000
   tail call void @_ZN4llvm19LegacyLegalizerInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(80040) %1020) #20
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm20AArch64LegalizerInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm20AArch64LegalizerInfoE, i64 16), ptr %0, align 8
   %1021 = getelementptr inbounds nuw i8, ptr %0, i64 121040
   store ptr %1, ptr %1021, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %720, ptr noundef nonnull align 8 dereferenceable(64) @constinit, i64 64, i1 false)
@@ -21961,7 +21961,7 @@ _ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit.thread: ; preds = %72, %72, %
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   %107 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildStoreERKNS_5SrcOpES3_RNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(88) %15, ptr noundef nonnull align 8 dereferenceable(20) %19, ptr noundef nonnull align 8 dereferenceable(20) %20, ptr noundef nonnull align 8 dereferenceable(80) %106) #20
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %2) #20
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %15, align 8
   %108 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %109 = load ptr, ptr %108, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %109, null
@@ -22001,7 +22001,7 @@ _ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit.thread: ; preds = %72, %72, %
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %129 = load i32, ptr %128, align 4
   call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %119, i32 %129) #20
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %23, align 8
   %130 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %131 = load ptr, ptr %130, align 8
   %.not.i.i.i.i.i.i173 = icmp eq ptr %131, null
@@ -22047,7 +22047,7 @@ _ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit.thread: ; preds = %72, %72, %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %155, ptr noundef nonnull align 8 dereferenceable(1041) %154, ptr noundef nonnull align 8 dereferenceable(32) %135) #20
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %2) #20
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %26, align 8
   %159 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %160 = load ptr, ptr %159, align 8
   %.not.i.i.i.i.i.i175 = icmp eq ptr %160, null
@@ -22225,7 +22225,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   br label %246
 
 246:                                              ; preds = %_ZNK4llvm3LLT14getElementTypeEv.exit, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %27, align 8
   %247 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %248 = load ptr, ptr %247, align 8
   %.not.i.i.i.i.i.i179 = icmp eq ptr %248, null
@@ -22252,7 +22252,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   store i32 0, ptr %259, align 8
   %260 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildInstrEjNS_8ArrayRefINS_5DstOpEEENS1_INS_5SrcOpEEESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88) %30, i32 noundef %252, ptr nonnull %31, i64 1, ptr nonnull %32, i64 1, i64 0) #20
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %2) #20
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %30, align 8
   %261 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %262 = load ptr, ptr %261, align 8
   %.not.i.i.i.i.i.i183 = icmp eq ptr %262, null
@@ -22394,7 +22394,7 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit199:     ; preds = %312, %316, %320
 
 333:                                              ; preds = %329, %325
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %2) #20
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %33, align 8
   %334 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %335 = load ptr, ptr %334, align 8
   %.not.i.i.i.i.i.i200 = icmp eq ptr %335, null
@@ -22615,7 +22615,7 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit199:     ; preds = %312, %316, %320
 
 442:                                              ; preds = %337, %351, %377, %403, %429, %416, %390, %364, %338
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %2) #20
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %43, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %43, align 8
   %443 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %444 = load ptr, ptr %443, align 8
   %.not.i.i.i.i.i.i210 = icmp eq ptr %444, null
@@ -22639,7 +22639,7 @@ declare i32 @_ZN4llvm19MachineRegisterInfo28createGenericVirtualRegisterENS_3LLT
 define linkonce_odr hidden void @_ZN4llvm16MachineIRBuilderC2ERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -22854,7 +22854,7 @@ declare i32 @_ZN4llvm15LegalizerHelper25getDynStackAllocTargetPtrENS_8RegisterES
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm20AArch64LegalizerInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(121048) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm13LegalizerInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm13LegalizerInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 41000
   tail call void @_ZN4llvm19LegacyLegalizerInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(80040) %2) #20
   br label %3
@@ -22920,7 +22920,7 @@ _ZN4llvm13LegalizerInfoD2Ev.exit:                 ; preds = %_ZN4llvm15LegalizeR
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm20AArch64LegalizerInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(121048) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm13LegalizerInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm13LegalizerInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 41000
   tail call void @_ZN4llvm19LegacyLegalizerInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(80040) %2) #20
   br label %3

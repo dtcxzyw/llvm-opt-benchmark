@@ -117369,7 +117369,7 @@ _ZN5typst11foundations5scope5Scope13deduplicating17h8f0843815aa89837E.exit: ; pr
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr null, ptr %12, align 8, !alias.scope !25335
   %13 = load ptr, ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumItem$GT$4data4DATA17ha2302d719c1631deE.llvm.12777920187102919001", align 8, !noalias !25345, !nonnull !16, !align !353, !noundef !16
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumItem$GT$4data4DATA17ha2302d719c1631deE.llvm.12777920187102919001", i64 8), align 8, !noalias !25345, !noundef !16
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumItem$GT$4data4DATA17ha2302d719c1631deE.llvm.12777920187102919001", i64 8), align 8, !noalias !25345, !noundef !16
   invoke void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %4, ptr noalias noundef nonnull readonly align 1 %13, i64 noundef %14, ptr noundef nonnull align 8 @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumItem$GT$4data4DATA17ha2302d719c1631deE.llvm.12777920187102919001", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
           to label %_ZN5typst11foundations5scope5Scope11define_elem17hf4e9f966121c15c8E.exit unwind label %15
 

@@ -81,7 +81,7 @@ $_ZTIN5ceres8internal32DynamicCompressedRowSparseMatrixE = comdat any
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5ceres8internal32DynamicCompressedRowSparseMatrixC2Eiii(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5ceres8internal25CompressedRowSparseMatrixC2Eiii(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal32DynamicCompressedRowSparseMatrixE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5ceres8internal32DynamicCompressedRowSparseMatrixE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = sext i32 %1 to i64

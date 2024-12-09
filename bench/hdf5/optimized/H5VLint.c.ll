@@ -349,7 +349,7 @@ define range(i32 -1, 1) i32 @H5VL__set_def_conn() local_unnamed_addr #0 {
 
 H5VL_conn_free.exit:                              ; preds = %11, %15, %19
   store i64 -1, ptr @H5VL_def_conn_s, align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @H5VL_def_conn_s, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @H5VL_def_conn_s, i64 8), align 8
   br label %23
 
 23:                                               ; preds = %H5VL_conn_free.exit, %0
@@ -520,13 +520,13 @@ H5VL__is_connector_registered_by_name.exit:       ; preds = %41
 H5VL__connector_str_to_info.exit:                 ; preds = %.H5VL__connector_str_to_info.exit_crit_edge, %107, %88
   %112 = phi ptr [ %.pre, %.H5VL__connector_str_to_info.exit_crit_edge ], [ null, %107 ], [ null, %88 ]
   store i64 %.140, ptr @H5VL_def_conn_s, align 8
-  store ptr %112, ptr getelementptr inbounds (i8, ptr @H5VL_def_conn_s, i64 8), align 8
+  store ptr %112, ptr getelementptr inbounds nuw (i8, ptr @H5VL_def_conn_s, i64 8), align 8
   br label %121
 
 113:                                              ; preds = %25, %23
   %114 = tail call i64 @H5VL_native_register() #10
   store i64 %114, ptr @H5VL_def_conn_s, align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @H5VL_def_conn_s, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @H5VL_def_conn_s, i64 8), align 8
   %115 = tail call i32 @H5I_inc_ref(i64 noundef %114, i1 noundef zeroext false) #10
   %116 = icmp slt i32 %115, 0
   br i1 %116, label %117, label %121
@@ -576,7 +576,7 @@ H5VL__connector_str_to_info.exit:                 ; preds = %.H5VL__connector_st
 
 144:                                              ; preds = %136
   %145 = load i64, ptr @H5VL_def_conn_s, align 8
-  %146 = load ptr, ptr getelementptr inbounds (i8, ptr @H5VL_def_conn_s, i64 8), align 8
+  %146 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5VL_def_conn_s, i64 8), align 8
   %147 = call i32 @H5P_set_vol(ptr noundef nonnull %138, i64 noundef %145, ptr noundef %146) #10
   %148 = icmp slt i32 %147, 0
   br i1 %148, label %149, label %171
@@ -667,7 +667,7 @@ define range(i32 0, 2) i32 @H5VL_term_package() local_unnamed_addr #0 {
 
 H5VL_conn_free.exit:                              ; preds = %8, %12, %16
   store i64 -1, ptr @H5VL_def_conn_s, align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @H5VL_def_conn_s, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @H5VL_def_conn_s, i64 8), align 8
   br label %33
 
 20:                                               ; preds = %0

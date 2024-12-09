@@ -811,7 +811,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit321: ; preds = %.preheader
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull writeonly align 8 dereferenceable(140) initializes((0, 8), (136, 140)) %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-40, 24) (i8, ptr @_ZTVN5boost7archive17archive_exceptionE, i64 40), ptr %0, align 8, !tbaa !6
+  store ptr getelementptr inbounds nuw inrange(-40, 24) (i8, ptr @_ZTVN5boost7archive17archive_exceptionE, i64 40), ptr %0, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %1, ptr %5, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1567,7 +1567,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN5boost7archive17archive_exceptionC1ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(140) initializes((0, 140)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %1) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds inrange(-40, 24) (i8, ptr @_ZTVN5boost7archive17archive_exceptionE, i64 40), ptr %0, align 8, !tbaa !6
+  store ptr getelementptr inbounds nuw inrange(-40, 24) (i8, ptr @_ZTVN5boost7archive17archive_exceptionE, i64 40), ptr %0, align 8, !tbaa !6
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %5 = load i32, ptr %4, align 8, !tbaa !8
@@ -1656,7 +1656,7 @@ define void @_ZN5boost7archive17archive_exceptionC2Ev(ptr nocapture noundef nonn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5boost7archive17archive_exceptionC1Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(140) initializes((0, 8), (136, 140)) %0) unnamed_addr #11 align 2 {
-  store ptr getelementptr inbounds inrange(-40, 24) (i8, ptr @_ZTVN5boost7archive17archive_exceptionE, i64 40), ptr %0, align 8, !tbaa !6
+  store ptr getelementptr inbounds nuw inrange(-40, 24) (i8, ptr @_ZTVN5boost7archive17archive_exceptionE, i64 40), ptr %0, align 8, !tbaa !6
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 0, ptr %2, align 8, !tbaa !8
   ret void

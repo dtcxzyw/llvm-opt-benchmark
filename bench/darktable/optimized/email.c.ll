@@ -283,7 +283,7 @@ define void @finalize_store(ptr nocapture noundef readnone %0, ptr nocapture nou
   %27 = getelementptr inbounds ptr, ptr %13, i64 %26
   store ptr null, ptr %27, align 8, !tbaa !25
   %28 = call noalias ptr @g_strjoinv(ptr noundef nonnull @.str.11, ptr noundef nonnull %13) #12
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !26
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !26
   %30 = and i32 %29, 262144
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %60, label %59
@@ -298,11 +298,11 @@ define void @finalize_store(ptr nocapture noundef readnone %0, ptr nocapture nou
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !21
   %38 = call noalias ptr @g_path_get_basename(ptr noundef %37) #12
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 120), align 8, !tbaa !37
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !37
   %40 = load i32, ptr %35, align 8, !tbaa !16
   %41 = call ptr @dt_image_cache_get(ptr noundef %39, i32 noundef %40, i8 noundef signext 114) #12
   call void @dt_image_print_exif(ptr noundef %41, ptr noundef nonnull %3, i64 noundef 256) #12
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 120), align 8, !tbaa !37
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !37
   call void @dt_image_cache_read_release(ptr noundef %42, ptr noundef %41) #12
   %43 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.5, ptr noundef %38, ptr noundef nonnull %3) #12
   %44 = icmp eq ptr %34, null

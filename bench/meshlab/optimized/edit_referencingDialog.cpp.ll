@@ -515,9 +515,9 @@ define void @_ZN22edit_referencingDialogC2EP7QWidgetP21EditReferencingPlugin(ptr
   %4 = alloca %class.QRect, align 4
   %5 = alloca %class.QPoint, align 4
   tail call void @_ZN11QDockWidgetC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i32 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22edit_referencingDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22edit_referencingDialog, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22edit_referencingDialog, i64 448), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22edit_referencingDialog, i64 448), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = invoke noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #20
           to label %9 unwind label %52
@@ -2440,7 +2440,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i216: ; preds = %_ZN9QtPrivate8RefCo
   %600 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
   %601 = getelementptr inbounds nuw i8, ptr %600, i64 8
   store i32 0, ptr %601, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %600, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %600, align 8
   %602 = getelementptr inbounds nuw i8, ptr %600, i64 12
   store i32 40, ptr %602, align 4
   %603 = getelementptr inbounds nuw i8, ptr %600, i64 16
@@ -2587,7 +2587,7 @@ _ZN5QFont7setBoldEb.exit:                         ; preds = %640
 648:                                              ; preds = %646
   %649 = getelementptr inbounds nuw i8, ptr %647, i64 8
   store i32 0, ptr %649, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %647, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %647, align 8
   %650 = getelementptr inbounds nuw i8, ptr %647, i64 12
   store i32 40, ptr %650, align 4
   %651 = getelementptr inbounds nuw i8, ptr %647, i64 16
@@ -5595,9 +5595,9 @@ declare void @_ZN7QWidget11setGeometryERK5QRect(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN22edit_referencingDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22edit_referencingDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22edit_referencingDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22edit_referencingDialog, i64 448), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22edit_referencingDialog, i64 448), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

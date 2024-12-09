@@ -435,7 +435,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17hc4c67b5d
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !39
   store ptr @anon.3f5780a7fef518180bd2fb61a12abd81.2.llvm.9993772341007493287, ptr %5, align 8, !noalias !39
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.3f5780a7fef518180bd2fb61a12abd81.2.llvm.9993772341007493287, i64 20), ptr %35, align 8, !noalias !39
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.3f5780a7fef518180bd2fb61a12abd81.2.llvm.9993772341007493287, i64 20), ptr %35, align 8, !noalias !39
   br label %36
 
 36:                                               ; preds = %38, %30
@@ -3278,7 +3278,7 @@ define hidden void @_ZN5tokio7runtime7context7current12with_current17h579b0d1fb1
   br i1 %10, label %21, label %11
 
 11:                                               ; preds = %7
-  %.val3.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 16), align 8, !alias.scope !379, !noalias !376, !nonnull !10, !noundef !10
+  %.val3.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 16), align 8, !alias.scope !379, !noalias !376, !nonnull !10, !noundef !10
   %trunc.i.i.i.i.i = trunc nuw i64 %9 to i1
   %12 = atomicrmw add ptr %.val3.i.i.i, i64 1 monotonic, align 8, !noalias !382
   %13 = icmp slt i64 %12, 0
@@ -3389,7 +3389,7 @@ define hidden void @_ZN5tokio7runtime7context7current12with_current17hfb06244791
   br i1 %10, label %21, label %11
 
 11:                                               ; preds = %7
-  %.val3.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 16), align 8, !alias.scope !396, !noalias !393, !nonnull !10, !noundef !10
+  %.val3.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 16), align 8, !alias.scope !396, !noalias !393, !nonnull !10, !noundef !10
   %trunc.i.i.i.i.i = trunc nuw i64 %9 to i1
   %12 = atomicrmw add ptr %.val3.i.i.i, i64 1 monotonic, align 8, !noalias !399
   %13 = icmp slt i64 %12, 0
@@ -11985,7 +11985,7 @@ define hidden noundef ptr @_ZN5tokio6signal4unix13signal_enable17h94dc17f6914b19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !1924
   store ptr @anon.b9c08160b8d52b2f9d67197464302e31.67, ptr %6, align 8, !noalias !1924
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.b9c08160b8d52b2f9d67197464302e31.67, i64 20), ptr %14, align 8, !noalias !1924
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.b9c08160b8d52b2f9d67197464302e31.67, i64 20), ptr %14, align 8, !noalias !1924
   br label %15
 
 15:                                               ; preds = %17, %13
@@ -12174,7 +12174,7 @@ define void @_ZN5tokio6signal4unix6signal17hb914e0a02fce9874E(ptr noalias nocapt
   br i1 %15, label %24, label %16
 
 16:                                               ; preds = %12
-  %.val3.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 16), align 8, !alias.scope !1969, !noalias !1962, !nonnull !10, !noundef !10
+  %.val3.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 16), align 8, !alias.scope !1969, !noalias !1962, !nonnull !10, !noundef !10
   %trunc.i.i.i.i.i.i.i = trunc nuw i64 %14 to i1
   %17 = atomicrmw add ptr %.val3.i.i.i.i.i, i64 1 monotonic, align 8, !noalias !1972
   %18 = icmp slt i64 %17, 0

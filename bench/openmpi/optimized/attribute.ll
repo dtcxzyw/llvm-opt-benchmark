@@ -35,7 +35,7 @@ define range(i32 -2, 1) i32 @ompi_attr_get_ref() local_unnamed_addr #0 {
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %5
 
 5:                                                ; preds = %0, %3
@@ -174,7 +174,7 @@ opal_thread_add_fetch_32.exit8:                   ; preds = %54, %52, %opal_obj_
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %opal_thread_add_fetch_32.exit8
-  %61 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %61 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %62
 
 62:                                               ; preds = %opal_thread_add_fetch_32.exit8, %60
@@ -332,7 +332,7 @@ opal_obj_new.exit.thread1:                        ; preds = %.lr.ph.i.i, %13
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %opal_obj_new.exit.thread1
-  %30 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %30 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %31
 
 31:                                               ; preds = %opal_obj_new.exit.thread1, %29
@@ -410,7 +410,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %54
   br i1 %64, label %65, label %opal_obj_new.exit.thread
 
 65:                                               ; preds = %62
-  %66 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %66 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %opal_obj_new.exit.thread
 
 opal_obj_new.exit.thread:                         ; preds = %12, %65, %62
@@ -460,7 +460,7 @@ define range(i32 -5, 1) i32 @ompi_attr_free_keyval(i32 noundef %0, ptr nocapture
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %9
 
 9:                                                ; preds = %3, %7
@@ -497,7 +497,7 @@ define range(i32 -5, 1) i32 @ompi_attr_free_keyval(i32 noundef %0, ptr nocapture
   br i1 %28, label %29, label %59
 
 29:                                               ; preds = %26
-  %30 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %30 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %59
 
 31:                                               ; preds = %22, %21
@@ -559,7 +559,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %52
-  %56 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %56 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %57
 
 57:                                               ; preds = %52, %55
@@ -617,7 +617,7 @@ opal_obj_new.exit.thread19:                       ; preds = %.lr.ph.i.i, %13
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %opal_obj_new.exit.thread19
-  %23 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %23 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %24
 
 24:                                               ; preds = %opal_obj_new.exit.thread19, %22
@@ -684,7 +684,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br i1 %48, label %49, label %opal_obj_new.exit.thread
 
 49:                                               ; preds = %46
-  %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %opal_obj_new.exit.thread
 
 opal_obj_new.exit.thread:                         ; preds = %12, %49, %46
@@ -806,7 +806,7 @@ ompi_attr_hash_init.exit:                         ; preds = %opal_obj_new.exit.t
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %63
-  %67 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %67 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %68
 
 68:                                               ; preds = %63, %66
@@ -960,7 +960,7 @@ translate_to_c.exit:                              ; preds = %120, %124, %127, %1
   br i1 %143, label %144, label %146
 
 144:                                              ; preds = %141
-  %145 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %145 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %146
 
 146:                                              ; preds = %141, %144
@@ -1114,7 +1114,7 @@ translate_to_c.exit81:                            ; preds = %198, %202, %205, %2
   br i1 %221, label %222, label %224
 
 222:                                              ; preds = %219
-  %223 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %223 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %224
 
 224:                                              ; preds = %219, %222
@@ -1264,7 +1264,7 @@ translate_to_c.exit87:                            ; preds = %276, %280, %283, %2
 
 .sink.split:                                      ; preds = %294, %216, %138
   %.1.ph = phi i32 [ %.042, %138 ], [ %.2, %216 ], [ %.3, %294 ]
-  %297 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %297 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %298
 
 298:                                              ; preds = %.sink.split, %294, %216, %138
@@ -1412,7 +1412,7 @@ opal_obj_new.exit.thread19:                       ; preds = %.lr.ph.i.i, %13
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %opal_obj_new.exit.thread19
-  %23 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %23 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %24
 
 24:                                               ; preds = %opal_obj_new.exit.thread19, %22
@@ -1479,7 +1479,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br i1 %48, label %49, label %opal_obj_new.exit.thread
 
 49:                                               ; preds = %46
-  %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %opal_obj_new.exit.thread
 
 opal_obj_new.exit.thread:                         ; preds = %12, %49, %46
@@ -1528,7 +1528,7 @@ opal_obj_new.exit.thread19:                       ; preds = %.lr.ph.i.i, %13
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %opal_obj_new.exit.thread19
-  %23 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %23 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %24
 
 24:                                               ; preds = %opal_obj_new.exit.thread19, %22
@@ -1595,7 +1595,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br i1 %48, label %49, label %opal_obj_new.exit.thread
 
 49:                                               ; preds = %46
-  %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %opal_obj_new.exit.thread
 
 opal_obj_new.exit.thread:                         ; preds = %12, %49, %46
@@ -1644,7 +1644,7 @@ opal_obj_new.exit.thread19:                       ; preds = %.lr.ph.i.i, %13
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %opal_obj_new.exit.thread19
-  %23 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %23 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %24
 
 24:                                               ; preds = %opal_obj_new.exit.thread19, %22
@@ -1711,7 +1711,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br i1 %48, label %49, label %opal_obj_new.exit.thread
 
 49:                                               ; preds = %46
-  %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %opal_obj_new.exit.thread
 
 opal_obj_new.exit.thread:                         ; preds = %12, %49, %46
@@ -1728,7 +1728,7 @@ define range(i32 -1, 1) i32 @ompi_attr_get_c(ptr noundef %0, i32 noundef %1, ptr
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %4
-  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %11
 
 11:                                               ; preds = %4, %9
@@ -1808,7 +1808,7 @@ translate_to_c.exit:                              ; preds = %.thread, %27, %30, 
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %36
-  %40 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %40 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %41
 
 41:                                               ; preds = %36, %39
@@ -1824,7 +1824,7 @@ define range(i32 -1, 1) i32 @ompi_attr_get_fint(ptr noundef %0, i32 noundef %1, 
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %4
-  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %11
 
 11:                                               ; preds = %4, %9
@@ -1910,7 +1910,7 @@ translate_to_fint.exit:                           ; preds = %.thread, %27, %32, 
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %42
-  %46 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %46 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %47
 
 47:                                               ; preds = %42, %45
@@ -1926,7 +1926,7 @@ define range(i32 -1, 1) i32 @ompi_attr_get_aint(ptr noundef %0, i32 noundef %1, 
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %4
-  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %11
 
 11:                                               ; preds = %4, %9
@@ -2012,7 +2012,7 @@ translate_to_aint.exit:                           ; preds = %.thread, %27, %31, 
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %42
-  %46 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %46 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %47
 
 47:                                               ; preds = %42, %45
@@ -2067,7 +2067,7 @@ define i32 @ompi_attr_copy_all(i32 noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %43
-  %47 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %47 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %48
 
 48:                                               ; preds = %43, %46
@@ -2138,7 +2138,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %67, %6
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %75
-  %79 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %79 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %80
 
 80:                                               ; preds = %75, %78
@@ -2326,7 +2326,7 @@ translate_to_c.exit:                              ; preds = %143, %147, %150, %1
   br i1 %172, label %173, label %175
 
 173:                                              ; preds = %170
-  %174 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %174 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %175
 
 175:                                              ; preds = %170, %173
@@ -2514,7 +2514,7 @@ translate_to_c.exit97:                            ; preds = %238, %242, %245, %2
   br i1 %267, label %268, label %270
 
 268:                                              ; preds = %265
-  %269 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %269 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %270
 
 270:                                              ; preds = %265, %268
@@ -2698,7 +2698,7 @@ translate_to_c.exit103:                           ; preds = %333, %337, %340, %3
 
 .sink.split:                                      ; preds = %357, %262, %167
   %.159.ph = phi i32 [ %.058, %167 ], [ %.2, %262 ], [ %.3, %357 ]
-  %360 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %360 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %361
 
 361:                                              ; preds = %.sink.split, %357, %262, %167
@@ -2845,7 +2845,7 @@ opal_obj_run_destructors.exit112:                 ; preds = %.lr.ph.i109, %411
   br i1 %423, label %424, label %426
 
 424:                                              ; preds = %.loopexit
-  %425 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %425 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %426
 
 426:                                              ; preds = %424, %.loopexit, %5
@@ -2864,7 +2864,7 @@ define i32 @ompi_attr_delete(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %5
-  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %10
 
 10:                                               ; preds = %5, %8
@@ -2875,7 +2875,7 @@ define i32 @ompi_attr_delete(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %10
-  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %16
 
 16:                                               ; preds = %10, %14
@@ -2951,7 +2951,7 @@ define internal fastcc i32 @ompi_attr_delete_impl(i32 noundef %0, ptr noundef %1
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %44
-  %48 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %48 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %49
 
 49:                                               ; preds = %44, %47
@@ -3105,7 +3105,7 @@ translate_to_c.exit:                              ; preds = %101, %105, %108, %1
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %122
-  %126 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %126 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %127
 
 127:                                              ; preds = %122, %125
@@ -3259,7 +3259,7 @@ translate_to_c.exit68:                            ; preds = %179, %183, %186, %1
   br i1 %202, label %203, label %205
 
 203:                                              ; preds = %200
-  %204 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %204 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %205
 
 205:                                              ; preds = %200, %203
@@ -3409,7 +3409,7 @@ translate_to_c.exit74:                            ; preds = %257, %261, %264, %2
 
 .sink.split:                                      ; preds = %275, %197, %119
   %.2.ph = phi i32 [ %.1, %119 ], [ %.3, %197 ], [ %.4, %275 ]
-  %278 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %278 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %279
 
 279:                                              ; preds = %.sink.split, %275, %197, %119
@@ -3539,7 +3539,7 @@ define i32 @ompi_attr_delete_all(i32 noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %8
-  %12 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %12 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %13
 
 13:                                               ; preds = %8, %11
@@ -3555,7 +3555,7 @@ define i32 @ompi_attr_delete_all(i32 noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %19, label %20, label %53
 
 20:                                               ; preds = %17
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %53
 
 22:                                               ; preds = %13
@@ -3572,7 +3572,7 @@ define i32 @ompi_attr_delete_all(i32 noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %29, label %30, label %53
 
 30:                                               ; preds = %27
-  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %53
 
 32:                                               ; preds = %22
@@ -3625,7 +3625,7 @@ define i32 @ompi_attr_delete_all(i32 noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %._crit_edge37
-  %52 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
+  %52 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attribute_lock, i64 16)) #13
   br label %53
 
 53:                                               ; preds = %51, %._crit_edge37, %30, %27, %20, %17, %3

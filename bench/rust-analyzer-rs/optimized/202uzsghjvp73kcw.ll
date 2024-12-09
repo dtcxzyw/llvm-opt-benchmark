@@ -45189,7 +45189,7 @@ _ZN6syntax3ast7AstNode16clone_for_update17hdd364be91dafbd16E.exit: ; preds = %"_
 43:                                               ; preds = %41
   %44 = icmp samesign ult i64 %42, 5
   tail call void @llvm.assume(i1 %44)
-  %45 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11ide_assists5utils29add_trait_assoc_items_to_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hbfb65fc70545fbcdE", i64 16) monotonic, align 8
+  %45 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN11ide_assists5utils29add_trait_assoc_items_to_impl28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hbfb65fc70545fbcdE", i64 16) monotonic, align 8
   switch i8 %45, label %46 [
     i8 0, label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..AssocItem$GT$$GT$17hfa77e42db05aca76E.exit"
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

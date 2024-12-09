@@ -820,7 +820,7 @@ for.body403.i:                                    ; preds = %for.cond400.prehead
   br i1 %cmp401.i, label %for.body403.i, label %for.end408.i, !llvm.loop !11
 
 for.end408.i:                                     ; preds = %for.body403.i, %for.cond400.preheader.i, %for.end.thread.i
-  %68 = load i32, ptr getelementptr inbounds (i8, ptr @input_paths, i64 12), align 4
+  %68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @input_paths, i64 12), align 4
   %cmp409.i = icmp eq i32 %68, 0
   br i1 %cmp409.i, label %if.then411.i, label %if.end412.i
 
@@ -850,7 +850,7 @@ if.then:                                          ; preds = %parse_args.exit
   call void @strarray_push(ptr noundef nonnull @include_paths, ptr noundef nonnull @.str.63) #19
   call void @strarray_push(ptr noundef nonnull @include_paths, ptr noundef nonnull @.str.64) #19
   call void @strarray_push(ptr noundef nonnull @include_paths, ptr noundef nonnull @.str.65) #19
-  %70 = load i32, ptr getelementptr inbounds (i8, ptr @include_paths, i64 12), align 4
+  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @include_paths, i64 12), align 4
   %cmp3.i = icmp sgt i32 %70, 0
   br i1 %cmp3.i, label %for.body.i57, label %add_default_include_paths.exit
 
@@ -861,7 +861,7 @@ for.body.i57:                                     ; preds = %if.then, %for.body.
   %72 = load ptr, ptr %arrayidx.i59, align 8
   call void @strarray_push(ptr noundef nonnull @std_include_paths, ptr noundef %72) #19
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i58, 1
-  %73 = load i32, ptr getelementptr inbounds (i8, ptr @include_paths, i64 12), align 4
+  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @include_paths, i64 12), align 4
   %74 = sext i32 %73 to i64
   %cmp.i61 = icmp slt i64 %indvars.iv.next.i60, %74
   br i1 %cmp.i61, label %for.body.i57, label %add_default_include_paths.exit, !llvm.loop !12
@@ -869,7 +869,7 @@ for.body.i57:                                     ; preds = %if.then, %for.body.
 add_default_include_paths.exit:                   ; preds = %for.body.i57, %if.then
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buflen.i)
-  %75 = load i32, ptr getelementptr inbounds (i8, ptr @opt_include, i64 12), align 4
+  %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt_include, i64 12), align 4
   %cmp67.i = icmp sgt i32 %75, 0
   br i1 %cmp67.i, label %for.body.i73, label %for.end.i62
 
@@ -935,7 +935,7 @@ while.end.i.i:                                    ; preds = %while.cond.i.i
 append_tokens.exit.i:                             ; preds = %while.end.i.i, %lor.lhs.false.i.i, %must_tokenize_file.exit.i
   %retval.0.i.i = phi ptr [ %tok.069.i, %while.end.i.i ], [ %call.i20.i, %lor.lhs.false.i.i ], [ %call.i20.i, %must_tokenize_file.exit.i ]
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i74, 1
-  %83 = load i32, ptr getelementptr inbounds (i8, ptr @opt_include, i64 12), align 4
+  %83 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt_include, i64 12), align 4
   %84 = sext i32 %83 to i64
   %cmp.i82 = icmp slt i64 %indvars.iv.next.i81, %84
   br i1 %cmp.i82, label %for.body.i73, label %for.end.i62, !llvm.loop !14
@@ -1090,7 +1090,7 @@ for.body.i.i68:                                   ; preds = %for.inc.i.i, %for.b
   br i1 %.b2226.i.i, label %land.lhs.true.i.i, label %if.end26.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i68
-  %103 = load i32, ptr getelementptr inbounds (i8, ptr @std_include_paths, i64 12), align 4
+  %103 = load i32, ptr getelementptr inbounds nuw (i8, ptr @std_include_paths, i64 12), align 4
   %cmp6.i.i.i = icmp sgt i32 %103, 0
   br i1 %cmp6.i.i.i, label %for.body.lr.ph.i.i.i, label %if.end26.i.i
 
@@ -1157,7 +1157,7 @@ for.body39.i.i:                                   ; preds = %for.inc53.i.i, %for
   br i1 %.b2125.i.i, label %land.lhs.true41.i.i, label %if.end47.i.i
 
 land.lhs.true41.i.i:                              ; preds = %for.body39.i.i
-  %111 = load i32, ptr getelementptr inbounds (i8, ptr @std_include_paths, i64 12), align 4
+  %111 = load i32, ptr getelementptr inbounds nuw (i8, ptr @std_include_paths, i64 12), align 4
   %cmp6.i40.i.i = icmp sgt i32 %111, 0
   br i1 %cmp6.i40.i.i, label %for.body.lr.ph.i42.i.i, label %if.end47.i.i
 
@@ -1720,7 +1720,7 @@ run_cc1.exit199:                                  ; preds = %create_tmpfile.exit
 
 for.inc:                                          ; preds = %while.body, %if.then19, %if.then47, %if.then49, %run_cc1.exit199, %run_cc1.exit154, %run_cc1.exit125, %if.then59, %if.then43, %if.then15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %166 = load i32, ptr getelementptr inbounds (i8, ptr @input_paths, i64 12), align 4
+  %166 = load i32, ptr getelementptr inbounds nuw (i8, ptr @input_paths, i64 12), align 4
   %167 = sext i32 %166 to i64
   %cmp10 = icmp slt i64 %indvars.iv.next, %167
   br i1 %cmp10, label %for.body, label %for.end, !llvm.loop !20
@@ -1836,7 +1836,7 @@ if.then9.i220:                                    ; preds = %if.end.i219
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.then9.i220, %if.end.i219
-  %175 = load i32, ptr getelementptr inbounds (i8, ptr @ld_extra_args, i64 12), align 4
+  %175 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ld_extra_args, i64 12), align 4
   %cmp21.i = icmp sgt i32 %175, 0
   br i1 %cmp21.i, label %for.body.i222, label %for.cond12.preheader.i
 
@@ -1852,7 +1852,7 @@ for.body.i222:                                    ; preds = %if.end10.i, %for.bo
   %178 = load ptr, ptr %arrayidx.i224, align 8
   call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef %178) #19
   %indvars.iv.next.i225 = add nuw nsw i64 %indvars.iv.i223, 1
-  %179 = load i32, ptr getelementptr inbounds (i8, ptr @ld_extra_args, i64 12), align 4
+  %179 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ld_extra_args, i64 12), align 4
   %180 = sext i32 %179 to i64
   %cmp.i226 = icmp slt i64 %indvars.iv.next.i225, %180
   br i1 %cmp.i226, label %for.body.i222, label %for.cond12.preheader.i, !llvm.loop !22
@@ -1902,7 +1902,7 @@ declare i32 @atexit(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind uwtable
 define internal void @cleanup() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @tmpfiles, i64 12), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tmpfiles, i64 12), align 4
   %cmp3 = icmp sgt i32 %0, 0
   br i1 %cmp3, label %for.body, label %for.end
 
@@ -1913,7 +1913,7 @@ for.body:                                         ; preds = %entry, %for.body
   %2 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 @unlink(ptr noundef %2) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @tmpfiles, i64 12), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tmpfiles, i64 12), align 4
   %4 = sext i32 %3 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !24

@@ -79,7 +79,7 @@ opal_datatype_span.exit:                          ; preds = %23, %35
 51:                                               ; preds = %opal_datatype_span.exit
   %52 = sub i64 0, %.050
   %53 = getelementptr inbounds i8, ptr %49, i64 %52
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 72), align 8
   %55 = tail call i32 %54(ptr noundef nonnull %53, i64 noundef %30, ptr noundef nonnull %5, i32 noundef %6, i32 noundef -25, ptr noundef nonnull %7, ptr noundef null) #4
   %.not47 = icmp eq i32 %55, 0
   br i1 %.not47, label %56, label %72
@@ -104,7 +104,7 @@ opal_datatype_span.exit:                          ; preds = %23, %35
   br label %72
 
 67:                                               ; preds = %ompi_comm_remote_size.exit
-  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 96), align 8
   %69 = sext i32 %1 to i64
   %70 = mul nsw i64 %20, %69
   %71 = tail call i32 %68(ptr noundef %0, i64 noundef %70, ptr noundef %2, i32 noundef 0, i32 noundef -25, i32 noundef 4, ptr noundef nonnull %7) #4

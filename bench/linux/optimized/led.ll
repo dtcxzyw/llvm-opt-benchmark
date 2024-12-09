@@ -473,7 +473,7 @@ define dso_local noundef ptr @__ieee80211_create_tpt_led_trigger(ptr noundef %0,
   br label %31
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %11 = tail call noalias noundef align 8 dereferenceable_or_null(136) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 136) #6
   %12 = icmp eq ptr %11, null
   br i1 %12, label %31, label %13

@@ -81,7 +81,7 @@ declare void @_ZN12ZStatCounterC1EPKcS1_PFv15LogTargetHandleRK12ZStatSamplerRK19
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN22ZPageCacheFlushClosureC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, i64 noundef %1) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV22ZPageCacheFlushClosure, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV22ZPageCacheFlushClosure, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1426,7 +1426,7 @@ define hidden void @_ZN10ZPageCache20flush_for_allocationEmP5ZListI5ZPageE(ptr n
   store i64 %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV35ZPageCacheFlushForAllocationClosure, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV35ZPageCacheFlushForAllocationClosure, i64 16), ptr %4, align 8
   call void @_ZN10ZPageCache5flushEP22ZPageCacheFlushClosureP5ZListI5ZPageE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %4, ptr noundef %2)
   ret void
 }
@@ -1461,7 +1461,7 @@ define hidden noundef i64 @_ZN10ZPageCache18flush_for_uncommitEmP5ZListI5ZPageEP
   store i64 %1, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV33ZPageCacheFlushForUncommitClosure, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV33ZPageCacheFlushForUncommitClosure, i64 16), ptr %5, align 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %7, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 32

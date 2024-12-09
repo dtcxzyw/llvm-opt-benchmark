@@ -70,29 +70,29 @@ define hidden void @VP8DspInit() local_unnamed_addr #0 {
   store ptr @HFilter8_C, ptr @VP8HFilter8, align 8
   store ptr @HFilter8i_C, ptr @VP8HFilter8i, align 8
   store ptr @DC4_C, ptr @VP8PredLuma4, align 16
-  store ptr @TM4_C, ptr getelementptr inbounds (i8, ptr @VP8PredLuma4, i64 8), align 8
-  store ptr @VE4_C, ptr getelementptr inbounds (i8, ptr @VP8PredLuma4, i64 16), align 16
-  store ptr @RD4_C, ptr getelementptr inbounds (i8, ptr @VP8PredLuma4, i64 32), align 16
-  store ptr @LD4_C, ptr getelementptr inbounds (i8, ptr @VP8PredLuma4, i64 48), align 16
-  store ptr @HE4_C, ptr getelementptr inbounds (i8, ptr @VP8PredLuma4, i64 24), align 8
-  store ptr @VR4_C, ptr getelementptr inbounds (i8, ptr @VP8PredLuma4, i64 40), align 8
-  store ptr @VL4_C, ptr getelementptr inbounds (i8, ptr @VP8PredLuma4, i64 56), align 8
-  store ptr @HD4_C, ptr getelementptr inbounds (i8, ptr @VP8PredLuma4, i64 64), align 16
-  store ptr @HU4_C, ptr getelementptr inbounds (i8, ptr @VP8PredLuma4, i64 72), align 8
+  store ptr @TM4_C, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma4, i64 8), align 8
+  store ptr @VE4_C, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma4, i64 16), align 16
+  store ptr @RD4_C, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma4, i64 32), align 16
+  store ptr @LD4_C, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma4, i64 48), align 16
+  store ptr @HE4_C, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma4, i64 24), align 8
+  store ptr @VR4_C, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma4, i64 40), align 8
+  store ptr @VL4_C, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma4, i64 56), align 8
+  store ptr @HD4_C, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma4, i64 64), align 16
+  store ptr @HU4_C, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma4, i64 72), align 8
   store ptr @DC16_C, ptr @VP8PredLuma16, align 16
-  store ptr @TM16_C, ptr getelementptr inbounds (i8, ptr @VP8PredLuma16, i64 8), align 8
-  store ptr @VE16_C, ptr getelementptr inbounds (i8, ptr @VP8PredLuma16, i64 16), align 16
-  store ptr @HE16_C, ptr getelementptr inbounds (i8, ptr @VP8PredLuma16, i64 24), align 8
-  store ptr @DC16NoTop_C, ptr getelementptr inbounds (i8, ptr @VP8PredLuma16, i64 32), align 16
-  store ptr @DC16NoLeft_C, ptr getelementptr inbounds (i8, ptr @VP8PredLuma16, i64 40), align 8
-  store ptr @DC16NoTopLeft_C, ptr getelementptr inbounds (i8, ptr @VP8PredLuma16, i64 48), align 16
+  store ptr @TM16_C, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma16, i64 8), align 8
+  store ptr @VE16_C, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma16, i64 16), align 16
+  store ptr @HE16_C, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma16, i64 24), align 8
+  store ptr @DC16NoTop_C, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma16, i64 32), align 16
+  store ptr @DC16NoLeft_C, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma16, i64 40), align 8
+  store ptr @DC16NoTopLeft_C, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma16, i64 48), align 16
   store ptr @DC8uv_C, ptr @VP8PredChroma8, align 16
-  store ptr @TM8uv_C, ptr getelementptr inbounds (i8, ptr @VP8PredChroma8, i64 8), align 8
-  store ptr @VE8uv_C, ptr getelementptr inbounds (i8, ptr @VP8PredChroma8, i64 16), align 16
-  store ptr @HE8uv_C, ptr getelementptr inbounds (i8, ptr @VP8PredChroma8, i64 24), align 8
-  store ptr @DC8uvNoTop_C, ptr getelementptr inbounds (i8, ptr @VP8PredChroma8, i64 32), align 16
-  store ptr @DC8uvNoLeft_C, ptr getelementptr inbounds (i8, ptr @VP8PredChroma8, i64 40), align 8
-  store ptr @DC8uvNoTopLeft_C, ptr getelementptr inbounds (i8, ptr @VP8PredChroma8, i64 48), align 16
+  store ptr @TM8uv_C, ptr getelementptr inbounds nuw (i8, ptr @VP8PredChroma8, i64 8), align 8
+  store ptr @VE8uv_C, ptr getelementptr inbounds nuw (i8, ptr @VP8PredChroma8, i64 16), align 16
+  store ptr @HE8uv_C, ptr getelementptr inbounds nuw (i8, ptr @VP8PredChroma8, i64 24), align 8
+  store ptr @DC8uvNoTop_C, ptr getelementptr inbounds nuw (i8, ptr @VP8PredChroma8, i64 32), align 16
+  store ptr @DC8uvNoLeft_C, ptr getelementptr inbounds nuw (i8, ptr @VP8PredChroma8, i64 40), align 8
+  store ptr @DC8uvNoTopLeft_C, ptr getelementptr inbounds nuw (i8, ptr @VP8PredChroma8, i64 48), align 16
   store ptr @DitherCombine8x8_C, ptr @VP8DitherCombine8x8, align 8
   %6 = load ptr, ptr @VP8GetCPUInfo, align 8
   %.not.i = icmp eq ptr %6, null

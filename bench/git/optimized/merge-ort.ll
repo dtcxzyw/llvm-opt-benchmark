@@ -6415,7 +6415,7 @@ if.then32:                                        ; preds = %if.end29
 if.end35:                                         ; preds = %if.then32, %if.end29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx14, ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, i64 16, i1 false)
   store i32 2048, ptr %output_format, align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   store ptr null, ptr @diff_queued_diff, align 8
   call void @diff_flush(ptr noundef nonnull %diff_opts) #18
   br label %return

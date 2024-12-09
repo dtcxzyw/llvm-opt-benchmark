@@ -8815,7 +8815,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true4
   br i1 %cmp5, label %land.lhs.true6, label %if.end18
 
 land.lhs.true6:                                   ; preds = %lor.lhs.false
-  %call7 = call i32 @PySequence_Contains(ptr noundef nonnull %kwnames, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 39464)) #9
+  %call7 = call i32 @PySequence_Contains(ptr noundef nonnull %kwnames, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 39464)) #9
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.end18, label %if.then9
 
@@ -9987,7 +9987,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true5
   br i1 %cmp6, label %land.lhs.true7, label %if.end19
 
 land.lhs.true7:                                   ; preds = %lor.lhs.false
-  %call8 = call i32 @PyDict_Contains(ptr noundef nonnull %kwargs, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 39464)) #9
+  %call8 = call i32 @PyDict_Contains(ptr noundef nonnull %kwargs, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 39464)) #9
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %if.end19, label %if.then10
 

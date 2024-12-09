@@ -185,7 +185,7 @@ define range(i32 -6, 1) i32 @deflateInit2_(ptr noundef %0, i32 noundef %1, i32 n
 102:                                              ; preds = %98, %95, %49
   %103 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i32 666, ptr %103, align 8
-  %104 = load ptr, ptr getelementptr inbounds (i8, ptr @z_errmsg, i64 48), align 16
+  %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @z_errmsg, i64 48), align 16
   store ptr %104, ptr %17, align 8
   %105 = tail call i32 @deflateEnd(ptr noundef nonnull %0)
   br label %118
@@ -1282,7 +1282,7 @@ define range(i32 -5, 2) i32 @deflate(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %or.cond5, label %24, label %27
 
 24:                                               ; preds = %19, %16, %9
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @z_errmsg, i64 32), align 16
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @z_errmsg, i64 32), align 16
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %25, ptr %26, align 8
   br label %.thread415
@@ -1294,7 +1294,7 @@ define range(i32 -5, 2) i32 @deflate(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %27
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @z_errmsg, i64 56), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @z_errmsg, i64 56), align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %32, ptr %33, align 8
   br label %.thread415
@@ -2340,7 +2340,7 @@ flush_pending.exit398:                            ; preds = %flush_pending.exit3
   br i1 %or.cond7, label %678, label %681
 
 678:                                              ; preds = %670
-  %679 = load ptr, ptr getelementptr inbounds (i8, ptr @z_errmsg, i64 56), align 8
+  %679 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @z_errmsg, i64 56), align 8
   %680 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %679, ptr %680, align 8
   br label %.thread415
@@ -2357,7 +2357,7 @@ flush_pending.exit398:                            ; preds = %flush_pending.exit3
   br i1 %.not384, label %.thread444, label %687
 
 687:                                              ; preds = %686
-  %688 = load ptr, ptr getelementptr inbounds (i8, ptr @z_errmsg, i64 56), align 8
+  %688 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @z_errmsg, i64 56), align 8
   %689 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %688, ptr %689, align 8
   br label %.thread415

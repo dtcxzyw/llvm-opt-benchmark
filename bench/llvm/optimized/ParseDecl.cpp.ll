@@ -1888,7 +1888,7 @@ _ZL29IsAttributeLateParsedStandardRKN5clang14IdentifierInfoE.exit: ; preds = %10
 
 .critedge88:                                      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i168.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i160.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i152.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i144.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i136.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i128.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i120.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i112.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i104.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i96.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i88.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i80.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i72.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i64.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i56.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i48.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i40.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i32.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i16.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i8.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i24.i, %86, %89, %_ZL29IsAttributeLateParsedStandardRKN5clang14IdentifierInfoE.exit
   %127 = call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #24
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6Parser19LateParsedAttributeE, i64 16), ptr %127, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6Parser19LateParsedAttributeE, i64 16), ptr %127, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   store ptr %0, ptr %128, align 8
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 16
@@ -33218,7 +33218,7 @@ define dso_local void @_ZN5clang6Parser20ParseStructUnionBodyENS_14SourceLocatio
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 256
   %26 = load ptr, ptr %25, align 8
   call void @_ZN4llvm21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #23
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang25PrettyDeclStackTraceEntryE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang25PrettyDeclStackTraceEntryE, i64 16), ptr %9, align 8
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %26, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -47435,7 +47435,7 @@ _ZNK5clang13SourceManager15getBufferOrFakeENS_6FileIDENS_14SourceLocationE.exit:
   br i1 %.not31, label %53, label %50, !llvm.loop !268
 
 53:                                               ; preds = %50
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %12, align 8
   %54 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %55 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %54) #23
   %56 = load ptr, ptr %54, align 8

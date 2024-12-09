@@ -170662,7 +170662,7 @@ define internal range(i32 0, 2) i32 @code_match(ptr nocapture noundef nonnull %0
 
 60:                                               ; preds = %59, %47
   %61 = add nsw i32 %.1136, 1
-  %gep = getelementptr [267 x %struct.JSOpCode], ptr getelementptr inbounds (i8, ptr @opcode_info, i64 3), i64 0, i64 %37
+  %gep = getelementptr [267 x %struct.JSOpCode], ptr getelementptr inbounds nuw (i8, ptr @opcode_info, i64 3), i64 0, i64 %37
   %62 = load i8, ptr %gep, align 1
   switch i8 %62, label %.backedge [
     i8 7, label %63
@@ -208201,7 +208201,7 @@ JS_ToInt32Clamp.exit.thread:                      ; preds = %15, %30
   store ptr %6, ptr %6, align 8
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %6, ptr %45, align 8
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @js_atomics_waiter_list, i64 8), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @js_atomics_waiter_list, i64 8), align 8
   %.not4653 = icmp eq ptr %46, @js_atomics_waiter_list
   br i1 %.not4653, label %._crit_edge64, label %.lr.ph
 

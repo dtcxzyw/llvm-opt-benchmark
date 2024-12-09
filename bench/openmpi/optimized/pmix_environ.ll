@@ -521,10 +521,10 @@ define range(i32 -32, 1) i32 @pmix_util_harvest_envars(ptr nocapture noundef rea
   br i1 %.not118.not, label %.critedge, label %.lr.ph, !llvm.loop !10
 
 .critedge:                                        ; preds = %49, %30
-  %51 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_kval_t_class, i64 56), align 8
+  %51 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_kval_t_class, i64 56), align 8
   %52 = tail call noalias noundef ptr @malloc(i64 noundef %51) #16
   %53 = load i32, ptr @pmix_class_init_epoch, align 4
-  %54 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_kval_t_class, i64 32), align 8
+  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_kval_t_class, i64 32), align 8
   %.not.i.i = icmp eq i32 %53, %54
   br i1 %.not.i.i, label %56, label %55
 

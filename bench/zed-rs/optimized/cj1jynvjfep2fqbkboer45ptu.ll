@@ -16066,7 +16066,7 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h797e6b8cce9ec47cE.exit"
 
 "_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h797e6b8cce9ec47cE.exit": ; preds = %1, %3, %5
-  %.sroa.0.0.i.i = phi ptr [ null, %5 ], [ %4, %3 ], [ getelementptr inbounds (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %1 ]
+  %.sroa.0.0.i.i = phi ptr [ null, %5 ], [ %4, %3 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %1 ]
   ret ptr %.sroa.0.0.i.i
 }
 
@@ -48269,7 +48269,7 @@ _ZN4core3ops8function6FnOnce9call_once17h901eea3a59831232E.llvm.1201805272655277
   br i1 %15, label %71, label %_ZN4core3ops8function6FnOnce9call_once17h901eea3a59831232E.llvm.12018052726552770354.exit.thread6.i
 
 _ZN4core3ops8function6FnOnce9call_once17h901eea3a59831232E.llvm.12018052726552770354.exit.thread6.i: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h901eea3a59831232E.llvm.12018052726552770354.exit.i, %2
-  %.sroa.0.0.i.i.i8.i = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h901eea3a59831232E.llvm.12018052726552770354.exit.i ], [ getelementptr inbounds (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %2 ]
+  %.sroa.0.0.i.i.i8.i = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h901eea3a59831232E.llvm.12018052726552770354.exit.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %2 ]
   call void @llvm.lifetime.start.p0(i64 608, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %8, ptr noundef nonnull align 8 dereferenceable(608) %11, i64 608, i1 false)
   call void @llvm.lifetime.start.p0(i64 608, ptr nonnull %7), !noalias !9615
@@ -155757,7 +155757,7 @@ _ZN4core3ops8function6FnOnce9call_once17h901eea3a59831232E.llvm.1201805272655277
   br i1 %50, label %97, label %_ZN4core3ops8function6FnOnce9call_once17h901eea3a59831232E.llvm.12018052726552770354.exit.thread2.i.i.i.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17h901eea3a59831232E.llvm.12018052726552770354.exit.thread2.i.i.i.i.i: ; preds = %.noexc9, %"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h026a23d6dc84b695E.exit"
-  %.sroa.0.0.i.i.i4.i.i.i.i.i = phi ptr [ %49, %.noexc9 ], [ getelementptr inbounds (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h026a23d6dc84b695E.exit" ]
+  %.sroa.0.0.i.i.i4.i.i.i.i.i = phi ptr [ %49, %.noexc9 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h026a23d6dc84b695E.exit" ]
   %51 = load i64, ptr %.sroa.0.0.i.i.i4.i.i.i.i.i, align 8, !noalias !31330, !noundef !9
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %53, label %91
@@ -168930,7 +168930,7 @@ _ZN4core3ops8function6FnOnce9call_once17h901eea3a59831232E.llvm.1201805272655277
   br i1 %1457, label %1497, label %_ZN4core3ops8function6FnOnce9call_once17h901eea3a59831232E.llvm.12018052726552770354.exit.thread2.i
 
 _ZN4core3ops8function6FnOnce9call_once17h901eea3a59831232E.llvm.12018052726552770354.exit.thread2.i: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h901eea3a59831232E.llvm.12018052726552770354.exit.i, %_ZN4gpui6window5Frame6finish17h69b24bf04b97de42E.exit
-  %.sroa.0.0.i.i.i4.i = phi ptr [ %1456, %_ZN4core3ops8function6FnOnce9call_once17h901eea3a59831232E.llvm.12018052726552770354.exit.i ], [ getelementptr inbounds (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %_ZN4gpui6window5Frame6finish17h69b24bf04b97de42E.exit ]
+  %.sroa.0.0.i.i.i4.i = phi ptr [ %1456, %_ZN4core3ops8function6FnOnce9call_once17h901eea3a59831232E.llvm.12018052726552770354.exit.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %_ZN4gpui6window5Frame6finish17h69b24bf04b97de42E.exit ]
   %1458 = load i64, ptr %.sroa.0.0.i.i.i4.i, align 8, !noundef !9
   %1459 = icmp eq i64 %1458, 0
   br i1 %1459, label %1460, label %1492

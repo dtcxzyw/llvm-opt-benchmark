@@ -210,7 +210,7 @@ _ZN11StatSampler10initializeEv.exit:              ; preds = %0
   %7 = load i32, ptr @PerfDataSamplingInterval, align 4
   %8 = sext i32 %7 to i64
   tail call void @_ZN12PeriodicTaskC2Em(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %8) #6
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV15StatSamplerTask, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV15StatSamplerTask, i64 16), ptr %6, align 8
   store ptr %6, ptr @_ZN11StatSampler5_taskE, align 8
   tail call void @_ZN12PeriodicTask6enrollEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #6
   br label %9
@@ -600,7 +600,7 @@ define hidden void @_ZN11StatSampler23create_sampled_perfdataEv() local_unnamed_
   call void @_ZN13ExceptionMarkC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #6
   %2 = load ptr, ptr %1, align 8
   %3 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 9, i32 noundef 0) #6
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18HighResTimeSampler, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV18HighResTimeSampler, i64 16), ptr %3, align 8
   %4 = call noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSPKcN8PerfData5UnitsEP20PerfLongSampleHelperP10JavaThread(i32 noundef 17, ptr noundef nonnull @.str.25, i32 noundef 3, ptr noundef nonnull %3, ptr noundef %2) #6
   call void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #6
   ret void

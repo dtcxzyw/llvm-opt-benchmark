@@ -572,8 +572,8 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  store i64 0, ptr getelementptr inbounds (i8, ptr @show_date.timebuf, i64 8), align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @show_date.timebuf, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @show_date.timebuf, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @show_date.timebuf, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %1, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
 
@@ -638,8 +638,8 @@ if.end7:                                          ; preds = %local_tzoffset.exit
   ]
 
 if.then10:                                        ; preds = %if.end7
-  store i64 0, ptr getelementptr inbounds (i8, ptr @show_date.timebuf, i64 8), align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @show_date.timebuf, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @show_date.timebuf, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @show_date.timebuf, i64 16), align 8
   %cmp3.not.i58 = icmp eq ptr %5, @strbuf_slopbuf
   br i1 %cmp3.not.i58, label %strbuf_setlen.exit60, label %if.then4.i59
 
@@ -652,8 +652,8 @@ strbuf_setlen.exit60:                             ; preds = %if.then10, %if.then
   br label %return
 
 if.then14:                                        ; preds = %if.end7
-  store i64 0, ptr getelementptr inbounds (i8, ptr @show_date.timebuf, i64 8), align 8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @show_date.timebuf, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @show_date.timebuf, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @show_date.timebuf, i64 16), align 8
   %cmp3.not.i61 = icmp eq ptr %6, @strbuf_slopbuf
   br i1 %cmp3.not.i61, label %strbuf_setlen.exit63, label %if.then4.i62
 
@@ -747,8 +747,8 @@ if.then23:                                        ; preds = %if.end21
 if.end25:                                         ; preds = %if.then23, %if.end21
   %tz.addr.1 = phi i32 [ %tz.addr.0, %if.end21 ], [ 0, %if.then23 ]
   %tm.1 = phi ptr [ %tm.0, %if.end21 ], [ %call1.i76, %if.then23 ]
-  store i64 0, ptr getelementptr inbounds (i8, ptr @show_date.timebuf, i64 8), align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @show_date.timebuf, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @show_date.timebuf, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @show_date.timebuf, i64 16), align 8
   %cmp3.not.i77 = icmp eq ptr %8, @strbuf_slopbuf
   br i1 %cmp3.not.i77, label %strbuf_setlen.exit79, label %if.then4.i78
 
@@ -1001,7 +1001,7 @@ if.then135.i:                                     ; preds = %if.end129.i
   br label %return
 
 return:                                           ; preds = %if.then135.i, %if.end129.i, %if.then47.i, %if.then28, %if.then42, %if.then71, %if.then57, %if.then33, %strbuf_setlen.exit63, %strbuf_setlen.exit60, %strbuf_setlen.exit
-  %retval.0 = load ptr, ptr getelementptr inbounds (i8, ptr @show_date.timebuf, i64 16), align 8
+  %retval.0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @show_date.timebuf, i64 16), align 8
   ret ptr %retval.0
 }
 

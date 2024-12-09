@@ -490,7 +490,7 @@ _ZN2cv3PtrINS_3hfs14HfsSegmentImplEED2Ev.exit:    ; preds = %12
   store i32 1, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %25, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3hfs14HfsSegmentImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3hfs14HfsSegmentImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13, align 8
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %11, ptr %26, align 8
   store ptr %11, ptr %0, align 8
@@ -511,7 +511,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3hfs14HfsSegmentImplC2Eiifififii(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, float noundef %5, i32 noundef %6, float noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTVN2cv3hfs14HfsSegmentImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTVN2cv3hfs14HfsSegmentImplE, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %12 = invoke noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #12
@@ -556,7 +556,7 @@ define linkonce_odr hidden void @_ZN2cv3hfs14HfsSegmentImplC2Eiifififii(ptr noun
   store i32 1, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 1, ptr %28, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3hfs7HfsCoreELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3hfs7HfsCoreELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15, align 8
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %12, ptr %29, align 8
   store ptr %12, ptr %11, align 8

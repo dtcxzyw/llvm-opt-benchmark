@@ -172,7 +172,7 @@ entry:
   %kind = getelementptr inbounds nuw i8, ptr %d1, i64 8
   %call.i = tail call noalias noundef nonnull dereferenceable(560) ptr @_Znwm(i64 noundef 560) #20, !noalias !5
   %0 = load i32, ptr %kind, align 4, !noalias !5
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue27raw_dfaE, i64 16), ptr %call.i, align 8, !noalias !5
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue27raw_dfaE, i64 16), ptr %call.i, align 8, !noalias !5
   %kind.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 %0, ptr %kind.i.i, align 8, !noalias !5
   %states.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
@@ -3263,7 +3263,7 @@ entry:
   %kind1 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load i32, ptr %kind1, align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(560) ptr @_Znwm(i64 noundef 560) #20, !noalias !68
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue27raw_dfaE, i64 16), ptr %call.i, align 8, !noalias !68
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue27raw_dfaE, i64 16), ptr %call.i, align 8, !noalias !68
   %kind.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 %2, ptr %kind.i.i, align 8, !noalias !68
   %states.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16

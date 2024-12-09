@@ -178,10 +178,10 @@ define i32 @mca_topo_base_cart_sub(ptr noundef %0, ptr nocapture noundef readonl
 .loopexit122:                                     ; preds = %72, %54, %52
   %.092 = phi ptr [ null, %52 ], [ %57, %54 ], [ %57, %72 ]
   %.088 = phi ptr [ null, %52 ], [ %59, %54 ], [ %59, %72 ]
-  %78 = load i64, ptr getelementptr inbounds (i8, ptr @mca_topo_base_comm_cart_2_2_0_t_class, i64 56), align 8
+  %78 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_topo_base_comm_cart_2_2_0_t_class, i64 56), align 8
   %79 = call noalias ptr @malloc(i64 noundef %78) #5
   %80 = load i32, ptr @opal_class_init_epoch, align 4
-  %81 = load i32, ptr getelementptr inbounds (i8, ptr @mca_topo_base_comm_cart_2_2_0_t_class, i64 32), align 8
+  %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_topo_base_comm_cart_2_2_0_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %80, %81
   br i1 %.not.i, label %83, label %82
 

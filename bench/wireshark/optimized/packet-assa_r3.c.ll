@@ -3682,7 +3682,7 @@ define internal void @dissect_r3_cmd_manageuser(ptr noundef %0, i32 noundef %1, 
   br label %94
 
 53:                                               ; preds = %49
-  %54 = load i32, ptr getelementptr inbounds (i8, ptr @hf_r3_adduserparamtypearray, i64 4), align 4
+  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_r3_adduserparamtypearray, i64 4), align 4
   %55 = tail call ptr @proto_tree_add_item(ptr noundef %.094, i32 noundef %54, ptr noundef %10, i32 noundef %39, i32 noundef 2, i32 noundef -2147483648) #5
   br label %94
 
@@ -3734,7 +3734,7 @@ define internal void @dissect_r3_cmd_manageuser(ptr noundef %0, i32 noundef %1, 
   br label %94
 
 87:                                               ; preds = %83
-  %88 = load i32, ptr getelementptr inbounds (i8, ptr @hf_r3_adduserparamtypearray, i64 40), align 8
+  %88 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_r3_adduserparamtypearray, i64 40), align 8
   %89 = load i32, ptr @ett_r3timezone, align 4
   %90 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.094, ptr noundef %10, i32 noundef %39, i32 noundef %88, i32 noundef %89, ptr noundef nonnull @r3_timezonearray, i32 noundef -2147483648) #5
   br label %94
@@ -5428,7 +5428,7 @@ define internal fastcc void @dissect_r3_upstreamfields(ptr noundef %0, i32 nound
 
 38:                                               ; preds = %26
   %39 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %27, i32 noundef %.0234) #5
-  %40 = load i32, ptr getelementptr inbounds (i8, ptr @hf_r3_upstreamfieldarray, i64 4), align 4
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_r3_upstreamfieldarray, i64 4), align 4
   tail call fastcc void @dissect_serialnumber(ptr noundef %39, ptr noundef %2, ptr noundef %18, i32 noundef %40)
   br label %223
 
@@ -5623,7 +5623,7 @@ define internal fastcc void @dissect_r3_upstreamfields(ptr noundef %0, i32 nound
   br label %223
 
 186:                                              ; preds = %183
-  %187 = load i32, ptr getelementptr inbounds (i8, ptr @hf_r3_upstreamfieldarray, i64 92), align 4
+  %187 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_r3_upstreamfieldarray, i64 92), align 4
   %188 = load i32, ptr @ett_r3timezone, align 4
   %189 = tail call ptr @proto_tree_add_bitmask(ptr noundef %18, ptr noundef %0, i32 noundef %27, i32 noundef %187, i32 noundef %188, ptr noundef nonnull @r3_timezonearray, i32 noundef -2147483648) #5
   br label %223

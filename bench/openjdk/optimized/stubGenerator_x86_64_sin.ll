@@ -284,7 +284,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %172 = getelementptr inbounds nuw i8, ptr %26, i64 20
   store i8 0, ptr %172, align 4
   %173 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %173, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %173, align 8
   %174 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store ptr null, ptr %174, align 8
   %175 = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -292,7 +292,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %26, i64 21, i1 false)
   %176 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %177 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %177 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %177(ptr noundef nonnull align 8 dereferenceable(40) %173, ptr noundef nonnull align 8 dereferenceable(40) %176) #5
   call void @_ZN9Assembler5movsdE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %167, ptr noundef nonnull %8, i32 0) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
@@ -309,7 +309,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %183 = getelementptr inbounds nuw i8, ptr %27, i64 20
   store i8 0, ptr %183, align 4
   %184 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %184, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %184, align 8
   %185 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr null, ptr %185, align 8
   %186 = getelementptr inbounds nuw i8, ptr %27, i64 40
@@ -485,7 +485,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %281 = getelementptr inbounds nuw i8, ptr %44, i64 20
   store i8 0, ptr %281, align 4
   %282 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %282, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %282, align 8
   %283 = getelementptr inbounds nuw i8, ptr %44, i64 32
   store ptr null, ptr %283, align 8
   %284 = getelementptr inbounds nuw i8, ptr %44, i64 40
@@ -527,7 +527,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %300 = getelementptr inbounds nuw i8, ptr %45, i64 20
   store i8 0, ptr %300, align 4
   %301 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %301, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %301, align 8
   %302 = getelementptr inbounds nuw i8, ptr %45, i64 32
   store ptr null, ptr %302, align 8
   %303 = getelementptr inbounds nuw i8, ptr %45, i64 40
@@ -575,7 +575,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %325 = getelementptr inbounds nuw i8, ptr %48, i64 20
   store i8 0, ptr %325, align 4
   %326 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %326, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %326, align 8
   %327 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store ptr null, ptr %327, align 8
   %328 = getelementptr inbounds nuw i8, ptr %48, i64 40
@@ -621,7 +621,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %349 = getelementptr inbounds nuw i8, ptr %51, i64 20
   store i8 0, ptr %349, align 4
   %350 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %350, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %350, align 8
   %351 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store ptr null, ptr %351, align 8
   %352 = getelementptr inbounds nuw i8, ptr %51, i64 40
@@ -662,7 +662,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %369 = getelementptr inbounds nuw i8, ptr %54, i64 20
   store i8 0, ptr %369, align 4
   %370 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %370, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %370, align 8
   %371 = getelementptr inbounds nuw i8, ptr %54, i64 32
   store ptr null, ptr %371, align 8
   %372 = getelementptr inbounds nuw i8, ptr %54, i64 40
@@ -694,7 +694,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %383 = getelementptr inbounds nuw i8, ptr %55, i64 20
   store i8 0, ptr %383, align 4
   %384 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %384, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %384, align 8
   %385 = getelementptr inbounds nuw i8, ptr %55, i64 32
   store ptr null, ptr %385, align 8
   %386 = getelementptr inbounds nuw i8, ptr %55, i64 40
@@ -717,7 +717,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %394 = getelementptr inbounds nuw i8, ptr %56, i64 20
   store i8 0, ptr %394, align 4
   %395 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %395, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %395, align 8
   %396 = getelementptr inbounds nuw i8, ptr %56, i64 32
   store ptr null, ptr %396, align 8
   %397 = getelementptr inbounds nuw i8, ptr %56, i64 40
@@ -856,7 +856,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %467 = getelementptr inbounds nuw i8, ptr %65, i64 20
   store i8 0, ptr %467, align 4
   %468 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %468, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %468, align 8
   %469 = getelementptr inbounds nuw i8, ptr %65, i64 32
   store ptr null, ptr %469, align 8
   %470 = getelementptr inbounds nuw i8, ptr %65, i64 40
@@ -875,7 +875,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %476 = getelementptr inbounds nuw i8, ptr %66, i64 20
   store i8 0, ptr %476, align 4
   %477 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %477, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %477, align 8
   %478 = getelementptr inbounds nuw i8, ptr %66, i64 32
   store ptr null, ptr %478, align 8
   %479 = getelementptr inbounds nuw i8, ptr %66, i64 40
@@ -910,7 +910,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %493 = getelementptr inbounds nuw i8, ptr %67, i64 20
   store i8 0, ptr %493, align 4
   %494 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %494, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %494, align 8
   %495 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr null, ptr %495, align 8
   %496 = getelementptr inbounds nuw i8, ptr %67, i64 40
@@ -929,7 +929,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %502 = getelementptr inbounds nuw i8, ptr %68, i64 20
   store i8 0, ptr %502, align 4
   %503 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %503, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %503, align 8
   %504 = getelementptr inbounds nuw i8, ptr %68, i64 32
   store ptr null, ptr %504, align 8
   %505 = getelementptr inbounds nuw i8, ptr %68, i64 40
@@ -992,7 +992,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %533 = getelementptr inbounds nuw i8, ptr %69, i64 20
   store i8 0, ptr %533, align 4
   %534 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %534, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %534, align 8
   %535 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store ptr null, ptr %535, align 8
   %536 = getelementptr inbounds nuw i8, ptr %69, i64 40
@@ -1011,7 +1011,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %542 = getelementptr inbounds nuw i8, ptr %70, i64 20
   store i8 0, ptr %542, align 4
   %543 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %543, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %543, align 8
   %544 = getelementptr inbounds nuw i8, ptr %70, i64 32
   store ptr null, ptr %544, align 8
   %545 = getelementptr inbounds nuw i8, ptr %70, i64 40
@@ -1074,7 +1074,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %573 = getelementptr inbounds nuw i8, ptr %71, i64 20
   store i8 0, ptr %573, align 4
   %574 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %574, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %574, align 8
   %575 = getelementptr inbounds nuw i8, ptr %71, i64 32
   store ptr null, ptr %575, align 8
   %576 = getelementptr inbounds nuw i8, ptr %71, i64 40
@@ -1447,7 +1447,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %776 = getelementptr inbounds nuw i8, ptr %94, i64 20
   store i8 0, ptr %776, align 4
   %777 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %777, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %777, align 8
   %778 = getelementptr inbounds nuw i8, ptr %94, i64 32
   store ptr null, ptr %778, align 8
   %779 = getelementptr inbounds nuw i8, ptr %94, i64 40
@@ -1486,7 +1486,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %795 = getelementptr inbounds nuw i8, ptr %95, i64 20
   store i8 0, ptr %795, align 4
   %796 = getelementptr inbounds nuw i8, ptr %95, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %796, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %796, align 8
   %797 = getelementptr inbounds nuw i8, ptr %95, i64 32
   store ptr null, ptr %797, align 8
   %798 = getelementptr inbounds nuw i8, ptr %95, i64 40
@@ -1507,7 +1507,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %805 = getelementptr inbounds nuw i8, ptr %96, i64 20
   store i8 0, ptr %805, align 4
   %806 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %806, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %806, align 8
   %807 = getelementptr inbounds nuw i8, ptr %96, i64 32
   store ptr null, ptr %807, align 8
   %808 = getelementptr inbounds nuw i8, ptr %96, i64 40
@@ -1568,7 +1568,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %838 = getelementptr inbounds nuw i8, ptr %101, i64 20
   store i8 0, ptr %838, align 4
   %839 = getelementptr inbounds nuw i8, ptr %101, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %839, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %839, align 8
   %840 = getelementptr inbounds nuw i8, ptr %101, i64 32
   store ptr null, ptr %840, align 8
   %841 = getelementptr inbounds nuw i8, ptr %101, i64 40
@@ -1609,7 +1609,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %858 = getelementptr inbounds nuw i8, ptr %104, i64 20
   store i8 0, ptr %858, align 4
   %859 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %859, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %859, align 8
   %860 = getelementptr inbounds nuw i8, ptr %104, i64 32
   store ptr null, ptr %860, align 8
   %861 = getelementptr inbounds nuw i8, ptr %104, i64 40
@@ -1641,7 +1641,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %872 = getelementptr inbounds nuw i8, ptr %105, i64 20
   store i8 0, ptr %872, align 4
   %873 = getelementptr inbounds nuw i8, ptr %105, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %873, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %873, align 8
   %874 = getelementptr inbounds nuw i8, ptr %105, i64 32
   store ptr null, ptr %874, align 8
   %875 = getelementptr inbounds nuw i8, ptr %105, i64 40
@@ -1664,7 +1664,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %883 = getelementptr inbounds nuw i8, ptr %106, i64 20
   store i8 0, ptr %883, align 4
   %884 = getelementptr inbounds nuw i8, ptr %106, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %884, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %884, align 8
   %885 = getelementptr inbounds nuw i8, ptr %106, i64 32
   store ptr null, ptr %885, align 8
   %886 = getelementptr inbounds nuw i8, ptr %106, i64 40
@@ -1858,7 +1858,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %978 = getelementptr inbounds nuw i8, ptr %107, i64 20
   store i8 0, ptr %978, align 4
   %979 = getelementptr inbounds nuw i8, ptr %107, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %979, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %979, align 8
   %980 = getelementptr inbounds nuw i8, ptr %107, i64 32
   store ptr null, ptr %980, align 8
   %981 = getelementptr inbounds nuw i8, ptr %107, i64 40
@@ -1890,7 +1890,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %995 = getelementptr inbounds nuw i8, ptr %110, i64 20
   store i8 0, ptr %995, align 4
   %996 = getelementptr inbounds nuw i8, ptr %110, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %996, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %996, align 8
   %997 = getelementptr inbounds nuw i8, ptr %110, i64 32
   store ptr null, ptr %997, align 8
   %998 = getelementptr inbounds nuw i8, ptr %110, i64 40

@@ -174,7 +174,7 @@ define hidden void @_ZN19C1SafepointPollStub9emit_codeEP13LIR_Assembler(ptr noun
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i8 0, ptr %36, align 4
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -398,7 +398,7 @@ define hidden void @_ZN19PredicateFailedStubC2EP12CodeEmitInfo(ptr nocapture nou
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 0, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV19PredicateFailedStub, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV19PredicateFailedStub, i64 16), ptr %0, align 8
   %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1808
@@ -545,7 +545,7 @@ define hidden void @_ZN15NewInstanceStubC2E7LIR_OprS0_P15ciInstanceKlassP12CodeE
   store ptr null, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 0, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15NewInstanceStub, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15NewInstanceStub, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 %2, ptr %16, align 8
@@ -655,7 +655,7 @@ define hidden void @_ZN16NewTypeArrayStubC2E7LIR_OprS0_S0_P12CodeEmitInfo(ptr no
   store ptr null, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 0, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV16NewTypeArrayStub, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV16NewTypeArrayStub, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -755,7 +755,7 @@ define hidden void @_ZN18NewObjectArrayStubC2E7LIR_OprS0_S0_P12CodeEmitInfo(ptr 
   store ptr null, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 0, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV18NewObjectArrayStub, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV18NewObjectArrayStub, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1062,7 +1062,7 @@ define hidden void @_ZN12PatchingStub9emit_codeEP13LIR_Assembler(ptr noundef non
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i8 0, ptr %58, align 4
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %59, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -1083,7 +1083,7 @@ define hidden void @_ZN12PatchingStub9emit_codeEP13LIR_Assembler(ptr noundef non
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i8 0, ptr %68, align 4
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %69, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -1091,7 +1091,7 @@ define hidden void @_ZN12PatchingStub9emit_codeEP13LIR_Assembler(ptr noundef non
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %73 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %73(ptr noundef nonnull align 8 dereferenceable(40) %69, ptr noundef nonnull align 8 dereferenceable(40) %72) #6
   call void @_ZN9Assembler4cmpqE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %63, i32 0, ptr noundef nonnull %3) #6
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
@@ -1497,13 +1497,13 @@ define hidden void @_ZN13ArrayCopyStub9emit_codeEP13LIR_Assembler(ptr noundef no
   %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %59 ]
   %50 = getelementptr inbounds nuw [5 x %class.VMRegPair], ptr %3, i64 0, i64 %indvars.iv, i32 1
   %51 = load ptr, ptr %50, align 8
-  %.not31 = icmp ult ptr %51, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not31 = icmp ult ptr %51, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   br i1 %.not31, label %59, label %52
 
 52:                                               ; preds = %49
   %53 = ptrtoint ptr %51 to i64
   %54 = trunc i64 %53 to i32
-  %55 = sub i32 %54, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
+  %55 = sub i32 %54, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %56 = shl nsw i32 %55, 3
   %57 = load ptr, ptr %1, align 8
   store i32 4, ptr %11, align 8
@@ -1512,7 +1512,7 @@ define hidden void @_ZN13ArrayCopyStub9emit_codeEP13LIR_Assembler(ptr noundef no
   store i32 -1, ptr %43, align 4
   store i32 %56, ptr %44, align 8
   store i8 0, ptr %45, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %46, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %46, align 8
   store ptr null, ptr %47, align 8
   store i32 0, ptr %48, align 8
   %58 = getelementptr inbounds nuw [5 x %class.Register], ptr %5, i64 0, i64 %indvars.iv

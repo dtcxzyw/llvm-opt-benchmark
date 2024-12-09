@@ -159,7 +159,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN21JvmtiGetLoadedClasses16getLoadedClassesEP8JvmtiEnvPiPPP7_jclass(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.LoadedClassesClosure, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV20LoadedClassesClosure, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV20LoadedClassesClosure, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 510, ptr %6, align 8
@@ -167,7 +167,7 @@ define hidden noundef i32 @_ZN21JvmtiGetLoadedClasses16getLoadedClassesEP8JvmtiE
   store i64 -256, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 4, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackIP7_jclassL8MEMFLAGS9EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackIP7_jclassL8MEMFLAGS9EE, i64 16), ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 510, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -196,8 +196,8 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread: ; preds = %3
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, %17
   %18 = call noundef i32 @_ZN20LoadedClassesClosure10get_resultEP8JvmtiEnvPiPPP7_jclass(ptr noundef nonnull align 8 dereferenceable(97) %4, ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV20LoadedClassesClosure, i64 16), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackIP7_jclassL8MEMFLAGS9EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV20LoadedClassesClosure, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackIP7_jclassL8MEMFLAGS9EE, i64 16), ptr %5, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %20 = load ptr, ptr %19, align 8
   %21 = load i64, ptr %6, align 8
@@ -364,7 +364,7 @@ _ZN20LoadedClassesClosure7extractEPP7_jclass.exit: ; preds = %_ZN20LoadedClasses
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN21JvmtiGetLoadedClasses21getClassLoaderClassesEP8JvmtiEnvP8_jobjectPiPPP7_jclass(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.LoadedClassesClosure, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV20LoadedClassesClosure, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV20LoadedClassesClosure, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 510, ptr %7, align 8
@@ -372,7 +372,7 @@ define hidden noundef i32 @_ZN21JvmtiGetLoadedClasses21getClassLoaderClassesEP8J
   store i64 -256, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 4, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackIP7_jclassL8MEMFLAGS9EE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackIP7_jclassL8MEMFLAGS9EE, i64 16), ptr %6, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 510, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -461,8 +461,8 @@ _ZN10JNIHandles7resolveEP8_jobject.exit.thread:   ; preds = %_ZN11MutexLockerC2E
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %41, %42
   call void @_ZN14RecursiveMutex6unlockEP6Thread(ptr noundef nonnull align 8 dereferenceable(44) %17, ptr noundef %15) #6
   %43 = call noundef i32 @_ZN20LoadedClassesClosure10get_resultEP8JvmtiEnvPiPPP7_jclass(ptr noundef nonnull align 8 dereferenceable(97) %5, ptr noundef %0, ptr noundef %2, ptr noundef %3)
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV20LoadedClassesClosure, i64 16), ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackIP7_jclassL8MEMFLAGS9EE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV20LoadedClassesClosure, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackIP7_jclassL8MEMFLAGS9EE, i64 16), ptr %6, align 8
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %45 = load ptr, ptr %44, align 8
   %46 = load i64, ptr %7, align 8

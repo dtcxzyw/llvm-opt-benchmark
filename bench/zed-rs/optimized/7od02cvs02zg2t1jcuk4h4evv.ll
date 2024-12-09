@@ -8845,7 +8845,7 @@ default.unreachable:                              ; preds = %140
   br i1 %299, label %300, label %301
 
 300:                                              ; preds = %296
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5119.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @anon.2b3f11ae85ba4fffcae25b43c2433dfd.34.llvm.13196489250334621223, i64 8), i64 24, i1 false), !noalias !3022
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5119.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @anon.2b3f11ae85ba4fffcae25b43c2433dfd.34.llvm.13196489250334621223, i64 8), i64 24, i1 false), !noalias !3022
   br label %320
 
 301:                                              ; preds = %296
@@ -19129,7 +19129,7 @@ define internal fastcc void @"_ZN64_$LT$lsp..LanguageServerBinary$u20$as$u20$cor
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.525, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @anon.2b3f11ae85ba4fffcae25b43c2433dfd.34.llvm.13196489250334621223, i64 8), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.525, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @anon.2b3f11ae85ba4fffcae25b43c2433dfd.34.llvm.13196489250334621223, i64 8), i64 24, i1 false)
   br label %40
 
 33:                                               ; preds = %28
@@ -27076,7 +27076,7 @@ _ZN4core3ops8function6FnOnce9call_once17hcc9e1feef4da45d1E.exit.i.i.i: ; preds =
           to label %"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$languages..json..NodeVersionAdapter$GT$$GT$17h62712a90006c2c45E.exit12" unwind label %30
 
 19:                                               ; preds = %.noexc6, %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$serde_json..value..Value$C$anyhow..Error$GT$$GT$$GT$17h1513684e79712507E.exit"
-  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %10, %.noexc6 ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$serde_json..value..Value$C$anyhow..Error$GT$$GT$$GT$17h1513684e79712507E.exit" ]
+  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %10, %.noexc6 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$serde_json..value..Value$C$anyhow..Error$GT$$GT$$GT$17h1513684e79712507E.exit" ]
   %20 = load i64, ptr %.sroa.0.0.i.i.i2.i.i.i, align 8, !noalias !6796, !noundef !11
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i.i.i, i64 8
   %22 = load i64, ptr %21, align 8, !noalias !6796, !noundef !11
@@ -27191,7 +27191,7 @@ _ZN4core3ops8function6FnOnce9call_once17hcc9e1feef4da45d1E.exit.i.i.i: ; preds =
           to label %"_ZN4core3ptr70drop_in_place$LT$alloc..sync..Arc$LT$languages..c..CLspAdapter$GT$$GT$17h1e26119e04d029c8E.exit12" unwind label %30
 
 19:                                               ; preds = %.noexc6, %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$serde_json..value..Value$C$anyhow..Error$GT$$GT$$GT$17h1513684e79712507E.exit"
-  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %10, %.noexc6 ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$serde_json..value..Value$C$anyhow..Error$GT$$GT$$GT$17h1513684e79712507E.exit" ]
+  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %10, %.noexc6 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$serde_json..value..Value$C$anyhow..Error$GT$$GT$$GT$17h1513684e79712507E.exit" ]
   %20 = load i64, ptr %.sroa.0.0.i.i.i2.i.i.i, align 8, !noalias !6825, !noundef !11
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i.i.i, i64 8
   %22 = load i64, ptr %21, align 8, !noalias !6825, !noundef !11

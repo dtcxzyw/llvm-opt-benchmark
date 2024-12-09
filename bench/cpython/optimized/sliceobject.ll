@@ -1637,7 +1637,7 @@ if.end17:                                         ; preds = %if.then12
   br i1 %cmp19, label %Py_XDECREF.exit.thread, label %if.end26
 
 if.else23:                                        ; preds = %entry, %if.end11
-  %step.0180 = phi ptr [ %call1.i, %if.end11 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848), %entry ]
+  %step.0180 = phi ptr [ %call1.i, %if.end11 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3848), %entry ]
   %5 = load i32, ptr %length, align 8
   %add.i.i = add i32 %5, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
@@ -1650,8 +1650,8 @@ if.end.i.i:                                       ; preds = %if.else23
 if.end26:                                         ; preds = %if.end.i.i, %if.else23, %if.end17
   %step.0179 = phi ptr [ %call1.i, %if.end17 ], [ %step.0180, %if.else23 ], [ %step.0180, %if.end.i.i ]
   %cond84 = phi ptr [ %call13, %if.end17 ], [ %length, %if.else23 ], [ %length, %if.end.i.i ]
-  %cond = phi ptr [ %call18, %if.end17 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), %if.else23 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), %if.end.i.i ]
-  %lower.1 = phi ptr [ %call13, %if.end17 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), %if.else23 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), %if.end.i.i ]
+  %cond = phi ptr [ %call18, %if.end17 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), %if.else23 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), %if.end.i.i ]
+  %lower.1 = phi ptr [ %call13, %if.end17 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), %if.else23 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), %if.end.i.i ]
   %upper.1 = phi ptr [ %call18, %if.end17 ], [ %length, %if.else23 ], [ %length, %if.end.i.i ]
   %start27 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %6 = load ptr, ptr %start27, align 8

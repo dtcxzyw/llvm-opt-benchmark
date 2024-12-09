@@ -1238,7 +1238,7 @@ define internal range(i32 -2147483648, 1) i32 @sony_input_configured(ptr noundef
   br i1 %46, label %.thread35, label %47
 
 47:                                               ; preds = %44
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %49 = tail call noalias align 8 dereferenceable_or_null(17) ptr @kmalloc_trace(ptr noundef %48, i32 noundef 3264, i64 noundef 17) #17
   %50 = icmp eq ptr %49, null
   br i1 %50, label %.thread36, label %51
@@ -2225,7 +2225,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #6
 define internal fastcc i32 @sixaxis_set_operational_usb(ptr noundef %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6472
   %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %5 = tail call noalias align 8 dereferenceable_or_null(17) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3264, i64 noundef 17) #17
   %6 = icmp eq ptr %5, null
   br i1 %6, label %29, label %7

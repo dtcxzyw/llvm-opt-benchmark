@@ -3540,7 +3540,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %_ZN32pxrInter
 define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdVtBufferSourceC2ERKNS_7TfTokenERKNS_7VtValueEib(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 12), (16, 24), (32, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16HdVtBufferSourceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16HdVtBufferSourceE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %1, align 8
   store i64 %8, ptr %7, align 8
@@ -3603,7 +3603,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdVtBufferSourceC2ERKNS_7TfT
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16HdVtBufferSourceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16HdVtBufferSourceE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %1, align 8
   store i64 %8, ptr %7, align 8
@@ -3774,7 +3774,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdVtBufferSourceC2ERKNS_7TfT
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16HdVtBufferSourceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16HdVtBufferSourceE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %1, align 8
   store i64 %9, ptr %8, align 8

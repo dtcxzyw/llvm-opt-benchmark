@@ -84,7 +84,7 @@ define void @_ZN5boost4urls6detail10query_iterC2ENS_4core17basic_string_viewIcEE
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store i8 %8, ptr %11, align 8, !tbaa !9
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail10query_iterE, i64 16), ptr %0, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail10query_iterE, i64 16), ptr %0, align 8, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   br i1 %7, label %_ZN5boost4urls6detail10query_iter6rewindEv.exit, label %13
@@ -534,7 +534,7 @@ define void @_ZN5boost4urls6detail10param_iterC2ERKNS0_10param_viewE(ptr nocaptu
   store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 0, ptr %6, align 8, !tbaa !9
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail10param_iterE, i64 16), ptr %0, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail10param_iterE, i64 16), ptr %0, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load i8, ptr %8, align 8, !tbaa !31, !range !19, !noundef !20
@@ -1126,7 +1126,7 @@ define void @_ZN5boost4urls6detail18param_encoded_iterC2ERKNS0_14param_pct_viewE
   store i64 %.sroa.2.0.copyload.i8, ptr %.sroa.2.0..sroa_idx.i11, align 8, !tbaa !7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 0, ptr %6, align 8, !tbaa !9
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail18param_encoded_iterE, i64 16), ptr %0, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail18param_encoded_iterE, i64 16), ptr %0, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load i8, ptr %8, align 8, !tbaa !38, !range !19, !noundef !20

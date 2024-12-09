@@ -379,10 +379,10 @@ define internal ptr @zend_new_interned_string_request(ptr noundef %0) #2 {
 
 14:                                               ; preds = %6, %9
   %15 = phi i64 [ %8, %6 ], [ %13, %9 ]
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @interned_strings_permanent, i64 12), align 4
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 12), align 4
   %17 = trunc i64 %15 to i32
   %18 = or i32 %16, %17
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @interned_strings_permanent, i64 16), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 16), align 8
   %20 = sext i32 %18 to i64
   %21 = getelementptr inbounds i32, ptr %19, i64 %20
   %.091111 = load i32, ptr %21, align 4
@@ -450,9 +450,9 @@ define internal ptr @zend_new_interned_string_request(ptr noundef %0) #2 {
   br label %112
 
 ._crit_edge:                                      ; preds = %.critedge, %14
-  %53 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 356), align 4
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 356), align 4
   %54 = or i32 %53, %17
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 360), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 360), align 8
   %56 = sext i32 %54 to i64
   %57 = getelementptr inbounds i32, ptr %55, i64 %56
   %.092114 = load i32, ptr %57, align 4
@@ -560,7 +560,7 @@ zend_init_string_for_interning.exit:              ; preds = %._crit_edge119
   store ptr %.0, ptr %2, align 8
   %110 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 6, ptr %110, align 8
-  %111 = call ptr @zend_hash_add_new(ptr noundef nonnull getelementptr inbounds (i8, ptr @compiler_globals, i64 344), ptr noundef nonnull %.0, ptr noundef nonnull %2) #16
+  %111 = call ptr @zend_hash_add_new(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 344), ptr noundef nonnull %.0, ptr noundef nonnull %2) #16
   br label %112
 
 112:                                              ; preds = %87, %88, %80, %51, %52, %44, %1, %106
@@ -702,10 +702,10 @@ define internal ptr @zend_string_init_interned_request(ptr nocapture noundef rea
 100:                                              ; preds = %94, %95, %79, %89
   %.2 = phi i64 [ %88, %79 ], [ %93, %89 ], [ %99, %95 ], [ %.1, %94 ]
   %101 = or i64 %.2, -9223372036854775808
-  %102 = load i32, ptr getelementptr inbounds (i8, ptr @interned_strings_permanent, i64 12), align 4
+  %102 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 12), align 4
   %103 = trunc i64 %.2 to i32
   %104 = or i32 %102, %103
-  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @interned_strings_permanent, i64 16), align 8
+  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 16), align 8
   %106 = sext i32 %104 to i64
   %107 = getelementptr inbounds i32, ptr %105, i64 %106
   %.0160192 = load i32, ptr %107, align 4
@@ -742,9 +742,9 @@ define internal ptr @zend_string_init_interned_request(ptr nocapture noundef rea
   br i1 %.not173, label %._crit_edge197, label %.lr.ph196
 
 ._crit_edge197:                                   ; preds = %.critedge, %100
-  %122 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 356), align 4
+  %122 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 356), align 4
   %123 = or i32 %122, %103
-  %124 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 360), align 8
+  %124 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 360), align 8
   %125 = sext i32 %123 to i64
   %126 = getelementptr inbounds i32, ptr %124, i64 %125
   %.0162198 = load i32, ptr %126, align 4
@@ -813,7 +813,7 @@ define internal ptr @zend_string_init_interned_request(ptr nocapture noundef rea
   store ptr %149, ptr %4, align 8
   %157 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 6, ptr %157, align 8
-  %158 = call ptr @zend_hash_add_new(ptr noundef nonnull getelementptr inbounds (i8, ptr @compiler_globals, i64 344), ptr noundef nonnull %149, ptr noundef nonnull %4) #16
+  %158 = call ptr @zend_hash_add_new(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 344), ptr noundef nonnull %149, ptr noundef nonnull %4) #16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %119, %138, %147
@@ -954,10 +954,10 @@ define internal ptr @zend_string_init_existing_interned_request(ptr nocapture no
 99:                                               ; preds = %93, %94, %78, %88
   %.2 = phi i64 [ %87, %78 ], [ %92, %88 ], [ %98, %94 ], [ %.1, %93 ]
   %100 = or i64 %.2, -9223372036854775808
-  %101 = load i32, ptr getelementptr inbounds (i8, ptr @interned_strings_permanent, i64 12), align 4
+  %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 12), align 4
   %102 = trunc i64 %.2 to i32
   %103 = or i32 %101, %102
-  %104 = load ptr, ptr getelementptr inbounds (i8, ptr @interned_strings_permanent, i64 16), align 8
+  %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 16), align 8
   %105 = sext i32 %103 to i64
   %106 = getelementptr inbounds i32, ptr %104, i64 %105
   %.0149181 = load i32, ptr %106, align 4
@@ -994,9 +994,9 @@ define internal ptr @zend_string_init_existing_interned_request(ptr nocapture no
   br i1 %.not162, label %._crit_edge186, label %.lr.ph185
 
 ._crit_edge186:                                   ; preds = %.critedge, %99
-  %121 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 356), align 4
+  %121 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 356), align 4
   %122 = or i32 %121, %102
-  %123 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 360), align 8
+  %123 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 360), align 8
   %124 = sext i32 %122 to i64
   %125 = getelementptr inbounds i32, ptr %123, i64 %124
   %.0151187 = load i32, ptr %125, align 4
@@ -1081,10 +1081,10 @@ define internal ptr @zend_new_interned_string_permanent(ptr noundef %0) #2 {
 
 14:                                               ; preds = %6, %9
   %15 = phi i64 [ %8, %6 ], [ %13, %9 ]
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @interned_strings_permanent, i64 12), align 4
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 12), align 4
   %17 = trunc i64 %15 to i32
   %18 = or i32 %16, %17
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @interned_strings_permanent, i64 16), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 16), align 8
   %20 = sext i32 %18 to i64
   %21 = getelementptr inbounds i32, ptr %19, i64 %20
   %.05665 = load i32, ptr %21, align 4
@@ -1334,10 +1334,10 @@ define internal ptr @zend_string_init_interned_permanent(ptr nocapture noundef r
 100:                                              ; preds = %94, %95, %79, %89
   %.2 = phi i64 [ %88, %79 ], [ %93, %89 ], [ %99, %95 ], [ %.1140, %94 ]
   %101 = or i64 %.2, -9223372036854775808
-  %102 = load i32, ptr getelementptr inbounds (i8, ptr @interned_strings_permanent, i64 12), align 4
+  %102 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 12), align 4
   %103 = trunc i64 %.2 to i32
   %104 = or i32 %102, %103
-  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @interned_strings_permanent, i64 16), align 8
+  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 16), align 8
   %106 = sext i32 %104 to i64
   %107 = getelementptr inbounds i32, ptr %105, i64 %106
   %.0134154 = load i32, ptr %107, align 4
@@ -1536,10 +1536,10 @@ define internal ptr @zend_string_init_existing_interned_permanent(ptr nocapture 
 99:                                               ; preds = %93, %94, %78, %88
   %.2 = phi i64 [ %87, %78 ], [ %92, %88 ], [ %98, %94 ], [ %.1128, %93 ]
   %100 = or i64 %.2, -9223372036854775808
-  %101 = load i32, ptr getelementptr inbounds (i8, ptr @interned_strings_permanent, i64 12), align 4
+  %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 12), align 4
   %102 = trunc i64 %.2 to i32
   %103 = or i32 %101, %102
-  %104 = load ptr, ptr getelementptr inbounds (i8, ptr @interned_strings_permanent, i64 16), align 8
+  %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 16), align 8
   %105 = sext i32 %103 to i64
   %106 = getelementptr inbounds i32, ptr %104, i64 %105
   %.0122142 = load i32, ptr %106, align 4
@@ -1635,10 +1635,10 @@ define ptr @zend_interned_string_find_permanent(ptr noundef %0) local_unnamed_ad
 
 9:                                                ; preds = %1, %4
   %10 = phi i64 [ %3, %1 ], [ %8, %4 ]
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @interned_strings_permanent, i64 12), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 12), align 4
   %12 = trunc i64 %10 to i32
   %13 = or i32 %11, %12
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @interned_strings_permanent, i64 16), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 16), align 8
   %15 = sext i32 %13 to i64
   %16 = getelementptr inbounds i32, ptr %14, i64 %15
   %.02225 = load i32, ptr %16, align 4
@@ -1690,13 +1690,13 @@ define ptr @zend_interned_string_find_permanent(ptr noundef %0) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define void @zend_interned_strings_activate() local_unnamed_addr #2 {
-  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @compiler_globals, i64 344), i32 noundef 1024, ptr noundef nonnull @_str_dtor, i1 noundef zeroext false) #16
+  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 344), i32 noundef 1024, ptr noundef nonnull @_str_dtor, i1 noundef zeroext false) #16
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @zend_interned_strings_deactivate() local_unnamed_addr #2 {
-  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @compiler_globals, i64 344)) #16
+  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 344)) #16
   ret void
 }
 

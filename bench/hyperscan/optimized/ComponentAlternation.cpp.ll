@@ -36,7 +36,7 @@ $_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE15_M_range_insertIN9__gnu_cxx17__norma
 define hidden void @_ZN3ue220ComponentAlternationC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue220ComponentAlternationE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue220ComponentAlternationE, i64 16), ptr %this, align 8
   %children = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %children, i8 0, i64 24, i1 false)
   ret void
@@ -47,7 +47,7 @@ declare void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue220ComponentAlternationD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue220ComponentAlternationE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue220ComponentAlternationE, i64 16), ptr %this, align 8
   %children = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %children, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -143,7 +143,7 @@ declare void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue220ComponentAlternationD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue220ComponentAlternationE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue220ComponentAlternationE, i64 16), ptr %this, align 8
   %children.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %children.i, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -195,7 +195,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3ue220ComponentAlternationC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue29ComponentE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue29ComponentE, i64 16), ptr %this, align 8
   %pos_begin.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %pos_begin2.i = getelementptr inbounds nuw i8, ptr %other, i64 8
   %0 = load i32, ptr %pos_begin2.i, align 8
@@ -204,7 +204,7 @@ entry:
   %pos_end3.i = getelementptr inbounds nuw i8, ptr %other, i64 12
   %1 = load i32, ptr %pos_end3.i, align 4
   store i32 %1, ptr %pos_end.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue220ComponentAlternationE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue220ComponentAlternationE, i64 16), ptr %this, align 8
   %children = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %children, i8 0, i64 24, i1 false)
   %children2 = getelementptr inbounds nuw i8, ptr %other, i64 16

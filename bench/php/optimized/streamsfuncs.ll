@@ -400,7 +400,7 @@ define hidden void @zif_stream_socket_client(ptr noundef %0, ptr nocapture nound
   %.0270.ph351 = phi ptr [ null, %.thread341 ], [ %.0270.ph, %.thread322 ]
   %.0274.ph349 = phi ptr [ %.0274.ph.ph, %.thread341 ], [ %25, %.thread322 ]
   %.0275.ph347 = phi ptr [ %.0275.ph.ph, %.thread341 ], [ %28, %.thread322 ]
-  %59 = load i64, ptr getelementptr inbounds (i8, ptr @file_globals, i64 24), align 8
+  %59 = load i64, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 24), align 8
   %60 = sitofp i64 %59 to double
   store double %60, ptr %4, align 8
   br label %61
@@ -425,13 +425,13 @@ define hidden void @zif_stream_socket_client(ptr noundef %0, ptr nocapture nound
   br i1 %.not290, label %69, label %73
 
 69:                                               ; preds = %66
-  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 56), align 8
   %.not291 = icmp eq ptr %70, null
   br i1 %.not291, label %71, label %73
 
 71:                                               ; preds = %69
   %72 = call ptr @php_stream_context_alloc() #10
-  store ptr %72, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
+  store ptr %72, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 56), align 8
   br label %73
 
 73:                                               ; preds = %69, %66, %71, %63
@@ -825,13 +825,13 @@ define hidden void @zif_stream_socket_server(ptr noundef %0, ptr nocapture nound
   br i1 %.not256, label %50, label %54
 
 50:                                               ; preds = %.thread319
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 56), align 8
   %.not257 = icmp eq ptr %51, null
   br i1 %.not257, label %52, label %54
 
 52:                                               ; preds = %50
   %53 = call ptr @php_stream_context_alloc() #10
-  store ptr %53, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
+  store ptr %53, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 56), align 8
   br label %54
 
 54:                                               ; preds = %50, %.thread319, %52
@@ -1098,7 +1098,7 @@ define hidden void @zif_stream_socket_accept(ptr noundef %0, ptr nocapture nound
 
 .thread175:                                       ; preds = %16, %.thread192
   %.0136184 = phi ptr [ %spec.select196, %.thread192 ], [ null, %16 ]
-  %30 = load i64, ptr getelementptr inbounds (i8, ptr @file_globals, i64 24), align 8
+  %30 = load i64, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 24), align 8
   %31 = sitofp i64 %30 to double
   store double %31, ptr %3, align 8
   br label %32
@@ -1658,7 +1658,7 @@ define hidden void @zif_stream_socket_recvfrom(ptr noundef %0, ptr nocapture nou
 
 54:                                               ; preds = %51
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.9) #10
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %56 = icmp ne ptr %55, null
   call void @llvm.assume(i1 %56)
   br label %93
@@ -1833,7 +1833,7 @@ define hidden void @zif_stream_get_contents(ptr noundef %0, ptr nocapture nounde
 
 34:                                               ; preds = %32
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.10) #10
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %36 = icmp ne ptr %35, null
   call void @llvm.assume(i1 %36)
   br label %71
@@ -2532,7 +2532,7 @@ define hidden void @zif_stream_select(ptr noundef %0, ptr nocapture noundef writ
 
 73:                                               ; preds = %72
   call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.22) #10
-  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %75 = icmp ne ptr %74, null
   call void @llvm.assume(i1 %75)
   br label %190
@@ -2559,7 +2559,7 @@ define hidden void @zif_stream_select(ptr noundef %0, ptr nocapture noundef writ
 
 85:                                               ; preds = %82
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 5, ptr noundef nonnull @.str.23) #10
-  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %87 = icmp ne ptr %86, null
   call void @llvm.assume(i1 %87)
   br label %190
@@ -2571,7 +2571,7 @@ define hidden void @zif_stream_select(ptr noundef %0, ptr nocapture noundef writ
 
 90:                                               ; preds = %.critedge
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 4, ptr noundef nonnull @.str.24) #10
-  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %92 = icmp ne ptr %91, null
   call void @llvm.assume(i1 %92)
   br label %190
@@ -2583,7 +2583,7 @@ define hidden void @zif_stream_select(ptr noundef %0, ptr nocapture noundef writ
 
 96:                                               ; preds = %93
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 5, ptr noundef nonnull @.str.24) #10
-  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %98 = icmp ne ptr %97, null
   call void @llvm.assume(i1 %98)
   br label %190
@@ -3108,7 +3108,7 @@ define hidden void @zif_stream_context_get_options(ptr noundef %0, ptr nocapture
 
 decode_context_param.exit:                        ; preds = %15
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 1, ptr noundef nonnull @.str.26) #10
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %30 = icmp ne ptr %29, null
   tail call void @llvm.assume(i1 %30)
   br label %41
@@ -3149,7 +3149,7 @@ define hidden void @zif_stream_context_set_option(ptr noundef %0, ptr nocapture 
 
 8:                                                ; preds = %2
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str.27) #10
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %thread-pre-split, label %93
 
@@ -3286,7 +3286,7 @@ thread-pre-split:                                 ; preds = %8
 
 decode_context_param.exit:                        ; preds = %48
   call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 1, ptr noundef nonnull @.str.26) #10
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %63 = icmp ne ptr %62, null
   call void @llvm.assume(i1 %63)
   br label %93
@@ -3302,7 +3302,7 @@ decode_context_param.exit:                        ; preds = %48
 
 66:                                               ; preds = %65
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.28) #10
-  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %68 = icmp ne ptr %67, null
   call void @llvm.assume(i1 %68)
   br label %93
@@ -3313,7 +3313,7 @@ decode_context_param.exit:                        ; preds = %48
 
 70:                                               ; preds = %69
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 4, ptr noundef nonnull @.str.29) #10
-  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %72 = icmp ne ptr %71, null
   call void @llvm.assume(i1 %72)
   br label %93
@@ -3324,7 +3324,7 @@ decode_context_param.exit:                        ; preds = %48
   br i1 %75, label %76, label %79
 
 76:                                               ; preds = %73
-  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %78 = icmp ne ptr %77, null
   call void @llvm.assume(i1 %78)
   br label %93
@@ -3339,7 +3339,7 @@ decode_context_param.exit:                        ; preds = %48
 
 82:                                               ; preds = %81
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.30) #10
-  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %84 = icmp ne ptr %83, null
   call void @llvm.assume(i1 %84)
   br label %93
@@ -3350,7 +3350,7 @@ decode_context_param.exit:                        ; preds = %48
 
 86:                                               ; preds = %85
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 4, ptr noundef nonnull @.str.31) #10
-  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %88 = icmp ne ptr %87, null
   call void @llvm.assume(i1 %88)
   br label %93
@@ -3556,7 +3556,7 @@ define hidden void @zif_stream_context_set_options(ptr noundef %0, ptr nocapture
 
 decode_context_param.exit:                        ; preds = %19
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 1, ptr noundef nonnull @.str.26) #10
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %34 = icmp ne ptr %33, null
   tail call void @llvm.assume(i1 %34)
   br label %43
@@ -3568,7 +3568,7 @@ decode_context_param.exit:                        ; preds = %19
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %35
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %40 = icmp ne ptr %39, null
   tail call void @llvm.assume(i1 %40)
   br label %43
@@ -3650,7 +3650,7 @@ define hidden void @zif_stream_context_set_params(ptr noundef %0, ptr nocapture 
 
 decode_context_param.exit:                        ; preds = %19
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 1, ptr noundef nonnull @.str.26) #10
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %34 = icmp ne ptr %33, null
   tail call void @llvm.assume(i1 %34)
   br label %43
@@ -3662,7 +3662,7 @@ decode_context_param.exit:                        ; preds = %19
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %35
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %40 = icmp ne ptr %39, null
   tail call void @llvm.assume(i1 %40)
   br label %43
@@ -3805,7 +3805,7 @@ define hidden void @zif_stream_context_get_params(ptr noundef %0, ptr noundef %1
 
 decode_context_param.exit:                        ; preds = %15
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 1, ptr noundef nonnull @.str.26) #10
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %30 = icmp ne ptr %29, null
   tail call void @llvm.assume(i1 %30)
   br label %61
@@ -3994,13 +3994,13 @@ define hidden void @zif_stream_context_get_default(ptr noundef %0, ptr nocapture
 
 .thread93:                                        ; preds = %9, %.thread87, %7
   %.068.ph = phi ptr [ %13, %.thread87 ], [ null, %7 ], [ null, %9 ]
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 56), align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %.thread93
   %17 = tail call ptr @php_stream_context_alloc() #10
-  store ptr %17, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
+  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 56), align 8
   br label %18
 
 18:                                               ; preds = %16, %.thread93
@@ -4014,7 +4014,7 @@ define hidden void @zif_stream_context_get_default(ptr noundef %0, ptr nocapture
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %20
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
   tail call void @llvm.assume(i1 %25)
   br label %33
@@ -4063,13 +4063,13 @@ define hidden void @zif_stream_context_set_default(ptr noundef %0, ptr nocapture
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %6, align 8
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 56), align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %10
   %15 = tail call ptr @php_stream_context_alloc() #10
-  store ptr %15, ptr getelementptr inbounds (i8, ptr @file_globals, i64 56), align 8
+  store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 56), align 8
   br label %16
 
 16:                                               ; preds = %14, %10
@@ -4079,7 +4079,7 @@ define hidden void @zif_stream_context_set_default(ptr noundef %0, ptr nocapture
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %16
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %30
@@ -4171,7 +4171,7 @@ define hidden void @zif_stream_context_create(ptr noundef %0, ptr nocapture noun
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
   tail call void @llvm.assume(i1 %27)
   br label %40
@@ -4186,7 +4186,7 @@ define hidden void @zif_stream_context_create(ptr noundef %0, ptr nocapture noun
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %29
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %34 = icmp ne ptr %33, null
   tail call void @llvm.assume(i1 %34)
   br label %40
@@ -4493,7 +4493,7 @@ define hidden void @zif_stream_filter_remove(ptr noundef %0, ptr nocapture nound
   br i1 %.not54, label %15, label %18
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   br label %27
@@ -4616,7 +4616,7 @@ define hidden void @zif_stream_get_line(ptr noundef %0, ptr nocapture noundef wr
 
 37:                                               ; preds = %.thread172
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.24) #10
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %39 = icmp ne ptr %38, null
   call void @llvm.assume(i1 %39)
   br label %58
@@ -4985,7 +4985,7 @@ define hidden void @zif_stream_set_chunk_size(ptr noundef %0, ptr nocapture noun
 
 21:                                               ; preds = %.thread124
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.9) #10
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   call void @llvm.assume(i1 %23)
   br label %41
@@ -4996,7 +4996,7 @@ define hidden void @zif_stream_set_chunk_size(ptr noundef %0, ptr nocapture noun
 
 26:                                               ; preds = %24
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.36) #10
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %28 = icmp ne ptr %27, null
   call void @llvm.assume(i1 %28)
   br label %41
@@ -5234,7 +5234,7 @@ define hidden void @zif_stream_socket_enable_crypto(ptr noundef %0, ptr nocaptur
 
 .critedge191:                                     ; preds = %45, %52, %48
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.39) #10
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %55 = icmp ne ptr %54, null
   call void @llvm.assume(i1 %55)
   br label %82
@@ -5425,7 +5425,7 @@ define hidden void @zif_stream_is_local(ptr noundef %0, ptr nocapture noundef wr
   br i1 %19, label %.critedge, label %20
 
 20:                                               ; preds = %18
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %35
@@ -5636,7 +5636,7 @@ define hidden void @zif_stream_socket_shutdown(ptr noundef %0, ptr nocapture nou
 
 20:                                               ; preds = %.thread122
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.40) #10
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   call void @llvm.assume(i1 %22)
   br label %35

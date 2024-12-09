@@ -60,7 +60,7 @@ define hidden void @_ZN18ZObjArrayAllocatorC2EP5KlassmibP6Thread(ptr nocapture n
   store i32 %3, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 %7, ptr %12, align 4
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18ZObjArrayAllocator, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV18ZObjArrayAllocator, i64 16), ptr %0, align 8
   ret void
 }
 

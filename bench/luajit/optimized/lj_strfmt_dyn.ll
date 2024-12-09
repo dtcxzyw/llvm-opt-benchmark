@@ -748,7 +748,7 @@ if.then:                                          ; preds = %lj_buf_more.exit, %
 
 if.else:                                          ; preds = %lj_buf_more.exit
   %idxprom = zext i8 %3 to i64
-  %arrayidx = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @lj_char_bits, i64 1), i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %idxprom
   %6 = load i8, ptr %arrayidx, align 1
   %7 = and i8 %6, 1
   %tobool9.not = icmp eq i8 %7, 0
@@ -763,7 +763,7 @@ if.then10:                                        ; preds = %if.else
 lor.lhs.false14:                                  ; preds = %if.then10
   %8 = load i8, ptr %incdec.ptr, align 1
   %idxprom15 = zext i8 %8 to i64
-  %arrayidx16 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @lj_char_bits, i64 1), i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %idxprom15
   %9 = load i8, ptr %arrayidx16, align 1
   %10 = and i8 %9, 8
   %tobool19.not = icmp eq i8 %10, 0

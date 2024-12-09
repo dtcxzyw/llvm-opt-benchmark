@@ -11238,7 +11238,7 @@ _ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.13013766950239737229.exi
 
 75:                                               ; preds = %.noexc.i
   store i32 %72, ptr @_ZN5ctrlc8platform4unix4PIPE17h6e8309c453543c26E, align 4, !noalias !1372
-  store i32 %74, ptr getelementptr inbounds (i8, ptr @_ZN5ctrlc8platform4unix4PIPE17h6e8309c453543c26E, i64 4), align 4, !noalias !1372
+  store i32 %74, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ctrlc8platform4unix4PIPE17h6e8309c453543c26E, i64 4), align 4, !noalias !1372
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32), !noalias !1372
   %76 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 2048, ptr %76, align 4, !noalias !1372
@@ -11253,7 +11253,7 @@ _ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.13013766950239737229.exi
   br i1 %78, label %79, label %84
 
 79:                                               ; preds = %.noexc10.i
-  %80 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5ctrlc8platform4unix4PIPE17h6e8309c453543c26E, i64 4), align 4, !noalias !1372, !noundef !4
+  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ctrlc8platform4unix4PIPE17h6e8309c453543c26E, i64 4), align 4, !noalias !1372, !noundef !4
   %81 = invoke noundef i32 @_ZN3nix6unistd5close17h1f9b48caf12f3530E(i32 noundef %80)
           to label %.noexc11.i unwind label %.thread66.i, !noalias !1372
 
@@ -11296,7 +11296,7 @@ _ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.13013766950239737229.exi
 88:                                               ; preds = %.noexc14.i
   %89 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %90 = load i32, ptr %89, align 4, !range !1383, !noalias !1372, !noundef !4
-  %91 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5ctrlc8platform4unix4PIPE17h6e8309c453543c26E, i64 4), align 4, !noalias !1372, !noundef !4
+  %91 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ctrlc8platform4unix4PIPE17h6e8309c453543c26E, i64 4), align 4, !noalias !1372, !noundef !4
   %92 = invoke noundef i32 @_ZN3nix6unistd5close17h1f9b48caf12f3530E(i32 noundef %91)
           to label %.noexc15.i unwind label %.thread66.i, !noalias !1372
 
@@ -11358,7 +11358,7 @@ _ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.13013766950239737229.exi
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h519c3b141fadc070E.exit.i.i": ; preds = %.noexc19.i
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %27), !noalias !1372
-  %105 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5ctrlc8platform4unix4PIPE17h6e8309c453543c26E, i64 4), align 4, !noalias !1372, !noundef !4
+  %105 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ctrlc8platform4unix4PIPE17h6e8309c453543c26E, i64 4), align 4, !noalias !1372, !noundef !4
   %106 = invoke noundef i32 @_ZN3nix6unistd5close17h1f9b48caf12f3530E(i32 noundef %105)
           to label %.noexc21.i unwind label %.thread66.i, !noalias !1372
 
@@ -11398,7 +11398,7 @@ _ZN5ctrlc8platform4unix15init_os_handler17h7e8616ca5ea37303E.exit.thread70.i: ; 
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h519c3b141fadc070E.exit33.i.i": ; preds = %.noexc23.i
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %24), !noalias !1372
-  %116 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5ctrlc8platform4unix4PIPE17h6e8309c453543c26E, i64 4), align 4, !noalias !1372, !noundef !4
+  %116 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ctrlc8platform4unix4PIPE17h6e8309c453543c26E, i64 4), align 4, !noalias !1372, !noundef !4
   %117 = invoke noundef i32 @_ZN3nix6unistd5close17h1f9b48caf12f3530E(i32 noundef %116)
           to label %.noexc25.i unwind label %.thread66.i, !noalias !1372
 
@@ -11464,7 +11464,7 @@ _ZN5ctrlc8platform4unix15init_os_handler17h7e8616ca5ea37303E.exit.thread70.i: ; 
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h519c3b141fadc070E.exit37.i.i": ; preds = %.noexc31.i
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %22), !noalias !1372
-  %130 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5ctrlc8platform4unix4PIPE17h6e8309c453543c26E, i64 4), align 4, !noalias !1372, !noundef !4
+  %130 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ctrlc8platform4unix4PIPE17h6e8309c453543c26E, i64 4), align 4, !noalias !1372, !noundef !4
   %131 = invoke noundef i32 @_ZN3nix6unistd5close17h1f9b48caf12f3530E(i32 noundef %130)
           to label %.noexc33.i unwind label %.thread66.i, !noalias !1372
 
@@ -11519,7 +11519,7 @@ _ZN5ctrlc8platform4unix15init_os_handler17h7e8616ca5ea37303E.exit.thread70.i: ; 
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h519c3b141fadc070E.exit41.i.i": ; preds = %.noexc37.i
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %18), !noalias !1372
-  %143 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5ctrlc8platform4unix4PIPE17h6e8309c453543c26E, i64 4), align 4, !noalias !1372, !noundef !4
+  %143 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ctrlc8platform4unix4PIPE17h6e8309c453543c26E, i64 4), align 4, !noalias !1372, !noundef !4
   %144 = invoke noundef i32 @_ZN3nix6unistd5close17h1f9b48caf12f3530E(i32 noundef %143)
           to label %.noexc39.i unwind label %.thread66.i, !noalias !1372
 
@@ -11597,7 +11597,7 @@ _ZN5ctrlc8platform4unix15init_os_handler17h7e8616ca5ea37303E.exit.thread.i: ; pr
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h519c3b141fadc070E.exit47.i.i": ; preds = %.noexc46.i
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %15), !noalias !1372
-  %157 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5ctrlc8platform4unix4PIPE17h6e8309c453543c26E, i64 4), align 4, !noalias !1372, !noundef !4
+  %157 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ctrlc8platform4unix4PIPE17h6e8309c453543c26E, i64 4), align 4, !noalias !1372, !noundef !4
   %158 = invoke noundef i32 @_ZN3nix6unistd5close17h1f9b48caf12f3530E(i32 noundef %157)
           to label %.noexc48.i unwind label %.thread66.i, !noalias !1372
 
@@ -15757,7 +15757,7 @@ define void @_ZN15tree_sitter_cli9highlight11parse_style17hdf988472ce253b08E(ptr
   store i8 %178, ptr %8, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr @"_ZN94_$LT$tree_sitter_cli..highlight..CSS_STYLES_BY_COLOR_ID$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4bb2edef175e3873E", ptr %7, align 8
-  %214 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN94_$LT$tree_sitter_cli..highlight..CSS_STYLES_BY_COLOR_ID$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4bb2edef175e3873E", i64 24) acquire, align 8, !noalias !1999
+  %214 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN94_$LT$tree_sitter_cli..highlight..CSS_STYLES_BY_COLOR_ID$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4bb2edef175e3873E", i64 24) acquire, align 8, !noalias !1999
   %215 = icmp eq i32 %214, 4
   br i1 %215, label %"_ZN94_$LT$tree_sitter_cli..highlight..CSS_STYLES_BY_COLOR_ID$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb7c0332a062f67c8E.exit.i", label %216
 
@@ -15766,7 +15766,7 @@ define void @_ZN15tree_sitter_cli9highlight11parse_style17hdf988472ce253b08E(ptr
   store ptr %7, ptr %6, align 8, !noalias !1999
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !1999
   store ptr %6, ptr %5, align 8, !noalias !1999
-  invoke void @_ZN3std10sys_common4once5futex4Once4call17h26a404f7bfe9d9b3E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN94_$LT$tree_sitter_cli..highlight..CSS_STYLES_BY_COLOR_ID$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4bb2edef175e3873E", i64 24), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4ccd1cf6e450bc7ecae6e75709804d9d.561)
+  invoke void @_ZN3std10sys_common4once5futex4Once4call17h26a404f7bfe9d9b3E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN94_$LT$tree_sitter_cli..highlight..CSS_STYLES_BY_COLOR_ID$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4bb2edef175e3873E", i64 24), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4ccd1cf6e450bc7ecae6e75709804d9d.561)
           to label %.noexc168 unwind label %53
 
 .noexc168:                                        ; preds = %216
@@ -16477,7 +16477,7 @@ default.unreachable.i:                            ; preds = %82
 90:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !2122
   store ptr @"_ZN94_$LT$tree_sitter_cli..highlight..CSS_STYLES_BY_COLOR_ID$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4bb2edef175e3873E", ptr %6, align 8, !noalias !2122
-  %91 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN94_$LT$tree_sitter_cli..highlight..CSS_STYLES_BY_COLOR_ID$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4bb2edef175e3873E", i64 24) acquire, align 8, !noalias !2125
+  %91 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN94_$LT$tree_sitter_cli..highlight..CSS_STYLES_BY_COLOR_ID$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4bb2edef175e3873E", i64 24) acquire, align 8, !noalias !2125
   %92 = icmp eq i32 %91, 4
   br i1 %92, label %"_ZN94_$LT$tree_sitter_cli..highlight..CSS_STYLES_BY_COLOR_ID$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb7c0332a062f67c8E.exit.i", label %93
 
@@ -16486,7 +16486,7 @@ default.unreachable.i:                            ; preds = %82
   store ptr %6, ptr %5, align 8, !noalias !2125
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !2125
   store ptr %5, ptr %4, align 8, !noalias !2125
-  invoke void @_ZN3std10sys_common4once5futex4Once4call17h26a404f7bfe9d9b3E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN94_$LT$tree_sitter_cli..highlight..CSS_STYLES_BY_COLOR_ID$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4bb2edef175e3873E", i64 24), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4ccd1cf6e450bc7ecae6e75709804d9d.561)
+  invoke void @_ZN3std10sys_common4once5futex4Once4call17h26a404f7bfe9d9b3E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN94_$LT$tree_sitter_cli..highlight..CSS_STYLES_BY_COLOR_ID$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4bb2edef175e3873E", i64 24), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4ccd1cf6e450bc7ecae6e75709804d9d.561)
           to label %.noexc15 unwind label %37
 
 .noexc15:                                         ; preds = %93
@@ -34840,7 +34840,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN94_$LT$tree_sitter_c
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN94_$LT$tree_sitter_cli..highlight..CSS_STYLES_BY_COLOR_ID$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4bb2edef175e3873E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN94_$LT$tree_sitter_cli..highlight..CSS_STYLES_BY_COLOR_ID$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4bb2edef175e3873E", i64 24) acquire, align 8, !noalias !4734
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN94_$LT$tree_sitter_cli..highlight..CSS_STYLES_BY_COLOR_ID$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4bb2edef175e3873E", i64 24) acquire, align 8, !noalias !4734
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17h0ebb43a2a91e4162E.exit, label %7
 
@@ -34849,7 +34849,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN94_$LT$tree_sitter_c
   store ptr %4, ptr %3, align 8, !noalias !4734
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !4734
   store ptr %3, ptr %2, align 8, !noalias !4734
-  call void @_ZN3std10sys_common4once5futex4Once4call17h26a404f7bfe9d9b3E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN94_$LT$tree_sitter_cli..highlight..CSS_STYLES_BY_COLOR_ID$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4bb2edef175e3873E", i64 24), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4ccd1cf6e450bc7ecae6e75709804d9d.561)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h26a404f7bfe9d9b3E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN94_$LT$tree_sitter_cli..highlight..CSS_STYLES_BY_COLOR_ID$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4bb2edef175e3873E", i64 24), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4ccd1cf6e450bc7ecae6e75709804d9d.561)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !4734
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !4734
   br label %_ZN3std4sync4once4Once9call_once17h0ebb43a2a91e4162E.exit
@@ -34870,7 +34870,7 @@ define void @"_ZN94_$LT$tree_sitter_cli..highlight..CSS_STYLES_BY_COLOR_ID$u20$a
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN94_$LT$tree_sitter_cli..highlight..CSS_STYLES_BY_COLOR_ID$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4bb2edef175e3873E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN94_$LT$tree_sitter_cli..highlight..CSS_STYLES_BY_COLOR_ID$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4bb2edef175e3873E", i64 24) acquire, align 8, !noalias !4737
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN94_$LT$tree_sitter_cli..highlight..CSS_STYLES_BY_COLOR_ID$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4bb2edef175e3873E", i64 24) acquire, align 8, !noalias !4737
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN94_$LT$tree_sitter_cli..highlight..CSS_STYLES_BY_COLOR_ID$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb7c0332a062f67c8E.exit", label %7
 
@@ -34879,7 +34879,7 @@ define void @"_ZN94_$LT$tree_sitter_cli..highlight..CSS_STYLES_BY_COLOR_ID$u20$a
   store ptr %4, ptr %3, align 8, !noalias !4737
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !4737
   store ptr %3, ptr %2, align 8, !noalias !4737
-  call void @_ZN3std10sys_common4once5futex4Once4call17h26a404f7bfe9d9b3E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN94_$LT$tree_sitter_cli..highlight..CSS_STYLES_BY_COLOR_ID$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4bb2edef175e3873E", i64 24), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4ccd1cf6e450bc7ecae6e75709804d9d.561)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h26a404f7bfe9d9b3E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN94_$LT$tree_sitter_cli..highlight..CSS_STYLES_BY_COLOR_ID$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4bb2edef175e3873E", i64 24), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4ccd1cf6e450bc7ecae6e75709804d9d.561)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !4737
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !4737
   br label %"_ZN94_$LT$tree_sitter_cli..highlight..CSS_STYLES_BY_COLOR_ID$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb7c0332a062f67c8E.exit"

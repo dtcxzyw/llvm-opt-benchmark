@@ -164,7 +164,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE0EE11_
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN13MemoryManagerC2EPKc(ptr noundef nonnull align 8 dereferenceable(113) initializes((0, 92), (96, 112)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV13MemoryManager, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV13MemoryManager, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %3, i8 0, i64 84, i1 false)
@@ -244,7 +244,7 @@ _ZNK9OopHandle7resolveEv.exit:                    ; preds = %_ZNK14instanceHandl
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN13MemoryManager29get_code_cache_memory_managerEv() local_unnamed_addr #2 align 2 {
   %1 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 120, i8 noundef zeroext 9, i32 noundef 0) #13
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV13MemoryManager, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV13MemoryManager, i64 16), ptr %1, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %2, i8 0, i64 84, i1 false)
@@ -259,7 +259,7 @@ define hidden noundef ptr @_ZN13MemoryManager29get_code_cache_memory_managerEv()
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN13MemoryManager28get_metaspace_memory_managerEv() local_unnamed_addr #2 align 2 {
   %1 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 120, i8 noundef zeroext 9, i32 noundef 0) #13
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV13MemoryManager, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV13MemoryManager, i64 16), ptr %1, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %2, i8 0, i64 84, i1 false)
@@ -330,8 +330,8 @@ define hidden noundef ptr @_ZN13MemoryManager27get_memory_manager_instanceEP10Ja
 34:                                               ; preds = %31
   %.not = icmp eq ptr %32, null
   %spec.select = select i1 %.not, ptr %9, ptr %32
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8896), align 8
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8920), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8896), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8920), align 8
   %37 = load ptr, ptr %22, align 8
   %38 = load i32, ptr %24, align 8
   %39 = sext i32 %38 to i64
@@ -347,8 +347,8 @@ define hidden noundef ptr @_ZN13MemoryManager27get_memory_manager_instanceEP10Ja
   br label %49
 
 46:                                               ; preds = %17
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8888), align 8
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8912), align 8
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8888), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8912), align 8
   br label %49
 
 49:                                               ; preds = %46, %34
@@ -617,7 +617,7 @@ define hidden void @_ZN15GCMemoryManagerC2EPKc(ptr noundef nonnull align 8 deref
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store volatile i8 0, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV15GCMemoryManager, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV15GCMemoryManager, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -639,7 +639,7 @@ define hidden void @_ZN15GCMemoryManagerC2EPKc(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15GCMemoryManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(191) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV15GCMemoryManager, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV15GCMemoryManager, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

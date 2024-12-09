@@ -1375,7 +1375,7 @@ define internal noundef i32 @archive_read_format_7zip_cleanup(ptr noundef %0) #0
   br i1 %.not17.i, label %free_decompression.exit, label %32
 
 32:                                               ; preds = %29
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd7_functions, i64 16), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd7_functions, i64 16), align 8
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 680
   tail call void %33(ptr noundef nonnull %34) #17
   store i32 0, ptr %30, align 8
@@ -3564,10 +3564,10 @@ define internal fastcc range(i64 -30, 1) i64 @extract_pack_stream(ptr noundef %0
   %99 = getelementptr inbounds nuw i8, ptr %8, i64 19920
   %100 = getelementptr inbounds nuw i8, ptr %8, i64 19864
   %101 = getelementptr inbounds nuw i8, ptr %8, i64 19904
-  %102 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd7_functions, i64 48), align 8
+  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd7_functions, i64 48), align 8
   %103 = getelementptr inbounds nuw i8, ptr %8, i64 19984
   %104 = getelementptr inbounds nuw i8, ptr %8, i64 264
-  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd7_functions, i64 64), align 8
+  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd7_functions, i64 64), align 8
   %106 = getelementptr inbounds nuw i8, ptr %8, i64 680
   %107 = getelementptr inbounds nuw i8, ptr %8, i64 19976
   %108 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7601,7 +7601,7 @@ define internal fastcc range(i32 -30, 1) i32 @init_decompression(ptr noundef %0,
   br i1 %.not163, label %135, label %132
 
 132:                                              ; preds = %129
-  %133 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd7_functions, i64 16), align 8
+  %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd7_functions, i64 16), align 8
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 680
   tail call void %133(ptr noundef nonnull %134) #17
   store i32 0, ptr %130, align 8
@@ -7639,7 +7639,7 @@ define internal fastcc range(i32 -30, 1) i32 @init_decompression(ptr noundef %0,
   %152 = load ptr, ptr @__archive_ppmd7_functions, align 8
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 680
   tail call void %152(ptr noundef nonnull %153) #17
-  %154 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd7_functions, i64 8), align 8
+  %154 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd7_functions, i64 8), align 8
   %155 = tail call i32 %154(ptr noundef nonnull %153, i32 noundef %146) #17
   %156 = icmp eq i32 %155, 0
   br i1 %156, label %157, label %158
@@ -7649,9 +7649,9 @@ define internal fastcc range(i32 -30, 1) i32 @init_decompression(ptr noundef %0,
   br label %176
 
 158:                                              ; preds = %151
-  %159 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd7_functions, i64 24), align 8
+  %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd7_functions, i64 24), align 8
   tail call void %159(ptr noundef nonnull %153, i32 noundef %144) #17
-  %160 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd7_functions, i64 32), align 8
+  %160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd7_functions, i64 32), align 8
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 19864
   tail call void %160(ptr noundef nonnull %161) #17
   store i32 1, ptr %130, align 8

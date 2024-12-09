@@ -541,7 +541,7 @@ define weak_odr void @_ZN5boost7archive18basic_xml_iarchiveINS0_13xml_wiarchiveE
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5boost7archive18basic_xml_iarchiveINS0_13xml_wiarchiveEEC2Ej(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 noundef %1) unnamed_addr #1 comdat($_ZN5boost7archive18basic_xml_iarchiveINS0_13xml_wiarchiveEEC5Ej) align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5boost7archive6detail14basic_iarchiveC2Ej(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost7archive18basic_xml_iarchiveINS0_13xml_wiarchiveEEE, i64 16), ptr %0, align 8, !tbaa !72
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost7archive18basic_xml_iarchiveINS0_13xml_wiarchiveEEE, i64 16), ptr %0, align 8, !tbaa !72
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %3, align 8, !tbaa !34
   ret void
@@ -1314,7 +1314,7 @@ define weak_odr void @_ZN5boost7archive18xml_wiarchive_implINS0_13xml_wiarchiveE
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %9, align 8, !tbaa !34
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost7archive18xml_wiarchive_implINS0_13xml_wiarchiveEEE, i64 16), ptr %0, align 8, !tbaa !72
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost7archive18xml_wiarchive_implINS0_13xml_wiarchiveEEE, i64 16), ptr %0, align 8, !tbaa !72
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #21
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -1542,7 +1542,7 @@ declare void @_ZN5boost7archive21basic_text_iprimitiveISt13basic_istreamIwSt11ch
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5boost7archive18xml_wiarchive_implINS0_13xml_wiarchiveEED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #0 comdat($_ZN5boost7archive18xml_wiarchive_implINS0_13xml_wiarchiveEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost7archive18xml_wiarchive_implINS0_13xml_wiarchiveEEE, i64 16), ptr %0, align 8, !tbaa !72
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost7archive18xml_wiarchive_implINS0_13xml_wiarchiveEEE, i64 16), ptr %0, align 8, !tbaa !72
   %2 = tail call noundef i32 @_ZSt19uncaught_exceptionsv() #23
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %14

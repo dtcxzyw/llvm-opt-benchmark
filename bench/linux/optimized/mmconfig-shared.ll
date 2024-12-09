@@ -109,7 +109,7 @@ define internal fastcc noundef ptr @pci_mmconfig_alloc(i32 noundef %0, i32 nound
   br i1 %5, label %32, label %6
 
 6:                                                ; preds = %4
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %8 = tail call noalias noundef align 8 dereferenceable_or_null(136) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 136) #13
   %9 = icmp eq ptr %8, null
   br i1 %9, label %32, label %10
@@ -199,7 +199,7 @@ define internal fastcc void @list_add_sorted(ptr noundef nonnull %0) unnamed_add
   br i1 %26, label %.loopexit, label %8, !llvm.loop !6
 
 .loopexit:                                        ; preds = %24, %1
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @pci_mmcfg_list, i64 8), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pci_mmcfg_list, i64 8), align 8
   store ptr @pci_mmcfg_list, ptr %0, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %27, ptr %28, align 8
@@ -208,7 +208,7 @@ define internal fastcc void @list_add_sorted(ptr noundef nonnull %0) unnamed_add
 
 29:                                               ; preds = %.loopexit, %20
   %30 = phi ptr [ %27, %.loopexit ], [ %22, %20 ]
-  %31 = phi ptr [ getelementptr inbounds (i8, ptr @pci_mmcfg_list, i64 8), %.loopexit ], [ %21, %20 ]
+  %31 = phi ptr [ getelementptr inbounds nuw (i8, ptr @pci_mmcfg_list, i64 8), %.loopexit ], [ %21, %20 ]
   store volatile ptr %0, ptr %30, align 8
   store ptr %0, ptr %31, align 8
   ret void
@@ -808,9 +808,9 @@ is_mmconf_reserved.specialized.2.exit:            ; preds = %.loopexit.i
   %79 = load i64, ptr %10, align 8
   %80 = load i64, ptr %12, align 8
   %81 = add i64 %80, 1
-  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @efi, i64 216), align 8
-  %83 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 248), align 8
-  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @efi, i64 224), align 8
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 216), align 8
+  %83 = load i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 248), align 8
+  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 224), align 8
   %85 = icmp ne ptr %82, null
   %86 = getelementptr i8, ptr %82, i64 %83
   %87 = icmp ule ptr %86, %84
@@ -1235,7 +1235,7 @@ define internal noundef ptr @pci_mmcfg_amd_fam10h() #0 section ".init.text" alig
   %6 = extractvalue { i32, i64, i64 } %5, 0
   %7 = extractvalue { i32, i64, i64 } %5, 1
   %8 = extractvalue { i32, i64, i64 } %5, 2
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #11
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #11
           to label %12 [label %9], !srcloc !21
 
 9:                                                ; preds = %4

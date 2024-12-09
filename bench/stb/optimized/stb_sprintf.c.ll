@@ -2084,7 +2084,7 @@ do.body:                                          ; preds = %if.end1116, %do.bod
   %rem1122 = urem i32 %n.17, 100
   %mul1123 = shl nuw nsw i32 %rem1122, 1
   %idxprom1124 = zext nneg i32 %mul1123 to i64
-  %arrayidx1125 = getelementptr inbounds nuw [201 x i8], ptr getelementptr inbounds (i8, ptr @stbsp__digitpair, i64 2), i64 0, i64 %idxprom1124
+  %arrayidx1125 = getelementptr inbounds nuw [201 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbsp__digitpair, i64 2), i64 0, i64 %idxprom1124
   %210 = load i16, ptr %arrayidx1125, align 2
   store i16 %210, ptr %add.ptr1121.ptr, align 2
   %div1126 = udiv i32 %n.17, 100
@@ -3292,7 +3292,7 @@ while.body132:                                    ; preds = %while.body132.prehe
   %rem134 = urem i32 %n120.192, 100
   %mul135 = shl nuw nsw i32 %rem134, 1
   %idxprom136 = zext nneg i32 %mul135 to i64
-  %arrayidx137 = getelementptr inbounds nuw [201 x i8], ptr getelementptr inbounds (i8, ptr @stbsp__digitpair, i64 2), i64 0, i64 %idxprom136
+  %arrayidx137 = getelementptr inbounds nuw [201 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbsp__digitpair, i64 2), i64 0, i64 %idxprom136
   %6 = load i16, ptr %arrayidx137, align 2
   store i16 %6, ptr %add.ptr133.ptr, align 2
   %div138 = udiv i32 %n120.192, 100

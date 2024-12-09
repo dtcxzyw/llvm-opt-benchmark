@@ -166,7 +166,7 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorCNTImplC2Eibib(ptr nounde
   %6 = zext i1 %2 to i8
   %7 = zext i1 %4 to i8
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN2cv6bgsegm27BackgroundSubtractorCNTImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN2cv6bgsegm27BackgroundSubtractorCNTImplE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -745,7 +745,7 @@ _ZN2cv4Mat_INS_3VecIiLi4EEEEaSERKNS_7MatExprE.exit: ; preds = %_ZN2cv4Mat_INS_3V
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %126 = load i32, ptr %125, align 8
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6bgsegm26BGSubtractPixelWithHistoryE, i64 16), ptr %114, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6bgsegm26BGSubtractPixelWithHistoryE, i64 16), ptr %114, align 8
   %128 = getelementptr inbounds nuw i8, ptr %114, i64 8
   store i32 %119, ptr %128, align 8
   %129 = getelementptr inbounds nuw i8, ptr %114, i64 12
@@ -773,7 +773,7 @@ _ZN2cv4Mat_INS_3VecIiLi4EEEEaSERKNS_7MatExprE.exit: ; preds = %_ZN2cv4Mat_INS_3V
   %141 = load i32, ptr %140, align 8
   %142 = mul nsw i32 %141, 3
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6bgsegm15BGSubtractPixelE, i64 16), ptr %136, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6bgsegm15BGSubtractPixelE, i64 16), ptr %136, align 8
   %144 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store i32 %139, ptr %144, align 8
   %145 = getelementptr inbounds nuw i8, ptr %136, i64 12
@@ -820,7 +820,7 @@ _ZN2cv4Mat_INS_3VecIiLi4EEEEaSERKNS_7MatExprE.exit: ; preds = %_ZN2cv4Mat_INS_3V
   %170 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %169, ptr %170, align 4
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6bgsegm10CNTInvokerE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6bgsegm10CNTInvokerE, i64 16), ptr %18, align 8
   %172 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %58, ptr %172, align 8
   %173 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -982,7 +982,7 @@ define void @_ZN2cv6bgsegm29createBackgroundSubtractorCNTEibib(ptr dead_on_unwin
   store i32 1, ptr %7, align 8, !noalias !17
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %8, align 4, !noalias !17
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorCNTImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8, !noalias !17
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorCNTImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8, !noalias !17
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(312) %9)
           to label %_ZN2cv3PtrINS_6bgsegm27BackgroundSubtractorCNTImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorCNTImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i, !noalias !17
@@ -996,7 +996,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSub
 _ZN2cv3PtrINS_6bgsegm27BackgroundSubtractorCNTImplEED2Ev.exit: ; preds = %5
   %11 = zext i1 %4 to i8
   %12 = zext i1 %2 to i8
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN2cv6bgsegm27BackgroundSubtractorCNTImplE, i64 16), ptr %9, align 8, !noalias !17
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN2cv6bgsegm27BackgroundSubtractorCNTImplE, i64 16), ptr %9, align 8, !noalias !17
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %1, ptr %13, align 8, !noalias !17
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 28

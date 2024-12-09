@@ -194,7 +194,7 @@ invoke.cont7:
   %ref.tmp18 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp19 = alloca %"class.std::allocator.3", align 1
   %ref.tmp22 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib25ParticleSwarmOptimizationE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib25ParticleSwarmOptimizationE, i64 16), ptr %this, align 8, !tbaa !3
   %X_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %pBF_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %gBF_ = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -553,7 +553,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !29
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -751,7 +751,7 @@ _ZNSt12_Vector_baseIN8QuantLib5ArrayESaIS1_EED2Ev.exit: ; preds = %invoke.cont, 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8QuantLib25ParticleSwarmOptimizationC2EmN5boost10shared_ptrINS0_8TopologyEEENS2_INS0_7InertiaEEEdddm(ptr noundef nonnull align 8 dereferenceable(5240) initializes((0, 176), (184, 208)) %this, i64 noundef %M, ptr nocapture noundef %topology, ptr nocapture noundef %inertia, double noundef %omega, double noundef %c1, double noundef %c2, i64 noundef %seed) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont7:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib25ParticleSwarmOptimizationE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib25ParticleSwarmOptimizationE, i64 16), ptr %this, align 8, !tbaa !3
   %X_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %pBF_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %gBF_ = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -3728,7 +3728,7 @@ entry:
   %ref.tmp147 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp148 = alloca %"class.std::allocator.3", align 1
   %ref.tmp151 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib13ClubsTopologyE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib13ClubsTopologyE, i64 16), ptr %this, align 8, !tbaa !3
   %totalClubs_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i64 %totalClubs, ptr %totalClubs_, align 8, !tbaa !147
   %maxClubs_ = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -6819,7 +6819,7 @@ unreachable:                                      ; preds = %invoke.cont13
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib25ParticleSwarmOptimizationD2Ev(ptr noundef nonnull align 8 dereferenceable(5240) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib25ParticleSwarmOptimizationE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib25ParticleSwarmOptimizationE, i64 16), ptr %this, align 8, !tbaa !3
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 5232
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !29
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -7124,7 +7124,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib13ClubsTopologyD2Ev(ptr noundef nonnull align 8 dereferenceable(5232) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib13ClubsTopologyE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib13ClubsTopologyE, i64 16), ptr %this, align 8, !tbaa !3
   %worstByClub_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load ptr, ptr %worstByClub_, align 8, !tbaa !165
   %tobool.not.i.i.i = icmp eq ptr %0, null

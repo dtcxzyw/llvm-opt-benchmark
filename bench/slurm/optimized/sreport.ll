@@ -165,7 +165,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   unreachable
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 368), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 368), align 8
   %17 = tail call ptr @xstrstr(ptr noundef %16, ptr noundef nonnull @.str.20) #17
   %.not24 = icmp eq ptr %17, null
   br i1 %.not24, label %19, label %18
@@ -1018,7 +1018,7 @@ define internal fastcc ptr @_build_cluster_string() unnamed_addr #7 {
   %2 = alloca %struct.slurmdb_federation_cond_t, align 8
   store ptr null, ptr %1, align 8
   %3 = tail call ptr @list_create(ptr noundef null) #17
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   tail call void @list_append(ptr noundef %3, ptr noundef %4) #17
   call void @slurmdb_init_federation_cond(ptr noundef nonnull %2, i1 noundef zeroext false) #17
   store ptr %3, ptr %2, align 8

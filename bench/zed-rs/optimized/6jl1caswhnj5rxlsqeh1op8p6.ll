@@ -1123,7 +1123,7 @@ _ZN4core3ops8function6FnOnce9call_once17h8eaa5b1fef3aa7a8E.exit.i: ; preds = %42
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h1ac162fb154163d5E.exit": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h8eaa5b1fef3aa7a8E.exit.i, %42
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %44, %_ZN4core3ops8function6FnOnce9call_once17h8eaa5b1fef3aa7a8E.exit.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %42 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %44, %_ZN4core3ops8function6FnOnce9call_once17h8eaa5b1fef3aa7a8E.exit.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %42 ]
   %47 = load i64, ptr %.sroa.0.0.i.i.i2.i, align 8, !noalias !452, !noundef !4
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i, i64 8
   %49 = load i64, ptr %48, align 8, !noalias !452, !noundef !4
@@ -1232,7 +1232,7 @@ _ZN4core3ops8function6FnOnce9call_once17h8eaa5b1fef3aa7a8E.exit.i16: ; preds = %
   unreachable
 
 77:                                               ; preds = %.noexc, %51
-  %.sroa.0.0.i.i.i2.i18 = phi ptr [ %53, %.noexc ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %51 ]
+  %.sroa.0.0.i.i.i2.i18 = phi ptr [ %53, %.noexc ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %51 ]
   %78 = load i64, ptr %.sroa.0.0.i.i.i2.i18, align 8, !noalias !478, !noundef !4
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i18, i64 8
   %80 = load i64, ptr %79, align 8, !noalias !478, !noundef !4
@@ -1772,7 +1772,7 @@ _ZN4core3ops8function6FnOnce9call_once17h8eaa5b1fef3aa7a8E.exit.i: ; preds = %33
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h1ac162fb154163d5E.exit": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h8eaa5b1fef3aa7a8E.exit.i, %33
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %35, %_ZN4core3ops8function6FnOnce9call_once17h8eaa5b1fef3aa7a8E.exit.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %33 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %35, %_ZN4core3ops8function6FnOnce9call_once17h8eaa5b1fef3aa7a8E.exit.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %33 ]
   %38 = load i64, ptr %.sroa.0.0.i.i.i2.i, align 8, !noalias !559, !noundef !4
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i, i64 8
   %40 = load i64, ptr %39, align 8, !noalias !559, !noundef !4
@@ -1826,7 +1826,7 @@ _ZN4core3ops8function6FnOnce9call_once17h8eaa5b1fef3aa7a8E.exit.i15: ; preds = %
   unreachable
 
 51:                                               ; preds = %.noexc, %42
-  %.sroa.0.0.i.i.i2.i17 = phi ptr [ %44, %.noexc ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %42 ]
+  %.sroa.0.0.i.i.i2.i17 = phi ptr [ %44, %.noexc ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %42 ]
   %52 = load i64, ptr %.sroa.0.0.i.i.i2.i17, align 8, !noalias !572, !noundef !4
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i17, i64 8
   %54 = load i64, ptr %53, align 8, !noalias !572, !noundef !4

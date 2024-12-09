@@ -26,7 +26,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN8QuantLib20FdmSnapshotConditionC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, double noundef %t) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib20FdmSnapshotConditionE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib20FdmSnapshotConditionE, i64 16), ptr %this, align 8, !tbaa !3
   %t_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store double %t, ptr %t_, align 8, !tbaa !6
   %values_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -93,7 +93,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib20FdmSnapshotConditionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib20FdmSnapshotConditionE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib20FdmSnapshotConditionE, i64 16), ptr %this, align 8, !tbaa !3
   %values_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %values_, align 8, !tbaa !21
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -111,7 +111,7 @@ _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %entry, %_ZNKSt14def
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib20FdmSnapshotConditionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib20FdmSnapshotConditionE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib20FdmSnapshotConditionE, i64 16), ptr %this, align 8, !tbaa !3
   %values_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %values_.i, align 8, !tbaa !21
   %cmp.not.i.i.i = icmp eq ptr %0, null

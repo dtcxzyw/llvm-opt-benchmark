@@ -285,7 +285,7 @@ define dso_local void @ntp_notify_cmos_timer() local_unnamed_addr #3 align 16 {
   br i1 %3, label %4, label %11
 
 4:                                                ; preds = %0
-  %5 = load volatile i8, ptr getelementptr inbounds (i8, ptr @sync_hrtimer, i64 56), align 8
+  %5 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @sync_hrtimer, i64 56), align 8
   %6 = and i8 %5, 1
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %11
@@ -821,7 +821,7 @@ define dso_local void @ntp_init() local_unnamed_addr #5 section ".init.text" ali
   store i64 0, ptr @time_offset, align 8
   store i64 9223372036854775807, ptr @ntp_next_leap_sec, align 8
   tail call void @hrtimer_init(ptr noundef nonnull @sync_hrtimer, i32 noundef 0, i32 noundef 0) #10
-  store ptr @sync_timer_callback, ptr getelementptr inbounds (i8, ptr @sync_hrtimer, i64 40), align 8
+  store ptr @sync_timer_callback, ptr getelementptr inbounds nuw (i8, ptr @sync_hrtimer, i64 40), align 8
   ret void
 }
 
@@ -840,7 +840,7 @@ define internal void @sync_hw_clock(ptr nocapture readnone %0) #3 align 16 {
   br i1 %7, label %8, label %66
 
 8:                                                ; preds = %1
-  %9 = load volatile i8, ptr getelementptr inbounds (i8, ptr @sync_hrtimer, i64 56), align 8
+  %9 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @sync_hrtimer, i64 56), align 8
   %10 = and i8 %9, 1
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %12, label %66

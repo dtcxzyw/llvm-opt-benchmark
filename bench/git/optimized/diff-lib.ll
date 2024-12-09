@@ -718,8 +718,8 @@ if.end.i243:                                      ; preds = %if.then.i241
   %73 = load i32, ptr %ce_flags113, align 8
   %or5.i = or i32 %73, 2097152
   store i32 %or5.i, ptr %ce_flags113, align 8
-  %trace_fsmonitor.val.i = load i32, ptr getelementptr inbounds (i8, ptr @trace_fsmonitor, i64 8), align 8
-  %trace_fsmonitor.val5.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %trace_fsmonitor.val.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8
+  %trace_fsmonitor.val5.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
   %tobool.not.i.i244 = icmp eq i32 %trace_fsmonitor.val.i, 0
   %bf.clear.i.i = and i8 %trace_fsmonitor.val5.i, 1
   %tobool7.not6.i = icmp ne i8 %bf.clear.i.i, 0
@@ -813,8 +813,8 @@ for.inc:                                          ; preds = %mark_fsmonitor_vali
 for.end:                                          ; preds = %for.inc, %for.body, %entry
   call void @diffcore_std(ptr noundef nonnull %diffopt) #14
   call void @diff_flush(ptr noundef nonnull %diffopt) #14
-  %trace_perf_key.val = load i32, ptr getelementptr inbounds (i8, ptr @trace_perf_key, i64 8), align 8
-  %trace_perf_key.val103 = load i8, ptr getelementptr inbounds (i8, ptr @trace_perf_key, i64 12), align 4
+  %trace_perf_key.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 8), align 8
+  %trace_perf_key.val103 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 12), align 4
   %tobool.not.i279 = icmp eq i32 %trace_perf_key.val, 0
   %bf.clear.i = and i8 %trace_perf_key.val103, 1
   %tobool198.not290 = icmp ne i8 %bf.clear.i, 0
@@ -1167,8 +1167,8 @@ if.end19:                                         ; preds = %if.end14
   call void @diffcore_fix_diff_index() #14
   call void @diffcore_std(ptr noundef nonnull %diffopt) #14
   call void @diff_flush(ptr noundef nonnull %diffopt) #14
-  %trace_perf_key.val = load i32, ptr getelementptr inbounds (i8, ptr @trace_perf_key, i64 8), align 8
-  %trace_perf_key.val11 = load i8, ptr getelementptr inbounds (i8, ptr @trace_perf_key, i64 12), align 4
+  %trace_perf_key.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 8), align 8
+  %trace_perf_key.val11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 12), align 4
   %tobool.not.i = icmp eq i32 %trace_perf_key.val, 0
   %bf.clear.i = and i8 %trace_perf_key.val11, 1
   %tobool25.not12 = icmp ne i8 %bf.clear.i, 0

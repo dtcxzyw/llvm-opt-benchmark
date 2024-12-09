@@ -47,7 +47,7 @@ define dso_local noundef range(i32 -14, 1) i32 @x64_setup_rt_frame(ptr noundef %
 
 19:                                               ; preds = %13
   %20 = call ptr @get_sigframe(ptr noundef %0, ptr noundef %1, i64 noundef 440, ptr noundef nonnull %3) #8
-  %21 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %21 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %23 = icmp sgt ptr %20, inttoptr (i64 -1 to ptr)
   br i1 %23, label %24, label %185, !prof !7

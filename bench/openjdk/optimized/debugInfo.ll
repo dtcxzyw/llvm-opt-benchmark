@@ -578,7 +578,7 @@ _ZN20CompressedReadStream8read_intEv.exit:        ; preds = %2, %.preheader.i.i,
   %storemerge.i.i = add nsw i32 %storemerge.in.i.i, 1
   store i32 %storemerge.i.i, ptr %4, align 8
   %33 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 64, i32 noundef 0) #11
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTV11ObjectValue, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTV11ObjectValue, i64 16), ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 %.0.i.i, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -600,7 +600,7 @@ _ZN20CompressedReadStream8read_intEv.exit:        ; preds = %2, %.preheader.i.i,
   br i1 %1, label %43, label %45
 
 43:                                               ; preds = %_ZN20CompressedReadStream8read_intEv.exit
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTV18AutoBoxObjectValue, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTV18AutoBoxObjectValue, i64 16), ptr %33, align 8
   %44 = getelementptr inbounds nuw i8, ptr %33, i64 59
   store i8 0, ptr %44, align 1
   br label %45
@@ -913,7 +913,7 @@ _ZN20CompressedReadStream8read_intEv.exit:        ; preds = %1, %.preheader.i.i,
   %storemerge.i.i = add nsw i32 %storemerge.in.i.i, 1
   store i32 %storemerge.i.i, ptr %3, align 8
   %32 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i32 noundef 0) #11
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTV11ObjectValue, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTV11ObjectValue, i64 16), ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 %.0.i.i, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -930,7 +930,7 @@ _ZN20CompressedReadStream8read_intEv.exit:        ; preds = %1, %.preheader.i.i,
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 58
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %39, i8 0, i64 18, i1 false)
   store i8 1, ptr %40, align 2
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTV16ObjectMergeValue, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTV16ObjectMergeValue, i64 16), ptr %32, align 8
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %42 = getelementptr inbounds nuw i8, ptr %32, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
@@ -1240,7 +1240,7 @@ _ZN20CompressedReadStream8read_intEv.exit:        ; preds = %1, %.preheader.i.i,
 33:                                               ; preds = %_ZN20CompressedReadStream8read_intEv.exit
   %34 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV13LocationValue, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV13LocationValue, i64 16), ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 0, ptr %35, align 4
   call void @_ZN8LocationC1EP19DebugInfoReadStream(ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull %0) #11
@@ -1251,7 +1251,7 @@ _ZN20CompressedReadStream8read_intEv.exit:        ; preds = %1, %.preheader.i.i,
 
 37:                                               ; preds = %_ZN20CompressedReadStream8read_intEv.exit
   %38 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #11
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV16ConstantIntValue, i64 16), ptr %38, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV16ConstantIntValue, i64 16), ptr %38, align 8
   %39 = tail call noundef i32 @_ZN20CompressedReadStream15read_signed_intEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #11
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i32 %39, ptr %40, align 8
@@ -1264,7 +1264,7 @@ _ZN20CompressedReadStream8read_intEv.exit:        ; preds = %1, %.preheader.i.i,
 
 43:                                               ; preds = %_ZN20CompressedReadStream8read_intEv.exit
   %44 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #11
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV17ConstantLongValue, i64 16), ptr %44, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV17ConstantLongValue, i64 16), ptr %44, align 8
   %45 = tail call noundef i64 @_ZN20CompressedReadStream9read_longEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #11
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i64 %45, ptr %46, align 8
@@ -1272,7 +1272,7 @@ _ZN20CompressedReadStream8read_intEv.exit:        ; preds = %1, %.preheader.i.i,
 
 47:                                               ; preds = %_ZN20CompressedReadStream8read_intEv.exit
   %48 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #11
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV19ConstantDoubleValue, i64 16), ptr %48, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV19ConstantDoubleValue, i64 16), ptr %48, align 8
   %49 = tail call noundef double @_ZN20CompressedReadStream11read_doubleEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #11
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store double %49, ptr %50, align 8
@@ -1335,7 +1335,7 @@ _ZN20CompressedReadStream8read_intEv.exit21:      ; preds = %55, %.preheader.i.i
   %storemerge.i.i20 = add nsw i32 %storemerge.in.i.i18, 1
   store i32 %storemerge.i.i20, ptr %4, align 4
   %83 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i32 noundef 0) #11
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTV11ObjectValue, i64 16), ptr %83, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTV11ObjectValue, i64 16), ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store i32 %.0.i.i19, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 16
@@ -1352,7 +1352,7 @@ _ZN20CompressedReadStream8read_intEv.exit21:      ; preds = %55, %.preheader.i.i
   %91 = getelementptr inbounds nuw i8, ptr %83, i64 58
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %90, i8 0, i64 18, i1 false)
   store i8 1, ptr %91, align 2
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTV16ObjectMergeValue, i64 16), ptr %83, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTV16ObjectMergeValue, i64 16), ptr %83, align 8
   %92 = getelementptr inbounds nuw i8, ptr %83, i64 64
   %93 = getelementptr inbounds nuw i8, ptr %83, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
@@ -1478,7 +1478,7 @@ _ZN20CompressedReadStream8read_intEv.exit.i:      ; preds = %.loopexit.loopexit.
 
 164:                                              ; preds = %_ZN20CompressedReadStream8read_intEv.exit
   %165 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i32 noundef 0) #11
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV11MarkerValue, i64 16), ptr %165, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV11MarkerValue, i64 16), ptr %165, align 8
   br label %_ZN19DebugInfoReadStream17get_cached_objectEv.exit
 
 166:                                              ; preds = %_ZN20CompressedReadStream8read_intEv.exit
@@ -1498,7 +1498,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13LocationValueC2EP19DebugInfoReadStream(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.Location, align 4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV13LocationValue, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV13LocationValue, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   call void @_ZN8LocationC1EP19DebugInfoReadStream(ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef %1) #11
@@ -2030,7 +2030,7 @@ define hidden noundef ptr @_ZN16ObjectMergeValue6selectER5frameR11RegisterMap(pt
   %14 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 64, i32 noundef 0) #11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTV11ObjectValue, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTV11ObjectValue, i64 16), ptr %14, align 8
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %16, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -2441,7 +2441,7 @@ _ZN21CompressedWriteStream9write_intEj.exit75:    ; preds = %_ZN9UNSIGNED513fits
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16ConstantIntValueC2EP19DebugInfoReadStream(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV16ConstantIntValue, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV16ConstantIntValue, i64 16), ptr %0, align 8
   %3 = tail call noundef i32 @_ZN20CompressedReadStream15read_signed_intEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %3, ptr %4, align 8
@@ -2570,7 +2570,7 @@ define hidden void @_ZNK16ConstantIntValue8print_onEP12outputStream(ptr nocaptur
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17ConstantLongValueC2EP19DebugInfoReadStream(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV17ConstantLongValue, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV17ConstantLongValue, i64 16), ptr %0, align 8
   %3 = tail call noundef i64 @_ZN20CompressedReadStream9read_longEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %3, ptr %4, align 8
@@ -2619,7 +2619,7 @@ define hidden void @_ZNK17ConstantLongValue8print_onEP12outputStream(ptr nocaptu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19ConstantDoubleValueC2EP19DebugInfoReadStream(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV19ConstantDoubleValue, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV19ConstantDoubleValue, i64 16), ptr %0, align 8
   %3 = tail call noundef double @_ZN20CompressedReadStream11read_doubleEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %3, ptr %4, align 8
@@ -2797,7 +2797,7 @@ declare void @_ZNK7oopDesc14print_value_onEP12outputStream(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ConstantOopReadValueC2EP19DebugInfoReadStream(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV20ConstantOopReadValue, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV20ConstantOopReadValue, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)

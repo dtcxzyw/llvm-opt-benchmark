@@ -934,7 +934,7 @@ if.end34:                                         ; preds = %if.end
   store ptr %10, ptr %next36, align 8
   store ptr @.str.1, ptr %call, align 8
   %afterLast40 = getelementptr inbounds nuw i8, ptr %call, i64 8
-  store ptr getelementptr inbounds (i8, ptr @.str.1, i64 1), ptr %afterLast40, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @.str.1, i64 1), ptr %afterLast40, align 8
   store ptr %call, ptr %pathHead35, align 8
   br label %return
 
@@ -1917,7 +1917,7 @@ if.end34:                                         ; preds = %if.end
   store ptr %10, ptr %next36, align 8
   store ptr @.str.4, ptr %call, align 8
   %afterLast40 = getelementptr inbounds nuw i8, ptr %call, i64 8
-  store ptr getelementptr inbounds (i8, ptr @.str.4, i64 4), ptr %afterLast40, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @.str.4, i64 4), ptr %afterLast40, align 8
   store ptr %call, ptr %pathHead35, align 8
   br label %return
 

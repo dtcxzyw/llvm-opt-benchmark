@@ -45605,7 +45605,7 @@ _ZN4core3ops8function6FnOnce9call_once17hcc9e1feef4da45d1E.exit.i.i.i: ; preds =
   br label %"_ZN4core3ptr97drop_in_place$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17hc172acb485b06e96E.exit"
 
 28:                                               ; preds = %.noexc10, %16
-  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %19, %.noexc10 ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %16 ]
+  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %19, %.noexc10 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %16 ]
   %29 = load i64, ptr %.sroa.0.0.i.i.i2.i.i.i, align 8, !noalias !12070, !noundef !4
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i.i.i, i64 8
   %31 = load i64, ptr %30, align 8, !noalias !12070, !noundef !4

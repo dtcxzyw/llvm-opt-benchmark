@@ -456,7 +456,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qtest_add_abrt_handler(ptr noundef %fn, ptr noundef %data) local_unnamed_addr #1 {
 entry:
-  %bf.load = load i32, ptr getelementptr inbounds (i8, ptr @abrt_hooks, i64 8), align 8
+  %bf.load = load i32, ptr getelementptr inbounds nuw (i8, ptr @abrt_hooks, i64 8), align 8
   %0 = and i32 %bf.load, 65536
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -3867,7 +3867,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call4, ptr noundef nonnull @.str.115, ptr noundef nonnull %qemu_bin, ptr noundef %cond) #23
   call void @g_string_append_vprintf(ptr noundef %call4, ptr noundef nonnull @.str.107, ptr noundef nonnull %ap) #23
   call void @llvm.va_end.p0(ptr nonnull %ap)
-  %bf.load.i = load i32, ptr getelementptr inbounds (i8, ptr @abrt_hooks, i64 8), align 8
+  %bf.load.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @abrt_hooks, i64 8), align 8
   %0 = and i32 %bf.load.i, 65536
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i

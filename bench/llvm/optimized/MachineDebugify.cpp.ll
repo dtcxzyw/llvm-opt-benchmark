@@ -126,7 +126,7 @@ define dso_local noalias noundef nonnull ptr @_ZN4llvm31createDebugifyMachineMod
   store ptr @_ZN12_GLOBAL__N_121DebugifyMachineModule2IDE, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 4, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_121DebugifyMachineModuleE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_121DebugifyMachineModuleE, i64 16), ptr %1, align 8
   ret ptr %1
 }
 
@@ -142,7 +142,7 @@ define internal noalias noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBA
   store ptr @_ZN12_GLOBAL__N_121DebugifyMachineModule2IDE, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 4, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_121DebugifyMachineModuleE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_121DebugifyMachineModuleE, i64 16), ptr %1, align 8
   ret ptr %1
 }
 

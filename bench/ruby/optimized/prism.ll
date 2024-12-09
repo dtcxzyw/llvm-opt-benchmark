@@ -10459,7 +10459,7 @@ define internal fastcc void @lex_mode_push_list_eof(ptr noundef initializes((624
   call void @llvm.lifetime.start.p0(i64 29, ptr nonnull %.sroa.11)
   %.sroa.11.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.11, i64 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %.sroa.11.3..sroa_idx, i8 0, i64 26, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.11, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds (i8, ptr @.str.43, i64 8), i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.11, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @.str.43, i64 8), i64 3, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -10521,7 +10521,7 @@ define internal fastcc void @lex_mode_push_string_eof(ptr noundef initializes((6
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %.sroa.12)
   %.sroa.12.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.12, i64 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(30) %.sroa.12.3..sroa_idx, i8 0, i64 30, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.12, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds (i8, ptr @.str.41, i64 3), i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.12, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @.str.41, i64 3), i64 3, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -15969,7 +15969,7 @@ accept1.exit1866:                                 ; preds = %363, %363, %370, %3
 394:                                              ; preds = %392
   %395 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %396 = load ptr, ptr %395, align 8
-  %397 = icmp eq ptr %396, getelementptr inbounds (i8, ptr @pm_encodings, i64 3552)
+  %397 = icmp eq ptr %396, getelementptr inbounds nuw (i8, ptr @pm_encodings, i64 3552)
   br i1 %397, label %parse_unescaped_encoding.exit, label %398
 
 398:                                              ; preds = %394, %377
@@ -16383,7 +16383,7 @@ thread-pre-split2636:                             ; preds = %539
 586:                                              ; preds = %584
   %587 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %588 = load ptr, ptr %587, align 8
-  %589 = icmp eq ptr %588, getelementptr inbounds (i8, ptr @pm_encodings, i64 3552)
+  %589 = icmp eq ptr %588, getelementptr inbounds nuw (i8, ptr @pm_encodings, i64 3552)
   br i1 %589, label %parse_unescaped_encoding.exit1878, label %590
 
 590:                                              ; preds = %586, %581
@@ -20351,7 +20351,7 @@ pm_string_node_create_current_string.exit2260:    ; preds = %1923
 
 1936:                                             ; preds = %1934
   %1937 = load ptr, ptr %1887, align 8
-  %1938 = icmp eq ptr %1937, getelementptr inbounds (i8, ptr @pm_encodings, i64 3552)
+  %1938 = icmp eq ptr %1937, getelementptr inbounds nuw (i8, ptr @pm_encodings, i64 3552)
   br i1 %1938, label %parse_unescaped_encoding.exit2263, label %1939
 
 1939:                                             ; preds = %1936, %pm_string_node_create_current_string.exit2260
@@ -20875,7 +20875,7 @@ pm_interpolated_regular_expression_node_append.exit: ; preds = %2107, %2112
 2139:                                             ; preds = %2137
   %2140 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %2141 = load ptr, ptr %2140, align 8
-  %2142 = icmp eq ptr %2141, getelementptr inbounds (i8, ptr @pm_encodings, i64 3552)
+  %2142 = icmp eq ptr %2141, getelementptr inbounds nuw (i8, ptr @pm_encodings, i64 3552)
   br i1 %2142, label %parse_unescaped_encoding.exit2324, label %2143
 
 2143:                                             ; preds = %2139, %2133
@@ -20917,7 +20917,7 @@ parse_unescaped_encoding.exit2324:                ; preds = %2137, %2139, %2143
 2159:                                             ; preds = %2157
   %2160 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %2161 = load ptr, ptr %2160, align 8
-  %2162 = icmp eq ptr %2161, getelementptr inbounds (i8, ptr @pm_encodings, i64 3552)
+  %2162 = icmp eq ptr %2161, getelementptr inbounds nuw (i8, ptr @pm_encodings, i64 3552)
   br i1 %2162, label %parse_unescaped_encoding.exit2327, label %2163
 
 2163:                                             ; preds = %2159, %2147
@@ -24526,7 +24526,7 @@ accept1.exit214:                                  ; preds = %59
 
 92:                                               ; preds = %90
   %93 = load ptr, ptr %20, align 8
-  %94 = icmp eq ptr %93, getelementptr inbounds (i8, ptr @pm_encodings, i64 3552)
+  %94 = icmp eq ptr %93, getelementptr inbounds nuw (i8, ptr @pm_encodings, i64 3552)
   br i1 %94, label %parse_symbol_encoding.exit, label %pm_ascii_only_p.exit.i
 
 95:                                               ; preds = %88
@@ -24836,7 +24836,7 @@ pm_string_node_create_unescaped.exit318:          ; preds = %pm_alloc_node.exit.
 
 172:                                              ; preds = %170
   %173 = load ptr, ptr %20, align 8
-  %174 = icmp eq ptr %173, getelementptr inbounds (i8, ptr @pm_encodings, i64 3552)
+  %174 = icmp eq ptr %173, getelementptr inbounds nuw (i8, ptr @pm_encodings, i64 3552)
   br i1 %174, label %parse_unescaped_encoding.exit, label %175
 
 175:                                              ; preds = %172, %pm_string_node_create_unescaped.exit318
@@ -24871,7 +24871,7 @@ accept1.exit.i322:                                ; preds = %parse_unescaped_enc
 
 183:                                              ; preds = %181
   %184 = load ptr, ptr %20, align 8
-  %185 = icmp eq ptr %184, getelementptr inbounds (i8, ptr @pm_encodings, i64 3552)
+  %185 = icmp eq ptr %184, getelementptr inbounds nuw (i8, ptr @pm_encodings, i64 3552)
   br i1 %185, label %parse_symbol_encoding.exit334, label %pm_ascii_only_p.exit.i328
 
 186:                                              ; preds = %179
@@ -24988,7 +24988,7 @@ pm_string_node_create_unescaped.exit375:          ; preds = %accept1.exit326
 
 214:                                              ; preds = %212
   %215 = load ptr, ptr %20, align 8
-  %216 = icmp eq ptr %215, getelementptr inbounds (i8, ptr @pm_encodings, i64 3552)
+  %216 = icmp eq ptr %215, getelementptr inbounds nuw (i8, ptr @pm_encodings, i64 3552)
   br i1 %216, label %parse_unescaped_encoding.exit378, label %217
 
 217:                                              ; preds = %214, %pm_string_node_create_unescaped.exit375
@@ -26762,7 +26762,7 @@ pm_string_node_create_current_string.exit:        ; preds = %4
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, getelementptr inbounds (i8, ptr @pm_encodings, i64 3552)
+  %21 = icmp eq ptr %20, getelementptr inbounds nuw (i8, ptr @pm_encodings, i64 3552)
   br i1 %21, label %parse_unescaped_encoding.exit, label %22
 
 22:                                               ; preds = %18, %pm_string_node_create_current_string.exit
@@ -27884,7 +27884,7 @@ pm_symbol_node_create.exit:                       ; preds = %14
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, getelementptr inbounds (i8, ptr @pm_encodings, i64 3552)
+  %28 = icmp eq ptr %27, getelementptr inbounds nuw (i8, ptr @pm_encodings, i64 3552)
   br i1 %28, label %parse_symbol_encoding.exit, label %pm_ascii_only_p.exit.i
 
 29:                                               ; preds = %pm_symbol_node_create.exit
@@ -34052,7 +34052,7 @@ pm_symbol_node_create.exit:                       ; preds = %10
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, getelementptr inbounds (i8, ptr @pm_encodings, i64 3552)
+  %24 = icmp eq ptr %23, getelementptr inbounds nuw (i8, ptr @pm_encodings, i64 3552)
   br i1 %24, label %parse_symbol_encoding.exit, label %pm_ascii_only_p.exit.i
 
 25:                                               ; preds = %pm_symbol_node_create.exit
@@ -34792,7 +34792,7 @@ define internal fastcc noalias nonnull ptr @pm_symbol_node_create_current_string
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, getelementptr inbounds (i8, ptr @pm_encodings, i64 3552)
+  %13 = icmp eq ptr %12, getelementptr inbounds nuw (i8, ptr @pm_encodings, i64 3552)
   br i1 %13, label %parse_symbol_encoding.exit, label %pm_ascii_only_p.exit.i
 
 14:                                               ; preds = %4
@@ -36050,7 +36050,7 @@ pm_alloc_node.exit.i.i.cont:                      ; preds = %18
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %38 = load ptr, ptr %37, align 8
-  %39 = icmp eq ptr %38, getelementptr inbounds (i8, ptr @pm_encodings, i64 3552)
+  %39 = icmp eq ptr %38, getelementptr inbounds nuw (i8, ptr @pm_encodings, i64 3552)
   br i1 %39, label %parse_symbol_encoding.exit, label %pm_ascii_only_p.exit.i
 
 40:                                               ; preds = %pm_alloc_node.exit.i.i.cont
@@ -36261,7 +36261,7 @@ pm_alloc_node.exit.i62:                           ; preds = %expect1.exit61
 109:                                              ; preds = %107
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %111 = load ptr, ptr %110, align 8
-  %112 = icmp eq ptr %111, getelementptr inbounds (i8, ptr @pm_encodings, i64 3552)
+  %112 = icmp eq ptr %111, getelementptr inbounds nuw (i8, ptr @pm_encodings, i64 3552)
   br i1 %112, label %pm_string_node_to_symbol_node.exit, label %pm_ascii_only_p.exit.i.i
 
 113:                                              ; preds = %103
@@ -36625,7 +36625,7 @@ expect1.exit182:                                  ; preds = %accept1.exit.i180, 
 224:                                              ; preds = %222
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %226 = load ptr, ptr %225, align 8
-  %227 = icmp eq ptr %226, getelementptr inbounds (i8, ptr @pm_encodings, i64 3552)
+  %227 = icmp eq ptr %226, getelementptr inbounds nuw (i8, ptr @pm_encodings, i64 3552)
   br i1 %227, label %parse_symbol_encoding.exit190, label %pm_ascii_only_p.exit.i184
 
 228:                                              ; preds = %expect1.exit182
@@ -36935,7 +36935,7 @@ pm_symbol_node_create.exit:                       ; preds = %4
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %22, getelementptr inbounds (i8, ptr @pm_encodings, i64 3552)
+  %23 = icmp eq ptr %22, getelementptr inbounds nuw (i8, ptr @pm_encodings, i64 3552)
   br i1 %23, label %parse_symbol_encoding.exit, label %pm_ascii_only_p.exit.i
 
 24:                                               ; preds = %pm_symbol_node_create.exit

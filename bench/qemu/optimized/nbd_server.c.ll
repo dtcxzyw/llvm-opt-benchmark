@@ -808,11 +808,11 @@ for.end138:                                       ; preds = %for.body133, %for.c
   call void @blk_set_dev_ops(ptr noundef %2, ptr noundef nonnull @nbd_block_ops, ptr noundef nonnull %blk_exp) #20
   %next143 = getelementptr inbounds nuw i8, ptr %blk_exp, i64 104
   store ptr null, ptr %next143, align 8
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @exports, i64 8), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @exports, i64 8), align 8
   %tql_prev145 = getelementptr inbounds nuw i8, ptr %blk_exp, i64 112
   store ptr %30, ptr %tql_prev145, align 8
   store ptr %blk_exp, ptr %30, align 8
-  store ptr %next143, ptr getelementptr inbounds (i8, ptr @exports, i64 8), align 8
+  store ptr %next143, ptr getelementptr inbounds nuw (i8, ptr @exports, i64 8), align 8
   call void @bdrv_graph_rdunlock_main_loop() #20
   br label %return
 
@@ -960,7 +960,7 @@ if.then6:                                         ; preds = %if.then
   br label %if.end
 
 if.else:                                          ; preds = %if.then
-  store ptr %7, ptr getelementptr inbounds (i8, ptr @exports, i64 8), align 8
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @exports, i64 8), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then6

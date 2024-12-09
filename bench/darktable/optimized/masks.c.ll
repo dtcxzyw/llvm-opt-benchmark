@@ -350,7 +350,7 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1
   br i1 %5, label %95, label %6
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %9 = load i32, ptr %8, align 8, !tbaa !41
   %10 = icmp eq i32 %9, 0
@@ -374,14 +374,14 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1
   tail call fastcc void @_lib_masks_inactivate_icons(ptr %19)
   %21 = tail call i64 @gdk_pixbuf_get_type() #13
   %22 = tail call ptr (i32, ...) @gtk_tree_store_new(i32 noundef 12, i64 noundef 64, i64 noundef 68, i64 noundef 24, i64 noundef 24, i64 noundef 20, i64 noundef %21, i64 noundef 20, i64 noundef %21, i64 noundef 20, i64 noundef %21, i64 noundef 20, i64 noundef 64) #12
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 2120
   %25 = load ptr, ptr %24, align 8, !tbaa !16
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.loopexit, label %.preheader8
 
 27:                                               ; preds = %39
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 2120
   %30 = load ptr, ptr %29, align 8, !tbaa !16
   %31 = icmp eq ptr %30, null
@@ -484,7 +484,7 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1
 
 89:                                               ; preds = %88, %.loopexit
   call void @g_object_unref(ptr noundef %22) #12
-  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
+  %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 120
   %92 = load i32, ptr %91, align 8, !tbaa !41
   %93 = add nsw i32 %92, -1
@@ -678,7 +678,7 @@ define internal fastcc void @_lib_masks_list_recurs(ptr noundef %0, ptr noundef 
   br i1 %98, label %.loopexit8, label %99
 
 99:                                               ; preds = %95
-  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 2056
   %102 = load ptr, ptr %101, align 8, !tbaa !16
   %103 = icmp eq ptr %102, null
@@ -751,7 +751,7 @@ define internal fastcc void @_lib_masks_list_recurs(ptr noundef %0, ptr noundef 
 .preheader6:                                      ; preds = %.loopexit8, %159
   %147 = phi ptr [ %161, %159 ], [ %145, %.loopexit8 ]
   %148 = load ptr, ptr %147, align 8, !tbaa !30
-  %149 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %150 = load i32, ptr %148, align 4, !tbaa !61
   %151 = call ptr @dt_masks_get_from_id(ptr noundef %149, i32 noundef %150) #12
   %152 = icmp eq ptr %151, null
@@ -806,7 +806,7 @@ define void @gui_init(ptr noundef initializes((280, 288)) %0) local_unnamed_addr
   %2 = tail call noalias dereferenceable_or_null(272) ptr @g_malloc0(i64 noundef 272) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %2, ptr %3, align 8, !tbaa !24
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1448
   %6 = load double, ptr %5, align 8, !tbaa !65
   %7 = fmul reassoc nsz arcp contract afn double %6, 1.300000e+01
@@ -1528,7 +1528,7 @@ define void @gui_init(ptr noundef initializes((280, 288)) %0) local_unnamed_addr
   %498 = tail call ptr @g_type_check_instance_cast(ptr noundef %497, i64 noundef %375) #12
   %499 = load ptr, ptr %495, align 8, !tbaa !76
   tail call void @gtk_box_pack_start(ptr noundef %498, ptr noundef %499, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
-  %500 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %500 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %501 = getelementptr inbounds nuw i8, ptr %500, i64 2312
   store ptr %0, ptr %501, align 8, !tbaa !77
   %502 = getelementptr inbounds nuw i8, ptr %500, i64 2320
@@ -1622,7 +1622,7 @@ declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal void @_bt_add_shape(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !41
   %7 = icmp eq i32 %6, 0
@@ -1643,7 +1643,7 @@ define internal void @_bt_add_shape(ptr nocapture readnone %0, ptr nocapture nou
   %17 = or i32 %16, %14
   %18 = and i32 %17, %15
   %19 = icmp eq i32 %18, 4
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   br i1 %19, label %21, label %28
 
 21:                                               ; preds = %12
@@ -1726,7 +1726,7 @@ define internal void @_tree_cell_edited(ptr nocapture readnone %0, ptr noundef %
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
   store i32 -1, ptr %6, align 4, !tbaa !14
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %13, ptr noundef nonnull %5, i32 noundef 3, ptr noundef nonnull %6, i32 noundef -1) #12
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %18 = load i32, ptr %6, align 4, !tbaa !14
   %19 = call ptr @dt_masks_get_from_id(ptr noundef %17, i32 noundef %18) #12
   %20 = icmp eq ptr %19, null
@@ -1738,7 +1738,7 @@ define internal void @_tree_cell_edited(ptr nocapture readnone %0, ptr noundef %
   %24 = select i1 %23, ptr @.str.37, ptr %2
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %26 = call i64 @g_strlcpy(ptr noundef nonnull %25, ptr noundef nonnull %24, i64 noundef 128) #12
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   call void @dt_dev_add_masks_history_item(ptr noundef %27, ptr noundef null, i32 noundef 0) #12
   br label %28
 
@@ -1759,7 +1759,7 @@ declare void @gtk_tree_selection_set_select_function(ptr noundef, ptr noundef, p
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_tree_restrict_select(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4) #1 {
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %8 = load i32, ptr %7, align 8, !tbaa !41
   %9 = or i32 %8, %3
@@ -1923,7 +1923,7 @@ define internal void @_tree_selection_change(ptr noundef %0, ptr nocapture nound
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %9 = load i32, ptr %8, align 8, !tbaa !41
   %10 = icmp eq i32 %9, 0
@@ -1962,7 +1962,7 @@ define internal void @_tree_selection_change(ptr noundef %0, ptr nocapture nound
   store i32 -1, ptr %5, align 4, !tbaa !14
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %17, ptr noundef nonnull %3, i32 noundef 2, ptr noundef nonnull %4, i32 noundef -1) #12
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %17, ptr noundef nonnull %3, i32 noundef 3, ptr noundef nonnull %5, i32 noundef -1) #12
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %30 = load i32, ptr %5, align 4, !tbaa !14
   %31 = call ptr @dt_masks_get_from_id(ptr noundef %29, i32 noundef %30) #12
   %32 = icmp eq ptr %31, null
@@ -2056,12 +2056,12 @@ define internal void @_tree_selection_change(ptr noundef %0, ptr nocapture nound
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 160
   store i32 0, ptr %83, align 8, !tbaa !55
   call void @dt_masks_group_ungroup(ptr noundef %82, ptr noundef %18) #12
-  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   call void @dt_masks_clear_form_gui(ptr noundef %84) #12
-  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 2128
   store ptr %82, ptr %86, align 16, !tbaa !121
-  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !122
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !122
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 56
   %89 = load ptr, ptr %88, align 8, !tbaa !123
   %90 = icmp eq ptr %89, null
@@ -2082,7 +2082,7 @@ define internal void @_tree_selection_change(ptr noundef %0, ptr nocapture nound
   store i32 -1, ptr %5, align 4, !tbaa !14
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %17, ptr noundef nonnull %3, i32 noundef 2, ptr noundef nonnull %4, i32 noundef -1) #12
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %17, ptr noundef nonnull %3, i32 noundef 3, ptr noundef nonnull %5, i32 noundef -1) #12
-  %96 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %97 = load i32, ptr %5, align 4, !tbaa !14
   %98 = call ptr @dt_masks_get_from_id(ptr noundef %96, i32 noundef %97) #12
   %99 = icmp eq ptr %98, null
@@ -2124,7 +2124,7 @@ define internal void @_tree_selection_change(ptr noundef %0, ptr nocapture nound
 
 118:                                              ; preds = %114
   call void @dt_view_accels_refresh(ptr noundef nonnull %87) #12
-  %119 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   br label %120
 
 120:                                              ; preds = %118, %114, %.loopexit
@@ -2256,7 +2256,7 @@ define internal noundef range(i32 0, 2) i32 @_tree_button_pressed(ptr noundef %0
 
 70:                                               ; preds = %67
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %16, ptr noundef nonnull %5, i32 noundef 3, ptr noundef nonnull %7, i32 noundef -1) #12
-  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %72 = load i32, ptr %7, align 4, !tbaa !14
   %73 = call ptr @dt_masks_get_from_id(ptr noundef %71, i32 noundef %72) #12
   br label %74
@@ -2302,7 +2302,7 @@ define internal noundef range(i32 0, 2) i32 @_tree_button_pressed(ptr noundef %0
   store i32 -1, ptr %10, align 4, !tbaa !14
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %16, ptr noundef nonnull %5, i32 noundef 2, ptr noundef nonnull %9, i32 noundef -1) #12
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %16, ptr noundef nonnull %5, i32 noundef 3, ptr noundef nonnull %10, i32 noundef -1) #12
-  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %98 = load i32, ptr %9, align 4, !tbaa !14
   %99 = call ptr @dt_masks_get_from_id(ptr noundef %97, i32 noundef %98) #12
   %100 = icmp eq ptr %99, null
@@ -2414,7 +2414,7 @@ define internal noundef range(i32 0, 2) i32 @_tree_button_pressed(ptr noundef %0
 
 170:                                              ; preds = %165
   %171 = call ptr @gtk_menu_new() #12
-  %172 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %172 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 2120
   %174 = load ptr, ptr %173, align 8, !tbaa !16
   %175 = icmp eq ptr %174, null
@@ -2446,7 +2446,7 @@ define internal noundef range(i32 0, 2) i32 @_tree_button_pressed(ptr noundef %0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(10000) %11, i8 0, i64 10000, i1 false)
   %191 = getelementptr inbounds nuw i8, ptr %180, i64 32
   %192 = call i64 @g_strlcat(ptr noundef nonnull %11, ptr noundef nonnull %191, i64 noundef 10000) #12
-  %193 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %193 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 2056
   %195 = load ptr, ptr %194, align 8, !tbaa !16
   %196 = icmp eq ptr %195, null
@@ -2592,7 +2592,7 @@ define internal noundef range(i32 0, 2) i32 @_tree_button_pressed(ptr noundef %0
   br i1 %280, label %281, label %297
 
 281:                                              ; preds = %274
-  %282 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %282 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %283 = load i32, ptr %7, align 4, !tbaa !14
   %284 = call ptr @dt_masks_get_from_id(ptr noundef %282, i32 noundef %283) #12
   %285 = icmp eq ptr %284, null
@@ -2822,7 +2822,7 @@ define internal void @_property_changed(ptr noundef %0, i32 noundef %1) #1 {
   %4 = alloca float, align 4
   %5 = alloca float, align 4
   %6 = alloca float, align 4
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 2312
   %9 = load ptr, ptr %8, align 8, !tbaa !77
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 280
@@ -2842,7 +2842,7 @@ define internal void @_property_changed(ptr noundef %0, i32 noundef %1) #1 {
 
 20:                                               ; preds = %2
   %21 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get(ptr noundef %0) #12
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 120
   %24 = load i32, ptr %23, align 8, !tbaa !41
   %25 = add nsw i32 %24, 1
@@ -2959,7 +2959,7 @@ define internal void @_property_changed(ptr noundef %0, i32 noundef %1) #1 {
   %93 = phi ptr [ %146, %143 ], [ %86, %88 ]
   %94 = phi i32 [ %145, %143 ], [ 0, %88 ]
   %95 = load ptr, ptr %93, align 8, !tbaa !30
-  %96 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %97 = load i32, ptr %95, align 4, !tbaa !61
   %98 = call ptr @dt_masks_get_from_id(ptr noundef %96, i32 noundef %97) #12
   %99 = icmp eq ptr %98, null
@@ -3043,7 +3043,7 @@ define internal void @_property_changed(ptr noundef %0, i32 noundef %1) #1 {
   %148 = phi ptr [ %183, %180 ], [ %86, %88 ]
   %149 = phi i32 [ %182, %180 ], [ 0, %88 ]
   %150 = load ptr, ptr %148, align 8, !tbaa !30
-  %151 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %152 = load i32, ptr %150, align 4, !tbaa !61
   %153 = call ptr @dt_masks_get_from_id(ptr noundef %151, i32 noundef %152) #12
   %154 = icmp eq ptr %153, null
@@ -3141,7 +3141,7 @@ define internal void @_property_changed(ptr noundef %0, i32 noundef %1) #1 {
 211:                                              ; preds = %209, %205
   %212 = call i32 @g_timeout_add_seconds(i32 noundef 2, ptr noundef nonnull @_timeout_show_all_feathers, ptr noundef nonnull %15) #12
   store i32 %212, ptr %206, align 4, !tbaa !6
-  %213 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %213 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %214 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %215 = load ptr, ptr %214, align 8, !tbaa !143
   call void @dt_dev_add_masks_history_item(ptr noundef %213, ptr noundef %215, i32 noundef 1) #12
@@ -3202,7 +3202,7 @@ define internal void @_property_changed(ptr noundef %0, i32 noundef %1) #1 {
   br label %248
 
 248:                                              ; preds = %239, %.loopexit
-  %249 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
+  %249 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 120
   %251 = load i32, ptr %250, align 8, !tbaa !41
   %252 = add nsw i32 %251, -1
@@ -3224,7 +3224,7 @@ define internal void @_lib_masks_recreate_list(ptr noundef %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   tail call void @dt_lib_gui_queue_update(ptr noundef %0) #12
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !41
   %7 = icmp eq i32 %6, 0
@@ -3233,7 +3233,7 @@ define internal void @_lib_masks_recreate_list(ptr noundef %0) #1 {
 8:                                                ; preds = %1
   store i32 1, ptr %5, align 8, !tbaa !41
   tail call fastcc void @_update_all_properties(ptr noundef %3)
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %11 = load i32, ptr %10, align 8, !tbaa !41
   %12 = add nsw i32 %11, -1
@@ -3343,7 +3343,7 @@ define internal void @_lib_masks_selection_change(ptr nocapture noundef readonly
   br i1 %14, label %38, label %15
 
 15:                                               ; preds = %10
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 120
   %18 = load i32, ptr %17, align 8, !tbaa !41
   %19 = add nsw i32 %18, 1
@@ -3372,7 +3372,7 @@ define internal void @_lib_masks_selection_change(ptr nocapture noundef readonly
   br label %33
 
 33:                                               ; preds = %30, %25, %15
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 120
   %36 = load i32, ptr %35, align 8, !tbaa !41
   %37 = add nsw i32 %36, -1
@@ -3411,7 +3411,7 @@ define internal fastcc void @_is_form_used(i32 noundef %0, ptr noundef %1, ptr n
   br i1 %5, label %6, label %22
 
 6:                                                ; preds = %4
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 2120
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = icmp eq ptr %9, null
@@ -3455,7 +3455,7 @@ define internal fastcc void @_is_form_used(i32 noundef %0, ptr noundef %1, ptr n
 32:                                               ; preds = %56, %30
   %33 = phi ptr [ %28, %30 ], [ %58, %56 ]
   %34 = load ptr, ptr %33, align 8, !tbaa !30
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %36 = load i32, ptr %34, align 4, !tbaa !61
   %37 = tail call ptr @dt_masks_get_from_id(ptr noundef %35, i32 noundef %36) #12
   %38 = icmp eq ptr %37, null
@@ -3627,7 +3627,7 @@ define internal void @_tree_add_shape(ptr nocapture readnone %0, ptr noundef %1)
   %5 = alloca %struct._GtkTreeIter, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   store ptr null, ptr %3, align 8, !tbaa !16
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2312
   %8 = load ptr, ptr %7, align 8, !tbaa !77
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 280
@@ -3667,7 +3667,7 @@ define internal void @_tree_add_shape(ptr nocapture readnone %0, ptr noundef %1)
   %29 = call ptr @dt_masks_create(i32 noundef %28) #12
   call void @dt_masks_change_form_gui(ptr noundef %29) #12
   %30 = load ptr, ptr %3, align 8, !tbaa !16
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 2136
   %33 = load ptr, ptr %32, align 8, !tbaa !111
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 168
@@ -3749,7 +3749,7 @@ define internal fastcc void @_update_all_properties(ptr nocapture noundef readon
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %17 = load ptr, ptr %16, align 8, !tbaa !16
   tail call void @_property_changed(ptr noundef %17, i32 noundef 6)
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 2128
   %20 = load ptr, ptr %19, align 16, !tbaa !121
   %21 = icmp eq ptr %20, null
@@ -3770,7 +3770,7 @@ define internal fastcc void @_update_all_properties(ptr nocapture noundef readon
   br i1 %29, label %38, label %32
 
 32:                                               ; preds = %25
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 1472
   %35 = load i32, ptr %34, align 8, !tbaa !147
   %36 = icmp ne i32 %35, 0
@@ -3834,7 +3834,7 @@ define internal void @_tree_add_exist(ptr noundef %0, ptr noundef %1) #1 {
   %13 = trunc i64 %12 to i32
   %14 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef 80) #12
   %15 = tail call ptr @g_object_get_data(ptr noundef %14, ptr noundef nonnull @.str.42) #12
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %17 = tail call ptr @dt_masks_get_from_id(ptr noundef %16, i32 noundef %13) #12
   %18 = icmp eq ptr %17, null
   br i1 %18, label %27, label %19
@@ -3845,10 +3845,10 @@ define internal void @_tree_add_exist(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %19
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   tail call void @dt_dev_add_masks_history_item(ptr noundef %23, ptr noundef null, i32 noundef 0) #12
   tail call void @dt_masks_iop_update(ptr noundef %15) #12
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %26 = load i32, ptr %25, align 8, !tbaa !55
   tail call void @dt_dev_masks_selection_change(ptr noundef %24, ptr noundef null, i32 noundef %26) #12
@@ -3892,14 +3892,14 @@ define internal void @_tree_duplicate_shape(ptr nocapture readnone %0, ptr nocap
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
   store i32 -1, ptr %4, align 4, !tbaa !14
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %11, ptr noundef nonnull %3, i32 noundef 3, ptr noundef nonnull %4, i32 noundef -1) #12
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %23 = load i32, ptr %4, align 4, !tbaa !14
   %24 = call i32 @dt_masks_form_duplicate(ptr noundef %22, i32 noundef %23) #12
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %21
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   call void @dt_dev_masks_selection_change(ptr noundef %27, ptr noundef null, i32 noundef %24) #12
   br label %28
 
@@ -3926,7 +3926,7 @@ define internal void @_tree_delete_shape(ptr nocapture readnone %0, ptr noundef 
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %10 = load ptr, ptr %9, align 8, !tbaa !24
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   tail call void @dt_masks_clear_form_gui(ptr noundef %11) #12
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !27
@@ -3944,11 +3944,11 @@ define internal void @_tree_delete_shape(ptr nocapture readnone %0, ptr noundef 
 
 .loopexit:                                        ; preds = %62, %2
   call void @g_list_free_full(ptr noundef %20, ptr noundef nonnull @gtk_tree_path_free) #12
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   call void @dt_dev_add_masks_history_item(ptr noundef %22, ptr noundef null, i32 noundef 1) #12
   %23 = load ptr, ptr %9, align 8, !tbaa !24
   call void @dt_lib_gui_queue_update(ptr noundef %1) #12
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 120
   %26 = load i32, ptr %25, align 8, !tbaa !41
   %27 = icmp eq i32 %26, 0
@@ -3957,7 +3957,7 @@ define internal void @_tree_delete_shape(ptr nocapture readnone %0, ptr noundef 
 28:                                               ; preds = %.loopexit
   store i32 1, ptr %25, align 8, !tbaa !41
   call fastcc void @_update_all_properties(ptr noundef %23)
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 120
   %31 = load i32, ptr %30, align 8, !tbaa !41
   %32 = add nsw i32 %31, -1
@@ -4024,10 +4024,10 @@ define internal void @_tree_delete_shape(ptr nocapture readnone %0, ptr noundef 
   call void @gtk_tree_iter_free(ptr noundef %39) #12
   call void @gtk_tree_iter_free(ptr noundef %40) #12
   %55 = load ptr, ptr %3, align 8, !tbaa !16
-  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %57 = load i32, ptr %7, align 4, !tbaa !14
   %58 = call ptr @dt_masks_get_from_id(ptr noundef %56, i32 noundef %57) #12
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %60 = load i32, ptr %8, align 4, !tbaa !14
   %61 = call ptr @dt_masks_get_from_id(ptr noundef %59, i32 noundef %60) #12
   call void @dt_masks_form_remove(ptr noundef %55, ptr noundef %58, ptr noundef %61) #12
@@ -4056,7 +4056,7 @@ define internal void @_tree_group(ptr nocapture readnone %0, ptr noundef %1) #1 
   %7 = tail call ptr @dt_masks_create(i32 noundef 4) #12
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.58, i32 noundef 5) #12
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 2120
   %12 = load ptr, ptr %11, align 8, !tbaa !148
   %13 = tail call i32 @g_list_length(ptr noundef %12) #12
@@ -4079,17 +4079,17 @@ define internal void @_tree_group(ptr nocapture readnone %0, ptr noundef %1) #1 
 
 .loopexit:                                        ; preds = %66, %2
   call void @g_list_free_full(ptr noundef %23, ptr noundef nonnull @gtk_tree_path_free) #12
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 2120
   %29 = load ptr, ptr %28, align 8, !tbaa !148
   %30 = call ptr @g_list_append(ptr noundef %29, ptr noundef %7) #12
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 2120
   store ptr %30, ptr %32, align 8, !tbaa !148
   call void @dt_dev_add_masks_history_item(ptr noundef %31, ptr noundef null, i32 noundef 0) #12
   %33 = load ptr, ptr %5, align 8, !tbaa !24
   call void @dt_lib_gui_queue_update(ptr noundef %1) #12
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 120
   %36 = load i32, ptr %35, align 8, !tbaa !41
   %37 = icmp eq i32 %36, 0
@@ -4098,7 +4098,7 @@ define internal void @_tree_group(ptr nocapture readnone %0, ptr noundef %1) #1 
 38:                                               ; preds = %.loopexit
   store i32 1, ptr %35, align 8, !tbaa !41
   call fastcc void @_update_all_properties(ptr noundef %33)
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 120
   %41 = load i32, ptr %40, align 8, !tbaa !41
   %42 = add nsw i32 %41, -1
@@ -4168,7 +4168,7 @@ define internal void @_tree_moveup(ptr nocapture readnone %0, ptr noundef %1) #1
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %9 = load ptr, ptr %8, align 8, !tbaa !24
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   tail call void @dt_masks_clear_form_gui(ptr noundef %10) #12
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !27
@@ -4184,11 +4184,11 @@ define internal void @_tree_moveup(ptr nocapture readnone %0, ptr noundef %1) #1
 
 .loopexit:                                        ; preds = %51, %2
   call void @g_list_free_full(ptr noundef %19, ptr noundef nonnull @gtk_tree_path_free) #12
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   call void @dt_dev_add_masks_history_item(ptr noundef %21, ptr noundef null, i32 noundef 1) #12
   %22 = load ptr, ptr %8, align 8, !tbaa !24
   call void @dt_lib_gui_queue_update(ptr noundef %1) #12
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 120
   %25 = load i32, ptr %24, align 8, !tbaa !41
   %26 = icmp eq i32 %25, 0
@@ -4197,7 +4197,7 @@ define internal void @_tree_moveup(ptr nocapture readnone %0, ptr noundef %1) #1
 27:                                               ; preds = %.loopexit
   store i32 1, ptr %24, align 8, !tbaa !41
   call fastcc void @_update_all_properties(ptr noundef %22)
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 120
   %30 = load i32, ptr %29, align 8, !tbaa !41
   %31 = add nsw i32 %30, -1
@@ -4244,7 +4244,7 @@ define internal void @_tree_moveup(ptr nocapture readnone %0, ptr noundef %1) #1
 
 46:                                               ; preds = %43, %37
   call void @gtk_tree_iter_free(ptr noundef %38) #12
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %48 = load i32, ptr %4, align 4, !tbaa !14
   %49 = call ptr @dt_masks_get_from_id(ptr noundef %47, i32 noundef %48) #12
   %50 = load i32, ptr %5, align 4, !tbaa !14
@@ -4272,7 +4272,7 @@ define internal void @_tree_movedown(ptr nocapture readnone %0, ptr noundef %1) 
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %9 = load ptr, ptr %8, align 8, !tbaa !24
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   tail call void @dt_masks_clear_form_gui(ptr noundef %10) #12
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !27
@@ -4288,11 +4288,11 @@ define internal void @_tree_movedown(ptr nocapture readnone %0, ptr noundef %1) 
 
 .loopexit:                                        ; preds = %51, %2
   call void @g_list_free_full(ptr noundef %19, ptr noundef nonnull @gtk_tree_path_free) #12
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   call void @dt_dev_add_masks_history_item(ptr noundef %21, ptr noundef null, i32 noundef 1) #12
   %22 = load ptr, ptr %8, align 8, !tbaa !24
   call void @dt_lib_gui_queue_update(ptr noundef %1) #12
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 120
   %25 = load i32, ptr %24, align 8, !tbaa !41
   %26 = icmp eq i32 %25, 0
@@ -4301,7 +4301,7 @@ define internal void @_tree_movedown(ptr nocapture readnone %0, ptr noundef %1) 
 27:                                               ; preds = %.loopexit
   store i32 1, ptr %24, align 8, !tbaa !41
   call fastcc void @_update_all_properties(ptr noundef %22)
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 120
   %30 = load i32, ptr %29, align 8, !tbaa !41
   %31 = add nsw i32 %30, -1
@@ -4348,7 +4348,7 @@ define internal void @_tree_movedown(ptr nocapture readnone %0, ptr noundef %1) 
 
 46:                                               ; preds = %43, %37
   call void @gtk_tree_iter_free(ptr noundef %38) #12
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %48 = load i32, ptr %4, align 4, !tbaa !14
   %49 = call ptr @dt_masks_get_from_id(ptr noundef %47, i32 noundef %48) #12
   %50 = load i32, ptr %5, align 4, !tbaa !14
@@ -4369,12 +4369,12 @@ define internal void @_tree_movedown(ptr nocapture readnone %0, ptr noundef %1) 
 
 ; Function Attrs: nounwind uwtable
 define internal void @_tree_cleanup(ptr nocapture readnone %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   tail call void @dt_masks_cleanup_unused(ptr noundef %3) #12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !24
   tail call void @dt_lib_gui_queue_update(ptr noundef %1) #12
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %8 = load i32, ptr %7, align 8, !tbaa !41
   %9 = icmp eq i32 %8, 0
@@ -4383,7 +4383,7 @@ define internal void @_tree_cleanup(ptr nocapture readnone %0, ptr noundef %1) #
 10:                                               ; preds = %2
   store i32 1, ptr %7, align 8, !tbaa !41
   tail call fastcc void @_update_all_properties(ptr noundef %5)
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %13 = load i32, ptr %12, align 8, !tbaa !41
   %14 = add nsw i32 %13, -1
@@ -4428,7 +4428,7 @@ define internal fastcc void @_swap_last_secondlast_item_visibility(ptr nocapture
   store i32 -1, ptr %6, align 4, !tbaa !14
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %11, ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull %5, i32 noundef -1) #12
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %11, ptr noundef nonnull %1, i32 noundef 3, ptr noundef nonnull %6, i32 noundef -1) #12
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %13 = load i32, ptr %5, align 4, !tbaa !14
   %14 = call ptr @dt_masks_get_from_id(ptr noundef %12, i32 noundef %13) #12
   %15 = icmp eq ptr %14, null
@@ -4470,7 +4470,7 @@ define internal fastcc void @_swap_last_secondlast_item_visibility(ptr nocapture
   br label %38
 
 38:                                               ; preds = %30, %24
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %40 = load i32, ptr %6, align 4, !tbaa !14
   %41 = call ptr @dt_masks_get_from_id(ptr noundef %39, i32 noundef %40) #12
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -4514,7 +4514,7 @@ define internal void @_tree_operation(ptr nocapture readnone %0, ptr noundef %1)
   %5 = alloca i32, align 4
   %6 = ptrtoint ptr %1 to i64
   %7 = trunc i64 %6 to i32
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2312
   %10 = load ptr, ptr %9, align 8, !tbaa !77
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 280
@@ -4560,7 +4560,7 @@ define internal void @_tree_operation(ptr nocapture readnone %0, ptr noundef %1)
   store i32 -1, ptr %5, align 4, !tbaa !14
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %17, ptr noundef nonnull %3, i32 noundef 2, ptr noundef nonnull %4, i32 noundef -1) #12
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %17, ptr noundef nonnull %3, i32 noundef 3, ptr noundef nonnull %5, i32 noundef -1) #12
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %36 = load i32, ptr %4, align 4, !tbaa !14
   %37 = call ptr @dt_masks_get_from_id(ptr noundef %35, i32 noundef %36) #12
   %38 = icmp eq ptr %37, null
@@ -4616,7 +4616,7 @@ define internal void @_tree_operation(ptr nocapture readnone %0, ptr noundef %1)
   %70 = phi i32 [ %68, %67 ], [ %60, %58 ]
   %71 = xor i32 %70, %7
   store i32 %71, ptr %59, align 4, !tbaa !63
-  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %73 = call ptr @dt_masks_get_from_id(ptr noundef %72, i32 noundef %48) #12
   %74 = load i32, ptr %59, align 4, !tbaa !63
   %75 = getelementptr inbounds nuw i8, ptr %55, i64 12
@@ -4639,14 +4639,14 @@ define internal void @_tree_operation(ptr nocapture readnone %0, ptr noundef %1)
   br i1 %82, label %26, label %28
 
 83:                                               ; preds = %26
-  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
+  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 120
   %86 = load i32, ptr %85, align 8, !tbaa !41
   %87 = add nsw i32 %86, 1
   store i32 %87, ptr %85, align 8, !tbaa !41
-  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   call void @dt_dev_add_masks_history_item(ptr noundef %88, ptr noundef null, i32 noundef 0) #12
-  %89 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
+  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 120
   %91 = load i32, ptr %90, align 8, !tbaa !41
   %92 = add nsw i32 %91, -1
@@ -4707,14 +4707,14 @@ define internal noundef i32 @_update_foreach(ptr noundef %0, ptr nocapture readn
   store i32 -1, ptr %6, align 4, !tbaa !14
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 2, ptr noundef nonnull %5, i32 noundef -1) #12
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 3, ptr noundef nonnull %6, i32 noundef -1) #12
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %10 = load i32, ptr %6, align 4, !tbaa !14
   %11 = call ptr @dt_masks_get_from_id(ptr noundef %9, i32 noundef %10) #12
   %12 = icmp eq ptr %11, null
   br i1 %12, label %44, label %13
 
 13:                                               ; preds = %8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %15 = load i32, ptr %5, align 4, !tbaa !14
   %16 = call ptr @dt_masks_get_from_id(ptr noundef %14, i32 noundef %15) #12
   %17 = icmp eq ptr %16, null

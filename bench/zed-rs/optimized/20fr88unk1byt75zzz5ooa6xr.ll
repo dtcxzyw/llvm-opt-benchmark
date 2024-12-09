@@ -64347,7 +64347,7 @@ define void @_ZN9workspace9Workspace28on_window_activation_changed17hb31fdfae318
   %26 = tail call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
   %27 = tail call noundef align 8 dereferenceable(16) ptr @_ZN4gpui3app10AppContext19background_executor17h3fe740b22560de6dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %26)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  %28 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8, !noalias !14142
+  %28 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8, !noalias !14142
   %29 = icmp eq i32 %28, 4
   br i1 %29, label %_ZN3std4sync4once4Once9call_once17h58d5497c94b98c9eE.llvm.7428513249094624621.exit, label %30
 
@@ -64356,7 +64356,7 @@ define void @_ZN9workspace9Workspace28on_window_activation_changed17hb31fdfae318
   store ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, ptr %6, align 8, !noalias !14142
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !14142
   store ptr %6, ptr %5, align 8, !noalias !14142
-  call void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5a940242dad4803ffa0694047890eb1b.227.llvm.7428513249094624621)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5a940242dad4803ffa0694047890eb1b.227.llvm.7428513249094624621)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !14142
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !14142
   br label %_ZN3std4sync4once4Once9call_once17h58d5497c94b98c9eE.llvm.7428513249094624621.exit
@@ -67234,7 +67234,7 @@ define void @_ZN9workspace9Workspace22toggle_centered_layout17h967d29df2ec3f83aE
   %19 = tail call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
   %20 = tail call noundef align 8 dereferenceable(16) ptr @_ZN4gpui3app10AppContext19background_executor17h3fe740b22560de6dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %19)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  %21 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8, !noalias !14666
+  %21 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8, !noalias !14666
   %22 = icmp eq i32 %21, 4
   br i1 %22, label %_ZN3std4sync4once4Once9call_once17h58d5497c94b98c9eE.llvm.7428513249094624621.exit, label %23
 
@@ -67243,7 +67243,7 @@ define void @_ZN9workspace9Workspace22toggle_centered_layout17h967d29df2ec3f83aE
   store ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, ptr %9, align 8, !noalias !14666
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !14666
   store ptr %9, ptr %8, align 8, !noalias !14666
-  call void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5a940242dad4803ffa0694047890eb1b.227.llvm.7428513249094624621)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5a940242dad4803ffa0694047890eb1b.227.llvm.7428513249094624621)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !14666
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !14666
   br label %_ZN3std4sync4once4Once9call_once17h58d5497c94b98c9eE.llvm.7428513249094624621.exit
@@ -68253,7 +68253,7 @@ define hidden void @_ZN9workspace26window_bounds_env_override17h8edbf397a451b0c4
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
   %5 = alloca [8 x i8], align 8
-  %6 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9workspace19ZED_WINDOW_POSITION17h242adb8ff89649f5E.llvm.7428513249094624621, i64 16) acquire, align 8, !noalias !14893
+  %6 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9workspace19ZED_WINDOW_POSITION17h242adb8ff89649f5E.llvm.7428513249094624621, i64 16) acquire, align 8, !noalias !14893
   %7 = icmp eq i32 %6, 4
   br i1 %7, label %_ZN3std4sync4once4Once9call_once17h87f28d1105252276E.llvm.7428513249094624621.exit, label %8
 
@@ -68262,16 +68262,16 @@ define hidden void @_ZN9workspace26window_bounds_env_override17h8edbf397a451b0c4
   store ptr @_ZN9workspace19ZED_WINDOW_POSITION17h242adb8ff89649f5E.llvm.7428513249094624621, ptr %5, align 8, !noalias !14893
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !14893
   store ptr %5, ptr %4, align 8, !noalias !14893
-  call void @_ZN3std3sys4sync4once5futex4Once4call17hc28120d992d0a7e2E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN9workspace19ZED_WINDOW_POSITION17h242adb8ff89649f5E.llvm.7428513249094624621, i64 16), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5a940242dad4803ffa0694047890eb1b.227.llvm.7428513249094624621)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17hc28120d992d0a7e2E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN9workspace19ZED_WINDOW_POSITION17h242adb8ff89649f5E.llvm.7428513249094624621, i64 16), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5a940242dad4803ffa0694047890eb1b.227.llvm.7428513249094624621)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !14893
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !14893
   br label %_ZN3std4sync4once4Once9call_once17h87f28d1105252276E.llvm.7428513249094624621.exit
 
 _ZN3std4sync4once4Once9call_once17h87f28d1105252276E.llvm.7428513249094624621.exit: ; preds = %1, %8
   %.sroa.01.0.copyload = load i32, ptr @_ZN9workspace19ZED_WINDOW_POSITION17h242adb8ff89649f5E.llvm.7428513249094624621, align 8
-  %.sroa.42.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @_ZN9workspace19ZED_WINDOW_POSITION17h242adb8ff89649f5E.llvm.7428513249094624621, i64 4), align 4
-  %.sroa.5.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @_ZN9workspace19ZED_WINDOW_POSITION17h242adb8ff89649f5E.llvm.7428513249094624621, i64 8), align 8
-  %9 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9workspace15ZED_WINDOW_SIZE17hb6b36765126d07a6E.llvm.7428513249094624621, i64 16) acquire, align 8, !noalias !14896
+  %.sroa.42.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN9workspace19ZED_WINDOW_POSITION17h242adb8ff89649f5E.llvm.7428513249094624621, i64 4), align 4
+  %.sroa.5.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN9workspace19ZED_WINDOW_POSITION17h242adb8ff89649f5E.llvm.7428513249094624621, i64 8), align 8
+  %9 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9workspace15ZED_WINDOW_SIZE17hb6b36765126d07a6E.llvm.7428513249094624621, i64 16) acquire, align 8, !noalias !14896
   %10 = icmp eq i32 %9, 4
   br i1 %10, label %_ZN3std4sync4once4Once9call_once17h037ef379fa8e859bE.llvm.7428513249094624621.exit, label %11
 
@@ -68280,7 +68280,7 @@ _ZN3std4sync4once4Once9call_once17h87f28d1105252276E.llvm.7428513249094624621.ex
   store ptr @_ZN9workspace15ZED_WINDOW_SIZE17hb6b36765126d07a6E.llvm.7428513249094624621, ptr %3, align 8, !noalias !14896
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !14896
   store ptr %3, ptr %2, align 8, !noalias !14896
-  call void @_ZN3std3sys4sync4once5futex4Once4call17hd91eb0e6cfa3a138E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN9workspace15ZED_WINDOW_SIZE17hb6b36765126d07a6E.llvm.7428513249094624621, i64 16), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5a940242dad4803ffa0694047890eb1b.227.llvm.7428513249094624621)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17hd91eb0e6cfa3a138E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN9workspace15ZED_WINDOW_SIZE17hb6b36765126d07a6E.llvm.7428513249094624621, i64 16), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5a940242dad4803ffa0694047890eb1b.227.llvm.7428513249094624621)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !14896
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !14896
   br label %_ZN3std4sync4once4Once9call_once17h037ef379fa8e859bE.llvm.7428513249094624621.exit
@@ -68293,8 +68293,8 @@ _ZN3std4sync4once4Once9call_once17h037ef379fa8e859bE.llvm.7428513249094624621.ex
   br i1 %or.cond.i, label %12, label %"_ZN4core6option15Option$LT$T$GT$3zip17ha71f65a96c2e5651E.exit.thread"
 
 12:                                               ; preds = %_ZN3std4sync4once4Once9call_once17h037ef379fa8e859bE.llvm.7428513249094624621.exit
-  %.sroa.55.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @_ZN9workspace15ZED_WINDOW_SIZE17hb6b36765126d07a6E.llvm.7428513249094624621, i64 8), align 8
-  %.sroa.44.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @_ZN9workspace15ZED_WINDOW_SIZE17hb6b36765126d07a6E.llvm.7428513249094624621, i64 4), align 4
+  %.sroa.55.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN9workspace15ZED_WINDOW_SIZE17hb6b36765126d07a6E.llvm.7428513249094624621, i64 8), align 8
+  %.sroa.44.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN9workspace15ZED_WINDOW_SIZE17hb6b36765126d07a6E.llvm.7428513249094624621, i64 4), align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %.sroa.42.0.copyload, ptr %13, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -74616,7 +74616,7 @@ define void @_ZN9workspace32last_session_workspace_locations17ha1e0d1044ec90937E
   %8 = alloca [24 x i8], align 8
   %9 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  %10 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8, !noalias !16597
+  %10 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8, !noalias !16597
   %11 = icmp eq i32 %10, 4
   br i1 %11, label %_ZN3std4sync4once4Once9call_once17h58d5497c94b98c9eE.llvm.7428513249094624621.exit, label %12
 
@@ -74625,7 +74625,7 @@ define void @_ZN9workspace32last_session_workspace_locations17ha1e0d1044ec90937E
   store ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, ptr %7, align 8, !noalias !16597
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !16597
   store ptr %7, ptr %6, align 8, !noalias !16597
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5a940242dad4803ffa0694047890eb1b.227.llvm.7428513249094624621)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5a940242dad4803ffa0694047890eb1b.227.llvm.7428513249094624621)
           to label %.noexc unwind label %18
 
 .noexc:                                           ; preds = %12

@@ -623,7 +623,7 @@ _ZNR4absl12lts_202308028StatusOrISt10shared_ptrIN9grpc_core25EndpointAddressesIt
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !7
   %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !7
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN9grpc_core12_GLOBAL__N_127HierarchicalAddressIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i.i.i.i.i, align 8, !noalias !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN9grpc_core12_GLOBAL__N_127HierarchicalAddressIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i.i.i.i.i, align 8, !noalias !7
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %call15.val4.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEEC2ERKS2_.exit.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -656,7 +656,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt10shared_ptrIN
 _ZSt11make_sharedIN9grpc_core12_GLOBAL__N_127HierarchicalAddressIteratorEJRSt10shared_ptrINS0_25EndpointAddressesIteratorEERKNS0_21RefCountedStringValueEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEEC2ERKS2_.exit.i.i.i.i.i.i.i.i.i.i.i
   %14 = phi ptr [ %.pre.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZNSt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEEC2ERKS2_.exit.i.i.i.i.i.i.i.i.i.i.i ]
   %_M_impl.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i.i.i.i, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_127HierarchicalAddressIteratorE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_127HierarchicalAddressIteratorE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !7
   %parent_it_.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i.i.i.i, i64 24
   store ptr %call15.val.i.i.i.i, ptr %parent_it_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !7
   %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i.i.i.i, i64 32
@@ -1579,7 +1579,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_127HierarchicalAddressIteratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_127HierarchicalAddressIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_127HierarchicalAddressIteratorE, i64 16), ptr %this, align 8
   %child_name_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %child_name_, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -1964,7 +1964,7 @@ invoke.cont37.i.i.i.i:                            ; preds = %if.then35.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %remaining_path.i.i.i.i, i8 0, i64 24, i1 false), !noalias !14
   %refs_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i21.i.i.i.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i.i.i.i, align 8, !noalias !14
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core19HierarchicalPathArgE, i64 16), ptr %call.i21.i.i.i.i, align 8, !noalias !14
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core19HierarchicalPathArgE, i64 16), ptr %call.i21.i.i.i.i, align 8, !noalias !14
   %path_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i21.i.i.i.i, i64 16
   store ptr %call5.i.i.i.i1.i.i.i.i.i, ptr %path_.i.i.i.i.i.i, align 8, !noalias !14
   %_M_finish.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i21.i.i.i.i, i64 24
@@ -2320,7 +2320,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core19HierarchicalPathArgD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core19HierarchicalPathArgE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core19HierarchicalPathArgE, i64 16), ptr %this, align 8
   %path_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %path_, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2375,7 +2375,7 @@ _ZNSt6vectorIN9grpc_core21RefCountedStringValueESaIS1_EED2Ev.exit: ; preds = %in
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core19HierarchicalPathArgD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core19HierarchicalPathArgE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core19HierarchicalPathArgE, i64 16), ptr %this, align 8
   %path_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %path_.i, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24

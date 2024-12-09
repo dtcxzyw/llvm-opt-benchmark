@@ -72458,7 +72458,7 @@ _ZN3std2fs14read_to_string17h89a6239387473bc6E.exit: ; preds = %293
 376:                                              ; preds = %375
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !16150
   store ptr @anon.58bff93399cb9162300a2319accc463d.457, ptr %10, align 8, !noalias !16150
-  store ptr getelementptr inbounds (i8, ptr @anon.58bff93399cb9162300a2319accc463d.457, i64 528), ptr %364, align 8, !noalias !16150
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.58bff93399cb9162300a2319accc463d.457, i64 528), ptr %364, align 8, !noalias !16150
   br label %377
 
 377:                                              ; preds = %.noexc191, %376
@@ -72669,7 +72669,7 @@ _ZN3std2fs14read_to_string17h89a6239387473bc6E.exit: ; preds = %293
 441:                                              ; preds = %.noexc196
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !16189
   store ptr @anon.58bff93399cb9162300a2319accc463d.457, ptr %9, align 8, !noalias !16189
-  store ptr getelementptr inbounds (i8, ptr @anon.58bff93399cb9162300a2319accc463d.457, i64 528), ptr %434, align 8, !noalias !16189
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.58bff93399cb9162300a2319accc463d.457, i64 528), ptr %434, align 8, !noalias !16189
   br label %442
 
 442:                                              ; preds = %.noexc198, %441

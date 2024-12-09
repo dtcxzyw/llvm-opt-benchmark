@@ -253,11 +253,11 @@ do.end:                                           ; preds = %entry
   store ptr null, ptr %aio_notifiers, align 8
   %link = getelementptr inbounds nuw i8, ptr %call1, i64 40
   store ptr null, ptr %link, align 8
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @block_backends, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @block_backends, i64 8), align 8
   %tql_prev = getelementptr inbounds nuw i8, ptr %call1, i64 48
   store ptr %0, ptr %tql_prev, align 8
   store ptr %call1, ptr %0, align 8
-  store ptr %link, ptr getelementptr inbounds (i8, ptr @block_backends, i64 8), align 8
+  store ptr %link, ptr getelementptr inbounds nuw (i8, ptr @block_backends, i64 8), align 8
   ret ptr %call1
 }
 
@@ -505,7 +505,7 @@ if.then38.i:                                      ; preds = %if.end36.i
   br label %if.end46.i
 
 if.else43.i:                                      ; preds = %if.end36.i
-  store ptr %11, ptr getelementptr inbounds (i8, ptr @block_backends, i64 8), align 8
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @block_backends, i64 8), align 8
   br label %if.end46.i
 
 if.end46.i:                                       ; preds = %if.else43.i, %if.then38.i
@@ -1460,11 +1460,11 @@ if.end20:                                         ; preds = %if.end16
   store ptr %call21, ptr %blk, align 8
   %monitor_link = getelementptr inbounds nuw i8, ptr %blk, i64 56
   store ptr null, ptr %monitor_link, align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @monitor_block_backends, i64 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @monitor_block_backends, i64 8), align 8
   %tql_prev = getelementptr inbounds nuw i8, ptr %blk, i64 64
   store ptr %3, ptr %tql_prev, align 8
   store ptr %blk, ptr %3, align 8
-  store ptr %monitor_link, ptr getelementptr inbounds (i8, ptr @monitor_block_backends, i64 8), align 8
+  store ptr %monitor_link, ptr getelementptr inbounds nuw (i8, ptr @monitor_block_backends, i64 8), align 8
   br label %return
 
 return:                                           ; preds = %if.end20, %if.then19, %if.then15, %if.then11
@@ -1555,7 +1555,7 @@ if.then4:                                         ; preds = %do.body3
   br label %if.end12
 
 if.else9:                                         ; preds = %do.body3
-  store ptr %2, ptr getelementptr inbounds (i8, ptr @monitor_block_backends, i64 8), align 8
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @monitor_block_backends, i64 8), align 8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else9, %if.then4

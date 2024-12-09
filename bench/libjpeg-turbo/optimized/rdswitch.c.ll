@@ -727,7 +727,7 @@ define dso_local range(i32 0, 2) i32 @set_quality_ratings(ptr noundef %0, ptr no
 24:                                               ; preds = %.critedge
   %25 = load i32, ptr @q_scale_factor, align 16
   call void @jpeg_add_quant_table(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @std_luminance_quant_tbl, i32 noundef %25, i32 noundef %2) #9
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @q_scale_factor, i64 4), align 4
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @q_scale_factor, i64 4), align 4
   call void @jpeg_add_quant_table(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @std_chrominance_quant_tbl, i32 noundef %26, i32 noundef %2) #9
   br label %.loopexit
 

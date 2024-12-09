@@ -463,7 +463,7 @@ define void @pdo_handle_error(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br label %70
 
 55:                                               ; preds = %49
-  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %70
 
@@ -698,7 +698,7 @@ define internal fastcc void @internal_construct(ptr noundef %0, ptr nocapture no
 63:                                               ; preds = %59
   %64 = call ptr @php_pdo_get_exception() #11
   call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %64, i32 noundef 1, ptr noundef nonnull @.str.31) #11
-  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %66 = icmp ne ptr %65, null
   call void @llvm.assume(i1 %66)
   br label %390
@@ -712,7 +712,7 @@ define internal fastcc void @internal_construct(ptr noundef %0, ptr nocapture no
 70:                                               ; preds = %67
   %71 = call ptr @php_pdo_get_exception() #11
   %72 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %71, i64 noundef 0, ptr noundef nonnull @.str.32, ptr noundef nonnull %8) #11
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %74 = icmp ne ptr %73, null
   call void @llvm.assume(i1 %74)
   br label %390
@@ -739,7 +739,7 @@ dsn_from_uri.exit:                                ; preds = %77
 dsn_from_uri.exit.thread:                         ; preds = %77, %dsn_from_uri.exit
   %82 = call ptr @php_pdo_get_exception() #11
   call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %82, i32 noundef 1, ptr noundef nonnull @.str.34) #11
-  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %84 = icmp ne ptr %83, null
   call void @llvm.assume(i1 %84)
   br label %390
@@ -752,7 +752,7 @@ dsn_from_uri.exit.thread:                         ; preds = %77, %dsn_from_uri.e
 87:                                               ; preds = %85
   %88 = call ptr @php_pdo_get_exception() #11
   call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %88, i32 noundef 1, ptr noundef nonnull @.str.35) #11
-  %89 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %90 = icmp ne ptr %89, null
   call void @llvm.assume(i1 %90)
   br label %390
@@ -771,7 +771,7 @@ dsn_from_uri.exit.thread:                         ; preds = %77, %dsn_from_uri.e
 97:                                               ; preds = %91
   %98 = call ptr @php_pdo_get_exception() #11
   %99 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %98, i64 noundef 0, ptr noundef nonnull @.str.36) #11
-  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %101 = icmp ne ptr %100, null
   call void @llvm.assume(i1 %101)
   br label %390
@@ -794,11 +794,11 @@ dsn_from_uri.exit.thread:                         ; preds = %77, %dsn_from_uri.e
 
 110:                                              ; preds = %108, %103
   %.0.i442 = phi ptr [ %109, %108 ], [ null, %103 ]
-  %111 = load ptr, ptr getelementptr inbounds (i8, ptr @pdo_driver_specific_ce_hash, i64 16), align 8
-  %112 = load i32, ptr getelementptr inbounds (i8, ptr @pdo_driver_specific_ce_hash, i64 24), align 8
+  %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pdo_driver_specific_ce_hash, i64 16), align 8
+  %112 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pdo_driver_specific_ce_hash, i64 24), align 8
   %113 = zext i32 %112 to i64
   %114 = getelementptr inbounds nuw %struct._Bucket, ptr %111, i64 %113
-  %115 = load i32, ptr getelementptr inbounds (i8, ptr @pdo_driver_specific_ce_hash, i64 8), align 8
+  %115 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pdo_driver_specific_ce_hash, i64 8), align 8
   %116 = and i32 %115, 4
   %.not57.i = icmp eq i32 %116, 0
   call void @llvm.assume(i1 %.not57.i)
@@ -889,7 +889,7 @@ dsn_from_uri.exit.thread:                         ; preds = %77, %dsn_from_uri.e
   br label %create_driver_specific_pdo_object.exit
 
 create_driver_specific_pdo_object.exit:           ; preds = %152, %144, %134
-  %162 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %162 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %163 = icmp ne ptr %162, null
   call void @llvm.assume(i1 %163)
   br label %390
@@ -1007,7 +1007,7 @@ thread-pre-split:                                 ; preds = %189, %.critedge
   %214 = load ptr, ptr %11, align 8
   %sext = shl i64 %.032094.in, 32
   %215 = ashr exact i64 %sext, 32
-  %216 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 624), ptr noundef %214, i64 noundef %215) #11
+  %216 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 624), ptr noundef %214, i64 noundef %215) #11
   %.not418 = icmp eq ptr %216, null
   br i1 %.not418, label %.thread98, label %217
 
@@ -1384,7 +1384,7 @@ pdo_attr_lval.exit448:                            ; preds = %pdo_attr_lval.exit,
 
 385:                                              ; preds = %381, %380
   call void @zend_restore_error_handling(ptr noundef nonnull %9) #11
-  %386 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %386 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not433 = icmp eq ptr %386, null
   br i1 %.not433, label %387, label %390
 
@@ -1472,7 +1472,7 @@ define hidden void @zim_PDO_prepare(ptr noundef %0, ptr noundef %1) #0 {
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %36) #11
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %38 = icmp ne ptr %37, null
   call void @llvm.assume(i1 %38)
   br label %159
@@ -1486,7 +1486,7 @@ define hidden void @zim_PDO_prepare(ptr noundef %0, ptr noundef %1) #0 {
 
 44:                                               ; preds = %39
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.11) #11
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %46 = icmp ne ptr %45, null
   call void @llvm.assume(i1 %46)
   br label %159
@@ -1524,7 +1524,7 @@ define hidden void @zim_PDO_prepare(ptr noundef %0, ptr noundef %1) #0 {
 61:                                               ; preds = %58
   %62 = call ptr @zend_zval_value_name(ptr noundef nonnull %57) #11
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.13, ptr noundef %62) #11
-  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %64 = icmp ne ptr %63, null
   call void @llvm.assume(i1 %64)
   br label %159
@@ -1537,7 +1537,7 @@ define hidden void @zim_PDO_prepare(ptr noundef %0, ptr noundef %1) #0 {
 
 69:                                               ; preds = %65
   call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.14) #11
-  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %71 = icmp ne ptr %70, null
   call void @llvm.assume(i1 %71)
   br label %159
@@ -1556,7 +1556,7 @@ define hidden void @zim_PDO_prepare(ptr noundef %0, ptr noundef %1) #0 {
 
 79:                                               ; preds = %75, %72
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.15) #11
-  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %81 = icmp ne ptr %80, null
   call void @llvm.assume(i1 %81)
   br label %159
@@ -1572,7 +1572,7 @@ define hidden void @zim_PDO_prepare(ptr noundef %0, ptr noundef %1) #0 {
 
 87:                                               ; preds = %85
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.16) #11
-  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %89 = icmp ne ptr %88, null
   call void @llvm.assume(i1 %89)
   br label %159
@@ -1592,7 +1592,7 @@ define hidden void @zim_PDO_prepare(ptr noundef %0, ptr noundef %1) #0 {
 
 96:                                               ; preds = %92
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.17) #11
-  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %98 = icmp ne ptr %97, null
   call void @llvm.assume(i1 %98)
   br label %159
@@ -1612,7 +1612,7 @@ define hidden void @zim_PDO_prepare(ptr noundef %0, ptr noundef %1) #0 {
 105:                                              ; preds = %102
   %106 = call ptr @zend_zval_value_name(ptr noundef nonnull %57) #11
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.18, ptr noundef %106) #11
-  %107 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %108 = icmp ne ptr %107, null
   call void @llvm.assume(i1 %108)
   br label %159
@@ -1649,7 +1649,7 @@ define hidden void @zim_PDO_prepare(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not7.i, label %pdo_stmt_instantiate.exit, label %120
 
 120:                                              ; preds = %.thread202
-  %121 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8.i = icmp eq ptr %121, null
   br i1 %.not8.i, label %.sink.split.i, label %pdo_stmt_instantiate.exit.thread
 
@@ -1663,7 +1663,7 @@ pdo_stmt_instantiate.exit:                        ; preds = %.thread202
   br i1 %.not182, label %pdo_stmt_instantiate.exit.thread, label %124
 
 pdo_stmt_instantiate.exit.thread:                 ; preds = %.sink.split.i, %120, %pdo_stmt_instantiate.exit
-  %122 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %123 = icmp ne ptr %122, null
   call void @llvm.assume(i1 %123)
   br label %159
@@ -1853,7 +1853,7 @@ define hidden void @zim_PDO_beginTransaction(ptr nocapture noundef readonly %0, 
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %17) #11
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %19)
   br label %56
@@ -1883,7 +1883,7 @@ pdo_is_in_transaction.exit:                       ; preds = %20
 29:                                               ; preds = %24, %pdo_is_in_transaction.exit
   %30 = tail call ptr @php_pdo_get_exception() #11
   %31 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %30, i64 noundef 0, ptr noundef nonnull @.str.19) #11
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %33 = icmp ne ptr %32, null
   tail call void @llvm.assume(i1 %33)
   br label %56
@@ -1898,7 +1898,7 @@ pdo_is_in_transaction.exit:                       ; preds = %20
 38:                                               ; preds = %34
   %39 = tail call ptr @php_pdo_get_exception() #11
   %40 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %39, i64 noundef 0, ptr noundef nonnull @.str.20) #11
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %42 = icmp ne ptr %41, null
   tail call void @llvm.assume(i1 %42)
   br label %56
@@ -1967,7 +1967,7 @@ define hidden void @zim_PDO_commit(ptr nocapture noundef readonly %0, ptr nocapt
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %17) #11
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %19)
   br label %50
@@ -1997,7 +1997,7 @@ pdo_is_in_transaction.exit:                       ; preds = %20
 29:                                               ; preds = %24, %pdo_is_in_transaction.exit
   %30 = tail call ptr @php_pdo_get_exception() #11
   %31 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %30, i64 noundef 0, ptr noundef nonnull @.str.21) #11
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %33 = icmp ne ptr %32, null
   tail call void @llvm.assume(i1 %33)
   br label %50
@@ -2065,7 +2065,7 @@ define hidden void @zim_PDO_rollBack(ptr nocapture noundef readonly %0, ptr noca
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %17) #11
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %19)
   br label %50
@@ -2095,7 +2095,7 @@ pdo_is_in_transaction.exit:                       ; preds = %20
 29:                                               ; preds = %24, %pdo_is_in_transaction.exit
   %30 = tail call ptr @php_pdo_get_exception() #11
   %31 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %30, i64 noundef 0, ptr noundef nonnull @.str.21) #11
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %33 = icmp ne ptr %32, null
   tail call void @llvm.assume(i1 %33)
   br label %50
@@ -2163,7 +2163,7 @@ define hidden void @zim_PDO_inTransaction(ptr nocapture noundef readonly %0, ptr
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %17) #11
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %19)
   br label %33
@@ -2344,7 +2344,7 @@ define hidden void @zim_PDO_setAttribute(ptr noundef %0, ptr nocapture noundef w
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %36) #11
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %38 = icmp ne ptr %37, null
   call void @llvm.assume(i1 %38)
   br label %44
@@ -2911,7 +2911,7 @@ define hidden void @zim_PDO_getAttribute(ptr noundef %0, ptr noundef %1) #0 {
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %33) #11
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %35 = icmp ne ptr %34, null
   call void @llvm.assume(i1 %35)
   br label %129
@@ -3156,7 +3156,7 @@ define hidden void @zim_PDO_exec(ptr noundef %0, ptr nocapture noundef writeonly
 
 22:                                               ; preds = %.thread95
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.11) #11
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %58
@@ -3189,7 +3189,7 @@ define hidden void @zim_PDO_exec(ptr noundef %0, ptr nocapture noundef writeonly
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %41) #11
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %43 = icmp ne ptr %42, null
   call void @llvm.assume(i1 %43)
   br label %58
@@ -3293,7 +3293,7 @@ define hidden void @zim_PDO_lastInsertId(ptr noundef %0, ptr nocapture noundef w
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %29) #11
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %31 = icmp ne ptr %30, null
   call void @llvm.assume(i1 %31)
   br label %59
@@ -3388,7 +3388,7 @@ define hidden void @zim_PDO_errorCode(ptr nocapture noundef readonly %0, ptr noc
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %17) #11
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %19)
   br label %52
@@ -3488,7 +3488,7 @@ define hidden void @zim_PDO_errorInfo(ptr nocapture noundef readonly %0, ptr nou
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %17) #11
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %19)
   br label %.loopexit
@@ -3580,7 +3580,7 @@ define hidden void @zim_PDO_query(ptr nocapture noundef readonly %0, ptr noundef
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   call void @llvm.assume(i1 %18)
   br label %148
@@ -3599,7 +3599,7 @@ define hidden void @zim_PDO_query(ptr nocapture noundef readonly %0, ptr noundef
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %28) #11
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %30 = icmp ne ptr %29, null
   call void @llvm.assume(i1 %30)
   br label %148
@@ -3613,7 +3613,7 @@ define hidden void @zim_PDO_query(ptr nocapture noundef readonly %0, ptr noundef
 
 36:                                               ; preds = %31
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.11) #11
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %38 = icmp ne ptr %37, null
   call void @llvm.assume(i1 %38)
   br label %148
@@ -3653,7 +3653,7 @@ define hidden void @zim_PDO_query(ptr nocapture noundef readonly %0, ptr noundef
   br i1 %.not7.i, label %pdo_stmt_instantiate.exit, label %57
 
 57:                                               ; preds = %55
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8.i = icmp eq ptr %58, null
   br i1 %.not8.i, label %.sink.split.i, label %pdo_stmt_instantiate.exit.thread
 
@@ -3667,7 +3667,7 @@ pdo_stmt_instantiate.exit:                        ; preds = %55
   br i1 %.not80, label %pdo_stmt_instantiate.exit.thread, label %61
 
 pdo_stmt_instantiate.exit.thread:                 ; preds = %.sink.split.i, %57, %pdo_stmt_instantiate.exit
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %60 = icmp ne ptr %59, null
   call void @llvm.assume(i1 %60)
   br label %148
@@ -3927,7 +3927,7 @@ define hidden void @zim_PDO_quote(ptr noundef %0, ptr nocapture noundef writeonl
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %38) #11
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %40 = icmp ne ptr %39, null
   call void @llvm.assume(i1 %40)
   br label %71
@@ -4012,11 +4012,11 @@ define hidden void @zim_PDO_getAvailableDrivers(ptr nocapture noundef readonly %
   store ptr %7, ptr %1, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @pdo_driver_hash, i64 16), align 8
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @pdo_driver_hash, i64 24), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pdo_driver_hash, i64 16), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pdo_driver_hash, i64 24), align 8
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds nuw %struct._Bucket, ptr %9, i64 %11
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @pdo_driver_hash, i64 8), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pdo_driver_hash, i64 8), align 8
   %14 = and i32 %13, 4
   %.not19 = icmp eq i32 %14, 0
   tail call void @llvm.assume(i1 %.not19)
@@ -4416,11 +4416,11 @@ define hidden void @pdo_dbh_init(i32 noundef %0) local_unnamed_addr #0 {
   store ptr @pdo_dbh_object_handlers, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @pdo_dbh_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   store i32 8, ptr @pdo_dbh_object_handlers, align 8
-  store ptr @pdo_dbh_free_storage, ptr getelementptr inbounds (i8, ptr @pdo_dbh_object_handlers, i64 8), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @pdo_dbh_object_handlers, i64 24), align 8
-  store ptr @dbh_method_get, ptr getelementptr inbounds (i8, ptr @pdo_dbh_object_handlers, i64 112), align 8
-  store ptr @zend_objects_not_comparable, ptr getelementptr inbounds (i8, ptr @pdo_dbh_object_handlers, i64 184), align 8
-  store ptr @dbh_get_gc, ptr getelementptr inbounds (i8, ptr @pdo_dbh_object_handlers, i64 168), align 8
+  store ptr @pdo_dbh_free_storage, ptr getelementptr inbounds nuw (i8, ptr @pdo_dbh_object_handlers, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @pdo_dbh_object_handlers, i64 24), align 8
+  store ptr @dbh_method_get, ptr getelementptr inbounds nuw (i8, ptr @pdo_dbh_object_handlers, i64 112), align 8
+  store ptr @zend_objects_not_comparable, ptr getelementptr inbounds nuw (i8, ptr @pdo_dbh_object_handlers, i64 184), align 8
+  store ptr @dbh_get_gc, ptr getelementptr inbounds nuw (i8, ptr @pdo_dbh_object_handlers, i64 168), align 8
   ret void
 }
 

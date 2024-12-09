@@ -65,7 +65,7 @@ define hidden void @_ZN16PSGenerationPoolC2EP8PSOldGenPKcb(ptr noundef nonnull a
   %23 = sub i64 %21, %22
   %24 = and i64 %23, -8
   tail call void @_ZN10MemoryPoolC2EPKcNS_8PoolTypeEmmbb(ptr noundef nonnull align 8 dereferenceable(201) %0, ptr noundef %2, i32 noundef 1, i64 noundef %14, i64 noundef %24, i1 noundef zeroext %3, i1 noundef zeroext true) #3
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV16PSGenerationPool, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV16PSGenerationPool, i64 16), ptr %0, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %1, ptr %25, align 8
   ret void
@@ -150,7 +150,7 @@ define hidden void @_ZN20EdenMutableSpacePoolC2EP10PSYoungGenP12MutableSpacePKcb
   %36 = add i64 %25, %35
   %37 = sub i64 %15, %36
   tail call void @_ZN10MemoryPoolC2EPKcNS_8PoolTypeEmmbb(ptr noundef nonnull align 8 dereferenceable(201) %0, ptr noundef %3, i32 noundef 1, i64 noundef %13, i64 noundef %37, i1 noundef zeroext %4, i1 noundef zeroext true) #3
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV20EdenMutableSpacePool, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV20EdenMutableSpacePool, i64 16), ptr %0, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %1, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -213,7 +213,7 @@ define hidden void @_ZN24SurvivorMutableSpacePoolC2EP10PSYoungGenPKcb(ptr nounde
   %13 = sub i64 %11, %12
   %14 = and i64 %13, -8
   tail call void @_ZN10MemoryPoolC2EPKcNS_8PoolTypeEmmbb(ptr noundef nonnull align 8 dereferenceable(201) %0, ptr noundef %2, i32 noundef 1, i64 noundef %14, i64 noundef %14, i1 noundef zeroext %3, i1 noundef zeroext true) #3
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV24SurvivorMutableSpacePool, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV24SurvivorMutableSpacePool, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %1, ptr %15, align 8
   ret void

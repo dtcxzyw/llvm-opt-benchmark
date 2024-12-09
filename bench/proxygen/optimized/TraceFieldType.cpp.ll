@@ -1870,7 +1870,7 @@ if.end.i:                                         ; preds = %.noexc.i
           to label %invoke.cont.i unwind label %lpad.i1537
 
 invoke.cont.i:                                    ; preds = %if.end.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 11)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 11)) #14
   store ptr null, ptr %__guard.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeErrorStageB5cxx11E, i64 noundef 11)
           to label %__cxx_global_var_init.exit unwind label %lpad.i1537
@@ -1908,7 +1908,7 @@ call.i.noexc.i6:                                  ; preds = %__cxx_global_var_in
           to label %.noexc.i7 unwind label %lpad.i3
 
 .noexc.i7:                                        ; preds = %call.i.noexc.i6
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL20kTraceFieldTypeErrorB5cxx11E, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 17))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL20kTraceFieldTypeErrorB5cxx11E, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 17))
           to label %__cxx_global_var_init.1.exit unwind label %lpad.i.i8
 
 lpad.i.i8:                                        ; preds = %.noexc.i7
@@ -1953,7 +1953,7 @@ if.end.i1542:                                     ; preds = %.noexc.i15
           to label %invoke.cont.i1545 unwind label %lpad.i1544
 
 invoke.cont.i1545:                                ; preds = %if.end.i1542
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1543, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 14)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1543, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 14)) #14
   store ptr null, ptr %__guard.i1539, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeProxygenErrorB5cxx11E, i64 noundef 14)
           to label %__cxx_global_var_init.3.exit unwind label %lpad.i1544
@@ -2002,7 +2002,7 @@ if.end.i1552:                                     ; preds = %.noexc.i23
           to label %invoke.cont.i1555 unwind label %lpad.i1554
 
 invoke.cont.i1555:                                ; preds = %if.end.i1552
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1553, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 11)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1553, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.6, i64 11)) #14
   store ptr null, ptr %__guard.i1549, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeHTTPStatusB5cxx11E, i64 noundef 11)
           to label %__cxx_global_var_init.5.exit unwind label %lpad.i1554
@@ -2051,7 +2051,7 @@ if.end.i1562:                                     ; preds = %.noexc.i31
           to label %invoke.cont.i1565 unwind label %lpad.i1564
 
 invoke.cont.i1565:                                ; preds = %if.end.i1562
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1563, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 15)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1563, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.8, i64 15)) #14
   store ptr null, ptr %__guard.i1559, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeDirectionErrorB5cxx11E, i64 noundef 15)
           to label %__cxx_global_var_init.7.exit unwind label %lpad.i1564
@@ -2100,7 +2100,7 @@ if.end.i1572:                                     ; preds = %.noexc.i39
           to label %invoke.cont.i1575 unwind label %lpad.i1574
 
 invoke.cont.i1575:                                ; preds = %if.end.i1572
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1573, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 11)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1573, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.10, i64 11)) #14
   store ptr null, ptr %__guard.i1569, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeCodecErrorB5cxx11E, i64 noundef 11)
           to label %__cxx_global_var_init.9.exit unwind label %lpad.i1574
@@ -2149,7 +2149,7 @@ if.end.i1582:                                     ; preds = %.noexc.i47
           to label %invoke.cont.i1585 unwind label %lpad.i1584
 
 invoke.cont.i1585:                                ; preds = %if.end.i1582
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1583, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.12, i64 9)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1583, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.12, i64 9)) #14
   store ptr null, ptr %__guard.i1579, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL23kTraceFieldTypeCallPathB5cxx11E, i64 noundef 9)
           to label %__cxx_global_var_init.11.exit unwind label %lpad.i1584
@@ -2198,7 +2198,7 @@ if.end.i1592:                                     ; preds = %.noexc.i55
           to label %invoke.cont.i1595 unwind label %lpad.i1594
 
 invoke.cont.i1595:                                ; preds = %if.end.i1592
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1593, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.14, i64 3)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1593, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.14, i64 3)) #14
   store ptr null, ptr %__guard.i1589, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL18kTraceFieldTypeUriB5cxx11E, i64 noundef 3)
           to label %__cxx_global_var_init.13.exit unwind label %lpad.i1594
@@ -2247,7 +2247,7 @@ if.end.i1602:                                     ; preds = %.noexc.i63
           to label %invoke.cont.i1605 unwind label %lpad.i1604
 
 invoke.cont.i1605:                                ; preds = %if.end.i1602
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1603, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.16, i64 9)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1603, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.16, i64 9)) #14
   store ptr null, ptr %__guard.i1599, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL23kTraceFieldTypeIsSecureB5cxx11E, i64 noundef 9)
           to label %__cxx_global_var_init.15.exit unwind label %lpad.i1604
@@ -2296,7 +2296,7 @@ if.end.i1612:                                     ; preds = %.noexc.i71
           to label %invoke.cont.i1615 unwind label %lpad.i1614
 
 invoke.cont.i1615:                                ; preds = %if.end.i1612
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1613, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.18, i64 11)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1613, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.18, i64 11)) #14
   store ptr null, ptr %__guard.i1609, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeUsingProxyB5cxx11E, i64 noundef 11)
           to label %__cxx_global_var_init.17.exit unwind label %lpad.i1614
@@ -2345,7 +2345,7 @@ if.end.i1622:                                     ; preds = %.noexc.i79
           to label %invoke.cont.i1625 unwind label %lpad.i1624
 
 invoke.cont.i1625:                                ; preds = %if.end.i1622
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1623, ptr noundef nonnull @.str.20, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.20, i64 11)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1623, ptr noundef nonnull @.str.20, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.20, i64 11)) #14
   store ptr null, ptr %__guard.i1619, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeStatusCodeB5cxx11E, i64 noundef 11)
           to label %__cxx_global_var_init.19.exit unwind label %lpad.i1624
@@ -2394,7 +2394,7 @@ if.end.i1632:                                     ; preds = %.noexc.i87
           to label %invoke.cont.i1635 unwind label %lpad.i1634
 
 invoke.cont.i1635:                                ; preds = %if.end.i1632
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1633, ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.22, i64 8)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1633, ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.22, i64 8)) #14
   store ptr null, ptr %__guard.i1629, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL23kTraceFieldTypeProtocolB5cxx11E, i64 noundef 8)
           to label %__cxx_global_var_init.21.exit unwind label %lpad.i1634
@@ -2426,7 +2426,7 @@ call.i.noexc.i94:                                 ; preds = %__cxx_global_var_in
           to label %.noexc.i95 unwind label %lpad.i91
 
 .noexc.i95:                                       ; preds = %call.i.noexc.i94
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeSecurityProtocolB5cxx11E, ptr noundef nonnull @.str.24, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.24, i64 17))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeSecurityProtocolB5cxx11E, ptr noundef nonnull @.str.24, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.24, i64 17))
           to label %__cxx_global_var_init.23.exit unwind label %lpad.i.i96
 
 lpad.i.i96:                                       ; preds = %.noexc.i95
@@ -2471,7 +2471,7 @@ if.end.i1642:                                     ; preds = %.noexc.i103
           to label %invoke.cont.i1645 unwind label %lpad.i1644
 
 invoke.cont.i1645:                                ; preds = %if.end.i1642
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1643, ptr noundef nonnull @.str.26, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.26, i64 11)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1643, ptr noundef nonnull @.str.26, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.26, i64 11)) #14
   store ptr null, ptr %__guard.i1639, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeReplaySafeB5cxx11E, i64 noundef 11)
           to label %__cxx_global_var_init.25.exit unwind label %lpad.i1644
@@ -2520,7 +2520,7 @@ if.end.i1652:                                     ; preds = %.noexc.i111
           to label %invoke.cont.i1655 unwind label %lpad.i1654
 
 invoke.cont.i1655:                                ; preds = %if.end.i1652
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1653, ptr noundef nonnull @.str.28, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.28, i64 10)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1653, ptr noundef nonnull @.str.28, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.28, i64 10)) #14
   store ptr null, ptr %__guard.i1649, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeLocalAddrB5cxx11E, i64 noundef 10)
           to label %__cxx_global_var_init.27.exit unwind label %lpad.i1654
@@ -2569,7 +2569,7 @@ if.end.i1662:                                     ; preds = %.noexc.i119
           to label %invoke.cont.i1665 unwind label %lpad.i1664
 
 invoke.cont.i1665:                                ; preds = %if.end.i1662
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1663, ptr noundef nonnull @.str.30, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.30, i64 10)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1663, ptr noundef nonnull @.str.30, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.30, i64 10)) #14
   store ptr null, ptr %__guard.i1659, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeLocalPortB5cxx11E, i64 noundef 10)
           to label %__cxx_global_var_init.29.exit unwind label %lpad.i1664
@@ -2618,7 +2618,7 @@ if.end.i1672:                                     ; preds = %.noexc.i127
           to label %invoke.cont.i1675 unwind label %lpad.i1674
 
 invoke.cont.i1675:                                ; preds = %if.end.i1672
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1673, ptr noundef nonnull @.str.32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.32, i64 12)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1673, ptr noundef nonnull @.str.32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.32, i64 12)) #14
   store ptr null, ptr %__guard.i1669, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeContentTypeB5cxx11E, i64 noundef 12)
           to label %__cxx_global_var_init.31.exit unwind label %lpad.i1674
@@ -2650,7 +2650,7 @@ call.i.noexc.i134:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i135 unwind label %lpad.i131
 
 .noexc.i135:                                      ; preds = %call.i.noexc.i134
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeReqHeaderSizeB5cxx11E, ptr noundef nonnull @.str.34, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.34, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeReqHeaderSizeB5cxx11E, ptr noundef nonnull @.str.34, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.34, i64 19))
           to label %__cxx_global_var_init.33.exit unwind label %lpad.i.i136
 
 lpad.i.i136:                                      ; preds = %.noexc.i135
@@ -2678,7 +2678,7 @@ call.i.noexc.i142:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i143 unwind label %lpad.i139
 
 .noexc.i143:                                      ; preds = %call.i.noexc.i142
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeReqHeaderCompSizeB5cxx11E, ptr noundef nonnull @.str.36, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.36, i64 30))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeReqHeaderCompSizeB5cxx11E, ptr noundef nonnull @.str.36, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.36, i64 30))
           to label %__cxx_global_var_init.35.exit unwind label %lpad.i.i144
 
 lpad.i.i144:                                      ; preds = %.noexc.i143
@@ -2706,7 +2706,7 @@ call.i.noexc.i150:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i151 unwind label %lpad.i147
 
 .noexc.i151:                                      ; preds = %call.i.noexc.i150
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeReqBodySizeB5cxx11E, ptr noundef nonnull @.str.38, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.38, i64 17))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeReqBodySizeB5cxx11E, ptr noundef nonnull @.str.38, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.38, i64 17))
           to label %__cxx_global_var_init.37.exit unwind label %lpad.i.i152
 
 lpad.i.i152:                                      ; preds = %.noexc.i151
@@ -2734,7 +2734,7 @@ call.i.noexc.i158:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i159 unwind label %lpad.i155
 
 .noexc.i159:                                      ; preds = %call.i.noexc.i158
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeRspHeaderSizeB5cxx11E, ptr noundef nonnull @.str.40, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.40, i64 20))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeRspHeaderSizeB5cxx11E, ptr noundef nonnull @.str.40, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.40, i64 20))
           to label %__cxx_global_var_init.39.exit unwind label %lpad.i.i160
 
 lpad.i.i160:                                      ; preds = %.noexc.i159
@@ -2762,7 +2762,7 @@ call.i.noexc.i166:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i167 unwind label %lpad.i163
 
 .noexc.i167:                                      ; preds = %call.i.noexc.i166
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeRspHeaderCompSizeB5cxx11E, ptr noundef nonnull @.str.42, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.42, i64 31))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeRspHeaderCompSizeB5cxx11E, ptr noundef nonnull @.str.42, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.42, i64 31))
           to label %__cxx_global_var_init.41.exit unwind label %lpad.i.i168
 
 lpad.i.i168:                                      ; preds = %.noexc.i167
@@ -2790,7 +2790,7 @@ call.i.noexc.i174:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i175 unwind label %lpad.i171
 
 .noexc.i175:                                      ; preds = %call.i.noexc.i174
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeRedirectLocationB5cxx11E, ptr noundef nonnull @.str.44, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.44, i64 17))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeRedirectLocationB5cxx11E, ptr noundef nonnull @.str.44, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.44, i64 17))
           to label %__cxx_global_var_init.43.exit unwind label %lpad.i.i176
 
 lpad.i.i176:                                      ; preds = %.noexc.i175
@@ -2835,7 +2835,7 @@ if.end.i1682:                                     ; preds = %.noexc.i183
           to label %invoke.cont.i1685 unwind label %lpad.i1684
 
 invoke.cont.i1685:                                ; preds = %if.end.i1682
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1683, ptr noundef nonnull @.str.46, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.46, i64 13)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1683, ptr noundef nonnull @.str.46, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.46, i64 13)) #14
   store ptr null, ptr %__guard.i1679, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeNumRedirectsB5cxx11E, i64 noundef 13)
           to label %__cxx_global_var_init.45.exit unwind label %lpad.i1684
@@ -2867,7 +2867,7 @@ call.i.noexc.i190:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i191 unwind label %lpad.i187
 
 .noexc.i191:                                      ; preds = %call.i.noexc.i190
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL35kTraceFieldTypeRedirectResponseCodeB5cxx11E, ptr noundef nonnull @.str.48, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.48, i64 22))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL35kTraceFieldTypeRedirectResponseCodeB5cxx11E, ptr noundef nonnull @.str.48, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.48, i64 22))
           to label %__cxx_global_var_init.47.exit unwind label %lpad.i.i192
 
 lpad.i.i192:                                      ; preds = %.noexc.i191
@@ -2912,7 +2912,7 @@ if.end.i1692:                                     ; preds = %.noexc.i199
           to label %invoke.cont.i1695 unwind label %lpad.i1694
 
 invoke.cont.i1695:                                ; preds = %if.end.i1692
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1693, ptr noundef nonnull @.str.50, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.50, i64 11)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1693, ptr noundef nonnull @.str.50, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.50, i64 11)) #14
   store ptr null, ptr %__guard.i1689, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeNumZeroRttRetriesB5cxx11E, i64 noundef 11)
           to label %__cxx_global_var_init.49.exit unwind label %lpad.i1694
@@ -2961,7 +2961,7 @@ if.end.i1702:                                     ; preds = %.noexc.i207
           to label %invoke.cont.i1705 unwind label %lpad.i1704
 
 invoke.cont.i1705:                                ; preds = %if.end.i1702
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1703, ptr noundef nonnull @.str.52, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.52, i64 11)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1703, ptr noundef nonnull @.str.52, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.52, i64 11)) #14
   store ptr null, ptr %__guard.i1699, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeUsingHTTP2B5cxx11E, i64 noundef 11)
           to label %__cxx_global_var_init.51.exit unwind label %lpad.i1704
@@ -2993,7 +2993,7 @@ call.i.noexc.i214:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i215 unwind label %lpad.i211
 
 .noexc.i215:                                      ; preds = %call.i.noexc.i214
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL40kTraceFieldTypeFirstBodyByteFlushedRatioB5cxx11E, ptr noundef nonnull @.str.54, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.54, i64 29))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL40kTraceFieldTypeFirstBodyByteFlushedRatioB5cxx11E, ptr noundef nonnull @.str.54, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.54, i64 29))
           to label %__cxx_global_var_init.53.exit unwind label %lpad.i.i216
 
 lpad.i.i216:                                      ; preds = %.noexc.i215
@@ -3021,7 +3021,7 @@ call.i.noexc.i222:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i223 unwind label %lpad.i219
 
 .noexc.i223:                                      ; preds = %call.i.noexc.i222
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL39kTraceFieldTypeLastBodyByteFlushedRatioB5cxx11E, ptr noundef nonnull @.str.56, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.56, i64 28))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL39kTraceFieldTypeLastBodyByteFlushedRatioB5cxx11E, ptr noundef nonnull @.str.56, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.56, i64 28))
           to label %__cxx_global_var_init.55.exit unwind label %lpad.i.i224
 
 lpad.i.i224:                                      ; preds = %.noexc.i223
@@ -3049,7 +3049,7 @@ call.i.noexc.i230:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i231 unwind label %lpad.i227
 
 .noexc.i231:                                      ; preds = %call.i.noexc.i230
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeFlowControlPausesB5cxx11E, ptr noundef nonnull @.str.58, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.58, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeFlowControlPausesB5cxx11E, ptr noundef nonnull @.str.58, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.58, i64 19))
           to label %__cxx_global_var_init.57.exit unwind label %lpad.i.i232
 
 lpad.i.i232:                                      ; preds = %.noexc.i231
@@ -3094,7 +3094,7 @@ if.end.i1712:                                     ; preds = %.noexc.i239
           to label %invoke.cont.i1715 unwind label %lpad.i1714
 
 invoke.cont.i1715:                                ; preds = %if.end.i1712
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1713, ptr noundef nonnull @.str.60, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.60, i64 11)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1713, ptr noundef nonnull @.str.60, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.60, i64 11)) #14
   store ptr null, ptr %__guard.i1709, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeHTTPMethodB5cxx11E, i64 noundef 11)
           to label %__cxx_global_var_init.59.exit unwind label %lpad.i1714
@@ -3143,7 +3143,7 @@ if.end.i1722:                                     ; preds = %.noexc.i247
           to label %invoke.cont.i1725 unwind label %lpad.i1724
 
 invoke.cont.i1725:                                ; preds = %if.end.i1722
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1723, ptr noundef nonnull @.str.62, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.62, i64 13)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1723, ptr noundef nonnull @.str.62, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.62, i64 13)) #14
   store ptr null, ptr %__guard.i1719, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeRangeRequestB5cxx11E, i64 noundef 13)
           to label %__cxx_global_var_init.61.exit unwind label %lpad.i1724
@@ -3175,7 +3175,7 @@ call.i.noexc.i254:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i255 unwind label %lpad.i251
 
 .noexc.i255:                                      ; preds = %call.i.noexc.i254
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeRequestSendTimeB5cxx11E, ptr noundef nonnull @.str.64, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.64, i64 32))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeRequestSendTimeB5cxx11E, ptr noundef nonnull @.str.64, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.64, i64 32))
           to label %__cxx_global_var_init.63.exit unwind label %lpad.i.i256
 
 lpad.i.i256:                                      ; preds = %.noexc.i255
@@ -3203,7 +3203,7 @@ call.i.noexc.i262:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i263 unwind label %lpad.i259
 
 .noexc.i263:                                      ; preds = %call.i.noexc.i262
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeRspIntvlAvgB5cxx11E, ptr noundef nonnull @.str.66, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.66, i64 25))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeRspIntvlAvgB5cxx11E, ptr noundef nonnull @.str.66, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.66, i64 25))
           to label %__cxx_global_var_init.65.exit unwind label %lpad.i.i264
 
 lpad.i.i264:                                      ; preds = %.noexc.i263
@@ -3231,7 +3231,7 @@ call.i.noexc.i270:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i271 unwind label %lpad.i267
 
 .noexc.i271:                                      ; preds = %call.i.noexc.i270
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeRspIntvlStdDevB5cxx11E, ptr noundef nonnull @.str.68, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.68, i64 24))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeRspIntvlStdDevB5cxx11E, ptr noundef nonnull @.str.68, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.68, i64 24))
           to label %__cxx_global_var_init.67.exit unwind label %lpad.i.i272
 
 lpad.i.i272:                                      ; preds = %.noexc.i271
@@ -3259,7 +3259,7 @@ call.i.noexc.i278:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i279 unwind label %lpad.i275
 
 .noexc.i279:                                      ; preds = %call.i.noexc.i278
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeRspNumOnBodyB5cxx11E, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.70, i64 23))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeRspNumOnBodyB5cxx11E, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.70, i64 23))
           to label %__cxx_global_var_init.69.exit unwind label %lpad.i.i280
 
 lpad.i.i280:                                      ; preds = %.noexc.i279
@@ -3287,7 +3287,7 @@ call.i.noexc.i286:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i287 unwind label %lpad.i283
 
 .noexc.i287:                                      ; preds = %call.i.noexc.i286
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeServerQualityB5cxx11E, ptr noundef nonnull @.str.72, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.72, i64 23))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeServerQualityB5cxx11E, ptr noundef nonnull @.str.72, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.72, i64 23))
           to label %__cxx_global_var_init.71.exit unwind label %lpad.i.i288
 
 lpad.i.i288:                                      ; preds = %.noexc.i287
@@ -3332,7 +3332,7 @@ if.end.i1732:                                     ; preds = %.noexc.i295
           to label %invoke.cont.i1735 unwind label %lpad.i1734
 
 invoke.cont.i1735:                                ; preds = %if.end.i1732
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1733, ptr noundef nonnull @.str.74, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.74, i64 10)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1733, ptr noundef nonnull @.str.74, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.74, i64 10)) #14
   store ptr null, ptr %__guard.i1729, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeServerRttB5cxx11E, i64 noundef 10)
           to label %__cxx_global_var_init.73.exit unwind label %lpad.i1734
@@ -3364,7 +3364,7 @@ call.i.noexc.i302:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i303 unwind label %lpad.i299
 
 .noexc.i303:                                      ; preds = %call.i.noexc.i302
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeRecvToAckB5cxx11E, ptr noundef nonnull @.str.76, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.76, i64 24))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeRecvToAckB5cxx11E, ptr noundef nonnull @.str.76, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.76, i64 24))
           to label %__cxx_global_var_init.75.exit unwind label %lpad.i.i304
 
 lpad.i.i304:                                      ; preds = %.noexc.i303
@@ -3409,7 +3409,7 @@ if.end.i1742:                                     ; preds = %.noexc.i311
           to label %invoke.cont.i1745 unwind label %lpad.i1744
 
 invoke.cont.i1745:                                ; preds = %if.end.i1742
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1743, ptr noundef nonnull @.str.78, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.78, i64 10)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1743, ptr noundef nonnull @.str.78, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.78, i64 10)) #14
   store ptr null, ptr %__guard.i1739, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeServerRtxB5cxx11E, i64 noundef 10)
           to label %__cxx_global_var_init.77.exit unwind label %lpad.i1744
@@ -3458,7 +3458,7 @@ if.end.i1752:                                     ; preds = %.noexc.i319
           to label %invoke.cont.i1755 unwind label %lpad.i1754
 
 invoke.cont.i1755:                                ; preds = %if.end.i1752
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1753, ptr noundef nonnull @.str.80, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.80, i64 11)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1753, ptr noundef nonnull @.str.80, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.80, i64 11)) #14
   store ptr null, ptr %__guard.i1749, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeServerCwndB5cxx11E, i64 noundef 11)
           to label %__cxx_global_var_init.79.exit unwind label %lpad.i1754
@@ -3507,7 +3507,7 @@ if.end.i1762:                                     ; preds = %.noexc.i327
           to label %invoke.cont.i1765 unwind label %lpad.i1764
 
 invoke.cont.i1765:                                ; preds = %if.end.i1762
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1763, ptr noundef nonnull @.str.82, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.82, i64 10)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1763, ptr noundef nonnull @.str.82, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.82, i64 10)) #14
   store ptr null, ptr %__guard.i1759, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeServerMssB5cxx11E, i64 noundef 10)
           to label %__cxx_global_var_init.81.exit unwind label %lpad.i1764
@@ -3556,7 +3556,7 @@ if.end.i1772:                                     ; preds = %.noexc.i335
           to label %invoke.cont.i1775 unwind label %lpad.i1774
 
 invoke.cont.i1775:                                ; preds = %if.end.i1772
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1773, ptr noundef nonnull @.str.84, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.84, i64 10)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1773, ptr noundef nonnull @.str.84, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.84, i64 10)) #14
   store ptr null, ptr %__guard.i1769, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL38kTraceFieldTypeServerTotalBytesWrittenB5cxx11E, i64 noundef 10)
           to label %__cxx_global_var_init.83.exit unwind label %lpad.i1774
@@ -3605,7 +3605,7 @@ if.end.i1782:                                     ; preds = %.noexc.i343
           to label %invoke.cont.i1785 unwind label %lpad.i1784
 
 invoke.cont.i1785:                                ; preds = %if.end.i1782
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1783, ptr noundef nonnull @.str.86, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.86, i64 14)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1783, ptr noundef nonnull @.str.86, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.86, i64 14)) #14
   store ptr null, ptr %__guard.i1779, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeNewConnectionB5cxx11E, i64 noundef 14)
           to label %__cxx_global_var_init.85.exit unwind label %lpad.i1784
@@ -3637,7 +3637,7 @@ call.i.noexc.i350:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i351 unwind label %lpad.i347
 
 .noexc.i351:                                      ; preds = %call.i.noexc.i350
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeIsWaitingForNewConnB5cxx11E, ptr noundef nonnull @.str.88, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.88, i64 26))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeIsWaitingForNewConnB5cxx11E, ptr noundef nonnull @.str.88, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.88, i64 26))
           to label %__cxx_global_var_init.87.exit unwind label %lpad.i.i352
 
 lpad.i.i352:                                      ; preds = %.noexc.i351
@@ -3665,7 +3665,7 @@ call.i.noexc.i358:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i359 unwind label %lpad.i355
 
 .noexc.i359:                                      ; preds = %call.i.noexc.i358
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeNewConnTimeoutB5cxx11E, ptr noundef nonnull @.str.90, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.90, i64 16))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeNewConnTimeoutB5cxx11E, ptr noundef nonnull @.str.90, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.90, i64 16))
           to label %__cxx_global_var_init.89.exit unwind label %lpad.i.i360
 
 lpad.i.i360:                                      ; preds = %.noexc.i359
@@ -3710,7 +3710,7 @@ if.end.i1792:                                     ; preds = %.noexc.i367
           to label %invoke.cont.i1795 unwind label %lpad.i1794
 
 invoke.cont.i1795:                                ; preds = %if.end.i1792
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1793, ptr noundef nonnull @.str.92, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.92, i64 15)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1793, ptr noundef nonnull @.str.92, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.92, i64 15)) #14
   store ptr null, ptr %__guard.i1789, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeInFlightConnsB5cxx11E, i64 noundef 15)
           to label %__cxx_global_var_init.91.exit unwind label %lpad.i1794
@@ -3759,7 +3759,7 @@ if.end.i1802:                                     ; preds = %.noexc.i375
           to label %invoke.cont.i1805 unwind label %lpad.i1804
 
 invoke.cont.i1805:                                ; preds = %if.end.i1802
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1803, ptr noundef nonnull @.str.94, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.94, i64 15)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1803, ptr noundef nonnull @.str.94, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.94, i64 15)) #14
   store ptr null, ptr %__guard.i1799, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeCachedSessionsB5cxx11E, i64 noundef 15)
           to label %__cxx_global_var_init.93.exit unwind label %lpad.i1804
@@ -3791,7 +3791,7 @@ call.i.noexc.i382:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i383 unwind label %lpad.i379
 
 .noexc.i383:                                      ; preds = %call.i.noexc.i382
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL35kTraceFieldTypeCachedActiveSessionsB5cxx11E, ptr noundef nonnull @.str.96, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.96, i64 22))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL35kTraceFieldTypeCachedActiveSessionsB5cxx11E, ptr noundef nonnull @.str.96, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.96, i64 22))
           to label %__cxx_global_var_init.95.exit unwind label %lpad.i.i384
 
 lpad.i.i384:                                      ; preds = %.noexc.i383
@@ -3836,7 +3836,7 @@ if.end.i1812:                                     ; preds = %.noexc.i391
           to label %invoke.cont.i1815 unwind label %lpad.i1814
 
 invoke.cont.i1815:                                ; preds = %if.end.i1812
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1813, ptr noundef nonnull @.str.98, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.98, i64 13)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1813, ptr noundef nonnull @.str.98, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.98, i64 13)) #14
   store ptr null, ptr %__guard.i1809, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeConnsStartedB5cxx11E, i64 noundef 13)
           to label %__cxx_global_var_init.97.exit unwind label %lpad.i1814
@@ -3885,7 +3885,7 @@ if.end.i1822:                                     ; preds = %.noexc.i399
           to label %invoke.cont.i1825 unwind label %lpad.i1824
 
 invoke.cont.i1825:                                ; preds = %if.end.i1822
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1823, ptr noundef nonnull @.str.100, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.100, i64 15)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1823, ptr noundef nonnull @.str.100, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.100, i64 15)) #14
   store ptr null, ptr %__guard.i1819, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeRequestsWaitedB5cxx11E, i64 noundef 15)
           to label %__cxx_global_var_init.99.exit unwind label %lpad.i1824
@@ -3917,7 +3917,7 @@ call.i.noexc.i406:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i407 unwind label %lpad.i403
 
 .noexc.i407:                                      ; preds = %call.i.noexc.i406
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeTotalRequestsWaitedB5cxx11E, ptr noundef nonnull @.str.102, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.102, i64 21))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeTotalRequestsWaitedB5cxx11E, ptr noundef nonnull @.str.102, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.102, i64 21))
           to label %__cxx_global_var_init.101.exit unwind label %lpad.i.i408
 
 lpad.i.i408:                                      ; preds = %.noexc.i407
@@ -3945,7 +3945,7 @@ call.i.noexc.i414:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i415 unwind label %lpad.i411
 
 .noexc.i415:                                      ; preds = %call.i.noexc.i414
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeTotalConnsStartedB5cxx11E, ptr noundef nonnull @.str.104, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.104, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeTotalConnsStartedB5cxx11E, ptr noundef nonnull @.str.104, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.104, i64 19))
           to label %__cxx_global_var_init.103.exit unwind label %lpad.i.i416
 
 lpad.i.i416:                                      ; preds = %.noexc.i415
@@ -3973,7 +3973,7 @@ call.i.noexc.i422:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i423 unwind label %lpad.i419
 
 .noexc.i423:                                      ; preds = %call.i.noexc.i422
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL38kTraceFieldTypeTotalBackupConnsStartedB5cxx11E, ptr noundef nonnull @.str.106, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.106, i64 26))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL38kTraceFieldTypeTotalBackupConnsStartedB5cxx11E, ptr noundef nonnull @.str.106, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.106, i64 26))
           to label %__cxx_global_var_init.105.exit unwind label %lpad.i.i424
 
 lpad.i.i424:                                      ; preds = %.noexc.i423
@@ -4001,7 +4001,7 @@ call.i.noexc.i430:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i431 unwind label %lpad.i427
 
 .noexc.i431:                                      ; preds = %call.i.noexc.i430
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeSessionCacheHitTypeB5cxx11E, ptr noundef nonnull @.str.108, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.108, i64 22))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeSessionCacheHitTypeB5cxx11E, ptr noundef nonnull @.str.108, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.108, i64 22))
           to label %__cxx_global_var_init.107.exit unwind label %lpad.i.i432
 
 lpad.i.i432:                                      ; preds = %.noexc.i431
@@ -4029,7 +4029,7 @@ call.i.noexc.i438:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i439 unwind label %lpad.i435
 
 .noexc.i439:                                      ; preds = %call.i.noexc.i438
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypePerDomainLimitB5cxx11E, ptr noundef nonnull @.str.110, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.110, i64 16))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypePerDomainLimitB5cxx11E, ptr noundef nonnull @.str.110, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.110, i64 16))
           to label %__cxx_global_var_init.109.exit unwind label %lpad.i.i440
 
 lpad.i.i440:                                      ; preds = %.noexc.i439
@@ -4057,7 +4057,7 @@ call.i.noexc.i446:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i447 unwind label %lpad.i443
 
 .noexc.i447:                                      ; preds = %call.i.noexc.i446
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL38kTraceFieldTypeDynamicDomainLimitRatioB5cxx11E, ptr noundef nonnull @.str.112, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.112, i64 26))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL38kTraceFieldTypeDynamicDomainLimitRatioB5cxx11E, ptr noundef nonnull @.str.112, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.112, i64 26))
           to label %__cxx_global_var_init.111.exit unwind label %lpad.i.i448
 
 lpad.i.i448:                                      ; preds = %.noexc.i447
@@ -4102,7 +4102,7 @@ if.end.i1832:                                     ; preds = %.noexc.i455
           to label %invoke.cont.i1835 unwind label %lpad.i1834
 
 invoke.cont.i1835:                                ; preds = %if.end.i1832
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1833, ptr noundef nonnull @.str.114, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.114, i64 14)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1833, ptr noundef nonnull @.str.114, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.114, i64 14)) #14
   store ptr null, ptr %__guard.i1829, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeLoadBalancingB5cxx11E, i64 noundef 14)
           to label %__cxx_global_var_init.113.exit unwind label %lpad.i1834
@@ -4134,7 +4134,7 @@ call.i.noexc.i462:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i463 unwind label %lpad.i459
 
 .noexc.i463:                                      ; preds = %call.i.noexc.i462
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL38kTraceFieldTypeMaxConnectionRetryCountB5cxx11E, ptr noundef nonnull @.str.116, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.116, i64 26))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL38kTraceFieldTypeMaxConnectionRetryCountB5cxx11E, ptr noundef nonnull @.str.116, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.116, i64 26))
           to label %__cxx_global_var_init.115.exit unwind label %lpad.i.i464
 
 lpad.i.i464:                                      ; preds = %.noexc.i463
@@ -4162,7 +4162,7 @@ call.i.noexc.i470:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i471 unwind label %lpad.i467
 
 .noexc.i471:                                      ; preds = %call.i.noexc.i470
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeMaxIdleHTTPSessionsB5cxx11E, ptr noundef nonnull @.str.118, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.118, i64 22))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeMaxIdleHTTPSessionsB5cxx11E, ptr noundef nonnull @.str.118, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.118, i64 22))
           to label %__cxx_global_var_init.117.exit unwind label %lpad.i.i472
 
 lpad.i.i472:                                      ; preds = %.noexc.i471
@@ -4190,7 +4190,7 @@ call.i.noexc.i478:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i479 unwind label %lpad.i475
 
 .noexc.i479:                                      ; preds = %call.i.noexc.i478
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL35kTraceFieldTypeMaxIdleHTTP2SessionsB5cxx11E, ptr noundef nonnull @.str.120, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.120, i64 23))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL35kTraceFieldTypeMaxIdleHTTP2SessionsB5cxx11E, ptr noundef nonnull @.str.120, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.120, i64 23))
           to label %__cxx_global_var_init.119.exit unwind label %lpad.i.i480
 
 lpad.i.i480:                                      ; preds = %.noexc.i479
@@ -4218,7 +4218,7 @@ call.i.noexc.i486:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i487 unwind label %lpad.i483
 
 .noexc.i487:                                      ; preds = %call.i.noexc.i486
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeConnRoutingStaleB5cxx11E, ptr noundef nonnull @.str.122, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.122, i64 24))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeConnRoutingStaleB5cxx11E, ptr noundef nonnull @.str.122, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.122, i64 24))
           to label %__cxx_global_var_init.121.exit unwind label %lpad.i.i488
 
 lpad.i.i488:                                      ; preds = %.noexc.i487
@@ -4263,7 +4263,7 @@ if.end.i1842:                                     ; preds = %.noexc.i495
           to label %invoke.cont.i1845 unwind label %lpad.i1844
 
 invoke.cont.i1845:                                ; preds = %if.end.i1842
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1843, ptr noundef nonnull @.str.124, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.124, i64 12)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1843, ptr noundef nonnull @.str.124, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.124, i64 12)) #14
   store ptr null, ptr %__guard.i1839, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeAltSvcHostB5cxx11E, i64 noundef 12)
           to label %__cxx_global_var_init.123.exit unwind label %lpad.i1844
@@ -4312,7 +4312,7 @@ if.end.i1852:                                     ; preds = %.noexc.i503
           to label %invoke.cont.i1855 unwind label %lpad.i1854
 
 invoke.cont.i1855:                                ; preds = %if.end.i1852
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1853, ptr noundef nonnull @.str.126, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.126, i64 15)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1853, ptr noundef nonnull @.str.126, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.126, i64 15)) #14
   store ptr null, ptr %__guard.i1849, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeInjectedSocketB5cxx11E, i64 noundef 15)
           to label %__cxx_global_var_init.125.exit unwind label %lpad.i1854
@@ -4361,7 +4361,7 @@ if.end.i1862:                                     ; preds = %.noexc.i511
           to label %invoke.cont.i1865 unwind label %lpad.i1864
 
 invoke.cont.i1865:                                ; preds = %if.end.i1862
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1863, ptr noundef nonnull @.str.128, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.128, i64 14)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1863, ptr noundef nonnull @.str.128, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.128, i64 14)) #14
   store ptr null, ptr %__guard.i1859, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeServerAddrB5cxx11E, i64 noundef 14)
           to label %__cxx_global_var_init.127.exit unwind label %lpad.i1864
@@ -4410,7 +4410,7 @@ if.end.i1872:                                     ; preds = %.noexc.i519
           to label %invoke.cont.i1875 unwind label %lpad.i1874
 
 invoke.cont.i1875:                                ; preds = %if.end.i1872
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1873, ptr noundef nonnull @.str.130, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.130, i64 11)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1873, ptr noundef nonnull @.str.130, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.130, i64 11)) #14
   store ptr null, ptr %__guard.i1869, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeServerPortB5cxx11E, i64 noundef 11)
           to label %__cxx_global_var_init.129.exit unwind label %lpad.i1874
@@ -4459,7 +4459,7 @@ if.end.i1882:                                     ; preds = %.noexc.i527
           to label %invoke.cont.i1885 unwind label %lpad.i1884
 
 invoke.cont.i1885:                                ; preds = %if.end.i1882
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1883, ptr noundef nonnull @.str.132, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.132, i64 13)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1883, ptr noundef nonnull @.str.132, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.132, i64 13)) #14
   store ptr null, ptr %__guard.i1879, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeCachedFamilyB5cxx11E, i64 noundef 13)
           to label %__cxx_global_var_init.131.exit unwind label %lpad.i1884
@@ -4508,7 +4508,7 @@ if.end.i1892:                                     ; preds = %.noexc.i535
           to label %invoke.cont.i1895 unwind label %lpad.i1894
 
 invoke.cont.i1895:                                ; preds = %if.end.i1892
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1893, ptr noundef nonnull @.str.134, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.134, i64 11)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1893, ptr noundef nonnull @.str.134, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.134, i64 11)) #14
   store ptr null, ptr %__guard.i1889, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeNewSessionB5cxx11E, i64 noundef 11)
           to label %__cxx_global_var_init.133.exit unwind label %lpad.i1894
@@ -4557,7 +4557,7 @@ if.end.i1902:                                     ; preds = %.noexc.i543
           to label %invoke.cont.i1905 unwind label %lpad.i1904
 
 invoke.cont.i1905:                                ; preds = %if.end.i1902
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1903, ptr noundef nonnull @.str.136, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.136, i64 11)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1903, ptr noundef nonnull @.str.136, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.136, i64 11)) #14
   store ptr null, ptr %__guard.i1899, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeNumWaitingB5cxx11E, i64 noundef 11)
           to label %__cxx_global_var_init.135.exit unwind label %lpad.i1904
@@ -4606,7 +4606,7 @@ if.end.i1912:                                     ; preds = %.noexc.i551
           to label %invoke.cont.i1915 unwind label %lpad.i1914
 
 invoke.cont.i1915:                                ; preds = %if.end.i1912
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1913, ptr noundef nonnull @.str.138, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.138, i64 9)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1913, ptr noundef nonnull @.str.138, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.138, i64 9)) #14
   store ptr null, ptr %__guard.i1909, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL23kTraceFieldTypeHostNameB5cxx11E, i64 noundef 9)
           to label %__cxx_global_var_init.137.exit unwind label %lpad.i1914
@@ -4655,7 +4655,7 @@ if.end.i1922:                                     ; preds = %.noexc.i559
           to label %invoke.cont.i1925 unwind label %lpad.i1924
 
 invoke.cont.i1925:                                ; preds = %if.end.i1922
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1923, ptr noundef nonnull @.str.140, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.140, i64 10)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1923, ptr noundef nonnull @.str.140, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.140, i64 10)) #14
   store ptr null, ptr %__guard.i1919, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL21kTraceFieldTypeIpAddrB5cxx11E, i64 noundef 10)
           to label %__cxx_global_var_init.139.exit unwind label %lpad.i1924
@@ -4704,7 +4704,7 @@ if.end.i1932:                                     ; preds = %.noexc.i567
           to label %invoke.cont.i1935 unwind label %lpad.i1934
 
 invoke.cont.i1935:                                ; preds = %if.end.i1932
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1933, ptr noundef nonnull @.str.142, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.142, i64 4)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1933, ptr noundef nonnull @.str.142, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.142, i64 4)) #14
   store ptr null, ptr %__guard.i1929, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL19kTraceFieldTypePortB5cxx11E, i64 noundef 4)
           to label %__cxx_global_var_init.141.exit unwind label %lpad.i1934
@@ -4753,7 +4753,7 @@ if.end.i1942:                                     ; preds = %.noexc.i575
           to label %invoke.cont.i1945 unwind label %lpad.i1944
 
 invoke.cont.i1945:                                ; preds = %if.end.i1942
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1943, ptr noundef nonnull @.str.144, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.144, i64 15)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1943, ptr noundef nonnull @.str.144, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.144, i64 15)) #14
   store ptr null, ptr %__guard.i1939, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeCNameRedirectsB5cxx11E, i64 noundef 15)
           to label %__cxx_global_var_init.143.exit unwind label %lpad.i1944
@@ -4802,7 +4802,7 @@ if.end.i1952:                                     ; preds = %.noexc.i583
           to label %invoke.cont.i1955 unwind label %lpad.i1954
 
 invoke.cont.i1955:                                ; preds = %if.end.i1952
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1953, ptr noundef nonnull @.str.146, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.146, i64 14)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1953, ptr noundef nonnull @.str.146, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.146, i64 14)) #14
   store ptr null, ptr %__guard.i1949, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeCanonicalNameB5cxx11E, i64 noundef 14)
           to label %__cxx_global_var_init.145.exit unwind label %lpad.i1954
@@ -4834,7 +4834,7 @@ call.i.noexc.i590:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i591 unwind label %lpad.i587
 
 .noexc.i591:                                      ; preds = %call.i.noexc.i590
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeNumberResolversB5cxx11E, ptr noundef nonnull @.str.148, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.148, i64 16))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeNumberResolversB5cxx11E, ptr noundef nonnull @.str.148, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.148, i64 16))
           to label %__cxx_global_var_init.147.exit unwind label %lpad.i.i592
 
 lpad.i.i592:                                      ; preds = %.noexc.i591
@@ -4862,7 +4862,7 @@ call.i.noexc.i598:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i599 unwind label %lpad.i595
 
 .noexc.i599:                                      ; preds = %call.i.noexc.i598
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeResolversSerializedB5cxx11E, ptr noundef nonnull @.str.150, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.150, i64 20))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeResolversSerializedB5cxx11E, ptr noundef nonnull @.str.150, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.150, i64 20))
           to label %__cxx_global_var_init.149.exit unwind label %lpad.i.i600
 
 lpad.i.i600:                                      ; preds = %.noexc.i599
@@ -4907,7 +4907,7 @@ if.end.i1962:                                     ; preds = %.noexc.i607
           to label %invoke.cont.i1965 unwind label %lpad.i1964
 
 invoke.cont.i1965:                                ; preds = %if.end.i1962
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1963, ptr noundef nonnull @.str.152, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.152, i64 14)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1963, ptr noundef nonnull @.str.152, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.152, i64 14)) #14
   store ptr null, ptr %__guard.i1959, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeRequestFamilyB5cxx11E, i64 noundef 14)
           to label %__cxx_global_var_init.151.exit unwind label %lpad.i1964
@@ -4956,7 +4956,7 @@ if.end.i1972:                                     ; preds = %.noexc.i615
           to label %invoke.cont.i1975 unwind label %lpad.i1974
 
 invoke.cont.i1975:                                ; preds = %if.end.i1972
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1973, ptr noundef nonnull @.str.154, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.154, i64 14)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1973, ptr noundef nonnull @.str.154, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.154, i64 14)) #14
   store ptr null, ptr %__guard.i1969, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeNumberAnswersB5cxx11E, i64 noundef 14)
           to label %__cxx_global_var_init.153.exit unwind label %lpad.i1974
@@ -5005,7 +5005,7 @@ if.end.i1982:                                     ; preds = %.noexc.i623
           to label %invoke.cont.i1985 unwind label %lpad.i1984
 
 invoke.cont.i1985:                                ; preds = %if.end.i1982
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1983, ptr noundef nonnull @.str.156, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.156, i64 14)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1983, ptr noundef nonnull @.str.156, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.156, i64 14)) #14
   store ptr null, ptr %__guard.i1979, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeNumberDNSRetriesB5cxx11E, i64 noundef 14)
           to label %__cxx_global_var_init.155.exit unwind label %lpad.i1984
@@ -5037,7 +5037,7 @@ call.i.noexc.i630:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i631 unwind label %lpad.i627
 
 .noexc.i631:                                      ; preds = %call.i.noexc.i630
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeResolvedSuccessB5cxx11E, ptr noundef nonnull @.str.158, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.158, i64 16))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeResolvedSuccessB5cxx11E, ptr noundef nonnull @.str.158, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.158, i64 16))
           to label %__cxx_global_var_init.157.exit unwind label %lpad.i.i632
 
 lpad.i.i632:                                      ; preds = %.noexc.i631
@@ -5082,7 +5082,7 @@ if.end.i1992:                                     ; preds = %.noexc.i639
           to label %invoke.cont.i1995 unwind label %lpad.i1994
 
 invoke.cont.i1995:                                ; preds = %if.end.i1992
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1993, ptr noundef nonnull @.str.160, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.160, i64 13)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i1993, ptr noundef nonnull @.str.160, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.160, i64 13)) #14
   store ptr null, ptr %__guard.i1989, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeDNSCacheHitB5cxx11E, i64 noundef 13)
           to label %__cxx_global_var_init.159.exit unwind label %lpad.i1994
@@ -5131,7 +5131,7 @@ if.end.i2002:                                     ; preds = %.noexc.i647
           to label %invoke.cont.i2005 unwind label %lpad.i2004
 
 invoke.cont.i2005:                                ; preds = %if.end.i2002
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2003, ptr noundef nonnull @.str.162, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.162, i64 15)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2003, ptr noundef nonnull @.str.162, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.162, i64 15)) #14
   store ptr null, ptr %__guard.i1999, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeDNSCacheStaleB5cxx11E, i64 noundef 15)
           to label %__cxx_global_var_init.161.exit unwind label %lpad.i2004
@@ -5163,7 +5163,7 @@ call.i.noexc.i654:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i655 unwind label %lpad.i651
 
 .noexc.i655:                                      ; preds = %call.i.noexc.i654
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeDNSPreconnectDomainB5cxx11E, ptr noundef nonnull @.str.164, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.164, i64 21))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeDNSPreconnectDomainB5cxx11E, ptr noundef nonnull @.str.164, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.164, i64 21))
           to label %__cxx_global_var_init.163.exit unwind label %lpad.i.i656
 
 lpad.i.i656:                                      ; preds = %.noexc.i655
@@ -5208,7 +5208,7 @@ if.end.i2012:                                     ; preds = %.noexc.i663
           to label %invoke.cont.i2015 unwind label %lpad.i2014
 
 invoke.cont.i2015:                                ; preds = %if.end.i2012
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2013, ptr noundef nonnull @.str.166, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.166, i64 10)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2013, ptr noundef nonnull @.str.166, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.166, i64 10)) #14
   store ptr null, ptr %__guard.i2009, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeTLSReusedB5cxx11E, i64 noundef 10)
           to label %__cxx_global_var_init.165.exit unwind label %lpad.i2014
@@ -5257,7 +5257,7 @@ if.end.i2022:                                     ; preds = %.noexc.i671
           to label %invoke.cont.i2025 unwind label %lpad.i2024
 
 invoke.cont.i2025:                                ; preds = %if.end.i2022
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2023, ptr noundef nonnull @.str.168, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.168, i64 13)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2023, ptr noundef nonnull @.str.168, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.168, i64 13)) #14
   store ptr null, ptr %__guard.i2019, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeTLSCacheHitB5cxx11E, i64 noundef 13)
           to label %__cxx_global_var_init.167.exit unwind label %lpad.i2024
@@ -5306,7 +5306,7 @@ if.end.i2032:                                     ; preds = %.noexc.i679
           to label %invoke.cont.i2035 unwind label %lpad.i2034
 
 invoke.cont.i2035:                                ; preds = %if.end.i2032
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2033, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.170, i64 11)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2033, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.170, i64 11)) #14
   store ptr null, ptr %__guard.i2029, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeCipherNameB5cxx11E, i64 noundef 11)
           to label %__cxx_global_var_init.169.exit unwind label %lpad.i2034
@@ -5355,7 +5355,7 @@ if.end.i2042:                                     ; preds = %.noexc.i687
           to label %invoke.cont.i2045 unwind label %lpad.i2044
 
 invoke.cont.i2045:                                ; preds = %if.end.i2042
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2043, ptr noundef nonnull @.str.172, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.172, i64 11)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2043, ptr noundef nonnull @.str.172, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.172, i64 11)) #14
   store ptr null, ptr %__guard.i2039, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeTLSVersionB5cxx11E, i64 noundef 11)
           to label %__cxx_global_var_init.171.exit unwind label %lpad.i2044
@@ -5404,7 +5404,7 @@ if.end.i2052:                                     ; preds = %.noexc.i695
           to label %invoke.cont.i2055 unwind label %lpad.i2054
 
 invoke.cont.i2055:                                ; preds = %if.end.i2052
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2053, ptr noundef nonnull @.str.174, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.174, i64 15)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2053, ptr noundef nonnull @.str.174, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.174, i64 15)) #14
   store ptr null, ptr %__guard.i2049, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeOpenSSLVersionB5cxx11E, i64 noundef 15)
           to label %__cxx_global_var_init.173.exit unwind label %lpad.i2054
@@ -5436,7 +5436,7 @@ call.i.noexc.i702:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i703 unwind label %lpad.i699
 
 .noexc.i703:                                      ; preds = %call.i.noexc.i702
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeTLSCachePersistenceB5cxx11E, ptr noundef nonnull @.str.176, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.176, i64 21))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeTLSCachePersistenceB5cxx11E, ptr noundef nonnull @.str.176, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.176, i64 21))
           to label %__cxx_global_var_init.175.exit unwind label %lpad.i.i704
 
 lpad.i.i704:                                      ; preds = %.noexc.i703
@@ -5464,7 +5464,7 @@ call.i.noexc.i710:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i711 unwind label %lpad.i707
 
 .noexc.i711:                                      ; preds = %call.i.noexc.i710
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeTLSCachedInfoHitB5cxx11E, ptr noundef nonnull @.str.178, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.178, i64 30))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeTLSCachedInfoHitB5cxx11E, ptr noundef nonnull @.str.178, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.178, i64 30))
           to label %__cxx_global_var_init.177.exit unwind label %lpad.i.i712
 
 lpad.i.i712:                                      ; preds = %.noexc.i711
@@ -5492,7 +5492,7 @@ call.i.noexc.i718:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i719 unwind label %lpad.i715
 
 .noexc.i719:                                      ; preds = %call.i.noexc.i718
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeRspBodySizeB5cxx11E, ptr noundef nonnull @.str.180, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.180, i64 18))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeRspBodySizeB5cxx11E, ptr noundef nonnull @.str.180, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.180, i64 18))
           to label %__cxx_global_var_init.179.exit unwind label %lpad.i.i720
 
 lpad.i.i720:                                      ; preds = %.noexc.i719
@@ -5520,7 +5520,7 @@ call.i.noexc.i726:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i727 unwind label %lpad.i723
 
 .noexc.i727:                                      ; preds = %call.i.noexc.i726
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeRspBodyCompSizeB5cxx11E, ptr noundef nonnull @.str.182, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.182, i64 29))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeRspBodyCompSizeB5cxx11E, ptr noundef nonnull @.str.182, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.182, i64 29))
           to label %__cxx_global_var_init.181.exit unwind label %lpad.i.i728
 
 lpad.i.i728:                                      ; preds = %.noexc.i727
@@ -5548,7 +5548,7 @@ call.i.noexc.i734:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i735 unwind label %lpad.i731
 
 .noexc.i735:                                      ; preds = %call.i.noexc.i734
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeCompressionTypeB5cxx11E, ptr noundef nonnull @.str.184, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.184, i64 16))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeCompressionTypeB5cxx11E, ptr noundef nonnull @.str.184, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.184, i64 16))
           to label %__cxx_global_var_init.183.exit unwind label %lpad.i.i736
 
 lpad.i.i736:                                      ; preds = %.noexc.i735
@@ -5576,7 +5576,7 @@ call.i.noexc.i742:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i743 unwind label %lpad.i739
 
 .noexc.i743:                                      ; preds = %call.i.noexc.i742
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL37kTraceFieldTypeCompressionDictSuccessB5cxx11E, ptr noundef nonnull @.str.186, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.186, i64 24))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL37kTraceFieldTypeCompressionDictSuccessB5cxx11E, ptr noundef nonnull @.str.186, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.186, i64 24))
           to label %__cxx_global_var_init.185.exit unwind label %lpad.i.i744
 
 lpad.i.i744:                                      ; preds = %.noexc.i743
@@ -5604,7 +5604,7 @@ call.i.noexc.i750:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i751 unwind label %lpad.i747
 
 .noexc.i751:                                      ; preds = %call.i.noexc.i750
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL35kTraceFieldTypeCompressionDictErrorB5cxx11E, ptr noundef nonnull @.str.188, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.188, i64 22))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL35kTraceFieldTypeCompressionDictErrorB5cxx11E, ptr noundef nonnull @.str.188, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.188, i64 22))
           to label %__cxx_global_var_init.187.exit unwind label %lpad.i.i752
 
 lpad.i.i752:                                      ; preds = %.noexc.i751
@@ -5632,7 +5632,7 @@ call.i.noexc.i758:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i759 unwind label %lpad.i755
 
 .noexc.i759:                                      ; preds = %call.i.noexc.i758
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeCompressionDictIDB5cxx11E, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.190, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeCompressionDictIDB5cxx11E, ptr noundef nonnull @.str.190, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.190, i64 19))
           to label %__cxx_global_var_init.189.exit unwind label %lpad.i.i760
 
 lpad.i.i760:                                      ; preds = %.noexc.i759
@@ -5660,7 +5660,7 @@ call.i.noexc.i766:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i767 unwind label %lpad.i763
 
 .noexc.i767:                                      ; preds = %call.i.noexc.i766
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeVerifiedSuccessB5cxx11E, ptr noundef nonnull @.str.192, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.192, i64 16))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeVerifiedSuccessB5cxx11E, ptr noundef nonnull @.str.192, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.192, i64 16))
           to label %__cxx_global_var_init.191.exit unwind label %lpad.i.i768
 
 lpad.i.i768:                                      ; preds = %.noexc.i767
@@ -5705,7 +5705,7 @@ if.end.i2062:                                     ; preds = %.noexc.i775
           to label %invoke.cont.i2065 unwind label %lpad.i2064
 
 invoke.cont.i2065:                                ; preds = %if.end.i2062
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2063, ptr noundef nonnull @.str.194, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.194, i64 14)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2063, ptr noundef nonnull @.str.194, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.194, i64 14)) #14
   store ptr null, ptr %__guard.i2059, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeVerifiedChainB5cxx11E, i64 noundef 14)
           to label %__cxx_global_var_init.193.exit unwind label %lpad.i2064
@@ -5754,7 +5754,7 @@ if.end.i2072:                                     ; preds = %.noexc.i783
           to label %invoke.cont.i2075 unwind label %lpad.i2074
 
 invoke.cont.i2075:                                ; preds = %if.end.i2072
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2073, ptr noundef nonnull @.str.196, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.196, i64 13)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2073, ptr noundef nonnull @.str.196, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.196, i64 13)) #14
   store ptr null, ptr %__guard.i2069, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeVerifiedTimeB5cxx11E, i64 noundef 13)
           to label %__cxx_global_var_init.195.exit unwind label %lpad.i2074
@@ -5786,7 +5786,7 @@ call.i.noexc.i790:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i791 unwind label %lpad.i787
 
 .noexc.i791:                                      ; preds = %call.i.noexc.i790
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL36kTraceFieldTypeVerifiedServerAddressB5cxx11E, ptr noundef nonnull @.str.198, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.198, i64 23))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL36kTraceFieldTypeVerifiedServerAddressB5cxx11E, ptr noundef nonnull @.str.198, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.198, i64 23))
           to label %__cxx_global_var_init.197.exit unwind label %lpad.i.i792
 
 lpad.i.i792:                                      ; preds = %.noexc.i791
@@ -5814,7 +5814,7 @@ call.i.noexc.i798:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i799 unwind label %lpad.i795
 
 .noexc.i799:                                      ; preds = %call.i.noexc.i798
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL35kTraceFieldTypeVerifiedProxyAddressB5cxx11E, ptr noundef nonnull @.str.200, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.200, i64 22))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL35kTraceFieldTypeVerifiedProxyAddressB5cxx11E, ptr noundef nonnull @.str.200, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.200, i64 22))
           to label %__cxx_global_var_init.199.exit unwind label %lpad.i.i800
 
 lpad.i.i800:                                      ; preds = %.noexc.i799
@@ -5859,7 +5859,7 @@ if.end.i2082:                                     ; preds = %.noexc.i807
           to label %invoke.cont.i2085 unwind label %lpad.i2084
 
 invoke.cont.i2085:                                ; preds = %if.end.i2082
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2083, ptr noundef nonnull @.str.202, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.202, i64 14)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2083, ptr noundef nonnull @.str.202, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.202, i64 14)) #14
   store ptr null, ptr %__guard.i2079, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeVerifiedErrorB5cxx11E, i64 noundef 14)
           to label %__cxx_global_var_init.201.exit unwind label %lpad.i2084
@@ -5908,7 +5908,7 @@ if.end.i2092:                                     ; preds = %.noexc.i815
           to label %invoke.cont.i2095 unwind label %lpad.i2094
 
 invoke.cont.i2095:                                ; preds = %if.end.i2092
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2093, ptr noundef nonnull @.str.204, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.204, i64 15)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2093, ptr noundef nonnull @.str.204, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.204, i64 15)) #14
   store ptr null, ptr %__guard.i2089, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeVerifiedReasonB5cxx11E, i64 noundef 15)
           to label %__cxx_global_var_init.203.exit unwind label %lpad.i2094
@@ -5940,7 +5940,7 @@ call.i.noexc.i822:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i823 unwind label %lpad.i819
 
 .noexc.i823:                                      ; preds = %call.i.noexc.i822
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeVerifiedHostnameB5cxx11E, ptr noundef nonnull @.str.206, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.206, i64 17))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeVerifiedHostnameB5cxx11E, ptr noundef nonnull @.str.206, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.206, i64 17))
           to label %__cxx_global_var_init.205.exit unwind label %lpad.i.i824
 
 lpad.i.i824:                                      ; preds = %.noexc.i823
@@ -5968,7 +5968,7 @@ call.i.noexc.i830:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i831 unwind label %lpad.i827
 
 .noexc.i831:                                      ; preds = %call.i.noexc.i830
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL40kTraceFieldTypeVerifiedMatchedCommonNameB5cxx11E, ptr noundef nonnull @.str.208, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.208, i64 26))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL40kTraceFieldTypeVerifiedMatchedCommonNameB5cxx11E, ptr noundef nonnull @.str.208, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.208, i64 26))
           to label %__cxx_global_var_init.207.exit unwind label %lpad.i.i832
 
 lpad.i.i832:                                      ; preds = %.noexc.i831
@@ -5996,7 +5996,7 @@ call.i.noexc.i838:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i839 unwind label %lpad.i835
 
 .noexc.i839:                                      ; preds = %call.i.noexc.i838
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL44kTraceFieldTypeVerifiedMatchedSubjectAltNameB5cxx11E, ptr noundef nonnull @.str.210, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.210, i64 30))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL44kTraceFieldTypeVerifiedMatchedSubjectAltNameB5cxx11E, ptr noundef nonnull @.str.210, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.210, i64 30))
           to label %__cxx_global_var_init.209.exit unwind label %lpad.i.i840
 
 lpad.i.i840:                                      ; preds = %.noexc.i839
@@ -6024,7 +6024,7 @@ call.i.noexc.i846:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i847 unwind label %lpad.i843
 
 .noexc.i847:                                      ; preds = %call.i.noexc.i846
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeVerifiedNameMatchedB5cxx11E, ptr noundef nonnull @.str.212, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.212, i64 20))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeVerifiedNameMatchedB5cxx11E, ptr noundef nonnull @.str.212, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.212, i64 20))
           to label %__cxx_global_var_init.211.exit unwind label %lpad.i.i848
 
 lpad.i.i848:                                      ; preds = %.noexc.i847
@@ -6052,7 +6052,7 @@ call.i.noexc.i854:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i855 unwind label %lpad.i851
 
 .noexc.i855:                                      ; preds = %call.i.noexc.i854
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL42kTraceFieldTypeVerifiedHostnameFailMessageB5cxx11E, ptr noundef nonnull @.str.214, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.214, i64 28))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL42kTraceFieldTypeVerifiedHostnameFailMessageB5cxx11E, ptr noundef nonnull @.str.214, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.214, i64 28))
           to label %__cxx_global_var_init.213.exit unwind label %lpad.i.i856
 
 lpad.i.i856:                                      ; preds = %.noexc.i855
@@ -6080,7 +6080,7 @@ call.i.noexc.i862:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i863 unwind label %lpad.i859
 
 .noexc.i863:                                      ; preds = %call.i.noexc.i862
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL41kTraceFieldTypeSignatureAlgorithmCertSHA1B5cxx11E, ptr noundef nonnull @.str.216, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.216, i64 38))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL41kTraceFieldTypeSignatureAlgorithmCertSHA1B5cxx11E, ptr noundef nonnull @.str.216, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.216, i64 38))
           to label %__cxx_global_var_init.215.exit unwind label %lpad.i.i864
 
 lpad.i.i864:                                      ; preds = %.noexc.i863
@@ -6108,7 +6108,7 @@ call.i.noexc.i870:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i871 unwind label %lpad.i867
 
 .noexc.i871:                                      ; preds = %call.i.noexc.i870
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL46kTraceFieldTypeFailureVerifiedCertDepthInChainB5cxx11E, ptr noundef nonnull @.str.218, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.218, i64 36))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL46kTraceFieldTypeFailureVerifiedCertDepthInChainB5cxx11E, ptr noundef nonnull @.str.218, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.218, i64 36))
           to label %__cxx_global_var_init.217.exit unwind label %lpad.i.i872
 
 lpad.i.i872:                                      ; preds = %.noexc.i871
@@ -6136,7 +6136,7 @@ call.i.noexc.i878:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i879 unwind label %lpad.i875
 
 .noexc.i879:                                      ; preds = %call.i.noexc.i878
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL46kTraceFieldTypeVerifiedChainFailuresOverriddenB5cxx11E, ptr noundef nonnull @.str.220, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.220, i64 34))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL46kTraceFieldTypeVerifiedChainFailuresOverriddenB5cxx11E, ptr noundef nonnull @.str.220, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.220, i64 34))
           to label %__cxx_global_var_init.219.exit unwind label %lpad.i.i880
 
 lpad.i.i880:                                      ; preds = %.noexc.i879
@@ -6164,7 +6164,7 @@ call.i.noexc.i886:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i887 unwind label %lpad.i883
 
 .noexc.i887:                                      ; preds = %call.i.noexc.i886
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL51kTraceFieldTypeVerifiedChainFailureVerificationTimeB5cxx11E, ptr noundef nonnull @.str.222, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.222, i64 40))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL51kTraceFieldTypeVerifiedChainFailureVerificationTimeB5cxx11E, ptr noundef nonnull @.str.222, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.222, i64 40))
           to label %__cxx_global_var_init.221.exit unwind label %lpad.i.i888
 
 lpad.i.i888:                                      ; preds = %.noexc.i887
@@ -6192,7 +6192,7 @@ call.i.noexc.i894:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i895 unwind label %lpad.i891
 
 .noexc.i895:                                      ; preds = %call.i.noexc.i894
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypePinningReasonB5cxx11E, ptr noundef nonnull @.str.224, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.224, i64 23))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypePinningReasonB5cxx11E, ptr noundef nonnull @.str.224, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.224, i64 23))
           to label %__cxx_global_var_init.223.exit unwind label %lpad.i.i896
 
 lpad.i.i896:                                      ; preds = %.noexc.i895
@@ -6220,7 +6220,7 @@ call.i.noexc.i902:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i903 unwind label %lpad.i899
 
 .noexc.i903:                                      ; preds = %call.i.noexc.i902
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypePinningRequiredHashB5cxx11E, ptr noundef nonnull @.str.226, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.226, i64 30))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypePinningRequiredHashB5cxx11E, ptr noundef nonnull @.str.226, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.226, i64 30))
           to label %__cxx_global_var_init.225.exit unwind label %lpad.i.i904
 
 lpad.i.i904:                                      ; preds = %.noexc.i903
@@ -6248,7 +6248,7 @@ call.i.noexc.i910:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i911 unwind label %lpad.i907
 
 .noexc.i911:                                      ; preds = %call.i.noexc.i910
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypePinningUserHashB5cxx11E, ptr noundef nonnull @.str.228, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.228, i64 26))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypePinningUserHashB5cxx11E, ptr noundef nonnull @.str.228, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.228, i64 26))
           to label %__cxx_global_var_init.227.exit unwind label %lpad.i.i912
 
 lpad.i.i912:                                      ; preds = %.noexc.i911
@@ -6276,7 +6276,7 @@ call.i.noexc.i918:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i919 unwind label %lpad.i915
 
 .noexc.i919:                                      ; preds = %call.i.noexc.i918
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypePinningExcludedHashB5cxx11E, ptr noundef nonnull @.str.230, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.230, i64 30))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypePinningExcludedHashB5cxx11E, ptr noundef nonnull @.str.230, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.230, i64 30))
           to label %__cxx_global_var_init.229.exit unwind label %lpad.i.i920
 
 lpad.i.i920:                                      ; preds = %.noexc.i919
@@ -6304,7 +6304,7 @@ call.i.noexc.i926:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i927 unwind label %lpad.i923
 
 .noexc.i927:                                      ; preds = %call.i.noexc.i926
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL35kTraceFieldTypePinningRequiredFoundB5cxx11E, ptr noundef nonnull @.str.232, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.232, i64 31))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL35kTraceFieldTypePinningRequiredFoundB5cxx11E, ptr noundef nonnull @.str.232, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.232, i64 31))
           to label %__cxx_global_var_init.231.exit unwind label %lpad.i.i928
 
 lpad.i.i928:                                      ; preds = %.noexc.i927
@@ -6332,7 +6332,7 @@ call.i.noexc.i934:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i935 unwind label %lpad.i931
 
 .noexc.i935:                                      ; preds = %call.i.noexc.i934
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL40kTraceFieldTypePinningUserInstalledFoundB5cxx11E, ptr noundef nonnull @.str.234, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.234, i64 37))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL40kTraceFieldTypePinningUserInstalledFoundB5cxx11E, ptr noundef nonnull @.str.234, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.234, i64 37))
           to label %__cxx_global_var_init.233.exit unwind label %lpad.i.i936
 
 lpad.i.i936:                                      ; preds = %.noexc.i935
@@ -6360,7 +6360,7 @@ call.i.noexc.i942:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i943 unwind label %lpad.i939
 
 .noexc.i943:                                      ; preds = %call.i.noexc.i942
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL40kTraceFieldTypePinningUserInstalledCountB5cxx11E, ptr noundef nonnull @.str.236, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.236, i64 37))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL40kTraceFieldTypePinningUserInstalledCountB5cxx11E, ptr noundef nonnull @.str.236, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.236, i64 37))
           to label %__cxx_global_var_init.235.exit unwind label %lpad.i.i944
 
 lpad.i.i944:                                      ; preds = %.noexc.i943
@@ -6388,7 +6388,7 @@ call.i.noexc.i950:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i951 unwind label %lpad.i947
 
 .noexc.i951:                                      ; preds = %call.i.noexc.i950
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL35kTraceFieldTypePinningExcludedFoundB5cxx11E, ptr noundef nonnull @.str.238, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.238, i64 31))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL35kTraceFieldTypePinningExcludedFoundB5cxx11E, ptr noundef nonnull @.str.238, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.238, i64 31))
           to label %__cxx_global_var_init.237.exit unwind label %lpad.i.i952
 
 lpad.i.i952:                                      ; preds = %.noexc.i951
@@ -6416,7 +6416,7 @@ call.i.noexc.i958:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i959 unwind label %lpad.i955
 
 .noexc.i959:                                      ; preds = %call.i.noexc.i958
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypePinningTimePinB5cxx11E, ptr noundef nonnull @.str.240, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.240, i64 25))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypePinningTimePinB5cxx11E, ptr noundef nonnull @.str.240, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.240, i64 25))
           to label %__cxx_global_var_init.239.exit unwind label %lpad.i.i960
 
 lpad.i.i960:                                      ; preds = %.noexc.i959
@@ -6444,7 +6444,7 @@ call.i.noexc.i966:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i967 unwind label %lpad.i963
 
 .noexc.i967:                                      ; preds = %call.i.noexc.i966
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypePinningHostB5cxx11E, ptr noundef nonnull @.str.242, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.242, i64 21))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypePinningHostB5cxx11E, ptr noundef nonnull @.str.242, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.242, i64 21))
           to label %__cxx_global_var_init.241.exit unwind label %lpad.i.i968
 
 lpad.i.i968:                                      ; preds = %.noexc.i967
@@ -6472,7 +6472,7 @@ call.i.noexc.i974:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i975 unwind label %lpad.i971
 
 .noexc.i975:                                      ; preds = %call.i.noexc.i974
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypePinningSuccessB5cxx11E, ptr noundef nonnull @.str.244, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.244, i64 24))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypePinningSuccessB5cxx11E, ptr noundef nonnull @.str.244, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.244, i64 24))
           to label %__cxx_global_var_init.243.exit unwind label %lpad.i.i976
 
 lpad.i.i976:                                      ; preds = %.noexc.i975
@@ -6500,7 +6500,7 @@ call.i.noexc.i982:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i983 unwind label %lpad.i979
 
 .noexc.i983:                                      ; preds = %call.i.noexc.i982
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeVerifiedTimeMergeB5cxx11E, ptr noundef nonnull @.str.246, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.246, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeVerifiedTimeMergeB5cxx11E, ptr noundef nonnull @.str.246, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.246, i64 19))
           to label %__cxx_global_var_init.245.exit unwind label %lpad.i.i984
 
 lpad.i.i984:                                      ; preds = %.noexc.i983
@@ -6528,7 +6528,7 @@ call.i.noexc.i990:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i991 unwind label %lpad.i987
 
 .noexc.i991:                                      ; preds = %call.i.noexc.i990
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeRevokeReasonB5cxx11E, ptr noundef nonnull @.str.248, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.248, i64 22))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeRevokeReasonB5cxx11E, ptr noundef nonnull @.str.248, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.248, i64 22))
           to label %__cxx_global_var_init.247.exit unwind label %lpad.i.i992
 
 lpad.i.i992:                                      ; preds = %.noexc.i991
@@ -6556,7 +6556,7 @@ call.i.noexc.i998:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i999 unwind label %lpad.i995
 
 .noexc.i999:                                      ; preds = %call.i.noexc.i998
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeRevokeSuccessB5cxx11E, ptr noundef nonnull @.str.250, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.250, i64 23))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeRevokeSuccessB5cxx11E, ptr noundef nonnull @.str.250, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.250, i64 23))
           to label %__cxx_global_var_init.249.exit unwind label %lpad.i.i1000
 
 lpad.i.i1000:                                     ; preds = %.noexc.i999
@@ -6601,7 +6601,7 @@ if.end.i2102:                                     ; preds = %.noexc.i1007
           to label %invoke.cont.i2105 unwind label %lpad.i2104
 
 invoke.cont.i2105:                                ; preds = %if.end.i2102
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2103, ptr noundef nonnull @.str.252, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.252, i64 10)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2103, ptr noundef nonnull @.str.252, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.252, i64 10)) #14
   store ptr null, ptr %__guard.i2099, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeProxyHostB5cxx11E, i64 noundef 10)
           to label %__cxx_global_var_init.251.exit unwind label %lpad.i2104
@@ -6650,7 +6650,7 @@ if.end.i2112:                                     ; preds = %.noexc.i1015
           to label %invoke.cont.i2115 unwind label %lpad.i2114
 
 invoke.cont.i2115:                                ; preds = %if.end.i2112
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2113, ptr noundef nonnull @.str.254, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.254, i64 10)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2113, ptr noundef nonnull @.str.254, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.254, i64 10)) #14
   store ptr null, ptr %__guard.i2109, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeProxyPortB5cxx11E, i64 noundef 10)
           to label %__cxx_global_var_init.253.exit unwind label %lpad.i2114
@@ -6682,7 +6682,7 @@ call.i.noexc.i1022:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1023 unwind label %lpad.i1019
 
 .noexc.i1023:                                     ; preds = %call.i.noexc.i1022
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeProxyRespStatusB5cxx11E, ptr noundef nonnull @.str.256, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.256, i64 21))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeProxyRespStatusB5cxx11E, ptr noundef nonnull @.str.256, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.256, i64 21))
           to label %__cxx_global_var_init.255.exit unwind label %lpad.i.i1024
 
 lpad.i.i1024:                                     ; preds = %.noexc.i1023
@@ -6710,7 +6710,7 @@ call.i.noexc.i1030:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1031 unwind label %lpad.i1027
 
 .noexc.i1031:                                     ; preds = %call.i.noexc.i1030
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeProxyRespBodyB5cxx11E, ptr noundef nonnull @.str.258, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.258, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeProxyRespBodyB5cxx11E, ptr noundef nonnull @.str.258, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.258, i64 19))
           to label %__cxx_global_var_init.257.exit unwind label %lpad.i.i1032
 
 lpad.i.i1032:                                     ; preds = %.noexc.i1031
@@ -6738,7 +6738,7 @@ call.i.noexc.i1038:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1039 unwind label %lpad.i1035
 
 .noexc.i1039:                                     ; preds = %call.i.noexc.i1038
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeProxyUpstreamDestB5cxx11E, ptr noundef nonnull @.str.260, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.260, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeProxyUpstreamDestB5cxx11E, ptr noundef nonnull @.str.260, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.260, i64 19))
           to label %__cxx_global_var_init.259.exit unwind label %lpad.i.i1040
 
 lpad.i.i1040:                                     ; preds = %.noexc.i1039
@@ -6783,7 +6783,7 @@ if.end.i2122:                                     ; preds = %.noexc.i1047
           to label %invoke.cont.i2125 unwind label %lpad.i2124
 
 invoke.cont.i2125:                                ; preds = %if.end.i2122
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2123, ptr noundef nonnull @.str.262, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.262, i64 14)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2123, ptr noundef nonnull @.str.262, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.262, i64 14)) #14
   store ptr null, ptr %__guard.i2119, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeSchedulerTypeB5cxx11E, i64 noundef 14)
           to label %__cxx_global_var_init.261.exit unwind label %lpad.i2124
@@ -6815,7 +6815,7 @@ call.i.noexc.i1054:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1055 unwind label %lpad.i1051
 
 .noexc.i1055:                                     ; preds = %call.i.noexc.i1054
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeInitialPriorityB5cxx11E, ptr noundef nonnull @.str.264, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.264, i64 16))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeInitialPriorityB5cxx11E, ptr noundef nonnull @.str.264, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.264, i64 16))
           to label %__cxx_global_var_init.263.exit unwind label %lpad.i.i1056
 
 lpad.i.i1056:                                     ; preds = %.noexc.i1055
@@ -6860,7 +6860,7 @@ if.end.i2132:                                     ; preds = %.noexc.i1063
           to label %invoke.cont.i2135 unwind label %lpad.i2134
 
 invoke.cont.i2135:                                ; preds = %if.end.i2132
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2133, ptr noundef nonnull @.str.266, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.266, i64 13)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2133, ptr noundef nonnull @.str.266, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.266, i64 13)) #14
   store ptr null, ptr %__guard.i2129, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeSizeOfQueueB5cxx11E, i64 noundef 13)
           to label %__cxx_global_var_init.265.exit unwind label %lpad.i2134
@@ -6909,7 +6909,7 @@ if.end.i2142:                                     ; preds = %.noexc.i1071
           to label %invoke.cont.i2145 unwind label %lpad.i2144
 
 invoke.cont.i2145:                                ; preds = %if.end.i2142
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2143, ptr noundef nonnull @.str.268, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.268, i64 14)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2143, ptr noundef nonnull @.str.268, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.268, i64 14)) #14
   store ptr null, ptr %__guard.i2139, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypePreviousStateB5cxx11E, i64 noundef 14)
           to label %__cxx_global_var_init.267.exit unwind label %lpad.i2144
@@ -6958,7 +6958,7 @@ if.end.i2152:                                     ; preds = %.noexc.i1079
           to label %invoke.cont.i2155 unwind label %lpad.i2154
 
 invoke.cont.i2155:                                ; preds = %if.end.i2152
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2153, ptr noundef nonnull @.str.270, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.270, i64 13)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2153, ptr noundef nonnull @.str.270, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.270, i64 13)) #14
   store ptr null, ptr %__guard.i2149, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeCurrentStateB5cxx11E, i64 noundef 13)
           to label %__cxx_global_var_init.269.exit unwind label %lpad.i2154
@@ -7007,7 +7007,7 @@ if.end.i2162:                                     ; preds = %.noexc.i1087
           to label %invoke.cont.i2165 unwind label %lpad.i2164
 
 invoke.cont.i2165:                                ; preds = %if.end.i2162
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2163, ptr noundef nonnull @.str.272, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.272, i64 10)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2163, ptr noundef nonnull @.str.272, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.272, i64 10)) #14
   store ptr null, ptr %__guard.i2159, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeNetworkIDB5cxx11E, i64 noundef 10)
           to label %__cxx_global_var_init.271.exit unwind label %lpad.i2164
@@ -7039,7 +7039,7 @@ call.i.noexc.i1094:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1095 unwind label %lpad.i1091
 
 .noexc.i1095:                                     ; preds = %call.i.noexc.i1094
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeNumConnAttemptsB5cxx11E, ptr noundef nonnull @.str.274, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.274, i64 20))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeNumConnAttemptsB5cxx11E, ptr noundef nonnull @.str.274, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.274, i64 20))
           to label %__cxx_global_var_init.273.exit unwind label %lpad.i.i1096
 
 lpad.i.i1096:                                     ; preds = %.noexc.i1095
@@ -7067,7 +7067,7 @@ call.i.noexc.i1102:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1103 unwind label %lpad.i1099
 
 .noexc.i1103:                                     ; preds = %call.i.noexc.i1102
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeAttemptAddrsB5cxx11E, ptr noundef nonnull @.str.276, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.276, i64 17))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeAttemptAddrsB5cxx11E, ptr noundef nonnull @.str.276, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.276, i64 17))
           to label %__cxx_global_var_init.275.exit unwind label %lpad.i.i1104
 
 lpad.i.i1104:                                     ; preds = %.noexc.i1103
@@ -7095,7 +7095,7 @@ call.i.noexc.i1110:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1111 unwind label %lpad.i1107
 
 .noexc.i1111:                                     ; preds = %call.i.noexc.i1110
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeAttemptAddrFamilyB5cxx11E, ptr noundef nonnull @.str.278, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.278, i64 22))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeAttemptAddrFamilyB5cxx11E, ptr noundef nonnull @.str.278, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.278, i64 22))
           to label %__cxx_global_var_init.277.exit unwind label %lpad.i.i1112
 
 lpad.i.i1112:                                     ; preds = %.noexc.i1111
@@ -7123,7 +7123,7 @@ call.i.noexc.i1118:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1119 unwind label %lpad.i1115
 
 .noexc.i1119:                                     ; preds = %call.i.noexc.i1118
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeSucceededConnTimeB5cxx11E, ptr noundef nonnull @.str.280, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.280, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeSucceededConnTimeB5cxx11E, ptr noundef nonnull @.str.280, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.280, i64 19))
           to label %__cxx_global_var_init.279.exit unwind label %lpad.i.i1120
 
 lpad.i.i1120:                                     ; preds = %.noexc.i1119
@@ -7168,7 +7168,7 @@ if.end.i2172:                                     ; preds = %.noexc.i1127
           to label %invoke.cont.i2175 unwind label %lpad.i2174
 
 invoke.cont.i2175:                                ; preds = %if.end.i2172
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2173, ptr noundef nonnull @.str.282, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.282, i64 10)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2173, ptr noundef nonnull @.str.282, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.282, i64 10)) #14
   store ptr null, ptr %__guard.i2169, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeRequestIDB5cxx11E, i64 noundef 10)
           to label %__cxx_global_var_init.281.exit unwind label %lpad.i2174
@@ -7200,7 +7200,7 @@ call.i.noexc.i1134:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1135 unwind label %lpad.i1131
 
 .noexc.i1135:                                     ; preds = %call.i.noexc.i1134
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeHumanReadableNameB5cxx11E, ptr noundef nonnull @.str.284, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.284, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeHumanReadableNameB5cxx11E, ptr noundef nonnull @.str.284, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.284, i64 19))
           to label %__cxx_global_var_init.283.exit unwind label %lpad.i.i1136
 
 lpad.i.i1136:                                     ; preds = %.noexc.i1135
@@ -7245,7 +7245,7 @@ if.end.i2182:                                     ; preds = %.noexc.i1143
           to label %invoke.cont.i2185 unwind label %lpad.i2184
 
 invoke.cont.i2185:                                ; preds = %if.end.i2182
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2183, ptr noundef nonnull @.str.286, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.286, i64 12)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2183, ptr noundef nonnull @.str.286, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.286, i64 12)) #14
   store ptr null, ptr %__guard.i2179, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeCurrentTransactionsB5cxx11E, i64 noundef 12)
           to label %__cxx_global_var_init.285.exit unwind label %lpad.i2184
@@ -7277,7 +7277,7 @@ call.i.noexc.i1150:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1151 unwind label %lpad.i1147
 
 .noexc.i1151:                                     ; preds = %call.i.noexc.i1150
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL44kTraceFieldTypeHistoricalMaximumTransactionsB5cxx11E, ptr noundef nonnull @.str.288, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.288, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL44kTraceFieldTypeHistoricalMaximumTransactionsB5cxx11E, ptr noundef nonnull @.str.288, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.288, i64 19))
           to label %__cxx_global_var_init.287.exit unwind label %lpad.i.i1152
 
 lpad.i.i1152:                                     ; preds = %.noexc.i1151
@@ -7305,7 +7305,7 @@ call.i.noexc.i1158:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1159 unwind label %lpad.i1155
 
 .noexc.i1159:                                     ; preds = %call.i.noexc.i1158
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL39kTraceFieldTypeNumberTransactionsServedB5cxx11E, ptr noundef nonnull @.str.290, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.290, i64 18))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL39kTraceFieldTypeNumberTransactionsServedB5cxx11E, ptr noundef nonnull @.str.290, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.290, i64 18))
           to label %__cxx_global_var_init.289.exit unwind label %lpad.i.i1160
 
 lpad.i.i1160:                                     ; preds = %.noexc.i1159
@@ -7350,7 +7350,7 @@ if.end.i2192:                                     ; preds = %.noexc.i1167
           to label %invoke.cont.i2195 unwind label %lpad.i2194
 
 invoke.cont.i2195:                                ; preds = %if.end.i2192
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2193, ptr noundef nonnull @.str.292, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.292, i64 4)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2193, ptr noundef nonnull @.str.292, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.292, i64 4)) #14
   store ptr null, ptr %__guard.i2189, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL19kTraceFieldTypeCwndB5cxx11E, i64 noundef 4)
           to label %__cxx_global_var_init.291.exit unwind label %lpad.i2194
@@ -7399,7 +7399,7 @@ if.end.i2202:                                     ; preds = %.noexc.i1175
           to label %invoke.cont.i2205 unwind label %lpad.i2204
 
 invoke.cont.i2205:                                ; preds = %if.end.i2202
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2203, ptr noundef nonnull @.str.294, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.294, i64 10)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2203, ptr noundef nonnull @.str.294, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.294, i64 10)) #14
   store ptr null, ptr %__guard.i2199, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeCwndBytesB5cxx11E, i64 noundef 10)
           to label %__cxx_global_var_init.293.exit unwind label %lpad.i2204
@@ -7448,7 +7448,7 @@ if.end.i2212:                                     ; preds = %.noexc.i1183
           to label %invoke.cont.i2215 unwind label %lpad.i2214
 
 invoke.cont.i2215:                                ; preds = %if.end.i2212
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2213, ptr noundef nonnull @.str.296, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.296, i64 10)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2213, ptr noundef nonnull @.str.296, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.296, i64 10)) #14
   store ptr null, ptr %__guard.i2209, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeTotalRetxB5cxx11E, i64 noundef 10)
           to label %__cxx_global_var_init.295.exit unwind label %lpad.i2214
@@ -7480,7 +7480,7 @@ call.i.noexc.i1190:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1191 unwind label %lpad.i1187
 
 .noexc.i1191:                                     ; preds = %call.i.noexc.i1190
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL33kTraceFieldTypeInflightPacketLossB5cxx11E, ptr noundef nonnull @.str.298, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.298, i64 20))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL33kTraceFieldTypeInflightPacketLossB5cxx11E, ptr noundef nonnull @.str.298, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.298, i64 20))
           to label %__cxx_global_var_init.297.exit unwind label %lpad.i.i1192
 
 lpad.i.i1192:                                     ; preds = %.noexc.i1191
@@ -7525,7 +7525,7 @@ if.end.i2222:                                     ; preds = %.noexc.i1199
           to label %invoke.cont.i2225 unwind label %lpad.i2224
 
 invoke.cont.i2225:                                ; preds = %if.end.i2222
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2223, ptr noundef nonnull @.str.300, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.300, i64 3)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2223, ptr noundef nonnull @.str.300, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.300, i64 3)) #14
   store ptr null, ptr %__guard.i2219, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL18kTraceFieldTypeRTTB5cxx11E, i64 noundef 3)
           to label %__cxx_global_var_init.299.exit unwind label %lpad.i2224
@@ -7574,7 +7574,7 @@ if.end.i2232:                                     ; preds = %.noexc.i1207
           to label %invoke.cont.i2235 unwind label %lpad.i2234
 
 invoke.cont.i2235:                                ; preds = %if.end.i2232
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2233, ptr noundef nonnull @.str.302, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.302, i64 12)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2233, ptr noundef nonnull @.str.302, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.302, i64 12)) #14
   store ptr null, ptr %__guard.i2229, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL21kTraceFieldTypeRTTVarB5cxx11E, i64 noundef 12)
           to label %__cxx_global_var_init.301.exit unwind label %lpad.i2234
@@ -7623,7 +7623,7 @@ if.end.i2242:                                     ; preds = %.noexc.i1215
           to label %invoke.cont.i2245 unwind label %lpad.i2244
 
 invoke.cont.i2245:                                ; preds = %if.end.i2242
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2243, ptr noundef nonnull @.str.304, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.304, i64 3)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2243, ptr noundef nonnull @.str.304, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.304, i64 3)) #14
   store ptr null, ptr %__guard.i2239, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL18kTraceFieldTypeRTOB5cxx11E, i64 noundef 3)
           to label %__cxx_global_var_init.303.exit unwind label %lpad.i2244
@@ -7672,7 +7672,7 @@ if.end.i2252:                                     ; preds = %.noexc.i1223
           to label %invoke.cont.i2255 unwind label %lpad.i2254
 
 invoke.cont.i2255:                                ; preds = %if.end.i2252
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2253, ptr noundef nonnull @.str.306, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.306, i64 11)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2253, ptr noundef nonnull @.str.306, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.306, i64 11)) #14
   store ptr null, ptr %__guard.i2249, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL18kTraceFieldTypeMSSB5cxx11E, i64 noundef 11)
           to label %__cxx_global_var_init.305.exit unwind label %lpad.i2254
@@ -7721,7 +7721,7 @@ if.end.i2262:                                     ; preds = %.noexc.i1231
           to label %invoke.cont.i2265 unwind label %lpad.i2264
 
 invoke.cont.i2265:                                ; preds = %if.end.i2262
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2263, ptr noundef nonnull @.str.308, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.308, i64 3)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2263, ptr noundef nonnull @.str.308, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.308, i64 3)) #14
   store ptr null, ptr %__guard.i2259, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL18kTraceFieldTypeMTUB5cxx11E, i64 noundef 3)
           to label %__cxx_global_var_init.307.exit unwind label %lpad.i2264
@@ -7770,7 +7770,7 @@ if.end.i2272:                                     ; preds = %.noexc.i1239
           to label %invoke.cont.i2275 unwind label %lpad.i2274
 
 invoke.cont.i2275:                                ; preds = %if.end.i2272
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2273, ptr noundef nonnull @.str.310, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.310, i64 11)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2273, ptr noundef nonnull @.str.310, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.310, i64 11)) #14
   store ptr null, ptr %__guard.i2269, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL21kTraceFieldTypeRcvWndB5cxx11E, i64 noundef 11)
           to label %__cxx_global_var_init.309.exit unwind label %lpad.i2274
@@ -7802,7 +7802,7 @@ call.i.noexc.i1246:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1247 unwind label %lpad.i1243
 
 .noexc.i1247:                                     ; preds = %call.i.noexc.i1246
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeUpstreamCapacityB5cxx11E, ptr noundef nonnull @.str.312, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.312, i64 17))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeUpstreamCapacityB5cxx11E, ptr noundef nonnull @.str.312, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.312, i64 17))
           to label %__cxx_global_var_init.311.exit unwind label %lpad.i.i1248
 
 lpad.i.i1248:                                     ; preds = %.noexc.i1247
@@ -7847,7 +7847,7 @@ if.end.i2282:                                     ; preds = %.noexc.i1255
           to label %invoke.cont.i2285 unwind label %lpad.i2284
 
 invoke.cont.i2285:                                ; preds = %if.end.i2282
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2283, ptr noundef nonnull @.str.314, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.314, i64 12)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2283, ptr noundef nonnull @.str.314, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.314, i64 12)) #14
   store ptr null, ptr %__guard.i2279, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeReqsSucceedB5cxx11E, i64 noundef 12)
           to label %__cxx_global_var_init.313.exit unwind label %lpad.i2284
@@ -7896,7 +7896,7 @@ if.end.i2292:                                     ; preds = %.noexc.i1263
           to label %invoke.cont.i2295 unwind label %lpad.i2294
 
 invoke.cont.i2295:                                ; preds = %if.end.i2292
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2293, ptr noundef nonnull @.str.316, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.316, i64 11)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2293, ptr noundef nonnull @.str.316, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.316, i64 11)) #14
   store ptr null, ptr %__guard.i2289, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeReqsFailedB5cxx11E, i64 noundef 11)
           to label %__cxx_global_var_init.315.exit unwind label %lpad.i2294
@@ -7945,7 +7945,7 @@ if.end.i2302:                                     ; preds = %.noexc.i1271
           to label %invoke.cont.i2305 unwind label %lpad.i2304
 
 invoke.cont.i2305:                                ; preds = %if.end.i2302
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2303, ptr noundef nonnull @.str.318, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.318, i64 4)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2303, ptr noundef nonnull @.str.318, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.318, i64 4)) #14
   store ptr null, ptr %__guard.i2299, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL19kTraceFieldTypeTTFBB5cxx11E, i64 noundef 4)
           to label %__cxx_global_var_init.317.exit unwind label %lpad.i2304
@@ -7994,7 +7994,7 @@ if.end.i2312:                                     ; preds = %.noexc.i1279
           to label %invoke.cont.i2315 unwind label %lpad.i2314
 
 invoke.cont.i2315:                                ; preds = %if.end.i2312
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2313, ptr noundef nonnull @.str.320, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.320, i64 4)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2313, ptr noundef nonnull @.str.320, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.320, i64 4)) #14
   store ptr null, ptr %__guard.i2309, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL19kTraceFieldTypeTTLBB5cxx11E, i64 noundef 4)
           to label %__cxx_global_var_init.319.exit unwind label %lpad.i2314
@@ -8026,7 +8026,7 @@ call.i.noexc.i1286:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1287 unwind label %lpad.i1283
 
 .noexc.i1287:                                     ; preds = %call.i.noexc.i1286
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeConnLifeSpanB5cxx11E, ptr noundef nonnull @.str.322, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.322, i64 20))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeConnLifeSpanB5cxx11E, ptr noundef nonnull @.str.322, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.322, i64 20))
           to label %__cxx_global_var_init.321.exit unwind label %lpad.i.i1288
 
 lpad.i.i1288:                                     ; preds = %.noexc.i1287
@@ -8071,7 +8071,7 @@ if.end.i2322:                                     ; preds = %.noexc.i1295
           to label %invoke.cont.i2325 unwind label %lpad.i2324
 
 invoke.cont.i2325:                                ; preds = %if.end.i2322
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2323, ptr noundef nonnull @.str.324, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.324, i64 15)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2323, ptr noundef nonnull @.str.324, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.324, i64 15)) #14
   store ptr null, ptr %__guard.i2319, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeEgressBufferedB5cxx11E, i64 noundef 15)
           to label %__cxx_global_var_init.323.exit unwind label %lpad.i2324
@@ -8103,7 +8103,7 @@ call.i.noexc.i1302:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1303 unwind label %lpad.i1299
 
 .noexc.i1303:                                     ; preds = %call.i.noexc.i1302
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeSCFGCacheHitB5cxx11E, ptr noundef nonnull @.str.326, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.326, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeSCFGCacheHitB5cxx11E, ptr noundef nonnull @.str.326, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.326, i64 19))
           to label %__cxx_global_var_init.325.exit unwind label %lpad.i.i1304
 
 lpad.i.i1304:                                     ; preds = %.noexc.i1303
@@ -8131,7 +8131,7 @@ call.i.noexc.i1310:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1311 unwind label %lpad.i1307
 
 .noexc.i1311:                                     ; preds = %call.i.noexc.i1310
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeSCFGExpiredB5cxx11E, ptr noundef nonnull @.str.328, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.328, i64 17))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeSCFGExpiredB5cxx11E, ptr noundef nonnull @.str.328, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.328, i64 17))
           to label %__cxx_global_var_init.327.exit unwind label %lpad.i.i1312
 
 lpad.i.i1312:                                     ; preds = %.noexc.i1311
@@ -8176,7 +8176,7 @@ if.end.i2332:                                     ; preds = %.noexc.i1319
           to label %invoke.cont.i2335 unwind label %lpad.i2334
 
 invoke.cont.i2335:                                ; preds = %if.end.i2332
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2333, ptr noundef nonnull @.str.330, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.330, i64 9)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2333, ptr noundef nonnull @.str.330, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.330, i64 9)) #14
   store ptr null, ptr %__guard.i2329, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL23kTraceFieldTypeZeroAEADB5cxx11E, i64 noundef 9)
           to label %__cxx_global_var_init.329.exit unwind label %lpad.i2334
@@ -8225,7 +8225,7 @@ if.end.i2342:                                     ; preds = %.noexc.i1327
           to label %invoke.cont.i2345 unwind label %lpad.i2344
 
 invoke.cont.i2345:                                ; preds = %if.end.i2342
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2343, ptr noundef nonnull @.str.332, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.332, i64 8)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2343, ptr noundef nonnull @.str.332, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.332, i64 8)) #14
   store ptr null, ptr %__guard.i2339, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL22kTraceFieldTypeZeroKexB5cxx11E, i64 noundef 8)
           to label %__cxx_global_var_init.331.exit unwind label %lpad.i2344
@@ -8274,7 +8274,7 @@ if.end.i2352:                                     ; preds = %.noexc.i1335
           to label %invoke.cont.i2355 unwind label %lpad.i2354
 
 invoke.cont.i2355:                                ; preds = %if.end.i2352
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2353, ptr noundef nonnull @.str.334, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.334, i64 12)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2353, ptr noundef nonnull @.str.334, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.334, i64 12)) #14
   store ptr null, ptr %__guard.i2349, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeZeroVersionB5cxx11E, i64 noundef 12)
           to label %__cxx_global_var_init.333.exit unwind label %lpad.i2354
@@ -8306,7 +8306,7 @@ call.i.noexc.i1342:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1343 unwind label %lpad.i1339
 
 .noexc.i1343:                                     ; preds = %call.i.noexc.i1342
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeZeroRttEnabledB5cxx11E, ptr noundef nonnull @.str.336, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.336, i64 16))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeZeroRttEnabledB5cxx11E, ptr noundef nonnull @.str.336, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.336, i64 16))
           to label %__cxx_global_var_init.335.exit unwind label %lpad.i.i1344
 
 lpad.i.i1344:                                     ; preds = %.noexc.i1343
@@ -8334,7 +8334,7 @@ call.i.noexc.i1350:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1351 unwind label %lpad.i1347
 
 .noexc.i1351:                                     ; preds = %call.i.noexc.i1350
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeZeroFallbackEnabledB5cxx11E, ptr noundef nonnull @.str.338, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.338, i64 21))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeZeroFallbackEnabledB5cxx11E, ptr noundef nonnull @.str.338, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.338, i64 21))
           to label %__cxx_global_var_init.337.exit unwind label %lpad.i.i1352
 
 lpad.i.i1352:                                     ; preds = %.noexc.i1351
@@ -8362,7 +8362,7 @@ call.i.noexc.i1358:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1359 unwind label %lpad.i1355
 
 .noexc.i1359:                                     ; preds = %call.i.noexc.i1358
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeZeroVerifiedSuccessB5cxx11E, ptr noundef nonnull @.str.340, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.340, i64 21))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeZeroVerifiedSuccessB5cxx11E, ptr noundef nonnull @.str.340, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.340, i64 21))
           to label %__cxx_global_var_init.339.exit unwind label %lpad.i.i1360
 
 lpad.i.i1360:                                     ; preds = %.noexc.i1359
@@ -8390,7 +8390,7 @@ call.i.noexc.i1366:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1367 unwind label %lpad.i1363
 
 .noexc.i1367:                                     ; preds = %call.i.noexc.i1366
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeZeroVerifiedErrorB5cxx11E, ptr noundef nonnull @.str.342, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.342, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeZeroVerifiedErrorB5cxx11E, ptr noundef nonnull @.str.342, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.342, i64 19))
           to label %__cxx_global_var_init.341.exit unwind label %lpad.i.i1368
 
 lpad.i.i1368:                                     ; preds = %.noexc.i1367
@@ -8435,7 +8435,7 @@ if.end.i2362:                                     ; preds = %.noexc.i1375
           to label %invoke.cont.i2365 unwind label %lpad.i2364
 
 invoke.cont.i2365:                                ; preds = %if.end.i2362
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2363, ptr noundef nonnull @.str.344, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.344, i64 13)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2363, ptr noundef nonnull @.str.344, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.344, i64 13)) #14
   store ptr null, ptr %__guard.i2359, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeTFOAttemptedB5cxx11E, i64 noundef 13)
           to label %__cxx_global_var_init.343.exit unwind label %lpad.i2364
@@ -8484,7 +8484,7 @@ if.end.i2372:                                     ; preds = %.noexc.i1383
           to label %invoke.cont.i2375 unwind label %lpad.i2374
 
 invoke.cont.i2375:                                ; preds = %if.end.i2372
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2373, ptr noundef nonnull @.str.346, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.346, i64 12)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2373, ptr noundef nonnull @.str.346, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.346, i64 12)) #14
   store ptr null, ptr %__guard.i2369, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeTFOFinishedB5cxx11E, i64 noundef 12)
           to label %__cxx_global_var_init.345.exit unwind label %lpad.i2374
@@ -8516,7 +8516,7 @@ call.i.noexc.i1390:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1391 unwind label %lpad.i1387
 
 .noexc.i1391:                                     ; preds = %call.i.noexc.i1390
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeMQTTConnAttemptsB5cxx11E, ptr noundef nonnull @.str.348, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.348, i64 18))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeMQTTConnAttemptsB5cxx11E, ptr noundef nonnull @.str.348, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.348, i64 18))
           to label %__cxx_global_var_init.347.exit unwind label %lpad.i.i1392
 
 lpad.i.i1392:                                     ; preds = %.noexc.i1391
@@ -8561,7 +8561,7 @@ if.end.i2382:                                     ; preds = %.noexc.i1399
           to label %invoke.cont.i2385 unwind label %lpad.i2384
 
 invoke.cont.i2385:                                ; preds = %if.end.i2382
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2383, ptr noundef nonnull @.str.350, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.350, i64 13)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2383, ptr noundef nonnull @.str.350, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.350, i64 13)) #14
   store ptr null, ptr %__guard.i2379, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeIsForegroundB5cxx11E, i64 noundef 13)
           to label %__cxx_global_var_init.349.exit unwind label %lpad.i2384
@@ -8593,7 +8593,7 @@ call.i.noexc.i1406:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1407 unwind label %lpad.i1403
 
 .noexc.i1407:                                     ; preds = %call.i.noexc.i1406
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeMQTTBytesWrittenB5cxx11E, ptr noundef nonnull @.str.352, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.352, i64 18))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeMQTTBytesWrittenB5cxx11E, ptr noundef nonnull @.str.352, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.352, i64 18))
           to label %__cxx_global_var_init.351.exit unwind label %lpad.i.i1408
 
 lpad.i.i1408:                                     ; preds = %.noexc.i1407
@@ -8638,7 +8638,7 @@ if.end.i2392:                                     ; preds = %.noexc.i1415
           to label %invoke.cont.i2395 unwind label %lpad.i2394
 
 invoke.cont.i2395:                                ; preds = %if.end.i2392
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2393, ptr noundef nonnull @.str.354, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.354, i64 15)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2393, ptr noundef nonnull @.str.354, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.354, i64 15)) #14
   store ptr null, ptr %__guard.i2389, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeMQTTBytesReadB5cxx11E, i64 noundef 15)
           to label %__cxx_global_var_init.353.exit unwind label %lpad.i2394
@@ -8670,7 +8670,7 @@ call.i.noexc.i1422:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1423 unwind label %lpad.i1419
 
 .noexc.i1423:                                     ; preds = %call.i.noexc.i1422
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeRawBytesWrittenB5cxx11E, ptr noundef nonnull @.str.356, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.356, i64 17))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeRawBytesWrittenB5cxx11E, ptr noundef nonnull @.str.356, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.356, i64 17))
           to label %__cxx_global_var_init.355.exit unwind label %lpad.i.i1424
 
 lpad.i.i1424:                                     ; preds = %.noexc.i1423
@@ -8715,7 +8715,7 @@ if.end.i2402:                                     ; preds = %.noexc.i1431
           to label %invoke.cont.i2405 unwind label %lpad.i2404
 
 invoke.cont.i2405:                                ; preds = %if.end.i2402
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2403, ptr noundef nonnull @.str.358, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.358, i64 14)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2403, ptr noundef nonnull @.str.358, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.358, i64 14)) #14
   store ptr null, ptr %__guard.i2399, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeRawBytesReadB5cxx11E, i64 noundef 14)
           to label %__cxx_global_var_init.357.exit unwind label %lpad.i2404
@@ -8747,7 +8747,7 @@ call.i.noexc.i1438:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1439 unwind label %lpad.i1435
 
 .noexc.i1439:                                     ; preds = %call.i.noexc.i1438
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeEventLoopTimeAvgB5cxx11E, ptr noundef nonnull @.str.360, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.360, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeEventLoopTimeAvgB5cxx11E, ptr noundef nonnull @.str.360, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.360, i64 19))
           to label %__cxx_global_var_init.359.exit unwind label %lpad.i.i1440
 
 lpad.i.i1440:                                     ; preds = %.noexc.i1439
@@ -8792,7 +8792,7 @@ if.end.i2412:                                     ; preds = %.noexc.i1447
           to label %invoke.cont.i2415 unwind label %lpad.i2414
 
 invoke.cont.i2415:                                ; preds = %if.end.i2412
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2413, ptr noundef nonnull @.str.362, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.362, i64 14)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2413, ptr noundef nonnull @.str.362, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.362, i64 14)) #14
   store ptr null, ptr %__guard.i2409, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeTransportTypeB5cxx11E, i64 noundef 14)
           to label %__cxx_global_var_init.361.exit unwind label %lpad.i2414
@@ -8824,7 +8824,7 @@ call.i.noexc.i1454:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1455 unwind label %lpad.i1451
 
 .noexc.i1455:                                     ; preds = %call.i.noexc.i1454
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL37kTraceFieldTypeMQTTMsgRemainingLengthB5cxx11E, ptr noundef nonnull @.str.364, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.364, i64 25))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL37kTraceFieldTypeMQTTMsgRemainingLengthB5cxx11E, ptr noundef nonnull @.str.364, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.364, i64 25))
           to label %__cxx_global_var_init.363.exit unwind label %lpad.i.i1456
 
 lpad.i.i1456:                                     ; preds = %.noexc.i1455
@@ -8869,7 +8869,7 @@ if.end.i2422:                                     ; preds = %.noexc.i1463
           to label %invoke.cont.i2425 unwind label %lpad.i2424
 
 invoke.cont.i2425:                                ; preds = %if.end.i2422
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2423, ptr noundef nonnull @.str.366, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.366, i64 8)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2423, ptr noundef nonnull @.str.366, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.366, i64 8)) #14
   store ptr null, ptr %__guard.i2419, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL22kTraceFieldTypeMsgTypeB5cxx11E, i64 noundef 8)
           to label %__cxx_global_var_init.365.exit unwind label %lpad.i2424
@@ -8918,7 +8918,7 @@ if.end.i2432:                                     ; preds = %.noexc.i1471
           to label %invoke.cont.i2435 unwind label %lpad.i2434
 
 invoke.cont.i2435:                                ; preds = %if.end.i2432
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2433, ptr noundef nonnull @.str.368, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.368, i64 15)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2433, ptr noundef nonnull @.str.368, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.368, i64 15)) #14
   store ptr null, ptr %__guard.i2429, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeIsMsgRecvB5cxx11E, i64 noundef 15)
           to label %__cxx_global_var_init.367.exit unwind label %lpad.i2434
@@ -8950,7 +8950,7 @@ call.i.noexc.i1478:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1479 unwind label %lpad.i1475
 
 .noexc.i1479:                                     ; preds = %call.i.noexc.i1478
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeConnectReturnCodeB5cxx11E, ptr noundef nonnull @.str.370, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.370, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeConnectReturnCodeB5cxx11E, ptr noundef nonnull @.str.370, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.370, i64 19))
           to label %__cxx_global_var_init.369.exit unwind label %lpad.i.i1480
 
 lpad.i.i1480:                                     ; preds = %.noexc.i1479
@@ -8995,7 +8995,7 @@ if.end.i2442:                                     ; preds = %.noexc.i1487
           to label %invoke.cont.i2445 unwind label %lpad.i2444
 
 invoke.cont.i2445:                                ; preds = %if.end.i2442
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2443, ptr noundef nonnull @.str.372, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.372, i64 14)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2443, ptr noundef nonnull @.str.372, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.372, i64 14)) #14
   store ptr null, ptr %__guard.i2439, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeMQTTMsgBytesB5cxx11E, i64 noundef 14)
           to label %__cxx_global_var_init.371.exit unwind label %lpad.i2444
@@ -9044,7 +9044,7 @@ if.end.i2452:                                     ; preds = %.noexc.i1495
           to label %invoke.cont.i2455 unwind label %lpad.i2454
 
 invoke.cont.i2455:                                ; preds = %if.end.i2452
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2453, ptr noundef nonnull @.str.374, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.374, i64 9)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2453, ptr noundef nonnull @.str.374, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.374, i64 9)) #14
   store ptr null, ptr %__guard.i2449, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL23kTraceFieldTypeMsgTopicB5cxx11E, i64 noundef 9)
           to label %__cxx_global_var_init.373.exit unwind label %lpad.i2454
@@ -9093,7 +9093,7 @@ if.end.i2462:                                     ; preds = %.noexc.i1503
           to label %invoke.cont.i2465 unwind label %lpad.i2464
 
 invoke.cont.i2465:                                ; preds = %if.end.i2462
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2463, ptr noundef nonnull @.str.376, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.376, i64 3)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2463, ptr noundef nonnull @.str.376, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.376, i64 3)) #14
   store ptr null, ptr %__guard.i2459, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL18kTraceFieldTypeQoSB5cxx11E, i64 noundef 3)
           to label %__cxx_global_var_init.375.exit unwind label %lpad.i2464
@@ -9142,7 +9142,7 @@ if.end.i2472:                                     ; preds = %.noexc.i1511
           to label %invoke.cont.i2475 unwind label %lpad.i2474
 
 invoke.cont.i2475:                                ; preds = %if.end.i2472
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2473, ptr noundef nonnull @.str.378, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.378, i64 15)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2473, ptr noundef nonnull @.str.378, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.378, i64 15)) #14
   store ptr null, ptr %__guard.i2469, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeIsPushRequestB5cxx11E, i64 noundef 15)
           to label %__cxx_global_var_init.377.exit unwind label %lpad.i2474
@@ -9174,7 +9174,7 @@ call.i.noexc.i1518:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1519 unwind label %lpad.i1515
 
 .noexc.i1519:                                     ; preds = %call.i.noexc.i1518
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL36kTraceFieldTypePushConnectedInFlightB5cxx11E, ptr noundef nonnull @.str.380, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.380, i64 24))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL36kTraceFieldTypePushConnectedInFlightB5cxx11E, ptr noundef nonnull @.str.380, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.380, i64 24))
           to label %__cxx_global_var_init.379.exit unwind label %lpad.i.i1520
 
 lpad.i.i1520:                                     ; preds = %.noexc.i1519
@@ -9219,7 +9219,7 @@ if.end.i2482:                                     ; preds = %.noexc.i1527
           to label %invoke.cont.i2485 unwind label %lpad.i2484
 
 invoke.cont.i2485:                                ; preds = %if.end.i2482
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2483, ptr noundef nonnull @.str.382, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.382, i64 13)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2483, ptr noundef nonnull @.str.382, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.382, i64 13)) #14
   store ptr null, ptr %__guard.i2479, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypePushOrphanedB5cxx11E, i64 noundef 13)
           to label %__cxx_global_var_init.381.exit unwind label %lpad.i2484
@@ -9268,7 +9268,7 @@ if.end.i2492:                                     ; preds = %.noexc.i1535
           to label %invoke.cont.i2495 unwind label %lpad.i2494
 
 invoke.cont.i2495:                                ; preds = %if.end.i2492
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2493, ptr noundef nonnull @.str.384, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.384, i64 14)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i2493, ptr noundef nonnull @.str.384, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.384, i64 14)) #14
   store ptr null, ptr %__guard.i2489, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeAnalyticsTagsB5cxx11E, i64 noundef 14)
           to label %__cxx_global_var_init.383.exit unwind label %lpad.i2494

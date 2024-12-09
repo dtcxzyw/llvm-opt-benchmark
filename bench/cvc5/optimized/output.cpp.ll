@@ -284,7 +284,7 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #11
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) @_ZN4cvc58internal7null_sbE)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal14null_streambufE, i64 16), ptr @_ZN4cvc58internal7null_sbE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal14null_streambufE, i64 16), ptr @_ZN4cvc58internal7null_sbE, align 8
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4cvc58internal14null_streambufD2Ev, ptr nonnull @_ZN4cvc58internal7null_sbE, ptr nonnull @__dso_handle) #11
   tail call void @_ZNSoC1EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) @_ZN4cvc58internal7null_osE, ptr noundef nonnull @_ZN4cvc58internal7null_sbE)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSoD1Ev, ptr nonnull @_ZN4cvc58internal7null_osE, ptr nonnull @__dso_handle) #11
@@ -315,7 +315,7 @@ if.end.i:                                         ; preds = %.noexc.i
           to label %invoke.cont.i unwind label %lpad.i1
 
 invoke.cont.i:                                    ; preds = %if.end.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 2)) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 2)) #11
   store ptr null, ptr %__guard.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal11Cvc5ostream5s_tabB5cxx11E, i64 noundef 2)
           to label %__cxx_global_var_init.3.exit unwind label %lpad.i1

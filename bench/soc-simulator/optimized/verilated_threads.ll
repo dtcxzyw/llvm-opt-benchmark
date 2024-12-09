@@ -170,7 +170,7 @@ _ZNSt3_V222condition_variable_anyC2Ev.exit:       ; preds = %2
   store i32 1, ptr %10, align 8, !noalias !5
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %11, align 4, !noalias !5
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5mutexSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !5
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5mutexSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !5
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, i8 0, i64 40, i1 false), !noalias !5
   store ptr %5, ptr %9, align 8, !alias.scope !5
@@ -190,7 +190,7 @@ _ZNSt3_V222condition_variable_anyC2Ev.exit:       ; preds = %2
           to label %.noexc unwind label %35
 
 .noexc:                                           ; preds = %_ZNSt3_V222condition_variable_anyC2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvP14VlWorkerThreadP16VerilatedContextES4_S6_EEEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvP14VlWorkerThreadP16VerilatedContextES4_S6_EEEEEE, i64 16), ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %1, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -966,7 +966,7 @@ _ZTWN9Verilated3t_sE.exit:                        ; preds = %1, %2
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12VlThreadPoolC2EP16VerilatedContextj(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV12VlThreadPool, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV12VlThreadPool, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %.not = icmp eq i32 %2, 0

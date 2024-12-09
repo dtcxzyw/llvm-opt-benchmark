@@ -694,7 +694,7 @@ if.end16:                                         ; preds = %if.then10, %if.else
 if.then19:                                        ; preds = %if.end16
   %0 = load ptr, ptr @bio_err, align 8
   %call20 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.69) #7
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @verify_args, i64 8), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @verify_args, i64 8), align 4
   %cmp21.not = icmp eq i32 %1, 0
   %2 = load ptr, ptr @bio_err, align 8
   br i1 %cmp21.not, label %if.else25, label %if.then22

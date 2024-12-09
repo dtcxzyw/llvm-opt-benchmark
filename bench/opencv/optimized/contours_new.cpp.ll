@@ -266,7 +266,7 @@ define hidden void @_ZN15ContourScanner_6createEN2cv3MatEiiNS0_6Point_IiEE(ptr d
   store i32 1, ptr %41, align 8, !noalias !4
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 12
   store i32 1, ptr %42, align 4, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15ContourScanner_SaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %40, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15ContourScanner_SaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %40, align 8, !noalias !4
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(672) %43) #19, !noalias !4
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 112
@@ -3625,17 +3625,17 @@ define internal void @_GLOBAL__sub_I_contours_new.cpp() #13 section ".text.start
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
   store i32 1, ptr @_ZN2cvL15chainCodeDeltasE, align 16
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL15chainCodeDeltasE, i64 4), align 4
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN2cvL15chainCodeDeltasE, i64 8), align 8
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @_ZN2cvL15chainCodeDeltasE, i64 12), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN2cvL15chainCodeDeltasE, i64 16), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN2cvL15chainCodeDeltasE, i64 20), i8 -1, i64 16, i1 false)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN2cvL15chainCodeDeltasE, i64 36), align 4
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @_ZN2cvL15chainCodeDeltasE, i64 40), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN2cvL15chainCodeDeltasE, i64 44), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN2cvL15chainCodeDeltasE, i64 48), align 16
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN2cvL15chainCodeDeltasE, i64 52), align 4
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN2cvL15chainCodeDeltasE, i64 56), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN2cvL15chainCodeDeltasE, i64 60), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL15chainCodeDeltasE, i64 8), align 8
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL15chainCodeDeltasE, i64 12), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL15chainCodeDeltasE, i64 16), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN2cvL15chainCodeDeltasE, i64 20), i8 -1, i64 16, i1 false)
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL15chainCodeDeltasE, i64 36), align 4
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL15chainCodeDeltasE, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL15chainCodeDeltasE, i64 44), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL15chainCodeDeltasE, i64 48), align 16
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL15chainCodeDeltasE, i64 52), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL15chainCodeDeltasE, i64 56), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL15chainCodeDeltasE, i64 60), align 4
   ret void
 }
 

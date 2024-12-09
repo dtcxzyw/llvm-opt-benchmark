@@ -1062,21 +1062,21 @@ define dso_local void @_ZNK5clang14ASTImportError8toStringB5cxx11Ev(ptr dead_on_
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
   %9 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %3) #23
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 12))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 12))
   br label %15
 
 10:                                               ; preds = %2
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %11 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %4) #23
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 20))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 20))
   br label %15
 
 12:                                               ; preds = %2
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   %13 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %5) #23
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 13))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 13))
   br label %15
 
 14:                                               ; preds = %2
@@ -4308,7 +4308,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang17Diagnos
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %36, %42, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
   %43 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !378
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %43, align 8, !noalias !378
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %43, align 8, !noalias !378
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i32 1, ptr %44, align 8, !noalias !378
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17983,7 +17983,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang17Diagnos
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %118, %124, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
   %125 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !1268
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %125, align 8, !noalias !1268
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %125, align 8, !noalias !1268
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   store i32 1, ptr %126, align 8, !noalias !1268
   br label %.sink.split
@@ -21575,7 +21575,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang17Diagnos
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %37, %43, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !1499
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %44, align 8, !noalias !1499
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %44, align 8, !noalias !1499
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 1, ptr %45, align 8, !noalias !1499
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -21661,7 +21661,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang17Diagnos
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %37, %43, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !1507
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %44, align 8, !noalias !1507
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %44, align 8, !noalias !1507
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 1, ptr %45, align 8, !noalias !1507
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -32111,7 +32111,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i84:     ; preds = %_ZNK5clang17Diagnos
 
 _ZN4llvm5ErrorD2Ev.exit90:                        ; preds = %217, %223, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i84
   %224 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !2210
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %224, align 8, !noalias !2210
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %224, align 8, !noalias !2210
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
   store i32 0, ptr %225, align 8, !noalias !2210
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -32957,7 +32957,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i76:     ; preds = %_ZNK5clang17Diagnos
 
 _ZN4llvm5ErrorD2Ev.exit82:                        ; preds = %201, %207, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i76
   %208 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !2261
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %208, align 8, !noalias !2261
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %208, align 8, !noalias !2261
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 8
   store i32 0, ptr %209, align 8, !noalias !2261
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -34231,7 +34231,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i44:     ; preds = %_ZNK5clang17Diagnos
 
 _ZN4llvm5ErrorD2Ev.exit50:                        ; preds = %134, %140, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i44
   %141 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !2340
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %141, align 8, !noalias !2340
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %141, align 8, !noalias !2340
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   store i32 0, ptr %142, align 8, !noalias !2340
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -36943,7 +36943,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i130:    ; preds = %_ZNK5clang17Diagnos
 
 _ZN4llvm5ErrorD2Ev.exit136:                       ; preds = %178, %184, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i130
   %185 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !2551
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %185, align 8, !noalias !2551
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %185, align 8, !noalias !2551
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   store i32 0, ptr %186, align 8, !noalias !2551
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -36992,7 +36992,7 @@ _ZN4llvm5ErrorD2Ev.exit138:                       ; preds = %190
   %213 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsINS_15DeclarationNameEEERKS0_RKT_(ptr noundef nonnull align 8 dereferenceable(26) %212, ptr noundef nonnull align 8 dereferenceable(8) %10)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %21) #23
   %214 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !2559
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %214, align 8, !noalias !2559
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %214, align 8, !noalias !2559
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
   store i32 0, ptr %215, align 8, !noalias !2559
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -37085,7 +37085,7 @@ _ZN4llvm5ErrorD2Ev.exit150:                       ; preds = %_ZNK5clang19Streami
   store i64 %.sroa.0.0.copyload.i145, ptr %264, align 8
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %27) #23
   %265 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !2567
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %265, align 8, !noalias !2567
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %265, align 8, !noalias !2567
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 8
   store i32 0, ptr %266, align 8, !noalias !2567
   %267 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -37136,7 +37136,7 @@ _ZN4llvm5ErrorD2Ev.exit152:                       ; preds = %._crit_edge246
   %294 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsINS_15DeclarationNameEEERKS0_RKT_(ptr noundef nonnull align 8 dereferenceable(26) %293, ptr noundef nonnull align 8 dereferenceable(8) %10)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %30) #23
   %295 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !2576
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %295, align 8, !noalias !2576
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %295, align 8, !noalias !2576
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 8
   store i32 0, ptr %296, align 8, !noalias !2576
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40888,7 +40888,7 @@ _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMa
   %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i.i, i64 16
   %56 = load i32, ptr %55, align 8, !noalias !2964
   %57 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !2967
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %57, align 8, !noalias !2967
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %57, align 8, !noalias !2967
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i32 %56, ptr %58, align 8, !noalias !2967
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -41003,7 +41003,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   store ptr %2, ptr %15, align 8
   %125 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %125, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %125, align 8
   %126 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 %124, ptr %126, align 8
   br i1 %30, label %147, label %127
@@ -41051,7 +41051,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
   %149 = load ptr, ptr %15, align 8, !noalias !2978
   store ptr %149, ptr %148, align 8, !noalias !2978
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %150, align 8, !noalias !2978
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %150, align 8, !noalias !2978
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 16
   %152 = load i32, ptr %126, align 8, !noalias !2978
   store i32 %152, ptr %151, align 8, !noalias !2978
@@ -41060,7 +41060,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit75: ; preds = %138, %147, %127
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   %153 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !2984
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %153, align 8, !noalias !2984
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %153, align 8, !noalias !2984
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   store i32 %124, ptr %154, align 8, !noalias !2984
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -41557,7 +41557,7 @@ _ZN4llvm5ErrorD2Ev.exit105:                       ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   store ptr %407, ptr %8, align 8
   %408 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %408, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %408, align 8
   %409 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %.sroa.1.3, ptr %409, align 8
   %410 = load ptr, ptr %26, align 8, !noalias !3016
@@ -41613,7 +41613,7 @@ _ZN4llvm5ErrorD2Ev.exit105:                       ; preds = %_ZNKSt14default_del
   %440 = load ptr, ptr %8, align 8, !noalias !3016
   store ptr %440, ptr %439, align 8, !noalias !3016
   %441 = getelementptr inbounds nuw i8, ptr %439, i64 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %441, align 8, !noalias !3016
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %441, align 8, !noalias !3016
   %442 = getelementptr inbounds nuw i8, ptr %439, i64 16
   %443 = load i32, ptr %409, align 8, !noalias !3016
   store i32 %443, ptr %442, align 8, !noalias !3016
@@ -41690,7 +41690,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Dens
   %484 = load ptr, ptr %7, align 8
   store ptr %484, ptr %483, align 8
   %485 = getelementptr inbounds nuw i8, ptr %483, i64 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %485, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %485, align 8
   %486 = getelementptr inbounds nuw i8, ptr %483, i64 16
   store i32 2, ptr %486, align 8
   br label %_ZN5clang22ASTImporterSharedState18setImportDeclErrorEPNS_4DeclENS_14ASTImportErrorE.exit
@@ -41823,7 +41823,7 @@ _ZNK5clang26ChildErrorHandlingStrategy24ignoreChildErrorOnParentEPNS_4DeclE.exit
 _ZNK5clang26ChildErrorHandlingStrategy24ignoreChildErrorOnParentEPNS_4DeclE.exit.thread: ; preds = %544, %_ZN5clang26ChildErrorHandlingStrategyC2EPKNS_4DeclE.exit, %_ZNK5clang26ChildErrorHandlingStrategy24ignoreChildErrorOnParentEPNS_4DeclE.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   store ptr %541, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %533, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %533, align 8
   store i32 %.sroa.1.3, ptr %534, align 8
   %553 = load ptr, ptr %26, align 8, !noalias !3021
   %554 = load i32, ptr %28, align 8, !noalias !3021
@@ -41878,7 +41878,7 @@ _ZNK5clang26ChildErrorHandlingStrategy24ignoreChildErrorOnParentEPNS_4DeclE.exit
   %583 = load ptr, ptr %6, align 8, !noalias !3021
   store ptr %583, ptr %582, align 8, !noalias !3021
   %584 = getelementptr inbounds nuw i8, ptr %582, i64 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %584, align 8, !noalias !3021
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %584, align 8, !noalias !3021
   %585 = getelementptr inbounds nuw i8, ptr %582, i64 16
   %586 = load i32, ptr %534, align 8, !noalias !3021
   store i32 %586, ptr %585, align 8, !noalias !3021
@@ -41995,7 +41995,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Dens
   %649 = load ptr, ptr %5, align 8
   store ptr %649, ptr %648, align 8
   %650 = getelementptr inbounds nuw i8, ptr %648, i64 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %650, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %650, align 8
   %651 = getelementptr inbounds nuw i8, ptr %648, i64 16
   store i32 2, ptr %651, align 8
   br label %_ZN5clang22ASTImporterSharedState18setImportDeclErrorEPNS_4DeclENS_14ASTImportErrorE.exit184
@@ -42021,7 +42021,7 @@ _ZN5clang22ASTImporterSharedState18setImportDeclErrorEPNS_4DeclENS_14ASTImportEr
 _ZN4llvm5ErrorD2Ev.exit185:                       ; preds = %._crit_edge, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5clang4DeclENS_11SmallVectorINS5_IS4_Lj32EEELj32EEELj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixERKS4_.exit142
   %656 = call noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5clang4DeclENS_11SmallVectorINS5_IS4_Lj32EEELj32EEELj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E5eraseERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %489, ptr noundef nonnull align 8 dereferenceable(8) %16)
   %657 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !3026
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %657, align 8, !noalias !3026
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %657, align 8, !noalias !3026
   %658 = getelementptr inbounds nuw i8, ptr %657, i64 8
   store i32 %.sroa.1.3, ptr %658, align 8, !noalias !3026
   %659 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -42094,7 +42094,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZN4llvm5ErrorD2Ev.exit197:                       ; preds = %693, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i191
   %.sroa.1231.0 = phi i32 [ undef, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i191 ], [ %695, %693 ]
   %696 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !3037
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %696, align 8, !noalias !3037
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %696, align 8, !noalias !3037
   %697 = getelementptr inbounds nuw i8, ptr %696, i64 8
   store i32 %.sroa.1231.0, ptr %697, align 8, !noalias !3037
   %698 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -42164,7 +42164,7 @@ _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit211: ; preds = %_ZNK4llvm12Dens
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr %735, ptr %4, align 8
   %736 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %736, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %736, align 8
   %737 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %734, ptr %737, align 8
   %738 = load ptr, ptr %26, align 8, !noalias !3048
@@ -42220,7 +42220,7 @@ _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit211: ; preds = %_ZNK4llvm12Dens
   %768 = load ptr, ptr %4, align 8, !noalias !3048
   store ptr %768, ptr %767, align 8, !noalias !3048
   %769 = getelementptr inbounds nuw i8, ptr %767, i64 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %769, align 8, !noalias !3048
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %769, align 8, !noalias !3048
   %770 = getelementptr inbounds nuw i8, ptr %767, i64 16
   %771 = load i32, ptr %737, align 8, !noalias !3048
   store i32 %771, ptr %770, align 8, !noalias !3048
@@ -42229,7 +42229,7 @@ _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit211: ; preds = %_ZNK4llvm12Dens
 _ZN5clang11ASTImporter18setImportDeclErrorEPNS_4DeclENS_14ASTImportErrorE.exit: ; preds = %757, %741, %766
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %772 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !3053
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %772, align 8, !noalias !3053
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %772, align 8, !noalias !3053
   %773 = getelementptr inbounds nuw i8, ptr %772, i64 8
   store i32 %734, ptr %773, align 8, !noalias !3053
   %774 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -45204,7 +45204,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i106:    ; preds = %325, %321
 
 _ZN4llvm5ErrorD2Ev.exit112:                       ; preds = %340, %346, %314, %320, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i99, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i106, %333
   %347 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !3260
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %347, align 8, !noalias !3260
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %347, align 8, !noalias !3260
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 8
   store i32 0, ptr %348, align 8, !noalias !3260
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -45498,7 +45498,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i67:     ; preds = %_ZNK5clang17Diagnos
 
 _ZN4llvm5ErrorD2Ev.exit73:                        ; preds = %141, %147, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i67
   %148 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !3268
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %148, align 8, !noalias !3268
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %148, align 8, !noalias !3268
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   store i32 0, ptr %149, align 8, !noalias !3268
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -46427,7 +46427,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i72:     ; preds = %_ZNK5clang17Diagnos
 
 _ZN4llvm5ErrorD2Ev.exit78:                        ; preds = %224, %230, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i72
   %231 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !3369
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %231, align 8, !noalias !3369
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %231, align 8, !noalias !3369
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
   store i32 0, ptr %232, align 8, !noalias !3369
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -46522,7 +46522,7 @@ _ZN4llvm5ErrorD2Ev.exit102:                       ; preds = %_ZNK5clang19Streami
   store i64 %.sroa.0.0.copyload.i97, ptr %278, align 8
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %22) #23
   %279 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !3374
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %279, align 8, !noalias !3374
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %279, align 8, !noalias !3374
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 8
   store i32 0, ptr %280, align 8, !noalias !3374
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -48974,7 +48974,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit: ; 
 
 _ZN4llvm5ErrorD2Ev.exit175:                       ; preds = %140
   %209 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !3539
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %209, align 8, !noalias !3539
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %209, align 8, !noalias !3539
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
   store i32 0, ptr %210, align 8, !noalias !3539
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -50905,7 +50905,7 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %165, %172
 
 _ZN4llvm5ErrorD2Ev.exit148:                       ; preds = %163
   %204 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !3748
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %204, align 8, !noalias !3748
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %204, align 8, !noalias !3748
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
   store i32 0, ptr %205, align 8, !noalias !3748
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -52152,7 +52152,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang17Diagnos
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %37, %43, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !3831
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %44, align 8, !noalias !3831
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %44, align 8, !noalias !3831
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 1, ptr %45, align 8, !noalias !3831
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -52192,7 +52192,7 @@ define dso_local void @_ZN5clang15ASTNodeImporter15VisitGCCAsmStmtEPNS_10GCCAsmS
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %22 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !3839
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %22, align 8, !noalias !3839
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %22, align 8, !noalias !3839
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 1, ptr %23, align 8, !noalias !3839
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -57223,7 +57223,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang17Diagnos
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %37, %43, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !4637
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %44, align 8, !noalias !4637
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %44, align 8, !noalias !4637
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 1, ptr %45, align 8, !noalias !4637
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -68949,7 +68949,7 @@ _ZN4llvm8ExpectedINS_12PointerUnionIJPN5clang9BlockDeclEPNS2_19CompoundLiteralEx
 
 _ZN4llvm5ErrorD2Ev.exit5:                         ; preds = %30, %.critedge.i, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i
   %48 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !6418
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %48, align 8, !noalias !6418
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %48, align 8, !noalias !6418
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i32 1, ptr %49, align 8, !noalias !6418
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -75402,7 +75402,7 @@ declare void @_ZN5clang13CXXMethodDecl19addOverriddenMethodEPKS0_(ptr noundef no
 define dso_local void @_ZN5clang11ASTImporterC2ERNS_10ASTContextERNS_11FileManagerES2_S4_bSt10shared_ptrINS_22ASTImporterSharedStateEE(ptr noundef nonnull align 8 dereferenceable(280360) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef nonnull align 8 dereferenceable(808) %2, ptr noundef nonnull align 8 dereferenceable(23096) %3, ptr noundef nonnull align 8 dereferenceable(808) %4, i1 noundef zeroext %5, ptr nocapture noundef readonly %6) unnamed_addr #0 align 2 {
   %8 = alloca ptr, align 8
   %9 = zext i1 %5 to i8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang11ASTImporterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang11ASTImporterE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %6, align 8
   store ptr %11, ptr %10, align 8
@@ -75503,7 +75503,7 @@ _ZN4llvm13SmallDenseMapIPN5clang4DeclENS_11SmallVectorINS4_IS3_Lj32EEELj32EEELj3
   store i32 1, ptr %47, align 8, !noalias !7382
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 12
   store i32 1, ptr %48, align 4, !noalias !7382
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5clang22ASTImporterSharedStateESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %46, align 8, !noalias !7382
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5clang22ASTImporterSharedStateESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %46, align 8, !noalias !7382
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %49, i8 0, i64 56, i1 false), !noalias !7382
   store ptr %49, ptr %10, align 8
@@ -75660,7 +75660,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang11ASTImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(280360) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang11ASTImporterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang11ASTImporterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280336
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280352
@@ -76399,7 +76399,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %.crit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %.critedge, %3
   %24 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !7390
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %24, align 8, !noalias !7390
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %24, align 8, !noalias !7390
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 1, ptr %25, align 8, !noalias !7390
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -83243,7 +83243,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
   br i1 %.not, label %37, label %33
 
 33:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %0, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i, i64 16
   %36 = load i32, ptr %35, align 8
@@ -83263,7 +83263,7 @@ define dso_local void @_ZN5clang11ASTImporter18setImportDeclErrorEPNS_4DeclENS_1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 280216
   store ptr %1, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i32, ptr %8, align 8
@@ -83322,7 +83322,7 @@ define dso_local void @_ZN5clang11ASTImporter18setImportDeclErrorEPNS_4DeclENS_1
   %41 = load ptr, ptr %4, align 8, !noalias !8054
   store ptr %41, ptr %40, align 8, !noalias !8054
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %42, align 8, !noalias !8054
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %42, align 8, !noalias !8054
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %44 = load i32, ptr %7, align 8, !noalias !8054
   store i32 %44, ptr %43, align 8, !noalias !8054
@@ -87527,7 +87527,7 @@ _ZNK5clang12FileEntryRef7getNameEv.exit:          ; preds = %162
 
 _ZN4llvm5ErrorD2Ev.exit98:                        ; preds = %.thread
   %182 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !8253
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %182, align 8, !noalias !8253
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %182, align 8, !noalias !8253
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store i32 2, ptr %183, align 8, !noalias !8253
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -88090,7 +88090,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i93: ;
 
 _ZN4llvm5ErrorD2Ev.exit95:                        ; preds = %163
   %186 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !8292
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %186, align 8, !noalias !8292
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %186, align 8, !noalias !8292
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
   store i32 2, ptr %187, align 8, !noalias !8292
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -90080,7 +90080,7 @@ define dso_local void @_ZN5clang11ASTImporter18HandleNameConflictENS_15Declarati
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %7
   %11 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !8480
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %11, align 8, !noalias !8480
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %11, align 8, !noalias !8480
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 0, ptr %12, align 8, !noalias !8480
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -90229,7 +90229,7 @@ define linkonce_odr hidden void @_ZNK4llvm13ErrorInfoBase7messageB5cxx11Ev(ptr d
   store i32 1, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %0, ptr %8, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #23
@@ -91219,7 +91219,7 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5
   store ptr null, ptr %1, align 8, !noalias !8532
   %155 = load ptr, ptr %2, align 8, !noalias !8535
   store ptr null, ptr %2, align 8, !noalias !8535
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %158 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #25
@@ -94099,7 +94099,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Dens
   store ptr %38, ptr %.sink.i.i.i, align 8
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.020.i, i64 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %66, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 16
   %69 = getelementptr inbounds nuw i8, ptr %.020.i, i64 16
   %70 = load i32, ptr %69, align 8
@@ -96239,7 +96239,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %5
   %.sroa.0.0.copyload.i = load i32, ptr %7, align 4
   %72 = tail call noundef ptr @_ZN5clang4DeclnwEmRKNS_10ASTContextEPNS_11DeclContextEm(i64 noundef 40, ptr noundef nonnull align 8 dereferenceable(23096) %3, ptr noundef %71, i64 noundef 0) #23
   tail call void @_ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(40) %72, i32 noundef 85, ptr noundef %71, i32 %.sroa.01.0.copyload.i)
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang14AccessSpecDeclE, i64 16), ptr %72, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang14AccessSpecDeclE, i64 16), ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 36
   store i32 %.sroa.0.0.copyload.i, ptr %73, align 4
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 28
@@ -96361,7 +96361,7 @@ declare noundef ptr @_ZN5clang4DeclnwEmRKNS_10ASTContextEPNS_11DeclContextEm(i64
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(33) %0, i32 noundef %1, ptr noundef %2, i32 %3) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5clang4DeclE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN5clang4DeclE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %17, label %6
@@ -109836,7 +109836,7 @@ _ZN5clang15ASTNodeImporter23CallOverloadedCreateFunINS_29LifetimeExtendedTempora
   %86 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %86, align 8
   tail call void @_ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(72) %79, i32 noundef 78, ptr noundef %.0.i.i.i.i, i32 %.sroa.0.0.copyload.i.i.i.i)
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang29LifetimeExtendedTemporaryDeclE, i64 16), ptr %79, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang29LifetimeExtendedTemporaryDeclE, i64 16), ptr %79, align 8
   %87 = getelementptr inbounds nuw i8, ptr %79, i64 40
   store ptr %68, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %79, i64 48

@@ -415,13 +415,13 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %125 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.21, i32 noundef %124) #6
   %126 = call ptr @get_version() #6
   %127 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef %126) #6
-  %128 = load i32, ptr getelementptr inbounds (i8, ptr @info, i64 4), align 4
+  %128 = load i32, ptr getelementptr inbounds nuw (i8, ptr @info, i64 4), align 4
   %129 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.23, i32 noundef %128) #6
-  %130 = load i32, ptr getelementptr inbounds (i8, ptr @info, i64 8), align 8
+  %130 = load i32, ptr getelementptr inbounds nuw (i8, ptr @info, i64 8), align 8
   %131 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.24, i32 noundef %130) #6
-  %132 = load i32, ptr getelementptr inbounds (i8, ptr @info, i64 12), align 4
+  %132 = load i32, ptr getelementptr inbounds nuw (i8, ptr @info, i64 12), align 4
   %133 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.25, i32 noundef %132) #6
-  %134 = load i32, ptr getelementptr inbounds (i8, ptr @info, i64 16), align 8
+  %134 = load i32, ptr getelementptr inbounds nuw (i8, ptr @info, i64 16), align 8
   %.not56 = icmp eq i32 %134, 0
   br i1 %.not56, label %137, label %135
 
@@ -454,17 +454,17 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br label %150
 
 150:                                              ; preds = %143, %141
-  %151 = load i64, ptr getelementptr inbounds (i8, ptr @info, i64 24), align 8
+  %151 = load i64, ptr getelementptr inbounds nuw (i8, ptr @info, i64 24), align 8
   %152 = shl i64 %151, 2
   %153 = uitofp i64 %152 to double
   %154 = fmul double %153, 0x3F50000000000000
   %155 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.32, double noundef %154) #6
-  %156 = load i64, ptr getelementptr inbounds (i8, ptr @info, i64 32), align 8
+  %156 = load i64, ptr getelementptr inbounds nuw (i8, ptr @info, i64 32), align 8
   %157 = shl i64 %156, 2
   %158 = uitofp i64 %157 to double
   %159 = fmul double %158, 0x3F50000000000000
   %.not60 = icmp eq i64 %156, 0
-  %160 = load i64, ptr getelementptr inbounds (i8, ptr @info, i64 24), align 8
+  %160 = load i64, ptr getelementptr inbounds nuw (i8, ptr @info, i64 24), align 8
   %161 = uitofp i64 %160 to double
   %162 = uitofp i64 %156 to double
   %163 = fdiv double %161, %162

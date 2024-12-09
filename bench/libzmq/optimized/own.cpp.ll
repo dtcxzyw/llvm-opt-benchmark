@@ -58,7 +58,7 @@ $_ZNSt8_Rb_treeIPN3zmq5own_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE5eraseERKS2
 define void @_ZN3zmq5own_tC2EPNS_5ctx_tEj(ptr noundef nonnull align 8 dereferenceable(1444) %this, ptr noundef %parent_, i32 noundef %tid_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN3zmq8object_tC2EPNS_5ctx_tEj(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %parent_, i32 noundef %tid_)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq5own_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq5own_tE, i64 16), ptr %this, align 8
   %options = getelementptr inbounds nuw i8, ptr %this, i64 24
   invoke void @_ZN3zmq9options_tC1Ev(ptr noundef nonnull align 8 dereferenceable(1336) %options)
           to label %invoke.cont unwind label %lpad
@@ -104,7 +104,7 @@ declare void @_ZN3zmq8object_tD2Ev(ptr noundef nonnull align 8 dereferenceable(2
 define void @_ZN3zmq5own_tC2EPNS_11io_thread_tERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(1444) %this, ptr noundef %io_thread_, ptr noundef nonnull align 8 dereferenceable(1336) %options_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN3zmq8object_tC2EPS0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %io_thread_)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq5own_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq5own_tE, i64 16), ptr %this, align 8
   %options = getelementptr inbounds nuw i8, ptr %this, i64 24
   invoke void @_ZN3zmq9options_tC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1336) %options, ptr noundef nonnull align 8 dereferenceable(1336) %options_)
           to label %invoke.cont unwind label %lpad
@@ -886,7 +886,7 @@ ehcleanup95:                                      ; preds = %ehcleanup94, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq5own_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1444) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq5own_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq5own_tE, i64 16), ptr %this, align 8
   %_owned = getelementptr inbounds nuw i8, ptr %this, i64 1392
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1408
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8

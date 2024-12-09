@@ -3614,7 +3614,7 @@ default.unreachable136:                           ; preds = %3
   br i1 %46, label %47, label %.thread118
 
 47:                                               ; preds = %24
-  %48 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator22invoke_with_stop_point28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h61a4f17d835ad191E", i64 16) monotonic, align 8
+  %48 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN18aws_smithy_runtime6client12orchestrator22invoke_with_stop_point28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h61a4f17d835ad191E", i64 16) monotonic, align 8
   switch i8 %48, label %49 [
     i8 0, label %.thread118
     i8 1, label %.thread
@@ -4090,7 +4090,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h87d99602
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %1, %51
-  %11 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN91_$LT$deltalake_aws..constants..CONDITION_EXPR_CREATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hf51f174344c63dd6E", i64 24) acquire, align 8
+  %11 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN91_$LT$deltalake_aws..constants..CONDITION_EXPR_CREATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hf51f174344c63dd6E", i64 24) acquire, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split
@@ -4118,7 +4118,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h87d99602
   unreachable
 
 17:                                               ; preds = %.backedge
-  %18 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @"_ZN91_$LT$deltalake_aws..constants..CONDITION_EXPR_CREATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hf51f174344c63dd6E", i64 24), i32 0, i32 2 acquire acquire, align 4
+  %18 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @"_ZN91_$LT$deltalake_aws..constants..CONDITION_EXPR_CREATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hf51f174344c63dd6E", i64 24), i32 0, i32 2 acquire acquire, align 4
   %.sroa.18.0.in.i = extractvalue { i32, i1 } %18, 1
   br i1 %.sroa.18.0.in.i, label %24, label %.backedge.backedge
 
@@ -4146,7 +4146,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h87d99602
 
 24:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  store ptr getelementptr inbounds (i8, ptr @"_ZN91_$LT$deltalake_aws..constants..CONDITION_EXPR_CREATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hf51f174344c63dd6E", i64 24), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZN91_$LT$deltalake_aws..constants..CONDITION_EXPR_CREATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hf51f174344c63dd6E", i64 24), ptr %9, align 8
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 1, ptr %25, align 8
   %.val = load ptr, ptr %0, align 8, !nonnull !14, !align !56, !noundef !14
@@ -4247,12 +4247,12 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h87d99602
   resume { ptr, i32 } %45
 
 49:                                               ; preds = %.backedge
-  %50 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @"_ZN91_$LT$deltalake_aws..constants..CONDITION_EXPR_CREATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hf51f174344c63dd6E", i64 24), i32 2, i32 3 monotonic acquire, align 4
+  %50 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @"_ZN91_$LT$deltalake_aws..constants..CONDITION_EXPR_CREATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hf51f174344c63dd6E", i64 24), i32 2, i32 3 monotonic acquire, align 4
   %.sroa.18.0.in.i13 = extractvalue { i32, i1 } %50, 1
   br i1 %.sroa.18.0.in.i13, label %51, label %.backedge.backedge
 
 51:                                               ; preds = %.backedge, %49
-  %52 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h0f261bd28f79721cE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN91_$LT$deltalake_aws..constants..CONDITION_EXPR_CREATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hf51f174344c63dd6E", i64 24), i32 noundef 3, i64 undef, i32 noundef 1000000000)
+  %52 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h0f261bd28f79721cE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN91_$LT$deltalake_aws..constants..CONDITION_EXPR_CREATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hf51f174344c63dd6E", i64 24), i32 noundef 3, i64 undef, i32 noundef 1000000000)
   br label %.backedge.sink.split
 }
 
@@ -19206,7 +19206,7 @@ default.unreachable:                              ; preds = %191, %187, %130, %8
 96:                                               ; preds = %91
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25), !noalias !3312
   store ptr @"_ZN91_$LT$deltalake_aws..constants..CONDITION_EXPR_CREATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hf51f174344c63dd6E", ptr %25, align 8, !noalias !3312
-  %97 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN91_$LT$deltalake_aws..constants..CONDITION_EXPR_CREATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hf51f174344c63dd6E", i64 24) acquire, align 8, !noalias !3317
+  %97 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN91_$LT$deltalake_aws..constants..CONDITION_EXPR_CREATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hf51f174344c63dd6E", i64 24) acquire, align 8, !noalias !3317
   %98 = icmp eq i32 %97, 4
   br i1 %98, label %102, label %99
 
@@ -27441,7 +27441,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN91_$LT$deltalake_aws
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN91_$LT$deltalake_aws..constants..CONDITION_EXPR_CREATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hf51f174344c63dd6E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN91_$LT$deltalake_aws..constants..CONDITION_EXPR_CREATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hf51f174344c63dd6E", i64 24) acquire, align 8, !noalias !4807
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN91_$LT$deltalake_aws..constants..CONDITION_EXPR_CREATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hf51f174344c63dd6E", i64 24) acquire, align 8, !noalias !4807
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17h3d1da51a18ea9c51E.exit, label %7
 
@@ -27471,7 +27471,7 @@ define void @"_ZN91_$LT$deltalake_aws..constants..CONDITION_EXPR_CREATE$u20$as$u
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN91_$LT$deltalake_aws..constants..CONDITION_EXPR_CREATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hf51f174344c63dd6E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN91_$LT$deltalake_aws..constants..CONDITION_EXPR_CREATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hf51f174344c63dd6E", i64 24) acquire, align 8, !noalias !4810
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN91_$LT$deltalake_aws..constants..CONDITION_EXPR_CREATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hf51f174344c63dd6E", i64 24) acquire, align 8, !noalias !4810
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN91_$LT$deltalake_aws..constants..CONDITION_EXPR_CREATE$u20$as$u20$core..ops..deref..Deref$GT$5deref17hfa29eb80206d567aE.exit", label %7
 

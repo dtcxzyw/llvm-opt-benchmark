@@ -54,11 +54,11 @@ entry:
   %errorCode = alloca i32, align 4
   store i32 0, ptr %errorCode, align 4
   %call = tail call ptr @u_getDataDirectory_75() #12
-  store ptr %call, ptr getelementptr inbounds (i8, ptr @options, i64 168), align 8
-  store ptr @.str, ptr getelementptr inbounds (i8, ptr @options, i64 208), align 16
-  store ptr @.str.1, ptr getelementptr inbounds (i8, ptr @options, i64 448), align 16
-  store ptr @.str.2, ptr getelementptr inbounds (i8, ptr @options, i64 288), align 16
-  store ptr @.str, ptr getelementptr inbounds (i8, ptr @options, i64 328), align 8
+  store ptr %call, ptr getelementptr inbounds nuw (i8, ptr @options, i64 168), align 8
+  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @options, i64 208), align 16
+  store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @options, i64 448), align 16
+  store ptr @.str.2, ptr getelementptr inbounds nuw (i8, ptr @options, i64 288), align 16
+  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @options, i64 328), align 8
   %call1 = tail call i32 @u_parseArgs(i32 noundef %argc, ptr noundef %argv, i32 noundef 12, ptr noundef nonnull @options) #12
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %if.end.thread, label %if.end
@@ -73,9 +73,9 @@ if.end.thread:                                    ; preds = %entry
   br label %if.then7
 
 if.end:                                           ; preds = %entry
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 34), align 2
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 34), align 2
   %tobool = icmp ne i8 %2, 0
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 74), align 2
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 74), align 2
   %tobool6 = icmp ne i8 %3, 0
   %or.cond3 = select i1 %tobool, i1 true, i1 %tobool6
   br i1 %or.cond3, label %if.then7, label %if.end9
@@ -86,17 +86,17 @@ if.then7:                                         ; preds = %if.end.thread, %if.
   br label %return
 
 if.end9:                                          ; preds = %if.end
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 114), align 2
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 114), align 2
   store i8 %4, ptr @beVerbose, align 1
-  %5 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 154), align 2
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 154), align 2
   store i8 %5, ptr @haveCopyright, align 1
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 208), align 16
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 168), align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 288), align 16
-  %9 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 354), align 2
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 208), align 16
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 168), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 288), align 16
+  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 354), align 2
   %tobool10.not = icmp eq i8 %9, 0
-  %.val = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 368), align 16
-  %.val61 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 328), align 8
+  %.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 368), align 16
+  %.val61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 328), align 8
   %icuUniDataDir.0 = select i1 %tobool10.not, ptr %.val, ptr %.val61
   %cmp13 = icmp samesign ult i32 %call1, 2
   br i1 %cmp13, label %if.then15, label %if.else17
@@ -109,7 +109,7 @@ if.then15:                                        ; preds = %if.end9
 if.else17:                                        ; preds = %if.end9
   %arrayidx18 = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %10 = load ptr, ptr %arrayidx18, align 8
-  %11 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 474), align 2
+  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 474), align 2
   %tobool20.not = icmp eq i8 %11, 0
   br i1 %tobool20.not, label %if.then21, label %if.end23
 
@@ -119,17 +119,17 @@ if.then21:                                        ; preds = %if.else17
   br label %return
 
 if.end23:                                         ; preds = %if.else17
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 274), align 2
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 274), align 2
   %tobool24.not = icmp eq i8 %12, 0
   br i1 %tobool24.not, label %if.end26, label %if.then25
 
 if.then25:                                        ; preds = %if.end23
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 248), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 248), align 8
   tail call void @u_setDataDirectory_75(ptr noundef %13) #12
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then25, %if.end23
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 448), align 16
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 448), align 16
   tail call void @setUnicodeVersion(ptr noundef %14) #12
   %call27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #14
   %call28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #14
@@ -209,7 +209,7 @@ if.then62:                                        ; preds = %parseMappings.exit
   br label %return
 
 if.end65:                                         ; preds = %parseMappings.exit
-  %21 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 354), align 2
+  %21 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 354), align 2
   %tobool66.not = icmp eq i8 %21, 0
   br i1 %tobool66.not, label %if.end88, label %if.then67
 
@@ -265,7 +265,7 @@ if.then85:                                        ; preds = %parseNormalizationC
 
 if.end88:                                         ; preds = %parseNormalizationCorrections.exit, %if.end65
   %sprepOptions.0 = phi i32 [ 0, %if.end65 ], [ 1, %parseNormalizationCorrections.exit ]
-  %28 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 434), align 2
+  %28 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 434), align 2
   %tobool89.not = icmp eq i8 %28, 0
   %or91 = or disjoint i32 %sprepOptions.0, 2
   %spec.select = select i1 %tobool89.not, i32 %sprepOptions.0, i32 %or91
@@ -465,7 +465,7 @@ land.lhs.true:                                    ; preds = %if.then
   br i1 %cmp9, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %land.lhs.true
-  store i8 1, ptr getelementptr inbounds (i8, ptr @options, i64 354), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @options, i64 354), align 2
   br label %if.end85
 
 if.else:                                          ; preds = %land.lhs.true
@@ -478,7 +478,7 @@ land.lhs.true14:                                  ; preds = %if.else
   br i1 %cmp16, label %if.then18, label %if.else19
 
 if.then18:                                        ; preds = %land.lhs.true14
-  store i8 1, ptr getelementptr inbounds (i8, ptr @options, i64 434), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @options, i64 434), align 2
   br label %if.end85
 
 if.else19:                                        ; preds = %if.then, %land.lhs.true14, %if.else

@@ -74,7 +74,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @phpdbg_do_list_lines(ptr noundef %0) #0 {
   %2 = alloca [4096 x i8], align 16
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1336), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1336), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %9
 
@@ -83,7 +83,7 @@ define hidden noundef i32 @phpdbg_do_list_lines(ptr noundef %0) #0 {
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %8 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %7, ptr noundef nonnull @.str.11) #11
   br label %93
 
@@ -148,12 +148,12 @@ define hidden noundef i32 @phpdbg_do_list_lines(ptr noundef %0) #0 {
   store i8 0, ptr %44, align 1
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %46 = load i64, ptr %45, align 8
-  %47 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1416), ptr noundef nonnull %39) #11
+  %47 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1416), ptr noundef nonnull %39) #11
   %.not.i = icmp eq ptr %47, null
   br i1 %.not.i, label %48, label %51
 
 48:                                               ; preds = %32
-  %49 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %50 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %49, ptr noundef nonnull @.str.18) #11
   br label %phpdbg_list_file.exit
 
@@ -182,7 +182,7 @@ define hidden noundef i32 @phpdbg_do_list_lines(ptr noundef %0) #0 {
   %62 = load ptr, ptr %53, align 8
   %63 = zext i32 %58 to i64
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 %63
-  %65 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %66 = trunc nuw i64 %indvars.iv.next61.i to i32
   %67 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 4, i32 noundef %65, ptr noundef nonnull @.str.19, i32 noundef %66, i32 noundef %61, ptr noundef %64) #11
   %68 = zext i32 %61 to i64
@@ -195,7 +195,7 @@ define hidden noundef i32 @phpdbg_do_list_lines(ptr noundef %0) #0 {
   br i1 %or.cond.us.i, label %77, label %74
 
 74:                                               ; preds = %.lr.ph.split.us.i
-  %75 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %76 = call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %75, ptr noundef nonnull @.str.21) #11
   br label %77
 
@@ -232,7 +232,7 @@ phpdbg_list_file.exit:                            ; preds = %77, %48, %51
   br label %93
 
 89:                                               ; preds = %9
-  %90 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %90 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %91 = tail call ptr @phpdbg_get_param_type(ptr noundef nonnull %0) #11
   %92 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %90, ptr noundef nonnull @.str.12, ptr noundef %91) #11
   br label %93
@@ -276,7 +276,7 @@ define hidden noundef i32 @phpdbg_do_list_class(ptr nocapture noundef readonly %
   br label %40
 
 24:                                               ; preds = %14
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
@@ -284,7 +284,7 @@ define hidden noundef i32 @phpdbg_do_list_class(ptr nocapture noundef readonly %
   br label %40
 
 30:                                               ; preds = %10
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
@@ -292,7 +292,7 @@ define hidden noundef i32 @phpdbg_do_list_class(ptr nocapture noundef readonly %
   br label %40
 
 36:                                               ; preds = %1
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %38 = load ptr, ptr %3, align 8
   %39 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %37, ptr noundef nonnull @.str.17, ptr noundef %38) #11
   br label %40
@@ -331,7 +331,7 @@ define hidden noundef i32 @phpdbg_do_list_method(ptr nocapture noundef readonly 
   br i1 %.not.i, label %27, label %21
 
 21:                                               ; preds = %18
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
@@ -351,7 +351,7 @@ define hidden noundef i32 @phpdbg_do_list_method(ptr nocapture noundef readonly 
   br label %phpdbg_list_function.exit
 
 36:                                               ; preds = %9
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %38 = load ptr, ptr %3, align 8
   %39 = load ptr, ptr %10, align 8
   %40 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %37, ptr noundef nonnull @.str.13, ptr noundef %38, ptr noundef %39) #11
@@ -362,7 +362,7 @@ phpdbg_list_function.exit:                        ; preds = %27, %21, %36
   br label %45
 
 41:                                               ; preds = %1
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %43 = load ptr, ptr %3, align 8
   %44 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %42, ptr noundef nonnull @.str.14, ptr noundef %43) #11
   br label %45
@@ -392,12 +392,12 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @phpdbg_list_file(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1416), ptr noundef %0) #11
+  %5 = tail call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1416), ptr noundef %0) #11
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %8 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %7, ptr noundef nonnull @.str.18) #11
   br label %.loopexit
 
@@ -439,7 +439,7 @@ define hidden void @phpdbg_list_file(ptr noundef %0, i32 noundef %1, i32 noundef
   %24 = load ptr, ptr %10, align 8
   %25 = zext i32 %20 to i64
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 %25
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %28 = trunc nuw i64 %indvars.iv.next61 to i32
   %29 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 4, i32 noundef %27, ptr noundef nonnull @.str.19, i32 noundef %28, i32 noundef %23, ptr noundef %26) #11
   %30 = zext i32 %23 to i64
@@ -452,7 +452,7 @@ define hidden void @phpdbg_list_file(ptr noundef %0, i32 noundef %1, i32 noundef
   br i1 %or.cond.us, label %39, label %36
 
 36:                                               ; preds = %.lr.ph.split.us
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %38 = tail call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %37, ptr noundef nonnull @.str.21) #11
   br label %39
 
@@ -472,7 +472,7 @@ define hidden void @phpdbg_list_file(ptr noundef %0, i32 noundef %1, i32 noundef
   %46 = zext i32 %41 to i64
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 %46
   %.not53 = icmp eq i64 %indvars.iv.next, %18
-  %48 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   br i1 %.not53, label %52, label %49
 
 49:                                               ; preds = %.lr.ph.split
@@ -495,7 +495,7 @@ define hidden void @phpdbg_list_file(ptr noundef %0, i32 noundef %1, i32 noundef
   br i1 %or.cond, label %64, label %61
 
 61:                                               ; preds = %54
-  %62 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %63 = tail call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %62, ptr noundef nonnull @.str.21) #11
   br label %64
 
@@ -534,17 +534,17 @@ define hidden void @phpdbg_list_function_byname(ptr noundef %0, i64 noundef %1) 
   br label %20
 
 12:                                               ; preds = %6
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %14 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %13, ptr noundef nonnull @.str.23) #11
   br label %51
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 432), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 432), align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %17, label %20
 
 17:                                               ; preds = %15
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %19 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %18, ptr noundef nonnull @.str.24) #11
   br label %51
 
@@ -553,8 +553,8 @@ define hidden void @phpdbg_list_function_byname(ptr noundef %0, i64 noundef %1) 
   %.025 = phi i64 [ %10, %8 ], [ %1, %15 ]
   %.024 = phi ptr [ %11, %8 ], [ %16, %15 ]
   %21 = call ptr @zend_str_tolower_dup(ptr noundef nonnull %.026, i64 noundef %.025) #11
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2168), align 8
-  store ptr %3, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2168), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2168), align 8
+  store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2168), align 8
   %23 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #14
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %48
@@ -571,7 +571,7 @@ define hidden void @phpdbg_list_function_byname(ptr noundef %0, i64 noundef %1) 
   br i1 %.not.i, label %36, label %30
 
 30:                                               ; preds = %27
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
@@ -591,18 +591,18 @@ define hidden void @phpdbg_list_function_byname(ptr noundef %0, i64 noundef %1) 
   br label %phpdbg_list_function.exit
 
 45:                                               ; preds = %25
-  %46 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %47 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %46, ptr noundef nonnull @.str.25, ptr noundef %21) #11
   br label %phpdbg_list_function.exit
 
 48:                                               ; preds = %20
-  store ptr %22, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2168), align 8
-  %49 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  store ptr %22, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2168), align 8
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %50 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %49, ptr noundef nonnull @.str.26, ptr noundef %21) #11
   br label %phpdbg_list_function.exit
 
 phpdbg_list_function.exit:                        ; preds = %36, %30, %45, %48
-  store ptr %22, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2168), align 8
+  store ptr %22, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2168), align 8
   call void @_efree(ptr noundef %21) #11
   br label %51
 
@@ -621,7 +621,7 @@ define hidden void @phpdbg_list_function(ptr nocapture noundef readonly %0) loca
   br i1 %.not, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -680,7 +680,7 @@ define hidden ptr @phpdbg_compile_file(ptr noundef %0, i32 noundef %1) #0 {
   %17 = load i64, ptr %5, align 8
   %18 = call noalias ptr @_estrndup(ptr noundef %16, i64 noundef %17) #11
   %19 = load i64, ptr %5, align 8
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1392), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1392), align 8
   %21 = call ptr %20(ptr noundef %0, i32 noundef %1) #11
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %24
@@ -751,12 +751,12 @@ define hidden ptr @phpdbg_compile_file(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %52, ptr %54, align 4
   %55 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %56 = load ptr, ptr %55, align 8
-  %57 = call i32 @zend_hash_del(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1416), ptr noundef %56) #11
+  %57 = call i32 @zend_hash_del(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1416), ptr noundef %56) #11
   %58 = load ptr, ptr %55, align 8
   store ptr %51, ptr %3, align 8
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 13, ptr %59, align 8
-  %60 = call ptr @zend_hash_add(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1416), ptr noundef %58, ptr noundef nonnull %3) #11
+  %60 = call ptr @zend_hash_add(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1416), ptr noundef %58, ptr noundef nonnull %3) #11
   %.not = icmp eq ptr %60, null
   br i1 %.not, label %64, label %61
 
@@ -905,7 +905,7 @@ define hidden ptr @phpdbg_init_compile_file(ptr noundef %0, i32 noundef %1) #0 {
   br label %54
 
 54:                                               ; preds = %37, %53, %9
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1400), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1400), align 8
   %56 = call ptr %55(ptr noundef nonnull %0, i32 noundef %1) #11
   %57 = icmp eq ptr %56, null
   br i1 %57, label %69, label %58
@@ -913,7 +913,7 @@ define hidden ptr @phpdbg_init_compile_file(ptr noundef %0, i32 noundef %1) #0 {
 58:                                               ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 152
   %60 = load ptr, ptr %59, align 8
-  %61 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1416), ptr noundef %60) #11
+  %61 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1416), ptr noundef %60) #11
   %.not112 = icmp ne ptr %61, null
   call void @llvm.assume(i1 %.not112)
   %62 = load ptr, ptr %61, align 8, !nonnull !4, !noundef !4
@@ -940,13 +940,13 @@ declare void @llvm.assume(i1 noundef) #7
 ; Function Attrs: nounwind uwtable
 define hidden ptr @phpdbg_compile_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2176), align 8
   %6 = and i64 %5, 4096
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1408), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1408), align 8
   %9 = tail call ptr %8(ptr noundef %0, ptr noundef %1, i32 noundef %2) #11
   br label %81
 
@@ -1009,7 +1009,7 @@ define hidden ptr @phpdbg_compile_string(ptr noundef %0, ptr noundef %1, i32 nou
   %42 = zext i32 %.093.lcssa to i64
   %43 = getelementptr inbounds nuw [1 x i32], ptr %21, i64 0, i64 %42
   store i32 %41, ptr %43, align 4
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1408), align 8
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1408), align 8
   %45 = tail call ptr %44(ptr noundef %0, ptr noundef %1, i32 noundef %2) #11
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %49
@@ -1030,7 +1030,7 @@ define hidden ptr @phpdbg_compile_string(ptr noundef %0, ptr noundef %1, i32 nou
   store ptr %55, ptr %4, align 8
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 13, ptr %56, align 8
-  %57 = call ptr @zend_hash_add(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1416), ptr noundef %52, ptr noundef nonnull %4) #11
+  %57 = call ptr @zend_hash_add(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1416), ptr noundef %52, ptr noundef nonnull %4) #11
   %.not101 = icmp eq ptr %57, null
   br i1 %.not101, label %61, label %58
 
@@ -1093,9 +1093,9 @@ declare ptr @zend_strpprintf(i64 noundef, ptr noundef, ...) local_unnamed_addr #
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @phpdbg_init_list() local_unnamed_addr #8 {
   %1 = load ptr, ptr @zend_compile_file, align 8
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1392), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1392), align 8
   %2 = load ptr, ptr @zend_compile_string, align 8
-  store ptr %2, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1408), align 8
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1408), align 8
   store ptr @phpdbg_compile_file, ptr @zend_compile_file, align 8
   store ptr @phpdbg_compile_string, ptr @zend_compile_string, align 8
   ret void
@@ -1104,7 +1104,7 @@ define hidden void @phpdbg_init_list() local_unnamed_addr #8 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @phpdbg_list_update() local_unnamed_addr #8 {
   %1 = load ptr, ptr @zend_compile_file, align 8
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1400), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1400), align 8
   store ptr @phpdbg_init_compile_file, ptr @zend_compile_file, align 8
   ret void
 }

@@ -2675,7 +2675,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Js_Polymorp
   store i32 324, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 68
   store i8 0, ptr %13, align 4
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Js_PolymorphicWriterIN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson6WriterINS5_19BasicOStreamWrapperISoEENS5_4UTF8IcEESA_NS5_12CrtAllocatorELj0EEEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Js_PolymorphicWriterIN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson6WriterINS5_19BasicOStreamWrapperISoEENS5_4UTF8IcEESA_NS5_12CrtAllocatorELj0EEEEEEE, i64 16), ptr %8, align 8
   br label %.sink.split.i
 
 14:                                               ; preds = %3
@@ -2699,7 +2699,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Js_Polymorp
   store i32 4, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 76
   store i32 0, ptr %23, align 4
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Js_PolymorphicWriterIN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson12PrettyWriterINS5_19BasicOStreamWrapperISoEENS5_4UTF8IcEESA_NS5_12CrtAllocatorELj0EEEEEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Js_PolymorphicWriterIN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson12PrettyWriterINS5_19BasicOStreamWrapperISoEENS5_4UTF8IcEESA_NS5_12CrtAllocatorELj0EEEEEEE, i64 16), ptr %15, align 8
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Js_PolymorphicWriterIN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson12PrettyWriterINS6_19BasicOStreamWrapperISoEENS6_4UTF8IcEESB_NS6_12CrtAllocatorELj0EEEEEEESt14default_deleteISF_EED2Ev.exit.i, %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Js_PolymorphicWriterIN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson6WriterINS6_19BasicOStreamWrapperISoEENS6_4UTF8IcEESB_NS6_12CrtAllocatorELj0EEEEEEESt14default_deleteISF_EED2Ev.exit.i
@@ -12728,18 +12728,18 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson8internal11StrtodDiyFpI
 50:                                               ; preds = %48
   store i64 -6917529027641081856, ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, align 16
   store i32 -60, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 8), align 8
-  store i64 -4035225266123964416, ptr getelementptr inbounds (i8, ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 16), align 16
-  store i32 -57, ptr getelementptr inbounds (i8, ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 24), align 8
-  store i64 -432345564227567616, ptr getelementptr inbounds (i8, ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 32), align 16
-  store i32 -54, ptr getelementptr inbounds (i8, ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 40), align 8
-  store i64 -7187745005283311616, ptr getelementptr inbounds (i8, ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 48), align 16
-  store i32 -50, ptr getelementptr inbounds (i8, ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 56), align 8
-  store i64 -4372995238176751616, ptr getelementptr inbounds (i8, ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 64), align 16
-  store i32 -47, ptr getelementptr inbounds (i8, ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 72), align 8
-  store i64 -854558029293551616, ptr getelementptr inbounds (i8, ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 80), align 16
-  store i32 -44, ptr getelementptr inbounds (i8, ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 88), align 8
-  store i64 -7451627795949551616, ptr getelementptr inbounds (i8, ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 96), align 16
-  store i32 -40, ptr getelementptr inbounds (i8, ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 104), align 8
+  store i64 -4035225266123964416, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 16), align 16
+  store i32 -57, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 24), align 8
+  store i64 -432345564227567616, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 32), align 16
+  store i32 -54, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 40), align 8
+  store i64 -7187745005283311616, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 48), align 16
+  store i32 -50, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 56), align 8
+  store i64 -4372995238176751616, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 64), align 16
+  store i32 -47, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 72), align 8
+  store i64 -854558029293551616, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 80), align 16
+  store i32 -44, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 88), align 8
+  store i64 -7451627795949551616, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 96), align 16
+  store i32 -40, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 104), align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10) #24
   br label %51
 

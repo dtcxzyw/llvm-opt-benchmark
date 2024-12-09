@@ -6159,7 +6159,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_122RangeConstraintManagerESt14default_deleteIS1_
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #26, !noalias !311
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN5clang4ento17ConstraintManagerE, i64 16), ptr %5, align 8, !noalias !311
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang4ento17ConstraintManagerE, i64 16), ptr %5, align 8, !noalias !311
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull %7, i64 noundef 4) #22, !noalias !311
@@ -6167,7 +6167,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_122RangeConstraintManagerESt14default_deleteIS1_
   store ptr %2, ptr %8, align 8, !noalias !311
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr %4, ptr %9, align 8, !noalias !311
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_122RangeConstraintManagerE, i64 16), ptr %5, align 8, !noalias !311
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_122RangeConstraintManagerE, i64 16), ptr %5, align 8, !noalias !311
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %11, ptr %10, align 8, !noalias !311
@@ -12485,7 +12485,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_122RangeConstraintManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_122RangeConstraintManagerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_122RangeConstraintManagerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @_ZN4llvm14FoldingSetBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #22
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -12497,7 +12497,7 @@ define internal void @_ZN12_GLOBAL__N_122RangeConstraintManagerD2Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_122RangeConstraintManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_122RangeConstraintManagerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_122RangeConstraintManagerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @_ZN4llvm14FoldingSetBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #22
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -15014,7 +15014,7 @@ _ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableSetIPKN5
   store i8 0, ptr %124, align 8, !noalias !516
   store i32 1, ptr %125, align 4, !noalias !516
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %126, i8 0, i64 24, i1 false), !noalias !516
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %26, align 8, !noalias !516
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %26, align 8, !noalias !516
   store ptr %37, ptr %127, align 8, !noalias !516
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
   %218 = load ptr, ptr %217, align 8, !noalias !516
@@ -27510,7 +27510,7 @@ _ZN4llvm20ImutAVLValueIteratorINS_12ImmutableSetIPKN5clang4ento7SymExprENS_17Imu
   store i8 0, ptr %39, align 8, !noalias !702
   store i32 1, ptr %40, align 4, !noalias !702
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false), !noalias !702
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %5, align 8, !noalias !702
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %5, align 8, !noalias !702
   store ptr %6, ptr %42, align 8, !noalias !702
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
   %52 = load ptr, ptr %8, align 8, !noalias !702
@@ -27526,7 +27526,7 @@ _ZN4llvm20ImutAVLValueIteratorINS_12ImmutableSetIPKN5clang4ento7SymExprENS_17Imu
   store i8 0, ptr %44, align 8, !noalias !705
   store i32 1, ptr %45, align 4, !noalias !705
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false), !noalias !705
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %4, align 8, !noalias !705
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %4, align 8, !noalias !705
   store ptr %7, ptr %47, align 8, !noalias !705
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
   %56 = load ptr, ptr %.0.i.i.i.i.i.i.i, align 8, !noalias !705
@@ -27566,7 +27566,7 @@ _ZN4llvm20ImutAVLValueIteratorINS_12ImmutableSetIPKN5clang4ento7SymExprENS_17Imu
   store i32 1, ptr %66, align 4
   %67 = getelementptr inbounds nuw i8, ptr %15, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %15, align 8
   %68 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store ptr %0, ptr %68, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
@@ -28783,7 +28783,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4ento7SymExprElN9
   store i8 0, ptr %18, align 8, !noalias !712
   store i32 1, ptr %19, align 4, !noalias !712
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false), !noalias !712
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %9, align 8, !noalias !712
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %9, align 8, !noalias !712
   store ptr %10, ptr %21, align 8, !noalias !712
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
   %72 = load ptr, ptr %.1.i.i, align 8, !noalias !712
@@ -28799,7 +28799,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4ento7SymExprElN9
   store i8 0, ptr %23, align 8, !noalias !715
   store i32 1, ptr %24, align 4, !noalias !715
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false), !noalias !715
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %8, align 8, !noalias !715
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %8, align 8, !noalias !715
   store ptr %11, ptr %26, align 8, !noalias !715
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
   %76 = load ptr, ptr %0, align 8, !noalias !715
@@ -28829,7 +28829,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4ento7SymExprElN9
   store i8 0, ptr %28, align 8, !noalias !719
   store i32 1, ptr %29, align 4, !noalias !719
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false), !noalias !719
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %5, align 8, !noalias !719
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %5, align 8, !noalias !719
   store ptr %6, ptr %31, align 8, !noalias !719
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
   %83 = load ptr, ptr %0, align 8, !noalias !719
@@ -28845,7 +28845,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4ento7SymExprElN9
   store i8 0, ptr %33, align 8, !noalias !722
   store i32 1, ptr %34, align 4, !noalias !722
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false), !noalias !722
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %4, align 8, !noalias !722
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %4, align 8, !noalias !722
   store ptr %7, ptr %36, align 8, !noalias !722
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
   %87 = load ptr, ptr %.114.i.i, align 8, !noalias !722
@@ -29042,7 +29042,7 @@ define internal fastcc void @"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__g
   store i8 0, ptr %72, align 8, !noalias !730
   store i32 1, ptr %73, align 4, !noalias !730
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, i8 0, i64 24, i1 false), !noalias !730
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %21, align 8, !noalias !730
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %21, align 8, !noalias !730
   store ptr %22, ptr %75, align 8, !noalias !730
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
   %102 = load ptr, ptr %99, align 8, !noalias !730
@@ -29058,7 +29058,7 @@ define internal fastcc void @"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__g
   store i8 0, ptr %77, align 8, !noalias !733
   store i32 1, ptr %78, align 4, !noalias !733
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false), !noalias !733
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %20, align 8, !noalias !733
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %20, align 8, !noalias !733
   store ptr %23, ptr %80, align 8, !noalias !733
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
   %106 = load ptr, ptr %101, align 8, !noalias !733
@@ -29111,7 +29111,7 @@ define internal fastcc void @"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__g
   store i8 0, ptr %82, align 8, !noalias !736
   store i32 1, ptr %83, align 4, !noalias !736
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %84, i8 0, i64 24, i1 false), !noalias !736
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %25, align 8, !noalias !736
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %25, align 8, !noalias !736
   store ptr %26, ptr %85, align 8, !noalias !736
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
   %121 = load ptr, ptr %120, align 8, !noalias !736
@@ -29127,7 +29127,7 @@ define internal fastcc void @"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__g
   store i8 0, ptr %87, align 8, !noalias !739
   store i32 1, ptr %88, align 4, !noalias !739
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, i8 0, i64 24, i1 false), !noalias !739
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %24, align 8, !noalias !739
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %24, align 8, !noalias !739
   store ptr %27, ptr %90, align 8, !noalias !739
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
   %125 = load ptr, ptr %96, align 8
@@ -29221,7 +29221,7 @@ define internal fastcc void @"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__g
   store i8 0, ptr %140, align 8, !noalias !743
   store i32 1, ptr %141, align 4, !noalias !743
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %142, i8 0, i64 24, i1 false), !noalias !743
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %13, align 8, !noalias !743
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %13, align 8, !noalias !743
   store ptr %14, ptr %143, align 8, !noalias !743
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
   %176 = load ptr, ptr %173, align 8, !noalias !743
@@ -29237,7 +29237,7 @@ define internal fastcc void @"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__g
   store i8 0, ptr %145, align 8, !noalias !746
   store i32 1, ptr %146, align 4, !noalias !746
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %147, i8 0, i64 24, i1 false), !noalias !746
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %12, align 8, !noalias !746
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %12, align 8, !noalias !746
   store ptr %15, ptr %148, align 8, !noalias !746
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
   %180 = load ptr, ptr %175, align 8, !noalias !746
@@ -29290,7 +29290,7 @@ define internal fastcc void @"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__g
   store i8 0, ptr %154, align 8, !noalias !749
   store i32 1, ptr %155, align 4, !noalias !749
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %156, i8 0, i64 24, i1 false), !noalias !749
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %17, align 8, !noalias !749
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %17, align 8, !noalias !749
   store ptr %18, ptr %157, align 8, !noalias !749
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
   %196 = load ptr, ptr %195, align 8, !noalias !749
@@ -29306,7 +29306,7 @@ define internal fastcc void @"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__g
   store i8 0, ptr %159, align 8, !noalias !752
   store i32 1, ptr %160, align 4, !noalias !752
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %161, i8 0, i64 24, i1 false), !noalias !752
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %16, align 8, !noalias !752
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %16, align 8, !noalias !752
   store ptr %19, ptr %162, align 8, !noalias !752
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
   %200 = load ptr, ptr %169, align 8
@@ -29397,7 +29397,7 @@ define internal fastcc void @"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__g
   store i8 0, ptr %214, align 8, !noalias !756
   store i32 1, ptr %215, align 4, !noalias !756
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %216, i8 0, i64 24, i1 false), !noalias !756
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %5, align 8, !noalias !756
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %5, align 8, !noalias !756
   store ptr %6, ptr %217, align 8, !noalias !756
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
   %248 = load ptr, ptr %245, align 8, !noalias !756
@@ -29413,7 +29413,7 @@ define internal fastcc void @"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__g
   store i8 0, ptr %219, align 8, !noalias !759
   store i32 1, ptr %220, align 4, !noalias !759
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %221, i8 0, i64 24, i1 false), !noalias !759
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %4, align 8, !noalias !759
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %4, align 8, !noalias !759
   store ptr %7, ptr %222, align 8, !noalias !759
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
   %252 = load ptr, ptr %247, align 8, !noalias !759
@@ -29476,7 +29476,7 @@ define internal fastcc void @"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__g
   store i8 0, ptr %224, align 8, !noalias !762
   store i32 1, ptr %225, align 4, !noalias !762
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %226, i8 0, i64 24, i1 false), !noalias !762
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %9, align 8, !noalias !762
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %9, align 8, !noalias !762
   store ptr %10, ptr %227, align 8, !noalias !762
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
   %277 = load ptr, ptr %276, align 8, !noalias !762
@@ -29492,7 +29492,7 @@ define internal fastcc void @"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__g
   store i8 0, ptr %229, align 8, !noalias !765
   store i32 1, ptr %230, align 4, !noalias !765
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %231, i8 0, i64 24, i1 false), !noalias !765
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %8, align 8, !noalias !765
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %8, align 8, !noalias !765
   store ptr %11, ptr %232, align 8, !noalias !765
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
   %281 = load ptr, ptr %235, align 8
@@ -29543,7 +29543,7 @@ define internal fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18Intrusiv
   store i32 1, ptr %9, align 4, !noalias !769
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false), !noalias !769
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %4, align 8, !noalias !769
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %4, align 8, !noalias !769
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %5, ptr %11, align 8, !noalias !769
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
@@ -29564,7 +29564,7 @@ define internal fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18Intrusiv
   store i32 1, ptr %18, align 4, !noalias !772
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false), !noalias !772
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8, !noalias !772
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8, !noalias !772
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %6, ptr %20, align 8, !noalias !772
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
@@ -29650,7 +29650,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIPPKN5clang4ento7SymExprEN9_
   store i8 0, ptr %10, align 8, !noalias !775
   store i32 1, ptr %11, align 4, !noalias !775
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false), !noalias !775
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %4, align 8, !noalias !775
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %4, align 8, !noalias !775
   store ptr %5, ptr %13, align 8, !noalias !775
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
   %34 = load ptr, ptr %7, align 8, !noalias !775
@@ -29666,7 +29666,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIPPKN5clang4ento7SymExprEN9_
   store i8 0, ptr %15, align 8, !noalias !778
   store i32 1, ptr %16, align 4, !noalias !778
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false), !noalias !778
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8, !noalias !778
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8, !noalias !778
   store ptr %6, ptr %18, align 8, !noalias !778
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
   %38 = load ptr, ptr %.0.i, align 8, !noalias !778
@@ -42120,7 +42120,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExp
 ; Function Attrs: nounwind uwtable
 define internal void @_GLOBAL__sub_I_RangeConstraintManager.cpp() #16 section ".text.startup" {
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) @_ZN5clang4ento8RangeSet7Factory8EmptySetE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5clang4ento8RangeSet7Factory8EmptySetE, i64 16), i64 noundef 4) #22
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN5clang4ento8RangeSet7Factory8EmptySetE, i64 80), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN5clang4ento8RangeSet7Factory8EmptySetE, i64 80), align 8
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5clang4ento8RangeSet13ContainerTypeD2Ev, ptr nonnull @_ZN5clang4ento8RangeSet7Factory8EmptySetE, ptr nonnull @__dso_handle) #22
   ret void
 }

@@ -693,8 +693,8 @@ entry:
   %ref.tmp = alloca %"class.absl::lts_20230802::StatusOr", align 8
   %ev = alloca %struct.epoll_event, align 4
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental12Epoll1PollerE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental12Epoll1PollerE, i64 120), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN17grpc_event_engine12experimental12Epoll1PollerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN17grpc_event_engine12experimental12Epoll1PollerE, i64 120), ptr %0, align 8
   %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 0, ptr %mu_, align 8
   %scheduler_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1110,9 +1110,9 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit3:       ; preds = %cleanup
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN17grpc_event_engine12experimental12Epoll1PollerD2Ev(ptr noundef nonnull align 8 dereferenceable(1281) initializes((0, 16)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental12Epoll1PollerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN17grpc_event_engine12experimental12Epoll1PollerE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental12Epoll1PollerE, i64 120), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN17grpc_event_engine12experimental12Epoll1PollerE, i64 120), ptr %add.ptr, align 8
   invoke void @_ZN17grpc_event_engine12experimental12Epoll1Poller5CloseEv(ptr noundef nonnull align 8 dereferenceable(1281) %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -1358,7 +1358,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN17grpc_event_engine12experimental17Epoll1EventHandleC2EiPNS0_12Epoll1PollerE(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %fd, ptr noundef %poller) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental17Epoll1EventHandleE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN17grpc_event_engine12experimental17Epoll1EventHandleE, i64 16), ptr %this, align 8
   %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %mu_, align 8
   %fd_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2139,7 +2139,7 @@ if.then:                                          ; preds = %init.end
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !27
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !27
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN17grpc_event_engine12experimental12Epoll1PollerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !27
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN17grpc_event_engine12experimental12Epoll1PollerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !27
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   invoke void @_ZN17grpc_event_engine12experimental12Epoll1PollerC1EPNS0_9SchedulerE(ptr noundef nonnull align 8 dereferenceable(1281) %_M_impl.i.i.i.i.i.i, ptr noundef %scheduler)
           to label %_ZSt11make_sharedIN17grpc_event_engine12experimental12Epoll1PollerEJRPNS1_9SchedulerEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN17grpc_event_engine12experimental12Epoll1PollerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !27
@@ -2287,7 +2287,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN17grpc_event_engine12experimental17Epoll1EventHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental17Epoll1EventHandleE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN17grpc_event_engine12experimental17Epoll1EventHandleE, i64 16), ptr %this, align 8
   %error_closure_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %error_closure_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -2329,7 +2329,7 @@ _ZNSt10unique_ptrIN17grpc_event_engine12experimental13LockfreeEventESt14default_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN17grpc_event_engine12experimental17Epoll1EventHandleD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental17Epoll1EventHandleE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN17grpc_event_engine12experimental17Epoll1EventHandleE, i64 16), ptr %this, align 8
   %error_closure_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %error_closure_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -2389,7 +2389,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.13, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.13, i64 6))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc

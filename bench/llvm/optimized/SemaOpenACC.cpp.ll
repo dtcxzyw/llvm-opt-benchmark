@@ -5759,7 +5759,7 @@ define dso_local range(i64 0, -1) i64 @_ZN5clang11SemaOpenACC12ActOnIntExprENS_2
   store i8 1, ptr %8, align 1
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 10
   store i8 0, ptr %9, align 2
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVZN5clang11SemaOpenACC12ActOnIntExprENS_20OpenACCDirectiveKindENS_17OpenACCClauseKindENS_14SourceLocationEPNS_4ExprEE16IntExprConverter, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVZN5clang11SemaOpenACC12ActOnIntExprENS_20OpenACCDirectiveKindENS_17OpenACCClauseKindENS_14SourceLocationEPNS_4ExprEE16IntExprConverter, i64 16), ptr %6, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %1, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -6732,7 +6732,7 @@ _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit:     ; preds = %140, %144
   %170 = load ptr, ptr %0, align 8
   %171 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %74) #18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJPNS_4ExprEEEE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJPNS_4ExprEEEE, i64 16), ptr %21, align 8
   %172 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 2645, ptr %172, align 8
   %173 = getelementptr inbounds nuw i8, ptr %21, i64 16

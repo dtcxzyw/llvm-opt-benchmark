@@ -201,8 +201,8 @@ if.then.i:                                        ; preds = %if.then28
 if.end30:                                         ; preds = %if.then28, %if.end26
   %21 = load ptr, ptr %fsmonitor_last_update, align 8
   call void @trace2_data_string_fl(ptr noundef nonnull @.str.5, i32 noundef 97, ptr noundef nonnull @.str.6, ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %21) #7
-  %trace_fsmonitor.val = load i32, ptr getelementptr inbounds (i8, ptr @trace_fsmonitor, i64 8), align 8
-  %trace_fsmonitor.val20 = load i8, ptr getelementptr inbounds (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %trace_fsmonitor.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8
+  %trace_fsmonitor.val20 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
   %tobool.not.i = icmp eq i32 %trace_fsmonitor.val, 0
   %bf.clear.i = and i8 %trace_fsmonitor.val20, 1
   %tobool33.not38 = icmp ne i8 %bf.clear.i, 0
@@ -397,8 +397,8 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   store i32 %17, ptr %add.ptr, align 1
   %18 = load ptr, ptr %fsmonitor_last_update, align 8
   call void @trace2_data_string_fl(ptr noundef nonnull @.str.5, i32 noundef 145, ptr noundef nonnull @.str.6, ptr noundef null, ptr noundef nonnull @.str.9, ptr noundef %18) #7
-  %trace_fsmonitor.val = load i32, ptr getelementptr inbounds (i8, ptr @trace_fsmonitor, i64 8), align 8
-  %trace_fsmonitor.val17 = load i8, ptr getelementptr inbounds (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %trace_fsmonitor.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8
+  %trace_fsmonitor.val17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
   %tobool.not.i24 = icmp eq i32 %trace_fsmonitor.val, 0
   %bf.clear.i = and i8 %trace_fsmonitor.val17, 1
   %tobool11.not28 = icmp ne i8 %bf.clear.i, 0
@@ -456,8 +456,8 @@ lor.lhs.false:                                    ; preds = %if.end
 if.end6:                                          ; preds = %lor.lhs.false
   %bf.set = or disjoint i8 %bf.load, 32
   store i8 %bf.set, ptr %fsmonitor_has_run_once, align 8
-  %trace_fsmonitor.val75 = load i32, ptr getelementptr inbounds (i8, ptr @trace_fsmonitor, i64 8), align 8
-  %trace_fsmonitor.val76 = load i8, ptr getelementptr inbounds (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %trace_fsmonitor.val75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8
+  %trace_fsmonitor.val76 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
   %tobool.not.i = icmp eq i32 %trace_fsmonitor.val75, 0
   %bf.clear.i = and i8 %trace_fsmonitor.val76, 1
   %tobool11.not100 = icmp ne i8 %bf.clear.i, 0
@@ -627,8 +627,8 @@ if.then99:                                        ; preds = %if.end97
   br label %do.body101
 
 do.body101:                                       ; preds = %if.end97, %if.then99
-  %trace_perf_key.val = load i32, ptr getelementptr inbounds (i8, ptr @trace_perf_key, i64 8), align 8
-  %trace_perf_key.val74 = load i8, ptr getelementptr inbounds (i8, ptr @trace_perf_key, i64 12), align 4
+  %trace_perf_key.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 8), align 8
+  %trace_perf_key.val74 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 12), align 4
   %tobool.not.i81 = icmp eq i32 %trace_perf_key.val, 0
   %bf.clear.i82 = and i8 %trace_perf_key.val74, 1
   %tobool103.not101 = icmp ne i8 %bf.clear.i82, 0
@@ -643,8 +643,8 @@ if.then104:                                       ; preds = %do.body101
   br label %do.body109
 
 do.body109:                                       ; preds = %if.then104, %do.body101
-  %trace_fsmonitor.val = load i32, ptr getelementptr inbounds (i8, ptr @trace_fsmonitor, i64 8), align 8
-  %trace_fsmonitor.val73 = load i8, ptr getelementptr inbounds (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %trace_fsmonitor.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8
+  %trace_fsmonitor.val73 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
   %tobool.not.i84 = icmp eq i32 %trace_fsmonitor.val, 0
   %bf.clear.i85 = and i8 %trace_fsmonitor.val73, 1
   %tobool111.not102 = icmp ne i8 %bf.clear.i85, 0
@@ -911,8 +911,8 @@ entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #8
   %conv = trunc i64 %call to i32
   %call1 = tail call i32 @index_name_pos(ptr noundef %istate, ptr noundef %name, i32 noundef %conv) #7
-  %trace_fsmonitor.val = load i32, ptr getelementptr inbounds (i8, ptr @trace_fsmonitor, i64 8), align 8
-  %trace_fsmonitor.val39 = load i8, ptr getelementptr inbounds (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %trace_fsmonitor.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8
+  %trace_fsmonitor.val39 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
   %tobool.not.i = icmp eq i32 %trace_fsmonitor.val, 0
   %bf.clear.i = and i8 %trace_fsmonitor.val39, 1
   %tobool.not40 = icmp ne i8 %bf.clear.i, 0
@@ -1056,8 +1056,8 @@ entry:
   br i1 %tobool.not, label %do.body, label %if.end7
 
 do.body:                                          ; preds = %entry
-  %trace_fsmonitor.val = load i32, ptr getelementptr inbounds (i8, ptr @trace_fsmonitor, i64 8), align 8
-  %trace_fsmonitor.val11 = load i8, ptr getelementptr inbounds (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %trace_fsmonitor.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8
+  %trace_fsmonitor.val11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
   %tobool.not.i = icmp eq i32 %trace_fsmonitor.val, 0
   %bf.clear.i = and i8 %trace_fsmonitor.val11, 1
   %tobool1.not12 = icmp ne i8 %bf.clear.i, 0
@@ -1134,8 +1134,8 @@ entry:
   br i1 %tobool.not, label %if.end7, label %do.body
 
 do.body:                                          ; preds = %entry
-  %trace_fsmonitor.val = load i32, ptr getelementptr inbounds (i8, ptr @trace_fsmonitor, i64 8), align 8
-  %trace_fsmonitor.val4 = load i8, ptr getelementptr inbounds (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %trace_fsmonitor.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8
+  %trace_fsmonitor.val4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
   %tobool.not.i = icmp eq i32 %trace_fsmonitor.val, 0
   %bf.clear.i = and i8 %trace_fsmonitor.val4, 1
   %tobool1.not5 = icmp ne i8 %bf.clear.i, 0
@@ -1252,8 +1252,8 @@ if.else:                                          ; preds = %if.end16
   br i1 %tobool.not.i, label %if.end19, label %do.body.i
 
 do.body.i:                                        ; preds = %if.else
-  %trace_fsmonitor.val.i = load i32, ptr getelementptr inbounds (i8, ptr @trace_fsmonitor, i64 8), align 8
-  %trace_fsmonitor.val4.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %trace_fsmonitor.val.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8
+  %trace_fsmonitor.val4.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
   %tobool.not.i.i = icmp eq i32 %trace_fsmonitor.val.i, 0
   %bf.clear.i.i = and i8 %trace_fsmonitor.val4.i, 1
   %tobool1.not5.i = icmp ne i8 %bf.clear.i.i, 0

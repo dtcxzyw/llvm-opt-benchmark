@@ -1541,13 +1541,13 @@ call5.i.i.i19.i.i.i.i.i.noexc:                    ; preds = %cleanup.cont131
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !24, !noalias !53
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i19.i.i.i.i.i597, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !26, !noalias !53
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIj11foo_processEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i19.i.i.i.i.i597, align 8, !tbaa !4, !noalias !53
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIj11foo_processEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i19.i.i.i.i.i597, align 8, !tbaa !4, !noalias !53
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i19.i.i.i.i.i597, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i.i), !noalias !53
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp4.i.i.i.i.i.i.i.i.i), !noalias !53
   %next.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i19.i.i.i.i.i597, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !53
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal15process_handlerIj11foo_processEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !53
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal15process_handlerIj11foo_processEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !53
   %process.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i19.i.i.i.i.i597, i64 40
   %_M_manager.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i.i.i.i.i.i, i64 16
   %_M_invoker.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i.i.i.i.i.i, i64 24
@@ -3466,18 +3466,18 @@ cond.true.i.i.i.i.i:                              ; preds = %invoke.cont
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !tbaa !24, !noalias !68
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i318, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !tbaa !26, !noalias !68
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIjNS0_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %call5.i.i.i17.i.i.i.i.i.i318, align 8, !tbaa !4, !noalias !68
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIjNS0_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %call5.i.i.i17.i.i.i.i.i.i318, align 8, !tbaa !4, !noalias !68
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i318, i64 16
   %next.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i318, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !68
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt8internal15process_handlerIjNS_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEEE", i64 16), ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !68
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt8internal15process_handlerIjNS_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEEE", i64 16), ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !68
   %process.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i318, i64 40
   %current.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i318, i64 48
   store i8 0, ptr %current.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !71, !noalias !68
   %0 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i318, i64 56
   %1 = ptrtoint ptr %counter to i64
   store i64 %1, ptr %0, align 8, !tbaa !37, !noalias !68
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEE", i64 16), ptr %process.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !68
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEE", i64 16), ptr %process.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !68
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %scheduler, i64 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %scheduler, i64 16
   %call5.i.i.i.i.i8.i.i = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
@@ -5071,15 +5071,15 @@ call5.i.i.i17.i.i.i.i.i.noexc:                    ; preds = %for.end.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !24, !noalias !94
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i32, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !26, !noalias !94
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIj17succeeded_processEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i32, align 8, !tbaa !4, !noalias !94
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIj17succeeded_processEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i32, align 8, !tbaa !4, !noalias !94
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i32, i64 16
   %next.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i32, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !94
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal15process_handlerIj17succeeded_processEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !94
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal15process_handlerIj17succeeded_processEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !94
   %process.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i32, i64 40
   %3 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i32, i64 48
   store i64 0, ptr %3, align 8, !noalias !94
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17succeeded_process, i64 16), ptr %process.i.i.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !94
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17succeeded_process, i64 16), ptr %process.i.i.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !94
   store ptr %_M_impl.i.i.i.i.i.i.i, ptr %next.i.le, align 8, !tbaa !37
   %_M_refcount3.i.i.i.i = getelementptr inbounds nuw i8, ptr %curr.0.i, i64 16
   %4 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !22
@@ -5154,15 +5154,15 @@ call5.i.i.i17.i.i.i.i.i.noexc66:                  ; preds = %for.end.i39
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i41, align 8, !tbaa !24, !noalias !98
   %_M_weak_count.i.i.i.i.i.i.i42 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i67, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i42, align 4, !tbaa !26, !noalias !98
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIj14failed_processEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i67, align 8, !tbaa !4, !noalias !98
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIj14failed_processEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i67, align 8, !tbaa !4, !noalias !98
   %_M_impl.i.i.i.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i67, i64 16
   %next.i.i.i.i.i.i.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i67, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i.i.i.i.i.i.i.i.i.i44, i8 0, i64 16, i1 false), !noalias !98
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal15process_handlerIj14failed_processEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i43, align 8, !tbaa !4, !noalias !98
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal15process_handlerIj14failed_processEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i43, align 8, !tbaa !4, !noalias !98
   %process.i.i.i.i.i.i.i.i.i45 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i67, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i67, i64 48
   store i64 0, ptr %14, align 8, !noalias !98
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14failed_process, i64 16), ptr %process.i.i.i.i.i.i.i.i.i45, align 8, !tbaa !4, !noalias !98
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14failed_process, i64 16), ptr %process.i.i.i.i.i.i.i.i.i45, align 8, !tbaa !4, !noalias !98
   store ptr %_M_impl.i.i.i.i.i.i.i43, ptr %next.i37.le, align 8, !tbaa !37
   %_M_refcount3.i.i.i.i46 = getelementptr inbounds nuw i8, ptr %curr.0.i36, i64 16
   %15 = load ptr, ptr %_M_refcount3.i.i.i.i46, align 8, !tbaa !22
@@ -5237,15 +5237,15 @@ call5.i.i.i17.i.i.i.i.i.noexc101:                 ; preds = %for.end.i74
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i76, align 8, !tbaa !24, !noalias !101
   %_M_weak_count.i.i.i.i.i.i.i77 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i102, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i77, align 4, !tbaa !26, !noalias !101
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIj17succeeded_processEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i102, align 8, !tbaa !4, !noalias !101
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIj17succeeded_processEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i102, align 8, !tbaa !4, !noalias !101
   %_M_impl.i.i.i.i.i.i.i78 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i102, i64 16
   %next.i.i.i.i.i.i.i.i.i.i79 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i102, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i.i.i.i.i.i.i.i.i.i79, i8 0, i64 16, i1 false), !noalias !101
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal15process_handlerIj17succeeded_processEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i78, align 8, !tbaa !4, !noalias !101
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal15process_handlerIj17succeeded_processEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i78, align 8, !tbaa !4, !noalias !101
   %process.i.i.i.i.i.i.i.i.i80 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i102, i64 40
   %25 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i102, i64 48
   store i64 0, ptr %25, align 8, !noalias !101
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17succeeded_process, i64 16), ptr %process.i.i.i.i.i.i.i.i.i80, align 8, !tbaa !4, !noalias !101
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17succeeded_process, i64 16), ptr %process.i.i.i.i.i.i.i.i.i80, align 8, !tbaa !4, !noalias !101
   store ptr %_M_impl.i.i.i.i.i.i.i78, ptr %next.i72.le, align 8, !tbaa !37
   %_M_refcount3.i.i.i.i81 = getelementptr inbounds nuw i8, ptr %curr.0.i71, i64 16
   %26 = load ptr, ptr %_M_refcount3.i.i.i.i81, align 8, !tbaa !22
@@ -5325,15 +5325,15 @@ call5.i.i.i17.i.i.i.i.i.noexc137:                 ; preds = %for.end.i110
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i112, align 8, !tbaa !24, !noalias !104
   %_M_weak_count.i.i.i.i.i.i.i113 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i138, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i113, align 4, !tbaa !26, !noalias !104
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIj17succeeded_processEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i138, align 8, !tbaa !4, !noalias !104
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIj17succeeded_processEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i138, align 8, !tbaa !4, !noalias !104
   %_M_impl.i.i.i.i.i.i.i114 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i138, i64 16
   %next.i.i.i.i.i.i.i.i.i.i115 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i138, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i.i.i.i.i.i.i.i.i.i115, i8 0, i64 16, i1 false), !noalias !104
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal15process_handlerIj17succeeded_processEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i114, align 8, !tbaa !4, !noalias !104
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal15process_handlerIj17succeeded_processEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i114, align 8, !tbaa !4, !noalias !104
   %process.i.i.i.i.i.i.i.i.i116 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i138, i64 40
   %36 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i138, i64 48
   store i64 0, ptr %36, align 8, !noalias !104
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17succeeded_process, i64 16), ptr %process.i.i.i.i.i.i.i.i.i116, align 8, !tbaa !4, !noalias !104
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17succeeded_process, i64 16), ptr %process.i.i.i.i.i.i.i.i.i116, align 8, !tbaa !4, !noalias !104
   store ptr %_M_impl.i.i.i.i.i.i.i114, ptr %next.i108.le, align 8, !tbaa !37
   %_M_refcount3.i.i.i.i117 = getelementptr inbounds nuw i8, ptr %curr.0.i107, i64 16
   %37 = load ptr, ptr %_M_refcount3.i.i.i.i117, align 8, !tbaa !22
@@ -5408,15 +5408,15 @@ call5.i.i.i17.i.i.i.i.i.noexc173:                 ; preds = %for.end.i146
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i148, align 8, !tbaa !24, !noalias !107
   %_M_weak_count.i.i.i.i.i.i.i149 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i174, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i149, align 4, !tbaa !26, !noalias !107
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIj14failed_processEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i174, align 8, !tbaa !4, !noalias !107
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIj14failed_processEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i174, align 8, !tbaa !4, !noalias !107
   %_M_impl.i.i.i.i.i.i.i150 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i174, i64 16
   %next.i.i.i.i.i.i.i.i.i.i151 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i174, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i.i.i.i.i.i.i.i.i.i151, i8 0, i64 16, i1 false), !noalias !107
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal15process_handlerIj14failed_processEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i150, align 8, !tbaa !4, !noalias !107
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal15process_handlerIj14failed_processEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i150, align 8, !tbaa !4, !noalias !107
   %process.i.i.i.i.i.i.i.i.i152 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i174, i64 40
   %47 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i174, i64 48
   store i64 0, ptr %47, align 8, !noalias !107
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14failed_process, i64 16), ptr %process.i.i.i.i.i.i.i.i.i152, align 8, !tbaa !4, !noalias !107
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14failed_process, i64 16), ptr %process.i.i.i.i.i.i.i.i.i152, align 8, !tbaa !4, !noalias !107
   store ptr %_M_impl.i.i.i.i.i.i.i150, ptr %next.i144.le, align 8, !tbaa !37
   %_M_refcount3.i.i.i.i153 = getelementptr inbounds nuw i8, ptr %curr.0.i143, i64 16
   %48 = load ptr, ptr %_M_refcount3.i.i.i.i153, align 8, !tbaa !22
@@ -5496,15 +5496,15 @@ call5.i.i.i17.i.i.i.i.i.noexc209:                 ; preds = %for.end.i182
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i184, align 8, !tbaa !24, !noalias !110
   %_M_weak_count.i.i.i.i.i.i.i185 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i210, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i185, align 4, !tbaa !26, !noalias !110
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIj17succeeded_processEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i210, align 8, !tbaa !4, !noalias !110
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIj17succeeded_processEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i210, align 8, !tbaa !4, !noalias !110
   %_M_impl.i.i.i.i.i.i.i186 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i210, i64 16
   %next.i.i.i.i.i.i.i.i.i.i187 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i210, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i.i.i.i.i.i.i.i.i.i187, i8 0, i64 16, i1 false), !noalias !110
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal15process_handlerIj17succeeded_processEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i186, align 8, !tbaa !4, !noalias !110
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal15process_handlerIj17succeeded_processEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i186, align 8, !tbaa !4, !noalias !110
   %process.i.i.i.i.i.i.i.i.i188 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i210, i64 40
   %58 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i210, i64 48
   store i64 0, ptr %58, align 8, !noalias !110
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17succeeded_process, i64 16), ptr %process.i.i.i.i.i.i.i.i.i188, align 8, !tbaa !4, !noalias !110
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17succeeded_process, i64 16), ptr %process.i.i.i.i.i.i.i.i.i188, align 8, !tbaa !4, !noalias !110
   store ptr %_M_impl.i.i.i.i.i.i.i186, ptr %next.i180.le, align 8, !tbaa !37
   %_M_refcount3.i.i.i.i189 = getelementptr inbounds nuw i8, ptr %curr.0.i179, i64 16
   %59 = load ptr, ptr %_M_refcount3.i.i.i.i189, align 8, !tbaa !22
@@ -6323,15 +6323,15 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !24, !noalias !134
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !26, !noalias !134
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIj17succeeded_processEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i, align 8, !tbaa !4, !noalias !134
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIj17succeeded_processEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i, align 8, !tbaa !4, !noalias !134
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i, i64 16
   %next.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !134
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal15process_handlerIj17succeeded_processEE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !134
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal15process_handlerIj17succeeded_processEE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !134
   %process.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i, i64 40
   %0 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i, i64 48
   store i64 0, ptr %0, align 8, !noalias !134
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17succeeded_process, i64 16), ptr %process.i.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !134
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17succeeded_process, i64 16), ptr %process.i.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !134
   store ptr %call5.i.i.i17.i.i.i.i, ptr %_M_refcount.i.i.i, align 8, !tbaa !22, !alias.scope !134
   store ptr %_M_impl.i.i.i.i.i.i, ptr %ref.tmp, align 16, !tbaa !37, !alias.scope !134
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -6462,18 +6462,18 @@ cond.true.i.i.i.i.i:                              ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !tbaa !24, !noalias !143
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i134, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !tbaa !26, !noalias !143
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIjNS0_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %call5.i.i.i17.i.i.i.i.i.i134, align 8, !tbaa !4, !noalias !143
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIjNS0_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %call5.i.i.i17.i.i.i.i.i.i134, align 8, !tbaa !4, !noalias !143
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i134, i64 16
   %next.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i134, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !143
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEEE", i64 16), ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !143
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEEE", i64 16), ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !143
   %process.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i134, i64 40
   %current.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i134, i64 48
   store i8 0, ptr %current.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !146, !noalias !143
   %0 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i134, i64 56
   %1 = ptrtoint ptr %first_functor to i64
   store i64 %1, ptr %0, align 8, !tbaa !37, !noalias !143
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEE", i64 16), ptr %process.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !143
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEE", i64 16), ptr %process.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !143
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %scheduler, i64 8
   %call5.i.i.i.i.i8.i.i = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
           to label %"_ZN4entt15basic_schedulerIjSaIvEE6attachINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEJS6_EEERS2_DpOT0_.exit.i" unwind label %lpad.i.i
@@ -6576,18 +6576,18 @@ call5.i.i.i17.i.i.i.i.i.i.noexc143:               ; preds = %for.end.i.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i137, align 8, !tbaa !24, !noalias !149
   %_M_weak_count.i.i.i.i.i.i.i.i138 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i144, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i138, align 4, !tbaa !26, !noalias !149
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIjNS0_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %call5.i.i.i17.i.i.i.i.i.i144, align 8, !tbaa !4, !noalias !149
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIjNS0_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %call5.i.i.i17.i.i.i.i.i.i144, align 8, !tbaa !4, !noalias !149
   %_M_impl.i.i.i.i.i.i.i.i139 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i144, i64 16
   %next.i.i.i.i.i.i.i.i.i.i.i140 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i144, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i.i.i.i.i.i.i.i.i.i.i140, i8 0, i64 16, i1 false), !noalias !149
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEEE", i64 16), ptr %_M_impl.i.i.i.i.i.i.i.i139, align 8, !tbaa !4, !noalias !149
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEEE", i64 16), ptr %_M_impl.i.i.i.i.i.i.i.i139, align 8, !tbaa !4, !noalias !149
   %process.i.i.i.i.i.i.i.i.i.i141 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i144, i64 40
   %current.i.i.i.i.i.i.i.i.i.i.i.i142 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i144, i64 48
   store i8 0, ptr %current.i.i.i.i.i.i.i.i.i.i.i.i142, align 8, !tbaa !152, !noalias !149
   %14 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i144, i64 56
   %15 = ptrtoint ptr %second_functor to i64
   store i64 %15, ptr %14, align 8, !tbaa !37, !noalias !149
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEE", i64 16), ptr %process.i.i.i.i.i.i.i.i.i.i141, align 8, !tbaa !4, !noalias !149
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEE", i64 16), ptr %process.i.i.i.i.i.i.i.i.i.i141, align 8, !tbaa !4, !noalias !149
   store ptr %_M_impl.i.i.i.i.i.i.i.i139, ptr %next.i.i.le, align 8, !tbaa !37
   %_M_refcount3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %curr.0.i.i, i64 16
   %16 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !tbaa !22
@@ -6662,15 +6662,15 @@ call5.i.i.i17.i.i.i.i.i.i.noexc179:               ; preds = %for.end.i.i151
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i153, align 8, !tbaa !24, !noalias !155
   %_M_weak_count.i.i.i.i.i.i.i.i154 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i180, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i154, align 4, !tbaa !26, !noalias !155
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIjNS0_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %call5.i.i.i17.i.i.i.i.i.i180, align 8, !tbaa !4, !noalias !155
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIjNS0_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %call5.i.i.i17.i.i.i.i.i.i180, align 8, !tbaa !4, !noalias !155
   %_M_impl.i.i.i.i.i.i.i.i155 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i180, i64 16
   %next.i.i.i.i.i.i.i.i.i.i.i156 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i180, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i.i.i.i.i.i.i.i.i.i.i156, i8 0, i64 16, i1 false), !noalias !155
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEEE", i64 16), ptr %_M_impl.i.i.i.i.i.i.i.i155, align 8, !tbaa !4, !noalias !155
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEEE", i64 16), ptr %_M_impl.i.i.i.i.i.i.i.i155, align 8, !tbaa !4, !noalias !155
   %process.i.i.i.i.i.i.i.i.i.i157 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i180, i64 40
   %current.i.i.i.i.i.i.i.i.i.i.i.i158 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i180, i64 48
   store i8 0, ptr %current.i.i.i.i.i.i.i.i.i.i.i.i158, align 8, !tbaa !158, !noalias !155
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEE", i64 16), ptr %process.i.i.i.i.i.i.i.i.i.i157, align 8, !tbaa !4, !noalias !155
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEE", i64 16), ptr %process.i.i.i.i.i.i.i.i.i.i157, align 8, !tbaa !4, !noalias !155
   store ptr %_M_impl.i.i.i.i.i.i.i.i155, ptr %next.i.i149.le, align 8, !tbaa !37
   %_M_refcount3.i.i.i.i.i159 = getelementptr inbounds nuw i8, ptr %curr.0.i.i148, i64 16
   %26 = load ptr, ptr %_M_refcount3.i.i.i.i.i159, align 8, !tbaa !22
@@ -7181,18 +7181,18 @@ cond.true.i.i.i.i.i:                              ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !tbaa !24, !noalias !161
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i149, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !tbaa !26, !noalias !161
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIjNS0_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %call5.i.i.i17.i.i.i.i.i.i149, align 8, !tbaa !4, !noalias !161
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIjNS0_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %call5.i.i.i17.i.i.i.i.i.i149, align 8, !tbaa !4, !noalias !161
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i149, i64 16
   %next.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i149, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !161
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt8internal15process_handlerIjNS_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEEE", i64 16), ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !161
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt8internal15process_handlerIjNS_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEEE", i64 16), ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !161
   %process.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i149, i64 40
   %current.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i149, i64 48
   store i8 0, ptr %current.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !164, !noalias !161
   %0 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i149, i64 56
   %1 = ptrtoint ptr %scheduler to i64
   store i64 %1, ptr %0, align 8, !tbaa !37, !noalias !161
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEE", i64 16), ptr %process.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !161
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEE", i64 16), ptr %process.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !161
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %scheduler, i64 8
   %call5.i.i.i.i.i8.i.i = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
           to label %"_ZN4entt15basic_schedulerIjSaIvEE6attachINS_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEJS6_EEERS2_DpOT0_.exit.i" unwind label %lpad.i.i
@@ -8143,15 +8143,15 @@ cond.true.i.i.i.i.i:                              ; preds = %cleanup.cont55
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !tbaa !24, !noalias !187
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i181, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !tbaa !26, !noalias !187
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIjNS0_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %call5.i.i.i17.i.i.i.i.i.i181, align 8, !tbaa !4, !noalias !187
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIjNS0_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %call5.i.i.i17.i.i.i.i.i.i181, align 8, !tbaa !4, !noalias !187
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i181, i64 16
   %next.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i181, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !187
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt8internal15process_handlerIjNS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEEE", i64 16), ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !187
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt8internal15process_handlerIjNS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEEE", i64 16), ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !187
   %process.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i181, i64 40
   %current.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i.i181, i64 48
   store i8 0, ptr %current.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !190, !noalias !187
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEE", i64 16), ptr %process.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !187
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEE", i64 16), ptr %process.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !187
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %scheduler, i64 8
   %call5.i.i.i.i.i8.i.i = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
           to label %if.then.i.i183 unwind label %lpad.i.i
@@ -8552,7 +8552,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV30Scheduler_Functionalities_Test, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV30Scheduler_Functionalities_Test, i64 16), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -8622,7 +8622,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19Scheduler_Swap_Test, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19Scheduler_Swap_Test, i64 16), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -8647,7 +8647,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19Scheduler_Then_Test, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19Scheduler_Then_Test, i64 16), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -8672,7 +8672,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22Scheduler_Functor_Test, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22Scheduler_Functor_Test, i64 16), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -8697,7 +8697,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV30Scheduler_SpawningProcess_Test, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV30Scheduler_SpawningProcess_Test, i64 16), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -8728,7 +8728,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV30Scheduler_CustomAllocator_Test, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV30Scheduler_CustomAllocator_Test, i64 16), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -8924,15 +8924,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %8 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %8, ptr %ss, align 8, !tbaa !4
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %8, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i, align 8, !tbaa !4
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %10, ptr %add.ptr, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %ss, i64 112
@@ -8951,12 +8951,12 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #24
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %14, ptr %ss, align 8, !tbaa !4
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %14, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -9063,15 +9063,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %8 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %8, ptr %ss, align 8, !tbaa !4
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %8, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i, align 8, !tbaa !4
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %10, ptr %add.ptr, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %ss, i64 112
@@ -9090,12 +9090,12 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #24
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %14, ptr %ss, align 8, !tbaa !4
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %14, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -9332,7 +9332,7 @@ define linkonce_odr hidden void @_ZN11foo_processC2ESt8functionIFvvEES2_(ptr nou
 entry:
   %current.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 0, ptr %current.i, align 8, !tbaa !224
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11foo_process, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11foo_process, i64 16), ptr %this, align 8, !tbaa !4
   %on_update = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %upd, i64 16
@@ -9425,7 +9425,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i22
 
 ehcleanup:                                        ; preds = %if.then.i22, %lpad2.body, %if.then.i.i, %lpad.i
   %.pn = phi { ptr, i32 } [ %2, %if.then.i.i ], [ %2, %lpad.i ], [ %8, %lpad2.body ], [ %8, %if.then.i22 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt7processI11foo_processjEE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt7processI11foo_processjEE, i64 16), ptr %this, align 8, !tbaa !4
   resume { ptr, i32 } %.pn
 }
 
@@ -9433,7 +9433,7 @@ ehcleanup:                                        ; preds = %if.then.i22, %lpad2
 define linkonce_odr hidden void @_ZN4entt8internal15process_handlerIj11foo_processED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11foo_process, i64 16), ptr %process, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11foo_process, i64 16), ptr %process, align 8, !tbaa !4
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !61
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -9470,8 +9470,8 @@ terminate.lpad.i6.i:                              ; preds = %if.then.i4.i
   unreachable
 
 _ZN11foo_processD2Ev.exit:                        ; preds = %if.then.i4.i, %_ZNSt14_Function_baseD2Ev.exit.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt7processI11foo_processjEE, i64 16), ptr %process, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt7processI11foo_processjEE, i64 16), ptr %process, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %6 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i = icmp eq ptr %6, null
@@ -9529,7 +9529,7 @@ _ZN4entt8internal21basic_process_handlerIjED2Ev.exit: ; preds = %if.then7.i.i.i.
 define linkonce_odr hidden void @_ZN4entt8internal15process_handlerIj11foo_processED0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11foo_process, i64 16), ptr %process.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11foo_process, i64 16), ptr %process.i, align 8, !tbaa !4
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !61
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -9566,8 +9566,8 @@ terminate.lpad.i6.i.i:                            ; preds = %if.then.i4.i.i
   unreachable
 
 _ZN11foo_processD2Ev.exit.i:                      ; preds = %if.then.i4.i.i, %_ZNSt14_Function_baseD2Ev.exit.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt7processI11foo_processjEE, i64 16), ptr %process.i, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt7processI11foo_processjEE, i64 16), ptr %process.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %6 = load ptr, ptr %_M_refcount.i.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i.i = icmp eq ptr %6, null
@@ -9786,7 +9786,7 @@ _ZN4entt7processI11foo_processjE5abortEb.exit:    ; preds = %_ZN4entt7processI11
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4entt8internal21basic_process_handlerIjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
   %_M_refcount.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !22
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -9918,7 +9918,7 @@ sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11foo_processD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11foo_process, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11foo_process, i64 16), ptr %this, align 8, !tbaa !4
   %_M_manager.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_manager.i, align 8, !tbaa !61
   %tobool.not.i = icmp eq ptr %0, null
@@ -9955,14 +9955,14 @@ terminate.lpad.i6:                                ; preds = %if.then.i4
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit7:                  ; preds = %if.then.i4, %_ZNSt14_Function_baseD2Ev.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt7processI11foo_processjEE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt7processI11foo_processjEE, i64 16), ptr %this, align 8, !tbaa !4
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11foo_processD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11foo_process, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11foo_process, i64 16), ptr %this, align 8, !tbaa !4
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !61
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -10006,7 +10006,7 @@ _ZN11foo_processD2Ev.exit:                        ; preds = %if.then.i4.i, %_ZNS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4entt7processI11foo_processjED2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt7processI11foo_processjEE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt7processI11foo_processjEE, i64 16), ptr %this, align 8, !tbaa !4
   ret void
 }
 
@@ -10024,7 +10024,7 @@ declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #15
 define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIvEE7destroyIN4entt8internal15process_handlerIj11foo_processEEEEvRS0_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %__p) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process.i.i = getelementptr inbounds nuw i8, ptr %__p, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11foo_process, i64 16), ptr %process.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11foo_process, i64 16), ptr %process.i.i, align 8, !tbaa !4
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %__p, i64 88
   %1 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !61
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -10061,8 +10061,8 @@ terminate.lpad.i6.i.i.i:                          ; preds = %if.then.i4.i.i.i
   unreachable
 
 _ZN11foo_processD2Ev.exit.i.i:                    ; preds = %if.then.i4.i.i.i, %_ZNSt14_Function_baseD2Ev.exit.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt7processI11foo_processjEE, i64 16), ptr %process.i.i, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %__p, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt7processI11foo_processjEE, i64 16), ptr %process.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %__p, align 8, !tbaa !4
   %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %__p, i64 16
   %7 = load ptr, ptr %_M_refcount.i.i.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i.i.i = icmp eq ptr %7, null
@@ -10950,8 +10950,8 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_h
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %process.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process.i.i.i, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %_M_impl.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process.i.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %_M_impl.i, align 8, !tbaa !4
   %_M_refcount.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -11048,8 +11048,8 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (24, 32)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -11107,8 +11107,8 @@ _ZN4entt8internal21basic_process_handlerIjED2Ev.exit: ; preds = %if.then7.i.i.i.
 define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (24, 32)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process.i, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -11290,7 +11290,7 @@ if.then.i:                                        ; preds = %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @"_ZN4entt7processINS_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEjED2Ev"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 8)) %this) unnamed_addr #19 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %this, align 8, !tbaa !4
   ret void
 }
 
@@ -11474,15 +11474,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %8 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %8, ptr %ss, align 8, !tbaa !4
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %8, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i, align 8, !tbaa !4
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %10, ptr %add.ptr, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %ss, i64 112
@@ -11501,12 +11501,12 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #24
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %14, ptr %ss, align 8, !tbaa !4
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %14, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -11598,8 +11598,8 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN4entt8internal1
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %process.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt7processI17succeeded_processjEE, i64 16), ptr %process.i.i.i, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %_M_impl.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt7processI17succeeded_processjEE, i64 16), ptr %process.i.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %_M_impl.i, align 8, !tbaa !4
   %_M_refcount.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -11696,8 +11696,8 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 define linkonce_odr hidden void @_ZN4entt8internal15process_handlerIj17succeeded_processED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt7processI17succeeded_processjEE, i64 16), ptr %process, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt7processI17succeeded_processjEE, i64 16), ptr %process, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -11755,8 +11755,8 @@ _ZN4entt8internal21basic_process_handlerIjED2Ev.exit: ; preds = %if.then7.i.i.i.
 define linkonce_odr hidden void @_ZN4entt8internal15process_handlerIj17succeeded_processED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt7processI17succeeded_processjEE, i64 16), ptr %process.i, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt7processI17succeeded_processjEE, i64 16), ptr %process.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -11927,7 +11927,7 @@ _ZN4entt7processI17succeeded_processjE5abortEb.exit: ; preds = %if.then.i, %entr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4entt7processI17succeeded_processjED2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt7processI17succeeded_processjEE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt7processI17succeeded_processjEE, i64 16), ptr %this, align 8, !tbaa !4
   ret void
 }
 
@@ -11957,8 +11957,8 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN4entt8internal1
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %process.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt7processI14failed_processjEE, i64 16), ptr %process.i.i.i, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %_M_impl.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt7processI14failed_processjEE, i64 16), ptr %process.i.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %_M_impl.i, align 8, !tbaa !4
   %_M_refcount.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -12055,8 +12055,8 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 define linkonce_odr hidden void @_ZN4entt8internal15process_handlerIj14failed_processED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt7processI14failed_processjEE, i64 16), ptr %process, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt7processI14failed_processjEE, i64 16), ptr %process, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -12114,8 +12114,8 @@ _ZN4entt8internal21basic_process_handlerIjED2Ev.exit: ; preds = %if.then7.i.i.i.
 define linkonce_odr hidden void @_ZN4entt8internal15process_handlerIj14failed_processED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt7processI14failed_processjEE, i64 16), ptr %process.i, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt7processI14failed_processjEE, i64 16), ptr %process.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -12289,7 +12289,7 @@ _ZN4entt7processI14failed_processjE5abortEb.exit: ; preds = %if.then.i, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4entt7processI14failed_processjED2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt7processI14failed_processjEE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt7processI14failed_processjEE, i64 16), ptr %this, align 8, !tbaa !4
   ret void
 }
 
@@ -12475,8 +12475,8 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_h
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %process.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process.i.i.i, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %_M_impl.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process.i.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %_M_impl.i, align 8, !tbaa !4
   %_M_refcount.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -12573,8 +12573,8 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (24, 32)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -12632,8 +12632,8 @@ _ZN4entt8internal21basic_process_handlerIjED2Ev.exit: ; preds = %if.then7.i.i.i.
 define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (24, 32)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process.i, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -12791,7 +12791,7 @@ if.then2.i:                                       ; preds = %if.then.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @"_ZN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEjED2Ev"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 8)) %this) unnamed_addr #19 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %this, align 8, !tbaa !4
   ret void
 }
 
@@ -13020,8 +13020,8 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_h
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %process.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEjEE", i64 16), ptr %process.i.i.i, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %_M_impl.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEjEE", i64 16), ptr %process.i.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %_M_impl.i, align 8, !tbaa !4
   %_M_refcount.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -13118,8 +13118,8 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (24, 32)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEjEE", i64 16), ptr %process, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEjEE", i64 16), ptr %process, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -13177,8 +13177,8 @@ _ZN4entt8internal21basic_process_handlerIjED2Ev.exit: ; preds = %if.then7.i.i.i.
 define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (24, 32)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEjEE", i64 16), ptr %process.i, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEjEE", i64 16), ptr %process.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -13336,7 +13336,7 @@ if.then2.i:                                       ; preds = %if.then.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @"_ZN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEjED2Ev"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 8)) %this) unnamed_addr #19 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEjEE", i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEjEE", i64 16), ptr %this, align 8, !tbaa !4
   ret void
 }
 
@@ -13565,8 +13565,8 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_h
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %process.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEjEE", i64 16), ptr %process.i.i.i, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %_M_impl.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEjEE", i64 16), ptr %process.i.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %_M_impl.i, align 8, !tbaa !4
   %_M_refcount.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -13663,8 +13663,8 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8), (24, 32)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEjEE", i64 16), ptr %process, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEjEE", i64 16), ptr %process, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -13722,8 +13722,8 @@ _ZN4entt8internal21basic_process_handlerIjED2Ev.exit: ; preds = %if.then7.i.i.i.
 define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8), (24, 32)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEjEE", i64 16), ptr %process.i, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEjEE", i64 16), ptr %process.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -13881,7 +13881,7 @@ if.then2.i:                                       ; preds = %if.then.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @"_ZN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEjED2Ev"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 8)) %this) unnamed_addr #19 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEjEE", i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEjEE", i64 16), ptr %this, align 8, !tbaa !4
   ret void
 }
 
@@ -14058,8 +14058,8 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_h
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %process.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process.i.i.i, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %_M_impl.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process.i.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %_M_impl.i, align 8, !tbaa !4
   %_M_refcount.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -14156,8 +14156,8 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (24, 32)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -14215,8 +14215,8 @@ _ZN4entt8internal21basic_process_handlerIjED2Ev.exit: ; preds = %if.then7.i.i.i.
 define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (24, 32)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process.i, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -14305,15 +14305,15 @@ for.end.i:                                        ; preds = %for.cond.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !24, !noalias !252
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !26, !noalias !252
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIj14failed_processEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !4, !noalias !252
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIj14failed_processEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !4, !noalias !252
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i, i64 16
   %next.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !252
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal15process_handlerIj14failed_processEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !252
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal15process_handlerIj14failed_processEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !252
   %process.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i, i64 40
   %5 = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i, i64 48
   store i64 0, ptr %5, align 8, !noalias !252
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14failed_process, i64 16), ptr %process.i.i.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !252
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14failed_process, i64 16), ptr %process.i.i.i.i.i.i.i.i.i, align 8, !tbaa !4, !noalias !252
   store ptr %_M_impl.i.i.i.i.i.i.i, ptr %next.i.le, align 8, !tbaa !37
   %_M_refcount3.i.i.i.i = getelementptr inbounds nuw i8, ptr %curr.0.i, i64 16
   %6 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !22
@@ -14475,7 +14475,7 @@ if.then.i:                                        ; preds = %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @"_ZN4entt7processINS_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEjED2Ev"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 8)) %this) unnamed_addr #19 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %this, align 8, !tbaa !4
   ret void
 }
 
@@ -14565,8 +14565,8 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_h
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %process.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process.i.i.i, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %_M_impl.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process.i.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %_M_impl.i, align 8, !tbaa !4
   %_M_refcount.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -14663,8 +14663,8 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8), (24, 32)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -14722,8 +14722,8 @@ _ZN4entt8internal21basic_process_handlerIjED2Ev.exit: ; preds = %if.then7.i.i.i.
 define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8), (24, 32)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process.i, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt8internal21basic_process_handlerIjEE, i64 16), ptr %this, align 8, !tbaa !4
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8, !tbaa !22
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -14886,7 +14886,7 @@ if.then.i:                                        ; preds = %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @"_ZN4entt7processINS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEjED2Ev"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 8)) %this) unnamed_addr #19 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %this, align 8, !tbaa !4
   ret void
 }
 
@@ -15006,7 +15006,7 @@ invoke.cont8.i:                                   ; preds = %invoke.cont6.i
           to label %invoke.cont13.i unwind label %lpad4.i
 
 invoke.cont13.i:                                  ; preds = %invoke.cont8.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI30Scheduler_Functionalities_TestEE, i64 16), ptr %call11.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI30Scheduler_Functionalities_TestEE, i64 16), ptr %call11.i, align 8, !tbaa !4
   %call15.i = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI9SchedulerE6dummy_E, ptr noundef %call7.i, ptr noundef %call9.i, ptr noundef nonnull %call11.i)
           to label %invoke.cont14.i unwind label %lpad4.i
 
@@ -15164,7 +15164,7 @@ invoke.cont8.i19:                                 ; preds = %invoke.cont6.i17
           to label %invoke.cont10.i unwind label %lpad4.i14
 
 invoke.cont10.i:                                  ; preds = %invoke.cont8.i19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI19Scheduler_Swap_TestEE, i64 16), ptr %call11.i20, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI19Scheduler_Swap_TestEE, i64 16), ptr %call11.i20, align 8, !tbaa !4
   %call15.i21 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i3, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI9SchedulerE6dummy_E, ptr noundef %call7.i13, ptr noundef %call9.i18, ptr noundef nonnull %call11.i20)
           to label %invoke.cont14.i22 unwind label %lpad4.i14
 
@@ -15318,7 +15318,7 @@ invoke.cont8.i62:                                 ; preds = %invoke.cont6.i60
           to label %invoke.cont10.i64 unwind label %lpad4.i48
 
 invoke.cont10.i64:                                ; preds = %invoke.cont8.i62
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI19Scheduler_Then_TestEE, i64 16), ptr %call11.i63, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI19Scheduler_Then_TestEE, i64 16), ptr %call11.i63, align 8, !tbaa !4
   %call15.i65 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.22, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i36, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI9SchedulerE6dummy_E, ptr noundef %call7.i47, ptr noundef %call9.i61, ptr noundef nonnull %call11.i63)
           to label %invoke.cont14.i66 unwind label %lpad4.i48
 
@@ -15472,7 +15472,7 @@ invoke.cont8.i110:                                ; preds = %invoke.cont6.i108
           to label %invoke.cont10.i112 unwind label %lpad4.i96
 
 invoke.cont10.i112:                               ; preds = %invoke.cont8.i110
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI22Scheduler_Functor_TestEE, i64 16), ptr %call11.i111, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI22Scheduler_Functor_TestEE, i64 16), ptr %call11.i111, align 8, !tbaa !4
   %call15.i113 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.28, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i84, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI9SchedulerE6dummy_E, ptr noundef %call7.i95, ptr noundef %call9.i109, ptr noundef nonnull %call11.i111)
           to label %invoke.cont14.i114 unwind label %lpad4.i96
 
@@ -15626,7 +15626,7 @@ invoke.cont8.i158:                                ; preds = %invoke.cont6.i156
           to label %invoke.cont10.i160 unwind label %lpad4.i144
 
 invoke.cont10.i160:                               ; preds = %invoke.cont8.i158
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI30Scheduler_SpawningProcess_TestEE, i64 16), ptr %call11.i159, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI30Scheduler_SpawningProcess_TestEE, i64 16), ptr %call11.i159, align 8, !tbaa !4
   %call15.i161 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.32, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i132, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI9SchedulerE6dummy_E, ptr noundef %call7.i143, ptr noundef %call9.i157, ptr noundef nonnull %call11.i159)
           to label %invoke.cont14.i162 unwind label %lpad4.i144
 
@@ -15780,7 +15780,7 @@ invoke.cont8.i206:                                ; preds = %invoke.cont6.i204
           to label %invoke.cont10.i208 unwind label %lpad4.i192
 
 invoke.cont10.i208:                               ; preds = %invoke.cont8.i206
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI30Scheduler_CustomAllocator_TestEE, i64 16), ptr %call11.i207, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI30Scheduler_CustomAllocator_TestEE, i64 16), ptr %call11.i207, align 8, !tbaa !4
   %call15.i209 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.34, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i180, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI9SchedulerE6dummy_E, ptr noundef %call7.i191, ptr noundef %call9.i205, ptr noundef nonnull %call11.i207)
           to label %invoke.cont14.i210 unwind label %lpad4.i192
 

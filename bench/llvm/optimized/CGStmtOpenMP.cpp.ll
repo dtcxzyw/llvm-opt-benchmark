@@ -1909,7 +1909,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction34GenerateOpenMP
   store i32 1, ptr %53, align 4
   %54 = getelementptr inbounds nuw i8, ptr %16, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %16, align 8
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store ptr %15, ptr %55, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef null, i64 noundef 0, i32 noundef 0) #19
@@ -13666,7 +13666,7 @@ _ZN4llvm15OpenMPIRBuilder19LocationDescriptionD2Ev.exit: ; preds = %_ZNK5clang9N
 _ZN4llvm15OpenMPIRBuilder19LocationDescriptionD2Ev.exit74: ; preds = %_ZN4llvm15OpenMPIRBuilder19LocationDescriptionD2Ev.exit, %165
   %166 = getelementptr inbounds nuw i8, ptr %1, i64 2216
   %167 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %166, i32 noundef 3, i64 noundef 16) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction19OMPBuilderCBHelpers20OMPAllocateCleanupTyE, i64 16), ptr %167, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction19OMPBuilderCBHelpers20OMPAllocateCleanupTyE, i64 16), ptr %167, align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   store ptr %163, ptr %168, align 8
   call void @_ZN4llvm11Instruction16removeFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %163) #19
@@ -14117,7 +14117,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction19OMPBuilderCBHelpers21
   store i32 1, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %9, align 8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %8, ptr %15, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef null, i64 noundef 0, i32 noundef 0) #19
@@ -15121,7 +15121,7 @@ _ZN4llvm15OpenMPIRBuilder19LocationDescriptionD2Ev.exit: ; preds = %_ZNSt8functi
 define linkonce_odr hidden void @_ZN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoC2ERKNS_12CapturedStmtENS_18CapturedRegionKindE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -18172,7 +18172,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %5
   %17 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %.sroa.0.0.copyload.i = load i32, ptr %17, align 8
   call void @_ZN4llvm21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang19PrettyStackTraceLocE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang19PrettyStackTraceLocE, i64 16), ptr %6, align 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %16, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -22776,7 +22776,7 @@ _ZN4llvm8dyn_castIN5clang21OMPLoopBasedDirectiveEKNS1_4StmtEEEDcPT0_.exit.i: ; p
   %8 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   tail call fastcc void @_ZN12_GLOBAL__N_112OMPLoopScopeC2ERN5clang7CodeGen15CodeGenFunctionERKNS1_21OMPLoopBasedDirectiveE(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull readonly align 8 dereferenceable(36) %1)
   %9 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #21
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoE, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 2, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -22869,7 +22869,7 @@ _ZN4llvm8dyn_castIN5clang21OMPLoopBasedDirectiveEKNS1_4StmtEEEDcPT0_.exit.i: ; p
   %8 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   tail call fastcc void @_ZN12_GLOBAL__N_112OMPLoopScopeC2ERN5clang7CodeGen15CodeGenFunctionERKNS1_21OMPLoopBasedDirectiveE(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull readonly align 8 dereferenceable(36) %1)
   %9 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #21
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoE, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 2, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -22962,7 +22962,7 @@ _ZN4llvm8dyn_castIN5clang21OMPLoopBasedDirectiveEKNS1_4StmtEEEDcPT0_.exit.i: ; p
   %8 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   tail call fastcc void @_ZN12_GLOBAL__N_112OMPLoopScopeC2ERN5clang7CodeGen15CodeGenFunctionERKNS1_21OMPLoopBasedDirectiveE(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull readonly align 8 dereferenceable(36) %1)
   %9 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #21
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoE, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 2, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -33768,7 +33768,7 @@ _ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_18OMPReductionCla
   br i1 %1278, label %_ZN12_GLOBAL__N_138CheckVarsEscapingUntiedTaskDeclContextD2Ev.exit, label %1279
 
 1279:                                             ; preds = %._crit_edge1059
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_138CheckVarsEscapingUntiedTaskDeclContextE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_138CheckVarsEscapingUntiedTaskDeclContextE, i64 16), ptr %14, align 8
   %1280 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %1281 = getelementptr inbounds nuw i8, ptr %14, i64 24
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %1280, ptr noundef nonnull %1281, i64 noundef 4) #19
@@ -37468,7 +37468,7 @@ _Z28isSupportedByOpenMPIRBuilderRKN5clang21OMPTaskgroupDirectiveE.exit.thread: ;
   store ptr %0, ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %29, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoE, i64 16), ptr %5, align 8
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -45721,7 +45721,7 @@ _ZN5clang7CodeGen15CGOpenMPRuntime14TargetDataInfoC2Ebb.exit: ; preds = %.lr.ph.
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 264
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %17, i8 0, i64 20, i1 false)
   store i8 0, ptr %4, align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVZN5clang7CodeGen15CodeGenFunction26EmitOMPTargetDataDirectiveERKNS_22OMPTargetDataDirectiveEE25DevicePointerPrivActionTy, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVZN5clang7CodeGen15CodeGenFunction26EmitOMPTargetDataDirectiveERKNS_22OMPTargetDataDirectiveEE25DevicePointerPrivActionTy, i64 16), ptr %5, align 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %4, ptr %18, align 8
   store ptr %1, ptr %6, align 8
@@ -65452,7 +65452,7 @@ _ZN5clang7CodeGen15CodeGenFunction19OMPLocalDeclMapRAIIC2ERS1_.exit.i: ; preds =
   %.sroa.11.0.i = phi i32 [ %15, %7 ], [ 0, %2 ]
   %.sroa.8.0.i = phi i32 [ %13, %7 ], [ 0, %2 ]
   %.sroa.26.0.i = phi ptr [ %11, %7 ], [ null, %2 ]
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoE, i64 16), ptr %3, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 2, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -65567,7 +65567,7 @@ _ZN5clang7CodeGen15CodeGenFunction19OMPLocalDeclMapRAIIC2ERS1_.exit.i: ; preds =
   %.sroa.11.0.i = phi i32 [ %15, %7 ], [ 0, %2 ]
   %.sroa.8.0.i = phi i32 [ %13, %7 ], [ 0, %2 ]
   %.sroa.26.0.i = phi ptr [ %11, %7 ], [ null, %2 ]
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoE, i64 16), ptr %3, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 2, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -71672,7 +71672,7 @@ _ZNK5clang22OMPExecutableDirective24getInnermostCapturedStmtEv.exit.i: ; preds =
   call void @llvm.lifetime.start.p0(i64 6488, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5)
   call void @_ZN5clang7CodeGen15CodeGenFunctionC1ERNS0_13CodeGenModuleEb(ptr noundef nonnull align 8 dereferenceable(6488) %4, ptr noundef nonnull align 8 dereferenceable(3600) %54, i1 noundef zeroext true) #19
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoE, i64 16), ptr %5, align 8
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -71992,7 +71992,7 @@ _ZNK5clang22OMPExecutableDirective24getInnermostCapturedStmtEv.exit.i: ; preds =
   call void @llvm.lifetime.start.p0(i64 6488, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5)
   call void @_ZN5clang7CodeGen15CodeGenFunctionC1ERNS0_13CodeGenModuleEb(ptr noundef nonnull align 8 dereferenceable(6488) %4, ptr noundef nonnull align 8 dereferenceable(3600) %45, i1 noundef zeroext true) #19
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoE, i64 16), ptr %5, align 8
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 16

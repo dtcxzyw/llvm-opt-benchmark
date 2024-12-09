@@ -800,7 +800,7 @@ define hidden void @_ZN4LIEF5MachO11JsonVisitor5visitERKNS0_6BinaryE(ptr noundef
   %28 = alloca %"class.nlohmann::json_abi_v3_11_2::basic_json", align 8
   %29 = alloca %"class.nlohmann::json_abi_v3_11_2::basic_json", align 8
   call void @_ZN4LIEF11JsonVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %3, align 8
   %30 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4LIEF5MachO6Binary6headerEv(ptr noundef nonnull align 8 dereferenceable(384) %1)
           to label %31 unwind label %99
 
@@ -848,7 +848,7 @@ _ZN4LIEF7VisitorclIRKNS_5MachO6HeaderEJEEEvOT_DpOT0_.exit: ; preds = %.noexc
           to label %51 unwind label %.loopexit381
 
 51:                                               ; preds = %49
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %6, align 8
   invoke void @_ZN4LIEF7Visitor8dispatchINS_5MachO7SectionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(192) %50)
           to label %.noexc71 unwind label %101
 
@@ -971,7 +971,7 @@ _ZNSt6vectorIN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapS_NSt7__cxx1112basic
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEED2Ev.exit: ; preds = %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEEESaISD_EE12emplace_backIJSD_EEERSD_DpOT_.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %6, align 8
   %93 = load i8, ptr %44, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %48, i8 noundef zeroext %93) #21
           to label %_ZN4LIEF5MachO11JsonVisitorD2Ev.exit unwind label %94
@@ -1063,7 +1063,7 @@ _ZN4LIEF5MachO11JsonVisitorD2Ev.exit:             ; preds = %_ZN8nlohmann16json_
           to label %121 unwind label %.loopexit371
 
 121:                                              ; preds = %119
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %10, align 8
   invoke void @_ZN4LIEF7Visitor8dispatchINS_5MachO14SegmentCommandEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(216) %120)
           to label %.noexc78 unwind label %169
 
@@ -1186,7 +1186,7 @@ _ZNSt6vectorIN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapS_NSt7__cxx1112basic
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEED2Ev.exit86: ; preds = %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEEESaISD_EE12emplace_backIJSD_EEERSD_DpOT_.exit85
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %10, align 8
   %163 = load i8, ptr %114, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %118, i8 noundef zeroext %163) #21
           to label %_ZN4LIEF5MachO11JsonVisitorD2Ev.exit87 unwind label %164
@@ -1273,7 +1273,7 @@ _ZN4LIEF5MachO11JsonVisitorD2Ev.exit87:           ; preds = %_ZN8nlohmann16json_
           to label %189 unwind label %.loopexit361
 
 189:                                              ; preds = %187
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %14, align 8
   invoke void @_ZN4LIEF7Visitor8dispatchINS_5MachO6SymbolEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 8 dereferenceable(100) %188)
           to label %.noexc92 unwind label %237
 
@@ -1396,7 +1396,7 @@ _ZNSt6vectorIN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapS_NSt7__cxx1112basic
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEED2Ev.exit100: ; preds = %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEEESaISD_EE12emplace_backIJSD_EEERSD_DpOT_.exit99
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %14, align 8
   %231 = load i8, ptr %182, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %186, i8 noundef zeroext %231) #21
           to label %_ZN4LIEF5MachO11JsonVisitorD2Ev.exit101 unwind label %232
@@ -1481,7 +1481,7 @@ _ZN4LIEF5MachO11JsonVisitorD2Ev.exit101:          ; preds = %_ZN8nlohmann16json_
           to label %255 unwind label %.loopexit351
 
 255:                                              ; preds = %252
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %18, align 8
   invoke void @_ZN4LIEF7Visitor8dispatchINS_5MachO10RelocationEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull align 8 dereferenceable(56) %254)
           to label %.noexc106 unwind label %303
 
@@ -1604,7 +1604,7 @@ _ZNSt6vectorIN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapS_NSt7__cxx1112basic
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEED2Ev.exit114: ; preds = %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEEESaISD_EE12emplace_backIJSD_EEERSD_DpOT_.exit113
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %18, align 8
   %297 = load i8, ptr %247, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %251, i8 noundef zeroext %297) #21
           to label %_ZN4LIEF5MachO11JsonVisitorD2Ev.exit115 unwind label %298
@@ -1691,7 +1691,7 @@ _ZN4LIEF5MachO11JsonVisitorD2Ev.exit115:          ; preds = %_ZN8nlohmann16json_
           to label %323 unwind label %.loopexit
 
 323:                                              ; preds = %321
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %22, align 8
   invoke void @_ZN4LIEF7Visitor8dispatchINS_5MachO12DylibCommandEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(100) %322)
           to label %.noexc120 unwind label %371
 
@@ -1814,7 +1814,7 @@ _ZNSt6vectorIN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapS_NSt7__cxx1112basic
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEED2Ev.exit128: ; preds = %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEEESaISD_EE12emplace_backIJSD_EEERSD_DpOT_.exit127
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %22, align 8
   %365 = load i8, ptr %316, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %320, i8 noundef zeroext %365) #21
           to label %_ZN4LIEF5MachO11JsonVisitorD2Ev.exit129 unwind label %366
@@ -2370,7 +2370,7 @@ _ZSt8_DestroyIPN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx
   br label %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEEESaISD_EED2Ev.exit210
 
 _ZNSt6vectorIN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEEESaISD_EED2Ev.exit210: ; preds = %_ZSt8_DestroyIPN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEEESE_EvT_SG_RSaIT0_E.exit.i208, %526
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %3, align 8
   %527 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %528 = load i8, ptr %375, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %527, i8 noundef zeroext %528) #21
@@ -2478,7 +2478,7 @@ define linkonce_odr hidden void @_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3m
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4LIEF5MachO11JsonVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i8, ptr %2, align 8
@@ -2586,7 +2586,7 @@ _ZNK4LIEF5MachO6Binary7commandINS0_11UUIDCommandEEEPKT_v.exit: ; preds = %3
 
 14:                                               ; preds = %_ZNK4LIEF5MachO6Binary7commandINS0_11UUIDCommandEEEPKT_v.exit
   call void @_ZN4LIEF11JsonVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
   invoke void @_ZN4LIEF7Visitor8dispatchINS_5MachO11UUIDCommandEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(72) %13)
           to label %.noexc unwind label %34
 
@@ -2628,7 +2628,7 @@ _ZNK4LIEF11JsonVisitor3getB5cxx11Ev.exit:         ; preds = %_ZN4LIEF7VisitorclI
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEED2Ev.exit: ; preds = %20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %30 = load i8, ptr %18, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %29, i8 noundef zeroext %30) #21
@@ -2685,7 +2685,7 @@ _ZNK4LIEF5MachO6Binary7commandINS0_11MainCommandEEEPKT_v.exit: ; preds = %3
 
 14:                                               ; preds = %_ZNK4LIEF5MachO6Binary7commandINS0_11MainCommandEEEPKT_v.exit
   call void @_ZN4LIEF11JsonVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
   invoke void @_ZN4LIEF7Visitor8dispatchINS_5MachO11MainCommandEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(72) %13)
           to label %.noexc unwind label %34
 
@@ -2727,7 +2727,7 @@ _ZNK4LIEF11JsonVisitor3getB5cxx11Ev.exit:         ; preds = %_ZN4LIEF7VisitorclI
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEED2Ev.exit: ; preds = %20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %30 = load i8, ptr %18, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %29, i8 noundef zeroext %30) #21
@@ -2784,7 +2784,7 @@ _ZNK4LIEF5MachO6Binary7commandINS0_15DylinkerCommandEEEPKT_v.exit: ; preds = %3
 
 14:                                               ; preds = %_ZNK4LIEF5MachO6Binary7commandINS0_15DylinkerCommandEEEPKT_v.exit
   call void @_ZN4LIEF11JsonVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
   invoke void @_ZN4LIEF7Visitor8dispatchINS_5MachO15DylinkerCommandEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(88) %13)
           to label %.noexc unwind label %34
 
@@ -2826,7 +2826,7 @@ _ZNK4LIEF11JsonVisitor3getB5cxx11Ev.exit:         ; preds = %_ZN4LIEF7VisitorclI
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEED2Ev.exit: ; preds = %20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %30 = load i8, ptr %18, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %29, i8 noundef zeroext %30) #21
@@ -2883,7 +2883,7 @@ _ZNK4LIEF5MachO6Binary7commandINS0_8DyldInfoEEEPKT_v.exit: ; preds = %3
 
 14:                                               ; preds = %_ZNK4LIEF5MachO6Binary7commandINS0_8DyldInfoEEEPKT_v.exit
   call void @_ZN4LIEF11JsonVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
   invoke void @_ZN4LIEF7Visitor8dispatchINS_5MachO8DyldInfoEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(240) %13)
           to label %.noexc unwind label %34
 
@@ -2925,7 +2925,7 @@ _ZNK4LIEF11JsonVisitor3getB5cxx11Ev.exit:         ; preds = %_ZN4LIEF7VisitorclI
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEED2Ev.exit: ; preds = %20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %30 = load i8, ptr %18, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %29, i8 noundef zeroext %30) #21
@@ -2982,7 +2982,7 @@ _ZNK4LIEF5MachO6Binary7commandINS0_14FunctionStartsEEEPKT_v.exit: ; preds = %3
 
 14:                                               ; preds = %_ZNK4LIEF5MachO6Binary7commandINS0_14FunctionStartsEEEPKT_v.exit
   call void @_ZN4LIEF11JsonVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
   invoke void @_ZN4LIEF7Visitor8dispatchINS_5MachO14FunctionStartsEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(104) %13)
           to label %.noexc unwind label %34
 
@@ -3024,7 +3024,7 @@ _ZNK4LIEF11JsonVisitor3getB5cxx11Ev.exit:         ; preds = %_ZN4LIEF7VisitorclI
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEED2Ev.exit: ; preds = %20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %30 = load i8, ptr %18, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %29, i8 noundef zeroext %30) #21
@@ -3081,7 +3081,7 @@ _ZNK4LIEF5MachO6Binary7commandINS0_13SourceVersionEEEPKT_v.exit: ; preds = %3
 
 14:                                               ; preds = %_ZNK4LIEF5MachO6Binary7commandINS0_13SourceVersionEEEPKT_v.exit
   call void @_ZN4LIEF11JsonVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
   invoke void @_ZN4LIEF7Visitor8dispatchINS_5MachO13SourceVersionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(76) %13)
           to label %.noexc unwind label %34
 
@@ -3123,7 +3123,7 @@ _ZNK4LIEF11JsonVisitor3getB5cxx11Ev.exit:         ; preds = %_ZN4LIEF7VisitorclI
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEED2Ev.exit: ; preds = %20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %30 = load i8, ptr %18, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %29, i8 noundef zeroext %30) #21
@@ -3180,7 +3180,7 @@ _ZNK4LIEF5MachO6Binary7commandINS0_10VersionMinEEEPKT_v.exit: ; preds = %3
 
 14:                                               ; preds = %_ZNK4LIEF5MachO6Binary7commandINS0_10VersionMinEEEPKT_v.exit
   call void @_ZN4LIEF11JsonVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
   invoke void @_ZN4LIEF7Visitor8dispatchINS_5MachO10VersionMinEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(80) %13)
           to label %.noexc unwind label %34
 
@@ -3222,7 +3222,7 @@ _ZNK4LIEF11JsonVisitor3getB5cxx11Ev.exit:         ; preds = %_ZN4LIEF7VisitorclI
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEED2Ev.exit: ; preds = %20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %30 = load i8, ptr %18, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %29, i8 noundef zeroext %30) #21
@@ -3279,7 +3279,7 @@ _ZNK4LIEF5MachO6Binary7commandINS0_13ThreadCommandEEEPKT_v.exit: ; preds = %3
 
 14:                                               ; preds = %_ZNK4LIEF5MachO6Binary7commandINS0_13ThreadCommandEEEPKT_v.exit
   call void @_ZN4LIEF11JsonVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
   invoke void @_ZN4LIEF7Visitor8dispatchINS_5MachO13ThreadCommandEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(96) %13)
           to label %.noexc unwind label %34
 
@@ -3321,7 +3321,7 @@ _ZNK4LIEF11JsonVisitor3getB5cxx11Ev.exit:         ; preds = %_ZN4LIEF7VisitorclI
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEED2Ev.exit: ; preds = %20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %30 = load i8, ptr %18, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %29, i8 noundef zeroext %30) #21
@@ -3378,7 +3378,7 @@ _ZNK4LIEF5MachO6Binary7commandINS0_12RPathCommandEEEPKT_v.exit: ; preds = %3
 
 14:                                               ; preds = %_ZNK4LIEF5MachO6Binary7commandINS0_12RPathCommandEEEPKT_v.exit
   call void @_ZN4LIEF11JsonVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
   invoke void @_ZN4LIEF7Visitor8dispatchINS_5MachO12RPathCommandEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(88) %13)
           to label %.noexc unwind label %34
 
@@ -3420,7 +3420,7 @@ _ZNK4LIEF11JsonVisitor3getB5cxx11Ev.exit:         ; preds = %_ZN4LIEF7VisitorclI
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEED2Ev.exit: ; preds = %20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %30 = load i8, ptr %18, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %29, i8 noundef zeroext %30) #21
@@ -3477,7 +3477,7 @@ _ZNK4LIEF5MachO6Binary7commandINS0_13SymbolCommandEEEPKT_v.exit: ; preds = %3
 
 14:                                               ; preds = %_ZNK4LIEF5MachO6Binary7commandINS0_13SymbolCommandEEEPKT_v.exit
   call void @_ZN4LIEF11JsonVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
   invoke void @_ZN4LIEF7Visitor8dispatchINS_5MachO13SymbolCommandEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(112) %13)
           to label %.noexc unwind label %34
 
@@ -3519,7 +3519,7 @@ _ZNK4LIEF11JsonVisitor3getB5cxx11Ev.exit:         ; preds = %_ZN4LIEF7VisitorclI
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEED2Ev.exit: ; preds = %20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %30 = load i8, ptr %18, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %29, i8 noundef zeroext %30) #21
@@ -3576,7 +3576,7 @@ _ZNK4LIEF5MachO6Binary7commandINS0_20DynamicSymbolCommandEEEPKT_v.exit: ; preds 
 
 14:                                               ; preds = %_ZNK4LIEF5MachO6Binary7commandINS0_20DynamicSymbolCommandEEEPKT_v.exit
   call void @_ZN4LIEF11JsonVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
   invoke void @_ZN4LIEF7Visitor8dispatchINS_5MachO20DynamicSymbolCommandEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(152) %13)
           to label %.noexc unwind label %34
 
@@ -3618,7 +3618,7 @@ _ZNK4LIEF11JsonVisitor3getB5cxx11Ev.exit:         ; preds = %_ZN4LIEF7VisitorclI
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEED2Ev.exit: ; preds = %20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %30 = load i8, ptr %18, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %29, i8 noundef zeroext %30) #21
@@ -3675,7 +3675,7 @@ _ZNK4LIEF5MachO6Binary7commandINS0_13CodeSignatureEEEPKT_v.exit: ; preds = %3
 
 14:                                               ; preds = %_ZNK4LIEF5MachO6Binary7commandINS0_13CodeSignatureEEEPKT_v.exit
   call void @_ZN4LIEF11JsonVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
   invoke void @_ZN4LIEF7Visitor8dispatchINS_5MachO13CodeSignatureEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(80) %13)
           to label %.noexc unwind label %34
 
@@ -3717,7 +3717,7 @@ _ZNK4LIEF11JsonVisitor3getB5cxx11Ev.exit:         ; preds = %_ZN4LIEF7VisitorclI
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEED2Ev.exit: ; preds = %20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %30 = load i8, ptr %18, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %29, i8 noundef zeroext %30) #21
@@ -3774,7 +3774,7 @@ _ZNK4LIEF5MachO6Binary7commandINS0_10DataInCodeEEEPKT_v.exit: ; preds = %3
 
 14:                                               ; preds = %_ZNK4LIEF5MachO6Binary7commandINS0_10DataInCodeEEEPKT_v.exit
   call void @_ZN4LIEF11JsonVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
   invoke void @_ZN4LIEF7Visitor8dispatchINS_5MachO10DataInCodeEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(104) %13)
           to label %.noexc unwind label %34
 
@@ -3816,7 +3816,7 @@ _ZNK4LIEF11JsonVisitor3getB5cxx11Ev.exit:         ; preds = %_ZN4LIEF7VisitorclI
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEED2Ev.exit: ; preds = %20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %30 = load i8, ptr %18, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %29, i8 noundef zeroext %30) #21
@@ -3873,7 +3873,7 @@ _ZNK4LIEF5MachO6Binary7commandINS0_14EncryptionInfoEEEPKT_v.exit: ; preds = %3
 
 14:                                               ; preds = %_ZNK4LIEF5MachO6Binary7commandINS0_14EncryptionInfoEEEPKT_v.exit
   call void @_ZN4LIEF11JsonVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
   invoke void @_ZN4LIEF7Visitor8dispatchINS_5MachO14EncryptionInfoEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(68) %13)
           to label %.noexc unwind label %34
 
@@ -3915,7 +3915,7 @@ _ZNK4LIEF11JsonVisitor3getB5cxx11Ev.exit:         ; preds = %_ZN4LIEF7VisitorclI
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEED2Ev.exit: ; preds = %20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %30 = load i8, ptr %18, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %29, i8 noundef zeroext %30) #21
@@ -3972,7 +3972,7 @@ _ZNK4LIEF5MachO6Binary7commandINS0_12BuildVersionEEEPKT_v.exit: ; preds = %3
 
 14:                                               ; preds = %_ZNK4LIEF5MachO6Binary7commandINS0_12BuildVersionEEEPKT_v.exit
   call void @_ZN4LIEF11JsonVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %4, align 8
   invoke void @_ZN4LIEF7Visitor8dispatchINS_5MachO12BuildVersionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(112) %13)
           to label %.noexc unwind label %34
 
@@ -4014,7 +4014,7 @@ _ZNK4LIEF11JsonVisitor3getB5cxx11Ev.exit:         ; preds = %_ZN4LIEF7VisitorclI
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEED2Ev.exit: ; preds = %20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %30 = load i8, ptr %18, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %29, i8 noundef zeroext %30) #21
@@ -7968,7 +7968,7 @@ _ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 
 124:                                              ; preds = %_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEED2Ev.exit36
   call void @_ZN4LIEF11JsonVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %12, align 8
   %125 = invoke noundef ptr @_ZNK4LIEF5MachO6Symbol11export_infoEv(ptr noundef nonnull align 8 dereferenceable(100) %1)
           to label %126 unwind label %162
 
@@ -8014,7 +8014,7 @@ _ZNK4LIEF11JsonVisitor3getB5cxx11Ev.exit:         ; preds = %_ZN4LIEF7VisitorclI
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEED2Ev.exit40: ; preds = %132
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %12, align 8
   %141 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %142 = load i8, ptr %130, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %141, i8 noundef zeroext %142) #21
@@ -8101,7 +8101,7 @@ _ZN4LIEF5MachO11JsonVisitorD2Ev.exit:             ; preds = %_ZN8nlohmann16json_
 
 169:                                              ; preds = %167
   call void @_ZN4LIEF11JsonVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %14)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %14, align 8
   %170 = invoke noundef ptr @_ZNK4LIEF5MachO6Symbol12binding_infoEv(ptr noundef nonnull align 8 dereferenceable(100) %1)
           to label %171 unwind label %191
 
@@ -8147,7 +8147,7 @@ _ZNK4LIEF11JsonVisitor3getB5cxx11Ev.exit44:       ; preds = %_ZN4LIEF7VisitorclI
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEED2Ev.exit46: ; preds = %177
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %14, align 8
   %186 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %187 = load i8, ptr %175, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %186, i8 noundef zeroext %187) #21
@@ -9738,7 +9738,7 @@ define hidden void @_ZN4LIEF5MachO11JsonVisitor5visitERKNS0_10DataInCodeE(ptr no
           to label %28 unwind label %.loopexit
 
 28:                                               ; preds = %27
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %5, align 8
   invoke void @_ZN4LIEF7Visitor8dispatchINS_5MachO13DataCodeEntryEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.231.039)
           to label %.noexc unwind label %76
 
@@ -9861,7 +9861,7 @@ _ZNSt6vectorIN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapS_NSt7__cxx1112basic
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEED2Ev.exit: ; preds = %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEEESaISD_EE12emplace_backIJSD_EEERSD_DpOT_.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %5, align 8
   %70 = load i8, ptr %22, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %26, i8 noundef zeroext %70) #21
           to label %_ZN4LIEF5MachO11JsonVisitorD2Ev.exit unwind label %71
@@ -11110,7 +11110,7 @@ _ZNSt10unique_ptrISt6vectorIN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapS0_NS
           to label %102 unwind label %149
 
 102:                                              ; preds = %101
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO11JsonVisitorE, i64 16), ptr %12, align 8
   invoke void @_ZN4LIEF7Visitor8dispatchINS_5MachO16BuildToolVersionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.049.055)
           to label %.noexc37 unwind label %151
 
@@ -11233,7 +11233,7 @@ _ZNSt6vectorIN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapS_NSt7__cxx1112basic
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEED2Ev.exit41: ; preds = %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEEESaISD_EE12emplace_backIJSD_EEERSD_DpOT_.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %12, align 8
   %144 = load i8, ptr %79, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %83, i8 noundef zeroext %144) #21
           to label %_ZN4LIEF5MachO11JsonVisitorD2Ev.exit unwind label %145
@@ -12009,7 +12009,7 @@ declare noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4LIEF5MachO11JsonVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i8, ptr %2, align 8
@@ -13225,7 +13225,7 @@ declare void @_ZN4LIEF7VisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4LIEF11JsonVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i8, ptr %2, align 8
@@ -13246,7 +13246,7 @@ _ZN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4LIEF11JsonVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF11JsonVisitorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i8, ptr %2, align 8
@@ -14914,7 +14914,7 @@ define linkonce_odr hidden void @_ZN8nlohmann16json_abi_v3_11_26detail10type_err
           to label %.noexc14 unwind label %38
 
 .noexc14:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.229, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.229, i64 10))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.229, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.229, i64 10))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %15
 
 15:                                               ; preds = %.noexc14
@@ -15002,7 +15002,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #23
   %33 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_26detail9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_26detail9exceptionE, i64 16), ptr %0, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15017,7 +15017,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %42
 
 37:                                               ; preds = %32
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_26detail10type_errorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_26detail10type_errorE, i64 16), ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #23
   ret void
 
@@ -15097,7 +15097,7 @@ switch.lookup:                                    ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8nlohmann16json_abi_v3_11_26detail10type_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_26detail9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_26detail9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #23
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
@@ -15782,7 +15782,7 @@ declare void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8nlohmann16json_abi_v3_11_26detail9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_26detail9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_26detail9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #23
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
@@ -15791,7 +15791,7 @@ define linkonce_odr hidden void @_ZN8nlohmann16json_abi_v3_11_26detail9exception
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8nlohmann16json_abi_v3_11_26detail9exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_26detail9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_26detail9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #23
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
@@ -15804,7 +15804,7 @@ declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8nlohmann16json_abi_v3_11_26detail10type_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_26detail9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann16json_abi_v3_11_26detail9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #23
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23

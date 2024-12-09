@@ -33170,7 +33170,7 @@ _ZN4core3ops8function6FnOnce9call_once17hcbb4402f44874489E.exit.i.i: ; preds = %
   br label %"_ZN4core3ptr108drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$bytes..bytes..Bytes$GT$$GT$17h1677961a2cb401fdE.exit.i"
 
 1067:                                             ; preds = %.noexc39.i, %1060
-  %.sroa.0.0.i.i.i2.i.i = phi ptr [ %1062, %.noexc39.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1060 ]
+  %.sroa.0.0.i.i.i2.i.i = phi ptr [ %1062, %.noexc39.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1060 ]
   %1068 = load i64, ptr %.sroa.0.0.i.i.i2.i.i, align 8, !noalias !5152, !noundef !4
   %1069 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i.i, i64 8
   %1070 = load i64, ptr %1069, align 8, !noalias !5152, !noundef !4

@@ -1257,16 +1257,16 @@ sw.bb172:                                         ; preds = %if.end119
   br i1 %tobool175.not, label %opthelp, label %sw.epilog485
 
 sw.bb178:                                         ; preds = %if.end119
-  store i32 1, ptr getelementptr inbounds (i8, ptr @verify_args, i64 12), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @verify_args, i64 12), align 4
   br label %sw.epilog485
 
 sw.bb179:                                         ; preds = %if.end119
-  store i32 1, ptr getelementptr inbounds (i8, ptr @verify_args, i64 4), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @verify_args, i64 4), align 4
   br label %sw.epilog485
 
 sw.bb180:                                         ; preds = %if.end119
   store i1 true, ptr @c_quiet, align 4
-  store i32 1, ptr getelementptr inbounds (i8, ptr @verify_args, i64 4), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @verify_args, i64 4), align 4
   br label %sw.epilog485
 
 sw.bb182:                                         ; preds = %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119, %if.end119
@@ -2228,11 +2228,11 @@ if.then616:                                       ; preds = %if.end610
   br label %if.end2506
 
 if.end618:                                        ; preds = %if.end610
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @next_proto, i64 16), align 8
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @next_proto, i64 16), align 8
   br i1 %cmp529, label %if.then620, label %if.else627
 
 if.then620:                                       ; preds = %if.end618
-  %call621 = call ptr @next_protos_parse(ptr noundef nonnull getelementptr inbounds (i8, ptr @next_proto, i64 8), ptr noundef nonnull %next_proto_neg_in.0.lcssa) #16
+  %call621 = call ptr @next_protos_parse(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @next_proto, i64 8), ptr noundef nonnull %next_proto_neg_in.0.lcssa) #16
   store ptr %call621, ptr @next_proto, align 8
   %cmp622 = icmp eq ptr %call621, null
   br i1 %cmp622, label %if.then624, label %if.end628
@@ -6385,13 +6385,13 @@ cond.true166:                                     ; preds = %cond.end162
 cond.end169:                                      ; preds = %cond.end162, %cond.true166
   %cond170 = phi ptr [ %call167, %cond.true166 ], [ @.str.600, %cond.end162 ]
   %call171 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.601, ptr noundef %cond170) #16
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @next_proto, i64 16), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @next_proto, i64 16), align 8
   %cmp172.not = icmp eq i32 %0, -1
   br i1 %cmp172.not, label %if.end178, label %if.then174
 
 if.then174:                                       ; preds = %cond.end169
   call void @SSL_get0_next_proto_negotiated(ptr noundef nonnull %s, ptr noundef nonnull %proto, ptr noundef nonnull %proto_len) #16
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @next_proto, i64 16), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @next_proto, i64 16), align 8
   %call175 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.602, i32 noundef %1) #16
   %2 = load ptr, ptr %proto, align 8
   %3 = load i32, ptr %proto_len, align 4

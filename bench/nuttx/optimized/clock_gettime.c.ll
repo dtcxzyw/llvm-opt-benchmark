@@ -38,7 +38,7 @@ define range(i32 -1, -2147483648) i32 @clock_gettime(i32 noundef %0, ptr noundef
   %15 = load i64, ptr %4, align 8
   %16 = add i64 %15, %14
   store i64 %16, ptr %4, align 8
-  %17 = load i64, ptr getelementptr inbounds (i8, ptr @g_basetime, i64 8), align 8
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @g_basetime, i64 8), align 8
   %18 = and i64 %17, 4294967295
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %20 = load i64, ptr %19, align 8

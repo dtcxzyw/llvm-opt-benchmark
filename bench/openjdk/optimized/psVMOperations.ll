@@ -65,7 +65,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 define hidden void @_ZN31VM_ParallelCollectForAllocationC2Embj(ptr noundef nonnull align 8 dereferenceable(57) %0, i64 noundef %1, i1 noundef zeroext %2, i32 noundef %3) unnamed_addr #0 align 2 {
   %5 = zext i1 %2 to i8
   tail call void @_ZN23VM_CollectForAllocationC2EmjN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i32 noundef %3, i32 noundef 13) #4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV31VM_ParallelCollectForAllocation, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV31VM_ParallelCollectForAllocation, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %5, ptr %6, align 8
   ret void
@@ -134,7 +134,7 @@ define hidden void @_ZN20VM_ParallelGCCollectC2EjjN7GCCause5CauseE(ptr nocapture
   store i8 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %2, ptr %15, align 4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV20VM_ParallelGCCollect, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV20VM_ParallelGCCollect, i64 16), ptr %0, align 8
   ret void
 }
 

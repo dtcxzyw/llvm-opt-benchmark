@@ -162,7 +162,7 @@ define internal void @_GLOBAL__sub_I_tinyxml_interface_meta.cpp() #7 section ".t
           to label %.noexc1.i unwind label %6
 
 .noexc1.i:                                        ; preds = %.noexc.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN6casadi16TinyXmlInterface8meta_docB5cxx11E, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 209))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN6casadi16TinyXmlInterface8meta_docB5cxx11E, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 209))
           to label %__cxx_global_var_init.1.exit unwind label %4
 
 4:                                                ; preds = %.noexc1.i

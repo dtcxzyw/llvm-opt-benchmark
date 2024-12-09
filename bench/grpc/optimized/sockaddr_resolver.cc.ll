@@ -204,7 +204,7 @@ entry:
   %agg.tmp17 = alloca %"class.std::unique_ptr", align 8
   %resolver_registry_.i = getelementptr inbounds nuw i8, ptr %builder, i64 680
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16, !noalias !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_119IPv4ResolverFactoryE, i64 16), ptr %call.i, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_119IPv4ResolverFactoryE, i64 16), ptr %call.i, align 8, !noalias !4
   store ptr %call.i, ptr %agg.tmp, align 8
   invoke void @_ZN9grpc_core16ResolverRegistry7Builder23RegisterResolverFactoryESt10unique_ptrINS_15ResolverFactoryESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(80) %resolver_registry_.i, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
@@ -224,7 +224,7 @@ _ZNKSt14default_deleteIN9grpc_core15ResolverFactoryEEclEPS1_.exit.i: ; preds = %
 _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_119IPv4ResolverFactoryESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN9grpc_core15ResolverFactoryEEclEPS1_.exit.i, %invoke.cont
   store ptr null, ptr %agg.tmp, align 8
   %call.i10 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16, !noalias !7
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_119IPv6ResolverFactoryE, i64 16), ptr %call.i10, align 8, !noalias !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_119IPv6ResolverFactoryE, i64 16), ptr %call.i10, align 8, !noalias !7
   store ptr %call.i10, ptr %agg.tmp2, align 8
   invoke void @_ZN9grpc_core16ResolverRegistry7Builder23RegisterResolverFactoryESt10unique_ptrINS_15ResolverFactoryESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(80) %resolver_registry_.i, ptr noundef nonnull %agg.tmp2)
           to label %invoke.cont5 unwind label %lpad4
@@ -244,7 +244,7 @@ _ZNKSt14default_deleteIN9grpc_core15ResolverFactoryEEclEPS1_.exit.i12: ; preds =
 _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_119IPv6ResolverFactoryESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN9grpc_core15ResolverFactoryEEclEPS1_.exit.i12, %invoke.cont5
   store ptr null, ptr %agg.tmp2, align 8
   %call.i20 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16, !noalias !10
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_119UnixResolverFactoryE, i64 16), ptr %call.i20, align 8, !noalias !10
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_119UnixResolverFactoryE, i64 16), ptr %call.i20, align 8, !noalias !10
   store ptr %call.i20, ptr %agg.tmp7, align 8
   invoke void @_ZN9grpc_core16ResolverRegistry7Builder23RegisterResolverFactoryESt10unique_ptrINS_15ResolverFactoryESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(80) %resolver_registry_.i, ptr noundef nonnull %agg.tmp7)
           to label %invoke.cont10 unwind label %lpad9
@@ -264,7 +264,7 @@ _ZNKSt14default_deleteIN9grpc_core15ResolverFactoryEEclEPS1_.exit.i22: ; preds =
 _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_119UnixResolverFactoryESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN9grpc_core15ResolverFactoryEEclEPS1_.exit.i22, %invoke.cont10
   store ptr null, ptr %agg.tmp7, align 8
   %call.i30 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16, !noalias !13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_127UnixAbstractResolverFactoryE, i64 16), ptr %call.i30, align 8, !noalias !13
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_127UnixAbstractResolverFactoryE, i64 16), ptr %call.i30, align 8, !noalias !13
   store ptr %call.i30, ptr %agg.tmp12, align 8
   invoke void @_ZN9grpc_core16ResolverRegistry7Builder23RegisterResolverFactoryESt10unique_ptrINS_15ResolverFactoryESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(80) %resolver_registry_.i, ptr noundef nonnull %agg.tmp12)
           to label %invoke.cont15 unwind label %lpad14
@@ -284,7 +284,7 @@ _ZNKSt14default_deleteIN9grpc_core15ResolverFactoryEEclEPS1_.exit.i32: ; preds =
 _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_127UnixAbstractResolverFactoryESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN9grpc_core15ResolverFactoryEEclEPS1_.exit.i32, %invoke.cont15
   store ptr null, ptr %agg.tmp12, align 8
   %call.i40 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16, !noalias !16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_120VSockResolverFactoryE, i64 16), ptr %call.i40, align 8, !noalias !16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_120VSockResolverFactoryE, i64 16), ptr %call.i40, align 8, !noalias !16
   store ptr %call.i40, ptr %agg.tmp17, align 8
   invoke void @_ZN9grpc_core16ResolverRegistry7Builder23RegisterResolverFactoryESt10unique_ptrINS_15ResolverFactoryESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(80) %resolver_registry_.i, ptr noundef nonnull %agg.tmp17)
           to label %invoke.cont20 unwind label %lpad19
@@ -1459,7 +1459,7 @@ lpad.i:                                           ; preds = %call.i.noexc
   br label %lpad.body
 
 _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_116SockaddrResolverENS0_16OrphanableDeleteEED2Ev.exit: ; preds = %call.i.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_116SockaddrResolverE, i64 16), ptr %call.i1, align 8, !noalias !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_116SockaddrResolverE, i64 16), ptr %call.i1, align 8, !noalias !43
   %result_handler_.i.i = getelementptr inbounds nuw i8, ptr %call.i1, i64 16
   %9 = load i64, ptr %result_handler.i.i, align 8, !noalias !43
   store i64 %9, ptr %result_handler_.i.i, align 8, !noalias !43
@@ -1691,7 +1691,7 @@ _ZN9grpc_core20InternallyRefCountedINS_8ResolverENS_11UnrefDeleteEE5UnrefEv.exit
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_116SockaddrResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_116SockaddrResolverE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_116SockaddrResolverE, i64 16), ptr %this, align 8
   %channel_args_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %channel_args_) #17
   %addresses_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1752,7 +1752,7 @@ _ZNSt10unique_ptrIN9grpc_core8Resolver13ResultHandlerESt14default_deleteIS2_EED2
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_116SockaddrResolverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_116SockaddrResolverE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_116SockaddrResolverE, i64 16), ptr %this, align 8
   %channel_args_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %channel_args_.i) #17
   %addresses_.i = getelementptr inbounds nuw i8, ptr %this, i64 24

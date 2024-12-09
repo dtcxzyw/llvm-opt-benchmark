@@ -512,11 +512,11 @@ define void @_Z13InitConstantsv() local_unnamed_addr #5 {
 
 62:                                               ; preds = %61
   store i32 -1, ptr @groupData, align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @groupData, i64 116), align 4
-  store i32 2, ptr getelementptr inbounds (i8, ptr @groupData, i64 120), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @groupData, i64 148), align 4
-  store i32 1, ptr getelementptr inbounds (i8, ptr @groupData, i64 176), align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @groupData, i64 204), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @groupData, i64 116), align 4
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @groupData, i64 120), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @groupData, i64 148), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @groupData, i64 176), align 16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @groupData, i64 204), align 4
   br label %63
 
 63:                                               ; preds = %62, %108

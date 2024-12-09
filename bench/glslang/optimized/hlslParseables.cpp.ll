@@ -461,7 +461,7 @@ $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7glslang22TBuiltInParseablesHlslC2Ev(ptr noundef nonnull align 8 dereferenceable(608) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN7glslang18TBuiltInParseablesC2Ev(ptr noundef nonnull align 8 dereferenceable(608) %0) #12
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN7glslang22TBuiltInParseablesHlslE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN7glslang22TBuiltInParseablesHlslE, i64 16), ptr %0, align 8
   ret void
 }
 

@@ -46,7 +46,7 @@ define internal void @ompi_message_constructor(ptr nocapture noundef writeonly i
 ; Function Attrs: nounwind uwtable
 define i32 @ompi_message_init() local_unnamed_addr #1 {
   %1 = load i32, ptr @opal_class_init_epoch, align 4
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 32), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_free_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %1, %2
   br i1 %.not, label %4, label %3
 
@@ -56,7 +56,7 @@ define i32 @ompi_message_init() local_unnamed_addr #1 {
 
 4:                                                ; preds = %3, %0
   store ptr @opal_free_list_t_class, ptr @ompi_message_free_list, align 16
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_message_free_list, i64 8), align 8
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @ompi_message_free_list, i64 8), align 8
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_free_list_t_class, i64 40), align 8
   %6 = load ptr, ptr %5, align 8
   %.not6.i = icmp eq ptr %6, null
@@ -74,7 +74,7 @@ define i32 @ompi_message_init() local_unnamed_addr #1 {
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
   %10 = tail call i32 @opal_free_list_init(ptr noundef nonnull @ompi_message_free_list, i64 noundef 96, i64 noundef 8, ptr noundef nonnull @ompi_message_t_class, i64 noundef 0, i64 noundef 0, i32 noundef 8, i32 noundef -1, i32 noundef 8, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #4
   %11 = load i32, ptr @opal_class_init_epoch, align 4
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @opal_pointer_array_t_class, i64 32), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_pointer_array_t_class, i64 32), align 8
   %.not2 = icmp eq i32 %11, %12
   br i1 %.not2, label %14, label %13
 
@@ -84,7 +84,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
 
 14:                                               ; preds = %13, %opal_obj_run_constructors.exit
   store ptr @opal_pointer_array_t_class, ptr @ompi_message_f_to_c_table, align 8
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_message_f_to_c_table, i64 8), align 8
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @ompi_message_f_to_c_table, i64 8), align 8
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_pointer_array_t_class, i64 40), align 8
   %16 = load ptr, ptr %15, align 8
   %.not6.i5 = icmp eq ptr %16, null
@@ -100,12 +100,12 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
   br i1 %.not.i8, label %opal_obj_run_constructors.exit9, label %.lr.ph.i6, !llvm.loop !4
 
 opal_obj_run_constructors.exit9:                  ; preds = %.lr.ph.i6, %14
-  store ptr null, ptr getelementptr inbounds (i8, ptr @ompi_message_null, i64 72), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @ompi_message_null, i64 88), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @ompi_message_null, i64 72), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @ompi_message_null, i64 88), align 8
   %20 = tail call i32 @opal_pointer_array_add(ptr noundef nonnull @ompi_message_f_to_c_table, ptr noundef nonnull @ompi_message_null) #4
-  store i32 %20, ptr getelementptr inbounds (i8, ptr @ompi_message_null, i64 56), align 8
+  store i32 %20, ptr getelementptr inbounds nuw (i8, ptr @ompi_message_null, i64 56), align 8
   %21 = load i32, ptr @opal_class_init_epoch, align 4
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_message_t_class, i64 32), align 8
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_message_t_class, i64 32), align 8
   %.not3 = icmp eq i32 %21, %22
   br i1 %.not3, label %24, label %23
 
@@ -115,7 +115,7 @@ opal_obj_run_constructors.exit9:                  ; preds = %.lr.ph.i6, %14
 
 24:                                               ; preds = %23, %opal_obj_run_constructors.exit9
   store ptr @ompi_message_t_class, ptr @ompi_message_no_proc, align 8
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_message_no_proc, i64 8), align 8
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @ompi_message_no_proc, i64 8), align 8
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_message_t_class, i64 40), align 8
   %26 = load ptr, ptr %25, align 8
   %.not6.i10 = icmp eq ptr %26, null
@@ -132,7 +132,7 @@ opal_obj_run_constructors.exit9:                  ; preds = %.lr.ph.i6, %14
 
 opal_obj_run_constructors.exit14:                 ; preds = %.lr.ph.i11, %24
   %30 = tail call i32 @opal_pointer_array_add(ptr noundef nonnull @ompi_message_f_to_c_table, ptr noundef nonnull @ompi_message_no_proc) #4
-  store i32 %30, ptr getelementptr inbounds (i8, ptr @ompi_message_no_proc, i64 56), align 8
+  store i32 %30, ptr getelementptr inbounds nuw (i8, ptr @ompi_message_no_proc, i64 56), align 8
   %.not4 = icmp eq i32 %30, 1
   br i1 %.not4, label %31, label %32
 

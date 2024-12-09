@@ -950,7 +950,7 @@ if.end13:                                         ; preds = %if.end26.i
   store ptr %call.i67, ptr %p8inf.i, align 8
   %cmp.i.i = icmp ne ptr %call.i67, null
   %87 = load ptr, ptr %derp.i, align 8
-  %cmp.i = icmp eq ptr %87, getelementptr inbounds (i8, ptr @_ZL19kExampleBadECKeyDER, i64 104)
+  %cmp.i = icmp eq ptr %87, getelementptr inbounds nuw (i8, ptr @_ZL19kExampleBadECKeyDER, i64 104)
   %or.cond.not.i = select i1 %cmp.i.i, i1 %cmp.i, i1 false
   br i1 %or.cond.not.i, label %if.end.i68, label %cleanup13.i
 
@@ -1151,7 +1151,7 @@ if.end21:                                         ; preds = %_ZL28TestEVPMarshal
   store ptr %call.i100, ptr %pkey.i99, align 8
   %cmp.i.i101 = icmp ne ptr %call.i100, null
   %116 = load ptr, ptr %derp.i98, align 8
-  %cmp.i102 = icmp eq ptr %116, getelementptr inbounds (i8, ptr @_ZL17kExampleRSAKeyDER, i64 608)
+  %cmp.i102 = icmp eq ptr %116, getelementptr inbounds nuw (i8, ptr @_ZL17kExampleRSAKeyDER, i64 608)
   %or.cond.not.i103 = select i1 %cmp.i.i101, i1 %cmp.i102, i1 false
   br i1 %or.cond.not.i103, label %if.end.i109, label %if.then.i104
 
@@ -1185,7 +1185,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
 _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEE5resetEPS0_.exit.i: ; preds = %if.then.i.i.i
   %cmp.i9.i = icmp ne ptr %call4.i110, null
   %122 = load ptr, ptr %derp.i98, align 8
-  %cmp7.i = icmp eq ptr %122, getelementptr inbounds (i8, ptr @_ZL17kExampleDSAKeyDER, i64 858)
+  %cmp7.i = icmp eq ptr %122, getelementptr inbounds nuw (i8, ptr @_ZL17kExampleDSAKeyDER, i64 858)
   %or.cond3.not.i = select i1 %cmp.i9.i, i1 %cmp7.i, i1 false
   br i1 %or.cond3.not.i, label %if.end11.i115, label %if.then8.i114
 
@@ -1214,7 +1214,7 @@ terminate.lpad.i.i12.i:                           ; preds = %if.then.i.i11.i
 _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEE5resetEPS0_.exit13.i: ; preds = %if.then.i.i11.i
   %cmp.i14.i = icmp ne ptr %call13.i116, null
   %127 = load ptr, ptr %derp.i98, align 8
-  %cmp16.i = icmp eq ptr %127, getelementptr inbounds (i8, ptr @_ZL19kExampleRSAKeyPKCS8, i64 634)
+  %cmp16.i = icmp eq ptr %127, getelementptr inbounds nuw (i8, ptr @_ZL19kExampleRSAKeyPKCS8, i64 634)
   %or.cond5.not.i = select i1 %cmp.i14.i, i1 %cmp16.i, i1 false
   br i1 %or.cond5.not.i, label %if.end20.i, label %if.then17.i
 
@@ -1243,7 +1243,7 @@ terminate.lpad.i.i17.i:                           ; preds = %if.then.i.i16.i
 _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEE5resetEPS0_.exit18.i: ; preds = %if.then.i.i16.i
   %cmp.i19.i = icmp ne ptr %call22.i117, null
   %132 = load ptr, ptr %derp.i98, align 8
-  %cmp25.i = icmp eq ptr %132, getelementptr inbounds (i8, ptr @_ZL16kExampleECKeyDER, i64 121)
+  %cmp25.i = icmp eq ptr %132, getelementptr inbounds nuw (i8, ptr @_ZL16kExampleECKeyDER, i64 121)
   %or.cond7.not.i = select i1 %cmp.i19.i, i1 %cmp25.i, i1 false
   br i1 %or.cond7.not.i, label %if.end29.i, label %if.then26.i
 

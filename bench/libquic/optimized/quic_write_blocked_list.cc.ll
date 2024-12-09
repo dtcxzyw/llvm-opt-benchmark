@@ -127,7 +127,7 @@ $_ZTIN3net22PriorityWriteSchedulerIjEE = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net20QuicWriteBlockedListC2Ev(ptr noundef nonnull align 8 dereferenceable(843) initializes((0, 16)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net22PriorityWriteSchedulerIjEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net22PriorityWriteSchedulerIjEE, i64 16), ptr %this, align 8
   %num_ready_streams_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %num_ready_streams_.i, align 8
   br label %arrayctor.loop.i
@@ -191,7 +191,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net22PriorityWriteSchedulerIjED2Ev(ptr noundef nonnull align 8 dereferenceable(776) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net22PriorityWriteSchedulerIjEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net22PriorityWriteSchedulerIjEE, i64 16), ptr %this, align 8
   %stream_infos_ = getelementptr inbounds nuw i8, ptr %this, i64 720
   %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 736
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8

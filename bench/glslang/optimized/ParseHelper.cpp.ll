@@ -2109,7 +2109,7 @@ $_ZTVN7glslang16TIntermTraverserE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7glslang13TParseContextC2ERNS_12TSymbolTableERNS_13TIntermediateEbi8EProfileRKNS_10SpvVersionE11EShLanguageR9TInfoSinkb11EShMessagesPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(2024) %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(17) %6, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(96) %8, i1 noundef zeroext %9, i32 noundef %10, ptr noundef %11) unnamed_addr #0 align 2 {
   tail call void @_ZN7glslang17TParseContextBaseC2ERNS_12TSymbolTableERNS_13TIntermediateEbi8EProfileRKNS_10SpvVersionE11EShLanguageR9TInfoSinkb11EShMessagesPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(2024) %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(17) %6, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(96) %8, i1 noundef zeroext %9, i32 noundef %10, ptr noundef %11)
-  store ptr getelementptr inbounds inrange(-16, 632) (i8, ptr @_ZTVN7glslang13TParseContextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 632) (i8, ptr @_ZTVN7glslang13TParseContextE, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1288
@@ -2118,7 +2118,7 @@ define void @_ZN7glslang13TParseContextC2ERNS_12TSymbolTableERNS_13TIntermediate
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1880
   store ptr %16, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 29552
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang17TPrecisionManagerE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7glslang17TPrecisionManagerE, i64 16), ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 29560
   store i32 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 29968
@@ -2533,7 +2533,7 @@ _ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
 define linkonce_odr void @_ZN7glslang17TParseContextBaseC2ERNS_12TSymbolTableERNS_13TIntermediateEbi8EProfileRKNS_10SpvVersionE11EShLanguageR9TInfoSinkb11EShMessagesPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(2024) %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(17) %6, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(96) %8, i1 noundef zeroext %9, i32 noundef %10, ptr noundef %11) unnamed_addr #0 comdat align 2 {
   %13 = zext i1 %3 to i8
   %14 = zext i1 %9 to i8
-  store ptr getelementptr inbounds inrange(-16, 376) (i8, ptr @_ZTVN7glslang14TParseVersionsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 376) (i8, ptr @_ZTVN7glslang14TParseVersionsE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %14, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2585,7 +2585,7 @@ define linkonce_odr void @_ZN7glslang17TParseContextBaseC2ERNS_12TSymbolTableERN
   store i32 0, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr null, ptr %41, align 8
-  store ptr getelementptr inbounds inrange(-16, 632) (i8, ptr @_ZTVN7glslang17TParseContextBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 632) (i8, ptr @_ZTVN7glslang17TParseContextBaseE, i64 16), ptr %0, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr @.str.993, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -2866,7 +2866,7 @@ define void @_ZN7glslang13TParseContext20setPrecisionDefaultsEv(ptr nocapture no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7glslang13TParseContextD2Ev(ptr noundef nonnull align 8 dereferenceable(30232) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 632) (i8, ptr @_ZTVN7glslang13TParseContextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 632) (i8, ptr @_ZTVN7glslang13TParseContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 30008
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2917,7 +2917,7 @@ define linkonce_odr void @_ZN7glslang17TPrecisionManagerD2Ev(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7glslang17TParseContextBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(1280) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 632) (i8, ptr @_ZTVN7glslang17TParseContextBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 632) (i8, ptr @_ZTVN7glslang17TParseContextBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %4 = load ptr, ptr %3, align 8
@@ -2999,7 +2999,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %42 = load ptr, ptr %41, align 8
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_S7_ESt10_Select1stISA_ESt4lessIS7_ENS5_ISA_EEE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(56) %40, ptr noundef %42)
-  store ptr getelementptr inbounds inrange(-16, 376) (i8, ptr @_ZTVN7glslang14TParseVersionsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 376) (i8, ptr @_ZTVN7glslang14TParseVersionsE, i64 16), ptr %0, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %45 = load ptr, ptr %44, align 8
@@ -5532,9 +5532,9 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
   %201 = getelementptr inbounds nuw i8, ptr %198, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %200, i8 0, i64 16, i1 false)
   store i8 1, ptr %201, align 8
-  store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTVN7glslang9TVariableE, i64 16), ptr %198, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTVN7glslang9TVariableE, i64 16), ptr %198, align 8
   %202 = getelementptr inbounds nuw i8, ptr %198, i64 40
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %202, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %202, align 8
   %203 = getelementptr inbounds nuw i8, ptr %198, i64 48
   %204 = load i32, ptr %203, align 8
   %205 = and i32 %204, -134217728
@@ -5558,7 +5558,7 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
   %223 = getelementptr inbounds nuw i8, ptr %198, i64 192
   store i8 0, ptr %223, align 8
   %224 = getelementptr inbounds nuw i8, ptr %198, i64 200
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang16TConstUnionArrayE, i64 16), ptr %224, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7glslang16TConstUnionArrayE, i64 16), ptr %224, align 8
   %225 = getelementptr inbounds nuw i8, ptr %198, i64 208
   %226 = getelementptr inbounds nuw i8, ptr %198, i64 232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %225, i8 0, i64 24, i1 false)
@@ -5749,9 +5749,9 @@ define linkonce_odr void @_ZN7glslang9TVariableC2EPKNSt7__cxx1112basic_stringIcS
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store i8 1, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTVN7glslang9TVariableE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTVN7glslang9TVariableE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, -134217728
@@ -5808,7 +5808,7 @@ define linkonce_odr void @_ZN7glslang9TVariableC2EPKNSt7__cxx1112basic_stringIcS
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i8 %5, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang16TConstUnionArrayE, i64 16), ptr %45, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7glslang16TConstUnionArrayE, i64 16), ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false)
@@ -6962,9 +6962,9 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
   %70 = getelementptr inbounds nuw i8, ptr %63, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, i8 0, i64 16, i1 false)
   store i8 1, ptr %70, align 8
-  store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTVN7glslang9TVariableE, i64 16), ptr %63, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTVN7glslang9TVariableE, i64 16), ptr %63, align 8
   %71 = getelementptr inbounds nuw i8, ptr %63, i64 40
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %71, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %63, i64 48
   %73 = load i32, ptr %72, align 8
   %74 = and i32 %73, -134217728
@@ -6987,7 +6987,7 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
   %91 = getelementptr inbounds nuw i8, ptr %63, i64 192
   store i8 0, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %63, i64 200
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang16TConstUnionArrayE, i64 16), ptr %92, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7glslang16TConstUnionArrayE, i64 16), ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %63, i64 208
   %94 = getelementptr inbounds nuw i8, ptr %63, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, i8 0, i64 24, i1 false)
@@ -7421,7 +7421,7 @@ declare void @_ZN7glslang14TParseVersions15profileRequiresERKNS_10TSourceLocEiiP
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7glslang5TTypeC2ERKS0_ib(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %0, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
@@ -7541,7 +7541,7 @@ _ZNK7glslang11TArraySizes10getNumDimsEv.exit:     ; preds = %12
 _ZNK7glslang11TArraySizes10getNumDimsEv.exit.thread: ; preds = %12, %_ZNK7glslang11TArraySizes10getNumDimsEv.exit
   %90 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #22
   %91 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %90, i64 noundef 24) #22
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang17TSmallArrayVectorE, i64 16), ptr %91, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7glslang17TSmallArrayVectorE, i64 16), ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store ptr null, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
@@ -9897,7 +9897,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
 89:                                               ; preds = %39, %40, %28
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %91 = load ptr, ptr %90, align 8
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %9, align 8
   %92 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 264, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %9, i64 96
@@ -17349,7 +17349,7 @@ _ZNK7glslang5TType15contains8BitIntEv.exit.thread: ; preds = %68, %_ZNK7glslang5
   %95 = load ptr, ptr %94, align 8
   %96 = call noundef i32 %95(ptr noundef nonnull align 8 dereferenceable(184) %2) #22
   %97 = load i32, ptr %5, align 4
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %6, align 8
   %98 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %99 = and i32 %96, 255
   %100 = shl i32 %97, 8
@@ -17459,7 +17459,7 @@ _ZNK7glslang5TType15contains8BitIntEv.exit.thread: ; preds = %68, %_ZNK7glslang5
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %172 = load i64, ptr %171, align 8
   %173 = and i64 %172, 234881024
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %7, align 8
   %174 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %175 = and i32 %162, 255
   %176 = or disjoint i32 %175, 256
@@ -17526,7 +17526,7 @@ _ZNK7glslang5TType15contains8BitIntEv.exit.thread: ; preds = %68, %_ZNK7glslang5
   %215 = load i64, ptr %214, align 8
   %216 = and i64 %215, 234881024
   %217 = load i32, ptr %5, align 4
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %8, align 8
   %218 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %219 = and i32 %205, 255
   %220 = shl i32 %217, 8
@@ -17635,7 +17635,7 @@ define noundef ptr @_ZN7glslang13TParseContext28vkRelaxedRemapDotDereferenceERKN
   store ptr %17, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN7glslang20AccessChainTraverserE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN7glslang20AccessChainTraverserE, i64 16), ptr %6, align 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %20 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #22
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 80
@@ -18165,7 +18165,7 @@ define noundef ptr @_ZN7glslang13TParseContext14addConstructorERKNS_10TSourceLoc
 
 87:                                               ; preds = %82, %80
   %.sroa.0106.0 = phi ptr [ %86, %82 ], [ null, %80 ]
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %5, align 8
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 256, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %5, i64 96
@@ -19453,7 +19453,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSE
 .critedge59:                                      ; preds = %.thread, %84
   %97 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #22
   %98 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %97, i64 noundef 152) #22
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %98, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load i32, ptr %99, align 8
   %101 = and i32 %100, -134217728
@@ -19642,7 +19642,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %218, i8 0, i64 20, i1 false)
   %219 = getelementptr inbounds nuw i8, ptr %217, i64 32
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %219, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %219, align 8
   %220 = getelementptr inbounds nuw i8, ptr %217, i64 40
   %221 = load i32, ptr %220, align 8
   %222 = and i32 %221, -134217728
@@ -19684,7 +19684,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   store i32 0, ptr %240, align 8
   %241 = getelementptr inbounds nuw i8, ptr %217, i64 188
   store i32 0, ptr %241, align 4
-  store ptr getelementptr inbounds inrange(-16, 464) (i8, ptr @_ZTVN7glslang16TIntermAggregateE, i64 16), ptr %217, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 464) (i8, ptr @_ZTVN7glslang16TIntermAggregateE, i64 16), ptr %217, align 8
   %242 = getelementptr inbounds nuw i8, ptr %217, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %242, i8 0, i64 32, i1 false)
   %243 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #22
@@ -19825,7 +19825,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   %324 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 360
   store i32 %323, ptr %324, align 8
   %325 = load ptr, ptr %140, align 8
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %5, align 8
   %326 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %321, ptr %326, align 8
   %327 = getelementptr inbounds nuw i8, ptr %5, i64 96
@@ -20113,7 +20113,7 @@ define noundef ptr @_ZN7glslang13TParseContext18handleFunctionCallERKNS_10TSourc
   br i1 %.not150, label %96, label %32
 
 32:                                               ; preds = %27
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %6, align 8
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 256, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 96
@@ -21326,7 +21326,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %21
   store i64 9, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 0, ptr %36, align 1
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %6, align 8
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 265, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 96
@@ -21450,7 +21450,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i40: ; preds = %_ZSteqIcSt11char_tr
   store i64 9, ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %11, i64 33
   store i8 0, ptr %102, align 1
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %12, align 8
   %103 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 265, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %12, i64 96
@@ -21764,7 +21764,7 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
 116:                                              ; preds = %110
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %118 = load ptr, ptr %117, align 8
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %5, align 8
   %119 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 264, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %5, i64 96
@@ -21876,7 +21876,7 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
 185:                                              ; preds = %181
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %187 = load ptr, ptr %186, align 8
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %6, align 8
   %188 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 264, ptr %188, align 8
   %189 = getelementptr inbounds nuw i8, ptr %6, i64 96
@@ -25808,7 +25808,7 @@ define noundef ptr @_ZNK7glslang13TParseContext28addOutputArgumentConversionsERK
   br i1 %switch.i72, label %157, label %468
 
 157:                                              ; preds = %142
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %4, align 8
   %158 = load i32, ptr %98, align 8
   %159 = and i32 %158, -134217728
   %160 = or disjoint i32 %159, 256
@@ -26065,9 +26065,9 @@ define noundef ptr @_ZNK7glslang13TParseContext28addOutputArgumentConversionsERK
   %340 = getelementptr inbounds nuw i8, ptr %337, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %339, i8 0, i64 16, i1 false)
   store i8 1, ptr %340, align 8
-  store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTVN7glslang9TVariableE, i64 16), ptr %337, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTVN7glslang9TVariableE, i64 16), ptr %337, align 8
   %341 = getelementptr inbounds nuw i8, ptr %337, i64 40
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %341, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %341, align 8
   %342 = getelementptr inbounds nuw i8, ptr %337, i64 48
   %343 = load i32, ptr %342, align 8
   %344 = and i32 %343, -134217728
@@ -26117,7 +26117,7 @@ define noundef ptr @_ZNK7glslang13TParseContext28addOutputArgumentConversionsERK
   %373 = getelementptr inbounds nuw i8, ptr %337, i64 192
   store i8 0, ptr %373, align 8
   %374 = getelementptr inbounds nuw i8, ptr %337, i64 200
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang16TConstUnionArrayE, i64 16), ptr %374, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7glslang16TConstUnionArrayE, i64 16), ptr %374, align 8
   %375 = getelementptr inbounds nuw i8, ptr %337, i64 208
   %376 = getelementptr inbounds nuw i8, ptr %337, i64 232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %375, i8 0, i64 24, i1 false)
@@ -29722,7 +29722,7 @@ _ZNSt8functionIFbRK11TIntermNodeEED2Ev.exit:      ; preds = %1992, %1996
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #22
   %2071 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %2071, ptr noundef nonnull align 1 dereferenceable(1) %11) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.256, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.256, i64 67))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.256, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.256, i64 67))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #22
   store i8 1, ptr %12, align 1
   store i8 0, ptr %13, align 1
@@ -32273,7 +32273,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7glslang5TTypeC2ERKNS_11TPublicTypeE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(248) %1) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %1, align 8
   %5 = load i32, ptr %3, align 8
@@ -32663,7 +32663,7 @@ define linkonce_odr void @_ZN7glslang9TFunctionC2EPKNSt7__cxx1112basic_stringIcS
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store i8 1, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTVN7glslang9TFunctionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 344) (i8, ptr @_ZTVN7glslang9TFunctionE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   %9 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #22
@@ -32671,7 +32671,7 @@ define linkonce_odr void @_ZN7glslang9TFunctionC2EPKNSt7__cxx1112basic_stringIcS
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, -134217728
@@ -51024,7 +51024,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN7glslang
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #22
   %13 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %12, i64 noundef 152) #22
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, -134217728
@@ -51910,7 +51910,7 @@ define noundef ptr @_ZN7glslang13TParseContext30vkRelaxedRemapFunctionArgumentER
   store ptr %16, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN7glslang20AccessChainTraverserE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN7glslang20AccessChainTraverserE, i64 16), ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %19 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #22
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 80
@@ -51935,7 +51935,7 @@ define noundef ptr @_ZN7glslang13TParseContext30vkRelaxedRemapFunctionArgumentER
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %31 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #22
   %32 = call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %31, i64 noundef 152) #22
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i32, ptr %33, align 8
   %35 = and i32 %34, -134217728
@@ -52088,7 +52088,7 @@ define noundef ptr @_ZN7glslang13TParseContext30vkRelaxedRemapFunctionArgumentER
   %136 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %137 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #22
   %138 = call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %137, i64 noundef 152) #22
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %138, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %138, align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %140 = load i32, ptr %139, align 8
   %141 = and i32 %140, -134217728
@@ -52554,7 +52554,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN7glslang16TIntermTraverserE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN7glslang16TIntermTraverserE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -53793,7 +53793,7 @@ define linkonce_odr void @_ZN7glslang5TType19copyArrayInnerSizesEPKNS_11TArraySi
 7:                                                ; preds = %3
   %8 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #22
   %9 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %8, i64 noundef 24) #22
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang17TSmallArrayVectorE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7glslang17TSmallArrayVectorE, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -54246,7 +54246,7 @@ _ZNK7glslang5TType25getStorageQualifierStringEv.exit: ; preds = %71, %switch.loo
   br label %_ZN7glslang13TParseContext16arrayObjectCheckERKNS_10TSourceLocERKNS_5TTypeEPKc.exit
 
 _ZN7glslang13TParseContext16arrayObjectCheckERKNS_10TSourceLocERKNS_5TTypeEPKc.exit: ; preds = %123, %132
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %9, align 8
   %133 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 256, ptr %133, align 8
   %134 = getelementptr inbounds nuw i8, ptr %9, i64 96
@@ -55448,7 +55448,7 @@ define noundef ptr @_ZN7glslang13TParseContext22convertInitializerListERKNS_10TS
   br i1 %39, label %40, label %259
 
 40:                                               ; preds = %35
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %5, align 8
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 136
@@ -55488,7 +55488,7 @@ define noundef ptr @_ZN7glslang13TParseContext22convertInitializerListERKNS_10TS
   %67 = tail call noundef ptr %66(ptr noundef nonnull align 8 dereferenceable(152) %2) #22
   %68 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #22
   %69 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %68, i64 noundef 24) #22
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang17TSmallArrayVectorE, i64 16), ptr %69, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7glslang17TSmallArrayVectorE, i64 16), ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr null, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 16
@@ -56509,7 +56509,7 @@ define noundef ptr @_ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 344
   %56 = load ptr, ptr %55, align 8
   %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(184) %3) #22
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %7, align 8
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %59 = and i32 %49, 255
   %60 = shl i32 %53, 8
@@ -56796,7 +56796,7 @@ define noundef ptr @_ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 96
   %202 = load ptr, ptr %201, align 8
   %203 = call noundef i32 %202(ptr noundef nonnull align 8 dereferenceable(152) %1) #22
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %8, align 8
   %204 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %205 = shl i32 %203, 8
   %206 = and i32 %205, 3840
@@ -56884,7 +56884,7 @@ define noundef ptr @_ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 96
   %256 = load ptr, ptr %255, align 8
   %257 = call noundef i32 %256(ptr noundef nonnull align 8 dereferenceable(152) %1) #22
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %9, align 8
   %258 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %259 = shl i32 %257, 8
   %260 = and i32 %259, 3840
@@ -56972,7 +56972,7 @@ define noundef ptr @_ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 96
   %310 = load ptr, ptr %309, align 8
   %311 = call noundef i32 %310(ptr noundef nonnull align 8 dereferenceable(152) %1) #22
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %10, align 8
   %312 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %313 = shl i32 %311, 8
   %314 = and i32 %313, 3840
@@ -57060,7 +57060,7 @@ define noundef ptr @_ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 96
   %364 = load ptr, ptr %363, align 8
   %365 = call noundef i32 %364(ptr noundef nonnull align 8 dereferenceable(152) %1) #22
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %11, align 8
   %366 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %367 = shl i32 %365, 8
   %368 = and i32 %367, 3840
@@ -57148,7 +57148,7 @@ define noundef ptr @_ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 96
   %418 = load ptr, ptr %417, align 8
   %419 = call noundef i32 %418(ptr noundef nonnull align 8 dereferenceable(152) %1) #22
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %12, align 8
   %420 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %421 = shl i32 %419, 8
   %422 = and i32 %421, 3840
@@ -59089,7 +59089,7 @@ _ZN7glslang13TParseContext25checkAndResizeMeshViewDimERKNS_10TSourceLocERNS_5TTy
 
 _ZN7glslang13TParseContext27mergeObjectLayoutQualifiersERNS_10TQualifierERKS1_b.exit236: ; preds = %640, %641
   %642 = load ptr, ptr %323, align 8
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %7, align 8
   %643 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %644 = load i32, ptr %643, align 8
   %645 = and i32 %644, -134217728
@@ -59158,9 +59158,9 @@ _ZN7glslang13TParseContext27mergeObjectLayoutQualifiersERNS_10TQualifierERKS1_b.
   %682 = getelementptr inbounds nuw i8, ptr %678, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %681, i8 0, i64 16, i1 false)
   store i8 1, ptr %682, align 8
-  store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTVN7glslang9TVariableE, i64 16), ptr %678, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTVN7glslang9TVariableE, i64 16), ptr %678, align 8
   %683 = getelementptr inbounds nuw i8, ptr %678, i64 40
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %683, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %683, align 8
   %684 = getelementptr inbounds nuw i8, ptr %678, i64 48
   %685 = load i32, ptr %684, align 8
   %686 = and i32 %685, -134217728
@@ -59210,7 +59210,7 @@ _ZN7glslang13TParseContext27mergeObjectLayoutQualifiersERNS_10TQualifierERKS1_b.
   %715 = getelementptr inbounds nuw i8, ptr %678, i64 192
   store i8 1, ptr %715, align 8
   %716 = getelementptr inbounds nuw i8, ptr %678, i64 200
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang16TConstUnionArrayE, i64 16), ptr %716, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7glslang16TConstUnionArrayE, i64 16), ptr %716, align 8
   %717 = getelementptr inbounds nuw i8, ptr %678, i64 208
   %718 = getelementptr inbounds nuw i8, ptr %678, i64 232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %717, i8 0, i64 24, i1 false)
@@ -59361,9 +59361,9 @@ _ZN7glslang13TParseContext27mergeObjectLayoutQualifiersERNS_10TQualifierERKS1_b.
   %829 = getelementptr inbounds nuw i8, ptr %825, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %828, i8 0, i64 16, i1 false)
   store i8 1, ptr %829, align 8
-  store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTVN7glslang9TVariableE, i64 16), ptr %825, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTVN7glslang9TVariableE, i64 16), ptr %825, align 8
   %830 = getelementptr inbounds nuw i8, ptr %825, i64 40
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %830, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %830, align 8
   %831 = getelementptr inbounds nuw i8, ptr %825, i64 48
   %832 = load i32, ptr %831, align 8
   %833 = and i32 %832, -134217728
@@ -59388,7 +59388,7 @@ _ZN7glslang13TParseContext27mergeObjectLayoutQualifiersERNS_10TQualifierERKS1_b.
   %852 = getelementptr inbounds nuw i8, ptr %825, i64 192
   store i8 0, ptr %852, align 8
   %853 = getelementptr inbounds nuw i8, ptr %825, i64 200
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang16TConstUnionArrayE, i64 16), ptr %853, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7glslang16TConstUnionArrayE, i64 16), ptr %853, align 8
   %854 = getelementptr inbounds nuw i8, ptr %825, i64 208
   %855 = getelementptr inbounds nuw i8, ptr %825, i64 232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %854, i8 0, i64 24, i1 false)
@@ -59498,9 +59498,9 @@ _ZNK7glslang5TType25getStorageQualifierStringEv.exit: ; preds = %887, %switch.lo
   %911 = getelementptr inbounds nuw i8, ptr %908, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %910, i8 0, i64 16, i1 false)
   store i8 1, ptr %911, align 8
-  store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTVN7glslang9TVariableE, i64 16), ptr %908, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTVN7glslang9TVariableE, i64 16), ptr %908, align 8
   %912 = getelementptr inbounds nuw i8, ptr %908, i64 40
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %912, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %912, align 8
   %913 = getelementptr inbounds nuw i8, ptr %908, i64 48
   %914 = load i32, ptr %913, align 8
   %915 = and i32 %914, -134217728
@@ -59550,7 +59550,7 @@ _ZNK7glslang5TType25getStorageQualifierStringEv.exit: ; preds = %887, %switch.lo
   %944 = getelementptr inbounds nuw i8, ptr %908, i64 192
   store i8 0, ptr %944, align 8
   %945 = getelementptr inbounds nuw i8, ptr %908, i64 200
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang16TConstUnionArrayE, i64 16), ptr %945, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7glslang16TConstUnionArrayE, i64 16), ptr %945, align 8
   %946 = getelementptr inbounds nuw i8, ptr %908, i64 208
   %947 = getelementptr inbounds nuw i8, ptr %908, i64 232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %946, i8 0, i64 24, i1 false)
@@ -60419,7 +60419,7 @@ define void @_ZN7glslang13TParseContext27fixBlockUniformLayoutMatrixERNS_10TQual
   %126 = load ptr, ptr %125, align 8
   %127 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #22
   %128 = call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %127, i64 noundef 152) #22
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %128, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %128, align 8
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %130 = load i32, ptr %129, align 8
   %131 = and i32 %130, -134217728
@@ -60650,7 +60650,7 @@ define void @_ZN7glslang13TParseContext28fixBlockUniformLayoutPackingERNS_10TQua
   %87 = load ptr, ptr %86, align 8
   %88 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #22
   %89 = call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %88, i64 noundef 152) #22
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %89, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %89, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load i32, ptr %90, align 8
   %92 = and i32 %91, -134217728
@@ -60765,7 +60765,7 @@ define void @_ZN7glslang13TParseContext28fixBlockUniformLayoutPackingERNS_10TQua
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7glslang5TTypeC2ENS_10TBasicTypeERKS0_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) unnamed_addr #0 comdat align 2 {
   %5 = alloca %"class.glslang::TMap.444", align 8
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %1, 255
@@ -60834,7 +60834,7 @@ define linkonce_odr void @_ZN7glslang5TTypeC2ENS_10TBasicTypeERKS0_RKNSt7__cxx11
   store i64 %50, ptr %24, align 8
   %51 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #22
   %52 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %51, i64 noundef 152) #22
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %52, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i32, ptr %53, align 8
   %55 = and i32 %54, -134217728
@@ -61367,7 +61367,7 @@ define void @_ZN7glslang13TParseContext22addQualifierToExistingERKNS_10TSourceLo
   store ptr %16, ptr %5, align 8
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %6, align 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 272, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -61396,9 +61396,9 @@ define void @_ZN7glslang13TParseContext22addQualifierToExistingERKNS_10TSourceLo
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   store i8 1, ptr %33, align 8
-  store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTVN7glslang9TVariableE, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTVN7glslang9TVariableE, i64 16), ptr %30, align 8
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %36 = load i32, ptr %35, align 8
   %37 = and i32 %36, -134217728
@@ -61448,7 +61448,7 @@ define void @_ZN7glslang13TParseContext22addQualifierToExistingERKNS_10TSourceLo
   %66 = getelementptr inbounds nuw i8, ptr %30, i64 192
   store i8 1, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %30, i64 200
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang16TConstUnionArrayE, i64 16), ptr %67, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7glslang16TConstUnionArrayE, i64 16), ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %30, i64 208
   %69 = getelementptr inbounds nuw i8, ptr %30, i64 232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, i8 0, i64 24, i1 false)
@@ -63961,7 +63961,7 @@ _ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE9push_backEOS1_.exit:
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, i8 0, i64 20, i1 false)
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 32
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %114, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %114, align 8
   %115 = getelementptr inbounds nuw i8, ptr %112, i64 40
   %116 = load i32, ptr %115, align 8
   %117 = and i32 %116, -134217728
@@ -64003,7 +64003,7 @@ _ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE9push_backEOS1_.exit:
   store i32 1, ptr %135, align 8
   %136 = getelementptr inbounds nuw i8, ptr %112, i64 188
   store i32 0, ptr %136, align 4
-  store ptr getelementptr inbounds inrange(-16, 464) (i8, ptr @_ZTVN7glslang16TIntermAggregateE, i64 16), ptr %112, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 464) (i8, ptr @_ZTVN7glslang16TIntermAggregateE, i64 16), ptr %112, align 8
   %137 = getelementptr inbounds nuw i8, ptr %112, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %137, i8 0, i64 32, i1 false)
   %138 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #22
@@ -64154,7 +64154,7 @@ _ZN7glslang7TVectorIP11TIntermNodeEaSERKS3_.exit: ; preds = %_ZNSt6vectorIP11TIn
   %208 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %207, i64 noundef 56) #22
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %209, i8 0, i64 20, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN7glslang13TIntermSwitchE, i64 16), ptr %208, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTVN7glslang13TIntermSwitchE, i64 16), ptr %208, align 8
   %210 = getelementptr inbounds nuw i8, ptr %208, i64 32
   store ptr %2, ptr %210, align 8
   %211 = getelementptr inbounds nuw i8, ptr %208, i64 40
@@ -64163,7 +64163,7 @@ _ZN7glslang7TVectorIP11TIntermNodeEaSERKS3_.exit: ; preds = %_ZNSt6vectorIP11TIn
   store i8 0, ptr %212, align 8
   %213 = getelementptr inbounds nuw i8, ptr %208, i64 49
   store i8 0, ptr %213, align 1
-  %214 = load ptr, ptr getelementptr inbounds inrange(-24, 240) (i8, ptr @_ZTVN7glslang13TIntermSwitchE, i64 24), align 8
+  %214 = load ptr, ptr getelementptr inbounds nuw inrange(-24, 240) (i8, ptr @_ZTVN7glslang13TIntermSwitchE, i64 24), align 8
   tail call void %214(ptr noundef nonnull align 8 dereferenceable(32) %208, ptr noundef nonnull align 8 dereferenceable(24) %1) #22
   br label %215
 
@@ -65420,7 +65420,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7glslang17TSymbolTableLevel22insertAn
   br i1 %.not, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %24 = load ptr, ptr getelementptr inbounds inrange(-64, 152) (i8, ptr @_ZTVN7glslang11TAnonMemberE, i64 64), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw inrange(-64, 152) (i8, ptr @_ZTVN7glslang11TAnonMemberE, i64 64), align 8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -65469,7 +65469,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7glslang17TSymbolTableLevel22insertAn
   %63 = getelementptr inbounds nuw i8, ptr %41, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, i8 0, i64 16, i1 false)
   store i8 1, ptr %63, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN7glslang11TAnonMemberE, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTVN7glslang11TAnonMemberE, i64 16), ptr %41, align 8
   %64 = getelementptr inbounds nuw i8, ptr %41, i64 40
   store ptr %52, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %41, i64 48
@@ -68729,7 +68729,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_all
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7glslang17TSmallArrayVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang17TSmallArrayVectorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7glslang17TSmallArrayVectorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   ret void
@@ -68737,7 +68737,7 @@ define linkonce_odr void @_ZN7glslang17TSmallArrayVectorD2Ev(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7glslang17TSmallArrayVectorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang17TSmallArrayVectorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7glslang17TSmallArrayVectorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   ret void
@@ -72058,7 +72058,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   br label %_ZN7glslang20AccessChainTraverserD2Ev.exit
 
 _ZN7glslang20AccessChainTraverserD2Ev.exit:       ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN7glslang16TIntermTraverserE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN7glslang16TIntermTraverserE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -72679,13 +72679,13 @@ define linkonce_odr noundef zeroext i1 @_ZN7glslang16TIntermTraverser11visitSwit
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7glslang16TIntermTraverserD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN7glslang16TIntermTraverserE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN7glslang16TIntermTraverserE, i64 16), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7glslang16TIntermTraverserD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN7glslang16TIntermTraverserE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN7glslang16TIntermTraverserE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -73957,7 +73957,7 @@ define linkonce_odr void @_ZN7glslang5TType8deepCopyERKS0_RNS_4TMapIPNS_7TVector
 112:                                              ; preds = %110
   %113 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #22
   %114 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %113, i64 noundef 24) #22
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang17TSmallArrayVectorE, i64 16), ptr %114, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7glslang17TSmallArrayVectorE, i64 16), ptr %114, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   store ptr null, ptr %115, align 8
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 16
@@ -73996,7 +73996,7 @@ define linkonce_odr void @_ZN7glslang5TType8deepCopyERKS0_RNS_4TMapIPNS_7TVector
   store ptr %133, ptr %47, align 8
   %135 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #22
   %136 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %135, i64 noundef 24) #22
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang17TSmallArrayVectorE, i64 16), ptr %136, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7glslang17TSmallArrayVectorE, i64 16), ptr %136, align 8
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store ptr null, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 16
@@ -74117,7 +74117,7 @@ _ZNSt3mapIPN7glslang7TVectorINS0_8TTypeLocEEES4_St4lessIS4_ENS0_14pool_allocator
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(24) %204, i64 24, i1 false)
   %205 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #22
   %206 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %205, i64 noundef 152) #22
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %206, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %206, align 8
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 8
   %208 = load i32, ptr %207, align 8
   %209 = and i32 %208, -134217728
@@ -78116,7 +78116,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %8)
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 16
   %376 = load ptr, ptr %375, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang17TSmallArrayVectorE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7glslang17TSmallArrayVectorE, i64 16), ptr %6, align 8
   %377 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %377, align 8
   %378 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -79183,7 +79183,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   %374 = tail call noundef ptr @_ZN7glslang14NewPoolTStringB5cxx11EPKc(ptr noundef %.val)
   %375 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #22
   %376 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %375, i64 noundef 152) #22
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %376, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %376, align 8
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 8
   %378 = load i32, ptr %377, align 8
   %379 = and i32 %378, -134217728

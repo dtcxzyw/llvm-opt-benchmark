@@ -666,7 +666,7 @@ _ZN4core3ops8function6FnOnce9call_once17he2289404183eba3fE.llvm.1400532147688063
   br i1 %9, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hcab0da15f202b38dE.llvm.14005321476880639974.exit.thread.i", label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hcab0da15f202b38dE.llvm.14005321476880639974.exit.i"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hcab0da15f202b38dE.llvm.14005321476880639974.exit.i": ; preds = %_ZN4core3ops8function6FnOnce9call_once17he2289404183eba3fE.llvm.14005321476880639974.exit.i, %2
-  %.sroa.0.0.i.i.i7.i = phi ptr [ %8, %_ZN4core3ops8function6FnOnce9call_once17he2289404183eba3fE.llvm.14005321476880639974.exit.i ], [ getelementptr inbounds (i8, ptr @"_ZN15crossbeam_epoch7default6HANDLE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h97465931028c4c39E", i64 8), %2 ]
+  %.sroa.0.0.i.i.i7.i = phi ptr [ %8, %_ZN4core3ops8function6FnOnce9call_once17he2289404183eba3fE.llvm.14005321476880639974.exit.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN15crossbeam_epoch7default6HANDLE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h97465931028c4c39E", i64 8), %2 ]
   %.val.i.i = load ptr, ptr %.sroa.0.0.i.i.i7.i, align 8, !alias.scope !93, !noalias !92, !noundef !18
   %10 = getelementptr i8, ptr %.val.i.i, i64 2072
   %.val.val.i.i = load i64, ptr %10, align 8, !noalias !96, !noundef !18
@@ -806,7 +806,7 @@ _ZN4core3ops8function6FnOnce9call_once17he2289404183eba3fE.llvm.1400532147688063
   br i1 %4, label %_ZN4core3ops8function6FnOnce9call_once17he2289404183eba3fE.llvm.14005321476880639974.exit.thread, label %_ZN4core3ops8function6FnOnce9call_once17he2289404183eba3fE.llvm.14005321476880639974.exit.thread5
 
 _ZN4core3ops8function6FnOnce9call_once17he2289404183eba3fE.llvm.14005321476880639974.exit.thread5: ; preds = %0, %_ZN4core3ops8function6FnOnce9call_once17he2289404183eba3fE.llvm.14005321476880639974.exit
-  %.sroa.0.0.i.i.i7 = phi ptr [ %3, %_ZN4core3ops8function6FnOnce9call_once17he2289404183eba3fE.llvm.14005321476880639974.exit ], [ getelementptr inbounds (i8, ptr @"_ZN15crossbeam_epoch7default6HANDLE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h97465931028c4c39E", i64 8), %0 ]
+  %.sroa.0.0.i.i.i7 = phi ptr [ %3, %_ZN4core3ops8function6FnOnce9call_once17he2289404183eba3fE.llvm.14005321476880639974.exit ], [ getelementptr inbounds nuw (i8, ptr @"_ZN15crossbeam_epoch7default6HANDLE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h97465931028c4c39E", i64 8), %0 ]
   %.val.i = load ptr, ptr %.sroa.0.0.i.i.i7, align 8, !alias.scope !125, !noalias !124, !noundef !18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1), !noalias !128
   store ptr %.val.i, ptr %1, align 8, !noalias !128
@@ -898,7 +898,7 @@ _ZN4core3ops8function6FnOnce9call_once17he2289404183eba3fE.llvm.1400532147688063
   br i1 %3, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hcab0da15f202b38dE.llvm.14005321476880639974.exit.thread", label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hcab0da15f202b38dE.llvm.14005321476880639974.exit"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hcab0da15f202b38dE.llvm.14005321476880639974.exit": ; preds = %0, %_ZN4core3ops8function6FnOnce9call_once17he2289404183eba3fE.llvm.14005321476880639974.exit
-  %.sroa.0.0.i.i.i7 = phi ptr [ %2, %_ZN4core3ops8function6FnOnce9call_once17he2289404183eba3fE.llvm.14005321476880639974.exit ], [ getelementptr inbounds (i8, ptr @"_ZN15crossbeam_epoch7default6HANDLE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h97465931028c4c39E", i64 8), %0 ]
+  %.sroa.0.0.i.i.i7 = phi ptr [ %2, %_ZN4core3ops8function6FnOnce9call_once17he2289404183eba3fE.llvm.14005321476880639974.exit ], [ getelementptr inbounds nuw (i8, ptr @"_ZN15crossbeam_epoch7default6HANDLE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h97465931028c4c39E", i64 8), %0 ]
   %.val.i = load ptr, ptr %.sroa.0.0.i.i.i7, align 8, !alias.scope !141, !noalias !140, !noundef !18
   %4 = getelementptr i8, ptr %.val.i, i64 2072
   %.val.val.i = load i64, ptr %4, align 8, !noalias !144, !noundef !18
@@ -1446,7 +1446,7 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN15crossbeam_epoch7default6HANDLE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2c57edc9458171d3E.exit"
 
 "_ZN15crossbeam_epoch7default6HANDLE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2c57edc9458171d3E.exit": ; preds = %1, %3, %5
-  %.sroa.0.0.i.i = phi ptr [ null, %5 ], [ %4, %3 ], [ getelementptr inbounds (i8, ptr @"_ZN15crossbeam_epoch7default6HANDLE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h97465931028c4c39E", i64 8), %1 ]
+  %.sroa.0.0.i.i = phi ptr [ null, %5 ], [ %4, %3 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN15crossbeam_epoch7default6HANDLE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h97465931028c4c39E", i64 8), %1 ]
   ret ptr %.sroa.0.0.i.i
 }
 

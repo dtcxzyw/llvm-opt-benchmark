@@ -237,7 +237,7 @@ define ptr @mca_coll_han_topo_init(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %29, label %96, label %112
 
 96:                                               ; preds = %94
-  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
+  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 32), align 8
   %98 = call i32 %97(ptr noundef nonnull %4, ptr noundef null) #5
   %99 = icmp sgt i32 %.val.val, 0
   br i1 %99, label %.lr.ph135.preheader, label %._crit_edge136

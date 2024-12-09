@@ -125,7 +125,7 @@ define noundef i64 @_Z16fast_rv32i_ecallP11processor_t6insn_tm(ptr nocapture nou
   %7 = tail call ptr @__cxa_allocate_exception(i64 16) #14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 8, ptr %8, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15trap_user_ecall, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15trap_user_ecall, i64 16), ptr %7, align 8
   tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTI15trap_user_ecall, ptr nonnull @_ZN15trap_user_ecallD2Ev) #15
   unreachable
 
@@ -139,13 +139,13 @@ define noundef i64 @_Z16fast_rv32i_ecallP11processor_t6insn_tm(ptr nocapture nou
 
 15:                                               ; preds = %9
   store i64 10, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29trap_virtual_supervisor_ecall, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29trap_virtual_supervisor_ecall, i64 16), ptr %13, align 8
   tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI29trap_virtual_supervisor_ecall, ptr nonnull @_ZN29trap_virtual_supervisor_ecallD2Ev) #15
   unreachable
 
 16:                                               ; preds = %9
   store i64 9, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21trap_supervisor_ecall, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21trap_supervisor_ecall, i64 16), ptr %13, align 8
   tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI21trap_supervisor_ecall, ptr nonnull @_ZN21trap_supervisor_ecallD2Ev) #15
   unreachable
 
@@ -153,7 +153,7 @@ define noundef i64 @_Z16fast_rv32i_ecallP11processor_t6insn_tm(ptr nocapture nou
   %18 = tail call ptr @__cxa_allocate_exception(i64 16) #14
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 11, ptr %19, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18trap_machine_ecall, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18trap_machine_ecall, i64 16), ptr %18, align 8
   tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTI18trap_machine_ecall, ptr nonnull @_ZN18trap_machine_ecallD2Ev) #15
   unreachable
 
@@ -206,7 +206,7 @@ define noundef i64 @_Z16fast_rv64i_ecallP11processor_t6insn_tm(ptr nocapture nou
   %7 = tail call ptr @__cxa_allocate_exception(i64 16) #14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 8, ptr %8, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15trap_user_ecall, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15trap_user_ecall, i64 16), ptr %7, align 8
   tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTI15trap_user_ecall, ptr nonnull @_ZN15trap_user_ecallD2Ev) #15
   unreachable
 
@@ -220,13 +220,13 @@ define noundef i64 @_Z16fast_rv64i_ecallP11processor_t6insn_tm(ptr nocapture nou
 
 15:                                               ; preds = %9
   store i64 10, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29trap_virtual_supervisor_ecall, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29trap_virtual_supervisor_ecall, i64 16), ptr %13, align 8
   tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI29trap_virtual_supervisor_ecall, ptr nonnull @_ZN29trap_virtual_supervisor_ecallD2Ev) #15
   unreachable
 
 16:                                               ; preds = %9
   store i64 9, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21trap_supervisor_ecall, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21trap_supervisor_ecall, i64 16), ptr %13, align 8
   tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI21trap_supervisor_ecall, ptr nonnull @_ZN21trap_supervisor_ecallD2Ev) #15
   unreachable
 
@@ -234,7 +234,7 @@ define noundef i64 @_Z16fast_rv64i_ecallP11processor_t6insn_tm(ptr nocapture nou
   %18 = tail call ptr @__cxa_allocate_exception(i64 16) #14
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 11, ptr %19, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18trap_machine_ecall, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18trap_machine_ecall, i64 16), ptr %18, align 8
   tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTI18trap_machine_ecall, ptr nonnull @_ZN18trap_machine_ecallD2Ev) #15
   unreachable
 
@@ -257,7 +257,7 @@ define noundef i64 @_Z18logged_rv32i_ecallP11processor_t6insn_tm(ptr nocapture n
   %7 = tail call ptr @__cxa_allocate_exception(i64 16) #14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 8, ptr %8, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15trap_user_ecall, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15trap_user_ecall, i64 16), ptr %7, align 8
   tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTI15trap_user_ecall, ptr nonnull @_ZN15trap_user_ecallD2Ev) #15
   unreachable
 
@@ -271,13 +271,13 @@ define noundef i64 @_Z18logged_rv32i_ecallP11processor_t6insn_tm(ptr nocapture n
 
 15:                                               ; preds = %9
   store i64 10, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29trap_virtual_supervisor_ecall, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29trap_virtual_supervisor_ecall, i64 16), ptr %13, align 8
   tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI29trap_virtual_supervisor_ecall, ptr nonnull @_ZN29trap_virtual_supervisor_ecallD2Ev) #15
   unreachable
 
 16:                                               ; preds = %9
   store i64 9, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21trap_supervisor_ecall, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21trap_supervisor_ecall, i64 16), ptr %13, align 8
   tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI21trap_supervisor_ecall, ptr nonnull @_ZN21trap_supervisor_ecallD2Ev) #15
   unreachable
 
@@ -285,7 +285,7 @@ define noundef i64 @_Z18logged_rv32i_ecallP11processor_t6insn_tm(ptr nocapture n
   %18 = tail call ptr @__cxa_allocate_exception(i64 16) #14
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 11, ptr %19, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18trap_machine_ecall, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18trap_machine_ecall, i64 16), ptr %18, align 8
   tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTI18trap_machine_ecall, ptr nonnull @_ZN18trap_machine_ecallD2Ev) #15
   unreachable
 
@@ -308,7 +308,7 @@ define noundef i64 @_Z18logged_rv64i_ecallP11processor_t6insn_tm(ptr nocapture n
   %7 = tail call ptr @__cxa_allocate_exception(i64 16) #14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 8, ptr %8, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15trap_user_ecall, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15trap_user_ecall, i64 16), ptr %7, align 8
   tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTI15trap_user_ecall, ptr nonnull @_ZN15trap_user_ecallD2Ev) #15
   unreachable
 
@@ -322,13 +322,13 @@ define noundef i64 @_Z18logged_rv64i_ecallP11processor_t6insn_tm(ptr nocapture n
 
 15:                                               ; preds = %9
   store i64 10, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29trap_virtual_supervisor_ecall, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29trap_virtual_supervisor_ecall, i64 16), ptr %13, align 8
   tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI29trap_virtual_supervisor_ecall, ptr nonnull @_ZN29trap_virtual_supervisor_ecallD2Ev) #15
   unreachable
 
 16:                                               ; preds = %9
   store i64 9, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21trap_supervisor_ecall, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21trap_supervisor_ecall, i64 16), ptr %13, align 8
   tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI21trap_supervisor_ecall, ptr nonnull @_ZN21trap_supervisor_ecallD2Ev) #15
   unreachable
 
@@ -336,7 +336,7 @@ define noundef i64 @_Z18logged_rv64i_ecallP11processor_t6insn_tm(ptr nocapture n
   %18 = tail call ptr @__cxa_allocate_exception(i64 16) #14
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 11, ptr %19, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18trap_machine_ecall, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18trap_machine_ecall, i64 16), ptr %18, align 8
   tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTI18trap_machine_ecall, ptr nonnull @_ZN18trap_machine_ecallD2Ev) #15
   unreachable
 
@@ -359,7 +359,7 @@ define noundef i64 @_Z16fast_rv32e_ecallP11processor_t6insn_tm(ptr nocapture nou
   %7 = tail call ptr @__cxa_allocate_exception(i64 16) #14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 8, ptr %8, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15trap_user_ecall, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15trap_user_ecall, i64 16), ptr %7, align 8
   tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTI15trap_user_ecall, ptr nonnull @_ZN15trap_user_ecallD2Ev) #15
   unreachable
 
@@ -373,13 +373,13 @@ define noundef i64 @_Z16fast_rv32e_ecallP11processor_t6insn_tm(ptr nocapture nou
 
 15:                                               ; preds = %9
   store i64 10, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29trap_virtual_supervisor_ecall, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29trap_virtual_supervisor_ecall, i64 16), ptr %13, align 8
   tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI29trap_virtual_supervisor_ecall, ptr nonnull @_ZN29trap_virtual_supervisor_ecallD2Ev) #15
   unreachable
 
 16:                                               ; preds = %9
   store i64 9, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21trap_supervisor_ecall, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21trap_supervisor_ecall, i64 16), ptr %13, align 8
   tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI21trap_supervisor_ecall, ptr nonnull @_ZN21trap_supervisor_ecallD2Ev) #15
   unreachable
 
@@ -387,7 +387,7 @@ define noundef i64 @_Z16fast_rv32e_ecallP11processor_t6insn_tm(ptr nocapture nou
   %18 = tail call ptr @__cxa_allocate_exception(i64 16) #14
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 11, ptr %19, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18trap_machine_ecall, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18trap_machine_ecall, i64 16), ptr %18, align 8
   tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTI18trap_machine_ecall, ptr nonnull @_ZN18trap_machine_ecallD2Ev) #15
   unreachable
 
@@ -410,7 +410,7 @@ define noundef i64 @_Z16fast_rv64e_ecallP11processor_t6insn_tm(ptr nocapture nou
   %7 = tail call ptr @__cxa_allocate_exception(i64 16) #14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 8, ptr %8, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15trap_user_ecall, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15trap_user_ecall, i64 16), ptr %7, align 8
   tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTI15trap_user_ecall, ptr nonnull @_ZN15trap_user_ecallD2Ev) #15
   unreachable
 
@@ -424,13 +424,13 @@ define noundef i64 @_Z16fast_rv64e_ecallP11processor_t6insn_tm(ptr nocapture nou
 
 15:                                               ; preds = %9
   store i64 10, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29trap_virtual_supervisor_ecall, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29trap_virtual_supervisor_ecall, i64 16), ptr %13, align 8
   tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI29trap_virtual_supervisor_ecall, ptr nonnull @_ZN29trap_virtual_supervisor_ecallD2Ev) #15
   unreachable
 
 16:                                               ; preds = %9
   store i64 9, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21trap_supervisor_ecall, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21trap_supervisor_ecall, i64 16), ptr %13, align 8
   tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI21trap_supervisor_ecall, ptr nonnull @_ZN21trap_supervisor_ecallD2Ev) #15
   unreachable
 
@@ -438,7 +438,7 @@ define noundef i64 @_Z16fast_rv64e_ecallP11processor_t6insn_tm(ptr nocapture nou
   %18 = tail call ptr @__cxa_allocate_exception(i64 16) #14
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 11, ptr %19, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18trap_machine_ecall, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18trap_machine_ecall, i64 16), ptr %18, align 8
   tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTI18trap_machine_ecall, ptr nonnull @_ZN18trap_machine_ecallD2Ev) #15
   unreachable
 
@@ -461,7 +461,7 @@ define noundef i64 @_Z18logged_rv32e_ecallP11processor_t6insn_tm(ptr nocapture n
   %7 = tail call ptr @__cxa_allocate_exception(i64 16) #14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 8, ptr %8, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15trap_user_ecall, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15trap_user_ecall, i64 16), ptr %7, align 8
   tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTI15trap_user_ecall, ptr nonnull @_ZN15trap_user_ecallD2Ev) #15
   unreachable
 
@@ -475,13 +475,13 @@ define noundef i64 @_Z18logged_rv32e_ecallP11processor_t6insn_tm(ptr nocapture n
 
 15:                                               ; preds = %9
   store i64 10, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29trap_virtual_supervisor_ecall, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29trap_virtual_supervisor_ecall, i64 16), ptr %13, align 8
   tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI29trap_virtual_supervisor_ecall, ptr nonnull @_ZN29trap_virtual_supervisor_ecallD2Ev) #15
   unreachable
 
 16:                                               ; preds = %9
   store i64 9, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21trap_supervisor_ecall, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21trap_supervisor_ecall, i64 16), ptr %13, align 8
   tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI21trap_supervisor_ecall, ptr nonnull @_ZN21trap_supervisor_ecallD2Ev) #15
   unreachable
 
@@ -489,7 +489,7 @@ define noundef i64 @_Z18logged_rv32e_ecallP11processor_t6insn_tm(ptr nocapture n
   %18 = tail call ptr @__cxa_allocate_exception(i64 16) #14
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 11, ptr %19, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18trap_machine_ecall, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18trap_machine_ecall, i64 16), ptr %18, align 8
   tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTI18trap_machine_ecall, ptr nonnull @_ZN18trap_machine_ecallD2Ev) #15
   unreachable
 
@@ -512,7 +512,7 @@ define noundef i64 @_Z18logged_rv64e_ecallP11processor_t6insn_tm(ptr nocapture n
   %7 = tail call ptr @__cxa_allocate_exception(i64 16) #14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 8, ptr %8, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15trap_user_ecall, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15trap_user_ecall, i64 16), ptr %7, align 8
   tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTI15trap_user_ecall, ptr nonnull @_ZN15trap_user_ecallD2Ev) #15
   unreachable
 
@@ -526,13 +526,13 @@ define noundef i64 @_Z18logged_rv64e_ecallP11processor_t6insn_tm(ptr nocapture n
 
 15:                                               ; preds = %9
   store i64 10, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29trap_virtual_supervisor_ecall, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29trap_virtual_supervisor_ecall, i64 16), ptr %13, align 8
   tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI29trap_virtual_supervisor_ecall, ptr nonnull @_ZN29trap_virtual_supervisor_ecallD2Ev) #15
   unreachable
 
 16:                                               ; preds = %9
   store i64 9, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21trap_supervisor_ecall, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21trap_supervisor_ecall, i64 16), ptr %13, align 8
   tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI21trap_supervisor_ecall, ptr nonnull @_ZN21trap_supervisor_ecallD2Ev) #15
   unreachable
 
@@ -540,7 +540,7 @@ define noundef i64 @_Z18logged_rv64e_ecallP11processor_t6insn_tm(ptr nocapture n
   %18 = tail call ptr @__cxa_allocate_exception(i64 16) #14
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 11, ptr %19, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18trap_machine_ecall, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18trap_machine_ecall, i64 16), ptr %18, align 8
   tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTI18trap_machine_ecall, ptr nonnull @_ZN18trap_machine_ecallD2Ev) #15
   unreachable
 

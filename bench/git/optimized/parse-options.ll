@@ -3002,8 +3002,8 @@ if.end3.i.i:                                      ; preds = %if.then.i
 
 _.exit.i:                                         ; preds = %if.end3.i.i, %if.then.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.end3.i.i ], [ @.str.45, %if.then.i ]
-  store i64 0, ptr getelementptr inbounds (i8, ptr @optname.sb, i64 8), align 8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @optname.sb, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @optname.sb, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @optname.sb, i64 16), align 8
   %cmp3.not.i.i.i = icmp eq ptr %2, @strbuf_slopbuf
   br i1 %cmp3.not.i.i.i, label %strbuf_setlen.exit.i.i, label %if.then4.i.i.i
 
@@ -3029,7 +3029,7 @@ if.then3.i.i:                                     ; preds = %strbuf_setlen.exit.
   br label %optname.exit.i
 
 optname.exit.i:                                   ; preds = %if.then3.i.i, %if.then.i.i
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @optname.sb, i64 16), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @optname.sb, i64 16), align 8
   %call4.i = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i.i, ptr noundef %5) #17
   br label %do_get_value.exit
 
@@ -3051,8 +3051,8 @@ if.end3.i107.i:                                   ; preds = %if.then11.i
 
 _.exit110.i:                                      ; preds = %if.end3.i107.i, %if.then11.i
   %retval.0.i109.i = phi ptr [ %call.i108.i, %if.end3.i107.i ], [ @.str.46, %if.then11.i ]
-  store i64 0, ptr getelementptr inbounds (i8, ptr @optname.sb, i64 8), align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @optname.sb, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @optname.sb, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @optname.sb, i64 16), align 8
   %cmp3.not.i.i111.i = icmp eq ptr %8, @strbuf_slopbuf
   br i1 %cmp3.not.i.i111.i, label %strbuf_setlen.exit.i113.i, label %if.then4.i.i112.i
 
@@ -3078,7 +3078,7 @@ if.then3.i121.i:                                  ; preds = %strbuf_setlen.exit.
   br label %optname.exit128.i
 
 optname.exit128.i:                                ; preds = %if.then3.i121.i, %if.then.i116.i
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @optname.sb, i64 16), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @optname.sb, i64 16), align 8
   %call14.i = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i109.i, ptr noundef %11) #17
   br label %do_get_value.exit
 
@@ -3111,8 +3111,8 @@ if.end3.i130.i:                                   ; preds = %if.then26.i
 
 _.exit133.i:                                      ; preds = %if.end3.i130.i, %if.then26.i
   %retval.0.i132.i = phi ptr [ %call.i131.i, %if.end3.i130.i ], [ @.str.45, %if.then26.i ]
-  store i64 0, ptr getelementptr inbounds (i8, ptr @optname.sb, i64 8), align 8
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @optname.sb, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @optname.sb, i64 8), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @optname.sb, i64 16), align 8
   %cmp3.not.i.i134.i = icmp eq ptr %15, @strbuf_slopbuf
   br i1 %cmp3.not.i.i134.i, label %if.else.i141.i, label %if.then4.i.i135.i
 
@@ -3136,7 +3136,7 @@ optname.exit151.i:                                ; preds = %if.else4.i146.i, %i
   %long_name.i145.i = getelementptr inbounds nuw i8, ptr %opt, i64 8
   %16 = load ptr, ptr %long_name.i145.i, align 8
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @optname.sb, ptr noundef nonnull %.str.52.sink.i, ptr noundef %16) #17
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @optname.sb, i64 16), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @optname.sb, i64 16), align 8
   %call29.i = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i132.i, ptr noundef %17) #17
   br label %do_get_value.exit
 
@@ -3698,8 +3698,8 @@ return:                                           ; preds = %for.inc, %do_get_va
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @optname(ptr nocapture noundef readonly %opt, i32 noundef %flags) unnamed_addr #0 {
 entry:
-  store i64 0, ptr getelementptr inbounds (i8, ptr @optname.sb, i64 8), align 8
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @optname.sb, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @optname.sb, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @optname.sb, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
 
@@ -3744,7 +3744,7 @@ if.else7:                                         ; preds = %if.else4
   unreachable
 
 if.end9:                                          ; preds = %if.then3, %if.then5, %if.then
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @optname.sb, i64 16), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @optname.sb, i64 16), align 8
   ret ptr %4
 }
 
@@ -3806,8 +3806,8 @@ if.end3.i:                                        ; preds = %if.else12
 
 _.exit:                                           ; preds = %if.else12, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.57, %if.else12 ]
-  store i64 0, ptr getelementptr inbounds (i8, ptr @optname.sb, i64 8), align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @optname.sb, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @optname.sb, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @optname.sb, i64 16), align 8
   %cmp3.not.i.i = icmp eq ptr %8, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %strbuf_setlen.exit.i, label %if.then4.i.i
 
@@ -3852,7 +3852,7 @@ if.else7.i:                                       ; preds = %if.else4.i
   unreachable
 
 optname.exit:                                     ; preds = %if.then.i, %if.then3.i, %if.then5.i
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @optname.sb, i64 16), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @optname.sb, i64 16), align 8
   %call14 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i, ptr noundef %12) #17
   br label %return
 

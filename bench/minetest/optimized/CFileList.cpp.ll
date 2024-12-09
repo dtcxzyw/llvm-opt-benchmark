@@ -634,8 +634,8 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !33
   %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !36
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io9CFileListE, i64 24), ptr %this, align 8, !tbaa !11
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io9CFileListE, i64 152), ptr %0, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr2io9CFileListE, i64 24), ptr %this, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr2io9CFileListE, i64 152), ptr %0, align 8, !tbaa !11
   %IgnorePaths = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 %frombool1, ptr %IgnorePaths, align 8, !tbaa !13
   %IgnoreCase = getelementptr inbounds nuw i8, ptr %this, i64 9
@@ -5873,9 +5873,9 @@ cleanup:                                          ; preds = %_ZN9__gnu_cxx5__ops
 ; Function Attrs: nofree nounwind uwtable
 define internal void @_GLOBAL__sub_I_CFileList.cpp() #18 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZN3irr2ioL18emptyFileListEntryE, i64 16), ptr @_ZN3irr2ioL18emptyFileListEntryE, align 8, !tbaa !24
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN3irr2ioL18emptyFileListEntryE, i64 8), align 8, !tbaa !10
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN3irr2ioL18emptyFileListEntryE, i64 16), align 8, !tbaa !25
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN3irr2ioL18emptyFileListEntryE, i64 16), ptr @_ZN3irr2ioL18emptyFileListEntryE, align 8, !tbaa !24
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN3irr2ioL18emptyFileListEntryE, i64 8), align 8, !tbaa !10
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN3irr2ioL18emptyFileListEntryE, i64 16), align 8, !tbaa !25
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3irr4core6stringIcED2Ev, ptr nonnull @_ZN3irr2ioL18emptyFileListEntryE, ptr nonnull @__dso_handle) #21
   ret void
 }

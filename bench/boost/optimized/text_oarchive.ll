@@ -684,7 +684,7 @@ declare void @_ZN5boost7archive21BOOST_ARCHIVE_VERSIONEv(ptr dead_on_unwind writ
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5boost7archive19basic_text_oarchiveINS0_13text_oarchiveEEC2Ej(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 noundef %1) unnamed_addr #1 comdat($_ZN5boost7archive19basic_text_oarchiveINS0_13text_oarchiveEEC5Ej) align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5boost7archive6detail14basic_oarchiveC2Ej(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5boost7archive19basic_text_oarchiveINS0_13text_oarchiveEEE, i64 16), ptr %0, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN5boost7archive19basic_text_oarchiveINS0_13text_oarchiveEEE, i64 16), ptr %0, align 8, !tbaa !43
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %3, align 8, !tbaa !20
   ret void
@@ -995,7 +995,7 @@ define weak_odr void @_ZN5boost7archive18text_oarchive_implINS0_13text_oarchiveE
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %8, align 8, !tbaa !20
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5boost7archive18text_oarchive_implINS0_13text_oarchiveEEE, i64 16), ptr %0, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN5boost7archive18text_oarchive_implINS0_13text_oarchiveEEE, i64 16), ptr %0, align 8, !tbaa !43
   ret void
 
 9:                                                ; preds = %3

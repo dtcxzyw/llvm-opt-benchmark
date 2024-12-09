@@ -840,7 +840,7 @@ define internal fastcc noundef i32 @ip6addrlbl_add(ptr noundef %0, ptr noundef %
 
 20:                                               ; preds = %17, %14, %11, %6
   %21 = phi i32 [ %8, %6 ], [ %13, %11 ], [ %16, %14 ], [ %19, %17 ]
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %23 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %22, i32 noundef 3264, i64 noundef 64) #10
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.thread, label %25

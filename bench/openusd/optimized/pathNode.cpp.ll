@@ -1084,7 +1084,7 @@ _ZNSt6atomicIN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS0_15Sdf_PathPrimTagE
 
 15:                                               ; preds = %10
   %16 = call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__21Sdf_PoolReserveRegionEm(i64 noundef 402653184)
-  store ptr %16, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 8), align 8
+  store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 8), align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE12_RegionStateC1Ejj(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 1, i32 noundef 1)
   %17 = load i32, ptr %5, align 4
   store atomic i32 %17, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE12_regionStateE seq_cst, align 4
@@ -1876,7 +1876,7 @@ _ZNSt6atomicIN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS0_15Sdf_PathPropTagE
 
 15:                                               ; preds = %10
   %16 = call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__21Sdf_PoolReserveRegionEm(i64 noundef 402653184)
-  store ptr %16, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE13_regionStartsE, i64 8), align 8
+  store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE13_regionStartsE, i64 8), align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE12_RegionStateC1Ejj(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 1, i32 noundef 1)
   %17 = load i32, ptr %5, align 4
   store atomic i32 %17, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE12_regionStateE seq_cst, align 4
@@ -6225,7 +6225,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIPKN32pxrInternal_v0_24__pxrReserved__12Sd
   store i32 1, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %46, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_PropToTokenTable5_DataELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_PropToTokenTable5_DataELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %34, align 8
   %47 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %27, ptr %47, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
@@ -8698,7 +8698,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode
   %8 = load ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_debugPathCurE, align 8
   store ptr %8, ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %.not.i.i.i = icmp ult ptr %9, getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
+  %.not.i.i.i = icmp ult ptr %9, getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
   br i1 %.not.i.i.i, label %10, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer9WriteTextIJPKcEEEvDpT_.exit.sink.split
 
 10:                                               ; preds = %7
@@ -8802,7 +8802,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_29SdfPathTokens_StaticTo
   %55 = load ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_debugPathCurE, align 8
   store ptr %55, ptr %2, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
-  %.not.i.i.i31 = icmp ult ptr %56, getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
+  %.not.i.i.i31 = icmp ult ptr %56, getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
   br i1 %.not.i.i.i31, label %58, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer6_WriteEPKc.exit.i.i32
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer6_WriteEPKc.exit.i.i32: ; preds = %54
@@ -8860,7 +8860,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer9WriteTextIJPKc
   %80 = load ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_debugPathCurE, align 8
   store ptr %80, ptr %2, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 1
-  %.not.i.i.i40 = icmp ult ptr %81, getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
+  %.not.i.i.i40 = icmp ult ptr %81, getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
   br i1 %.not.i.i.i40, label %82, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer6_WriteEPKc.exit.i.i41
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer6_WriteEPKc.exit.i.i41: ; preds = %79
@@ -8901,7 +8901,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer9WriteTextIJPKc
   %94 = load ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_debugPathCurE, align 8
   store ptr %94, ptr %2, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 1
-  %.not.i.i.i49 = icmp ult ptr %95, getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
+  %.not.i.i.i49 = icmp ult ptr %95, getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
   br i1 %.not.i.i.i49, label %96, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer9WriteTextIJPKcEEEvDpT_.exit.sink.split
 
 96:                                               ; preds = %93
@@ -19722,7 +19722,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %5, %10
   store ptr %15, ptr %1, align 8
   %16 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %14) #34
   %17 = getelementptr inbounds i8, ptr %15, i64 %16
-  %.not.i.i.i = icmp ult ptr %17, getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
+  %.not.i.i.i = icmp ult ptr %17, getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
   br i1 %.not.i.i.i, label %18, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer9WriteTextIJPKcEEEvDpT_.exit.sink.split
 
 18:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit
@@ -19766,7 +19766,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit10: ; preds = %27, 
   %37 = load ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_debugPathCurE, align 8
   store ptr %37, ptr %1, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
-  %.not.i.i.i11 = icmp ult ptr %38, getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
+  %.not.i.i.i11 = icmp ult ptr %38, getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
   br i1 %.not.i.i.i11, label %39, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer9WriteTextIJPKcEEEvDpT_.exit.sink.split
 
 39:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit10
@@ -19774,7 +19774,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit10: ; preds = %27, 
   store ptr %38, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_debugPathCurE, align 8
   %40 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %36) #34
   %41 = getelementptr inbounds i8, ptr %38, i64 %40
-  %.not.i.i.i.i = icmp ult ptr %41, getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
+  %.not.i.i.i.i = icmp ult ptr %41, getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
   br i1 %.not.i.i.i.i, label %42, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer9WriteTextIJPKcEEEvDpT_.exit.sink.split
 
 42:                                               ; preds = %39
@@ -19836,7 +19836,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit5.i: ; preds = %67,
   %72 = load ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_debugPathCurE, align 8
   store ptr %72, ptr %1, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 1
-  %.not.i.i.i.i12 = icmp ult ptr %73, getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
+  %.not.i.i.i.i12 = icmp ult ptr %73, getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
   br i1 %.not.i.i.i.i12, label %74, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer9WriteTextIJPKcEEEvDpT_.exit.sink.split
 
 74:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit5.i
@@ -19844,14 +19844,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit5.i: ; preds = %67,
   store ptr %73, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_debugPathCurE, align 8
   %75 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %62) #34
   %76 = getelementptr inbounds i8, ptr %73, i64 %75
-  %.not.i.i.i.i.i = icmp ult ptr %76, getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
+  %.not.i.i.i.i.i = icmp ult ptr %76, getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
   br i1 %.not.i.i.i.i.i, label %77, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer9WriteTextIJPKcEEEvDpT_.exit.sink.split
 
 77:                                               ; preds = %74
   %78 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %73, ptr noundef nonnull readonly dereferenceable(1) %62) #17
   store ptr %76, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_debugPathCurE, align 8
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 1
-  %.not.i.i.i.i.i.i = icmp ult ptr %79, getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
+  %.not.i.i.i.i.i.i = icmp ult ptr %79, getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
   br i1 %.not.i.i.i.i.i.i, label %80, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer9WriteTextIJPKcEEEvDpT_.exit.sink.split
 
 80:                                               ; preds = %77
@@ -19859,14 +19859,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit5.i: ; preds = %67,
   store ptr %79, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_debugPathCurE, align 8
   %81 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %71) #34
   %82 = getelementptr inbounds i8, ptr %79, i64 %81
-  %.not.i.i.i.i.i.i.i = icmp ult ptr %82, getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
+  %.not.i.i.i.i.i.i.i = icmp ult ptr %82, getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
   br i1 %.not.i.i.i.i.i.i.i, label %83, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer9WriteTextIJPKcEEEvDpT_.exit.sink.split
 
 83:                                               ; preds = %80
   %84 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %79, ptr noundef nonnull readonly dereferenceable(1) %71) #17
   store ptr %82, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_debugPathCurE, align 8
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 1
-  %.not.i.i.i.i.i.i.i.i = icmp ult ptr %85, getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
+  %.not.i.i.i.i.i.i.i.i = icmp ult ptr %85, getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
   br i1 %.not.i.i.i.i.i.i.i.i, label %86, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer9WriteTextIJPKcEEEvDpT_.exit.sink.split
 
 86:                                               ; preds = %83
@@ -19892,7 +19892,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit5.i: ; preds = %67,
   %94 = load ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_debugPathCurE, align 8
   store ptr %94, ptr %1, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 1
-  %.not.i.i.i50 = icmp ult ptr %95, getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
+  %.not.i.i.i50 = icmp ult ptr %95, getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
   br i1 %.not.i.i.i50, label %97, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer6_WriteEPKc.exit.i.i51
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer6_WriteEPKc.exit.i.i51: ; preds = %93
@@ -19944,7 +19944,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer9WriteTextIJPKc
   %124 = load ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_debugPathCurE, align 8
   store ptr %124, ptr %1, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 1
-  %.not.i.i.i41 = icmp ult ptr %125, getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
+  %.not.i.i.i41 = icmp ult ptr %125, getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
   br i1 %.not.i.i.i41, label %126, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer9WriteTextIJPKcEEEvDpT_.exit.sink.split
 
 126:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer9WriteTextIJPKcEEEvDpT_.exit58
@@ -19985,7 +19985,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit14: ; preds = %133,
   %143 = load ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_debugPathCurE, align 8
   store ptr %143, ptr %1, align 8
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 1
-  %.not.i.i.i15 = icmp ult ptr %144, getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
+  %.not.i.i.i15 = icmp ult ptr %144, getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
   br i1 %.not.i.i.i15, label %145, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer9WriteTextIJPKcEEEvDpT_.exit.sink.split
 
 145:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit14
@@ -19993,7 +19993,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit14: ; preds = %133,
   store ptr %144, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_debugPathCurE, align 8
   %146 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %142) #34
   %147 = getelementptr inbounds i8, ptr %144, i64 %146
-  %.not.i.i.i.i17 = icmp ult ptr %147, getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
+  %.not.i.i.i.i17 = icmp ult ptr %147, getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
   br i1 %.not.i.i.i.i17, label %148, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer9WriteTextIJPKcEEEvDpT_.exit.sink.split
 
 148:                                              ; preds = %145
@@ -20022,7 +20022,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit14: ; preds = %133,
   %158 = load ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_debugPathCurE, align 8
   store ptr %158, ptr %1, align 8
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 1
-  %.not.i.i.i89 = icmp ult ptr %159, getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
+  %.not.i.i.i89 = icmp ult ptr %159, getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
   br i1 %.not.i.i.i89, label %161, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer6_WriteEPKc.exit.i.i90
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer6_WriteEPKc.exit.i.i90: ; preds = %157
@@ -20074,7 +20074,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer9WriteTextIJPKc
   %188 = load ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_debugPathCurE, align 8
   store ptr %188, ptr %1, align 8
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 1
-  %.not.i.i.i80 = icmp ult ptr %189, getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
+  %.not.i.i.i80 = icmp ult ptr %189, getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
   br i1 %.not.i.i.i80, label %191, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer6_WriteEPKc.exit.i.i81
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer6_WriteEPKc.exit.i.i81: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer9WriteTextIJPKcEEEvDpT_.exit97
@@ -20157,7 +20157,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit78: ; preds = %_ZNK
   store ptr %220, ptr %1, align 8
   %221 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %219) #34
   %222 = getelementptr inbounds i8, ptr %220, i64 %221
-  %.not.i.i.i68 = icmp ult ptr %222, getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
+  %.not.i.i.i68 = icmp ult ptr %222, getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
   br i1 %.not.i.i.i68, label %224, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer6_WriteEPKc.exit.i.i69
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer6_WriteEPKc.exit.i.i69: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit78
@@ -20191,7 +20191,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer9WriteTextIJPKc
   %233 = phi ptr [ %220, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer6_WriteEPKc.exit.i.i69 ], [ %222, %224 ], [ %222, %.lr.ph.i.i.i.i72 ]
   store ptr %233, ptr %1, align 8
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 1
-  %.not.i.i.i59 = icmp ult ptr %234, getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
+  %.not.i.i.i59 = icmp ult ptr %234, getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
   br i1 %.not.i.i.i59, label %235, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer9WriteTextIJPKcEEEvDpT_.exit.sink.split
 
 235:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer9WriteTextIJPKcEEEvDpT_.exit76
@@ -20232,7 +20232,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i26: ; preds = %24
   %251 = load ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_debugPathCurE, align 8
   store ptr %251, ptr %1, align 8
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 1
-  %.not.i.i.i.i27 = icmp ult ptr %252, getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
+  %.not.i.i.i.i27 = icmp ult ptr %252, getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
   br i1 %.not.i.i.i.i27, label %253, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer9WriteTextIJPKcEEEvDpT_.exit.sink.split
 
 253:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i26
@@ -20240,7 +20240,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i26: ; preds = %24
   store ptr %252, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_debugPathCurE, align 8
   %254 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %250) #34
   %255 = getelementptr inbounds i8, ptr %252, i64 %254
-  %.not.i.i.i.i.i28 = icmp ult ptr %255, getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
+  %.not.i.i.i.i.i28 = icmp ult ptr %255, getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
   br i1 %.not.i.i.i.i.i28, label %256, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer9WriteTextIJPKcEEEvDpT_.exit.sink.split
 
 256:                                              ; preds = %253
@@ -20314,7 +20314,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i31: ; preds = %28
   %288 = load ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_debugPathCurE, align 8
   store ptr %288, ptr %1, align 8
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 1
-  %.not.i.i.i.i32 = icmp ult ptr %289, getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
+  %.not.i.i.i.i32 = icmp ult ptr %289, getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
   br i1 %.not.i.i.i.i32, label %290, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer9WriteTextIJPKcEEEvDpT_.exit.sink.split
 
 290:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i31
@@ -20322,7 +20322,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i31: ; preds = %28
   store ptr %289, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_debugPathCurE, align 8
   %291 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %287) #34
   %292 = getelementptr inbounds i8, ptr %289, i64 %291
-  %.not.i.i.i.i.i34 = icmp ult ptr %292, getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
+  %.not.i.i.i.i.i34 = icmp ult ptr %292, getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, i64 8192)
   br i1 %.not.i.i.i.i.i34, label %293, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer9WriteTextIJPKcEEEvDpT_.exit.sink.split
 
 293:                                              ; preds = %290

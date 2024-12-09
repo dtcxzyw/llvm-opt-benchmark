@@ -63,7 +63,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mpi_ec_curve
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noalias noundef ptr @mpi_point_new(i32 %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %3 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3264, i64 noundef 24) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %11, label %5

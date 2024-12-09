@@ -358,7 +358,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !19
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -427,7 +427,7 @@ entry:
   %ref.tmp70 = alloca %"class.QuantLib::CovarianceDecomposition", align 8
   %ref.tmp71 = alloca %"class.QuantLib::Matrix", align 8
   %ref.tmp72 = alloca %"class.QuantLib::Matrix", align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib25CotSwapFromFwdCorrelationE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib25CotSwapFromFwdCorrelationE, i64 16), ptr %this, align 8, !tbaa !3
   %fwdCorr_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %fwdCorr, align 8, !tbaa !21
   store ptr %0, ptr %fwdCorr_, align 8, !tbaa !21
@@ -1639,7 +1639,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib25CotSwapFromFwdCorrelationD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib25CotSwapFromFwdCorrelationE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib25CotSwapFromFwdCorrelationE, i64 16), ptr %this, align 8, !tbaa !3
   %swapCorrMatrices_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %swapCorrMatrices_, align 8, !tbaa !10
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -1727,7 +1727,7 @@ _ZN5boost10shared_ptrIN8QuantLib28PiecewiseConstantCorrelationEED2Ev.exit: ; pre
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib25CotSwapFromFwdCorrelationD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib25CotSwapFromFwdCorrelationE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib25CotSwapFromFwdCorrelationE, i64 16), ptr %this, align 8, !tbaa !3
   %swapCorrMatrices_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %swapCorrMatrices_.i, align 8, !tbaa !10
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40

@@ -343,7 +343,7 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN22btGenericPoolAllocatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22btGenericPoolAllocator, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22btGenericPoolAllocator, i64 16), ptr %this, align 8
   %m_pool_count = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load i64, ptr %m_pool_count, align 8
   %cmp6.not = icmp eq i64 %0, 0
@@ -414,7 +414,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN22btGenericPoolAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22btGenericPoolAllocator, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22btGenericPoolAllocator, i64 16), ptr %this, align 8
   %m_pool_count.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load i64, ptr %m_pool_count.i, align 8
   %cmp6.not.i = icmp eq i64 %0, 0
@@ -688,7 +688,7 @@ return:                                           ; preds = %while.end.thread, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN22GIM_STANDARD_ALLOCATORD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22btGenericPoolAllocator, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22btGenericPoolAllocator, i64 16), ptr %this, align 8
   %m_pool_count.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load i64, ptr %m_pool_count.i, align 8
   %cmp6.not.i = icmp eq i64 %0, 0
@@ -953,7 +953,7 @@ _ZN22btGenericPoolAllocator10freeMemoryEPv.exit:  ; preds = %while.end.thread.i,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN22GIM_STANDARD_ALLOCATORD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22btGenericPoolAllocator, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22btGenericPoolAllocator, i64 16), ptr %this, align 8
   %m_pool_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load i64, ptr %m_pool_count.i.i, align 8
   %cmp6.not.i.i = icmp eq i64 %0, 0
@@ -1014,7 +1014,7 @@ entry:
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @g_main_allocator, i64 152), align 8
   store i64 8, ptr getelementptr inbounds nuw (i8, ptr @g_main_allocator, i64 8), align 8
   store i64 32768, ptr getelementptr inbounds nuw (i8, ptr @g_main_allocator, i64 16), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22GIM_STANDARD_ALLOCATOR, i64 16), ptr @g_main_allocator, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22GIM_STANDARD_ALLOCATOR, i64 16), ptr @g_main_allocator, align 8
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN22GIM_STANDARD_ALLOCATORD2Ev, ptr nonnull @g_main_allocator, ptr nonnull @__dso_handle) #14
   ret void
 }

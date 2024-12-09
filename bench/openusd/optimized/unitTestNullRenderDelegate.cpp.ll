@@ -666,7 +666,7 @@ _ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__18HdResourceRegistryELN9_
   store i32 1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %23, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__18HdResourceRegistryELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__18HdResourceRegistryELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %24, align 8
   store ptr %4, ptr %3, align 8
@@ -765,7 +765,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__29Hd_UnitTestNullRenderDelegat
           to label %6 unwind label %25
 
 6:                                                ; preds = %4
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25Hd_UnitTestNullRenderPassE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25Hd_UnitTestNullRenderPassE, i64 16), ptr %5, align 8
   store ptr %5, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %7, align 8
@@ -809,7 +809,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12HdRenderPassEEC2INS0_25Hd
   store i32 1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 1, ptr %23, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__25Hd_UnitTestNullRenderPassELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__25Hd_UnitTestNullRenderPassELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %5, ptr %24, align 8
   store ptr %8, ptr %7, align 8
@@ -869,7 +869,7 @@ define noundef nonnull ptr @_ZN32pxrInternal_v0_24__pxrReserved__29Hd_UnitTestNu
           to label %.noexc unwind label %18
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12Hd_NullRprimE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12Hd_NullRprimE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 464
   %6 = load i64, ptr %1, align 8
   store i64 %6, ptr %5, align 8
@@ -972,7 +972,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
           to label %_ZN32pxrInternal_v0_24__pxrReserved__15Hd_NullMaterialC2ERKNS_7SdfPathE.exit unwind label %27
 
 _ZN32pxrInternal_v0_24__pxrReserved__15Hd_NullMaterialC2ERKNS_7SdfPathE.exit: ; preds = %25
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15Hd_NullMaterialE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15Hd_NullMaterialE, i64 16), ptr %26, align 8
   br label %117
 
 27:                                               ; preds = %25
@@ -1032,7 +1032,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12Hd_NullLightC2ERKNS_7SdfPathE.exit unwind label %54
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Hd_NullLightC2ERKNS_7SdfPathE.exit: ; preds = %53
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12Hd_NullLightE, i64 16), ptr %51, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12Hd_NullLightE, i64 16), ptr %51, align 8
   br label %117
 
 54:                                               ; preds = %53, %50
@@ -1088,7 +1088,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
           to label %_ZN32pxrInternal_v0_24__pxrReserved__15Hd_NullCoordSysC2ERKNS_7SdfPathE.exit unwind label %79
 
 _ZN32pxrInternal_v0_24__pxrReserved__15Hd_NullCoordSysC2ERKNS_7SdfPathE.exit: ; preds = %77
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15Hd_NullCoordSysE, i64 16), ptr %78, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15Hd_NullCoordSysE, i64 16), ptr %78, align 8
   br label %117
 
 79:                                               ; preds = %77
@@ -1144,7 +1144,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
           to label %_ZN32pxrInternal_v0_24__pxrReserved__13Hd_NullCameraC2ERKNS_7SdfPathE.exit unwind label %104
 
 _ZN32pxrInternal_v0_24__pxrReserved__13Hd_NullCameraC2ERKNS_7SdfPathE.exit: ; preds = %102
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__13Hd_NullCameraE, i64 16), ptr %103, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__13Hd_NullCameraE, i64 16), ptr %103, align 8
   br label %117
 
 104:                                              ; preds = %102
@@ -1244,7 +1244,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
           to label %_ZN32pxrInternal_v0_24__pxrReserved__15Hd_NullMaterialC2ERKNS_7SdfPathE.exit unwind label %28
 
 _ZN32pxrInternal_v0_24__pxrReserved__15Hd_NullMaterialC2ERKNS_7SdfPathE.exit: ; preds = %27
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15Hd_NullMaterialE, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15Hd_NullMaterialE, i64 16), ptr %25, align 8
   br label %122
 
 28:                                               ; preds = %27, %24
@@ -1304,7 +1304,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12Hd_NullLightC2ERKNS_7SdfPathE.exit unwind label %55
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Hd_NullLightC2ERKNS_7SdfPathE.exit: ; preds = %54
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12Hd_NullLightE, i64 16), ptr %52, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12Hd_NullLightE, i64 16), ptr %52, align 8
   br label %122
 
 55:                                               ; preds = %54, %51
@@ -1364,7 +1364,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
           to label %_ZN32pxrInternal_v0_24__pxrReserved__15Hd_NullCoordSysC2ERKNS_7SdfPathE.exit unwind label %82
 
 _ZN32pxrInternal_v0_24__pxrReserved__15Hd_NullCoordSysC2ERKNS_7SdfPathE.exit: ; preds = %81
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15Hd_NullCoordSysE, i64 16), ptr %79, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15Hd_NullCoordSysE, i64 16), ptr %79, align 8
   br label %122
 
 82:                                               ; preds = %81, %78
@@ -1424,7 +1424,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
           to label %_ZN32pxrInternal_v0_24__pxrReserved__13Hd_NullCameraC2ERKNS_7SdfPathE.exit unwind label %109
 
 _ZN32pxrInternal_v0_24__pxrReserved__13Hd_NullCameraC2ERKNS_7SdfPathE.exit: ; preds = %108
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__13Hd_NullCameraE, i64 16), ptr %106, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__13Hd_NullCameraE, i64 16), ptr %106, align 8
   br label %122
 
 109:                                              ; preds = %108, %105
@@ -1775,7 +1775,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdCommandArgDescriptorD2Ev.exit: ; preds 
           to label %.noexc27 unwind label %177
 
 .noexc27:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 13))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.7, i64 13))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %112
 
 112:                                              ; preds = %.noexc27

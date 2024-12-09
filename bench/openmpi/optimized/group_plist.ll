@@ -36,14 +36,14 @@ define range(i32 0, 10) i32 @ompi_group_incl_plist(ptr noundef %0, i32 noundef %
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = atomicrmw volatile add ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), i32 1 monotonic, align 4
+  %10 = atomicrmw volatile add ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_group_empty, i64 8), i32 1 monotonic, align 4
   br label %opal_thread_add_fetch_32.exit
 
 11:                                               ; preds = %6
-  %12 = load volatile i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
+  %12 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
   %13 = add nsw i32 %12, 1
-  store volatile i32 %13, ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
-  %14 = load volatile i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
+  store volatile i32 %13, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
+  %14 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
   br label %opal_thread_add_fetch_32.exit
 
 15:                                               ; preds = %4
@@ -116,7 +116,7 @@ declare void @ompi_set_group_rank(ptr noundef, ptr noundef) local_unnamed_addr #
 define i32 @ompi_group_union(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
   %4 = alloca %struct.opal_bitmap_t, align 8
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @opal_bitmap_t_class, i64 32), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_bitmap_t_class, i64 32), align 8
   %.not = icmp eq i32 %5, %6
   br i1 %.not, label %8, label %7
 
@@ -284,14 +284,14 @@ ompi_group_dense_overlap.exit.thread:             ; preds = %ompi_group_dense_ov
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %75
-  %79 = atomicrmw volatile add ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), i32 1 monotonic, align 4
+  %79 = atomicrmw volatile add ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_group_empty, i64 8), i32 1 monotonic, align 4
   br label %opal_thread_add_fetch_32.exit
 
 80:                                               ; preds = %75
-  %81 = load volatile i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
+  %81 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
   %82 = add nsw i32 %81, 1
-  store volatile i32 %82, ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
-  %83 = load volatile i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
+  store volatile i32 %82, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
+  %83 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
   br label %opal_thread_add_fetch_32.exit
 
 opal_thread_add_fetch_32.exit:                    ; preds = %78, %80
@@ -454,7 +454,7 @@ declare zeroext i1 @opal_bitmap_is_set_bit(ptr noundef, i32 noundef) local_unnam
 define i32 @ompi_group_difference(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
   %4 = alloca %struct.opal_bitmap_t, align 8
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @opal_bitmap_t_class, i64 32), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_bitmap_t_class, i64 32), align 8
   %.not = icmp eq i32 %5, %6
   br i1 %.not, label %8, label %7
 
@@ -616,14 +616,14 @@ ompi_group_dense_overlap.exit.thread:             ; preds = %16, %ompi_group_den
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %73
-  %77 = atomicrmw volatile add ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), i32 1 monotonic, align 4
+  %77 = atomicrmw volatile add ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_group_empty, i64 8), i32 1 monotonic, align 4
   br label %opal_thread_add_fetch_32.exit
 
 78:                                               ; preds = %73
-  %79 = load volatile i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
+  %79 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
   %80 = add nsw i32 %79, 1
-  store volatile i32 %80, ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
-  %81 = load volatile i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
+  store volatile i32 %80, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
+  %81 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
   br label %opal_thread_add_fetch_32.exit
 
 opal_thread_add_fetch_32.exit:                    ; preds = %76, %78

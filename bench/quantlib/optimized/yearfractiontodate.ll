@@ -101,13 +101,13 @@ entry:
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost7numeric17negative_overflowE, i64 16), ptr %exception.i.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7numeric17negative_overflowE, i64 16), ptr %exception.i.i.i.i, align 8, !tbaa !3
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTIN5boost7numeric17negative_overflowE, ptr nonnull @_ZNSt8bad_castD2Ev) #17
   unreachable
 
 if.then3.i.i.i.i:                                 ; preds = %entry
   %exception4.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost7numeric17positive_overflowE, i64 16), ptr %exception4.i.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7numeric17positive_overflowE, i64 16), ptr %exception4.i.i.i.i, align 8, !tbaa !3
   tail call void @__cxa_throw(ptr nonnull %exception4.i.i.i.i, ptr nonnull @_ZTIN5boost7numeric17positive_overflowE, ptr nonnull @_ZNSt8bad_castD2Ev) #17
   unreachable
 
@@ -137,13 +137,13 @@ _ZN5boost12numeric_castIidEET_T0_.exit:           ; preds = %entry
 
 if.then.i.i.i.i36:                                ; preds = %_ZN5boost12numeric_castIidEET_T0_.exit
   %exception.i.i.i.i37 = call ptr @__cxa_allocate_exception(i64 8) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost7numeric17negative_overflowE, i64 16), ptr %exception.i.i.i.i37, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7numeric17negative_overflowE, i64 16), ptr %exception.i.i.i.i37, align 8, !tbaa !3
   call void @__cxa_throw(ptr nonnull %exception.i.i.i.i37, ptr nonnull @_ZTIN5boost7numeric17negative_overflowE, ptr nonnull @_ZNSt8bad_castD2Ev) #17
   unreachable
 
 if.then3.i.i.i.i34:                               ; preds = %_ZN5boost12numeric_castIidEET_T0_.exit
   %exception4.i.i.i.i35 = call ptr @__cxa_allocate_exception(i64 8) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost7numeric17positive_overflowE, i64 16), ptr %exception4.i.i.i.i35, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7numeric17positive_overflowE, i64 16), ptr %exception4.i.i.i.i35, align 8, !tbaa !3
   call void @__cxa_throw(ptr nonnull %exception4.i.i.i.i35, ptr nonnull @_ZTIN5boost7numeric17positive_overflowE, ptr nonnull @_ZNSt8bad_castD2Ev) #17
   unreachable
 
@@ -204,13 +204,13 @@ if.end:                                           ; preds = %if.then3.i, %_ZN8Qu
 
 if.then.i.i.i.i51:                                ; preds = %if.end
   %exception.i.i.i.i52 = call ptr @__cxa_allocate_exception(i64 8) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost7numeric17negative_overflowE, i64 16), ptr %exception.i.i.i.i52, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7numeric17negative_overflowE, i64 16), ptr %exception.i.i.i.i52, align 8, !tbaa !3
   call void @__cxa_throw(ptr nonnull %exception.i.i.i.i52, ptr nonnull @_ZTIN5boost7numeric17negative_overflowE, ptr nonnull @_ZNSt8bad_castD2Ev) #17
   unreachable
 
 if.then3.i.i.i.i49:                               ; preds = %if.end
   %exception4.i.i.i.i50 = call ptr @__cxa_allocate_exception(i64 8) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost7numeric17positive_overflowE, i64 16), ptr %exception4.i.i.i.i50, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7numeric17positive_overflowE, i64 16), ptr %exception4.i.i.i.i50, align 8, !tbaa !3
   call void @__cxa_throw(ptr nonnull %exception4.i.i.i.i50, ptr nonnull @_ZTIN5boost7numeric17positive_overflowE, ptr nonnull @_ZNSt8bad_castD2Ev) #17
   unreachable
 
@@ -632,7 +632,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !27
   %cmp.not.i.i = icmp eq ptr %0, null

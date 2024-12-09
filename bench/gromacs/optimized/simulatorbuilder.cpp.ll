@@ -466,7 +466,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   br label %30
 
 26:                                               ; preds = %24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %23, align 8
   invoke void @__cxa_throw(ptr nonnull %23, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #18
           to label %431 unwind label %28
 
@@ -508,7 +508,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   br label %42
 
 38:                                               ; preds = %36
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %35, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %35, align 8
   invoke void @__cxa_throw(ptr nonnull %35, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #18
           to label %431 unwind label %40
 
@@ -550,7 +550,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   br label %54
 
 50:                                               ; preds = %48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %47, align 8
   invoke void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #18
           to label %431 unwind label %52
 
@@ -591,7 +591,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   br label %65
 
 61:                                               ; preds = %59
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %58, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %58, align 8
   invoke void @__cxa_throw(ptr nonnull %58, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #18
           to label %431 unwind label %63
 
@@ -633,7 +633,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   br label %77
 
 73:                                               ; preds = %71
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %70, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %70, align 8
   invoke void @__cxa_throw(ptr nonnull %70, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #18
           to label %431 unwind label %75
 
@@ -675,7 +675,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   br label %89
 
 85:                                               ; preds = %83
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %82, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %82, align 8
   invoke void @__cxa_throw(ptr nonnull %82, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #18
           to label %431 unwind label %87
 
@@ -717,7 +717,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   br label %101
 
 97:                                               ; preds = %95
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %94, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %94, align 8
   invoke void @__cxa_throw(ptr nonnull %94, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #18
           to label %431 unwind label %99
 
@@ -759,7 +759,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   br label %113
 
 109:                                              ; preds = %107
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %106, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %106, align 8
   invoke void @__cxa_throw(ptr nonnull %106, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #18
           to label %431 unwind label %111
 
@@ -801,7 +801,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   br label %125
 
 121:                                              ; preds = %119
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %118, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %118, align 8
   invoke void @__cxa_throw(ptr nonnull %118, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #18
           to label %431 unwind label %123
 
@@ -843,7 +843,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   br label %137
 
 133:                                              ; preds = %131
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %130, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %130, align 8
   invoke void @__cxa_throw(ptr nonnull %130, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #18
           to label %431 unwind label %135
 
@@ -885,7 +885,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   br label %149
 
 145:                                              ; preds = %143
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %142, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %142, align 8
   invoke void @__cxa_throw(ptr nonnull %142, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #18
           to label %431 unwind label %147
 
@@ -927,7 +927,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   br label %161
 
 157:                                              ; preds = %155
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %154, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %154, align 8
   invoke void @__cxa_throw(ptr nonnull %154, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #18
           to label %431 unwind label %159
 
@@ -969,7 +969,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   br label %173
 
 169:                                              ; preds = %167
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %166, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %166, align 8
   invoke void @__cxa_throw(ptr nonnull %166, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #18
           to label %431 unwind label %171
 
@@ -1011,7 +1011,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   br label %185
 
 181:                                              ; preds = %179
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %178, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %178, align 8
   invoke void @__cxa_throw(ptr nonnull %178, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #18
           to label %431 unwind label %183
 
@@ -1445,7 +1445,7 @@ _ZNSt10unique_ptrIN3gmx15LegacySimulatorESt14default_deleteIS1_EED2Ev.exit: ; pr
   store i64 %386, ptr %426, align 8
   %427 = getelementptr inbounds nuw i8, ptr %327, i64 296
   store i8 %391, ptr %427, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx15LegacySimulatorE, i64 16), ptr %327, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx15LegacySimulatorE, i64 16), ptr %327, align 8
   store ptr %327, ptr %0, align 8
   br label %_ZNSt10unique_ptrIN3gmx18StopHandlerBuilderESt14default_deleteIS1_EED2Ev.exit
 
@@ -1521,7 +1521,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null

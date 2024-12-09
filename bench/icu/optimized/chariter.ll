@@ -38,7 +38,7 @@ declare void @llvm.trap() #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7524ForwardCharacterIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7524ForwardCharacterIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7524ForwardCharacterIteratorE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -48,14 +48,14 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7524ForwardCharacterIteratorC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %other) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7524ForwardCharacterIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7524ForwardCharacterIteratorE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7517CharacterIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CharacterIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517CharacterIteratorE, i64 16), ptr %this, align 8
   %textLength = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %textLength, i8 0, i64 16, i1 false)
   ret void
@@ -64,7 +64,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7517CharacterIteratorC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, i32 noundef %length) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CharacterIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517CharacterIteratorE, i64 16), ptr %this, align 8
   %textLength = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %length, ptr %textLength, align 8
   %pos = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -88,7 +88,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7517CharacterIteratorC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, i32 noundef %length, i32 noundef %position) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CharacterIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517CharacterIteratorE, i64 16), ptr %this, align 8
   %textLength = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %length, ptr %textLength, align 8
   %pos = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -126,7 +126,7 @@ if.end16:                                         ; preds = %if.end16.sink.split
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7517CharacterIteratorC2Eiiii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, i32 noundef %length, i32 noundef %textBegin, i32 noundef %textEnd, i32 noundef %position) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CharacterIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517CharacterIteratorE, i64 16), ptr %this, align 8
   %textLength = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %length, ptr %textLength, align 8
   %pos = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -205,7 +205,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6icu_7517CharacterIteratorC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %that) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CharacterIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517CharacterIteratorE, i64 16), ptr %this, align 8
   %textLength = getelementptr inbounds nuw i8, ptr %this, i64 8
   %textLength2 = getelementptr inbounds nuw i8, ptr %that, i64 8
   %0 = load i32, ptr %textLength2, align 8

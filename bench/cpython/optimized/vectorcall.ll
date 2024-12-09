@@ -96,7 +96,7 @@ PyObject_TypeCheck.exit:                          ; preds = %entry
   br i1 %tobool3.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %PyObject_TypeCheck.exit
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 24), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyType_Type, i64 24), align 8
   tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4, ptr noundef %1, ptr noundef nonnull %arg) #5
   br label %exit
 
@@ -157,7 +157,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp6, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
-  store ptr @MethodDescriptorBase_Type, ptr getelementptr inbounds (i8, ptr @MethodDescriptorDerived_Type, i64 256), align 8
+  store ptr @MethodDescriptorBase_Type, ptr getelementptr inbounds nuw (i8, ptr @MethodDescriptorDerived_Type, i64 256), align 8
   %call9 = tail call i32 @PyType_Ready(ptr noundef nonnull @MethodDescriptorDerived_Type) #5
   %cmp10 = icmp slt i32 %call9, 0
   br i1 %cmp10, label %return, label %if.end12
@@ -168,7 +168,7 @@ if.end12:                                         ; preds = %if.end8
   br i1 %cmp14, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end12
-  store ptr @MethodDescriptorBase_Type, ptr getelementptr inbounds (i8, ptr @MethodDescriptorNopGet_Type, i64 256), align 8
+  store ptr @MethodDescriptorBase_Type, ptr getelementptr inbounds nuw (i8, ptr @MethodDescriptorNopGet_Type, i64 256), align 8
   %call17 = tail call i32 @PyType_Ready(ptr noundef nonnull @MethodDescriptorNopGet_Type) #5
   %cmp18 = icmp slt i32 %call17, 0
   br i1 %cmp18, label %return, label %if.end20
@@ -179,7 +179,7 @@ if.end20:                                         ; preds = %if.end16
   br i1 %cmp22, label %return, label %if.end24
 
 if.end24:                                         ; preds = %if.end20
-  store ptr @MethodDescriptorBase_Type, ptr getelementptr inbounds (i8, ptr @MethodDescriptor2_Type, i64 256), align 8
+  store ptr @MethodDescriptorBase_Type, ptr getelementptr inbounds nuw (i8, ptr @MethodDescriptor2_Type, i64 256), align 8
   %call25 = tail call i32 @PyType_Ready(ptr noundef nonnull @MethodDescriptor2_Type) #5
   %cmp26 = icmp slt i32 %call25, 0
   br i1 %cmp26, label %return, label %if.end28
@@ -536,7 +536,7 @@ PyObject_TypeCheck.exit:                          ; preds = %if.end4
   br i1 %tobool3.i.not, label %if.then7, label %skip_optional
 
 if.then7:                                         ; preds = %PyObject_TypeCheck.exit
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 24), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyType_Type, i64 24), align 8
   tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.26, ptr noundef %2, ptr noundef %.pre) #5
   br label %exit
 
@@ -547,7 +547,7 @@ skip_optional:                                    ; preds = %PyObject_TypeCheck.
   %spec.store.select.i = select i1 %tobool.not.i, ptr @PyBaseObject_Type, ptr %base.0
   %tp_basicsize.i = getelementptr inbounds nuw i8, ptr %spec.store.select.i, i64 32
   %3 = load i64, ptr %tp_basicsize.i, align 8
-  store i64 %3, ptr getelementptr inbounds (i8, ptr @VectorCallClass_members, i64 16), align 16
+  store i64 %3, ptr getelementptr inbounds nuw (i8, ptr @VectorCallClass_members, i64 16), align 16
   store ptr @.str.27, ptr %spec.i, align 8
   %basicsize.i = getelementptr inbounds nuw i8, ptr %spec.i, i64 8
   %4 = trunc i64 %3 to i32
@@ -582,7 +582,7 @@ PyObject_TypeCheck.exit:                          ; preds = %entry
   br i1 %tobool3.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %PyObject_TypeCheck.exit
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 24), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyType_Type, i64 24), align 8
   tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.4, ptr noundef %1, ptr noundef nonnull %arg) #5
   br label %exit
 

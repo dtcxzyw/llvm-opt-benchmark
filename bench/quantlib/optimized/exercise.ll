@@ -360,7 +360,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !15
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !17
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -434,7 +434,7 @@ invoke.cont:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %dates_.i.i, i8 0, i64 28, i1 false)
   %payoffAtExpiry_.i = getelementptr inbounds nuw i8, ptr %this, i64 36
   store i8 %storedv.i, ptr %payoffAtExpiry_.i, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib16AmericanExerciseE, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib16AmericanExerciseE, i64 16), ptr %this, align 8, !tbaa !15
   %0 = load i64, ptr %earliest, align 8, !tbaa !28
   %1 = load i64, ptr %latest, align 8, !tbaa !28
   %cmp.i.not = icmp sgt i64 %0, %1
@@ -668,7 +668,7 @@ lpad32:                                           ; preds = %do.end
 
 ehcleanup42:                                      ; preds = %lpad32, %ehcleanup29
   %.pn8 = phi { ptr, i32 } [ %33, %lpad32 ], [ %.pn.pn.pn.pn.pn, %ehcleanup29 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib8ExerciseE, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib8ExerciseE, i64 16), ptr %this, align 8, !tbaa !15
   %34 = load ptr, ptr %dates_.i.i, align 8, !tbaa !30
   %tobool.not.i.i.i.i = icmp eq ptr %34, null
   br i1 %tobool.not.i.i.i.i, label %_ZN8QuantLib8ExerciseD2Ev.exit, label %if.then.i.i.i.i
@@ -789,7 +789,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %dates_.i.i, i8 0, i64 28, i1 false)
   %payoffAtExpiry_.i = getelementptr inbounds nuw i8, ptr %this, i64 36
   store i8 %storedv.i, ptr %payoffAtExpiry_.i, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib16AmericanExerciseE, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib16AmericanExerciseE, i64 16), ptr %this, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #17
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2) #17
   invoke void @_ZNSt6vectorIN8QuantLib4DateESaIS1_EEC2EmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i64 noundef 2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
@@ -857,7 +857,7 @@ lpad4:                                            ; preds = %_ZNSt6vectorIN8Quan
 
 ehcleanup:                                        ; preds = %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %9, %lpad4 ], [ %8, %lpad ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib8ExerciseE, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib8ExerciseE, i64 16), ptr %this, align 8, !tbaa !15
   %10 = load ptr, ptr %dates_.i.i, align 8, !tbaa !30
   %tobool.not.i.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i, label %_ZN8QuantLib8ExerciseD2Ev.exit, label %if.then.i.i.i.i
@@ -893,7 +893,7 @@ entry:
   store i32 1, ptr %type_.i.i, align 8, !tbaa !35
   %payoffAtExpiry_.i = getelementptr inbounds nuw i8, ptr %this, i64 36
   store i8 %storedv.i, ptr %payoffAtExpiry_.i, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib16BermudanExerciseE, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib16BermudanExerciseE, i64 16), ptr %this, align 8, !tbaa !15
   %0 = load ptr, ptr %dates, align 8, !tbaa !3
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %dates, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !3
@@ -1214,7 +1214,7 @@ lpad28:                                           ; preds = %if.then.i.i23, %do.
 
 ehcleanup40:                                      ; preds = %lpad28, %ehcleanup27
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup27 ], [ %41, %lpad28 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib8ExerciseE, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib8ExerciseE, i64 16), ptr %this, align 8, !tbaa !15
   %42 = load ptr, ptr %dates_.i.i, align 8, !tbaa !30
   %tobool.not.i.i.i.i = icmp eq ptr %42, null
   br i1 %tobool.not.i.i.i.i, label %_ZN8QuantLib8ExerciseD2Ev.exit, label %if.then.i.i.i.i
@@ -1362,7 +1362,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dates_.i, i8 0, i64 24, i1 false)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 2, ptr %type_.i, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib16EuropeanExerciseE, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib16EuropeanExerciseE, i64 16), ptr %this, align 8, !tbaa !15
   %call5.i.i.i.i2.i.i1 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
           to label %_ZNSt6vectorIN8QuantLib4DateESaIS1_EED2Ev.exit unwind label %_ZN8QuantLib8ExerciseD2Ev.exit
 
@@ -1380,14 +1380,14 @@ _ZNSt6vectorIN8QuantLib4DateESaIS1_EED2Ev.exit:   ; preds = %entry
 _ZN8QuantLib8ExerciseD2Ev.exit:                   ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib8ExerciseE, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib8ExerciseE, i64 16), ptr %this, align 8, !tbaa !15
   resume { ptr, i32 } %0
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib16AmericanExerciseD0Ev(ptr noundef nonnull align 8 dereferenceable(37) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib8ExerciseE, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib8ExerciseE, i64 16), ptr %this, align 8, !tbaa !15
   %dates_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %dates_.i, align 8, !tbaa !30
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -1410,7 +1410,7 @@ _ZN8QuantLib8ExerciseD2Ev.exit:                   ; preds = %entry, %if.then.i.i
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib16BermudanExerciseD0Ev(ptr noundef nonnull align 8 dereferenceable(37) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib8ExerciseE, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib8ExerciseE, i64 16), ptr %this, align 8, !tbaa !15
   %dates_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %dates_.i, align 8, !tbaa !30
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -1433,7 +1433,7 @@ _ZN8QuantLib8ExerciseD2Ev.exit:                   ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ExerciseD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib8ExerciseE, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib8ExerciseE, i64 16), ptr %this, align 8, !tbaa !15
   %dates_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %dates_, align 8, !tbaa !30
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -1455,7 +1455,7 @@ _ZNSt6vectorIN8QuantLib4DateESaIS1_EED2Ev.exit:   ; preds = %entry, %if.then.i.i
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib16EuropeanExerciseD0Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib8ExerciseE, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib8ExerciseE, i64 16), ptr %this, align 8, !tbaa !15
   %dates_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %dates_.i, align 8, !tbaa !30
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -1496,7 +1496,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ExerciseD0Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib8ExerciseE, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib8ExerciseE, i64 16), ptr %this, align 8, !tbaa !15
   %dates_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %dates_.i, align 8, !tbaa !30
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

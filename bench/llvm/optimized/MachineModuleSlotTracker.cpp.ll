@@ -266,7 +266,7 @@ define dso_local void @_ZN4llvm24MachineModuleSlotTrackerC2ERKNS_17MachineModule
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
   tail call void @_ZN4llvm17ModuleSlotTrackerC2EPKNS_6ModuleEb(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %9, i1 noundef zeroext %3) #5
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm24MachineModuleSlotTrackerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm24MachineModuleSlotTrackerE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load ptr, ptr %2, align 8
   store ptr %11, ptr %10, align 8

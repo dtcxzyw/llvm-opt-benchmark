@@ -55,19 +55,19 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
   store volatile i8 0, ptr %7, align 1
   store volatile i32 0, ptr %8, align 4
   store volatile i8 0, ptr %9, align 1
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 304), align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
-  %13 = load i64, ptr getelementptr inbounds (i8, ptr @pset, i64 336), align 8
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @pset, i64 304), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 304), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 312), align 8
+  %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 336), align 8
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 304), align 8
   %14 = load ptr, ptr @stdin, align 8
   %15 = icmp eq ptr %0, %14
-  %16 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 296), align 8
+  %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 296), align 8
   %17 = and i8 %16, 1
   %18 = xor i8 %17, 1
   %19 = select i1 %15, i8 %18, i8 0
-  store i8 %19, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @pset, i64 336), align 8
-  store i64 1, ptr getelementptr inbounds (i8, ptr @pset, i64 344), align 8
+  store i8 %19, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 312), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 336), align 8
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 344), align 8
   %20 = call ptr @psql_scan_create(ptr noundef nonnull @psqlscan_callbacks) #10
   %21 = call ptr @conditional_stack_create() #10
   call void @psql_scan_set_passthrough(ptr noundef %20, ptr noundef %21) #10
@@ -123,7 +123,7 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not, label %49, label %44
 
 44:                                               ; preds = %.lr.ph273
-  %45 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
+  %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 312), align 8
   %46 = trunc i8 %45 to i1
   br i1 %46, label %48, label %47
 
@@ -150,9 +150,9 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
   store volatile i32 0, ptr %5, align 4
   store volatile i32 0, ptr %6, align 4
   store volatile i8 0, ptr %7, align 1
-  store i64 1, ptr getelementptr inbounds (i8, ptr @pset, i64 344), align 8
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 344), align 8
   store volatile i32 0, ptr @cancel_pressed, align 4
-  %52 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
+  %52 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 312), align 8
   %53 = trunc i8 %52 to i1
   br i1 %53, label %54, label %60
 
@@ -174,7 +174,7 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
 61:                                               ; preds = %58, %54, %49
   %62 = load ptr, ptr @stdout, align 8
   %63 = call i32 @fflush(ptr noundef %62)
-  %64 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
+  %64 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 312), align 8
   %65 = trunc i8 %64 to i1
   br i1 %65, label %66, label %86
 
@@ -240,7 +240,7 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %94, label %.thread, label %.thread229
 
 .thread:                                          ; preds = %88, %90, %91
-  %95 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
+  %95 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 312), align 8
   %96 = trunc i8 %95 to i1
   br i1 %96, label %97, label %.loopexit
 
@@ -249,9 +249,9 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
   %98 = add i32 %.0..0..0..0.38, 1
   store volatile i32 %98, ptr %8, align 4
   %.0..0..0..0.39 = load volatile i32, ptr %8, align 4
-  %99 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 400), align 8
+  %99 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 400), align 8
   %100 = icmp slt i32 %.0..0..0..0.39, %99
-  %101 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 386), align 2
+  %101 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 386), align 2
   %102 = trunc i8 %101 to i1
   br i1 %100, label %103, label %108
 
@@ -259,7 +259,7 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %102, label %.backedge, label %104
 
 104:                                              ; preds = %103
-  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 320), align 8
+  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 320), align 8
   %106 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.2, ptr noundef %105) #10
   br label %.backedge
 
@@ -276,11 +276,11 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
 .thread229:                                       ; preds = %86, %91
   %.0231 = phi ptr [ %93, %91 ], [ %87, %86 ]
   store volatile i32 0, ptr %8, align 4
-  %111 = load i64, ptr getelementptr inbounds (i8, ptr @pset, i64 336), align 8
+  %111 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 336), align 8
   %112 = add i64 %111, 1
-  store i64 %112, ptr getelementptr inbounds (i8, ptr @pset, i64 336), align 8
+  store i64 %112, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 336), align 8
   %113 = icmp eq i64 %111, 0
-  %114 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
+  %114 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %115 = icmp eq i32 %114, 6
   %or.cond221 = select i1 %113, i1 %115, i1 false
   br i1 %or.cond221, label %sub_0, label %thread-pre-split
@@ -307,7 +307,7 @@ sub_1:                                            ; preds = %sub_0
   %124 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %123) #13
   %125 = add i64 %124, 1
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0231, ptr align 1 %123, i64 %125, i1 false)
-  %.pr.pre = load i64, ptr getelementptr inbounds (i8, ptr @pset, i64 336), align 8
+  %.pr.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 336), align 8
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %122, %.thread229
@@ -316,7 +316,7 @@ thread-pre-split:                                 ; preds = %122, %.thread229
   br i1 %127, label %thread-pre-split.thread, label %137
 
 thread-pre-split.thread:                          ; preds = %sub_1, %sub_0, %.tail, %thread-pre-split
-  %128 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
+  %128 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 312), align 8
   %129 = trunc i8 %128 to i1
   br i1 %129, label %137, label %130
 
@@ -347,7 +347,7 @@ thread-pre-split.thread:                          ; preds = %sub_1, %sub_0, %.ta
   br label %.backedge
 
 143:                                              ; preds = %140, %137
-  %144 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
+  %144 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 312), align 8
   %145 = trunc i8 %144 to i1
   br i1 %145, label %146, label %.thread249
 
@@ -526,12 +526,12 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
   br label %.thread249
 
 .thread249:                                       ; preds = %sub_0261, %.tail260, %204, %206, %211, %212, %215, %216, %217, %218, %143
-  %220 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 404), align 4
+  %220 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 404), align 4
   %221 = icmp eq i32 %220, 3
   br i1 %221, label %222, label %229
 
 222:                                              ; preds = %.thread249
-  %223 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
+  %223 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 312), align 8
   %224 = trunc i8 %223 to i1
   br i1 %224, label %229, label %225
 
@@ -559,12 +559,12 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
 
 236:                                              ; preds = %229, %232
   %.0172 = phi i32 [ %235, %232 ], [ -1, %229 ]
-  %237 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 385), align 1
+  %237 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 385), align 1
   %238 = and i8 %237, 1
   store volatile i8 %238, ptr %9, align 1
   %239 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0231) #13
   %240 = trunc i64 %239 to i32
-  %241 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
+  %241 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %242 = call zeroext i1 @standard_strings() #10
   call void @psql_scan_setup(ptr noundef %20, ptr noundef nonnull %.0231, i32 noundef %240, i32 noundef %241, i1 noundef zeroext %242) #10
   br label %243
@@ -612,7 +612,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
   %.0..0..0..0.124 = load volatile ptr, ptr %2, align 8
   %258 = load ptr, ptr %.0..0..0..0.124, align 8
   %259 = getelementptr i8, ptr %258, i64 %248
-  %.promoted = load i64, ptr getelementptr inbounds (i8, ptr @pset, i64 344), align 8
+  %.promoted = load i64, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 344), align 8
   %260 = load i8, ptr %259, align 1
   %.not213270 = icmp eq i8 %260, 0
   br i1 %.not213270, label %._crit_edge, label %.lr.ph
@@ -627,7 +627,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
 
 265:                                              ; preds = %.lr.ph
   %266 = add i64 %262, 1
-  store i64 %266, ptr getelementptr inbounds (i8, ptr @pset, i64 344), align 8
+  store i64 %266, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 344), align 8
   br label %267
 
 267:                                              ; preds = %265, %.lr.ph
@@ -646,13 +646,13 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
 
 271:                                              ; preds = %._crit_edge
   %272 = add i64 %270, 1
-  store i64 %272, ptr getelementptr inbounds (i8, ptr @pset, i64 344), align 8
-  %273 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 387), align 1
+  store i64 %272, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 344), align 8
+  %273 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 387), align 1
   %274 = trunc i8 %273 to i1
   br i1 %274, label %275, label %.thread254
 
 275:                                              ; preds = %._crit_edge, %271
-  %276 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
+  %276 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 312), align 8
   %277 = trunc i8 %276 to i1
   br i1 %277, label %278, label %281
 
@@ -677,7 +677,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
   %286 = zext i1 %285 to i8
   %287 = select i1 %285, i32 1, i32 5
   store volatile i32 %287, ptr %5, align 4
-  store i64 1, ptr getelementptr inbounds (i8, ptr @pset, i64 344), align 8
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 344), align 8
   %.0..0..0..0.103 = load volatile ptr, ptr %3, align 8
   %.0..0..0..0.126 = load volatile ptr, ptr %2, align 8
   store volatile ptr %.0..0..0..0.126, ptr %3, align 8
@@ -687,7 +687,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
   br label %341
 
 288:                                              ; preds = %281
-  %289 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
+  %289 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 312), align 8
   %290 = trunc i8 %289 to i1
   br i1 %290, label %291, label %292
 
@@ -697,7 +697,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
 
 292:                                              ; preds = %291, %288
   store volatile i32 1, ptr %5, align 4
-  store i64 1, ptr getelementptr inbounds (i8, ptr @pset, i64 344), align 8
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 344), align 8
   br label %341
 
 293:                                              ; preds = %._crit_edge
@@ -722,7 +722,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
   br label %304
 
 304:                                              ; preds = %298, %293
-  %305 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
+  %305 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 312), align 8
   %306 = trunc i8 %305 to i1
   br i1 %306, label %307, label %310
 
@@ -744,7 +744,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
   %.0..0..0..0.49 = load volatile i32, ptr %5, align 4
   %312 = icmp ne i32 %.0..0..0..0.49, 5
   %313 = zext i1 %312 to i8
-  store i64 1, ptr getelementptr inbounds (i8, ptr @pset, i64 344), align 8
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 344), align 8
   %.0..0..0..0.50 = load volatile i32, ptr %5, align 4
   %314 = icmp eq i32 %.0..0..0..0.50, 1
   br i1 %314, label %315, label %319
@@ -803,7 +803,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
   call void @psql_scan_reset(ptr noundef %20) #10
   %335 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %334) #13
   %336 = trunc i64 %335 to i32
-  %337 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
+  %337 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %338 = call zeroext i1 @standard_strings() #10
   call void @psql_scan_setup(ptr noundef %20, ptr noundef %334, i32 noundef %336, i32 noundef %337, i1 noundef zeroext %338) #10
   store volatile i32 0, ptr %6, align 4
@@ -828,7 +828,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
   %.1181 = phi i8 [ %.3183, %341 ], [ %.4, %339 ], [ %.0180, %245 ], [ %.0180, %271 ]
   %.1177 = phi i8 [ %.2178, %341 ], [ %313, %339 ], [ %.0176, %245 ], [ %.0176, %271 ]
   %.2 = phi ptr [ %.3, %341 ], [ %.1, %339 ], [ %.1, %245 ], [ %.1, %271 ]
-  %343 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
+  %343 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 312), align 8
   %344 = trunc i8 %343 to i1
   br i1 %344, label %345, label %353
 
@@ -863,7 +863,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
   br label %.loopexit
 
 356:                                              ; preds = %353
-  %357 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
+  %357 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 312), align 8
   %358 = trunc i8 %357 to i1
   br i1 %358, label %.backedge, label %359
 
@@ -897,7 +897,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
   br i1 %.not217, label %387, label %369
 
 369:                                              ; preds = %.loopexit
-  %370 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
+  %370 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 312), align 8
   %371 = trunc i8 %370 to i1
   br i1 %371, label %387, label %372
 
@@ -917,7 +917,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
   br i1 %378, label %.critedge227, label %383
 
 379:                                              ; preds = %374
-  %380 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
+  %380 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 312), align 8
   %381 = trunc i8 %380 to i1
   br i1 %381, label %382, label %.critedge227
 
@@ -961,7 +961,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
   br i1 %392, label %393, label %397
 
 393:                                              ; preds = %391
-  %394 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
+  %394 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 312), align 8
   %395 = trunc i8 %394 to i1
   br i1 %395, label %397, label %396
 
@@ -979,9 +979,9 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
   call void @destroyPQExpBuffer(ptr noundef %24) #10
   call void @psql_scan_destroy(ptr noundef %20) #10
   call void @conditional_stack_destroy(ptr noundef %21) #10
-  store ptr %11, ptr getelementptr inbounds (i8, ptr @pset, i64 304), align 8
-  store i8 %398, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
-  store i64 %13, ptr getelementptr inbounds (i8, ptr @pset, i64 336), align 8
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 304), align 8
+  store i8 %398, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 312), align 8
+  store i64 %13, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 336), align 8
   %.0..0..0..0.58 = load volatile i32, ptr %4, align 4
   ret i32 %.0..0..0..0.58
 }

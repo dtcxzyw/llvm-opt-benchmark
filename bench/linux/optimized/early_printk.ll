@@ -124,19 +124,19 @@ sub_1:                                            ; preds = %sub_0
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %37 = load i8, ptr %36, align 1
   %38 = icmp eq i8 %37, 97
-  %39 = load i8, ptr getelementptr inbounds (i8, ptr @boot_params, i64 15), align 1
+  %39 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_params, i64 15), align 1
   %40 = icmp eq i8 %39, 1
   %41 = select i1 %38, i1 %40, i1 false
   br i1 %41, label %42, label %.tail.thread
 
 42:                                               ; preds = %.tail
-  %43 = load i8, ptr getelementptr inbounds (i8, ptr @boot_params, i64 7), align 1
+  %43 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_params, i64 7), align 1
   %44 = zext i8 %43 to i32
   store i32 %44, ptr @max_xpos, align 4
-  %45 = load i8, ptr getelementptr inbounds (i8, ptr @boot_params, i64 14), align 1
+  %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_params, i64 14), align 1
   %46 = zext i8 %45 to i32
   store i32 %46, ptr @max_ypos, align 4
-  %47 = load i8, ptr getelementptr inbounds (i8, ptr @boot_params, i64 1), align 1
+  %47 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_params, i64 1), align 1
   %48 = zext i8 %47 to i32
   store i32 %48, ptr @current_ypos, align 4
   tail call fastcc void @early_console_register(ptr noundef nonnull @early_vga_console, i32 noundef %9)

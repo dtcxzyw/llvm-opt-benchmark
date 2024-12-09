@@ -32,13 +32,13 @@ $_ZTV10WorkerTask = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12PretouchTaskC2EPKcPcS2_mm(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 20)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV10WorkerTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV10WorkerTask, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = tail call noundef i32 @_ZN4GCId20current_or_undefinedEv() #6
   store i32 %9, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV12PretouchTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV12PretouchTask, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store volatile ptr %2, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -119,7 +119,7 @@ define hidden void @_ZN12PretouchTask8pretouchEPKcPcS2_mP13WorkerThreads(ptr nou
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = tail call noundef i32 @_ZN4GCId20current_or_undefinedEv() #6
   store i32 %13, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV12PretouchTask, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV12PretouchTask, i64 16), ptr %6, align 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store volatile ptr %1, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 32

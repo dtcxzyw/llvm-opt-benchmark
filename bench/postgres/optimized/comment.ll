@@ -21,7 +21,7 @@ define dso_local { i64, i32 } @CommentObject(ptr nocapture noundef readonly %0) 
   %2 = alloca ptr, align 8
   %.sroa.020.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
   %.sroa.020.sroa.6.0.extract.shift34 = lshr i64 %.sroa.020.0.copyload, 32
-  %.sroa.8.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.8.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 9

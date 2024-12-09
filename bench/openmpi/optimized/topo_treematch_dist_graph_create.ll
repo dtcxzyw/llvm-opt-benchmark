@@ -423,7 +423,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %160, %166
   br i1 %.not905, label %190, label %214
 
 190:                                              ; preds = %188
-  %191 = load i16, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 308), align 4
+  %191 = load i16, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 308), align 4
   %192 = zext i16 %191 to i32
   %193 = srem i32 %192, %.0.i
   store i32 %193, ptr %11, align 4
@@ -439,7 +439,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %160, %166
   br i1 %.not907, label %215, label %198
 
 198:                                              ; preds = %197
-  %199 = load i16, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 308), align 4
+  %199 = load i16, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 308), align 4
   %200 = zext i16 %199 to i32
   %201 = load i32, ptr %12, align 4
   %202 = srem i32 %200, %201
@@ -582,7 +582,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %160, %166
 
 .lr.ph1065:                                       ; preds = %.lr.ph1065.preheader, %256
   %indvars.iv1270 = phi i64 [ 1, %.lr.ph1065.preheader ], [ %indvars.iv.next1271, %256 ]
-  %257 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
+  %257 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 64), align 8
   %258 = getelementptr inbounds nuw i32, ptr %253, i64 %indvars.iv1270
   %259 = getelementptr inbounds nuw i32, ptr %123, i64 %indvars.iv1270
   %260 = load i32, ptr %259, align 4
@@ -596,7 +596,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %160, %166
   br label %.thread977
 
 ._crit_edge1066:                                  ; preds = %256, %._crit_edge1061
-  %263 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
+  %263 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 48), align 8
   %264 = call i32 %263(i64 noundef %217, ptr noundef %218, ptr noundef null) #11
   %.not911 = icmp eq i32 %264, 0
   br i1 %.not911, label %269, label %265
@@ -606,7 +606,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %160, %166
   br label %.thread977
 
 266:                                              ; preds = %215
-  %267 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
+  %267 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 96), align 8
   %268 = call i32 %267(ptr noundef nonnull %11, i64 noundef 1, ptr noundef nonnull @ompi_mpi_int, i32 noundef %.val965, i32 noundef -111, i32 noundef 4, ptr noundef %1) #11
   %.not908 = icmp eq i32 %268, 0
   br i1 %.not908, label %269, label %.sink.split
@@ -616,7 +616,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %160, %166
   %.1842 = phi ptr [ %253, %._crit_edge1066 ], [ null, %266 ]
   %270 = phi i32 [ %.0834.lcssa1477, %._crit_edge1066 ], [ 0, %266 ]
   call void @free(ptr noundef %218) #11
-  %271 = load i32, ptr getelementptr inbounds (i8, ptr @mca_topo_treematch_component, i64 280), align 8
+  %271 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_topo_treematch_component, i64 280), align 8
   %272 = icmp eq i32 %271, 0
   br i1 %272, label %273, label %621
 
@@ -797,7 +797,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %160, %166
 
 369:                                              ; preds = %362, %368
   %indvars.iv1366 = phi i64 [ 1, %362 ], [ %indvars.iv.next1367, %368 ]
-  %370 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
+  %370 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 64), align 8
   %371 = getelementptr inbounds nuw i32, ptr %364, i64 %indvars.iv1366
   %372 = getelementptr inbounds nuw i32, ptr %.0845, i64 %indvars.iv1366
   %373 = load i32, ptr %372, align 4
@@ -812,7 +812,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %160, %166
   br label %953
 
 376:                                              ; preds = %368
-  %377 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
+  %377 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 48), align 8
   %378 = call i32 %377(i64 noundef %366, ptr noundef %367, ptr noundef null) #11
   %.not928 = icmp eq i32 %378, 0
   br i1 %.not928, label %.lr.ph1151, label %379
@@ -856,7 +856,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %160, %166
 .lr.ph1163:                                       ; preds = %.lr.ph1163.preheader, %402
   %indvars.iv1379 = phi i64 [ 1, %.lr.ph1163.preheader ], [ %indvars.iv.next1380, %402 ]
   %.07931161 = phi i32 [ %389, %.lr.ph1163.preheader ], [ %404, %402 ]
-  %392 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
+  %392 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 64), align 8
   %393 = sext i32 %.07931161 to i64
   %394 = getelementptr inbounds i32, ptr %385, i64 %393
   %395 = getelementptr inbounds nuw i32, ptr %364, i64 %indvars.iv1379
@@ -883,7 +883,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %160, %166
   br i1 %exitcond1383.not, label %._crit_edge1164, label %.lr.ph1163, !llvm.loop !18
 
 ._crit_edge1164:                                  ; preds = %402
-  %405 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
+  %405 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 48), align 8
   %406 = call i32 %405(i64 noundef %366, ptr noundef %367, ptr noundef null) #11
   %.not929 = icmp eq i32 %406, 0
   br i1 %.not929, label %408, label %407
@@ -907,7 +907,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %160, %166
   br i1 %360, label %412, label %422
 
 412:                                              ; preds = %411
-  %413 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
+  %413 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 96), align 8
   %414 = call i32 %413(ptr noundef nonnull %12, i64 noundef 1, ptr noundef nonnull @ompi_mpi_int, i32 noundef 0, i32 noundef -112, i32 noundef 4, ptr noundef %1) #11
   %.not926 = icmp eq i32 %414, 0
   br i1 %.not926, label %416, label %415
@@ -917,7 +917,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %160, %166
   br label %.thread977
 
 416:                                              ; preds = %412
-  %417 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
+  %417 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 96), align 8
   %418 = load i32, ptr %12, align 4
   %419 = sext i32 %418 to i64
   %420 = call i32 %417(ptr noundef %341, i64 noundef %419, ptr noundef nonnull @ompi_mpi_int, i32 noundef 0, i32 noundef -113, i32 noundef 4, ptr noundef %1) #11
@@ -989,7 +989,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %160, %166
   br label %.lr.ph1175
 
 446:                                              ; preds = %445
-  %447 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
+  %447 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 96), align 8
   %448 = call i32 %447(ptr noundef nonnull %429, i64 noundef 101, ptr noundef nonnull @ompi_mpi_int, i32 noundef 0, i32 noundef -114, i32 noundef 4, ptr noundef %1) #11
   %.not933 = icmp eq i32 %448, 0
   br i1 %.not933, label %463, label %449
@@ -1005,7 +1005,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %160, %166
 
 .lr.ph1175:                                       ; preds = %.lr.ph1175.preheader, %450
   %indvars.iv1390 = phi i64 [ 1, %.lr.ph1175.preheader ], [ %indvars.iv.next1391, %450 ]
-  %451 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
+  %451 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 64), align 8
   %.idx = mul nuw i64 %indvars.iv1390, 404
   %452 = getelementptr inbounds nuw i8, ptr %429, i64 %.idx
   %453 = getelementptr inbounds nuw i32, ptr %.0845, i64 %indvars.iv1390
@@ -1021,7 +1021,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %160, %166
   br label %953
 
 ._crit_edge1176:                                  ; preds = %450
-  %457 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
+  %457 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 48), align 8
   %458 = add nsw i32 %.1833, -1
   %459 = zext nneg i32 %458 to i64
   %460 = call i32 %457(i64 noundef %459, ptr noundef %.2802, ptr noundef null) #11

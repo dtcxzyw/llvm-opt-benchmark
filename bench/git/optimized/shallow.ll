@@ -1356,9 +1356,9 @@ declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define dso_local void @prepare_shallow_info(ptr nocapture noundef initializes((0, 96)) %info, ptr noundef %sa) local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @trace_shallow, i64 8), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_shallow, i64 8), align 8
   %tobool.not.i = icmp eq i32 %0, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_shallow, i64 12), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_shallow, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not25 = icmp ne i8 %bf.clear.i, 0
   %tobool.not = select i1 %tobool.not.i, i1 %tobool.not25, i1 false
@@ -1489,9 +1489,9 @@ define dso_local void @remove_nonexistent_theirs_shallow(ptr nocapture noundef %
 entry:
   %0 = load ptr, ptr %info, align 8
   %1 = load ptr, ptr %0, align 8
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @trace_shallow, i64 8), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_shallow, i64 8), align 8
   %tobool.not.i = icmp eq i32 %2, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_shallow, i64 12), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_shallow, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not13 = icmp ne i8 %bf.clear.i, 0
   %tobool.not = select i1 %tobool.not.i, i1 %tobool.not13, i1 false
@@ -1558,9 +1558,9 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %ref2 = getelementptr inbounds nuw i8, ptr %info, i64 40
   %2 = load ptr, ptr %ref2, align 8
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @trace_shallow, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_shallow, i64 8), align 8
   %tobool.not.i = icmp eq i32 %3, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_shallow, i64 12), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_shallow, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not206 = icmp ne i8 %bf.clear.i, 0
   %tobool.not = select i1 %tobool.not.i, i1 %tobool.not206, i1 false
@@ -2113,9 +2113,9 @@ if.else:                                          ; preds = %for.end74
   %sub.i60 = add i64 %73, 31
   %div49.i = lshr i64 %sub.i60, 5
   %conv.i = trunc i64 %div49.i to i32
-  %74 = load i32, ptr getelementptr inbounds (i8, ptr @trace_shallow, i64 8), align 8
+  %74 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_shallow, i64 8), align 8
   %tobool.not.i.i61 = icmp eq i32 %74, 0
-  %bf.load.i.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_shallow, i64 12), align 4
+  %bf.load.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_shallow, i64 12), align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, 1
   %tobool.not110.i = icmp ne i8 %bf.clear.i.i, 0
   %tobool.not.i62 = select i1 %tobool.not.i.i61, i1 %tobool.not110.i, i1 false

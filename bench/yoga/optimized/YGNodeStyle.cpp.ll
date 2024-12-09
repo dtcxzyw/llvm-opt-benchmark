@@ -781,7 +781,7 @@ entry:
 
 sw.bb.i:                                          ; preds = %entry
   %retval.sroa.0.0.copyload4.i = load i32, ptr @YGValueAuto, align 4
-  %retval.sroa.6.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), align 4
+  %retval.sroa.6.0.copyload.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueAuto, i64 4), align 4
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 sw.bb3.i:                                         ; preds = %entry
@@ -794,7 +794,7 @@ sw.epilog.i:                                      ; preds = %entry
 
 if.then.i:                                        ; preds = %sw.epilog.i
   %retval.sroa.0.0.copyload13.i = load i32, ptr @YGValueUndefined, align 4
-  %retval.sroa.6.0.copyload2.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), align 4
+  %retval.sroa.6.0.copyload2.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueUndefined, i64 4), align 4
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 if.end.i:                                         ; preds = %sw.epilog.i
@@ -924,7 +924,7 @@ entry:
 
 sw.bb.i:                                          ; preds = %entry
   %retval.sroa.0.0.copyload4.i = load i32, ptr @YGValueAuto, align 4
-  %retval.sroa.6.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), align 4
+  %retval.sroa.6.0.copyload.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueAuto, i64 4), align 4
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 sw.bb3.i:                                         ; preds = %entry
@@ -937,7 +937,7 @@ sw.epilog.i:                                      ; preds = %entry
 
 if.then.i:                                        ; preds = %sw.epilog.i
   %retval.sroa.0.0.copyload13.i = load i32, ptr @YGValueUndefined, align 4
-  %retval.sroa.6.0.copyload2.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), align 4
+  %retval.sroa.6.0.copyload2.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueUndefined, i64 4), align 4
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 if.end.i:                                         ; preds = %sw.epilog.i
@@ -1083,7 +1083,7 @@ entry:
 
 sw.bb.i:                                          ; preds = %entry
   %retval.sroa.0.0.copyload4.i = load i32, ptr @YGValueAuto, align 4
-  %retval.sroa.6.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), align 4
+  %retval.sroa.6.0.copyload.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueAuto, i64 4), align 4
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 sw.bb3.i:                                         ; preds = %entry
@@ -1096,7 +1096,7 @@ sw.epilog.i:                                      ; preds = %entry
 
 if.then.i:                                        ; preds = %sw.epilog.i
   %retval.sroa.0.0.copyload13.i = load i32, ptr @YGValueUndefined, align 4
-  %retval.sroa.6.0.copyload2.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), align 4
+  %retval.sroa.6.0.copyload2.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueUndefined, i64 4), align 4
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 if.end.i:                                         ; preds = %sw.epilog.i
@@ -1222,7 +1222,7 @@ entry:
 
 sw.bb.i:                                          ; preds = %entry
   %retval.sroa.0.0.copyload4.i = load i32, ptr @YGValueAuto, align 4
-  %retval.sroa.6.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), align 4
+  %retval.sroa.6.0.copyload.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueAuto, i64 4), align 4
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 sw.bb3.i:                                         ; preds = %entry
@@ -1235,7 +1235,7 @@ sw.epilog.i:                                      ; preds = %entry
 
 if.then.i:                                        ; preds = %sw.epilog.i
   %retval.sroa.0.0.copyload13.i = load i32, ptr @YGValueUndefined, align 4
-  %retval.sroa.6.0.copyload2.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), align 4
+  %retval.sroa.6.0.copyload2.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueUndefined, i64 4), align 4
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 if.end.i:                                         ; preds = %sw.epilog.i
@@ -1564,7 +1564,7 @@ entry:
 
 sw.bb.i:                                          ; preds = %entry
   %retval.sroa.0.0.copyload4.i = load i32, ptr @YGValueAuto, align 4
-  %retval.sroa.6.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), align 4
+  %retval.sroa.6.0.copyload.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueAuto, i64 4), align 4
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 sw.bb3.i:                                         ; preds = %entry
@@ -1577,7 +1577,7 @@ sw.epilog.i:                                      ; preds = %entry
 
 if.then.i:                                        ; preds = %sw.epilog.i
   %retval.sroa.0.0.copyload13.i = load i32, ptr @YGValueUndefined, align 4
-  %retval.sroa.6.0.copyload2.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), align 4
+  %retval.sroa.6.0.copyload2.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueUndefined, i64 4), align 4
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 if.end.i:                                         ; preds = %sw.epilog.i
@@ -1711,7 +1711,7 @@ entry:
 
 sw.bb.i:                                          ; preds = %entry
   %retval.sroa.0.0.copyload4.i = load i32, ptr @YGValueAuto, align 4
-  %retval.sroa.6.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), align 4
+  %retval.sroa.6.0.copyload.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueAuto, i64 4), align 4
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 sw.bb3.i:                                         ; preds = %entry
@@ -1724,7 +1724,7 @@ sw.epilog.i:                                      ; preds = %entry
 
 if.then.i:                                        ; preds = %sw.epilog.i
   %retval.sroa.0.0.copyload13.i = load i32, ptr @YGValueUndefined, align 4
-  %retval.sroa.6.0.copyload2.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), align 4
+  %retval.sroa.6.0.copyload2.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueUndefined, i64 4), align 4
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 if.end.i:                                         ; preds = %sw.epilog.i
@@ -1841,7 +1841,7 @@ entry:
 
 sw.bb.i:                                          ; preds = %entry
   %retval.sroa.0.0.copyload4.i = load i32, ptr @YGValueAuto, align 4
-  %retval.sroa.6.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), align 4
+  %retval.sroa.6.0.copyload.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueAuto, i64 4), align 4
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 sw.bb3.i:                                         ; preds = %entry
@@ -1854,7 +1854,7 @@ sw.epilog.i:                                      ; preds = %entry
 
 if.then.i:                                        ; preds = %sw.epilog.i
   %retval.sroa.0.0.copyload13.i = load i32, ptr @YGValueUndefined, align 4
-  %retval.sroa.6.0.copyload2.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), align 4
+  %retval.sroa.6.0.copyload2.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueUndefined, i64 4), align 4
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 if.end.i:                                         ; preds = %sw.epilog.i
@@ -1971,7 +1971,7 @@ entry:
 
 sw.bb.i:                                          ; preds = %entry
   %retval.sroa.0.0.copyload4.i = load i32, ptr @YGValueAuto, align 4
-  %retval.sroa.6.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), align 4
+  %retval.sroa.6.0.copyload.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueAuto, i64 4), align 4
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 sw.bb3.i:                                         ; preds = %entry
@@ -1984,7 +1984,7 @@ sw.epilog.i:                                      ; preds = %entry
 
 if.then.i:                                        ; preds = %sw.epilog.i
   %retval.sroa.0.0.copyload13.i = load i32, ptr @YGValueUndefined, align 4
-  %retval.sroa.6.0.copyload2.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), align 4
+  %retval.sroa.6.0.copyload2.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueUndefined, i64 4), align 4
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 if.end.i:                                         ; preds = %sw.epilog.i
@@ -2101,7 +2101,7 @@ entry:
 
 sw.bb.i:                                          ; preds = %entry
   %retval.sroa.0.0.copyload4.i = load i32, ptr @YGValueAuto, align 4
-  %retval.sroa.6.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), align 4
+  %retval.sroa.6.0.copyload.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueAuto, i64 4), align 4
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 sw.bb3.i:                                         ; preds = %entry
@@ -2114,7 +2114,7 @@ sw.epilog.i:                                      ; preds = %entry
 
 if.then.i:                                        ; preds = %sw.epilog.i
   %retval.sroa.0.0.copyload13.i = load i32, ptr @YGValueUndefined, align 4
-  %retval.sroa.6.0.copyload2.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), align 4
+  %retval.sroa.6.0.copyload2.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueUndefined, i64 4), align 4
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 if.end.i:                                         ; preds = %sw.epilog.i
@@ -2231,7 +2231,7 @@ entry:
 
 sw.bb.i:                                          ; preds = %entry
   %retval.sroa.0.0.copyload4.i = load i32, ptr @YGValueAuto, align 4
-  %retval.sroa.6.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), align 4
+  %retval.sroa.6.0.copyload.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueAuto, i64 4), align 4
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 sw.bb3.i:                                         ; preds = %entry
@@ -2244,7 +2244,7 @@ sw.epilog.i:                                      ; preds = %entry
 
 if.then.i:                                        ; preds = %sw.epilog.i
   %retval.sroa.0.0.copyload13.i = load i32, ptr @YGValueUndefined, align 4
-  %retval.sroa.6.0.copyload2.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), align 4
+  %retval.sroa.6.0.copyload2.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueUndefined, i64 4), align 4
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 if.end.i:                                         ; preds = %sw.epilog.i
@@ -2279,7 +2279,7 @@ entry:
 
 sw.bb.i:                                          ; preds = %entry
   %retval.sroa.0.0.copyload4.i = load i32, ptr @YGValueAuto, align 4
-  %retval.sroa.6.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), align 4
+  %retval.sroa.6.0.copyload.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueAuto, i64 4), align 4
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 sw.bb3.i:                                         ; preds = %entry
@@ -2292,7 +2292,7 @@ sw.epilog.i:                                      ; preds = %entry
 
 if.then.i:                                        ; preds = %sw.epilog.i
   %retval.sroa.0.0.copyload13.i = load i32, ptr @YGValueUndefined, align 4
-  %retval.sroa.6.0.copyload2.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), align 4
+  %retval.sroa.6.0.copyload2.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueUndefined, i64 4), align 4
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 if.end.i:                                         ; preds = %sw.epilog.i
@@ -2315,7 +2315,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %entry, %sw.bb.i, %
 
 sw.bb.i7:                                         ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
   %retval.sroa.0.0.copyload4.i8 = load i32, ptr @YGValueAuto, align 4
-  %retval.sroa.6.0.copyload.i9 = load i32, ptr getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), align 4
+  %retval.sroa.6.0.copyload.i9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueAuto, i64 4), align 4
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit20
 
 sw.bb3.i1:                                        ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
@@ -2328,7 +2328,7 @@ sw.epilog.i10:                                    ; preds = %_ZNK8facebook4yoga1
 
 if.then.i17:                                      ; preds = %sw.epilog.i10
   %retval.sroa.0.0.copyload13.i18 = load i32, ptr @YGValueUndefined, align 4
-  %retval.sroa.6.0.copyload2.i19 = load i32, ptr getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), align 4
+  %retval.sroa.6.0.copyload2.i19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueUndefined, i64 4), align 4
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit20
 
 if.end.i11:                                       ; preds = %sw.epilog.i10
@@ -2371,9 +2371,9 @@ _ZN8facebook4yoga13inexactEqualsERK7YGValueS3_.exit: ; preds = %_ZNK8facebook4yo
 define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsILm9ENS0_12CompactValueEEEbRKSt5arrayIT0_XT_EES7_(ptr noundef nonnull align 4 dereferenceable(36) %val1, ptr noundef nonnull align 4 dereferenceable(36) %val2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %retval.sroa.0.0.copyload4.i.i = load i32, ptr @YGValueAuto, align 4
-  %retval.sroa.6.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), align 4
+  %retval.sroa.6.0.copyload.i.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueAuto, i64 4), align 4
   %retval.sroa.0.0.copyload13.i.i = load i32, ptr @YGValueUndefined, align 4
-  %retval.sroa.6.0.copyload2.i.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), align 4
+  %retval.sroa.6.0.copyload2.i.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueUndefined, i64 4), align 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %_ZN8facebook4yoga13inexactEqualsENS0_12CompactValueES1_.exit
@@ -2475,9 +2475,9 @@ for.end:                                          ; preds = %_ZNK8facebook4yoga1
 define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsILm3ENS0_12CompactValueEEEbRKSt5arrayIT0_XT_EES7_(ptr noundef nonnull align 4 dereferenceable(12) %val1, ptr noundef nonnull align 4 dereferenceable(12) %val2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %retval.sroa.0.0.copyload4.i.i = load i32, ptr @YGValueAuto, align 4
-  %retval.sroa.6.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), align 4
+  %retval.sroa.6.0.copyload.i.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueAuto, i64 4), align 4
   %retval.sroa.0.0.copyload13.i.i = load i32, ptr @YGValueUndefined, align 4
-  %retval.sroa.6.0.copyload2.i.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), align 4
+  %retval.sroa.6.0.copyload2.i.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueUndefined, i64 4), align 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %_ZN8facebook4yoga13inexactEqualsENS0_12CompactValueES1_.exit
@@ -2579,9 +2579,9 @@ for.end:                                          ; preds = %_ZNK8facebook4yoga1
 define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsILm2ENS0_12CompactValueEEEbRKSt5arrayIT0_XT_EES7_(ptr noundef nonnull align 4 dereferenceable(8) %val1, ptr noundef nonnull align 4 dereferenceable(8) %val2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %retval.sroa.0.0.copyload4.i.i = load i32, ptr @YGValueAuto, align 4
-  %retval.sroa.6.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), align 4
+  %retval.sroa.6.0.copyload.i.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueAuto, i64 4), align 4
   %retval.sroa.0.0.copyload13.i.i = load i32, ptr @YGValueUndefined, align 4
-  %retval.sroa.6.0.copyload2.i.i = load i32, ptr getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), align 4
+  %retval.sroa.6.0.copyload2.i.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @YGValueUndefined, i64 4), align 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %_ZN8facebook4yoga13inexactEqualsENS0_12CompactValueES1_.exit

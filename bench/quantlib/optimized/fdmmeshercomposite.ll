@@ -177,7 +177,7 @@ _ZSt10_ConstructIN5boost10shared_ptrIN8QuantLib11Fdm1dMesherEEEJRKS4_EEvPT_DpOT0
           to label %for.body.i.i.i.i.preheader unwind label %lpad5
 
 for.body.i.i.i.i.preheader:                       ; preds = %_ZSt10_ConstructIN5boost10shared_ptrIN8QuantLib11Fdm1dMesherEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib9FdmMesherE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib9FdmMesherE, i64 16), ptr %this, align 8, !tbaa !14
   %layout_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %agg.tmp, align 8, !tbaa !16
   store ptr %4, ptr %layout_.i, align 8, !tbaa !16
@@ -279,7 +279,7 @@ terminate.lpad.i.i21:                             ; preds = %if.then.i.i.i.i25, 
 _ZN5boost10shared_ptrIN8QuantLib11Fdm1dMesherEED2Ev.exit: ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib11Fdm1dMesherEEESaIS4_EED2Ev.exit, %if.then.i.i15, %.noexc.i.i22, %if.then.i.i.i.i25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #20
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18FdmMesherCompositeE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18FdmMesherCompositeE, i64 16), ptr %this, align 8, !tbaa !14
   %mesher_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp22) #20
   %21 = load ptr, ptr %mesher, align 8, !tbaa !3
@@ -789,7 +789,7 @@ invoke.cont:                                      ; preds = %_ZSt10_ConstructIN5
           to label %for.body.i.i.i.i.preheader unwind label %lpad5
 
 for.body.i.i.i.i.preheader:                       ; preds = %invoke.cont
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib9FdmMesherE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib9FdmMesherE, i64 16), ptr %this, align 8, !tbaa !14
   %layout_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %9 = load ptr, ptr %agg.tmp, align 8, !tbaa !16
   store ptr %9, ptr %layout_.i, align 8, !tbaa !16
@@ -909,7 +909,7 @@ _ZN5boost10shared_ptrIN8QuantLib11Fdm1dMesherEED2Ev.exit: ; preds = %arraydestro
 arraydestroy.done11:                              ; preds = %_ZN5boost10shared_ptrIN8QuantLib11Fdm1dMesherEED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #20
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18FdmMesherCompositeE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18FdmMesherCompositeE, i64 16), ptr %this, align 8, !tbaa !14
   %mesher_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp22) #20
   %26 = load ptr, ptr %m1, align 8, !tbaa !3
@@ -1179,7 +1179,7 @@ invoke.cont:                                      ; preds = %_ZSt10_ConstructIN5
           to label %for.body.i.i.i.i.preheader unwind label %lpad6
 
 for.body.i.i.i.i.preheader:                       ; preds = %invoke.cont
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib9FdmMesherE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib9FdmMesherE, i64 16), ptr %this, align 8, !tbaa !14
   %layout_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %agg.tmp, align 8, !tbaa !16
   store ptr %12, ptr %layout_.i, align 8, !tbaa !16
@@ -1299,7 +1299,7 @@ _ZN5boost10shared_ptrIN8QuantLib11Fdm1dMesherEED2Ev.exit: ; preds = %arraydestro
 arraydestroy.done12:                              ; preds = %_ZN5boost10shared_ptrIN8QuantLib11Fdm1dMesherEED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp3) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #20
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18FdmMesherCompositeE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18FdmMesherCompositeE, i64 16), ptr %this, align 8, !tbaa !14
   %mesher_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp23) #20
   %29 = load ptr, ptr %m1, align 8, !tbaa !3
@@ -1600,7 +1600,7 @@ invoke.cont:                                      ; preds = %_ZSt10_ConstructIN5
           to label %for.body.i.i.i.i.preheader unwind label %lpad7
 
 for.body.i.i.i.i.preheader:                       ; preds = %invoke.cont
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib9FdmMesherE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib9FdmMesherE, i64 16), ptr %this, align 8, !tbaa !14
   %layout_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %15 = load ptr, ptr %agg.tmp, align 8, !tbaa !16
   store ptr %15, ptr %layout_.i, align 8, !tbaa !16
@@ -1720,7 +1720,7 @@ _ZN5boost10shared_ptrIN8QuantLib11Fdm1dMesherEED2Ev.exit: ; preds = %arraydestro
 arraydestroy.done13:                              ; preds = %_ZN5boost10shared_ptrIN8QuantLib11Fdm1dMesherEED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp3) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #20
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18FdmMesherCompositeE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18FdmMesherCompositeE, i64 16), ptr %this, align 8, !tbaa !14
   %mesher_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp24) #20
   %32 = load ptr, ptr %m1, align 8, !tbaa !3
@@ -1937,7 +1937,7 @@ _ZN5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEED2Ev.exit:
   %.pre3 = load ptr, ptr %mesher, align 8, !tbaa !10
   %_M_finish.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %mesher, i64 8
   %.pre = load ptr, ptr %_M_finish.i.i.phi.trans.insert, align 8, !tbaa !13
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18FdmMesherCompositeE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18FdmMesherCompositeE, i64 16), ptr %this, align 8, !tbaa !14
   %mesher_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %mesher, i64 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %.pre to i64
@@ -2035,7 +2035,7 @@ _ZN5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEED2Ev.exit: ; preds = %if.th
   store ptr %0, ptr %layout_.i, align 8, !tbaa !16
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %1, ptr %pn.i.i, align 8, !tbaa !9
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18FdmMesherCompositeE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18FdmMesherCompositeE, i64 16), ptr %this, align 8, !tbaa !14
   %mesher_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %mesher, i64 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !13
@@ -2438,7 +2438,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !14
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !9
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -2920,7 +2920,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib18FdmMesherCompositeD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18FdmMesherCompositeE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18FdmMesherCompositeE, i64 16), ptr %this, align 8, !tbaa !14
   %mesher_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %mesher_, align 8, !tbaa !10
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -2992,7 +2992,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib11Fdm1dMesherEEESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIN5boost10shared_ptrIN8QuantLib11Fdm1dMesherEEESaIS4_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib9FdmMesherE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib9FdmMesherE, i64 16), ptr %this, align 8, !tbaa !14
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %11 = load ptr, ptr %pn.i.i, align 8, !tbaa !9
   %cmp.not.i.i.i = icmp eq ptr %11, null
@@ -3038,7 +3038,7 @@ _ZN8QuantLib9FdmMesherD2Ev.exit:                  ; preds = %_ZNSt6vectorIN5boos
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib18FdmMesherCompositeD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18FdmMesherCompositeE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18FdmMesherCompositeE, i64 16), ptr %this, align 8, !tbaa !14
   %mesher_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %mesher_.i, align 8, !tbaa !10
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -3110,7 +3110,7 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
   br label %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib11Fdm1dMesherEEESaIS4_EED2Ev.exit.i
 
 _ZNSt6vectorIN5boost10shared_ptrIN8QuantLib11Fdm1dMesherEEESaIS4_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %invoke.cont.i.i
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib9FdmMesherE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib9FdmMesherE, i64 16), ptr %this, align 8, !tbaa !14
   %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %11 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !9
   %cmp.not.i.i.i.i = icmp eq ptr %11, null
@@ -3198,7 +3198,7 @@ cond.true.i.i:                                    ; preds = %entry
   store i32 1, ptr %use_count_.i.i.i.i, align 8, !tbaa !67
   %weak_count_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i, align 4, !tbaa !70
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib17FdmLinearOpLayoutENS0_13sp_ms_deleterIS3_EEEE, i64 16), ptr %call.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib17FdmLinearOpLayoutENS0_13sp_ms_deleterIS3_EEEE, i64 16), ptr %call.i.i, align 8, !tbaa !14
   %ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
   store ptr null, ptr %ptr.i.i.i, align 8, !tbaa !71
   %del.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
@@ -3433,7 +3433,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib17FdmLinearOpLayoutENS0_13sp_ms_deleterIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib17FdmLinearOpLayoutENS0_13sp_ms_deleterIS3_EEEE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib17FdmLinearOpLayoutENS0_13sp_ms_deleterIS3_EEEE, i64 16), ptr %this, align 8, !tbaa !14
   %del = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i8, ptr %del, align 8, !tbaa !75, !range !77, !noundef !78
   %loadedv.i.i = trunc nuw i8 %0 to i1
@@ -3480,7 +3480,7 @@ _ZN5boost6detail13sp_ms_deleterIN8QuantLib17FdmLinearOpLayoutEED2Ev.exit: ; pred
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib17FdmLinearOpLayoutENS0_13sp_ms_deleterIS3_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib17FdmLinearOpLayoutENS0_13sp_ms_deleterIS3_EEEE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib17FdmLinearOpLayoutENS0_13sp_ms_deleterIS3_EEEE, i64 16), ptr %this, align 8, !tbaa !14
   %del.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i8, ptr %del.i, align 8, !tbaa !75, !range !77, !noundef !78
   %loadedv.i.i.i = trunc nuw i8 %0 to i1
@@ -3634,7 +3634,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib9FdmMesherD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib9FdmMesherE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib9FdmMesherE, i64 16), ptr %this, align 8, !tbaa !14
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !9
   %cmp.not.i.i = icmp eq ptr %0, null

@@ -895,7 +895,7 @@ entry:
   br i1 %cmp.i, label %_sysconfig_config_vars_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call2.i = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816)) #2
+  %call2.i = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816)) #2
   %cmp3.i = icmp slt i32 %call2.i, 0
   br i1 %cmp3.i, label %if.then4.i, label %_sysconfig_config_vars_impl.exit
 

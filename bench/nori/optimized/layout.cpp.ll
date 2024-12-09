@@ -92,7 +92,7 @@ $_ZTIN7nanogui6LayoutE = comdat any
 define hidden void @_ZN7nanogui9BoxLayoutC2ENS_11OrientationENS_9AlignmentEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 17), (20, 28)) %0, i32 noundef %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %6, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui9BoxLayoutE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui9BoxLayoutE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %1, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1582,7 +1582,7 @@ define hidden void @_ZN7nanogui18AdvancedGridLayoutC2ERKSt6vectorIiSaIiEES5_i(pt
   %6 = alloca float, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %7, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui18AdvancedGridLayoutE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui18AdvancedGridLayoutE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -3134,7 +3134,7 @@ define linkonce_odr hidden void @_ZN7nanogui11GroupLayoutD0Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7nanogui10GridLayoutD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui10GridLayoutE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui10GridLayoutE, i64 16), ptr %0, align 8
   br label %2
 
 2:                                                ; preds = %_ZNSt6vectorIN7nanogui9AlignmentESaIS1_EED2Ev.exit, %1
@@ -3160,7 +3160,7 @@ _ZNSt6vectorIN7nanogui9AlignmentESaIS1_EED2Ev.exit: ; preds = %2, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7nanogui10GridLayoutD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui10GridLayoutE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui10GridLayoutE, i64 16), ptr %0, align 8
   br label %2
 
 2:                                                ; preds = %_ZNSt6vectorIN7nanogui9AlignmentESaIS1_EED2Ev.exit.i, %1
@@ -3200,7 +3200,7 @@ define linkonce_odr hidden void @_ZN7nanogui9BoxLayoutD0Ev(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7nanogui18AdvancedGridLayoutD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui18AdvancedGridLayoutE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui18AdvancedGridLayoutE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8

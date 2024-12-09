@@ -100,7 +100,7 @@ entry:
   %writerFactory = alloca %"class.folly::FileHandlerFactory::WriterFactory", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.1", align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %writerFactory) #13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly18FileHandlerFactory13WriterFactoryE, i64 16), ptr %writerFactory, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly18FileHandlerFactory13WriterFactoryE, i64 16), ptr %writerFactory, align 8, !tbaa !7
   %path_.i = getelementptr inbounds nuw i8, ptr %writerFactory, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %writerFactory, i64 24
   store ptr %0, ptr %path_.i, align 8, !tbaa !10
@@ -130,7 +130,7 @@ _ZNSt12__shared_ptrIN5folly18StandardLogHandlerELN9__gnu_cxx12_Lock_policyE2EED2
   %4 = load <2 x ptr>, ptr %ref.tmp, align 16, !tbaa !24
   store <2 x ptr> %4, ptr %agg.result, align 8, !tbaa !24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly18FileHandlerFactory13WriterFactoryE, i64 16), ptr %writerFactory, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly18FileHandlerFactory13WriterFactoryE, i64 16), ptr %writerFactory, align 8, !tbaa !7
   %5 = load ptr, ptr %path_.i, align 8, !tbaa !25
   %cmp.i.i.i.i = icmp eq ptr %5, %0
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i5
@@ -153,7 +153,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
   %7 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly18FileHandlerFactory13WriterFactoryE, i64 16), ptr %writerFactory, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly18FileHandlerFactory13WriterFactoryE, i64 16), ptr %writerFactory, align 8, !tbaa !7
   %8 = load ptr, ptr %path_.i, align 8, !tbaa !25
   %cmp.i.i.i.i8 = icmp eq ptr %8, %0
   br i1 %cmp.i.i.i.i8, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i10, label %if.then.i.i.i9
@@ -196,7 +196,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly18FileHandlerFactory13WriterFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly18FileHandlerFactory13WriterFactoryE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly18FileHandlerFactory13WriterFactoryE, i64 16), ptr %this, align 8, !tbaa !7
   %path_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %path_, align 8, !tbaa !25
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -221,7 +221,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly18FileHandlerFactory13WriterFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly18FileHandlerFactory13WriterFactoryE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly18FileHandlerFactory13WriterFactoryE, i64 16), ptr %this, align 8, !tbaa !7
   %path_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %path_.i, align 8, !tbaa !25
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24

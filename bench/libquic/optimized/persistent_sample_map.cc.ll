@@ -35,7 +35,7 @@ $_ZNSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE29_M_get_inse
 define dso_local void @_ZN4base19PersistentSampleMapC2EmPNS_28PersistentHistogramAllocatorEPNS_16HistogramSamples8MetadataE(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %id, ptr noundef %allocator, ptr noundef %meta) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4base16HistogramSamplesC2EmPNS0_8MetadataE(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %id, ptr noundef %meta)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base19PersistentSampleMapE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base19PersistentSampleMapE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i32 0, ptr %0, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -58,7 +58,7 @@ declare void @_ZN4base16HistogramSamplesC2EmPNS0_8MetadataE(ptr noundef nonnull 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base19PersistentSampleMapD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base19PersistentSampleMapE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base19PersistentSampleMapE, i64 16), ptr %this, align 8
   %records_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %records_, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -116,7 +116,7 @@ declare void @_ZN4base16HistogramSamplesD2Ev(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base19PersistentSampleMapD0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base19PersistentSampleMapE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base19PersistentSampleMapE, i64 16), ptr %this, align 8
   %records_.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %records_.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -538,7 +538,7 @@ define dso_local void @_ZNK4base19PersistentSampleMap8IteratorEv(ptr noalias noc
 entry:
   %call = tail call noundef ptr @_ZN4base19PersistentSampleMap13ImportSamplesEib(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef -1, i1 noundef zeroext true)
   %call2 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base12_GLOBAL__N_127PersistentSampleMapIteratorE, i64 16), ptr %call2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base12_GLOBAL__N_127PersistentSampleMapIteratorE, i64 16), ptr %call2, align 8
   %iter_.i = getelementptr inbounds nuw i8, ptr %call2, i64 8
   %_M_left.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_left.i.i.i, align 8

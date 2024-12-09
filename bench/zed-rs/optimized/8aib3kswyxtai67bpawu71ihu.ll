@@ -34549,7 +34549,7 @@ _ZN8language17language_settings14merge_settings5merge17h0769e31ffed6762dE.exit: 
   br i1 %100, label %101, label %102
 
 101:                                              ; preds = %97
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5137, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @anon.0181e6fc4a3301d43b7fc73f7920d318.11.llvm.3131922965131222458, i64 8), i64 24, i1 false), !noalias !9997
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5137, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @anon.0181e6fc4a3301d43b7fc73f7920d318.11.llvm.3131922965131222458, i64 8), i64 24, i1 false), !noalias !9997
   br label %108
 
 102:                                              ; preds = %97
@@ -34671,7 +34671,7 @@ _ZN8language17language_settings14merge_settings5merge17h78edf23e18fc18c5E.exit: 
   br i1 %142, label %143, label %144
 
 143:                                              ; preds = %139
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5140, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @anon.0181e6fc4a3301d43b7fc73f7920d318.11.llvm.3131922965131222458, i64 8), i64 24, i1 false), !noalias !10034
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5140, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @anon.0181e6fc4a3301d43b7fc73f7920d318.11.llvm.3131922965131222458, i64 8), i64 24, i1 false), !noalias !10034
   br label %150
 
 144:                                              ; preds = %139

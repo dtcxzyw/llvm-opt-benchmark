@@ -66,9 +66,9 @@ define void @_ZN11ImageViewerC2Ev(ptr noundef nonnull align 8 dereferenceable(16
   %5 = alloca %class.QIcon, align 8
   %6 = alloca %class.QString, align 8
   tail call void @_ZN11QMainWindowC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef null, i32 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11ImageViewer, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11ImageViewer, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11ImageViewer, i64 456), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11ImageViewer, i64 456), ptr %7, align 8
   %8 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #8
           to label %9 unwind label %49
 

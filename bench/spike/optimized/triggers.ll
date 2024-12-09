@@ -2726,7 +2726,7 @@ _ZSt6fill_nIPPN8triggers9trigger_tEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i: ;
 
 15:                                               ; preds = %.lr.ph
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %14, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8triggers18disabled_trigger_tE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8triggers18disabled_trigger_tE, i64 16), ptr %14, align 8
   %16 = load ptr, ptr %3, align 8
   %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   store ptr %14, ptr %17, align 8
@@ -2970,7 +2970,7 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
 
 102:                                              ; preds = %100
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %101, i8 0, i64 64, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8triggers10mcontrol_tE, i64 16), ptr %101, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8triggers10mcontrol_tE, i64 16), ptr %101, align 8
   br label %122
 
 103:                                              ; preds = %99
@@ -2979,7 +2979,7 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
 
 105:                                              ; preds = %103
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %104, i8 0, i64 64, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8triggers8icount_tE, i64 16), ptr %104, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8triggers8icount_tE, i64 16), ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 45
   store i8 0, ptr %106, align 1
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 48
@@ -2996,7 +2996,7 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
 
 112:                                              ; preds = %110
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %111, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8triggers10itrigger_tE, i64 16), ptr %111, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8triggers10itrigger_tE, i64 16), ptr %111, align 8
   br label %122
 
 113:                                              ; preds = %99
@@ -3005,7 +3005,7 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
 
 115:                                              ; preds = %113
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %114, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8triggers10etrigger_tE, i64 16), ptr %114, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8triggers10etrigger_tE, i64 16), ptr %114, align 8
   br label %122
 
 116:                                              ; preds = %99
@@ -3014,7 +3014,7 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
 
 118:                                              ; preds = %116
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %117, i8 0, i64 64, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8triggers11mcontrol6_tE, i64 16), ptr %117, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8triggers11mcontrol6_tE, i64 16), ptr %117, align 8
   br label %122
 
 119:                                              ; preds = %99
@@ -3023,7 +3023,7 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
 
 121:                                              ; preds = %119
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %120, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8triggers18disabled_trigger_tE, i64 16), ptr %120, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8triggers18disabled_trigger_tE, i64 16), ptr %120, align 8
   br label %122
 
 122:                                              ; preds = %121, %118, %115, %112, %105, %102
@@ -3858,7 +3858,7 @@ define linkonce_odr void @_ZN8triggers10etrigger_tD0Ev(ptr noundef nonnull align
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr void @_ZSt27__throw_bad_optional_accessv() local_unnamed_addr #16 comdat {
   %1 = tail call ptr @__cxa_allocate_exception(i64 8) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19bad_optional_access, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt19bad_optional_access, i64 16), ptr %1, align 8
   tail call void @__cxa_throw(ptr nonnull %1, ptr nonnull @_ZTISt19bad_optional_access, ptr nonnull @_ZNSt19bad_optional_accessD2Ev) #20
   unreachable
 }

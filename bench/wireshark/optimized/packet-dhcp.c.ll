@@ -3444,9 +3444,9 @@ define internal i32 @dissect_dhcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr null, ptr %7, align 8
   store i8 0, ptr %8, align 1
   store i32 0, ptr @rfc3396_dns_domain_search_list, align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @rfc3396_dns_domain_search_list, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_dns_domain_search_list, i64 8), align 8
   store i32 0, ptr @rfc3396_sip_server, align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_sip_server, i64 8), align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 4011
@@ -3543,8 +3543,8 @@ define internal i32 @dissect_dhcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %60 = load i32, ptr @ett_dhcp, align 4
   %61 = tail call ptr @proto_item_add_subtree(ptr noundef %59, i32 noundef %60) #9
   store i32 0, ptr %5, align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @rfc3396_dns_domain_search_list, i64 4), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_dns_domain_search_list, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_sip_server, i64 4), align 4
   %62 = icmp slt i32 %.0195, %57
   br i1 %62, label %.lr.ph, label %._crit_edge.thread
 
@@ -3770,8 +3770,8 @@ proto_item_set_hidden.exit:                       ; preds = %171, %168, %165, %1
 186:                                              ; preds = %183, %179
   %.1 = phi i32 [ 240, %179 ], [ 300, %183 ]
   store i32 0, ptr %5, align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @rfc3396_dns_domain_search_list, i64 4), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_dns_domain_search_list, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_sip_server, i64 4), align 4
   %.not237 = icmp slt i32 %.1, %57
   br i1 %.not237, label %.lr.ph233, label %._crit_edge234
 
@@ -4208,8 +4208,8 @@ define internal i32 @dissect_dhcpopt_option_overload(ptr noundef %0, ptr noundef
   %29 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %27, i32 noundef 44, i32 noundef 64, i32 noundef %28, ptr noundef nonnull %7, ptr noundef nonnull @.str.1968) #9
   store i8 0, ptr %8, align 1
   store i32 0, ptr %5, align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @rfc3396_dns_domain_search_list, i64 4), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_dns_domain_search_list, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_sip_server, i64 4), align 4
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %32
@@ -4246,8 +4246,8 @@ define internal i32 @dissect_dhcpopt_option_overload(ptr noundef %0, ptr noundef
   %49 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %47, i32 noundef 108, i32 noundef 128, i32 noundef %48, ptr noundef nonnull %9, ptr noundef nonnull @.str.1969) #9
   store i8 0, ptr %10, align 1
   store i32 0, ptr %5, align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @rfc3396_dns_domain_search_list, i64 4), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_dns_domain_search_list, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_sip_server, i64 4), align 4
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %52
@@ -5689,9 +5689,9 @@ define internal i32 @dissect_dhcpopt_dhcp_domain_search(ptr noundef %0, ptr noca
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @rfc3396_dns_domain_search_list, i64 4), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_dns_domain_search_list, i64 4), align 4
   %9 = add i32 %8, 1
-  store i32 %9, ptr getelementptr inbounds (i8, ptr @rfc3396_dns_domain_search_list, i64 4), align 4
+  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_dns_domain_search_list, i64 4), align 4
   %10 = load i32, ptr @rfc3396_dns_domain_search_list, align 8
   %11 = icmp ugt i32 %10, 1
   br i1 %11, label %12, label %25
@@ -5702,7 +5702,7 @@ define internal i32 @dissect_dhcpopt_dhcp_domain_search(ptr noundef %0, ptr noca
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %15, ptr noundef nonnull @.str.1993, i32 noundef %9, i32 noundef %10) #9
   %17 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef %7, ptr noundef %16) #9
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @rfc3396_dns_domain_search_list, i64 4), align 4
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_dns_domain_search_list, i64 4), align 4
   %19 = load i32, ptr @rfc3396_dns_domain_search_list, align 8
   %.not = icmp eq i32 %18, %19
   br i1 %.not, label %25, label %20
@@ -5715,7 +5715,7 @@ define internal i32 @dissect_dhcpopt_dhcp_domain_search(ptr noundef %0, ptr noca
   br label %25
 
 25:                                               ; preds = %12, %20, %4
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @rfc3396_dns_domain_search_list, i64 8), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_dns_domain_search_list, i64 8), align 8
   %27 = icmp eq ptr %26, null
   %28 = icmp ne i32 %7, 0
   %or.cond = select i1 %27, i1 %28, i1 false
@@ -5723,7 +5723,7 @@ define internal i32 @dissect_dhcpopt_dhcp_domain_search(ptr noundef %0, ptr noca
 
 .thread:                                          ; preds = %25
   %29 = tail call ptr @tvb_new_composite() #9
-  store ptr %29, ptr getelementptr inbounds (i8, ptr @rfc3396_dns_domain_search_list, i64 8), align 8
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_dns_domain_search_list, i64 8), align 8
   br label %31
 
 30:                                               ; preds = %25
@@ -5733,12 +5733,12 @@ define internal i32 @dissect_dhcpopt_dhcp_domain_search(ptr noundef %0, ptr noca
   %32 = phi ptr [ %29, %.thread ], [ %26, %30 ]
   %33 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef %7) #9
   tail call void @tvb_composite_append(ptr noundef %32, ptr noundef %33) #9
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @rfc3396_dns_domain_search_list, i64 8), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_dns_domain_search_list, i64 8), align 8
   br label %34
 
 34:                                               ; preds = %31, %30
   %35 = phi ptr [ %.pre, %31 ], [ %26, %30 ]
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @rfc3396_dns_domain_search_list, i64 4), align 4
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_dns_domain_search_list, i64 4), align 4
   %37 = load i32, ptr @rfc3396_dns_domain_search_list, align 8
   %38 = icmp eq i32 %36, %37
   %39 = icmp ne ptr %35, null
@@ -5747,7 +5747,7 @@ define internal i32 @dissect_dhcpopt_dhcp_domain_search(ptr noundef %0, ptr noca
 
 40:                                               ; preds = %34
   tail call void @tvb_composite_finalize(ptr noundef nonnull %35) #9
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @rfc3396_dns_domain_search_list, i64 8), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_dns_domain_search_list, i64 8), align 8
   %42 = tail call i32 @tvb_reported_length(ptr noundef %41) #9
   %.not35 = icmp eq i32 %42, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
@@ -5758,7 +5758,7 @@ define internal i32 @dissect_dhcpopt_dhcp_domain_search(ptr noundef %0, ptr noca
 
 44:                                               ; preds = %.lr.ph, %60
   %.034 = phi i32 [ 0, %.lr.ph ], [ %61, %60 ]
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @rfc3396_dns_domain_search_list, i64 8), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_dns_domain_search_list, i64 8), align 8
   %46 = call i32 @tvb_reported_length(ptr noundef %45) #9
   %47 = call i32 @get_dns_name(ptr noundef %45, i32 noundef %.034, i32 noundef %46, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
   %48 = load ptr, ptr %43, align 8
@@ -5781,13 +5781,13 @@ define internal i32 @dissect_dhcpopt_dhcp_domain_search(ptr noundef %0, ptr noca
 
 60:                                               ; preds = %58, %56
   %61 = add i32 %47, %.034
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @rfc3396_dns_domain_search_list, i64 8), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_dns_domain_search_list, i64 8), align 8
   %63 = call i32 @tvb_reported_length(ptr noundef %62) #9
   %64 = icmp ult i32 %61, %63
   br i1 %64, label %44, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %60, %40
-  store ptr null, ptr getelementptr inbounds (i8, ptr @rfc3396_dns_domain_search_list, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_dns_domain_search_list, i64 8), align 8
   br label %65
 
 65:                                               ; preds = %._crit_edge, %34
@@ -5800,9 +5800,9 @@ define internal i32 @dissect_dhcpopt_sip_servers(ptr noundef %0, ptr noundef %1,
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 4), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_sip_server, i64 4), align 4
   %9 = add i32 %8, 1
-  store i32 %9, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 4), align 4
+  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_sip_server, i64 4), align 4
   %10 = load i32, ptr @rfc3396_sip_server, align 8
   %11 = icmp ugt i32 %10, 1
   br i1 %11, label %12, label %25
@@ -5813,7 +5813,7 @@ define internal i32 @dissect_dhcpopt_sip_servers(ptr noundef %0, ptr noundef %1,
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %15, ptr noundef nonnull @.str.1993, i32 noundef %9, i32 noundef %10) #9
   %17 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef %7, ptr noundef %16) #9
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 4), align 4
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_sip_server, i64 4), align 4
   %19 = load i32, ptr @rfc3396_sip_server, align 8
   %.not = icmp eq i32 %18, %19
   br i1 %.not, label %25, label %20
@@ -5826,7 +5826,7 @@ define internal i32 @dissect_dhcpopt_sip_servers(ptr noundef %0, ptr noundef %1,
   br label %25
 
 25:                                               ; preds = %12, %20, %4
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 8), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_sip_server, i64 8), align 8
   %27 = icmp eq ptr %26, null
   %28 = icmp ne i32 %7, 0
   %or.cond = select i1 %27, i1 %28, i1 false
@@ -5834,7 +5834,7 @@ define internal i32 @dissect_dhcpopt_sip_servers(ptr noundef %0, ptr noundef %1,
 
 .thread:                                          ; preds = %25
   %29 = tail call ptr @tvb_new_composite() #9
-  store ptr %29, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 8), align 8
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_sip_server, i64 8), align 8
   br label %31
 
 30:                                               ; preds = %25
@@ -5844,12 +5844,12 @@ define internal i32 @dissect_dhcpopt_sip_servers(ptr noundef %0, ptr noundef %1,
   %32 = phi ptr [ %29, %.thread ], [ %26, %30 ]
   %33 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef %7) #9
   tail call void @tvb_composite_append(ptr noundef %32, ptr noundef %33) #9
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 8), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_sip_server, i64 8), align 8
   br label %34
 
 34:                                               ; preds = %31, %30
   %35 = phi ptr [ %.pre, %31 ], [ %26, %30 ]
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 4), align 4
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_sip_server, i64 4), align 4
   %37 = load i32, ptr @rfc3396_sip_server, align 8
   %38 = icmp eq i32 %36, %37
   %39 = icmp ne ptr %35, null
@@ -5858,7 +5858,7 @@ define internal i32 @dissect_dhcpopt_sip_servers(ptr noundef %0, ptr noundef %1,
 
 40:                                               ; preds = %34
   tail call void @tvb_composite_finalize(ptr noundef nonnull %35) #9
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 8), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_sip_server, i64 8), align 8
   %42 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %41, i32 noundef 0) #9
   %43 = load i32, ptr @rfc3396_sip_server, align 8
   %44 = icmp eq i32 %43, 1
@@ -5872,10 +5872,10 @@ define internal i32 @dissect_dhcpopt_sip_servers(ptr noundef %0, ptr noundef %1,
   ]
 
 48:                                               ; preds = %40
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 8), align 8
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_sip_server, i64 8), align 8
   %50 = tail call i32 @tvb_reported_length(ptr noundef %49) #9
   %51 = icmp ult i32 %50, 3
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 8), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_sip_server, i64 8), align 8
   br i1 %51, label %56, label %.preheader
 
 .preheader:                                       ; preds = %48
@@ -5894,7 +5894,7 @@ define internal i32 @dissect_dhcpopt_sip_servers(ptr noundef %0, ptr noundef %1,
 
 59:                                               ; preds = %.lr.ph65, %75
   %.064 = phi i32 [ 1, %.lr.ph65 ], [ %76, %75 ]
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 8), align 8
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_sip_server, i64 8), align 8
   %61 = call i32 @tvb_reported_length(ptr noundef %60) #9
   %62 = call i32 @get_dns_name(ptr noundef %60, i32 noundef %.064, i32 noundef %61, i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
   %63 = load ptr, ptr %55, align 8
@@ -5917,20 +5917,20 @@ define internal i32 @dissect_dhcpopt_sip_servers(ptr noundef %0, ptr noundef %1,
 
 75:                                               ; preds = %73, %71
   %76 = add i32 %62, %.064
-  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 8), align 8
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_sip_server, i64 8), align 8
   %78 = call i32 @tvb_reported_length(ptr noundef %77) #9
   %79 = icmp ult i32 %76, %78
   br i1 %79, label %59, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %75, %.preheader
-  store ptr null, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_sip_server, i64 8), align 8
   br label %.loopexit
 
 80:                                               ; preds = %40
-  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 8), align 8
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_sip_server, i64 8), align 8
   %82 = tail call i32 @tvb_reported_length(ptr noundef %81) #9
   %83 = icmp ult i32 %82, 5
-  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 8), align 8
+  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_sip_server, i64 8), align 8
   %85 = tail call i32 @tvb_reported_length(ptr noundef %84) #9
   br i1 %83, label %86, label %88
 
@@ -5944,7 +5944,7 @@ define internal i32 @dissect_dhcpopt_sip_servers(ptr noundef %0, ptr noundef %1,
   br i1 %.not61, label %.preheader62, label %93
 
 .preheader62:                                     ; preds = %88
-  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 8), align 8
+  %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_sip_server, i64 8), align 8
   %91 = tail call i32 @tvb_reported_length(ptr noundef %90) #9
   %92 = icmp ugt i32 %91, 1
   br i1 %92, label %.lr.ph, label %.loopexit
@@ -5952,7 +5952,7 @@ define internal i32 @dissect_dhcpopt_sip_servers(ptr noundef %0, ptr noundef %1,
 93:                                               ; preds = %88
   %94 = load i32, ptr @rfc3396_sip_server, align 8
   %95 = icmp eq i32 %94, 1
-  %96 = load ptr, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 8), align 8
+  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_sip_server, i64 8), align 8
   %97 = tail call i32 @tvb_reported_length(ptr noundef %96) #9
   br i1 %95, label %98, label %100
 
@@ -5976,7 +5976,7 @@ define internal i32 @dissect_dhcpopt_sip_servers(ptr noundef %0, ptr noundef %1,
   br label %112
 
 107:                                              ; preds = %.lr.ph
-  %108 = load ptr, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 8), align 8
+  %108 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_sip_server, i64 8), align 8
   %109 = tail call i32 @tvb_get_ipv4(ptr noundef %108, i32 noundef %.163) #9
   %110 = load i32, ptr @hf_dhcp_option_sip_server_address, align 4
   %111 = tail call ptr @proto_tree_add_ipv4(ptr noundef %2, i32 noundef %110, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %109) #9
@@ -5984,7 +5984,7 @@ define internal i32 @dissect_dhcpopt_sip_servers(ptr noundef %0, ptr noundef %1,
 
 112:                                              ; preds = %107, %104
   %113 = add i32 %.163, 4
-  %114 = load ptr, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 8), align 8
+  %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rfc3396_sip_server, i64 8), align 8
   %115 = tail call i32 @tvb_reported_length(ptr noundef %114) #9
   %116 = icmp ult i32 %113, %115
   br i1 %116, label %.lr.ph, label %.loopexit, !llvm.loop !31

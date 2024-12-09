@@ -168,9 +168,9 @@ entry:
   br i1 %cond, label %sw.bb, label %sw.default
 
 sw.bb:                                            ; preds = %entry
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @advice_setting, i64 376), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @advice_setting, i64 376), align 8
   %tobool = icmp ne i32 %0, 0
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @advice_setting, i64 360), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @advice_setting, i64 360), align 8
   %tobool1 = icmp ne i32 %1, 0
   %2 = select i1 %tobool, i1 %tobool1, i1 false
   %land.ext = zext i1 %2 to i32
@@ -195,9 +195,9 @@ entry:
   br i1 %cond.i, label %sw.bb.i, label %sw.default.i
 
 sw.bb.i:                                          ; preds = %entry
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @advice_setting, i64 376), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @advice_setting, i64 376), align 8
   %tobool.i = icmp ne i32 %0, 0
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @advice_setting, i64 360), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @advice_setting, i64 360), align 8
   %tobool1.i = icmp ne i32 %1, 0
   %2 = select i1 %tobool.i, i1 %tobool1.i, i1 false
   %land.ext.i = zext i1 %2 to i32

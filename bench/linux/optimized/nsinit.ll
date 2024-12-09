@@ -195,7 +195,7 @@ define dso_local i32 @acpi_ns_initialize_devices(i32 noundef %0) local_unnamed_a
   %15 = and i64 %14, 512
   %16 = icmp eq i64 %15, 0
   %17 = select i1 %16, i32 2336, i32 3520
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %19 = call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %18, i32 noundef %17, i64 noundef 88) #7
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %20, align 8

@@ -1155,7 +1155,7 @@ tailrecurse:                                      ; preds = %46, %2
   %.lobit63 = and i32 %35, 1
   %36 = xor i32 %.lobit63, 1
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw [2 x i32], ptr getelementptr inbounds (i8, ptr @s_Masks, i64 40), i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [2 x i32], ptr getelementptr inbounds nuw (i8, ptr @s_Masks, i64 40), i64 0, i64 %37
   %39 = load i32, ptr %38, align 4
   br label %.loopexit
 

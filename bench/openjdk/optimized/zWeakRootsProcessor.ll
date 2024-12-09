@@ -107,7 +107,7 @@ define hidden void @_ZN19ZWeakRootsProcessorC2EP8ZWorkers(ptr nocapture noundef 
 define hidden void @_ZN19ZWeakRootsProcessor18process_weak_rootsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.ZProcessWeakRootsTask, align 8
   call void @_ZN5ZTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(624) %2, ptr noundef nonnull @.str) #7
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV21ZProcessWeakRootsTask, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV21ZProcessWeakRootsTask, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(584) %3, i8 0, i64 568, i1 false)
@@ -118,7 +118,7 @@ define hidden void @_ZN19ZWeakRootsProcessor18process_weak_rootsEv(ptr nocapture
   store volatile i8 0, ptr %6, align 8
   %7 = load ptr, ptr %0, align 8
   call void @_ZN8ZWorkers3runEP5ZTask(ptr noundef nonnull align 8 dereferenceable(184) %7, ptr noundef nonnull %2) #7
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV21ZProcessWeakRootsTask, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV21ZProcessWeakRootsTask, i64 16), ptr %2, align 8
   call void @_ZN25ZRootsIteratorWeakColored15report_num_deadEv(ptr noundef nonnull align 8 dereferenceable(584) %3) #7
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 216
@@ -237,7 +237,7 @@ define linkonce_odr hidden void @_ZN21ZProcessWeakRootsTask4workEv(ptr noundef n
 _ZN26SuspendibleThreadSetJoinerD2Ev.exit:
   %1 = alloca %class.ZPhantomCleanOopClosure, align 8
   tail call void @_ZN20SuspendibleThreadSet4joinEv() #7
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV23ZPhantomCleanOopClosure, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV23ZPhantomCleanOopClosure, i64 16), ptr %1, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @_ZN25ZRootsIteratorWeakColored5applyEP10OopClosure(ptr noundef nonnull align 8 dereferenceable(584) %2, ptr noundef nonnull %1) #7
   call void @_ZN20SuspendibleThreadSet5leaveEv() #7

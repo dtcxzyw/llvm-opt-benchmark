@@ -44,7 +44,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @zend_optimizer_get_persistent_constant(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 448), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 448), align 8
   %5 = tail call ptr @zend_hash_find(ptr noundef %4, ptr noundef %0) #12
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %25, label %6
@@ -63,7 +63,7 @@ define hidden noundef zeroext i1 @zend_optimizer_get_persistent_constant(ptr nou
   br i1 %.not49, label %16, label %13
 
 13:                                               ; preds = %11
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 172), align 4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4
   %15 = and i32 %14, 4096
   %.not50 = icmp eq i32 %15, 0
   br i1 %.not50, label %16, label %.thread56

@@ -84,7 +84,7 @@ define range(i32 -22, 1) i32 @nxsig_tcbdispatch(ptr noundef %0, ptr nocapture no
   br i1 %.not84, label %44, label %45
 
 44:                                               ; preds = %40
-  store ptr %42, ptr getelementptr inbounds (i8, ptr @g_waitingforsignal, i64 8), align 8
+  store ptr %42, ptr getelementptr inbounds nuw (i8, ptr @g_waitingforsignal, i64 8), align 8
   br label %47
 
 45:                                               ; preds = %40
@@ -394,7 +394,7 @@ nxsig_queue_action.exit:                          ; preds = %111, %118, %121, %1
   br i1 %.not80, label %171, label %172
 
 171:                                              ; preds = %167
-  store ptr %169, ptr getelementptr inbounds (i8, ptr @g_waitingforsignal, i64 8), align 8
+  store ptr %169, ptr getelementptr inbounds nuw (i8, ptr @g_waitingforsignal, i64 8), align 8
   br label %174
 
 172:                                              ; preds = %167

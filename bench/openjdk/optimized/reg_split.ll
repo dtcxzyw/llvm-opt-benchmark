@@ -288,7 +288,7 @@ _ZN4NodenwEm.exit:                                ; preds = %135, %137
   store ptr null, ptr %143, align 8
   %144 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
   store i32 2, ptr %144, align 4
-  store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV17MachSpillCopyNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV17MachSpillCopyNode, i64 16), ptr %.0.i.i.i, align 8
   %145 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   store ptr %.032, ptr %145, align 8
   %146 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
@@ -404,7 +404,7 @@ define linkonce_odr hidden void @_ZN17MachSpillCopyNodeC2ENS_9SpillTypeEP4NodeRK
   store ptr null, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 2, ptr %9, align 4
-  store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV17MachSpillCopyNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV17MachSpillCopyNode, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %3, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1893,7 +1893,7 @@ define hidden noundef i32 @_ZN12PhaseChaitin5SplitEjP12ResourceArea(ptr noundef 
   %7 = alloca %class.Node_List, align 8
   %8 = alloca %class.RegMask, align 8
   store i32 %1, ptr %4, align 4
-  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %5, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 768)) #9
+  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %5, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 768)) #9
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -2707,7 +2707,7 @@ _ZNK5Block4headEv.exit:                           ; preds = %416, %418
   %428 = getelementptr inbounds nuw i8, ptr %.0.i.i.i845, i64 56
   store ptr %425, ptr %428, align 8
   %429 = getelementptr inbounds nuw i8, ptr %.0.i.i.i845, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV7PhiNode, i64 16), ptr %.0.i.i.i845, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV7PhiNode, i64 16), ptr %.0.i.i.i845, align 8
   %430 = getelementptr inbounds nuw i8, ptr %.0.i.i.i845, i64 64
   store ptr null, ptr %430, align 8
   %431 = getelementptr inbounds nuw i8, ptr %.0.i.i.i845, i64 72
@@ -4311,7 +4311,7 @@ _ZN4NodenwEm.exit914:                             ; preds = %1313, %1315
   store ptr null, ptr %1321, align 8
   %1322 = getelementptr inbounds nuw i8, ptr %.0.i.i.i913, i64 44
   store i32 2, ptr %1322, align 4
-  store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV17MachSpillCopyNode, i64 16), ptr %.0.i.i.i913, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV17MachSpillCopyNode, i64 16), ptr %.0.i.i.i913, align 8
   %1323 = getelementptr inbounds nuw i8, ptr %.0.i.i.i913, i64 64
   store ptr %1170, ptr %1323, align 8
   %1324 = getelementptr inbounds nuw i8, ptr %.0.i.i.i913, i64 72

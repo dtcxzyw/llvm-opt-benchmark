@@ -191,8 +191,8 @@ _ZN3irr27SIrrlichtCreationParametersC2ERKS0_.exit: ; preds = %if.end.i.i.i, %ent
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !44
   %ReferenceCounter.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !46
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr6CTimerE, i64 24), ptr %call, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr6CTimerE, i64 136), ptr %19, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr6CTimerE, i64 24), ptr %call, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr6CTimerE, i64 136), ptr %19, align 8, !tbaa !3
   tail call void @_ZN3irr2os5Timer9initTimerEv() #18
   store ptr %call, ptr %Timer, align 8, !tbaa !47
   %20 = load ptr, ptr @_ZN3irr2os7Printer6LoggerE, align 8, !tbaa !40

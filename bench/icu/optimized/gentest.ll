@@ -60,7 +60,7 @@ entry:
   %errorCode = alloca i32, align 4
   store i32 0, ptr %errorCode, align 4
   %call = tail call ptr @u_getDataDirectory_75() #9
-  store ptr %call, ptr getelementptr inbounds (i8, ptr @options, i64 88), align 8
+  store ptr %call, ptr getelementptr inbounds nuw (i8, ptr @options, i64 88), align 8
   %call1 = tail call i32 @u_parseArgs(i32 noundef %argc, ptr noundef %argv, i32 noundef 5, ptr noundef nonnull @options) #9
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %if.end.thread, label %if.end
@@ -75,9 +75,9 @@ if.end.thread:                                    ; preds = %entry
   br label %if.then7
 
 if.end:                                           ; preds = %entry
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 34), align 2
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 34), align 2
   %tobool = icmp ne i8 %2, 0
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 74), align 2
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 74), align 2
   %tobool6 = icmp ne i8 %3, 0
   %or.cond3 = select i1 %tobool, i1 true, i1 %tobool6
   br i1 %or.cond3, label %if.then7, label %if.end12
@@ -90,13 +90,13 @@ if.then7:                                         ; preds = %if.end.thread, %if.
   br label %return
 
 if.end12:                                         ; preds = %if.end
-  %6 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 194), align 2
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 194), align 2
   %tobool13.not = icmp eq i8 %6, 0
   br i1 %tobool13.not, label %if.else, label %if.then14
 
 if.then14:                                        ; preds = %if.end12
   %7 = load ptr, ptr %argv, align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 88), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 88), align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %file.i)
   %call.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %file.i, ptr noundef nonnull readonly dereferenceable(1) %8) #9
   %9 = load i8, ptr %8, align 1
@@ -291,18 +291,18 @@ outputJavaStuff.exit:                             ; preds = %if.then15.i, %for.e
   br label %return
 
 if.else:                                          ; preds = %if.end12
-  %34 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 154), align 2
+  %34 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 154), align 2
   %tobool17.not = icmp eq i8 %34, 0
   br i1 %tobool17.not, label %if.else21, label %if.then18
 
 if.then18:                                        ; preds = %if.else
   %35 = load ptr, ptr %argv, align 8
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 88), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 88), align 8
   %call20 = tail call i32 @genres32(ptr noundef %35, ptr noundef %36) #9
   br label %return
 
 if.else21:                                        ; preds = %if.else
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 88), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 88), align 8
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %stringValue.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %stringValue.i, ptr noundef nonnull align 1 dereferenceable(5) @__const.createData.stringValue, i64 5, i1 false)
   %call.i12 = call ptr @udata_create(ptr noundef %37, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @dataInfo, ptr noundef nonnull @.str.8, ptr noundef nonnull %errorCode) #9

@@ -266,7 +266,7 @@ _ZN7OptoReg8as_VMRegEi.exit:                      ; preds = %28
   %..i.i = select i1 %45, i32 64, i32 32
   %46 = ptrtoint ptr %43 to i64
   %47 = trunc i64 %46 to i32
-  %48 = sub i32 %47, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %48 = sub i32 %47, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %49 = icmp uge i32 %48, %..i.i
   %50 = icmp slt i32 %1, 1
   %or.cond128 = or i1 %50, %49
@@ -335,7 +335,7 @@ _ZN7OptoReg8as_VMRegEi.exit106:                   ; preds = %_ZN7OptoReg8as_VMRe
 84:                                               ; preds = %_ZN7OptoReg8as_VMRegEi.exit106, %_ZN7OptoReg8as_VMRegEi.exit106
   %85 = ptrtoint ptr %.0.i105 to i64
   %86 = trunc i64 %85 to i32
-  %87 = sub i32 %86, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %87 = sub i32 %86, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %88 = ashr i32 %87, 1
   switch i32 %88, label %89 [
     i32 5, label %.thread

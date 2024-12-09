@@ -262,7 +262,7 @@ clean_encoding_name.exit:                         ; preds = %21
 
 26:                                               ; preds = %clean_encoding_name.exit, %43
   %.02229 = phi ptr [ @pg_encname_tbl, %clean_encoding_name.exit ], [ %.1, %43 ]
-  %.02328 = phi ptr [ getelementptr inbounds (i8, ptr @pg_encname_tbl, i64 1280), %clean_encoding_name.exit ], [ %.124, %43 ]
+  %.02328 = phi ptr [ getelementptr inbounds nuw (i8, ptr @pg_encname_tbl, i64 1280), %clean_encoding_name.exit ], [ %.124, %43 ]
   %27 = ptrtoint ptr %.02328 to i64
   %28 = ptrtoint ptr %.02229 to i64
   %29 = sub i64 %27, %28

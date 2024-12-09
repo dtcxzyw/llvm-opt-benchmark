@@ -311,7 +311,7 @@ if.end52.us.i.i:                                  ; preds = %if.then45.us.i.i, %
 
 while.end.us.i.i:                                 ; preds = %rcu_read_auto_lock.exit.i.i, %while.end.us.i.i
   %i.077.us.i.i = phi i64 [ %inc.us.i.i, %while.end.us.i.i ], [ 0, %rcu_read_auto_lock.exit.i.i ]
-  %arrayidx.us.i.i = getelementptr [3 x ptr], ptr getelementptr inbounds (i8, ptr @ram_list, i64 64), i64 0, i64 %i.077.us.i.i
+  %arrayidx.us.i.i = getelementptr [3 x ptr], ptr getelementptr inbounds nuw (i8, ptr @ram_list, i64 64), i64 0, i64 %i.077.us.i.i
   %29 = load atomic i64, ptr %arrayidx.us.i.i monotonic, align 8
   %30 = inttoptr i64 %29 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
@@ -338,7 +338,7 @@ for.cond17.preheader.i.i:                         ; preds = %while.end.i.i
 
 while.end.i.i:                                    ; preds = %rcu_read_auto_lock.exit.i.i, %while.end.i.i
   %i.077.i.i = phi i64 [ %inc.i.i, %while.end.i.i ], [ 0, %rcu_read_auto_lock.exit.i.i ]
-  %arrayidx.i.i = getelementptr [3 x ptr], ptr getelementptr inbounds (i8, ptr @ram_list, i64 64), i64 0, i64 %i.077.i.i
+  %arrayidx.i.i = getelementptr [3 x ptr], ptr getelementptr inbounds nuw (i8, ptr @ram_list, i64 64), i64 0, i64 %i.077.i.i
   %33 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
   %34 = inttoptr i64 %33 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
@@ -452,7 +452,7 @@ while.end.us.i.us.us.i.i.preheader:               ; preds = %while.end.i.i.i.us.
 
 while.end.us.i.us.us.i.i:                         ; preds = %while.end.us.i.us.us.i.i.preheader, %while.end.us.i.us.us.i.i
   %indvars.iv68.i.us.us.i.i = phi i64 [ %indvars.iv.next69.i.us.us.i.i, %while.end.us.i.us.us.i.i ], [ 0, %while.end.us.i.us.us.i.i.preheader ]
-  %arrayidx.us.i.us.us.i.i = getelementptr [3 x ptr], ptr getelementptr inbounds (i8, ptr @ram_list, i64 64), i64 0, i64 %indvars.iv68.i.us.us.i.i
+  %arrayidx.us.i.us.us.i.i = getelementptr [3 x ptr], ptr getelementptr inbounds nuw (i8, ptr @ram_list, i64 64), i64 0, i64 %indvars.iv68.i.us.us.i.i
   %45 = load atomic i64, ptr %arrayidx.us.i.us.us.i.i monotonic, align 8
   %46 = inttoptr i64 %45 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !12
@@ -599,7 +599,7 @@ while.end.i.i.i.preheader:                        ; preds = %while.end.i.i.i.i.i
 
 while.end.i.i.i:                                  ; preds = %while.end.i.i.i.preheader, %while.end.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %while.end.i.i.i ], [ 0, %while.end.i.i.i.preheader ]
-  %arrayidx.i.i.i = getelementptr [3 x ptr], ptr getelementptr inbounds (i8, ptr @ram_list, i64 64), i64 0, i64 %indvars.iv.i.i.i
+  %arrayidx.i.i.i = getelementptr [3 x ptr], ptr getelementptr inbounds nuw (i8, ptr @ram_list, i64 64), i64 0, i64 %indvars.iv.i.i.i
   %61 = load atomic i64, ptr %arrayidx.i.i.i monotonic, align 8
   %62 = inttoptr i64 %61 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !12

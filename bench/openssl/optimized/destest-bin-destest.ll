@@ -403,7 +403,7 @@ if.end13:                                         ; preds = %if.end8
   call void @DES_ede3_cbc_encrypt(ptr noundef nonnull @cbc_data, ptr noundef nonnull %cbc_out, i64 noundef 16, ptr noundef nonnull %ks, ptr noundef nonnull %ks2, ptr noundef nonnull %ks3, ptr noundef nonnull %iv3, i32 noundef 1) #5
   %arrayidx = getelementptr inbounds nuw i8, ptr %cbc_out, i64 16
   %sub = add i64 %call, -15
-  call void @DES_ede3_cbc_encrypt(ptr noundef nonnull getelementptr inbounds (i8, ptr @cbc_data, i64 16), ptr noundef nonnull %arrayidx, i64 noundef %sub, ptr noundef nonnull %ks, ptr noundef nonnull %ks2, ptr noundef nonnull %ks3, ptr noundef nonnull %iv3, i32 noundef 1) #5
+  call void @DES_ede3_cbc_encrypt(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @cbc_data, i64 16), ptr noundef nonnull %arrayidx, i64 noundef %sub, ptr noundef nonnull %ks, ptr noundef nonnull %ks2, ptr noundef nonnull %ks3, ptr noundef nonnull %iv3, i32 noundef 1) #5
   %call18 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 432, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.41, ptr noundef nonnull %cbc_out, i64 noundef %div6, ptr noundef nonnull @cbc3_ok, i64 noundef %div6) #5
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %return, label %if.end21
@@ -685,7 +685,7 @@ if.end:                                           ; preds = %entry
   store i64 -1167088091436534766, ptr @cfb_tmp, align 8
   store i32 0, ptr %n, align 4
   call void @DES_cfb64_encrypt(ptr noundef nonnull @plain, ptr noundef nonnull @cfb_buf1, i64 noundef 12, ptr noundef nonnull %ks, ptr noundef nonnull @cfb_tmp, ptr noundef nonnull %n, i32 noundef 1) #5
-  call void @DES_cfb64_encrypt(ptr noundef nonnull getelementptr inbounds (i8, ptr @plain, i64 12), ptr noundef nonnull getelementptr inbounds (i8, ptr @cfb_buf1, i64 12), i64 noundef 12, ptr noundef nonnull %ks, ptr noundef nonnull @cfb_tmp, ptr noundef nonnull %n, i32 noundef 1) #5
+  call void @DES_cfb64_encrypt(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @plain, i64 12), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @cfb_buf1, i64 12), i64 noundef 12, ptr noundef nonnull %ks, ptr noundef nonnull @cfb_tmp, ptr noundef nonnull %n, i32 noundef 1) #5
   %call2 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 558, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.47, ptr noundef nonnull @cfb_cipher64, i64 noundef 24, ptr noundef nonnull @cfb_buf1, i64 noundef 24) #5
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %return, label %if.end5
@@ -694,7 +694,7 @@ if.end5:                                          ; preds = %if.end
   store i64 -1167088091436534766, ptr @cfb_tmp, align 8
   store i32 0, ptr %n, align 4
   call void @DES_cfb64_encrypt(ptr noundef nonnull @cfb_buf1, ptr noundef nonnull @cfb_buf2, i64 noundef 17, ptr noundef nonnull %ks, ptr noundef nonnull @cfb_tmp, ptr noundef nonnull %n, i32 noundef 0) #5
-  call void @DES_cfb64_encrypt(ptr noundef nonnull getelementptr inbounds (i8, ptr @cfb_buf1, i64 17), ptr noundef nonnull getelementptr inbounds (i8, ptr @cfb_buf2, i64 17), i64 noundef 7, ptr noundef nonnull %ks, ptr noundef nonnull @cfb_tmp, ptr noundef nonnull %n, i32 noundef 0) #5
+  call void @DES_cfb64_encrypt(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @cfb_buf1, i64 17), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @cfb_buf2, i64 17), i64 noundef 7, ptr noundef nonnull %ks, ptr noundef nonnull @cfb_tmp, ptr noundef nonnull %n, i32 noundef 0) #5
   %call6 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 565, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, ptr noundef nonnull @plain, i64 noundef 24, ptr noundef nonnull @cfb_buf2, i64 noundef 24) #5
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %return, label %if.end9
@@ -748,7 +748,7 @@ entry:
   store i64 -1167088091436534766, ptr @cfb_tmp, align 8
   store i32 0, ptr %n, align 4
   call void @DES_ede3_cfb64_encrypt(ptr noundef nonnull @plain, ptr noundef nonnull @cfb_buf1, i64 noundef 12, ptr noundef nonnull %ks, ptr noundef nonnull %ks, ptr noundef nonnull %ks, ptr noundef nonnull @cfb_tmp, ptr noundef nonnull %n, i32 noundef 1) #5
-  call void @DES_ede3_cfb64_encrypt(ptr noundef nonnull getelementptr inbounds (i8, ptr @plain, i64 12), ptr noundef nonnull getelementptr inbounds (i8, ptr @cfb_buf1, i64 12), i64 noundef 12, ptr noundef nonnull %ks, ptr noundef nonnull %ks, ptr noundef nonnull %ks, ptr noundef nonnull @cfb_tmp, ptr noundef nonnull %n, i32 noundef 1) #5
+  call void @DES_ede3_cfb64_encrypt(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @plain, i64 12), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @cfb_buf1, i64 12), i64 noundef 12, ptr noundef nonnull %ks, ptr noundef nonnull %ks, ptr noundef nonnull %ks, ptr noundef nonnull @cfb_tmp, ptr noundef nonnull %n, i32 noundef 1) #5
   %call1 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 594, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.47, ptr noundef nonnull @cfb_cipher64, i64 noundef 24, ptr noundef nonnull @cfb_buf1, i64 noundef 24) #5
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -757,7 +757,7 @@ if.end:                                           ; preds = %entry
   store i64 -1167088091436534766, ptr @cfb_tmp, align 8
   store i32 0, ptr %n, align 4
   call void @DES_ede3_cfb64_encrypt(ptr noundef nonnull @cfb_buf1, ptr noundef nonnull @cfb_buf2, i64 noundef 17, ptr noundef nonnull %ks, ptr noundef nonnull %ks, ptr noundef nonnull %ks, ptr noundef nonnull @cfb_tmp, ptr noundef nonnull %n, i32 noundef 0) #5
-  call void @DES_ede3_cfb64_encrypt(ptr noundef nonnull getelementptr inbounds (i8, ptr @cfb_buf1, i64 17), ptr noundef nonnull getelementptr inbounds (i8, ptr @cfb_buf2, i64 17), i64 noundef 7, ptr noundef nonnull %ks, ptr noundef nonnull %ks, ptr noundef nonnull %ks, ptr noundef nonnull @cfb_tmp, ptr noundef nonnull %n, i32 noundef 0) #5
+  call void @DES_ede3_cfb64_encrypt(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @cfb_buf1, i64 17), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @cfb_buf2, i64 17), i64 noundef 7, ptr noundef nonnull %ks, ptr noundef nonnull %ks, ptr noundef nonnull %ks, ptr noundef nonnull @cfb_tmp, ptr noundef nonnull %n, i32 noundef 0) #5
   %call2 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 602, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, ptr noundef nonnull @plain, i64 noundef 24, ptr noundef nonnull @cfb_buf2, i64 noundef 24) #5
   br label %return
 

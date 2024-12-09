@@ -59,7 +59,7 @@ define internal range(i32 -1, 1) i32 @mca_mpool_base_open(i32 noundef %0) #0 {
 
 7:                                                ; preds = %5, %3
   %8 = load i32, ptr @opal_class_init_epoch, align 4
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not4 = icmp eq i32 %8, %9
   br i1 %.not4, label %11, label %10
 
@@ -69,7 +69,7 @@ define internal range(i32 -1, 1) i32 @mca_mpool_base_open(i32 noundef %0) #0 {
 
 11:                                               ; preds = %10, %7
   store ptr @opal_list_t_class, ptr @mca_mpool_base_modules, align 8
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_mpool_base_modules, i64 8), align 8
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_modules, i64 8), align 8
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 40), align 8
   %13 = load ptr, ptr %12, align 8
   %.not1.i = icmp eq ptr %13, null
@@ -95,15 +95,15 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %11
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @mca_mpool_base_close() #0 {
-  %1 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_mpool_base_modules, i64 56), align 8
+  %1 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_modules, i64 56), align 8
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %37
-  %3 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_mpool_base_modules, i64 56), align 8
+  %3 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_modules, i64 56), align 8
   %4 = add i64 %3, -1
-  store volatile i64 %4, ptr getelementptr inbounds (i8, ptr @mca_mpool_base_modules, i64 56), align 8
-  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_mpool_base_modules, i64 32), align 8
+  store volatile i64 %4, ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_modules, i64 56), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_modules, i64 32), align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load volatile ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -111,7 +111,7 @@ define internal noundef i32 @mca_mpool_base_close() #0 {
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store volatile ptr %7, ptr %10, align 8
   %11 = load volatile ptr, ptr %8, align 8
-  store volatile ptr %11, ptr getelementptr inbounds (i8, ptr @mca_mpool_base_modules, i64 32), align 8
+  store volatile ptr %11, ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_modules, i64 32), align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -168,7 +168,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %29
   br label %37
 
 37:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
-  %38 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_mpool_base_modules, i64 56), align 8
+  %38 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_modules, i64 56), align 8
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 

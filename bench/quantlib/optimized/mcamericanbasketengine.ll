@@ -196,7 +196,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !14
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !16
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -265,7 +265,7 @@ entry:
   %ref.tmp53 = alloca %"class.std::allocator.6", align 1
   %ref.tmp56 = alloca %"class.std::__cxx11::basic_string", align 8
   %strikePayoff = alloca %"class.boost::shared_ptr.27", align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib24AmericanBasketPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib24AmericanBasketPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %assetNumber_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %assetNumber, ptr %assetNumber_, align 8, !tbaa !18
   %payoff_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1760,7 +1760,7 @@ _ZNSt6vectorISt8functionIFdN8QuantLib5ArrayEEESaIS4_EEC2ERKS6_.exit: ; preds = %
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib24AmericanBasketPathPricerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib24AmericanBasketPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib24AmericanBasketPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %v_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %v_, align 8, !tbaa !54
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -1855,7 +1855,7 @@ _ZN5boost10shared_ptrIN8QuantLib6PayoffEED2Ev.exit: ; preds = %_ZNSt6vectorISt8f
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib24AmericanBasketPathPricerD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib24AmericanBasketPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib24AmericanBasketPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %v_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %v_.i, align 8, !tbaa !54
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48

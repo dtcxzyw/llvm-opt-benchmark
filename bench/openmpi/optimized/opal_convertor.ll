@@ -292,10 +292,10 @@ declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @opal_convertor_create(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 56), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opal_convertor_t_class, i64 56), align 8
   %4 = tail call noalias ptr @malloc(i64 noundef %3) #12
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %5, %6
   br i1 %.not.i, label %8, label %7
 
@@ -1682,7 +1682,7 @@ define internal noundef ptr @opal_convertor_accelerator_memcpy(ptr noundef retur
   br label %13
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_accelerator, i64 56), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_accelerator, i64 56), align 8
   %11 = tail call i32 %10(i32 noundef -1, i32 noundef -1, ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 0) #11
   %.not9 = icmp eq i32 %11, 0
   br i1 %.not9, label %13, label %12

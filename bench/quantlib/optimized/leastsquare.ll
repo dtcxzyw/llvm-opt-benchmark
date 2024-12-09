@@ -2172,7 +2172,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
   unreachable
 
 invoke.cont5:                                     ; preds = %if.then.i.i.i.i.i, %.noexc.i.i.i, %if.then.i.i3.i, %invoke.cont.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib17ConjugateGradientE, i64 16), ptr %call, align 8, !tbaa !9
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib17ConjugateGradientE, i64 16), ptr %call, align 8, !tbaa !9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   store ptr %call, ptr %om_, align 8, !tbaa !60
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -2219,7 +2219,7 @@ invoke.cont6:                                     ; preds = %invoke.cont5
   store i32 1, ptr %use_count_.i.i.i.i.i, align 8, !tbaa !61
   %weak_count_.i.i.i.i.i7 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i7, align 4, !tbaa !63
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib17ConjugateGradientEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !9
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib17ConjugateGradientEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !9
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call, ptr %px_.i.i.i.i, align 8, !tbaa !64
   store ptr %call.i.i.i, ptr %pn.i, align 8, !tbaa !59
@@ -2389,7 +2389,7 @@ entry:
   %accuracy_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load double, ptr %accuracy_, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lsf) #21
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN8QuantLib19LeastSquareFunctionE, i64 16), ptr %lsf, align 8, !tbaa !9
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN8QuantLib19LeastSquareFunctionE, i64 16), ptr %lsf, align 8, !tbaa !9
   %lsp_.i = getelementptr inbounds nuw i8, ptr %lsf, i64 8
   store ptr %lsProblem, ptr %lsp_.i, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %P) #21
@@ -3090,7 +3090,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !9
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !9
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !59
   %cmp.not.i.i = icmp eq ptr %0, null

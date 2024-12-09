@@ -26,7 +26,7 @@ entry:
 do.body:                                          ; preds = %entry
   %call3 = tail call ptr @__errno_location() #6
   %0 = load i32, ptr %call3, align 4
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef 42, ptr noundef nonnull @.str.1, i32 noundef %0)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 42, ptr noundef nonnull @.str.1, i32 noundef %0)
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -284,7 +284,7 @@ while.body9.backedge:                             ; preds = %if.end27
   br i1 %cmp25, label %while.end43.split.split, label %if.end27, !llvm.loop !7
 
 do.body:                                          ; preds = %if.end15.us.us
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef 92, ptr noundef nonnull @.str.2, i32 noundef %6)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 92, ptr noundef nonnull @.str.2, i32 noundef %6)
   unreachable
 
 if.end27:                                         ; preds = %if.end27.lr.ph, %while.body9.backedge
@@ -296,7 +296,7 @@ if.end27:                                         ; preds = %if.end27.lr.ph, %wh
 
 do.body36:                                        ; preds = %if.end27, %if.end27.us.us
   %.us-phi = phi i32 [ %13, %if.end27.us.us ], [ %24, %if.end27 ]
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef 97, ptr noundef nonnull @.str.3, i32 noundef %.us-phi)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 97, ptr noundef nonnull @.str.3, i32 noundef %.us-phi)
   unreachable
 
 while.end43.split.split:                          ; preds = %while.body9.backedge, %if.end7
@@ -327,7 +327,7 @@ if.then:                                          ; preds = %entry
 do.body.i:                                        ; preds = %if.then
   %call2.i = tail call ptr @__errno_location() #6
   %1 = load i32, ptr %call2.i, align 4
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef 114, ptr noundef nonnull @.str.4, i32 noundef %1)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 114, ptr noundef nonnull @.str.4, i32 noundef %1)
   unreachable
 
 if.end:                                           ; preds = %if.then, %entry
@@ -344,7 +344,7 @@ entry:
 do.body:                                          ; preds = %entry
   %call2 = tail call ptr @__errno_location() #6
   %0 = load i32, ptr %call2, align 4
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef 114, ptr noundef nonnull @.str.4, i32 noundef %0)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 114, ptr noundef nonnull @.str.4, i32 noundef %0)
   unreachable
 
 if.end:                                           ; preds = %entry

@@ -184,10 +184,10 @@ define dso_local range(i32 -2147483648, 1) i32 @amd_numa_init() local_unnamed_ad
   br i1 %90, label %.thread18, label %91
 
 91:                                               ; preds = %88
-  %92 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 30), align 2
+  %92 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 30), align 2
   %93 = zext i8 %92 to i32
   %94 = shl nuw i32 1, %93
-  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_init, i64 40), align 8
+  %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_init, i64 40), align 8
   tail call void %95(i32 noundef 1) #5
   %96 = load i32, ptr @boot_cpu_physical_apicid, align 4
   %97 = icmp eq i32 %96, 0

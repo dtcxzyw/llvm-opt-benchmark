@@ -241,7 +241,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %70, label %71, label %77
 
 71:                                               ; preds = %69
-  %72 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
+  %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @scratch_buffer, i64 65536), align 4
   %73 = zext i32 %72 to i64
   %74 = getelementptr inbounds nuw i8, ptr @scratch_buffer, i64 %73
   %75 = load ptr, ptr %3, align 8
@@ -457,7 +457,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 65:                                               ; preds = %63
   %66 = load ptr, ptr %3, align 8
-  %67 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
+  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @scratch_buffer, i64 65536), align 4
   %68 = zext i32 %67 to i64
   %69 = getelementptr inbounds nuw i8, ptr @scratch_buffer, i64 %68
   %.not72 = icmp eq ptr %66, %69

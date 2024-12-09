@@ -467,13 +467,13 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
 
 199:                                              ; preds = %179
   %200 = load double, ptr @Defcolor, align 16
-  %201 = load double, ptr getelementptr inbounds (i8, ptr @Defcolor, i64 8), align 8
+  %201 = load double, ptr getelementptr inbounds nuw (i8, ptr @Defcolor, i64 8), align 8
   br label %202
 
 202:                                              ; preds = %199, %194
   %.0113.i = phi double [ %182, %194 ], [ %200, %199 ]
   %.2.i = phi double [ %197, %194 ], [ %201, %199 ]
-  %.0111.in.i = phi ptr [ %198, %194 ], [ getelementptr inbounds (i8, ptr @Defcolor, i64 16), %199 ]
+  %.0111.in.i = phi ptr [ %198, %194 ], [ getelementptr inbounds nuw (i8, ptr @Defcolor, i64 16), %199 ]
   %.0111.i = load double, ptr %.0111.in.i, align 8
   %203 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 64, ptr noundef nonnull @.str.16, double noundef %.0113.i, double noundef %.2.i, double noundef %.0111.i) #18
   %204 = call i32 @agset(ptr noundef %171, ptr noundef nonnull @.str.15, ptr noundef nonnull %8) #18

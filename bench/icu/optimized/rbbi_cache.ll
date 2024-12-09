@@ -552,7 +552,7 @@ declare void @_ZN6icu_759UVector3215insertElementAtEiiR10UErrorCode(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7522RuleBasedBreakIterator10BreakCacheC2EPS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) initializes((0, 16)) %this, ptr noundef %bi, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522RuleBasedBreakIterator10BreakCacheE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522RuleBasedBreakIterator10BreakCacheE, i64 16), ptr %this, align 8
   %fBI = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %bi, ptr %fBI, align 8
   %fSideBuffer = getelementptr inbounds nuw i8, ptr %this, i64 800
@@ -588,7 +588,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7522RuleBasedBreakIterator10BreakCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(832) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522RuleBasedBreakIterator10BreakCacheE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522RuleBasedBreakIterator10BreakCacheE, i64 16), ptr %this, align 8
   %fSideBuffer = getelementptr inbounds nuw i8, ptr %this, i64 800
   tail call void @_ZN6icu_759UVector32D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fSideBuffer) #13
   ret void

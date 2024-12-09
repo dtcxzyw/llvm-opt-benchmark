@@ -112,7 +112,7 @@ declare noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN23JfrStackTraceRepository10initializeEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16432) %0) local_unnamed_addr #3 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #13
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV12JfrFrameType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV12JfrFrameType, i64 16), ptr %2, align 8
   %3 = tail call noundef zeroext i1 @_ZN13JfrSerializer19register_serializerE9JfrTypeIdbPS_(i32 noundef 204, i1 noundef zeroext true, ptr noundef nonnull %2) #13
   ret i1 %3
 }

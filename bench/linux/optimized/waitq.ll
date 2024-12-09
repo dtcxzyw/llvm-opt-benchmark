@@ -194,7 +194,7 @@ define dso_local i32 @autofs_wait(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %55, label %56, label %309
 
 56:                                               ; preds = %50, %43
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %58 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %57, i32 noundef 3264, i64 noundef 256) #14
   %59 = icmp eq ptr %58, null
   br i1 %59, label %309, label %60
@@ -428,7 +428,7 @@ define dso_local i32 @autofs_wait(ptr noundef %0, ptr nocapture noundef readonly
   br label %309
 
 .thread42:                                        ; preds = %.loopexit54, %123, %188
-  %191 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %191 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %192 = call noalias align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %191, i32 noundef 3264, i64 noundef 96) #14
   %193 = icmp eq ptr %192, null
   br i1 %193, label %194, label %195

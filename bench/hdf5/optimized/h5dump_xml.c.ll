@@ -283,7 +283,7 @@ define dso_local void @xml_dump_datatype(i64 noundef %0) local_unnamed_addr #0 {
   %.sink = phi i32 [ 65535, %19 ], [ %17, %16 ]
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 288
   store i32 %.sink, ptr %22, align 8
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 40), align 4
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 420
   store i32 %23, ptr %24, align 4
   %25 = add nuw nsw i32 %9, 1
@@ -635,7 +635,7 @@ define internal fastcc void @xml_print_datatype(i64 noundef %0, i32 noundef rang
   %.sink = phi i32 [ 65535, %26 ], [ %24, %23 ]
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 288
   store i32 %.sink, ptr %29, align 8
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 40), align 4
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 420
   store i32 %30, ptr %31, align 4
   %.not170 = icmp eq i32 %1, 0
@@ -1454,7 +1454,7 @@ define dso_local void @xml_dump_dataspace(i64 noundef %0) local_unnamed_addr #0 
   %.sink = phi i32 [ 65535, %22 ], [ %20, %19 ]
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 288
   store i32 %.sink, ptr %25, align 8
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 40), align 4
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 420
   store i32 %26, ptr %27, align 4
   %28 = add nuw nsw i32 %12, 1
@@ -1904,7 +1904,7 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_refs(i64 noundef %0, i32 
   %.sink = phi i32 [ 65535, %55 ], [ %53, %52 ]
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 288
   store i32 %.sink, ptr %58, align 8
-  %59 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
+  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 40), align 4
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 420
   store i32 %59, ptr %60, align 4
   %.not76 = icmp eq i64 %.048, 0
@@ -2133,7 +2133,7 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_strs(i64 noundef %0, i32 
   %.sink = phi i32 [ 65535, %63 ], [ %61, %60 ]
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 288
   store i32 %.sink, ptr %66, align 8
-  %67 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
+  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 40), align 4
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 420
   store i32 %67, ptr %68, align 4
   %.not133 = icmp eq i64 %.081, 0
@@ -2325,7 +2325,7 @@ define dso_local range(i32 -1, 1) i32 @xml_dump_attr(i64 noundef %0, ptr noundef
   %.sink = phi i32 [ 65535, %22 ], [ %20, %19 ]
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 288
   store i32 %.sink, ptr %25, align 8
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 40), align 4
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 420
   store i32 %26, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -2359,7 +2359,7 @@ define dso_local range(i32 -1, 1) i32 @xml_dump_attr(i64 noundef %0, ptr noundef
   %49 = load i32, ptr @dump_indent, align 4
   %50 = add i32 %49, 3
   store i32 %50, ptr @dump_indent, align 4
-  %51 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 12), align 4
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 12), align 4
   %52 = icmp ne i32 %51, 0
   %53 = icmp ne i32 %40, 2
   %or.cond = select i1 %52, i1 %53, i1 false
@@ -2717,7 +2717,7 @@ define dso_local void @xml_dump_named_datatype(i64 noundef %0, ptr noundef %1) l
   %.sink = phi i32 [ 65535, %33 ], [ %31, %30 ]
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 288
   store i32 %.sink, ptr %36, align 8
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 40), align 4
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 420
   store i32 %37, ptr %38, align 4
   %39 = tail call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #15
@@ -2986,7 +2986,7 @@ sub_0:                                            ; preds = %38, %41
   %.sink = phi i32 [ 65535, %41 ], [ %39, %38 ]
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 288
   store i32 %.sink, ptr %43, align 8
-  %44 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
+  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 40), align 4
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 420
   store i32 %44, ptr %45, align 4
   %46 = load i8, ptr %1, align 1
@@ -3580,7 +3580,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   %.sink = phi i32 [ 65535, %36 ], [ %34, %33 ]
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 288
   store i32 %.sink, ptr %39, align 8
-  %40 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 40), align 4
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 420
   store i32 %40, ptr %41, align 4
   %42 = load ptr, ptr @prefix, align 8
@@ -4163,7 +4163,7 @@ define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef %1, ptr noca
   %.sink = phi i32 [ 65535, %53 ], [ %51, %50 ]
   %56 = getelementptr inbounds nuw i8, ptr %22, i64 288
   store i32 %.sink, ptr %56, align 8
-  %57 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
+  %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 40), align 4
   %58 = getelementptr inbounds nuw i8, ptr %22, i64 420
   store i32 %57, ptr %58, align 4
   tail call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef nonnull %31, ptr noundef %24, i32 noundef 1)
@@ -4329,7 +4329,7 @@ define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef %1, ptr noca
   %.sink.i = phi i32 [ 65535, %144 ], [ %142, %141 ]
   %147 = getelementptr inbounds nuw i8, ptr %14, i64 288
   store i32 %.sink.i, ptr %147, align 8
-  %148 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
+  %148 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 40), align 4
   %149 = getelementptr inbounds nuw i8, ptr %14, i64 420
   store i32 %148, ptr %149, align 4
   %150 = call i32 @H5Pget_nfilters(i64 noundef %70) #14
@@ -4779,7 +4779,7 @@ switch.lookup168:                                 ; preds = %349
   %.sink.i158 = phi i32 [ 65535, %408 ], [ %406, %405 ]
   %411 = getelementptr inbounds nuw i8, ptr %6, i64 288
   store i32 %.sink.i158, ptr %411, align 8
-  %412 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
+  %412 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 40), align 4
   %413 = getelementptr inbounds nuw i8, ptr %6, i64 420
   store i32 %412, ptr %413, align 4
   %414 = add nuw nsw i32 %398, 1
@@ -5237,7 +5237,7 @@ xml_dump_fill_value.exit:                         ; preds = %456, %468, %484, %5
   %729 = add i32 %728, -3
   store i32 %729, ptr @dump_indent, align 4
   %730 = call i64 @H5Dget_storage_size(i64 noundef %0) #14
-  %731 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 8), align 4
+  %731 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 8), align 4
   %732 = icmp ne i32 %731, 0
   %733 = icmp ne i64 %730, 0
   %or.cond3 = select i1 %732, i1 %733, i1 false
@@ -5612,7 +5612,7 @@ define internal fastcc void @xml_print_enum(i64 noundef %0) unnamed_addr #0 {
   %.sink = phi i32 [ 65535, %18 ], [ %16, %15 ]
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 288
   store i32 %.sink, ptr %21, align 8
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 40), align 4
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 420
   store i32 %22, ptr %23, align 4
   %24 = tail call i32 @H5Tget_nmembers(i64 noundef %0) #14

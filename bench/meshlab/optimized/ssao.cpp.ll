@@ -1414,7 +1414,7 @@ define void @_ZN4SSAOC2Ef(ptr nocapture noundef nonnull writeonly align 8 derefe
   store i32 1024, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 1024, ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV4SSAO, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV4SSAO, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1430,7 +1430,7 @@ define void @_ZN4SSAOC2Ef(ptr nocapture noundef nonnull writeonly align 8 derefe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN4SSAOD2Ev(ptr noundef nonnull align 8 dereferenceable(100) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV4SSAO, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV4SSAO, i64 16), ptr %0, align 8
   %2 = load ptr, ptr @__glewDetachShader, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8

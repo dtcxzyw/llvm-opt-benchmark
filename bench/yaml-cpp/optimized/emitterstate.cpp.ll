@@ -1713,7 +1713,7 @@ entry:
 sw.bb:                                            ; preds = %entry
   %m_modifiedSettings = getelementptr inbounds nuw i8, ptr %this, i64 128
   %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19, !noalias !58
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML13SettingChangeINS_13EMITTER_MANIPEEE, i64 16), ptr %call.i, align 8, !noalias !58
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML13SettingChangeINS_13EMITTER_MANIPEEE, i64 16), ptr %call.i, align 8, !noalias !58
   %m_pCurSetting.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %fmt, ptr %m_pCurSetting.i.i, align 8, !noalias !58
   %m_oldSetting.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
@@ -1809,7 +1809,7 @@ _ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit17:
   store i32 %value, ptr %fmt, align 4, !noalias !67
   %m_globalModifiedSettings = getelementptr inbounds nuw i8, ptr %this, i64 152
   %call.i18 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19, !noalias !70
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML13SettingChangeINS_13EMITTER_MANIPEEE, i64 16), ptr %call.i18, align 8, !noalias !70
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML13SettingChangeINS_13EMITTER_MANIPEEE, i64 16), ptr %call.i18, align 8, !noalias !70
   %m_pCurSetting.i.i19 = getelementptr inbounds nuw i8, ptr %call.i18, i64 8
   store ptr %fmt, ptr %m_pCurSetting.i.i19, align 8, !noalias !70
   %m_oldSetting.i.i20 = getelementptr inbounds nuw i8, ptr %call.i18, i64 16
@@ -1939,7 +1939,7 @@ entry:
 sw.bb:                                            ; preds = %entry
   %m_modifiedSettings = getelementptr inbounds nuw i8, ptr %this, i64 128
   %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19, !noalias !78
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML13SettingChangeImEE, i64 16), ptr %call.i, align 8, !noalias !78
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML13SettingChangeImEE, i64 16), ptr %call.i, align 8, !noalias !78
   %m_pCurSetting.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %fmt, ptr %m_pCurSetting.i.i, align 8, !noalias !78
   %m_oldSetting.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
@@ -2035,7 +2035,7 @@ _ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit17:
   store i64 %value, ptr %fmt, align 8, !noalias !86
   %m_globalModifiedSettings = getelementptr inbounds nuw i8, ptr %this, i64 152
   %call.i18 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19, !noalias !89
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML13SettingChangeImEE, i64 16), ptr %call.i18, align 8, !noalias !89
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML13SettingChangeImEE, i64 16), ptr %call.i18, align 8, !noalias !89
   %m_pCurSetting.i.i19 = getelementptr inbounds nuw i8, ptr %call.i18, i64 8
   store ptr %fmt, ptr %m_pCurSetting.i.i19, align 8, !noalias !89
   %m_oldSetting.i.i20 = getelementptr inbounds nuw i8, ptr %call.i18, i64 16

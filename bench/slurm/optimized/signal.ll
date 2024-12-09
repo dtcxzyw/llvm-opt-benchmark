@@ -182,7 +182,7 @@ define range(i32 -1, 1) i32 @slurm_signal_job_step(i32 noundef %0, i32 noundef %
   store i16 %33, ptr %34, align 2
   store i16 1, ptr %6, align 4
   call void @slurm_msg_t_init(ptr noundef nonnull %5) #5
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1168), align 8
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1168), align 8
   call void @slurm_msg_set_r_uid(ptr noundef nonnull %5, i32 noundef %35) #5
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 204
   store i16 6004, ptr %36, align 4
@@ -372,7 +372,7 @@ define range(i32 -1, 1) i32 @slurm_terminate_job_step(i32 noundef %0, i32 nounde
   call void @slurm_msg_t_init(ptr noundef nonnull %4) #5
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 204
   store i16 6006, ptr %32, align 4
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1168), align 8
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1168), align 8
   call void @slurm_msg_set_r_uid(ptr noundef nonnull %4, i32 noundef %33) #5
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 192
   store ptr %5, ptr %34, align 8

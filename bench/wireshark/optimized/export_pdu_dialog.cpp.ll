@@ -57,9 +57,9 @@ define void @_ZN15ExportPDUDialogC2EP7QWidget(ptr noundef nonnull align 8 derefe
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QVariant, align 8
   tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i32 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15ExportPDUDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15ExportPDUDialog, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15ExportPDUDialog, i64 488), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15ExportPDUDialog, i64 488), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #10
           to label %10 unwind label %.loopexit.split-lp
@@ -757,7 +757,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i10:    ; preds = %_ZNO7QString6toUtf8
   %24 = load ptr, ptr %23, align 8
   %.not.i.i13 = icmp eq ptr %24, null
   %spec.select.i.i = select i1 %.not.i.i13, ptr @_ZN10QByteArray6_emptyE, ptr %24
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @global_capture_opts, i64 368), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_capture_opts, i64 368), align 8
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not.i.i14 = icmp eq ptr %27, null
@@ -881,9 +881,9 @@ declare void @do_export_pdu(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN15ExportPDUDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15ExportPDUDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15ExportPDUDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15ExportPDUDialog, i64 488), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15ExportPDUDialog, i64 488), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

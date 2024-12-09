@@ -42,7 +42,7 @@ invoke.cont:
   store <2 x float> splat (float 1.000000e+00), ptr %m_scaling.i, align 16
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV26b3TriangleIndexVertexArray, i64 16), ptr %this, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV26b3TriangleIndexVertexArray, i64 16), ptr %this, align 16
   %m_indexedMeshes = getelementptr inbounds nuw i8, ptr %this, i64 32
   %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i8 1, ptr %m_ownsMemory.i.i, align 8
@@ -138,7 +138,7 @@ declare void @_ZN23b3StridingMeshInterfaceD2Ev(ptr noundef nonnull align 16 dere
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN26b3TriangleIndexVertexArrayD2Ev(ptr noundef nonnull align 16 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV26b3TriangleIndexVertexArray, i64 16), ptr %this, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV26b3TriangleIndexVertexArray, i64 16), ptr %this, align 16
   %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_data.i.i.i, align 16
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -176,7 +176,7 @@ _ZN20b3AlignedObjectArrayI13b3IndexedMeshED2Ev.exit: ; preds = %entry, %if.then.
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN26b3TriangleIndexVertexArrayD0Ev(ptr noundef nonnull align 16 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV26b3TriangleIndexVertexArray, i64 16), ptr %this, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV26b3TriangleIndexVertexArray, i64 16), ptr %this, align 16
   %m_data.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_data.i.i.i.i, align 16
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

@@ -284,9 +284,9 @@ _ZN28TemplateInterpreterGenerator19generate_error_exitEPKc.exit49: ; preds = %_Z
   br i1 %exitcond280.not, label %.preheader.preheader, label %102, !llvm.loop !8
 
 .preheader.preheader:                             ; preds = %102
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19TemplateInterpreter20_invoke_return_entryE, i64 32), align 16
-  %.pre293 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19TemplateInterpreter29_invokeinterface_return_entryE, i64 32), align 16
-  %.pre294 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19TemplateInterpreter27_invokedynamic_return_entryE, i64 32), align 16
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN19TemplateInterpreter20_invoke_return_entryE, i64 32), align 16
+  %.pre293 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN19TemplateInterpreter29_invokeinterface_return_entryE, i64 32), align 16
+  %.pre294 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN19TemplateInterpreter27_invokedynamic_return_entryE, i64 32), align 16
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -396,7 +396,7 @@ _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter1
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit51: ; preds = %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit, %154
   %.014.i50 = phi ptr [ %155, %154 ], [ %152, %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit ]
-  store ptr %.014.i50, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 8), align 8
+  store ptr %.014.i50, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 8), align 8
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %18) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %19, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.20, i32 noundef -1) #7
   %156 = load ptr, ptr @_ZN19AbstractInterpreter12_entry_tableE, align 16
@@ -409,7 +409,7 @@ _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter1
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit53: ; preds = %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit51, %158
   %.014.i52 = phi ptr [ %159, %158 ], [ %156, %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit51 ]
-  store ptr %.014.i52, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 32), align 16
+  store ptr %.014.i52, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 32), align 16
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %19) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %20, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.21, i32 noundef -1) #7
   %160 = load ptr, ptr @_ZN19AbstractInterpreter12_entry_tableE, align 16
@@ -422,7 +422,7 @@ _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter1
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit55: ; preds = %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit53, %162
   %.014.i54 = phi ptr [ %163, %162 ], [ %160, %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit53 ]
-  store ptr %.014.i54, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 40), align 8
+  store ptr %.014.i54, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 40), align 8
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %20) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %21, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.22, i32 noundef -1) #7
   %164 = load ptr, ptr @_ZN19AbstractInterpreter12_entry_tableE, align 16
@@ -435,7 +435,7 @@ _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter1
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit57: ; preds = %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit55, %166
   %.014.i56 = phi ptr [ %167, %166 ], [ %164, %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit55 ]
-  store ptr %.014.i56, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 48), align 16
+  store ptr %.014.i56, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 48), align 16
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %21) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %22, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.23, i32 noundef -1) #7
   %168 = call noundef ptr @_ZN28TemplateInterpreterGenerator23generate_abstract_entryEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #7
@@ -453,7 +453,7 @@ _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter1
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit59: ; preds = %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit57, %.thread.i, %171
   %.014.i58 = phi ptr [ %168, %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit57 ], [ %172, %171 ], [ %169, %.thread.i ]
-  store ptr %.014.i58, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 56), align 8
+  store ptr %.014.i58, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 56), align 8
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %22) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %23, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.24, i32 noundef -1) #7
   %173 = call noundef i32 @_ZN19AbstractInterpreter16method_intrinsicENS_10MethodKindE(i32 noundef 15) #7
@@ -476,7 +476,7 @@ _ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpret
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit63: ; preds = %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit, %.thread.i62, %178
   %.014.i61 = phi ptr [ %175, %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit ], [ %179, %178 ], [ %176, %.thread.i62 ]
-  store ptr %.014.i61, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 120), align 8
+  store ptr %.014.i61, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 120), align 8
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %23) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %24, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.25, i32 noundef -1) #7
   %180 = call noundef i32 @_ZN19AbstractInterpreter16method_intrinsicENS_10MethodKindE(i32 noundef 16) #7
@@ -499,7 +499,7 @@ _ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpret
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit67: ; preds = %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit174, %.thread.i66, %185
   %.014.i65 = phi ptr [ %182, %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit174 ], [ %186, %185 ], [ %183, %.thread.i66 ]
-  store ptr %.014.i65, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 128), align 16
+  store ptr %.014.i65, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 128), align 16
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %24) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %25, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.26, i32 noundef -1) #7
   %187 = call noundef i32 @_ZN19AbstractInterpreter16method_intrinsicENS_10MethodKindE(i32 noundef 17) #7
@@ -522,7 +522,7 @@ _ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpret
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit71: ; preds = %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit176, %.thread.i70, %192
   %.014.i69 = phi ptr [ %189, %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit176 ], [ %193, %192 ], [ %190, %.thread.i70 ]
-  store ptr %.014.i69, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 136), align 8
+  store ptr %.014.i69, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 136), align 8
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %25) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %26, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.27, i32 noundef -1) #7
   %194 = call noundef i32 @_ZN19AbstractInterpreter16method_intrinsicENS_10MethodKindE(i32 noundef 18) #7
@@ -545,7 +545,7 @@ _ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpret
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit75: ; preds = %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit178, %.thread.i74, %199
   %.014.i73 = phi ptr [ %196, %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit178 ], [ %200, %199 ], [ %197, %.thread.i74 ]
-  store ptr %.014.i73, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 144), align 16
+  store ptr %.014.i73, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 144), align 16
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %26) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %27, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.28, i32 noundef -1) #7
   %201 = call noundef i32 @_ZN19AbstractInterpreter16method_intrinsicENS_10MethodKindE(i32 noundef 19) #7
@@ -568,7 +568,7 @@ _ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpret
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit79: ; preds = %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit180, %.thread.i78, %206
   %.014.i77 = phi ptr [ %203, %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit180 ], [ %207, %206 ], [ %204, %.thread.i78 ]
-  store ptr %.014.i77, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 152), align 8
+  store ptr %.014.i77, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 152), align 8
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %27) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %28, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.29, i32 noundef -1) #7
   %208 = call noundef i32 @_ZN19AbstractInterpreter16method_intrinsicENS_10MethodKindE(i32 noundef 20) #7
@@ -591,7 +591,7 @@ _ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpret
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit83: ; preds = %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit182, %.thread.i82, %213
   %.014.i81 = phi ptr [ %210, %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit182 ], [ %214, %213 ], [ %211, %.thread.i82 ]
-  store ptr %.014.i81, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 160), align 16
+  store ptr %.014.i81, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 160), align 16
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %28) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %29, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.30, i32 noundef -1) #7
   %215 = call noundef i32 @_ZN19AbstractInterpreter16method_intrinsicENS_10MethodKindE(i32 noundef 21) #7
@@ -614,7 +614,7 @@ _ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpret
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit87: ; preds = %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit184, %.thread.i86, %220
   %.014.i85 = phi ptr [ %217, %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit184 ], [ %221, %220 ], [ %218, %.thread.i86 ]
-  store ptr %.014.i85, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 168), align 8
+  store ptr %.014.i85, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 168), align 8
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %29) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %30, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.31, i32 noundef -1) #7
   %222 = call noundef i32 @_ZN19AbstractInterpreter16method_intrinsicENS_10MethodKindE(i32 noundef 22) #7
@@ -637,7 +637,7 @@ _ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpret
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit91: ; preds = %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit186, %.thread.i90, %227
   %.014.i89 = phi ptr [ %224, %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit186 ], [ %228, %227 ], [ %225, %.thread.i90 ]
-  store ptr %.014.i89, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 176), align 16
+  store ptr %.014.i89, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 176), align 16
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %30) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %31, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.32, i32 noundef -1) #7
   %229 = call noundef i32 @_ZN19AbstractInterpreter16method_intrinsicENS_10MethodKindE(i32 noundef 24) #7
@@ -660,7 +660,7 @@ _ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpret
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit95: ; preds = %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit188, %.thread.i94, %234
   %.014.i93 = phi ptr [ %231, %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit188 ], [ %235, %234 ], [ %232, %.thread.i94 ]
-  store ptr %.014.i93, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 192), align 16
+  store ptr %.014.i93, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 192), align 16
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %31) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %32, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.33, i32 noundef -1) #7
   %236 = call noundef i32 @_ZN19AbstractInterpreter16method_intrinsicENS_10MethodKindE(i32 noundef 23) #7
@@ -683,7 +683,7 @@ _ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpret
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit99: ; preds = %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit190, %.thread.i98, %241
   %.014.i97 = phi ptr [ %238, %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit190 ], [ %242, %241 ], [ %239, %.thread.i98 ]
-  store ptr %.014.i97, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 184), align 8
+  store ptr %.014.i97, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 184), align 8
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %32) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %33, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.34, i32 noundef -1) #7
   %243 = call noundef i32 @_ZN19AbstractInterpreter16method_intrinsicENS_10MethodKindE(i32 noundef 25) #7
@@ -706,7 +706,7 @@ _ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpret
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit103: ; preds = %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit192, %.thread.i102, %248
   %.014.i101 = phi ptr [ %245, %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit192 ], [ %249, %248 ], [ %246, %.thread.i102 ]
-  store ptr %.014.i101, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 200), align 8
+  store ptr %.014.i101, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 200), align 8
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %33) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %34, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.35, i32 noundef -1) #7
   %250 = call noundef i32 @_ZN19AbstractInterpreter16method_intrinsicENS_10MethodKindE(i32 noundef 26) #7
@@ -729,7 +729,7 @@ _ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpret
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit107: ; preds = %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit194, %.thread.i106, %255
   %.014.i105 = phi ptr [ %252, %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit194 ], [ %256, %255 ], [ %253, %.thread.i106 ]
-  store ptr %.014.i105, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 208), align 16
+  store ptr %.014.i105, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 208), align 16
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %34) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %35, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.36, i32 noundef -1) #7
   %257 = call noundef i32 @_ZN19AbstractInterpreter16method_intrinsicENS_10MethodKindE(i32 noundef 27) #7
@@ -752,7 +752,7 @@ _ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpret
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit111: ; preds = %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit196, %.thread.i110, %262
   %.014.i109 = phi ptr [ %259, %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit196 ], [ %263, %262 ], [ %260, %.thread.i110 ]
-  store ptr %.014.i109, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 216), align 8
+  store ptr %.014.i109, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 216), align 8
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %35) #7
   call void @_ZN19AbstractInterpreter32initialize_method_handle_entriesEv() #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %36, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.37, i32 noundef -1) #7
@@ -776,7 +776,7 @@ _ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpret
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit115: ; preds = %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit198, %.thread.i114, %269
   %.014.i113 = phi ptr [ %266, %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit198 ], [ %270, %269 ], [ %267, %.thread.i114 ]
-  store ptr %.014.i113, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 248), align 8
+  store ptr %.014.i113, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 248), align 8
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %36) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %37, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.38, i32 noundef -1) #7
   %271 = call noundef i32 @_ZN19AbstractInterpreter16method_intrinsicENS_10MethodKindE(i32 noundef 32) #7
@@ -799,7 +799,7 @@ _ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpret
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit119: ; preds = %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit200, %.thread.i118, %276
   %.014.i117 = phi ptr [ %273, %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit200 ], [ %277, %276 ], [ %274, %.thread.i118 ]
-  store ptr %.014.i117, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 256), align 16
+  store ptr %.014.i117, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 256), align 16
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %37) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %38, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.39, i32 noundef -1) #7
   %278 = call noundef i32 @_ZN19AbstractInterpreter16method_intrinsicENS_10MethodKindE(i32 noundef 35) #7
@@ -822,7 +822,7 @@ _ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpret
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit123: ; preds = %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit202, %.thread.i122, %283
   %.014.i121 = phi ptr [ %280, %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit202 ], [ %284, %283 ], [ %281, %.thread.i122 ]
-  store ptr %.014.i121, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 280), align 8
+  store ptr %.014.i121, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 280), align 8
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %38) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %39, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.40, i32 noundef -1) #7
   %285 = call noundef i32 @_ZN19AbstractInterpreter16method_intrinsicENS_10MethodKindE(i32 noundef 36) #7
@@ -845,7 +845,7 @@ _ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpret
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit127: ; preds = %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit204, %.thread.i126, %290
   %.014.i125 = phi ptr [ %287, %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit204 ], [ %291, %290 ], [ %288, %.thread.i126 ]
-  store ptr %.014.i125, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 288), align 16
+  store ptr %.014.i125, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 288), align 16
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %39) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %40, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.41, i32 noundef -1) #7
   %292 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 16), align 16
@@ -858,7 +858,7 @@ _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter1
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit130: ; preds = %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit127, %294
   %.014.i129 = phi ptr [ %295, %294 ], [ %292, %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit127 ]
-  store ptr %.014.i129, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 16), align 16
+  store ptr %.014.i129, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 16), align 16
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %40) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %41, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.42, i32 noundef -1) #7
   %296 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 24), align 8
@@ -871,7 +871,7 @@ _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter1
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit133: ; preds = %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit130, %298
   %.014.i132 = phi ptr [ %299, %298 ], [ %296, %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit130 ]
-  store ptr %.014.i132, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 24), align 8
+  store ptr %.014.i132, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 24), align 8
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %41) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %42, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.43, i32 noundef -1) #7
   %300 = call noundef i32 @_ZN19AbstractInterpreter16method_intrinsicENS_10MethodKindE(i32 noundef 39) #7
@@ -894,7 +894,7 @@ _ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpret
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit137: ; preds = %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit206, %.thread.i136, %305
   %.014.i135 = phi ptr [ %302, %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit206 ], [ %306, %305 ], [ %303, %.thread.i136 ]
-  store ptr %.014.i135, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 312), align 8
+  store ptr %.014.i135, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 312), align 8
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %42) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %43, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.44, i32 noundef -1) #7
   %307 = call noundef i32 @_ZN19AbstractInterpreter16method_intrinsicENS_10MethodKindE(i32 noundef 28) #7
@@ -917,7 +917,7 @@ _ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpret
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit141: ; preds = %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit208, %.thread.i140, %312
   %.014.i139 = phi ptr [ %309, %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit208 ], [ %313, %312 ], [ %310, %.thread.i140 ]
-  store ptr %.014.i139, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 224), align 16
+  store ptr %.014.i139, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 224), align 16
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %43) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %44, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.45, i32 noundef -1) #7
   %314 = call noundef i32 @_ZN19AbstractInterpreter16method_intrinsicENS_10MethodKindE(i32 noundef 29) #7
@@ -940,7 +940,7 @@ _ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpret
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit145: ; preds = %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit210, %.thread.i144, %319
   %.014.i143 = phi ptr [ %316, %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit210 ], [ %320, %319 ], [ %317, %.thread.i144 ]
-  store ptr %.014.i143, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 232), align 8
+  store ptr %.014.i143, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 232), align 8
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %44) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %45, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.46, i32 noundef -1) #7
   %321 = call noundef i32 @_ZN19AbstractInterpreter16method_intrinsicENS_10MethodKindE(i32 noundef 30) #7
@@ -963,7 +963,7 @@ _ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpret
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit149: ; preds = %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit212, %.thread.i148, %326
   %.014.i147 = phi ptr [ %323, %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit212 ], [ %327, %326 ], [ %324, %.thread.i148 ]
-  store ptr %.014.i147, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 240), align 16
+  store ptr %.014.i147, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 240), align 16
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %45) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %46, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.47, i32 noundef -1) #7
   %328 = call noundef i32 @_ZN19AbstractInterpreter16method_intrinsicENS_10MethodKindE(i32 noundef 33) #7
@@ -986,7 +986,7 @@ _ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpret
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit153: ; preds = %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit214, %.thread.i152, %333
   %.014.i151 = phi ptr [ %330, %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit214 ], [ %334, %333 ], [ %331, %.thread.i152 ]
-  store ptr %.014.i151, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 264), align 8
+  store ptr %.014.i151, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 264), align 8
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %46) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %47, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.48, i32 noundef -1) #7
   %335 = call noundef i32 @_ZN19AbstractInterpreter16method_intrinsicENS_10MethodKindE(i32 noundef 34) #7
@@ -1009,7 +1009,7 @@ _ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpret
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit157: ; preds = %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit216, %.thread.i156, %340
   %.014.i155 = phi ptr [ %337, %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit216 ], [ %341, %340 ], [ %338, %.thread.i156 ]
-  store ptr %.014.i155, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 272), align 16
+  store ptr %.014.i155, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 272), align 16
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %47) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %48, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.49, i32 noundef -1) #7
   %342 = call noundef i32 @_ZN19AbstractInterpreter16method_intrinsicENS_10MethodKindE(i32 noundef 37) #7
@@ -1032,7 +1032,7 @@ _ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpret
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit161: ; preds = %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit218, %.thread.i160, %347
   %.014.i159 = phi ptr [ %344, %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit218 ], [ %348, %347 ], [ %345, %.thread.i160 ]
-  store ptr %.014.i159, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 296), align 8
+  store ptr %.014.i159, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 296), align 8
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %48) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %49, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.50, i32 noundef -1) #7
   %349 = call noundef i32 @_ZN19AbstractInterpreter16method_intrinsicENS_10MethodKindE(i32 noundef 38) #7
@@ -1055,7 +1055,7 @@ _ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpret
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit165: ; preds = %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit220, %.thread.i164, %354
   %.014.i163 = phi ptr [ %351, %_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE.exit220 ], [ %355, %354 ], [ %352, %.thread.i164 ]
-  store ptr %.014.i163, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 304), align 16
+  store ptr %.014.i163, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 304), align 16
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %49) #7
   br label %356
 

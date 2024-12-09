@@ -41,7 +41,7 @@ $_ZTIN6icu_757UMemoryE = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_758numparse4impl17ScientificMatcherC2ERKNS_20DecimalFormatSymbolsERKNS_6number4impl7GrouperE(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(2883) %dfs, ptr noundef nonnull align 4 dereferenceable(12) %grouper) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl17ScientificMatcherE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_758numparse4impl17ScientificMatcherE, i64 16), ptr %this, align 8
   %fExponentSeparatorString = getelementptr inbounds nuw i8, ptr %this, i64 8
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %dfs, i64 712
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fExponentSeparatorString, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
@@ -59,11 +59,11 @@ invoke.cont4:                                     ; preds = %invoke.cont2
 
 invoke.cont10:                                    ; preds = %invoke.cont4
   %fCustomMinusSign = getelementptr inbounds nuw i8, ptr %this, i64 352
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fCustomMinusSign, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fCustomMinusSign, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 360
   store i16 2, ptr %fUnion2.i, align 8
   %fCustomPlusSign = getelementptr inbounds nuw i8, ptr %this, i64 416
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fCustomPlusSign, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fCustomPlusSign, align 8
   %fUnion2.i11 = getelementptr inbounds nuw i8, ptr %this, i64 424
   store i16 2, ptr %fUnion2.i11, align 8
   %arrayidx.i13 = getelementptr inbounds nuw i8, ptr %dfs, i64 392
@@ -102,7 +102,7 @@ lpad11:                                           ; preds = %if.end, %invoke.con
           cleanup
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCustomPlusSign) #4
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCustomMinusSign) #4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %fIgnorablesMatcher, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %fIgnorablesMatcher, align 8
   %fString.i.i = getelementptr inbounds nuw i8, ptr %this, i64 280
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i) #4
   tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %fIgnorablesMatcher) #4
@@ -172,7 +172,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_758numparse4impl14DecimalMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl14DecimalMatcherE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_758numparse4impl14DecimalMatcherE, i64 16), ptr %this, align 8
   %fLocalDigitStrings = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load ptr, ptr %fLocalDigitStrings, align 8
   %isnull.i = icmp eq ptr %0, null
@@ -438,13 +438,13 @@ declare void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_758numparse4impl17ScientificMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl17ScientificMatcherE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_758numparse4impl17ScientificMatcherE, i64 16), ptr %this, align 8
   %fCustomPlusSign = getelementptr inbounds nuw i8, ptr %this, i64 416
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCustomPlusSign) #4
   %fCustomMinusSign = getelementptr inbounds nuw i8, ptr %this, i64 352
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCustomMinusSign) #4
   %fIgnorablesMatcher = getelementptr inbounds nuw i8, ptr %this, i64 272
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %fIgnorablesMatcher, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %fIgnorablesMatcher, align 8
   %fString.i.i = getelementptr inbounds nuw i8, ptr %this, i64 280
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i) #4
   tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %fIgnorablesMatcher) #4
@@ -459,13 +459,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_758numparse4impl17ScientificMatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(480) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl17ScientificMatcherE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_758numparse4impl17ScientificMatcherE, i64 16), ptr %this, align 8
   %fCustomPlusSign.i = getelementptr inbounds nuw i8, ptr %this, i64 416
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCustomPlusSign.i) #4
   %fCustomMinusSign.i = getelementptr inbounds nuw i8, ptr %this, i64 352
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCustomMinusSign.i) #4
   %fIgnorablesMatcher.i = getelementptr inbounds nuw i8, ptr %this, i64 272
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %fIgnorablesMatcher.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %fIgnorablesMatcher.i, align 8
   %fString.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 280
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i.i) #4
   tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %fIgnorablesMatcher.i) #4

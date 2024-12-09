@@ -892,7 +892,7 @@ entry:
   %agg.tmp9.i = alloca %"class.irr::core::rect", align 8
   %agg.tmp41 = alloca %"class.irr::core::rect", align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 512
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !4
   %DebugName.i = getelementptr inbounds nuw i8, ptr %this, i64 520
   store ptr null, ptr %DebugName.i, align 8, !tbaa !93
   %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %this, i64 528
@@ -902,7 +902,7 @@ entry:
   %frombool.i = zext i1 %border to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp9.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp9.i, ptr noundef nonnull align 4 dereferenceable(16) %rectangle, i64 16, i1 false)
-  call void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT23GUIEditBoxWithScrollBar, i64 24), i32 noundef 5, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp9.i)
+  call void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT23GUIEditBoxWithScrollBar, i64 24), i32 noundef 5, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp9.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp9.i)
   %m_override_font.i = getelementptr inbounds nuw i8, ptr %this, i64 312
   %m_autoscroll.i = getelementptr inbounds nuw i8, ptr %this, i64 323
@@ -942,8 +942,8 @@ entry:
   %m_vscrollbar.i = getelementptr inbounds nuw i8, ptr %this, i64 488
   store ptr null, ptr %m_vscrollbar.i, align 8, !tbaa !59
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp41)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23GUIEditBoxWithScrollBar, i64 24), ptr %this, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23GUIEditBoxWithScrollBar, i64 616), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23GUIEditBoxWithScrollBar, i64 24), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23GUIEditBoxWithScrollBar, i64 616), ptr %0, align 8, !tbaa !4
   %m_background = getelementptr inbounds nuw i8, ptr %this, i64 496
   store i8 1, ptr %m_background, align 8, !tbaa !60
   %m_bg_color_used = getelementptr inbounds nuw i8, ptr %this, i64 497
@@ -1098,7 +1098,7 @@ invoke.cont10:                                    ; preds = %if.then
 lpad5:                                            ; preds = %invoke.cont32, %invoke.cont29, %invoke.cont26, %if.end32.i, %call20.i.noexc, %call13.i.noexc, %call8.i.noexc, %if.then5.i, %if.end.i47, %if.then23, %if.then6.i, %if.then, %if.end.i
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN10GUIEditBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT23GUIEditBoxWithScrollBar, i64 8)) #25
+  call void @_ZN10GUIEditBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT23GUIEditBoxWithScrollBar, i64 8)) #25
   resume { ptr, i32 } %22
 
 if.end:                                           ; preds = %invoke.cont10, %invoke.cont7.if.end_crit_edge
@@ -6152,14 +6152,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN23GUIEditBoxWithScrollBarD1Ev(ptr noundef nonnull align 8 dereferenceable(512) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZN10GUIEditBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT23GUIEditBoxWithScrollBar, i64 8)) #25
+  tail call void @_ZN10GUIEditBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT23GUIEditBoxWithScrollBar, i64 8)) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN23GUIEditBoxWithScrollBarD0Ev(ptr noundef nonnull align 8 dereferenceable(512) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZN10GUIEditBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT23GUIEditBoxWithScrollBar, i64 8)) #25
+  tail call void @_ZN10GUIEditBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT23GUIEditBoxWithScrollBar, i64 8)) #25
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
@@ -6171,7 +6171,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  tail call void @_ZN10GUIEditBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT23GUIEditBoxWithScrollBar, i64 8)) #25
+  tail call void @_ZN10GUIEditBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT23GUIEditBoxWithScrollBar, i64 8)) #25
   ret void
 }
 
@@ -6182,7 +6182,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  tail call void @_ZN10GUIEditBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT23GUIEditBoxWithScrollBar, i64 8)) #25
+  tail call void @_ZN10GUIEditBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT23GUIEditBoxWithScrollBar, i64 8)) #25
   tail call void @_ZdlPv(ptr noundef nonnull %3) #26
   ret void
 }
@@ -6190,7 +6190,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef %vtt, i32 noundef %type, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %this, align 8, !tbaa !4
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !4
   %1 = getelementptr inbounds nuw i8, ptr %vtt, i64 8

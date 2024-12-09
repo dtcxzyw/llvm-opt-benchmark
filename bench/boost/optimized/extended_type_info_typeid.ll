@@ -145,7 +145,7 @@ _ZNKSt9type_infoneERKS_.exit:                     ; preds = %2, %12, %14
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5boost13serialization13typeid_system27extended_type_info_typeid_0C2EPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   tail call void @_ZN5boost13serialization18extended_type_infoC2EjPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 1, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost13serialization13typeid_system27extended_type_info_typeid_0E, i64 16), ptr %0, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost13serialization13typeid_system27extended_type_info_typeid_0E, i64 16), ptr %0, align 8, !tbaa !13
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %3, align 8, !tbaa !3
   ret void
@@ -333,7 +333,7 @@ define noundef ptr @_ZNK5boost13serialization13typeid_system27extended_type_info
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #15
   call void @_ZN5boost13serialization18extended_type_infoC2EjPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 1, ptr noundef null)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost13serialization13typeid_system29extended_type_info_typeid_argE, i64 16), ptr %3, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost13serialization13typeid_system29extended_type_info_typeid_argE, i64 16), ptr %3, align 8, !tbaa !13
   store ptr %1, ptr %4, align 8, !tbaa !3
   %5 = load atomic i8, ptr @_ZGVZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t acquire, align 8
   %6 = icmp eq i8 %5, 0
@@ -404,7 +404,7 @@ _ZNKSt8multisetIPKN5boost13serialization13typeid_system27extended_type_info_type
 
 24:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost13serialization13typeid_system29extended_type_info_typeid_argE, i64 16), ptr %3, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost13serialization13typeid_system29extended_type_info_typeid_argE, i64 16), ptr %3, align 8, !tbaa !13
   store ptr null, ptr %4, align 8, !tbaa !3
   call void @_ZN5boost13serialization18extended_type_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
@@ -416,7 +416,7 @@ _ZNKSt8multisetIPKN5boost13serialization13typeid_system27extended_type_info_type
 
 _ZNKSt8multisetIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ENS2_12type_compareESaIS5_EE4findERKS5_.exit.thread: ; preds = %_ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE18get_const_instanceEv.exit, %_ZNKSt8_Rb_treeIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ES5_St9_IdentityIS5_ENS2_12type_compareESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i, %_ZNKSt8multisetIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ENS2_12type_compareESaIS5_EE4findERKS5_.exit, %25
   %.06 = phi ptr [ %26, %25 ], [ null, %_ZNKSt8multisetIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ENS2_12type_compareESaIS5_EE4findERKS5_.exit ], [ null, %_ZNKSt8_Rb_treeIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ES5_St9_IdentityIS5_ENS2_12type_compareESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i ], [ null, %_ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE18get_const_instanceEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost13serialization13typeid_system29extended_type_info_typeid_argE, i64 16), ptr %3, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost13serialization13typeid_system29extended_type_info_typeid_argE, i64 16), ptr %3, align 8, !tbaa !13
   store ptr null, ptr %4, align 8, !tbaa !3
   call void @_ZN5boost13serialization18extended_type_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
@@ -427,7 +427,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost13serialization13typeid_system29extended_type_info_typeid_argD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost13serialization13typeid_system29extended_type_info_typeid_argE, i64 16), ptr %0, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost13serialization13typeid_system29extended_type_info_typeid_argE, i64 16), ptr %0, align 8, !tbaa !13
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %2, align 8, !tbaa !3
   tail call void @_ZN5boost13serialization18extended_type_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
@@ -497,7 +497,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost13serialization13typeid_system29extended_type_info_typeid_argD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost13serialization13typeid_system29extended_type_info_typeid_argE, i64 16), ptr %0, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost13serialization13typeid_system29extended_type_info_typeid_argE, i64 16), ptr %0, align 8, !tbaa !13
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %2, align 8, !tbaa !3
   tail call void @_ZN5boost13serialization18extended_type_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15

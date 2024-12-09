@@ -39,12 +39,12 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define void @php_register_incomplete_class_handlers() local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @php_incomplete_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
-  store ptr @incomplete_class_get_property, ptr getelementptr inbounds (i8, ptr @php_incomplete_object_handlers, i64 32), align 8
-  store ptr @incomplete_class_has_property, ptr getelementptr inbounds (i8, ptr @php_incomplete_object_handlers, i64 72), align 8
-  store ptr @incomplete_class_unset_property, ptr getelementptr inbounds (i8, ptr @php_incomplete_object_handlers, i64 80), align 8
-  store ptr @incomplete_class_write_property, ptr getelementptr inbounds (i8, ptr @php_incomplete_object_handlers, i64 40), align 8
-  store ptr @incomplete_class_get_property_ptr_ptr, ptr getelementptr inbounds (i8, ptr @php_incomplete_object_handlers, i64 64), align 8
-  store ptr @incomplete_class_get_method, ptr getelementptr inbounds (i8, ptr @php_incomplete_object_handlers, i64 112), align 8
+  store ptr @incomplete_class_get_property, ptr getelementptr inbounds nuw (i8, ptr @php_incomplete_object_handlers, i64 32), align 8
+  store ptr @incomplete_class_has_property, ptr getelementptr inbounds nuw (i8, ptr @php_incomplete_object_handlers, i64 72), align 8
+  store ptr @incomplete_class_unset_property, ptr getelementptr inbounds nuw (i8, ptr @php_incomplete_object_handlers, i64 80), align 8
+  store ptr @incomplete_class_write_property, ptr getelementptr inbounds nuw (i8, ptr @php_incomplete_object_handlers, i64 40), align 8
+  store ptr @incomplete_class_get_property_ptr_ptr, ptr getelementptr inbounds nuw (i8, ptr @php_incomplete_object_handlers, i64 64), align 8
+  store ptr @incomplete_class_get_method, ptr getelementptr inbounds nuw (i8, ptr @php_incomplete_object_handlers, i64 112), align 8
   %1 = load ptr, ptr @php_ce_incomplete_class, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 384
   store ptr @php_create_incomplete_object, ptr %2, align 8
@@ -102,7 +102,7 @@ define internal nonnull ptr @incomplete_class_get_property_ptr_ptr(ptr nocapture
   %5 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %5, align 8
   tail call fastcc void @throw_incomplete_class_error(ptr %.val, ptr noundef nonnull @.str.4)
-  ret ptr getelementptr inbounds (i8, ptr @executor_globals, i64 16)
+  ret ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16)
 }
 
 ; Function Attrs: nounwind uwtable

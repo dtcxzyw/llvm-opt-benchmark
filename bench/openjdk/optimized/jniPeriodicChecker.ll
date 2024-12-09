@@ -29,7 +29,7 @@ define hidden void @_ZN18JniPeriodicChecker6engageEv() local_unnamed_addr #0 ali
 5:                                                ; preds = %0
   %6 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 9, i32 noundef 0) #3
   tail call void @_ZN12PeriodicTaskC2Em(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef 10) #3
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV22JniPeriodicCheckerTask, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV22JniPeriodicCheckerTask, i64 16), ptr %6, align 8
   store ptr %6, ptr @_ZN18JniPeriodicChecker5_taskE, align 8
   tail call void @_ZN12PeriodicTask6enrollEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   br label %7

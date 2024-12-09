@@ -299,7 +299,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool4.not, label %return, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %call7 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.25, i32 noundef 38, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, ptr noundef nonnull getelementptr inbounds (i8, ptr @smbuf, i64 255), ptr noundef nonnull getelementptr inbounds (i8, ptr @smbuf, i64 255)) #5
+  %call7 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.25, i32 noundef 38, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @smbuf, i64 255), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @smbuf, i64 255)) #5
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %return, label %PACKET_forward.exit
 
@@ -309,7 +309,7 @@ PACKET_forward.exit:                              ; preds = %lor.lhs.false5
   br i1 %tobool14.not, label %return, label %lor.lhs.false15
 
 lor.lhs.false15:                                  ; preds = %PACKET_forward.exit
-  %call17 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.25, i32 noundef 40, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, ptr noundef nonnull getelementptr inbounds (i8, ptr @smbuf, i64 255), ptr noundef nonnull getelementptr inbounds (i8, ptr @smbuf, i64 255)) #5
+  %call17 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.25, i32 noundef 40, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @smbuf, i64 255), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @smbuf, i64 255)) #5
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %return, label %PACKET_forward.exit14
 
@@ -319,7 +319,7 @@ PACKET_forward.exit14:                            ; preds = %lor.lhs.false15
   br i1 %tobool24.not, label %return, label %lor.lhs.false25
 
 lor.lhs.false25:                                  ; preds = %PACKET_forward.exit14
-  %call27 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.25, i32 noundef 42, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, ptr noundef nonnull getelementptr inbounds (i8, ptr @smbuf, i64 255), ptr noundef nonnull getelementptr inbounds (i8, ptr @smbuf, i64 255)) #5
+  %call27 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.25, i32 noundef 42, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @smbuf, i64 255), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @smbuf, i64 255)) #5
   %tobool28.not = icmp ne i32 %call27, 0
   %spec.select = zext i1 %tobool28.not to i32
   br label %return
@@ -345,7 +345,7 @@ PACKET_equal.exit:                                ; preds = %entry
   br i1 %tobool6.not, label %return, label %PACKET_equal.exit18
 
 PACKET_equal.exit18:                              ; preds = %PACKET_equal.exit
-  %call1.i15 = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull @smbuf, ptr noundef nonnull getelementptr inbounds (i8, ptr @smbuf, i64 1), i64 noundef 4) #5
+  %call1.i15 = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull @smbuf, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @smbuf, i64 1), i64 noundef 4) #5
   %cmp2.i16 = icmp eq i32 %call1.i15, 0
   %conv.i17 = zext i1 %cmp2.i16 to i32
   %call11 = tail call i32 @test_false(ptr noundef nonnull @.str.25, i32 noundef 337, ptr noundef nonnull @.str.41, i32 noundef %conv.i17) #5
@@ -812,25 +812,25 @@ PACKET_get_bytes.exit12:                          ; preds = %PACKET_forward.exit
   br i1 %tobool37.not, label %return, label %lor.lhs.false38
 
 lor.lhs.false38:                                  ; preds = %PACKET_get_bytes.exit12
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 251), align 1
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 251), align 1
   %call40 = tail call i32 @test_uchar_eq(ptr noundef nonnull @.str.25, i32 noundef 168, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.78, i8 noundef zeroext %4, i8 noundef zeroext -8) #5
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %return, label %lor.lhs.false42
 
 lor.lhs.false42:                                  ; preds = %lor.lhs.false38
-  %5 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 252), align 4
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 252), align 4
   %call44 = tail call i32 @test_uchar_eq(ptr noundef nonnull @.str.25, i32 noundef 169, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.79, i8 noundef zeroext %5, i8 noundef zeroext -6) #5
   %tobool45.not = icmp eq i32 %call44, 0
   br i1 %tobool45.not, label %return, label %lor.lhs.false46
 
 lor.lhs.false46:                                  ; preds = %lor.lhs.false42
-  %6 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 253), align 1
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 253), align 1
   %call48 = tail call i32 @test_uchar_eq(ptr noundef nonnull @.str.25, i32 noundef 170, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.80, i8 noundef zeroext %6, i8 noundef zeroext -4) #5
   %tobool49.not = icmp eq i32 %call48, 0
   br i1 %tobool49.not, label %return, label %lor.lhs.false50
 
 lor.lhs.false50:                                  ; preds = %lor.lhs.false46
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 254), align 2
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 254), align 2
   %call52 = tail call i32 @test_uchar_eq(ptr noundef nonnull @.str.25, i32 noundef 171, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.50, i8 noundef zeroext %7, i8 noundef zeroext -2) #5
   %tobool53.not = icmp eq i32 %call52, 0
   br i1 %tobool53.not, label %return, label %lor.lhs.false54
@@ -1180,7 +1180,7 @@ PACKET_get_bytes.exit18:                          ; preds = %PACKET_forward.exit
   br i1 %tobool27.not, label %return, label %lor.lhs.false28
 
 lor.lhs.false28:                                  ; preds = %PACKET_get_bytes.exit18
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 254), align 2
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 254), align 2
   %call30 = tail call i32 @test_uchar_eq(ptr noundef nonnull @.str.25, i32 noundef 297, ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.50, i8 noundef zeroext %1, i8 noundef zeroext -2) #5
   %tobool31.not = icmp ne i32 %call30, 0
   %spec.select = zext i1 %tobool31.not to i32

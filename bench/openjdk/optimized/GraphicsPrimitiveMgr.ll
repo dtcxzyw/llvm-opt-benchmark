@@ -269,7 +269,7 @@ define void @Java_sun_java2d_loops_GraphicsPrimitiveMgr_initIDs(ptr noundef %0, 
   %87 = ptrtoint ptr %.03542.i.i to i64
   %88 = add nsw i64 %87, 32
   %89 = inttoptr i64 %88 to ptr
-  %90 = icmp ult i64 %88, ptrtoint (ptr getelementptr inbounds (i8, ptr @SurfaceTypes, i64 960) to i64)
+  %90 = icmp ult i64 %88, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @SurfaceTypes, i64 960) to i64)
   br i1 %90, label %.lr.ph.i.i, label %.lr.ph.i.i94, !llvm.loop !9
 
 .lr.ph44.i.i:                                     ; preds = %.lr.ph44.i.i.preheader, %97
@@ -291,7 +291,7 @@ define void @Java_sun_java2d_loops_GraphicsPrimitiveMgr_initIDs(ptr noundef %0, 
   %98 = ptrtoint ptr %.143.i.i to i64
   %99 = add nsw i64 %98, 32
   %100 = inttoptr i64 %99 to ptr
-  %101 = icmp ult i64 %99, ptrtoint (ptr getelementptr inbounds (i8, ptr @SurfaceTypes, i64 960) to i64)
+  %101 = icmp ult i64 %99, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @SurfaceTypes, i64 960) to i64)
   br i1 %101, label %.lr.ph44.i.i, label %InitPrimTypes.exit.thread, !llvm.loop !10
 
 .lr.ph.i.i94:                                     ; preds = %86, %125
@@ -334,7 +334,7 @@ define void @Java_sun_java2d_loops_GraphicsPrimitiveMgr_initIDs(ptr noundef %0, 
   %126 = ptrtoint ptr %.03542.i.i95 to i64
   %127 = add nsw i64 %126, 32
   %128 = inttoptr i64 %127 to ptr
-  %129 = icmp ult i64 %127, ptrtoint (ptr getelementptr inbounds (i8, ptr @CompositeTypes, i64 224) to i64)
+  %129 = icmp ult i64 %127, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @CompositeTypes, i64 224) to i64)
   br i1 %129, label %.lr.ph.i.i94, label %InitCompositeTypes.exit, !llvm.loop !9
 
 .lr.ph44.i.i98:                                   ; preds = %.lr.ph44.i.i98.preheader, %136
@@ -356,7 +356,7 @@ define void @Java_sun_java2d_loops_GraphicsPrimitiveMgr_initIDs(ptr noundef %0, 
   %137 = ptrtoint ptr %.143.i.i99 to i64
   %138 = add nsw i64 %137, 32
   %139 = inttoptr i64 %138 to ptr
-  %140 = icmp ult i64 %138, ptrtoint (ptr getelementptr inbounds (i8, ptr @CompositeTypes, i64 224) to i64)
+  %140 = icmp ult i64 %138, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @CompositeTypes, i64 224) to i64)
   br i1 %140, label %.lr.ph44.i.i98, label %InitPrimTypes.exit.thread, !llvm.loop !10
 
 InitCompositeTypes.exit:                          ; preds = %125

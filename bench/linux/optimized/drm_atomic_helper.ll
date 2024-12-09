@@ -6230,7 +6230,7 @@ define dso_local i32 @drm_atomic_helper_setup_commit(ptr noundef %0, i1 noundef 
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %33 = tail call noalias align 8 dereferenceable_or_null(144) ptr @kmalloc_trace(ptr noundef %32, i32 noundef 3520, i64 noundef 144) #11
   %34 = icmp eq ptr %33, null
   br i1 %34, label %crtc_or_fake_commit.exit.thread, label %35
@@ -6435,7 +6435,7 @@ define dso_local i32 @drm_atomic_helper_setup_commit(ptr noundef %0, i1 noundef 
   br i1 %133, label %134, label %140
 
 134:                                              ; preds = %130
-  %135 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %136 = tail call noalias align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %135, i32 noundef 3520, i64 noundef 120) #11
   %137 = getelementptr inbounds nuw i8, ptr %33, i64 128
   store ptr %136, ptr %137, align 8
@@ -6592,7 +6592,7 @@ define dso_local i32 @drm_atomic_helper_setup_commit(ptr noundef %0, i1 noundef 
   br i1 %228, label %229, label %crtc_or_fake_commit.exit.thread37
 
 229:                                              ; preds = %226
-  %230 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %230 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %231 = tail call noalias align 8 dereferenceable_or_null(144) ptr @kmalloc_trace(ptr noundef %230, i32 noundef 3520, i64 noundef 144) #11
   store ptr %231, ptr %20, align 8
   %232 = icmp eq ptr %231, null
@@ -6732,7 +6732,7 @@ crtc_or_fake_commit.exit.thread37:                ; preds = %226, %crtc_or_fake_
   br i1 %310, label %311, label %crtc_or_fake_commit.exit30.thread41
 
 311:                                              ; preds = %308
-  %312 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %312 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %313 = tail call noalias align 8 dereferenceable_or_null(144) ptr @kmalloc_trace(ptr noundef %312, i32 noundef 3520, i64 noundef 144) #11
   store ptr %313, ptr %178, align 8
   %314 = icmp eq ptr %313, null
@@ -9202,7 +9202,7 @@ define dso_local i32 @drm_atomic_helper_page_flip_target(ptr noundef %0, ptr nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noalias noundef ptr @drm_atomic_helper_bridge_propagate_bus_fmt(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) #0 align 16 {
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 24), align 8
   %8 = tail call noalias align 8 dereferenceable_or_null(4) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 4) #11
   %9 = icmp eq ptr %8, null
   br i1 %9, label %11, label %10

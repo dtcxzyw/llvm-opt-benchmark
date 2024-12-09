@@ -223,18 +223,18 @@ define hidden void @proto_register_transum() local_unnamed_addr #0 {
   store i32 %1, ptr @proto_transum, align 4
   tail call void @proto_disable_by_default(i32 noundef %1) #6
   store i32 1, ptr @preferences, align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @preferences, i64 4), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 4), align 4
   %2 = tail call ptr @wmem_epan_scope() #6
   %3 = tail call i32 @range_convert_str(ptr noundef %2, ptr noundef nonnull @tcp_svc_port_range_values, ptr noundef nonnull @.str.74, i32 noundef 65535) #6
   %4 = tail call ptr @wmem_epan_scope() #6
   %5 = tail call i32 @range_convert_str(ptr noundef %4, ptr noundef nonnull @udp_svc_port_range_values, ptr noundef nonnull @.str.75, i32 noundef 65535) #6
-  store i32 0, ptr getelementptr inbounds (i8, ptr @preferences, i64 24), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @preferences, i64 28), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @preferences, i64 32), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @preferences, i64 36), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @preferences, i64 40), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @preferences, i64 44), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @preferences, i64 60), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 24), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 28), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 32), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 36), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 40), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 44), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 60), align 4
   %6 = load i32, ptr @proto_transum, align 4
   tail call void @proto_register_field_array(i32 noundef %6, ptr noundef nonnull @proto_register_transum.hf, i32 noundef 14) #6
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_transum.ett, i32 noundef 3) #6
@@ -242,15 +242,15 @@ define hidden void @proto_register_transum() local_unnamed_addr #0 {
   %8 = tail call ptr @prefs_register_protocol(i32 noundef %7, ptr noundef null) #6
   tail call void @prefs_register_obsolete_preference(ptr noundef %8, ptr noundef nonnull @.str.76) #6
   tail call void @prefs_register_enum_preference(ptr noundef %8, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, ptr noundef nonnull @preferences, ptr noundef nonnull @capture_position_vals, i32 noundef 0) #6
-  tail call void @prefs_register_bool_preference(ptr noundef %8, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.82, ptr noundef nonnull getelementptr inbounds (i8, ptr @preferences, i64 4)) #6
+  tail call void @prefs_register_bool_preference(ptr noundef %8, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.82, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @preferences, i64 4)) #6
   tail call void @prefs_register_range_preference(ptr noundef %8, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85, ptr noundef nonnull @tcp_svc_port_range_values, i32 noundef 65536) #6
   tail call void @prefs_register_range_preference(ptr noundef %8, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.88, ptr noundef nonnull @udp_svc_port_range_values, i32 noundef 65536) #6
-  tail call void @prefs_register_bool_preference(ptr noundef %8, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.91, ptr noundef nonnull getelementptr inbounds (i8, ptr @preferences, i64 24)) #6
-  tail call void @prefs_register_bool_preference(ptr noundef %8, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.94, ptr noundef nonnull getelementptr inbounds (i8, ptr @preferences, i64 32)) #6
-  tail call void @prefs_register_bool_preference(ptr noundef %8, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, ptr noundef nonnull getelementptr inbounds (i8, ptr @preferences, i64 36)) #6
-  tail call void @prefs_register_bool_preference(ptr noundef %8, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.100, ptr noundef nonnull getelementptr inbounds (i8, ptr @preferences, i64 40)) #6
-  tail call void @prefs_register_bool_preference(ptr noundef %8, ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.103, ptr noundef nonnull getelementptr inbounds (i8, ptr @preferences, i64 44)) #6
-  tail call void @prefs_register_bool_preference(ptr noundef %8, ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.106, ptr noundef nonnull getelementptr inbounds (i8, ptr @preferences, i64 60)) #6
+  tail call void @prefs_register_bool_preference(ptr noundef %8, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.91, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @preferences, i64 24)) #6
+  tail call void @prefs_register_bool_preference(ptr noundef %8, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.94, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @preferences, i64 32)) #6
+  tail call void @prefs_register_bool_preference(ptr noundef %8, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @preferences, i64 36)) #6
+  tail call void @prefs_register_bool_preference(ptr noundef %8, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.100, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @preferences, i64 40)) #6
+  tail call void @prefs_register_bool_preference(ptr noundef %8, ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.103, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @preferences, i64 44)) #6
+  tail call void @prefs_register_bool_preference(ptr noundef %8, ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.106, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @preferences, i64 60)) #6
   %9 = load i32, ptr @proto_transum, align 4
   %10 = tail call ptr @register_dissector(ptr noundef nonnull @.str.73, ptr noundef nonnull @dissect_transum, i32 noundef %9) #6
   store ptr %10, ptr @transum_handle, align 8
@@ -615,7 +615,7 @@ proto_item_set_generated.exit124.i:               ; preds = %153, %150, %146
   br label %proto_item_set_generated.exit127.i
 
 proto_item_set_generated.exit127.i:               ; preds = %164, %161, %proto_item_set_generated.exit124.i
-  %168 = load i32, ptr getelementptr inbounds (i8, ptr @preferences, i64 60), align 4
+  %168 = load i32, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 60), align 4
   %.not97.i = icmp eq i32 %168, 0
   br i1 %.not97.i, label %write_rte.exit, label %169
 
@@ -808,7 +808,7 @@ write_rte.exit:                                   ; preds = %25, %proto_item_set
 263:                                              ; preds = %260
   %264 = load i16, ptr %206, align 8
   %265 = icmp eq i16 %264, 1
-  %266 = load i32, ptr getelementptr inbounds (i8, ptr @preferences, i64 24), align 8
+  %266 = load i32, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 24), align 8
   %267 = icmp ne i32 %266, 0
   %or.cond6.i = select i1 %265, i1 %267, i1 false
   br i1 %or.cond6.i, label %268, label %273
@@ -877,7 +877,7 @@ write_rte.exit:                                   ; preds = %25, %proto_item_set
   br label %301
 
 301:                                              ; preds = %297, %290
-  %302 = load i32, ptr getelementptr inbounds (i8, ptr @hf_of_interest, i64 384), align 16
+  %302 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_of_interest, i64 384), align 16
   %303 = call i32 @extract_uint(ptr noundef %2, i32 noundef %302, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
   %304 = icmp eq i32 %303, 0
   %305 = load i64, ptr %6, align 8
@@ -996,7 +996,7 @@ set_proto_values.exit:                            ; preds = %.lr.ph.i, %203, %32
 353:                                              ; preds = %350
   %354 = call ptr @wmem_file_scope() #6
   %355 = call noalias ptr @wmem_memdup(ptr noundef %354, ptr noundef nonnull %348, i64 noundef 152) #6
-  %356 = load i32, ptr getelementptr inbounds (i8, ptr @preferences, i64 32), align 8
+  %356 = load i32, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 32), align 8
   %.not.i.i.i.i = icmp eq i32 %356, 0
   br i1 %.not.i.i.i.i, label %364, label %357
 
@@ -1010,7 +1010,7 @@ set_proto_values.exit:                            ; preds = %.lr.ph.i, %203, %32
   br label %364
 
 364:                                              ; preds = %357, %353
-  %365 = load i32, ptr getelementptr inbounds (i8, ptr @preferences, i64 36), align 4
+  %365 = load i32, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 36), align 4
   %.not8.i.i.i.i = icmp eq i32 %365, 0
   br i1 %.not8.i.i.i.i, label %373, label %366
 
@@ -1024,7 +1024,7 @@ set_proto_values.exit:                            ; preds = %.lr.ph.i, %203, %32
   br label %373
 
 373:                                              ; preds = %366, %364
-  %374 = load i32, ptr getelementptr inbounds (i8, ptr @preferences, i64 40), align 8
+  %374 = load i32, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 40), align 8
   %.not9.i.i.i.i = icmp eq i32 %374, 0
   br i1 %.not9.i.i.i.i, label %382, label %375
 
@@ -1038,7 +1038,7 @@ set_proto_values.exit:                            ; preds = %.lr.ph.i, %203, %32
   br label %382
 
 382:                                              ; preds = %375, %373
-  %383 = load i32, ptr getelementptr inbounds (i8, ptr @preferences, i64 44), align 4
+  %383 = load i32, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 44), align 4
   %.not10.i.i.i.i = icmp eq i32 %383, 0
   br i1 %.not10.i.i.i.i, label %append_to_rrpd_list.exit.i.i, label %384
 
@@ -1063,7 +1063,7 @@ append_to_rrpd_list.exit.i.i:                     ; preds = %384, %382
   br i1 %.not.i3.i, label %465, label %395
 
 395:                                              ; preds = %392
-  %396 = load i32, ptr getelementptr inbounds (i8, ptr @preferences, i64 4), align 4
+  %396 = load i32, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 4), align 4
   %.not40.i.i = icmp eq i32 %396, 0
   br i1 %.not40.i.i, label %462, label %397
 
@@ -1282,10 +1282,10 @@ define internal void @init_globals() #0 {
   tail call void @set_postdissector_wanted_hfids(ptr noundef %24, ptr noundef %13) #6
   %25 = tail call ptr @wmem_file_scope() #6
   %26 = tail call noalias ptr @wmem_map_new(ptr noundef %25, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #6
-  store ptr %26, ptr getelementptr inbounds (i8, ptr @preferences, i64 8), align 8
+  store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 8), align 8
   %27 = tail call ptr @wmem_file_scope() #6
   %28 = tail call noalias ptr @wmem_map_new(ptr noundef %27, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #6
-  store ptr %28, ptr getelementptr inbounds (i8, ptr @preferences, i64 16), align 8
+  store ptr %28, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 16), align 8
   %29 = load ptr, ptr @tcp_svc_port_range_values, align 8
   %30 = load i32, ptr %29, align 4
   %.not42 = icmp eq i32 %30, 0
@@ -1313,7 +1313,7 @@ define internal void @init_globals() #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph33, %.lr.ph
   %.02130 = phi i32 [ %45, %.lr.ph ], [ %37, %.lr.ph33 ]
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @preferences, i64 8), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 8), align 8
   %42 = zext i32 %.02130 to i64
   %43 = inttoptr i64 %42 to ptr
   %44 = tail call ptr @wmem_map_insert(ptr noundef %41, ptr noundef %43, ptr noundef nonnull inttoptr (i64 2 to ptr)) #6
@@ -1353,7 +1353,7 @@ define internal void @init_globals() #0 {
 
 .lr.ph37:                                         ; preds = %.lr.ph40, %.lr.ph37
   %.035 = phi i32 [ %66, %.lr.ph37 ], [ %58, %.lr.ph40 ]
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @preferences, i64 16), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 16), align 8
   %63 = zext i32 %.035 to i64
   %64 = inttoptr i64 %63 to ptr
   %65 = tail call ptr @wmem_map_insert(ptr noundef %62, ptr noundef %64, ptr noundef nonnull inttoptr (i64 3 to ptr)) #6
@@ -1401,9 +1401,9 @@ define internal void @init_globals() #0 {
   %92 = tail call ptr @wmem_map_insert(ptr noundef %91, ptr noundef nonnull inttoptr (i64 14 to ptr), ptr noundef nonnull inttoptr (i64 14 to ptr)) #6
   %93 = load ptr, ptr @dcerpc_context_zero, align 8
   %94 = tail call ptr @wmem_map_insert(ptr noundef %93, ptr noundef nonnull inttoptr (i64 15 to ptr), ptr noundef nonnull inttoptr (i64 15 to ptr)) #6
-  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @preferences, i64 8), align 8
+  %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 8), align 8
   %96 = tail call ptr @wmem_map_insert(ptr noundef %95, ptr noundef nonnull inttoptr (i64 445 to ptr), ptr noundef nonnull inttoptr (i64 5 to ptr)) #6
-  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @preferences, i64 16), align 8
+  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 16), align 8
   %98 = tail call ptr @wmem_map_insert(ptr noundef %97, ptr noundef nonnull inttoptr (i64 53 to ptr), ptr noundef nonnull inttoptr (i64 7 to ptr)) #6
   br label %99
 
@@ -1596,7 +1596,7 @@ define internal fastcc ptr @find_latest_rrpd(ptr nocapture noundef %0) unnamed_a
   br i1 %.not34.i, label %53, label %find_latest_rrpd_dcerpc.exit
 
 53:                                               ; preds = %51
-  %54 = load i32, ptr getelementptr inbounds (i8, ptr @preferences, i64 4), align 4
+  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 4), align 4
   %.not35.i = icmp eq i32 %54, 0
   %55 = load i32, ptr %0, align 8
   %.not36.i = icmp eq i32 %55, 0
@@ -1943,7 +1943,7 @@ define internal fastcc ptr @find_latest_rrpd(ptr nocapture noundef %0) unnamed_a
   br i1 %.not34.i35, label %233, label %find_latest_rrpd_dcerpc.exit
 
 233:                                              ; preds = %231
-  %234 = load i32, ptr getelementptr inbounds (i8, ptr @preferences, i64 4), align 4
+  %234 = load i32, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 4), align 4
   %.not35.i36 = icmp eq i32 %234, 0
   %235 = load i32, ptr %0, align 8
   %.not36.i37 = icmp eq i32 %235, 0
@@ -2091,7 +2091,7 @@ define internal fastcc void @update_rrpd_list_entry(ptr noundef nonnull %0, ptr 
   %24 = zext i32 %23 to i64
   %25 = inttoptr i64 %24 to ptr
   %26 = tail call ptr @wmem_map_remove(ptr noundef %21, ptr noundef %25) #6
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @preferences, i64 60), align 4
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 60), align 4
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %39, label %28
 
@@ -2161,7 +2161,7 @@ define internal fastcc void @update_rrpd_list_entry(ptr noundef nonnull %0, ptr 
   br label %66
 
 66:                                               ; preds = %41, %48, %61
-  %67 = load i32, ptr getelementptr inbounds (i8, ptr @preferences, i64 32), align 8
+  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 32), align 8
   %.not.i = icmp eq i32 %67, 0
   br i1 %.not.i, label %74, label %68
 
@@ -2174,7 +2174,7 @@ define internal fastcc void @update_rrpd_list_entry(ptr noundef nonnull %0, ptr 
   br label %74
 
 74:                                               ; preds = %68, %66
-  %75 = load i32, ptr getelementptr inbounds (i8, ptr @preferences, i64 36), align 4
+  %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 36), align 4
   %.not8.i = icmp eq i32 %75, 0
   br i1 %.not8.i, label %82, label %76
 
@@ -2187,7 +2187,7 @@ define internal fastcc void @update_rrpd_list_entry(ptr noundef nonnull %0, ptr 
   br label %82
 
 82:                                               ; preds = %76, %74
-  %83 = load i32, ptr getelementptr inbounds (i8, ptr @preferences, i64 40), align 8
+  %83 = load i32, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 40), align 8
   %.not9.i = icmp eq i32 %83, 0
   br i1 %.not9.i, label %90, label %84
 
@@ -2200,7 +2200,7 @@ define internal fastcc void @update_rrpd_list_entry(ptr noundef nonnull %0, ptr 
   br label %90
 
 90:                                               ; preds = %84, %82
-  %91 = load i32, ptr getelementptr inbounds (i8, ptr @preferences, i64 44), align 4
+  %91 = load i32, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 44), align 4
   %.not10.i = icmp eq i32 %91, 0
   br i1 %.not10.i, label %update_output_rrpd.exit, label %92
 

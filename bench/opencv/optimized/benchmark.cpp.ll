@@ -2668,22 +2668,22 @@ define linkonce_odr hidden void @_ZN8AlgoWrapC2ERKNSt7__cxx1112basic_stringIcSt1
 12:                                               ; preds = %10
   store double 1.600000e+02, ptr @_ZZL12getNextColorvE6colors, align 16, !noalias !30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZZL12getNextColorvE6colors, i64 8), i8 0, i64 40, i1 false), !noalias !30
-  store double 1.600000e+02, ptr getelementptr inbounds (i8, ptr @_ZZL12getNextColorvE6colors, i64 48), align 16, !noalias !30
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZL12getNextColorvE6colors, i64 56), i8 0, i64 16, i1 false), !noalias !30
-  store double 1.600000e+02, ptr getelementptr inbounds (i8, ptr @_ZZL12getNextColorvE6colors, i64 72), align 8, !noalias !30
-  store double 1.600000e+02, ptr getelementptr inbounds (i8, ptr @_ZZL12getNextColorvE6colors, i64 80), align 16, !noalias !30
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZL12getNextColorvE6colors, i64 88), align 8, !noalias !30
-  store double 1.600000e+02, ptr getelementptr inbounds (i8, ptr @_ZZL12getNextColorvE6colors, i64 96), align 16, !noalias !30
-  store double 1.600000e+02, ptr getelementptr inbounds (i8, ptr @_ZZL12getNextColorvE6colors, i64 104), align 8, !noalias !30
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZL12getNextColorvE6colors, i64 112), i8 0, i64 16, i1 false), !noalias !30
-  store double 1.600000e+02, ptr getelementptr inbounds (i8, ptr @_ZZL12getNextColorvE6colors, i64 128), align 16, !noalias !30
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZL12getNextColorvE6colors, i64 136), align 8, !noalias !30
-  store double 1.600000e+02, ptr getelementptr inbounds (i8, ptr @_ZZL12getNextColorvE6colors, i64 144), align 16, !noalias !30
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZL12getNextColorvE6colors, i64 152), align 8, !noalias !30
-  store double 2.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZZL12getNextColorvE6colors, i64 160), align 16, !noalias !30
-  store double 5.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZZL12getNextColorvE6colors, i64 168), align 8, !noalias !30
-  store double 1.600000e+02, ptr getelementptr inbounds (i8, ptr @_ZZL12getNextColorvE6colors, i64 176), align 16, !noalias !30
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZL12getNextColorvE6colors, i64 184), align 8, !noalias !30
+  store double 1.600000e+02, ptr getelementptr inbounds nuw (i8, ptr @_ZZL12getNextColorvE6colors, i64 48), align 16, !noalias !30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZL12getNextColorvE6colors, i64 56), i8 0, i64 16, i1 false), !noalias !30
+  store double 1.600000e+02, ptr getelementptr inbounds nuw (i8, ptr @_ZZL12getNextColorvE6colors, i64 72), align 8, !noalias !30
+  store double 1.600000e+02, ptr getelementptr inbounds nuw (i8, ptr @_ZZL12getNextColorvE6colors, i64 80), align 16, !noalias !30
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZL12getNextColorvE6colors, i64 88), align 8, !noalias !30
+  store double 1.600000e+02, ptr getelementptr inbounds nuw (i8, ptr @_ZZL12getNextColorvE6colors, i64 96), align 16, !noalias !30
+  store double 1.600000e+02, ptr getelementptr inbounds nuw (i8, ptr @_ZZL12getNextColorvE6colors, i64 104), align 8, !noalias !30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZL12getNextColorvE6colors, i64 112), i8 0, i64 16, i1 false), !noalias !30
+  store double 1.600000e+02, ptr getelementptr inbounds nuw (i8, ptr @_ZZL12getNextColorvE6colors, i64 128), align 16, !noalias !30
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZL12getNextColorvE6colors, i64 136), align 8, !noalias !30
+  store double 1.600000e+02, ptr getelementptr inbounds nuw (i8, ptr @_ZZL12getNextColorvE6colors, i64 144), align 16, !noalias !30
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZL12getNextColorvE6colors, i64 152), align 8, !noalias !30
+  store double 2.000000e+01, ptr getelementptr inbounds nuw (i8, ptr @_ZZL12getNextColorvE6colors, i64 160), align 16, !noalias !30
+  store double 5.000000e+01, ptr getelementptr inbounds nuw (i8, ptr @_ZZL12getNextColorvE6colors, i64 168), align 8, !noalias !30
+  store double 1.600000e+02, ptr getelementptr inbounds nuw (i8, ptr @_ZZL12getNextColorvE6colors, i64 176), align 16, !noalias !30
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZL12getNextColorvE6colors, i64 184), align 8, !noalias !30
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL12getNextColorvE6colors) #19, !noalias !30
   br label %13
 

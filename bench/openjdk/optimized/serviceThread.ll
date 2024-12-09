@@ -109,7 +109,7 @@ define hidden void @_ZN13ServiceThread10initializeEv() local_unnamed_addr #0 ali
 6:                                                ; preds = %0
   %7 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 1800, i8 noundef zeroext 2, i32 noundef 0) #5
   call void @_ZN10JavaThreadC2EPFvPS_S0_Em8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(1800) %7, ptr noundef nonnull @_ZN13ServiceThread20service_thread_entryEP10JavaThreadS1_, i64 noundef 0, i8 noundef zeroext 2) #5
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV13ServiceThread, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV13ServiceThread, i64 16), ptr %7, align 8
   call void @_ZN10JavaThread27vm_exit_on_osthread_failureEPS_(ptr noundef nonnull %7) #5
   call void @_ZN10JavaThread21start_internal_daemonEPS_S0_6Handle14ThreadPriority(ptr noundef nonnull %2, ptr noundef nonnull %7, ptr %3, i32 noundef 9) #5
   br label %8

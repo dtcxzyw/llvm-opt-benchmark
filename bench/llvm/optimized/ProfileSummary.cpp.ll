@@ -1998,7 +1998,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit13:               ; preds = %51, %53
   %58 = fdiv float %57, 1.000000e+06
   %59 = fmul float %58, 1.000000e+02
   store ptr @.str.22, ptr %21, align 8, !alias.scope !11
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJfEEE, i64 16), ptr %3, align 8, !alias.scope !11
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJfEEE, i64 16), ptr %3, align 8, !alias.scope !11
   store float %59, ptr %22, align 8, !alias.scope !11
   %60 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i12, ptr noundef nonnull align 8 dereferenceable(16) %3) #14
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 24

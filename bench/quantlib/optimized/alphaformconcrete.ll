@@ -32,7 +32,7 @@ $_ZTIN8QuantLib9AlphaFormE = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN8QuantLib22AlphaFormInverseLinearC2ESt6vectorIdSaIdEEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef %times, double noundef %alpha) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib22AlphaFormInverseLinearE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib22AlphaFormInverseLinearE, i64 16), ptr %this, align 8, !tbaa !3
   %times_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %times, align 8, !tbaa !6
   store ptr %0, ptr %times_, align 8, !tbaa !6
@@ -79,7 +79,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN8QuantLib25AlphaFormLinearHyperbolicC2ESt6vectorIdSaIdEEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef %times, double noundef %alpha) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib25AlphaFormLinearHyperbolicE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib25AlphaFormLinearHyperbolicE, i64 16), ptr %this, align 8, !tbaa !3
   %times_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %times, align 8, !tbaa !6
   store ptr %0, ptr %times_, align 8, !tbaa !6
@@ -133,7 +133,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib22AlphaFormInverseLinearD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib22AlphaFormInverseLinearE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib22AlphaFormInverseLinearE, i64 16), ptr %this, align 8, !tbaa !3
   %times_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %times_, align 8, !tbaa !6
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -155,7 +155,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib22AlphaFormInverseLinearD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib22AlphaFormInverseLinearE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib22AlphaFormInverseLinearE, i64 16), ptr %this, align 8, !tbaa !3
   %times_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %times_.i, align 8, !tbaa !6
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -178,7 +178,7 @@ _ZN8QuantLib22AlphaFormInverseLinearD2Ev.exit:    ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib25AlphaFormLinearHyperbolicD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib25AlphaFormLinearHyperbolicE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib25AlphaFormLinearHyperbolicE, i64 16), ptr %this, align 8, !tbaa !3
   %times_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %times_, align 8, !tbaa !6
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -200,7 +200,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib25AlphaFormLinearHyperbolicD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib25AlphaFormLinearHyperbolicE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib25AlphaFormLinearHyperbolicE, i64 16), ptr %this, align 8, !tbaa !3
   %times_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %times_.i, align 8, !tbaa !6
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

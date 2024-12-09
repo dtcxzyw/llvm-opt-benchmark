@@ -1148,7 +1148,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   br i1 %173, label %.thread41, label %.thread112
 
 .thread41:                                        ; preds = %142, %162, %169, %151, %124, %.loopexit60
-  %174 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %174 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %175 = tail call noalias noundef align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %174, i32 noundef 3520, i64 noundef 64) #12
   %176 = tail call ptr @input_allocate_device() #11
   %177 = icmp ne ptr %175, null

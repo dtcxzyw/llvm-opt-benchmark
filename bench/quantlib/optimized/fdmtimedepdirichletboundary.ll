@@ -86,7 +86,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN8QuantLib27FdmTimeDepDirichletBoundaryC2ERKN5boost10shared_ptrINS_9FdmMesherEEESt8functionIFddEEmNS_17BoundaryConditionINS_11FdmLinearOpEE4SideE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %mesher, ptr nocapture noundef %valueOnBoundary, i64 noundef %direction, i32 noundef %side) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::FdmIndicesOnBoundary", align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib27FdmTimeDepDirichletBoundaryE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib27FdmTimeDepDirichletBoundaryE, i64 16), ptr %this, align 8, !tbaa !3
   %indices_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #18
   %0 = load ptr, ptr %mesher, align 8, !tbaa !6
@@ -303,7 +303,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 define void @_ZN8QuantLib27FdmTimeDepDirichletBoundaryC2ERKN5boost10shared_ptrINS_9FdmMesherEEESt8functionIFNS_5ArrayEdEEmNS_17BoundaryConditionINS_11FdmLinearOpEE4SideE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %mesher, ptr nocapture noundef %valuesOnBoundary, i64 noundef %direction, i32 noundef %side) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::FdmIndicesOnBoundary", align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib27FdmTimeDepDirichletBoundaryE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib27FdmTimeDepDirichletBoundaryE, i64 16), ptr %this, align 8, !tbaa !3
   %indices_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #18
   %0 = load ptr, ptr %mesher, align 8, !tbaa !6
@@ -823,7 +823,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !47
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -1119,7 +1119,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib27FdmTimeDepDirichletBoundaryD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib27FdmTimeDepDirichletBoundaryE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib27FdmTimeDepDirichletBoundaryE, i64 16), ptr %this, align 8, !tbaa !3
   %values_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %values_, align 8, !tbaa !16
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -1188,7 +1188,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt14_Function_ba
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib27FdmTimeDepDirichletBoundaryD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib27FdmTimeDepDirichletBoundaryE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib27FdmTimeDepDirichletBoundaryE, i64 16), ptr %this, align 8, !tbaa !3
   %values_.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %values_.i, align 8, !tbaa !16
   %cmp.not.i.i.i = icmp eq ptr %0, null

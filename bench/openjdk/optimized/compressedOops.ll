@@ -73,7 +73,7 @@ define hidden void @_ZN14CompressedOops10initializeERK17ReservedHeapSpace(ptr no
 
 8:                                                ; preds = %1
   %9 = load i32, ptr @LogMinObjAlignmentInBytes, align 4
-  store i32 %9, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   br label %10
 
 10:                                               ; preds = %8, %1
@@ -90,7 +90,7 @@ define hidden void @_ZN14CompressedOops10initializeERK17ReservedHeapSpace(ptr no
   %18 = extractvalue { ptr, i64 } %17, 0
   %19 = extractvalue { ptr, i64 } %17, 1
   store ptr %18, ptr @_ZN14CompressedOops19_heap_address_rangeE, align 8
-  store i64 %19, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops19_heap_address_rangeE, i64 8), align 8
+  store i64 %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops19_heap_address_rangeE, i64 8), align 8
   %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_27ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not13 = icmp eq ptr %20, null
   br i1 %.not13, label %_ZN12ResourceMarkD2Ev.exit, label %21
@@ -109,14 +109,14 @@ define hidden void @_ZN14CompressedOops10initializeERK17ReservedHeapSpace(ptr no
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %33 = load i64, ptr %32, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %2, i1 noundef zeroext false) #9
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %34) #9
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store i32 2, ptr %35, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_27ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %2, align 8
   call void @_ZN14CompressedOops10print_modeEP12outputStream(ptr noundef nonnull %2)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %2) #9
   %36 = load ptr, ptr %27, align 8
@@ -157,7 +157,7 @@ _ZN14CompressedOops13base_disjointEv.exit.i:      ; preds = %_ZN12ResourceMarkD2
   br label %_ZN14CompressedOops14mode_to_stringENS_4ModeE.exit
 
 _ZN14CompressedOops4modeEv.exit:                  ; preds = %_ZN12ResourceMarkD2Ev.exit
-  %50 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %.not1.i.not = icmp eq i32 %50, 0
   %spec.select = select i1 %.not1.i.not, ptr @.str.5, ptr @.str.6
   br label %_ZN14CompressedOops14mode_to_stringENS_4ModeE.exit
@@ -171,7 +171,7 @@ _ZN14CompressedOops14mode_to_stringENS_4ModeE.exit: ; preds = %_ZN14CompressedOo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @_ZN14CompressedOops9set_shiftEi(i32 noundef %0) local_unnamed_addr #1 align 2 {
-  store i32 %0, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   ret void
 }
 
@@ -207,7 +207,7 @@ _ZN14CompressedOops13base_disjointEv.exit.i:      ; preds = %1
   br label %_ZN14CompressedOops14mode_to_stringENS_4ModeE.exit
 
 _ZN14CompressedOops4modeEv.exit:                  ; preds = %1
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %.not1.i.not = icmp eq i32 %15, 0
   %spec.select = select i1 %.not1.i.not, ptr @.str.5, ptr @.str.6
   br label %_ZN14CompressedOops14mode_to_stringENS_4ModeE.exit
@@ -225,7 +225,7 @@ _ZN14CompressedOops14mode_to_stringENS_4ModeE.exit: ; preds = %_ZN14CompressedOo
   br label %19
 
 19:                                               ; preds = %17, %_ZN14CompressedOops14mode_to_stringENS_4ModeE.exit
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %.not6 = icmp eq i32 %20, 0
   br i1 %.not6, label %22, label %21
 
@@ -234,7 +234,7 @@ _ZN14CompressedOops14mode_to_stringENS_4ModeE.exit: ; preds = %_ZN14CompressedOo
   br label %22
 
 22:                                               ; preds = %21, %19
-  %23 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 12), align 4
+  %23 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 12), align 4
   %24 = trunc i8 %23 to i1
   br i1 %24, label %26, label %25
 
@@ -291,7 +291,7 @@ _ZN14CompressedOops13base_disjointEv.exit:        ; preds = %0
   br label %11
 
 9:                                                ; preds = %0
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %.not1 = icmp ne i32 %10, 0
   %. = zext i1 %.not1 to i32
   br label %11
@@ -306,7 +306,7 @@ declare void @_ZN14SystemPropertyC1EPKcS1_bb(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @_ZN14CompressedOops28set_use_implicit_null_checksEb(i1 noundef zeroext %0) local_unnamed_addr #1 align 2 {
   %2 = zext i1 %0 to i8
-  store i8 %2, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 12), align 4
+  store i8 %2, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 12), align 4
   ret void
 }
 
@@ -453,7 +453,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #9
   ret void

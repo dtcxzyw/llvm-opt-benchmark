@@ -411,7 +411,7 @@ define dso_local i32 @cap_inode_getsecurity(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %42, label %43, label %53
 
 43:                                               ; preds = %41
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %45 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %44, i32 noundef 2336, i64 noundef 24) #16
   %46 = icmp eq ptr %45, null
   br i1 %46, label %77, label %47
@@ -447,7 +447,7 @@ define dso_local i32 @cap_inode_getsecurity(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %62, label %73, label %63
 
 63:                                               ; preds = %61
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %65 = call noalias align 8 dereferenceable_or_null(20) ptr @kmalloc_trace(ptr noundef %64, i32 noundef 2336, i64 noundef 20) #16
   %66 = icmp eq ptr %65, null
   br i1 %66, label %77, label %67
@@ -571,7 +571,7 @@ define dso_local noundef range(i32 -22, 25) i32 @cap_convert_nscap(ptr noundef %
   br i1 %43, label %55, label %44
 
 44:                                               ; preds = %.thread5
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %46 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %45, i32 noundef 2080, i64 noundef 24) #16
   %47 = icmp eq ptr %46, null
   br i1 %47, label %55, label %48
@@ -1723,7 +1723,7 @@ define dso_local range(i32 0, 2) i32 @cap_vm_enough_memory(ptr nocapture readnon
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 224
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @init_user_ns, i64 224), align 8
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @init_user_ns, i64 224), align 8
   %15 = icmp sgt i32 %14, %12
   br i1 %15, label %.preheader, label %.loopexit
 
@@ -1780,7 +1780,7 @@ define dso_local range(i32 -1, 1) i32 @cap_mmap_addr(i64 noundef %0) #9 align 16
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 224
   %14 = load i32, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @init_user_ns, i64 224), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @init_user_ns, i64 224), align 8
   %17 = icmp sgt i32 %16, %14
   br i1 %17, label %.preheader, label %.critedge
 

@@ -61,7 +61,7 @@ declare dso_local void @crypto_unregister_templates(ptr noundef, i32 noundef) lo
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal i32 @crypto_gcm_module_init() #0 section ".init.text" align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %2 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %1, i32 noundef 3520, i64 noundef 48) #14
   store ptr %2, ptr @gcm_zeroes, align 8
   %3 = icmp eq ptr %2, null
@@ -159,7 +159,7 @@ define internal i32 @crypto_rfc4106_create(ptr noundef %0, ptr noundef %1) #2 al
   br i1 %5, label %6, label %65
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %8 = call noalias align 8 dereferenceable_or_null(560) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 560) #14
   %9 = icmp eq ptr %8, null
   br i1 %9, label %65, label %10
@@ -265,7 +265,7 @@ define internal i32 @crypto_rfc4543_create(ptr noundef %0, ptr noundef %1) #2 al
   br i1 %5, label %6, label %65
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %8 = call noalias align 8 dereferenceable_or_null(560) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 560) #14
   %9 = icmp eq ptr %8, null
   br i1 %9, label %65, label %10
@@ -377,7 +377,7 @@ define internal fastcc i32 @crypto_gcm_create_common(ptr noundef %0, ptr noundef
   br i1 %7, label %8, label %86
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %10 = call noalias align 8 dereferenceable_or_null(608) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 608) #14
   %11 = icmp eq ptr %10, null
   br i1 %11, label %86, label %12

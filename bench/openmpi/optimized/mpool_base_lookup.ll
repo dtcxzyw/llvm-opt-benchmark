@@ -14,14 +14,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind uwtable
 define ptr @mca_mpool_base_component_lookup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %.078 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @opal_mpool_base_framework, i64 112), align 8
-  %.not9 = icmp eq ptr %.078, getelementptr inbounds (i8, ptr @opal_mpool_base_framework, i64 96)
+  %.078 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_mpool_base_framework, i64 112), align 8
+  %.not9 = icmp eq ptr %.078, getelementptr inbounds nuw (i8, ptr @opal_mpool_base_framework, i64 96)
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 2:                                                ; preds = %.lr.ph
   %3 = getelementptr inbounds nuw i8, ptr %.0710, i64 16
   %.07 = load volatile ptr, ptr %3, align 8
-  %.not = icmp eq ptr %.07, getelementptr inbounds (i8, ptr @opal_mpool_base_framework, i64 96)
+  %.not = icmp eq ptr %.07, getelementptr inbounds nuw (i8, ptr @opal_mpool_base_framework, i64 96)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %1, %2
@@ -47,8 +47,8 @@ define ptr @mca_mpool_base_module_lookup(ptr noundef %0) local_unnamed_addr #2 {
   %3 = alloca i32, align 4
   %4 = load ptr, ptr @mca_mpool_base_default_module, align 8
   %5 = load i32, ptr @mca_mpool_base_default_priority, align 4
-  %.0712 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @opal_mpool_base_framework, i64 112), align 8
-  %.not13 = icmp eq ptr %.0712, getelementptr inbounds (i8, ptr @opal_mpool_base_framework, i64 96)
+  %.0712 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_mpool_base_framework, i64 112), align 8
+  %.not13 = icmp eq ptr %.0712, getelementptr inbounds nuw (i8, ptr @opal_mpool_base_framework, i64 96)
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %16
@@ -76,7 +76,7 @@ define ptr @mca_mpool_base_module_lookup(ptr noundef %0) local_unnamed_addr #2 {
   %.1 = phi ptr [ %.015, %.lr.ph ], [ %spec.select11, %12 ]
   %17 = getelementptr inbounds nuw i8, ptr %.0716, i64 16
   %.07 = load volatile ptr, ptr %17, align 8
-  %.not = icmp eq ptr %.07, getelementptr inbounds (i8, ptr @opal_mpool_base_framework, i64 96)
+  %.not = icmp eq ptr %.07, getelementptr inbounds nuw (i8, ptr @opal_mpool_base_framework, i64 96)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %16, %1

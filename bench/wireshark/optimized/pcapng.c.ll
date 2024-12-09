@@ -3897,7 +3897,7 @@ define internal range(i32 0, 2) i32 @pcapng_process_if_descr_block_option(ptr no
   br label %pcapng_process_uint64_option.exit
 
 112:                                              ; preds = %7
-  %113 = load ptr, ptr getelementptr inbounds (i8, ptr @option_handlers, i64 8), align 8
+  %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_handlers, i64 8), align 8
   %.not.i98 = icmp eq ptr %113, null
   br i1 %.not.i98, label %pcapng_process_uint64_option.exit, label %114
 
@@ -4144,7 +4144,7 @@ pcapng_process_uint32_option.exit125:             ; preds = %53
   br label %pcapng_process_unhandled_option.exit
 
 96:                                               ; preds = %7
-  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @option_handlers, i64 16), align 16
+  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_handlers, i64 16), align 16
   %.not.i126 = icmp eq ptr %97, null
   br i1 %.not.i126, label %pcapng_process_unhandled_option.exit, label %98
 
@@ -4205,7 +4205,7 @@ declare ptr @g_list_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @pcapng_process_name_resolution_block_option(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @option_handlers, i64 24), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_handlers, i64 24), align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %pcapng_process_unhandled_option.exit, label %9
 
@@ -4366,7 +4366,7 @@ define internal range(i32 0, 2) i32 @pcapng_process_interface_statistics_block_o
   br label %pcapng_process_timestamp_option.exit
 
 76:                                               ; preds = %7
-  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @option_handlers, i64 32), align 16
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_handlers, i64 32), align 16
   %.not.i72 = icmp eq ptr %77, null
   br i1 %.not.i72, label %pcapng_process_timestamp_option.exit, label %78
 

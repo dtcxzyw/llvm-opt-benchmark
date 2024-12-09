@@ -368,7 +368,7 @@ job_res_job_action_string.exit:                   ; preds = %14, %switch.lookup
   br label %17
 
 17:                                               ; preds = %job_res_job_action_string.exit, %11
-  %18 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %19 = and i64 %18, 1
   %.not92 = icmp eq i64 %19, 0
   br i1 %.not92, label %21, label %20
@@ -688,7 +688,7 @@ job_res_fit_in_row.exit.thread:                   ; preds = %.lr.ph121, %140, %j
   br i1 %.not104, label %._crit_edge126, label %172, !llvm.loop !13
 
 ._crit_edge126:                                   ; preds = %186, %167
-  %191 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %191 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %192 = and i64 %191, 1
   %.not105 = icmp eq i64 %192, 0
   br i1 %.not105, label %198, label %193
@@ -783,7 +783,7 @@ define range(i32 -1, 1) i32 @job_res_rm_job(ptr noundef %0, ptr nocapture nounde
   br label %232
 
 28:                                               ; preds = %17
-  %29 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %30 = and i64 %29, 1
   %.not125 = icmp eq i64 %30, 0
   %31 = tail call i32 @get_log_level() #3
@@ -842,7 +842,7 @@ job_res_job_action_string.exit145:                ; preds = %40, %switch.lookup2
 46:                                               ; preds = %44, %43
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 888
   %48 = load i64, ptr %47, align 8
-  %49 = load i64, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 184), align 8
+  %49 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 184), align 8
   %50 = icmp slt i64 %48, %49
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 96
   store i32 0, ptr %7, align 4
@@ -1190,7 +1190,7 @@ job_res_job_action_string.exit145:                ; preds = %40, %switch.lookup2
   br i1 %.not135, label %.loopexit, label %193, !llvm.loop !19
 
 .loopexit:                                        ; preds = %221, %.preheader147, %._crit_edge169.thread201, %._crit_edge169, %._crit_edge
-  %226 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %226 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %227 = and i64 %226, 1
   %.not136 = icmp eq i64 %227, 0
   br i1 %.not136, label %232, label %228

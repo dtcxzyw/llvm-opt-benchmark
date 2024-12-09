@@ -549,9 +549,9 @@ declare i32 @close(i32 noundef) local_unnamed_addr #4
 define dso_local noundef i32 @restart_fixup(ptr noundef %orig_addr) local_unnamed_addr #0 {
 entry:
   %tv = alloca %struct.timeval, align 8
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 132), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 132), align 4
   %call = call i32 @gettimeofday(ptr noundef nonnull %tv, ptr noundef null) #20
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8
   %cmp = icmp sgt i32 %1, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -582,7 +582,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %page_remain.057 = phi i32 [ %0, %while.body.lr.ph ], [ %page_remain.0.be, %while.cond.backedge ]
   %9 = load ptr, ptr @mmap_base, align 8
   %add.ptr = getelementptr inbounds i8, ptr %9, i64 %checked.058
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 132), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 132), align 4
   %conv7 = sext i32 %10 to i64
   %rem = urem i64 %checked.058, %conv7
   %conv8 = trunc i64 %rem to i32
@@ -731,13 +731,13 @@ if.end91:                                         ; preds = %if.end81, %if.then8
   %add93 = add i64 %checked.058, %conv92
   %sub94 = sub i32 %page_remain.057, %size.0
   %cmp95 = icmp ugt i32 %size.0, %sub94
-  %44 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 132), align 4
+  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 132), align 4
   %page_remain.1 = select i1 %cmp95, i32 %44, i32 %sub94
   %narrow = select i1 %cmp95, i32 %sub94, i32 0
   br label %while.cond.backedge
 
 while.end:                                        ; preds = %while.cond.backedge, %if.end
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8
   %cmp101 = icmp sgt i32 %45, 0
   br i1 %cmp101, label %if.then103, label %if.end110
 

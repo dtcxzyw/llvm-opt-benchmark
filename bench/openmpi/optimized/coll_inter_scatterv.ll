@@ -50,7 +50,7 @@ ompi_comm_remote_size.exit:                       ; preds = %10, %16
   %27 = sext i32 %.val103.val to i64
   %28 = shl nsw i64 %27, 2
   %29 = tail call noalias ptr @malloc(i64 noundef %28) #4
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 72), align 8
   %31 = tail call i32 %30(ptr noundef %29, i64 noundef %27, ptr noundef nonnull @ompi_mpi_int, i32 noundef %7, i32 noundef -26, ptr noundef nonnull %8, ptr noundef null) #5
   %.not96 = icmp eq i32 %31, 0
   br i1 %.not96, label %.preheader, label %96
@@ -116,7 +116,7 @@ opal_datatype_span.exit:                          ; preds = %37, %41
   %.080.lcssa119 = phi i64 [ %36, %57 ], [ 0, %._crit_edge ], [ 0, %.preheader ]
   %.177 = phi ptr [ %55, %57 ], [ null, %._crit_edge ], [ null, %.preheader ]
   %.1 = phi ptr [ %59, %57 ], [ null, %._crit_edge ], [ null, %.preheader ]
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 72), align 8
   %61 = tail call i32 %60(ptr noundef %.1, i64 noundef %.080.lcssa119, ptr noundef %6, i32 noundef %7, i32 noundef -26, ptr noundef %8, ptr noundef null) #5
   %.not98 = icmp eq i32 %61, 0
   br i1 %.not98, label %62, label %96
@@ -186,7 +186,7 @@ opal_datatype_span.exit:                          ; preds = %37, %41
   br label %96
 
 84:                                               ; preds = %ompi_comm_remote_size.exit
-  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
+  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 96), align 8
   %86 = sext i32 %21 to i64
   %87 = tail call i32 %85(ptr noundef %1, i64 noundef %86, ptr noundef nonnull @ompi_mpi_int, i32 noundef 0, i32 noundef -26, i32 noundef 4, ptr noundef nonnull %8) #5
   %.not94 = icmp eq i32 %87, 0
@@ -196,7 +196,7 @@ opal_datatype_span.exit:                          ; preds = %37, %41
   %89 = call i32 @ompi_datatype_create_indexed(i32 noundef %21, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %11) #5
   %.val104 = load ptr, ptr %11, align 8
   %90 = call i32 @opal_datatype_commit(ptr noundef %.val104) #5
-  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
+  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 96), align 8
   %92 = load ptr, ptr %11, align 8
   %93 = call i32 %91(ptr noundef %0, i64 noundef 1, ptr noundef %92, i32 noundef 0, i32 noundef -26, i32 noundef 4, ptr noundef nonnull %8) #5
   %.not95 = icmp eq i32 %93, 0

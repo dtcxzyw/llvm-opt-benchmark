@@ -542,7 +542,7 @@ declare void @llvm.trap() #9
 define void @_ZN16IcuTestErrorCodeD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16IcuTestErrorCode, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16IcuTestErrorCode, i64 16), ptr %this, align 8
   %errorCode.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %errorCode.i, align 8
   %cmp.i.i = icmp slt i32 %0, 1
@@ -1229,7 +1229,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN14TestDataModuleC2EPKcR7TestLogR10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(8) %log, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %0) unnamed_addr #14 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14TestDataModule, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14TestDataModule, i64 16), ptr %this, align 8
   %testName = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %name, ptr %testName, align 8
   %fInfo = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1242,7 +1242,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN14TestDataModuleD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14TestDataModule, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14TestDataModule, i64 16), ptr %this, align 8
   %fInfo = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %fInfo, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -1277,7 +1277,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN16RBTestDataModuleD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16RBTestDataModule, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16RBTestDataModule, i64 16), ptr %this, align 8
   %fTestData = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %fTestData, align 8
   invoke void @ures_close_75(ptr noundef %0)
@@ -1302,7 +1302,7 @@ invoke.cont3:                                     ; preds = %invoke.cont2
           to label %invoke.cont4 unwind label %terminate.lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont3
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14TestDataModule, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14TestDataModule, i64 16), ptr %this, align 8
   %fInfo.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %fInfo.i, align 8
   %cmp.not.i = icmp eq ptr %4, null
@@ -1347,7 +1347,7 @@ entry:
   store ptr null, ptr %fInfo.i, align 8
   %fLog.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %log, ptr %fLog.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16RBTestDataModule, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16RBTestDataModule, i64 16), ptr %this, align 8
   %fModuleBundle = getelementptr inbounds nuw i8, ptr %this, i64 32
   %fTestData = getelementptr inbounds nuw i8, ptr %this, i64 40
   %fInfoRB = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -1452,7 +1452,7 @@ if.end29:                                         ; preds = %invoke.cont21, %inv
 
 ehcleanup30:                                      ; preds = %lpad26, %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %9, %lpad26 ], [ %5, %lpad ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14TestDataModule, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14TestDataModule, i64 16), ptr %this, align 8
   %10 = load ptr, ptr %fInfo.i, align 8
   %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %_ZN14TestDataModuleD2Ev.exit, label %delete.notnull.i

@@ -1373,7 +1373,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %level_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %level_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i64 16), ptr %this, align 8
   call void @_ZN6spdlog7details11make_uniqueINS_17pattern_formatterEJEEESt10unique_ptrIT_St14default_deleteIS4_EEDpOT0_(ptr nonnull sret(%"class.std::unique_ptr.18") align 8 %ref.tmp.i)
   %formatter_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %ref.tmp.i, align 8
@@ -1381,7 +1381,7 @@ entry:
   %mutex_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog5sinks15basic_file_sinkISt5mutexEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog5sinks15basic_file_sinkISt5mutexEE, i64 16), ptr %this, align 8
   %file_helper_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i32 5, ptr %file_helper_, align 8
   %open_interval_.i = getelementptr inbounds nuw i8, ptr %this, i64 68
@@ -1415,7 +1415,7 @@ lpad3:                                            ; preds = %invoke.cont
 
 ehcleanup:                                        ; preds = %lpad.i, %lpad3
   %.pn = phi { ptr, i32 } [ %2, %lpad3 ], [ %1, %lpad.i ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i64 16), ptr %this, align 8
   %3 = load ptr, ptr %formatter_.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i, label %_ZN6spdlog5sinks9base_sinkISt5mutexED2Ev.exit, label %_ZNKSt14default_deleteIN6spdlog9formatterEEclEPS1_.exit.i.i
@@ -1448,7 +1448,7 @@ entry:
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %formatted, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %formatted, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i64 16), ptr %formatted, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i64 16), ptr %formatted, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %formatted, i64 282
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
   %store_.i = getelementptr inbounds nuw i8, ptr %formatted, i64 32
@@ -1522,13 +1522,13 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %level_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %level_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i64 16), ptr %this, align 8
   call void @_ZN6spdlog7details11make_uniqueINS_17pattern_formatterEJEEESt10unique_ptrIT_St14default_deleteIS4_EEDpOT0_(ptr nonnull sret(%"class.std::unique_ptr.18") align 8 %ref.tmp.i)
   %formatter_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %ref.tmp.i, align 8
   store ptr %0, ptr %formatter_.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog5sinks15basic_file_sinkINS_7details10null_mutexEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog5sinks15basic_file_sinkINS_7details10null_mutexEEE, i64 16), ptr %this, align 8
   %file_helper_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 5, ptr %file_helper_, align 8
   %open_interval_.i = getelementptr inbounds nuw i8, ptr %this, i64 36
@@ -1562,7 +1562,7 @@ lpad3:                                            ; preds = %invoke.cont
 
 ehcleanup:                                        ; preds = %lpad.i, %lpad3
   %.pn = phi { ptr, i32 } [ %2, %lpad3 ], [ %1, %lpad.i ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i64 16), ptr %this, align 8
   %3 = load ptr, ptr %formatter_.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i, label %_ZN6spdlog5sinks9base_sinkINS_7details10null_mutexEED2Ev.exit, label %_ZNKSt14default_deleteIN6spdlog9formatterEEclEPS1_.exit.i.i
@@ -1595,7 +1595,7 @@ entry:
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %formatted, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %formatted, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i64 16), ptr %formatted, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i64 16), ptr %formatted, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %formatted, i64 282
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
   %store_.i = getelementptr inbounds nuw i8, ptr %formatted, i64 32
@@ -1655,7 +1655,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %level_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %level_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i64 16), ptr %this, align 8
   call void @_ZN6spdlog7details11make_uniqueINS_17pattern_formatterEJEEESt10unique_ptrIT_St14default_deleteIS4_EEDpOT0_(ptr nonnull sret(%"class.std::unique_ptr.18") align 8 %ref.tmp.i)
   %formatter_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %ref.tmp.i, align 8
@@ -1663,7 +1663,7 @@ entry:
   %mutex_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog5sinks18rotating_file_sinkISt5mutexEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog5sinks18rotating_file_sinkISt5mutexEE, i64 16), ptr %this, align 8
   %base_filename_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base_filename_, ptr noundef nonnull align 8 dereferenceable(32) %base_filename) #18
   %max_size_ = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -1802,7 +1802,7 @@ ehcleanup33:                                      ; preds = %lpad22, %lpad20, %e
 ehcleanup34:                                      ; preds = %lpad.i, %ehcleanup33
   %.pn4.pn.pn = phi { ptr, i32 } [ %.pn4.pn, %ehcleanup33 ], [ %1, %lpad.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base_filename_) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i64 16), ptr %this, align 8
   %8 = load ptr, ptr %formatter_.i, align 8
   %cmp.not.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i, label %_ZN6spdlog5sinks9base_sinkISt5mutexED2Ev.exit, label %_ZNKSt14default_deleteIN6spdlog9formatterEEclEPS1_.exit.i.i
@@ -2125,7 +2125,7 @@ entry:
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %formatted, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %formatted, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i64 16), ptr %formatted, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i64 16), ptr %formatted, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %formatted, i64 282
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
   %store_.i = getelementptr inbounds nuw i8, ptr %formatted, i64 32
@@ -2266,13 +2266,13 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %level_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %level_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i64 16), ptr %this, align 8
   call void @_ZN6spdlog7details11make_uniqueINS_17pattern_formatterEJEEESt10unique_ptrIT_St14default_deleteIS4_EEDpOT0_(ptr nonnull sret(%"class.std::unique_ptr.18") align 8 %ref.tmp.i)
   %formatter_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %ref.tmp.i, align 8
   store ptr %0, ptr %formatter_.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog5sinks18rotating_file_sinkINS_7details10null_mutexEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog5sinks18rotating_file_sinkINS_7details10null_mutexEEE, i64 16), ptr %this, align 8
   %base_filename_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base_filename_, ptr noundef nonnull align 8 dereferenceable(32) %base_filename) #18
   %max_size_ = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -2411,7 +2411,7 @@ ehcleanup33:                                      ; preds = %lpad22, %lpad20, %e
 ehcleanup34:                                      ; preds = %lpad.i, %ehcleanup33
   %.pn4.pn.pn = phi { ptr, i32 } [ %.pn4.pn, %ehcleanup33 ], [ %1, %lpad.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base_filename_) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i64 16), ptr %this, align 8
   %8 = load ptr, ptr %formatter_.i, align 8
   %cmp.not.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i, label %_ZN6spdlog5sinks9base_sinkINS_7details10null_mutexEED2Ev.exit, label %_ZNKSt14default_deleteIN6spdlog9formatterEEclEPS1_.exit.i.i
@@ -2709,7 +2709,7 @@ entry:
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %formatted, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %formatted, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i64 16), ptr %formatted, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i64 16), ptr %formatted, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %formatted, i64 282
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
   %store_.i = getelementptr inbounds nuw i8, ptr %formatted, i64 32
@@ -2859,7 +2859,7 @@ _ZN6spdlog7details11file_helperD2Ev.exit:         ; preds = %entry, %if.end.i.i,
   call void @_ZN6spdlog19file_event_handlersD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %event_handlers_.i) #18
   %filename_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i64 16), ptr %this, align 8
   %formatter_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %8 = load ptr, ptr %formatter_.i, align 8
   %cmp.not.i.i1 = icmp eq ptr %8, null
@@ -3177,7 +3177,7 @@ _ZN6spdlog7details11file_helperD2Ev.exit:         ; preds = %entry, %if.end.i.i,
   call void @_ZN6spdlog19file_event_handlersD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %event_handlers_.i) #18
   %filename_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i64 16), ptr %this, align 8
   %formatter_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %8 = load ptr, ptr %formatter_.i, align 8
   %cmp.not.i.i1 = icmp eq ptr %8, null
@@ -3423,7 +3423,7 @@ _ZN6spdlog7details11file_helperD2Ev.exit:         ; preds = %entry, %if.end.i.i,
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i) #18
   %base_filename_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base_filename_) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i64 16), ptr %this, align 8
   %formatter_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %8 = load ptr, ptr %formatter_.i, align 8
   %cmp.not.i.i1 = icmp eq ptr %8, null
@@ -3510,7 +3510,7 @@ _ZN6spdlog7details11file_helperD2Ev.exit:         ; preds = %entry, %if.end.i.i,
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i) #18
   %base_filename_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base_filename_) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i64 16), ptr %this, align 8
   %formatter_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %8 = load ptr, ptr %formatter_.i, align 8
   %cmp.not.i.i1 = icmp eq ptr %8, null
@@ -3542,7 +3542,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6spdlog5sinks9base_sinkISt5mutexED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i64 16), ptr %this, align 8
   %formatter_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %formatter_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -3575,7 +3575,7 @@ declare void @llvm.trap() #11
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6spdlog5sinks9base_sinkINS_7details10null_mutexEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i64 16), ptr %this, align 8
   %formatter_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %formatter_, align 8
   %cmp.not.i = icmp eq ptr %0, null

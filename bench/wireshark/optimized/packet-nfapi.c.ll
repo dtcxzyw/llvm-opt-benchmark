@@ -9956,7 +9956,7 @@ look_up_tlv.exit:                                 ; preds = %49, %44, %39, %34
 
 57:                                               ; preds = %look_up_tlv.exit.thread82, %look_up_tlv.exit
   %.187 = phi i32 [ %56, %look_up_tlv.exit.thread82 ], [ %.089, %look_up_tlv.exit ]
-  %phi.call86 = phi ptr [ getelementptr inbounds (i8, ptr @p7_tags, i64 1344), %look_up_tlv.exit.thread82 ], [ %phi.call, %look_up_tlv.exit ]
+  %phi.call86 = phi ptr [ getelementptr inbounds nuw (i8, ptr @p7_tags, i64 1344), %look_up_tlv.exit.thread82 ], [ %phi.call, %look_up_tlv.exit ]
   %58 = getelementptr inbounds nuw i8, ptr %phi.call86, i64 8
   %59 = load ptr, ptr %58, align 8
   %.not74 = icmp eq ptr %59, null

@@ -415,7 +415,7 @@ define internal noundef i64 @ossl_x509name_add_entry(i32 noundef %0, ptr noundef
   %11 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.35, i64 noundef 3) #9
   store i64 %11, ptr @ossl_x509name_add_entry.kwargs_ids, align 16
   %12 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.36, i64 noundef 3) #9
-  store i64 %12, ptr getelementptr inbounds (i8, ptr @ossl_x509name_add_entry.kwargs_ids, i64 8), align 8
+  store i64 %12, ptr getelementptr inbounds nuw (i8, ptr @ossl_x509name_add_entry.kwargs_ids, i64 8), align 8
   br label %13
 
 13:                                               ; preds = %10, %3

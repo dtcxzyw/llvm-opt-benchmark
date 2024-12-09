@@ -456,7 +456,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %or.cond, label %29, label %31
 
 29:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %9, ptr noundef nonnull @.str, i32 noundef 116, ptr noundef %30, ptr noundef null) #5
   br label %_ZN12ResourceMarkD2Ev.exit
 
@@ -481,7 +481,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %31
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1200), align 8
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1200), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %9, ptr noundef nonnull @.str, i32 noundef 53, ptr noundef %47, ptr noundef null) #5
   br label %_ZL11jstr_to_utfP7JNIEnv_P8_jstringP10JavaThread.exit
 
@@ -554,7 +554,7 @@ _ZN15PerfDataManager6existsEPKc.exit:             ; preds = %75
   br i1 %.not57, label %_ZN15PerfDataManager6existsEPKc.exit.thread, label %78
 
 78:                                               ; preds = %_ZN15PerfDataManager6existsEPKc.exit
-  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %9, ptr noundef nonnull @.str, i32 noundef 131, ptr noundef %79, ptr noundef nonnull @.str.4) #5
   br label %108
 
@@ -584,7 +584,7 @@ _ZN15PerfDataManager6existsEPKc.exit.thread:      ; preds = %75, %_ZN15PerfDataM
   br i1 %.not58, label %91, label %108
 
 89:                                               ; preds = %_ZN15PerfDataManager6existsEPKc.exit.thread
-  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %9, ptr noundef nonnull @.str, i32 noundef 155, ptr noundef %90, ptr noundef null) #5
   br label %108
 
@@ -762,7 +762,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %or.cond, label %32, label %34
 
 32:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1200), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1200), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %11, ptr noundef nonnull @.str, i32 noundef 177, ptr noundef %33, ptr noundef null) #5
   br label %_ZN12ResourceMarkD2Ev.exit
 
@@ -772,7 +772,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %or.cond3.not, label %38, label %36
 
 36:                                               ; preds = %34
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %11, ptr noundef nonnull @.str, i32 noundef 184, ptr noundef %37, ptr noundef null) #5
   br label %_ZN12ResourceMarkD2Ev.exit
 
@@ -781,7 +781,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not, label %_ZL11jstr_to_utfP7JNIEnv_P8_jstringP10JavaThread.exit, label %39
 
 39:                                               ; preds = %38
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %11, ptr noundef nonnull @.str, i32 noundef 191, ptr noundef %40, ptr noundef null) #5
   br label %_ZN12ResourceMarkD2Ev.exit
 
@@ -885,7 +885,7 @@ _ZN15PerfDataManager6existsEPKc.exit:             ; preds = %92
   br i1 %.not68, label %_ZN15PerfDataManager6existsEPKc.exit.thread, label %95
 
 95:                                               ; preds = %_ZN15PerfDataManager6existsEPKc.exit
-  %96 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %11, ptr noundef nonnull @.str, i32 noundef 214, ptr noundef %96, ptr noundef nonnull @.str.5) #5
   br label %113
 

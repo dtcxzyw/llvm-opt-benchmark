@@ -1243,7 +1243,7 @@ declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 no
 ; Function Attrs: mustprogress uwtable
 define void @_ZN22MeshShaderRenderPluginC1Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((104, 113)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i8 1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -1258,23 +1258,23 @@ define void @_ZN22MeshShaderRenderPluginC1Ev(ptr noundef nonnull align 8 derefer
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT22MeshShaderRenderPlugin, i64 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTT22MeshShaderRenderPlugin, i64 8), align 8
   store ptr %9, ptr %8, align 8
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT22MeshShaderRenderPlugin, i64 16), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTT22MeshShaderRenderPlugin, i64 16), align 8
   %11 = getelementptr i8, ptr %9, i64 -24
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %8, i64 %12
   store ptr %10, ptr %13, align 8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT22MeshShaderRenderPlugin, i64 24), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTT22MeshShaderRenderPlugin, i64 24), align 8
   %15 = load ptr, ptr %8, align 8
   %16 = getelementptr i8, ptr %15, i64 -32
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %8, i64 %17
   store ptr %14, ptr %18, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22MeshShaderRenderPlugin, i64 32), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22MeshShaderRenderPlugin, i64 224), ptr %8, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22MeshShaderRenderPlugin, i64 336), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22MeshShaderRenderPlugin, i64 400), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22MeshShaderRenderPlugin, i64 32), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22MeshShaderRenderPlugin, i64 224), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22MeshShaderRenderPlugin, i64 336), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22MeshShaderRenderPlugin, i64 400), ptr %5, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1318,7 +1318,7 @@ define void @_ZN22MeshShaderRenderPluginC1Ev(ptr noundef nonnull align 8 derefer
 
 35:                                               ; preds = %30, %32, %28
   %.pn.pn = phi { ptr, i32 } [ %29, %28 ], [ %33, %32 ], [ %31, %30 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %2, align 8
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #24
   resume { ptr, i32 } %.pn.pn
 }
@@ -1329,7 +1329,7 @@ declare void @_ZN9QFileInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13MeshLabPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   ret void

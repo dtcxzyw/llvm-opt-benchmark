@@ -135,7 +135,7 @@ declare dso_local void @ttm_resource_manager_debug(ptr noundef, ptr noundef) loc
 define dso_local ptr @intel_memory_region_create(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i16 noundef zeroext %6, i16 noundef zeroext %7, ptr noundef %8) local_unnamed_addr #2 align 16 {
   %10 = alloca i64, align 8
   %11 = alloca [4 x i8], align 1
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %13 = tail call noalias noundef align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3520, i64 noundef 256) #12
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread13, label %15

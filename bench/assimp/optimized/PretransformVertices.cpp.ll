@@ -155,7 +155,7 @@ $_ZTV17DeadlyImportError = comdat any
 define void @_ZN6Assimp20PretransformVerticesC2Ev(ptr noundef nonnull align 8 dereferenceable(93) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp20PretransformVerticesE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp20PretransformVerticesE, i64 16), ptr %this, align 8
   %mConfigKeepHierarchy = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 0, ptr %mConfigKeepHierarchy, align 8
   %mConfigNormalize = getelementptr inbounds nuw i8, ptr %this, i64 25
@@ -4643,7 +4643,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #21
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry

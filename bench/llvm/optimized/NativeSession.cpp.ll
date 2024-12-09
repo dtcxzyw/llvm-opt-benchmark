@@ -323,7 +323,7 @@ define dso_local void @_ZN4llvm3pdb13NativeSessionC2ESt10unique_ptrINS0_7PDBFile
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %class.anon, align 1
   %7 = alloca %"class.llvm::Expected.196", align 8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN4llvm3pdb13NativeSessionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTVN4llvm3pdb13NativeSessionE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %1, align 8
   store i64 %9, ptr %8, align 8
@@ -425,7 +425,7 @@ declare void @_ZN4llvm3pdb11SymbolCacheC1ERNS0_13NativeSessionEPNS0_9DbiStreamE(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm3pdb13NativeSessionD2Ev(ptr noundef nonnull align 8 dereferenceable(584) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN4llvm3pdb13NativeSessionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTVN4llvm3pdb13NativeSessionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %3 = load i32, ptr %2, align 8
   %.not.i.i = icmp eq i32 %3, 0
@@ -726,7 +726,7 @@ define dso_local void @_ZN4llvm3pdb13NativeSession13createFromPdbESt10unique_ptr
   store ptr %18, ptr %25, align 8, !noalias !11
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 %23, ptr %26, align 8, !noalias !11
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4llvm22MemoryBufferByteStreamE, i64 16), ptr %14, align 8, !noalias !11
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4llvm22MemoryBufferByteStreamE, i64 16), ptr %14, align 8, !noalias !11
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i64 %15, ptr %27, align 8, !noalias !11
   %28 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #18, !noalias !14
@@ -957,7 +957,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 33
   store i8 1, ptr %22, align 1, !noalias !35
   call void @_ZN4llvm11StringErrorC2ESt10error_codeRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(57) %20, i32 %.sroa.0.0.copyload.i, ptr %.sroa.31.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(34) %7) #16, !noalias !35
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm3pdb8RawErrorE, i64 16), ptr %20, align 8, !noalias !35
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3pdb8RawErrorE, i64 16), ptr %20, align 8, !noalias !35
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i8, ptr %23, align 8
@@ -1007,7 +1007,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4
   store ptr %45, ptr %52, align 8, !noalias !41
   %53 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store i64 %50, ptr %53, align 8, !noalias !41
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4llvm22MemoryBufferByteStreamE, i64 16), ptr %43, align 8, !noalias !41
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4llvm22MemoryBufferByteStreamE, i64 16), ptr %43, align 8, !noalias !41
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store i64 %27, ptr %54, align 8, !noalias !41
   %55 = load ptr, ptr %3, align 8
@@ -1080,7 +1080,7 @@ _ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i: ; preds = %26
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %78, align 1, !noalias !51
   call void @_ZN4llvm11StringErrorC2ESt10error_codeRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(57) %76, i32 %39, ptr %75, ptr noundef nonnull align 8 dereferenceable(34) %6) #16, !noalias !51
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm3pdb8RawErrorE, i64 16), ptr %76, align 8, !noalias !51
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3pdb8RawErrorE, i64 16), ptr %76, align 8, !noalias !51
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !48
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %80 = load i8, ptr %79, align 8
@@ -1166,7 +1166,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 33
   store i8 1, ptr %29, align 1, !noalias !63
   call void @_ZN4llvm11StringErrorC2ESt10error_codeRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(57) %27, i32 %22, ptr %26, ptr noundef nonnull align 8 dereferenceable(34) %7) #16, !noalias !63
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm3pdb8RawErrorE, i64 16), ptr %27, align 8, !noalias !63
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3pdb8RawErrorE, i64 16), ptr %27, align 8, !noalias !63
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !60
   store ptr %27, ptr %0, align 8, !alias.scope !60
   br label %_ZNSt10unique_ptrIN4llvm20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEESt14default_deleteIS3_EED2Ev.exit
@@ -1321,7 +1321,7 @@ _ZN4llvm5ErrorD2Ev.exit5:                         ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %28, align 1, !noalias !84
   call void @_ZN4llvm11StringErrorC2ESt10error_codeRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(57) %25, i32 3, ptr nonnull %26, ptr noundef nonnull align 8 dereferenceable(34) %5) #16, !noalias !84
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm3pdb8RawErrorE, i64 16), ptr %25, align 8, !noalias !84
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3pdb8RawErrorE, i64 16), ptr %25, align 8, !noalias !84
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !81
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load i8, ptr %29, align 8
@@ -2153,7 +2153,7 @@ define dso_local void @_ZN4llvm3pdb13NativeSession22findSymbolBySectOffsetEjjNS0
   br i1 %17, label %22, label %18
 
 18:                                               ; preds = %12
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVZN4llvm3pdb13NativeSession20parseSectionContribsEvE7Visitor, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVZN4llvm3pdb13NativeSession20parseSectionContribsEvE7Visitor, i64 16), ptr %7, align 8
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -2205,7 +2205,7 @@ define dso_local void @_ZN4llvm3pdb13NativeSession20parseSectionContribsEv(ptr n
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVZN4llvm3pdb13NativeSession20parseSectionContribsEvE7Visitor, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVZN4llvm3pdb13NativeSession20parseSectionContribsEvE7Visitor, i64 16), ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3262,7 +3262,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZL15getDbiStreamPt
   store i8 3, ptr %43, align 8, !noalias !167
   %44 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm3pdb14RawErrCategoryEv() #16, !noalias !167
   call void @_ZN4llvm11StringErrorC2ERKNS_5TwineESt10error_code(ptr noundef nonnull align 8 dereferenceable(57) %41, ptr noundef nonnull align 8 dereferenceable(34) %4, i32 1, ptr nonnull %44) #16, !noalias !167
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm3pdb8RawErrorE, i64 16), ptr %41, align 8, !noalias !167
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3pdb8RawErrorE, i64 16), ptr %41, align 8, !noalias !167
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !164
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %46 = load i8, ptr %45, align 8
@@ -3473,7 +3473,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm3pdb8RawErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm11StringErrorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm11StringErrorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   ret void
@@ -3481,7 +3481,7 @@ define linkonce_odr hidden void @_ZN4llvm3pdb8RawErrorD2Ev(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm3pdb8RawErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm11StringErrorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm11StringErrorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #17
@@ -3502,7 +3502,7 @@ define linkonce_odr hidden void @_ZNK4llvm13ErrorInfoBase7messageB5cxx11Ev(ptr d
   store i32 1, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %0, ptr %8, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
@@ -4051,7 +4051,7 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5
   store ptr null, ptr %1, align 8, !noalias !223
   %155 = load ptr, ptr %2, align 8, !noalias !226
   store ptr null, ptr %2, align 8, !noalias !226
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %158 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18
@@ -8207,7 +8207,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE18uninitiali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm22MemoryBufferByteStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4llvm22MemoryBufferByteStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4llvm22MemoryBufferByteStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -8227,7 +8227,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; pred
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm22MemoryBufferByteStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4llvm22MemoryBufferByteStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4llvm22MemoryBufferByteStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null

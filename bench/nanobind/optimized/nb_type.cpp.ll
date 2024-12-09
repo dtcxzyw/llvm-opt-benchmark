@@ -1321,11 +1321,11 @@ _ZNK8nanobind3str5c_strEv.exit:                   ; preds = %.thread419
 
 275:                                              ; preds = %274
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %6, ptr noundef nonnull align 16 dereferenceable(80) @__const._ZN8nanobind6detailL10nb_type_tpEm.slots, i64 80, i1 false)
-  %276 = load i64, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 32), align 8
+  %276 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyType_Type, i64 32), align 8
   %277 = add i64 %267, 96
   %278 = add i64 %277, %276
   %279 = trunc i64 %278 to i32
-  %280 = load i64, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 40), align 8
+  %280 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyType_Type, i64 40), align 8
   %281 = trunc i64 %280 to i32
   %282 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 38, ptr noundef nonnull @.str.20, i64 noundef %267) #28
   store ptr %7, ptr %8, align 8
@@ -5645,7 +5645,7 @@ _ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_8ptr_hashESt8eq
   br label %234
 
 234:                                              ; preds = %227, %230, %233, %222
-  %235 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 48), align 8
+  %235 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyType_Type, i64 48), align 8
   tail call void %235(ptr noundef nonnull %0)
   ret void
 }
@@ -5713,7 +5713,7 @@ _ZL10_Py_DECREFP7_object.exit26:                  ; preds = %20, %23
   br label %31
 
 31:                                               ; preds = %.sink.split, %25
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 152), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyType_Type, i64 152), align 8
   %33 = tail call noundef i32 %32(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %_ZL10_Py_DECREFP7_object.exit
 
@@ -5785,7 +5785,7 @@ define internal noundef i32 @_ZN8nanobind6detailL12nb_type_initEP7_objectS2_S2_(
   br label %54
 
 35:                                               ; preds = %25
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 296), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyType_Type, i64 296), align 8
   %37 = tail call noundef i32 %36(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   %.not35 = icmp eq i32 %37, 0
   br i1 %.not35, label %38, label %54

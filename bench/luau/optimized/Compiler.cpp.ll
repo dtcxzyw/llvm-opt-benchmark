@@ -1890,7 +1890,7 @@ define internal void @__cxx_global_var_init.51() #0 section ".text.startup" comd
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau12CompileErrorC2ERKNS_8LocationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4Luau12CompileErrorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4Luau12CompileErrorE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1919,7 +1919,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4Luau12CompileErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4Luau12CompileErrorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4Luau12CompileErrorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
@@ -1931,7 +1931,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4Luau12CompileErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4Luau12CompileErrorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4Luau12CompileErrorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #24
@@ -1966,7 +1966,7 @@ define dso_local void @_ZN4Luau12CompileError5raiseERKNS_8LocationEPKcz(ptr noca
   call void @_ZN4Luau7vformatB5cxx11EPKcP13__va_list_tag(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef %1, ptr noundef nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
   %5 = call ptr @__cxa_allocate_exception(i64 56) #24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4Luau12CompileErrorE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4Luau12CompileErrorE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %0, i64 16, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -2099,7 +2099,7 @@ _ZNSt12_Vector_baseIPN4Luau15AstExprFunctionESaIS2_EE11_M_allocateEm.exit.i.i: ;
   %53 = phi i8 [ 0, %4 ], [ %51, %_ZN4LuauL37setCompileOptionsForNativeCompilationERNS_14CompileOptionsE.exit ]
   %54 = load ptr, ptr %1, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau8Compiler15FunctionVisitorE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau8Compiler15FunctionVisitorE, i64 16), ptr %8, align 8
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %7, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -2187,7 +2187,7 @@ _ZN4LuauL37setCompileOptionsForNativeCompilationERNS_14CompileOptionsE.exit69: ;
 .critedge2:                                       ; preds = %87, %90
   %91 = getelementptr inbounds nuw i8, ptr %9, i64 1025
   %92 = getelementptr inbounds nuw i8, ptr %9, i64 1026
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau8Compiler11FenvVisitorE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau8Compiler11FenvVisitorE, i64 16), ptr %10, align 8
   %93 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %91, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -3312,7 +3312,7 @@ _ZN4Luau8Compiler11closeLocalsEm.exit:            ; preds = %._crit_edge.i, %.lr
 
 198:                                              ; preds = %192
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau8Compiler19ConstUpvalueVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau8Compiler19ConstUpvalueVisitorE, i64 16), ptr %4, align 8
   %199 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %199, align 8
   %200 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3353,7 +3353,7 @@ _ZN4Luau8Compiler11closeLocalsEm.exit:            ; preds = %._crit_edge.i, %.lr
 
 212:                                              ; preds = %.loopexit.split-lp.i, %.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau8Compiler19ConstUpvalueVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau8Compiler19ConstUpvalueVisitorE, i64 16), ptr %4, align 8
   %213 = load ptr, ptr %200, align 8
   %.not.i.i.i.i.i = icmp eq ptr %213, null
   br i1 %.not.i.i.i.i.i, label %.body, label %214
@@ -3373,7 +3373,7 @@ _ZN4Luau8Compiler11closeLocalsEm.exit:            ; preds = %._crit_edge.i, %.lr
 
 ._crit_edge.i79:                                  ; preds = %._crit_edge.loopexit.i, %204
   %220 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %205, %204 ]
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau8Compiler19ConstUpvalueVisitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau8Compiler19ConstUpvalueVisitorE, i64 16), ptr %4, align 8
   %.not.i.i.i.i6.i = icmp eq ptr %220, null
   br i1 %.not.i.i.i.i6.i, label %_ZN4Luau8Compiler17gatherConstUpvalsEPNS_15AstExprFunctionE.exit, label %221
 
@@ -3754,7 +3754,7 @@ _ZN4Luau8Compiler17gatherConstUpvalsEPNS_15AstExprFunctionE.exit: ; preds = %._c
   br i1 %422, label %424, label %435
 
 424:                                              ; preds = %423
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau8Compiler13ReturnVisitorE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau8Compiler13ReturnVisitorE, i64 16), ptr %8, align 8
   %425 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %0, ptr %425, align 8
   %426 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -4450,7 +4450,7 @@ declare void @_ZN4Luau11ParseErrorsC1ESt6vectorINS_10ParseErrorESaIS2_EE(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau11ParseErrorsD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4Luau11ParseErrorsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4Luau11ParseErrorsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -21895,7 +21895,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4Luau8Compiler21validateContinueUntilEPNS_7AstStatEPNS_7AstExprEPNS_12AstStatBlockEm(ptr noundef nonnull align 8 dereferenceable(1200) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.Luau::Compiler::UndefinedLocalVisitor", align 8
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau8Compiler21UndefinedLocalVisitorE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau8Compiler21UndefinedLocalVisitorE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -22152,7 +22152,7 @@ _ZN4Luau12DenseHashSetIPNS_8AstLocalENS_16DenseHashPointerESt8equal_toIS2_EE6ins
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit44
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit44 ], [ %lpad.loopexit45, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp46, %.loopexit.split-lp.loopexit.split-lp ]
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau8Compiler21UndefinedLocalVisitorE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau8Compiler21UndefinedLocalVisitorE, i64 16), ptr %6, align 8
   %113 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %114 = load ptr, ptr %113, align 8
   %.not.i.i.i30 = icmp eq ptr %114, null
@@ -22206,7 +22206,7 @@ _ZN4Luau8Compiler21UndefinedLocalVisitorD2Ev.exit: ; preds = %.loopexit.split-lp
   unreachable
 
 136:                                              ; preds = %127
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau8Compiler21UndefinedLocalVisitorE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau8Compiler21UndefinedLocalVisitorE, i64 16), ptr %6, align 8
   %137 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %138 = load ptr, ptr %137, align 8
   %.not.i.i.i32 = icmp eq ptr %138, null
@@ -22330,7 +22330,7 @@ _ZN4Luau6detail14DenseHashTableIPNS_8AstLocalES3_S3_NS0_16ItemInterfaceSetIS3_EE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau8Compiler21UndefinedLocalVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau8Compiler21UndefinedLocalVisitorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau8Compiler21UndefinedLocalVisitorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -22347,7 +22347,7 @@ _ZN4Luau12DenseHashSetIPNS_8AstLocalENS_16DenseHashPointerESt8equal_toIS2_EED2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau8Compiler21UndefinedLocalVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau8Compiler21UndefinedLocalVisitorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau8Compiler21UndefinedLocalVisitorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -26848,7 +26848,7 @@ _ZN4Luau8Compiler15compileExprAutoEPNS_7AstExprERNS0_8RegScopeE.exit44: ; preds 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4Luau8Compiler22resolveAssignConflictsEPNS_7AstStatERSt6vectorINS0_10AssignmentESaIS4_EERKNS_8AstArrayIPNS_7AstExprEEE(ptr noundef nonnull align 8 dereferenceable(1200) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %struct.Visitor, align 8
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVZN4Luau8Compiler22resolveAssignConflictsEPNS_7AstStatERSt6vectorINS0_10AssignmentESaIS4_EERKNS_8AstArrayIPNS_7AstExprEEEE7Visitor, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVZN4Luau8Compiler22resolveAssignConflictsEPNS_7AstStatERSt6vectorINS0_10AssignmentESaIS4_EERKNS_8AstArrayIPNS_7AstExprEEEE7Visitor, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -27366,7 +27366,7 @@ declare noundef i32 @_ZN4Luau15BytecodeBuilder18addConstantClosureEj(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau8Compiler19ConstUpvalueVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau8Compiler19ConstUpvalueVisitorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau8Compiler19ConstUpvalueVisitorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -27387,7 +27387,7 @@ _ZNSt6vectorIPN4Luau8AstLocalESaIS2_EED2Ev.exit:  ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau8Compiler19ConstUpvalueVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau8Compiler19ConstUpvalueVisitorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau8Compiler19ConstUpvalueVisitorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -28049,7 +28049,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 .lr.ph:                                           ; preds = %3, %_ZSt10_ConstructIN4Luau10ParseErrorEJRKS1_EEvPT_DpOT0_.exit
   %.014 = phi ptr [ %12, %_ZSt10_ConstructIN4Luau10ParseErrorEJRKS1_EEvPT_DpOT0_.exit ], [ %2, %3 ]
   %.sroa.08.013 = phi ptr [ %11, %_ZSt10_ConstructIN4Luau10ParseErrorEJRKS1_EEvPT_DpOT0_.exit ], [ %0, %3 ]
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4Luau10ParseErrorE, i64 16), ptr %.014, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4Luau10ParseErrorE, i64 16), ptr %.014, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)

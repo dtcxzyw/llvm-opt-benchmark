@@ -5942,7 +5942,7 @@ define hidden void @proto_register_h245() local_unnamed_addr #1 {
   %5 = tail call ptr @wmem_epan_scope() #10
   %6 = tail call ptr @wmem_file_scope() #10
   %7 = tail call noalias ptr @wmem_map_new_autoreset(ptr noundef %5, ptr noundef %6, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #10
-  store ptr %7, ptr getelementptr inbounds (i8, ptr @h223_pending_olc_reqs, i64 8), align 8
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @h223_pending_olc_reqs, i64 8), align 8
   %8 = tail call ptr @wmem_epan_scope() #10
   %9 = tail call ptr @wmem_file_scope() #10
   %10 = tail call noalias ptr @wmem_map_new_autoreset(ptr noundef %8, ptr noundef %9, ptr noundef nonnull @wmem_str_hash, ptr noundef nonnull @g_str_equal) #10

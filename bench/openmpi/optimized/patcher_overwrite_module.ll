@@ -92,10 +92,10 @@ mca_patcher_is_function_patched.exit.thread:      ; preds = %15, %18, %22, %mca_
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2, 1) i32 @mca_patcher_overwrite_patch_address(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @mca_patcher_base_patch_t_class, i64 56), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_patcher_base_patch_t_class, i64 56), align 8
   %4 = tail call noalias ptr @malloc(i64 noundef %3) #5
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @mca_patcher_base_patch_t_class, i64 32), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_patcher_base_patch_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %5, %6
   br i1 %.not.i, label %8, label %7
 
@@ -130,7 +130,7 @@ opal_obj_new.exit.thread9:                        ; preds = %.lr.ph.i.i, %9
   store i64 %0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 %1, ptr %17, align 8
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_patcher_overwrite_module, i64 88)) #4
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_patcher_overwrite_module, i64 88)) #4
   %19 = load i64, ptr %17, align 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 128
   store i32 13, ptr %20, align 8
@@ -145,19 +145,19 @@ opal_obj_new.exit.thread9:                        ; preds = %.lr.ph.i.i, %9
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 76
   store i8 -29, ptr %25, align 1
   tail call void @mca_base_patcher_patch_apply_binary(ptr noundef nonnull %4) #4
-  %26 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_patcher_overwrite_module, i64 48), align 8
+  %26 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_patcher_overwrite_module, i64 48), align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store volatile ptr %26, ptr %27, align 8
-  %28 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_patcher_overwrite_module, i64 48), align 8
+  %28 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_patcher_overwrite_module, i64 48), align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store volatile ptr %4, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store volatile ptr getelementptr inbounds (i8, ptr @mca_patcher_overwrite_module, i64 24), ptr %30, align 8
-  store volatile ptr %4, ptr getelementptr inbounds (i8, ptr @mca_patcher_overwrite_module, i64 48), align 8
-  %31 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_patcher_overwrite_module, i64 64), align 8
+  store volatile ptr getelementptr inbounds nuw (i8, ptr @mca_patcher_overwrite_module, i64 24), ptr %30, align 8
+  store volatile ptr %4, ptr getelementptr inbounds nuw (i8, ptr @mca_patcher_overwrite_module, i64 48), align 8
+  %31 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @mca_patcher_overwrite_module, i64 64), align 8
   %32 = add i64 %31, 1
-  store volatile i64 %32, ptr getelementptr inbounds (i8, ptr @mca_patcher_overwrite_module, i64 64), align 8
-  %33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_patcher_overwrite_module, i64 88)) #4
+  store volatile i64 %32, ptr getelementptr inbounds nuw (i8, ptr @mca_patcher_overwrite_module, i64 64), align 8
+  %33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_patcher_overwrite_module, i64 88)) #4
   br label %opal_obj_new.exit.thread
 
 opal_obj_new.exit.thread:                         ; preds = %8, %opal_obj_new.exit.thread9

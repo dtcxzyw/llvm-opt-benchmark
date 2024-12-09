@@ -37,7 +37,7 @@ define hidden noundef nonnull ptr @SplashGetInstance() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11808) @SplashGetInstance.splash, i8 0, i64 11808, i1 false)
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 10628), align 4
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 10628), align 4
   store i1 true, ptr @SplashGetInstance.preInitialized, align 4
   br label %2
 
@@ -54,24 +54,24 @@ define void @SplashSetFileJarName(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %.b.i, label %.SplashGetInstance.exit_crit_edge, label %3
 
 .SplashGetInstance.exit_crit_edge:                ; preds = %2
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 11672), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11672), align 8
   br label %SplashGetInstance.exit
 
 3:                                                ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11808) @SplashGetInstance.splash, i8 0, i64 11808, i1 false)
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 10628), align 4
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 10628), align 4
   store i1 true, ptr @SplashGetInstance.preInitialized, align 4
   br label %SplashGetInstance.exit
 
 SplashGetInstance.exit:                           ; preds = %.SplashGetInstance.exit_crit_edge, %3
   %4 = phi ptr [ %.pre, %.SplashGetInstance.exit_crit_edge ], [ null, %3 ]
   tail call void @free(ptr noundef %4) #20
-  %5 = tail call ptr @SplashConvertStringAlloc(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 11680)) #20
-  store ptr %5, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 11672), align 8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 11688), align 8
+  %5 = tail call ptr @SplashConvertStringAlloc(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11680)) #20
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11672), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11688), align 8
   tail call void @free(ptr noundef %6) #20
-  %7 = tail call ptr @SplashConvertStringAlloc(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 11696)) #20
-  store ptr %7, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 11688), align 8
+  %7 = tail call ptr @SplashConvertStringAlloc(ptr noundef %1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11696)) #20
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11688), align 8
   ret void
 }
 
@@ -91,9 +91,9 @@ define i32 @SplashInit() local_unnamed_addr #2 {
 
 SplashGetInstance.exit:                           ; preds = %0, %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11808) @SplashGetInstance.splash, i8 0, i64 11808, i1 false)
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 10628), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 11700), align 4
-  tail call void @initFormat(ptr noundef nonnull getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 9320), i32 noundef 16711680, i32 noundef 65280, i32 noundef 255, i32 noundef -16777216) #20
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 10628), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11700), align 4
+  tail call void @initFormat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 9320), i32 noundef 16711680, i32 noundef 65280, i32 noundef 255, i32 noundef -16777216) #20
   %2 = tail call i32 @SplashInitPlatform(ptr noundef nonnull @SplashGetInstance.splash) #20
   ret i32 %2
 }
@@ -109,18 +109,18 @@ define void @SplashClose() local_unnamed_addr #2 {
 
 SplashGetInstance.exit.thread:                    ; preds = %0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11808) @SplashGetInstance.splash, i8 0, i64 11808, i1 false)
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 10628), align 4
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 10628), align 4
   store i1 true, ptr @SplashGetInstance.preInitialized, align 4
   br label %3
 
 SplashGetInstance.exit:                           ; preds = %0
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 11668), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11668), align 4
   %1 = icmp sgt i32 %.pre, 0
   br i1 %1, label %2, label %3
 
 2:                                                ; preds = %SplashGetInstance.exit
   tail call void @SplashLock(ptr noundef nonnull @SplashGetInstance.splash) #20
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 11668), align 4
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11668), align 4
   tail call void @SplashClosePlatform(ptr noundef nonnull @SplashGetInstance.splash) #20
   tail call void @SplashUnlock(ptr noundef nonnull @SplashGetInstance.splash) #20
   br label %3
@@ -201,24 +201,24 @@ define hidden void @SplashCleanup(ptr noundef initializes((10628, 10632)) %0) lo
   br i1 %.b.i.i, label %.SplashGetInstance.exit_crit_edge.i, label %25
 
 .SplashGetInstance.exit_crit_edge.i:              ; preds = %24
-  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 11672), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11672), align 8
   br label %SplashSetFileJarName.exit
 
 25:                                               ; preds = %24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11808) @SplashGetInstance.splash, i8 0, i64 11808, i1 false)
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 10628), align 4
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 10628), align 4
   store i1 true, ptr @SplashGetInstance.preInitialized, align 4
   br label %SplashSetFileJarName.exit
 
 SplashSetFileJarName.exit:                        ; preds = %.SplashGetInstance.exit_crit_edge.i, %25
   %26 = phi ptr [ %.pre.i, %.SplashGetInstance.exit_crit_edge.i ], [ null, %25 ]
   tail call void @free(ptr noundef %26) #20
-  %27 = tail call ptr @SplashConvertStringAlloc(ptr noundef null, ptr noundef nonnull getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 11680)) #20
-  store ptr %27, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 11672), align 8
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 11688), align 8
+  %27 = tail call ptr @SplashConvertStringAlloc(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11680)) #20
+  store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11672), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11688), align 8
   tail call void @free(ptr noundef %28) #20
-  %29 = tail call ptr @SplashConvertStringAlloc(ptr noundef null, ptr noundef nonnull getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 11696)) #20
-  store ptr %29, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 11688), align 8
+  %29 = tail call ptr @SplashConvertStringAlloc(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11696)) #20
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11688), align 8
   ret void
 }
 
@@ -231,12 +231,12 @@ define void @SplashSetScaleFactor(float noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11808) @SplashGetInstance.splash, i8 0, i64 11808, i1 false)
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 10628), align 4
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 10628), align 4
   store i1 true, ptr @SplashGetInstance.preInitialized, align 4
   br label %SplashGetInstance.exit
 
 SplashGetInstance.exit:                           ; preds = %1, %2
-  store float %0, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 11700), align 4
+  store float %0, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11700), align 4
   ret void
 }
 
@@ -1027,12 +1027,12 @@ define internal fastcc i32 @SplashLoadStream(ptr noundef nonnull %0) unnamed_add
 
 SplashGetInstance.exit.thread:                    ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11808) @SplashGetInstance.splash, i8 0, i64 11808, i1 false)
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 10628), align 4
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 10628), align 4
   store i1 true, ptr @SplashGetInstance.preInitialized, align 4
   br label %6
 
 SplashGetInstance.exit:                           ; preds = %1
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 11668), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11668), align 4
   %2 = icmp slt i32 %.pre, 0
   br i1 %2, label %3, label %6
 
@@ -1079,7 +1079,7 @@ SplashGetInstance.exit:                           ; preds = %1
   br i1 %.not31, label %23, label %31
 
 23:                                               ; preds = %.thread, %17
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 11668), align 4
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11668), align 4
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %27
 
@@ -1089,7 +1089,7 @@ SplashGetInstance.exit:                           ; preds = %1
 
 27:                                               ; preds = %26, %23
   tail call void @SplashUnlock(ptr noundef nonnull @SplashGetInstance.splash) #20
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 11668), align 4
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11668), align 4
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %SplashClose.exit
 
@@ -1099,33 +1099,33 @@ SplashGetInstance.exit:                           ; preds = %1
 
 SplashGetInstance.exit.thread.i:                  ; preds = %30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11808) @SplashGetInstance.splash, i8 0, i64 11808, i1 false)
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 10628), align 4
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 10628), align 4
   store i1 true, ptr @SplashGetInstance.preInitialized, align 4
   br label %SplashClose.exit
 
 31:                                               ; preds = %17
-  store i32 0, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 10628), align 4
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 11668), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 10628), align 4
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11668), align 4
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %35
+  br i1 %33, label %SplashStart.exit, label %34
 
-34:                                               ; preds = %31
+SplashStart.exit:                                 ; preds = %31
   tail call void @SplashCreateThread(ptr noundef nonnull @SplashGetInstance.splash) #20
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11668), align 4
-  br label %SplashStart.exit
+  br label %36
 
-35:                                               ; preds = %31
+34:                                               ; preds = %31
   tail call void @SplashReconfigure(ptr noundef nonnull @SplashGetInstance.splash) #20
-  %36 = tail call i32 (...) @SplashTime() #20
-  store i32 %36, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 10464), align 8
-  br label %SplashStart.exit
+  %35 = tail call i32 (...) @SplashTime() #20
+  store i32 %35, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 10464), align 8
+  br label %36
 
-SplashStart.exit:                                 ; preds = %34, %35
+36:                                               ; preds = %34, %SplashStart.exit
   tail call void @SplashUnlock(ptr noundef nonnull @SplashGetInstance.splash) #20
   br label %SplashClose.exit
 
-SplashClose.exit:                                 ; preds = %SplashGetInstance.exit.thread.i, %30, %SplashStart.exit, %27, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %27 ], [ %20, %SplashStart.exit ], [ 0, %30 ], [ 0, %SplashGetInstance.exit.thread.i ]
+SplashClose.exit:                                 ; preds = %SplashGetInstance.exit.thread.i, %30, %36, %27, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %27 ], [ %20, %36 ], [ 0, %30 ], [ 0, %SplashGetInstance.exit.thread.i ]
   ret i32 %.0
 }
 

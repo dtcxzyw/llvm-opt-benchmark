@@ -2162,7 +2162,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %153, %159
   %.sroa.084.0 = phi ptr [ %179, %175 ], [ %199, %184 ], [ %spec.select, %202 ]
   %.sroa.4.0 = phi i64 [ %180, %175 ], [ %200, %184 ], [ %spec.select101, %202 ]
   call void @_ZN4llvm11SmallStringILj64EEC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr %.sroa.084.0, i64 %.sroa.4.0)
-  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 1))
+  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 1))
   %224 = load ptr, ptr %23, align 8
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 16
   %226 = load ptr, ptr %225, align 8

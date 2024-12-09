@@ -773,8 +773,8 @@ define hidden void @LoadFontDefault() local_unnamed_addr #5 {
   %0 = alloca %struct.Image, align 8
   %1 = alloca %struct.Texture, align 4
   %2 = alloca %struct.Image, align 8
-  store i32 224, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 4), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 8), align 8
+  store i32 224, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 8), align 8
   %3 = tail call noalias dereferenceable_or_null(32768) ptr @calloc(i64 noundef 16384, i64 noundef 2) #42
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -819,15 +819,15 @@ define hidden void @LoadFontDefault() local_unnamed_addr #5 {
 
 ._crit_edge:                                      ; preds = %17
   call void @LoadTextureFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Texture) align 4 %1, ptr noundef nonnull byval(%struct.Image) align 8 %0) #41
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) getelementptr inbounds (i8, ptr @defaultFont, i64 12), ptr noundef nonnull align 4 dereferenceable(20) %1, i64 20, i1 false)
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 4), align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) getelementptr inbounds nuw (i8, ptr @defaultFont, i64 12), ptr noundef nonnull align 4 dereferenceable(20) %1, i64 20, i1 false)
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 4), align 4
   %20 = sext i32 %19 to i64
   %21 = mul nsw i64 %20, 40
   %22 = call noalias ptr @malloc(i64 noundef %21) #43
-  store ptr %22, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 40), align 8
+  store ptr %22, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 40), align 8
   %23 = shl nsw i64 %20, 4
   %24 = call noalias ptr @malloc(i64 noundef %23) #43
-  store ptr %24, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 32), align 8
+  store ptr %24, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 32), align 8
   %25 = icmp sgt i32 %19, 0
   br i1 %25, label %.lr.ph, label %._crit_edge66
 
@@ -835,13 +835,13 @@ define hidden void @LoadFontDefault() local_unnamed_addr #5 {
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %53 ], [ 0, %._crit_edge ]
   %.04963 = phi i32 [ %.1, %53 ], [ 1, %._crit_edge ]
   %.05262 = phi i32 [ %.153, %53 ], [ 0, %._crit_edge ]
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 40), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 40), align 8
   %27 = getelementptr inbounds nuw %struct.GlyphInfo, ptr %26, i64 %indvars.iv75
   %28 = trunc i64 %indvars.iv75 to i32
   %29 = add i32 %28, 32
   store i32 %29, ptr %27, align 8
   %30 = sitofp i32 %.04963 to float
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 32), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 32), align 8
   %32 = getelementptr inbounds nuw %struct.Rectangle, ptr %31, i64 %indvars.iv75
   store float %30, ptr %32, align 4
   %33 = mul nsw i32 %.05262, 11
@@ -860,7 +860,7 @@ define hidden void @LoadFontDefault() local_unnamed_addr #5 {
   %43 = fadd float %39, 1.000000e+00
   %44 = fptosi float %43 to i32
   %45 = add nsw i32 %.04963, %44
-  %46 = load i32, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 16), align 8
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 16), align 8
   %.not = icmp slt i32 %45, %46
   br i1 %.not, label %53, label %47
 
@@ -889,19 +889,19 @@ define hidden void @LoadFontDefault() local_unnamed_addr #5 {
   call void @ImageFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %2, ptr noundef nonnull byval(%struct.Image) align 8 %0, <2 x float> %58, <2 x float> %59) #41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
-  %60 = load i32, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 4), align 4
+  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 4), align 4
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next76, %61
   br i1 %62, label %.lr.ph, label %._crit_edge66
 
 ._crit_edge66:                                    ; preds = %53, %._crit_edge
   call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %0) #41
-  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 32), align 8
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 32), align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 12
   %65 = load float, ptr %64, align 4
   %66 = fptosi float %65 to i32
   store i32 %66, ptr @defaultFont, align 8
-  %67 = load i32, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 4), align 4
+  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 4), align 4
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str, i32 noundef %67) #41
   ret void
 }
@@ -926,27 +926,27 @@ declare void @TraceLog(i32 noundef, ptr noundef, ...) local_unnamed_addr #8
 ; Function Attrs: nounwind uwtable
 define hidden void @UnloadFontDefault() local_unnamed_addr #10 {
   %1 = alloca %struct.Texture, align 8
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 4), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 4), align 4
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %0 ]
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 40), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 40), align 8
   %5 = getelementptr inbounds nuw %struct.GlyphInfo, ptr %4, i64 %indvars.iv, i32 4
   tail call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %5) #41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 4), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 4), align 4
   %7 = sext i32 %6 to i64
   %8 = icmp slt i64 %indvars.iv.next, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 4 dereferenceable(20) getelementptr inbounds (i8, ptr @defaultFont, i64 12), i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 4 dereferenceable(20) getelementptr inbounds nuw (i8, ptr @defaultFont, i64 12), i64 20, i1 false)
   tail call void @UnloadTexture(ptr noundef nonnull byval(%struct.Texture) align 8 %1) #41
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 40), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 40), align 8
   tail call void @free(ptr noundef %9) #41
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 32), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 32), align 8
   tail call void @free(ptr noundef %10) #41
   ret void
 }
@@ -1466,7 +1466,7 @@ GetLine.exit140.i:                                ; preds = %179, %.split.loop.e
 
 219:                                              ; preds = %._crit_edge177.i
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5), !noalias !7
-  %.sroa.1.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 12), align 4, !noalias !7
+  %.sroa.1.0.copyload.i.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 12), align 4, !noalias !7
   %.not.i.i = icmp eq i32 %.sroa.1.0.copyload.i.i, 0
   br i1 %.not.i.i, label %UnloadFont.exit.i, label %220
 
@@ -1499,18 +1499,18 @@ UnloadFontData.exit.i.i:                          ; preds = %._crit_edge.i.i.i, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6.12..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8, i64 16, i1 false)
   call void @UnloadTexture(ptr noundef nonnull byval(%struct.Texture) align 8 %5) #41, !noalias !7
   call void @free(ptr noundef %173) #41, !noalias !7
-  %.sroa.6.0.copyload14.pre = load i32, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 12), align 4
+  %.sroa.6.0.copyload14.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 12), align 4
   br label %UnloadFont.exit.i
 
 UnloadFont.exit.i:                                ; preds = %UnloadFontData.exit.i.i, %219
   %.sroa.6.0.copyload14 = phi i32 [ %.sroa.6.0.copyload14.pre, %UnloadFontData.exit.i.i ], [ 0, %219 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5), !noalias !7
   %.sroa.0.0.copyload11 = load i32, ptr @defaultFont, align 8
-  %.sroa.4.0.copyload12 = load i32, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 4), align 4
-  %.sroa.5.0.copyload13 = load i32, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 8), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @defaultFont, i64 16), i64 16, i1 false)
-  %.sroa.9.0.copyload15 = load ptr, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 32), align 8
-  %.sroa.10.0.copyload16 = load ptr, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 40), align 8
+  %.sroa.4.0.copyload12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 4), align 4
+  %.sroa.5.0.copyload13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 8), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @defaultFont, i64 16), i64 16, i1 false)
+  %.sroa.9.0.copyload15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 32), align 8
+  %.sroa.10.0.copyload16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 40), align 8
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.82, ptr noundef %1) #41, !noalias !7
   br label %LoadBMFont.exit
 
@@ -8531,7 +8531,7 @@ define void @UnloadFont(ptr nocapture noundef readonly byval(%struct.Font) align
   %2 = alloca %struct.Texture, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
-  %.sroa.1.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 12), align 4
+  %.sroa.1.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 12), align 4
   %.not = icmp eq i32 %4, %.sroa.1.0.copyload
   br i1 %.not, label %14, label %5
 
@@ -9113,7 +9113,7 @@ define void @DrawFPS(i32 noundef %0, i32 noundef %1) local_unnamed_addr #5 {
   %.sroa.410.0 = phi i32 [ 10496, %7 ], [ 40448, %5 ], [ 41216, %2 ]
   %.sroa.6.0 = phi i32 [ -13172736, %7 ], [ -13697024, %5 ], [ -16777216, %2 ]
   %9 = tail call ptr (ptr, ...) @TextFormat(ptr noundef nonnull @.str.60, i32 noundef %3)
-  %.sroa.1.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 12), align 4
+  %.sroa.1.0.copyload.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 12), align 4
   %.not.i = icmp eq i32 %.sroa.1.0.copyload.i, 0
   br i1 %.not.i, label %DrawText.exit, label %10
 
@@ -9135,7 +9135,7 @@ declare i32 @GetFPS() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define void @DrawText(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4) local_unnamed_addr #5 {
-  %.sroa.1.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 12), align 4
+  %.sroa.1.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 12), align 4
   %.not = icmp eq i32 %.sroa.1.0.copyload, 0
   br i1 %.not, label %12, label %6
 
@@ -9989,7 +9989,7 @@ define void @SetTextLineSpacing(i32 noundef %0) local_unnamed_addr #22 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @MeasureText(ptr noundef %0, i32 noundef %1) local_unnamed_addr #23 {
-  %.sroa.1.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 12), align 4
+  %.sroa.1.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 12), align 4
   %.not = icmp eq i32 %.sroa.1.0.copyload, 0
   br i1 %.not, label %8, label %3
 
@@ -10980,7 +10980,7 @@ define noundef nonnull ptr @TextSplit(ptr noundef readonly %0, i8 noundef signex
 
 10:                                               ; preds = %8
   store i8 0, ptr %6, align 1
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @TextSplit.buffer, i64 1), i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @TextSplit.buffer, i64 1), i64 %indvars.iv
   %11 = sext i32 %.120 to i64
   %12 = getelementptr inbounds [128 x ptr], ptr @TextSplit.result, i64 0, i64 %11
   store ptr %gep, ptr %12, align 8
@@ -11080,7 +11080,7 @@ define noalias noundef ptr @LoadUTF8(ptr nocapture noundef readonly %0, i32 noun
   %18 = trunc i32 %8 to i8
   %19 = and i8 %18, 63
   %20 = or disjoint i8 %19, -128
-  store i8 %20, ptr getelementptr inbounds (i8, ptr @CodepointToUTF8.utf8, i64 1), align 1
+  store i8 %20, ptr getelementptr inbounds nuw (i8, ptr @CodepointToUTF8.utf8, i64 1), align 1
   br label %CodepointToUTF8.exit
 
 21:                                               ; preds = %12
@@ -11096,11 +11096,11 @@ define noalias noundef ptr @LoadUTF8(ptr nocapture noundef readonly %0, i32 noun
   %28 = trunc i32 %27 to i8
   %29 = and i8 %28, 63
   %30 = or disjoint i8 %29, -128
-  store i8 %30, ptr getelementptr inbounds (i8, ptr @CodepointToUTF8.utf8, i64 1), align 1
+  store i8 %30, ptr getelementptr inbounds nuw (i8, ptr @CodepointToUTF8.utf8, i64 1), align 1
   %31 = trunc i32 %8 to i8
   %32 = and i8 %31, 63
   %33 = or disjoint i8 %32, -128
-  store i8 %33, ptr getelementptr inbounds (i8, ptr @CodepointToUTF8.utf8, i64 2), align 1
+  store i8 %33, ptr getelementptr inbounds nuw (i8, ptr @CodepointToUTF8.utf8, i64 2), align 1
   br label %CodepointToUTF8.exit
 
 34:                                               ; preds = %21
@@ -11116,16 +11116,16 @@ define noalias noundef ptr @LoadUTF8(ptr nocapture noundef readonly %0, i32 noun
   %41 = trunc i32 %40 to i8
   %42 = and i8 %41, 63
   %43 = or disjoint i8 %42, -128
-  store i8 %43, ptr getelementptr inbounds (i8, ptr @CodepointToUTF8.utf8, i64 1), align 1
+  store i8 %43, ptr getelementptr inbounds nuw (i8, ptr @CodepointToUTF8.utf8, i64 1), align 1
   %44 = lshr i32 %8, 6
   %45 = trunc i32 %44 to i8
   %46 = and i8 %45, 63
   %47 = or disjoint i8 %46, -128
-  store i8 %47, ptr getelementptr inbounds (i8, ptr @CodepointToUTF8.utf8, i64 2), align 1
+  store i8 %47, ptr getelementptr inbounds nuw (i8, ptr @CodepointToUTF8.utf8, i64 2), align 1
   %48 = trunc i32 %8 to i8
   %49 = and i8 %48, 63
   %50 = or disjoint i8 %49, -128
-  store i8 %50, ptr getelementptr inbounds (i8, ptr @CodepointToUTF8.utf8, i64 3), align 1
+  store i8 %50, ptr getelementptr inbounds nuw (i8, ptr @CodepointToUTF8.utf8, i64 3), align 1
   br label %CodepointToUTF8.exit
 
 CodepointToUTF8.exit:                             ; preds = %10, %14, %23, %34, %36
@@ -11174,7 +11174,7 @@ define noundef nonnull ptr @CodepointToUTF8(i32 noundef %0, ptr nocapture nounde
   %12 = trunc i32 %0 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  store i8 %14, ptr getelementptr inbounds (i8, ptr @CodepointToUTF8.utf8, i64 1), align 1
+  store i8 %14, ptr getelementptr inbounds nuw (i8, ptr @CodepointToUTF8.utf8, i64 1), align 1
   br label %45
 
 15:                                               ; preds = %6
@@ -11190,11 +11190,11 @@ define noundef nonnull ptr @CodepointToUTF8(i32 noundef %0, ptr nocapture nounde
   %22 = trunc i32 %21 to i8
   %23 = and i8 %22, 63
   %24 = or disjoint i8 %23, -128
-  store i8 %24, ptr getelementptr inbounds (i8, ptr @CodepointToUTF8.utf8, i64 1), align 1
+  store i8 %24, ptr getelementptr inbounds nuw (i8, ptr @CodepointToUTF8.utf8, i64 1), align 1
   %25 = trunc i32 %0 to i8
   %26 = and i8 %25, 63
   %27 = or disjoint i8 %26, -128
-  store i8 %27, ptr getelementptr inbounds (i8, ptr @CodepointToUTF8.utf8, i64 2), align 1
+  store i8 %27, ptr getelementptr inbounds nuw (i8, ptr @CodepointToUTF8.utf8, i64 2), align 1
   br label %45
 
 28:                                               ; preds = %15
@@ -11210,16 +11210,16 @@ define noundef nonnull ptr @CodepointToUTF8(i32 noundef %0, ptr nocapture nounde
   %35 = trunc i32 %34 to i8
   %36 = and i8 %35, 63
   %37 = or disjoint i8 %36, -128
-  store i8 %37, ptr getelementptr inbounds (i8, ptr @CodepointToUTF8.utf8, i64 1), align 1
+  store i8 %37, ptr getelementptr inbounds nuw (i8, ptr @CodepointToUTF8.utf8, i64 1), align 1
   %38 = lshr i32 %0, 6
   %39 = trunc i32 %38 to i8
   %40 = and i8 %39, 63
   %41 = or disjoint i8 %40, -128
-  store i8 %41, ptr getelementptr inbounds (i8, ptr @CodepointToUTF8.utf8, i64 2), align 1
+  store i8 %41, ptr getelementptr inbounds nuw (i8, ptr @CodepointToUTF8.utf8, i64 2), align 1
   %42 = trunc i32 %0 to i8
   %43 = and i8 %42, 63
   %44 = or disjoint i8 %43, -128
-  store i8 %44, ptr getelementptr inbounds (i8, ptr @CodepointToUTF8.utf8, i64 3), align 1
+  store i8 %44, ptr getelementptr inbounds nuw (i8, ptr @CodepointToUTF8.utf8, i64 3), align 1
   br label %45
 
 45:                                               ; preds = %8, %28, %30, %17, %4

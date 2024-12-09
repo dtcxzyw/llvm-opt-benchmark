@@ -15,7 +15,7 @@ define void @Java_sun_font_X11TextRenderer_doDrawGlyphList(ptr noundef %0, ptr n
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 800
   %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 248), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 248), align 8
   %12 = call i32 %10(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %11) #3
   %13 = call ptr @setupBlitVector(ptr noundef nonnull %0, ptr noundef %5, i32 noundef 0, i32 noundef %12) #3
   %14 = icmp eq ptr %13, null

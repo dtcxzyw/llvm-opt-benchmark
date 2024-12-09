@@ -93,7 +93,7 @@ lpad:                                             ; preds = %if.then.i.i.i6, %in
 
 if.then.i.i.i6:                                   ; preds = %invoke.cont
   %exception.i.i.i.i.i7 = tail call ptr @__cxa_allocate_exception(i64 16) #13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i7, align 8
   %_M_reason.i.i.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i7, i64 8
   store ptr @.str.1, ptr %_M_reason.i.i.i.i.i.i8, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i7, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #14

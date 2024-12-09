@@ -31798,7 +31798,7 @@ _ZN5alloc5alloc15exchange_malloc17h3d7b4c67f792c1f7E.llvm.1299376021755125212.ex
 176:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h83cf5c9df38271d1E.exit.i.i", %163
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19), !noalias !5699
   store ptr @"_ZN99_$LT$tokenizers..tokenizer..added_vocabulary..ENDS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hbe86c62eff33a6e0E", ptr %19, align 8, !noalias !5699
-  %177 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN99_$LT$tokenizers..tokenizer..added_vocabulary..ENDS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hbe86c62eff33a6e0E", i64 32) acquire, align 8, !noalias !5702
+  %177 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN99_$LT$tokenizers..tokenizer..added_vocabulary..ENDS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hbe86c62eff33a6e0E", i64 32) acquire, align 8, !noalias !5702
   %178 = icmp eq i32 %177, 4
   br i1 %178, label %"_ZN99_$LT$tokenizers..tokenizer..added_vocabulary..ENDS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd7975b216e3334deE.exit.i.i", label %179
 
@@ -31807,7 +31807,7 @@ _ZN5alloc5alloc15exchange_malloc17h3d7b4c67f792c1f7E.llvm.1299376021755125212.ex
   store ptr %19, ptr %18, align 8, !noalias !5702
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17), !noalias !5702
   store ptr %18, ptr %17, align 8, !noalias !5702
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17hbaef30e1fcb59d56E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN99_$LT$tokenizers..tokenizer..added_vocabulary..ENDS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hbe86c62eff33a6e0E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.16)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17hbaef30e1fcb59d56E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN99_$LT$tokenizers..tokenizer..added_vocabulary..ENDS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hbe86c62eff33a6e0E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.16)
           to label %.noexc77.i unwind label %.loopexit.loopexit.i, !noalias !5597
 
 .noexc77.i:                                       ; preds = %179
@@ -31847,7 +31847,7 @@ _ZN10tokenizers9tokenizer16added_vocabulary14ends_with_word17hd2368be811d70cffE.
   %192 = sub i64 %35, %.sroa.8.0.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !5706
   store ptr @"_ZN101_$LT$tokenizers..tokenizer..added_vocabulary..STARTS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2eea0250e974b81eE", ptr %16, align 8, !noalias !5706
-  %193 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN101_$LT$tokenizers..tokenizer..added_vocabulary..STARTS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2eea0250e974b81eE", i64 32) acquire, align 8, !noalias !5709
+  %193 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN101_$LT$tokenizers..tokenizer..added_vocabulary..STARTS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2eea0250e974b81eE", i64 32) acquire, align 8, !noalias !5709
   %194 = icmp eq i32 %193, 4
   br i1 %194, label %"_ZN101_$LT$tokenizers..tokenizer..added_vocabulary..STARTS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref17h7941d2b96f3e8d79E.exit.i.i", label %195
 
@@ -31856,7 +31856,7 @@ _ZN10tokenizers9tokenizer16added_vocabulary14ends_with_word17hd2368be811d70cffE.
   store ptr %16, ptr %15, align 8, !noalias !5709
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14), !noalias !5709
   store ptr %15, ptr %14, align 8, !noalias !5709
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17hc542bc05b2a977d7E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN101_$LT$tokenizers..tokenizer..added_vocabulary..STARTS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2eea0250e974b81eE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.16)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17hc542bc05b2a977d7E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN101_$LT$tokenizers..tokenizer..added_vocabulary..STARTS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2eea0250e974b81eE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.16)
           to label %.noexc81.i unwind label %.loopexit.loopexit.i, !noalias !5597
 
 .noexc81.i:                                       ; preds = %195
@@ -31918,7 +31918,7 @@ _ZN10tokenizers9tokenizer16added_vocabulary16starts_with_word17h35ad721d5728d00b
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !5720
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12), !noalias !5720
   store ptr @"_ZN106_$LT$tokenizers..tokenizer..added_vocabulary..LEFTMOST_SPACE_AT_END$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h70bd28db200f7db4E", ptr %12, align 8, !noalias !5720
-  %214 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN106_$LT$tokenizers..tokenizer..added_vocabulary..LEFTMOST_SPACE_AT_END$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h70bd28db200f7db4E", i64 32) acquire, align 8, !noalias !5723
+  %214 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN106_$LT$tokenizers..tokenizer..added_vocabulary..LEFTMOST_SPACE_AT_END$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h70bd28db200f7db4E", i64 32) acquire, align 8, !noalias !5723
   %215 = icmp eq i32 %214, 4
   br i1 %215, label %"_ZN106_$LT$tokenizers..tokenizer..added_vocabulary..LEFTMOST_SPACE_AT_END$u20$as$u20$core..ops..deref..Deref$GT$5deref17he2f948c956e7a554E.exit.i.i", label %216
 
@@ -31927,7 +31927,7 @@ _ZN10tokenizers9tokenizer16added_vocabulary16starts_with_word17h35ad721d5728d00b
   store ptr %12, ptr %11, align 8, !noalias !5723
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !5723
   store ptr %11, ptr %10, align 8, !noalias !5723
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h8c6be662b2e5d0baE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN106_$LT$tokenizers..tokenizer..added_vocabulary..LEFTMOST_SPACE_AT_END$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h70bd28db200f7db4E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.16)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h8c6be662b2e5d0baE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN106_$LT$tokenizers..tokenizer..added_vocabulary..LEFTMOST_SPACE_AT_END$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h70bd28db200f7db4E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.16)
           to label %.noexc90.i unwind label %.loopexit.loopexit.split-lp.i, !noalias !5597
 
 .noexc90.i:                                       ; preds = %216
@@ -31986,7 +31986,7 @@ _ZN10tokenizers9tokenizer16added_vocabulary16starts_with_word17h35ad721d5728d00b
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !5737
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !5737
   store ptr @"_ZN109_$LT$tokenizers..tokenizer..added_vocabulary..RIGHTMOST_SPACE_AT_START$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hebaddb8f44372bfeE", ptr %8, align 8, !noalias !5737
-  %237 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN109_$LT$tokenizers..tokenizer..added_vocabulary..RIGHTMOST_SPACE_AT_START$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hebaddb8f44372bfeE", i64 32) acquire, align 8, !noalias !5740
+  %237 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN109_$LT$tokenizers..tokenizer..added_vocabulary..RIGHTMOST_SPACE_AT_START$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hebaddb8f44372bfeE", i64 32) acquire, align 8, !noalias !5740
   %238 = icmp eq i32 %237, 4
   br i1 %238, label %"_ZN109_$LT$tokenizers..tokenizer..added_vocabulary..RIGHTMOST_SPACE_AT_START$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb5194360567434f7E.exit.i.i", label %239
 
@@ -31995,7 +31995,7 @@ _ZN10tokenizers9tokenizer16added_vocabulary16starts_with_word17h35ad721d5728d00b
   store ptr %8, ptr %7, align 8, !noalias !5740
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !5740
   store ptr %7, ptr %6, align 8, !noalias !5740
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h723bfb6b719b98a2E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN109_$LT$tokenizers..tokenizer..added_vocabulary..RIGHTMOST_SPACE_AT_START$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hebaddb8f44372bfeE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.16)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h723bfb6b719b98a2E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN109_$LT$tokenizers..tokenizer..added_vocabulary..RIGHTMOST_SPACE_AT_START$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hebaddb8f44372bfeE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.16)
           to label %.noexc103.i unwind label %.loopexit.loopexit.split-lp.i, !noalias !5597
 
 .noexc103.i:                                      ; preds = %239
@@ -35416,7 +35416,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN101_$LT$tokenizers..
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN101_$LT$tokenizers..tokenizer..added_vocabulary..STARTS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2eea0250e974b81eE", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN101_$LT$tokenizers..tokenizer..added_vocabulary..STARTS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2eea0250e974b81eE", i64 32) acquire, align 8, !noalias !6223
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN101_$LT$tokenizers..tokenizer..added_vocabulary..STARTS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2eea0250e974b81eE", i64 32) acquire, align 8, !noalias !6223
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17h194e9e117ace1475E.exit, label %7
 
@@ -35425,7 +35425,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN101_$LT$tokenizers..
   store ptr %4, ptr %3, align 8, !noalias !6223
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !6223
   store ptr %3, ptr %2, align 8, !noalias !6223
-  call void @_ZN3std3sys4sync4once5futex4Once4call17hc542bc05b2a977d7E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN101_$LT$tokenizers..tokenizer..added_vocabulary..STARTS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2eea0250e974b81eE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.16)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17hc542bc05b2a977d7E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN101_$LT$tokenizers..tokenizer..added_vocabulary..STARTS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2eea0250e974b81eE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !6223
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !6223
   br label %_ZN3std4sync4once4Once9call_once17h194e9e117ace1475E.exit
@@ -35446,7 +35446,7 @@ define void @"_ZN101_$LT$tokenizers..tokenizer..added_vocabulary..STARTS_WITH_WO
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN101_$LT$tokenizers..tokenizer..added_vocabulary..STARTS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2eea0250e974b81eE", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN101_$LT$tokenizers..tokenizer..added_vocabulary..STARTS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2eea0250e974b81eE", i64 32) acquire, align 8, !noalias !6226
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN101_$LT$tokenizers..tokenizer..added_vocabulary..STARTS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2eea0250e974b81eE", i64 32) acquire, align 8, !noalias !6226
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN101_$LT$tokenizers..tokenizer..added_vocabulary..STARTS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref17h7941d2b96f3e8d79E.exit", label %7
 
@@ -35455,7 +35455,7 @@ define void @"_ZN101_$LT$tokenizers..tokenizer..added_vocabulary..STARTS_WITH_WO
   store ptr %4, ptr %3, align 8, !noalias !6226
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !6226
   store ptr %3, ptr %2, align 8, !noalias !6226
-  call void @_ZN3std3sys4sync4once5futex4Once4call17hc542bc05b2a977d7E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN101_$LT$tokenizers..tokenizer..added_vocabulary..STARTS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2eea0250e974b81eE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.16)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17hc542bc05b2a977d7E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN101_$LT$tokenizers..tokenizer..added_vocabulary..STARTS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2eea0250e974b81eE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !6226
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !6226
   br label %"_ZN101_$LT$tokenizers..tokenizer..added_vocabulary..STARTS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref17h7941d2b96f3e8d79E.exit"
@@ -35476,7 +35476,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN99_$LT$tokenizers..t
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN99_$LT$tokenizers..tokenizer..added_vocabulary..ENDS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hbe86c62eff33a6e0E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN99_$LT$tokenizers..tokenizer..added_vocabulary..ENDS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hbe86c62eff33a6e0E", i64 32) acquire, align 8, !noalias !6229
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN99_$LT$tokenizers..tokenizer..added_vocabulary..ENDS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hbe86c62eff33a6e0E", i64 32) acquire, align 8, !noalias !6229
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17h18b6aba06d1db598E.exit, label %7
 
@@ -35485,7 +35485,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN99_$LT$tokenizers..t
   store ptr %4, ptr %3, align 8, !noalias !6229
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !6229
   store ptr %3, ptr %2, align 8, !noalias !6229
-  call void @_ZN3std3sys4sync4once5futex4Once4call17hbaef30e1fcb59d56E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN99_$LT$tokenizers..tokenizer..added_vocabulary..ENDS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hbe86c62eff33a6e0E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.16)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17hbaef30e1fcb59d56E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN99_$LT$tokenizers..tokenizer..added_vocabulary..ENDS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hbe86c62eff33a6e0E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !6229
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !6229
   br label %_ZN3std4sync4once4Once9call_once17h18b6aba06d1db598E.exit
@@ -35506,7 +35506,7 @@ define void @"_ZN99_$LT$tokenizers..tokenizer..added_vocabulary..ENDS_WITH_WORD$
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN99_$LT$tokenizers..tokenizer..added_vocabulary..ENDS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hbe86c62eff33a6e0E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN99_$LT$tokenizers..tokenizer..added_vocabulary..ENDS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hbe86c62eff33a6e0E", i64 32) acquire, align 8, !noalias !6232
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN99_$LT$tokenizers..tokenizer..added_vocabulary..ENDS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hbe86c62eff33a6e0E", i64 32) acquire, align 8, !noalias !6232
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN99_$LT$tokenizers..tokenizer..added_vocabulary..ENDS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd7975b216e3334deE.exit", label %7
 
@@ -35515,7 +35515,7 @@ define void @"_ZN99_$LT$tokenizers..tokenizer..added_vocabulary..ENDS_WITH_WORD$
   store ptr %4, ptr %3, align 8, !noalias !6232
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !6232
   store ptr %3, ptr %2, align 8, !noalias !6232
-  call void @_ZN3std3sys4sync4once5futex4Once4call17hbaef30e1fcb59d56E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN99_$LT$tokenizers..tokenizer..added_vocabulary..ENDS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hbe86c62eff33a6e0E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.16)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17hbaef30e1fcb59d56E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN99_$LT$tokenizers..tokenizer..added_vocabulary..ENDS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hbe86c62eff33a6e0E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !6232
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !6232
   br label %"_ZN99_$LT$tokenizers..tokenizer..added_vocabulary..ENDS_WITH_WORD$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd7975b216e3334deE.exit"
@@ -35536,7 +35536,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN109_$LT$tokenizers..
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN109_$LT$tokenizers..tokenizer..added_vocabulary..RIGHTMOST_SPACE_AT_START$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hebaddb8f44372bfeE", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN109_$LT$tokenizers..tokenizer..added_vocabulary..RIGHTMOST_SPACE_AT_START$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hebaddb8f44372bfeE", i64 32) acquire, align 8, !noalias !6235
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN109_$LT$tokenizers..tokenizer..added_vocabulary..RIGHTMOST_SPACE_AT_START$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hebaddb8f44372bfeE", i64 32) acquire, align 8, !noalias !6235
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17h904a90df2e430143E.exit, label %7
 
@@ -35545,7 +35545,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN109_$LT$tokenizers..
   store ptr %4, ptr %3, align 8, !noalias !6235
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !6235
   store ptr %3, ptr %2, align 8, !noalias !6235
-  call void @_ZN3std3sys4sync4once5futex4Once4call17h723bfb6b719b98a2E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN109_$LT$tokenizers..tokenizer..added_vocabulary..RIGHTMOST_SPACE_AT_START$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hebaddb8f44372bfeE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.16)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17h723bfb6b719b98a2E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN109_$LT$tokenizers..tokenizer..added_vocabulary..RIGHTMOST_SPACE_AT_START$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hebaddb8f44372bfeE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !6235
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !6235
   br label %_ZN3std4sync4once4Once9call_once17h904a90df2e430143E.exit
@@ -35566,7 +35566,7 @@ define void @"_ZN109_$LT$tokenizers..tokenizer..added_vocabulary..RIGHTMOST_SPAC
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN109_$LT$tokenizers..tokenizer..added_vocabulary..RIGHTMOST_SPACE_AT_START$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hebaddb8f44372bfeE", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN109_$LT$tokenizers..tokenizer..added_vocabulary..RIGHTMOST_SPACE_AT_START$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hebaddb8f44372bfeE", i64 32) acquire, align 8, !noalias !6238
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN109_$LT$tokenizers..tokenizer..added_vocabulary..RIGHTMOST_SPACE_AT_START$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hebaddb8f44372bfeE", i64 32) acquire, align 8, !noalias !6238
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN109_$LT$tokenizers..tokenizer..added_vocabulary..RIGHTMOST_SPACE_AT_START$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb5194360567434f7E.exit", label %7
 
@@ -35575,7 +35575,7 @@ define void @"_ZN109_$LT$tokenizers..tokenizer..added_vocabulary..RIGHTMOST_SPAC
   store ptr %4, ptr %3, align 8, !noalias !6238
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !6238
   store ptr %3, ptr %2, align 8, !noalias !6238
-  call void @_ZN3std3sys4sync4once5futex4Once4call17h723bfb6b719b98a2E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN109_$LT$tokenizers..tokenizer..added_vocabulary..RIGHTMOST_SPACE_AT_START$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hebaddb8f44372bfeE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.16)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17h723bfb6b719b98a2E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN109_$LT$tokenizers..tokenizer..added_vocabulary..RIGHTMOST_SPACE_AT_START$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hebaddb8f44372bfeE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !6238
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !6238
   br label %"_ZN109_$LT$tokenizers..tokenizer..added_vocabulary..RIGHTMOST_SPACE_AT_START$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb5194360567434f7E.exit"
@@ -35596,7 +35596,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN106_$LT$tokenizers..
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN106_$LT$tokenizers..tokenizer..added_vocabulary..LEFTMOST_SPACE_AT_END$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h70bd28db200f7db4E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN106_$LT$tokenizers..tokenizer..added_vocabulary..LEFTMOST_SPACE_AT_END$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h70bd28db200f7db4E", i64 32) acquire, align 8, !noalias !6241
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN106_$LT$tokenizers..tokenizer..added_vocabulary..LEFTMOST_SPACE_AT_END$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h70bd28db200f7db4E", i64 32) acquire, align 8, !noalias !6241
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17h9e380b73239ad622E.exit, label %7
 
@@ -35605,7 +35605,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN106_$LT$tokenizers..
   store ptr %4, ptr %3, align 8, !noalias !6241
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !6241
   store ptr %3, ptr %2, align 8, !noalias !6241
-  call void @_ZN3std3sys4sync4once5futex4Once4call17h8c6be662b2e5d0baE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN106_$LT$tokenizers..tokenizer..added_vocabulary..LEFTMOST_SPACE_AT_END$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h70bd28db200f7db4E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.16)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17h8c6be662b2e5d0baE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN106_$LT$tokenizers..tokenizer..added_vocabulary..LEFTMOST_SPACE_AT_END$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h70bd28db200f7db4E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !6241
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !6241
   br label %_ZN3std4sync4once4Once9call_once17h9e380b73239ad622E.exit
@@ -35626,7 +35626,7 @@ define void @"_ZN106_$LT$tokenizers..tokenizer..added_vocabulary..LEFTMOST_SPACE
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN106_$LT$tokenizers..tokenizer..added_vocabulary..LEFTMOST_SPACE_AT_END$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h70bd28db200f7db4E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN106_$LT$tokenizers..tokenizer..added_vocabulary..LEFTMOST_SPACE_AT_END$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h70bd28db200f7db4E", i64 32) acquire, align 8, !noalias !6244
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN106_$LT$tokenizers..tokenizer..added_vocabulary..LEFTMOST_SPACE_AT_END$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h70bd28db200f7db4E", i64 32) acquire, align 8, !noalias !6244
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN106_$LT$tokenizers..tokenizer..added_vocabulary..LEFTMOST_SPACE_AT_END$u20$as$u20$core..ops..deref..Deref$GT$5deref17he2f948c956e7a554E.exit", label %7
 
@@ -35635,7 +35635,7 @@ define void @"_ZN106_$LT$tokenizers..tokenizer..added_vocabulary..LEFTMOST_SPACE
   store ptr %4, ptr %3, align 8, !noalias !6244
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !6244
   store ptr %3, ptr %2, align 8, !noalias !6244
-  call void @_ZN3std3sys4sync4once5futex4Once4call17h8c6be662b2e5d0baE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN106_$LT$tokenizers..tokenizer..added_vocabulary..LEFTMOST_SPACE_AT_END$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h70bd28db200f7db4E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.16)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17h8c6be662b2e5d0baE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN106_$LT$tokenizers..tokenizer..added_vocabulary..LEFTMOST_SPACE_AT_END$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h70bd28db200f7db4E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !6244
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !6244
   br label %"_ZN106_$LT$tokenizers..tokenizer..added_vocabulary..LEFTMOST_SPACE_AT_END$u20$as$u20$core..ops..deref..Deref$GT$5deref17he2f948c956e7a554E.exit"

@@ -341,7 +341,7 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet24allow_event_retransformsEv(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12DCmdArgumentIPcED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %0, align 8
   tail call void @_ZN12DCmdArgumentIPcE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #18
   ret void
 }
@@ -351,21 +351,21 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12DCmdArgumentI18MemorySizeArgumentED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr %0, align 8
   tail call void @_ZN12DCmdArgumentI18MemorySizeArgumentE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12DCmdArgumentIlED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %0, align 8
   tail call void @_ZN12DCmdArgumentIlE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12DCmdArgumentIbED2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %0, align 8
   tail call void @_ZN12DCmdArgumentIbE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(52) %0) #18
   ret void
 }
@@ -1150,16 +1150,16 @@ _ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i: 
 _ZL36post_process_adjusted_memory_optionsRK16JfrMemoryOptions.exit: ; preds = %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i, %273, %274, %276, %278
   %.0.i51.i = phi i64 [ %279, %278 ], [ %277, %276 ], [ %275, %274 ], [ %272, %273 ], [ %272, %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i ]
   store i64 %256, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
-  store i64 %.0.i.i, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 64), align 8
+  store i64 %.0.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 64), align 8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
   store i64 %264, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
-  store i64 %.0.i45.i, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 64), align 8
+  store i64 %.0.i45.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 64), align 8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
   %280 = load i64, ptr %47, align 8
   store i64 %280, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 48), align 8
   store i64 %272, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), align 8
-  store i64 %.0.i51.i, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 64), align 8
+  store i64 %.0.i51.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 64), align 8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
   br label %_ZL26ensure_valid_minimum_sizesv.exit.thread
 
@@ -1308,35 +1308,35 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet9configureEP10JavaThread(ptr 
 
 88:                                               ; preds = %43, %35, %22, %85
   %.1 = phi i1 [ false, %85 ], [ false, %22 ], [ false, %35 ], [ true, %43 ]
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV30JfrConfigureFlightRecorderDCmd, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV30JfrConfigureFlightRecorderDCmd, i64 16), ptr %3, align 8
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 672
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %89, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %89, align 8
   call void @_ZN12DCmdArgumentIbE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(52) %89) #18
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 616
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %90, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %90, align 8
   call void @_ZN12DCmdArgumentIbE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(52) %90) #18
   %91 = getelementptr inbounds nuw i8, ptr %3, i64 536
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr %91, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr %91, align 8
   call void @_ZN12DCmdArgumentI18MemorySizeArgumentE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(80) %91) #18
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 456
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr %92, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr %92, align 8
   call void @_ZN12DCmdArgumentI18MemorySizeArgumentE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(80) %92) #18
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 376
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr %93, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr %93, align 8
   call void @_ZN12DCmdArgumentI18MemorySizeArgumentE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(80) %93) #18
   %94 = getelementptr inbounds nuw i8, ptr %3, i64 296
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr %94, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr %94, align 8
   call void @_ZN12DCmdArgumentI18MemorySizeArgumentE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(80) %94) #18
   %95 = getelementptr inbounds nuw i8, ptr %3, i64 232
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %95, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %95, align 8
   call void @_ZN12DCmdArgumentIlE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(64) %95) #18
   %96 = getelementptr inbounds nuw i8, ptr %3, i64 168
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %96, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %96, align 8
   call void @_ZN12DCmdArgumentIlE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(64) %96) #18
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %97, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %97, align 8
   call void @_ZN12DCmdArgumentIPcE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(64) %97) #18
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %17, align 8
   call void @_ZN12DCmdArgumentIPcE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(64) %17) #18
   call void @_ZN14bufferedStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(89) %2) #18
   %98 = load ptr, ptr %10, align 8
@@ -2406,14 +2406,14 @@ define internal void @_GLOBAL__sub_I_jfrOptionSet.cpp() #14 section ".text.start
   store ptr @.str.5, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_repository, i64 24), align 8
   store ptr @.str.6, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_repository, i64 32), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_repository, i64 40), i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr @_ZL16_dcmd_repository, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr @_ZL16_dcmd_repository, align 8
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12DCmdArgumentIPcED2Ev, ptr nonnull @_ZL16_dcmd_repository, ptr nonnull @__dso_handle) #18
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL14_dcmd_dumppath, i64 8), align 8
   store ptr @.str.8, ptr getelementptr inbounds nuw (i8, ptr @_ZL14_dcmd_dumppath, i64 16), align 8
   store ptr @.str.9, ptr getelementptr inbounds nuw (i8, ptr @_ZL14_dcmd_dumppath, i64 24), align 8
   store ptr @.str.6, ptr getelementptr inbounds nuw (i8, ptr @_ZL14_dcmd_dumppath, i64 32), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) getelementptr inbounds nuw (i8, ptr @_ZL14_dcmd_dumppath, i64 40), i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr @_ZL14_dcmd_dumppath, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr @_ZL14_dcmd_dumppath, align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12DCmdArgumentIPcED2Ev, ptr nonnull @_ZL14_dcmd_dumppath, ptr nonnull @__dso_handle) #18
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 8), align 8
   store ptr @.str.11, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 16), align 8
@@ -2423,7 +2423,7 @@ define internal void @_GLOBAL__sub_I_jfrOptionSet.cpp() #14 section ".text.start
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 49), align 1
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 50), align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr @_ZL22_dcmd_threadbuffersize, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr @_ZL22_dcmd_threadbuffersize, align 8
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12DCmdArgumentI18MemorySizeArgumentED2Ev, ptr nonnull @_ZL22_dcmd_threadbuffersize, ptr nonnull @__dso_handle) #18
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 8), align 8
   store ptr @.str.16, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 16), align 8
@@ -2433,7 +2433,7 @@ define internal void @_GLOBAL__sub_I_jfrOptionSet.cpp() #14 section ".text.start
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 49), align 1
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 50), align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr @_ZL16_dcmd_memorysize, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr @_ZL16_dcmd_memorysize, align 8
   %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12DCmdArgumentI18MemorySizeArgumentED2Ev, ptr nonnull @_ZL16_dcmd_memorysize, ptr nonnull @__dso_handle) #18
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 8), align 8
   store ptr @.str.20, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 16), align 8
@@ -2443,7 +2443,7 @@ define internal void @_GLOBAL__sub_I_jfrOptionSet.cpp() #14 section ".text.start
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 49), align 1
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 50), align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr @_ZL22_dcmd_globalbuffersize, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr @_ZL22_dcmd_globalbuffersize, align 8
   %5 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12DCmdArgumentI18MemorySizeArgumentED2Ev, ptr nonnull @_ZL22_dcmd_globalbuffersize, ptr nonnull @__dso_handle) #18
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 8), align 8
   store ptr @.str.24, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 16), align 8
@@ -2453,7 +2453,7 @@ define internal void @_GLOBAL__sub_I_jfrOptionSet.cpp() #14 section ".text.start
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 48), align 8
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 49), align 1
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 50), align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr @_ZL22_dcmd_numglobalbuffers, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr @_ZL22_dcmd_numglobalbuffers, align 8
   %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12DCmdArgumentIlED2Ev, ptr nonnull @_ZL22_dcmd_numglobalbuffers, ptr nonnull @__dso_handle) #18
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL18_dcmd_maxchunksize, i64 8), align 8
   store ptr @.str.29, ptr getelementptr inbounds nuw (i8, ptr @_ZL18_dcmd_maxchunksize, i64 16), align 8
@@ -2463,7 +2463,7 @@ define internal void @_GLOBAL__sub_I_jfrOptionSet.cpp() #14 section ".text.start
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18_dcmd_maxchunksize, i64 48), align 8
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18_dcmd_maxchunksize, i64 49), align 1
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18_dcmd_maxchunksize, i64 50), align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr @_ZL18_dcmd_maxchunksize, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr @_ZL18_dcmd_maxchunksize, align 8
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12DCmdArgumentI18MemorySizeArgumentED2Ev, ptr nonnull @_ZL18_dcmd_maxchunksize, ptr nonnull @__dso_handle) #18
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL27_dcmd_old_object_queue_size, i64 8), align 8
   store ptr @.str.33, ptr getelementptr inbounds nuw (i8, ptr @_ZL27_dcmd_old_object_queue_size, i64 16), align 8
@@ -2473,7 +2473,7 @@ define internal void @_GLOBAL__sub_I_jfrOptionSet.cpp() #14 section ".text.start
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL27_dcmd_old_object_queue_size, i64 48), align 8
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL27_dcmd_old_object_queue_size, i64 49), align 1
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL27_dcmd_old_object_queue_size, i64 50), align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr @_ZL27_dcmd_old_object_queue_size, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr @_ZL27_dcmd_old_object_queue_size, align 8
   %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12DCmdArgumentIlED2Ev, ptr nonnull @_ZL27_dcmd_old_object_queue_size, ptr nonnull @__dso_handle) #18
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL20_dcmd_sample_threads, i64 8), align 8
   store ptr @.str.38, ptr getelementptr inbounds nuw (i8, ptr @_ZL20_dcmd_sample_threads, i64 16), align 8
@@ -2483,7 +2483,7 @@ define internal void @_GLOBAL__sub_I_jfrOptionSet.cpp() #14 section ".text.start
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20_dcmd_sample_threads, i64 48), align 8
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20_dcmd_sample_threads, i64 49), align 1
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20_dcmd_sample_threads, i64 50), align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr @_ZL20_dcmd_sample_threads, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr @_ZL20_dcmd_sample_threads, align 8
   %9 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12DCmdArgumentIbED2Ev, ptr nonnull @_ZL20_dcmd_sample_threads, ptr nonnull @__dso_handle) #18
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_stackdepth, i64 8), align 8
   store ptr @.str.43, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_stackdepth, i64 16), align 8
@@ -2493,7 +2493,7 @@ define internal void @_GLOBAL__sub_I_jfrOptionSet.cpp() #14 section ".text.start
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_stackdepth, i64 48), align 8
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_stackdepth, i64 49), align 1
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_stackdepth, i64 50), align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr @_ZL16_dcmd_stackdepth, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr @_ZL16_dcmd_stackdepth, align 8
   %10 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12DCmdArgumentIlED2Ev, ptr nonnull @_ZL16_dcmd_stackdepth, ptr nonnull @__dso_handle) #18
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL17_dcmd_retransform, i64 8), align 8
   store ptr @.str.47, ptr getelementptr inbounds nuw (i8, ptr @_ZL17_dcmd_retransform, i64 16), align 8
@@ -2503,7 +2503,7 @@ define internal void @_GLOBAL__sub_I_jfrOptionSet.cpp() #14 section ".text.start
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL17_dcmd_retransform, i64 48), align 8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL17_dcmd_retransform, i64 49), align 1
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL17_dcmd_retransform, i64 50), align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr @_ZL17_dcmd_retransform, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr @_ZL17_dcmd_retransform, align 8
   %11 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12DCmdArgumentIbED2Ev, ptr nonnull @_ZL17_dcmd_retransform, ptr nonnull @__dso_handle) #18
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL25_dcmd_preserve_repository, i64 8), align 8
   store ptr @.str.50, ptr getelementptr inbounds nuw (i8, ptr @_ZL25_dcmd_preserve_repository, i64 16), align 8
@@ -2513,7 +2513,7 @@ define internal void @_GLOBAL__sub_I_jfrOptionSet.cpp() #14 section ".text.start
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL25_dcmd_preserve_repository, i64 48), align 8
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL25_dcmd_preserve_repository, i64 49), align 1
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL25_dcmd_preserve_repository, i64 50), align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr @_ZL25_dcmd_preserve_repository, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr @_ZL25_dcmd_preserve_repository, align 8
   %12 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12DCmdArgumentIbED2Ev, ptr nonnull @_ZL25_dcmd_preserve_repository, ptr nonnull @__dso_handle) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZL7_parser, i8 0, i64 16, i1 false)
   ret void

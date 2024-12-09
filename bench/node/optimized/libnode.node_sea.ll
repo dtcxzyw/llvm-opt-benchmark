@@ -520,7 +520,7 @@ entry:
   %deserializer = alloca %"class.node::sea::(anonymous namespace)::SeaDeserializer", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp6.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp8.i)
-  %0 = load volatile i8, ptr getelementptr inbounds (i8, ptr @.str.56, i64 47), align 1
+  %0 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @.str.56, i64 47), align 1
   %cmp.i.i.i = icmp eq i8 %0, 49
   br i1 %cmp.i.i.i, label %do.end4.i, label %do.body3.i
 
@@ -553,7 +553,7 @@ init.end.i:                                       ; preds = %init.i, %init.check
   store ptr %5, ptr %ref.tmp6.i, align 8
   %6 = load i64, ptr @_ZZN4node3sea12_GLOBAL__N_124FindSingleExecutableBlobEvE6result.0, align 8
   store i64 %6, ptr %ref.tmp8.i, align 8
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 70), align 1
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 70), align 1
   %tobool.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i, label %if.end.i.i, label %_ZN4node3sea12_GLOBAL__N_124FindSingleExecutableBlobEv.exit
 
@@ -562,7 +562,7 @@ if.end.i.i:                                       ; preds = %init.end.i
   call void @_ZN4node7FPrintFIJPKcmEEEvP8_IO_FILES2_DpOT_(ptr noundef %8, ptr noundef nonnull @.str.8, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp6.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8.i) #25
   %retval.sroa.0.0.copyload.pre.i = load i64, ptr @_ZZN4node3sea12_GLOBAL__N_124FindSingleExecutableBlobEvE6result.0, align 8
   %retval.sroa.2.0.copyload.pre.i = load ptr, ptr @_ZZN4node3sea12_GLOBAL__N_124FindSingleExecutableBlobEvE6result.1, align 8
-  %.pre = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 70), align 1
+  %.pre = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 70), align 1
   br label %_ZN4node3sea12_GLOBAL__N_124FindSingleExecutableBlobEv.exit
 
 _ZN4node3sea12_GLOBAL__N_124FindSingleExecutableBlobEv.exit: ; preds = %init.end.i, %if.end.i.i
@@ -579,7 +579,7 @@ _ZN4node3sea12_GLOBAL__N_124FindSingleExecutableBlobEv.exit: ; preds = %init.end
 if.end.i:                                         ; preds = %_ZN4node3sea12_GLOBAL__N_124FindSingleExecutableBlobEv.exit
   %10 = load ptr, ptr @stderr, align 8
   call void @_ZN4node7FPrintFIJPKcmEEEvP8_IO_FILES2_DpOT_(ptr noundef %10, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3) #25
-  %.pre2 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 70), align 1
+  %.pre2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 70), align 1
   br label %_ZN4node5DebugIJPKcmEEEvPNS_16EnabledDebugListENS_13DebugCategoryES2_DpOT_.exit
 
 _ZN4node5DebugIJPKcmEEEvPNS_16EnabledDebugListENS_13DebugCategoryES2_DpOT_.exit: ; preds = %_ZN4node3sea12_GLOBAL__N_124FindSingleExecutableBlobEv.exit, %if.end.i
@@ -705,13 +705,13 @@ _ZN4node3sea12_GLOBAL__N_115SeaDeserializer4ReadINS0_11SeaResourceETnPNSt9enable
   %code_cache.sroa.0.0.i = phi i64 [ 0, %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_mEEEvS3_DpOT_.exit.i ], [ %26, %if.then34.i ], [ %26, %if.then.i15.i ]
   %code_cache.sroa.4.0.i = phi ptr [ null, %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_mEEEvS3_DpOT_.exit.i ], [ %27, %if.then34.i ], [ %27, %if.then.i15.i ]
   store i32 %call6.i, ptr @_ZZN4node3sea28FindSingleExecutableResourceEvE12sea_resource, align 8
-  store i64 %18, ptr getelementptr inbounds (i8, ptr @_ZZN4node3sea28FindSingleExecutableResourceEvE12sea_resource, i64 8), align 8
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZZN4node3sea28FindSingleExecutableResourceEvE12sea_resource, i64 16), align 8
-  store i64 %22, ptr getelementptr inbounds (i8, ptr @_ZZN4node3sea28FindSingleExecutableResourceEvE12sea_resource, i64 24), align 8
-  store ptr %23, ptr getelementptr inbounds (i8, ptr @_ZZN4node3sea28FindSingleExecutableResourceEvE12sea_resource, i64 32), align 8
-  store i64 %code_cache.sroa.0.0.i, ptr getelementptr inbounds (i8, ptr @_ZZN4node3sea28FindSingleExecutableResourceEvE12sea_resource, i64 40), align 8
-  store ptr %code_cache.sroa.4.0.i, ptr getelementptr inbounds (i8, ptr @_ZZN4node3sea28FindSingleExecutableResourceEvE12sea_resource, i64 48), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZN4node3sea28FindSingleExecutableResourceEvE12sea_resource, i64 56), align 8
+  store i64 %18, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4node3sea28FindSingleExecutableResourceEvE12sea_resource, i64 8), align 8
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4node3sea28FindSingleExecutableResourceEvE12sea_resource, i64 16), align 8
+  store i64 %22, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4node3sea28FindSingleExecutableResourceEvE12sea_resource, i64 24), align 8
+  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4node3sea28FindSingleExecutableResourceEvE12sea_resource, i64 32), align 8
+  store i64 %code_cache.sroa.0.0.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4node3sea28FindSingleExecutableResourceEvE12sea_resource, i64 40), align 8
+  store ptr %code_cache.sroa.4.0.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4node3sea28FindSingleExecutableResourceEvE12sea_resource, i64 48), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4node3sea28FindSingleExecutableResourceEvE12sea_resource, i64 56), align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %magic.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp18.i)
@@ -733,7 +733,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define dso_local noundef zeroext i1 @_ZN4node3sea18IsSingleExecutableEv() local_unnamed_addr #6 {
 entry:
-  %0 = load volatile i8, ptr getelementptr inbounds (i8, ptr @.str.56, i64 47), align 1
+  %0 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @.str.56, i64 47), align 1
   %cmp.i = icmp eq i8 %0, 49
   ret i1 %cmp.i
 }
@@ -742,7 +742,7 @@ entry:
 define dso_local void @_ZN4node3sea5IsSeaERKN2v820FunctionCallbackInfoINS1_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #7 {
 entry:
   %0 = load ptr, ptr %args, align 8
-  %1 = load volatile i8, ptr getelementptr inbounds (i8, ptr @.str.56, i64 47), align 1
+  %1 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @.str.56, i64 47), align 1
   %cmp.i.i = icmp eq i8 %1, 49
   %. = select i1 %cmp.i.i, i64 56, i64 64
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -778,7 +778,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %6 = load volatile i8, ptr getelementptr inbounds (i8, ptr @.str.56, i64 47), align 1
+  %6 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @.str.56, i64 47), align 1
   %cmp.i.i = icmp eq i8 %6, 49
   br i1 %cmp.i.i, label %if.end8, label %if.then4
 
@@ -839,7 +839,7 @@ entry:
   %backing_store = alloca %"class.std::shared_ptr.6", align 8
   %ref.tmp = alloca %"class.std::unique_ptr", align 8
   %agg.tmp = alloca %"class.std::shared_ptr.6", align 8
-  %0 = load volatile i8, ptr getelementptr inbounds (i8, ptr @.str.56, i64 47), align 1
+  %0 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @.str.56, i64 47), align 1
   %cmp.i.i = icmp eq i8 %0, 49
   br i1 %cmp.i.i, label %if.end, label %return
 
@@ -868,8 +868,8 @@ _ZN4node3sea28FindSingleExecutableResourceEv.exit: ; preds = %if.end, %init.chec
   br i1 %tobool.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %_ZN4node3sea28FindSingleExecutableResourceEv.exit
-  %sea_resource.sroa.3.0.copyload = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN4node3sea28FindSingleExecutableResourceEvE12sea_resource, i64 48), align 8
-  %sea_resource.sroa.244.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN4node3sea28FindSingleExecutableResourceEvE12sea_resource, i64 40), align 8
+  %sea_resource.sroa.3.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4node3sea28FindSingleExecutableResourceEvE12sea_resource, i64 48), align 8
+  %sea_resource.sroa.244.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4node3sea28FindSingleExecutableResourceEvE12sea_resource, i64 40), align 8
   call void @_ZN2v811ArrayBuffer15NewBackingStoreEPvmPFvS1_mS1_ES1_(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef %sea_resource.sroa.3.0.copyload, i64 noundef %sea_resource.sroa.244.0.copyload, ptr noundef nonnull @"_ZZN4node3sea12GetCodeCacheERKN2v820FunctionCallbackInfoINS1_5ValueEEEEN3$_08__invokeEPvmS8_", ptr noundef null) #23
   call void @_ZNSt12__shared_ptrIN2v812BackingStoreELN9__gnu_cxx12_Lock_policyE2EEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %backing_store, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   %5 = load ptr, ptr %ref.tmp, align 8
@@ -1107,8 +1107,8 @@ init.i:                                           ; preds = %init.check.i
   br label %_ZN4node3sea28FindSingleExecutableResourceEv.exit
 
 _ZN4node3sea28FindSingleExecutableResourceEv.exit: ; preds = %entry, %init.check.i, %init.i
-  %sea_resource.sroa.1.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN4node3sea28FindSingleExecutableResourceEvE12sea_resource, i64 8), align 8
-  %sea_resource.sroa.2.0.copyload = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN4node3sea28FindSingleExecutableResourceEvE12sea_resource, i64 16), align 8
+  %sea_resource.sroa.1.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4node3sea28FindSingleExecutableResourceEvE12sea_resource, i64 8), align 8
+  %sea_resource.sroa.2.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4node3sea28FindSingleExecutableResourceEvE12sea_resource, i64 16), align 8
   %conv = trunc i64 %sea_resource.sroa.1.0.copyload to i32
   %call5 = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %1, ptr noundef %sea_resource.sroa.2.0.copyload, i32 noundef 0, i32 noundef %conv) #23
   %cmp.i.i = icmp eq ptr %call5, null
@@ -1130,7 +1130,7 @@ declare ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node3sea15FixupArgsForSEAEiPPc(ptr noalias nocapture writeonly sret(%"class.std::tuple.17") align 8 %agg.result, i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #4 {
 entry:
-  %0 = load volatile i8, ptr getelementptr inbounds (i8, ptr @.str.56, i64 47), align 1
+  %0 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @.str.56, i64 47), align 1
   %cmp.i.i = icmp eq i8 %0, 49
   br i1 %cmp.i.i, label %if.then, label %if.end
 
@@ -2196,7 +2196,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %cond
   %optional_sv_code_cache.sroa.0.076.i = phi i64 [ %optional_sv_code_cache.sroa.0.077.i, %cond.false.i ], [ undef, %cond.true.i ]
   %sea.sroa.15.0.i = phi ptr [ %call41.i, %cond.false.i ], [ %69, %cond.true.i ]
   %sea.sroa.10.0.i = phi i64 [ %call42.i, %cond.false.i ], [ %sub.ptr.sub.i.i, %cond.true.i ]
-  %77 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 70), align 1
+  %77 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 70), align 1
   %frombool.i.i.i.i = and i8 %77, 1
   store i8 %frombool.i.i.i.i, ptr %serializer.i, align 8
   %sink.i.i.i = getelementptr inbounds nuw i8, ptr %serializer.i, i64 8
@@ -8322,7 +8322,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2v812BackingStoreESt14de
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i, align 8
   %_M_impl.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i, i64 16
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_refcount, align 8

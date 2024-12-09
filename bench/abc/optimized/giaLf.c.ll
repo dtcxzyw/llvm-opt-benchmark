@@ -7377,10 +7377,10 @@ define internal fastcc noundef nonnull ptr @Lf_ObjCutBest(ptr nocapture noundef 
 
 Lf_BestCutIndex.exit.thread:                      ; preds = %2
   %13 = load i32, ptr %9, align 4
-  store i32 %13, ptr getelementptr inbounds (i8, ptr @Lf_ObjCutBest.CutSet, i64 8), align 8
+  store i32 %13, ptr getelementptr inbounds nuw (i8, ptr @Lf_ObjCutBest.CutSet, i64 8), align 8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %15 = load float, ptr %14, align 4
-  store float %15, ptr getelementptr inbounds (i8, ptr @Lf_ObjCutBest.CutSet, i64 12), align 4
+  store float %15, ptr getelementptr inbounds nuw (i8, ptr @Lf_ObjCutBest.CutSet, i64 12), align 4
   br label %52
 
 Lf_BestCutIndex.exit:                             ; preds = %2
@@ -7391,11 +7391,11 @@ Lf_BestCutIndex.exit:                             ; preds = %2
   %19 = zext nneg i32 %..i to i64
   %20 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %19
   %21 = load i32, ptr %20, align 4
-  store i32 %21, ptr getelementptr inbounds (i8, ptr @Lf_ObjCutBest.CutSet, i64 8), align 8
+  store i32 %21, ptr getelementptr inbounds nuw (i8, ptr @Lf_ObjCutBest.CutSet, i64 8), align 8
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %23 = getelementptr inbounds nuw [3 x float], ptr %22, i64 0, i64 %19
   %24 = load float, ptr %23, align 4
-  store float %24, ptr getelementptr inbounds (i8, ptr @Lf_ObjCutBest.CutSet, i64 12), align 4
+  store float %24, ptr getelementptr inbounds nuw (i8, ptr @Lf_ObjCutBest.CutSet, i64 12), align 4
   %25 = icmp eq i32 %18, 0
   br i1 %25, label %26, label %52
 

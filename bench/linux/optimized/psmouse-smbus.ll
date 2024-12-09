@@ -80,7 +80,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @psmouse_smbus_init(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 16 {
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %8 = tail call noalias align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 120) #10
   %9 = icmp eq ptr %8, null
   br i1 %9, label %66, label %10
@@ -127,8 +127,8 @@ define dso_local i32 @psmouse_smbus_init(ptr noundef %0, ptr nocapture noundef r
   store i32 0, ptr %28, align 8
   tail call void @mutex_lock(ptr noundef nonnull @psmouse_smbus_mutex) #9
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @psmouse_smbus_list, i64 8), align 8
-  store ptr %29, ptr getelementptr inbounds (i8, ptr @psmouse_smbus_list, i64 8), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @psmouse_smbus_list, i64 8), align 8
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @psmouse_smbus_list, i64 8), align 8
   store ptr @psmouse_smbus_list, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 104
   store ptr %30, ptr %31, align 8
@@ -261,7 +261,7 @@ define internal void @psmouse_smbus_disconnect(ptr nocapture noundef %0) #0 alig
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 344
   tail call void @device_link_remove(ptr noundef nonnull %15, ptr noundef nonnull %18) #9
   %19 = load ptr, ptr %13, align 8
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %21 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %20, i32 noundef 3520, i64 noundef 40) #10
   %22 = icmp eq ptr %21, null
   br i1 %22, label %30, label %23

@@ -16,7 +16,7 @@ define internal void @mca_bml_base_endpoint_construct(ptr noundef initializes((4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = load i32, ptr @opal_class_init_epoch, align 4
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @mca_bml_base_btl_array_t_class, i64 32), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_bml_base_btl_array_t_class, i64 32), align 8
   %.not = icmp eq i32 %3, %4
   br i1 %.not, label %6, label %5
 
@@ -45,7 +45,7 @@ define internal void @mca_bml_base_endpoint_construct(ptr noundef initializes((4
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %6
   %14 = load i32, ptr @opal_class_init_epoch, align 4
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @mca_bml_base_btl_array_t_class, i64 32), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_bml_base_btl_array_t_class, i64 32), align 8
   %.not11 = icmp eq i32 %14, %15
   br i1 %.not11, label %17, label %16
 
@@ -74,7 +74,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %6
 
 opal_obj_run_constructors.exit17:                 ; preds = %.lr.ph.i14, %17
   %25 = load i32, ptr @opal_class_init_epoch, align 4
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @mca_bml_base_btl_array_t_class, i64 32), align 8
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_bml_base_btl_array_t_class, i64 32), align 8
   %.not12 = icmp eq i32 %25, %26
   br i1 %.not12, label %28, label %27
 

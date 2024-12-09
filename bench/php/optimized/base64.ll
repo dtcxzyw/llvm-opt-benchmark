@@ -14,28 +14,28 @@ target triple = "x86_64-pc-linux-gnu"
 define internal nonnull ptr @resolve_base64_encode() #0 {
   tail call void @__cpu_indicator_init() #10
   tail call void @__cpu_indicator_init() #10
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @__cpu_model, i64 12), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @__cpu_model, i64 12), align 4
   %2 = and i32 %1, 82870272
   %.not.not = icmp eq i32 %2, 82870272
   br i1 %.not.not, label %12, label %3
 
 3:                                                ; preds = %0
   tail call void @__cpu_indicator_init() #10
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @__cpu_model, i64 12), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @__cpu_model, i64 12), align 4
   %5 = and i32 %4, 15761408
   %.not1.not = icmp eq i32 %5, 15761408
   br i1 %.not1.not, label %12, label %6
 
 6:                                                ; preds = %3
   tail call void @__cpu_indicator_init() #10
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @__cpu_model, i64 12), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @__cpu_model, i64 12), align 4
   %8 = and i32 %7, 1024
   %.not2 = icmp eq i32 %8, 0
   br i1 %.not2, label %9, label %12
 
 9:                                                ; preds = %6
   tail call void @__cpu_indicator_init() #10
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @__cpu_model, i64 12), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @__cpu_model, i64 12), align 4
   %11 = and i32 %10, 64
   %.not3 = icmp eq i32 %11, 0
   %php_base64_encode_default.php_base64_encode_ssse3 = select i1 %.not3, ptr @php_base64_encode_default, ptr @php_base64_encode_ssse3
@@ -50,28 +50,28 @@ define internal nonnull ptr @resolve_base64_encode() #0 {
 define internal nonnull ptr @resolve_base64_decode() #0 {
   tail call void @__cpu_indicator_init() #10
   tail call void @__cpu_indicator_init() #10
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @__cpu_model, i64 12), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @__cpu_model, i64 12), align 4
   %2 = and i32 %1, 82870272
   %.not.not = icmp eq i32 %2, 82870272
   br i1 %.not.not, label %12, label %3
 
 3:                                                ; preds = %0
   tail call void @__cpu_indicator_init() #10
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @__cpu_model, i64 12), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @__cpu_model, i64 12), align 4
   %5 = and i32 %4, 15761408
   %.not1.not = icmp eq i32 %5, 15761408
   br i1 %.not1.not, label %12, label %6
 
 6:                                                ; preds = %3
   tail call void @__cpu_indicator_init() #10
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @__cpu_model, i64 12), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @__cpu_model, i64 12), align 4
   %8 = and i32 %7, 1024
   %.not2 = icmp eq i32 %8, 0
   br i1 %.not2, label %9, label %12
 
 9:                                                ; preds = %6
   tail call void @__cpu_indicator_init() #10
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @__cpu_model, i64 12), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @__cpu_model, i64 12), align 4
   %11 = and i32 %10, 64
   %.not3 = icmp eq i32 %11, 0
   %php_base64_decode_ex_default.php_base64_decode_ex_ssse3 = select i1 %.not3, ptr @php_base64_decode_ex_default, ptr @php_base64_decode_ex_ssse3

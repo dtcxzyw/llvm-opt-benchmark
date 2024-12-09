@@ -206,7 +206,7 @@ define internal noundef i32 @_ZL16hb_ucd_mirroringP18hb_unicode_funcs_tjPv(ptr n
   %7 = lshr i32 %1, 5
   %8 = lshr i32 %1, 9
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZL10_hb_ucd_u8, i64 9300), i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL10_hb_ucd_u8, i64 9300), i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = lshr i32 %1, 6

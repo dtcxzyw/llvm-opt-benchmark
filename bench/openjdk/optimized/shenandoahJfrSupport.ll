@@ -135,7 +135,7 @@ $_ZGVZ19compressed_integersvE13comp_integers = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ShenandoahJFRSupport29register_jfr_type_serializersEv() local_unnamed_addr #0 align 2 {
   %1 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #10
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV33ShenandoahHeapRegionStateConstant, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV33ShenandoahHeapRegionStateConstant, i64 16), ptr %1, align 8
   %2 = tail call noundef zeroext i1 @_ZN13JfrSerializer19register_serializerE9JfrTypeIdbPS_(i32 noundef 170, i1 noundef zeroext true, ptr noundef nonnull %1) #10
   ret void
 }
@@ -148,7 +148,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN37VM_ShenandoahSendHeapRegionInfoEvents4doitEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.ShenandoahDumpHeapRegionInfoClosure, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV35ShenandoahDumpHeapRegionInfoClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV35ShenandoahDumpHeapRegionInfoClosure, i64 16), ptr %2, align 8
   %3 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   call void @_ZNK14ShenandoahHeap19heap_region_iterateEP27ShenandoahHeapRegionClosure(ptr noundef nonnull align 8 dereferenceable(2657) %3, ptr noundef nonnull %2) #10
   ret void

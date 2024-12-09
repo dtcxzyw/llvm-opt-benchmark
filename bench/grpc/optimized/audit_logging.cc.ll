@@ -114,9 +114,9 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12experimental24StdoutAuditLoggerFactoryE, i64 16), ptr %call.i2, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12experimental24StdoutAuditLoggerFactoryE, i64 16), ptr %call.i2, align 8, !noalias !4
   store ptr %call.i2, ptr %factory, align 8, !alias.scope !4
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12experimental24StdoutAuditLoggerFactoryE, i64 32), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12experimental24StdoutAuditLoggerFactoryE, i64 32), align 8
   %call4 = invoke { i64, ptr } %1(ptr noundef nonnull align 8 dereferenceable(8) %call.i2)
           to label %invoke.cont3 unwind label %lpad2
 

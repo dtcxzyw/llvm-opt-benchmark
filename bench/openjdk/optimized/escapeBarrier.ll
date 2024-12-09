@@ -901,7 +901,7 @@ _ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %_ZN13Monit
 42:                                               ; preds = %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @.str, ptr %43, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV29EscapeBarrierSuspendHandshake, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV29EscapeBarrierSuspendHandshake, i64 16), ptr %2, align 8
   %44 = load ptr, ptr %9, align 8
   call void @_ZN9Handshake7executeEP16HandshakeClosureP10JavaThread(ptr noundef nonnull %2, ptr noundef %44) #10
   br label %45
@@ -1078,7 +1078,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN28JavaThreadIter
 _ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %_ZN13MonitorLockerD2Ev.exit, %62, %63, %66
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.4, ptr %67, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV29EscapeBarrierSuspendHandshake, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV29EscapeBarrierSuspendHandshake, i64 16), ptr %4, align 8
   call void @_ZN9Handshake7executeEP16HandshakeClosure(ptr noundef nonnull %4) #10
   ret void
 

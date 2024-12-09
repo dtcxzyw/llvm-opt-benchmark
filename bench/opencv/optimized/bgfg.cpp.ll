@@ -117,7 +117,7 @@ define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #3 sect
   br label %2
 
 2:                                                ; preds = %2, %1
-  %3 = phi ptr [ getelementptr inbounds (i8, ptr @_ZL5algosB5cxx11, i64 224), %1 ], [ %4, %2 ]
+  %3 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZL5algosB5cxx11, i64 224), %1 ], [ %4, %2 ]
   %4 = getelementptr inbounds i8, ptr %3, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #10
   %5 = icmp eq ptr %4, @_ZL5algosB5cxx11
@@ -2748,32 +2748,32 @@ __cxx_global_var_init.1.exit:                     ; preds = %14
 
 24:                                               ; preds = %__cxx_global_var_init.1.exit
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #10
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL5algosB5cxx11, i64 32), ptr noundef nonnull @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL5algosB5cxx11, i64 32), ptr noundef nonnull @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %25 unwind label %31
 
 25:                                               ; preds = %24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #10
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL5algosB5cxx11, i64 64), ptr noundef nonnull @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL5algosB5cxx11, i64 64), ptr noundef nonnull @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %26 unwind label %33
 
 26:                                               ; preds = %25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #10
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL5algosB5cxx11, i64 96), ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL5algosB5cxx11, i64 96), ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %27 unwind label %35
 
 27:                                               ; preds = %26
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #10
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL5algosB5cxx11, i64 128), ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL5algosB5cxx11, i64 128), ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %28 unwind label %37
 
 28:                                               ; preds = %27
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #10
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL5algosB5cxx11, i64 160), ptr noundef nonnull @.str.10, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL5algosB5cxx11, i64 160), ptr noundef nonnull @.str.10, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %29 unwind label %39
 
 29:                                               ; preds = %28
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #10
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL5algosB5cxx11, i64 192), ptr noundef nonnull @.str.11, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL5algosB5cxx11, i64 192), ptr noundef nonnull @.str.11, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %__cxx_global_var_init.4.exit unwind label %41
 
 .thread.i:                                        ; preds = %__cxx_global_var_init.1.exit
@@ -2813,31 +2813,31 @@ __cxx_global_var_init.1.exit:                     ; preds = %14
   br label %43
 
 43:                                               ; preds = %41, %39
-  %.515.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZL5algosB5cxx11, i64 192), %41 ], [ getelementptr inbounds (i8, ptr @_ZL5algosB5cxx11, i64 160), %39 ]
+  %.515.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZL5algosB5cxx11, i64 192), %41 ], [ getelementptr inbounds nuw (i8, ptr @_ZL5algosB5cxx11, i64 160), %39 ]
   %.pn.i2 = phi { ptr, i32 } [ %42, %41 ], [ %40, %39 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #10
   br label %44
 
 44:                                               ; preds = %43, %37
-  %.414.i = phi ptr [ %.515.i, %43 ], [ getelementptr inbounds (i8, ptr @_ZL5algosB5cxx11, i64 128), %37 ]
+  %.414.i = phi ptr [ %.515.i, %43 ], [ getelementptr inbounds nuw (i8, ptr @_ZL5algosB5cxx11, i64 128), %37 ]
   %.pn.pn.i1 = phi { ptr, i32 } [ %.pn.i2, %43 ], [ %38, %37 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #10
   br label %45
 
 45:                                               ; preds = %44, %35
-  %.313.i = phi ptr [ %.414.i, %44 ], [ getelementptr inbounds (i8, ptr @_ZL5algosB5cxx11, i64 96), %35 ]
+  %.313.i = phi ptr [ %.414.i, %44 ], [ getelementptr inbounds nuw (i8, ptr @_ZL5algosB5cxx11, i64 96), %35 ]
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i1, %44 ], [ %36, %35 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #10
   br label %46
 
 46:                                               ; preds = %45, %33
-  %.212.i = phi ptr [ %.313.i, %45 ], [ getelementptr inbounds (i8, ptr @_ZL5algosB5cxx11, i64 64), %33 ]
+  %.212.i = phi ptr [ %.313.i, %45 ], [ getelementptr inbounds nuw (i8, ptr @_ZL5algosB5cxx11, i64 64), %33 ]
   %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.i, %45 ], [ %34, %33 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #10
   br label %47
 
 47:                                               ; preds = %46, %31
-  %.111.i = phi ptr [ %.212.i, %46 ], [ getelementptr inbounds (i8, ptr @_ZL5algosB5cxx11, i64 32), %31 ]
+  %.111.i = phi ptr [ %.212.i, %46 ], [ getelementptr inbounds nuw (i8, ptr @_ZL5algosB5cxx11, i64 32), %31 ]
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.i, %46 ], [ %32, %31 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #10

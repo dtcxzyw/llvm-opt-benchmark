@@ -101,7 +101,7 @@ define internal fastcc ptr @get_db_conn(ptr nocapture noundef readonly %0, ptr n
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.38) #9
   call void @appendConnStrVal(ptr noundef nonnull %3, ptr noundef %1) #9
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.39) #9
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 8), align 8
   call void @appendConnStrVal(ptr noundef nonnull %3, ptr noundef %4) #9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = load i16, ptr %5, align 8
@@ -206,7 +206,7 @@ define dso_local ptr @cluster_conn_opts(ptr nocapture noundef readonly %0) local
   %18 = zext i16 %17 to i32
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %15, ptr noundef nonnull @.str.4, i32 noundef %18) #9
   %19 = load ptr, ptr @cluster_conn_opts.buf, align 8
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 8), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 8), align 8
   tail call void @appendShellString(ptr noundef %19, ptr noundef %20) #9
   %21 = load ptr, ptr @cluster_conn_opts.buf, align 8
   %22 = load ptr, ptr %21, align 8
@@ -348,7 +348,7 @@ define dso_local noundef zeroext i1 @start_postmaster(ptr noundef %0, i1 noundef
 28:                                               ; preds = %27, %23
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 40), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 40), align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -369,7 +369,7 @@ define dso_local noundef zeroext i1 @start_postmaster(ptr noundef %0, i1 noundef
   br i1 %41, label %43, label %44
 
 43:                                               ; preds = %42
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @os_info, i64 56), align 8
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 56), align 8
   br label %44
 
 44:                                               ; preds = %43, %42
@@ -430,7 +430,7 @@ declare i32 @atexit(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @stop_postmaster_atexit() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 56), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 56), align 8
   %2 = icmp eq ptr %1, @old_cluster
   br i1 %2, label %5, label %3
 
@@ -449,7 +449,7 @@ define internal void @stop_postmaster_atexit() #0 {
   %.not.i = icmp eq ptr %11, null
   %spec.select.i = select i1 %.not.i, ptr @.str.21, ptr %11
   %12 = tail call zeroext i1 (ptr, ptr, i1, i1, ptr, ...) @exec_prog(ptr noundef nonnull @.str.20, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.28, ptr noundef %7, ptr noundef %9, ptr noundef nonnull %spec.select.i, ptr noundef nonnull @.str.29) #9
-  store ptr null, ptr getelementptr inbounds (i8, ptr @os_info, i64 56), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 56), align 8
   br label %stop_postmaster.exit
 
 stop_postmaster.exit:                             ; preds = %3, %5
@@ -467,7 +467,7 @@ declare zeroext i1 @exec_prog(ptr noundef, ptr noundef, i1 noundef zeroext, i1 n
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @stop_postmaster(i1 noundef zeroext %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 56), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 56), align 8
   %3 = icmp eq ptr %2, @old_cluster
   br i1 %3, label %6, label %4
 
@@ -488,7 +488,7 @@ define dso_local void @stop_postmaster(i1 noundef zeroext %0) local_unnamed_addr
   %spec.select = select i1 %.not, ptr @.str.21, ptr %13
   %14 = select i1 %0, ptr @.str.29, ptr @.str.30
   %15 = tail call zeroext i1 (ptr, ptr, i1, i1, ptr, ...) @exec_prog(ptr noundef nonnull @.str.20, ptr noundef null, i1 noundef zeroext %7, i1 noundef zeroext %7, ptr noundef nonnull @.str.28, ptr noundef %9, ptr noundef %11, ptr noundef nonnull %spec.select, ptr noundef nonnull %14) #9
-  store ptr null, ptr getelementptr inbounds (i8, ptr @os_info, i64 56), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 56), align 8
   br label %16
 
 16:                                               ; preds = %4, %6

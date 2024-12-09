@@ -64,7 +64,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden ptr @PyCField_FromDesc(ptr noundef %desc, i64 noundef %index, ptr nocapture noundef %pfield_size, i32 noundef %bitsize, ptr nocapture noundef %pbitofs, ptr nocapture noundef %psize, ptr nocapture noundef %poffset, ptr nocapture noundef writeonly %palign, i32 noundef %pack, i32 noundef %big_endian) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @global_state, i64 16), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_state, i64 16), align 8
   %tp_alloc = getelementptr inbounds nuw i8, ptr %0, i64 304
   %1 = load ptr, ptr %tp_alloc, align 8
   %call = tail call ptr %1(ptr noundef %0, i64 noundef 0) #10

@@ -2453,7 +2453,7 @@ default.unreachable:                              ; preds = %310, %267, %.backed
   %222 = load i64, ptr %123, align 8, !noalias !565, !noundef !5
   store ptr %221, ptr %121, align 8, !noalias !565
   store i64 %222, ptr %124, align 8, !noalias !565
-  %223 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN2db13ZED_STATELESS17h59f8e6c72457ddcfE, i64 8) acquire, align 8, !noalias !565
+  %223 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2db13ZED_STATELESS17h59f8e6c72457ddcfE, i64 8) acquire, align 8, !noalias !565
   %224 = icmp eq i32 %223, 4
   br i1 %224, label %"_ZN87_$LT$std..sync..lazy_lock..LazyLock$LT$T$C$F$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1d8ee640b64f4d8eE.exit.i", label %225
 
@@ -2462,7 +2462,7 @@ default.unreachable:                              ; preds = %310, %267, %.backed
   store ptr @_ZN2db13ZED_STATELESS17h59f8e6c72457ddcfE, ptr %23, align 8, !noalias !565
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22), !noalias !565
   store ptr %23, ptr %22, align 8, !noalias !565
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h72918b61fbb8b5cdE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN2db13ZED_STATELESS17h59f8e6c72457ddcfE, i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.28b6abe1c8975fe75e9106fd1def0251.25)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h72918b61fbb8b5cdE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN2db13ZED_STATELESS17h59f8e6c72457ddcfE, i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.28b6abe1c8975fe75e9106fd1def0251.25)
           to label %.noexc.i unwind label %226, !noalias !569
 
 .noexc.i:                                         ; preds = %225
@@ -3139,7 +3139,7 @@ _ZN3log13__private_api3log17h8dd56d914befeeedE.exit.i.i.i: ; preds = %321
   br label %444
 
 389:                                              ; preds = %380
-  %390 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN2db18ALL_FILE_DB_FAILED17h08fa5073b40b3173E, i64 8) acquire, align 8, !noalias !565
+  %390 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2db18ALL_FILE_DB_FAILED17h08fa5073b40b3173E, i64 8) acquire, align 8, !noalias !565
   %391 = icmp eq i32 %390, 4
   br i1 %391, label %397, label %392
 
@@ -3148,7 +3148,7 @@ _ZN3log13__private_api3log17h8dd56d914befeeedE.exit.i.i.i: ; preds = %321
   store ptr @_ZN2db18ALL_FILE_DB_FAILED17h08fa5073b40b3173E, ptr %8, align 8, !noalias !565
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !565
   store ptr %8, ptr %7, align 8, !noalias !565
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h4beaa24df420d20aE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN2db18ALL_FILE_DB_FAILED17h08fa5073b40b3173E, i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.28b6abe1c8975fe75e9106fd1def0251.25)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h4beaa24df420d20aE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN2db18ALL_FILE_DB_FAILED17h08fa5073b40b3173E, i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.28b6abe1c8975fe75e9106fd1def0251.25)
           to label %.noexc40.i unwind label %395, !noalias !569
 
 .noexc40.i:                                       ; preds = %392
@@ -3547,7 +3547,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd079219a94f6765fE.exit.i: ; preds = %49
   br label %.invoke
 
 500:                                              ; preds = %.noexc109, %495
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %497, %.noexc109 ], [ getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %495 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %497, %.noexc109 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %495 ]
   store i8 1, ptr %.sroa.0.0.i.i.i2.i, align 1
   %501 = load ptr, ptr %54, align 8, !nonnull !5, !noundef !5
   %502 = getelementptr inbounds nuw i8, ptr %501, i64 16
@@ -4050,7 +4050,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd079219a94f6765fE.exit.i138: ; preds = 
   unreachable
 
 630:                                              ; preds = %621, %.noexc141
-  %.sroa.0.0.i.i.i2.i140 = phi ptr [ %623, %.noexc141 ], [ getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %621 ]
+  %.sroa.0.0.i.i.i2.i140 = phi ptr [ %623, %.noexc141 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %621 ]
   store i8 1, ptr %.sroa.0.0.i.i.i2.i140, align 1
   %631 = invoke noundef ptr @_ZN8async_io7reactor11ReactorLock5react17hfc54f14d15cf9e4bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %44, i64 0, i32 noundef 0)
           to label %634 unwind label %632
@@ -4572,7 +4572,7 @@ default.unreachable:                              ; preds = %310, %267, %.backed
   %222 = load i64, ptr %123, align 8, !noalias !891, !noundef !5
   store ptr %221, ptr %121, align 8, !noalias !891
   store i64 %222, ptr %124, align 8, !noalias !891
-  %223 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN2db13ZED_STATELESS17h59f8e6c72457ddcfE, i64 8) acquire, align 8, !noalias !891
+  %223 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2db13ZED_STATELESS17h59f8e6c72457ddcfE, i64 8) acquire, align 8, !noalias !891
   %224 = icmp eq i32 %223, 4
   br i1 %224, label %"_ZN87_$LT$std..sync..lazy_lock..LazyLock$LT$T$C$F$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1d8ee640b64f4d8eE.exit.i", label %225
 
@@ -4581,7 +4581,7 @@ default.unreachable:                              ; preds = %310, %267, %.backed
   store ptr @_ZN2db13ZED_STATELESS17h59f8e6c72457ddcfE, ptr %23, align 8, !noalias !891
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22), !noalias !891
   store ptr %23, ptr %22, align 8, !noalias !891
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h72918b61fbb8b5cdE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN2db13ZED_STATELESS17h59f8e6c72457ddcfE, i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.28b6abe1c8975fe75e9106fd1def0251.25)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h72918b61fbb8b5cdE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN2db13ZED_STATELESS17h59f8e6c72457ddcfE, i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.28b6abe1c8975fe75e9106fd1def0251.25)
           to label %.noexc.i unwind label %226, !noalias !895
 
 .noexc.i:                                         ; preds = %225
@@ -5258,7 +5258,7 @@ _ZN3log13__private_api3log17h8dd56d914befeeedE.exit.i.i.i: ; preds = %321
   br label %444
 
 389:                                              ; preds = %380
-  %390 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN2db18ALL_FILE_DB_FAILED17h08fa5073b40b3173E, i64 8) acquire, align 8, !noalias !891
+  %390 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2db18ALL_FILE_DB_FAILED17h08fa5073b40b3173E, i64 8) acquire, align 8, !noalias !891
   %391 = icmp eq i32 %390, 4
   br i1 %391, label %397, label %392
 
@@ -5267,7 +5267,7 @@ _ZN3log13__private_api3log17h8dd56d914befeeedE.exit.i.i.i: ; preds = %321
   store ptr @_ZN2db18ALL_FILE_DB_FAILED17h08fa5073b40b3173E, ptr %8, align 8, !noalias !891
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !891
   store ptr %8, ptr %7, align 8, !noalias !891
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h4beaa24df420d20aE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN2db18ALL_FILE_DB_FAILED17h08fa5073b40b3173E, i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.28b6abe1c8975fe75e9106fd1def0251.25)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h4beaa24df420d20aE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN2db18ALL_FILE_DB_FAILED17h08fa5073b40b3173E, i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.28b6abe1c8975fe75e9106fd1def0251.25)
           to label %.noexc40.i unwind label %395, !noalias !895
 
 .noexc40.i:                                       ; preds = %392
@@ -5666,7 +5666,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd079219a94f6765fE.exit.i: ; preds = %49
   br label %.invoke
 
 500:                                              ; preds = %.noexc109, %495
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %497, %.noexc109 ], [ getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %495 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %497, %.noexc109 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %495 ]
   store i8 1, ptr %.sroa.0.0.i.i.i2.i, align 1
   %501 = load ptr, ptr %54, align 8, !nonnull !5, !noundef !5
   %502 = getelementptr inbounds nuw i8, ptr %501, i64 16
@@ -6169,7 +6169,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd079219a94f6765fE.exit.i138: ; preds = 
   unreachable
 
 630:                                              ; preds = %621, %.noexc141
-  %.sroa.0.0.i.i.i2.i140 = phi ptr [ %623, %.noexc141 ], [ getelementptr inbounds (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %621 ]
+  %.sroa.0.0.i.i.i2.i140 = phi ptr [ %623, %.noexc141 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E", i64 1), %621 ]
   store i8 1, ptr %.sroa.0.0.i.i.i2.i140, align 1
   %631 = invoke noundef ptr @_ZN8async_io7reactor11ReactorLock5react17hfc54f14d15cf9e4bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %44, i64 0, i32 noundef 0)
           to label %634 unwind label %632

@@ -293,8 +293,8 @@ if.end.i:
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %m_params.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_params.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15combined_solver, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15combined_solver, i64 480), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15combined_solver, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15combined_solver, i64 480), ptr %2, align 8
   %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %m_ref_count.i.i2 = getelementptr inbounds nuw i8, ptr %s1, i64 48
@@ -380,7 +380,7 @@ lpad5:                                            ; preds = %if.then.i.i.i13, %i
 define hidden noalias noundef ptr @_Z26mk_combined_solver_factoryP14solver_factoryS0_(ptr noundef %f1, ptr noundef %f2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23combined_solver_factory, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23combined_solver_factory, i64 16), ptr %call, align 8
   %m_f1.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %f1, ptr %m_f1.i, align 8
   %m_f2.i = getelementptr inbounds nuw i8, ptr %call, i64 16
@@ -465,9 +465,9 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6solver, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6solver, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6solver, i64 400), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6solver, i64 400), ptr %add.ptr, align 8
   %m_params = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_params) #14
   tail call void @_ZN16check_sat_resultD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #14
@@ -477,9 +477,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN15combined_solverD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15combined_solver, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15combined_solver, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15combined_solver, i64 480), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15combined_solver, i64 480), ptr %add.ptr, align 8
   %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_solver2, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -536,8 +536,8 @@ terminate.lpad.i8:                                ; preds = %if.then.i.i.i6
   unreachable
 
 _ZN3refI6solverED2Ev.exit9:                       ; preds = %_ZN3refI6solverED2Ev.exit, %if.then.i.i2, %if.then.i.i.i6
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6solver, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6solver, i64 400), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6solver, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6solver, i64 400), ptr %add.ptr, align 8
   %m_params.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_params.i) #14
   tail call void @_ZN16check_sat_resultD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #14
@@ -1466,7 +1466,7 @@ if.end50:                                         ; preds = %if.then43, %if.else
   %10 = load ptr, ptr %m_solver251, align 8
   %m_caller_id.i.i = getelementptr inbounds nuw i8, ptr %eh, i64 8
   store i32 0, ptr %m_caller_id.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN15combined_solver14aux_timeout_ehE, i64 16), ptr %eh, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN15combined_solver14aux_timeout_ehE, i64 16), ptr %eh, align 8
   %m_solver.i = getelementptr inbounds nuw i8, ptr %eh, i64 16
   store ptr %10, ptr %m_solver.i, align 8
   %m_canceled.i = getelementptr inbounds nuw i8, ptr %eh, i64 24
@@ -1611,7 +1611,7 @@ lpad66.loopexit.split-lp:                         ; preds = %if.end65, %sw.bb2.i
 cleanup:                                          ; preds = %for.inc.i.i, %land.lhs.true, %lor.lhs.false70, %call.i.i.noexc
   %r53.020 = phi i32 [ 0, %call.i.i.noexc ], [ 0, %lor.lhs.false70 ], [ %r53.022, %land.lhs.true ], [ 0, %for.inc.i.i ]
   %switch = phi i1 [ true, %call.i.i.noexc ], [ true, %lor.lhs.false70 ], [ %tobool.i.i14, %land.lhs.true ], [ true, %for.inc.i.i ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN15combined_solver14aux_timeout_ehE, i64 16), ptr %eh, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN15combined_solver14aux_timeout_ehE, i64 16), ptr %eh, align 8
   %26 = load atomic i8, ptr %m_canceled.i seq_cst, align 8
   %tobool.i.i.i = trunc i8 %26 to i1
   br i1 %tobool.i.i.i, label %if.then.i, label %_ZN15combined_solver14aux_timeout_ehD2Ev.exit
@@ -2003,7 +2003,7 @@ declare void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN16check_sat_resultD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16check_sat_result, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16check_sat_result, i64 16), ptr %this, align 8
   %m_mc0 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_mc0, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -2271,7 +2271,7 @@ declare void @_ZN12scoped_timerD1Ev(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN15combined_solver14aux_timeout_ehD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN15combined_solver14aux_timeout_ehE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN15combined_solver14aux_timeout_ehE, i64 16), ptr %this, align 8
   %m_canceled = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load atomic i8, ptr %m_canceled seq_cst, align 8
   %tobool.i.i = trunc i8 %0 to i1
@@ -2304,7 +2304,7 @@ terminate.lpad:                                   ; preds = %invoke.cont, %if.th
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN15combined_solver14aux_timeout_ehD0Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN15combined_solver14aux_timeout_ehE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN15combined_solver14aux_timeout_ehE, i64 16), ptr %this, align 8
   %m_canceled.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load atomic i8, ptr %m_canceled.i seq_cst, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
@@ -2357,7 +2357,7 @@ declare void @_ZN8reslimit10dec_cancelEv(ptr noundef nonnull align 8 dereference
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN23combined_solver_factoryD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23combined_solver_factory, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23combined_solver_factory, i64 16), ptr %this, align 8
   %m_f2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_f2, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -2404,7 +2404,7 @@ _ZN10scoped_ptrI14solver_factoryED2Ev.exit5:      ; preds = %_ZN10scoped_ptrI14s
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN23combined_solver_factoryD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23combined_solver_factory, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23combined_solver_factory, i64 16), ptr %this, align 8
   %m_f2.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_f2.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null

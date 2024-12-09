@@ -347,7 +347,7 @@ _ZNK2cv11_InputArray6getMatEi.exit73:             ; preds = %110, %113
   ]
 
 114:                                              ; preds = %_ZNK2cv11_InputArray6getMatEi.exit73
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv18BlendLinearInvokerIhEE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv18BlendLinearInvokerIhEE, i64 16), ptr %18, align 8
   %115 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %13, ptr %115, align 8
   %116 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -398,7 +398,7 @@ _ZNK2cv11_InputArray6getMatEi.exit73:             ; preds = %110, %113
   br label %159
 
 137:                                              ; preds = %_ZNK2cv11_InputArray6getMatEi.exit73
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv18BlendLinearInvokerIfEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv18BlendLinearInvokerIfEE, i64 16), ptr %20, align 8
   %138 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %13, ptr %138, align 8
   %139 = getelementptr inbounds nuw i8, ptr %20, i64 16

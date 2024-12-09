@@ -44,7 +44,7 @@ define dso_local void @_ZN4llvm13MCAsmInfoCOFF6anchorEv(ptr nocapture nonnull re
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm13MCAsmInfoCOFFC2Ev(ptr noundef nonnull align 8 dereferenceable(484) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN4llvm9MCAsmInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(484) %0) #5
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm13MCAsmInfoCOFFE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm13MCAsmInfoCOFFE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 353
   store i8 0, ptr %2, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 356
@@ -114,7 +114,7 @@ define dso_local void @_ZN4llvm18MCAsmInfoMicrosoftC2Ev(ptr noundef nonnull alig
   store i8 1, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 1, ptr %15, align 4
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18MCAsmInfoMicrosoftE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18MCAsmInfoMicrosoftE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -152,7 +152,7 @@ define dso_local void @_ZN4llvm16MCAsmInfoGNUCOFFC2Ev(ptr noundef nonnull align 
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm16MCAsmInfoGNUCOFFE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm16MCAsmInfoGNUCOFFE, i64 16), ptr %0, align 8
   store i8 0, ptr %14, align 1
   store i8 0, ptr %15, align 4
   ret void

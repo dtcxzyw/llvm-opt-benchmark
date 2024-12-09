@@ -411,7 +411,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 define void @_ZN8QuantLib17PiecewiseIntegralC2EN5boost10shared_ptrINS_10IntegratorEEESt6vectorIdSaIdEEb(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef %integrator, ptr nocapture noundef %criticalPoints, i1 noundef zeroext %avoidCriticalPoints) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN8QuantLib10IntegratorC2Edm(ptr noundef nonnull align 8 dereferenceable(40) %this, double noundef 1.000000e+00, i64 noundef 1)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib17PiecewiseIntegralE, i64 16), ptr %this, align 8, !tbaa !24
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib17PiecewiseIntegralE, i64 16), ptr %this, align 8, !tbaa !24
   %integrator_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %integrator, align 8, !tbaa !21
   store ptr %0, ptr %integrator_, align 8, !tbaa !21
@@ -785,7 +785,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib17PiecewiseIntegralD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib17PiecewiseIntegralE, i64 16), ptr %this, align 8, !tbaa !24
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib17PiecewiseIntegralE, i64 16), ptr %this, align 8, !tbaa !24
   %criticalPoints_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %criticalPoints_, align 8, !tbaa !27
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -846,7 +846,7 @@ _ZN5boost10shared_ptrIN8QuantLib10IntegratorEED2Ev.exit: ; preds = %_ZNSt6vector
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib17PiecewiseIntegralD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib17PiecewiseIntegralE, i64 16), ptr %this, align 8, !tbaa !24
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib17PiecewiseIntegralE, i64 16), ptr %this, align 8, !tbaa !24
   %criticalPoints_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %criticalPoints_.i, align 8, !tbaa !27
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

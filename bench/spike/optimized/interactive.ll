@@ -852,7 +852,7 @@ define noundef ptr @_ZN5sim_t8get_coreERKNSt7__cxx1112basic_stringIcSt11char_tra
   %18 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 -1, ptr %19, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %18, align 8
   tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
   unreachable
 
@@ -4194,7 +4194,7 @@ define void @_ZN5sim_t16interactive_vregERKNSt7__cxx1112basic_stringIcSt11char_t
   %11 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 -1, ptr %12, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %11, align 8
   tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
   unreachable
 
@@ -4245,7 +4245,7 @@ define void @_ZN5sim_t16interactive_vregERKNSt7__cxx1112basic_stringIcSt11char_t
   %40 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i64 -1, ptr %41, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %40, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %40, align 8
   tail call void @__cxa_throw(ptr nonnull %40, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
   unreachable
 
@@ -4652,7 +4652,7 @@ define void @_ZN5sim_t15interactive_regERKNSt7__cxx1112basic_stringIcSt11char_tr
   %11 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 -1, ptr %12, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %11, align 8
   tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
   unreachable
 
@@ -4681,7 +4681,7 @@ define void @_ZN5sim_t15interactive_regERKNSt7__cxx1112basic_stringIcSt11char_tr
   %28 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 -1, ptr %29, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %28, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %28, align 8
   tail call void @__cxa_throw(ptr nonnull %28, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
   unreachable
 
@@ -4999,7 +4999,7 @@ define void @_ZN5sim_t14interactive_pcERKNSt7__cxx1112basic_stringIcSt11char_tra
   %13 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 -1, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %13, align 8
   tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
   unreachable
 
@@ -5028,7 +5028,7 @@ define void @_ZN5sim_t14interactive_pcERKNSt7__cxx1112basic_stringIcSt11char_tra
   %30 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 -1, ptr %31, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %30, align 8
   tail call void @__cxa_throw(ptr nonnull %30, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
   unreachable
 
@@ -5106,7 +5106,7 @@ define void @_ZN5sim_t16interactive_privERKNSt7__cxx1112basic_stringIcSt11char_t
   %13 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 -1, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %13, align 8
   tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
   unreachable
 
@@ -5135,7 +5135,7 @@ define void @_ZN5sim_t16interactive_privERKNSt7__cxx1112basic_stringIcSt11char_t
   %30 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 -1, ptr %31, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %30, align 8
   tail call void @__cxa_throw(ptr nonnull %30, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
   unreachable
 
@@ -5253,7 +5253,7 @@ define void @_ZN5sim_t15interactive_strERKNSt7__cxx1112basic_stringIcSt11char_tr
   %17 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 -1, ptr %18, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %17, align 8
   tail call void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
   unreachable
 
@@ -5294,7 +5294,7 @@ define void @_ZN5sim_t15interactive_strERKNSt7__cxx1112basic_stringIcSt11char_tr
   %43 = call ptr @__cxa_allocate_exception(i64 16) #28
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 -1, ptr %44, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %43, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %43, align 8
   invoke void @__cxa_throw(ptr nonnull %43, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
           to label %.noexc unwind label %52
 
@@ -5526,7 +5526,7 @@ define void @_ZN5sim_t20interactive_mtimecmpERKNSt7__cxx1112basic_stringIcSt11ch
   %14 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 -1, ptr %15, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %14, align 8
   tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
   unreachable
 
@@ -5555,7 +5555,7 @@ define void @_ZN5sim_t20interactive_mtimecmpERKNSt7__cxx1112basic_stringIcSt11ch
   %31 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 -1, ptr %32, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %31, align 8
   tail call void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
   unreachable
 
@@ -6296,7 +6296,7 @@ define noundef i64 @_ZN5sim_t6get_pcERKSt6vectorINSt7__cxx1112basic_stringIcSt11
   %11 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 -1, ptr %12, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %11, align 8
   tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
   unreachable
 
@@ -6325,7 +6325,7 @@ define noundef i64 @_ZN5sim_t6get_pcERKSt6vectorINSt7__cxx1112basic_stringIcSt11
   %28 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 -1, ptr %29, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %28, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %28, align 8
   tail call void @__cxa_throw(ptr nonnull %28, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
   unreachable
 
@@ -6375,7 +6375,7 @@ define noundef i64 @_ZN5sim_t7get_regERKSt6vectorINSt7__cxx1112basic_stringIcSt1
   %12 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 -1, ptr %13, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %12, align 8
   tail call void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
   unreachable
 
@@ -6404,7 +6404,7 @@ define noundef i64 @_ZN5sim_t7get_regERKSt6vectorINSt7__cxx1112basic_stringIcSt1
   %29 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 -1, ptr %30, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %29, align 8
   tail call void @__cxa_throw(ptr nonnull %29, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
   unreachable
 
@@ -6414,7 +6414,7 @@ _ZN5sim_t8get_coreERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %33 = load ptr, ptr %1, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %35 = tail call noundef ptr @_ZSt9__find_ifIPPKcN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET_SE_SE_T0_St26random_access_iterator_tag(ptr noundef nonnull @xpr_name, ptr noundef nonnull getelementptr inbounds (i8, ptr @xpr_name, i64 256), ptr nonnull align 8 dereferenceable(32) %34)
+  %35 = tail call noundef ptr @_ZSt9__find_ifIPPKcN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET_SE_SE_T0_St26random_access_iterator_tag(ptr noundef nonnull @xpr_name, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @xpr_name, i64 256), ptr nonnull align 8 dereferenceable(32) %34)
   %36 = ptrtoint ptr %35 to i64
   %37 = sub i64 %36, ptrtoint (ptr @xpr_name to i64)
   %38 = ashr exact i64 %37, 3
@@ -10963,7 +10963,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   %2745 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   %2746 = getelementptr inbounds nuw i8, ptr %2745, i64 8
   store i64 -1, ptr %2746, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %2745, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %2745, align 8
   tail call void @__cxa_throw(ptr nonnull %2745, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
   unreachable
 
@@ -11018,7 +11018,7 @@ define { i64, i64 } @_ZN5sim_t8get_fregERKSt6vectorINSt7__cxx1112basic_stringIcS
   %12 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 -1, ptr %13, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %12, align 8
   tail call void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
   unreachable
 
@@ -11047,7 +11047,7 @@ define { i64, i64 } @_ZN5sim_t8get_fregERKSt6vectorINSt7__cxx1112basic_stringIcS
   %29 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 -1, ptr %30, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %29, align 8
   tail call void @__cxa_throw(ptr nonnull %29, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
   unreachable
 
@@ -11064,7 +11064,7 @@ _ZN5sim_t8get_coreERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   br i1 %.0.i.not, label %88, label %37
 
 37:                                               ; preds = %_ZN5sim_t8get_coreERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %38 = tail call noundef ptr @_ZSt9__find_ifIPPKcN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET_SE_SE_T0_St26random_access_iterator_tag(ptr noundef nonnull @xpr_name, ptr noundef nonnull getelementptr inbounds (i8, ptr @xpr_name, i64 256), ptr nonnull align 8 dereferenceable(32) %36)
+  %38 = tail call noundef ptr @_ZSt9__find_ifIPPKcN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET_SE_SE_T0_St26random_access_iterator_tag(ptr noundef nonnull @xpr_name, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @xpr_name, i64 256), ptr nonnull align 8 dereferenceable(32) %36)
   %39 = ptrtoint ptr %38 to i64
   %40 = sub i64 %39, ptrtoint (ptr @xpr_name to i64)
   %41 = lshr exact i64 %40, 3
@@ -11088,7 +11088,7 @@ _ZN5sim_t8get_coreERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %52 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i64 -1, ptr %53, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %52, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %52, align 8
   tail call void @__cxa_throw(ptr nonnull %52, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
   unreachable
 
@@ -11109,7 +11109,7 @@ _ZN5sim_t8get_coreERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %62 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i64 -1, ptr %63, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %62, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %62, align 8
   tail call void @__cxa_throw(ptr nonnull %62, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
   unreachable
 
@@ -11144,7 +11144,7 @@ _ZN5sim_t8get_coreERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   br label %109
 
 88:                                               ; preds = %_ZN5sim_t8get_coreERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %89 = tail call noundef ptr @_ZSt9__find_ifIPPKcN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET_SE_SE_T0_St26random_access_iterator_tag(ptr noundef nonnull @fpr_name, ptr noundef nonnull getelementptr inbounds (i8, ptr @fpr_name, i64 256), ptr nonnull align 8 dereferenceable(32) %36)
+  %89 = tail call noundef ptr @_ZSt9__find_ifIPPKcN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET_SE_SE_T0_St26random_access_iterator_tag(ptr noundef nonnull @fpr_name, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @fpr_name, i64 256), ptr nonnull align 8 dereferenceable(32) %36)
   %90 = ptrtoint ptr %89 to i64
   %91 = sub i64 %90, ptrtoint (ptr @fpr_name to i64)
   %92 = lshr exact i64 %91, 3
@@ -11168,7 +11168,7 @@ _ZN5sim_t8get_coreERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %103 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   store i64 -1, ptr %104, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %103, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %103, align 8
   tail call void @__cxa_throw(ptr nonnull %103, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
   unreachable
 
@@ -11273,7 +11273,7 @@ define noundef i64 @_ZN5sim_t7get_memERKSt6vectorINSt7__cxx1112basic_stringIcSt1
   %21 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 -1, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %21, align 8
   tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
   unreachable
 
@@ -11314,7 +11314,7 @@ define noundef i64 @_ZN5sim_t7get_memERKSt6vectorINSt7__cxx1112basic_stringIcSt1
   %47 = call ptr @__cxa_allocate_exception(i64 16) #28
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 -1, ptr %48, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %47, align 8
   invoke void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
           to label %.noexc unwind label %56
 
@@ -11716,7 +11716,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   %27 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 -1, ptr %28, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %27, align 8
   tail call void @__cxa_throw(ptr nonnull %27, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
   unreachable
 
@@ -11750,7 +11750,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   %47 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 -1, ptr %48, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %47, align 8
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
   unreachable
 
@@ -11803,7 +11803,7 @@ _ZN5sim_t8get_coreERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %78 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i64 -1, ptr %79, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %78, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %78, align 8
   tail call void @__cxa_throw(ptr nonnull %78, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
   unreachable
 
@@ -11986,7 +11986,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   %142 = call ptr @__cxa_allocate_exception(i64 16) #28
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   store i64 -1, ptr %143, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %142, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16trap_interactive, i64 16), ptr %142, align 8
   invoke void @__cxa_throw(ptr nonnull %142, ptr nonnull @_ZTI16trap_interactive, ptr nonnull @_ZN16trap_interactiveD2Ev) #31
           to label %231 unwind label %.loopexit.split-lp
 

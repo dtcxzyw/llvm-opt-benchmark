@@ -204,7 +204,7 @@ define void @dlaln2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %156 = load double, ptr %8, align 8, !tbaa !7
   %157 = fmul double %156, %148
   %158 = tail call double @llvm.fmuladd.f64(double %144, double %155, double %157)
-  store double %158, ptr getelementptr inbounds (i8, ptr @dlaln2_.equiv_1, i64 24), align 8, !tbaa !7
+  store double %158, ptr getelementptr inbounds nuw (i8, ptr @dlaln2_.equiv_1, i64 24), align 8, !tbaa !7
   %159 = load i32, ptr %0, align 4, !tbaa !3
   %160 = icmp eq i32 %159, 0
   %161 = sext i32 %29 to i64
@@ -219,8 +219,8 @@ define void @dlaln2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %170 = fmul double %144, %169
   %. = select i1 %160, double %165, double %170
   %.34 = select i1 %160, double %170, double %165
-  store double %., ptr getelementptr inbounds (i8, ptr @dlaln2_.equiv_1, i64 8), align 8, !tbaa !7
-  store double %.34, ptr getelementptr inbounds (i8, ptr @dlaln2_.equiv_1, i64 16), align 16, !tbaa !7
+  store double %., ptr getelementptr inbounds nuw (i8, ptr @dlaln2_.equiv_1, i64 8), align 8, !tbaa !7
+  store double %.34, ptr getelementptr inbounds nuw (i8, ptr @dlaln2_.equiv_1, i64 16), align 16, !tbaa !7
   %171 = load i32, ptr %2, align 4, !tbaa !3
   %172 = icmp eq i32 %171, 1
   br i1 %172, label %.preheader, label %334
@@ -432,8 +432,8 @@ define void @dlaln2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %337 = fmul double %147, %336
   store double %337, ptr @dlaln2_.equiv_0, align 16, !tbaa !7
   %338 = fmul double %156, %336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @dlaln2_.equiv_0, i64 8), i8 0, i64 16, i1 false)
-  store double %338, ptr getelementptr inbounds (i8, ptr @dlaln2_.equiv_0, i64 24), align 8, !tbaa !7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @dlaln2_.equiv_0, i64 8), i8 0, i64 16, i1 false)
+  store double %338, ptr getelementptr inbounds nuw (i8, ptr @dlaln2_.equiv_0, i64 24), align 8, !tbaa !7
   br label %339
 
 339:                                              ; preds = %339, %334

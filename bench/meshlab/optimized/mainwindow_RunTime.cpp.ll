@@ -7579,7 +7579,7 @@ _ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EED2Ev.exit: ; 
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN18MLPerViewGLOptionsC2ERKS_(ptr noundef nonnull align 8 dereferenceable(90) %0, ptr noundef nonnull align 8 dereferenceable(90) %1) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg26RenderingModalityGLOptionsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3vcg26RenderingModalityGLOptionsE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7679,7 +7679,7 @@ define linkonce_odr void @_ZN18MLPerViewGLOptionsC2ERKS_(ptr noundef nonnull ali
   %79 = load float, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store float %79, ptr %80, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18MLPerViewGLOptions, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18MLPerViewGLOptions, i64 16), ptr %0, align 8
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %82 = load i8, ptr %81, align 4
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -20007,7 +20007,7 @@ declare noundef zeroext i1 @_ZNK10QGLContext7isValidEv(ptr noundef nonnull align
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN11MLExceptionC2ERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QByteArray, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %4, align 8
@@ -20080,7 +20080,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %_ZNKR7QString11toLo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11MLExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
@@ -20706,7 +20706,7 @@ _ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit: ; preds = %19
   store i8 0, ptr %45, align 4
   store i8 1, ptr %46, align 1
   store float 1.000000e+00, ptr %47, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18MLPerViewGLOptions, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18MLPerViewGLOptions, i64 16), ptr %11, align 8
   store i8 1, ptr %53, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %54, i8 0, i64 10, i1 false)
   store i8 1, ptr %55, align 1
@@ -21632,7 +21632,7 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %13, %6
   br label %24
 
 19:                                               ; preds = %_ZN7QStringC2ERKS_.exit.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29FilterNameParameterValuesPair, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29FilterNameParameterValuesPair, i64 16), ptr %5, align 8
   store ptr %5, ptr %.01223, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.01223, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %.01322, i64 8
@@ -21782,7 +21782,7 @@ declare void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11MLExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
@@ -28374,7 +28374,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   br label %.body269
 
 496:                                              ; preds = %491
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29FilterNameParameterValuesPair, i64 16), ptr %28, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29FilterNameParameterValuesPair, i64 16), ptr %28, align 8
   invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %29, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %497 unwind label %514
 
@@ -29330,7 +29330,7 @@ _ZN7QStringC2ERKS_.exit.i.i.i:                    ; preds = %14, %.noexc
   br label %.body
 
 _ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit: ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29FilterNameParameterValuesPair, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29FilterNameParameterValuesPair, i64 16), ptr %8, align 8
   store ptr %8, ptr %7, align 8
   br label %52
 
@@ -29390,7 +29390,7 @@ _ZN7QStringC2ERKS_.exit.i.i.i11:                  ; preds = %37, %.noexc13
   br label %.body14
 
 _ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit16: ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i11
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29FilterNameParameterValuesPair, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29FilterNameParameterValuesPair, i64 16), ptr %31, align 8
   store ptr %31, ptr %30, align 8
   br label %52
 

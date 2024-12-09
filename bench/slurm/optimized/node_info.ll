@@ -292,7 +292,7 @@ define ptr @slurm_sprint_node_table(ptr noundef %0, i32 noundef %1) local_unname
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %69 = load i16, ptr %68, align 8
   %70 = zext i16 %69 to i32
-  %71 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1288), align 8
+  %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1288), align 8
   %.not173 = icmp eq i32 %71, %70
   br i1 %.not173, label %72, label %.thread
 
@@ -936,7 +936,7 @@ define range(i32 -1, 1) i32 @slurm_load_node(i64 noundef %0, ptr nocapture nound
   %11 = load ptr, ptr @working_cluster_rec, align 8
   %.not = icmp eq ptr %11, null
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 272
-  %.017.in = select i1 %.not, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), ptr %12
+  %.017.in = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), ptr %12
   %.017 = load ptr, ptr %.017.in, align 8
   %13 = and i16 %2, 80
   %or.cond25 = icmp eq i16 %13, 64
@@ -1497,7 +1497,7 @@ define range(i32 -1, 1) i32 @slurm_get_node_energy(ptr noundef %0, i16 noundef z
 
 24:                                               ; preds = %18
   store ptr @.str.68, ptr %9, align 8
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1288), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1288), align 8
   %26 = trunc i32 %25 to i16
   call void @slurm_set_addr(ptr noundef nonnull %6, i16 noundef zeroext %26, ptr noundef nonnull @.str.68) #14
   br label %37
@@ -1516,7 +1516,7 @@ define range(i32 -1, 1) i32 @slurm_get_node_energy(ptr noundef %0, i16 noundef z
 
 33:                                               ; preds = %31, %27
   %34 = phi ptr [ %32, %31 ], [ %29, %27 ]
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1288), align 8
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1288), align 8
   %36 = trunc i32 %35 to i16
   call void @slurm_set_addr(ptr noundef nonnull %6, i16 noundef zeroext %36, ptr noundef %34) #14
   call void @slurm_xfree(ptr noundef nonnull %9) #14

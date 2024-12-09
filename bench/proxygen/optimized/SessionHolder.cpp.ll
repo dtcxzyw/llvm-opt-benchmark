@@ -131,7 +131,7 @@ entry:
   %parent.addr = alloca ptr, align 8
   store ptr %sess, ptr %sess.addr, align 8
   store ptr %parent, ptr %parent.addr, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13SessionHolderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen13SessionHolderE, i64 16), ptr %this, align 8
   %listHook = getelementptr inbounds nuw i8, ptr %this, i64 8
   %session_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %listHook, i8 0, i64 32, i1 false)
@@ -303,7 +303,7 @@ entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
   %ref.tmp15 = alloca %"class.google::LogMessageFatal", align 8
   %ref.tmp34 = alloca %"class.google::LogMessageFatal", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13SessionHolderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen13SessionHolderE, i64 16), ptr %this, align 8
   %state_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load i32, ptr %state_, align 8
   %cmp.not.not = icmp eq i32 %0, 0

@@ -499,7 +499,7 @@ define internal void @_ZN12_GLOBAL__N_115EquivStructPass7executeESt6vectorINSt7_
   br i1 %.not.i, label %21, label %17
 
 17:                                               ; preds = %15
-  %18 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.32, i64 1))
+  %18 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.32, i64 1))
           to label %19 unwind label %29, !noalias !6
 
 19:                                               ; preds = %17
@@ -1875,7 +1875,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit: ; preds = %._crit_edge, %151
   br i1 %.not.i166, label %167, label %163
 
 163:                                              ; preds = %161
-  %164 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.32, i64 1))
+  %164 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.32, i64 1))
           to label %165 unwind label %171, !noalias !27
 
 165:                                              ; preds = %163
@@ -2476,7 +2476,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit221: ; preds = %._crit_edge690
   br i1 %.not.i223, label %414, label %410
 
 410:                                              ; preds = %408
-  %411 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.32, i64 1))
+  %411 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.32, i64 1))
           to label %412 unwind label %419, !noalias !39
 
 412:                                              ; preds = %410
@@ -32305,7 +32305,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %7
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115EquivStructPassE, i64 16), ptr @_ZN12_GLOBAL__N_115EquivStructPassE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_115EquivStructPassE, i64 16), ptr @_ZN12_GLOBAL__N_115EquivStructPassE, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)

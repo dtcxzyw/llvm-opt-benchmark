@@ -270,62 +270,62 @@ $_ZTV14DoubleConstant = comdat any
 define hidden void @_ZN9ValueType10initializeEv() local_unnamed_addr #0 align 2 {
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE16voidType_storage, i64 8), align 8
   store i32 7, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE16voidType_storage, i64 12), align 4
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV8VoidType, i64 16), ptr @_ZZN9ValueType10initializeEvE16voidType_storage, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV8VoidType, i64 16), ptr @_ZZN9ValueType10initializeEvE16voidType_storage, align 8
   store ptr @_ZZN9ValueType10initializeEvE16voidType_storage, ptr @voidType, align 8
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE15intType_storage, i64 8), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE15intType_storage, i64 12), align 4
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV7IntType, i64 16), ptr @_ZZN9ValueType10initializeEvE15intType_storage, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV7IntType, i64 16), ptr @_ZZN9ValueType10initializeEvE15intType_storage, align 8
   store ptr @_ZZN9ValueType10initializeEvE15intType_storage, ptr @intType, align 8
   store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE16longType_storage, i64 8), align 8
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE16longType_storage, i64 12), align 4
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV8LongType, i64 16), ptr @_ZZN9ValueType10initializeEvE16longType_storage, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV8LongType, i64 16), ptr @_ZZN9ValueType10initializeEvE16longType_storage, align 8
   store ptr @_ZZN9ValueType10initializeEvE16longType_storage, ptr @longType, align 8
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE17floatType_storage, i64 8), align 8
   store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE17floatType_storage, i64 12), align 4
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV9FloatType, i64 16), ptr @_ZZN9ValueType10initializeEvE17floatType_storage, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV9FloatType, i64 16), ptr @_ZZN9ValueType10initializeEvE17floatType_storage, align 8
   store ptr @_ZZN9ValueType10initializeEvE17floatType_storage, ptr @floatType, align 8
   store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE18doubleType_storage, i64 8), align 8
   store i32 3, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE18doubleType_storage, i64 12), align 4
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV10DoubleType, i64 16), ptr @_ZZN9ValueType10initializeEvE18doubleType_storage, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV10DoubleType, i64 16), ptr @_ZZN9ValueType10initializeEvE18doubleType_storage, align 8
   store ptr @_ZZN9ValueType10initializeEvE18doubleType_storage, ptr @doubleType, align 8
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE18objectType_storage, i64 8), align 8
   store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE18objectType_storage, i64 12), align 4
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV10ObjectType, i64 16), ptr @_ZZN9ValueType10initializeEvE18objectType_storage, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 240) (i8, ptr @_ZTV10ObjectType, i64 16), ptr @_ZZN9ValueType10initializeEvE18objectType_storage, align 8
   store ptr @_ZZN9ValueType10initializeEvE18objectType_storage, ptr @objectType, align 8
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE17arrayType_storage, i64 8), align 8
   store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE17arrayType_storage, i64 12), align 4
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV9ArrayType, i64 16), ptr @_ZZN9ValueType10initializeEvE17arrayType_storage, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 240) (i8, ptr @_ZTV9ArrayType, i64 16), ptr @_ZZN9ValueType10initializeEvE17arrayType_storage, align 8
   store ptr @_ZZN9ValueType10initializeEvE17arrayType_storage, ptr @arrayType, align 8
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE20instanceType_storage, i64 8), align 8
   store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE20instanceType_storage, i64 12), align 4
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV12InstanceType, i64 16), ptr @_ZZN9ValueType10initializeEvE20instanceType_storage, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 240) (i8, ptr @_ZTV12InstanceType, i64 16), ptr @_ZZN9ValueType10initializeEvE20instanceType_storage, align 8
   store ptr @_ZZN9ValueType10initializeEvE20instanceType_storage, ptr @instanceType, align 8
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE17classType_storage, i64 8), align 8
   store i32 6, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE17classType_storage, i64 12), align 4
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9ClassType, i64 16), ptr @_ZZN9ValueType10initializeEvE17classType_storage, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9ClassType, i64 16), ptr @_ZZN9ValueType10initializeEvE17classType_storage, align 8
   store ptr @_ZZN9ValueType10initializeEvE17classType_storage, ptr @classType, align 8
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE19addressType_storage, i64 8), align 8
   store i32 5, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE19addressType_storage, i64 12), align 4
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV11AddressType, i64 16), ptr @_ZZN9ValueType10initializeEvE19addressType_storage, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV11AddressType, i64 16), ptr @_ZZN9ValueType10initializeEvE19addressType_storage, align 8
   store ptr @_ZZN9ValueType10initializeEvE19addressType_storage, ptr @addressType, align 8
   store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE19illegalType_storage, i64 8), align 8
   store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE19illegalType_storage, i64 12), align 4
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV11IllegalType, i64 16), ptr @_ZZN9ValueType10initializeEvE19illegalType_storage, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV11IllegalType, i64 16), ptr @_ZZN9ValueType10initializeEvE19illegalType_storage, align 8
   store ptr @_ZZN9ValueType10initializeEvE19illegalType_storage, ptr @illegalType, align 8
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE15intZero_storage, i64 8), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE15intZero_storage, i64 12), align 4
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV11IntConstant, i64 16), ptr @_ZZN9ValueType10initializeEvE15intZero_storage, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV11IntConstant, i64 16), ptr @_ZZN9ValueType10initializeEvE15intZero_storage, align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE15intZero_storage, i64 16), align 8
   store ptr @_ZZN9ValueType10initializeEvE15intZero_storage, ptr @intZero, align 8
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE14intOne_storage, i64 8), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE14intOne_storage, i64 12), align 4
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV11IntConstant, i64 16), ptr @_ZZN9ValueType10initializeEvE14intOne_storage, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV11IntConstant, i64 16), ptr @_ZZN9ValueType10initializeEvE14intOne_storage, align 8
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE14intOne_storage, i64 16), align 8
   store ptr @_ZZN9ValueType10initializeEvE14intOne_storage, ptr @intOne, align 8
   %1 = tail call noundef ptr @_ZN12ciNullObject4makeEv() #6
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE18objectNull_storage, i64 8), align 8
   store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE18objectNull_storage, i64 12), align 4
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV14ObjectConstant, i64 16), ptr @_ZZN9ValueType10initializeEvE18objectNull_storage, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 240) (i8, ptr @_ZTV14ObjectConstant, i64 16), ptr @_ZZN9ValueType10initializeEvE18objectNull_storage, align 8
   store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9ValueType10initializeEvE18objectNull_storage, i64 16), align 8
   store ptr @_ZZN9ValueType10initializeEvE18objectNull_storage, ptr @objectNull, align 8
   ret void
@@ -615,7 +615,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %18, %20
   store i32 1, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 0, ptr %25, align 4
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV11IntConstant, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV11IntConstant, i64 16), ptr %.0.i.i.i, align 8
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 %.sroa.2.sroa.0.0.extract.trunc, ptr %26, align 8
   br label %180
@@ -657,7 +657,7 @@ _ZN22CompilationResourceObjnwEm.exit17:           ; preds = %42, %44
   store i32 2, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i16, i64 12
   store i32 1, ptr %49, align 4
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV12LongConstant, i64 16), ptr %.0.i.i.i16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV12LongConstant, i64 16), ptr %.0.i.i.i16, align 8
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i16, i64 16
   store i32 %.sroa.2.sroa.0.0.extract.trunc, ptr %50, align 8
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.i.i16, i64 20
@@ -701,7 +701,7 @@ _ZN22CompilationResourceObjnwEm.exit20:           ; preds = %66, %68
   store i32 1, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %.0.i.i.i19, i64 12
   store i32 2, ptr %73, align 4
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV13FloatConstant, i64 16), ptr %.0.i.i.i19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV13FloatConstant, i64 16), ptr %.0.i.i.i19, align 8
   %74 = getelementptr inbounds nuw i8, ptr %.0.i.i.i19, i64 16
   store i32 %.sroa.2.sroa.0.0.extract.trunc, ptr %74, align 8
   br label %180
@@ -743,7 +743,7 @@ _ZN22CompilationResourceObjnwEm.exit23:           ; preds = %90, %92
   store i32 2, ptr %96, align 8
   %97 = getelementptr inbounds nuw i8, ptr %.0.i.i.i22, i64 12
   store i32 3, ptr %97, align 4
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV14DoubleConstant, i64 16), ptr %.0.i.i.i22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV14DoubleConstant, i64 16), ptr %.0.i.i.i22, align 8
   %98 = getelementptr inbounds nuw i8, ptr %.0.i.i.i22, i64 16
   store i64 %1, ptr %98, align 8
   br label %180
@@ -817,7 +817,7 @@ _ZN22CompilationResourceObjnwEm.exit26:           ; preds = %133, %135
   store i32 1, ptr %139, align 8
   %140 = getelementptr inbounds nuw i8, ptr %.0.i.i.i25, i64 12
   store i32 4, ptr %140, align 4
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV13ArrayConstant, i64 16), ptr %.0.i.i.i25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 240) (i8, ptr @_ZTV13ArrayConstant, i64 16), ptr %.0.i.i.i25, align 8
   %141 = getelementptr inbounds nuw i8, ptr %.0.i.i.i25, i64 16
   store ptr %100, ptr %141, align 8
   br label %180
@@ -839,7 +839,7 @@ _ZN22CompilationResourceObjnwEm.exit26:           ; preds = %133, %135
   store i32 1, ptr %151, align 8
   %152 = getelementptr inbounds nuw i8, ptr %148, i64 12
   store i32 4, ptr %152, align 4
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV16InstanceConstant, i64 16), ptr %148, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 240) (i8, ptr @_ZTV16InstanceConstant, i64 16), ptr %148, align 8
   %153 = getelementptr inbounds nuw i8, ptr %148, i64 16
   store ptr %100, ptr %153, align 8
   br label %180
@@ -881,7 +881,7 @@ _ZN22CompilationResourceObjnwEm.exit29:           ; preds = %169, %171
   store i32 1, ptr %175, align 8
   %176 = getelementptr inbounds nuw i8, ptr %.0.i.i.i28, i64 12
   store i32 4, ptr %176, align 4
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV14ObjectConstant, i64 16), ptr %.0.i.i.i28, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 240) (i8, ptr @_ZTV14ObjectConstant, i64 16), ptr %.0.i.i.i28, align 8
   %177 = getelementptr inbounds nuw i8, ptr %.0.i.i.i28, i64 16
   store ptr %100, ptr %177, align 8
   br label %180

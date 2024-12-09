@@ -1384,7 +1384,7 @@ define internal ptr @snd_dma_sg_fallback_alloc(ptr nocapture noundef %0, i64 nou
   br label %8
 
 8:                                                ; preds = %6, %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %10 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 32) #11
   %11 = icmp eq ptr %10, null
   br i1 %11, label %158, label %12

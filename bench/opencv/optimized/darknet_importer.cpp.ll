@@ -693,7 +693,7 @@ define void @_ZN2cv3dnn14dnn4_v2024052118readNetFromDarknetEPKcmS3_m(ptr dead_on
   %8 = alloca %"struct.cv::dnn::dnn4_v20240521::BufferStream", align 8
   %9 = alloca %"class.std::basic_istream", align 8
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6)
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052112BufferStreamE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052112BufferStreamE, i64 16), ptr %6, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 %2
   invoke void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef %1, ptr noundef %1, ptr noundef %10)
           to label %_ZN2cv3dnn14dnn4_v2024052112BufferStreamC2EPKcm.exit unwind label %11
@@ -721,7 +721,7 @@ _ZN2cv3dnn14dnn4_v2024052112BufferStreamC2EPKcm.exit: ; preds = %5
           to label %.noexc unwind label %22
 
 .noexc:                                           ; preds = %14
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052112BufferStreamE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052112BufferStreamE, i64 16), ptr %8, align 8
   %15 = getelementptr inbounds i8, ptr %3, i64 %4
   invoke void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %3, ptr noundef %3, ptr noundef nonnull %15)
           to label %_ZN2cv3dnn14dnn4_v2024052112BufferStreamC2EPKcm.exit13 unwind label %16

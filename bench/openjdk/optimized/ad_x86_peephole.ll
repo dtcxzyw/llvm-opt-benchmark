@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 -1, 1) i32 @_ZN13addI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %6, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit
     i32 1752462657, label %7
@@ -72,7 +72,7 @@ declare noundef zeroext i1 @_ZN8Peephole16lea_coalesce_regEP5BlockiP8PhaseCFGP13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 -1, 2) i32 @_ZN17addI_rReg_immNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %6, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit
     i32 1752462657, label %7
@@ -106,7 +106,7 @@ declare noundef zeroext i1 @_ZN8Peephole16lea_coalesce_immEP5BlockiP8PhaseCFGP13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 -1, 3) i32 @_ZN13incI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %6, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i
     i32 1752462657, label %7
@@ -163,7 +163,7 @@ declare noundef zeroext i1 @_ZN10VM_Version21is_intel_cascade_lakeEv() local_unn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 -1, 4) i32 @_ZN13decI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %6, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i
     i32 1752462657, label %7
@@ -218,7 +218,7 @@ _ZN10VM_Version21supports_fast_3op_leaEv.exit:    ; preds = %_ZN10VM_Version20is
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 -1, 6) i32 @_ZN13addL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %6, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit
     i32 1752462657, label %7
@@ -250,7 +250,7 @@ _ZN10VM_Version21supports_fast_2op_leaEv.exit.thread: ; preds = %5, %7, %12, %_Z
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 -1, 7) i32 @_ZN17addL_rReg_immNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %6, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit
     i32 1752462657, label %7
@@ -282,7 +282,7 @@ _ZN10VM_Version21supports_fast_2op_leaEv.exit.thread: ; preds = %5, %7, %12, %_Z
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 -1, 8) i32 @_ZN13incL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %6, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i
     i32 1752462657, label %7
@@ -337,7 +337,7 @@ _ZN10VM_Version21supports_fast_3op_leaEv.exit:    ; preds = %_ZN10VM_Version20is
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 -1, 9) i32 @_ZN13decL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %6, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i
     i32 1752462657, label %7
@@ -392,7 +392,7 @@ _ZN10VM_Version21supports_fast_3op_leaEv.exit:    ; preds = %_ZN10VM_Version20is
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 -1, 5) i32 @_ZN19salI_rReg_immI2Node8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %6, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit
     i32 1752462657, label %7
@@ -424,7 +424,7 @@ _ZN10VM_Version21supports_fast_2op_leaEv.exit.thread: ; preds = %5, %7, %12, %_Z
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 -1, 10) i32 @_ZN19salL_rReg_immI2Node8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %6, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit
     i32 1752462657, label %7
@@ -512,7 +512,7 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %25, align 4
-  store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV23leaI_rReg_rReg_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV23leaI_rReg_rReg_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
   store i16 3, ptr %23, align 2
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
@@ -571,7 +571,7 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %25, align 4
-  store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV23leaI_rReg_immI_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV23leaI_rReg_immI_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
   store i16 3, ptr %23, align 2
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
@@ -623,7 +623,7 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %25, align 4
-  store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV23leaI_rReg_immI_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV23leaI_rReg_immI_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
   store i16 3, ptr %23, align 2
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
@@ -675,7 +675,7 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %25, align 4
-  store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV23leaI_rReg_immI_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV23leaI_rReg_immI_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
   store i16 3, ptr %23, align 2
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
@@ -727,7 +727,7 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %25, align 4
-  store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV23leaL_rReg_rReg_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV23leaL_rReg_rReg_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
   store i16 3, ptr %23, align 2
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
@@ -779,7 +779,7 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %25, align 4
-  store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV25leaL_rReg_immL32_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV25leaL_rReg_immL32_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
   store i16 3, ptr %23, align 2
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
@@ -831,7 +831,7 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %25, align 4
-  store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV25leaL_rReg_immL32_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV25leaL_rReg_immL32_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
   store i16 3, ptr %23, align 2
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
@@ -883,7 +883,7 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %25, align 4
-  store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV25leaL_rReg_immL32_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV25leaL_rReg_immL32_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
   store i16 3, ptr %23, align 2
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
@@ -935,7 +935,7 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %25, align 4
-  store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV24leaI_rReg_immI2_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV24leaI_rReg_immI2_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
   store i16 3, ptr %23, align 2
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
@@ -987,7 +987,7 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %25, align 4
-  store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV24leaL_rReg_immI2_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV24leaL_rReg_immI2_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
   store i16 3, ptr %23, align 2
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8

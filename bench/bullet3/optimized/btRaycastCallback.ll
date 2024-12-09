@@ -122,7 +122,7 @@ $_ZTIN12btConvexCast10CastResultE = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN25btTriangleRaycastCallbackC2ERK9btVector3S2_j(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %from, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %to, i32 noundef %flags) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV25btTriangleRaycastCallback, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV25btTriangleRaycastCallback, i64 16), ptr %this, align 8
   %m_from = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_from, ptr noundef nonnull align 4 dereferenceable(16) %from, i64 16, i1 false)
   %m_to = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -332,7 +332,7 @@ if.end72:                                         ; preds = %if.end72.sink.split
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN28btTriangleConvexcastCallbackC2EPK13btConvexShapeRK11btTransformS5_S5_f(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(220) initializes((0, 220)) %this, ptr noundef %convexShape, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %convexShapeFrom, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %convexShapeTo, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %triangleToWorld, float noundef %triangleCollisionMargin) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont10:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28btTriangleConvexcastCallback, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28btTriangleConvexcastCallback, i64 16), ptr %this, align 8
   %m_convexShapeFrom = getelementptr inbounds nuw i8, ptr %this, i64 16
   %m_convexShapeTo = getelementptr inbounds nuw i8, ptr %this, i64 80
   %m_triangleToWorld = getelementptr inbounds nuw i8, ptr %this, i64 144
@@ -393,7 +393,7 @@ invoke.cont4:
   %arrayidx2 = getelementptr inbounds nuw i8, ptr %triangle, i64 16
   %arrayidx3 = getelementptr inbounds nuw i8, ptr %triangle, i64 32
   call void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %triangleShape)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15btTriangleShape, i64 16), ptr %triangleShape, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15btTriangleShape, i64 16), ptr %triangleShape, align 8
   %m_vertices1.ptr.i = getelementptr inbounds nuw i8, ptr %triangleShape, i64 80
   %m_shapeType.i = getelementptr inbounds nuw i8, ptr %triangleShape, i64 8
   store i32 1, ptr %m_shapeType.i, align 8
@@ -410,14 +410,14 @@ invoke.cont4:
   store float 0x3F1A36E2E0000000, ptr %m_equalVertexThreshold.i, align 4
   %m_usedVertices.i.i = getelementptr inbounds nuw i8, ptr %simplexSolver, i64 332
   store i8 0, ptr %m_usedVertices.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV30btGjkEpaPenetrationDepthSolver, i64 16), ptr %gjkEpaPenetrationSolver, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV30btGjkEpaPenetrationDepthSolver, i64 16), ptr %gjkEpaPenetrationSolver, align 8
   %m_convexShape = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_convexShape, align 8
   invoke void @_ZN27btContinuousConvexCollisionC1EPK13btConvexShapeS2_P22btVoronoiSimplexSolverP30btConvexPenetrationDepthSolver(ptr noundef nonnull align 8 dereferenceable(48) %convexCaster, ptr noundef %1, ptr noundef nonnull %triangleShape, ptr noundef nonnull %simplexSolver, ptr noundef nonnull %gjkEpaPenetrationSolver)
           to label %invoke.cont9 unwind label %lpad6
 
 invoke.cont9:                                     ; preds = %invoke.cont4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12btConvexCast10CastResultE, i64 16), ptr %castResult, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12btConvexCast10CastResultE, i64 16), ptr %castResult, align 8
   %m_fraction.i = getelementptr inbounds nuw i8, ptr %castResult, i64 168
   %m_debugDrawer.i = getelementptr inbounds nuw i8, ptr %castResult, i64 176
   store ptr null, ptr %m_debugDrawer.i, align 8

@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal void @mca_rcache_gpusm_registration_constructor(ptr noundef %0) #0 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_accelerator, i64 16), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_accelerator, i64 16), align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %4 = tail call i32 %2(i32 noundef -1, ptr noundef nonnull %3, i1 noundef zeroext true) #6
   %.not = icmp eq i32 %4, 0
@@ -36,7 +36,7 @@ define internal void @mca_rcache_gpusm_registration_constructor(ptr noundef %0) 
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_accelerator, i64 136), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_accelerator, i64 136), align 8
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %10 = tail call i32 %7(ptr noundef %8, ptr noundef nonnull %9) #6
@@ -122,7 +122,7 @@ define void @mca_rcache_gpusm_module_init(ptr noundef %0) local_unnamed_addr #0 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @mca_rcache_gpusm_finalize, ptr %5, align 8
   %6 = load i32, ptr @opal_class_init_epoch, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 32), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_free_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %6, %7
   br i1 %.not, label %9, label %8
 
@@ -323,7 +323,7 @@ opal_free_list_get.exit:                          ; preds = %opal_free_list_get_
   br i1 %71, label %99, label %72
 
 72:                                               ; preds = %61
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_accelerator, i64 104), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_accelerator, i64 104), align 8
   %74 = load i32, ptr %9, align 4
   %75 = getelementptr inbounds nuw i8, ptr %.0.i, i64 184
   %76 = call i32 %73(i32 noundef %74, ptr noundef %1, ptr noundef nonnull %75) #6
@@ -331,7 +331,7 @@ opal_free_list_get.exit:                          ; preds = %opal_free_list_get_
   br i1 %.not.i, label %77, label %99
 
 77:                                               ; preds = %72
-  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_accelerator, i64 88), align 8
+  %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_accelerator, i64 88), align 8
   %79 = load i32, ptr %9, align 4
   %80 = call i32 %78(i32 noundef %79, ptr noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %11) #6
   %.not16.i = icmp eq i32 %80, 0
@@ -354,13 +354,13 @@ opal_free_list_get.exit:                          ; preds = %opal_free_list_get_
   br i1 %89, label %91, label %94
 
 91:                                               ; preds = %81
-  %92 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_accelerator, i64 200), align 8
+  %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_accelerator, i64 200), align 8
   %93 = call i32 %92(i32 noundef %90, ptr noundef %1, ptr noundef nonnull %7) #6
   %.not18.i = icmp eq i32 %93, 0
   br i1 %.not18.i, label %138, label %99
 
 94:                                               ; preds = %81
-  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_accelerator, i64 24), align 8
+  %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_accelerator, i64 24), align 8
   %96 = getelementptr inbounds nuw i8, ptr %.0.i, i64 368
   %97 = load ptr, ptr %96, align 8
   %98 = call i32 %95(i32 noundef %90, ptr noundef %97, ptr noundef null) #6

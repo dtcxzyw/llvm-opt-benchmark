@@ -143,7 +143,7 @@ define dso_local range(i32 0, 2) i32 @tick_oneshot_mode_active() local_unnamed_a
   %2 = load i64, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #5
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
-  %3 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @tick_cpu_device, i64 8)) #4, !srcloc !12
+  %3 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @tick_cpu_device, i64 8)) #4, !srcloc !12
   %4 = and i64 %2, 512
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %7, label %6

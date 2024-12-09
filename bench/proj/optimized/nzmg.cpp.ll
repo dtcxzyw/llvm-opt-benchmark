@@ -126,7 +126,7 @@ define internal { double, double } @_ZL14nzmg_e_inverse5PJ_XYP8PJconsts(double %
 .preheader:                                       ; preds = %8, %.preheader
   %.sroa.4.042 = phi double [ %35, %.preheader ], [ -1.300000e-03, %8 ]
   %.03141 = phi i32 [ %36, %.preheader ], [ 8, %8 ]
-  %.03240 = phi ptr [ %33, %.preheader ], [ getelementptr inbounds (i8, ptr @_ZZL14nzmg_e_inverse5PJ_XYP8PJconstsE4tphi, i64 64), %8 ]
+  %.03240 = phi ptr [ %33, %.preheader ], [ getelementptr inbounds nuw (i8, ptr @_ZZL14nzmg_e_inverse5PJ_XYP8PJconstsE4tphi, i64 64), %8 ]
   %33 = getelementptr inbounds i8, ptr %.03240, i64 -8
   %34 = load double, ptr %33, align 8
   %35 = call double @llvm.fmuladd.f64(double %27, double %.sroa.4.042, double %34)
@@ -160,7 +160,7 @@ define internal { double, double } @_ZL14nzmg_e_forward5PJ_LPP8PJconsts(double %
 8:                                                ; preds = %3, %8
   %.sroa.07.019 = phi double [ -3.400000e-04, %3 ], [ %11, %8 ]
   %.018 = phi i32 [ 9, %3 ], [ %12, %8 ]
-  %.01617 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZL14nzmg_e_forward5PJ_LPP8PJconstsE4tpsi, i64 72), %3 ], [ %9, %8 ]
+  %.01617 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZL14nzmg_e_forward5PJ_LPP8PJconstsE4tpsi, i64 72), %3 ], [ %9, %8 ]
   %9 = getelementptr inbounds i8, ptr %.01617, i64 -8
   %10 = load double, ptr %9, align 8
   %11 = tail call double @llvm.fmuladd.f64(double %7, double %.sroa.07.019, double %10)

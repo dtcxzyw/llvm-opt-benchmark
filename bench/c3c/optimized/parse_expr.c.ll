@@ -7171,7 +7171,7 @@ define internal ptr @parse_ct_sizeof(ptr noundef %0, ptr nocapture readnone %1) 
   store ptr %29, ptr %43, align 8
   %44 = load i64, ptr %3, align 8
   %45 = tail call ptr @expr_new(i32 noundef 34, i64 %44) #8
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @type_property_list, i64 160), align 16
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @type_property_list, i64 160), align 16
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 32
   store ptr %46, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 32

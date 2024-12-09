@@ -14148,7 +14148,7 @@ define hidden void @"_ZN4zbus5proxy7builder16Builder$LT$T$GT$14build_internal17h
   %181 = load i64, ptr %180, align 8, !alias.scope !4187, !noalias !4190, !noundef !4
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !4182
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !4182
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3141.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @anon.8c0093c55874d1f44d03f1355289ff14.2.llvm.17345464774003463743, i64 8), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3141.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @anon.8c0093c55874d1f44d03f1355289ff14.2.llvm.17345464774003463743, i64 8), i64 24, i1 false)
   br label %182
 
 182:                                              ; preds = %177, %176
@@ -14784,7 +14784,7 @@ define hidden void @"_ZN4zbus5proxy7builder16Builder$LT$T$GT$14build_internal17h
   %181 = load i64, ptr %180, align 8, !alias.scope !4362, !noalias !4365, !noundef !4
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !4357
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !4357
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3141.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @anon.8c0093c55874d1f44d03f1355289ff14.2.llvm.17345464774003463743, i64 8), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3141.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @anon.8c0093c55874d1f44d03f1355289ff14.2.llvm.17345464774003463743, i64 8), i64 24, i1 false)
   br label %182
 
 182:                                              ; preds = %177, %176

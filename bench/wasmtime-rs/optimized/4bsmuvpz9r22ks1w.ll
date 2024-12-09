@@ -56174,7 +56174,7 @@ define void @_ZN17cranelift_codegen3isa3x648settings5Flags4iter17h2de1b680387d55
   %.sroa.0.0.copyload2 = load <2 x i8>, ptr %1, align 1, !alias.scope !9600, !noalias !9604
   store ptr @_ZN17cranelift_codegen3isa3x648settings11DESCRIPTORS17h3f812ec1131dbf60E, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen3isa3x648settings11DESCRIPTORS17h3f812ec1131dbf60E, i64 3280), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN17cranelift_codegen3isa3x648settings11DESCRIPTORS17h3f812ec1131dbf60E, i64 3280), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store <2 x i8> %.sroa.0.0.copyload2, ptr %3, align 8
   ret void
@@ -56661,7 +56661,7 @@ define void @_ZN17cranelift_codegen8settings5Flags4iter17h4532f91cadff4300E(ptr 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE.exit":
   store ptr @_ZN17cranelift_codegen8settings11DESCRIPTORS17h1240c8175bb82a89E, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen8settings11DESCRIPTORS17h1240c8175bb82a89E, i64 1080), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN17cranelift_codegen8settings11DESCRIPTORS17h1240c8175bb82a89E, i64 1080), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %3, ptr noundef nonnull align 1 dereferenceable(9) %1, i64 9, i1 false)
   ret void

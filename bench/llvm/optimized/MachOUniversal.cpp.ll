@@ -531,7 +531,7 @@ define dso_local void @_ZN4llvm6object20MachOUniversalBinaryC2ENS_15MemoryBuffer
   %130 = alloca %"class.llvm::Twine", align 8
   %131 = alloca i64, align 8
   tail call void @_ZN4llvm6object6BinaryC2EjNS_15MemoryBufferRefE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 1, ptr noundef nonnull byval(%"class.llvm::MemoryBufferRef") align 8 %1) #14
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm6object20MachOUniversalBinaryE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm6object20MachOUniversalBinaryE, i64 16), ptr %0, align 8
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %132, align 8
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 52

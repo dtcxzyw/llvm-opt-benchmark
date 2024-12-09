@@ -7542,7 +7542,7 @@ define internal fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$1
 
 .preheader70.split.us:                            ; preds = %.preheader70, %77
   %.05090.us = phi i8 [ %.1.us, %77 ], [ 0, %.preheader70 ]
-  %.sroa.0.089.us = phi ptr [ %43, %77 ], [ getelementptr inbounds (i8, ptr @_ZN5image6codecs4jpeg7encoder8UNZIGZAG17he71044efcaf43dc3E, i64 1), %.preheader70 ]
+  %.sroa.0.089.us = phi ptr [ %43, %77 ], [ getelementptr inbounds nuw (i8, ptr @_ZN5image6codecs4jpeg7encoder8UNZIGZAG17he71044efcaf43dc3E, i64 1), %.preheader70 ]
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.0.089.us, i64 1
   %44 = load i8, ptr %.sroa.0.089.us, align 1, !noundef !7
   %45 = zext i8 %44 to i64
@@ -7599,7 +7599,7 @@ define internal fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$1
 
 77:                                               ; preds = %75, %72
   %.1.us = phi i8 [ %76, %75 ], [ 0, %72 ]
-  %78 = icmp eq ptr %43, getelementptr inbounds (i8, ptr @_ZN5image6codecs4jpeg7encoder8UNZIGZAG17he71044efcaf43dc3E, i64 64)
+  %78 = icmp eq ptr %43, getelementptr inbounds nuw (i8, ptr @_ZN5image6codecs4jpeg7encoder8UNZIGZAG17he71044efcaf43dc3E, i64 64)
   br i1 %78, label %.split101.us, label %.preheader70.split.us
 
 .preheader.us:                                    ; preds = %47
@@ -7624,7 +7624,7 @@ define internal fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$1
 
 .preheader70.split:                               ; preds = %.preheader70, %110
   %.05090 = phi i8 [ %.1, %110 ], [ 0, %.preheader70 ]
-  %.sroa.0.089 = phi ptr [ %87, %110 ], [ getelementptr inbounds (i8, ptr @_ZN5image6codecs4jpeg7encoder8UNZIGZAG17he71044efcaf43dc3E, i64 1), %.preheader70 ]
+  %.sroa.0.089 = phi ptr [ %87, %110 ], [ getelementptr inbounds nuw (i8, ptr @_ZN5image6codecs4jpeg7encoder8UNZIGZAG17he71044efcaf43dc3E, i64 1), %.preheader70 ]
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.0.089, i64 1
   %88 = load i8, ptr %.sroa.0.089, align 1, !noundef !7
   %89 = zext i8 %88 to i64
@@ -7686,7 +7686,7 @@ define internal fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$1
 
 110:                                              ; preds = %138, %108
   %.1 = phi i8 [ %109, %108 ], [ 0, %138 ]
-  %111 = icmp eq ptr %87, getelementptr inbounds (i8, ptr @_ZN5image6codecs4jpeg7encoder8UNZIGZAG17he71044efcaf43dc3E, i64 64)
+  %111 = icmp eq ptr %87, getelementptr inbounds nuw (i8, ptr @_ZN5image6codecs4jpeg7encoder8UNZIGZAG17he71044efcaf43dc3E, i64 64)
   br i1 %111, label %.split101.us, label %.preheader70.split
 
 "_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit60": ; preds = %.preheader, %143

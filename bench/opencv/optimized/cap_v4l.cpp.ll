@@ -328,7 +328,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN2cv16CvCaptureCAM_V4LC2Ev(ptr noundef nonnull align 8 dereferenceable(8784) initializes((0, 14), (16, 21)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv16CvCaptureCAM_V4LE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv16CvCaptureCAM_V4LE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -8132,7 +8132,7 @@ define hidden noundef nonnull ptr @_ZN2cv16CvCaptureCAM_V4L13retrieveFrameEi(ptr
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv22create_V4L_capture_camEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, i32 noundef %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(8784) ptr @_Znwm(i64 noundef 8784) #33
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv16CvCaptureCAM_V4LE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv16CvCaptureCAM_V4LE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 -1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -8189,9 +8189,9 @@ _ZN2cv3PtrINS_13LegacyCaptureEED2Ev.exit:         ; preds = %18
   store i32 1, ptr %26, align 8, !noalias !30
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store i32 1, ptr %27, align 4, !noalias !30
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv13LegacyCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25, align 8, !noalias !30
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv13LegacyCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25, align 8, !noalias !30
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv13LegacyCaptureE, i64 16), ptr %28, align 8, !noalias !30
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv13LegacyCaptureE, i64 16), ptr %28, align 8, !noalias !30
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %3, ptr %29, align 8, !noalias !30
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 32
@@ -8217,7 +8217,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #18
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv23create_V4L_capture_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(8784) ptr @_Znwm(i64 noundef 8784) #33
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv16CvCaptureCAM_V4LE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv16CvCaptureCAM_V4LE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 -1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -8275,9 +8275,9 @@ _ZN2cv3PtrINS_13LegacyCaptureEED2Ev.exit:         ; preds = %18
   store i32 1, ptr %27, align 8, !noalias !35
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i32 1, ptr %28, align 4, !noalias !35
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv13LegacyCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26, align 8, !noalias !35
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv13LegacyCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26, align 8, !noalias !35
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv13LegacyCaptureE, i64 16), ptr %29, align 8, !noalias !35
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv13LegacyCaptureE, i64 16), ptr %29, align 8, !noalias !35
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store ptr %3, ptr %30, align 8, !noalias !35
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 32
@@ -9387,7 +9387,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv13LegacyCaptureD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv13LegacyCaptureE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv13LegacyCaptureE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @cvReleaseCapture(ptr noundef nonnull %2)
           to label %3 unwind label %4
@@ -9405,7 +9405,7 @@ define linkonce_odr hidden void @_ZN2cv13LegacyCaptureD2Ev(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv13LegacyCaptureD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv13LegacyCaptureE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv13LegacyCaptureE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @cvReleaseCapture(ptr noundef nonnull %2)
           to label %_ZN2cv13LegacyCaptureD2Ev.exit unwind label %3

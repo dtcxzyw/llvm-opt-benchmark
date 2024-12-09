@@ -163,7 +163,7 @@ define void @prte_oob_tcp_peer_try_connect(i32 %0, i16 signext %1, ptr noundef %
 pmix_obj_new_tma.exit.thread:                     ; preds = %15
   %27 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #13
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %27) #13
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 72), align 8
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 72), align 8
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %30, label %48
 
@@ -176,7 +176,7 @@ pmix_obj_new_tma.exit.thread:                     ; preds = %15
   %36 = sitofp i64 %35 to double
   %37 = fdiv double %36, 1.000000e+06
   %38 = fadd double %37, %33
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 76), align 4
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %39, 64
   br i1 %or.cond, label %40, label %48
 
@@ -194,7 +194,7 @@ pmix_obj_new_tma.exit.thread:                     ; preds = %15
   br label %48
 
 48:                                               ; preds = %30, %40, %45, %pmix_obj_new_tma.exit.thread
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_state, i64 16), align 8
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_state, i64 16), align 8
   tail call void %49(ptr noundef null, i32 noundef 56) #13
   br label %666
 
@@ -258,7 +258,7 @@ pmix_obj_new_tma.exit.thread341:                  ; preds = %.lr.ph.i.i, %16
 pmix_obj_new_tma.exit310.thread:                  ; preds = %63
   %75 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #13
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %75) #13
-  %76 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 72), align 8
+  %76 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 72), align 8
   %77 = icmp sgt i32 %76, 0
   br i1 %77, label %78, label %96
 
@@ -271,7 +271,7 @@ pmix_obj_new_tma.exit310.thread:                  ; preds = %63
   %84 = sitofp i64 %83 to double
   %85 = fdiv double %84, 1.000000e+06
   %86 = fadd double %85, %81
-  %87 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 76), align 4
+  %87 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4
   %or.cond290 = icmp ult i32 %87, 64
   br i1 %or.cond290, label %88, label %96
 
@@ -289,7 +289,7 @@ pmix_obj_new_tma.exit310.thread:                  ; preds = %63
   br label %96
 
 96:                                               ; preds = %78, %88, %93, %pmix_obj_new_tma.exit310.thread
-  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_state, i64 16), align 8
+  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_state, i64 16), align 8
   tail call void %97(ptr noundef null, i32 noundef 56) #13
   br label %pmix_list_remove_first.exit.thread
 
@@ -323,14 +323,14 @@ pmix_obj_new_tma.exit310.thread342:               ; preds = %.lr.ph.i.i307, %64
   br i1 %.not, label %._crit_edge, label %57, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %pmix_obj_new_tma.exit310.thread342, %pmix_obj_new_tma.exit.thread341
-  %113 = load volatile i64, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1208), align 8
+  %113 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_oob_tcp_component, i64 1208), align 8
   %114 = trunc i64 %113 to i32
   %115 = getelementptr inbounds nuw i8, ptr %11, i64 264
   %116 = load volatile i64, ptr %115, align 8
   %117 = trunc i64 %116 to i32
-  %118 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_reachable, i64 16), align 8
-  %119 = tail call ptr %118(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 944), ptr noundef nonnull %11) #13
-  %120 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_reachable, i64 16), align 8
+  %119 = tail call ptr %118(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_mca_oob_tcp_component, i64 944), ptr noundef nonnull %11) #13
+  %120 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond291 = icmp ult i32 %120, 64
   br i1 %or.cond291, label %121, label %.thread449
 
@@ -346,7 +346,7 @@ pmix_obj_new_tma.exit310.thread342:               ; preds = %.lr.ph.i.i307, %64
   %128 = getelementptr inbounds nuw i8, ptr %51, i64 144
   %129 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull %128) #13
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %120, ptr noundef nonnull @.str.4, ptr noundef %127, ptr noundef %129) #13
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond292 = icmp ult i32 %.pre, 64
   br i1 %or.cond292, label %.thread447, label %.thread449
 
@@ -449,7 +449,7 @@ pmix_obj_new_tma.exit310.thread342:               ; preds = %.lr.ph.i.i307, %64
 ._crit_edge392:                                   ; preds = %.lr.ph391, %161
   %.0243.lcssa = phi ptr [ %168, %161 ], [ %171, %.lr.ph391 ]
   store ptr %.0243.lcssa, ptr %144, align 8
-  %173 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1184), align 8
+  %173 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_oob_tcp_component, i64 1184), align 8
   %174 = icmp sgt i32 %.3.us, 0
   br i1 %174, label %.lr.ph396, label %._crit_edge397
 
@@ -464,7 +464,7 @@ pmix_obj_new_tma.exit310.thread342:               ; preds = %.lr.ph.i.i307, %64
 
 ._crit_edge397:                                   ; preds = %.lr.ph396, %._crit_edge392
   %.1244.lcssa = phi ptr [ %173, %._crit_edge392 ], [ %176, %.lr.ph396 ]
-  %178 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %178 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond293 = icmp ult i32 %178, 64
   br i1 %or.cond293, label %179, label %192
 
@@ -493,7 +493,7 @@ pmix_obj_new_tma.exit310.thread342:               ; preds = %.lr.ph.i.i307, %64
   br i1 %195, label %196, label %208
 
 196:                                              ; preds = %192
-  %197 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %197 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond294 = icmp ult i32 %197, 64
   br i1 %or.cond294, label %198, label %.backedge
 
@@ -516,14 +516,14 @@ pmix_obj_new_tma.exit310.thread342:               ; preds = %.lr.ph.i.i307, %64
   br label %.preheader.lr.ph.split.us, !llvm.loop !11
 
 208:                                              ; preds = %192
-  %209 = load i32, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 296), align 8
+  %209 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_oob_tcp_component, i64 296), align 8
   %210 = getelementptr inbounds nuw i8, ptr %.0243.lcssa, i64 272
   %211 = load i32, ptr %210, align 8
   %212 = icmp slt i32 %209, %211
   br i1 %212, label %213, label %225
 
 213:                                              ; preds = %208
-  %214 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %214 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond295 = icmp ult i32 %214, 64
   br i1 %or.cond295, label %215, label %.backedge
 
@@ -561,7 +561,7 @@ pmix_obj_new_tma.exit310.thread342:               ; preds = %.lr.ph.i.i307, %64
 
 236:                                              ; preds = %225, %232
   %237 = phi i16 [ %227, %225 ], [ %.pre445, %232 ]
-  %238 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %238 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %238, 64
   br i1 %or.cond.i, label %239, label %247
 
@@ -660,7 +660,7 @@ tcp_peer_event_init.exit.i:                       ; preds = %281, %275
 tcp_peer_create_socket.exit:                      ; preds = %260, %251
   %292 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #13
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %292) #13
-  %293 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 72), align 8
+  %293 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 72), align 8
   %294 = icmp sgt i32 %293, 0
   br i1 %294, label %295, label %313
 
@@ -673,7 +673,7 @@ tcp_peer_create_socket.exit:                      ; preds = %260, %251
   %301 = sitofp i64 %300 to double
   %302 = fdiv double %301, 1.000000e+06
   %303 = fadd double %302, %298
-  %304 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 76), align 4
+  %304 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4
   %or.cond296 = icmp ult i32 %304, 64
   br i1 %or.cond296, label %305, label %313
 
@@ -691,7 +691,7 @@ tcp_peer_create_socket.exit:                      ; preds = %260, %251
   br label %313
 
 313:                                              ; preds = %295, %305, %310, %tcp_peer_create_socket.exit
-  %314 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_state, i64 16), align 8
+  %314 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_state, i64 16), align 8
   tail call void %314(ptr noundef null, i32 noundef 56) #13
   br label %pmix_list_remove_first.exit.thread
 
@@ -757,7 +757,7 @@ tcp_peer_create_socket.exit:                      ; preds = %260, %251
   %346 = tail call i32 @shutdown(i32 noundef %345, i32 noundef 2) #13
   %347 = load i32, ptr %146, align 8
   %348 = tail call i32 @close(i32 noundef %347) #13
-  %349 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 72), align 8
+  %349 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 72), align 8
   %350 = icmp sgt i32 %349, 0
   br i1 %350, label %351, label %369
 
@@ -770,7 +770,7 @@ tcp_peer_create_socket.exit:                      ; preds = %260, %251
   %357 = sitofp i64 %356 to double
   %358 = fdiv double %357, 1.000000e+06
   %359 = fadd double %358, %354
-  %360 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 76), align 4
+  %360 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4
   %or.cond297 = icmp ult i32 %360, 64
   br i1 %or.cond297, label %361, label %369
 
@@ -788,7 +788,7 @@ tcp_peer_create_socket.exit:                      ; preds = %260, %251
   br label %369
 
 369:                                              ; preds = %351, %361, %366, %340
-  %370 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_state, i64 16), align 8
+  %370 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_state, i64 16), align 8
   tail call void %370(ptr noundef null, i32 noundef 56) #13
   br label %pmix_list_remove_first.exit.thread
 
@@ -801,7 +801,7 @@ tcp_peer_create_socket.exit:                      ; preds = %260, %251
   ]
 
 373:                                              ; preds = %371, %371
-  %374 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %374 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond298 = icmp ult i32 %374, 64
   br i1 %or.cond298, label %375, label %383
 
@@ -883,12 +883,12 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %398
 
 412:                                              ; preds = %371
   %413 = load i32, ptr %210, align 8
-  %414 = load i32, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 296), align 8
+  %414 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_oob_tcp_component, i64 296), align 8
   %415 = icmp slt i32 %413, %414
   br i1 %415, label %416, label %432
 
 416:                                              ; preds = %412
-  %417 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %417 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond299 = icmp ult i32 %417, 64
   br i1 %or.cond299, label %418, label %426
 
@@ -923,17 +923,17 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %398
   store i32 0, ptr %210, align 8
   %433 = getelementptr inbounds nuw i8, ptr %51, i64 708
   store i32 0, ptr %433, align 4
-  %434 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %434 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond301 = icmp ult i32 %434, 64
   br i1 %or.cond301, label %544, label %552
 
 .thread:                                          ; preds = %._crit_edge382, %.thread449
-  %435 = load i32, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1700), align 4
+  %435 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_oob_tcp_component, i64 1700), align 4
   %436 = icmp sgt i32 %435, 0
   br i1 %436, label %437, label %490
 
 437:                                              ; preds = %.thread
-  %438 = load i32, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1704), align 8
+  %438 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_oob_tcp_component, i64 1704), align 8
   %439 = icmp slt i32 %438, 0
   br i1 %439, label %444, label %440
 
@@ -964,7 +964,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %398
   br i1 %.not286, label %._crit_edge412, label %.lr.ph411, !llvm.loop !14
 
 ._crit_edge412:                                   ; preds = %.lr.ph411, %444
-  %452 = load i32, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1700), align 4
+  %452 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_oob_tcp_component, i64 1700), align 4
   %453 = sext i32 %452 to i64
   store i64 %453, ptr %8, align 8
   %454 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -973,7 +973,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %398
   %456 = load i32, ptr %455, align 4
   %457 = add nsw i32 %456, 1
   store i32 %457, ptr %455, align 4
-  %458 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %458 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond300 = icmp ult i32 %458, 64
   br i1 %or.cond300, label %459, label %467
 
@@ -1060,7 +1060,7 @@ pmix_obj_new_tma.exit320:                         ; preds = %.lr.ph.i.i317, %473
 499:                                              ; preds = %496, %494, %490
   %.0245 = phi ptr [ %498, %496 ], [ null, %494 ], [ %492, %490 ]
   %500 = load i32, ptr @prte_clean_output, align 4
-  %501 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
+  %501 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 800), align 8
   %502 = icmp eq ptr %.0245, null
   %503 = select i1 %502, ptr @.str.15, ptr %.0245
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %500, ptr noundef nonnull @.str.14, ptr noundef %501, ptr noundef nonnull %503) #13
@@ -1184,7 +1184,7 @@ pmix_list_remove_first.exit:                      ; preds = %pmix_list_remove_fi
 
 565:                                              ; preds = %561
   store i32 3, ptr %564, align 8
-  %566 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %566 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond302 = icmp ult i32 %566, 64
   br i1 %or.cond302, label %567, label %575
 
@@ -1234,7 +1234,7 @@ pmix_list_remove_first.exit:                      ; preds = %pmix_list_remove_fi
   %594 = tail call i32 @shutdown(i32 noundef %593, i32 noundef 2) #13
   %595 = load i32, ptr %146, align 8
   %596 = tail call i32 @close(i32 noundef %595) #13
-  %597 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 72), align 8
+  %597 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 72), align 8
   %598 = icmp sgt i32 %597, 0
   br i1 %598, label %599, label %617
 
@@ -1247,7 +1247,7 @@ pmix_list_remove_first.exit:                      ; preds = %pmix_list_remove_fi
   %605 = sitofp i64 %604 to double
   %606 = fdiv double %605, 1.000000e+06
   %607 = fadd double %606, %602
-  %608 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 76), align 4
+  %608 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4
   %or.cond303 = icmp ult i32 %608, 64
   br i1 %or.cond303, label %609, label %617
 
@@ -1265,7 +1265,7 @@ pmix_list_remove_first.exit:                      ; preds = %pmix_list_remove_fi
   br label %617
 
 617:                                              ; preds = %599, %609, %614, %587
-  %618 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_state, i64 16), align 8
+  %618 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_state, i64 16), align 8
   tail call void %618(ptr noundef null, i32 noundef 56) #13
   br label %pmix_list_remove_first.exit.thread
 
@@ -1485,7 +1485,7 @@ declare void @event_active(ptr noundef, i32 noundef, i16 noundef signext) local_
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -12, 1) i32 @tcp_peer_send_connect_ack(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call zeroext i16 @htons(i16 noundef zeroext 1) #14
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %3, 64
   br i1 %or.cond, label %4, label %11
 
@@ -1502,7 +1502,7 @@ define internal fastcc range(i32 -12, 1) i32 @tcp_peer_send_connect_ack(ptr noun
   br label %11
 
 11:                                               ; preds = %9, %4, %1
-  %.sroa.2.0.copyload11 = load i32, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 256), align 8
+  %.sroa.2.0.copyload11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 256), align 8
   %.sroa.5.260..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 400
   %.sroa.5.260.copyload = load i32, ptr %.sroa.5.260..sroa_idx, align 8
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @prte_version_string) #17
@@ -1574,7 +1574,7 @@ define void @prte_oob_tcp_peer_complete_connect(ptr noundef %0) local_unnamed_ad
   %3 = alloca i32, align 4
   store i32 0, ptr %2, align 4
   store i32 4, ptr %3, align 4
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond27 = icmp ult i32 %4, 64
   br i1 %or.cond27, label %5, label %16
 
@@ -1621,7 +1621,7 @@ define void @prte_oob_tcp_peer_complete_connect(ptr noundef %0) local_unnamed_ad
   br i1 %32, label %33, label %42
 
 33:                                               ; preds = %30
-  %34 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond28 = icmp ult i32 %34, 64
   br i1 %or.cond28, label %35, label %110
 
@@ -1643,7 +1643,7 @@ define void @prte_oob_tcp_peer_complete_connect(ptr noundef %0) local_unnamed_ad
   br i1 %or.cond, label %44, label %59
 
 44:                                               ; preds = %42
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond29 = icmp ult i32 %45, 64
   br i1 %or.cond29, label %46, label %58
 
@@ -1670,7 +1670,7 @@ define void @prte_oob_tcp_peer_complete_connect(ptr noundef %0) local_unnamed_ad
 
 59:                                               ; preds = %42
   %.not = icmp eq i32 %31, 0
-  %60 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond31 = icmp ult i32 %60, 64
   br i1 %.not, label %73, label %61
 
@@ -1721,7 +1721,7 @@ define void @prte_oob_tcp_peer_complete_connect(ptr noundef %0) local_unnamed_ad
 86:                                               ; preds = %83
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 704
   store i32 4, ptr %87, align 8
-  %88 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %88 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond32 = icmp ult i32 %88, 64
   br i1 %or.cond32, label %89, label %98
 
@@ -1771,7 +1771,7 @@ declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr 
 
 ; Function Attrs: nounwind uwtable
 define void @prte_oob_tcp_peer_close(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %2, 64
   br i1 %or.cond, label %3, label %17
 
@@ -1816,7 +1816,7 @@ define void @prte_oob_tcp_peer_close(ptr noundef %0) local_unnamed_addr #0 {
   br label %29
 
 29:                                               ; preds = %24, %27
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond32 = icmp ult i32 %30, 64
   br i1 %or.cond32, label %31, label %40
 
@@ -1978,7 +1978,7 @@ pmix_obj_new_tma.exit39:                          ; preds = %.lr.ph.i.i36, %87, 
 define range(i32 -51, 95) i32 @prte_oob_tcp_peer_recv_connect_ack(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.prte_oob_tcp_hdr_t, align 4
   %5 = icmp eq ptr %0, null
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %19
 
@@ -2026,7 +2026,7 @@ define range(i32 -51, 95) i32 @prte_oob_tcp_peer_recv_connect_ack(ptr noundef %0
   br label %238
 
 30:                                               ; preds = %19
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond124 = icmp ult i32 %31, 64
   br i1 %or.cond124, label %32, label %238
 
@@ -2052,7 +2052,7 @@ define range(i32 -51, 95) i32 @prte_oob_tcp_peer_recv_connect_ack(ptr noundef %0
   br label %238
 
 44:                                               ; preds = %21, %22
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond125 = icmp ult i32 %45, 64
   br i1 %or.cond125, label %46, label %58
 
@@ -2154,7 +2154,7 @@ define range(i32 -51, 95) i32 @prte_oob_tcp_peer_recv_connect_ack(ptr noundef %0
   br i1 %96, label %97, label %124
 
 97:                                               ; preds = %94
-  %98 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %98 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond126 = icmp ult i32 %98, 64
   br i1 %or.cond126, label %99, label %106
 
@@ -2176,17 +2176,17 @@ define range(i32 -51, 95) i32 @prte_oob_tcp_peer_recv_connect_ack(ptr noundef %0
   call void @PMIx_Xfer_procid(ptr noundef nonnull %108, ptr noundef nonnull %4) #13
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 704
   store i32 7, ptr %109, align 8
-  %110 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 832), align 8
+  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_oob_tcp_component, i64 832), align 8
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 128
   store ptr %110, ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 120
   store volatile ptr %107, ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %107, i64 120
-  store ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 704), ptr %113, align 8
-  store ptr %107, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 832), align 8
-  %114 = load volatile i64, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 848), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @prte_mca_oob_tcp_component, i64 704), ptr %113, align 8
+  store ptr %107, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_oob_tcp_component, i64 832), align 8
+  %114 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_oob_tcp_component, i64 848), align 8
   %115 = add i64 %114, 1
-  store volatile i64 %115, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 848), align 8
+  store volatile i64 %115, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_oob_tcp_component, i64 848), align 8
   br label %124
 
 116:                                              ; preds = %93
@@ -2206,7 +2206,7 @@ define range(i32 -51, 95) i32 @prte_oob_tcp_peer_recv_connect_ack(ptr noundef %0
 
 124:                                              ; preds = %116, %94, %106
   %.0103 = phi ptr [ %107, %106 ], [ %95, %94 ], [ %0, %116 ]
-  %125 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %125 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond127 = icmp ult i32 %125, 64
   br i1 %or.cond127, label %126, label %135
 
@@ -2242,7 +2242,7 @@ define range(i32 -51, 95) i32 @prte_oob_tcp_peer_recv_connect_ack(ptr noundef %0
   br i1 %143, label %158, label %144
 
 144:                                              ; preds = %142
-  %145 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %145 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond128 = icmp ult i32 %145, 64
   br i1 %or.cond128, label %146, label %157
 
@@ -2376,7 +2376,7 @@ define range(i32 -51, 95) i32 @prte_oob_tcp_peer_recv_connect_ack(ptr noundef %0
   br i1 %.not123, label %215, label %205
 
 205:                                              ; preds = %203
-  %206 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
+  %206 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 800), align 8
   %207 = call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #13
   %208 = getelementptr inbounds nuw i8, ptr %.0103, i64 416
   %209 = load i32, ptr %208, align 8
@@ -2392,7 +2392,7 @@ define range(i32 -51, 95) i32 @prte_oob_tcp_peer_recv_connect_ack(ptr noundef %0
 
 215:                                              ; preds = %203
   call void @free(ptr noundef nonnull %138) #13
-  %216 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %216 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond129 = icmp ult i32 %216, 64
   br i1 %or.cond129, label %217, label %226
 
@@ -2424,7 +2424,7 @@ define range(i32 -51, 95) i32 @prte_oob_tcp_peer_recv_connect_ack(ptr noundef %0
   fence release
   call void @event_active(ptr noundef nonnull %231, i32 noundef 4, i16 noundef signext 1) #13
   call fastcc void @tcp_peer_connected(ptr noundef %.0103)
-  %234 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %234 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %235 = call i32 @pmix_output_get_verbosity(i32 noundef %234) #13
   %236 = icmp sgt i32 %235, 6
   br i1 %236, label %237, label %238
@@ -2440,7 +2440,7 @@ define range(i32 -51, 95) i32 @prte_oob_tcp_peer_recv_connect_ack(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @tcp_peer_recv_blocking(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i64 noundef range(i64 0, 4294967296) %3) unnamed_addr #0 {
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %5, 64
   br i1 %or.cond, label %6, label %19
 
@@ -2488,7 +2488,7 @@ define internal fastcc noundef zeroext i1 @tcp_peer_recv_blocking(ptr noundef %0
   br label %.lr.ph
 
 .split.us:                                        ; preds = %.lr.ph.split, %79
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond43 = icmp ult i32 %28, 64
   br i1 %or.cond43, label %29, label %44
 
@@ -2557,7 +2557,7 @@ define internal fastcc noundef zeroext i1 @tcp_peer_recv_blocking(ptr noundef %0
   br i1 %58, label %59, label %72
 
 59:                                               ; preds = %55
-  %60 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond44 = icmp ult i32 %60, 64
   br i1 %or.cond44, label %61, label %99
 
@@ -2603,7 +2603,7 @@ define internal fastcc noundef zeroext i1 @tcp_peer_recv_blocking(ptr noundef %0
   br i1 %.not, label %.lr.ph.split, label %.outer._crit_edge, !llvm.loop !17
 
 .outer._crit_edge:                                ; preds = %.outer, %19
-  %85 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %85 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond45 = icmp ult i32 %85, 64
   br i1 %or.cond45, label %86, label %99
 
@@ -2643,7 +2643,7 @@ declare i32 @htonl(i32 noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -12, 1) i32 @tcp_peer_send_blocking(i32 noundef %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #0 {
   fence acquire
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %4, 64
   br i1 %or.cond, label %5, label %12
 
@@ -2705,7 +2705,7 @@ define internal fastcc range(i32 -12, 1) i32 @tcp_peer_send_blocking(i32 noundef
   br i1 %29, label %.lr.ph.split.us, label %.outer._crit_edge, !llvm.loop !18
 
 .outer._crit_edge:                                ; preds = %.outer, %12
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond23 = icmp ult i32 %30, 64
   br i1 %or.cond23, label %31, label %38
 
@@ -2740,7 +2740,7 @@ declare i32 @event_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @retry(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %3, 64
   br i1 %or.cond, label %4, label %13
 
@@ -2800,7 +2800,7 @@ define internal fastcc noundef zeroext i1 @retry(ptr noundef %0, i32 noundef %1)
 
 38:                                               ; preds = %13
   %39 = tail call zeroext i16 @htons(i16 noundef zeroext 0) #14
-  %40 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %40, 64
   br i1 %or.cond.i, label %41, label %48
 
@@ -2817,7 +2817,7 @@ define internal fastcc noundef zeroext i1 @retry(ptr noundef %0, i32 noundef %1)
   br label %48
 
 48:                                               ; preds = %46, %41, %38
-  %.sroa.2.0.copyload10.i = load i32, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 256), align 8
+  %.sroa.2.0.copyload10.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 256), align 8
   %.sroa.5.260..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 400
   %.sroa.5.260.copyload.i = load i32, ptr %.sroa.5.260..sroa_idx.i, align 4
   %49 = tail call noalias dereferenceable_or_null(570) ptr @malloc(i64 noundef 570) #12
@@ -2874,7 +2874,7 @@ declare void @prte_mca_oob_tcp_component_set_module(i32 noundef, i16 noundef sig
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @tcp_peer_connected(ptr noundef %0) unnamed_addr #0 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %2, 64
   br i1 %or.cond, label %3, label %14
 
@@ -3111,7 +3111,7 @@ declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @prte_oob_tcp_peer_accept(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %2, 64
   br i1 %or.cond, label %3, label %17
 
@@ -3252,7 +3252,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %54, %5
   br label %77
 
 77:                                               ; preds = %74, %pmix_obj_new_tma.exit
-  %78 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %79 = tail call i32 @pmix_output_get_verbosity(i32 noundef %78) #13
   %80 = icmp sgt i32 %79, 6
   br i1 %80, label %81, label %97
@@ -3262,7 +3262,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %54, %5
   br label %97
 
 82:                                               ; preds = %17
-  %83 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %83 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond26 = icmp ult i32 %83, 64
   br i1 %or.cond26, label %84, label %97
 

@@ -3898,8 +3898,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.057.066) #19
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.057.066, i64 32
   store ptr %12, ptr %10, align 8, !alias.scope !110
-  %13 = call noundef ptr @_ZSt9__find_ifIPKN5vcpkg10StringViewEN9__gnu_cxx5__ops16_Iter_equals_valIS2_EEET_S8_S8_T0_St26random_access_iterator_tag(ptr noundef nonnull @_ZZN5vcpkg13Configuration12known_fieldsEvE12known_fields, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN5vcpkg13Configuration12known_fieldsEvE12known_fields, i64 176), ptr nonnull align 8 dereferenceable(16) %6)
-  %14 = icmp eq ptr %13, getelementptr inbounds (i8, ptr @_ZZN5vcpkg13Configuration12known_fieldsEvE12known_fields, i64 176)
+  %13 = call noundef ptr @_ZSt9__find_ifIPKN5vcpkg10StringViewEN9__gnu_cxx5__ops16_Iter_equals_valIS2_EEET_S8_S8_T0_St26random_access_iterator_tag(ptr noundef nonnull @_ZZN5vcpkg13Configuration12known_fieldsEvE12known_fields, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN5vcpkg13Configuration12known_fieldsEvE12known_fields, i64 176), ptr nonnull align 8 dereferenceable(16) %6)
+  %14 = icmp eq ptr %13, getelementptr inbounds nuw (i8, ptr @_ZZN5vcpkg13Configuration12known_fieldsEvE12known_fields, i64 176)
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %11
@@ -4204,8 +4204,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_124find_unknown_fields_implERKN5vcp
   br i1 %23, label %.loopexit, label %_ZN5vcpkg4Util4findINS_4SpanIKNS_10StringViewEEERS3_EEDaOT_OT0_.exit
 
 _ZN5vcpkg4Util4findINS_4SpanIKNS_10StringViewEEERS3_EEDaOT_OT0_.exit: ; preds = %21
-  %24 = call noundef ptr @_ZSt9__find_ifIPKN5vcpkg10StringViewEN9__gnu_cxx5__ops16_Iter_equals_valIS2_EEET_S8_S8_T0_St26random_access_iterator_tag(ptr noundef nonnull @_ZZN5vcpkg13Configuration12known_fieldsEvE12known_fields, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN5vcpkg13Configuration12known_fieldsEvE12known_fields, i64 176), ptr nonnull align 8 dereferenceable(16) %6)
-  %25 = icmp eq ptr %24, getelementptr inbounds (i8, ptr @_ZZN5vcpkg13Configuration12known_fieldsEvE12known_fields, i64 176)
+  %24 = call noundef ptr @_ZSt9__find_ifIPKN5vcpkg10StringViewEN9__gnu_cxx5__ops16_Iter_equals_valIS2_EEET_S8_S8_T0_St26random_access_iterator_tag(ptr noundef nonnull @_ZZN5vcpkg13Configuration12known_fieldsEvE12known_fields, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN5vcpkg13Configuration12known_fieldsEvE12known_fields, i64 176), ptr nonnull align 8 dereferenceable(16) %6)
+  %25 = icmp eq ptr %24, getelementptr inbounds nuw (i8, ptr @_ZZN5vcpkg13Configuration12known_fieldsEvE12known_fields, i64 176)
   br i1 %25, label %26, label %46
 
 26:                                               ; preds = %_ZN5vcpkg4Util4findINS_4SpanIKNS_10StringViewEEERS3_EEDaOT_OT0_.exit
@@ -6487,11 +6487,11 @@ define internal void @_ZNK12_GLOBAL__N_122CeMetadataDeserializer12visit_objectER
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.044.051) #19
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.044.051, i64 32
   store ptr %14, ptr %12, align 8, !alias.scope !183
-  %15 = invoke noundef ptr @_ZSt9__find_ifIPKN5vcpkg10StringViewEN9__gnu_cxx5__ops16_Iter_equals_valIS2_EEET_S8_S8_T0_St26random_access_iterator_tag(ptr noundef nonnull @_ZZN5vcpkg13Configuration12known_fieldsEvE12known_fields, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN5vcpkg13Configuration12known_fieldsEvE12known_fields, i64 176), ptr nonnull align 8 dereferenceable(16) %8)
+  %15 = invoke noundef ptr @_ZSt9__find_ifIPKN5vcpkg10StringViewEN9__gnu_cxx5__ops16_Iter_equals_valIS2_EEET_S8_S8_T0_St26random_access_iterator_tag(ptr noundef nonnull @_ZZN5vcpkg13Configuration12known_fieldsEvE12known_fields, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN5vcpkg13Configuration12known_fieldsEvE12known_fields, i64 176), ptr nonnull align 8 dereferenceable(16) %8)
           to label %_ZN5vcpkg4Util4findINS_4SpanIKNS_10StringViewEEERS4_EEDaOT_OT0_.exit unwind label %.loopexit
 
 _ZN5vcpkg4Util4findINS_4SpanIKNS_10StringViewEEERS4_EEDaOT_OT0_.exit: ; preds = %13
-  %16 = icmp eq ptr %15, getelementptr inbounds (i8, ptr @_ZZN5vcpkg13Configuration12known_fieldsEvE12known_fields, i64 176)
+  %16 = icmp eq ptr %15, getelementptr inbounds nuw (i8, ptr @_ZZN5vcpkg13Configuration12known_fieldsEvE12known_fields, i64 176)
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %_ZN5vcpkg4Util4findINS_4SpanIKNS_10StringViewEEERS4_EEDaOT_OT0_.exit

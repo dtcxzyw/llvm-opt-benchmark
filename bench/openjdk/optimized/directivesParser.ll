@@ -234,7 +234,7 @@ declare void @_ZN18CompilerDirectivesD1Ev(ptr noundef nonnull align 8 dereferenc
 define hidden noundef i32 @_ZN16DirectivesParser12parse_stringEPKcP12outputStreamb(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.DirectivesParser, align 8
   call void @_ZN4JSONC2EPKcbP12outputStream(ptr noundef nonnull align 8 dereferenceable(132) %4, ptr noundef %0, i1 noundef zeroext %2, ptr noundef %1) #17
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16DirectivesParser, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV16DirectivesParser, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 104
@@ -502,7 +502,7 @@ declare void @_ZN15DirectivesStack5printEP12outputStream(ptr noundef) local_unna
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16DirectivesParserC2EPKcP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(132) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #1 align 2 {
   tail call void @_ZN4JSONC2EPKcbP12outputStream(ptr noundef nonnull align 8 dereferenceable(54) %0, ptr noundef %1, i1 noundef zeroext %3, ptr noundef %2) #17
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16DirectivesParser, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV16DirectivesParser, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -517,7 +517,7 @@ declare void @_ZN4JSON5parseEv(ptr noundef nonnull align 8 dereferenceable(54)) 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN16DirectivesParserD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(132) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16DirectivesParser, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV16DirectivesParser, i64 16), ptr %0, align 8
   ret void
 }
 

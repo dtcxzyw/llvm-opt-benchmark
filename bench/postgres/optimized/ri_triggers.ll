@@ -1451,7 +1451,7 @@ get_ri_constraint_root.exit.i:                    ; preds = %66
   call void @DeconstructFkConstraintRow(ptr noundef nonnull %40, ptr noundef nonnull %106, ptr noundef nonnull %107, ptr noundef nonnull %108, ptr noundef nonnull %109, ptr noundef nonnull %110, ptr noundef nonnull %111, ptr noundef nonnull %112, ptr noundef nonnull %113) #11
   call void @ReleaseSysCache(ptr noundef nonnull %40) #11
   %114 = getelementptr inbounds nuw i8, ptr %29, i64 688
-  %115 = load ptr, ptr getelementptr inbounds (i8, ptr @ri_constraint_cache_valid_list, i64 8), align 8
+  %115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ri_constraint_cache_valid_list, i64 8), align 8
   %116 = icmp eq ptr %115, null
   br i1 %116, label %117, label %.dlist_push_tail.exit_crit_edge.i.i
 
@@ -1460,8 +1460,8 @@ get_ri_constraint_root.exit.i:                    ; preds = %66
   br label %dclist_push_tail.exit.i
 
 117:                                              ; preds = %79
-  store ptr @ri_constraint_cache_valid_list, ptr getelementptr inbounds (i8, ptr @ri_constraint_cache_valid_list, i64 8), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @ri_constraint_cache_valid_list, i64 16), align 8
+  store ptr @ri_constraint_cache_valid_list, ptr getelementptr inbounds nuw (i8, ptr @ri_constraint_cache_valid_list, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @ri_constraint_cache_valid_list, i64 16), align 8
   br label %dclist_push_tail.exit.i
 
 dclist_push_tail.exit.i:                          ; preds = %117, %.dlist_push_tail.exit_crit_edge.i.i
@@ -1472,9 +1472,9 @@ dclist_push_tail.exit.i:                          ; preds = %117, %.dlist_push_t
   %119 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 8
   store ptr %114, ptr %119, align 8
   store ptr %114, ptr @ri_constraint_cache_valid_list, align 8
-  %120 = load i32, ptr getelementptr inbounds (i8, ptr @ri_constraint_cache_valid_list, i64 16), align 8
+  %120 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ri_constraint_cache_valid_list, i64 16), align 8
   %121 = add i32 %120, 1
-  store i32 %121, ptr getelementptr inbounds (i8, ptr @ri_constraint_cache_valid_list, i64 16), align 8
+  store i32 %121, ptr getelementptr inbounds nuw (i8, ptr @ri_constraint_cache_valid_list, i64 16), align 8
   store i8 1, ptr %32, align 4
   br label %ri_LoadConstraintInfo.exit
 
@@ -4725,10 +4725,10 @@ declare void @CacheRegisterSyscacheCallback(i32 noundef, ptr noundef, i64 nounde
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @InvalidateConstraintCacheCallBack(i64 %0, i32 %1, i32 noundef %2) #7 {
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @ri_constraint_cache_valid_list, i64 16), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ri_constraint_cache_valid_list, i64 16), align 8
   %5 = icmp ugt i32 %4, 1000
   %spec.select = select i1 %5, i32 0, i32 %2
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ri_constraint_cache_valid_list, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ri_constraint_cache_valid_list, i64 8), align 8
   %.not = icmp eq ptr %6, null
   %.not131720 = icmp eq ptr %6, @ri_constraint_cache_valid_list
   %.not1317 = or i1 %.not, %.not131720
@@ -4750,9 +4750,9 @@ select.unfold.us:                                 ; preds = %.lr.ph, %select.unf
   store ptr %.sroa.7.019.us, ptr %10, align 8
   %11 = load ptr, ptr %.sroa.0.018.us, align 8
   store ptr %11, ptr %.sroa.7.019.us, align 8
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @ri_constraint_cache_valid_list, i64 16), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ri_constraint_cache_valid_list, i64 16), align 8
   %13 = add i32 %12, -1
-  store i32 %13, ptr getelementptr inbounds (i8, ptr @ri_constraint_cache_valid_list, i64 16), align 8
+  store i32 %13, ptr getelementptr inbounds nuw (i8, ptr @ri_constraint_cache_valid_list, i64 16), align 8
   %.sroa.7.0.in.us = getelementptr inbounds nuw i8, ptr %.sroa.7.019.us, i64 8
   %.sroa.7.0.us = load ptr, ptr %.sroa.7.0.in.us, align 8
   %.not13.us = icmp eq ptr %.sroa.7.019.us, @ri_constraint_cache_valid_list
@@ -4780,9 +4780,9 @@ select.unfold.us:                                 ; preds = %.lr.ph, %select.unf
   store ptr %.sroa.7.019, ptr %24, align 8
   %25 = load ptr, ptr %.sroa.0.018, align 8
   store ptr %25, ptr %.sroa.7.019, align 8
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @ri_constraint_cache_valid_list, i64 16), align 8
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ri_constraint_cache_valid_list, i64 16), align 8
   %27 = add i32 %26, -1
-  store i32 %27, ptr getelementptr inbounds (i8, ptr @ri_constraint_cache_valid_list, i64 16), align 8
+  store i32 %27, ptr getelementptr inbounds nuw (i8, ptr @ri_constraint_cache_valid_list, i64 16), align 8
   br label %select.unfold
 
 select.unfold:                                    ; preds = %17, %21

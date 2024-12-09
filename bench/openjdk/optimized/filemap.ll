@@ -904,7 +904,7 @@ define hidden void @_ZN13FileMapHeader8populateEP11FileMapInfommmmm(ptr noundef 
   %39 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store ptr %39, ptr %40, align 8
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store i32 %41, ptr %42, align 8
   br label %43
@@ -1939,7 +1939,7 @@ define hidden void @_ZN20SharedClassPathEntry21metaspace_pointers_doEP16Metaspac
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %3, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIcEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIcEE, i64 16), ptr %4, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %4) #25
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #25
@@ -1949,7 +1949,7 @@ define hidden void @_ZN20SharedClassPathEntry21metaspace_pointers_doEP16Metaspac
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %8, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIhEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIhEE, i64 16), ptr %9, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %9) #25
   ret void
 }
@@ -1963,7 +1963,7 @@ define hidden void @_ZN15SharedPathTable21metaspace_pointers_doEP16MetaspaceClos
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %0, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure18MSOPointerArrayRefI20SharedClassPathEntryEE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure18MSOPointerArrayRefI20SharedClassPathEntryEE, i64 16), ptr %3, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %3) #25
   ret void
 }
@@ -3630,14 +3630,14 @@ define hidden void @_ZN11FileMapInfo9log_pathsEPKcii(ptr nocapture nonnull readn
 
 7:                                                ; preds = %4
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %5, i1 noundef zeroext false) #25
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %8) #25
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 144
   store i32 3, ptr %9, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE16ELS1_111ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %5, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str.76, ptr noundef %1) #25
   %10 = icmp slt i32 %2, %3
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
@@ -4907,7 +4907,7 @@ define hidden void @_ZN11FileMapInfo14open_for_writeEv(ptr nocapture noundef non
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i8 0, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18LogMessageTemplateILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV18LogMessageTemplateILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE, i64 16), ptr %2, align 8
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %6
@@ -4981,7 +4981,7 @@ define hidden void @_ZN11FileMapInfo14open_for_writeEv(ptr nocapture noundef non
   br label %_ZN11FileMapInfo16seek_to_positionEm.exit
 
 _ZN11FileMapInfo16seek_to_positionEm.exit:        ; preds = %46, %26, %25
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14LogMessageImpl, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV14LogMessageImpl, i64 16), ptr %2, align 8
   %47 = load i8, ptr %4, align 8
   %48 = trunc i8 %47 to i1
   br i1 %48, label %49, label %_ZN18LogMessageTemplateILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit
@@ -6986,7 +6986,7 @@ define hidden noundef nonnull ptr @_ZNK11FileMapInfo16last_core_regionEv(ptr noc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19SharedDataRelocatorC2EPPhS1_S0_S0_S0_S0_l(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %7) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19SharedDataRelocator, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19SharedDataRelocator, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7345,7 +7345,7 @@ define hidden noundef zeroext i1 @_ZN11FileMapInfo19can_use_heap_regionEv(ptr no
   %50 = tail call noundef i32 @_ZN14CompressedOops4modeEv() #25
   %51 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %52 = ptrtoint ptr %51 to i64
-  %53 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.155, i32 noundef %50, i64 noundef %52, i32 noundef %53)
   br label %54
 
@@ -7500,7 +7500,7 @@ _ZN11FileMapInfo29heap_region_requested_addressEv.exit: ; preds = %8, %12
 
 27:                                               ; preds = %20
   store ptr %22, ptr @_ZN11FileMapInfo22_mapped_heap_memregionE, align 8
-  store i64 %9, ptr getelementptr inbounds (i8, ptr @_ZN11FileMapInfo22_mapped_heap_memregionE, i64 8), align 8
+  store i64 %9, ptr getelementptr inbounds nuw (i8, ptr @_ZN11FileMapInfo22_mapped_heap_memregionE, i64 8), align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7540,7 +7540,7 @@ _ZL10map_memoryiPKcmPcmbb8MEMFLAGS.exit:          ; preds = %27, %45, %48
 51:                                               ; preds = %_ZL10map_memoryiPKcmPcmbb8MEMFLAGS.exit
   %52 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %.sroa.0.0.copyload.i = load ptr, ptr @_ZN11FileMapInfo22_mapped_heap_memregionE, align 8
-  %.sroa.2.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN11FileMapInfo22_mapped_heap_memregionE, i64 8), align 8
+  %.sroa.2.0.copyload.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN11FileMapInfo22_mapped_heap_memregionE, i64 8), align 8
   tail call void @_ZN15G1CollectedHeap23dealloc_archive_regionsE9MemRegion(ptr noundef nonnull align 8 dereferenceable(1488) %52, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i) #25
   %53 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not45 = icmp eq ptr %53, null
@@ -7582,7 +7582,7 @@ _ZL10map_memoryiPKcmPcmbb8MEMFLAGS.exit:          ; preds = %27, %45, %48
 _ZNK13FileMapRegion16check_region_crcEPc.exit:    ; preds = %70, %68
   %71 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %.sroa.0.0.copyload.i38 = load ptr, ptr @_ZN11FileMapInfo22_mapped_heap_memregionE, align 8
-  %.sroa.2.0.copyload.i39 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN11FileMapInfo22_mapped_heap_memregionE, i64 8), align 8
+  %.sroa.2.0.copyload.i39 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN11FileMapInfo22_mapped_heap_memregionE, i64 8), align 8
   tail call void @_ZN15G1CollectedHeap23dealloc_archive_regionsE9MemRegion(ptr noundef nonnull align 8 dereferenceable(1488) %71, ptr %.sroa.0.0.copyload.i38, i64 %.sroa.2.0.copyload.i39) #25
   %72 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not46 = icmp eq ptr %72, null
@@ -7615,7 +7615,7 @@ _ZNK13FileMapRegion16check_region_crcEPc.exit.thread: ; preds = %64, %61, %58
   %87 = load ptr, ptr %2, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 400
   %89 = load i32, ptr %88, align 8
-  %90 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %90 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %.not34 = icmp eq i32 %89, %90
   br i1 %.not34, label %92, label %91
 
@@ -7657,7 +7657,7 @@ _ZNK13FileMapRegion16check_region_crcEPc.exit.thread: ; preds = %64, %61, %58
 106:                                              ; preds = %103, %105
   %107 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %.sroa.0.0.copyload.i40 = load ptr, ptr @_ZN11FileMapInfo22_mapped_heap_memregionE, align 8
-  %.sroa.2.0.copyload.i41 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN11FileMapInfo22_mapped_heap_memregionE, i64 8), align 8
+  %.sroa.2.0.copyload.i41 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN11FileMapInfo22_mapped_heap_memregionE, i64 8), align 8
   tail call void @_ZN15G1CollectedHeap23dealloc_archive_regionsE9MemRegion(ptr noundef nonnull align 8 dereferenceable(1488) %107, ptr %.sroa.0.0.copyload.i40, i64 %.sroa.2.0.copyload.i41) #25
   %108 = load ptr, ptr %2, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 368
@@ -7741,7 +7741,7 @@ declare noundef ptr @_ZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImp
 define hidden void @_ZN11FileMapInfo19dealloc_heap_regionEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %.sroa.0.0.copyload = load ptr, ptr @_ZN11FileMapInfo22_mapped_heap_memregionE, align 8
-  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN11FileMapInfo22_mapped_heap_memregionE, i64 8), align 8
+  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN11FileMapInfo22_mapped_heap_memregionE, i64 8), align 8
   tail call void @_ZN15G1CollectedHeap23dealloc_archive_regionsE9MemRegion(ptr noundef nonnull align 8 dereferenceable(1488) %2, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload) #25
   ret void
 }
@@ -7837,7 +7837,7 @@ define hidden void @_ZN11FileMapInfo28patch_heap_embedded_pointersEv(ptr noundef
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %.sroa.0.0.copyload = load ptr, ptr @_ZN11FileMapInfo22_mapped_heap_memregionE, align 8
-  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN11FileMapInfo22_mapped_heap_memregionE, i64 8), align 8
+  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN11FileMapInfo22_mapped_heap_memregionE, i64 8), align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 280
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 336
@@ -7863,7 +7863,7 @@ define hidden void @_ZN11FileMapInfo24fixup_mapped_heap_regionEv(ptr nocapture n
 4:                                                ; preds = %1
   %5 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %.sroa.0.0.copyload = load ptr, ptr @_ZN11FileMapInfo22_mapped_heap_memregionE, align 8
-  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN11FileMapInfo22_mapped_heap_memregionE, i64 8), align 8
+  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN11FileMapInfo22_mapped_heap_memregionE, i64 8), align 8
   tail call void @_ZN15G1CollectedHeap28populate_archive_regions_botE9MemRegion(ptr noundef nonnull align 8 dereferenceable(1488) %5, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload) #25
   br label %6
 
@@ -8344,7 +8344,7 @@ _ZNK20SharedClassPathEntry4nameEv.exit:           ; preds = %21, %27
   %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #26
   %37 = add i64 %36, 127
   %38 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %35, i64 noundef %37, ptr noundef nonnull @.str.188, ptr noundef %.0.i) #25
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1256), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1256), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %1, ptr noundef nonnull @.str.145, i32 noundef 2497, ptr noundef %39, ptr noundef %35) #25
   br label %_ZN11MutexLockerD2Ev.exit
 
@@ -8360,7 +8360,7 @@ _ZNK20SharedClassPathEntry4nameEv.exit:           ; preds = %21, %27
   %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #26
   %48 = add i64 %47, 127
   %49 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %46, i64 noundef %48, ptr noundef nonnull @.str.189, ptr noundef %.0.i) #25
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1256), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1256), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %1, ptr noundef nonnull @.str.145, i32 noundef 2503, ptr noundef %50, ptr noundef %46) #25
   br label %_ZN11MutexLockerD2Ev.exit
 
@@ -9115,7 +9115,7 @@ define linkonce_odr hidden void @_ZNK16MetaspaceClosure18MSOPointerArrayRefI20Sh
   store i32 2, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI20SharedClassPathEntryEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI20SharedClassPathEntryEE, i64 16), ptr %15, align 8
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %14, ptr %18, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %15) #25
@@ -9157,7 +9157,7 @@ define linkonce_odr hidden void @_ZNK16MetaspaceClosure18MSOPointerArrayRefI20Sh
   store i32 2, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI20SharedClassPathEntryEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI20SharedClassPathEntryEE, i64 16), ptr %13, align 8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %12, ptr %16, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %13) #25
@@ -9226,7 +9226,7 @@ define linkonce_odr hidden void @_ZNK16MetaspaceClosure6MSORefI20SharedClassPath
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %6, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIcEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIcEE, i64 16), ptr %7, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %7) #25
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %12 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #25
@@ -9236,7 +9236,7 @@ define linkonce_odr hidden void @_ZNK16MetaspaceClosure6MSORefI20SharedClassPath
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %11, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIhEE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIhEE, i64 16), ptr %12, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %12) #25
   ret void
 }
@@ -9251,7 +9251,7 @@ define linkonce_odr hidden void @_ZNK16MetaspaceClosure6MSORefI20SharedClassPath
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %4, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIcEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIcEE, i64 16), ptr %5, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %5) #25
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %10 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #25
@@ -9261,7 +9261,7 @@ define linkonce_odr hidden void @_ZNK16MetaspaceClosure6MSORefI20SharedClassPath
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %9, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIhEE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIhEE, i64 16), ptr %10, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %10) #25
   ret void
 }
@@ -9420,7 +9420,7 @@ declare void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #25
   ret void

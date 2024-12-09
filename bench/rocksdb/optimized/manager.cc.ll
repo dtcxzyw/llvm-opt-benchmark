@@ -1948,30 +1948,30 @@ entry:
   tail call void @_ZN12LTM_STATUS_S4initEv(ptr noundef nonnull align 8 dereferenceable(1217) @ltm_status)
   %m_current_lock_memory = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %m_current_lock_memory, align 8
-  store i64 %0, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 32), align 8
+  store i64 %0, ptr getelementptr inbounds nuw (i8, ptr @ltm_status, i64 32), align 8
   %1 = load i64, ptr %this, align 8
-  store i64 %1, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 96), align 8
+  store i64 %1, ptr getelementptr inbounds nuw (i8, ptr @ltm_status, i64 96), align 8
   %m_escalation_count = getelementptr inbounds nuw i8, ptr %this, i64 224
   %2 = load i64, ptr %m_escalation_count, align 8
-  store i64 %2, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 160), align 8
+  store i64 %2, ptr getelementptr inbounds nuw (i8, ptr @ltm_status, i64 160), align 8
   %m_escalation_time = getelementptr inbounds nuw i8, ptr %this, i64 232
   %3 = load i64, ptr %m_escalation_time, align 8
-  store i64 %3, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 224), align 8
+  store i64 %3, ptr getelementptr inbounds nuw (i8, ptr @ltm_status, i64 224), align 8
   %m_escalation_latest_result = getelementptr inbounds nuw i8, ptr %this, i64 240
   %4 = load i64, ptr %m_escalation_latest_result, align 8
-  store i64 %4, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 288), align 8
+  store i64 %4, ptr getelementptr inbounds nuw (i8, ptr @ltm_status, i64 288), align 8
   %m_wait_escalation_count = getelementptr inbounds nuw i8, ptr %this, i64 248
   %5 = load i64, ptr %m_wait_escalation_count, align 8
-  store i64 %5, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 992), align 8
+  store i64 %5, ptr getelementptr inbounds nuw (i8, ptr @ltm_status, i64 992), align 8
   %m_wait_escalation_time = getelementptr inbounds nuw i8, ptr %this, i64 256
   %6 = load i64, ptr %m_wait_escalation_time, align 8
-  store i64 %6, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 1056), align 8
+  store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @ltm_status, i64 1056), align 8
   %m_long_wait_escalation_count = getelementptr inbounds nuw i8, ptr %this, i64 264
   %7 = load i64, ptr %m_long_wait_escalation_count, align 8
-  store i64 %7, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 1120), align 8
+  store i64 %7, ptr getelementptr inbounds nuw (i8, ptr @ltm_status, i64 1120), align 8
   %m_long_wait_escalation_time = getelementptr inbounds nuw i8, ptr %this, i64 272
   %8 = load i64, ptr %m_long_wait_escalation_time, align 8
-  store i64 %8, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 1184), align 8
+  store i64 %8, ptr getelementptr inbounds nuw (i8, ptr @ltm_status, i64 1184), align 8
   %m_mutex = getelementptr inbounds nuw i8, ptr %this, i64 128
   %call.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_mutex) #13
   %cmp = icmp eq i32 %call.i, 0
@@ -2220,16 +2220,16 @@ if.end22:                                         ; preds = %for.end, %entry
   %sto_end_early_time.0 = phi i64 [ %sto_end_early_time.1.lcssa, %for.end ], [ 0, %entry ]
   %num_locktrees.0 = phi i64 [ %retval.0.i64, %for.end ], [ 0, %entry ]
   %lock_requests_pending.0 = phi i64 [ %lock_requests_pending.1.lcssa, %for.end ], [ 0, %entry ]
-  store i64 %num_locktrees.0, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 352), align 8
-  store i64 %lock_requests_pending.0, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 416), align 8
-  store i64 %sto_num_eligible.0, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 480), align 8
-  store i64 %sto_end_early_count.0, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 544), align 8
-  store i64 %sto_end_early_time.0, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 608), align 8
-  store i64 %lt_counters.sroa.0.0, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 672), align 8
-  store i64 %lt_counters.sroa.5.0, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 736), align 8
-  store i64 %lt_counters.sroa.8.0, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 800), align 8
-  store i64 %lt_counters.sroa.11.0, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 864), align 8
-  store i64 %lt_counters.sroa.14.0, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 928), align 8
+  store i64 %num_locktrees.0, ptr getelementptr inbounds nuw (i8, ptr @ltm_status, i64 352), align 8
+  store i64 %lock_requests_pending.0, ptr getelementptr inbounds nuw (i8, ptr @ltm_status, i64 416), align 8
+  store i64 %sto_num_eligible.0, ptr getelementptr inbounds nuw (i8, ptr @ltm_status, i64 480), align 8
+  store i64 %sto_end_early_count.0, ptr getelementptr inbounds nuw (i8, ptr @ltm_status, i64 544), align 8
+  store i64 %sto_end_early_time.0, ptr getelementptr inbounds nuw (i8, ptr @ltm_status, i64 608), align 8
+  store i64 %lt_counters.sroa.0.0, ptr getelementptr inbounds nuw (i8, ptr @ltm_status, i64 672), align 8
+  store i64 %lt_counters.sroa.5.0, ptr getelementptr inbounds nuw (i8, ptr @ltm_status, i64 736), align 8
+  store i64 %lt_counters.sroa.8.0, ptr getelementptr inbounds nuw (i8, ptr @ltm_status, i64 800), align 8
+  store i64 %lt_counters.sroa.11.0, ptr getelementptr inbounds nuw (i8, ptr @ltm_status, i64 864), align 8
+  store i64 %lt_counters.sroa.14.0, ptr getelementptr inbounds nuw (i8, ptr @ltm_status, i64 928), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1217) %statp, ptr noundef nonnull align 8 dereferenceable(1217) @ltm_status, i64 1217, i1 false)
   ret void
 }

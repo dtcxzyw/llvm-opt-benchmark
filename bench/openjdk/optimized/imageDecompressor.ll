@@ -52,12 +52,12 @@ define hidden void @_ZN17ImageDecompressor23image_decompressor_initEv() local_un
   %10 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #12
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @.str.1, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15ZipDecompressor, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV15ZipDecompressor, i64 16), ptr %10, align 8
   store ptr %10, ptr %9, align 8
   %12 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #12
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @.str.2, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV24SharedStringDecompressor, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV24SharedStringDecompressor, i64 16), ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %12, ptr %14, align 8
   br label %15
@@ -115,12 +115,12 @@ _ZN17ImageDecompressor23image_decompressor_initEv.exit.thread: ; preds = %4, %7
   %10 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #12
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @.str.1, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15ZipDecompressor, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV15ZipDecompressor, i64 16), ptr %10, align 8
   store ptr %10, ptr %9, align 8
   %12 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #12
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @.str.2, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV24SharedStringDecompressor, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV24SharedStringDecompressor, i64 16), ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %12, ptr %14, align 8
   br label %.lr.ph

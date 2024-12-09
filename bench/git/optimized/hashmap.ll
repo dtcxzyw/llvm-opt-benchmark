@@ -772,7 +772,7 @@ return:                                           ; preds = %if.end, %if.then
 define dso_local ptr @memintern(ptr noundef %data, i64 noundef %len) local_unnamed_addr #2 {
 entry:
   %key = alloca %struct.pool_entry, align 8
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @memintern.map, i64 28), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 28), align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -818,7 +818,7 @@ memhash.exit:                                     ; preds = %while.body.i, %if.e
   br i1 %tobool.not.i12, label %do.body, label %if.end.i
 
 if.end.i:                                         ; preds = %memhash.exit
-  %map.val.i.i = load i32, ptr getelementptr inbounds (i8, ptr @memintern.map, i64 28), align 4
+  %map.val.i.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 28), align 4
   %sub.i.i.i = add i32 %map.val.i.i, -1
   %and.i.i.i = and i32 %sub.i.i.i, %hash.0.lcssa.i
   %idxprom.i.i = zext i32 %and.i.i.i to i64

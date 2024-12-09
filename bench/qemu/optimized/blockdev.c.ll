@@ -407,11 +407,11 @@ if.else:                                          ; preds = %entry
 do.body1:                                         ; preds = %entry
   %monitor_list = getelementptr inbounds nuw i8, ptr %bs, i64 16664
   store ptr null, ptr %monitor_list, align 8
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @monitor_bdrv_states, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @monitor_bdrv_states, i64 8), align 8
   %tql_prev = getelementptr inbounds nuw i8, ptr %bs, i64 16672
   store ptr %0, ptr %tql_prev, align 8
   store ptr %bs, ptr %0, align 8
-  store ptr %monitor_list, ptr getelementptr inbounds (i8, ptr @monitor_bdrv_states, i64 8), align 8
+  store ptr %monitor_list, ptr getelementptr inbounds nuw (i8, ptr @monitor_bdrv_states, i64 8), align 8
   ret void
 }
 
@@ -5479,11 +5479,11 @@ if.else.i7:                                       ; preds = %if.end7
 bdrv_set_monitor_owned.exit:                      ; preds = %if.end7
   %monitor_list.i = getelementptr inbounds nuw i8, ptr %call4, i64 16664
   store ptr null, ptr %monitor_list.i, align 8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @monitor_bdrv_states, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @monitor_bdrv_states, i64 8), align 8
   %tql_prev.i = getelementptr inbounds nuw i8, ptr %call4, i64 16672
   store ptr %2, ptr %tql_prev.i, align 8
   store ptr %call4, ptr %2, align 8
-  store ptr %monitor_list.i, ptr getelementptr inbounds (i8, ptr @monitor_bdrv_states, i64 8), align 8
+  store ptr %monitor_list.i, ptr getelementptr inbounds nuw (i8, ptr @monitor_bdrv_states, i64 8), align 8
   br label %fail
 
 fail:                                             ; preds = %if.end, %bdrv_set_monitor_owned.exit, %if.then
@@ -5664,7 +5664,7 @@ if.then22:                                        ; preds = %do.body19
   br label %if.end31
 
 if.else28:                                        ; preds = %do.body19
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @monitor_bdrv_states, i64 8), align 8
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @monitor_bdrv_states, i64 8), align 8
   br label %if.end31
 
 if.end31:                                         ; preds = %if.else28, %if.then22

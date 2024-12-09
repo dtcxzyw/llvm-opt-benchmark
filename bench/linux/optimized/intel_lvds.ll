@@ -259,7 +259,7 @@ define dso_local void @intel_lvds_init(ptr noundef %0) local_unnamed_addr #0 ali
   br label %61
 
 61:                                               ; preds = %59, %44
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %63 = call noalias noundef align 8 dereferenceable_or_null(440) ptr @kmalloc_trace(ptr noundef %62, i32 noundef 3520, i64 noundef 440) #8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %229, label %65

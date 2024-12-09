@@ -1764,7 +1764,7 @@ define dso_local noundef nonnull ptr @_ZN5clang22LocationContextManager13getStac
   store ptr %2, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i64 %18, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang17StackFrameContextE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang17StackFrameContextE, i64 16), ptr %15, align 8
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store ptr %3, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 56
@@ -1830,7 +1830,7 @@ define dso_local noundef nonnull ptr @_ZN5clang22LocationContextManager25getBloc
   store ptr %2, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i64 %17, ptr %22, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang22BlockInvocationContextE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang22BlockInvocationContextE, i64 16), ptr %14, align 8
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store ptr %3, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -1931,7 +1931,7 @@ define dso_local void @_ZN5clang19AnalysisDeclContext15getFunctionNameB5cxx11EPK
   store i32 1, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %0, ptr %12, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #22

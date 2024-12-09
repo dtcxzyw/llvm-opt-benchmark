@@ -550,7 +550,7 @@ define dso_local i32 @genl_register_family(ptr noundef %0) #0 align 16 {
   br i1 %141, label %148, label %142
 
 142:                                              ; preds = %.loopexit38
-  %143 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %144 = call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %143, i32 noundef 3520, i64 noundef 16) #18
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %144, ptr %145, align 8
@@ -811,7 +811,7 @@ define dso_local i32 @genl_register_family(ptr noundef %0) #0 align 16 {
   %284 = phi i1 [ false, %187 ], [ false, %193 ], [ false, %200 ], [ false, %197 ], [ true, %273 ], [ true, %278 ]
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 %283, ptr %285, align 4
-  %286 = load ptr, ptr getelementptr inbounds (i8, ptr @init_net, i64 280), align 8
+  %286 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_net, i64 280), align 8
   %287 = icmp eq ptr %286, null
   br i1 %287, label %.thread34, label %288
 
@@ -944,7 +944,7 @@ declare dso_local i32 @idr_alloc_cyclic(ptr noundef, ptr noundef, i32 noundef, i
 define internal fastcc void @genl_ctrl_event(i32 noundef range(i32 1, 9) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i16, align 2
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @init_net, i64 280), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_net, i64 280), align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread14, label %9
 
@@ -999,7 +999,7 @@ define internal fastcc void @genl_ctrl_event(i32 noundef range(i32 1, 9) %0, ptr
   br i1 %29, label %.thread14, label %30
 
 30:                                               ; preds = %26
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @genl_ctrl, i64 128), align 8
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @genl_ctrl, i64 128), align 8
   %32 = load i32, ptr @genl_ctrl, align 8
   %33 = add i32 %32, 4
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 116
@@ -1030,7 +1030,7 @@ define internal fastcc void @genl_ctrl_event(i32 noundef range(i32 1, 9) %0, ptr
 51:                                               ; preds = %48
   %52 = getelementptr i8, ptr %49, i64 16
   store i8 %27, ptr %52, align 2
-  %53 = load i32, ptr getelementptr inbounds (i8, ptr @genl_ctrl, i64 20), align 4
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @genl_ctrl, i64 20), align 4
   %54 = trunc i32 %53 to i8
   %55 = getelementptr i8, ptr %49, i64 17
   store i8 %54, ptr %55, align 1
@@ -1168,7 +1168,7 @@ define internal fastcc void @genl_ctrl_event(i32 noundef range(i32 1, 9) %0, ptr
   br i1 %142, label %143, label %152
 
 143:                                              ; preds = %138
-  %144 = load i8, ptr getelementptr inbounds (i8, ptr @genl_ctrl, i64 32), align 8
+  %144 = load i8, ptr getelementptr inbounds nuw (i8, ptr @genl_ctrl, i64 32), align 8
   %145 = icmp eq i8 %144, 0
   br i1 %145, label %146, label %147, !prof !5
 
@@ -1179,8 +1179,8 @@ define internal fastcc void @genl_ctrl_event(i32 noundef range(i32 1, 9) %0, ptr
   br label %.thread14
 
 147:                                              ; preds = %143
-  %148 = load i32, ptr getelementptr inbounds (i8, ptr @genl_ctrl, i64 132), align 4
-  %149 = load ptr, ptr getelementptr inbounds (i8, ptr @init_net, i64 280), align 8
+  %148 = load i32, ptr getelementptr inbounds nuw (i8, ptr @genl_ctrl, i64 132), align 4
+  %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_net, i64 280), align 8
   %150 = getelementptr inbounds nuw i8, ptr %136, i64 56
   store i32 %148, ptr %150, align 8
   %151 = call i32 @netlink_broadcast_filtered(ptr noundef %149, ptr noundef %136, i32 noundef 0, i32 noundef %148, i32 noundef 3264, ptr noundef null, ptr noundef null) #15
@@ -2036,7 +2036,7 @@ define internal fastcc range(i32 -90, 1) i32 @ctrl_fill_info(ptr noundef %0, i32
   %13 = alloca i16, align 2
   %14 = alloca %struct.genl_op_iter, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %14) #15
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @genl_ctrl, i64 128), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @genl_ctrl, i64 128), align 8
   %16 = load i32, ptr @genl_ctrl, align 8
   %17 = add i32 %16, 4
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 116
@@ -2067,7 +2067,7 @@ define internal fastcc range(i32 -90, 1) i32 @ctrl_fill_info(ptr noundef %0, i32
 35:                                               ; preds = %32
   %36 = getelementptr i8, ptr %33, i64 16
   store i8 %5, ptr %36, align 2
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @genl_ctrl, i64 20), align 4
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @genl_ctrl, i64 20), align 4
   %38 = trunc i32 %37 to i8
   %39 = getelementptr i8, ptr %33, i64 17
   store i8 %38, ptr %39, align 1
@@ -2801,7 +2801,7 @@ define internal i32 @ctrl_dumppolicy_start(ptr noundef %0) #0 align 16 {
   br label %.loopexit
 
 97:                                               ; preds = %44
-  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %99 = call noalias align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %98, i32 noundef 3264, i64 noundef 104) #18
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %99, ptr %100, align 8
@@ -2993,7 +2993,7 @@ define internal i32 @ctrl_dumppolicy(ptr noundef %0, ptr nocapture noundef %1) #
   %59 = load ptr, ptr %48, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i32, ptr %60, align 4
-  %62 = load i32, ptr getelementptr inbounds (i8, ptr @genl_ctrl, i64 128), align 8
+  %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @genl_ctrl, i64 128), align 8
   %63 = load i32, ptr @genl_ctrl, align 8
   %64 = add i32 %63, 4
   %65 = load i32, ptr %49, align 4
@@ -3021,7 +3021,7 @@ define internal i32 @ctrl_dumppolicy(ptr noundef %0, ptr nocapture noundef %1) #
 79:                                               ; preds = %76
   %80 = getelementptr i8, ptr %77, i64 16
   store i8 10, ptr %80, align 2
-  %81 = load i32, ptr getelementptr inbounds (i8, ptr @genl_ctrl, i64 20), align 4
+  %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @genl_ctrl, i64 20), align 4
   %82 = trunc i32 %81 to i8
   %83 = getelementptr i8, ptr %77, i64 17
   store i8 %82, ptr %83, align 1
@@ -3405,7 +3405,7 @@ define internal fastcc noundef range(i32 -105, 1) i32 @ctrl_dumppolicy_put_op(pt
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 4
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @genl_ctrl, i64 128), align 8
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @genl_ctrl, i64 128), align 8
   %25 = load i32, ptr @genl_ctrl, align 8
   %26 = add i32 %25, 4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -3436,7 +3436,7 @@ define internal fastcc noundef range(i32 -105, 1) i32 @ctrl_dumppolicy_put_op(pt
 44:                                               ; preds = %41
   %45 = getelementptr i8, ptr %42, i64 16
   store i8 10, ptr %45, align 2
-  %46 = load i32, ptr getelementptr inbounds (i8, ptr @genl_ctrl, i64 20), align 4
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @genl_ctrl, i64 20), align 4
   %47 = trunc i32 %46 to i8
   %48 = getelementptr i8, ptr %42, i64 17
   store i8 %47, ptr %48, align 1
@@ -4111,7 +4111,7 @@ define internal i32 @genl_start(ptr noundef %0) #0 align 16 {
   br label %.thread
 
 27:                                               ; preds = %18
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %29 = tail call noalias noundef align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %28, i32 noundef 3264, i64 noundef 112) #18
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %32

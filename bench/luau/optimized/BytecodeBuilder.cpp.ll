@@ -2973,7 +2973,7 @@ _ZNSt6vectorIN4Luau15BytecodeBuilder10TableShapeESaIS2_EE9push_backERKS2_.exit: 
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i32 %28, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (i8, ptr @__const._ZN4Luau15BytecodeBuilder16addConstantTableERKNS0_10TableShapeE.value, i64 12), i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @__const._ZN4Luau15BytecodeBuilder16addConstantTableERKNS0_10TableShapeE.value, i64 12), i64 12, i1 false)
   %60 = load ptr, ptr %10, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   store ptr %61, ptr %10, align 8
@@ -3007,7 +3007,7 @@ _ZNKSt6vectorIN4Luau15BytecodeBuilder8ConstantESaIS2_EE12_M_check_lenEmPKc.exit.
   %.sroa.3.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i32 %28, ptr %.sroa.3.0..sroa_idx18, align 8
   %.sroa.4.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %76, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.4.0..sroa_idx20, ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (i8, ptr @__const._ZN4Luau15BytecodeBuilder16addConstantTableERKNS0_10TableShapeE.value, i64 12), i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.4.0..sroa_idx20, ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @__const._ZN4Luau15BytecodeBuilder16addConstantTableERKNS0_10TableShapeE.value, i64 12), i64 12, i1 false)
   %77 = icmp sgt i64 %66, 0
   br i1 %77, label %78, label %_ZNSt6vectorIN4Luau15BytecodeBuilder8ConstantESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
@@ -8919,7 +8919,7 @@ define dso_local void @_ZNK4Luau15BytecodeBuilder14dumpEverythingB5cxx11Ev(ptr d
           to label %.noexc15 unwind label %.body.thread18
 
 .noexc15:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.113, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.113, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.113, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.113, i64 2))
           to label %17 unwind label %.body.thread
 
 .body.thread:                                     ; preds = %.noexc15

@@ -3099,7 +3099,7 @@ define noundef nonnull ptr @Ivy_NodeFindCutsAll(ptr nocapture noundef readonly %
 .lr.ph159:
   %3 = alloca %struct.Ivy_Cut_t_, align 4
   store i32 0, ptr @Ivy_NodeFindCutsAll.CutStore, align 4
-  store i32 256, ptr getelementptr inbounds (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 8), align 4
+  store i32 256, ptr getelementptr inbounds nuw (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 8), align 4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i16 1, ptr %5, align 4
@@ -3120,7 +3120,7 @@ define noundef nonnull ptr @Ivy_NodeFindCutsAll(ptr nocapture noundef readonly %
 13:                                               ; preds = %.lr.ph159, %234
   %14 = phi i32 [ 1, %.lr.ph159 ], [ %235, %234 ]
   %indvars.iv173 = phi i64 [ 0, %.lr.ph159 ], [ %indvars.iv.next174, %234 ]
-  %15 = getelementptr inbounds nuw %struct.Ivy_Cut_t_, ptr getelementptr inbounds (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 16), i64 %indvars.iv173
+  %15 = getelementptr inbounds nuw %struct.Ivy_Cut_t_, ptr getelementptr inbounds nuw (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 16), i64 %indvars.iv173
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i16, ptr %16, align 4
   %18 = icmp eq i16 %17, 0

@@ -75,14 +75,14 @@ define internal noundef i32 @avx_component_register() #1 {
   %25 = or disjoint i32 %17, %24
   %26 = or i32 %25, %21
   %27 = or i32 %26, %23
-  store i32 %27, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
-  store i32 %27, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 280), align 8
+  store i32 %27, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
+  store i32 %27, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 280), align 8
   store ptr null, ptr %1, align 8
   %28 = call i32 @mca_base_var_enum_create_flag(ptr noundef nonnull @.str, ptr noundef nonnull @avx_support_flags, ptr noundef nonnull %1) #7
   %29 = load ptr, ptr %1, align 8
-  %30 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_op_avx_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef %29, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 280)) #7
+  %30 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_op_avx_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef %29, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 280)) #7
   %31 = load ptr, ptr %1, align 8
-  %32 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_op_avx_component, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 0, ptr noundef %31, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284)) #7
+  %32 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_op_avx_component, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 0, ptr noundef %31, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284)) #7
   %33 = load ptr, ptr %1, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i8, ptr @opal_uses_threads, align 1
@@ -133,16 +133,16 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br label %54
 
 54:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
-  %55 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 280), align 8
-  %56 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 280), align 8
+  %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %57 = and i32 %56, %55
-  store i32 %57, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  store i32 %57, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define internal range(i32 -8, 1) i32 @avx_component_init_query(i1 zeroext %0, i1 zeroext %1) #2 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %4 = icmp eq i32 %3, 0
   %. = select i1 %4, i32 -8, i32 0
   ret i32 %.
@@ -170,10 +170,10 @@ define internal noundef ptr @avx_component_op_query(ptr nocapture noundef readon
   ]
 
 10:                                               ; preds = %7, %7, %7, %7, %7, %7, %7
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_op_base_module_t_class, i64 56), align 8
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_op_base_module_t_class, i64 56), align 8
   %12 = tail call noalias ptr @malloc(i64 noundef %11) #8
   %13 = load i32, ptr @opal_class_init_epoch, align 4
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_op_base_module_t_class, i64 32), align 8
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_op_base_module_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %13, %14
   br i1 %.not.i, label %16, label %15
 
@@ -204,7 +204,7 @@ define internal noundef ptr @avx_component_op_query(ptr nocapture noundef readon
   br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !7
 
 opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %16, %17
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %25 = and i32 %24, 256
   %.not = icmp eq i32 %25, 0
   %26 = and i32 %24, 32

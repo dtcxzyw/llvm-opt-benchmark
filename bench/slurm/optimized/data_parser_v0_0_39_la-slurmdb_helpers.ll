@@ -421,7 +421,7 @@ db_query_list_funcname.exit:                      ; preds = %43
 47:                                               ; preds = %39, %43
   %.041.i = phi ptr [ null, %43 ], [ %29, %39 ]
   store ptr %.041.i, ptr %20, align 8
-  %48 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %48 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %49 = and i64 %48, 256
   %.not44 = icmp eq i64 %49, 0
   br i1 %.not44, label %.thread, label %50
@@ -510,7 +510,7 @@ db_query_list_funcname.exit62:                    ; preds = %83
 87:                                               ; preds = %79, %83
   %.041.i60 = phi ptr [ null, %83 ], [ %69, %79 ]
   store ptr %.041.i60, ptr %60, align 8
-  %88 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %88 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %89 = and i64 %88, 256
   %.not48 = icmp eq i64 %89, 0
   br i1 %.not48, label %97, label %90
@@ -599,7 +599,7 @@ db_query_list_funcname.exit72:                    ; preds = %124
 128:                                              ; preds = %120, %124
   %.041.i70 = phi ptr [ null, %124 ], [ %110, %120 ]
   store ptr %.041.i70, ptr %101, align 8
-  %129 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %129 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %130 = and i64 %129, 256
   %.not52 = icmp eq i64 %130, 0
   br i1 %.not52, label %138, label %131

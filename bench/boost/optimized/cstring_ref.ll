@@ -1317,7 +1317,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %57 = getelementptr inbounds i8, ptr %8, i64 %56
   store ptr %54, ptr %57, align 8, !tbaa !33
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %58, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %58, align 8, !tbaa !33
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %60 = load ptr, ptr %59, align 8, !tbaa !29
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 96
@@ -1338,7 +1338,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN5boost23basic_wrap_stringstreamIcED2Ev.exit
 
 _ZN5boost23basic_wrap_stringstreamIcED2Ev.exit:   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %58, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %58, align 8, !tbaa !33
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %68) #27
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 112
@@ -1423,7 +1423,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i16: ; preds = %_
   %103 = getelementptr inbounds i8, ptr %11, i64 %102
   store ptr %54, ptr %103, align 8, !tbaa !33
   %104 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %104, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %104, align 8, !tbaa !33
   %105 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %106 = load ptr, ptr %105, align 8, !tbaa !29
   %107 = getelementptr inbounds nuw i8, ptr %11, i64 96
@@ -1444,7 +1444,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN5boost23basic_wrap_stringstreamIcED2Ev.exit20
 
 _ZN5boost23basic_wrap_stringstreamIcED2Ev.exit20: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i18, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i17
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %104, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %104, align 8, !tbaa !33
   %114 = getelementptr inbounds nuw i8, ptr %11, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %114) #27
   %115 = getelementptr inbounds nuw i8, ptr %11, i64 112
@@ -1529,7 +1529,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i29: ; preds = %_
   %149 = getelementptr inbounds i8, ptr %14, i64 %148
   store ptr %54, ptr %149, align 8, !tbaa !33
   %150 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %150, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %150, align 8, !tbaa !33
   %151 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %152 = load ptr, ptr %151, align 8, !tbaa !29
   %153 = getelementptr inbounds nuw i8, ptr %14, i64 96
@@ -1550,7 +1550,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN5boost23basic_wrap_stringstreamIcED2Ev.exit33
 
 _ZN5boost23basic_wrap_stringstreamIcED2Ev.exit33: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i30
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %150, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %150, align 8, !tbaa !33
   %160 = getelementptr inbounds nuw i8, ptr %14, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %160) #27
   %161 = getelementptr inbounds nuw i8, ptr %14, i64 112
@@ -1636,7 +1636,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i42: ; preds = %_
   %195 = getelementptr inbounds i8, ptr %17, i64 %194
   store ptr %54, ptr %195, align 8, !tbaa !33
   %196 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %196, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %196, align 8, !tbaa !33
   %197 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %198 = load ptr, ptr %197, align 8, !tbaa !29
   %199 = getelementptr inbounds nuw i8, ptr %17, i64 96
@@ -1657,7 +1657,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN5boost23basic_wrap_stringstreamIcED2Ev.exit46
 
 _ZN5boost23basic_wrap_stringstreamIcED2Ev.exit46: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i44, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i43
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %196, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %196, align 8, !tbaa !33
   %206 = getelementptr inbounds nuw i8, ptr %17, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %206) #27
   %207 = getelementptr inbounds nuw i8, ptr %17, i64 112
@@ -1742,7 +1742,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i56: ; preds = %_
   %241 = getelementptr inbounds i8, ptr %20, i64 %240
   store ptr %54, ptr %241, align 8, !tbaa !33
   %242 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %242, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %242, align 8, !tbaa !33
   %243 = getelementptr inbounds nuw i8, ptr %20, i64 80
   %244 = load ptr, ptr %243, align 8, !tbaa !29
   %245 = getelementptr inbounds nuw i8, ptr %20, i64 96
@@ -1763,7 +1763,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN5boost23basic_wrap_stringstreamIcED2Ev.exit60
 
 _ZN5boost23basic_wrap_stringstreamIcED2Ev.exit60: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i58, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i57
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %242, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %242, align 8, !tbaa !33
   %252 = getelementptr inbounds nuw i8, ptr %20, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %252) #27
   %253 = getelementptr inbounds nuw i8, ptr %20, i64 112
@@ -2239,7 +2239,7 @@ define hidden void @_ZN17cstring_view_test11test_methodEv(ptr nocapture nonnull 
   store ptr getelementptr inbounds nuw (i8, ptr @.str.5, i64 12), ptr %370, align 8, !tbaa !32
   %371 = getelementptr inbounds nuw i8, ptr %134, i64 8
   store i8 0, ptr %371, align 8, !tbaa !49, !alias.scope !51
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS0_13basic_cstringIKcEERKS5_EE, i64 16), ptr %134, align 8, !tbaa !33, !alias.scope !51
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS0_13basic_cstringIKcEERKS5_EE, i64 16), ptr %134, align 8, !tbaa !33, !alias.scope !51
   %372 = getelementptr inbounds nuw i8, ptr %134, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %372, align 8, !tbaa !12, !alias.scope !51
   %373 = getelementptr inbounds nuw i8, ptr %134, i64 24
@@ -2304,7 +2304,7 @@ define hidden void @_ZN17cstring_view_test11test_methodEv(ptr nocapture nonnull 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %139) #27
   %401 = getelementptr inbounds nuw i8, ptr %139, i64 8
   store i8 0, ptr %401, align 8, !tbaa !49, !alias.scope !56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %139, align 8, !tbaa !33, !alias.scope !56
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %139, align 8, !tbaa !33, !alias.scope !56
   %402 = getelementptr inbounds nuw i8, ptr %139, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %402, align 8, !tbaa !12, !alias.scope !56
   %403 = getelementptr inbounds nuw i8, ptr %139, i64 24
@@ -2329,7 +2329,7 @@ define hidden void @_ZN17cstring_view_test11test_methodEv(ptr nocapture nonnull 
   store ptr %140, ptr %127, align 8
   %409 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store i8 0, ptr %409, align 8, !tbaa !49, !alias.scope !64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIPKcEERKS8_EE, i64 16), ptr %126, align 8, !tbaa !33, !alias.scope !64
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIPKcEERKS8_EE, i64 16), ptr %126, align 8, !tbaa !33, !alias.scope !64
   %410 = getelementptr inbounds nuw i8, ptr %126, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %410, align 8, !tbaa !12, !alias.scope !64
   %411 = getelementptr inbounds nuw i8, ptr %126, i64 24
@@ -2339,7 +2339,7 @@ define hidden void @_ZN17cstring_view_test11test_methodEv(ptr nocapture nonnull 
   store ptr %141, ptr %129, align 8
   %412 = getelementptr inbounds nuw i8, ptr %128, i64 8
   store i8 0, ptr %412, align 8, !tbaa !49, !alias.scope !67
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIDnEERKS6_EE, i64 16), ptr %128, align 8, !tbaa !33, !alias.scope !67
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIDnEERKS6_EE, i64 16), ptr %128, align 8, !tbaa !33, !alias.scope !67
   %413 = getelementptr inbounds nuw i8, ptr %128, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %413, align 8, !tbaa !12, !alias.scope !67
   %414 = getelementptr inbounds nuw i8, ptr %128, i64 24
@@ -2421,7 +2421,7 @@ define hidden void @_ZN17cstring_view_test11test_methodEv(ptr nocapture nonnull 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %144) #27
   %442 = getelementptr inbounds nuw i8, ptr %144, i64 8
   store i8 0, ptr %442, align 8, !tbaa !49, !alias.scope !70
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %144, align 8, !tbaa !33, !alias.scope !70
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %144, align 8, !tbaa !33, !alias.scope !70
   %443 = getelementptr inbounds nuw i8, ptr %144, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %443, align 8, !tbaa !12, !alias.scope !70
   %444 = getelementptr inbounds nuw i8, ptr %144, i64 24
@@ -2448,7 +2448,7 @@ define hidden void @_ZN17cstring_view_test11test_methodEv(ptr nocapture nonnull 
   store ptr %445, ptr %121, align 8
   %451 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store i8 0, ptr %451, align 8, !tbaa !49, !alias.scope !83
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %120, align 8, !tbaa !33, !alias.scope !83
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %120, align 8, !tbaa !33, !alias.scope !83
   %452 = getelementptr inbounds nuw i8, ptr %120, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %452, align 8, !tbaa !12, !alias.scope !83
   %453 = getelementptr inbounds nuw i8, ptr %120, i64 24
@@ -2458,7 +2458,7 @@ define hidden void @_ZN17cstring_view_test11test_methodEv(ptr nocapture nonnull 
   store ptr %145, ptr %123, align 8
   %454 = getelementptr inbounds nuw i8, ptr %122, i64 8
   store i8 0, ptr %454, align 8, !tbaa !49, !alias.scope !86
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %122, align 8, !tbaa !33, !alias.scope !86
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %122, align 8, !tbaa !33, !alias.scope !86
   %455 = getelementptr inbounds nuw i8, ptr %122, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %455, align 8, !tbaa !12, !alias.scope !86
   %456 = getelementptr inbounds nuw i8, ptr %122, i64 24
@@ -2538,7 +2538,7 @@ define hidden void @_ZN17cstring_view_test11test_methodEv(ptr nocapture nonnull 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %148) #27
   %484 = getelementptr inbounds nuw i8, ptr %148, i64 8
   store i8 0, ptr %484, align 8, !tbaa !49, !alias.scope !89
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %148, align 8, !tbaa !33, !alias.scope !89
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %148, align 8, !tbaa !33, !alias.scope !89
   %485 = getelementptr inbounds nuw i8, ptr %148, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %485, align 8, !tbaa !12, !alias.scope !89
   %486 = getelementptr inbounds nuw i8, ptr %148, i64 24
@@ -2563,7 +2563,7 @@ define hidden void @_ZN17cstring_view_test11test_methodEv(ptr nocapture nonnull 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %154) #27
   %492 = getelementptr inbounds nuw i8, ptr %154, i64 8
   store i8 0, ptr %492, align 8, !tbaa !49, !alias.scope !92
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %154, align 8, !tbaa !33, !alias.scope !92
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %154, align 8, !tbaa !33, !alias.scope !92
   %493 = getelementptr inbounds nuw i8, ptr %154, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %493, align 8, !tbaa !12, !alias.scope !92
   %494 = getelementptr inbounds nuw i8, ptr %154, i64 24
@@ -2586,7 +2586,7 @@ define hidden void @_ZN17cstring_view_test11test_methodEv(ptr nocapture nonnull 
   store ptr %155, ptr %115, align 8
   %498 = getelementptr inbounds nuw i8, ptr %114, i64 8
   store i8 0, ptr %498, align 8, !tbaa !49, !alias.scope !100
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIPKcEERKS8_EE, i64 16), ptr %114, align 8, !tbaa !33, !alias.scope !100
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIPKcEERKS8_EE, i64 16), ptr %114, align 8, !tbaa !33, !alias.scope !100
   %499 = getelementptr inbounds nuw i8, ptr %114, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %499, align 8, !tbaa !12, !alias.scope !100
   %500 = getelementptr inbounds nuw i8, ptr %114, i64 24
@@ -2596,7 +2596,7 @@ define hidden void @_ZN17cstring_view_test11test_methodEv(ptr nocapture nonnull 
   store ptr %150, ptr %117, align 8
   %501 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store i8 0, ptr %501, align 8, !tbaa !49, !alias.scope !103
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIPKcEERKS8_EE, i64 16), ptr %116, align 8, !tbaa !33, !alias.scope !103
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIPKcEERKS8_EE, i64 16), ptr %116, align 8, !tbaa !33, !alias.scope !103
   %502 = getelementptr inbounds nuw i8, ptr %116, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %502, align 8, !tbaa !12, !alias.scope !103
   %503 = getelementptr inbounds nuw i8, ptr %116, i64 24
@@ -2696,7 +2696,7 @@ define hidden void @_ZN17cstring_view_test11test_methodEv(ptr nocapture nonnull 
   store ptr getelementptr inbounds nuw (i8, ptr @.str.17, i64 10), ptr %539, align 8, !tbaa !32
   %540 = getelementptr inbounds nuw i8, ptr %160, i64 8
   store i8 0, ptr %540, align 8, !tbaa !49, !alias.scope !106
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS0_13basic_cstringIKcEERKS5_EE, i64 16), ptr %160, align 8, !tbaa !33, !alias.scope !106
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS0_13basic_cstringIKcEERKS5_EE, i64 16), ptr %160, align 8, !tbaa !33, !alias.scope !106
   %541 = getelementptr inbounds nuw i8, ptr %160, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %541, align 8, !tbaa !12, !alias.scope !106
   %542 = getelementptr inbounds nuw i8, ptr %160, i64 24
@@ -2764,7 +2764,7 @@ define hidden void @_ZN17cstring_view_test11test_methodEv(ptr nocapture nonnull 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %165) #27
   %571 = getelementptr inbounds nuw i8, ptr %165, i64 8
   store i8 0, ptr %571, align 8, !tbaa !49, !alias.scope !109
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %165, align 8, !tbaa !33, !alias.scope !109
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %165, align 8, !tbaa !33, !alias.scope !109
   %572 = getelementptr inbounds nuw i8, ptr %165, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %572, align 8, !tbaa !12, !alias.scope !109
   %573 = getelementptr inbounds nuw i8, ptr %165, i64 24
@@ -2788,7 +2788,7 @@ define hidden void @_ZN17cstring_view_test11test_methodEv(ptr nocapture nonnull 
   store ptr %166, ptr %109, align 8
   %576 = getelementptr inbounds nuw i8, ptr %108, i64 8
   store i8 0, ptr %576, align 8, !tbaa !49, !alias.scope !112
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIPKcEERKS8_EE, i64 16), ptr %108, align 8, !tbaa !33, !alias.scope !112
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIPKcEERKS8_EE, i64 16), ptr %108, align 8, !tbaa !33, !alias.scope !112
   %577 = getelementptr inbounds nuw i8, ptr %108, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %577, align 8, !tbaa !12, !alias.scope !112
   %578 = getelementptr inbounds nuw i8, ptr %108, i64 24
@@ -2798,7 +2798,7 @@ define hidden void @_ZN17cstring_view_test11test_methodEv(ptr nocapture nonnull 
   store ptr %167, ptr %111, align 8
   %579 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store i8 0, ptr %579, align 8, !tbaa !49, !alias.scope !115
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIPKcEERKS8_EE, i64 16), ptr %110, align 8, !tbaa !33, !alias.scope !115
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIPKcEERKS8_EE, i64 16), ptr %110, align 8, !tbaa !33, !alias.scope !115
   %580 = getelementptr inbounds nuw i8, ptr %110, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %580, align 8, !tbaa !12, !alias.scope !115
   %581 = getelementptr inbounds nuw i8, ptr %110, i64 24
@@ -2891,7 +2891,7 @@ define hidden void @_ZN17cstring_view_test11test_methodEv(ptr nocapture nonnull 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %172) #27
   %617 = getelementptr inbounds nuw i8, ptr %172, i64 8
   store i8 0, ptr %617, align 8, !tbaa !49, !alias.scope !118
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %172, align 8, !tbaa !33, !alias.scope !118
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %172, align 8, !tbaa !33, !alias.scope !118
   %618 = getelementptr inbounds nuw i8, ptr %172, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %618, align 8, !tbaa !12, !alias.scope !118
   %619 = getelementptr inbounds nuw i8, ptr %172, i64 24
@@ -2970,7 +2970,7 @@ define hidden void @_ZN17cstring_view_test11test_methodEv(ptr nocapture nonnull 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %178) #27
   %654 = getelementptr inbounds nuw i8, ptr %178, i64 8
   store i8 0, ptr %654, align 8, !tbaa !49, !alias.scope !121
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %178, align 8, !tbaa !33, !alias.scope !121
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %178, align 8, !tbaa !33, !alias.scope !121
   %655 = getelementptr inbounds nuw i8, ptr %178, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %655, align 8, !tbaa !12, !alias.scope !121
   %656 = getelementptr inbounds nuw i8, ptr %178, i64 24
@@ -3055,7 +3055,7 @@ define hidden void @_ZN17cstring_view_test11test_methodEv(ptr nocapture nonnull 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %188) #27
   %691 = getelementptr inbounds nuw i8, ptr %188, i64 8
   store i8 0, ptr %691, align 8, !tbaa !49, !alias.scope !136
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %188, align 8, !tbaa !33, !alias.scope !136
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %188, align 8, !tbaa !33, !alias.scope !136
   %692 = getelementptr inbounds nuw i8, ptr %188, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %692, align 8, !tbaa !12, !alias.scope !136
   %693 = getelementptr inbounds nuw i8, ptr %188, i64 24
@@ -3140,7 +3140,7 @@ define hidden void @_ZN17cstring_view_test11test_methodEv(ptr nocapture nonnull 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %198) #27
   %728 = getelementptr inbounds nuw i8, ptr %198, i64 8
   store i8 0, ptr %728, align 8, !tbaa !49, !alias.scope !151
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %198, align 8, !tbaa !33, !alias.scope !151
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %198, align 8, !tbaa !33, !alias.scope !151
   %729 = getelementptr inbounds nuw i8, ptr %198, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %729, align 8, !tbaa !12, !alias.scope !151
   %730 = getelementptr inbounds nuw i8, ptr %198, i64 24
@@ -3208,7 +3208,7 @@ define hidden void @_ZN17cstring_view_test11test_methodEv(ptr nocapture nonnull 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %202) #27
   %759 = getelementptr inbounds nuw i8, ptr %202, i64 8
   store i8 0, ptr %759, align 8, !tbaa !49, !alias.scope !154
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %202, align 8, !tbaa !33, !alias.scope !154
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %202, align 8, !tbaa !33, !alias.scope !154
   %760 = getelementptr inbounds nuw i8, ptr %202, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %760, align 8, !tbaa !12, !alias.scope !154
   %761 = getelementptr inbounds nuw i8, ptr %202, i64 24
@@ -3233,7 +3233,7 @@ define hidden void @_ZN17cstring_view_test11test_methodEv(ptr nocapture nonnull 
   store ptr %203, ptr %103, align 8
   %767 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store i8 0, ptr %767, align 8, !tbaa !49, !alias.scope !165
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tImEERKS6_EE, i64 16), ptr %102, align 8, !tbaa !33, !alias.scope !165
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tImEERKS6_EE, i64 16), ptr %102, align 8, !tbaa !33, !alias.scope !165
   %768 = getelementptr inbounds nuw i8, ptr %102, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %768, align 8, !tbaa !12, !alias.scope !165
   %769 = getelementptr inbounds nuw i8, ptr %102, i64 24
@@ -3243,7 +3243,7 @@ define hidden void @_ZN17cstring_view_test11test_methodEv(ptr nocapture nonnull 
   store ptr %204, ptr %105, align 8
   %770 = getelementptr inbounds nuw i8, ptr %104, i64 8
   store i8 0, ptr %770, align 8, !tbaa !49, !alias.scope !168
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIiEERKS6_EE, i64 16), ptr %104, align 8, !tbaa !33, !alias.scope !168
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIiEERKS6_EE, i64 16), ptr %104, align 8, !tbaa !33, !alias.scope !168
   %771 = getelementptr inbounds nuw i8, ptr %104, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %771, align 8, !tbaa !12, !alias.scope !168
   %772 = getelementptr inbounds nuw i8, ptr %104, i64 24
@@ -3329,7 +3329,7 @@ define hidden void @_ZN17cstring_view_test11test_methodEv(ptr nocapture nonnull 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %207) #27
   %802 = getelementptr inbounds nuw i8, ptr %207, i64 8
   store i8 0, ptr %802, align 8, !tbaa !49, !alias.scope !171
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %207, align 8, !tbaa !33, !alias.scope !171
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %207, align 8, !tbaa !33, !alias.scope !171
   %803 = getelementptr inbounds nuw i8, ptr %207, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %803, align 8, !tbaa !12, !alias.scope !171
   %804 = getelementptr inbounds nuw i8, ptr %207, i64 24
@@ -3375,7 +3375,7 @@ _ZNK5boost7process2v217basic_cstring_refIcSt11char_traitsIcEE2atEm.exit: ; preds
   store ptr %797, ptr %96, align 8
   %813 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i8 0, ptr %813, align 8, !tbaa !49, !alias.scope !181
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %95, align 8, !tbaa !33, !alias.scope !181
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %95, align 8, !tbaa !33, !alias.scope !181
   %814 = getelementptr inbounds nuw i8, ptr %95, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %814, align 8, !tbaa !12, !alias.scope !181
   %815 = getelementptr inbounds nuw i8, ptr %95, i64 24
@@ -3385,7 +3385,7 @@ _ZNK5boost7process2v217basic_cstring_refIcSt11char_traitsIcEE2atEm.exit: ; preds
   store ptr %208, ptr %98, align 8
   %816 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i8 0, ptr %816, align 8, !tbaa !49, !alias.scope !184
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %97, align 8, !tbaa !33, !alias.scope !184
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %97, align 8, !tbaa !33, !alias.scope !184
   %817 = getelementptr inbounds nuw i8, ptr %97, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %817, align 8, !tbaa !12, !alias.scope !184
   %818 = getelementptr inbounds nuw i8, ptr %97, i64 24
@@ -3467,7 +3467,7 @@ _ZNK5boost7process2v217basic_cstring_refIcSt11char_traitsIcEE2atEm.exit: ; preds
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %211) #27
   %847 = getelementptr inbounds nuw i8, ptr %211, i64 8
   store i8 0, ptr %847, align 8, !tbaa !49, !alias.scope !187
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %211, align 8, !tbaa !33, !alias.scope !187
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %211, align 8, !tbaa !33, !alias.scope !187
   %848 = getelementptr inbounds nuw i8, ptr %211, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %848, align 8, !tbaa !12, !alias.scope !187
   %849 = getelementptr inbounds nuw i8, ptr %211, i64 24
@@ -3518,7 +3518,7 @@ _ZNK5boost7process2v217basic_cstring_refIcSt11char_traitsIcEE2atEm.exit: ; preds
   store ptr %856, ptr %89, align 8
   %862 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i8 0, ptr %862, align 8, !tbaa !49, !alias.scope !200
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %88, align 8, !tbaa !33, !alias.scope !200
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %88, align 8, !tbaa !33, !alias.scope !200
   %863 = getelementptr inbounds nuw i8, ptr %88, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %863, align 8, !tbaa !12, !alias.scope !200
   %864 = getelementptr inbounds nuw i8, ptr %88, i64 24
@@ -3528,7 +3528,7 @@ _ZNK5boost7process2v217basic_cstring_refIcSt11char_traitsIcEE2atEm.exit: ; preds
   store ptr %212, ptr %91, align 8
   %865 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store i8 0, ptr %865, align 8, !tbaa !49, !alias.scope !203
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %90, align 8, !tbaa !33, !alias.scope !203
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %90, align 8, !tbaa !33, !alias.scope !203
   %866 = getelementptr inbounds nuw i8, ptr %90, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %866, align 8, !tbaa !12, !alias.scope !203
   %867 = getelementptr inbounds nuw i8, ptr %90, i64 24
@@ -3650,7 +3650,7 @@ _ZNK5boost7process2v217basic_cstring_refIcSt11char_traitsIcEE2atEm.exit: ; preds
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %218) #27
   %907 = getelementptr inbounds nuw i8, ptr %218, i64 8
   store i8 0, ptr %907, align 8, !tbaa !49, !alias.scope !206
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA52_cRA52_KcEE, i64 16), ptr %218, align 8, !tbaa !33, !alias.scope !206
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA52_cRA52_KcEE, i64 16), ptr %218, align 8, !tbaa !33, !alias.scope !206
   %908 = getelementptr inbounds nuw i8, ptr %218, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %908, align 8, !tbaa !12, !alias.scope !206
   %909 = getelementptr inbounds nuw i8, ptr %218, i64 24
@@ -3886,7 +3886,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %223) #27
   %980 = getelementptr inbounds nuw i8, ptr %223, i64 8
   store i8 0, ptr %980, align 8, !tbaa !49, !alias.scope !210
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA49_cRA49_KcEE, i64 16), ptr %223, align 8, !tbaa !33, !alias.scope !210
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA49_cRA49_KcEE, i64 16), ptr %223, align 8, !tbaa !33, !alias.scope !210
   %981 = getelementptr inbounds nuw i8, ptr %223, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %981, align 8, !tbaa !12, !alias.scope !210
   %982 = getelementptr inbounds nuw i8, ptr %223, i64 24
@@ -3957,7 +3957,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %227) #27
   %1012 = getelementptr inbounds nuw i8, ptr %227, i64 8
   store i8 0, ptr %1012, align 8, !tbaa !49, !alias.scope !213
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %227, align 8, !tbaa !33, !alias.scope !213
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %227, align 8, !tbaa !33, !alias.scope !213
   %1013 = getelementptr inbounds nuw i8, ptr %227, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1013, align 8, !tbaa !12, !alias.scope !213
   %1014 = getelementptr inbounds nuw i8, ptr %227, i64 24
@@ -3983,7 +3983,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr %797, ptr %82, align 8
   %1020 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i8 0, ptr %1020, align 8, !tbaa !49, !alias.scope !226
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %81, align 8, !tbaa !33, !alias.scope !226
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %81, align 8, !tbaa !33, !alias.scope !226
   %1021 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1021, align 8, !tbaa !12, !alias.scope !226
   %1022 = getelementptr inbounds nuw i8, ptr %81, i64 24
@@ -3993,7 +3993,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr %228, ptr %84, align 8
   %1023 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store i8 0, ptr %1023, align 8, !tbaa !49, !alias.scope !229
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %83, align 8, !tbaa !33, !alias.scope !229
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %83, align 8, !tbaa !33, !alias.scope !229
   %1024 = getelementptr inbounds nuw i8, ptr %83, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1024, align 8, !tbaa !12, !alias.scope !229
   %1025 = getelementptr inbounds nuw i8, ptr %83, i64 24
@@ -4076,7 +4076,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %231) #27
   %1054 = getelementptr inbounds nuw i8, ptr %231, i64 8
   store i8 0, ptr %1054, align 8, !tbaa !49, !alias.scope !232
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %231, align 8, !tbaa !33, !alias.scope !232
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %231, align 8, !tbaa !33, !alias.scope !232
   %1055 = getelementptr inbounds nuw i8, ptr %231, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1055, align 8, !tbaa !12, !alias.scope !232
   %1056 = getelementptr inbounds nuw i8, ptr %231, i64 24
@@ -4105,7 +4105,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr %1059, ptr %76, align 8
   %1065 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i8 0, ptr %1065, align 8, !tbaa !49, !alias.scope !245
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %75, align 8, !tbaa !33, !alias.scope !245
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %75, align 8, !tbaa !33, !alias.scope !245
   %1066 = getelementptr inbounds nuw i8, ptr %75, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1066, align 8, !tbaa !12, !alias.scope !245
   %1067 = getelementptr inbounds nuw i8, ptr %75, i64 24
@@ -4115,7 +4115,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr %232, ptr %78, align 8
   %1068 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store i8 0, ptr %1068, align 8, !tbaa !49, !alias.scope !248
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %77, align 8, !tbaa !33, !alias.scope !248
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %77, align 8, !tbaa !33, !alias.scope !248
   %1069 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1069, align 8, !tbaa !12, !alias.scope !248
   %1070 = getelementptr inbounds nuw i8, ptr %77, i64 24
@@ -4198,7 +4198,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %235) #27
   %1099 = getelementptr inbounds nuw i8, ptr %235, i64 8
   store i8 0, ptr %1099, align 8, !tbaa !49, !alias.scope !251
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %235, align 8, !tbaa !33, !alias.scope !251
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %235, align 8, !tbaa !33, !alias.scope !251
   %1100 = getelementptr inbounds nuw i8, ptr %235, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1100, align 8, !tbaa !12, !alias.scope !251
   %1101 = getelementptr inbounds nuw i8, ptr %235, i64 24
@@ -4223,7 +4223,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr %236, ptr %70, align 8
   %1107 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i8 0, ptr %1107, align 8, !tbaa !49, !alias.scope !261
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tImEERKS6_EE, i64 16), ptr %69, align 8, !tbaa !33, !alias.scope !261
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tImEERKS6_EE, i64 16), ptr %69, align 8, !tbaa !33, !alias.scope !261
   %1108 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1108, align 8, !tbaa !12, !alias.scope !261
   %1109 = getelementptr inbounds nuw i8, ptr %69, i64 24
@@ -4233,7 +4233,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr %237, ptr %72, align 8
   %1110 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i8 0, ptr %1110, align 8, !tbaa !49, !alias.scope !264
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIiEERKS6_EE, i64 16), ptr %71, align 8, !tbaa !33, !alias.scope !264
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIiEERKS6_EE, i64 16), ptr %71, align 8, !tbaa !33, !alias.scope !264
   %1111 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1111, align 8, !tbaa !12, !alias.scope !264
   %1112 = getelementptr inbounds nuw i8, ptr %71, i64 24
@@ -4318,7 +4318,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %240) #27
   %1141 = getelementptr inbounds nuw i8, ptr %240, i64 8
   store i8 0, ptr %1141, align 8, !tbaa !49, !alias.scope !267
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %240, align 8, !tbaa !33, !alias.scope !267
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %240, align 8, !tbaa !33, !alias.scope !267
   %1142 = getelementptr inbounds nuw i8, ptr %240, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1142, align 8, !tbaa !12, !alias.scope !267
   %1143 = getelementptr inbounds nuw i8, ptr %240, i64 24
@@ -4343,7 +4343,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr %241, ptr %64, align 8
   %1147 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i8 0, ptr %1147, align 8, !tbaa !49, !alias.scope !270
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIPKcEERKS8_EE, i64 16), ptr %63, align 8, !tbaa !33, !alias.scope !270
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIPKcEERKS8_EE, i64 16), ptr %63, align 8, !tbaa !33, !alias.scope !270
   %1148 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1148, align 8, !tbaa !12, !alias.scope !270
   %1149 = getelementptr inbounds nuw i8, ptr %63, i64 24
@@ -4353,7 +4353,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr %242, ptr %66, align 8
   %1150 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i8 0, ptr %1150, align 8, !tbaa !49, !alias.scope !273
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIPKcEERKS8_EE, i64 16), ptr %65, align 8, !tbaa !33, !alias.scope !273
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIPKcEERKS8_EE, i64 16), ptr %65, align 8, !tbaa !33, !alias.scope !273
   %1151 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1151, align 8, !tbaa !12, !alias.scope !273
   %1152 = getelementptr inbounds nuw i8, ptr %65, i64 24
@@ -4435,7 +4435,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %245) #27
   %1182 = getelementptr inbounds nuw i8, ptr %245, i64 8
   store i8 0, ptr %1182, align 8, !tbaa !49, !alias.scope !276
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %245, align 8, !tbaa !33, !alias.scope !276
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %245, align 8, !tbaa !33, !alias.scope !276
   %1183 = getelementptr inbounds nuw i8, ptr %245, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1183, align 8, !tbaa !12, !alias.scope !276
   %1184 = getelementptr inbounds nuw i8, ptr %245, i64 24
@@ -4468,7 +4468,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr %246, ptr %57, align 8
   %1191 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i8 0, ptr %1191, align 8, !tbaa !49, !alias.scope !279
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIPKcEERKS8_EE, i64 16), ptr %56, align 8, !tbaa !33, !alias.scope !279
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIPKcEERKS8_EE, i64 16), ptr %56, align 8, !tbaa !33, !alias.scope !279
   %1192 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1192, align 8, !tbaa !12, !alias.scope !279
   %1193 = getelementptr inbounds nuw i8, ptr %56, i64 24
@@ -4478,7 +4478,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr %247, ptr %59, align 8
   %1194 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i8 0, ptr %1194, align 8, !tbaa !49, !alias.scope !282
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIPKcEERKS8_EE, i64 16), ptr %58, align 8, !tbaa !33, !alias.scope !282
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIPKcEERKS8_EE, i64 16), ptr %58, align 8, !tbaa !33, !alias.scope !282
   %1195 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1195, align 8, !tbaa !12, !alias.scope !282
   %1196 = getelementptr inbounds nuw i8, ptr %58, i64 24
@@ -4565,7 +4565,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %251) #27
   %1228 = getelementptr inbounds nuw i8, ptr %251, i64 8
   store i8 0, ptr %1228, align 8, !tbaa !49, !alias.scope !285
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %251, align 8, !tbaa !33, !alias.scope !285
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %251, align 8, !tbaa !33, !alias.scope !285
   %1229 = getelementptr inbounds nuw i8, ptr %251, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1229, align 8, !tbaa !12, !alias.scope !285
   %1230 = getelementptr inbounds nuw i8, ptr %251, i64 24
@@ -4630,7 +4630,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %255) #27
   %1250 = getelementptr inbounds nuw i8, ptr %255, i64 8
   store i8 0, ptr %1250, align 8, !tbaa !49, !alias.scope !288
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %255, align 8, !tbaa !33, !alias.scope !288
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %255, align 8, !tbaa !33, !alias.scope !288
   %1251 = getelementptr inbounds nuw i8, ptr %255, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1251, align 8, !tbaa !12, !alias.scope !288
   %1252 = getelementptr inbounds nuw i8, ptr %255, i64 24
@@ -4659,7 +4659,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %259) #27
   %1261 = getelementptr inbounds nuw i8, ptr %259, i64 8
   store i8 0, ptr %1261, align 8, !tbaa !49, !alias.scope !291
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %259, align 8, !tbaa !33, !alias.scope !291
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %259, align 8, !tbaa !33, !alias.scope !291
   %1262 = getelementptr inbounds nuw i8, ptr %259, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1262, align 8, !tbaa !12, !alias.scope !291
   %1263 = getelementptr inbounds nuw i8, ptr %259, i64 24
@@ -4685,7 +4685,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr %797, ptr %49, align 8
   %1269 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i8 0, ptr %1269, align 8, !tbaa !49, !alias.scope !304
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %48, align 8, !tbaa !33, !alias.scope !304
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %48, align 8, !tbaa !33, !alias.scope !304
   %1270 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1270, align 8, !tbaa !12, !alias.scope !304
   %1271 = getelementptr inbounds nuw i8, ptr %48, i64 24
@@ -4695,7 +4695,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr %260, ptr %51, align 8
   %1272 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i8 0, ptr %1272, align 8, !tbaa !49, !alias.scope !307
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %50, align 8, !tbaa !33, !alias.scope !307
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %50, align 8, !tbaa !33, !alias.scope !307
   %1273 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1273, align 8, !tbaa !12, !alias.scope !307
   %1274 = getelementptr inbounds nuw i8, ptr %50, i64 24
@@ -4778,7 +4778,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %263) #27
   %1303 = getelementptr inbounds nuw i8, ptr %263, i64 8
   store i8 0, ptr %1303, align 8, !tbaa !49, !alias.scope !310
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %263, align 8, !tbaa !33, !alias.scope !310
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %263, align 8, !tbaa !33, !alias.scope !310
   %1304 = getelementptr inbounds nuw i8, ptr %263, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1304, align 8, !tbaa !12, !alias.scope !310
   %1305 = getelementptr inbounds nuw i8, ptr %263, i64 24
@@ -4807,7 +4807,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr %1308, ptr %43, align 8
   %1314 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i8 0, ptr %1314, align 8, !tbaa !49, !alias.scope !323
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %42, align 8, !tbaa !33, !alias.scope !323
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %42, align 8, !tbaa !33, !alias.scope !323
   %1315 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1315, align 8, !tbaa !12, !alias.scope !323
   %1316 = getelementptr inbounds nuw i8, ptr %42, i64 24
@@ -4817,7 +4817,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr %264, ptr %45, align 8
   %1317 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i8 0, ptr %1317, align 8, !tbaa !49, !alias.scope !326
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %44, align 8, !tbaa !33, !alias.scope !326
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %44, align 8, !tbaa !33, !alias.scope !326
   %1318 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1318, align 8, !tbaa !12, !alias.scope !326
   %1319 = getelementptr inbounds nuw i8, ptr %44, i64 24
@@ -4900,7 +4900,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %267) #27
   %1348 = getelementptr inbounds nuw i8, ptr %267, i64 8
   store i8 0, ptr %1348, align 8, !tbaa !49, !alias.scope !329
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %267, align 8, !tbaa !33, !alias.scope !329
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %267, align 8, !tbaa !33, !alias.scope !329
   %1349 = getelementptr inbounds nuw i8, ptr %267, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1349, align 8, !tbaa !12, !alias.scope !329
   %1350 = getelementptr inbounds nuw i8, ptr %267, i64 24
@@ -4923,7 +4923,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr %268, ptr %37, align 8
   %1354 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i8 0, ptr %1354, align 8, !tbaa !49, !alias.scope !335
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tImEERKS6_EE, i64 16), ptr %36, align 8, !tbaa !33, !alias.scope !335
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tImEERKS6_EE, i64 16), ptr %36, align 8, !tbaa !33, !alias.scope !335
   %1355 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1355, align 8, !tbaa !12, !alias.scope !335
   %1356 = getelementptr inbounds nuw i8, ptr %36, i64 24
@@ -4933,7 +4933,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr %269, ptr %39, align 8
   %1357 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i8 0, ptr %1357, align 8, !tbaa !49, !alias.scope !338
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tImEERKS6_EE, i64 16), ptr %38, align 8, !tbaa !33, !alias.scope !338
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tImEERKS6_EE, i64 16), ptr %38, align 8, !tbaa !33, !alias.scope !338
   %1358 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1358, align 8, !tbaa !12, !alias.scope !338
   %1359 = getelementptr inbounds nuw i8, ptr %38, i64 24
@@ -5021,7 +5021,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %273) #27
   %1389 = getelementptr inbounds nuw i8, ptr %273, i64 8
   store i8 0, ptr %1389, align 8, !tbaa !49, !alias.scope !341
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %273, align 8, !tbaa !33, !alias.scope !341
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %273, align 8, !tbaa !33, !alias.scope !341
   %1390 = getelementptr inbounds nuw i8, ptr %273, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1390, align 8, !tbaa !12, !alias.scope !341
   %1391 = getelementptr inbounds nuw i8, ptr %273, i64 24
@@ -5047,7 +5047,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr %270, ptr %31, align 8
   %1397 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i8 0, ptr %1397, align 8, !tbaa !49, !alias.scope !354
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %30, align 8, !tbaa !33, !alias.scope !354
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %30, align 8, !tbaa !33, !alias.scope !354
   %1398 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1398, align 8, !tbaa !12, !alias.scope !354
   %1399 = getelementptr inbounds nuw i8, ptr %30, i64 24
@@ -5057,7 +5057,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr %274, ptr %33, align 8
   %1400 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i8 0, ptr %1400, align 8, !tbaa !49, !alias.scope !357
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %32, align 8, !tbaa !33, !alias.scope !357
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %32, align 8, !tbaa !33, !alias.scope !357
   %1401 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1401, align 8, !tbaa !12, !alias.scope !357
   %1402 = getelementptr inbounds nuw i8, ptr %32, i64 24
@@ -5140,7 +5140,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %277) #27
   %1431 = getelementptr inbounds nuw i8, ptr %277, i64 8
   store i8 0, ptr %1431, align 8, !tbaa !49, !alias.scope !360
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %277, align 8, !tbaa !33, !alias.scope !360
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %277, align 8, !tbaa !33, !alias.scope !360
   %1432 = getelementptr inbounds nuw i8, ptr %277, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1432, align 8, !tbaa !12, !alias.scope !360
   %1433 = getelementptr inbounds nuw i8, ptr %277, i64 24
@@ -5167,7 +5167,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr %1434, ptr %25, align 8
   %1440 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i8 0, ptr %1440, align 8, !tbaa !49, !alias.scope !373
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %24, align 8, !tbaa !33, !alias.scope !373
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %24, align 8, !tbaa !33, !alias.scope !373
   %1441 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1441, align 8, !tbaa !12, !alias.scope !373
   %1442 = getelementptr inbounds nuw i8, ptr %24, i64 24
@@ -5177,7 +5177,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr %278, ptr %27, align 8
   %1443 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i8 0, ptr %1443, align 8, !tbaa !49, !alias.scope !376
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %26, align 8, !tbaa !33, !alias.scope !376
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIcEERKS6_EE, i64 16), ptr %26, align 8, !tbaa !33, !alias.scope !376
   %1444 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1444, align 8, !tbaa !12, !alias.scope !376
   %1445 = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -5271,7 +5271,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr getelementptr inbounds nuw (i8, ptr @.str.64, i64 19), ptr %1478, align 8, !tbaa !32
   %1479 = getelementptr inbounds nuw i8, ptr %282, i64 8
   store i8 0, ptr %1479, align 8, !tbaa !49, !alias.scope !379
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS0_13basic_cstringIKcEERKS5_EE, i64 16), ptr %282, align 8, !tbaa !33, !alias.scope !379
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS0_13basic_cstringIKcEERKS5_EE, i64 16), ptr %282, align 8, !tbaa !33, !alias.scope !379
   %1480 = getelementptr inbounds nuw i8, ptr %282, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1480, align 8, !tbaa !12, !alias.scope !379
   %1481 = getelementptr inbounds nuw i8, ptr %282, i64 24
@@ -5376,7 +5376,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr getelementptr inbounds nuw (i8, ptr @.str.66, i64 21), ptr %1522, align 8, !tbaa !32
   %1523 = getelementptr inbounds nuw i8, ptr %288, i64 8
   store i8 0, ptr %1523, align 8, !tbaa !49, !alias.scope !382
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS0_13basic_cstringIKcEERKS5_EE, i64 16), ptr %288, align 8, !tbaa !33, !alias.scope !382
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS0_13basic_cstringIKcEERKS5_EE, i64 16), ptr %288, align 8, !tbaa !33, !alias.scope !382
   %1524 = getelementptr inbounds nuw i8, ptr %288, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1524, align 8, !tbaa !12, !alias.scope !382
   %1525 = getelementptr inbounds nuw i8, ptr %288, i64 24
@@ -5452,7 +5452,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr getelementptr inbounds nuw (i8, ptr @.str.67, i64 8), ptr %1554, align 8, !tbaa !32
   %1555 = getelementptr inbounds nuw i8, ptr %294, i64 8
   store i8 0, ptr %1555, align 8, !tbaa !49, !alias.scope !385
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS0_13basic_cstringIKcEERKS5_EE, i64 16), ptr %294, align 8, !tbaa !33, !alias.scope !385
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS0_13basic_cstringIKcEERKS5_EE, i64 16), ptr %294, align 8, !tbaa !33, !alias.scope !385
   %1556 = getelementptr inbounds nuw i8, ptr %294, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1556, align 8, !tbaa !12, !alias.scope !385
   %1557 = getelementptr inbounds nuw i8, ptr %294, i64 24
@@ -5563,7 +5563,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr getelementptr inbounds nuw (i8, ptr @.str.68, i64 10), ptr %1602, align 8, !tbaa !32
   %1603 = getelementptr inbounds nuw i8, ptr %300, i64 8
   store i8 0, ptr %1603, align 8, !tbaa !49, !alias.scope !389
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS0_13basic_cstringIKcEERKS5_EE, i64 16), ptr %300, align 8, !tbaa !33, !alias.scope !389
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS0_13basic_cstringIKcEERKS5_EE, i64 16), ptr %300, align 8, !tbaa !33, !alias.scope !389
   %1604 = getelementptr inbounds nuw i8, ptr %300, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1604, align 8, !tbaa !12, !alias.scope !389
   %1605 = getelementptr inbounds nuw i8, ptr %300, i64 24
@@ -5673,7 +5673,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr getelementptr inbounds nuw (i8, ptr @.str.69, i64 11), ptr %1649, align 8, !tbaa !32
   %1650 = getelementptr inbounds nuw i8, ptr %306, i64 8
   store i8 0, ptr %1650, align 8, !tbaa !49, !alias.scope !392
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS0_13basic_cstringIKcEERKS5_EE, i64 16), ptr %306, align 8, !tbaa !33, !alias.scope !392
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS0_13basic_cstringIKcEERKS5_EE, i64 16), ptr %306, align 8, !tbaa !33, !alias.scope !392
   %1651 = getelementptr inbounds nuw i8, ptr %306, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1651, align 8, !tbaa !12, !alias.scope !392
   %1652 = getelementptr inbounds nuw i8, ptr %306, i64 24
@@ -5749,7 +5749,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr getelementptr inbounds nuw (i8, ptr @.str.70, i64 11), ptr %1681, align 8, !tbaa !32
   %1682 = getelementptr inbounds nuw i8, ptr %312, i64 8
   store i8 0, ptr %1682, align 8, !tbaa !49, !alias.scope !395
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS0_13basic_cstringIKcEERKS5_EE, i64 16), ptr %312, align 8, !tbaa !33, !alias.scope !395
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS0_13basic_cstringIKcEERKS5_EE, i64 16), ptr %312, align 8, !tbaa !33, !alias.scope !395
   %1683 = getelementptr inbounds nuw i8, ptr %312, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1683, align 8, !tbaa !12, !alias.scope !395
   %1684 = getelementptr inbounds nuw i8, ptr %312, i64 24
@@ -5860,7 +5860,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr getelementptr inbounds nuw (i8, ptr @.str.71, i64 13), ptr %1729, align 8, !tbaa !32
   %1730 = getelementptr inbounds nuw i8, ptr %318, i64 8
   store i8 0, ptr %1730, align 8, !tbaa !49, !alias.scope !399
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS0_13basic_cstringIKcEERKS5_EE, i64 16), ptr %318, align 8, !tbaa !33, !alias.scope !399
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS0_13basic_cstringIKcEERKS5_EE, i64 16), ptr %318, align 8, !tbaa !33, !alias.scope !399
   %1731 = getelementptr inbounds nuw i8, ptr %318, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1731, align 8, !tbaa !12, !alias.scope !399
   %1732 = getelementptr inbounds nuw i8, ptr %318, i64 24
@@ -5970,7 +5970,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   store ptr getelementptr inbounds nuw (i8, ptr @.str.72, i64 8), ptr %1776, align 8, !tbaa !32
   %1777 = getelementptr inbounds nuw i8, ptr %324, i64 8
   store i8 0, ptr %1777, align 8, !tbaa !49, !alias.scope !402
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS0_13basic_cstringIKcEERKS5_EE, i64 16), ptr %324, align 8, !tbaa !33, !alias.scope !402
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS0_13basic_cstringIKcEERKS5_EE, i64 16), ptr %324, align 8, !tbaa !33, !alias.scope !402
   %1778 = getelementptr inbounds nuw i8, ptr %324, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1778, align 8, !tbaa !12, !alias.scope !402
   %1779 = getelementptr inbounds nuw i8, ptr %324, i64 24
@@ -6039,7 +6039,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %329) #27
   %1808 = getelementptr inbounds nuw i8, ptr %329, i64 8
   store i8 0, ptr %1808, align 8, !tbaa !49, !alias.scope !405
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %329, align 8, !tbaa !33, !alias.scope !405
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %329, align 8, !tbaa !33, !alias.scope !405
   %1809 = getelementptr inbounds nuw i8, ptr %329, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1809, align 8, !tbaa !12, !alias.scope !405
   %1810 = getelementptr inbounds nuw i8, ptr %329, i64 24
@@ -6130,7 +6130,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %334) #27
   %1840 = getelementptr inbounds nuw i8, ptr %334, i64 8
   store i8 0, ptr %1840, align 8, !tbaa !49, !alias.scope !411
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %334, align 8, !tbaa !33, !alias.scope !411
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %334, align 8, !tbaa !33, !alias.scope !411
   %1841 = getelementptr inbounds nuw i8, ptr %334, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1841, align 8, !tbaa !12, !alias.scope !411
   %1842 = getelementptr inbounds nuw i8, ptr %334, i64 24
@@ -6231,7 +6231,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i39
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %341) #27
   %1874 = getelementptr inbounds nuw i8, ptr %341, i64 8
   store i8 0, ptr %1874, align 8, !tbaa !49, !alias.scope !417
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %341, align 8, !tbaa !33, !alias.scope !417
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %341, align 8, !tbaa !33, !alias.scope !417
   %1875 = getelementptr inbounds nuw i8, ptr %341, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1875, align 8, !tbaa !12, !alias.scope !417
   %1876 = getelementptr inbounds nuw i8, ptr %341, i64 24
@@ -6258,7 +6258,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i39
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %345) #27
   %1884 = getelementptr inbounds nuw i8, ptr %345, i64 8
   store i8 0, ptr %1884, align 8, !tbaa !49, !alias.scope !420
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %345, align 8, !tbaa !33, !alias.scope !420
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %345, align 8, !tbaa !33, !alias.scope !420
   %1885 = getelementptr inbounds nuw i8, ptr %345, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1885, align 8, !tbaa !12, !alias.scope !420
   %1886 = getelementptr inbounds nuw i8, ptr %345, i64 24
@@ -6285,7 +6285,7 @@ _ZNK5boost7process2v217basic_cstring_refIcSt11char_traitsIcEE7compareES5_.exit: 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %349) #27
   %1893 = getelementptr inbounds nuw i8, ptr %349, i64 8
   store i8 0, ptr %1893, align 8, !tbaa !49, !alias.scope !423
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %349, align 8, !tbaa !33, !alias.scope !423
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %349, align 8, !tbaa !33, !alias.scope !423
   %1894 = getelementptr inbounds nuw i8, ptr %349, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1894, align 8, !tbaa !12, !alias.scope !423
   %1895 = getelementptr inbounds nuw i8, ptr %349, i64 24
@@ -6307,7 +6307,7 @@ _ZNK5boost7process2v217basic_cstring_refIcSt11char_traitsIcEE7compareES5_.exit: 
   store ptr %350, ptr %17, align 8
   %1898 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i8 0, ptr %1898, align 8, !tbaa !49, !alias.scope !433
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIiEERKS6_EE, i64 16), ptr %16, align 8, !tbaa !33, !alias.scope !433
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIiEERKS6_EE, i64 16), ptr %16, align 8, !tbaa !33, !alias.scope !433
   %1899 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1899, align 8, !tbaa !12, !alias.scope !433
   %1900 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -6317,7 +6317,7 @@ _ZNK5boost7process2v217basic_cstring_refIcSt11char_traitsIcEE7compareES5_.exit: 
   store ptr %351, ptr %19, align 8
   %1901 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i8 0, ptr %1901, align 8, !tbaa !49, !alias.scope !436
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIiEERKS6_EE, i64 16), ptr %18, align 8, !tbaa !33, !alias.scope !436
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIiEERKS6_EE, i64 16), ptr %18, align 8, !tbaa !33, !alias.scope !436
   %1902 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1902, align 8, !tbaa !12, !alias.scope !436
   %1903 = getelementptr inbounds nuw i8, ptr %18, i64 24
@@ -6402,7 +6402,7 @@ _ZNK5boost7process2v217basic_cstring_refIcSt11char_traitsIcEE7compareES5_.exit: 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %354) #27
   %1932 = getelementptr inbounds nuw i8, ptr %354, i64 8
   store i8 0, ptr %1932, align 8, !tbaa !49, !alias.scope !439
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %354, align 8, !tbaa !33, !alias.scope !439
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %354, align 8, !tbaa !33, !alias.scope !439
   %1933 = getelementptr inbounds nuw i8, ptr %354, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1933, align 8, !tbaa !12, !alias.scope !439
   %1934 = getelementptr inbounds nuw i8, ptr %354, i64 24
@@ -6475,7 +6475,7 @@ _ZNK5boost7process2v217basic_cstring_refIcSt11char_traitsIcEE7compareES5_.exit42
   store ptr %355, ptr %11, align 8
   %1960 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i8 0, ptr %1960, align 8, !tbaa !49, !alias.scope !445
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIiEERKS6_EE, i64 16), ptr %10, align 8, !tbaa !33, !alias.scope !445
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIiEERKS6_EE, i64 16), ptr %10, align 8, !tbaa !33, !alias.scope !445
   %1961 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1961, align 8, !tbaa !12, !alias.scope !445
   %1962 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -6485,7 +6485,7 @@ _ZNK5boost7process2v217basic_cstring_refIcSt11char_traitsIcEE7compareES5_.exit42
   store ptr %356, ptr %13, align 8
   %1963 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i8 0, ptr %1963, align 8, !tbaa !49, !alias.scope !448
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIiEERKS6_EE, i64 16), ptr %12, align 8, !tbaa !33, !alias.scope !448
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIiEERKS6_EE, i64 16), ptr %12, align 8, !tbaa !33, !alias.scope !448
   %1964 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1964, align 8, !tbaa !12, !alias.scope !448
   %1965 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -6570,7 +6570,7 @@ _ZNK5boost7process2v217basic_cstring_refIcSt11char_traitsIcEE7compareES5_.exit42
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %359) #27
   %1994 = getelementptr inbounds nuw i8, ptr %359, i64 8
   store i8 0, ptr %1994, align 8, !tbaa !49, !alias.scope !451
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %359, align 8, !tbaa !33, !alias.scope !451
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA1_cRA1_KcEE, i64 16), ptr %359, align 8, !tbaa !33, !alias.scope !451
   %1995 = getelementptr inbounds nuw i8, ptr %359, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %1995, align 8, !tbaa !12, !alias.scope !451
   %1996 = getelementptr inbounds nuw i8, ptr %359, i64 24
@@ -6643,7 +6643,7 @@ _ZNK5boost7process2v217basic_cstring_refIcSt11char_traitsIcEE7compareES5_.exit43
   store ptr %360, ptr %5, align 8
   %2023 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 0, ptr %2023, align 8, !tbaa !49, !alias.scope !457
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIiEERKS6_EE, i64 16), ptr %4, align 8, !tbaa !33, !alias.scope !457
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIiEERKS6_EE, i64 16), ptr %4, align 8, !tbaa !33, !alias.scope !457
   %2024 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %2024, align 8, !tbaa !12, !alias.scope !457
   %2025 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -6653,7 +6653,7 @@ _ZNK5boost7process2v217basic_cstring_refIcSt11char_traitsIcEE7compareES5_.exit43
   store ptr %361, ptr %7, align 8
   %2026 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 0, ptr %2026, align 8, !tbaa !49, !alias.scope !460
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIiEERKS6_EE, i64 16), ptr %6, align 8, !tbaa !33, !alias.scope !460
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIiEERKS6_EE, i64 16), ptr %6, align 8, !tbaa !33, !alias.scope !460
   %2027 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %2027, align 8, !tbaa !12, !alias.scope !460
   %2028 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -7168,7 +7168,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost10test_tools9tt_detail10
   store ptr %5, ptr %14, align 8
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i8 0, ptr %37, align 8, !tbaa !49, !alias.scope !474
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tINS_7process2v217basic_cstring_refIcSt11char_traitsIcEEEEERKSC_EE, i64 16), ptr %13, align 8, !tbaa !33, !alias.scope !474
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tINS_7process2v217basic_cstring_refIcSt11char_traitsIcEEEEERKSC_EE, i64 16), ptr %13, align 8, !tbaa !33, !alias.scope !474
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %38, align 8, !tbaa !12, !alias.scope !474
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -7178,7 +7178,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost10test_tools9tt_detail10
   store ptr %7, ptr %16, align 8
   %40 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i8 0, ptr %40, align 8, !tbaa !49, !alias.scope !477
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIA1_cEERKS7_EE, i64 16), ptr %15, align 8, !tbaa !33, !alias.scope !477
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIA1_cEERKS7_EE, i64 16), ptr %15, align 8, !tbaa !33, !alias.scope !477
   %41 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %41, align 8, !tbaa !12, !alias.scope !477
   %42 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -8407,7 +8407,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   store ptr %5, ptr %13, align 8
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i8 0, ptr %25, align 8, !tbaa !49, !alias.scope !504
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tINS_17basic_string_viewIcSt11char_traitsIcEEEEERKSA_EE, i64 16), ptr %12, align 8, !tbaa !33, !alias.scope !504
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tINS_17basic_string_viewIcSt11char_traitsIcEEEEERKSA_EE, i64 16), ptr %12, align 8, !tbaa !33, !alias.scope !504
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %26, align 8, !tbaa !12, !alias.scope !504
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -8417,7 +8417,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   store ptr %7, ptr %15, align 8
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i8 0, ptr %28, align 8, !tbaa !49, !alias.scope !507
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIA6_cEERKS7_EE, i64 16), ptr %14, align 8, !tbaa !33, !alias.scope !507
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIA6_cEERKS7_EE, i64 16), ptr %14, align 8, !tbaa !33, !alias.scope !507
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %29, align 8, !tbaa !12, !alias.scope !507
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -8534,7 +8534,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   store ptr %5, ptr %13, align 8
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i8 0, ptr %25, align 8, !tbaa !49, !alias.scope !520
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tINS_17basic_string_viewIcSt11char_traitsIcEEEEERKSA_EE, i64 16), ptr %12, align 8, !tbaa !33, !alias.scope !520
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tINS_17basic_string_viewIcSt11char_traitsIcEEEEERKSA_EE, i64 16), ptr %12, align 8, !tbaa !33, !alias.scope !520
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %26, align 8, !tbaa !12, !alias.scope !520
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -8544,7 +8544,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   store ptr %7, ptr %15, align 8
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i8 0, ptr %28, align 8, !tbaa !49, !alias.scope !523
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIA4_cEERKS7_EE, i64 16), ptr %14, align 8, !tbaa !33, !alias.scope !523
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIA4_cEERKS7_EE, i64 16), ptr %14, align 8, !tbaa !33, !alias.scope !523
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %29, align 8, !tbaa !12, !alias.scope !523
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -8640,7 +8640,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost10test_tools9tt_detail10
   store ptr %5, ptr %13, align 8
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i8 0, ptr %24, align 8, !tbaa !49, !alias.scope !536
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKSC_EE, i64 16), ptr %12, align 8, !tbaa !33, !alias.scope !536
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKSC_EE, i64 16), ptr %12, align 8, !tbaa !33, !alias.scope !536
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %25, align 8, !tbaa !12, !alias.scope !536
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -8650,7 +8650,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost10test_tools9tt_detail10
   store ptr %7, ptr %15, align 8
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i8 0, ptr %27, align 8, !tbaa !49, !alias.scope !539
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIA1_cEERKS7_EE, i64 16), ptr %14, align 8, !tbaa !33, !alias.scope !539
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tIA1_cEERKS7_EE, i64 16), ptr %14, align 8, !tbaa !33, !alias.scope !539
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %28, align 8, !tbaa !12, !alias.scope !539
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -8790,7 +8790,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost10test_tools9tt_detail10
   store ptr %5, ptr %13, align 8
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i8 0, ptr %42, align 8, !tbaa !49, !alias.scope !545
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tINS_7process2v217basic_cstring_refIcSt11char_traitsIcEEEEERKSC_EE, i64 16), ptr %12, align 8, !tbaa !33, !alias.scope !545
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tINS_7process2v217basic_cstring_refIcSt11char_traitsIcEEEEERKSC_EE, i64 16), ptr %12, align 8, !tbaa !33, !alias.scope !545
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %43, align 8, !tbaa !12, !alias.scope !545
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -8800,7 +8800,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost10test_tools9tt_detail10
   store ptr %7, ptr %15, align 8
   %45 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i8 0, ptr %45, align 8, !tbaa !49, !alias.scope !548
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tINS_7process2v217basic_cstring_refIcSt11char_traitsIcEEEEERKSC_EE, i64 16), ptr %14, align 8, !tbaa !33, !alias.scope !548
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tINS_7process2v217basic_cstring_refIcSt11char_traitsIcEEEEERKSC_EE, i64 16), ptr %14, align 8, !tbaa !33, !alias.scope !548
   %46 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %46, align 8, !tbaa !12, !alias.scope !548
   %47 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -8942,7 +8942,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost10test_tools9tt_detail10
   store ptr %5, ptr %13, align 8
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i8 0, ptr %44, align 8, !tbaa !49, !alias.scope !554
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tINS_7process2v217basic_cstring_refIcSt11char_traitsIcEEEEERKSC_EE, i64 16), ptr %12, align 8, !tbaa !33, !alias.scope !554
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tINS_7process2v217basic_cstring_refIcSt11char_traitsIcEEEEERKSC_EE, i64 16), ptr %12, align 8, !tbaa !33, !alias.scope !554
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %45, align 8, !tbaa !12, !alias.scope !554
   %46 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -8952,7 +8952,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost10test_tools9tt_detail10
   store ptr %7, ptr %15, align 8
   %47 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i8 0, ptr %47, align 8, !tbaa !49, !alias.scope !557
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tINS_7process2v217basic_cstring_refIcSt11char_traitsIcEEEEERKSC_EE, i64 16), ptr %14, align 8, !tbaa !33, !alias.scope !557
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamENS_10test_tools9tt_detail14print_helper_tINS_7process2v217basic_cstring_refIcSt11char_traitsIcEEEEERKSC_EE, i64 16), ptr %14, align 8, !tbaa !33, !alias.scope !557
   %48 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %48, align 8, !tbaa !12, !alias.scope !557
   %49 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -9048,7 +9048,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptISt12out_of_rangeEC2ERKS1_RKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !33
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1) #27
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9056,9 +9056,9 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptISt12out_of_rangeEC2ERKS1_
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptISt12out_of_rangeEE, i64 16), ptr %0, align 8, !tbaa !33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptISt12out_of_rangeEE, i64 64), ptr %4, align 8, !tbaa !33
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptISt12out_of_rangeEE, i64 104), ptr %5, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptISt12out_of_rangeEE, i64 16), ptr %0, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptISt12out_of_rangeEE, i64 64), ptr %4, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptISt12out_of_rangeEE, i64 104), ptr %5, align 8, !tbaa !33
   %9 = load ptr, ptr %2, align 8, !tbaa !13
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %9, ptr %10, align 8, !tbaa !560
@@ -9080,7 +9080,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptISt12out_of_rangeED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !33
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !566
   %.not.i.i.i = icmp eq ptr %4, null
@@ -9122,13 +9122,13 @@ declare void @_ZNSt12out_of_rangeD2Ev(ptr noundef nonnull align 8 dereferenceabl
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptISt12out_of_rangeE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !33
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %3, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %3, align 8, !tbaa !33
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8, !tbaa !33
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !566
@@ -9154,9 +9154,9 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptISt12out_of_rangeE
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptISt12out_of_rangeEE, i64 16), ptr %2, align 8, !tbaa !33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptISt12out_of_rangeEE, i64 64), ptr %3, align 8, !tbaa !33
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptISt12out_of_rangeEE, i64 104), ptr %5, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptISt12out_of_rangeEE, i64 16), ptr %2, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptISt12out_of_rangeEE, i64 64), ptr %3, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptISt12out_of_rangeEE, i64 104), ptr %5, align 8, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %5, ptr noundef nonnull %17)
           to label %_ZN5boost10wrapexceptISt12out_of_rangeE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptISt12out_of_rangeE7deleterD2Ev.exit7
@@ -9198,7 +9198,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptISt12out_of_rangeE7rethro
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptISt12out_of_rangeED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !33
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !566
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -9235,7 +9235,7 @@ _ZN5boost10wrapexceptISt12out_of_rangeED2Ev.exit: ; preds = %1, %.noexc.i.i.i, %
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptISt12out_of_rangeED1Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !33
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !566
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -9270,7 +9270,7 @@ _ZN5boost10wrapexceptISt12out_of_rangeED2Ev.exit: ; preds = %1, %.noexc.i.i.i, %
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptISt12out_of_rangeED0Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !33
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !566
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -9309,7 +9309,7 @@ declare noundef ptr @_ZNKSt11logic_error4whatEv(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptISt12out_of_rangeED1Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !33
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !566
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -9344,7 +9344,7 @@ _ZN5boost10wrapexceptISt12out_of_rangeED2Ev.exit: ; preds = %1, %.noexc.i.i.i, %
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptISt12out_of_rangeED0Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !33
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !566
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -9401,13 +9401,13 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptISt12out_of_rangeEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !33
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %3, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %3, align 8, !tbaa !33
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8, !tbaa !33
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !566
@@ -9426,9 +9426,9 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptISt12out_of_rangeEC2ERKS2_
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptISt12out_of_rangeEE, i64 16), ptr %0, align 8, !tbaa !33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptISt12out_of_rangeEE, i64 64), ptr %3, align 8, !tbaa !33
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptISt12out_of_rangeEE, i64 104), ptr %5, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptISt12out_of_rangeEE, i64 16), ptr %0, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptISt12out_of_rangeEE, i64 64), ptr %3, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptISt12out_of_rangeEE, i64 104), ptr %5, align 8, !tbaa !33
   ret void
 
 16:                                               ; preds = %9
@@ -9811,7 +9811,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %15 = getelementptr inbounds i8, ptr %0, i64 %14
   store ptr %12, ptr %15, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %16, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %16, align 8, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %18 = load ptr, ptr %17, align 8, !tbaa !29
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -9832,7 +9832,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %16, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %16, align 8, !tbaa !33
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #27
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -9909,7 +9909,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptISt12out_of_rangeEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !33
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1) #27
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9919,9 +9919,9 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptISt12out_of_rangeEC2ERKS1_
   store i32 -1, ptr %6, align 8, !tbaa !563
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 -1, ptr %7, align 4, !tbaa !565
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptISt12out_of_rangeEE, i64 16), ptr %0, align 8, !tbaa !33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptISt12out_of_rangeEE, i64 64), ptr %3, align 8, !tbaa !33
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptISt12out_of_rangeEE, i64 104), ptr %4, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptISt12out_of_rangeEE, i64 16), ptr %0, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptISt12out_of_rangeEE, i64 64), ptr %3, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptISt12out_of_rangeEE, i64 104), ptr %4, align 8, !tbaa !33
   ret void
 }
 
@@ -10717,7 +10717,7 @@ _ZN5boost10shared_ptrINS_23basic_wrap_stringstreamIcEEEC2IS2_EEPT_.exit: ; preds
   store i32 1, ptr %15, align 8, !tbaa !624
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %16, align 4, !tbaa !626
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_23basic_wrap_stringstreamIcEEEE, i64 16), ptr %5, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_23basic_wrap_stringstreamIcEEEE, i64 16), ptr %5, align 8, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %1, ptr %17, align 8, !tbaa !627
   %18 = load ptr, ptr %0, align 8, !tbaa !12
@@ -10802,7 +10802,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %17 = getelementptr inbounds i8, ptr %0, i64 %16
   store ptr %14, ptr %17, align 8, !tbaa !33
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %18, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %18, align 8, !tbaa !33
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %20 = load ptr, ptr %19, align 8, !tbaa !29
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -10823,7 +10823,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN5boost23basic_wrap_stringstreamIcED2Ev.exit
 
 _ZN5boost23basic_wrap_stringstreamIcED2Ev.exit:   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %18, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %18, align 8, !tbaa !33
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -10884,7 +10884,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
   %19 = getelementptr inbounds i8, ptr %3, i64 %18
   store ptr %16, ptr %19, align 8, !tbaa !33
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %20, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %20, align 8, !tbaa !33
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 96
@@ -10905,7 +10905,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN5boost23basic_wrap_stringstreamIcED2Ev.exit.i
 
 _ZN5boost23basic_wrap_stringstreamIcED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %20, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %20, align 8, !tbaa !33
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 64
   tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #27
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 112

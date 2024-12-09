@@ -759,7 +759,7 @@ define internal fastcc i32 @do_eventfd(i32 noundef %0, i32 noundef %1) unnamed_a
   br i1 %4, label %5, label %36
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %7 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3264, i64 noundef 48) #7
   %8 = icmp eq ptr %7, null
   br i1 %8, label %36, label %9

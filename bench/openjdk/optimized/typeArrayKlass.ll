@@ -154,7 +154,7 @@ define hidden noundef ptr @_ZN14TypeArrayKlass8allocateEP15ClassLoaderData9Basic
 
 9:                                                ; preds = %4
   tail call void @_ZN10ArrayKlassC2EP6SymbolN5Klass9KlassKindE(ptr noundef nonnull align 8 dereferenceable(220) %7, ptr noundef %2, i32 noundef 5) #10
-  store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV14TypeArrayKlass, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV14TypeArrayKlass, i64 16), ptr %7, align 8
   %10 = tail call noundef i32 @_ZN5Klass19array_layout_helperE9BasicType(i8 noundef zeroext %1) #10
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %10, ptr %11, align 8
@@ -227,7 +227,7 @@ declare noundef ptr @_ZN5KlassnwEmP15ClassLoaderDatamP10JavaThread(i64 noundef, 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14TypeArrayKlassC2E9BasicTypeP6Symbol(ptr noundef nonnull align 8 dereferenceable(220) %0, i8 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 align 2 {
   tail call void @_ZN10ArrayKlassC2EP6SymbolN5Klass9KlassKindE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %2, i32 noundef 5) #10
-  store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV14TypeArrayKlass, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV14TypeArrayKlass, i64 16), ptr %0, align 8
   %4 = tail call noundef i32 @_ZN5Klass19array_layout_helperE9BasicType(i8 noundef zeroext %1) #10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %4, ptr %5, align 8
@@ -478,7 +478,7 @@ _ZNK7oopDesc5klassEv.exit64:                      ; preds = %_ZNK7oopDesc11is_ob
   br label %78
 
 78:                                               ; preds = %_ZNK7oopDesc5klassEv.exit64, %_ZNK7oopDesc5klassEv.exit
-  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1064), align 8
+  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1064), align 8
   %80 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %8, i1 noundef zeroext false) #10
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %6, ptr noundef nonnull @.str.5, i32 noundef 118, ptr noundef %79, ptr noundef %80) #10
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %8) #10
@@ -572,7 +572,7 @@ _ZNK7oopDesc5klassEv.exit70:                      ; preds = %106, %121
   %130 = getelementptr inbounds nuw [20 x ptr], ptr @type2name_tab, i64 0, i64 %129
   %131 = load ptr, ptr %130, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull @.str.6, ptr noundef %124, ptr noundef %131) #10
-  %132 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1064), align 8
+  %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1064), align 8
   %133 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %9, i1 noundef zeroext false) #10
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %6, ptr noundef nonnull @.str.5, i32 noundef 126, ptr noundef %132, ptr noundef %133) #10
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %9) #10
@@ -699,7 +699,7 @@ _ZNK7oopDesc5klassEv.exit77:                      ; preds = %185, %195
   br label %208
 
 208:                                              ; preds = %_ZNK7oopDesc5klassEv.exit77, %207, %_ZNK7oopDesc5klassEv.exit75
-  %209 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1056), align 8
+  %209 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1056), align 8
   %210 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %10, i1 noundef zeroext false) #10
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %6, ptr noundef nonnull @.str.5, i32 noundef 143, ptr noundef %209, ptr noundef %210) #10
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %10) #10
@@ -825,7 +825,7 @@ _ZNK7oopDesc5klassEv.exit84:                      ; preds = %267, %277
   br label %288
 
 288:                                              ; preds = %_ZNK7oopDesc5klassEv.exit84, %_ZNK7oopDesc5klassEv.exit82
-  %289 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1056), align 8
+  %289 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1056), align 8
   %290 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %11, i1 noundef zeroext false) #10
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %6, ptr noundef nonnull @.str.5, i32 noundef 160, ptr noundef %289, ptr noundef %290) #10
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %11) #10

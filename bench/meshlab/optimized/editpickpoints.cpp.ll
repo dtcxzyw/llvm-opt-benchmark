@@ -572,8 +572,8 @@ define void @_ZN20EditPickPointsPluginC2Ev(ptr noundef nonnull align 8 dereferen
           to label %3 unwind label %8
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTV20EditPickPointsPlugin, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV20EditPickPointsPlugin, i64 176), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20EditPickPointsPlugin, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20EditPickPointsPlugin, i64 176), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %5, align 8

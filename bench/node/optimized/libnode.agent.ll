@@ -132,7 +132,7 @@ entry:
   %tracing_controller_ = getelementptr inbounds nuw i8, ptr %this, i64 976
   %call = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #13
   tail call void @_ZN2v88platform7tracing17TracingControllerC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %call) #14
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node7tracing17TracingControllerE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node7tracing17TracingControllerE, i64 16), ptr %call, align 8
   store ptr %call, ptr %tracing_controller_, align 8
   %initialize_writer_mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 984
   %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %initialize_writer_mutex_) #14

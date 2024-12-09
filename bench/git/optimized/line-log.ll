@@ -2473,7 +2473,7 @@ do.body:                                          ; preds = %cond.end, %same_pat
   br i1 %tobool8.not, label %if.end16, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %do.body
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp3.i = icmp sgt i32 %12, 0
   br i1 %cmp3.i, label %for.body.lr.ph.i19, label %if.end16
 
@@ -3168,7 +3168,7 @@ define internal fastcc void @filter_diffs_for_paths(ptr nocapture noundef nonnul
 entry:
   %outq = alloca %struct.diff_queue_struct, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %outq, i8 0, i64 16, i1 false)
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp12 = icmp sgt i32 %0, 0
   br i1 %cmp12, label %for.body.lr.ph, label %for.end18
 
@@ -3215,7 +3215,7 @@ if.then.us:                                       ; preds = %for.body.us
 
 for.inc17.us:                                     ; preds = %if.then.us, %if.else15.us, %if.then14.us
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %8 = sext i32 %7 to i64
   %cmp.us = icmp slt i64 %indvars.iv.next17, %8
   br i1 %cmp.us, label %for.body.us, label %for.end18, !llvm.loop !45
@@ -3269,7 +3269,7 @@ if.else15:                                        ; preds = %for.inc
 
 for.inc17:                                        ; preds = %if.then14, %if.else15, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %18 = sext i32 %17 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %18
   br i1 %cmp, label %for.body, label %for.end18, !llvm.loop !45

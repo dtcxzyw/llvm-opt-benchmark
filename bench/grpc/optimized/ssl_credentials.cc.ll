@@ -156,7 +156,7 @@ define void @_ZN20grpc_ssl_credentialsC2EPKcP26grpc_ssl_pem_key_cert_pairPK28grp
 entry:
   %refs_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV20grpc_ssl_credentials, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20grpc_ssl_credentials, i64 16), ptr %this, align 8
   %min_tls_version.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 0, ptr %min_tls_version.i, align 8
   %max_tls_version.i = getelementptr inbounds nuw i8, ptr %this, i64 60
@@ -469,7 +469,7 @@ return:                                           ; preds = %if.end8.sink.split.
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN20grpc_ssl_credentialsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(84) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV20grpc_ssl_credentials, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20grpc_ssl_credentials, i64 16), ptr %this, align 8
   %pem_root_certs = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %pem_root_certs, align 8
   invoke void @gpr_free(ptr noundef %0)
@@ -1168,7 +1168,7 @@ entry:
   store i64 1, ptr %refs_.i.i, align 8
   %processor_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %processor_.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27grpc_ssl_server_credentials, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27grpc_ssl_server_credentials, i64 16), ptr %this, align 8
   %config_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %max_tls_version.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %config_, i8 0, i64 32, i1 false)
@@ -1257,7 +1257,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont4 unwind label %terminate.lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23grpc_server_credentials, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23grpc_server_credentials, i64 16), ptr %this, align 8
   %destroy.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %destroy.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, null
@@ -1898,7 +1898,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -1933,7 +1933,7 @@ declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN23grpc_server_credentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23grpc_server_credentials, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23grpc_server_credentials, i64 16), ptr %this, align 8
   %destroy.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %destroy.i, align 8
   %cmp.not.i = icmp eq ptr %0, null

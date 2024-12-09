@@ -1907,7 +1907,7 @@ _ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit41.thread: ; preds = %97, %_ZN8tin
   %110 = getelementptr inbounds nuw i8, ptr %105, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %109, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %110, i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml27XMLTextE, i64 16), ptr %105, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml27XMLTextE, i64 16), ptr %105, align 8
   %111 = getelementptr inbounds nuw i8, ptr %105, i64 104
   store i8 0, ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %105, i64 96
@@ -2092,7 +2092,7 @@ define linkonce_odr hidden noundef ptr @_ZN8tinyxml211XMLDocument18CreateUnlinke
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %10, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml27XMLTextE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml27XMLTextE, i64 16), ptr %6, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store i8 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 96
@@ -2248,7 +2248,7 @@ define noundef zeroext i1 @_ZNK8tinyxml211XMLDocument6AcceptEPNS_10XMLVisitorE(p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN8tinyxml27XMLNodeC2EPNS_11XMLDocumentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 28), (32, 52), (56, 104)) %0, ptr noundef %1) unnamed_addr #15 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml27XMLNodeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml27XMLNodeE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2264,7 +2264,7 @@ define void @_ZN8tinyxml27XMLNodeC2EPNS_11XMLDocumentE(ptr nocapture noundef non
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8tinyxml27XMLNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml27XMLNodeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml27XMLNodeE, i64 16), ptr %0, align 8
   invoke void @_ZN8tinyxml27XMLNode14DeleteChildrenEv(ptr noundef nonnull align 8 dereferenceable(104) %0)
           to label %2 unwind label %29
 
@@ -4559,7 +4559,7 @@ define noundef ptr @_ZN8tinyxml211XMLDocument7NewTextEPKc(ptr noundef nonnull al
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %11, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml27XMLTextE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml27XMLTextE, i64 16), ptr %7, align 8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 96
@@ -4715,13 +4715,13 @@ define void @_ZN8tinyxml210XMLCommentC2EPNS_11XMLDocumentE(ptr nocapture noundef
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml210XMLCommentE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml210XMLCommentE, i64 16), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8tinyxml210XMLCommentD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml27XMLNodeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml27XMLNodeE, i64 16), ptr %0, align 8
   invoke void @_ZN8tinyxml27XMLNode14DeleteChildrenEv(ptr noundef nonnull align 8 dereferenceable(104) %0)
           to label %2 unwind label %27
 
@@ -5071,13 +5071,13 @@ define void @_ZN8tinyxml214XMLDeclarationC2EPNS_11XMLDocumentE(ptr nocapture nou
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml214XMLDeclarationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml214XMLDeclarationE, i64 16), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8tinyxml214XMLDeclarationD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml27XMLNodeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml27XMLNodeE, i64 16), ptr %0, align 8
   invoke void @_ZN8tinyxml27XMLNode14DeleteChildrenEv(ptr noundef nonnull align 8 dereferenceable(104) %0)
           to label %2 unwind label %27
 
@@ -5420,13 +5420,13 @@ define void @_ZN8tinyxml210XMLUnknownC2EPNS_11XMLDocumentE(ptr nocapture noundef
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml210XMLUnknownE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml210XMLUnknownE, i64 16), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8tinyxml210XMLUnknownD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml27XMLNodeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml27XMLNodeE, i64 16), ptr %0, align 8
   invoke void @_ZN8tinyxml27XMLNode14DeleteChildrenEv(ptr noundef nonnull align 8 dereferenceable(104) %0)
           to label %2 unwind label %27
 
@@ -6532,7 +6532,7 @@ define void @_ZN8tinyxml210XMLElementC2EPNS_11XMLDocumentE(ptr nocapture noundef
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml210XMLElementE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml210XMLElementE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -6542,7 +6542,7 @@ define void @_ZN8tinyxml210XMLElementC2EPNS_11XMLDocumentE(ptr nocapture noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8tinyxml210XMLElementD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml210XMLElementE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml210XMLElementE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %.not2 = icmp eq ptr %3, null
@@ -6569,7 +6569,7 @@ _ZN8tinyxml210XMLElement15DeleteAttributeEPNS_12XMLAttributeE.exit: ; preds = %.
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %_ZN8tinyxml210XMLElement15DeleteAttributeEPNS_12XMLAttributeE.exit, %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml27XMLNodeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml27XMLNodeE, i64 16), ptr %0, align 8
   invoke void @_ZN8tinyxml27XMLNode14DeleteChildrenEv(ptr noundef nonnull align 8 dereferenceable(104) %0)
           to label %14 unwind label %39
 
@@ -8138,7 +8138,7 @@ _ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit:   ; preds = %.lr.ph
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 392
   %14 = tail call noundef ptr @_ZN8tinyxml28MemPoolTILi80EE5AllocEv(ptr noundef nonnull align 8 dereferenceable(128) %13)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml212XMLAttributeE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml212XMLAttributeE, i64 16), ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 0, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -8207,7 +8207,7 @@ define noundef ptr @_ZN8tinyxml210XMLElement15CreateAttributeEv(ptr nocapture no
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 392
   %5 = tail call noundef ptr @_ZN8tinyxml28MemPoolTILi80EE5AllocEv(ptr noundef nonnull align 8 dereferenceable(128) %4)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml212XMLAttributeE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml212XMLAttributeE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -8398,7 +8398,7 @@ _ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit.thread: ; preds = %24, %12, %_ZN8ti
   %42 = load ptr, ptr %4, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 392
   %44 = tail call noundef ptr @_ZN8tinyxml28MemPoolTILi80EE5AllocEv(ptr noundef nonnull align 8 dereferenceable(128) %43)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml212XMLAttributeE, i64 16), ptr %44, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml212XMLAttributeE, i64 16), ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 0, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -9087,7 +9087,7 @@ define void @_ZN8tinyxml211XMLDocumentC2EbNS_10WhitespaceE(ptr noundef nonnull a
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %8, i8 0, i64 12, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml211XMLDocumentE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml211XMLDocumentE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 105
@@ -9110,7 +9110,7 @@ define void @_ZN8tinyxml211XMLDocumentC2EbNS_10WhitespaceE(ptr noundef nonnull a
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 260
   store i32 0, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml28MemPoolTILi120EEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml28MemPoolTILi120EEE, i64 16), ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %22, ptr %21, align 8
@@ -9119,7 +9119,7 @@ define void @_ZN8tinyxml211XMLDocumentC2EbNS_10WhitespaceE(ptr noundef nonnull a
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 364
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %24, i8 0, i64 28, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml28MemPoolTILi80EEE, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml28MemPoolTILi80EEE, i64 16), ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store ptr %27, ptr %26, align 8
@@ -9128,7 +9128,7 @@ define void @_ZN8tinyxml211XMLDocumentC2EbNS_10WhitespaceE(ptr noundef nonnull a
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 492
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %29, i8 0, i64 28, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml28MemPoolTILi112EEE, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml28MemPoolTILi112EEE, i64 16), ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store ptr %32, ptr %31, align 8
@@ -9137,7 +9137,7 @@ define void @_ZN8tinyxml211XMLDocumentC2EbNS_10WhitespaceE(ptr noundef nonnull a
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 620
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %34, i8 0, i64 28, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml28MemPoolTILi104EEE, i64 16), ptr %35, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml28MemPoolTILi104EEE, i64 16), ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 664
   store ptr %37, ptr %36, align 8
@@ -9151,7 +9151,7 @@ define void @_ZN8tinyxml211XMLDocumentC2EbNS_10WhitespaceE(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8tinyxml28MemPoolTILi112EED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml28MemPoolTILi112EEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml28MemPoolTILi112EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -9203,7 +9203,7 @@ _ZN8tinyxml28DynArrayIPNS_8MemPoolTILi112EE5BlockELi10EED2Ev.exit: ; preds = %.l
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8tinyxml28MemPoolTILi80EED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml28MemPoolTILi80EEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml28MemPoolTILi80EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -9255,7 +9255,7 @@ _ZN8tinyxml28DynArrayIPNS_8MemPoolTILi80EE5BlockELi10EED2Ev.exit: ; preds = %.lo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8tinyxml28MemPoolTILi120EED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml28MemPoolTILi120EEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml28MemPoolTILi120EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -9307,7 +9307,7 @@ _ZN8tinyxml28DynArrayIPNS_8MemPoolTILi120EE5BlockELi10EED2Ev.exit: ; preds = %.l
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8tinyxml211XMLDocumentD2Ev(ptr noundef nonnull align 8 dereferenceable(776) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml211XMLDocumentE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml211XMLDocumentE, i64 16), ptr %0, align 8
   invoke void @_ZN8tinyxml27XMLNode14DeleteChildrenEv(ptr noundef nonnull align 8 dereferenceable(776) %0)
           to label %.noexc unwind label %.loopexit.split-lp
 
@@ -9371,7 +9371,7 @@ _ZN8tinyxml211XMLDocument10ClearErrorEv.exit.i:   ; preds = %18, %14, %._crit_ed
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store i32 0, ptr %25, align 4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml28MemPoolTILi104EEE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml28MemPoolTILi104EEE, i64 16), ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 748
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 0
@@ -9419,7 +9419,7 @@ _ZN8tinyxml211XMLDocument10ClearErrorEv.exit.i:   ; preds = %18, %14, %._crit_ed
 
 _ZN8tinyxml28MemPoolTILi104EED2Ev.exit:           ; preds = %.loopexit.i, %48
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml28MemPoolTILi112EEE, i64 16), ptr %49, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml28MemPoolTILi112EEE, i64 16), ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 620
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %51, 0
@@ -9467,7 +9467,7 @@ _ZN8tinyxml28MemPoolTILi104EED2Ev.exit:           ; preds = %.loopexit.i, %48
 
 _ZN8tinyxml28MemPoolTILi112EED2Ev.exit:           ; preds = %.loopexit.i4, %71
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml28MemPoolTILi80EEE, i64 16), ptr %72, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml28MemPoolTILi80EEE, i64 16), ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %74 = load i32, ptr %73, align 4
   %75 = icmp eq i32 %74, 0
@@ -9515,7 +9515,7 @@ _ZN8tinyxml28MemPoolTILi112EED2Ev.exit:           ; preds = %.loopexit.i4, %71
 
 _ZN8tinyxml28MemPoolTILi80EED2Ev.exit:            ; preds = %.loopexit.i9, %94
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml28MemPoolTILi120EEE, i64 16), ptr %95, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml28MemPoolTILi120EEE, i64 16), ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 364
   %97 = load i32, ptr %96, align 4
   %98 = icmp eq i32 %97, 0
@@ -9576,7 +9576,7 @@ _ZN8tinyxml28MemPoolTILi120EED2Ev.exit:           ; preds = %.loopexit.i14, %117
 
 _ZN8tinyxml28DynArrayIPNS_7XMLNodeELi10EED2Ev.exit: ; preds = %_ZN8tinyxml28MemPoolTILi120EED2Ev.exit, %122
   tail call void @_ZN8tinyxml27StrPairD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #29
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml27XMLNodeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml27XMLNodeE, i64 16), ptr %0, align 8
   invoke void @_ZN8tinyxml27XMLNode14DeleteChildrenEv(ptr noundef nonnull align 8 dereferenceable(104) %0)
           to label %123 unwind label %148
 
@@ -9730,7 +9730,7 @@ _ZN8tinyxml211XMLDocument10ClearErrorEv.exit:     ; preds = %._crit_edge, %14, %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8tinyxml28MemPoolTILi104EED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml28MemPoolTILi104EEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml28MemPoolTILi104EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -10507,7 +10507,7 @@ _ZN8tinyxml211XMLDocument10ClearErrorEv.exit:     ; preds = %3, %10, %14
 
 _ZNK8tinyxml211XMLDocument5PrintEPNS_10XMLPrinterE.exit: ; preds = %_ZN8tinyxml211XMLDocument10ClearErrorEv.exit
   %20 = load i32, ptr %5, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml210XMLPrinterE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml210XMLPrinterE, i64 16), ptr %4, align 8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 272
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 280
@@ -10566,7 +10566,7 @@ define void @_ZNK8tinyxml211XMLDocument5PrintEPNS_10XMLPrinterE(ptr noundef nonn
           to label %15 unwind label %26
 
 15:                                               ; preds = %9
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml210XMLPrinterE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml210XMLPrinterE, i64 16), ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 280
@@ -10604,7 +10604,7 @@ _ZN8tinyxml210XMLPrinterD2Ev.exit:                ; preds = %25, %_ZN8tinyxml28D
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8tinyxml210XMLPrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml210XMLPrinterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml210XMLPrinterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -11037,7 +11037,7 @@ define void @_ZN8tinyxml211XMLDocument8PopDepthEv(ptr nocapture noundef nonnull 
 define void @_ZN8tinyxml210XMLPrinterC2EP8_IO_FILEbi(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 9)) %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %4 = zext i1 %2 to i8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml210XMLPrinterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml210XMLPrinterE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13014,7 +13014,7 @@ define linkonce_odr hidden noundef ptr @_ZNK8tinyxml27XMLNode9ToUnknownEv(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8tinyxml27XMLTextD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml27XMLNodeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml27XMLNodeE, i64 16), ptr %0, align 8
   invoke void @_ZN8tinyxml27XMLNode14DeleteChildrenEv(ptr noundef nonnull align 8 dereferenceable(104) %0)
           to label %2 unwind label %27
 
@@ -13091,7 +13091,7 @@ _ZN8tinyxml27XMLNodeD2Ev.exit:                    ; preds = %2, %_ZN8tinyxml27XM
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8tinyxml27XMLTextD0Ev(ptr noundef nonnull align 8 dereferenceable(105) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml27XMLNodeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml27XMLNodeE, i64 16), ptr %0, align 8
   invoke void @_ZN8tinyxml27XMLNode14DeleteChildrenEv(ptr noundef nonnull align 8 dereferenceable(105) %0)
           to label %2 unwind label %27
 
@@ -13169,7 +13169,7 @@ _ZN8tinyxml27XMLTextD2Ev.exit:                    ; preds = %2, %_ZN8tinyxml27XM
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8tinyxml210XMLPrinterD0Ev(ptr noundef nonnull align 8 dereferenceable(312) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml210XMLPrinterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml210XMLPrinterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -13293,7 +13293,7 @@ declare i32 @isspace(i32 noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8tinyxml212XMLAttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml212XMLAttributeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml212XMLAttributeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN8tinyxml27StrPairD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #29
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13303,7 +13303,7 @@ define linkonce_odr hidden void @_ZN8tinyxml212XMLAttributeD2Ev(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8tinyxml212XMLAttributeD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml212XMLAttributeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml212XMLAttributeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN8tinyxml27StrPairD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #29
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13320,7 +13320,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8tinyxml28MemPoolTILi120EED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml28MemPoolTILi120EEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml28MemPoolTILi120EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -13513,7 +13513,7 @@ define linkonce_odr hidden void @_ZN8tinyxml28MemPoolTILi120EE10SetTrackedEv(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8tinyxml28MemPoolTILi80EED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml28MemPoolTILi80EEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml28MemPoolTILi80EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -13600,7 +13600,7 @@ define linkonce_odr hidden void @_ZN8tinyxml28MemPoolTILi80EE10SetTrackedEv(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8tinyxml28MemPoolTILi112EED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml28MemPoolTILi112EEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml28MemPoolTILi112EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -13793,7 +13793,7 @@ define linkonce_odr hidden void @_ZN8tinyxml28MemPoolTILi112EE10SetTrackedEv(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8tinyxml28MemPoolTILi104EED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8tinyxml28MemPoolTILi104EEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8tinyxml28MemPoolTILi104EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0

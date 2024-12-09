@@ -1382,7 +1382,7 @@ define internal void @dissect_zcl_relhum_meas_attr_data(ptr noundef %0, ptr noun
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_zbee_zcl_occ_sen() local_unnamed_addr #0 {
   store ptr @ett_zbee_zcl_occ_sen, ptr @proto_register_zbee_zcl_occ_sen.ett, align 16
-  store ptr @ett_zbee_zcl_occ_sen_occupancy, ptr getelementptr inbounds (i8, ptr @proto_register_zbee_zcl_occ_sen.ett, i64 8), align 8
+  store ptr @ett_zbee_zcl_occ_sen_occupancy, ptr getelementptr inbounds nuw (i8, ptr @proto_register_zbee_zcl_occ_sen.ett, i64 8), align 8
   %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.76) #7
   store i32 %1, ptr @proto_zbee_zcl_occ_sen, align 4
   tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_zbee_zcl_occ_sen.hf, i32 noundef 4) #7

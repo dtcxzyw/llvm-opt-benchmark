@@ -268,7 +268,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EP7oopDesc16Clas
   br label %66
 
 66:                                               ; preds = %63, %62
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV17ClassStatsClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV17ClassStatsClosure, i64 16), ptr %3, align 8
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %67, align 8
   call void @_ZN15ClassLoaderData10classes_doEP12KlassClosure(ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef nonnull %3) #7
@@ -638,7 +638,7 @@ define hidden void @_ZN27ClassLoaderStatsVMOperation4doitEv(ptr nocapture nounde
   %2 = alloca %class.ClassLoaderStatsClosure, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV23ClassLoaderStatsClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV23ClassLoaderStatsClosure, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8
   %6 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 2056, i8 noundef zeroext 18) #7
@@ -656,7 +656,7 @@ _ZN23ClassLoaderStatsClosureC2EP12outputStream.exit: ; preds = %1, %8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   call void @_ZN20ClassLoaderDataGraph13loaded_cld_doEP10CLDClosure(ptr noundef nonnull %2) #7
   call void @_ZN23ClassLoaderStatsClosure5printEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV23ClassLoaderStatsClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV23ClassLoaderStatsClosure, i64 16), ptr %2, align 8
   %11 = load ptr, ptr %9, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_ZN23ClassLoaderStatsClosureD2Ev.exit, label %.preheader.i
@@ -698,7 +698,7 @@ define hidden void @_ZN20ClassLoaderStatsDCmd7executeE10DCmdSourceP10JavaThread(
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV27ClassLoaderStatsVMOperation, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV27ClassLoaderStatsVMOperation, i64 16), ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %6, ptr %8, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %4) #7
@@ -737,7 +737,7 @@ define linkonce_odr hidden void @_ZN4DCmd5parseEP7CmdLinecP10JavaThread(ptr noun
   br i1 %brmerge.not, label %17, label %19
 
 17:                                               ; preds = %4
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str.21, i32 noundef 290, ptr noundef %18, ptr noundef nonnull @.str.22) #7
   br label %19
 

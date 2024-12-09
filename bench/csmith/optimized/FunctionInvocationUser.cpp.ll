@@ -702,7 +702,7 @@ declare i32 @__gxx_personality_v0(...)
 define dso_local void @_ZN22FunctionInvocationUserC2EP8FunctionbPK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %2 to i8
   tail call void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef 2, ptr noundef %3)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22FunctionInvocationUser, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22FunctionInvocationUser, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -715,7 +715,7 @@ declare void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlags(ptr nou
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN22FunctionInvocationUserC2ERKS_(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef nonnull align 8 dereferenceable(65) %1) unnamed_addr #4 align 2 {
   tail call void @_ZN18FunctionInvocationC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22FunctionInvocationUser, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22FunctionInvocationUser, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -756,7 +756,7 @@ define dso_local noundef nonnull ptr @_ZNK22FunctionInvocationUser5cloneEv(ptr n
           to label %3 unwind label %11
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22FunctionInvocationUser, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22FunctionInvocationUser, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -973,7 +973,7 @@ _ZNSt6vectorIPK10ExpressionSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vecto
           to label %82 unwind label %218
 
 82:                                               ; preds = %81
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22FunctionInvocationUser, i64 16), ptr %80, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22FunctionInvocationUser, i64 16), ptr %80, align 8
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 56
   store ptr %17, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %80, i64 64

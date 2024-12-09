@@ -239,8 +239,8 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %216
 
 84:                                               ; preds = %53
-  %85 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112img_originalE, i64 8), align 8
-  %86 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112img_originalE, i64 12), align 4
+  %85 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112img_originalE, i64 8), align 8
+  %86 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112img_originalE, i64 12), align 4
   %87 = shl nsw i32 %86, 1
   %88 = load i32, ptr @_ZN12_GLOBAL__N_112img_originalE, align 8
   %89 = and i32 %88, 4095
@@ -253,8 +253,8 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 92:                                               ; preds = %90
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #14
-  %93 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112img_originalE, i64 8), align 8
-  %94 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112img_originalE, i64 12), align 4
+  %93 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112img_originalE, i64 8), align 8
+  %94 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112img_originalE, i64 12), align 4
   %95 = shl nsw i32 %94, 1
   %96 = load i32, ptr @_ZN12_GLOBAL__N_112img_originalE, align 8
   %97 = and i32 %96, 4095

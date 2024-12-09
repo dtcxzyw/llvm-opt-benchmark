@@ -8238,7 +8238,7 @@ if.then6:                                         ; preds = %if.end3
 
 if.end9:                                          ; preds = %if.end3
   call void @PyErr_Clear() #12
-  %_Py_NoneStruct.val = load ptr, ptr getelementptr inbounds (i8, ptr @_Py_NoneStruct, i64 8), align 8
+  %_Py_NoneStruct.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_NoneStruct, i64 8), align 8
   %call11 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.614, ptr noundef nonnull %level, ptr noundef nonnull %optname, ptr noundef %_Py_NoneStruct.val, ptr noundef nonnull %none, ptr noundef nonnull %optlen) #12
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %if.end16, label %if.then13

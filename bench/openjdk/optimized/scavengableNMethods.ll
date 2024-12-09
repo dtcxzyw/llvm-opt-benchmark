@@ -32,7 +32,7 @@ define hidden void @_ZN19ScavengableNMethods16register_nmethodEP7nmethod(ptr nou
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %8 = load ptr, ptr @_ZN19ScavengableNMethods15_is_scavengableE, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVZN19ScavengableNMethods20has_scavengable_oopsEP7nmethodE18HasScavengableOops, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVZN19ScavengableNMethods20has_scavengable_oopsEP7nmethodE18HasScavengableOops, i64 16), ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -60,7 +60,7 @@ define hidden void @_ZN19ScavengableNMethods16register_nmethodEP7nmethod(ptr nou
 define hidden noundef zeroext i1 @_ZN19ScavengableNMethods20has_scavengable_oopsEP7nmethod(ptr noundef nonnull %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %struct.HasScavengableOops, align 8
   %3 = load ptr, ptr @_ZN19ScavengableNMethods15_is_scavengableE, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVZN19ScavengableNMethods20has_scavengable_oopsEP7nmethodE18HasScavengableOops, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVZN19ScavengableNMethods20has_scavengable_oopsEP7nmethodE18HasScavengableOops, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -110,7 +110,7 @@ define hidden void @_ZN19ScavengableNMethods21nmethods_do_and_pruneEP19NMethodTo
   %10 = inttoptr i64 %9 to ptr
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %11 = load ptr, ptr @_ZN19ScavengableNMethods15_is_scavengableE, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVZN19ScavengableNMethods20has_scavengable_oopsEP7nmethodE18HasScavengableOops, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVZN19ScavengableNMethods20has_scavengable_oopsEP7nmethodE18HasScavengableOops, i64 16), ptr %2, align 8
   store ptr %11, ptr %4, align 8
   store i8 0, ptr %5, align 8
   call void @_ZN7nmethod7oops_doEP10OopClosureb(ptr noundef nonnull align 8 dereferenceable(214) %.01014.us, ptr noundef nonnull %2, i1 noundef zeroext false) #9
@@ -163,7 +163,7 @@ _ZN19ScavengableNMethods14unlist_nmethodEP7nmethodS1_.exit.us: ; preds = %26, %1
   %35 = inttoptr i64 %34 to ptr
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %36 = load ptr, ptr @_ZN19ScavengableNMethods15_is_scavengableE, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVZN19ScavengableNMethods20has_scavengable_oopsEP7nmethodE18HasScavengableOops, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVZN19ScavengableNMethods20has_scavengable_oopsEP7nmethodE18HasScavengableOops, i64 16), ptr %2, align 8
   store ptr %36, ptr %4, align 8
   store i8 0, ptr %5, align 8
   call void @_ZN7nmethod7oops_doEP10OopClosureb(ptr noundef nonnull align 8 dereferenceable(214) %.01014, ptr noundef nonnull %2, i1 noundef zeroext false) #9
@@ -259,7 +259,7 @@ define hidden void @_ZN19ScavengableNMethods29prune_nmethods_not_into_youngEv() 
   %9 = inttoptr i64 %8 to ptr
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   %10 = load ptr, ptr @_ZN19ScavengableNMethods15_is_scavengableE, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVZN19ScavengableNMethods20has_scavengable_oopsEP7nmethodE18HasScavengableOops, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVZN19ScavengableNMethods20has_scavengable_oopsEP7nmethodE18HasScavengableOops, i64 16), ptr %1, align 8
   store ptr %10, ptr %3, align 8
   store i8 0, ptr %4, align 8
   call void @_ZN7nmethod7oops_doEP10OopClosureb(ptr noundef nonnull align 8 dereferenceable(214) %.01014.us.i, ptr noundef nonnull %1, i1 noundef zeroext false) #9

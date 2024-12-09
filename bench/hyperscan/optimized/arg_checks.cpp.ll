@@ -1601,7 +1601,7 @@ cleanup.invoke.cont_crit_edge:                    ; preds = %cleanup
 invoke.cont:                                      ; preds = %for.inc, %cleanup.invoke.cont_crit_edge, %entry
   %15 = phi ptr [ %.pre, %cleanup.invoke.cont_crit_edge ], [ %0, %entry ], [ %incdec.ptr.i, %for.inc ]
   %call21 = call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_111BadModeTestEEE, i64 16), ptr %call21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_111BadModeTestEEE, i64 16), ptr %call21, align 8
   %test_case_name_.i = getelementptr inbounds nuw i8, ptr %call21, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %call21, i64 24
   store ptr %16, ptr %test_case_name_.i, align 8
@@ -1692,7 +1692,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31, !noalias !13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIjEE, i64 16), ptr %call.i.i, align 8, !noalias !13
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIjEE, i64 16), ptr %call.i.i, align 8, !noalias !13
   %container_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %container_.i.i.i, i8 0, i64 24, i1 false), !noalias !13
   %call5.i.i.i.i4.i.i.i.i = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #31
@@ -1736,7 +1736,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_137HyperscanArgChecks_ValidPlatform_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_137HyperscanArgChecks_ValidPlatform_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -2236,15 +2236,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %8 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %8, ptr %ss, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %8, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i, align 8
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %10, ptr %add.ptr, align 8
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8
   %12 = getelementptr inbounds nuw i8, ptr %ss, i64 112
@@ -2263,12 +2263,12 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #28
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %14, ptr %ss, align 8
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %14, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -2344,7 +2344,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_131HyperscanArgChecks_Version_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_131HyperscanArgChecks_Version_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -3120,15 +3120,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %8 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %8, ptr %ss, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %8, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i, align 8
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %10, ptr %add.ptr, align 8
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8
   %12 = getelementptr inbounds nuw i8, ptr %ss, i64 112
@@ -3147,12 +3147,12 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #28
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %14, ptr %ss, align 8
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %14, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -3193,7 +3193,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_151HyperscanArgChecks_SingleCompileBlockNoPattern_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_151HyperscanArgChecks_SingleCompileBlockNoPattern_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -3780,7 +3780,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_155HyperscanArgChecks_SingleCompileStreamingNoPattern_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_155HyperscanArgChecks_SingleCompileStreamingNoPattern_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -4363,7 +4363,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_152HyperscanArgChecks_SingleCompileBlockNoDatabase_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_152HyperscanArgChecks_SingleCompileBlockNoDatabase_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -4756,7 +4756,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_156HyperscanArgChecks_SingleCompileStreamingNoDatabase_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_156HyperscanArgChecks_SingleCompileStreamingNoDatabase_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -5149,7 +5149,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_143HyperscanArgChecks_SingleCompileNoMode_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_143HyperscanArgChecks_SingleCompileNoMode_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -5547,7 +5547,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_150HyperscanArgChecks_SingleCompileSeveralModes1_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_150HyperscanArgChecks_SingleCompileSeveralModes1_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -5945,7 +5945,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_147HyperscanArgChecks_SingleCompileBogusFlags_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_147HyperscanArgChecks_SingleCompileBogusFlags_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -6495,7 +6495,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_147HyperscanArgChecks_SingleCompileBogusMode1_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_147HyperscanArgChecks_SingleCompileBogusMode1_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -7095,7 +7095,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_SingleCompileBadTune_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_SingleCompileBadTune_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -7650,7 +7650,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_148HyperscanArgChecks_SingleCompileBadFeatures_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_148HyperscanArgChecks_SingleCompileBadFeatures_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -8205,7 +8205,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_SingleCompileSOMFlag_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_SingleCompileSOMFlag_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -8681,7 +8681,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_145HyperscanArgChecks_SingleCompileSOMModes_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_145HyperscanArgChecks_SingleCompileSOMModes_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -9532,7 +9532,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_150HyperscanArgChecks_MultiCompileBlockNoPattern_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_150HyperscanArgChecks_MultiCompileBlockNoPattern_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -10117,7 +10117,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_154HyperscanArgChecks_MultiCompileStreamingNoPattern_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_154HyperscanArgChecks_MultiCompileStreamingNoPattern_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -10700,7 +10700,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_148HyperscanArgChecks_MultiCompileZeroPatterns_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_148HyperscanArgChecks_MultiCompileZeroPatterns_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -11288,7 +11288,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_151HyperscanArgChecks_MultiCompileBlockNoDatabase_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_151HyperscanArgChecks_MultiCompileBlockNoDatabase_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -11686,7 +11686,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_155HyperscanArgChecks_MultiCompileStreamingNoDatabase_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_155HyperscanArgChecks_MultiCompileStreamingNoDatabase_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -12084,7 +12084,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_OpenStreamNoDatabase_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_OpenStreamNoDatabase_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -13142,7 +13142,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_OpenStreamNoStreamId_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_OpenStreamNoStreamId_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -13605,7 +13605,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_151HyperscanArgChecks_OpenStreamWithBlockDatabase_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_151HyperscanArgChecks_OpenStreamWithBlockDatabase_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -14212,7 +14212,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_160HyperscanArgChecks_OpenStreamWithBrokenDatabaseBytecode_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_160HyperscanArgChecks_OpenStreamWithBrokenDatabaseBytecode_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -15523,15 +15523,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %8 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %8, ptr %ss, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %8, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i, align 8
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %10, ptr %add.ptr, align 8
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8
   %12 = getelementptr inbounds nuw i8, ptr %ss, i64 112
@@ -15550,12 +15550,12 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #28
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %14, ptr %ss, align 8
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %14, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -15759,15 +15759,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %8 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %8, ptr %ss, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %8, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i, align 8
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %10, ptr %add.ptr, align 8
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8
   %12 = getelementptr inbounds nuw i8, ptr %ss, i64 112
@@ -15786,12 +15786,12 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #28
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %14, ptr %ss, align 8
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %14, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -15830,7 +15830,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_ScanStreamNoStreamID_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_ScanStreamNoStreamID_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -17201,7 +17201,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_140HyperscanArgChecks_ScanStreamNoData_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_140HyperscanArgChecks_ScanStreamNoData_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -19167,7 +19167,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_143HyperscanArgChecks_ScanStreamNoScratch_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_143HyperscanArgChecks_ScanStreamNoScratch_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -21131,7 +21131,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_143HyperscanArgChecks_CloseStreamNoStream_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_143HyperscanArgChecks_CloseStreamNoStream_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -22384,7 +22384,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_CloseStreamNoScratch_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_CloseStreamNoScratch_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -23395,7 +23395,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_154HyperscanArgChecks_CloseStreamNoScratchNoCallback_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_154HyperscanArgChecks_CloseStreamNoScratchNoCallback_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -24401,7 +24401,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_150HyperscanArgChecks_CloseStreamNoMatchNoStream_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_150HyperscanArgChecks_CloseStreamNoMatchNoStream_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -25466,7 +25466,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_143HyperscanArgChecks_ChangeStreamContext_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_143HyperscanArgChecks_ChangeStreamContext_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -28287,15 +28287,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %8 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %8, ptr %ss, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %8, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i, align 8
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %10, ptr %add.ptr, align 8
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8
   %12 = getelementptr inbounds nuw i8, ptr %ss, i64 112
@@ -28314,12 +28314,12 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #28
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %14, ptr %ss, align 8
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %14, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -28536,15 +28536,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %8 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %8, ptr %ss, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %8, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i, align 8
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %10, ptr %add.ptr, align 8
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8
   %12 = getelementptr inbounds nuw i8, ptr %ss, i64 112
@@ -28563,12 +28563,12 @@ if.then.i.i.i.i.i7:                               ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #28
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %14, ptr %ss, align 8
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %14, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -28670,15 +28670,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %8 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %8, ptr %ss, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %8, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i, align 8
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %10, ptr %add.ptr, align 8
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8
   %12 = getelementptr inbounds nuw i8, ptr %ss, i64 112
@@ -28697,12 +28697,12 @@ if.then.i.i.i.i.i7:                               ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #28
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %14, ptr %ss, align 8
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %14, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -28917,15 +28917,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %8 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %8, ptr %ss, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %8, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i, align 8
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %10, ptr %add.ptr, align 8
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8
   %12 = getelementptr inbounds nuw i8, ptr %ss, i64 112
@@ -28944,12 +28944,12 @@ if.then.i.i.i.i.i7:                               ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #28
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %14, ptr %ss, align 8
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %14, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -28988,7 +28988,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_139HyperscanArgChecks_ResetStreamNoId_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_139HyperscanArgChecks_ResetStreamNoId_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -30055,7 +30055,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_ResetStreamNoScratch_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_ResetStreamNoScratch_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -31517,7 +31517,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_142HyperscanArgChecks_CopyStreamNoFromId_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_142HyperscanArgChecks_CopyStreamNoFromId_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -31720,7 +31720,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_140HyperscanArgChecks_CopyStreamNoToId_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_140HyperscanArgChecks_CopyStreamNoToId_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -32994,7 +32994,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_148HyperscanArgChecks_ResetAndCopyStreamNoToId_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_148HyperscanArgChecks_ResetAndCopyStreamNoToId_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -34470,7 +34470,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_150HyperscanArgChecks_ResetAndCopyStreamNoFromId_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_150HyperscanArgChecks_ResetAndCopyStreamNoFromId_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -35944,7 +35944,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_150HyperscanArgChecks_ResetAndCopyStreamSameToId_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_150HyperscanArgChecks_ResetAndCopyStreamSameToId_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -37418,7 +37418,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_161HyperscanArgChecks_ResetAndCopyStreamNoCallbackOrScratch_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_161HyperscanArgChecks_ResetAndCopyStreamNoCallbackOrScratch_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -39112,7 +39112,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_151HyperscanArgChecks_ResetAndCopyStreamNoScratch_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_151HyperscanArgChecks_ResetAndCopyStreamNoScratch_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -40806,7 +40806,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_148HyperscanArgChecks_ResetAndCopyStreamDiffDb_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_148HyperscanArgChecks_ResetAndCopyStreamDiffDb_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -42909,7 +42909,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_143HyperscanArgChecks_ScanBlockNoDatabase_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_143HyperscanArgChecks_ScanBlockNoDatabase_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -44316,7 +44316,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_152HyperscanArgChecks_ScanBlockBrokenDatabaseMagic_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_152HyperscanArgChecks_ScanBlockBrokenDatabaseMagic_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -45772,7 +45772,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_154HyperscanArgChecks_ScanBlockBrokenDatabaseVersion_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_154HyperscanArgChecks_ScanBlockBrokenDatabaseVersion_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -47032,7 +47032,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_155HyperscanArgChecks_ScanBlockBrokenDatabaseBytecode_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_155HyperscanArgChecks_ScanBlockBrokenDatabaseBytecode_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -48289,7 +48289,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_150HyperscanArgChecks_ScanBlockStreamingDatabase_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_150HyperscanArgChecks_ScanBlockStreamingDatabase_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -49543,7 +49543,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_149HyperscanArgChecks_ScanBlockVectoredDatabase_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_149HyperscanArgChecks_ScanBlockVectoredDatabase_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -50797,7 +50797,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_139HyperscanArgChecks_ScanBlockNoData_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_139HyperscanArgChecks_ScanBlockNoData_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -52203,7 +52203,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_142HyperscanArgChecks_ScanBlockNoScratch_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_142HyperscanArgChecks_ScanBlockNoScratch_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -53006,7 +53006,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_142HyperscanArgChecks_ScanBlockNoHandler_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_142HyperscanArgChecks_ScanBlockNoHandler_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -54412,7 +54412,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_ScanVectorNoDatabase_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_ScanVectorNoDatabase_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -55840,7 +55840,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_153HyperscanArgChecks_ScanVectorBrokenDatabaseMagic_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_153HyperscanArgChecks_ScanVectorBrokenDatabaseMagic_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -57118,7 +57118,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_155HyperscanArgChecks_ScanVectorBrokenDatabaseVersion_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_155HyperscanArgChecks_ScanVectorBrokenDatabaseVersion_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -58399,7 +58399,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_156HyperscanArgChecks_ScanVectorBrokenDatabaseBytecode_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_156HyperscanArgChecks_ScanVectorBrokenDatabaseBytecode_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -59677,7 +59677,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_151HyperscanArgChecks_ScanVectorStreamingDatabase_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_151HyperscanArgChecks_ScanVectorStreamingDatabase_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -60952,7 +60952,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_147HyperscanArgChecks_ScanVectorBlockDatabase_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_147HyperscanArgChecks_ScanVectorBlockDatabase_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -62227,7 +62227,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_145HyperscanArgChecks_ScanVectorNoDataArray_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_145HyperscanArgChecks_ScanVectorNoDataArray_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -63647,7 +63647,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_145HyperscanArgChecks_ScanVectorNoDataBlock_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_145HyperscanArgChecks_ScanVectorNoDataBlock_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -65074,7 +65074,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_ScanVectorNoLenArray_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_ScanVectorNoLenArray_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -66494,7 +66494,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_143HyperscanArgChecks_ScanVectorNoScratch_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_143HyperscanArgChecks_ScanVectorNoScratch_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -67318,7 +67318,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_143HyperscanArgChecks_ScanVectorNoHandler_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_143HyperscanArgChecks_ScanVectorNoHandler_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -68745,7 +68745,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_146HyperscanArgChecks_AllocScratchNoDatabase_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_146HyperscanArgChecks_AllocScratchNoDatabase_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -69136,7 +69136,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_150HyperscanArgChecks_AllocScratchNullScratchPtr_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_150HyperscanArgChecks_AllocScratchNullScratchPtr_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -69787,7 +69787,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_148HyperscanArgChecks_AllocScratchBogusScratch_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_148HyperscanArgChecks_AllocScratchBogusScratch_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -70648,7 +70648,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_152HyperscanArgChecks_AllocScratchBadDatabaseMagic_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_152HyperscanArgChecks_AllocScratchBadDatabaseMagic_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -71309,7 +71309,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_154HyperscanArgChecks_AllocScratchBadDatabaseVersion_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_154HyperscanArgChecks_AllocScratchBadDatabaseVersion_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -71973,7 +71973,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_155HyperscanArgChecks_AllocScratchBadDatabasePlatform_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_155HyperscanArgChecks_AllocScratchBadDatabasePlatform_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -72634,7 +72634,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_155HyperscanArgChecks_AllocScratchBadDatabaseBytecode_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_155HyperscanArgChecks_AllocScratchBadDatabaseBytecode_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -73295,7 +73295,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_150HyperscanArgChecks_AllocScratchBadDatabaseCRC_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_150HyperscanArgChecks_AllocScratchBadDatabaseCRC_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -75012,7 +75012,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_CloneScratchNoSource_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_CloneScratchNoSource_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -75405,7 +75405,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_143HyperscanArgChecks_SerializeNoDatabase_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_143HyperscanArgChecks_SerializeNoDatabase_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -75803,7 +75803,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_141HyperscanArgChecks_SerializeNoBuffer_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_141HyperscanArgChecks_SerializeNoBuffer_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -76569,7 +76569,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_141HyperscanArgChecks_SerializeNoLength_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_141HyperscanArgChecks_SerializeNoLength_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -77368,7 +77368,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_StreamSizeNoDatabase_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_StreamSizeNoDatabase_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -77571,7 +77571,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_147HyperscanArgChecks_StreamSizeBogusDatabase_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_147HyperscanArgChecks_StreamSizeBogusDatabase_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -78932,7 +78932,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_147HyperscanArgChecks_StreamSizeBlockDatabase_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_147HyperscanArgChecks_StreamSizeBlockDatabase_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -79590,7 +79590,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_150HyperscanArgChecks_StreamSizeVectoredDatabase_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_150HyperscanArgChecks_StreamSizeVectoredDatabase_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -80248,7 +80248,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_147HyperscanArgChecks_OpenStreamBlockDatabase_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_147HyperscanArgChecks_OpenStreamBlockDatabase_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -80906,7 +80906,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_150HyperscanArgChecks_OpenStreamVectoredDatabase_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_150HyperscanArgChecks_OpenStreamVectoredDatabase_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -81564,7 +81564,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_146HyperscanArgChecks_StreamSizeRealDatabase_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_146HyperscanArgChecks_StreamSizeRealDatabase_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -82439,7 +82439,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_140HyperscanArgChecks_StreamSizeNoSize_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_140HyperscanArgChecks_StreamSizeNoSize_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -83090,7 +83090,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_146HyperscanArgChecks_DatabaseSizeNoDatabase_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_146HyperscanArgChecks_DatabaseSizeNoDatabase_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -83291,7 +83291,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_142HyperscanArgChecks_DatabaseSizeNoSize_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_142HyperscanArgChecks_DatabaseSizeNoSize_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -83942,7 +83942,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_141HyperscanArgChecks_DatabaseSizeBadDb_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_141HyperscanArgChecks_DatabaseSizeBadDb_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -84143,7 +84143,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_141HyperscanArgChecks_DatabaseInfoBadDb_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_141HyperscanArgChecks_DatabaseInfoBadDb_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -84585,7 +84585,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_142HyperscanArgChecks_DatabaseInfoNullDb_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_142HyperscanArgChecks_DatabaseInfoNullDb_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -85025,7 +85025,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_DatabaseInfoNullInfo_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_DatabaseInfoNullInfo_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -85674,7 +85674,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_152HyperscanArgChecks_SerializedDatabaseSizeBadLen_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_152HyperscanArgChecks_SerializedDatabaseSizeBadLen_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -87391,7 +87391,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_152HyperscanArgChecks_SerializedDatabaseSizeNoSize_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_152HyperscanArgChecks_SerializedDatabaseSizeNoSize_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -88869,7 +88869,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_153HyperscanArgChecks_SerializedDatabaseSizeNoBytes_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_153HyperscanArgChecks_SerializedDatabaseSizeNoBytes_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -89070,7 +89070,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_152HyperscanArgChecks_SerializedDatabaseInfoBadLen_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_152HyperscanArgChecks_SerializedDatabaseInfoBadLen_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -90750,7 +90750,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_152HyperscanArgChecks_SerializedDatabaseInfoNoInfo_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_152HyperscanArgChecks_SerializedDatabaseInfoNoInfo_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -92228,7 +92228,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_153HyperscanArgChecks_SerializedDatabaseInfoNoBytes_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_153HyperscanArgChecks_SerializedDatabaseInfoNoBytes_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -92668,7 +92668,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_150HyperscanArgChecks_DeserializeDatabaseNoBytes_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_150HyperscanArgChecks_DeserializeDatabaseNoBytes_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -92872,7 +92872,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_152HyperscanArgChecks_DeserializeDatabaseAtNoBytes_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_152HyperscanArgChecks_DeserializeDatabaseAtNoBytes_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -93071,7 +93071,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_147HyperscanArgChecks_DeserializeDatabaseNoDb_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_147HyperscanArgChecks_DeserializeDatabaseNoDb_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -94038,15 +94038,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %7 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %7, ptr %ss, align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %7, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %8, ptr %add.ptr.i.i, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %9, ptr %add.ptr, align 8
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 96
   %10 = load ptr, ptr %_M_string.i.i.i, align 8
   %11 = getelementptr inbounds nuw i8, ptr %ss, i64 112
@@ -94065,12 +94065,12 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #28
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %13, ptr %ss, align 8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %13, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -94172,15 +94172,15 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %if.else.i.i, %if.then.i.i
   %8 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %8, ptr %ss, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %8, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %9, ptr %add.ptr.i.i, align 8
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %10, ptr %add.ptr, align 8
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8
   %12 = getelementptr inbounds nuw i8, ptr %ss, i64 112
@@ -94199,12 +94199,12 @@ if.then.i.i.i.i.i7:                               ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #28
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %14, ptr %ss, align 8
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %14, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
@@ -94243,7 +94243,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_149HyperscanArgChecks_DeserializeDatabaseBadLen_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_149HyperscanArgChecks_DeserializeDatabaseBadLen_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -94510,7 +94510,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_150HyperscanArgChecks_DeserializeDatabaseBadLen2_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_150HyperscanArgChecks_DeserializeDatabaseBadLen2_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -94777,7 +94777,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_151HyperscanArgChecks_DeserializeDatabaseBadBytes_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_151HyperscanArgChecks_DeserializeDatabaseBadBytes_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -95046,7 +95046,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_152HyperscanArgChecks_DeserializeDatabaseBadBytes2_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_152HyperscanArgChecks_DeserializeDatabaseBadBytes2_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -95315,7 +95315,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_149HyperscanArgChecks_DeserializeDatabaseAtNoDb_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_149HyperscanArgChecks_DeserializeDatabaseAtNoDb_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -95576,7 +95576,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_151HyperscanArgChecks_DeserializeDatabaseAtBadLen_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_151HyperscanArgChecks_DeserializeDatabaseAtBadLen_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -96052,7 +96052,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_152HyperscanArgChecks_DeserializeDatabaseAtBadLen2_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_152HyperscanArgChecks_DeserializeDatabaseAtBadLen2_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -96528,7 +96528,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_153HyperscanArgChecks_DeserializeDatabaseAtBadBytes_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_153HyperscanArgChecks_DeserializeDatabaseAtBadBytes_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -97006,7 +97006,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_154HyperscanArgChecks_DeserializeDatabaseAtBadBytes2_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_154HyperscanArgChecks_DeserializeDatabaseAtBadBytes2_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -97484,7 +97484,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_141HyperscanArgChecks_ScratchSizeNoSize_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_141HyperscanArgChecks_ScratchSizeNoSize_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -98548,7 +98548,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_ScratchSizeNoScratch_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_ScratchSizeNoScratch_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -98749,7 +98749,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_145HyperscanArgChecks_ScratchSizeBadScratch_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_145HyperscanArgChecks_ScratchSizeBadScratch_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -98950,7 +98950,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_139HyperscanArgChecks_CloneBadScratch_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_139HyperscanArgChecks_CloneBadScratch_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -99353,7 +99353,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_138HyperscanArgChecks_ScanBadScratch_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_138HyperscanArgChecks_ScanBadScratch_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -100195,7 +100195,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_ScanStreamBadScratch_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_ScanStreamBadScratch_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -102300,7 +102300,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_145HyperscanArgChecks_ResetStreamBadScratch_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_145HyperscanArgChecks_ResetStreamBadScratch_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -104405,7 +104405,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_ScanVectorBadScratch_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_ScanVectorBadScratch_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -105367,7 +105367,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_146HyperscanArgChecks_ExprInfoNullExpression_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_146HyperscanArgChecks_ExprInfoNullExpression_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -105952,7 +105952,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_143HyperscanArgChecks_ExprInfoNullInfoPtr_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_143HyperscanArgChecks_ExprInfoNullInfoPtr_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -106345,7 +106345,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_142HyperscanArgChecks_ExprInfoNullErrPtr_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_142HyperscanArgChecks_ExprInfoNullErrPtr_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -106736,7 +106736,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_149HyperscanArgChecks_ExprExtInfoNullExpression_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_149HyperscanArgChecks_ExprExtInfoNullExpression_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -107321,7 +107321,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_146HyperscanArgChecks_ExprExtInfoNullInfoPtr_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_146HyperscanArgChecks_ExprExtInfoNullInfoPtr_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -107714,7 +107714,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_145HyperscanArgChecks_ExprExtInfoNullErrPtr_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_145HyperscanArgChecks_ExprExtInfoNullErrPtr_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -108105,7 +108105,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_145HyperscanArgChecks_hs_free_database_null_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_145HyperscanArgChecks_hs_free_database_null_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -108302,7 +108302,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_148HyperscanArgChecks_hs_free_database_garbage_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_148HyperscanArgChecks_hs_free_database_garbage_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -108499,7 +108499,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_hs_free_scratch_null_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_hs_free_scratch_null_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -108696,7 +108696,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_147HyperscanArgChecks_hs_free_scratch_garbage_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_147HyperscanArgChecks_hs_free_scratch_garbage_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -108893,7 +108893,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_150HyperscanArgChecks_hs_free_compile_error_null_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_150HyperscanArgChecks_hs_free_compile_error_null_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -109090,7 +109090,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_153HyperscanArgChecks_multicompile_mix_highlander_1_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_153HyperscanArgChecks_multicompile_mix_highlander_1_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -109369,7 +109369,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_153HyperscanArgChecks_multicompile_mix_highlander_2_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_153HyperscanArgChecks_multicompile_mix_highlander_2_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -109648,7 +109648,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_155HyperscanArgChecks_multicompile_nomix_highlander_1_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_155HyperscanArgChecks_multicompile_nomix_highlander_1_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -109927,7 +109927,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_155HyperscanArgChecks_multicompile_nomix_highlander_2_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_155HyperscanArgChecks_multicompile_nomix_highlander_2_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -110204,7 +110204,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_149HyperscanArgChecks_hs_populate_platform_null_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_149HyperscanArgChecks_hs_populate_platform_null_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -110403,7 +110403,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_146HyperscanArgChecks_CompressStreamNoStream_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_146HyperscanArgChecks_CompressStreamNoStream_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -110610,7 +110610,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_CompressStreamNoUsed_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_144HyperscanArgChecks_CompressStreamNoUsed_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -111644,7 +111644,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_143HyperscanArgChecks_CompressStreamNoBuf_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_143HyperscanArgChecks_CompressStreamNoBuf_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -112678,7 +112678,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_147HyperscanArgChecks_CompressStreamSmallBuff_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_147HyperscanArgChecks_CompressStreamSmallBuff_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -114146,7 +114146,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_134HyperscanArgChecks_ExpandNoDb_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_134HyperscanArgChecks_ExpandNoDb_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -115399,7 +115399,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_134HyperscanArgChecks_ExpandNoTo_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_134HyperscanArgChecks_ExpandNoTo_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -116640,7 +116640,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_135HyperscanArgChecks_ExpandNoBuf_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_135HyperscanArgChecks_ExpandNoBuf_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -117892,7 +117892,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_138HyperscanArgChecks_ExpandSmallBuf_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_138HyperscanArgChecks_ExpandSmallBuf_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -119145,7 +119145,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_146HyperscanArgChecks_ResetAndExpandNoStream_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_146HyperscanArgChecks_ResetAndExpandNoStream_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -120387,7 +120387,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_143HyperscanArgChecks_ResetAndExpandNoBuf_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_143HyperscanArgChecks_ResetAndExpandNoBuf_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -122041,7 +122041,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_146HyperscanArgChecks_ResetAndExpandSmallBuf_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_146HyperscanArgChecks_ResetAndExpandSmallBuf_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -123696,7 +123696,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_147HyperscanArgChecks_ResetAndExpandNoScratch_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_147HyperscanArgChecks_ResetAndExpandNoScratch_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -125468,7 +125468,7 @@ entry:
 define internal noalias noundef nonnull ptr @_ZN7testing8internal15TestMetaFactoryIN12_GLOBAL__N_128BadModeTest_FailCompile_TestEE17CreateTestFactoryEj(ptr nocapture nonnull readnone align 8 %this, i32 noundef %parameter) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_128BadModeTest_FailCompile_TestEEE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_128BadModeTest_FailCompile_TestEEE, i64 16), ptr %call, align 8
   %parameter_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %parameter, ptr %parameter_.i, align 8
   ret ptr %call
@@ -125498,8 +125498,8 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_128BadModeTest_FailCompile_TestE, i64 16), ptr %call, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_128BadModeTest_FailCompile_TestE, i64 80), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_128BadModeTest_FailCompile_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_128BadModeTest_FailCompile_TestE, i64 80), ptr %0, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -126287,7 +126287,7 @@ declare void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dere
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIjED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIjEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIjEE, i64 16), ptr %this, align 8
   %container_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %container_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -126304,7 +126304,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %if.then.i.i.i, %ent
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIjED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIjEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIjEE, i64 16), ptr %this, align 8
   %container_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %container_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -126325,7 +126325,7 @@ invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
   %container_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %container_, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIjE8IteratorE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIjE8IteratorE, i64 16), ptr %call, align 8
   %base_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %this, ptr %base_.i, align 8
   %iterator_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
@@ -126341,7 +126341,7 @@ invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIjE8IteratorE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIjE8IteratorE, i64 16), ptr %call, align 8
   %base_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %this, ptr %base_.i, align 8
   %iterator_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
@@ -126357,7 +126357,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIjE8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIjE8IteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIjE8IteratorE, i64 16), ptr %this, align 8
   %value_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %value_, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -126397,7 +126397,7 @@ _ZN7testing8internal10scoped_ptrIKjED2Ev.exit:    ; preds = %if.end.i.i, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIjE8IteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIjE8IteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIjE8IteratorE, i64 16), ptr %this, align 8
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %value_.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -126476,7 +126476,7 @@ _ZN7testing8internal10scoped_ptrIKjE5resetEPS2_.exit: ; preds = %if.end.i, %entr
 define linkonce_odr hidden noundef ptr @_ZNK7testing8internal30ValuesInIteratorRangeGeneratorIjE8Iterator5CloneEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIjE8IteratorE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIjE8IteratorE, i64 16), ptr %call, align 8
   %base_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %base_2.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %base_2.i, align 8
@@ -126713,7 +126713,7 @@ declare void @abort() local_unnamed_addr #21
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_111BadModeTestEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_111BadModeTestEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_111BadModeTestEEE, i64 16), ptr %this, align 8
   %instantiations_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %instantiations_, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -126810,7 +126810,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_111BadModeTestEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_111BadModeTestEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_111BadModeTestEEE, i64 16), ptr %this, align 8
   %instantiations_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %instantiations_.i, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -126956,15 +126956,15 @@ for.body.lr.ph:                                   ; preds = %entry
   %_M_out_beg.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss.i, i64 56
   %_M_string.i.i.i = getelementptr inbounds nuw i8, ptr %ss.i, i64 96
   %6 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %6, i64 -24
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %_M_stringbuf.i.i.i = getelementptr inbounds nuw i8, ptr %ss.i, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %ss.i, i64 112
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss.i, i64 104
   %_M_buf_locale.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss.i, i64 80
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i.i = getelementptr i8, ptr %10, i64 -24
   %_M_gcount.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss.i, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %ss.i, i64 128
@@ -127528,7 +127528,7 @@ invoke.cont1.i:                                   ; preds = %if.else.i.i.i, %if.
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %ss.i, i64 %vbase.offset.i.i.i
   store ptr %7, ptr %add.ptr.i.i.i, align 8, !noalias !103
   store ptr %8, ptr %add.ptr.i23, align 8, !noalias !103
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i.i, align 8, !noalias !103
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i.i, align 8, !noalias !103
   %90 = load ptr, ptr %_M_string.i.i.i, align 8, !noalias !103
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %90, %9
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -127555,7 +127555,7 @@ lpad.body.i:                                      ; preds = %lpad.i24, %if.then.
   br label %ehcleanup78
 
 invoke.cont60:                                    ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i.i, align 8, !noalias !103
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i.i, align 8, !noalias !103
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i.i) #28
   store ptr %10, ptr %ss.i, align 8, !noalias !103
   %vbase.offset.i.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i.i, align 8
@@ -128052,847 +128052,847 @@ entry:
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #28
   %call.i = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_137HyperscanArgChecks_ValidPlatform_TestEEE, i64 16), ptr %call1.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_137HyperscanArgChecks_ValidPlatform_TestEEE, i64 16), ptr %call1.i, align 8
   %call2.i = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef %call.i, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i)
   store ptr %call2.i, ptr @_ZN12_GLOBAL__N_137HyperscanArgChecks_ValidPlatform_Test10test_info_E, align 8
   %1 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_137HyperscanArgChecks_ValidPlatform_Test10test_info_E)
   %call.i1 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i2 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_131HyperscanArgChecks_Version_TestEEE, i64 16), ptr %call1.i2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_131HyperscanArgChecks_Version_TestEEE, i64 16), ptr %call1.i2, align 8
   %call2.i3 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, ptr noundef null, ptr noundef null, ptr noundef %call.i1, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i2)
   store ptr %call2.i3, ptr @_ZN12_GLOBAL__N_131HyperscanArgChecks_Version_Test10test_info_E, align 8
   %2 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_131HyperscanArgChecks_Version_Test10test_info_E)
   %call.i4 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i5 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_151HyperscanArgChecks_SingleCompileBlockNoPattern_TestEEE, i64 16), ptr %call1.i5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_151HyperscanArgChecks_SingleCompileBlockNoPattern_TestEEE, i64 16), ptr %call1.i5, align 8
   %call2.i6 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef null, ptr noundef null, ptr noundef %call.i4, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i5)
   store ptr %call2.i6, ptr @_ZN12_GLOBAL__N_151HyperscanArgChecks_SingleCompileBlockNoPattern_Test10test_info_E, align 8
   %3 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_151HyperscanArgChecks_SingleCompileBlockNoPattern_Test10test_info_E)
   %call.i7 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i8 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_155HyperscanArgChecks_SingleCompileStreamingNoPattern_TestEEE, i64 16), ptr %call1.i8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_155HyperscanArgChecks_SingleCompileStreamingNoPattern_TestEEE, i64 16), ptr %call1.i8, align 8
   %call2.i9 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.8, ptr noundef null, ptr noundef null, ptr noundef %call.i7, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i8)
   store ptr %call2.i9, ptr @_ZN12_GLOBAL__N_155HyperscanArgChecks_SingleCompileStreamingNoPattern_Test10test_info_E, align 8
   %4 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_155HyperscanArgChecks_SingleCompileStreamingNoPattern_Test10test_info_E)
   %call.i10 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i11 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_152HyperscanArgChecks_SingleCompileBlockNoDatabase_TestEEE, i64 16), ptr %call1.i11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_152HyperscanArgChecks_SingleCompileBlockNoDatabase_TestEEE, i64 16), ptr %call1.i11, align 8
   %call2.i12 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef null, ptr noundef %call.i10, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i11)
   store ptr %call2.i12, ptr @_ZN12_GLOBAL__N_152HyperscanArgChecks_SingleCompileBlockNoDatabase_Test10test_info_E, align 8
   %5 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_152HyperscanArgChecks_SingleCompileBlockNoDatabase_Test10test_info_E)
   %call.i13 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i14 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_156HyperscanArgChecks_SingleCompileStreamingNoDatabase_TestEEE, i64 16), ptr %call1.i14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_156HyperscanArgChecks_SingleCompileStreamingNoDatabase_TestEEE, i64 16), ptr %call1.i14, align 8
   %call2.i15 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, ptr noundef null, ptr noundef null, ptr noundef %call.i13, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i14)
   store ptr %call2.i15, ptr @_ZN12_GLOBAL__N_156HyperscanArgChecks_SingleCompileStreamingNoDatabase_Test10test_info_E, align 8
   %6 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_156HyperscanArgChecks_SingleCompileStreamingNoDatabase_Test10test_info_E)
   %call.i16 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i17 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143HyperscanArgChecks_SingleCompileNoMode_TestEEE, i64 16), ptr %call1.i17, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143HyperscanArgChecks_SingleCompileNoMode_TestEEE, i64 16), ptr %call1.i17, align 8
   %call2.i18 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, ptr noundef null, ptr noundef null, ptr noundef %call.i16, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i17)
   store ptr %call2.i18, ptr @_ZN12_GLOBAL__N_143HyperscanArgChecks_SingleCompileNoMode_Test10test_info_E, align 8
   %7 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_143HyperscanArgChecks_SingleCompileNoMode_Test10test_info_E)
   %call.i19 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i20 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150HyperscanArgChecks_SingleCompileSeveralModes1_TestEEE, i64 16), ptr %call1.i20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150HyperscanArgChecks_SingleCompileSeveralModes1_TestEEE, i64 16), ptr %call1.i20, align 8
   %call2.i21 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.16, ptr noundef null, ptr noundef null, ptr noundef %call.i19, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i20)
   store ptr %call2.i21, ptr @_ZN12_GLOBAL__N_150HyperscanArgChecks_SingleCompileSeveralModes1_Test10test_info_E, align 8
   %8 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_150HyperscanArgChecks_SingleCompileSeveralModes1_Test10test_info_E)
   %call.i22 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i23 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147HyperscanArgChecks_SingleCompileBogusFlags_TestEEE, i64 16), ptr %call1.i23, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147HyperscanArgChecks_SingleCompileBogusFlags_TestEEE, i64 16), ptr %call1.i23, align 8
   %call2.i24 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.18, ptr noundef null, ptr noundef null, ptr noundef %call.i22, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i23)
   store ptr %call2.i24, ptr @_ZN12_GLOBAL__N_147HyperscanArgChecks_SingleCompileBogusFlags_Test10test_info_E, align 8
   %9 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_147HyperscanArgChecks_SingleCompileBogusFlags_Test10test_info_E)
   %call.i25 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i26 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147HyperscanArgChecks_SingleCompileBogusMode1_TestEEE, i64 16), ptr %call1.i26, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147HyperscanArgChecks_SingleCompileBogusMode1_TestEEE, i64 16), ptr %call1.i26, align 8
   %call2.i27 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.20, ptr noundef null, ptr noundef null, ptr noundef %call.i25, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i26)
   store ptr %call2.i27, ptr @_ZN12_GLOBAL__N_147HyperscanArgChecks_SingleCompileBogusMode1_Test10test_info_E, align 8
   %10 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_147HyperscanArgChecks_SingleCompileBogusMode1_Test10test_info_E)
   %call.i28 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i29 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_SingleCompileBadTune_TestEEE, i64 16), ptr %call1.i29, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_SingleCompileBadTune_TestEEE, i64 16), ptr %call1.i29, align 8
   %call2.i30 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.22, ptr noundef null, ptr noundef null, ptr noundef %call.i28, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i29)
   store ptr %call2.i30, ptr @_ZN12_GLOBAL__N_144HyperscanArgChecks_SingleCompileBadTune_Test10test_info_E, align 8
   %11 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_144HyperscanArgChecks_SingleCompileBadTune_Test10test_info_E)
   %call.i31 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i32 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_148HyperscanArgChecks_SingleCompileBadFeatures_TestEEE, i64 16), ptr %call1.i32, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_148HyperscanArgChecks_SingleCompileBadFeatures_TestEEE, i64 16), ptr %call1.i32, align 8
   %call2.i33 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.24, ptr noundef null, ptr noundef null, ptr noundef %call.i31, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i32)
   store ptr %call2.i33, ptr @_ZN12_GLOBAL__N_148HyperscanArgChecks_SingleCompileBadFeatures_Test10test_info_E, align 8
   %12 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_148HyperscanArgChecks_SingleCompileBadFeatures_Test10test_info_E)
   %call.i34 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i35 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_SingleCompileSOMFlag_TestEEE, i64 16), ptr %call1.i35, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_SingleCompileSOMFlag_TestEEE, i64 16), ptr %call1.i35, align 8
   %call2.i36 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.26, ptr noundef null, ptr noundef null, ptr noundef %call.i34, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i35)
   store ptr %call2.i36, ptr @_ZN12_GLOBAL__N_144HyperscanArgChecks_SingleCompileSOMFlag_Test10test_info_E, align 8
   %13 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_144HyperscanArgChecks_SingleCompileSOMFlag_Test10test_info_E)
   %call.i37 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i38 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_145HyperscanArgChecks_SingleCompileSOMModes_TestEEE, i64 16), ptr %call1.i38, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_145HyperscanArgChecks_SingleCompileSOMModes_TestEEE, i64 16), ptr %call1.i38, align 8
   %call2.i39 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.28, ptr noundef null, ptr noundef null, ptr noundef %call.i37, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i38)
   store ptr %call2.i39, ptr @_ZN12_GLOBAL__N_145HyperscanArgChecks_SingleCompileSOMModes_Test10test_info_E, align 8
   %14 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_145HyperscanArgChecks_SingleCompileSOMModes_Test10test_info_E)
   %call.i40 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i41 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150HyperscanArgChecks_MultiCompileBlockNoPattern_TestEEE, i64 16), ptr %call1.i41, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150HyperscanArgChecks_MultiCompileBlockNoPattern_TestEEE, i64 16), ptr %call1.i41, align 8
   %call2.i42 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.30, ptr noundef null, ptr noundef null, ptr noundef %call.i40, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i41)
   store ptr %call2.i42, ptr @_ZN12_GLOBAL__N_150HyperscanArgChecks_MultiCompileBlockNoPattern_Test10test_info_E, align 8
   %15 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_150HyperscanArgChecks_MultiCompileBlockNoPattern_Test10test_info_E)
   %call.i43 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i44 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_154HyperscanArgChecks_MultiCompileStreamingNoPattern_TestEEE, i64 16), ptr %call1.i44, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_154HyperscanArgChecks_MultiCompileStreamingNoPattern_TestEEE, i64 16), ptr %call1.i44, align 8
   %call2.i45 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.32, ptr noundef null, ptr noundef null, ptr noundef %call.i43, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i44)
   store ptr %call2.i45, ptr @_ZN12_GLOBAL__N_154HyperscanArgChecks_MultiCompileStreamingNoPattern_Test10test_info_E, align 8
   %16 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_154HyperscanArgChecks_MultiCompileStreamingNoPattern_Test10test_info_E)
   %call.i46 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i47 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_148HyperscanArgChecks_MultiCompileZeroPatterns_TestEEE, i64 16), ptr %call1.i47, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_148HyperscanArgChecks_MultiCompileZeroPatterns_TestEEE, i64 16), ptr %call1.i47, align 8
   %call2.i48 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.34, ptr noundef null, ptr noundef null, ptr noundef %call.i46, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i47)
   store ptr %call2.i48, ptr @_ZN12_GLOBAL__N_148HyperscanArgChecks_MultiCompileZeroPatterns_Test10test_info_E, align 8
   %17 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_148HyperscanArgChecks_MultiCompileZeroPatterns_Test10test_info_E)
   %call.i49 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i50 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_151HyperscanArgChecks_MultiCompileBlockNoDatabase_TestEEE, i64 16), ptr %call1.i50, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_151HyperscanArgChecks_MultiCompileBlockNoDatabase_TestEEE, i64 16), ptr %call1.i50, align 8
   %call2.i51 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.36, ptr noundef null, ptr noundef null, ptr noundef %call.i49, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i50)
   store ptr %call2.i51, ptr @_ZN12_GLOBAL__N_151HyperscanArgChecks_MultiCompileBlockNoDatabase_Test10test_info_E, align 8
   %18 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_151HyperscanArgChecks_MultiCompileBlockNoDatabase_Test10test_info_E)
   %call.i52 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i53 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_155HyperscanArgChecks_MultiCompileStreamingNoDatabase_TestEEE, i64 16), ptr %call1.i53, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_155HyperscanArgChecks_MultiCompileStreamingNoDatabase_TestEEE, i64 16), ptr %call1.i53, align 8
   %call2.i54 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.38, ptr noundef null, ptr noundef null, ptr noundef %call.i52, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i53)
   store ptr %call2.i54, ptr @_ZN12_GLOBAL__N_155HyperscanArgChecks_MultiCompileStreamingNoDatabase_Test10test_info_E, align 8
   %19 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_155HyperscanArgChecks_MultiCompileStreamingNoDatabase_Test10test_info_E)
   %call.i55 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i56 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_OpenStreamNoDatabase_TestEEE, i64 16), ptr %call1.i56, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_OpenStreamNoDatabase_TestEEE, i64 16), ptr %call1.i56, align 8
   %call2.i57 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.40, ptr noundef null, ptr noundef null, ptr noundef %call.i55, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i56)
   store ptr %call2.i57, ptr @_ZN12_GLOBAL__N_144HyperscanArgChecks_OpenStreamNoDatabase_Test10test_info_E, align 8
   %20 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_144HyperscanArgChecks_OpenStreamNoDatabase_Test10test_info_E)
   %call.i58 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i59 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_OpenStreamNoStreamId_TestEEE, i64 16), ptr %call1.i59, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_OpenStreamNoStreamId_TestEEE, i64 16), ptr %call1.i59, align 8
   %call2.i60 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.42, ptr noundef null, ptr noundef null, ptr noundef %call.i58, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i59)
   store ptr %call2.i60, ptr @_ZN12_GLOBAL__N_144HyperscanArgChecks_OpenStreamNoStreamId_Test10test_info_E, align 8
   %21 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_144HyperscanArgChecks_OpenStreamNoStreamId_Test10test_info_E)
   %call.i61 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i62 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_151HyperscanArgChecks_OpenStreamWithBlockDatabase_TestEEE, i64 16), ptr %call1.i62, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_151HyperscanArgChecks_OpenStreamWithBlockDatabase_TestEEE, i64 16), ptr %call1.i62, align 8
   %call2.i63 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.44, ptr noundef null, ptr noundef null, ptr noundef %call.i61, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i62)
   store ptr %call2.i63, ptr @_ZN12_GLOBAL__N_151HyperscanArgChecks_OpenStreamWithBlockDatabase_Test10test_info_E, align 8
   %22 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_151HyperscanArgChecks_OpenStreamWithBlockDatabase_Test10test_info_E)
   %call.i64 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i65 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_160HyperscanArgChecks_OpenStreamWithBrokenDatabaseBytecode_TestEEE, i64 16), ptr %call1.i65, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_160HyperscanArgChecks_OpenStreamWithBrokenDatabaseBytecode_TestEEE, i64 16), ptr %call1.i65, align 8
   %call2.i66 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.46, ptr noundef null, ptr noundef null, ptr noundef %call.i64, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i65)
   store ptr %call2.i66, ptr @_ZN12_GLOBAL__N_160HyperscanArgChecks_OpenStreamWithBrokenDatabaseBytecode_Test10test_info_E, align 8
   %23 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_160HyperscanArgChecks_OpenStreamWithBrokenDatabaseBytecode_Test10test_info_E)
   %call.i67 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i68 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_ScanStreamNoStreamID_TestEEE, i64 16), ptr %call1.i68, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_ScanStreamNoStreamID_TestEEE, i64 16), ptr %call1.i68, align 8
   %call2.i69 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.48, ptr noundef null, ptr noundef null, ptr noundef %call.i67, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i68)
   store ptr %call2.i69, ptr @_ZN12_GLOBAL__N_144HyperscanArgChecks_ScanStreamNoStreamID_Test10test_info_E, align 8
   %24 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_144HyperscanArgChecks_ScanStreamNoStreamID_Test10test_info_E)
   %call.i70 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i71 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_140HyperscanArgChecks_ScanStreamNoData_TestEEE, i64 16), ptr %call1.i71, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_140HyperscanArgChecks_ScanStreamNoData_TestEEE, i64 16), ptr %call1.i71, align 8
   %call2.i72 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.50, ptr noundef null, ptr noundef null, ptr noundef %call.i70, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i71)
   store ptr %call2.i72, ptr @_ZN12_GLOBAL__N_140HyperscanArgChecks_ScanStreamNoData_Test10test_info_E, align 8
   %25 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_140HyperscanArgChecks_ScanStreamNoData_Test10test_info_E)
   %call.i73 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i74 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143HyperscanArgChecks_ScanStreamNoScratch_TestEEE, i64 16), ptr %call1.i74, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143HyperscanArgChecks_ScanStreamNoScratch_TestEEE, i64 16), ptr %call1.i74, align 8
   %call2.i75 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.52, ptr noundef null, ptr noundef null, ptr noundef %call.i73, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i74)
   store ptr %call2.i75, ptr @_ZN12_GLOBAL__N_143HyperscanArgChecks_ScanStreamNoScratch_Test10test_info_E, align 8
   %26 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_143HyperscanArgChecks_ScanStreamNoScratch_Test10test_info_E)
   %call.i76 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i77 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143HyperscanArgChecks_CloseStreamNoStream_TestEEE, i64 16), ptr %call1.i77, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143HyperscanArgChecks_CloseStreamNoStream_TestEEE, i64 16), ptr %call1.i77, align 8
   %call2.i78 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.54, ptr noundef null, ptr noundef null, ptr noundef %call.i76, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i77)
   store ptr %call2.i78, ptr @_ZN12_GLOBAL__N_143HyperscanArgChecks_CloseStreamNoStream_Test10test_info_E, align 8
   %27 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_143HyperscanArgChecks_CloseStreamNoStream_Test10test_info_E)
   %call.i79 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i80 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_CloseStreamNoScratch_TestEEE, i64 16), ptr %call1.i80, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_CloseStreamNoScratch_TestEEE, i64 16), ptr %call1.i80, align 8
   %call2.i81 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.56, ptr noundef null, ptr noundef null, ptr noundef %call.i79, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i80)
   store ptr %call2.i81, ptr @_ZN12_GLOBAL__N_144HyperscanArgChecks_CloseStreamNoScratch_Test10test_info_E, align 8
   %28 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_144HyperscanArgChecks_CloseStreamNoScratch_Test10test_info_E)
   %call.i82 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i83 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_154HyperscanArgChecks_CloseStreamNoScratchNoCallback_TestEEE, i64 16), ptr %call1.i83, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_154HyperscanArgChecks_CloseStreamNoScratchNoCallback_TestEEE, i64 16), ptr %call1.i83, align 8
   %call2.i84 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.58, ptr noundef null, ptr noundef null, ptr noundef %call.i82, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i83)
   store ptr %call2.i84, ptr @_ZN12_GLOBAL__N_154HyperscanArgChecks_CloseStreamNoScratchNoCallback_Test10test_info_E, align 8
   %29 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_154HyperscanArgChecks_CloseStreamNoScratchNoCallback_Test10test_info_E)
   %call.i85 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i86 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150HyperscanArgChecks_CloseStreamNoMatchNoStream_TestEEE, i64 16), ptr %call1.i86, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150HyperscanArgChecks_CloseStreamNoMatchNoStream_TestEEE, i64 16), ptr %call1.i86, align 8
   %call2.i87 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.60, ptr noundef null, ptr noundef null, ptr noundef %call.i85, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i86)
   store ptr %call2.i87, ptr @_ZN12_GLOBAL__N_150HyperscanArgChecks_CloseStreamNoMatchNoStream_Test10test_info_E, align 8
   %30 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_150HyperscanArgChecks_CloseStreamNoMatchNoStream_Test10test_info_E)
   %call.i88 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i89 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143HyperscanArgChecks_ChangeStreamContext_TestEEE, i64 16), ptr %call1.i89, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143HyperscanArgChecks_ChangeStreamContext_TestEEE, i64 16), ptr %call1.i89, align 8
   %call2.i90 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.62, ptr noundef null, ptr noundef null, ptr noundef %call.i88, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i89)
   store ptr %call2.i90, ptr @_ZN12_GLOBAL__N_143HyperscanArgChecks_ChangeStreamContext_Test10test_info_E, align 8
   %31 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_143HyperscanArgChecks_ChangeStreamContext_Test10test_info_E)
   %call.i91 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i92 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_139HyperscanArgChecks_ResetStreamNoId_TestEEE, i64 16), ptr %call1.i92, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_139HyperscanArgChecks_ResetStreamNoId_TestEEE, i64 16), ptr %call1.i92, align 8
   %call2.i93 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.64, ptr noundef null, ptr noundef null, ptr noundef %call.i91, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i92)
   store ptr %call2.i93, ptr @_ZN12_GLOBAL__N_139HyperscanArgChecks_ResetStreamNoId_Test10test_info_E, align 8
   %32 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_139HyperscanArgChecks_ResetStreamNoId_Test10test_info_E)
   %call.i94 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i95 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_ResetStreamNoScratch_TestEEE, i64 16), ptr %call1.i95, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_ResetStreamNoScratch_TestEEE, i64 16), ptr %call1.i95, align 8
   %call2.i96 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.66, ptr noundef null, ptr noundef null, ptr noundef %call.i94, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i95)
   store ptr %call2.i96, ptr @_ZN12_GLOBAL__N_144HyperscanArgChecks_ResetStreamNoScratch_Test10test_info_E, align 8
   %33 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_144HyperscanArgChecks_ResetStreamNoScratch_Test10test_info_E)
   %call.i97 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i98 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_142HyperscanArgChecks_CopyStreamNoFromId_TestEEE, i64 16), ptr %call1.i98, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_142HyperscanArgChecks_CopyStreamNoFromId_TestEEE, i64 16), ptr %call1.i98, align 8
   %call2.i99 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.68, ptr noundef null, ptr noundef null, ptr noundef %call.i97, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i98)
   store ptr %call2.i99, ptr @_ZN12_GLOBAL__N_142HyperscanArgChecks_CopyStreamNoFromId_Test10test_info_E, align 8
   %34 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_142HyperscanArgChecks_CopyStreamNoFromId_Test10test_info_E)
   %call.i100 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i101 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_140HyperscanArgChecks_CopyStreamNoToId_TestEEE, i64 16), ptr %call1.i101, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_140HyperscanArgChecks_CopyStreamNoToId_TestEEE, i64 16), ptr %call1.i101, align 8
   %call2.i102 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.70, ptr noundef null, ptr noundef null, ptr noundef %call.i100, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i101)
   store ptr %call2.i102, ptr @_ZN12_GLOBAL__N_140HyperscanArgChecks_CopyStreamNoToId_Test10test_info_E, align 8
   %35 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_140HyperscanArgChecks_CopyStreamNoToId_Test10test_info_E)
   %call.i103 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i104 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_148HyperscanArgChecks_ResetAndCopyStreamNoToId_TestEEE, i64 16), ptr %call1.i104, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_148HyperscanArgChecks_ResetAndCopyStreamNoToId_TestEEE, i64 16), ptr %call1.i104, align 8
   %call2.i105 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.72, ptr noundef null, ptr noundef null, ptr noundef %call.i103, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i104)
   store ptr %call2.i105, ptr @_ZN12_GLOBAL__N_148HyperscanArgChecks_ResetAndCopyStreamNoToId_Test10test_info_E, align 8
   %36 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_148HyperscanArgChecks_ResetAndCopyStreamNoToId_Test10test_info_E)
   %call.i106 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i107 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150HyperscanArgChecks_ResetAndCopyStreamNoFromId_TestEEE, i64 16), ptr %call1.i107, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150HyperscanArgChecks_ResetAndCopyStreamNoFromId_TestEEE, i64 16), ptr %call1.i107, align 8
   %call2.i108 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.74, ptr noundef null, ptr noundef null, ptr noundef %call.i106, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i107)
   store ptr %call2.i108, ptr @_ZN12_GLOBAL__N_150HyperscanArgChecks_ResetAndCopyStreamNoFromId_Test10test_info_E, align 8
   %37 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_150HyperscanArgChecks_ResetAndCopyStreamNoFromId_Test10test_info_E)
   %call.i109 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i110 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150HyperscanArgChecks_ResetAndCopyStreamSameToId_TestEEE, i64 16), ptr %call1.i110, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150HyperscanArgChecks_ResetAndCopyStreamSameToId_TestEEE, i64 16), ptr %call1.i110, align 8
   %call2.i111 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.76, ptr noundef null, ptr noundef null, ptr noundef %call.i109, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i110)
   store ptr %call2.i111, ptr @_ZN12_GLOBAL__N_150HyperscanArgChecks_ResetAndCopyStreamSameToId_Test10test_info_E, align 8
   %38 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_150HyperscanArgChecks_ResetAndCopyStreamSameToId_Test10test_info_E)
   %call.i112 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i113 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_161HyperscanArgChecks_ResetAndCopyStreamNoCallbackOrScratch_TestEEE, i64 16), ptr %call1.i113, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_161HyperscanArgChecks_ResetAndCopyStreamNoCallbackOrScratch_TestEEE, i64 16), ptr %call1.i113, align 8
   %call2.i114 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.78, ptr noundef null, ptr noundef null, ptr noundef %call.i112, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i113)
   store ptr %call2.i114, ptr @_ZN12_GLOBAL__N_161HyperscanArgChecks_ResetAndCopyStreamNoCallbackOrScratch_Test10test_info_E, align 8
   %39 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_161HyperscanArgChecks_ResetAndCopyStreamNoCallbackOrScratch_Test10test_info_E)
   %call.i115 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i116 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_151HyperscanArgChecks_ResetAndCopyStreamNoScratch_TestEEE, i64 16), ptr %call1.i116, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_151HyperscanArgChecks_ResetAndCopyStreamNoScratch_TestEEE, i64 16), ptr %call1.i116, align 8
   %call2.i117 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.80, ptr noundef null, ptr noundef null, ptr noundef %call.i115, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i116)
   store ptr %call2.i117, ptr @_ZN12_GLOBAL__N_151HyperscanArgChecks_ResetAndCopyStreamNoScratch_Test10test_info_E, align 8
   %40 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_151HyperscanArgChecks_ResetAndCopyStreamNoScratch_Test10test_info_E)
   %call.i118 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i119 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_148HyperscanArgChecks_ResetAndCopyStreamDiffDb_TestEEE, i64 16), ptr %call1.i119, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_148HyperscanArgChecks_ResetAndCopyStreamDiffDb_TestEEE, i64 16), ptr %call1.i119, align 8
   %call2.i120 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.82, ptr noundef null, ptr noundef null, ptr noundef %call.i118, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i119)
   store ptr %call2.i120, ptr @_ZN12_GLOBAL__N_148HyperscanArgChecks_ResetAndCopyStreamDiffDb_Test10test_info_E, align 8
   %41 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_148HyperscanArgChecks_ResetAndCopyStreamDiffDb_Test10test_info_E)
   %call.i121 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i122 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143HyperscanArgChecks_ScanBlockNoDatabase_TestEEE, i64 16), ptr %call1.i122, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143HyperscanArgChecks_ScanBlockNoDatabase_TestEEE, i64 16), ptr %call1.i122, align 8
   %call2.i123 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.84, ptr noundef null, ptr noundef null, ptr noundef %call.i121, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i122)
   store ptr %call2.i123, ptr @_ZN12_GLOBAL__N_143HyperscanArgChecks_ScanBlockNoDatabase_Test10test_info_E, align 8
   %42 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_143HyperscanArgChecks_ScanBlockNoDatabase_Test10test_info_E)
   %call.i124 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i125 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_152HyperscanArgChecks_ScanBlockBrokenDatabaseMagic_TestEEE, i64 16), ptr %call1.i125, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_152HyperscanArgChecks_ScanBlockBrokenDatabaseMagic_TestEEE, i64 16), ptr %call1.i125, align 8
   %call2.i126 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.86, ptr noundef null, ptr noundef null, ptr noundef %call.i124, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i125)
   store ptr %call2.i126, ptr @_ZN12_GLOBAL__N_152HyperscanArgChecks_ScanBlockBrokenDatabaseMagic_Test10test_info_E, align 8
   %43 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_152HyperscanArgChecks_ScanBlockBrokenDatabaseMagic_Test10test_info_E)
   %call.i127 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i128 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_154HyperscanArgChecks_ScanBlockBrokenDatabaseVersion_TestEEE, i64 16), ptr %call1.i128, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_154HyperscanArgChecks_ScanBlockBrokenDatabaseVersion_TestEEE, i64 16), ptr %call1.i128, align 8
   %call2.i129 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.88, ptr noundef null, ptr noundef null, ptr noundef %call.i127, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i128)
   store ptr %call2.i129, ptr @_ZN12_GLOBAL__N_154HyperscanArgChecks_ScanBlockBrokenDatabaseVersion_Test10test_info_E, align 8
   %44 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_154HyperscanArgChecks_ScanBlockBrokenDatabaseVersion_Test10test_info_E)
   %call.i130 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i131 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_155HyperscanArgChecks_ScanBlockBrokenDatabaseBytecode_TestEEE, i64 16), ptr %call1.i131, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_155HyperscanArgChecks_ScanBlockBrokenDatabaseBytecode_TestEEE, i64 16), ptr %call1.i131, align 8
   %call2.i132 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.90, ptr noundef null, ptr noundef null, ptr noundef %call.i130, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i131)
   store ptr %call2.i132, ptr @_ZN12_GLOBAL__N_155HyperscanArgChecks_ScanBlockBrokenDatabaseBytecode_Test10test_info_E, align 8
   %45 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_155HyperscanArgChecks_ScanBlockBrokenDatabaseBytecode_Test10test_info_E)
   %call.i133 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i134 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150HyperscanArgChecks_ScanBlockStreamingDatabase_TestEEE, i64 16), ptr %call1.i134, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150HyperscanArgChecks_ScanBlockStreamingDatabase_TestEEE, i64 16), ptr %call1.i134, align 8
   %call2.i135 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.92, ptr noundef null, ptr noundef null, ptr noundef %call.i133, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i134)
   store ptr %call2.i135, ptr @_ZN12_GLOBAL__N_150HyperscanArgChecks_ScanBlockStreamingDatabase_Test10test_info_E, align 8
   %46 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_150HyperscanArgChecks_ScanBlockStreamingDatabase_Test10test_info_E)
   %call.i136 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i137 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_149HyperscanArgChecks_ScanBlockVectoredDatabase_TestEEE, i64 16), ptr %call1.i137, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_149HyperscanArgChecks_ScanBlockVectoredDatabase_TestEEE, i64 16), ptr %call1.i137, align 8
   %call2.i138 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.94, ptr noundef null, ptr noundef null, ptr noundef %call.i136, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i137)
   store ptr %call2.i138, ptr @_ZN12_GLOBAL__N_149HyperscanArgChecks_ScanBlockVectoredDatabase_Test10test_info_E, align 8
   %47 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_149HyperscanArgChecks_ScanBlockVectoredDatabase_Test10test_info_E)
   %call.i139 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i140 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_139HyperscanArgChecks_ScanBlockNoData_TestEEE, i64 16), ptr %call1.i140, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_139HyperscanArgChecks_ScanBlockNoData_TestEEE, i64 16), ptr %call1.i140, align 8
   %call2.i141 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.96, ptr noundef null, ptr noundef null, ptr noundef %call.i139, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i140)
   store ptr %call2.i141, ptr @_ZN12_GLOBAL__N_139HyperscanArgChecks_ScanBlockNoData_Test10test_info_E, align 8
   %48 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_139HyperscanArgChecks_ScanBlockNoData_Test10test_info_E)
   %call.i142 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i143 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_142HyperscanArgChecks_ScanBlockNoScratch_TestEEE, i64 16), ptr %call1.i143, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_142HyperscanArgChecks_ScanBlockNoScratch_TestEEE, i64 16), ptr %call1.i143, align 8
   %call2.i144 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.98, ptr noundef null, ptr noundef null, ptr noundef %call.i142, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i143)
   store ptr %call2.i144, ptr @_ZN12_GLOBAL__N_142HyperscanArgChecks_ScanBlockNoScratch_Test10test_info_E, align 8
   %49 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_142HyperscanArgChecks_ScanBlockNoScratch_Test10test_info_E)
   %call.i145 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i146 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_142HyperscanArgChecks_ScanBlockNoHandler_TestEEE, i64 16), ptr %call1.i146, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_142HyperscanArgChecks_ScanBlockNoHandler_TestEEE, i64 16), ptr %call1.i146, align 8
   %call2.i147 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.100, ptr noundef null, ptr noundef null, ptr noundef %call.i145, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i146)
   store ptr %call2.i147, ptr @_ZN12_GLOBAL__N_142HyperscanArgChecks_ScanBlockNoHandler_Test10test_info_E, align 8
   %50 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_142HyperscanArgChecks_ScanBlockNoHandler_Test10test_info_E)
   %call.i148 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i149 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_ScanVectorNoDatabase_TestEEE, i64 16), ptr %call1.i149, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_ScanVectorNoDatabase_TestEEE, i64 16), ptr %call1.i149, align 8
   %call2.i150 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.102, ptr noundef null, ptr noundef null, ptr noundef %call.i148, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i149)
   store ptr %call2.i150, ptr @_ZN12_GLOBAL__N_144HyperscanArgChecks_ScanVectorNoDatabase_Test10test_info_E, align 8
   %51 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_144HyperscanArgChecks_ScanVectorNoDatabase_Test10test_info_E)
   %call.i151 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i152 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_153HyperscanArgChecks_ScanVectorBrokenDatabaseMagic_TestEEE, i64 16), ptr %call1.i152, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_153HyperscanArgChecks_ScanVectorBrokenDatabaseMagic_TestEEE, i64 16), ptr %call1.i152, align 8
   %call2.i153 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.104, ptr noundef null, ptr noundef null, ptr noundef %call.i151, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i152)
   store ptr %call2.i153, ptr @_ZN12_GLOBAL__N_153HyperscanArgChecks_ScanVectorBrokenDatabaseMagic_Test10test_info_E, align 8
   %52 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_153HyperscanArgChecks_ScanVectorBrokenDatabaseMagic_Test10test_info_E)
   %call.i154 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i155 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_155HyperscanArgChecks_ScanVectorBrokenDatabaseVersion_TestEEE, i64 16), ptr %call1.i155, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_155HyperscanArgChecks_ScanVectorBrokenDatabaseVersion_TestEEE, i64 16), ptr %call1.i155, align 8
   %call2.i156 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.106, ptr noundef null, ptr noundef null, ptr noundef %call.i154, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i155)
   store ptr %call2.i156, ptr @_ZN12_GLOBAL__N_155HyperscanArgChecks_ScanVectorBrokenDatabaseVersion_Test10test_info_E, align 8
   %53 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_155HyperscanArgChecks_ScanVectorBrokenDatabaseVersion_Test10test_info_E)
   %call.i157 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i158 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_156HyperscanArgChecks_ScanVectorBrokenDatabaseBytecode_TestEEE, i64 16), ptr %call1.i158, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_156HyperscanArgChecks_ScanVectorBrokenDatabaseBytecode_TestEEE, i64 16), ptr %call1.i158, align 8
   %call2.i159 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.108, ptr noundef null, ptr noundef null, ptr noundef %call.i157, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i158)
   store ptr %call2.i159, ptr @_ZN12_GLOBAL__N_156HyperscanArgChecks_ScanVectorBrokenDatabaseBytecode_Test10test_info_E, align 8
   %54 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_156HyperscanArgChecks_ScanVectorBrokenDatabaseBytecode_Test10test_info_E)
   %call.i160 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i161 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_151HyperscanArgChecks_ScanVectorStreamingDatabase_TestEEE, i64 16), ptr %call1.i161, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_151HyperscanArgChecks_ScanVectorStreamingDatabase_TestEEE, i64 16), ptr %call1.i161, align 8
   %call2.i162 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.110, ptr noundef null, ptr noundef null, ptr noundef %call.i160, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i161)
   store ptr %call2.i162, ptr @_ZN12_GLOBAL__N_151HyperscanArgChecks_ScanVectorStreamingDatabase_Test10test_info_E, align 8
   %55 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_151HyperscanArgChecks_ScanVectorStreamingDatabase_Test10test_info_E)
   %call.i163 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i164 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147HyperscanArgChecks_ScanVectorBlockDatabase_TestEEE, i64 16), ptr %call1.i164, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147HyperscanArgChecks_ScanVectorBlockDatabase_TestEEE, i64 16), ptr %call1.i164, align 8
   %call2.i165 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.112, ptr noundef null, ptr noundef null, ptr noundef %call.i163, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i164)
   store ptr %call2.i165, ptr @_ZN12_GLOBAL__N_147HyperscanArgChecks_ScanVectorBlockDatabase_Test10test_info_E, align 8
   %56 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_147HyperscanArgChecks_ScanVectorBlockDatabase_Test10test_info_E)
   %call.i166 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i167 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_145HyperscanArgChecks_ScanVectorNoDataArray_TestEEE, i64 16), ptr %call1.i167, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_145HyperscanArgChecks_ScanVectorNoDataArray_TestEEE, i64 16), ptr %call1.i167, align 8
   %call2.i168 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.114, ptr noundef null, ptr noundef null, ptr noundef %call.i166, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i167)
   store ptr %call2.i168, ptr @_ZN12_GLOBAL__N_145HyperscanArgChecks_ScanVectorNoDataArray_Test10test_info_E, align 8
   %57 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_145HyperscanArgChecks_ScanVectorNoDataArray_Test10test_info_E)
   %call.i169 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i170 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_145HyperscanArgChecks_ScanVectorNoDataBlock_TestEEE, i64 16), ptr %call1.i170, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_145HyperscanArgChecks_ScanVectorNoDataBlock_TestEEE, i64 16), ptr %call1.i170, align 8
   %call2.i171 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.116, ptr noundef null, ptr noundef null, ptr noundef %call.i169, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i170)
   store ptr %call2.i171, ptr @_ZN12_GLOBAL__N_145HyperscanArgChecks_ScanVectorNoDataBlock_Test10test_info_E, align 8
   %58 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_145HyperscanArgChecks_ScanVectorNoDataBlock_Test10test_info_E)
   %call.i172 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i173 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_ScanVectorNoLenArray_TestEEE, i64 16), ptr %call1.i173, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_ScanVectorNoLenArray_TestEEE, i64 16), ptr %call1.i173, align 8
   %call2.i174 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.118, ptr noundef null, ptr noundef null, ptr noundef %call.i172, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i173)
   store ptr %call2.i174, ptr @_ZN12_GLOBAL__N_144HyperscanArgChecks_ScanVectorNoLenArray_Test10test_info_E, align 8
   %59 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_144HyperscanArgChecks_ScanVectorNoLenArray_Test10test_info_E)
   %call.i175 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i176 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143HyperscanArgChecks_ScanVectorNoScratch_TestEEE, i64 16), ptr %call1.i176, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143HyperscanArgChecks_ScanVectorNoScratch_TestEEE, i64 16), ptr %call1.i176, align 8
   %call2.i177 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.120, ptr noundef null, ptr noundef null, ptr noundef %call.i175, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i176)
   store ptr %call2.i177, ptr @_ZN12_GLOBAL__N_143HyperscanArgChecks_ScanVectorNoScratch_Test10test_info_E, align 8
   %60 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_143HyperscanArgChecks_ScanVectorNoScratch_Test10test_info_E)
   %call.i178 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i179 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143HyperscanArgChecks_ScanVectorNoHandler_TestEEE, i64 16), ptr %call1.i179, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143HyperscanArgChecks_ScanVectorNoHandler_TestEEE, i64 16), ptr %call1.i179, align 8
   %call2.i180 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.122, ptr noundef null, ptr noundef null, ptr noundef %call.i178, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i179)
   store ptr %call2.i180, ptr @_ZN12_GLOBAL__N_143HyperscanArgChecks_ScanVectorNoHandler_Test10test_info_E, align 8
   %61 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_143HyperscanArgChecks_ScanVectorNoHandler_Test10test_info_E)
   %call.i181 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i182 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_146HyperscanArgChecks_AllocScratchNoDatabase_TestEEE, i64 16), ptr %call1.i182, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_146HyperscanArgChecks_AllocScratchNoDatabase_TestEEE, i64 16), ptr %call1.i182, align 8
   %call2.i183 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.124, ptr noundef null, ptr noundef null, ptr noundef %call.i181, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i182)
   store ptr %call2.i183, ptr @_ZN12_GLOBAL__N_146HyperscanArgChecks_AllocScratchNoDatabase_Test10test_info_E, align 8
   %62 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_146HyperscanArgChecks_AllocScratchNoDatabase_Test10test_info_E)
   %call.i184 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i185 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150HyperscanArgChecks_AllocScratchNullScratchPtr_TestEEE, i64 16), ptr %call1.i185, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150HyperscanArgChecks_AllocScratchNullScratchPtr_TestEEE, i64 16), ptr %call1.i185, align 8
   %call2.i186 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.126, ptr noundef null, ptr noundef null, ptr noundef %call.i184, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i185)
   store ptr %call2.i186, ptr @_ZN12_GLOBAL__N_150HyperscanArgChecks_AllocScratchNullScratchPtr_Test10test_info_E, align 8
   %63 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_150HyperscanArgChecks_AllocScratchNullScratchPtr_Test10test_info_E)
   %call.i187 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i188 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_148HyperscanArgChecks_AllocScratchBogusScratch_TestEEE, i64 16), ptr %call1.i188, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_148HyperscanArgChecks_AllocScratchBogusScratch_TestEEE, i64 16), ptr %call1.i188, align 8
   %call2.i189 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.128, ptr noundef null, ptr noundef null, ptr noundef %call.i187, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i188)
   store ptr %call2.i189, ptr @_ZN12_GLOBAL__N_148HyperscanArgChecks_AllocScratchBogusScratch_Test10test_info_E, align 8
   %64 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_148HyperscanArgChecks_AllocScratchBogusScratch_Test10test_info_E)
   %call.i190 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i191 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_152HyperscanArgChecks_AllocScratchBadDatabaseMagic_TestEEE, i64 16), ptr %call1.i191, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_152HyperscanArgChecks_AllocScratchBadDatabaseMagic_TestEEE, i64 16), ptr %call1.i191, align 8
   %call2.i192 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.130, ptr noundef null, ptr noundef null, ptr noundef %call.i190, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i191)
   store ptr %call2.i192, ptr @_ZN12_GLOBAL__N_152HyperscanArgChecks_AllocScratchBadDatabaseMagic_Test10test_info_E, align 8
   %65 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_152HyperscanArgChecks_AllocScratchBadDatabaseMagic_Test10test_info_E)
   %call.i193 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i194 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_154HyperscanArgChecks_AllocScratchBadDatabaseVersion_TestEEE, i64 16), ptr %call1.i194, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_154HyperscanArgChecks_AllocScratchBadDatabaseVersion_TestEEE, i64 16), ptr %call1.i194, align 8
   %call2.i195 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.132, ptr noundef null, ptr noundef null, ptr noundef %call.i193, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i194)
   store ptr %call2.i195, ptr @_ZN12_GLOBAL__N_154HyperscanArgChecks_AllocScratchBadDatabaseVersion_Test10test_info_E, align 8
   %66 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_154HyperscanArgChecks_AllocScratchBadDatabaseVersion_Test10test_info_E)
   %call.i196 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i197 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_155HyperscanArgChecks_AllocScratchBadDatabasePlatform_TestEEE, i64 16), ptr %call1.i197, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_155HyperscanArgChecks_AllocScratchBadDatabasePlatform_TestEEE, i64 16), ptr %call1.i197, align 8
   %call2.i198 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.134, ptr noundef null, ptr noundef null, ptr noundef %call.i196, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i197)
   store ptr %call2.i198, ptr @_ZN12_GLOBAL__N_155HyperscanArgChecks_AllocScratchBadDatabasePlatform_Test10test_info_E, align 8
   %67 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_155HyperscanArgChecks_AllocScratchBadDatabasePlatform_Test10test_info_E)
   %call.i199 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i200 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_155HyperscanArgChecks_AllocScratchBadDatabaseBytecode_TestEEE, i64 16), ptr %call1.i200, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_155HyperscanArgChecks_AllocScratchBadDatabaseBytecode_TestEEE, i64 16), ptr %call1.i200, align 8
   %call2.i201 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.136, ptr noundef null, ptr noundef null, ptr noundef %call.i199, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i200)
   store ptr %call2.i201, ptr @_ZN12_GLOBAL__N_155HyperscanArgChecks_AllocScratchBadDatabaseBytecode_Test10test_info_E, align 8
   %68 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_155HyperscanArgChecks_AllocScratchBadDatabaseBytecode_Test10test_info_E)
   %call.i202 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i203 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150HyperscanArgChecks_AllocScratchBadDatabaseCRC_TestEEE, i64 16), ptr %call1.i203, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150HyperscanArgChecks_AllocScratchBadDatabaseCRC_TestEEE, i64 16), ptr %call1.i203, align 8
   %call2.i204 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef %call.i202, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i203)
   store ptr %call2.i204, ptr @_ZN12_GLOBAL__N_150HyperscanArgChecks_AllocScratchBadDatabaseCRC_Test10test_info_E, align 8
   %69 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_150HyperscanArgChecks_AllocScratchBadDatabaseCRC_Test10test_info_E)
   %call.i205 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i206 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_CloneScratchNoSource_TestEEE, i64 16), ptr %call1.i206, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_CloneScratchNoSource_TestEEE, i64 16), ptr %call1.i206, align 8
   %call2.i207 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.140, ptr noundef null, ptr noundef null, ptr noundef %call.i205, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i206)
   store ptr %call2.i207, ptr @_ZN12_GLOBAL__N_144HyperscanArgChecks_CloneScratchNoSource_Test10test_info_E, align 8
   %70 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_144HyperscanArgChecks_CloneScratchNoSource_Test10test_info_E)
   %call.i208 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i209 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143HyperscanArgChecks_SerializeNoDatabase_TestEEE, i64 16), ptr %call1.i209, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143HyperscanArgChecks_SerializeNoDatabase_TestEEE, i64 16), ptr %call1.i209, align 8
   %call2.i210 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.142, ptr noundef null, ptr noundef null, ptr noundef %call.i208, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i209)
   store ptr %call2.i210, ptr @_ZN12_GLOBAL__N_143HyperscanArgChecks_SerializeNoDatabase_Test10test_info_E, align 8
   %71 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_143HyperscanArgChecks_SerializeNoDatabase_Test10test_info_E)
   %call.i211 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i212 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_141HyperscanArgChecks_SerializeNoBuffer_TestEEE, i64 16), ptr %call1.i212, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_141HyperscanArgChecks_SerializeNoBuffer_TestEEE, i64 16), ptr %call1.i212, align 8
   %call2.i213 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.144, ptr noundef null, ptr noundef null, ptr noundef %call.i211, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i212)
   store ptr %call2.i213, ptr @_ZN12_GLOBAL__N_141HyperscanArgChecks_SerializeNoBuffer_Test10test_info_E, align 8
   %72 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_141HyperscanArgChecks_SerializeNoBuffer_Test10test_info_E)
   %call.i214 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i215 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_141HyperscanArgChecks_SerializeNoLength_TestEEE, i64 16), ptr %call1.i215, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_141HyperscanArgChecks_SerializeNoLength_TestEEE, i64 16), ptr %call1.i215, align 8
   %call2.i216 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.146, ptr noundef null, ptr noundef null, ptr noundef %call.i214, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i215)
   store ptr %call2.i216, ptr @_ZN12_GLOBAL__N_141HyperscanArgChecks_SerializeNoLength_Test10test_info_E, align 8
   %73 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_141HyperscanArgChecks_SerializeNoLength_Test10test_info_E)
   %call.i217 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i218 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_StreamSizeNoDatabase_TestEEE, i64 16), ptr %call1.i218, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_StreamSizeNoDatabase_TestEEE, i64 16), ptr %call1.i218, align 8
   %call2.i219 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.148, ptr noundef null, ptr noundef null, ptr noundef %call.i217, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i218)
   store ptr %call2.i219, ptr @_ZN12_GLOBAL__N_144HyperscanArgChecks_StreamSizeNoDatabase_Test10test_info_E, align 8
   %74 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_144HyperscanArgChecks_StreamSizeNoDatabase_Test10test_info_E)
   %call.i220 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i221 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147HyperscanArgChecks_StreamSizeBogusDatabase_TestEEE, i64 16), ptr %call1.i221, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147HyperscanArgChecks_StreamSizeBogusDatabase_TestEEE, i64 16), ptr %call1.i221, align 8
   %call2.i222 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.150, ptr noundef null, ptr noundef null, ptr noundef %call.i220, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i221)
   store ptr %call2.i222, ptr @_ZN12_GLOBAL__N_147HyperscanArgChecks_StreamSizeBogusDatabase_Test10test_info_E, align 8
   %75 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_147HyperscanArgChecks_StreamSizeBogusDatabase_Test10test_info_E)
   %call.i223 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i224 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147HyperscanArgChecks_StreamSizeBlockDatabase_TestEEE, i64 16), ptr %call1.i224, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147HyperscanArgChecks_StreamSizeBlockDatabase_TestEEE, i64 16), ptr %call1.i224, align 8
   %call2.i225 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.152, ptr noundef null, ptr noundef null, ptr noundef %call.i223, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i224)
   store ptr %call2.i225, ptr @_ZN12_GLOBAL__N_147HyperscanArgChecks_StreamSizeBlockDatabase_Test10test_info_E, align 8
   %76 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_147HyperscanArgChecks_StreamSizeBlockDatabase_Test10test_info_E)
   %call.i226 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i227 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150HyperscanArgChecks_StreamSizeVectoredDatabase_TestEEE, i64 16), ptr %call1.i227, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150HyperscanArgChecks_StreamSizeVectoredDatabase_TestEEE, i64 16), ptr %call1.i227, align 8
   %call2.i228 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.154, ptr noundef null, ptr noundef null, ptr noundef %call.i226, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i227)
   store ptr %call2.i228, ptr @_ZN12_GLOBAL__N_150HyperscanArgChecks_StreamSizeVectoredDatabase_Test10test_info_E, align 8
   %77 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_150HyperscanArgChecks_StreamSizeVectoredDatabase_Test10test_info_E)
   %call.i229 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i230 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147HyperscanArgChecks_OpenStreamBlockDatabase_TestEEE, i64 16), ptr %call1.i230, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147HyperscanArgChecks_OpenStreamBlockDatabase_TestEEE, i64 16), ptr %call1.i230, align 8
   %call2.i231 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.156, ptr noundef null, ptr noundef null, ptr noundef %call.i229, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i230)
   store ptr %call2.i231, ptr @_ZN12_GLOBAL__N_147HyperscanArgChecks_OpenStreamBlockDatabase_Test10test_info_E, align 8
   %78 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_147HyperscanArgChecks_OpenStreamBlockDatabase_Test10test_info_E)
   %call.i232 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i233 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150HyperscanArgChecks_OpenStreamVectoredDatabase_TestEEE, i64 16), ptr %call1.i233, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150HyperscanArgChecks_OpenStreamVectoredDatabase_TestEEE, i64 16), ptr %call1.i233, align 8
   %call2.i234 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.158, ptr noundef null, ptr noundef null, ptr noundef %call.i232, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i233)
   store ptr %call2.i234, ptr @_ZN12_GLOBAL__N_150HyperscanArgChecks_OpenStreamVectoredDatabase_Test10test_info_E, align 8
   %79 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_150HyperscanArgChecks_OpenStreamVectoredDatabase_Test10test_info_E)
   %call.i235 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i236 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_146HyperscanArgChecks_StreamSizeRealDatabase_TestEEE, i64 16), ptr %call1.i236, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_146HyperscanArgChecks_StreamSizeRealDatabase_TestEEE, i64 16), ptr %call1.i236, align 8
   %call2.i237 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.160, ptr noundef null, ptr noundef null, ptr noundef %call.i235, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i236)
   store ptr %call2.i237, ptr @_ZN12_GLOBAL__N_146HyperscanArgChecks_StreamSizeRealDatabase_Test10test_info_E, align 8
   %80 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_146HyperscanArgChecks_StreamSizeRealDatabase_Test10test_info_E)
   %call.i238 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i239 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_140HyperscanArgChecks_StreamSizeNoSize_TestEEE, i64 16), ptr %call1.i239, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_140HyperscanArgChecks_StreamSizeNoSize_TestEEE, i64 16), ptr %call1.i239, align 8
   %call2.i240 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.162, ptr noundef null, ptr noundef null, ptr noundef %call.i238, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i239)
   store ptr %call2.i240, ptr @_ZN12_GLOBAL__N_140HyperscanArgChecks_StreamSizeNoSize_Test10test_info_E, align 8
   %81 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_140HyperscanArgChecks_StreamSizeNoSize_Test10test_info_E)
   %call.i241 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i242 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_146HyperscanArgChecks_DatabaseSizeNoDatabase_TestEEE, i64 16), ptr %call1.i242, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_146HyperscanArgChecks_DatabaseSizeNoDatabase_TestEEE, i64 16), ptr %call1.i242, align 8
   %call2.i243 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.164, ptr noundef null, ptr noundef null, ptr noundef %call.i241, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i242)
   store ptr %call2.i243, ptr @_ZN12_GLOBAL__N_146HyperscanArgChecks_DatabaseSizeNoDatabase_Test10test_info_E, align 8
   %82 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_146HyperscanArgChecks_DatabaseSizeNoDatabase_Test10test_info_E)
   %call.i244 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i245 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_142HyperscanArgChecks_DatabaseSizeNoSize_TestEEE, i64 16), ptr %call1.i245, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_142HyperscanArgChecks_DatabaseSizeNoSize_TestEEE, i64 16), ptr %call1.i245, align 8
   %call2.i246 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.166, ptr noundef null, ptr noundef null, ptr noundef %call.i244, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i245)
   store ptr %call2.i246, ptr @_ZN12_GLOBAL__N_142HyperscanArgChecks_DatabaseSizeNoSize_Test10test_info_E, align 8
   %83 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_142HyperscanArgChecks_DatabaseSizeNoSize_Test10test_info_E)
   %call.i247 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i248 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_141HyperscanArgChecks_DatabaseSizeBadDb_TestEEE, i64 16), ptr %call1.i248, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_141HyperscanArgChecks_DatabaseSizeBadDb_TestEEE, i64 16), ptr %call1.i248, align 8
   %call2.i249 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.168, ptr noundef null, ptr noundef null, ptr noundef %call.i247, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i248)
   store ptr %call2.i249, ptr @_ZN12_GLOBAL__N_141HyperscanArgChecks_DatabaseSizeBadDb_Test10test_info_E, align 8
   %84 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_141HyperscanArgChecks_DatabaseSizeBadDb_Test10test_info_E)
   %call.i250 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i251 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_141HyperscanArgChecks_DatabaseInfoBadDb_TestEEE, i64 16), ptr %call1.i251, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_141HyperscanArgChecks_DatabaseInfoBadDb_TestEEE, i64 16), ptr %call1.i251, align 8
   %call2.i252 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.170, ptr noundef null, ptr noundef null, ptr noundef %call.i250, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i251)
   store ptr %call2.i252, ptr @_ZN12_GLOBAL__N_141HyperscanArgChecks_DatabaseInfoBadDb_Test10test_info_E, align 8
   %85 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_141HyperscanArgChecks_DatabaseInfoBadDb_Test10test_info_E)
   %call.i253 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i254 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_142HyperscanArgChecks_DatabaseInfoNullDb_TestEEE, i64 16), ptr %call1.i254, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_142HyperscanArgChecks_DatabaseInfoNullDb_TestEEE, i64 16), ptr %call1.i254, align 8
   %call2.i255 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.172, ptr noundef null, ptr noundef null, ptr noundef %call.i253, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i254)
   store ptr %call2.i255, ptr @_ZN12_GLOBAL__N_142HyperscanArgChecks_DatabaseInfoNullDb_Test10test_info_E, align 8
   %86 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_142HyperscanArgChecks_DatabaseInfoNullDb_Test10test_info_E)
   %call.i256 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i257 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_DatabaseInfoNullInfo_TestEEE, i64 16), ptr %call1.i257, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_DatabaseInfoNullInfo_TestEEE, i64 16), ptr %call1.i257, align 8
   %call2.i258 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.174, ptr noundef null, ptr noundef null, ptr noundef %call.i256, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i257)
   store ptr %call2.i258, ptr @_ZN12_GLOBAL__N_144HyperscanArgChecks_DatabaseInfoNullInfo_Test10test_info_E, align 8
   %87 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_144HyperscanArgChecks_DatabaseInfoNullInfo_Test10test_info_E)
   %call.i259 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i260 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_152HyperscanArgChecks_SerializedDatabaseSizeBadLen_TestEEE, i64 16), ptr %call1.i260, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_152HyperscanArgChecks_SerializedDatabaseSizeBadLen_TestEEE, i64 16), ptr %call1.i260, align 8
   %call2.i261 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.176, ptr noundef null, ptr noundef null, ptr noundef %call.i259, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i260)
   store ptr %call2.i261, ptr @_ZN12_GLOBAL__N_152HyperscanArgChecks_SerializedDatabaseSizeBadLen_Test10test_info_E, align 8
   %88 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_152HyperscanArgChecks_SerializedDatabaseSizeBadLen_Test10test_info_E)
   %call.i262 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i263 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_152HyperscanArgChecks_SerializedDatabaseSizeNoSize_TestEEE, i64 16), ptr %call1.i263, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_152HyperscanArgChecks_SerializedDatabaseSizeNoSize_TestEEE, i64 16), ptr %call1.i263, align 8
   %call2.i264 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.178, ptr noundef null, ptr noundef null, ptr noundef %call.i262, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i263)
   store ptr %call2.i264, ptr @_ZN12_GLOBAL__N_152HyperscanArgChecks_SerializedDatabaseSizeNoSize_Test10test_info_E, align 8
   %89 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_152HyperscanArgChecks_SerializedDatabaseSizeNoSize_Test10test_info_E)
   %call.i265 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i266 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_153HyperscanArgChecks_SerializedDatabaseSizeNoBytes_TestEEE, i64 16), ptr %call1.i266, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_153HyperscanArgChecks_SerializedDatabaseSizeNoBytes_TestEEE, i64 16), ptr %call1.i266, align 8
   %call2.i267 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.180, ptr noundef null, ptr noundef null, ptr noundef %call.i265, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i266)
   store ptr %call2.i267, ptr @_ZN12_GLOBAL__N_153HyperscanArgChecks_SerializedDatabaseSizeNoBytes_Test10test_info_E, align 8
   %90 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_153HyperscanArgChecks_SerializedDatabaseSizeNoBytes_Test10test_info_E)
   %call.i268 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i269 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_152HyperscanArgChecks_SerializedDatabaseInfoBadLen_TestEEE, i64 16), ptr %call1.i269, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_152HyperscanArgChecks_SerializedDatabaseInfoBadLen_TestEEE, i64 16), ptr %call1.i269, align 8
   %call2.i270 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.182, ptr noundef null, ptr noundef null, ptr noundef %call.i268, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i269)
   store ptr %call2.i270, ptr @_ZN12_GLOBAL__N_152HyperscanArgChecks_SerializedDatabaseInfoBadLen_Test10test_info_E, align 8
   %91 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_152HyperscanArgChecks_SerializedDatabaseInfoBadLen_Test10test_info_E)
   %call.i271 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i272 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_152HyperscanArgChecks_SerializedDatabaseInfoNoInfo_TestEEE, i64 16), ptr %call1.i272, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_152HyperscanArgChecks_SerializedDatabaseInfoNoInfo_TestEEE, i64 16), ptr %call1.i272, align 8
   %call2.i273 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.184, ptr noundef null, ptr noundef null, ptr noundef %call.i271, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i272)
   store ptr %call2.i273, ptr @_ZN12_GLOBAL__N_152HyperscanArgChecks_SerializedDatabaseInfoNoInfo_Test10test_info_E, align 8
   %92 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_152HyperscanArgChecks_SerializedDatabaseInfoNoInfo_Test10test_info_E)
   %call.i274 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i275 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_153HyperscanArgChecks_SerializedDatabaseInfoNoBytes_TestEEE, i64 16), ptr %call1.i275, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_153HyperscanArgChecks_SerializedDatabaseInfoNoBytes_TestEEE, i64 16), ptr %call1.i275, align 8
   %call2.i276 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.186, ptr noundef null, ptr noundef null, ptr noundef %call.i274, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i275)
   store ptr %call2.i276, ptr @_ZN12_GLOBAL__N_153HyperscanArgChecks_SerializedDatabaseInfoNoBytes_Test10test_info_E, align 8
   %93 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_153HyperscanArgChecks_SerializedDatabaseInfoNoBytes_Test10test_info_E)
   %call.i277 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i278 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150HyperscanArgChecks_DeserializeDatabaseNoBytes_TestEEE, i64 16), ptr %call1.i278, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150HyperscanArgChecks_DeserializeDatabaseNoBytes_TestEEE, i64 16), ptr %call1.i278, align 8
   %call2.i279 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.188, ptr noundef null, ptr noundef null, ptr noundef %call.i277, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i278)
   store ptr %call2.i279, ptr @_ZN12_GLOBAL__N_150HyperscanArgChecks_DeserializeDatabaseNoBytes_Test10test_info_E, align 8
   %94 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_150HyperscanArgChecks_DeserializeDatabaseNoBytes_Test10test_info_E)
   %call.i280 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i281 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_152HyperscanArgChecks_DeserializeDatabaseAtNoBytes_TestEEE, i64 16), ptr %call1.i281, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_152HyperscanArgChecks_DeserializeDatabaseAtNoBytes_TestEEE, i64 16), ptr %call1.i281, align 8
   %call2.i282 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.190, ptr noundef null, ptr noundef null, ptr noundef %call.i280, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i281)
   store ptr %call2.i282, ptr @_ZN12_GLOBAL__N_152HyperscanArgChecks_DeserializeDatabaseAtNoBytes_Test10test_info_E, align 8
   %95 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_152HyperscanArgChecks_DeserializeDatabaseAtNoBytes_Test10test_info_E)
   %call.i283 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i284 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147HyperscanArgChecks_DeserializeDatabaseNoDb_TestEEE, i64 16), ptr %call1.i284, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147HyperscanArgChecks_DeserializeDatabaseNoDb_TestEEE, i64 16), ptr %call1.i284, align 8
   %call2.i285 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.192, ptr noundef null, ptr noundef null, ptr noundef %call.i283, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i284)
   store ptr %call2.i285, ptr @_ZN12_GLOBAL__N_147HyperscanArgChecks_DeserializeDatabaseNoDb_Test10test_info_E, align 8
   %96 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_147HyperscanArgChecks_DeserializeDatabaseNoDb_Test10test_info_E)
   %call.i286 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i287 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_149HyperscanArgChecks_DeserializeDatabaseBadLen_TestEEE, i64 16), ptr %call1.i287, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_149HyperscanArgChecks_DeserializeDatabaseBadLen_TestEEE, i64 16), ptr %call1.i287, align 8
   %call2.i288 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.194, ptr noundef null, ptr noundef null, ptr noundef %call.i286, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i287)
   store ptr %call2.i288, ptr @_ZN12_GLOBAL__N_149HyperscanArgChecks_DeserializeDatabaseBadLen_Test10test_info_E, align 8
   %97 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_149HyperscanArgChecks_DeserializeDatabaseBadLen_Test10test_info_E)
   %call.i289 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i290 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150HyperscanArgChecks_DeserializeDatabaseBadLen2_TestEEE, i64 16), ptr %call1.i290, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150HyperscanArgChecks_DeserializeDatabaseBadLen2_TestEEE, i64 16), ptr %call1.i290, align 8
   %call2.i291 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef %call.i289, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i290)
   store ptr %call2.i291, ptr @_ZN12_GLOBAL__N_150HyperscanArgChecks_DeserializeDatabaseBadLen2_Test10test_info_E, align 8
   %98 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_150HyperscanArgChecks_DeserializeDatabaseBadLen2_Test10test_info_E)
   %call.i292 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i293 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_151HyperscanArgChecks_DeserializeDatabaseBadBytes_TestEEE, i64 16), ptr %call1.i293, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_151HyperscanArgChecks_DeserializeDatabaseBadBytes_TestEEE, i64 16), ptr %call1.i293, align 8
   %call2.i294 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.198, ptr noundef null, ptr noundef null, ptr noundef %call.i292, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i293)
   store ptr %call2.i294, ptr @_ZN12_GLOBAL__N_151HyperscanArgChecks_DeserializeDatabaseBadBytes_Test10test_info_E, align 8
   %99 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_151HyperscanArgChecks_DeserializeDatabaseBadBytes_Test10test_info_E)
   %call.i295 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i296 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_152HyperscanArgChecks_DeserializeDatabaseBadBytes2_TestEEE, i64 16), ptr %call1.i296, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_152HyperscanArgChecks_DeserializeDatabaseBadBytes2_TestEEE, i64 16), ptr %call1.i296, align 8
   %call2.i297 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.200, ptr noundef null, ptr noundef null, ptr noundef %call.i295, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i296)
   store ptr %call2.i297, ptr @_ZN12_GLOBAL__N_152HyperscanArgChecks_DeserializeDatabaseBadBytes2_Test10test_info_E, align 8
   %100 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_152HyperscanArgChecks_DeserializeDatabaseBadBytes2_Test10test_info_E)
   %call.i298 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i299 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_149HyperscanArgChecks_DeserializeDatabaseAtNoDb_TestEEE, i64 16), ptr %call1.i299, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_149HyperscanArgChecks_DeserializeDatabaseAtNoDb_TestEEE, i64 16), ptr %call1.i299, align 8
   %call2.i300 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.202, ptr noundef null, ptr noundef null, ptr noundef %call.i298, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i299)
   store ptr %call2.i300, ptr @_ZN12_GLOBAL__N_149HyperscanArgChecks_DeserializeDatabaseAtNoDb_Test10test_info_E, align 8
   %101 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_149HyperscanArgChecks_DeserializeDatabaseAtNoDb_Test10test_info_E)
   %call.i301 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i302 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_151HyperscanArgChecks_DeserializeDatabaseAtBadLen_TestEEE, i64 16), ptr %call1.i302, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_151HyperscanArgChecks_DeserializeDatabaseAtBadLen_TestEEE, i64 16), ptr %call1.i302, align 8
   %call2.i303 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.204, ptr noundef null, ptr noundef null, ptr noundef %call.i301, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i302)
   store ptr %call2.i303, ptr @_ZN12_GLOBAL__N_151HyperscanArgChecks_DeserializeDatabaseAtBadLen_Test10test_info_E, align 8
   %102 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_151HyperscanArgChecks_DeserializeDatabaseAtBadLen_Test10test_info_E)
   %call.i304 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i305 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_152HyperscanArgChecks_DeserializeDatabaseAtBadLen2_TestEEE, i64 16), ptr %call1.i305, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_152HyperscanArgChecks_DeserializeDatabaseAtBadLen2_TestEEE, i64 16), ptr %call1.i305, align 8
   %call2.i306 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.206, ptr noundef null, ptr noundef null, ptr noundef %call.i304, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i305)
   store ptr %call2.i306, ptr @_ZN12_GLOBAL__N_152HyperscanArgChecks_DeserializeDatabaseAtBadLen2_Test10test_info_E, align 8
   %103 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_152HyperscanArgChecks_DeserializeDatabaseAtBadLen2_Test10test_info_E)
   %call.i307 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i308 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_153HyperscanArgChecks_DeserializeDatabaseAtBadBytes_TestEEE, i64 16), ptr %call1.i308, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_153HyperscanArgChecks_DeserializeDatabaseAtBadBytes_TestEEE, i64 16), ptr %call1.i308, align 8
   %call2.i309 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.208, ptr noundef null, ptr noundef null, ptr noundef %call.i307, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i308)
   store ptr %call2.i309, ptr @_ZN12_GLOBAL__N_153HyperscanArgChecks_DeserializeDatabaseAtBadBytes_Test10test_info_E, align 8
   %104 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_153HyperscanArgChecks_DeserializeDatabaseAtBadBytes_Test10test_info_E)
   %call.i310 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i311 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_154HyperscanArgChecks_DeserializeDatabaseAtBadBytes2_TestEEE, i64 16), ptr %call1.i311, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_154HyperscanArgChecks_DeserializeDatabaseAtBadBytes2_TestEEE, i64 16), ptr %call1.i311, align 8
   %call2.i312 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.210, ptr noundef null, ptr noundef null, ptr noundef %call.i310, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i311)
   store ptr %call2.i312, ptr @_ZN12_GLOBAL__N_154HyperscanArgChecks_DeserializeDatabaseAtBadBytes2_Test10test_info_E, align 8
   %105 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_154HyperscanArgChecks_DeserializeDatabaseAtBadBytes2_Test10test_info_E)
   %call.i313 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i314 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_141HyperscanArgChecks_ScratchSizeNoSize_TestEEE, i64 16), ptr %call1.i314, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_141HyperscanArgChecks_ScratchSizeNoSize_TestEEE, i64 16), ptr %call1.i314, align 8
   %call2.i315 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.212, ptr noundef null, ptr noundef null, ptr noundef %call.i313, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i314)
   store ptr %call2.i315, ptr @_ZN12_GLOBAL__N_141HyperscanArgChecks_ScratchSizeNoSize_Test10test_info_E, align 8
   %106 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_141HyperscanArgChecks_ScratchSizeNoSize_Test10test_info_E)
   %call.i316 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i317 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_ScratchSizeNoScratch_TestEEE, i64 16), ptr %call1.i317, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_ScratchSizeNoScratch_TestEEE, i64 16), ptr %call1.i317, align 8
   %call2.i318 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.214, ptr noundef null, ptr noundef null, ptr noundef %call.i316, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i317)
   store ptr %call2.i318, ptr @_ZN12_GLOBAL__N_144HyperscanArgChecks_ScratchSizeNoScratch_Test10test_info_E, align 8
   %107 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_144HyperscanArgChecks_ScratchSizeNoScratch_Test10test_info_E)
   %call.i319 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i320 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_145HyperscanArgChecks_ScratchSizeBadScratch_TestEEE, i64 16), ptr %call1.i320, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_145HyperscanArgChecks_ScratchSizeBadScratch_TestEEE, i64 16), ptr %call1.i320, align 8
   %call2.i321 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.216, ptr noundef null, ptr noundef null, ptr noundef %call.i319, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i320)
   store ptr %call2.i321, ptr @_ZN12_GLOBAL__N_145HyperscanArgChecks_ScratchSizeBadScratch_Test10test_info_E, align 8
   %108 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_145HyperscanArgChecks_ScratchSizeBadScratch_Test10test_info_E)
   %call.i322 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i323 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_139HyperscanArgChecks_CloneBadScratch_TestEEE, i64 16), ptr %call1.i323, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_139HyperscanArgChecks_CloneBadScratch_TestEEE, i64 16), ptr %call1.i323, align 8
   %call2.i324 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.218, ptr noundef null, ptr noundef null, ptr noundef %call.i322, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i323)
   store ptr %call2.i324, ptr @_ZN12_GLOBAL__N_139HyperscanArgChecks_CloneBadScratch_Test10test_info_E, align 8
   %109 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_139HyperscanArgChecks_CloneBadScratch_Test10test_info_E)
   %call.i325 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i326 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_138HyperscanArgChecks_ScanBadScratch_TestEEE, i64 16), ptr %call1.i326, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_138HyperscanArgChecks_ScanBadScratch_TestEEE, i64 16), ptr %call1.i326, align 8
   %call2.i327 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.220, ptr noundef null, ptr noundef null, ptr noundef %call.i325, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i326)
   store ptr %call2.i327, ptr @_ZN12_GLOBAL__N_138HyperscanArgChecks_ScanBadScratch_Test10test_info_E, align 8
   %110 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_138HyperscanArgChecks_ScanBadScratch_Test10test_info_E)
   %call.i328 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i329 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_ScanStreamBadScratch_TestEEE, i64 16), ptr %call1.i329, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_ScanStreamBadScratch_TestEEE, i64 16), ptr %call1.i329, align 8
   %call2.i330 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.222, ptr noundef null, ptr noundef null, ptr noundef %call.i328, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i329)
   store ptr %call2.i330, ptr @_ZN12_GLOBAL__N_144HyperscanArgChecks_ScanStreamBadScratch_Test10test_info_E, align 8
   %111 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_144HyperscanArgChecks_ScanStreamBadScratch_Test10test_info_E)
   %call.i331 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i332 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_145HyperscanArgChecks_ResetStreamBadScratch_TestEEE, i64 16), ptr %call1.i332, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_145HyperscanArgChecks_ResetStreamBadScratch_TestEEE, i64 16), ptr %call1.i332, align 8
   %call2.i333 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.224, ptr noundef null, ptr noundef null, ptr noundef %call.i331, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i332)
   store ptr %call2.i333, ptr @_ZN12_GLOBAL__N_145HyperscanArgChecks_ResetStreamBadScratch_Test10test_info_E, align 8
   %112 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_145HyperscanArgChecks_ResetStreamBadScratch_Test10test_info_E)
   %call.i334 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i335 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_ScanVectorBadScratch_TestEEE, i64 16), ptr %call1.i335, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_ScanVectorBadScratch_TestEEE, i64 16), ptr %call1.i335, align 8
   %call2.i336 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef %call.i334, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i335)
   store ptr %call2.i336, ptr @_ZN12_GLOBAL__N_144HyperscanArgChecks_ScanVectorBadScratch_Test10test_info_E, align 8
   %113 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_144HyperscanArgChecks_ScanVectorBadScratch_Test10test_info_E)
   %call.i337 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i338 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_146HyperscanArgChecks_ExprInfoNullExpression_TestEEE, i64 16), ptr %call1.i338, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_146HyperscanArgChecks_ExprInfoNullExpression_TestEEE, i64 16), ptr %call1.i338, align 8
   %call2.i339 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.228, ptr noundef null, ptr noundef null, ptr noundef %call.i337, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i338)
   store ptr %call2.i339, ptr @_ZN12_GLOBAL__N_146HyperscanArgChecks_ExprInfoNullExpression_Test10test_info_E, align 8
   %114 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_146HyperscanArgChecks_ExprInfoNullExpression_Test10test_info_E)
   %call.i340 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i341 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143HyperscanArgChecks_ExprInfoNullInfoPtr_TestEEE, i64 16), ptr %call1.i341, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143HyperscanArgChecks_ExprInfoNullInfoPtr_TestEEE, i64 16), ptr %call1.i341, align 8
   %call2.i342 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.230, ptr noundef null, ptr noundef null, ptr noundef %call.i340, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i341)
   store ptr %call2.i342, ptr @_ZN12_GLOBAL__N_143HyperscanArgChecks_ExprInfoNullInfoPtr_Test10test_info_E, align 8
   %115 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_143HyperscanArgChecks_ExprInfoNullInfoPtr_Test10test_info_E)
   %call.i343 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i344 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_142HyperscanArgChecks_ExprInfoNullErrPtr_TestEEE, i64 16), ptr %call1.i344, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_142HyperscanArgChecks_ExprInfoNullErrPtr_TestEEE, i64 16), ptr %call1.i344, align 8
   %call2.i345 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.232, ptr noundef null, ptr noundef null, ptr noundef %call.i343, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i344)
   store ptr %call2.i345, ptr @_ZN12_GLOBAL__N_142HyperscanArgChecks_ExprInfoNullErrPtr_Test10test_info_E, align 8
   %116 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_142HyperscanArgChecks_ExprInfoNullErrPtr_Test10test_info_E)
   %call.i346 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i347 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_149HyperscanArgChecks_ExprExtInfoNullExpression_TestEEE, i64 16), ptr %call1.i347, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_149HyperscanArgChecks_ExprExtInfoNullExpression_TestEEE, i64 16), ptr %call1.i347, align 8
   %call2.i348 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.234, ptr noundef null, ptr noundef null, ptr noundef %call.i346, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i347)
   store ptr %call2.i348, ptr @_ZN12_GLOBAL__N_149HyperscanArgChecks_ExprExtInfoNullExpression_Test10test_info_E, align 8
   %117 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_149HyperscanArgChecks_ExprExtInfoNullExpression_Test10test_info_E)
   %call.i349 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i350 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_146HyperscanArgChecks_ExprExtInfoNullInfoPtr_TestEEE, i64 16), ptr %call1.i350, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_146HyperscanArgChecks_ExprExtInfoNullInfoPtr_TestEEE, i64 16), ptr %call1.i350, align 8
   %call2.i351 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.236, ptr noundef null, ptr noundef null, ptr noundef %call.i349, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i350)
   store ptr %call2.i351, ptr @_ZN12_GLOBAL__N_146HyperscanArgChecks_ExprExtInfoNullInfoPtr_Test10test_info_E, align 8
   %118 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_146HyperscanArgChecks_ExprExtInfoNullInfoPtr_Test10test_info_E)
   %call.i352 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i353 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_145HyperscanArgChecks_ExprExtInfoNullErrPtr_TestEEE, i64 16), ptr %call1.i353, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_145HyperscanArgChecks_ExprExtInfoNullErrPtr_TestEEE, i64 16), ptr %call1.i353, align 8
   %call2.i354 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.238, ptr noundef null, ptr noundef null, ptr noundef %call.i352, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i353)
   store ptr %call2.i354, ptr @_ZN12_GLOBAL__N_145HyperscanArgChecks_ExprExtInfoNullErrPtr_Test10test_info_E, align 8
   %119 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_145HyperscanArgChecks_ExprExtInfoNullErrPtr_Test10test_info_E)
   %call.i355 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i356 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_145HyperscanArgChecks_hs_free_database_null_TestEEE, i64 16), ptr %call1.i356, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_145HyperscanArgChecks_hs_free_database_null_TestEEE, i64 16), ptr %call1.i356, align 8
   %call2.i357 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.240, ptr noundef null, ptr noundef null, ptr noundef %call.i355, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i356)
   store ptr %call2.i357, ptr @_ZN12_GLOBAL__N_145HyperscanArgChecks_hs_free_database_null_Test10test_info_E, align 8
   %120 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_145HyperscanArgChecks_hs_free_database_null_Test10test_info_E)
   %call.i358 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i359 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_148HyperscanArgChecks_hs_free_database_garbage_TestEEE, i64 16), ptr %call1.i359, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_148HyperscanArgChecks_hs_free_database_garbage_TestEEE, i64 16), ptr %call1.i359, align 8
   %call2.i360 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.242, ptr noundef null, ptr noundef null, ptr noundef %call.i358, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i359)
   store ptr %call2.i360, ptr @_ZN12_GLOBAL__N_148HyperscanArgChecks_hs_free_database_garbage_Test10test_info_E, align 8
   %121 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_148HyperscanArgChecks_hs_free_database_garbage_Test10test_info_E)
   %call.i361 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i362 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_hs_free_scratch_null_TestEEE, i64 16), ptr %call1.i362, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_hs_free_scratch_null_TestEEE, i64 16), ptr %call1.i362, align 8
   %call2.i363 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.244, ptr noundef null, ptr noundef null, ptr noundef %call.i361, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i362)
   store ptr %call2.i363, ptr @_ZN12_GLOBAL__N_144HyperscanArgChecks_hs_free_scratch_null_Test10test_info_E, align 8
   %122 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_144HyperscanArgChecks_hs_free_scratch_null_Test10test_info_E)
   %call.i364 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i365 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147HyperscanArgChecks_hs_free_scratch_garbage_TestEEE, i64 16), ptr %call1.i365, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147HyperscanArgChecks_hs_free_scratch_garbage_TestEEE, i64 16), ptr %call1.i365, align 8
   %call2.i366 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.246, ptr noundef null, ptr noundef null, ptr noundef %call.i364, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i365)
   store ptr %call2.i366, ptr @_ZN12_GLOBAL__N_147HyperscanArgChecks_hs_free_scratch_garbage_Test10test_info_E, align 8
   %123 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_147HyperscanArgChecks_hs_free_scratch_garbage_Test10test_info_E)
   %call.i367 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i368 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150HyperscanArgChecks_hs_free_compile_error_null_TestEEE, i64 16), ptr %call1.i368, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150HyperscanArgChecks_hs_free_compile_error_null_TestEEE, i64 16), ptr %call1.i368, align 8
   %call2.i369 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.248, ptr noundef null, ptr noundef null, ptr noundef %call.i367, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i368)
   store ptr %call2.i369, ptr @_ZN12_GLOBAL__N_150HyperscanArgChecks_hs_free_compile_error_null_Test10test_info_E, align 8
   %124 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_150HyperscanArgChecks_hs_free_compile_error_null_Test10test_info_E)
   %call.i370 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i371 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_153HyperscanArgChecks_multicompile_mix_highlander_1_TestEEE, i64 16), ptr %call1.i371, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_153HyperscanArgChecks_multicompile_mix_highlander_1_TestEEE, i64 16), ptr %call1.i371, align 8
   %call2.i372 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.250, ptr noundef null, ptr noundef null, ptr noundef %call.i370, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i371)
   store ptr %call2.i372, ptr @_ZN12_GLOBAL__N_153HyperscanArgChecks_multicompile_mix_highlander_1_Test10test_info_E, align 8
   %125 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_153HyperscanArgChecks_multicompile_mix_highlander_1_Test10test_info_E)
   %call.i373 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i374 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_153HyperscanArgChecks_multicompile_mix_highlander_2_TestEEE, i64 16), ptr %call1.i374, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_153HyperscanArgChecks_multicompile_mix_highlander_2_TestEEE, i64 16), ptr %call1.i374, align 8
   %call2.i375 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.252, ptr noundef null, ptr noundef null, ptr noundef %call.i373, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i374)
   store ptr %call2.i375, ptr @_ZN12_GLOBAL__N_153HyperscanArgChecks_multicompile_mix_highlander_2_Test10test_info_E, align 8
   %126 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_153HyperscanArgChecks_multicompile_mix_highlander_2_Test10test_info_E)
   %call.i376 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i377 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_155HyperscanArgChecks_multicompile_nomix_highlander_1_TestEEE, i64 16), ptr %call1.i377, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_155HyperscanArgChecks_multicompile_nomix_highlander_1_TestEEE, i64 16), ptr %call1.i377, align 8
   %call2.i378 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.254, ptr noundef null, ptr noundef null, ptr noundef %call.i376, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i377)
   store ptr %call2.i378, ptr @_ZN12_GLOBAL__N_155HyperscanArgChecks_multicompile_nomix_highlander_1_Test10test_info_E, align 8
   %127 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_155HyperscanArgChecks_multicompile_nomix_highlander_1_Test10test_info_E)
   %call.i379 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i380 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_155HyperscanArgChecks_multicompile_nomix_highlander_2_TestEEE, i64 16), ptr %call1.i380, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_155HyperscanArgChecks_multicompile_nomix_highlander_2_TestEEE, i64 16), ptr %call1.i380, align 8
   %call2.i381 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.256, ptr noundef null, ptr noundef null, ptr noundef %call.i379, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i380)
   store ptr %call2.i381, ptr @_ZN12_GLOBAL__N_155HyperscanArgChecks_multicompile_nomix_highlander_2_Test10test_info_E, align 8
   %128 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_155HyperscanArgChecks_multicompile_nomix_highlander_2_Test10test_info_E)
   %call.i382 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i383 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_149HyperscanArgChecks_hs_populate_platform_null_TestEEE, i64 16), ptr %call1.i383, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_149HyperscanArgChecks_hs_populate_platform_null_TestEEE, i64 16), ptr %call1.i383, align 8
   %call2.i384 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.258, ptr noundef null, ptr noundef null, ptr noundef %call.i382, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i383)
   store ptr %call2.i384, ptr @_ZN12_GLOBAL__N_149HyperscanArgChecks_hs_populate_platform_null_Test10test_info_E, align 8
   %129 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_149HyperscanArgChecks_hs_populate_platform_null_Test10test_info_E)
   %call.i385 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i386 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_146HyperscanArgChecks_CompressStreamNoStream_TestEEE, i64 16), ptr %call1.i386, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_146HyperscanArgChecks_CompressStreamNoStream_TestEEE, i64 16), ptr %call1.i386, align 8
   %call2.i387 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.260, ptr noundef null, ptr noundef null, ptr noundef %call.i385, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i386)
   store ptr %call2.i387, ptr @_ZN12_GLOBAL__N_146HyperscanArgChecks_CompressStreamNoStream_Test10test_info_E, align 8
   %130 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_146HyperscanArgChecks_CompressStreamNoStream_Test10test_info_E)
   %call.i388 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i389 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_CompressStreamNoUsed_TestEEE, i64 16), ptr %call1.i389, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_144HyperscanArgChecks_CompressStreamNoUsed_TestEEE, i64 16), ptr %call1.i389, align 8
   %call2.i390 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.262, ptr noundef null, ptr noundef null, ptr noundef %call.i388, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i389)
   store ptr %call2.i390, ptr @_ZN12_GLOBAL__N_144HyperscanArgChecks_CompressStreamNoUsed_Test10test_info_E, align 8
   %131 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_144HyperscanArgChecks_CompressStreamNoUsed_Test10test_info_E)
   %call.i391 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i392 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143HyperscanArgChecks_CompressStreamNoBuf_TestEEE, i64 16), ptr %call1.i392, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143HyperscanArgChecks_CompressStreamNoBuf_TestEEE, i64 16), ptr %call1.i392, align 8
   %call2.i393 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.264, ptr noundef null, ptr noundef null, ptr noundef %call.i391, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i392)
   store ptr %call2.i393, ptr @_ZN12_GLOBAL__N_143HyperscanArgChecks_CompressStreamNoBuf_Test10test_info_E, align 8
   %132 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_143HyperscanArgChecks_CompressStreamNoBuf_Test10test_info_E)
   %call.i394 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i395 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147HyperscanArgChecks_CompressStreamSmallBuff_TestEEE, i64 16), ptr %call1.i395, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147HyperscanArgChecks_CompressStreamSmallBuff_TestEEE, i64 16), ptr %call1.i395, align 8
   %call2.i396 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.266, ptr noundef null, ptr noundef null, ptr noundef %call.i394, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i395)
   store ptr %call2.i396, ptr @_ZN12_GLOBAL__N_147HyperscanArgChecks_CompressStreamSmallBuff_Test10test_info_E, align 8
   %133 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_147HyperscanArgChecks_CompressStreamSmallBuff_Test10test_info_E)
   %call.i397 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i398 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134HyperscanArgChecks_ExpandNoDb_TestEEE, i64 16), ptr %call1.i398, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134HyperscanArgChecks_ExpandNoDb_TestEEE, i64 16), ptr %call1.i398, align 8
   %call2.i399 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.268, ptr noundef null, ptr noundef null, ptr noundef %call.i397, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i398)
   store ptr %call2.i399, ptr @_ZN12_GLOBAL__N_134HyperscanArgChecks_ExpandNoDb_Test10test_info_E, align 8
   %134 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_134HyperscanArgChecks_ExpandNoDb_Test10test_info_E)
   %call.i400 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i401 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134HyperscanArgChecks_ExpandNoTo_TestEEE, i64 16), ptr %call1.i401, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134HyperscanArgChecks_ExpandNoTo_TestEEE, i64 16), ptr %call1.i401, align 8
   %call2.i402 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.270, ptr noundef null, ptr noundef null, ptr noundef %call.i400, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i401)
   store ptr %call2.i402, ptr @_ZN12_GLOBAL__N_134HyperscanArgChecks_ExpandNoTo_Test10test_info_E, align 8
   %135 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_134HyperscanArgChecks_ExpandNoTo_Test10test_info_E)
   %call.i403 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i404 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135HyperscanArgChecks_ExpandNoBuf_TestEEE, i64 16), ptr %call1.i404, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135HyperscanArgChecks_ExpandNoBuf_TestEEE, i64 16), ptr %call1.i404, align 8
   %call2.i405 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef %call.i403, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i404)
   store ptr %call2.i405, ptr @_ZN12_GLOBAL__N_135HyperscanArgChecks_ExpandNoBuf_Test10test_info_E, align 8
   %136 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_135HyperscanArgChecks_ExpandNoBuf_Test10test_info_E)
   %call.i406 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i407 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_138HyperscanArgChecks_ExpandSmallBuf_TestEEE, i64 16), ptr %call1.i407, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_138HyperscanArgChecks_ExpandSmallBuf_TestEEE, i64 16), ptr %call1.i407, align 8
   %call2.i408 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.274, ptr noundef null, ptr noundef null, ptr noundef %call.i406, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i407)
   store ptr %call2.i408, ptr @_ZN12_GLOBAL__N_138HyperscanArgChecks_ExpandSmallBuf_Test10test_info_E, align 8
   %137 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_138HyperscanArgChecks_ExpandSmallBuf_Test10test_info_E)
   %call.i409 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i410 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_146HyperscanArgChecks_ResetAndExpandNoStream_TestEEE, i64 16), ptr %call1.i410, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_146HyperscanArgChecks_ResetAndExpandNoStream_TestEEE, i64 16), ptr %call1.i410, align 8
   %call2.i411 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.276, ptr noundef null, ptr noundef null, ptr noundef %call.i409, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i410)
   store ptr %call2.i411, ptr @_ZN12_GLOBAL__N_146HyperscanArgChecks_ResetAndExpandNoStream_Test10test_info_E, align 8
   %138 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_146HyperscanArgChecks_ResetAndExpandNoStream_Test10test_info_E)
   %call.i412 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i413 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143HyperscanArgChecks_ResetAndExpandNoBuf_TestEEE, i64 16), ptr %call1.i413, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143HyperscanArgChecks_ResetAndExpandNoBuf_TestEEE, i64 16), ptr %call1.i413, align 8
   %call2.i414 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.278, ptr noundef null, ptr noundef null, ptr noundef %call.i412, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i413)
   store ptr %call2.i414, ptr @_ZN12_GLOBAL__N_143HyperscanArgChecks_ResetAndExpandNoBuf_Test10test_info_E, align 8
   %139 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_143HyperscanArgChecks_ResetAndExpandNoBuf_Test10test_info_E)
   %call.i415 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i416 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_146HyperscanArgChecks_ResetAndExpandSmallBuf_TestEEE, i64 16), ptr %call1.i416, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_146HyperscanArgChecks_ResetAndExpandSmallBuf_TestEEE, i64 16), ptr %call1.i416, align 8
   %call2.i417 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.280, ptr noundef null, ptr noundef null, ptr noundef %call.i415, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i416)
   store ptr %call2.i417, ptr @_ZN12_GLOBAL__N_146HyperscanArgChecks_ResetAndExpandSmallBuf_Test10test_info_E, align 8
   %140 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_146HyperscanArgChecks_ResetAndExpandSmallBuf_Test10test_info_E)
   %call.i418 = tail call noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
   %call1.i419 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147HyperscanArgChecks_ResetAndExpandNoScratch_TestEEE, i64 16), ptr %call1.i419, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147HyperscanArgChecks_ResetAndExpandNoScratch_TestEEE, i64 16), ptr %call1.i419, align 8
   %call2.i420 = tail call noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef %call.i418, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef nonnull %call1.i419)
   store ptr %call2.i420, ptr @_ZN12_GLOBAL__N_147HyperscanArgChecks_ResetAndExpandNoScratch_Test10test_info_E, align 8
   %141 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_147HyperscanArgChecks_ResetAndExpandNoScratch_Test10test_info_E)
@@ -128900,7 +128900,7 @@ entry:
   %call1.i.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8UnitTest27parameterized_test_registryEv(ptr noundef nonnull align 8 dereferenceable(24) %call.i.i)
   %call2.i.i = tail call fastcc noundef ptr @_ZN7testing8internal29ParameterizedTestCaseRegistry24GetTestCasePatternHolderIN12_GLOBAL__N_111BadModeTestEEEPNS0_25ParameterizedTestCaseInfoIT_EEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i, i32 noundef 2615)
   %call3.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN12_GLOBAL__N_128BadModeTest_FailCompile_TestEEE, i64 16), ptr %call3.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN12_GLOBAL__N_128BadModeTest_FailCompile_TestEEE, i64 16), ptr %call3.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i) #28
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #31
   %142 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16

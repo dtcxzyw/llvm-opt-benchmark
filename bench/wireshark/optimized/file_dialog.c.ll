@@ -79,7 +79,7 @@ define hidden range(i32 0, 3) i32 @get_stats_for_preview(ptr noundef %0, ptr noc
   %30 = load i64, ptr %9, align 8
   %31 = load i64, ptr %8, align 8
   %32 = sub i64 %30, %31
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 176), align 8
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 176), align 8
   %34 = zext i32 %33 to i64
   %.not46 = icmp slt i64 %32, %34
   br i1 %.not46, label %35, label %._crit_edge

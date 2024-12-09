@@ -379,7 +379,7 @@ define linkonce_odr hidden void @_ZN2cv11MatOp_SolveD2Ev(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN2cv5MatOpC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN2cv5MatOpE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTVN2cv5MatOpE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -8408,7 +8408,7 @@ define i64 @_ZNK2cv7MatExpr4sizeEv(ptr noundef nonnull align 8 dereferenceable(3
           to label %23 unwind label %24
 
 23:                                               ; preds = %21
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN2cv17MatOp_InitializerE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTVN2cv17MatOp_InitializerE, i64 16), ptr %22, align 8
   store ptr %22, ptr @_ZZN2cvL25getGlobalMatOpInitializerEvE8instance, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL25getGlobalMatOpInitializerEvE8instance) #22
   br label %_ZN2cvL13isInitializerERKNS_7MatExprE.exit
@@ -8476,7 +8476,7 @@ define noundef i32 @_ZNK2cv7MatExpr4typeEv(ptr noundef nonnull align 8 dereferen
           to label %10 unwind label %11
 
 10:                                               ; preds = %8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN2cv17MatOp_InitializerE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTVN2cv17MatOp_InitializerE, i64 16), ptr %9, align 8
   store ptr %9, ptr @_ZZN2cvL25getGlobalMatOpInitializerEvE8instance, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL25getGlobalMatOpInitializerEvE8instance) #22
   br label %13
@@ -12567,7 +12567,7 @@ define linkonce_odr hidden void @_ZN2cv17MatOp_Initializer8makeExprERNS_7MatExpr
           to label %16 unwind label %17
 
 16:                                               ; preds = %14
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN2cv17MatOp_InitializerE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTVN2cv17MatOp_InitializerE, i64 16), ptr %15, align 8
   store ptr %15, ptr @_ZZN2cvL25getGlobalMatOpInitializerEvE8instance, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL25getGlobalMatOpInitializerEvE8instance) #22
   br label %19
@@ -12798,7 +12798,7 @@ define linkonce_odr hidden void @_ZN2cv17MatOp_Initializer8makeExprERNS_7MatExpr
           to label %17 unwind label %18
 
 17:                                               ; preds = %15
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN2cv17MatOp_InitializerE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTVN2cv17MatOp_InitializerE, i64 16), ptr %16, align 8
   store ptr %16, ptr @_ZZN2cvL25getGlobalMatOpInitializerEvE8instance, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL25getGlobalMatOpInitializerEvE8instance) #22
   br label %20
@@ -13547,14 +13547,14 @@ declare void @_ZN2cv3MatC1EiPKiiPvPKm(ptr noundef nonnull align 8 dereferenceabl
 define internal void @_GLOBAL__sub_I_matrix_expressions.cpp() #16 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #22
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN2cv14MatOp_IdentityE, i64 16), ptr @_ZN2cvL16g_MatOp_IdentityE, align 8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN2cv11MatOp_AddExE, i64 16), ptr @_ZN2cvL13g_MatOp_AddExE, align 8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN2cv9MatOp_BinE, i64 16), ptr @_ZN2cvL11g_MatOp_BinE, align 8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN2cv9MatOp_CmpE, i64 16), ptr @_ZN2cvL11g_MatOp_CmpE, align 8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN2cv10MatOp_GEMME, i64 16), ptr @_ZN2cvL12g_MatOp_GEMME, align 8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN2cv12MatOp_InvertE, i64 16), ptr @_ZN2cvL14g_MatOp_InvertE, align 8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN2cv7MatOp_TE, i64 16), ptr @_ZN2cvL9g_MatOp_TE, align 8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN2cv11MatOp_SolveE, i64 16), ptr @_ZN2cvL13g_MatOp_SolveE, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTVN2cv14MatOp_IdentityE, i64 16), ptr @_ZN2cvL16g_MatOp_IdentityE, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTVN2cv11MatOp_AddExE, i64 16), ptr @_ZN2cvL13g_MatOp_AddExE, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTVN2cv9MatOp_BinE, i64 16), ptr @_ZN2cvL11g_MatOp_BinE, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTVN2cv9MatOp_CmpE, i64 16), ptr @_ZN2cvL11g_MatOp_CmpE, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTVN2cv10MatOp_GEMME, i64 16), ptr @_ZN2cvL12g_MatOp_GEMME, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTVN2cv12MatOp_InvertE, i64 16), ptr @_ZN2cvL14g_MatOp_InvertE, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTVN2cv7MatOp_TE, i64 16), ptr @_ZN2cvL9g_MatOp_TE, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTVN2cv11MatOp_SolveE, i64 16), ptr @_ZN2cvL13g_MatOp_SolveE, align 8
   ret void
 }
 

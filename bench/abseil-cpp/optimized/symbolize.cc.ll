@@ -172,7 +172,7 @@ if.then.i.i:                                      ; preds = %while.cond.backedge
   br i1 %cmp.i.i, label %while.body.us.preheader.i.i, label %if.end, !llvm.loop !5
 
 do.body.i.i:                                      ; preds = %if.then16.us.i.i
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %0)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %0)
   br label %return
 
 if.end:                                           ; preds = %if.then.i.i
@@ -245,7 +245,7 @@ if.then.i.i27:                                    ; preds = %while.cond.backedge
   br i1 %cmp.i.i38, label %while.body.us.preheader.i.i9, label %for.cond.preheader, !llvm.loop !5
 
 do.body.i.i44:                                    ; preds = %if.then16.us.i.i41
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %4)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %4)
   br label %return
 
 for.cond.preheader:                               ; preds = %if.then.i.i27
@@ -325,7 +325,7 @@ if.then.i.i71:                                    ; preds = %while.cond.backedge
   br i1 %cmp.i.i82, label %while.body.us.preheader.i.i53, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit92, !llvm.loop !5
 
 do.body.i.i88:                                    ; preds = %if.then16.us.i.i85
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %9)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %9)
   br label %return
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit92: ; preds = %if.then.i.i71
@@ -388,7 +388,7 @@ if.then.i:                                        ; preds = %while.cond.backedge
   br i1 %cmp.i, label %while.body.us.preheader.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit, !llvm.loop !5
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread: ; preds = %if.then16.us.i
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %11)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %11)
   br label %return
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit: ; preds = %if.then.i, %if.end22.us.i
@@ -442,7 +442,7 @@ entry:
   br i1 %cmp, label %do.body, label %while.body.us.preheader.i.i
 
 do.body:                                          ; preds = %entry
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 638, ptr noundef nonnull @.str.1, ptr noundef %name, i64 noundef %name_len)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 638, ptr noundef nonnull @.str.1, ptr noundef %name, i64 noundef %name_len)
   br label %return
 
 while.body.us.preheader.i.i:                      ; preds = %entry, %if.then.i.i
@@ -499,7 +499,7 @@ if.then.i.i:                                      ; preds = %while.cond.backedge
   br i1 %cmp.i.i, label %while.body.us.preheader.i.i, label %if.end2, !llvm.loop !5
 
 do.body.i.i:                                      ; preds = %if.then16.us.i.i
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %0)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %0)
   br label %return
 
 if.end2:                                          ; preds = %if.then.i.i
@@ -572,7 +572,7 @@ if.then.i.i32:                                    ; preds = %while.cond.backedge
   br i1 %cmp.i.i43, label %while.body.us.preheader.i.i14, label %for.cond.preheader, !llvm.loop !5
 
 do.body.i.i49:                                    ; preds = %if.then16.us.i.i46
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %4)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %4)
   br label %return
 
 for.cond.preheader:                               ; preds = %if.then.i.i32
@@ -650,7 +650,7 @@ if.then.i.i76:                                    ; preds = %while.cond.backedge
   br i1 %cmp.i.i87, label %while.body.us.preheader.i.i58, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit97, !llvm.loop !5
 
 do.body.i.i93:                                    ; preds = %if.then16.us.i.i90
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %8)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %8)
   br label %return
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit97: ; preds = %if.then.i.i76
@@ -716,7 +716,7 @@ if.then.i:                                        ; preds = %while.cond.backedge
   br i1 %cmp.i, label %while.body.us.preheader.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit, !llvm.loop !5
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread: ; preds = %if.then16.us.i
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %10)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %10)
   br label %return
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit: ; preds = %if.then.i, %if.end22.us.i
@@ -976,7 +976,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp10.not, label %do.body12, label %do.end16
 
 do.body12:                                        ; preds = %if.else
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 1646, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1646, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
   unreachable
 
 do.end16:                                         ; preds = %if.else
@@ -1268,7 +1268,7 @@ land.rhs.i.i.i.i:                                 ; preds = %do.body.i.i.i.i
   br i1 %cmp5.i.i.i.i, label %do.body.i.i.i.i, label %do.body8.i.i.i.i, !llvm.loop !14
 
 do.body8.i.i.i.i:                                 ; preds = %land.rhs.i.i.i.i
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 1072, ptr noundef nonnull @.str.14, ptr noundef nonnull %maps_path.i.i.i.i, i32 noundef %14)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1072, ptr noundef nonnull @.str.14, ptr noundef nonnull %maps_path.i.i.i.i, i32 noundef %14)
           to label %_ZN4absl18debugging_internalL11ReadAddrMapEPFbPKcPKvS4_mPvES5_S5_m.exit.thread.i.i.i unwind label %lpad.loopexit.split-lp.i.loopexit.split-lp.i.i.i
 
 _ZN4absl18debugging_internalL11ReadAddrMapEPFbPKcPKvS4_mPvES5_S5_m.exit.thread.i.i.i: ; preds = %do.body8.i.i.i.i
@@ -1353,7 +1353,7 @@ land.rhs.i47.i.i.i:                               ; preds = %call.i42.noexc.i.i.
   br i1 %cmp8.i.i.i.i, label %do.body.i41.i.i.i, label %do.body10.i.i.i.i, !llvm.loop !16
 
 do.body10.i.i.i.i:                                ; preds = %land.rhs.i47.i.i.i
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 453, ptr noundef nonnull @.str.5, i32 noundef %15)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 453, ptr noundef nonnull @.str.5, i32 noundef %15)
           to label %if.then.i59.i.i.i.i unwind label %lpad.loopexit.i.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %call.i42.noexc.i.i.i
@@ -1436,7 +1436,7 @@ land.rhs.i.i.i:                                   ; preds = %call.i147.noexc.i.i
   br i1 %cmp8.i.i.i, label %do.body.i146.i.i, label %do.body10.i.i.i, !llvm.loop !16
 
 do.body10.i.i.i:                                  ; preds = %land.rhs.i.i.i
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 453, ptr noundef nonnull @.str.5, i32 noundef %16)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 453, ptr noundef nonnull @.str.5, i32 noundef %16)
           to label %if.then.i59.i.i.i.i unwind label %lpad.loopexit.i.loopexit.split-lp.loopexit.i.loopexit.split-lp.loopexit.split-lp.i.i
 
 if.end.i148.i.i:                                  ; preds = %call.i147.noexc.i.i
@@ -1549,7 +1549,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %invoke.cont21.i.i.i
 do.body26.invoke.i.i.i.i:                         ; preds = %while.end.i.i.i.i, %if.end44.i.i.i.i, %lor.lhs.false35.i.i.i.i, %invoke.cont32.i.i.i.i, %lor.lhs.false.i.i.i.i, %invoke.cont21.i.i.i.i
   %22 = phi i32 [ 1099, %invoke.cont21.i.i.i.i ], [ 1099, %lor.lhs.false.i.i.i.i ], [ 1108, %invoke.cont32.i.i.i.i ], [ 1108, %lor.lhs.false35.i.i.i.i ], [ 1120, %if.end44.i.i.i.i ], [ 1120, %while.end.i.i.i.i ]
   %23 = phi ptr [ @.str.15, %invoke.cont21.i.i.i.i ], [ @.str.15, %lor.lhs.false.i.i.i.i ], [ @.str.15, %invoke.cont32.i.i.i.i ], [ @.str.15, %lor.lhs.false35.i.i.i.i ], [ @.str.16, %if.end44.i.i.i.i ], [ @.str.16, %while.end.i.i.i.i ]
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef %22, ptr noundef nonnull %23, ptr noundef nonnull %reader.sroa.11.0.i.i.i.i)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef %22, ptr noundef nonnull %23, ptr noundef nonnull %reader.sroa.11.0.i.i.i.i)
           to label %if.then.i59.i.i.i.i unwind label %lpad.loopexit.split-lp.i.loopexit.i.i.i
 
 if.end31.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i.i
@@ -1893,7 +1893,7 @@ do.body17.i.invoke.i.i.i:                         ; preds = %do.body17.i.i.i.i, 
   %60 = phi i64 [ %57, %do.body17.i.i.i.i ], [ %53, %do.body.i33.i.i.i ]
   %61 = phi i64 [ %57, %do.body17.i.i.i.i ], [ %54, %do.body.i33.i.i.i ]
   %62 = phi ptr [ %.pre.i.i.i.i, %do.body17.i.i.i.i ], [ %55, %do.body.i33.i.i.i ]
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef %58, ptr noundef nonnull %59, i64 noundef %60, ptr noundef %cursor.335.i.i.i.i, i64 noundef %61, ptr noundef %62)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef %58, ptr noundef nonnull %59, i64 noundef %60, ptr noundef %cursor.335.i.i.i.i, i64 noundef %61, ptr noundef %62)
           to label %while.cond.i.i.i.i.backedge unwind label %lpad.loopexit.i.loopexit.split-lp.loopexit.i.loopexit.split-lp.loopexit.i.i
 
 if.else22.i.i.i.i:                                ; preds = %if.else.i25.i.i.i
@@ -1984,7 +1984,7 @@ call3.i.i.noexc.i.i.i:                            ; preds = %_ZN4absl18debugging
   br i1 %cmp.not.i.i.i.i.i, label %do.body4.i.i.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit.i.i.i.i
 
 do.body4.i.i.i.i.i:                               ; preds = %call3.i.i.noexc.i.i.i
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 331, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 331, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
           to label %.noexc38.i.i.i unwind label %lpad.loopexit.i.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i
 
 .noexc38.i.i.i:                                   ; preds = %do.body4.i.i.i.i.i
@@ -2193,7 +2193,7 @@ do.body.i.i.i:                                    ; preds = %if.end14.i.do.body.
   %90 = phi ptr [ %.pre359.i.i, %if.end14.i.do.body.i_crit_edge.i.i ], [ %85, %if.then8.i.i.i ]
   %call19.i.i.i = tail call ptr @__errno_location() #22
   %91 = load i32, ptr %call19.i.i.i, align 4
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 1383, ptr noundef nonnull @.str.20, ptr noundef %90, i32 noundef %91)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1383, ptr noundef nonnull @.str.20, ptr noundef %90, i32 noundef %91)
   br label %_ZN4absl18debugging_internalL22MaybeInitializeObjFileEPNS0_12_GLOBAL__N_17ObjFileE.exit.thread.i.i
 
 if.end20.i.i.i:                                   ; preds = %if.end14.i.i.i, %if.then.i.i.i
@@ -2255,7 +2255,7 @@ if.then.i.i100.i.i.i:                             ; preds = %while.cond.backedge
   br i1 %cmp.i.i111.i.i.i, label %while.body.us.preheader.i.i82.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit121.i.i.i, !llvm.loop !5
 
 do.body.i.i117.i.i.i:                             ; preds = %if.then16.us.i.i114.i.i.i
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %93)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %93)
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit121.i.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit121.i.i.i: ; preds = %if.then.i.i100.i.i.i, %if.end22.us.i.i92.i.i.i, %do.body.i.i117.i.i.i
@@ -2277,7 +2277,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
 
 do.body26.i.i.i:                                  ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit121.i.i.i
   %95 = load ptr, ptr %arrayidx.i18.i.i.i, align 8
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 1393, ptr noundef nonnull @.str.21, ptr noundef %95, i32 noundef -1)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1393, ptr noundef nonnull @.str.21, ptr noundef %95, i32 noundef -1)
   br label %_ZN4absl18debugging_internalL22MaybeInitializeObjFileEPNS0_12_GLOBAL__N_17ObjFileE.exit.thread.i.i
 
 if.end31.i.i.i:                                   ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit121.i.i.i
@@ -2338,12 +2338,12 @@ if.then.i.i.i.i.i:                                ; preds = %while.cond.backedge
   br i1 %cmp.i.i.i43.i.i, label %while.body.us.preheader.i.i.i.i.i, label %if.end38.i.i.i, !llvm.loop !5
 
 do.body.i.i.i.i.i:                                ; preds = %if.then16.us.i.i.i.i.i
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %96)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %96)
   br label %do.body34.i.i.i
 
 do.body34.i.i.i:                                  ; preds = %if.end22.us.i.i.i.i.i, %do.body.i.i.i.i.i
   %97 = load ptr, ptr %arrayidx.i18.i.i.i, align 8
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 1399, ptr noundef nonnull @.str.22, ptr noundef %97)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1399, ptr noundef nonnull @.str.22, ptr noundef %97)
   br label %_ZN4absl18debugging_internalL22MaybeInitializeObjFileEPNS0_12_GLOBAL__N_17ObjFileE.exit.thread.i.i
 
 if.end38.i.i.i:                                   ; preds = %if.then.i.i.i.i.i
@@ -2425,7 +2425,7 @@ if.then.i.i55.i.i.i:                              ; preds = %while.cond.backedge
   br i1 %cmp.i.i66.i.i.i, label %while.body.us.preheader.i.i37.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit76.i.i.i, !llvm.loop !5
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit76.thread.i.i.i: ; preds = %if.then16.us.i.i69.i.i.i
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %101)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %101)
   br label %do.body46.i.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit76.i.i.i: ; preds = %if.then.i.i55.i.i.i, %if.end22.us.i.i47.i.i.i
@@ -2437,7 +2437,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
 
 do.body46.i.i.i:                                  ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit76.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit76.thread.i.i.i
   %102 = load ptr, ptr %arrayidx.i18.i.i.i, align 8
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 1410, ptr noundef nonnull @.str.23, ptr noundef %102, i32 noundef %j.0177.i.i.i)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1410, ptr noundef nonnull @.str.23, ptr noundef %102, i32 noundef %j.0177.i.i.i)
   br label %_ZN4absl18debugging_internalL22MaybeInitializeObjFileEPNS0_12_GLOBAL__N_17ObjFileE.exit.thread.i.i
 
 if.end50.i.i.i:                                   ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit76.i.i.i
@@ -2464,7 +2464,7 @@ if.then59.i.i.i:                                  ; preds = %if.end55.i.i.i
 
 for.end.thread.i.i.i:                             ; preds = %if.end55.i.i.i
   %105 = load ptr, ptr %arrayidx.i18.i.i.i, align 8
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 1436, ptr noundef nonnull @.str.24, ptr noundef %105, i64 noundef %num_interesting_load_segments.0178.i.i.i, i64 noundef 4)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1436, ptr noundef nonnull @.str.24, ptr noundef %105, i64 noundef %num_interesting_load_segments.0178.i.i.i, i64 noundef 4)
   br label %if.then3.i.i19
 
 for.inc.i.i.i:                                    ; preds = %if.then59.i.i.i, %lor.lhs.false.i.i.i, %if.end50.i.i.i
@@ -2479,7 +2479,7 @@ for.end.i.i.i:                                    ; preds = %for.inc.i.i.i
 
 do.body73.i.i.i:                                  ; preds = %for.end.i.i.i, %if.end38.i.i.i
   %107 = load ptr, ptr %arrayidx.i18.i.i.i, align 8
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 1442, ptr noundef nonnull @.str.25, ptr noundef %107)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1442, ptr noundef nonnull @.str.25, ptr noundef %107)
   br label %_ZN4absl18debugging_internalL22MaybeInitializeObjFileEPNS0_12_GLOBAL__N_17ObjFileE.exit.thread.i.i
 
 _ZN4absl18debugging_internalL22MaybeInitializeObjFileEPNS0_12_GLOBAL__N_17ObjFileE.exit.thread.i.i: ; preds = %do.body73.i.i.i, %do.body46.i.i.i, %do.body34.i.i.i, %do.body26.i.i.i, %do.body.i.i.i
@@ -2523,7 +2523,7 @@ for.body.i9.i:                                    ; preds = %for.cond.i.i, %if.t
   ]
 
 do.body19.i.i:                                    ; preds = %for.body.i9.i
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 1478, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1478, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9)
   unreachable
 
 if.end23.i.i:                                     ; preds = %for.body.i9.i
@@ -2539,7 +2539,7 @@ if.end23.i.i:                                     ; preds = %for.body.i9.i
 
 do.body30.i.i:                                    ; preds = %for.body.i9.i, %for.cond.i.i
   %116 = load ptr, ptr %arrayidx.i18.i.i.i, align 8
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 1491, ptr noundef nonnull @.str.10, ptr noundef %116, ptr noundef %pc, i64 noundef %109)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1491, ptr noundef nonnull @.str.10, ptr noundef %116, ptr noundef %pc, i64 noundef %109)
   br label %if.end37.i.i
 
 if.else.i.i:                                      ; preds = %if.end23.i.i
@@ -2652,7 +2652,7 @@ if.then.i.i.i74.i.i:                              ; preds = %while.cond.backedge
   br i1 %cmp.i.i.i83.i.i, label %while.body.us.preheader.i.i.i59.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.i.i.i.i, !llvm.loop !5
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread.i.i.i.i: ; preds = %if.then16.us.i.i.i111.i.i
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %125)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %125)
   br label %do.body.i.i110.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.i.i.i.i: ; preds = %if.then.i.i.i74.i.i, %if.end22.us.i.i.i66.i.i
@@ -2666,7 +2666,7 @@ do.body.i.i110.i.i:                               ; preds = %_ZN4absl18debugging
   %file.sroa.37.9.i.i.i = phi i64 [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread.i.i.i.i ], [ %file.sroa.37.7.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.i.i.i.i ]
   %file.sroa.20.9.i.i.i = phi i64 [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread.i.i.i.i ], [ %file.sroa.20.7.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.i.i.i.i ]
   %retval.0.i26.i.i.i.i = phi i64 [ -1, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread.i.i.i.i ], [ %retval.0.i.i.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.i.i.i.i ]
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 548, ptr noundef nonnull @.str.27, i64 noundef %cond.i.i.i.i, i64 noundef %add.i.i58.i.i, i64 noundef %retval.0.i26.i.i.i.i)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 548, ptr noundef nonnull @.str.27, i64 noundef %cond.i.i.i.i, i64 noundef %add.i.i58.i.i, i64 noundef %retval.0.i26.i.i.i.i)
   br label %for.inc.i86.i.i
 
 if.end.i.i85.i.i:                                 ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.i.i.i.i
@@ -2675,7 +2675,7 @@ if.end.i.i85.i.i:                                 ; preds = %_ZN4absl18debugging
   br i1 %cmp7.not.i.i.i.i, label %if.end12.i.i.i.i, label %do.body9.i.i.i.i
 
 do.body9.i.i.i.i:                                 ; preds = %if.end.i.i85.i.i
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 557, ptr noundef nonnull @.str.28, i64 noundef %cond.i.i.i.i, i64 noundef %add.i.i58.i.i, i64 noundef %retval.0.i.i.i.i.i, i64 noundef 64)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 557, ptr noundef nonnull @.str.28, i64 noundef %cond.i.i.i.i, i64 noundef %add.i.i58.i.i, i64 noundef %retval.0.i.i.i.i.i, i64 noundef 64)
   br label %for.inc.i86.i.i
 
 if.end12.i.i.i.i:                                 ; preds = %if.end.i.i85.i.i
@@ -2786,7 +2786,7 @@ if.then.i.i29.i.i.i:                              ; preds = %while.cond.backedge
   br i1 %cmp.i.i39.i.i.i, label %while.body.us.preheader.i.i14.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.i.i.i, !llvm.loop !5
 
 do.body.i.i.i109.i.i:                             ; preds = %if.then16.us.i.i42.i.i.i
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %128)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %128)
   br label %for.inc.i86.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.i.i.i: ; preds = %if.then.i.i29.i.i.i
@@ -2863,7 +2863,7 @@ if.then.i.i70.i.i.i:                              ; preds = %while.cond.backedge
   br i1 %cmp.i41.i.i.i.i, label %while.body.us.preheader.i.i55.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.i79.i.i.i, !llvm.loop !5
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread7.i.i.i.i: ; preds = %if.then16.us.i.i91.i.i.i
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %129)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %129)
   br label %cond.false.i.i.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.i79.i.i.i: ; preds = %if.then.i.i70.i.i.i, %if.end22.us.i.i62.i.i.i
@@ -3034,7 +3034,7 @@ if.then.i70.i.i.i.i:                              ; preds = %while.cond.backedge
   br i1 %cmp.i79.i.i.i.i, label %while.body.us.preheader.i49.i.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit80.i.i.i.i, !llvm.loop !5
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit80.thread.i.i.i.i: ; preds = %if.then16.us.i66.i.i.i.i
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %139)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef nonnull @.str.5, i32 noundef %139)
   br label %do.body.i90.i.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit80.i.i.i.i: ; preds = %if.then.i70.i.i.i.i, %if.end22.us.i60.i.i.i.i
@@ -3048,7 +3048,7 @@ do.body.i90.i.i.i:                                ; preds = %_ZN4absl18debugging
   %file.sroa.37.27.i.i.i = phi i64 [ %file.sroa.37.26.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit80.i.i.i.i ], [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit80.thread.i.i.i.i ]
   %file.sroa.20.27.i.i.i = phi i64 [ %file.sroa.20.26.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit80.i.i.i.i ], [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit80.thread.i.i.i.i ]
   %retval.0.i6516.i.i.i.i = phi i64 [ %retval.0.i65.i.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit80.i.i.i.i ], [ -1, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit80.thread.i.i.i.i ]
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 838, ptr noundef nonnull @.str.29, i32 noundef %118, i64 noundef %add46.i.i.i.i, i64 noundef %retval.0.i6516.i.i.i.i)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 838, ptr noundef nonnull @.str.29, i32 noundef %118, i64 noundef %add46.i.i.i.i, i64 noundef %retval.0.i6516.i.i.i.i)
   br label %for.inc.i86.i.i
 
 do.body52.i.i.i.i:                                ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit80.i.i.i.i
@@ -3056,7 +3056,7 @@ do.body52.i.i.i.i:                                ; preds = %_ZN4absl18debugging
   br i1 %cmp53.i.i.i.i, label %do.body56.i.i.i.i, label %do.end62.i.i.i.i
 
 do.body56.i.i.i.i:                                ; preds = %do.body52.i.i.i.i
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 842, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 842, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31)
   unreachable
 
 do.end62.i.i.i.i:                                 ; preds = %do.body52.i.i.i.i
@@ -3124,7 +3124,7 @@ if.then53.i.i:                                    ; preds = %if.then51.i.i
   br i1 %cmp57.i.i, label %do.body60.i.i, label %do.end66.i.i
 
 do.body60.i.i:                                    ; preds = %if.then53.i.i
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 1518, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1518, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
   unreachable
 
 do.end66.i.i:                                     ; preds = %if.then53.i.i
@@ -3258,7 +3258,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15Symbol
   br i1 %cmp.not.i31.i.i.i, label %do.body4.i.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit.i.i.i
 
 do.body4.i.i.i.i:                                 ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit.i.i.i
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 331, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 331, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
   unreachable
 
 _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit.i.i.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit.i.i.i
@@ -3293,7 +3293,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15Symbol
   br i1 %found_oldest_index.1.i.i.i, label %do.end25.i.i.i, label %do.body21.i.i.i
 
 do.body21.i.i.i:                                  ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit38.i.i.i
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 1331, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1331, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33)
   unreachable
 
 do.end25.i.i.i:                                   ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit38.i.i.i
@@ -3312,7 +3312,7 @@ do.end25.i.i.i:                                   ; preds = %_ZN4absl18debugging
   br i1 %cmp.not.i43.i.i.i, label %do.body4.i44.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit45.i.i.i
 
 do.body4.i44.i.i.i:                               ; preds = %do.end25.i.i.i
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 331, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 331, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
   unreachable
 
 _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit45.i.i.i: ; preds = %do.end25.i.i.i

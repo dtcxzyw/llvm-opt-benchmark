@@ -138,17 +138,17 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   tail call void @slurm_init(ptr noundef null) #3
   tail call void @sacct_init() #3
   tail call void @parse_command_line(i32 noundef %0, ptr noundef %1) #3
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 52), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 52), align 4
   %.not.not = icmp eq i32 %3, 0
   br i1 %.not.not, label %4, label %21
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 80), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 80), align 8
   %.not5 = icmp eq ptr %5, null
   br i1 %.not5, label %6, label %13
 
 6:                                                ; preds = %4
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 16), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 16), align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 768
@@ -170,7 +170,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   unreachable
 
 17:                                               ; preds = %13
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 28), align 4
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 28), align 4
   %.not8 = icmp eq i32 %18, 0
   br i1 %.not8, label %20, label %19
 

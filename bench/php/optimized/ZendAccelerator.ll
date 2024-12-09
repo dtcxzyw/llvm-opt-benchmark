@@ -217,10 +217,10 @@ define hidden void @zend_accel_schedule_restart_if_necessary(i32 noundef %0) loc
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = uitofp i64 %4 to double
-  %6 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 8), align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 8), align 8
   %7 = sitofp i64 %6 to double
   %8 = fdiv double %5, %7
-  %9 = load double, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 24), align 8
+  %9 = load double, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 24), align 8
   %10 = fcmp ult double %8, %9
   br i1 %10, label %12, label %11
 
@@ -248,7 +248,7 @@ define hidden void @zend_accel_schedule_restart(i32 noundef %0) local_unnamed_ad
   %10 = load i32, ptr @zend_signal_globals, align 8
   %11 = add nsw i32 %10, 1
   store i32 %11, ptr @zend_signal_globals, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %15
 
@@ -268,13 +268,13 @@ define hidden void @zend_accel_schedule_restart(i32 noundef %0) local_unnamed_ad
   %22 = and i8 %20, 1
   store i8 %22, ptr %21, align 8
   store i8 0, ptr %19, align 8
-  %23 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 40), align 8
+  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 40), align 8
   %.not = icmp eq i64 %23, 0
   br i1 %.not, label %29, label %24
 
 24:                                               ; preds = %15
   %25 = tail call i64 @time(ptr noundef null) #24
-  %26 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 40), align 8
+  %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 40), align 8
   %27 = add nsw i64 %26, %25
   %28 = load ptr, ptr @accel_shared_globals, align 8
   br label %29
@@ -284,7 +284,7 @@ define hidden void @zend_accel_schedule_restart(i32 noundef %0) local_unnamed_ad
   %.sink = phi i64 [ %27, %24 ], [ 0, %15 ]
   %30 = getelementptr inbounds nuw i8, ptr %.sink3, i64 104
   store i64 %.sink, ptr %30, align 8
-  %31 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %31 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %34
 
@@ -296,7 +296,7 @@ define hidden void @zend_accel_schedule_restart(i32 noundef %0) local_unnamed_ad
   %35 = load i32, ptr @zend_signal_globals, align 8
   %36 = add nsw i32 %35, -1
   store i32 %36, ptr @zend_signal_globals, align 8
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 4), align 4
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 4), align 4
   %38 = icmp eq i32 %35, %37
   br i1 %38, label %39, label %40
 
@@ -516,9 +516,9 @@ define hidden i64 @zend_get_file_handle_timestamp(ptr nocapture noundef readonly
   %4 = alloca %struct._php_stream_statbuf, align 8
   %5 = alloca [1 x %struct.__jmp_buf_tag], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 0, i64 144, i1 false)
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 64), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 64), align 8
   %.not = icmp ne ptr %6, null
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %.not34 = icmp eq ptr %7, null
   %or.cond = select i1 %.not, i1 %.not34, i1 false
   br i1 %or.cond, label %8, label %21
@@ -657,10 +657,10 @@ php_is_stream_path.exit.thread:                   ; preds = %42, %44, %51, %php_
   br i1 %.not39, label %86, label %67
 
 67:                                               ; preds = %64
-  %68 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 424), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 424), align 8
-  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  store ptr %5, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  %68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 424), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 424), align 8
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
   %70 = call i32 @__sigsetjmp(ptr noundef nonnull %5, i32 noundef 0) #25
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %.critedge
@@ -671,13 +671,13 @@ php_is_stream_path.exit.thread:                   ; preds = %42, %44, %51, %php_
   %75 = load ptr, ptr %74, align 8
   %76 = call i32 %75(ptr noundef nonnull %61, ptr noundef nonnull %4) #24
   %77 = icmp eq i32 %76, 0
-  store ptr %69, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  store i32 %68, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 424), align 8
+  store ptr %69, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
+  store i32 %68, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 424), align 8
   br i1 %77, label %78, label %86
 
 .critedge:                                        ; preds = %67
-  store ptr %69, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  store i32 %68, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 424), align 8
+  store ptr %69, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
+  store i32 %68, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 424), align 8
   br label %86
 
 78:                                               ; preds = %72
@@ -742,10 +742,10 @@ define internal fastcc range(i32 -1, 1) i32 @zend_get_stream_timestamp(ptr nound
   br label %26
 
 14:                                               ; preds = %9
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 424), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 424), align 8
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  store ptr %4, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 424), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 424), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
   %17 = call i32 @__sigsetjmp(ptr noundef nonnull %4, i32 noundef 0) #25
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %.critedge
@@ -756,13 +756,13 @@ define internal fastcc range(i32 -1, 1) i32 @zend_get_stream_timestamp(ptr nound
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 %22(ptr noundef nonnull %6, ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull %3, ptr noundef null) #24
   %24 = icmp eq i32 %23, 0
-  store ptr %16, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  store i32 %15, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 424), align 8
+  store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
+  store i32 %15, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 424), align 8
   br i1 %24, label %25, label %26
 
 .critedge:                                        ; preds = %14
-  store ptr %16, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  store i32 %15, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 424), align 8
+  store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
+  store i32 %15, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 424), align 8
   br label %26
 
 25:                                               ; preds = %19
@@ -788,14 +788,14 @@ define hidden range(i32 -1, 1) i32 @validate_timestamp_and_record(ptr nocapture 
   br i1 %5, label %20, label %6
 
 6:                                                ; preds = %2
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 64), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 64), align 8
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %10 = load i64, ptr %9, align 8
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 288), align 8
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 288), align 8
   %.not5 = icmp slt i64 %10, %11
   br i1 %.not5, label %12, label %20
 
@@ -805,8 +805,8 @@ define hidden range(i32 -1, 1) i32 @validate_timestamp_and_record(ptr nocapture 
   br i1 %14, label %20, label %15
 
 15:                                               ; preds = %12
-  %16 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 288), align 8
-  %17 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 64), align 8
+  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 288), align 8
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 64), align 8
   %18 = add i64 %17, %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store i64 %18, ptr %19, align 8
@@ -1007,7 +1007,7 @@ define internal fastcc range(i32 -1, 1) i32 @do_validate_timestamps(ptr nocaptur
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @validate_timestamp_and_record_ex(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %6
 
@@ -1022,14 +1022,14 @@ define hidden range(i32 -1, 1) i32 @validate_timestamp_and_record_ex(ptr nocaptu
   br i1 %9, label %validate_timestamp_and_record.exit, label %10
 
 10:                                               ; preds = %6
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 64), align 8
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 64), align 8
   %.not.i = icmp eq i64 %11, 0
   br i1 %.not.i, label %16, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %14 = load i64, ptr %13, align 8
-  %15 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 288), align 8
+  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 288), align 8
   %.not5.i = icmp slt i64 %14, %15
   br i1 %.not5.i, label %16, label %validate_timestamp_and_record.exit
 
@@ -1039,8 +1039,8 @@ define hidden range(i32 -1, 1) i32 @validate_timestamp_and_record_ex(ptr nocaptu
   br i1 %18, label %validate_timestamp_and_record.exit, label %19
 
 19:                                               ; preds = %16
-  %20 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 288), align 8
-  %21 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 64), align 8
+  %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 288), align 8
+  %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 64), align 8
   %22 = add i64 %21, %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store i64 %22, ptr %23, align 8
@@ -1048,7 +1048,7 @@ define hidden range(i32 -1, 1) i32 @validate_timestamp_and_record_ex(ptr nocaptu
 
 validate_timestamp_and_record.exit:               ; preds = %6, %12, %16, %19
   %.0.i = phi i32 [ 0, %19 ], [ 0, %6 ], [ 0, %12 ], [ -1, %16 ]
-  %24 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %24 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %25 = trunc i8 %24 to i1
   br i1 %25, label %26, label %27
 
@@ -1070,7 +1070,7 @@ define hidden ptr @accel_make_persistent_key(ptr noundef %0) local_unnamed_addr 
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 416), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 416), align 8
   %7 = load i8, ptr %.ptr, align 1
   %8 = icmp eq i8 %7, 47
   br i1 %8, label %is_cacheable_stream_path.exit.thread, label %.preheader283
@@ -1129,18 +1129,18 @@ is_cacheable_stream_path.exit:                    ; preds = %23
   br i1 %25, label %is_cacheable_stream_path.exit.thread, label %331
 
 php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_stream_path.exit
-  %26 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 48), align 8
+  %26 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 48), align 8
   %27 = trunc i8 %26 to i1
   br i1 %27, label %28, label %is_cacheable_stream_path.exit.thread
 
 28:                                               ; preds = %php_is_stream_path.exit.thread
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 272), align 8
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 272), align 8
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %30, label %160
 
 30:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %2)
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 184), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 184), align 8
   %.not.i259 = icmp eq ptr %31, null
   br i1 %.not.i259, label %32, label %47
 
@@ -1165,8 +1165,8 @@ php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_st
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %41, ptr nonnull align 16 %2, i64 %34, i1 false)
   %42 = getelementptr inbounds [1 x i8], ptr %41, i64 0, i64 %34
   store i8 0, ptr %42, align 1
-  store ptr %37, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 184), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 272), align 8
+  store ptr %37, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 184), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 272), align 8
   call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %2)
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 16
   br label %53
@@ -1179,7 +1179,7 @@ php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_st
   br label %331
 
 47:                                               ; preds = %30
-  %.pre = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 276), align 4
+  %.pre = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 276), align 4
   %48 = trunc i8 %.pre to i1
   call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %2)
   %49 = getelementptr inbounds nuw i8, ptr %31, i64 24
@@ -1191,8 +1191,8 @@ php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_st
 53:                                               ; preds = %.thread, %47
   %54 = phi ptr [ %43, %.thread ], [ %50, %47 ]
   %.0.i260.ph306 = phi ptr [ %37, %.thread ], [ %31, %47 ]
-  store i8 0, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 276), align 4
-  %55 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 3), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 276), align 4
+  %55 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 3), align 1
   %56 = trunc i8 %55 to i1
   br i1 %56, label %57, label %331
 
@@ -1280,7 +1280,7 @@ php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_st
   %104 = load i32, ptr @zend_signal_globals, align 8
   %105 = add nsw i32 %104, 1
   store i32 %105, ptr @zend_signal_globals, align 8
-  %106 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %106 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %107 = trunc i8 %106 to i1
   br i1 %107, label %108, label %109
 
@@ -1330,7 +1330,7 @@ php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_st
 129:                                              ; preds = %119, %128, %123, %116
   %.1192 = phi ptr [ %117, %116 ], [ null, %123 ], [ null, %128 ], [ null, %119 ]
   call void @zend_shared_alloc_unlock() #24
-  %130 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %130 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %131 = trunc i8 %130 to i1
   br i1 %131, label %132, label %133
 
@@ -1342,7 +1342,7 @@ php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_st
   %134 = load i32, ptr @zend_signal_globals, align 8
   %135 = add nsw i32 %134, -1
   store i32 %135, ptr @zend_signal_globals, align 8
-  %136 = load i32, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 4), align 4
+  %136 = load i32, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 4), align 4
   %137 = icmp eq i32 %134, %136
   br i1 %137, label %138, label %139
 
@@ -1387,22 +1387,22 @@ php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_st
   %155 = ptrtoint ptr %151 to i64
   %156 = sub i64 %154, %155
   %157 = trunc i64 %156 to i32
-  store i32 %157, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 272), align 8
+  store i32 %157, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 272), align 8
   %158 = shl i64 %156, 32
   %sext = add i64 %158, 4294967296
   %159 = ashr exact i64 %sext, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 getelementptr inbounds (i8, ptr @accel_globals, i64 232), ptr nonnull align 1 %151, i64 %159, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 getelementptr inbounds nuw (i8, ptr @accel_globals, i64 232), ptr nonnull align 1 %151, i64 %159, i1 false)
   br label %160
 
 160:                                              ; preds = %28, %47, %153
-  %.0197 = phi ptr [ getelementptr inbounds (i8, ptr @accel_globals, i64 232), %153 ], [ %49, %47 ], [ getelementptr inbounds (i8, ptr @accel_globals, i64 232), %28 ]
+  %.0197 = phi ptr [ getelementptr inbounds nuw (i8, ptr @accel_globals, i64 232), %153 ], [ %49, %47 ], [ getelementptr inbounds nuw (i8, ptr @accel_globals, i64 232), %28 ]
   %.0195 = phi i32 [ %157, %153 ], [ %52, %47 ], [ %29, %28 ]
-  %161 = load i32, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 264), align 8
+  %161 = load i32, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 264), align 8
   %.not241 = icmp eq i32 %161, 0
   br i1 %.not241, label %162, label %284
 
 162:                                              ; preds = %160
-  %163 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 192), align 8
+  %163 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 192), align 8
   %.not242 = icmp eq ptr %163, null
   br i1 %.not242, label %284, label %164
 
@@ -1415,13 +1415,13 @@ php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_st
 168:                                              ; preds = %164
   %169 = getelementptr inbounds nuw i8, ptr %163, i64 24
   %170 = trunc i64 %166 to i32
-  %171 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 268), align 4
+  %171 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 268), align 4
   %172 = trunc i8 %171 to i1
   br i1 %172, label %173, label %284
 
 173:                                              ; preds = %168
-  store i8 0, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 268), align 4
-  %174 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 3), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 268), align 4
+  %174 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 3), align 1
   %175 = trunc i8 %174 to i1
   br i1 %175, label %176, label %331
 
@@ -1509,7 +1509,7 @@ php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_st
   %223 = load i32, ptr @zend_signal_globals, align 8
   %224 = add nsw i32 %223, 1
   store i32 %224, ptr @zend_signal_globals, align 8
-  %225 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %225 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %226 = trunc i8 %225 to i1
   br i1 %226, label %227, label %228
 
@@ -1519,7 +1519,7 @@ php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_st
 
 228:                                              ; preds = %.loopexit, %227
   call void @zend_shared_alloc_lock() #24
-  %229 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 192), align 8
+  %229 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 192), align 8
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 4
   %231 = load i32, ptr %230, align 4
   %232 = and i32 %231, 64
@@ -1534,7 +1534,7 @@ php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_st
 
 236:                                              ; preds = %233, %228
   %237 = call ptr @accel_new_interned_string(ptr noundef nonnull %229)
-  %238 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 192), align 8
+  %238 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 192), align 8
   %239 = icmp eq ptr %237, %238
   br i1 %239, label %240, label %253
 
@@ -1570,7 +1570,7 @@ php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_st
 253:                                              ; preds = %240, %251, %252, %244, %236
   %.1 = phi ptr [ %237, %236 ], [ null, %244 ], [ null, %252 ], [ null, %251 ], [ null, %240 ]
   call void @zend_shared_alloc_unlock() #24
-  %254 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %254 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %255 = trunc i8 %254 to i1
   br i1 %255, label %256, label %257
 
@@ -1582,7 +1582,7 @@ php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_st
   %258 = load i32, ptr @zend_signal_globals, align 8
   %259 = add nsw i32 %258, -1
   store i32 %259, ptr @zend_signal_globals, align 8
-  %260 = load i32, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 4), align 4
+  %260 = load i32, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 4), align 4
   %261 = icmp eq i32 %258, %260
   br i1 %261, label %262, label %263
 
@@ -1627,15 +1627,15 @@ php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_st
   %279 = ptrtoint ptr %275 to i64
   %280 = sub i64 %278, %279
   %281 = trunc i64 %280 to i32
-  store i32 %281, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 264), align 8
+  store i32 %281, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 264), align 8
   %282 = shl i64 %280, 32
   %sext253 = add i64 %282, 4294967296
   %283 = ashr exact i64 %sext253, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 getelementptr inbounds (i8, ptr @accel_globals, i64 200), ptr nonnull align 1 %275, i64 %283, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 getelementptr inbounds nuw (i8, ptr @accel_globals, i64 200), ptr nonnull align 1 %275, i64 %283, i1 false)
   br label %284
 
 284:                                              ; preds = %162, %164, %160, %277, %168
-  %.0198 = phi ptr [ getelementptr inbounds (i8, ptr @accel_globals, i64 200), %277 ], [ %169, %168 ], [ getelementptr inbounds (i8, ptr @accel_globals, i64 200), %160 ], [ @.str.3, %164 ], [ @.str.3, %162 ]
+  %.0198 = phi ptr [ getelementptr inbounds nuw (i8, ptr @accel_globals, i64 200), %277 ], [ %169, %168 ], [ getelementptr inbounds nuw (i8, ptr @accel_globals, i64 200), %160 ], [ @.str.3, %164 ], [ @.str.3, %162 ]
   %.0196 = phi i32 [ %281, %277 ], [ %170, %168 ], [ %161, %160 ], [ 0, %164 ], [ 0, %162 ]
   %285 = sext i32 %.0195 to i64
   %286 = sext i32 %.0196 to i64
@@ -1646,13 +1646,13 @@ php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_st
   br i1 %290, label %331, label %291
 
 291:                                              ; preds = %284
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 getelementptr inbounds (i8, ptr @accel_globals, i64 424), ptr nonnull align 1 %.ptr, i64 %6, i1 false)
-  %292 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 424), i64 %6
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 getelementptr inbounds nuw (i8, ptr @accel_globals, i64 424), ptr nonnull align 1 %.ptr, i64 %6, i1 false)
+  %292 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 424), i64 %6
   store i8 58, ptr %292, align 1
   %293 = trunc i64 %6 to i32
   %294 = add i32 %293, 1
   %295 = sext i32 %294 to i64
-  %296 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 424), i64 %295
+  %296 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 424), i64 %295
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %296, ptr nonnull align 1 %.0197, i64 %285, i1 false)
   %297 = add nsw i32 %.0195, %294
   %.not254 = icmp eq i32 %.0196, 0
@@ -1660,18 +1660,18 @@ php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_st
 
 298:                                              ; preds = %291
   %299 = sext i32 %297 to i64
-  %300 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 424), i64 %299
+  %300 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 424), i64 %299
   store i8 58, ptr %300, align 1
   %301 = add nsw i32 %297, 1
   %302 = sext i32 %301 to i64
-  %303 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 424), i64 %302
+  %303 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 424), i64 %302
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %303, ptr nonnull align 1 %.0198, i64 %286, i1 false)
   %304 = add nsw i32 %.0196, %301
   br label %305
 
 305:                                              ; preds = %298, %291
   %.0199 = phi i32 [ %304, %298 ], [ %297, %291 ]
-  %306 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  %306 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %.not255 = icmp eq ptr %306, null
   br i1 %.not255, label %328, label %307
 
@@ -1705,11 +1705,11 @@ php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_st
   br i1 %320, label %331, label %321
 
 321:                                              ; preds = %.critedge4
-  %322 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 424), i64 %318
+  %322 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 424), i64 %318
   store i8 58, ptr %322, align 1
   %323 = add nsw i32 %.0199, 1
   %324 = sext i32 %323 to i64
-  %325 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 424), i64 %324
+  %325 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 424), i64 %324
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %325, ptr nonnull align 8 %312, i64 %314, i1 false)
   %326 = trunc i64 %314 to i32
   %327 = add i32 %323, %326
@@ -1718,19 +1718,19 @@ php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_st
 328:                                              ; preds = %321, %307, %305
   %.1200 = phi i32 [ %327, %321 ], [ %.0199, %307 ], [ %.0199, %305 ]
   %329 = sext i32 %.1200 to i64
-  %330 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 424), i64 %329
+  %330 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 424), i64 %329
   store i8 0, ptr %330, align 1
-  store i32 1, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 400), align 8
-  store i32 22, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 404), align 4
-  store i64 0, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 408), align 8
-  store i64 %329, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 416), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 400), align 8
+  store i32 22, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 404), align 4
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 408), align 8
+  store i64 %329, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 416), align 8
   br label %331
 
 is_cacheable_stream_path.exit.thread:             ; preds = %23, %is_cacheable_stream_path.exit, %php_is_stream_path.exit.thread, %1
   br label %331
 
 331:                                              ; preds = %.critedge4, %284, %173, %263, %53, %139, %is_cacheable_stream_path.exit, %is_cacheable_stream_path.exit.thread, %328, %44
-  %.0205 = phi ptr [ %0, %is_cacheable_stream_path.exit.thread ], [ getelementptr inbounds (i8, ptr @accel_globals, i64 400), %328 ], [ null, %44 ], [ null, %is_cacheable_stream_path.exit ], [ null, %139 ], [ null, %53 ], [ null, %263 ], [ null, %173 ], [ null, %284 ], [ null, %.critedge4 ]
+  %.0205 = phi ptr [ %0, %is_cacheable_stream_path.exit.thread ], [ getelementptr inbounds nuw (i8, ptr @accel_globals, i64 400), %328 ], [ null, %44 ], [ null, %is_cacheable_stream_path.exit ], [ null, %139 ], [ null, %53 ], [ null, %263 ], [ null, %173 ], [ null, %284 ], [ null, %.critedge4 ]
   ret ptr %.0205
 }
 
@@ -1749,7 +1749,7 @@ declare ptr @zend_get_executed_filename_ex() local_unnamed_addr #1
 define hidden range(i32 -1, 1) i32 @zend_accel_invalidate(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.flock, align 8
   %4 = alloca %struct._zend_file_handle, align 8
-  %5 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 3), align 1
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 3), align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %110
 
@@ -1780,7 +1780,7 @@ define hidden range(i32 -1, 1) i32 @zend_accel_invalidate(ptr noundef %0, i1 nou
 19:                                               ; preds = %12, %16, %9
   %.028 = phi ptr [ %11, %9 ], [ %0, %16 ], [ %0, %12 ]
   %.0 = phi i8 [ 1, %9 ], [ 0, %16 ], [ 0, %12 ]
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 152), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 152), align 8
   %.not33 = icmp eq ptr %20, null
   br i1 %.not33, label %22, label %21
 
@@ -1808,7 +1808,7 @@ define hidden range(i32 -1, 1) i32 @zend_accel_invalidate(ptr noundef %0, i1 nou
   br i1 %1, label %38, label %32
 
 32:                                               ; preds = %30
-  %33 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 50), align 2
+  %33 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 50), align 2
   %34 = trunc i8 %33 to i1
   br i1 %34, label %35, label %38
 
@@ -1821,7 +1821,7 @@ define hidden range(i32 -1, 1) i32 @zend_accel_invalidate(ptr noundef %0, i1 nou
   %39 = load i32, ptr @zend_signal_globals, align 8
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr @zend_signal_globals, align 8
-  %41 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %41 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %42 = trunc i8 %41 to i1
   br i1 %42, label %43, label %44
 
@@ -1854,10 +1854,10 @@ define hidden range(i32 -1, 1) i32 @zend_accel_invalidate(ptr noundef %0, i1 nou
 
 59:                                               ; preds = %47
   %60 = uitofp i64 %55 to double
-  %61 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 8), align 8
+  %61 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 8), align 8
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %60, %62
-  %64 = load double, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 24), align 8
+  %64 = load double, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 24), align 8
   %65 = fcmp ult double %63, %64
   br i1 %65, label %zend_accel_lock_discard_script.exit, label %66
 
@@ -1874,7 +1874,7 @@ define hidden range(i32 -1, 1) i32 @zend_accel_invalidate(ptr noundef %0, i1 nou
 
 zend_accel_lock_discard_script.exit:              ; preds = %44, %47, %59, %66
   call void @zend_shared_alloc_unlock() #24
-  %72 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %72 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %73 = trunc i8 %72 to i1
   br i1 %73, label %74, label %75
 
@@ -1886,7 +1886,7 @@ zend_accel_lock_discard_script.exit:              ; preds = %44, %47, %59, %66
   %76 = load i32, ptr @zend_signal_globals, align 8
   %77 = add nsw i32 %76, -1
   store i32 %77, ptr @zend_signal_globals, align 8
-  %78 = load i32, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 4), align 4
+  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 4), align 4
   %79 = icmp eq i32 %76, %78
   br i1 %79, label %80, label %81
 
@@ -2069,10 +2069,10 @@ define internal fastcc void @zend_accel_lock_discard_script(ptr nocapture nounde
 
 17:                                               ; preds = %5
   %18 = uitofp i64 %13 to double
-  %19 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 8), align 8
+  %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 8), align 8
   %20 = sitofp i64 %19 to double
   %21 = fdiv double %18, %20
-  %22 = load double, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 24), align 8
+  %22 = load double, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 24), align 8
   %23 = fcmp ult double %21, %22
   br i1 %23, label %zend_accel_discard_script.exit, label %24
 
@@ -2217,7 +2217,7 @@ php_is_stream_path.exit.thread:                   ; preds = %22, %13, %15, %is_c
   br i1 %37, label %38, label %46
 
 38:                                               ; preds = %34
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not74 = icmp eq ptr %39, null
   br i1 %.not74, label %40, label %155
 
@@ -2239,7 +2239,7 @@ php_is_stream_path.exit.thread:                   ; preds = %22, %13, %15, %is_c
   %47 = load i32, ptr @zend_signal_globals, align 8
   %48 = add nsw i32 %47, 1
   store i32 %48, ptr @zend_signal_globals, align 8
-  %49 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %49 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %50 = trunc i8 %49 to i1
   br i1 %50, label %51, label %52
 
@@ -2249,7 +2249,7 @@ php_is_stream_path.exit.thread:                   ; preds = %22, %13, %15, %is_c
 
 52:                                               ; preds = %46, %51
   %53 = tail call ptr @zend_file_cache_script_load(ptr noundef nonnull %0) #24
-  %54 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %54 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %55 = trunc i8 %54 to i1
   br i1 %55, label %56, label %57
 
@@ -2261,7 +2261,7 @@ php_is_stream_path.exit.thread:                   ; preds = %22, %13, %15, %is_c
   %58 = load i32, ptr @zend_signal_globals, align 8
   %59 = add nsw i32 %58, -1
   store i32 %59, ptr @zend_signal_globals, align 8
-  %60 = load i32, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 4), align 4
+  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 4), align 4
   %61 = icmp eq i32 %58, %60
   br i1 %61, label %62, label %63
 
@@ -2279,7 +2279,7 @@ php_is_stream_path.exit.thread:                   ; preds = %22, %13, %15, %is_c
   br i1 %.not77, label %100, label %66
 
 66:                                               ; preds = %64
-  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %.not78 = icmp eq ptr %67, null
   br i1 %.not78, label %81, label %68
 
@@ -2314,7 +2314,7 @@ php_is_stream_path.exit.thread:                   ; preds = %22, %13, %15, %is_c
   ]
 
 81:                                               ; preds = %78, %75, %73, %70, %68, %66
-  %82 = tail call ptr @zend_hash_add_empty_element(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 360), ptr noundef nonnull %65) #24
+  %82 = tail call ptr @zend_hash_add_empty_element(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 360), ptr noundef nonnull %65) #24
   %.not85 = icmp eq ptr %82, null
   br i1 %.not85, label %100, label %83
 
@@ -2373,7 +2373,7 @@ php_is_stream_path.exit.thread:                   ; preds = %22, %13, %15, %is_c
 replay_warnings.exit:                             ; preds = %.lr.ph.i, %100
   %114 = getelementptr inbounds nuw i8, ptr %53, i64 368
   %115 = load i32, ptr %114, align 8
-  %116 = load i32, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 280), align 8
+  %116 = load i32, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 280), align 8
   %117 = xor i32 %116, -1
   %118 = and i32 %115, %117
   %.not86 = icmp eq i32 %118, 0
@@ -2416,9 +2416,9 @@ replay_warnings.exit:                             ; preds = %.lr.ph.i, %100
   br label %zend_accel_set_auto_globals.exit
 
 zend_accel_set_auto_globals.exit:                 ; preds = %133, %135
-  %140 = load i32, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 280), align 8
+  %140 = load i32, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 280), align 8
   %141 = or i32 %140, %118
-  store i32 %141, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 280), align 8
+  store i32 %141, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 280), align 8
   br label %142
 
 142:                                              ; preds = %zend_accel_set_auto_globals.exit, %replay_warnings.exit
@@ -2431,14 +2431,14 @@ zend_accel_set_auto_globals.exit:                 ; preds = %133, %135
   br i1 %.not76, label %153, label %146
 
 146:                                              ; preds = %144
-  %147 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 172), align 4
+  %147 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4
   %148 = or i32 %147, 4096
-  store i32 %148, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 172), align 4
-  %149 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 104), align 8
-  %150 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 112), align 8
+  store i32 %148, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4
+  %149 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 104), align 8
+  %150 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 112), align 8
   tail call void @zend_optimize_script(ptr noundef nonnull %145, i64 noundef %149, i64 noundef %150) #24
   tail call void @zend_accel_finalize_delayed_early_binding_list(ptr noundef nonnull %145) #24
-  store i32 %147, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 172), align 4
+  store i32 %147, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4
   %151 = tail call fastcc ptr @store_script_in_file_cache(ptr noundef nonnull %145)
   %152 = tail call ptr @zend_accel_load_script(ptr noundef %151, i32 noundef 1) #24
   br label %155
@@ -2488,7 +2488,7 @@ define internal fastcc noundef ptr @opcache_compile_file(ptr noundef %0, i32 nou
 
 12:                                               ; preds = %9
   store ptr null, ptr %2, align 8
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not96 = icmp eq ptr %13, null
   br i1 %.not96, label %14, label %175
 
@@ -2521,7 +2521,7 @@ define internal fastcc noundef ptr @opcache_compile_file(ptr noundef %0, i32 nou
   br i1 %28, label %29, label %44
 
 29:                                               ; preds = %24
-  %30 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %30 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %33
 
@@ -2535,7 +2535,7 @@ define internal fastcc noundef ptr @opcache_compile_file(ptr noundef %0, i32 nou
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, 1
   store i64 %37, ptr %35, align 8
-  %38 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %38 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %39 = trunc i8 %38 to i1
   br i1 %39, label %40, label %41
 
@@ -2550,12 +2550,12 @@ define internal fastcc noundef ptr @opcache_compile_file(ptr noundef %0, i32 nou
   br label %175
 
 44:                                               ; preds = %24, %21
-  %45 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 50), align 2
+  %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 50), align 2
   %46 = trunc i8 %45 to i1
-  %47 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 72), align 8
+  %47 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 72), align 8
   %48 = icmp ne i64 %47, 0
   %or.cond = select i1 %46, i1 true, i1 %48
-  %49 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 120), align 8
+  %49 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 120), align 8
   %50 = icmp sgt i64 %49, 0
   %or.cond5 = select i1 %or.cond, i1 true, i1 %50
   br i1 %or.cond5, label %51, label %86
@@ -2574,12 +2574,12 @@ define internal fastcc noundef ptr @opcache_compile_file(ptr noundef %0, i32 nou
   br label %175
 
 57:                                               ; preds = %51
-  %58 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 72), align 8
+  %58 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 72), align 8
   %.not87 = icmp eq i64 %58, 0
   br i1 %.not87, label %66, label %59
 
 59:                                               ; preds = %57
-  %60 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 288), align 8
+  %60 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 288), align 8
   %61 = sub i64 %60, %58
   %62 = icmp slt i64 %61, %52
   br i1 %62, label %63, label %66
@@ -2591,7 +2591,7 @@ define internal fastcc noundef ptr @opcache_compile_file(ptr noundef %0, i32 nou
   br label %175
 
 66:                                               ; preds = %59, %57
-  %67 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 120), align 8
+  %67 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 120), align 8
   %68 = icmp sgt i64 %67, 0
   %69 = load i64, ptr %4, align 8
   %70 = icmp ugt i64 %69, %67
@@ -2599,7 +2599,7 @@ define internal fastcc noundef ptr @opcache_compile_file(ptr noundef %0, i32 nou
   br i1 %or.cond98, label %71, label %86
 
 71:                                               ; preds = %66
-  %72 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %72 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %73 = trunc i8 %72 to i1
   br i1 %73, label %74, label %75
 
@@ -2613,7 +2613,7 @@ define internal fastcc noundef ptr @opcache_compile_file(ptr noundef %0, i32 nou
   %78 = load i64, ptr %77, align 8
   %79 = add i64 %78, 1
   store i64 %79, ptr %77, align 8
-  %80 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %80 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %81 = trunc i8 %80 to i1
   br i1 %81, label %82, label %83
 
@@ -2629,17 +2629,17 @@ define internal fastcc noundef ptr @opcache_compile_file(ptr noundef %0, i32 nou
 
 86:                                               ; preds = %66, %44
   %.080 = phi i64 [ %52, %66 ], [ 0, %44 ]
-  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 48), align 8
-  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 432), align 8
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 48), align 8
+  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 432), align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %90 = load i32, ptr %89, align 8
-  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
+  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 440), align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %93 = load i32, ptr %92, align 8
-  %94 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 688), align 8
-  %95 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 696), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 696), align 8
-  %96 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 53), align 1
+  %94 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 688), align 8
+  %95 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 696), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 696), align 8
+  %96 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 53), align 1
   %97 = trunc i8 %96 to i1
   br i1 %97, label %98, label %99
 
@@ -2648,23 +2648,23 @@ define internal fastcc noundef ptr @opcache_compile_file(ptr noundef %0, i32 nou
   br label %99
 
 99:                                               ; preds = %98, %86
-  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  store ptr %5, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
   %101 = call i32 @__sigsetjmp(ptr noundef nonnull %5, i32 noundef 0) #25
   %.not90 = icmp eq i32 %101, 0
   br i1 %.not90, label %102, label %111
 
 102:                                              ; preds = %99
-  %103 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 172), align 4
+  %103 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4
   %104 = or i32 %103, 270452
-  store i32 %104, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 172), align 4
-  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 152), align 8
+  store i32 %104, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4
+  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 152), align 8
   %.not88 = icmp eq ptr %105, null
   br i1 %.not88, label %108, label %106
 
 106:                                              ; preds = %102
   %107 = or i32 %103, 274548
-  store i32 %107, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 172), align 4
+  store i32 %107, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4
   br label %108
 
 108:                                              ; preds = %106, %102
@@ -2676,12 +2676,12 @@ define internal fastcc noundef ptr @opcache_compile_file(ptr noundef %0, i32 nou
 111:                                              ; preds = %99, %108
   %storemerge = phi i32 [ %103, %108 ], [ 0, %99 ]
   %.078 = phi ptr [ %110, %108 ], [ null, %99 ]
-  store i32 %storemerge, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 172), align 4
-  store ptr %100, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  store ptr %87, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 48), align 8
-  store ptr %94, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 688), align 8
-  store i32 %95, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 696), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1680), align 8
+  store i32 %storemerge, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4
+  store ptr %100, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %87, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 48), align 8
+  store ptr %94, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 688), align 8
+  store i32 %95, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 696), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1680), align 8
   %.not89 = icmp eq ptr %.078, null
   br i1 %.not89, label %112, label %114
 
@@ -2697,27 +2697,27 @@ define internal fastcc noundef ptr @opcache_compile_file(ptr noundef %0, i32 nou
   %115 = call ptr @create_persistent_script() #24
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %116, ptr noundef nonnull align 8 dereferenceable(240) %.078, i64 240, i1 false)
-  %117 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 56), align 8
+  %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 24
   %119 = load i32, ptr %118, align 8
   %120 = sub i32 %119, %90
   call void @zend_accel_move_user_functions(ptr noundef %117, i32 noundef %120, ptr noundef %115) #24
-  %121 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 64), align 8
+  %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 64), align 8
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %123 = load i32, ptr %122, align 8
   %124 = sub i32 %123, %93
   call void @zend_accel_move_user_classes(ptr noundef %121, i32 noundef %124, ptr noundef %115) #24
   call void @zend_accel_build_delayed_early_binding_list(ptr noundef %115) #24
-  %125 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1684), align 4
+  %125 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1684), align 4
   %126 = getelementptr inbounds nuw i8, ptr %115, i64 388
   store i32 %125, ptr %126, align 4
-  %127 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1688), align 8
+  %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1688), align 8
   %128 = getelementptr inbounds nuw i8, ptr %115, i64 400
   store ptr %127, ptr %128, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1684), align 4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1688), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1684), align 4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1688), align 8
   call void @_efree(ptr noundef nonnull %.078) #24
-  %129 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 442), align 2
+  %129 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 442), align 2
   %130 = trunc i8 %129 to i1
   br i1 %130, label %131, label %147
 
@@ -2725,20 +2725,20 @@ define internal fastcc noundef ptr @opcache_compile_file(ptr noundef %0, i32 nou
   %132 = load ptr, ptr @zend_known_strings, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 528
   %134 = load ptr, ptr %133, align 8
-  %135 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef %134) #24
+  %135 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304), ptr noundef %134) #24
   %.not.i = icmp ne ptr %135, null
   %spec.select.i = zext i1 %.not.i to i32
   %136 = load ptr, ptr @zend_known_strings, align 8
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 536
   %138 = load ptr, ptr %137, align 8
-  %139 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef %138) #24
+  %139 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304), ptr noundef %138) #24
   %.not9.i = icmp eq ptr %139, null
   %140 = or disjoint i32 %spec.select.i, 2
   %.1.i = select i1 %.not9.i, i32 %spec.select.i, i32 %140
   %141 = load ptr, ptr @zend_known_strings, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 544
   %143 = load ptr, ptr %142, align 8
-  %144 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef %143) #24
+  %144 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304), ptr noundef %143) #24
   %.not10.i = icmp eq ptr %144, null
   %145 = or disjoint i32 %.1.i, 4
   %.2.i = select i1 %.not10.i, i32 %.1.i, i32 %145
@@ -2747,15 +2747,15 @@ define internal fastcc noundef ptr @opcache_compile_file(ptr noundef %0, i32 nou
   br label %147
 
 147:                                              ; preds = %131, %114
-  %148 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 50), align 2
+  %148 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 50), align 2
   %149 = trunc i8 %148 to i1
   br i1 %149, label %150, label %156
 
 150:                                              ; preds = %147
   %151 = getelementptr inbounds nuw i8, ptr %115, i64 376
   store i64 %.080, ptr %151, align 8
-  %152 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 288), align 8
-  %153 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 64), align 8
+  %152 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 288), align 8
+  %153 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 64), align 8
   %154 = add i64 %153, %152
   %155 = getelementptr inbounds nuw i8, ptr %115, i64 456
   store i64 %154, ptr %155, align 8
@@ -2819,21 +2819,21 @@ define hidden ptr @persistent_compile_file(ptr noundef %0, i32 noundef %1) #0 {
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %2
-  %11 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 3), align 1
+  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 3), align 1
   %12 = trunc i8 %11 to i1
   br i1 %12, label %29, label %13
 
 13:                                               ; preds = %10, %2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
   %14 = load ptr, ptr %8, align 8
   %15 = icmp ne ptr %14, null
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 152), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 152), align 8
   %17 = icmp ne ptr %16, null
   %or.cond = select i1 %15, i1 %17, i1 false
   br i1 %or.cond, label %18, label %26
 
 18:                                               ; preds = %13
-  %19 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 1), align 1
+  %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 1), align 1
   %20 = trunc i8 %19 to i1
   br i1 %20, label %21, label %26
 
@@ -2857,7 +2857,7 @@ define hidden ptr @persistent_compile_file(ptr noundef %0, i32 noundef %1) #0 {
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %29
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
   %33 = tail call ptr @file_cache_compile_file(ptr noundef nonnull %0, i32 noundef %1)
   br label %412
 
@@ -2904,7 +2904,7 @@ accel_restart_is_active.exit:                     ; preds = %51
 
 56:                                               ; preds = %46, %51
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 152), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 152), align 8
   %.not180 = icmp eq ptr %57, null
   br i1 %.not180, label %60, label %58
 
@@ -2913,18 +2913,18 @@ accel_restart_is_active.exit:                     ; preds = %51
   br label %412
 
 60:                                               ; preds = %56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
   %61 = load ptr, ptr @accelerator_orig_compile_file, align 8
   %62 = call ptr %61(ptr noundef nonnull %0, i32 noundef %1) #24
   br label %412
 
 63:                                               ; preds = %accel_restart_is_active.exit, %34
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 392), align 8
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 392), align 8
   %.not149 = icmp eq ptr %64, null
   br i1 %.not149, label %.thread, label %65
 
 65:                                               ; preds = %63
-  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %.not150 = icmp eq ptr %66, null
   br i1 %.not150, label %67, label %73
 
@@ -2932,7 +2932,7 @@ accel_restart_is_active.exit:                     ; preds = %51
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %69 = load i8, ptr %68, align 1
   %70 = trunc i8 %69 to i1
-  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 384), align 8
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 384), align 8
   %72 = icmp eq ptr %71, null
   %or.cond5 = select i1 %70, i1 %72, i1 false
   br i1 %or.cond5, label %82, label %.thread
@@ -2949,19 +2949,19 @@ accel_restart_is_active.exit:                     ; preds = %51
   br i1 %.not153, label %.thread, label %78
 
 78:                                               ; preds = %76
-  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 384), align 8
+  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 384), align 8
   %80 = load ptr, ptr %66, align 8
   %81 = icmp eq ptr %79, %80
   br i1 %81, label %82, label %.thread
 
 82:                                               ; preds = %67, %78
-  %83 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 416), align 8
+  %83 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 416), align 8
   %.not160 = icmp eq i64 %83, 0
-  %spec.select = select i1 %.not160, ptr null, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 400)
+  %spec.select = select i1 %.not160, ptr null, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 400)
   br label %.thread191
 
 .thread:                                          ; preds = %67, %78, %76, %73, %63
-  %84 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 51), align 1
+  %84 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 51), align 1
   %85 = trunc i8 %84 to i1
   %86 = load ptr, ptr %8, align 8
   br i1 %85, label %.preheader, label %87
@@ -2972,7 +2972,7 @@ accel_restart_is_active.exit:                     ; preds = %51
   br i1 %.not154, label %89, label %.critedge
 
 89:                                               ; preds = %87
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
   %90 = load ptr, ptr @accelerator_orig_compile_file, align 8
   %91 = call ptr %90(ptr noundef nonnull %0, i32 noundef %1) #24
   br label %412
@@ -3031,7 +3031,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   br i1 %.not219, label %.critedge.thread, label %108
 
 108:                                              ; preds = %is_cacheable_stream_path.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
   %109 = load ptr, ptr @accelerator_orig_compile_file, align 8
   %110 = call ptr %109(ptr noundef %0, i32 noundef %1) #24
   br label %412
@@ -3057,7 +3057,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   br i1 %120, label %121, label %129
 
 121:                                              ; preds = %117
-  %122 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not159 = icmp eq ptr %122, null
   br i1 %.not159, label %123, label %412
 
@@ -3104,7 +3104,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   %144 = load i32, ptr @zend_signal_globals, align 8
   %145 = add nsw i32 %144, 1
   store i32 %145, ptr @zend_signal_globals, align 8
-  %146 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %146 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %147 = trunc i8 %146 to i1
   br i1 %147, label %148, label %149
 
@@ -3116,7 +3116,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   call void @zend_shared_alloc_lock() #24
   call fastcc void @zend_accel_add_key(ptr noundef %.1134190, ptr noundef %135)
   call void @zend_shared_alloc_unlock() #24
-  %150 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %150 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %151 = trunc i8 %150 to i1
   br i1 %151, label %152, label %153
 
@@ -3128,7 +3128,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   %154 = load i32, ptr @zend_signal_globals, align 8
   %155 = add nsw i32 %154, -1
   store i32 %155, ptr @zend_signal_globals, align 8
-  %156 = load i32, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 4), align 4
+  %156 = load i32, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 4), align 4
   %157 = icmp eq i32 %154, %156
   br i1 %157, label %158, label %.thread191
 
@@ -3139,16 +3139,16 @@ is_cacheable_stream_path.exit:                    ; preds = %106
 .thread191:                                       ; preds = %.critedge, %139, %158, %153, %82
   %.0133.ph = phi ptr [ %spec.select, %82 ], [ %.1134190, %153 ], [ %.1134190, %158 ], [ %.1134190, %139 ], [ %88, %.critedge ]
   %.0132.ph = phi ptr [ %64, %82 ], [ %138, %153 ], [ %138, %158 ], [ %138, %139 ], [ %113, %.critedge ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
   br label %160
 
 .thread199:                                       ; preds = %132, %129
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
   br label %164
 
 159:                                              ; preds = %136
   %.not161 = icmp eq ptr %138, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
   br i1 %.not161, label %164, label %160
 
 160:                                              ; preds = %.thread191, %159
@@ -3188,7 +3188,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   %178 = load i32, ptr %175, align 4
   call void (i32, ptr, ...) @zend_accel_error(i32 noundef 4, ptr noundef nonnull @.str.26, ptr noundef %177, i32 noundef %178) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  %179 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 152), align 8
+  %179 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 152), align 8
   %.not162 = icmp eq ptr %179, null
   br i1 %.not162, label %182, label %180
 
@@ -3211,7 +3211,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   br i1 %.not163, label %204, label %187
 
 187:                                              ; preds = %186
-  %188 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 57), align 1
+  %188 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 57), align 1
   %189 = trunc i8 %188 to i1
   br i1 %189, label %190, label %204
 
@@ -3228,7 +3228,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   br i1 %.not164, label %204, label %196
 
 196:                                              ; preds = %194
-  %197 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %197 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not179 = icmp eq ptr %197, null
   br i1 %.not179, label %198, label %412
 
@@ -3250,7 +3250,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   %205 = load i32, ptr @zend_signal_globals, align 8
   %206 = add nsw i32 %205, 1
   store i32 %206, ptr @zend_signal_globals, align 8
-  %207 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %207 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %208 = trunc i8 %207 to i1
   br i1 %208, label %209, label %210
 
@@ -3262,7 +3262,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   br i1 %.not163, label %218, label %211
 
 211:                                              ; preds = %210
-  %212 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 50), align 2
+  %212 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 50), align 2
   %213 = trunc i8 %212 to i1
   br i1 %213, label %214, label %.thread211
 
@@ -3276,7 +3276,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   br label %218
 
 218:                                              ; preds = %217, %210
-  %219 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 152), align 8
+  %219 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 152), align 8
   %.not220 = icmp eq ptr %219, null
   br i1 %.not220, label %.thread208, label %220
 
@@ -3286,7 +3286,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   br i1 %.not165, label %.thread208, label %.thread211
 
 .thread208:                                       ; preds = %218, %220
-  %222 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 448), align 8
+  %222 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 448), align 8
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 40
   %224 = load i64, ptr %223, align 8
   %225 = trunc i64 %224 to i32
@@ -3308,7 +3308,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   br i1 %237, label %238, label %255
 
 238:                                              ; preds = %.thread208, %234
-  %239 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %239 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %240 = trunc i8 %239 to i1
   br i1 %240, label %241, label %242
 
@@ -3320,7 +3320,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   %243 = load i32, ptr @zend_signal_globals, align 8
   %244 = add nsw i32 %243, -1
   store i32 %244, ptr @zend_signal_globals, align 8
-  %245 = load i32, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 4), align 4
+  %245 = load i32, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 4), align 4
   %246 = icmp eq i32 %243, %245
   br i1 %246, label %247, label %248
 
@@ -3329,7 +3329,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   br label %248
 
 248:                                              ; preds = %247, %242
-  %249 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 152), align 8
+  %249 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 152), align 8
   %.not168 = icmp eq ptr %249, null
   br i1 %.not168, label %252, label %250
 
@@ -3343,7 +3343,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   br label %412
 
 255:                                              ; preds = %234
-  %256 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %256 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %257 = trunc i8 %256 to i1
   br i1 %257, label %258, label %259
 
@@ -3355,7 +3355,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   %260 = load i32, ptr @zend_signal_globals, align 8
   %261 = add nsw i32 %260, -1
   store i32 %261, ptr @zend_signal_globals, align 8
-  %262 = load i32, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 4), align 4
+  %262 = load i32, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 4), align 4
   %263 = icmp eq i32 %260, %262
   br i1 %263, label %264, label %265
 
@@ -3368,7 +3368,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   %267 = load i32, ptr @zend_signal_globals, align 8
   %268 = add nsw i32 %267, 1
   store i32 %268, ptr @zend_signal_globals, align 8
-  %269 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %269 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %270 = trunc i8 %269 to i1
   br i1 %270, label %271, label %272
 
@@ -3387,7 +3387,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   br i1 %.not167, label %.thread215, label %286
 
 .thread215:                                       ; preds = %272, %273
-  %275 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %275 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %276 = trunc i8 %275 to i1
   br i1 %276, label %277, label %278
 
@@ -3399,7 +3399,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   %279 = load i32, ptr @zend_signal_globals, align 8
   %280 = add nsw i32 %279, -1
   store i32 %280, ptr @zend_signal_globals, align 8
-  %281 = load i32, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 4), align 4
+  %281 = load i32, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 4), align 4
   %282 = icmp eq i32 %279, %281
   br i1 %282, label %283, label %284
 
@@ -3417,7 +3417,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   br i1 %288, label %289, label %.loopexit
 
 289:                                              ; preds = %286
-  %290 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 448), align 8
+  %290 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 448), align 8
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 40
   %292 = load i64, ptr %291, align 8
   %293 = trunc i64 %292 to i32
@@ -3432,16 +3432,16 @@ is_cacheable_stream_path.exit:                    ; preds = %106
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %295, %.lr.ph.preheader ], [ %297, %.lr.ph ]
   %297 = add nsw i64 %indvars.iv, -1
-  %298 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 448), align 8
+  %298 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 448), align 8
   %299 = call i32 @zend_hash_index_del(ptr noundef %298, i64 noundef %297) #24
   %.wide = icmp ugt i64 %297, %296
   br i1 %.wide, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %289, %286
-  %300 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 288), align 8
+  %300 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 288), align 8
   %301 = getelementptr inbounds nuw i8, ptr %274, i64 432
   store i64 %300, ptr %301, align 8
-  %302 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %302 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %303 = trunc i8 %302 to i1
   br i1 %303, label %304, label %305
 
@@ -3453,7 +3453,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   %306 = load i32, ptr @zend_signal_globals, align 8
   %307 = add nsw i32 %306, -1
   store i32 %307, ptr @zend_signal_globals, align 8
-  %308 = load i32, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 4), align 4
+  %308 = load i32, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 4), align 4
   %309 = icmp eq i32 %306, %308
   br i1 %309, label %310, label %378
 
@@ -3477,7 +3477,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   br i1 %.not169, label %353, label %319
 
 319:                                              ; preds = %.thread211
-  %320 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  %320 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %.not170 = icmp eq ptr %320, null
   br i1 %.not170, label %334, label %321
 
@@ -3512,7 +3512,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   ]
 
 334:                                              ; preds = %331, %328, %326, %324, %321, %319
-  %335 = call ptr @zend_hash_add_empty_element(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 360), ptr noundef nonnull %318) #24
+  %335 = call ptr @zend_hash_add_empty_element(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 360), ptr noundef nonnull %318) #24
   %.not177 = icmp eq ptr %335, null
   br i1 %.not177, label %353, label %336
 
@@ -3541,9 +3541,9 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   br label %353
 
 353:                                              ; preds = %331, %331, %336, %340, %334, %.thread211
-  %354 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 288), align 8
+  %354 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 288), align 8
   store i64 %354, ptr %314, align 8
-  %355 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %355 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %356 = trunc i8 %355 to i1
   br i1 %356, label %357, label %358
 
@@ -3555,7 +3555,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   %359 = load i32, ptr @zend_signal_globals, align 8
   %360 = add nsw i32 %359, -1
   store i32 %360, ptr @zend_signal_globals, align 8
-  %361 = load i32, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 4), align 4
+  %361 = load i32, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 4), align 4
   %362 = icmp eq i32 %359, %361
   br i1 %362, label %363, label %364
 
@@ -3600,7 +3600,7 @@ replay_warnings.exit:                             ; preds = %.lr.ph.i, %364
   %.6 = phi ptr [ %.4214, %replay_warnings.exit ], [ %274, %310 ], [ %274, %305 ]
   %380 = getelementptr inbounds nuw i8, ptr %.6, i64 368
   %381 = load i32, ptr %380, align 8
-  %382 = load i32, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 280), align 8
+  %382 = load i32, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 280), align 8
   %383 = xor i32 %382, -1
   %384 = and i32 %381, %383
   %.not178 = icmp eq i32 %384, 0
@@ -3643,9 +3643,9 @@ replay_warnings.exit:                             ; preds = %.lr.ph.i, %364
   br label %zend_accel_set_auto_globals.exit
 
 zend_accel_set_auto_globals.exit:                 ; preds = %399, %401
-  %406 = load i32, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 280), align 8
+  %406 = load i32, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 280), align 8
   %407 = or i32 %406, %384
-  store i32 %407, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 280), align 8
+  store i32 %407, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 280), align 8
   br label %408
 
 408:                                              ; preds = %zend_accel_set_auto_globals.exit, %378
@@ -3686,10 +3686,10 @@ define internal fastcc void @zend_accel_add_key(ptr noundef nonnull %0, ptr noun
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %15 = load i64, ptr %14, align 8
   %16 = uitofp i64 %15 to double
-  %17 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 8), align 8
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 8), align 8
   %18 = sitofp i64 %17 to double
   %19 = fdiv double %16, %18
-  %20 = load double, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 24), align 8
+  %20 = load double, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 24), align 8
   %21 = fcmp ult double %19, %20
   br i1 %21, label %zend_accel_schedule_restart_if_necessary.exit, label %22
 
@@ -3762,10 +3762,10 @@ accel_new_interned_key.exit.thread13:             ; preds = %30, %accel_new_inte
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load i64, ptr %55, align 8
   %57 = uitofp i64 %56 to double
-  %58 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 8), align 8
+  %58 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 8), align 8
   %59 = sitofp i64 %58 to double
   %60 = fdiv double %57, %59
-  %61 = load double, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 24), align 8
+  %61 = load double, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 24), align 8
   %62 = fcmp ult double %60, %61
   br i1 %62, label %zend_accel_schedule_restart_if_necessary.exit, label %63
 
@@ -3849,22 +3849,22 @@ define internal fastcc range(i32 0, 2) i32 @check_persistent_script_access(ptr %
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @cache_script_in_shared_memory(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 172), align 4
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 152), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 152), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %3
   %7 = or i32 %4, 4096
-  store i32 %7, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 172), align 4
+  store i32 %7, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4
   br label %8
 
 8:                                                ; preds = %6, %3
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 104), align 8
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 112), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 104), align 8
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 112), align 8
   tail call void @zend_optimize_script(ptr noundef nonnull %0, i64 noundef %9, i64 noundef %10) #24
   tail call void @zend_accel_finalize_delayed_early_binding_list(ptr noundef nonnull %0) #24
-  store i32 %4, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 172), align 4
+  store i32 %4, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4
   tail call void @zend_shared_alloc_lock() #24
   %11 = load ptr, ptr @accel_shared_globals, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -3886,7 +3886,7 @@ define internal fastcc ptr @cache_script_in_shared_memory(ptr noundef nonnull %0
   br i1 %.not88, label %32, label %22
 
 22:                                               ; preds = %21
-  %23 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 50), align 2
+  %23 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 50), align 2
   %24 = trunc i8 %23 to i1
   br i1 %24, label %25, label %31
 
@@ -3924,10 +3924,10 @@ define internal fastcc ptr @cache_script_in_shared_memory(ptr noundef nonnull %0
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %42 = load i64, ptr %41, align 8
   %43 = uitofp i64 %42 to double
-  %44 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 8), align 8
+  %44 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 8), align 8
   %45 = sitofp i64 %44 to double
   %46 = fdiv double %43, %45
-  %47 = load double, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 24), align 8
+  %47 = load double, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 24), align 8
   %48 = fcmp ult double %46, %47
   br i1 %48, label %zend_accel_schedule_restart_if_necessary.exit, label %49
 
@@ -3937,7 +3937,7 @@ define internal fastcc ptr @cache_script_in_shared_memory(ptr noundef nonnull %0
 
 zend_accel_schedule_restart_if_necessary.exit:    ; preds = %38, %49
   tail call void @zend_shared_alloc_unlock() #24
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 152), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 152), align 8
   %.not102 = icmp eq ptr %50, null
   br i1 %.not102, label %175, label %51
 
@@ -3955,7 +3955,7 @@ zend_accel_schedule_restart_if_necessary.exit:    ; preds = %38, %49
   %59 = add i64 %58, 63
   %60 = and i64 %59, -64
   %61 = inttoptr i64 %60 to ptr
-  store ptr %61, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
+  store ptr %61, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 368), align 8
   %.not89 = icmp eq i64 %60, 0
   br i1 %.not89, label %62, label %76
 
@@ -3965,10 +3965,10 @@ zend_accel_schedule_restart_if_necessary.exit:    ; preds = %38, %49
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = load i64, ptr %64, align 8
   %66 = uitofp i64 %65 to double
-  %67 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 8), align 8
+  %67 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 8), align 8
   %68 = sitofp i64 %67 to double
   %69 = fdiv double %66, %68
-  %70 = load double, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 24), align 8
+  %70 = load double, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 24), align 8
   %71 = fcmp ult double %69, %70
   br i1 %71, label %zend_accel_schedule_restart_if_necessary.exit104, label %72
 
@@ -3978,7 +3978,7 @@ zend_accel_schedule_restart_if_necessary.exit:    ; preds = %38, %49
 
 zend_accel_schedule_restart_if_necessary.exit104: ; preds = %62, %72
   tail call void @zend_shared_alloc_unlock() #24
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 152), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 152), align 8
   %.not90 = icmp eq ptr %73, null
   br i1 %.not90, label %175, label %74
 
@@ -4024,7 +4024,7 @@ zend_accel_schedule_restart_if_necessary.exit104: ; preds = %62, %72
   %95 = getelementptr inbounds nuw i8, ptr %77, i64 424
   %96 = load i64, ptr %95, align 8
   %97 = getelementptr inbounds i8, ptr %94, i64 %96
-  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
+  %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 368), align 8
   %.not94 = icmp eq ptr %97, %98
   br i1 %.not94, label %106, label %99
 
@@ -4160,12 +4160,12 @@ accel_new_interned_key.exit.thread108:            ; preds = %134, %accel_new_int
   %164 = getelementptr inbounds nuw i8, ptr %77, i64 448
   store i32 %163, ptr %164, align 8
   tail call void @zend_shared_alloc_unlock() #24
-  %165 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 152), align 8
+  %165 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 152), align 8
   %.not101 = icmp eq ptr %165, null
   br i1 %.not101, label %.sink.split, label %166
 
 166:                                              ; preds = %.critedge2
-  %167 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %167 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %168 = trunc i8 %167 to i1
   br i1 %168, label %169, label %170
 
@@ -4175,7 +4175,7 @@ accel_new_interned_key.exit.thread108:            ; preds = %134, %accel_new_int
 
 170:                                              ; preds = %166, %169
   %171 = tail call i32 @zend_file_cache_script_store(ptr noundef nonnull %77, i1 noundef zeroext true) #24
-  %172 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %172 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %173 = trunc i8 %172 to i1
   br i1 %173, label %174, label %.sink.split
 
@@ -4200,7 +4200,7 @@ define hidden noundef i32 @accel_activate(i32 noundef %0, i32 noundef %1) local_
   %3 = alloca %struct.flock, align 8
   %4 = alloca %struct.flock, align 8
   %5 = alloca %struct.stat, align 8
-  %6 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 1), align 1
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 1), align 1
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %11
 
@@ -4210,30 +4210,30 @@ define hidden noundef i32 @accel_activate(i32 noundef %0, i32 noundef %1) local_
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %8, %2
-  store i8 0, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 3), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 3), align 1
   br label %preload_activate.exit
 
 12:                                               ; preds = %8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 280), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 280), align 8
   %13 = tail call double @sapi_get_request_time() #24
   %14 = fptosi double %13 to i64
-  store i64 %14, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 288), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 264), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
-  store i8 1, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 268), align 4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 184), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 272), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 276), align 4
+  store i64 %14, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 288), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 264), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 268), align 4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 184), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 272), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 276), align 4
   %15 = load i8, ptr @file_cache_only, align 1
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %12
-  store i8 0, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 3), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 3), align 1
   br label %preload_activate.exit
 
 18:                                               ; preds = %12
-  %19 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 58), align 2
+  %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 58), align 2
   %20 = trunc i8 %19 to i1
   br i1 %20, label %21, label %26
 
@@ -4249,11 +4249,11 @@ define hidden noundef i32 @accel_activate(i32 noundef %0, i32 noundef %1) local_
 
 26:                                               ; preds = %18, %21, %23
   %.sink = phi i64 [ %25, %23 ], [ 0, %21 ], [ 0, %18 ]
-  store i64 %.sink, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 360), align 8
+  store i64 %.sink, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 360), align 8
   %27 = load i32, ptr @zend_signal_globals, align 8
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr @zend_signal_globals, align 8
-  %29 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %29 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %30 = trunc i8 %29 to i1
   br i1 %30, label %31, label %32
 
@@ -4338,7 +4338,7 @@ accel_unlock_all.exit:                            ; preds = %35, %39, %44
   br i1 %71, label %125, label %72
 
 72:                                               ; preds = %69
-  %73 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 40), align 8
+  %73 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 40), align 8
   %.not.i = icmp eq i64 %73, 0
   br i1 %.not.i, label %accel_is_inactive.exit.thread, label %74
 
@@ -4359,7 +4359,7 @@ accel_unlock_all.exit:                            ; preds = %35, %39, %44
 
 83:                                               ; preds = %78
   %84 = call i64 @time(ptr noundef null) #24
-  %85 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 40), align 8
+  %85 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 40), align 8
   %86 = load i32, ptr %63, align 8
   call void (i32, ptr, ...) @zend_accel_error(i32 noundef 2, ptr noundef nonnull @.str.31, i64 noundef %84, i64 noundef %85, i32 noundef %86) #24
   %87 = load ptr, ptr @accel_shared_globals, align 8
@@ -4505,12 +4505,12 @@ switch.lookup:                                    ; preds = %125
   store i8 0, ptr %145, align 1
   %146 = getelementptr inbounds nuw i8, ptr %141, i64 104
   store i64 0, ptr %146, align 8
-  %147 = load i64, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 504), align 8
+  %147 = load i64, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 504), align 8
   %148 = getelementptr inbounds nuw i8, ptr %141, i64 80
   store i64 %147, ptr %148, align 8
   %149 = getelementptr inbounds nuw i8, ptr %141, i64 48
   call void @zend_accel_hash_clean(ptr noundef nonnull %149) #24
-  %150 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 128), align 8
+  %150 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 128), align 8
   %.not3 = icmp eq i64 %150, 0
   br i1 %.not3, label %152, label %151
 
@@ -4540,7 +4540,7 @@ switch.lookup:                                    ; preds = %125
   store i8 %162, ptr %161, align 8
   %163 = getelementptr inbounds nuw i8, ptr %158, i64 96
   %164 = load i64, ptr %163, align 8
-  %165 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 288), align 8
+  %165 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 288), align 8
   %166 = icmp slt i64 %164, %165
   %167 = add nsw i64 %164, 1
   %storemerge = select i1 %166, i64 %165, i64 %167
@@ -4558,8 +4558,8 @@ switch.lookup:                                    ; preds = %125
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 112
   %172 = load i8, ptr %171, align 8
   %173 = and i8 %172, 1
-  store i8 %173, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 3), align 1
-  %174 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  store i8 %173, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 3), align 1
+  %174 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %175 = trunc i8 %174 to i1
   br i1 %175, label %176, label %177
 
@@ -4571,7 +4571,7 @@ switch.lookup:                                    ; preds = %125
   %178 = load i32, ptr @zend_signal_globals, align 8
   %179 = add nsw i32 %178, -1
   store i32 %179, ptr @zend_signal_globals, align 8
-  %180 = load i32, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 4), align 4
+  %180 = load i32, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 4), align 4
   %181 = icmp eq i32 %178, %180
   br i1 %181, label %182, label %183
 
@@ -4580,7 +4580,7 @@ switch.lookup:                                    ; preds = %125
   br label %183
 
 183:                                              ; preds = %182, %177
-  %184 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 3), align 1
+  %184 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 3), align 1
   %185 = trunc i8 %184 to i1
   br i1 %185, label %186, label %211
 
@@ -4588,23 +4588,23 @@ switch.lookup:                                    ; preds = %125
   %187 = load ptr, ptr @accel_shared_globals, align 8
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 96
   %189 = load i64, ptr %188, align 8
-  %190 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 296), align 8
+  %190 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 296), align 8
   %.not5 = icmp eq i64 %189, %190
   br i1 %.not5, label %.thread, label %191
 
 191:                                              ; preds = %186
-  store i64 %189, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 296), align 8
+  store i64 %189, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 296), align 8
   call void @realpath_cache_clean() #24
-  %192 = load i8, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 73), align 1
+  %192 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 73), align 1
   %193 = trunc i8 %192 to i1
   br i1 %193, label %.thread.sink.split, label %194
 
 194:                                              ; preds = %191
-  %195 = load ptr, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 16), align 8
-  %196 = load i32, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 24), align 8
+  %195 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 16), align 8
+  %196 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 24), align 8
   %197 = zext i32 %196 to i64
   %198 = getelementptr inbounds nuw %struct._Bucket, ptr %195, i64 %197
-  %199 = load i32, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 8), align 8
+  %199 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 8), align 8
   %200 = and i32 %199, 4
   %.not.i7 = icmp eq i32 %200, 0
   call void @llvm.assume(i1 %.not.i7)
@@ -4635,21 +4635,21 @@ switch.lookup:                                    ; preds = %125
   br i1 %.not14.i, label %.thread.sink.split, label %.lr.ph.i
 
 211:                                              ; preds = %183
-  %212 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 4), align 4
+  %212 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 4), align 4
   %213 = trunc i8 %212 to i1
   br i1 %213, label %.thread, label %214
 
 214:                                              ; preds = %211
-  %215 = load i8, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 73), align 1
+  %215 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 73), align 1
   %216 = trunc i8 %215 to i1
   br i1 %216, label %.thread.sink.split, label %217
 
 217:                                              ; preds = %214
-  %218 = load ptr, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 16), align 8
-  %219 = load i32, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 24), align 8
+  %218 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 16), align 8
+  %219 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 24), align 8
   %220 = zext i32 %219 to i64
   %221 = getelementptr inbounds nuw %struct._Bucket, ptr %218, i64 %220
-  %222 = load i32, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 8), align 8
+  %222 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 8), align 8
   %223 = and i32 %222, 4
   %.not.i8 = icmp eq i32 %223, 0
   call void @llvm.assume(i1 %.not.i8)
@@ -4681,7 +4681,7 @@ switch.lookup:                                    ; preds = %125
 
 .thread.sink.split:                               ; preds = %232, %209, %217, %214, %194, %191
   %.sink25 = phi i8 [ 0, %191 ], [ 0, %194 ], [ 1, %214 ], [ 1, %217 ], [ 0, %209 ], [ 1, %232 ]
-  store i8 %.sink25, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 4), align 4
+  store i8 %.sink25, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 4), align 4
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %186, %211
@@ -4695,7 +4695,7 @@ switch.lookup:                                    ; preds = %125
 237:                                              ; preds = %.thread
   %238 = getelementptr inbounds nuw i8, ptr %236, i64 368
   %239 = load i32, ptr %238, align 8
-  %240 = load i32, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 280), align 8
+  %240 = load i32, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 280), align 8
   %241 = xor i32 %240, -1
   %242 = and i32 %239, %241
   %.not.i14 = icmp eq i32 %242, 0
@@ -4738,9 +4738,9 @@ switch.lookup:                                    ; preds = %125
   br label %zend_accel_set_auto_globals.exit.i
 
 zend_accel_set_auto_globals.exit.i:               ; preds = %259, %257
-  %264 = load i32, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 280), align 8
+  %264 = load i32, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 280), align 8
   %265 = or i32 %264, %242
-  store i32 %265, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 280), align 8
+  store i32 %265, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 280), align 8
   br label %preload_activate.exit
 
 preload_activate.exit:                            ; preds = %zend_accel_set_auto_globals.exit.i, %237, %.thread, %17, %11
@@ -4964,7 +4964,7 @@ declare void @zend_jit_deactivate() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @accel_post_deactivate() local_unnamed_addr #0 {
   %1 = alloca %struct.flock, align 8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 184), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 184), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %3
 
@@ -4989,11 +4989,11 @@ define hidden noundef i32 @accel_post_deactivate() local_unnamed_addr #0 {
   br label %13
 
 13:                                               ; preds = %7, %12, %3
-  store ptr null, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 184), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 184), align 8
   br label %14
 
 14:                                               ; preds = %13, %0
-  %15 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 1), align 1
+  %15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 1), align 1
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %33
 
@@ -5042,7 +5042,7 @@ declare void @zend_shared_alloc_safe_unlock() local_unnamed_addr #1
 define hidden void @accel_shutdown() local_unnamed_addr #0 {
   tail call void @zend_jit_shutdown() #24
   tail call void @zend_accel_blacklist_shutdown(ptr noundef nonnull @accel_blacklist) #24
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 1), align 1
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 1), align 1
   %2 = trunc i8 %1 to i1
   br i1 %2, label %3, label %.thread
 
@@ -5059,7 +5059,7 @@ define hidden void @accel_shutdown() local_unnamed_addr #0 {
   br i1 %.not, label %preload_shutdown.exit, label %10
 
 10:                                               ; preds = %6
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 432), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 432), align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %57, label %12
 
@@ -5154,7 +5154,7 @@ define hidden void @accel_shutdown() local_unnamed_addr #0 {
   br label %57
 
 57:                                               ; preds = %._crit_edge.i, %10
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 440), align 8
   %.not91.i = icmp eq ptr %58, null
   br i1 %.not91.i, label %preload_shutdown.exit, label %59
 
@@ -5251,16 +5251,16 @@ define hidden void @accel_shutdown() local_unnamed_addr #0 {
 preload_shutdown.exit:                            ; preds = %._crit_edge110.i, %57, %6
   %104 = load i8, ptr @file_cache_only, align 1
   %105 = trunc i8 %104 to i1
-  %106 = load i8, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 73), align 1
+  %106 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 73), align 1
   %107 = trunc i8 %106 to i1
   br i1 %107, label %accel_reset_pcre_cache.exit, label %108
 
 108:                                              ; preds = %preload_shutdown.exit
-  %109 = load ptr, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 16), align 8
-  %110 = load i32, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 24), align 8
+  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 16), align 8
+  %110 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 24), align 8
   %111 = zext i32 %110 to i64
   %112 = getelementptr inbounds nuw %struct._Bucket, ptr %109, i64 %111
-  %113 = load i32, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 8), align 8
+  %113 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 8), align 8
   %114 = and i32 %113, 4
   %.not.i11 = icmp eq i32 %114, 0
   tail call void @llvm.assume(i1 %.not.i11)
@@ -5306,7 +5306,7 @@ accel_reset_pcre_cache.exit:                      ; preds = %123, %preload_shutd
   store ptr %129, ptr @zend_inheritance_cache_get, align 8
   %130 = load ptr, ptr @accelerator_orig_inheritance_cache_add, align 8
   store ptr %130, ptr @zend_inheritance_cache_add, align 8
-  %131 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 816), align 8
+  %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 816), align 8
   %132 = tail call ptr @zend_hash_str_find(ptr noundef %131, ptr noundef nonnull @.str.8, i64 noundef 12) #24
   %.not9 = icmp eq ptr %132, null
   br i1 %.not9, label %.thread, label %133
@@ -5357,7 +5357,7 @@ define internal range(i32 -1, 1) i32 @accel_startup(ptr nocapture noundef writeo
   br label %128
 
 13:                                               ; preds = %1
-  %14 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 162), align 2
+  %14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 162), align 2
   %15 = trunc i8 %14 to i1
   %.pre4 = load ptr, ptr @sapi_module, align 8
   br i1 %15, label %16, label %98
@@ -5536,7 +5536,7 @@ accel_move_code_to_huge_pages.exit:               ; preds = %28, %accel_remap_hu
   br i1 %.not.i1, label %.accel_find_sapi.exit_crit_edge, label %.preheader.i2
 
 .accel_find_sapi.exit_crit_edge:                  ; preds = %98
-  %.pre5 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 56), align 8
+  %.pre5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 56), align 8
   br label %accel_find_sapi.exit
 
 100:                                              ; preds = %.preheader.i2
@@ -5553,7 +5553,7 @@ accel_move_code_to_huge_pages.exit:               ; preds = %28, %accel_remap_hu
   br i1 %105, label %.loopexit, label %100
 
 106:                                              ; preds = %100
-  %107 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 56), align 8
+  %107 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 56), align 8
   %108 = trunc i8 %107 to i1
   br i1 %108, label %109, label %accel_find_sapi.exit
 
@@ -5589,7 +5589,7 @@ accel_find_sapi.exit:                             ; preds = %.accel_find_sapi.ex
   br label %128
 
 .loopexit:                                        ; preds = %.preheader.i2, %112, %109
-  %122 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 1), align 1
+  %122 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 1), align 1
   %123 = and i8 %122, 1
   %124 = icmp eq i8 %123, 0
   br i1 %124, label %128, label %125
@@ -5661,7 +5661,7 @@ define internal fastcc ptr @store_script_in_file_cache(ptr noundef nonnull %0) u
   %2 = tail call i32 @zend_accel_script_persist_calc(ptr noundef nonnull %0, i32 noundef 0) #24
   %3 = add i32 %2, 64
   %4 = zext i32 %3 to i64
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 336), align 8
   %6 = load ptr, ptr %5, align 8
   %7 = add nuw nsw i64 %4, 7
   %8 = and i64 %7, 8589934584
@@ -5692,7 +5692,7 @@ define internal fastcc ptr @store_script_in_file_cache(ptr noundef nonnull %0) u
   store ptr %23, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %5, ptr %25, align 8
-  store ptr %20, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
+  store ptr %20, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 336), align 8
   %.pre = ptrtoint ptr %21 to i64
   br label %26
 
@@ -5701,7 +5701,7 @@ define internal fastcc ptr @store_script_in_file_cache(ptr noundef nonnull %0) u
   %27 = add i64 %.pre-phi, 63
   %28 = and i64 %27, -64
   %29 = inttoptr i64 %28 to ptr
-  store ptr %29, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 368), align 8
   tail call void @zend_shared_alloc_clear_xlat_table() #24
   %30 = tail call ptr @zend_accel_script_persist(ptr noundef nonnull %0, i32 noundef 0) #24
   tail call void @zend_shared_alloc_destroy_xlat_table() #24
@@ -5738,7 +5738,7 @@ define internal fastcc ptr @store_script_in_file_cache(ptr noundef nonnull %0) u
   %48 = getelementptr inbounds nuw i8, ptr %30, i64 424
   %49 = load i64, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %47, i64 %49
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 368), align 8
   %.not92 = icmp eq ptr %50, %51
   br i1 %.not92, label %59, label %52
 
@@ -5848,17 +5848,17 @@ define internal range(i32 -1, 1) i32 @accel_post_startup() #0 {
   br i1 %.not50, label %6, label %240
 
 6:                                                ; preds = %4, %0
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 160), align 8
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 160), align 8
   %8 = trunc i8 %7 to i1
   %9 = and i8 %7, 1
   store i8 %9, ptr @file_cache_only, align 1
   br i1 %8, label %124, label %10
 
 10:                                               ; preds = %6
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 8), align 8
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 8), align 8
   %12 = load i8, ptr @jit_globals, align 8
   %13 = trunc i8 %12 to i1
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 16), align 8
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 16), align 8
   %.not51 = icmp ne i64 %14, 0
   %or.cond63.not = select i1 %13, i1 %.not51, i1 false
   br i1 %or.cond63.not, label %15, label %29
@@ -5880,7 +5880,7 @@ define internal range(i32 -1, 1) i32 @accel_post_startup() #0 {
 
 22:                                               ; preds = %18
   %23 = add i64 %19, -1
-  %24 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 16), align 8
+  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 16), align 8
   %25 = add i64 %23, %24
   %26 = sub i64 0, %19
   %27 = and i64 %25, %26
@@ -5900,7 +5900,7 @@ define internal range(i32 -1, 1) i32 @accel_post_startup() #0 {
 
 31:                                               ; preds = %29
   tail call void @zend_shared_alloc_lock() #24
-  %32 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 128), align 8
+  %32 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 128), align 8
   %.not.i = icmp eq i64 %32, 0
   %33 = shl nsw i64 %32, 20
   %34 = or disjoint i64 %33, 208
@@ -5921,10 +5921,10 @@ define internal range(i32 -1, 1) i32 @accel_post_startup() #0 {
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
   store ptr %35, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 48
-  %41 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 16), align 8
+  %41 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 16), align 8
   %42 = trunc i64 %41 to i32
   tail call void @zend_accel_hash_init(ptr noundef nonnull %40, i32 noundef %42) #24
-  %43 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 128), align 8
+  %43 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 128), align 8
   %.not22.i = icmp eq i64 %43, 0
   br i1 %.not22.i, label %75, label %44
 
@@ -5992,7 +5992,7 @@ zend_accel_init_shm.exit.critedge:                ; preds = %75, %44
   store i8 0, ptr %85, align 1
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 104
   store i64 0, ptr %86, align 8
-  %87 = load i64, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 504), align 8
+  %87 = load i64, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 504), align 8
   %88 = getelementptr inbounds nuw i8, ptr %81, i64 80
   store i64 %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %81, i64 24
@@ -6042,20 +6042,20 @@ zend_accel_init_shm.exit.critedge:                ; preds = %75, %44
   %105 = load ptr, ptr @accel_shared_globals, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 96
   %107 = load i64, ptr %106, align 8
-  store i64 %107, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 296), align 8
+  store i64 %107, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 296), align 8
   tail call void @zend_shared_alloc_lock() #24
   %108 = load i8, ptr @jit_globals, align 8
   %109 = trunc i8 %108 to i1
   br i1 %109, label %110, label %120
 
 110:                                              ; preds = %104
-  %111 = load i64, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 16), align 8
+  %111 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 16), align 8
   %112 = icmp eq i64 %111, 0
   br i1 %112, label %113, label %114
 
 113:                                              ; preds = %110
   store i8 0, ptr @jit_globals, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 1), align 1
   br label %120
 
 114:                                              ; preds = %110
@@ -6076,7 +6076,7 @@ zend_accel_init_shm.exit.critedge:                ; preds = %75, %44
 120:                                              ; preds = %113, %119, %104
   tail call void @zend_shared_alloc_save_state() #24
   tail call void @zend_shared_alloc_unlock() #24
-  %121 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %121 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %122 = trunc i8 %121 to i1
   br i1 %122, label %123, label %129
 
@@ -6085,7 +6085,7 @@ zend_accel_init_shm.exit.critedge:                ; preds = %75, %44
   br label %129
 
 124:                                              ; preds = %6
-  %125 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 152), align 8
+  %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 152), align 8
   %.not55 = icmp eq ptr %125, null
   br i1 %.not55, label %126, label %127
 
@@ -6096,7 +6096,7 @@ zend_accel_init_shm.exit.critedge:                ; preds = %75, %44
 
 127:                                              ; preds = %124
   store i8 0, ptr @jit_globals, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 1), align 1
   %128 = tail call noalias dereferenceable_or_null(208) ptr @calloc(i64 noundef 1, i64 noundef 208) #30
   store ptr %128, ptr @accel_shared_globals, align 8
   br label %129
@@ -6111,7 +6111,7 @@ zend_accel_init_shm.exit.critedge:                ; preds = %75, %44
   %132 = load ptr, ptr @zend_resolve_path, align 8
   store ptr %132, ptr @accelerator_orig_zend_resolve_path, align 8
   store ptr @persistent_zend_resolve_path, ptr @zend_resolve_path, align 8
-  %133 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 56), align 8
+  %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8
   %134 = tail call ptr @zend_hash_str_find(ptr noundef %133, ptr noundef nonnull @.str.72, i64 noundef 5) #24
   %.not56 = icmp eq ptr %134, null
   br i1 %.not56, label %.thread, label %135
@@ -6130,8 +6130,8 @@ zend_accel_init_shm.exit.critedge:                ; preds = %75, %44
   br label %.thread
 
 .thread:                                          ; preds = %129, %139, %135
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @accel_globals, i64 184), i8 0, i64 16, i1 false)
-  %142 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 816), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @accel_globals, i64 184), i8 0, i64 16, i1 false)
+  %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 816), align 8
   %143 = tail call ptr @zend_hash_str_find(ptr noundef %142, ptr noundef nonnull @.str.8, i64 noundef 12) #24
   %.not58 = icmp eq ptr %143, null
   br i1 %.not58, label %.thread68, label %144
@@ -6140,7 +6140,7 @@ zend_accel_init_shm.exit.critedge:                ; preds = %75, %44
   %145 = load ptr, ptr %143, align 8, !nonnull !4, !noundef !4
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 40
   %147 = load ptr, ptr %146, align 8
-  store ptr %147, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 192), align 8
+  store ptr %147, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 192), align 8
   %148 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %149 = load ptr, ptr %148, align 8
   store ptr %149, ptr @orig_include_path_on_modify, align 8
@@ -6151,14 +6151,14 @@ zend_accel_init_shm.exit.critedge:                ; preds = %75, %44
   store i8 1, ptr @accel_startup_ok, align 1
   tail call void @zend_accel_override_file_functions() #24
   store ptr null, ptr @accel_blacklist, align 8
-  %150 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 1), align 1
+  %150 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 1), align 1
   %151 = trunc i8 %150 to i1
   br i1 %151, label %152, label %161
 
 152:                                              ; preds = %.thread68
   %153 = load i8, ptr @accel_startup_ok, align 1
   %154 = trunc i8 %153 to i1
-  %155 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 32), align 8
+  %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 32), align 8
   %156 = icmp ne ptr %155, null
   %or.cond = select i1 %154, i1 %156, i1 false
   br i1 %or.cond, label %157, label %161
@@ -6170,14 +6170,14 @@ zend_accel_init_shm.exit.critedge:                ; preds = %75, %44
 
 159:                                              ; preds = %157
   tail call void @zend_accel_blacklist_init(ptr noundef nonnull @accel_blacklist) #24
-  %160 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 32), align 8
+  %160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 32), align 8
   tail call void @zend_accel_blacklist_load(ptr noundef nonnull @accel_blacklist, ptr noundef %160) #24
   br label %161
 
 161:                                              ; preds = %159, %157, %152, %.thread68
   %162 = load i8, ptr @file_cache_only, align 1
   %163 = trunc i8 %162 to i1
-  %164 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 128), align 8
+  %164 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 128), align 8
   %165 = icmp eq i64 %164, 0
   %or.cond5.not = select i1 %163, i1 true, i1 %165
   br i1 %or.cond5.not, label %accel_use_shm_interned_strings.exit, label %166
@@ -6186,7 +6186,7 @@ zend_accel_init_shm.exit.critedge:                ; preds = %75, %44
   %167 = load i32, ptr @zend_signal_globals, align 8
   %168 = add nsw i32 %167, 1
   store i32 %168, ptr @zend_signal_globals, align 8
-  %169 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %169 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %170 = trunc i8 %169 to i1
   br i1 %170, label %171, label %172
 
@@ -6219,7 +6219,7 @@ zend_accel_init_shm.exit.critedge:                ; preds = %75, %44
   %183 = getelementptr inbounds nuw i8, ptr %180, i64 200
   store ptr %182, ptr %183, align 8
   tail call void @zend_shared_alloc_unlock() #24
-  %184 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %184 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %185 = trunc i8 %184 to i1
   br i1 %185, label %186, label %187
 
@@ -6231,7 +6231,7 @@ zend_accel_init_shm.exit.critedge:                ; preds = %75, %44
   %188 = load i32, ptr @zend_signal_globals, align 8
   %189 = add nsw i32 %188, -1
   store i32 %189, ptr @zend_signal_globals, align 8
-  %190 = load i32, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 4), align 4
+  %190 = load i32, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 4), align 4
   %191 = icmp eq i32 %188, %190
   br i1 %191, label %192, label %accel_use_shm_interned_strings.exit
 
@@ -6242,7 +6242,7 @@ zend_accel_init_shm.exit.critedge:                ; preds = %75, %44
 accel_use_shm_interned_strings.exit:              ; preds = %192, %187, %161
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  %193 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 1), align 1
+  %193 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 1), align 1
   %194 = trunc i8 %193 to i1
   br i1 %194, label %195, label %accel_finish_startup.exit.thread
 
@@ -6252,7 +6252,7 @@ accel_use_shm_interned_strings.exit:              ; preds = %192, %187, %161
   br i1 %197, label %198, label %accel_finish_startup.exit.thread
 
 198:                                              ; preds = %195
-  %199 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 168), align 8
+  %199 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 168), align 8
   %.not.i65 = icmp eq ptr %199, null
   br i1 %.not.i65, label %accel_finish_startup.exit.thread, label %200
 
@@ -6344,7 +6344,7 @@ accel_finish_startup.exit:                        ; preds = %213, %228
   br i1 %.not, label %231, label %240
 
 231:                                              ; preds = %accel_finish_startup.exit.thread, %accel_finish_startup.exit
-  %232 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 1), align 1
+  %232 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 1), align 1
   %233 = trunc i8 %232 to i1
   br i1 %233, label %234, label %240
 
@@ -6775,12 +6775,12 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @persistent_stream_open_function(ptr noundef %0) #0 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 392), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 392), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %30, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %.not12 = icmp eq ptr %4, null
   br i1 %.not12, label %5, label %11
 
@@ -6788,7 +6788,7 @@ define internal i32 @persistent_stream_open_function(ptr noundef %0) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 384), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 384), align 8
   %10 = icmp eq ptr %9, null
   %or.cond = select i1 %8, i1 %10, i1 false
   br i1 %or.cond, label %20, label %.thread
@@ -6805,7 +6805,7 @@ define internal i32 @persistent_stream_open_function(ptr noundef %0) #0 {
   br i1 %.not15, label %.thread, label %16
 
 16:                                               ; preds = %14
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 384), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 384), align 8
   %18 = load ptr, ptr %4, align 8
   %19 = icmp eq ptr %17, %18
   br i1 %19, label %20, label %.thread
@@ -6830,7 +6830,7 @@ define internal i32 @persistent_stream_open_function(ptr noundef %0) #0 {
   br label %33
 
 .thread:                                          ; preds = %5, %16, %14, %11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
   br label %30
 
 30:                                               ; preds = %.thread, %1
@@ -6850,12 +6850,12 @@ define internal ptr @persistent_zend_resolve_path(ptr noundef %0) #0 {
   br i1 %3, label %91, label %4
 
 4:                                                ; preds = %1
-  %5 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 3), align 1
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 3), align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %91
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %22, label %9
 
@@ -6886,7 +6886,7 @@ define internal ptr @persistent_zend_resolve_path(ptr noundef %0) #0 {
   ]
 
 22:                                               ; preds = %19, %19, %7
-  %23 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 51), align 1
+  %23 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 51), align 1
   %24 = trunc i8 %23 to i1
   br i1 %24, label %53, label %25
 
@@ -6911,7 +6911,7 @@ define internal ptr @persistent_zend_resolve_path(ptr noundef %0) #0 {
   br i1 %36, label %53, label %37
 
 37:                                               ; preds = %31
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %.not41 = icmp eq ptr %38, null
   br i1 %.not41, label %41, label %39
 
@@ -6921,8 +6921,8 @@ define internal ptr @persistent_zend_resolve_path(ptr noundef %0) #0 {
 
 41:                                               ; preds = %37, %39
   %42 = phi ptr [ %40, %39 ], [ null, %37 ]
-  store ptr %42, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 384), align 8
-  store ptr %33, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 392), align 8
+  store ptr %42, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 384), align 8
+  store ptr %33, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 392), align 8
   %43 = load ptr, ptr %33, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i32, ptr %44, align 4
@@ -6937,7 +6937,7 @@ define internal ptr @persistent_zend_resolve_path(ptr noundef %0) #0 {
   br label %94
 
 50:                                               ; preds = %25
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
   %51 = load ptr, ptr @accelerator_orig_zend_resolve_path, align 8
   %52 = tail call ptr %51(ptr noundef %0) #24
   br label %94
@@ -6972,7 +6972,7 @@ define internal ptr @persistent_zend_resolve_path(ptr noundef %0) #0 {
   %68 = load i32, ptr @zend_signal_globals, align 8
   %69 = add nsw i32 %68, 1
   store i32 %69, ptr @zend_signal_globals, align 8
-  %70 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %70 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %71 = trunc i8 %70 to i1
   br i1 %71, label %72, label %73
 
@@ -6984,7 +6984,7 @@ define internal ptr @persistent_zend_resolve_path(ptr noundef %0) #0 {
   tail call void @zend_shared_alloc_lock() #24
   tail call fastcc void @zend_accel_add_key(ptr noundef %.027, ptr noundef %59)
   tail call void @zend_shared_alloc_unlock() #24
-  %74 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %74 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %75 = trunc i8 %74 to i1
   br i1 %75, label %76, label %77
 
@@ -6996,7 +6996,7 @@ define internal ptr @persistent_zend_resolve_path(ptr noundef %0) #0 {
   %78 = load i32, ptr @zend_signal_globals, align 8
   %79 = add nsw i32 %78, -1
   store i32 %79, ptr @zend_signal_globals, align 8
-  %80 = load i32, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 4), align 4
+  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 4), align 4
   %81 = icmp eq i32 %78, %80
   br i1 %81, label %82, label %84
 
@@ -7005,11 +7005,11 @@ define internal ptr @persistent_zend_resolve_path(ptr noundef %0) #0 {
   br label %84
 
 83:                                               ; preds = %66
-  store i64 0, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 416), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 416), align 8
   br label %84
 
 84:                                               ; preds = %77, %82, %83
-  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %.not46 = icmp eq ptr %85, null
   br i1 %.not46, label %88, label %86
 
@@ -7019,16 +7019,16 @@ define internal ptr @persistent_zend_resolve_path(ptr noundef %0) #0 {
 
 88:                                               ; preds = %84, %86
   %89 = phi ptr [ %87, %86 ], [ null, %84 ]
-  store ptr %89, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 384), align 8
-  store ptr %62, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 392), align 8
+  store ptr %89, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 384), align 8
+  store ptr %62, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 392), align 8
   br label %94
 
 90:                                               ; preds = %56, %60, %53
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
   br label %94
 
 91:                                               ; preds = %19, %9, %12, %14, %4, %1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
   %92 = load ptr, ptr @accelerator_orig_zend_resolve_path, align 8
   %93 = tail call ptr %92(ptr noundef %0) #24
   br label %94
@@ -7045,7 +7045,7 @@ define internal void @zif_accel_chdir(ptr noundef %0, ptr noundef %1) #0 {
   tail call void %4(ptr noundef %0, ptr noundef %1) #24
   %5 = call ptr @getcwd(ptr noundef nonnull %3, i64 noundef 4096) #24
   %.not = icmp eq ptr %5, null
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 184), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 184), align 8
   %.not73 = icmp eq ptr %6, null
   br i1 %.not, label %28, label %7
 
@@ -7115,12 +7115,12 @@ define internal void @zif_accel_chdir(ptr noundef %0, ptr noundef %1) #0 {
 
 .sink.split:                                      ; preds = %29, %38, %33, %18
   %.sink = phi ptr [ %22, %18 ], [ null, %33 ], [ null, %38 ], [ null, %29 ]
-  store ptr %.sink, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 184), align 8
+  store ptr %.sink, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 184), align 8
   br label %39
 
 39:                                               ; preds = %.sink.split, %28
-  store i32 0, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 272), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 276), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 272), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 276), align 4
   ret void
 }
 
@@ -7132,9 +7132,9 @@ define internal i32 @accel_include_path_on_modify(ptr noundef %0, ptr noundef %1
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %6
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 192), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 264), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 268), align 4
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 192), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 264), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 268), align 4
   br label %11
 
 11:                                               ; preds = %10, %6
@@ -7306,7 +7306,7 @@ replay_warnings.exit:                             ; preds = %.lr.ph.i, %.thread8
   %61 = load ptr, ptr @accel_shared_globals, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 80
   %63 = load i64, ptr %62, align 8
-  %64 = load i64, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 504), align 8
+  %64 = load i64, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 504), align 8
   %65 = icmp ugt i64 %63, %64
   br i1 %65, label %66, label %67
 
@@ -7326,7 +7326,7 @@ replay_warnings.exit:                             ; preds = %.lr.ph.i, %.thread8
   br i1 %.not73, label %.loopexit91, label %75
 
 75:                                               ; preds = %67
-  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %77 = load i32, ptr %71, align 4
   %78 = zext i32 %77 to i64
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 %78
@@ -7366,7 +7366,7 @@ define internal ptr @zend_accel_inheritance_cache_add(ptr noundef %0, ptr nocapt
   %11 = and i32 %9, 8
   %12 = icmp ne i32 %11, 0
   tail call void @llvm.assume(i1 %12)
-  %13 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 3), align 1
+  %13 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 3), align 1
   %14 = trunc i8 %13 to i1
   br i1 %14, label %15, label %232
 
@@ -7457,7 +7457,7 @@ accel_restart_is_active.exit:                     ; preds = %32
   br i1 %58, label %.lr.ph, label %.loopexit177
 
 .loopexit177:                                     ; preds = %53, %.preheader176, %37
-  %59 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %59 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %60 = trunc i8 %59 to i1
   br i1 %60, label %61, label %62
 
@@ -7563,7 +7563,7 @@ accel_restart_is_active.exit:                     ; preds = %32
 .loopexit:                                        ; preds = %._crit_edge.us, %.preheader.us, %86
   %.0124 = phi i1 [ %.2.us, %86 ], [ false, %.preheader.us ], [ false, %._crit_edge.us ]
   call void @zend_shared_alloc_unlock() #24
-  %102 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %102 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %103 = trunc i8 %102 to i1
   br i1 %103, label %104, label %105
 
@@ -7609,22 +7609,22 @@ accel_restart_is_active.exit:                     ; preds = %32
   br label %128
 
 128:                                              ; preds = %122, %._crit_edge196
-  store ptr %7, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   call void @zend_persist_class_entry_calc(ptr noundef %0) #24
-  %129 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1684), align 4
-  %130 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1688), align 8
+  %129 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1684), align 4
+  %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1688), align 8
   call void @zend_persist_warnings_calc(i32 noundef %129, ptr noundef %130) #24
   %131 = load i64, ptr %121, align 8
   call void @zend_shared_alloc_clear_xlat_table() #24
   %132 = call ptr @zend_shared_alloc(i64 noundef %131) #24
-  store ptr %132, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
+  store ptr %132, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 368), align 8
   %.not144 = icmp eq ptr %132, null
   br i1 %.not144, label %133, label %137
 
 133:                                              ; preds = %128
   call void @zend_shared_alloc_destroy_xlat_table() #24
   call void @zend_shared_alloc_unlock() #24
-  %134 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %134 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %232
 
@@ -7637,9 +7637,9 @@ accel_restart_is_active.exit:                     ; preds = %32
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 80
   %140 = load i64, ptr %139, align 8
   call void @zend_map_ptr_extend(i64 noundef %140) #24
-  %141 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
+  %141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 368), align 8
   call void @llvm.memset.p0.i64(ptr align 1 %141, i8 0, i64 %131, i1 false)
-  %142 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
+  %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 368), align 8
   %143 = load i32, ptr %112, align 4
   %144 = load i32, ptr %114, align 8
   %145 = add i32 %144, %143
@@ -7648,7 +7648,7 @@ accel_restart_is_active.exit:                     ; preds = %32
   %148 = add nuw nsw i64 %147, 55
   %149 = and i64 %148, 68719476728
   %150 = getelementptr inbounds nuw i8, ptr %142, i64 %149
-  store ptr %150, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
+  store ptr %150, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 368), align 8
   %151 = getelementptr inbounds nuw i8, ptr %142, i64 16
   store ptr %2, ptr %151, align 8
   %152 = load i32, ptr %112, align 4
@@ -7687,7 +7687,7 @@ accel_restart_is_active.exit:                     ; preds = %32
 168:                                              ; preds = %165
   %169 = getelementptr inbounds nuw i8, ptr %142, i64 32
   store i32 %167, ptr %169, align 8
-  %170 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
+  %170 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 368), align 8
   %171 = getelementptr inbounds nuw i8, ptr %142, i64 24
   store ptr %170, ptr %171, align 8
   %172 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -7733,7 +7733,7 @@ accel_restart_is_active.exit:                     ; preds = %32
   br i1 %.not147, label %._crit_edge210.loopexit, label %.lr.ph209
 
 ._crit_edge210.loopexit:                          ; preds = %194
-  %.pre232 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
+  %.pre232 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 368), align 8
   br label %._crit_edge210
 
 ._crit_edge210:                                   ; preds = %._crit_edge210.loopexit, %168
@@ -7742,7 +7742,7 @@ accel_restart_is_active.exit:                     ; preds = %32
   %198 = zext i32 %197 to i64
   %199 = shl nuw nsw i64 %198, 4
   %200 = getelementptr inbounds nuw i8, ptr %196, i64 %199
-  store ptr %200, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
+  store ptr %200, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 368), align 8
   br label %201
 
 201:                                              ; preds = %._crit_edge210, %165, %._crit_edge204
@@ -7750,25 +7750,25 @@ accel_restart_is_active.exit:                     ; preds = %32
   %203 = getelementptr inbounds nuw i8, ptr %142, i64 8
   store ptr %202, ptr %203, align 8
   call void @zend_update_parent_ce(ptr noundef %202) #24
-  %204 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1684), align 4
+  %204 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1684), align 4
   %205 = getelementptr inbounds nuw i8, ptr %142, i64 36
   store i32 %204, ptr %205, align 4
-  %206 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1688), align 8
+  %206 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1688), align 8
   %207 = call ptr @zend_persist_warnings(i32 noundef %204, ptr noundef %206) #24
   %208 = getelementptr inbounds nuw i8, ptr %142, i64 40
   store ptr %207, ptr %208, align 8
   %209 = load ptr, ptr %63, align 8
   store ptr %209, ptr %142, align 8
   store ptr %142, ptr %63, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1684), align 4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1688), align 8
-  %210 = load i64, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 504), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1684), align 4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1688), align 8
+  %210 = load i64, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 504), align 8
   %211 = load ptr, ptr @accel_shared_globals, align 8
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 80
   store i64 %210, ptr %212, align 8
   call void @zend_shared_alloc_destroy_xlat_table() #24
   call void @zend_shared_alloc_unlock() #24
-  %213 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %213 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %214 = trunc i8 %213 to i1
   br i1 %214, label %215, label %216
 
@@ -7778,7 +7778,7 @@ accel_restart_is_active.exit:                     ; preds = %32
 
 216:                                              ; preds = %201, %215
   %217 = getelementptr inbounds i8, ptr %142, i64 %131
-  %218 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
+  %218 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 368), align 8
   %.not148 = icmp eq ptr %217, %218
   br i1 %.not148, label %228, label %219
 
@@ -7839,7 +7839,7 @@ define internal fastcc void @accel_copy_permanent_strings(ptr nocapture noundef 
   br i1 %exitcond436.not, label %14, label %.preheader
 
 14:                                               ; preds = %.preheader
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 56), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -7934,7 +7934,7 @@ define internal fastcc void @accel_copy_permanent_strings(ptr nocapture noundef 
   br i1 %.not309, label %._crit_edge, label %.lr.ph364
 
 ._crit_edge:                                      ; preds = %.loopexit358, %14
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 64), align 8
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 64), align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 24
@@ -8144,7 +8144,7 @@ define internal fastcc void @accel_copy_permanent_strings(ptr nocapture noundef 
   br i1 %.not311, label %._crit_edge383, label %.lr.ph382
 
 ._crit_edge383:                                   ; preds = %.loopexit, %._crit_edge
-  %169 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 448), align 8
+  %169 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 448), align 8
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %171 = load ptr, ptr %170, align 8
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 24
@@ -8213,7 +8213,7 @@ define internal fastcc void @accel_copy_permanent_strings(ptr nocapture noundef 
   br i1 %.not313, label %._crit_edge388, label %.lr.ph387
 
 ._crit_edge388:                                   ; preds = %204, %._crit_edge383
-  %206 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 72), align 8
+  %206 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 72), align 8
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %208 = load ptr, ptr %207, align 8
   %209 = getelementptr inbounds nuw i8, ptr %206, i64 24
@@ -8271,11 +8271,11 @@ define internal fastcc void @accel_copy_permanent_strings(ptr nocapture noundef 
   br i1 %.not315, label %._crit_edge393, label %.lr.ph392
 
 ._crit_edge393:                                   ; preds = %235, %._crit_edge388
-  %237 = load ptr, ptr getelementptr inbounds (i8, ptr @module_registry, i64 16), align 8
-  %238 = load i32, ptr getelementptr inbounds (i8, ptr @module_registry, i64 24), align 8
+  %237 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @module_registry, i64 16), align 8
+  %238 = load i32, ptr getelementptr inbounds nuw (i8, ptr @module_registry, i64 24), align 8
   %239 = zext i32 %238 to i64
   %240 = getelementptr inbounds nuw %struct._Bucket, ptr %237, i64 %239
-  %241 = load i32, ptr getelementptr inbounds (i8, ptr @module_registry, i64 8), align 8
+  %241 = load i32, ptr getelementptr inbounds nuw (i8, ptr @module_registry, i64 8), align 8
   %242 = and i32 %241, 4
   %.not316 = icmp eq i32 %242, 0
   tail call void @llvm.assume(i1 %.not316)
@@ -8306,7 +8306,7 @@ define internal fastcc void @accel_copy_permanent_strings(ptr nocapture noundef 
   br i1 %.not317, label %._crit_edge398, label %.lr.ph397
 
 ._crit_edge398:                                   ; preds = %251, %._crit_edge393
-  %253 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 816), align 8
+  %253 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 816), align 8
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %255 = load ptr, ptr %254, align 8
   %256 = getelementptr inbounds nuw i8, ptr %253, i64 24
@@ -8519,7 +8519,7 @@ define internal ptr @accel_replace_string_by_shm_permanent(ptr noundef %0) #0 {
   br i1 %12, label %28, label %13
 
 13:                                               ; preds = %10
-  %14 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 3), align 1
+  %14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 3), align 1
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %.thread
 
@@ -8734,7 +8734,7 @@ define internal fastcc void @preload_load() unnamed_addr #0 {
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds nuw %struct._Bucket, ptr %8, i64 %11
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 56), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = add i32 %15, %10
@@ -8744,7 +8744,7 @@ define internal fastcc void @preload_load() unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %.090105 = phi ptr [ %47, %.lr.ph ], [ %8, %6 ]
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 56), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8
   %18 = getelementptr inbounds nuw i8, ptr %.090105, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %.090105, align 8
@@ -8799,7 +8799,7 @@ define internal fastcc void @preload_load() unnamed_addr #0 {
   %54 = load i32, ptr %53, align 8
   %55 = zext i32 %54 to i64
   %56 = getelementptr inbounds nuw %struct._Bucket, ptr %52, i64 %55
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 64), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 64), align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load i32, ptr %58, align 8
   %60 = add i32 %59, %54
@@ -8809,7 +8809,7 @@ define internal fastcc void @preload_load() unnamed_addr #0 {
 
 .lr.ph108:                                        ; preds = %50, %.lr.ph108
   %.0107 = phi ptr [ %93, %.lr.ph108 ], [ %52, %50 ]
-  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 64), align 8
+  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 64), align 8
   %62 = getelementptr inbounds nuw i8, ptr %.0107, i64 24
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 24
@@ -8854,40 +8854,40 @@ define internal fastcc void @preload_load() unnamed_addr #0 {
   br i1 %.not98, label %.loopexit, label %.lr.ph108
 
 .loopexit:                                        ; preds = %.lr.ph108, %50, %.loopexit103
-  %94 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 448), align 8
+  %94 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 448), align 8
   %.not99 = icmp eq ptr %94, null
   br i1 %.not99, label %98, label %95
 
 95:                                               ; preds = %.loopexit
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %97 = load i32, ptr %96, align 8
-  store i32 %97, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 520), align 8
+  store i32 %97, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 520), align 8
   br label %98
 
 98:                                               ; preds = %95, %.loopexit
-  %99 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 432), align 8
+  %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 432), align 8
   %.not100 = icmp eq ptr %99, null
   br i1 %.not100, label %103, label %100
 
 100:                                              ; preds = %98
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %102 = load i32, ptr %101, align 8
-  store i32 %102, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 524), align 4
+  store i32 %102, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 524), align 4
   br label %103
 
 103:                                              ; preds = %100, %98
-  %104 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
+  %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 440), align 8
   %.not101 = icmp eq ptr %104, null
   br i1 %.not101, label %108, label %105
 
 105:                                              ; preds = %103
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %107 = load i32, ptr %106, align 8
-  store i32 %107, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 528), align 8
+  store i32 %107, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 528), align 8
   br label %108
 
 108:                                              ; preds = %105, %103
-  %109 = load i64, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 504), align 8
+  %109 = load i64, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 504), align 8
   %110 = load ptr, ptr @accel_shared_globals, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 80
   %112 = load i64, ptr %111, align 8
@@ -8895,20 +8895,20 @@ define internal fastcc void @preload_load() unnamed_addr #0 {
   br i1 %.not102, label %126, label %113
 
 113:                                              ; preds = %108
-  store i64 %112, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 504), align 8
+  store i64 %112, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 504), align 8
   %114 = and i64 %112, -4096
   %115 = add i64 %114, 4096
-  store i64 %115, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 496), align 8
-  %116 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 480), align 8
+  store i64 %115, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 496), align 8
+  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 480), align 8
   %117 = shl i64 %115, 3
   %118 = tail call ptr @__zend_realloc(ptr noundef %116, i64 noundef %117) #31
-  store ptr %118, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 480), align 8
+  store ptr %118, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 480), align 8
   %119 = ptrtoint ptr %118 to i64
   %120 = add i64 %119, -1
   %121 = inttoptr i64 %120 to ptr
-  store ptr %121, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  store ptr %121, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %122 = getelementptr inbounds ptr, ptr %118, i64 %109
-  %123 = load i64, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 504), align 8
+  %123 = load i64, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 504), align 8
   %124 = sub i64 %123, %109
   %125 = shl i64 %124, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %122, i8 0, i64 %125, i1 false)
@@ -8922,7 +8922,7 @@ define internal fastcc void @preload_load() unnamed_addr #0 {
 define internal fastcc void @accel_finish_startup_preload_subprocess(ptr nocapture noundef nonnull writeonly %0) unnamed_addr #0 {
   %2 = tail call i32 @geteuid() #24
   %.not = icmp eq i32 %2, 0
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 176), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 176), align 8
   %.not23 = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
 
@@ -8969,7 +8969,7 @@ define internal fastcc void @accel_finish_startup_preload_subprocess(ptr nocaptu
 
 21:                                               ; preds = %18
   tail call void @zend_shared_alloc_unlock() #24
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 176), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 176), align 8
   tail call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.78, ptr noundef %22) #29
   unreachable
 
@@ -9041,60 +9041,60 @@ define internal fastcc void @accel_finish_startup_preload_subprocess(ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @accel_finish_startup_preload(i1 noundef zeroext %0) unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 32), align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 40), align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 128), align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 88), align 8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 96), align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 104), align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 72), align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 48), align 8
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 56), align 8
-  %11 = load i8, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 17), align 1
-  store ptr null, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 128), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @sapi_module, i64 32), i8 0, i64 16, i1 false)
-  store ptr @preload_header_handler, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 88), align 8
-  store ptr @preload_send_headers, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 96), align 8
-  store ptr @preload_send_header, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 104), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 72), align 8
-  store ptr @preload_ub_write, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 48), align 8
-  store ptr @preload_flush, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 56), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 32), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 40), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 128), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 88), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 96), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 104), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 72), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 48), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 56), align 8
+  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 17), align 1
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 128), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @sapi_module, i64 32), i8 0, i64 16, i1 false)
+  store ptr @preload_header_handler, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 88), align 8
+  store ptr @preload_send_headers, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 96), align 8
+  store ptr @preload_send_header, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 104), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 72), align 8
+  store ptr @preload_ub_write, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 48), align 8
+  store ptr @preload_flush, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 56), align 8
   tail call void @zend_interned_strings_switch_storage(i1 noundef zeroext true) #24
-  store i8 0, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 17), align 1
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 424), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 424), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 17), align 1
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 424), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 424), align 8
   %13 = tail call i32 @php_request_startup() #24
-  store i32 %12, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 424), align 8
+  store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 424), align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %24
 
 15:                                               ; preds = %1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 73), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 249), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 73), align 1
   tail call void @php_output_set_status(i32 noundef 0) #24
-  store i32 0, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 280), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 280), align 8
   %16 = tail call double @sapi_get_request_time() #24
   %17 = fptosi double %16 to i64
-  store i64 %17, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 288), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 264), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
-  store i8 1, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 268), align 4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 184), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 272), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 276), align 4
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 168), align 8
+  store i64 %17, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 288), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 264), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 268), align 4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 184), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 272), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 276), align 4
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 168), align 8
   %19 = tail call fastcc i32 @accel_preload(ptr noundef %18, i1 noundef zeroext %0)
   %.not = icmp ne i32 %19, 0
   %spec.select = sext i1 %.not to i32
   %20 = load ptr, ptr @stdout, align 8
   %21 = tail call i32 @fflush(ptr noundef %20)
-  %22 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 15), align 1
+  %22 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 15), align 1
   %23 = and i8 %22, 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @core_globals, i64 15), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 16), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 15), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 16), align 8
   tail call void @php_request_shutdown(ptr noundef null) #24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @executor_globals, i64 432), i8 0, i64 16, i1 false)
-  store i8 %23, ptr getelementptr inbounds (i8, ptr @core_globals, i64 15), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @executor_globals, i64 432), i8 0, i64 16, i1 false)
+  store i8 %23, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 15), align 1
   br label %25
 
 24:                                               ; preds = %1
@@ -9104,16 +9104,16 @@ define internal fastcc range(i32 -1, 1) i32 @accel_finish_startup_preload(i1 nou
 25:                                               ; preds = %24, %15
   %.1 = phi i32 [ %spec.select, %15 ], [ -1, %24 ]
   %26 = and i8 %11, 1
-  store i8 %26, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 17), align 1
-  store ptr %2, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 32), align 8
-  store ptr %3, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 40), align 8
-  store ptr %4, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 128), align 8
-  store ptr %5, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 88), align 8
-  store ptr %6, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 96), align 8
-  store ptr %7, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 104), align 8
-  store ptr %8, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 72), align 8
-  store ptr %9, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 48), align 8
-  store ptr %10, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 56), align 8
+  store i8 %26, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 17), align 1
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 32), align 8
+  store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 40), align 8
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 128), align 8
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 88), align 8
+  store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 96), align 8
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 104), align 8
+  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 72), align 8
+  store ptr %9, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 48), align 8
+  store ptr %10, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 56), align 8
   tail call void @sapi_activate() #24
   ret i32 %.1
 }
@@ -9186,26 +9186,26 @@ define internal fastcc i32 @accel_preload(ptr noundef %0, i1 noundef zeroext %1)
   %4 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %5 = alloca %struct._zend_execute_data, align 8
   %6 = alloca [1 x %struct.__jmp_buf_tag], align 16
-  store i8 0, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 3), align 1
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 88), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @core_globals, i64 88), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 3), align 1
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 88), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 88), align 8
   %8 = load ptr, ptr @accelerator_orig_compile_file, align 8
   store ptr %8, ptr @preload_orig_compile_file, align 8
   store ptr @preload_compile_file, ptr @accelerator_orig_compile_file, align 8
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 504), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 504), align 8
   call void @zend_stream_init_filename(ptr noundef nonnull %3, ptr noundef %0) #24
   %10 = call noalias ptr @_emalloc_56() #24
   store ptr %10, ptr @preload_scripts, align 8
   call void @_zend_hash_init(ptr noundef %10, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #24
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 172), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4
   %12 = or i32 %11, 131072
   %spec.select = select i1 %1, i32 %12, i32 %11
   %13 = or i32 %spec.select, 41060
-  store i32 %13, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 172), align 4
-  store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 152), align 8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  store ptr %4, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store i32 %13, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 152), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
   %15 = call i32 @__sigsetjmp(ptr noundef nonnull %4, i32 noundef 0) #25
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %40
@@ -9219,7 +9219,7 @@ define internal fastcc i32 @accel_preload(ptr noundef %0, i1 noundef zeroext %1)
   br i1 %.not, label %24, label %22
 
 22:                                               ; preds = %17
-  %23 = call ptr @zend_hash_add_empty_element(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 360), ptr noundef nonnull %21) #24
+  %23 = call ptr @zend_hash_add_empty_element(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 360), ptr noundef nonnull %21) #24
   br label %24
 
 24:                                               ; preds = %22, %17
@@ -9230,18 +9230,18 @@ define internal fastcc i32 @accel_preload(ptr noundef %0, i1 noundef zeroext %1)
 25:                                               ; preds = %24
   call void @zend_execute(ptr noundef nonnull %19, ptr noundef null) #24
   call void @zend_exception_restore() #24
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not144 = icmp eq ptr %26, null
   br i1 %.not144, label %34, label %27
 
 27:                                               ; preds = %25
-  %28 = load i8, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 712), align 8
+  %28 = load i8, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 712), align 8
   %.not145 = icmp eq i8 %28, 0
   br i1 %.not145, label %.thread, label %29
 
 29:                                               ; preds = %27
   call void @zend_user_exception_handler() #24
-  %.pr = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.pr = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not146 = icmp eq ptr %.pr, null
   br i1 %.not146, label %34, label %.thread
 
@@ -9252,7 +9252,7 @@ define internal fastcc i32 @accel_preload(ptr noundef %0, i1 noundef zeroext %1)
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %.thread
-  store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 83), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 83), align 1
   br label %34
 
 34:                                               ; preds = %29, %33, %.thread, %25
@@ -9262,7 +9262,7 @@ define internal fastcc i32 @accel_preload(ptr noundef %0, i1 noundef zeroext %1)
   br label %40
 
 35:                                               ; preds = %24
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not143 = icmp eq ptr %36, null
   br i1 %.not143, label %39, label %37
 
@@ -9271,22 +9271,22 @@ define internal fastcc i32 @accel_preload(ptr noundef %0, i1 noundef zeroext %1)
   br label %39
 
 39:                                               ; preds = %37, %35
-  store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 83), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 83), align 1
   br label %40
 
 40:                                               ; preds = %2, %34, %39
   %.1 = phi i32 [ %.0, %34 ], [ -1, %39 ], [ -1, %2 ]
-  store ptr %14, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  store ptr %7, ptr getelementptr inbounds (i8, ptr @core_globals, i64 88), align 8
+  store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 88), align 8
   %41 = load ptr, ptr @preload_orig_compile_file, align 8
   store ptr %41, ptr @accelerator_orig_compile_file, align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 1), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 1), align 1
   call void @zend_destroy_file_handle(ptr noundef nonnull %3) #24
   %42 = icmp eq i32 %.1, 0
   br i1 %42, label %43, label %881
 
 43:                                               ; preds = %40
-  %44 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 442), align 2
+  %44 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 442), align 2
   %45 = trunc i8 %44 to i1
   br i1 %45, label %46, label %61
 
@@ -9294,20 +9294,20 @@ define internal fastcc i32 @accel_preload(ptr noundef %0, i1 noundef zeroext %1)
   %47 = load ptr, ptr @zend_known_strings, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 528
   %49 = load ptr, ptr %48, align 8
-  %50 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef %49) #24
+  %50 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304), ptr noundef %49) #24
   %.not.i = icmp ne ptr %50, null
   %spec.select.i = zext i1 %.not.i to i32
   %51 = load ptr, ptr @zend_known_strings, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 536
   %53 = load ptr, ptr %52, align 8
-  %54 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef %53) #24
+  %54 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304), ptr noundef %53) #24
   %.not9.i = icmp eq ptr %54, null
   %55 = or disjoint i32 %spec.select.i, 2
   %.1.i = select i1 %.not9.i, i32 %spec.select.i, i32 %55
   %56 = load ptr, ptr @zend_known_strings, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 544
   %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef %58) #24
+  %59 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304), ptr noundef %58) #24
   %.not10.i = icmp eq ptr %59, null
   %60 = or disjoint i32 %.1.i, 4
   %.2.i = select i1 %.not10.i, i32 %.1.i, i32 %60
@@ -9315,7 +9315,7 @@ define internal fastcc i32 @accel_preload(ptr noundef %0, i1 noundef zeroext %1)
 
 61:                                               ; preds = %43, %46
   %.0131 = phi i32 [ %.2.i, %46 ], [ 0, %43 ]
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 448), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 448), align 8
   %.not147 = icmp eq ptr %62, null
   br i1 %.not147, label %.loopexit, label %63
 
@@ -9348,11 +9348,11 @@ define internal fastcc i32 @accel_preload(ptr noundef %0, i1 noundef zeroext %1)
 
 79:                                               ; preds = %75
   %80 = load ptr, ptr %.0134186, align 8
-  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false)
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store ptr %82, ptr %74, align 8
-  store ptr %5, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %83 = call ptr @zend_get_constant_str(ptr noundef nonnull @.str.83, i64 noundef 24) #24
   %.not152 = icmp eq ptr %83, null
   br i1 %.not152, label %87, label %84
@@ -9364,7 +9364,7 @@ define internal fastcc i32 @accel_preload(ptr noundef %0, i1 noundef zeroext %1)
   br label %87
 
 87:                                               ; preds = %84, %79
-  store ptr %81, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  store ptr %81, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   br label %88
 
 88:                                               ; preds = %75, %87
@@ -9373,17 +9373,17 @@ define internal fastcc i32 @accel_preload(ptr noundef %0, i1 noundef zeroext %1)
   br i1 %.not149, label %.loopexit, label %75
 
 .loopexit:                                        ; preds = %88, %63, %61
-  %90 = load i8, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 993), align 1
+  %90 = load i8, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 993), align 1
   %91 = or i8 %90, 1
-  store i8 %91, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 993), align 1
+  store i8 %91, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 993), align 1
   call void @php_call_shutdown_functions() #24
   call void @zend_call_destructors() #24
   call void @php_output_end_all() #24
   call void @php_free_shutdown_functions() #24
   call void @zend_shutdown_executor_values(i1 noundef zeroext false) #24
-  call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), i32 noundef 0, ptr noundef nonnull @zval_ptr_dtor, i1 noundef zeroext false) #24
-  store i64 %9, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 504), align 8
-  %92 = load i8, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 533), align 1
+  call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304), i32 noundef 0, ptr noundef nonnull @zval_ptr_dtor, i1 noundef zeroext false) #24
+  store i64 %9, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 504), align 8
+  %92 = load i8, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 533), align 1
   %93 = trunc i8 %92 to i1
   br i1 %93, label %94, label %95
 
@@ -9392,15 +9392,15 @@ define internal fastcc i32 @accel_preload(ptr noundef %0, i1 noundef zeroext %1)
   unreachable
 
 95:                                               ; preds = %.loopexit
-  %96 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  store ptr %6, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
   %97 = call i32 @__sigsetjmp(ptr noundef nonnull %6, i32 noundef 0) #25
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %99, label %803
 
 99:                                               ; preds = %95
   call fastcc void @preload_link()
-  store ptr %96, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %96, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
   %100 = load ptr, ptr @preload_scripts, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %102 = load ptr, ptr %101, align 8
@@ -9901,7 +9901,7 @@ preload_remove_empty_includes.exit:               ; preds = %.preheader.i, %.loo
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %331, ptr noundef nonnull align 1 dereferenceable(9) @.str.85, i64 9, i1 false)
   %332 = getelementptr inbounds nuw i8, ptr %327, i64 33
   store i8 0, ptr %332, align 1
-  store ptr %327, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  store ptr %327, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 32), align 8
   %333 = getelementptr inbounds nuw i8, ptr %325, i64 8
   call void @init_op_array(ptr noundef nonnull %333, i8 noundef zeroext 2, i32 noundef 2) #24
   %334 = getelementptr inbounds nuw i8, ptr %325, i64 12
@@ -9948,10 +9948,10 @@ preload_remove_empty_includes.exit:               ; preds = %.preheader.i, %.loo
   store i32 %364, ptr %357, align 8
   %365 = load ptr, ptr %343, align 8
   call void @zend_vm_set_opcode_handler(ptr noundef %365) #24
-  %366 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  %366 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 32), align 8
   store ptr %366, ptr %325, align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
-  %367 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 56), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 32), align 8
+  %367 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8
   %368 = getelementptr inbounds nuw i8, ptr %325, i64 248
   %369 = getelementptr inbounds nuw i8, ptr %367, i64 48
   %370 = load ptr, ptr %369, align 8
@@ -10143,7 +10143,7 @@ preload_try_strip_filename.exit.i:                ; preds = %.preheader.i.i
 
 preload_move_user_functions.exit:                 ; preds = %393, %466, %preload_remove_empty_includes.exit
   store ptr %370, ptr %369, align 8
-  %468 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 64), align 8
+  %468 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 64), align 8
   %469 = getelementptr inbounds nuw i8, ptr %325, i64 304
   %470 = getelementptr inbounds nuw i8, ptr %468, i64 48
   %471 = load ptr, ptr %470, align 8
@@ -10156,7 +10156,7 @@ preload_move_user_functions.exit:                 ; preds = %393, %466, %preload
   call void @zend_hash_extend(ptr noundef nonnull %469, i32 noundef %476, i1 noundef zeroext false) #24
   %477 = getelementptr inbounds nuw i8, ptr %468, i64 16
   %478 = load ptr, ptr %477, align 8
-  %479 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 528), align 8
+  %479 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 528), align 8
   %480 = load i32, ptr %474, align 8
   %481 = zext i32 %480 to i64
   %482 = getelementptr inbounds nuw %struct._Bucket, ptr %478, i64 %481
@@ -10518,8 +10518,8 @@ preload_register_trait_methods.exit118.i:         ; preds = %665, %644, %639, %.
   br i1 %.not99.i, label %._crit_edge139.i, label %.lr.ph138.i
 
 ._crit_edge139.i:                                 ; preds = %.loopexit128.i, %._crit_edge.i177
-  %669 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 104), align 8
-  %670 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 112), align 8
+  %669 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 104), align 8
+  %670 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 112), align 8
   call void @zend_optimize_script(ptr noundef nonnull %325, i64 noundef %669, i64 noundef %670) #24
   call void @zend_accel_finalize_delayed_early_binding_list(ptr noundef nonnull %325) #24
   %671 = load ptr, ptr %572, align 8
@@ -10745,8 +10745,8 @@ preload_fix_trait_methods.exit127.i:              ; preds = %776, %743, %.lr.ph1
 
 793:                                              ; preds = %.lr.ph157.i
   %794 = load ptr, ptr %.0155.i, align 8
-  %795 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 104), align 8
-  %796 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 112), align 8
+  %795 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 104), align 8
+  %796 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 112), align 8
   call void @zend_optimize_script(ptr noundef %794, i64 noundef %795, i64 noundef %796) #24
   call void @zend_accel_finalize_delayed_early_binding_list(ptr noundef %794) #24
   br label %797
@@ -10761,13 +10761,13 @@ preload_optimize.exit:                            ; preds = %797, %._crit_edge15
   %799 = load i32, ptr @zend_signal_globals, align 8
   %800 = add nsw i32 %799, 1
   store i32 %800, ptr @zend_signal_globals, align 8
-  %801 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %801 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %802 = trunc i8 %801 to i1
   br i1 %802, label %804, label %805
 
 803:                                              ; preds = %95
-  store ptr %96, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  store i64 %9, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 504), align 8
+  store ptr %96, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
+  store i64 %9, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 504), align 8
   br label %882
 
 804:                                              ; preds = %preload_optimize.exit
@@ -10779,7 +10779,7 @@ preload_optimize.exit:                            ; preds = %797, %._crit_edge15
   %807 = load ptr, ptr @accel_shared_globals, align 8
   %808 = getelementptr inbounds nuw i8, ptr %807, i64 128
   store ptr %806, ptr %808, align 8
-  %809 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %809 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %810 = trunc i8 %809 to i1
   br i1 %810, label %811, label %812
 
@@ -10791,7 +10791,7 @@ preload_optimize.exit:                            ; preds = %797, %._crit_edge15
   %813 = load i32, ptr @zend_signal_globals, align 8
   %814 = add nsw i32 %813, -1
   store i32 %814, ptr @zend_signal_globals, align 8
-  %815 = load i32, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 4), align 4
+  %815 = load i32, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 4), align 4
   %816 = icmp eq i32 %813, %815
   br i1 %816, label %817, label %818
 
@@ -10804,7 +10804,7 @@ preload_optimize.exit:                            ; preds = %797, %._crit_edge15
   %819 = load i32, ptr @zend_signal_globals, align 8
   %820 = add nsw i32 %819, 1
   store i32 %820, ptr @zend_signal_globals, align 8
-  %821 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %821 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %822 = trunc i8 %821 to i1
   br i1 %822, label %823, label %824
 
@@ -10893,7 +10893,7 @@ preload_optimize.exit:                            ; preds = %797, %._crit_edge15
   %869 = load ptr, ptr %868, align 8
   %870 = getelementptr inbounds nuw i8, ptr %867, i64 200
   store ptr %869, ptr %870, align 8
-  %871 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
+  %871 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %872 = trunc i8 %871 to i1
   br i1 %872, label %873, label %874
 
@@ -10905,7 +10905,7 @@ preload_optimize.exit:                            ; preds = %797, %._crit_edge15
   %875 = load i32, ptr @zend_signal_globals, align 8
   %876 = add nsw i32 %875, -1
   store i32 %876, ptr @zend_signal_globals, align 8
-  %877 = load i32, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 4), align 4
+  %877 = load i32, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 4), align 4
   %878 = icmp eq i32 %875, %877
   br i1 %878, label %879, label %880
 
@@ -10918,12 +10918,12 @@ preload_optimize.exit:                            ; preds = %797, %._crit_edge15
   br label %882
 
 881:                                              ; preds = %40
-  store i64 %9, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 504), align 8
+  store i64 %9, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 504), align 8
   br label %882
 
 882:                                              ; preds = %880, %881, %803
   %.2 = phi i32 [ 0, %880 ], [ -1, %803 ], [ %.1, %881 ]
-  store i32 %11, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 172), align 4
+  store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4
   %883 = load ptr, ptr @preload_scripts, align 8
   call void @zend_hash_destroy(ptr noundef %883) #24
   %884 = load ptr, ptr @preload_scripts, align 8
@@ -11046,10 +11046,10 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %._crit_edge339, %0
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 440), align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 528), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 528), align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
@@ -11101,7 +11101,7 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
   br i1 %.not269, label %38, label %54
 
 38:                                               ; preds = %32
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 440), align 8
   %40 = call ptr @zend_hash_find(ptr noundef %39, ptr noundef %35) #24
   %.not270 = icmp eq ptr %40, null
   br i1 %.not270, label %54, label %41
@@ -11143,7 +11143,7 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
 
 57:                                               ; preds = %54
   %58 = call ptr @zend_string_tolower_ex(ptr noundef nonnull %56, i1 noundef zeroext false) #24
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 440), align 8
   %60 = call ptr @zend_hash_find(ptr noundef %59, ptr noundef %58) #24
   %.not68.i = icmp eq ptr %60, null
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 4
@@ -11196,7 +11196,7 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
 
 82:                                               ; preds = %78, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %78 ]
-  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 440), align 8
   %84 = load ptr, ptr %77, align 8
   %85 = getelementptr inbounds nuw %struct._zend_class_name, ptr %84, i64 %indvars.iv.i, i32 1
   %86 = load ptr, ptr %85, align 8
@@ -11223,7 +11223,7 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
 
 95:                                               ; preds = %91, %.lr.ph85.i
   %indvars.iv92.i = phi i64 [ 0, %.lr.ph85.i ], [ %indvars.iv.next93.i, %91 ]
-  %96 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
+  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 440), align 8
   %97 = load ptr, ptr %90, align 8
   %98 = getelementptr inbounds nuw %struct._zend_class_name, ptr %97, i64 %indvars.iv92.i, i32 1
   %99 = load ptr, ptr %98, align 8
@@ -11261,11 +11261,11 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
   br label %194
 
 .loopexit329:                                     ; preds = %91, %.loopexit79.i
-  %113 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
+  %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 440), align 8
   %114 = call ptr @zend_hash_set_bucket_key(ptr noundef %113, ptr noundef nonnull %.0232335, ptr noundef %35) #24
   %115 = icmp ne ptr %114, null
   call void @llvm.assume(i1 %115)
-  %116 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
+  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 336), align 8
   %117 = load ptr, ptr %116, align 8
   %118 = load i32, ptr %28, align 4
   %119 = or i32 %118, 138412032
@@ -11292,15 +11292,15 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
   store ptr %129, ptr @orig_error_cb, align 8
   store ptr @preload_error_cb, ptr @zend_error_cb, align 8
   call void @zend_begin_record_errors() #24
-  store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 81), align 1
   %130 = getelementptr inbounds nuw i8, ptr %25, i64 496
   %131 = load ptr, ptr %130, align 8
-  store ptr %131, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  store ptr %131, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 32), align 8
   %132 = getelementptr inbounds nuw i8, ptr %25, i64 504
   %133 = load i32, ptr %132, align 8
-  store i32 %133, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
-  %134 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  store ptr %3, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store i32 %133, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 40), align 8
+  %134 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
   %135 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #25
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %137, label %144
@@ -11319,8 +11319,8 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
   br label %181
 
 144:                                              ; preds = %128
-  store ptr %134, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  %145 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 512), align 8
+  store ptr %134, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
+  %145 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8
   %.not275 = icmp eq ptr %145, null
   br i1 %.not275, label %150, label %146
 
@@ -11331,13 +11331,13 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
   br label %150
 
 150:                                              ; preds = %146, %144
-  %151 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
+  %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 440), align 8
   %152 = call ptr @zend_hash_set_bucket_key(ptr noundef %151, ptr noundef nonnull %114, ptr noundef %24) #24
   store ptr %25, ptr %152, align 8
   %153 = load i32, ptr %28, align 4
   %154 = and i32 %153, -138412033
   store i32 %154, ptr %28, align 4
-  %155 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
+  %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 336), align 8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %157 = load ptr, ptr %156, align 8
   %158 = icmp ugt ptr %117, %157
@@ -11350,7 +11350,7 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
   %161 = getelementptr inbounds nuw i8, ptr %.0228333, i64 16
   %162 = load ptr, ptr %161, align 8
   call void @_efree(ptr noundef nonnull %.0228333) #24
-  store ptr %162, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
+  store ptr %162, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 336), align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %164 = load ptr, ptr %163, align 8
   %165 = icmp ugt ptr %117, %164
@@ -11363,11 +11363,11 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
   store ptr %117, ptr %.0228.lcssa, align 8
   %168 = load ptr, ptr @orig_error_cb, align 8
   store ptr %168, ptr @zend_error_cb, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1680), align 8
-  %169 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1684), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1680), align 8
+  %169 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1684), align 4
   %170 = icmp ne i32 %169, 0
   call void @llvm.assume(i1 %170)
-  %171 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1688), align 8
+  %171 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1688), align 8
   %172 = add i32 %169, -1
   %173 = zext i32 %172 to i64
   %174 = getelementptr inbounds nuw ptr, ptr %171, i64 %173
@@ -11378,16 +11378,16 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
   %177 = load ptr, ptr %176, align 8
   %178 = icmp ne ptr %177, null
   call void @llvm.assume(i1 %178)
-  %179 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1684), align 4
+  %179 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1684), align 4
   %180 = add i32 %179, -1
-  store i32 %180, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1684), align 4
+  store i32 %180, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1684), align 4
   br label %181
 
 181:                                              ; preds = %._crit_edge, %137
   %.2 = phi i1 [ true, %137 ], [ %.0231336, %._crit_edge ]
-  store ptr %134, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
-  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  store ptr %134, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 81), align 1
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 32), align 8
   call void @zend_free_recorded_errors() #24
   %182 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %183 = load i32, ptr %182, align 4
@@ -11427,7 +11427,7 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
   br i1 %.1, label %5, label %._crit_edge339..preheader_crit_edge
 
 ._crit_edge339..preheader_crit_edge:              ; preds = %._crit_edge339
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 440), align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %.pre379 = load i32, ptr %.phi.trans.insert, align 8
   br label %.preheader
@@ -11447,7 +11447,7 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
   br label %.split
 
 .preheader.split:                                 ; preds = %.preheader, %._crit_edge347
-  %202 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
+  %202 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 440), align 8
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 24
   %204 = load i32, ptr %203, align 8
   %205 = getelementptr inbounds nuw i8, ptr %202, i64 16
@@ -11489,8 +11489,8 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
   br i1 %or.cond281, label %224, label %314
 
 224:                                              ; preds = %220
-  store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
-  store ptr inttoptr (i64 -1 to ptr), ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 81), align 1
+  store ptr inttoptr (i64 -1 to ptr), ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %225 = getelementptr inbounds nuw i8, ptr %217, i64 192
   %226 = getelementptr inbounds nuw i8, ptr %217, i64 200
   %227 = getelementptr inbounds nuw i8, ptr %217, i64 184
@@ -11685,8 +11685,8 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
   br i1 %307, label %308, label %234
 
 308:                                              ; preds = %305
-  store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 81), align 1
   br i1 %306, label %preload_try_resolve_constants.exit.thread, label %preload_try_resolve_constants.exit
 
 preload_try_resolve_constants.exit.thread:        ; preds = %308
@@ -11703,7 +11703,7 @@ preload_try_resolve_constants.exit:               ; preds = %308
 
 312:                                              ; preds = %preload_try_resolve_constants.exit, %311
   %313 = phi i1 [ true, %311 ], [ %.3344, %preload_try_resolve_constants.exit ]
-  store i8 0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 81), align 1
   br label %314
 
 314:                                              ; preds = %220, %312, %.lr.ph346
@@ -11717,7 +11717,7 @@ preload_try_resolve_constants.exit:               ; preds = %308
   br i1 %.3.lcssa, label %.preheader.split, label %._crit_edge347..split.loopexit_crit_edge, !llvm.loop !6
 
 ._crit_edge347..split.loopexit_crit_edge:         ; preds = %._crit_edge347
-  %.pre380.pre = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
+  %.pre380.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 440), align 8
   %.phi.trans.insert381.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre380.pre, i64 24
   %.pre382.pre = load i32, ptr %.phi.trans.insert381.phi.trans.insert, align 8
   %.phi.trans.insert383.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre380.pre, i64 8
@@ -11730,7 +11730,7 @@ preload_try_resolve_constants.exit:               ; preds = %308
   %318 = phi ptr [ %197, %.preheader.split.us ], [ %.pre380.pre, %._crit_edge347..split.loopexit_crit_edge ], [ %202, %.preheader.split ]
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 16
   %320 = load ptr, ptr %319, align 8
-  %321 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 528), align 8
+  %321 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 528), align 8
   %322 = zext i32 %317 to i64
   %323 = getelementptr inbounds nuw %struct._Bucket, ptr %320, i64 %322
   %324 = and i32 %316, 4
@@ -11777,7 +11777,7 @@ preload_try_resolve_constants.exit:               ; preds = %308
   br i1 %.not262, label %346, label %356
 
 346:                                              ; preds = %340
-  %347 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
+  %347 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 440), align 8
   %348 = call ptr @zend_hash_find(ptr noundef %347, ptr noundef %343) #24
   %.not263 = icmp eq ptr %348, null
   br i1 %.not263, label %356, label %349
@@ -11800,7 +11800,7 @@ preload_try_resolve_constants.exit:               ; preds = %308
 
 359:                                              ; preds = %356
   %360 = call ptr @zend_string_tolower_ex(ptr noundef nonnull %358, i1 noundef zeroext false) #24
-  %361 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
+  %361 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 440), align 8
   %362 = call ptr @zend_hash_find(ptr noundef %361, ptr noundef %360) #24
   %.not68.i292 = icmp eq ptr %362, null
   %363 = getelementptr inbounds nuw i8, ptr %360, i64 4
@@ -11853,7 +11853,7 @@ preload_try_resolve_constants.exit:               ; preds = %308
 
 384:                                              ; preds = %380, %.lr.ph.i295
   %indvars.iv.i296 = phi i64 [ 0, %.lr.ph.i295 ], [ %indvars.iv.next.i298, %380 ]
-  %385 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
+  %385 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 440), align 8
   %386 = load ptr, ptr %379, align 8
   %387 = getelementptr inbounds nuw %struct._zend_class_name, ptr %386, i64 %indvars.iv.i296, i32 1
   %388 = load ptr, ptr %387, align 8
@@ -11885,7 +11885,7 @@ preload_try_resolve_constants.exit:               ; preds = %308
 
 400:                                              ; preds = %396, %.lr.ph85.i301
   %indvars.iv92.i302 = phi i64 [ 0, %.lr.ph85.i301 ], [ %indvars.iv.next93.i304, %396 ]
-  %401 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
+  %401 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 440), align 8
   %402 = load ptr, ptr %395, align 8
   %403 = getelementptr inbounds nuw %struct._zend_class_name, ptr %402, i64 %indvars.iv92.i302, i32 1
   %404 = load ptr, ptr %403, align 8
@@ -12017,10 +12017,10 @@ preload_try_resolve_constants.exit:               ; preds = %308
   br i1 %.not251, label %._crit_edge360, label %.lr.ph359
 
 ._crit_edge360:                                   ; preds = %468, %._crit_edge355
-  %470 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 432), align 8
+  %470 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 432), align 8
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 16
   %472 = load ptr, ptr %471, align 8
-  %473 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 524), align 4
+  %473 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 524), align 4
   %474 = getelementptr inbounds nuw i8, ptr %470, i64 24
   %475 = load i32, ptr %474, align 8
   %476 = zext i32 %475 to i64
@@ -12059,10 +12059,10 @@ preload_try_resolve_constants.exit:               ; preds = %308
   br i1 %.not253, label %._crit_edge365, label %.lr.ph364
 
 ._crit_edge365:                                   ; preds = %490, %._crit_edge360
-  %492 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
+  %492 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 440), align 8
   %493 = getelementptr inbounds nuw i8, ptr %492, i64 16
   %494 = load ptr, ptr %493, align 8
-  %495 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 528), align 8
+  %495 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 528), align 8
   %496 = getelementptr inbounds nuw i8, ptr %492, i64 24
   %497 = load i32, ptr %496, align 8
   %498 = zext i32 %497 to i64
@@ -12150,7 +12150,7 @@ preload_try_resolve_constants.exit:               ; preds = %308
   %542 = getelementptr inbounds i8, ptr %.097111.i, i64 %541
   %543 = getelementptr inbounds nuw i8, ptr %542, i64 16
   %544 = load ptr, ptr %543, align 8
-  %545 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 64), align 8
+  %545 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 64), align 8
   %546 = call ptr @zend_hash_find(ptr noundef %545, ptr noundef %544) #24
   %.not107.i = icmp eq ptr %546, null
   br i1 %.not107.i, label %547, label %.thread.i
@@ -12180,7 +12180,7 @@ preload_try_resolve_constants.exit:               ; preds = %308
   %559 = sext i32 %558 to i64
   %560 = getelementptr inbounds i8, ptr %.097111.i, i64 %559
   %561 = load ptr, ptr %560, align 8
-  %562 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 432), align 8
+  %562 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 432), align 8
   %563 = call ptr @zend_hash_find(ptr noundef %562, ptr noundef %561) #24
   %.not103.i = icmp eq ptr %563, null
   br i1 %.not103.i, label %.thread.i, label %564
@@ -12410,7 +12410,7 @@ define internal fastcc noundef ptr @preload_script_in_shared_memory(ptr noundef 
   %14 = add i64 %13, 63
   %15 = and i64 %14, -64
   %16 = inttoptr i64 %15 to ptr
-  store ptr %16, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
+  store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 368), align 8
   %.not = icmp eq i64 %15, 0
   br i1 %.not, label %17, label %18
 
@@ -12455,7 +12455,7 @@ define internal fastcc noundef ptr @preload_script_in_shared_memory(ptr noundef 
   %37 = getelementptr inbounds nuw i8, ptr %19, i64 424
   %38 = load i64, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %36, i64 %38
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 368), align 8
   %.not33 = icmp eq ptr %39, %40
   br i1 %.not33, label %48, label %41
 
@@ -12555,7 +12555,7 @@ define internal fastcc void @preload_remove_declares(ptr nocapture noundef %0) u
   %17 = getelementptr inbounds i8, ptr %.097111, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 64), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 64), align 8
   %21 = tail call ptr @zend_hash_find(ptr noundef %20, ptr noundef %19) #24
   %.not107 = icmp eq ptr %21, null
   br i1 %.not107, label %22, label %.thread
@@ -12585,7 +12585,7 @@ define internal fastcc void @preload_remove_declares(ptr nocapture noundef %0) u
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds i8, ptr %.097111, i64 %34
   %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 432), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 432), align 8
   %38 = tail call ptr @zend_hash_find(ptr noundef %37, ptr noundef %36) #24
   %.not103 = icmp eq ptr %38, null
   br i1 %.not103, label %.thread, label %39

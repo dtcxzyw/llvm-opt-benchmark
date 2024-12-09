@@ -102,10 +102,10 @@ define internal noundef ptr @mca_vprotocol_pessimist_component_init(ptr nocaptur
   br label %46
 
 8:                                                ; preds = %3
-  store i64 1, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 208), align 16
-  store i8 0, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 720), align 16
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 208), align 16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 720), align 16
   %9 = load i32, ptr @opal_class_init_epoch, align 4
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %9, %10
   br i1 %.not, label %12, label %11
 
@@ -114,8 +114,8 @@ define internal noundef ptr @mca_vprotocol_pessimist_component_init(ptr nocaptur
   br label %12
 
 12:                                               ; preds = %11, %8
-  store ptr @opal_list_t_class, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 728), align 8
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 736), align 16
+  store ptr @opal_list_t_class, ptr getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 728), align 8
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 736), align 16
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 40), align 8
   %14 = load ptr, ptr %13, align 8
   %.not6.i = icmp eq ptr %14, null
@@ -124,7 +124,7 @@ define internal noundef ptr @mca_vprotocol_pessimist_component_init(ptr nocaptur
 .lr.ph.i:                                         ; preds = %12, %.lr.ph.i
   %15 = phi ptr [ %17, %.lr.ph.i ], [ %14, %12 ]
   %.07.i = phi ptr [ %16, %.lr.ph.i ], [ %13, %12 ]
-  tail call void %15(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 728)) #5
+  tail call void %15(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 728)) #5
   %16 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
@@ -132,7 +132,7 @@ define internal noundef ptr @mca_vprotocol_pessimist_component_init(ptr nocaptur
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %12
   %18 = load i32, ptr @opal_class_init_epoch, align 4
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not4 = icmp eq i32 %18, %19
   br i1 %.not4, label %21, label %20
 
@@ -141,8 +141,8 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %12
   br label %21
 
 21:                                               ; preds = %20, %opal_obj_run_constructors.exit
-  store ptr @opal_list_t_class, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 216), align 8
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 224), align 16
+  store ptr @opal_list_t_class, ptr getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 216), align 8
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 224), align 16
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 40), align 8
   %23 = load ptr, ptr %22, align 8
   %.not6.i6 = icmp eq ptr %23, null
@@ -151,7 +151,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %12
 .lr.ph.i7:                                        ; preds = %21, %.lr.ph.i7
   %24 = phi ptr [ %26, %.lr.ph.i7 ], [ %23, %21 ]
   %.07.i8 = phi ptr [ %25, %.lr.ph.i7 ], [ %22, %21 ]
-  tail call void %24(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 216)) #5
+  tail call void %24(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 216)) #5
   %25 = getelementptr inbounds nuw i8, ptr %.07.i8, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not.i9 = icmp eq ptr %26, null
@@ -159,7 +159,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %12
 
 opal_obj_run_constructors.exit10:                 ; preds = %.lr.ph.i7, %21
   %27 = load i32, ptr @opal_class_init_epoch, align 4
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 32), align 8
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_free_list_t_class, i64 32), align 8
   %.not5 = icmp eq i32 %27, %28
   br i1 %.not5, label %30, label %29
 
@@ -168,8 +168,8 @@ opal_obj_run_constructors.exit10:                 ; preds = %.lr.ph.i7, %21
   br label %30
 
 30:                                               ; preds = %29, %opal_obj_run_constructors.exit10
-  store ptr @opal_free_list_t_class, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 320), align 16
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 328), align 8
+  store ptr @opal_free_list_t_class, ptr getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 320), align 16
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 328), align 8
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_free_list_t_class, i64 40), align 8
   %32 = load ptr, ptr %31, align 8
   %.not6.i11 = icmp eq ptr %32, null
@@ -178,7 +178,7 @@ opal_obj_run_constructors.exit10:                 ; preds = %.lr.ph.i7, %21
 .lr.ph.i12:                                       ; preds = %30, %.lr.ph.i12
   %33 = phi ptr [ %35, %.lr.ph.i12 ], [ %32, %30 ]
   %.07.i13 = phi ptr [ %34, %.lr.ph.i12 ], [ %31, %30 ]
-  tail call void %33(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 320)) #5
+  tail call void %33(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 320)) #5
   %34 = getelementptr inbounds nuw i8, ptr %.07.i13, i64 8
   %35 = load ptr, ptr %34, align 8
   %.not.i14 = icmp eq ptr %35, null
@@ -190,15 +190,15 @@ opal_obj_run_constructors.exit15:                 ; preds = %.lr.ph.i12, %30
   %38 = load i32, ptr @_free_list_num, align 4
   %39 = load i32, ptr @_free_list_max, align 4
   %40 = load i32, ptr @_free_list_inc, align 4
-  %41 = tail call i32 @opal_free_list_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 320), i64 noundef 88, i64 noundef %37, ptr noundef nonnull @mca_vprotocol_pessimist_event_t_class, i64 noundef 0, i64 noundef %37, i32 noundef %38, i32 noundef %39, i32 noundef %40, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #5
+  %41 = tail call i32 @opal_free_list_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 320), i64 noundef 88, i64 noundef %37, ptr noundef nonnull @mca_vprotocol_pessimist_event_t_class, i64 noundef 0, i64 noundef %37, i32 noundef %38, i32 noundef %39, i32 noundef %40, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #5
   %42 = load i32, ptr @_event_buffer_size, align 4
   %43 = sext i32 %42 to i64
   %44 = lshr i64 %43, 4
-  store i64 %44, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 304), align 16
-  store i64 0, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 296), align 8
+  store i64 %44, ptr getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 304), align 16
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 296), align 8
   %45 = tail call noalias ptr @malloc(i64 noundef %43) #6
-  store ptr %45, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 288), align 16
-  store ptr @ompi_mpi_comm_null, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 280), align 8
+  store ptr %45, ptr getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 288), align 16
+  store ptr @ompi_mpi_comm_null, ptr getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 280), align 8
   br label %46
 
 46:                                               ; preds = %opal_obj_run_constructors.exit15, %7
@@ -208,9 +208,9 @@ opal_obj_run_constructors.exit15:                 ; preds = %.lr.ph.i12, %30
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @mca_vprotocol_pessimist_component_finalize() #1 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 288), align 16
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 288), align 16
   tail call void @free(ptr noundef %1) #5
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 728), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 728), align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -220,14 +220,14 @@ define internal noundef i32 @mca_vprotocol_pessimist_component_finalize() #1 {
 .lr.ph.i:                                         ; preds = %0, %.lr.ph.i
   %6 = phi ptr [ %8, %.lr.ph.i ], [ %5, %0 ]
   %.07.i = phi ptr [ %7, %.lr.ph.i ], [ %4, %0 ]
-  tail call void %6(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 728)) #5
+  tail call void %6(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 728)) #5
   %7 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %0
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 216), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 216), align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
@@ -237,14 +237,14 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %0
 .lr.ph.i2:                                        ; preds = %opal_obj_run_destructors.exit, %.lr.ph.i2
   %13 = phi ptr [ %15, %.lr.ph.i2 ], [ %12, %opal_obj_run_destructors.exit ]
   %.07.i3 = phi ptr [ %14, %.lr.ph.i2 ], [ %11, %opal_obj_run_destructors.exit ]
-  tail call void %13(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 216)) #5
+  tail call void %13(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 216)) #5
   %14 = getelementptr inbounds nuw i8, ptr %.07.i3, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not.i4 = icmp eq ptr %15, null
   br i1 %.not.i4, label %opal_obj_run_destructors.exit5, label %.lr.ph.i2, !llvm.loop !6
 
 opal_obj_run_destructors.exit5:                   ; preds = %.lr.ph.i2, %opal_obj_run_destructors.exit
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 320), align 16
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 320), align 16
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
@@ -254,7 +254,7 @@ opal_obj_run_destructors.exit5:                   ; preds = %.lr.ph.i2, %opal_ob
 .lr.ph.i7:                                        ; preds = %opal_obj_run_destructors.exit5, %.lr.ph.i7
   %20 = phi ptr [ %22, %.lr.ph.i7 ], [ %19, %opal_obj_run_destructors.exit5 ]
   %.07.i8 = phi ptr [ %21, %.lr.ph.i7 ], [ %18, %opal_obj_run_destructors.exit5 ]
-  tail call void %20(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 320)) #5
+  tail call void %20(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 320)) #5
   %21 = getelementptr inbounds nuw i8, ptr %.07.i8, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not.i9 = icmp eq ptr %22, null
@@ -278,7 +278,7 @@ define i32 @mca_vprotocol_pessimist_enable(i1 noundef zeroext %0) local_unnamed_
 
 7:                                                ; preds = %1
   tail call void @ompi_vprotocol_pessimist_sender_based_finalize() #5
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 280), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 280), align 8
   %9 = tail call i32 @ompi_vprotocol_pessimist_event_logger_disconnect(ptr noundef %8) #5
   br label %10
 

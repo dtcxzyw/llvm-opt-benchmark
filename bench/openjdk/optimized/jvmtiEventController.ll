@@ -269,7 +269,7 @@ define hidden void @_ZN19VM_ChangeSingleStepC2Eb(ptr nocapture noundef nonnull w
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV19VM_ChangeSingleStep, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV19VM_ChangeSingleStep, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %3, ptr %5, align 8
   ret void
@@ -426,7 +426,7 @@ _ZN16SafeResourceMarkD2Ev.exit:                   ; preds = %41, %39, %1
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @.str.43, ptr %51, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV26EnterInterpOnlyModeClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV26EnterInterpOnlyModeClosure, i64 16), ptr %2, align 8
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 0, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -1549,7 +1549,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
   %192 = and i8 %191, 1
   %193 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %193, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV19VM_ChangeSingleStep, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV19VM_ChangeSingleStep, i64 16), ptr %3, align 8
   %194 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 %192, ptr %194, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %3) #15
@@ -3212,7 +3212,7 @@ define hidden void @_ZN20JvmtiEventController22enter_interp_only_modeEP16JvmtiTh
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @.str.43, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV26EnterInterpOnlyModeClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV26EnterInterpOnlyModeClosure, i64 16), ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24

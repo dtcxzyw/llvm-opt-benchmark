@@ -49,7 +49,7 @@ define void @fair_tree_decay(ptr noundef %0, i64 noundef %1) local_unnamed_addr 
   store i32 %10, ptr %4, align 4
   store i32 %10, ptr %5, align 4
   store i64 0, ptr %6, align 8
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %12 = and i64 %11, 2048
   %.not.i = icmp eq i64 %12, 0
   br i1 %.not.i, label %17, label %13
@@ -299,7 +299,7 @@ _calc_assoc_fs.exit:                              ; preds = %39, %40, %43, %45
 
 66:                                               ; preds = %56, %60
   %.037 = phi i1 [ %65, %60 ], [ true, %56 ]
-  %67 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %67 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %68 = and i64 %67, 2048
   %.not44 = icmp eq i64 %68, 0
   br i1 %.not44, label %_ft_debug.exit, label %69
@@ -436,7 +436,7 @@ _count_tied_accounts.exit:                        ; preds = %.lr.ph.i, %121, %13
   %140 = load ptr, ptr %139, align 8
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %142 = load ptr, ptr %141, align 8
-  %143 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %143 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %144 = and i64 %143, 2048
   %.not18.i = icmp ne i64 %144, 0
   %145 = icmp ugt i64 %.023.i, %.158

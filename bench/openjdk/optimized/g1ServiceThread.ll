@@ -115,7 +115,7 @@ define hidden void @_ZN14G1SentinelTaskC2Ev(ptr noundef nonnull align 8 derefere
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14G1SentinelTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV14G1SentinelTask, i64 16), ptr %0, align 8
   store i64 9223372036854775807, ptr %2, align 8
   store ptr %0, ptr %4, align 8
   ret void
@@ -123,7 +123,7 @@ define hidden void @_ZN14G1SentinelTaskC2Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN13G1ServiceTaskC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV13G1ServiceTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV13G1ServiceTask, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -161,7 +161,7 @@ declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr nound
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15G1ServiceThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(1064) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #15
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV15G1ServiceThread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 240) (i8, ptr @_ZTV15G1ServiceThread, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %2, i32 noundef 21, ptr noundef nonnull @.str.7, i1 noundef zeroext true) #15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1024
@@ -171,7 +171,7 @@ define hidden void @_ZN15G1ServiceThreadC2Ev(ptr noundef nonnull align 8 derefer
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   store i64 0, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14G1SentinelTask, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV14G1SentinelTask, i64 16), ptr %3, align 8
   store i64 9223372036854775807, ptr %4, align 8
   store ptr %3, ptr %6, align 8
   tail call void (ptr, ptr, ...) @_ZN11NamedThread8set_nameEPKcz(ptr noundef nonnull align 8 dereferenceable(916) %0, ptr noundef nonnull @.str.8) #15
@@ -544,7 +544,7 @@ define hidden void @_ZN15G1ServiceThread8run_taskEP13G1ServiceTask(ptr noundef n
   br i1 %20, label %21, label %_ZN15G1ServiceThread22update_thread_cpu_timeEv.exit
 
 21:                                               ; preds = %19
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25ThreadTotalCPUTimeClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV25ThreadTotalCPUTimeClosure, i64 16), ptr %3, align 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -598,7 +598,7 @@ define hidden void @_ZN15G1ServiceThread22update_thread_cpu_timeEv(ptr noundef n
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %5
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25ThreadTotalCPUTimeClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV25ThreadTotalCPUTimeClosure, i64 16), ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -670,7 +670,7 @@ define hidden void @_ZN18G1ServiceTaskQueueC2Ev(ptr noundef nonnull align 8 dere
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14G1SentinelTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV14G1SentinelTask, i64 16), ptr %0, align 8
   store i64 9223372036854775807, ptr %2, align 8
   store ptr %0, ptr %4, align 8
   ret void
@@ -683,7 +683,7 @@ define linkonce_odr hidden void @_ZN12ThreadShadow22unused_initial_virtualEv(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN15G1ServiceThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1064) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV15G1ServiceThread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 240) (i8, ptr @_ZTV15G1ServiceThread, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #15
   tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #15
@@ -692,7 +692,7 @@ define linkonce_odr hidden void @_ZN15G1ServiceThreadD2Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN15G1ServiceThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(1064) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV15G1ServiceThread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 240) (i8, ptr @_ZTV15G1ServiceThread, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #15
   tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1064) %0) #15

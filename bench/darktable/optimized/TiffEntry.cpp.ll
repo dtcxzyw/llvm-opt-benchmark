@@ -102,7 +102,7 @@ define hidden void @_ZNK8rawspeed17TiffEntryWithData6anchorEv(ptr nocapture nonn
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDERNS_10ByteStreamE(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 36)) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed9TiffEntryE, i64 16), ptr %0, align 8, !tbaa !6
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8rawspeed9TiffEntryE, i64 16), ptr %0, align 8, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -393,7 +393,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDENS_7TiffTagENS_12TiffDataTypeEjNS_10ByteStreamE(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 52)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly byval(%"class.rawspeed::ByteStream") align 8 %5) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed9TiffEntryE, i64 16), ptr %0, align 8, !tbaa !6
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8rawspeed9TiffEntryE, i64 16), ptr %0, align 8, !tbaa !6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %7, align 8, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -451,7 +451,7 @@ define hidden void @_ZN8rawspeed17TiffEntryWithDataC2EPNS_7TiffIFDENS_7TiffTagEN
   store i32 %3, ptr %11, align 4, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %12, align 8, !tbaa !27
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed17TiffEntryWithDataE, i64 16), ptr %0, align 8, !tbaa !6
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8rawspeed17TiffEntryWithDataE, i64 16), ptr %0, align 8, !tbaa !6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %5, align 8, !tbaa !20, !nonnull !24, !noundef !24
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1312,7 +1312,7 @@ define hidden { ptr, i64 } @_ZNK8rawspeed9TiffEntry14getRootIfdDataEv(ptr nocapt
 .preheader:                                       ; preds = %1, %8
   %5 = phi ptr [ %10, %8 ], [ %3, %1 ]
   %6 = load ptr, ptr %5, align 8, !tbaa !6
-  %7 = icmp eq ptr %6, getelementptr inbounds (i8, ptr @_ZTVN8rawspeed11TiffRootIFDE, i64 16)
+  %7 = icmp eq ptr %6, getelementptr inbounds nuw (i8, ptr @_ZTVN8rawspeed11TiffRootIFDE, i64 16)
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %.preheader
@@ -1418,7 +1418,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN8rawspeed11IOExceptionCI2NS_17RawspeedExceptionEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #14 comdat align 2 {
   tail call void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed11IOExceptionE, i64 16), ptr %0, align 8, !tbaa !6
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8rawspeed11IOExceptionE, i64 16), ptr %0, align 8, !tbaa !6
   ret void
 }
 
@@ -1430,7 +1430,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #15
 ; Function Attrs: cold mustprogress optsize uwtable
 define linkonce_odr hidden void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed17RawspeedExceptionE, i64 16), ptr %0, align 8, !tbaa !6
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8rawspeed17RawspeedExceptionE, i64 16), ptr %0, align 8, !tbaa !6
   invoke void (i32, ptr, ...) @_ZN8rawspeed8writeLogENS_10DEBUG_PRIOEPKcz(i32 noundef 65536, ptr noundef nonnull @.str.15, ptr noundef %1)
           to label %_ZN8rawspeed17RawspeedException3logEPKc.exit unwind label %3
 
@@ -1467,7 +1467,7 @@ declare i32 @llvm.bswap.i32(i32) #12
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN8rawspeed19TiffParserExceptionCI2NS_17RawspeedExceptionEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #14 comdat align 2 {
   tail call void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed19TiffParserExceptionE, i64 16), ptr %0, align 8, !tbaa !6
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8rawspeed19TiffParserExceptionE, i64 16), ptr %0, align 8, !tbaa !6
   ret void
 }
 

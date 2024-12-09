@@ -66,7 +66,7 @@ define hidden void @_ZN14XRelocationSet7installEPK22XRelocationSetSelector(ptr n
   %3 = alloca %class.XRelocationSetInstallTask, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN5XTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull @.str) #8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25XRelocationSetInstallTask, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV25XRelocationSetInstallTask, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 48

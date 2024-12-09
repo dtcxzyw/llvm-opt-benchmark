@@ -163,9 +163,9 @@ define void @_ZN21ResolvedAddressesViewC2EP7QWidget(ptr noundef nonnull align 8 
   %8 = alloca %class.QVariant, align 8
   %9 = alloca %class.QVariant, align 8
   tail call void @_ZN10QTableViewC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21ResolvedAddressesView, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21ResolvedAddressesView, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21ResolvedAddressesView, i64 800), ptr %10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21ResolvedAddressesView, i64 800), ptr %10, align 8
   invoke void @_ZN17QAbstractItemView15setEditTriggersE6QFlagsINS_11EditTriggerEE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 0)
           to label %11 unwind label %49
 

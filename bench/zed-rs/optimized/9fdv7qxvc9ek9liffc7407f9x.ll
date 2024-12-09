@@ -98866,7 +98866,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17he5ad3425ffa7fc32E.exit: ; preds 
   store ptr %12, ptr %.sroa.14.16..sroa_idx, align 8
   %.sroa.16.16..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %21, ptr %.sroa.16.16..sroa_idx, align 8
-  %45 = call { float, ptr } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf0f1ed6d921dc3ceE.llvm.4495110368786696258"(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @anon.50e73ffbc815108deb73bdb9d87d3223.345, i64 1), ptr noundef nonnull getelementptr inbounds (i8, ptr @anon.50e73ffbc815108deb73bdb9d87d3223.345, i64 4), float noundef %44, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) @anon.50e73ffbc815108deb73bdb9d87d3223.345, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4), !noalias !18938
+  %45 = call { float, ptr } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf0f1ed6d921dc3ceE.llvm.4495110368786696258"(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @anon.50e73ffbc815108deb73bdb9d87d3223.345, i64 1), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @anon.50e73ffbc815108deb73bdb9d87d3223.345, i64 4), float noundef %44, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) @anon.50e73ffbc815108deb73bdb9d87d3223.345, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4), !noalias !18938
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !18934
   %46 = extractvalue { float, ptr } %45, 1
   %47 = icmp eq ptr %46, null
@@ -98994,7 +98994,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h4ff71af1621ffa00E.exit: ; preds 
   store ptr %12, ptr %.sroa.14.16..sroa_idx, align 8
   %.sroa.16.16..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %21, ptr %.sroa.16.16..sroa_idx, align 8
-  %45 = call { float, ptr } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha2cfa52c0063146dE.llvm.4495110368786696258"(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @anon.50e73ffbc815108deb73bdb9d87d3223.345, i64 1), ptr noundef nonnull getelementptr inbounds (i8, ptr @anon.50e73ffbc815108deb73bdb9d87d3223.345, i64 4), float noundef %44, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) @anon.50e73ffbc815108deb73bdb9d87d3223.345, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4), !noalias !18957
+  %45 = call { float, ptr } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha2cfa52c0063146dE.llvm.4495110368786696258"(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @anon.50e73ffbc815108deb73bdb9d87d3223.345, i64 1), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @anon.50e73ffbc815108deb73bdb9d87d3223.345, i64 4), float noundef %44, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) @anon.50e73ffbc815108deb73bdb9d87d3223.345, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4), !noalias !18957
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !18953
   %46 = extractvalue { float, ptr } %45, 1
   %47 = icmp eq ptr %46, null
@@ -99122,7 +99122,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h279c1a86bf595de9E.exit: ; preds 
   store ptr %12, ptr %.sroa.14.16..sroa_idx, align 8
   %.sroa.16.16..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %21, ptr %.sroa.16.16..sroa_idx, align 8
-  %45 = call { float, ptr } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6489140a1383f39bE.llvm.4495110368786696258"(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @anon.50e73ffbc815108deb73bdb9d87d3223.345, i64 1), ptr noundef nonnull getelementptr inbounds (i8, ptr @anon.50e73ffbc815108deb73bdb9d87d3223.345, i64 4), float noundef %44, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) @anon.50e73ffbc815108deb73bdb9d87d3223.345, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4), !noalias !18976
+  %45 = call { float, ptr } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6489140a1383f39bE.llvm.4495110368786696258"(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @anon.50e73ffbc815108deb73bdb9d87d3223.345, i64 1), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @anon.50e73ffbc815108deb73bdb9d87d3223.345, i64 4), float noundef %44, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) @anon.50e73ffbc815108deb73bdb9d87d3223.345, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4), !noalias !18976
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !18972
   %46 = extractvalue { float, ptr } %45, 1
   %47 = icmp eq ptr %46, null

@@ -286,7 +286,7 @@ entry:
   %11 = inttoptr i64 %10 to ptr
   %isolate_.i = getelementptr inbounds nuw i8, ptr %11, i64 88
   %12 = load ptr, ptr %isolate_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap7JSGraphE, i64 16), ptr %graph, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap7JSGraphE, i64 16), ptr %graph, align 8
   %isolate_.i7 = getelementptr inbounds nuw i8, ptr %graph, i64 8
   store ptr %12, ptr %isolate_.i7, align 8
   %nodes_.i = getelementptr inbounds nuw i8, ptr %graph, i64 16
@@ -754,7 +754,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4heap7JSGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap7JSGraphE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap7JSGraphE, i64 16), ptr %this, align 8
   %edges_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
@@ -884,7 +884,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_116FileOutputStreamE, i64 16), ptr %stream, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_116FileOutputStreamE, i64 16), ptr %stream, align 8
   %fd_.i = getelementptr inbounds nuw i8, ptr %stream, i64 8
   store i32 %call, ptr %fd_.i, align 8
   %req_.i = getelementptr inbounds nuw i8, ptr %stream, i64 16
@@ -1020,15 +1020,15 @@ if.end72:                                         ; preds = %if.end
   store ptr %env, ptr %env_.i.i.i, align 8, !noalias !10
   %default_listener_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %stream_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 104
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node22EmitToJSStreamListenerE, i64 16), ptr %default_listener_.i.i.i, align 8, !noalias !10
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node22EmitToJSStreamListenerE, i64 16), ptr %default_listener_.i.i.i, align 8, !noalias !10
   %previous_listener_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr null, ptr %previous_listener_.i.i.i.i, align 8, !noalias !10
   store ptr %11, ptr %stream_.i.i.i.i.i.i, align 8, !noalias !10
   store ptr %default_listener_.i.i.i, ptr %listener_.i.i.i.i, align 8, !noalias !10
   %13 = getelementptr inbounds nuw i8, ptr %call.i, i64 120
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 16), ptr %call.i, align 8, !noalias !10
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 256), ptr %11, align 8, !noalias !10
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 416), ptr %13, align 8, !noalias !10
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 16), ptr %call.i, align 8, !noalias !10
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 256), ptr %11, align 8, !noalias !10
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 416), ptr %13, align 8, !noalias !10
   %snapshot_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 128
   %14 = load i64, ptr %snapshot, align 8, !noalias !10
   store i64 %14, ptr %snapshot_.i.i, align 8, !noalias !10
@@ -1609,7 +1609,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %8 = phi ptr [ %4, %if.then.i ], [ %.pre28, %if.end.i ]
   %retval.i53.sroa.0.0 = phi ptr [ %6, %if.then.i ], [ %7, %if.end.i ]
   %call29 = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %8) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap17PrototypeChainHasE, i64 16), ptr %prototype_chain_has, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap17PrototypeChainHasE, i64 16), ptr %prototype_chain_has, align 8
   %context_.i = getelementptr inbounds nuw i8, ptr %prototype_chain_has, i64 8
   store ptr %call29, ptr %context_.i, align 8
   %search_.i = getelementptr inbounds nuw i8, ptr %prototype_chain_has, i64 16
@@ -2003,7 +2003,7 @@ entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %isolate_, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %value, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap13JSGraphJSNodeE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap13JSGraphJSNodeE, i64 16), ptr %call, align 8
   %persistent_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %cmp.i20.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload, null
   br i1 %cmp.i20.i, label %do.body10.i, label %_ZN4node4heap13JSGraphJSNodeC2EPN2v87IsolateENS2_5LocalINS2_5ValueEEE.exit
@@ -2096,7 +2096,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4heap13JSGraphJSNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap13JSGraphJSNodeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap13JSGraphJSNodeE, i64 16), ptr %this, align 8
   %persistent_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %persistent_, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -2114,7 +2114,7 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit:  ; preds = %entry, %if.end.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4heap13JSGraphJSNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap13JSGraphJSNodeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap13JSGraphJSNodeE, i64 16), ptr %this, align 8
   %persistent_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %persistent_.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -3824,11 +3824,11 @@ declare void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node4heap12_GLOBAL__N_118HeapSnapshotStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (56, 64), (120, 128)) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 256), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 256), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 416), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 416), ptr %add.ptr2, align 8
   %snapshot_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %snapshot_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -3840,7 +3840,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZNSt10unique_ptrIKN2v812HeapSnapshotEN4node15FunctionDeleterIS2_XadL_ZNS3_4heap18DeleteHeapSnapshotEPS2_EEEEED2Ev.exit: ; preds = %entry, %if.then.i
   store ptr null, ptr %snapshot_, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %add.ptr, align 8
   %default_listener_.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i) #22
   tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr) #22
@@ -3851,11 +3851,11 @@ _ZNSt10unique_ptrIKN2v812HeapSnapshotEN4node15FunctionDeleterIS2_XadL_ZNS3_4heap
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node4heap12_GLOBAL__N_118HeapSnapshotStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (56, 64), (120, 128)) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 256), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 256), ptr %add.ptr.i, align 8
   %add.ptr2.i = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 416), ptr %add.ptr2.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 416), ptr %add.ptr2.i, align 8
   %snapshot_.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %snapshot_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -3867,7 +3867,7 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZN4node4heap12_GLOBAL__N_118HeapSnapshotStreamD2Ev.exit: ; preds = %entry, %if.then.i.i
   store ptr null, ptr %snapshot_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %add.ptr.i, align 8
   %default_listener_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i.i) #22
   tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i) #22
@@ -3888,7 +3888,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %is_root_node_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 40
@@ -4235,10 +4235,10 @@ entry:
 define internal void @_ZThn56_N4node4heap12_GLOBAL__N_118HeapSnapshotStreamD1Ev(ptr noundef initializes((-56, -48), (0, 8), (64, 72)) %this) unnamed_addr #16 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 256), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 256), ptr %this, align 8
   %add.ptr2.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 416), ptr %add.ptr2.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 416), ptr %add.ptr2.i, align 8
   %snapshot_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %1 = load ptr, ptr %snapshot_.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
@@ -4250,7 +4250,7 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZN4node4heap12_GLOBAL__N_118HeapSnapshotStreamD2Ev.exit: ; preds = %entry, %if.then.i.i
   store ptr null, ptr %snapshot_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %this, align 8
   %default_listener_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i.i) #22
   tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #22
@@ -4262,10 +4262,10 @@ _ZN4node4heap12_GLOBAL__N_118HeapSnapshotStreamD2Ev.exit: ; preds = %entry, %if.
 define internal void @_ZThn56_N4node4heap12_GLOBAL__N_118HeapSnapshotStreamD0Ev(ptr noundef initializes((-56, -48), (0, 8), (64, 72)) %this) unnamed_addr #16 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 256), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 256), ptr %this, align 8
   %add.ptr2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 416), ptr %add.ptr2.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 416), ptr %add.ptr2.i.i, align 8
   %snapshot_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %1 = load ptr, ptr %snapshot_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -4277,7 +4277,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZN4node4heap12_GLOBAL__N_118HeapSnapshotStreamD0Ev.exit: ; preds = %entry, %if.then.i.i.i
   store ptr null, ptr %snapshot_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %this, align 8
   %default_listener_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i.i.i) #22
   tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #22
@@ -4378,10 +4378,10 @@ declare ptr @_ZN4node10StreamBase9GetObjectEv(ptr noundef nonnull align 8 derefe
 define internal void @_ZThn120_N4node4heap12_GLOBAL__N_118HeapSnapshotStreamD1Ev(ptr noundef initializes((-120, -112), (-64, -56), (0, 8)) %this) unnamed_addr #16 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 16), ptr %0, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 -64
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 256), ptr %add.ptr.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 416), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 256), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 416), ptr %this, align 8
   %snapshot_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %snapshot_.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
@@ -4393,7 +4393,7 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZN4node4heap12_GLOBAL__N_118HeapSnapshotStreamD2Ev.exit: ; preds = %entry, %if.then.i.i
   store ptr null, ptr %snapshot_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %add.ptr.i, align 8
   %default_listener_.i.i = getelementptr inbounds i8, ptr %this, i64 -24
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i.i) #22
   tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i) #22
@@ -4405,10 +4405,10 @@ _ZN4node4heap12_GLOBAL__N_118HeapSnapshotStreamD2Ev.exit: ; preds = %entry, %if.
 define internal void @_ZThn120_N4node4heap12_GLOBAL__N_118HeapSnapshotStreamD0Ev(ptr noundef initializes((-120, -112), (-64, -56), (0, 8)) %this) unnamed_addr #16 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 16), ptr %0, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 -64
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 256), ptr %add.ptr.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 416), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 256), ptr %add.ptr.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 416), ptr %this, align 8
   %snapshot_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %snapshot_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -4420,7 +4420,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZN4node4heap12_GLOBAL__N_118HeapSnapshotStreamD0Ev.exit: ; preds = %entry, %if.then.i.i.i
   store ptr null, ptr %snapshot_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %add.ptr.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %add.ptr.i.i, align 8
   %default_listener_.i.i.i = getelementptr inbounds i8, ptr %this, i64 -24
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i.i.i) #22
   tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i) #22

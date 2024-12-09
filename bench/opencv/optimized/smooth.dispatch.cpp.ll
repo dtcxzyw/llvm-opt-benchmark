@@ -211,7 +211,7 @@ define hidden void @_ZN2cv12cpu_baseline22GaussianBlurFixedPointItEEvRKNS_3MatER
   %43 = and i32 %42, 511
   %44 = add nuw nsw i32 %43, 1
   %45 = and i32 %6, -17
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerIhNS_12_GLOBAL__N_113ufixedpoint16EEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerIhNS_12_GLOBAL__N_113ufixedpoint16EEE, i64 16), ptr %11, align 8
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %30, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -666,7 +666,7 @@ define hidden void @_ZN2cv12cpu_baseline22GaussianBlurFixedPointIjEEvRKNS_3MatER
   %43 = and i32 %42, 511
   %44 = add nuw nsw i32 %43, 1
   %45 = and i32 %6, -17
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerItNS_12_GLOBAL__N_113ufixedpoint32EEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerItNS_12_GLOBAL__N_113ufixedpoint32EEE, i64 16), ptr %11, align 8
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %30, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 16

@@ -75,7 +75,7 @@ $_ZTV4JSON = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN4JSONC2EPKcbP12outputStream(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(54) initializes((0, 54)) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = zext i1 %2 to i8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV4JSON, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV4JSON, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16

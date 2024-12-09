@@ -108,7 +108,7 @@ define range(i32 -128, 128) i32 @DecodeUnits(i32 noundef %0, ptr nocapture nound
   br label %13
 
 13:                                               ; preds = %26, %10
-  %.01927.i = phi ptr [ getelementptr inbounds (i8, ptr @deltatktbl, i64 960), %10 ], [ %.1.i, %26 ]
+  %.01927.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @deltatktbl, i64 960), %10 ], [ %.1.i, %26 ]
   %.02026.i = phi ptr [ @deltatktbl, %10 ], [ %.121.i, %26 ]
   %14 = ptrtoint ptr %.01927.i to i64
   %15 = ptrtoint ptr %.02026.i to i64
@@ -1881,7 +1881,7 @@ j2date.exit:                                      ; preds = %56, %59
 120:                                              ; preds = %.critedge.i
   %121 = load i8, ptr %.012.lcssa.i, align 1
   store i8 0, ptr %.012.lcssa.i, align 1
-  %122 = load ptr, ptr getelementptr inbounds (i8, ptr @datecache, i64 192), align 16
+  %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @datecache, i64 192), align 16
   %.not.i.i = icmp eq ptr %122, null
   br i1 %.not.i.i, label %126, label %123
 
@@ -1896,7 +1896,7 @@ j2date.exit:                                      ; preds = %56, %59
   br label %129
 
 129:                                              ; preds = %142, %126
-  %.01927.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @datetktbl, i64 4416), %126 ], [ %.1.i.i.i, %142 ]
+  %.01927.i.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @datetktbl, i64 4416), %126 ], [ %.1.i.i.i, %142 ]
   %.02026.i.i.i = phi ptr [ @datetktbl, %126 ], [ %.121.i.i.i, %142 ]
   %130 = ptrtoint ptr %.01927.i.i.i to i64
   %131 = ptrtoint ptr %.02026.i.i.i to i64
@@ -1925,13 +1925,13 @@ j2date.exit:                                      ; preds = %56, %59
   br i1 %.not.i.i.i, label %DecodeSpecial.exit.thread.i, label %129, !llvm.loop !4
 
 DecodeSpecial.exit.thread.i:                      ; preds = %142
-  store ptr null, ptr getelementptr inbounds (i8, ptr @datecache, i64 192), align 16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @datecache, i64 192), align 16
   store i8 %121, ptr %.012.lcssa.i, align 1
   br label %DecodePosixTimezone.exit.thread
 
 DecodeSpecial.exit.i:                             ; preds = %139, %123
   %.018.i.i = phi ptr [ %122, %123 ], [ %134, %139 ]
-  store ptr %.018.i.i, ptr getelementptr inbounds (i8, ptr @datecache, i64 192), align 16
+  store ptr %.018.i.i, ptr getelementptr inbounds nuw (i8, ptr @datecache, i64 192), align 16
   %146 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 11
   %147 = load i8, ptr %146, align 1
   %148 = sext i8 %147 to i32
@@ -2305,7 +2305,7 @@ j2date.exit348:                                   ; preds = %246, %249
   br label %330
 
 330:                                              ; preds = %343, %327
-  %.01927.i.i = phi ptr [ getelementptr inbounds (i8, ptr @datetktbl, i64 4416), %327 ], [ %.1.i.i, %343 ]
+  %.01927.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @datetktbl, i64 4416), %327 ], [ %.1.i.i, %343 ]
   %.02026.i.i = phi ptr [ @datetktbl, %327 ], [ %.121.i.i, %343 ]
   %331 = ptrtoint ptr %.01927.i.i to i64
   %332 = ptrtoint ptr %.02026.i.i to i64
@@ -3328,7 +3328,7 @@ define internal fastcc range(i32 -1, 1) i32 @DecodeDate(ptr noundef %0, i32 noun
   br label %68
 
 68:                                               ; preds = %81, %66
-  %.01927.i.i = phi ptr [ getelementptr inbounds (i8, ptr @datetktbl, i64 4416), %66 ], [ %.1.i.i, %81 ]
+  %.01927.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @datetktbl, i64 4416), %66 ], [ %.1.i.i, %81 ]
   %.02026.i.i = phi ptr [ @datetktbl, %66 ], [ %.121.i.i, %81 ]
   %69 = ptrtoint ptr %.01927.i.i to i64
   %70 = ptrtoint ptr %.02026.i.i to i64

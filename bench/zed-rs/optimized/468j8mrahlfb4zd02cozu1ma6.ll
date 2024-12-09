@@ -113111,7 +113111,7 @@ _ZN4gpui11text_system12line_wrapper11LineWrapper14width_for_char17hb19e14ba25f84
           to label %.noexc150 unwind label %.loopexit362
 
 .noexc150:                                        ; preds = %622
-  %624 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN6editor11display_map8wrap_map9Transform4wrap9WRAP_TEXT17h44437fd52fb7d5bcE, i64 24) acquire, align 8, !noalias !31639
+  %624 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6editor11display_map8wrap_map9Transform4wrap9WRAP_TEXT17h44437fd52fb7d5bcE, i64 24) acquire, align 8, !noalias !31639
   %625 = icmp eq i32 %624, 4
   br i1 %625, label %_ZN3std4sync4once4Once9call_once17heed4effd3eb9a837E.exit.i, label %626
 
@@ -113120,7 +113120,7 @@ _ZN4gpui11text_system12line_wrapper11LineWrapper14width_for_char17hb19e14ba25f84
   store ptr @_ZN6editor11display_map8wrap_map9Transform4wrap9WRAP_TEXT17h44437fd52fb7d5bcE, ptr %26, align 8, !noalias !31639
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25), !noalias !31639
   store ptr %26, ptr %25, align 8, !noalias !31639
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h85711b183695a41bE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN6editor11display_map8wrap_map9Transform4wrap9WRAP_TEXT17h44437fd52fb7d5bcE, i64 24), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f181a984f624d3ac5643ba2a53eda325.710)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h85711b183695a41bE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN6editor11display_map8wrap_map9Transform4wrap9WRAP_TEXT17h44437fd52fb7d5bcE, i64 24), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f181a984f624d3ac5643ba2a53eda325.710)
           to label %.noexc151 unwind label %.loopexit362
 
 .noexc151:                                        ; preds = %626
@@ -113131,8 +113131,8 @@ _ZN4gpui11text_system12line_wrapper11LineWrapper14width_for_char17hb19e14ba25f84
 _ZN3std4sync4once4Once9call_once17heed4effd3eb9a837E.exit.i: ; preds = %.noexc151, %.noexc150
   %627 = zext i32 %548 to i64
   %628 = add nuw nsw i64 %627, 1
-  %629 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6editor11display_map8wrap_map9Transform4wrap9WRAP_TEXT17h44437fd52fb7d5bcE, i64 8), align 8, !noalias !31639, !nonnull !4, !noundef !4
-  %630 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN6editor11display_map8wrap_map9Transform4wrap9WRAP_TEXT17h44437fd52fb7d5bcE, i64 16), align 8, !noalias !31639, !noundef !4
+  %629 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6editor11display_map8wrap_map9Transform4wrap9WRAP_TEXT17h44437fd52fb7d5bcE, i64 8), align 8, !noalias !31639, !nonnull !4, !noundef !4
+  %630 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN6editor11display_map8wrap_map9Transform4wrap9WRAP_TEXT17h44437fd52fb7d5bcE, i64 16), align 8, !noalias !31639, !noundef !4
   %631 = icmp ult i64 %628, %630
   br i1 %631, label %632, label %636
 
@@ -117237,7 +117237,7 @@ define void @_ZN6editor11display_map8wrap_map9Transform4wrap17h53798f250271c185E
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
   %5 = tail call { i32, i32 } @_ZN4rope5point5Point3new17hbcb588e2056b8f53E(i32 noundef 1, i32 noundef %1)
-  %6 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN6editor11display_map8wrap_map9Transform4wrap9WRAP_TEXT17h44437fd52fb7d5bcE, i64 24) acquire, align 8
+  %6 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6editor11display_map8wrap_map9Transform4wrap9WRAP_TEXT17h44437fd52fb7d5bcE, i64 24) acquire, align 8
   %7 = icmp eq i32 %6, 4
   br i1 %7, label %_ZN3std4sync4once4Once9call_once17heed4effd3eb9a837E.exit, label %8
 
@@ -117246,7 +117246,7 @@ define void @_ZN6editor11display_map8wrap_map9Transform4wrap17h53798f250271c185E
   store ptr @_ZN6editor11display_map8wrap_map9Transform4wrap9WRAP_TEXT17h44437fd52fb7d5bcE, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %4, ptr %3, align 8
-  call void @_ZN3std3sys4sync4once5futex4Once4call17h85711b183695a41bE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN6editor11display_map8wrap_map9Transform4wrap9WRAP_TEXT17h44437fd52fb7d5bcE, i64 24), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f181a984f624d3ac5643ba2a53eda325.710)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17h85711b183695a41bE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN6editor11display_map8wrap_map9Transform4wrap9WRAP_TEXT17h44437fd52fb7d5bcE, i64 24), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f181a984f624d3ac5643ba2a53eda325.710)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %_ZN3std4sync4once4Once9call_once17heed4effd3eb9a837E.exit
@@ -117254,8 +117254,8 @@ define void @_ZN6editor11display_map8wrap_map9Transform4wrap17h53798f250271c185E
 _ZN3std4sync4once4Once9call_once17heed4effd3eb9a837E.exit: ; preds = %2, %8
   %9 = zext i32 %1 to i64
   %10 = add nuw nsw i64 %9, 1
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6editor11display_map8wrap_map9Transform4wrap9WRAP_TEXT17h44437fd52fb7d5bcE, i64 8), align 8, !nonnull !4, !noundef !4
-  %12 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN6editor11display_map8wrap_map9Transform4wrap9WRAP_TEXT17h44437fd52fb7d5bcE, i64 16), align 8, !noundef !4
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6editor11display_map8wrap_map9Transform4wrap9WRAP_TEXT17h44437fd52fb7d5bcE, i64 8), align 8, !nonnull !4, !noundef !4
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN6editor11display_map8wrap_map9Transform4wrap9WRAP_TEXT17h44437fd52fb7d5bcE, i64 16), align 8, !noundef !4
   %13 = icmp ult i64 %10, %12
   br i1 %13, label %19, label %23
 

@@ -162,7 +162,7 @@ define internal void @coll_base_comm_destruct(ptr noundef %0) #1 {
   br label %ompi_request_cancel.exit.i
 
 ompi_request_cancel.exit.i:                       ; preds = %16, %13
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 32), align 8
   %19 = tail call i32 %18(ptr noundef nonnull %8, ptr noundef null) #6
   br label %24
 

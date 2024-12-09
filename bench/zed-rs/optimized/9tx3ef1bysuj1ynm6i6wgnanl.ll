@@ -45971,7 +45971,7 @@ _ZN4core3ops8function6FnOnce9call_once17hcc9e1feef4da45d1E.exit.i.i.i: ; preds =
   br label %"_ZN4core3ptr97drop_in_place$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17hc172acb485b06e96E.exit69"
 
 75:                                               ; preds = %.noexc40, %66
-  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %70, %.noexc40 ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %66 ]
+  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %70, %.noexc40 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %66 ]
   %76 = load i64, ptr %.sroa.0.0.i.i.i2.i.i.i, align 8, !noalias !12765, !noundef !4
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i.i.i, i64 8
   %78 = load i64, ptr %77, align 8, !noalias !12765, !noundef !4
@@ -46060,7 +46060,7 @@ _ZN4core3ops8function6FnOnce9call_once17hcc9e1feef4da45d1E.exit.i.i.i45: ; preds
   br label %165
 
 96:                                               ; preds = %.noexc52, %88
-  %.sroa.0.0.i.i.i2.i.i.i46 = phi ptr [ %91, %.noexc52 ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %88 ]
+  %.sroa.0.0.i.i.i2.i.i.i46 = phi ptr [ %91, %.noexc52 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %88 ]
   %97 = load i64, ptr %.sroa.0.0.i.i.i2.i.i.i46, align 8, !noalias !12796, !noundef !4
   %98 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i.i.i46, i64 8
   %99 = load i64, ptr %98, align 8, !noalias !12796, !noundef !4

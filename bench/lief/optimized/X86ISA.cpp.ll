@@ -598,7 +598,7 @@ select.unfold._crit_edge:                         ; preds = %_ZNSt6vectorISt4pai
 _ZNSt6vectorISt4pairIN4LIEF3ELF6X86ISA4FLAGENS3_3ISAEESaIS6_EED2Ev.exit80: ; preds = %select.unfold._crit_edge
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   store i32 5, ptr %138, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF3ELF6X86ISAE, i64 16), ptr %137, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF3ELF6X86ISAE, i64 16), ptr %137, align 8
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 16
   store ptr %.sroa.096.0.lcssa, ptr %139, align 8
   %140 = getelementptr inbounds nuw i8, ptr %137, i64 24
@@ -3649,7 +3649,7 @@ select.unfold._crit_edge:                         ; preds = %_ZNSt6vectorISt4pai
 _ZNSt6vectorISt4pairIN4LIEF3ELF6X86ISA4FLAGENS3_3ISAEESaIS6_EED2Ev.exit722: ; preds = %select.unfold._crit_edge
   %1101 = getelementptr inbounds nuw i8, ptr %1100, i64 8
   store i32 5, ptr %1101, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF3ELF6X86ISAE, i64 16), ptr %1100, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF3ELF6X86ISAE, i64 16), ptr %1100, align 8
   %1102 = getelementptr inbounds nuw i8, ptr %1100, i64 16
   store ptr %.sroa.0818.0.lcssa, ptr %1102, align 8
   %1103 = getelementptr inbounds nuw i8, ptr %1100, i64 24
@@ -3828,7 +3828,7 @@ _ZNK6frozen3mapIN4LIEF3ELF6X86ISA3ISAEPKcLm33ESt4lessIS4_EE4findIS4_EEPKSt4pairI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4LIEF3ELF6X86ISAD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF3ELF6X86ISAE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF3ELF6X86ISAE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -3844,7 +3844,7 @@ _ZNSt6vectorISt4pairIN4LIEF3ELF6X86ISA4FLAGENS3_3ISAEESaIS6_EED2Ev.exit: ; preds
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4LIEF3ELF6X86ISAD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF3ELF6X86ISAE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF3ELF6X86ISAE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -3914,7 +3914,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN3fmt2v912format_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v912format_errorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v912format_errorE, i64 16), ptr %0, align 8
   ret void
 }
 

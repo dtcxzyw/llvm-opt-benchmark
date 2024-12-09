@@ -324,7 +324,7 @@ entry:
   %composite_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %5 = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %5, i8 0, i64 288, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib21MultiProductCompositeE, i64 16), ptr %composite_, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib21MultiProductCompositeE, i64 16), ptr %composite_, align 8, !tbaa !7
   %initialNumeraireValue_ = getelementptr inbounds nuw i8, ptr %this, i64 336
   store double %initialNumeraireValue, ptr %initialNumeraireValue_, align 8, !tbaa !17
   %isExerciseTime_ = getelementptr inbounds nuw i8, ptr %this, i64 424
@@ -407,7 +407,7 @@ _ZNKSt14default_deleteIN8QuantLib23MarketModelMultiProductEEclEPS1_.exit.i.i51: 
 
 _ZN8QuantLib5CloneINS_23MarketModelMultiProductEED2Ev.exit54: ; preds = %invoke.cont16, %_ZNKSt14default_deleteIN8QuantLib23MarketModelMultiProductEEclEPS1_.exit.i.i51
   store ptr null, ptr %ref.tmp6, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib15ExerciseAdapterE, i64 16), ptr %ref.tmp7, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib15ExerciseAdapterE, i64 16), ptr %ref.tmp7, align 8, !tbaa !7
   %_M_data.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 184
   %16 = load ptr, ptr %_M_data.i.i, align 8, !tbaa !62
   call void @_ZdlPv(ptr noundef %16) #21
@@ -425,7 +425,7 @@ _ZNKSt14default_deleteIN8QuantLib24MarketModelExerciseValueEEclEPS1_.exit.i.i.i:
 
 _ZN8QuantLib15ExerciseAdapterD2Ev.exit:           ; preds = %_ZN8QuantLib5CloneINS_23MarketModelMultiProductEED2Ev.exit54, %_ZNKSt14default_deleteIN8QuantLib24MarketModelExerciseValueEEclEPS1_.exit.i.i.i
   store ptr null, ptr %exercise_.i, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib21MultiProductMultiStepE, i64 16), ptr %ref.tmp7, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib21MultiProductMultiStepE, i64 16), ptr %ref.tmp7, align 8, !tbaa !7
   %firstAliveRate_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 136
   %19 = load ptr, ptr %firstAliveRate_.i.i, align 8, !tbaa !63
   %tobool.not.i.i.i.i.i = icmp eq ptr %19, null
@@ -606,7 +606,7 @@ _ZNKSt14default_deleteIN8QuantLib23MarketModelMultiProductEEclEPS1_.exit.i.i76: 
 
 _ZN8QuantLib5CloneINS_23MarketModelMultiProductEED2Ev.exit79: ; preds = %invoke.cont42, %_ZNKSt14default_deleteIN8QuantLib23MarketModelMultiProductEEclEPS1_.exit.i.i76
   store ptr null, ptr %ref.tmp32, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib15ExerciseAdapterE, i64 16), ptr %ref.tmp33, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib15ExerciseAdapterE, i64 16), ptr %ref.tmp33, align 8, !tbaa !7
   %_M_data.i.i80 = getelementptr inbounds nuw i8, ptr %ref.tmp33, i64 184
   %43 = load ptr, ptr %_M_data.i.i80, align 8, !tbaa !62
   call void @_ZdlPv(ptr noundef %43) #21
@@ -624,7 +624,7 @@ _ZNKSt14default_deleteIN8QuantLib24MarketModelExerciseValueEEclEPS1_.exit.i.i.i8
 
 _ZN8QuantLib15ExerciseAdapterD2Ev.exit86:         ; preds = %_ZN8QuantLib5CloneINS_23MarketModelMultiProductEED2Ev.exit79, %_ZNKSt14default_deleteIN8QuantLib24MarketModelExerciseValueEEclEPS1_.exit.i.i.i83
   store ptr null, ptr %exercise_.i81, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib21MultiProductMultiStepE, i64 16), ptr %ref.tmp33, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib21MultiProductMultiStepE, i64 16), ptr %ref.tmp33, align 8, !tbaa !7
   %firstAliveRate_.i.i328 = getelementptr inbounds nuw i8, ptr %ref.tmp33, i64 136
   %46 = load ptr, ptr %firstAliveRate_.i.i328, align 8, !tbaa !63
   %tobool.not.i.i.i.i.i329 = icmp eq ptr %46, null
@@ -793,7 +793,7 @@ invoke.cont68:                                    ; preds = %invoke.cont66
           to label %.noexc unwind label %lpad69
 
 .noexc:                                           ; preds = %invoke.cont68
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_114DecoratedHedgeE, i64 16), ptr %ref.tmp51, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_114DecoratedHedgeE, i64 16), ptr %ref.tmp51, align 8, !tbaa !7
   %savedStates_.i = getelementptr inbounds nuw i8, ptr %ref.tmp51, i64 288
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %savedStates_.i, i8 0, i64 24, i1 false)
   %numberCashFlowsThisStep_.i = getelementptr inbounds nuw i8, ptr %ref.tmp51, i64 328
@@ -1293,7 +1293,7 @@ _ZNKSt14default_deleteIN8QuantLib23MarketModelMultiProductEEclEPS1_.exit.i.i121:
 
 _ZN8QuantLib5CloneINS_23MarketModelMultiProductEED2Ev.exit124: ; preds = %_ZN8QuantLib5CloneINS_23MarketModelMultiProductEED2Ev.exit119, %_ZNKSt14default_deleteIN8QuantLib23MarketModelMultiProductEEclEPS1_.exit.i.i121
   store ptr null, ptr %agg.tmp, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib15ExerciseAdapterE, i64 16), ptr %ref.tmp59, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib15ExerciseAdapterE, i64 16), ptr %ref.tmp59, align 8, !tbaa !7
   %_M_data.i.i125 = getelementptr inbounds nuw i8, ptr %ref.tmp59, i64 184
   %115 = load ptr, ptr %_M_data.i.i125, align 8, !tbaa !62
   call void @_ZdlPv(ptr noundef %115) #21
@@ -1311,7 +1311,7 @@ _ZNKSt14default_deleteIN8QuantLib24MarketModelExerciseValueEEclEPS1_.exit.i.i.i1
 
 _ZN8QuantLib15ExerciseAdapterD2Ev.exit131:        ; preds = %_ZN8QuantLib5CloneINS_23MarketModelMultiProductEED2Ev.exit124, %_ZNKSt14default_deleteIN8QuantLib24MarketModelExerciseValueEEclEPS1_.exit.i.i.i128
   store ptr null, ptr %exercise_.i126, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib21MultiProductMultiStepE, i64 16), ptr %ref.tmp59, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib21MultiProductMultiStepE, i64 16), ptr %ref.tmp59, align 8, !tbaa !7
   %firstAliveRate_.i.i435 = getelementptr inbounds nuw i8, ptr %ref.tmp59, i64 136
   %118 = load ptr, ptr %firstAliveRate_.i.i435, align 8, !tbaa !63
   %tobool.not.i.i.i.i.i436 = icmp eq ptr %118, null
@@ -2287,7 +2287,7 @@ declare void @_ZN8QuantLib15ExerciseAdapterC1ERKNS_5CloneINS_24MarketModelExerci
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib15ExerciseAdapterD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib15ExerciseAdapterE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib15ExerciseAdapterE, i64 16), ptr %this, align 8, !tbaa !7
   %_M_data.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %_M_data.i, align 8, !tbaa !62
   tail call void @_ZdlPv(ptr noundef %0) #21
@@ -2314,7 +2314,7 @@ declare void @_ZN8QuantLib25CallSpecifiedMultiProductC1ERKNS_5CloneINS_23MarketM
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN8QuantLib12_GLOBAL__N_114DecoratedHedgeD2Ev(ptr noundef nonnull align 8 dereferenceable(376) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_114DecoratedHedgeE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_114DecoratedHedgeE, i64 16), ptr %this, align 8, !tbaa !7
   %cashFlowsGenerated_ = getelementptr inbounds nuw i8, ptr %this, i64 352
   %0 = load ptr, ptr %cashFlowsGenerated_, align 8, !tbaa !83
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 360
@@ -2428,7 +2428,7 @@ _ZNSt6vectorIN8QuantLib5CloneINS0_10CurveStateEEESaIS3_EED2Ev.exit: ; preds = %i
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib25CallSpecifiedMultiProductD2Ev(ptr noundef nonnull align 8 dereferenceable(281) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib25CallSpecifiedMultiProductE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib25CallSpecifiedMultiProductE, i64 16), ptr %this, align 8, !tbaa !7
   %dummyCashFlowsGenerated_ = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load ptr, ptr %dummyCashFlowsGenerated_, align 8, !tbaa !83
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 256
@@ -2730,7 +2730,7 @@ _ZNSt12_Vector_baseISt6vectorIN8QuantLib23MarketModelMultiProduct8CashFlowESaIS3
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib20MarketModelCompositeD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib20MarketModelCompositeE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib20MarketModelCompositeE, i64 16), ptr %this, align 8, !tbaa !7
   %isInSubset_ = getelementptr inbounds nuw i8, ptr %this, i64 272
   %0 = load ptr, ptr %isInSubset_, align 8, !tbaa !144
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 280
@@ -4408,7 +4408,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #8
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib15ExerciseAdapterD0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib15ExerciseAdapterE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib15ExerciseAdapterE, i64 16), ptr %this, align 8, !tbaa !7
   %_M_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %_M_data.i.i, align 8, !tbaa !62
   tail call void @_ZdlPv(ptr noundef %0) #21
@@ -4492,7 +4492,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #10
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib21MultiProductMultiStepD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib21MultiProductMultiStepE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib21MultiProductMultiStepE, i64 16), ptr %this, align 8, !tbaa !7
   %firstAliveRate_.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %firstAliveRate_.i, align 8, !tbaa !63
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -4676,7 +4676,7 @@ entry:
   %ref.tmp.i25 = alloca %"class.std::unique_ptr.43", align 8
   %ref.tmp.i18 = alloca %"class.std::unique_ptr.52", align 8
   %ref.tmp.i = alloca %"class.std::unique_ptr.43", align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib25CallSpecifiedMultiProductE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib25CallSpecifiedMultiProductE, i64 16), ptr %this, align 8, !tbaa !7
   %underlying_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %underlying_2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %underlying_2, align 8, !tbaa !3
@@ -5245,7 +5245,7 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_114DecoratedHedgeE, i64 16), ptr %call, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_114DecoratedHedgeE, i64 16), ptr %call, align 8, !tbaa !7
   %savedStates_.i = getelementptr inbounds nuw i8, ptr %call, i64 288
   %savedStates_2.i = getelementptr inbounds nuw i8, ptr %this, i64 288
   invoke void @_ZNSt6vectorIN8QuantLib5CloneINS0_10CurveStateEEESaIS3_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %savedStates_.i, ptr noundef nonnull align 8 dereferenceable(24) %savedStates_2.i)
@@ -6267,7 +6267,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !7
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !12
   %cmp.not.i.i = icmp eq ptr %0, null

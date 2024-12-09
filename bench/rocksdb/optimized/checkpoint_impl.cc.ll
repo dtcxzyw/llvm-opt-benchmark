@@ -225,7 +225,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 define void @_ZN7rocksdb10Checkpoint6CreateEPNS_2DBEPPS0_(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef %db, ptr nocapture noundef writeonly initializes((0, 8)) %checkpoint_ptr) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb14CheckpointImplE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb14CheckpointImplE, i64 16), ptr %call, align 8
   %db_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %db, ptr %db_.i, align 8
   store ptr %call, ptr %checkpoint_ptr, align 8
@@ -2301,7 +2301,7 @@ call.i167.noexc:                                  ; preds = %if.else99
           to label %.noexc170 unwind label %lpad107
 
 .noexc170:                                        ; preds = %call.i167.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp105, ptr noundef nonnull @_ZN7rocksdbL28kUnknownFileChecksumFuncNameE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN7rocksdbL28kUnknownFileChecksumFuncNameE, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp105, ptr noundef nonnull @_ZN7rocksdbL28kUnknownFileChecksumFuncNameE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL28kUnknownFileChecksumFuncNameE, i64 7))
           to label %invoke.cont108 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc170

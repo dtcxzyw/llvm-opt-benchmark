@@ -175,7 +175,7 @@ _ZN2cv3VecIiLi3EE3allEi.exit:                     ; preds = %20
   store i32 1, ptr %26, align 8, !noalias !16
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store i32 1, ptr %27, align 4, !noalias !16
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv5kinfu12VolumeParamsESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25, align 8, !noalias !16
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv5kinfu12VolumeParamsESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25, align 8, !noalias !16
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i32 0, ptr %28, align 4, !noalias !16
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 20
@@ -195,7 +195,7 @@ _ZN2cv3VecIiLi3EE3allEi.exit:                     ; preds = %20
   store i32 1, ptr %35, align 8, !noalias !21
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !noalias !21
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv5kinfu12VolumeParamsESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %34, align 8, !noalias !21
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv5kinfu12VolumeParamsESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %34, align 8, !noalias !21
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i32 1, ptr %37, align 4, !noalias !21
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 20
@@ -226,7 +226,7 @@ _ZN2cv3VecIiLi3EE3allEi.exit13:                   ; preds = %40
   store i32 1, ptr %46, align 8, !noalias !29
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 1, ptr %47, align 4, !noalias !29
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv5kinfu12VolumeParamsESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %45, align 8, !noalias !29
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv5kinfu12VolumeParamsESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %45, align 8, !noalias !29
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i32 2, ptr %48, align 4, !noalias !29
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 20

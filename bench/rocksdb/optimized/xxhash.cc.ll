@@ -1476,7 +1476,7 @@ entry:
 
 for.body.lr.ph.i.i:                               ; preds = %entry
   %div2.i.i1 = lshr i64 %sub1.i.i, 10
-  %0 = load <16 x i32>, ptr getelementptr inbounds (i8, ptr @_ZL12XXH3_kSecret, i64 128), align 64
+  %0 = load <16 x i32>, ptr getelementptr inbounds nuw (i8, ptr @_ZL12XXH3_kSecret, i64 128), align 64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.loopexit.i.i, %for.body.lr.ph.i.i
@@ -1561,7 +1561,7 @@ _ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i: ; preds
   %add.ptr20.i.i = getelementptr inbounds i8, ptr %input, i64 %len
   %add.ptr21.i.i = getelementptr inbounds i8, ptr %add.ptr20.i.i, i64 -64
   %23 = load <8 x i64>, ptr %add.ptr21.i.i, align 1
-  %24 = load <8 x i64>, ptr getelementptr inbounds (i8, ptr @_ZL12XXH3_kSecret, i64 121), align 1
+  %24 = load <8 x i64>, ptr getelementptr inbounds nuw (i8, ptr @_ZL12XXH3_kSecret, i64 121), align 1
   %xor.i.i.i.i = xor <8 x i64> %24, %23
   %25 = lshr <8 x i64> %xor.i.i.i.i, splat (i64 32)
   %26 = and <8 x i64> %xor.i.i.i.i, splat (i64 4294967295)
@@ -1800,7 +1800,7 @@ if.then.i:                                        ; preds = %entry
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.then.i
   %div2.i.i2.i = lshr i64 %sub1.i.i.i, 10
-  %0 = load <16 x i32>, ptr getelementptr inbounds (i8, ptr @_ZL12XXH3_kSecret, i64 128), align 64
+  %0 = load <16 x i32>, ptr getelementptr inbounds nuw (i8, ptr @_ZL12XXH3_kSecret, i64 128), align 64
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.loopexit.i.i.i, %for.body.lr.ph.i.i.i
@@ -1885,7 +1885,7 @@ _ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i: ; pre
   %add.ptr20.i.i.i = getelementptr inbounds i8, ptr %input, i64 %len
   %add.ptr21.i.i.i = getelementptr inbounds i8, ptr %add.ptr20.i.i.i, i64 -64
   %23 = load <8 x i64>, ptr %add.ptr21.i.i.i, align 1
-  %24 = load <8 x i64>, ptr getelementptr inbounds (i8, ptr @_ZL12XXH3_kSecret, i64 121), align 1
+  %24 = load <8 x i64>, ptr getelementptr inbounds nuw (i8, ptr @_ZL12XXH3_kSecret, i64 121), align 1
   %xor.i.i.i.i.i = xor <8 x i64> %24, %23
   %25 = lshr <8 x i64> %xor.i.i.i.i.i, splat (i64 32)
   %26 = and <8 x i64> %xor.i.i.i.i.i, splat (i64 4294967295)

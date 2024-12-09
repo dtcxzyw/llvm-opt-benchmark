@@ -236,7 +236,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3spv7BuilderC2EjjPNS_14SpvBuildLoggerE(ptr noundef nonnull align 8 dereferenceable(1416) initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv7BuilderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv7BuilderE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %6, ptr %5, align 8
@@ -312,7 +312,7 @@ define void @_ZN3spv7BuilderC2EjjPNS_14SpvBuildLoggerE(ptr noundef nonnull align
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store i32 %2, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv6ModuleE, i64 16), ptr %43, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv6ModuleE, i64 16), ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store ptr null, ptr %45, align 8
@@ -551,7 +551,7 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit2:               ; preds = %_ZNSt6vectorIjSaIjE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3spv7BuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(1416) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv7BuilderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv7BuilderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   %4 = load ptr, ptr %3, align 8
@@ -1335,7 +1335,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %311, %_ZNSt6vectorI
 
 _ZN3spv7Builder11AccessChainD2Ev.exit:            ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit.i, %319
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv6ModuleE, i64 16), ptr %325, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv6ModuleE, i64 16), ptr %325, align 8
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %327 = load ptr, ptr %326, align 8
   %.not.i.i.i.i135 = icmp eq ptr %327, null
@@ -1480,7 +1480,7 @@ _ZNSt13unordered_mapIjN3spv7Builder12DebugTypeLocESt4hashIjESt8equal_toIjESaISt4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3spv6ModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv6ModuleE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv6ModuleE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -1534,7 +1534,7 @@ define noundef i32 @_ZN3spv7Builder6importEPKc(ptr noundef nonnull align 8 deref
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, 1
   store i32 %6, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -1737,7 +1737,7 @@ define noundef i32 @_ZN3spv7Builder12makeVoidTypeEv(ptr noundef nonnull align 8 
   store i32 %15, ptr %13, align 8
   store i32 %15, ptr %3, align 4
   %16 = call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 %15, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 12
@@ -2063,7 +2063,7 @@ define noundef i32 @_ZN3spv7Builder12makeBoolTypeEv(ptr noundef nonnull align 8 
   %15 = load i32, ptr %14, align 8
   %16 = add i32 %15, 1
   store i32 %16, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %13, align 8
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %16, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 12
@@ -2330,7 +2330,7 @@ define noundef i32 @_ZN3spv7Builder17makeBoolDebugTypeEi(ptr noundef nonnull ali
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #22
   %28 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %28, ptr noundef nonnull align 1 dereferenceable(1) %6) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 4))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 4))
   %29 = call noundef i32 @_ZN3spv7Builder11getStringIdERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef nonnull align 8 dereferenceable(32) %5)
   %30 = icmp eq i32 %27, %29
   br i1 %30, label %31, label %.critedge
@@ -2381,7 +2381,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %42, %2
   %55 = add i32 %54, 1
   store i32 %55, ptr %53, align 8
   %56 = call noundef i32 @_ZN3spv7Builder12makeVoidTypeEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %52, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %52, align 8
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i32 %55, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 12
@@ -2413,7 +2413,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %42, %2
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #22
   %72 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %72, ptr noundef nonnull align 1 dereferenceable(1) %8) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 4))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 4))
   %73 = call noundef i32 @_ZN3spv7Builder11getStringIdERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef nonnull align 8 dereferenceable(32) %7)
   call void @_ZN3spv11Instruction12addIdOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %52, i32 noundef %73)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
@@ -2720,7 +2720,7 @@ define noundef i32 @_ZN3spv7Builder15makeSamplerTypeEv(ptr noundef nonnull align
   %16 = load i32, ptr %15, align 8
   %17 = add i32 %16, 1
   store i32 %17, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %14, align 8
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %17, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 12
@@ -3068,7 +3068,7 @@ _ZNSt6vectorIjSaIjEE12emplace_backIJjEEERjDpOT_.exit: ; preds = %_ZNSt6vectorIjS
   %54 = add i32 %53, 1
   store i32 %54, ptr %52, align 8
   %55 = call noundef i32 @_ZN3spv7Builder12makeVoidTypeEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %51, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %51, align 8
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i32 %54, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 12
@@ -3471,7 +3471,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %33, %3
   %45 = load i32, ptr %44, align 8
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %43, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %43, align 8
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i32 %46, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 12
@@ -3974,7 +3974,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %33, %12
   %38 = add i32 %37, 1
   store i32 %38, ptr %36, align 8
   %39 = call noundef i32 @_ZN3spv7Builder12makeVoidTypeEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %35, align 8
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 %38, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 12
@@ -4210,7 +4210,7 @@ define noundef i32 @_ZN3spv7Builder18makeForwardPointerENS_12StorageClassE(ptr n
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, 1
   store i32 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -4379,7 +4379,7 @@ define noundef i32 @_ZN3spv7Builder27makeForwardPointerDebugTypeENS_12StorageCla
   %8 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %4) #22
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.16, i64 36))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.16, i64 36))
   %10 = call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(32) %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #22
@@ -4391,7 +4391,7 @@ define noundef i32 @_ZN3spv7Builder27makeForwardPointerDebugTypeENS_12StorageCla
   %14 = add i32 %13, 1
   store i32 %14, ptr %12, align 8
   %15 = call noundef i32 @_ZN3spv7Builder12makeVoidTypeEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %11, align 8
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %14, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 12
@@ -4670,7 +4670,7 @@ define noundef i32 @_ZN3spv7Builder29makePointerFromForwardPointerENS_12StorageC
 
 _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %35, %4
   %45 = call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %45, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 %2, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
@@ -4978,7 +4978,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %35, %3
   %47 = load i32, ptr %46, align 8
   %48 = add i32 %47, 1
   store i32 %48, ptr %46, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %45, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %45, align 8
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 %48, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 12
@@ -5388,7 +5388,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %53, %17
   %66 = add i32 %65, 1
   store i32 %66, ptr %64, align 8
   %67 = call noundef i32 @_ZN3spv7Builder12makeVoidTypeEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %63, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %63, align 8
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 %66, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -5680,7 +5680,7 @@ define noundef i32 @_ZN3spv7Builder13makeFloatTypeEi(ptr noundef nonnull align 8
   %40 = load i32, ptr %39, align 8
   %41 = add i32 %40, 1
   store i32 %41, ptr %39, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %38, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %38, align 8
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i32 %41, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 12
@@ -6054,7 +6054,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %41, %2
   %54 = add i32 %53, 1
   store i32 %54, ptr %52, align 8
   %55 = call noundef i32 @_ZN3spv7Builder12makeVoidTypeEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %51, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %51, align 8
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i32 %54, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 12
@@ -6296,7 +6296,7 @@ define noundef i32 @_ZN3spv7Builder14makeStructTypeERKSt6vectorIjSaIjEEPKcb(ptr 
   %9 = load i32, ptr %8, align 8
   %10 = add i32 %9, 1
   store i32 %10, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %10, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -6554,7 +6554,7 @@ _ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit: ; preds = %_ZNSt10unique
 define void @_ZN3spv7Builder7addNameEjPKc(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 align 2 {
 _ZN3spv11Instruction15reserveOperandsEm.exit:
   %3 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -6853,7 +6853,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %33, %3
   %45 = load i32, ptr %44, align 8
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %43, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %43, align 8
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i32 %46, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 12
@@ -7161,7 +7161,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %35, %4
   %47 = load i32, ptr %46, align 8
   %48 = add i32 %47, 1
   store i32 %48, ptr %46, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %45, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %45, align 8
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 %48, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 12
@@ -7462,7 +7462,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %36, %4
   %49 = add i32 %48, 1
   store i32 %49, ptr %47, align 8
   %50 = call noundef i32 @_ZN3spv7Builder12makeVoidTypeEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %46, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %46, align 8
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 %49, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 12
@@ -7775,7 +7775,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %47, %6
   %59 = load i32, ptr %58, align 8
   %60 = add i32 %59, 1
   store i32 %60, ptr %58, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %57, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %57, align 8
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i32 %60, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 12
@@ -8074,7 +8074,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %42, %5
   %54 = load i32, ptr %53, align 8
   %55 = add i32 %54, 1
   store i32 %55, ptr %53, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %52, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %52, align 8
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i32 %55, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 12
@@ -8426,7 +8426,7 @@ define noundef i32 @_ZN3spv7Builder15makeGenericTypeENS_2OpERSt6vectorINS_11IdIm
   %56 = load i32, ptr %55, align 8
   %57 = add i32 %56, 1
   store i32 %57, ptr %55, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %54, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %54, align 8
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i32 %57, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 12
@@ -8772,7 +8772,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %35, %.preheader, %4
   %47 = load i32, ptr %46, align 8
   %48 = add i32 %47, 1
   store i32 %48, ptr %46, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %45, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %45, align 8
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 %48, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 12
@@ -9020,7 +9020,7 @@ define noundef i32 @_ZN3spv7Builder16makeRuntimeArrayEj(ptr noundef nonnull alig
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, 1
   store i32 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -9307,7 +9307,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %55
   store i32 %77, ptr %75, align 8
   store i32 %77, ptr %9, align 4
   %78 = call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %78, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i32 %77, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 12
@@ -9600,7 +9600,7 @@ define noundef i32 @_ZN3spv7Builder21makeDebugFunctionTypeEjRKSt6vectorIjSaIjEE(
   store i32 %9, ptr %7, align 8
   %10 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   %11 = tail call noundef i32 @_ZN3spv7Builder12makeVoidTypeEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %9, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 12
@@ -9983,7 +9983,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %63, %8
   %75 = load i32, ptr %74, align 8
   %76 = add i32 %75, 1
   store i32 %76, ptr %74, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %73, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %73, align 8
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i32 %76, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 12
@@ -10988,7 +10988,7 @@ define noundef i32 @_ZN3spv7Builder20makeSampledImageTypeEj(ptr noundef nonnull 
   %41 = load i32, ptr %40, align 8
   %42 = add i32 %41, 1
   store i32 %42, ptr %40, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %39, align 8
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 %42, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 12
@@ -11225,7 +11225,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %1
   %7 = add i32 %6, 1
   store i32 %7, ptr %5, align 8
   %8 = tail call noundef i32 @_ZN3spv7Builder12makeVoidTypeEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %7, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -11404,7 +11404,7 @@ define linkonce_odr noundef i32 @_ZN3spv7Builder11getStringIdERKNSt7__cxx1112bas
   %13 = add i32 %12, 1
   store i32 %13, ptr %11, align 8
   %14 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %13, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 12
@@ -11678,7 +11678,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %36, %4
   %49 = add i32 %48, 1
   store i32 %49, ptr %47, align 8
   %50 = call noundef i32 @_ZN3spv7Builder12makeVoidTypeEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %46, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %46, align 8
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 %49, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 12
@@ -11982,7 +11982,7 @@ define noundef i32 @_ZN3spv7Builder16makeBoolConstantEbb(ptr noundef nonnull ali
   %48 = load i32, ptr %47, align 8
   %49 = add i32 %48, 1
   store i32 %49, ptr %47, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %46, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %46, align 8
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 %49, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 12
@@ -12204,7 +12204,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   %8 = add i32 %7, 1
   store i32 %8, ptr %6, align 8
   %9 = tail call noundef i32 @_ZN3spv7Builder12makeVoidTypeEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %8, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -12527,7 +12527,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %30, %.lr.ph.i.i.i.i
   store i32 %39, ptr %37, align 8
   %40 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   %41 = tail call noundef i32 @_ZN3spv7Builder12makeVoidTypeEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %40, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i32 %39, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 12
@@ -12762,7 +12762,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %1
   store i32 %6, ptr %4, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   %8 = tail call noundef i32 @_ZN3spv7Builder12makeVoidTypeEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %6, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -12966,7 +12966,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   %11 = add i32 %10, 1
   store i32 %11, ptr %9, align 8
   %12 = tail call noundef i32 @_ZN3spv7Builder12makeVoidTypeEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %8, align 8
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %11, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 12
@@ -13178,7 +13178,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8
   %10 = tail call noundef i32 @_ZN3spv7Builder12makeVoidTypeEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %9, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -13411,7 +13411,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %1
   %7 = add i32 %6, 1
   store i32 %7, ptr %5, align 8
   %8 = tail call noundef i32 @_ZN3spv7Builder12makeVoidTypeEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %7, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -13580,7 +13580,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   %7 = add i32 %6, 1
   store i32 %7, ptr %5, align 8
   %8 = tail call noundef i32 @_ZN3spv7Builder12makeVoidTypeEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %7, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -13685,7 +13685,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %_ZNSt5stackIjSt5deq
   store i32 %35, ptr %33, align 8
   %36 = tail call noundef i32 @_ZN3spv7Builder12makeVoidTypeEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
   %37 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23, !noalias !250
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %37, align 8, !noalias !250
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %37, align 8, !noalias !250
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 %35, ptr %38, align 8, !noalias !250
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 12
@@ -13930,7 +13930,7 @@ _ZN3spv5Block16updateDebugScopeEj.exit:           ; preds = %_ZN3spv6Module14map
 
 _ZN3spv11Instruction15reserveOperandsEm.exit12:   ; preds = %157
   %161 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23, !noalias !261
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %161, align 8, !noalias !261
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %161, align 8, !noalias !261
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   store i32 0, ptr %162, align 8, !noalias !261
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 12
@@ -14105,7 +14105,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit31:   ; preds = %_ZNSt10unique_ptrIN
   store i32 %244, ptr %242, align 8
   %245 = tail call noundef i32 @_ZN3spv7Builder12makeVoidTypeEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
   %246 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23, !noalias !269
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %246, align 8, !noalias !269
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %246, align 8, !noalias !269
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 8
   store i32 %244, ptr %247, align 8, !noalias !269
   %248 = getelementptr inbounds nuw i8, ptr %246, i64 12
@@ -14440,7 +14440,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   %7 = add i32 %6, 1
   store i32 %7, ptr %5, align 8
   %8 = tail call noundef i32 @_ZN3spv7Builder12makeVoidTypeEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %7, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -14513,7 +14513,7 @@ define noundef i32 @_ZN3spv7Builder29makeAccelerationStructureTypeEv(ptr noundef
   %16 = load i32, ptr %15, align 8
   %17 = add i32 %16, 1
   store i32 %17, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %14, align 8
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %17, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 12
@@ -14767,7 +14767,7 @@ define noundef i32 @_ZN3spv7Builder16makeRayQueryTypeEv(ptr noundef nonnull alig
   %16 = load i32, ptr %15, align 8
   %17 = add i32 %16, 1
   store i32 %17, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %14, align 8
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %17, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 12
@@ -15019,7 +15019,7 @@ define noundef i32 @_ZN3spv7Builder19makeHitObjectNVTypeEv(ptr noundef nonnull a
   %14 = load i32, ptr %13, align 8
   %15 = add i32 %14, 1
   store i32 %15, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %12, align 8
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %15, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 12
@@ -15966,7 +15966,7 @@ define noundef i32 @_ZN3spv7Builder16makeNullConstantEj(ptr noundef nonnull alig
   %24 = load i32, ptr %23, align 8
   %25 = add i32 %24, 1
   store i32 %25, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %22, align 8
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 %25, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 12
@@ -16256,7 +16256,7 @@ _ZN3spv7Builder18findScalarConstantENS_2OpES1_jj.exit: ; preds = %32
   %52 = load i32, ptr %51, align 8
   %53 = add i32 %52, 1
   store i32 %53, ptr %51, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %50, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %50, align 8
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i32 %53, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 12
@@ -16560,7 +16560,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %_ZN3spv7Builder18fi
   %58 = load i32, ptr %57, align 8
   %59 = add i32 %58, 1
   store i32 %59, ptr %57, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %56, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %56, align 8
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i32 %59, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 12
@@ -16868,7 +16868,7 @@ _ZN3spv7Builder18findScalarConstantENS_2OpES1_jj.exit: ; preds = %33
   %53 = load i32, ptr %52, align 8
   %54 = add i32 %53, 1
   store i32 %54, ptr %52, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %51, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %51, align 8
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i32 %54, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 12
@@ -17174,7 +17174,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %_ZN3spv7Builder18fi
   %59 = load i32, ptr %58, align 8
   %60 = add i32 %59, 1
   store i32 %60, ptr %58, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %57, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %57, align 8
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i32 %60, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 12
@@ -17488,7 +17488,7 @@ _ZN3spv7Builder18findScalarConstantENS_2OpES1_jj.exit: ; preds = %35
   %55 = load i32, ptr %54, align 8
   %56 = add i32 %55, 1
   store i32 %56, ptr %54, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %53, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %53, align 8
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i32 %56, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 12
@@ -17914,7 +17914,7 @@ define noundef i32 @_ZN3spv7Builder44importNonSemanticShaderDebugInfoInstruction
   %8 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3) #22
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.19, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.19, i64 25))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.19, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.19, i64 25))
   %10 = call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
@@ -18209,7 +18209,7 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
   %57 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %57, ptr noundef nonnull align 1 dereferenceable(1) %7) #22
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.21, i64 29))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.21, i64 29))
   %59 = call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %58, ptr noundef nonnull align 8 dereferenceable(32) %6)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #22
@@ -18329,7 +18329,7 @@ _ZN3spv7Builder18findStructConstantEjRKSt6vectorIjSaIjEE.exit: ; preds = %.lr.ph
   %117 = load i32, ptr %116, align 8
   %118 = add i32 %117, 1
   store i32 %118, ptr %116, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %115, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %115, align 8
   %119 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store i32 %118, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %115, i64 12
@@ -18662,7 +18662,7 @@ _ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit: ; preds = %_ZNSt6vectorI
 define noundef nonnull ptr @_ZN3spv7Builder13addEntryPointENS_14ExecutionModelEPNS_8FunctionEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #3 align 2 {
 _ZN3spv11Instruction15reserveOperandsEm.exit:
   %4 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -18818,7 +18818,7 @@ define void @_ZN3spv7Builder16addExecutionModeEPNS_8FunctionENS_13ExecutionModeE
 
 _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %6
   %7 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -18960,7 +18960,7 @@ define void @_ZN3spv7Builder16addExecutionModeEPNS_8FunctionENS_13ExecutionModeE
 
 5:                                                ; preds = %4
   %6 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -19115,7 +19115,7 @@ define void @_ZN3spv7Builder18addExecutionModeIdEPNS_8FunctionENS_13ExecutionMod
 
 5:                                                ; preds = %4
   %6 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -19267,7 +19267,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 define void @_ZN3spv7Builder13addMemberNameEjiPKc(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #3 align 2 {
 _ZN3spv11Instruction15reserveOperandsEm.exit:
   %4 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -19421,7 +19421,7 @@ define void @_ZN3spv7Builder13addDecorationEjNS_10DecorationEi(ptr nocapture nou
 
 _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %4
   %6 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -19545,7 +19545,7 @@ define void @_ZN3spv7Builder13addDecorationEjNS_10DecorationEPKc(ptr nocapture n
 
 _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %4
   %6 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -19699,7 +19699,7 @@ define void @_ZN3spv7Builder13addDecorationEjNS_10DecorationERKSt6vectorIjSaIjEE
 
 6:                                                ; preds = %4
   %7 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -19852,7 +19852,7 @@ define void @_ZN3spv7Builder13addDecorationEjNS_10DecorationERKSt6vectorIPKcSaIS
 
 6:                                                ; preds = %4
   %7 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -20140,7 +20140,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 define void @_ZN3spv7Builder20addLinkageDecorationEjPKcNS_11LinkageTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
 _ZN3spv11Instruction15reserveOperandsEm.exit:
   %4 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -20295,7 +20295,7 @@ define void @_ZN3spv7Builder15addDecorationIdEjNS_10DecorationEj(ptr nocapture n
 
 _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %4
   %6 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -20412,7 +20412,7 @@ define void @_ZN3spv7Builder15addDecorationIdEjNS_10DecorationERKSt6vectorIjSaIj
 
 6:                                                ; preds = %4
   %7 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -20565,7 +20565,7 @@ define void @_ZN3spv7Builder19addMemberDecorationEjjNS_10DecorationEi(ptr nocapt
 
 _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %5
   %7 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -20690,7 +20690,7 @@ define void @_ZN3spv7Builder19addMemberDecorationEjjNS_10DecorationEPKc(ptr noca
 
 _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %5
   %7 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -20845,7 +20845,7 @@ define void @_ZN3spv7Builder19addMemberDecorationEjjNS_10DecorationERKSt6vectorI
 
 7:                                                ; preds = %5
   %8 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 12
@@ -20999,7 +20999,7 @@ define void @_ZN3spv7Builder19addMemberDecorationEjjNS_10DecorationERKSt6vectorI
 
 7:                                                ; preds = %5
   %8 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 12
@@ -21443,7 +21443,7 @@ _ZN3spv8Function18setReturnPrecisionENS_10DecorationE.exit: ; preds = %_ZN3spv7B
 
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit.i:        ; preds = %75
   %80 = call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %80, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i32 0, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 12
@@ -21860,13 +21860,13 @@ _ZNSt10unique_ptrIN3spv8FunctionESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3spv8FunctionC2EjjjjNS_11LinkageTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(56) %7) unnamed_addr #3 comdat align 2 {
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv8FunctionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv8FunctionE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %1, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -22086,7 +22086,7 @@ _ZN3spv6Module11addFunctionEPNS_8FunctionE.exit:  ; preds = %79, %_ZNSt6vectorIP
   %123 = load ptr, ptr %106, align 8
   %124 = getelementptr inbounds nuw i32, ptr %123, i64 %indvars.iv.next
   %125 = load i32, ptr %124, align 4
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %120, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %120, align 8
   %126 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store i32 %122, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %120, i64 12
@@ -22223,7 +22223,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit: ; preds = %155, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3spv5BlockC2EjRNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(137) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(264) %2) unnamed_addr #3 comdat align 2 {
 _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv5BlockE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv5BlockE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -22236,7 +22236,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit:
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i8 0, ptr %8, align 8
   %9 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %1, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 12
@@ -22554,7 +22554,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   store i32 %7, ptr %5, align 8
   %8 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   %9 = tail call noundef i32 @_ZN3spv7Builder12makeVoidTypeEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %7, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 12
@@ -22743,7 +22743,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   store i32 %4, ptr %2, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   %6 = tail call noundef i32 @_ZN3spv7Builder12makeVoidTypeEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %4, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -22939,7 +22939,7 @@ define void @_ZN3spv7Builder10makeReturnEbj(ptr noundef nonnull align 8 derefere
   %5 = alloca %"class.std::unique_ptr", align 8
   %.not = icmp eq i32 %2, 0
   %6 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -23208,7 +23208,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %27, %31
   store i32 %35, ptr %33, align 8
   %36 = call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   %37 = call noundef i32 @_ZN3spv7Builder12makeVoidTypeEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i32 %35, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 12
@@ -23375,7 +23375,7 @@ _ZNK3spv5Block12isTerminatedEv.exit:              ; preds = %1
 18:                                               ; preds = %_ZNK3spv5Block12isTerminatedEv.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %19 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 0, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 12
@@ -23415,7 +23415,7 @@ _ZN3spv7Builder10makeReturnEbj.exit:              ; preds = %18, %_ZNSt10unique_
   %35 = load i32, ptr %34, align 8
   %36 = add i32 %35, 1
   store i32 %36, ptr %34, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %33, align 8
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 %36, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 12
@@ -23502,7 +23502,7 @@ define noundef i32 @_ZN3spv7Builder15createUndefinedEj(ptr noundef nonnull align
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, 1
   store i32 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -23539,7 +23539,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 define void @_ZN3spv7Builder23makeStatementTerminatorENS_2OpEPKc(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -23583,7 +23583,7 @@ define void @_ZN3spv7Builder23makeStatementTerminatorENS_2OpERKSt6vectorIjSaIjEE
 define void @_ZN3spv7Builder16createNoResultOpENS_2OpERKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -23682,7 +23682,7 @@ define noundef i32 @_ZN3spv7Builder14createVariableENS_10DecorationENS_12Storage
   %15 = load i32, ptr %14, align 8
   %16 = add i32 %15, 1
   store i32 %16, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %13, align 8
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %16, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 12
@@ -24070,7 +24070,7 @@ define void @_ZN3spv7Builder11createStoreEjjNS_16MemoryAccessMaskENS_5ScopeEj(pt
 _ZN3spv11Instruction15reserveOperandsEm.exit:
   %6 = alloca %"class.std::unique_ptr", align 8
   %7 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -24203,7 +24203,7 @@ _ZNK3spv7Builder14getDerefTypeIdEj.exit:          ; preds = %6, %18
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %8, align 8
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %11, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 12
@@ -24316,7 +24316,7 @@ define noundef i32 @_ZN3spv7Builder17createAccessChainENS_12StorageClassEjRKSt6v
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, 1
   store i32 %11, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %8, align 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %11, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 12
@@ -24421,7 +24421,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   %7 = load i32, ptr %6, align 8
   %8 = add i32 %7, 1
   store i32 %8, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -24497,7 +24497,7 @@ define noundef i32 @_ZN3spv7Builder32createCooperativeMatrixLengthKHREj(ptr noun
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %18, 1
   store i32 %19, ptr %17, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %16, align 8
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 %19, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
@@ -24542,7 +24542,7 @@ define noundef i32 @_ZN3spv7Builder20createSpecConstantOpENS_2OpEjRKSt6vectorIjS
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %9, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -24986,7 +24986,7 @@ define noundef i32 @_ZN3spv7Builder31createCooperativeMatrixLengthNVEj(ptr nound
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %18, 1
   store i32 %19, ptr %17, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %16, align 8
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 %19, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
@@ -25062,7 +25062,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %4
   %22 = load i32, ptr %21, align 8
   %23 = add i32 %22, 1
   store i32 %23, ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %20, align 8
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 %23, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 12
@@ -25139,7 +25139,7 @@ define noundef i32 @_ZN3spv7Builder22createCompositeExtractEjjRKSt6vectorIjSaIjE
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %18, 1
   store i32 %19, ptr %17, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %16, align 8
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 %19, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
@@ -25247,7 +25247,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %9, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -25301,7 +25301,7 @@ define noundef i32 @_ZN3spv7Builder21createCompositeInsertEjjjRKSt6vectorIjSaIjE
   %9 = load i32, ptr %8, align 8
   %10 = add i32 %9, 1
   store i32 %10, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %10, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -25406,7 +25406,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   %7 = load i32, ptr %6, align 8
   %8 = add i32 %7, 1
   store i32 %8, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -25460,7 +25460,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %9, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -25510,7 +25510,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 define void @_ZN3spv7Builder16createNoResultOpENS_2OpE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -25546,7 +25546,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 define void @_ZN3spv7Builder16createNoResultOpENS_2OpEj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -25583,7 +25583,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 define void @_ZN3spv7Builder16createNoResultOpENS_2OpERKSt6vectorINS_11IdImmediateESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -25682,7 +25682,7 @@ define void @_ZN3spv7Builder20createControlBarrierENS_5ScopeES1_NS_19MemorySeman
 _ZN3spv11Instruction15reserveOperandsEm.exit:
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -25738,7 +25738,7 @@ define void @_ZN3spv7Builder19createMemoryBarrierEjj(ptr noundef nonnull align 8
 _ZN3spv11Instruction15reserveOperandsEm.exit:
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -25816,7 +25816,7 @@ define noundef i32 @_ZN3spv7Builder13createUnaryOpENS_2OpEjj(ptr noundef nonnull
   %19 = load i32, ptr %18, align 8
   %20 = add i32 %19, 1
   store i32 %20, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %17, align 8
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 %20, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 12
@@ -25886,7 +25886,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %5
   %20 = load i32, ptr %19, align 8
   %21 = add i32 %20, 1
   store i32 %21, ptr %19, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %18, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %21, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 12
@@ -25969,7 +25969,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %6
   %22 = load i32, ptr %21, align 8
   %23 = add i32 %22, 1
   store i32 %23, ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %20, align 8
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 %23, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 12
@@ -26027,7 +26027,7 @@ define noundef i32 @_ZN3spv7Builder8createOpENS_2OpEjRKSt6vectorIjSaIjEE(ptr nou
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %9, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -26122,7 +26122,7 @@ define noundef i32 @_ZN3spv7Builder8createOpENS_2OpEjRKSt6vectorINS_11IdImmediat
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %9, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -26227,7 +26227,7 @@ define noundef i32 @_ZN3spv7Builder18createFunctionCallEPNS_8FunctionERKSt6vecto
   store i32 %8, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %10 = load i32, ptr %9, align 4
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %8, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -26386,7 +26386,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %25, %34
   %38 = load i32, ptr %37, align 8
   %39 = add i32 %38, 1
   store i32 %39, ptr %37, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %36, align 8
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i32 %39, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 12
@@ -26581,7 +26581,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %_ZNK3spv7Builder16g
   %62 = load i32, ptr %61, align 8
   %63 = add i32 %62, 1
   store i32 %63, ptr %61, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %60, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %60, align 8
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i32 %63, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 12
@@ -27309,7 +27309,7 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit: ; preds = %94, %_ZNSt8_Rb_
   %108 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %108, ptr noundef nonnull align 1 dereferenceable(1) %6) #22
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.21, i64 29))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.21, i64 29))
   %110 = call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %109, ptr noundef nonnull align 8 dereferenceable(32) %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #22
@@ -27325,7 +27325,7 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit: ; preds = %94, %_ZNSt8_Rb_
   %115 = load i32, ptr %114, align 8
   %116 = add i32 %115, 1
   store i32 %116, ptr %114, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %113, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %113, align 8
   %117 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store i32 %116, ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %113, i64 12
@@ -27412,7 +27412,7 @@ define noundef i32 @_ZN3spv7Builder17createBuiltinCallEjjiRKSt6vectorIjSaIjEE(pt
   %9 = load i32, ptr %8, align 8
   %10 = add i32 %9, 1
   store i32 %10, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %10, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -28715,7 +28715,7 @@ _ZNK3spv7Builder14getDerefTypeIdEj.exit:          ; preds = %484, %491
   %506 = load i32, ptr %505, align 8
   %507 = add i32 %506, 1
   store i32 %507, ptr %505, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %504, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %504, align 8
   %508 = getelementptr inbounds nuw i8, ptr %504, i64 8
   store i32 %507, ptr %508, align 8
   %509 = getelementptr inbounds nuw i8, ptr %504, i64 12
@@ -29113,7 +29113,7 @@ _ZNK3spv7Builder15getScalarTypeIdEj.exit:         ; preds = %tailrecurse.i, %77
   %96 = load i32, ptr %95, align 8
   %97 = add i32 %96, 1
   store i32 %97, ptr %95, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %94, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %94, align 8
   %98 = getelementptr inbounds nuw i8, ptr %94, i64 8
   store i32 %97, ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %94, i64 12
@@ -29836,7 +29836,7 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit: ; preds = %104, %_ZNSt8_Rb
   %118 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %118, ptr noundef nonnull align 1 dereferenceable(1) %5) #22
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.21, i64 29))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.21, i64 29))
   %120 = call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %119, ptr noundef nonnull align 8 dereferenceable(32) %4)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #22
@@ -29852,7 +29852,7 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit: ; preds = %104, %_ZNSt8_Rb
   %124 = load i32, ptr %123, align 8
   %125 = add i32 %124, 1
   store i32 %125, ptr %123, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %122, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %122, align 8
   %126 = getelementptr inbounds nuw i8, ptr %122, i64 8
   store i32 %125, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %122, i64 12
@@ -31369,7 +31369,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit178:       ; preds = %393, %_ZNSt6vectorI
 
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit.i:        ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit178
   %421 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %421, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %421, align 8
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 8
   store i32 0, ptr %422, align 8
   %423 = getelementptr inbounds nuw i8, ptr %421, i64 12
@@ -32184,7 +32184,7 @@ define void @_ZN3spv7Builder2If13makeBeginElseEv(ptr nocapture noundef nonnull a
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %6 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -32312,7 +32312,7 @@ _ZN3spv8Function8addBlockEPNS_5BlockE.exit:       ; preds = %39, %_ZNSt6vectorIP
 define void @_ZN3spv7Builder12createBranchEPNS_5BlockE(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -32361,7 +32361,7 @@ define void @_ZN3spv7Builder2If9makeEndIfEv(ptr nocapture noundef nonnull readon
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %6 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -32504,7 +32504,7 @@ define void @_ZN3spv7Builder20createSelectionMergeEPNS_5BlockEj(ptr noundef nonn
 _ZN3spv11Instruction15reserveOperandsEm.exit:
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -32558,7 +32558,7 @@ define void @_ZN3spv7Builder23createConditionalBranchEjPNS_5BlockES2_(ptr nounde
 _ZN3spv11Instruction15reserveOperandsEm.exit:
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -32717,7 +32717,7 @@ _ZNSt6vectorIPN3spv5BlockESaIS2_EE9push_backEOS2_.exit: ; preds = %25, %_ZNSt6ve
   store ptr %49, ptr %9, align 8
   tail call void @_ZN3spv7Builder20createSelectionMergeEPNS_5BlockEj(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef nonnull %49, i32 noundef %2)
   %53 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %53, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i32 0, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 12
@@ -33025,7 +33025,7 @@ _ZNSt5stackIPN3spv5BlockESt5dequeIS2_SaIS2_EEE3topEv.exit: ; preds = %1, %8
   %16 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %17 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 12
@@ -33101,7 +33101,7 @@ _ZNK3spv5Block12isTerminatedEv.exit:              ; preds = %6
   %18 = load ptr, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %19 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 0, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 12
@@ -33537,7 +33537,7 @@ _ZNSt5stackIN3spv7Builder10LoopBlocksESt5dequeIS2_SaIS2_EEE3topEv.exit: ; preds 
   %16 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %17 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 12
@@ -33604,7 +33604,7 @@ _ZNSt5stackIN3spv7Builder10LoopBlocksESt5dequeIS2_SaIS2_EEE3topEv.exit: ; preds 
   %16 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %17 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 12
@@ -35773,7 +35773,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit46:         ; preds = %119, %_ZNSt6vectorI
 
 154:                                              ; preds = %.lr.ph, %_ZN3spv11InstructionD2Ev.exit
   %.sroa.0145.0166 = phi ptr [ %143, %.lr.ph ], [ %172, %_ZN3spv11InstructionD2Ev.exit ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %3, align 8
   store i32 0, ptr %145, align 8
   store i32 0, ptr %146, align 4
   store i32 17, ptr %147, align 8
@@ -35785,7 +35785,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit46:         ; preds = %119, %_ZNSt6vectorI
   %156 = load i32, ptr %155, align 4
   call void @_ZN3spv11Instruction19addImmediateOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef %156)
   call void @_ZNK3spv11Instruction4dumpERSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %3, align 8
   %157 = load ptr, ptr %152, align 8
   %.not.i.i.i.i47 = icmp eq ptr %157, null
   br i1 %.not.i.i.i.i47, label %_ZNSt6vectorIbSaIbEED2Ev.exit.i, label %158
@@ -35847,7 +35847,7 @@ _ZN3spv11InstructionD2Ev.exit:                    ; preds = %_ZNSt6vectorIbSaIbE
 
 186:                                              ; preds = %.lr.ph170, %_ZN3spv11InstructionD2Ev.exit55
   %.sroa.0141.0168 = phi ptr [ %174, %.lr.ph170 ], [ %252, %_ZN3spv11InstructionD2Ev.exit55 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
   store i32 0, ptr %176, align 8
   store i32 0, ptr %177, align 4
   store i32 10, ptr %178, align 8
@@ -35988,7 +35988,7 @@ _ZN3spv11Instruction19addImmediateOperandEj.exit: ; preds = %_ZNSt13_Bit_iterato
 
 _ZN3spv11Instruction16addStringOperandEPKc.exit:  ; preds = %_ZN3spv11Instruction19addImmediateOperandEj.exit, %235, %236
   call void @_ZNK3spv11Instruction4dumpERSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
   %237 = load ptr, ptr %185, align 8
   %.not.i.i.i.i49 = icmp eq ptr %237, null
   br i1 %.not.i.i.i.i49, label %_ZNSt6vectorIbSaIbEED2Ev.exit.i53, label %238
@@ -36058,7 +36058,7 @@ _ZN3spv11InstructionD2Ev.exit55:                  ; preds = %_ZNSt6vectorIbSaIbE
   br i1 %272, label %.lr.ph.i, label %_ZNK3spv7Builder16dumpInstructionsERSt6vectorIjSaIjEERKS1_ISt10unique_ptrINS_11InstructionESt14default_deleteIS6_EESaIS9_EE.exit, !llvm.loop !538
 
 _ZNK3spv7Builder16dumpInstructionsERSt6vectorIjSaIjEERKS1_ISt10unique_ptrINS_11InstructionESt14default_deleteIS6_EESaIS9_EE.exit: ; preds = %.lr.ph.i, %._crit_edge171
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
   %273 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %273, align 8
   %274 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -36227,7 +36227,7 @@ _ZNK3spv7Builder22dumpSourceInstructionsERSt6vectorIjSaIjEE.exit: ; preds = %.lr
 379:                                              ; preds = %.lr.ph173, %_ZN3spv11InstructionD2Ev.exit90
   %indvars.iv = phi i64 [ 0, %.lr.ph173 ], [ %indvars.iv.next, %_ZN3spv11InstructionD2Ev.exit90 ]
   %380 = phi ptr [ %362, %.lr.ph173 ], [ %447, %_ZN3spv11InstructionD2Ev.exit90 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
   store i32 0, ptr %369, align 8
   store i32 0, ptr %370, align 4
   store i32 4, ptr %371, align 8
@@ -36368,7 +36368,7 @@ _ZN3spv11Instruction19addImmediateOperandEj.exit140: ; preds = %_ZNSt13_Bit_iter
 
 _ZN3spv11Instruction16addStringOperandEPKc.exit83: ; preds = %_ZN3spv11Instruction19addImmediateOperandEj.exit140, %429, %430
   call void @_ZNK3spv11Instruction4dumpERSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %6, align 8
   %431 = load ptr, ptr %378, align 8
   %.not.i.i.i.i84 = icmp eq ptr %431, null
   br i1 %.not.i.i.i.i84, label %_ZNSt6vectorIbSaIbEED2Ev.exit.i88, label %432
@@ -36566,7 +36566,7 @@ _ZNK3spv7Builder16dumpInstructionsERSt6vectorIjSaIjEERKS1_ISt10unique_ptrINS_11I
   br i1 %552, label %.lr.ph.i111, label %_ZNK3spv6Module4dumpERSt6vectorIjSaIjEE.exit, !llvm.loop !541
 
 _ZNK3spv6Module4dumpERSt6vectorIjSaIjEE.exit:     ; preds = %.lr.ph.i111, %_ZNK3spv7Builder16dumpInstructionsERSt6vectorIjSaIjEERKS1_ISt10unique_ptrINS_11InstructionESt14default_deleteIS6_EESaIS9_EE.exit110
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
   %553 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %554 = load ptr, ptr %553, align 8
   %.not.i.i.i.i115 = icmp eq ptr %554, null
@@ -36923,7 +36923,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit30:        ; preds = %116, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3spv11InstructionD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -37070,7 +37070,7 @@ define void @_ZNK3spv7Builder19dumpModuleProcessesERSt6vectorIjSaIjEE(ptr nocapt
 24:                                               ; preds = %.lr.ph, %_ZN3spv11InstructionD2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN3spv11InstructionD2Ev.exit ]
   %25 = phi ptr [ %7, %.lr.ph ], [ %92, %_ZN3spv11InstructionD2Ev.exit ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %3, align 8
   store i32 0, ptr %14, align 8
   store i32 0, ptr %15, align 4
   store i32 330, ptr %16, align 8
@@ -37211,7 +37211,7 @@ _ZN3spv11Instruction19addImmediateOperandEj.exit: ; preds = %_ZNSt13_Bit_iterato
 
 _ZN3spv11Instruction16addStringOperandEPKc.exit:  ; preds = %_ZN3spv11Instruction19addImmediateOperandEj.exit, %74, %75
   call void @_ZNK3spv11Instruction4dumpERSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %3, align 8
   %76 = load ptr, ptr %23, align 8
   %.not.i.i.i.i = icmp eq ptr %76, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIbSaIbEED2Ev.exit.i, label %77
@@ -37420,7 +37420,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %79, %_ZNSt6vectorIj
 define void @_ZN3spv7Builder15createLoopMergeEPNS_5BlockES2_jRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 {
   %6 = alloca %"class.std::unique_ptr", align 8
   %7 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -37538,7 +37538,7 @@ define void @_ZNK3spv7Builder22dumpSourceInstructionsEjRKNSt7__cxx1112basic_stri
   br i1 %.not, label %_ZN3spv11InstructionD2Ev.exit33, label %_ZN3spv11Instruction15reserveOperandsEm.exit
 
 _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %4
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -37652,7 +37652,7 @@ _ZN3spv11Instruction16addStringOperandEPKc.exit:  ; preds = %.thread.i, %56, %57
   br label %_ZN3spv11InstructionD2Ev.exit
 
 58:                                               ; preds = %43
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %8, align 8
   store i32 0, ptr %34, align 8
   store i32 0, ptr %35, align 4
   store i32 2, ptr %36, align 8
@@ -37700,7 +37700,7 @@ _ZN3spv11Instruction16addStringOperandEPKc.exit:  ; preds = %.thread.i, %56, %57
 
 _ZN3spv11Instruction16addStringOperandEPKc.exit26: ; preds = %.thread.i24, %68, %69
   call void @_ZNK3spv11Instruction4dumpERSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %8, align 8
   %70 = load ptr, ptr %41, align 8
   %.not.i.i.i.i = icmp eq ptr %70, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIbSaIbEED2Ev.exit.i, label %71
@@ -37755,7 +37755,7 @@ _ZN3spv11InstructionD2Ev.exit:                    ; preds = %80, %_ZNSt6vectorIb
   br label %91
 
 91:                                               ; preds = %._crit_edge, %89, %90
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
   %92 = load ptr, ptr %23, align 8
   %.not.i.i.i.i27 = icmp eq ptr %92, null
   br i1 %.not.i.i.i.i27, label %_ZNSt6vectorIbSaIbEED2Ev.exit.i31, label %93
@@ -37802,7 +37802,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3spv6ModuleD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv6ModuleE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv6ModuleE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -37921,7 +37921,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3spv11InstructionD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -38898,7 +38898,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13fin
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3spv8FunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv8FunctionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv8FunctionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
@@ -39020,7 +39020,7 @@ _ZNSt6vectorIPN3spv5BlockESaIS2_EED2Ev.exit:      ; preds = %._crit_edge, %61
 
 _ZNSt6vectorIPN3spv11InstructionESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIPN3spv5BlockESaIS2_EED2Ev.exit, %68
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %74, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %76 = load ptr, ptr %75, align 8
   %.not.i.i.i.i = icmp eq ptr %76, null
@@ -39108,7 +39108,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_er
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3spv5BlockD2Ev(ptr noundef nonnull align 8 dereferenceable(137) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv5BlockE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv5BlockE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -39306,7 +39306,7 @@ define linkonce_odr void @_ZNK3spv8Function4dumpERSt6vectorIjSaIjEE(ptr noundef 
   br label %_ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EED2Ev.exit
 
 _ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EED2Ev.exit: ; preds = %._crit_edge, %38
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -39322,7 +39322,7 @@ _ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EED2Ev.exit: ; preds = %._cri
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %43, i8 0, i64 36, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
   call void @_ZNK3spv11Instruction4dumpERSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %48 = load ptr, ptr %47, align 8
   %.not.i.i.i.i = icmp eq ptr %48, null

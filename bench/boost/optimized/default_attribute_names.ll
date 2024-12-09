@@ -307,7 +307,7 @@ _ZN5boost10shared_ptrINS_3log11v2_mt_posix3aux23default_attribute_names9anonymou
   store i32 1, ptr %34, align 8, !tbaa !25
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 1, ptr %35, align 4, !tbaa !27
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_3log11v2_mt_posix3aux23default_attribute_names9anonymous5namesEEE, i64 16), ptr %24, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_3log11v2_mt_posix3aux23default_attribute_names9anonymous5namesEEE, i64 16), ptr %24, align 8, !tbaa !28
   %36 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %8, ptr %36, align 8, !tbaa !30
   %37 = load ptr, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS2_23default_attribute_names9anonymous5namesENS_10shared_ptrIS6_EEE12get_instanceEvE8instance, align 8, !tbaa !11

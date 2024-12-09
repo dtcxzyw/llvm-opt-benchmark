@@ -8414,7 +8414,7 @@ _ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i: 
   %.sroa.0.0.i.i = phi i16 [ %71, %69 ], [ 22, %68 ], [ 36, %67 ], [ 32, %66 ], [ 23, %65 ], [ 5, %64 ], [ 19, %63 ], [ 21, %62 ], [ 31, %61 ], [ 16, %60 ], [ 35, %59 ], [ 20, %58 ], [ 0, %57 ], [ 11, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a7d9cf6308a1214E.exit.i" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33), !noalias !1846
   store ptr @anon.15daca1494ab48175fa7b5da83d8f4c5.198, ptr %33, align 8, !noalias !1846
-  store ptr getelementptr inbounds (i8, ptr @anon.15daca1494ab48175fa7b5da83d8f4c5.198, i64 12), ptr %54, align 8, !noalias !1846
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.15daca1494ab48175fa7b5da83d8f4c5.198, i64 12), ptr %54, align 8, !noalias !1846
   %74 = invoke noundef align 2 dereferenceable_or_null(4) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7a16277dd2b39acdE.llvm.6030771845222660662"(ptr noalias noundef nonnull align 8 dereferenceable(16) %33)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -10594,7 +10594,7 @@ _ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i: 
   %.sroa.0.0.i.i135 = phi i16 [ %114, %112 ], [ 22, %111 ], [ 36, %110 ], [ 32, %109 ], [ 23, %108 ], [ 5, %107 ], [ 19, %106 ], [ 21, %105 ], [ 31, %104 ], [ 16, %103 ], [ 35, %102 ], [ 20, %101 ], [ 0, %100 ], [ 11, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a7d9cf6308a1214E.exit.i" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !2304
   store ptr @anon.15daca1494ab48175fa7b5da83d8f4c5.198, ptr %14, align 8, !noalias !2304
-  store ptr getelementptr inbounds (i8, ptr @anon.15daca1494ab48175fa7b5da83d8f4c5.198, i64 12), ptr %88, align 8, !noalias !2304
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.15daca1494ab48175fa7b5da83d8f4c5.198, i64 12), ptr %88, align 8, !noalias !2304
   %117 = invoke noundef align 2 dereferenceable_or_null(4) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7a16277dd2b39acdE.llvm.6030771845222660662"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14)
           to label %.noexc140 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -10708,7 +10708,7 @@ _ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit20.i
   %.sroa.0.0.i18.i = phi i16 [ %146, %144 ], [ 22, %143 ], [ 36, %142 ], [ 32, %141 ], [ 23, %140 ], [ 5, %139 ], [ 19, %138 ], [ 21, %137 ], [ 31, %136 ], [ 16, %135 ], [ 35, %134 ], [ 20, %133 ], [ 0, %132 ], [ 11, %.loopexit19.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !2321
   store ptr @anon.15daca1494ab48175fa7b5da83d8f4c5.199, ptr %13, align 8, !noalias !2321
-  store ptr getelementptr inbounds (i8, ptr @anon.15daca1494ab48175fa7b5da83d8f4c5.199, i64 16), ptr %89, align 8, !noalias !2321
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.15daca1494ab48175fa7b5da83d8f4c5.199, i64 16), ptr %89, align 8, !noalias !2321
   %149 = invoke noundef align 2 dereferenceable_or_null(4) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7a16277dd2b39acdE.llvm.6030771845222660662"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13)
           to label %.noexc143 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 

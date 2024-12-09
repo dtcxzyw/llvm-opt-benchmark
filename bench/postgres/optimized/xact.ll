@@ -331,7 +331,7 @@ define internal fastcc void @AssignTransactionId(ptr nocapture noundef %0) unnam
 .critedge41:                                      ; preds = %._crit_edge, %18
   %38 = load i32, ptr @wal_level, align 4
   %39 = icmp sgt i32 %38, 1
-  %40 = load i8, ptr getelementptr inbounds (i8, ptr @TopTransactionStateData, i64 90), align 2
+  %40 = load i8, ptr getelementptr inbounds nuw (i8, ptr @TopTransactionStateData, i64 90), align 2
   %41 = trunc i8 %40 to i1
   %not. = xor i1 %41, true
   %.048 = select i1 %39, i1 %not., i1 false
@@ -398,7 +398,7 @@ GetTopTransactionId.exit:                         ; preds = %63, %66
   call void @XLogRegisterData(ptr noundef nonnull @unreportedXids, i32 noundef %72) #22
   %73 = call i64 @XLogInsert(i8 noundef zeroext 1, i8 noundef zeroext 80) #22
   store i32 0, ptr @nUnreportedXids, align 4
-  store i8 1, ptr getelementptr inbounds (i8, ptr @TopTransactionStateData, i64 90), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @TopTransactionStateData, i64 90), align 2
   br label %74
 
 74:                                               ; preds = %55, %GetTopTransactionId.exit, %47
@@ -965,7 +965,7 @@ define dso_local void @StartTransactionCommand() local_unnamed_addr #1 {
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @StartTransaction() unnamed_addr #1 {
   store ptr @TopTransactionStateData, ptr @CurrentTransactionState, align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @TopTransactionStateData, i64 28), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @TopTransactionStateData, i64 28), align 4
   store i64 0, ptr @TopTransactionStateData, align 8
   %1 = load double, ptr @log_xact_sample_rate, align 8
   %2 = fcmp une double %1, 0.000000e+00
@@ -985,16 +985,16 @@ define internal fastcc void @StartTransaction() unnamed_addr #1 {
 10:                                               ; preds = %3, %5, %0
   %11 = phi i8 [ 0, %0 ], [ 1, %3 ], [ %9, %5 ]
   store i8 %11, ptr @xact_is_sampled, align 1
-  store i32 1, ptr getelementptr inbounds (i8, ptr @TopTransactionStateData, i64 36), align 4
-  store i32 1, ptr getelementptr inbounds (i8, ptr @TopTransactionStateData, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @TopTransactionStateData, i64 64), i8 0, i64 16, i1 false)
-  tail call void @GetUserIdAndSecContext(ptr noundef nonnull getelementptr inbounds (i8, ptr @TopTransactionStateData, i64 80), ptr noundef nonnull getelementptr inbounds (i8, ptr @TopTransactionStateData, i64 84)) #22
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @TopTransactionStateData, i64 36), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @TopTransactionStateData, i64 40), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @TopTransactionStateData, i64 64), i8 0, i64 16, i1 false)
+  tail call void @GetUserIdAndSecContext(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @TopTransactionStateData, i64 80), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @TopTransactionStateData, i64 84)) #22
   %12 = tail call zeroext i1 @RecoveryInProgress() #22
   %13 = load i8, ptr @DefaultXactReadOnly, align 1
   %14 = and i8 %13, 1
   %.sink = zext i1 %12 to i8
   %storemerge = select i1 %12, i8 1, i8 %14
-  store i8 %.sink, ptr getelementptr inbounds (i8, ptr @TopTransactionStateData, i64 89), align 1
+  store i8 %.sink, ptr getelementptr inbounds nuw (i8, ptr @TopTransactionStateData, i64 89), align 1
   store i8 %storemerge, ptr @XactReadOnly, align 1
   %15 = load i8, ptr @DefaultXactDeferrable, align 1
   %16 = and i8 %15, 1
@@ -1003,12 +1003,12 @@ define internal fastcc void @StartTransaction() unnamed_addr #1 {
   store i32 %17, ptr @XactIsoLevel, align 4
   store i1 false, ptr @forceSyncCommit, align 1
   store i32 0, ptr @MyXactFlags, align 4
-  store i32 1, ptr getelementptr inbounds (i8, ptr @TopTransactionStateData, i64 8), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @TopTransactionStateData, i64 8), align 8
   store i32 1, ptr @currentSubTransactionId, align 4
   store i32 0, ptr @currentCommandId, align 4
   store i1 false, ptr @currentCommandIdUsed, align 1
   store i32 0, ptr @nUnreportedXids, align 4
-  store i8 0, ptr getelementptr inbounds (i8, ptr @TopTransactionStateData, i64 90), align 2
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @TopTransactionStateData, i64 90), align 2
   %18 = load ptr, ptr @CurrentTransactionState, align 8
   %19 = load ptr, ptr @TransactionAbortContext, align 8
   %20 = icmp eq ptr %19, null
@@ -1074,7 +1074,7 @@ AtStart_Memory.exit._crit_edge:                   ; preds = %AtStart_Memory.exit
   tail call void @AtStart_GUC() #22
   tail call void @AcceptInvalidationMessages() #22
   tail call void @AfterTriggerBeginXact() #22
-  store i32 2, ptr getelementptr inbounds (i8, ptr @TopTransactionStateData, i64 28), align 4
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @TopTransactionStateData, i64 28), align 4
   %44 = load i32, ptr @TransactionTimeout, align 4
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %46, label %47

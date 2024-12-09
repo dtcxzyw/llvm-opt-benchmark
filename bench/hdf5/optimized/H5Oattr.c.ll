@@ -418,7 +418,7 @@ define internal ptr @H5O__attr_shared_decode(ptr noundef %0, ptr noundef %1, i32
   br label %.thread.i
 
 185:                                              ; preds = %176, %171
-  %186 = load ptr, ptr getelementptr inbounds (i8, ptr @H5O_MSG_DTYPE, i64 32), align 16
+  %186 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5O_MSG_DTYPE, i64 32), align 16
   %187 = shl nuw nsw i32 %.0209.i, 1
   %188 = and i32 %187, 2
   %189 = tail call ptr %186(ptr noundef %0, ptr noundef %1, i32 noundef %188, ptr noundef %3, i64 noundef %173, ptr noundef nonnull %172) #11
@@ -500,7 +500,7 @@ define internal ptr @H5O__attr_shared_decode(ptr noundef %0, ptr noundef %1, i32
   br label %.thread.i
 
 238:                                              ; preds = %229, %224
-  %239 = load ptr, ptr getelementptr inbounds (i8, ptr @H5O_MSG_SDSPACE, i64 32), align 16
+  %239 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5O_MSG_SDSPACE, i64 32), align 16
   %240 = and i32 %.0209.i, 2
   %241 = tail call ptr %239(ptr noundef %0, ptr noundef %1, i32 noundef %240, ptr noundef %3, i64 noundef %226, ptr noundef nonnull %216) #11
   %242 = icmp eq ptr %241, null
@@ -833,7 +833,7 @@ define internal range(i32 -1, 1) i32 @H5O__attr_shared_encode(ptr noundef %0, i1
   %101 = phi ptr [ %.pre88.i, %95 ], [ %92, %88 ]
   %.pn.i = phi i64 [ %98, %95 ], [ %52, %88 ]
   %.2.i = getelementptr inbounds i8, ptr %.1.i, i64 %.pn.i
-  %102 = load ptr, ptr getelementptr inbounds (i8, ptr @H5O_MSG_DTYPE, i64 40), align 8
+  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5O_MSG_DTYPE, i64 40), align 8
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 24
   %104 = load ptr, ptr %103, align 8
   %105 = tail call i32 %102(ptr noundef %0, i1 noundef zeroext false, i64 noundef -1, ptr noundef nonnull %.2.i, ptr noundef %104) #11
@@ -871,7 +871,7 @@ define internal range(i32 -1, 1) i32 @H5O__attr_shared_encode(ptr noundef %0, i1
   %128 = phi ptr [ %122, %117 ], [ %112, %111 ]
   %.pn85.i = phi i64 [ %126, %117 ], [ %116, %111 ]
   %.3.i = getelementptr inbounds i8, ptr %.2.i, i64 %.pn85.i
-  %129 = load ptr, ptr getelementptr inbounds (i8, ptr @H5O_MSG_SDSPACE, i64 40), align 8
+  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5O_MSG_SDSPACE, i64 40), align 8
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 40
   %131 = load ptr, ptr %130, align 8
   %132 = tail call i32 %129(ptr noundef %0, i1 noundef zeroext false, i64 noundef -1, ptr noundef nonnull %.3.i, ptr noundef %131) #11
@@ -1083,7 +1083,7 @@ define internal range(i32 -1, 1) i32 @H5O__attr_shared_delete(ptr noundef %0, pt
   br label %H5O__attr_delete.exit
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @H5O_MSG_DTYPE, i64 80), align 16
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5O_MSG_DTYPE, i64 80), align 16
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -1099,7 +1099,7 @@ define internal range(i32 -1, 1) i32 @H5O__attr_shared_delete(ptr noundef %0, pt
   br label %35
 
 24:                                               ; preds = %12
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @H5O_MSG_SDSPACE, i64 80), align 16
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5O_MSG_SDSPACE, i64 80), align 16
   %26 = load ptr, ptr %14, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load ptr, ptr %27, align 8
@@ -1142,7 +1142,7 @@ define internal range(i32 -1, 1) i32 @H5O__attr_shared_link(ptr noundef %0, ptr 
   br label %H5O__attr_link.exit
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @H5O_MSG_DTYPE, i64 88), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5O_MSG_DTYPE, i64 88), align 8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -1158,7 +1158,7 @@ define internal range(i32 -1, 1) i32 @H5O__attr_shared_link(ptr noundef %0, ptr 
   br label %35
 
 24:                                               ; preds = %12
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @H5O_MSG_SDSPACE, i64 88), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5O_MSG_SDSPACE, i64 88), align 8
   %26 = load ptr, ptr %14, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load ptr, ptr %27, align 8
@@ -1411,7 +1411,7 @@ define internal range(i32 -1, 1) i32 @H5O__attr_shared_debug(ptr noundef %0, ptr
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %51 = load i64, ptr %50, align 8
   %52 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.51, i32 noundef %46, ptr noundef nonnull @.str.40, i32 noundef %48, ptr noundef nonnull @.str.56, i64 noundef %51) #11
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @H5O_MSG_DTYPE, i64 152), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5O_MSG_DTYPE, i64 152), align 8
   %54 = load ptr, ptr %16, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8
@@ -1462,7 +1462,7 @@ H5O__attr_debug.exit:                             ; preds = %63
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5O__attr_delete(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @H5O_MSG_DTYPE, i64 80), align 16
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5O_MSG_DTYPE, i64 80), align 16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -1478,7 +1478,7 @@ define range(i32 -1, 1) i32 @H5O__attr_delete(ptr noundef %0, ptr noundef %1, pt
   br label %26
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @H5O_MSG_SDSPACE, i64 80), align 16
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5O_MSG_SDSPACE, i64 80), align 16
   %17 = load ptr, ptr %5, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8
@@ -1501,7 +1501,7 @@ declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5O__attr_link(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @H5O_MSG_DTYPE, i64 88), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5O_MSG_DTYPE, i64 88), align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -1517,7 +1517,7 @@ define range(i32 -1, 1) i32 @H5O__attr_link(ptr noundef %0, ptr noundef %1, ptr 
   br label %26
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @H5O_MSG_SDSPACE, i64 88), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5O_MSG_SDSPACE, i64 88), align 8
   %17 = load ptr, ptr %5, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8

@@ -70,7 +70,7 @@ $_ZTI13b3OpenCLArrayIjE = comdat any
 define dso_local void @_ZN15b3BoundSearchCLC2EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 56)) %this, ptr noundef %ctx, ptr noundef %device, ptr noundef %queue, i32 noundef %maxSize) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pErrNum = alloca i32, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15b3BoundSearchCL, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15b3BoundSearchCL, i64 16), ptr %this, align 8
   %m_context = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %ctx, ptr %m_context, align 8
   %m_device = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -94,7 +94,7 @@ if.then.i:                                        ; preds = %entry
   store ptr %call.i31, ptr %m_subtractKernel, align 8
   %call6 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
   %conv = sext i32 %maxSize to i64
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIjE, i64 16), ptr %call6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13b3OpenCLArrayIjE, i64 16), ptr %call6, align 8
   %m_size.i = getelementptr inbounds nuw i8, ptr %call6, i64 8
   %m_clContext.i = getelementptr inbounds nuw i8, ptr %call6, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i, i8 0, i64 24, i1 false)
@@ -113,7 +113,7 @@ if.then.i40:                                      ; preds = %if.then.i
   %m_lower = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %call6, ptr %m_lower, align 8
   %call10 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIjE, i64 16), ptr %call10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13b3OpenCLArrayIjE, i64 16), ptr %call10, align 8
   %m_size.i34 = getelementptr inbounds nuw i8, ptr %call10, i64 8
   %m_clContext.i35 = getelementptr inbounds nuw i8, ptr %call10, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i34, i8 0, i64 24, i1 false)
@@ -184,7 +184,7 @@ declare void @_ZN8b3FillCLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queue(
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN15b3BoundSearchCLD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15b3BoundSearchCL, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15b3BoundSearchCL, i64 16), ptr %this, align 8
   %m_lower = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_lower, align 8
   %isnull = icmp eq ptr %0, null
@@ -270,7 +270,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN15b3BoundSearchCLD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15b3BoundSearchCL, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15b3BoundSearchCL, i64 16), ptr %this, align 8
   %m_lower.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_lower.i, align 8
   %isnull.i = icmp eq ptr %0, null
@@ -1871,7 +1871,7 @@ if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayIjED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIjE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13b3OpenCLArrayIjE, i64 16), ptr %this, align 8
   %m_clBuffer.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -1904,7 +1904,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayIjED0Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayIjE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13b3OpenCLArrayIjE, i64 16), ptr %this, align 8
   %m_clBuffer.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null

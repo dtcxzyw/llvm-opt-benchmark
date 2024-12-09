@@ -244,7 +244,7 @@ define internal fastcc i64 @_read_cg_file(ptr noundef %0, ptr nocapture noundef 
   br i1 %30, label %31, label %38
 
 31:                                               ; preds = %.loopexit
-  %32 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %32 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %33 = and i64 %32, 36028797018963968
   %.not27 = icmp eq i64 %33, 0
   br i1 %.not27, label %38, label %34
@@ -599,7 +599,7 @@ define range(i32 -1, 1) i32 @common_cgroup_create(ptr noundef %0, ptr nocapture 
   br i1 %10, label %11, label %20
 
 11:                                               ; preds = %5
-  %12 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %13 = and i64 %12, 36028797018963968
   %.not = icmp eq i64 %13, 0
   br i1 %.not, label %27, label %14
@@ -690,7 +690,7 @@ _cgroup_procs_writable_path.exit:                 ; preds = %12, %16
   br i1 %24, label %25, label %32
 
 25:                                               ; preds = %22
-  %26 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %27 = and i64 %26, 36028797018963968
   %.not14.i = icmp eq i64 %27, 0
   br i1 %.not14.i, label %_set_uint32_param.exit, label %28
@@ -707,7 +707,7 @@ _cgroup_procs_writable_path.exit:                 ; preds = %12, %16
 32:                                               ; preds = %22
   %33 = call i32 @common_file_write_uints(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 1, i32 noundef 32)
   %.not.i = icmp eq i32 %33, 0
-  %34 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %34 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %35 = and i64 %34, 36028797018963968
   %.not12.i = icmp eq i64 %35, 0
   br i1 %.not.i, label %41, label %36
@@ -762,7 +762,7 @@ define range(i32 -1, 1) i32 @common_cgroup_set_param(ptr nocapture noundef reado
   br i1 %.not, label %10, label %17
 
 10:                                               ; preds = %9
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %12 = and i64 %11, 36028797018963968
   %.not25 = icmp eq i64 %12, 0
   br i1 %.not25, label %41, label %13
@@ -782,7 +782,7 @@ define range(i32 -1, 1) i32 @common_cgroup_set_param(ptr nocapture noundef reado
   br i1 %19, label %20, label %27
 
 20:                                               ; preds = %17
-  %21 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %22 = and i64 %21, 36028797018963968
   %.not28 = icmp eq i64 %22, 0
   br i1 %.not28, label %41, label %23
@@ -803,7 +803,7 @@ define range(i32 -1, 1) i32 @common_cgroup_set_param(ptr nocapture noundef reado
   br i1 %.not26, label %37, label %30
 
 30:                                               ; preds = %27
-  %31 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %32 = and i64 %31, 36028797018963968
   %.not27 = icmp eq i64 %32, 0
   br i1 %.not27, label %41, label %33
@@ -932,7 +932,7 @@ sub_0.i:                                          ; preds = %.lr.ph.i
 
 .tail16.thread.i:                                 ; preds = %.tail.i, %.tail16.i, %sub_0.i
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 19
-  %30 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %30 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %31 = and i64 %30, 36028797018963968
   %.not15.i = icmp eq i64 %31, 0
   br i1 %.not15.i, label %39, label %32
@@ -957,7 +957,7 @@ _is_empty_dir.exit:                               ; preds = %36, %.preheader.i
 
 39:                                               ; preds = %35, %32, %.tail16.thread.i
   %40 = call i32 @closedir(ptr noundef nonnull %16)
-  %41 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %41 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %42 = and i64 %41, 36028797018963968
   %.not22 = icmp eq i64 %42, 0
   br i1 %.not22, label %.loopexit, label %43
@@ -1012,7 +1012,7 @@ _is_empty_dir.exit.thread:                        ; preds = %14, %_is_empty_dir.
   br i1 %67, label %12, label %.critedge.thread61, !llvm.loop !15
 
 68:                                               ; preds = %61
-  %69 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %69 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %70 = and i64 %69, 36028797018963968
   %.not24 = icmp eq i64 %70, 0
   br i1 %.not24, label %.loopexit, label %71
@@ -1038,7 +1038,7 @@ _is_empty_dir.exit.thread:                        ; preds = %14, %_is_empty_dir.
 
 .critedge.thread61:                               ; preds = %62, %.critedge
   %.0.lcssa64 = phi i32 [ %.042, %.critedge ], [ %64, %62 ]
-  %79 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %79 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %80 = and i64 %79, 36028797018963968
   %.not21 = icmp eq i64 %80, 0
   br i1 %.not21, label %.loopexit, label %81
@@ -1118,7 +1118,7 @@ _cgroup_procs_readable_path.exit:                 ; preds = %16, %20
   br i1 %.not14, label %35, label %28
 
 28:                                               ; preds = %26
-  %29 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %30 = and i64 %29, 36028797018963968
   %.not15 = icmp eq i64 %30, 0
   br i1 %.not15, label %35, label %31
@@ -1201,7 +1201,7 @@ define range(i32 -1, 1) i32 @common_cgroup_get_param(ptr nocapture noundef reado
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %4
-  %12 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %13 = and i64 %12, 36028797018963968
   %.not12 = icmp eq i64 %13, 0
   br i1 %.not12, label %32, label %14
@@ -1237,7 +1237,7 @@ common_file_read_content.exit:                    ; preds = %21
 
 25:                                               ; preds = %18, %21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %26 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %27 = and i64 %26, 36028797018963968
   %.not11 = icmp eq i64 %27, 0
   br i1 %.not11, label %32, label %28
@@ -1268,7 +1268,7 @@ define i32 @common_cgroup_set_uint64_param(ptr nocapture noundef readonly %0, pt
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %3
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %12 = and i64 %11, 36028797018963968
   %.not13 = icmp eq i64 %12, 0
   br i1 %.not13, label %30, label %13
@@ -1288,7 +1288,7 @@ define i32 @common_cgroup_set_uint64_param(ptr nocapture noundef readonly %0, pt
   br i1 %.not, label %26, label %19
 
 19:                                               ; preds = %17
-  %20 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %21 = and i64 %20, 36028797018963968
   %.not12 = icmp eq i64 %21, 0
   br i1 %.not12, label %30, label %22

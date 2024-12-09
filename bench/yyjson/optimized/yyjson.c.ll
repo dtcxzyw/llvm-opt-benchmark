@@ -42198,7 +42198,7 @@ if.else63.i5747:                                  ; preds = %if.else29.i5745
   %sub77.i5761 = add nsw i32 %mul76.i5760.neg, %sub69.i5753
   %mul81.i5764 = shl nuw nsw i32 %shr71.i5755, 1
   %idx.ext82.i5765 = zext nneg i32 %mul81.i5764 to i64
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @digit_table, i64 1), i64 %idx.ext82.i5765
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @digit_table, i64 1), i64 %idx.ext82.i5765
   %529 = load i16, ptr %gep, align 1
   store i16 %529, ptr %add.ptr137.i2189, align 1
   %add.ptr89.i5772 = getelementptr inbounds nuw i8, ptr %add.ptr37.i2180, i64 2
@@ -45856,7 +45856,7 @@ if.else63.i6021:                                  ; preds = %if.else29.i6019
   %sub77.i6035 = add nsw i32 %mul76.i6034.neg, %sub69.i6027
   %mul81.i6038 = shl nuw nsw i32 %shr71.i6029, 1
   %idx.ext82.i6039 = zext nneg i32 %mul81.i6038 to i64
-  %gep5313 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @digit_table, i64 1), i64 %idx.ext82.i6039
+  %gep5313 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @digit_table, i64 1), i64 %idx.ext82.i6039
   %829 = load i16, ptr %gep5313, align 1
   store i16 %829, ptr %add.ptr137.i2400, align 1
   %add.ptr89.i6046 = getelementptr inbounds nuw i8, ptr %add.ptr37.i2391, i64 2
@@ -52793,7 +52793,7 @@ if.else63.i.i464:                                 ; preds = %if.else29.i2044.i
   %sub77.i.i475 = add nsw i32 %mul76.i.i474.neg, %sub69.i.i469
   %mul81.i.i477 = shl nuw nsw i32 %shr71.i.i470, 1
   %idx.ext82.i.i478 = zext nneg i32 %mul81.i.i477 to i64
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @digit_table, i64 1), i64 %idx.ext82.i.i478
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @digit_table, i64 1), i64 %idx.ext82.i.i478
   %529 = load i16, ptr %gep, align 1
   store i16 %529, ptr %add.ptr137.i.i424, align 1
   %add.ptr89.i.i485 = getelementptr inbounds nuw i8, ptr %add.ptr37.i.i409, i64 2
@@ -56488,7 +56488,7 @@ if.else63.i.i1935:                                ; preds = %if.else29.i1740.i
   %sub77.i.i1946 = add nsw i32 %mul76.i.i1945.neg, %sub69.i.i1940
   %mul81.i.i1948 = shl nuw nsw i32 %shr71.i.i1941, 1
   %idx.ext82.i.i1949 = zext nneg i32 %mul81.i.i1948 to i64
-  %gep5344 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @digit_table, i64 1), i64 %idx.ext82.i.i1949
+  %gep5344 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @digit_table, i64 1), i64 %idx.ext82.i.i1949
   %835 = load i16, ptr %gep5344, align 1
   store i16 %835, ptr %add.ptr137.i.i1893, align 1
   %add.ptr89.i.i1956 = getelementptr inbounds nuw i8, ptr %add.ptr37.i.i1879, i64 2

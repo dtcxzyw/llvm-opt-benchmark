@@ -320,7 +320,7 @@ $_ZTVN4llvm2cl11OptionValueIbEE = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -332,7 +332,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr n
   br label %_ZNSt8functionIFvRKbEED2Ev.exit
 
 _ZNSt8functionIFvRKbEED2Ev.exit:                  ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -446,7 +446,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLEPseudoEhhhhhE4CompEclIP
   br i1 %49, label %_ZSt7advanceIPKN4llvm5RISCV9VLEPseudoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm5RISCV9VLEPseudoEZNS1_12getVLEPseudoEhhhhhE7KeyTypeZNS1_12getVLEPseudoEhhhhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !4
 
 _ZSt11lower_boundIPKN4llvm5RISCV9VLEPseudoEZNS1_12getVLEPseudoEhhhhhE7KeyTypeZNS1_12getVLEPseudoEhhhhhE4CompET_S7_S7_RKT0_T1_.exit: ; preds = %.thread27.i.i
-  %50 = icmp eq ptr %48, getelementptr inbounds (i8, ptr @_ZN4llvm5RISCVL13RISCVVLETableE, i64 556)
+  %50 = icmp eq ptr %48, getelementptr inbounds nuw (i8, ptr @_ZN4llvm5RISCVL13RISCVVLETableE, i64 556)
   br i1 %50, label %70, label %51
 
 51:                                               ; preds = %_ZSt11lower_boundIPKN4llvm5RISCV9VLEPseudoEZNS1_12getVLEPseudoEhhhhhE7KeyTypeZNS1_12getVLEPseudoEhhhhhE4CompET_S7_S7_RKT0_T1_.exit
@@ -584,7 +584,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVLSEGPseudoEhhhhhhE4CompEc
   br i1 %58, label %_ZSt7advanceIPKN4llvm5RISCV11VLSEGPseudoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm5RISCV11VLSEGPseudoEZNS1_14getVLSEGPseudoEhhhhhhE7KeyTypeZNS1_14getVLSEGPseudoEhhhhhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !6
 
 _ZSt11lower_boundIPKN4llvm5RISCV11VLSEGPseudoEZNS1_14getVLSEGPseudoEhhhhhhE7KeyTypeZNS1_14getVLSEGPseudoEhhhhhhE4CompET_S7_S7_RKT0_T1_.exit: ; preds = %.thread27.i.i
-  %59 = icmp eq ptr %57, getelementptr inbounds (i8, ptr @_ZN4llvm5RISCVL15RISCVVLSEGTableE, i64 2064)
+  %59 = icmp eq ptr %57, getelementptr inbounds nuw (i8, ptr @_ZN4llvm5RISCVL15RISCVVLSEGTableE, i64 2064)
   br i1 %59, label %83, label %60
 
 60:                                               ; preds = %_ZSt11lower_boundIPKN4llvm5RISCV11VLSEGPseudoEZNS1_14getVLSEGPseudoEhhhhhhE7KeyTypeZNS1_14getVLSEGPseudoEhhhhhhE4CompET_S7_S7_RKT0_T1_.exit
@@ -729,7 +729,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVLXSEGPseudoEhhhhhhE4CompE
   br i1 %58, label %_ZSt7advanceIPKN4llvm5RISCV12VLXSEGPseudoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm5RISCV12VLXSEGPseudoEZNS1_15getVLXSEGPseudoEhhhhhhE7KeyTypeZNS1_15getVLXSEGPseudoEhhhhhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !7
 
 _ZSt11lower_boundIPKN4llvm5RISCV12VLXSEGPseudoEZNS1_15getVLXSEGPseudoEhhhhhhE7KeyTypeZNS1_15getVLXSEGPseudoEhhhhhhE4CompET_S7_S7_RKT0_T1_.exit: ; preds = %.thread27.i.i
-  %59 = icmp eq ptr %57, getelementptr inbounds (i8, ptr @_ZN4llvm5RISCVL16RISCVVLXSEGTableE, i64 5408)
+  %59 = icmp eq ptr %57, getelementptr inbounds nuw (i8, ptr @_ZN4llvm5RISCVL16RISCVVLXSEGTableE, i64 5408)
   br i1 %59, label %83, label %60
 
 60:                                               ; preds = %_ZSt11lower_boundIPKN4llvm5RISCV12VLXSEGPseudoEZNS1_15getVLXSEGPseudoEhhhhhhE7KeyTypeZNS1_15getVLXSEGPseudoEhhhhhhE4CompET_S7_S7_RKT0_T1_.exit
@@ -862,7 +862,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLXPseudoEhhhhhE4CompEclIP
   br i1 %49, label %_ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm5RISCV13VLX_VSXPseudoEZNS1_12getVLXPseudoEhhhhhE7KeyTypeZNS1_12getVLXPseudoEhhhhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !8
 
 _ZSt11lower_boundIPKN4llvm5RISCV13VLX_VSXPseudoEZNS1_12getVLXPseudoEhhhhhE7KeyTypeZNS1_12getVLXPseudoEhhhhhE4CompET_S7_S7_RKT0_T1_.exit: ; preds = %.thread27.i.i
-  %50 = icmp eq ptr %48, getelementptr inbounds (i8, ptr @_ZN4llvm5RISCVL13RISCVVLXTableE, i64 1248)
+  %50 = icmp eq ptr %48, getelementptr inbounds nuw (i8, ptr @_ZN4llvm5RISCVL13RISCVVLXTableE, i64 1248)
   br i1 %50, label %70, label %51
 
 51:                                               ; preds = %_ZSt11lower_boundIPKN4llvm5RISCV13VLX_VSXPseudoEZNS1_12getVLXPseudoEhhhhhE7KeyTypeZNS1_12getVLXPseudoEhhhhhE4CompET_S7_S7_RKT0_T1_.exit
@@ -968,7 +968,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSEPseudoEhhhhE4CompEclIPK
   br i1 %32, label %_ZSt7advanceIPKN4llvm5RISCV9VSEPseudoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm5RISCV9VSEPseudoEZNS1_12getVSEPseudoEhhhhE7KeyTypeZNS1_12getVSEPseudoEhhhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !9
 
 _ZSt11lower_boundIPKN4llvm5RISCV9VSEPseudoEZNS1_12getVSEPseudoEhhhhE7KeyTypeZNS1_12getVSEPseudoEhhhhE4CompET_S7_S7_RKT0_T1_.exit: ; preds = %.thread27.i.i
-  %33 = icmp eq ptr %31, getelementptr inbounds (i8, ptr @_ZN4llvm5RISCVL13RISCVVSETableE, i64 380)
+  %33 = icmp eq ptr %31, getelementptr inbounds nuw (i8, ptr @_ZN4llvm5RISCVL13RISCVVSETableE, i64 380)
   br i1 %33, label %45, label %34
 
 34:                                               ; preds = %_ZSt11lower_boundIPKN4llvm5RISCV9VSEPseudoEZNS1_12getVSEPseudoEhhhhE7KeyTypeZNS1_12getVSEPseudoEhhhhE4CompET_S7_S7_RKT0_T1_.exit
@@ -1083,7 +1083,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVSSEGPseudoEhhhhhE4CompEcl
   br i1 %49, label %_ZSt7advanceIPKN4llvm5RISCV11VSSEGPseudoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm5RISCV11VSSEGPseudoEZNS1_14getVSSEGPseudoEhhhhhE7KeyTypeZNS1_14getVSSEGPseudoEhhhhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !10
 
 _ZSt11lower_boundIPKN4llvm5RISCV11VSSEGPseudoEZNS1_14getVSSEGPseudoEhhhhhE7KeyTypeZNS1_14getVSSEGPseudoEhhhhhE4CompET_S7_S7_RKT0_T1_.exit: ; preds = %.thread27.i.i
-  %50 = icmp eq ptr %48, getelementptr inbounds (i8, ptr @_ZN4llvm5RISCVL15RISCVVSSEGTableE, i64 1376)
+  %50 = icmp eq ptr %48, getelementptr inbounds nuw (i8, ptr @_ZN4llvm5RISCVL15RISCVVSSEGTableE, i64 1376)
   br i1 %50, label %70, label %51
 
 51:                                               ; preds = %_ZSt11lower_boundIPKN4llvm5RISCV11VSSEGPseudoEZNS1_14getVSSEGPseudoEhhhhhE7KeyTypeZNS1_14getVSSEGPseudoEhhhhhE4CompET_S7_S7_RKT0_T1_.exit
@@ -1221,7 +1221,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVSXSEGPseudoEhhhhhhE4CompE
   br i1 %58, label %_ZSt7advanceIPKN4llvm5RISCV12VSXSEGPseudoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm5RISCV12VSXSEGPseudoEZNS1_15getVSXSEGPseudoEhhhhhhE7KeyTypeZNS1_15getVSXSEGPseudoEhhhhhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !11
 
 _ZSt11lower_boundIPKN4llvm5RISCV12VSXSEGPseudoEZNS1_15getVSXSEGPseudoEhhhhhhE7KeyTypeZNS1_15getVSXSEGPseudoEhhhhhhE4CompET_S7_S7_RKT0_T1_.exit: ; preds = %.thread27.i.i
-  %59 = icmp eq ptr %57, getelementptr inbounds (i8, ptr @_ZN4llvm5RISCVL16RISCVVSXSEGTableE, i64 5408)
+  %59 = icmp eq ptr %57, getelementptr inbounds nuw (i8, ptr @_ZN4llvm5RISCVL16RISCVVSXSEGTableE, i64 5408)
   br i1 %59, label %83, label %60
 
 60:                                               ; preds = %_ZSt11lower_boundIPKN4llvm5RISCV12VSXSEGPseudoEZNS1_15getVSXSEGPseudoEhhhhhhE7KeyTypeZNS1_15getVSXSEGPseudoEhhhhhhE4CompET_S7_S7_RKT0_T1_.exit
@@ -1354,7 +1354,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSXPseudoEhhhhhE4CompEclIP
   br i1 %49, label %_ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm5RISCV13VLX_VSXPseudoEZNS1_12getVSXPseudoEhhhhhE7KeyTypeZNS1_12getVSXPseudoEhhhhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !12
 
 _ZSt11lower_boundIPKN4llvm5RISCV13VLX_VSXPseudoEZNS1_12getVSXPseudoEhhhhhE7KeyTypeZNS1_12getVSXPseudoEhhhhhE4CompET_S7_S7_RKT0_T1_.exit: ; preds = %.thread27.i.i
-  %50 = icmp eq ptr %48, getelementptr inbounds (i8, ptr @_ZN4llvm5RISCVL13RISCVVSXTableE, i64 1248)
+  %50 = icmp eq ptr %48, getelementptr inbounds nuw (i8, ptr @_ZN4llvm5RISCVL13RISCVVSXTableE, i64 1248)
   br i1 %50, label %70, label %51
 
 51:                                               ; preds = %_ZSt11lower_boundIPKN4llvm5RISCV13VLX_VSXPseudoEZNS1_12getVSXPseudoEhhhhhE7KeyTypeZNS1_12getVSXPseudoEhhhhhE4CompET_S7_S7_RKT0_T1_.exit
@@ -10022,7 +10022,7 @@ define internal fastcc { ptr, i32 } @_ZL9selectImmPN4llvm12SelectionDAGERKNS_5SD
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %5
-  %18 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL15UsePseudoMovImm, i64 128), align 8
+  %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL15UsePseudoMovImm, i64 128), align 8
   %19 = trunc i8 %18 to i1
   br i1 %19, label %20, label %23
 
@@ -16505,7 +16505,7 @@ define dso_local void @_ZN4llvm23RISCVDAGToDAGISelLegacyC2ERNS_18RISCVTargetMach
   %4 = alloca %"class.std::unique_ptr.378", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #31, !noalias !64
   tail call void @_ZN4llvm16SelectionDAGISelC2ERNS_13TargetMachineENS_15CodeGenOptLevelE(ptr noundef nonnull align 8 dereferenceable(280) %5, ptr noundef nonnull align 8 dereferenceable(1264) %1, i32 noundef %2) #26, !noalias !64
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm17RISCVDAGToDAGISelE, i64 16), ptr %5, align 8, !noalias !64
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm17RISCVDAGToDAGISelE, i64 16), ptr %5, align 8, !noalias !64
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 272
   store ptr null, ptr %6, align 8, !noalias !64
   store ptr %5, ptr %4, align 8
@@ -16522,7 +16522,7 @@ _ZNKSt14default_deleteIN4llvm16SelectionDAGISelEEclEPS1_.exit.i: ; preds = %3
   br label %_ZNSt10unique_ptrIN4llvm17RISCVDAGToDAGISelESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm17RISCVDAGToDAGISelESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4llvm16SelectionDAGISelEEclEPS1_.exit.i, %3
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN4llvm23RISCVDAGToDAGISelLegacyE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN4llvm23RISCVDAGToDAGISelLegacyE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -24987,7 +24987,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16SelectionDAGISel28Comp
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm23RISCVDAGToDAGISelLegacyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN4llvm22SelectionDAGISelLegacyE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN4llvm22SelectionDAGISelLegacyE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -25008,7 +25008,7 @@ _ZN4llvm22SelectionDAGISelLegacyD2Ev.exit:        ; preds = %1, %_ZNKSt14default
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm23RISCVDAGToDAGISelLegacyD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN4llvm22SelectionDAGISelLegacyE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN4llvm22SelectionDAGISelLegacyE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -25888,7 +25888,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -26215,10 +26215,10 @@ define internal void @_GLOBAL__sub_I_RISCVISelDAGToDAG.cpp() #21 section ".text.
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL15UsePseudoMovImm, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL15UsePseudoMovImm, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL15UsePseudoMovImm, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL15UsePseudoMovImm, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL15UsePseudoMovImm, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL15UsePseudoMovImm, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL15UsePseudoMovImm, align 8
   tail call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL15UsePseudoMovImm, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL15UsePseudoMovImm) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL15UsePseudoMovImm, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL15UsePseudoMovImm, i64 152), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL15UsePseudoMovImm, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL15UsePseudoMovImm, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL15UsePseudoMovImm, i64 176), align 8

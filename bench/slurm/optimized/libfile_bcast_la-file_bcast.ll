@@ -405,7 +405,7 @@ define internal fastcc range(i32 -1, 1) i32 @_file_state(ptr nocapture noundef r
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %20
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @f_stat, i64 24), align 8
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @f_stat, i64 24), align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.3, i32 noundef %24) #13
   br label %25
 
@@ -415,7 +415,7 @@ define internal fastcc range(i32 -1, 1) i32 @_file_state(ptr nocapture noundef r
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %25
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @f_stat, i64 28), align 4
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @f_stat, i64 28), align 4
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.4, i32 noundef %29) #13
   br label %30
 
@@ -425,7 +425,7 @@ define internal fastcc range(i32 -1, 1) i32 @_file_state(ptr nocapture noundef r
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %30
-  %34 = load i32, ptr getelementptr inbounds (i8, ptr @f_stat, i64 32), align 8
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @f_stat, i64 32), align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.5, i32 noundef %34) #13
   br label %35
 
@@ -435,7 +435,7 @@ define internal fastcc range(i32 -1, 1) i32 @_file_state(ptr nocapture noundef r
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %35
-  %39 = tail call ptr @slurm_ctime2(ptr noundef nonnull getelementptr inbounds (i8, ptr @f_stat, i64 72)) #13
+  %39 = tail call ptr @slurm_ctime2(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @f_stat, i64 72)) #13
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.6, ptr noundef %39) #13
   br label %40
 
@@ -445,7 +445,7 @@ define internal fastcc range(i32 -1, 1) i32 @_file_state(ptr nocapture noundef r
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %40
-  %44 = tail call ptr @slurm_ctime2(ptr noundef nonnull getelementptr inbounds (i8, ptr @f_stat, i64 88)) #13
+  %44 = tail call ptr @slurm_ctime2(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @f_stat, i64 88)) #13
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef %44) #13
   br label %45
 
@@ -455,7 +455,7 @@ define internal fastcc range(i32 -1, 1) i32 @_file_state(ptr nocapture noundef r
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %45
-  %49 = tail call ptr @slurm_ctime2(ptr noundef nonnull getelementptr inbounds (i8, ptr @f_stat, i64 104)) #13
+  %49 = tail call ptr @slurm_ctime2(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @f_stat, i64 104)) #13
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.8, ptr noundef %49) #13
   br label %50
 
@@ -465,12 +465,12 @@ define internal fastcc range(i32 -1, 1) i32 @_file_state(ptr nocapture noundef r
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %50
-  %54 = load i64, ptr getelementptr inbounds (i8, ptr @f_stat, i64 48), align 8
+  %54 = load i64, ptr getelementptr inbounds nuw (i8, ptr @f_stat, i64 48), align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.9, i64 noundef %54) #13
   br label %55
 
 55:                                               ; preds = %53, %50
-  %56 = load i64, ptr getelementptr inbounds (i8, ptr @f_stat, i64 48), align 8
+  %56 = load i64, ptr getelementptr inbounds nuw (i8, ptr @f_stat, i64 48), align 8
   %.not7 = icmp eq i64 %56, 0
   br i1 %.not7, label %57, label %59
 
@@ -514,12 +514,12 @@ define internal fastcc i32 @_bcast_file(ptr nocapture noundef %0) unnamed_addr #
 
 11:                                               ; preds = %1
   %12 = zext i32 %10 to i64
-  %13 = load i64, ptr getelementptr inbounds (i8, ptr @f_stat, i64 48), align 8
+  %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @f_stat, i64 48), align 8
   %. = tail call i64 @llvm.smin.i64(i64 %13, i64 %12)
   br label %17
 
 14:                                               ; preds = %1
-  %15 = load i64, ptr getelementptr inbounds (i8, ptr @f_stat, i64 48), align 8
+  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @f_stat, i64 48), align 8
   %16 = tail call i64 @llvm.smin.i64(i64 %15, i64 524288)
   br label %17
 
@@ -569,20 +569,20 @@ define internal fastcc i32 @_bcast_file(ptr nocapture noundef %0) unnamed_addr #
   br label %38
 
 38:                                               ; preds = %.sink.split, %34
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @f_stat, i64 24), align 8
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @f_stat, i64 24), align 8
   %40 = trunc i32 %39 to i16
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i16 %40, ptr %41, align 8
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @f_stat, i64 28), align 4
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @f_stat, i64 28), align 4
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 %42, ptr %43, align 4
   %44 = tail call ptr @uid_to_string(i32 noundef %42) #13
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %44, ptr %45, align 8
-  %46 = load i32, ptr getelementptr inbounds (i8, ptr @f_stat, i64 32), align 8
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @f_stat, i64 32), align 8
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %46, ptr %47, align 8
-  %48 = load i64, ptr getelementptr inbounds (i8, ptr @f_stat, i64 48), align 8
+  %48 = load i64, ptr getelementptr inbounds nuw (i8, ptr @f_stat, i64 48), align 8
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i64 %48, ptr %49, align 8
   %50 = load ptr, ptr @sbcast_cred, align 8
@@ -596,10 +596,10 @@ define internal fastcc i32 @_bcast_file(ptr nocapture noundef %0) unnamed_addr #
   br i1 %.not54, label %61, label %56
 
 56:                                               ; preds = %38
-  %57 = load i64, ptr getelementptr inbounds (i8, ptr @f_stat, i64 72), align 8
+  %57 = load i64, ptr getelementptr inbounds nuw (i8, ptr @f_stat, i64 72), align 8
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 %57, ptr %58, align 8
-  %59 = load i64, ptr getelementptr inbounds (i8, ptr @f_stat, i64 88), align 8
+  %59 = load i64, ptr getelementptr inbounds nuw (i8, ptr @f_stat, i64 88), align 8
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i64 %59, ptr %60, align 8
   br label %61
@@ -668,7 +668,7 @@ define internal fastcc i32 @_bcast_file(ptr nocapture noundef %0) unnamed_addr #
   %86 = sext i32 %85 to i64
   %87 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %86, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.17, i32 noundef 224, ptr noundef nonnull @__func__._get_block_none) #13
   store ptr %87, ptr %5, align 8
-  %88 = load i64, ptr getelementptr inbounds (i8, ptr @f_stat, i64 48), align 8
+  %88 = load i64, ptr getelementptr inbounds nuw (i8, ptr @f_stat, i64 48), align 8
   br label %_get_block_none.exit.i
 
 _get_block_none.exit.i:                           ; preds = %82, %84
@@ -700,7 +700,7 @@ _get_block_none.exit.i:                           ; preds = %82, %84
   br label %101
 
 101:                                              ; preds = %100, %99
-  %102 = load i64, ptr getelementptr inbounds (i8, ptr @f_stat, i64 48), align 8
+  %102 = load i64, ptr getelementptr inbounds nuw (i8, ptr @f_stat, i64 48), align 8
   %.not.i.i = icmp eq i64 %102, 0
   br i1 %.not.i.i, label %_get_block_lz4.exit.i, label %103
 
@@ -778,7 +778,7 @@ _get_block_lz4.exit.i:                            ; preds = %121, %101
   %136 = sext i32 %135 to i64
   %137 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %136, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.17, i32 noundef 224, ptr noundef nonnull @__func__._get_block_none) #13
   store ptr %137, ptr %5, align 8
-  %138 = load i64, ptr getelementptr inbounds (i8, ptr @f_stat, i64 48), align 8
+  %138 = load i64, ptr getelementptr inbounds nuw (i8, ptr @f_stat, i64 48), align 8
   br label %_get_block_none.exit25.i
 
 _get_block_none.exit25.i:                         ; preds = %132, %134

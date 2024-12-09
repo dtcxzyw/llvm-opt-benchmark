@@ -18900,7 +18900,7 @@ _ZN4core4iter6traits8iterator8Iterator10max_by_key17h7c362aeed6070f49E.exit.i: ;
   %.sroa.520.0..sroa_idx21.i.i = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr @anon.a3ffbaf0ab84e8c212b5f59d0dce7d17.196, ptr %.sroa.520.0..sroa_idx21.i.i, align 8, !noalias !4611
   %.sroa.6.0..sroa_idx23.i.i = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store ptr getelementptr inbounds (i8, ptr @anon.a3ffbaf0ab84e8c212b5f59d0dce7d17.196, i64 96), ptr %.sroa.6.0..sroa_idx23.i.i, align 8, !noalias !4611
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.a3ffbaf0ab84e8c212b5f59d0dce7d17.196, i64 96), ptr %.sroa.6.0..sroa_idx23.i.i, align 8, !noalias !4611
   %.sroa.625.0..sroa_idx26.i.i = getelementptr inbounds nuw i8, ptr %27, i64 32
   store i64 1, ptr %.sroa.625.0..sroa_idx26.i.i, align 8, !noalias !4611
   %.sroa.8.0..sroa_idx28.i.i = getelementptr inbounds nuw i8, ptr %27, i64 40

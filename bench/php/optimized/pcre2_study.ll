@@ -647,7 +647,7 @@ thread-pre-split:                                 ; preds = %5
   br label %170
 
 34:                                               ; preds = %32
-  %35 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 27), align 1
+  %35 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_pcre2_OP_lengths_8, i64 27), align 1
   %36 = zext i8 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %.1274500, i64 %36
   br label %.lr.ph501.backedge
@@ -802,7 +802,7 @@ thread-pre-split:                                 ; preds = %5
   br label %.backedge
 
 122:                                              ; preds = %94
-  %123 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 118), align 1
+  %123 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_pcre2_OP_lengths_8, i64 118), align 1
   %124 = zext i8 %123 to i64
   %125 = getelementptr inbounds nuw i8, ptr %.1270497, i64 %124
   br label %.backedge
@@ -884,7 +884,7 @@ thread-pre-split:                                 ; preds = %5
   br label %.lr.ph501.backedge
 
 156:                                              ; preds = %32
-  %157 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 118), align 1
+  %157 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_pcre2_OP_lengths_8, i64 118), align 1
   %158 = zext i8 %157 to i64
   %159 = getelementptr inbounds nuw i8, ptr %.1274500, i64 %158
   br label %.lr.ph501.backedge
@@ -2459,7 +2459,7 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
   br label %269
 
 266:                                              ; preds = %255
-  %267 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 110), align 1
+  %267 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_pcre2_OP_lengths_8, i64 110), align 1
   %268 = zext i8 %267 to i64
   br label %269
 

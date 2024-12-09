@@ -1843,7 +1843,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm12DebugCounter15registerCounterE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -1855,7 +1855,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEED2Ev(ptr n
   br label %_ZNSt8functionIFvRKjEED2Ev.exit
 
 _ZNSt8functionIFvRKjEED2Ev.exit:                  ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -1888,7 +1888,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIjLb1ENS0_6parserIjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb1ENS0_6parserIjEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb1ENS0_6parserIjEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -1900,7 +1900,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIjLb1ENS0_6parserIjEEED2Ev(ptr n
   br label %_ZNSt8functionIFvRKjEED2Ev.exit
 
 _ZNSt8functionIFvRKjEED2Ev.exit:                  ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -1930,7 +1930,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -1942,7 +1942,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr n
   br label %_ZNSt8functionIFvRKbEED2Ev.exit
 
 _ZNSt8functionIFvRKbEED2Ev.exit:                  ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -1972,7 +1972,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -1986,11 +1986,11 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optINSt7__cxx1112basic_stringIcSt11
 _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit: ; preds = %1, %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #26
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %7) #26
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 8
@@ -4964,7 +4964,7 @@ define dso_local void @_ZN4llvm10AttributorC2ERNS_9SetVectorIPNS_8FunctionENS_11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %2, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 20, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -5111,7 +5111,7 @@ _ZN4llvm16AttributorConfigC2ERKS0_.exit:          ; preds = %_ZNSt8functionIFvRN
   br i1 %.not.i, label %_ZNK4llvm10Attributor19isClosedWorldModuleEv.exit, label %85
 
 85:                                               ; preds = %_ZN4llvm16AttributorConfigC2ERKS0_.exit
-  %86 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL20CloseWorldAssumption, i64 128), align 8
+  %86 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL20CloseWorldAssumption, i64 128), align 8
   %87 = trunc i8 %86 to i1
   br i1 %87, label %94, label %.loopexit
 
@@ -5181,7 +5181,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm10Attributor19isClosedWorldModuleE
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL20CloseWorldAssumption, i64 128), align 8
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL20CloseWorldAssumption, i64 128), align 8
   %5 = trunc i8 %4 to i1
   br label %14
 
@@ -8067,7 +8067,7 @@ define linkonce_odr hidden void @_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_10IRPos
 
 8:                                                ; preds = %3
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %2, align 8
   %9 = trunc i64 %.0.copyload.i.i.i.i.i.i.i to i32
   %10 = lshr i32 %9, 5
@@ -8859,7 +8859,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -9072,9 +9072,9 @@ define dso_local void @_ZN4llvm10AttributorD2Ev(ptr noundef nonnull align 8 dere
 
 11:                                               ; preds = %1
   %.sroa.0.0.copyload.i.i.i4.i10.i2.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !35
-  %.sroa.2.0.copyload.i.i.i5.i11.i3.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !35
+  %.sroa.2.0.copyload.i.i.i5.i11.i3.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !35
   %.sroa.0.0.copyload.i.i3.i6.i12.i4.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !38
-  %.sroa.2.0.copyload.i.i4.i7.i13.i5.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !38
+  %.sroa.2.0.copyload.i.i4.i7.i13.i5.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !38
   %.not12.i9.i14.i6.i = icmp eq i32 %8, 0
   br i1 %.not12.i9.i14.i6.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKcNS_10IRPositionEEPNS_17AbstractAttributeENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E5beginEv.exit, label %.lr.ph.i10.i15.i7.i
 
@@ -9126,9 +9126,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKcNS_10IRPositionEEPNS_17AbstractAt
   tail call void %29(ptr noundef nonnull align 8 dereferenceable(80) %27) #26
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.030.034, i64 32
   %.sroa.0.0.copyload.i.i.i2.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !42
-  %.sroa.2.0.copyload.i.i.i3.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !42
+  %.sroa.2.0.copyload.i.i.i3.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !42
   %.sroa.0.0.copyload.i.i3.i4.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !45
-  %.sroa.2.0.copyload.i.i4.i5.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !45
+  %.sroa.2.0.copyload.i.i4.i5.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !45
   %.not12.i7.i = icmp eq ptr %30, %10
   br i1 %.not12.i7.i, label %_ZN4llvm16DenseMapIteratorISt4pairIPKcNS_10IRPositionEEPNS_17AbstractAttributeENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb0EEppEv.exit, label %.lr.ph.i8.i
 
@@ -9366,7 +9366,7 @@ _ZN4llvm14SmallSetVectorIPNS_8FunctionELj8EED2Ev.exit6: ; preds = %_ZN4llvm11Sma
   %155 = shl nuw nsw i64 %154, 3
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %151, i64 noundef %155, i64 noundef 8) #26
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %156, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %156, align 8
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %158 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %157) #26
   %159 = load ptr, ptr %157, align 8
@@ -9602,9 +9602,9 @@ define linkonce_odr hidden void @_ZN4llvm8DenseMapINS_10IRPositionENS_11SmallVec
 
 .lr.ph.preheader.i:                               ; preds = %1
   %.sroa.0.0.copyload.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8
-  %.sroa.2.0.copyload.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8
+  %.sroa.2.0.copyload.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8
   %.sroa.0.0.copyload.i.i8.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8
-  %.sroa.2.0.copyload.i.i9.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8
+  %.sroa.2.0.copyload.i.i9.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8
   %5 = zext i32 %3 to i64
   %6 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1160", ptr %.pre1, i64 %5
   br label %.lr.ph.i
@@ -10590,7 +10590,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   %11 = alloca %class.anon.1198, align 8
   store i64 %1, ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %13 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %13 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %14 = trunc i8 %13 to i1
   %spec.store.select = select i1 %14, ptr %2, ptr null
   store ptr %spec.store.select, ptr %12, align 8
@@ -12200,7 +12200,7 @@ declare noundef zeroext i1 @_ZNK4llvm12ConstantExpr6isCastEv(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm10Attributor30shouldPropagateCallBaseContextERKNS_10IRPositionE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(4296) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %1) local_unnamed_addr #9 align 2 {
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %4 = trunc i8 %3 to i1
   ret i1 %4
 }
@@ -16206,7 +16206,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i6.i: ; preds = %_ZNK
   %1682 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %1683 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1682, ptr noundef nonnull align 8 dereferenceable(24) %1683, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm30DiagnosticInfoOptimizationBaseE, i64 16), ptr %5, align 8, !alias.scope !120
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm30DiagnosticInfoOptimizationBaseE, i64 16), ptr %5, align 8, !alias.scope !120
   %1684 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %1685 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1684, ptr noundef nonnull align 8 dereferenceable(40) %1685, i64 40, i1 false)
@@ -16230,11 +16230,11 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i6.i: ; preds = %_ZNK
   %1696 = getelementptr inbounds nuw i8, ptr %4, i64 424
   %1697 = load ptr, ptr %1696, align 8, !noalias !120
   store ptr %1697, ptr %1695, align 8, !alias.scope !120
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm24OptimizationRemarkMissedE, i64 16), ptr %5, align 8, !alias.scope !120
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm24OptimizationRemarkMissedE, i64 16), ptr %5, align 8, !alias.scope !120
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1677) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #26
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm30DiagnosticInfoOptimizationBaseE, i64 16), ptr %4, align 8, !noalias !117
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm30DiagnosticInfoOptimizationBaseE, i64 16), ptr %4, align 8, !noalias !117
   %1698 = load ptr, ptr %1687, align 8, !noalias !117
   %1699 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(336) %1687) #26
   %.not4.i.i.i.i.i.i.i9.i = icmp eq i64 %1699, 0
@@ -16266,7 +16266,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
 "_ZZNK4llvm10Attributor10emitRemarkINS_24OptimizationRemarkMissedERZNS0_15runTillFixpointEvE3$_0EEvPNS_8FunctionENS_9StringRefEOT0_ENKUlvE0_clEv.exit.i.i": ; preds = %1706, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i14.i
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %4)
   call void @_ZN4llvm25OptimizationRemarkEmitter4emitERNS_30DiagnosticInfoOptimizationBaseE(ptr noundef nonnull align 8 dereferenceable(24) %1663, ptr noundef nonnull align 8 dereferenceable(424) %5) #26
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm30DiagnosticInfoOptimizationBaseE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm30DiagnosticInfoOptimizationBaseE, i64 16), ptr %5, align 8
   %1707 = load ptr, ptr %1686, align 8
   %1708 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(336) %1686) #26
   %.not4.i.i.i.i.i.i15.i = icmp eq i64 %1708, 0
@@ -21993,8 +21993,8 @@ _ZN4llvm14TimeTraceScopeC2ENS_9StringRefE.exit:   ; preds = %1, %8
   %.sroa.06.0 = phi ptr [ null, %1 ], [ %9, %8 ]
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm19AttributorCallGraphE, i64 16), ptr %6, align 8
-  %11 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL14PrintCallGraph, i64 128), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm19AttributorCallGraphE, i64 16), ptr %6, align 8
+  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL14PrintCallGraph, i64 128), align 8
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %24
 
@@ -22028,7 +22028,7 @@ _ZNK4llvm19AttributorCallGraph11populateAllEv.exit: ; preds = %.lr.ph.i, %13
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 3448
   store i32 1, ptr %25, align 8
   call void @_ZN4llvm10Attributor15runTillFixpointEv(ptr noundef nonnull align 8 dereferenceable(4296) %0)
-  %26 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL12DumpDepGraph, i64 128), align 8
+  %26 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL12DumpDepGraph, i64 128), align 8
   %27 = trunc i8 %26 to i1
   br i1 %27, label %28, label %30
 
@@ -22038,7 +22038,7 @@ _ZNK4llvm19AttributorCallGraph11populateAllEv.exit: ; preds = %.lr.ph.i, %13
   br label %30
 
 30:                                               ; preds = %28, %24
-  %31 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL12ViewDepGraph, i64 128), align 8
+  %31 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL12ViewDepGraph, i64 128), align 8
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %38
 
@@ -22062,7 +22062,7 @@ _ZNK4llvm19AttributorCallGraph11populateAllEv.exit: ; preds = %.lr.ph.i, %13
   br label %38
 
 38:                                               ; preds = %33, %30
-  %39 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL17PrintDependencies, i64 128), align 8
+  %39 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL17PrintDependencies, i64 128), align 8
   %40 = trunc i8 %39 to i1
   br i1 %40, label %41, label %_ZN4llvm10AADepGraph5printEv.exit
 
@@ -22093,7 +22093,7 @@ _ZN4llvm10AADepGraph5printEv.exit:                ; preds = %.lr.ph.i3, %41, %38
   %54 = call noundef i32 @_ZN4llvm10Attributor18manifestAttributesEv(ptr noundef nonnull align 8 dereferenceable(4296) %0)
   store i32 3, ptr %25, align 8
   %55 = call noundef i32 @_ZN4llvm10Attributor9cleanupIREv(ptr noundef nonnull align 8 dereferenceable(4296) %0)
-  %56 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL14PrintCallGraph, i64 128), align 8
+  %56 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL14PrintCallGraph, i64 128), align 8
   %57 = trunc i8 %56 to i1
   br i1 %57, label %58, label %59
 
@@ -22128,11 +22128,11 @@ define dso_local void @_ZN4llvm10AADepGraph9dumpGraphEv(ptr noundef nonnull alig
   %9 = alloca ptr, align 8
   %10 = alloca %"class.llvm::Twine", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
-  %11 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL25DepGraphDotFileNamePrefixB5cxx11, i64 128)) #26
+  %11 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL25DepGraphDotFileNamePrefixB5cxx11, i64 128)) #26
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %1
-  %13 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL25DepGraphDotFileNamePrefixB5cxx11, i64 128)) #26
+  %13 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL25DepGraphDotFileNamePrefixB5cxx11, i64 128)) #26
   br label %16
 
 14:                                               ; preds = %1
@@ -22635,7 +22635,7 @@ define dso_local noundef ptr @_ZN4llvm10Attributor19internalizeFunctionERNS_8Fun
   %3 = alloca %"class.llvm::SmallPtrSet.612", align 8
   %4 = alloca %"class.llvm::DenseMap.614", align 8
   %5 = alloca ptr, align 8
-  %6 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL16AllowDeepWrapper, i64 128), align 8
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16AllowDeepWrapper, i64 128), align 8
   %7 = trunc i8 %6 to i1
   %brmerge = or i1 %1, %7
   br i1 %brmerge, label %8, label %_ZN4llvm11SmallPtrSetIPNS_8FunctionELj2EED2Ev.exit
@@ -22997,7 +22997,7 @@ _ZN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfig
   store ptr null, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 24
   store ptr inttoptr (i64 -4096 to ptr), ptr %103, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEE, i64 16), ptr %.06.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEE, i64 16), ptr %.06.i.i.i.i, align 8
   %104 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 32
   store ptr null, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 64
@@ -23082,7 +23082,7 @@ _ZN4llvm8Function4argsEv.exit:                    ; preds = %_ZN4llvm8Function9a
   br label %_ZNK4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEE4WrapES3_.exit.i
 
 _ZNK4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEE4WrapES3_.exit.i: ; preds = %131, %.lr.ph200, %.lr.ph200, %.lr.ph200
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEE, i64 16), ptr %3, align 8, !alias.scope !199
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEE, i64 16), ptr %3, align 8, !alias.scope !199
   store ptr %6, ptr %75, align 8, !alias.scope !199
   %132 = load ptr, ptr %6, align 8
   %133 = load i32, ptr %65, align 8
@@ -23185,7 +23185,7 @@ _ZN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfig
   store ptr null, ptr %191, align 8
   %192 = getelementptr inbounds nuw i8, ptr %.06.i.i136, i64 24
   store ptr inttoptr (i64 -4096 to ptr), ptr %192, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEE, i64 16), ptr %.06.i.i136, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEE, i64 16), ptr %.06.i.i136, align 8
   %193 = getelementptr inbounds nuw i8, ptr %.06.i.i136, i64 32
   store ptr null, ptr %193, align 8
   %194 = getelementptr inbounds nuw i8, ptr %.06.i.i136, i64 64
@@ -23303,7 +23303,7 @@ _ZN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfig
   store ptr null, ptr %256, align 8
   %257 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 24
   store ptr inttoptr (i64 -4096 to ptr), ptr %257, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEE, i64 16), ptr %.06.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEE, i64 16), ptr %.06.i.i, align 8
   %258 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 32
   store ptr null, ptr %258, align 8
   %259 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 64
@@ -26052,7 +26052,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_4UserEEEDcPT0_.exit.thread: ; preds = %71, %.l
   %.sroa.0.0.copyload.i77 = load i64, ptr %12, align 8
   %.sroa.2.0.copyload.i79 = load ptr, ptr %79, align 8
   %84 = call noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForINS_19AAUndefinedBehaviorEEEPKT_NS_10IRPositionEPKNS_17AbstractAttributeENS_10DepClassTyEbb(ptr noundef nonnull align 8 dereferenceable(4296) %0, i64 %.sroa.0.0.copyload.i77, ptr %.sroa.2.0.copyload.i79, ptr noundef null, i32 noundef 2, i1 noundef zeroext false, i1 noundef zeroext true)
-  %85 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL17EnableHeapToStack, i64 128), align 8
+  %85 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL17EnableHeapToStack, i64 128), align 8
   %86 = trunc i8 %85 to i1
   br i1 %86, label %87, label %89
 
@@ -26405,7 +26405,7 @@ _ZN4llvm10IRPosition4instERKNS_11InstructionEPKNS_8CallBaseE.exit.i.i: ; preds =
 
 _ZN4llvm19dyn_cast_if_presentINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i: ; preds = %233
   %238 = call noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForINS_16AAAssumptionInfoEEEPKT_NS_10IRPositionEPKNS_17AbstractAttributeENS_10DepClassTyEbb(ptr noundef nonnull align 8 dereferenceable(4296) %0, i64 %.pre-phi.i.i, ptr null, ptr noundef null, i32 noundef 2, i1 noundef zeroext false, i1 noundef zeroext true)
-  %239 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL28AnnotateDeclarationCallSites, i64 128), align 8
+  %239 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL28AnnotateDeclarationCallSites, i64 128), align 8
   %240 = trunc i8 %239 to i1
   br i1 %240, label %248, label %241
 
@@ -26704,7 +26704,7 @@ _ZN4llvm3isaINS_8CallBaseENS_5ValueEEEbRKT0_.exit.i.i.i.i268: ; preds = %376
 _ZN4llvm10IRPosition5valueERKNS_5ValueEPKNS_8CallBaseE.exit.i.i: ; preds = %380, %_ZN4llvm3isaINS_8CallBaseENS_5ValueEEEbRKT0_.exit.i.i.i.i268, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i.i.i, %369
   %.sroa.0.0.i.i.i = phi i64 [ %375, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i.i.i ], [ %370, %369 ], [ %379, %_ZN4llvm3isaINS_8CallBaseENS_5ValueEEEbRKT0_.exit.i.i.i.i268 ], [ %381, %380 ]
   %382 = call noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForINS_7AAAlignEEEPKT_NS_10IRPositionEPKNS_17AbstractAttributeENS_10DepClassTyEbb(ptr noundef nonnull align 8 dereferenceable(4296) %0, i64 %.sroa.0.0.i.i.i, ptr null, ptr noundef null, i32 noundef 2, i1 noundef zeroext false, i1 noundef zeroext true)
-  %383 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL16SimplifyAllLoads, i64 128), align 8
+  %383 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16SimplifyAllLoads, i64 128), align 8
   %384 = trunc i8 %383 to i1
   br i1 %384, label %385, label %401
 
@@ -30333,7 +30333,7 @@ _ZNSt8functionIFbRN4llvm10AttributorERKNS0_17AbstractAttributeERNS0_8CallBaseERN
   br label %_ZN4llvm16AttributorConfigD2Ev.exit
 
 _ZN4llvm16AttributorConfigD2Ev.exit:              ; preds = %_ZNSt8functionIFbRN4llvm10AttributorERKNS0_17AbstractAttributeERNS0_8CallBaseERNS0_8FunctionEjEED2Ev.exit.i, %50
-  %52 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL20AllowShallowWrappers, i64 128), align 8
+  %52 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL20AllowShallowWrappers, i64 128), align 8
   %53 = trunc i8 %52 to i1
   br i1 %53, label %54, label %.loopexit15
 
@@ -30360,7 +30360,7 @@ _ZN4llvm16AttributorConfigD2Ev.exit:              ; preds = %_ZNSt8functionIFbRN
   br i1 %.not53, label %.loopexit15, label %.lr.ph
 
 .loopexit15:                                      ; preds = %61, %54, %_ZN4llvm16AttributorConfigD2Ev.exit
-  %63 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL16AllowDeepWrapper, i64 128), align 8
+  %63 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16AllowDeepWrapper, i64 128), align 8
   %64 = trunc i8 %63 to i1
   br i1 %64, label %65, label %.loopexit
 
@@ -32019,7 +32019,7 @@ _ZN4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm17AbstractAttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   %4 = load ptr, ptr %2, align 8
@@ -33226,7 +33226,7 @@ declare void @_ZN4llvm2cl6Option6anchorEv(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIjLb1ENS0_6parserIjEEED0Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb1ENS0_6parserIjEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb1ENS0_6parserIjEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -33238,7 +33238,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIjLb1ENS0_6parserIjEEED0Ev(ptr n
   br label %_ZNSt8functionIFvRKjEED2Ev.exit.i
 
 _ZNSt8functionIFvRKjEED2Ev.exit.i:                ; preds = %4, %1
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -33310,7 +33310,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl3optIjLb1ENS0_6parserIjEEE16printOp
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %17, ptr noundef nonnull align 8 dereferenceable(5) %18, i64 5, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr %4, align 8
   call void @_ZNK4llvm2cl6parserIjE15printOptionDiffERKNS0_6OptionEjNS0_11OptionValueIjEEm(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %15, ptr noundef nonnull %4, i64 noundef %1) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %19
@@ -33847,7 +33847,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -33970,7 +33970,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_16A
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !319
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !319
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !319
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm16AAMemoryLocation2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm16AAMemoryLocation2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -34305,9 +34305,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !325
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !325
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !325
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !330
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !330
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !330
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm16AAMemoryLocation2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm16AAMemoryLocation2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -34937,9 +34937,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm12DenseMapBaseINS_8Dense
 
 8:                                                ; preds = %3
   %.sroa.0.0.copyload.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !336
-  %.sroa.2.0.copyload.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !336
+  %.sroa.2.0.copyload.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !336
   %.sroa.0.0.copyload.i.i.i29 = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !341
-  %.sroa.2.0.copyload.i.i.i30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !341
+  %.sroa.2.0.copyload.i.i.i30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !341
   %9 = load ptr, ptr %1, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = trunc i64 %10 to i32
@@ -35091,7 +35091,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4p
   br i1 %30, label %_ZN4llvm12DenseMapInfoISt4pairIPKcNS_10IRPositionEEvE7isEqualERKS5_S8_.exit, label %_ZN4llvm12DenseMapInfoISt4pairIPKcNS_10IRPositionEEvE7isEqualERKS5_S8_.exit.thread
 
 _ZN4llvm12DenseMapInfoISt4pairIPKcNS_10IRPositionEEvE7isEqualERKS5_S8_.exit: ; preds = %26
-  %.sroa.2.0.copyload.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !346
+  %.sroa.2.0.copyload.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !346
   %.sroa.0.0.copyload.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !346
   %31 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %31, align 8
@@ -35148,7 +35148,7 @@ _ZN4llvm8DenseMapISt4pairIPKcNS_10IRPositionEEPNS_17AbstractAttributeENS_12Dense
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %24, align 4
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !351
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !351
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !351
   %25 = load i32, ptr %2, align 8
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.474", ptr %21, i64 %26
@@ -35186,7 +35186,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKc
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %6, align 4
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !357
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !357
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !357
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
@@ -35208,14 +35208,14 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKc
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKcNS_10IRPositionEEPNS_17AbstractAttributeENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E9initEmptyEv.exit.loopexit: ; preds = %.lr.ph.i
   %.sroa.0.0.copyload.i.i.i.pre = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !362
-  %.sroa.2.0.copyload.i.i.i.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !362
+  %.sroa.2.0.copyload.i.i.i.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !362
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKcNS_10IRPositionEEPNS_17AbstractAttributeENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E9initEmptyEv.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKcNS_10IRPositionEEPNS_17AbstractAttributeENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E9initEmptyEv.exit: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKcNS_10IRPositionEEPNS_17AbstractAttributeENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E9initEmptyEv.exit.loopexit, %3
   %.sroa.2.0.copyload.i.i.i = phi ptr [ %.sroa.2.0.copyload.i.i.i.pre, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKcNS_10IRPositionEEPNS_17AbstractAttributeENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E9initEmptyEv.exit.loopexit ], [ %.sroa.2.0.copyload.i.i.i.i, %3 ]
   %.sroa.0.0.copyload.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.pre, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKcNS_10IRPositionEEPNS_17AbstractAttributeENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E9initEmptyEv.exit.loopexit ], [ %.sroa.0.0.copyload.i.i.i.i, %3 ]
   %.sroa.0.0.copyload.i.i.i13 = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !367
-  %.sroa.2.0.copyload.i.i.i14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !367
+  %.sroa.2.0.copyload.i.i.i14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !367
   %.not23 = icmp eq ptr %1, %2
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
@@ -35359,7 +35359,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -35482,7 +35482,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_16A
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !376
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !376
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !376
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm16AAMemoryBehavior2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm16AAMemoryBehavior2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -35817,9 +35817,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(90) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !381
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !381
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !381
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !386
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !386
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !386
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm16AAMemoryBehavior2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm16AAMemoryBehavior2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -36315,7 +36315,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -36438,7 +36438,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_21A
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !394
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !394
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !394
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm21AAIntraFnReachability2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm21AAIntraFnReachability2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -36710,9 +36710,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(90) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !399
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !399
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !399
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !404
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !404
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !404
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm21AAIntraFnReachability2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm21AAIntraFnReachability2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -37204,7 +37204,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -37327,7 +37327,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_21A
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !412
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !412
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !412
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm21AAInterFnReachability2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm21AAInterFnReachability2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -37599,9 +37599,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(90) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !417
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !417
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !417
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !422
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !422
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !422
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm21AAInterFnReachability2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm21AAInterFnReachability2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -38915,7 +38915,7 @@ declare void @_ZNK4llvm8Function18BuildLazyArgumentsEv(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm14AADepGraphNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   %4 = load ptr, ptr %2, align 8
@@ -38940,7 +38940,7 @@ _ZN4llvm14SmallSetVectorINS_14PointerIntPairIPNS_14AADepGraphNodeELj1EjNS_21Poin
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm14AADepGraphNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   %4 = load ptr, ptr %2, align 8
@@ -39813,7 +39813,7 @@ define linkonce_odr hidden void @_ZN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14W
   br label %_ZNSt11unique_lockIN4llvm3sys10SmartMutexILb0EEEED2Ev.exit7
 
 _ZNSt11unique_lockIN4llvm3sys10SmartMutexILb0EEEED2Ev.exit7: ; preds = %1, %1, %1, %10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEE, i64 16), ptr %2, align 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
@@ -39866,7 +39866,7 @@ define linkonce_odr hidden void @_ZN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14W
   br label %17
 
 17:                                               ; preds = %14, %2, %2, %2
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEE, i64 16), ptr %3, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -40193,7 +40193,7 @@ _ZNK4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sy
   %magicptr.i.i.i.i.i.i.pre-phi = phi i64 [ %magicptr.i.i.i.i, %3 ], [ %magicptr.i.i.i.i, %3 ], [ %magicptr.i.i.i.i, %3 ], [ %.pre19, %10 ]
   %11 = phi ptr [ %6, %3 ], [ %6, %3 ], [ %6, %3 ], [ %.pre, %10 ]
   %.0.copyload.i.i.i.i.i.i.i.i = phi i64 [ 2, %3 ], [ 2, %3 ], [ 2, %3 ], [ %.0.copyload.i.i.i.i.i.i.i.i.pre, %10 ]
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEE, i64 16), ptr %5, align 8, !alias.scope !452
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEE, i64 16), ptr %5, align 8, !alias.scope !452
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %1, ptr %12, align 8, !alias.scope !452
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -40220,7 +40220,7 @@ _ZNK4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sy
 
 _ZN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEC2EOSA_.exit.i.i: ; preds = %18, %_ZNK4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEE4WrapES3_.exit, %_ZNK4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEE4WrapES3_.exit, %_ZNK4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEE4WrapES3_.exit
   %21 = phi ptr [ %.pre18, %18 ], [ %1, %_ZNK4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEE4WrapES3_.exit ], [ %1, %_ZNK4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEE4WrapES3_.exit ], [ %1, %_ZNK4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEE4WrapES3_.exit ]
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEE, i64 16), ptr %4, align 8, !alias.scope !455
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEE, i64 16), ptr %4, align 8, !alias.scope !455
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %21, ptr %22, align 8, !alias.scope !455
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -40629,7 +40629,7 @@ _ZN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfig
   store ptr null, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.06.i, i64 24
   store ptr inttoptr (i64 -4096 to ptr), ptr %30, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEE, i64 16), ptr %.06.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEE, i64 16), ptr %.06.i, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.06.i, i64 32
   store ptr null, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.06.i, i64 64
@@ -40671,7 +40671,7 @@ _ZN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfig
   store ptr null, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %.06.i, i64 24
   store ptr inttoptr (i64 -4096 to ptr), ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEE, i64 16), ptr %.06.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEE, i64 16), ptr %.06.i, align 8
   %15 = getelementptr inbounds nuw i8, ptr %.06.i, i64 32
   store ptr null, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %.06.i, i64 64
@@ -40685,7 +40685,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_18ValueMapCallbackVHIPKNS_5ValueENS_14Wea
   store ptr null, ptr %18, align 8, !alias.scope !466
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr inttoptr (i64 -4096 to ptr), ptr %19, align 8, !alias.scope !466
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEE, i64 16), ptr %4, align 8, !alias.scope !466
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEE, i64 16), ptr %4, align 8, !alias.scope !466
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %20, align 8, !alias.scope !466
   %.not24 = icmp eq ptr %1, %2
@@ -41664,7 +41664,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRN4llvm10Attribu
   %7 = alloca ptr, align 8
   %.val = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL22MaxSpecializationPerCB, i64 128), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL22MaxSpecializationPerCB, i64 128), align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %"_ZSt10__invoke_rIbRZL24runAttributorOnFunctionsRN4llvm16InformationCacheERNS0_9SetVectorIPNS0_8FunctionENS0_11SmallVectorIS5_Lj0EEENS0_8DenseSetIS5_NS0_12DenseMapInfoIS5_vEEEELj0EEERNS0_14AnalysisGetterERNS0_16CallGraphUpdaterEbbE3$_0JRNS0_10AttributorERKNS0_17AbstractAttributeERNS0_8CallBaseERS4_jEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EEST_E4typeEOSU_DpOSV_.exit", label %10
 
@@ -41774,7 +41774,7 @@ _ZNSt10unique_ptrIN4llvm11SmallPtrSetIPNS0_8FunctionELj8EEESt14default_deleteIS4
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %63 = load i32, ptr %62, align 8
   %64 = sub i32 %61, %63
-  %65 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL22MaxSpecializationPerCB, i64 128), align 8
+  %65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL22MaxSpecializationPerCB, i64 128), align 8
   %.not.i.i.i = icmp ult i32 %64, %65
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %67 = load ptr, ptr %66, align 8
@@ -44160,7 +44160,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -44560,7 +44560,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -44683,7 +44683,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_8AA
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !510
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !510
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !510
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm8AANoSync2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm8AANoSync2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -45018,9 +45018,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(90) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !515
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !515
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !515
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !520
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !520
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !520
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm8AANoSync2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm8AANoSync2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -45512,7 +45512,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -45635,7 +45635,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_14A
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !528
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !528
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !528
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm14AAInstanceInfo2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm14AAInstanceInfo2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -45907,9 +45907,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(90) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !533
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !533
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !533
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !538
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !538
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !538
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm14AAInstanceInfo2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm14AAInstanceInfo2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -47188,7 +47188,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -47311,7 +47311,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_13A
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !568
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !568
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !568
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm13AAPointerInfo2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm13AAPointerInfo2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -47606,9 +47606,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !573
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !573
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !573
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !578
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !578
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !578
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm13AAPointerInfo2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm13AAPointerInfo2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -50606,7 +50606,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -50729,7 +50729,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_11A
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !614
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !614
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !614
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm11AANoCapture2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm11AANoCapture2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -51024,9 +51024,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(92) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !619
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !619
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !619
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !624
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !624
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !624
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm11AANoCapture2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm11AANoCapture2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -51518,7 +51518,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -51641,7 +51641,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_19A
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !632
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !632
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !632
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm19AAUnderlyingObjects2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm19AAUnderlyingObjects2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -51936,9 +51936,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !637
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !637
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !637
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !642
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !642
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !642
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm19AAUnderlyingObjects2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm19AAUnderlyingObjects2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -54141,7 +54141,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_17A
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !659
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !659
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !659
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm17AAPotentialValues2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm17AAPotentialValues2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -54413,9 +54413,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(337) ptr @_ZN
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !664
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !664
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !664
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !669
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !669
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !669
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm17AAPotentialValues2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm17AAPotentialValues2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -54946,7 +54946,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_8AA
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !677
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !677
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !677
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm8AAIsDead2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm8AAIsDead2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -55256,9 +55256,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(90) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !682
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !682
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !682
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !687
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !687
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !687
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm8AAIsDead2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm8AAIsDead2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -55750,7 +55750,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -55873,7 +55873,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_11A
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !695
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !695
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !695
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm11AACallEdges2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm11AACallEdges2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -56145,9 +56145,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(112) ptr @_ZN
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !700
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !700
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !700
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !705
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !705
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !705
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm11AACallEdges2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm11AACallEdges2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -62053,7 +62053,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -62176,7 +62176,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_19A
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !748
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !748
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !748
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm19AAUndefinedBehavior2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm19AAUndefinedBehavior2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -62448,9 +62448,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(90) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !753
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !753
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !753
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !758
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !758
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !758
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm19AAUndefinedBehavior2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm19AAUndefinedBehavior2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -62942,7 +62942,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -63065,7 +63065,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_13A
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !766
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !766
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !766
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm13AAHeapToStack2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm13AAHeapToStack2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -63337,9 +63337,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(90) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !771
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !771
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !771
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !776
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !776
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !776
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm13AAHeapToStack2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm13AAHeapToStack2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -63831,7 +63831,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -63954,7 +63954,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_14A
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !784
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !784
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !784
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm14AAMustProgress2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm14AAMustProgress2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -64226,9 +64226,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(90) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !789
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !789
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !789
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !794
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !794
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !794
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm14AAMustProgress2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm14AAMustProgress2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -64720,7 +64720,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -64843,7 +64843,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_8AA
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !802
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !802
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !802
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm8AANoFree2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm8AANoFree2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -65178,9 +65178,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(90) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !807
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !807
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !807
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !812
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !812
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !812
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm8AANoFree2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm8AANoFree2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -65817,7 +65817,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -65940,7 +65940,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_12A
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !820
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !820
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !820
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm12AAWillReturn2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm12AAWillReturn2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -66212,9 +66212,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(90) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !825
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !825
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !825
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !830
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !830
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !830
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm12AAWillReturn2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm12AAWillReturn2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -66706,7 +66706,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -66829,7 +66829,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_10A
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !838
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !838
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !838
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm10AANoUnwind2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm10AANoUnwind2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -67101,9 +67101,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(90) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !843
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !843
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !843
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !848
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !848
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !848
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm10AANoUnwind2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm10AANoUnwind2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -67595,7 +67595,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -67718,7 +67718,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_10A
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !856
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !856
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !856
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm10AANoReturn2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm10AANoReturn2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -67990,9 +67990,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(90) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !861
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !861
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !861
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !866
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !866
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !866
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm10AANoReturn2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm10AANoReturn2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -68484,7 +68484,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -68607,7 +68607,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_11A
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !874
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !874
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !874
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm11AANoRecurse2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm11AANoRecurse2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -68879,9 +68879,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(90) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !879
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !879
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !879
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !884
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !884
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !884
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm11AANoRecurse2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm11AANoRecurse2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -69373,7 +69373,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -69496,7 +69496,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_15A
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !892
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !892
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !892
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm15AANonConvergent2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm15AANonConvergent2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -69768,9 +69768,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(90) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !897
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !897
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !897
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !902
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !902
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !902
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm15AANonConvergent2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm15AANonConvergent2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -70262,7 +70262,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -70385,7 +70385,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_16A
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !910
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !910
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !910
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm16AAAssumptionInfo2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm16AAAssumptionInfo2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -70657,9 +70657,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(153) ptr @_ZN
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !915
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !915
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !915
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !920
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !920
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !920
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm16AAAssumptionInfo2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm16AAAssumptionInfo2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -71151,7 +71151,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -71274,7 +71274,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_16A
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !928
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !928
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !928
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm16AADenormalFPMath2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm16AADenormalFPMath2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -71546,9 +71546,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(93) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !933
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !933
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !933
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !938
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !938
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !938
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm16AADenormalFPMath2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm16AADenormalFPMath2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -72042,7 +72042,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -72165,7 +72165,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_9AA
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !946
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !946
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !946
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm9AANoUndef2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm9AANoUndef2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -72437,9 +72437,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(90) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !951
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !951
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !951
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !956
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !956
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !956
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm9AANoUndef2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm9AANoUndef2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -72931,7 +72931,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -73054,7 +73054,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_7AA
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !964
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !964
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !964
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm7AAAlign2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm7AAAlign2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -73349,9 +73349,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(104) ptr @_ZN
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !969
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !969
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !969
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !974
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !974
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !974
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm7AAAlign2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm7AAAlign2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -73845,7 +73845,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -73968,7 +73968,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_9AA
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !982
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !982
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !982
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm9AANonNull2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm9AANonNull2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -74263,9 +74263,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(90) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !987
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !987
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !987
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !992
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !992
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !992
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm9AANonNull2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm9AANonNull2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -74759,7 +74759,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -74882,7 +74882,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_9AA
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !1000
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1000
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1000
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm9AANoAlias2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm9AANoAlias2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -75177,9 +75177,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(90) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !1005
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1005
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1005
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !1010
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !1010
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !1010
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm9AANoAlias2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm9AANoAlias2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -75703,7 +75703,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -75826,7 +75826,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_17A
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !1018
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1018
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1018
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm17AADereferenceable2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm17AADereferenceable2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -76121,9 +76121,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(168) ptr @_ZN
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !1023
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1023
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1023
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !1028
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !1028
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !1028
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm17AADereferenceable2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm17AADereferenceable2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -76615,7 +76615,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -76738,7 +76738,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_11A
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !1036
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1036
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1036
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm11AANoFPClass2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm11AANoFPClass2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -77057,9 +77057,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !1042
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1042
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1042
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !1047
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !1047
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !1047
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm11AANoFPClass2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm11AANoFPClass2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -77551,7 +77551,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -77674,7 +77674,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_17A
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !1055
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1055
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1055
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm17AAPrivatizablePtr2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm17AAPrivatizablePtr2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -77969,9 +77969,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(90) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !1060
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1060
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1060
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !1065
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !1065
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !1065
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm17AAPrivatizablePtr2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm17AAPrivatizablePtr2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -78495,7 +78495,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -78618,7 +78618,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_18A
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !1073
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1073
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1073
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm18AAIndirectCallInfo2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm18AAIndirectCallInfo2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -78894,9 +78894,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(90) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !1078
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1078
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1078
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !1083
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !1083
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !1083
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm18AAIndirectCallInfo2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm18AAIndirectCallInfo2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -79501,7 +79501,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -79624,7 +79624,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_14A
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !1091
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1091
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1091
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm14AAAddressSpace2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm14AAAddressSpace2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -79919,9 +79919,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(90) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !1096
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1096
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1096
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !1101
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !1101
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !1101
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm14AAAddressSpace2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm14AAAddressSpace2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -80445,7 +80445,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN
   store i64 %1, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   %13 = trunc i8 %12 to i1
   %spec.store.select = select i1 %13, ptr %2, ptr null
   store ptr %spec.store.select, ptr %11, align 8
@@ -80568,7 +80568,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10Attributor11lookupAAForINS_16A
 
 12:                                               ; preds = %5
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !1109
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1109
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1109
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm16AAAllocationInfo2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm16AAAllocationInfo2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -80863,9 +80863,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(90) ptr @_ZN4
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZN4llvm10IRPosition8EmptyKeyE, align 8, !noalias !1114
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1114
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition8EmptyKeyE, i64 8), align 8, !noalias !1114
   %.sroa.0.0.copyload.i.i.i29.i = load i64, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, align 8, !noalias !1119
-  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !1119
+  %.sroa.2.0.copyload.i.i.i30.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10IRPosition12TombstoneKeyE, i64 8), align 8, !noalias !1119
   %13 = lshr i32 ptrtoint (ptr @_ZN4llvm16AAAllocationInfo2IDE to i32), 4
   %14 = lshr i32 ptrtoint (ptr @_ZN4llvm16AAAllocationInfo2IDE to i32), 9
   %15 = xor i32 %13, %14
@@ -82320,7 +82320,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit68:               ; preds = %154, %156, %169, %1
   store i32 1, ptr %180, align 4, !noalias !1137
   %181 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %181, i8 0, i64 24, i1 false), !noalias !1137
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %6, align 8, !noalias !1137
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %6, align 8, !noalias !1137
   %182 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %9, ptr %182, align 8, !noalias !1137
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef null, i64 noundef 0, i32 noundef 0) #26
@@ -82365,7 +82365,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit68:               ; preds = %154, %156, %169, %1
   store i32 1, ptr %205, align 4, !noalias !1140
   %206 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %206, i8 0, i64 24, i1 false), !noalias !1140
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %5, align 8, !noalias !1140
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %5, align 8, !noalias !1140
   %207 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %11, ptr %207, align 8, !noalias !1140
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef null, i64 noundef 0, i32 noundef 0) #26
@@ -82482,7 +82482,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit80:               ; preds = %245, %247
   store i32 1, ptr %256, align 4
   %257 = getelementptr inbounds nuw i8, ptr %17, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %257, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %17, align 8
   %258 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store ptr %16, ptr %258, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef null, i64 noundef 0, i32 noundef 0) #26
@@ -83382,10 +83382,10 @@ define internal void @_GLOBAL__sub_I_Attributor.cpp() #20 section ".text.startup
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL21SetFixpointIterations, i32 noundef 0, i32 noundef 0)
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL21SetFixpointIterations, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL21SetFixpointIterations, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL21SetFixpointIterations, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL21SetFixpointIterations, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL21SetFixpointIterations, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL21SetFixpointIterations, align 8
   tail call void @_ZN4llvm2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL21SetFixpointIterations, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL21SetFixpointIterations) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL21SetFixpointIterations, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL21SetFixpointIterations, i64 152), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL21SetFixpointIterations, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL21SetFixpointIterations, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL21SetFixpointIterations, i64 176), align 8
@@ -83407,10 +83407,10 @@ define internal void @_GLOBAL__sub_I_Attributor.cpp() #20 section ".text.startup
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL22MaxSpecializationPerCB, i32 noundef 0, i32 noundef 0)
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL22MaxSpecializationPerCB, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL22MaxSpecializationPerCB, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL22MaxSpecializationPerCB, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL22MaxSpecializationPerCB, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL22MaxSpecializationPerCB, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL22MaxSpecializationPerCB, align 8
   call void @_ZN4llvm2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL22MaxSpecializationPerCB, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL22MaxSpecializationPerCB) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL22MaxSpecializationPerCB, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL22MaxSpecializationPerCB, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL22MaxSpecializationPerCB, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL22MaxSpecializationPerCB, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL22MaxSpecializationPerCB, i64 176), align 8
@@ -83428,10 +83428,10 @@ define internal void @_GLOBAL__sub_I_Attributor.cpp() #20 section ".text.startup
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL29MaxInitializationChainLengthX, i32 noundef 0, i32 noundef 0)
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL29MaxInitializationChainLengthX, i64 128), align 8
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL29MaxInitializationChainLengthX, i64 148), align 4
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL29MaxInitializationChainLengthX, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb1ENS0_6parserIjEEEE, i64 16), ptr @_ZL29MaxInitializationChainLengthX, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL29MaxInitializationChainLengthX, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb1ENS0_6parserIjEEEE, i64 16), ptr @_ZL29MaxInitializationChainLengthX, align 8
   call void @_ZN4llvm2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL29MaxInitializationChainLengthX, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL29MaxInitializationChainLengthX) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL29MaxInitializationChainLengthX, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL29MaxInitializationChainLengthX, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL29MaxInitializationChainLengthX, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb1ENS4_6parserIjEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL29MaxInitializationChainLengthX, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb1ENS4_6parserIjEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL29MaxInitializationChainLengthX, i64 176), align 8
@@ -83475,10 +83475,10 @@ __cxx_global_var_init.33.exit:                    ; preds = %28, %33
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL28AnnotateDeclarationCallSites, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL28AnnotateDeclarationCallSites, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL28AnnotateDeclarationCallSites, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL28AnnotateDeclarationCallSites, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL28AnnotateDeclarationCallSites, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL28AnnotateDeclarationCallSites, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL28AnnotateDeclarationCallSites, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL28AnnotateDeclarationCallSites, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL28AnnotateDeclarationCallSites) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL28AnnotateDeclarationCallSites, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL28AnnotateDeclarationCallSites, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL28AnnotateDeclarationCallSites, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL28AnnotateDeclarationCallSites, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL28AnnotateDeclarationCallSites, i64 176), align 8
@@ -83498,10 +83498,10 @@ __cxx_global_var_init.33.exit:                    ; preds = %28, %33
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL17EnableHeapToStack, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL17EnableHeapToStack, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL17EnableHeapToStack, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL17EnableHeapToStack, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL17EnableHeapToStack, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL17EnableHeapToStack, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL17EnableHeapToStack, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL17EnableHeapToStack, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL17EnableHeapToStack) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL17EnableHeapToStack, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL17EnableHeapToStack, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL17EnableHeapToStack, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL17EnableHeapToStack, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL17EnableHeapToStack, i64 176), align 8
@@ -83519,10 +83519,10 @@ __cxx_global_var_init.33.exit:                    ; preds = %28, %33
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL20AllowShallowWrappers, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20AllowShallowWrappers, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20AllowShallowWrappers, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL20AllowShallowWrappers, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL20AllowShallowWrappers, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL20AllowShallowWrappers, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL20AllowShallowWrappers, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL20AllowShallowWrappers, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL20AllowShallowWrappers) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL20AllowShallowWrappers, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL20AllowShallowWrappers, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL20AllowShallowWrappers, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL20AllowShallowWrappers, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL20AllowShallowWrappers, i64 176), align 8
@@ -83542,10 +83542,10 @@ __cxx_global_var_init.33.exit:                    ; preds = %28, %33
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL16AllowDeepWrapper, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16AllowDeepWrapper, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16AllowDeepWrapper, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL16AllowDeepWrapper, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL16AllowDeepWrapper, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL16AllowDeepWrapper, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL16AllowDeepWrapper, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL16AllowDeepWrapper, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL16AllowDeepWrapper) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL16AllowDeepWrapper, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL16AllowDeepWrapper, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL16AllowDeepWrapper, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL16AllowDeepWrapper, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL16AllowDeepWrapper, i64 176), align 8
@@ -83565,10 +83565,10 @@ __cxx_global_var_init.33.exit:                    ; preds = %28, %33
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL12DumpDepGraph, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL12DumpDepGraph, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL12DumpDepGraph, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL12DumpDepGraph, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL12DumpDepGraph, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL12DumpDepGraph, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL12DumpDepGraph, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL12DumpDepGraph, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL12DumpDepGraph) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL12DumpDepGraph, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL12DumpDepGraph, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL12DumpDepGraph, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL12DumpDepGraph, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL12DumpDepGraph, i64 176), align 8
@@ -83585,13 +83585,13 @@ __cxx_global_var_init.33.exit:                    ; preds = %28, %33
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL25DepGraphDotFileNamePrefixB5cxx11, i32 noundef 0, i32 noundef 0)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds nuw (i8, ptr @_ZL25DepGraphDotFileNamePrefixB5cxx11, i64 128)) #26
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL25DepGraphDotFileNamePrefixB5cxx11, i64 160), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL25DepGraphDotFileNamePrefixB5cxx11, i64 160), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL25DepGraphDotFileNamePrefixB5cxx11, i64 168)) #26
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL25DepGraphDotFileNamePrefixB5cxx11, i64 200), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL25DepGraphDotFileNamePrefixB5cxx11, i64 160), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEEE, i64 16), ptr @_ZL25DepGraphDotFileNamePrefixB5cxx11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL25DepGraphDotFileNamePrefixB5cxx11, i64 160), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEEE, i64 16), ptr @_ZL25DepGraphDotFileNamePrefixB5cxx11, align 8
   call void @_ZN4llvm2cl12basic_parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL25DepGraphDotFileNamePrefixB5cxx11, i64 208), ptr noundef nonnull align 8 dereferenceable(128) @_ZL25DepGraphDotFileNamePrefixB5cxx11) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL25DepGraphDotFileNamePrefixB5cxx11, i64 208), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL25DepGraphDotFileNamePrefixB5cxx11, i64 208), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL25DepGraphDotFileNamePrefixB5cxx11, i64 216), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN4llvm2cl3optIS5_Lb0ENSA_6parserIS5_EEEUlS7_E_EE9_M_invokeERKSt9_Any_dataS7_, ptr getelementptr inbounds nuw (i8, ptr @_ZL25DepGraphDotFileNamePrefixB5cxx11, i64 240), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN4llvm2cl3optIS5_Lb0ENSA_6parserIS5_EEEUlS7_E_EE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL25DepGraphDotFileNamePrefixB5cxx11, i64 232), align 8
@@ -83609,10 +83609,10 @@ __cxx_global_var_init.33.exit:                    ; preds = %28, %33
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL12ViewDepGraph, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL12ViewDepGraph, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL12ViewDepGraph, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL12ViewDepGraph, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL12ViewDepGraph, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL12ViewDepGraph, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL12ViewDepGraph, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL12ViewDepGraph, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL12ViewDepGraph) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL12ViewDepGraph, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL12ViewDepGraph, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL12ViewDepGraph, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL12ViewDepGraph, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL12ViewDepGraph, i64 176), align 8
@@ -83632,10 +83632,10 @@ __cxx_global_var_init.33.exit:                    ; preds = %28, %33
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL17PrintDependencies, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL17PrintDependencies, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL17PrintDependencies, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL17PrintDependencies, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL17PrintDependencies, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL17PrintDependencies, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL17PrintDependencies, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL17PrintDependencies, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL17PrintDependencies) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL17PrintDependencies, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL17PrintDependencies, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL17PrintDependencies, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL17PrintDependencies, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL17PrintDependencies, i64 176), align 8
@@ -83655,10 +83655,10 @@ __cxx_global_var_init.33.exit:                    ; preds = %28, %33
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL22EnableCallSiteSpecific, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL22EnableCallSiteSpecific, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL22EnableCallSiteSpecific, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL22EnableCallSiteSpecific) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableCallSiteSpecific, i64 176), align 8
@@ -83678,10 +83678,10 @@ __cxx_global_var_init.33.exit:                    ; preds = %28, %33
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL14PrintCallGraph, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL14PrintCallGraph, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL14PrintCallGraph, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL14PrintCallGraph, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL14PrintCallGraph, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL14PrintCallGraph, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL14PrintCallGraph, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL14PrintCallGraph, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL14PrintCallGraph) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL14PrintCallGraph, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL14PrintCallGraph, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL14PrintCallGraph, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL14PrintCallGraph, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL14PrintCallGraph, i64 176), align 8
@@ -83701,10 +83701,10 @@ __cxx_global_var_init.33.exit:                    ; preds = %28, %33
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL16SimplifyAllLoads, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16SimplifyAllLoads, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16SimplifyAllLoads, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL16SimplifyAllLoads, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL16SimplifyAllLoads, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL16SimplifyAllLoads, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL16SimplifyAllLoads, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL16SimplifyAllLoads, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL16SimplifyAllLoads) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL16SimplifyAllLoads, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL16SimplifyAllLoads, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL16SimplifyAllLoads, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL16SimplifyAllLoads, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL16SimplifyAllLoads, i64 176), align 8
@@ -83722,10 +83722,10 @@ __cxx_global_var_init.33.exit:                    ; preds = %28, %33
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL20CloseWorldAssumption, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20CloseWorldAssumption, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20CloseWorldAssumption, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL20CloseWorldAssumption, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL20CloseWorldAssumption, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL20CloseWorldAssumption, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL20CloseWorldAssumption, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL20CloseWorldAssumption, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL20CloseWorldAssumption) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL20CloseWorldAssumption, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL20CloseWorldAssumption, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL20CloseWorldAssumption, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL20CloseWorldAssumption, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL20CloseWorldAssumption, i64 176), align 8

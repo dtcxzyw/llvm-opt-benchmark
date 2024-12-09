@@ -84,7 +84,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %11
 
 rbimpl_intern_const.exit15:                       ; preds = %.lr.ph.i13, %rbimpl_intern_const.exit
   %.lcssa.i12 = phi i64 [ %.pr.i10, %rbimpl_intern_const.exit ], [ %13, %.lr.ph.i13 ]
-  store i64 %.lcssa.i12, ptr getelementptr inbounds (i8, ptr @tcp_init.keyword_ids, i64 8), align 8
+  store i64 %.lcssa.i12, ptr getelementptr inbounds nuw (i8, ptr @tcp_init.keyword_ids, i64 8), align 8
   br label %14
 
 14:                                               ; preds = %rbimpl_intern_const.exit15, %3

@@ -134,7 +134,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN4cvc58internal6theory7strings16ModelConsDefaultC2ERNS0_3EnvERNS2_11SolverStateERNS2_10CoreSolverE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef nonnull align 8 dereferenceable(480) %state, ptr noundef nonnull align 8 dereferenceable(600) %csolver) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory7strings16ModelConsDefaultE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory7strings16ModelConsDefaultE, i64 16), ptr %this, align 8
   %d_state = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %state, ptr %d_state, align 8
   %d_csolver = getelementptr inbounds nuw i8, ptr %this, i64 24

@@ -388,7 +388,7 @@ define void @_ZN22grpc_local_credentialsC2E23grpc_local_connect_type(ptr nocaptu
 entry:
   %refs_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22grpc_local_credentials, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22grpc_local_credentials, i64 16), ptr %this, align 8
   %connect_type_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %connect_type, ptr %connect_type_, align 8
   ret void
@@ -424,7 +424,7 @@ entry:
   store i64 1, ptr %refs_.i.i, align 8
   %processor_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %processor_.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29grpc_local_server_credentials, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29grpc_local_server_credentials, i64 16), ptr %this, align 8
   %connect_type_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 %connect_type, ptr %connect_type_, align 8
   ret void
@@ -490,7 +490,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN29grpc_local_server_credentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23grpc_server_credentials, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23grpc_server_credentials, i64 16), ptr %this, align 8
   %destroy.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %destroy.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -520,7 +520,7 @@ _ZN23grpc_server_credentialsD2Ev.exit:            ; preds = %entry, %land.lhs.tr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN29grpc_local_server_credentialsD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23grpc_server_credentials, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23grpc_server_credentials, i64 16), ptr %this, align 8
   %destroy.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %destroy.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -557,7 +557,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -604,7 +604,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN23grpc_server_credentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23grpc_server_credentials, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23grpc_server_credentials, i64 16), ptr %this, align 8
   %destroy.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %destroy.i, align 8
   %cmp.not.i = icmp eq ptr %0, null

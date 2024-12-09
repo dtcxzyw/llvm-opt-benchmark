@@ -4814,7 +4814,7 @@ if.end38:                                         ; preds = %if.else31
 
 if.end42:                                         ; preds = %if.end38
   %8 = load ptr, ptr %readable, align 8
-  %call44 = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 56232), ptr noundef nonnull @.str.8, ptr noundef nonnull %call39) #9
+  %call44 = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56232), ptr noundef nonnull @.str.8, ptr noundef nonnull %call39) #9
   %cmp45.not = icmp eq ptr %call44, null
   br i1 %cmp45.not, label %if.end49, label %if.then46
 
@@ -6615,7 +6615,7 @@ define internal fastcc ptr @_PyObject_CallNoArgs() unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %PyFrozenSet_Type.val.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @PyFrozenSet_Type, i64 8), align 8
+  %PyFrozenSet_Type.val.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyFrozenSet_Type, i64 8), align 8
   %2 = getelementptr i8, ptr %PyFrozenSet_Type.val.i.i, i64 168
   %call.val.i.i = load i64, ptr %2, align 8
   %3 = and i64 %call.val.i.i, 2048
@@ -6797,7 +6797,7 @@ if.end.i:                                         ; preds = %skip_optional
   store ptr %2, ptr %args.i.i, align 16
   %arrayinit.element.i.i = getelementptr inbounds nuw i8, ptr %args.i.i, i64 8
   store ptr %call.i, ptr %arrayinit.element.i.i, align 8
-  %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 62248), ptr noundef nonnull %args.i.i, i64 noundef -9223372036854775806, ptr noundef null) #9
+  %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 62248), ptr noundef nonnull %args.i.i, i64 noundef -9223372036854775806, ptr noundef null) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i)
   %4 = load i64, ptr %call.i, align 8
   %5 = and i64 %4, 2147483648
@@ -6823,7 +6823,7 @@ exit:                                             ; preds = %if.then1.i.i, %if.e
 define internal ptr @marshal_load(ptr nocapture readnone %module, ptr noundef %file) #0 {
 entry:
   %rf = alloca %struct.RFILE, align 8
-  %call = tail call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %file, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 56032), ptr noundef nonnull @.str.38, i32 noundef 0) #9
+  %call = tail call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %file, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56032), ptr noundef nonnull @.str.38, i32 noundef 0) #9
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 

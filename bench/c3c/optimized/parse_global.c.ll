@@ -878,7 +878,7 @@ extend_span_with_token.exit:                      ; preds = %21, %22
   %30 = and i64 %.sroa.01.0.copyload, -16711681
   %.sroa.010.0.insert.insert.i = or disjoint i64 %.sroa.311.0.insert.shift.i, %30
   %31 = tail call ptr @scratch_buffer_to_string() #8
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @scratch_buffer, i64 65536), align 4
   %33 = tail call ptr @path_create_from_string(ptr noundef %31, i32 noundef %32, i64 %.sroa.010.0.insert.insert.i) #8
   br label %37
 
@@ -7309,7 +7309,7 @@ define internal fastcc noundef zeroext i1 @parse_import(ptr noundef %0) unnamed_
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr %5, align 8
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @attribute_list, i64 240), align 16
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @attribute_list, i64 240), align 16
   %.not41 = icmp eq ptr %23, %24
   br i1 %.not41, label %28, label %25
 

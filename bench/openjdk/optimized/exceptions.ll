@@ -192,14 +192,14 @@ define hidden void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr nocapture n
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %19 = load i64, ptr %18, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %2, i1 noundef zeroext false) #13
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %20) #13
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store i32 2, ptr %21, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE42ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %2, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.5) #13
   %22 = load ptr, ptr %3, align 8
   call void @_ZNK7oopDesc8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull %2) #13
@@ -266,7 +266,7 @@ define hidden void @_ZN12ThreadShadow32clear_pending_nonasync_exceptionEv(ptr no
 
 _ZNK7oopDesc5klassEv.exit:                        ; preds = %7, %17
   %.0.i = phi ptr [ %16, %7 ], [ %18, %17 ]
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 184), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 184), align 8
   %.not = icmp eq ptr %.0.i, %19
   br i1 %.not, label %20, label %22
 
@@ -497,7 +497,7 @@ _ZN10Exceptions17debug_check_abortE6HandlePKc.exit: ; preds = %24, %26
 
 28:                                               ; preds = %_ZN10Exceptions17debug_check_abortE6HandlePKc.exit
   %29 = load ptr, ptr %3, align 8
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 176), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 176), align 8
   %31 = load i8, ptr @UseCompressedClassPointers, align 1
   %32 = trunc i8 %31 to i1
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -540,7 +540,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit:                   ; preds = %52
 _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassEv.exit.i, %_ZNK7oopDesc4is_aEP5Klass.exit
   tail call void @_ZN10JavaThread25clear_scopedValueBindingsEv(ptr noundef nonnull align 8 dereferenceable(1800) %0) #13
   %54 = load ptr, ptr %3, align 8
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 192), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 192), align 8
   %56 = load i8, ptr @UseCompressedClassPointers, align 1
   %57 = trunc i8 %56 to i1
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -608,7 +608,7 @@ _ZNK6HandleclEv.exit1.i:                          ; preds = %_ZNK6HandleclEv.exi
 
 _ZN10Exceptions30count_out_of_memory_exceptionsE6Handle.exit: ; preds = %77, %52, %87, %85, %81, %_ZNK7oopDesc4is_aEP5Klass.exit25, %_ZNK7oopDesc4is_aEP5Klass.exit
   %89 = load ptr, ptr %3, align 8
-  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 152), align 8
+  %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 152), align 8
   %91 = load i8, ptr @UseCompressedClassPointers, align 1
   %92 = trunc i8 %91 to i1
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 8
@@ -913,7 +913,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit31:            ; preds = %65, %67
   br label %81
 
 81:                                               ; preds = %7, %70
-  %.0.in = phi ptr [ getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7136), %70 ], [ getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), %7 ]
+  %.0.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7136), %70 ], [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), %7 ]
   %.0 = load ptr, ptr %.0.in, align 8
   %82 = ptrtoint ptr %5 to i64
   %83 = call ptr @_ZN10Exceptions13new_exceptionEP10JavaThreadP6SymbolS3_P17JavaCallArguments6HandleS6_S6_(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef nonnull %8, ptr %3, ptr %4, i64 %82)
@@ -976,11 +976,11 @@ define hidden ptr @_ZN10Exceptions13new_exceptionEP10JavaThreadP6Symbol6HandleS4
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %6
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   br label %22
 
 19:                                               ; preds = %6
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7160), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7160), align 8
   store i8 2, ptr %11, align 1
   %21 = ptrtoint ptr %2 to i64
   store i32 1, ptr %14, align 8
@@ -1189,7 +1189,7 @@ define hidden void @_ZN10Exceptions30throw_stack_overflow_exceptionEP10JavaThrea
   br i1 %.not, label %7, label %32
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 200), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 200), align 8
   %9 = tail call noundef ptr @_ZN13InstanceKlass17allocate_instanceEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(464) %8, ptr noundef nonnull %0) #13
   %10 = load ptr, ptr %5, align 8
   %.not19 = icmp eq ptr %10, null
@@ -1409,8 +1409,8 @@ _ZN10Exceptions13new_exceptionEP10JavaThreadP6SymbolS3_P17JavaCallArguments6Hand
 
 _ZNK7oopDesc5klassEv.exit:                        ; preds = %46, %56
   %.0.i = phi ptr [ %55, %46 ], [ %57, %56 ]
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3552), align 8
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7208), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3552), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7208), align 8
   call void @_ZN9JavaCalls12call_virtualEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef nonnull %8, ptr noundef %.0.i, ptr noundef %58, ptr noundef %59, ptr noundef nonnull %9, ptr noundef nonnull %0) #13
   br label %60
 
@@ -1480,28 +1480,28 @@ define hidden void @_ZN10Exceptions22wrap_dynamic_exceptionEbP10JavaThread(i1 no
   %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE86ELS1_22ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %12 = icmp eq ptr %11, null
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #13
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %13) #13
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store i32 2, ptr %14, align 8
   %.sroa.21.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE86ELS1_57ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE2ELN6LogTag4typeE86ELS3_57ELS3_0ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE2ELN6LogTag4typeE86ELS3_57ELS3_0ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %3, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %4, i1 noundef zeroext false) #13
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %15) #13
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 144
   store i32 2, ptr %16, align 8
   %.sroa.21.0..sroa_idx.i.i.i24 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE86ELS1_22ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i24, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE2ELN6LogTag4typeE86ELS3_22ELS3_0ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE2ELN6LogTag4typeE86ELS3_22ELS3_0ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %4, align 8
   %.not46 = or i1 %0, %12
   %spec.select = select i1 %.not46, ptr null, ptr %4
   %.0 = select i1 %10, ptr %3, ptr %spec.select
   %17 = load ptr, ptr %5, align 8
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 64), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 64), align 8
   %19 = load i8, ptr @UseCompressedClassPointers, align 1
   %20 = trunc i8 %19 to i1
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -1646,7 +1646,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %86, %88
   %.0.i.i.i.i = phi ptr [ %82, %86 ], [ %89, %88 ]
   store ptr %17, ptr %.0.i.i.i.i, align 8
   call void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(28) %1)
-  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1168), align 8
+  %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1168), align 8
   %91 = call noundef zeroext i1 @_ZN10Exceptions17special_exceptionEP10JavaThreadPKci6HandleP6SymbolS3_(ptr noundef nonnull %1, ptr noundef nonnull @.str, i32 noundef 449, ptr null, ptr noundef %90, ptr noundef null)
   br i1 %91, label %_ZN12ResourceMarkD2Ev.exit, label %92
 
@@ -1915,7 +1915,7 @@ define hidden void @_ZN10Exceptions24debug_check_abort_helperE6HandlePKc(ptr rea
 
 16:                                               ; preds = %2
   %17 = load ptr, ptr %0, align 8
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 56), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 56), align 8
   %19 = load i8, ptr @UseCompressedClassPointers, align 1
   %20 = trunc i8 %19 to i1
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -2303,7 +2303,7 @@ declare void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #13
   ret void

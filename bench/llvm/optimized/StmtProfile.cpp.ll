@@ -108,7 +108,7 @@ define dso_local void @_ZNK5clang4Stmt7ProfileERN4llvm16FoldingSetNodeIDERKNS_10
   store i8 %7, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 17
   store i8 %8, ptr %11, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN12_GLOBAL__N_124StmtProfilerWithPointersE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN12_GLOBAL__N_124StmtProfilerWithPointersE, i64 16), ptr %6, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %2, ptr %12, align 8
   call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112StmtProfilerEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull %0)
@@ -1752,7 +1752,7 @@ define dso_local void @_ZNK5clang4Stmt14ProcessODRHashERN4llvm16FoldingSetNodeID
   store i8 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 17
   store i8 0, ptr %7, align 1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN12_GLOBAL__N_127StmtProfilerWithoutPointersE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN12_GLOBAL__N_127StmtProfilerWithoutPointersE, i64 16), ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %2, ptr %8, align 8
   call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112StmtProfilerEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %0)

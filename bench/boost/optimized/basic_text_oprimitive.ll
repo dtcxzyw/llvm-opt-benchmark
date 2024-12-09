@@ -302,7 +302,7 @@ define weak_odr void @_ZN5boost7archive21basic_text_oprimitiveISoEC2ERSob(ptr no
           to label %21 unwind label %46
 
 21:                                               ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5boost7archive12codecvt_nullIcEE, i64 16), ptr %20, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5boost7archive12codecvt_nullIcEE, i64 16), ptr %20, align 8, !tbaa !19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
   %23 = load ptr, ptr %0, align 8, !tbaa !3

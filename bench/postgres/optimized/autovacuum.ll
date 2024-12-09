@@ -692,7 +692,7 @@ dlist_push_head.exit:                             ; preds = %196, %203
   br i1 %.not.i30, label %.backedge, label %218
 
 218:                                              ; preds = %216
-  %219 = load ptr, ptr getelementptr inbounds (i8, ptr @DatabaseList, i64 8), align 8
+  %219 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @DatabaseList, i64 8), align 8
   %.not14.i = icmp eq ptr %219, null
   %.not15.not1720.i = icmp eq ptr %219, @DatabaseList
   %.not15.not17.i = or i1 %.not14.i, %.not15.not1720.i
@@ -713,7 +713,7 @@ dlist_push_head.exit:                             ; preds = %196, %203
   %228 = add i64 %227, %168
   %229 = getelementptr i8, ptr %.sroa.0.018.i, i64 -16
   store i64 %228, ptr %229, align 8
-  %230 = load ptr, ptr getelementptr inbounds (i8, ptr @DatabaseList, i64 8), align 8
+  %230 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @DatabaseList, i64 8), align 8
   %231 = icmp eq ptr %230, %.sroa.0.018.i
   br i1 %231, label %.backedge, label %232
 
@@ -764,7 +764,7 @@ select.unfold.i:                                  ; preds = %.lr.ph.i31
   br i1 %.not.i32, label %.backedge, label %251
 
 251:                                              ; preds = %249
-  %252 = load ptr, ptr getelementptr inbounds (i8, ptr @DatabaseList, i64 8), align 8
+  %252 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @DatabaseList, i64 8), align 8
   %.not14.i33 = icmp eq ptr %252, null
   %.not15.not1720.i34 = icmp eq ptr %252, @DatabaseList
   %.not15.not17.i35 = or i1 %.not14.i33, %.not15.not1720.i34
@@ -785,7 +785,7 @@ select.unfold.i:                                  ; preds = %.lr.ph.i31
   %261 = add i64 %260, %168
   %262 = getelementptr i8, ptr %.sroa.0.018.i37, i64 -16
   store i64 %261, ptr %262, align 8
-  %263 = load ptr, ptr getelementptr inbounds (i8, ptr @DatabaseList, i64 8), align 8
+  %263 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @DatabaseList, i64 8), align 8
   %264 = icmp eq ptr %263, %.sroa.0.018.i37
   br i1 %264, label %.backedge, label %265
 
@@ -1768,7 +1768,7 @@ define internal fastcc void @rebuild_database_list(i32 noundef %0) unnamed_addr 
 
 20:                                               ; preds = %15, %17, %1
   %.058 = phi i32 [ 1, %17 ], [ 0, %15 ], [ 0, %1 ]
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @DatabaseList, i64 8), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @DatabaseList, i64 8), align 8
   %.not66 = icmp eq ptr %21, null
   %.not6775102 = icmp eq ptr %21, @DatabaseList
   %.not6775 = or i1 %.not66, %.not6775102

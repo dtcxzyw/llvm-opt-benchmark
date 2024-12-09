@@ -796,7 +796,7 @@ _ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit:   ; preds = %.split3, %.sink.spl
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_Z13ProcessSignali(i32 %0) #9 {
-  store i8 1, ptr getelementptr inbounds (i8, ptr @ErrHandler, i64 12), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ErrHandler, i64 12), align 4
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ErrHandler, i64 10), align 2
   %2 = load i32, ptr @_ZZ13ProcessSignaliE10BreakCount, align 4
   %3 = add i32 %2, 1

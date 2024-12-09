@@ -1545,7 +1545,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix51Co
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix51ContentAddressMethod_testRoundTripPrintParse_1_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix51ContentAddressMethod_testRoundTripPrintParse_1_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -1575,7 +1575,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix51Co
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix51ContentAddressMethod_testRoundTripPrintParse_2_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix51ContentAddressMethod_testRoundTripPrintParse_2_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -1603,7 +1603,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix67Co
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix67ContentAddressMethod_testParseContentAddressMethodOptException_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix67ContentAddressMethod_testParseContentAddressMethodOptException_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -2525,7 +2525,7 @@ define internal void @_GLOBAL__sub_I_content_address.cc() #15 section ".text.sta
           to label %21 unwind label %40
 
 21:                                               ; preds = %19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix51ContentAddressMethod_testRoundTripPrintParse_1_TestEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix51ContentAddressMethod_testRoundTripPrintParse_1_TestEEE, i64 16), ptr %20, align 8
   %22 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef %14, ptr noundef %16, ptr noundef %18, ptr noundef nonnull %20)
           to label %23 unwind label %40
 
@@ -2628,7 +2628,7 @@ __cxx_global_var_init.4.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %53 unwind label %72
 
 53:                                               ; preds = %51
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix51ContentAddressMethod_testRoundTripPrintParse_2_TestEEE, i64 16), ptr %52, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix51ContentAddressMethod_testRoundTripPrintParse_2_TestEEE, i64 16), ptr %52, align 8
   %54 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef %46, ptr noundef %48, ptr noundef %50, ptr noundef nonnull %52)
           to label %55 unwind label %72
 
@@ -2725,7 +2725,7 @@ __cxx_global_var_init.9.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %85 unwind label %104
 
 85:                                               ; preds = %83
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix67ContentAddressMethod_testParseContentAddressMethodOptException_TestEEE, i64 16), ptr %84, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix67ContentAddressMethod_testParseContentAddressMethodOptException_TestEEE, i64 16), ptr %84, align 8
   %86 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.18, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, ptr noundef %78, ptr noundef %80, ptr noundef %82, ptr noundef nonnull %84)
           to label %87 unwind label %104
 

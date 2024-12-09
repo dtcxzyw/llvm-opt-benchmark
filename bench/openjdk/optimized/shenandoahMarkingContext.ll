@@ -75,7 +75,7 @@ define hidden void @_ZN24ShenandoahMarkingContextC2E9MemRegionS0_mj(ptr noundef 
   %20 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr nonnull %19) #5, !srcloc !6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %22 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 160, i8 noundef zeroext 5, i32 noundef 0) #5
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE, i64 16), ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 %6, ptr %23, align 8
   %24 = zext i32 %6 to i64
@@ -89,7 +89,7 @@ define hidden void @_ZN24ShenandoahMarkingContextC2E9MemRegionS0_mj(ptr noundef 
 _ZN27ShenandoahObjToScanQueueSetC2Ei.exit.thread: ; preds = %7
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 88
   store volatile i32 0, ptr %28, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV27ShenandoahObjToScanQueueSet, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV27ShenandoahObjToScanQueueSet, i64 16), ptr %22, align 8
   store ptr %22, ptr %21, align 8
   br label %._crit_edge
 
@@ -105,7 +105,7 @@ _ZN27ShenandoahObjToScanQueueSetC2Ei.exit.thread: ; preds = %7
 _ZN27ShenandoahObjToScanQueueSetC2Ei.exit:        ; preds = %.lr.ph.i.i.i
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 88
   store volatile i32 0, ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV27ShenandoahObjToScanQueueSet, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV27ShenandoahObjToScanQueueSet, i64 16), ptr %22, align 8
   store ptr %22, ptr %21, align 8
   br label %.lr.ph
 
@@ -131,7 +131,7 @@ _ZN27ShenandoahObjToScanQueueSetC2Ei.exit:        ; preds = %.lr.ph.i.i.i
   store i64 -256, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %32, i64 664
   store i64 4, ptr %42, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE, i64 16), ptr %39, align 8
   %43 = getelementptr inbounds nuw i8, ptr %32, i64 672
   store i64 510, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %32, i64 680
@@ -181,7 +181,7 @@ define hidden void @_ZN24ShenandoahMarkingContextD2Ev(ptr nocapture noundef nonn
 
 12:                                               ; preds = %.lr.ph
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 640
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE, i64 16), ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 696
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 648
@@ -259,7 +259,7 @@ _ZN6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072E
 
 ._crit_edge:                                      ; preds = %42, %1
   %.lcssa = phi ptr [ %3, %1 ], [ %43, %42 ]
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE, i64 16), ptr %.lcssa, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE, i64 16), ptr %.lcssa, align 8
   %48 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
   %49 = load ptr, ptr %48, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %49) #5

@@ -165,7 +165,7 @@ define dso_local void @AsyncShmemInit() local_unnamed_addr #0 {
   br i1 %30, label %22, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %22, %9, %0
-  store ptr @asyncQueuePagePrecedes, ptr getelementptr inbounds (i8, ptr @NotifyCtlData, i64 16), align 8
+  store ptr @asyncQueuePagePrecedes, ptr getelementptr inbounds nuw (i8, ptr @NotifyCtlData, i64 16), align 8
   %31 = load i32, ptr @notify_buffers, align 4
   call void @SimpleLruInit(ptr noundef nonnull @NotifyCtlData, ptr noundef nonnull @.str.1, i32 noundef %31, i32 noundef 0, ptr noundef nonnull @.str.2, i32 noundef 58, i32 noundef 87, i32 noundef 5, i1 noundef zeroext true) #16
   %32 = load i8, ptr %1, align 1
@@ -1228,7 +1228,7 @@ asyncQueueFillWarning.exit:                       ; preds = %116, %asyncQueueUsa
   store i32 %.sroa.9.0.copyload.i25, ptr %.sroa.9.i, align 8
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %171, i64 12
   %.sroa.13.0.copyload.i = load i32, ptr %.sroa.13.0..sroa_idx.i, align 4
-  %184 = load i16, ptr getelementptr inbounds (i8, ptr @NotifyCtlData, i64 8), align 8
+  %184 = load i16, ptr getelementptr inbounds nuw (i8, ptr @NotifyCtlData, i64 8), align 8
   %185 = zext i16 %184 to i64
   %186 = and i64 %172, %185
   %187 = load ptr, ptr @NotifyCtlData, align 8
@@ -1339,7 +1339,7 @@ asyncQueueFillWarning.exit:                       ; preds = %116, %asyncQueueUsa
   br i1 %248, label %250, label %204, !llvm.loop !9
 
 250:                                              ; preds = %235
-  %251 = load i16, ptr getelementptr inbounds (i8, ptr @NotifyCtlData, i64 8), align 8
+  %251 = load i16, ptr getelementptr inbounds nuw (i8, ptr @NotifyCtlData, i64 8), align 8
   %252 = zext i16 %251 to i64
   %253 = and i64 %spec.select.i.i, %252
   %254 = load ptr, ptr @NotifyCtlData, align 8
@@ -2585,7 +2585,7 @@ define internal fastcc void @asyncQueueReadAllNotifications() unnamed_addr #0 {
   %39 = getelementptr i8, ptr %38, i64 %31
   %40 = sext i32 %.0 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr align 1 %39, i64 %40, i1 false)
-  %41 = load i16, ptr getelementptr inbounds (i8, ptr @NotifyCtlData, i64 8), align 8
+  %41 = load i16, ptr getelementptr inbounds nuw (i8, ptr @NotifyCtlData, i64 8), align 8
   %42 = zext i16 %41 to i64
   %43 = and i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.23, %42
   %44 = getelementptr inbounds nuw i8, ptr %33, i64 56

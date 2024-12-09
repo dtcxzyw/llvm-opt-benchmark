@@ -115,8 +115,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool2.not, label %if.end24, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @removal, i64 16), align 8
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @removal, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @removal, i64 16), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @removal, i64 8), align 8
   %conv = trunc i64 %3 to i32
   %cmp.i = icmp slt i32 %len, %conv
   %cond.i = tail call i32 @llvm.smin.i32(i32 %len, i32 %conv)
@@ -220,7 +220,7 @@ while.body.i16:                                   ; preds = %land.lhs.true12, %w
   %original_cwd.i = getelementptr inbounds nuw i8, ptr %14, i64 16
   %15 = load ptr, ptr %original_cwd.i, align 8
   %tobool.not.i = icmp eq ptr %15, null
-  %.pre8.i = load ptr, ptr getelementptr inbounds (i8, ptr @removal, i64 16), align 8
+  %.pre8.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @removal, i64 16), align 8
   br i1 %tobool.not.i, label %lor.lhs.false.i19, label %land.lhs.true.i18
 
 land.lhs.true.i18:                                ; preds = %while.body.i16
@@ -245,14 +245,14 @@ if.then4.i.i.i.i.i:                               ; preds = %if.then.i.i
 
 lstat_cache_aware_rmdir.exit.i:                   ; preds = %if.then4.i.i.i.i.i, %if.then.i.i
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @default_cache, i64 24), align 8
-  %.promoted.i = load i64, ptr getelementptr inbounds (i8, ptr @removal, i64 8), align 8
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @removal, i64 16), align 8
+  %.promoted.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @removal, i64 8), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @removal, i64 16), align 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i20, %lstat_cache_aware_rmdir.exit.i
   %dec4.i = phi i64 [ %.promoted.i, %lstat_cache_aware_rmdir.exit.i ], [ %dec.i, %land.rhs.i20 ]
   %dec.i = add i64 %dec4.i, -1
-  store i64 %dec.i, ptr getelementptr inbounds (i8, ptr @removal, i64 8), align 8
+  store i64 %dec.i, ptr getelementptr inbounds nuw (i8, ptr @removal, i64 8), align 8
   %cmp7.i = icmp ugt i64 %dec.i, %conv13
   br i1 %cmp7.i, label %land.rhs.i20, label %do_remove_scheduled_dirs.exit
 
@@ -263,7 +263,7 @@ land.rhs.i20:                                     ; preds = %do.body.i
   br i1 %cmp11.not.i, label %while.body.i16.loopexit, label %do.body.i, !llvm.loop !8
 
 do_remove_scheduled_dirs.exit:                    ; preds = %land.lhs.true.i18, %lor.lhs.false.i19, %do.body.i
-  store i64 %conv13, ptr getelementptr inbounds (i8, ptr @removal, i64 8), align 8
+  store i64 %conv13, ptr getelementptr inbounds nuw (i8, ptr @removal, i64 8), align 8
   br label %if.then20
 
 if.then20:                                        ; preds = %land.lhs.true12, %do_remove_scheduled_dirs.exit
@@ -285,12 +285,12 @@ declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @remove_scheduled_dirs() local_unnamed_addr #3 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @removal, i64 8), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @removal, i64 8), align 8
   %cmp5.i.not = icmp eq i64 %0, 0
   br i1 %cmp5.i.not, label %do_remove_scheduled_dirs.exit, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %entry
-  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @removal, i64 16), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @removal, i64 16), align 8
   br label %while.body.i
 
 while.body.i.loopexit:                            ; preds = %land.rhs.i
@@ -305,7 +305,7 @@ while.body.i:                                     ; preds = %while.body.i.loopex
   %original_cwd.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %4 = load ptr, ptr %original_cwd.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
-  %.pre8.i = load ptr, ptr getelementptr inbounds (i8, ptr @removal, i64 16), align 8
+  %.pre8.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @removal, i64 16), align 8
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %while.body.i
@@ -330,14 +330,14 @@ if.then4.i.i.i.i.i:                               ; preds = %if.then.i.i
 
 lstat_cache_aware_rmdir.exit.i:                   ; preds = %if.then4.i.i.i.i.i, %if.then.i.i
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @default_cache, i64 24), align 8
-  %.promoted.i = load i64, ptr getelementptr inbounds (i8, ptr @removal, i64 8), align 8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @removal, i64 16), align 8
+  %.promoted.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @removal, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @removal, i64 16), align 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %lstat_cache_aware_rmdir.exit.i
   %dec4.i = phi i64 [ %.promoted.i, %lstat_cache_aware_rmdir.exit.i ], [ %dec.i, %land.rhs.i ]
   %dec.i = add i64 %dec4.i, -1
-  store i64 %dec.i, ptr getelementptr inbounds (i8, ptr @removal, i64 8), align 8
+  store i64 %dec.i, ptr getelementptr inbounds nuw (i8, ptr @removal, i64 8), align 8
   %cmp7.i.not = icmp eq i64 %dec.i, 0
   br i1 %cmp7.i.not, label %do_remove_scheduled_dirs.exit, label %land.rhs.i
 
@@ -348,7 +348,7 @@ land.rhs.i:                                       ; preds = %do.body.i
   br i1 %cmp11.not.i, label %while.body.i.loopexit, label %do.body.i, !llvm.loop !8
 
 do_remove_scheduled_dirs.exit:                    ; preds = %land.lhs.true.i, %lor.lhs.false.i, %do.body.i, %entry
-  store i64 0, ptr getelementptr inbounds (i8, ptr @removal, i64 8), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @removal, i64 8), align 8
   ret void
 }
 

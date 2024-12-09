@@ -82,7 +82,7 @@ $_ZTI15btCapsuleShapeZ = comdat any
 define dso_local void @_ZN14btCapsuleShapeC2Eff(ptr noundef nonnull align 8 dereferenceable(76) %this, float noundef %radius, float noundef %height) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14btCapsuleShape, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14btCapsuleShape, i64 16), ptr %this, align 8
   %m_collisionMargin = getelementptr inbounds nuw i8, ptr %this, i64 64
   store float %radius, ptr %m_collisionMargin, align 8
   %m_shapeType = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -358,7 +358,7 @@ entry:
   tail call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this)
   %m_shapeType.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 10, ptr %m_shapeType.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15btCapsuleShapeX, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15btCapsuleShapeX, i64 16), ptr %this, align 8
   %m_collisionMargin = getelementptr inbounds nuw i8, ptr %this, i64 64
   store float %radius, ptr %m_collisionMargin, align 8
   %m_upAxis = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -381,7 +381,7 @@ entry:
   tail call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this)
   %m_shapeType.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 10, ptr %m_shapeType.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15btCapsuleShapeZ, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15btCapsuleShapeZ, i64 16), ptr %this, align 8
   %m_collisionMargin = getelementptr inbounds nuw i8, ptr %this, i64 64
   store float %radius, ptr %m_collisionMargin, align 8
   %m_upAxis = getelementptr inbounds nuw i8, ptr %this, i64 72

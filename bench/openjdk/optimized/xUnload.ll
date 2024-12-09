@@ -418,9 +418,9 @@ _ZN14XReentrantLock4lockEv.exit.i:                ; preds = %10, %5
   br label %_ZN7XLockerI14XReentrantLockEC2EPS0_.exit
 
 _ZN7XLockerI14XReentrantLockEC2EPS0_.exit:        ; preds = %2, %_ZN14XReentrantLock4lockEv.exit.i
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV22XIsUnloadingOopClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22XIsUnloadingOopClosure, i64 16), ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV28XPhantomIsAliveObjectClosure, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV28XPhantomIsAliveObjectClosure, i64 16), ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %16, align 8
   call void @_ZN8XNMethod21nmethod_oops_do_innerEP7nmethodP10OopClosure(ptr noundef %1, ptr noundef nonnull %3) #8

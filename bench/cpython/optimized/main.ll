@@ -1242,7 +1242,7 @@ if.end37.i:                                       ; preds = %if.end32.i
   br i1 %cmp.not.i.i, label %if.then7.i60.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end37.i
-  %call.i55.i = call ptr @PyDict_GetItemWithError(ptr noundef nonnull %call.val.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 54680)) #14
+  %call.i55.i = call ptr @PyDict_GetItemWithError(ptr noundef nonnull %call.val.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 54680)) #14
   %cmp2.i.i = icmp eq ptr %call.i55.i, null
   br i1 %cmp2.i.i, label %land.lhs.true.i58.i, label %if.end8.i56.i
 
@@ -1615,7 +1615,7 @@ if.end:                                           ; preds = %if.then, %pymain_ru
   call void @_PyPathConfig_ClearGlobal() #14
   call void @_Py_ClearArgcArgv() #14
   call void @_PyRuntime_Finalize() #14
-  %72 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1832), align 8
+  %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1832), align 8
   %tobool.not = icmp eq i32 %72, 0
   br i1 %tobool.not, label %if.end.if.end3_crit_edge, label %if.then1
 
@@ -2038,7 +2038,7 @@ pymain_exit_err_print.exit68:                     ; preds = %if.then.i.i65, %if.
   br label %return
 
 if.end26:                                         ; preds = %if.end20
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1832), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1832), align 8
   %call27 = tail call ptr @PyObject_Call(ptr noundef nonnull %call8, ptr noundef nonnull %call21, ptr noundef null) #14
   %tobool28.not = icmp eq ptr %call27, null
   br i1 %tobool28.not, label %land.lhs.true, label %if.end32
@@ -2050,7 +2050,7 @@ land.lhs.true:                                    ; preds = %if.end26
   br i1 %cmp30, label %if.then31, label %if.end32
 
 if.then31:                                        ; preds = %land.lhs.true
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1832), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1832), align 8
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then31, %land.lhs.true, %if.end26

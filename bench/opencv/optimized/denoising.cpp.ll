@@ -1360,7 +1360,7 @@ _ZNK2cv11_InputArray6getMatEi.exit52:             ; preds = %119, %122
           to label %146 unwind label %149
 
 146:                                              ; preds = %.noexc54
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIhij11DistSquarediE, i64 16), ptr %40, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIhij11DistSquarediE, i64 16), ptr %40, align 8
   %147 = getelementptr inbounds nuw i8, ptr %40, i64 152
   %148 = load ptr, ptr %147, align 8
   %.not.i.i.i.i.i = icmp eq ptr %148, null
@@ -1391,7 +1391,7 @@ _ZNK2cv11_InputArray6getMatEi.exit52:             ; preds = %119, %122
           to label %158 unwind label %161
 
 158:                                              ; preds = %.noexc55
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquarediE, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquarediE, i64 16), ptr %42, align 8
   %159 = getelementptr inbounds nuw i8, ptr %42, i64 152
   %160 = load ptr, ptr %159, align 8
   %.not.i.i.i.i60.i = icmp eq ptr %160, null
@@ -1416,7 +1416,7 @@ _ZNK2cv11_InputArray6getMatEi.exit52:             ; preds = %119, %122
           to label %166 unwind label %169
 
 166:                                              ; preds = %.noexc56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquaredNS1_IiLi2EEEE, i64 16), ptr %44, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquaredNS1_IiLi2EEEE, i64 16), ptr %44, align 8
   %167 = getelementptr inbounds nuw i8, ptr %44, i64 152
   %168 = load ptr, ptr %167, align 8
   %.not.i.i.i.i61.i = icmp eq ptr %168, null
@@ -1447,7 +1447,7 @@ _ZNK2cv11_InputArray6getMatEi.exit52:             ; preds = %119, %122
           to label %178 unwind label %181
 
 178:                                              ; preds = %.noexc57
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquarediE, i64 16), ptr %46, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquarediE, i64 16), ptr %46, align 8
   %179 = getelementptr inbounds nuw i8, ptr %46, i64 152
   %180 = load ptr, ptr %179, align 8
   %.not.i.i.i.i62.i = icmp eq ptr %180, null
@@ -1472,7 +1472,7 @@ _ZNK2cv11_InputArray6getMatEi.exit52:             ; preds = %119, %122
           to label %186 unwind label %189
 
 186:                                              ; preds = %.noexc58
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquaredNS1_IiLi3EEEE, i64 16), ptr %48, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquaredNS1_IiLi3EEEE, i64 16), ptr %48, align 8
   %187 = getelementptr inbounds nuw i8, ptr %48, i64 152
   %188 = load ptr, ptr %187, align 8
   %.not.i.i.i.i63.i = icmp eq ptr %188, null
@@ -1503,7 +1503,7 @@ _ZNK2cv11_InputArray6getMatEi.exit52:             ; preds = %119, %122
           to label %198 unwind label %201
 
 198:                                              ; preds = %.noexc59
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquarediE, i64 16), ptr %50, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquarediE, i64 16), ptr %50, align 8
   %199 = getelementptr inbounds nuw i8, ptr %50, i64 152
   %200 = load ptr, ptr %199, align 8
   %.not.i.i.i.i64.i = icmp eq ptr %200, null
@@ -1528,7 +1528,7 @@ _ZNK2cv11_InputArray6getMatEi.exit52:             ; preds = %119, %122
           to label %206 unwind label %209
 
 206:                                              ; preds = %.noexc60
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquaredNS1_IiLi4EEEE, i64 16), ptr %52, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquaredNS1_IiLi4EEEE, i64 16), ptr %52, align 8
   %207 = getelementptr inbounds nuw i8, ptr %52, i64 152
   %208 = load ptr, ptr %207, align 8
   %.not.i.i.i.i65.i = icmp eq ptr %208, null
@@ -1693,7 +1693,7 @@ _ZL21fastNlMeansDenoising_Ihij11DistSquaredEvRKN2cv3MatERS2_RKSt6vectorIfSaIfEEi
           to label %251 unwind label %254
 
 251:                                              ; preds = %.noexc75
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIhij7DistAbsiE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIhij7DistAbsiE, i64 16), ptr %24, align 8
   %252 = getelementptr inbounds nuw i8, ptr %24, i64 152
   %253 = load ptr, ptr %252, align 8
   %.not.i.i.i.i.i72 = icmp eq ptr %253, null
@@ -1724,7 +1724,7 @@ _ZL21fastNlMeansDenoising_Ihij11DistSquaredEvRKN2cv3MatERS2_RKSt6vectorIfSaIfEEi
           to label %263 unwind label %266
 
 263:                                              ; preds = %.noexc76
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsiE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsiE, i64 16), ptr %26, align 8
   %264 = getelementptr inbounds nuw i8, ptr %26, i64 152
   %265 = load ptr, ptr %264, align 8
   %.not.i.i.i.i60.i71 = icmp eq ptr %265, null
@@ -1749,7 +1749,7 @@ _ZL21fastNlMeansDenoising_Ihij11DistSquaredEvRKN2cv3MatERS2_RKSt6vectorIfSaIfEEi
           to label %271 unwind label %274
 
 271:                                              ; preds = %.noexc77
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsNS1_IiLi2EEEE, i64 16), ptr %28, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsNS1_IiLi2EEEE, i64 16), ptr %28, align 8
   %272 = getelementptr inbounds nuw i8, ptr %28, i64 152
   %273 = load ptr, ptr %272, align 8
   %.not.i.i.i.i61.i70 = icmp eq ptr %273, null
@@ -1780,7 +1780,7 @@ _ZL21fastNlMeansDenoising_Ihij11DistSquaredEvRKN2cv3MatERS2_RKSt6vectorIfSaIfEEi
           to label %283 unwind label %286
 
 283:                                              ; preds = %.noexc78
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsiE, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsiE, i64 16), ptr %30, align 8
   %284 = getelementptr inbounds nuw i8, ptr %30, i64 152
   %285 = load ptr, ptr %284, align 8
   %.not.i.i.i.i62.i69 = icmp eq ptr %285, null
@@ -1805,7 +1805,7 @@ _ZL21fastNlMeansDenoising_Ihij11DistSquaredEvRKN2cv3MatERS2_RKSt6vectorIfSaIfEEi
           to label %291 unwind label %294
 
 291:                                              ; preds = %.noexc79
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsNS1_IiLi3EEEE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsNS1_IiLi3EEEE, i64 16), ptr %32, align 8
   %292 = getelementptr inbounds nuw i8, ptr %32, i64 152
   %293 = load ptr, ptr %292, align 8
   %.not.i.i.i.i63.i68 = icmp eq ptr %293, null
@@ -1836,7 +1836,7 @@ _ZL21fastNlMeansDenoising_Ihij11DistSquaredEvRKN2cv3MatERS2_RKSt6vectorIfSaIfEEi
           to label %303 unwind label %306
 
 303:                                              ; preds = %.noexc80
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsiE, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsiE, i64 16), ptr %34, align 8
   %304 = getelementptr inbounds nuw i8, ptr %34, i64 152
   %305 = load ptr, ptr %304, align 8
   %.not.i.i.i.i64.i67 = icmp eq ptr %305, null
@@ -1861,7 +1861,7 @@ _ZL21fastNlMeansDenoising_Ihij11DistSquaredEvRKN2cv3MatERS2_RKSt6vectorIfSaIfEEi
           to label %311 unwind label %314
 
 311:                                              ; preds = %.noexc81
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsNS1_IiLi4EEEE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsNS1_IiLi4EEEE, i64 16), ptr %36, align 8
   %312 = getelementptr inbounds nuw i8, ptr %36, i64 152
   %313 = load ptr, ptr %312, align 8
   %.not.i.i.i.i65.i63 = icmp eq ptr %313, null
@@ -1987,7 +1987,7 @@ _ZL21fastNlMeansDenoising_Ihij7DistAbsEvRKN2cv3MatERS2_RKSt6vectorIfSaIfEEii.exi
           to label %345 unwind label %348
 
 345:                                              ; preds = %.noexc98
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerItlm7DistAbsiE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerItlm7DistAbsiE, i64 16), ptr %8, align 8
   %346 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %347 = load ptr, ptr %346, align 8
   %.not.i.i.i.i.i95 = icmp eq ptr %347, null
@@ -2018,7 +2018,7 @@ _ZL21fastNlMeansDenoising_Ihij7DistAbsEvRKN2cv3MatERS2_RKSt6vectorIfSaIfEEii.exi
           to label %357 unwind label %360
 
 357:                                              ; preds = %.noexc99
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsiE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsiE, i64 16), ptr %10, align 8
   %358 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %359 = load ptr, ptr %358, align 8
   %.not.i.i.i.i60.i94 = icmp eq ptr %359, null
@@ -2043,7 +2043,7 @@ _ZL21fastNlMeansDenoising_Ihij7DistAbsEvRKN2cv3MatERS2_RKSt6vectorIfSaIfEEii.exi
           to label %365 unwind label %368
 
 365:                                              ; preds = %.noexc100
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsNS1_IiLi2EEEE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsNS1_IiLi2EEEE, i64 16), ptr %12, align 8
   %366 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %367 = load ptr, ptr %366, align 8
   %.not.i.i.i.i61.i93 = icmp eq ptr %367, null
@@ -2074,7 +2074,7 @@ _ZL21fastNlMeansDenoising_Ihij7DistAbsEvRKN2cv3MatERS2_RKSt6vectorIfSaIfEEii.exi
           to label %377 unwind label %380
 
 377:                                              ; preds = %.noexc101
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsiE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsiE, i64 16), ptr %14, align 8
   %378 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %379 = load ptr, ptr %378, align 8
   %.not.i.i.i.i62.i92 = icmp eq ptr %379, null
@@ -2099,7 +2099,7 @@ _ZL21fastNlMeansDenoising_Ihij7DistAbsEvRKN2cv3MatERS2_RKSt6vectorIfSaIfEEii.exi
           to label %385 unwind label %388
 
 385:                                              ; preds = %.noexc102
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsNS1_IiLi3EEEE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsNS1_IiLi3EEEE, i64 16), ptr %16, align 8
   %386 = getelementptr inbounds nuw i8, ptr %16, i64 152
   %387 = load ptr, ptr %386, align 8
   %.not.i.i.i.i63.i91 = icmp eq ptr %387, null
@@ -2130,7 +2130,7 @@ _ZL21fastNlMeansDenoising_Ihij7DistAbsEvRKN2cv3MatERS2_RKSt6vectorIfSaIfEEii.exi
           to label %397 unwind label %400
 
 397:                                              ; preds = %.noexc103
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsiE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsiE, i64 16), ptr %18, align 8
   %398 = getelementptr inbounds nuw i8, ptr %18, i64 152
   %399 = load ptr, ptr %398, align 8
   %.not.i.i.i.i64.i90 = icmp eq ptr %399, null
@@ -2155,7 +2155,7 @@ _ZL21fastNlMeansDenoising_Ihij7DistAbsEvRKN2cv3MatERS2_RKSt6vectorIfSaIfEEii.exi
           to label %405 unwind label %408
 
 405:                                              ; preds = %.noexc104
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsNS1_IiLi4EEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsNS1_IiLi4EEEE, i64 16), ptr %20, align 8
   %406 = getelementptr inbounds nuw i8, ptr %20, i64 152
   %407 = load ptr, ptr %406, align 8
   %.not.i.i.i.i65.i86 = icmp eq ptr %407, null
@@ -3057,7 +3057,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %107, %110
           to label %133 unwind label %144
 
 133:                                              ; preds = %.noexc52
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIhij11DistSquarediE, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIhij11DistSquarediE, i64 16), ptr %42, align 8
   %134 = getelementptr inbounds nuw i8, ptr %42, i64 184
   %135 = load ptr, ptr %134, align 8
   %.not.i.i.i.i.i = icmp eq ptr %135, null
@@ -3118,7 +3118,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyI
           to label %153 unwind label %164
 
 153:                                              ; preds = %.noexc53
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquarediE, i64 16), ptr %44, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquarediE, i64 16), ptr %44, align 8
   %154 = getelementptr inbounds nuw i8, ptr %44, i64 184
   %155 = load ptr, ptr %154, align 8
   %.not.i.i.i.i74.i = icmp eq ptr %155, null
@@ -3173,7 +3173,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i82.i: ; preds = %_ZSt8_Destro
           to label %169 unwind label %180
 
 169:                                              ; preds = %.noexc54
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquaredNS1_IiLi2EEEE, i64 16), ptr %46, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquaredNS1_IiLi2EEEE, i64 16), ptr %46, align 8
   %170 = getelementptr inbounds nuw i8, ptr %46, i64 184
   %171 = load ptr, ptr %170, align 8
   %.not.i.i.i.i84.i = icmp eq ptr %171, null
@@ -3234,7 +3234,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i91.i: ; preds = %_ZSt8_Destro
           to label %189 unwind label %200
 
 189:                                              ; preds = %.noexc55
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquarediE, i64 16), ptr %48, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquarediE, i64 16), ptr %48, align 8
   %190 = getelementptr inbounds nuw i8, ptr %48, i64 184
   %191 = load ptr, ptr %190, align 8
   %.not.i.i.i.i93.i = icmp eq ptr %191, null
@@ -3289,7 +3289,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i101.i: ; preds = %_ZSt8_Destr
           to label %205 unwind label %216
 
 205:                                              ; preds = %.noexc56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquaredNS1_IiLi3EEEE, i64 16), ptr %50, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquaredNS1_IiLi3EEEE, i64 16), ptr %50, align 8
   %206 = getelementptr inbounds nuw i8, ptr %50, i64 184
   %207 = load ptr, ptr %206, align 8
   %.not.i.i.i.i103.i = icmp eq ptr %207, null
@@ -3350,7 +3350,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i110.i: ; preds = %_ZSt8_Destr
           to label %225 unwind label %236
 
 225:                                              ; preds = %.noexc57
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquarediE, i64 16), ptr %52, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquarediE, i64 16), ptr %52, align 8
   %226 = getelementptr inbounds nuw i8, ptr %52, i64 184
   %227 = load ptr, ptr %226, align 8
   %.not.i.i.i.i112.i = icmp eq ptr %227, null
@@ -3405,7 +3405,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i120.i: ; preds = %_ZSt8_Destr
           to label %241 unwind label %252
 
 241:                                              ; preds = %.noexc58
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquaredNS1_IiLi4EEEE, i64 16), ptr %54, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquaredNS1_IiLi4EEEE, i64 16), ptr %54, align 8
   %242 = getelementptr inbounds nuw i8, ptr %54, i64 184
   %243 = load ptr, ptr %242, align 8
   %.not.i.i.i.i122.i = icmp eq ptr %243, null
@@ -3599,7 +3599,7 @@ _ZL26fastNlMeansDenoisingMulti_Ihij11DistSquaredEvRKSt6vectorIN2cv3MatESaIS3_EER
           to label %294 unwind label %305
 
 294:                                              ; preds = %.noexc136
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIhij7DistAbsiE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIhij7DistAbsiE, i64 16), ptr %26, align 8
   %295 = getelementptr inbounds nuw i8, ptr %26, i64 184
   %296 = load ptr, ptr %295, align 8
   %.not.i.i.i.i.i124 = icmp eq ptr %296, null
@@ -3660,7 +3660,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i.i132: ; preds = %_ZSt8_Destr
           to label %314 unwind label %325
 
 314:                                              ; preds = %.noexc137
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsiE, i64 16), ptr %28, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsiE, i64 16), ptr %28, align 8
   %315 = getelementptr inbounds nuw i8, ptr %28, i64 184
   %316 = load ptr, ptr %315, align 8
   %.not.i.i.i.i74.i114 = icmp eq ptr %316, null
@@ -3715,7 +3715,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i82.i122: ; preds = %_ZSt8_Des
           to label %330 unwind label %341
 
 330:                                              ; preds = %.noexc138
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsNS1_IiLi2EEEE, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsNS1_IiLi2EEEE, i64 16), ptr %30, align 8
   %331 = getelementptr inbounds nuw i8, ptr %30, i64 184
   %332 = load ptr, ptr %331, align 8
   %.not.i.i.i.i84.i104 = icmp eq ptr %332, null
@@ -3776,7 +3776,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i91.i112: ; preds = %_ZSt8_Des
           to label %350 unwind label %361
 
 350:                                              ; preds = %.noexc139
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsiE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsiE, i64 16), ptr %32, align 8
   %351 = getelementptr inbounds nuw i8, ptr %32, i64 184
   %352 = load ptr, ptr %351, align 8
   %.not.i.i.i.i93.i94 = icmp eq ptr %352, null
@@ -3831,7 +3831,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i101.i102: ; preds = %_ZSt8_De
           to label %366 unwind label %377
 
 366:                                              ; preds = %.noexc140
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsNS1_IiLi3EEEE, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsNS1_IiLi3EEEE, i64 16), ptr %34, align 8
   %367 = getelementptr inbounds nuw i8, ptr %34, i64 184
   %368 = load ptr, ptr %367, align 8
   %.not.i.i.i.i103.i84 = icmp eq ptr %368, null
@@ -3892,7 +3892,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i110.i92: ; preds = %_ZSt8_Des
           to label %386 unwind label %397
 
 386:                                              ; preds = %.noexc141
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsiE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsiE, i64 16), ptr %36, align 8
   %387 = getelementptr inbounds nuw i8, ptr %36, i64 184
   %388 = load ptr, ptr %387, align 8
   %.not.i.i.i.i112.i74 = icmp eq ptr %388, null
@@ -3947,7 +3947,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i120.i82: ; preds = %_ZSt8_Des
           to label %402 unwind label %413
 
 402:                                              ; preds = %.noexc142
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsNS1_IiLi4EEEE, i64 16), ptr %38, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsNS1_IiLi4EEEE, i64 16), ptr %38, align 8
   %403 = getelementptr inbounds nuw i8, ptr %38, i64 184
   %404 = load ptr, ptr %403, align 8
   %.not.i.i.i.i122.i61 = icmp eq ptr %404, null
@@ -4102,7 +4102,7 @@ _ZL26fastNlMeansDenoisingMulti_Ihij7DistAbsEvRKSt6vectorIN2cv3MatESaIS3_EERS3_ii
           to label %444 unwind label %455
 
 444:                                              ; preds = %.noexc222
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIhlm7DistAbsiE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIhlm7DistAbsiE, i64 16), ptr %10, align 8
   %445 = getelementptr inbounds nuw i8, ptr %10, i64 184
   %446 = load ptr, ptr %445, align 8
   %.not.i.i.i.i.i210 = icmp eq ptr %446, null
@@ -4163,7 +4163,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i.i218: ; preds = %_ZSt8_Destr
           to label %464 unwind label %475
 
 464:                                              ; preds = %.noexc223
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsiE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsiE, i64 16), ptr %12, align 8
   %465 = getelementptr inbounds nuw i8, ptr %12, i64 184
   %466 = load ptr, ptr %465, align 8
   %.not.i.i.i.i74.i200 = icmp eq ptr %466, null
@@ -4218,7 +4218,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i82.i208: ; preds = %_ZSt8_Des
           to label %480 unwind label %491
 
 480:                                              ; preds = %.noexc224
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsNS1_IiLi2EEEE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsNS1_IiLi2EEEE, i64 16), ptr %14, align 8
   %481 = getelementptr inbounds nuw i8, ptr %14, i64 184
   %482 = load ptr, ptr %481, align 8
   %.not.i.i.i.i84.i190 = icmp eq ptr %482, null
@@ -4279,7 +4279,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i91.i198: ; preds = %_ZSt8_Des
           to label %500 unwind label %511
 
 500:                                              ; preds = %.noexc225
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsiE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsiE, i64 16), ptr %16, align 8
   %501 = getelementptr inbounds nuw i8, ptr %16, i64 184
   %502 = load ptr, ptr %501, align 8
   %.not.i.i.i.i93.i180 = icmp eq ptr %502, null
@@ -4334,7 +4334,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i101.i188: ; preds = %_ZSt8_De
           to label %516 unwind label %527
 
 516:                                              ; preds = %.noexc226
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsNS1_IiLi3EEEE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsNS1_IiLi3EEEE, i64 16), ptr %18, align 8
   %517 = getelementptr inbounds nuw i8, ptr %18, i64 184
   %518 = load ptr, ptr %517, align 8
   %.not.i.i.i.i103.i170 = icmp eq ptr %518, null
@@ -4395,7 +4395,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i110.i178: ; preds = %_ZSt8_De
           to label %536 unwind label %547
 
 536:                                              ; preds = %.noexc227
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsiE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsiE, i64 16), ptr %20, align 8
   %537 = getelementptr inbounds nuw i8, ptr %20, i64 184
   %538 = load ptr, ptr %537, align 8
   %.not.i.i.i.i112.i160 = icmp eq ptr %538, null
@@ -4450,7 +4450,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i120.i168: ; preds = %_ZSt8_De
           to label %552 unwind label %563
 
 552:                                              ; preds = %.noexc228
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsNS1_IiLi4EEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsNS1_IiLi4EEEE, i64 16), ptr %22, align 8
   %553 = getelementptr inbounds nuw i8, ptr %22, i64 184
   %554 = load ptr, ptr %553, align 8
   %.not.i.i.i.i122.i147 = icmp eq ptr %554, null
@@ -5658,7 +5658,7 @@ define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIhij11DistSquar
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::allocator.0", align 1
   %14 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIhij11DistSquarediE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIhij11DistSquarediE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5939,7 +5939,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %143, %145
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIhij11DistSquarediED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIhij11DistSquarediE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIhij11DistSquarediE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -5966,7 +5966,7 @@ define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2E
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::allocator.0", align 1
   %14 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquarediE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquarediE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6248,7 +6248,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %144, %146
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquarediED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquarediE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquarediE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -6277,7 +6277,7 @@ define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2E
   %.sroa.0 = alloca i32, align 4
   %.sroa.3 = alloca i32, align 4
   %14 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquaredNS1_IiLi2EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquaredNS1_IiLi2EEEE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6553,7 +6553,7 @@ _ZNSt6vectorIN2cv3VecIiLi2EEESaIS2_EED2Ev.exit:   ; preds = %132, %134
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquaredNS1_IiLi2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquaredNS1_IiLi2EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquaredNS1_IiLi2EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -6580,7 +6580,7 @@ define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3E
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::allocator.0", align 1
   %14 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquarediE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquarediE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6862,7 +6862,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %144, %146
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquarediED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquarediE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquarediE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -6890,7 +6890,7 @@ define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3E
   %13 = alloca %"class.std::allocator.0", align 1
   %14 = alloca %"class.cv::Vec.40", align 4
   %15 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquaredNS1_IiLi3EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquaredNS1_IiLi3EEEE, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7187,7 +7187,7 @@ _ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EED2Ev.exit:   ; preds = %148, %150
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquaredNS1_IiLi3EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquaredNS1_IiLi3EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquaredNS1_IiLi3EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -7214,7 +7214,7 @@ define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4E
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::allocator.0", align 1
   %14 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquarediE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquarediE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7496,7 +7496,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %144, %146
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquarediED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquarediE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquarediE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -7524,7 +7524,7 @@ define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4E
   %13 = alloca %"class.std::allocator.0", align 1
   %14 = alloca %"class.cv::Vec.44", align 4
   %15 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquaredNS1_IiLi4EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquaredNS1_IiLi4EEEE, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7821,7 +7821,7 @@ _ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit:   ; preds = %148, %150
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquaredNS1_IiLi4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquaredNS1_IiLi4EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquaredNS1_IiLi4EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -7847,7 +7847,7 @@ declare void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIhij11DistSquarediED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIhij11DistSquarediE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIhij11DistSquarediE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -8612,7 +8612,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquarediED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquarediE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquarediE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -9596,7 +9596,7 @@ _ZNSt6vectorIN2cv3VecIiLi2EEESaIS2_EE17_M_default_appendEm.exit: ; preds = %44, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquaredNS1_IiLi2EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquaredNS1_IiLi2EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquaredNS1_IiLi2EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -10501,7 +10501,7 @@ _ZN2cv7Array2dIiED2Ev.exit59:                     ; preds = %_ZN2cv7Array2dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquarediED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquarediE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquarediE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -11464,7 +11464,7 @@ _ZN2cv7Array2dIiED2Ev.exit59:                     ; preds = %_ZN2cv7Array2dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquaredNS1_IiLi3EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquaredNS1_IiLi3EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquaredNS1_IiLi3EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -12557,7 +12557,7 @@ _ZN2cv7Array2dIiED2Ev.exit59:                     ; preds = %_ZN2cv7Array2dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquarediED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquarediE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquarediE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -13565,7 +13565,7 @@ _ZN2cv7Array2dIiED2Ev.exit59:                     ; preds = %_ZN2cv7Array2dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquaredNS1_IiLi4EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquaredNS1_IiLi4EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquaredNS1_IiLi4EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -14718,7 +14718,7 @@ define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIhij7DistAbsiEC
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::allocator.0", align 1
   %14 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIhij7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIhij7DistAbsiE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15000,7 +15000,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %144, %146
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIhij7DistAbsiED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIhij7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIhij7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -15027,7 +15027,7 @@ define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2E
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::allocator.0", align 1
   %14 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsiE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15310,7 +15310,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %145, %147
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsiED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -15339,7 +15339,7 @@ define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2E
   %.sroa.0 = alloca i32, align 4
   %.sroa.3 = alloca i32, align 4
   %14 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsNS1_IiLi2EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsNS1_IiLi2EEEE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15616,7 +15616,7 @@ _ZNSt6vectorIN2cv3VecIiLi2EEESaIS2_EED2Ev.exit:   ; preds = %133, %135
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsNS1_IiLi2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsNS1_IiLi2EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsNS1_IiLi2EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -15643,7 +15643,7 @@ define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3E
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::allocator.0", align 1
   %14 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsiE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15926,7 +15926,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %145, %147
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsiED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -15954,7 +15954,7 @@ define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3E
   %13 = alloca %"class.std::allocator.0", align 1
   %14 = alloca %"class.cv::Vec.40", align 4
   %15 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsNS1_IiLi3EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsNS1_IiLi3EEEE, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -16252,7 +16252,7 @@ _ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EED2Ev.exit:   ; preds = %149, %151
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsNS1_IiLi3EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsNS1_IiLi3EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsNS1_IiLi3EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -16279,7 +16279,7 @@ define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4E
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::allocator.0", align 1
   %14 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsiE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -16562,7 +16562,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %145, %147
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsiED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -16590,7 +16590,7 @@ define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4E
   %13 = alloca %"class.std::allocator.0", align 1
   %14 = alloca %"class.cv::Vec.44", align 4
   %15 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsNS1_IiLi4EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsNS1_IiLi4EEEE, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -16888,7 +16888,7 @@ _ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit:   ; preds = %149, %151
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsNS1_IiLi4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsNS1_IiLi4EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsNS1_IiLi4EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -16907,7 +16907,7 @@ _ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit:   ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIhij7DistAbsiED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIhij7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIhij7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -17562,7 +17562,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsiED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -18445,7 +18445,7 @@ _ZN2cv7Array2dIiED2Ev.exit59:                     ; preds = %_ZN2cv7Array2dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsNS1_IiLi2EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsNS1_IiLi2EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsNS1_IiLi2EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -19350,7 +19350,7 @@ _ZN2cv7Array2dIiED2Ev.exit59:                     ; preds = %_ZN2cv7Array2dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsiED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -20313,7 +20313,7 @@ _ZN2cv7Array2dIiED2Ev.exit59:                     ; preds = %_ZN2cv7Array2dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsNS1_IiLi3EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsNS1_IiLi3EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsNS1_IiLi3EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -21312,7 +21312,7 @@ _ZN2cv7Array2dIiED2Ev.exit59:                     ; preds = %_ZN2cv7Array2dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsiED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -22320,7 +22320,7 @@ _ZN2cv7Array2dIiED2Ev.exit59:                     ; preds = %_ZN2cv7Array2dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsNS1_IiLi4EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsNS1_IiLi4EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsNS1_IiLi4EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -23379,7 +23379,7 @@ define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerItlm7DistAbsiEC
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::allocator.0", align 1
   %14 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerItlm7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerItlm7DistAbsiE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -23664,7 +23664,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %146, %148
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerItlm7DistAbsiED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerItlm7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerItlm7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -23691,7 +23691,7 @@ define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecItLi2E
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::allocator.0", align 1
   %14 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsiE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -23977,7 +23977,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %147, %149
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsiED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -24006,7 +24006,7 @@ define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecItLi2E
   %.sroa.0 = alloca i32, align 4
   %.sroa.3 = alloca i32, align 4
   %14 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsNS1_IiLi2EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsNS1_IiLi2EEEE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -24286,7 +24286,7 @@ _ZNSt6vectorIN2cv3VecIiLi2EEESaIS2_EED2Ev.exit:   ; preds = %135, %137
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsNS1_IiLi2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsNS1_IiLi2EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsNS1_IiLi2EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -24313,7 +24313,7 @@ define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecItLi3E
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::allocator.0", align 1
   %14 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsiE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -24599,7 +24599,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %147, %149
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsiED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -24627,7 +24627,7 @@ define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecItLi3E
   %13 = alloca %"class.std::allocator.0", align 1
   %14 = alloca %"class.cv::Vec.40", align 4
   %15 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsNS1_IiLi3EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsNS1_IiLi3EEEE, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -24928,7 +24928,7 @@ _ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EED2Ev.exit:   ; preds = %151, %153
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsNS1_IiLi3EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsNS1_IiLi3EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsNS1_IiLi3EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -24955,7 +24955,7 @@ define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecItLi4E
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::allocator.0", align 1
   %14 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsiE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -25241,7 +25241,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %147, %149
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsiED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -25269,7 +25269,7 @@ define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecItLi4E
   %13 = alloca %"class.std::allocator.0", align 1
   %14 = alloca %"class.cv::Vec.44", align 4
   %15 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsNS1_IiLi4EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsNS1_IiLi4EEEE, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -25570,7 +25570,7 @@ _ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit:   ; preds = %151, %153
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsNS1_IiLi4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsNS1_IiLi4EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsNS1_IiLi4EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -25589,7 +25589,7 @@ _ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit:   ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerItlm7DistAbsiED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerItlm7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerItlm7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -26242,7 +26242,7 @@ _ZN2cv7Array2dIiED2Ev.exit120:                    ; preds = %131, %_ZN2cv7Array3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsiED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -27126,7 +27126,7 @@ _ZN2cv7Array2dIiED2Ev.exit59:                     ; preds = %_ZN2cv7Array2dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsNS1_IiLi2EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsNS1_IiLi2EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsNS1_IiLi2EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -28033,7 +28033,7 @@ _ZN2cv7Array2dIiED2Ev.exit59:                     ; preds = %_ZN2cv7Array2dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsiED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -28995,7 +28995,7 @@ _ZN2cv7Array2dIiED2Ev.exit59:                     ; preds = %_ZN2cv7Array2dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsNS1_IiLi3EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsNS1_IiLi3EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsNS1_IiLi3EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -29995,7 +29995,7 @@ _ZN2cv7Array2dIiED2Ev.exit59:                     ; preds = %_ZN2cv7Array2dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsiED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -31004,7 +31004,7 @@ _ZN2cv7Array2dIiED2Ev.exit59:                     ; preds = %_ZN2cv7Array2dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27FastNlMeansDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsNS1_IiLi4EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsNS1_IiLi4EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27FastNlMeansDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsNS1_IiLi4EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -32067,7 +32067,7 @@ define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIhij11Dist
   %14 = alloca %"class.cv::_OutputArray", align 8
   %15 = alloca %"class.cv::Scalar_", align 8
   %16 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIhij11DistSquarediE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIhij11DistSquarediE, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -32465,7 +32465,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %200, %202
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIhij11DistSquarediED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIhij11DistSquarediE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIhij11DistSquarediE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -32520,7 +32520,7 @@ define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecI
   %14 = alloca %"class.cv::_OutputArray", align 8
   %15 = alloca %"class.cv::Scalar_", align 8
   %16 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquarediE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquarediE, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -32919,7 +32919,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %201, %203
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquarediED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquarediE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquarediE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -32976,7 +32976,7 @@ define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecI
   %.sroa.0 = alloca i32, align 4
   %.sroa.3 = alloca i32, align 4
   %16 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquaredNS1_IiLi2EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquaredNS1_IiLi2EEEE, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -33369,7 +33369,7 @@ _ZNSt6vectorIN2cv3VecIiLi2EEESaIS2_EED2Ev.exit:   ; preds = %189, %191
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquaredNS1_IiLi2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquaredNS1_IiLi2EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquaredNS1_IiLi2EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -33424,7 +33424,7 @@ define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecI
   %14 = alloca %"class.cv::_OutputArray", align 8
   %15 = alloca %"class.cv::Scalar_", align 8
   %16 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquarediE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquarediE, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -33823,7 +33823,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %201, %203
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquarediED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquarediE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquarediE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -33879,7 +33879,7 @@ define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecI
   %15 = alloca %"class.cv::Scalar_", align 8
   %16 = alloca %"class.cv::Vec.40", align 4
   %17 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquaredNS1_IiLi3EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquaredNS1_IiLi3EEEE, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -34293,7 +34293,7 @@ _ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EED2Ev.exit:   ; preds = %205, %207
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquaredNS1_IiLi3EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquaredNS1_IiLi3EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquaredNS1_IiLi3EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -34348,7 +34348,7 @@ define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecI
   %14 = alloca %"class.cv::_OutputArray", align 8
   %15 = alloca %"class.cv::Scalar_", align 8
   %16 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquarediE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquarediE, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -34747,7 +34747,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %201, %203
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquarediED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquarediE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquarediE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -34803,7 +34803,7 @@ define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecI
   %15 = alloca %"class.cv::Scalar_", align 8
   %16 = alloca %"class.cv::Vec.44", align 4
   %17 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquaredNS1_IiLi4EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquaredNS1_IiLi4EEEE, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -35217,7 +35217,7 @@ _ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit:   ; preds = %205, %207
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquaredNS1_IiLi4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquaredNS1_IiLi4EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquaredNS1_IiLi4EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -35266,7 +35266,7 @@ declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIhij11DistSquarediED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIhij11DistSquarediE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIhij11DistSquarediE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -36386,7 +36386,7 @@ _ZN2cv7Array3dIiED2Ev.exit97:                     ; preds = %_ZN2cv7Array3dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquarediED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquarediE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquarediE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -37558,7 +37558,7 @@ _ZN2cv7Array3dIiED2Ev.exit97:                     ; preds = %_ZN2cv7Array3dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquaredNS1_IiLi2EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquaredNS1_IiLi2EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij11DistSquaredNS1_IiLi2EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -38730,7 +38730,7 @@ _ZN2cv7Array3dIiED2Ev.exit97:                     ; preds = %_ZN2cv7Array3dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquarediED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquarediE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquarediE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -39982,7 +39982,7 @@ _ZN2cv7Array3dIiED2Ev.exit101:                    ; preds = %_ZN2cv7Array3dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquaredNS1_IiLi3EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquaredNS1_IiLi3EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij11DistSquaredNS1_IiLi3EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -41258,7 +41258,7 @@ _ZN2cv7Array3dIiED2Ev.exit101:                    ; preds = %_ZN2cv7Array3dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquarediED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquarediE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquarediE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -42558,7 +42558,7 @@ _ZN2cv7Array3dIiED2Ev.exit101:                    ; preds = %_ZN2cv7Array3dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquaredNS1_IiLi4EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquaredNS1_IiLi4EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij11DistSquaredNS1_IiLi4EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -43898,7 +43898,7 @@ define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIhij7DistA
   %14 = alloca %"class.cv::_OutputArray", align 8
   %15 = alloca %"class.cv::Scalar_", align 8
   %16 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIhij7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIhij7DistAbsiE, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -44297,7 +44297,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %201, %203
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIhij7DistAbsiED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIhij7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIhij7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -44352,7 +44352,7 @@ define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecI
   %14 = alloca %"class.cv::_OutputArray", align 8
   %15 = alloca %"class.cv::Scalar_", align 8
   %16 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsiE, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -44752,7 +44752,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %202, %204
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsiED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -44809,7 +44809,7 @@ define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecI
   %.sroa.0 = alloca i32, align 4
   %.sroa.3 = alloca i32, align 4
   %16 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsNS1_IiLi2EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsNS1_IiLi2EEEE, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -45203,7 +45203,7 @@ _ZNSt6vectorIN2cv3VecIiLi2EEESaIS2_EED2Ev.exit:   ; preds = %190, %192
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsNS1_IiLi2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsNS1_IiLi2EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsNS1_IiLi2EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -45258,7 +45258,7 @@ define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecI
   %14 = alloca %"class.cv::_OutputArray", align 8
   %15 = alloca %"class.cv::Scalar_", align 8
   %16 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsiE, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -45658,7 +45658,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %202, %204
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsiED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -45714,7 +45714,7 @@ define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecI
   %15 = alloca %"class.cv::Scalar_", align 8
   %16 = alloca %"class.cv::Vec.40", align 4
   %17 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsNS1_IiLi3EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsNS1_IiLi3EEEE, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -46129,7 +46129,7 @@ _ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EED2Ev.exit:   ; preds = %206, %208
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsNS1_IiLi3EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsNS1_IiLi3EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsNS1_IiLi3EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -46184,7 +46184,7 @@ define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecI
   %14 = alloca %"class.cv::_OutputArray", align 8
   %15 = alloca %"class.cv::Scalar_", align 8
   %16 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsiE, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -46584,7 +46584,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %202, %204
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsiED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -46640,7 +46640,7 @@ define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecI
   %15 = alloca %"class.cv::Scalar_", align 8
   %16 = alloca %"class.cv::Vec.44", align 4
   %17 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsNS1_IiLi4EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsNS1_IiLi4EEEE, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -47055,7 +47055,7 @@ _ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit:   ; preds = %206, %208
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsNS1_IiLi4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsNS1_IiLi4EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsNS1_IiLi4EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -47102,7 +47102,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIhij7DistAbsiED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIhij7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIhij7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -48222,7 +48222,7 @@ _ZN2cv7Array3dIiED2Ev.exit97:                     ; preds = %_ZN2cv7Array3dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsiED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -49394,7 +49394,7 @@ _ZN2cv7Array3dIiED2Ev.exit97:                     ; preds = %_ZN2cv7Array3dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsNS1_IiLi2EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsNS1_IiLi2EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi2EEEij7DistAbsNS1_IiLi2EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -50566,7 +50566,7 @@ _ZN2cv7Array3dIiED2Ev.exit97:                     ; preds = %_ZN2cv7Array3dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsiED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -51818,7 +51818,7 @@ _ZN2cv7Array3dIiED2Ev.exit101:                    ; preds = %_ZN2cv7Array3dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsNS1_IiLi3EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsNS1_IiLi3EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi3EEEij7DistAbsNS1_IiLi3EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -53094,7 +53094,7 @@ _ZN2cv7Array3dIiED2Ev.exit101:                    ; preds = %_ZN2cv7Array3dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsiED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -54394,7 +54394,7 @@ _ZN2cv7Array3dIiED2Ev.exit101:                    ; preds = %_ZN2cv7Array3dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsNS1_IiLi4EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsNS1_IiLi4EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecIhLi4EEEij7DistAbsNS1_IiLi4EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -55734,7 +55734,7 @@ define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIhlm7DistA
   %14 = alloca %"class.cv::_OutputArray", align 8
   %15 = alloca %"class.cv::Scalar_", align 8
   %16 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIhlm7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIhlm7DistAbsiE, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -56137,7 +56137,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %204, %206
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIhlm7DistAbsiED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIhlm7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIhlm7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -56192,7 +56192,7 @@ define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecI
   %14 = alloca %"class.cv::_OutputArray", align 8
   %15 = alloca %"class.cv::Scalar_", align 8
   %16 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsiE, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -56596,7 +56596,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %205, %207
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsiED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -56653,7 +56653,7 @@ define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecI
   %.sroa.0 = alloca i32, align 4
   %.sroa.3 = alloca i32, align 4
   %16 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsNS1_IiLi2EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsNS1_IiLi2EEEE, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -57051,7 +57051,7 @@ _ZNSt6vectorIN2cv3VecIiLi2EEESaIS2_EED2Ev.exit:   ; preds = %193, %195
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsNS1_IiLi2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsNS1_IiLi2EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsNS1_IiLi2EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -57106,7 +57106,7 @@ define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecI
   %14 = alloca %"class.cv::_OutputArray", align 8
   %15 = alloca %"class.cv::Scalar_", align 8
   %16 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsiE, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -57510,7 +57510,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %205, %207
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsiED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -57566,7 +57566,7 @@ define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecI
   %15 = alloca %"class.cv::Scalar_", align 8
   %16 = alloca %"class.cv::Vec.40", align 4
   %17 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsNS1_IiLi3EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsNS1_IiLi3EEEE, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -57985,7 +57985,7 @@ _ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EED2Ev.exit:   ; preds = %209, %211
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsNS1_IiLi3EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsNS1_IiLi3EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsNS1_IiLi3EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -58040,7 +58040,7 @@ define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecI
   %14 = alloca %"class.cv::_OutputArray", align 8
   %15 = alloca %"class.cv::Scalar_", align 8
   %16 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsiE, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -58444,7 +58444,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %205, %207
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsiED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -58500,7 +58500,7 @@ define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecI
   %15 = alloca %"class.cv::Scalar_", align 8
   %16 = alloca %"class.cv::Vec.44", align 4
   %17 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsNS1_IiLi4EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsNS1_IiLi4EEEE, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -58919,7 +58919,7 @@ _ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit:   ; preds = %209, %211
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsNS1_IiLi4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsNS1_IiLi4EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsNS1_IiLi4EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -58966,7 +58966,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIhlm7DistAbsiED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIhlm7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIhlm7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -60087,7 +60087,7 @@ _ZN2cv7Array3dIiED2Ev.exit97:                     ; preds = %_ZN2cv7Array3dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsiED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -61260,7 +61260,7 @@ _ZN2cv7Array3dIiED2Ev.exit97:                     ; preds = %_ZN2cv7Array3dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsNS1_IiLi2EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsNS1_IiLi2EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi2EEElm7DistAbsNS1_IiLi2EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -62434,7 +62434,7 @@ _ZN2cv7Array3dIiED2Ev.exit97:                     ; preds = %_ZN2cv7Array3dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsiED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -63686,7 +63686,7 @@ _ZN2cv7Array3dIiED2Ev.exit101:                    ; preds = %_ZN2cv7Array3dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsNS1_IiLi3EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsNS1_IiLi3EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi3EEElm7DistAbsNS1_IiLi3EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -64963,7 +64963,7 @@ _ZN2cv7Array3dIiED2Ev.exit101:                    ; preds = %_ZN2cv7Array3dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsiED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -66264,7 +66264,7 @@ _ZN2cv7Array3dIiED2Ev.exit101:                    ; preds = %_ZN2cv7Array3dIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsNS1_IiLi4EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsNS1_IiLi4EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32FastNlMeansMultiDenoisingInvokerIN2cv3VecItLi4EEElm7DistAbsNS1_IiLi4EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null

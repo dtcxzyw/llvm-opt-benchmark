@@ -529,7 +529,7 @@ define dso_local void @_ZN4llvm16X86LegalizerInfoC2ERKNS_12X86SubtargetERKNS_16X
   %352 = alloca [3 x i32], align 4
   %353 = alloca [2 x i32], align 4
   %354 = alloca [5 x %"class.llvm::LLT"], align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm13LegalizerInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm13LegalizerInfoE, i64 16), ptr %0, align 8
   br label %355
 
 355:                                              ; preds = %355, %3
@@ -548,7 +548,7 @@ define dso_local void @_ZN4llvm16X86LegalizerInfoC2ERKNS_12X86SubtargetERKNS_16X
 _ZN4llvm13LegalizerInfoC2Ev.exit:                 ; preds = %355
   %360 = getelementptr inbounds nuw i8, ptr %0, i64 41000
   tail call void @_ZN4llvm19LegacyLegalizerInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(80040) %360) #15
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm16X86LegalizerInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm16X86LegalizerInfoE, i64 16), ptr %0, align 8
   %361 = getelementptr inbounds nuw i8, ptr %0, i64 121040
   store ptr %1, ptr %361, align 8
   %362 = getelementptr inbounds nuw i8, ptr %1, i64 455
@@ -7282,7 +7282,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16X86LegalizerInfo17legalizeIntrin
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm16X86LegalizerInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(121048) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm13LegalizerInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm13LegalizerInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 41000
   tail call void @_ZN4llvm19LegacyLegalizerInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(80040) %2) #15
   br label %3
@@ -7348,7 +7348,7 @@ _ZN4llvm13LegalizerInfoD2Ev.exit:                 ; preds = %_ZN4llvm15LegalizeR
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm16X86LegalizerInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(121048) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm13LegalizerInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm13LegalizerInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 41000
   tail call void @_ZN4llvm19LegacyLegalizerInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(80040) %2) #15
   br label %3

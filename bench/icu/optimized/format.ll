@@ -64,7 +64,7 @@ entry:
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
 new.notnull:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513FieldPositionE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513FieldPositionE, i64 16), ptr %call, align 8
   %fField.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %fField2.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %fField2.i, align 8
@@ -91,7 +91,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_756FormatC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(322) initializes((0, 9), (165, 166)) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756FormatE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756FormatE, i64 16), ptr %this, align 8
   %actualLocale = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 0, ptr %actualLocale, align 8
   %validLocale = getelementptr inbounds nuw i8, ptr %this, i64 165
@@ -119,7 +119,7 @@ declare void @llvm.trap() #5
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6icu_756FormatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(322) initializes((0, 8)) %this, ptr noundef nonnull readonly align 8 dereferenceable(322) %that) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756FormatE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756FormatE, i64 16), ptr %this, align 8
   %cmp.not.i = icmp eq ptr %this, %that
   br i1 %cmp.not.i, label %_ZN6icu_756FormataSERKS0_.exit, label %if.then.i
 
@@ -167,7 +167,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513FieldPositionE, i64 16), ptr %pos, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513FieldPositionE, i64 16), ptr %pos, align 8
   %fField.i = getelementptr inbounds nuw i8, ptr %pos, i64 8
   store i32 -1, ptr %fField.i, align 8
   %fBeginIndex.i = getelementptr inbounds nuw i8, ptr %pos, i64 12
@@ -219,7 +219,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513ParsePositionE, i64 16), ptr %parsePosition, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513ParsePositionE, i64 16), ptr %parsePosition, align 8
   %index.i = getelementptr inbounds nuw i8, ptr %parsePosition, i64 8
   store i32 0, ptr %index.i, align 8
   %errorIndex.i = getelementptr inbounds nuw i8, ptr %parsePosition, i64 12

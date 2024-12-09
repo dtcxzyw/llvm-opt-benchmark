@@ -3802,7 +3802,7 @@ get_min_distance_line.exit.i.us.i:                ; preds = %708, %647
   store i64 %.sroa.0.sroa.0.0.insert.insert180.us.i, ptr %739, align 4
   store i8 %spec.select201.us.i, ptr %740, align 4
   %.sroa.19.0..sroa_idx174.us.i = getelementptr inbounds nuw i8, ptr %739, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.19.0..sroa_idx174.us.i, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds (i8, ptr @__const.sdf_generate_bounding_box.dist, i64 9), i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.19.0..sroa_idx174.us.i, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @__const.sdf_generate_bounding_box.dist, i64 9), i64 3, i1 false)
   br label %756
 
 751:                                              ; preds = %743
@@ -3830,7 +3830,7 @@ get_min_distance_line.exit.i.us.i:                ; preds = %708, %647
   store i64 %.sroa.0.sroa.0.0.insert.insert177.us.i, ptr %739, align 4
   store i8 %spec.select201.us.i, ptr %740, align 4
   %.sroa.19.0..sroa_idx.us.i = getelementptr inbounds nuw i8, ptr %739, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.19.0..sroa_idx.us.i, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds (i8, ptr @__const.sdf_generate_bounding_box.dist, i64 9), i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.19.0..sroa_idx.us.i, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @__const.sdf_generate_bounding_box.dist, i64 9), i64 3, i1 false)
   br label %756
 
 756:                                              ; preds = %755, %751, %750, %748, %732, %.lr.ph.split.us215.i

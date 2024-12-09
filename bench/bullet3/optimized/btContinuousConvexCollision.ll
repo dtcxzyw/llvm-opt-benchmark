@@ -63,7 +63,7 @@ $_ZTI16btPointCollector = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN27btContinuousConvexCollisionC2EPK13btConvexShapeS2_P22btVoronoiSimplexSolverP30btConvexPenetrationDepthSolver(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %this, ptr noundef %convexA, ptr noundef %convexB, ptr noundef %simplexSolver, ptr noundef %penetrationDepthSolver) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27btContinuousConvexCollision, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27btContinuousConvexCollision, i64 16), ptr %this, align 8
   %m_simplexSolver = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %simplexSolver, ptr %m_simplexSolver, align 8
   %m_penetrationDepthSolver = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -80,7 +80,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN27btContinuousConvexCollisionC2EPK13btConvexShapePK18btStaticPlaneShape(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %this, ptr noundef %convexA, ptr noundef %plane) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27btContinuousConvexCollision, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27btContinuousConvexCollision, i64 16), ptr %this, align 8
   %m_simplexSolver = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_convexA = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_simplexSolver, i8 0, i64 16, i1 false)
@@ -525,7 +525,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %cond.end
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16btPointCollector, i64 16), ptr %pointCollector1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16btPointCollector, i64 16), ptr %pointCollector1, align 8
   %m_distance.i = getelementptr inbounds nuw i8, ptr %pointCollector1, i64 40
   store float 0x43ABC16D60000000, ptr %m_distance.i, align 8
   %m_hasResult.i = getelementptr inbounds nuw i8, ptr %pointCollector1, i64 44
@@ -650,7 +650,7 @@ if.end77:                                         ; preds = %if.then65, %invoke.
   %vtable78 = load ptr, ptr %result, align 8
   %44 = load ptr, ptr %vtable78, align 8
   call void %44(ptr noundef nonnull align 8 dereferenceable(196) %result, float noundef %add46)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16btPointCollector, i64 16), ptr %pointCollector, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16btPointCollector, i64 16), ptr %pointCollector, align 8
   store float 0x43ABC16D60000000, ptr %m_distance.i111, align 8
   store i8 0, ptr %m_hasResult.i112, align 4
   call void @_ZN27btContinuousConvexCollision20computeClosestPointsERK11btTransformS2_R16btPointCollector(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 4 dereferenceable(64) %interpolatedTransA, ptr noundef nonnull align 4 dereferenceable(64) %interpolatedTransB, ptr noundef nonnull align 8 dereferenceable(45) %pointCollector)

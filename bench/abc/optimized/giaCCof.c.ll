@@ -39,10 +39,10 @@ define noalias noundef ptr @Ccf_ManStart(ptr noundef %0, i32 noundef %1, i32 nou
   store i32 %3, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %4, ptr %10, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) getelementptr inbounds (i8, ptr @Ccf_ManStart.Pars, i64 4), i8 0, i64 16, i1 false)
-  store i32 %4, ptr getelementptr inbounds (i8, ptr @Ccf_ManStart.Pars, i64 20), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @Ccf_ManStart.Pars, i64 4), i8 0, i64 16, i1 false)
+  store i32 %4, ptr getelementptr inbounds nuw (i8, ptr @Ccf_ManStart.Pars, i64 20), align 4
   store i32 %1, ptr @Ccf_ManStart.Pars, align 4
-  store i32 1, ptr getelementptr inbounds (i8, ptr @Ccf_ManStart.Pars, i64 8), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @Ccf_ManStart.Pars, i64 8), align 4
   %11 = tail call ptr @Gia_ManUnrollStart(ptr noundef %0, ptr noundef nonnull @Ccf_ManStart.Pars) #16
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %11, ptr %12, align 8
@@ -822,10 +822,10 @@ Abc_Clock.exit75:                                 ; preds = %Abc_Clock.exit, %24
   store i32 %3, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 20
   store i32 %4, ptr %32, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) getelementptr inbounds (i8, ptr @Ccf_ManStart.Pars, i64 4), i8 0, i64 16, i1 false)
-  store i32 %4, ptr getelementptr inbounds (i8, ptr @Ccf_ManStart.Pars, i64 20), align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @Ccf_ManStart.Pars, i64 4), i8 0, i64 16, i1 false)
+  store i32 %4, ptr getelementptr inbounds nuw (i8, ptr @Ccf_ManStart.Pars, i64 20), align 4
   store i32 %1, ptr @Ccf_ManStart.Pars, align 4
-  store i32 1, ptr getelementptr inbounds (i8, ptr @Ccf_ManStart.Pars, i64 8), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @Ccf_ManStart.Pars, i64 8), align 4
   %33 = call ptr @Gia_ManUnrollStart(ptr noundef %0, ptr noundef nonnull @Ccf_ManStart.Pars) #16
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store ptr %33, ptr %34, align 8

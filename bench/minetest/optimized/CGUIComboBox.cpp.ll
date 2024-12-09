@@ -676,7 +676,7 @@ entry:
   %ref.tmp = alloca %"class.irr::core::rect", align 16
   %ref.tmp46 = alloca %"class.irr::core::rect", align 16
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 408
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !3
   %DebugName.i = getelementptr inbounds nuw i8, ptr %this, i64 416
   store ptr null, ptr %DebugName.i, align 8, !tbaa !73
   %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %this, i64 424
@@ -685,10 +685,10 @@ entry:
   store i64 %rectangle.coerce0, ptr %agg.tmp87, align 8
   %agg.tmp.sroa.2.0.agg.tmp87.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp87, i64 8
   store i64 %rectangle.coerce1, ptr %agg.tmp.sroa.2.0.agg.tmp87.sroa_idx, align 8
-  call void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr3gui12CGUIComboBoxE, i64 16), i32 noundef 2, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp87)
+  call void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr3gui12CGUIComboBoxE, i64 16), i32 noundef 2, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp87)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp87)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui12CGUIComboBoxE, i64 24), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui12CGUIComboBoxE, i64 440), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr3gui12CGUIComboBoxE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr3gui12CGUIComboBoxE, i64 440), ptr %0, align 8, !tbaa !3
   %ListButton = getelementptr inbounds nuw i8, ptr %this, i64 312
   %SelectedText = getelementptr inbounds nuw i8, ptr %this, i64 320
   %is_sorted.i = getelementptr inbounds nuw i8, ptr %this, i64 368
@@ -3833,9 +3833,9 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr3gui12CGUIComboBoxD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui12CGUIComboBoxE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr3gui12CGUIComboBoxE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 408
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui12CGUIComboBoxE, i64 440), ptr %add.ptr.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr3gui12CGUIComboBoxE, i64 440), ptr %add.ptr.i, align 8, !tbaa !3
   %Items.i = getelementptr inbounds nuw i8, ptr %this, i64 344
   %0 = load ptr, ptr %Items.i, align 8, !tbaa !84
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 352
@@ -3880,16 +3880,16 @@ if.then.i.i.i.i.i:                                ; preds = %_ZSt8_DestroyIPN3ir
   br label %_ZN3irr3gui12CGUIComboBoxD2Ev.exit
 
 _ZN3irr3gui12CGUIComboBoxD2Ev.exit:               ; preds = %if.then.i.i.i.i.i, %_ZSt8_DestroyIPN3irr3gui12CGUIComboBox10SComboDataES3_EvT_S5_RSaIT0_E.exit.i.i.i
-  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr3gui12CGUIComboBoxE, i64 16)) #18
+  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr3gui12CGUIComboBoxE, i64 16)) #18
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr3gui12CGUIComboBoxD0Ev(ptr noundef nonnull align 8 dereferenceable(408) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui12CGUIComboBoxE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr3gui12CGUIComboBoxE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 408
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui12CGUIComboBoxE, i64 440), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr3gui12CGUIComboBoxE, i64 440), ptr %add.ptr.i.i, align 8, !tbaa !3
   %Items.i.i = getelementptr inbounds nuw i8, ptr %this, i64 344
   %0 = load ptr, ptr %Items.i.i, align 8, !tbaa !84
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 352
@@ -3934,7 +3934,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZSt8_DestroyIPN3ir
   br label %_ZN3irr3gui12CGUIComboBoxD1Ev.exit
 
 _ZN3irr3gui12CGUIComboBoxD1Ev.exit:               ; preds = %if.then.i.i.i.i.i.i, %_ZSt8_DestroyIPN3irr3gui12CGUIComboBox10SComboDataES3_EvT_S5_RSaIT0_E.exit.i.i.i.i
-  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr3gui12CGUIComboBoxE, i64 16)) #18
+  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr3gui12CGUIComboBoxE, i64 16)) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
@@ -3946,9 +3946,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui12CGUIComboBoxE, i64 24), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr3gui12CGUIComboBoxE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 408
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui12CGUIComboBoxE, i64 440), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr3gui12CGUIComboBoxE, i64 440), ptr %add.ptr.i.i, align 8, !tbaa !3
   %Items.i.i = getelementptr inbounds nuw i8, ptr %3, i64 344
   %4 = load ptr, ptr %Items.i.i, align 8, !tbaa !84
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 352
@@ -3993,7 +3993,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZSt8_DestroyIPN3ir
   br label %_ZN3irr3gui12CGUIComboBoxD1Ev.exit
 
 _ZN3irr3gui12CGUIComboBoxD1Ev.exit:               ; preds = %if.then.i.i.i.i.i.i, %_ZSt8_DestroyIPN3irr3gui12CGUIComboBox10SComboDataES3_EvT_S5_RSaIT0_E.exit.i.i.i.i
-  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr3gui12CGUIComboBoxE, i64 16)) #18
+  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr3gui12CGUIComboBoxE, i64 16)) #18
   ret void
 }
 
@@ -4004,9 +4004,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui12CGUIComboBoxE, i64 24), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr3gui12CGUIComboBoxE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 408
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui12CGUIComboBoxE, i64 440), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr3gui12CGUIComboBoxE, i64 440), ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %Items.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 344
   %4 = load ptr, ptr %Items.i.i.i, align 8, !tbaa !84
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 352
@@ -4051,7 +4051,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZSt8_DestroyIPN3ir
   br label %_ZN3irr3gui12CGUIComboBoxD0Ev.exit
 
 _ZN3irr3gui12CGUIComboBoxD0Ev.exit:               ; preds = %if.then.i.i.i.i.i.i.i, %_ZSt8_DestroyIPN3irr3gui12CGUIComboBox10SComboDataES3_EvT_S5_RSaIT0_E.exit.i.i.i.i.i
-  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr3gui12CGUIComboBoxE, i64 16)) #18
+  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr3gui12CGUIComboBoxE, i64 16)) #18
   tail call void @_ZdlPv(ptr noundef nonnull %3) #20
   ret void
 }
@@ -4059,7 +4059,7 @@ _ZN3irr3gui12CGUIComboBoxD0Ev.exit:               ; preds = %if.then.i.i.i.i.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef %vtt, i32 noundef %type, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %this, align 8, !tbaa !3
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
   %1 = getelementptr inbounds nuw i8, ptr %vtt, i64 8

@@ -32,7 +32,7 @@ define internal i32 @mca_pml_cm_component_open() #0 {
   br i1 %2, label %3, label %6
 
 3:                                                ; preds = %0
-  %4 = load volatile i64, ptr getelementptr inbounds (i8, ptr @ompi_mtl_base_framework, i64 136), align 8
+  %4 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_mtl_base_framework, i64 136), align 8
   %5 = icmp eq i64 %4, 0
   %spec.select = select i1 %5, i32 -16, i32 0
   br label %6
@@ -50,12 +50,12 @@ define internal i32 @mca_pml_cm_component_close() #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @mca_pml_cm_component_register() #0 {
-  store i32 4, ptr getelementptr inbounds (i8, ptr @ompi_pml_cm, i64 192), align 8
-  %1 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_pml_cm_component, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_pml_cm, i64 192)) #2
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @ompi_pml_cm, i64 196), align 4
-  %2 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_pml_cm_component, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_pml_cm, i64 196)) #2
-  store i32 64, ptr getelementptr inbounds (i8, ptr @ompi_pml_cm, i64 200), align 8
-  %3 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_pml_cm_component, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_pml_cm, i64 200)) #2
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @ompi_pml_cm, i64 192), align 8
+  %1 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_pml_cm_component, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_pml_cm, i64 192)) #2
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @ompi_pml_cm, i64 196), align 4
+  %2 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_pml_cm_component, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_pml_cm, i64 196)) #2
+  store i32 64, ptr getelementptr inbounds nuw (i8, ptr @ompi_pml_cm, i64 200), align 8
+  %3 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_pml_cm_component, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_pml_cm, i64 200)) #2
   ret i32 0
 }
 
@@ -84,9 +84,9 @@ define internal noundef ptr @mca_pml_cm_component_init(ptr noundef initializes((
   br i1 %.not6, label %17, label %14
 
 14:                                               ; preds = %9
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_pml_cm, i64 176), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_pml_cm, i64 176), align 8
   %16 = or i32 %15, 1
-  store i32 %16, ptr getelementptr inbounds (i8, ptr @ompi_pml_cm, i64 176), align 8
+  store i32 %16, ptr getelementptr inbounds nuw (i8, ptr @ompi_pml_cm, i64 176), align 8
   %.pre = load i32, ptr %11, align 8
   br label %17
 
@@ -97,17 +97,17 @@ define internal noundef ptr @mca_pml_cm_component_init(ptr noundef initializes((
   br i1 %.not7, label %23, label %20
 
 20:                                               ; preds = %17
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_pml_cm, i64 176), align 8
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_pml_cm, i64 176), align 8
   %22 = or i32 %21, 2
-  store i32 %22, ptr getelementptr inbounds (i8, ptr @ompi_pml_cm, i64 176), align 8
+  store i32 %22, ptr getelementptr inbounds nuw (i8, ptr @ompi_pml_cm, i64 176), align 8
   br label %23
 
 23:                                               ; preds = %20, %17
   %24 = load i32, ptr %10, align 8
-  store i32 %24, ptr getelementptr inbounds (i8, ptr @ompi_pml_cm, i64 168), align 8
+  store i32 %24, ptr getelementptr inbounds nuw (i8, ptr @ompi_pml_cm, i64 168), align 8
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %26 = load i32, ptr %25, align 4
-  store i32 %26, ptr getelementptr inbounds (i8, ptr @ompi_pml_cm, i64 172), align 4
+  store i32 %26, ptr getelementptr inbounds nuw (i8, ptr @ompi_pml_cm, i64 172), align 4
   br label %27
 
 27:                                               ; preds = %7, %23

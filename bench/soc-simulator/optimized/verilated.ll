@@ -1387,7 +1387,7 @@ define dso_local void @_ZN9Verilated17runFlushCallbacksEv() #0 align 2 personali
   unreachable
 
 _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %2, %7
-  %10 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZL10VlCbStatic, i64 40), ptr nonnull @.str.64, ptr nonnull @.str.121, i32 3043, ptr null)
+  %10 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds nuw (i8, ptr @_ZL10VlCbStatic, i64 40), ptr nonnull @.str.64, ptr nonnull @.str.121, i32 3043, ptr null)
   %.sroa.05.08.i = load ptr, ptr %10, align 8
   %11 = icmp eq ptr %.sroa.05.08.i, %10
   br i1 %11, label %_ZL12runCallbacksRKNSt7__cxx114listISt4pairIPFvPvES2_ESaIS5_EEE.exit, label %.lr.ph.i
@@ -1432,13 +1432,13 @@ define dso_local void @_ZN9Verilated16runExitCallbacksEv() #0 align 2 personalit
   br i1 %.not, label %2, label %21
 
 2:                                                ; preds = %0
-  %3 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
+  %3 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
   %.not.i.i.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i.i.i, label %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %2, %5
   %.03.i.i = phi i32 [ %6, %5 ], [ 0, %2 ]
-  %4 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
+  %4 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
   %.not.i.i2.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i2.i.i, label %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit, label %5
 
@@ -1449,7 +1449,7 @@ define dso_local void @_ZN9Verilated16runExitCallbacksEv() #0 align 2 personalit
   br i1 %exitcond.not.i.i, label %7, label %.preheader.i.i, !llvm.loop !7
 
 7:                                                ; preds = %5
-  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
+  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
   %.not.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i, label %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit, label %9
 
@@ -1458,7 +1458,7 @@ define dso_local void @_ZN9Verilated16runExitCallbacksEv() #0 align 2 personalit
   unreachable
 
 _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %2, %7
-  %10 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZL10VlCbStatic, i64 104), ptr nonnull @.str.64, ptr nonnull @.str.121, i32 3045, ptr null)
+  %10 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds nuw (i8, ptr @_ZL10VlCbStatic, i64 104), ptr nonnull @.str.64, ptr nonnull @.str.121, i32 3045, ptr null)
   %.sroa.05.08.i = load ptr, ptr %10, align 8
   %11 = icmp eq ptr %.sroa.05.08.i, %10
   br i1 %11, label %_ZL12runCallbacksRKNSt7__cxx114listISt4pairIPFvPvES2_ESaIS5_EEE.exit, label %.lr.ph.i
@@ -1478,13 +1478,13 @@ _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %2,
   br i1 %16, label %_ZL12runCallbacksRKNSt7__cxx114listISt4pairIPFvPvES2_ESaIS5_EEE.exit, label %.lr.ph.i
 
 _ZL12runCallbacksRKNSt7__cxx114listISt4pairIPFvPvES2_ESaIS5_EEE.exit: ; preds = %.noexc, %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit
-  %17 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
+  %17 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
   br label %21
 
 18:                                               ; preds = %.lr.ph.i
   %19 = landingpad { ptr, i32 }
           cleanup
-  %20 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
+  %20 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
   resume { ptr, i32 } %19
 
 21:                                               ; preds = %_ZL12runCallbacksRKNSt7__cxx114listISt4pairIPFvPvES2_ESaIS5_EEE.exit, %0
@@ -28187,7 +28187,7 @@ define internal void @_ZL10addCbFlushPFvPvES_(ptr noundef %0, ptr noundef %1) #0
   unreachable
 
 _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %2, %8
-  %11 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZL10VlCbStatic, i64 40), ptr nonnull @.str.64, ptr nonnull @.str.121, i32 3043, ptr null)
+  %11 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds nuw (i8, ptr @_ZL10VlCbStatic, i64 40), ptr nonnull @.str.64, ptr nonnull @.str.121, i32 3043, ptr null)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %3, ptr %12, align 8
@@ -28249,7 +28249,7 @@ _ZNSt7__cxx114listISt4pairIPFvPvES2_ESaIS5_EE6spliceESt20_List_const_iteratorIS5
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %._crit_edge.i, %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %37 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZL10VlCbStatic, i64 40), ptr nonnull @.str.64, ptr nonnull @.str.121, i32 3043, ptr null)
+  %37 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds nuw (i8, ptr @_ZL10VlCbStatic, i64 40), ptr nonnull @.str.64, ptr nonnull @.str.121, i32 3043, ptr null)
   %38 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #55
           to label %39 unwind label %45
 
@@ -28308,7 +28308,7 @@ define internal void @_ZL13removeCbFlushPFvPvES_(ptr noundef readnone %0, ptr no
   unreachable
 
 _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %2, %8
-  %11 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZL10VlCbStatic, i64 40), ptr nonnull @.str.64, ptr nonnull @.str.121, i32 3043, ptr null)
+  %11 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds nuw (i8, ptr @_ZL10VlCbStatic, i64 40), ptr nonnull @.str.64, ptr nonnull @.str.121, i32 3043, ptr null)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %3, ptr %12, align 8
@@ -28407,13 +28407,13 @@ define dso_local void @_ZN9Verilated9addExitCbEPFvPvES0_(ptr noundef %0, ptr nou
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL9addCbExitPFvPvES_(ptr noundef %0, ptr noundef %1) #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::list", align 8
-  %4 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
+  %4 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
   %.not.i.i.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i.i.i, label %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %2, %6
   %.03.i.i = phi i32 [ %7, %6 ], [ 0, %2 ]
-  %5 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
+  %5 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
   %.not.i.i2.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i2.i.i, label %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit, label %6
 
@@ -28424,7 +28424,7 @@ define internal void @_ZL9addCbExitPFvPvES_(ptr noundef %0, ptr noundef %1) #0 p
   br i1 %exitcond.not.i.i, label %8, label %.preheader.i.i, !llvm.loop !7
 
 8:                                                ; preds = %6
-  %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
+  %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
   %.not.i.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i.i, label %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit, label %10
 
@@ -28433,7 +28433,7 @@ define internal void @_ZL9addCbExitPFvPvES_(ptr noundef %0, ptr noundef %1) #0 p
   unreachable
 
 _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %2, %8
-  %11 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZL10VlCbStatic, i64 104), ptr nonnull @.str.64, ptr nonnull @.str.121, i32 3045, ptr null)
+  %11 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds nuw (i8, ptr @_ZL10VlCbStatic, i64 104), ptr nonnull @.str.64, ptr nonnull @.str.121, i32 3045, ptr null)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %3, ptr %12, align 8
@@ -28495,7 +28495,7 @@ _ZNSt7__cxx114listISt4pairIPFvPvES2_ESaIS5_EE6spliceESt20_List_const_iteratorIS5
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %._crit_edge.i, %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %37 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZL10VlCbStatic, i64 104), ptr nonnull @.str.64, ptr nonnull @.str.121, i32 3045, ptr null)
+  %37 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds nuw (i8, ptr @_ZL10VlCbStatic, i64 104), ptr nonnull @.str.64, ptr nonnull @.str.121, i32 3045, ptr null)
   %38 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #55
           to label %39 unwind label %45
 
@@ -28509,13 +28509,13 @@ _ZNSt7__cxx114listISt4pairIPFvPvES2_ESaIS5_EE6spliceESt20_List_const_iteratorIS5
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, 1
   store i64 %43, ptr %41, align 8
-  %44 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
+  %44 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
   ret void
 
 45:                                               ; preds = %.loopexit
   %46 = landingpad { ptr, i32 }
           cleanup
-  %47 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
+  %47 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
   resume { ptr, i32 } %46
 }
 
@@ -28528,13 +28528,13 @@ define dso_local void @_ZN9Verilated12removeExitCbEPFvPvES0_(ptr noundef %0, ptr
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL12removeCbExitPFvPvES_(ptr noundef readnone %0, ptr noundef readnone %1) #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::list", align 8
-  %4 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
+  %4 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
   %.not.i.i.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i.i.i, label %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %2, %6
   %.03.i.i = phi i32 [ %7, %6 ], [ 0, %2 ]
-  %5 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
+  %5 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
   %.not.i.i2.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i2.i.i, label %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit, label %6
 
@@ -28545,7 +28545,7 @@ define internal void @_ZL12removeCbExitPFvPvES_(ptr noundef readnone %0, ptr nou
   br i1 %exitcond.not.i.i, label %8, label %.preheader.i.i, !llvm.loop !7
 
 8:                                                ; preds = %6
-  %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
+  %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
   %.not.i.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i.i, label %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit, label %10
 
@@ -28554,7 +28554,7 @@ define internal void @_ZL12removeCbExitPFvPvES_(ptr noundef readnone %0, ptr nou
   unreachable
 
 _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %2, %8
-  %11 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZL10VlCbStatic, i64 104), ptr nonnull @.str.64, ptr nonnull @.str.121, i32 3045, ptr null)
+  %11 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds nuw (i8, ptr @_ZL10VlCbStatic, i64 104), ptr nonnull @.str.64, ptr nonnull @.str.121, i32 3045, ptr null)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %3, ptr %12, align 8
@@ -28616,7 +28616,7 @@ _ZNSt7__cxx114listISt4pairIPFvPvES2_ESaIS5_EE6spliceESt20_List_const_iteratorIS5
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %._crit_edge.i, %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %37 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
+  %37 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
   ret void
 }
 
@@ -29618,7 +29618,7 @@ _ZN12VerilatedMsgD2Ev.exit:                       ; preds = %_ZNK12VerilatedMsg3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN14VerilatedModelC2ER16VerilatedContext(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(608) %1) unnamed_addr #13 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV14VerilatedModel, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV14VerilatedModel, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
@@ -36885,14 +36885,14 @@ _ZNSt16allocator_traitsISaI14VerilatedRangeEE8allocateERS1_m.exit.i.i.i.i.i.i.i.
 ; Function Attrs: nofree nounwind uwtable
 define internal void @_GLOBAL__sub_I_verilated.cpp() #45 section ".text.startup" {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) @_ZL10VlCbStatic, i8 0, i64 40, i1 false)
-  %1 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZL10VlCbStatic, i64 40), ptr nonnull @.str.64, ptr nonnull @.str.121, i32 3043, ptr null)
+  %1 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds nuw (i8, ptr @_ZL10VlCbStatic, i64 40), ptr nonnull @.str.64, ptr nonnull @.str.121, i32 3043, ptr null)
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %1, ptr %2, align 8
   store ptr %1, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 0, ptr %3, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZL10VlCbStatic, i64 64), i8 0, i64 40, i1 false)
-  %4 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZL10VlCbStatic, i64 104), ptr nonnull @.str.64, ptr nonnull @.str.121, i32 3045, ptr null)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZL10VlCbStatic, i64 64), i8 0, i64 40, i1 false)
+  %4 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds nuw (i8, ptr @_ZL10VlCbStatic, i64 104), ptr nonnull @.str.64, ptr nonnull @.str.121, i32 3045, ptr null)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %4, ptr %5, align 8
   store ptr %4, ptr %4, align 8

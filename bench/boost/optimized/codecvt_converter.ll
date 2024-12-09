@@ -553,7 +553,7 @@ _ZN5boost6locale4util18is_simple_encodingERKNSt7__cxx1112basic_stringIcSt11char_
 
 29:                                               ; preds = %_ZN5boost6locale4util18is_simple_encodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %30 = call noalias noundef nonnull dereferenceable(2056) ptr @_Znwm(i64 noundef 2056) #21, !noalias !19
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6locale4util16simple_converterE, i64 16), ptr %30, align 8, !tbaa !22, !noalias !19
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6locale4util16simple_converterE, i64 16), ptr %30, align 8, !tbaa !22, !noalias !19
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   invoke void @_ZN5boost6locale4util21simple_converter_implC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 4 dereferenceable(2048) %31, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %_ZNSt10unique_ptrIN5boost6locale4util16simple_converterESt14default_deleteIS3_EED2Ev.exit unwind label %32, !noalias !19
@@ -574,7 +574,7 @@ _ZNSt10unique_ptrIN5boost6locale4util16simple_converterESt14default_deleteIS3_EE
 define void @_ZN5boost6locale4util21create_utf8_converterEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN5boost6locale4util14utf8_converterESt14default_deleteIS3_EED2Ev.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21, !noalias !26
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6locale4util14utf8_converterE, i64 16), ptr %1, align 8, !tbaa !22, !noalias !26
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6locale4util14utf8_converterE, i64 16), ptr %1, align 8, !tbaa !22, !noalias !26
   store ptr %1, ptr %0, align 8, !tbaa !24
   ret void
 }
@@ -594,7 +594,7 @@ _ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2
 define noalias noundef nonnull ptr @_ZN5boost6locale4util29create_utf8_converter_new_ptrEv() local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2Ev.exit:
   %0 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21, !noalias !29
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6locale4util14utf8_converterE, i64 16), ptr %0, align 8, !tbaa !22, !noalias !29
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6locale4util14utf8_converterE, i64 16), ptr %0, align 8, !tbaa !22, !noalias !29
   ret ptr %0
 }
 
@@ -606,7 +606,7 @@ define void @_ZN5boost6locale4util14create_codecvtERKSt6localeSt10unique_ptrINS1
 
 _ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EE5resetEPS3_.exit: ; preds = %4
   %6 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6locale4util14base_converterE, i64 16), ptr %6, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6locale4util14base_converterE, i64 16), ptr %6, align 8, !tbaa !22
   store ptr %6, ptr %2, align 8, !tbaa !15
   br label %7
 
@@ -638,7 +638,7 @@ _ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EE5r
           to label %16 unwind label %23, !noalias !34
 
 16:                                               ; preds = %15
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14code_converterIcLb1EEE, i64 16), ptr %14, align 8, !tbaa !22, !noalias !34
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14code_converterIcLb1EEE, i64 16), ptr %14, align 8, !tbaa !22, !noalias !34
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 %8, ptr %17, align 8, !tbaa !15, !noalias !34
   tail call void @_ZNSt6localeC2IN5boost6locale4util14code_converterIcLb1EEEEERKS_PT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %14)
@@ -649,7 +649,7 @@ _ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EE5r
           to label %19 unwind label %21, !noalias !34
 
 19:                                               ; preds = %18
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14code_converterIcLb0EEE, i64 16), ptr %14, align 8, !tbaa !22, !noalias !34
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14code_converterIcLb0EEE, i64 16), ptr %14, align 8, !tbaa !22, !noalias !34
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 %8, ptr %20, align 8, !tbaa !15, !noalias !34
   tail call void @_ZNSt6localeC2IN5boost6locale4util14code_converterIcLb0EEEEERKS_PT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %14)
@@ -703,7 +703,7 @@ _ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i11: ; 
           to label %37 unwind label %44, !noalias !37
 
 37:                                               ; preds = %36
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14code_converterIwLb1EEE, i64 16), ptr %35, align 8, !tbaa !22, !noalias !37
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14code_converterIwLb1EEE, i64 16), ptr %35, align 8, !tbaa !22, !noalias !37
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store i64 %8, ptr %38, align 8, !tbaa !15, !noalias !37
   tail call void @_ZNSt6localeC2IN5boost6locale4util14code_converterIwLb1EEEEERKS_PT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %35)
@@ -714,7 +714,7 @@ _ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i11: ; 
           to label %40 unwind label %42, !noalias !37
 
 40:                                               ; preds = %39
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14code_converterIwLb0EEE, i64 16), ptr %35, align 8, !tbaa !22, !noalias !37
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14code_converterIwLb0EEE, i64 16), ptr %35, align 8, !tbaa !22, !noalias !37
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store i64 %8, ptr %41, align 8, !tbaa !15, !noalias !37
   tail call void @_ZNSt6localeC2IN5boost6locale4util14code_converterIwLb0EEEEERKS_PT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %35)
@@ -782,7 +782,7 @@ define void @_ZN5boost6locale4util19create_utf8_codecvtERKSt6localeNS0_12char_fa
           to label %6 unwind label %7
 
 6:                                                ; preds = %4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale12utf8_codecvtIcEE, i64 16), ptr %5, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale12utf8_codecvtIcEE, i64 16), ptr %5, align 8, !tbaa !22
   tail call void @_ZNSt6localeC2IN5boost6locale12utf8_codecvtIcEEEERKS_PT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %5)
   br label %15
 
@@ -797,7 +797,7 @@ define void @_ZN5boost6locale4util19create_utf8_codecvtERKSt6localeNS0_12char_fa
           to label %11 unwind label %12
 
 11:                                               ; preds = %9
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale12utf8_codecvtIwEE, i64 16), ptr %10, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale12utf8_codecvtIwEE, i64 16), ptr %10, align 8, !tbaa !22
   tail call void @_ZNSt6localeC2IN5boost6locale12utf8_codecvtIwEEEERKS_PT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %10)
   br label %15
 
@@ -1080,7 +1080,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %37
           to label %.noexc unwind label %54
 
 .noexc:                                           ; preds = %49
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14simple_codecvtIcEE, i64 16), ptr %50, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14simple_codecvtIcEE, i64 16), ptr %50, align 8, !tbaa !22
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   invoke void @_ZN5boost6locale4util21simple_converter_implC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 4 dereferenceable(2048) %51, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZN5boost6locale4util14simple_codecvtIcEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit unwind label %52
@@ -1111,7 +1111,7 @@ _ZN5boost6locale4util14simple_codecvtIcEC2ERKNSt7__cxx1112basic_stringIcSt11char
           to label %.noexc17 unwind label %61
 
 .noexc17:                                         ; preds = %56
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14simple_codecvtIwEE, i64 16), ptr %57, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14simple_codecvtIwEE, i64 16), ptr %57, align 8, !tbaa !22
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   invoke void @_ZN5boost6locale4util21simple_converter_implC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 4 dereferenceable(2048) %58, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZN5boost6locale4util14simple_codecvtIwEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit unwind label %59
@@ -1251,7 +1251,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv21invalid_charset_errorE, i64 16), ptr %0, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv21invalid_charset_errorE, i64 16), ptr %0, align 8, !tbaa !22
   ret void
 
 13:                                               ; preds = %2
@@ -1439,7 +1439,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost6locale4util14base_conv
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNK5boost6locale4util14base_converter5cloneEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6locale4util14base_converterE, i64 16), ptr %2, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6locale4util14base_converterE, i64 16), ptr %2, align 8, !tbaa !22
   ret ptr %2
 }
 
@@ -1866,7 +1866,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost6locale4util16simple_co
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNK5boost6locale4util16simple_converter5cloneEv(ptr noundef nonnull align 8 dereferenceable(2056) %0) unnamed_addr #2 comdat align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(2056) ptr @_Znwm(i64 noundef 2056) #21
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6locale4util16simple_converterE, i64 16), ptr %2, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6locale4util16simple_converterE, i64 16), ptr %2, align 8, !tbaa !22
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %3, ptr noundef nonnull align 8 dereferenceable(2048) %4, i64 2048, i1 false), !tbaa.struct !63
@@ -1970,7 +1970,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost6locale4util14utf8_conv
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNK5boost6locale4util14utf8_converter5cloneEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6locale4util14utf8_converterE, i64 16), ptr %2, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6locale4util14utf8_converterE, i64 16), ptr %2, align 8, !tbaa !22
   ret ptr %2
 }
 
@@ -2365,7 +2365,7 @@ define linkonce_odr hidden void @_ZNSt6localeC2IN5boost6locale4util14code_conver
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale4util14code_converterIcLb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14code_converterIcLb1EEE, i64 16), ptr %0, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14code_converterIcLb1EEE, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %.not.i = icmp eq ptr %3, null
@@ -2386,7 +2386,7 @@ _ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale4util14code_converterIcLb1EED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14code_converterIcLb1EEE, i64 16), ptr %0, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14code_converterIcLb1EEE, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %.not.i.i = icmp eq ptr %3, null
@@ -2467,7 +2467,7 @@ declare void @_ZNSt6locale5_ImplD1Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale4util14code_converterIcLb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14code_converterIcLb0EEE, i64 16), ptr %0, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14code_converterIcLb0EEE, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %.not.i = icmp eq ptr %3, null
@@ -2488,7 +2488,7 @@ _ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale4util14code_converterIcLb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14code_converterIcLb0EEE, i64 16), ptr %0, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14code_converterIcLb0EEE, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %.not.i.i = icmp eq ptr %3, null
@@ -2648,7 +2648,7 @@ define linkonce_odr hidden void @_ZNSt6localeC2IN5boost6locale4util14code_conver
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale4util14code_converterIwLb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14code_converterIwLb1EEE, i64 16), ptr %0, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14code_converterIwLb1EEE, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %.not.i = icmp eq ptr %3, null
@@ -2669,7 +2669,7 @@ _ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale4util14code_converterIwLb1EED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14code_converterIwLb1EEE, i64 16), ptr %0, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14code_converterIwLb1EEE, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %.not.i.i = icmp eq ptr %3, null
@@ -2898,7 +2898,7 @@ declare void @_ZNSt7codecvtIwc11__mbstate_tEC2Em(ptr noundef nonnull align 8 der
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale4util14code_converterIwLb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14code_converterIwLb0EEE, i64 16), ptr %0, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14code_converterIwLb0EEE, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %.not.i = icmp eq ptr %3, null
@@ -2919,7 +2919,7 @@ _ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale4util14code_converterIwLb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14code_converterIwLb0EEE, i64 16), ptr %0, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5boost6locale4util14code_converterIwLb0EEE, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %.not.i.i = icmp eq ptr %3, null

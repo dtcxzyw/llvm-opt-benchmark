@@ -3342,7 +3342,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !71
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !71
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !73
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -3766,7 +3766,7 @@ declare void @_ZN8QuantLib12Distribution3addEd(ptr noundef nonnull align 8 deref
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib16LossDistBinomialD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib16LossDistBinomialE, i64 16), ptr %this, align 8, !tbaa !71
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib16LossDistBinomialE, i64 16), ptr %this, align 8, !tbaa !71
   %excessProbability_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %excessProbability_, align 8, !tbaa !3
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -3803,7 +3803,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit7:                   ; preds = %_ZNSt6vectorIdSaIdE
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib16LossDistBinomialD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib16LossDistBinomialE, i64 16), ptr %this, align 8, !tbaa !71
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib16LossDistBinomialE, i64 16), ptr %this, align 8, !tbaa !71
   %excessProbability_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %excessProbability_.i, align 8, !tbaa !3
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -3857,7 +3857,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib19LossDistHomogeneousD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib19LossDistHomogeneousE, i64 16), ptr %this, align 8, !tbaa !71
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib19LossDistHomogeneousE, i64 16), ptr %this, align 8, !tbaa !71
   %excessProbability_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %excessProbability_, align 8, !tbaa !3
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -3894,7 +3894,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit7:                   ; preds = %_ZNSt6vectorIdSaIdE
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib19LossDistHomogeneousD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib19LossDistHomogeneousE, i64 16), ptr %this, align 8, !tbaa !71
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib19LossDistHomogeneousE, i64 16), ptr %this, align 8, !tbaa !71
   %excessProbability_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %excessProbability_.i, align 8, !tbaa !3
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

@@ -240,21 +240,21 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   store ptr %91, ptr @parseresult, align 8
   %92 = getelementptr i8, ptr %.2256, i64 -40
   %93 = load i32, ptr %92, align 8
-  store i32 %93, ptr getelementptr inbounds (i8, ptr @parseresult, i64 8), align 8
+  store i32 %93, ptr getelementptr inbounds nuw (i8, ptr @parseresult, i64 8), align 8
   %94 = getelementptr i8, ptr %.2256, i64 -32
   %95 = load ptr, ptr %94, align 8
-  store ptr %95, ptr getelementptr inbounds (i8, ptr @parseresult, i64 16), align 8
+  store ptr %95, ptr getelementptr inbounds nuw (i8, ptr @parseresult, i64 16), align 8
   %96 = getelementptr i8, ptr %.2256, i64 -16
   %97 = load ptr, ptr %96, align 8
-  store ptr %97, ptr getelementptr inbounds (i8, ptr @parseresult, i64 24), align 8
+  store ptr %97, ptr getelementptr inbounds nuw (i8, ptr @parseresult, i64 24), align 8
   %98 = getelementptr i8, ptr %.2256, i64 -8
   %99 = load i32, ptr %98, align 8
-  store i32 %99, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
+  store i32 %99, ptr getelementptr inbounds nuw (i8, ptr @parseresult, i64 32), align 8
   %100 = load ptr, ptr %.2256, align 8
-  store ptr %100, ptr getelementptr inbounds (i8, ptr @parseresult, i64 40), align 8
+  store ptr %100, ptr getelementptr inbounds nuw (i8, ptr @parseresult, i64 40), align 8
   %101 = getelementptr inbounds nuw i8, ptr %.2256, i64 8
   %102 = load i32, ptr %101, align 8
-  store i32 %102, ptr getelementptr inbounds (i8, ptr @parseresult, i64 48), align 8
+  store i32 %102, ptr getelementptr inbounds nuw (i8, ptr @parseresult, i64 48), align 8
   br label %285
 
 103:                                              ; preds = %82, %82

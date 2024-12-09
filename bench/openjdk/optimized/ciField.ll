@@ -423,7 +423,7 @@ _ZN5ciEnv18get_instance_klassEP5Klass.exit:       ; preds = %2, %_ZN5ciEnv12get_
   br i1 %.not33, label %_ZL29trust_final_non_static_fieldsP15ciInstanceKlass.exit, label %48
 
 48:                                               ; preds = %.thread31, %45
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 48), align 8
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 48), align 8
   %50 = icmp eq ptr %33, %49
   br i1 %50, label %51, label %59
 
@@ -540,7 +540,7 @@ _ZN5ciEnv18get_instance_klassEP5Klass.exit:       ; preds = %2, %_ZN5ciEnv12get_
   br label %_ZL29trust_final_non_static_fieldsP15ciInstanceKlass.exit
 
 .thread23:                                        ; preds = %.thread, %41, %44
-  %117 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 528), align 8
+  %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 528), align 8
   %118 = icmp eq ptr %33, %117
   br i1 %118, label %119, label %123
 

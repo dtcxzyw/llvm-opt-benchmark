@@ -762,7 +762,7 @@ check_n_input.exit:                               ; preds = %169, %159, %173
   store i32 0, ptr %217, align 4
   %218 = load ptr, ptr %214, align 8
   %219 = tail call i64 @strtoull(ptr nocapture noundef %218, ptr noundef null, i32 noundef 10) #12
-  store i64 %219, ptr getelementptr inbounds (i8, ptr @onion_fa_g_1, i64 24), align 8
+  store i64 %219, ptr getelementptr inbounds nuw (i8, ptr @onion_fa_g_1, i64 24), align 8
   %220 = load i32, ptr %217, align 4
   %221 = icmp eq i32 %220, 34
   br i1 %221, label %222, label %224
@@ -774,7 +774,7 @@ check_n_input.exit:                               ; preds = %169, %159, %173
   br label %224
 
 223:                                              ; preds = %213
-  store i64 0, ptr getelementptr inbounds (i8, ptr @onion_fa_g_1, i64 24), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @onion_fa_g_1, i64 24), align 8
   br label %224
 
 224:                                              ; preds = %216, %222, %223
@@ -803,7 +803,7 @@ check_n_input.exit:                               ; preds = %169, %159, %173
   store i32 0, ptr %234, align 4
   %235 = load ptr, ptr %231, align 8
   %236 = tail call i64 @strtoull(ptr nocapture noundef %235, ptr noundef null, i32 noundef 10) #12
-  store i64 %236, ptr getelementptr inbounds (i8, ptr @onion_fa_g_2, i64 24), align 8
+  store i64 %236, ptr getelementptr inbounds nuw (i8, ptr @onion_fa_g_2, i64 24), align 8
   %237 = load i32, ptr %234, align 4
   %238 = icmp eq i32 %237, 34
   br i1 %238, label %239, label %241
@@ -815,7 +815,7 @@ check_n_input.exit:                               ; preds = %169, %159, %173
   br label %241
 
 240:                                              ; preds = %230
-  store i64 0, ptr getelementptr inbounds (i8, ptr @onion_fa_g_2, i64 24), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @onion_fa_g_2, i64 24), align 8
   br label %241
 
 241:                                              ; preds = %233, %239, %240

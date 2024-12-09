@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @decode_85(ptr nocapture noundef writeonly %dst, ptr noundef %buffer, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %0 = load i8, ptr getelementptr inbounds (i8, ptr @de85, i64 90), align 2
+  %0 = load i8, ptr getelementptr inbounds nuw (i8, ptr @de85, i64 90), align 2
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %for.body.i, label %prep_base85.exit
 

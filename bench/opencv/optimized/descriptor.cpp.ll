@@ -537,7 +537,7 @@ _ZN2cv6stereo12CensusKernelILi2EEC2EPPh.exit.critedge: ; preds = %88
   %104 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %102, ptr %104, align 4
   %105 = load i32, ptr %103, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo18CombinedDescriptorILi1ELi1ELi1ELi2ENS0_12CensusKernelILi2EEEEE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo18CombinedDescriptorILi1ELi1ELi1ELi2ENS0_12CensusKernelILi2EEEEE, i64 16), ptr %18, align 8
   %106 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %18, i64 12
@@ -572,7 +572,7 @@ _ZN2cv6stereo12CensusKernelILi2EEC2EPPh.exit59.critedge: ; preds = %88
   %116 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %102, ptr %116, align 4
   %117 = load i32, ptr %103, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo18CombinedDescriptorILi2ELi2ELi1ELi2ENS0_12CensusKernelILi2EEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo18CombinedDescriptorILi2ELi2ELi1ELi2ENS0_12CensusKernelILi2EEEEE, i64 16), ptr %20, align 8
   %118 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 %117, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %20, i64 12
@@ -853,7 +853,7 @@ define void @_ZN2cv6stereo15censusTransformERKNS_3MatEiRS1_i(ptr nocapture nound
   %95 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 %92, ptr %95, align 4
   %96 = load i32, ptr %93, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo18CombinedDescriptorILi1ELi1ELi1ELi1ENS0_12CensusKernelILi1EEEEE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo18CombinedDescriptorILi1ELi1ELi1ELi1ENS0_12CensusKernelILi1EEEEE, i64 16), ptr %16, align 8
   %97 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %98 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 %96, ptr %98, align 8
@@ -884,7 +884,7 @@ define void @_ZN2cv6stereo15censusTransformERKNS_3MatEiRS1_i(ptr nocapture nound
   %107 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %92, ptr %107, align 4
   %108 = load i32, ptr %93, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo18CombinedDescriptorILi2ELi2ELi1ELi1ENS0_12CensusKernelILi1EEEEE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo18CombinedDescriptorILi2ELi2ELi1ELi1ENS0_12CensusKernelILi1EEEEE, i64 16), ptr %18, align 8
   %109 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %110 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %108, ptr %110, align 8
@@ -1112,7 +1112,7 @@ _ZN2cv6stereo16StarKernelCensusILi2EEC2EPKNS_3MatEiPPi.exit.critedge: ; preds = 
   store i32 0, ptr %15, align 4
   %83 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 %82, ptr %83, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo16StarKernelCensusILi2EEE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo16StarKernelCensusILi2EEE, i64 16), ptr %16, align 8
   %84 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %85 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %86 = load ptr, ptr %indvars.iv.i.sroa.gep, align 16
@@ -1359,7 +1359,7 @@ define void @_ZN2cv6stereo19starCensusTransformERKNS_3MatEiRS1_(ptr noundef nonn
   store i32 0, ptr %13, align 4
   %74 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %73, ptr %74, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo16StarKernelCensusILi1EEE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo16StarKernelCensusILi1EEE, i64 16), ptr %14, align 8
   %75 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %76 = load ptr, ptr %75, align 16
   %77 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -1636,7 +1636,7 @@ _ZN2cv6stereo9MCTKernelILi2EEC2EPPhi.exit.critedge: ; preds = %99
   store i32 0, ptr %20, align 4
   %114 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 %113, ptr %114, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo18CombinedDescriptorILi2ELi4ELi2ELi2ENS0_9MCTKernelILi2EEEEE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo18CombinedDescriptorILi2ELi4ELi2ELi2ENS0_9MCTKernelILi2EEEEE, i64 16), ptr %21, align 8
   %115 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 %111, ptr %115, align 8
   %116 = getelementptr inbounds nuw i8, ptr %21, i64 12
@@ -1875,7 +1875,7 @@ _ZN2cv6stereo8MVKernelILi2EEC2EPPhPPi.exit.critedge: ; preds = %192
   %203 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 %202, ptr %203, align 4
   %204 = load i32, ptr %110, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo18CombinedDescriptorILi2ELi3ELi2ELi2ENS0_8MVKernelILi2EEEEE, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo18CombinedDescriptorILi2ELi3ELi2ELi2ENS0_8MVKernelILi2EEEEE, i64 16), ptr %31, align 8
   %205 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 %204, ptr %205, align 8
   %206 = getelementptr inbounds nuw i8, ptr %31, i64 12
@@ -2155,7 +2155,7 @@ define void @_ZN2cv6stereo23modifiedCensusTransformERKNS_3MatEiRS1_iiS3_(ptr noc
   store i32 %100, ptr %101, align 4
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %103 = load i32, ptr %102, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo18CombinedDescriptorILi2ELi4ELi2ELi1ENS0_9MCTKernelILi1EEEEE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo18CombinedDescriptorILi2ELi4ELi2ELi1ENS0_9MCTKernelILi1EEEEE, i64 16), ptr %18, align 8
   %104 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %105 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %103, ptr %105, align 8
@@ -2288,7 +2288,7 @@ define void @_ZN2cv6stereo23modifiedCensusTransformERKNS_3MatEiRS1_iiS3_(ptr noc
   store i32 0, ptr %23, align 4
   %153 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %148, ptr %153, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo18CombinedDescriptorILi2ELi3ELi2ELi1ENS0_8MVKernelILi1EEEEE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo18CombinedDescriptorILi2ELi3ELi2ELi1ENS0_8MVKernelILi1EEEEE, i64 16), ptr %24, align 8
   %154 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %155 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 %142, ptr %155, align 8
@@ -2563,7 +2563,7 @@ _ZN2cv6stereo14SymetricCensusILi2EEC2EPKNS_3MatEiPPi.exit.critedge: ; preds = %9
   store i32 0, ptr %18, align 4
   %103 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %102, ptr %103, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo14SymetricCensusILi2EEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo14SymetricCensusILi2EEE, i64 16), ptr %19, align 8
   %104 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %105 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %106 = load ptr, ptr %indvars.iv.i.sroa.gep, align 16
@@ -2616,7 +2616,7 @@ _ZN2cv6stereo16ModifiedCsCensusILi2EEC2EPPhi.exit.critedge: ; preds = %96
   store i32 %129, ptr %130, align 4
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %132 = load i32, ptr %131, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo18CombinedDescriptorILi1ELi1ELi1ELi2ENS0_16ModifiedCsCensusILi2EEEEE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo18CombinedDescriptorILi1ELi1ELi1ELi2ENS0_16ModifiedCsCensusILi2EEEEE, i64 16), ptr %21, align 8
   %133 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 %132, ptr %133, align 8
   %134 = getelementptr inbounds nuw i8, ptr %21, i64 12
@@ -2902,7 +2902,7 @@ define void @_ZN2cv6stereo23symetricCensusTransformERKNS_3MatEiRS1_i(ptr noundef
   store i32 0, ptr %16, align 4
   %92 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %91, ptr %92, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo14SymetricCensusILi1EEE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo14SymetricCensusILi1EEE, i64 16), ptr %17, align 8
   %93 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %94 = load ptr, ptr %93, align 16
   %95 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -2945,7 +2945,7 @@ define void @_ZN2cv6stereo23symetricCensusTransformERKNS_3MatEiRS1_i(ptr noundef
   store i32 %116, ptr %117, align 4
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %119 = load i32, ptr %118, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo18CombinedDescriptorILi1ELi1ELi1ELi1ENS0_16ModifiedCsCensusILi1EEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo18CombinedDescriptorILi1ELi1ELi1ELi1ENS0_16ModifiedCsCensusILi1EEEEE, i64 16), ptr %19, align 8
   %120 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %121 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %119, ptr %121, align 8

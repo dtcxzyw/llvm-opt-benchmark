@@ -29,7 +29,7 @@ define void @_ZN18FollowStreamActionC2EP7QObjectP15register_follow(ptr noundef n
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
   tail call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18FollowStreamAction, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18FollowStreamAction, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %2, ptr %8, align 8
   %.not = icmp eq ptr %2, null

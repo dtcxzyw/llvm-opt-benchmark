@@ -1720,7 +1720,7 @@ define void @_ZN11processor_tC2EPK12isa_parser_tPK5cfg_tP7simif_tjbP8_IO_FILERSo
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::function", align 8
   %12 = zext i1 %5 to i8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11processor_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11processor_t, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -126239,7 +126239,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN11processor_tD2Ev(ptr noundef nonnull align 8 dereferenceable(659880) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11processor_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11processor_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3800
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -127232,7 +127232,7 @@ define void @_ZN7state_t5resetEP11processor_tm(ptr noundef nonnull align 8 deref
   store i32 1, ptr %347, align 8, !noalias !29
   %348 = getelementptr inbounds nuw i8, ptr %346, i64 12
   store i32 1, ptr %348, align 4, !noalias !29
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI10misa_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %346, align 8, !noalias !29
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI10misa_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %346, align 8, !noalias !29
   %349 = getelementptr inbounds nuw i8, ptr %346, i64 16
   invoke void @_ZN10misa_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(64) %349, ptr noundef nonnull %1, i64 noundef 769, i64 noundef %2)
           to label %_ZSt11make_sharedI10misa_csr_tJRKP11processor_tiRmEESt10shared_ptrIT_EDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI10misa_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !29
@@ -127578,7 +127578,7 @@ _ZNSt10shared_ptrI10misa_csr_tED2Ev.exit:         ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %499, align 8, !noalias !40
   %500 = getelementptr inbounds nuw i8, ptr %498, i64 12
   store i32 1, ptr %500, align 4, !noalias !40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI13mstatus_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %498, align 8, !noalias !40
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI13mstatus_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %498, align 8, !noalias !40
   %501 = getelementptr inbounds nuw i8, ptr %498, i64 16
   %502 = load ptr, ptr %142, align 8, !noalias !40
   invoke void @_ZN13mstatus_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(64) %501, ptr noundef %502, i64 noundef 768)
@@ -127680,7 +127680,7 @@ _ZNSt10shared_ptrI13mstatus_csr_tED2Ev.exit:      ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %544, align 8, !noalias !41
   %545 = getelementptr inbounds nuw i8, ptr %543, i64 12
   store i32 1, ptr %545, align 4, !noalias !41
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %543, align 8, !noalias !41
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %543, align 8, !noalias !41
   %546 = getelementptr inbounds nuw i8, ptr %543, i64 16
   invoke void @_ZSt10_ConstructI14rv32_low_csr_tJRKP11processor_tiRSt10shared_ptrI13mstatus_csr_tEEEvPT_DpOT0_(ptr noundef nonnull %546, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %145, ptr noundef nonnull align 8 dereferenceable(16) %504)
           to label %_ZSt11make_sharedI14rv32_low_csr_tJRKP11processor_tiRSt10shared_ptrI13mstatus_csr_tEEES5_IT_EDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !41
@@ -127912,7 +127912,7 @@ _ZNSt10shared_ptrI14rv32_low_csr_tED2Ev.exit:     ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %645, align 8, !noalias !47
   %646 = getelementptr inbounds nuw i8, ptr %644, i64 12
   store i32 1, ptr %646, align 4, !noalias !47
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %644, align 8, !noalias !47
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %644, align 8, !noalias !47
   %647 = getelementptr inbounds nuw i8, ptr %644, i64 16
   invoke void @_ZSt10_ConstructI15rv32_high_csr_tJRKP11processor_tiRSt10shared_ptrI13mstatus_csr_tEEEvPT_DpOT0_(ptr noundef nonnull %647, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %147, ptr noundef nonnull align 8 dereferenceable(16) %504)
           to label %_ZSt11make_sharedI15rv32_high_csr_tJRKP11processor_tiRSt10shared_ptrI13mstatus_csr_tEEES5_IT_EDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !47
@@ -128450,7 +128450,7 @@ _ZNSt10shared_ptrI15rv32_high_csr_tED2Ev.exit:    ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %874, align 8, !noalias !53
   %875 = getelementptr inbounds nuw i8, ptr %873, i64 12
   store i32 1, ptr %875, align 4, !noalias !53
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI9epc_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %873, align 8, !noalias !53
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI9epc_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %873, align 8, !noalias !53
   %876 = getelementptr inbounds nuw i8, ptr %873, i64 16
   %877 = load ptr, ptr %142, align 8, !noalias !53
   invoke void @_ZN9epc_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %876, ptr noundef %877, i64 noundef 833)
@@ -128793,7 +128793,7 @@ _ZNSt10shared_ptrI9epc_csr_tED2Ev.exit:           ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %1025, align 8, !noalias !59
   %1026 = getelementptr inbounds nuw i8, ptr %1024, i64 12
   store i32 1, ptr %1026, align 4, !noalias !59
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1024, align 8, !noalias !59
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1024, align 8, !noalias !59
   %1027 = getelementptr inbounds nuw i8, ptr %1024, i64 16
   %1028 = load ptr, ptr %142, align 8, !noalias !59
   invoke void @_ZN11basic_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %1027, ptr noundef %1028, i64 noundef 835, i64 noundef 0)
@@ -129135,7 +129135,7 @@ _ZNSt10shared_ptrI11basic_csr_tED2Ev.exit:        ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %1176, align 8, !noalias !65
   %1177 = getelementptr inbounds nuw i8, ptr %1175, i64 12
   store i32 1, ptr %1177, align 4, !noalias !65
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1175, align 8, !noalias !65
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1175, align 8, !noalias !65
   %1178 = getelementptr inbounds nuw i8, ptr %1175, i64 16
   %1179 = load ptr, ptr %142, align 8, !noalias !65
   invoke void @_ZN11basic_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %1178, ptr noundef %1179, i64 noundef 832, i64 noundef 0)
@@ -129365,7 +129365,7 @@ _ZNSt10shared_ptrI11basic_csr_tED2Ev.exit354:     ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %1278, align 8, !noalias !76
   %1279 = getelementptr inbounds nuw i8, ptr %1277, i64 12
   store i32 1, ptr %1279, align 4, !noalias !76
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI10tvec_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1277, align 8, !noalias !76
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI10tvec_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1277, align 8, !noalias !76
   %1280 = getelementptr inbounds nuw i8, ptr %1277, i64 16
   %1281 = load ptr, ptr %142, align 8, !noalias !76
   invoke void @_ZN10tvec_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %1280, ptr noundef %1281, i64 noundef 773)
@@ -129704,7 +129704,7 @@ _ZNSt10shared_ptrI10tvec_csr_tED2Ev.exit:         ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %1429, align 8, !noalias !82
   %1430 = getelementptr inbounds nuw i8, ptr %1428, i64 12
   store i32 1, ptr %1430, align 4, !noalias !82
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11cause_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1428, align 8, !noalias !82
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11cause_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1428, align 8, !noalias !82
   %1431 = getelementptr inbounds nuw i8, ptr %1428, i64 16
   %1432 = load ptr, ptr %142, align 8, !noalias !82
   invoke void @_ZN11cause_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %1431, ptr noundef %1432, i64 noundef 834)
@@ -130054,7 +130054,7 @@ _ZNSt10shared_ptrI11cause_csr_tED2Ev.exit:        ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %1587, align 8, !noalias !83
   %1588 = getelementptr inbounds nuw i8, ptr %1586, i64 12
   store i32 1, ptr %1588, align 4, !noalias !83
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15smcntrpmf_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1586, align 8, !noalias !83
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15smcntrpmf_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1586, align 8, !noalias !83
   %1589 = getelementptr inbounds nuw i8, ptr %1586, i64 16
   invoke void @_ZN15smcntrpmf_csr_tC1EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(72) %1589, ptr noundef nonnull %1579, i64 noundef 802, i64 noundef %1585, i64 noundef 0)
           to label %_ZSt11make_sharedI15smcntrpmf_csr_tJRKP11processor_tiRKmiEESt10shared_ptrIT_EDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15smcntrpmf_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i, !noalias !83
@@ -130079,7 +130079,7 @@ _ZSt11make_sharedI15smcntrpmf_csr_tJRKP11processor_tiRKmiEESt10shared_ptrIT_EDpO
   store i32 1, ptr %1593, align 8, !noalias !89
   %1594 = getelementptr inbounds nuw i8, ptr %1592, i64 12
   store i32 1, ptr %1594, align 4, !noalias !89
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15smcntrpmf_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1592, align 8, !noalias !89
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15smcntrpmf_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1592, align 8, !noalias !89
   %1595 = getelementptr inbounds nuw i8, ptr %1592, i64 16
   %1596 = load ptr, ptr %142, align 8, !noalias !89
   invoke void @_ZN15smcntrpmf_csr_tC1EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(72) %1595, ptr noundef %1596, i64 noundef 801, i64 noundef %1585, i64 noundef 0)
@@ -130104,7 +130104,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15smcntrpmf_csr_tSaIvELN9_
   store i32 1, ptr %1601, align 8, !noalias !92
   %1602 = getelementptr inbounds nuw i8, ptr %1600, i64 12
   store i32 1, ptr %1602, align 4, !noalias !92
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI18wide_counter_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1600, align 8, !noalias !92
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI18wide_counter_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1600, align 8, !noalias !92
   %1603 = getelementptr inbounds nuw i8, ptr %1600, i64 16
   invoke void @_ZSt10_ConstructI18wide_counter_csr_tJRKP11processor_tiRSt10shared_ptrI15smcntrpmf_csr_tEEEvPT_DpOT0_(ptr noundef nonnull %1603, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %155, ptr noundef nonnull align 8 dereferenceable(16) %153)
           to label %_ZSt11make_sharedI18wide_counter_csr_tJRKP11processor_tiRSt10shared_ptrI15smcntrpmf_csr_tEEES5_IT_EDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI18wide_counter_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !92
@@ -130202,7 +130202,7 @@ _ZNSt10shared_ptrI18wide_counter_csr_tED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %1643, align 8, !noalias !95
   %1644 = getelementptr inbounds nuw i8, ptr %1642, i64 12
   store i32 1, ptr %1644, align 4, !noalias !95
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI18wide_counter_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1642, align 8, !noalias !95
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI18wide_counter_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1642, align 8, !noalias !95
   %1645 = getelementptr inbounds nuw i8, ptr %1642, i64 16
   invoke void @_ZSt10_ConstructI18wide_counter_csr_tJRKP11processor_tiRSt10shared_ptrI15smcntrpmf_csr_tEEEvPT_DpOT0_(ptr noundef nonnull %1645, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %156, ptr noundef nonnull align 8 dereferenceable(16) %154)
           to label %_ZSt11make_sharedI18wide_counter_csr_tJRKP11processor_tiRSt10shared_ptrI15smcntrpmf_csr_tEEES5_IT_EDpOT0_.exit456 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI18wide_counter_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i452, !noalias !95
@@ -130299,7 +130299,7 @@ _ZNSt10shared_ptrI18wide_counter_csr_tED2Ev.exit470: ; preds = %_ZNSt16_Sp_count
   store i32 1, ptr %1685, align 8, !noalias !98
   %1686 = getelementptr inbounds nuw i8, ptr %1684, i64 12
   store i32 1, ptr %1686, align 4, !noalias !98
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI18time_counter_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1684, align 8, !noalias !98
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI18time_counter_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1684, align 8, !noalias !98
   %1687 = getelementptr inbounds nuw i8, ptr %1684, i64 16
   %1688 = load ptr, ptr %142, align 8, !noalias !98
   invoke void @_ZN18time_counter_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %1687, ptr noundef %1688, i64 noundef 3073)
@@ -130412,7 +130412,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i32 1, ptr %1736, align 8, !noalias !101
   %1737 = getelementptr inbounds nuw i8, ptr %1735, i64 12
   store i32 1, ptr %1737, align 4, !noalias !101
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI19counter_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1735, align 8, !noalias !101
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI19counter_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1735, align 8, !noalias !101
   %1738 = getelementptr inbounds nuw i8, ptr %1735, i64 16
   invoke void @_ZSt10_ConstructI19counter_proxy_csr_tJRKP11processor_tiRSt10shared_ptrI18wide_counter_csr_tEEEvPT_DpOT0_(ptr noundef nonnull %1738, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %158, ptr noundef nonnull align 8 dereferenceable(16) %1605)
           to label %1740 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI19counter_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !101
@@ -130647,7 +130647,7 @@ _ZNSt10shared_ptrI19counter_proxy_csr_tED2Ev.exit: ; preds = %_ZNSt10shared_ptrI
   store i32 1, ptr %1838, align 8, !noalias !104
   %1839 = getelementptr inbounds nuw i8, ptr %1837, i64 12
   store i32 1, ptr %1839, align 4, !noalias !104
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI19counter_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1837, align 8, !noalias !104
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI19counter_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1837, align 8, !noalias !104
   %1840 = getelementptr inbounds nuw i8, ptr %1837, i64 16
   invoke void @_ZSt10_ConstructI19counter_proxy_csr_tJRKP11processor_tiRSt10shared_ptrI18wide_counter_csr_tEEEvPT_DpOT0_(ptr noundef nonnull %1840, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %160, ptr noundef nonnull align 8 dereferenceable(16) %1647)
           to label %1842 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI19counter_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i515, !noalias !104
@@ -130882,7 +130882,7 @@ _ZNSt10shared_ptrI19counter_proxy_csr_tED2Ev.exit545: ; preds = %_ZNSt10shared_p
   store i32 1, ptr %1940, align 8, !noalias !107
   %1941 = getelementptr inbounds nuw i8, ptr %1939, i64 12
   store i32 1, ptr %1941, align 4, !noalias !107
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI19counter_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1939, align 8, !noalias !107
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI19counter_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1939, align 8, !noalias !107
   %1942 = getelementptr inbounds nuw i8, ptr %1939, i64 16
   invoke void @_ZSt10_ConstructI19counter_proxy_csr_tJRKP11processor_tiRSt10shared_ptrI18time_counter_csr_tEEEvPT_DpOT0_(ptr noundef nonnull %1942, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %162, ptr noundef nonnull align 8 dereferenceable(16) %1690)
           to label %1944 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI19counter_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i546, !noalias !107
@@ -131326,7 +131326,7 @@ _ZNSt10shared_ptrI19counter_proxy_csr_tED2Ev.exit589: ; preds = %_ZNSt16_Sp_coun
   store i32 1, ptr %2110, align 8, !noalias !110
   %2111 = getelementptr inbounds nuw i8, ptr %2109, i64 12
   store i32 1, ptr %2111, align 4, !noalias !110
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2109, align 8, !noalias !110
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2109, align 8, !noalias !110
   %2112 = getelementptr inbounds nuw i8, ptr %2109, i64 16
   invoke void @_ZSt10_ConstructI14rv32_low_csr_tJRKP11processor_tiRSt10shared_ptrI18wide_counter_csr_tEEEvPT_DpOT0_(ptr noundef nonnull %2112, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %166, ptr noundef nonnull align 8 dereferenceable(16) %1605)
           to label %2114 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i590, !noalias !110
@@ -131561,7 +131561,7 @@ _ZNSt10shared_ptrI14rv32_low_csr_tED2Ev.exit619:  ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %2212, align 8, !noalias !113
   %2213 = getelementptr inbounds nuw i8, ptr %2211, i64 12
   store i32 1, ptr %2213, align 4, !noalias !113
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2211, align 8, !noalias !113
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2211, align 8, !noalias !113
   %2214 = getelementptr inbounds nuw i8, ptr %2211, i64 16
   invoke void @_ZSt10_ConstructI15rv32_high_csr_tJRKP11processor_tiRSt10shared_ptrI18wide_counter_csr_tEEEvPT_DpOT0_(ptr noundef nonnull %2214, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %168, ptr noundef nonnull align 8 dereferenceable(16) %1605)
           to label %2216 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i620, !noalias !113
@@ -131904,7 +131904,7 @@ _ZNSt10shared_ptrI15rv32_high_csr_tED2Ev.exit663: ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %2362, align 8, !noalias !116
   %2363 = getelementptr inbounds nuw i8, ptr %2361, i64 12
   store i32 1, ptr %2363, align 4, !noalias !116
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2361, align 8, !noalias !116
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2361, align 8, !noalias !116
   %2364 = getelementptr inbounds nuw i8, ptr %2361, i64 16
   invoke void @_ZSt10_ConstructI14rv32_low_csr_tJRKP11processor_tiRSt10shared_ptrI18wide_counter_csr_tEEEvPT_DpOT0_(ptr noundef nonnull %2364, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %170, ptr noundef nonnull align 8 dereferenceable(16) %1647)
           to label %2366 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i664, !noalias !116
@@ -132139,7 +132139,7 @@ _ZNSt10shared_ptrI14rv32_low_csr_tED2Ev.exit694:  ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %2464, align 8, !noalias !119
   %2465 = getelementptr inbounds nuw i8, ptr %2463, i64 12
   store i32 1, ptr %2465, align 4, !noalias !119
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2463, align 8, !noalias !119
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2463, align 8, !noalias !119
   %2466 = getelementptr inbounds nuw i8, ptr %2463, i64 16
   invoke void @_ZSt10_ConstructI15rv32_high_csr_tJRKP11processor_tiRSt10shared_ptrI18wide_counter_csr_tEEEvPT_DpOT0_(ptr noundef nonnull %2466, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %172, ptr noundef nonnull align 8 dereferenceable(16) %1647)
           to label %2468 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i695, !noalias !119
@@ -132494,7 +132494,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i32 1, ptr %2622, align 8, !noalias !122
   %2623 = getelementptr inbounds nuw i8, ptr %2621, i64 12
   store i32 1, ptr %2623, align 4, !noalias !122
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2621, align 8, !noalias !122
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2621, align 8, !noalias !122
   %2624 = getelementptr inbounds nuw i8, ptr %2621, i64 16
   invoke void @_ZSt10_ConstructI15rv32_high_csr_tJRKP11processor_tiRSt10shared_ptrI18time_counter_csr_tEEEvPT_DpOT0_(ptr noundef nonnull %2624, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %174, ptr noundef nonnull align 8 dereferenceable(16) %1690)
           to label %2626 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i742, !noalias !122
@@ -132520,7 +132520,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9_
   store i32 1, ptr %2629, align 8, !noalias !125
   %2630 = getelementptr inbounds nuw i8, ptr %2628, i64 12
   store i32 1, ptr %2630, align 4, !noalias !125
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI19counter_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2628, align 8, !noalias !125
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI19counter_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2628, align 8, !noalias !125
   %2631 = getelementptr inbounds nuw i8, ptr %2628, i64 16
   invoke void @_ZSt10_ConstructI19counter_proxy_csr_tJRKP11processor_tiRSt10shared_ptrI5csr_tEEEvPT_DpOT0_(ptr noundef nonnull %2631, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %176, ptr noundef nonnull align 8 dereferenceable(16) %163)
           to label %2633 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI19counter_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i746, !noalias !125
@@ -132755,7 +132755,7 @@ _ZNSt10shared_ptrI19counter_proxy_csr_tED2Ev.exit775: ; preds = %_ZNSt10shared_p
   store i32 1, ptr %2731, align 8, !noalias !128
   %2732 = getelementptr inbounds nuw i8, ptr %2730, i64 12
   store i32 1, ptr %2732, align 4, !noalias !128
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI19counter_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2730, align 8, !noalias !128
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI19counter_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2730, align 8, !noalias !128
   %2733 = getelementptr inbounds nuw i8, ptr %2730, i64 16
   invoke void @_ZSt10_ConstructI19counter_proxy_csr_tJRKP11processor_tiRSt10shared_ptrI5csr_tEEEvPT_DpOT0_(ptr noundef nonnull %2733, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %178, ptr noundef nonnull align 8 dereferenceable(16) %164)
           to label %2735 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI19counter_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i776, !noalias !128
@@ -132990,7 +132990,7 @@ _ZNSt10shared_ptrI19counter_proxy_csr_tED2Ev.exit806: ; preds = %_ZNSt10shared_p
   store i32 1, ptr %2833, align 8, !noalias !131
   %2834 = getelementptr inbounds nuw i8, ptr %2832, i64 12
   store i32 1, ptr %2834, align 4, !noalias !131
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI19counter_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2832, align 8, !noalias !131
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI19counter_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2832, align 8, !noalias !131
   %2835 = getelementptr inbounds nuw i8, ptr %2832, i64 16
   invoke void @_ZSt10_ConstructI19counter_proxy_csr_tJRKP11processor_tiRSt10shared_ptrI15rv32_high_csr_tEEEvPT_DpOT0_(ptr noundef nonnull %2835, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %180, ptr noundef nonnull align 8 dereferenceable(16) %173)
           to label %2837 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI19counter_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i807, !noalias !131
@@ -133898,7 +133898,7 @@ _ZNSt10shared_ptrI5csr_tED2Ev.exit856:            ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %3224, align 8, !noalias !134
   %3225 = getelementptr inbounds nuw i8, ptr %3223, i64 12
   store i32 1, ptr %3225, align 4, !noalias !134
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12mevent_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3223, align 8, !noalias !134
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12mevent_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3223, align 8, !noalias !134
   %3226 = getelementptr inbounds nuw i8, ptr %3223, i64 16
   %3227 = load ptr, ptr %142, align 8, !noalias !134
   invoke void @_ZN12mevent_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %3226, ptr noundef %3227, i64 noundef %3217)
@@ -133999,7 +133999,7 @@ _ZNSt10shared_ptrI12mevent_csr_tED2Ev.exit:       ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %3268, align 8, !noalias !137
   %3269 = getelementptr inbounds nuw i8, ptr %3267, i64 12
   store i32 1, ptr %3269, align 4, !noalias !137
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3267, align 8, !noalias !137
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3267, align 8, !noalias !137
   %3270 = getelementptr inbounds nuw i8, ptr %3267, i64 16
   %3271 = load ptr, ptr %142, align 8, !noalias !137
   invoke void @_ZN11const_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %3270, ptr noundef %3271, i64 noundef %3219, i64 noundef 0)
@@ -134209,7 +134209,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i9
   store i32 1, ptr %3354, align 8, !noalias !140
   %3355 = getelementptr inbounds nuw i8, ptr %3353, i64 12
   store i32 1, ptr %3355, align 4, !noalias !140
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI19counter_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3353, align 8, !noalias !140
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI19counter_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3353, align 8, !noalias !140
   %3356 = getelementptr inbounds nuw i8, ptr %3353, i64 16
   invoke void @_ZSt10_ConstructI19counter_proxy_csr_tJRKP11processor_tRKmRSt10shared_ptrI11const_csr_tEEEvPT_DpOT0_(ptr noundef nonnull %3356, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(8) %183, ptr noundef nonnull align 8 dereferenceable(16) %185)
           to label %3358 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI19counter_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i952, !noalias !140
@@ -134480,7 +134480,7 @@ _ZNSt10shared_ptrI19counter_proxy_csr_tED2Ev.exit987: ; preds = %_ZNSt16_Sp_coun
   store i32 1, ptr %3466, align 8, !noalias !143
   %3467 = getelementptr inbounds nuw i8, ptr %3465, i64 12
   store i32 1, ptr %3467, align 4, !noalias !143
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3465, align 8, !noalias !143
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3465, align 8, !noalias !143
   %3468 = getelementptr inbounds nuw i8, ptr %3465, i64 16
   invoke void @_ZSt10_ConstructI14rv32_low_csr_tJRKP11processor_tRKmRSt10shared_ptrI5csr_tEEEvPT_DpOT0_(ptr noundef nonnull %3468, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(8) %181, ptr noundef nonnull align 8 dereferenceable(16) %3230)
           to label %3470 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i988, !noalias !143
@@ -134713,7 +134713,7 @@ _ZNSt10shared_ptrI14rv32_low_csr_tED2Ev.exit1017: ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %3567, align 8, !noalias !146
   %3568 = getelementptr inbounds nuw i8, ptr %3566, i64 12
   store i32 1, ptr %3568, align 4, !noalias !146
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3566, align 8, !noalias !146
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3566, align 8, !noalias !146
   %3569 = getelementptr inbounds nuw i8, ptr %3566, i64 16
   %3570 = load ptr, ptr %142, align 8, !noalias !146
   invoke void @_ZN11const_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %3569, ptr noundef %3570, i64 noundef %3220, i64 noundef 0)
@@ -134923,7 +134923,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i1
   store i32 1, ptr %3653, align 8, !noalias !149
   %3654 = getelementptr inbounds nuw i8, ptr %3652, i64 12
   store i32 1, ptr %3654, align 4, !noalias !149
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI19counter_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3652, align 8, !noalias !149
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI19counter_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3652, align 8, !noalias !149
   %3655 = getelementptr inbounds nuw i8, ptr %3652, i64 16
   invoke void @_ZSt10_ConstructI19counter_proxy_csr_tJRKP11processor_tRKmRSt10shared_ptrI11const_csr_tEEEvPT_DpOT0_(ptr noundef nonnull %3655, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(8) %184, ptr noundef nonnull align 8 dereferenceable(16) %188)
           to label %3657 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI19counter_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i1051, !noalias !149
@@ -135213,7 +135213,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i32 1, ptr %3774, align 8, !noalias !152
   %3775 = getelementptr inbounds nuw i8, ptr %3773, i64 12
   store i32 1, ptr %3775, align 4, !noalias !152
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3773, align 8, !noalias !152
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3773, align 8, !noalias !152
   %3776 = getelementptr inbounds nuw i8, ptr %3773, i64 16
   invoke void @_ZSt10_ConstructI15rv32_high_csr_tJRKP11processor_tRKmRSt10shared_ptrI5csr_tEEEvPT_DpOT0_(ptr noundef nonnull %3776, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(8) %182, ptr noundef nonnull align 8 dereferenceable(16) %3230)
           to label %3778 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i1091, !noalias !152
@@ -135806,7 +135806,7 @@ _ZNSt10shared_ptrI11const_csr_tED2Ev.exit1165:    ; preds = %_ZNSt10shared_ptrI1
   store i32 1, ptr %4028, align 8, !noalias !156
   %4029 = getelementptr inbounds nuw i8, ptr %4027, i64 12
   store i32 1, ptr %4029, align 4, !noalias !156
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4027, align 8, !noalias !156
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4027, align 8, !noalias !156
   %4030 = getelementptr inbounds nuw i8, ptr %4027, i64 16
   %4031 = load ptr, ptr %142, align 8, !noalias !156
   invoke void @_ZN11const_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %4030, ptr noundef %4031, i64 noundef 800, i64 noundef 0)
@@ -136053,7 +136053,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i32 1, ptr %4139, align 8, !noalias !159
   %4140 = getelementptr inbounds nuw i8, ptr %4138, i64 12
   store i32 1, ptr %4140, align 4, !noalias !159
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15scountovf_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4138, align 8, !noalias !159
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15scountovf_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4138, align 8, !noalias !159
   %4141 = getelementptr inbounds nuw i8, ptr %4138, i64 16
   invoke void @_ZN15scountovf_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %4141, ptr noundef nonnull %4131, i64 noundef 3488)
           to label %4143 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15scountovf_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !159
@@ -136307,7 +136307,7 @@ _ZNSt10shared_ptrI15scountovf_csr_tED2Ev.exit:    ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %4245, align 8, !noalias !162
   %4246 = getelementptr inbounds nuw i8, ptr %4244, i64 12
   store i32 1, ptr %4246, align 4, !noalias !162
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI9mie_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4244, align 8, !noalias !162
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI9mie_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4244, align 8, !noalias !162
   %4247 = getelementptr inbounds nuw i8, ptr %4244, i64 16
   %4248 = load ptr, ptr %142, align 8, !noalias !162
   invoke void @_ZN9mie_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %4247, ptr noundef %4248, i64 noundef 772)
@@ -136651,7 +136651,7 @@ _ZNSt10shared_ptrI9mie_csr_tED2Ev.exit:           ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %4397, align 8, !noalias !165
   %4398 = getelementptr inbounds nuw i8, ptr %4396, i64 12
   store i32 1, ptr %4398, align 4, !noalias !165
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI9mip_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4396, align 8, !noalias !165
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI9mip_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4396, align 8, !noalias !165
   %4399 = getelementptr inbounds nuw i8, ptr %4396, i64 16
   %4400 = load ptr, ptr %142, align 8, !noalias !165
   invoke void @_ZN9mip_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %4399, ptr noundef %4400, i64 noundef 836)
@@ -136995,7 +136995,7 @@ _ZNSt10shared_ptrI9mip_csr_tED2Ev.exit:           ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %4549, align 8, !noalias !168
   %4550 = getelementptr inbounds nuw i8, ptr %4548, i64 12
   store i32 1, ptr %4550, align 4, !noalias !168
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI22generic_int_accessor_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4548, align 8, !noalias !168
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI22generic_int_accessor_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4548, align 8, !noalias !168
   %4551 = getelementptr inbounds nuw i8, ptr %4548, i64 16
   invoke void @_ZN22generic_int_accessor_tC1EP7state_tmmmNS_11mask_mode_tEi(ptr noundef nonnull align 8 dereferenceable(40) %4551, ptr noundef nonnull %0, i64 noundef -5189, i64 noundef 8194, i64 noundef -5189, i32 noundef 1, i32 noundef 0)
           to label %4553 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI22generic_int_accessor_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i, !noalias !168
@@ -137020,7 +137020,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI22generic_int_accessor_tSa
   store i32 1, ptr %4556, align 8, !noalias !171
   %4557 = getelementptr inbounds nuw i8, ptr %4555, i64 12
   store i32 1, ptr %4557, align 4, !noalias !171
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI22generic_int_accessor_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4555, align 8, !noalias !171
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI22generic_int_accessor_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4555, align 8, !noalias !171
   %4558 = getelementptr inbounds nuw i8, ptr %4555, i64 16
   invoke void @_ZN22generic_int_accessor_tC1EP7state_tmmmNS_11mask_mode_tEi(ptr noundef nonnull align 8 dereferenceable(40) %4558, ptr noundef nonnull %0, i64 noundef 5188, i64 noundef 4, i64 noundef 5188, i32 noundef 1, i32 noundef 0)
           to label %4560 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI22generic_int_accessor_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i1307, !noalias !171
@@ -137045,7 +137045,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI22generic_int_accessor_tSa
   store i32 1, ptr %4563, align 8, !noalias !174
   %4564 = getelementptr inbounds nuw i8, ptr %4562, i64 12
   store i32 1, ptr %4564, align 4, !noalias !174
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI22generic_int_accessor_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4562, align 8, !noalias !174
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI22generic_int_accessor_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4562, align 8, !noalias !174
   %4565 = getelementptr inbounds nuw i8, ptr %4562, i64 16
   invoke void @_ZN22generic_int_accessor_tC1EP7state_tmmmNS_11mask_mode_tEi(ptr noundef nonnull align 8 dereferenceable(40) %4565, ptr noundef nonnull %0, i64 noundef 1092, i64 noundef 4, i64 noundef 1092, i32 noundef 2, i32 noundef 1)
           to label %4567 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI22generic_int_accessor_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i1312, !noalias !174
@@ -137071,7 +137071,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI22generic_int_accessor_tSa
   store i32 1, ptr %4570, align 8, !noalias !177
   %4571 = getelementptr inbounds nuw i8, ptr %4569, i64 12
   store i32 1, ptr %4571, align 4, !noalias !177
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15mip_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4569, align 8, !noalias !177
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15mip_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4569, align 8, !noalias !177
   %4572 = getelementptr inbounds nuw i8, ptr %4569, i64 16
   invoke void @_ZSt10_ConstructI15mip_proxy_csr_tJRKP11processor_tiRSt10shared_ptrI22generic_int_accessor_tEEEvPT_DpOT0_(ptr noundef nonnull %4572, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %199, ptr noundef nonnull align 8 dereferenceable(16) %195)
           to label %4574 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15mip_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !177
@@ -137097,7 +137097,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15mip_proxy_csr_tSaIvELN9_
   store i32 1, ptr %4577, align 8, !noalias !180
   %4578 = getelementptr inbounds nuw i8, ptr %4576, i64 12
   store i32 1, ptr %4578, align 4, !noalias !180
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15mip_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4576, align 8, !noalias !180
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15mip_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4576, align 8, !noalias !180
   %4579 = getelementptr inbounds nuw i8, ptr %4576, i64 16
   invoke void @_ZSt10_ConstructI15mip_proxy_csr_tJRKP11processor_tiRSt10shared_ptrI22generic_int_accessor_tEEEvPT_DpOT0_(ptr noundef nonnull %4579, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %201, ptr noundef nonnull align 8 dereferenceable(16) %197)
           to label %4581 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15mip_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i1320, !noalias !180
@@ -137296,7 +137296,7 @@ _ZNSt10shared_ptrI5csr_tEaSI15mip_proxy_csr_tEENSt9enable_ifIXsr13is_assignableI
   store i32 1, ptr %4656, align 8, !noalias !183
   %4657 = getelementptr inbounds nuw i8, ptr %4655, i64 12
   store i32 1, ptr %4657, align 4, !noalias !183
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI17virtualized_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4655, align 8, !noalias !183
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI17virtualized_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4655, align 8, !noalias !183
   %4658 = getelementptr inbounds nuw i8, ptr %4655, i64 16
   invoke void @_ZSt10_ConstructI17virtualized_csr_tJRKP11processor_tRSt10shared_ptrI15mip_proxy_csr_tES8_EEvPT_DpOT0_(ptr noundef nonnull %4658, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(16) %198, ptr noundef nonnull align 8 dereferenceable(16) %200)
           to label %4660 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI17virtualized_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !183
@@ -137531,7 +137531,7 @@ _ZNSt10shared_ptrI17virtualized_csr_tED2Ev.exit:  ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %4758, align 8, !noalias !186
   %4759 = getelementptr inbounds nuw i8, ptr %4757, i64 12
   store i32 1, ptr %4759, align 4, !noalias !186
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15mip_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4757, align 8, !noalias !186
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15mip_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4757, align 8, !noalias !186
   %4760 = getelementptr inbounds nuw i8, ptr %4757, i64 16
   invoke void @_ZSt10_ConstructI15mip_proxy_csr_tJRKP11processor_tiRSt10shared_ptrI22generic_int_accessor_tEEEvPT_DpOT0_(ptr noundef nonnull %4760, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %204, ptr noundef nonnull align 8 dereferenceable(16) %196)
           to label %4762 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15mip_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i1377, !noalias !186
@@ -137765,7 +137765,7 @@ _ZNSt10shared_ptrI15mip_proxy_csr_tED2Ev.exit:    ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %4860, align 8, !noalias !189
   %4861 = getelementptr inbounds nuw i8, ptr %4859, i64 12
   store i32 1, ptr %4861, align 4, !noalias !189
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI10hvip_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4859, align 8, !noalias !189
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI10hvip_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4859, align 8, !noalias !189
   %4862 = getelementptr inbounds nuw i8, ptr %4859, i64 16
   %4863 = load ptr, ptr %142, align 8, !noalias !189
   invoke void @_ZN10hvip_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %4862, ptr noundef %4863, i64 noundef 1605, i64 noundef 0)
@@ -138110,7 +138110,7 @@ _ZNSt10shared_ptrI10hvip_csr_tED2Ev.exit:         ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %5012, align 8, !noalias !192
   %5013 = getelementptr inbounds nuw i8, ptr %5011, i64 12
   store i32 1, ptr %5013, align 4, !noalias !192
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15mie_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5011, align 8, !noalias !192
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15mie_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5011, align 8, !noalias !192
   %5014 = getelementptr inbounds nuw i8, ptr %5011, i64 16
   invoke void @_ZSt10_ConstructI15mie_proxy_csr_tJRKP11processor_tiRSt10shared_ptrI22generic_int_accessor_tEEEvPT_DpOT0_(ptr noundef nonnull %5014, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %207, ptr noundef nonnull align 8 dereferenceable(16) %195)
           to label %5016 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15mie_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !192
@@ -138136,7 +138136,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15mie_proxy_csr_tSaIvELN9_
   store i32 1, ptr %5019, align 8, !noalias !195
   %5020 = getelementptr inbounds nuw i8, ptr %5018, i64 12
   store i32 1, ptr %5020, align 4, !noalias !195
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15mie_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5018, align 8, !noalias !195
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15mie_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5018, align 8, !noalias !195
   %5021 = getelementptr inbounds nuw i8, ptr %5018, i64 16
   invoke void @_ZSt10_ConstructI15mie_proxy_csr_tJRKP11processor_tiRSt10shared_ptrI22generic_int_accessor_tEEEvPT_DpOT0_(ptr noundef nonnull %5021, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %209, ptr noundef nonnull align 8 dereferenceable(16) %197)
           to label %5023 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15mie_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i1449, !noalias !195
@@ -138335,7 +138335,7 @@ _ZNSt10shared_ptrI5csr_tEaSI15mie_proxy_csr_tEENSt9enable_ifIXsr13is_assignableI
   store i32 1, ptr %5098, align 8, !noalias !198
   %5099 = getelementptr inbounds nuw i8, ptr %5097, i64 12
   store i32 1, ptr %5099, align 4, !noalias !198
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI17virtualized_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5097, align 8, !noalias !198
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI17virtualized_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5097, align 8, !noalias !198
   %5100 = getelementptr inbounds nuw i8, ptr %5097, i64 16
   invoke void @_ZSt10_ConstructI17virtualized_csr_tJRKP11processor_tRSt10shared_ptrI15mie_proxy_csr_tES8_EEvPT_DpOT0_(ptr noundef nonnull %5100, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(16) %206, ptr noundef nonnull align 8 dereferenceable(16) %208)
           to label %5102 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI17virtualized_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i1479, !noalias !198
@@ -138570,7 +138570,7 @@ _ZNSt10shared_ptrI17virtualized_csr_tED2Ev.exit1508: ; preds = %_ZNSt10shared_pt
   store i32 1, ptr %5200, align 8, !noalias !201
   %5201 = getelementptr inbounds nuw i8, ptr %5199, i64 12
   store i32 1, ptr %5201, align 4, !noalias !201
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15mie_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5199, align 8, !noalias !201
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15mie_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5199, align 8, !noalias !201
   %5202 = getelementptr inbounds nuw i8, ptr %5199, i64 16
   invoke void @_ZSt10_ConstructI15mie_proxy_csr_tJRKP11processor_tiRSt10shared_ptrI22generic_int_accessor_tEEEvPT_DpOT0_(ptr noundef nonnull %5202, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %212, ptr noundef nonnull align 8 dereferenceable(16) %196)
           to label %5204 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15mie_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i1509, !noalias !201
@@ -138804,7 +138804,7 @@ _ZNSt10shared_ptrI15mie_proxy_csr_tED2Ev.exit:    ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %5302, align 8, !noalias !204
   %5303 = getelementptr inbounds nuw i8, ptr %5301, i64 12
   store i32 1, ptr %5303, align 4, !noalias !204
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI13medeleg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5301, align 8, !noalias !204
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI13medeleg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5301, align 8, !noalias !204
   %5304 = getelementptr inbounds nuw i8, ptr %5301, i64 16
   %5305 = load ptr, ptr %142, align 8, !noalias !204
   invoke void @_ZN13medeleg_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(56) %5304, ptr noundef %5305, i64 noundef 770)
@@ -139148,7 +139148,7 @@ _ZNSt10shared_ptrI13medeleg_csr_tED2Ev.exit:      ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %5454, align 8, !noalias !207
   %5455 = getelementptr inbounds nuw i8, ptr %5453, i64 12
   store i32 1, ptr %5455, align 4, !noalias !207
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI13mideleg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5453, align 8, !noalias !207
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI13mideleg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5453, align 8, !noalias !207
   %5456 = getelementptr inbounds nuw i8, ptr %5453, i64 16
   %5457 = load ptr, ptr %142, align 8, !noalias !207
   invoke void @_ZN13mideleg_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %5456, ptr noundef %5457, i64 noundef 771)
@@ -139504,7 +139504,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i32 1, ptr %5617, align 8, !noalias !210
   %5618 = getelementptr inbounds nuw i8, ptr %5616, i64 12
   store i32 1, ptr %5618, align 4, !noalias !210
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12masked_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5616, align 8, !noalias !210
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12masked_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5616, align 8, !noalias !210
   %5619 = getelementptr inbounds nuw i8, ptr %5616, i64 16
   invoke void @_ZN12masked_csr_tC1EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(56) %5619, ptr noundef nonnull %5606, i64 noundef 774, i64 noundef %5615, i64 noundef 0)
           to label %_ZSt11make_sharedI12masked_csr_tJRKP11processor_tiRKmiEESt10shared_ptrIT_EDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI12masked_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i, !noalias !210
@@ -139904,7 +139904,7 @@ _ZNSt10shared_ptrI5csr_tEaSERKS1_.exit1665:       ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %5769, align 8, !noalias !213
   %5770 = getelementptr inbounds nuw i8, ptr %5768, i64 12
   store i32 1, ptr %5770, align 4, !noalias !213
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12masked_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5768, align 8, !noalias !213
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12masked_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5768, align 8, !noalias !213
   %5771 = getelementptr inbounds nuw i8, ptr %5768, i64 16
   %5772 = load ptr, ptr %142, align 8, !noalias !213
   invoke void @_ZN12masked_csr_tC1EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(56) %5771, ptr noundef %5772, i64 noundef 262, i64 noundef %5615, i64 noundef 0)
@@ -140246,7 +140246,7 @@ _ZNSt10shared_ptrI12masked_csr_tED2Ev.exit1710:   ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %5921, align 8, !noalias !216
   %5922 = getelementptr inbounds nuw i8, ptr %5920, i64 12
   store i32 1, ptr %5922, align 4, !noalias !216
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI9epc_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5920, align 8, !noalias !216
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI9epc_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5920, align 8, !noalias !216
   %5923 = getelementptr inbounds nuw i8, ptr %5920, i64 16
   %5924 = load ptr, ptr %142, align 8, !noalias !216
   invoke void @_ZN9epc_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %5923, ptr noundef %5924, i64 noundef 321)
@@ -140346,7 +140346,7 @@ _ZNSt10shared_ptrI9epc_csr_tED2Ev.exit1729:       ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %5964, align 8, !noalias !219
   %5965 = getelementptr inbounds nuw i8, ptr %5963, i64 12
   store i32 1, ptr %5965, align 4, !noalias !219
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI9epc_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5963, align 8, !noalias !219
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI9epc_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5963, align 8, !noalias !219
   %5966 = getelementptr inbounds nuw i8, ptr %5963, i64 16
   %5967 = load ptr, ptr %142, align 8, !noalias !219
   invoke void @_ZN9epc_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %5966, ptr noundef %5967, i64 noundef 577)
@@ -140690,7 +140690,7 @@ _ZNSt10shared_ptrI9epc_csr_tED2Ev.exit1774:       ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %6116, align 8, !noalias !222
   %6117 = getelementptr inbounds nuw i8, ptr %6115, i64 12
   store i32 1, ptr %6117, align 4, !noalias !222
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI17virtualized_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6115, align 8, !noalias !222
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI17virtualized_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6115, align 8, !noalias !222
   %6118 = getelementptr inbounds nuw i8, ptr %6115, i64 16
   invoke void @_ZSt10_ConstructI17virtualized_csr_tJRKP11processor_tRSt10shared_ptrI5csr_tES8_EEvPT_DpOT0_(ptr noundef nonnull %6118, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(16) %5926, ptr noundef nonnull align 8 dereferenceable(16) %5971)
           to label %6120 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI17virtualized_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i1775, !noalias !222
@@ -141031,7 +141031,7 @@ _ZNSt10shared_ptrI17virtualized_csr_tED2Ev.exit1818: ; preds = %_ZNSt10shared_pt
   store i32 1, ptr %6267, align 8, !noalias !225
   %6268 = getelementptr inbounds nuw i8, ptr %6266, i64 12
   store i32 1, ptr %6268, align 4, !noalias !225
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6266, align 8, !noalias !225
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6266, align 8, !noalias !225
   %6269 = getelementptr inbounds nuw i8, ptr %6266, i64 16
   %6270 = load ptr, ptr %142, align 8, !noalias !225
   invoke void @_ZN11basic_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %6269, ptr noundef %6270, i64 noundef 323, i64 noundef 0)
@@ -141131,7 +141131,7 @@ _ZNSt10shared_ptrI11basic_csr_tED2Ev.exit1837:    ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %6310, align 8, !noalias !228
   %6311 = getelementptr inbounds nuw i8, ptr %6309, i64 12
   store i32 1, ptr %6311, align 4, !noalias !228
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6309, align 8, !noalias !228
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6309, align 8, !noalias !228
   %6312 = getelementptr inbounds nuw i8, ptr %6309, i64 16
   %6313 = load ptr, ptr %142, align 8, !noalias !228
   invoke void @_ZN11basic_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %6312, ptr noundef %6313, i64 noundef 579, i64 noundef 0)
@@ -141475,7 +141475,7 @@ _ZNSt10shared_ptrI11basic_csr_tED2Ev.exit1882:    ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %6462, align 8, !noalias !231
   %6463 = getelementptr inbounds nuw i8, ptr %6461, i64 12
   store i32 1, ptr %6463, align 4, !noalias !231
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI17virtualized_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6461, align 8, !noalias !231
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI17virtualized_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6461, align 8, !noalias !231
   %6464 = getelementptr inbounds nuw i8, ptr %6461, i64 16
   invoke void @_ZSt10_ConstructI17virtualized_csr_tJRKP11processor_tRSt10shared_ptrI5csr_tES8_EEvPT_DpOT0_(ptr noundef nonnull %6464, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(16) %6272, ptr noundef nonnull align 8 dereferenceable(16) %6317)
           to label %6466 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI17virtualized_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i1883, !noalias !231
@@ -141818,7 +141818,7 @@ _ZNSt10shared_ptrI17virtualized_csr_tED2Ev.exit1927: ; preds = %_ZNSt10shared_pt
   store i32 1, ptr %6613, align 8, !noalias !234
   %6614 = getelementptr inbounds nuw i8, ptr %6612, i64 12
   store i32 1, ptr %6614, align 4, !noalias !234
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6612, align 8, !noalias !234
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6612, align 8, !noalias !234
   %6615 = getelementptr inbounds nuw i8, ptr %6612, i64 16
   %6616 = load ptr, ptr %142, align 8, !noalias !234
   invoke void @_ZN11basic_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %6615, ptr noundef %6616, i64 noundef 320, i64 noundef 0)
@@ -141844,7 +141844,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu
   store i32 1, ptr %6621, align 8, !noalias !237
   %6622 = getelementptr inbounds nuw i8, ptr %6620, i64 12
   store i32 1, ptr %6622, align 4, !noalias !237
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6620, align 8, !noalias !237
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6620, align 8, !noalias !237
   %6623 = getelementptr inbounds nuw i8, ptr %6620, i64 16
   %6624 = load ptr, ptr %142, align 8, !noalias !237
   invoke void @_ZN11basic_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %6623, ptr noundef %6624, i64 noundef 576, i64 noundef 0)
@@ -141870,7 +141870,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu
   store i32 1, ptr %6629, align 8, !noalias !240
   %6630 = getelementptr inbounds nuw i8, ptr %6628, i64 12
   store i32 1, ptr %6630, align 4, !noalias !240
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI17virtualized_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6628, align 8, !noalias !240
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI17virtualized_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6628, align 8, !noalias !240
   %6631 = getelementptr inbounds nuw i8, ptr %6628, i64 16
   invoke void @_ZSt10_ConstructI17virtualized_csr_tJRKP11processor_tRSt10shared_ptrI11basic_csr_tES8_EEvPT_DpOT0_(ptr noundef nonnull %6631, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(16) %220, ptr noundef nonnull align 8 dereferenceable(16) %221)
           to label %6633 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI17virtualized_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i1938, !noalias !240
@@ -142271,7 +142271,7 @@ _ZNSt10shared_ptrI5csr_tEaSI11basic_csr_tEENSt9enable_ifIXsr13is_assignableIRSt1
   store i32 1, ptr %6803, align 8, !noalias !243
   %6804 = getelementptr inbounds nuw i8, ptr %6802, i64 12
   store i32 1, ptr %6804, align 4, !noalias !243
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI10tvec_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6802, align 8, !noalias !243
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI10tvec_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6802, align 8, !noalias !243
   %6805 = getelementptr inbounds nuw i8, ptr %6802, i64 16
   %6806 = load ptr, ptr %142, align 8, !noalias !243
   invoke void @_ZN10tvec_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %6805, ptr noundef %6806, i64 noundef 261)
@@ -142371,7 +142371,7 @@ _ZNSt10shared_ptrI10tvec_csr_tED2Ev.exit2011:     ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %6846, align 8, !noalias !246
   %6847 = getelementptr inbounds nuw i8, ptr %6845, i64 12
   store i32 1, ptr %6847, align 4, !noalias !246
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI10tvec_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6845, align 8, !noalias !246
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI10tvec_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6845, align 8, !noalias !246
   %6848 = getelementptr inbounds nuw i8, ptr %6845, i64 16
   %6849 = load ptr, ptr %142, align 8, !noalias !246
   invoke void @_ZN10tvec_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %6848, ptr noundef %6849, i64 noundef 517)
@@ -142715,7 +142715,7 @@ _ZNSt10shared_ptrI10tvec_csr_tED2Ev.exit2056:     ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %6998, align 8, !noalias !249
   %6999 = getelementptr inbounds nuw i8, ptr %6997, i64 12
   store i32 1, ptr %6999, align 4, !noalias !249
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI17virtualized_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6997, align 8, !noalias !249
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI17virtualized_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6997, align 8, !noalias !249
   %7000 = getelementptr inbounds nuw i8, ptr %6997, i64 16
   invoke void @_ZSt10_ConstructI17virtualized_csr_tJRKP11processor_tRSt10shared_ptrI5csr_tES8_EEvPT_DpOT0_(ptr noundef nonnull %7000, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(16) %6808, ptr noundef nonnull align 8 dereferenceable(16) %6853)
           to label %7002 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI17virtualized_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i2057, !noalias !249
@@ -143058,7 +143058,7 @@ _ZNSt10shared_ptrI17virtualized_csr_tED2Ev.exit2101: ; preds = %_ZNSt10shared_pt
   store i32 1, ptr %7149, align 8, !noalias !252
   %7150 = getelementptr inbounds nuw i8, ptr %7148, i64 12
   store i32 1, ptr %7150, align 4, !noalias !252
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI10satp_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7148, align 8, !noalias !252
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI10satp_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7148, align 8, !noalias !252
   %7151 = getelementptr inbounds nuw i8, ptr %7148, i64 16
   %7152 = load ptr, ptr %142, align 8, !noalias !252
   invoke void @_ZN10satp_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %7151, ptr noundef %7152, i64 noundef 384)
@@ -143084,7 +143084,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI10satp_csr_tSaIvELN9__gnu_
   store i32 1, ptr %7157, align 8, !noalias !255
   %7158 = getelementptr inbounds nuw i8, ptr %7156, i64 12
   store i32 1, ptr %7158, align 4, !noalias !255
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14base_atp_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7156, align 8, !noalias !255
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14base_atp_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7156, align 8, !noalias !255
   %7159 = getelementptr inbounds nuw i8, ptr %7156, i64 16
   %7160 = load ptr, ptr %142, align 8, !noalias !255
   invoke void @_ZN14base_atp_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %7159, ptr noundef %7160, i64 noundef 640)
@@ -143428,7 +143428,7 @@ _ZNSt10shared_ptrI14base_atp_csr_tED2Ev.exit:     ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %7309, align 8, !noalias !258
   %7310 = getelementptr inbounds nuw i8, ptr %7308, i64 12
   store i32 1, ptr %7310, align 4, !noalias !258
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI22virtualized_satp_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7308, align 8, !noalias !258
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI22virtualized_satp_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7308, align 8, !noalias !258
   %7311 = getelementptr inbounds nuw i8, ptr %7308, i64 16
   invoke void @_ZSt10_ConstructI22virtualized_satp_csr_tJRKP11processor_tRSt10shared_ptrI10satp_csr_tERS5_I5csr_tEEEvPT_DpOT0_(ptr noundef nonnull %7311, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(16) %225, ptr noundef nonnull align 8 dereferenceable(16) %7164)
           to label %7313 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI22virtualized_satp_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !258
@@ -143769,7 +143769,7 @@ _ZNSt10shared_ptrI22virtualized_satp_csr_tED2Ev.exit: ; preds = %_ZNSt10shared_p
   store i32 1, ptr %7460, align 8, !noalias !261
   %7461 = getelementptr inbounds nuw i8, ptr %7459, i64 12
   store i32 1, ptr %7461, align 4, !noalias !261
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11cause_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7459, align 8, !noalias !261
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11cause_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7459, align 8, !noalias !261
   %7462 = getelementptr inbounds nuw i8, ptr %7459, i64 16
   %7463 = load ptr, ptr %142, align 8, !noalias !261
   invoke void @_ZN11cause_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %7462, ptr noundef %7463, i64 noundef 322)
@@ -143869,7 +143869,7 @@ _ZNSt10shared_ptrI11cause_csr_tED2Ev.exit2204:    ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %7503, align 8, !noalias !264
   %7504 = getelementptr inbounds nuw i8, ptr %7502, i64 12
   store i32 1, ptr %7504, align 4, !noalias !264
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11cause_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7502, align 8, !noalias !264
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11cause_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7502, align 8, !noalias !264
   %7505 = getelementptr inbounds nuw i8, ptr %7502, i64 16
   %7506 = load ptr, ptr %142, align 8, !noalias !264
   invoke void @_ZN11cause_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %7505, ptr noundef %7506, i64 noundef 578)
@@ -144213,7 +144213,7 @@ _ZNSt10shared_ptrI11cause_csr_tED2Ev.exit2249:    ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %7655, align 8, !noalias !267
   %7656 = getelementptr inbounds nuw i8, ptr %7654, i64 12
   store i32 1, ptr %7656, align 4, !noalias !267
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI17virtualized_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7654, align 8, !noalias !267
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI17virtualized_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7654, align 8, !noalias !267
   %7657 = getelementptr inbounds nuw i8, ptr %7654, i64 16
   invoke void @_ZSt10_ConstructI17virtualized_csr_tJRKP11processor_tRSt10shared_ptrI5csr_tES8_EEvPT_DpOT0_(ptr noundef nonnull %7657, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(16) %7465, ptr noundef nonnull align 8 dereferenceable(16) %7510)
           to label %7659 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI17virtualized_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i2250, !noalias !267
@@ -144556,7 +144556,7 @@ _ZNSt10shared_ptrI17virtualized_csr_tED2Ev.exit2294: ; preds = %_ZNSt10shared_pt
   store i32 1, ptr %7806, align 8, !noalias !270
   %7807 = getelementptr inbounds nuw i8, ptr %7805, i64 12
   store i32 1, ptr %7807, align 4, !noalias !270
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI16hypervisor_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7805, align 8, !noalias !270
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI16hypervisor_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7805, align 8, !noalias !270
   %7808 = getelementptr inbounds nuw i8, ptr %7805, i64 16
   %7809 = load ptr, ptr %142, align 8, !noalias !270
   invoke void @_ZN16hypervisor_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %7808, ptr noundef %7809, i64 noundef 843)
@@ -144900,7 +144900,7 @@ _ZNSt10shared_ptrI16hypervisor_csr_tED2Ev.exit:   ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %7958, align 8, !noalias !273
   %7959 = getelementptr inbounds nuw i8, ptr %7957, i64 12
   store i32 1, ptr %7959, align 4, !noalias !273
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI16hypervisor_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7957, align 8, !noalias !273
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI16hypervisor_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7957, align 8, !noalias !273
   %7960 = getelementptr inbounds nuw i8, ptr %7957, i64 16
   %7961 = load ptr, ptr %142, align 8, !noalias !273
   invoke void @_ZN16hypervisor_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %7960, ptr noundef %7961, i64 noundef 842)
@@ -145267,7 +145267,7 @@ _ZNSt10shared_ptrI16hypervisor_csr_tED2Ev.exit2380: ; preds = %_ZNSt10shared_ptr
   store i32 1, ptr %8121, align 8, !noalias !276
   %8122 = getelementptr inbounds nuw i8, ptr %8118, i64 12
   store i32 1, ptr %8122, align 4, !noalias !276
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12masked_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8118, align 8, !noalias !276
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12masked_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8118, align 8, !noalias !276
   %8123 = getelementptr inbounds nuw i8, ptr %8118, i64 16
   invoke void @_ZN12masked_csr_tC1EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(56) %8123, ptr noundef nonnull %8109, i64 noundef 1536, i64 noundef %8120, i64 noundef %.0.i)
           to label %8125 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI12masked_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i2381, !noalias !276
@@ -145610,7 +145610,7 @@ _ZNSt10shared_ptrI12masked_csr_tED2Ev.exit2424:   ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %8272, align 8, !noalias !279
   %8273 = getelementptr inbounds nuw i8, ptr %8271, i64 12
   store i32 1, ptr %8273, align 4, !noalias !279
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8271, align 8, !noalias !279
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8271, align 8, !noalias !279
   %8274 = getelementptr inbounds nuw i8, ptr %8271, i64 16
   %8275 = load ptr, ptr %142, align 8, !noalias !279
   invoke void @_ZN11const_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %8274, ptr noundef %8275, i64 noundef 1543, i64 noundef 0)
@@ -145845,7 +145845,7 @@ _ZNSt10shared_ptrI11const_csr_tED2Ev.exit2455:    ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %8375, align 8, !noalias !282
   %8376 = getelementptr inbounds nuw i8, ptr %8374, i64 12
   store i32 1, ptr %8376, align 4, !noalias !282
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8374, align 8, !noalias !282
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8374, align 8, !noalias !282
   %8377 = getelementptr inbounds nuw i8, ptr %8374, i64 16
   %8378 = load ptr, ptr %142, align 8, !noalias !282
   invoke void @_ZN11const_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %8377, ptr noundef %8378, i64 noundef 3602, i64 noundef 0)
@@ -146081,7 +146081,7 @@ _ZNSt10shared_ptrI11const_csr_tED2Ev.exit2486:    ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %8478, align 8, !noalias !285
   %8479 = getelementptr inbounds nuw i8, ptr %8477, i64 12
   store i32 1, ptr %8479, align 4, !noalias !285
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI13hideleg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8477, align 8, !noalias !285
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI13hideleg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8477, align 8, !noalias !285
   %8480 = getelementptr inbounds nuw i8, ptr %8477, i64 16
   invoke void @_ZSt10_ConstructI13hideleg_csr_tJRKP11processor_tiRSt10shared_ptrI5csr_tEEEvPT_DpOT0_(ptr noundef nonnull %8480, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %236, ptr noundef nonnull align 8 dereferenceable(16) %5461)
           to label %8482 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI13hideleg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !285
@@ -146424,7 +146424,7 @@ _ZNSt10shared_ptrI13hideleg_csr_tED2Ev.exit:      ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %8629, align 8, !noalias !288
   %8630 = getelementptr inbounds nuw i8, ptr %8628, i64 12
   store i32 1, ptr %8630, align 4, !noalias !288
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12masked_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8628, align 8, !noalias !288
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12masked_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8628, align 8, !noalias !288
   %8631 = getelementptr inbounds nuw i8, ptr %8628, i64 16
   %8632 = load ptr, ptr %142, align 8, !noalias !288
   invoke void @_ZN12masked_csr_tC1EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(56) %8631, ptr noundef %8632, i64 noundef 1538, i64 noundef 45567, i64 noundef 0)
@@ -146768,7 +146768,7 @@ _ZNSt10shared_ptrI12masked_csr_tED2Ev.exit2572:   ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %8781, align 8, !noalias !291
   %8782 = getelementptr inbounds nuw i8, ptr %8780, i64 12
   store i32 1, ptr %8782, align 4, !noalias !291
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12masked_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8780, align 8, !noalias !291
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12masked_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8780, align 8, !noalias !291
   %8783 = getelementptr inbounds nuw i8, ptr %8780, i64 16
   %8784 = load ptr, ptr %142, align 8, !noalias !291
   invoke void @_ZN12masked_csr_tC1EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(56) %8783, ptr noundef %8784, i64 noundef 1542, i64 noundef %5615, i64 noundef 0)
@@ -147110,7 +147110,7 @@ _ZNSt10shared_ptrI12masked_csr_tED2Ev.exit2617:   ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %8933, align 8, !noalias !294
   %8934 = getelementptr inbounds nuw i8, ptr %8932, i64 12
   store i32 1, ptr %8934, align 4, !noalias !294
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8932, align 8, !noalias !294
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8932, align 8, !noalias !294
   %8935 = getelementptr inbounds nuw i8, ptr %8932, i64 16
   %8936 = load ptr, ptr %142, align 8, !noalias !294
   invoke void @_ZN11basic_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %8935, ptr noundef %8936, i64 noundef 1541, i64 noundef 0)
@@ -147214,7 +147214,7 @@ _ZNSt10shared_ptrI11basic_csr_tED2Ev.exit2636:    ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %8977, align 8, !noalias !297
   %8978 = getelementptr inbounds nuw i8, ptr %8976, i64 12
   store i32 1, ptr %8978, align 4, !noalias !297
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8976, align 8, !noalias !297
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8976, align 8, !noalias !297
   %8979 = getelementptr inbounds nuw i8, ptr %8976, i64 16
   invoke void @_ZSt10_ConstructI14rv32_low_csr_tJRKP11processor_tiRSt10shared_ptrI5csr_tEEEvPT_DpOT0_(ptr noundef nonnull %8979, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %240, ptr noundef nonnull align 8 dereferenceable(16) %8938)
           to label %8981 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i2637, !noalias !297
@@ -147449,7 +147449,7 @@ _ZNSt10shared_ptrI14rv32_low_csr_tED2Ev.exit2666: ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %9079, align 8, !noalias !300
   %9080 = getelementptr inbounds nuw i8, ptr %9078, i64 12
   store i32 1, ptr %9080, align 4, !noalias !300
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9078, align 8, !noalias !300
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9078, align 8, !noalias !300
   %9081 = getelementptr inbounds nuw i8, ptr %9078, i64 16
   invoke void @_ZSt10_ConstructI15rv32_high_csr_tJRKP11processor_tiRSt10shared_ptrI5csr_tEEEvPT_DpOT0_(ptr noundef nonnull %9081, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %242, ptr noundef nonnull align 8 dereferenceable(16) %8938)
           to label %9083 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i2667, !noalias !300
@@ -148102,7 +148102,7 @@ _ZNSt10shared_ptrI15rv32_high_csr_tED2Ev.exit2696: ; preds = %_ZNSt16_Sp_counted
   store i32 1, ptr %9302, align 8, !noalias !303
   %9303 = getelementptr inbounds nuw i8, ptr %9301, i64 12
   store i32 1, ptr %9303, align 4, !noalias !303
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9301, align 8, !noalias !303
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9301, align 8, !noalias !303
   %9304 = getelementptr inbounds nuw i8, ptr %9301, i64 16
   %9305 = load ptr, ptr %142, align 8, !noalias !303
   invoke void @_ZN11basic_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %9304, ptr noundef %9305, i64 noundef 1603, i64 noundef 0)
@@ -148446,7 +148446,7 @@ _ZNSt10shared_ptrI11basic_csr_tED2Ev.exit2767:    ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %9454, align 8, !noalias !306
   %9455 = getelementptr inbounds nuw i8, ptr %9453, i64 12
   store i32 1, ptr %9455, align 4, !noalias !306
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9453, align 8, !noalias !306
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9453, align 8, !noalias !306
   %9456 = getelementptr inbounds nuw i8, ptr %9453, i64 16
   %9457 = load ptr, ptr %142, align 8, !noalias !306
   invoke void @_ZN11basic_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %9456, ptr noundef %9457, i64 noundef 1610, i64 noundef 0)
@@ -148790,7 +148790,7 @@ _ZNSt10shared_ptrI11basic_csr_tED2Ev.exit2812:    ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %9606, align 8, !noalias !309
   %9607 = getelementptr inbounds nuw i8, ptr %9605, i64 12
   store i32 1, ptr %9607, align 4, !noalias !309
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11hgatp_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9605, align 8, !noalias !309
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11hgatp_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9605, align 8, !noalias !309
   %9608 = getelementptr inbounds nuw i8, ptr %9605, i64 16
   %9609 = load ptr, ptr %142, align 8, !noalias !309
   invoke void @_ZN11hgatp_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %9608, ptr noundef %9609, i64 noundef 1664)
@@ -149133,7 +149133,7 @@ _ZNSt10shared_ptrI11hgatp_csr_tED2Ev.exit:        ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %9758, align 8, !noalias !312
   %9759 = getelementptr inbounds nuw i8, ptr %9757, i64 12
   store i32 1, ptr %9759, align 4, !noalias !312
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI19sstatus_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9757, align 8, !noalias !312
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI19sstatus_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9757, align 8, !noalias !312
   %9760 = getelementptr inbounds nuw i8, ptr %9757, i64 16
   invoke void @_ZSt10_ConstructI19sstatus_proxy_csr_tJRKP11processor_tiRSt10shared_ptrI13mstatus_csr_tEEEvPT_DpOT0_(ptr noundef nonnull %9760, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %246, ptr noundef nonnull align 8 dereferenceable(16) %504)
           to label %_ZSt11make_sharedI19sstatus_proxy_csr_tJRKP11processor_tiRSt10shared_ptrI13mstatus_csr_tEEES5_IT_EDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI19sstatus_proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !312
@@ -149232,7 +149232,7 @@ _ZNSt10shared_ptrI19sstatus_proxy_csr_tED2Ev.exit: ; preds = %_ZNSt16_Sp_counted
   store i32 1, ptr %9800, align 8, !noalias !315
   %9801 = getelementptr inbounds nuw i8, ptr %9799, i64 12
   store i32 1, ptr %9801, align 4, !noalias !315
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14vsstatus_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9799, align 8, !noalias !315
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14vsstatus_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9799, align 8, !noalias !315
   %9802 = getelementptr inbounds nuw i8, ptr %9799, i64 16
   %9803 = load ptr, ptr %142, align 8, !noalias !315
   invoke void @_ZN14vsstatus_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(64) %9802, ptr noundef %9803, i64 noundef 512)
@@ -149576,7 +149576,7 @@ _ZNSt10shared_ptrI14vsstatus_csr_tED2Ev.exit:     ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %9952, align 8, !noalias !318
   %9953 = getelementptr inbounds nuw i8, ptr %9951, i64 12
   store i32 1, ptr %9953, align 4, !noalias !318
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI13sstatus_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9951, align 8, !noalias !318
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI13sstatus_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9951, align 8, !noalias !318
   %9954 = getelementptr inbounds nuw i8, ptr %9951, i64 16
   invoke void @_ZSt10_ConstructI13sstatus_csr_tJRKP11processor_tRSt10shared_ptrI19sstatus_proxy_csr_tERS5_I14vsstatus_csr_tEEEvPT_DpOT0_(ptr noundef nonnull %9954, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(16) %9762, ptr noundef nonnull align 8 dereferenceable(16) %9807)
           to label %9956 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI13sstatus_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !318
@@ -149919,7 +149919,7 @@ _ZNSt10shared_ptrI13sstatus_csr_tED2Ev.exit:      ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %10103, align 8, !noalias !321
   %10104 = getelementptr inbounds nuw i8, ptr %10102, i64 12
   store i32 1, ptr %10104, align 4, !noalias !321
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI9dpc_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10102, align 8, !noalias !321
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI9dpc_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10102, align 8, !noalias !321
   %10105 = getelementptr inbounds nuw i8, ptr %10102, i64 16
   %10106 = load ptr, ptr %142, align 8, !noalias !321
   invoke void @_ZN9dpc_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %10105, ptr noundef %10106, i64 noundef 1969)
@@ -150263,7 +150263,7 @@ _ZNSt10shared_ptrI9dpc_csr_tED2Ev.exit:           ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %10255, align 8, !noalias !324
   %10256 = getelementptr inbounds nuw i8, ptr %10254, i64 12
   store i32 1, ptr %10256, align 4, !noalias !324
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI16debug_mode_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10254, align 8, !noalias !324
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI16debug_mode_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10254, align 8, !noalias !324
   %10257 = getelementptr inbounds nuw i8, ptr %10254, i64 16
   %10258 = load ptr, ptr %142, align 8, !noalias !324
   invoke void @_ZN16debug_mode_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %10257, ptr noundef %10258, i64 noundef 1970)
@@ -150498,7 +150498,7 @@ _ZNSt10shared_ptrI16debug_mode_csr_tED2Ev.exit:   ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %10358, align 8, !noalias !327
   %10359 = getelementptr inbounds nuw i8, ptr %10357, i64 12
   store i32 1, ptr %10359, align 4, !noalias !327
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI16debug_mode_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10357, align 8, !noalias !327
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI16debug_mode_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10357, align 8, !noalias !327
   %10360 = getelementptr inbounds nuw i8, ptr %10357, i64 16
   %10361 = load ptr, ptr %142, align 8, !noalias !327
   invoke void @_ZN16debug_mode_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %10360, ptr noundef %10361, i64 noundef 1971)
@@ -150733,7 +150733,7 @@ _ZNSt10shared_ptrI16debug_mode_csr_tED2Ev.exit3047: ; preds = %_ZNSt10shared_ptr
   store i32 1, ptr %10461, align 8, !noalias !330
   %10462 = getelementptr inbounds nuw i8, ptr %10460, i64 12
   store i32 1, ptr %10462, align 4, !noalias !330
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI10dcsr_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10460, align 8, !noalias !330
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI10dcsr_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10460, align 8, !noalias !330
   %10463 = getelementptr inbounds nuw i8, ptr %10460, i64 16
   %10464 = load ptr, ptr %142, align 8, !noalias !330
   invoke void @_ZN10dcsr_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(47) %10463, ptr noundef %10464, i64 noundef 1968)
@@ -151077,7 +151077,7 @@ _ZNSt10shared_ptrI10dcsr_csr_tED2Ev.exit:         ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %10613, align 8, !noalias !333
   %10614 = getelementptr inbounds nuw i8, ptr %10612, i64 12
   store i32 1, ptr %10614, align 4, !noalias !333
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI13tselect_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10612, align 8, !noalias !333
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI13tselect_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10612, align 8, !noalias !333
   %10615 = getelementptr inbounds nuw i8, ptr %10612, i64 16
   %10616 = load ptr, ptr %142, align 8, !noalias !333
   invoke void @_ZN13tselect_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %10615, ptr noundef %10616, i64 noundef 1952)
@@ -151430,7 +151430,7 @@ _ZNSt10shared_ptrI13tselect_csr_tED2Ev.exit:      ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %10771, align 8, !noalias !336
   %10772 = getelementptr inbounds nuw i8, ptr %10770, i64 12
   store i32 1, ptr %10772, align 4, !noalias !336
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12tdata1_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10770, align 8, !noalias !336
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12tdata1_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10770, align 8, !noalias !336
   %10773 = getelementptr inbounds nuw i8, ptr %10770, i64 16
   invoke void @_ZN12tdata1_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %10773, ptr noundef nonnull %10764, i64 noundef 1953)
           to label %10775 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI12tdata1_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !336
@@ -151664,7 +151664,7 @@ _ZNSt10shared_ptrI12tdata1_csr_tED2Ev.exit:       ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %10873, align 8, !noalias !339
   %10874 = getelementptr inbounds nuw i8, ptr %10872, i64 12
   store i32 1, ptr %10874, align 4, !noalias !339
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12tdata2_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10872, align 8, !noalias !339
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12tdata2_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10872, align 8, !noalias !339
   %10875 = getelementptr inbounds nuw i8, ptr %10872, i64 16
   %10876 = load ptr, ptr %142, align 8, !noalias !339
   invoke void @_ZN12tdata2_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %10875, ptr noundef %10876, i64 noundef 1954)
@@ -152008,7 +152008,7 @@ _ZNSt10shared_ptrI12tdata2_csr_tED2Ev.exit:       ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %11025, align 8, !noalias !342
   %11026 = getelementptr inbounds nuw i8, ptr %11024, i64 12
   store i32 1, ptr %11026, align 4, !noalias !342
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12tdata3_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11024, align 8, !noalias !342
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12tdata3_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11024, align 8, !noalias !342
   %11027 = getelementptr inbounds nuw i8, ptr %11024, i64 16
   %11028 = load ptr, ptr %142, align 8, !noalias !342
   invoke void @_ZN12tdata3_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %11027, ptr noundef %11028, i64 noundef 1955)
@@ -152243,7 +152243,7 @@ _ZNSt10shared_ptrI12tdata3_csr_tED2Ev.exit:       ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %11128, align 8, !noalias !345
   %11129 = getelementptr inbounds nuw i8, ptr %11127, i64 12
   store i32 1, ptr %11129, align 4, !noalias !345
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11tinfo_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11127, align 8, !noalias !345
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11tinfo_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11127, align 8, !noalias !345
   %11130 = getelementptr inbounds nuw i8, ptr %11127, i64 16
   %11131 = load ptr, ptr %142, align 8, !noalias !345
   invoke void @_ZN11tinfo_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %11130, ptr noundef %11131, i64 noundef 1956)
@@ -152605,7 +152605,7 @@ _ZNSt10shared_ptrI5csr_tEaSI11tinfo_csr_tEENSt9enable_ifIXsr13is_assignableIRSt1
   store i32 1, ptr %11253, align 8, !noalias !348
   %11254 = getelementptr inbounds nuw i8, ptr %11252, i64 12
   store i32 1, ptr %11254, align 4, !noalias !348
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11252, align 8, !noalias !348
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11252, align 8, !noalias !348
   %11255 = getelementptr inbounds nuw i8, ptr %11252, i64 16
   invoke void @_ZN11const_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %11255, ptr noundef nonnull %10764, i64 noundef 1953, i64 noundef 0)
           to label %11257 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i3251, !noalias !348
@@ -152839,7 +152839,7 @@ _ZNSt10shared_ptrI11const_csr_tED2Ev.exit3281:    ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %11355, align 8, !noalias !351
   %11356 = getelementptr inbounds nuw i8, ptr %11354, i64 12
   store i32 1, ptr %11356, align 4, !noalias !351
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11354, align 8, !noalias !351
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11354, align 8, !noalias !351
   %11357 = getelementptr inbounds nuw i8, ptr %11354, i64 16
   %11358 = load ptr, ptr %142, align 8, !noalias !351
   invoke void @_ZN11const_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %11357, ptr noundef %11358, i64 noundef 1954, i64 noundef 0)
@@ -153183,7 +153183,7 @@ _ZNSt10shared_ptrI11const_csr_tED2Ev.exit3326:    ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %11507, align 8, !noalias !354
   %11508 = getelementptr inbounds nuw i8, ptr %11506, i64 12
   store i32 1, ptr %11508, align 4, !noalias !354
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11506, align 8, !noalias !354
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11506, align 8, !noalias !354
   %11509 = getelementptr inbounds nuw i8, ptr %11506, i64 16
   %11510 = load ptr, ptr %142, align 8, !noalias !354
   invoke void @_ZN11const_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %11509, ptr noundef %11510, i64 noundef 1955, i64 noundef 0)
@@ -153418,7 +153418,7 @@ _ZNSt10shared_ptrI11const_csr_tED2Ev.exit3357:    ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %11610, align 8, !noalias !357
   %11611 = getelementptr inbounds nuw i8, ptr %11609, i64 12
   store i32 1, ptr %11611, align 4, !noalias !357
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11609, align 8, !noalias !357
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11609, align 8, !noalias !357
   %11612 = getelementptr inbounds nuw i8, ptr %11609, i64 16
   %11613 = load ptr, ptr %142, align 8, !noalias !357
   invoke void @_ZN11const_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %11612, ptr noundef %11613, i64 noundef 1956, i64 noundef 0)
@@ -153699,7 +153699,7 @@ _ZNSt10shared_ptrI11tinfo_csr_tED2Ev.exit:        ; preds = %_ZNSt10shared_ptrI1
   store i32 1, ptr %11722, align 8, !noalias !360
   %11723 = getelementptr inbounds nuw i8, ptr %11720, i64 12
   store i32 1, ptr %11723, align 4, !noalias !360
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12masked_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11720, align 8, !noalias !360
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12masked_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11720, align 8, !noalias !360
   %11724 = getelementptr inbounds nuw i8, ptr %11720, i64 16
   %11725 = load ptr, ptr %142, align 8, !noalias !360
   invoke void @_ZN12masked_csr_tC1EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(56) %11724, ptr noundef %11725, i64 noundef 1448, i64 noundef %11721, i64 noundef 0)
@@ -154054,7 +154054,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i32 1, ptr %11883, align 8, !noalias !363
   %11884 = getelementptr inbounds nuw i8, ptr %11878, i64 12
   store i32 1, ptr %11884, align 4, !noalias !363
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12masked_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11878, align 8, !noalias !363
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12masked_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11878, align 8, !noalias !363
   %11885 = getelementptr inbounds nuw i8, ptr %11878, i64 16
   invoke void @_ZN12masked_csr_tC1EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(56) %11885, ptr noundef nonnull %11874, i64 noundef 1704, i64 noundef %11882, i64 noundef 0)
           to label %11887 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI12masked_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i3435, !noalias !363
@@ -154348,7 +154348,7 @@ _ZNSt10shared_ptrI12masked_csr_tED2Ev.exit3465:   ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %12009, align 8, !noalias !366
   %12010 = getelementptr inbounds nuw i8, ptr %12008, i64 12
   store i32 1, ptr %12010, align 4, !noalias !366
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12008, align 8, !noalias !366
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12008, align 8, !noalias !366
   %12011 = getelementptr inbounds nuw i8, ptr %12008, i64 16
   invoke void @_ZSt10_ConstructI11proxy_csr_tJRKP11processor_tiRSt10shared_ptrI5csr_tEEEvPT_DpOT0_(ptr noundef nonnull %12011, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %265, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i3473)
           to label %12013 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI11proxy_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !366
@@ -154695,7 +154695,7 @@ _ZNSt10shared_ptrI11proxy_csr_tED2Ev.exit:        ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %12162, align 8, !noalias !369
   %12163 = getelementptr inbounds nuw i8, ptr %12161, i64 12
   store i32 1, ptr %12163, align 4, !noalias !369
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI13mseccfg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12161, align 8, !noalias !369
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI13mseccfg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12161, align 8, !noalias !369
   %12164 = getelementptr inbounds nuw i8, ptr %12161, i64 16
   %12165 = load ptr, ptr %142, align 8, !noalias !369
   invoke void @_ZN13mseccfg_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %12164, ptr noundef %12165, i64 noundef 1863)
@@ -155053,7 +155053,7 @@ _ZNSt10shared_ptrI13mseccfg_csr_tED2Ev.exit:      ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %12322, align 8, !noalias !372
   %12323 = getelementptr inbounds nuw i8, ptr %12321, i64 12
   store i32 1, ptr %12323, align 4, !noalias !372
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI13pmpaddr_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12321, align 8, !noalias !372
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI13pmpaddr_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12321, align 8, !noalias !372
   %12324 = getelementptr inbounds nuw i8, ptr %12321, i64 16
   %12325 = load ptr, ptr %142, align 8, !noalias !372
   invoke void @_ZN13pmpaddr_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(64) %12324, ptr noundef %12325, i64 noundef %12320)
@@ -155454,7 +155454,7 @@ _ZNSt10shared_ptrI13pmpaddr_csr_tED2Ev.exit:      ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %12486, align 8, !noalias !376
   %12487 = getelementptr inbounds nuw i8, ptr %12485, i64 12
   store i32 1, ptr %12487, align 4, !noalias !376
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12pmpcfg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12485, align 8, !noalias !376
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12pmpcfg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12485, align 8, !noalias !376
   %12488 = getelementptr inbounds nuw i8, ptr %12485, i64 16
   %12489 = load ptr, ptr %142, align 8, !noalias !376
   invoke void @_ZN12pmpcfg_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %12488, ptr noundef %12489, i64 noundef %12484)
@@ -155702,7 +155702,7 @@ _ZNSt10shared_ptrI12pmpcfg_csr_tED2Ev.exit:       ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %12592, align 8, !noalias !380
   %12593 = getelementptr inbounds nuw i8, ptr %12591, i64 12
   store i32 1, ptr %12593, align 4, !noalias !380
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11float_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12591, align 8, !noalias !380
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11float_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12591, align 8, !noalias !380
   %12594 = getelementptr inbounds nuw i8, ptr %12591, i64 16
   %12595 = load ptr, ptr %142, align 8, !noalias !380
   invoke void @_ZN11float_csr_tC1EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(56) %12594, ptr noundef %12595, i64 noundef 1, i64 noundef 31, i64 noundef 0)
@@ -156047,7 +156047,7 @@ _ZNSt10shared_ptrI11float_csr_tED2Ev.exit:        ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %12745, align 8, !noalias !383
   %12746 = getelementptr inbounds nuw i8, ptr %12744, i64 12
   store i32 1, ptr %12746, align 4, !noalias !383
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11float_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12744, align 8, !noalias !383
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11float_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12744, align 8, !noalias !383
   %12747 = getelementptr inbounds nuw i8, ptr %12744, i64 16
   %12748 = load ptr, ptr %142, align 8, !noalias !383
   invoke void @_ZN11float_csr_tC1EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(56) %12747, ptr noundef %12748, i64 noundef 2, i64 noundef 7, i64 noundef 0)
@@ -156393,7 +156393,7 @@ _ZNSt10shared_ptrI11float_csr_tED2Ev.exit3710:    ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %12897, align 8, !noalias !386
   %12898 = getelementptr inbounds nuw i8, ptr %12896, i64 12
   store i32 1, ptr %12898, align 4, !noalias !386
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15composite_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12896, align 8, !noalias !386
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15composite_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12896, align 8, !noalias !386
   %12899 = getelementptr inbounds nuw i8, ptr %12896, i64 16
   invoke void @_ZSt10_ConstructI15composite_csr_tJRKP11processor_tiRSt10shared_ptrI11float_csr_tES8_iEEvPT_DpOT0_(ptr noundef nonnull %12899, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %272, ptr noundef nonnull align 8 dereferenceable(16) %12752, ptr noundef nonnull align 8 dereferenceable(16) %12599, ptr noundef nonnull align 4 dereferenceable(4) %273)
           to label %12901 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15composite_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, !noalias !386
@@ -156627,7 +156627,7 @@ _ZNSt10shared_ptrI15composite_csr_tED2Ev.exit:    ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %12999, align 8, !noalias !389
   %13000 = getelementptr inbounds nuw i8, ptr %12998, i64 12
   store i32 1, ptr %13000, align 4, !noalias !389
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI10seed_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12998, align 8, !noalias !389
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI10seed_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12998, align 8, !noalias !389
   %13001 = getelementptr inbounds nuw i8, ptr %12998, i64 16
   %13002 = load ptr, ptr %142, align 8, !noalias !389
   invoke void @_ZN10seed_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %13001, ptr noundef %13002, i64 noundef 21)
@@ -156862,7 +156862,7 @@ _ZNSt10shared_ptrI10seed_csr_tED2Ev.exit:         ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %13102, align 8, !noalias !392
   %13103 = getelementptr inbounds nuw i8, ptr %13101, i64 12
   store i32 1, ptr %13103, align 4, !noalias !392
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13101, align 8, !noalias !392
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13101, align 8, !noalias !392
   %13104 = getelementptr inbounds nuw i8, ptr %13101, i64 16
   %13105 = load ptr, ptr %142, align 8, !noalias !392
   invoke void @_ZN11const_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %13104, ptr noundef %13105, i64 noundef 3858, i64 noundef 5)
@@ -157097,7 +157097,7 @@ _ZNSt10shared_ptrI11const_csr_tED2Ev.exit3795:    ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %13205, align 8, !noalias !395
   %13206 = getelementptr inbounds nuw i8, ptr %13204, i64 12
   store i32 1, ptr %13206, align 4, !noalias !395
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13204, align 8, !noalias !395
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13204, align 8, !noalias !395
   %13207 = getelementptr inbounds nuw i8, ptr %13204, i64 16
   %13208 = load ptr, ptr %142, align 8, !noalias !395
   invoke void @_ZN11const_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %13207, ptr noundef %13208, i64 noundef 3859, i64 noundef 0)
@@ -157332,7 +157332,7 @@ _ZNSt10shared_ptrI11const_csr_tED2Ev.exit3826:    ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %13308, align 8, !noalias !398
   %13309 = getelementptr inbounds nuw i8, ptr %13307, i64 12
   store i32 1, ptr %13309, align 4, !noalias !398
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13307, align 8, !noalias !398
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13307, align 8, !noalias !398
   %13310 = getelementptr inbounds nuw i8, ptr %13307, i64 16
   %13311 = load ptr, ptr %142, align 8, !noalias !398
   invoke void @_ZN11const_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %13310, ptr noundef %13311, i64 noundef 3857, i64 noundef 0)
@@ -157570,7 +157570,7 @@ _ZNSt10shared_ptrI11const_csr_tED2Ev.exit3857:    ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %13414, align 8, !noalias !401
   %13415 = getelementptr inbounds nuw i8, ptr %13413, i64 12
   store i32 1, ptr %13415, align 4, !noalias !401
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13413, align 8, !noalias !401
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13413, align 8, !noalias !401
   %13416 = getelementptr inbounds nuw i8, ptr %13413, i64 16
   %13417 = zext i32 %13412 to i64
   invoke void @_ZN11const_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %13416, ptr noundef nonnull %13410, i64 noundef 3860, i64 noundef %13417)
@@ -157805,7 +157805,7 @@ _ZNSt10shared_ptrI11const_csr_tED2Ev.exit3887:    ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %13517, align 8, !noalias !404
   %13518 = getelementptr inbounds nuw i8, ptr %13516, i64 12
   store i32 1, ptr %13518, align 4, !noalias !404
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13516, align 8, !noalias !404
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13516, align 8, !noalias !404
   %13519 = getelementptr inbounds nuw i8, ptr %13516, i64 16
   %13520 = load ptr, ptr %142, align 8, !noalias !404
   invoke void @_ZN11const_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %13519, ptr noundef %13520, i64 noundef 3861, i64 noundef 0)
@@ -158065,7 +158065,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i32 1, ptr %13643, align 8, !noalias !407
   %13644 = getelementptr inbounds nuw i8, ptr %13628, i64 12
   store i32 1, ptr %13644, align 4, !noalias !407
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12envcfg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13628, align 8, !noalias !407
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12envcfg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13628, align 8, !noalias !407
   %13645 = getelementptr inbounds nuw i8, ptr %13628, i64 16
   invoke void @_ZN12envcfg_csr_tC1EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(56) %13645, ptr noundef nonnull %13625, i64 noundef 778, i64 noundef %13642, i64 noundef %13632)
           to label %_ZSt11make_sharedI12envcfg_csr_tJRKP11processor_tiRKmS6_EESt10shared_ptrIT_EDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI12envcfg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i, !noalias !407
@@ -158168,7 +158168,7 @@ _ZNSt10shared_ptrI12envcfg_csr_tED2Ev.exit:       ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %13686, align 8, !noalias !410
   %13687 = getelementptr inbounds nuw i8, ptr %13685, i64 12
   store i32 1, ptr %13687, align 4, !noalias !410
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13685, align 8, !noalias !410
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13685, align 8, !noalias !410
   %13688 = getelementptr inbounds nuw i8, ptr %13685, i64 16
   invoke void @_ZSt10_ConstructI14rv32_low_csr_tJRKP11processor_tiRSt10shared_ptrI5csr_tEEEvPT_DpOT0_(ptr noundef nonnull %13688, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %281, ptr noundef nonnull align 8 dereferenceable(16) %13647)
           to label %13690 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i3946, !noalias !410
@@ -158403,7 +158403,7 @@ _ZNSt10shared_ptrI14rv32_low_csr_tED2Ev.exit3976: ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %13788, align 8, !noalias !413
   %13789 = getelementptr inbounds nuw i8, ptr %13787, i64 12
   store i32 1, ptr %13789, align 4, !noalias !413
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13787, align 8, !noalias !413
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13787, align 8, !noalias !413
   %13790 = getelementptr inbounds nuw i8, ptr %13787, i64 16
   invoke void @_ZSt10_ConstructI15rv32_high_csr_tJRKP11processor_tiRSt10shared_ptrI5csr_tEEEvPT_DpOT0_(ptr noundef nonnull %13790, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %283, ptr noundef nonnull align 8 dereferenceable(16) %13647)
           to label %13792 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i3977, !noalias !413
@@ -158925,7 +158925,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i4
   store i32 1, ptr %13993, align 8, !noalias !416
   %13994 = getelementptr inbounds nuw i8, ptr %13987, i64 12
   store i32 1, ptr %13994, align 4, !noalias !416
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI13senvcfg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13987, align 8, !noalias !416
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI13senvcfg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13987, align 8, !noalias !416
   %13995 = getelementptr inbounds nuw i8, ptr %13987, i64 16
   invoke void @_ZN13senvcfg_csr_tC1EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(56) %13995, ptr noundef nonnull %13985, i64 noundef 266, i64 noundef %13992, i64 noundef 0)
           to label %13997 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI13senvcfg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i, !noalias !416
@@ -159289,7 +159289,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i32 1, ptr %14162, align 8, !noalias !419
   %14163 = getelementptr inbounds nuw i8, ptr %14161, i64 12
   store i32 1, ptr %14163, align 4, !noalias !419
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI13henvcfg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14161, align 8, !noalias !419
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI13henvcfg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14161, align 8, !noalias !419
   %14164 = getelementptr inbounds nuw i8, ptr %14161, i64 16
   invoke void @_ZSt10_ConstructI13henvcfg_csr_tJRKP11processor_tiRKmS6_RSt10shared_ptrI5csr_tEEEvPT_DpOT0_(ptr noundef nonnull %14164, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %287, ptr noundef nonnull align 8 dereferenceable(8) %285, ptr noundef nonnull align 8 dereferenceable(8) %286, ptr noundef nonnull align 8 dereferenceable(16) %13647)
           to label %_ZSt11make_sharedI13henvcfg_csr_tJRKP11processor_tiRKmS6_RSt10shared_ptrI5csr_tEEES7_IT_EDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI13henvcfg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, !noalias !419
@@ -159392,7 +159392,7 @@ _ZNSt10shared_ptrI13henvcfg_csr_tED2Ev.exit:      ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %14205, align 8, !noalias !422
   %14206 = getelementptr inbounds nuw i8, ptr %14204, i64 12
   store i32 1, ptr %14206, align 4, !noalias !422
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14204, align 8, !noalias !422
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14204, align 8, !noalias !422
   %14207 = getelementptr inbounds nuw i8, ptr %14204, i64 16
   invoke void @_ZSt10_ConstructI14rv32_low_csr_tJRKP11processor_tiRSt10shared_ptrI5csr_tEEEvPT_DpOT0_(ptr noundef nonnull %14207, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %289, ptr noundef nonnull align 8 dereferenceable(16) %14166)
           to label %14209 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i4106, !noalias !422
@@ -159627,7 +159627,7 @@ _ZNSt10shared_ptrI14rv32_low_csr_tED2Ev.exit4136: ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %14307, align 8, !noalias !425
   %14308 = getelementptr inbounds nuw i8, ptr %14306, i64 12
   store i32 1, ptr %14308, align 4, !noalias !425
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14306, align 8, !noalias !425
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14306, align 8, !noalias !425
   %14309 = getelementptr inbounds nuw i8, ptr %14306, i64 16
   invoke void @_ZSt10_ConstructI15rv32_high_csr_tJRKP11processor_tiRSt10shared_ptrI5csr_tEEEvPT_DpOT0_(ptr noundef nonnull %14309, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %291, ptr noundef nonnull align 8 dereferenceable(16) %14166)
           to label %14311 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i4137, !noalias !425
@@ -160103,7 +160103,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i4
   store i32 1, ptr %14525, align 8, !noalias !428
   %14526 = getelementptr inbounds nuw i8, ptr %14523, i64 12
   store i32 1, ptr %14526, align 4, !noalias !428
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12masked_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14523, align 8, !noalias !428
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12masked_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14523, align 8, !noalias !428
   %14527 = getelementptr inbounds nuw i8, ptr %14523, i64 16
   %14528 = load ptr, ptr %142, align 8, !noalias !428
   invoke void @_ZN12masked_csr_tC1EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(56) %14527, ptr noundef %14528, i64 noundef %14522, i64 noundef %14524, i64 noundef 0)
@@ -160208,7 +160208,7 @@ _ZNSt10shared_ptrI12masked_csr_tED2Ev.exit4221:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %14570, align 8, !noalias !431
   %14571 = getelementptr inbounds nuw i8, ptr %14569, i64 12
   store i32 1, ptr %14571, align 4, !noalias !431
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14569, align 8, !noalias !431
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14569, align 8, !noalias !431
   %14572 = getelementptr inbounds nuw i8, ptr %14569, i64 16
   invoke void @_ZSt10_ConstructI14rv32_low_csr_tJRKP11processor_tiRSt10shared_ptrI5csr_tEEEvPT_DpOT0_(ptr noundef nonnull %14572, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %293, ptr noundef nonnull align 8 dereferenceable(16) %14530)
           to label %14574 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i4222, !noalias !431
@@ -160443,7 +160443,7 @@ _ZNSt10shared_ptrI14rv32_low_csr_tED2Ev.exit4252: ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %14672, align 8, !noalias !434
   %14673 = getelementptr inbounds nuw i8, ptr %14671, i64 12
   store i32 1, ptr %14673, align 4, !noalias !434
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14671, align 8, !noalias !434
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14671, align 8, !noalias !434
   %14674 = getelementptr inbounds nuw i8, ptr %14671, i64 16
   invoke void @_ZSt10_ConstructI15rv32_high_csr_tJRKP11processor_tiRSt10shared_ptrI5csr_tEEEvPT_DpOT0_(ptr noundef nonnull %14674, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %295, ptr noundef nonnull align 8 dereferenceable(16) %14530)
           to label %14676 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i4253, !noalias !434
@@ -160863,7 +160863,7 @@ _ZNSt10shared_ptrI15rv32_high_csr_tED2Ev.exit4283: ; preds = %_ZNSt16_Sp_counted
   store i32 1, ptr %14850, align 8, !noalias !437
   %14851 = getelementptr inbounds nuw i8, ptr %14848, i64 12
   store i32 1, ptr %14851, align 4, !noalias !437
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14hstateen_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14848, align 8, !noalias !437
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14hstateen_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14848, align 8, !noalias !437
   %14852 = getelementptr inbounds nuw i8, ptr %14848, i64 16
   %14853 = load ptr, ptr %142, align 8, !noalias !437
   %14854 = trunc i64 %indvars.iv6855 to i8
@@ -160969,7 +160969,7 @@ _ZNSt10shared_ptrI14hstateen_csr_tED2Ev.exit:     ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %14896, align 8, !noalias !440
   %14897 = getelementptr inbounds nuw i8, ptr %14895, i64 12
   store i32 1, ptr %14897, align 4, !noalias !440
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14895, align 8, !noalias !440
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14895, align 8, !noalias !440
   %14898 = getelementptr inbounds nuw i8, ptr %14895, i64 16
   invoke void @_ZSt10_ConstructI14rv32_low_csr_tJRKP11processor_tiRSt10shared_ptrI5csr_tEEEvPT_DpOT0_(ptr noundef nonnull %14898, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %297, ptr noundef nonnull align 8 dereferenceable(16) %14856)
           to label %14900 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i4325, !noalias !440
@@ -161204,7 +161204,7 @@ _ZNSt10shared_ptrI14rv32_low_csr_tED2Ev.exit4355: ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %14998, align 8, !noalias !443
   %14999 = getelementptr inbounds nuw i8, ptr %14997, i64 12
   store i32 1, ptr %14999, align 4, !noalias !443
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14997, align 8, !noalias !443
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14997, align 8, !noalias !443
   %15000 = getelementptr inbounds nuw i8, ptr %14997, i64 16
   invoke void @_ZSt10_ConstructI15rv32_high_csr_tJRKP11processor_tiRSt10shared_ptrI5csr_tEEEvPT_DpOT0_(ptr noundef nonnull %15000, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %299, ptr noundef nonnull align 8 dereferenceable(16) %14856)
           to label %15002 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i4356, !noalias !443
@@ -161626,7 +161626,7 @@ _ZNSt10shared_ptrI15rv32_high_csr_tED2Ev.exit4386: ; preds = %_ZNSt16_Sp_counted
   store i32 1, ptr %15176, align 8, !noalias !446
   %15177 = getelementptr inbounds nuw i8, ptr %15173, i64 12
   store i32 1, ptr %15177, align 4, !noalias !446
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14sstateen_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15173, align 8, !noalias !446
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14sstateen_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15173, align 8, !noalias !446
   %15178 = getelementptr inbounds nuw i8, ptr %15173, i64 16
   %15179 = load ptr, ptr %142, align 8, !noalias !446
   invoke void @_ZN14sstateen_csr_tC1EP11processor_tmmmh(ptr noundef nonnull align 8 dereferenceable(57) %15178, ptr noundef %15179, i64 noundef %15174, i64 noundef %15175, i64 noundef 0, i8 noundef zeroext %14854)
@@ -162002,7 +162002,7 @@ _ZNSt10shared_ptrI14sstateen_csr_tED2Ev.exit:     ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %15334, align 8, !noalias !450
   %15335 = getelementptr inbounds nuw i8, ptr %15333, i64 12
   store i32 1, ptr %15335, align 4, !noalias !450
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15333, align 8, !noalias !450
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15333, align 8, !noalias !450
   %15336 = getelementptr inbounds nuw i8, ptr %15333, i64 16
   invoke void @_ZN11basic_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %15336, ptr noundef nonnull %15328, i64 noundef 1856, i64 noundef 0)
           to label %15338 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i4457, !noalias !450
@@ -162236,7 +162236,7 @@ _ZNSt10shared_ptrI11basic_csr_tED2Ev.exit4487:    ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %15436, align 8, !noalias !453
   %15437 = getelementptr inbounds nuw i8, ptr %15435, i64 12
   store i32 1, ptr %15437, align 4, !noalias !453
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI9epc_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15435, align 8, !noalias !453
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI9epc_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15435, align 8, !noalias !453
   %15438 = getelementptr inbounds nuw i8, ptr %15435, i64 16
   %15439 = load ptr, ptr %142, align 8, !noalias !453
   invoke void @_ZN9epc_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %15438, ptr noundef %15439, i64 noundef 1857)
@@ -162583,7 +162583,7 @@ _ZNSt10shared_ptrI9epc_csr_tED2Ev.exit4532:       ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %15591, align 8, !noalias !456
   %15592 = getelementptr inbounds nuw i8, ptr %15587, i64 12
   store i32 1, ptr %15592, align 4, !noalias !456
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15587, align 8, !noalias !456
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11const_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15587, align 8, !noalias !456
   %15593 = getelementptr inbounds nuw i8, ptr %15587, i64 16
   %15594 = load ptr, ptr %142, align 8, !noalias !456
   invoke void @_ZN11const_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %15593, ptr noundef %15594, i64 noundef 1858, i64 noundef %15590)
@@ -162818,7 +162818,7 @@ _ZNSt10shared_ptrI11const_csr_tED2Ev.exit4562:    ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %15694, align 8, !noalias !459
   %15695 = getelementptr inbounds nuw i8, ptr %15693, i64 12
   store i32 1, ptr %15695, align 4, !noalias !459
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14mnstatus_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15693, align 8, !noalias !459
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14mnstatus_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15693, align 8, !noalias !459
   %15696 = getelementptr inbounds nuw i8, ptr %15693, i64 16
   %15697 = load ptr, ptr %142, align 8, !noalias !459
   invoke void @_ZN14mnstatus_csr_tC1EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %15696, ptr noundef %15697, i64 noundef 1860)
@@ -163212,7 +163212,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i32 1, ptr %15862, align 8, !noalias !462
   %15863 = getelementptr inbounds nuw i8, ptr %15861, i64 12
   store i32 1, ptr %15863, align 4, !noalias !462
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14stimecmp_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15861, align 8, !noalias !462
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14stimecmp_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15861, align 8, !noalias !462
   %15864 = getelementptr inbounds nuw i8, ptr %15861, i64 16
   invoke void @_ZN14stimecmp_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(56) %15864, ptr noundef nonnull %15854, i64 noundef 333, i64 noundef 32)
           to label %_ZSt11make_sharedI14stimecmp_csr_tJRKP11processor_tiiEESt10shared_ptrIT_EDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI14stimecmp_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !462
@@ -163309,7 +163309,7 @@ _ZNSt10shared_ptrI14stimecmp_csr_tED2Ev.exit:     ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %15904, align 8, !noalias !465
   %15905 = getelementptr inbounds nuw i8, ptr %15903, i64 12
   store i32 1, ptr %15905, align 4, !noalias !465
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14stimecmp_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15903, align 8, !noalias !465
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14stimecmp_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15903, align 8, !noalias !465
   %15906 = getelementptr inbounds nuw i8, ptr %15903, i64 16
   %15907 = load ptr, ptr %142, align 8, !noalias !465
   invoke void @_ZN14stimecmp_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(56) %15906, ptr noundef %15907, i64 noundef 589, i64 noundef 64)
@@ -163409,7 +163409,7 @@ _ZNSt10shared_ptrI14stimecmp_csr_tED2Ev.exit4640: ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %15947, align 8, !noalias !468
   %15948 = getelementptr inbounds nuw i8, ptr %15946, i64 12
   store i32 1, ptr %15948, align 4, !noalias !468
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI26virtualized_stimecmp_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15946, align 8, !noalias !468
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI26virtualized_stimecmp_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15946, align 8, !noalias !468
   %15949 = getelementptr inbounds nuw i8, ptr %15946, i64 16
   invoke void @_ZSt10_ConstructI26virtualized_stimecmp_csr_tJRKP11processor_tRSt10shared_ptrI5csr_tES8_EEvPT_DpOT0_(ptr noundef nonnull %15949, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(16) %15866, ptr noundef nonnull align 8 dereferenceable(16) %15909)
           to label %15951 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI26virtualized_stimecmp_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !468
@@ -163438,7 +163438,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI26virtualized_stimecmp_csr
   store i32 1, ptr %15955, align 8, !noalias !471
   %15956 = getelementptr inbounds nuw i8, ptr %15954, i64 12
   store i32 1, ptr %15956, align 4, !noalias !471
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15954, align 8, !noalias !471
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15954, align 8, !noalias !471
   %15957 = getelementptr inbounds nuw i8, ptr %15954, i64 16
   invoke void @_ZSt10_ConstructI14rv32_low_csr_tJRKP11processor_tiRSt10shared_ptrI26virtualized_stimecmp_csr_tEEEvPT_DpOT0_(ptr noundef nonnull %15957, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %307, ptr noundef nonnull align 8 dereferenceable(16) %305)
           to label %15959 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i4644, !noalias !471
@@ -163673,7 +163673,7 @@ _ZNSt10shared_ptrI14rv32_low_csr_tED2Ev.exit4673: ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %16057, align 8, !noalias !474
   %16058 = getelementptr inbounds nuw i8, ptr %16056, i64 12
   store i32 1, ptr %16058, align 4, !noalias !474
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16056, align 8, !noalias !474
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16056, align 8, !noalias !474
   %16059 = getelementptr inbounds nuw i8, ptr %16056, i64 16
   invoke void @_ZSt10_ConstructI15rv32_high_csr_tJRKP11processor_tiRSt10shared_ptrI26virtualized_stimecmp_csr_tEEEvPT_DpOT0_(ptr noundef nonnull %16059, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %309, ptr noundef nonnull align 8 dereferenceable(16) %305)
           to label %16061 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i4674, !noalias !474
@@ -163908,7 +163908,7 @@ _ZNSt10shared_ptrI15rv32_high_csr_tED2Ev.exit4703: ; preds = %_ZNSt10shared_ptrI
   store i32 1, ptr %16159, align 8, !noalias !477
   %16160 = getelementptr inbounds nuw i8, ptr %16158, i64 12
   store i32 1, ptr %16160, align 4, !noalias !477
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16158, align 8, !noalias !477
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16158, align 8, !noalias !477
   %16161 = getelementptr inbounds nuw i8, ptr %16158, i64 16
   invoke void @_ZSt10_ConstructI14rv32_low_csr_tJRKP11processor_tiRSt10shared_ptrI5csr_tEEEvPT_DpOT0_(ptr noundef nonnull %16161, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %311, ptr noundef nonnull align 8 dereferenceable(16) %15909)
           to label %16163 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i4704, !noalias !477
@@ -164143,7 +164143,7 @@ _ZNSt10shared_ptrI14rv32_low_csr_tED2Ev.exit4734: ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %16261, align 8, !noalias !480
   %16262 = getelementptr inbounds nuw i8, ptr %16260, i64 12
   store i32 1, ptr %16262, align 4, !noalias !480
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16260, align 8, !noalias !480
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16260, align 8, !noalias !480
   %16263 = getelementptr inbounds nuw i8, ptr %16260, i64 16
   invoke void @_ZSt10_ConstructI15rv32_high_csr_tJRKP11processor_tiRSt10shared_ptrI5csr_tEEEvPT_DpOT0_(ptr noundef nonnull %16263, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %313, ptr noundef nonnull align 8 dereferenceable(16) %15909)
           to label %16265 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i4735, !noalias !480
@@ -164851,7 +164851,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i32 1, ptr %16558, align 8, !noalias !483
   %16559 = getelementptr inbounds nuw i8, ptr %16557, i64 12
   store i32 1, ptr %16559, align 4, !noalias !483
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI9jvt_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16557, align 8, !noalias !483
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI9jvt_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16557, align 8, !noalias !483
   %16560 = getelementptr inbounds nuw i8, ptr %16557, i64 16
   invoke void @_ZN9jvt_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %16560, ptr noundef nonnull %16553, i64 noundef 23, i64 noundef 0)
           to label %16562 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI9jvt_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !483
@@ -165220,7 +165220,7 @@ _ZNSt10shared_ptrI9jvt_csr_tED2Ev.exit:           ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %16721, align 8, !noalias !486
   %16722 = getelementptr inbounds nuw i8, ptr %16720, i64 12
   store i32 1, ptr %16722, align 4, !noalias !486
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16720, align 8, !noalias !486
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16720, align 8, !noalias !486
   %16723 = getelementptr inbounds nuw i8, ptr %16720, i64 16
   invoke void @_ZN11basic_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %16723, ptr noundef nonnull %16713, i64 noundef 848, i64 noundef 0)
           to label %_ZNSt10shared_ptrI11basic_csr_tED2Ev.exit4880 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i4869, !noalias !486
@@ -165440,7 +165440,7 @@ _ZNSt10shared_ptrI5csr_tEaSERKS1_.exit4906:       ; preds = %.loopexit5877, %_ZN
   store i32 1, ptr %16808, align 8, !noalias !489
   %16809 = getelementptr inbounds nuw i8, ptr %16807, i64 12
   store i32 1, ptr %16809, align 4, !noalias !489
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI18sscsrind_reg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16807, align 8, !noalias !489
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI18sscsrind_reg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16807, align 8, !noalias !489
   %16810 = getelementptr inbounds nuw i8, ptr %16807, i64 16
   invoke void @_ZSt10_ConstructI18sscsrind_reg_csr_tJRKP11processor_tRmRSt10shared_ptrI5csr_tEEEvPT_DpOT0_(ptr noundef nonnull %16810, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(8) %320, ptr noundef nonnull align 8 dereferenceable(16) %318)
           to label %16812 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI18sscsrind_reg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !489
@@ -165901,7 +165901,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i32 1, ptr %17006, align 8, !noalias !492
   %17007 = getelementptr inbounds nuw i8, ptr %17005, i64 12
   store i32 1, ptr %17007, align 4, !noalias !492
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17005, align 8, !noalias !492
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17005, align 8, !noalias !492
   %17008 = getelementptr inbounds nuw i8, ptr %17005, i64 16
   invoke void @_ZN11basic_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %17008, ptr noundef nonnull %16998, i64 noundef 592, i64 noundef 0)
           to label %_ZNSt10shared_ptrI11basic_csr_tED2Ev.exit4968 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i4957, !noalias !492
@@ -166098,7 +166098,7 @@ _ZNSt10shared_ptrI5csr_tEaSERKS1_.exit4994:       ; preds = %.loopexit5871, %_ZN
   store i32 1, ptr %17084, align 8, !noalias !495
   %17085 = getelementptr inbounds nuw i8, ptr %17083, i64 12
   store i32 1, ptr %17085, align 4, !noalias !495
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17083, align 8, !noalias !495
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI11basic_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17083, align 8, !noalias !495
   %17086 = getelementptr inbounds nuw i8, ptr %17083, i64 16
   %17087 = load ptr, ptr %142, align 8, !noalias !495
   invoke void @_ZN11basic_csr_tC1EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %17086, ptr noundef %17087, i64 noundef 336, i64 noundef 0)
@@ -166124,7 +166124,7 @@ _ZNSt10shared_ptrI11basic_csr_tED2Ev.exit5006:    ; preds = %.noexc4996
   store i32 1, ptr %17091, align 8, !noalias !498
   %17092 = getelementptr inbounds nuw i8, ptr %17090, i64 12
   store i32 1, ptr %17092, align 4, !noalias !498
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI17virtualized_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17090, align 8, !noalias !498
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI17virtualized_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17090, align 8, !noalias !498
   %17093 = getelementptr inbounds nuw i8, ptr %17090, i64 16
   invoke void @_ZSt10_ConstructI17virtualized_csr_tJRKP11processor_tRSt10shared_ptrI5csr_tES8_EEvPT_DpOT0_(ptr noundef nonnull %17093, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(16) %323, ptr noundef nonnull align 8 dereferenceable(16) %322)
           to label %17095 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI17virtualized_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i5007, !noalias !498
@@ -166379,7 +166379,7 @@ _ZNSt10shared_ptrI17virtualized_csr_tED2Ev.exit5037: ; preds = %_ZNSt10shared_pt
   store i32 1, ptr %17202, align 8, !noalias !501
   %17203 = getelementptr inbounds nuw i8, ptr %17201, i64 12
   store i32 1, ptr %17203, align 4, !noalias !501
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI18sscsrind_reg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17201, align 8, !noalias !501
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI18sscsrind_reg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17201, align 8, !noalias !501
   %17204 = getelementptr inbounds nuw i8, ptr %17201, i64 16
   invoke void @_ZSt10_ConstructI18sscsrind_reg_csr_tJRKP11processor_tRmRSt10shared_ptrI5csr_tEEEvPT_DpOT0_(ptr noundef nonnull %17204, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(8) %326, ptr noundef nonnull align 8 dereferenceable(16) %322)
           to label %17206 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI18sscsrind_reg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i5038, !noalias !501
@@ -166786,7 +166786,7 @@ _ZNSt10shared_ptrI18sscsrind_reg_csr_tED2Ev.exit5082: ; preds = %_ZNSt10shared_p
   store i32 1, ptr %17368, align 8, !noalias !504
   %17369 = getelementptr inbounds nuw i8, ptr %17367, i64 12
   store i32 1, ptr %17369, align 4, !noalias !504
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI18sscsrind_reg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17367, align 8, !noalias !504
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI18sscsrind_reg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17367, align 8, !noalias !504
   %17370 = getelementptr inbounds nuw i8, ptr %17367, i64 16
   invoke void @_ZSt10_ConstructI18sscsrind_reg_csr_tJRKP11processor_tRmRSt10shared_ptrI5csr_tEEEvPT_DpOT0_(ptr noundef nonnull %17370, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(8) %329, ptr noundef nonnull align 8 dereferenceable(16) %323)
           to label %_ZSt11make_sharedI18sscsrind_reg_csr_tJRKP11processor_tRmRSt10shared_ptrI5csr_tEEES6_IT_EDpOT0_.exit5087 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI18sscsrind_reg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i5083, !noalias !504
@@ -166886,7 +166886,7 @@ _ZNSt10shared_ptrI18sscsrind_reg_csr_tED2Ev.exit5101: ; preds = %_ZNSt16_Sp_coun
   store i32 1, ptr %17411, align 8, !noalias !507
   %17412 = getelementptr inbounds nuw i8, ptr %17409, i64 12
   store i32 1, ptr %17412, align 4, !noalias !507
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI26virtualized_indirect_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17409, align 8, !noalias !507
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI26virtualized_indirect_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17409, align 8, !noalias !507
   %17413 = getelementptr inbounds nuw i8, ptr %17409, i64 16
   invoke void @_ZSt10_ConstructI26virtualized_indirect_csr_tJRKP11processor_tRSt10shared_ptrI18sscsrind_reg_csr_tES8_EEvPT_DpOT0_(ptr noundef nonnull %17413, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(16) %17372, ptr noundef nonnull align 8 dereferenceable(16) %17410)
           to label %17415 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI26virtualized_indirect_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !507
@@ -167298,7 +167298,7 @@ _ZNSt10shared_ptrI5csr_tED2Ev.exit5142:           ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %17587, align 8, !noalias !510
   %17588 = getelementptr inbounds nuw i8, ptr %17586, i64 12
   store i32 1, ptr %17588, align 4, !noalias !510
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17586, align 8, !noalias !510
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17586, align 8, !noalias !510
   %17589 = getelementptr inbounds nuw i8, ptr %17586, i64 16
   invoke void @_ZSt10_ConstructI14rv32_low_csr_tJRKP11processor_tiRSt10shared_ptrI15smcntrpmf_csr_tEEEvPT_DpOT0_(ptr noundef nonnull %17589, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %332, ptr noundef nonnull align 8 dereferenceable(16) %154)
           to label %17591 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i5143, !noalias !510
@@ -167533,7 +167533,7 @@ _ZNSt10shared_ptrI14rv32_low_csr_tED2Ev.exit5172: ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %17689, align 8, !noalias !513
   %17690 = getelementptr inbounds nuw i8, ptr %17688, i64 12
   store i32 1, ptr %17690, align 4, !noalias !513
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17688, align 8, !noalias !513
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17688, align 8, !noalias !513
   %17691 = getelementptr inbounds nuw i8, ptr %17688, i64 16
   invoke void @_ZSt10_ConstructI15rv32_high_csr_tJRKP11processor_tiRSt10shared_ptrI15smcntrpmf_csr_tEEEvPT_DpOT0_(ptr noundef nonnull %17691, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %334, ptr noundef nonnull align 8 dereferenceable(16) %154)
           to label %17693 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i5173, !noalias !513
@@ -167768,7 +167768,7 @@ _ZNSt10shared_ptrI15rv32_high_csr_tED2Ev.exit5202: ; preds = %_ZNSt10shared_ptrI
   store i32 1, ptr %17791, align 8, !noalias !516
   %17792 = getelementptr inbounds nuw i8, ptr %17790, i64 12
   store i32 1, ptr %17792, align 4, !noalias !516
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17790, align 8, !noalias !516
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17790, align 8, !noalias !516
   %17793 = getelementptr inbounds nuw i8, ptr %17790, i64 16
   invoke void @_ZSt10_ConstructI14rv32_low_csr_tJRKP11processor_tiRSt10shared_ptrI15smcntrpmf_csr_tEEEvPT_DpOT0_(ptr noundef nonnull %17793, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %336, ptr noundef nonnull align 8 dereferenceable(16) %153)
           to label %17795 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI14rv32_low_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i5203, !noalias !516
@@ -168003,7 +168003,7 @@ _ZNSt10shared_ptrI14rv32_low_csr_tED2Ev.exit5233: ; preds = %_ZNSt10shared_ptrI5
   store i32 1, ptr %17893, align 8, !noalias !519
   %17894 = getelementptr inbounds nuw i8, ptr %17892, i64 12
   store i32 1, ptr %17894, align 4, !noalias !519
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17892, align 8, !noalias !519
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17892, align 8, !noalias !519
   %17895 = getelementptr inbounds nuw i8, ptr %17892, i64 16
   invoke void @_ZSt10_ConstructI15rv32_high_csr_tJRKP11processor_tiRSt10shared_ptrI15smcntrpmf_csr_tEEEvPT_DpOT0_(ptr noundef nonnull %17895, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(4) %338, ptr noundef nonnull align 8 dereferenceable(16) %153)
           to label %17897 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15rv32_high_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i5234, !noalias !519
@@ -168625,7 +168625,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i5
   store i32 1, ptr %18156, align 8, !noalias !522
   %18157 = getelementptr inbounds nuw i8, ptr %18155, i64 12
   store i32 1, ptr %18157, align 4, !noalias !522
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12srmcfg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18155, align 8, !noalias !522
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12srmcfg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18155, align 8, !noalias !522
   %18158 = getelementptr inbounds nuw i8, ptr %18155, i64 16
   invoke void @_ZN12srmcfg_csr_tC1EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(56) %18158, ptr noundef nonnull %18148, i64 noundef 385, i64 noundef 268374015, i64 noundef 0)
           to label %_ZSt11make_sharedI12srmcfg_csr_tJRKP11processor_tiRKmiEESt10shared_ptrIT_EDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI12srmcfg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i, !noalias !522
@@ -175007,7 +175007,7 @@ define void @_ZN11processor_t14take_interruptEm(ptr noundef nonnull align 8 dere
   %127 = tail call fastcc noundef i32 @_ZL3ctzm(i64 noundef %.1)
   %128 = zext nneg i32 %127 to i64
   %129 = or i64 %126, %128
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6trap_t, i64 16), ptr %120, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6trap_t, i64 16), ptr %120, align 8
   %130 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store i64 %129, ptr %130, align 8
   tail call void @__cxa_throw(ptr nonnull %120, ptr nonnull @_ZTI6trap_t, ptr nonnull @_ZN6trap_tD2Ev) #38
@@ -176121,7 +176121,7 @@ define void @_ZN11processor_t19take_trigger_actionEN8triggers8action_tEmmb(ptr n
   store i8 %61, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %2, ptr %64, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15trap_breakpoint, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15trap_breakpoint, i64 16), ptr %7, align 8
   call void @_ZN11processor_t9take_trapER6trap_tm(ptr noundef nonnull align 8 dereferenceable(659880) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %3)
   br label %66
 
@@ -176496,7 +176496,7 @@ _ZNSt13unordered_mapImSt10shared_ptrI5csr_tESt4hashImESt8equal_toImESaISt4pairIK
   store i8 0, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store i64 %2, ptr %52, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %49, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %49, align 8
   tail call void @__cxa_throw(ptr nonnull %49, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #38
   unreachable
 }
@@ -176516,7 +176516,7 @@ define noundef i64 @_Z19illegal_instructionP11processor_t6insn_tm(ptr nocapture 
   store i8 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %5, ptr %8, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %4, align 8
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #38
   unreachable
 }

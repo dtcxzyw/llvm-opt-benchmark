@@ -18,7 +18,7 @@ define hidden noundef ptr @_ZNK11RegisterMap11pd_locationEP9VMRegImpl(ptr nocapt
   %4 = icmp slt i32 %3, 3
   %5 = ptrtoint ptr %1 to i64
   %6 = trunc i64 %5 to i32
-  %7 = sub i32 %6, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %7 = sub i32 %6, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %8 = icmp sgt i32 %7, 79
   %9 = select i1 %4, i32 336, i32 592
   %10 = icmp samesign ult i32 %7, %9
@@ -30,13 +30,13 @@ define hidden noundef ptr @_ZNK11RegisterMap11pd_locationEP9VMRegImpl(ptr nocapt
   %13 = lshr i32 %.lhs.trunc, 4
   %.zext = and i32 %13, 4095
   %14 = zext nneg i32 %.zext to i64
-  %15 = getelementptr inbounds nuw %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %14
+  %15 = getelementptr inbounds nuw %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %14
   %16 = ptrtoint ptr %15 to i64
   %17 = trunc i64 %16 to i32
-  %18 = sub i32 %17, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
+  %18 = sub i32 %17, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %19 = shl i32 %18, 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %20
+  %21 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %20
   %22 = getelementptr i8, ptr %21, i64 80
   %23 = ptrtoint ptr %22 to i64
   %24 = trunc i64 %23 to i32
@@ -81,7 +81,7 @@ define hidden noundef ptr @_ZNK11RegisterMap11pd_locationEP9VMRegImpl(ptr nocapt
   %.025 = phi i64 [ %28, %30 ], [ %37, %35 ], [ %42, %40 ], [ %28, %38 ]
   %44 = ptrtoint ptr %.026 to i64
   %45 = trunc i64 %44 to i32
-  %46 = sub i32 %45, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %46 = sub i32 %45, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %47 = sdiv i32 %46, 64
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 4872
   %49 = sext i32 %47 to i64
@@ -122,7 +122,7 @@ define hidden noundef ptr @_ZNK11RegisterMap11pd_locationEP9VMRegImpli(ptr nocap
   %5 = getelementptr inbounds %class.VMRegImpl, ptr %1, i64 %4
   %6 = ptrtoint ptr %5 to i64
   %7 = trunc i64 %6 to i32
-  %8 = sub i32 %7, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %8 = sub i32 %7, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %9 = sdiv i32 %8, 64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4872
   %11 = sext i32 %9 to i64

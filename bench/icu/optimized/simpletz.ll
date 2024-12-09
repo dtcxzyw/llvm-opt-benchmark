@@ -51,7 +51,7 @@ entry:
 define void @_ZN6icu_7514SimpleTimeZoneC2EiRKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %rawOffsetGMT, ptr noundef nonnull align 8 dereferenceable(64) %ID) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7513BasicTimeZoneC2ERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(64) %ID)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514SimpleTimeZoneE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514SimpleTimeZoneE, i64 16), ptr %this, align 8
   %startMonth = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i8 0, ptr %startMonth, align 8
   %startDay = getelementptr inbounds nuw i8, ptr %this, i64 73
@@ -102,7 +102,7 @@ declare void @_ZN6icu_7513BasicTimeZoneD2Ev(ptr noundef nonnull align 8 derefere
 define void @_ZN6icu_7514SimpleTimeZoneC2EiRKNS_13UnicodeStringEaaaiaaaiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %rawOffsetGMT, ptr noundef nonnull align 8 dereferenceable(64) %ID, i8 noundef signext %savingsStartMonth, i8 noundef signext %savingsStartDay, i8 noundef signext %savingsStartDayOfWeek, i32 noundef %savingsStartTime, i8 noundef signext %savingsEndMonth, i8 noundef signext %savingsEndDay, i8 noundef signext %savingsEndDayOfWeek, i32 noundef %savingsEndTime, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   tail call void @_ZN6icu_7513BasicTimeZoneC2ERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(64) %ID)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514SimpleTimeZoneE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514SimpleTimeZoneE, i64 16), ptr %this, align 8
   %initialRule.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %transitionRulesInitialized.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i, align 8
@@ -190,7 +190,7 @@ if.end:                                           ; preds = %if.then, %entry
 define void @_ZN6icu_7514SimpleTimeZoneC2EiRKNS_13UnicodeStringEaaaiaaaiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %rawOffsetGMT, ptr noundef nonnull align 8 dereferenceable(64) %ID, i8 noundef signext %savingsStartMonth, i8 noundef signext %savingsStartDay, i8 noundef signext %savingsStartDayOfWeek, i32 noundef %savingsStartTime, i8 noundef signext %savingsEndMonth, i8 noundef signext %savingsEndDay, i8 noundef signext %savingsEndDayOfWeek, i32 noundef %savingsEndTime, i32 noundef %savingsDST, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7513BasicTimeZoneC2ERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(64) %ID)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514SimpleTimeZoneE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514SimpleTimeZoneE, i64 16), ptr %this, align 8
   %initialRule.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %transitionRulesInitialized.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i, align 8
@@ -241,7 +241,7 @@ invoke.cont2:                                     ; preds = %if.then.i, %entry
 define void @_ZN6icu_7514SimpleTimeZoneC2EiRKNS_13UnicodeStringEaaaiNS0_8TimeModeEaaaiS4_iR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %rawOffsetGMT, ptr noundef nonnull align 8 dereferenceable(64) %ID, i8 noundef signext %savingsStartMonth, i8 noundef signext %savingsStartDay, i8 noundef signext %savingsStartDayOfWeek, i32 noundef %savingsStartTime, i32 noundef %savingsStartTimeMode, i8 noundef signext %savingsEndMonth, i8 noundef signext %savingsEndDay, i8 noundef signext %savingsEndDayOfWeek, i32 noundef %savingsEndTime, i32 noundef %savingsEndTimeMode, i32 noundef %savingsDST, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7513BasicTimeZoneC2ERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(64) %ID)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514SimpleTimeZoneE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514SimpleTimeZoneE, i64 16), ptr %this, align 8
   %initialRule.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %transitionRulesInitialized.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i, align 8
@@ -501,7 +501,7 @@ _ZN6icu_7514SimpleTimeZone13decodeEndRuleER10UErrorCode.exit: ; preds = %_ZN6icu
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7514SimpleTimeZoneD2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8), (120, 121)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514SimpleTimeZoneE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514SimpleTimeZoneE, i64 16), ptr %this, align 8
   %initialRule.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %initialRule.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -637,7 +637,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #4
 define void @_ZN6icu_7514SimpleTimeZoneC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(160) %source) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7513BasicTimeZoneC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %source)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514SimpleTimeZoneE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514SimpleTimeZoneE, i64 16), ptr %this, align 8
   %cmp.not.i = icmp eq ptr %this, %source
   br i1 %cmp.not.i, label %invoke.cont, label %if.then.i
 
@@ -2931,7 +2931,7 @@ delete.notnull25.i:                               ; preds = %if.end20.i
 _ZN6icu_7514SimpleTimeZone21deleteTransitionRulesEv.exit: ; preds = %if.end20.i, %delete.notnull25.i
   store i8 0, ptr %transitionRulesInitialized, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %tzid, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %tzid, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %tzid, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %fID.i = getelementptr inbounds nuw i8, ptr %this, i64 8

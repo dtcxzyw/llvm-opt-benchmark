@@ -1597,7 +1597,7 @@ define dso_local void @_ZN5clang4sema21AnalysisBasedWarnings13IssueWarningsEPNS_
   %.not14 = icmp eq i8 %28, 0
   %30 = select i1 %.not13, i1 %.not14, i1 false
   %31 = zext i1 %30 to i8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125UnsafeBufferUsageReporterE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125UnsafeBufferUsageReporterE, i64 16), ptr %4, align 8
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %21, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2035,7 +2035,7 @@ _ZN12_GLOBAL__N_119LogicalErrorHandler20hasActiveDiagnosticsERN5clang17Diagnosti
 
 _ZN12_GLOBAL__N_119LogicalErrorHandler20hasActiveDiagnosticsERN5clang17DiagnosticsEngineENS1_14SourceLocationE.exit.thread: ; preds = %134, %144, %_ZN12_GLOBAL__N_119LogicalErrorHandler20hasActiveDiagnosticsERN5clang17DiagnosticsEngineENS1_14SourceLocationE.exit
   %148 = load ptr, ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_119LogicalErrorHandlerE, i64 16), ptr %69, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_119LogicalErrorHandlerE, i64 16), ptr %69, align 8
   %149 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr %148, ptr %149, align 8
   store i8 1, ptr %135, align 8
@@ -3234,7 +3234,7 @@ _ZL23CheckFallThroughForBodyRN5clang4SemaEPKNS_4DeclEPKNS_4StmtENS_8QualTypeERKN
   br i1 %666, label %667, label %_ZL16CheckUnreachableRN5clang4SemaERNS_19AnalysisDeclContextE.exit
 
 667:                                              ; preds = %.critedge154
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_122UnreachableCodeHandlerE, i64 16), ptr %44, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_122UnreachableCodeHandlerE, i64 16), ptr %44, align 8
   %668 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %657, ptr %668, align 8
   %669 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -3267,7 +3267,7 @@ _ZL16CheckUnreachableRN5clang4SemaERNS_19AnalysisDeclContextE.exit: ; preds = %.
   %682 = load ptr, ptr %0, align 8
   %683 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i8 0, ptr %683, align 8
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporterE, i64 16), ptr %72, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporterE, i64 16), ptr %72, align 8
   %684 = getelementptr inbounds nuw i8, ptr %72, i64 16
   store ptr %682, ptr %684, align 8
   %685 = getelementptr inbounds nuw i8, ptr %72, i64 24
@@ -3363,7 +3363,7 @@ _ZN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporter15emitDiagnosticsEv.e
   %722 = phi ptr [ %.pre, %_ZN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporter15emitDiagnosticsEv.exit.loopexit ], [ %.sroa.015.022.i, %705 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %42)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %43)
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporterE, i64 16), ptr %72, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporterE, i64 16), ptr %72, align 8
   %.not8.i.i.i.i = icmp eq ptr %722, %685
   br i1 %.not8.i.i.i.i, label %_ZN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporterD2Ev.exit, label %.lr.ph.i.i.i.i183
 
@@ -3385,7 +3385,7 @@ _ZN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporterD2Ev.exit: ; preds = 
 
 726:                                              ; preds = %725
   %727 = load ptr, ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5clang8consumed12_GLOBAL__N_123ConsumedWarningsHandlerE, i64 16), ptr %73, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN5clang8consumed12_GLOBAL__N_123ConsumedWarningsHandlerE, i64 16), ptr %73, align 8
   %728 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store ptr %727, ptr %728, align 8
   %729 = getelementptr inbounds nuw i8, ptr %73, i64 16
@@ -3424,7 +3424,7 @@ _ZNKSt14default_deleteIN5clang8consumed16ConsumedStateMapEEclEPS2_.exit.i.i: ; p
 _ZN5clang8consumed16ConsumedAnalyzerD2Ev.exit:    ; preds = %726, %_ZNKSt14default_deleteIN5clang8consumed16ConsumedStateMapEEclEPS2_.exit.i.i
   store ptr null, ptr %733, align 8
   call void @_ZN5clang8consumed17ConsumedBlockInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %74) #22
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5clang8consumed12_GLOBAL__N_123ConsumedWarningsHandlerE, i64 16), ptr %73, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN5clang8consumed12_GLOBAL__N_123ConsumedWarningsHandlerE, i64 16), ptr %73, align 8
   %747 = load ptr, ptr %729, align 8
   %.not8.i.i.i.i186 = icmp eq ptr %747, %729
   br i1 %.not8.i.i.i.i186, label %_ZN5clang8consumed12_GLOBAL__N_123ConsumedWarningsHandlerD2Ev.exit, label %.lr.ph.i.i.i.i187
@@ -3475,7 +3475,7 @@ _ZN5clang8consumed12_GLOBAL__N_123ConsumedWarningsHandlerD2Ev.exit: ; preds = %.
 
 769:                                              ; preds = %767
   %770 = load ptr, ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_122UninitValsDiagReporterE, i64 16), ptr %75, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_122UninitValsDiagReporterE, i64 16), ptr %75, align 8
   %771 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr %770, ptr %771, align 8
   %772 = getelementptr inbounds nuw i8, ptr %75, i64 16
@@ -3583,7 +3583,7 @@ _ZN12_GLOBAL__N_133shouldAnalyzeCalledOnceParametersERKN5clang17DiagnosticsEngin
   %825 = load ptr, ptr %0, align 8
   %826 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %827 = load ptr, ptr %826, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_123CalledOnceCheckReporterE, i64 16), ptr %77, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_123CalledOnceCheckReporterE, i64 16), ptr %77, align 8
   %828 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %825, ptr %828, align 8
   %829 = getelementptr inbounds nuw i8, ptr %77, i64 16
@@ -4965,7 +4965,7 @@ _ZL26getFallthroughAttrSpellingRN5clang12PreprocessorENS_14SourceLocationE.exit.
   %1443 = getelementptr inbounds i8, ptr %.sroa.041.3.i.i, i64 %.sroa.8.3.i.i
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(88) %36, ptr noundef nonnull %1078, i64 noundef 64) #22
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(88) %36, ptr noundef %.sroa.041.3.i.i, ptr noundef nonnull %1443)
-  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(88) %36, ptr noundef nonnull @.str.38, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.38, i64 2))
+  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(88) %36, ptr noundef nonnull @.str.38, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.38, i64 2))
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %37, ptr noundef nonnull align 8 dereferenceable(8) %1052, i32 %1390, i32 noundef 5651, i1 noundef zeroext false) #22
   %1444 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_(ptr noundef nonnull align 8 dereferenceable(96) %37, ptr noundef nonnull align 8 dereferenceable(16) %35)
   %1445 = load ptr, ptr %36, align 8
@@ -6497,7 +6497,7 @@ declare void @_ZN5clang12threadSafety23runThreadSafetyAnalysisERNS_19AnalysisDec
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not8.i.i.i = icmp eq ptr %3, %2
@@ -6521,7 +6521,7 @@ declare void @_ZN5clang8consumed16ConsumedAnalyzer3runERNS_19AnalysisDeclContext
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5clang8consumed12_GLOBAL__N_123ConsumedWarningsHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5clang8consumed12_GLOBAL__N_123ConsumedWarningsHandlerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN5clang8consumed12_GLOBAL__N_123ConsumedWarningsHandlerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not8.i.i.i = icmp eq ptr %3, %2
@@ -6552,7 +6552,7 @@ define internal void @_ZN12_GLOBAL__N_122UninitValsDiagReporterD2Ev(ptr noundef 
   %6 = alloca %"class.clang::UninitUse", align 8
   %7 = alloca %"class.clang::UninitUse", align 8
   %8 = alloca %"class.clang::UninitUse", align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_122UninitValsDiagReporterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_122UninitValsDiagReporterE, i64 16), ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
@@ -13002,7 +13002,7 @@ _ZNK5clang8SemaBase20ImmediateDiagBuilderlsINS_9FixItHintEvEERKS1_OT_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporterD0Ev(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not8.i.i.i.i = icmp eq ptr %3, %2
@@ -18891,7 +18891,7 @@ _ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEED2Ev.exit: ; preds =
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5clang8consumed12_GLOBAL__N_123ConsumedWarningsHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5clang8consumed12_GLOBAL__N_123ConsumedWarningsHandlerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN5clang8consumed12_GLOBAL__N_123ConsumedWarningsHandlerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not8.i.i.i.i = icmp eq ptr %3, %2

@@ -124,10 +124,10 @@ NBC_Copy.exit.thread:                             ; preds = %35, %34, %29
   %.0120182 = phi ptr [ %.0120183, %29 ], [ %3, %34 ], [ %3, %35 ]
   %.0119 = phi ptr [ %6, %29 ], [ %2, %34 ], [ %2, %35 ]
   %.0118 = phi i32 [ %33, %29 ], [ %1, %34 ], [ %1, %35 ]
-  %46 = load i64, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 56), align 8
+  %46 = load i64, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 56), align 8
   %47 = tail call noalias ptr @malloc(i64 noundef %46) #9
   %48 = load i32, ptr @opal_class_init_epoch, align 4
-  %49 = load i32, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 32), align 8
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 32), align 8
   %.not.i142 = icmp eq i32 %48, %49
   br i1 %.not.i142, label %51, label %50
 
@@ -495,10 +495,10 @@ ompi_comm_remote_size.exit:                       ; preds = %11, %15
   %22 = getelementptr i8, ptr %6, i64 56
   %.val80 = load i64, ptr %22, align 8
   %23 = sub nsw i64 %.val80, %.val
-  %24 = load i64, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 56), align 8
+  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 56), align 8
   %25 = tail call noalias ptr @malloc(i64 noundef %24) #9
   %26 = load i32, ptr @opal_class_init_epoch, align 4
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 32), align 8
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 32), align 8
   %.not.i81 = icmp eq i32 %26, %27
   br i1 %.not.i81, label %29, label %28
 

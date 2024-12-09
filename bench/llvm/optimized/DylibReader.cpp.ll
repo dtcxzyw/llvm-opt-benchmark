@@ -392,7 +392,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
 
 _ZN4llvm5ErrorD2Ev.exit44:                        ; preds = %35
   %47 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18, !noalias !10
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm5MachO12TextAPIErrorE, i64 16), ptr %47, align 8, !noalias !10
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm5MachO12TextAPIErrorE, i64 16), ptr %47, align 8, !noalias !10
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i32 0, ptr %48, align 8, !noalias !10
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
@@ -426,7 +426,7 @@ _ZN4llvm5ErrorD2Ev.exit44:                        ; preds = %35
 
 _ZN4llvm5ErrorD2Ev.exit45:                        ; preds = %59
   %62 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18, !noalias !18
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm5MachO12TextAPIErrorE, i64 16), ptr %62, align 8, !noalias !18
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm5MachO12TextAPIErrorE, i64 16), ptr %62, align 8, !noalias !18
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i32 4, ptr %63, align 8, !noalias !18
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
@@ -446,7 +446,7 @@ _ZN4llvm5ErrorD2Ev.exit45:                        ; preds = %59
   store i32 1, ptr %70, align 8, !noalias !26
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 12
   store i32 1, ptr %71, align 4, !noalias !26
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm5MachO12RecordsSliceESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %69, align 8, !noalias !26
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm5MachO12RecordsSliceESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %69, align 8, !noalias !26
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 16
   call void @_ZN4llvm5MachO12RecordsSliceC2EOS1_(ptr noundef nonnull align 8 dereferenceable(304) %72, ptr noundef nonnull align 8 dereferenceable(304) %12), !noalias !26
   store ptr %69, ptr %57, align 8, !alias.scope !26
@@ -713,7 +713,7 @@ _ZN4llvm5ErrorD2Ev.exit56:                        ; preds = %178, %_ZNSt10unique
   store i32 1, ptr %191, align 8, !noalias !40
   %192 = getelementptr inbounds nuw i8, ptr %190, i64 12
   store i32 1, ptr %192, align 4, !noalias !40
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm5MachO12RecordsSliceESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %190, align 8, !noalias !40
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm5MachO12RecordsSliceESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %190, align 8, !noalias !40
   %193 = getelementptr inbounds nuw i8, ptr %190, i64 16
   call void @_ZN4llvm5MachO12RecordsSliceC2EOS1_(ptr noundef nonnull align 8 dereferenceable(304) %193, ptr noundef nonnull align 8 dereferenceable(304) %19), !noalias !40
   store ptr %190, ptr %154, align 8, !alias.scope !40
@@ -910,7 +910,7 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_6object15MachOObjectFileESt14default_deleteI
 
 _ZN4llvm5ErrorD2Ev.exit80:                        ; preds = %._crit_edge123
   %272 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18, !noalias !53
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm5MachO12TextAPIErrorE, i64 16), ptr %272, align 8, !noalias !53
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm5MachO12TextAPIErrorE, i64 16), ptr %272, align 8, !noalias !53
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
   store i32 1, ptr %273, align 8, !noalias !53
   %274 = getelementptr inbounds nuw i8, ptr %272, i64 16
@@ -1318,7 +1318,7 @@ define internal fastcc void @_ZL16constructTriplesPN4llvm6object15MachOObjectFil
   store i8 0, ptr %312, align 8, !noalias !64
   store i32 1, ptr %313, align 4, !noalias !64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %314, i8 0, i64 24, i1 false), !noalias !64
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %52, align 8, !noalias !64
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %52, align 8, !noalias !64
   store ptr %51, ptr %315, align 8, !noalias !64
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %52, ptr noundef null, i64 noundef 0, i32 noundef 0) #17, !noalias !64
   call void @_ZNK4llvm5MachO13PackedVersion5printERNS_11raw_ostreamE(ptr noundef nonnull align 4 dereferenceable(4) %50, ptr noundef nonnull align 8 dereferenceable(48) %52) #17, !noalias !64
@@ -1371,7 +1371,7 @@ define internal fastcc void @_ZL16constructTriplesPN4llvm6object15MachOObjectFil
   store i8 0, ptr %291, align 8, !noalias !73
   store i32 1, ptr %292, align 4, !noalias !73
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %293, i8 0, i64 24, i1 false), !noalias !73
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %47, align 8, !noalias !73
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %47, align 8, !noalias !73
   store ptr %46, ptr %294, align 8, !noalias !73
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %47, ptr noundef null, i64 noundef 0, i32 noundef 0) #17, !noalias !73
   call void @_ZNK4llvm5MachO13PackedVersion5printERNS_11raw_ostreamE(ptr noundef nonnull align 4 dereferenceable(4) %45, ptr noundef nonnull align 8 dereferenceable(48) %47) #17, !noalias !73
@@ -1458,7 +1458,7 @@ define internal fastcc void @_ZL16constructTriplesPN4llvm6object15MachOObjectFil
   store i8 0, ptr %270, align 8, !noalias !85
   store i32 1, ptr %271, align 4, !noalias !85
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %272, i8 0, i64 24, i1 false), !noalias !85
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %40, align 8, !noalias !85
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %40, align 8, !noalias !85
   store ptr %39, ptr %273, align 8, !noalias !85
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %40, ptr noundef null, i64 noundef 0, i32 noundef 0) #17, !noalias !85
   call void @_ZNK4llvm5MachO13PackedVersion5printERNS_11raw_ostreamE(ptr noundef nonnull align 4 dereferenceable(4) %38, ptr noundef nonnull align 8 dereferenceable(48) %40) #17, !noalias !85
@@ -1545,7 +1545,7 @@ define internal fastcc void @_ZL16constructTriplesPN4llvm6object15MachOObjectFil
   store i8 0, ptr %249, align 8, !noalias !97
   store i32 1, ptr %250, align 4, !noalias !97
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %251, i8 0, i64 24, i1 false), !noalias !97
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %33, align 8, !noalias !97
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %33, align 8, !noalias !97
   store ptr %32, ptr %252, align 8, !noalias !97
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %33, ptr noundef null, i64 noundef 0, i32 noundef 0) #17, !noalias !97
   call void @_ZNK4llvm5MachO13PackedVersion5printERNS_11raw_ostreamE(ptr noundef nonnull align 4 dereferenceable(4) %31, ptr noundef nonnull align 8 dereferenceable(48) %33) #17, !noalias !97
@@ -1631,7 +1631,7 @@ define internal fastcc void @_ZL16constructTriplesPN4llvm6object15MachOObjectFil
   store i8 0, ptr %165, align 8, !noalias !106
   store i32 1, ptr %166, align 4, !noalias !106
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %167, i8 0, i64 24, i1 false), !noalias !106
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %26, align 8, !noalias !106
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %26, align 8, !noalias !106
   store ptr %25, ptr %168, align 8, !noalias !106
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef null, i64 noundef 0, i32 noundef 0) #17, !noalias !106
   call void @_ZNK4llvm5MachO13PackedVersion5printERNS_11raw_ostreamE(ptr noundef nonnull align 4 dereferenceable(4) %24, ptr noundef nonnull align 8 dereferenceable(48) %26) #17, !noalias !106
@@ -2297,7 +2297,7 @@ define internal fastcc void @_ZL4loadPN4llvm6object15MachOObjectFileERNS_5MachO1
 
 24:                                               ; preds = %5
   %25 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18, !noalias !142
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm5MachO12TextAPIErrorE, i64 16), ptr %25, align 8, !noalias !142
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm5MachO12TextAPIErrorE, i64 16), ptr %25, align 8, !noalias !142
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 4, ptr %26, align 8, !noalias !142
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -6007,7 +6007,7 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5
   store ptr null, ptr %1, align 8, !noalias !322
   %155 = load ptr, ptr %2, align 8, !noalias !325
   store ptr null, ptr %2, align 8, !noalias !325
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %158 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18

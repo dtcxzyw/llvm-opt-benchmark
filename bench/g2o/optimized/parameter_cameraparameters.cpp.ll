@@ -44,7 +44,7 @@ $_ZTIN3g2o9ParameterE = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3g2o16CameraParametersC2Ev(ptr noundef nonnull align 16 dereferenceable(56) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3g2o9ParameterC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3g2o16CameraParametersE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3g2o16CameraParametersE, i64 16), ptr %0, align 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double 1.000000e+00, ptr %2, align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -61,7 +61,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3g2o16CameraParametersC2EdRKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEd(ptr noundef nonnull align 16 dereferenceable(56) %0, double noundef %1, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %2, double noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3g2o9ParameterC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3g2o16CameraParametersE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3g2o16CameraParametersE, i64 16), ptr %0, align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %1, ptr %5, align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32

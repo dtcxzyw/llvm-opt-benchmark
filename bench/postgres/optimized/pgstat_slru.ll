@@ -171,7 +171,7 @@ define dso_local void @pgstat_count_slru_truncate(i32 noundef %0) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define dso_local nonnull ptr @pgstat_fetch_slru() local_unnamed_addr #0 {
   tail call void @pgstat_snapshot_fixed(i32 noundef 10) #8
-  ret ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16688)
+  ret ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16688)
 }
 
 declare void @pgstat_snapshot_fixed(i32 noundef) local_unnamed_addr #1
@@ -315,7 +315,7 @@ define dso_local void @pgstat_slru_snapshot_cb() local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 17232
   %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 1) #8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 17248
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) getelementptr inbounds (i8, ptr @pgStatLocal, i64 16688), ptr noundef nonnull align 8 dereferenceable(512) %4, i64 512, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16688), ptr noundef nonnull align 8 dereferenceable(512) %4, i64 512, i1 false)
   tail call void @LWLockRelease(ptr noundef nonnull %2) #8
   ret void
 }

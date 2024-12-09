@@ -160,7 +160,7 @@ define dso_local void @gnet_stats_add_basic(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %6, label %7, label %.thread
 
 7:                                                ; preds = %4
-  %8 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #9, !srcloc !6
+  %8 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #9, !srcloc !6
   %9 = and i32 %8, 983040
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %12, label %11, !prof !7

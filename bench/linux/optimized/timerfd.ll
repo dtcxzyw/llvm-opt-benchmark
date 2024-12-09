@@ -140,7 +140,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_timerfd_
   br i1 %12, label %13, label %34
 
 13:                                               ; preds = %11, %8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %15 = tail call noalias noundef align 8 dereferenceable_or_null(216) ptr @kmalloc_trace(ptr noundef %14, i32 noundef 3520, i64 noundef 216) #9
   %16 = icmp eq ptr %15, null
   br i1 %16, label %34, label %17

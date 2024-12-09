@@ -192,7 +192,7 @@ entry:
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::allocator", align 1
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib23GaussLaguerrePolynomialE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib23GaussLaguerrePolynomialE, i64 16), ptr %this, align 8, !tbaa !3
   %s_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store double %s, ptr %s_, align 8, !tbaa !9
   %cmp = fcmp ogt double %s, -1.000000e+00
@@ -433,7 +433,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !22
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -554,7 +554,7 @@ entry:
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::allocator", align 1
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib22GaussHermitePolynomialE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib22GaussHermitePolynomialE, i64 16), ptr %this, align 8, !tbaa !3
   %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store double %mu, ptr %mu_, align 8, !tbaa !24
   %cmp = fcmp ogt double %mu, -5.000000e-01
@@ -796,7 +796,7 @@ entry:
   %ref.tmp88 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp89 = alloca %"class.std::allocator", align 1
   %ref.tmp92 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib21GaussJacobiPolynomialE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib21GaussJacobiPolynomialE, i64 16), ptr %this, align 8, !tbaa !3
   %alpha_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store double %alpha, ptr %alpha_, align 8, !tbaa !26
   %beta_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2147,7 +2147,7 @@ define void @_ZN8QuantLib23GaussLegendrePolynomialC2Ev(ptr nocapture noundef non
 entry:
   %alpha_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %alpha_.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib23GaussLegendrePolynomialE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib23GaussLegendrePolynomialE, i64 16), ptr %this, align 8, !tbaa !3
   ret void
 }
 
@@ -2158,7 +2158,7 @@ entry:
   store double 5.000000e-01, ptr %alpha_.i, align 8, !tbaa !26
   %beta_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store double 5.000000e-01, ptr %beta_.i, align 8, !tbaa !28
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib27GaussChebyshev2ndPolynomialE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib27GaussChebyshev2ndPolynomialE, i64 16), ptr %this, align 8, !tbaa !3
   ret void
 }
 
@@ -2169,7 +2169,7 @@ entry:
   store double -5.000000e-01, ptr %alpha_.i, align 8, !tbaa !26
   %beta_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store double -5.000000e-01, ptr %beta_.i, align 8, !tbaa !28
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib24GaussChebyshevPolynomialE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib24GaussChebyshevPolynomialE, i64 16), ptr %this, align 8, !tbaa !3
   ret void
 }
 
@@ -2178,7 +2178,7 @@ define void @_ZN8QuantLib25GaussGegenbauerPolynomialC2Ed(ptr nocapture noundef n
 entry:
   %sub = fadd double %lambda, -5.000000e-01
   tail call void @_ZN8QuantLib21GaussJacobiPolynomialC2Edd(ptr noundef nonnull align 8 dereferenceable(24) %this, double noundef %sub, double noundef %sub)
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib25GaussGegenbauerPolynomialE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib25GaussGegenbauerPolynomialE, i64 16), ptr %this, align 8, !tbaa !3
   ret void
 }
 

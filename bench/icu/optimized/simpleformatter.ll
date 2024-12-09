@@ -1114,13 +1114,13 @@ if.then12:                                        ; preds = %_ZN6icu_7515SimpleF
   br label %return
 
 _ZN6icu_7515SimpleFormatter16getArgumentLimitEPKDsi.exit42.thread: ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %resultCopy, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %resultCopy, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %resultCopy, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   br label %if.then42
 
 _ZN6icu_7515SimpleFormatter16getArgumentLimitEPKDsi.exit42: ; preds = %_ZN6icu_7515SimpleFormatter16getArgumentLimitEPKDsi.exit.thread
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %resultCopy, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %resultCopy, align 8
   %fUnion2.i52 = getelementptr inbounds nuw i8, ptr %resultCopy, i64 8
   store i16 2, ptr %fUnion2.i52, align 8
   %cmp15.not = icmp ne i16 %7, 0

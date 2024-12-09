@@ -115,7 +115,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7531SimpleFilteredSentenceBreakDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7531SimpleFilteredSentenceBreakDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7531SimpleFilteredSentenceBreakDataE, i64 16), ptr %this, align 8
   %fBackwardsTrie = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %fBackwardsTrie, align 8
   %isnull.i = icmp eq ptr %0, null
@@ -169,7 +169,7 @@ entry:
 define void @_ZN6icu_7535SimpleFilteredSentenceBreakIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(504) %this, ptr noundef nonnull align 8 dereferenceable(504) %other) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   tail call void @_ZN6icu_7513BreakIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(479) %this, ptr noundef nonnull align 8 dereferenceable(479) %other)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7535SimpleFilteredSentenceBreakIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7535SimpleFilteredSentenceBreakIteratorE, i64 16), ptr %this, align 8
   %fData2 = getelementptr inbounds nuw i8, ptr %other, i64 480
   %0 = load ptr, ptr %fData2, align 8
   %refcount.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -221,14 +221,14 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont4:                                     ; preds = %invoke.cont
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp2) #14
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp) #14
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7535SimpleFilteredSentenceBreakIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7535SimpleFilteredSentenceBreakIteratorE, i64 16), ptr %this, align 8
   %fData = getelementptr inbounds nuw i8, ptr %this, i64 480
   %call = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 32) #14
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %if.then, label %invoke.cont11
 
 invoke.cont11:                                    ; preds = %invoke.cont4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7531SimpleFilteredSentenceBreakDataE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7531SimpleFilteredSentenceBreakDataE, i64 16), ptr %call, align 8
   %fForwardsPartialTrie.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %forwards, ptr %fForwardsPartialTrie.i, align 8
   %fBackwardsTrie.i = getelementptr inbounds nuw i8, ptr %call, i64 16
@@ -310,7 +310,7 @@ declare void @_ZN6icu_7510UCharsTrieD1Ev(ptr noundef nonnull align 8 dereference
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7535SimpleFilteredSentenceBreakIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7535SimpleFilteredSentenceBreakIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7535SimpleFilteredSentenceBreakIteratorE, i64 16), ptr %this, align 8
   %fData = getelementptr inbounds nuw i8, ptr %this, i64 480
   %0 = load ptr, ptr %fData, align 8
   %refcount.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1032,7 +1032,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7534SimpleFilteredBreakIteratorBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7534SimpleFilteredBreakIteratorBuilderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7534SimpleFilteredBreakIteratorBuilderE, i64 16), ptr %this, align 8
   %fSet = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN6icu_7510UStringSetD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %fSet) #14
   tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
@@ -1057,13 +1057,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7534SimpleFilteredBreakIteratorBuilderC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7534SimpleFilteredBreakIteratorBuilderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7534SimpleFilteredBreakIteratorBuilderE, i64 16), ptr %this, align 8
   %fSet = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @_ZN6icu_757UVectorC2EPFvPvEPFa8UElementS4_EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %fSet, ptr noundef nonnull @uprv_deleteUObject_75, ptr noundef nonnull @uhash_compareUnicodeString_75, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510UStringSetE, i64 16), ptr %fSet, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7510UStringSetE, i64 16), ptr %fSet, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -1076,7 +1076,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7528FilteredBreakIteratorBuilderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7528FilteredBreakIteratorBuilderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7528FilteredBreakIteratorBuilderE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -1091,13 +1091,13 @@ entry:
   %breaks = alloca %"class.icu_75::LocalUResourceBundlePointer", align 8
   %strs = alloca %"class.icu_75::LocalUResourceBundlePointer", align 8
   %str = alloca %"class.icu_75::UnicodeString", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7534SimpleFilteredBreakIteratorBuilderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7534SimpleFilteredBreakIteratorBuilderE, i64 16), ptr %this, align 8
   %fSet = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @_ZN6icu_757UVectorC2EPFvPvEPFa8UElementS4_EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %fSet, ptr noundef nonnull @uprv_deleteUObject_75, ptr noundef nonnull @uhash_compareUnicodeString_75, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510UStringSetE, i64 16), ptr %fSet, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7510UStringSetE, i64 16), ptr %fSet, align 8
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %0, 0
   br i1 %cmp.i, label %if.end85, label %if.then
@@ -1208,7 +1208,7 @@ if.then55:                                        ; preds = %invoke.cont48
   call void @llvm.experimental.noalias.scope.decl(metadata !9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %str, align 8, !alias.scope !9
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %str, align 8, !alias.scope !9
   store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !9
   store i32 0, ptr %len.i, align 4, !noalias !9
   %call.i = invoke ptr @ures_getString_75(ptr noundef nonnull %call47, ptr noundef nonnull %len.i, ptr noundef nonnull %status)
@@ -1583,7 +1583,7 @@ new.notnull.i:                                    ; preds = %if.end
 invoke.cont.i:                                    ; preds = %invoke.cont.i, %new.notnull.i
   %arrayctor.cur.idx.i = phi i64 [ 8, %new.notnull.i ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
   %arrayctor.cur.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %arrayctor.cur.idx.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur.ptr.ptr.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur.ptr.ptr.i, align 8
   %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr.i, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 64

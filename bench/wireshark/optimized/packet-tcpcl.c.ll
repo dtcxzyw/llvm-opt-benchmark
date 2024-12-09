@@ -3848,7 +3848,7 @@ define internal i32 @fragment_key_hash(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @fragment_key_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @addresses_ports_reassembly_table_functions, i64 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @addresses_ports_reassembly_table_functions, i64 8), align 8
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = tail call i32 %3(ptr noundef %4, ptr noundef %5) #10
@@ -3872,7 +3872,7 @@ define internal range(i32 0, 2) i32 @fragment_key_equal(ptr nocapture noundef re
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @fragment_key_temporary(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @g_slice_alloc(i64 noundef 16) #11
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @addresses_ports_reassembly_table_functions, i64 16), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @addresses_ports_reassembly_table_functions, i64 16), align 8
   %6 = tail call ptr %5(ptr noundef %0, i32 noundef %1, ptr noundef null) #10
   store ptr %6, ptr %4, align 8
   %7 = load i64, ptr %2, align 8
@@ -3884,7 +3884,7 @@ define internal noundef ptr @fragment_key_temporary(ptr noundef %0, i32 noundef 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @fragment_key_persistent(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @g_slice_alloc(i64 noundef 16) #11
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @addresses_ports_reassembly_table_functions, i64 24), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @addresses_ports_reassembly_table_functions, i64 24), align 8
   %6 = tail call ptr %5(ptr noundef %0, i32 noundef %1, ptr noundef null) #10
   store ptr %6, ptr %4, align 8
   %7 = load i64, ptr %2, align 8
@@ -3899,7 +3899,7 @@ define internal void @fragment_key_free_temporary(ptr noundef %0) #0 {
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @addresses_ports_reassembly_table_functions, i64 32), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @addresses_ports_reassembly_table_functions, i64 32), align 8
   %4 = load ptr, ptr %0, align 8
   tail call void %3(ptr noundef %4) #10
   tail call void @g_slice_free1(i64 noundef 16, ptr noundef nonnull %0) #10
@@ -3915,7 +3915,7 @@ define internal void @fragment_key_free_persistent(ptr noundef %0) #0 {
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @addresses_ports_reassembly_table_functions, i64 40), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @addresses_ports_reassembly_table_functions, i64 40), align 8
   %4 = load ptr, ptr %0, align 8
   tail call void %3(ptr noundef %4) #10
   tail call void @g_slice_free1(i64 noundef 16, ptr noundef nonnull %0) #10

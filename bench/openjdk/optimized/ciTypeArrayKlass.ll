@@ -92,7 +92,7 @@ $_ZTV16ciTypeArrayKlass = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16ciTypeArrayKlassC2EP5Klass(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN12ciArrayKlassC2EP5Klass(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) #4
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV16ciTypeArrayKlass, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV16ciTypeArrayKlass, i64 16), ptr %0, align 8
   ret void
 }
 

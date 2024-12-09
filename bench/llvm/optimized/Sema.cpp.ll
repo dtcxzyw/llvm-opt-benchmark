@@ -1791,7 +1791,7 @@ define dso_local noundef nonnull ptr @_ZN5clang4Sema42InventAbbreviatedTemplateP
   store i32 1, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %4, ptr %10, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef null, i64 noundef 0, i32 noundef 0) #23
@@ -2139,10 +2139,10 @@ define dso_local void @_ZN5clang4SemaC2ERNS_12PreprocessorERNS_10ASTContextERNS_
   %9 = alloca %"class.clang::CleanupInfo", align 2
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN5clang4SemaE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN5clang4SemaE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN5clang8SemaBaseC2ERNS_4SemaE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(17560) %0) #23
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN5clang4SemaE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN5clang4SemaE, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3004,7 +3004,7 @@ _ZNSt10unique_ptrIN5clang17CXXFieldCollectorESt14default_deleteIS1_EE5resetEPS1_
   %483 = call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #24, !noalias !89
   %484 = getelementptr inbounds nuw i8, ptr %483, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %484, i8 0, i64 128, i1 false), !noalias !89
-  store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN5clang4sema15SemaPPCallbacksE, i64 16), ptr %483, align 8, !noalias !89
+  store ptr getelementptr inbounds nuw inrange(-16, 384) (i8, ptr @_ZTVN5clang4sema15SemaPPCallbacksE, i64 16), ptr %483, align 8, !noalias !89
   %485 = getelementptr inbounds nuw i8, ptr %483, i64 8
   store ptr null, ptr %485, align 8, !noalias !89
   %486 = getelementptr inbounds nuw i8, ptr %483, i64 32
@@ -3024,7 +3024,7 @@ _ZNSt10unique_ptrIN5clang18PPChainedCallbacksESt14default_deleteIS1_EED2Ev.exit.
   %493 = ptrtoint ptr %492 to i64
   %494 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24, !noalias !92
   %495 = ptrtoint ptr %483 to i64
-  store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN5clang18PPChainedCallbacksE, i64 16), ptr %494, align 8, !noalias !92
+  store ptr getelementptr inbounds nuw inrange(-16, 384) (i8, ptr @_ZTVN5clang18PPChainedCallbacksE, i64 16), ptr %494, align 8, !noalias !92
   %496 = getelementptr inbounds nuw i8, ptr %494, i64 8
   store i64 %495, ptr %496, align 8, !noalias !92
   %497 = getelementptr inbounds nuw i8, ptr %494, i64 16
@@ -25739,7 +25739,7 @@ declare void @_ZN5clang4sema17FunctionScopeInfo5ClearEv(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang4sema17FunctionScopeInfoC2ERNS_17DiagnosticsEngineE(ptr noundef nonnull align 8 dereferenceable(1296) %0, ptr noundef nonnull align 8 dereferenceable(1304) %1) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang4sema17FunctionScopeInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang4sema17FunctionScopeInfoE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, -1310720
@@ -25855,7 +25855,7 @@ define dso_local void @_ZN5clang4Sema14PushBlockScopeEPNS_5ScopeEPNS_9BlockDeclE
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang4sema17FunctionScopeInfoC2ERNS_17DiagnosticsEngineE(ptr noundef nonnull align 8 dereferenceable(1520) %5, ptr noundef nonnull align 8 dereferenceable(1304) %7)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang4sema18CapturingScopeInfoE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang4sema18CapturingScopeInfoE, i64 16), ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 1296
   store i32 3, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 1304
@@ -25869,7 +25869,7 @@ define dso_local void @_ZN5clang4Sema14PushBlockScopeEPNS_5ScopeEPNS_9BlockDeclE
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 1488
   store i64 0, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang4sema14BlockScopeInfoE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang4sema14BlockScopeInfoE, i64 16), ptr %5, align 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 1496
   store ptr %2, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 1504
@@ -25914,7 +25914,7 @@ define dso_local noundef nonnull ptr @_ZN5clang4Sema15PushLambdaScopeEv(ptr noun
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN5clang4sema17FunctionScopeInfoC2ERNS_17DiagnosticsEngineE(ptr noundef nonnull align 8 dereferenceable(1936) %2, ptr noundef nonnull align 8 dereferenceable(1304) %4)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang4sema18CapturingScopeInfoE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang4sema18CapturingScopeInfoE, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1296
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 1304
@@ -25931,7 +25931,7 @@ define dso_local noundef nonnull ptr @_ZN5clang4Sema15PushLambdaScopeEv(ptr noun
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 1520
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull %13, i64 noundef 4) #23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang4sema15LambdaScopeInfoE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang4sema15LambdaScopeInfoE, i64 16), ptr %2, align 8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 1552
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 1568
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
@@ -28138,7 +28138,7 @@ define dso_local void @_ZN5clang4Sema23PushCapturedRegionScopeEPNS_5ScopeEPNS_12
 28:                                               ; preds = %6, %23
   %29 = phi i16 [ %27, %23 ], [ 0, %6 ]
   tail call void @_ZN5clang4sema17FunctionScopeInfoC2ERNS_17DiagnosticsEngineE(ptr noundef nonnull align 8 dereferenceable(1536) %7, ptr noundef nonnull align 8 dereferenceable(1304) %9)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang4sema18CapturingScopeInfoE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang4sema18CapturingScopeInfoE, i64 16), ptr %7, align 8
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 1296
   store i32 4, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 1304
@@ -28152,7 +28152,7 @@ define dso_local void @_ZN5clang4Sema23PushCapturedRegionScopeEPNS_5ScopeEPNS_12
   store i8 0, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 1488
   store i64 0, ptr %36, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang4sema23CapturedRegionScopeInfoE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang4sema23CapturedRegionScopeInfoE, i64 16), ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 1496
   store ptr %2, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 1504
@@ -29685,7 +29685,7 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5
   store ptr null, ptr %1, align 8, !noalias !335
   %155 = load ptr, ptr %2, align 8, !noalias !338
   store ptr null, ptr %2, align 8, !noalias !338
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %158 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
@@ -36665,7 +36665,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang4sema18CapturingScopeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(1496) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang4sema18CapturingScopeInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang4sema18CapturingScopeInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #23
   %4 = load ptr, ptr %2, align 8
@@ -36691,7 +36691,7 @@ _ZN4llvm11SmallVectorIN5clang4sema7CaptureELj4EED2Ev.exit: ; preds = %1, %7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang4sema18CapturingScopeInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(1496) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang4sema18CapturingScopeInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang4sema18CapturingScopeInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #23
   %4 = load ptr, ptr %2, align 8
@@ -36788,7 +36788,7 @@ _ZN4llvm11SmallVectorIPN5clang9NamedDeclELj4EED2Ev.exit: ; preds = %_ZN4llvm11Sm
   br label %_ZN5clang29InventedTemplateParameterInfoD2Ev.exit
 
 _ZN5clang29InventedTemplateParameterInfoD2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIPN5clang9NamedDeclELj4EED2Ev.exit, %37
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang4sema18CapturingScopeInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang4sema18CapturingScopeInfoE, i64 16), ptr %0, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %39 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %38) #23
   %40 = load ptr, ptr %38, align 8
@@ -38949,7 +38949,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang24MaterializeTemporaryExprELb1EE18unin
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang4sema15SemaPPCallbacksD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN5clang4sema15SemaPPCallbacksE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 384) (i8, ptr @_ZTVN5clang4sema15SemaPPCallbacksE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %2) #23
   %4 = load ptr, ptr %2, align 8
@@ -38980,7 +38980,7 @@ _ZN4llvm11SmallVectorIN5clang14SourceLocationELj8EED2Ev.exit: ; preds = %_ZN4llv
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang4sema15SemaPPCallbacksD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN5clang4sema15SemaPPCallbacksE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 384) (i8, ptr @_ZTVN5clang4sema15SemaPPCallbacksE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %2) #23
   %4 = load ptr, ptr %2, align 8

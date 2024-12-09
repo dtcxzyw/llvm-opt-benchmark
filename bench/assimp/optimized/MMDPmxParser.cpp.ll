@@ -555,7 +555,7 @@ if.then8:                                         ; preds = %if.then3
 
 if.else:                                          ; preds = %if.then3
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #17
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4utf813invalid_utf16E, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4utf813invalid_utf16E, i64 16), ptr %exception, align 8
   %u16.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   store i16 %1, ptr %u16.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN4utf813invalid_utf16E, ptr nonnull @_ZN4utf813invalid_utf16D2Ev) #18
@@ -563,7 +563,7 @@ if.else:                                          ; preds = %if.then3
 
 if.else11:                                        ; preds = %if.then
   %exception12 = tail call ptr @__cxa_allocate_exception(i64 16) #17
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4utf813invalid_utf16E, i64 16), ptr %exception12, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4utf813invalid_utf16E, i64 16), ptr %exception12, align 8
   %u16.i13 = getelementptr inbounds nuw i8, ptr %exception12, i64 8
   store i16 %0, ptr %u16.i13, align 8
   tail call void @__cxa_throw(ptr nonnull %exception12, ptr nonnull @_ZTIN4utf813invalid_utf16E, ptr nonnull @_ZN4utf813invalid_utf16D2Ev) #18
@@ -571,7 +571,7 @@ if.else11:                                        ; preds = %if.then
 
 if.then19:                                        ; preds = %while.body
   %exception20 = tail call ptr @__cxa_allocate_exception(i64 16) #17
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4utf813invalid_utf16E, i64 16), ptr %exception20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4utf813invalid_utf16E, i64 16), ptr %exception20, align 8
   %u16.i14 = getelementptr inbounds nuw i8, ptr %exception20, i64 8
   store i16 %0, ptr %u16.i14, align 8
   tail call void @__cxa_throw(ptr nonnull %exception20, ptr nonnull @_ZTIN4utf813invalid_utf16E, ptr nonnull @_ZN4utf813invalid_utf16D2Ev) #18
@@ -691,7 +691,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -1348,7 +1348,7 @@ for.end:                                          ; preds = %for.body, %entry
 
 sw.bb:                                            ; preds = %for.end
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3pmx22PmxVertexSkinningBDEF1E, i64 16), ptr %call.i, align 8, !noalias !8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3pmx22PmxVertexSkinningBDEF1E, i64 16), ptr %call.i, align 8, !noalias !8
   %bone_index.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 0, ptr %bone_index.i.i, align 8, !noalias !8
   %skinning = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -1359,7 +1359,7 @@ sw.bb:                                            ; preds = %for.end
 
 sw.bb12:                                          ; preds = %for.end
   %call.i10 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19, !noalias !11
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3pmx22PmxVertexSkinningBDEF2E, i64 16), ptr %call.i10, align 8, !noalias !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3pmx22PmxVertexSkinningBDEF2E, i64 16), ptr %call.i10, align 8, !noalias !11
   %bone_index1.i.i = getelementptr inbounds nuw i8, ptr %call.i10, i64 8
   store i32 0, ptr %bone_index1.i.i, align 8, !noalias !11
   %bone_index2.i.i = getelementptr inbounds nuw i8, ptr %call.i10, i64 12
@@ -1374,7 +1374,7 @@ sw.bb12:                                          ; preds = %for.end
 
 sw.bb16:                                          ; preds = %for.end
   %call.i18 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !14
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3pmx22PmxVertexSkinningBDEF4E, i64 16), ptr %call.i18, align 8, !noalias !14
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3pmx22PmxVertexSkinningBDEF4E, i64 16), ptr %call.i18, align 8, !noalias !14
   %bone_index1.i.i19 = getelementptr inbounds nuw i8, ptr %call.i18, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bone_index1.i.i19, i8 0, i64 32, i1 false), !noalias !14
   %skinning18 = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -1385,7 +1385,7 @@ sw.bb16:                                          ; preds = %for.end
 
 sw.bb20:                                          ; preds = %for.end
   %call.i27 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19, !noalias !17
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3pmx21PmxVertexSkinningSDEFE, i64 16), ptr %call.i27, align 8, !noalias !17
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3pmx21PmxVertexSkinningSDEFE, i64 16), ptr %call.i27, align 8, !noalias !17
   %bone_index1.i.i28 = getelementptr inbounds nuw i8, ptr %call.i27, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %bone_index1.i.i28, i8 0, i64 48, i1 false), !noalias !17
   %skinning22 = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -1396,7 +1396,7 @@ sw.bb20:                                          ; preds = %for.end
 
 sw.bb24:                                          ; preds = %for.end
   %call.i36 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3pmx21PmxVertexSkinningQDEFE, i64 16), ptr %call.i36, align 8, !noalias !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3pmx21PmxVertexSkinningQDEFE, i64 16), ptr %call.i36, align 8, !noalias !20
   %bone_index1.i.i37 = getelementptr inbounds nuw i8, ptr %call.i36, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bone_index1.i.i37, i8 0, i64 32, i1 false), !noalias !20
   %skinning26 = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -2417,7 +2417,7 @@ new.ctorloop.i:                                   ; preds = %sw.bb
 
 arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %new.ctorloop.i
   %arrayctor.cur.i = phi ptr [ %8, %new.ctorloop.i ], [ %arrayctor.next.i, %arrayctor.loop.i ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3pmx19PmxMorphGroupOffsetE, i64 16), ptr %arrayctor.cur.i, align 8, !noalias !27
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3pmx19PmxMorphGroupOffsetE, i64 16), ptr %arrayctor.cur.i, align 8, !noalias !27
   %morph_index.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i, i64 8
   store i32 0, ptr %morph_index.i.i, align 8, !noalias !27
   %morph_weight.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i, i64 12
@@ -2480,7 +2480,7 @@ new.ctorloop.i28:                                 ; preds = %sw.bb16
 
 arrayctor.loop.i30:                               ; preds = %arrayctor.loop.i30, %new.ctorloop.i28
   %arrayctor.cur.i31 = phi ptr [ %25, %new.ctorloop.i28 ], [ %arrayctor.next.i32, %arrayctor.loop.i30 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3pmx20PmxMorphVertexOffsetE, i64 16), ptr %arrayctor.cur.i31, align 8, !noalias !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3pmx20PmxMorphVertexOffsetE, i64 16), ptr %arrayctor.cur.i31, align 8, !noalias !31
   %vertex_index.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i31, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %vertex_index.i.i, i8 0, i64 16, i1 false), !noalias !31
   %arrayctor.next.i32 = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i31, i64 24
@@ -2541,7 +2541,7 @@ new.ctorloop.i39:                                 ; preds = %sw.bb34
 
 arrayctor.loop.i41:                               ; preds = %arrayctor.loop.i41, %new.ctorloop.i39
   %arrayctor.cur.i42 = phi ptr [ %42, %new.ctorloop.i39 ], [ %arrayctor.next.i43, %arrayctor.loop.i41 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3pmx18PmxMorphBoneOffsetE, i64 16), ptr %arrayctor.cur.i42, align 8, !noalias !35
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3pmx18PmxMorphBoneOffsetE, i64 16), ptr %arrayctor.cur.i42, align 8, !noalias !35
   %bone_index.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i42, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bone_index.i.i, i8 0, i64 32, i1 false), !noalias !35
   %arrayctor.next.i43 = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i42, i64 40
@@ -2598,7 +2598,7 @@ new.ctorloop.i50:                                 ; preds = %sw.bb52
 
 arrayctor.loop.i52:                               ; preds = %arrayctor.loop.i52, %new.ctorloop.i50
   %arrayctor.cur.i53 = phi ptr [ %55, %new.ctorloop.i50 ], [ %arrayctor.next.i54, %arrayctor.loop.i52 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3pmx22PmxMorphMaterialOffsetE, i64 16), ptr %arrayctor.cur.i53, align 8, !noalias !39
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3pmx22PmxMorphMaterialOffsetE, i64 16), ptr %arrayctor.cur.i53, align 8, !noalias !39
   %diffuse.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i53, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %diffuse.i.i, i8 0, i64 112, i1 false), !noalias !39
   %arrayctor.next.i54 = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i53, i64 128
@@ -2655,7 +2655,7 @@ new.ctorloop.i61:                                 ; preds = %sw.bb70
 
 arrayctor.loop.i63:                               ; preds = %arrayctor.loop.i63, %new.ctorloop.i61
   %arrayctor.cur.i64 = phi ptr [ %68, %new.ctorloop.i61 ], [ %arrayctor.next.i66, %arrayctor.loop.i63 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3pmx16PmxMorphUVOffsetE, i64 16), ptr %arrayctor.cur.i64, align 8, !noalias !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3pmx16PmxMorphUVOffsetE, i64 16), ptr %arrayctor.cur.i64, align 8, !noalias !43
   %vertex_index.i.i65 = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i64, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %vertex_index.i.i65, i8 0, i64 20, i1 false), !noalias !43
   %arrayctor.next.i66 = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i64, i64 32
@@ -4508,7 +4508,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -4887,7 +4887,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #17
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4utf818invalid_code_pointE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4utf818invalid_code_pointE, i64 16), ptr %exception, align 8
   %cp.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   store i32 %cp, ptr %cp.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN4utf818invalid_code_pointE, ptr nonnull @_ZN4utf818invalid_code_pointD2Ev) #18

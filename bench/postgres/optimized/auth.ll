@@ -2220,7 +2220,7 @@ define internal fastcc void @set_authn_id(ptr nocapture noundef readonly %0, ptr
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 328
   %15 = load i32, ptr %14, align 8
-  store i32 %15, ptr getelementptr inbounds (i8, ptr @MyClientConnectionInfo, i64 8), align 8
+  store i32 %15, ptr getelementptr inbounds nuw (i8, ptr @MyClientConnectionInfo, i64 8), align 8
   %16 = load i8, ptr @Log_connections, align 1
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %29
@@ -2231,7 +2231,7 @@ define internal fastcc void @set_authn_id(ptr nocapture noundef readonly %0, ptr
 
 20:                                               ; preds = %18
   %21 = load ptr, ptr @MyClientConnectionInfo, align 8
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @MyClientConnectionInfo, i64 8), align 8
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @MyClientConnectionInfo, i64 8), align 8
   %23 = tail call ptr @hba_authname(i32 noundef %22) #16
   %24 = load ptr, ptr %12, align 8
   %25 = load ptr, ptr %24, align 8

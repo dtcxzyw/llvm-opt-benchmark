@@ -164,7 +164,7 @@ entry:
   %ref.tmp155 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp180 = alloca %"class.QuantLib::EvolutionDescription", align 8
   %ref.tmp181 = alloca %"class.std::vector.0", align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib30MarketModelPathwiseMultiCapletE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib30MarketModelPathwiseMultiCapletE, i64 16), ptr %this, align 8, !tbaa !3
   %rateTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %rateTimes, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !6
@@ -1449,7 +1449,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !41
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -1851,7 +1851,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN8QuantLib30MarketModelPathwiseMultiCapletC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib30MarketModelPathwiseMultiCapletE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib30MarketModelPathwiseMultiCapletE, i64 16), ptr %this, align 8, !tbaa !3
   %rateTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %rateTimes_2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2304,7 +2304,7 @@ entry:
   %ref.tmp155 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp180 = alloca %"class.QuantLib::EvolutionDescription", align 8
   %ref.tmp181 = alloca %"class.std::vector.0", align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib38MarketModelPathwiseMultiDeflatedCapletE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib38MarketModelPathwiseMultiDeflatedCapletE, i64 16), ptr %this, align 8, !tbaa !3
   %rateTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %rateTimes, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !6
@@ -3539,7 +3539,7 @@ entry:
   %ref.tmp112 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp147 = alloca %"class.QuantLib::EvolutionDescription", align 8
   %ref.tmp148 = alloca %"class.std::vector.0", align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib38MarketModelPathwiseMultiDeflatedCapletE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib38MarketModelPathwiseMultiDeflatedCapletE, i64 16), ptr %this, align 8, !tbaa !3
   %rateTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %rateTimes, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !6
@@ -4755,7 +4755,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN8QuantLib38MarketModelPathwiseMultiDeflatedCapletC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib38MarketModelPathwiseMultiDeflatedCapletE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib38MarketModelPathwiseMultiDeflatedCapletE, i64 16), ptr %this, align 8, !tbaa !3
   %rateTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %rateTimes_2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5184,7 +5184,7 @@ entry:
   %ref.tmp79 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp80 = alloca %"class.std::allocator.10", align 1
   %ref.tmp83 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib35MarketModelPathwiseMultiDeflatedCapE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib35MarketModelPathwiseMultiDeflatedCapE, i64 16), ptr %this, align 8, !tbaa !3
   %underlyingCaplets_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN8QuantLib38MarketModelPathwiseMultiDeflatedCapletC1ERKSt6vectorIdSaIdEES5_S5_d(ptr noundef nonnull align 8 dereferenceable(248) %underlyingCaplets_, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes, ptr noundef nonnull align 8 dereferenceable(24) %accruals, ptr noundef nonnull align 8 dereferenceable(24) %paymentTimes, double noundef %strike)
   %numberRates_ = getelementptr inbounds nuw i8, ptr %this, i64 256
@@ -5972,7 +5972,7 @@ _ZNSt12_Vector_baseISt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFl
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib38MarketModelPathwiseMultiDeflatedCapletD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib38MarketModelPathwiseMultiDeflatedCapletE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib38MarketModelPathwiseMultiDeflatedCapletE, i64 16), ptr %this, align 8, !tbaa !3
   %firstAliveRate_.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load ptr, ptr %firstAliveRate_.i, align 8, !tbaa !35
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -6529,7 +6529,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN8QuantLib35MarketModelPathwiseMultiDeflatedCapC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(344) %this, ptr noundef nonnull align 8 dereferenceable(344) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib35MarketModelPathwiseMultiDeflatedCapE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib35MarketModelPathwiseMultiDeflatedCapE, i64 16), ptr %this, align 8, !tbaa !3
   %underlyingCaplets_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %underlyingCaplets_2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN8QuantLib38MarketModelPathwiseMultiDeflatedCapletC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(248) %underlyingCaplets_, ptr noundef nonnull align 8 dereferenceable(248) %underlyingCaplets_2)
@@ -6755,7 +6755,7 @@ ehcleanup14:                                      ; preds = %if.then.i.i.i51, %e
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib30MarketModelPathwiseMultiCapletD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib30MarketModelPathwiseMultiCapletE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib30MarketModelPathwiseMultiCapletE, i64 16), ptr %this, align 8, !tbaa !3
   %firstAliveRate_.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load ptr, ptr %firstAliveRate_.i, align 8, !tbaa !35
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -6913,7 +6913,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib35MarketModelPathwiseMultiDeflatedCapD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib35MarketModelPathwiseMultiDeflatedCapE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib35MarketModelPathwiseMultiDeflatedCapE, i64 16), ptr %this, align 8, !tbaa !3
   %innerCashFlowsGenerated_ = getelementptr inbounds nuw i8, ptr %this, i64 320
   %0 = load ptr, ptr %innerCashFlowsGenerated_, align 8, !tbaa !47
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 328

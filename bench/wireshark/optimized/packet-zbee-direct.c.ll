@@ -1302,7 +1302,7 @@ proto_item_set_generated.exit:                    ; preds = %4, %16, %19
 62:                                               ; preds = %61
   %63 = add nsw i32 %57, -1
   %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr [4096 x i32], ptr getelementptr inbounds (i8, ptr @enc_h, i64 4), i64 0, i64 %64
+  %65 = getelementptr [4096 x i32], ptr getelementptr inbounds nuw (i8, ptr @enc_h, i64 4), i64 0, i64 %64
   %66 = load i32, ptr %65, align 4
   %.not10.i = icmp ule i32 %.pre.i, %66
   %67 = icmp ugt i16 %56, 4095
@@ -1313,7 +1313,7 @@ proto_item_set_generated.exit:                    ; preds = %4, %16, %19
   %68 = add nuw nsw i16 %56, 1
   store i16 %68, ptr @enc_h, align 16
   %69 = zext nneg i16 %56 to i64
-  %70 = getelementptr [4096 x i32], ptr getelementptr inbounds (i8, ptr @enc_h, i64 4), i64 0, i64 %69
+  %70 = getelementptr [4096 x i32], ptr getelementptr inbounds nuw (i8, ptr @enc_h, i64 4), i64 0, i64 %69
   store i32 %.pre.i, ptr %70, align 4
   br label %83
 
@@ -1325,7 +1325,7 @@ proto_item_set_generated.exit:                    ; preds = %4, %16, %19
   %74 = load i32, ptr %73, align 4
   %75 = add nsw i32 %57, -1
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr [4096 x i32], ptr getelementptr inbounds (i8, ptr @enc_h, i64 4), i64 0, i64 %76
+  %77 = getelementptr [4096 x i32], ptr getelementptr inbounds nuw (i8, ptr @enc_h, i64 4), i64 0, i64 %76
   %78 = load i32, ptr %77, align 4
   %.not.i32 = icmp ugt i32 %74, %78
   br i1 %.not.i32, label %79, label %87
@@ -1334,7 +1334,7 @@ proto_item_set_generated.exit:                    ; preds = %4, %16, %19
   %80 = add i16 %56, 1
   store i16 %80, ptr @enc_h, align 16
   %81 = zext i16 %56 to i64
-  %82 = getelementptr [4096 x i32], ptr getelementptr inbounds (i8, ptr @enc_h, i64 4), i64 0, i64 %81
+  %82 = getelementptr [4096 x i32], ptr getelementptr inbounds nuw (i8, ptr @enc_h, i64 4), i64 0, i64 %81
   store i32 %74, ptr %82, align 4
   br label %87
 
@@ -1902,7 +1902,7 @@ define internal fastcc i32 @dissect_zb_direct_common(ptr nocapture noundef nonnu
 
 35:                                               ; preds = %46, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %46 ]
-  %36 = getelementptr [4096 x i32], ptr getelementptr inbounds (i8, ptr @enc_h, i64 4), i64 0, i64 %indvars.iv.i.i
+  %36 = getelementptr [4096 x i32], ptr getelementptr inbounds nuw (i8, ptr @enc_h, i64 4), i64 0, i64 %indvars.iv.i.i
   %37 = load i32, ptr %36, align 4
   %38 = icmp ult i32 %37, %32
   br i1 %38, label %39, label %46
@@ -1913,7 +1913,7 @@ define internal fastcc i32 @dissect_zb_direct_common(ptr nocapture noundef nonnu
 
 41:                                               ; preds = %39
   %42 = or disjoint i64 %indvars.iv.i.i, 1
-  %43 = getelementptr [4096 x i32], ptr getelementptr inbounds (i8, ptr @enc_h, i64 4), i64 0, i64 %42
+  %43 = getelementptr [4096 x i32], ptr getelementptr inbounds nuw (i8, ptr @enc_h, i64 4), i64 0, i64 %42
   %44 = load i32, ptr %43, align 8
   %45 = icmp ult i32 %32, %44
   br i1 %45, label %zb_direct_decryption_needed.exit.i, label %46
@@ -2367,7 +2367,7 @@ proto_item_set_generated.exit:                    ; preds = %switch.lookup, %15,
   %34 = load i32, ptr %33, align 4
   %35 = add nsw i32 %29, -1
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr [4096 x i32], ptr getelementptr inbounds (i8, ptr @enc_h, i64 4), i64 0, i64 %36
+  %37 = getelementptr [4096 x i32], ptr getelementptr inbounds nuw (i8, ptr @enc_h, i64 4), i64 0, i64 %36
   %38 = load i32, ptr %37, align 4
   %.not.i34 = icmp ugt i32 %34, %38
   br i1 %.not.i34, label %zb_direct_encryption_disable.exit.thread.sink.split, label %zb_direct_encryption_disable.exit.thread
@@ -2388,7 +2388,7 @@ proto_item_set_generated.exit:                    ; preds = %switch.lookup, %15,
 44:                                               ; preds = %43
   %45 = add nsw i32 %41, -1
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr [4096 x i32], ptr getelementptr inbounds (i8, ptr @enc_h, i64 4), i64 0, i64 %46
+  %47 = getelementptr [4096 x i32], ptr getelementptr inbounds nuw (i8, ptr @enc_h, i64 4), i64 0, i64 %46
   %48 = load i32, ptr %47, align 4
   %.not10.i = icmp ule i32 %.pre.i, %48
   %49 = icmp ugt i16 %40, 4095
@@ -2401,7 +2401,7 @@ zb_direct_encryption_disable.exit.thread.sink.split: ; preds = %43, %44, %32
   %50 = add i16 %.sink46, 1
   store i16 %50, ptr @enc_h, align 16
   %51 = zext i16 %.sink46 to i64
-  %52 = getelementptr [4096 x i32], ptr getelementptr inbounds (i8, ptr @enc_h, i64 4), i64 0, i64 %51
+  %52 = getelementptr [4096 x i32], ptr getelementptr inbounds nuw (i8, ptr @enc_h, i64 4), i64 0, i64 %51
   store i32 %.pre.i.sink, ptr %52, align 4
   br label %zb_direct_encryption_disable.exit.thread
 

@@ -1122,7 +1122,7 @@ define void @reset_info(ptr noundef initializes((32, 40), (104, 112), (120, 128)
   store double 0.000000e+00, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 11, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @OSQP_STATUS_MESSAGE, i64 88), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @OSQP_STATUS_MESSAGE, i64 88), align 8
   tail call void @c_strcpy(ptr noundef %0, ptr noundef %5) #9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 0, ptr %6, align 8
@@ -1170,7 +1170,7 @@ define range(i64 0, 2) i64 @check_termination(ptr nocapture noundef readonly %0,
 23:                                               ; preds = %19, %2
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 9, ptr %24, align 8
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @OSQP_STATUS_MESSAGE, i64 72), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @OSQP_STATUS_MESSAGE, i64 72), align 8
   tail call void @c_strcpy(ptr noundef nonnull %4, ptr noundef %25) #9
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store double 0x41DFF00000000000, ptr %26, align 8
@@ -1331,13 +1331,13 @@ compute_dual_tol.exit:                            ; preds = %82, %111
 
 132:                                              ; preds = %130
   store i64 2, ptr %131, align 8
-  %133 = load ptr, ptr getelementptr inbounds (i8, ptr @OSQP_STATUS_MESSAGE, i64 16), align 16
+  %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @OSQP_STATUS_MESSAGE, i64 16), align 16
   tail call void @c_strcpy(ptr noundef nonnull %4, ptr noundef %133) #9
   br label %.thread84
 
 134:                                              ; preds = %130
   store i64 1, ptr %131, align 8
-  %135 = load ptr, ptr getelementptr inbounds (i8, ptr @OSQP_STATUS_MESSAGE, i64 8), align 8
+  %135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @OSQP_STATUS_MESSAGE, i64 8), align 8
   tail call void @c_strcpy(ptr noundef nonnull %4, ptr noundef %135) #9
   br label %.thread84
 
@@ -1352,8 +1352,8 @@ compute_dual_tol.exit:                            ; preds = %82, %111
   %139 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %. = select i1 %.not, i64 3, i64 4
   store i64 %., ptr %139, align 8
-  %.val92 = load ptr, ptr getelementptr inbounds (i8, ptr @OSQP_STATUS_MESSAGE, i64 24), align 8
-  %.val93 = load ptr, ptr getelementptr inbounds (i8, ptr @OSQP_STATUS_MESSAGE, i64 32), align 16
+  %.val92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @OSQP_STATUS_MESSAGE, i64 24), align 8
+  %.val93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @OSQP_STATUS_MESSAGE, i64 32), align 16
   %.sink = select i1 %.not, ptr %.val92, ptr %.val93
   tail call void @c_strcpy(ptr noundef nonnull %4, ptr noundef %.sink) #9
   %140 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -1390,8 +1390,8 @@ compute_dual_tol.exit:                            ; preds = %82, %111
   %157 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.89 = select i1 %.not, i64 5, i64 6
   store i64 %.89, ptr %157, align 8
-  %.val = load ptr, ptr getelementptr inbounds (i8, ptr @OSQP_STATUS_MESSAGE, i64 40), align 8
-  %.val91 = load ptr, ptr getelementptr inbounds (i8, ptr @OSQP_STATUS_MESSAGE, i64 48), align 16
+  %.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @OSQP_STATUS_MESSAGE, i64 40), align 8
+  %.val91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @OSQP_STATUS_MESSAGE, i64 48), align 16
   %.sink86 = select i1 %.not, ptr %.val, ptr %.val91
   tail call void @c_strcpy(ptr noundef nonnull %4, ptr noundef %.sink86) #9
   %158 = getelementptr inbounds nuw i8, ptr %5, i64 48

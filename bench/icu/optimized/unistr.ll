@@ -231,7 +231,7 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7513UnicodeStringC2Eiii(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 10)) %this, i32 noundef %capacity, i32 noundef %c, i32 noundef %count) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
   %fUnion2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 0, ptr %fUnion2, align 8
   %cmp = icmp slt i32 %count, 1
@@ -583,7 +583,7 @@ return:                                           ; preds = %if.end13, %if.then6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7513UnicodeStringC2EDs(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 12)) %this, i16 noundef zeroext %ch) unnamed_addr #8 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
   %fUnion2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 34, ptr %fUnion2, align 8
   %fBuffer = getelementptr inbounds nuw i8, ptr %this, i64 10
@@ -594,7 +594,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7513UnicodeStringC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 10)) %this, i32 noundef %ch) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
   %fUnion2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 2, ptr %fUnion2, align 8
   %cmp = icmp ult i32 %ch, 65536
@@ -635,7 +635,7 @@ if.end23:                                         ; preds = %if.else, %if.then22
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7513UnicodeStringC2EPKDs(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 10)) %this, ptr noundef %text) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
   %fUnion2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 2, ptr %fUnion2, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %text, i32 noundef 0, i32 noundef -1)
@@ -977,7 +977,7 @@ return:                                           ; preds = %if.else.i98, %if.th
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7513UnicodeStringC2EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 10)) %this, ptr noundef %text, i32 noundef %textLength) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
   %fUnion2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 2, ptr %fUnion2, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %text, i32 noundef 0, i32 noundef %textLength)
@@ -996,7 +996,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7513UnicodeStringC2EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 10)) %this, i8 noundef signext %isTerminated, ptr nocapture noundef readonly %textPtr, i32 noundef %textLength) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
   %fUnion2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 8, ptr %fUnion2, align 8
   %0 = load ptr, ptr %textPtr, align 8
@@ -1125,7 +1125,7 @@ declare i32 @u_strlen_75(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN6icu_7513UnicodeStringC2EPDsii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 10)) %this, ptr noundef %buff, i32 noundef %buffLength, i32 noundef %buffCapacity) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
   %fUnion2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 0, ptr %fUnion2, align 8
   %cmp = icmp eq ptr %buff, null
@@ -1212,7 +1212,7 @@ if.end17:                                         ; preds = %_ZN6icu_7513Unicode
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7513UnicodeStringC2EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 10)) %this, ptr noundef %src, i32 noundef %length, i32 %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
   %fUnion2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 2, ptr %fUnion2, align 8
   %cmp = icmp eq ptr %src, null
@@ -1598,7 +1598,7 @@ declare void @u_charsToUChars_75(ptr noundef, ptr noundef, i32 noundef) local_un
 define void @_ZN6icu_7513UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 10)) %this, ptr noundef %codepageData) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
   %fUnion2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 2, ptr %fUnion2, align 8
   %cmp.not = icmp eq ptr %codepageData, null
@@ -1791,7 +1791,7 @@ declare void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7513UnicodeStringC2EPKci(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 10)) %this, ptr noundef %codepageData, i32 noundef %dataLength) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
   %fUnion2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 2, ptr %fUnion2, align 8
   %cmp = icmp eq ptr %codepageData, null
@@ -1828,7 +1828,7 @@ lpad:                                             ; preds = %if.end8
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7513UnicodeStringC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 10)) %this, ptr noundef nonnull align 8 dereferenceable(64) %that) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
   %fUnion2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 2, ptr %fUnion2, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8copyFromERKS0_a(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(64) %that, i8 noundef signext 0)
@@ -2069,7 +2069,7 @@ return:                                           ; preds = %if.else.i, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6icu_7513UnicodeStringC2EOS0_(ptr noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 10)) %this, ptr noundef nonnull align 8 dereferenceable(64) %src) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
   %fUnion.i = getelementptr inbounds nuw i8, ptr %src, i64 8
   %0 = load i16, ptr %fUnion.i, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2194,7 +2194,7 @@ if.end33:                                         ; preds = %if.end23, %if.then2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7513UnicodeStringC2ERKS0_i(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 10)) %this, ptr noundef nonnull align 8 dereferenceable(64) %that, i32 noundef %srcStart) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 _ZN6icu_7513UnicodeString7unBogusEv.exit.i:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
   %fUnion2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 2, ptr %fUnion2, align 8
   %cmp.i.i = icmp slt i32 %srcStart, 0
@@ -2258,7 +2258,7 @@ lpad:                                             ; preds = %2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7513UnicodeStringC2ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 10)) %this, ptr noundef nonnull align 8 dereferenceable(64) %that, i32 noundef %srcStart, i32 noundef %srcLength) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
   %fUnion2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 2, ptr %fUnion2, align 8
   %fUnion.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %that, i64 8
@@ -2349,7 +2349,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #14
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7513UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
   %fUnion.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i16, ptr %fUnion.i, align 8
   %1 = and i16 %0, 4
@@ -2393,7 +2393,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7513UnicodeString8fromUTF8ENS_11StringPieceE(ptr noalias nonnull sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr %utf8.coerce0, i32 %utf8.coerce1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9setToUTF8ENS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr %utf8.coerce0, i32 %utf8.coerce1)
@@ -2417,7 +2417,7 @@ define void @_ZN6icu_7513UnicodeString9fromUTF32EPKii(ptr noalias sret(%"class.i
 entry:
   %length16 = alloca i32, align 4
   %errorCode = alloca i32, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %shr = lshr i32 %length, 4
@@ -2808,7 +2808,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 define void @_ZN6icu_7513UnicodeString4swapERS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(64) %other) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.icu_75::UnicodeString", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %temp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %temp, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %temp, i64 8
   %fUnion.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i16, ptr %fUnion.i, align 8

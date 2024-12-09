@@ -10962,7 +10962,7 @@ _ZN3std7process7Command3arg17hcae4c6d18880fe5dE.exit: ; preds = %_ZN3std7process
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !2267
   store ptr @anon.83eab0fe4798dbf7862f0e886e99a74a.226, ptr %14, align 8, !noalias !2267
   %300 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.83eab0fe4798dbf7862f0e886e99a74a.226, i64 32), ptr %300, align 8, !noalias !2267
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.83eab0fe4798dbf7862f0e886e99a74a.226, i64 32), ptr %300, align 8, !noalias !2267
   %301 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd4455e9b676d04e1E.llvm.10840908634243202882"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14)
           to label %.noexc163 unwind label %.loopexit.split-lp
 

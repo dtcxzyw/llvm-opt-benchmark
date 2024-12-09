@@ -36,9 +36,9 @@ entry:
 define void @_ZN6icu_7523StringCharacterIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   tail call void @_ZN6icu_7522UCharCharacterIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523StringCharacterIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7523StringCharacterIteratorE, i64 16), ptr %this, align 8
   %text = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %text, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %text, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i16 2, ptr %fUnion2.i, align 8
   ret void
@@ -90,7 +90,7 @@ invoke.cont:                                      ; preds = %if.else9.i, %if.the
 invoke.cont3:                                     ; preds = %invoke.cont
   %6 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6) #6, !srcloc !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523StringCharacterIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7523StringCharacterIteratorE, i64 16), ptr %this, align 8
   %text = getelementptr inbounds nuw i8, ptr %this, i64 32
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 dereferenceable(64) %textStr)
           to label %invoke.cont5 unwind label %lpad4
@@ -186,7 +186,7 @@ invoke.cont:                                      ; preds = %if.else9.i, %if.the
 invoke.cont3:                                     ; preds = %invoke.cont
   %6 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6) #6, !srcloc !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523StringCharacterIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7523StringCharacterIteratorE, i64 16), ptr %this, align 8
   %text = getelementptr inbounds nuw i8, ptr %this, i64 32
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 dereferenceable(64) %textStr)
           to label %invoke.cont5 unwind label %lpad4
@@ -277,7 +277,7 @@ invoke.cont:                                      ; preds = %if.else9.i, %if.the
 invoke.cont3:                                     ; preds = %invoke.cont
   %6 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6) #6, !srcloc !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523StringCharacterIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7523StringCharacterIteratorE, i64 16), ptr %this, align 8
   %text = getelementptr inbounds nuw i8, ptr %this, i64 32
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 dereferenceable(64) %textStr)
           to label %invoke.cont5 unwind label %lpad4
@@ -333,7 +333,7 @@ declare void @_ZN6icu_7522UCharCharacterIteratorC2ENS_14ConstChar16PtrEiiii(ptr 
 define void @_ZN6icu_7523StringCharacterIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(96) %that) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7522UCharCharacterIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %that)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523StringCharacterIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7523StringCharacterIteratorE, i64 16), ptr %this, align 8
   %text = getelementptr inbounds nuw i8, ptr %this, i64 32
   %text2 = getelementptr inbounds nuw i8, ptr %that, i64 32
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 dereferenceable(64) %text2)
@@ -378,7 +378,7 @@ declare void @_ZN6icu_7522UCharCharacterIteratorC2ERKS0_(ptr noundef nonnull ali
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7523StringCharacterIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523StringCharacterIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7523StringCharacterIteratorE, i64 16), ptr %this, align 8
   %text = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %text) #6
   tail call void @_ZN6icu_7522UCharCharacterIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #6

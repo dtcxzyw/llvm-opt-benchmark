@@ -182,7 +182,7 @@ define internal fastcc noundef ptr @create_port(i32 noundef %0, i32 noundef rang
   %4 = alloca %struct.snd_seq_port_callback, align 8
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %3) #9
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #9
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %6 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 16) #12
   %7 = icmp eq ptr %6, null
   br i1 %7, label %43, label %8

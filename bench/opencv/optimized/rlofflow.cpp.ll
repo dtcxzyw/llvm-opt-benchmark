@@ -425,7 +425,7 @@ _ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2IS2_EEPT_.exit: ; preds = %1
   store i32 1, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 1, ptr %30, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7optflow24RLOFOpticalFlowParameterELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7optflow24RLOFOpticalFlowParameterELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17, align 8
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %2, ptr %31, align 8
   store ptr %17, ptr %16, align 8
@@ -659,7 +659,7 @@ define void @_ZN2cv7optflow20DenseRLOFOpticalFlow6createENS_3PtrINS0_24RLOFOptic
   store i32 1, ptr %17, align 8, !noalias !4
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 1, ptr %18, align 4, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv7optflow24DenseOpticalFlowRLOFImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv7optflow24DenseOpticalFlowRLOFImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16, align 8, !noalias !4
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   invoke void @_ZN2cv7optflow24DenseOpticalFlowRLOFImplC2Ev(ptr noundef nonnull align 8 dereferenceable(140) %19)
           to label %_ZN2cv3PtrINS_7optflow24DenseOpticalFlowRLOFImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv7optflow24DenseOpticalFlowRLOFImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !4
@@ -1057,7 +1057,7 @@ define void @_ZN2cv7optflow21SparseRLOFOpticalFlow6createENS_3PtrINS0_24RLOFOpti
   store i32 1, ptr %6, align 8, !noalias !9
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !9
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv7optflow25SparseRLOFOpticalFlowImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !9
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv7optflow25SparseRLOFOpticalFlowImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !9
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   invoke void @_ZN2cv7optflow25SparseRLOFOpticalFlowImplC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %8)
           to label %_ZN2cv3PtrINS_7optflow25SparseRLOFOpticalFlowImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv7optflow25SparseRLOFOpticalFlowImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !9
@@ -1877,7 +1877,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv7optflow24DenseOpticalFlowRLOFImplC2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds inrange(-16, 288) (i8, ptr @_ZTVN2cv7optflow24DenseOpticalFlowRLOFImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 288) (i8, ptr @_ZTVN2cv7optflow24DenseOpticalFlowRLOFImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
           to label %4 unwind label %417
@@ -1946,7 +1946,7 @@ define linkonce_odr hidden void @_ZN2cv7optflow24DenseOpticalFlowRLOFImplC2Ev(pt
   store i32 1, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 1, ptr %32, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7optflow24RLOFOpticalFlowParameterELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7optflow24RLOFOpticalFlowParameterELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19, align 8
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %3, ptr %33, align 8
   store ptr %19, ptr %18, align 8
@@ -2026,7 +2026,7 @@ define linkonce_odr hidden void @_ZN2cv7optflow24DenseOpticalFlowRLOFImplC2Ev(pt
   store i32 1, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %53, i64 12
   store i32 1, ptr %66, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %53, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %53, align 8
   %67 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr %47, ptr %67, align 8
   store ptr %47, ptr %.ptr6, align 8
@@ -2239,7 +2239,7 @@ _ZN2cv3PtrINS_7optflow12CImageBufferEED2Ev.exit:  ; preds = %122, %134, %_ZNSt16
   store i32 1, ptr %157, align 8
   %158 = getelementptr inbounds nuw i8, ptr %145, i64 12
   store i32 1, ptr %158, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %145, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %145, align 8
   %159 = getelementptr inbounds nuw i8, ptr %145, i64 16
   store ptr %139, ptr %159, align 8
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2453,7 +2453,7 @@ _ZN2cv3PtrINS_7optflow12CImageBufferEED2Ev.exit50: ; preds = %215, %227, %_ZNSt1
   store i32 1, ptr %250, align 8
   %251 = getelementptr inbounds nuw i8, ptr %238, i64 12
   store i32 1, ptr %251, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %238, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %238, align 8
   %252 = getelementptr inbounds nuw i8, ptr %238, i64 16
   store ptr %232, ptr %252, align 8
   store ptr %232, ptr %.ptr11, align 8
@@ -2666,7 +2666,7 @@ _ZN2cv3PtrINS_7optflow12CImageBufferEED2Ev.exit72: ; preds = %307, %319, %_ZNSt1
   store i32 1, ptr %342, align 8
   %343 = getelementptr inbounds nuw i8, ptr %330, i64 12
   store i32 1, ptr %343, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %330, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %330, align 8
   %344 = getelementptr inbounds nuw i8, ptr %330, i64 16
   store ptr %324, ptr %344, align 8
   %345 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2956,7 +2956,7 @@ _ZNSt10shared_ptrIN2cv7optflow12CImageBufferEED2Ev.exit: ; preds = %1, %20, %33,
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv7optflow24DenseOpticalFlowRLOFImplD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 288) (i8, ptr @_ZTVN2cv7optflow24DenseOpticalFlowRLOFImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 288) (i8, ptr @_ZTVN2cv7optflow24DenseOpticalFlowRLOFImplE, i64 16), ptr %0, align 8
   %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %2
 
@@ -3493,7 +3493,7 @@ _ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2IS2_EEPT_.exit: ; preds = %1
   store i32 1, ptr %146, align 8
   %147 = getelementptr inbounds nuw i8, ptr %135, i64 12
   store i32 1, ptr %147, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7optflow24RLOFOpticalFlowParameterELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %135, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7optflow24RLOFOpticalFlowParameterELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %135, align 8
   %148 = getelementptr inbounds nuw i8, ptr %135, i64 16
   store ptr %121, ptr %148, align 8
   store ptr %121, ptr %117, align 8
@@ -6793,7 +6793,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv7optflow25SparseRLOFOpticalFlowImplC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv7optflow25SparseRLOFOpticalFlowImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv7optflow25SparseRLOFOpticalFlowImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
           to label %4 unwind label %405
@@ -6862,7 +6862,7 @@ define linkonce_odr hidden void @_ZN2cv7optflow25SparseRLOFOpticalFlowImplC2Ev(p
   store i32 1, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 1, ptr %32, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7optflow24RLOFOpticalFlowParameterELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7optflow24RLOFOpticalFlowParameterELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19, align 8
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %3, ptr %33, align 8
   store ptr %19, ptr %18, align 8
@@ -6918,7 +6918,7 @@ define linkonce_odr hidden void @_ZN2cv7optflow25SparseRLOFOpticalFlowImplC2Ev(p
   store i32 1, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i32 1, ptr %54, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %41, align 8
   %55 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %35, ptr %55, align 8
   store ptr %35, ptr %.ptr6, align 8
@@ -7131,7 +7131,7 @@ _ZN2cv3PtrINS_7optflow12CImageBufferEED2Ev.exit:  ; preds = %110, %122, %_ZNSt16
   store i32 1, ptr %145, align 8
   %146 = getelementptr inbounds nuw i8, ptr %133, i64 12
   store i32 1, ptr %146, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %133, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %133, align 8
   %147 = getelementptr inbounds nuw i8, ptr %133, i64 16
   store ptr %127, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -7345,7 +7345,7 @@ _ZN2cv3PtrINS_7optflow12CImageBufferEED2Ev.exit50: ; preds = %203, %215, %_ZNSt1
   store i32 1, ptr %238, align 8
   %239 = getelementptr inbounds nuw i8, ptr %226, i64 12
   store i32 1, ptr %239, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %226, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %226, align 8
   %240 = getelementptr inbounds nuw i8, ptr %226, i64 16
   store ptr %220, ptr %240, align 8
   store ptr %220, ptr %.ptr11, align 8
@@ -7558,7 +7558,7 @@ _ZN2cv3PtrINS_7optflow12CImageBufferEED2Ev.exit72: ; preds = %295, %307, %_ZNSt1
   store i32 1, ptr %330, align 8
   %331 = getelementptr inbounds nuw i8, ptr %318, i64 12
   store i32 1, ptr %331, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %318, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %318, align 8
   %332 = getelementptr inbounds nuw i8, ptr %318, i64 16
   store ptr %312, ptr %332, align 8
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -7769,7 +7769,7 @@ _ZN2cv3PtrINS_7optflow12CImageBufferEED2Ev.exit94: ; preds = %388, %400, %_ZNSt1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv7optflow25SparseRLOFOpticalFlowImplD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv7optflow25SparseRLOFOpticalFlowImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv7optflow25SparseRLOFOpticalFlowImplE, i64 16), ptr %0, align 8
   %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %2
 
@@ -8193,7 +8193,7 @@ define linkonce_odr hidden void @_ZN2cv7optflow25SparseRLOFOpticalFlowImpl4calcE
   store i32 1, ptr %96, align 8, !noalias !47
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 12
   store i32 1, ptr %97, align 4, !noalias !47
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv7optflow24RLOFOpticalFlowParameterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %95, align 8, !noalias !47
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv7optflow24RLOFOpticalFlowParameterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %95, align 8, !noalias !47
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 16
   store i32 1, ptr %98, align 4, !noalias !47
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 20

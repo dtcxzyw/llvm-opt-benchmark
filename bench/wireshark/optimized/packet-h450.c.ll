@@ -1463,22 +1463,22 @@ define hidden void @proto_register_h450() local_unnamed_addr #0 {
   store ptr %11, ptr @h450_err_handle, align 8
   %12 = load i32, ptr @proto_h450, align 4
   %13 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.556, i32 noundef %12, i32 noundef 26, i32 noundef 0) #3
-  store ptr %13, ptr getelementptr inbounds (i8, ptr @h450_rose_ctx, i64 8), align 8
+  store ptr %13, ptr getelementptr inbounds nuw (i8, ptr @h450_rose_ctx, i64 8), align 8
   %14 = load i32, ptr @proto_h450, align 4
   %15 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.557, ptr noundef nonnull @.str.558, i32 noundef %14, i32 noundef 26, i32 noundef 0) #3
-  store ptr %15, ptr getelementptr inbounds (i8, ptr @h450_rose_ctx, i64 24), align 8
+  store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @h450_rose_ctx, i64 24), align 8
   %16 = load i32, ptr @proto_h450, align 4
   %17 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.559, ptr noundef nonnull @.str.560, i32 noundef %16, i32 noundef 7, i32 noundef 2) #3
-  store ptr %17, ptr getelementptr inbounds (i8, ptr @h450_rose_ctx, i64 16), align 8
+  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @h450_rose_ctx, i64 16), align 8
   %18 = load i32, ptr @proto_h450, align 4
   %19 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.561, ptr noundef nonnull @.str.562, i32 noundef %18, i32 noundef 7, i32 noundef 2) #3
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @h450_rose_ctx, i64 32), align 8
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @h450_rose_ctx, i64 32), align 8
   %20 = load i32, ptr @proto_h450, align 4
   %21 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.563, ptr noundef nonnull @.str.564, i32 noundef %20, i32 noundef 26, i32 noundef 0) #3
-  store ptr %21, ptr getelementptr inbounds (i8, ptr @h450_rose_ctx, i64 40), align 8
+  store ptr %21, ptr getelementptr inbounds nuw (i8, ptr @h450_rose_ctx, i64 40), align 8
   %22 = load i32, ptr @proto_h450, align 4
   %23 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.565, ptr noundef nonnull @.str.566, i32 noundef %22, i32 noundef 7, i32 noundef 2) #3
-  store ptr %23, ptr getelementptr inbounds (i8, ptr @h450_rose_ctx, i64 48), align 8
+  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @h450_rose_ctx, i64 48), align 8
   ret void
 }
 
@@ -1966,7 +1966,7 @@ declare i32 @dissect_per_constrained_sequence_of(ptr noundef, i32 noundef, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_h450_T_rosApdus_item(ptr noundef %0, i32 noundef %1, ptr noundef initializes((200, 208)) %2, ptr noundef %3, i32 noundef %4) #0 {
-  store i32 1, ptr getelementptr inbounds (i8, ptr @h450_rose_ctx, i64 56), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @h450_rose_ctx, i64 56), align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 200
   store ptr @h450_rose_ctx, ptr %6, align 8
   %7 = tail call i32 @dissect_h450_ros_ROS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #3

@@ -338,7 +338,7 @@ define void @_ZN15AuthorListModelC2EP7QObject(ptr noundef nonnull align 8 derefe
   %11 = alloca %class.QString, align 8
   %12 = alloca %class.QModelIndex, align 8
   tail call void @_ZN20AStringListListModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15AuthorListModel, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15AuthorListModel, i64 16), ptr %0, align 8
   invoke void @_ZN5QFileC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %13 unwind label %62
 
@@ -954,7 +954,7 @@ define void @_ZN15PluginListModelC2EP7QObject(ptr noundef nonnull align 8 derefe
   %9 = alloca %class.QString, align 8
   %10 = alloca %class.QModelIndex, align 8
   tail call void @_ZN20AStringListListModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15PluginListModel, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15PluginListModel, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -3425,7 +3425,7 @@ define void @_ZN17ShortcutListModelC2EP7QObject(ptr noundef nonnull align 8 dere
   %21 = alloca %class.QString, align 8
   %22 = alloca %class.QModelIndex, align 8
   tail call void @_ZN20AStringListListModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17ShortcutListModel, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17ShortcutListModel, i64 16), ptr %0, align 8
   store ptr null, ptr %5, align 8
   %23 = load ptr, ptr @mainApp, align 8
   %24 = invoke noundef ptr @_ZN15MainApplication10mainWindowEv(ptr noundef nonnull align 8 dereferenceable(216) %23)
@@ -4958,7 +4958,7 @@ define void @_ZN15FolderListModelC2EP7QObject(ptr noundef nonnull align 8 derefe
   %70 = alloca %class.QString, align 8
   %71 = alloca %class.QModelIndex, align 8
   tail call void @_ZN20AStringListListModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15FolderListModel, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15FolderListModel, i64 16), ptr %0, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   invoke void @_ZNK11QMetaObject2trEPKcS1_i(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %13, ptr noundef nonnull align 8 dereferenceable(56) @_ZN15FolderListModel16staticMetaObjectE, ptr noundef nonnull @.str.13, ptr noundef null, i32 noundef -1)
           to label %_ZN15FolderListModel2trEPKcS1_i.exit unwind label %268
@@ -5142,7 +5142,7 @@ _ZN15FolderListModel2trEPKcS1_i.exit120:          ; preds = %_ZN5QListI7QStringE
           to label %_ZN5QListI7QStringElsEOS0_.exit121 unwind label %296
 
 _ZN5QListI7QStringElsEOS0_.exit121:               ; preds = %_ZN15FolderListModel2trEPKcS1_i.exit120
-  %124 = load ptr, ptr getelementptr inbounds (i8, ptr @global_capture_opts, i64 368), align 8
+  %124 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_capture_opts, i64 368), align 8
   %.not = icmp eq ptr %124, null
   br i1 %.not, label %127, label %125
 
@@ -7888,9 +7888,9 @@ define void @_ZN11AboutDialogC2EP7QWidget(ptr noundef nonnull align 8 dereferenc
   %51 = alloca %class.QTextStream, align 8
   %52 = alloca %class.QString, align 8
   tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i32 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11AboutDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11AboutDialog, i64 16), ptr %0, align 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11AboutDialog, i64 488), ptr %53, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11AboutDialog, i64 488), ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %55 = invoke noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #22
           to label %56 unwind label %125
@@ -9837,7 +9837,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i103:   ; preds = %170
   %183 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   store i32 0, ptr %184, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %183, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %183, align 8
   %185 = getelementptr inbounds nuw i8, ptr %183, i64 12
   store i32 40, ptr %185, align 4
   %186 = getelementptr inbounds nuw i8, ptr %183, i64 16
@@ -14484,9 +14484,9 @@ declare void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) u
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN11AboutDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8), (16, 24)) %0) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11AboutDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11AboutDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11AboutDialog, i64 488), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11AboutDialog, i64 488), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

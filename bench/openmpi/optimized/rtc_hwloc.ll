@@ -70,7 +70,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %10 = load ptr, ptr %9, align 8
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rtc_base_framework, i64 76), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base_framework, i64 76), align 4
   %or.cond89 = icmp ult i32 %11, 64
   br i1 %or.cond89, label %12, label %25
 
@@ -103,7 +103,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   br i1 %or.cond, label %28, label %47
 
 28:                                               ; preds = %25
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rtc_base_framework, i64 76), align 4
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base_framework, i64 76), align 4
   %or.cond90 = icmp ult i32 %29, 64
   br i1 %or.cond90, label %30, label %192
 
@@ -162,7 +162,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   br i1 %60, label %61, label %66
 
 61:                                               ; preds = %55
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 800), align 8
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %64 = load ptr, ptr %63, align 8
   %65 = tail call i32 (i32, ptr, ptr, ...) @prte_rtc_base_send_warn_show_help(i32 noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef %62, ptr noundef %64, ptr noundef nonnull @.str.5, i32 noundef 118) #6
@@ -217,7 +217,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   %89 = phi i16 [ %75, %81 ], [ %.pre96, %82 ], [ %75, %80 ]
   %90 = and i16 %89, 4096
   %.not88 = icmp eq i16 %90, 0
-  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
+  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 800), align 8
   %92 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %93 = load ptr, ptr %92, align 8
   %94 = load ptr, ptr %3, align 8
@@ -288,7 +288,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   %129 = load i16, ptr %128, align 4
   %130 = and i16 %129, 20480
   %or.cond91.not = icmp eq i16 %130, 16384
-  %131 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
+  %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 800), align 8
   %132 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %133 = load ptr, ptr %132, align 8
   br i1 %or.cond91.not, label %134, label %135
@@ -347,7 +347,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   %157 = phi i16 [ %145, %151 ], [ %.pre92, %152 ], [ %145, %150 ]
   %158 = and i16 %157, 4096
   %.not83 = icmp eq i16 %158, 0
-  %159 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
+  %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 800), align 8
   %160 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %161 = load ptr, ptr %160, align 8
   %162 = load ptr, ptr %3, align 8
@@ -400,7 +400,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   store ptr %switch.select98, ptr %3, align 8
   %184 = load i32, ptr @prte_hwloc_base_mbfa, align 4
   %185 = icmp eq i32 %184, 2
-  %186 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
+  %186 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 800), align 8
   %187 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %188 = load ptr, ptr %187, align 8
   br i1 %185, label %189, label %190

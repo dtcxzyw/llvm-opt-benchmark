@@ -33,7 +33,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define dso_local void @_ZN4node13AsyncResourceC2EPN2v87IsolateENS1_5LocalINS1_6ObjectEEEPKcd(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %this, ptr noundef nonnull %isolate, ptr %resource.coerce, ptr noundef %name, double noundef %trigger_async_id) unnamed_addr #3 align 2 {
 entry:
   %handle_scope.i = alloca %"class.v8::HandleScope", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13AsyncResourceE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13AsyncResourceE, i64 16), ptr %this, align 8
   %env_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i)
   %call.i = tail call noundef zeroext i1 @_ZN2v87Isolate9InContextEv(ptr noundef nonnull align 1 dereferenceable(1) %isolate) #9
@@ -122,7 +122,7 @@ declare { double, double } @_ZN4node13EmitAsyncInitEPN2v87IsolateENS0_5LocalINS0
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node13AsyncResourceD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13AsyncResourceE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13AsyncResourceE, i64 16), ptr %this, align 8
   %env_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %env_, align 8
   %async_context_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -149,7 +149,7 @@ declare void @_ZN4node16EmitAsyncDestroyEPNS_11EnvironmentENS_13async_contextE(p
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node13AsyncResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13AsyncResourceE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13AsyncResourceE, i64 16), ptr %this, align 8
   %env_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %env_.i, align 8
   %async_context_.i = getelementptr inbounds nuw i8, ptr %this, i64 24

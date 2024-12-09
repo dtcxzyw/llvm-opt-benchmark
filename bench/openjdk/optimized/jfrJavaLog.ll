@@ -254,7 +254,7 @@ define internal fastcc void @_ZL26log_config_change_internalbP10JavaThread(i1 no
   br i1 %0, label %3, label %.preheader278
 
 3:                                                ; preds = %2
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds (i8, ptr @_ZL12log_tag_sets, i64 8), align 8
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 8), align 8
   br label %.preheader278
 
 .preheader278:                                    ; preds = %3, %2
@@ -282,7 +282,7 @@ _ZL13highest_levelRK9LogTagSet.exit:              ; preds = %7, %.split.loop.exi
   br i1 %0, label %10, label %.preheader276
 
 10:                                               ; preds = %_ZL13highest_levelRK9LogTagSet.exit
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds (i8, ptr @_ZL12log_tag_sets, i64 24), align 8
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 24), align 8
   br label %.preheader276
 
 .preheader276:                                    ; preds = %10, %_ZL13highest_levelRK9LogTagSet.exit
@@ -310,7 +310,7 @@ _ZL13highest_levelRK9LogTagSet.exit100:           ; preds = %14, %.split.loop.ex
   br i1 %0, label %17, label %.preheader274
 
 17:                                               ; preds = %_ZL13highest_levelRK9LogTagSet.exit100
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_41ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds (i8, ptr @_ZL12log_tag_sets, i64 40), align 8
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_41ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 40), align 8
   br label %.preheader274
 
 .preheader274:                                    ; preds = %17, %_ZL13highest_levelRK9LogTagSet.exit100
@@ -338,7 +338,7 @@ _ZL13highest_levelRK9LogTagSet.exit106:           ; preds = %21, %.split.loop.ex
   br i1 %0, label %24, label %.preheader272
 
 24:                                               ; preds = %_ZL13highest_levelRK9LogTagSet.exit106
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_136ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds (i8, ptr @_ZL12log_tag_sets, i64 56), align 8
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_136ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 56), align 8
   br label %.preheader272
 
 .preheader272:                                    ; preds = %24, %_ZL13highest_levelRK9LogTagSet.exit106
@@ -366,7 +366,7 @@ _ZL13highest_levelRK9LogTagSet.exit112:           ; preds = %28, %.split.loop.ex
   br i1 %0, label %31, label %.preheader270
 
 31:                                               ; preds = %_ZL13highest_levelRK9LogTagSet.exit112
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_12ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds (i8, ptr @_ZL12log_tag_sets, i64 72), align 8
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_12ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 72), align 8
   br label %.preheader270
 
 .preheader270:                                    ; preds = %31, %_ZL13highest_levelRK9LogTagSet.exit112
@@ -394,7 +394,7 @@ _ZL13highest_levelRK9LogTagSet.exit118:           ; preds = %35, %.split.loop.ex
   br i1 %0, label %38, label %.preheader268
 
 38:                                               ; preds = %_ZL13highest_levelRK9LogTagSet.exit118
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_109ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds (i8, ptr @_ZL12log_tag_sets, i64 88), align 8
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_109ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 88), align 8
   br label %.preheader268
 
 .preheader268:                                    ; preds = %38, %_ZL13highest_levelRK9LogTagSet.exit118
@@ -422,7 +422,7 @@ _ZL13highest_levelRK9LogTagSet.exit124:           ; preds = %42, %.split.loop.ex
   br i1 %0, label %45, label %.preheader266
 
 45:                                               ; preds = %_ZL13highest_levelRK9LogTagSet.exit124
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_83ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds (i8, ptr @_ZL12log_tag_sets, i64 104), align 8
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_83ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 104), align 8
   br label %.preheader266
 
 .preheader266:                                    ; preds = %45, %_ZL13highest_levelRK9LogTagSet.exit124
@@ -450,7 +450,7 @@ _ZL13highest_levelRK9LogTagSet.exit130:           ; preds = %49, %.split.loop.ex
   br i1 %0, label %52, label %.preheader264
 
 52:                                               ; preds = %_ZL13highest_levelRK9LogTagSet.exit130
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_147ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds (i8, ptr @_ZL12log_tag_sets, i64 120), align 8
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_147ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 120), align 8
   br label %.preheader264
 
 .preheader264:                                    ; preds = %52, %_ZL13highest_levelRK9LogTagSet.exit130
@@ -478,7 +478,7 @@ _ZL13highest_levelRK9LogTagSet.exit136:           ; preds = %56, %.split.loop.ex
   br i1 %0, label %59, label %.preheader262
 
 59:                                               ; preds = %_ZL13highest_levelRK9LogTagSet.exit136
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds (i8, ptr @_ZL12log_tag_sets, i64 136), align 8
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 136), align 8
   br label %.preheader262
 
 .preheader262:                                    ; preds = %59, %_ZL13highest_levelRK9LogTagSet.exit136
@@ -506,7 +506,7 @@ _ZL13highest_levelRK9LogTagSet.exit142:           ; preds = %63, %.split.loop.ex
   br i1 %0, label %66, label %.preheader260
 
 66:                                               ; preds = %_ZL13highest_levelRK9LogTagSet.exit142
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_113ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds (i8, ptr @_ZL12log_tag_sets, i64 152), align 8
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_113ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 152), align 8
   br label %.preheader260
 
 .preheader260:                                    ; preds = %66, %_ZL13highest_levelRK9LogTagSet.exit142
@@ -534,7 +534,7 @@ _ZL13highest_levelRK9LogTagSet.exit148:           ; preds = %70, %.split.loop.ex
   br i1 %0, label %73, label %.preheader258
 
 73:                                               ; preds = %_ZL13highest_levelRK9LogTagSet.exit148
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_113ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds (i8, ptr @_ZL12log_tag_sets, i64 168), align 8
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_113ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 168), align 8
   br label %.preheader258
 
 .preheader258:                                    ; preds = %73, %_ZL13highest_levelRK9LogTagSet.exit148
@@ -562,7 +562,7 @@ _ZL13highest_levelRK9LogTagSet.exit154:           ; preds = %77, %.split.loop.ex
   br i1 %0, label %80, label %.preheader256
 
 80:                                               ; preds = %_ZL13highest_levelRK9LogTagSet.exit154
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_83ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds (i8, ptr @_ZL12log_tag_sets, i64 184), align 8
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_83ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 184), align 8
   br label %.preheader256
 
 .preheader256:                                    ; preds = %80, %_ZL13highest_levelRK9LogTagSet.exit154
@@ -590,7 +590,7 @@ _ZL13highest_levelRK9LogTagSet.exit160:           ; preds = %84, %.split.loop.ex
   br i1 %0, label %87, label %.preheader254
 
 87:                                               ; preds = %_ZL13highest_levelRK9LogTagSet.exit160
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_41ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds (i8, ptr @_ZL12log_tag_sets, i64 200), align 8
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_41ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 200), align 8
   br label %.preheader254
 
 .preheader254:                                    ; preds = %87, %_ZL13highest_levelRK9LogTagSet.exit160
@@ -618,7 +618,7 @@ _ZL13highest_levelRK9LogTagSet.exit166:           ; preds = %91, %.split.loop.ex
   br i1 %0, label %94, label %.preheader252
 
 94:                                               ; preds = %_ZL13highest_levelRK9LogTagSet.exit166
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_136ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds (i8, ptr @_ZL12log_tag_sets, i64 216), align 8
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_136ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 216), align 8
   br label %.preheader252
 
 .preheader252:                                    ; preds = %94, %_ZL13highest_levelRK9LogTagSet.exit166
@@ -646,7 +646,7 @@ _ZL13highest_levelRK9LogTagSet.exit172:           ; preds = %98, %.split.loop.ex
   br i1 %0, label %101, label %.preheader250
 
 101:                                              ; preds = %_ZL13highest_levelRK9LogTagSet.exit172
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_32ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds (i8, ptr @_ZL12log_tag_sets, i64 232), align 8
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_32ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 232), align 8
   br label %.preheader250
 
 .preheader250:                                    ; preds = %101, %_ZL13highest_levelRK9LogTagSet.exit172
@@ -674,7 +674,7 @@ _ZL13highest_levelRK9LogTagSet.exit178:           ; preds = %105, %.split.loop.e
   br i1 %0, label %108, label %.preheader
 
 108:                                              ; preds = %_ZL13highest_levelRK9LogTagSet.exit178
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_142ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds (i8, ptr @_ZL12log_tag_sets, i64 248), align 8
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_142ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 248), align 8
   br label %.preheader
 
 .preheader:                                       ; preds = %108, %_ZL13highest_levelRK9LogTagSet.exit178
@@ -740,13 +740,13 @@ define hidden void @_ZN10JfrJavaLog9log_eventEP7JNIEnv_iP13_jobjectArraybP10Java
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_41ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store i8 0, ptr %30, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18LogMessageTemplateILN6LogTag4typeE64ELS1_41ELS1_0ELS1_0ELS1_0ELS1_0EE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV18LogMessageTemplateILN6LogTag4typeE64ELS1_41ELS1_0ELS1_0ELS1_0ELS1_0EE, i64 16), ptr %6, align 8
   call void @_ZN16LogMessageBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(81) %7) #6
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_41ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store i8 0, ptr %32, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18LogMessageTemplateILN6LogTag4typeE64ELS1_156ELS1_41ELS1_0ELS1_0ELS1_0EE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV18LogMessageTemplateILN6LogTag4typeE64ELS1_156ELS1_41ELS1_0ELS1_0ELS1_0EE, i64 16), ptr %7, align 8
   %33 = icmp sgt i32 %18, 0
   br i1 %33, label %.lr.ph, label %._crit_edge
 
@@ -801,7 +801,7 @@ define hidden void @_ZN10JfrJavaLog9log_eventEP7JNIEnv_iP13_jobjectArraybP10Java
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %57, %.lr.ph.split.us, %45, %12
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14LogMessageImpl, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV14LogMessageImpl, i64 16), ptr %7, align 8
   %58 = load i8, ptr %32, align 8
   %59 = trunc i8 %58 to i1
   br i1 %59, label %60, label %_ZN18LogMessageTemplateILN6LogTag4typeE64ELS1_156ELS1_41ELS1_0ELS1_0ELS1_0EED2Ev.exit
@@ -815,7 +815,7 @@ define hidden void @_ZN10JfrJavaLog9log_eventEP7JNIEnv_iP13_jobjectArraybP10Java
 
 _ZN18LogMessageTemplateILN6LogTag4typeE64ELS1_156ELS1_41ELS1_0ELS1_0ELS1_0EED2Ev.exit: ; preds = %._crit_edge, %60
   call void @_ZN16LogMessageBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %7) #6
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14LogMessageImpl, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV14LogMessageImpl, i64 16), ptr %6, align 8
   %62 = load i8, ptr %30, align 8
   %63 = trunc i8 %62 to i1
   br i1 %63, label %64, label %_ZN18LogMessageTemplateILN6LogTag4typeE64ELS1_41ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit
@@ -1437,7 +1437,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -1456,7 +1456,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -1475,7 +1475,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -1494,7 +1494,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -1513,7 +1513,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %22 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = sub i64 %14, %23
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %26 = zext nneg i32 %25 to i64
   %27 = lshr i64 %24, %26
   %28 = trunc i64 %27 to i32
@@ -1541,7 +1541,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9

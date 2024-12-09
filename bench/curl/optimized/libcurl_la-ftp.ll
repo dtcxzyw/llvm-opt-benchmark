@@ -6146,7 +6146,7 @@ while.end:                                        ; preds = %while.cond
   %shr = lshr i32 %conv299, 8
   %and = and i32 %conv299, 255
   %call301 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %dest.0, i64 noundef 20, ptr noundef nonnull @.str.63, i32 noundef %shr, i32 noundef %and) #10
-  %call307 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef %data, ptr noundef nonnull %proto, ptr noundef nonnull @.str.64, ptr noundef nonnull getelementptr inbounds (i8, ptr @ftp_state_use_port.mode, i64 5), ptr noundef nonnull %target) #10
+  %call307 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef %data, ptr noundef nonnull %proto, ptr noundef nonnull @.str.64, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ftp_state_use_port.mode, i64 5), ptr noundef nonnull %target) #10
   %tobool308.not = icmp eq i32 %call307, 0
   br i1 %tobool308.not, label %for.end315, label %if.then309
 

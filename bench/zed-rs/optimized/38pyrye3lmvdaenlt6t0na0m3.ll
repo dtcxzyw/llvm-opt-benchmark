@@ -1575,7 +1575,7 @@ _ZN4http10extensions10Extensions3get17h198b526962a93b11E.exit.thread: ; preds = 
           to label %.noexc13.i unwind label %121
 
 .noexc13.i:                                       ; preds = %.noexc12.i
-  %142 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN11http_client10TLS_CONFIG17h17f34612b7204849E, i64 8) acquire, align 8, !noalias !359
+  %142 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN11http_client10TLS_CONFIG17h17f34612b7204849E, i64 8) acquire, align 8, !noalias !359
   %143 = icmp eq i32 %142, 4
   br i1 %143, label %_ZN3std4sync4once4Once9call_once17h37312a6e6d7ca493E.exit.i.i.i, label %144
 
@@ -1584,7 +1584,7 @@ _ZN4http10extensions10Extensions3get17h198b526962a93b11E.exit.thread: ; preds = 
   store ptr @_ZN11http_client10TLS_CONFIG17h17f34612b7204849E, ptr %12, align 8, !noalias !359
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !359
   store ptr %12, ptr %11, align 8, !noalias !359
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17hccc9ee12c05fa510E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN11http_client10TLS_CONFIG17h17f34612b7204849E, i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdd5fad9d7196a2ee80a1fb42571fcb9.126)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17hccc9ee12c05fa510E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN11http_client10TLS_CONFIG17h17f34612b7204849E, i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdd5fad9d7196a2ee80a1fb42571fcb9.126)
           to label %.noexc.i.i.i unwind label %191, !noalias !359
 
 .noexc.i.i.i:                                     ; preds = %144

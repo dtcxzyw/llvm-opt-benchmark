@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN20LRUCurrentHeapPolicyC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20LRUCurrentHeapPolicy, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV20LRUCurrentHeapPolicy, i64 16), ptr %0, align 8
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8
@@ -60,7 +60,7 @@ declare noundef i64 @_ZN27java_lang_ref_SoftReference9timestampEP7oopDesc(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN16LRUMaxHeapPolicyC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV16LRUMaxHeapPolicy, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV16LRUMaxHeapPolicy, i64 16), ptr %0, align 8
   %2 = load i64, ptr @MaxHeapSize, align 8
   %3 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24

@@ -20,7 +20,7 @@ define noundef i32 @dgemm_small_kernel_b0_tn(i64 noundef %0, i64 noundef %1, i64
   %21 = insertelement <4 x double> poison, double %5, i64 0
   %22 = shufflevector <4 x double> %21, <4 x double> poison, <4 x i32> zeroinitializer
   %23 = load <8 x i64>, ptr @__const.dgemm_small_kernel_b0_tn.permute_table, align 64
-  %24 = load <8 x i64>, ptr getelementptr inbounds (i8, ptr @__const.dgemm_small_kernel_b0_tn.permute_table, i64 64), align 64
+  %24 = load <8 x i64>, ptr getelementptr inbounds nuw (i8, ptr @__const.dgemm_small_kernel_b0_tn.permute_table, i64 64), align 64
   %25 = icmp sgt i64 %0, 3
   br i1 %25, label %26, label %.loopexit73
 

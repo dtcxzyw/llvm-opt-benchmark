@@ -240,7 +240,7 @@ define dso_local noundef range(i32 -12, 1) i32 @acpi_register_wakeup_handler(i32
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %10 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3264, i64 noundef 32) #5
   %11 = icmp eq ptr %10, null
   br i1 %11, label %18, label %12

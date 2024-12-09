@@ -484,7 +484,7 @@ _ZN5boost6locale8impl_icu12_GLOBAL__N_119set_fraction_digitsERN6icu_7012NumberFo
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 %86
   store i8 0, ptr %89, align 1, !tbaa !28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #21
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu13number_formatIcEE, i64 16), ptr %73, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu13number_formatIcEE, i64 16), ptr %73, align 8, !tbaa !20
   %90 = getelementptr inbounds nuw i8, ptr %73, i64 8
   invoke void @_ZN5boost6locale8impl_icu5uconvC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10cpcvt_typeE(ptr noundef nonnull align 8 dereferenceable(12) %90, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 0)
           to label %.noexc133 unwind label %106
@@ -606,7 +606,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136: ; preds = %_Z
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 %132
   store i8 0, ptr %135, align 1, !tbaa !28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #21
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu13number_formatIcEE, i64 16), ptr %119, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu13number_formatIcEE, i64 16), ptr %119, align 8, !tbaa !20
   %136 = getelementptr inbounds nuw i8, ptr %119, i64 8
   invoke void @_ZN5boost6locale8impl_icu5uconvC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10cpcvt_typeE(ptr noundef nonnull align 8 dereferenceable(12) %136, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 0)
           to label %.noexc143 unwind label %152
@@ -759,7 +759,7 @@ _ZN5boost6locale8impl_icu12_GLOBAL__N_119set_fraction_digitsERN6icu_7012NumberFo
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 %195
   store i8 0, ptr %198, align 1, !tbaa !28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #21
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu13number_formatIcEE, i64 16), ptr %182, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu13number_formatIcEE, i64 16), ptr %182, align 8, !tbaa !20
   %199 = getelementptr inbounds nuw i8, ptr %182, i64 8
   invoke void @_ZN5boost6locale8impl_icu5uconvC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10cpcvt_typeE(ptr noundef nonnull align 8 dereferenceable(12) %199, ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 0)
           to label %.noexc164 unwind label %215
@@ -881,7 +881,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173: ; preds = %_Z
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 %239
   store i8 0, ptr %242, align 1, !tbaa !28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #21
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu13number_formatIcEE, i64 16), ptr %224, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu13number_formatIcEE, i64 16), ptr %224, align 8, !tbaa !20
   %243 = getelementptr inbounds nuw i8, ptr %224, i64 8
   invoke void @_ZN5boost6locale8impl_icu5uconvC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10cpcvt_typeE(ptr noundef nonnull align 8 dereferenceable(12) %243, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 0)
           to label %.noexc180 unwind label %259
@@ -1003,7 +1003,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189: ; preds = %_Z
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 %283
   store i8 0, ptr %286, align 1, !tbaa !28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu13number_formatIcEE, i64 16), ptr %268, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu13number_formatIcEE, i64 16), ptr %268, align 8, !tbaa !20
   %287 = getelementptr inbounds nuw i8, ptr %268, i64 8
   invoke void @_ZN5boost6locale8impl_icu5uconvC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10cpcvt_typeE(ptr noundef nonnull align 8 dereferenceable(12) %287, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 0)
           to label %.noexc196 unwind label %303
@@ -1082,7 +1082,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit205: ; preds = %_Z
 
 313:                                              ; preds = %311
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %18) #21
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %18, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %18, align 8, !tbaa !20
   %314 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i16 2, ptr %314, align 8, !tbaa !28
   switch i64 %47, label %default.unreachable307 [
@@ -1672,7 +1672,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit260: ; preds = %_Z
 
 502:                                              ; preds = %500
   %503 = ptrtoint ptr %.sroa.0285.0 to i64
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu11date_formatIcEE, i64 16), ptr %501, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu11date_formatIcEE, i64 16), ptr %501, align 8, !tbaa !20
   %504 = getelementptr inbounds nuw i8, ptr %501, i64 8
   invoke void @_ZN5boost6locale8impl_icu5uconvC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10cpcvt_typeE(ptr noundef nonnull align 8 dereferenceable(12) %504, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 0)
           to label %.noexc263 unwind label %524
@@ -1749,7 +1749,7 @@ _ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit272: ; p
           to label %531 unwind label %409
 
 531:                                              ; preds = %529
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu11date_formatIcEE, i64 16), ptr %530, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu11date_formatIcEE, i64 16), ptr %530, align 8, !tbaa !20
   %532 = getelementptr inbounds nuw i8, ptr %530, i64 8
   invoke void @_ZN5boost6locale8impl_icu5uconvC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10cpcvt_typeE(ptr noundef nonnull align 8 dereferenceable(12) %532, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 0)
           to label %.noexc275 unwind label %541
@@ -1893,7 +1893,7 @@ define hidden void @_ZN5boost6locale8impl_icu15strftime_to_icuERKN6icu_7013Unico
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = select i1 %12, i32 %16, i32 %14
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %0, align 8, !tbaa !20
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 2, ptr %18, align 8, !tbaa !28
   %.not = icmp eq i32 %17, 0
@@ -2203,7 +2203,7 @@ declare void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale8impl_icu16formatters_cacheD2Ev(ptr noundef nonnull align 8 dereferenceable(2032) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost6locale8impl_icu16formatters_cacheE, i64 16), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost6locale8impl_icu16formatters_cacheE, i64 16), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1808
   tail call void @_ZN6icu_706LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %2) #21
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1800
@@ -2520,7 +2520,7 @@ _ZN5boost6locale8impl_icu12_GLOBAL__N_119set_fraction_digitsERN6icu_7012NumberFo
   store i8 0, ptr %103, align 1, !tbaa !28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #21
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu13number_formatIwEE, i64 16), ptr %87, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu13number_formatIwEE, i64 16), ptr %87, align 8, !tbaa !20
   %104 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %104, ptr %24, align 8, !tbaa !22
   %105 = load ptr, ptr %27, align 8, !tbaa !24
@@ -2683,7 +2683,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
   store i8 0, ptr %165, align 1, !tbaa !28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #21
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu13number_formatIwEE, i64 16), ptr %149, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu13number_formatIwEE, i64 16), ptr %149, align 8, !tbaa !20
   %166 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %166, ptr %21, align 8, !tbaa !22
   %167 = load ptr, ptr %28, align 8, !tbaa !24
@@ -2877,7 +2877,7 @@ _ZN5boost6locale8impl_icu12_GLOBAL__N_119set_fraction_digitsERN6icu_7012NumberFo
   store i8 0, ptr %244, align 1, !tbaa !28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #21
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu13number_formatIwEE, i64 16), ptr %228, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu13number_formatIwEE, i64 16), ptr %228, align 8, !tbaa !20
   %245 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %245, ptr %18, align 8, !tbaa !22
   %246 = load ptr, ptr %29, align 8, !tbaa !24
@@ -3040,7 +3040,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit172: ; preds = %_Z
   store i8 0, ptr %304, align 1, !tbaa !28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #21
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu13number_formatIwEE, i64 16), ptr %286, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu13number_formatIwEE, i64 16), ptr %286, align 8, !tbaa !20
   %305 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %305, ptr %15, align 8, !tbaa !22
   %306 = load ptr, ptr %30, align 8, !tbaa !24
@@ -3203,7 +3203,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit188: ; preds = %_Z
   store i8 0, ptr %364, align 1, !tbaa !28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #21
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu13number_formatIwEE, i64 16), ptr %346, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu13number_formatIwEE, i64 16), ptr %346, align 8, !tbaa !20
   %365 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %365, ptr %12, align 8, !tbaa !22
   %366 = load ptr, ptr %31, align 8, !tbaa !24
@@ -3322,7 +3322,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit204: ; preds = %_Z
 
 407:                                              ; preds = %405
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %32) #21
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %32, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %32, align 8, !tbaa !20
   %408 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i16 2, ptr %408, align 8, !tbaa !28
   switch i64 %61, label %default.unreachable [
@@ -3972,7 +3972,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit267: ; preds = %_Z
 628:                                              ; preds = %626
   %629 = ptrtoint ptr %.sroa.0294.0 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu11date_formatIwEE, i64 16), ptr %627, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu11date_formatIwEE, i64 16), ptr %627, align 8, !tbaa !20
   %630 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %630, ptr %8, align 8, !tbaa !22
   %631 = load ptr, ptr %3, align 8, !tbaa !24
@@ -4091,7 +4091,7 @@ _ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit279: ; p
 
 673:                                              ; preds = %671
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu11date_formatIwEE, i64 16), ptr %672, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu11date_formatIwEE, i64 16), ptr %672, align 8, !tbaa !20
   %674 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %674, ptr %6, align 8, !tbaa !22
   %675 = load ptr, ptr %3, align 8, !tbaa !24
@@ -4475,7 +4475,7 @@ declare void @__cxa_bad_cast() local_unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale8impl_icu13number_formatIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu13number_formatIcEE, i64 16), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu13number_formatIcEE, i64 16), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !29
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -4498,7 +4498,7 @@ _ZN5boost6locale8impl_icu17icu_std_converterIcLi1EED2Ev.exit: ; preds = %1, %4
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale8impl_icu13number_formatIcED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu13number_formatIcEE, i64 16), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu13number_formatIcEE, i64 16), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !29
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -4560,7 +4560,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost6locale8impl_icu13number_forma
 define linkonce_odr hidden void @_ZNK5boost6locale8impl_icu13number_formatIcE9do_formatIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_Rm(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, double noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.icu_70::UnicodeString", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #21
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i16 2, ptr %6, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -4992,7 +4992,7 @@ declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #13
 define linkonce_odr hidden void @_ZNK5boost6locale8impl_icu13number_formatIcE9do_formatIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_Rm(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.icu_70::UnicodeString", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #21
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i16 2, ptr %6, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -5059,7 +5059,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7012NumberForm
 define linkonce_odr hidden void @_ZNK5boost6locale8impl_icu13number_formatIcE9do_formatIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_Rm(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.icu_70::UnicodeString", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #21
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i16 2, ptr %6, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -5134,7 +5134,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost6locale8impl_icu13number_forma
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %8) #21
   call void @_ZN6icu_7011FormattableC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6icu_7013ParsePositionE, i64 16), ptr %9, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7013ParsePositionE, i64 16), ptr %9, align 8, !tbaa !20
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %11, align 8, !tbaa !84
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 12
@@ -5316,7 +5316,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost6locale8impl_icu13number_forma
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %8) #21
   call void @_ZN6icu_7011FormattableC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6icu_7013ParsePositionE, i64 16), ptr %9, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7013ParsePositionE, i64 16), ptr %9, align 8, !tbaa !20
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %11, align 8, !tbaa !84
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 12
@@ -5488,7 +5488,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost6locale8impl_icu13number_forma
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %8) #21
   call void @_ZN6icu_7011FormattableC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6icu_7013ParsePositionE, i64 16), ptr %9, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7013ParsePositionE, i64 16), ptr %9, align 8, !tbaa !20
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %11, align 8, !tbaa !84
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 12
@@ -5763,7 +5763,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv21invalid_charset_errorE, i64 16), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv21invalid_charset_errorE, i64 16), ptr %0, align 8, !tbaa !20
   ret void
 
 13:                                               ; preds = %2
@@ -5901,7 +5901,7 @@ define linkonce_odr hidden void @_ZNK5boost6locale6detail10any_string3getIcEENSt
 
 5:                                                ; preds = %2
   %6 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt8bad_cast, i64 16), ptr %6, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt8bad_cast, i64 16), ptr %6, align 8, !tbaa !20
   tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTISt8bad_cast, ptr nonnull @_ZNSt8bad_castD1Ev) #22
   unreachable
 
@@ -5967,7 +5967,7 @@ declare void @_ZN6icu_7013UnicodeStringC1EPKciP10UConverterR10UErrorCode(ptr nou
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale8impl_icu11date_formatIcED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu11date_formatIcEE, i64 16), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu11date_formatIcEE, i64 16), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !13
   %.not.i = icmp eq ptr %3, null
@@ -6004,7 +6004,7 @@ _ZN5boost6locale8impl_icu17icu_std_converterIcLi1EED2Ev.exit: ; preds = %_ZNSt10
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale8impl_icu11date_formatIcED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu11date_formatIcEE, i64 16), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu11date_formatIcEE, i64 16), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !13
   %.not.i.i = icmp eq ptr %3, null
@@ -6083,7 +6083,7 @@ define linkonce_odr hidden void @_ZNK5boost6locale8impl_icu11date_formatIcE9do_f
   %5 = alloca %"class.icu_70::UnicodeString", align 8
   %6 = fmul double %2, 1.000000e+03
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #21
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i16 2, ptr %7, align 8, !tbaa !28
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -6154,7 +6154,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost6locale8impl_icu11date_formatI
   %7 = alloca %"class.icu_70::ParsePosition", align 8
   %8 = alloca %"class.icu_70::UnicodeString", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6icu_7013ParsePositionE, i64 16), ptr %7, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7013ParsePositionE, i64 16), ptr %7, align 8, !tbaa !20
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %9, align 8, !tbaa !84
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -6320,7 +6320,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost6locale8impl_icu11date_formatI
   %7 = alloca %"class.icu_70::ParsePosition", align 8
   %8 = alloca %"class.icu_70::UnicodeString", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6icu_7013ParsePositionE, i64 16), ptr %7, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7013ParsePositionE, i64 16), ptr %7, align 8, !tbaa !20
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %9, align 8, !tbaa !84
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -6484,7 +6484,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost6locale8impl_icu11date_formatI
   %7 = alloca %"class.icu_70::ParsePosition", align 8
   %8 = alloca %"class.icu_70::UnicodeString", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6icu_7013ParsePositionE, i64 16), ptr %7, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7013ParsePositionE, i64 16), ptr %7, align 8, !tbaa !20
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %9, align 8, !tbaa !84
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -6656,7 +6656,7 @@ define linkonce_odr hidden void @_ZN5boost6locale8impl_icu13number_formatIwED0Ev
 define linkonce_odr hidden void @_ZNK5boost6locale8impl_icu13number_formatIwE6formatB5cxx11EdRm(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string.31") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, double noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.icu_70::UnicodeString", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #21, !noalias !120
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !20, !noalias !120
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !20, !noalias !120
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i16 2, ptr %6, align 8, !tbaa !28, !noalias !120
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -6692,7 +6692,7 @@ _ZNK5boost6locale8impl_icu13number_formatIwE9do_formatIdEENSt7__cxx1112basic_str
 define linkonce_odr hidden void @_ZNK5boost6locale8impl_icu13number_formatIwE6formatB5cxx11ElRm(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string.31") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.icu_70::UnicodeString", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #21, !noalias !126
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !20, !noalias !126
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !20, !noalias !126
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i16 2, ptr %6, align 8, !tbaa !28, !noalias !126
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -6728,7 +6728,7 @@ _ZNK5boost6locale8impl_icu13number_formatIwE9do_formatIlEENSt7__cxx1112basic_str
 define linkonce_odr hidden void @_ZNK5boost6locale8impl_icu13number_formatIwE6formatB5cxx11EiRm(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string.31") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.icu_70::UnicodeString", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #21, !noalias !129
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !20, !noalias !129
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !20, !noalias !129
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i16 2, ptr %6, align 8, !tbaa !28, !noalias !129
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -6900,7 +6900,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost6locale8impl_icu13number_forma
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #21
   call void @_ZN6icu_7011FormattableC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6icu_7013ParsePositionE, i64 16), ptr %6, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7013ParsePositionE, i64 16), ptr %6, align 8, !tbaa !20
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %8, align 8, !tbaa !84
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -7029,7 +7029,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost6locale8impl_icu13number_forma
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #21
   call void @_ZN6icu_7011FormattableC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6icu_7013ParsePositionE, i64 16), ptr %6, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7013ParsePositionE, i64 16), ptr %6, align 8, !tbaa !20
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %8, align 8, !tbaa !84
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -7158,7 +7158,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost6locale8impl_icu13number_forma
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #21
   call void @_ZN6icu_7011FormattableC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6icu_7013ParsePositionE, i64 16), ptr %6, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7013ParsePositionE, i64 16), ptr %6, align 8, !tbaa !20
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %8, align 8, !tbaa !84
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -7287,7 +7287,7 @@ define linkonce_odr hidden void @_ZNK5boost6locale6detail10any_string3getIwEENSt
 
 5:                                                ; preds = %2
   %6 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt8bad_cast, i64 16), ptr %6, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt8bad_cast, i64 16), ptr %6, align 8, !tbaa !20
   tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTISt8bad_cast, ptr nonnull @_ZNSt8bad_castD1Ev) #22
   unreachable
 
@@ -7360,7 +7360,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7013UnicodeStri
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale8impl_icu11date_formatIwED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu11date_formatIwEE, i64 16), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu11date_formatIwEE, i64 16), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !13
   %.not.i = icmp eq ptr %3, null
@@ -7380,7 +7380,7 @@ _ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit: ; pred
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale8impl_icu11date_formatIwED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu11date_formatIwEE, i64 16), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost6locale8impl_icu11date_formatIwEE, i64 16), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !13
   %.not.i.i = icmp eq ptr %3, null
@@ -7403,7 +7403,7 @@ define linkonce_odr hidden void @_ZNK5boost6locale8impl_icu11date_formatIwE6form
   %5 = alloca %"class.icu_70::UnicodeString", align 8
   %6 = fmul double %2, 1.000000e+03
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #21, !noalias !142
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !20, !noalias !142
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !20, !noalias !142
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i16 2, ptr %7, align 8, !tbaa !28, !noalias !142
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -7441,7 +7441,7 @@ define linkonce_odr hidden void @_ZNK5boost6locale8impl_icu11date_formatIwE6form
   %6 = sitofp i64 %2 to double
   %7 = fmul double %6, 1.000000e+03
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #21, !noalias !147
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !20, !noalias !147
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !20, !noalias !147
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i16 2, ptr %8, align 8, !tbaa !28, !noalias !147
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -7479,7 +7479,7 @@ define linkonce_odr hidden void @_ZNK5boost6locale8impl_icu11date_formatIwE6form
   %6 = sitofp i32 %2 to double
   %7 = fmul double %6, 1.000000e+03
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #21, !noalias !150
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !20, !noalias !150
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !20, !noalias !150
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i16 2, ptr %8, align 8, !tbaa !28, !noalias !150
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -7534,7 +7534,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost6locale8impl_icu11date_formatI
   %4 = alloca %"class.icu_70::ParsePosition", align 8
   %5 = alloca %"class.icu_70::UnicodeString", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6icu_7013ParsePositionE, i64 16), ptr %4, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7013ParsePositionE, i64 16), ptr %4, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %6, align 8, !tbaa !84
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -7641,7 +7641,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost6locale8impl_icu11date_formatI
   %4 = alloca %"class.icu_70::ParsePosition", align 8
   %5 = alloca %"class.icu_70::UnicodeString", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6icu_7013ParsePositionE, i64 16), ptr %4, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7013ParsePositionE, i64 16), ptr %4, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %6, align 8, !tbaa !84
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -7760,7 +7760,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost6locale8impl_icu11date_formatI
   %4 = alloca %"class.icu_70::ParsePosition", align 8
   %5 = alloca %"class.icu_70::UnicodeString", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6icu_7013ParsePositionE, i64 16), ptr %4, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7013ParsePositionE, i64 16), ptr %4, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %6, align 8, !tbaa !84
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 12

@@ -688,9 +688,9 @@ define void @_ZN19QualityMapperDialogC2EP7QWidgetR9MeshModelP6GLAreaP26MLSceneGL
   %8 = alloca %"class.QMetaObject::Connection", align 8
   %9 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN11QDockWidgetC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i32 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19QualityMapperDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19QualityMapperDialog, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19QualityMapperDialog, i64 448), ptr %10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19QualityMapperDialog, i64 448), ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 608
   invoke void @_ZN14QGraphicsSceneC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef null)
           to label %12 unwind label %68
@@ -853,8 +853,8 @@ define void @_ZN19QualityMapperDialogC2EP7QWidgetR9MeshModelP6GLAreaP26MLSceneGL
   br label %.body
 
 87:                                               ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTV20TFDoubleClickCatcher, i64 16), ptr %81, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV20TFDoubleClickCatcher, i64 152), ptr %84, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20TFDoubleClickCatcher, i64 16), ptr %81, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20TFDoubleClickCatcher, i64 152), ptr %84, align 8
   %88 = getelementptr inbounds nuw i8, ptr %81, i64 32
   store ptr %83, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %81, i64 48
@@ -3412,7 +3412,7 @@ _ZN7QStringD2Ev.exit335:                          ; preds = %727, %_ZN9QtPrivate
 746:                                              ; preds = %744
   %747 = getelementptr inbounds nuw i8, ptr %745, i64 8
   store i32 0, ptr %747, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %745, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %745, align 8
   %748 = getelementptr inbounds nuw i8, ptr %745, i64 12
   store i32 16, ptr %748, align 4
   %749 = getelementptr inbounds nuw i8, ptr %745, i64 16
@@ -3721,7 +3721,7 @@ _ZN7QStringD2Ev.exit371:                          ; preds = %827, %_ZN9QtPrivate
 842:                                              ; preds = %840
   %843 = getelementptr inbounds nuw i8, ptr %841, i64 8
   store i32 0, ptr %843, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %841, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %841, align 8
   %844 = getelementptr inbounds nuw i8, ptr %841, i64 12
   store i32 16, ptr %844, align 4
   %845 = getelementptr inbounds nuw i8, ptr %841, i64 16
@@ -4030,7 +4030,7 @@ _ZN7QWidget14setMaximumSizeERK5QSize.exit408:     ; preds = %_ZN7QWidget14setMin
 937:                                              ; preds = %935
   %938 = getelementptr inbounds nuw i8, ptr %936, i64 8
   store i32 0, ptr %938, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %936, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %936, align 8
   %939 = getelementptr inbounds nuw i8, ptr %936, i64 12
   store i32 40, ptr %939, align 4
   %940 = getelementptr inbounds nuw i8, ptr %936, i64 16
@@ -4884,7 +4884,7 @@ _ZN7QStringD2Ev.exit515:                          ; preds = %1183, %_ZN9QtPrivat
 1192:                                             ; preds = %1190
   %1193 = getelementptr inbounds nuw i8, ptr %1191, i64 8
   store i32 0, ptr %1193, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %1191, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %1191, align 8
   %1194 = getelementptr inbounds nuw i8, ptr %1191, i64 12
   store i32 40, ptr %1194, align 4
   %1195 = getelementptr inbounds nuw i8, ptr %1191, i64 16
@@ -8369,9 +8369,9 @@ declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN19QualityMapperDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(824) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19QualityMapperDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19QualityMapperDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19QualityMapperDialog, i64 448), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19QualityMapperDialog, i64 448), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN19QualityMapperDialog10clearItemsEi(ptr noundef nonnull align 8 dereferenceable(824) %0, i32 noundef 1118481)
           to label %4 unwind label %81
 

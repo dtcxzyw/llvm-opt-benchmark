@@ -434,17 +434,17 @@ sw.bb:                                            ; preds = %if.then
   br i1 %fastExp, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14LogRendererSSEEED2Ev.exit, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev11LogRendererEED2Ev.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14LogRendererSSEEED2Ev.exit: ; preds = %sw.bb
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !5
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !5
   %m_logScale.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   store float 1.000000e+00, ptr %m_logScale.i.i.i.i.i.i.i.i.i, align 8, !noalias !5
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev14LogRendererSSEE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !5
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev14LogRendererSSEE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !5
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8
   store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i, align 8
   br label %return
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev11LogRendererEED2Ev.exit: ; preds = %sw.bb
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev11LogRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev11LogRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !8
   %m_logScale.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   store float 1.000000e+00, ptr %m_logScale.i.i.i.i.i.i.i.i, align 8, !noalias !8
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8
@@ -462,17 +462,17 @@ sw.bb8:                                           ; preds = %if.then
   br i1 %fastExp, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18AntiLogRendererSSEEED2Ev.exit, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15AntiLogRendererEED2Ev.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18AntiLogRendererSSEEED2Ev.exit: ; preds = %sw.bb8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev18AntiLogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i71, align 8, !noalias !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev18AntiLogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i71, align 8, !noalias !11
   %m_log2_base.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i71, i64 24
   store float 1.000000e+00, ptr %m_log2_base.i.i.i.i.i.i.i.i.i, align 8, !noalias !11
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18AntiLogRendererSSEE, i64 16), ptr %_M_impl.i.i.i.i.i.i74, align 8, !noalias !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18AntiLogRendererSSEE, i64 16), ptr %_M_impl.i.i.i.i.i.i74, align 8, !noalias !11
   store ptr %_M_impl.i.i.i.i.i.i74, ptr %agg.result, align 8
   store ptr %call5.i.i.i3.i.i.i.i71, ptr %_M_refcount.i.i75, align 8
   br label %return
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15AntiLogRendererEED2Ev.exit: ; preds = %sw.bb8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev15AntiLogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i71, align 8, !noalias !14
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15AntiLogRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i74, align 8, !noalias !14
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev15AntiLogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i71, align 8, !noalias !14
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15AntiLogRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i74, align 8, !noalias !14
   %m_log2_base.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i71, i64 24
   store float 1.000000e+00, ptr %m_log2_base.i.i.i.i.i.i.i.i, align 8, !noalias !14
   store ptr %_M_impl.i.i.i.i.i.i74, ptr %agg.result, align 8
@@ -501,17 +501,17 @@ sw.bb20:                                          ; preds = %if.then19
   br i1 %fastExp, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14LogRendererSSEEED2Ev.exit185, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev11LogRendererEED2Ev.exit225
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14LogRendererSSEEED2Ev.exit185: ; preds = %sw.bb20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i147, align 8, !noalias !17
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i147, align 8, !noalias !17
   %m_logScale.i.i.i.i.i.i.i.i.i151 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i147, i64 24
   store float 0x3FD3441360000000, ptr %m_logScale.i.i.i.i.i.i.i.i.i151, align 8, !noalias !17
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev14LogRendererSSEE, i64 16), ptr %_M_impl.i.i.i.i.i.i150, align 8, !noalias !17
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev14LogRendererSSEE, i64 16), ptr %_M_impl.i.i.i.i.i.i150, align 8, !noalias !17
   store ptr %_M_impl.i.i.i.i.i.i150, ptr %agg.result, align 8
   store ptr %call5.i.i.i3.i.i.i.i147, ptr %_M_refcount.i.i152, align 8
   br label %return
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev11LogRendererEED2Ev.exit225: ; preds = %sw.bb20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i147, align 8, !noalias !20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev11LogRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i150, align 8, !noalias !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i147, align 8, !noalias !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev11LogRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i150, align 8, !noalias !20
   %m_logScale.i.i.i.i.i.i.i.i191 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i147, i64 24
   store float 0x3FD3441360000000, ptr %m_logScale.i.i.i.i.i.i.i.i191, align 8, !noalias !20
   store ptr %_M_impl.i.i.i.i.i.i150, ptr %agg.result, align 8
@@ -529,17 +529,17 @@ sw.bb26:                                          ; preds = %if.then19
   br i1 %fastExp, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18AntiLogRendererSSEEED2Ev.exit265, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15AntiLogRendererEED2Ev.exit305
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18AntiLogRendererSSEEED2Ev.exit265: ; preds = %sw.bb26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev18AntiLogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i227, align 8, !noalias !23
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev18AntiLogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i227, align 8, !noalias !23
   %m_log2_base.i.i.i.i.i.i.i.i.i231 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i227, i64 24
   store float 0x400A934F00000000, ptr %m_log2_base.i.i.i.i.i.i.i.i.i231, align 8, !noalias !23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18AntiLogRendererSSEE, i64 16), ptr %_M_impl.i.i.i.i.i.i230, align 8, !noalias !23
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18AntiLogRendererSSEE, i64 16), ptr %_M_impl.i.i.i.i.i.i230, align 8, !noalias !23
   store ptr %_M_impl.i.i.i.i.i.i230, ptr %agg.result, align 8
   store ptr %call5.i.i.i3.i.i.i.i227, ptr %_M_refcount.i.i232, align 8
   br label %return
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15AntiLogRendererEED2Ev.exit305: ; preds = %sw.bb26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev15AntiLogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i227, align 8, !noalias !26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15AntiLogRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i230, align 8, !noalias !26
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev15AntiLogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i227, align 8, !noalias !26
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15AntiLogRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i230, align 8, !noalias !26
   %m_log2_base.i.i.i.i.i.i.i.i271 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i227, i64 24
   store float 0x400A934F00000000, ptr %m_log2_base.i.i.i.i.i.i.i.i271, align 8, !noalias !26
   store ptr %_M_impl.i.i.i.i.i.i230, ptr %agg.result, align 8
@@ -567,7 +567,7 @@ sw.bb37:                                          ; preds = %if.then36
   br i1 %fastExp, label %if.then39, label %if.else41
 
 if.then39:                                        ; preds = %sw.bb37
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24CameraLin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i306, align 8, !noalias !29
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24CameraLin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i306, align 8, !noalias !29
   invoke void @_ZN19OpenColorIO_v2_4dev21CameraLin2LogRendererC2ERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(188) %_M_impl.i.i.i.i.i.i309, ptr noundef nonnull readonly align 8 dereferenceable(16) %log)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24CameraLin2LogRendererSSEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24CameraLin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !29
 
@@ -582,14 +582,14 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24Ca
   br label %common.resume
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24CameraLin2LogRendererSSEEED2Ev.exit: ; preds = %if.then39
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev24CameraLin2LogRendererSSEE, i64 16), ptr %_M_impl.i.i.i.i.i.i309, align 8, !noalias !29
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev24CameraLin2LogRendererSSEE, i64 16), ptr %_M_impl.i.i.i.i.i.i309, align 8, !noalias !29
   store ptr %_M_impl.i.i.i.i.i.i309, ptr %agg.result, align 8
   %_M_refcount.i.i311 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i3.i.i.i.i306, ptr %_M_refcount.i.i311, align 8
   br label %return
 
 if.else41:                                        ; preds = %sw.bb37
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21CameraLin2LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i306, align 8, !noalias !32
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21CameraLin2LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i306, align 8, !noalias !32
   invoke void @_ZN19OpenColorIO_v2_4dev21CameraLin2LogRendererC2ERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(188) %_M_impl.i.i.i.i.i.i309, ptr noundef nonnull align 8 dereferenceable(16) %log)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21CameraLin2LogRendererEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21CameraLin2LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !32
 
@@ -615,7 +615,7 @@ sw.bb43:                                          ; preds = %if.then36
   br i1 %fastExp, label %if.then45, label %if.else47
 
 if.then45:                                        ; preds = %sw.bb43
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24CameraLog2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i382, align 8, !noalias !35
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24CameraLog2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i382, align 8, !noalias !35
   invoke void @_ZN19OpenColorIO_v2_4dev21CameraLog2LinRendererC2ERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(200) %_M_impl.i.i.i.i.i.i385, ptr noundef nonnull readonly align 8 dereferenceable(16) %log)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24CameraLog2LinRendererSSEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24CameraLog2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !35
 
@@ -626,14 +626,14 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24Ca
   br label %common.resume
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24CameraLog2LinRendererSSEEED2Ev.exit: ; preds = %if.then45
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev24CameraLog2LinRendererSSEE, i64 16), ptr %_M_impl.i.i.i.i.i.i385, align 8, !noalias !35
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev24CameraLog2LinRendererSSEE, i64 16), ptr %_M_impl.i.i.i.i.i.i385, align 8, !noalias !35
   store ptr %_M_impl.i.i.i.i.i.i385, ptr %agg.result, align 8
   %_M_refcount.i.i387 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i3.i.i.i.i382, ptr %_M_refcount.i.i387, align 8
   br label %return
 
 if.else47:                                        ; preds = %sw.bb43
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21CameraLog2LinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i382, align 8, !noalias !38
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21CameraLog2LinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i382, align 8, !noalias !38
   invoke void @_ZN19OpenColorIO_v2_4dev21CameraLog2LinRendererC2ERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(200) %_M_impl.i.i.i.i.i.i385, ptr noundef nonnull align 8 dereferenceable(16) %log)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21CameraLog2LinRendererEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21CameraLog2LinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !38
 
@@ -667,10 +667,10 @@ sw.bb51:                                          ; preds = %if.else50
   br i1 %fastExp, label %if.then53, label %if.else55
 
 if.then53:                                        ; preds = %sw.bb51
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev18Lin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i458, align 8, !noalias !41
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev18Lin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i458, align 8, !noalias !41
   store float 2.000000e+00, ptr %m_base.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_paramsR.i.i.i.i.i.i.i.i.i.i, i8 0, i64 72, i1 false), !noalias !41
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15Lin2LogRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i461, align 8, !noalias !41
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15Lin2LogRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i461, align 8, !noalias !41
   invoke void @_ZN19OpenColorIO_v2_4dev15Lin2LogRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(136) %_M_impl.i.i.i.i.i.i461, ptr noundef nonnull readonly align 8 dereferenceable(16) %log)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18Lin2LogRendererSSEEED2Ev.exit unwind label %lpad.i.i.i.i.i.i.i.i.i, !noalias !41
 
@@ -682,17 +682,17 @@ lpad.i.i.i.i.i.i.i.i.i:                           ; preds = %if.then53
   br label %common.resume
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18Lin2LogRendererSSEEED2Ev.exit: ; preds = %if.then53
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18Lin2LogRendererSSEE, i64 16), ptr %_M_impl.i.i.i.i.i.i461, align 8, !noalias !41
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18Lin2LogRendererSSEE, i64 16), ptr %_M_impl.i.i.i.i.i.i461, align 8, !noalias !41
   store ptr %_M_impl.i.i.i.i.i.i461, ptr %agg.result, align 8
   %_M_refcount.i.i463 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i3.i.i.i.i458, ptr %_M_refcount.i.i463, align 8
   br label %return
 
 if.else55:                                        ; preds = %sw.bb51
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev15Lin2LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i458, align 8, !noalias !44
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev15Lin2LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i458, align 8, !noalias !44
   store float 2.000000e+00, ptr %m_base.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_paramsR.i.i.i.i.i.i.i.i.i.i, i8 0, i64 72, i1 false), !noalias !44
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15Lin2LogRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i461, align 8, !noalias !44
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15Lin2LogRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i461, align 8, !noalias !44
   invoke void @_ZN19OpenColorIO_v2_4dev15Lin2LogRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(136) %_M_impl.i.i.i.i.i.i461, ptr noundef nonnull readonly align 8 dereferenceable(16) %log)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15Lin2LogRendererEED2Ev.exit unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !44
 
@@ -721,10 +721,10 @@ sw.bb57:                                          ; preds = %if.else50
   br i1 %fastExp, label %if.then59, label %if.else61
 
 if.then59:                                        ; preds = %sw.bb57
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev18Log2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i534, align 8, !noalias !47
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev18Log2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i534, align 8, !noalias !47
   store float 2.000000e+00, ptr %m_base.i.i.i.i.i.i.i.i.i.i538, align 8, !noalias !47
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_paramsR.i.i.i.i.i.i.i.i.i.i539, i8 0, i64 72, i1 false), !noalias !47
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15Log2LinRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i537, align 8, !noalias !47
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15Log2LinRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i537, align 8, !noalias !47
   invoke void @_ZN19OpenColorIO_v2_4dev15Log2LinRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(136) %_M_impl.i.i.i.i.i.i537, ptr noundef nonnull readonly align 8 dereferenceable(16) %log)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18Log2LinRendererSSEEED2Ev.exit unwind label %lpad.i.i.i.i.i.i.i.i.i540, !noalias !47
 
@@ -736,17 +736,17 @@ lpad.i.i.i.i.i.i.i.i.i540:                        ; preds = %if.then59
   br label %common.resume
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18Log2LinRendererSSEEED2Ev.exit: ; preds = %if.then59
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18Log2LinRendererSSEE, i64 16), ptr %_M_impl.i.i.i.i.i.i537, align 8, !noalias !47
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18Log2LinRendererSSEE, i64 16), ptr %_M_impl.i.i.i.i.i.i537, align 8, !noalias !47
   store ptr %_M_impl.i.i.i.i.i.i537, ptr %agg.result, align 8
   %_M_refcount.i.i542 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i3.i.i.i.i534, ptr %_M_refcount.i.i542, align 8
   br label %return
 
 if.else61:                                        ; preds = %sw.bb57
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev15Log2LinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i534, align 8, !noalias !50
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev15Log2LinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i534, align 8, !noalias !50
   store float 2.000000e+00, ptr %m_base.i.i.i.i.i.i.i.i.i.i538, align 8, !noalias !50
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_paramsR.i.i.i.i.i.i.i.i.i.i539, i8 0, i64 72, i1 false), !noalias !50
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15Log2LinRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i537, align 8, !noalias !50
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15Log2LinRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i537, align 8, !noalias !50
   invoke void @_ZN19OpenColorIO_v2_4dev15Log2LinRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(136) %_M_impl.i.i.i.i.i.i537, ptr noundef nonnull readonly align 8 dereferenceable(16) %log)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15Log2LinRendererEED2Ev.exit unwind label %lpad.i.i.i.i.i.i.i.i581, !noalias !50
 
@@ -805,7 +805,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev8LogOpCPUC2ERSt10shared_ptrIKNS_9LogOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev8LogOpCPUE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev8LogOpCPUE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -821,7 +821,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev15L2LBaseRendererC2ERSt10shared_ptrIKNS_9LogOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 12), (16, 88)) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %log) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
   %m_base = getelementptr inbounds nuw i8, ptr %this, i64 8
   store float 2.000000e+00, ptr %m_base, align 8
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -969,7 +969,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev11LogRendererC2ERSt10shared_ptrIKNS_9LogOpDataEEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, ptr nocapture nonnull readnone align 8 %log, float noundef %logScale) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev11LogRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev11LogRendererE, i64 16), ptr %this, align 8
   %m_logScale = getelementptr inbounds nuw i8, ptr %this, i64 8
   store float %logScale, ptr %m_logScale, align 8
   ret void
@@ -1036,7 +1036,7 @@ define hidden void @_ZN19OpenColorIO_v2_4dev14LogRendererSSEC2ERSt10shared_ptrIK
 entry:
   %m_logScale.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store float %logScale, ptr %m_logScale.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev14LogRendererSSEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev14LogRendererSSEE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -1117,7 +1117,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev15AntiLogRendererC2ERSt10shared_ptrIKNS_9LogOpDataEEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, ptr nocapture nonnull readnone align 8 %log, float noundef %log2base) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15AntiLogRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15AntiLogRendererE, i64 16), ptr %this, align 8
   %m_log2_base = getelementptr inbounds nuw i8, ptr %this, i64 8
   store float %log2base, ptr %m_log2_base, align 8
   ret void
@@ -1176,7 +1176,7 @@ define hidden void @_ZN19OpenColorIO_v2_4dev18AntiLogRendererSSEC2ERSt10shared_p
 entry:
   %m_log2_base.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store float %log2base, ptr %m_log2_base.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18AntiLogRendererSSEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18AntiLogRendererSSEE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -1259,7 +1259,7 @@ entry:
   store float 2.000000e+00, ptr %m_base.i, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_paramsR.i, i8 0, i64 72, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15Log2LinRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15Log2LinRendererE, i64 16), ptr %this, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev15Log2LinRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(16) %log)
           to label %invoke.cont unwind label %lpad
 
@@ -1477,7 +1477,7 @@ entry:
   store float 2.000000e+00, ptr %m_base.i.i, align 8
   %m_paramsR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_paramsR.i.i, i8 0, i64 72, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15Log2LinRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15Log2LinRendererE, i64 16), ptr %this, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev15Log2LinRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %log)
           to label %_ZN19OpenColorIO_v2_4dev15Log2LinRendererC2ERSt10shared_ptrIKNS_9LogOpDataEE.exit unwind label %lpad.i
 
@@ -1488,7 +1488,7 @@ lpad.i:                                           ; preds = %entry
   resume { ptr, i32 } %0
 
 _ZN19OpenColorIO_v2_4dev15Log2LinRendererC2ERSt10shared_ptrIKNS_9LogOpDataEE.exit: ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18Log2LinRendererSSEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18Log2LinRendererSSEE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -1606,7 +1606,7 @@ entry:
   store float 2.000000e+00, ptr %m_base.i, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_paramsR.i, i8 0, i64 72, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15Lin2LogRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15Lin2LogRendererE, i64 16), ptr %this, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev15Lin2LogRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(16) %log)
           to label %invoke.cont unwind label %lpad
 
@@ -1819,7 +1819,7 @@ entry:
   store float 2.000000e+00, ptr %m_base.i.i, align 8
   %m_paramsR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_paramsR.i.i, i8 0, i64 72, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15Lin2LogRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15Lin2LogRendererE, i64 16), ptr %this, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev15Lin2LogRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %log)
           to label %_ZN19OpenColorIO_v2_4dev15Lin2LogRendererC2ERSt10shared_ptrIKNS_9LogOpDataEE.exit unwind label %lpad.i
 
@@ -1830,7 +1830,7 @@ lpad.i:                                           ; preds = %entry
   resume { ptr, i32 } %0
 
 _ZN19OpenColorIO_v2_4dev15Lin2LogRendererC2ERSt10shared_ptrIKNS_9LogOpDataEE.exit: ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18Lin2LogRendererSSEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18Lin2LogRendererSSEE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -1950,7 +1950,7 @@ entry:
   store float 2.000000e+00, ptr %m_base.i, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_paramsR.i, i8 0, i64 72, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21CameraL2LBaseRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21CameraL2LBaseRendererE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -2039,7 +2039,7 @@ entry:
   store float 2.000000e+00, ptr %m_base.i.i, align 8
   %m_paramsR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_paramsR.i.i, i8 0, i64 72, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21CameraLog2LinRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21CameraLog2LinRendererE, i64 16), ptr %this, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev21CameraL2LBaseRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %log)
           to label %invoke.cont unwind label %lpad
 
@@ -2357,7 +2357,7 @@ for.end45:                                        ; preds = %for.end, %entry
 define hidden void @_ZN19OpenColorIO_v2_4dev24CameraLog2LinRendererSSEC2ERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 12), (16, 88)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %log) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev21CameraLog2LinRendererC2ERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %log)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev24CameraLog2LinRendererSSEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev24CameraLog2LinRendererSSEE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -2506,7 +2506,7 @@ entry:
   store float 2.000000e+00, ptr %m_base.i.i, align 8
   %m_paramsR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_paramsR.i.i, i8 0, i64 72, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21CameraLin2LogRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21CameraLin2LogRendererE, i64 16), ptr %this, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev21CameraL2LBaseRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(188) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %log)
           to label %invoke.cont unwind label %lpad
 
@@ -2780,7 +2780,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #13
 define hidden void @_ZN19OpenColorIO_v2_4dev24CameraLin2LogRendererSSEC2ERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(188) initializes((0, 12), (16, 88)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %log) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev21CameraLin2LogRendererC2ERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(188) %this, ptr noundef nonnull align 8 dereferenceable(16) %log)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev24CameraLin2LogRendererSSEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev24CameraLin2LogRendererSSEE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -2948,7 +2948,7 @@ declare void @_ZNK19OpenColorIO_v2_4dev5OpCPU18getDynamicPropertyENS_19DynamicPr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
   %m_paramsB = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_paramsB, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -3044,7 +3044,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev15Log2LinRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
   %m_paramsB.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_paramsB.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -3081,7 +3081,7 @@ _ZN19OpenColorIO_v2_4dev15L2LBaseRendererD2Ev.exit: ; preds = %_ZNSt6vectorIdSaI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev15Log2LinRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
   %m_paramsB.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_paramsB.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -3119,7 +3119,7 @@ _ZN19OpenColorIO_v2_4dev15Log2LinRendererD2Ev.exit: ; preds = %_ZNSt6vectorIdSaI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev18Log2LinRendererSSED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
   %m_paramsB.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_paramsB.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -3156,7 +3156,7 @@ _ZN19OpenColorIO_v2_4dev15Log2LinRendererD2Ev.exit: ; preds = %_ZNSt6vectorIdSaI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev18Log2LinRendererSSED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
   %m_paramsB.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_paramsB.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -3194,7 +3194,7 @@ _ZN19OpenColorIO_v2_4dev18Log2LinRendererSSED2Ev.exit: ; preds = %_ZNSt6vectorId
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev15Lin2LogRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
   %m_paramsB.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_paramsB.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -3231,7 +3231,7 @@ _ZN19OpenColorIO_v2_4dev15L2LBaseRendererD2Ev.exit: ; preds = %_ZNSt6vectorIdSaI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev15Lin2LogRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
   %m_paramsB.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_paramsB.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -3269,7 +3269,7 @@ _ZN19OpenColorIO_v2_4dev15Lin2LogRendererD2Ev.exit: ; preds = %_ZNSt6vectorIdSaI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev18Lin2LogRendererSSED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
   %m_paramsB.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_paramsB.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -3306,7 +3306,7 @@ _ZN19OpenColorIO_v2_4dev15Lin2LogRendererD2Ev.exit: ; preds = %_ZNSt6vectorIdSaI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev18Lin2LogRendererSSED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
   %m_paramsB.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_paramsB.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -3344,7 +3344,7 @@ _ZN19OpenColorIO_v2_4dev18Lin2LogRendererSSED2Ev.exit: ; preds = %_ZNSt6vectorId
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev21CameraL2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
   %m_paramsB.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_paramsB.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -3388,7 +3388,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev21CameraLog2LinRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
   %m_paramsB.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_paramsB.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -3425,7 +3425,7 @@ _ZN19OpenColorIO_v2_4dev21CameraL2LBaseRendererD2Ev.exit: ; preds = %_ZNSt6vecto
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev21CameraLog2LinRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
   %m_paramsB.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_paramsB.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -3463,7 +3463,7 @@ _ZN19OpenColorIO_v2_4dev21CameraLog2LinRendererD2Ev.exit: ; preds = %_ZNSt6vecto
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev24CameraLog2LinRendererSSED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
   %m_paramsB.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_paramsB.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -3500,7 +3500,7 @@ _ZN19OpenColorIO_v2_4dev21CameraLog2LinRendererD2Ev.exit: ; preds = %_ZNSt6vecto
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev24CameraLog2LinRendererSSED0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
   %m_paramsB.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_paramsB.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -3538,7 +3538,7 @@ _ZN19OpenColorIO_v2_4dev24CameraLog2LinRendererSSED2Ev.exit: ; preds = %_ZNSt6ve
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev21CameraLin2LogRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(188) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
   %m_paramsB.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_paramsB.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -3575,7 +3575,7 @@ _ZN19OpenColorIO_v2_4dev21CameraL2LBaseRendererD2Ev.exit: ; preds = %_ZNSt6vecto
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev21CameraLin2LogRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(188) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
   %m_paramsB.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_paramsB.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -3613,7 +3613,7 @@ _ZN19OpenColorIO_v2_4dev21CameraLin2LogRendererD2Ev.exit: ; preds = %_ZNSt6vecto
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev24CameraLin2LogRendererSSED2Ev(ptr noundef nonnull align 8 dereferenceable(188) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
   %m_paramsB.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_paramsB.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -3650,7 +3650,7 @@ _ZN19OpenColorIO_v2_4dev21CameraLin2LogRendererD2Ev.exit: ; preds = %_ZNSt6vecto
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev24CameraLin2LogRendererSSED0Ev(ptr noundef nonnull align 8 dereferenceable(188) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15L2LBaseRendererE, i64 16), ptr %this, align 8
   %m_paramsB.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_paramsB.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %0, null

@@ -70,7 +70,7 @@ define dso_local void @TransactionIdSetTreeStatus(i32 noundef %0, i32 noundef %1
   br i1 %17, label %.split35, label %.split
 
 .split:                                           ; preds = %16
-  %18 = load i16, ptr getelementptr inbounds (i8, ptr @XactCtlData, i64 8), align 8
+  %18 = load i16, ptr getelementptr inbounds nuw (i8, ptr @XactCtlData, i64 8), align 8
   %19 = zext i16 %18 to i64
   %20 = and i64 %19, %7
   %21 = load ptr, ptr @XactCtlData, align 8
@@ -123,7 +123,7 @@ define dso_local void @TransactionIdSetTreeStatus(i32 noundef %0, i32 noundef %1
   %.1.i = phi i32 [ %.018.i, %35 ], [ %34, %41 ]
   %45 = sext i32 %.01925.i to i64
   %46 = getelementptr i32, ptr %28, i64 %45
-  %47 = load i16, ptr getelementptr inbounds (i8, ptr @XactCtlData, i64 8), align 8
+  %47 = load i16, ptr getelementptr inbounds nuw (i8, ptr @XactCtlData, i64 8), align 8
   %48 = zext i16 %47 to i64
   %49 = and i64 %.026.i, %48
   %50 = load ptr, ptr @XactCtlData, align 8
@@ -180,7 +180,7 @@ define dso_local void @TransactionIdSetTreeStatus(i32 noundef %0, i32 noundef %1
   %.1.i48 = phi i32 [ %.018.i44, %65 ], [ %64, %71 ]
   %75 = sext i32 %.01925.i41 to i64
   %76 = getelementptr i32, ptr %58, i64 %75
-  %77 = load i16, ptr getelementptr inbounds (i8, ptr @XactCtlData, i64 8), align 8
+  %77 = load i16, ptr getelementptr inbounds nuw (i8, ptr @XactCtlData, i64 8), align 8
   %78 = zext i16 %77 to i64
   %79 = and i64 %.026.i40, %78
   %80 = load ptr, ptr @XactCtlData, align 8
@@ -194,7 +194,7 @@ define dso_local void @TransactionIdSetTreeStatus(i32 noundef %0, i32 noundef %1
   br i1 %85, label %.preheader.i39, label %set_status_by_pages.exit50, !llvm.loop !8
 
 set_status_by_pages.exit50:                       ; preds = %74
-  %86 = load i16, ptr getelementptr inbounds (i8, ptr @XactCtlData, i64 8), align 8
+  %86 = load i16, ptr getelementptr inbounds nuw (i8, ptr @XactCtlData, i64 8), align 8
   %87 = zext i16 %86 to i64
   %88 = and i64 %87, %7
   %89 = load ptr, ptr @XactCtlData, align 8
@@ -240,7 +240,7 @@ set_status_by_pages.exit50:                       ; preds = %74
   %.1.i61 = phi i32 [ %.018.i57, %99 ], [ %98, %105 ]
   %109 = sext i32 %.01925.i54 to i64
   %110 = getelementptr i32, ptr %58, i64 %109
-  %111 = load i16, ptr getelementptr inbounds (i8, ptr @XactCtlData, i64 8), align 8
+  %111 = load i16, ptr getelementptr inbounds nuw (i8, ptr @XactCtlData, i64 8), align 8
   %112 = zext i16 %111 to i64
   %113 = and i64 %.026.i53, %112
   %114 = load ptr, ptr @XactCtlData, align 8
@@ -254,7 +254,7 @@ set_status_by_pages.exit50:                       ; preds = %74
   br i1 %119, label %.preheader.i52, label %set_status_by_pages.exit, !llvm.loop !8
 
 set_status_by_pages.exit.critedge:                ; preds = %.split35
-  %120 = load i16, ptr getelementptr inbounds (i8, ptr @XactCtlData, i64 8), align 8
+  %120 = load i16, ptr getelementptr inbounds nuw (i8, ptr @XactCtlData, i64 8), align 8
   %121 = zext i16 %120 to i64
   %122 = and i64 %121, %7
   %123 = load ptr, ptr @XactCtlData, align 8
@@ -272,7 +272,7 @@ set_status_by_pages.exit:                         ; preds = %44, %108, %set_stat
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 131072) %5, i1 noundef zeroext %6) unnamed_addr #0 {
-  %8 = load i16, ptr getelementptr inbounds (i8, ptr @XactCtlData, i64 8), align 8
+  %8 = load i16, ptr getelementptr inbounds nuw (i8, ptr @XactCtlData, i64 8), align 8
   %9 = zext i16 %8 to i64
   %10 = and i64 %5, %9
   %11 = load ptr, ptr @XactCtlData, align 8
@@ -390,7 +390,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
 
 74:                                               ; preds = %59
   %75 = load i64, ptr %41, align 8
-  %76 = load i16, ptr getelementptr inbounds (i8, ptr @XactCtlData, i64 8), align 8
+  %76 = load i16, ptr getelementptr inbounds nuw (i8, ptr @XactCtlData, i64 8), align 8
   %77 = zext i16 %76 to i64
   %78 = and i64 %75, %77
   %79 = load ptr, ptr @XactCtlData, align 8
@@ -421,7 +421,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   br i1 %.not67.i, label %103, label %93
 
 93:                                               ; preds = %.lr.ph82.i
-  %94 = load i16, ptr getelementptr inbounds (i8, ptr @XactCtlData, i64 8), align 8
+  %94 = load i16, ptr getelementptr inbounds nuw (i8, ptr @XactCtlData, i64 8), align 8
   %95 = zext i16 %94 to i64
   %96 = and i64 %91, %95
   %97 = load ptr, ptr @XactCtlData, align 8
@@ -543,7 +543,7 @@ define dso_local range(i32 0, 4) i32 @TransactionIdGetStatus(i32 noundef %0, ptr
   %28 = getelementptr i64, ptr %26, i64 %27
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr %1, align 8
-  %30 = load i16, ptr getelementptr inbounds (i8, ptr @XactCtlData, i64 8), align 8
+  %30 = load i16, ptr getelementptr inbounds nuw (i8, ptr @XactCtlData, i64 8), align 8
   %31 = zext i16 %30 to i64
   %32 = and i64 %31, %4
   %33 = load ptr, ptr @XactCtlData, align 8
@@ -598,13 +598,13 @@ CLOGShmemBuffers.exit:                            ; preds = %0
 
 .thread:                                          ; preds = %CLOGShmemBuffers.exit, %0
   %.ph = phi i32 [ %2, %0 ], [ %6, %CLOGShmemBuffers.exit ]
-  store ptr @CLOGPagePrecedes, ptr getelementptr inbounds (i8, ptr @XactCtlData, i64 16), align 8
+  store ptr @CLOGPagePrecedes, ptr getelementptr inbounds nuw (i8, ptr @XactCtlData, i64 16), align 8
   br label %12
 
 8:                                                ; preds = %CLOGShmemBuffers.exit
   call void @SetConfigOption(ptr noundef nonnull @.str.1, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 10) #9
   %.pr = load i32, ptr @transaction_buffers, align 4
-  store ptr @CLOGPagePrecedes, ptr getelementptr inbounds (i8, ptr @XactCtlData, i64 16), align 8
+  store ptr @CLOGPagePrecedes, ptr getelementptr inbounds nuw (i8, ptr @XactCtlData, i64 16), align 8
   %9 = icmp eq i32 %.pr, 0
   br i1 %9, label %10, label %12
 
@@ -695,7 +695,7 @@ define dso_local void @TrimCLOG() local_unnamed_addr #0 {
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = lshr i64 %3, 15
-  %6 = load i16, ptr getelementptr inbounds (i8, ptr @XactCtlData, i64 8), align 8
+  %6 = load i16, ptr getelementptr inbounds nuw (i8, ptr @XactCtlData, i64 8), align 8
   %7 = zext i16 %6 to i64
   %8 = and i64 %5, %7
   %9 = load ptr, ptr @XactCtlData, align 8
@@ -804,7 +804,7 @@ define dso_local void @ExtendCLOG(i32 noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %1
   %7 = lshr i32 %0, 15
   %8 = zext nneg i32 %7 to i64
-  %9 = load i16, ptr getelementptr inbounds (i8, ptr @XactCtlData, i64 8), align 8
+  %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @XactCtlData, i64 8), align 8
   %10 = zext i16 %9 to i64
   %11 = and i64 %10, %8
   %12 = load ptr, ptr @XactCtlData, align 8
@@ -882,7 +882,7 @@ define dso_local void @clog_redo(ptr nocapture noundef readonly %0) local_unname
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %9 = load ptr, ptr %8, align 8
   %.0.copyload = load i64, ptr %9, align 1
-  %10 = load i16, ptr getelementptr inbounds (i8, ptr @XactCtlData, i64 8), align 8
+  %10 = load i16, ptr getelementptr inbounds nuw (i8, ptr @XactCtlData, i64 8), align 8
   %11 = zext i16 %10 to i64
   %12 = and i64 %.0.copyload, %11
   %13 = load ptr, ptr @XactCtlData, align 8

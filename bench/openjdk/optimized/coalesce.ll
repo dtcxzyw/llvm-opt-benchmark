@@ -1552,7 +1552,7 @@ _ZN4NodenwEm.exit:                                ; preds = %548, %550
   store ptr null, ptr %556, align 8
   %557 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
   store i32 2, ptr %557, align 4
-  store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV17MachSpillCopyNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV17MachSpillCopyNode, i64 16), ptr %.0.i.i.i, align 8
   %558 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   store ptr %533, ptr %558, align 8
   %559 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
@@ -1929,7 +1929,7 @@ _ZN4NodenwEm.exit240:                             ; preds = %762, %764
   store ptr null, ptr %770, align 8
   %771 = getelementptr inbounds nuw i8, ptr %.0.i.i.i239, i64 44
   store i32 2, ptr %771, align 4
-  store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV17MachSpillCopyNode, i64 16), ptr %.0.i.i.i239, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV17MachSpillCopyNode, i64 16), ptr %.0.i.i.i239, align 8
   %772 = getelementptr inbounds nuw i8, ptr %.0.i.i.i239, i64 64
   store ptr %747, ptr %772, align 8
   %773 = getelementptr inbounds nuw i8, ptr %.0.i.i.i239, i64 72
@@ -2312,7 +2312,7 @@ _ZN4NodenwEm.exit267:                             ; preds = %978, %980
   store ptr null, ptr %986, align 8
   %987 = getelementptr inbounds nuw i8, ptr %.0.i.i.i266, i64 44
   store i32 2, ptr %987, align 4
-  store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV17MachSpillCopyNode, i64 16), ptr %.0.i.i.i266, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV17MachSpillCopyNode, i64 16), ptr %.0.i.i.i266, align 8
   %988 = getelementptr inbounds nuw i8, ptr %.0.i.i.i266, i64 64
   store ptr %963, ptr %988, align 8
   %989 = getelementptr inbounds nuw i8, ptr %.0.i.i.i266, i64 72
@@ -2709,7 +2709,7 @@ define hidden void @_ZN25PhaseConservativeCoalesceC2ER12PhaseChaitin(ptr noundef
   tail call void @_ZN5PhaseC2ENS_11PhaseNumberE(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 13) #9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV25PhaseConservativeCoalesce, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV25PhaseConservativeCoalesce, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %7 = load i32, ptr %6, align 8

@@ -58,9 +58,9 @@ define void @_ZN19StockIconToolButtonC2EP7QWidget7QString(ptr noundef nonnull al
   %4 = alloca %class.QCursor, align 8
   %5 = alloca %class.QString, align 8
   tail call void @_ZN11QToolButtonC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19StockIconToolButton, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19StockIconToolButton, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19StockIconToolButton, i64 480), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19StockIconToolButton, i64 480), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN5QIconC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -648,9 +648,9 @@ declare noundef i32 @_ZN11QToolButton11qt_metacallEN11QMetaObject4CallEiPPv(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN19StockIconToolButtonD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19StockIconToolButton, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19StockIconToolButton, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19StockIconToolButton, i64 480), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19StockIconToolButton, i64 480), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -675,9 +675,9 @@ _ZN7QStringD2Ev.exit:                             ; preds = %1, %_ZN17QArrayData
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN19StockIconToolButtonD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19StockIconToolButton, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19StockIconToolButton, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19StockIconToolButton, i64 480), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19StockIconToolButton, i64 480), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -804,8 +804,8 @@ declare void @_ZNK11QToolButton15initStyleOptionEP22QStyleOptionToolButton(ptr n
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn16_N19StockIconToolButtonD1Ev(ptr noundef %0) unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19StockIconToolButton, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19StockIconToolButton, i64 480), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19StockIconToolButton, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19StockIconToolButton, i64 480), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -831,8 +831,8 @@ _ZN19StockIconToolButtonD2Ev.exit:                ; preds = %1, %_ZN17QArrayData
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn16_N19StockIconToolButtonD0Ev(ptr noundef %0) unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19StockIconToolButton, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19StockIconToolButton, i64 480), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19StockIconToolButton, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19StockIconToolButton, i64 480), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null

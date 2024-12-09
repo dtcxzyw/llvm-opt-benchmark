@@ -84,7 +84,7 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @jobcomp_common_load_state_file(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1336), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1336), align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str, ptr noundef %3, ptr noundef %0) #7
   %4 = load ptr, ptr %2, align 8
   %5 = call ptr @create_mmap_buf(ptr noundef %4) #7
@@ -132,7 +132,7 @@ define void @jobcomp_common_write_state_file(ptr nocapture noundef readonly %0, 
   store ptr null, ptr %4, align 8
   store ptr null, ptr %5, align 8
   store ptr null, ptr %6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1336), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1336), align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str, ptr noundef %7, ptr noundef %1) #7
   %8 = load ptr, ptr %3, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.5, ptr noundef %8) #7

@@ -322,7 +322,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16JvmtiAgentThreadC2EP8JvmtiEnvPFvP9_jvmtiEnvP7JNIEnv_PvEPKv(ptr noundef nonnull align 8 dereferenceable(1824) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   tail call void @_ZN10JavaThreadC2EPFvPS_S0_Em8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(1800) %0, ptr noundef nonnull @_ZN16JvmtiAgentThread22start_function_wrapperEP10JavaThreadS1_, i64 noundef 0, i8 noundef zeroext 2) #17
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV16JvmtiAgentThread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV16JvmtiAgentThread, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1808
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1800
@@ -925,7 +925,7 @@ _ZN26GrowableArrayWithAllocatorIP15GrowableElement13GrowableArrayIS1_EE6appendER
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15JvmtiBreakpointC2EP6Methodl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 20), (24, 32)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV15JvmtiBreakpoint, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV15JvmtiBreakpoint, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -962,7 +962,7 @@ declare noundef ptr @_ZN11JvmtiExport17jvmti_oop_storageEv() local_unnamed_addr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15JvmtiBreakpointD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV15JvmtiBreakpoint, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV15JvmtiBreakpoint, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = tail call noundef ptr @_ZN11JvmtiExport17jvmti_oop_storageEv() #17
   %4 = load ptr, ptr %2, align 8
@@ -983,7 +983,7 @@ _ZN9OopHandle7releaseEP10OopStorage.exit:         ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15JvmtiBreakpointD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV15JvmtiBreakpoint, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV15JvmtiBreakpoint, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = tail call noundef ptr @_ZN11JvmtiExport17jvmti_oop_storageEv() #17
   %4 = load ptr, ptr %2, align 8
@@ -1931,7 +1931,7 @@ define hidden noundef range(i32 0, 41) i32 @_ZN16JvmtiBreakpoints3setER15JvmtiBr
 _ZN20JvmtiBreakpointCache4findER15JvmtiBreakpoint.exit.thread: ; preds = %17, %2
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV20VM_ChangeBreakpoints, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV20VM_ChangeBreakpoints, i64 16), ptr %3, align 8
   %22 = load ptr, ptr @_ZN23JvmtiCurrentBreakpoints18_jvmti_breakpointsE, align 8
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %23, label %_ZN20VM_ChangeBreakpointsC2EiP15JvmtiBreakpoint.exit
@@ -2018,7 +2018,7 @@ define hidden noundef range(i32 0, 42) i32 @_ZN16JvmtiBreakpoints5clearER15Jvmti
 _ZN20JvmtiBreakpointCache4findER15JvmtiBreakpoint.exit: ; preds = %9
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV20VM_ChangeBreakpoints, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV20VM_ChangeBreakpoints, i64 16), ptr %3, align 8
   %22 = load ptr, ptr @_ZN23JvmtiCurrentBreakpoints18_jvmti_breakpointsE, align 8
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %23, label %_ZN20VM_ChangeBreakpointsC2EiP15JvmtiBreakpoint.exit
@@ -2244,7 +2244,7 @@ define hidden void @_ZN20VM_BaseGetOrSetLocalC2EP10JavaThreadii9BasicType6jvalue
   %10 = zext i1 %7 to i8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV20VM_BaseGetOrSetLocal, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV20VM_BaseGetOrSetLocal, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3227,7 +3227,7 @@ define hidden void @_ZN16VM_GetOrSetLocalC2EP10JavaThreadii9BasicTypeb(ptr nocap
   store i8 %7, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 0, ptr %15, align 4
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV16VM_GetOrSetLocal, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV16VM_GetOrSetLocal, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3258,7 +3258,7 @@ define hidden void @_ZN16VM_GetOrSetLocalC2EP10JavaThreadii9BasicType6jvalueb(pt
   store i8 %8, ptr %17, align 1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 0, ptr %18, align 4
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV16VM_GetOrSetLocal, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV16VM_GetOrSetLocal, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3312,7 +3312,7 @@ define hidden void @_ZN16VM_GetOrSetLocalC2EP10JavaThreadS1_iib(ptr noundef nonn
   store i8 %7, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 0, ptr %15, align 4
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV16VM_GetOrSetLocal, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV16VM_GetOrSetLocal, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3469,7 +3469,7 @@ define hidden void @_ZN14VM_GetReceiverC2EP10JavaThreadS1_ib(ptr noundef nonnull
   store i8 %6, ptr %13, align 1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 0, ptr %14, align 4
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV16VM_GetOrSetLocal, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV16VM_GetOrSetLocal, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3491,7 +3491,7 @@ define hidden void @_ZN14VM_GetReceiverC2EP10JavaThreadS1_ib(ptr noundef nonnull
   br label %_ZN16VM_GetOrSetLocalC2EP10JavaThreadS1_iib.exit
 
 _ZN16VM_GetOrSetLocalC2EP10JavaThreadS1_iib.exit: ; preds = %5, %25
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV14VM_GetReceiver, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV14VM_GetReceiver, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -3514,7 +3514,7 @@ define hidden void @_ZN29VM_VirtualThreadGetOrSetLocalC2EP8JvmtiEnv6Handleii9Bas
   store i8 %8, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 0, ptr %16, align 4
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV29VM_VirtualThreadGetOrSetLocal, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV29VM_VirtualThreadGetOrSetLocal, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %18, align 8
@@ -3545,7 +3545,7 @@ define hidden void @_ZN29VM_VirtualThreadGetOrSetLocalC2EP8JvmtiEnv6Handleii9Bas
   store i8 %9, ptr %18, align 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 0, ptr %19, align 4
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV29VM_VirtualThreadGetOrSetLocal, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV29VM_VirtualThreadGetOrSetLocal, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %21, align 8
@@ -3572,7 +3572,7 @@ define hidden void @_ZN29VM_VirtualThreadGetOrSetLocalC2EP8JvmtiEnv6HandleP10Jav
   store i8 %8, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 0, ptr %16, align 4
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV29VM_VirtualThreadGetOrSetLocal, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV29VM_VirtualThreadGetOrSetLocal, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %18, align 8
@@ -3874,7 +3874,7 @@ define hidden void @_ZN27VM_VirtualThreadGetReceiverC2EP8JvmtiEnv6HandleP10JavaT
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %17, align 8
   store ptr %2, ptr %16, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV27VM_VirtualThreadGetReceiver, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV27VM_VirtualThreadGetReceiver, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -4314,7 +4314,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK15JvmtiBreakpoint6equalsEPK15
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN15JvmtiBreakpoint5cloneEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #17
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV15JvmtiBreakpoint, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV15JvmtiBreakpoint, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16

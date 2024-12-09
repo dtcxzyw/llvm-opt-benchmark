@@ -177,7 +177,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.H5Ssel_iter_close = private unnamed_addr constant [18 x i8] c"H5Ssel_iter_close\00", align 1
 @H5E_CANTDEC_g = external local_unnamed_addr global i64, align 8
 @.str.99 = private unnamed_addr constant [48 x i8] c"problem freeing dataspace selection iterator ID\00", align 1
-@switch.table.H5S_select_deserialize = private unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds (i8, ptr @H5S_sel_none, i64 48), ptr getelementptr inbounds (i8, ptr @H5S_sel_point, i64 48), ptr getelementptr inbounds (i8, ptr @H5S_sel_hyper, i64 48), ptr getelementptr inbounds (i8, ptr @H5S_sel_all, i64 48)], align 8
+@switch.table.H5S_select_deserialize = private unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds nuw (i8, ptr @H5S_sel_none, i64 48), ptr getelementptr inbounds nuw (i8, ptr @H5S_sel_point, i64 48), ptr getelementptr inbounds nuw (i8, ptr @H5S_sel_hyper, i64 48), ptr getelementptr inbounds nuw (i8, ptr @H5S_sel_all, i64 48)], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @H5S_select_offset(ptr nocapture noundef initializes((88, 89)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {

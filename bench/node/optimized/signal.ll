@@ -29,13 +29,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %cmp1.not = icmp eq i32 %1, -1
   br i1 %cmp1.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   %call3 = tail call i32 @uv__close(i32 noundef %1) #10
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
@@ -965,7 +965,7 @@ if.end13:                                         ; preds = %if.else, %if.end.i2
   br label %do.body.i.i25
 
 do.body.i.i25:                                    ; preds = %land.rhs.i.i26, %if.end13
-  %83 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
+  %83 = load i32, ptr getelementptr inbounds nuw (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %call.i.i = call i64 @write(i32 noundef %83, ptr noundef nonnull %data.i.i, i64 noundef 1) #10
   %84 = and i64 %call.i.i, 2147483648
   %cmp.not.not.not.not.i.not.i = icmp eq i64 %84, 0
@@ -1280,7 +1280,7 @@ if.then15:                                        ; preds = %if.then12.thread, %
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %land.rhs.i.i, %if.then15
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %call.i.i = call i64 @write(i32 noundef %8, ptr noundef nonnull %data.i.i, i64 noundef 1) #10
   %9 = and i64 %call.i.i, 2147483648
   %cmp.not.not.not.not.i.not.i = icmp eq i64 %9, 0
@@ -1702,7 +1702,7 @@ uv__signal_tree_s_RB_INSERT.exit:                 ; preds = %if.else.i, %uv__sig
   br label %do.body.i.i50
 
 do.body.i.i50:                                    ; preds = %land.rhs.i.i53, %uv__signal_tree_s_RB_INSERT.exit
-  %53 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %call.i.i51 = call i64 @write(i32 noundef %53, ptr noundef nonnull %data.i.i49, i64 noundef 1) #10
   %54 = and i64 %call.i.i51, 2147483648
   %cmp.not.not.not.not.i.not.i52 = icmp eq i64 %54, 0
@@ -1790,13 +1790,13 @@ if.then.i:                                        ; preds = %entry
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %cmp1.not.i = icmp eq i32 %1, -1
   br i1 %cmp1.not.i, label %uv__signal_cleanup.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
   %call3.i = tail call i32 @uv__close(i32 noundef %1) #10
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   br label %uv__signal_cleanup.exit
 
 uv__signal_cleanup.exit:                          ; preds = %if.end.i, %if.then2.i
@@ -1814,7 +1814,7 @@ if.end:                                           ; preds = %uv__signal_cleanup.
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %if.end
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %call.i1 = call i64 @write(i32 noundef %2, ptr noundef nonnull %data.i, i64 noundef 1) #10
   %3 = and i64 %call.i1, 2147483648
   %cmp.not.not.not.not.i.not = icmp eq i64 %3, 0
@@ -2231,7 +2231,7 @@ for.end:                                          ; preds = %uv__signal_tree_s_R
   br label %do.body.i14
 
 do.body.i14:                                      ; preds = %land.rhs.i18, %for.end
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %call.i15 = call i64 @write(i32 noundef %22, ptr noundef nonnull %data.i13, i64 noundef 1) #10
   %23 = and i64 %call.i15, 2147483648
   %cmp.not.not.not.not.i16.not = icmp eq i64 %23, 0

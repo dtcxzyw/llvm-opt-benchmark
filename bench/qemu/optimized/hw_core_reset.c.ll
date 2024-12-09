@@ -17,11 +17,11 @@ entry:
   %opaque2 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %opaque, ptr %opaque2, align 8
   store ptr null, ptr %call, align 8
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @reset_handlers, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @reset_handlers, i64 8), align 8
   %tql_prev = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %0, ptr %tql_prev, align 8
   store ptr %call, ptr %0, align 8
-  store ptr %call, ptr getelementptr inbounds (i8, ptr @reset_handlers, i64 8), align 8
+  store ptr %call, ptr getelementptr inbounds nuw (i8, ptr @reset_handlers, i64 8), align 8
   ret void
 }
 
@@ -39,11 +39,11 @@ entry:
   %skip_on_snapshot_load = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i8 1, ptr %skip_on_snapshot_load, align 8
   store ptr null, ptr %call, align 8
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @reset_handlers, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @reset_handlers, i64 8), align 8
   %tql_prev = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %0, ptr %tql_prev, align 8
   store ptr %call, ptr %0, align 8
-  store ptr %call, ptr getelementptr inbounds (i8, ptr @reset_handlers, i64 8), align 8
+  store ptr %call, ptr getelementptr inbounds nuw (i8, ptr @reset_handlers, i64 8), align 8
   ret void
 }
 
@@ -80,7 +80,7 @@ if.then6:                                         ; preds = %do.body
   br label %if.end
 
 if.else:                                          ; preds = %do.body
-  store ptr %3, ptr getelementptr inbounds (i8, ptr @reset_handlers, i64 8), align 8
+  store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @reset_handlers, i64 8), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then6

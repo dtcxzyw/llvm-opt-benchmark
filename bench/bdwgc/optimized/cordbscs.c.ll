@@ -399,7 +399,7 @@ CORD__call_oom_fn.exit102:                        ; preds = %80, %82
 
 101:                                              ; preds = %100
   store i64 1, ptr @min_len, align 16
-  store i64 2, ptr getelementptr inbounds (i8, ptr @min_len, i64 8), align 8
+  store i64 2, ptr getelementptr inbounds nuw (i8, ptr @min_len, i64 8), align 8
   br label %102
 
 102:                                              ; preds = %102, %101
@@ -517,7 +517,7 @@ define ptr @CORD_balance(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %6
   store i64 1, ptr @min_len, align 16
-  store i64 2, ptr getelementptr inbounds (i8, ptr @min_len, i64 8), align 8
+  store i64 2, ptr getelementptr inbounds nuw (i8, ptr @min_len, i64 8), align 8
   br label %8
 
 8:                                                ; preds = %8, %7

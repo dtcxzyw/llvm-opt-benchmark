@@ -266,7 +266,7 @@ gv_calloc.exit:                                   ; preds = %1
 strview_str.exit.i.us:                            ; preds = %gv_calloc.exit, %strview_str.exit.i.us
   %.056108.i.us = phi i64 [ %22, %strview_str.exit.i.us ], [ 0, %gv_calloc.exit ]
   %18 = getelementptr inbounds nuw [10 x %struct.availfont_t], ptr %10, i64 0, i64 %.056108.i.us
-  %gep = getelementptr inbounds nuw %struct.fontdef_t, ptr getelementptr inbounds (i8, ptr @gv_ps_fontdefs, i64 8), i64 %.056108.i.us
+  %gep = getelementptr inbounds nuw %struct.fontdef_t, ptr getelementptr inbounds nuw (i8, ptr @gv_ps_fontdefs, i64 8), i64 %.056108.i.us
   %19 = load ptr, ptr %gep, align 8, !noalias !4
   store ptr %19, ptr %18, align 8, !alias.scope !4
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8

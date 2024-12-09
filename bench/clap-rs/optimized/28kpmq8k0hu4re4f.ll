@@ -7579,7 +7579,7 @@ define internal noundef zeroext i1 @"_ZN63_$LT$clap_builder..util..id..Id$u20$as
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, ptr } @_ZN12clap_builder4util5color11ColorChoice15possible_values17hd8223b60bd6e20cdE() unnamed_addr #2 {
-  ret { ptr, ptr } { ptr @anon.980ce058bd2d65e605482c1be90a0bb4.126, ptr getelementptr inbounds (i8, ptr @anon.980ce058bd2d65e605482c1be90a0bb4.126, i64 3) }
+  ret { ptr, ptr } { ptr @anon.980ce058bd2d65e605482c1be90a0bb4.126, ptr getelementptr inbounds nuw (i8, ptr @anon.980ce058bd2d65e605482c1be90a0bb4.126, i64 3) }
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

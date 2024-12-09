@@ -141,10 +141,10 @@ define internal range(i32 -6, 1) i32 @if_posix_open() #0 {
   br i1 %or.cond92, label %50, label %.backedge
 
 50:                                               ; preds = %47
-  %51 = load i64, ptr getelementptr inbounds (i8, ptr @opal_if_t_class, i64 56), align 8
+  %51 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opal_if_t_class, i64 56), align 8
   %52 = call noalias ptr @malloc(i64 noundef %51) #11
   %53 = load i32, ptr @opal_class_init_epoch, align 4
-  %54 = load i32, ptr getelementptr inbounds (i8, ptr @opal_if_t_class, i64 32), align 8
+  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_if_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %53, %54
   br i1 %.not.i, label %56, label %55
 
@@ -191,17 +191,17 @@ opal_obj_new.exit.thread117:                      ; preds = %.lr.ph.i.i, %57
   %69 = sext i16 %68 to i32
   %70 = getelementptr inbounds nuw i8, ptr %52, i64 80
   store i32 %69, ptr %70, align 8
-  %71 = load volatile i64, ptr getelementptr inbounds (i8, ptr @opal_if_list, i64 56), align 8
+  %71 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @opal_if_list, i64 56), align 8
   %72 = trunc i64 %71 to i32
   %73 = add i32 %72, 1
   %74 = getelementptr inbounds nuw i8, ptr %52, i64 72
   store i32 %73, ptr %74, align 8
-  %75 = load i32, ptr getelementptr inbounds (i8, ptr @opal_if_base_framework, i64 76), align 4
+  %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_if_base_framework, i64 76), align 4
   %76 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 1, i32 noundef %75) #9
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %opal_obj_new.exit.thread117
-  %78 = load i32, ptr getelementptr inbounds (i8, ptr @opal_if_base_framework, i64 76), align 4
+  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_if_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %78, ptr noundef nonnull @.str.5, ptr noundef nonnull %67) #9
   br label %79
 
@@ -469,18 +469,18 @@ prefix.exit:                                      ; preds = %176, %.preheader.i,
   %203 = load i32, ptr %38, align 8
   %204 = getelementptr inbounds nuw i8, ptr %52, i64 232
   store i32 %203, ptr %204, align 8
-  %205 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @opal_if_list, i64 40), align 8
+  %205 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_if_list, i64 40), align 8
   %206 = getelementptr inbounds nuw i8, ptr %52, i64 24
   store volatile ptr %205, ptr %206, align 8
-  %207 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @opal_if_list, i64 40), align 8
+  %207 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_if_list, i64 40), align 8
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 16
   store volatile ptr %52, ptr %208, align 8
   %209 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  store volatile ptr getelementptr inbounds (i8, ptr @opal_if_list, i64 16), ptr %209, align 8
-  store volatile ptr %52, ptr getelementptr inbounds (i8, ptr @opal_if_list, i64 40), align 8
-  %210 = load volatile i64, ptr getelementptr inbounds (i8, ptr @opal_if_list, i64 56), align 8
+  store volatile ptr getelementptr inbounds nuw (i8, ptr @opal_if_list, i64 16), ptr %209, align 8
+  store volatile ptr %52, ptr getelementptr inbounds nuw (i8, ptr @opal_if_list, i64 40), align 8
+  %210 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @opal_if_list, i64 56), align 8
   %211 = add i64 %210, 1
-  store volatile i64 %211, ptr getelementptr inbounds (i8, ptr @opal_if_list, i64 56), align 8
+  store volatile i64 %211, ptr getelementptr inbounds nuw (i8, ptr @opal_if_list, i64 56), align 8
   br label %.backedge
 
 .loopexit:                                        ; preds = %.backedge, %opal_obj_run_destructors.exit100, %opal_thread_add_fetch_32.exit95, %199, %191

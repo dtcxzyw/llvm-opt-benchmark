@@ -20,20 +20,20 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @setErrorLine(i32 noundef %0) local_unnamed_addr #0 {
-  store i32 %0, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
+  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @_err_info, i64 8), align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @setErrorFileLine(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_err_info, i64 24), align 8
-  store i32 %1, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_err_info, i64 24), align 8
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_err_info, i64 8), align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @setErrorId(ptr noundef %0) local_unnamed_addr #0 {
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_err_info, i64 32), align 8
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_err_info, i64 32), align 8
   ret void
 }
 
@@ -51,13 +51,13 @@ define i32 @getErrorErrors() local_unnamed_addr #1 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @setTraceLevel(i32 noundef %0) local_unnamed_addr #0 {
-  store i32 %0, ptr getelementptr inbounds (i8, ptr @_err_info, i64 16), align 8
+  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @_err_info, i64 16), align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @_err_msgv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #2 {
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_err_info, i64 16), align 8
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_err_info, i64 16), align 8
   %6 = icmp slt i32 %1, %5
   br i1 %6, label %72, label %7
 
@@ -70,7 +70,7 @@ define void @_err_msgv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef rea
   br i1 %.not, label %17, label %11
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_err_info, i64 32), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_err_info, i64 32), align 8
   %.not28 = icmp eq ptr %12, null
   br i1 %.not28, label %13, label %.sink.split
 
@@ -96,7 +96,7 @@ define void @_err_msgv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef rea
   br i1 %8, label %.preheader, label %29
 
 .preheader:                                       ; preds = %19
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @_err_info, i64 4), align 4
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_err_info, i64 4), align 4
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph, label %._crit_edge
 
@@ -105,7 +105,7 @@ define void @_err_msgv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef rea
   %22 = load ptr, ptr @stderr, align 8
   %23 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 2, i64 1, ptr %22) #12
   %24 = add nuw nsw i32 %.036, 1
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_err_info, i64 4), align 4
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_err_info, i64 4), align 4
   %26 = icmp slt i32 %24, %25
   br i1 %26, label %.lr.ph, label %._crit_edge
 
@@ -124,9 +124,9 @@ define void @_err_msgv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef rea
 32:                                               ; preds = %30
   %33 = load ptr, ptr @stderr, align 8
   %34 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 9, i64 1, ptr %33) #12
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @_err_info, i64 12), align 4
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_err_info, i64 12), align 4
   %36 = add nsw i32 %35, 1
-  store i32 %36, ptr getelementptr inbounds (i8, ptr @_err_info, i64 12), align 4
+  store i32 %36, ptr getelementptr inbounds nuw (i8, ptr @_err_info, i64 12), align 4
   br label %44
 
 37:                                               ; preds = %30
@@ -142,12 +142,12 @@ define void @_err_msgv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef rea
   br label %44
 
 44:                                               ; preds = %37, %41, %32
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_err_info, i64 8), align 8
   %.not32 = icmp eq i32 %45, 0
   br i1 %.not32, label %57, label %46
 
 46:                                               ; preds = %44
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @_err_info, i64 24), align 8
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_err_info, i64 24), align 8
   %.not33 = icmp eq ptr %47, null
   br i1 %.not33, label %53, label %48
 
@@ -159,7 +159,7 @@ define void @_err_msgv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef rea
 50:                                               ; preds = %48
   %51 = load ptr, ptr @stderr, align 8
   %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.6, ptr noundef nonnull %47) #11
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @_err_info, i64 8), align 8
   br label %53
 
 53:                                               ; preds = %50, %48, %46

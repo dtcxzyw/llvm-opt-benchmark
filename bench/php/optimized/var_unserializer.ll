@@ -73,12 +73,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @php_var_unserialize_init() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %4
 
 2:                                                ; preds = %0
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 880), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 880), align 8
   %.not13 = icmp eq i32 %3, 0
   br i1 %.not13, label %4, label %12
 
@@ -88,27 +88,27 @@ define ptr @php_var_unserialize_init() local_unnamed_addr #0 {
   store ptr %6, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1352), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1352), align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 %8, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
   %.not14 = icmp eq i32 %10, 0
   br i1 %.not14, label %11, label %15
 
 11:                                               ; preds = %4
-  store ptr %5, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 872), align 8
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 872), align 8
   br label %.sink.split
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 872), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 872), align 8
   %14 = add i32 %3, 1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %12, %11
   %.sink = phi i32 [ 1, %11 ], [ %14, %12 ]
   %.0.ph = phi ptr [ %5, %11 ], [ %13, %12 ]
-  store i32 %.sink, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 880), align 8
+  store i32 %.sink, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 880), align 8
   br label %15
 
 15:                                               ; preds = %.sink.split, %4
@@ -123,9 +123,9 @@ declare noalias ptr @_emalloc_large(i64 noundef) local_unnamed_addr #1
 define void @php_var_unserialize_destroy(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
   %.not = icmp ne i32 %3, 0
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 880), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 880), align 8
   %5 = icmp eq i32 %4, 1
   %or.cond = select i1 %.not, i1 true, i1 %5
   br i1 %or.cond, label %6, label %.thread
@@ -133,23 +133,23 @@ define void @php_var_unserialize_destroy(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %1
   call void @var_destroy(ptr noundef nonnull %2)
   tail call void @_efree(ptr noundef %0) #13
-  %.pr = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
+  %.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
   %.not1 = icmp eq i32 %.pr, 0
   br i1 %.not1, label %..thread_crit_edge, label %10
 
 ..thread_crit_edge:                               ; preds = %6
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 880), align 8
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 880), align 8
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %1
   %7 = phi i32 [ %.pre, %..thread_crit_edge ], [ %4, %1 ]
   %8 = add i32 %7, -1
-  store i32 %8, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 880), align 8
+  store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 880), align 8
   %.not2 = icmp eq i32 %8, 0
   br i1 %.not2, label %9, label %10
 
 9:                                                ; preds = %.thread
-  store ptr null, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 872), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 872), align 8
   br label %10
 
 10:                                               ; preds = %9, %.thread, %6
@@ -252,9 +252,9 @@ define void @var_destroy(ptr nocapture noundef readonly %0) local_unnamed_addr #
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
   store ptr %46, ptr %19, align 8
-  %47 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
   %48 = add i32 %47, 1
-  store i32 %48, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
+  store i32 %48, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
   %49 = call i32 @zend_call_function(ptr noundef nonnull %3, ptr noundef nonnull %4) #13
   %50 = icmp eq i32 %49, -1
   %51 = load i8, ptr %20, align 8
@@ -272,9 +272,9 @@ define void @var_destroy(ptr nocapture noundef readonly %0) local_unnamed_addr #
 
 58:                                               ; preds = %43, %53
   %.2 = phi i8 [ 1, %53 ], [ %.191, %43 ]
-  %59 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
+  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
   %60 = add i32 %59, -1
-  store i32 %60, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
+  store i32 %60, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #13
   br label %100
 
@@ -309,16 +309,16 @@ define void @var_destroy(ptr nocapture noundef readonly %0) local_unnamed_addr #
   br label %78
 
 78:                                               ; preds = %68, %75
-  %79 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
+  %79 = load i32, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
   %80 = add i32 %79, 1
-  store i32 %80, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
+  store i32 %80, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
   %81 = load ptr, ptr %27, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 352
   %85 = load ptr, ptr %84, align 8
   call void @zend_call_known_function(ptr noundef %85, ptr noundef %81, ptr noundef %83, ptr noundef null, i32 noundef 1, ptr noundef nonnull %5, ptr noundef null) #13
-  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not81 = icmp eq ptr %86, null
   br i1 %.not81, label %92, label %87
 
@@ -332,9 +332,9 @@ define void @var_destroy(ptr nocapture noundef readonly %0) local_unnamed_addr #
 
 92:                                               ; preds = %87, %78
   %.4 = phi i8 [ 1, %87 ], [ %.191, %78 ]
-  %93 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
+  %93 = load i32, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
   %94 = add i32 %93, -1
-  store i32 %94, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
+  store i32 %94, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #13
   br label %100
 
@@ -1655,12 +1655,12 @@ parse_uiv.exit1209:                               ; preds = %.lr.ph.i1205, %420
   %459 = add i32 %458, -1
   %460 = lshr i32 %459, 3
   %461 = zext nneg i32 %460 to i64
-  %462 = load i64, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 504), align 8
+  %462 = load i64, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 504), align 8
   %463 = icmp ugt i64 %462, %461
   br i1 %463, label %464, label %.thread1240
 
 464:                                              ; preds = %457
-  %465 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %465 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %466 = zext i32 %458 to i64
   %467 = getelementptr inbounds nuw i8, ptr %465, i64 %466
   %468 = load ptr, ptr %467, align 8
@@ -1753,12 +1753,12 @@ unserialize_allowed_class.exit.thread1244:        ; preds = %unserialize_allowed
   %506 = add i32 %505, -1
   %507 = lshr i32 %506, 3
   %508 = zext nneg i32 %507 to i64
-  %509 = load i64, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 504), align 8
+  %509 = load i64, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 504), align 8
   %510 = icmp ugt i64 %509, %508
   br i1 %510, label %511, label %.thread1247
 
 511:                                              ; preds = %504
-  %512 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %512 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %513 = zext i32 %505 to i64
   %514 = getelementptr inbounds nuw i8, ptr %512, i64 %513
   %515 = load ptr, ptr %514, align 8
@@ -1786,7 +1786,7 @@ unserialize_allowed_class.exit.thread1244:        ; preds = %unserialize_allowed
   br label %645
 
 .thread1247:                                      ; preds = %.thread1240, %504, %511, %500, %unserialize_allowed_class.exit.thread1244
-  %526 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
+  %526 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 440), align 8
   %527 = tail call ptr @zend_hash_find(ptr noundef %526, ptr noundef %469) #13
   %.not1158 = icmp eq ptr %527, null
   br i1 %.not1158, label %.thread1249, label %528
@@ -1870,13 +1870,13 @@ unserialize_allowed_class.exit.thread1244:        ; preds = %unserialize_allowed
   br label %.critedge1190
 
 567:                                              ; preds = %546, %.thread1249
-  %568 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
+  %568 = load i32, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
   %569 = add i32 %568, 1
-  store i32 %569, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
+  store i32 %569, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
   %570 = tail call ptr @zend_lookup_class_ex(ptr noundef nonnull %449, ptr noundef %469, i32 noundef 0) #13
-  %571 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
+  %571 = load i32, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
   %572 = add i32 %571, -1
-  store i32 %572, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
+  store i32 %572, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
   %573 = getelementptr inbounds nuw i8, ptr %469, i64 4
   %574 = load i32, ptr %573, align 4
   %575 = and i32 %574, 64
@@ -1897,7 +1897,7 @@ unserialize_allowed_class.exit.thread1244:        ; preds = %unserialize_allowed
   br label %582
 
 582:                                              ; preds = %576, %581, %567
-  %583 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %583 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not1167 = icmp eq ptr %583, null
   br i1 %.not1167, label %593, label %584
 
@@ -1925,7 +1925,7 @@ unserialize_allowed_class.exit.thread1244:        ; preds = %unserialize_allowed
   br i1 %.not1168, label %594, label %645
 
 594:                                              ; preds = %593
-  %595 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 24), align 8
+  %595 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 24), align 8
   %596 = icmp eq ptr %595, null
   br i1 %596, label %600, label %597
 
@@ -1964,15 +1964,15 @@ unserialize_allowed_class.exit.thread1244:        ; preds = %unserialize_allowed
   %615 = select i1 %.not1169, i32 262, i32 6
   %616 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %615, ptr %616, align 8
-  %617 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
+  %617 = load i32, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
   %618 = add i32 %617, 1
-  store i32 %618, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
+  store i32 %618, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
   %619 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef 1, ptr noundef nonnull %10, ptr noundef null) #13
-  %620 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
+  %620 = load i32, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
   %621 = add i32 %620, -1
-  store i32 %621, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
+  store i32 %621, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
   call void @zval_ptr_dtor(ptr noundef nonnull %9) #13
-  %622 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %622 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not1170 = icmp eq ptr %622, null
   br i1 %.not1170, label %633, label %623
 
@@ -2000,9 +2000,9 @@ unserialize_allowed_class.exit.thread1244:        ; preds = %unserialize_allowed
   br label %.critedge1190
 
 633:                                              ; preds = %602
-  %634 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
+  %634 = load i32, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
   %635 = add i32 %634, 1
-  store i32 %635, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
+  store i32 %635, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
   %636 = call ptr @zend_lookup_class(ptr noundef nonnull %449) #13
   %637 = icmp eq ptr %636, null
   br i1 %637, label %638, label %642
@@ -2016,9 +2016,9 @@ unserialize_allowed_class.exit.thread1244:        ; preds = %unserialize_allowed
 
 642:                                              ; preds = %638, %633
   %.1 = phi ptr [ %641, %638 ], [ %636, %633 ]
-  %643 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
+  %643 = load i32, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
   %644 = add i32 %643, -1
-  store i32 %644, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
+  store i32 %644, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
   call void @zval_ptr_dtor(ptr noundef nonnull %8) #13
   br label %645
 
@@ -2407,7 +2407,7 @@ parse_uiv.exit1217:                               ; preds = %.lr.ph.i1213, %769
   br i1 %.not1134, label %846, label %836
 
 836:                                              ; preds = %833
-  %837 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %837 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %838 = ptrtoint ptr %835 to i64
   %839 = getelementptr inbounds i8, ptr %837, i64 %838
   %840 = load ptr, ptr %839, align 8
@@ -4315,7 +4315,7 @@ var_push_dtor_value.exit409:                      ; preds = %364, %367, %389
   %429 = call i32 @zend_unmangle_property_name_ex(ptr noundef %428, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef null) #13
   %430 = load ptr, ptr %9, align 8
   call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str.18, ptr noundef nonnull %427, ptr noundef %430) #13
-  %431 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %431 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not336 = icmp eq ptr %431, null
   br i1 %.not336, label %441, label %432
 

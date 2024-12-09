@@ -65,7 +65,7 @@ define hidden zeroext i1 @ir_check(ptr nocapture noundef readonly %0) local_unna
   %11 = getelementptr i8, ptr %0, i64 80
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = load i8, ptr getelementptr inbounds (i8, ptr @ir_type_size, i64 6), align 1
+  %14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ir_type_size, i64 6), align 1
   br label %15
 
 15:                                               ; preds = %.lr.ph372, %421

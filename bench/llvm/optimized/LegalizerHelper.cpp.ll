@@ -63046,7 +63046,7 @@ _ZNK4llvm3LLT14getSizeInBytesEv.exit245:          ; preds = %344, %348, %351, %_
 
 .loopexit:                                        ; preds = %324, %._crit_edge, %._crit_edge294
   %.1 = phi i32 [ 1, %._crit_edge294 ], [ 2, %._crit_edge ], [ 2, %324 ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %13, align 8
   %370 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %371 = load ptr, ptr %370, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %371, null
@@ -63564,7 +63564,7 @@ declare noundef i32 @_ZNK4llvm18MachinePointerInfo12getAddrSpaceEv(ptr noundef n
 define linkonce_odr hidden void @_ZN4llvm16MachineIRBuilderC2ERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -64745,7 +64745,7 @@ _ZNK4llvm3LLT14getSizeInBytesEv.exit239:          ; preds = %360, %364, %367, %_
 
 ._crit_edge:                                      ; preds = %_ZNK4llvm3LLT14getSizeInBytesEv.exit239, %_ZN4llvm16MachineFrameInfo18setObjectAlignmentEiNS_5AlignE.exit
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #18
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %15, align 8
   %383 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %384 = load ptr, ptr %383, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %384, null
@@ -65563,7 +65563,7 @@ _ZNK4llvm3LLT14getSizeInBytesEv.exit221:          ; preds = %381, %385, %388, %_
   br label %_ZN4llvm11SmallVectorINS_8RegisterELj16EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_8RegisterELj16EED2Ev.exit: ; preds = %._crit_edge, %410
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %14, align 8
   %411 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %412 = load ptr, ptr %411, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %412, null

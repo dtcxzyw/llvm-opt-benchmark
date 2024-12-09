@@ -96,7 +96,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN24cmLocalGhsMultiGeneratorC2EP17cmGlobalGeneratorP10cmMakefile(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   tail call void @_ZN16cmLocalGeneratorC2EP17cmGlobalGeneratorP10cmMakefile(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24cmLocalGhsMultiGenerator, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24cmLocalGhsMultiGenerator, i64 16), ptr %0, align 8
   ret void
 }
 

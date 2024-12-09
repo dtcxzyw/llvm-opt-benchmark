@@ -161,37 +161,37 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_acpi_resourc
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @acpi_reserve_resources() #0 section ".init.text" align 16 {
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 88), align 1
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 88), align 1
   %2 = zext i8 %1 to i32
-  %.val = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 148), align 1
-  %.val1 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 152), align 1
+  %.val = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 148), align 1
+  %.val1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 152), align 1
   tail call fastcc void @acpi_request_region(i8 %.val, i64 %.val1, i32 noundef %2, ptr noundef nonnull @.str.22) #19
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 88), align 1
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 88), align 1
   %4 = zext i8 %3 to i32
-  %.val2 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 160), align 1
-  %.val3 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 164), align 1
+  %.val2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 160), align 1
+  %.val3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 164), align 1
   tail call fastcc void @acpi_request_region(i8 %.val2, i64 %.val3, i32 noundef %4, ptr noundef nonnull @.str.23) #19
-  %5 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 89), align 1
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 89), align 1
   %6 = zext i8 %5 to i32
-  %.val4 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 172), align 1
-  %.val5 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 176), align 1
+  %.val4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 172), align 1
+  %.val5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 176), align 1
   tail call fastcc void @acpi_request_region(i8 %.val4, i64 %.val5, i32 noundef %6, ptr noundef nonnull @.str.24) #19
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 89), align 1
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 89), align 1
   %8 = zext i8 %7 to i32
-  %.val6 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 184), align 1
-  %.val7 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 188), align 1
+  %.val6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 184), align 1
+  %.val7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 188), align 1
   tail call fastcc void @acpi_request_region(i8 %.val6, i64 %.val7, i32 noundef %8, ptr noundef nonnull @.str.25) #19
-  %9 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 91), align 1
+  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 91), align 1
   %10 = icmp eq i8 %9, 4
   br i1 %10, label %11, label %acpi_request_region.exit
 
 11:                                               ; preds = %0
-  %.val9 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 212), align 1
+  %.val9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 212), align 1
   %.not = icmp eq i64 %.val9, 0
   br i1 %.not, label %acpi_request_region.exit, label %12
 
 12:                                               ; preds = %11
-  %.val8 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 208), align 1
+  %.val8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 208), align 1
   switch i8 %.val8, label %acpi_request_region.exit [
     i8 1, label %14
     i8 0, label %13
@@ -206,33 +206,33 @@ define internal noundef i32 @acpi_reserve_resources() #0 section ".init.text" al
   br label %acpi_request_region.exit
 
 acpi_request_region.exit:                         ; preds = %14, %12, %11, %0
-  %17 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 90), align 1
+  %17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 90), align 1
   %18 = zext i8 %17 to i32
-  %.val10 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 196), align 1
-  %.val11 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 200), align 1
+  %.val10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 196), align 1
+  %.val11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 200), align 1
   tail call fastcc void @acpi_request_region(i8 %.val10, i64 %.val11, i32 noundef %18, ptr noundef nonnull @.str.27) #19
-  %19 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 92), align 1
+  %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 92), align 1
   %20 = zext i8 %19 to i32
   %21 = and i32 %20, 1
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %acpi_request_region.exit
-  %.val12 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 220), align 1
-  %.val13 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 224), align 1
+  %.val12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 220), align 1
+  %.val13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 224), align 1
   tail call fastcc void @acpi_request_region(i8 %.val12, i64 %.val13, i32 noundef %20, ptr noundef nonnull @.str.28) #19
   br label %24
 
 24:                                               ; preds = %23, %acpi_request_region.exit
-  %25 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 93), align 1
+  %25 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 93), align 1
   %26 = zext i8 %25 to i32
   %27 = and i32 %26, 1
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %24
-  %.val14 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 232), align 1
-  %.val15 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 236), align 1
+  %.val14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 232), align 1
+  %.val15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 236), align 1
   tail call fastcc void @acpi_request_region(i8 %.val14, i64 %.val15, i32 noundef %26, ptr noundef nonnull @.str.29) #19
   br label %30
 
@@ -252,7 +252,7 @@ define dso_local void @acpi_os_printf(ptr nocapture noundef readonly %0, ...) #1
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %1
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_os_vprintf.buffer, i64 1), align 1
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_os_vprintf.buffer, i64 1), align 1
   switch i8 %7, label %8 [
     i8 48, label %9
     i8 49, label %9
@@ -290,7 +290,7 @@ define dso_local void @acpi_os_vprintf(ptr nocapture noundef readonly %0, ptr no
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_os_vprintf.buffer, i64 1), align 1
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_os_vprintf.buffer, i64 1), align 1
   switch i8 %7, label %8 [
     i8 48, label %9
     i8 49, label %9
@@ -342,31 +342,31 @@ define dso_local i64 @acpi_os_get_root_pointer() local_unnamed_addr #0 section "
 
 7:                                                ; preds = %4
   %8 = load i64, ptr @acpi_rsdp, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_init, i64 224), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_init, i64 224), align 8
   tail call void %9(i64 noundef %8) #20
   %10 = load i64, ptr @acpi_rsdp, align 8
   br label %29
 
 11:                                               ; preds = %4, %0
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_init, i64 232), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_init, i64 232), align 8
   %13 = tail call i64 %12() #20
   store i64 %13, ptr %1, align 8
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %15, label %29
 
 15:                                               ; preds = %11
-  %16 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8
+  %16 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 264), align 8
   %17 = and i64 %16, 4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %27, label %19
 
 19:                                               ; preds = %15
-  %20 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 24), align 8
+  %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 24), align 8
   %21 = icmp eq i64 %20, -1
   br i1 %21, label %22, label %29
 
 22:                                               ; preds = %19
-  %23 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 16), align 8
+  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 16), align 8
   %24 = icmp eq i64 %23, -1
   br i1 %24, label %25, label %29
 
@@ -494,7 +494,7 @@ define dso_local ptr @acpi_os_map_iomem(i64 noundef %0, i64 noundef %1) #1 secti
   br label %68
 
 .thread:                                          ; preds = %20, %7, %23
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %30 = tail call noalias align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %29, i32 noundef 3520, i64 noundef 96) #22
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %33
@@ -560,12 +560,12 @@ define dso_local ptr @acpi_os_map_iomem(i64 noundef %0, i64 noundef %1) #1 secti
   store i64 %58, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %30, i64 40
   store i64 1, ptr %66, align 8
-  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @acpi_ioremaps, i64 8), align 8
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @acpi_ioremaps, i64 8), align 8
   store ptr @acpi_ioremaps, ptr %30, align 8
   store ptr %67, ptr %59, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !11
   store volatile ptr %30, ptr %67, align 8
-  store ptr %30, ptr getelementptr inbounds (i8, ptr @acpi_ioremaps, i64 8), align 8
+  store ptr %30, ptr getelementptr inbounds nuw (i8, ptr @acpi_ioremaps, i64 8), align 8
   br label %68
 
 68:                                               ; preds = %54, %25
@@ -862,7 +862,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_os_install_interrupt_handl
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #20
   tail call void @acpi_irq_stats_init() #20
-  %5 = load i16, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 46), align 1
+  %5 = load i16, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 46), align 1
   %6 = zext i16 %5 to i32
   %7 = icmp eq i32 %0, %6
   br i1 %7, label %8, label %24
@@ -931,7 +931,7 @@ define internal noundef range(i32 0, 2) i32 @acpi_irq(i32 %0, ptr nocapture read
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 4098) i32 @acpi_os_remove_interrupt_handler(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 align 16 {
-  %3 = load i16, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 46), align 1
+  %3 = load i16, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 46), align 1
   %4 = zext i16 %3 to i32
   %5 = icmp eq i32 %0, %4
   br i1 %5, label %6, label %11
@@ -1440,7 +1440,7 @@ define dso_local noundef range(i32 0, 5) i32 @acpi_os_execute(i32 noundef %0, pt
   br label %28
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %9 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 2336, i64 noundef 48) #22
   %10 = icmp eq ptr %9, null
   br i1 %10, label %28, label %11
@@ -1529,7 +1529,7 @@ declare dso_local void @__flush_workqueue(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 5) i32 @acpi_hotplug_schedule(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %4 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 48) #22
   %5 = icmp eq ptr %4, null
   br i1 %5, label %15, label %6
@@ -1601,7 +1601,7 @@ define dso_local noundef range(i32 0, 5) i32 @acpi_os_create_semaphore(i32 nound
   %6 = and i64 %5, 512
   %7 = icmp eq i64 %6, 0
   %8 = select i1 %7, i32 2336, i32 3520
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %10 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %9, i32 noundef %8, i64 noundef 24) #22
   %11 = icmp eq ptr %10, null
   br i1 %11, label %16, label %12
@@ -2027,21 +2027,21 @@ define internal noundef i32 @acpi_disable_return_repair(ptr nocapture readnone %
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local noundef i32 @acpi_os_initialize() local_unnamed_addr #0 section ".init.text" align 16 {
-  %1 = tail call ptr @acpi_os_map_generic_address(ptr noundef nonnull getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 148))
-  %2 = tail call ptr @acpi_os_map_generic_address(ptr noundef nonnull getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 160))
-  %3 = tail call ptr @acpi_os_map_generic_address(ptr noundef nonnull getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 220))
+  %1 = tail call ptr @acpi_os_map_generic_address(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 148))
+  %2 = tail call ptr @acpi_os_map_generic_address(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 160))
+  %3 = tail call ptr @acpi_os_map_generic_address(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 220))
   %4 = ptrtoint ptr %3 to i64
   store i64 %4, ptr @acpi_gbl_xgpe0_block_logical_address, align 8
-  %5 = tail call ptr @acpi_os_map_generic_address(ptr noundef nonnull getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 232))
+  %5 = tail call ptr @acpi_os_map_generic_address(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 232))
   %6 = ptrtoint ptr %5 to i64
   store i64 %6, ptr @acpi_gbl_xgpe1_block_logical_address, align 8
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 112), align 1
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 112), align 1
   %8 = and i32 %7, 1024
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %0
-  %11 = tail call ptr @acpi_os_map_generic_address(ptr noundef nonnull getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 116))
+  %11 = tail call ptr @acpi_os_map_generic_address(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 116))
   br label %12
 
 12:                                               ; preds = %10, %0
@@ -2114,19 +2114,19 @@ define dso_local noundef i32 @acpi_os_terminate() local_unnamed_addr #1 align 16
   br label %8
 
 8:                                                ; preds = %6, %3, %0
-  tail call void @acpi_os_unmap_generic_address(ptr noundef nonnull getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 232))
-  tail call void @acpi_os_unmap_generic_address(ptr noundef nonnull getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 220))
+  tail call void @acpi_os_unmap_generic_address(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 232))
+  tail call void @acpi_os_unmap_generic_address(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 220))
   store i64 0, ptr @acpi_gbl_xgpe0_block_logical_address, align 8
   store i64 0, ptr @acpi_gbl_xgpe1_block_logical_address, align 8
-  tail call void @acpi_os_unmap_generic_address(ptr noundef nonnull getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 160))
-  tail call void @acpi_os_unmap_generic_address(ptr noundef nonnull getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 148))
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 112), align 1
+  tail call void @acpi_os_unmap_generic_address(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 160))
+  tail call void @acpi_os_unmap_generic_address(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 148))
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 112), align 1
   %10 = and i32 %9, 1024
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %13, label %12
 
 12:                                               ; preds = %8
-  tail call void @acpi_os_unmap_generic_address(ptr noundef nonnull getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 116))
+  tail call void @acpi_os_unmap_generic_address(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 116))
   br label %13
 
 13:                                               ; preds = %12, %8

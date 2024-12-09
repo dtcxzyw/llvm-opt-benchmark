@@ -263,7 +263,7 @@ for.cond13.preheader:                             ; preds = %for.inc
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %indvars.iv
   %0 = load i8, ptr %arrayidx, align 1
   switch i8 %0, label %land.lhs.true8 [
     i8 28, label %for.inc
@@ -326,7 +326,7 @@ if.else54:                                        ; preds = %if.else
 
 if.then57:                                        ; preds = %if.else54
   %idxprom58 = zext nneg i32 %3 to i64
-  %arrayidx59 = getelementptr [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %idxprom58
+  %arrayidx59 = getelementptr [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %idxprom58
   %5 = load i8, ptr %arrayidx59, align 1
   switch i8 %5, label %land.lhs.true69 [
     i8 28, label %if.end73
@@ -369,7 +369,7 @@ if.else95:                                        ; preds = %if.else54
 
 sw.bb1.i:                                         ; preds = %if.else95
   %idxprom.i = zext nneg i32 %3 to i64
-  %arrayidx.i = getelementptr [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %idxprom.i
   %7 = load i8, ptr %arrayidx.i, align 1
   %cmp.i = icmp eq i8 %7, 0
   br i1 %cmp.i, label %if.then98, label %if.else114
@@ -624,7 +624,7 @@ lor.rhs:                                          ; preds = %entry
 
 sw.bb1.i:                                         ; preds = %lor.rhs
   %idxprom.i = zext nneg i32 %call to i64
-  %arrayidx.i = getelementptr [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %idxprom.i
   %2 = load i8, ptr %arrayidx.i, align 1
   %cmp.i = icmp eq i8 %2, 0
   br i1 %cmp.i, label %lor.end, label %sw.epilog.i
@@ -4464,7 +4464,7 @@ if.end37:                                         ; preds = %for.cond, %for.inc3
 sw.bb1.i:                                         ; preds = %entry, %if.end37
   %result.238 = phi i32 [ %result.2, %if.end37 ], [ 0, %entry ]
   %idxprom.i = sext i32 %result.238 to i64
-  %arrayidx.i = getelementptr [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %cmp.i = icmp eq i8 %3, 0
   br i1 %cmp.i, label %return, label %sw.epilog.i
@@ -10507,7 +10507,7 @@ if.end67:                                         ; preds = %land.rhs39, %land.r
 
 sw.bb1.i:                                         ; preds = %if.end67
   %idxprom.i = sext i32 %result.2 to i64
-  %arrayidx.i = getelementptr [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %idxprom.i
   %7 = load i8, ptr %arrayidx.i, align 1
   %cmp.i = icmp eq i8 %7, 0
   br i1 %cmp.i, label %return, label %sw.epilog.i
@@ -16558,7 +16558,7 @@ if.end67:                                         ; preds = %land.rhs39, %land.r
 
 sw.bb1.i:                                         ; preds = %if.end67
   %idxprom.i = sext i32 %result.2 to i64
-  %arrayidx.i = getelementptr [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %idxprom.i
   %7 = load i8, ptr %arrayidx.i, align 1
   %cmp.i = icmp eq i8 %7, 0
   br i1 %cmp.i, label %return, label %sw.epilog.i

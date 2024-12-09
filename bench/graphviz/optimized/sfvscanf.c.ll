@@ -254,7 +254,7 @@ gv_isspace.exit:                                  ; preds = %gv_isspace.exit.loo
   br label %.backedge.backedge
 
 80:                                               ; preds = %74
-  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @_Sftable, i64 408), align 8
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 408), align 8
   %82 = getelementptr inbounds nuw i8, ptr %.4, i64 2
   %83 = call ptr %81(ptr noundef nonnull %82, ptr noundef nonnull %3) #8
   %84 = add nsw i32 %.2576, 1
@@ -349,7 +349,7 @@ gv_isspace.exit:                                  ; preds = %gv_isspace.exit.loo
   br i1 %129, label %130, label %.backedge.backedge
 
 130:                                              ; preds = %128
-  %131 = load ptr, ptr getelementptr inbounds (i8, ptr @_Sftable, i64 408), align 8
+  %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 408), align 8
   %132 = getelementptr inbounds nuw i8, ptr %.4, i64 2
   %133 = call ptr %131(ptr noundef nonnull %132, ptr noundef nonnull %3) #8
   %134 = add nsw i32 %.2576, 1
@@ -513,7 +513,7 @@ gv_isspace.exit:                                  ; preds = %gv_isspace.exit.loo
   br i1 %210, label %211, label %.backedge.backedge
 
 211:                                              ; preds = %209
-  %212 = load ptr, ptr getelementptr inbounds (i8, ptr @_Sftable, i64 408), align 8
+  %212 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 408), align 8
   %213 = getelementptr inbounds nuw i8, ptr %.4, i64 2
   %214 = call ptr %212(ptr noundef nonnull %213, ptr noundef nonnull %3) #8
   %215 = add nsw i32 %.2576, 1
@@ -656,7 +656,7 @@ gv_isspace.exit:                                  ; preds = %gv_isspace.exit.loo
 
 282:                                              ; preds = %280
   %283 = sext i8 %65 to i64
-  %284 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @_Sftable, i64 928), i64 0, i64 %283
+  %284 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 928), i64 0, i64 %283
   %285 = load i8, ptr %284, align 1
   %286 = zext i8 %285 to i32
   %287 = and i32 %286, 3
@@ -780,7 +780,7 @@ gv_isspace.exit:                                  ; preds = %gv_isspace.exit.loo
   %.0572 = phi ptr [ null, %311 ], [ null, %309 ], [ %spec.select814, %320 ]
   %.13 = phi ptr [ %64, %311 ], [ %64, %309 ], [ %321, %320 ]
   %340 = sext i32 %.1641 to i64
-  %341 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @_Sftable, i64 928), i64 0, i64 %340
+  %341 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 928), i64 0, i64 %340
   %342 = load i8, ptr %341, align 1
   %343 = icmp eq i8 %342, 0
   br i1 %343, label %.backedge910.backedge, label %344
@@ -852,7 +852,7 @@ gv_isspace.exit:                                  ; preds = %gv_isspace.exit.loo
   br label %.backedge910.backedge
 
 368:                                              ; preds = %361
-  %369 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @_Sftable, i64 928), i64 0, i64 %340
+  %369 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 928), i64 0, i64 %340
   %370 = icmp eq i32 %.2650, 0
   %371 = icmp ne i32 %.1641, 99
   %372 = select i1 %371, i32 2147483647, i32 1
@@ -1137,7 +1137,7 @@ gv_isspace.exit820.thread:                        ; preds = %gv_isspace.exit820,
 
 469:                                              ; preds = %.thread844, %468
   %470 = zext nneg i32 %.8589.ph to i64
-  %471 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_Sftable, i64 416), i64 %470
+  %471 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 416), i64 %470
   %472 = load i8, ptr %471, align 1
   %473 = icmp sgt i8 %472, 15
   br i1 %473, label %.critedge27.sink.split, label %474
@@ -1184,7 +1184,7 @@ gv_isspace.exit820.thread:                        ; preds = %gv_isspace.exit820,
   %.20619856 = phi i32 [ %.20619, %490 ], [ %.14613.ph, %474 ], [ %.14613.ph, %476 ], [ %.21620, %484 ]
   %.10658855 = phi i32 [ %.10658, %490 ], [ %.8656.ph, %474 ], [ %477, %476 ], [ 0, %484 ]
   %492 = zext nneg i32 %.11592857 to i64
-  %493 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_Sftable, i64 416), i64 %492
+  %493 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 416), i64 %492
   %494 = load i8, ptr %493, align 1
   %495 = icmp slt i8 %494, 16
   br i1 %495, label %565, label %.critedge47
@@ -1242,7 +1242,7 @@ gv_isspace.exit820.thread:                        ; preds = %gv_isspace.exit820,
 518:                                              ; preds = %514
   store i64 0, ptr %5, align 16
   %519 = icmp samesign ult i32 %516, 37
-  %520 = select i1 %519, ptr getelementptr inbounds (i8, ptr @_Sftable, i64 416), ptr getelementptr inbounds (i8, ptr @_Sftable, i64 672)
+  %520 = select i1 %519, ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 416), ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 672)
   %521 = add nsw i32 %.13661, -2
   %.not = icmp eq i32 %.13661, 2
   br i1 %.not, label %.critedge47, label %522
@@ -1269,12 +1269,12 @@ gv_isspace.exit820.thread:                        ; preds = %gv_isspace.exit820,
 
 534:                                              ; preds = %532
   %535 = icmp samesign ult i32 %.2671, 37
-  %spec.select881 = select i1 %535, ptr getelementptr inbounds (i8, ptr @_Sftable, i64 416), ptr getelementptr inbounds (i8, ptr @_Sftable, i64 672)
+  %spec.select881 = select i1 %535, ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 416), ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 672)
   br label %536
 
 536:                                              ; preds = %534, %.thread870
   %.3672838869874 = phi i32 [ 8, %.thread870 ], [ %.2671, %534 ]
-  %537 = phi ptr [ getelementptr inbounds (i8, ptr @_Sftable, i64 416), %.thread870 ], [ %spec.select881, %534 ]
+  %537 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_Sftable, i64 416), %.thread870 ], [ %spec.select881, %534 ]
   %538 = zext nneg i32 %.8589.ph to i64
   %539 = getelementptr inbounds nuw i8, ptr %537, i64 %538
   %540 = load i8, ptr %539, align 1
@@ -1333,7 +1333,7 @@ gv_isspace.exit820.thread:                        ; preds = %gv_isspace.exit820,
   %.6675 = phi i32 [ 16, %.thread851 ], [ %.7676, %554 ], [ %.7676, %559 ], [ %.7676, %562 ]
   %.11659 = phi i32 [ %.10658855, %.thread851 ], [ %.14662, %554 ], [ %.14662, %559 ], [ %.14662, %562 ]
   %.22621 = phi i32 [ %.20619856, %.thread851 ], [ %.28, %554 ], [ %.28, %559 ], [ %.28, %562 ]
-  %.0597 = phi ptr [ getelementptr inbounds (i8, ptr @_Sftable, i64 416), %.thread851 ], [ %.1598, %554 ], [ %.1598, %559 ], [ %.1598, %562 ]
+  %.0597 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_Sftable, i64 416), %.thread851 ], [ %.1598, %554 ], [ %.1598, %559 ], [ %.1598, %562 ]
   %.12593 = phi i32 [ %.11592857, %.thread851 ], [ %.16, %554 ], [ %.16, %559 ], [ %.16, %562 ]
   %smin1161 = call i32 @llvm.smin.i32(i32 %.11659, i32 1)
   %566 = add i32 %smin1161, -1

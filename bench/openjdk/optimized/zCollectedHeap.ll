@@ -148,7 +148,7 @@ define hidden noundef ptr @_ZN14ZCollectedHeap4heapEv() local_unnamed_addr #0 al
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14ZCollectedHeapC2Ev(ptr noundef nonnull align 64 dereferenceable(16344) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN13CollectedHeapC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #12
-  store ptr getelementptr inbounds inrange(-16, 464) (i8, ptr @_ZTV14ZCollectedHeap, i64 16), ptr %0, align 64
+  store ptr getelementptr inbounds nuw inrange(-16, 464) (i8, ptr @_ZTV14ZCollectedHeap, i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZN11ZBarrierSetC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -232,7 +232,7 @@ define hidden void @_ZN14ZCollectedHeap4stopEv(ptr noundef nonnull align 64 dere
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_43ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.4)
   call void @_ZN6ZAbort5abortEv() #12
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV30ZStopConcurrentGCThreadClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV30ZStopConcurrentGCThreadClosure, i64 16), ptr %3, align 8
   %4 = load ptr, ptr %0, align 64
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 352
   %6 = load ptr, ptr %5, align 8

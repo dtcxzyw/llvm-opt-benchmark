@@ -268,7 +268,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %85 unwind label %124
 
 85:                                               ; preds = %79
-  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @src_gray, i64 64), align 8
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @src_gray, i64 64), align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %88 = load i32, ptr %87, align 4
   %89 = load i32, ptr %86, align 4
@@ -285,9 +285,9 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 92:                                               ; preds = %90
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #8
-  %93 = load i32, ptr getelementptr inbounds (i8, ptr @src_gray, i64 8), align 8
+  %93 = load i32, ptr getelementptr inbounds nuw (i8, ptr @src_gray, i64 8), align 8
   %94 = icmp sgt i32 %93, 0
-  %95 = load i32, ptr getelementptr inbounds (i8, ptr @src_gray, i64 12), align 4
+  %95 = load i32, ptr getelementptr inbounds nuw (i8, ptr @src_gray, i64 12), align 4
   %96 = icmp sgt i32 %95, 0
   %or.cond = select i1 %94, i1 %96, i1 false
   br i1 %or.cond, label %.preheader, label %._crit_edge71
@@ -322,7 +322,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %118 = getelementptr inbounds nuw float, ptr %117, i64 %indvars.iv
   store float %112, ptr %118, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %119 = load i32, ptr getelementptr inbounds (i8, ptr @src_gray, i64 12), align 4
+  %119 = load i32, ptr getelementptr inbounds nuw (i8, ptr @src_gray, i64 12), align 4
   %120 = sext i32 %119 to i64
   %121 = icmp slt i64 %indvars.iv.next, %120
   br i1 %121, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !5
@@ -344,7 +344,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %204
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @src_gray, i64 8), align 8
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @src_gray, i64 8), align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
@@ -656,7 +656,7 @@ define hidden void @_Z17myHarris_functioniPv(i32 %0, ptr nocapture readnone %1) 
   %11 = load i32, ptr @myHarris_qualityLevel, align 4
   %12 = call i32 @llvm.smax.i32(i32 %11, i32 1)
   store i32 %12, ptr @myHarris_qualityLevel, align 4
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @src_gray, i64 8), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @src_gray, i64 8), align 8
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.preheader.lr.ph, label %._crit_edge20
 
@@ -666,7 +666,7 @@ define hidden void @_Z17myHarris_functioniPv(i32 %0, ptr nocapture readnone %1) 
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @src_gray, i64 12), align 4
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @src_gray, i64 12), align 4
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.preheader, label %._crit_edge20
 
@@ -752,7 +752,7 @@ define hidden void @_Z17myHarris_functioniPv(i32 %0, ptr nocapture readnone %1) 
   %.pre31 = load double, ptr @myHarris_maxVal, align 8
   %.pre33 = load i32, ptr @myHarris_qualityLevel, align 4
   %.pre35 = load i32, ptr @max_qualityLevel, align 4
-  %.pre37 = load i32, ptr getelementptr inbounds (i8, ptr @src_gray, i64 12), align 4
+  %.pre37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @src_gray, i64 12), align 4
   br label %72
 
 70:                                               ; preds = %2
@@ -776,7 +776,7 @@ define hidden void @_Z17myHarris_functioniPv(i32 %0, ptr nocapture readnone %1) 
   br i1 %81, label %26, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %72
-  %.pre38 = load i32, ptr getelementptr inbounds (i8, ptr @src_gray, i64 8), align 8
+  %.pre38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @src_gray, i64 8), align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
@@ -851,7 +851,7 @@ define hidden void @_Z20myShiTomasi_functioniPv(i32 %0, ptr nocapture readnone %
   %11 = load i32, ptr @myShiTomasi_qualityLevel, align 4
   %12 = call i32 @llvm.smax.i32(i32 %11, i32 1)
   store i32 %12, ptr @myShiTomasi_qualityLevel, align 4
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @src_gray, i64 8), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @src_gray, i64 8), align 8
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.preheader.lr.ph, label %._crit_edge20
 
@@ -861,7 +861,7 @@ define hidden void @_Z20myShiTomasi_functioniPv(i32 %0, ptr nocapture readnone %
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @src_gray, i64 12), align 4
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @src_gray, i64 12), align 4
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.preheader, label %._crit_edge20
 
@@ -947,7 +947,7 @@ define hidden void @_Z20myShiTomasi_functioniPv(i32 %0, ptr nocapture readnone %
   %.pre31 = load double, ptr @myShiTomasi_maxVal, align 8
   %.pre33 = load i32, ptr @myShiTomasi_qualityLevel, align 4
   %.pre35 = load i32, ptr @max_qualityLevel, align 4
-  %.pre37 = load i32, ptr getelementptr inbounds (i8, ptr @src_gray, i64 12), align 4
+  %.pre37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @src_gray, i64 12), align 4
   br label %72
 
 70:                                               ; preds = %2
@@ -971,7 +971,7 @@ define hidden void @_Z20myShiTomasi_functioniPv(i32 %0, ptr nocapture readnone %
   br i1 %81, label %26, label %._crit_edge.loopexit, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %72
-  %.pre38 = load i32, ptr getelementptr inbounds (i8, ptr @src_gray, i64 8), align 8
+  %.pre38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @src_gray, i64 8), align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader

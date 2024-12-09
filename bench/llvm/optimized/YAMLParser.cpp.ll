@@ -8728,7 +8728,7 @@ _ZN4llvm4yaml8Document7getNextEv.exit:            ; preds = %31, %.thread.i.i
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm4yaml4NodeC2EjRSt10unique_ptrINS0_8DocumentESt14default_deleteIS3_EENS_9StringRefES8_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 36), (40, 72)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %5) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9222,7 +9222,7 @@ _ZNK4llvm9StringRef12find_last_ofEcm.exit88:      ; preds = %153, %154
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #26
   %166 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %166, ptr noundef nonnull align 1 dereferenceable(1) %15) #26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.69, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.69, i64 22))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.69, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.69, i64 22))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #26
   br label %175
 
@@ -9230,7 +9230,7 @@ _ZNK4llvm9StringRef12find_last_ofEcm.exit88:      ; preds = %153, %154
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #26
   %168 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %168, ptr noundef nonnull align 1 dereferenceable(1) %16) #26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.70, i64 21))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.70, i64 21))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #26
   br label %175
 
@@ -9238,7 +9238,7 @@ _ZNK4llvm9StringRef12find_last_ofEcm.exit88:      ; preds = %153, %154
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #26
   %170 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %170, ptr noundef nonnull align 1 dereferenceable(1) %17) #26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.71, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.71, i64 21))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.71, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.71, i64 21))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #26
   br label %175
 
@@ -9246,7 +9246,7 @@ _ZNK4llvm9StringRef12find_last_ofEcm.exit88:      ; preds = %153, %154
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #26
   %172 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %172, ptr noundef nonnull align 1 dereferenceable(1) %18) #26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.72, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.72, i64 21))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.72, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.72, i64 21))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #26
   br label %175
 
@@ -9557,7 +9557,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
   %81 = load ptr, ptr %77, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 %.sroa.speculated5.i
   %83 = sub i64 %79, %.sroa.speculated5.i
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i, align 8
   %84 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store ptr %76, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -9575,7 +9575,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
   store ptr %93, ptr %85, align 8
   %.sroa.2.0..sroa_idx5.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store ptr %93, ptr %.sroa.2.0..sroa_idx5.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml9AliasNodeE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml9AliasNodeE, i64 16), ptr %.0.i.i.i, align 8
   %94 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
   store ptr %82, ptr %94, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 80
@@ -9829,7 +9829,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
   %.sroa.029.0.copyload = load ptr, ptr %27, align 8
   %.sroa.230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.230.0.copyload = load i64, ptr %.sroa.230.0..sroa_idx, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i61, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i61, align 8
   %222 = getelementptr inbounds nuw i8, ptr %.0.i.i.i61, i64 8
   store ptr %215, ptr %222, align 8
   %223 = getelementptr inbounds nuw i8, ptr %.0.i.i.i61, i64 16
@@ -9853,7 +9853,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
   store ptr %232, ptr %223, align 8
   %.sroa.2.0..sroa_idx5.i.i67 = getelementptr inbounds nuw i8, ptr %.0.i.i.i61, i64 24
   store ptr %232, ptr %.sroa.2.0..sroa_idx5.i.i67, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml12SequenceNodeE, i64 16), ptr %.0.i.i.i61, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml12SequenceNodeE, i64 16), ptr %.0.i.i.i61, align 8
   %233 = getelementptr inbounds nuw i8, ptr %.0.i.i.i61, i64 72
   store i32 2, ptr %233, align 8
   %234 = getelementptr inbounds nuw i8, ptr %.0.i.i.i61, i64 76
@@ -9955,7 +9955,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
   %.sroa.025.0.copyload = load ptr, ptr %27, align 8
   %.sroa.226.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.226.0.copyload = load i64, ptr %.sroa.226.0..sroa_idx, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i74, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i74, align 8
   %288 = getelementptr inbounds nuw i8, ptr %.0.i.i.i74, i64 8
   store ptr %281, ptr %288, align 8
   %289 = getelementptr inbounds nuw i8, ptr %.0.i.i.i74, i64 16
@@ -9979,7 +9979,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
   store ptr %298, ptr %289, align 8
   %.sroa.2.0..sroa_idx5.i.i82 = getelementptr inbounds nuw i8, ptr %.0.i.i.i74, i64 24
   store ptr %298, ptr %.sroa.2.0..sroa_idx5.i.i82, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml12SequenceNodeE, i64 16), ptr %.0.i.i.i74, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml12SequenceNodeE, i64 16), ptr %.0.i.i.i74, align 8
   %299 = getelementptr inbounds nuw i8, ptr %.0.i.i.i74, i64 72
   store i32 0, ptr %299, align 8
   %300 = getelementptr inbounds nuw i8, ptr %.0.i.i.i74, i64 76
@@ -10081,7 +10081,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
   %.sroa.021.0.copyload = load ptr, ptr %27, align 8
   %.sroa.222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.222.0.copyload = load i64, ptr %.sroa.222.0..sroa_idx, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i89, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i89, align 8
   %354 = getelementptr inbounds nuw i8, ptr %.0.i.i.i89, i64 8
   store ptr %347, ptr %354, align 8
   %355 = getelementptr inbounds nuw i8, ptr %.0.i.i.i89, i64 16
@@ -10105,7 +10105,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
   store ptr %364, ptr %355, align 8
   %.sroa.2.0..sroa_idx5.i.i97 = getelementptr inbounds nuw i8, ptr %.0.i.i.i89, i64 24
   store ptr %364, ptr %.sroa.2.0..sroa_idx5.i.i97, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml11MappingNodeE, i64 16), ptr %.0.i.i.i89, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml11MappingNodeE, i64 16), ptr %.0.i.i.i89, align 8
   %365 = getelementptr inbounds nuw i8, ptr %.0.i.i.i89, i64 72
   store i32 0, ptr %365, align 8
   %366 = getelementptr inbounds nuw i8, ptr %.0.i.i.i89, i64 76
@@ -10205,7 +10205,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
   %.sroa.017.0.copyload = load ptr, ptr %27, align 8
   %.sroa.218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.218.0.copyload = load i64, ptr %.sroa.218.0..sroa_idx, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i104, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i104, align 8
   %419 = getelementptr inbounds nuw i8, ptr %.0.i.i.i104, i64 8
   store ptr %412, ptr %419, align 8
   %420 = getelementptr inbounds nuw i8, ptr %.0.i.i.i104, i64 16
@@ -10229,7 +10229,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
   store ptr %429, ptr %420, align 8
   %.sroa.2.0..sroa_idx5.i.i112 = getelementptr inbounds nuw i8, ptr %.0.i.i.i104, i64 24
   store ptr %429, ptr %.sroa.2.0..sroa_idx5.i.i112, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml12SequenceNodeE, i64 16), ptr %.0.i.i.i104, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml12SequenceNodeE, i64 16), ptr %.0.i.i.i104, align 8
   %430 = getelementptr inbounds nuw i8, ptr %.0.i.i.i104, i64 72
   store i32 1, ptr %430, align 8
   %431 = getelementptr inbounds nuw i8, ptr %.0.i.i.i104, i64 76
@@ -10331,7 +10331,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
   %.sroa.013.0.copyload = load ptr, ptr %27, align 8
   %.sroa.214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.214.0.copyload = load i64, ptr %.sroa.214.0..sroa_idx, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i119, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i119, align 8
   %485 = getelementptr inbounds nuw i8, ptr %.0.i.i.i119, i64 8
   store ptr %478, ptr %485, align 8
   %486 = getelementptr inbounds nuw i8, ptr %.0.i.i.i119, i64 16
@@ -10355,7 +10355,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
   store ptr %495, ptr %486, align 8
   %.sroa.2.0..sroa_idx5.i.i127 = getelementptr inbounds nuw i8, ptr %.0.i.i.i119, i64 24
   store ptr %495, ptr %.sroa.2.0..sroa_idx5.i.i127, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml11MappingNodeE, i64 16), ptr %.0.i.i.i119, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml11MappingNodeE, i64 16), ptr %.0.i.i.i119, align 8
   %496 = getelementptr inbounds nuw i8, ptr %.0.i.i.i119, i64 72
   store i32 1, ptr %496, align 8
   %497 = getelementptr inbounds nuw i8, ptr %.0.i.i.i119, i64 76
@@ -10459,7 +10459,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
   %.sroa.0204.0.copyload = load ptr, ptr %550, align 8
   %.sroa.2205.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.2205.0.copyload = load i64, ptr %.sroa.2205.0..sroa_idx, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i134, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i134, align 8
   %551 = getelementptr inbounds nuw i8, ptr %.0.i.i.i134, i64 8
   store ptr %543, ptr %551, align 8
   %552 = getelementptr inbounds nuw i8, ptr %.0.i.i.i134, i64 16
@@ -10479,7 +10479,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
   %558 = load ptr, ptr %557, align 8
   %559 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm4yaml7Scanner8peekNextEv(ptr noundef nonnull align 8 dereferenceable(344) %558)
   %.sroa.2.0..sroa_idx5.i.i142 = getelementptr inbounds nuw i8, ptr %.0.i.i.i134, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml10ScalarNodeE, i64 16), ptr %.0.i.i.i134, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml10ScalarNodeE, i64 16), ptr %.0.i.i.i134, align 8
   %560 = getelementptr inbounds nuw i8, ptr %.0.i.i.i134, i64 72
   store ptr %.sroa.0204.0.copyload, ptr %560, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.i.i134, i64 80
@@ -10621,7 +10621,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
   %.sroa.0209.0.copyload = load ptr, ptr %629, align 8
   %.sroa.2210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.2210.0.copyload = load i64, ptr %.sroa.2210.0..sroa_idx, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i151, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i151, align 8
   %630 = getelementptr inbounds nuw i8, ptr %.0.i.i.i151, i64 8
   store ptr %622, ptr %630, align 8
   %631 = getelementptr inbounds nuw i8, ptr %.0.i.i.i151, i64 16
@@ -10641,7 +10641,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
   %637 = load ptr, ptr %636, align 8
   %638 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm4yaml7Scanner8peekNextEv(ptr noundef nonnull align 8 dereferenceable(344) %637)
   %.sroa.2.0..sroa_idx5.i.i159 = getelementptr inbounds nuw i8, ptr %.0.i.i.i151, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml15BlockScalarNodeE, i64 16), ptr %.0.i.i.i151, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml15BlockScalarNodeE, i64 16), ptr %.0.i.i.i151, align 8
   %639 = getelementptr inbounds nuw i8, ptr %.0.i.i.i151, i64 72
   store ptr %.sroa.0.0.i, ptr %639, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.i.i151, i64 80
@@ -10705,7 +10705,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
   %.sroa.0.0.copyload = load ptr, ptr %27, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i163, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i163, align 8
   %673 = getelementptr inbounds nuw i8, ptr %.0.i.i.i163, i64 8
   store ptr %666, ptr %673, align 8
   %674 = getelementptr inbounds nuw i8, ptr %.0.i.i.i163, i64 16
@@ -10729,7 +10729,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
   store ptr %683, ptr %674, align 8
   %.sroa.2.0..sroa_idx5.i.i171 = getelementptr inbounds nuw i8, ptr %.0.i.i.i163, i64 24
   store ptr %683, ptr %.sroa.2.0..sroa_idx5.i.i171, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml11MappingNodeE, i64 16), ptr %.0.i.i.i163, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml11MappingNodeE, i64 16), ptr %.0.i.i.i163, align 8
   %684 = getelementptr inbounds nuw i8, ptr %.0.i.i.i163, i64 72
   store i32 2, ptr %684, align 8
   %685 = getelementptr inbounds nuw i8, ptr %.0.i.i.i163, i64 76
@@ -10784,7 +10784,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
 711:                                              ; preds = %_ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEm.exit177
   %712 = load ptr, ptr %0, align 8
   %713 = getelementptr inbounds nuw i8, ptr %712, i64 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i175, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i175, align 8
   %714 = getelementptr inbounds nuw i8, ptr %.0.i.i.i175, i64 8
   store ptr %713, ptr %714, align 8
   %715 = getelementptr inbounds nuw i8, ptr %.0.i.i.i175, i64 16
@@ -10800,7 +10800,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
   store ptr %722, ptr %715, align 8
   %.sroa.2.0..sroa_idx5.i.i178 = getelementptr inbounds nuw i8, ptr %.0.i.i.i175, i64 24
   store ptr %722, ptr %.sroa.2.0..sroa_idx5.i.i178, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml8NullNodeE, i64 16), ptr %.0.i.i.i175, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml8NullNodeE, i64 16), ptr %.0.i.i.i175, align 8
   br label %.loopexit
 
 723:                                              ; preds = %31, %31, %31
@@ -10860,7 +10860,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
 753:                                              ; preds = %_ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEm.exit184
   %754 = load ptr, ptr %0, align 8
   %755 = getelementptr inbounds nuw i8, ptr %754, i64 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i182, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i182, align 8
   %756 = getelementptr inbounds nuw i8, ptr %.0.i.i.i182, i64 8
   store ptr %755, ptr %756, align 8
   %757 = getelementptr inbounds nuw i8, ptr %.0.i.i.i182, i64 16
@@ -10876,7 +10876,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
   store ptr %764, ptr %757, align 8
   %.sroa.2.0..sroa_idx5.i.i185 = getelementptr inbounds nuw i8, ptr %.0.i.i.i182, i64 24
   store ptr %764, ptr %.sroa.2.0..sroa_idx5.i.i185, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml8NullNodeE, i64 16), ptr %.0.i.i.i182, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml8NullNodeE, i64 16), ptr %.0.i.i.i182, align 8
   br label %.loopexit
 
 765:                                              ; preds = %726, %723
@@ -11514,7 +11514,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
 
 38:                                               ; preds = %_ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEm.exit
   %39 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store ptr %39, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -11530,7 +11530,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
   store ptr %48, ptr %41, align 8
   %.sroa.2.0..sroa_idx5.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store ptr %48, ptr %.sroa.2.0..sroa_idx5.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml8NullNodeE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml8NullNodeE, i64 16), ptr %.0.i.i.i, align 8
   br label %.sink.split
 
 49:                                               ; preds = %5
@@ -11630,7 +11630,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
 
 102:                                              ; preds = %_ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEm.exit18
   %103 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i16, align 8
   %104 = getelementptr inbounds nuw i8, ptr %.0.i.i.i16, i64 8
   store ptr %103, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %.0.i.i.i16, i64 16
@@ -11646,7 +11646,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
   store ptr %112, ptr %105, align 8
   %.sroa.2.0..sroa_idx5.i.i19 = getelementptr inbounds nuw i8, ptr %.0.i.i.i16, i64 24
   store ptr %112, ptr %.sroa.2.0..sroa_idx5.i.i19, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml8NullNodeE, i64 16), ptr %.0.i.i.i16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml8NullNodeE, i64 16), ptr %.0.i.i.i16, align 8
   br label %.sink.split
 
 113:                                              ; preds = %70
@@ -11708,7 +11708,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm4yaml8NullNodeC2ERSt10unique_ptrINS0_8DocumentESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11724,7 +11724,7 @@ define linkonce_odr hidden void @_ZN4llvm4yaml8NullNodeC2ERSt10unique_ptrINS0_8D
   store ptr %11, ptr %4, align 8
   %.sroa.2.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %11, ptr %.sroa.2.0..sroa_idx5.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml8NullNodeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml8NullNodeE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -11857,7 +11857,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
 
 77:                                               ; preds = %_ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEm.exit
   %78 = load ptr, ptr %25, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i, align 8
   %79 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -11873,7 +11873,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
   store ptr %87, ptr %80, align 8
   %.sroa.2.0..sroa_idx5.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store ptr %87, ptr %.sroa.2.0..sroa_idx5.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml8NullNodeE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml8NullNodeE, i64 16), ptr %.0.i.i.i, align 8
   br label %.sink.split
 
 88:                                               ; preds = %10
@@ -11919,7 +11919,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
 
 111:                                              ; preds = %_ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEm.exit30
   %112 = load ptr, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i28, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i28, align 8
   %113 = getelementptr inbounds nuw i8, ptr %.0.i.i.i28, i64 8
   store ptr %112, ptr %113, align 8
   %114 = getelementptr inbounds nuw i8, ptr %.0.i.i.i28, i64 16
@@ -11935,7 +11935,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
   store ptr %121, ptr %114, align 8
   %.sroa.2.0..sroa_idx5.i.i31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i28, i64 24
   store ptr %121, ptr %.sroa.2.0..sroa_idx5.i.i31, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml8NullNodeE, i64 16), ptr %.0.i.i.i28, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml8NullNodeE, i64 16), ptr %.0.i.i.i28, align 8
   br label %.sink.split
 
 122:                                              ; preds = %10
@@ -11995,7 +11995,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
 
 150:                                              ; preds = %_ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEm.exit37
   %151 = load ptr, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i35, align 8
   %152 = getelementptr inbounds nuw i8, ptr %.0.i.i.i35, i64 8
   store ptr %151, ptr %152, align 8
   %153 = getelementptr inbounds nuw i8, ptr %.0.i.i.i35, i64 16
@@ -12011,7 +12011,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
   store ptr %160, ptr %153, align 8
   %.sroa.2.0..sroa_idx5.i.i38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i35, i64 24
   store ptr %160, ptr %.sroa.2.0..sroa_idx5.i.i38, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml8NullNodeE, i64 16), ptr %.0.i.i.i35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml8NullNodeE, i64 16), ptr %.0.i.i.i35, align 8
   br label %.sink.split
 
 161:                                              ; preds = %122
@@ -12207,7 +12207,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
 
 72:                                               ; preds = %_ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEm.exit
   %73 = load ptr, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %.0.i.i.i, align 8
   %74 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store ptr %73, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -12225,7 +12225,7 @@ _ZN4llvm4yaml4NodenwEmRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4
   store ptr %83, ptr %75, align 8
   %.sroa.2.0..sroa_idx5.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store ptr %83, ptr %.sroa.2.0..sroa_idx5.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml12KeyValueNodeE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml12KeyValueNodeE, i64 16), ptr %.0.i.i.i, align 8
   %84 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, i8 0, i64 16, i1 false)
   br label %85

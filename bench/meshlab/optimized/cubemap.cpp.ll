@@ -1912,27 +1912,27 @@ define internal void @_GLOBAL__sub_I_cubemap.cpp() #9 section ".text.startup" {
   store float -1.000000e+00, ptr @_ZL13cube_vertices, align 16
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL13cube_vertices, i64 4), align 4
   store float -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL13cube_vertices, i64 8), align 8
-  store float -1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 12), align 4
-  store float -1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 16), align 16
-  store float -1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 20), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 24), align 8
-  store float -1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 28), align 4
-  store float -1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 32), align 16
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 36), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 40), align 8
-  store float -1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 44), align 4
-  store float -1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 48), align 16
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 52), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 56), align 8
-  store float -1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 60), align 4
-  store float -1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 64), align 16
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 68), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 72), align 8
-  store float -1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 76), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 80), align 16
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 84), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 88), align 8
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 92), align 4
+  store float -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL13cube_vertices, i64 12), align 4
+  store float -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL13cube_vertices, i64 16), align 16
+  store float -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL13cube_vertices, i64 20), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL13cube_vertices, i64 24), align 8
+  store float -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL13cube_vertices, i64 28), align 4
+  store float -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL13cube_vertices, i64 32), align 16
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL13cube_vertices, i64 36), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL13cube_vertices, i64 40), align 8
+  store float -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL13cube_vertices, i64 44), align 4
+  store float -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL13cube_vertices, i64 48), align 16
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL13cube_vertices, i64 52), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL13cube_vertices, i64 56), align 8
+  store float -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL13cube_vertices, i64 60), align 4
+  store float -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL13cube_vertices, i64 64), align 16
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL13cube_vertices, i64 68), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL13cube_vertices, i64 72), align 8
+  store float -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL13cube_vertices, i64 76), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL13cube_vertices, i64 80), align 16
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL13cube_vertices, i64 84), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL13cube_vertices, i64 88), align 8
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL13cube_vertices, i64 92), align 4
   ret void
 }
 

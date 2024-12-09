@@ -221,7 +221,7 @@ $_ZSt19piecewise_construct = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -233,7 +233,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEED2Ev(ptr n
   br label %_ZNSt8functionIFvRKjEED2Ev.exit
 
 _ZNSt8functionIFvRKjEED2Ev.exit:                  ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -728,7 +728,7 @@ _ZNSt4pairIPN4llvm11InstructionENS0_13ConstantRangeEED2Ev.exit: ; preds = %94, %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm13Float2IntPass8badRangeEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.llvm::ConstantRange") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(240) %1) local_unnamed_addr #0 align 2 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8
   %4 = add i32 %3, 1
   tail call void @_ZN4llvm13ConstantRangeC1Ejb(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %4, i1 noundef zeroext true) #18
   ret void
@@ -736,7 +736,7 @@ define dso_local void @_ZN4llvm13Float2IntPass8badRangeEv(ptr dead_on_unwind noa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm13Float2IntPass12unknownRangeEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.llvm::ConstantRange") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(240) %1) local_unnamed_addr #0 align 2 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8
   %4 = add i32 %3, 1
   tail call void @_ZN4llvm13ConstantRangeC1Ejb(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %4, i1 noundef zeroext false) #18
   ret void
@@ -746,7 +746,7 @@ define dso_local void @_ZN4llvm13Float2IntPass12unknownRangeEv(ptr dead_on_unwin
 define dso_local void @_ZN4llvm13Float2IntPass13validateRangeENS_13ConstantRangeE(ptr dead_on_unwind noalias writable sret(%"class.llvm::ConstantRange") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(240) %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i32, ptr %4, align 8
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8
   %7 = add i32 %6, 1
   %8 = icmp ugt i32 %5, %7
   br i1 %8, label %9, label %10
@@ -1008,7 +1008,7 @@ _ZNK4llvm9MapVectorIPNS_11InstructionENS_13ConstantRangeENS_8DenseMapIS2_jNS_12D
   ]
 
 130:                                              ; preds = %128
-  %131 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8, !noalias !25
+  %131 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8, !noalias !25
   %132 = add i32 %131, 1
   call void @_ZN4llvm13ConstantRangeC1Ejb(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %132, i1 noundef zeroext true) #18
   call void @_ZN4llvm13Float2IntPass4seenEPNS_11InstructionENS_13ConstantRangeE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull %100, ptr noundef nonnull %4)
@@ -1069,12 +1069,12 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %147, %150
   %163 = load i8, ptr %162, align 8
   %164 = zext i8 %163 to i32
   %165 = add nsw i32 %164, -29
-  %166 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8
+  %166 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8
   %167 = add i32 %166, 1
   call void @_ZNK4llvm13ConstantRange6castOpENS_11Instruction7CastOpsEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ConstantRange") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %165, i32 noundef %167) #18
   call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %168 = load i32, ptr %62, align 8, !noalias !28
-  %169 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8, !noalias !28
+  %169 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8, !noalias !28
   %170 = add i32 %169, 1
   %171 = icmp ugt i32 %168, %170
   br i1 %171, label %172, label %173
@@ -1187,7 +1187,7 @@ _ZN4llvm5APIntD2Ev.exit.i14:                      ; preds = %206, %203, %_ZN4llv
   br i1 %215, label %._crit_edge, label %82, !llvm.loop !31
 
 216:                                              ; preds = %128, %128, %128, %128, %128, %128, %128
-  %217 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8, !noalias !32
+  %217 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8, !noalias !32
   %218 = add i32 %217, 1
   call void @_ZN4llvm13ConstantRangeC1Ejb(ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef %218, i1 noundef zeroext false) #18
   call void @_ZN4llvm13Float2IntPass4seenEPNS_11InstructionENS_13ConstantRangeE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull %100, ptr noundef nonnull %9)
@@ -1321,7 +1321,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEEN
 _ZN4llvm9MapVectorIPNS_11InstructionENS_13ConstantRangeENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S3_ELj0EEEE4findERKS2_.exit: ; preds = %278, %280
   %.sink.i = phi i64 [ %283, %280 ], [ %279, %278 ]
   %284 = getelementptr inbounds %"struct.std::pair", ptr %277, i64 %.sink.i, i32 1
-  %285 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8, !noalias !35
+  %285 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8, !noalias !35
   %286 = add i32 %285, 1
   call void @_ZN4llvm13ConstantRangeC1Ejb(ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef %286, i1 noundef zeroext true) #18
   %287 = getelementptr inbounds nuw i8, ptr %284, i64 8
@@ -1414,7 +1414,7 @@ _ZN4llvm13ConstantRangeD2Ev.exit20:               ; preds = %_ZN4llvm5APIntD2Ev.
 
 331:                                              ; preds = %328
   %332 = load ptr, ptr %3, align 8
-  %333 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8, !noalias !38
+  %333 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8, !noalias !38
   %334 = add i32 %333, 1
   call void @_ZN4llvm13ConstantRangeC1Ejb(ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef %334, i1 noundef zeroext true) #18
   call void @_ZN4llvm13Float2IntPass4seenEPNS_11InstructionENS_13ConstantRangeE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef %332, ptr noundef nonnull %12)
@@ -1814,7 +1814,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEEN
 _ZN4llvm9MapVectorIPNS_11InstructionENS_13ConstantRangeENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S3_ELj0EEEE4findERKS2_.exit: ; preds = %80, %82
   %.sink.i = phi i64 [ %85, %82 ], [ %81, %80 ]
   %86 = getelementptr inbounds %"struct.std::pair", ptr %79, i64 %.sink.i, i32 1
-  %87 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8, !noalias !43
+  %87 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8, !noalias !43
   %88 = add i32 %87, 1
   call void @_ZN4llvm13ConstantRangeC1Ejb(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %88, i1 noundef zeroext false) #18
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 8
@@ -1981,7 +1981,7 @@ _ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit.thread: ; preds
   br i1 %156, label %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit.thread61, label %_ZN4llvm5APIntD2Ev.exit.i28
 
 _ZN4llvm5APIntD2Ev.exit.i28:                      ; preds = %124, %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit.thread
-  %157 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8, !noalias !47
+  %157 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8, !noalias !47
   %158 = add i32 %157, 1
   call void @_ZN4llvm13ConstantRangeC1Ejb(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %158, i1 noundef zeroext true) #18
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2052,7 +2052,7 @@ _ZNK4llvm7APFloatneERKS0_.exit:                   ; preds = %179, %181
   br i1 %.not66, label %199, label %_ZN4llvm13ConstantRangeD2Ev.exit34
 
 _ZN4llvm13ConstantRangeD2Ev.exit34:               ; preds = %_ZNK4llvm7APFloatneERKS0_.exit, %_ZN4llvm7APFloat15roundToIntegralENS_12RoundingModeE.exit
-  %183 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8, !noalias !50
+  %183 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8, !noalias !50
   %184 = add i32 %183, 1
   call void @_ZN4llvm13ConstantRangeC1Ejb(ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef %184, i1 noundef zeroext true) #18
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2086,7 +2086,7 @@ _ZN4llvm13ConstantRangeD2Ev.exit34:               ; preds = %_ZNK4llvm7APFloatne
   br label %_ZN4llvm13ConstantRangeD2Ev.exit29
 
 199:                                              ; preds = %_ZNK4llvm7APFloatneERKS0_.exit
-  %200 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8
+  %200 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8
   %201 = add i32 %200, 1
   store i32 %201, ptr %40, align 8
   %202 = icmp ult i32 %201, 65
@@ -2341,7 +2341,7 @@ _ZN4llvm5APIntD2Ev.exit.i46:                      ; preds = %._crit_edge, %._cri
 
 _ZN4llvm5APIntD2Ev.exit.i48:                      ; preds = %._crit_edge, %._crit_edge
   %313 = load ptr, ptr %4, align 8
-  %314 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8
+  %314 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8
   %315 = add i32 %314, 1
   call void @_ZNK4llvm13ConstantRange6castOpENS_11Instruction7CastOpsEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ConstantRange") align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %313, i32 noundef %257, i32 noundef %315) #18
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2572,7 +2572,7 @@ define dso_local void @_ZN4llvm13Float2IntPass12walkForwardsEv(ptr noundef nonnu
 34:                                               ; preds = %.lr.ph, %_ZNSt5dequeIPN4llvm11InstructionESaIS2_EE9push_backERKS2_.exit
   %.013 = phi ptr [ %20, %.lr.ph ], [ %79, %_ZNSt5dequeIPN4llvm11InstructionESaIS2_EE9push_backERKS2_.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %.013, i64 8
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8, !noalias !57
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8, !noalias !57
   %37 = add i32 %36, 1
   call void @_ZN4llvm13ConstantRangeC1Ejb(ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %37, i1 noundef zeroext false) #18
   %38 = getelementptr inbounds nuw i8, ptr %.013, i64 16
@@ -2957,7 +2957,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13Float2IntPass20validateAndTransfo
 21:                                               ; preds = %.lr.ph106, %_ZN4llvm13ConstantRangeD2Ev.exit39
   %.0105 = phi i1 [ false, %.lr.ph106 ], [ %.1, %_ZN4llvm13ConstantRangeD2Ev.exit39 ]
   %.sroa.062.0104 = phi ptr [ %6, %.lr.ph106 ], [ %259, %_ZN4llvm13ConstantRangeD2Ev.exit39 ]
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8
   %23 = add i32 %22, 1
   call void @_ZN4llvm13ConstantRangeC1Ejb(ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %23, i1 noundef zeroext false) #18
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.062.0104, i64 32
@@ -3729,8 +3729,8 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %124, %121, %_ZN4llv
   %140 = getelementptr inbounds nuw i8, ptr %9, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %140, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %139, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTVN4llvm14ConstantFolderE, i64 16), ptr %128, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm24IRBuilderDefaultInserterE, i64 16), ptr %129, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTVN4llvm14ConstantFolderE, i64 16), ptr %128, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm24IRBuilderDefaultInserterE, i64 16), ptr %129, align 8
   call void @_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef nonnull %126)
   %141 = load ptr, ptr %4, align 8
   %142 = load i8, ptr %141, align 8
@@ -5490,7 +5490,7 @@ declare { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -7632,10 +7632,10 @@ define internal void @_GLOBAL__sub_I_Float2Int.cpp() #13 section ".text.startup"
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL12MaxIntegerBW, i32 noundef 0, i32 noundef 0)
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL12MaxIntegerBW, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL12MaxIntegerBW, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL12MaxIntegerBW, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL12MaxIntegerBW, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL12MaxIntegerBW, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL12MaxIntegerBW, align 8
   tail call void @_ZN4llvm2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL12MaxIntegerBW, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL12MaxIntegerBW) #18
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL12MaxIntegerBW, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL12MaxIntegerBW, i64 152), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL12MaxIntegerBW, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL12MaxIntegerBW, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL12MaxIntegerBW, i64 176), align 8

@@ -94,7 +94,7 @@ $_ZN4llvm10MCStreamer26doFinalizationAtSectionEndEPNS_9MCSectionE = comdat any
 define dso_local noundef nonnull ptr @_ZN4llvm18createNullStreamerERNS_9MCContextE(ptr noundef nonnull align 1 %0) local_unnamed_addr #0 {
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #6
   tail call void @_ZN4llvm10MCStreamerC2ERNS_9MCContextE(ptr noundef nonnull align 8 dereferenceable(288) %2, ptr noundef nonnull align 1 %0) #7
-  store ptr getelementptr inbounds inrange(-16, 1312) (i8, ptr @_ZTVN12_GLOBAL__N_114MCNullStreamerE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 1312) (i8, ptr @_ZTVN12_GLOBAL__N_114MCNullStreamerE, i64 16), ptr %2, align 8
   ret ptr %2
 }
 

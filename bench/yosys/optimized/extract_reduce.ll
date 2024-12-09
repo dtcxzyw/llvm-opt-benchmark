@@ -4598,7 +4598,7 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit.th
   br i1 %.not.i406, label %1956, label %1952
 
 1952:                                             ; preds = %1950
-  %1953 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.29, i64 1))
+  %1953 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.29, i64 1))
           to label %1954 unwind label %1961, !noalias !35
 
 1954:                                             ; preds = %1952
@@ -4673,7 +4673,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZZN12_GLOBAL__N_11
   br i1 %.not.i410, label %1993, label %1989
 
 1989:                                             ; preds = %1987
-  %1990 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.34, i64 1))
+  %1990 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.34, i64 1))
           to label %1991 unwind label %1998, !noalias !38
 
 1991:                                             ; preds = %1989
@@ -4748,7 +4748,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit414:             ; preds = %_ZZN12_GLOBAL__N_11
   br i1 %.not.i416, label %2030, label %2026
 
 2026:                                             ; preds = %2024
-  %2027 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.35, i64 1))
+  %2027 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.35, i64 1))
           to label %2028 unwind label %2035, !noalias !41
 
 2028:                                             ; preds = %2026
@@ -11687,7 +11687,7 @@ _ZNK5Yosys7hashlib3mfpINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEixEi.exit.i.i.i867: 
   br i1 %.not.i879, label %5166, label %5162
 
 5162:                                             ; preds = %5160
-  %5163 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.35, i64 1))
+  %5163 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.35, i64 1))
           to label %5164 unwind label %5170, !noalias !67
 
 5164:                                             ; preds = %5162
@@ -11794,7 +11794,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit883:             ; preds = %_ZZN12_GLOBAL__N_11
   br i1 %.not.i888, label %5206, label %5202
 
 5202:                                             ; preds = %5200
-  %5203 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.29, i64 1))
+  %5203 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.29, i64 1))
           to label %5204 unwind label %5211, !noalias !70
 
 5204:                                             ; preds = %5202
@@ -12029,7 +12029,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit905:              ; preds = %_ZSt8_DestroyIPN5Yo
   br i1 %.not.i909, label %5293, label %5289
 
 5289:                                             ; preds = %5287
-  %5290 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.34, i64 1))
+  %5290 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.34, i64 1))
           to label %5291 unwind label %5298, !noalias !73
 
 5291:                                             ; preds = %5289
@@ -12264,7 +12264,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit926:              ; preds = %_ZSt8_DestroyIPN5Yo
   br i1 %.not.i930, label %5380, label %5376
 
 5376:                                             ; preds = %5374
-  %5377 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.35, i64 1))
+  %5377 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.35, i64 1))
           to label %5378 unwind label %5385, !noalias !76
 
 5378:                                             ; preds = %5376
@@ -13870,7 +13870,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExtractReducePass1
   br i1 %.not.i, label %14, label %10
 
 10:                                               ; preds = %8
-  %11 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.29, i64 1))
+  %11 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.29, i64 1))
           to label %12 unwind label %22, !noalias !85
 
 12:                                               ; preds = %10
@@ -13923,7 +13923,7 @@ _ZZN12_GLOBAL__N_117ExtractReducePass11IsRightTypeEPN5Yosys5RTLIL4CellENS0_8Gate
   br i1 %.not.i19, label %36, label %32
 
 32:                                               ; preds = %30
-  %33 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.34, i64 1))
+  %33 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.34, i64 1))
           to label %34 unwind label %44, !noalias !88
 
 34:                                               ; preds = %32
@@ -13971,7 +13971,7 @@ _ZZN12_GLOBAL__N_117ExtractReducePass11IsRightTypeEPN5Yosys5RTLIL4CellENS0_8Gate
   br i1 %.not.i21, label %59, label %55
 
 55:                                               ; preds = %53
-  %56 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.35, i64 1))
+  %56 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.35, i64 1))
           to label %57 unwind label %.body22, !noalias !91
 
 57:                                               ; preds = %55
@@ -19811,7 +19811,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %7
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117ExtractReducePassE, i64 16), ptr @_ZN12_GLOBAL__N_117ExtractReducePassE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_117ExtractReducePassE, i64 16), ptr @_ZN12_GLOBAL__N_117ExtractReducePassE, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)

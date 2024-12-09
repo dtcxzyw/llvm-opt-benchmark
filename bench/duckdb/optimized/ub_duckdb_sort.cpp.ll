@@ -25190,7 +25190,7 @@ declare void @_ZN6duckdb17InternalExceptionC1ERKNSt7__cxx1112basic_stringIcSt11c
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !48
   %raw_message_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !36
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -27046,7 +27046,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %callback) #31
   %executor = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %executor, align 8, !tbaa !773
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb18PartitionMergeTask16ExecutorCallbackE, i64 16), ptr %callback, align 8, !tbaa !48
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb18PartitionMergeTask16ExecutorCallbackE, i64 16), ptr %callback, align 8, !tbaa !48
   %executor2.i = getelementptr inbounds nuw i8, ptr %callback, i64 8
   store ptr %0, ptr %executor2.i, align 8, !tbaa !17
   %hash_groups = getelementptr inbounds nuw i8, ptr %this, i64 256
@@ -27144,7 +27144,7 @@ do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body, %do.body.i.i.i.i.i
   %exception.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 8) #31, !noalias !789
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %exception.i.i.i.i.i, align 8, !tbaa !48, !noalias !789
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %exception.i.i.i.i.i, align 8, !tbaa !48, !noalias !789
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #30
           to label %.noexc unwind label %lpad
 
@@ -27170,7 +27170,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
           to label %.noexc.i unwind label %lpad.i, !noalias !818
 
 .noexc.i:                                         ; preds = %call.i.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb18PartitionMergeTaskE, i64 16), ptr %call.i28, align 8, !tbaa !48, !noalias !818
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb18PartitionMergeTaskE, i64 16), ptr %call.i28, align 8, !tbaa !48, !noalias !818
   %event.i.i = getelementptr inbounds nuw i8, ptr %call.i28, i64 32
   store ptr %9, ptr %event.i.i, align 8, !tbaa !784, !noalias !818
   %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i28, i64 40
@@ -39271,10 +39271,10 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb19PartitionMergeEventD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb19PartitionMergeEventE, i64 16), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb19PartitionMergeEventE, i64 16), ptr %this, align 8, !tbaa !48
   %merge_states = getelementptr inbounds nuw i8, ptr %this, i64 144
   tail call void @_ZNSt6vectorIN6duckdb10unique_ptrINS0_25PartitionGlobalMergeStateESt14default_deleteIS2_ELb1EEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %merge_states) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb17BasePipelineEventE, i64 16), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb17BasePipelineEventE, i64 16), ptr %this, align 8, !tbaa !48
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !43
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -39332,10 +39332,10 @@ _ZN6duckdb17BasePipelineEventD2Ev.exit:           ; preds = %if.then7.i.i.i.i, %
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb19PartitionMergeEventD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb19PartitionMergeEventE, i64 16), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb19PartitionMergeEventE, i64 16), ptr %this, align 8, !tbaa !48
   %merge_states.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   tail call void @_ZNSt6vectorIN6duckdb10unique_ptrINS0_25PartitionGlobalMergeStateESt14default_deleteIS2_ELb1EEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %merge_states.i) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb17BasePipelineEventE, i64 16), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb17BasePipelineEventE, i64 16), ptr %this, align 8, !tbaa !48
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8, !tbaa !43
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -39415,7 +39415,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb18PartitionMergeTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb18PartitionMergeTaskE, i64 16), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb18PartitionMergeTaskE, i64 16), ptr %this, align 8, !tbaa !48
   %payload_chunk.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   tail call void @_ZN6duckdb9DataChunkD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %payload_chunk.i) #31
   %sort_chunk.i = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -46179,7 +46179,7 @@ declare void @_ZN6duckdb9Exception25ConstructMessageRecursiveERKNSt7__cxx1112bas
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb17BasePipelineEventD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb17BasePipelineEventE, i64 16), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb17BasePipelineEventE, i64 16), ptr %this, align 8, !tbaa !48
   %_M_refcount.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !43
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -46246,7 +46246,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb5EventD2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb5EventE, i64 16), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb5EventE, i64 16), ptr %this, align 8, !tbaa !48
   %parents_raw = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %parents_raw, align 8, !tbaa !1360
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -48118,7 +48118,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !44, !noalias !1411
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !47, !noalias !1411
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !48, !noalias !1411
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !48, !noalias !1411
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i.i, i64 16
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !1416, !noalias !1411
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %count, 63
@@ -49049,7 +49049,7 @@ invoke.cont:                                      ; preds = %if.end.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8, !tbaa !44
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i10.i9, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4, !tbaa !47
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN6duckdb18PartitionMergeTaskESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i10.i9, align 8, !tbaa !48
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN6duckdb18PartitionMergeTaskESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i10.i9, align 8, !tbaa !48
   %_M_impl.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i10.i9, i64 16
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8, !tbaa !1446
   %2 = load ptr, ptr %_M_refcount, align 8, !tbaa !43

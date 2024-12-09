@@ -29,7 +29,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define dso_local void @_ZN7CFGEdgeC2EPK9StatementS2_bb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(26) initializes((0, 26)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #3 align 2 {
   %6 = zext i1 %3 to i8
   %7 = zext i1 %4 to i8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7CFGEdge, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7CFGEdge, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -43,7 +43,7 @@ define dso_local void @_ZN7CFGEdgeC2EPK9StatementS2_bb(ptr nocapture noundef non
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN7CFGEdgeC2ERKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(26) initializes((0, 26)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %1) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7CFGEdge, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7CFGEdge, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8

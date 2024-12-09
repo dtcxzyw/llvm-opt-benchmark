@@ -561,7 +561,7 @@ if.then.i11.i127:                                 ; preds = %_Z8btSetMaxIfEvRT_R
   br label %_ZN9btVector36setMaxERKS_.exit131
 
 _ZN9btVector36setMaxERKS_.exit131:                ; preds = %_Z8btSetMaxIfEvRT_RKS0_.exit9.i123, %if.then.i11.i127
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23btConnectivityProcessor, i64 16), ptr %connectivityProcessor, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23btConnectivityProcessor, i64 16), ptr %connectivityProcessor, align 8
   store i32 %partId.0143, ptr %m_partIdA, align 8
   store i32 %triangleIndex.0137, ptr %m_triangleIndexA, align 4
   store ptr %triangleVerts, ptr %m_triangleVerticesA, align 8
@@ -638,7 +638,7 @@ if.end:                                           ; preds = %entry
   store float 0xC3ABC16D60000000, ptr %arrayidx5.i7, align 4
   %arrayidx7.i8 = getelementptr inbounds nuw i8, ptr %aabbMin, i64 12
   store float 0.000000e+00, ptr %arrayidx7.i8, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV32b3ProcessAllTrianglesHeightfield, i64 16), ptr %processHeightfield, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV32b3ProcessAllTrianglesHeightfield, i64 16), ptr %processHeightfield, align 8
   %m_heightfieldShape.i = getelementptr inbounds nuw i8, ptr %processHeightfield, i64 8
   store ptr %heightfieldShape, ptr %m_heightfieldShape.i, align 8
   %m_triangleInfoMap.i9 = getelementptr inbounds nuw i8, ptr %processHeightfield, i64 16
@@ -2827,7 +2827,7 @@ if.end99:                                         ; preds = %if.then90, %if.end8
   %arrayidx115 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %arrayidx117 = getelementptr inbounds nuw i8, ptr %57, i64 32
   call void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %tA)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15btTriangleShape, i64 16), ptr %tA, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15btTriangleShape, i64 16), ptr %tA, align 8
   %m_vertices1.ptr.i = getelementptr inbounds nuw i8, ptr %tA, i64 80
   %m_shapeType.i = getelementptr inbounds nuw i8, ptr %tA, i64 8
   store i32 1, ptr %m_shapeType.i, align 8
@@ -2851,7 +2851,7 @@ if.end99:                                         ; preds = %if.then90, %if.end8
 invoke.cont:                                      ; preds = %if.end99
   %idxprom123 = sext i32 %65 to i64
   %arrayidx124 = getelementptr inbounds %class.btVector3, ptr %triangle, i64 %idxprom123
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15btTriangleShape, i64 16), ptr %tB, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15btTriangleShape, i64 16), ptr %tB, align 8
   %m_vertices1.ptr.i131 = getelementptr inbounds nuw i8, ptr %tB, i64 80
   %m_shapeType.i132 = getelementptr inbounds nuw i8, ptr %tB, i64 8
   store i32 1, ptr %m_shapeType.i132, align 8
@@ -4418,7 +4418,7 @@ entry:
   %connectivityProcessor = alloca %struct.btConnectivityProcessor, align 8
   %aabbMin = alloca %class.btVector3, align 4
   %aabbMax = alloca %class.btVector3, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23btConnectivityProcessor, i64 16), ptr %connectivityProcessor, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23btConnectivityProcessor, i64 16), ptr %connectivityProcessor, align 8
   %m_partIdA = getelementptr inbounds nuw i8, ptr %connectivityProcessor, i64 8
   store i32 %partId, ptr %m_partIdA, align 8
   %m_triangleIndexA = getelementptr inbounds nuw i8, ptr %connectivityProcessor, i64 12

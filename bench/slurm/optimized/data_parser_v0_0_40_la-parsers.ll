@@ -3137,7 +3137,7 @@ define internal range(i32 0, 9203) i32 @_v40_parse_STRING(ptr nocapture readnone
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_v40_dump_UINT32(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #3 {
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %6 = and i64 %5, 256
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %13, label %7
@@ -3188,7 +3188,7 @@ define internal range(i32 0, 9203) i32 @_v40_parse_UINT32(ptr nocapture readnone
 
 16:                                               ; preds = %.sink.split, %8
   %.0 = phi i32 [ 9202, %8 ], [ 0, %.sink.split ]
-  %17 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %18 = and i64 %17, 256
   %.not11 = icmp eq i64 %18, 0
   br i1 %.not11, label %25, label %19
@@ -3338,7 +3338,7 @@ define internal range(i32 0, 9203) i32 @_v40_parse_UINT64(ptr nocapture readnone
 
 13:                                               ; preds = %.sink.split, %8
   %.0 = phi i32 [ 9202, %8 ], [ 0, %.sink.split ]
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %15 = and i64 %14, 256
   %.not = icmp eq i64 %15, 0
   br i1 %.not, label %22, label %16
@@ -3498,7 +3498,7 @@ define internal i32 @_v40_parse_UINT64_NO_VAL(ptr nocapture noundef readonly %0,
 
 41:                                               ; preds = %.sink.split.i, %36
   %.0.i = phi i32 [ 9202, %36 ], [ 0, %.sink.split.i ]
-  %42 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %42 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %43 = and i64 %42, 256
   %.not.i = icmp eq i64 %43, 0
   br i1 %.not.i, label %_v40_parse_UINT64.exit, label %44
@@ -3679,7 +3679,7 @@ define internal range(i32 0, 9203) i32 @_v40_parse_UINT16(ptr nocapture readnone
 
 14:                                               ; preds = %.sink.split, %8
   %.0 = phi i32 [ 9202, %8 ], [ 0, %.sink.split ]
-  %15 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %16 = and i64 %15, 256
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %24, label %17
@@ -3939,7 +3939,7 @@ define internal range(i32 0, 9203) i32 @_v40_parse_FLOAT128(ptr nocapture readno
 
 14:                                               ; preds = %.sink.split, %8
   %.0 = phi i32 [ 9202, %8 ], [ 0, %.sink.split ]
-  %15 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %16 = and i64 %15, 256
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %23, label %17
@@ -3988,7 +3988,7 @@ define internal range(i32 0, 9203) i32 @_v40_parse_FLOAT64(ptr nocapture readnon
 
 13:                                               ; preds = %.sink.split, %8
   %.0 = phi i32 [ 9202, %8 ], [ 0, %.sink.split ]
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %15 = and i64 %14, 256
   %.not = icmp eq i64 %15, 0
   br i1 %.not, label %22, label %16
@@ -4155,7 +4155,7 @@ _v40_parse_INT64_NO_VAL.exit:                     ; preds = %13
 
 37:                                               ; preds = %.sink.split.i, %32
   %.0.i = phi i32 [ 9202, %32 ], [ 0, %.sink.split.i ]
-  %38 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %38 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %39 = and i64 %38, 256
   %.not.i80 = icmp eq i64 %39, 0
   br i1 %.not.i80, label %_v40_parse_FLOAT64.exit, label %40
@@ -6030,7 +6030,7 @@ thread-pre-split:                                 ; preds = %find_parser_by_type
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_v40_dump_ALLOCATED_CORES(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #3 {
-  %5 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
+  %5 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   %6 = and i16 %5, 6
   %.not = icmp eq i16 %6, 0
   br i1 %.not, label %10, label %7
@@ -6075,7 +6075,7 @@ _v40_parse_disabled.exit:                         ; preds = %5, %12
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_v40_dump_ALLOCATED_CPUS(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #3 {
-  %5 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
+  %5 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   %6 = and i16 %5, 1
   %.not = icmp eq i16 %6, 0
   br i1 %.not, label %10, label %7
@@ -6132,7 +6132,7 @@ define internal noundef i32 @_v40_dump_CONTROLLER_PING_MODE(ptr nocapture readno
   br label %17
 
 9:                                                ; preds = %4
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 256), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 256), align 8
   %11 = icmp eq i32 %10, 2
   br i1 %11, label %12, label %14
 
@@ -11680,7 +11680,7 @@ define internal i32 @_v40_dump_ASSOC_SHARES_OBJ_LIST(ptr nocapture noundef reado
   br i1 %.not, label %19, label %24
 
 19:                                               ; preds = %4
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 72), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 72), align 8
   %.not12 = icmp eq ptr %20, null
   br i1 %.not12, label %21, label %28
 

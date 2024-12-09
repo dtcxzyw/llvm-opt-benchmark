@@ -458,8 +458,8 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %136 unwind label %.loopexit.split-lp
 
 136:                                              ; preds = %135
-  %137 = load i32, ptr getelementptr inbounds (i8, ptr @src, i64 12), align 4
-  %138 = load i32, ptr getelementptr inbounds (i8, ptr @src, i64 8), align 8
+  %137 = load i32, ptr getelementptr inbounds nuw (i8, ptr @src, i64 12), align 4
+  %138 = load i32, ptr getelementptr inbounds nuw (i8, ptr @src, i64 8), align 8
   %.sroa.2.0.insert.ext = zext i32 %138 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %137 to i64

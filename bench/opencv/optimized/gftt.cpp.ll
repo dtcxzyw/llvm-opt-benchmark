@@ -176,7 +176,7 @@ define void @_ZN2cv12GFTTDetector6createEiddiibd(ptr dead_on_unwind noalias noca
   store i32 1, ptr %10, align 8, !noalias !4
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 1, ptr %11, align 4, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv17GFTTDetector_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv17GFTTDetector_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8, !noalias !4
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12)
           to label %_ZN2cv3PtrINS_17GFTTDetector_ImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv17GFTTDetector_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit16.i.i.i.i.i, !noalias !4
@@ -189,7 +189,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv17GFTTDetector_ImplESa
 
 _ZN2cv3PtrINS_17GFTTDetector_ImplEED2Ev.exit:     ; preds = %8
   %14 = zext i1 %6 to i8
-  store ptr getelementptr inbounds inrange(-80, 240) (i8, ptr @_ZTVN2cv17GFTTDetector_ImplE, i64 80), ptr %12, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-80, 240) (i8, ptr @_ZTVN2cv17GFTTDetector_ImplE, i64 80), ptr %12, align 8, !noalias !4
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %1, ptr %15, align 8, !noalias !4
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -217,7 +217,7 @@ define void @_ZN2cv12GFTTDetector6createEiddibd(ptr dead_on_unwind noalias nocap
   store i32 1, ptr %9, align 8, !noalias !9
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 1, ptr %10, align 4, !noalias !9
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv17GFTTDetector_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8, !noalias !9
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv17GFTTDetector_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8, !noalias !9
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11)
           to label %_ZN2cv3PtrINS_17GFTTDetector_ImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv17GFTTDetector_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit16.i.i.i.i.i, !noalias !9
@@ -230,7 +230,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv17GFTTDetector_ImplESa
 
 _ZN2cv3PtrINS_17GFTTDetector_ImplEED2Ev.exit:     ; preds = %7
   %13 = zext i1 %5 to i8
-  store ptr getelementptr inbounds inrange(-80, 240) (i8, ptr @_ZTVN2cv17GFTTDetector_ImplE, i64 80), ptr %11, align 8, !noalias !9
+  store ptr getelementptr inbounds nuw inrange(-80, 240) (i8, ptr @_ZTVN2cv17GFTTDetector_ImplE, i64 80), ptr %11, align 8, !noalias !9
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %1, ptr %14, align 8, !noalias !9
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 32

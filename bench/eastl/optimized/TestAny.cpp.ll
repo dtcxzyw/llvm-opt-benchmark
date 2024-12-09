@@ -915,7 +915,7 @@ invoke.cont59:                                    ; preds = %invoke.cont51
   %temp.sroa.0.i.i.i.i.i.i.i.sroa.4.0.ref.tmp.i216.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.i216, i64 1
   %temp.sroa.0.i.i.i.i.i.i.i.sroa.5.0.ref.tmp.i216.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.i216, i64 11
   store i8 104, ptr %ref.tmp.i216, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %temp.sroa.0.i.i.i.i.i.i.i.sroa.4.0.ref.tmp.i216.sroa_idx, ptr noundef nonnull align 1 dereferenceable(10) getelementptr inbounds (i8, ptr @.str.10, i64 1), i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %temp.sroa.0.i.i.i.i.i.i.i.sroa.4.0.ref.tmp.i216.sroa_idx, ptr noundef nonnull align 1 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @.str.10, i64 1), i64 10, i1 false)
   store i8 0, ptr %temp.sroa.0.i.i.i.i.i.i.i.sroa.5.0.ref.tmp.i216.sroa_idx, align 1
   store i8 12, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i.i, align 1
   %m_handler.i.i217 = getelementptr inbounds nuw i8, ptr %ref.tmp.i216, i64 32
@@ -1727,7 +1727,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit557: ; preds = %invoke.cont.i, 
   %temp.sroa.0.i.i.i.i.i.i.sroa.6.0.a190.sroa_idx = getelementptr inbounds nuw i8, ptr %a190, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i.sroa.6, ptr noundef nonnull align 4 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i.sroa.6.0.a190.sroa_idx, i64 11, i1 false)
   store i8 116, ptr %a190, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %temp.sroa.0.i.i.i.i.i.i.sroa.4.0.a190.sroa_idx, ptr noundef nonnull align 1 dereferenceable(10) getelementptr inbounds (i8, ptr @.str.23, i64 1), i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %temp.sroa.0.i.i.i.i.i.i.sroa.4.0.a190.sroa_idx, ptr noundef nonnull align 1 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @.str.23, i64 1), i64 10, i1 false)
   store i8 0, ptr %temp.sroa.0.i.i.i.i.i.i.sroa.5.0.a190.sroa_idx, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i.sroa.6.0.a190.sroa_idx, ptr noundef nonnull align 4 dereferenceable(11) %ref.tmp191.sroa.5, i64 11, i1 false)
   store i8 12, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
@@ -3721,7 +3721,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1459: ; preds = %_ZN5eastl6vect
   %temp.sroa.0.i.i.i.i.i.i1449.sroa.6.0.a523.sroa_idx = getelementptr inbounds nuw i8, ptr %a523, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i1449.sroa.6, ptr noundef nonnull align 4 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i1449.sroa.6.0.a523.sroa_idx, i64 11, i1 false)
   store i8 116, ptr %a523, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %temp.sroa.0.i.i.i.i.i.i1449.sroa.4.0.a523.sroa_idx, ptr noundef nonnull align 1 dereferenceable(10) getelementptr inbounds (i8, ptr @.str.23, i64 1), i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %temp.sroa.0.i.i.i.i.i.i1449.sroa.4.0.a523.sroa_idx, ptr noundef nonnull align 1 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @.str.23, i64 1), i64 10, i1 false)
   store i8 0, ptr %temp.sroa.0.i.i.i.i.i.i1449.sroa.5.0.a523.sroa_idx, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i1449.sroa.6.0.a523.sroa_idx, ptr noundef nonnull align 4 dereferenceable(11) %ref.tmp524.sroa.5, i64 11, i1 false)
   store i8 12, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i1450, align 1
@@ -3957,7 +3957,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1579: ; preds = %_ZN5eastl3anyD
   %temp.sroa.0.i.i.i.i.i.i1569.sroa.6.0.a2563.sroa_idx = getelementptr inbounds nuw i8, ptr %a2563, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i1569.sroa.6, ptr noundef nonnull align 4 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i1569.sroa.6.0.a2563.sroa_idx, i64 11, i1 false)
   store i8 116, ptr %a2563, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %temp.sroa.0.i.i.i.i.i.i1569.sroa.4.0.a2563.sroa_idx, ptr noundef nonnull align 1 dereferenceable(10) getelementptr inbounds (i8, ptr @.str.23, i64 1), i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %temp.sroa.0.i.i.i.i.i.i1569.sroa.4.0.a2563.sroa_idx, ptr noundef nonnull align 1 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @.str.23, i64 1), i64 10, i1 false)
   store i8 0, ptr %temp.sroa.0.i.i.i.i.i.i1569.sroa.5.0.a2563.sroa_idx, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i1569.sroa.6.0.a2563.sroa_idx, ptr noundef nonnull align 4 dereferenceable(11) %ref.tmp564.sroa.5, i64 11, i1 false)
   store i8 12, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i1570, align 1
@@ -4115,7 +4115,7 @@ call.i.i1684.noexc:                               ; preds = %_ZN5eastl3anyD2Ev.e
   %temp.sroa.0.i.i.i.i.i.i1668.sroa.6.0.a2600.sroa_idx = getelementptr inbounds nuw i8, ptr %a2600, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i1668.sroa.6, ptr noundef nonnull align 4 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i1668.sroa.6.0.a2600.sroa_idx, i64 11, i1 false)
   store i8 116, ptr %a2600, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %temp.sroa.0.i.i.i.i.i.i1668.sroa.4.0.a2600.sroa_idx, ptr noundef nonnull align 1 dereferenceable(10) getelementptr inbounds (i8, ptr @.str.23, i64 1), i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %temp.sroa.0.i.i.i.i.i.i1668.sroa.4.0.a2600.sroa_idx, ptr noundef nonnull align 1 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @.str.23, i64 1), i64 10, i1 false)
   store i8 0, ptr %temp.sroa.0.i.i.i.i.i.i1668.sroa.5.0.a2600.sroa_idx, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i1668.sroa.6.0.a2600.sroa_idx, ptr noundef nonnull align 4 dereferenceable(11) %ref.tmp601.sroa.5, i64 11, i1 false)
   store i8 12, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i1669, align 1
@@ -5801,7 +5801,7 @@ _ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exi
   %temp.sroa.0.i.i.i.i.i.i2532.sroa.6.0.a895.sroa_idx = getelementptr inbounds nuw i8, ptr %a895, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i2532.sroa.6, ptr noundef nonnull align 4 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i2532.sroa.6.0.a895.sroa_idx, i64 11, i1 false)
   store i8 104, ptr %a895, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %temp.sroa.0.i.i.i.i.i.i2532.sroa.4.0.a895.sroa_idx, ptr noundef nonnull align 1 dereferenceable(10) getelementptr inbounds (i8, ptr @.str.10, i64 1), i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %temp.sroa.0.i.i.i.i.i.i2532.sroa.4.0.a895.sroa_idx, ptr noundef nonnull align 1 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @.str.10, i64 1), i64 10, i1 false)
   store i8 0, ptr %temp.sroa.0.i.i.i.i.i.i2532.sroa.5.0.a895.sroa_idx, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i2532.sroa.6.0.a895.sroa_idx, ptr noundef nonnull align 4 dereferenceable(11) %ref.tmp896.sroa.5, i64 11, i1 false)
   store i8 12, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i2533, align 1

@@ -61,7 +61,7 @@ define hidden void @_ZN9metaspace13MetaspaceDCmdC2EP12outputStreamb(ptr noundef 
   store i8 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN9metaspace13MetaspaceDCmdE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN9metaspace13MetaspaceDCmdE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %9, align 8
@@ -79,7 +79,7 @@ define hidden void @_ZN9metaspace13MetaspaceDCmdC2EP12outputStreamb(ptr noundef 
   store i8 0, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 90
   store i8 0, ptr %16, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %8, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr null, ptr %18, align 8
@@ -97,7 +97,7 @@ define hidden void @_ZN9metaspace13MetaspaceDCmdC2EP12outputStreamb(ptr noundef 
   store i8 0, ptr %24, align 1
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 146
   store i8 0, ptr %25, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %17, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr null, ptr %27, align 8
@@ -115,7 +115,7 @@ define hidden void @_ZN9metaspace13MetaspaceDCmdC2EP12outputStreamb(ptr noundef 
   store i8 0, ptr %33, align 1
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 202
   store i8 0, ptr %34, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %26, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr null, ptr %36, align 8
@@ -133,7 +133,7 @@ define hidden void @_ZN9metaspace13MetaspaceDCmdC2EP12outputStreamb(ptr noundef 
   store i8 0, ptr %42, align 1
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 258
   store i8 0, ptr %43, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %35, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr null, ptr %45, align 8
@@ -151,7 +151,7 @@ define hidden void @_ZN9metaspace13MetaspaceDCmdC2EP12outputStreamb(ptr noundef 
   store i8 0, ptr %51, align 1
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 314
   store i8 0, ptr %52, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %44, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %44, align 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store ptr null, ptr %54, align 8
@@ -169,7 +169,7 @@ define hidden void @_ZN9metaspace13MetaspaceDCmdC2EP12outputStreamb(ptr noundef 
   store i8 0, ptr %60, align 1
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 370
   store i8 0, ptr %61, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %53, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %53, align 8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store ptr null, ptr %63, align 8
@@ -187,7 +187,7 @@ define hidden void @_ZN9metaspace13MetaspaceDCmdC2EP12outputStreamb(ptr noundef 
   store i8 0, ptr %69, align 1
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 426
   store i8 0, ptr %70, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %62, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %62, align 8
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store ptr null, ptr %72, align 8
@@ -205,7 +205,7 @@ define hidden void @_ZN9metaspace13MetaspaceDCmdC2EP12outputStreamb(ptr noundef 
   store i8 0, ptr %78, align 1
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 490
   store i8 0, ptr %79, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %71, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %71, align 8
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8) #4
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %17) #4
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %71) #4
@@ -318,7 +318,7 @@ define hidden void @_ZN9metaspace13MetaspaceDCmd7executeE10DCmdSourceP10JavaThre
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %66, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV16VM_PrintMetadata, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV16VM_PrintMetadata, i64 16), ptr %4, align 8
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %65, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 24

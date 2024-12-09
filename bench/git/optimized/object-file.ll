@@ -1973,7 +1973,7 @@ entry:
 for.body.us.i:                                    ; preds = %entry, %check_and_freshen_odb.exit.us.i
   %odb.07.us.i = phi ptr [ %odb.0.us.i, %check_and_freshen_odb.exit.us.i ], [ %odb.05.i, %entry ]
   %call.i.us.i = tail call fastcc ptr @odb_loose_path(ptr noundef nonnull readonly %odb.07.us.i, ptr noundef nonnull @check_and_freshen_odb.path, ptr noundef readonly %oid)
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @check_and_freshen_odb.path, i64 16), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @check_and_freshen_odb.path, i64 16), align 8
   %call.i.i.us.i = tail call i32 @access(ptr noundef readonly %4, i32 noundef 0) #25
   %tobool.not.i.i.us.i = icmp eq i32 %call.i.i.us.i, 0
   br i1 %tobool.not.i.i.us.i, label %check_and_freshen_nonlocal.exit, label %check_and_freshen_odb.exit.us.i
@@ -2003,7 +2003,7 @@ entry:
   %1 = load ptr, ptr %objects.i, align 8
   %2 = load ptr, ptr %1, align 8
   %call.i.i = tail call fastcc ptr @odb_loose_path(ptr noundef readonly %2, ptr noundef nonnull @check_and_freshen_odb.path, ptr noundef readonly %oid)
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @check_and_freshen_odb.path, i64 16), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @check_and_freshen_odb.path, i64 16), align 8
   %call.i.i.i = tail call i32 @access(ptr noundef readonly %3, i32 noundef 0) #25
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %lor.rhs
@@ -2035,7 +2035,7 @@ for.body.lr.ph.i:                                 ; preds = %lor.rhs
 for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %check_and_freshen_odb.exit.us.i
   %odb.07.us.i = phi ptr [ %odb.0.us.i, %check_and_freshen_odb.exit.us.i ], [ %odb.05.i, %for.body.lr.ph.i ]
   %call.i.us.i = tail call fastcc ptr @odb_loose_path(ptr noundef nonnull readonly %odb.07.us.i, ptr noundef nonnull @check_and_freshen_odb.path, ptr noundef readonly %oid)
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @check_and_freshen_odb.path, i64 16), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @check_and_freshen_odb.path, i64 16), align 8
   %call.i.i.us.i = tail call i32 @access(ptr noundef readonly %8, i32 noundef 0) #25
   %tobool.not.i.i.us.i = icmp eq i32 %call.i.i.us.i, 0
   br i1 %tobool.not.i.i.us.i, label %lor.end, label %check_and_freshen_odb.exit.us.i
@@ -2048,7 +2048,7 @@ check_and_freshen_odb.exit.us.i:                  ; preds = %for.body.us.i
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %check_and_freshen_odb.exit.i
   %odb.07.i = phi ptr [ %odb.0.i, %check_and_freshen_odb.exit.i ], [ %odb.05.i, %for.body.lr.ph.i ]
   %call.i.i5 = tail call fastcc ptr @odb_loose_path(ptr noundef nonnull readonly %odb.07.i, ptr noundef nonnull @check_and_freshen_odb.path, ptr noundef readonly %oid)
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @check_and_freshen_odb.path, i64 16), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @check_and_freshen_odb.path, i64 16), align 8
   %call.i.i.i6 = tail call i32 @access(ptr noundef readonly %9, i32 noundef 0) #25
   %tobool.not.i.i.i7 = icmp eq i32 %call.i.i.i6, 0
   br i1 %tobool.not.i.i.i7, label %if.end.i.i.i8, label %check_and_freshen_odb.exit.i
@@ -4605,7 +4605,7 @@ if.end:                                           ; preds = %if.then, %entry
   %3 = load ptr, ptr %objects.i, align 8
   %4 = load ptr, ptr %3, align 8
   %call.i = tail call fastcc ptr @odb_loose_path(ptr noundef %4, ptr noundef nonnull @write_loose_object.filename, ptr noundef readonly %oid)
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @write_loose_object.filename, i64 16), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @write_loose_object.filename, i64 16), align 8
   %call2 = call fastcc i32 @start_loose_object_common(ptr noundef nonnull @write_loose_object.tmp_file, ptr noundef %5, i32 noundef %flags, ptr noundef %stream, ptr noundef %compressed, ptr noundef %c, ptr noundef %hdr, i32 noundef %hdrlen)
   %cmp = icmp slt i32 %call2, 0
   br i1 %cmp, label %return, label %if.end4
@@ -4710,7 +4710,7 @@ if.then22:                                        ; preds = %oideq.exit
   unreachable
 
 if.end25:                                         ; preds = %oideq.exit
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @write_loose_object.tmp_file, i64 16), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @write_loose_object.tmp_file, i64 16), align 8
   call fastcc void @close_loose_object(i32 noundef %call2, ptr noundef %19)
   %tobool26.not = icmp eq i64 %mtime, 0
   br i1 %tobool26.not, label %if.end34, label %if.then27
@@ -4719,7 +4719,7 @@ if.then27:                                        ; preds = %if.end25
   store i64 %mtime, ptr %utb, align 8
   %modtime = getelementptr inbounds nuw i8, ptr %utb, i64 8
   store i64 %mtime, ptr %modtime, align 8
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @write_loose_object.tmp_file, i64 16), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @write_loose_object.tmp_file, i64 16), align 8
   %call28 = call i32 @utime(ptr noundef %20, ptr noundef nonnull %utb) #25
   %cmp29 = icmp slt i32 %call28, 0
   %and = and i32 %flags, 8
@@ -4738,13 +4738,13 @@ if.end3.i:                                        ; preds = %if.then31
 
 _.exit:                                           ; preds = %if.then31, %if.end3.i
   %retval.0.i = phi ptr [ %call.i22, %if.end3.i ], [ @.str.92, %if.then31 ]
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @write_loose_object.tmp_file, i64 16), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @write_loose_object.tmp_file, i64 16), align 8
   call void (ptr, ...) @warning_errno(ptr noundef %retval.0.i, ptr noundef %22) #25
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then27, %_.exit, %if.end25
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @write_loose_object.tmp_file, i64 16), align 8
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @write_loose_object.filename, i64 16), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @write_loose_object.tmp_file, i64 16), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @write_loose_object.filename, i64 16), align 8
   %call35 = call i32 @finalize_object_file(ptr noundef %23, ptr noundef %24)
   br label %return
 

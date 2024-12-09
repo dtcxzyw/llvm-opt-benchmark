@@ -705,7 +705,7 @@ define dso_local void @_ZN5clang4ento14ObjCIvarRegionC2EPKNS_12ObjCIvarDeclEPKNS
   store i8 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %2, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN5clang4ento14ObjCIvarRegionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN5clang4ento14ObjCIvarRegionE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %1, ptr %8, align 8
   ret void
@@ -1747,7 +1747,7 @@ define dso_local void @_ZNK5clang4ento9MemRegion9getStringB5cxx11Ev(ptr dead_on_
   store i32 1, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %0, ptr %8, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #20
@@ -4379,7 +4379,7 @@ define dso_local void @_ZNK5clang4ento9MemRegion18getDescriptiveNameB5cxx11Eb(pt
   store i32 1, ptr %30, align 4
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %7, align 8
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %6, ptr %32, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef null, i64 noundef 0, i32 noundef 0) #20
@@ -5217,7 +5217,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr %0, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %62, ptr %67, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento22StackLocalsSpaceRegionE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento22StackLocalsSpaceRegionE, i64 16), ptr %.0.i.i.i, align 8
   store ptr %.0.i.i.i, ptr %37, align 8
   br label %68
 
@@ -5345,7 +5345,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr %0, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %62, ptr %67, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento25StackArgumentsSpaceRegionE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento25StackArgumentsSpaceRegionE, i64 16), ptr %.0.i.i.i, align 8
   store ptr %.0.i.i.i, ptr %37, align 8
   br label %68
 
@@ -5420,7 +5420,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store ptr %0, ptr %35, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento23GlobalSystemSpaceRegionE, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento23GlobalSystemSpaceRegionE, i64 16), ptr %.0.i.i.i.i, align 8
   store ptr %.0.i.i.i.i, ptr %7, align 8
   br label %_ZN5clang4ento16MemRegionManager12LazyAllocateINS0_23GlobalSystemSpaceRegionEEEPKT_RPS4_.exit
 
@@ -5477,7 +5477,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i16, i64 48
   store ptr %0, ptr %65, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento26GlobalImmutableSpaceRegionE, i64 16), ptr %.0.i.i.i.i16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento26GlobalImmutableSpaceRegionE, i64 16), ptr %.0.i.i.i.i16, align 8
   store ptr %.0.i.i.i.i16, ptr %37, align 8
   br label %_ZN5clang4ento16MemRegionManager12LazyAllocateINS0_23GlobalSystemSpaceRegionEEEPKT_RPS4_.exit
 
@@ -5534,7 +5534,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i24, i64 48
   store ptr %0, ptr %95, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento25GlobalInternalSpaceRegionE, i64 16), ptr %.0.i.i.i.i24, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento25GlobalInternalSpaceRegionE, i64 16), ptr %.0.i.i.i.i24, align 8
   store ptr %.0.i.i.i.i24, ptr %67, align 8
   br label %_ZN5clang4ento16MemRegionManager12LazyAllocateINS0_23GlobalSystemSpaceRegionEEEPKT_RPS4_.exit
 
@@ -5652,7 +5652,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %158, align 8
   %159 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %0, ptr %159, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento23StaticGlobalSpaceRegionE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento23StaticGlobalSpaceRegionE, i64 16), ptr %.0.i.i.i, align 8
   %160 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %155, ptr %160, align 8
   store ptr %.0.i.i.i, ptr %130, align 8
@@ -5717,7 +5717,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store ptr %0, ptr %30, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento15HeapSpaceRegionE, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento15HeapSpaceRegionE, i64 16), ptr %.0.i.i.i.i, align 8
   store ptr %.0.i.i.i.i, ptr %2, align 8
   br label %_ZN5clang4ento16MemRegionManager12LazyAllocateINS0_15HeapSpaceRegionEEEPKT_RPS4_.exit
 
@@ -5780,7 +5780,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store ptr %0, ptr %30, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento18UnknownSpaceRegionE, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento18UnknownSpaceRegionE, i64 16), ptr %.0.i.i.i.i, align 8
   store ptr %.0.i.i.i.i, ptr %2, align 8
   br label %_ZN5clang4ento16MemRegionManager12LazyAllocateINS0_18UnknownSpaceRegionEEEPKT_RPS4_.exit
 
@@ -5843,7 +5843,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store ptr %0, ptr %30, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento15CodeSpaceRegionE, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento15CodeSpaceRegionE, i64 16), ptr %.0.i.i.i.i, align 8
   store ptr %.0.i.i.i.i, ptr %2, align 8
   br label %_ZN5clang4ento16MemRegionManager12LazyAllocateINS0_15CodeSpaceRegionEEEPKT_RPS4_.exit
 
@@ -5906,7 +5906,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i24.i, i64 48
   store ptr %0, ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento25GlobalInternalSpaceRegionE, i64 16), ptr %.0.i.i.i.i24.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento25GlobalInternalSpaceRegionE, i64 16), ptr %.0.i.i.i.i24.i, align 8
   store ptr %.0.i.i.i.i24.i, ptr %3, align 8
   br label %_ZN5clang4ento16MemRegionManager16getGlobalsRegionENS0_9MemRegion4KindEPKNS0_14CodeTextRegionE.exit
 
@@ -5976,7 +5976,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %2, ptr %37, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN5clang4ento12StringRegionE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN5clang4ento12StringRegionE, i64 16), ptr %.0.i.i.i, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %1, ptr %38, align 8
   %39 = load ptr, ptr %5, align 8
@@ -6052,7 +6052,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i24.i, i64 48
   store ptr %0, ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento25GlobalInternalSpaceRegionE, i64 16), ptr %.0.i.i.i.i24.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento25GlobalInternalSpaceRegionE, i64 16), ptr %.0.i.i.i.i24.i, align 8
   store ptr %.0.i.i.i.i24.i, ptr %3, align 8
   br label %_ZN5clang4ento16MemRegionManager16getGlobalsRegionENS0_9MemRegion4KindEPKNS0_14CodeTextRegionE.exit
 
@@ -6122,7 +6122,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %2, ptr %37, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN5clang4ento16ObjCStringRegionE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN5clang4ento16ObjCStringRegionE, i64 16), ptr %.0.i.i.i, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %1, ptr %38, align 8
   %39 = load ptr, ptr %5, align 8
@@ -6389,7 +6389,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %140, align 8
   %141 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i16.i, i64 48
   store ptr %0, ptr %141, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento26GlobalImmutableSpaceRegionE, i64 16), ptr %.0.i.i.i.i16.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento26GlobalImmutableSpaceRegionE, i64 16), ptr %.0.i.i.i.i16.i, align 8
   store ptr %.0.i.i.i.i16.i, ptr %113, align 8
   br label %_ZN5clang4ento16MemRegionManager16getGlobalsRegionENS0_9MemRegion4KindEPKNS0_14CodeTextRegionE.exit
 
@@ -6462,7 +6462,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %177, align 8
   %178 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i78, i64 48
   store ptr %0, ptr %178, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento23GlobalSystemSpaceRegionE, i64 16), ptr %.0.i.i.i.i.i78, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento23GlobalSystemSpaceRegionE, i64 16), ptr %.0.i.i.i.i.i78, align 8
   store ptr %.0.i.i.i.i.i78, ptr %150, align 8
   br label %_ZN5clang4ento16MemRegionManager16getGlobalsRegionENS0_9MemRegion4KindEPKNS0_14CodeTextRegionE.exit
 
@@ -6519,7 +6519,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %206, align 8
   %207 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i24.i, i64 48
   store ptr %0, ptr %207, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento25GlobalInternalSpaceRegionE, i64 16), ptr %.0.i.i.i.i24.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento25GlobalInternalSpaceRegionE, i64 16), ptr %.0.i.i.i.i24.i, align 8
   store ptr %.0.i.i.i.i24.i, ptr %179, align 8
   br label %_ZN5clang4ento16MemRegionManager16getGlobalsRegionENS0_9MemRegion4KindEPKNS0_14CodeTextRegionE.exit
 
@@ -6708,7 +6708,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %296, align 8
   %297 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i92, i64 48
   store ptr %0, ptr %297, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento18UnknownSpaceRegionE, i64 16), ptr %.0.i.i.i.i.i92, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento18UnknownSpaceRegionE, i64 16), ptr %.0.i.i.i.i.i92, align 8
   store ptr %.0.i.i.i.i.i92, ptr %269, align 8
   br label %_ZN5clang4ento16MemRegionManager16getGlobalsRegionENS0_9MemRegion4KindEPKNS0_14CodeTextRegionE.exit
 
@@ -6803,7 +6803,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %344, align 8
   %345 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 48
   store ptr %0, ptr %345, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento15CodeSpaceRegionE, i64 16), ptr %.0.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento15CodeSpaceRegionE, i64 16), ptr %.0.i.i.i.i.i.i, align 8
   store ptr %.0.i.i.i.i.i.i, ptr %317, align 8
   br label %_ZN5clang4ento16MemRegionManager21getFunctionCodeRegionEPKNS_9NamedDeclE.exit
 
@@ -6939,7 +6939,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %415, align 8
   %416 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i107, i64 48
   store ptr %0, ptr %416, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento15CodeSpaceRegionE, i64 16), ptr %.0.i.i.i.i.i.i107, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento15CodeSpaceRegionE, i64 16), ptr %.0.i.i.i.i.i.i107, align 8
   store ptr %.0.i.i.i.i.i.i107, ptr %388, align 8
   br label %_ZN5clang4ento16MemRegionManager18getBlockCodeRegionEPKNS_9BlockDeclENS_7CanQualINS_4TypeEEEPNS_19AnalysisDeclContextE.exit
 
@@ -7033,7 +7033,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %3, ptr %38, align 8
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN5clang4ento14ParamVarRegionE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN5clang4ento14ParamVarRegionE, i64 16), ptr %.0.i.i.i, align 8
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %1, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
@@ -7272,7 +7272,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 48
   store ptr %0, ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento15CodeSpaceRegionE, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento15CodeSpaceRegionE, i64 16), ptr %.0.i.i.i.i.i, align 8
   store ptr %.0.i.i.i.i.i, ptr %3, align 8
   br label %_ZN5clang4ento16MemRegionManager13getCodeRegionEv.exit
 
@@ -7338,7 +7338,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 48
   store ptr %0, ptr %33, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento15CodeSpaceRegionE, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento15CodeSpaceRegionE, i64 16), ptr %.0.i.i.i.i.i, align 8
   store ptr %.0.i.i.i.i.i, ptr %5, align 8
   br label %_ZN5clang4ento16MemRegionManager13getCodeRegionEv.exit
 
@@ -7422,7 +7422,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %2, ptr %37, align 8
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN5clang4ento17NonParamVarRegionE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN5clang4ento17NonParamVarRegionE, i64 16), ptr %.0.i.i.i, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %1, ptr %38, align 8
   %39 = load ptr, ptr %5, align 8
@@ -7519,7 +7519,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i16.i, i64 48
   store ptr %0, ptr %43, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento26GlobalImmutableSpaceRegionE, i64 16), ptr %.0.i.i.i.i16.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento26GlobalImmutableSpaceRegionE, i64 16), ptr %.0.i.i.i.i16.i, align 8
   store ptr %.0.i.i.i.i16.i, ptr %15, align 8
   br label %_ZN5clang4ento16MemRegionManager16getGlobalsRegionENS0_9MemRegion4KindEPKNS0_14CodeTextRegionE.exit
 
@@ -7593,7 +7593,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 48
   store ptr %0, ptr %84, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento18UnknownSpaceRegionE, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento18UnknownSpaceRegionE, i64 16), ptr %.0.i.i.i.i.i, align 8
   store ptr %.0.i.i.i.i.i, ptr %56, align 8
   br label %_ZN5clang4ento16MemRegionManager16getGlobalsRegionENS0_9MemRegion4KindEPKNS0_14CodeTextRegionE.exit
 
@@ -7663,7 +7663,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %4, ptr %39, align 8
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN5clang4ento15BlockDataRegionE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang4ento15BlockDataRegionE, i64 16), ptr %.0.i.i.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
@@ -7752,7 +7752,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i24.i, i64 48
   store ptr %0, ptr %35, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento25GlobalInternalSpaceRegionE, i64 16), ptr %.0.i.i.i.i24.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento25GlobalInternalSpaceRegionE, i64 16), ptr %.0.i.i.i.i24.i, align 8
   store ptr %.0.i.i.i.i24.i, ptr %7, align 8
   br label %_ZN5clang4ento16MemRegionManager16getGlobalsRegionENS0_9MemRegion4KindEPKNS0_14CodeTextRegionE.exit
 
@@ -7827,7 +7827,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %2, ptr %37, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN5clang4ento21CompoundLiteralRegionE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN5clang4ento21CompoundLiteralRegionE, i64 16), ptr %.0.i.i.i, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %1, ptr %38, align 8
   %39 = load ptr, ptr %5, align 8
@@ -7918,7 +7918,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %4, ptr %49, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN5clang4ento13ElementRegionE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN5clang4ento13ElementRegionE, i64 16), ptr %.0.i.i.i, align 8
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store i64 %17, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
@@ -8004,7 +8004,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %2, ptr %37, align 8
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN5clang4ento18FunctionCodeRegionE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang4ento18FunctionCodeRegionE, i64 16), ptr %.0.i.i.i, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %1, ptr %38, align 8
   %39 = load ptr, ptr %5, align 8
@@ -8105,7 +8105,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %4, ptr %49, align 8
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN5clang4ento15BlockCodeRegionE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang4ento15BlockCodeRegionE, i64 16), ptr %.0.i.i.i, align 8
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %1, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
@@ -8189,7 +8189,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 48
   store ptr %0, ptr %34, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento18UnknownSpaceRegionE, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento18UnknownSpaceRegionE, i64 16), ptr %.0.i.i.i.i.i, align 8
   store ptr %.0.i.i.i.i.i, ptr %6, align 8
   br label %_ZN5clang4ento16MemRegionManager16getUnknownRegionEv.exit
 
@@ -8259,7 +8259,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %2, ptr %37, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento14SymbolicRegionE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento14SymbolicRegionE, i64 16), ptr %.0.i.i.i, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %1, ptr %38, align 8
   %39 = load ptr, ptr %5, align 8
@@ -8335,7 +8335,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 48
   store ptr %0, ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento15HeapSpaceRegionE, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento15HeapSpaceRegionE, i64 16), ptr %.0.i.i.i.i.i, align 8
   store ptr %.0.i.i.i.i.i, ptr %3, align 8
   br label %_ZN5clang4ento16MemRegionManager13getHeapRegionEv.exit
 
@@ -8405,7 +8405,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %2, ptr %37, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento14SymbolicRegionE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento14SymbolicRegionE, i64 16), ptr %.0.i.i.i, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %1, ptr %38, align 8
   %39 = load ptr, ptr %5, align 8
@@ -8493,7 +8493,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %2, ptr %37, align 8
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN5clang4ento11FieldRegionE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN5clang4ento11FieldRegionE, i64 16), ptr %.0.i.i.i, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %1, ptr %38, align 8
   %39 = load ptr, ptr %5, align 8
@@ -8667,7 +8667,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %2, ptr %39, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN5clang4ento19CXXTempObjectRegionE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN5clang4ento19CXXTempObjectRegionE, i64 16), ptr %.0.i.i.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %1, ptr %40, align 8
   %41 = load ptr, ptr %5, align 8
@@ -8762,7 +8762,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %3, ptr %41, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN5clang4ento31CXXLifetimeExtendedObjectRegionE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN5clang4ento31CXXLifetimeExtendedObjectRegionE, i64 16), ptr %.0.i.i.i, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %1, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
@@ -8840,7 +8840,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i24.i, i64 48
   store ptr %0, ptr %32, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento25GlobalInternalSpaceRegionE, i64 16), ptr %.0.i.i.i.i24.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento25GlobalInternalSpaceRegionE, i64 16), ptr %.0.i.i.i.i24.i, align 8
   store ptr %.0.i.i.i.i24.i, ptr %4, align 8
   br label %_ZN5clang4ento16MemRegionManager16getGlobalsRegionENS0_9MemRegion4KindEPKNS0_14CodeTextRegionE.exit
 
@@ -8915,7 +8915,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %3, ptr %41, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN5clang4ento31CXXLifetimeExtendedObjectRegionE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN5clang4ento31CXXLifetimeExtendedObjectRegionE, i64 16), ptr %.0.i.i.i, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %1, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
@@ -9024,7 +9024,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %3, ptr %38, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN5clang4ento19CXXBaseObjectRegionE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN5clang4ento19CXXBaseObjectRegionE, i64 16), ptr %.0.i.i.i, align 8
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   %40 = ptrtoint ptr %1 to i64
   %41 = and i64 %40, -5
@@ -9119,7 +9119,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %2, ptr %39, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN5clang4ento22CXXDerivedObjectRegionE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN5clang4ento22CXXDerivedObjectRegionE, i64 16), ptr %.0.i.i.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %1, ptr %40, align 8
   %41 = load ptr, ptr %5, align 8
@@ -9316,7 +9316,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %2, ptr %37, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN5clang4ento13CXXThisRegionE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN5clang4ento13CXXThisRegionE, i64 16), ptr %.0.i.i.i, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %1, ptr %38, align 8
   %39 = load ptr, ptr %5, align 8
@@ -9406,7 +9406,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %3, ptr %38, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento12AllocaRegionE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5clang4ento12AllocaRegionE, i64 16), ptr %.0.i.i.i, align 8
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store i32 %2, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
@@ -10401,7 +10401,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i8 0, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 48
   store ptr %6, ptr %75, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento18UnknownSpaceRegionE, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento18UnknownSpaceRegionE, i64 16), ptr %.0.i.i.i.i.i, align 8
   store ptr %.0.i.i.i.i.i, ptr %47, align 8
   br label %_ZN5clang4ento16MemRegionManager16getUnknownRegionEv.exit
 

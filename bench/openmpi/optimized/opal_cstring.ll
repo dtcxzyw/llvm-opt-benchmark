@@ -31,10 +31,10 @@ define noalias noundef ptr @opal_cstring_create_l(ptr noundef %0, i64 noundef %1
   br i1 %or.cond, label %5, label %19
 
 5:                                                ; preds = %2
-  %6 = load i64, ptr getelementptr inbounds (i8, ptr @opal_cstring_t_class, i64 56), align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opal_cstring_t_class, i64 56), align 8
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #11
   %8 = load i32, ptr @opal_class_init_epoch, align 4
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @opal_cstring_t_class, i64 32), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_cstring_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %8, %9
   br i1 %.not.i, label %11, label %10
 
@@ -73,7 +73,7 @@ define noalias noundef ptr @opal_cstring_create_l(ptr noundef %0, i64 noundef %1
 
 24:                                               ; preds = %19
   %25 = load i32, ptr @opal_class_init_epoch, align 4
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @opal_cstring_t_class, i64 32), align 8
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_cstring_t_class, i64 32), align 8
   %.not = icmp eq i32 %25, %26
   br i1 %.not, label %28, label %27
 
@@ -125,10 +125,10 @@ define noalias noundef ptr @opal_cstring_create(ptr noundef %0) local_unnamed_ad
   br i1 %2, label %3, label %17
 
 3:                                                ; preds = %1
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @opal_cstring_t_class, i64 56), align 8
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opal_cstring_t_class, i64 56), align 8
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #11
   %6 = load i32, ptr @opal_class_init_epoch, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @opal_cstring_t_class, i64 32), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_cstring_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %6, %7
   br i1 %.not.i, label %9, label %8
 

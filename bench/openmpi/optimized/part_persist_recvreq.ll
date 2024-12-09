@@ -31,7 +31,7 @@ define internal void @mca_part_persist_precv_request_construct(ptr noundef initi
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i8 1, ptr %5, align 4
   %6 = load i32, ptr @opal_class_init_epoch, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not = icmp eq i32 %6, %7
   br i1 %.not, label %9, label %8
 

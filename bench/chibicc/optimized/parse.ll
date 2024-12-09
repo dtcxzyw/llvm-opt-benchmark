@@ -582,7 +582,7 @@ while.cond.outer34:                               ; preds = %while.cond.outer34.
 
 while.cond:                                       ; preds = %while.cond.backedge, %while.cond.outer34
   %1 = load ptr, ptr %tok.addr, align 8
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @is_typename.map, i64 8), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @is_typename.map, i64 8), align 8
   %cmp.i = icmp eq i32 %2, 0
   br i1 %cmp.i, label %for.body.i, label %if.end.i
 
@@ -5396,7 +5396,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %next = getelementptr inbounds nuw i8, ptr %tok, i64 8
   %0 = load ptr, ptr %next, align 8
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @is_typename.map, i64 8), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @is_typename.map, i64 8), align 8
   %cmp.i = icmp eq i32 %1, 0
   br i1 %cmp.i, label %for.body.i, label %if.end.i
 
@@ -5488,7 +5488,7 @@ return:                                           ; preds = %if.end11, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @is_typename(ptr nocapture noundef readonly %tok) unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @is_typename.map, i64 8), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @is_typename.map, i64 8), align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %for.body, label %if.end
 
@@ -6898,7 +6898,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %next = getelementptr inbounds nuw i8, ptr %tok, i64 8
   %0 = load ptr, ptr %next, align 8
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @is_typename.map, i64 8), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @is_typename.map, i64 8), align 8
   %cmp.i = icmp eq i32 %1, 0
   br i1 %cmp.i, label %for.body.i, label %if.end.i
 
@@ -7127,7 +7127,7 @@ land.lhs.true19.i:                                ; preds = %land.lhs.true16.i
   %35 = load ptr, ptr %next17.i, align 8
   %next21.i = getelementptr inbounds nuw i8, ptr %35, i64 8
   %36 = load ptr, ptr %next21.i, align 8
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @is_typename.map, i64 8), align 8
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @is_typename.map, i64 8), align 8
   %cmp.i235 = icmp eq i32 %37, 0
   br i1 %cmp.i235, label %for.body.i253, label %if.end.i236
 
@@ -7299,7 +7299,7 @@ land.lhs.true65.i:                                ; preds = %land.lhs.true61.i
   %65 = load ptr, ptr %next62.i, align 8
   %next67.i = getelementptr inbounds nuw i8, ptr %65, i64 8
   %66 = load ptr, ptr %next67.i, align 8
-  %67 = load i32, ptr getelementptr inbounds (i8, ptr @is_typename.map, i64 8), align 8
+  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @is_typename.map, i64 8), align 8
   %cmp.i187 = icmp eq i32 %67, 0
   br i1 %cmp.i187, label %for.body.i205, label %if.end.i188
 
@@ -10478,7 +10478,7 @@ while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
   %1 = load ptr, ptr %tok.addr, align 8
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @is_typename.map, i64 8), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @is_typename.map, i64 8), align 8
   %cmp.i = icmp eq i32 %2, 0
   br i1 %cmp.i, label %for.body.i, label %if.end.i
 
@@ -12232,7 +12232,7 @@ entry:
   %tok.addr = alloca ptr, align 8
   %call = tail call ptr @skip(ptr noundef %tok, ptr noundef nonnull @.str.23) #13
   store ptr %call, ptr %tok.addr, align 8
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @is_typename.map, i64 8), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @is_typename.map, i64 8), align 8
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %for.body.i, label %if.end.i
 

@@ -797,7 +797,7 @@ define dso_local i32 @ida_alloc_range(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %26, label %76, label %.thread
 
 76:                                               ; preds = %74
-  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %78 = call noalias noundef align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %77, i32 noundef 10496, i64 noundef 128) #9
   %79 = icmp eq ptr %78, null
   br i1 %79, label %.thread17, label %.thread
@@ -869,7 +869,7 @@ define dso_local i32 @ida_alloc_range(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %26, label %115, label %.thread19
 
 115:                                              ; preds = %114
-  %116 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %117 = call noalias noundef align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %116, i32 noundef 10496, i64 noundef 128) #9
   %118 = icmp eq ptr %117, null
   br i1 %118, label %.thread17, label %.thread19

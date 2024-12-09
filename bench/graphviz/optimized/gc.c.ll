@@ -313,8 +313,8 @@ define internal fastcc range(i32 0, 2) i32 @eval(ptr noundef nonnull %0, i32 nou
 29:                                               ; preds = %.lr.ph25.i.i
   %30 = add nsw i32 %.01322.i.i, 1
   store i32 -1, ptr %27, align 8
-  %31 = load i64, ptr getelementptr inbounds (i8, ptr @Stk, i64 8), align 8
-  %32 = load i64, ptr getelementptr inbounds (i8, ptr @Stk, i64 16), align 8
+  %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 8), align 8
+  %32 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 16), align 8
   %33 = icmp eq i64 %31, %32
   br i1 %33, label %34, label %._crit_edge.i.i.i.i.i.i.i
 
@@ -337,15 +337,15 @@ define internal fastcc range(i32 0, 2) i32 @eval(ptr noundef nonnull %0, i32 nou
   br i1 %41, label %48, label %42
 
 42:                                               ; preds = %37
-  %43 = load i64, ptr getelementptr inbounds (i8, ptr @Stk, i64 16), align 8
+  %43 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 16), align 8
   %44 = shl i64 %43, 3
   %45 = getelementptr inbounds i8, ptr %40, i64 %44
   %46 = sub i64 %spec.select.i.i.i.i.i.i.i, %43
   %47 = shl i64 %46, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %45, i8 0, i64 %47, i1 false)
   store ptr %40, ptr @Stk, align 8
-  store i64 %spec.select.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @Stk, i64 16), align 8
-  %.pre1.i.i.i.i.i.i.i = load i64, ptr getelementptr inbounds (i8, ptr @Stk, i64 8), align 8
+  store i64 %spec.select.i.i.i.i.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 16), align 8
+  %.pre1.i.i.i.i.i.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 8), align 8
   br label %push.exit.i.i
 
 48:                                               ; preds = %37, %34
@@ -361,14 +361,14 @@ push.exit.i.i:                                    ; preds = %42, %._crit_edge.i.
   %53 = phi ptr [ %.pre.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %40, %42 ]
   %54 = getelementptr inbounds ptr, ptr %53, i64 %52
   store ptr %.123.i.i, ptr %54, align 8
-  %55 = load i64, ptr getelementptr inbounds (i8, ptr @Stk, i64 8), align 8
+  %55 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 8), align 8
   %56 = add i64 %55, 1
-  store i64 %56, ptr getelementptr inbounds (i8, ptr @Stk, i64 8), align 8
+  store i64 %56, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 8), align 8
   %57 = icmp eq i64 %56, 0
   br i1 %57, label %cc_dfs.exit.i.i, label %pop.exit.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %116, %66
-  %58 = load i64, ptr getelementptr inbounds (i8, ptr @Stk, i64 8), align 8
+  %58 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 8), align 8
   %59 = icmp eq i64 %58, 0
   br i1 %59, label %cc_dfs.exit.i.i, label %pop.exit.i.i.i
 
@@ -379,7 +379,7 @@ pop.exit.i.i.i:                                   ; preds = %push.exit.i.i, %.lo
   %63 = getelementptr i8, ptr %62, i64 -8
   %64 = load ptr, ptr %63, align 8
   %65 = add i64 %60, -1
-  store i64 %65, ptr getelementptr inbounds (i8, ptr @Stk, i64 8), align 8
+  store i64 %65, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 8), align 8
   %.not.i.i.i = icmp eq ptr %64, null
   br i1 %.not.i.i.i, label %cc_dfs.exit.i.i, label %66
 
@@ -423,8 +423,8 @@ pop.exit.i.i.i:                                   ; preds = %push.exit.i.i, %.lo
 
 89:                                               ; preds = %83
   store i32 -1, ptr %86, align 8
-  %90 = load i64, ptr getelementptr inbounds (i8, ptr @Stk, i64 8), align 8
-  %91 = load i64, ptr getelementptr inbounds (i8, ptr @Stk, i64 16), align 8
+  %90 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 8), align 8
+  %91 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 16), align 8
   %92 = icmp eq i64 %90, %91
   br i1 %92, label %93, label %._crit_edge.i.i.i.i.i.i.i.i
 
@@ -447,15 +447,15 @@ pop.exit.i.i.i:                                   ; preds = %push.exit.i.i, %.lo
   br i1 %100, label %107, label %101
 
 101:                                              ; preds = %96
-  %102 = load i64, ptr getelementptr inbounds (i8, ptr @Stk, i64 16), align 8
+  %102 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 16), align 8
   %103 = shl i64 %102, 3
   %104 = getelementptr inbounds i8, ptr %99, i64 %103
   %105 = sub i64 %spec.select.i.i.i.i.i.i.i.i, %102
   %106 = shl i64 %105, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %104, i8 0, i64 %106, i1 false)
   store ptr %99, ptr @Stk, align 8
-  store i64 %spec.select.i.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @Stk, i64 16), align 8
-  %.pre1.i.i.i.i.i.i.i.i = load i64, ptr getelementptr inbounds (i8, ptr @Stk, i64 8), align 8
+  store i64 %spec.select.i.i.i.i.i.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 16), align 8
+  %.pre1.i.i.i.i.i.i.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 8), align 8
   br label %push.exit.i.i.i
 
 107:                                              ; preds = %96, %93
@@ -471,9 +471,9 @@ push.exit.i.i.i:                                  ; preds = %101, %._crit_edge.i
   %112 = phi ptr [ %.pre.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %99, %101 ]
   %113 = getelementptr inbounds ptr, ptr %112, i64 %111
   store ptr %.0.i.i.i, ptr %113, align 8
-  %114 = load i64, ptr getelementptr inbounds (i8, ptr @Stk, i64 8), align 8
+  %114 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 8), align 8
   %115 = add i64 %114, 1
-  store i64 %115, ptr getelementptr inbounds (i8, ptr @Stk, i64 8), align 8
+  store i64 %115, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 8), align 8
   br label %116
 
 116:                                              ; preds = %push.exit.i.i.i, %83
@@ -632,7 +632,7 @@ define internal fastcc void @wcp(i32 noundef %0, i32 noundef %1, i32 noundef %2,
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal fastcc void @stack_reset() unnamed_addr #5 {
-  store i64 0, ptr getelementptr inbounds (i8, ptr @Stk, i64 8), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 8), align 8
   %1 = load ptr, ptr @Stk, align 8
   tail call void @free(ptr noundef %1) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @Stk, i8 0, i64 24, i1 false)

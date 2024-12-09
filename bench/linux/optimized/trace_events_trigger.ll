@@ -821,7 +821,7 @@ define dso_local noundef ptr @event_trigger_alloc(ptr noundef %0, ptr noundef %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef %1, ptr noundef %2) #15
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %9 = tail call noalias align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 112) #16
   %10 = icmp eq ptr %9, null
   br i1 %10, label %20, label %11
@@ -1441,7 +1441,7 @@ define dso_local i32 @event_enable_trigger_parse(ptr noundef %0, ptr noundef %1,
 
 36:                                               ; preds = %32
   %37 = call i32 @strcmp(ptr noundef %3, ptr noundef nonnull dereferenceable(13) @.str.7) #15
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %39 = call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %38, i32 noundef 3520, i64 noundef 16) #16
   %40 = icmp eq ptr %39, null
   br i1 %40, label %127, label %41
@@ -1458,7 +1458,7 @@ define dso_local i32 @event_enable_trigger_parse(ptr noundef %0, ptr noundef %1,
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %48 = load ptr, ptr %47, align 8
   %49 = call ptr %48(ptr noundef %3, ptr noundef %46) #15
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %51 = call noalias align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %50, i32 noundef 3520, i64 noundef 112) #16
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %54
@@ -2163,7 +2163,7 @@ define internal noundef i32 @trigger_show(ptr noundef %0, ptr noundef %1) #0 ali
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.13) #15
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 35) #15
   tail call void @mutex_lock(ptr noundef nonnull @trigger_cmd_mutex) #15
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @trigger_commands, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @trigger_commands, i64 8), align 8
   %6 = icmp eq ptr %5, @trigger_commands
   br i1 %6, label %.loopexit, label %.preheader
 
@@ -2268,7 +2268,7 @@ define internal i32 @event_trigger_parse(ptr noundef %0, ptr noundef %1, ptr nou
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = load ptr, ptr %32, align 8
   %34 = call ptr %33(ptr noundef %3, ptr noundef %30) #15
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %36 = call noalias align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %35, i32 noundef 3520, i64 noundef 112) #16
   %37 = icmp eq ptr %36, null
   br i1 %37, label %event_trigger_free.exit, label %38

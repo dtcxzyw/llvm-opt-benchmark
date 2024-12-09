@@ -701,7 +701,7 @@ define dso_local noundef range(i32 -88, -89) i32 @selinux_netlbl_socket_post_cre
   br i1 %10, label %11, label %59
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %13 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 2336, i64 noundef 48) #10
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %15
@@ -1100,7 +1100,7 @@ define dso_local i32 @selinux_netlbl_socket_connect_locked(ptr noundef %0, ptr n
   br i1 %15, label %16, label %64
 
 16:                                               ; preds = %12
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %18 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 2336, i64 noundef 48) #10
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.thread, label %20

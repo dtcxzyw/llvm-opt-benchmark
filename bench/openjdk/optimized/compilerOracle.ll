@@ -870,7 +870,7 @@ _ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit: ; preds = %8
   br i1 %15, label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit9, label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit.thread
 
 _ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit.thread: ; preds = %10, %1, %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit
-  %16 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 7), align 1
+  %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 7), align 1
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit9
 
@@ -915,7 +915,7 @@ define internal fastcc noundef zeroext i1 @_ZL15check_predicate18CompileCommandE
   br i1 %or.cond, label %4, label %55
 
 4:                                                ; preds = %2
-  %5 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 4), align 4
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 4), align 4
   %6 = trunc i8 %5 to i1
   %7 = load ptr, ptr @_ZL11option_list, align 8
   %.not.i.i = icmp ne ptr %7, null
@@ -947,7 +947,7 @@ _ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit.i.
 _ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit.i: ; preds = %13, %_ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit.i.i, %4
   %.035.i = phi i8 [ %17, %_ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit.i.i ], [ 0, %4 ], [ 0, %13 ]
   %.0.i.i = phi i1 [ true, %_ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit.i.i ], [ false, %4 ], [ false, %13 ]
-  %18 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 5), align 1
+  %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 5), align 1
   %19 = trunc i8 %18 to i1
   %20 = load ptr, ptr @_ZL11option_list, align 8
   %.not.i21.i = icmp ne ptr %20, null
@@ -1163,16 +1163,16 @@ _ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit: ; preds = %10, %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN14CompilerOracle20should_print_methodsEv() local_unnamed_addr #6 align 2 {
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 3), align 1
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 3), align 1
   %2 = trunc i8 %1 to i1
   ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN14CompilerOracle22should_collect_memstatEv() local_unnamed_addr #6 align 2 {
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 13), align 1
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 13), align 1
   %2 = trunc i8 %1 to i1
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 12), align 4
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 12), align 4
   %4 = trunc i8 %3 to i1
   %5 = select i1 %2, i1 true, i1 %4
   ret i1 %5
@@ -1191,7 +1191,7 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle10should_logERK12methodHand
   br i1 %3, label %4, label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit
 
 4:                                                ; preds = %1
-  %5 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 2), align 2
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 2), align 2
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit
 
@@ -2218,7 +2218,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.
   store i8 %30, ptr %31, align 8
   store ptr %0, ptr @_ZL11option_list, align 8
   store i1 true, ptr @_ZL7any_set, align 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 6), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 6), align 2
   br label %44
 
 32:                                               ; preds = %24
@@ -2335,7 +2335,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.
   store i64 %2, ptr %28, align 8
   store ptr %0, ptr @_ZL11option_list, align 8
   store i1 true, ptr @_ZL7any_set, align 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 6), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 6), align 2
   br label %41
 
 29:                                               ; preds = %22
@@ -2638,7 +2638,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit.i: ; preds = %102, %.split.i
   store i64 %85, ptr %110, align 8
   store ptr %3, ptr @_ZL11option_list, align 8
   store i1 true, ptr @_ZL7any_set, align 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 6), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 6), align 2
   br label %123
 
 111:                                              ; preds = %104
@@ -3031,7 +3031,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit.i105: ; preds = %290, %.spli
   store double %274, ptr %298, align 8
   store ptr %3, ptr @_ZL11option_list, align 8
   store i1 true, ptr @_ZL7any_set, align 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 6), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 6), align 2
   br label %311
 
 299:                                              ; preds = %292
@@ -3101,18 +3101,18 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle15parse_from_fileEv() local
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %0
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV9FileInput, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV9FileInput, i64 16), ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %7, ptr %6, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(65) %7, i1 noundef zeroext false) #19
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr %3, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i8 1, ptr %9, align 8
   %10 = call noundef zeroext i1 @_ZN14CompilerOracle16parse_from_inputEPN11inputStream5InputEPFbPcE(ptr noundef nonnull %1, ptr noundef nonnull @_ZN14CompilerOracle15parse_from_lineEPc)
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV9FileInput, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV9FileInput, i64 16), ptr %1, align 8
   call void @_ZN10fileStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(65) %7) #19
   br label %11
 
@@ -3126,7 +3126,7 @@ declare noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN14CompilerOracle16parse_from_inputEPN11inputStream5InputEPFbPcE(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.inputStream, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV11inputStream, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV11inputStream, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3208,7 +3208,7 @@ declare void @_ZN11inputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(3
 define hidden noundef zeroext i1 @_ZN14CompilerOracle17parse_from_stringEPKcPFbPcE(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.MemoryInput, align 8
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV11MemoryInput, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV11MemoryInput, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3231,7 +3231,7 @@ define hidden noundef zeroext i1 @_Z19compilerOracle_initv() local_unnamed_addr 
   %5 = load ptr, ptr @CompileCommand, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #21
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV11MemoryInput, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV11MemoryInput, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3243,7 +3243,7 @@ define hidden noundef zeroext i1 @_Z19compilerOracle_initv() local_unnamed_addr 
   %11 = load ptr, ptr @CompileOnly, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #21
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV11MemoryInput, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV11MemoryInput, i64 16), ptr %2, align 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %11, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3268,18 +3268,18 @@ _ZN14CompilerOracle15parse_from_fileEv.exit.thread: ; preds = %18
   br label %26
 
 _ZN14CompilerOracle15parse_from_fileEv.exit:      ; preds = %18
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV9FileInput, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV9FileInput, i64 16), ptr %1, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %22, ptr %21, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(65) %22, i1 noundef zeroext false) #19
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr %19, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i8 1, ptr %24, align 8
   %25 = call noundef zeroext i1 @_ZN14CompilerOracle16parse_from_inputEPN11inputStream5InputEPFbPcE(ptr noundef nonnull %1, ptr noundef nonnull @_ZN14CompilerOracle15parse_from_lineEPc)
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV9FileInput, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV9FileInput, i64 16), ptr %1, align 8
   call void @_ZN10fileStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(65) %22) #19
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %1)
   br i1 %25, label %26, label %31
@@ -3298,7 +3298,7 @@ _ZN14CompilerOracle15parse_from_fileEv.exit:      ; preds = %18
 
 31:                                               ; preds = %26, %_ZN14CompilerOracle15parse_from_fileEv.exit, %27, %30
   %.3.shrunk = phi i1 [ %narrow, %30 ], [ %narrow, %27 ], [ %narrow, %26 ], [ false, %_ZN14CompilerOracle15parse_from_fileEv.exit ]
-  %32 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 3), align 1
+  %32 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 3), align 1
   %33 = trunc i8 %32 to i1
   br i1 %33, label %34, label %38
 
@@ -3371,7 +3371,7 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle18parse_compile_onlyEPc(ptr
   store i8 1, ptr %33, align 8
   store ptr %28, ptr @_ZL11option_list, align 8
   store i1 true, ptr @_ZL7any_set, align 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 7), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 7), align 1
   %34 = load i8, ptr @_ZN14CompilerOracle6_quietE, align 1
   %35 = trunc i8 %34 to i1
   br i1 %35, label %_ZL16register_commandIbEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit, label %36
@@ -3575,7 +3575,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.
   store ptr %30, ptr %31, align 8
   store ptr %0, ptr @_ZL11option_list, align 8
   store i1 true, ptr @_ZL7any_set, align 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 6), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 6), align 2
   br label %44
 
 32:                                               ; preds = %24

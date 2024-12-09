@@ -135,7 +135,7 @@ _crypt_output_magic.exit:                         ; preds = %4, %11, %16, %20
   %64 = or i32 %63, %.045.i
   %65 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
   store i32 %54, ptr %65, align 4
-  %66 = getelementptr inbounds nuw [18 x i32], ptr getelementptr inbounds (i8, ptr @BF_init_state, i64 4096), i64 0, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw [18 x i32], ptr getelementptr inbounds nuw (i8, ptr @BF_init_state, i64 4096), i64 0, i64 %indvars.iv.i
   %67 = load i32, ptr %66, align 4
   %68 = xor i32 %67, %54
   %69 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
@@ -179,7 +179,7 @@ BF_set_key.exit:                                  ; preds = %62
 87:                                               ; preds = %79
   %88 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i40
   store i32 %84, ptr %88, align 4
-  %89 = getelementptr inbounds nuw [18 x i32], ptr getelementptr inbounds (i8, ptr @BF_init_state, i64 4096), i64 0, i64 %indvars.iv.i40
+  %89 = getelementptr inbounds nuw [18 x i32], ptr getelementptr inbounds nuw (i8, ptr @BF_init_state, i64 4096), i64 0, i64 %indvars.iv.i40
   %90 = load i32, ptr %89, align 4
   %91 = xor i32 %90, %84
   %92 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i40
@@ -2994,7 +2994,7 @@ define internal fastcc void @BF_set_key(ptr nocapture noundef readonly %0, ptr n
   %31 = load i32, ptr %10, align 4
   %32 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   store i32 %31, ptr %32, align 4
-  %33 = getelementptr inbounds nuw [18 x i32], ptr getelementptr inbounds (i8, ptr @BF_init_state, i64 4096), i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [18 x i32], ptr getelementptr inbounds nuw (i8, ptr @BF_init_state, i64 4096), i64 0, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4
   %35 = xor i32 %34, %31
   %36 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv

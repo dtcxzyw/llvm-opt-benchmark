@@ -275,7 +275,7 @@ define dso_local i32 @__ipv6_dev_ac_inc(ptr noundef %0, ptr noundef %1) local_un
   br label %.thread10
 
 45:                                               ; preds = %.loopexit
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %47 = tail call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %46, i32 noundef 2336, i64 noundef 88) #7
   %48 = icmp eq ptr %47, null
   br i1 %48, label %59, label %49

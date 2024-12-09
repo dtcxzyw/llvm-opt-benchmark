@@ -1049,7 +1049,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %cleanup.cont571
 
 if.end:                                           ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %raw, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %raw, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %raw, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %ruleIndex = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -1337,7 +1337,7 @@ invoke.cont45.critedge:                           ; preds = %if.else.i
   br label %invoke.cont45
 
 invoke.cont45:                                    ; preds = %invoke.cont45.critedge, %invoke.cont37
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %v, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %v, align 8
   %fUnion2.i170 = getelementptr inbounds nuw i8, ptr %v, i64 8
   store i16 2, ptr %fUnion2.i170, align 8
   %48 = load i16, ptr %fUnion2.i, align 8
@@ -2444,7 +2444,7 @@ if.then2.i328.invoke:                             ; preds = %if.end.i316, %if.en
           to label %cleanup478 unwind label %lpad424
 
 invoke.cont441:                                   ; preds = %if.end436
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %importedRules, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %importedRules, align 8
   %fUnion2.i331 = getelementptr inbounds nuw i8, ptr %importedRules, i64 8
   store i16 2, ptr %fUnion2.i331, align 8
   %196 = load i32, ptr %len.i310, align 8
@@ -3146,7 +3146,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end45:                                         ; preds = %if.end40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %str, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %str, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %str, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %55 = load i16, ptr %fUnion.i.i89, align 8
@@ -3426,13 +3426,13 @@ invoke.cont3:
   %prefix = alloca %"class.icu_75::UnicodeString", align 8
   %str = alloca %"class.icu_75::UnicodeString", align 8
   %extension = alloca %"class.icu_75::UnicodeString", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %prefix, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %prefix, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %prefix, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %str, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %str, align 8
   %fUnion2.i18 = getelementptr inbounds nuw i8, ptr %str, i64 8
   store i16 2, ptr %fUnion2.i18, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %extension, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %extension, align 8
   %fUnion2.i19 = getelementptr inbounds nuw i8, ptr %extension, i64 8
   store i16 2, ptr %fUnion2.i19, align 8
   %call = invoke noundef i32 @_ZN6icu_7519CollationRuleParser20parseTailoringStringEiRNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(76) %this, i32 noundef %i, ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -3627,10 +3627,10 @@ invoke.cont:
   %raw = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %s = alloca %"class.icu_75::UnicodeString", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %empty, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %empty, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %empty, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %raw, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %raw, align 8
   %fUnion2.i38 = getelementptr inbounds nuw i8, ptr %raw, i64 8
   store i16 2, ptr %fUnion2.i38, align 8
   %rules.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -3923,7 +3923,7 @@ if.end.i81:                                       ; preds = %if.then67
   br i1 %cmp.not.i84, label %cleanup111, label %if.then32.invoke
 
 if.end69:                                         ; preds = %invoke.cont64
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %s, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %s, align 8
   store i16 2, ptr %fUnion2.i88, align 8
   br label %while.cond71
 
@@ -4158,7 +4158,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %raw, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %raw, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %raw, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %add = add nsw i32 %i, 1

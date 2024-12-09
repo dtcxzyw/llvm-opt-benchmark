@@ -291,13 +291,13 @@ define hidden noundef ptr @_ZN7OopFlow13build_oop_mapEP4NodeiP13PhaseRegAllocPi(
 51:                                               ; preds = %49
   %52 = add i32 %25, %35
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617), i64 %53
+  %54 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %53
   br label %_ZN7OptoReg8as_VMRegEiii.exit
 
 55:                                               ; preds = %49
   %56 = sub i32 %35, %13
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617), i64 %57
+  %58 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %57
   br label %_ZN7OptoReg8as_VMRegEiii.exit
 
 _ZN7OptoReg8as_VMRegEiii.exit:                    ; preds = %46, %51, %55
@@ -325,7 +325,7 @@ _ZN7OptoReg8as_VMRegEiii.exit:                    ; preds = %46, %51, %55
 74:                                               ; preds = %72
   %75 = ptrtoint ptr %.0.i to i64
   %76 = trunc i64 %75 to i32
-  %77 = sub i32 %76, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %77 = sub i32 %76, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %78 = icmp ult i32 %77, 16384
   br i1 %78, label %84, label %79
 
@@ -515,13 +515,13 @@ _ZN7OptoReg8as_VMRegEiii.exit:                    ; preds = %46, %51, %55
 173:                                              ; preds = %171
   %174 = add i32 %25, %161
   %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617), i64 %175
+  %176 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %175
   br label %_ZN7OptoReg8as_VMRegEiii.exit120
 
 177:                                              ; preds = %171
   %178 = sub i32 %161, %13
   %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617), i64 %179
+  %180 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %179
   br label %_ZN7OptoReg8as_VMRegEiii.exit120
 
 _ZN7OptoReg8as_VMRegEiii.exit120:                 ; preds = %165, %169, %173, %177
@@ -558,7 +558,7 @@ _ZN7OptoReg8as_VMRegEiii.exit120:                 ; preds = %165, %169, %173, %1
 196:                                              ; preds = %195
   %197 = ptrtoint ptr %.0.i to i64
   %198 = trunc i64 %197 to i32
-  %199 = sub i32 %198, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %199 = sub i32 %198, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %200 = icmp ult i32 %199, 16384
   br i1 %200, label %206, label %201
 
@@ -816,7 +816,7 @@ define hidden void @_ZN11PhaseOutput12BuildOopMapsEv(ptr nocapture noundef nonnu
   %3 = alloca i64, align 8
   %4 = alloca %"class.Compile::TracePhase", align 8
   %5 = alloca %class.Block_List, align 8
-  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %4, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1176)) #11
+  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %4, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1176)) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 2160

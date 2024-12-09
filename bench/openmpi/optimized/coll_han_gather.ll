@@ -745,13 +745,13 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %418, %
   %430 = getelementptr inbounds nuw i8, ptr %8, i64 608
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %429, i8 0, i64 32, i1 false)
   %431 = load ptr, ptr %430, align 8
-  %432 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 340), align 4
+  %432 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 340), align 4
   %433 = zext i32 %432 to i64
   %434 = getelementptr inbounds nuw ptr, ptr %431, i64 %433
   %435 = load ptr, ptr %434, align 8
   %436 = getelementptr inbounds nuw i8, ptr %8, i64 616
   %437 = load ptr, ptr %436, align 8
-  %438 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 336), align 8
+  %438 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_han_component, i64 336), align 8
   %439 = zext i32 %438 to i64
   %440 = getelementptr inbounds nuw ptr, ptr %437, i64 %439
   %441 = load ptr, ptr %440, align 8
@@ -903,7 +903,7 @@ opal_obj_new.exit313:                             ; preds = %.lr.ph.i.i310, %497
   %526 = getelementptr inbounds nuw i8, ptr %505, i64 24
   store ptr %414, ptr %526, align 8
   %527 = load i32, ptr @opal_class_init_epoch, align 4
-  %528 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_task_t_class, i64 32), align 8
+  %528 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_task_t_class, i64 32), align 8
   %.not.i314 = icmp eq i32 %527, %528
   br i1 %.not.i314, label %530, label %529
 
@@ -935,7 +935,7 @@ init_task.exit:                                   ; preds = %.lr.ph.i.i316, %530
   %538 = getelementptr inbounds nuw i8, ptr %493, i64 24
   store ptr %505, ptr %538, align 8
   %539 = tail call i32 @mca_coll_han_gather_lg_task(ptr noundef nonnull %505) #7
-  %540 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
+  %540 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 32), align 8
   %541 = call i32 %540(ptr noundef nonnull %10, ptr noundef null) #7
   br i1 %452, label %542, label %569
 
@@ -1186,7 +1186,7 @@ ompi_datatype_copy_content_same_ddt.exit:         ; preds = %60, %.lr.ph.i, %46,
   store ptr %.0, ptr %78, align 8
   %79 = load ptr, ptr %0, align 8
   %80 = load i32, ptr @opal_class_init_epoch, align 4
-  %81 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_task_t_class, i64 32), align 8
+  %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_task_t_class, i64 32), align 8
   %.not.i57 = icmp eq i32 %80, %81
   br i1 %.not.i57, label %83, label %82
 

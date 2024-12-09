@@ -112,7 +112,7 @@ define void @_ZN8QuantLib9Thirty365C2Ev(ptr nocapture noundef nonnull writeonly 
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr", align 8
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #9
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib9Thirty3654ImplE, i64 16), ptr %call, align 8, !tbaa !8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib9Thirty3654ImplE, i64 16), ptr %call, align 8, !tbaa !8
   store ptr %call, ptr %agg.tmp, align 8, !tbaa !10
   %pn.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   store ptr null, ptr %pn.i, align 8, !tbaa !14
@@ -153,7 +153,7 @@ _ZN5boost10shared_ptrIN8QuantLib10DayCounter4ImplEED2Ev.exit: ; preds = %entry
   store i32 1, ptr %use_count_.i.i.i.i, align 8, !tbaa !15
   %weak_count_.i.i.i.i3 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i3, align 4, !tbaa !18
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib9Thirty3654ImplEEE, i64 16), ptr %call.i.i, align 8, !tbaa !8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib9Thirty3654ImplEEE, i64 16), ptr %call.i.i, align 8, !tbaa !8
   %px_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
   store ptr %call, ptr %px_.i.i.i, align 8, !tbaa !19
   store ptr %call, ptr %this, align 8, !tbaa !10

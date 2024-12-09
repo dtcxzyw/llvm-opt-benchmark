@@ -1029,7 +1029,7 @@ define hidden noundef i32 @dissect_ndr_ctx_hnd(ptr noundef %0, i32 noundef %1, p
   %19 = tail call i32 @dcerpc_tvb_get_ntohl(ptr noundef %0, i32 noundef %.020, ptr noundef %5) #6
   store i32 %19, ptr @dissect_ndr_ctx_hnd.ctx_hnd, align 4
   %20 = add i32 %.020, 4
-  tail call void @dcerpc_tvb_get_uuid(ptr noundef %0, i32 noundef %20, ptr noundef %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @dissect_ndr_ctx_hnd.ctx_hnd, i64 4)) #6
+  tail call void @dcerpc_tvb_get_uuid(ptr noundef %0, i32 noundef %20, ptr noundef %5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dissect_ndr_ctx_hnd.ctx_hnd, i64 4)) #6
   %.not26 = icmp eq ptr %3, null
   br i1 %.not26, label %23, label %21
 

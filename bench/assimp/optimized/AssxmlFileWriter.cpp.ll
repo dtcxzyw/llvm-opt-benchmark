@@ -305,7 +305,7 @@ call.i.noexc371.i:                                ; preds = %while.end.i
           to label %.noexc373.i unwind label %lpad7.i
 
 .noexc373.i:                                      ; preds = %call.i.noexc371.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %header.i, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 217))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %header.i, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 217))
           to label %invoke.cont8.i unwind label %lpad.i370.i
 
 lpad.i370.i:                                      ; preds = %.noexc373.i

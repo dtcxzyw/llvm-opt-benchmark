@@ -26,7 +26,7 @@ $_ZTIN5zxing6qrcode16AlignmentPatternE = comdat any
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5zxing6qrcode16AlignmentPatternC2Efff(ptr noundef nonnull align 8 dereferenceable(24) %0, float noundef %1, float noundef %2, float noundef %3) unnamed_addr #0 align 2 {
   tail call void @_ZN5zxing11ResultPointC2Eff(ptr noundef nonnull align 8 dereferenceable(20) %0, float noundef %1, float noundef %2)
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5zxing6qrcode16AlignmentPatternE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5zxing6qrcode16AlignmentPatternE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %3, ptr %5, align 4
   ret void
@@ -93,7 +93,7 @@ define hidden void @_ZNK5zxing6qrcode16AlignmentPattern15combineEstimateEfff(ptr
 _ZN5zxing3RefINS_6qrcode16AlignmentPatternEEC2EPS2_.exit: ; preds = %5
   %21 = fadd float %4, %19
   %22 = fmul float %21, 5.000000e-01
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5zxing6qrcode16AlignmentPatternE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5zxing6qrcode16AlignmentPatternE, i64 16), ptr %20, align 8
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store float %22, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 8

@@ -53,7 +53,7 @@ invoke.cont:
   store i32 -1, ptr %m_userIndex.i, align 8
   %m_userIndex2.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 -1, ptr %m_userIndex2.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15btCompoundShape, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15btCompoundShape, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -231,7 +231,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN15btCompoundShapeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15btCompoundShape, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15btCompoundShape, i64 16), ptr %this, align 8
   %m_dynamicAabbTree = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_dynamicAabbTree, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -304,7 +304,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN15btCompoundShapeD0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15btCompoundShape, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15btCompoundShape, i64 16), ptr %this, align 8
   %m_dynamicAabbTree.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_dynamicAabbTree.i, align 8
   %tobool.not.i = icmp eq ptr %0, null

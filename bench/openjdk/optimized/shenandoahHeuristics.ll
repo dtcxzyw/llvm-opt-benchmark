@@ -72,7 +72,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN20ShenandoahHeuristics18compare_b
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ShenandoahHeuristicsC2EP19ShenandoahSpaceInfo(ptr noundef nonnull align 8 dereferenceable(193) initializes((0, 64)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV20ShenandoahHeuristics, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV20ShenandoahHeuristics, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -106,7 +106,7 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ShenandoahHeuristicsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(193) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV20ShenandoahHeuristics, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV20ShenandoahHeuristics, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #14

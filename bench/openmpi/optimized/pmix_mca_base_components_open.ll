@@ -69,7 +69,7 @@ define internal void @fc_pair_destructor(ptr nocapture noundef %0) #1 {
 define range(i32 -29, 1) i32 @pmix_mca_base_show_load_errors_init() local_unnamed_addr #2 {
   %1 = alloca %struct.pmix_value, align 8
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -78,8 +78,8 @@ define range(i32 -29, 1) i32 @pmix_mca_base_show_load_errors_init() local_unname
   br label %5
 
 5:                                                ; preds = %4, %0
-  store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @show_load_errors_include, i64 40), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @show_load_errors_include, i64 48), align 8
+  store ptr @pmix_list_t_class, ptr getelementptr inbounds nuw (i8, ptr @show_load_errors_include, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @show_load_errors_include, i64 48), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @show_load_errors_include, i64 56), i8 0, i64 64, i1 false)
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 40), align 8
   %7 = load ptr, ptr %6, align 8
@@ -97,7 +97,7 @@ define range(i32 -29, 1) i32 @pmix_mca_base_show_load_errors_init() local_unname
 
 pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   %11 = load i32, ptr @pmix_class_init_epoch, align 4
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not43 = icmp eq i32 %11, %12
   br i1 %.not43, label %14, label %13
 
@@ -106,8 +106,8 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   br label %14
 
 14:                                               ; preds = %13, %pmix_obj_run_constructors.exit
-  store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @show_load_errors_exclude, i64 40), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @show_load_errors_exclude, i64 48), align 8
+  store ptr @pmix_list_t_class, ptr getelementptr inbounds nuw (i8, ptr @show_load_errors_exclude, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @show_load_errors_exclude, i64 48), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @show_load_errors_exclude, i64 56), i8 0, i64 64, i1 false)
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 40), align 8
   %16 = load ptr, ptr %15, align 8
@@ -223,10 +223,10 @@ pmix_obj_run_constructors.exit50:                 ; preds = %.lr.ph.i47, %14
   br label %102
 
 66:                                               ; preds = %60
-  %67 = load i64, ptr getelementptr inbounds (i8, ptr @fc_pair_t_class, i64 56), align 8
+  %67 = load i64, ptr getelementptr inbounds nuw (i8, ptr @fc_pair_t_class, i64 56), align 8
   %68 = call noalias noundef ptr @malloc(i64 noundef %67) #16
   %69 = load i32, ptr @pmix_class_init_epoch, align 4
-  %70 = load i32, ptr getelementptr inbounds (i8, ptr @fc_pair_t_class, i64 32), align 8
+  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @fc_pair_t_class, i64 32), align 8
   %.not.i51 = icmp eq i32 %69, %70
   br i1 %.not.i51, label %72, label %71
 

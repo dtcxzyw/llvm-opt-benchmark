@@ -158,7 +158,7 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
   br i1 %8, label %274, label %9
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %11 = tail call noalias noundef align 8 dereferenceable_or_null(432) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 432) #14
   %12 = icmp eq ptr %11, null
   br i1 %12, label %274, label %13

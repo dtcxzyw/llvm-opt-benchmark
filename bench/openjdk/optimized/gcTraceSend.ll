@@ -1720,7 +1720,7 @@ _ZN8JfrEventI26EventConcurrentModeFailureE11write_eventEv.exit: ; preds = %9, %3
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK8GCTracer26send_gc_heap_summary_eventEN6GCWhen4TypeERK13GCHeapSummary(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.GCHeapSummaryEventSender, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV24GCHeapSummaryEventSender, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV24GCHeapSummaryEventSender, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1, ptr %5, align 8
   %6 = load ptr, ptr %2, align 8
@@ -1885,8 +1885,8 @@ _ZN8JfrEventI21EventMetaspaceSummaryE11write_eventEv.exit: ; preds = %9, %38, %3
 define hidden void @_ZNK8GCTracer17send_phase_eventsEP14TimePartitions(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.PhaseSender, align 8
   %4 = alloca %class.TimePartitionPhasesIterator, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV11PhaseSender, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV27TimePartitionPhasesIterator, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV11PhaseSender, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV27TimePartitionPhasesIterator, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16

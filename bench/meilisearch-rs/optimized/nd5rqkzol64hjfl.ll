@@ -2803,7 +2803,7 @@ define void @_ZN16meilisearch_auth5store13HeedAuthStore11put_api_key17hf2d7cb442
 
 .invoke:                                          ; preds = %102, %250, %251
   %252 = phi ptr [ @anon.0cb9b3cd82a9bc1899a20c7efca9230d.67, %251 ], [ @anon.0cb9b3cd82a9bc1899a20c7efca9230d.66, %250 ], [ @anon.0cb9b3cd82a9bc1899a20c7efca9230d.65, %102 ]
-  %253 = phi ptr [ getelementptr inbounds (i8, ptr @anon.0cb9b3cd82a9bc1899a20c7efca9230d.67, i64 2), %251 ], [ getelementptr inbounds (i8, ptr @anon.0cb9b3cd82a9bc1899a20c7efca9230d.66, i64 5), %250 ], [ getelementptr inbounds (i8, ptr @anon.0cb9b3cd82a9bc1899a20c7efca9230d.65, i64 3), %102 ]
+  %253 = phi ptr [ getelementptr inbounds nuw (i8, ptr @anon.0cb9b3cd82a9bc1899a20c7efca9230d.67, i64 2), %251 ], [ getelementptr inbounds nuw (i8, ptr @anon.0cb9b3cd82a9bc1899a20c7efca9230d.66, i64 5), %250 ], [ getelementptr inbounds nuw (i8, ptr @anon.0cb9b3cd82a9bc1899a20c7efca9230d.65, i64 3), %102 ]
   invoke void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend17h22cd55e8e1704a22E.llvm.11724494382806012607"(ptr noalias noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull %252, ptr noundef nonnull %253)
           to label %"_ZN9hashbrown3set24HashSet$LT$T$C$S$C$A$GT$6insert17h0497176a68fe4e31E.exit" unwind label %.loopexit.split-lp163
 

@@ -729,7 +729,7 @@ _ZN4absl12lts_202308028StatusOrIN9grpc_core13RefCountedPtrI18grpc_channel_stackE
   %28 = load ptr, ptr %27, align 8, !noalias !4
   %refs_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i31, i64 8
   store i64 1, ptr %refs_.i.i.i, align 8, !noalias !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14DynamicFiltersE, i64 16), ptr %call.i31, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core14DynamicFiltersE, i64 16), ptr %call.i31, align 8, !noalias !4
   %channel_stack_.i.i = getelementptr inbounds nuw i8, ptr %call.i31, i64 16
   store ptr %28, ptr %channel_stack_.i.i, align 8, !noalias !4
   store ptr %call.i31, ptr %agg.result, align 8, !alias.scope !4
@@ -750,7 +750,7 @@ define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_118CreateChannelStackERKN
 entry:
   %builder = alloca %"class.grpc_core::ChannelStackBuilderImpl", align 8
   call void @_ZN9grpc_core19ChannelStackBuilderC2EPKc23grpc_channel_stack_typeRKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(88) %builder, ptr noundef nonnull @.str.7, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %args)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core23ChannelStackBuilderImplE, i64 16), ptr %builder, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core23ChannelStackBuilderImplE, i64 16), ptr %builder, align 8
   %0 = load ptr, ptr %filters, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %filters, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
@@ -788,7 +788,7 @@ for.end:                                          ; preds = %for.inc, %entry
           to label %invoke.cont6 unwind label %lpad.loopexit.split-lp
 
 invoke.cont6:                                     ; preds = %for.end
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core19ChannelStackBuilderE, i64 16), ptr %builder, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core19ChannelStackBuilderE, i64 16), ptr %builder, align 8
   %stack_.i.i = getelementptr inbounds nuw i8, ptr %builder, i64 64
   %3 = load ptr, ptr %stack_.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -956,7 +956,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -986,7 +986,7 @@ declare void @_ZN9grpc_core23ChannelStackBuilderImpl5BuildEv(ptr sret(%"class.ab
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core23ChannelStackBuilderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core19ChannelStackBuilderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core19ChannelStackBuilderE, i64 16), ptr %this, align 8
   %stack_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %stack_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -1196,7 +1196,7 @@ declare void @_ZN4absl12lts_2023080217internal_statusor22ThrowBadStatusOrAccessE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core14DynamicFiltersD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14DynamicFiltersE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core14DynamicFiltersE, i64 16), ptr %this, align 8
   %channel_stack_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %channel_stack_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -1225,7 +1225,7 @@ _ZN9grpc_core13RefCountedPtrI18grpc_channel_stackED2Ev.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core14DynamicFiltersD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14DynamicFiltersE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core14DynamicFiltersE, i64 16), ptr %this, align 8
   %channel_stack_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %channel_stack_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null

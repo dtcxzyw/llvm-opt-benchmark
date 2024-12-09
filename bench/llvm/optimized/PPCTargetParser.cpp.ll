@@ -327,7 +327,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3PPC10isValidCPUENS_9StringRefE(ptr
 
 .split.us:                                        ; preds = %2, %.split.us
   %.011.idx15.i.us = phi i64 [ %.011.add.i.us, %.split.us ], [ 0, %2 ]
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm3PPCL10PPCCPUInfoE, i64 8), i64 %.011.idx15.i.us
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm3PPCL10PPCCPUInfoE, i64 8), i64 %.011.idx15.i.us
   %.sroa.22.0.copyload.i.us = load i64, ptr %gep, align 8
   %.not.i.i.us = icmp eq i64 %.sroa.22.0.copyload.i.us, 0
   %.011.add.i.us = add nuw nsw i64 %.011.idx15.i.us, 16

@@ -16217,7 +16217,7 @@ default.unreachable144:                           ; preds = %1974, %1945, %1920,
   %152 = phi ptr [ %130, %.thread.i.i.i ], [ %119, %140 ]
   %153 = phi ptr [ %.sroa.8.0..sroa_idx.i.i.i, %.thread.i.i.i ], [ %.phi.trans.insert.i.i.i, %140 ]
   %154 = phi ptr [ %137, %.thread.i.i.i ], [ %141, %140 ]
-  %155 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5ashpd5proxy7SESSION17ha767e7315b0e2159E, i64 8) acquire, align 8, !noalias !6246
+  %155 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ashpd5proxy7SESSION17ha767e7315b0e2159E, i64 8) acquire, align 8, !noalias !6246
   %.not.i.i.i.i = icmp eq i32 %155, 4
   br i1 %.not.i.i.i.i, label %156, label %.thread46.i.i.i.i
 
@@ -16771,7 +16771,7 @@ default.unreachable144:                           ; preds = %1974, %1945, %1920,
   call void @llvm.assume(i1 %349)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %75), !noalias !6246
   store ptr %.sroa.3.0.i40.i.i.i.i, ptr %75, align 8, !noalias !6246
-  %350 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5ashpd5proxy7SESSION17ha767e7315b0e2159E, i64 8) acquire, align 8, !noalias !6246
+  %350 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ashpd5proxy7SESSION17ha767e7315b0e2159E, i64 8) acquire, align 8, !noalias !6246
   %.not.i.i.i.i.i.i = icmp eq i32 %350, 4
   br i1 %.not.i.i.i.i.i.i, label %351, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h4a343b9722d6a5d5E.exit.i.i.i.i.i.i"
 

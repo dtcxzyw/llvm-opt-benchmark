@@ -267,7 +267,7 @@ define internal fastcc nonnull ptr @ompi_mpi_errnum_get_string(i32 noundef %0) u
 
 6:                                                ; preds = %4, %1
   %7 = icmp sgt i32 %0, -1
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_errcodes, i64 88), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_errcodes, i64 88), align 8
   %.not.i = icmp sgt i32 %8, %0
   %or.cond = select i1 %7, i1 %.not.i, i1 false
   br i1 %or.cond, label %9, label %opal_pointer_array_get_item.exit
@@ -278,13 +278,13 @@ define internal fastcc nonnull ptr @ompi_mpi_errnum_get_string(i32 noundef %0) u
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %9
-  %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_errcodes, i64 32)) #3
+  %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_mpi_errcodes, i64 32)) #3
   %.pre.i = load i8, ptr @opal_uses_threads, align 1
   br label %14
 
 14:                                               ; preds = %12, %9
   %15 = phi i8 [ %10, %9 ], [ %.pre.i, %12 ]
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_errcodes, i64 112), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_errcodes, i64 112), align 8
   %17 = zext nneg i32 %0 to i64
   %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
@@ -292,7 +292,7 @@ define internal fastcc nonnull ptr @ompi_mpi_errnum_get_string(i32 noundef %0) u
   br i1 %20, label %21, label %opal_pointer_array_get_item.exit
 
 21:                                               ; preds = %14
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_errcodes, i64 32)) #3
+  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_mpi_errcodes, i64 32)) #3
   br label %opal_pointer_array_get_item.exit
 
 opal_pointer_array_get_item.exit:                 ; preds = %21, %14, %6

@@ -228,7 +228,7 @@ define internal i32 @load_elf_binary(ptr noundef %0) #2 align 16 {
 
 88:                                               ; preds = %82
   call void @would_dump(ptr noundef %0, ptr noundef %83) #15
-  %89 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %90 = call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %89, i32 noundef 3264, i64 noundef 64) #17
   %91 = icmp eq ptr %90, null
   br i1 %91, label %496, label %92
@@ -917,7 +917,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %11 = and i32 %10, 65535
   %12 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #18, !srcloc !11
   %13 = inttoptr i64 %12 to ptr
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %15 = tail call noalias align 8 dereferenceable_or_null(136) ptr @kmalloc_trace(ptr noundef %14, i32 noundef 3264, i64 noundef 136) #17
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread46, label %17
@@ -1654,7 +1654,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
 
 .loopexit64:                                      ; preds = %.loopexit64.loopexit, %470, %385, %373
   %485 = phi i64 [ %.pre95, %.loopexit64.loopexit ], [ %484, %470 ], [ %381, %385 ], [ %381, %373 ]
-  %486 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %486 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %487 = call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %486, i32 noundef 3264, i64 noundef 56) #17
   %488 = icmp eq ptr %487, null
   br i1 %488, label %.thread46, label %489
@@ -1689,7 +1689,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   br i1 %508, label %509, label %520
 
 509:                                              ; preds = %489
-  %510 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %510 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %511 = call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %510, i32 noundef 3264, i64 noundef 64) #17
   %512 = icmp eq ptr %511, null
   br i1 %512, label %.thread46, label %513
@@ -2669,7 +2669,7 @@ define internal fastcc range(i32 -22, 1) i32 @create_elf_tables(ptr nocapture no
   store i64 %43, ptr %42, align 8
   %45 = getelementptr i8, ptr %41, i64 24
   store i64 16, ptr %44, align 8
-  %46 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), align 8
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 40), align 8
   %47 = zext i32 %46 to i64
   %48 = getelementptr i8, ptr %41, i64 32
   store i64 %47, ptr %45, align 8
@@ -2829,7 +2829,7 @@ define internal fastcc range(i32 -22, 1) i32 @create_elf_tables(ptr nocapture no
   %157 = and i64 %156, -16
   store i64 %157, ptr %11, align 8
   %158 = inttoptr i64 %157 to ptr
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #15
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #15
           to label %160 [label %159], !srcloc !50
 
 159:                                              ; preds = %133
@@ -2839,7 +2839,7 @@ define internal fastcc range(i32 -22, 1) i32 @create_elf_tables(ptr nocapture no
 160:                                              ; preds = %159, %133
   %161 = getelementptr inbounds nuw i8, ptr %10, i64 176
   %162 = call i32 @down_write_killable(ptr noundef nonnull %161) #15
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #15
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #15
           to label %165 [label %163], !srcloc !50
 
 163:                                              ; preds = %160
@@ -2854,7 +2854,7 @@ define internal fastcc range(i32 -22, 1) i32 @create_elf_tables(ptr nocapture no
 167:                                              ; preds = %165
   %168 = load i64, ptr %11, align 8
   %169 = call ptr @find_extend_vma_locked(ptr noundef %10, i64 noundef %168) #15
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #15
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #15
           to label %171 [label %170], !srcloc !50
 
 170:                                              ; preds = %167

@@ -224,7 +224,7 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev20GenericGpuShaderDescE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev20GenericGpuShaderDescE, i64 16), ptr %call, align 8
   %call.i = invoke noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #22
           to label %invoke.cont unwind label %lpad.i
 
@@ -241,7 +241,7 @@ invoke.cont:                                      ; preds = %.noexc
   store i32 4096, ptr %m_max1DLUTWidth.i.i.i, align 8
   %m_allowTexture1D.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 84
   store i8 1, ptr %m_allowTexture1D.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev20GenericGpuShaderDesc11ImplGenericE, i64 16), ptr %call.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev20GenericGpuShaderDesc11ImplGenericE, i64 16), ptr %call.i, align 8
   %m_implGeneric.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %call.i, ptr %m_implGeneric.i, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -287,7 +287,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev13GpuShaderDescEEC2INS0_20GenericGpuShad
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i4.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev20GenericGpuShaderDescEPFvS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i4.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev20GenericGpuShaderDescEPFvS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i4.i.i.i.i, align 8
   %_M_impl.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i4.i.i.i.i, i64 16
   store ptr @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDesc7DeleterEPS0_, ptr %_M_impl.i.i.i.i.i, align 8
   %_M_ptr.i.i5.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i4.i.i.i.i, i64 24
@@ -335,7 +335,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 define hidden void @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDescC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev13GpuShaderDescC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev20GenericGpuShaderDescE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev20GenericGpuShaderDescE, i64 16), ptr %this, align 8
   %call = invoke noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #22
           to label %invoke.cont3 unwind label %lpad
 
@@ -346,7 +346,7 @@ invoke.cont3:                                     ; preds = %entry
   store i32 4096, ptr %m_max1DLUTWidth.i.i, align 8
   %m_allowTexture1D.i.i = getelementptr inbounds nuw i8, ptr %call, i64 84
   store i8 1, ptr %m_allowTexture1D.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev20GenericGpuShaderDesc11ImplGenericE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev20GenericGpuShaderDesc11ImplGenericE, i64 16), ptr %call, align 8
   %m_implGeneric = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call, ptr %m_implGeneric, align 8
   ret void
@@ -366,7 +366,7 @@ declare void @_ZN19OpenColorIO_v2_4dev13GpuShaderDescD2Ev(ptr noundef nonnull al
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDescD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev20GenericGpuShaderDescE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev20GenericGpuShaderDescE, i64 16), ptr %this, align 8
   %m_implGeneric = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_implGeneric, align 8
   %isnull = icmp eq ptr %0, null
@@ -388,7 +388,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDescD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev20GenericGpuShaderDescE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev20GenericGpuShaderDescE, i64 16), ptr %this, align 8
   %m_implGeneric.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_implGeneric.i, align 8
   %isnull.i = icmp eq ptr %0, null
@@ -1644,7 +1644,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev13GPUShaderImpl11PrivateImplD2Ev(ptr noundef nonnull align 8 dereferenceable(85) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev13GPUShaderImpl11PrivateImplE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev13GPUShaderImpl11PrivateImplE, i64 16), ptr %this, align 8
   %m_uniforms = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_uniforms, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 64

@@ -280,7 +280,7 @@ define hidden void @zif_header_remove(ptr noundef %0, ptr nocapture noundef read
 define range(i32 0, 2) i32 @php_header() local_unnamed_addr #0 {
   %1 = tail call i32 @sapi_send_headers() #9
   %2 = icmp eq i32 %1, -1
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 72), align 8
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 72), align 8
   %4 = and i8 %3, 1
   %5 = xor i8 %4, 1
   %spec.select = zext nneg i8 %5 to i32
@@ -1381,7 +1381,7 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
 84:                                               ; preds = %81
   %85 = call ptr @get_active_function_name() #9
   call void (ptr, ...) @zend_argument_count_error(ptr noundef nonnull @.str.22, ptr noundef %85) #9
-  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %87 = icmp ne ptr %86, null
   call void @llvm.assume(i1 %87)
   br label %261
@@ -1777,7 +1777,7 @@ define hidden void @zif_headers_sent(ptr nocapture noundef readonly %0, ptr noca
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %9 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
+  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 249), align 1
   %.not153 = icmp eq i8 %9, 0
   br i1 %.not153, label %15, label %11
 
@@ -1876,7 +1876,7 @@ define hidden void @zif_headers_sent(ptr nocapture noundef readonly %0, ptr noca
   br label %52
 
 52:                                               ; preds = %31, %33, %46, %48, %15
-  %53 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
+  %53 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 249), align 1
   %.not158 = icmp eq i8 %53, 0
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %.not158, label %56, label %55
@@ -1924,7 +1924,7 @@ define hidden void @zif_headers_list(ptr nocapture noundef readonly %0, ptr noun
   store ptr %7, ptr %1, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %8, align 8
-  tail call void @zend_llist_apply_with_argument(ptr noundef nonnull getelementptr inbounds (i8, ptr @sapi_globals, i64 160), ptr noundef nonnull @php_head_apply_header_list_to_hash, ptr noundef nonnull %1) #9
+  tail call void @zend_llist_apply_with_argument(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 160), ptr noundef nonnull @php_head_apply_header_list_to_hash, ptr noundef nonnull %1) #9
   br label %9
 
 9:                                                ; preds = %6, %5
@@ -2004,12 +2004,12 @@ define hidden void @zif_http_response_code(ptr noundef %0, ptr nocapture noundef
   br i1 %.not77, label %.thread105.thread, label %19
 
 19:                                               ; preds = %.thread105
-  %20 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
+  %20 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 249), align 1
   %.not79 = icmp eq i8 %20, 0
   br i1 %.not79, label %31, label %21
 
 21:                                               ; preds = %19
-  %22 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 73), align 1
+  %22 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 73), align 1
   %23 = trunc i8 %22 to i1
   br i1 %23, label %31, label %24
 
@@ -2033,9 +2033,9 @@ define hidden void @zif_http_response_code(ptr noundef %0, ptr nocapture noundef
   br label %45
 
 31:                                               ; preds = %21, %19
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 216), align 8
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 216), align 8
   %33 = trunc i64 %18 to i32
-  store i32 %33, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 216), align 8
+  store i32 %33, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 216), align 8
   %.not81 = icmp eq i32 %32, 0
   br i1 %.not81, label %37, label %34
 
@@ -2052,7 +2052,7 @@ define hidden void @zif_http_response_code(ptr noundef %0, ptr nocapture noundef
   br label %45
 
 .thread105.thread:                                ; preds = %7, %.thread105
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 216), align 8
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 216), align 8
   %.not78 = icmp eq i32 %39, 0
   br i1 %.not78, label %40, label %42
 

@@ -47,13 +47,13 @@ $_ZTV10WorkerTask = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN28ShenandoahClassUnloadingTaskC2EN22ShenandoahPhaseTimings5PhaseEjb(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 25)) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = zext i1 %3 to i8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV10WorkerTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV10WorkerTask, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @.str, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = tail call noundef i32 @_ZN4GCId20current_or_undefinedEv() #4
   store i32 %8, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahClassUnloadingTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahClassUnloadingTask, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %1, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24

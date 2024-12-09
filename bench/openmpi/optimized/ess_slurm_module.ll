@@ -46,7 +46,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr nocapture readnone %1) #0 {
   ]
 
 4:                                                ; preds = %2
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @prte_ess_base_framework, i64 76), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ess_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %5, 64
   br i1 %or.cond.i, label %6, label %12
 
@@ -88,8 +88,8 @@ define internal noundef i32 @rte_init(i32 %0, ptr nocapture readnone %1) #0 {
   %25 = tail call ptr @getenv(ptr noundef nonnull @.str.7) #7
   %26 = tail call i32 @atoi(ptr nocapture noundef %25) #8
   %27 = add i32 %26, %24
-  store i32 %27, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 256), align 8
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @prte_ess_base_framework, i64 76), align 4
+  store i32 %27, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 256), align 8
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ess_base_framework, i64 76), align 4
   %or.cond10.i = icmp ult i32 %28, 64
   br i1 %or.cond10.i, label %29, label %36
 
@@ -106,7 +106,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr nocapture readnone %1) #0 {
   br label %36
 
 36:                                               ; preds = %34, %29, %22
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 800), align 8
   %.not.i = icmp eq ptr %37, null
   br i1 %.not.i, label %39, label %38
 
@@ -126,8 +126,8 @@ define internal noundef i32 @rte_init(i32 %0, ptr nocapture readnone %1) #0 {
 
 44:                                               ; preds = %39
   %45 = tail call noalias ptr @strdup(ptr noundef nonnull %40) #7
-  store ptr %45, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
-  %46 = load i32, ptr getelementptr inbounds (i8, ptr @prte_ess_base_framework, i64 76), align 4
+  store ptr %45, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 800), align 8
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ess_base_framework, i64 76), align 4
   %or.cond11.i = icmp ult i32 %46, 64
   br i1 %or.cond11.i, label %47, label %55
 
@@ -146,7 +146,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr nocapture readnone %1) #0 {
 
 55:                                               ; preds = %52, %47, %44
   %56 = load i32, ptr @prte_ess_base_num_procs, align 4
-  store i32 %56, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 792), align 8
+  store i32 %56, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 792), align 8
   br label %slurm_set_name.exit
 
 slurm_set_name.exit:                              ; preds = %15, %20, %42, %55

@@ -734,7 +734,7 @@ invoke.cont:
   %sink = alloca %"class.icu_75::units::(anonymous namespace)::ConversionRateDataSink", align 8
   %call = tail call ptr @ures_openDirect_75(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %status)
   store ptr %call, ptr %unitsBundle, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_755units12_GLOBAL__N_122ConversionRateDataSinkE, i64 16), ptr %sink, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_755units12_GLOBAL__N_122ConversionRateDataSinkE, i64 16), ptr %sink, align 8
   %outVector.i = getelementptr inbounds nuw i8, ptr %sink, i64 8
   store ptr %result, ptr %outVector.i, align 8
   invoke void @ures_getAllItemsWithFallback_75(ptr noundef %call, ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -882,7 +882,7 @@ invoke.cont:
 
 invoke.cont4:                                     ; preds = %invoke.cont
   store ptr %call, ptr %unitsBundle, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_755units12_GLOBAL__N_119UnitPreferencesSinkE, i64 16), ptr %sink, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_755units12_GLOBAL__N_119UnitPreferencesSinkE, i64 16), ptr %sink, align 8
   %preferences.i = getelementptr inbounds nuw i8, ptr %sink, i64 8
   store ptr %unitPrefs_, ptr %preferences.i, align 8
   %metadata.i = getelementptr inbounds nuw i8, ptr %sink, i64 16
@@ -1400,7 +1400,7 @@ invoke.cont33:                                    ; preds = %if.then32
   %geq.i = getelementptr inbounds nuw i8, ptr %unitPref, i64 72
   store double 1.000000e+00, ptr %geq.i, align 8
   %skeleton.i = getelementptr inbounds nuw i8, ptr %unitPref, i64 80
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %skeleton.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %skeleton.i, align 8
   %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %unitPref, i64 88
   store i16 2, ptr %fUnion2.i.i, align 8
   %41 = load ptr, ptr %localeUnitCharString, align 8
@@ -2681,7 +2681,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %cl
   %vfn8 = getelementptr inbounds nuw i8, ptr %vtable7, i64 88
   %4 = load ptr, ptr %vfn8, align 8
   call void %4(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %unitTable, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %baseUnit, align 8, !alias.scope !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %baseUnit, align 8, !alias.scope !22
   store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !22
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %baseUnit)
           to label %_ZN6icu_7511ICU_Utility15makeBogusStringEv.exit unwind label %lpad.i
@@ -2697,7 +2697,7 @@ lpad.i:                                           ; preds = %for.body
   br label %common.resume
 
 _ZN6icu_7511ICU_Utility15makeBogusStringEv.exit:  ; preds = %for.body
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %factor, align 8, !alias.scope !25
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %factor, align 8, !alias.scope !25
   store i16 2, ptr %fUnion2.i.i35, align 8, !alias.scope !25
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %factor)
           to label %invoke.cont unwind label %lpad.i36
@@ -2708,7 +2708,7 @@ lpad.i36:                                         ; preds = %_ZN6icu_7511ICU_Uti
   br label %ehcleanup92
 
 invoke.cont:                                      ; preds = %_ZN6icu_7511ICU_Utility15makeBogusStringEv.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %offset, align 8, !alias.scope !28
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %offset, align 8, !alias.scope !28
   store i16 2, ptr %fUnion2.i.i38, align 8, !alias.scope !28
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %offset)
           to label %invoke.cont10 unwind label %lpad.i39
@@ -2719,7 +2719,7 @@ lpad.i39:                                         ; preds = %invoke.cont
   br label %ehcleanup90
 
 invoke.cont10:                                    ; preds = %invoke.cont
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %systems, align 8, !alias.scope !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %systems, align 8, !alias.scope !31
   store i16 2, ptr %fUnion2.i.i42, align 8, !alias.scope !31
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %systems)
           to label %for.cond13 unwind label %lpad.i43
@@ -3779,7 +3779,7 @@ _ZN6icu_755units14UnitPreferenceC2Ev.exit:        ; preds = %new.notnull
   %geq.i = getelementptr inbounds nuw i8, ptr %call7, i64 72
   store double 1.000000e+00, ptr %geq.i, align 8
   %skeleton.i = getelementptr inbounds nuw i8, ptr %call7, i64 80
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %skeleton.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %skeleton.i, align 8
   %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %call7, i64 88
   store i16 2, ptr %fUnion2.i.i, align 8
   br label %new.cont
@@ -4020,7 +4020,7 @@ new.notnull:                                      ; preds = %if.end
   %6 = load ptr, ptr %unit.i, align 8
   store i8 0, ptr %6, align 1
   %skeleton.i = getelementptr inbounds nuw i8, ptr %call7, i64 80
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %skeleton.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %skeleton.i, align 8
   %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %call7, i64 88
   store i16 2, ptr %fUnion2.i.i, align 8
   store i32 0, ptr %status.i, align 4
@@ -4151,7 +4151,7 @@ new.notnull:                                      ; preds = %if.end
   %6 = load ptr, ptr %unit.i, align 8
   store i8 0, ptr %6, align 1
   %skeleton.i = getelementptr inbounds nuw i8, ptr %call7, i64 80
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %skeleton.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %skeleton.i, align 8
   %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %call7, i64 88
   store i16 2, ptr %fUnion2.i.i, align 8
   store i32 0, ptr %status.i, align 4

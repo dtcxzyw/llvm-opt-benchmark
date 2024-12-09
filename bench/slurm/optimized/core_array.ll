@@ -427,7 +427,7 @@ define void @core_array_log(ptr noundef %0, ptr noundef %1, ptr noundef readonly
   %4 = alloca [100 x i8], align 16
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %42, label %9

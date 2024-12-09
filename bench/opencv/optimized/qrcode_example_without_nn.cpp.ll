@@ -236,7 +236,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
   store i32 1, ptr %65, align 8, !noalias !5
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 12
   store i32 1, ptr %66, align 4, !noalias !5
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv13wechat_qrcode12WeChatQRCodeESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %64, align 8, !noalias !5
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv13wechat_qrcode12WeChatQRCodeESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %64, align 8, !noalias !5
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 16
   invoke void @_ZSt10_ConstructIN2cv13wechat_qrcode12WeChatQRCodeEJRA1_KcS5_S5_S5_EEvPT_DpOT0_(ptr noundef nonnull %67, ptr noundef nonnull align 1 dereferenceable(1) @.str.4, ptr noundef nonnull align 1 dereferenceable(1) @.str.4, ptr noundef nonnull align 1 dereferenceable(1) @.str.4, ptr noundef nonnull align 1 dereferenceable(1) @.str.4)
           to label %69 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv13wechat_qrcode12WeChatQRCodeESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !5

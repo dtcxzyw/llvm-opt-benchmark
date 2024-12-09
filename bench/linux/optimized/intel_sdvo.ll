@@ -371,7 +371,7 @@ define dso_local noundef zeroext i1 @intel_sdvo_init(ptr noundef %0, i32 %1, i32
   br label %268
 
 30:                                               ; preds = %9
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %32 = tail call noalias align 8 dereferenceable_or_null(3552) ptr @kmalloc_trace(ptr noundef %31, i32 noundef 3520, i64 noundef 3552) #14
   %33 = icmp eq ptr %32, null
   br i1 %33, label %268, label %34
@@ -2625,13 +2625,13 @@ define internal fastcc noundef zeroext i1 @intel_sdvo_output_setup(ptr noundef n
 
 42:                                               ; preds = %38
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.158, i32 noundef %39) #13
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %44 = call noalias align 8 dereferenceable_or_null(2912) ptr @kmalloc_trace(ptr noundef %43, i32 noundef 3520, i64 noundef 2912) #14
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.thread25, label %46
 
 46:                                               ; preds = %42
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %48 = call noalias align 8 dereferenceable_or_null(216) ptr @kmalloc_trace(ptr noundef %47, i32 noundef 3520, i64 noundef 216) #14
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %51
@@ -2757,13 +2757,13 @@ define internal fastcc noundef zeroext i1 @intel_sdvo_output_setup(ptr noundef n
 
 106:                                              ; preds = %103
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.164, i32 noundef %39) #13
-  %107 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %108 = call noalias align 8 dereferenceable_or_null(2912) ptr @kmalloc_trace(ptr noundef %107, i32 noundef 3520, i64 noundef 2912) #14
   %109 = icmp eq ptr %108, null
   br i1 %109, label %.thread25, label %110
 
 110:                                              ; preds = %106
-  %111 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %112 = call noalias align 8 dereferenceable_or_null(216) ptr @kmalloc_trace(ptr noundef %111, i32 noundef 3520, i64 noundef 216) #14
   %113 = icmp eq ptr %112, null
   br i1 %113, label %114, label %115
@@ -2904,13 +2904,13 @@ define internal fastcc noundef zeroext i1 @intel_sdvo_output_setup(ptr noundef n
 
 182:                                              ; preds = %179
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.218, i32 noundef %39) #13
-  %183 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %183 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %184 = call noalias align 8 dereferenceable_or_null(2912) ptr @kmalloc_trace(ptr noundef %183, i32 noundef 3520, i64 noundef 2912) #14
   %185 = icmp eq ptr %184, null
   br i1 %185, label %.thread25, label %186
 
 186:                                              ; preds = %182
-  %187 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %187 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %188 = call noalias align 8 dereferenceable_or_null(216) ptr @kmalloc_trace(ptr noundef %187, i32 noundef 3520, i64 noundef 216) #14
   %189 = icmp eq ptr %188, null
   br i1 %189, label %190, label %191
@@ -2945,13 +2945,13 @@ define internal fastcc noundef zeroext i1 @intel_sdvo_output_setup(ptr noundef n
 201:                                              ; preds = %198
   %202 = load ptr, ptr %0, align 8
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.219, i32 noundef %39) #13
-  %203 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %203 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %204 = call noalias align 8 dereferenceable_or_null(2912) ptr @kmalloc_trace(ptr noundef %203, i32 noundef 3520, i64 noundef 2912) #14
   %205 = icmp eq ptr %204, null
   br i1 %205, label %.thread25, label %206
 
 206:                                              ; preds = %201
-  %207 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %207 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %208 = call noalias align 8 dereferenceable_or_null(216) ptr @kmalloc_trace(ptr noundef %207, i32 noundef 3520, i64 noundef 216) #14
   %209 = icmp eq ptr %208, null
   br i1 %209, label %210, label %211

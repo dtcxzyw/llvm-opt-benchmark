@@ -150,7 +150,7 @@ define internal fastcc i32 @crypto_lskcipher_crypt(ptr noundef %0, ptr noundef %
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr i8, ptr %8, i64 -12
   %27 = load i32, ptr %26, align 4
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %29 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %28, i32 noundef 2080, i64 noundef 4096) #13
   %30 = icmp eq ptr %29, null
   br i1 %30, label %60, label %31
@@ -159,7 +159,7 @@ define internal fastcc i32 @crypto_lskcipher_crypt(ptr noundef %0, ptr noundef %
   %32 = add i32 %23, %21
   %33 = zext i32 %32 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %29, ptr align 1 %4, i64 %33, i1 false)
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %35 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %34, i32 noundef 2080, i64 noundef 4096) #13
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.thread, label %37
@@ -630,7 +630,7 @@ define dso_local ptr @lskcipher_alloc_instance_simple(ptr noundef %0, ptr nounde
   br i1 %14, label %107, label %15
 
 15:                                               ; preds = %10
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %17 = call noalias noundef align 8 dereferenceable_or_null(560) ptr @kmalloc_trace(ptr noundef %16, i32 noundef 3520, i64 noundef 560) #13
   %18 = icmp eq ptr %17, null
   br i1 %18, label %107, label %19

@@ -2168,7 +2168,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix54Fi
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix54FileSerialisationMethod_testRoundTripPrintParse_1_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix54FileSerialisationMethod_testRoundTripPrintParse_1_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -2198,7 +2198,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix54Fi
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix54FileSerialisationMethod_testRoundTripPrintParse_2_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix54FileSerialisationMethod_testRoundTripPrintParse_2_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -2226,7 +2226,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix73Fi
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix73FileSerialisationMethod_testParseFileSerialisationMethodOptException_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix73FileSerialisationMethod_testParseFileSerialisationMethodOptException_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -2734,7 +2734,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix50Fi
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix50FileIngestionMethod_testRoundTripPrintParse_1_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix50FileIngestionMethod_testRoundTripPrintParse_1_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -2762,7 +2762,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix50Fi
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix50FileIngestionMethod_testRoundTripPrintParse_2_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix50FileIngestionMethod_testRoundTripPrintParse_2_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -2790,7 +2790,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix65Fi
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix65FileIngestionMethod_testParseFileIngestionMethodOptException_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix65FileIngestionMethod_testParseFileIngestionMethodOptException_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -3351,7 +3351,7 @@ define internal void @_GLOBAL__sub_I_file_content_address.cc() #15 section ".tex
           to label %30 unwind label %49
 
 30:                                               ; preds = %28
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix54FileSerialisationMethod_testRoundTripPrintParse_1_TestEEE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix54FileSerialisationMethod_testRoundTripPrintParse_1_TestEEE, i64 16), ptr %29, align 8
   %31 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef null, ptr noundef null, ptr noundef nonnull %16, ptr noundef %23, ptr noundef %25, ptr noundef %27, ptr noundef nonnull %29)
           to label %32 unwind label %49
 
@@ -3454,7 +3454,7 @@ __cxx_global_var_init.4.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %62 unwind label %81
 
 62:                                               ; preds = %60
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix54FileSerialisationMethod_testRoundTripPrintParse_2_TestEEE, i64 16), ptr %61, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix54FileSerialisationMethod_testRoundTripPrintParse_2_TestEEE, i64 16), ptr %61, align 8
   %63 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef null, ptr noundef nonnull %13, ptr noundef %55, ptr noundef %57, ptr noundef %59, ptr noundef nonnull %61)
           to label %64 unwind label %81
 
@@ -3551,7 +3551,7 @@ __cxx_global_var_init.9.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %94 unwind label %113
 
 94:                                               ; preds = %92
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix73FileSerialisationMethod_testParseFileSerialisationMethodOptException_TestEEE, i64 16), ptr %93, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix73FileSerialisationMethod_testParseFileSerialisationMethodOptException_TestEEE, i64 16), ptr %93, align 8
   %95 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.16, ptr noundef null, ptr noundef null, ptr noundef nonnull %10, ptr noundef %87, ptr noundef %89, ptr noundef %91, ptr noundef nonnull %93)
           to label %96 unwind label %113
 
@@ -3648,7 +3648,7 @@ __cxx_global_var_init.15.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %126 unwind label %145
 
 126:                                              ; preds = %124
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix50FileIngestionMethod_testRoundTripPrintParse_1_TestEEE, i64 16), ptr %125, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix50FileIngestionMethod_testRoundTripPrintParse_1_TestEEE, i64 16), ptr %125, align 8
   %127 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.5, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef %119, ptr noundef %121, ptr noundef %123, ptr noundef nonnull %125)
           to label %128 unwind label %145
 
@@ -3745,7 +3745,7 @@ __cxx_global_var_init.23.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %158 unwind label %177
 
 158:                                              ; preds = %156
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix50FileIngestionMethod_testRoundTripPrintParse_2_TestEEE, i64 16), ptr %157, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix50FileIngestionMethod_testRoundTripPrintParse_2_TestEEE, i64 16), ptr %157, align 8
   %159 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef %151, ptr noundef %153, ptr noundef %155, ptr noundef nonnull %157)
           to label %160 unwind label %177
 
@@ -3842,7 +3842,7 @@ __cxx_global_var_init.26.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %190 unwind label %209
 
 190:                                              ; preds = %188
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix65FileIngestionMethod_testParseFileIngestionMethodOptException_TestEEE, i64 16), ptr %189, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix65FileIngestionMethod_testParseFileIngestionMethodOptException_TestEEE, i64 16), ptr %189, align 8
   %191 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.30, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, ptr noundef %183, ptr noundef %185, ptr noundef %187, ptr noundef nonnull %189)
           to label %192 unwind label %209
 

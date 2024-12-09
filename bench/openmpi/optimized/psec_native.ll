@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @native_init() #0 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psec_base_framework, i64 76), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_psec_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %1, 64
   br i1 %or.cond, label %2, label %8
 
@@ -61,7 +61,7 @@ define internal noundef i32 @native_init() #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @native_finalize() #0 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psec_base_framework, i64 76), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_psec_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %1, 64
   br i1 %or.cond, label %2, label %8
 
@@ -188,7 +188,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr nocapture noundef reado
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   store i32 12, ptr %8, align 4
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psec_base_framework, i64 76), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_psec_base_framework, i64 76), align 4
   %or.cond70 = icmp ult i32 %10, 64
   br i1 %or.cond70, label %11, label %19
 
@@ -215,7 +215,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr nocapture noundef reado
   ]
 
 22:                                               ; preds = %19
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psec_base_framework, i64 76), align 4
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_psec_base_framework, i64 76), align 4
   %or.cond71 = icmp ult i32 %23, 64
   br i1 %or.cond71, label %24, label %32
 
@@ -240,7 +240,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr nocapture noundef reado
   br i1 %36, label %37, label %48
 
 37:                                               ; preds = %32
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psec_base_framework, i64 76), align 4
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_psec_base_framework, i64 76), align 4
   %or.cond72 = icmp ult i32 %38, 64
   br i1 %or.cond72, label %39, label %120
 
@@ -344,7 +344,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr nocapture noundef reado
   br i1 %.not66, label %96, label %88
 
 88:                                               ; preds = %.loopexit
-  %89 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psec_base_framework, i64 76), align 4
+  %89 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_psec_base_framework, i64 76), align 4
   %or.cond73 = icmp ult i32 %89, 64
   br i1 %or.cond73, label %90, label %120
 
@@ -366,7 +366,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr nocapture noundef reado
   br i1 %.not67, label %107, label %99
 
 99:                                               ; preds = %96
-  %100 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psec_base_framework, i64 76), align 4
+  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_psec_base_framework, i64 76), align 4
   %or.cond74 = icmp ult i32 %100, 64
   br i1 %or.cond74, label %101, label %120
 

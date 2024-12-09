@@ -19030,7 +19030,7 @@ define void @_ZN2cv20AgastFeatureDetector6createEibNS0_12DetectorTypeE(ptr dead_
   store i32 1, ptr %6, align 8, !noalias !144
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !144
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv25AgastFeatureDetector_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !144
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv25AgastFeatureDetector_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !144
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %_ZN2cv3PtrINS_25AgastFeatureDetector_ImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv25AgastFeatureDetector_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i, !noalias !144
@@ -19043,7 +19043,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv25AgastFeatureDetector
 
 _ZN2cv3PtrINS_25AgastFeatureDetector_ImplEED2Ev.exit: ; preds = %4
   %10 = zext i1 %2 to i8
-  store ptr getelementptr inbounds inrange(-80, 176) (i8, ptr @_ZTVN2cv25AgastFeatureDetector_ImplE, i64 80), ptr %8, align 8, !noalias !144
+  store ptr getelementptr inbounds nuw inrange(-80, 176) (i8, ptr @_ZTVN2cv25AgastFeatureDetector_ImplE, i64 80), ptr %8, align 8, !noalias !144
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %1, ptr %11, align 8, !noalias !144
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 28

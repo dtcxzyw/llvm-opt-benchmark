@@ -605,7 +605,7 @@ if.then4.i:                                       ; preds = %entry
 
 strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
   tail call void @strbuf_add_absolute_path(ptr noundef nonnull @absolute_path.sb, ptr noundef %path)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @absolute_path.sb, i64 16), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @absolute_path.sb, i64 16), align 8
   ret ptr %1
 }
 

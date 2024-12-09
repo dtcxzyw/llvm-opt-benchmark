@@ -469,7 +469,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %for.body
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN4pbrt10ThreadPoolEFvvEPS4_EEEEEE, i64 16), ptr %call.i3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN4pbrt10ThreadPoolEFvvEPS4_EEEEEE, i64 16), ptr %call.i3, align 8
   %_M_func.i.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 8
   store ptr %this, ptr %_M_func.i.i, align 8
   %1 = getelementptr inbounds nuw i8, ptr %call.i3, i64 16
@@ -1979,7 +1979,7 @@ _ZNSt8functionIFvllEEC2EOS1_.exit:                ; preds = %_ZN4pbrt14RunningTh
   store i32 0, ptr %activeWorkers.i.i, align 8
   %prev.i.i = getelementptr inbounds nuw i8, ptr %loop, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %prev.i.i, i8 0, i64 17, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt17ParallelForLoop1DE, i64 16), ptr %loop, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt17ParallelForLoop1DE, i64 16), ptr %loop, align 8
   %func2.i = getelementptr inbounds nuw i8, ptr %loop, i64 40
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %loop, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %func2.i, i8 0, i64 24, i1 false)
@@ -2094,7 +2094,7 @@ if.then3.i.i17:                                   ; preds = %if.else.i.i15
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit19
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit19:          ; preds = %while.end, %if.else.i.i15, %if.then3.i.i17
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt17ParallelForLoop1DE, i64 16), ptr %loop, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt17ParallelForLoop1DE, i64 16), ptr %loop, align 8
   %_M_manager.i.i.i20 = getelementptr inbounds nuw i8, ptr %loop, i64 56
   %20 = load ptr, ptr %_M_manager.i.i.i20, align 8
   %tobool.not.i.i.i = icmp eq ptr %20, null
@@ -2147,7 +2147,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt17ParallelForLoop1DD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt17ParallelForLoop1DE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt17ParallelForLoop1DE, i64 16), ptr %this, align 8
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -2166,7 +2166,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFvllEED2Ev.exit:                   ; preds = %entry, %if.then.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt11ParallelJobE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt11ParallelJobE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -2265,7 +2265,7 @@ _ZNSt8functionIFvN4pbrt7Bounds2IiEEEEC2EOS4_.exit: ; preds = %_ZN4pbrt14RunningT
   store i32 0, ptr %activeWorkers.i.i, align 8
   %prev.i.i = getelementptr inbounds nuw i8, ptr %loop, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %prev.i.i, i8 0, i64 17, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt17ParallelForLoop2DE, i64 16), ptr %loop, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt17ParallelForLoop2DE, i64 16), ptr %loop, align 8
   %func2.i = getelementptr inbounds nuw i8, ptr %loop, i64 40
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %loop, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %func2.i, i8 0, i64 24, i1 false)
@@ -2382,7 +2382,7 @@ if.then3.i.i44:                                   ; preds = %if.else.i.i42
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit46
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit46:          ; preds = %while.end, %if.else.i.i42, %if.then3.i.i44
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt17ParallelForLoop2DE, i64 16), ptr %loop, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt17ParallelForLoop2DE, i64 16), ptr %loop, align 8
   %_M_manager.i.i.i47 = getelementptr inbounds nuw i8, ptr %loop, i64 56
   %27 = load ptr, ptr %_M_manager.i.i.i47, align 8
   %tobool.not.i.i.i = icmp eq ptr %27, null
@@ -2411,7 +2411,7 @@ ehcleanup:                                        ; preds = %if.then3.i.i, %if.e
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt17ParallelForLoop2DD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt17ParallelForLoop2DE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt17ParallelForLoop2DE, i64 16), ptr %this, align 8
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -2430,7 +2430,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFvN4pbrt7Bounds2IiEEEED2Ev.exit:   ; preds = %entry, %if.then.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt11ParallelJobE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt11ParallelJobE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -2669,7 +2669,7 @@ _ZN4pbrt10ThreadPool8ReenableEv.exit:             ; preds = %land.end
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt17ParallelForLoop1DD0Ev(ptr noundef nonnull align 8 dereferenceable(92) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt17ParallelForLoop1DE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt17ParallelForLoop1DE, i64 16), ptr %this, align 8
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -2726,7 +2726,7 @@ _ZN4pbrt12StringPrintfIJRKlS2_RKiEEENSt7__cxx1112basic_stringIcSt11char_traitsIc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt17ParallelForLoop2DD0Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt17ParallelForLoop2DE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt17ParallelForLoop2DE, i64 16), ptr %this, align 8
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -2857,7 +2857,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt11ParallelJobD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt11ParallelJobE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt11ParallelJobE, i64 16), ptr %this, align 8
   ret void
 }
 

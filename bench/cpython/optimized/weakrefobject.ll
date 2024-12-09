@@ -1092,7 +1092,7 @@ if.then:                                          ; preds = %if.end.i17, %entry
   br label %return
 
 if.end:                                           ; preds = %if.end.i.i.i, %if.end3.i
-  %call2 = tail call ptr @_PyObject_LookupSpecial(ptr noundef nonnull %self.val, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31712)) #7
+  %call2 = tail call ptr @_PyObject_LookupSpecial(ptr noundef nonnull %self.val, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31712)) #7
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %if.then6, label %lor.lhs.false
 
@@ -8168,7 +8168,7 @@ if.end6:                                          ; preds = %if.end.i.i.i, %if.e
   %proxy.addr.0 = phi ptr [ %proxy, %if.else ], [ %proxy, %if.end.i ], [ %proxy.val12, %if.end3.i ], [ %proxy.val12, %if.end.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
   store ptr %proxy.addr.0, ptr %self.addr.i, align 8
-  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27440), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #7
+  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27440), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i)
   %5 = load i64, ptr %proxy.addr.0, align 8
   %6 = and i64 %5, 2147483648
@@ -8241,7 +8241,7 @@ if.end6:                                          ; preds = %if.end.i.i.i, %if.e
   %proxy.addr.0 = phi ptr [ %proxy, %if.else ], [ %proxy, %if.end.i ], [ %proxy.val12, %if.end3.i ], [ %proxy.val12, %if.end.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
   store ptr %proxy.addr.0, ptr %self.addr.i, align 8
-  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 33072), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #7
+  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 33072), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i)
   %5 = load i64, ptr %proxy.addr.0, align 8
   %6 = and i64 %5, 2147483648

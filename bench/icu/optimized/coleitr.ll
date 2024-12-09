@@ -58,13 +58,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7524CollationElementIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 29), (32, 50)) %this, ptr noundef nonnull align 8 dereferenceable(104) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7524CollationElementIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7524CollationElementIteratorE, i64 16), ptr %this, align 8
   %iter_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %offsets_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %offsets_, align 8
   %string_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %iter_, i8 0, i64 21, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %string_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %string_, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i16 2, ptr %fUnion2.i, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN6icu_7524CollationElementIteratoraSERKS0_(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(104) %other)
@@ -1254,7 +1254,7 @@ invoke.cont:                                      ; preds = %if.then10
   %cond.i = select i1 %cmp.i.i, i32 %15, i32 %shr.i.i
   %idx.ext = sext i32 %cond.i to i64
   %add.ptr = getelementptr inbounds i16, ptr %retval.0.i, i64 %idx.ext
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CollationIteratorE, i64 16), ptr %call11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517CollationIteratorE, i64 16), ptr %call11, align 8
   %trie.i.i = getelementptr inbounds nuw i8, ptr %call11, i64 8
   %16 = load ptr, ptr %12, align 8
   store ptr %16, ptr %trie.i.i, align 8
@@ -1277,7 +1277,7 @@ invoke.cont:                                      ; preds = %if.then10
   store i32 -1, ptr %numCpFwd.i.i, align 8
   %isNumeric.i.i = getelementptr inbounds nuw i8, ptr %call11, i64 388
   store i8 %conv.i10, ptr %isNumeric.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522UTF16CollationIteratorE, i64 16), ptr %call11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522UTF16CollationIteratorE, i64 16), ptr %call11, align 8
   %start.i = getelementptr inbounds nuw i8, ptr %call11, i64 392
   store ptr %retval.0.i, ptr %start.i, align 8
   %pos.i = getelementptr inbounds nuw i8, ptr %call11, i64 400
@@ -1304,7 +1304,7 @@ invoke.cont25:                                    ; preds = %if.else
   %cond.i17 = select i1 %cmp.i.i14, i32 %21, i32 %shr.i.i15
   %idx.ext27 = sext i32 %cond.i17 to i64
   %add.ptr28 = getelementptr inbounds i16, ptr %retval.0.i, i64 %idx.ext27
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CollationIteratorE, i64 16), ptr %call16, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517CollationIteratorE, i64 16), ptr %call16, align 8
   %trie.i.i.i = getelementptr inbounds nuw i8, ptr %call16, i64 8
   %22 = load ptr, ptr %18, align 8
   store ptr %22, ptr %trie.i.i.i, align 8
@@ -1333,7 +1333,7 @@ invoke.cont25:                                    ; preds = %if.else
   store ptr %retval.0.i, ptr %pos.i.i, align 8
   %limit.i.i = getelementptr inbounds nuw i8, ptr %call16, i64 408
   store ptr %add.ptr28, ptr %limit.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525FCDUTF16CollationIteratorE, i64 16), ptr %call16, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7525FCDUTF16CollationIteratorE, i64 16), ptr %call16, align 8
   %rawStart.i = getelementptr inbounds nuw i8, ptr %call16, i64 416
   store ptr %retval.0.i, ptr %rawStart.i, align 8
   %segmentStart.i = getelementptr inbounds nuw i8, ptr %call16, i64 424
@@ -1347,7 +1347,7 @@ invoke.cont25:                                    ; preds = %if.else
   %23 = load ptr, ptr %nfcImpl2.i, align 8
   store ptr %23, ptr %nfcImpl.i, align 8
   %normalized.i = getelementptr inbounds nuw i8, ptr %call16, i64 456
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %normalized.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %normalized.i, align 8
   %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %call16, i64 464
   store i16 2, ptr %fUnion2.i.i, align 8
   %checkDir.i = getelementptr inbounds nuw i8, ptr %call16, i64 520
@@ -1437,7 +1437,7 @@ if.end5:                                          ; preds = %entry, %if.then3, %
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7524CollationElementIteratorC2ERKNS_13UnicodeStringEPKNS_17RuleBasedCollatorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 29), (32, 50)) %this, ptr noundef nonnull align 8 dereferenceable(64) %source, ptr noundef %coll, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7524CollationElementIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7524CollationElementIteratorE, i64 16), ptr %this, align 8
   %iter_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %iter_, align 8
   %rbc_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1449,7 +1449,7 @@ invoke.cont:
   %offsets_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %offsets_, align 8
   %string_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %string_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %string_, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZN6icu_7524CollationElementIterator7setTextERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(64) %source, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -1469,7 +1469,7 @@ lpad2:                                            ; preds = %invoke.cont
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7524CollationElementIteratorC2ERKNS_17CharacterIteratorEPKNS_17RuleBasedCollatorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 29), (32, 50)) %this, ptr noundef nonnull align 8 dereferenceable(24) %source, ptr noundef %coll, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7524CollationElementIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7524CollationElementIteratorE, i64 16), ptr %this, align 8
   %iter_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %iter_, align 8
   %rbc_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1481,7 +1481,7 @@ invoke.cont:
   %offsets_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %offsets_, align 8
   %string_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %string_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %string_, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i16 2, ptr %fUnion2.i, align 8
   %0 = load i32, ptr %status, align 4
@@ -1537,7 +1537,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i9, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.end
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_110MaxExpSinkE, i64 16), ptr %sink, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_110MaxExpSinkE, i64 16), ptr %sink, align 8
   %maxExpansions.i = getelementptr inbounds nuw i8, ptr %sink, i64 8
   store ptr %call1, ptr %maxExpansions.i, align 8
   %errorCode.i = getelementptr inbounds nuw i8, ptr %sink, i64 16
@@ -1566,7 +1566,7 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   %unreversedPrefix.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 440
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %unreversedPrefix.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %unreversedPrefix.i, align 8
   %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 448
   store i16 2, ptr %fUnion2.i.i, align 8
   %suffix.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 504

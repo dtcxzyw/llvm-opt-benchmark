@@ -910,7 +910,7 @@ define hidden void @_ZN2cv4usac12RansacOutput6createERKNS_3MatERKSt6vectorIbSaIb
   store i32 1, ptr %9, align 8, !noalias !4
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 1, ptr %10, align 4, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac16RansacOutputImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac16RansacOutputImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8, !noalias !4
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   invoke void @_ZN2cv4usac16RansacOutputImplC2ERKNS_3MatERKSt6vectorIbSaIbEEiiNS0_15ModelConfidenceERKS5_IfSaIfEE(ptr noundef nonnull align 8 dereferenceable(396) %11, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %_ZN2cv3PtrINS_4usac16RansacOutputImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac16RansacOutputImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i, !noalias !4
@@ -1325,7 +1325,7 @@ define hidden void @_ZN2cv4usac13setParametersERNS_3PtrINS0_5ModelEEENS0_16Estim
   store i32 1, ptr %15, align 8, !noalias !20
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 1, ptr %16, align 4, !noalias !20
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14, align 8, !noalias !20
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14, align 8, !noalias !20
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   invoke void @_ZN2cv4usac9ModelImplC2EdNS0_16EstimationMethodENS_14SamplingMethodEdiNS_11ScoreMethodE(ptr noundef nonnull align 8 dereferenceable(264) %17, double noundef %6, i32 noundef %1, i32 noundef %8, double noundef %9, i32 noundef %11, i32 noundef %13)
           to label %_ZN2cv4usac5Model6createEdNS0_16EstimationMethodENS_14SamplingMethodEdiNS_11ScoreMethodE.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i.i, !noalias !20
@@ -1560,7 +1560,7 @@ define hidden void @_ZN2cv4usac5Model6createEdNS0_16EstimationMethodENS_14Sampli
   store i32 1, ptr %9, align 8, !noalias !27
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 1, ptr %10, align 4, !noalias !27
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8, !noalias !27
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8, !noalias !27
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   invoke void @_ZN2cv4usac9ModelImplC2EdNS0_16EstimationMethodENS_14SamplingMethodEdiNS_11ScoreMethodE(ptr noundef nonnull align 8 dereferenceable(264) %11, double noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, i32 noundef %5, i32 noundef %6)
           to label %_ZN2cv3PtrINS_4usac9ModelImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i, !noalias !27
@@ -1677,7 +1677,7 @@ define hidden void @_ZN2cv4usac13setParametersEiRNS_3PtrINS0_5ModelEEENS0_16Esti
   store i32 1, ptr %12, align 8, !noalias !32
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 1, ptr %13, align 4, !noalias !32
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8, !noalias !32
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8, !noalias !32
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   invoke void @_ZN2cv4usac9ModelImplC2EdNS0_16EstimationMethodENS_14SamplingMethodEdiNS_11ScoreMethodE(ptr noundef nonnull align 8 dereferenceable(264) %14, double noundef %3, i32 noundef %2, i32 noundef 0, double noundef %5, i32 noundef %4, i32 noundef 1)
           to label %_ZN2cv4usac5Model6createEdNS0_16EstimationMethodENS_14SamplingMethodEdiNS_11ScoreMethodE.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i.i, !noalias !32
@@ -1871,7 +1871,7 @@ _ZN2cv3PtrINS_4usac5ModelEED2Ev.exit:             ; preds = %72, %84, %_ZNSt16_S
   store i32 1, ptr %95, align 8, !noalias !39
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 12
   store i32 1, ptr %96, align 4, !noalias !39
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %94, align 8, !noalias !39
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %94, align 8, !noalias !39
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 16
   invoke void @_ZN2cv4usac9ModelImplC2EdNS0_16EstimationMethodENS_14SamplingMethodEdiNS_11ScoreMethodE(ptr noundef nonnull align 8 dereferenceable(264) %97, double noundef %3, i32 noundef %2, i32 noundef 0, double noundef %5, i32 noundef %4, i32 noundef 2)
           to label %_ZN2cv4usac5Model6createEdNS0_16EstimationMethodENS_14SamplingMethodEdiNS_11ScoreMethodE.exit68 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i.i67, !noalias !39
@@ -2081,7 +2081,7 @@ _ZN2cv3PtrINS_4usac5ModelEED2Ev.exit89:           ; preds = %155, %167, %_ZNSt16
   store i32 1, ptr %196, align 8, !noalias !46
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 12
   store i32 1, ptr %197, align 4, !noalias !46
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %195, align 8, !noalias !46
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %195, align 8, !noalias !46
   %198 = getelementptr inbounds nuw i8, ptr %195, i64 16
   invoke void @_ZN2cv4usac9ModelImplC2EdNS0_16EstimationMethodENS_14SamplingMethodEdiNS_11ScoreMethodE(ptr noundef nonnull align 8 dereferenceable(264) %198, double noundef %3, i32 noundef %2, i32 noundef 0, double noundef %5, i32 noundef %4, i32 noundef 1)
           to label %_ZN2cv4usac5Model6createEdNS0_16EstimationMethodENS_14SamplingMethodEdiNS_11ScoreMethodE.exit91 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i.i90, !noalias !46
@@ -2276,7 +2276,7 @@ _ZN2cv3PtrINS_4usac5ModelEED2Ev.exit112:          ; preds = %256, %268, %_ZNSt16
   store i32 1, ptr %283, align 8, !noalias !53
   %284 = getelementptr inbounds nuw i8, ptr %282, i64 12
   store i32 1, ptr %284, align 4, !noalias !53
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %282, align 8, !noalias !53
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %282, align 8, !noalias !53
   %285 = getelementptr inbounds nuw i8, ptr %282, i64 16
   invoke void @_ZN2cv4usac9ModelImplC2EdNS0_16EstimationMethodENS_14SamplingMethodEdiNS_11ScoreMethodE(ptr noundef nonnull align 8 dereferenceable(264) %285, double noundef %3, i32 noundef %2, i32 noundef 0, double noundef %5, i32 noundef %4, i32 noundef 1)
           to label %_ZN2cv4usac5Model6createEdNS0_16EstimationMethodENS_14SamplingMethodEdiNS_11ScoreMethodE.exit114 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i.i113, !noalias !53
@@ -2476,7 +2476,7 @@ _ZN2cv3PtrINS_4usac5ModelEED2Ev.exit135:          ; preds = %343, %355, %_ZNSt16
   store i32 1, ptr %374, align 8, !noalias !60
   %375 = getelementptr inbounds nuw i8, ptr %373, i64 12
   store i32 1, ptr %375, align 4, !noalias !60
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %373, align 8, !noalias !60
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %373, align 8, !noalias !60
   %376 = getelementptr inbounds nuw i8, ptr %373, i64 16
   invoke void @_ZN2cv4usac9ModelImplC2EdNS0_16EstimationMethodENS_14SamplingMethodEdiNS_11ScoreMethodE(ptr noundef nonnull align 8 dereferenceable(264) %376, double noundef %3, i32 noundef %2, i32 noundef 0, double noundef %5, i32 noundef %4, i32 noundef 1)
           to label %_ZN2cv4usac5Model6createEdNS0_16EstimationMethodENS_14SamplingMethodEdiNS_11ScoreMethodE.exit137 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i.i136, !noalias !60
@@ -2676,7 +2676,7 @@ _ZN2cv3PtrINS_4usac5ModelEED2Ev.exit158:          ; preds = %434, %446, %_ZNSt16
   store i32 1, ptr %465, align 8, !noalias !67
   %466 = getelementptr inbounds nuw i8, ptr %464, i64 12
   store i32 1, ptr %466, align 4, !noalias !67
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %464, align 8, !noalias !67
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %464, align 8, !noalias !67
   %467 = getelementptr inbounds nuw i8, ptr %464, i64 16
   invoke void @_ZN2cv4usac9ModelImplC2EdNS0_16EstimationMethodENS_14SamplingMethodEdiNS_11ScoreMethodE(ptr noundef nonnull align 8 dereferenceable(264) %467, double noundef %3, i32 noundef %2, i32 noundef 3, double noundef %5, i32 noundef %4, i32 noundef 1)
           to label %_ZN2cv4usac5Model6createEdNS0_16EstimationMethodENS_14SamplingMethodEdiNS_11ScoreMethodE.exit160 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i.i159, !noalias !67
@@ -2866,7 +2866,7 @@ _ZN2cv3PtrINS_4usac5ModelEED2Ev.exit181:          ; preds = %525, %537, %_ZNSt16
   store i32 1, ptr %548, align 8, !noalias !74
   %549 = getelementptr inbounds nuw i8, ptr %547, i64 12
   store i32 1, ptr %549, align 4, !noalias !74
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %547, align 8, !noalias !74
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %547, align 8, !noalias !74
   %550 = getelementptr inbounds nuw i8, ptr %547, i64 16
   invoke void @_ZN2cv4usac9ModelImplC2EdNS0_16EstimationMethodENS_14SamplingMethodEdiNS_11ScoreMethodE(ptr noundef nonnull align 8 dereferenceable(264) %550, double noundef %3, i32 noundef 2, i32 noundef 0, double noundef %5, i32 noundef %4, i32 noundef 1)
           to label %_ZN2cv4usac5Model6createEdNS0_16EstimationMethodENS_14SamplingMethodEdiNS_11ScoreMethodE.exit183 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac9ModelImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i.i182, !noalias !74
@@ -4285,7 +4285,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %269, %256
   store i32 1, ptr %310, align 8, !noalias !118
   %311 = getelementptr inbounds nuw i8, ptr %309, i64 12
   store i32 1, ptr %311, align 4, !noalias !118
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac16RansacOutputImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %309, align 8, !noalias !118
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac16RansacOutputImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %309, align 8, !noalias !118
   %312 = getelementptr inbounds nuw i8, ptr %309, i64 16
   invoke void @_ZN2cv4usac16RansacOutputImplC2ERKNS_3MatERKSt6vectorIbSaIbEEiiNS0_15ModelConfidenceERKS5_IfSaIfEE(ptr noundef nonnull align 8 dereferenceable(396) %312, ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(40) %54, i32 noundef %289, i32 noundef %295, i32 noundef %301, ptr noundef nonnull align 8 dereferenceable(24) %307)
           to label %_ZN2cv4usac12RansacOutput6createERKNS_3MatERKSt6vectorIbSaIbEEiiNS0_15ModelConfidenceERKS5_IfSaIfEE.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac16RansacOutputImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i.i, !noalias !118
@@ -11578,7 +11578,7 @@ _ZN2cv3PtrINS_4usac13ProsacSamplerEED2Ev.exit:    ; preds = %_ZNSt6vectorIiSaIiE
   store ptr %824, ptr %4, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_4usac6Ransac3runERNS0_3PtrINS5_12RansacOutputEEEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %828, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_4usac6Ransac3runERNS0_3PtrINS5_12RansacOutputEEEEUlS3_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %823, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv29ParallelLoopBodyLambdaWrapperE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv29ParallelLoopBodyLambdaWrapperE, i64 16), ptr %3, align 8
   %829 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %830 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %829, i8 0, i64 32, i1 false)
@@ -11601,7 +11601,7 @@ _ZN2cv29ParallelLoopBodyLambdaWrapperC2ESt8functionIFvRKNS_5RangeEEE.exit.i: ; p
           to label %834 unwind label %847
 
 834:                                              ; preds = %_ZN2cv29ParallelLoopBodyLambdaWrapperC2ESt8functionIFvRKNS_5RangeEEE.exit.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv29ParallelLoopBodyLambdaWrapperE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv29ParallelLoopBodyLambdaWrapperE, i64 16), ptr %3, align 8
   %835 = load ptr, ptr %830, align 8
   %.not.i.i.i5.i = icmp eq ptr %835, null
   br i1 %.not.i.i.i5.i, label %_ZN2cv29ParallelLoopBodyLambdaWrapperD2Ev.exit.i, label %836
@@ -12552,7 +12552,7 @@ _ZNSt6vectorIN2cv4usac5ScoreESaIS2_EED2Ev.exit501: ; preds = %1157, %_ZNSt6vecto
   store i32 1, ptr %1186, align 8, !noalias !210
   %1187 = getelementptr inbounds nuw i8, ptr %1185, i64 12
   store i32 1, ptr %1187, align 4, !noalias !210
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac16RansacOutputImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1185, align 8, !noalias !210
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac16RansacOutputImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1185, align 8, !noalias !210
   %1188 = getelementptr inbounds nuw i8, ptr %1185, i64 16
   invoke void @_ZN2cv4usac16RansacOutputImplC2ERKNS_3MatERKSt6vectorIbSaIbEEiiNS0_15ModelConfidenceERKS5_IfSaIfEE(ptr noundef nonnull align 8 dereferenceable(396) %1188, ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(40) %65, i32 noundef %1184, i32 noundef %.081, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %66)
           to label %_ZN2cv4usac12RansacOutput6createERKNS_3MatERKSt6vectorIbSaIbEEiiNS0_15ModelConfidenceERKS5_IfSaIfEE.exit unwind label %.body520, !noalias !210
@@ -13514,7 +13514,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit619:                 ; preds = %1601, %_ZNSt6vector
   store i32 1, ptr %1606, align 8, !noalias !218
   %1607 = getelementptr inbounds nuw i8, ptr %1605, i64 12
   store i32 1, ptr %1607, align 4, !noalias !218
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac16RansacOutputImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1605, align 8, !noalias !218
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac16RansacOutputImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1605, align 8, !noalias !218
   %1608 = getelementptr inbounds nuw i8, ptr %1605, i64 16
   invoke void @_ZN2cv4usac16RansacOutputImplC2ERKNS_3MatERKSt6vectorIbSaIbEEiiNS0_15ModelConfidenceERKS5_IfSaIfEE(ptr noundef nonnull align 8 dereferenceable(396) %1608, ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(40) %76, i32 noundef %1604, i32 noundef %.081, i32 noundef %.087, ptr noundef nonnull align 8 dereferenceable(24) %77)
           to label %_ZN2cv4usac12RansacOutput6createERKNS_3MatERKSt6vectorIbSaIbEEiiNS0_15ModelConfidenceERKS5_IfSaIfEE.exit626 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac16RansacOutputImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i.i622, !noalias !218
@@ -22390,7 +22390,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i32 1, ptr %3072, align 8, !noalias !229
   %3073 = getelementptr inbounds nuw i8, ptr %3071, i64 12
   store i32 1, ptr %3073, align 4, !noalias !229
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac10DegeneracyESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3071, align 8, !noalias !229
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac10DegeneracyESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3071, align 8, !noalias !229
   %3074 = getelementptr inbounds nuw i8, ptr %3071, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3074, i8 0, i64 104, i1 false), !noalias !229
   invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3074)
@@ -22407,7 +22407,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac10DegeneracyESaIv
   br label %common.resume
 
 _ZN2cvL7makePtrINS_4usac10DegeneracyEJEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %3070
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN2cv4usac10DegeneracyE, i64 16), ptr %3074, align 8, !noalias !229
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN2cv4usac10DegeneracyE, i64 16), ptr %3074, align 8, !noalias !229
   %3076 = getelementptr inbounds nuw i8, ptr %3071, i64 24
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3076) #24, !noalias !229
   store ptr %3074, ptr %6, align 8
@@ -23365,7 +23365,7 @@ _ZN2cv3PtrINS_4usac12PnPEstimatorEED2Ev.exit:     ; preds = %_ZN2cv3PtrINS_4usac
   store i32 1, ptr %3509, align 8, !noalias !234
   %3510 = getelementptr inbounds nuw i8, ptr %3508, i64 12
   store i32 1, ptr %3510, align 4, !noalias !234
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac10DegeneracyESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3508, align 8, !noalias !234
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac10DegeneracyESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3508, align 8, !noalias !234
   %3511 = getelementptr inbounds nuw i8, ptr %3508, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3511, i8 0, i64 104, i1 false), !noalias !234
   invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3511)
@@ -23378,7 +23378,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac10DegeneracyESaIv
   br label %common.resume
 
 _ZN2cvL7makePtrINS_4usac10DegeneracyEJEEENS_3PtrIT_EEDpRKT0_.exit906: ; preds = %3507
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN2cv4usac10DegeneracyE, i64 16), ptr %3511, align 8, !noalias !234
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN2cv4usac10DegeneracyE, i64 16), ptr %3511, align 8, !noalias !234
   %3513 = getelementptr inbounds nuw i8, ptr %3508, i64 24
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3513) #24, !noalias !234
   store ptr %3511, ptr %6, align 8
@@ -31331,7 +31331,7 @@ declare void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv4usac10DegeneracyD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN2cv4usac10DegeneracyE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN2cv4usac10DegeneracyE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #24
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
@@ -31340,7 +31340,7 @@ define linkonce_odr hidden void @_ZN2cv4usac10DegeneracyD2Ev(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv4usac10DegeneracyD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN2cv4usac10DegeneracyE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN2cv4usac10DegeneracyE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #24
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #24
@@ -33560,7 +33560,7 @@ declare void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv29ParallelLoopBodyLambdaWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv29ParallelLoopBodyLambdaWrapperE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv29ParallelLoopBodyLambdaWrapperE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -33588,7 +33588,7 @@ declare void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv29ParallelLoopBodyLambdaWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv29ParallelLoopBodyLambdaWrapperE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv29ParallelLoopBodyLambdaWrapperE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -38235,7 +38235,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 define linkonce_odr hidden void @_ZN2cv4usac16RansacOutputImplC2ERKNS_3MatERKSt6vectorIbSaIbEEiiNS0_15ModelConfidenceERKS5_IfSaIfEE(ptr noundef nonnull align 8 dereferenceable(396) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(24) %6) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.cv::_OutputArray", align 8
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN2cv4usac16RansacOutputImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN2cv4usac16RansacOutputImplE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -38320,7 +38320,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv4usac16RansacOutputImplD2Ev(ptr noundef nonnull align 8 dereferenceable(396) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN2cv4usac16RansacOutputImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN2cv4usac16RansacOutputImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -39128,7 +39128,7 @@ define linkonce_odr hidden void @_ZN2cv4usac9ModelImplC2EdNS0_16EstimationMethod
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.17", align 1
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds inrange(-16, 576) (i8, ptr @_ZTVN2cv4usac9ModelImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 576) (i8, ptr @_ZTVN2cv4usac9ModelImplE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %1, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -39373,7 +39373,7 @@ define linkonce_odr hidden void @_ZN2cv4usac9ModelImplC2EdNS0_16EstimationMethod
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv4usac9ModelImplD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 576) (i8, ptr @_ZTVN2cv4usac9ModelImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 576) (i8, ptr @_ZTVN2cv4usac9ModelImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -39390,7 +39390,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv4usac9ModelImplD0Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 576) (i8, ptr @_ZTVN2cv4usac9ModelImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 576) (i8, ptr @_ZTVN2cv4usac9ModelImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null

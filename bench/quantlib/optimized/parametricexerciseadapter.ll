@@ -61,7 +61,7 @@ $_ZTIN8QuantLib16ExerciseStrategyINS_10CurveStateEEE = comdat any
 define void @_ZN8QuantLib25ParametricExerciseAdapterC2ERKNS_29MarketModelParametricExerciseESt6vectorIS4_IdSaIdEESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 80)) %this, ptr noundef nonnull align 8 dereferenceable(16) %exercise, ptr nocapture noundef %parameters) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN8QuantLib25ParametricExerciseAdapterE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN8QuantLib25ParametricExerciseAdapterE, i64 16), ptr %this, align 8, !tbaa !3
   %exercise_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i) #15
   %vtable.i = load ptr, ptr %exercise, align 8, !tbaa !3
@@ -648,7 +648,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 define linkonce_odr void @_ZN8QuantLib25ParametricExerciseAdapterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN8QuantLib25ParametricExerciseAdapterE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN8QuantLib25ParametricExerciseAdapterE, i64 16), ptr %this, align 8, !tbaa !3
   %exercise_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %exercise_2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %exercise_2, align 8, !tbaa !6
@@ -986,7 +986,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib25ParametricExerciseAdapterD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN8QuantLib25ParametricExerciseAdapterE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN8QuantLib25ParametricExerciseAdapterE, i64 16), ptr %this, align 8, !tbaa !3
   %variables_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %variables_, align 8, !tbaa !15
   %tobool.not.i.i.i = icmp eq ptr %0, null

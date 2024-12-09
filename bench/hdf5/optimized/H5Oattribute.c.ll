@@ -246,7 +246,7 @@ define range(i32 -1, 1) i32 @H5O__attr_create(ptr noundef %0, ptr noundef %1) lo
   br i1 %58, label %59, label %64
 
 59:                                               ; preds = %57
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @H5O_MSG_ATTR, i64 56), align 8
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5O_MSG_ATTR, i64 56), align 8
   %61 = load ptr, ptr %0, align 8
   %62 = call i64 %60(ptr noundef %61, i1 noundef zeroext false, ptr noundef %1) #9
   %63 = icmp ugt i64 %62, 65535

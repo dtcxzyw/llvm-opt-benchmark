@@ -28,7 +28,7 @@ declare void @_ZN13ZContinuation21ZColorStackOopClosureC1EP17stackChunkOopDesc(p
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN21ZBarrierSetStackChunk14decode_gc_modeEP17stackChunkOopDescP11OopIterator(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.ZContinuation::ZUncolorStackOopClosure", align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN13ZContinuation23ZUncolorStackOopClosureE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN13ZContinuation23ZUncolorStackOopClosureE, i64 16), ptr %4, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = load ptr, ptr %5, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %4) #4

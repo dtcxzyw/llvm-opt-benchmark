@@ -533,7 +533,7 @@ _ZN11OopRecorder10find_indexEP8_jobject.exit:     ; preds = %62, %64, %67
   %69 = phi i32 [ %63, %62 ], [ %68, %67 ], [ %65, %64 ]
   store ptr null, ptr %13, align 8, !alias.scope !9
   store i32 1, ptr %14, align 8, !alias.scope !9
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr %3, align 8, !alias.scope !9
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr %3, align 8, !alias.scope !9
   store i32 %69, ptr %15, align 4, !alias.scope !9
   %70 = load ptr, ptr %12, align 8
   %71 = call noundef ptr @_ZN17AbstractAssembler13start_a_constEii(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 8, i32 noundef 8) #10
@@ -643,7 +643,7 @@ _ZN11OopRecorder10find_indexEP8Metadata.exit:     ; preds = %115, %121
   %.0.i.i = phi i32 [ %122, %121 ], [ %119, %115 ]
   store ptr null, ptr %9, align 8, !alias.scope !15
   store i32 12, ptr %10, align 8, !alias.scope !15
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV19metadata_Relocation, i64 16), ptr %4, align 8, !alias.scope !15
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV19metadata_Relocation, i64 16), ptr %4, align 8, !alias.scope !15
   store i32 %.0.i.i, ptr %11, align 4, !alias.scope !15
   %123 = load ptr, ptr %12, align 8
   %124 = call noundef ptr @_ZN17AbstractAssembler13start_a_constEii(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 8, i32 noundef 8) #10

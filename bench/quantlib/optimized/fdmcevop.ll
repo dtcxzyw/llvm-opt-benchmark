@@ -151,7 +151,7 @@ entry:
   %ref.tmp = alloca %"class.QuantLib::SecondDerivativeOp", align 8
   %ref.tmp2 = alloca %"class.QuantLib::Array", align 8
   %ref.tmp5 = alloca %"class.QuantLib::Array", align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib8FdmCEVOpE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib8FdmCEVOpE, i64 16), ptr %this, align 8, !tbaa !3
   %rTS_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %rTS, ptr %rTS_, align 8, !tbaa !6
   %direction_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -326,7 +326,7 @@ declare void @_ZN8QuantLib18TripleBandLinearOpC1EmRKN5boost10shared_ptrINS_9FdmM
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib18TripleBandLinearOpD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib18TripleBandLinearOpE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib18TripleBandLinearOpE, i64 16), ptr %this, align 8, !tbaa !3
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !47
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -906,7 +906,7 @@ _ZN5boost7numeric5ublas15unbounded_arrayImSaImEED2Ev.exit11: ; preds = %_ZN5boos
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8FdmCEVOpD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib8FdmCEVOpE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib8FdmCEVOpE, i64 16), ptr %this, align 8, !tbaa !3
   %mapT_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   tail call void @_ZN8QuantLib18TripleBandLinearOpD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %mapT_) #20
   %dxxMap_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -917,7 +917,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8FdmCEVOpD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib8FdmCEVOpE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib8FdmCEVOpE, i64 16), ptr %this, align 8, !tbaa !3
   %mapT_.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   tail call void @_ZN8QuantLib18TripleBandLinearOpD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %mapT_.i) #20
   %dxxMap_.i = getelementptr inbounds nuw i8, ptr %this, i64 24

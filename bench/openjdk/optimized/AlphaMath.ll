@@ -39,7 +39,7 @@ define hidden void @initAlphaTables() local_unnamed_addr #0 {
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %._crit_edge ], [ 1, %11 ]
   %indvar = phi i64 [ %indvar.next, %._crit_edge ], [ 0, %11 ]
   %12 = mul nuw nsw i64 %indvar, 257
-  %gep = getelementptr i8, ptr getelementptr inbounds (i8, ptr @div8table, i64 257), i64 %12
+  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @div8table, i64 257), i64 %12
   %13 = sub nsw i64 255, %indvar
   %14 = trunc nuw nsw i64 %indvars.iv52 to i32
   %15 = lshr i32 %14, 1

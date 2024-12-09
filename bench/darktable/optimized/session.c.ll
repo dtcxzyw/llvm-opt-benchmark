@@ -172,7 +172,7 @@ define internal void @create_callback(ptr nocapture readnone %0, ptr nocapture n
   %6 = load ptr, ptr %5, align 8, !tbaa !18
   %7 = tail call ptr @gtk_entry_get_text(ptr noundef %6) #8
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.4, ptr noundef %7) #8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !20
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !20
   %9 = load ptr, ptr %5, align 8, !tbaa !18
   %10 = tail call ptr @gtk_entry_get_text(ptr noundef %9) #8
   tail call void @dt_view_tethering_set_job_code(ptr noundef %8, ptr noundef %10) #8

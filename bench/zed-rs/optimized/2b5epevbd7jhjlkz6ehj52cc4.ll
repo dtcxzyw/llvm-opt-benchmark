@@ -2417,7 +2417,7 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0fbdf1b16caf975aE.exit"
 
 "_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0fbdf1b16caf975aE.exit": ; preds = %1, %3, %5
-  %.sroa.0.0.i.i = phi ptr [ null, %5 ], [ %4, %3 ], [ getelementptr inbounds (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %1 ]
+  %.sroa.0.0.i.i = phi ptr [ null, %5 ], [ %4, %3 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %1 ]
   ret ptr %.sroa.0.0.i.i
 }
 
@@ -5137,7 +5137,7 @@ _ZN4core3ops8function6FnOnce9call_once17h76b5d82e2b1622eaE.llvm.1044803688512519
   br label %14
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h359b4aa3f0150020E.llvm.10448036885125193953.exit": ; preds = %3, %_ZN4core3ops8function6FnOnce9call_once17h76b5d82e2b1622eaE.llvm.10448036885125193953.exit
-  %.sroa.0.0.i.i.i4 = phi ptr [ %8, %_ZN4core3ops8function6FnOnce9call_once17h76b5d82e2b1622eaE.llvm.10448036885125193953.exit ], [ getelementptr inbounds (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %3 ]
+  %.sroa.0.0.i.i.i4 = phi ptr [ %8, %_ZN4core3ops8function6FnOnce9call_once17h76b5d82e2b1622eaE.llvm.10448036885125193953.exit ], [ getelementptr inbounds nuw (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %3 ]
   %10 = tail call { ptr, ptr } @"_ZN3std6thread5local44LocalKey$LT$core..cell..RefCell$LT$T$GT$$GT$15with_borrow_mut28_$u7b$$u7b$closure$u7d$$u7d$17h07b9ea8a02a2d73bE.llvm.10448036885125193953"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noundef nonnull align 8 %.sroa.0.0.i.i.i4), !noalias !1486
   %11 = extractvalue { ptr, ptr } %10, 0
   %12 = extractvalue { ptr, ptr } %10, 1
@@ -5661,7 +5661,7 @@ _ZN4core3ops8function6FnOnce9call_once17h76b5d82e2b1622eaE.llvm.1044803688512519
   br label %12
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hd9093303836fcc6eE.llvm.10448036885125193953.exit": ; preds = %1, %_ZN4core3ops8function6FnOnce9call_once17h76b5d82e2b1622eaE.llvm.10448036885125193953.exit
-  %.sroa.0.0.i.i.i4 = phi ptr [ %6, %_ZN4core3ops8function6FnOnce9call_once17h76b5d82e2b1622eaE.llvm.10448036885125193953.exit ], [ getelementptr inbounds (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %1 ]
+  %.sroa.0.0.i.i.i4 = phi ptr [ %6, %_ZN4core3ops8function6FnOnce9call_once17h76b5d82e2b1622eaE.llvm.10448036885125193953.exit ], [ getelementptr inbounds nuw (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %1 ]
   %8 = tail call { ptr, ptr } @"_ZN3std6thread5local44LocalKey$LT$core..cell..RefCell$LT$T$GT$$GT$15with_borrow_mut28_$u7b$$u7b$closure$u7d$$u7d$17h0b67fa05da9c372aE.llvm.10448036885125193953"(ptr noundef nonnull align 8 %.sroa.0.0.i.i.i4), !noalias !1517
   %9 = extractvalue { ptr, ptr } %8, 0
   %10 = extractvalue { ptr, ptr } %8, 1
@@ -6897,7 +6897,7 @@ _ZN4core3ops8function6FnOnce9call_once17h76b5d82e2b1622eaE.llvm.1044803688512519
           to label %.noexc23 unwind label %134
 
 _ZN4core3ops8function6FnOnce9call_once17h76b5d82e2b1622eaE.llvm.10448036885125193953.exit.thread6.i.i.i.i.i: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h76b5d82e2b1622eaE.llvm.10448036885125193953.exit.i.i.i.i.i, %.noexc22
-  %.sroa.0.0.i.i.i8.i.i.i.i.i = phi ptr [ %37, %_ZN4core3ops8function6FnOnce9call_once17h76b5d82e2b1622eaE.llvm.10448036885125193953.exit.i.i.i.i.i ], [ getelementptr inbounds (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %.noexc22 ]
+  %.sroa.0.0.i.i.i8.i.i.i.i.i = phi ptr [ %37, %_ZN4core3ops8function6FnOnce9call_once17h76b5d82e2b1622eaE.llvm.10448036885125193953.exit.i.i.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %.noexc22 ]
   call void @llvm.lifetime.start.p0(i64 824, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %8, ptr noundef nonnull align 8 dereferenceable(824) %11, i64 824, i1 false), !noalias !1722
   call void @llvm.lifetime.start.p0(i64 824, ptr nonnull %7), !noalias !1752

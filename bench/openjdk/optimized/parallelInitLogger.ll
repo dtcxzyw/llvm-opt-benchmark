@@ -177,7 +177,7 @@ declare void @_ZN12GCInitLogger10print_heapEv(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18ParallelInitLogger5printEv() local_unnamed_addr #0 align 2 {
   %1 = alloca %class.ParallelInitLogger, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18ParallelInitLogger, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18ParallelInitLogger, i64 16), ptr %1, align 8
   call void @_ZN12GCInitLogger9print_allEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #4
   ret void
 }

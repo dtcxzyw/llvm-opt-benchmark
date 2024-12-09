@@ -807,7 +807,7 @@ opal_obj_new.exit268:                             ; preds = %.lr.ph.i.i265, %436
   %464 = getelementptr inbounds nuw i8, ptr %444, i64 24
   store ptr %415, ptr %464, align 8
   %465 = load i32, ptr @opal_class_init_epoch, align 4
-  %466 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_task_t_class, i64 32), align 8
+  %466 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_task_t_class, i64 32), align 8
   %.not.i269 = icmp eq i32 %465, %466
   br i1 %.not.i269, label %468, label %467
 
@@ -839,7 +839,7 @@ init_task.exit:                                   ; preds = %.lr.ph.i.i271, %468
   %476 = getelementptr inbounds nuw i8, ptr %432, i64 24
   store ptr %444, ptr %476, align 8
   %477 = tail call i32 @mca_coll_han_allgather_lg_task(ptr noundef nonnull %444) #7
-  %478 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
+  %478 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 32), align 8
   %479 = call i32 %478(ptr noundef nonnull %9, ptr noundef null) #7
   br label %480
 
@@ -1066,7 +1066,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread77: ; preds = %opal_datatype_span
   store ptr %.075, ptr %133, align 8
   %134 = load ptr, ptr %0, align 8
   %135 = load i32, ptr @opal_class_init_epoch, align 4
-  %136 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_task_t_class, i64 32), align 8
+  %136 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_task_t_class, i64 32), align 8
   %.not.i67 = icmp eq i32 %135, %136
   br i1 %.not.i67, label %138, label %137
 
@@ -2199,7 +2199,7 @@ ompi_datatype_copy_content_same_ddt.exit.us69:    ; preds = %.lr.ph.i.us, %108, 
 113:                                              ; preds = %70, %._crit_edge67, %1
   %114 = load ptr, ptr %0, align 8
   %115 = load i32, ptr @opal_class_init_epoch, align 4
-  %116 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_task_t_class, i64 32), align 8
+  %116 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_task_t_class, i64 32), align 8
   %.not.i62 = icmp eq i32 %115, %116
   br i1 %.not.i62, label %118, label %117
 

@@ -85,7 +85,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb11WriteThreadC2ERKNS_18ImmutableDBOptionsE(ptr noundef nonnull align 16 dereferenceable(432) initializes((0, 26), (32, 75), (76, 81), (88, 146), (152, 174), (176, 190), (192, 200), (304, 320)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(569) %db_options) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb11WriteThreadE, i64 16), ptr %this, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb11WriteThreadE, i64 16), ptr %this, align 16
   %max_yield_usec_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %enable_write_thread_adaptive_yield = getelementptr inbounds nuw i8, ptr %db_options, i64 348
   %0 = load i8, ptr %enable_write_thread_adaptive_yield, align 4
@@ -3080,7 +3080,7 @@ if.end:                                           ; preds = %entry, %_ZNSt10lock
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb11WriteThreadD2Ev(ptr noundef nonnull align 16 dereferenceable(432) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb11WriteThreadE, i64 16), ptr %this, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb11WriteThreadE, i64 16), ptr %this, align 16
   %stall_cv_ = getelementptr inbounds nuw i8, ptr %this, i64 360
   tail call void @_ZN7rocksdb4port7CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %stall_cv_) #18
   %stall_mu_ = getelementptr inbounds nuw i8, ptr %this, i64 320
@@ -3124,7 +3124,7 @@ _ZN7rocksdb11WriteThread6WriterD2Ev.exit:         ; preds = %_ZN7rocksdb6StatusD
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb11WriteThreadD0Ev(ptr noundef nonnull align 16 dereferenceable(432) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb11WriteThreadE, i64 16), ptr %this, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb11WriteThreadE, i64 16), ptr %this, align 16
   %stall_cv_.i = getelementptr inbounds nuw i8, ptr %this, i64 360
   tail call void @_ZN7rocksdb4port7CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %stall_cv_.i) #18
   %stall_mu_.i = getelementptr inbounds nuw i8, ptr %this, i64 320

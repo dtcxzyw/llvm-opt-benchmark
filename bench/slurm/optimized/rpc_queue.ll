@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @rpc_queue_init() local_unnamed_addr #0 {
   %1 = alloca %union.pthread_attr_t, align 8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1248), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1248), align 8
   %3 = tail call ptr @xstrcasestr(ptr noundef %2, ptr noundef nonnull @.str) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
@@ -105,7 +105,7 @@ define dso_local void @rpc_queue_init() local_unnamed_addr #0 {
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %.052, i64 57
   store i8 0, ptr %27, align 1
-  %28 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %29 = and i64 %28, 67108864
   %.not36 = icmp eq i64 %29, 0
   br i1 %.not36, label %35, label %30
@@ -276,7 +276,7 @@ define internal noundef ptr @_rpc_queue_worker(ptr noundef %0) #0 {
   br label %30
 
 30:                                               ; preds = %26, %27, %29
-  %31 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %32 = and i64 %31, 67108864
   %.not46 = icmp eq i64 %32, 0
   br i1 %.not46, label %38, label %33
@@ -309,7 +309,7 @@ define internal noundef ptr @_rpc_queue_worker(ptr noundef %0) #0 {
   br i1 %45, label %46, label %59
 
 46:                                               ; preds = %43
-  %47 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %47 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %48 = and i64 %47, 67108864
   %.not52 = icmp eq i64 %48, 0
   br i1 %.not52, label %54, label %49
@@ -367,7 +367,7 @@ define internal noundef ptr @_rpc_queue_worker(ptr noundef %0) #0 {
   unreachable
 
 71:                                               ; preds = %67
-  %72 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %72 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %73 = and i64 %72, 67108864
   %.not51 = icmp eq i64 %73, 0
   br i1 %.not51, label %79, label %74

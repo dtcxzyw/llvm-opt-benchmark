@@ -123,7 +123,7 @@ define hidden noundef zeroext i1 @_Z13contains_varsP4exprRK13obj_hashtableI3appE
 invoke.cont:
   %pred = alloca %class.check_uninterp_consts, align 8
   %check = alloca %class.check_pred, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21check_uninterp_consts, i64 16), ptr %pred, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21check_uninterp_consts, i64 16), ptr %pred, align 8
   %m_vars.i = getelementptr inbounds nuw i8, ptr %pred, i64 8
   store ptr %vars, ptr %m_vars.i, align 8
   %m_fid.i = getelementptr inbounds nuw i8, ptr %pred, i64 16
@@ -132,13 +132,13 @@ invoke.cont:
   store i32 %dk, ptr %m_decl_kind.i, align 4
   store ptr %pred, ptr %check, align 8
   %m_pred_holds.i = getelementptr inbounds nuw i8, ptr %check, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8ast_mark, i64 16), ptr %m_pred_holds.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8ast_mark, i64 16), ptr %m_pred_holds.i, align 8
   %m_marks.i.i.i = getelementptr inbounds nuw i8, ptr %check, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_marks.i.i.i, i8 0, i64 16, i1 false)
   %m_marks.i1.i.i = getelementptr inbounds nuw i8, ptr %check, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_marks.i1.i.i, i8 0, i64 16, i1 false)
   %m_visited.i = getelementptr inbounds nuw i8, ptr %check, i64 64
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8ast_mark, i64 16), ptr %m_visited.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8ast_mark, i64 16), ptr %m_visited.i, align 8
   %m_marks.i.i2.i = getelementptr inbounds nuw i8, ptr %check, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_marks.i.i2.i, i8 0, i64 16, i1 false)
   %m_marks.i1.i3.i = getelementptr inbounds nuw i8, ptr %check, i64 104
@@ -236,7 +236,7 @@ terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %entry, %invoke.cont8.i.i, %if.then.i.i.i.i.i
   %m_visited = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8ast_mark, i64 16), ptr %m_visited, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8ast_mark, i64 16), ptr %m_visited, align 8
   %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %11 = load ptr, ptr %m_data.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %11, null
@@ -272,7 +272,7 @@ terminate.lpad.i.i4.i:                            ; preds = %if.end.i.i.i3.i
 
 _ZN8ast_markD2Ev.exit:                            ; preds = %_ZN8obj_markI4decl10bit_vectorN8ast_mark9decl2uintEED2Ev.exit.i, %if.end.i.i.i3.i
   %m_pred_holds = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8ast_mark, i64 16), ptr %m_pred_holds, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8ast_mark, i64 16), ptr %m_pred_holds, align 8
   %m_data.i.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %17 = load ptr, ptr %m_data.i.i.i1, align 8
   %cmp.i.i.i.i2 = icmp eq ptr %17, null

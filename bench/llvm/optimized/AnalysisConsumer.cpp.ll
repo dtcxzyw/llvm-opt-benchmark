@@ -779,7 +779,7 @@ define dso_local void @_ZN5clang4ento22CreateAnalysisConsumerERNS_16CompilerInst
   %48 = ashr exact i64 %47, 5
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i8 0, ptr %49, align 8, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 184) (i8, ptr @_ZTVN12_GLOBAL__N_116AnalysisConsumerE, i64 16), ptr %44, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 184) (i8, ptr @_ZTVN12_GLOBAL__N_116AnalysisConsumerE, i64 16), ptr %44, align 8, !noalias !4
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 12
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %50, i8 0, i64 44, i1 false), !noalias !4
@@ -1447,7 +1447,7 @@ declare void @_ZN5clang21MacroExpansionContext23registerForPreprocessorERNS_12Pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_116AnalysisConsumerD2Ev(ptr noundef nonnull align 8 dereferenceable(608) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 184) (i8, ptr @_ZTVN12_GLOBAL__N_116AnalysisConsumerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 184) (i8, ptr @_ZTVN12_GLOBAL__N_116AnalysisConsumerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 196
@@ -46434,7 +46434,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i26:             ; preds = %194, %192
   %197 = fmul double %179, 1.000000e+03
   %198 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @.str.53, ptr %198, align 8, !alias.scope !205
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJdEEE, i64 16), ptr %11, align 8, !alias.scope !205
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJdEEE, i64 16), ptr %11, align 8, !alias.scope !205
   %199 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store double %197, ptr %199, align 8, !alias.scope !205
   %200 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %11) #19
@@ -46627,7 +46627,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i:             ; preds = %286, %284
   %289 = fmul double %271, 1.000000e+03
   %290 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @.str.53, ptr %290, align 8, !alias.scope !208
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJdEEE, i64 16), ptr %6, align 8, !alias.scope !208
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJdEEE, i64 16), ptr %6, align 8, !alias.scope !208
   %291 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store double %289, ptr %291, align 8, !alias.scope !208
   %292 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %6) #19
@@ -46717,7 +46717,7 @@ _ZN12_GLOBAL__N_116AnalysisConsumer11DisplayTimeERN4llvm10TimeRecordE.exit.i: ; 
   br label %341
 
 341:                                              ; preds = %340, %337
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang4ento10ExprEngineE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang4ento10ExprEngineE, i64 16), ptr %9, align 8
   call void @_ZN5clang4ento11BugReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %338) #19
   %342 = getelementptr inbounds nuw i8, ptr %9, i64 296
   call void @_ZN5clang4ento19ProgramStateManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %342) #19
@@ -46782,7 +46782,7 @@ declare void @_ZN5clang4ento10ExprEngine9ViewGraphEb(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang4ento10ExprEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(796) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang4ento10ExprEngineE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang4ento10ExprEngineE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 656
   tail call void @_ZN5clang4ento11BugReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -46921,7 +46921,7 @@ _ZNSt10unique_ptrIN5clang4ento8WorkListESt14default_deleteIS2_EED2Ev.exit4: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang4ento10ExprEngineD0Ev(ptr noundef nonnull align 8 dereferenceable(796) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang4ento10ExprEngineE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang4ento10ExprEngineE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 656
   tail call void @_ZN5clang4ento11BugReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -48637,7 +48637,7 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5
   store ptr null, ptr %1, align 8, !noalias !261
   %155 = load ptr, ptr %2, align 8, !noalias !264
   store ptr null, ptr %2, align 8, !noalias !264
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %158 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20

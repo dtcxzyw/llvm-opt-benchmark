@@ -1116,7 +1116,7 @@ define void @_ZN5salsa5Cycle5throw17hb98aff10c65b3479E(ptr noundef nonnull %0) u
   br i1 %13, label %14, label %.critedge28
 
 14:                                               ; preds = %11
-  %15 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5salsa5Cycle5throw10__CALLSITE17h81ea2a98d19c3870E, i64 16) monotonic, align 8
+  %15 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5salsa5Cycle5throw10__CALLSITE17h81ea2a98d19c3870E, i64 16) monotonic, align 8
   switch i8 %15, label %16 [
     i8 0, label %.critedge28
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

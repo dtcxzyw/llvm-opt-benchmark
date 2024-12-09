@@ -114,7 +114,7 @@ _ZNSt10unique_ptrIN5ceres8internal22LineSearchPreprocessorESt14default_deleteIS2
   unreachable
 
 _ZNSt10unique_ptrIN5ceres8internal23TrustRegionPreprocessorESt14default_deleteIS2_EED2Ev.exit: ; preds = %2, %_ZNSt10unique_ptrIN5ceres8internal22LineSearchPreprocessorESt14default_deleteIS2_EED2Ev.exit
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal22LineSearchPreprocessorE, i64 16), %_ZNSt10unique_ptrIN5ceres8internal22LineSearchPreprocessorESt14default_deleteIS2_EED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal23TrustRegionPreprocessorE, i64 16), %2 ]
+  %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTVN5ceres8internal22LineSearchPreprocessorE, i64 16), %_ZNSt10unique_ptrIN5ceres8internal22LineSearchPreprocessorESt14default_deleteIS2_EED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN5ceres8internal23TrustRegionPreprocessorE, i64 16), %2 ]
   %13 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19, !noalias !4
   store ptr %.sink, ptr %13, align 8, !noalias !4
   store ptr %13, ptr %0, align 8
@@ -1934,7 +1934,7 @@ define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6re
 
 12:                                               ; preds = %10
   %13 = tail call ptr @__cxa_allocate_exception(i64 8) #20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %13, align 8
   tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #22
   unreachable
 
@@ -1946,7 +1946,7 @@ define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6re
 
 18:                                               ; preds = %14
   %19 = tail call ptr @__cxa_allocate_exception(i64 8) #20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %19, align 8
   tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #22
   unreachable
 

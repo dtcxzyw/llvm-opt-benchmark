@@ -99,7 +99,7 @@ define void @_ZN5boost6fibers7barrierC2Em(ptr noundef nonnull align 8 dereferenc
           to label %16 unwind label %17
 
 16:                                               ; preds = %13
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6fibers11fiber_errorE, i64 16), ptr %14, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6fibers11fiber_errorE, i64 16), ptr %14, align 8, !tbaa !28
   invoke void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTIN5boost6fibers11fiber_errorE, ptr nonnull @_ZNSt12system_errorD2Ev) #23
           to label %27 unwind label %19
 
@@ -455,7 +455,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %0, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %0, align 8, !tbaa !28
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %63, align 8, !tbaa !55
   %.sroa.328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24

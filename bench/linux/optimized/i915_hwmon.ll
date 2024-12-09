@@ -1188,7 +1188,7 @@ define internal zeroext i16 @hwm_attributes_visible(ptr nocapture noundef readon
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 308
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @sensor_dev_attr_power1_max_interval, i64 8), align 8
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @sensor_dev_attr_power1_max_interval, i64 8), align 8
   %13 = select i1 %11, i16 0, i16 %12
   br label %14
 

@@ -12334,7 +12334,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha147709908f47623E.exit.i: ; preds = %54
   unreachable
 
 595:                                              ; preds = %.noexc595, %543
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %587, %.noexc595 ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %543 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %587, %.noexc595 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %543 ]
   %596 = load i64, ptr %.sroa.0.0.i.i.i2.i, align 8, !noalias !2667, !noundef !4
   %597 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i, i64 8
   %598 = load i64, ptr %597, align 8, !noalias !2667, !noundef !4

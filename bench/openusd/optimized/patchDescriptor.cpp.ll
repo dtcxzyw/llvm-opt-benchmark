@@ -36,7 +36,7 @@ define { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far15PatchDescriptor27GetAdaptivePat
 
 6:                                                ; preds = %4
   store i32 5, ptr @_ZZN10OpenSubdiv6v3_6_03Far15PatchDescriptor27GetAdaptivePatchDescriptorsENS0_3Sdc10SchemeTypeEE16_loopDescriptors, align 4
-  store i32 10, ptr getelementptr inbounds (i8, ptr @_ZZN10OpenSubdiv6v3_6_03Far15PatchDescriptor27GetAdaptivePatchDescriptorsENS0_3Sdc10SchemeTypeEE16_loopDescriptors, i64 4), align 4
+  store i32 10, ptr getelementptr inbounds nuw (i8, ptr @_ZZN10OpenSubdiv6v3_6_03Far15PatchDescriptor27GetAdaptivePatchDescriptorsENS0_3Sdc10SchemeTypeEE16_loopDescriptors, i64 4), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN10OpenSubdiv6v3_6_03Far15PatchDescriptor27GetAdaptivePatchDescriptorsENS0_3Sdc10SchemeTypeEE16_loopDescriptors) #3
   br label %7
 
@@ -52,9 +52,9 @@ define { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far15PatchDescriptor27GetAdaptivePat
 
 12:                                               ; preds = %10
   store i32 6, ptr @_ZZN10OpenSubdiv6v3_6_03Far15PatchDescriptor27GetAdaptivePatchDescriptorsENS0_3Sdc10SchemeTypeEE19_catmarkDescriptors, align 16
-  store i32 7, ptr getelementptr inbounds (i8, ptr @_ZZN10OpenSubdiv6v3_6_03Far15PatchDescriptor27GetAdaptivePatchDescriptorsENS0_3Sdc10SchemeTypeEE19_catmarkDescriptors, i64 4), align 4
-  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZZN10OpenSubdiv6v3_6_03Far15PatchDescriptor27GetAdaptivePatchDescriptorsENS0_3Sdc10SchemeTypeEE19_catmarkDescriptors, i64 8), align 8
-  store i32 9, ptr getelementptr inbounds (i8, ptr @_ZZN10OpenSubdiv6v3_6_03Far15PatchDescriptor27GetAdaptivePatchDescriptorsENS0_3Sdc10SchemeTypeEE19_catmarkDescriptors, i64 12), align 4
+  store i32 7, ptr getelementptr inbounds nuw (i8, ptr @_ZZN10OpenSubdiv6v3_6_03Far15PatchDescriptor27GetAdaptivePatchDescriptorsENS0_3Sdc10SchemeTypeEE19_catmarkDescriptors, i64 4), align 4
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN10OpenSubdiv6v3_6_03Far15PatchDescriptor27GetAdaptivePatchDescriptorsENS0_3Sdc10SchemeTypeEE19_catmarkDescriptors, i64 8), align 8
+  store i32 9, ptr getelementptr inbounds nuw (i8, ptr @_ZZN10OpenSubdiv6v3_6_03Far15PatchDescriptor27GetAdaptivePatchDescriptorsENS0_3Sdc10SchemeTypeEE19_catmarkDescriptors, i64 12), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN10OpenSubdiv6v3_6_03Far15PatchDescriptor27GetAdaptivePatchDescriptorsENS0_3Sdc10SchemeTypeEE19_catmarkDescriptors) #3
   br label %13
 

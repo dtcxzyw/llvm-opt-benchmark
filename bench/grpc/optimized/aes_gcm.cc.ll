@@ -96,7 +96,7 @@ $_ZTIN9grpc_core16GsecKeyInterfaceE = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core14GsecKeyFactoryC2EN4absl12lts_202308024SpanIKhEEb(ptr nocapture noundef nonnull align 8 dereferenceable(33) initializes((0, 32)) %this, ptr nocapture readonly %key.coerce0, i64 %key.coerce1, i1 noundef zeroext %is_rekey) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14GsecKeyFactoryE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core14GsecKeyFactoryE, i64 16), ptr %this, align 8
   %key_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %key_, i8 0, i64 24, i1 false)
   %cmp.i.i.i = icmp slt i64 %key.coerce1, 0
@@ -184,7 +184,7 @@ define void @_ZN9grpc_core7GsecKeyC2EN4absl12lts_202308024SpanIKhEEb(ptr noundef
 entry:
   %ref.tmp = alloca i8, align 1
   %frombool = zext i1 %is_rekey to i8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core7GsecKeyE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core7GsecKeyE, i64 16), ptr %this, align 8
   %is_rekey_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 %frombool, ptr %is_rekey_, align 8
   %key_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -822,7 +822,7 @@ declare void @gpr_free(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core14GsecKeyFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14GsecKeyFactoryE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core14GsecKeyFactoryE, i64 16), ptr %this, align 8
   %key_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %key_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -839,7 +839,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core14GsecKeyFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14GsecKeyFactoryE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core14GsecKeyFactoryE, i64 16), ptr %this, align 8
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %key_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -857,7 +857,7 @@ _ZN9grpc_core14GsecKeyFactoryD2Ev.exit:           ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core7GsecKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core7GsecKeyE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core7GsecKeyE, i64 16), ptr %this, align 8
   %kdf_counter_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %kdf_counter_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -914,7 +914,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit12:                  ; preds = %_ZNSt6vectorIhSaIhE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core7GsecKeyD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core7GsecKeyE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core7GsecKeyE, i64 16), ptr %this, align 8
   %kdf_counter_.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %kdf_counter_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

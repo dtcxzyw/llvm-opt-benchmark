@@ -1555,7 +1555,7 @@ add_slash.exit:                                   ; preds = %entry, %land.lhs.tr
 
 if.then:                                          ; preds = %add_slash.exit
   %sub4 = xor i32 %call2, -1
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @the_index, i64 12), align 4
   %cmp5.not = icmp ugt i32 %2, %sub4
   br i1 %cmp5.not, label %if.end, label %free_return
 
@@ -1655,7 +1655,7 @@ if.then:                                          ; preds = %add_slash.exit
 
 if.end:                                           ; preds = %add_slash.exit
   %sub = xor i32 %call1, -1
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @the_index, i64 12), align 4
   %cmp316 = icmp ugt i32 %2, %sub
   br i1 %cmp316, label %for.body.lr.ph, label %for.end
 

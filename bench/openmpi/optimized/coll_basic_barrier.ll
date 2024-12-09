@@ -45,7 +45,7 @@ define i32 @mca_coll_basic_barrier_intra_log(ptr noundef %0, ptr nocapture nound
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %.lr.ph
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 72), align 8
   %20 = tail call i32 %19(ptr noundef null, i64 noundef 0, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %16, i32 noundef -16, ptr noundef %0, ptr noundef null) #2
   %.not59 = icmp eq i32 %20, 0
   br i1 %.not59, label %21, label %.loopexit
@@ -64,13 +64,13 @@ define i32 @mca_coll_basic_barrier_intra_log(ptr noundef %0, ptr nocapture nound
   %27 = shl nuw nsw i32 1, %.0.i
   %28 = xor i32 %27, -1
   %29 = and i32 %.val60, %28
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 96), align 8
   %31 = tail call i32 %30(ptr noundef null, i64 noundef 0, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %29, i32 noundef -16, i32 noundef 4, ptr noundef %0) #2
   %.not = icmp eq i32 %31, 0
   br i1 %.not, label %32, label %.loopexit
 
 32:                                               ; preds = %26
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 72), align 8
   %34 = tail call i32 %33(ptr noundef null, i64 noundef 0, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %29, i32 noundef -16, ptr noundef %0, ptr noundef null) #2
   %.not56 = icmp eq i32 %34, 0
   br i1 %.not56, label %35, label %.loopexit
@@ -92,7 +92,7 @@ define i32 @mca_coll_basic_barrier_intra_log(ptr noundef %0, ptr nocapture nound
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %.lr.ph68
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 96), align 8
   %42 = tail call i32 %41(ptr noundef null, i64 noundef 0, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %38, i32 noundef -16, i32 noundef 4, ptr noundef %0) #2
   %.not58 = icmp eq i32 %42, 0
   br i1 %.not58, label %43, label %.loopexit

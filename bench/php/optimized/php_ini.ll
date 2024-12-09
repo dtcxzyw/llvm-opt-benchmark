@@ -93,7 +93,7 @@ define void @display_ini_entries(ptr noundef readonly %0) local_unnamed_addr #0 
 
 5:                                                ; preds = %1, %2
   %.0 = phi i32 [ %4, %2 ], [ 0, %1 ]
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 816), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 816), align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -134,7 +134,7 @@ define void @display_ini_entries(ptr noundef readonly %0) local_unnamed_addr #0 
 
 26:                                               ; preds = %25, %23
   %.2 = phi i8 [ 0, %25 ], [ %.04093, %23 ]
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 248), align 8
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 248), align 8
   %.not46 = icmp eq i32 %27, 0
   br i1 %.not46, label %28, label %87
 
@@ -169,7 +169,7 @@ define void @display_ini_entries(ptr noundef readonly %0) local_unnamed_addr #0 
   br i1 %.not25.i, label %46, label %48
 
 46:                                               ; preds = %43, %40
-  %47 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 248), align 8
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 248), align 8
   %.not26.i = icmp eq i32 %47, 0
   %.str.22..str.2332.i = select i1 %.not26.i, ptr @.str.22, ptr @.str.23
   %.33.i = select i1 %.not26.i, i64 15, i64 8
@@ -178,7 +178,7 @@ define void @display_ini_entries(ptr noundef readonly %0) local_unnamed_addr #0 
 48:                                               ; preds = %43
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %50 = load i64, ptr %49, align 8
-  %51 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 248), align 8
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 248), align 8
   %.not27.i = icmp eq i32 %51, 0
   br i1 %.not27.i, label %52, label %.thread.i
 
@@ -223,12 +223,12 @@ php_ini_displayer_cb.exit:                        ; preds = %39, %52, %.thread.i
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %68 = load i64, ptr %67, align 8
-  %69 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 248), align 8
+  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 248), align 8
   %.not31.i = icmp eq i32 %69, 0
   br i1 %.not31.i, label %84, label %.thread.i48
 
 70:                                               ; preds = %63, %60
-  %71 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 248), align 8
+  %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 248), align 8
   %.not30.i = icmp eq i32 %71, 0
   %.str.22..str.23.i = select i1 %.not30.i, ptr @.str.22, ptr @.str.23
   %..i = select i1 %.not30.i, i64 15, i64 8
@@ -247,7 +247,7 @@ php_ini_displayer_cb.exit:                        ; preds = %39, %52, %.thread.i
   br i1 %.not25.i52, label %78, label %80
 
 78:                                               ; preds = %75, %72
-  %79 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 248), align 8
+  %79 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 248), align 8
   %.not26.i54 = icmp eq i32 %79, 0
   %.str.22..str.2332.i55 = select i1 %.not26.i54, ptr @.str.22, ptr @.str.23
   %.33.i56 = select i1 %.not26.i54, i64 15, i64 8
@@ -256,7 +256,7 @@ php_ini_displayer_cb.exit:                        ; preds = %39, %52, %.thread.i
 80:                                               ; preds = %75
   %81 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %82 = load i64, ptr %81, align 8
-  %83 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 248), align 8
+  %83 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 248), align 8
   %.not27.i53 = icmp eq i32 %83, 0
   br i1 %.not27.i53, label %84, label %.thread.i48
 
@@ -305,7 +305,7 @@ php_ini_displayer_cb.exit57:                      ; preds = %56, %84, %.thread.i
   br i1 %.not25.i60, label %103, label %105
 
 103:                                              ; preds = %100, %97
-  %104 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 248), align 8
+  %104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 248), align 8
   %.not26.i67 = icmp eq i32 %104, 0
   %.str.22..str.2332.i68 = select i1 %.not26.i67, ptr @.str.22, ptr @.str.23
   %.33.i69 = select i1 %.not26.i67, i64 15, i64 8
@@ -314,7 +314,7 @@ php_ini_displayer_cb.exit57:                      ; preds = %56, %84, %.thread.i
 105:                                              ; preds = %100
   %106 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %107 = load i64, ptr %106, align 8
-  %108 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 248), align 8
+  %108 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 248), align 8
   %.not27.i61 = icmp eq i32 %108, 0
   br i1 %.not27.i61, label %109, label %.thread.i62
 
@@ -359,12 +359,12 @@ php_ini_displayer_cb.exit70:                      ; preds = %96, %109, %.thread.
 123:                                              ; preds = %120
   %124 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %125 = load i64, ptr %124, align 8
-  %126 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 248), align 8
+  %126 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 248), align 8
   %.not31.i75 = icmp eq i32 %126, 0
   br i1 %.not31.i75, label %141, label %.thread.i76
 
 127:                                              ; preds = %120, %117
-  %128 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 248), align 8
+  %128 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 248), align 8
   %.not30.i81 = icmp eq i32 %128, 0
   %.str.22..str.23.i82 = select i1 %.not30.i81, ptr @.str.22, ptr @.str.23
   %..i83 = select i1 %.not30.i81, i64 15, i64 8
@@ -383,7 +383,7 @@ php_ini_displayer_cb.exit70:                      ; preds = %96, %109, %.thread.
   br i1 %.not25.i85, label %135, label %137
 
 135:                                              ; preds = %132, %129
-  %136 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 248), align 8
+  %136 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 248), align 8
   %.not26.i87 = icmp eq i32 %136, 0
   %.str.22..str.2332.i88 = select i1 %.not26.i87, ptr @.str.22, ptr @.str.23
   %.33.i89 = select i1 %.not26.i87, i64 15, i64 8
@@ -392,7 +392,7 @@ php_ini_displayer_cb.exit70:                      ; preds = %96, %109, %.thread.
 137:                                              ; preds = %132
   %138 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %139 = load i64, ptr %138, align 8
-  %140 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 248), align 8
+  %140 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 248), align 8
   %.not27.i86 = icmp eq i32 %140, 0
   br i1 %.not27.i86, label %141, label %.thread.i76
 
@@ -505,7 +505,7 @@ define hidden noundef i32 @php_init_config() local_unnamed_addr #0 {
   %11 = alloca %struct._zend_file_handle, align 8
   store ptr null, ptr %1, align 8
   tail call void @_zend_hash_init(ptr noundef nonnull @configuration_hash, i32 noundef 8, ptr noundef nonnull @config_zval_dtor, i1 noundef zeroext true) #15
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 240), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 240), align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %14, label %13
 
@@ -515,18 +515,18 @@ define hidden noundef i32 @php_init_config() local_unnamed_addr #0 {
 
 14:                                               ; preds = %13, %0
   tail call void @zend_llist_init(ptr noundef nonnull @extension_lists, i64 noundef 8, ptr noundef nonnull @free_estring, i8 noundef zeroext 1) #15
-  tail call void @zend_llist_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @extension_lists, i64 56), i64 noundef 8, ptr noundef nonnull @free_estring, i8 noundef zeroext 1) #15
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 88), align 8
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 160), align 8
+  tail call void @zend_llist_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @extension_lists, i64 56), i64 noundef 8, ptr noundef nonnull @free_estring, i8 noundef zeroext 1) #15
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 88), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 160), align 8
   %.not228 = icmp eq ptr %16, null
   br i1 %.not228, label %17, label %.thread314
 
 .thread314:                                       ; preds = %14
-  store ptr null, ptr getelementptr inbounds (i8, ptr @core_globals, i64 88), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 88), align 8
   br label %55
 
 17:                                               ; preds = %14
-  %.pre299 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 192), align 8
+  %.pre299 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 192), align 8
   %.not229 = icmp ne i32 %.pre299, 0
   br i1 %.not229, label %53, label %18
 
@@ -551,7 +551,7 @@ append_ini_path.exit:                             ; preds = %18
 
 27:                                               ; preds = %append_ini_path.exit, %18
   %.1 = phi ptr [ %spec.store.select, %append_ini_path.exit ], [ null, %18 ]
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 196), align 4
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 196), align 4
   %.not232 = icmp eq i32 %28, 0
   br i1 %.not232, label %29, label %34
 
@@ -570,7 +570,7 @@ append_ini_path.exit267:                          ; preds = %29, %31
   br label %34
 
 34:                                               ; preds = %append_ini_path.exit267, %27
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 112), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 112), align 8
   %.not233 = icmp eq ptr %35, null
   br i1 %.not233, label %._crit_edge301, label %36
 
@@ -617,8 +617,8 @@ append_ini_path.exit270:                          ; preds = %40, %42
 
 append_ini_path.exit273:                          ; preds = %45, %47
   %49 = tail call i64 @php_strlcat(ptr noundef nonnull %24, ptr noundef nonnull @.str.12, i64 noundef %.pre.i272.pre-phi) #15
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 192), align 8
-  %.pre300 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 160), align 8
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 192), align 8
+  %.pre300 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 160), align 8
   %50 = icmp eq ptr %.pre300, null
   %51 = icmp ne i32 %.pre, 0
   %52 = select i1 %51, i1 %50, i1 false
@@ -628,7 +628,7 @@ append_ini_path.exit273:                          ; preds = %45, %47
   %.not236 = phi i1 [ true, %17 ], [ %52, %append_ini_path.exit273 ]
   %.0190 = phi ptr [ null, %17 ], [ %24, %append_ini_path.exit273 ]
   %.0 = phi ptr [ null, %17 ], [ %.1, %append_ini_path.exit273 ]
-  store ptr null, ptr getelementptr inbounds (i8, ptr @core_globals, i64 88), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 88), align 8
   br i1 %.not236, label %.thread282, label %54
 
 54:                                               ; preds = %53
@@ -698,7 +698,7 @@ append_ini_path.exit273:                          ; preds = %45, %47
   br i1 %.not246310, label %.thread339, label %82
 
 .thread339:                                       ; preds = %.thread282
-  store ptr %15, ptr getelementptr inbounds (i8, ptr @core_globals, i64 88), align 8
+  store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 88), align 8
   br label %113
 
 .thread345:                                       ; preds = %79, %74, %66
@@ -711,14 +711,14 @@ append_ini_path.exit273:                          ; preds = %45, %47
 
 82:                                               ; preds = %.thread282
   call void @_efree(ptr noundef %.0190312) #15
-  store ptr %15, ptr getelementptr inbounds (i8, ptr @core_globals, i64 88), align 8
+  store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 88), align 8
   br label %113
 
 .thread331:                                       ; preds = %66, %74, %79, %.thread345
   %.0204326338 = phi i1 [ %.0204325.ph, %.thread345 ], [ true, %66 ], [ false, %74 ], [ false, %79 ]
   %.0201328337 = phi ptr [ %.0201327.ph, %.thread345 ], [ %67, %66 ], [ %76, %74 ], [ %81, %79 ]
   %.0196330336 = phi ptr [ %.0196329.ph, %.thread345 ], [ %65, %66 ], [ %72, %74 ], [ %78, %79 ]
-  store ptr %15, ptr getelementptr inbounds (i8, ptr @core_globals, i64 88), align 8
+  store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 88), align 8
   call void @zend_stream_init_fp(ptr noundef nonnull %4, ptr noundef nonnull %.0196330336, ptr noundef %.0201328337) #15
   store ptr null, ptr @active_ini_hash, align 8
   store i1 false, ptr @is_special_section, align 4
@@ -786,7 +786,7 @@ append_ini_path.exit273:                          ; preds = %45, %47
   %spec.store.select1 = select i1 %.not250, ptr @.str.10, ptr %114
   store ptr %spec.store.select1, ptr @php_ini_scanned_path, align 8
   %115 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select1) #16
-  %116 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 192), align 8
+  %116 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 192), align 8
   %117 = icmp eq i32 %116, 0
   %118 = and i64 %115, 4294967295
   %119 = icmp ne i64 %118, 0
@@ -1027,7 +1027,7 @@ append_ini_path.exit273:                          ; preds = %45, %47
   br label %217
 
 217:                                              ; preds = %216, %.loopexit
-  %218 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 256), align 8
+  %218 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 256), align 8
   %.not256 = icmp eq ptr %218, null
   br i1 %.not256, label %221, label %219
 
@@ -1122,7 +1122,7 @@ define internal void @php_ini_parser_cb(ptr nocapture noundef readonly %0, ptr n
   %24 = load i64, ptr %23, align 8
   %25 = tail call noalias ptr @_estrndup(ptr noundef nonnull %22, i64 noundef %24) #15
   store ptr %25, ptr %7, align 8
-  call void @zend_llist_add_element(ptr noundef nonnull getelementptr inbounds (i8, ptr @extension_lists, i64 56), ptr noundef nonnull %7) #15
+  call void @zend_llist_add_element(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @extension_lists, i64 56), ptr noundef nonnull %7) #15
   br label %156
 
 26:                                               ; preds = %17
@@ -1480,9 +1480,9 @@ define hidden noundef i32 @php_shutdown_config() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define hidden void @php_ini_register_extensions() local_unnamed_addr #0 {
   tail call void @zend_llist_apply(ptr noundef nonnull @extension_lists, ptr noundef nonnull @php_load_zend_extension_cb) #15
-  tail call void @zend_llist_apply(ptr noundef nonnull getelementptr inbounds (i8, ptr @extension_lists, i64 56), ptr noundef nonnull @php_load_php_extension_cb) #15
+  tail call void @zend_llist_apply(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @extension_lists, i64 56), ptr noundef nonnull @php_load_php_extension_cb) #15
   tail call void @zend_llist_destroy(ptr noundef nonnull @extension_lists) #15
-  tail call void @zend_llist_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @extension_lists, i64 56)) #15
+  tail call void @zend_llist_destroy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @extension_lists, i64 56)) #15
   ret void
 }
 

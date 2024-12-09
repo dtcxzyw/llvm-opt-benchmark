@@ -4286,7 +4286,7 @@ _ZN4core3ops8function6FnOnce9call_once17h942d57f42466bb8eE.exit.i.i.i.i.i.i.i.i.
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hc7a0652d33a9437fE.exit.i.i.i.i.i.i.i.i": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h942d57f42466bb8eE.exit.i.i.i.i.i.i.i.i.i, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h79cfc6c18ba3c86aE.exit.thread.i.i.i.i.i.i.i
-  %.sroa.0.0.i.i.i2.i.i.i.i.i.i.i.i.i = phi ptr [ %184, %_ZN4core3ops8function6FnOnce9call_once17h942d57f42466bb8eE.exit.i.i.i.i.i.i.i.i.i ], [ getelementptr inbounds (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h79cfc6c18ba3c86aE.exit.thread.i.i.i.i.i.i.i ]
+  %.sroa.0.0.i.i.i2.i.i.i.i.i.i.i.i.i = phi ptr [ %184, %_ZN4core3ops8function6FnOnce9call_once17h942d57f42466bb8eE.exit.i.i.i.i.i.i.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h79cfc6c18ba3c86aE.exit.thread.i.i.i.i.i.i.i ]
   %.val.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0.0.i.i.i2.i.i.i.i.i.i.i.i.i, align 8, !noalias !1311, !noundef !4
   %187 = load atomic i64, ptr %81 acquire, align 8, !noalias !1311
   %188 = icmp eq i64 %.val.i.i.i.i.i.i.i.i.i, %187
@@ -4380,7 +4380,7 @@ _ZN4core3ops8function6FnOnce9call_once17h942d57f42466bb8eE.exit.i.i10.i.i.i.i.i.
   unreachable
 
 224:                                              ; preds = %.noexc.i.i.i.i.i.i.i.i, %218
-  %.sroa.0.0.i.i.i2.i.i11.i.i.i.i.i.i.i = phi ptr [ %221, %.noexc.i.i.i.i.i.i.i.i ], [ getelementptr inbounds (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %218 ]
+  %.sroa.0.0.i.i.i2.i.i11.i.i.i.i.i.i.i = phi ptr [ %221, %.noexc.i.i.i.i.i.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %218 ]
   %225 = getelementptr inbounds nuw i8, ptr %.sroa.513.0.copyload.i.i.i.i.i.i.i, i64 16
   %226 = load i64, ptr %225, align 8, !noalias !1328, !noundef !4
   %227 = icmp eq i64 %226, 0

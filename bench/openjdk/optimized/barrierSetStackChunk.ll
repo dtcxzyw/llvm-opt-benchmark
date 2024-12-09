@@ -64,7 +64,7 @@ $_ZTV24UncompressOopsOopClosure = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20BarrierSetStackChunk14encode_gc_modeEP17stackChunkOopDescP11OopIterator(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %class.CompressOopsOopClosure, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV22CompressOopsOopClosure, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22CompressOopsOopClosure, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -115,7 +115,7 @@ define hidden void @_ZN20BarrierSetStackChunk14decode_gc_modeEP17stackChunkOopDe
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV24UncompressOopsOopClosure, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV24UncompressOopsOopClosure, i64 16), ptr %4, align 8
   %16 = load ptr, ptr %2, align 8
   %17 = load ptr, ptr %16, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %4) #6
@@ -138,7 +138,7 @@ define hidden noundef ptr @_ZN20BarrierSetStackChunk8load_oopEP17stackChunkOopDe
   %6 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = zext i32 %4 to i64
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %10 = zext nneg i32 %9 to i64
   %11 = shl i64 %8, %10
   %12 = add i64 %11, %7
@@ -247,7 +247,7 @@ define linkonce_odr hidden void @_ZN22CompressOopsOopClosure6do_oopEPP7oopDesc(p
   %9 = ptrtoint ptr %6 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %13 = zext nneg i32 %12 to i64
   %14 = lshr i64 %11, %13
   %15 = trunc i64 %14 to i32
@@ -308,7 +308,7 @@ define linkonce_odr hidden void @_ZN24UncompressOopsOopClosure6do_oopEPP7oopDesc
   %5 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = zext i32 %3 to i64
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %9 = zext nneg i32 %8 to i64
   %10 = shl i64 %7, %9
   %11 = add i64 %10, %6

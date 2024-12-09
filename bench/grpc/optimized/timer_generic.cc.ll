@@ -137,7 +137,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %if.then, %4
   br label %if.end
 
 if.end:                                           ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit, %entry
-  %9 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL17g_shared_mutables, i64 16), align 16
+  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL17g_shared_mutables, i64 16), align 16
   %tobool = trunc i8 %9 to i1
   br i1 %tobool, label %if.end17, label %if.then9
 
@@ -369,7 +369,7 @@ if.end57:                                         ; preds = %if.then52, %if.end4
   br i1 %is_first_timer.0, label %if.end81, label %if.then60
 
 if.then60:                                        ; preds = %if.end57
-  tail call void @gpr_mu_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL17g_shared_mutables, i64 24))
+  tail call void @gpr_mu_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL17g_shared_mutables, i64 24))
   %38 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_timer_trace, i64 16) monotonic, align 8
   %tobool.i.i.i46 = trunc i8 %38 to i1
   br i1 %tobool.i.i.i46, label %if.then63, label %if.end65
@@ -473,7 +473,7 @@ if.then77:                                        ; preds = %_ZL20note_deadline_
   br label %if.end80
 
 if.end80:                                         ; preds = %_ZL20note_deadline_changeP11timer_shard.exit, %if.then77, %if.end65
-  tail call void @gpr_mu_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL17g_shared_mutables, i64 24))
+  tail call void @gpr_mu_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL17g_shared_mutables, i64 24))
   br label %if.end81
 
 if.end81:                                         ; preds = %if.then.i.i.i, %invoke.cont.i, %if.end80, %if.end57, %_ZN4absl12lts_202308026StatusD2Ev.exit41
@@ -489,7 +489,7 @@ define internal void @_ZL12timer_cancelP10grpc_timer(ptr noundef %timer) #5 pers
 entry:
   %ref.tmp = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
-  %0 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL17g_shared_mutables, i64 16), align 16
+  %0 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL17g_shared_mutables, i64 16), align 16
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %return
 
@@ -913,9 +913,9 @@ entry:
   %mul4 = shl nuw nsw i64 %0, 3
   %call5 = tail call ptr @gpr_zalloc(i64 noundef %mul4)
   store ptr %call5, ptr @_ZL13g_shard_queue, align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL17g_shared_mutables, i64 16), align 16
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL17g_shared_mutables, i64 8), align 8
-  tail call void @gpr_mu_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL17g_shared_mutables, i64 24))
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL17g_shared_mutables, i64 16), align 16
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL17g_shared_mutables, i64 8), align 8
+  tail call void @gpr_mu_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL17g_shared_mutables, i64 24))
   %.not.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
   br i1 %.not.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit, label %1
 
@@ -1097,12 +1097,12 @@ ehcleanup:                                        ; preds = %lpad5, %lpad
   resume { ptr, i32 } %.pn
 
 for.end:                                          ; preds = %for.body, %_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit
-  call void @gpr_mu_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL17g_shared_mutables, i64 24))
+  call void @gpr_mu_destroy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL17g_shared_mutables, i64 24))
   %14 = load ptr, ptr @_ZL8g_shards, align 8
   call void @gpr_free(ptr noundef %14)
   %15 = load ptr, ptr @_ZL13g_shard_queue, align 8
   call void @gpr_free(ptr noundef %15)
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL17g_shared_mutables, i64 16), align 16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL17g_shared_mutables, i64 16), align 16
   ret void
 }
 
@@ -1266,12 +1266,12 @@ if.then5:                                         ; preds = %if.then
   br label %return
 
 if.end7:                                          ; preds = %entry
-  %2 = cmpxchg ptr getelementptr inbounds (i8, ptr @_ZL17g_shared_mutables, i64 8), i64 0, i64 1 acquire monotonic, align 8
+  %2 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_ZL17g_shared_mutables, i64 8), i64 0, i64 1 acquire monotonic, align 8
   %3 = extractvalue { i64, i1 } %2, 1
   br i1 %3, label %if.then9, label %return
 
 if.then9:                                         ; preds = %if.end7
-  tail call void @gpr_mu_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL17g_shared_mutables, i64 24))
+  tail call void @gpr_mu_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL17g_shared_mutables, i64 24))
   %4 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_timer_check_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i, label %if.then11, label %if.end14
@@ -1790,8 +1790,8 @@ if.then57:                                        ; preds = %while.end
 if.end61:                                         ; preds = %if.then57, %while.end
   %69 = phi i64 [ %.pre120, %if.then57 ], [ %.lcssa, %while.end ]
   store atomic i64 %69, ptr @_ZL17g_shared_mutables monotonic, align 64
-  call void @gpr_mu_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL17g_shared_mutables, i64 24))
-  store atomic i64 0, ptr getelementptr inbounds (i8, ptr @_ZL17g_shared_mutables, i64 8) release, align 8
+  call void @gpr_mu_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL17g_shared_mutables, i64 24))
+  store atomic i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL17g_shared_mutables, i64 8) release, align 8
   br label %return
 
 return:                                           ; preds = %if.end7, %if.end61, %if.then, %if.then5

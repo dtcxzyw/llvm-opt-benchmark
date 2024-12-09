@@ -264,7 +264,7 @@ define hidden void @_ZN16ArchivePtrMarker7compactEPhS0_(ptr noundef %0, ptr noun
   %5 = load ptr, ptr @_ZN16ArchivePtrMarker3_vsE, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23ArchivePtrBitmapCleaner, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23ArchivePtrBitmapCleaner, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16

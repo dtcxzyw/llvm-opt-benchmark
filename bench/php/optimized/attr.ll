@@ -44,7 +44,7 @@ define hidden void @zim_DOMAttr___construct(ptr nocapture noundef readonly %0, p
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
   br label %35
@@ -60,7 +60,7 @@ define hidden void @zim_DOMAttr___construct(ptr nocapture noundef readonly %0, p
 
 20:                                               ; preds = %14
   call void @php_dom_throw_error(i32 noundef 5, i32 noundef 1) #7
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   call void @llvm.assume(i1 %22)
   br label %35
@@ -74,7 +74,7 @@ define hidden void @zim_DOMAttr___construct(ptr nocapture noundef readonly %0, p
 
 27:                                               ; preds = %23
   call void @php_dom_throw_error(i32 noundef 11, i32 noundef 1) #7
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %29 = icmp ne ptr %28, null
   call void @llvm.assume(i1 %29)
   br label %35
@@ -290,7 +290,7 @@ define hidden void @zim_DOMAttr_isId(ptr nocapture noundef readonly %0, ptr noca
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #7
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %29
@@ -310,7 +310,7 @@ define hidden void @zim_DOMAttr_isId(ptr nocapture noundef readonly %0, ptr noca
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef nonnull %18) #7
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   tail call void @llvm.assume(i1 %20)
   br label %29

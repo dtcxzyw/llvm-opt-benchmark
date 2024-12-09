@@ -64,7 +64,7 @@ opal_datatype_span.exit:                          ; preds = %10, %16
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %32
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 96), align 8
   %47 = tail call i32 %46(ptr noundef nonnull %34, i64 noundef %11, ptr noundef nonnull %3, i32 noundef %5, i32 noundef -21, i32 noundef 4, ptr noundef nonnull %6) #4
   %.not41 = icmp eq i32 %47, 0
   br i1 %.not41, label %48, label %53
@@ -75,7 +75,7 @@ opal_datatype_span.exit:                          ; preds = %10, %16
   br label %53
 
 49:                                               ; preds = %8
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 72), align 8
   %51 = sext i32 %2 to i64
   %52 = tail call i32 %50(ptr noundef %1, i64 noundef %51, ptr noundef %3, i32 noundef 0, i32 noundef -21, ptr noundef nonnull %6, ptr noundef null) #4
   br label %53

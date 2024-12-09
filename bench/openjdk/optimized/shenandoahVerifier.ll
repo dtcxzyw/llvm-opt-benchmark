@@ -595,7 +595,7 @@ _ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit85.thread: ; preds = %62, %_ZN
   unreachable
 
 77:                                               ; preds = %70
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19VerifyThreadGCState, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19VerifyThreadGCState, i64 16), ptr %10, align 8
   %78 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %1, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -617,7 +617,7 @@ _ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit85.thread: ; preds = %62, %_ZN
   br label %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit
 
 _ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit:  ; preds = %80, %84
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV37ShenandoahCalculateRegionStatsClosure, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV37ShenandoahCalculateRegionStatsClosure, i64 16), ptr %12, align 8
   %86 = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, i8 0, i64 24, i1 false)
   %87 = load ptr, ptr %0, align 8
@@ -724,7 +724,7 @@ _ZN16ShenandoahLockerD2Ev.exit:                   ; preds = %111
   br i1 %134, label %135, label %141
 
 135:                                              ; preds = %_ZN16ShenandoahLockerD2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV33ShenandoahVerifyHeapRegionClosure, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV33ShenandoahVerifyHeapRegionClosure, i64 16), ptr %13, align 8
   %136 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %137 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %137, ptr %136, align 8
@@ -777,7 +777,7 @@ _ZN16ShenandoahLockerD2Ev.exit:                   ; preds = %111
   %164 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %165 = call noundef i32 @_ZN4GCId20current_or_undefinedEv() #13
   store i32 %165, ptr %164, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV31ShenandoahVerifierReachableTask, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV31ShenandoahVerifierReachableTask, i64 16), ptr %14, align 8
   %166 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %1, ptr %166, align 8
   %167 = getelementptr inbounds nuw i8, ptr %14, i64 32
@@ -833,7 +833,7 @@ _ZN16ShenandoahLockerD2Ev.exit:                   ; preds = %111
   %189 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %190 = call noundef i32 @_ZN4GCId20current_or_undefinedEv() #13
   store i32 %190, ptr %189, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV34ShenandoahVerifierMarkedRegionTask, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV34ShenandoahVerifierMarkedRegionTask, i64 16), ptr %15, align 8
   %191 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %1, ptr %191, align 8
   %192 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -1139,7 +1139,7 @@ define hidden void @_ZN18ShenandoahVerifier19verify_after_fullgcEv(ptr nocapture
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18ShenandoahVerifier24verify_roots_in_to_spaceEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.ShenandoahVerifyInToSpaceClosure, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV32ShenandoahVerifyInToSpaceClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV32ShenandoahVerifyInToSpaceClosure, i64 16), ptr %2, align 8
   call void @_ZN22ShenandoahRootVerifier8roots_doEP10OopClosure(ptr noundef nonnull %2) #13
   ret void
 }
@@ -1149,7 +1149,7 @@ declare void @_ZN22ShenandoahRootVerifier8roots_doEP10OopClosure(ptr noundef) lo
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18ShenandoahVerifier25verify_roots_no_forwardedEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.ShenandoahVerifyNoForwared, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ShenandoahVerifyNoForwared, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV26ShenandoahVerifyNoForwared, i64 16), ptr %2, align 8
   call void @_ZN22ShenandoahRootVerifier8roots_doEP10OopClosure(ptr noundef nonnull %2) #13
   ret void
 }
@@ -1886,7 +1886,7 @@ define linkonce_odr hidden void @_ZN31ShenandoahVerifierReachableTask4workEj(ptr
   store i64 -256, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 4, ptr %22, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE, i64 16), ptr %3, align 8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 510, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -1917,7 +1917,7 @@ define linkonce_odr hidden void @_ZN31ShenandoahVerifierReachableTask4workEj(ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, i64 16, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %38, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV26ShenandoahVerifyOopClosure, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV26ShenandoahVerifyOopClosure, i64 16), ptr %4, align 8
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %36, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1942,7 +1942,7 @@ define linkonce_odr hidden void @_ZN31ShenandoahVerifierReachableTask4workEj(ptr
 
 47:                                               ; preds = %29, %29
   %48 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 5, i32 noundef 0) #13
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV35ShenandoahIgnoreReferenceDiscoverer, i64 16), ptr %48, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV35ShenandoahIgnoreReferenceDiscoverer, i64 16), ptr %48, align 8
   store ptr %48, ptr %38, align 8
   br label %_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit
 
@@ -1983,7 +1983,7 @@ _ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.523.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.327.0..sroa_idx, i64 16, i1 false)
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %66, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV26ShenandoahVerifyOopClosure, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV26ShenandoahVerifyOopClosure, i64 16), ptr %6, align 8
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %64, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -2008,7 +2008,7 @@ _ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP
 
 75:                                               ; preds = %57, %57
   %76 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 5, i32 noundef 0) #13
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV35ShenandoahIgnoreReferenceDiscoverer, i64 16), ptr %76, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV35ShenandoahIgnoreReferenceDiscoverer, i64 16), ptr %76, align 8
   store ptr %76, ptr %66, align 8
   br label %_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit6
 
@@ -2114,7 +2114,7 @@ _ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit: ; preds = %114
   %.0 = phi i64 [ 0, %54 ], [ 0, %_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit6 ], [ %85, %_ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit ]
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %134 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0, ptr nonnull %133) #13, !srcloc !12
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE, i64 16), ptr %3, align 8
   %135 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %136 = load ptr, ptr %135, align 8
   %137 = load i64, ptr %20, align 8
@@ -3434,7 +3434,7 @@ define linkonce_odr hidden void @_ZN26ShenandoahVerifyOopClosure11do_oop_workI9n
   %6 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = zext i32 %3 to i64
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %10 = zext nneg i32 %9 to i64
   %11 = shl i64 %8, %10
   %12 = add i64 %11, %7
@@ -3613,7 +3613,7 @@ define linkonce_odr hidden void @_ZN34ShenandoahVerifierMarkedRegionTask4workEj(
   store i64 -256, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 4, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE, i64 16), ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 510, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -3635,7 +3635,7 @@ define linkonce_odr hidden void @_ZN34ShenandoahVerifierMarkedRegionTask4workEj(
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, i64 16, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %19, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV26ShenandoahVerifyOopClosure, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV26ShenandoahVerifyOopClosure, i64 16), ptr %4, align 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %17, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -3660,7 +3660,7 @@ define linkonce_odr hidden void @_ZN34ShenandoahVerifierMarkedRegionTask4workEj(
 
 28:                                               ; preds = %2, %2
   %29 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 5, i32 noundef 0) #13
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV35ShenandoahIgnoreReferenceDiscoverer, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV35ShenandoahIgnoreReferenceDiscoverer, i64 16), ptr %29, align 8
   store ptr %29, ptr %19, align 8
   br label %_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit
 
@@ -3710,7 +3710,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %_ZN26ShenandoahVeri
   br i1 %54, label %_ZNK14ShenandoahHeap10get_regionEm.exit, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %49, %_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE, i64 16), ptr %3, align 8
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %56 = load ptr, ptr %55, align 8
   %57 = load i64, ptr %6, align 8
@@ -4279,7 +4279,7 @@ define linkonce_odr hidden void @_ZN32ShenandoahVerifyInToSpaceClosure11do_oop_w
   %6 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = zext i32 %3 to i64
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %10 = zext nneg i32 %9 to i64
   %11 = shl i64 %8, %10
   %12 = add i64 %11, %7
@@ -4393,7 +4393,7 @@ define linkonce_odr hidden void @_ZN26ShenandoahVerifyNoForwared6do_oopEP9narrow
   %6 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = zext i32 %3 to i64
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %10 = zext nneg i32 %9 to i64
   %11 = shl i64 %8, %10
   %12 = add i64 %11, %7
@@ -4476,7 +4476,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI26ShenandoahVerifyOo
   %33 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = zext i32 %30 to i64
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %37 = zext nneg i32 %36 to i64
   %38 = shl i64 %35, %37
   %39 = add i64 %38, %34
@@ -4929,7 +4929,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass15oop_oop_iterateI9narrowO
   %34 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = zext i32 %31 to i64
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %38 = zext nneg i32 %37 to i64
   %39 = shl i64 %36, %38
   %40 = add i64 %39, %35
@@ -5247,7 +5247,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = zext i32 %2 to i64
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %8 = zext nneg i32 %7 to i64
   %9 = shl i64 %6, %8
   %10 = add i64 %9, %5
@@ -5263,7 +5263,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = zext i32 %2 to i64
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %8 = zext nneg i32 %7 to i64
   %9 = shl i64 %6, %8
   %10 = add i64 %9, %5
@@ -5279,7 +5279,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = zext i32 %2 to i64
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %8 = zext nneg i32 %7 to i64
   %9 = shl i64 %6, %8
   %10 = add i64 %9, %5
@@ -5296,7 +5296,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %5 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = zext i32 %3 to i64
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %9 = zext nneg i32 %8 to i64
   %10 = shl i64 %7, %9
   %11 = add i64 %10, %6
@@ -5313,7 +5313,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = zext i32 %2 to i64
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %8 = zext nneg i32 %7 to i64
   %9 = shl i64 %6, %8
   %10 = add i64 %9, %5
@@ -5498,7 +5498,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread: ; preds = %84,
   %115 = ptrtoint ptr %2 to i64
   %116 = ptrtoint ptr %114 to i64
   %117 = sub i64 %115, %116
-  %118 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %118 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %119 = zext nneg i32 %118 to i64
   %120 = lshr i64 %117, %119
   %121 = trunc i64 %120 to i32
@@ -6278,7 +6278,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = zext i32 %2 to i64
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %8 = zext nneg i32 %7 to i64
   %9 = shl i64 %6, %8
   %10 = add i64 %9, %5
@@ -6294,7 +6294,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = zext i32 %2 to i64
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %8 = zext nneg i32 %7 to i64
   %9 = shl i64 %6, %8
   %10 = add i64 %9, %5
@@ -6310,7 +6310,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = zext i32 %2 to i64
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %8 = zext nneg i32 %7 to i64
   %9 = shl i64 %6, %8
   %10 = add i64 %9, %5
@@ -6327,7 +6327,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %5 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = zext i32 %3 to i64
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %9 = zext nneg i32 %8 to i64
   %10 = shl i64 %7, %9
   %11 = add i64 %10, %6
@@ -6344,7 +6344,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = zext i32 %2 to i64
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %8 = zext nneg i32 %7 to i64
   %9 = shl i64 %6, %8
   %10 = add i64 %9, %5
@@ -7044,7 +7044,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateI9narr
   %32 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %33 = ptrtoint ptr %32 to i64
   %34 = zext i32 %29 to i64
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %36 = zext nneg i32 %35 to i64
   %37 = shl i64 %34, %36
   %38 = add i64 %37, %33
@@ -7534,7 +7534,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   %33 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = zext i32 %30 to i64
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %37 = zext nneg i32 %36 to i64
   %38 = shl i64 %35, %37
   %39 = add i64 %38, %34

@@ -1173,7 +1173,7 @@ strview_case_eq.exit49.thread:                    ; preds = %strview_case_eq.exi
   br i1 %59, label %agxbuse.exit, label %agxbsizeof.exit.i.i
 
 agxbsizeof.exit.i.i:                              ; preds = %.lr.ph.split.us, %.loopexit
-  %.val.i.i.i = load i8, ptr getelementptr inbounds (i8, ptr @gvplugin_list.xb, i64 31), align 1
+  %.val.i.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 31), align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
   %60 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 8), align 8
   %61 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 16), align 8
@@ -1185,7 +1185,7 @@ agxbsizeof.exit.i.i:                              ; preds = %.lr.ph.split.us, %.
 
 63:                                               ; preds = %agxbsizeof.exit.i.i
   tail call fastcc void @agxbmore(ptr noundef nonnull @gvplugin_list.xb, i64 noundef 1)
-  %.val.i15.pre.i.i = load i8, ptr getelementptr inbounds (i8, ptr @gvplugin_list.xb, i64 31), align 1
+  %.val.i15.pre.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 31), align 1
   br label %64
 
 64:                                               ; preds = %63, %agxbsizeof.exit.i.i
@@ -1197,9 +1197,9 @@ agxbsizeof.exit.i.i:                              ; preds = %.lr.ph.split.us, %.
   %66 = zext i8 %.val.i15.i.i to i64
   %67 = getelementptr inbounds nuw [31 x i8], ptr @gvplugin_list.xb, i64 0, i64 %66
   store i8 0, ptr %67, align 1
-  %68 = load i8, ptr getelementptr inbounds (i8, ptr @gvplugin_list.xb, i64 31), align 1
+  %68 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 31), align 1
   %69 = add i8 %68, 1
-  store i8 %69, ptr getelementptr inbounds (i8, ptr @gvplugin_list.xb, i64 31), align 1
+  store i8 %69, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 31), align 1
   br label %agxbputc.exit.i
 
 70:                                               ; preds = %64
@@ -1210,7 +1210,7 @@ agxbsizeof.exit.i.i:                              ; preds = %.lr.ph.split.us, %.
   %74 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 8), align 8
   %75 = add i64 %74, 1
   store i64 %75, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 8), align 8
-  %.val.i.pr.i = load i8, ptr getelementptr inbounds (i8, ptr @gvplugin_list.xb, i64 31), align 1
+  %.val.i.pr.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 31), align 1
   br label %agxbputc.exit.i
 
 agxbputc.exit.i:                                  ; preds = %70, %65
@@ -1219,7 +1219,7 @@ agxbputc.exit.i:                                  ; preds = %70, %65
   br i1 %.not.i3.i, label %76, label %agxbclear.exit.thread.i
 
 agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i
-  store i8 0, ptr getelementptr inbounds (i8, ptr @gvplugin_list.xb, i64 31), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 31), align 1
   br label %agxbuse.exit
 
 76:                                               ; preds = %agxbputc.exit.i

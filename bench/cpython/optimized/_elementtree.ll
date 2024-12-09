@@ -10921,7 +10921,7 @@ if.end31.i:                                       ; preds = %if.end9.i
   br i1 %cmp33.not.i, label %if.end39.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %if.end31.i
-  %24 = load i64, ptr getelementptr inbounds (i8, ptr @_Py_HashSecret, i64 16), align 8
+  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_Py_HashSecret, i64 16), align 8
   %call38.i = call i32 %23(ptr noundef nonnull %call10.i, i64 noundef %24) #11
   br label %if.end39.i
 

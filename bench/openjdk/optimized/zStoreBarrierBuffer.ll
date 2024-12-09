@@ -794,7 +794,7 @@ define hidden void @_ZN19ZStoreBarrierBuffer5flushEv(ptr noundef nonnull align 8
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN19ZStoreBarrierBuffer7OnErrorE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN19ZStoreBarrierBuffer7OnErrorE, i64 16), ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %0, ptr %8, align 8
   call void @_ZN19VMErrorCallbackMarkC1EP15VMErrorCallback(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %2) #13

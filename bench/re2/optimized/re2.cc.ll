@@ -663,7 +663,7 @@ call.i55.noexc:                                   ; preds = %invoke.cont123
           to label %.noexc60 unwind label %lpad126
 
 .noexc60:                                         ; preds = %call.i55.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %call124, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 34))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %call124, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.6, i64 34))
           to label %invoke.cont127 unwind label %lpad.i57
 
 lpad.i57:                                         ; preds = %.noexc60
@@ -1359,7 +1359,7 @@ define void @_ZN3re23RE2D2Ev(ptr noundef nonnull align 8 dereferenceable(148) %t
 entry:
   %group_names_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %group_names_, align 8
-  %cmp.not = icmp eq ptr %0, getelementptr inbounds (i8, ptr @_ZN3re2L13empty_storageE, i64 80)
+  %cmp.not = icmp eq ptr %0, getelementptr inbounds nuw (i8, ptr @_ZN3re2L13empty_storageE, i64 80)
   %isnull = icmp eq ptr %0, null
   %or.cond = or i1 %cmp.not, %isnull
   br i1 %or.cond, label %if.end, label %delete.notnull
@@ -1384,7 +1384,7 @@ _ZNSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4p
 if.end:                                           ; preds = %_ZNSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS5_EEED2Ev.exit, %entry
   %named_groups_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %4 = load ptr, ptr %named_groups_, align 8
-  %cmp5.not = icmp eq ptr %4, getelementptr inbounds (i8, ptr @_ZN3re2L13empty_storageE, i64 32)
+  %cmp5.not = icmp eq ptr %4, getelementptr inbounds nuw (i8, ptr @_ZN3re2L13empty_storageE, i64 32)
   %isnull8 = icmp eq ptr %4, null
   %or.cond11 = or i1 %cmp5.not, %isnull8
   br i1 %or.cond11, label %if.end11, label %delete.notnull9
@@ -1762,7 +1762,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i.i, 
 
 if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   %named_groups_3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr getelementptr inbounds (i8, ptr @_ZN3re2L13empty_storageE, i64 32), ptr %named_groups_3.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN3re2L13empty_storageE, i64 32), ptr %named_groups_3.i.i.i.i.i, align 8
   br label %release.i.i.i
 
 release.i.i.i:                                    ; preds = %if.then5.i.i.i.i.i, %if.end.i.i.i.i.i
@@ -1822,7 +1822,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i.i, 
 
 if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   %group_names_3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
-  store ptr getelementptr inbounds (i8, ptr @_ZN3re2L13empty_storageE, i64 80), ptr %group_names_3.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN3re2L13empty_storageE, i64 80), ptr %group_names_3.i.i.i.i.i, align 8
   br label %release.i.i.i
 
 release.i.i.i:                                    ; preds = %if.then5.i.i.i.i.i, %if.end.i.i.i.i.i

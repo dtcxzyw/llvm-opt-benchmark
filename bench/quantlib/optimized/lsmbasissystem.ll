@@ -292,7 +292,7 @@ invoke.cont7.us:                                  ; preds = %for.body.us159
 
 call.i.i3.i.i.noexc.us:                           ; preds = %invoke.cont7.us
   %add.ptr.i38.us = getelementptr inbounds nuw %"class.std::function", ptr %0, i64 %i.0157.us160
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib23GaussLaguerrePolynomialE, i64 16), ptr %call.i.i3.i.i49.us, align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib23GaussLaguerrePolynomialE, i64 16), ptr %call.i.i3.i.i49.us, align 8, !tbaa !21
   %s_.i.i.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %call.i.i3.i.i49.us, i64 8
   store double %13, ptr %s_.i.i.i.i.i.i.us, align 8, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %call.i.i3.i.i49.us, i64 16
@@ -357,7 +357,7 @@ invoke.cont16.us:                                 ; preds = %for.body.us168
 
 call.i.i3.i.i.noexc61.us:                         ; preds = %invoke.cont16.us
   %add.ptr.i50.us = getelementptr inbounds nuw %"class.std::function", ptr %0, i64 %i.0157.us169
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib22GaussHermitePolynomialE, i64 16), ptr %call.i.i3.i.i62.us, align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib22GaussHermitePolynomialE, i64 16), ptr %call.i.i3.i.i62.us, align 8, !tbaa !21
   %mu_.i.i.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %call.i.i3.i.i62.us, i64 8
   store double %21, ptr %mu_.i.i.i.i.i.i.us, align 8, !tbaa !25
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i3.i.i62.us, i64 16
@@ -416,7 +416,7 @@ for.body.us177:                                   ; preds = %invoke.cont.split, 
 
 call.i.i2.i.i.noexc.us:                           ; preds = %for.body.us177
   %add.ptr.i63.us = getelementptr inbounds nuw %"class.std::function", ptr %0, i64 %i.0157.us178
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib25GaussHyperbolicPolynomialE, i64 16), ptr %call.i.i2.i.i74.us, align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib25GaussHyperbolicPolynomialE, i64 16), ptr %call.i.i2.i.i74.us, align 8, !tbaa !21
   %29 = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i74.us, i64 8
   store i64 %i.0157.us178, ptr %29, align 8, !tbaa !29
   store ptr %call.i.i2.i.i74.us, ptr %ref.tmp.i65, align 8, !tbaa !14
@@ -474,7 +474,7 @@ call.i.i2.i.i.noexc86.us:                         ; preds = %invoke.cont40.us
   %add.ptr.i75.us = getelementptr inbounds nuw %"class.std::function", ptr %0, i64 %i.0157.us186
   %alpha_.i.i.i.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i87.us, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %alpha_.i.i.i.i.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(16) %alpha_2.i.i, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib23GaussLegendrePolynomialE, i64 16), ptr %call.i.i2.i.i87.us, align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib23GaussLegendrePolynomialE, i64 16), ptr %call.i.i2.i.i87.us, align 8, !tbaa !21
   %35 = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i87.us, i64 24
   store i64 %i.0157.us186, ptr %35, align 8, !tbaa !32
   store ptr %call.i.i2.i.i87.us, ptr %ref.tmp.i77, align 8, !tbaa !14
@@ -538,7 +538,7 @@ call.i.i2.i.i.noexc103.us:                        ; preds = %invoke.cont53.us
   %add.ptr.i90.us = getelementptr inbounds nuw %"class.std::function", ptr %0, i64 %i.0157.us195
   %alpha_.i.i.i.i.i.i.i95.us = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i104.us, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %alpha_.i.i.i.i.i.i.i95.us, ptr noundef nonnull align 8 dereferenceable(16) %alpha_2.i.i89, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib24GaussChebyshevPolynomialE, i64 16), ptr %call.i.i2.i.i104.us, align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib24GaussChebyshevPolynomialE, i64 16), ptr %call.i.i2.i.i104.us, align 8, !tbaa !21
   %42 = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i104.us, i64 24
   store i64 %i.0157.us195, ptr %42, align 8, !tbaa !36
   store ptr %call.i.i2.i.i104.us, ptr %ref.tmp.i92, align 8, !tbaa !14
@@ -622,7 +622,7 @@ call.i.i2.i.i.noexc120:                           ; preds = %invoke.cont66
   %add.ptr.i107 = getelementptr inbounds nuw %"class.std::function", ptr %0, i64 %i.0157
   %alpha_.i.i.i.i.i.i.i112 = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i121, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %alpha_.i.i.i.i.i.i.i112, ptr noundef nonnull align 8 dereferenceable(16) %alpha_2.i.i106, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib27GaussChebyshev2ndPolynomialE, i64 16), ptr %call.i.i2.i.i121, align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib27GaussChebyshev2ndPolynomialE, i64 16), ptr %call.i.i2.i.i121, align 8, !tbaa !21
   %49 = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i121, i64 24
   store i64 %i.0157, ptr %49, align 8, !tbaa !39
   store ptr %call.i.i2.i.i121, ptr %ref.tmp.i109, align 8, !tbaa !14
@@ -946,7 +946,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !21
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !47
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -3898,7 +3898,7 @@ sw.bb4.i:                                         ; preds = %entry
   %1 = getelementptr i8, ptr %__source.val5, i64 16
   %call5.val6.i = load i64, ptr %1, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib23GaussLaguerrePolynomialE, i64 16), ptr %call.i.i.i, align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib23GaussLaguerrePolynomialE, i64 16), ptr %call.i.i.i, align 8, !tbaa !21
   %s_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   store double %call5.val.i, ptr %s_.i.i.i.i.i, align 8, !tbaa !17
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
@@ -3958,7 +3958,7 @@ sw.bb4.i:                                         ; preds = %entry
   %1 = getelementptr i8, ptr %__source.val5, i64 16
   %call5.val6.i = load i64, ptr %1, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib22GaussHermitePolynomialE, i64 16), ptr %call.i.i.i, align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib22GaussHermitePolynomialE, i64 16), ptr %call.i.i.i, align 8, !tbaa !21
   %mu_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   store double %call5.val.i, ptr %mu_.i.i.i.i.i, align 8, !tbaa !25
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
@@ -4014,7 +4014,7 @@ sw.bb4.i:                                         ; preds = %entry
   %0 = getelementptr i8, ptr %__source.val5, i64 8
   %call5.val.i = load i64, ptr %0, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib25GaussHyperbolicPolynomialE, i64 16), ptr %call.i.i.i, align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib25GaussHyperbolicPolynomialE, i64 16), ptr %call.i.i.i, align 8, !tbaa !21
   %1 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   store i64 %call5.val.i, ptr %1, align 8, !tbaa !29
   store ptr %call.i.i.i, ptr %__dest, align 8, !tbaa !14
@@ -4069,7 +4069,7 @@ sw.bb4.i:                                         ; preds = %entry
   %alpha_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   %alpha_2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__source.val5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %alpha_.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %alpha_2.i.i.i.i.i.i, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib23GaussLegendrePolynomialE, i64 16), ptr %call.i.i.i, align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib23GaussLegendrePolynomialE, i64 16), ptr %call.i.i.i, align 8, !tbaa !21
   %0 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 24
   %1 = getelementptr inbounds nuw i8, ptr %__source.val5, i64 24
   %2 = load i64, ptr %1, align 8, !tbaa !32
@@ -4126,7 +4126,7 @@ sw.bb4.i:                                         ; preds = %entry
   %alpha_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   %alpha_2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__source.val5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %alpha_.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %alpha_2.i.i.i.i.i.i, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib24GaussChebyshevPolynomialE, i64 16), ptr %call.i.i.i, align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib24GaussChebyshevPolynomialE, i64 16), ptr %call.i.i.i, align 8, !tbaa !21
   %0 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 24
   %1 = getelementptr inbounds nuw i8, ptr %__source.val5, i64 24
   %2 = load i64, ptr %1, align 8, !tbaa !36
@@ -4183,7 +4183,7 @@ sw.bb4.i:                                         ; preds = %entry
   %alpha_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   %alpha_2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__source.val5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %alpha_.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %alpha_2.i.i.i.i.i.i, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib27GaussChebyshev2ndPolynomialE, i64 16), ptr %call.i.i.i, align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib27GaussChebyshev2ndPolynomialE, i64 16), ptr %call.i.i.i, align 8, !tbaa !21
   %0 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 24
   %1 = getelementptr inbounds nuw i8, ptr %__source.val5, i64 24
   %2 = load i64, ptr %1, align 8, !tbaa !39

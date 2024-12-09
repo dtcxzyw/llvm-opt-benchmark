@@ -69,13 +69,13 @@ declare void @_ZN5JVMCI12do_unloadingEb(i1 noundef zeroext) local_unnamed_addr #
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22G1ParallelCleaningTaskC2Ejb(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 21)) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 2 {
   %4 = zext i1 %2 to i8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV10WorkerTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV10WorkerTask, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @.str, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = tail call noundef i32 @_ZN4GCId20current_or_undefinedEv() #3
   store i32 %7, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV22G1ParallelCleaningTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV22G1ParallelCleaningTask, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 %4, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24

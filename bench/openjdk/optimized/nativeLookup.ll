@@ -459,7 +459,7 @@ _ZL21lookup_special_nativePKc.exit.thread:        ; preds = %39, %_ZL21lookup_sp
 
 48:                                               ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %_ZL21lookup_special_nativePKc.exit.thread
   %storemerge.i36 = phi ptr [ null, %_ZL21lookup_special_nativePKc.exit.thread ], [ %.0.i.i.i.i, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 32), align 8
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 32), align 8
   %50 = tail call ptr @_ZN16java_lang_String15create_from_strEPKcP10JavaThread(ptr noundef %9, ptr noundef %5) #11
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %52 = load ptr, ptr %51, align 8
@@ -468,8 +468,8 @@ _ZL21lookup_special_nativePKc.exit.thread:        ; preds = %39, %_ZL21lookup_sp
 
 53:                                               ; preds = %48
   store i8 11, ptr %7, align 8
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3488), align 8
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7288), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3488), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7288), align 8
   call void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_6HandleS6_P10JavaThread(ptr noundef nonnull %7, ptr noundef %49, ptr noundef %54, ptr noundef %55, ptr %storemerge.i36, ptr %50, ptr noundef nonnull %5) #11
   %56 = load ptr, ptr %51, align 8
   %.not42 = icmp eq ptr %56, null
@@ -884,7 +884,7 @@ define hidden noundef ptr @_ZN12NativeLookup11lookup_baseERK12methodHandleP10Jav
   %23 = load ptr, ptr %0, align 8
   call void @_ZNK6Method19print_external_nameEP12outputStream(ptr noundef nonnull align 8 dereferenceable(88) %23, ptr noundef nonnull %3) #11
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.7) #11
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1368), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1368), align 8
   %25 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %3, i1 noundef zeroext false) #11
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %1, ptr noundef nonnull @.str.8, i32 noundef 417, ptr noundef %24, ptr noundef %25) #11
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %3) #11

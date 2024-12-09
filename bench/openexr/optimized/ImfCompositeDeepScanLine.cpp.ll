@@ -187,7 +187,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_221CompositeDeepScanLineC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_221CompositeDeepScanLineE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_221CompositeDeepScanLineE, i64 16), ptr %this, align 8
   %call = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #26
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 56
   store i32 0, ptr %0, align 8
@@ -230,7 +230,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7Imf_3_221CompositeDeepScanLineD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_221CompositeDeepScanLineE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_221CompositeDeepScanLineE, i64 16), ptr %this, align 8
   %_Data = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_Data, align 8
   %isnull = icmp eq ptr %0, null
@@ -2720,7 +2720,7 @@ invoke.cont256:                                   ; preds = %for.body254
           to label %invoke.cont260 unwind label %lpad259
 
 invoke.cont260:                                   ; preds = %invoke.cont256
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_212_GLOBAL__N_117LineCompositeTaskE, i64 16), ptr %call257, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_212_GLOBAL__N_117LineCompositeTaskE, i64 16), ptr %call257, align 8
   %_Data.i = getelementptr inbounds nuw i8, ptr %call257, i64 16
   store ptr %138, ptr %_Data.i, align 8
   %_y.i = getelementptr inbounds nuw i8, ptr %call257, i64 24

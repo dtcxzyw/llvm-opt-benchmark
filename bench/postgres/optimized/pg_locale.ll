@@ -829,8 +829,8 @@ cache_single_string.exit61:                       ; preds = %73, %74
   br i1 %exitcond81.not, label %76, label %53, !llvm.loop !8
 
 76:                                               ; preds = %cache_single_string.exit61
-  store ptr null, ptr getelementptr inbounds (i8, ptr @localized_abbrev_days, i64 56), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @localized_full_days, i64 56), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @localized_abbrev_days, i64 56), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @localized_full_days, i64 56), align 8
   br label %77
 
 77:                                               ; preds = %76, %cache_single_string.exit67
@@ -891,8 +891,8 @@ cache_single_string.exit67:                       ; preds = %97, %98
   br i1 %exitcond85.not, label %100, label %77, !llvm.loop !9
 
 100:                                              ; preds = %cache_single_string.exit67
-  store ptr null, ptr getelementptr inbounds (i8, ptr @localized_abbrev_months, i64 96), align 16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @localized_full_months, i64 96), align 16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @localized_abbrev_months, i64 96), align 16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @localized_full_months, i64 96), align 16
   store i1 true, ptr @CurrentLCTimeValid, align 1
   br label %101
 

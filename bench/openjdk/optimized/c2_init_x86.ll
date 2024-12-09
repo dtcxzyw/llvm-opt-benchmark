@@ -34,7 +34,7 @@ define hidden void @_ZN7Compile17pd_compiler2_initEv() local_unnamed_addr #0 ali
 .loopexit24:                                      ; preds = %5, %.loopexit24
   %indvar = phi i64 [ %indvar.next, %.loopexit24 ], [ 0, %5 ]
   %8 = shl nuw nsw i64 %indvar, 6
-  %gep = getelementptr i8, ptr getelementptr inbounds (i8, ptr @_ZN7OptoReg7vm2optoE, i64 352), i64 %8
+  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 352), i64 %8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %gep, i8 -1, i64 32, i1 false)
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond.not = icmp eq i64 %indvar.next, 16

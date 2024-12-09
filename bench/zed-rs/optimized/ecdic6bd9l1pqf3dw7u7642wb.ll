@@ -18179,7 +18179,7 @@ define void @_ZN8language6buffer6Buffer4diff17h5dfa9ec5c40d49a6E(ptr dead_on_unw
           to label %24 unwind label %33
 
 24:                                               ; preds = %22
-  %25 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN8language6buffer16BUFFER_DIFF_TASK17he3735b7e8d025621E, i64 8) acquire, align 8, !noalias !3345
+  %25 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN8language6buffer16BUFFER_DIFF_TASK17he3735b7e8d025621E, i64 8) acquire, align 8, !noalias !3345
   %26 = icmp eq i32 %25, 4
   br i1 %26, label %_ZN3std4sync4once4Once9call_once17h166db4a2c5208855E.llvm.16711830050994594654.exit, label %27
 
@@ -18188,7 +18188,7 @@ define void @_ZN8language6buffer6Buffer4diff17h5dfa9ec5c40d49a6E(ptr dead_on_unw
   store ptr @_ZN8language6buffer16BUFFER_DIFF_TASK17he3735b7e8d025621E, ptr %6, align 8, !noalias !3345
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !3345
   store ptr %6, ptr %5, align 8, !noalias !3345
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h413681bad38f6e82E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN8language6buffer16BUFFER_DIFF_TASK17he3735b7e8d025621E, i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.48b71a7ec971fe2e2fe8e8e0aba19cc8.133.llvm.16711830050994594654)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h413681bad38f6e82E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN8language6buffer16BUFFER_DIFF_TASK17he3735b7e8d025621E, i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.48b71a7ec971fe2e2fe8e8e0aba19cc8.133.llvm.16711830050994594654)
           to label %.noexc unwind label %33
 
 .noexc:                                           ; preds = %27
@@ -40316,7 +40316,7 @@ define noundef nonnull ptr @_ZN8language10syntax_map17QueryCursorHandle3new17hba
   br label %5
 
 5:                                                ; preds = %0, %3
-  %6 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN8language13QUERY_CURSORS17h89e5dabd1932103bE, i64 24), align 8, !noundef !4
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN8language13QUERY_CURSORS17h89e5dabd1932103bE, i64 24), align 8, !noundef !4
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %10
 
@@ -40326,11 +40326,11 @@ define noundef nonnull ptr @_ZN8language10syntax_map17QueryCursorHandle3new17hba
 
 10:                                               ; preds = %5
   %11 = add i64 %6, -1
-  store i64 %11, ptr getelementptr inbounds (i8, ptr @_ZN8language13QUERY_CURSORS17h89e5dabd1932103bE, i64 24), align 8
-  %12 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN8language13QUERY_CURSORS17h89e5dabd1932103bE, i64 8), align 8, !noundef !4
+  store i64 %11, ptr getelementptr inbounds nuw (i8, ptr @_ZN8language13QUERY_CURSORS17h89e5dabd1932103bE, i64 24), align 8
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN8language13QUERY_CURSORS17h89e5dabd1932103bE, i64 8), align 8, !noundef !4
   %13 = icmp ult i64 %11, %12
   tail call void @llvm.assume(i1 %13)
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8language13QUERY_CURSORS17h89e5dabd1932103bE, i64 16), align 8, !nonnull !4, !noundef !4
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8language13QUERY_CURSORS17h89e5dabd1932103bE, i64 16), align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds ptr, ptr %14, i64 %11
   %16 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
   br label %21

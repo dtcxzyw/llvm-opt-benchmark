@@ -107,7 +107,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_cdc_parse_cd
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @usb_control_msg(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i16 noundef zeroext %4, i16 noundef zeroext %5, ptr noundef %6, i16 noundef zeroext %7, i32 noundef %8) #0 align 16 {
   %10 = alloca i32, align 4
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 24), align 8
   %12 = tail call noalias align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3072, i64 noundef 8) #11
   %13 = icmp eq ptr %12, null
   br i1 %13, label %42, label %14
@@ -1278,7 +1278,7 @@ define dso_local i32 @usb_string(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   br i1 %14, label %60, label %15
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %17 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %16, i32 noundef 3072, i64 noundef 256) #11
   %18 = icmp eq ptr %17, null
   br i1 %18, label %60, label %19
@@ -1512,7 +1512,7 @@ define dso_local ptr @usb_cache_string(ptr noundef %0, i32 noundef %1) #0 align 
   br i1 %3, label %19, label %4
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %6 = tail call noalias align 8 dereferenceable_or_null(382) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3072, i64 noundef 382) #11
   %7 = icmp eq ptr %6, null
   br i1 %7, label %19, label %8
@@ -1545,7 +1545,7 @@ define dso_local ptr @usb_cache_string(ptr noundef %0, i32 noundef %1) #0 align 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @usb_get_device_descriptor(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %3 = tail call noalias align 8 dereferenceable_or_null(18) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3072, i64 noundef 18) #11
   %4 = icmp eq ptr %3, null
   br i1 %4, label %32, label %5
@@ -3320,7 +3320,7 @@ define dso_local i32 @usb_set_configuration(ptr noundef %0, i32 noundef %1) #0 a
 
 .preheader43:                                     ; preds = %47, %69
   %49 = phi i64 [ %70, %69 ], [ 0, %47 ]
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %51 = tail call noalias noundef align 8 dereferenceable_or_null(848) ptr @kmalloc_trace(ptr noundef %50, i32 noundef 3328, i64 noundef 848) #11
   %52 = getelementptr ptr, ptr %45, i64 %49
   store ptr %51, ptr %52, align 8
@@ -4042,7 +4042,7 @@ declare dso_local i32 @device_add(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @usb_driver_set_configuration(ptr noundef %0, i32 noundef %1) #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %4 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 64) #11
   %5 = icmp eq ptr %4, null
   br i1 %5, label %19, label %6

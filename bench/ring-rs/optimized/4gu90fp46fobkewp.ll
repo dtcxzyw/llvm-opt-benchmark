@@ -294,7 +294,7 @@ define void @_ZN4ring4aead17chacha20_poly130522chacha20_poly1305_seal17h5a135518
   unreachable
 
 28:                                               ; preds = %25
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 4), align 4, !noundef !10
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 4), align 4, !noundef !10
   %30 = and i32 %29, 524288
   %.not10 = icmp eq i32 %30, 0
   br i1 %.not10, label %37, label %32
@@ -530,7 +530,7 @@ define void @_ZN4ring4aead17chacha20_poly130522chacha20_poly1305_open17hc8ff8d7f
   br label %55
 
 32:                                               ; preds = %29
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 4), align 4, !noundef !10
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 4), align 4, !noundef !10
   %34 = and i32 %33, 524288
   %.not28 = icmp eq i32 %34, 0
   br i1 %.not28, label %42, label %36

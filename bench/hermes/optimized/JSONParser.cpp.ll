@@ -260,10 +260,10 @@ cond.end8:                                        ; preds = %entry, %cond.false
   store ptr %cond-lvalue, ptr %strTab_, align 8
   %strings_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @_ZN4llvh14FoldingSetBaseC2Ej(ptr noundef nonnull align 8 dereferenceable(24) %strings_, i32 noundef 6) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh10FoldingSetIN6hermes6parser10JSONStringEEE, i64 16), ptr %strings_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh10FoldingSetIN6hermes6parser10JSONStringEEE, i64 16), ptr %strings_, align 8
   %numbers_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @_ZN4llvh14FoldingSetBaseC2Ej(ptr noundef nonnull align 8 dereferenceable(24) %numbers_, i32 noundef 6) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh10FoldingSetIN6hermes6parser10JSONNumberEEE, i64 16), ptr %numbers_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh10FoldingSetIN6hermes6parser10JSONNumberEEE, i64 16), ptr %numbers_, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i32 0, ptr %0, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88

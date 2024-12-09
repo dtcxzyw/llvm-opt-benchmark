@@ -121,7 +121,7 @@ define noundef ptr @data_parser_p_new(ptr noundef %0, ptr noundef %1, ptr nounde
   store ptr %7, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 112
   store i32 0, ptr %21, align 8
-  %22 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %23 = and i64 %22, 256
   %.not = icmp eq i64 %23, 0
   br i1 %.not, label %29, label %24
@@ -190,7 +190,7 @@ define noundef ptr @data_parser_p_new(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %66
 
 51:                                               ; preds = %47
-  %52 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %52 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %53 = and i64 %52, 256
   %.not15.i = icmp eq i64 %53, 0
   br i1 %.not15.i, label %60, label %54
@@ -223,7 +223,7 @@ define noundef ptr @data_parser_p_new(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %69, label %41, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %66, %36
-  %70 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %70 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %71 = and i64 %70, 256
   %.not.i = icmp eq i64 %71, 0
   br i1 %.not.i, label %_parse_param.exit, label %72
@@ -273,7 +273,7 @@ define void @data_parser_p_free(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   store i32 -782352060, ptr %0, align 8
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %5 = and i64 %4, 256
   %.not4 = icmp eq i64 %5, 0
   br i1 %.not4, label %11, label %6
@@ -333,7 +333,7 @@ define void @data_parser_p_free(ptr noundef %0) local_unnamed_addr #0 {
   br label %30
 
 30:                                               ; preds = %23, %27
-  %31 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %32 = and i64 %31, 256
   %.not8 = icmp eq i64 %32, 0
   br i1 %.not8, label %38, label %33
@@ -382,7 +382,7 @@ define range(i32 0, 23) i32 @data_parser_p_assign(ptr noundef %0, i32 noundef %1
 
 8:                                                ; preds = %7, %4
   store ptr %2, ptr %5, align 8
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %10 = and i64 %9, 256
   %.not31 = icmp eq i64 %10, 0
   br i1 %.not31, label %34, label %11
@@ -397,7 +397,7 @@ define range(i32 0, 23) i32 @data_parser_p_assign(ptr noundef %0, i32 noundef %1
   store ptr %2, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 0, ptr %16, align 8
-  %17 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %18 = and i64 %17, 256
   %.not28 = icmp eq i64 %18, 0
   br i1 %.not28, label %34, label %19
@@ -421,7 +421,7 @@ define range(i32 0, 23) i32 @data_parser_p_assign(ptr noundef %0, i32 noundef %1
 
 26:                                               ; preds = %25, %22
   store ptr %2, ptr %23, align 8
-  %27 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %27 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %28 = and i64 %27, 256
   %.not27 = icmp eq i64 %28, 0
   br i1 %.not27, label %34, label %29

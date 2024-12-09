@@ -723,7 +723,7 @@ if.end.i.us:                                      ; preds = %land.lhs.true28.us
   br i1 %cmp1.i.us, label %if.then2.i.us, label %multifd_zero_copy_flush.exit.thread.us
 
 if.then2.i.us:                                    ; preds = %if.end.i.us
-  %13 = atomicrmw add ptr getelementptr inbounds (i8, ptr @mig_stats, i64 24), i64 1 seq_cst, align 8
+  %13 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @mig_stats, i64 24), i64 1 seq_cst, align 8
   br label %multifd_zero_copy_flush.exit.thread.us
 
 multifd_zero_copy_flush.exit.thread.us:           ; preds = %if.then2.i.us, %if.end.i.us
@@ -2631,7 +2631,7 @@ multifd_send_initial_packet.exit.thread:          ; preds = %trace_multifd_send_
   br label %if.then98
 
 if.end:                                           ; preds = %trace_multifd_send_thread_start.exit
-  %10 = atomicrmw add ptr getelementptr inbounds (i8, ptr @mig_stats, i64 40), i64 64 seq_cst, align 8
+  %10 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @mig_stats, i64 40), i64 64 seq_cst, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %msg.i)
   %num_packets = getelementptr inbounds nuw i8, ptr %opaque, i64 376
   store i64 1, ptr %num_packets, align 8
@@ -2878,7 +2878,7 @@ if.end73:                                         ; preds = %if.end64
   %78 = load i32, ptr %packet_len58, align 4
   %add76 = add i32 %78, %77
   %conv77 = zext i32 %add76 to i64
-  %79 = atomicrmw add ptr getelementptr inbounds (i8, ptr @mig_stats, i64 40), i64 %conv77 seq_cst, align 8
+  %79 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @mig_stats, i64 40), i64 %conv77 seq_cst, align 8
   store i32 0, ptr %next_packet_size.i, align 8
   %80 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %81 = inttoptr i64 %80 to ptr

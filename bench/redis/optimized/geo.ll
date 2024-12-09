@@ -957,7 +957,7 @@ while.end.thread:                                 ; preds = %entry
   br i1 %tobool12.not97, label %for.body.lr.ph, label %if.then15
 
 if.then15:                                        ; preds = %while.end, %while.end.thread
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8
   tail call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %8) #14
   br label %return
 
@@ -1496,7 +1496,7 @@ if.end257:                                        ; preds = %if.then244
   br label %for.inc
 
 if.else260:                                       ; preds = %land.lhs.true236, %if.else233
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8
   call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %32) #14
   br label %return
 
@@ -1614,18 +1614,18 @@ if.then321:                                       ; preds = %if.then317
   %id = getelementptr inbounds nuw i8, ptr %49, i64 48
   %50 = load i32, ptr %id, align 8
   call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.49, ptr noundef nonnull %storekey.1, i32 noundef %50) #14
-  %51 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  %51 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %inc324 = add nsw i64 %51, 1
-  store i64 %inc324, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  store i64 %inc324, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   br label %if.end325
 
 if.end325:                                        ; preds = %if.then321, %if.then317
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8
   call void @addReply(ptr noundef nonnull %c, ptr noundef %52) #14
   br label %return
 
 if.else326:                                       ; preds = %if.then315
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 192), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 192), align 8
   call void @addReply(ptr noundef nonnull %c, ptr noundef %53) #14
   br label %return
 
@@ -1644,7 +1644,7 @@ if.end328:                                        ; preds = %if.end313
   br i1 %or.cond14, label %if.then343, label %if.end344
 
 if.then343:                                       ; preds = %if.end328
-  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 192), align 8
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 192), align 8
   call void @addReply(ptr noundef nonnull %c, ptr noundef %56) #14
   call void @geoArrayFree(ptr noundef nonnull %call.i240)
   br label %return
@@ -1899,9 +1899,9 @@ if.then479:                                       ; preds = %if.else475
 
 if.end485.sink.split:                             ; preds = %if.then467, %if.then479
   %.sink353 = phi i64 [ 1, %if.then479 ], [ %cond352, %if.then467 ]
-  %89 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  %89 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %inc483 = add nsw i64 %89, %.sink353
-  store i64 %inc483, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  store i64 %inc483, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   br label %if.end485
 
 if.end485:                                        ; preds = %if.end485.sink.split, %if.else475
@@ -2288,7 +2288,7 @@ if.else.if.end7_crit_edge:                        ; preds = %if.else
   br label %if.end7
 
 if.then5:                                         ; preds = %if.else
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8
   tail call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %4) #14
   br label %if.end41
 
@@ -2301,7 +2301,7 @@ if.end7:                                          ; preds = %if.else.if.end7_cri
   %resp = getelementptr inbounds nuw i8, ptr %c, i64 24
   %7 = load i32, ptr %resp, align 8
   %idxprom = sext i32 %7 to i64
-  %arrayidx10 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom
+  %arrayidx10 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %idxprom
   %8 = load ptr, ptr %arrayidx10, align 8
   %call11 = tail call ptr @lookupKeyReadOrReply(ptr noundef nonnull %c, ptr noundef %6, ptr noundef %8) #14
   %cmp12 = icmp eq ptr %call11, null

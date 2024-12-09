@@ -2404,7 +2404,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #3
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6spdlog9spdlog_exC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this, ptr noundef nonnull %msg) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog9spdlog_exE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog9spdlog_exE, i64 16), ptr %this, align 8
   %msg_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg_, ptr noundef nonnull align 8 dereferenceable(32) %msg) #35
   ret void
@@ -2421,14 +2421,14 @@ entry:
   %outbuf = alloca %"class.fmt::v9::basic_memory_buffer", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog9spdlog_exE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog9spdlog_exE, i64 16), ptr %this, align 8
   %msg_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_) #35
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #35
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %outbuf, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %outbuf, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i64 16), ptr %outbuf, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i64 16), ptr %outbuf, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %outbuf, i64 282
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #35
   %store_.i = getelementptr inbounds nuw i8, ptr %outbuf, i64 32
@@ -2555,7 +2555,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6spdlog9spdlog_exD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog9spdlog_exE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog9spdlog_exE, i64 16), ptr %this, align 8
   %msg_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_) #35
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #35
@@ -2571,7 +2571,7 @@ entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %exception = tail call ptr @__cxa_allocate_exception(i64 40) #35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %msg) #35
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog9spdlog_exE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog9spdlog_exE, i64 16), ptr %exception, align 8
   %msg_.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #35
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN6spdlog9spdlog_exE, ptr nonnull @_ZN6spdlog9spdlog_exD2Ev) #38
@@ -2925,7 +2925,7 @@ for.inc.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_base
   %ptr_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 104
   %capacity_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i64 16), ptr %buffer.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i64 16), ptr %buffer.i.i.i.i.i.i.i, align 8
   %alloc_.i.i.i.i.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 378
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i.i.i.i.i.i.i.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i) #35
   %store_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 128
@@ -3431,7 +3431,7 @@ entry:
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %this, i64 378
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #35
   %store_.i = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -3602,7 +3602,7 @@ entry:
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %this, i64 378
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #35
   %store_.i = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -3757,7 +3757,7 @@ entry:
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %this, i64 378
   tail call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i) #35
   %ptr_.i.i.i = getelementptr inbounds nuw i8, ptr %other, i64 104
@@ -4594,7 +4594,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont5
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !18
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i12, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog5sinks21ansicolor_stdout_sinkINS0_7details13console_mutexEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i12, align 8, !noalias !18
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog5sinks21ansicolor_stdout_sinkINS0_7details13console_mutexEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i12, align 8, !noalias !18
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i12, i64 16
   invoke void @_ZN6spdlog5sinks21ansicolor_stdout_sinkINS_7details13console_mutexEEC1ENS_10color_modeE(ptr noundef nonnull align 8 dereferenceable(704) %_M_impl.i.i.i.i.i.i, i32 noundef 1)
           to label %invoke.cont8 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6spdlog5sinks21ansicolor_stdout_sinkINS1_7details13console_mutexEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !18
@@ -4618,7 +4618,7 @@ call5.i.i.i3.i.i.i.i.noexc17:                     ; preds = %invoke.cont8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i13, align 8, !noalias !21
   %_M_weak_count.i.i.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i18, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i14, align 4, !noalias !21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i18, align 8, !noalias !21
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i18, align 8, !noalias !21
   %_M_impl.i.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i18, i64 16
   invoke void @_ZSt10_ConstructIN6spdlog6loggerEJRPKcSt10shared_ptrINS0_5sinks21ansicolor_stdout_sinkINS0_7details13console_mutexEEEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(8) %default_logger_name, ptr noundef nonnull align 8 dereferenceable(16) %color_sink)
           to label %invoke.cont11 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !21
@@ -8351,7 +8351,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont5
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6spdlog6loggerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(208) %other) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog6loggerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog6loggerE, i64 16), ptr %this, align 8
   %name_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %name_2 = getelementptr inbounds nuw i8, ptr %other, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name_, ptr noundef nonnull align 8 dereferenceable(32) %name_2)
@@ -8668,7 +8668,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN6spdlog5sinks4sinkEESaIS4_EED2Ev.exit: ; pre
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6spdlog6loggerC2EOS0_(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(208) %other) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog6loggerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog6loggerE, i64 16), ptr %this, align 8
   %name_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %name_2 = getelementptr inbounds nuw i8, ptr %other, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name_, ptr noundef nonnull align 8 dereferenceable(32) %name_2) #35
@@ -9572,7 +9572,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !29
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !29
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !29
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !29
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   invoke void @_ZN6spdlog6loggerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(208) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(208) %this)
           to label %_ZSt11make_sharedIN6spdlog6loggerEJRS1_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !29
@@ -10064,7 +10064,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6spdlog17pattern_formatterC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17pattern_time_typeES6_St13unordered_mapIcSt10unique_ptrINS_21custom_flag_formatterESt14default_deleteISA_EESt4hashIcESt8equal_toIcESaISt4pairIKcSD_EEE(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %this, ptr noundef nonnull %pattern, i32 noundef %time_type, ptr noundef %eol, ptr noundef %custom_user_flags) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog17pattern_formatterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog17pattern_formatterE, i64 16), ptr %this, align 8
   %pattern_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %pattern_, ptr noundef nonnull align 8 dereferenceable(32) %pattern) #35
   %eol_ = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -10429,7 +10429,7 @@ if.then30:                                        ; preds = %if.else28
 
 invoke.cont32.if.end34_crit_edge:                 ; preds = %if.then30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %call.i15, i8 0, i64 56, i1 false), !noalias !43
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details19aggregate_formatterE, i64 16), ptr %call.i15, align 8, !noalias !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details19aggregate_formatterE, i64 16), ptr %call.i15, align 8, !noalias !43
   %str_.i.i = getelementptr inbounds nuw i8, ptr %call.i15, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %str_.i.i) #35, !noalias !43
   store ptr %call.i15, ptr %user_chars, align 8
@@ -10657,7 +10657,7 @@ entry:
   %ref.tmp2.i.i = alloca %"class.std::allocator", align 1
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp8 = alloca %"class.std::unique_ptr.105", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog17pattern_formatterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog17pattern_formatterE, i64 16), ptr %this, align 8
   %pattern_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %pattern_, ptr noundef nonnull @.str.13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -10694,7 +10694,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i.i), !noalias !52
   %padinfo_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padinfo_.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details14full_formatterE, i64 16), ptr %call.i3, align 8, !noalias !52
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details14full_formatterE, i64 16), ptr %call.i3, align 8, !noalias !52
   %cache_timestamp_.i.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 24
   store i64 0, ptr %cache_timestamp_.i.i, align 8, !noalias !52
   %cached_datetime_.i.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 32
@@ -10702,7 +10702,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %ptr_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 40
   %capacity_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i.i.i, i8 0, i64 24, i1 false), !noalias !52
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i64 16), ptr %cached_datetime_.i.i, align 8, !noalias !52
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i64 16), ptr %cached_datetime_.i.i, align 8, !noalias !52
   %alloc_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 314
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i) #35, !noalias !52
   %store_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 64
@@ -11923,7 +11923,7 @@ sw.bb21:                                          ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i, align 8, !noalias !75
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i, align 8, !noalias !75
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details14name_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i, align 8, !noalias !75
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details14name_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i, align 8, !noalias !75
   store ptr %call.i, ptr %ref.tmp23, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_22, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp23)
           to label %invoke.cont26 unwind label %lpad25
@@ -11961,7 +11961,7 @@ sw.bb29:                                          ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i50, align 8, !noalias !78
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i51 = getelementptr inbounds nuw i8, ptr %call.i46, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i51, align 8, !noalias !78
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details15level_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i46, align 8, !noalias !78
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details15level_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i46, align 8, !noalias !78
   store ptr %call.i46, ptr %ref.tmp31, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_30, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp31)
           to label %invoke.cont34 unwind label %lpad33
@@ -11999,7 +11999,7 @@ sw.bb37:                                          ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i70, align 8, !noalias !81
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i71 = getelementptr inbounds nuw i8, ptr %call.i66, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i71, align 8, !noalias !81
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details21short_level_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i66, align 8, !noalias !81
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details21short_level_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i66, align 8, !noalias !81
   store ptr %call.i66, ptr %ref.tmp39, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_38, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp39)
           to label %invoke.cont42 unwind label %lpad41
@@ -12037,7 +12037,7 @@ sw.bb45:                                          ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i90, align 8, !noalias !84
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i91 = getelementptr inbounds nuw i8, ptr %call.i86, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i91, align 8, !noalias !84
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11t_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i86, align 8, !noalias !84
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11t_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i86, align 8, !noalias !84
   store ptr %call.i86, ptr %ref.tmp47, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_46, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp47)
           to label %invoke.cont50 unwind label %lpad49
@@ -12075,7 +12075,7 @@ sw.bb53:                                          ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i110, align 8, !noalias !87
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i111 = getelementptr inbounds nuw i8, ptr %call.i106, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i111, align 8, !noalias !87
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11v_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i106, align 8, !noalias !87
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11v_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i106, align 8, !noalias !87
   store ptr %call.i106, ptr %ref.tmp55, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_54, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp55)
           to label %invoke.cont58 unwind label %lpad57
@@ -12113,7 +12113,7 @@ sw.bb61:                                          ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i130, align 8, !noalias !90
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i131 = getelementptr inbounds nuw i8, ptr %call.i126, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i131, align 8, !noalias !90
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11a_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i126, align 8, !noalias !90
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11a_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i126, align 8, !noalias !90
   store ptr %call.i126, ptr %ref.tmp63, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_62, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp63)
           to label %invoke.cont66 unwind label %lpad65
@@ -12156,7 +12156,7 @@ sw.bb70:                                          ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i150, align 8, !noalias !93
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i151 = getelementptr inbounds nuw i8, ptr %call.i146, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i151, align 8, !noalias !93
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11A_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i146, align 8, !noalias !93
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11A_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i146, align 8, !noalias !93
   store ptr %call.i146, ptr %ref.tmp72, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_71, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp72)
           to label %invoke.cont75 unwind label %lpad74
@@ -12199,7 +12199,7 @@ sw.bb79:                                          ; preds = %if.end, %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i174, align 8, !noalias !96
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i175 = getelementptr inbounds nuw i8, ptr %call.i170, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i175, align 8, !noalias !96
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11b_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i170, align 8, !noalias !96
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11b_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i170, align 8, !noalias !96
   %_M_finish.i.i176 = getelementptr inbounds nuw i8, ptr %this, i64 152
   %68 = load ptr, ptr %_M_finish.i.i176, align 8
   %_M_end_of_storage.i.i177 = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -12301,7 +12301,7 @@ sw.bb88:                                          ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i232, align 8, !noalias !104
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i233 = getelementptr inbounds nuw i8, ptr %call.i228, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i233, align 8, !noalias !104
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11B_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i228, align 8, !noalias !104
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11B_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i228, align 8, !noalias !104
   store ptr %call.i228, ptr %ref.tmp90, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_89, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp90)
           to label %invoke.cont93 unwind label %lpad92
@@ -12344,7 +12344,7 @@ sw.bb97:                                          ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i252, align 8, !noalias !107
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i253 = getelementptr inbounds nuw i8, ptr %call.i248, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i253, align 8, !noalias !107
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11c_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i248, align 8, !noalias !107
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11c_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i248, align 8, !noalias !107
   store ptr %call.i248, ptr %ref.tmp99, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_98, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp99)
           to label %invoke.cont102 unwind label %lpad101
@@ -12387,7 +12387,7 @@ sw.bb106:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i272, align 8, !noalias !110
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i273 = getelementptr inbounds nuw i8, ptr %call.i268, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i273, align 8, !noalias !110
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11C_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i268, align 8, !noalias !110
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11C_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i268, align 8, !noalias !110
   store ptr %call.i268, ptr %ref.tmp108, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_107, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp108)
           to label %invoke.cont111 unwind label %lpad110
@@ -12430,7 +12430,7 @@ sw.bb115:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i292, align 8, !noalias !113
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i293 = getelementptr inbounds nuw i8, ptr %call.i288, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i293, align 8, !noalias !113
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11Y_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i288, align 8, !noalias !113
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11Y_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i288, align 8, !noalias !113
   store ptr %call.i288, ptr %ref.tmp117, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_116, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp117)
           to label %invoke.cont120 unwind label %lpad119
@@ -12473,7 +12473,7 @@ sw.bb124:                                         ; preds = %if.end, %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i312, align 8, !noalias !116
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i313 = getelementptr inbounds nuw i8, ptr %call.i308, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i313, align 8, !noalias !116
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11D_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i308, align 8, !noalias !116
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11D_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i308, align 8, !noalias !116
   %_M_finish.i.i314 = getelementptr inbounds nuw i8, ptr %this, i64 152
   %98 = load ptr, ptr %_M_finish.i.i314, align 8
   %_M_end_of_storage.i.i315 = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -12575,7 +12575,7 @@ sw.bb133:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i370, align 8, !noalias !124
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i371 = getelementptr inbounds nuw i8, ptr %call.i366, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i371, align 8, !noalias !124
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11m_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i366, align 8, !noalias !124
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11m_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i366, align 8, !noalias !124
   store ptr %call.i366, ptr %ref.tmp135, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_134, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp135)
           to label %invoke.cont138 unwind label %lpad137
@@ -12618,7 +12618,7 @@ sw.bb142:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i390, align 8, !noalias !127
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i391 = getelementptr inbounds nuw i8, ptr %call.i386, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i391, align 8, !noalias !127
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11d_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i386, align 8, !noalias !127
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11d_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i386, align 8, !noalias !127
   store ptr %call.i386, ptr %ref.tmp144, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_143, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp144)
           to label %invoke.cont147 unwind label %lpad146
@@ -12661,7 +12661,7 @@ sw.bb151:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i410, align 8, !noalias !130
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i411 = getelementptr inbounds nuw i8, ptr %call.i406, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i411, align 8, !noalias !130
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11H_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i406, align 8, !noalias !130
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11H_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i406, align 8, !noalias !130
   store ptr %call.i406, ptr %ref.tmp153, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_152, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp153)
           to label %invoke.cont156 unwind label %lpad155
@@ -12704,7 +12704,7 @@ sw.bb160:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i430, align 8, !noalias !133
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i431 = getelementptr inbounds nuw i8, ptr %call.i426, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i431, align 8, !noalias !133
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11I_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i426, align 8, !noalias !133
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11I_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i426, align 8, !noalias !133
   store ptr %call.i426, ptr %ref.tmp162, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_161, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp162)
           to label %invoke.cont165 unwind label %lpad164
@@ -12747,7 +12747,7 @@ sw.bb169:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i450, align 8, !noalias !136
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i451 = getelementptr inbounds nuw i8, ptr %call.i446, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i451, align 8, !noalias !136
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11M_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i446, align 8, !noalias !136
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11M_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i446, align 8, !noalias !136
   store ptr %call.i446, ptr %ref.tmp171, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_170, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp171)
           to label %invoke.cont174 unwind label %lpad173
@@ -12790,7 +12790,7 @@ sw.bb178:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i470, align 8, !noalias !139
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i471 = getelementptr inbounds nuw i8, ptr %call.i466, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i471, align 8, !noalias !139
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11S_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i466, align 8, !noalias !139
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11S_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i466, align 8, !noalias !139
   store ptr %call.i466, ptr %ref.tmp180, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_179, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp180)
           to label %invoke.cont183 unwind label %lpad182
@@ -12833,7 +12833,7 @@ sw.bb187:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i490, align 8, !noalias !142
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i491 = getelementptr inbounds nuw i8, ptr %call.i486, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i491, align 8, !noalias !142
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11e_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i486, align 8, !noalias !142
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11e_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i486, align 8, !noalias !142
   store ptr %call.i486, ptr %ref.tmp189, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_188, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp189)
           to label %invoke.cont192 unwind label %lpad191
@@ -12871,7 +12871,7 @@ sw.bb195:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i510, align 8, !noalias !145
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i511 = getelementptr inbounds nuw i8, ptr %call.i506, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i511, align 8, !noalias !145
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11f_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i506, align 8, !noalias !145
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11f_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i506, align 8, !noalias !145
   store ptr %call.i506, ptr %ref.tmp197, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_196, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp197)
           to label %invoke.cont200 unwind label %lpad199
@@ -12909,7 +12909,7 @@ sw.bb203:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i530, align 8, !noalias !148
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i531 = getelementptr inbounds nuw i8, ptr %call.i526, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i531, align 8, !noalias !148
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11F_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i526, align 8, !noalias !148
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11F_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i526, align 8, !noalias !148
   store ptr %call.i526, ptr %ref.tmp205, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_204, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp205)
           to label %invoke.cont208 unwind label %lpad207
@@ -12947,7 +12947,7 @@ sw.bb211:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i550, align 8, !noalias !151
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i551 = getelementptr inbounds nuw i8, ptr %call.i546, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i551, align 8, !noalias !151
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11E_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i546, align 8, !noalias !151
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11E_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i546, align 8, !noalias !151
   store ptr %call.i546, ptr %ref.tmp213, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_212, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp213)
           to label %invoke.cont216 unwind label %lpad215
@@ -12985,7 +12985,7 @@ sw.bb219:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i570, align 8, !noalias !154
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i571 = getelementptr inbounds nuw i8, ptr %call.i566, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i571, align 8, !noalias !154
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11p_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i566, align 8, !noalias !154
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11p_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i566, align 8, !noalias !154
   store ptr %call.i566, ptr %ref.tmp221, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_220, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp221)
           to label %invoke.cont224 unwind label %lpad223
@@ -13028,7 +13028,7 @@ sw.bb228:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i590, align 8, !noalias !157
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i591 = getelementptr inbounds nuw i8, ptr %call.i586, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i591, align 8, !noalias !157
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11r_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i586, align 8, !noalias !157
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11r_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i586, align 8, !noalias !157
   store ptr %call.i586, ptr %ref.tmp230, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_229, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp230)
           to label %invoke.cont233 unwind label %lpad232
@@ -13071,7 +13071,7 @@ sw.bb237:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i610, align 8, !noalias !160
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i611 = getelementptr inbounds nuw i8, ptr %call.i606, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i611, align 8, !noalias !160
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11R_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i606, align 8, !noalias !160
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11R_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i606, align 8, !noalias !160
   store ptr %call.i606, ptr %ref.tmp239, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_238, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp239)
           to label %invoke.cont242 unwind label %lpad241
@@ -13114,7 +13114,7 @@ sw.bb246:                                         ; preds = %if.end, %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i630, align 8, !noalias !163
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i631 = getelementptr inbounds nuw i8, ptr %call.i626, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i631, align 8, !noalias !163
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11T_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i626, align 8, !noalias !163
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11T_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i626, align 8, !noalias !163
   %_M_finish.i.i632 = getelementptr inbounds nuw i8, ptr %this, i64 152
   %173 = load ptr, ptr %_M_finish.i.i632, align 8
   %_M_end_of_storage.i.i633 = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -13216,7 +13216,7 @@ sw.bb255:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i688, align 8, !noalias !171
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i689 = getelementptr inbounds nuw i8, ptr %call.i684, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i689, align 8, !noalias !171
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11z_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i684, align 8, !noalias !171
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11z_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i684, align 8, !noalias !171
   %last_update_.i.i = getelementptr inbounds nuw i8, ptr %call.i684, i64 24
   store i64 0, ptr %last_update_.i.i, align 8, !noalias !171
   %offset_minutes_.i.i = getelementptr inbounds nuw i8, ptr %call.i684, i64 32
@@ -13263,7 +13263,7 @@ sw.bb264:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i708, align 8, !noalias !174
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i709 = getelementptr inbounds nuw i8, ptr %call.i704, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i709, align 8, !noalias !174
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details13pid_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i704, align 8, !noalias !174
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details13pid_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i704, align 8, !noalias !174
   store ptr %call.i704, ptr %ref.tmp266, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_265, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp266)
           to label %invoke.cont269 unwind label %lpad268
@@ -13301,7 +13301,7 @@ sw.bb272:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i728, align 8, !noalias !177
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i729 = getelementptr inbounds nuw i8, ptr %call.i724, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i729, align 8, !noalias !177
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details21color_start_formatterE, i64 16), ptr %call.i724, align 8, !noalias !177
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details21color_start_formatterE, i64 16), ptr %call.i724, align 8, !noalias !177
   store ptr %call.i724, ptr %ref.tmp274, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_273, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp274)
           to label %invoke.cont277 unwind label %lpad276
@@ -13339,7 +13339,7 @@ sw.bb280:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i748, align 8, !noalias !180
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i749 = getelementptr inbounds nuw i8, ptr %call.i744, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i749, align 8, !noalias !180
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details20color_stop_formatterE, i64 16), ptr %call.i744, align 8, !noalias !180
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details20color_stop_formatterE, i64 16), ptr %call.i744, align 8, !noalias !180
   store ptr %call.i744, ptr %ref.tmp282, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_281, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp282)
           to label %invoke.cont285 unwind label %lpad284
@@ -13377,7 +13377,7 @@ sw.bb288:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i768, align 8, !noalias !183
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i769 = getelementptr inbounds nuw i8, ptr %call.i764, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i769, align 8, !noalias !183
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details25source_location_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i764, align 8, !noalias !183
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details25source_location_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i764, align 8, !noalias !183
   store ptr %call.i764, ptr %ref.tmp290, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_289, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp290)
           to label %invoke.cont293 unwind label %lpad292
@@ -13415,7 +13415,7 @@ sw.bb296:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i788, align 8, !noalias !186
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i789 = getelementptr inbounds nuw i8, ptr %call.i784, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i789, align 8, !noalias !186
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details24short_filename_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i784, align 8, !noalias !186
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details24short_filename_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i784, align 8, !noalias !186
   store ptr %call.i784, ptr %ref.tmp298, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_297, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp298)
           to label %invoke.cont301 unwind label %lpad300
@@ -13453,7 +13453,7 @@ sw.bb304:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i808, align 8, !noalias !189
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i809 = getelementptr inbounds nuw i8, ptr %call.i804, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i809, align 8, !noalias !189
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details25source_filename_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i804, align 8, !noalias !189
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details25source_filename_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i804, align 8, !noalias !189
   store ptr %call.i804, ptr %ref.tmp306, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_305, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp306)
           to label %invoke.cont309 unwind label %lpad308
@@ -13491,7 +13491,7 @@ sw.bb312:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i828, align 8, !noalias !192
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i829 = getelementptr inbounds nuw i8, ptr %call.i824, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i829, align 8, !noalias !192
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details24source_linenum_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i824, align 8, !noalias !192
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details24source_linenum_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i824, align 8, !noalias !192
   store ptr %call.i824, ptr %ref.tmp314, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_313, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp314)
           to label %invoke.cont317 unwind label %lpad316
@@ -13529,7 +13529,7 @@ sw.bb320:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i848, align 8, !noalias !195
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i849 = getelementptr inbounds nuw i8, ptr %call.i844, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i849, align 8, !noalias !195
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details25source_funcname_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i844, align 8, !noalias !195
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details25source_funcname_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i844, align 8, !noalias !195
   store ptr %call.i844, ptr %ref.tmp322, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_321, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp322)
           to label %invoke.cont325 unwind label %lpad324
@@ -13565,7 +13565,7 @@ sw.bb328:                                         ; preds = %if.end
   %call.i864 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39, !noalias !198
   %padinfo_.i.i.i865 = getelementptr inbounds nuw i8, ptr %call.i864, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %padinfo_.i.i.i865, i8 0, i64 14, i1 false), !noalias !198
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details12ch_formatterE, i64 16), ptr %call.i864, align 8, !noalias !198
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details12ch_formatterE, i64 16), ptr %call.i864, align 8, !noalias !198
   %ch_.i.i = getelementptr inbounds nuw i8, ptr %call.i864, i64 24
   store i8 37, ptr %ch_.i.i, align 8, !noalias !198
   store ptr %call.i864, ptr %ref.tmp330, align 8
@@ -13886,7 +13886,7 @@ invoke.cont384:                                   ; preds = %if.else
   store i64 %agg.tmp.sroa.0.0.copyload.i953, ptr %padinfo_.i.i.i956, align 8, !noalias !201
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i957 = getelementptr inbounds nuw i8, ptr %call.i952958, i64 16
   store i64 %agg.tmp.sroa.2.0.copyload.i955, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i957, align 8, !noalias !201
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details25source_funcname_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i952958, align 8, !noalias !201
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details25source_funcname_formatterINS0_13scoped_padderEEE, i64 16), ptr %call.i952958, align 8, !noalias !201
   store ptr %call.i952958, ptr %ref.tmp382, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_381, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp382)
           to label %invoke.cont386 unwind label %lpad385
@@ -14326,7 +14326,7 @@ sw.bb17:                                          ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i, align 8, !noalias !209
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i, align 8, !noalias !209
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details14name_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i, align 8, !noalias !209
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details14name_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i, align 8, !noalias !209
   store ptr %call.i, ptr %ref.tmp19, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_18, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp19)
           to label %invoke.cont22 unwind label %lpad21
@@ -14364,7 +14364,7 @@ sw.bb23:                                          ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i50, align 8, !noalias !212
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i51 = getelementptr inbounds nuw i8, ptr %call.i46, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i51, align 8, !noalias !212
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details15level_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i46, align 8, !noalias !212
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details15level_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i46, align 8, !noalias !212
   store ptr %call.i46, ptr %ref.tmp25, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_24, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp25)
           to label %invoke.cont28 unwind label %lpad27
@@ -14402,7 +14402,7 @@ sw.bb29:                                          ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i70, align 8, !noalias !215
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i71 = getelementptr inbounds nuw i8, ptr %call.i66, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i71, align 8, !noalias !215
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details21short_level_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i66, align 8, !noalias !215
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details21short_level_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i66, align 8, !noalias !215
   store ptr %call.i66, ptr %ref.tmp31, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_30, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp31)
           to label %invoke.cont34 unwind label %lpad33
@@ -14440,7 +14440,7 @@ sw.bb35:                                          ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i90, align 8, !noalias !218
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i91 = getelementptr inbounds nuw i8, ptr %call.i86, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i91, align 8, !noalias !218
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11t_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i86, align 8, !noalias !218
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11t_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i86, align 8, !noalias !218
   store ptr %call.i86, ptr %ref.tmp37, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_36, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp37)
           to label %invoke.cont40 unwind label %lpad39
@@ -14478,7 +14478,7 @@ sw.bb41:                                          ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i110, align 8, !noalias !221
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i111 = getelementptr inbounds nuw i8, ptr %call.i106, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i111, align 8, !noalias !221
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11v_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i106, align 8, !noalias !221
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11v_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i106, align 8, !noalias !221
   store ptr %call.i106, ptr %ref.tmp43, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_42, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp43)
           to label %invoke.cont46 unwind label %lpad45
@@ -14516,7 +14516,7 @@ sw.bb47:                                          ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i130, align 8, !noalias !224
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i131 = getelementptr inbounds nuw i8, ptr %call.i126, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i131, align 8, !noalias !224
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11a_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i126, align 8, !noalias !224
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11a_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i126, align 8, !noalias !224
   store ptr %call.i126, ptr %ref.tmp49, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_48, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp49)
           to label %invoke.cont52 unwind label %lpad51
@@ -14559,7 +14559,7 @@ sw.bb54:                                          ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i150, align 8, !noalias !227
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i151 = getelementptr inbounds nuw i8, ptr %call.i146, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i151, align 8, !noalias !227
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11A_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i146, align 8, !noalias !227
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11A_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i146, align 8, !noalias !227
   store ptr %call.i146, ptr %ref.tmp56, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_55, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp56)
           to label %invoke.cont59 unwind label %lpad58
@@ -14602,7 +14602,7 @@ sw.bb61:                                          ; preds = %if.end, %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i174, align 8, !noalias !230
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i175 = getelementptr inbounds nuw i8, ptr %call.i170, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i175, align 8, !noalias !230
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11b_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i170, align 8, !noalias !230
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11b_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i170, align 8, !noalias !230
   %_M_finish.i.i176 = getelementptr inbounds nuw i8, ptr %this, i64 152
   %68 = load ptr, ptr %_M_finish.i.i176, align 8
   %_M_end_of_storage.i.i177 = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -14704,7 +14704,7 @@ sw.bb68:                                          ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i232, align 8, !noalias !238
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i233 = getelementptr inbounds nuw i8, ptr %call.i228, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i233, align 8, !noalias !238
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11B_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i228, align 8, !noalias !238
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11B_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i228, align 8, !noalias !238
   store ptr %call.i228, ptr %ref.tmp70, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_69, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp70)
           to label %invoke.cont73 unwind label %lpad72
@@ -14747,7 +14747,7 @@ sw.bb75:                                          ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i252, align 8, !noalias !241
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i253 = getelementptr inbounds nuw i8, ptr %call.i248, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i253, align 8, !noalias !241
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11c_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i248, align 8, !noalias !241
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11c_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i248, align 8, !noalias !241
   store ptr %call.i248, ptr %ref.tmp77, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_76, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp77)
           to label %invoke.cont80 unwind label %lpad79
@@ -14790,7 +14790,7 @@ sw.bb82:                                          ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i272, align 8, !noalias !244
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i273 = getelementptr inbounds nuw i8, ptr %call.i268, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i273, align 8, !noalias !244
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11C_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i268, align 8, !noalias !244
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11C_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i268, align 8, !noalias !244
   store ptr %call.i268, ptr %ref.tmp84, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_83, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp84)
           to label %invoke.cont87 unwind label %lpad86
@@ -14833,7 +14833,7 @@ sw.bb89:                                          ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i292, align 8, !noalias !247
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i293 = getelementptr inbounds nuw i8, ptr %call.i288, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i293, align 8, !noalias !247
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11Y_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i288, align 8, !noalias !247
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11Y_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i288, align 8, !noalias !247
   store ptr %call.i288, ptr %ref.tmp91, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_90, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp91)
           to label %invoke.cont94 unwind label %lpad93
@@ -14876,7 +14876,7 @@ sw.bb96:                                          ; preds = %if.end, %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i312, align 8, !noalias !250
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i313 = getelementptr inbounds nuw i8, ptr %call.i308, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i313, align 8, !noalias !250
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11D_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i308, align 8, !noalias !250
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11D_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i308, align 8, !noalias !250
   %_M_finish.i.i314 = getelementptr inbounds nuw i8, ptr %this, i64 152
   %98 = load ptr, ptr %_M_finish.i.i314, align 8
   %_M_end_of_storage.i.i315 = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -14978,7 +14978,7 @@ sw.bb103:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i370, align 8, !noalias !258
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i371 = getelementptr inbounds nuw i8, ptr %call.i366, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i371, align 8, !noalias !258
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11m_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i366, align 8, !noalias !258
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11m_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i366, align 8, !noalias !258
   store ptr %call.i366, ptr %ref.tmp105, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_104, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp105)
           to label %invoke.cont108 unwind label %lpad107
@@ -15021,7 +15021,7 @@ sw.bb110:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i390, align 8, !noalias !261
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i391 = getelementptr inbounds nuw i8, ptr %call.i386, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i391, align 8, !noalias !261
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11d_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i386, align 8, !noalias !261
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11d_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i386, align 8, !noalias !261
   store ptr %call.i386, ptr %ref.tmp112, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_111, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp112)
           to label %invoke.cont115 unwind label %lpad114
@@ -15064,7 +15064,7 @@ sw.bb117:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i410, align 8, !noalias !264
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i411 = getelementptr inbounds nuw i8, ptr %call.i406, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i411, align 8, !noalias !264
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11H_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i406, align 8, !noalias !264
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11H_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i406, align 8, !noalias !264
   store ptr %call.i406, ptr %ref.tmp119, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_118, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp119)
           to label %invoke.cont122 unwind label %lpad121
@@ -15107,7 +15107,7 @@ sw.bb124:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i430, align 8, !noalias !267
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i431 = getelementptr inbounds nuw i8, ptr %call.i426, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i431, align 8, !noalias !267
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11I_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i426, align 8, !noalias !267
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11I_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i426, align 8, !noalias !267
   store ptr %call.i426, ptr %ref.tmp126, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_125, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp126)
           to label %invoke.cont129 unwind label %lpad128
@@ -15150,7 +15150,7 @@ sw.bb131:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i450, align 8, !noalias !270
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i451 = getelementptr inbounds nuw i8, ptr %call.i446, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i451, align 8, !noalias !270
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11M_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i446, align 8, !noalias !270
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11M_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i446, align 8, !noalias !270
   store ptr %call.i446, ptr %ref.tmp133, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_132, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp133)
           to label %invoke.cont136 unwind label %lpad135
@@ -15193,7 +15193,7 @@ sw.bb138:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i470, align 8, !noalias !273
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i471 = getelementptr inbounds nuw i8, ptr %call.i466, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i471, align 8, !noalias !273
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11S_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i466, align 8, !noalias !273
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11S_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i466, align 8, !noalias !273
   store ptr %call.i466, ptr %ref.tmp140, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_139, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp140)
           to label %invoke.cont143 unwind label %lpad142
@@ -15236,7 +15236,7 @@ sw.bb145:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i490, align 8, !noalias !276
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i491 = getelementptr inbounds nuw i8, ptr %call.i486, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i491, align 8, !noalias !276
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11e_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i486, align 8, !noalias !276
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11e_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i486, align 8, !noalias !276
   store ptr %call.i486, ptr %ref.tmp147, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_146, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp147)
           to label %invoke.cont150 unwind label %lpad149
@@ -15274,7 +15274,7 @@ sw.bb151:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i510, align 8, !noalias !279
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i511 = getelementptr inbounds nuw i8, ptr %call.i506, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i511, align 8, !noalias !279
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11f_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i506, align 8, !noalias !279
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11f_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i506, align 8, !noalias !279
   store ptr %call.i506, ptr %ref.tmp153, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_152, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp153)
           to label %invoke.cont156 unwind label %lpad155
@@ -15312,7 +15312,7 @@ sw.bb157:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i530, align 8, !noalias !282
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i531 = getelementptr inbounds nuw i8, ptr %call.i526, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i531, align 8, !noalias !282
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11F_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i526, align 8, !noalias !282
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11F_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i526, align 8, !noalias !282
   store ptr %call.i526, ptr %ref.tmp159, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_158, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp159)
           to label %invoke.cont162 unwind label %lpad161
@@ -15350,7 +15350,7 @@ sw.bb163:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i550, align 8, !noalias !285
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i551 = getelementptr inbounds nuw i8, ptr %call.i546, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i551, align 8, !noalias !285
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11E_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i546, align 8, !noalias !285
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11E_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i546, align 8, !noalias !285
   store ptr %call.i546, ptr %ref.tmp165, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_164, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp165)
           to label %invoke.cont168 unwind label %lpad167
@@ -15388,7 +15388,7 @@ sw.bb169:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i570, align 8, !noalias !288
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i571 = getelementptr inbounds nuw i8, ptr %call.i566, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i571, align 8, !noalias !288
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11p_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i566, align 8, !noalias !288
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11p_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i566, align 8, !noalias !288
   store ptr %call.i566, ptr %ref.tmp171, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_170, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp171)
           to label %invoke.cont174 unwind label %lpad173
@@ -15431,7 +15431,7 @@ sw.bb176:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i590, align 8, !noalias !291
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i591 = getelementptr inbounds nuw i8, ptr %call.i586, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i591, align 8, !noalias !291
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11r_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i586, align 8, !noalias !291
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11r_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i586, align 8, !noalias !291
   store ptr %call.i586, ptr %ref.tmp178, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_177, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp178)
           to label %invoke.cont181 unwind label %lpad180
@@ -15474,7 +15474,7 @@ sw.bb183:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i610, align 8, !noalias !294
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i611 = getelementptr inbounds nuw i8, ptr %call.i606, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i611, align 8, !noalias !294
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11R_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i606, align 8, !noalias !294
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11R_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i606, align 8, !noalias !294
   store ptr %call.i606, ptr %ref.tmp185, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_184, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp185)
           to label %invoke.cont188 unwind label %lpad187
@@ -15517,7 +15517,7 @@ sw.bb190:                                         ; preds = %if.end, %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i630, align 8, !noalias !297
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i631 = getelementptr inbounds nuw i8, ptr %call.i626, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i631, align 8, !noalias !297
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11T_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i626, align 8, !noalias !297
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11T_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i626, align 8, !noalias !297
   %_M_finish.i.i632 = getelementptr inbounds nuw i8, ptr %this, i64 152
   %173 = load ptr, ptr %_M_finish.i.i632, align 8
   %_M_end_of_storage.i.i633 = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -15619,7 +15619,7 @@ sw.bb197:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i688, align 8, !noalias !305
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i689 = getelementptr inbounds nuw i8, ptr %call.i684, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i689, align 8, !noalias !305
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details11z_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i684, align 8, !noalias !305
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details11z_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i684, align 8, !noalias !305
   %last_update_.i.i = getelementptr inbounds nuw i8, ptr %call.i684, i64 24
   store i64 0, ptr %last_update_.i.i, align 8, !noalias !305
   %offset_minutes_.i.i = getelementptr inbounds nuw i8, ptr %call.i684, i64 32
@@ -15666,7 +15666,7 @@ sw.bb204:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i708, align 8, !noalias !308
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i709 = getelementptr inbounds nuw i8, ptr %call.i704, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i709, align 8, !noalias !308
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details13pid_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i704, align 8, !noalias !308
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details13pid_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i704, align 8, !noalias !308
   store ptr %call.i704, ptr %ref.tmp206, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_205, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp206)
           to label %invoke.cont209 unwind label %lpad208
@@ -15704,7 +15704,7 @@ sw.bb210:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i728, align 8, !noalias !311
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i729 = getelementptr inbounds nuw i8, ptr %call.i724, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i729, align 8, !noalias !311
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details21color_start_formatterE, i64 16), ptr %call.i724, align 8, !noalias !311
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details21color_start_formatterE, i64 16), ptr %call.i724, align 8, !noalias !311
   store ptr %call.i724, ptr %ref.tmp212, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_211, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp212)
           to label %invoke.cont215 unwind label %lpad214
@@ -15742,7 +15742,7 @@ sw.bb216:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i748, align 8, !noalias !314
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i749 = getelementptr inbounds nuw i8, ptr %call.i744, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i749, align 8, !noalias !314
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details20color_stop_formatterE, i64 16), ptr %call.i744, align 8, !noalias !314
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details20color_stop_formatterE, i64 16), ptr %call.i744, align 8, !noalias !314
   store ptr %call.i744, ptr %ref.tmp218, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_217, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp218)
           to label %invoke.cont221 unwind label %lpad220
@@ -15780,7 +15780,7 @@ sw.bb222:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i768, align 8, !noalias !317
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i769 = getelementptr inbounds nuw i8, ptr %call.i764, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i769, align 8, !noalias !317
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details25source_location_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i764, align 8, !noalias !317
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details25source_location_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i764, align 8, !noalias !317
   store ptr %call.i764, ptr %ref.tmp224, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_223, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp224)
           to label %invoke.cont227 unwind label %lpad226
@@ -15818,7 +15818,7 @@ sw.bb228:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i788, align 8, !noalias !320
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i789 = getelementptr inbounds nuw i8, ptr %call.i784, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i789, align 8, !noalias !320
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details24short_filename_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i784, align 8, !noalias !320
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details24short_filename_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i784, align 8, !noalias !320
   store ptr %call.i784, ptr %ref.tmp230, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_229, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp230)
           to label %invoke.cont233 unwind label %lpad232
@@ -15856,7 +15856,7 @@ sw.bb234:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i808, align 8, !noalias !323
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i809 = getelementptr inbounds nuw i8, ptr %call.i804, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i809, align 8, !noalias !323
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details25source_filename_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i804, align 8, !noalias !323
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details25source_filename_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i804, align 8, !noalias !323
   store ptr %call.i804, ptr %ref.tmp236, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_235, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp236)
           to label %invoke.cont239 unwind label %lpad238
@@ -15894,7 +15894,7 @@ sw.bb240:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i828, align 8, !noalias !326
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i829 = getelementptr inbounds nuw i8, ptr %call.i824, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i829, align 8, !noalias !326
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details24source_linenum_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i824, align 8, !noalias !326
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details24source_linenum_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i824, align 8, !noalias !326
   store ptr %call.i824, ptr %ref.tmp242, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_241, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp242)
           to label %invoke.cont245 unwind label %lpad244
@@ -15932,7 +15932,7 @@ sw.bb246:                                         ; preds = %if.end
   store i64 %padding.coerce0, ptr %padinfo_.i.i.i848, align 8, !noalias !329
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i849 = getelementptr inbounds nuw i8, ptr %call.i844, i64 16
   store i64 %padding.coerce1, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i849, align 8, !noalias !329
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details25source_funcname_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i844, align 8, !noalias !329
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details25source_funcname_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i844, align 8, !noalias !329
   store ptr %call.i844, ptr %ref.tmp248, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_247, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp248)
           to label %invoke.cont251 unwind label %lpad250
@@ -15968,7 +15968,7 @@ sw.bb252:                                         ; preds = %if.end
   %call.i864 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39, !noalias !332
   %padinfo_.i.i.i865 = getelementptr inbounds nuw i8, ptr %call.i864, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %padinfo_.i.i.i865, i8 0, i64 14, i1 false), !noalias !332
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details12ch_formatterE, i64 16), ptr %call.i864, align 8, !noalias !332
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details12ch_formatterE, i64 16), ptr %call.i864, align 8, !noalias !332
   %ch_.i.i = getelementptr inbounds nuw i8, ptr %call.i864, i64 24
   store i8 37, ptr %ch_.i.i, align 8, !noalias !332
   store ptr %call.i864, ptr %ref.tmp254, align 8
@@ -16289,7 +16289,7 @@ invoke.cont297:                                   ; preds = %if.else
   store i64 %agg.tmp.sroa.0.0.copyload.i953, ptr %padinfo_.i.i.i956, align 8, !noalias !335
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i957 = getelementptr inbounds nuw i8, ptr %call.i952958, i64 16
   store i64 %agg.tmp.sroa.2.0.copyload.i955, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i.i957, align 8, !noalias !335
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details25source_funcname_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i952958, align 8, !noalias !335
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details25source_funcname_formatterINS0_18null_scoped_padderEEE, i64 16), ptr %call.i952958, align 8, !noalias !335
   store ptr %call.i952958, ptr %ref.tmp295, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_294, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp295)
           to label %invoke.cont299 unwind label %lpad298
@@ -16394,7 +16394,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11make_uniqueINS0_19aggreg
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #39
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %call, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details19aggregate_formatterE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details19aggregate_formatterE, i64 16), ptr %call, align 8
   %str_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %str_.i) #35
   store ptr %call, ptr %agg.result, align 8
@@ -17948,7 +17948,7 @@ lpad.body:                                        ; preds = %lpad.i1, %lpad
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN6spdlog6loggerC2IPKSt10shared_ptrINS_5sinks4sinkEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_SE_(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %name, ptr noundef %begin, ptr noundef %end) unnamed_addr #5 comdat($_ZN6spdlog6loggerC5IPKSt10shared_ptrINS_5sinks4sinkEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_SE_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog6loggerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog6loggerE, i64 16), ptr %this, align 8
   %name_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name_, ptr noundef nonnull align 8 dereferenceable(32) %name) #35
   %sinks_ = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -18057,7 +18057,7 @@ entry:
   %ref.tmp = alloca %"class.std::unique_ptr.86", align 8
   %level_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %level_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i64 16), ptr %this, align 8
   call void @_ZN6spdlog7details11make_uniqueINS_17pattern_formatterEJEEESt10unique_ptrIT_St14default_deleteIS4_EEDpOT0_(ptr nonnull sret(%"class.std::unique_ptr.86") align 8 %ref.tmp)
   %formatter_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %ref.tmp, align 8
@@ -18110,7 +18110,7 @@ define weak_odr dso_local void @_ZN6spdlog5sinks9base_sinkISt5mutexEC2ESt10uniqu
 entry:
   %level_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %level_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i64 16), ptr %this, align 8
   %formatter_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %formatter, align 8
   store i64 %0, ptr %formatter_, align 8
@@ -18466,7 +18466,7 @@ entry:
   %ref.tmp = alloca %"class.std::unique_ptr.86", align 8
   %level_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %level_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i64 16), ptr %this, align 8
   call void @_ZN6spdlog7details11make_uniqueINS_17pattern_formatterEJEEESt10unique_ptrIT_St14default_deleteIS4_EEDpOT0_(ptr nonnull sret(%"class.std::unique_ptr.86") align 8 %ref.tmp)
   %formatter_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %ref.tmp, align 8
@@ -18479,7 +18479,7 @@ define weak_odr dso_local void @_ZN6spdlog5sinks9base_sinkINS_7details10null_mut
 entry:
   %level_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %level_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i64 16), ptr %this, align 8
   %formatter_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %formatter, align 8
   store i64 %0, ptr %formatter_, align 8
@@ -18649,7 +18649,7 @@ _ZNSt10unique_ptrIN6spdlog9formatterESt14default_deleteIS1_EEaSEOS4_.exit: ; pre
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6spdlog9spdlog_exD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog9spdlog_exE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog9spdlog_exE, i64 16), ptr %this, align 8
   %msg_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i) #35
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #35
@@ -18660,7 +18660,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6spdlog6loggerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog6loggerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog6loggerE, i64 16), ptr %this, align 8
   %v_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %v_.i.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -18937,7 +18937,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6spdlog5sinks9base_sinkISt5mutexED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i64 16), ptr %this, align 8
   %formatter_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %formatter_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -18967,7 +18967,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6spdlog5sinks9base_sinkINS_7details10null_mutexEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i64 16), ptr %this, align 8
   %formatter_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %formatter_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -20331,7 +20331,7 @@ entry:
   store ptr null, ptr %single_sink, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #35
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog6loggerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog6loggerE, i64 16), ptr %this, align 8
   %name_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name_.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #35
   %sinks_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -21452,11 +21452,11 @@ while.body.i:                                     ; preds = %entry, %if.end17.i
   ]
 
 if.then4.i:                                       ; preds = %while.body.i
-  %call7.i = call noundef ptr @_ZN3fmt2v96detail23parse_replacement_fieldIcRNS1_21format_string_checkerIcNS1_13error_handlerEJPKcS6_iEEEEEPKT_SB_SB_OT0_(ptr noundef nonnull %p.i.063, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.48, i64 11), ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp)
+  %call7.i = call noundef ptr @_ZN3fmt2v96detail23parse_replacement_fieldIcRNS1_21format_string_checkerIcNS1_13error_handlerEJPKcS6_iEEEEEPKT_SB_SB_OT0_(ptr noundef nonnull %p.i.063, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.48, i64 11), ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp)
   br label %if.end17.i
 
 if.then10.i:                                      ; preds = %while.body.i
-  %cmp11.i = icmp eq ptr %incdec.ptr.i, getelementptr inbounds (i8, ptr @.str.48, i64 11)
+  %cmp11.i = icmp eq ptr %incdec.ptr.i, getelementptr inbounds nuw (i8, ptr @.str.48, i64 11)
   br i1 %cmp11.i, label %if.then14.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then10.i
@@ -21474,7 +21474,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 
 if.end17.i:                                       ; preds = %while.body.i, %if.end.i, %if.then4.i
   %p.i.1 = phi ptr [ %call7.i, %if.then4.i ], [ %incdec.ptr15.i, %if.end.i ], [ %incdec.ptr.i, %while.body.i ]
-  %cmp2.i.not = icmp eq ptr %p.i.1, getelementptr inbounds (i8, ptr @.str.48, i64 11)
+  %cmp2.i.not = icmp eq ptr %p.i.1, getelementptr inbounds nuw (i8, ptr @.str.48, i64 11)
   br i1 %cmp2.i.not, label %_ZN3fmt2v96detail19parse_format_stringILb1EcNS1_21format_string_checkerIcNS1_13error_handlerEJPKcS6_iEEEEEvNS0_17basic_string_viewIT0_EEOT1_.exit, label %while.body.i, !llvm.loop !358
 
 _ZN3fmt2v96detail19parse_format_stringILb1EcNS1_21format_string_checkerIcNS1_13error_handlerEJPKcS6_iEEEEEvNS0_17basic_string_viewIT0_EEOT1_.exit: ; preds = %if.end17.i
@@ -24369,11 +24369,11 @@ while.body.i.i:                                   ; preds = %if.end17.i.i, %if.e
   ]
 
 if.then4.i.i:                                     ; preds = %while.body.i.i
-  %call7.i.i = call noundef ptr @_ZN3fmt2v96detail23parse_replacement_fieldIcRNS1_21format_string_checkerIcNS1_13error_handlerEJiEEEEEPKT_S9_S9_OT0_(ptr noundef nonnull %p.i.063.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.93, i64 5), ptr noundef nonnull align 8 dereferenceable(44) %ref.tmp.i15)
+  %call7.i.i = call noundef ptr @_ZN3fmt2v96detail23parse_replacement_fieldIcRNS1_21format_string_checkerIcNS1_13error_handlerEJiEEEEEPKT_S9_S9_OT0_(ptr noundef nonnull %p.i.063.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.93, i64 5), ptr noundef nonnull align 8 dereferenceable(44) %ref.tmp.i15)
   br label %if.end17.i.i
 
 if.then10.i.i:                                    ; preds = %while.body.i.i
-  %cmp11.i.i = icmp eq ptr %incdec.ptr.i.i, getelementptr inbounds (i8, ptr @.str.93, i64 5)
+  %cmp11.i.i = icmp eq ptr %incdec.ptr.i.i, getelementptr inbounds nuw (i8, ptr @.str.93, i64 5)
   br i1 %cmp11.i.i, label %if.then14.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then10.i.i
@@ -24391,7 +24391,7 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
 
 if.end17.i.i:                                     ; preds = %if.end.i.i, %if.then4.i.i, %while.body.i.i
   %p.i.1.i = phi ptr [ %call7.i.i, %if.then4.i.i ], [ %incdec.ptr15.i.i, %if.end.i.i ], [ %incdec.ptr.i.i, %while.body.i.i ]
-  %cmp2.i.not.i = icmp eq ptr %p.i.1.i, getelementptr inbounds (i8, ptr @.str.93, i64 5)
+  %cmp2.i.not.i = icmp eq ptr %p.i.1.i, getelementptr inbounds nuw (i8, ptr @.str.93, i64 5)
   br i1 %cmp2.i.not.i, label %_ZN3fmt2v96detail19check_format_stringIJRiEZZN6spdlog7details10fmt_helper4pad2EiRNS0_19basic_memory_bufferIcLm250ESaIcEEEENKUlvE_clEvE18FMT_COMPILE_STRINGTnNSt9enable_ifIXsr17is_compile_stringIT0_EE5valueEiE4typeELi0EEEvSE_.exit, label %while.body.i.i, !llvm.loop !377
 
 _ZN3fmt2v96detail19check_format_stringIJRiEZZN6spdlog7details10fmt_helper4pad2EiRNS0_19basic_memory_bufferIcLm250ESaIcEEEENKUlvE_clEvE18FMT_COMPILE_STRINGTnNSt9enable_ifIXsr17is_compile_stringIT0_EE5valueEiE4typeELi0EEEvSE_.exit: ; preds = %if.end17.i.i
@@ -24406,7 +24406,7 @@ _ZN3fmt2v96detail19check_format_stringIJRiEZZN6spdlog7details10fmt_helper4pad2Ei
   store i64 %12, ptr %size_.i2.i.i.i.i, align 8, !alias.scope !378
   %capacity_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 24
   store i64 %12, ptr %capacity_.i.i.i.i.i, align 8, !alias.scope !378
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v96detail15iterator_bufferISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm250ESaIcEEEEcNS1_13buffer_traitsEEE, i64 16), ptr %ref.tmp.i16, align 8, !alias.scope !378
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v96detail15iterator_bufferISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm250ESaIcEEEEcNS1_13buffer_traitsEEE, i64 16), ptr %ref.tmp.i16, align 8, !alias.scope !378
   %container_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 32
   store ptr %dest, ptr %container_.i.i.i.i, align 8, !alias.scope !378
   call void @_ZN3fmt2v96detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS3_ISE_EEEE4typeESE_EEEENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i16, ptr nonnull @.str.93, i64 5, i64 1, ptr nonnull %ref.tmp.i, ptr null)
@@ -28081,7 +28081,7 @@ invoke.cont5:
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %separators, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %separators, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %separators, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIiLm500ESaIiEEE, i64 16), ptr %separators, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIiLm500ESaIiEEE, i64 16), ptr %separators, align 8
   %store_.i = getelementptr inbounds nuw i8, ptr %separators, i64 32
   store ptr %store_.i, ptr %ptr_.i.i, align 8
   store i64 500, ptr %capacity_.i.i, align 8
@@ -33282,7 +33282,7 @@ invoke.cont17:                                    ; preds = %entry
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #35
   %store_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 32
@@ -33901,7 +33901,7 @@ invoke.cont9:                                     ; preds = %entry
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #35
   %store_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 32
@@ -35972,7 +35972,7 @@ invoke.cont17:                                    ; preds = %entry
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #35
   %store_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 32
@@ -36514,7 +36514,7 @@ invoke.cont9:                                     ; preds = %entry
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #35
   %store_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 32
@@ -37239,7 +37239,7 @@ if.end79:                                         ; preds = %_ZNSt20back_insert_
   %ptr_.i.i12 = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i12, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp80) #35
   %store_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 32
@@ -38135,7 +38135,7 @@ invoke.cont4:
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %numerator, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %numerator, i64 16
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ESaIjEEE, i64 16), ptr %numerator, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ESaIjEEE, i64 16), ptr %numerator, align 8
   %store_.i.i = getelementptr inbounds nuw i8, ptr %numerator, i64 32
   store ptr %store_.i.i, ptr %ptr_.i.i.i, align 8
   store i64 32, ptr %capacity_.i.i.i, align 8
@@ -38145,7 +38145,7 @@ invoke.cont4:
   %capacity_.i.i.i61 = getelementptr inbounds nuw i8, ptr %denominator, i64 24
   %1 = getelementptr inbounds nuw i8, ptr %denominator, i64 16
   store i64 0, ptr %1, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ESaIjEEE, i64 16), ptr %denominator, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ESaIjEEE, i64 16), ptr %denominator, align 8
   %store_.i.i62 = getelementptr inbounds nuw i8, ptr %denominator, i64 32
   store ptr %store_.i.i62, ptr %ptr_.i.i.i60, align 8
   store i64 32, ptr %capacity_.i.i.i61, align 8
@@ -38155,7 +38155,7 @@ invoke.cont4:
   %capacity_.i.i.i65 = getelementptr inbounds nuw i8, ptr %lower, i64 24
   %2 = getelementptr inbounds nuw i8, ptr %lower, i64 16
   store i64 0, ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ESaIjEEE, i64 16), ptr %lower, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ESaIjEEE, i64 16), ptr %lower, align 8
   %store_.i.i66 = getelementptr inbounds nuw i8, ptr %lower, i64 32
   store ptr %store_.i.i66, ptr %ptr_.i.i.i64, align 8
   store i64 32, ptr %capacity_.i.i.i65, align 8
@@ -38165,7 +38165,7 @@ invoke.cont4:
   %capacity_.i.i.i69 = getelementptr inbounds nuw i8, ptr %upper_store, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %upper_store, i64 16
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ESaIjEEE, i64 16), ptr %upper_store, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ESaIjEEE, i64 16), ptr %upper_store, align 8
   %store_.i.i70 = getelementptr inbounds nuw i8, ptr %upper_store, i64 32
   store ptr %store_.i.i70, ptr %ptr_.i.i.i68, align 8
   store i64 32, ptr %capacity_.i.i.i69, align 8
@@ -39354,7 +39354,7 @@ if.then.i:                                        ; preds = %if.then92
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v912format_errorE, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v912format_errorE, i64 16), ptr %exception.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN3fmt2v912format_errorE, ptr nonnull @_ZN3fmt2v912format_errorD1Ev) #38
           to label %.noexc615 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -40901,7 +40901,7 @@ entry:
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %n, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %n, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ESaIjEEE, i64 16), ptr %n, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ESaIjEEE, i64 16), ptr %n, align 8
   %ptr_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %ptr_.i.i.i, align 8
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -41199,7 +41199,7 @@ _ZN3fmt2v919basic_memory_bufferIjLm32ESaIjEED2Ev.exit46: ; preds = %invoke.cont5
 define linkonce_odr dso_local void @_ZN3fmt2v912format_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %message) unnamed_addr #5 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %message)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v912format_errorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v912format_errorE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -42584,7 +42584,7 @@ invoke.cont17:                                    ; preds = %entry
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #35
   %store_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 32
@@ -43086,7 +43086,7 @@ invoke.cont9:                                     ; preds = %entry
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #35
   %store_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 32
@@ -53259,7 +53259,7 @@ if.end79:                                         ; preds = %_ZNSt20back_insert_
   %ptr_.i.i12 = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i12, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp80) #35
   %store_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 32
@@ -54502,7 +54502,7 @@ if.end79:                                         ; preds = %_ZNSt20back_insert_
   %ptr_.i.i12 = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i12, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp80) #35
   %store_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 32
@@ -56563,7 +56563,7 @@ invoke.cont:
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %padinfo_.i.i, align 8
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details14full_formatterE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details14full_formatterE, i64 16), ptr %call, align 8
   %cache_timestamp_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i64 0, ptr %cache_timestamp_.i, align 8
   %cached_datetime_.i = getelementptr inbounds nuw i8, ptr %call, i64 32
@@ -56571,7 +56571,7 @@ invoke.cont:
   %ptr_.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i64 16), ptr %cached_datetime_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i64 16), ptr %cached_datetime_.i, align 8
   %alloc_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 314
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i) #35
   %store_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 64
@@ -56594,7 +56594,7 @@ entry:
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %padinfo_.i.i, align 8
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_13scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_13scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEE, i64 16), ptr %call, align 8
   %last_message_time_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %call.i = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #35
   store i64 %call.i, ptr %last_message_time_.i, align 8
@@ -56613,7 +56613,7 @@ entry:
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %padinfo_.i.i, align 8
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_13scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_13scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEE, i64 16), ptr %call, align 8
   %last_message_time_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %call.i = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #35
   store i64 %call.i, ptr %last_message_time_.i, align 8
@@ -56632,7 +56632,7 @@ entry:
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %padinfo_.i.i, align 8
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_13scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_13scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEE, i64 16), ptr %call, align 8
   %last_message_time_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %call.i = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #35
   store i64 %call.i, ptr %last_message_time_.i, align 8
@@ -56651,7 +56651,7 @@ entry:
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %padinfo_.i.i, align 8
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_13scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1EEEEEE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_13scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1EEEEEE, i64 16), ptr %call, align 8
   %last_message_time_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %call.i = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #35
   store i64 %call.i, ptr %last_message_time_.i, align 8
@@ -66538,7 +66538,7 @@ entry:
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %padinfo_.i.i, align 8
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_18null_scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_18null_scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEE, i64 16), ptr %call, align 8
   %last_message_time_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %call.i = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #35
   store i64 %call.i, ptr %last_message_time_.i, align 8
@@ -66557,7 +66557,7 @@ entry:
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %padinfo_.i.i, align 8
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_18null_scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_18null_scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEE, i64 16), ptr %call, align 8
   %last_message_time_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %call.i = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #35
   store i64 %call.i, ptr %last_message_time_.i, align 8
@@ -66576,7 +66576,7 @@ entry:
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %padinfo_.i.i, align 8
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_18null_scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_18null_scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEE, i64 16), ptr %call, align 8
   %last_message_time_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %call.i = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #35
   store i64 %call.i, ptr %last_message_time_.i, align 8
@@ -66595,7 +66595,7 @@ entry:
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %padinfo_.i.i, align 8
   %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %padinfo.sroa.2.0.padinfo_.sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_18null_scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1EEEEEE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_18null_scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1EEEEEE, i64 16), ptr %call, align 8
   %last_message_time_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %call.i = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #35
   store i64 %call.i, ptr %last_message_time_.i, align 8

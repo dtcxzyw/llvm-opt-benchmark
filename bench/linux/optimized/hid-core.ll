@@ -1146,7 +1146,7 @@ define internal i32 @usbhid_start(ptr noundef %0) #0 align 16 {
   %106 = tail call ptr @usb_alloc_coherent(ptr noundef %9, i64 noundef %104, i32 noundef 3264, ptr noundef nonnull %105) #17
   %107 = getelementptr inbounds nuw i8, ptr %96, i64 10352
   store ptr %106, ptr %107, align 8
-  %108 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
+  %108 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 24), align 8
   %109 = tail call noalias align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %108, i32 noundef 3264, i64 noundef 8) #19
   %110 = getelementptr inbounds nuw i8, ptr %96, i64 56
   store ptr %109, ptr %110, align 8

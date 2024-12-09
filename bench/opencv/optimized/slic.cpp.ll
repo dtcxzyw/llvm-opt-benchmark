@@ -272,7 +272,7 @@ define void @_ZN2cv8ximgproc20createSuperpixelSLICERKNS_11_InputArrayEiif(ptr de
   store i32 1, ptr %7, align 8, !noalias !4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %8, align 4, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc18SuperpixelSLICImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc18SuperpixelSLICImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8, !noalias !4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   invoke void @_ZN2cv8ximgproc18SuperpixelSLICImplC2ERKNS_11_InputArrayEiif(ptr noundef nonnull align 8 dereferenceable(276) %9, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3, float noundef %4)
           to label %_ZN2cv3PtrINS_8ximgproc18SuperpixelSLICImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc18SuperpixelSLICImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !4
@@ -302,7 +302,7 @@ define hidden void @_ZN2cv8ximgproc18SuperpixelSLICImplC2ERKNS_11_InputArrayEiif
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   %14 = alloca %"class.std::allocator.14", align 1
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv8ximgproc18SuperpixelSLICImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv8ximgproc18SuperpixelSLICImplE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %2, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -877,7 +877,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EED2Ev.exit:   ; preds = %_ZSt8_DestroyIPN2cv
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN2cv8ximgproc18SuperpixelSLICImplD2Ev(ptr noundef nonnull align 8 dereferenceable(276) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv8ximgproc18SuperpixelSLICImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv8ximgproc18SuperpixelSLICImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1370,7 +1370,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit67:          ; preds = %.lr.ph.i.i.i.i.i.i.
   %122 = getelementptr inbounds nuw float, ptr %.sroa.0156.0216, i64 %indvars.iv
   %123 = load float, ptr %122, align 4
   %124 = load i32, ptr %63, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc16SLICOGrowInvokerE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc16SLICOGrowInvokerE, i64 16), ptr %12, align 8
   store ptr %60, ptr %64, align 8
   store ptr %7, ptr %65, align 8
   store ptr %3, ptr %66, align 8
@@ -1739,7 +1739,7 @@ _ZN2cvL15parallel_reduceINS_8ximgproc12SeedsCentersEEEvRKNS_12BlockedRangeERT_.e
   store i32 0, ptr %15, align 4
   store i32 %254, ptr %86, align 4
   %255 = load i32, ptr %63, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc15SeedNormInvokerE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc15SeedNormInvokerE, i64 16), ptr %16, align 8
   store ptr %87, ptr %91, align 8
   store ptr %62, ptr %92, align 8
   store ptr %89, ptr %93, align 8
@@ -1946,7 +1946,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc18SuperpixelSLICImpl11PerformSLI
   %82 = load float, ptr %76, align 4
   %83 = load float, ptr %68, align 4
   %84 = load i32, ptr %34, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc15SLICGrowInvokerE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc15SLICGrowInvokerE, i64 16), ptr %7, align 8
   store ptr %31, ptr %35, align 8
   store ptr %3, ptr %36, align 8
   store float %82, ptr %37, align 8
@@ -2005,7 +2005,7 @@ _ZN2cvL15parallel_reduceINS_8ximgproc12SeedsCentersEEEvRKNS_12BlockedRangeERT_.e
   store i32 0, ptr %10, align 4
   store i32 %99, ptr %48, align 4
   %100 = load i32, ptr %34, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc15SeedNormInvokerE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc15SeedNormInvokerE, i64 16), ptr %11, align 8
   store ptr %49, ptr %53, align 8
   store ptr %33, ptr %54, align 8
   store ptr %51, ptr %55, align 8
@@ -2270,7 +2270,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %._ZNSt6vectorIfSaIf
   %125 = load float, ptr %119, align 4
   %126 = load float, ptr %112, align 4
   %127 = load i32, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc15SLICGrowInvokerE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc15SLICGrowInvokerE, i64 16), ptr %9, align 8
   store ptr %73, ptr %76, align 8
   store ptr %5, ptr %77, align 8
   store float %125, ptr %78, align 8
@@ -2329,7 +2329,7 @@ _ZN2cvL15parallel_reduceINS_8ximgproc12SeedsCentersEEEvRKNS_12BlockedRangeERT_.e
   store i32 0, ptr %12, align 4
   store i32 %142, ptr %89, align 4
   %143 = load i32, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc15SeedNormInvokerE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc15SeedNormInvokerE, i64 16), ptr %13, align 8
   store ptr %90, ptr %94, align 8
   store ptr %75, ptr %95, align 8
   store ptr %92, ptr %96, align 8

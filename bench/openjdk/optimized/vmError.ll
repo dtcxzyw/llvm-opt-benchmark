@@ -469,7 +469,7 @@ define hidden void @_ZN7VMError22record_coredump_statusEPKcb(ptr nocapture nound
   %3 = zext i1 %1 to i8
   store i8 %3, ptr @_ZN7VMError15coredump_statusE, align 1
   %4 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN7VMError16coredump_messageE, ptr noundef nonnull dereferenceable(1) %0, i64 noundef 2000) #21
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN7VMError16coredump_messageE, i64 1999), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN7VMError16coredump_messageE, i64 1999), align 1
   ret void
 }
 
@@ -4545,7 +4545,7 @@ define hidden void @_ZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadP
   %17 = alloca %class.fileStream, align 8
   tail call void @_Z20disarm_assert_poisonv() #21
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(60) %12, i1 noundef zeroext false) #21
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV8fdStream, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV8fdStream, i64 16), ptr %12, align 8
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store i32 1, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -4554,7 +4554,7 @@ define hidden void @_ZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadP
   store i64 2000, ptr %20, align 8
   %21 = load i32, ptr @_ZZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE6fd_log, align 4
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(60) %13, i1 noundef zeroext false) #21
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV8fdStream, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV8fdStream, i64 16), ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store i32 %21, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -4884,7 +4884,7 @@ _ZN7VMError16show_message_boxEPci.exit:           ; preds = %47
 
 153:                                              ; preds = %150
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(60) %16, i1 noundef zeroext false) #21
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV8fdStream, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV8fdStream, i64 16), ptr %16, align 8
   %154 = getelementptr inbounds nuw i8, ptr %16, i64 56
   store i32 1, ptr %154, align 8
   call void @_ZN10MemTracker12final_reportEP12outputStream(ptr noundef nonnull %16) #21
@@ -4953,7 +4953,7 @@ _ZN7VMError16show_message_boxEPci.exit:           ; preds = %47
 
 190:                                              ; preds = %188
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(65) %17, i1 noundef zeroext false) #21
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %17, align 8
   %191 = getelementptr inbounds nuw i8, ptr %17, i64 56
   store ptr %189, ptr %191, align 8
   %192 = getelementptr inbounds nuw i8, ptr %17, i64 64
@@ -5339,7 +5339,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %6
   tail call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %7) #21
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV24VM_ReportJavaOutOfMemory, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24VM_ReportJavaOutOfMemory, i64 16), ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %0, ptr %9, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %2) #21
@@ -5349,7 +5349,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %6
 _ZN11MutexLockerD2Ev.exit.critedge:               ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV24VM_ReportJavaOutOfMemory, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24VM_ReportJavaOutOfMemory, i64 16), ptr %2, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %0, ptr %11, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %2) #21

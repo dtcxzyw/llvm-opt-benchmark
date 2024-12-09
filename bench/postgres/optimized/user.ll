@@ -3978,14 +3978,14 @@ define dso_local void @assign_createrole_self_grant(ptr nocapture noundef readno
   %5 = zext i1 %4 to i8
   store i8 %5, ptr @createrole_self_grant_enabled, align 1
   store i32 7, ptr @createrole_self_grant_options, align 4
-  store i8 0, ptr getelementptr inbounds (i8, ptr @createrole_self_grant_options, i64 4), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @createrole_self_grant_options, i64 4), align 4
   %6 = trunc i32 %3 to i8
   %7 = lshr i8 %6, 1
   %8 = and i8 %7, 1
-  store i8 %8, ptr getelementptr inbounds (i8, ptr @createrole_self_grant_options, i64 5), align 1
+  store i8 %8, ptr getelementptr inbounds nuw (i8, ptr @createrole_self_grant_options, i64 5), align 1
   %9 = lshr i8 %6, 2
   %10 = and i8 %9, 1
-  store i8 %10, ptr getelementptr inbounds (i8, ptr @createrole_self_grant_options, i64 6), align 2
+  store i8 %10, ptr getelementptr inbounds nuw (i8, ptr @createrole_self_grant_options, i64 6), align 2
   ret void
 }
 

@@ -1899,7 +1899,7 @@ Py_DECREF.exit43:                                 ; preds = %if.end10, %if.then1
   br i1 %cmp12, label %return, label %if.end14
 
 if.end14:                                         ; preds = %Py_DECREF.exit43
-  %call15 = tail call ptr @PyObject_GetAttr(ptr noundef nonnull %call11, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 56344)) #11
+  %call15 = tail call ptr @PyObject_GetAttr(ptr noundef nonnull %call11, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56344)) #11
   %5 = load i64, ptr %call11, align 8
   %6 = and i64 %5, 2147483648
   %cmp.i48.not = icmp eq i64 %6, 0

@@ -40,7 +40,7 @@ $_ZN24GCAdaptivePolicyCounters11size_policyEv = comdat any
 define hidden void @_ZN26PSGCAdaptivePolicyCountersC2EPKciiP20PSAdaptiveSizePolicy(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca %class.ExceptionMark, align 8
   tail call void @_ZN24GCAdaptivePolicyCountersC2EPKciiP18AdaptiveSizePolicy(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV26PSGCAdaptivePolicyCounters, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV26PSGCAdaptivePolicyCounters, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store i64 0, ptr %7, align 8
   %8 = load i8, ptr @UsePerfData, align 1

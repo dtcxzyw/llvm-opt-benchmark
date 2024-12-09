@@ -132,9 +132,9 @@ define void @_ZN15TLSKeylogDialogC2ER7QWidget(ptr noundef nonnull align 8 derefe
   %25 = alloca %class.QString, align 8
   %26 = alloca %class.QString, align 8
   tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %1, i32 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15TLSKeylogDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15TLSKeylogDialog, i64 16), ptr %0, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15TLSKeylogDialog, i64 488), ptr %27, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15TLSKeylogDialog, i64 488), ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = invoke noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #15
           to label %30 unwind label %132
@@ -978,7 +978,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i85:    ; preds = %100
   %108 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #15
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   store i32 0, ptr %109, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %108, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 12
   store i32 20, ptr %110, align 4
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 16
@@ -1158,7 +1158,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i115:   ; preds = %164
   %174 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #15
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   store i32 0, ptr %175, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %174, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %174, align 8
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 12
   store i32 20, ptr %176, align 4
   %177 = getelementptr inbounds nuw i8, ptr %174, i64 16
@@ -1212,7 +1212,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i121:   ; preds = %188
   %197 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #15
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
   store i32 0, ptr %198, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %197, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %197, align 8
   %199 = getelementptr inbounds nuw i8, ptr %197, i64 12
   store i32 20, ptr %199, align 4
   %200 = getelementptr inbounds nuw i8, ptr %197, i64 16
@@ -1296,7 +1296,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i133:   ; preds = %219
   %230 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #15
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
   store i32 0, ptr %231, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %230, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %230, align 8
   %232 = getelementptr inbounds nuw i8, ptr %230, i64 12
   store i32 20, ptr %232, align 4
   %233 = getelementptr inbounds nuw i8, ptr %230, i64 16
@@ -3448,9 +3448,9 @@ declare void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) u
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN15TLSKeylogDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15TLSKeylogDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15TLSKeylogDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15TLSKeylogDialog, i64 488), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15TLSKeylogDialog, i64 488), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

@@ -54,7 +54,7 @@ define dso_local void @__do_once_done(ptr nocapture noundef writeonly initialize
   store i8 1, ptr %0, align 1
   %5 = load i64, ptr %2, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @once_lock, i64 noundef %5) #3
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %7 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 2080, i64 noundef 48) #4
   %8 = icmp eq ptr %7, null
   br i1 %8, label %17, label %9
@@ -105,7 +105,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 define dso_local void @__do_once_sleepable_done(ptr nocapture noundef writeonly initializes((0, 1)) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   store i8 1, ptr %0, align 1
   tail call void @mutex_unlock(ptr noundef nonnull @once_mutex) #3
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 2080, i64 noundef 48) #4
   %6 = icmp eq ptr %5, null
   br i1 %6, label %15, label %7

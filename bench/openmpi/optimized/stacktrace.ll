@@ -129,7 +129,7 @@ define void @prte_stackframe_output(i32 noundef %0) local_unnamed_addr #0 {
 20:                                               ; preds = %19
   %21 = load ptr, ptr @prte_stacktrace_output_filename, align 8
   %22 = load ptr, ptr @prte_stacktrace_output_filename_base, align 8
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 256), align 8
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 256), align 8
   %24 = zext i32 %23 to i64
   %25 = call i32 @getpid() #14
   %26 = sext i32 %25 to i64
@@ -184,7 +184,7 @@ define internal fastcc void @set_stacktrace_filename() unnamed_addr #0 {
   %1 = load ptr, ptr @prte_stacktrace_output_filename, align 8
   %2 = load i64, ptr @prte_stacktrace_output_filename_max_len, align 8
   %3 = load ptr, ptr @prte_stacktrace_output_filename_base, align 8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 256), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 256), align 8
   %5 = zext i32 %4 to i64
   %6 = tail call i32 @getpid() #14
   %7 = sext i32 %6 to i64
@@ -350,7 +350,7 @@ define range(i32 -43, 1) i32 @prte_util_register_stackhandlers() local_unnamed_a
   store i64 26, ptr @prte_stacktrace_output_filename_max_len, align 8
   %29 = tail call noalias dereferenceable_or_null(26) ptr @malloc(i64 noundef 26) #17
   store ptr %29, ptr @prte_stacktrace_output_filename, align 8
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 256), align 8
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 256), align 8
   %31 = zext i32 %30 to i64
   %32 = tail call i32 @getpid() #14
   %33 = sext i32 %32 to i64
@@ -531,7 +531,7 @@ define internal void @show_stackframe(i32 noundef %0, ptr noundef readonly %1, p
 13:                                               ; preds = %12
   %14 = load ptr, ptr @prte_stacktrace_output_filename, align 8
   %15 = load ptr, ptr @prte_stacktrace_output_filename_base, align 8
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 256), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 256), align 8
   %17 = zext i32 %16 to i64
   %18 = tail call i32 @getpid() #14
   %19 = sext i32 %18 to i64
@@ -555,7 +555,7 @@ define internal void @show_stackframe(i32 noundef %0, ptr noundef readonly %1, p
 
 31:                                               ; preds = %13, %24, %12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %4, i8 0, i64 1024, i1 false)
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 800), align 8
   %33 = tail call i32 @getpid() #14
   %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1024, ptr noundef nonnull @.str.15, ptr noundef %32, i32 noundef %33) #14
   %35 = load i32, ptr @prte_stacktrace_output_fileno, align 4
@@ -566,7 +566,7 @@ define internal void @show_stackframe(i32 noundef %0, ptr noundef readonly %1, p
 
 39:                                               ; preds = %31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %4, i8 0, i64 1024, i1 false)
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 800), align 8
   %41 = tail call i32 @getpid() #14
   %42 = tail call ptr @strsignal(i32 noundef %0) #14
   %43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1024, ptr noundef nonnull @.str.16, ptr noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef %0) #14
@@ -703,7 +703,7 @@ switch.lookup103:                                 ; preds = %60
 
 79:                                               ; preds = %76
   %80 = sext i32 %44 to i64
-  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 800), align 8
   %82 = tail call i32 @getpid() #14
   %83 = load i32, ptr %77, align 4
   %84 = tail call ptr @strerror(i32 noundef %83) #14
@@ -718,7 +718,7 @@ switch.lookup103:                                 ; preds = %60
   %.076 = phi ptr [ %89, %79 ], [ %46, %76 ]
   %.075 = phi i32 [ %87, %79 ], [ %44, %76 ]
   %91 = sext i32 %.075 to i64
-  %92 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
+  %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 800), align 8
   %93 = tail call i32 @getpid() #14
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %95 = load i32, ptr %94, align 8
@@ -737,7 +737,7 @@ switch.lookup103:                                 ; preds = %60
 
 100:                                              ; preds = %90, %90, %90, %90
   %101 = sext i32 %97 to i64
-  %102 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
+  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 800), align 8
   %103 = tail call i32 @getpid() #14
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %105 = load ptr, ptr %104, align 8
@@ -747,7 +747,7 @@ switch.lookup103:                                 ; preds = %60
 
 108:                                              ; preds = %90
   %109 = sext i32 %97 to i64
-  %110 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
+  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 800), align 8
   %111 = tail call i32 @getpid() #14
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %113 = load i32, ptr %112, align 8
@@ -761,7 +761,7 @@ switch.lookup103:                                 ; preds = %60
 
 120:                                              ; preds = %90
   %121 = sext i32 %97 to i64
-  %122 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
+  %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 800), align 8
   %123 = tail call i32 @getpid() #14
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %125 = load i64, ptr %124, align 8
@@ -773,7 +773,7 @@ switch.lookup103:                                 ; preds = %60
 
 130:                                              ; preds = %39
   %131 = sext i32 %44 to i64
-  %132 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
+  %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 800), align 8
   %133 = tail call i32 @getpid() #14
   %134 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %46, i64 noundef %131, ptr noundef nonnull @.str.64, ptr noundef %132, i32 noundef %133) #14
   %135 = sub nsw i32 %44, %134
@@ -789,7 +789,7 @@ switch.lookup103:                                 ; preds = %60
   br i1 %141, label %177, label %142
 
 142:                                              ; preds = %136
-  %143 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
+  %143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 800), align 8
   %144 = tail call i32 @getpid() #14
   %145 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1024, ptr noundef nonnull @.str.65, ptr noundef %143, i32 noundef %144) #14
   %146 = call i32 @prte_backtrace_print(ptr noundef null, ptr noundef nonnull %4, i32 noundef 2) #14
@@ -804,7 +804,7 @@ switch.lookup103:                                 ; preds = %60
 
 151:                                              ; preds = %147, %142
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %4, i8 0, i64 1024, i1 false)
-  %152 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
+  %152 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 800), align 8
   %153 = call i32 @getpid() #14
   %154 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1024, ptr noundef nonnull @.str.66, ptr noundef %152, i32 noundef %153) #14
   %155 = icmp sgt i32 %154, 0

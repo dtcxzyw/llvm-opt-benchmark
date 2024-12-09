@@ -57,7 +57,7 @@ define void @Java_java_lang_Class_registerNatives(ptr noundef %0, ptr noundef %1
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %5 = load ptr, ptr %4, align 8
-  store ptr %5, ptr getelementptr inbounds (i8, ptr @methods, i64 40), align 8
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @methods, i64 40), align 8
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1720
   %8 = load ptr, ptr %7, align 8

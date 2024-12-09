@@ -91,7 +91,7 @@ define void @_ZN5boost9container3pmr25monotonic_buffer_resource32increase_next_b
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5boost9container3pmr25monotonic_buffer_resourceC2EPNS1_15memory_resourceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost9container3pmr25monotonic_buffer_resourceE, i64 16), ptr %0, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost9container3pmr25monotonic_buffer_resourceE, i64 16), ptr %0, align 8, !tbaa !13
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %5
 
@@ -133,7 +133,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5boost9container3pmr25monotonic_buffer_resourceC2EmPNS1_15memory_resourceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost9container3pmr25monotonic_buffer_resourceE, i64 16), ptr %0, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost9container3pmr25monotonic_buffer_resourceE, i64 16), ptr %0, align 8, !tbaa !13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %7
@@ -182,7 +182,7 @@ _ZN5boost9container3pmr25monotonic_buffer_resource32increase_next_buffer_at_leas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5boost9container3pmr25monotonic_buffer_resourceC2EPvmPNS1_15memory_resourceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost9container3pmr25monotonic_buffer_resourceE, i64 16), ptr %0, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost9container3pmr25monotonic_buffer_resourceE, i64 16), ptr %0, align 8, !tbaa !13
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %7
 
@@ -217,7 +217,7 @@ define void @_ZN5boost9container3pmr25monotonic_buffer_resourceC2EPvmPNS1_15memo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5boost9container3pmr25monotonic_buffer_resourceD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost9container3pmr25monotonic_buffer_resourceE, i64 16), ptr %0, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost9container3pmr25monotonic_buffer_resourceE, i64 16), ptr %0, align 8, !tbaa !13
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !21
@@ -392,7 +392,7 @@ define noundef ptr @_ZN5boost9container3pmr25monotonic_buffer_resource11do_alloc
 
 5:                                                ; preds = %3
   %6 = tail call ptr @__cxa_allocate_exception(i64 8) #15
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %6, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %6, align 8, !tbaa !13
   tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #18
   unreachable
 
@@ -507,7 +507,7 @@ define linkonce_odr hidden void @_ZN5boost9container15throw_bad_allocEv() local_
   %1 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @.str, ptr %2, align 8, !tbaa !25
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9container9bad_allocE, i64 16), ptr %1, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9container9bad_allocE, i64 16), ptr %1, align 8, !tbaa !13
   tail call void @__cxa_throw(ptr nonnull %1, ptr nonnull @_ZTIN5boost9container9bad_allocE, ptr nonnull @_ZNSt9exceptionD2Ev) #18
   unreachable
 }

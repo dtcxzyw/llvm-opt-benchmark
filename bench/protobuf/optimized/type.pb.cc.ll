@@ -198,7 +198,7 @@ entry:
 define noundef ptr @_ZN6google8protobuf28Field_Cardinality_descriptorEv() local_unnamed_addr #3 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableE(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftype_2eproto)
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL60file_level_enum_descriptors_google_2fprotobuf_2ftype_2eproto, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL60file_level_enum_descriptors_google_2fprotobuf_2ftype_2eproto, i64 8), align 8
   ret ptr %0
 }
 
@@ -213,7 +213,7 @@ entry:
 define noundef ptr @_ZN6google8protobuf17Syntax_descriptorEv() local_unnamed_addr #3 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableE(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftype_2eproto)
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL60file_level_enum_descriptors_google_2fprotobuf_2ftype_2eproto, i64 16), align 16
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL60file_level_enum_descriptors_google_2fprotobuf_2ftype_2eproto, i64 16), align 16
   ret ptr %0
 }
 
@@ -252,7 +252,7 @@ invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf4TypeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf4TypeE, i64 16), ptr %this, align 8
   %arrayinit.cur.i.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %arena_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.cur.i.ptr.i, i8 0, i64 24, i1 false)
@@ -282,7 +282,7 @@ entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf4TypeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf4TypeE, i64 16), ptr %this, align 8
   %_internal_metadata_2 = getelementptr inbounds nuw i8, ptr %from, i64 8
   %1 = load i64, ptr %_internal_metadata_2, align 8
   %and.i32 = and i64 %1, 1
@@ -1512,7 +1512,7 @@ invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf5FieldE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf5FieldE, i64 16), ptr %this, align 8
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %arena_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 16, i1 false)
@@ -1538,7 +1538,7 @@ entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf5FieldE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf5FieldE, i64 16), ptr %this, align 8
   %_internal_metadata_2 = getelementptr inbounds nuw i8, ptr %from, i64 8
   %1 = load i64, ptr %_internal_metadata_2, align 8
   %and.i22 = and i64 %1, 1
@@ -2794,7 +2794,7 @@ _ZN6google8protobuf8internal7memswapILm17EEEvPcS3_.exit: ; preds = %for.body.i.i
 ; Function Attrs: mustprogress uwtable
 define { ptr, ptr } @_ZNK6google8protobuf5Field11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
 entry:
-  %call = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPN4absl12lts_202308029once_flagERKNS0_8MetadataE(ptr noundef nonnull @_Z56descriptor_table_google_2fprotobuf_2ftype_2eproto_getterv, ptr noundef nonnull @_ZL54descriptor_table_google_2fprotobuf_2ftype_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL52file_level_metadata_google_2fprotobuf_2ftype_2eproto, i64 16))
+  %call = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPN4absl12lts_202308029once_flagERKNS0_8MetadataE(ptr noundef nonnull @_Z56descriptor_table_google_2fprotobuf_2ftype_2eproto_getterv, ptr noundef nonnull @_ZL54descriptor_table_google_2fprotobuf_2ftype_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL52file_level_metadata_google_2fprotobuf_2ftype_2eproto, i64 16))
   ret { ptr, ptr } %call
 }
 
@@ -2824,7 +2824,7 @@ invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf4EnumE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf4EnumE, i64 16), ptr %this, align 8
   %arrayinit.cur.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %arena_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.cur.i.i.ptr.i, i8 0, i64 24, i1 false)
@@ -2848,7 +2848,7 @@ entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf4EnumE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf4EnumE, i64 16), ptr %this, align 8
   %_internal_metadata_2 = getelementptr inbounds nuw i8, ptr %from, i64 8
   %1 = load i64, ptr %_internal_metadata_2, align 8
   %and.i32 = and i64 %1, 1
@@ -3879,7 +3879,7 @@ _ZN6google8protobuf8internal7memswapILm12EEEvPcS3_.exit: ; preds = %for.body.i.i
 ; Function Attrs: mustprogress uwtable
 define { ptr, ptr } @_ZNK6google8protobuf4Enum11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
 entry:
-  %call = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPN4absl12lts_202308029once_flagERKNS0_8MetadataE(ptr noundef nonnull @_Z56descriptor_table_google_2fprotobuf_2ftype_2eproto_getterv, ptr noundef nonnull @_ZL54descriptor_table_google_2fprotobuf_2ftype_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL52file_level_metadata_google_2fprotobuf_2ftype_2eproto, i64 32))
+  %call = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPN4absl12lts_202308029once_flagERKNS0_8MetadataE(ptr noundef nonnull @_Z56descriptor_table_google_2fprotobuf_2ftype_2eproto_getterv, ptr noundef nonnull @_ZL54descriptor_table_google_2fprotobuf_2ftype_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL52file_level_metadata_google_2fprotobuf_2ftype_2eproto, i64 32))
   ret { ptr, ptr } %call
 }
 
@@ -3889,7 +3889,7 @@ invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf9EnumValueE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf9EnumValueE, i64 16), ptr %this, align 8
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %arena_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 16, i1 false)
@@ -3909,7 +3909,7 @@ entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf9EnumValueE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf9EnumValueE, i64 16), ptr %this, align 8
   %_internal_metadata_2 = getelementptr inbounds nuw i8, ptr %from, i64 8
   %1 = load i64, ptr %_internal_metadata_2, align 8
   %and.i22 = and i64 %1, 1
@@ -4573,7 +4573,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define { ptr, ptr } @_ZNK6google8protobuf9EnumValue11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
 entry:
-  %call = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPN4absl12lts_202308029once_flagERKNS0_8MetadataE(ptr noundef nonnull @_Z56descriptor_table_google_2fprotobuf_2ftype_2eproto_getterv, ptr noundef nonnull @_ZL54descriptor_table_google_2fprotobuf_2ftype_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL52file_level_metadata_google_2fprotobuf_2ftype_2eproto, i64 48))
+  %call = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPN4absl12lts_202308029once_flagERKNS0_8MetadataE(ptr noundef nonnull @_Z56descriptor_table_google_2fprotobuf_2ftype_2eproto_getterv, ptr noundef nonnull @_ZL54descriptor_table_google_2fprotobuf_2ftype_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL52file_level_metadata_google_2fprotobuf_2ftype_2eproto, i64 48))
   ret { ptr, ptr } %call
 }
 
@@ -4605,7 +4605,7 @@ invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf6OptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf6OptionE, i64 16), ptr %this, align 8
   %arrayinit.cur.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %arrayinit.cur.i.i.ptr.i, align 8
   %arrayinit.end.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 20
@@ -4623,7 +4623,7 @@ entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf6OptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf6OptionE, i64 16), ptr %this, align 8
   %_internal_metadata_2 = getelementptr inbounds nuw i8, ptr %from, i64 8
   %1 = load i64, ptr %_internal_metadata_2, align 8
   %and.i31 = and i64 %1, 1
@@ -5124,7 +5124,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define { ptr, ptr } @_ZNK6google8protobuf6Option11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
 entry:
-  %call = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPN4absl12lts_202308029once_flagERKNS0_8MetadataE(ptr noundef nonnull @_Z56descriptor_table_google_2fprotobuf_2ftype_2eproto_getterv, ptr noundef nonnull @_ZL54descriptor_table_google_2fprotobuf_2ftype_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL52file_level_metadata_google_2fprotobuf_2ftype_2eproto, i64 64))
+  %call = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPN4absl12lts_202308029once_flagERKNS0_8MetadataE(ptr noundef nonnull @_Z56descriptor_table_google_2fprotobuf_2ftype_2eproto_getterv, ptr noundef nonnull @_ZL54descriptor_table_google_2fprotobuf_2ftype_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL52file_level_metadata_google_2fprotobuf_2ftype_2eproto, i64 64))
   ret { ptr, ptr } %call
 }
 

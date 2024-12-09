@@ -574,15 +574,15 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
   %241 = add i32 %234, 5
   %242 = getelementptr i8, ptr %0, i64 208
   store i32 %241, ptr %242, align 4
-  %243 = load i16, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 96), align 1
+  %243 = load i16, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 96), align 1
   %244 = zext i16 %243 to i32
   %245 = getelementptr i8, ptr %0, i64 164
   store i32 %244, ptr %245, align 4
-  %246 = load i16, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 98), align 1
+  %246 = load i16, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 98), align 1
   %247 = zext i16 %246 to i32
   %248 = getelementptr i8, ptr %0, i64 216
   store i32 %247, ptr %248, align 4
-  %249 = load i16, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 96), align 1
+  %249 = load i16, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 96), align 1
   %250 = icmp ugt i16 %249, 100
   br i1 %250, label %251, label %252
 
@@ -592,7 +592,7 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
 
 252:                                              ; preds = %251, %236
   %253 = phi i32 [ 0, %251 ], [ %239, %236 ]
-  %254 = load i16, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 98), align 1
+  %254 = load i16, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 98), align 1
   %255 = icmp ugt i16 %254, 1000
   br i1 %255, label %256, label %.thread20
 
@@ -672,7 +672,7 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
   br i1 %294, label %336, label %295
 
 295:                                              ; preds = %291
-  %296 = load i8, ptr getelementptr inbounds (i8, ptr @errata, i64 4), align 4
+  %296 = load i8, ptr getelementptr inbounds nuw (i8, ptr @errata, i64 4), align 4
   %297 = and i8 %296, 2
   %298 = icmp eq i8 %297, 0
   br i1 %298, label %299, label %336
@@ -723,7 +723,7 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
   br i1 %329, label %336, label %334
 
 330:                                              ; preds = %323
-  %331 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 112), align 1
+  %331 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 112), align 1
   %332 = and i32 %331, 1
   %333 = icmp eq i32 %332, 0
   br i1 %333, label %336, label %334
@@ -765,7 +765,7 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
   br i1 %354, label %355, label %369
 
 355:                                              ; preds = %.thread24
-  %356 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 120), align 8
+  %356 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
   %357 = load i32, ptr %271, align 8
   %358 = sext i32 %357 to i64
   %359 = icmp sgt i64 %277, %358
@@ -788,7 +788,7 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
 
 369:                                              ; preds = %367, %360, %355, %.thread24
   %370 = phi i8 [ %.pre44, %367 ], [ %338, %360 ], [ %338, %355 ], [ %338, %.thread24 ]
-  %371 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
+  %371 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 1), align 1
   switch i8 %371, label %378 [
     i8 9, label %372
     i8 2, label %372
@@ -798,7 +798,7 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
   ]
 
 372:                                              ; preds = %369, %369, %369, %369, %369
-  %373 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 48), align 8
+  %373 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 48), align 8
   %374 = and i64 %373, 72057594037927936
   %375 = icmp ne i64 %374, 0
   %376 = icmp ult i8 %370, 2
@@ -1157,7 +1157,7 @@ define internal fastcc void @acpi_processor_setup_cpuidle_states(ptr noundef %0)
   br i1 %5, label %6, label %119
 
 6:                                                ; preds = %1
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @acpi_idle_driver, i64 1068), align 4
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @acpi_idle_driver, i64 1068), align 4
   br label %7
 
 7:                                                ; preds = %7, %6
@@ -1221,7 +1221,7 @@ define internal fastcc void @acpi_processor_setup_cpuidle_states(ptr noundef %0)
 46:                                               ; preds = %44, %40, %23
   %47 = getelementptr inbounds nuw i8, ptr %26, i64 80
   store ptr @acpi_idle_lpi_enter, ptr %47, align 8
-  store i32 %27, ptr getelementptr inbounds (i8, ptr @acpi_idle_driver, i64 1068), align 4
+  store i32 %27, ptr getelementptr inbounds nuw (i8, ptr @acpi_idle_driver, i64 1068), align 4
   %48 = add nuw nsw i64 %24, 1
   %49 = load i32, ptr %18, align 8
   %50 = sext i32 %49 to i64
@@ -1296,7 +1296,7 @@ define internal fastcc void @acpi_processor_setup_cpuidle_states(ptr noundef %0)
   br i1 %95, label %.thread, label %96
 
 96:                                               ; preds = %92
-  store i32 %68, ptr getelementptr inbounds (i8, ptr @acpi_idle_driver, i64 1068), align 4
+  store i32 %68, ptr getelementptr inbounds nuw (i8, ptr @acpi_idle_driver, i64 1068), align 4
   %.pr = load i8, ptr %88, align 1
   %97 = icmp eq i8 %.pr, 1
   br i1 %97, label %107, label %.thread
@@ -1305,7 +1305,7 @@ define internal fastcc void @acpi_processor_setup_cpuidle_states(ptr noundef %0)
   %98 = load i16, ptr %2, align 8
   %99 = and i16 %98, 64
   %100 = icmp eq i16 %99, 0
-  %101 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 112), align 1
+  %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 112), align 1
   %102 = and i32 %101, 8
   %103 = icmp eq i32 %102, 0
   %104 = select i1 %100, i1 %103, i1 false
@@ -1337,7 +1337,7 @@ define internal fastcc void @acpi_processor_setup_cpuidle_states(ptr noundef %0)
 
 .loopexit:                                        ; preds = %110, %107, %60, %54, %17
   %118 = phi i32 [ 0, %17 ], [ %55, %54 ], [ 1, %60 ], [ 10, %107 ], [ %112, %110 ]
-  store i32 %118, ptr getelementptr inbounds (i8, ptr @acpi_idle_driver, i64 1064), align 8
+  store i32 %118, ptr getelementptr inbounds nuw (i8, ptr @acpi_idle_driver, i64 1064), align 8
   br label %119
 
 119:                                              ; preds = %.loopexit, %1
@@ -1363,20 +1363,20 @@ define dso_local i32 @acpi_processor_power_init(ptr noundef %0) local_unnamed_ad
   %9 = tail call i32 @dmi_check_system(ptr noundef nonnull @processor_power_dmi_table) #17
   %10 = load i8, ptr @boot_cpu_data, align 8
   %11 = icmp eq i8 %10, 15
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 1), align 1
   %13 = icmp eq i8 %12, 2
   %14 = select i1 %11, i1 %13, i1 false
-  %15 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 2), align 2
+  %15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 2), align 2
   %16 = icmp ult i8 %15, 6
   %17 = select i1 %14, i1 %16, i1 false
-  %18 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 3), align 1
+  %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 3), align 1
   %19 = icmp ult i8 %18, 10
   %20 = select i1 %17, i1 %19, i1 false
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %8
   %22 = load i32, ptr @max_cstate, align 4
-  %23 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 120), align 8
+  %23 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
   %24 = and i64 %23, 68719476736
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %26, label %.thread
@@ -1436,7 +1436,7 @@ define dso_local i32 @acpi_processor_power_init(ptr noundef %0) local_unnamed_ad
   br i1 %53, label %54, label %74
 
 54:                                               ; preds = %51, %48
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %56 = tail call noalias noundef align 8 dereferenceable_or_null(800) ptr @kmalloc_trace(ptr noundef %55, i32 noundef 3520, i64 noundef 800) #20
   %57 = icmp eq ptr %56, null
   br i1 %57, label %74, label %58
@@ -1978,7 +1978,7 @@ define internal i32 @acpi_idle_enter(ptr nocapture noundef readonly %0, ptr noca
   %29 = phi i16 [ %.pre, %._crit_edge ], [ %23, %21 ]
   %30 = and i16 %29, 64
   %31 = icmp eq i16 %30, 0
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 112), align 1
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 112), align 1
   %33 = and i32 %32, 8
   %34 = icmp eq i32 %33, 0
   %35 = select i1 %31, i1 %34, i1 false
@@ -1990,7 +1990,7 @@ define internal i32 @acpi_idle_enter(ptr nocapture noundef readonly %0, ptr noca
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %36
-  %40 = add i64 %11, ptrtoint (ptr getelementptr inbounds (i8, ptr @acpi_cstate, i64 8) to i64)
+  %40 = add i64 %11, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @acpi_cstate, i64 8) to i64)
   %41 = inttoptr i64 %40 to ptr
   %42 = load ptr, ptr %41, align 8
   %.phi.trans.insert1 = getelementptr inbounds nuw i8, ptr %42, i64 1
@@ -2005,7 +2005,7 @@ define internal i32 @acpi_idle_enter(ptr nocapture noundef readonly %0, ptr noca
   br i1 %47, label %48, label %.thread
 
 48:                                               ; preds = %43
-  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 159, i32 128, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 59)) #17
+  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 159, i32 128, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 59)) #17
           to label %.thread [label %.thread, label %49], !srcloc !29
 
 49:                                               ; preds = %48
@@ -2052,16 +2052,16 @@ define internal i32 @acpi_idle_enter(ptr nocapture noundef readonly %0, ptr noca
   %66 = load i32, ptr %65, align 4
   %67 = trunc i32 %66 to i16
   %68 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %67) #17, !srcloc !36
-  %69 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %69 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %70 = and i64 %69, 2147483648
   %71 = icmp ne i64 %70, 0
-  %72 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
+  %72 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 1), align 1
   %73 = icmp ne i8 %72, 0
   %74 = select i1 %71, i1 true, i1 %73
   br i1 %74, label %acpi_idle_do_entry.exit, label %75
 
 75:                                               ; preds = %64
-  %76 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 212), align 1
+  %76 = load i64, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 212), align 1
   %77 = trunc i64 %76 to i16
   %78 = tail call i32 asm sideeffect "inl ${1:w}, $0", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %77) #17, !srcloc !37
   br label %acpi_idle_do_entry.exit
@@ -2084,7 +2084,7 @@ define internal noundef i32 @acpi_idle_play_dead(ptr nocapture noundef readonly 
   %11 = add i64 %10, %5
   %12 = inttoptr i64 %11 to ptr
   %13 = load ptr, ptr %12, align 8
-  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 159, i32 128, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 59)) #17
+  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 159, i32 128, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 59)) #17
           to label %15 [label %15, label %14], !srcloc !29
 
 14:                                               ; preds = %2
@@ -2169,7 +2169,7 @@ define internal noundef i32 @acpi_idle_enter_s2idle(ptr nocapture noundef readon
   br label %acpi_idle_do_entry.exit
 
 31:                                               ; preds = %21
-  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 159, i32 128, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 59)) #17
+  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 159, i32 128, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 59)) #17
           to label %33 [label %33, label %32], !srcloc !29
 
 32:                                               ; preds = %31
@@ -2214,16 +2214,16 @@ define internal noundef i32 @acpi_idle_enter_s2idle(ptr nocapture noundef readon
   %48 = load i32, ptr %47, align 4
   %49 = trunc i32 %48 to i16
   %50 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %49) #17, !srcloc !36
-  %51 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %51 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %52 = and i64 %51, 2147483648
   %53 = icmp ne i64 %52, 0
-  %54 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
+  %54 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 1), align 1
   %55 = icmp ne i8 %54, 0
   %56 = select i1 %53, i1 true, i1 %55
   br i1 %56, label %acpi_idle_do_entry.exit, label %57
 
 57:                                               ; preds = %46
-  %58 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 212), align 1
+  %58 = load i64, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 212), align 1
   %59 = trunc i64 %58 to i16
   %60 = tail call i32 asm sideeffect "inl ${1:w}, $0", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %59) #17, !srcloc !37
   br label %acpi_idle_do_entry.exit
@@ -2317,16 +2317,16 @@ define internal fastcc i32 @acpi_idle_enter_bm(ptr nocapture noundef readonly %0
   %44 = load i32, ptr %43, align 4
   %45 = trunc i32 %44 to i16
   %46 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %45) #17, !srcloc !36
-  %47 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %47 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %48 = and i64 %47, 2147483648
   %49 = icmp ne i64 %48, 0
-  %50 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
+  %50 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 1), align 1
   %51 = icmp ne i8 %50, 0
   %52 = select i1 %49, i1 true, i1 %51
   br i1 %52, label %acpi_idle_do_entry.exit, label %53
 
 53:                                               ; preds = %42
-  %54 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 212), align 1
+  %54 = load i64, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 212), align 1
   %55 = trunc i64 %54 to i16
   %56 = tail call i32 asm sideeffect "inl ${1:w}, $0", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %55) #17, !srcloc !37
   br label %acpi_idle_do_entry.exit
@@ -2384,16 +2384,16 @@ acpi_idle_do_entry.exit:                          ; preds = %32, %33, %41, %42, 
   %76 = load i32, ptr %75, align 4
   %77 = trunc i32 %76 to i16
   %78 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %77) #17, !srcloc !36
-  %79 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %79 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %80 = and i64 %79, 2147483648
   %81 = icmp ne i64 %80, 0
-  %82 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
+  %82 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 1), align 1
   %83 = icmp ne i8 %82, 0
   %84 = select i1 %81, i1 true, i1 %83
   br i1 %84, label %acpi_idle_do_entry.exit1, label %85
 
 85:                                               ; preds = %74
-  %86 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 212), align 1
+  %86 = load i64, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 212), align 1
   %87 = trunc i64 %86 to i16
   %88 = tail call i32 asm sideeffect "inl ${1:w}, $0", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %87) #17, !srcloc !37
   br label %acpi_idle_do_entry.exit1
@@ -2429,7 +2429,7 @@ define internal fastcc i32 @acpi_idle_bm_check() unnamed_addr #0 align 16 {
   br label %33
 
 10:                                               ; preds = %4
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @errata, i64 8), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @errata, i64 8), align 4
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %33, label %13
 
@@ -2446,7 +2446,7 @@ define internal fastcc i32 @acpi_idle_bm_check() unnamed_addr #0 align 16 {
   br i1 %21, label %22, label %32
 
 22:                                               ; preds = %13
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @errata, i64 8), align 4
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @errata, i64 8), align 4
   %24 = trunc i32 %23 to i16
   %25 = add i16 %24, 10
   %26 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %25) #17, !srcloc !36
@@ -2500,16 +2500,16 @@ declare dso_local void @acpi_processor_ffh_cstate_enter(ptr noundef) local_unnam
 define internal fastcc void @io_idle(i64 noundef range(i64 0, 4294967296) %0) unnamed_addr #13 section ".cpuidle.text" align 16 {
   %2 = trunc i64 %0 to i16
   %3 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %2) #17, !srcloc !36
-  %4 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
+  %4 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %5 = and i64 %4, 2147483648
   %6 = icmp ne i64 %5, 0
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 1), align 1
   %8 = icmp ne i8 %7, 0
   %9 = select i1 %6, i1 true, i1 %8
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %1
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 212), align 1
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 212), align 1
   %12 = trunc i64 %11 to i16
   %13 = tail call i32 asm sideeffect "inl ${1:w}, $0", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %12) #17, !srcloc !37
   br label %14

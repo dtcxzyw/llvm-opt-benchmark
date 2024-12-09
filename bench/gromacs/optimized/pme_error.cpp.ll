@@ -380,20 +380,20 @@ define noundef i32 @_Z13gmx_pme_erroriPPc(i32 noundef %0, ptr noundef %1) local_
 
 37:                                               ; preds = %35
   store i32 26, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, align 16
-  store ptr @.str.8, ptr getelementptr inbounds (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 8), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 16), align 16
-  store i64 2, ptr getelementptr inbounds (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 24), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 32), i8 0, i64 24, i1 false)
-  store i32 21, ptr getelementptr inbounds (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 56), align 8
-  store ptr @.str.9, ptr getelementptr inbounds (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 64), align 16
-  store ptr @.str.10, ptr getelementptr inbounds (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 72), align 8
-  store i64 4, ptr getelementptr inbounds (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 80), align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 88), i8 0, i64 24, i1 false)
-  store i32 26, ptr getelementptr inbounds (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 112), align 16
-  store ptr @.str.11, ptr getelementptr inbounds (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 120), align 8
-  store ptr @.str.12, ptr getelementptr inbounds (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 128), align 16
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 136), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 144), i8 0, i64 24, i1 false)
+  store ptr @.str.8, ptr getelementptr inbounds nuw (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 16), align 16
+  store i64 2, ptr getelementptr inbounds nuw (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 24), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 32), i8 0, i64 24, i1 false)
+  store i32 21, ptr getelementptr inbounds nuw (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 56), align 8
+  store ptr @.str.9, ptr getelementptr inbounds nuw (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 64), align 16
+  store ptr @.str.10, ptr getelementptr inbounds nuw (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 72), align 8
+  store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 80), align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 88), i8 0, i64 24, i1 false)
+  store i32 26, ptr getelementptr inbounds nuw (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 112), align 16
+  store ptr @.str.11, ptr getelementptr inbounds nuw (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 120), align 8
+  store ptr @.str.12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 128), align 16
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 136), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 144), i8 0, i64 24, i1 false)
   %38 = call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor, ptr null, ptr nonnull @__dso_handle) #20
   call void @__cxa_guard_release(ptr nonnull @_ZGVZ13gmx_pme_erroriPPcE3fnm) #20
   br label %39
@@ -1681,7 +1681,7 @@ define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #5 sect
   br label %2
 
 2:                                                ; preds = %_ZN8t_filenmD2Ev.exit, %1
-  %3 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 168), %1 ], [ %4, %_ZN8t_filenmD2Ev.exit ]
+  %3 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZ13gmx_pme_erroriPPcE3fnm, i64 168), %1 ], [ %4, %_ZN8t_filenmD2Ev.exit ]
   %4 = getelementptr inbounds i8, ptr %3, i64 -56
   %5 = getelementptr inbounds i8, ptr %3, i64 -24
   %6 = load ptr, ptr %5, align 8
@@ -4855,8 +4855,8 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEE
           to label %13 unwind label %.thread47
 
 13:                                               ; preds = %12
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %5, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEEvPSt5arrayIT_XT0_EES4_, ptr %14, align 8
   %.sroa.241.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4909,8 +4909,8 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEE
           to label %29 unwind label %.thread54
 
 29:                                               ; preds = %28
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %6, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %8, align 8
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEEvPSt5arrayIT_XT0_EES4_, ptr %30, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -4970,7 +4970,7 @@ define linkonce_odr void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocatio
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
@@ -5021,7 +5021,7 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   store ptr null, ptr %24, align 8
   store ptr %25, ptr %23, align 8
   store ptr null, ptr %21, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -5078,7 +5078,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -5357,8 +5357,8 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EE
           to label %12 unwind label %.thread22
 
 12:                                               ; preds = %11
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %4, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE, ptr %13, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16

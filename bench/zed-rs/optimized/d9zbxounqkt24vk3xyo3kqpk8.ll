@@ -15971,7 +15971,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i.i: ; preds = %
   br label %"_ZN4core3ptr230drop_in_place$LT$std..collections..hash..map..HashMap$LT$core..option..Option$LT$zbus..match_rule..OwnedMatchRule$GT$$C$async_broadcast..Sender$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$GT$$GT$17h60c93ad488951131E.exit.i.thread"
 
 1191:                                             ; preds = %.noexc.i129, %1184
-  %.sroa.0.0.i.i.i2.i.i = phi ptr [ %1187, %.noexc.i129 ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1184 ]
+  %.sroa.0.0.i.i.i2.i.i = phi ptr [ %1187, %.noexc.i129 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1184 ]
   %1192 = load i64, ptr %.sroa.0.0.i.i.i2.i.i, align 8, !noalias !5094, !noundef !5
   %1193 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i.i, i64 8
   %1194 = load i64, ptr %1193, align 8, !noalias !5094, !noundef !5
@@ -16369,7 +16369,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i97.i: ; preds =
   br label %.thread198.i
 
 1304:                                             ; preds = %.noexc101.i, %1298
-  %.sroa.0.0.i.i.i2.i98.i = phi ptr [ %1300, %.noexc101.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1298 ]
+  %.sroa.0.0.i.i.i2.i98.i = phi ptr [ %1300, %.noexc101.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1298 ]
   %1305 = load i64, ptr %.sroa.0.0.i.i.i2.i98.i, align 8, !noalias !5191, !noundef !5
   %1306 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i98.i, i64 8
   %1307 = load i64, ptr %1306, align 8, !noalias !5191, !noundef !5
@@ -16550,7 +16550,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i110.i: ; preds 
           to label %1466 unwind label %1418, !noalias !5075
 
 1361:                                             ; preds = %.noexc114.i, %1340
-  %.sroa.0.0.i.i.i2.i111.i = phi ptr [ %1356, %.noexc114.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1340 ]
+  %.sroa.0.0.i.i.i2.i111.i = phi ptr [ %1356, %.noexc114.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1340 ]
   %1362 = load i64, ptr %.sroa.0.0.i.i.i2.i111.i, align 8, !noalias !5274, !noundef !5
   %1363 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i111.i, i64 8
   %1364 = load i64, ptr %1363, align 8, !noalias !5274, !noundef !5
@@ -17835,7 +17835,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i: ; preds = %"_
   br label %"_ZN4core3ptr185drop_in_place$LT$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$std..collections..hash..map..HashMap$LT$$RF$str$C$zvariant..value..Value$GT$$GT$$GT$17hc754a7ce299f32b9E.exit206.i"
 
 1761:                                             ; preds = %.noexc360, %"_ZN4core3ptr49drop_in_place$LT$zbus..connection..Connection$GT$17hf3f3826529bc763eE.exit.i"
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %1751, %.noexc360 ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %"_ZN4core3ptr49drop_in_place$LT$zbus..connection..Connection$GT$17hf3f3826529bc763eE.exit.i" ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %1751, %.noexc360 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %"_ZN4core3ptr49drop_in_place$LT$zbus..connection..Connection$GT$17hf3f3826529bc763eE.exit.i" ]
   %1762 = load i64, ptr %.sroa.0.0.i.i.i2.i, align 8, !noalias !5657, !noundef !5
   %1763 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i, i64 8
   %1764 = load i64, ptr %1763, align 8, !noalias !5657, !noundef !5
@@ -18116,7 +18116,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i.i.i: ; preds =
   br label %"_ZN4core3ptr300drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..OwnedObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$$GT$17h7610e44109dc44e3E.exit73.i.i"
 
 1859:                                             ; preds = %.noexc.i.i161, %1834
-  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %1844, %.noexc.i.i161 ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1834 ]
+  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %1844, %.noexc.i.i161 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1834 ]
   %1860 = load i64, ptr %.sroa.0.0.i.i.i2.i.i.i, align 8, !noalias !5742, !noundef !5
   %1861 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i.i.i, i64 8
   %1862 = load i64, ptr %1861, align 8, !noalias !5742, !noundef !5
@@ -18577,7 +18577,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i55.i.i: ; preds
   br label %"_ZN4core3ptr215drop_in_place$LT$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$17h865ef238915f3772E.exit71.i.i"
 
 2048:                                             ; preds = %.noexc59.i.i, %2011
-  %.sroa.0.0.i.i.i2.i56.i.i = phi ptr [ %2022, %.noexc59.i.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %2011 ]
+  %.sroa.0.0.i.i.i2.i56.i.i = phi ptr [ %2022, %.noexc59.i.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %2011 ]
   %2049 = load i64, ptr %.sroa.0.0.i.i.i2.i56.i.i, align 8, !noalias !5908, !noundef !5
   %2050 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i56.i.i, i64 8
   %2051 = load i64, ptr %2050, align 8, !noalias !5908, !noundef !5

@@ -1145,7 +1145,7 @@ declare void @_ZNK6google8protobuf14FileDescriptor14CopyJsonNameToEPNS0_19FileDe
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplC2ERKSt6vectorIPKNS0_14FileDescriptorESaIS7_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 41)) %this, ptr noundef nonnull align 8 dereferenceable(24) %parsed_files) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplE, i64 16), ptr %this, align 8
   %files_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr @_ZZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE9EmptyNodeEvE10empty_nodeB5cxx11, ptr %files_, align 8
   %rightmost_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2192,7 +2192,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamC2EPNS2_20GeneratorContextImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 16)) %this, ptr noundef %directory, ptr noundef nonnull align 8 dereferenceable(32) %filename, i1 noundef zeroext %append_mode) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i64 16), ptr %this, align 8
   %directory_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %directory, ptr %directory_, align 8
   %filename_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2265,7 +2265,7 @@ declare void @_ZN6google8protobuf2io18StringOutputStreamC1EPNSt7__cxx1112basic_s
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamC2EPNS2_20GeneratorContextImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 16)) %this, ptr noundef %directory, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %insertion_point) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i64 16), ptr %this, align 8
   %directory_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %directory, ptr %directory_, align 8
   %filename_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2340,7 +2340,7 @@ ehcleanup12:                                      ; preds = %ehcleanup, %lpad2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamC2EPNS2_20GeneratorContextImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_RKNS0_17GeneratedCodeInfoE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 16)) %this, ptr noundef %directory, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %insertion_point, ptr noundef nonnull align 8 dereferenceable(48) %info) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i64 16), ptr %this, align 8
   %directory_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %directory, ptr %directory_, align 8
   %filename_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2922,7 +2922,7 @@ entry:
   %ref.tmp74 = alloca %"class.std::__cxx11::basic_string", align 8
   %indent_ = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp156 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i64 16), ptr %this, align 8
   %inner_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %inner_, align 8
   store ptr null, ptr %inner_, align 8
@@ -3428,27 +3428,27 @@ invoke.cont9:
   %size_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i64 0, ptr %size_.i.i.i.i.i, align 8
   %generators_by_option_name_ = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %generators_by_option_name_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %generators_by_option_name_, align 8
   %slots_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %generator_parameters_ = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %generator_parameters_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %generator_parameters_, align 8
   %slots_.i.i.i.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %this, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i6, i8 0, i64 24, i1 false)
   %plugin_parameters_ = getelementptr inbounds nuw i8, ptr %this, i64 152
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %plugin_parameters_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %plugin_parameters_, align 8
   %slots_.i.i.i.i.i.i.i7 = getelementptr inbounds nuw i8, ptr %this, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i7, i8 0, i64 24, i1 false)
   %plugin_prefix_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %plugin_prefix_) #31
   %plugins_ = getelementptr inbounds nuw i8, ptr %this, i64 216
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %plugins_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %plugins_, align 8
   %slots_.i.i.i.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %this, i64 224
   %proto_path_ = getelementptr inbounds nuw i8, ptr %this, i64 264
   %direct_dependencies_ = getelementptr inbounds nuw i8, ptr %this, i64 312
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %slots_.i.i.i.i.i.i.i8, i8 0, i64 37, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %proto_path_, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %direct_dependencies_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %direct_dependencies_, align 8
   %slots_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 320
   %direct_dependencies_violation_msg_ = getelementptr inbounds nuw i8, ptr %this, i64 352
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %slots_.i.i.i.i.i.i, i8 0, i64 25, i1 false)
@@ -3461,7 +3461,7 @@ call.i.noexc:                                     ; preds = %invoke.cont9
           to label %.noexc unwind label %lpad12
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %direct_dependencies_violation_msg_, ptr noundef nonnull @.str.155, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.155, i64 62))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %direct_dependencies_violation_msg_, ptr noundef nonnull @.str.155, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.155, i64 62))
           to label %invoke.cont13 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -4899,9 +4899,9 @@ invoke.cont50:                                    ; preds = %if.end46
   %54 = load i32, ptr %error_format_, align 8
   %55 = getelementptr inbounds nuw i8, ptr %call48, i64 8
   %56 = getelementptr inbounds nuw i8, ptr %call48, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 16), ptr %call48, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 96), ptr %55, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 144), ptr %56, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 16), ptr %call48, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 96), ptr %55, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 144), ptr %56, align 8
   %format_.i = getelementptr inbounds nuw i8, ptr %call48, i64 24
   store i32 %54, ptr %format_.i, align 8
   %tree_.i = getelementptr inbounds nuw i8, ptr %call48, i64 32
@@ -4976,9 +4976,9 @@ invoke.cont75:                                    ; preds = %if.end69
   %64 = load i32, ptr %error_format_72, align 8
   %65 = getelementptr inbounds nuw i8, ptr %call71, i64 8
   %66 = getelementptr inbounds nuw i8, ptr %call71, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 16), ptr %call71, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 96), ptr %65, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 144), ptr %66, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 16), ptr %call71, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 96), ptr %65, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 144), ptr %66, align 8
   %format_.i105 = getelementptr inbounds nuw i8, ptr %call71, i64 24
   store i32 %64, ptr %format_.i105, align 8
   %tree_.i106 = getelementptr inbounds nuw i8, ptr %call71, i64 32
@@ -5481,7 +5481,7 @@ for.end146:                                       ; preds = %invoke.cont142, %if
   br i1 %tobool, label %cleanup372, label %invoke.cont149
 
 invoke.cont149:                                   ; preds = %for.end146
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %output_directories, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %output_directories, align 8
   %slots_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %output_directories, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %158 = load i32, ptr %mode_, align 8
@@ -9123,7 +9123,7 @@ entry:
   %printer = alloca %"class.google::protobuf::io::Printer", align 8
   %disk_file = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN6google8protobuf17FileDescriptorSetC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %file_set, ptr noundef null)
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %already_seen, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %already_seen, align 8
   %slots_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %already_seen, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %parsed_files, i64 8
@@ -9514,7 +9514,7 @@ for.body78:                                       ; preds = %for.body78.lr.ph, %
   %57 = extractvalue { i64, ptr } %call80, 0
   %58 = extractvalue { i64, ptr } %call80, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %map.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %map.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %map.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   invoke void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEESA_NS5_18container_internal10StringHashENSB_8StringEqESaISt4pairIKSA_SA_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %map.i, i64 %57, ptr %58)
           to label %invoke.cont5.i unwind label %lpad.i75
@@ -9557,7 +9557,7 @@ invoke.cont82:                                    ; preds = %invoke.cont13.i.i.i
 
 if.then85:                                        ; preds = %invoke.cont82
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %map.i82)
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %map.i82, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %map.i82, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i83, i8 0, i64 24, i1 false)
   invoke void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEESA_NS5_18container_internal10StringHashENSB_8StringEqESaISt4pairIKSA_SA_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %map.i82, i64 1, ptr nonnull @.str.18)
           to label %invoke.cont5.i90 unwind label %lpad.i84
@@ -9597,7 +9597,7 @@ lpad72:                                           ; preds = %invoke.cont71
 
 if.else:                                          ; preds = %invoke.cont82
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %map.i100)
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %map.i100, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %map.i100, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i101, i8 0, i64 24, i1 false)
   invoke void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEESA_NS5_18container_internal10StringHashENSB_8StringEqESaISt4pairIKSA_SA_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %map.i100, i64 3, ptr nonnull @.str.139)
           to label %invoke.cont5.i108 unwind label %lpad.i102
@@ -9681,7 +9681,7 @@ invoke.cont112:                                   ; preds = %if.then109
 
 if.then116:                                       ; preds = %invoke.cont112
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %map.i122)
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %map.i122, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %map.i122, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i123, i8 0, i64 24, i1 false)
   invoke void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEESA_NS5_18container_internal10StringHashENSB_8StringEqESaISt4pairIKSA_SA_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %map.i122, i64 2, ptr nonnull @.str.142)
           to label %invoke.cont5.i130 unwind label %lpad.i124
@@ -9850,7 +9850,7 @@ entry:
   %out = alloca %"class.google::protobuf::io::FileOutputStream", align 8
   %coded_out = alloca %"class.google::protobuf::io::CodedOutputStream", align 8
   call void @_ZN6google8protobuf17FileDescriptorSetC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %file_set, ptr noundef null)
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %already_seen, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %already_seen, align 8
   %slots_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %already_seen, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %imports_in_descriptor_set_ = getelementptr inbounds nuw i8, ptr %this, i64 569
@@ -9860,7 +9860,7 @@ entry:
   br i1 %tobool, label %if.end33, label %if.then
 
 if.then:                                          ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %to_output, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %to_output, align 8
   %slots_.i.i.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %to_output, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i18, i8 0, i64 24, i1 false)
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %parsed_files, i64 8
@@ -10849,9 +10849,9 @@ invoke.cont25:                                    ; preds = %invoke.cont20
   %6 = load i32, ptr %error_format_, align 8
   %7 = getelementptr inbounds nuw i8, ptr %error_collector, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %error_collector, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 16), ptr %error_collector, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 96), ptr %7, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 144), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 16), ptr %error_collector, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 96), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 144), ptr %8, align 8
   %format_.i = getelementptr inbounds nuw i8, ptr %error_collector, i64 24
   store i32 %6, ptr %format_.i, align 8
   %tree_.i = getelementptr inbounds nuw i8, ptr %error_collector, i64 32
@@ -15113,7 +15113,7 @@ lpad4:                                            ; preds = %invoke.cont3, %call
   br label %ehcleanup211
 
 if.end:                                           ; preds = %call2.i.noexc, %invoke.cont5
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %already_seen, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %already_seen, align 8
   %slots_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %already_seen, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %14 = load ptr, ptr %parsed_files, align 8
@@ -15994,10 +15994,10 @@ entry:
   store i64 0, ptr %arrayinit.element4, align 16
   %_M_str.i5 = getelementptr inbounds nuw i8, ptr %vars, i64 40
   store ptr @.str.5, ptr %_M_str.i5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %map, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %map, align 8
   %slots_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %map, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 8), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 8), align 8
   %cmp.i = icmp eq i64 %3, 0
   br i1 %cmp.i, label %if.then.i, label %for.body
 
@@ -16324,7 +16324,7 @@ declare void @_ZNK6google8protobuf14DescriptorPool17FindAllExtensionsEPKNS0_10De
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplE, i64 16), ptr %this, align 8
   %files_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %size_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %size_.i.i.i.i.i.i.i, align 8
@@ -16356,7 +16356,7 @@ _ZN4absl12lts_202308029btree_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplD0Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplE, i64 16), ptr %this, align 8
   %files_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %size_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %size_.i.i.i.i.i.i.i.i, align 8
@@ -18176,7 +18176,7 @@ entry:
   br i1 %cmp.not.i, label %_ZN4absl12lts_2023080218container_internal29SelectBucketCountForIterRangeIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EEEEEEmT_SG_m.exit, label %_ZN4absl12lts_2023080218container_internal29SelectBucketCountForIterRangeIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EEEEEEmT_SG_m.exit.thread
 
 _ZN4absl12lts_2023080218container_internal29SelectBucketCountForIterRangeIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EEEEEEmT_SG_m.exit.thread: ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %this, align 8
   %slots_.i.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i5, i8 0, i64 24, i1 false)
   br label %invoke.cont.i
@@ -18189,7 +18189,7 @@ _ZN4absl12lts_2023080218container_internal29SelectBucketCountForIterRangeIN9__gn
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, -1
   %div.i.i = sdiv i64 %sub.i.i, 7
   %add.i.i = add nsw i64 %div.i.i, %sub.ptr.div.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %this, align 8
   %slots_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %tobool.not.i = icmp eq i64 %add.i.i, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i, i8 0, i64 24, i1 false)

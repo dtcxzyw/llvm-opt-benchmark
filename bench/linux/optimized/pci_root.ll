@@ -334,8 +334,8 @@ define internal fastcc void @acpi_pci_root_validate_resources(ptr noundef %0, pt
 25:                                               ; preds = %16
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %27 = load i64, ptr %26, align 8
-  %28 = load i64, ptr getelementptr inbounds (i8, ptr @ioport_resource, i64 8), align 8
-  %29 = load i64, ptr getelementptr inbounds (i8, ptr @iomem_resource, i64 8), align 8
+  %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ioport_resource, i64 8), align 8
+  %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @iomem_resource, i64 8), align 8
   %30 = select i1 %5, i64 %28, i64 %29
   %31 = call i64 @llvm.umin.i64(i64 %27, i64 %30)
   %32 = load i64, ptr %20, align 8
@@ -957,7 +957,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr @system_state, align 4
   %22 = icmp eq i32 %21, 3
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %24 = tail call noalias noundef align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %23, i32 noundef 3520, i64 noundef 112) #15
   %25 = icmp eq ptr %24, null
   br i1 %25, label %515, label %26
@@ -1704,7 +1704,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   br label %457
 
 457:                                              ; preds = %454, %447
-  %458 = load i16, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 109), align 1
+  %458 = load i16, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 109), align 1
   %459 = and i16 %458, 16
   %460 = icmp eq i16 %459, 0
   br i1 %460, label %480, label %461

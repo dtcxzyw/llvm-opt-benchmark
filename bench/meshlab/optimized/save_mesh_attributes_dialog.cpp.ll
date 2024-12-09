@@ -517,9 +517,9 @@ define void @_ZN24SaveMeshAttributesDialogC2EP7QWidgetP9MeshModeliiRK17RichParam
   %12 = alloca %class.QString, align 8
   %13 = alloca %class.QString, align 8
   tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i32 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24SaveMeshAttributesDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24SaveMeshAttributesDialog, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24SaveMeshAttributesDialog, i64 488), ptr %14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24SaveMeshAttributesDialog, i64 488), ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = invoke noalias noundef nonnull dereferenceable(376) ptr @_Znwm(i64 noundef 376) #26
           to label %17 unwind label %77
@@ -1504,7 +1504,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i85:  ; preds = %_ZN9QtPrivate8RefCo
   %168 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
   store i32 0, ptr %169, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %168, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %168, align 8
   %170 = getelementptr inbounds nuw i8, ptr %168, i64 12
   store i32 20, ptr %170, align 4
   %171 = getelementptr inbounds nuw i8, ptr %168, i64 16
@@ -1755,7 +1755,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i121: ; preds = %_ZN9QtPrivate8RefCo
   %247 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
   store i32 0, ptr %248, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %247, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %247, align 8
   %249 = getelementptr inbounds nuw i8, ptr %247, i64 12
   store i32 20, ptr %249, align 4
   %250 = getelementptr inbounds nuw i8, ptr %247, i64 16
@@ -1968,7 +1968,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i151: ; preds = %_ZN9QtPrivate8RefCo
   %315 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 8
   store i32 0, ptr %316, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %315, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %315, align 8
   %317 = getelementptr inbounds nuw i8, ptr %315, i64 12
   store i32 20, ptr %317, align 4
   %318 = getelementptr inbounds nuw i8, ptr %315, i64 16
@@ -2793,7 +2793,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i271: ; preds = %_ZN9QtPrivate8RefCo
   %567 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %568 = getelementptr inbounds nuw i8, ptr %567, i64 8
   store i32 0, ptr %568, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %567, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %567, align 8
   %569 = getelementptr inbounds nuw i8, ptr %567, i64 12
   store i32 199, ptr %569, align 4
   %570 = getelementptr inbounds nuw i8, ptr %567, i64 16
@@ -5338,9 +5338,9 @@ declare noundef i32 @_ZNK11QListWidget5countEv(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN24SaveMeshAttributesDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24SaveMeshAttributesDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24SaveMeshAttributesDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24SaveMeshAttributesDialog, i64 488), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24SaveMeshAttributesDialog, i64 488), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

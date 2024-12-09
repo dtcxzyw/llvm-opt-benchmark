@@ -123,7 +123,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17he70d3b51e0eec898E
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @anon.67d16d7cc839d40921d08a47799de314.1, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !28, !noalias !31
   %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr getelementptr inbounds (i8, ptr @anon.67d16d7cc839d40921d08a47799de314.1, i64 3), ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !alias.scope !28, !noalias !31
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.67d16d7cc839d40921d08a47799de314.1, i64 3), ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !alias.scope !28, !noalias !31
   %.sroa.7.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 0, ptr %.sroa.7.0..sroa_idx.i.i.i, align 8, !alias.scope !28, !noalias !31
   br label %6

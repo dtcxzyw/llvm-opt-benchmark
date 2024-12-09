@@ -167,7 +167,7 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL2eh, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_112g_timeout_ehE, i64 16), ptr @_ZL2eh, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_112g_timeout_ehE, i64 16), ptr @_ZL2eh, align 8
   ret void
 }
 

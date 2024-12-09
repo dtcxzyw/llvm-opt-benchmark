@@ -106,7 +106,7 @@ $_ZNSt10_HashtableIjSt4pairIKjPN7rocksdb18ColumnFamilyHandleEESaIS5_ENSt8__detai
 define void @_ZN7rocksdb21TraceExecutionHandlerC2EPNS_2DBERKSt6vectorIPNS_18ColumnFamilyHandleESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(264) initializes((0, 16)) %this, ptr noundef %db, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %handles) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.std::pair.5", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21TraceExecutionHandlerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb21TraceExecutionHandlerE, i64 16), ptr %this, align 8
   %db_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %db, ptr %db_, align 8
   %cf_map_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -285,7 +285,7 @@ _ZNSt10_HashtableIjSt4pairIKjPN7rocksdb18ColumnFamilyHandleEESaIS5_ENSt8__detail
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb21TraceExecutionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(264) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21TraceExecutionHandlerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb21TraceExecutionHandlerE, i64 16), ptr %this, align 8
   %cf_map_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_before_begin.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_before_begin.i.i.i, align 8

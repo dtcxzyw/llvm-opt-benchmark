@@ -40,37 +40,37 @@ define dso_local void @pgstat_report_checkpointer() local_unnamed_addr #0 {
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, %9
   store i64 %12, ptr %10, align 8
-  %13 = load i64, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 8), align 8
+  %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 8), align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 448
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %13
   store i64 %16, ptr %14, align 8
-  %17 = load i64, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 16), align 8
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 16), align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 456
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, %17
   store i64 %20, ptr %18, align 8
-  %21 = load i64, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 24), align 8
+  %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 24), align 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 464
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, %21
   store i64 %24, ptr %22, align 8
-  %25 = load i64, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 32), align 8
+  %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 32), align 8
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 472
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, %25
   store i64 %28, ptr %26, align 8
-  %29 = load i64, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 40), align 8
+  %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 40), align 8
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 480
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %31, %29
   store i64 %32, ptr %30, align 8
-  %33 = load i64, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 48), align 8
+  %33 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 48), align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 488
   %35 = load i64, ptr %34, align 8
   %36 = add i64 %35, %33
   store i64 %36, ptr %34, align 8
-  %37 = load i64, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 56), align 8
+  %37 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 56), align 8
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 496
   %39 = load i64, ptr %38, align 8
   %40 = add i64 %39, %37
@@ -95,7 +95,7 @@ declare zeroext i1 @pgstat_flush_io(i1 noundef zeroext) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local nonnull ptr @pgstat_fetch_stat_checkpointer() local_unnamed_addr #0 {
   tail call void @pgstat_snapshot_fixed(i32 noundef 8) #5
-  ret ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 224)
+  ret ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 224)
 }
 
 declare void @pgstat_snapshot_fixed(i32 noundef) local_unnamed_addr #1
@@ -166,7 +166,7 @@ pgstat_end_changecount_read.exit.i:               ; preds = %pgstat_end_changeco
 
 pgstat_begin_changecount_read.exit.i:             ; preds = %6, %pgstat_end_changecount_read.exit.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) getelementptr inbounds (i8, ptr @pgStatLocal, i64 224), ptr noundef nonnull readonly align 1 dereferenceable(72) %2, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 224), ptr noundef nonnull readonly align 1 dereferenceable(72) %2, i64 72, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !8
   %7 = and i32 %4, 1
   %.not.i5.i = icmp eq i32 %7, 0
@@ -200,30 +200,30 @@ pgstat_copy_changecounted_stats.exit:             ; preds = %8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 568
   %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx, align 8
   tail call void @LWLockRelease(ptr noundef nonnull %12) #5
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 224), align 8
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 224), align 8
   %15 = sub i64 %14, %.sroa.0.0.copyload
-  store i64 %15, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 224), align 8
-  %16 = load i64, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 232), align 8
+  store i64 %15, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 224), align 8
+  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 232), align 8
   %17 = sub i64 %16, %.sroa.2.0.copyload
-  store i64 %17, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 232), align 8
-  %18 = load i64, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 240), align 8
+  store i64 %17, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 232), align 8
+  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 240), align 8
   %19 = sub i64 %18, %.sroa.3.0.copyload
-  store i64 %19, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 240), align 8
-  %20 = load i64, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 248), align 8
+  store i64 %19, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 240), align 8
+  %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 248), align 8
   %21 = sub i64 %20, %.sroa.4.0.copyload
-  store i64 %21, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 248), align 8
-  %22 = load i64, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 256), align 8
+  store i64 %21, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 248), align 8
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 256), align 8
   %23 = sub i64 %22, %.sroa.5.0.copyload
-  store i64 %23, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 256), align 8
-  %24 = load i64, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 264), align 8
+  store i64 %23, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 256), align 8
+  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 264), align 8
   %25 = sub i64 %24, %.sroa.6.0.copyload
-  store i64 %25, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 264), align 8
-  %26 = load i64, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 272), align 8
+  store i64 %25, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 264), align 8
+  %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 272), align 8
   %27 = sub i64 %26, %.sroa.7.0.copyload
-  store i64 %27, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 272), align 8
-  %28 = load i64, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 280), align 8
+  store i64 %27, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 272), align 8
+  %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 280), align 8
   %29 = sub i64 %28, %.sroa.8.0.copyload
-  store i64 %29, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 280), align 8
+  store i64 %29, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 280), align 8
   ret void
 }
 

@@ -1688,7 +1688,7 @@ entry:
   %ref.tmp6 = alloca %"class.std::allocator", align 1
   store ptr @__func__._ZN5folly15writeFileAtomicENS_5RangeIPKcEEP5iovecijNS_8SyncTypeE, ptr %function, align 8
   %0 = getelementptr inbounds nuw i8, ptr %function, i64 8
-  store ptr getelementptr inbounds (i8, ptr @__func__._ZN5folly15writeFileAtomicENS_5RangeIPKcEEP5iovecijNS_8SyncTypeE, i64 15), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @__func__._ZN5folly15writeFileAtomicENS_5RangeIPKcEEP5iovecijNS_8SyncTypeE, i64 15), ptr %0, align 8
   store ptr %filename.coerce0, ptr %filename, align 8
   %1 = getelementptr inbounds nuw i8, ptr %filename, i64 8
   store ptr %filename.coerce1, ptr %1, align 8
@@ -2360,7 +2360,7 @@ if.then.i.i36:                                    ; preds = %_ZNSt7__cxx1112basi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %if.then.i.i36, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !81
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !81
   %_M_code = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %__v, ptr %_M_code, align 8, !tbaa !89
   %_M_cat.i41 = getelementptr inbounds nuw i8, ptr %this, i64 24

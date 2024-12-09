@@ -319,7 +319,7 @@ _ZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11Ev.exit: ; preds = %entr
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11Ev.exit
-  %call.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11EvE14staticTraceMapB5cxx11, i64 16), align 8
+  %call.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11EvE14staticTraceMapB5cxx11, i64 16), align 8
   %cmp.i.not3.i.i = icmp eq ptr %call.val.i, null
   br i1 %cmp.i.not3.i.i, label %if.then.i.i.i, label %for.body.i.preheader.i
 

@@ -2986,1062 +2986,1062 @@ if.end26:                                         ; preds = %if.end21
 
 if.end31:                                         ; preds = %if.end26
   store double 0x4002D97C7F3321D2, ptr @acos_special_values, align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 8), align 8
-  store double 0x400921FB54442D18, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 16), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 24), align 8
-  store double 0x400921FB54442D18, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 32), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 40), align 8
-  store double 0x400921FB54442D18, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 48), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 56), align 8
-  store double 0x400921FB54442D18, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 64), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 72), align 8
-  store double 0x4002D97C7F3321D2, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 80), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 88), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 96), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 104), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 112), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 120), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 128), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 136), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 144), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 152), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 160), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 168), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 176), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 184), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 192), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 200), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 208), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 216), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 224), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 232), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 240), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 248), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 256), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 264), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 272), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 280), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 288), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 296), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 304), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 312), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 320), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 328), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 336), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 344), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 352), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 360), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 368), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 376), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 384), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 392), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 400), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 408), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 416), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 424), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 432), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 440), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 448), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 456), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 464), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 472), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 480), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 488), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 496), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 504), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 512), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 520), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 528), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 536), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 544), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 552), align 8
-  store double 0x3FE921FB54442D18, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 560), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 568), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 576), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 584), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 592), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 600), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 608), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 616), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 624), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 632), align 8
-  store double 0x3FE921FB54442D18, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 640), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 648), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 656), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 664), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 672), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 680), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 688), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 696), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 704), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 712), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 720), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 728), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 736), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 744), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 752), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 760), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 768), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acos_special_values, i64 776), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 8), align 8
+  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 16), align 16
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 24), align 8
+  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 32), align 16
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 40), align 8
+  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 48), align 16
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 56), align 8
+  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 64), align 16
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 72), align 8
+  store double 0x4002D97C7F3321D2, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 80), align 16
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 88), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 96), align 16
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 104), align 8
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 112), align 16
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 120), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 128), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 136), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 144), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 152), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 160), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 168), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 176), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 184), align 8
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 192), align 16
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 200), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 208), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 216), align 8
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 224), align 16
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 232), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 240), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 248), align 8
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 256), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 264), align 8
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 272), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 280), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 288), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 296), align 8
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 304), align 16
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 312), align 8
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 320), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 328), align 8
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 336), align 16
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 344), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 352), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 360), align 8
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 368), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 376), align 8
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 384), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 392), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 400), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 408), align 8
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 416), align 16
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 424), align 8
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 432), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 440), align 8
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 448), align 16
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 456), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 464), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 472), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 480), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 488), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 496), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 504), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 512), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 520), align 8
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 528), align 16
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 536), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 544), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 552), align 8
+  store double 0x3FE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 560), align 16
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 568), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 576), align 16
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 584), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 592), align 16
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 600), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 608), align 16
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 616), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 624), align 16
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 632), align 8
+  store double 0x3FE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 640), align 16
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 648), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 656), align 16
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 664), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 672), align 16
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 680), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 688), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 696), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 704), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 712), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 720), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 728), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 736), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 744), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 752), align 16
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 760), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 768), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 776), align 8
   store double 0x7FF0000000000000, ptr @acosh_special_values, align 16
-  store double 0xC002D97C7F3321D2, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 8), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 16), align 16
-  store double 0xC00921FB54442D18, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 24), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 32), align 16
-  store double 0xC00921FB54442D18, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 40), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 48), align 16
-  store double 0x400921FB54442D18, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 56), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 64), align 16
-  store double 0x400921FB54442D18, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 72), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 80), align 16
-  store double 0x4002D97C7F3321D2, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 88), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 96), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 104), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 112), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 120), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 128), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 136), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 144), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 152), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 160), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 168), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 176), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 184), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 192), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 200), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 208), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 216), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 224), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 232), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 240), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 248), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 256), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 264), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 272), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 280), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 288), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 296), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 304), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 312), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 320), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 328), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 336), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 344), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 352), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 360), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 368), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 376), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 384), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 392), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 400), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 408), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 416), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 424), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 432), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 440), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 448), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 456), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 464), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 472), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 480), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 488), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 496), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 504), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 512), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 520), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 528), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 536), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 544), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 552), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 560), align 16
-  store double 0xBFE921FB54442D18, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 568), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 576), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 584), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 592), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 600), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 608), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 616), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 624), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 632), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 640), align 16
-  store double 0x3FE921FB54442D18, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 648), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 656), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 664), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 672), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 680), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 688), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 696), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 704), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 712), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 720), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 728), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 736), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 744), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 752), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 760), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 768), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @acosh_special_values, i64 776), align 8
+  store double 0xC002D97C7F3321D2, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 8), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 16), align 16
+  store double 0xC00921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 24), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 32), align 16
+  store double 0xC00921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 40), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 48), align 16
+  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 56), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 64), align 16
+  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 72), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 80), align 16
+  store double 0x4002D97C7F3321D2, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 88), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 96), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 104), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 112), align 16
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 120), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 128), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 136), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 144), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 152), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 160), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 168), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 176), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 184), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 192), align 16
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 200), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 208), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 216), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 224), align 16
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 232), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 240), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 248), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 256), align 16
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 264), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 272), align 16
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 280), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 288), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 296), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 304), align 16
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 312), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 320), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 328), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 336), align 16
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 344), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 352), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 360), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 368), align 16
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 376), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 384), align 16
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 392), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 400), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 408), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 416), align 16
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 424), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 432), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 440), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 448), align 16
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 456), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 464), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 472), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 480), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 488), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 496), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 504), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 512), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 520), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 528), align 16
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 536), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 544), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 552), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 560), align 16
+  store double 0xBFE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 568), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 576), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 584), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 592), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 600), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 608), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 616), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 624), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 632), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 640), align 16
+  store double 0x3FE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 648), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 656), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 664), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 672), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 680), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 688), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 696), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 704), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 712), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 720), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 728), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 736), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 744), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 752), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 760), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 768), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 776), align 8
   store double 0xFFF0000000000000, ptr @asinh_special_values, align 16
-  store double 0xBFE921FB54442D18, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 8), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 16), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 24), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 32), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 40), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 48), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 56), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 64), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 72), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 80), align 16
-  store double 0x3FE921FB54442D18, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 88), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 96), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 104), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 112), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 120), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 128), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 136), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 144), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 152), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 160), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 168), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 176), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 184), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 192), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 200), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 208), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 216), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 224), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 232), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 240), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 248), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 256), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 264), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 272), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 280), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 288), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 296), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 304), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 312), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 320), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 328), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 336), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 344), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 352), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 360), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 368), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 376), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @asinh_special_values, i64 384), i8 0, i64 16, i1 false)
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 400), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 408), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 416), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 424), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 432), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 440), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 448), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 456), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 464), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 472), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 480), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 488), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 496), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 504), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 512), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 520), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 528), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 536), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 544), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 552), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 560), align 16
-  store double 0xBFE921FB54442D18, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 568), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 576), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 584), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 592), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 600), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 608), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 616), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 624), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 632), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 640), align 16
-  store double 0x3FE921FB54442D18, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 648), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 656), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 664), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 672), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 680), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 688), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 696), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 704), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 712), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 720), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 728), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 736), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 744), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 752), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 760), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 768), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @asinh_special_values, i64 776), align 8
+  store double 0xBFE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 8), align 8
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 16), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 24), align 8
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 32), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 40), align 8
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 48), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 56), align 8
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 64), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 72), align 8
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 80), align 16
+  store double 0x3FE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 88), align 8
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 96), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 104), align 8
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 112), align 16
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 120), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 128), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 136), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 144), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 152), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 160), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 168), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 176), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 184), align 8
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 192), align 16
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 200), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 208), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 216), align 8
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 224), align 16
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 232), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 240), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 248), align 8
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 256), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 264), align 8
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 272), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 280), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 288), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 296), align 8
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 304), align 16
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 312), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 320), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 328), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 336), align 16
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 344), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 352), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 360), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 368), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 376), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 384), i8 0, i64 16, i1 false)
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 400), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 408), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 416), align 16
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 424), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 432), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 440), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 448), align 16
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 456), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 464), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 472), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 480), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 488), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 496), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 504), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 512), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 520), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 528), align 16
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 536), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 544), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 552), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 560), align 16
+  store double 0xBFE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 568), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 576), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 584), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 592), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 600), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 608), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 616), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 624), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 632), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 640), align 16
+  store double 0x3FE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 648), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 656), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 664), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 672), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 680), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 688), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 696), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 704), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 712), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 720), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 728), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 736), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 744), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 752), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 760), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 768), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 776), align 8
   store double -0.000000e+00, ptr @atanh_special_values, align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 8), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 16), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 24), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 32), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 40), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 48), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 56), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 64), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 72), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 80), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 88), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 96), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 104), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 112), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 120), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 128), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 136), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 144), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 152), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 160), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 168), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 176), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 184), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 192), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 200), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 208), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 216), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 224), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 232), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 240), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 248), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 256), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 264), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 272), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 280), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 288), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 296), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 304), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 312), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 320), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 328), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 336), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 344), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 352), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 360), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 368), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 376), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @atanh_special_values, i64 384), i8 0, i64 16, i1 false)
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 400), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 408), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 416), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 424), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 432), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 440), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 448), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 456), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 464), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 472), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 480), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 488), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 496), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 504), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 512), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 520), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 528), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 536), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 544), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 552), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 560), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 568), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 576), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 584), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 592), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 600), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 608), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 616), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 624), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 632), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 640), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 648), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 656), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 664), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 672), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 680), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 688), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 696), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 704), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 712), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 720), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 728), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 736), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 744), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 752), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 760), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 768), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @atanh_special_values, i64 776), align 8
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 8), align 8
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 16), align 16
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 24), align 8
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 32), align 16
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 40), align 8
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 48), align 16
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 56), align 8
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 64), align 16
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 72), align 8
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 80), align 16
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 88), align 8
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 96), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 104), align 8
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 112), align 16
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 120), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 128), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 136), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 144), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 152), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 160), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 168), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 176), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 184), align 8
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 192), align 16
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 200), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 208), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 216), align 8
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 224), align 16
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 232), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 240), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 248), align 8
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 256), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 264), align 8
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 272), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 280), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 288), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 296), align 8
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 304), align 16
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 312), align 8
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 320), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 328), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 336), align 16
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 344), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 352), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 360), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 368), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 376), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 384), i8 0, i64 16, i1 false)
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 400), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 408), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 416), align 16
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 424), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 432), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 440), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 448), align 16
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 456), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 464), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 472), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 480), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 488), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 496), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 504), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 512), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 520), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 528), align 16
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 536), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 544), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 552), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 560), align 16
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 568), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 576), align 16
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 584), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 592), align 16
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 600), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 608), align 16
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 616), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 624), align 16
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 632), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 640), align 16
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 648), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 656), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 664), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 672), align 16
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 680), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 688), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 696), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 704), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 712), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 720), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 728), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 736), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 744), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 752), align 16
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 760), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 768), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 776), align 8
   store double 0x7FF0000000000000, ptr @cosh_special_values, align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 8), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 16), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 24), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 32), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 40), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 48), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 56), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 64), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 72), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 80), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 88), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 96), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 104), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 112), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 120), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 128), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 136), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 144), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 152), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 160), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 168), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 176), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 184), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 192), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 200), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 208), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 216), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 224), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 232), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 240), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 248), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 256), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 264), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 272), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 280), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 288), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 296), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 304), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 312), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 320), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 328), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 336), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 344), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 352), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 360), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 368), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 376), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 384), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 392), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 400), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 408), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 416), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 424), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 432), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 440), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 448), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 456), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 464), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 472), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 480), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 488), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 496), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 504), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 512), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 520), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 528), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 536), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 544), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 552), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 560), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 568), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 576), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 584), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 592), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 600), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 608), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 616), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 624), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 632), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 640), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 648), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 656), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 664), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 672), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 680), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 688), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 696), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 704), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 712), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 720), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 728), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 736), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 744), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 752), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 760), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 768), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @cosh_special_values, i64 776), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 8), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 16), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 24), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 32), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 40), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 48), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 56), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 64), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 72), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 80), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 88), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 96), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 104), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 112), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 120), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 128), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 136), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 144), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 152), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 160), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 168), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 176), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 184), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 192), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 200), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 208), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 216), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 224), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 232), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 240), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 248), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 256), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 264), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 272), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 280), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 288), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 296), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 304), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 312), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 320), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 328), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 336), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 344), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 352), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 360), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 368), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 376), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 384), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 392), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 400), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 408), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 416), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 424), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 432), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 440), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 448), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 456), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 464), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 472), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 480), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 488), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 496), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 504), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 512), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 520), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 528), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 536), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 544), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 552), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 560), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 568), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 576), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 584), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 592), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 600), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 608), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 616), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 624), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 632), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 640), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 648), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 656), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 664), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 672), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 680), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 688), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 696), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 704), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 712), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 720), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 728), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 736), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 744), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 752), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 760), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 768), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 776), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) @exp_special_values, i8 0, i64 16, i1 false)
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 16), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 24), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 32), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @exp_special_values, i64 48), i8 0, i64 16, i1 false)
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 64), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 72), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) getelementptr inbounds (i8, ptr @exp_special_values, i64 80), i8 0, i64 32, i1 false)
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 112), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 120), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 128), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 136), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 144), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 152), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 160), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 168), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 176), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 184), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 192), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 200), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 208), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 216), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 224), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 232), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 240), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 248), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 256), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 264), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 272), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 280), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 288), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 296), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 304), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 312), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 320), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 328), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 336), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 344), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 352), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 360), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 368), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 376), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 384), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 392), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 400), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 408), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 416), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 424), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 432), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 440), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 448), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 456), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 464), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 472), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 480), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 488), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 496), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 504), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 512), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 520), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 528), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 536), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 544), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 552), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 560), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 568), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 576), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 584), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 592), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 600), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 608), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 616), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 624), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 632), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 640), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 648), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 656), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 664), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 672), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 680), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 688), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 696), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 704), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 712), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 720), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 728), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 736), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 744), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 752), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 760), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 768), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @exp_special_values, i64 776), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 16), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 24), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 32), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 40), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 48), i8 0, i64 16, i1 false)
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 64), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 72), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 80), i8 0, i64 32, i1 false)
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 112), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 120), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 128), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 136), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 144), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 152), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 160), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 168), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 176), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 184), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 192), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 200), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 208), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 216), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 224), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 232), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 240), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 248), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 256), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 264), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 272), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 280), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 288), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 296), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 304), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 312), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 320), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 328), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 336), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 344), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 352), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 360), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 368), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 376), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 384), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 392), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 400), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 408), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 416), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 424), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 432), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 440), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 448), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 456), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 464), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 472), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 480), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 488), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 496), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 504), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 512), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 520), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 528), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 536), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 544), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 552), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 560), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 568), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 576), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 584), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 592), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 600), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 608), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 616), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 624), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 632), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 640), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 648), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 656), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 664), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 672), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 680), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 688), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 696), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 704), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 712), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 720), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 728), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 736), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 744), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 752), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 760), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 768), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 776), align 8
   store double 0x7FF0000000000000, ptr @log_special_values, align 16
-  store double 0xC002D97C7F3321D2, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 8), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 16), align 16
-  store double 0xC00921FB54442D18, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 24), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 32), align 16
-  store double 0xC00921FB54442D18, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 40), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 48), align 16
-  store double 0x400921FB54442D18, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 56), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 64), align 16
-  store double 0x400921FB54442D18, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 72), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 80), align 16
-  store double 0x4002D97C7F3321D2, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 88), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 96), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 104), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 112), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 120), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 128), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 136), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 144), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 152), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 160), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 168), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 176), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 184), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 192), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 200), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 208), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 216), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 224), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 232), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 240), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 248), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 256), align 16
-  store double 0xC00921FB54442D18, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 264), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 272), align 16
-  store double 0x400921FB54442D18, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 280), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 288), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 296), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 304), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 312), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 320), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 328), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 336), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 344), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 352), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 360), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 368), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 376), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 384), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 392), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 400), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 408), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 416), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 424), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 432), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 440), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 448), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 456), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 464), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 472), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 480), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 488), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 496), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 504), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 512), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 520), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 528), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 536), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 544), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 552), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 560), align 16
-  store double 0xBFE921FB54442D18, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 568), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 576), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 584), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 592), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 600), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 608), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 616), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 624), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 632), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 640), align 16
-  store double 0x3FE921FB54442D18, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 648), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 656), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 664), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 672), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 680), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 688), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 696), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 704), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 712), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 720), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 728), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 736), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 744), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 752), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 760), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 768), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @log_special_values, i64 776), align 8
+  store double 0xC002D97C7F3321D2, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 8), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 16), align 16
+  store double 0xC00921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 24), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 32), align 16
+  store double 0xC00921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 40), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 48), align 16
+  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 56), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 64), align 16
+  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 72), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 80), align 16
+  store double 0x4002D97C7F3321D2, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 88), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 96), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 104), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 112), align 16
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 120), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 128), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 136), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 144), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 152), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 160), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 168), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 176), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 184), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 192), align 16
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 200), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 208), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 216), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 224), align 16
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 232), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 240), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 248), align 8
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 256), align 16
+  store double 0xC00921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 264), align 8
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 272), align 16
+  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 280), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 288), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 296), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 304), align 16
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 312), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 320), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 328), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 336), align 16
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 344), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 352), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 360), align 8
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 368), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 376), align 8
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 384), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 392), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 400), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 408), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 416), align 16
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 424), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 432), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 440), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 448), align 16
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 456), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 464), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 472), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 480), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 488), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 496), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 504), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 512), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 520), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 528), align 16
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 536), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 544), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 552), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 560), align 16
+  store double 0xBFE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 568), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 576), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 584), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 592), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 600), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 608), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 616), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 624), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 632), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 640), align 16
+  store double 0x3FE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 648), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 656), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 664), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 672), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 680), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 688), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 696), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 704), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 712), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 720), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 728), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 736), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 744), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 752), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 760), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 768), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 776), align 8
   store double 0x7FF0000000000000, ptr @sinh_special_values, align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 8), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 16), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 24), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 32), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 40), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 48), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 56), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 64), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 72), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 80), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 88), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 96), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 104), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 112), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 120), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 128), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 136), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 144), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 152), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 160), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 168), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 176), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 184), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 192), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 200), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 208), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 216), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 224), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 232), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 240), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 248), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 256), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 264), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 272), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 280), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 288), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 296), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 304), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 312), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 320), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 328), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 336), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 344), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 352), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 360), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 368), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 376), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @sinh_special_values, i64 384), i8 0, i64 16, i1 false)
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 400), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 408), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 416), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 424), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 432), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 440), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 448), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 456), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 464), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 472), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 480), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 488), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 496), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 504), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 512), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 520), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 528), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 536), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 544), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 552), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 560), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 568), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 576), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 584), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 592), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 600), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 608), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 616), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 624), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 632), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 640), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 648), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 656), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 664), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 672), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 680), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 688), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 696), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 704), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 712), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 720), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 728), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 736), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 744), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 752), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 760), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 768), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sinh_special_values, i64 776), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 8), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 16), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 24), align 8
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 32), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 40), align 8
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 48), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 56), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 64), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 72), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 80), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 88), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 96), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 104), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 112), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 120), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 128), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 136), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 144), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 152), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 160), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 168), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 176), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 184), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 192), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 200), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 208), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 216), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 224), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 232), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 240), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 248), align 8
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 256), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 264), align 8
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 272), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 280), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 288), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 296), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 304), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 312), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 320), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 328), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 336), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 344), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 352), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 360), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 368), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 376), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 384), i8 0, i64 16, i1 false)
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 400), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 408), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 416), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 424), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 432), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 440), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 448), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 456), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 464), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 472), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 480), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 488), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 496), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 504), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 512), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 520), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 528), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 536), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 544), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 552), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 560), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 568), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 576), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 584), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 592), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 600), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 608), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 616), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 624), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 632), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 640), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 648), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 656), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 664), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 672), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 680), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 688), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 696), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 704), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 712), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 720), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 728), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 736), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 744), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 752), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 760), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 768), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 776), align 8
   store double 0x7FF0000000000000, ptr @sqrt_special_values, align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 8), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 16), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 24), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 32), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 40), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 48), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 56), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 64), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 72), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 80), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 88), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 96), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 104), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 112), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 120), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 128), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 136), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 144), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 152), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 160), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 168), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 176), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 184), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 192), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 200), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 208), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 216), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 224), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 232), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 240), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 248), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 256), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 264), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @sqrt_special_values, i64 272), i8 0, i64 16, i1 false)
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 288), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 296), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 304), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 312), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 320), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 328), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 336), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 344), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 352), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 360), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 368), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 376), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @sqrt_special_values, i64 384), i8 0, i64 16, i1 false)
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 400), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 408), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 416), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 424), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 432), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 440), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 448), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 456), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 464), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 472), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 480), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 488), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 496), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 504), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 512), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 520), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 528), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 536), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 544), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 552), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 560), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 568), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 576), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 584), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 592), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 600), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 608), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 616), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 624), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 632), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 640), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 648), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 656), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 664), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 672), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 680), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 688), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 696), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 704), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 712), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 720), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 728), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 736), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 744), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 752), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 760), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 768), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @sqrt_special_values, i64 776), align 8
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 8), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 16), align 16
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 24), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 32), align 16
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 40), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 48), align 16
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 56), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 64), align 16
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 72), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 80), align 16
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 88), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 96), align 16
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 104), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 112), align 16
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 120), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 128), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 136), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 144), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 152), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 160), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 168), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 176), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 184), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 192), align 16
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 200), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 208), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 216), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 224), align 16
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 232), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 240), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 248), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 256), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 264), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 272), i8 0, i64 16, i1 false)
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 288), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 296), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 304), align 16
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 312), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 320), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 328), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 336), align 16
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 344), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 352), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 360), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 368), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 376), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 384), i8 0, i64 16, i1 false)
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 400), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 408), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 416), align 16
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 424), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 432), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 440), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 448), align 16
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 456), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 464), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 472), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 480), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 488), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 496), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 504), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 512), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 520), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 528), align 16
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 536), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 544), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 552), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 560), align 16
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 568), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 576), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 584), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 592), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 600), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 608), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 616), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 624), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 632), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 640), align 16
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 648), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 656), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 664), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 672), align 16
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 680), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 688), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 696), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 704), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 712), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 720), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 728), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 736), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 744), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 752), align 16
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 760), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 768), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 776), align 8
   store double -1.000000e+00, ptr @tanh_special_values, align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 8), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 16), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 24), align 8
-  store double -1.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 32), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 40), align 8
-  store double -1.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 48), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 56), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 64), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 72), align 8
-  store double -1.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 80), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 88), align 8
-  store double -1.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 96), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 104), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 112), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 120), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 128), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 136), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 144), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 152), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 160), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 168), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 176), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 184), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 192), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 200), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 208), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 216), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 224), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 232), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 240), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 248), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 256), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 264), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 272), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 280), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 288), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 296), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 304), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 312), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 320), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 328), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 336), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 344), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 352), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 360), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 368), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 376), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @tanh_special_values, i64 384), i8 0, i64 16, i1 false)
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 400), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 408), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 416), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 424), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 432), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 440), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 448), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 456), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 464), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 472), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 480), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 488), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 496), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 504), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 512), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 520), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 528), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 536), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 544), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 552), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 560), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 568), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 576), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 584), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 592), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 600), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 608), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 616), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 624), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 632), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 640), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 648), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 656), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 664), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 672), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 680), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 688), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 696), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 704), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 712), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 720), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 728), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 736), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 744), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 752), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 760), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 768), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @tanh_special_values, i64 776), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 8), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 16), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 24), align 8
+  store double -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 32), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 40), align 8
+  store double -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 48), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 56), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 64), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 72), align 8
+  store double -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 80), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 88), align 8
+  store double -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 96), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 104), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 112), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 120), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 128), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 136), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 144), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 152), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 160), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 168), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 176), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 184), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 192), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 200), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 208), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 216), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 224), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 232), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 240), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 248), align 8
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 256), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 264), align 8
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 272), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 280), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 288), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 296), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 304), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 312), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 320), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 328), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 336), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 344), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 352), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 360), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 368), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 376), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 384), i8 0, i64 16, i1 false)
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 400), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 408), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 416), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 424), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 432), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 440), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 448), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 456), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 464), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 472), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 480), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 488), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 496), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 504), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 512), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 520), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 528), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 536), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 544), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 552), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 560), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 568), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 576), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 584), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 592), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 600), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 608), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 616), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 624), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 632), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 640), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 648), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 656), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 664), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 672), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 680), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 688), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 696), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 704), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 712), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 720), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 728), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 736), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 744), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 752), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 760), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 768), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 776), align 8
   store double 0x7FF0000000000000, ptr @rect_special_values, align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 8), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 16), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 24), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 32), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 40), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 48), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 56), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 64), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 72), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 80), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 88), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 96), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 104), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 112), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 120), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 128), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 136), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 144), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 152), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 160), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 168), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 176), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 184), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 192), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 200), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 208), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 216), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @rect_special_values, i64 224), i8 0, i64 16, i1 false)
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 240), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 248), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 256), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 264), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 272), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 280), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 288), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 296), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) getelementptr inbounds (i8, ptr @rect_special_values, i64 304), i8 0, i64 48, i1 false)
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 352), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 360), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 368), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 376), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @rect_special_values, i64 384), i8 0, i64 16, i1 false)
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 400), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 408), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) getelementptr inbounds (i8, ptr @rect_special_values, i64 416), i8 0, i64 32, i1 false)
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 448), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 456), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 464), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 472), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 480), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 488), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 496), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 504), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 512), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 520), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 528), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 536), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 544), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 552), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 560), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 568), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 576), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 584), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 592), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 600), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 608), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 616), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 624), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 632), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 640), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 648), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 656), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 664), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 672), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 680), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 688), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 696), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 704), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 712), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 720), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 728), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 736), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 744), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 752), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 760), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 768), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds (i8, ptr @rect_special_values, i64 776), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 8), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 16), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 24), align 8
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 32), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 40), align 8
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 48), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 56), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 64), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 72), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 80), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 88), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 96), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 104), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 112), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 120), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 128), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 136), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 144), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 152), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 160), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 168), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 176), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 184), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 192), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 200), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 208), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 216), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 224), i8 0, i64 16, i1 false)
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 240), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 248), align 8
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 256), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 264), align 8
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 272), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 280), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 288), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 296), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 304), i8 0, i64 48, i1 false)
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 352), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 360), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 368), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 376), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 384), i8 0, i64 16, i1 false)
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 400), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 408), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 416), i8 0, i64 32, i1 false)
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 448), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 456), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 464), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 472), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 480), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 488), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 496), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 504), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 512), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 520), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 528), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 536), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 544), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 552), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 560), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 568), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 576), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 584), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 592), align 16
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 600), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 608), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 616), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 624), align 16
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 632), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 640), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 648), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 656), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 664), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 672), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 680), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 688), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 696), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 704), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 712), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 720), align 16
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 728), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 736), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 744), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 752), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 760), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 768), align 16
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 776), align 8
   br label %return
 
 return:                                           ; preds = %if.end26, %if.end21, %if.end16, %if.end11, %if.end6, %if.end, %entry, %if.end31

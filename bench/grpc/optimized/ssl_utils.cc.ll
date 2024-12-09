@@ -1387,12 +1387,12 @@ if.then:                                          ; preds = %entry
   tail call void @gpr_once_init(ptr noundef nonnull @_ZZN9grpc_core19DefaultSslRootStore13InitRootStoreEvE4once, ptr noundef nonnull @_ZN9grpc_core19DefaultSslRootStore17InitRootStoreOnceEv)
   %0 = load ptr, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i64 8), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i64 8), align 8
   %conv.i = and i64 %1, 255
   %cond.i = select i1 %tobool.not.i, i64 %conv.i, i64 %1
   %cmp.i = icmp eq i64 %cond.i, 0
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i64 16), align 8
-  %cond7.i = select i1 %tobool.not.i, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i64 9), ptr %2
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i64 16), align 8
+  %cond7.i = select i1 %tobool.not.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i64 9), ptr %2
   %cmp141 = icmp eq ptr %cond7.i, null
   %cmp1 = select i1 %cmp.i, i1 true, i1 %cmp141
   br i1 %cmp1, label %if.then2, label %if.end
@@ -1691,12 +1691,12 @@ entry:
   tail call void @gpr_once_init(ptr noundef nonnull @_ZZN9grpc_core19DefaultSslRootStore13InitRootStoreEvE4once, ptr noundef nonnull @_ZN9grpc_core19DefaultSslRootStore17InitRootStoreOnceEv)
   %0 = load ptr, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, align 8
   %tobool.not = icmp eq ptr %0, null
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i64 8), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i64 8), align 8
   %conv = and i64 %1, 255
   %cond = select i1 %tobool.not, i64 %conv, i64 %1
   %cmp = icmp eq i64 %cond, 0
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i64 16), align 8
-  %cond7 = select i1 %tobool.not, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i64 9), ptr %2
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i64 16), align 8
+  %cond7 = select i1 %tobool.not, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i64 9), ptr %2
   %cond9 = select i1 %cmp, ptr null, ptr %cond7
   ret ptr %cond9
 }
@@ -2454,15 +2454,15 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
   %0 = load ptr, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, align 8
   %tobool.not = icmp eq ptr %0, null
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i64 8), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i64 8), align 8
   %conv = and i64 %1, 255
   %cond = select i1 %tobool.not, i64 %conv, i64 %1
   %cmp = icmp eq i64 %cond, 0
   br i1 %cmp, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i64 16), align 8
-  %cond5 = select i1 %tobool.not, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i64 9), ptr %2
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i64 16), align 8
+  %cond5 = select i1 %tobool.not, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i64 9), ptr %2
   %call = call noundef ptr @_Z31tsi_ssl_root_certs_store_createPKc(ptr noundef %cond5)
   store ptr %call, ptr @_ZN9grpc_core19DefaultSslRootStore19default_root_store_E, align 8
   br label %if.end
@@ -2482,7 +2482,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry

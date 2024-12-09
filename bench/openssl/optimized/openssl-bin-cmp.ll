@@ -933,7 +933,7 @@ if.end118:                                        ; preds = %while.cond, %if.the
 for.body.i:                                       ; preds = %for.inc.i, %if.end118
   %26 = phi ptr [ @.str.6, %if.end118 ], [ %27, %for.inc.i ]
   %n_options.0107.i = phi i32 [ 178, %if.end118 ], [ %n_options.1.i, %for.inc.i ]
-  %opt.0106.i = phi ptr [ getelementptr inbounds (i8, ptr @cmp_options, i64 72), %if.end118 ], [ %incdec.ptr.i, %for.inc.i ]
+  %opt.0106.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @cmp_options, i64 72), %if.end118 ], [ %incdec.ptr.i, %for.inc.i ]
   %call.i76 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) @OPT_SECTION_STR) #14
   %tobool.not.i = icmp eq i32 %call.i76, 0
   br i1 %tobool.not.i, label %if.then.i80, label %lor.lhs.false.i
@@ -971,7 +971,7 @@ for.body20.i:                                     ; preds = %for.inc183.i, %for.
   %28 = phi ptr [ @.str.6, %for.cond16.preheader.i ], [ %70, %for.inc183.i ]
   %i.1112.i = phi i32 [ 2, %for.cond16.preheader.i ], [ %inc184.i, %for.inc183.i ]
   %txt.0110.i = phi ptr [ null, %for.cond16.preheader.i ], [ %txt.1.i, %for.inc183.i ]
-  %opt.1109.i = phi ptr [ getelementptr inbounds (i8, ptr @cmp_options, i64 72), %for.cond16.preheader.i ], [ %incdec.ptr185.i, %for.inc183.i ]
+  %opt.1109.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @cmp_options, i64 72), %for.cond16.preheader.i ], [ %incdec.ptr185.i, %for.inc183.i ]
   %num.0108.i = phi i64 [ 0, %for.cond16.preheader.i ], [ %num.1.i, %for.inc183.i ]
   %retval21.i = getelementptr inbounds nuw i8, ptr %opt.1109.i, i64 8
   %29 = load i32, ptr %retval21.i, align 8

@@ -4940,7 +4940,7 @@ _ZNK5clang14IdentifierInfo5isStrILm8EEEbRAT__Kc.exit: ; preds = %121
   %.not.i49 = icmp eq i64 %136, 0
   %137 = select i1 %.not.i49, i32 2, i32 3
   %138 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %131, i32 noundef %137, i64 noundef 8) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_116FinishARCDeallocE, i64 16), ptr %138, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_116FinishARCDeallocE, i64 16), ptr %138, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %121, %113, %106, %_ZNK5clang14IdentifierInfo5isStrILm8EEEbRAT__Kc.exit, %130, %117
@@ -10410,7 +10410,7 @@ _ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKind
   %174 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %153, i32 noundef %phi.call.i, i64 noundef 40) #20
   %175 = trunc nuw nsw i32 %phi.call.i to i8
   %176 = and i8 %175, 1
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_111DestroyIvarE, i64 16), ptr %174, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_111DestroyIvarE, i64 16), ptr %174, align 8
   %177 = getelementptr inbounds nuw i8, ptr %174, i64 8
   store ptr %150, ptr %177, align 8
   %178 = getelementptr inbounds nuw i8, ptr %174, i64 16
@@ -10793,7 +10793,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK5clang10ASTCont
 223:                                              ; preds = %213
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %225 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %224, i32 noundef %220, i64 noundef 16) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_115CallObjCReleaseE, i64 16), ptr %225, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_115CallObjCReleaseE, i64 16), ptr %225, align 8
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 8
   store ptr %214, ptr %226, align 8
   br label %_ZN5clang7CodeGen6RValue3getENS0_7AddressERNS0_15CodeGenFunctionE.exit170
@@ -10802,7 +10802,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK5clang10ASTCont
   %228 = call i64 @_ZN5clang7CodeGen19DominatingLLVMValue4saveERNS0_15CodeGenFunctionEPN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %214)
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %230 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %229, i32 noundef %220, i64 noundef 16) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_115CallObjCReleaseEJPN4llvm5ValueEEEE, i64 16), ptr %230, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_115CallObjCReleaseEJPN4llvm5ValueEEEE, i64 16), ptr %230, align 8
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
   store i64 %228, ptr %231, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
@@ -12788,7 +12788,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction21EmitObjCConsum
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %16 = tail call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %15, i32 noundef %11, i64 noundef 16) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_115CallObjCReleaseE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_115CallObjCReleaseE, i64 16), ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %2, ptr %17, align 8
   br label %_ZN5clang7CodeGen15CodeGenFunction19pushFullExprCleanupIN12_GLOBAL__N_115CallObjCReleaseEJPN4llvm5ValueEEEEvNS0_11CleanupKindEDpT0_.exit
@@ -12797,7 +12797,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction21EmitObjCConsum
   %19 = tail call i64 @_ZN5clang7CodeGen19DominatingLLVMValue4saveERNS0_15CodeGenFunctionEPN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %2)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %21 = tail call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %20, i32 noundef %11, i64 noundef 16) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_115CallObjCReleaseEJPN4llvm5ValueEEEE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_115CallObjCReleaseEJPN4llvm5ValueEEEE, i64 16), ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 %19, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
@@ -13653,7 +13653,7 @@ _ZN4llvm17OperandBundleDefTIPNS_5ValueEEC2ENSt7__cxx1112basic_stringIcSt11char_t
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #20
   %95 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %95, ptr noundef nonnull align 1 dereferenceable(1) %10) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.61, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.61, i64 22))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.61, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.61, i64 22))
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #20
   %96 = getelementptr inbounds nuw i8, ptr %8, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !301)
@@ -14535,7 +14535,7 @@ _ZN5clang7CodeGen15CodeGenFunction23EmitARCLoadWeakRetainedENS0_7AddressE.exit: 
 40:                                               ; preds = %_ZN5clang7CodeGen15CodeGenFunction23EmitARCLoadWeakRetainedENS0_7AddressE.exit
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %42 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %41, i32 noundef %37, i64 noundef 16) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_115CallObjCReleaseE, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_115CallObjCReleaseE, i64 16), ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %31, ptr %43, align 8
   br label %_ZN5clang7CodeGen15CodeGenFunction21EmitObjCConsumeObjectENS_8QualTypeEPN4llvm5ValueE.exit
@@ -14544,7 +14544,7 @@ _ZN5clang7CodeGen15CodeGenFunction23EmitARCLoadWeakRetainedENS0_7AddressE.exit: 
   %45 = call i64 @_ZN5clang7CodeGen19DominatingLLVMValue4saveERNS0_15CodeGenFunctionEPN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %31)
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %47 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %46, i32 noundef %37, i64 noundef 16) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_115CallObjCReleaseEJPN4llvm5ValueEEEE, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_115CallObjCReleaseEJPN4llvm5ValueEEEE, i64 16), ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 %45, ptr %48, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
@@ -14639,7 +14639,7 @@ _ZN5clang7CodeGen15CodeGenFunction23EmitARCLoadWeakRetainedENS0_7AddressE.exit: 
 43:                                               ; preds = %_ZN5clang7CodeGen15CodeGenFunction23EmitARCLoadWeakRetainedENS0_7AddressE.exit
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %45 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %44, i32 noundef %40, i64 noundef 16) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_115CallObjCReleaseE, i64 16), ptr %45, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_115CallObjCReleaseE, i64 16), ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %34, ptr %46, align 8
   br label %_ZN5clang7CodeGen15CodeGenFunction21EmitObjCConsumeObjectENS_8QualTypeEPN4llvm5ValueE.exit
@@ -14648,7 +14648,7 @@ _ZN5clang7CodeGen15CodeGenFunction23EmitARCLoadWeakRetainedENS0_7AddressE.exit: 
   %48 = call i64 @_ZN5clang7CodeGen19DominatingLLVMValue4saveERNS0_15CodeGenFunctionEPN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %34)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %50 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %49, i32 noundef %40, i64 noundef 16) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_115CallObjCReleaseEJPN4llvm5ValueEEEE, i64 16), ptr %50, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_115CallObjCReleaseEJPN4llvm5ValueEEEE, i64 16), ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i64 %48, ptr %51, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
@@ -15769,7 +15769,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction30EmitObjCAutoreleasePo
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %11 = tail call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %10, i32 noundef 2, i64 noundef 16) #20
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %. = select i1 %.not, ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_132CallObjCMRRAutoreleasePoolObjectE, i64 16), ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_129CallObjCAutoreleasePoolObjectE, i64 16)
+  %. = select i1 %.not, ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_132CallObjCMRRAutoreleasePoolObjectE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_129CallObjCAutoreleasePoolObjectE, i64 16)
   store ptr %., ptr %11, align 8
   store ptr %1, ptr %12, align 8
   ret void
@@ -15862,7 +15862,7 @@ _ZNK5clang11ObjCRuntime40hasARCUnsafeClaimAutoreleasedReturnValueEv.exit.thread:
 49:                                               ; preds = %_ZNK5clang11ObjCRuntime40hasARCUnsafeClaimAutoreleasedReturnValueEv.exit.thread
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %51 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %50, i32 noundef %46, i64 noundef 16) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_115CallObjCReleaseE, i64 16), ptr %51, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_115CallObjCReleaseE, i64 16), ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %39, ptr %52, align 8
   br label %_ZN5clang7CodeGen15CodeGenFunction21EmitObjCConsumeObjectENS_8QualTypeEPN4llvm5ValueE.exit
@@ -15871,7 +15871,7 @@ _ZNK5clang11ObjCRuntime40hasARCUnsafeClaimAutoreleasedReturnValueEv.exit.thread:
   %54 = call i64 @_ZN5clang7CodeGen19DominatingLLVMValue4saveERNS0_15CodeGenFunctionEPN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %39)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %56 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %55, i32 noundef %46, i64 noundef 16) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_115CallObjCReleaseEJPN4llvm5ValueEEEE, i64 16), ptr %56, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_115CallObjCReleaseEJPN4llvm5ValueEEEE, i64 16), ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i64 %54, ptr %57, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
@@ -16046,7 +16046,7 @@ tailrecurse.i:                                    ; preds = %11, %11
 42:                                               ; preds = %32
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %44 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %43, i32 noundef %39, i64 noundef 16) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_115CallObjCReleaseE, i64 16), ptr %44, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_115CallObjCReleaseE, i64 16), ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %.1, ptr %45, align 8
   br label %_ZN5clang7CodeGen15CodeGenFunction21EmitObjCConsumeObjectENS_8QualTypeEPN4llvm5ValueE.exit
@@ -16055,7 +16055,7 @@ tailrecurse.i:                                    ; preds = %11, %11
   %47 = call i64 @_ZN5clang7CodeGen19DominatingLLVMValue4saveERNS0_15CodeGenFunctionEPN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %.1)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %49 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %48, i32 noundef %39, i64 noundef 16) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_115CallObjCReleaseEJPN4llvm5ValueEEEE, i64 16), ptr %49, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_115CallObjCReleaseEJPN4llvm5ValueEEEE, i64 16), ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i64 %47, ptr %50, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
@@ -16496,14 +16496,14 @@ _ZN5clang7CodeGen15CodeGenFunction27EmitObjCAutoreleasePoolPushEv.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %88 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %87, i32 noundef 2, i64 noundef 16) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_129CallObjCAutoreleasePoolObjectE, i64 16), ptr %88, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_129CallObjCAutoreleasePoolObjectE, i64 16), ptr %88, align 8
   br label %92
 
 _ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread28: ; preds = %59, %51, %15, %67, %54, %46, %62, %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit
   %89 = tail call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction30EmitObjCMRRAutoreleasePoolPushEv(ptr noundef nonnull align 8 dereferenceable(6488) %0)
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %91 = tail call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %90, i32 noundef 2, i64 noundef 16) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_132CallObjCMRRAutoreleasePoolObjectE, i64 16), ptr %91, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_132CallObjCMRRAutoreleasePoolObjectE, i64 16), ptr %91, align 8
   br label %92
 
 92:                                               ; preds = %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread28, %_ZN5clang7CodeGen15CodeGenFunction27EmitObjCAutoreleasePoolPushEv.exit
@@ -22395,7 +22395,7 @@ common.ret137:                                    ; preds = %126, %_ZN5clang7Cod
 54:                                               ; preds = %39
   %55 = getelementptr inbounds nuw i8, ptr %44, i64 2216
   %56 = tail call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %55, i32 noundef %51, i64 noundef 16) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_115CallObjCReleaseE, i64 16), ptr %56, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_115CallObjCReleaseE, i64 16), ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %43, ptr %57, align 8
   br label %common.ret137
@@ -22404,7 +22404,7 @@ common.ret137:                                    ; preds = %126, %_ZN5clang7Cod
   %59 = tail call i64 @_ZN5clang7CodeGen19DominatingLLVMValue4saveERNS0_15CodeGenFunctionEPN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(6488) %44, ptr noundef %43)
   %60 = getelementptr inbounds nuw i8, ptr %44, i64 2216
   %61 = tail call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %60, i32 noundef %51, i64 noundef 16) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_115CallObjCReleaseEJPN4llvm5ValueEEEE, i64 16), ptr %61, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_115CallObjCReleaseEJPN4llvm5ValueEEEE, i64 16), ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i64 %59, ptr %62, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)

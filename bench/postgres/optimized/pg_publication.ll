@@ -447,7 +447,7 @@ define dso_local { i64, i32 } @publication_add_relation(i32 noundef %0, ptr noca
   br i1 %2, label %17, label %18
 
 17:                                               ; preds = %16
-  %.sroa.3.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.3.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   br label %172
 
 18:                                               ; preds = %16
@@ -958,7 +958,7 @@ define dso_local { i64, i32 } @publication_add_schema(i32 noundef %0, i32 nounde
   br i1 %2, label %14, label %15
 
 14:                                               ; preds = %13
-  %.sroa.3.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.3.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   br label %52
 
 15:                                               ; preds = %13

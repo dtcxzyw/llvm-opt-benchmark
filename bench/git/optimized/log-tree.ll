@@ -337,7 +337,7 @@ declare i32 @for_each_ref(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal noundef i32 @add_ref_decoration(ptr noundef %refname, ptr noundef %oid, i32 %flags, ptr noundef readonly %cb_data) #0 {
 entry:
   %original_oid = alloca %struct.object_id, align 4
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @ref_namespace, i64 80), align 16
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ref_namespace, i64 80), align 16
   %tobool.not = icmp eq ptr %cb_data, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
@@ -1321,7 +1321,7 @@ strbuf_setlen.exit38:                             ; preds = %strbuf_setlen.exit,
   %cond42 = select i1 %tobool38.not, ptr @.str.12, ptr %0
   %21 = load ptr, ptr %mime_boundary, align 8
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @log_write_email_headers.subject_buffer, ptr noundef nonnull @.str.21, ptr noundef nonnull %cond42, ptr noundef nonnull @mime_boundary_leader, ptr noundef %21, ptr noundef nonnull @mime_boundary_leader, ptr noundef %21) #12
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @log_write_email_headers.subject_buffer, i64 16), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_write_email_headers.subject_buffer, i64 16), align 8
   %numbered_files = getelementptr inbounds nuw i8, ptr %opt, i64 368
   %23 = load i32, ptr %numbered_files, align 8
   %tobool45.not = icmp eq i32 %23, 0
@@ -1357,7 +1357,7 @@ if.end48:                                         ; preds = %if.else, %if.then46
   %tobool50.not = icmp eq i32 %29, 0
   %cond51 = select i1 %tobool50.not, ptr @.str.25, ptr @.str.24
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @log_write_email_headers.buffer, ptr noundef nonnull @.str.23, ptr noundef nonnull @mime_boundary_leader, ptr noundef %27, ptr noundef %28, ptr noundef nonnull %cond51, ptr noundef %28) #12
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @log_write_email_headers.buffer, i64 16), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_write_email_headers.buffer, i64 16), align 8
   %stat_sep = getelementptr inbounds nuw i8, ptr %opt, i64 1824
   store ptr %30, ptr %stat_sep, align 8
   call void @strbuf_release(ptr noundef nonnull %filename) #12

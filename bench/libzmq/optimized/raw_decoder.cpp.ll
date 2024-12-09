@@ -30,7 +30,7 @@ $_ZTIN3zmq9i_decoderE = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq13raw_decoder_tC2Em(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this, i64 noundef %bufsize_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq13raw_decoder_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq13raw_decoder_tE, i64 16), ptr %this, align 8
   %_allocator = getelementptr inbounds nuw i8, ptr %this, i64 72
   tail call void @_ZN3zmq31shared_message_memory_allocatorC1Emm(ptr noundef nonnull align 8 dereferenceable(40) %_allocator, i64 noundef %bufsize_, i64 noundef 1)
   %_in_progress2 = getelementptr inbounds nuw i8, ptr %this, i64 8

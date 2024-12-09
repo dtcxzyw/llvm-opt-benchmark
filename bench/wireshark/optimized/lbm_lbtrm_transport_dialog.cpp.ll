@@ -446,7 +446,7 @@ define void @_ZN18LBMLBTRMFrameEntryC2Ej(ptr noundef nonnull align 8 dereference
   %11 = alloca %class.QString, align 8
   %12 = alloca %class.QString, align 8
   tail call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(92) %0, i32 noundef 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18LBMLBTRMFrameEntry, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18LBMLBTRMFrameEntry, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %1, ptr %13, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
@@ -763,7 +763,7 @@ define void @_ZN16LBMLBTRMSQNEntryC2Ej(ptr noundef nonnull align 8 dereferenceab
   %14 = alloca %class.QString, align 8
   %15 = alloca %class.QString, align 8
   tail call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(92) %0, i32 noundef 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16LBMLBTRMSQNEntry, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16LBMLBTRMSQNEntry, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %1, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1167,7 +1167,7 @@ _ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIjP18LBMLBTRMFrame
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN16LBMLBTRMSQNEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16LBMLBTRMSQNEntry, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16LBMLBTRMSQNEntry, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -1728,7 +1728,7 @@ define void @_ZN22LBMLBTRMNCFReasonEntryC2Eh(ptr noundef nonnull align 8 derefer
   %17 = alloca %class.QString, align 8
   %18 = alloca %class.QString, align 8
   tail call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(92) %0, i32 noundef 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22LBMLBTRMNCFReasonEntry, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22LBMLBTRMNCFReasonEntry, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i8 %1, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -2227,7 +2227,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i72:    ; preds = %.body56
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN22LBMLBTRMNCFReasonEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22LBMLBTRMNCFReasonEntry, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22LBMLBTRMNCFReasonEntry, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -2706,7 +2706,7 @@ define void @_ZN19LBMLBTRMNCFSQNEntryC2Ej(ptr noundef nonnull align 8 dereferenc
   %14 = alloca %class.QString, align 8
   %15 = alloca %class.QString, align 8
   tail call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(92) %0, i32 noundef 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19LBMLBTRMNCFSQNEntry, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19LBMLBTRMNCFSQNEntry, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %1, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -3107,7 +3107,7 @@ _ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIjP22LBMLBTRMNCFRe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN19LBMLBTRMNCFSQNEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19LBMLBTRMNCFSQNEntry, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19LBMLBTRMNCFSQNEntry, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -3635,7 +3635,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i27:    ; preds = %_ZN7QStringD2Ev.exi
 define void @_ZN28LBMLBTRMSourceTransportEntryC2ERK7QString(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QVariant, align 8
   tail call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(92) %0, i32 noundef 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28LBMLBTRMSourceTransportEntry, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28LBMLBTRMSourceTransportEntry, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %4, align 8
@@ -3784,7 +3784,7 @@ _ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIjP19LBMLBTRMNCFSQ
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN28LBMLBTRMSourceTransportEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(264) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28LBMLBTRMSourceTransportEntry, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28LBMLBTRMSourceTransportEntry, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -8340,7 +8340,7 @@ _ZN7QStringD2Ev.exit78:                           ; preds = %_ZN7QStringD2Ev.exi
 define void @_ZN19LBMLBTRMSourceEntryC2ERK7QString(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QVariant, align 8
   tail call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(92) %0, i32 noundef 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19LBMLBTRMSourceEntry, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19LBMLBTRMSourceEntry, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %4, align 8
@@ -8446,7 +8446,7 @@ _ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapI7QStringP28LBMLBT
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN19LBMLBTRMSourceEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(264) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19LBMLBTRMSourceEntry, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19LBMLBTRMSourceEntry, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -12032,7 +12032,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i568:   ; preds = %.body387
 define void @_ZN30LBMLBTRMReceiverTransportEntryC2ERK7QString(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QVariant, align 8
   tail call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(92) %0, i32 noundef 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV30LBMLBTRMReceiverTransportEntry, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV30LBMLBTRMReceiverTransportEntry, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %4, align 8
@@ -12099,7 +12099,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %2, %12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN30LBMLBTRMReceiverTransportEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV30LBMLBTRMReceiverTransportEntry, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV30LBMLBTRMReceiverTransportEntry, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -13013,7 +13013,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i82:    ; preds = %.body49
 define void @_ZN21LBMLBTRMReceiverEntryC2ERK7QString(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QVariant, align 8
   tail call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(92) %0, i32 noundef 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21LBMLBTRMReceiverEntry, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21LBMLBTRMReceiverEntry, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %4, align 8
@@ -13119,7 +13119,7 @@ _ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapI7QStringP30LBMLBT
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN21LBMLBTRMReceiverEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21LBMLBTRMReceiverEntry, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21LBMLBTRMReceiverEntry, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -15444,9 +15444,9 @@ define void @_ZN23LBMLBTRMTransportDialogC2EP7QWidgetP13_capture_file(ptr nounde
   %28 = alloca %"class.QMetaObject::Connection", align 8
   %29 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i32 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23LBMLBTRMTransportDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23LBMLBTRMTransportDialog, i64 16), ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23LBMLBTRMTransportDialog, i64 488), ptr %30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23LBMLBTRMTransportDialog, i64 488), ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = invoke noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #21
           to label %33 unwind label %400
@@ -17625,7 +17625,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i336:   ; preds = %503
   %511 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21
   %512 = getelementptr inbounds nuw i8, ptr %511, i64 8
   store i32 0, ptr %512, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %511, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %511, align 8
   %513 = getelementptr inbounds nuw i8, ptr %511, i64 12
   store i32 40, ptr %513, align 4
   %514 = getelementptr inbounds nuw i8, ptr %511, i64 16
@@ -18161,7 +18161,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i436:   ; preds = %696
   %704 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21
   %705 = getelementptr inbounds nuw i8, ptr %704, i64 8
   store i32 0, ptr %705, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %704, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %704, align 8
   %706 = getelementptr inbounds nuw i8, ptr %704, i64 12
   store i32 10, ptr %706, align 4
   %707 = getelementptr inbounds nuw i8, ptr %704, i64 16
@@ -20245,9 +20245,9 @@ declare void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) u
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN23LBMLBTRMTransportDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8), (16, 24)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23LBMLBTRMTransportDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23LBMLBTRMTransportDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23LBMLBTRMTransportDialog, i64 488), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23LBMLBTRMTransportDialog, i64 488), ptr %2, align 8
   invoke void @_ZN23LBMLBTRMTransportDialog18resetSourcesDetailEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
           to label %3 unwind label %.loopexit.split-lp.loopexit.split-lp
 

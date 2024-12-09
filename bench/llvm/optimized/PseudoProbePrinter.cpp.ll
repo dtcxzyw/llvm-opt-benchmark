@@ -255,7 +255,7 @@ _ZNK4llvm10DILocation12getInlinedAtEv.exit33:     ; preds = %93, %97
   br i1 %.not, label %._crit_edge, label %42, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i27, %_ZNK4llvm10DILocation12getInlinedAtEv.exit33, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i, %_ZNK4llvm10DILocation12getInlinedAtEv.exit
-  %104 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm21EnableFSDiscriminatorE, i64 128), align 8
+  %104 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm21EnableFSDiscriminatorE, i64 128), align 8
   %105 = trunc i8 %104 to i1
   %106 = icmp eq i64 %3, 0
   %107 = and i1 %106, %105

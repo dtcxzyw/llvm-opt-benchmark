@@ -3041,7 +3041,7 @@ entry:
   store i8 0, ptr %0, align 8, !tbaa !14
   %specifiers.i.i = getelementptr inbounds nuw i8, ptr %format, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %specifiers.i.i, i8 0, i64 80, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb14StrfTimeFormatE, i64 16), ptr %format, align 8, !tbaa !56
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb14StrfTimeFormatE, i64 16), ptr %format, align 8, !tbaa !56
   %var_length_specifiers.i = getelementptr inbounds nuw i8, ptr %format, i64 120
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %format, i64 160
   store ptr null, ptr %_M_finish.i.i.i.i.i.i, align 8, !tbaa !47
@@ -3171,7 +3171,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %if.end.i.i.i.
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i) #29
   call void @_ZdaPv(ptr noundef nonnull %call.i50) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb14StrfTimeFormatE, i64 16), ptr %format, align 8, !tbaa !56
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb14StrfTimeFormatE, i64 16), ptr %format, align 8, !tbaa !56
   %is_date_specifier.i = getelementptr inbounds nuw i8, ptr %format, i64 144
   %14 = load ptr, ptr %is_date_specifier.i, align 8, !tbaa !47
   %tobool.not.i.i.i = icmp eq ptr %14, null
@@ -3204,7 +3204,7 @@ if.then.i.i.i.i58:                                ; preds = %_ZNSt13_Bvector_bas
   br label %_ZN6duckdb14StrfTimeFormatD2Ev.exit
 
 _ZN6duckdb14StrfTimeFormatD2Ev.exit:              ; preds = %if.then.i.i.i.i58, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb13StrTimeFormatE, i64 16), ptr %format, align 8, !tbaa !56
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb13StrTimeFormatE, i64 16), ptr %format, align 8, !tbaa !56
   %numeric_width.i = getelementptr inbounds nuw i8, ptr %format, i64 96
   %17 = load ptr, ptr %numeric_width.i, align 8, !tbaa !61
   %tobool.not.i.i.i.i63 = icmp eq ptr %17, null
@@ -3889,7 +3889,7 @@ if.end102:                                        ; preds = %if.then97.invoke, %
   store i64 0, ptr %_M_string_length.i.i.i.i.i337, align 8, !tbaa !15
   store i8 0, ptr %17, align 8, !tbaa !14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %specifiers.i.i, i8 0, i64 80, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb14StrfTimeFormatE, i64 16), ptr %locale_format, align 8, !tbaa !56
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb14StrfTimeFormatE, i64 16), ptr %locale_format, align 8, !tbaa !56
   store ptr null, ptr %_M_finish.i.i.i.i.i.i, align 8, !tbaa !47
   store i32 0, ptr %_M_offset.i.i3.i.i.i.i.i.i, align 8, !tbaa !46
   store ptr null, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !tbaa !41
@@ -4086,7 +4086,7 @@ if.then.i.i366:                                   ; preds = %for.cond.cleanup126
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit370: ; preds = %if.then.i.i366, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i367
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %error) #29
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb14StrfTimeFormatE, i64 16), ptr %locale_format, align 8, !tbaa !56
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb14StrfTimeFormatE, i64 16), ptr %locale_format, align 8, !tbaa !56
   %86 = load ptr, ptr %is_date_specifier.i, align 8, !tbaa !47
   %tobool.not.i.i.i371 = icmp eq ptr %86, null
   br i1 %tobool.not.i.i.i371, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i, label %if.then.i.i.i
@@ -4117,7 +4117,7 @@ if.then.i.i.i.i373:                               ; preds = %_ZNSt13_Bvector_bas
   br label %_ZN6duckdb14StrfTimeFormatD2Ev.exit
 
 _ZN6duckdb14StrfTimeFormatD2Ev.exit:              ; preds = %if.then.i.i.i.i373, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb13StrTimeFormatE, i64 16), ptr %locale_format, align 8, !tbaa !56
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb13StrTimeFormatE, i64 16), ptr %locale_format, align 8, !tbaa !56
   %89 = load ptr, ptr %numeric_width.i, align 8, !tbaa !61
   %tobool.not.i.i.i.i546 = icmp eq ptr %89, null
   br i1 %tobool.not.i.i.i.i546, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %if.then.i.i.i.i547
@@ -4851,7 +4851,7 @@ declare i64 @_ZN6duckdb9Timestamp7GetTimeENS_11timestamp_tE(i64) local_unnamed_a
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb14StrfTimeFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb14StrfTimeFormatE, i64 16), ptr %this, align 8, !tbaa !56
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb14StrfTimeFormatE, i64 16), ptr %this, align 8, !tbaa !56
   %is_date_specifier = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %is_date_specifier, align 8, !tbaa !47
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -7340,8 +7340,8 @@ sw.bb353:                                         ; preds = %if.else315
   %105 = getelementptr i8, ptr %data11.0, i64 %104
   %106 = load i32, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, align 16, !tbaa !14
   %cmp.i.i.i1002 = icmp ult i32 %106, 13
-  %107 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 8), align 8
-  %cond.i.i = select i1 %cmp.i.i.i1002, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 4), ptr %107
+  %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 8), align 8
+  %cond.i.i = select i1 %cmp.i.i.i1002, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 4), ptr %107
   %conv.i.i = zext i32 %106 to i64
   %add.i = add i64 %104, %conv.i.i
   %cmp4.i = icmp ugt i64 %add.i, %size.0
@@ -7375,10 +7375,10 @@ for.end.i:                                        ; preds = %for.body7.i, %for.c
   br i1 %cmp17.i, label %_ZNK6duckdb14StrpTimeFormat18TryParseCollectionEPKcRmmPKNS_8string_tEm.exit, label %for.inc25.i
 
 for.inc25.i:                                      ; preds = %for.end.i, %sw.bb353
-  %110 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 16), align 16, !tbaa !14
+  %110 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 16), align 16, !tbaa !14
   %cmp.i.i.i1002.1 = icmp ult i32 %110, 13
-  %111 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 24), align 8
-  %cond.i.i.1 = select i1 %cmp.i.i.i1002.1, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 20), ptr %111
+  %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 24), align 8
+  %cond.i.i.1 = select i1 %cmp.i.i.i1002.1, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 20), ptr %111
   %conv.i.i.1 = zext i32 %110 to i64
   %add.i.1 = add i64 %104, %conv.i.i.1
   %cmp4.i.1 = icmp ugt i64 %add.i.1, %size.0
@@ -7412,10 +7412,10 @@ for.end.i.1:                                      ; preds = %for.body7.i.1, %for
   br i1 %cmp17.i.1, label %_ZNK6duckdb14StrpTimeFormat18TryParseCollectionEPKcRmmPKNS_8string_tEm.exit, label %for.inc25.i.1
 
 for.inc25.i.1:                                    ; preds = %for.end.i.1, %for.inc25.i
-  %114 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 32), align 16, !tbaa !14
+  %114 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 32), align 16, !tbaa !14
   %cmp.i.i.i1002.2 = icmp ult i32 %114, 13
-  %115 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 40), align 8
-  %cond.i.i.2 = select i1 %cmp.i.i.i1002.2, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 36), ptr %115
+  %115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 40), align 8
+  %cond.i.i.2 = select i1 %cmp.i.i.i1002.2, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 36), ptr %115
   %conv.i.i.2 = zext i32 %114 to i64
   %add.i.2 = add i64 %104, %conv.i.i.2
   %cmp4.i.2 = icmp ugt i64 %add.i.2, %size.0
@@ -7449,10 +7449,10 @@ for.end.i.2:                                      ; preds = %for.body7.i.2, %for
   br i1 %cmp17.i.2, label %_ZNK6duckdb14StrpTimeFormat18TryParseCollectionEPKcRmmPKNS_8string_tEm.exit, label %for.inc25.i.2
 
 for.inc25.i.2:                                    ; preds = %for.end.i.2, %for.inc25.i.1
-  %118 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 48), align 16, !tbaa !14
+  %118 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 48), align 16, !tbaa !14
   %cmp.i.i.i1002.3 = icmp ult i32 %118, 13
-  %119 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 56), align 8
-  %cond.i.i.3 = select i1 %cmp.i.i.i1002.3, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 52), ptr %119
+  %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 56), align 8
+  %cond.i.i.3 = select i1 %cmp.i.i.i1002.3, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 52), ptr %119
   %conv.i.i.3 = zext i32 %118 to i64
   %add.i.3 = add i64 %104, %conv.i.i.3
   %cmp4.i.3 = icmp ugt i64 %add.i.3, %size.0
@@ -7486,10 +7486,10 @@ for.end.i.3:                                      ; preds = %for.body7.i.3, %for
   br i1 %cmp17.i.3, label %_ZNK6duckdb14StrpTimeFormat18TryParseCollectionEPKcRmmPKNS_8string_tEm.exit, label %for.inc25.i.3
 
 for.inc25.i.3:                                    ; preds = %for.end.i.3, %for.inc25.i.2
-  %122 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 64), align 16, !tbaa !14
+  %122 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 64), align 16, !tbaa !14
   %cmp.i.i.i1002.4 = icmp ult i32 %122, 13
-  %123 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 72), align 8
-  %cond.i.i.4 = select i1 %cmp.i.i.i1002.4, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 68), ptr %123
+  %123 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 72), align 8
+  %cond.i.i.4 = select i1 %cmp.i.i.i1002.4, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 68), ptr %123
   %conv.i.i.4 = zext i32 %122 to i64
   %add.i.4 = add i64 %104, %conv.i.i.4
   %cmp4.i.4 = icmp ugt i64 %add.i.4, %size.0
@@ -7523,10 +7523,10 @@ for.end.i.4:                                      ; preds = %for.body7.i.4, %for
   br i1 %cmp17.i.4, label %_ZNK6duckdb14StrpTimeFormat18TryParseCollectionEPKcRmmPKNS_8string_tEm.exit, label %for.inc25.i.4
 
 for.inc25.i.4:                                    ; preds = %for.end.i.4, %for.inc25.i.3
-  %126 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 80), align 16, !tbaa !14
+  %126 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 80), align 16, !tbaa !14
   %cmp.i.i.i1002.5 = icmp ult i32 %126, 13
-  %127 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 88), align 8
-  %cond.i.i.5 = select i1 %cmp.i.i.i1002.5, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 84), ptr %127
+  %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 88), align 8
+  %cond.i.i.5 = select i1 %cmp.i.i.i1002.5, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 84), ptr %127
   %conv.i.i.5 = zext i32 %126 to i64
   %add.i.5 = add i64 %104, %conv.i.i.5
   %cmp4.i.5 = icmp ugt i64 %add.i.5, %size.0
@@ -7560,10 +7560,10 @@ for.end.i.5:                                      ; preds = %for.body7.i.5, %for
   br i1 %cmp17.i.5, label %_ZNK6duckdb14StrpTimeFormat18TryParseCollectionEPKcRmmPKNS_8string_tEm.exit, label %for.inc25.i.5
 
 for.inc25.i.5:                                    ; preds = %for.end.i.5, %for.inc25.i.4
-  %130 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 96), align 16, !tbaa !14
+  %130 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 96), align 16, !tbaa !14
   %cmp.i.i.i1002.6 = icmp ult i32 %130, 13
-  %131 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 104), align 8
-  %cond.i.i.6 = select i1 %cmp.i.i.i1002.6, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 100), ptr %131
+  %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 104), align 8
+  %cond.i.i.6 = select i1 %cmp.i.i.i1002.6, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date21DAY_NAMES_ABBREVIATEDE, i64 100), ptr %131
   %conv.i.i.6 = zext i32 %130 to i64
   %add.i.6 = add i64 %104, %conv.i.i.6
   %cmp4.i.6 = icmp ugt i64 %add.i.6, %size.0
@@ -7614,8 +7614,8 @@ sw.bb359:                                         ; preds = %if.else315
   %137 = getelementptr i8, ptr %data11.0, i64 %136
   %138 = load i32, ptr @_ZN6duckdb4Date9DAY_NAMESE, align 16, !tbaa !14
   %cmp.i.i.i1010 = icmp ult i32 %138, 13
-  %139 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 8), align 8
-  %cond.i.i1013 = select i1 %cmp.i.i.i1010, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 4), ptr %139
+  %139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 8), align 8
+  %cond.i.i1013 = select i1 %cmp.i.i.i1010, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 4), ptr %139
   %conv.i.i1014 = zext i32 %138 to i64
   %add.i1015 = add i64 %136, %conv.i.i1014
   %cmp4.i1016 = icmp ugt i64 %add.i1015, %size.0
@@ -7649,10 +7649,10 @@ for.end.i1028:                                    ; preds = %for.body7.i1019, %f
   br i1 %cmp17.i1030, label %_ZNK6duckdb14StrpTimeFormat18TryParseCollectionEPKcRmmPKNS_8string_tEm.exit1040, label %for.inc25.i1031
 
 for.inc25.i1031:                                  ; preds = %for.end.i1028, %sw.bb359
-  %142 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 16), align 16, !tbaa !14
+  %142 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 16), align 16, !tbaa !14
   %cmp.i.i.i1010.1 = icmp ult i32 %142, 13
-  %143 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 24), align 8
-  %cond.i.i1013.1 = select i1 %cmp.i.i.i1010.1, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 20), ptr %143
+  %143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 24), align 8
+  %cond.i.i1013.1 = select i1 %cmp.i.i.i1010.1, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 20), ptr %143
   %conv.i.i1014.1 = zext i32 %142 to i64
   %add.i1015.1 = add i64 %136, %conv.i.i1014.1
   %cmp4.i1016.1 = icmp ugt i64 %add.i1015.1, %size.0
@@ -7686,10 +7686,10 @@ for.end.i1028.1:                                  ; preds = %for.body7.i1019.1, 
   br i1 %cmp17.i1030.1, label %_ZNK6duckdb14StrpTimeFormat18TryParseCollectionEPKcRmmPKNS_8string_tEm.exit1040, label %for.inc25.i1031.1
 
 for.inc25.i1031.1:                                ; preds = %for.end.i1028.1, %for.inc25.i1031
-  %146 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 32), align 16, !tbaa !14
+  %146 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 32), align 16, !tbaa !14
   %cmp.i.i.i1010.2 = icmp ult i32 %146, 13
-  %147 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 40), align 8
-  %cond.i.i1013.2 = select i1 %cmp.i.i.i1010.2, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 36), ptr %147
+  %147 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 40), align 8
+  %cond.i.i1013.2 = select i1 %cmp.i.i.i1010.2, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 36), ptr %147
   %conv.i.i1014.2 = zext i32 %146 to i64
   %add.i1015.2 = add i64 %136, %conv.i.i1014.2
   %cmp4.i1016.2 = icmp ugt i64 %add.i1015.2, %size.0
@@ -7723,10 +7723,10 @@ for.end.i1028.2:                                  ; preds = %for.body7.i1019.2, 
   br i1 %cmp17.i1030.2, label %_ZNK6duckdb14StrpTimeFormat18TryParseCollectionEPKcRmmPKNS_8string_tEm.exit1040, label %for.inc25.i1031.2
 
 for.inc25.i1031.2:                                ; preds = %for.end.i1028.2, %for.inc25.i1031.1
-  %150 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 48), align 16, !tbaa !14
+  %150 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 48), align 16, !tbaa !14
   %cmp.i.i.i1010.3 = icmp ult i32 %150, 13
-  %151 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 56), align 8
-  %cond.i.i1013.3 = select i1 %cmp.i.i.i1010.3, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 52), ptr %151
+  %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 56), align 8
+  %cond.i.i1013.3 = select i1 %cmp.i.i.i1010.3, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 52), ptr %151
   %conv.i.i1014.3 = zext i32 %150 to i64
   %add.i1015.3 = add i64 %136, %conv.i.i1014.3
   %cmp4.i1016.3 = icmp ugt i64 %add.i1015.3, %size.0
@@ -7760,10 +7760,10 @@ for.end.i1028.3:                                  ; preds = %for.body7.i1019.3, 
   br i1 %cmp17.i1030.3, label %_ZNK6duckdb14StrpTimeFormat18TryParseCollectionEPKcRmmPKNS_8string_tEm.exit1040, label %for.inc25.i1031.3
 
 for.inc25.i1031.3:                                ; preds = %for.end.i1028.3, %for.inc25.i1031.2
-  %154 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 64), align 16, !tbaa !14
+  %154 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 64), align 16, !tbaa !14
   %cmp.i.i.i1010.4 = icmp ult i32 %154, 13
-  %155 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 72), align 8
-  %cond.i.i1013.4 = select i1 %cmp.i.i.i1010.4, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 68), ptr %155
+  %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 72), align 8
+  %cond.i.i1013.4 = select i1 %cmp.i.i.i1010.4, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 68), ptr %155
   %conv.i.i1014.4 = zext i32 %154 to i64
   %add.i1015.4 = add i64 %136, %conv.i.i1014.4
   %cmp4.i1016.4 = icmp ugt i64 %add.i1015.4, %size.0
@@ -7797,10 +7797,10 @@ for.end.i1028.4:                                  ; preds = %for.body7.i1019.4, 
   br i1 %cmp17.i1030.4, label %_ZNK6duckdb14StrpTimeFormat18TryParseCollectionEPKcRmmPKNS_8string_tEm.exit1040, label %for.inc25.i1031.4
 
 for.inc25.i1031.4:                                ; preds = %for.end.i1028.4, %for.inc25.i1031.3
-  %158 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 80), align 16, !tbaa !14
+  %158 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 80), align 16, !tbaa !14
   %cmp.i.i.i1010.5 = icmp ult i32 %158, 13
-  %159 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 88), align 8
-  %cond.i.i1013.5 = select i1 %cmp.i.i.i1010.5, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 84), ptr %159
+  %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 88), align 8
+  %cond.i.i1013.5 = select i1 %cmp.i.i.i1010.5, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 84), ptr %159
   %conv.i.i1014.5 = zext i32 %158 to i64
   %add.i1015.5 = add i64 %136, %conv.i.i1014.5
   %cmp4.i1016.5 = icmp ugt i64 %add.i1015.5, %size.0
@@ -7834,10 +7834,10 @@ for.end.i1028.5:                                  ; preds = %for.body7.i1019.5, 
   br i1 %cmp17.i1030.5, label %_ZNK6duckdb14StrpTimeFormat18TryParseCollectionEPKcRmmPKNS_8string_tEm.exit1040, label %for.inc25.i1031.5
 
 for.inc25.i1031.5:                                ; preds = %for.end.i1028.5, %for.inc25.i1031.4
-  %162 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 96), align 16, !tbaa !14
+  %162 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 96), align 16, !tbaa !14
   %cmp.i.i.i1010.6 = icmp ult i32 %162, 13
-  %163 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 104), align 8
-  %cond.i.i1013.6 = select i1 %cmp.i.i.i1010.6, ptr getelementptr inbounds (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 100), ptr %163
+  %163 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 104), align 8
+  %cond.i.i1013.6 = select i1 %cmp.i.i.i1010.6, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb4Date9DAY_NAMESE, i64 100), ptr %163
   %conv.i.i1014.6 = zext i32 %162 to i64
   %add.i1015.6 = add i64 %136, %conv.i.i1014.6
   %cmp4.i1016.6 = icmp ugt i64 %add.i1015.6, %size.0
@@ -9374,7 +9374,7 @@ if.then.i.i105:                                   ; preds = %nrvo.skipdtor
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109: ; preds = %if.then.i.i105, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i106
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %error) #29
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb13StrTimeFormatE, i64 16), ptr %format, align 8, !tbaa !56
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb13StrTimeFormatE, i64 16), ptr %format, align 8, !tbaa !56
   %numeric_width.i = getelementptr inbounds nuw i8, ptr %format, i64 96
   %44 = load ptr, ptr %numeric_width.i, align 8, !tbaa !61
   %tobool.not.i.i.i.i = icmp eq ptr %44, null
@@ -9722,7 +9722,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56: ; preds = %if.
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !56
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !56
   %raw_message_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !12
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -11972,7 +11972,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb13StrTimeFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb13StrTimeFormatE, i64 16), ptr %this, align 8, !tbaa !56
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb13StrTimeFormatE, i64 16), ptr %this, align 8, !tbaa !56
   %numeric_width = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %numeric_width, align 8, !tbaa !61
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -12069,7 +12069,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb14StrfTimeFormatD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb14StrfTimeFormatE, i64 16), ptr %this, align 8, !tbaa !56
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb14StrfTimeFormatE, i64 16), ptr %this, align 8, !tbaa !56
   %is_date_specifier.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %is_date_specifier.i, align 8, !tbaa !47
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -13770,7 +13770,7 @@ if.else:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !129, !noalias !240
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i19.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !131, !noalias !240
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i19.i.i.i.i.i, align 8, !tbaa !56, !noalias !240
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i19.i.i.i.i.i, align 8, !tbaa !56, !noalias !240
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i19.i.i.i.i.i, i64 16
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !245, !noalias !240
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %count, 63
@@ -14055,7 +14055,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !129, !noalias !259
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i13.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !131, !noalias !259
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i13.i.i.i.i.i, align 8, !tbaa !56, !noalias !259
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i13.i.i.i.i.i, align 8, !tbaa !56, !noalias !259
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i13.i.i.i.i.i, i64 16
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !245, !noalias !259
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %count, 63

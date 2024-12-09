@@ -34,7 +34,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #6
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12_GLOBAL__N_113DefaultRandomE, i64 16), ptr %call.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net12_GLOBAL__N_113DefaultRandomE, i64 16), ptr %call.i.i.i, align 8
   %3 = ptrtoint ptr %call.i.i.i to i64
   store atomic volatile i64 %3, ptr @_ZN4base9SingletonIN3net12_GLOBAL__N_113DefaultRandomENS_22DefaultSingletonTraitsIS3_EES3_E9instance_E release, align 8
   tail call void @_ZN4base13AtExitManager16RegisterCallbackEPFvPvES1_(ptr noundef nonnull @_ZN4base9SingletonIN3net12_GLOBAL__N_113DefaultRandomENS_22DefaultSingletonTraitsIS3_EES3_E6OnExitEPv, ptr noundef null)

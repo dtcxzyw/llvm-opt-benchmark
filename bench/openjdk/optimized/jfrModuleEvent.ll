@@ -158,7 +158,7 @@ define internal void @_ZL32module_dependency_event_callbackP11ModuleEntry(ptr no
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @_ZL29write_module_dependency_eventPKvPK11ModuleEntry, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23ModuleDependencyClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23ModuleDependencyClosure, i64 16), ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %0, ptr %6, align 8
   call void @_ZN11ModuleEntry15module_reads_doEP13ModuleClosure(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %2) #7
@@ -245,7 +245,7 @@ _ZNK12PackageEntry11is_exportedEv.exit.thread:    ; preds = %9, %_ZNK12PackageEn
 23:                                               ; preds = %_ZNK12PackageEntry11is_exportedEv.exit.thread
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZL25write_module_export_eventPKvPK11ModuleEntry, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19ModuleExportClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19ModuleExportClosure, i64 16), ptr %3, align 8
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %0, ptr %25, align 8
   call void @_ZN12PackageEntry18package_exports_doEP13ModuleClosure(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull %3) #7

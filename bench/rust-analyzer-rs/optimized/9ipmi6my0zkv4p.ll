@@ -1072,7 +1072,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !205
   store ptr @anon.9160dbde5baf315d892bcbd2a362aeca.235.llvm.15402389115345992855, ptr %3, align 8, !noalias !205
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.9160dbde5baf315d892bcbd2a362aeca.235.llvm.15402389115345992855, i64 80), ptr %9, align 8, !noalias !205
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.9160dbde5baf315d892bcbd2a362aeca.235.llvm.15402389115345992855, i64 80), ptr %9, align 8, !noalias !205
   %10 = call noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h57be8fe0dad56541E.llvm.16534319955770480420"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !209
   %.not3.not.i.i.i = icmp eq ptr %10, null
   br i1 %.not3.not.i.i.i, label %"_ZN13project_model7sysroot7Sysroot4load28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h811dd1a6f49d41e5E.llvm.15402389115345992855.exit", label %.lr.ph.i.i.i
@@ -13864,7 +13864,7 @@ define hidden noundef zeroext i1 @"_ZN13project_model7sysroot7Sysroot4load28_$u7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !3331
   store ptr @anon.9160dbde5baf315d892bcbd2a362aeca.235.llvm.15402389115345992855, ptr %3, align 8, !noalias !3331
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.9160dbde5baf315d892bcbd2a362aeca.235.llvm.15402389115345992855, i64 80), ptr %9, align 8, !noalias !3331
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.9160dbde5baf315d892bcbd2a362aeca.235.llvm.15402389115345992855, i64 80), ptr %9, align 8, !noalias !3331
   %10 = call noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h57be8fe0dad56541E.llvm.16534319955770480420"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !3335
   %.not3.not.i.i = icmp eq ptr %10, null
   br i1 %.not3.not.i.i, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hee697f7cbd01a481E.exit", label %.lr.ph.i.i

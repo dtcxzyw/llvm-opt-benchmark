@@ -411,7 +411,7 @@ define internal fastcc range(i32 18, 17) i32 @_decode(ptr noundef %0, i1 noundef
 
 .loopexit:                                        ; preds = %.preheader, %23, %26
   %27 = load i32, ptr %5, align 4
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   %29 = icmp ne i32 %27, %28
   %30 = icmp ne i32 %27, 0
   %or.cond = and i1 %30, %29
@@ -622,7 +622,7 @@ define internal fastcc ptr @_munge_ctx_create() unnamed_addr #0 {
   br label %25
 
 10:                                               ; preds = %5
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 144), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 144), align 8
   %12 = tail call ptr @slurm_auth_opts_to_socket(ptr noundef %11) #7
   store ptr %12, ptr %1, align 8
   %.not12 = icmp eq ptr %12, null

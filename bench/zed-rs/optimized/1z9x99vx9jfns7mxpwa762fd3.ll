@@ -730,7 +730,7 @@ define hidden noundef ptr @_ZN4core3ops8function6FnOnce9call_once17haa89af8dafe5
   br label %"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h282f2beb5a8e0783E.exit"
 
 "_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h282f2beb5a8e0783E.exit": ; preds = %1, %3
-  %.sroa.0.0.i.i = phi ptr [ %4, %3 ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1 ]
+  %.sroa.0.0.i.i = phi ptr [ %4, %3 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1 ]
   ret ptr %.sroa.0.0.i.i
 }
 
@@ -5659,7 +5659,7 @@ _ZN4core3ops8function6FnOnce9call_once17haa89af8dafe53485E.llvm.1502689326356229
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h8c4c7617140fc2aeE.llvm.1502689326356229583.exit": ; preds = %1, %_ZN4core3ops8function6FnOnce9call_once17haa89af8dafe53485E.llvm.1502689326356229583.exit
-  %.sroa.0.0.i.i.i5 = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17haa89af8dafe53485E.llvm.1502689326356229583.exit ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1 ]
+  %.sroa.0.0.i.i.i5 = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17haa89af8dafe53485E.llvm.1502689326356229583.exit ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1 ]
   %7 = load i64, ptr %.sroa.0.0.i.i.i5, align 8, !noalias !1480, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i5, i64 8
   %9 = load i64, ptr %8, align 8, !noalias !1480, !noundef !4
@@ -6565,7 +6565,7 @@ default.unreachable203:                           ; preds = %3
 
 32:                                               ; preds = %3
   %33 = load ptr, ptr %1, align 8, !nonnull !4, !align !90, !noundef !4
-  %34 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN115_$LT$indexed_docs..providers..rustdoc..LocalRustdocProvider$u20$as$u20$indexed_docs..store..IndexedDocsProvider$GT$16suggest_packages28_$u7b$$u7b$closure$u7d$$u7d$16WORKSPACE_CRATES17hb3178d35c24df291E", i64 48) acquire, align 8
+  %34 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN115_$LT$indexed_docs..providers..rustdoc..LocalRustdocProvider$u20$as$u20$indexed_docs..store..IndexedDocsProvider$GT$16suggest_packages28_$u7b$$u7b$closure$u7d$$u7d$16WORKSPACE_CRATES17hb3178d35c24df291E", i64 48) acquire, align 8
   %35 = icmp eq i32 %34, 4
   br i1 %35, label %"_ZN87_$LT$std..sync..lazy_lock..LazyLock$LT$T$C$F$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h3836d34c7a26834dE.exit", label %36
 
@@ -6574,7 +6574,7 @@ default.unreachable203:                           ; preds = %3
   store ptr @"_ZN115_$LT$indexed_docs..providers..rustdoc..LocalRustdocProvider$u20$as$u20$indexed_docs..store..IndexedDocsProvider$GT$16suggest_packages28_$u7b$$u7b$closure$u7d$$u7d$16WORKSPACE_CRATES17hb3178d35c24df291E", ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   store ptr %19, ptr %18, align 8
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h86c817f2d35771eeE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN115_$LT$indexed_docs..providers..rustdoc..LocalRustdocProvider$u20$as$u20$indexed_docs..store..IndexedDocsProvider$GT$16suggest_packages28_$u7b$$u7b$closure$u7d$$u7d$16WORKSPACE_CRATES17hb3178d35c24df291E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09884cd56539613175bdd7af7a133146.58)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h86c817f2d35771eeE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN115_$LT$indexed_docs..providers..rustdoc..LocalRustdocProvider$u20$as$u20$indexed_docs..store..IndexedDocsProvider$GT$16suggest_packages28_$u7b$$u7b$closure$u7d$$u7d$16WORKSPACE_CRATES17hb3178d35c24df291E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09884cd56539613175bdd7af7a133146.58)
           to label %.noexc63 unwind label %37
 
 .noexc63:                                         ; preds = %36
@@ -6957,7 +6957,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h4565c9b3aeb239b0E.exit: ; preds
   store i64 %147, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i32 %148, ptr %.sroa.6.0..sroa_idx, align 8
-  %149 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN115_$LT$indexed_docs..providers..rustdoc..LocalRustdocProvider$u20$as$u20$indexed_docs..store..IndexedDocsProvider$GT$16suggest_packages28_$u7b$$u7b$closure$u7d$$u7d$16WORKSPACE_CRATES17hb3178d35c24df291E", i64 48) acquire, align 8
+  %149 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN115_$LT$indexed_docs..providers..rustdoc..LocalRustdocProvider$u20$as$u20$indexed_docs..store..IndexedDocsProvider$GT$16suggest_packages28_$u7b$$u7b$closure$u7d$$u7d$16WORKSPACE_CRATES17hb3178d35c24df291E", i64 48) acquire, align 8
   %150 = icmp eq i32 %149, 4
   br i1 %150, label %"_ZN87_$LT$std..sync..lazy_lock..LazyLock$LT$T$C$F$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h3836d34c7a26834dE.exit79", label %151
 
@@ -6966,7 +6966,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h4565c9b3aeb239b0E.exit: ; preds
   store ptr @"_ZN115_$LT$indexed_docs..providers..rustdoc..LocalRustdocProvider$u20$as$u20$indexed_docs..store..IndexedDocsProvider$GT$16suggest_packages28_$u7b$$u7b$closure$u7d$$u7d$16WORKSPACE_CRATES17hb3178d35c24df291E", ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %10, ptr %9, align 8
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h86c817f2d35771eeE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN115_$LT$indexed_docs..providers..rustdoc..LocalRustdocProvider$u20$as$u20$indexed_docs..store..IndexedDocsProvider$GT$16suggest_packages28_$u7b$$u7b$closure$u7d$$u7d$16WORKSPACE_CRATES17hb3178d35c24df291E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09884cd56539613175bdd7af7a133146.58)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h86c817f2d35771eeE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN115_$LT$indexed_docs..providers..rustdoc..LocalRustdocProvider$u20$as$u20$indexed_docs..store..IndexedDocsProvider$GT$16suggest_packages28_$u7b$$u7b$closure$u7d$$u7d$16WORKSPACE_CRATES17hb3178d35c24df291E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09884cd56539613175bdd7af7a133146.58)
           to label %.noexc78 unwind label %152
 
 .noexc78:                                         ; preds = %151
@@ -11237,7 +11237,7 @@ default.unreachable5:                             ; preds = %3
 
 9:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %10 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN112_$LT$indexed_docs..providers..rustdoc..DocsDotRsProvider$u20$as$u20$indexed_docs..store..IndexedDocsProvider$GT$16suggest_packages28_$u7b$$u7b$closure$u7d$$u7d$14POPULAR_CRATES17h28600f7ed106f21eE", i64 24) acquire, align 8
+  %10 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN112_$LT$indexed_docs..providers..rustdoc..DocsDotRsProvider$u20$as$u20$indexed_docs..store..IndexedDocsProvider$GT$16suggest_packages28_$u7b$$u7b$closure$u7d$$u7d$14POPULAR_CRATES17h28600f7ed106f21eE", i64 24) acquire, align 8
   %11 = icmp eq i32 %10, 4
   br i1 %11, label %"_ZN87_$LT$std..sync..lazy_lock..LazyLock$LT$T$C$F$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1ba030c07014c1a5E.exit", label %12
 
@@ -11246,7 +11246,7 @@ default.unreachable5:                             ; preds = %3
   store ptr @"_ZN112_$LT$indexed_docs..providers..rustdoc..DocsDotRsProvider$u20$as$u20$indexed_docs..store..IndexedDocsProvider$GT$16suggest_packages28_$u7b$$u7b$closure$u7d$$u7d$14POPULAR_CRATES17h28600f7ed106f21eE", ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %5, ptr %4, align 8
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h3d0c161b5880fd87E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN112_$LT$indexed_docs..providers..rustdoc..DocsDotRsProvider$u20$as$u20$indexed_docs..store..IndexedDocsProvider$GT$16suggest_packages28_$u7b$$u7b$closure$u7d$$u7d$14POPULAR_CRATES17h28600f7ed106f21eE", i64 24), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09884cd56539613175bdd7af7a133146.58)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h3d0c161b5880fd87E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN112_$LT$indexed_docs..providers..rustdoc..DocsDotRsProvider$u20$as$u20$indexed_docs..store..IndexedDocsProvider$GT$16suggest_packages28_$u7b$$u7b$closure$u7d$$u7d$14POPULAR_CRATES17h28600f7ed106f21eE", i64 24), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09884cd56539613175bdd7af7a133146.58)
           to label %.noexc3 unwind label %15
 
 .noexc3:                                          ; preds = %12

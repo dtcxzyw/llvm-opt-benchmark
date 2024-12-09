@@ -98,7 +98,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento23FindUninitializedFields22is
 29:                                               ; preds = %4
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %1, ptr %30, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_18LocFieldE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_18LocFieldE, i64 16), ptr %8, align 8
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i8 0, ptr %31, align 8
   %32 = call fastcc { ptr, ptr } @_ZN5clang4ento14FieldChainInfo3addIN12_GLOBAL__N_18LocFieldEEES1_RKT_(ptr %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(24) %8)
@@ -400,7 +400,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 172:                                              ; preds = %171
   %173 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %1, ptr %173, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_114CyclicLocFieldE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_114CyclicLocFieldE, i64 16), ptr %9, align 8
   %174 = call fastcc { ptr, ptr } @_ZN5clang4ento14FieldChainInfo3addIN12_GLOBAL__N_114CyclicLocFieldEEES1_RKT_(ptr %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(16) %9)
   %175 = extractvalue { ptr, ptr } %174, 0
   %176 = extractvalue { ptr, ptr } %174, 1
@@ -428,7 +428,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 192:                                              ; preds = %191
   %193 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %1, ptr %193, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117NeedsCastLocFieldE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117NeedsCastLocFieldE, i64 16), ptr %10, align 8
   %194 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %182, ptr %194, align 8
   %195 = call fastcc { ptr, ptr } @_ZN5clang4ento14FieldChainInfo3addIN12_GLOBAL__N_117NeedsCastLocFieldEEES1_RKT_(ptr %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(24) %10)
@@ -440,7 +440,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 199:                                              ; preds = %191
   %200 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %1, ptr %200, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_18LocFieldE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_18LocFieldE, i64 16), ptr %11, align 8
   %201 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i8 1, ptr %201, align 8
   %202 = call fastcc { ptr, ptr } @_ZN5clang4ento14FieldChainInfo3addIN12_GLOBAL__N_18LocFieldEEES1_RKT_(ptr %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(24) %11)
@@ -464,7 +464,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 212:                                              ; preds = %211
   %213 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %1, ptr %213, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117NeedsCastLocFieldE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117NeedsCastLocFieldE, i64 16), ptr %12, align 8
   %214 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 %182, ptr %214, align 8
   %215 = call fastcc { ptr, ptr } @_ZN5clang4ento14FieldChainInfo3addIN12_GLOBAL__N_117NeedsCastLocFieldEEES1_RKT_(ptr %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(24) %12)
@@ -476,7 +476,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 219:                                              ; preds = %211
   %220 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %1, ptr %220, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_18LocFieldE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_18LocFieldE, i64 16), ptr %13, align 8
   %221 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i8 1, ptr %221, align 8
   %222 = call fastcc { ptr, ptr } @_ZN5clang4ento14FieldChainInfo3addIN12_GLOBAL__N_18LocFieldEEES1_RKT_(ptr %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(24) %13)
@@ -531,7 +531,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 253:                                              ; preds = %252
   %254 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %1, ptr %254, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117NeedsCastLocFieldE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117NeedsCastLocFieldE, i64 16), ptr %14, align 8
   %255 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 %182, ptr %255, align 8
   %256 = call fastcc { ptr, ptr } @_ZN5clang4ento14FieldChainInfo3addIN12_GLOBAL__N_117NeedsCastLocFieldEEES1_RKT_(ptr %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(24) %14)
@@ -543,7 +543,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 260:                                              ; preds = %252
   %261 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %1, ptr %261, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_18LocFieldE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_18LocFieldE, i64 16), ptr %15, align 8
   %262 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i8 1, ptr %262, align 8
   %263 = call fastcc { ptr, ptr } @_ZN5clang4ento14FieldChainInfo3addIN12_GLOBAL__N_18LocFieldEEES1_RKT_(ptr %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(24) %15)

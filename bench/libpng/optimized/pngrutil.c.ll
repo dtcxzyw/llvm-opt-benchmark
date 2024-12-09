@@ -5297,12 +5297,12 @@ define void @png_combine_row(ptr noalias noundef %0, ptr noundef %1, i32 noundef
 99:                                               ; preds = %98
   %100 = lshr i32 %15, 1
   %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr inbounds nuw [3 x [3 x i32]], ptr getelementptr inbounds (i8, ptr @png_combine_row.display_mask, i64 36), i64 0, i64 %89, i64 %101
+  %102 = getelementptr inbounds nuw [3 x [3 x i32]], ptr getelementptr inbounds nuw (i8, ptr @png_combine_row.display_mask, i64 36), i64 0, i64 %89, i64 %101
   br label %106
 
 103:                                              ; preds = %98
   %104 = zext nneg i8 %14 to i64
-  %105 = getelementptr inbounds nuw [3 x [6 x i32]], ptr getelementptr inbounds (i8, ptr @png_combine_row.row_mask, i64 72), i64 0, i64 %89, i64 %104
+  %105 = getelementptr inbounds nuw [3 x [6 x i32]], ptr getelementptr inbounds nuw (i8, ptr @png_combine_row.row_mask, i64 72), i64 0, i64 %89, i64 %104
   br label %106
 
 106:                                              ; preds = %99, %103, %91, %95

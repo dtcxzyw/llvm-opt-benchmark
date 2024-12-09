@@ -383,8 +383,8 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers12SygusSamplerC2ERNS0_3
 entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers12SygusSamplerE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers12SygusSamplerE, i64 80), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers12SygusSamplerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers12SygusSamplerE, i64 80), ptr %0, align 8
   %d_tds = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %d_tds, align 8
   %d_tenum = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -13832,9 +13832,9 @@ declare void @_ZNK4cvc58internal16DTypeConstructor10getSygusOpEv(ptr sret(%"clas
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers12SygusSamplerD2Ev(ptr noundef nonnull align 8 dereferenceable(800) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers12SygusSamplerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers12SygusSamplerE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers12SygusSamplerE, i64 80), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers12SygusSamplerE, i64 80), ptr %add.ptr, align 8
   %d_const_sygus_types = getelementptr inbounds nuw i8, ptr %this, i64 752
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 768
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8

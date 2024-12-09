@@ -509,7 +509,7 @@ sub_0.i:                                          ; preds = %238
   br i1 %.not37.i, label %254, label %251
 
 251:                                              ; preds = %249
-  %252 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %252 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %253 = call i32 @slurm_xstrcmp(ptr noundef nonnull %.0.i54, ptr noundef %252) #13
   %.not38.i = icmp eq i32 %253, 0
   br i1 %.not38.i, label %254, label %_set_default.exit

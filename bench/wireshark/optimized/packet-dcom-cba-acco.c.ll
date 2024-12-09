@@ -748,10 +748,10 @@ define hidden ptr @cba_ldev_find(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_dcom_cba_acco() local_unnamed_addr #0 {
   store ptr @ett_ICBAAccoMgt, ptr @proto_register_dcom_cba_acco.ett5, align 16
-  store ptr @ett_cba_addconnectionin, ptr getelementptr inbounds (i8, ptr @proto_register_dcom_cba_acco.ett5, i64 8), align 8
-  store ptr @ett_cba_addconnectionout, ptr getelementptr inbounds (i8, ptr @proto_register_dcom_cba_acco.ett5, i64 16), align 16
-  store ptr @ett_cba_getidout, ptr getelementptr inbounds (i8, ptr @proto_register_dcom_cba_acco.ett5, i64 24), align 8
-  store ptr @ett_cba_getconnectionout, ptr getelementptr inbounds (i8, ptr @proto_register_dcom_cba_acco.ett5, i64 32), align 16
+  store ptr @ett_cba_addconnectionin, ptr getelementptr inbounds nuw (i8, ptr @proto_register_dcom_cba_acco.ett5, i64 8), align 8
+  store ptr @ett_cba_addconnectionout, ptr getelementptr inbounds nuw (i8, ptr @proto_register_dcom_cba_acco.ett5, i64 16), align 16
+  store ptr @ett_cba_getidout, ptr getelementptr inbounds nuw (i8, ptr @proto_register_dcom_cba_acco.ett5, i64 24), align 8
+  store ptr @ett_cba_getconnectionout, ptr getelementptr inbounds nuw (i8, ptr @proto_register_dcom_cba_acco.ett5, i64 32), align 16
   %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.174, ptr noundef nonnull @.str.174, ptr noundef nonnull @.str.175) #7
   store i32 %1, ptr @proto_ICBAAccoMgt, align 4
   tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_dcom_cba_acco.hf_cba_acco_array, i32 noundef 20) #7
@@ -766,8 +766,8 @@ define hidden void @proto_register_dcom_cba_acco() local_unnamed_addr #0 {
   %6 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.177) #7
   store i32 %6, ptr @proto_ICBAAccoMgt2, align 4
   store ptr @ett_ICBAAccoCallback, ptr @proto_register_dcom_cba_acco.ett3, align 16
-  store ptr @ett_ICBAAccoCallback_Item, ptr getelementptr inbounds (i8, ptr @proto_register_dcom_cba_acco.ett3, i64 8), align 8
-  store ptr @ett_ICBAAccoCallback_Buffer, ptr getelementptr inbounds (i8, ptr @proto_register_dcom_cba_acco.ett3, i64 16), align 16
+  store ptr @ett_ICBAAccoCallback_Item, ptr getelementptr inbounds nuw (i8, ptr @proto_register_dcom_cba_acco.ett3, i64 8), align 8
+  store ptr @ett_ICBAAccoCallback_Buffer, ptr getelementptr inbounds nuw (i8, ptr @proto_register_dcom_cba_acco.ett3, i64 16), align 16
   %7 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.180) #7
   store i32 %7, ptr @proto_ICBAAccoCallback, align 4
   tail call void @proto_register_field_array(i32 noundef %7, ptr noundef nonnull @proto_register_dcom_cba_acco.hf_cba_acco_cb, i32 noundef 16) #7
@@ -775,9 +775,9 @@ define hidden void @proto_register_dcom_cba_acco() local_unnamed_addr #0 {
   %8 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.181, ptr noundef nonnull @.str.182, ptr noundef nonnull @.str.183) #7
   store i32 %8, ptr @proto_ICBAAccoCallback2, align 4
   store ptr @ett_ICBAAccoServer, ptr @proto_register_dcom_cba_acco.ett4, align 16
-  store ptr @ett_cba_connectin, ptr getelementptr inbounds (i8, ptr @proto_register_dcom_cba_acco.ett4, i64 8), align 8
-  store ptr @ett_cba_connectout, ptr getelementptr inbounds (i8, ptr @proto_register_dcom_cba_acco.ett4, i64 16), align 16
-  store ptr @ett_cba_getprovconnout, ptr getelementptr inbounds (i8, ptr @proto_register_dcom_cba_acco.ett4, i64 24), align 8
+  store ptr @ett_cba_connectin, ptr getelementptr inbounds nuw (i8, ptr @proto_register_dcom_cba_acco.ett4, i64 8), align 8
+  store ptr @ett_cba_connectout, ptr getelementptr inbounds nuw (i8, ptr @proto_register_dcom_cba_acco.ett4, i64 16), align 16
+  store ptr @ett_cba_getprovconnout, ptr getelementptr inbounds nuw (i8, ptr @proto_register_dcom_cba_acco.ett4, i64 24), align 8
   %9 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.184, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.186) #7
   store i32 %9, ptr @proto_ICBAAccoServer, align 4
   tail call void @proto_register_field_array(i32 noundef %9, ptr noundef nonnull @proto_register_dcom_cba_acco.hf_cba_acco_server, i32 noundef 12) #7
@@ -785,17 +785,17 @@ define hidden void @proto_register_dcom_cba_acco() local_unnamed_addr #0 {
   %10 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.187, ptr noundef nonnull @.str.188, ptr noundef nonnull @.str.189) #7
   store i32 %10, ptr @proto_ICBAAccoServer2, align 4
   store ptr @ett_ICBAAccoServerSRT, ptr @proto_register_dcom_cba_acco.ett4, align 16
-  store ptr @ett_cba_acco_serversrt_cr_flags, ptr getelementptr inbounds (i8, ptr @proto_register_dcom_cba_acco.ett4, i64 8), align 8
-  store ptr @ett_cba_connectincr, ptr getelementptr inbounds (i8, ptr @proto_register_dcom_cba_acco.ett4, i64 16), align 16
-  store ptr @ett_cba_connectoutcr, ptr getelementptr inbounds (i8, ptr @proto_register_dcom_cba_acco.ett4, i64 24), align 8
+  store ptr @ett_cba_acco_serversrt_cr_flags, ptr getelementptr inbounds nuw (i8, ptr @proto_register_dcom_cba_acco.ett4, i64 8), align 8
+  store ptr @ett_cba_connectincr, ptr getelementptr inbounds nuw (i8, ptr @proto_register_dcom_cba_acco.ett4, i64 16), align 16
+  store ptr @ett_cba_connectoutcr, ptr getelementptr inbounds nuw (i8, ptr @proto_register_dcom_cba_acco.ett4, i64 24), align 8
   %11 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.190, ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.192) #7
   store i32 %11, ptr @proto_ICBAAccoServerSRT, align 4
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_dcom_cba_acco.ett4, i32 noundef 4) #7
   store ptr @ett_ICBAAccoSync, ptr @proto_register_dcom_cba_acco.ett5, align 16
-  store ptr @ett_cba_readitemout, ptr getelementptr inbounds (i8, ptr @proto_register_dcom_cba_acco.ett5, i64 8), align 8
-  store ptr @ett_cba_writeitemin, ptr getelementptr inbounds (i8, ptr @proto_register_dcom_cba_acco.ett5, i64 16), align 16
-  store ptr @ett_cba_frame_info, ptr getelementptr inbounds (i8, ptr @proto_register_dcom_cba_acco.ett5, i64 24), align 8
-  store ptr @ett_cba_conn_info, ptr getelementptr inbounds (i8, ptr @proto_register_dcom_cba_acco.ett5, i64 32), align 16
+  store ptr @ett_cba_readitemout, ptr getelementptr inbounds nuw (i8, ptr @proto_register_dcom_cba_acco.ett5, i64 8), align 8
+  store ptr @ett_cba_writeitemin, ptr getelementptr inbounds nuw (i8, ptr @proto_register_dcom_cba_acco.ett5, i64 16), align 16
+  store ptr @ett_cba_frame_info, ptr getelementptr inbounds nuw (i8, ptr @proto_register_dcom_cba_acco.ett5, i64 24), align 8
+  store ptr @ett_cba_conn_info, ptr getelementptr inbounds nuw (i8, ptr @proto_register_dcom_cba_acco.ett5, i64 32), align 16
   %12 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.194) #7
   store i32 %12, ptr @proto_ICBAAccoSync, align 4
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_dcom_cba_acco.ett5, i32 noundef 5) #7

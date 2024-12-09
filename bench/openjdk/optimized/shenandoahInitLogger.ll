@@ -64,7 +64,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ShenandoahInitLogger5printEv() local_unnamed_addr #0 align 2 {
   %1 = alloca %class.ShenandoahInitLogger, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV20ShenandoahInitLogger, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV20ShenandoahInitLogger, i64 16), ptr %1, align 8
   call void @_ZN12GCInitLogger9print_allEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #4
   ret void
 }

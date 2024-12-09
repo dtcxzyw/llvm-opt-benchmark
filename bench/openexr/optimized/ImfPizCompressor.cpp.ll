@@ -39,7 +39,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN7Imf_3_213PizCompressorC2ERKNS_6HeaderEmm(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(49) %hdr, i64 noundef %maxScanLineSize, i64 noundef %numScanLines) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN7Imf_3_210CompressorC2ERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(49) %hdr)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_213PizCompressorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_213PizCompressorE, i64 16), ptr %this, align 8
   %_maxScanLineSize = getelementptr inbounds nuw i8, ptr %this, i64 16
   %conv = trunc i64 %maxScanLineSize to i32
   store i32 %conv, ptr %_maxScanLineSize, align 8
@@ -232,7 +232,7 @@ declare void @_ZN7Imf_3_210CompressorD2Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7Imf_3_213PizCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_213PizCompressorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_213PizCompressorE, i64 16), ptr %this, align 8
   %_tmpBuffer = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_tmpBuffer, align 8
   %isnull = icmp eq ptr %0, null
@@ -273,7 +273,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7Imf_3_213PizCompressorD0Ev(ptr noundef nonnull align 8 dereferenceable(84) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_213PizCompressorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_213PizCompressorE, i64 16), ptr %this, align 8
   %_tmpBuffer.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_tmpBuffer.i, align 8
   %isnull.i = icmp eq ptr %0, null

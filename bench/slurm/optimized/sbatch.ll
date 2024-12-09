@@ -187,9 +187,9 @@ _set_exit_code.exit:                              ; preds = %32, %37, %39
 
 50:                                               ; preds = %48, %45
   %51 = tail call ptr @process_options_first_pass(i32 noundef %0, ptr noundef nonnull %1) #14
-  %52 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 360), align 8
+  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 360), align 8
   %.not118 = icmp ne i32 %52, 0
-  %53 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 364), align 4
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 364), align 4
   %.not119 = icmp ne i32 %53, 0
   %brmerge = select i1 %.not119, i1 true, i1 %.not118
   br i1 %brmerge, label %54, label %60
@@ -205,7 +205,7 @@ _set_exit_code.exit:                              ; preds = %32, %37, %39
   br label %60
 
 60:                                               ; preds = %50, %54
-  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @sbopt, i64 64), align 8
+  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sbopt, i64 64), align 8
   %.not120 = icmp eq ptr %61, null
   br i1 %.not120, label %64, label %62
 
@@ -432,7 +432,7 @@ _get_script_buffer.exit:                          ; preds = %._crit_edge.i.i, %1
   unreachable
 
 150:                                              ; preds = %146
-  %151 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 64), align 8
+  %151 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 64), align 8
   %152 = sub nsw i32 %0, %151
   %.not137 = icmp eq ptr %51, null
   br label %153
@@ -491,7 +491,7 @@ _get_script_buffer.exit:                          ; preds = %._crit_edge.i.i, %1
   %.1102 = phi ptr [ %171, %167 ], [ %.0101191, %172 ]
   %.1100 = phi i32 [ %169, %167 ], [ %.099192, %172 ]
   %.192 = phi i8 [ %.091194, %167 ], [ %spec.select, %172 ]
-  %176 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 88), align 8
+  %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 88), align 8
   %.not139 = icmp eq ptr %176, null
   br i1 %.not139, label %185, label %177
 
@@ -525,7 +525,7 @@ _get_script_buffer.exit:                          ; preds = %._crit_edge.i.i, %1
   unreachable
 
 191:                                              ; preds = %185
-  %192 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 600), align 8
+  %192 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 600), align 8
   %193 = icmp slt i32 %192, 0
   br i1 %193, label %194, label %240
 
@@ -534,7 +534,7 @@ _get_script_buffer.exit:                          ; preds = %._crit_edge.i.i, %1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   %195 = call ptr @slurm_conf_lock() #14
   call void @slurm_conf_unlock() #14
-  %196 = load ptr, ptr getelementptr inbounds (i8, ptr @sbopt, i64 40), align 8
+  %196 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sbopt, i64 40), align 8
   %.not.i146 = icmp eq ptr %196, null
   br i1 %.not.i146, label %203, label %197
 
@@ -544,7 +544,7 @@ _get_script_buffer.exit:                          ; preds = %._crit_edge.i.i, %1
   br i1 %.not14.i, label %203, label %199
 
 199:                                              ; preds = %197
-  %200 = load ptr, ptr getelementptr inbounds (i8, ptr @sbopt, i64 40), align 8
+  %200 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sbopt, i64 40), align 8
   %201 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.64, ptr noundef %200) #14
   %202 = load i32, ptr @error_exit, align 4
   call void @exit(i32 noundef %202) #15
@@ -580,7 +580,7 @@ _get_script_buffer.exit:                          ; preds = %._crit_edge.i.i, %1
   %218 = load i64, ptr %7, align 16
   %219 = load ptr, ptr %207, align 8
   %220 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 64, ptr noundef nonnull @.str.66, ptr noundef %219) #14
-  %221 = load ptr, ptr getelementptr inbounds (i8, ptr @sbopt, i64 40), align 8
+  %221 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sbopt, i64 40), align 8
   %.not17.i = icmp eq ptr %221, null
   br i1 %.not17.i, label %225, label %222
 
@@ -659,13 +659,13 @@ _set_rlimit_env.exit:                             ; preds = %236, %203
   br label %_set_prio_process_env.exit
 
 _set_prio_process_env.exit:                       ; preds = %246, %251, %253, %256
-  %257 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 640), align 8
+  %257 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 640), align 8
   %258 = icmp sgt i32 %257, 0
   br i1 %258, label %.lr.ph.i151, label %_set_spank_env.exit
 
 .lr.ph.i151:                                      ; preds = %_set_prio_process_env.exit, %269
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %269 ], [ 0, %_set_prio_process_env.exit ]
-  %259 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 632), align 8
+  %259 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 632), align 8
   %260 = getelementptr inbounds nuw ptr, ptr %259, i64 %indvars.iv.i
   %261 = load ptr, ptr %260, align 8
   %262 = call i32 (ptr, ...) @setenvfs(ptr noundef nonnull @.str.31, ptr noundef %261) #14
@@ -673,7 +673,7 @@ _set_prio_process_env.exit:                       ; preds = %246, %251, %253, %2
   br i1 %263, label %264, label %269
 
 264:                                              ; preds = %.lr.ph.i151
-  %265 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 632), align 8
+  %265 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 632), align 8
   %266 = getelementptr inbounds nuw ptr, ptr %265, i64 %indvars.iv.i
   %267 = load ptr, ptr %266, align 8
   %268 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32, ptr noundef %267) #14
@@ -681,7 +681,7 @@ _set_prio_process_env.exit:                       ; preds = %246, %251, %253, %2
 
 269:                                              ; preds = %264, %.lr.ph.i151
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %270 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 640), align 8
+  %270 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 640), align 8
   %271 = sext i32 %270 to i64
   %272 = icmp slt i64 %indvars.iv.next.i, %271
   br i1 %272, label %.lr.ph.i151, label %_set_spank_env.exit, !llvm.loop !12
@@ -727,7 +727,7 @@ _set_submit_dir_env.exit:                         ; preds = %281, %.sink.split1.
   br i1 %.not.i153, label %286, label %_set_umask_env.exit
 
 286:                                              ; preds = %_set_submit_dir_env.exit
-  %287 = load i32, ptr getelementptr inbounds (i8, ptr @sbopt, i64 56), align 8
+  %287 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sbopt, i64 56), align 8
   %288 = icmp sgt i32 %287, -1
   br i1 %288, label %292, label %289
 
@@ -785,7 +785,7 @@ _set_umask_env.exit:                              ; preds = %_set_submit_dir_env
   br i1 %.not.i155, label %_fill_job_desc_from_opts.exit, label %315
 
 315:                                              ; preds = %312
-  %316 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 264), align 8
+  %316 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 264), align 8
   %.not30.i = icmp eq ptr %316, null
   br i1 %.not30.i, label %317, label %320
 
@@ -799,24 +799,24 @@ _set_umask_env.exit:                              ; preds = %_set_submit_dir_env
   %321 = load ptr, ptr @sbopt, align 8
   %322 = getelementptr inbounds nuw i8, ptr %314, i64 56
   store ptr %321, ptr %322, align 8
-  %323 = load ptr, ptr getelementptr inbounds (i8, ptr @sbopt, i64 8), align 8
+  %323 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sbopt, i64 8), align 8
   %324 = getelementptr inbounds nuw i8, ptr %314, i64 72
   store ptr %323, ptr %324, align 8
-  %325 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 496), align 8
+  %325 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 496), align 8
   %326 = call ptr @xstrdup(ptr noundef %325) #14
   %327 = getelementptr inbounds nuw i8, ptr %314, i64 136
   store ptr %326, ptr %327, align 8
   %328 = getelementptr inbounds nuw i8, ptr %314, i64 144
   call void @slurm_xfree(ptr noundef nonnull %328) #14
-  %329 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 504), align 8
+  %329 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 504), align 8
   %330 = call ptr @xstrdup(ptr noundef %329) #14
   store ptr %330, ptr %328, align 8
-  %331 = load i16, ptr getelementptr inbounds (i8, ptr @sbopt, i64 62), align 2
+  %331 = load i16, ptr getelementptr inbounds nuw (i8, ptr @sbopt, i64 62), align 2
   %332 = getelementptr inbounds nuw i8, ptr %314, i64 716
   store i16 %331, ptr %332, align 4
   %333 = getelementptr inbounds nuw i8, ptr %314, i64 232
   store ptr null, ptr %333, align 8
-  %334 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 760), align 8
+  %334 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 760), align 8
   %335 = icmp eq ptr %334, null
   br i1 %335, label %336, label %338
 
@@ -836,7 +836,7 @@ _set_umask_env.exit:                              ; preds = %_set_submit_dir_env
   br label %355
 
 342:                                              ; preds = %338
-  %343 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 760), align 8
+  %343 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 760), align 8
   %344 = call i32 @xstrcasecmp(ptr noundef %343, ptr noundef nonnull @.str.24) #14
   %.not32.i = icmp eq i32 %344, 0
   br i1 %.not32.i, label %345, label %348
@@ -849,7 +849,7 @@ _set_umask_env.exit:                              ; preds = %_set_submit_dir_env
   br label %355
 
 348:                                              ; preds = %342
-  %349 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 760), align 8
+  %349 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 760), align 8
   %350 = call i32 @xstrcasecmp(ptr noundef %349, ptr noundef nonnull @.str.25) #14
   %.not33.i = icmp eq i32 %350, 0
   br i1 %.not33.i, label %351, label %354
@@ -866,12 +866,12 @@ _set_umask_env.exit:                              ; preds = %_set_submit_dir_env
   br label %.thread.sink.split.i
 
 355:                                              ; preds = %345, %340, %336
-  %.pr.i = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 600), align 8
+  %.pr.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 600), align 8
   %356 = icmp sgt i32 %.pr.i, -1
   br i1 %356, label %.thread.i, label %358
 
 .thread.sink.split.i:                             ; preds = %354, %351
-  store i32 0, ptr getelementptr inbounds (i8, ptr @opt, i64 600), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 600), align 8
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.thread.sink.split.i, %355
@@ -879,7 +879,7 @@ _set_umask_env.exit:                              ; preds = %_set_submit_dir_env
   br label %358
 
 358:                                              ; preds = %.thread.i, %355
-  %359 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 252), align 4
+  %359 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 252), align 4
   %360 = and i32 %359, 65535
   %361 = icmp eq i32 %360, 3
   br i1 %361, label %362, label %366
@@ -895,25 +895,25 @@ _set_umask_env.exit:                              ; preds = %_set_submit_dir_env
   %368 = call i32 @envcount(ptr noundef %367) #14
   %369 = getelementptr inbounds nuw i8, ptr %314, i64 276
   store i32 %368, ptr %369, align 4
-  %370 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 64), align 8
+  %370 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 64), align 8
   %371 = getelementptr inbounds nuw i8, ptr %314, i64 40
   store i32 %370, ptr %371, align 8
-  %372 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 72), align 8
+  %372 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 72), align 8
   %373 = getelementptr inbounds nuw i8, ptr %314, i64 48
   store ptr %372, ptr %373, align 8
-  %374 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 768), align 8
+  %374 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 768), align 8
   %375 = call ptr @xstrdup(ptr noundef %374) #14
   %376 = getelementptr inbounds nuw i8, ptr %314, i64 824
   store ptr %375, ptr %376, align 8
-  %377 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 776), align 8
+  %377 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 776), align 8
   %378 = call ptr @xstrdup(ptr noundef %377) #14
   %379 = getelementptr inbounds nuw i8, ptr %314, i64 832
   store ptr %378, ptr %379, align 8
-  %380 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 784), align 8
+  %380 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 784), align 8
   %381 = call ptr @xstrdup(ptr noundef %380) #14
   %382 = getelementptr inbounds nuw i8, ptr %314, i64 840
   store ptr %381, ptr %382, align 8
-  %383 = load i32, ptr getelementptr inbounds (i8, ptr @sbopt, i64 48), align 8
+  %383 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sbopt, i64 48), align 8
   %.not34.i = icmp eq i32 %383, -2
   br i1 %.not34.i, label %388, label %384
 
@@ -1010,7 +1010,7 @@ _fill_job_desc_from_opts.exit:                    ; preds = %312
 
 416:                                              ; preds = %._crit_edge, %.thread
   %.1166 = phi ptr [ %314, %.thread ], [ %403, %._crit_edge ]
-  %417 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 96), align 8
+  %417 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 96), align 8
   %.not126 = icmp eq ptr %417, null
   br i1 %.not126, label %427, label %418
 
@@ -1031,14 +1031,14 @@ _fill_job_desc_from_opts.exit:                    ; preds = %312
   br i1 %.not128, label %427, label %424
 
 424:                                              ; preds = %423
-  %425 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 96), align 8
+  %425 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 96), align 8
   call void @print_db_notok(ptr noundef %425, i1 noundef zeroext false) #14
   %426 = load i32, ptr @error_exit, align 4
   call void @exit(i32 noundef %426) #15
   unreachable
 
 427:                                              ; preds = %423, %416
-  %428 = load i8, ptr getelementptr inbounds (i8, ptr @sbopt, i64 52), align 4
+  %428 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sbopt, i64 52), align 4
   %429 = trunc i8 %428 to i1
   br i1 %429, label %430, label %.preheader
 
@@ -1183,7 +1183,7 @@ _fill_job_desc_from_opts.exit:                    ; preds = %312
   br i1 %.not118, label %498, label %484
 
 484:                                              ; preds = %483
-  %485 = load i8, ptr getelementptr inbounds (i8, ptr @sbopt, i64 32), align 8
+  %485 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sbopt, i64 32), align 8
   %486 = trunc i8 %485 to i1
   %487 = load ptr, ptr %13, align 8
   %488 = load i32, ptr %487, align 8
@@ -1214,7 +1214,7 @@ _fill_job_desc_from_opts.exit:                    ; preds = %312
   br label %498
 
 498:                                              ; preds = %.sink.split, %483
-  %499 = load i8, ptr getelementptr inbounds (i8, ptr @sbopt, i64 60), align 4
+  %499 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sbopt, i64 60), align 4
   %500 = trunc i8 %499 to i1
   br i1 %500, label %501, label %536
 
@@ -1233,7 +1233,7 @@ _fill_job_desc_from_opts.exit:                    ; preds = %312
 504:                                              ; preds = %534, %.outer.i
   %.02036.i = phi i32 [ %spec.select.i, %534 ], [ %.02036.ph.i, %.outer.i ]
   %505 = call i32 @sleep(i32 noundef %.02036.i) #14
-  %506 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 688), align 8
+  %506 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 688), align 8
   %507 = lshr i32 %506, 1
   %508 = icmp samesign ult i32 %.02036.i, %507
   %509 = icmp samesign ult i32 %.02036.i, 32

@@ -105,7 +105,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_127ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 define hidden void @_ZN24G1ConcurrentRefineThreadC2EP18G1ConcurrentRefinej(ptr noundef nonnull align 8 dereferenceable(1104) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %class.FormatBuffer, align 8
   tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #9
-  store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 936
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -575,7 +575,7 @@ _ZN24G1ConcurrentRefineThread11track_usageEv.exit: ; preds = %1, %4
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %12
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25ThreadTotalCPUTimeClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV25ThreadTotalCPUTimeClosure, i64 16), ptr %2, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -668,7 +668,7 @@ define hidden noundef ptr @_ZN24G1ConcurrentRefineThread6createEP18G1ConcurrentR
 9:                                                ; preds = %8
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %4)
   tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %6) #9
-  store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %6, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 920
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 936
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
@@ -693,7 +693,7 @@ define hidden noundef ptr @_ZN24G1ConcurrentRefineThread6createEP18G1ConcurrentR
 18:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %3)
   tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %6) #9
-  store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %6, align 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 920
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 936
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
@@ -713,7 +713,7 @@ define hidden noundef ptr @_ZN24G1ConcurrentRefineThread6createEP18G1ConcurrentR
   br label %26
 
 26:                                               ; preds = %9, %18
-  %.sink = phi ptr [ getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTV31G1PrimaryConcurrentRefineThread, i64 16), %9 ], [ getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTV33G1SecondaryConcurrentRefineThread, i64 16), %18 ]
+  %.sink = phi ptr [ getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTV31G1PrimaryConcurrentRefineThread, i64 16), %9 ], [ getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTV33G1SecondaryConcurrentRefineThread, i64 16), %18 ]
   store ptr %.sink, ptr %6, align 8
   call void @_ZN18ConcurrentGCThread16create_and_startE14ThreadPriority(ptr noundef nonnull align 8 dereferenceable(918) %6, i32 noundef 9) #9
   br label %.thread
@@ -732,7 +732,7 @@ define linkonce_odr hidden void @_ZN12ThreadShadow22unused_initial_virtualEv(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN24G1ConcurrentRefineThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 936
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #9
   tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #9
@@ -857,7 +857,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN31G1PrimaryConcurrentRefineThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 936
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #9
   tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) #9
@@ -866,7 +866,7 @@ define linkonce_odr hidden void @_ZN31G1PrimaryConcurrentRefineThreadD2Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN31G1PrimaryConcurrentRefineThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 936
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #9
   tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) #9
@@ -876,7 +876,7 @@ define linkonce_odr hidden void @_ZN31G1PrimaryConcurrentRefineThreadD0Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN33G1SecondaryConcurrentRefineThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 936
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #9
   tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) #9
@@ -885,7 +885,7 @@ define linkonce_odr hidden void @_ZN33G1SecondaryConcurrentRefineThreadD2Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN33G1SecondaryConcurrentRefineThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 936
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #9
   tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) #9

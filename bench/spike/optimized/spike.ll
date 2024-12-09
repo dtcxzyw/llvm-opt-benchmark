@@ -7525,14 +7525,14 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_11E9_M_invokeERK
   %.val = load ptr, ptr %0, align 8
   %.val2 = load ptr, ptr %1, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #35
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17cache_memtracer_t, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17cache_memtracer_t, i64 16), ptr %3, align 8
   %4 = invoke noundef ptr @_ZN11cache_sim_t9constructEPKcS1_(ptr noundef %.val2, ptr noundef nonnull @.str.117)
           to label %5 unwind label %11
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %6, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12icache_sim_t, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12icache_sim_t, i64 16), ptr %3, align 8
   %7 = load ptr, ptr %.val, align 8
   store ptr %3, ptr %.val, align 8
   %.not.i.i.i.i.i = icmp eq ptr %7, null
@@ -7582,7 +7582,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN12icache_sim_tD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17cache_memtracer_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17cache_memtracer_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -7601,7 +7601,7 @@ _ZN17cache_memtracer_tD2Ev.exit:                  ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN12icache_sim_tD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17cache_memtracer_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17cache_memtracer_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -7652,7 +7652,7 @@ declare noundef ptr @_ZN11cache_sim_t9constructEPKcS1_(ptr noundef, ptr noundef)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN17cache_memtracer_tD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17cache_memtracer_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17cache_memtracer_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -7686,14 +7686,14 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_12E9_M_invokeERK
   %.val = load ptr, ptr %0, align 8
   %.val2 = load ptr, ptr %1, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #35
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17cache_memtracer_t, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17cache_memtracer_t, i64 16), ptr %3, align 8
   %4 = invoke noundef ptr @_ZN11cache_sim_t9constructEPKcS1_(ptr noundef %.val2, ptr noundef nonnull @.str.118)
           to label %5 unwind label %11
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %6, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12dcache_sim_t, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12dcache_sim_t, i64 16), ptr %3, align 8
   %7 = load ptr, ptr %.val, align 8
   store ptr %3, ptr %.val, align 8
   %.not.i.i.i.i.i = icmp eq ptr %7, null
@@ -7743,7 +7743,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN12dcache_sim_tD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17cache_memtracer_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17cache_memtracer_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -7762,7 +7762,7 @@ _ZN17cache_memtracer_tD2Ev.exit:                  ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN12dcache_sim_tD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17cache_memtracer_t, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17cache_memtracer_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

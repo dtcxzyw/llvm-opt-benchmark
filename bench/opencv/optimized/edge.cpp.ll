@@ -159,7 +159,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %.body
 
 51:                                               ; preds = %34
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @image, i64 64), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @image, i64 64), align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = load i32, ptr %52, align 4

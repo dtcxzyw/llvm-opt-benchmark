@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @mca_btl_sm_put(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #0 {
   %13 = getelementptr i8, ptr %1, i64 104
   %.val = load i16, ptr %13, align 8
-  %14 = load i16, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 308), align 4
+  %14 = load i16, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 308), align 4
   %15 = icmp eq i16 %.val, %14
   br i1 %15, label %24, label %16
 

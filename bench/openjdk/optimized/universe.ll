@@ -968,7 +968,7 @@ _ZNK9OopHandle7resolveEv.exit:                    ; preds = %0, %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN8Universe10int_mirrorEv() local_unnamed_addr #0 align 2 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Universe19_basic_type_mirrorsE, i64 80), align 16
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8Universe19_basic_type_mirrorsE, i64 80), align 16
   %2 = icmp eq ptr %1, null
   br i1 %2, label %_ZNK9OopHandle7resolveEv.exit, label %3
 
@@ -984,7 +984,7 @@ _ZNK9OopHandle7resolveEv.exit:                    ; preds = %0, %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN8Universe12float_mirrorEv() local_unnamed_addr #0 align 2 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Universe19_basic_type_mirrorsE, i64 48), align 16
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8Universe19_basic_type_mirrorsE, i64 48), align 16
   %2 = icmp eq ptr %1, null
   br i1 %2, label %_ZNK9OopHandle7resolveEv.exit, label %3
 
@@ -1000,7 +1000,7 @@ _ZNK9OopHandle7resolveEv.exit:                    ; preds = %0, %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN8Universe13double_mirrorEv() local_unnamed_addr #0 align 2 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Universe19_basic_type_mirrorsE, i64 56), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8Universe19_basic_type_mirrorsE, i64 56), align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %_ZNK9OopHandle7resolveEv.exit, label %3
 
@@ -1016,7 +1016,7 @@ _ZNK9OopHandle7resolveEv.exit:                    ; preds = %0, %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN8Universe11byte_mirrorEv() local_unnamed_addr #0 align 2 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Universe19_basic_type_mirrorsE, i64 64), align 16
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8Universe19_basic_type_mirrorsE, i64 64), align 16
   %2 = icmp eq ptr %1, null
   br i1 %2, label %_ZNK9OopHandle7resolveEv.exit, label %3
 
@@ -1032,7 +1032,7 @@ _ZNK9OopHandle7resolveEv.exit:                    ; preds = %0, %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN8Universe11bool_mirrorEv() local_unnamed_addr #0 align 2 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Universe19_basic_type_mirrorsE, i64 32), align 16
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8Universe19_basic_type_mirrorsE, i64 32), align 16
   %2 = icmp eq ptr %1, null
   br i1 %2, label %_ZNK9OopHandle7resolveEv.exit, label %3
 
@@ -1048,7 +1048,7 @@ _ZNK9OopHandle7resolveEv.exit:                    ; preds = %0, %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN8Universe11char_mirrorEv() local_unnamed_addr #0 align 2 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Universe19_basic_type_mirrorsE, i64 40), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8Universe19_basic_type_mirrorsE, i64 40), align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %_ZNK9OopHandle7resolveEv.exit, label %3
 
@@ -1064,7 +1064,7 @@ _ZNK9OopHandle7resolveEv.exit:                    ; preds = %0, %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN8Universe11long_mirrorEv() local_unnamed_addr #0 align 2 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Universe19_basic_type_mirrorsE, i64 88), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8Universe19_basic_type_mirrorsE, i64 88), align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %_ZNK9OopHandle7resolveEv.exit, label %3
 
@@ -1080,7 +1080,7 @@ _ZNK9OopHandle7resolveEv.exit:                    ; preds = %0, %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN8Universe12short_mirrorEv() local_unnamed_addr #0 align 2 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Universe19_basic_type_mirrorsE, i64 72), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8Universe19_basic_type_mirrorsE, i64 72), align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %_ZNK9OopHandle7resolveEv.exit, label %3
 
@@ -1096,7 +1096,7 @@ _ZNK9OopHandle7resolveEv.exit:                    ; preds = %0, %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN8Universe11void_mirrorEv() local_unnamed_addr #0 align 2 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Universe19_basic_type_mirrorsE, i64 112), align 16
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8Universe19_basic_type_mirrorsE, i64 112), align 16
   %2 = icmp eq ptr %1, null
   br i1 %2, label %_ZNK9OopHandle7resolveEv.exit, label %3
 
@@ -1154,7 +1154,7 @@ define hidden void @_ZN8Universe21metaspace_pointers_doEP16MetaspaceClosure(ptr 
   store i32 2, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI5KlassEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI5KlassEE, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @_ZN8Universe17_fillerArrayKlassE, ptr %5, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %2) #16
@@ -1168,7 +1168,7 @@ define hidden void @_ZN8Universe21metaspace_pointers_doEP16MetaspaceClosure(ptr 
   store i32 2, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI14TypeArrayKlassEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI14TypeArrayKlassEE, i64 16), ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %7, ptr %11, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8) #16
@@ -1182,7 +1182,7 @@ define hidden void @_ZN8Universe21metaspace_pointers_doEP16MetaspaceClosure(ptr 
   store i32 2, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI13ObjArrayKlassEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI13ObjArrayKlassEE, i64 16), ptr %13, align 8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr @_ZN8Universe17_objectArrayKlassE, ptr %16, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %13) #16
@@ -1193,7 +1193,7 @@ define hidden void @_ZN8Universe21metaspace_pointers_doEP16MetaspaceClosure(ptr 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr @_ZN8Universe20_the_empty_int_arrayE, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIiEE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIiEE, i64 16), ptr %17, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %17) #16
   %21 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #16
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -1202,7 +1202,7 @@ define hidden void @_ZN8Universe21metaspace_pointers_doEP16MetaspaceClosure(ptr 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr @_ZN8Universe22_the_empty_short_arrayE, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefItEE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefItEE, i64 16), ptr %21, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %21) #16
   %25 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #16
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -1211,7 +1211,7 @@ define hidden void @_ZN8Universe21metaspace_pointers_doEP16MetaspaceClosure(ptr 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr @_ZN8Universe22_the_empty_klass_arrayE, ptr %28, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure18MSOPointerArrayRefI5KlassEE, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure18MSOPointerArrayRefI5KlassEE, i64 16), ptr %25, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %25) #16
   %29 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #16
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -1220,7 +1220,7 @@ define hidden void @_ZN8Universe21metaspace_pointers_doEP16MetaspaceClosure(ptr 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr @_ZN8Universe31_the_empty_instance_klass_arrayE, ptr %32, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure18MSOPointerArrayRefI13InstanceKlassEE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure18MSOPointerArrayRefI13InstanceKlassEE, i64 16), ptr %29, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %29) #16
   %33 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #16
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -1229,7 +1229,7 @@ define hidden void @_ZN8Universe21metaspace_pointers_doEP16MetaspaceClosure(ptr 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr @_ZN8Universe23_the_empty_method_arrayE, ptr %36, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure18MSOPointerArrayRefI6MethodEE, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure18MSOPointerArrayRefI6MethodEE, i64 16), ptr %33, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %33) #16
   %37 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #16
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -1238,7 +1238,7 @@ define hidden void @_ZN8Universe21metaspace_pointers_doEP16MetaspaceClosure(ptr 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 32
   store ptr @_ZN8Universe27_the_array_interfaces_arrayE, ptr %40, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure18MSOPointerArrayRefI5KlassEE, i64 16), ptr %37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure18MSOPointerArrayRefI5KlassEE, i64 16), ptr %37, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %37) #16
   ret void
 }
@@ -1724,10 +1724,10 @@ _ZN9OopHandleC2EP10OopStorageP7oopDesc.exit60:    ; preds = %75
 
 82:                                               ; preds = %_ZN9OopHandleC2EP10OopStorageP7oopDesc.exit60
   %83 = load ptr, ptr @_ZN8Universe27_the_array_interfaces_arrayE, align 8
-  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 24), align 8
+  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 24), align 8
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store ptr %84, ptr %85, align 8
-  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 40), align 8
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 40), align 8
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 16
   store ptr %86, ptr %87, align 8
   br label %88
@@ -1961,7 +1961,7 @@ define hidden void @_ZN8Universe29initialize_basic_type_mirrorsEP10JavaThread(pt
   br i1 %8, label %9, label %_ZNK9OopHandle7resolveEv.exit.thread
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Universe19_basic_type_mirrorsE, i64 80), align 16
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8Universe19_basic_type_mirrorsE, i64 80), align 16
   %11 = icmp eq ptr %10, null
   br i1 %11, label %_ZNK9OopHandle7resolveEv.exit.thread, label %_ZNK9OopHandle7resolveEv.exit
 
@@ -2063,7 +2063,7 @@ define hidden void @_ZN8Universe13fixup_mirrorsEP10JavaThread(ptr noundef %0) lo
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, -8
@@ -2258,7 +2258,7 @@ define hidden noundef ptr @_ZN8Universe23gen_out_of_memory_errorEP7oopDesc(ptr n
   br i1 %3, label %4, label %_ZNK6HandleclEv.exit17
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 56), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 56), align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 305
   %7 = load volatile i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 4
@@ -2757,7 +2757,7 @@ define hidden void @_ZN8Universe40create_preallocated_out_of_memory_errorsEP10Ja
   %3 = alloca %class.OopHandle, align 8
   %4 = alloca %class.objArrayHandle, align 8
   %5 = alloca %class.Handle, align 8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 192), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 192), align 8
   %7 = tail call noundef ptr @_ZN10oopFactory12new_objArrayEP5KlassiP10JavaThread(ptr noundef %6, i32 noundef 7, ptr noundef %0) #16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -3219,7 +3219,7 @@ define hidden noundef i32 @_Z13universe_initv() local_unnamed_addr #0 {
   %3 = select i1 %.not5, ptr null, ptr @_ZN7LogImplILN6LogTag4typeE144ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz
   call void @_ZN9TraceTimeC1EPKcPFvS1_zE(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.37, ptr noundef %3) #16
   %4 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 9, i32 noundef 0) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV28DefaultICProtectionBehaviour, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV28DefaultICProtectionBehaviour, i64 16), ptr %4, align 8
   store ptr %4, ptr @_ZN29CompiledICProtectionBehaviour8_currentE, align 8
   call void @_ZN13GCLogPrecious10initializeEv() #16
   %5 = load i8, ptr @UsePerfData, align 1
@@ -3925,20 +3925,20 @@ _ZN17LatestMethodCache10get_methodEv.exit:        ; preds = %0, %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN8Universe24initialize_known_methodsEP10JavaThread(ptr noundef %0) local_unnamed_addr #0 align 2 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 256), align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7096), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 256), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7096), align 8
   tail call void @_ZN17LatestMethodCache4initEP10JavaThreadP13InstanceKlassPKcP6Symbolb(ptr noundef nonnull align 8 dereferenceable(12) @_ZL25_finalizer_register_cache, ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.45, ptr noundef %3, i1 noundef zeroext true)
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 632), align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 632), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   tail call void @_ZN17LatestMethodCache4initEP10JavaThreadP13InstanceKlassPKcP6Symbolb(ptr noundef nonnull align 8 dereferenceable(12) @_ZL33_throw_illegal_access_error_cache, ptr noundef %0, ptr noundef %4, ptr noundef nonnull @.str.46, ptr noundef %5, i1 noundef zeroext true)
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 632), align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 632), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   tail call void @_ZN17LatestMethodCache4initEP10JavaThreadP13InstanceKlassPKcP6Symbolb(ptr noundef nonnull align 8 dereferenceable(12) @_ZL33_throw_no_such_method_error_cache, ptr noundef %0, ptr noundef %6, ptr noundef nonnull @.str.47, ptr noundef %7, i1 noundef zeroext true)
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 32), align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7176), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 32), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7176), align 8
   tail call void @_ZN17LatestMethodCache4initEP10JavaThreadP13InstanceKlassPKcP6Symbolb(ptr noundef nonnull align 8 dereferenceable(12) @_ZL22_loader_addClass_cache, ptr noundef %0, ptr noundef %8, ptr noundef nonnull @.str.48, ptr noundef %9, i1 noundef zeroext false)
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 768), align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3024), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 768), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3024), align 8
   tail call void @_ZN17LatestMethodCache4initEP10JavaThreadP13InstanceKlassPKcP6Symbolb(ptr noundef nonnull align 8 dereferenceable(12) @_ZL20_do_stack_walk_cache, ptr noundef %0, ptr noundef %10, ptr noundef nonnull @.str.49, ptr noundef %11, i1 noundef zeroext false)
   ret void
 }
@@ -4028,13 +4028,13 @@ _ZL20reinitialize_vtablesv.exit:                  ; preds = %15, %9
   br i1 %.not.i.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.i, label %21
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.i: ; preds = %_ZL20reinitialize_vtablesv.exit
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVZL20reinitialize_itablesvE18ReinitTableClosure, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVZL20reinitialize_itablesvE18ReinitTableClosure, i64 16), ptr %1, align 8
   call void @_ZN20ClassLoaderDataGraph10classes_doEP12KlassClosure(ptr noundef nonnull %1) #16
   br label %_ZL20reinitialize_itablesv.exit
 
 21:                                               ; preds = %_ZL20reinitialize_vtablesv.exit
   call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %20) #16
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVZL20reinitialize_itablesvE18ReinitTableClosure, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVZL20reinitialize_itablesvE18ReinitTableClosure, i64 16), ptr %1, align 8
   call void @_ZN20ClassLoaderDataGraph10classes_doEP12KlassClosure(ptr noundef nonnull %1) #16
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %20) #16
   br label %_ZL20reinitialize_itablesv.exit
@@ -4045,7 +4045,7 @@ _ZL20reinitialize_itablesv.exit:                  ; preds = %_ZN11MutexLockerC2E
 
 22:                                               ; preds = %_ZL20reinitialize_itablesv.exit, %0
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef %7) #16
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
   %24 = call noundef ptr @_ZN10oopFactory12new_objArrayEP5KlassiP10JavaThread(ptr noundef %23, i32 noundef 0, ptr noundef %7) #16
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %26 = load ptr, ptr %25, align 8
@@ -4104,7 +4104,7 @@ _ZN9OopHandleC2EP10OopStorageP7oopDesc.exit31:    ; preds = %40
   br i1 %48, label %49, label %_ZN16BuiltinException13init_if_emptyEP6SymbolP10JavaThread.exit
 
 49:                                               ; preds = %46
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1200), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1200), align 8
   %51 = call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %50, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %7) #16
   %52 = load ptr, ptr %25, align 8
   %.not.i = icmp eq ptr %52, null
@@ -4143,7 +4143,7 @@ _ZN16BuiltinException13init_if_emptyEP6SymbolP10JavaThread.exit: ; preds = %46, 
   br i1 %64, label %65, label %_ZN16BuiltinException13init_if_emptyEP6SymbolP10JavaThread.exit35.thread
 
 65:                                               ; preds = %62
-  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1048), align 8
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1048), align 8
   %67 = call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %66, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %7) #16
   %68 = load ptr, ptr %25, align 8
   %.not.i32 = icmp eq ptr %68, null
@@ -4174,7 +4174,7 @@ _ZN16BuiltinException13init_if_emptyEP6SymbolP10JavaThread.exit35: ; preds = %72
   br i1 %78, label %_ZN16BuiltinException13init_if_emptyEP6SymbolP10JavaThread.exit35.thread, label %_ZN16BuiltinException13init_if_emptyEP6SymbolP10JavaThread.exit.thread
 
 _ZN16BuiltinException13init_if_emptyEP6SymbolP10JavaThread.exit35.thread: ; preds = %62, %_ZN16BuiltinException13init_if_emptyEP6SymbolP10JavaThread.exit35
-  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 184), align 8
+  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 184), align 8
   %80 = call noundef zeroext i1 @_ZN13InstanceKlass18link_class_or_failEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(464) %79, ptr noundef nonnull %7) #16
   %81 = load ptr, ptr %25, align 8
   %.not45 = icmp eq ptr %81, null
@@ -4189,7 +4189,7 @@ _ZN16BuiltinException13init_if_emptyEP6SymbolP10JavaThread.exit35.thread: ; pred
   br label %_ZN16BuiltinException13init_if_emptyEP6SymbolP10JavaThread.exit.thread
 
 85:                                               ; preds = %82
-  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1328), align 8
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1328), align 8
   call void @_ZN16BuiltinException13init_if_emptyEP6SymbolP10JavaThread(ptr noundef nonnull align 8 dereferenceable(12) @_ZL15_internal_error, ptr noundef %86, ptr noundef nonnull %7)
   %87 = load ptr, ptr %25, align 8
   %.not46 = icmp eq ptr %87, null
@@ -4223,7 +4223,7 @@ _ZN8Universe29arithmetic_exception_instanceEv.exit: ; preds = %91, %94
 _ZNK6HandleclEv.exit:                             ; preds = %_ZN8Universe29arithmetic_exception_instanceEv.exit, %99
   %101 = phi ptr [ %100, %99 ], [ null, %_ZN8Universe29arithmetic_exception_instanceEv.exit ]
   call void @_ZN19java_lang_Throwable11set_messageEP7oopDescS1_(ptr noundef %97, ptr noundef %101) #16
-  %102 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
+  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
   %103 = call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %102, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %7) #16
   %104 = load ptr, ptr %25, align 8
   %.not48 = icmp eq ptr %104, null
@@ -4448,7 +4448,7 @@ define hidden void @_ZN8Universe6verifyE12VerifyOptionPKc(i32 noundef %0, ptr no
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %4, ptr noundef nonnull @.str.67, ptr noundef %1)
   %20 = load ptr, ptr %4, align 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV21GCTraceTimeLoggerImpl, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV21GCTraceTimeLoggerImpl, i64 16), ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %24 = icmp ne ptr %23, null
@@ -4473,7 +4473,7 @@ define hidden void @_ZN8Universe6verifyE12VerifyOptionPKc(i32 noundef %0, ptr no
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV16GCTraceTimeTimer, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV16GCTraceTimeTimer, i64 16), ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store ptr %20, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 112
@@ -7218,7 +7218,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -7237,7 +7237,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -7256,7 +7256,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -7275,7 +7275,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -7294,7 +7294,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %22 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = sub i64 %14, %23
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %26 = zext nneg i32 %25 to i64
   %27 = lshr i64 %24, %26
   %28 = trunc i64 %27 to i32
@@ -7322,7 +7322,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -7533,7 +7533,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN19Car
   %10 = ptrtoint ptr %2 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %14 = zext nneg i32 %13 to i64
   %15 = lshr i64 %12, %14
   %16 = trunc i64 %15 to i32
@@ -7561,7 +7561,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN17Eps
   %9 = ptrtoint ptr %2 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %13 = zext nneg i32 %12 to i64
   %14 = lshr i64 %11, %13
   %15 = trunc i64 %14 to i32
@@ -7594,7 +7594,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN12G1B
   %19 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = zext i32 %13 to i64
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %23 = zext nneg i32 %22 to i64
   %24 = shl i64 %21, %23
   %25 = add i64 %24, %20
@@ -7608,7 +7608,7 @@ _ZN12G1BarrierSet19write_ref_field_preILm2383974E9narrowOopEEvPT0_.exit.i.i: ; p
   %29 = ptrtoint ptr %2 to i64
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %33 = zext nneg i32 %32 to i64
   %34 = lshr i64 %31, %33
   %35 = trunc i64 %34 to i32
@@ -7653,7 +7653,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11XBa
   %9 = ptrtoint ptr %2 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %13 = zext nneg i32 %12 to i64
   %14 = lshr i64 %11, %13
   %15 = trunc i64 %14 to i32
@@ -7769,7 +7769,7 @@ _ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit: ; preds = %2, %7, %13, %_Z
   %59 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %60 = ptrtoint ptr %59 to i64
   %61 = zext i32 %56 to i64
-  %62 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %63 = zext nneg i32 %62 to i64
   %64 = shl i64 %61, %63
   %65 = add i64 %64, %60
@@ -7821,7 +7821,7 @@ _ZN20ShenandoahBarrierSet12satb_barrierILm2383974E9narrowOopEEvPT0_.exit: ; pred
   %101 = ptrtoint ptr %1 to i64
   %102 = ptrtoint ptr %100 to i64
   %103 = sub i64 %101, %102
-  %104 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %105 = zext nneg i32 %104 to i64
   %106 = lshr i64 %103, %105
   %107 = trunc i64 %106 to i32
@@ -8883,7 +8883,7 @@ define linkonce_odr hidden void @_ZNK16MetaspaceClosure18MSOPointerArrayRefI5Kla
   store i32 2, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI5KlassEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI5KlassEE, i64 16), ptr %15, align 8
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %14, ptr %18, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %15) #16
@@ -8925,7 +8925,7 @@ define linkonce_odr hidden void @_ZNK16MetaspaceClosure18MSOPointerArrayRefI5Kla
   store i32 2, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI5KlassEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI5KlassEE, i64 16), ptr %13, align 8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %12, ptr %16, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %13) #16
@@ -9018,7 +9018,7 @@ define linkonce_odr hidden void @_ZNK16MetaspaceClosure18MSOPointerArrayRefI13In
   store i32 2, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI13InstanceKlassEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI13InstanceKlassEE, i64 16), ptr %15, align 8
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %14, ptr %18, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %15) #16
@@ -9060,7 +9060,7 @@ define linkonce_odr hidden void @_ZNK16MetaspaceClosure18MSOPointerArrayRefI13In
   store i32 2, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI13InstanceKlassEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI13InstanceKlassEE, i64 16), ptr %13, align 8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %12, ptr %16, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %13) #16
@@ -9230,7 +9230,7 @@ define linkonce_odr hidden void @_ZNK16MetaspaceClosure18MSOPointerArrayRefI6Met
   store i32 2, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI6MethodEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI6MethodEE, i64 16), ptr %15, align 8
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %14, ptr %18, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %15) #16
@@ -9272,7 +9272,7 @@ define linkonce_odr hidden void @_ZNK16MetaspaceClosure18MSOPointerArrayRefI6Met
   store i32 2, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI6MethodEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI6MethodEE, i64 16), ptr %13, align 8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %12, ptr %16, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %13) #16

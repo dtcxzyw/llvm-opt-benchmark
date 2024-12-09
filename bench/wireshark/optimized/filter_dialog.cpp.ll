@@ -176,8 +176,8 @@ define void @_ZN12FilterDialogC2EP7QWidgetNS_10FilterTypeE7QString(ptr noundef n
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12FilterDialog, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12FilterDialog, i64 488), ptr %33, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12FilterDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12FilterDialog, i64 488), ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %36 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
           to label %37 unwind label %69
@@ -1611,7 +1611,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i96:    ; preds = %114
   %123 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store i32 0, ptr %124, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %123, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %123, align 8
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 12
   store i32 40, ptr %125, align 4
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 16
@@ -2305,9 +2305,9 @@ declare void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN12FilterDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12FilterDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12FilterDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12FilterDialog, i64 488), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12FilterDialog, i64 488), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -3345,7 +3345,7 @@ declare void @_ZN15MainApplication15helpTopicActionE14topic_action_e(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define void @_ZN18FilterTreeDelegateC2EP7QObjectN12FilterDialog10FilterTypeE(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   tail call void @_ZN19QStyledItemDelegateC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18FilterTreeDelegate, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18FilterTreeDelegate, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %2, ptr %4, align 8
   ret void
@@ -3429,7 +3429,7 @@ define noundef ptr @_ZNK18FilterTreeDelegate12createEditorEP7QWidgetRK20QStyleOp
   br label %36
 
 .sink.split22:                                    ; preds = %32, %29
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTV18MacroNameValidator, i64 16), %29 ], [ getelementptr inbounds (i8, ptr @_ZTV15FilterValidator, i64 16), %32 ]
+  %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTV18MacroNameValidator, i64 16), %29 ], [ getelementptr inbounds nuw (i8, ptr @_ZTV15FilterValidator, i64 16), %32 ]
   store ptr %.sink, ptr %28, align 8
   tail call void @_ZN9QLineEdit12setValidatorEPK10QValidator(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull %28)
   br label %35

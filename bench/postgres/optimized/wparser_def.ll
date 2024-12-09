@@ -3387,7 +3387,7 @@ define internal range(i32 0, 2) i32 @p_isspecial(ptr nocapture noundef readonly 
   br label %29
 
 29:                                               ; preds = %23, %37
-  %.02026 = phi ptr [ getelementptr inbounds (i8, ptr @p_isspecial.strange_letter, i64 912), %23 ], [ %.1, %37 ]
+  %.02026 = phi ptr [ getelementptr inbounds nuw (i8, ptr @p_isspecial.strange_letter, i64 912), %23 ], [ %.1, %37 ]
   %.02125 = phi ptr [ @p_isspecial.strange_letter, %23 ], [ %.122, %37 ]
   %30 = ptrtoint ptr %.02026 to i64
   %31 = ptrtoint ptr %.02125 to i64

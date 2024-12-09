@@ -26745,7 +26745,7 @@ _ZN4core3ops8function6FnOnce9call_once17hac228111950e7d3bE.exit.i: ; preds = %2
   unreachable
 
 9:                                                ; preds = %2, %.noexc
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %6, %.noexc ], [ getelementptr inbounds (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %2 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %6, %.noexc ], [ getelementptr inbounds nuw (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !9
   %12 = icmp eq i64 %11, 0
@@ -54483,7 +54483,7 @@ _ZN4core3ops8function6FnOnce9call_once17hac228111950e7d3bE.exit.i.i.i: ; preds =
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17he39d4db3e9c7f12bE.exit.i.i": ; preds = %.noexc, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h79cfc6c18ba3c86aE.exit.thread.i
-  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %42, %.noexc ], [ getelementptr inbounds (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h79cfc6c18ba3c86aE.exit.thread.i ]
+  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %42, %.noexc ], [ getelementptr inbounds nuw (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h79cfc6c18ba3c86aE.exit.thread.i ]
   %.val.i.i.i = load i64, ptr %.sroa.0.0.i.i.i2.i.i.i, align 8, !noalias !13863, !noundef !9
   %45 = getelementptr inbounds nuw i8, ptr %.val10, i64 40
   %46 = load atomic i64, ptr %45 acquire, align 8, !noalias !13863
@@ -54819,7 +54819,7 @@ _ZN4core3ops8function6FnOnce9call_once17hac228111950e7d3bE.exit.i.i.i: ; preds =
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17he39d4db3e9c7f12bE.exit.i.i": ; preds = %_ZN4core3ops8function6FnOnce9call_once17hac228111950e7d3bE.exit.i.i.i, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h79cfc6c18ba3c86aE.exit.thread.i
-  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %37, %_ZN4core3ops8function6FnOnce9call_once17hac228111950e7d3bE.exit.i.i.i ], [ getelementptr inbounds (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h79cfc6c18ba3c86aE.exit.thread.i ]
+  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %37, %_ZN4core3ops8function6FnOnce9call_once17hac228111950e7d3bE.exit.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h79cfc6c18ba3c86aE.exit.thread.i ]
   %.val.i.i.i = load i64, ptr %.sroa.0.0.i.i.i2.i.i.i, align 8, !noalias !13907, !noundef !9
   %40 = getelementptr inbounds nuw i8, ptr %.8.val, i64 40
   %41 = load atomic i64, ptr %40 acquire, align 8, !noalias !13907
@@ -117679,7 +117679,7 @@ define void @_ZN7project14prettier_store13PrettierStore24update_prettier_setting
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !29930
   store ptr @anon.d3d098a4b0b761809e3d517f1c926583.605, ptr %15, align 8, !noalias !29930
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.d3d098a4b0b761809e3d517f1c926583.605, i64 192), ptr %28, align 8, !noalias !29930
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.d3d098a4b0b761809e3d517f1c926583.605, i64 192), ptr %28, align 8, !noalias !29930
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !29930
   invoke void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h45c1f1b0d0637e05E.llvm.10723454985916948783"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15)
           to label %29 unwind label %39, !noalias !29921
@@ -122224,7 +122224,7 @@ define void @_ZN7project6search11SearchQuery15replacement_for17hbcabfcd5d9cfc6ef
   ret void
 
 58:                                               ; preds = %51
-  %59 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN7project6search41TEXT_REPLACEMENT_SPECIAL_CHARACTERS_REGEX17hccba1c90cfc66b6dE, i64 32) acquire, align 8
+  %59 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7project6search41TEXT_REPLACEMENT_SPECIAL_CHARACTERS_REGEX17hccba1c90cfc66b6dE, i64 32) acquire, align 8
   %.not.i = icmp eq i32 %59, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h054164ad8ed33bffE.exit", label %60
 
@@ -122268,7 +122268,7 @@ _ZN4core3ops8function6FnOnce9call_once17hac228111950e7d3bE.exit.i.i.i93.i: ; pre
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17he39d4db3e9c7f12bE.exit.i.i94.i": ; preds = %_ZN4core3ops8function6FnOnce9call_once17hac228111950e7d3bE.exit.i.i.i93.i, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h054164ad8ed33bffE.exit"
-  %.sroa.0.0.i.i.i2.i.i.i95.i = phi ptr [ %67, %_ZN4core3ops8function6FnOnce9call_once17hac228111950e7d3bE.exit.i.i.i93.i ], [ getelementptr inbounds (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h054164ad8ed33bffE.exit" ]
+  %.sroa.0.0.i.i.i2.i.i.i95.i = phi ptr [ %67, %_ZN4core3ops8function6FnOnce9call_once17hac228111950e7d3bE.exit.i.i.i93.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h054164ad8ed33bffE.exit" ]
   %.val.i.i.i96.i = load i64, ptr %.sroa.0.0.i.i.i2.i.i.i95.i, align 8, !noalias !31437, !noundef !9
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 40
   %71 = load atomic i64, ptr %70 acquire, align 8, !noalias !31437
@@ -123021,7 +123021,7 @@ _ZN4core3ops8function6FnOnce9call_once17hac228111950e7d3bE.exit.i.i.i.i: ; preds
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17he39d4db3e9c7f12bE.exit.i.i.i": ; preds = %.noexc.i, %329
-  %.sroa.0.0.i.i.i2.i.i.i.i = phi ptr [ %333, %.noexc.i ], [ getelementptr inbounds (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %329 ]
+  %.sroa.0.0.i.i.i2.i.i.i.i = phi ptr [ %333, %.noexc.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %329 ]
   %.val.i.i.i.i = load i64, ptr %.sroa.0.0.i.i.i2.i.i.i.i, align 8, !noalias !31600, !noundef !9
   %336 = getelementptr inbounds nuw i8, ptr %331, i64 40
   %337 = load atomic i64, ptr %336 acquire, align 8, !noalias !31600
@@ -123621,7 +123621,7 @@ _ZN4core3ops8function6FnOnce9call_once17hac228111950e7d3bE.exit.i.i.i116.i: ; pr
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17he39d4db3e9c7f12bE.exit.i.i117.i": ; preds = %.noexc126.i, %521
-  %.sroa.0.0.i.i.i2.i.i.i118.i = phi ptr [ %525, %.noexc126.i ], [ getelementptr inbounds (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %521 ]
+  %.sroa.0.0.i.i.i2.i.i.i118.i = phi ptr [ %525, %.noexc126.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %521 ]
   %.val.i.i.i119.i = load i64, ptr %.sroa.0.0.i.i.i2.i.i.i118.i, align 8, !noalias !31755, !noundef !9
   %528 = getelementptr inbounds nuw i8, ptr %523, i64 40
   %529 = load atomic i64, ptr %528 acquire, align 8, !noalias !31755

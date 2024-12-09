@@ -818,7 +818,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
 .thread34:                                        ; preds = %163, %183, %193, %198, %188, %239
   %243 = phi i32 [ %241, %239 ], [ -22, %188 ], [ -22, %198 ], [ -22, %193 ], [ -22, %183 ], [ -22, %163 ]
   %244 = phi i1 [ %240, %239 ], [ true, %188 ], [ true, %198 ], [ true, %193 ], [ true, %183 ], [ true, %163 ]
-  %245 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %245 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %246 = call noalias align 8 dereferenceable_or_null(168) ptr @kmalloc_trace(ptr noundef %245, i32 noundef 3264, i64 noundef 168) #11
   %247 = icmp eq ptr %246, null
   br i1 %247, label %256, label %248

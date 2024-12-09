@@ -106,7 +106,7 @@ define void @_ZN10open_spiel19DataLoggerJsonLinesC2ERKNSt7__cxx1112basic_stringI
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE4ELS3_4EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_4ELS3_4EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit:
   %6 = alloca [2 x %"class.absl::debian2::str_format_internal::FormatArgImpl"], align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN10open_spiel19DataLoggerJsonLinesE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN10open_spiel19DataLoggerJsonLinesE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %1, ptr %6, align 8, !noalias !4
@@ -550,7 +550,7 @@ declare noundef zeroext i1 @_ZN10open_spiel4file4File5FlushEv(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN10open_spiel19DataLoggerJsonLinesD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN10open_spiel19DataLoggerJsonLinesE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN10open_spiel19DataLoggerJsonLinesE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = invoke noundef zeroext i1 @_ZN10open_spiel4file4File5FlushEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZN10open_spiel19DataLoggerJsonLines5FlushEv.exit unwind label %4

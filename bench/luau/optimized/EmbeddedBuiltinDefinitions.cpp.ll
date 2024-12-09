@@ -1345,7 +1345,7 @@ define internal void @_GLOBAL__sub_I_EmbeddedBuiltinDefinitions.cpp() #8 section
           to label %.noexc1.i unwind label %7
 
 .noexc1.i:                                        ; preds = %.noexc.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN4LuauL24kBuiltinDefinitionLuaSrcB5cxx11E, ptr noundef nonnull @.str.54, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.54, i64 8054))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN4LuauL24kBuiltinDefinitionLuaSrcB5cxx11E, ptr noundef nonnull @.str.54, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.54, i64 8054))
           to label %__cxx_global_var_init.53.exit unwind label %5
 
 5:                                                ; preds = %.noexc1.i
@@ -1379,7 +1379,7 @@ __cxx_global_var_init.53.exit:                    ; preds = %.noexc1.i
           to label %.noexc1.i4 unwind label %13
 
 .noexc1.i4:                                       ; preds = %.noexc.i3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN4LuauL31kBuiltinDefinitionLuaSrcCheckedB5cxx11E, ptr noundef nonnull @.str.56, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.56, i64 8799))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN4LuauL31kBuiltinDefinitionLuaSrcCheckedB5cxx11E, ptr noundef nonnull @.str.56, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.56, i64 8799))
           to label %__cxx_global_var_init.55.exit unwind label %11
 
 11:                                               ; preds = %.noexc1.i4

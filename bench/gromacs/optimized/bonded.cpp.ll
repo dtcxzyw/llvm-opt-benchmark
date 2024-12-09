@@ -2361,7 +2361,7 @@ define internal noundef float @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparams
           to label %.noexc5 unwind label %23
 
 .noexc5:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 44))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.6, i64 44))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %19
 
 19:                                               ; preds = %.noexc5
@@ -25063,7 +25063,7 @@ define internal void @_GLOBAL__sub_I_bonded.cpp() #20 section ".text.startup" pe
           to label %.noexc13.i unwind label %17
 
 .noexc13.i:                                       ; preds = %.noexc.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_Z27c_bondedKernelFlavorStringsB5cxx11, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 33))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_Z27c_bondedKernelFlavorStringsB5cxx11, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 33))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %6
 
 6:                                                ; preds = %.noexc13.i
@@ -25074,59 +25074,59 @@ define internal void @_GLOBAL__sub_I_bonded.cpp() #20 section ".text.startup" pe
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc13.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #23
-  %8 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 32))
+  %8 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 32))
           to label %.noexc14.i unwind label %19
 
 .noexc14.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 32), ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 32), ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %.noexc15.i unwind label %19
 
 .noexc15.i:                                       ; preds = %.noexc14.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 32), ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 22))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 32), ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 22))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit18.i unwind label %9
 
 9:                                                ; preds = %.noexc15.i
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 32)) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 32)) #23
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit18.i: ; preds = %.noexc15.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
-  %11 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 64))
+  %11 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 64))
           to label %.noexc19.i unwind label %21
 
 .noexc19.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit18.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 64), ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 64), ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc20.i unwind label %21
 
 .noexc20.i:                                       ; preds = %.noexc19.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 64), ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 47))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 64), ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 47))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23.i unwind label %12
 
 12:                                               ; preds = %.noexc20.i
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 64)) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 64)) #23
   br label %.body21.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23.i: ; preds = %.noexc20.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
-  %14 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 96))
+  %14 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 96))
           to label %.noexc24.i unwind label %23
 
 .noexc24.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 96), ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 96), ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc25.i unwind label %23
 
 .noexc25.i:                                       ; preds = %.noexc24.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 96), ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 38))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 96), ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 38))
           to label %__cxx_global_var_init.exit unwind label %15
 
 15:                                               ; preds = %.noexc25.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 96)) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 96)) #23
   br label %.body26.i
 
 17:                                               ; preds = %.noexc.i, %0
@@ -25155,7 +25155,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23.i: 
   br label %.body21.i
 
 .body21.i:                                        ; preds = %.body26.i, %21, %12
-  %.29.i = phi ptr [ getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 96), %.body26.i ], [ getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 64), %12 ], [ getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 64), %21 ]
+  %.29.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 96), %.body26.i ], [ getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 64), %12 ], [ getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 64), %21 ]
   %.pn.i = phi { ptr, i32 } [ %eh.lpad-body27.i, %.body26.i ], [ %13, %12 ], [ %22, %21 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
   br label %.body.i
@@ -25166,7 +25166,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23.i: 
   br label %.loopexit.i
 
 .body.i:                                          ; preds = %.body21.i, %19, %9
-  %.18.i = phi ptr [ %.29.i, %.body21.i ], [ getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 32), %9 ], [ getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 32), %19 ]
+  %.18.i = phi ptr [ %.29.i, %.body21.i ], [ getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 32), %9 ], [ getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 32), %19 ]
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %.body21.i ], [ %10, %9 ], [ %20, %19 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #23

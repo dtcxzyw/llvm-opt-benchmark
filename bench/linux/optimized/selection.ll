@@ -37,20 +37,20 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_paste_select
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @clear_selection() #0 align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   tail call void @complement_pos(ptr noundef %1, i32 noundef -1) #9
-  %2 = load volatile i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
+  %2 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
   %3 = icmp eq i32 %2, -1
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %0
-  %5 = load volatile i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 56), align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %5 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 56), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   %reass.sub = sub i32 %6, %5
   %8 = add i32 %reass.sub, 2
   tail call void @invert_screen(ptr noundef %7, i32 noundef %5, i32 noundef %8, i1 noundef zeroext true) #9
-  store volatile i32 -1, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
+  store volatile i32 -1, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
   br label %9
 
 9:                                                ; preds = %4, %0
@@ -59,7 +59,7 @@ define dso_local void @clear_selection() #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
 define dso_local zeroext i1 @vc_is_sel(ptr noundef readnone %0) local_unnamed_addr #1 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   %3 = icmp eq ptr %2, %0
   ret i1 %3
 }
@@ -130,20 +130,20 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   br i1 %9, label %10, label %19
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   tail call void @complement_pos(ptr noundef %11, i32 noundef -1) #9
-  %12 = load volatile i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
+  %12 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %475, label %14
 
 14:                                               ; preds = %10
-  %15 = load volatile i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 56), align 8
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %15 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 56), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   %reass.sub50 = sub i32 %16, %15
   %18 = add i32 %reass.sub50, 2
   tail call void @invert_screen(ptr noundef %17, i32 noundef %15, i32 noundef %18, i1 noundef zeroext true) #9
-  store volatile i32 -1, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
+  store volatile i32 -1, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
   br label %475
 
 19:                                               ; preds = %2
@@ -227,28 +227,28 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   %86 = add i32 %85, %82
   %87 = tail call i32 @llvm.smax.i32(i32 %79, i32 %86)
   %88 = tail call i32 @llvm.smin.i32(i32 %79, i32 %86)
-  %89 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   %90 = icmp eq ptr %89, %6
   br i1 %90, label %100, label %91
 
 91:                                               ; preds = %70
   tail call void @complement_pos(ptr noundef %89, i32 noundef -1) #9
-  %92 = load volatile i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
+  %92 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
   %93 = icmp eq i32 %92, -1
   br i1 %93, label %99, label %94
 
 94:                                               ; preds = %91
-  %95 = load volatile i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
-  %96 = load i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 56), align 8
-  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %95 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
+  %96 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 56), align 8
+  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   %reass.sub = sub i32 %96, %95
   %98 = add i32 %reass.sub, 2
   tail call void @invert_screen(ptr noundef %97, i32 noundef %95, i32 noundef %98, i1 noundef zeroext true) #9
-  store volatile i32 -1, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
+  store volatile i32 -1, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
   br label %99
 
 99:                                               ; preds = %94, %91
-  store ptr %6, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   br label %100
 
 100:                                              ; preds = %99, %70
@@ -264,7 +264,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   ]
 
 105:                                              ; preds = %100
-  %106 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   br i1 %104, label %107, label %.thread62
 
 107:                                              ; preds = %105
@@ -280,14 +280,14 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   br i1 %113, label %.split.us.split, label %.split.split
 
 .split.us.split.us:                               ; preds = %107
-  %114 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   %115 = sdiv i32 %88, 2
   %116 = tail call i32 @screen_glyph_unicode(ptr noundef %114, i32 noundef %115) #9
   %117 = icmp eq i32 %116, 32
   br i1 %117, label %.critedge.us.us, label %.split32.us.thread
 
 .split32.us.thread:                               ; preds = %.split.us.split.us
-  %118 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   br label %186
 
 .critedge.us.us:                                  ; preds = %.split.us.split.us, %123
@@ -299,21 +299,21 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
 
 123:                                              ; preds = %.critedge.us.us
   %124 = add i32 %119, -2
-  %125 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   %126 = sdiv i32 %124, 2
   %127 = tail call i32 @screen_glyph_unicode(ptr noundef %125, i32 noundef %126) #9
   %128 = icmp eq i32 %127, 32
   br i1 %128, label %.critedge.us.us, label %.split32.us, !llvm.loop !7
 
 .split.us.split:                                  ; preds = %.thread62
-  %129 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   %130 = tail call zeroext i16 @screen_glyph(ptr noundef %129, i32 noundef %88) #9
   %131 = tail call zeroext i16 @inverse_translate(ptr noundef %129, i16 noundef zeroext %130, i1 noundef zeroext false) #9
   %132 = icmp eq i16 %131, 32
   br i1 %132, label %.critedge.us, label %.split32.us.thread66
 
 .split32.us.thread66:                             ; preds = %.split.us.split
-  %133 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   br label %.thread69
 
 .critedge.us:                                     ; preds = %.split.us.split, %138
@@ -325,7 +325,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
 
 138:                                              ; preds = %.critedge.us
   %139 = add i32 %134, -2
-  %140 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %140 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   %141 = tail call zeroext i16 @screen_glyph(ptr noundef %140, i32 noundef %139) #9
   %142 = tail call zeroext i16 @inverse_translate(ptr noundef %140, i16 noundef zeroext %141, i1 noundef zeroext false) #9
   %143 = icmp eq i16 %142, 32
@@ -334,7 +334,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
 .split.split.us:                                  ; preds = %107, %162
   %144 = phi i32 [ %145, %162 ], [ %88, %107 ]
   %145 = phi i32 [ %163, %162 ], [ %88, %107 ]
-  %146 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %146 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   %147 = sdiv i32 %145, 2
   %148 = tail call i32 @screen_glyph_unicode(ptr noundef %146, i32 noundef %147) #9
   %149 = icmp ugt i32 %148, 127
@@ -364,7 +364,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
 .split.split:                                     ; preds = %.thread62, %183
   %164 = phi i32 [ %165, %183 ], [ %88, %.thread62 ]
   %165 = phi i32 [ %184, %183 ], [ %88, %.thread62 ]
-  %166 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %166 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   %167 = tail call zeroext i16 @screen_glyph(ptr noundef %166, i32 noundef %165) #9
   %168 = tail call zeroext i16 @inverse_translate(ptr noundef %166, i16 noundef zeroext %167, i1 noundef zeroext false) #9
   %169 = icmp ugt i16 %168, 127
@@ -394,7 +394,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
 
 .split32.us:                                      ; preds = %.critedge, %170, %138, %.critedge.us, %.critedge.us33, %150, %123, %.critedge.us.us
   %.us-phi = phi i32 [ %119, %.critedge.us.us ], [ %119, %123 ], [ %145, %.critedge.us33 ], [ %144, %150 ], [ %134, %.critedge.us ], [ %134, %138 ], [ %165, %.critedge ], [ %164, %170 ]
-  %185 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %185 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   br i1 %104, label %186, label %.thread69
 
 186:                                              ; preds = %.split32.us, %.split32.us.thread
@@ -418,14 +418,14 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   br label %.split39
 
 .split39.us.split.us:                             ; preds = %186
-  %195 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %195 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   %196 = sdiv i32 %87, 2
   %197 = tail call i32 @screen_glyph_unicode(ptr noundef %195, i32 noundef %196) #9
   %198 = icmp eq i32 %197, 32
   br i1 %198, label %.critedge16.us.us, label %.loopexit29
 
 199:                                              ; preds = %.critedge16.us.us
-  %200 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %200 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   %201 = sdiv i32 %205, 2
   %202 = tail call i32 @screen_glyph_unicode(ptr noundef %200, i32 noundef %201) #9
   %203 = icmp eq i32 %202, 32
@@ -440,14 +440,14 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   br i1 %208, label %.loopexit29, label %199, !llvm.loop !9
 
 .split39.us.split:                                ; preds = %.thread69
-  %209 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %209 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   %210 = tail call zeroext i16 @screen_glyph(ptr noundef %209, i32 noundef %87) #9
   %211 = tail call zeroext i16 @inverse_translate(ptr noundef %209, i16 noundef zeroext %210, i1 noundef zeroext false) #9
   %212 = icmp eq i16 %211, 32
   br i1 %212, label %.critedge16.us, label %.loopexit29
 
 213:                                              ; preds = %.critedge16.us
-  %214 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %214 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   %215 = tail call zeroext i16 @screen_glyph(ptr noundef %214, i32 noundef %219) #9
   %216 = tail call zeroext i16 @inverse_translate(ptr noundef %214, i16 noundef zeroext %215, i1 noundef zeroext false) #9
   %217 = icmp eq i16 %216, 32
@@ -464,7 +464,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
 .split39:                                         ; preds = %.split39.preheader, %.critedge16
   %223 = phi i32 [ %224, %.critedge16 ], [ %87, %.split39.preheader ]
   %224 = phi i32 [ %245, %.critedge16 ], [ %87, %.split39.preheader ]
-  %225 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %225 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   br i1 %104, label %226, label %229
 
 226:                                              ; preds = %.split39
@@ -512,14 +512,14 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   br label %.loopexit29
 
 257:                                              ; preds = %100
-  %258 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %258 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   tail call void @complement_pos(ptr noundef %258, i32 noundef %87) #9
   br label %475
 
 .loopexit29:                                      ; preds = %.critedge16.us, %213, %236, %.critedge16, %.critedge16.us.us, %199, %.split39.us.split, %.split39.us.split.us, %249, %100
   %259 = phi i32 [ %256, %249 ], [ %87, %100 ], [ %87, %.split39.us.split.us ], [ %87, %.split39.us.split ], [ %204, %199 ], [ %204, %.critedge16.us.us ], [ %223, %236 ], [ %224, %.critedge16 ], [ %218, %213 ], [ %218, %.critedge16.us ]
   %260 = phi i32 [ %252, %249 ], [ %88, %100 ], [ %.us-phi65, %.split39.us.split.us ], [ %.us-phi68, %.split39.us.split ], [ %.us-phi65, %199 ], [ %.us-phi65, %.critedge16.us.us ], [ %.us-phi6472, %.critedge16 ], [ %.us-phi6472, %236 ], [ %.us-phi68, %213 ], [ %.us-phi68, %.critedge16.us ]
-  %261 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %261 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   tail call void @complement_pos(ptr noundef %261, i32 noundef -1) #9
   %262 = icmp sgt i32 %259, %260
   br i1 %262, label %263, label %.critedge18
@@ -537,7 +537,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   br i1 %.not, label %.critedge18, label %270
 
 270:                                              ; preds = %267
-  %271 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %271 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   br i1 %104, label %272, label %275
 
 272:                                              ; preds = %270
@@ -559,7 +559,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
 .preheader28:                                     ; preds = %279, %299
   %282 = phi i32 [ %283, %299 ], [ %259, %279 ]
   %283 = add i32 %282, 2
-  %284 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %284 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   br i1 %104, label %285, label %288
 
 285:                                              ; preds = %.preheader28
@@ -591,7 +591,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   br i1 %.not22, label %.critedge20, label %.preheader28, !llvm.loop !10
 
 .critedge20:                                      ; preds = %295, %299, %292
-  %302 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %302 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   br i1 %104, label %303, label %306
 
 303:                                              ; preds = %.critedge20
@@ -613,21 +613,21 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
 
 .critedge18:                                      ; preds = %263, %310, %279, %267, %.loopexit29
   %314 = phi i32 [ %259, %267 ], [ %259, %279 ], [ %259, %.loopexit29 ], [ %313, %310 ], [ %259, %263 ]
-  %315 = load volatile i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
+  %315 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
   %316 = icmp eq i32 %315, -1
   br i1 %316, label %317, label %320
 
 317:                                              ; preds = %.critedge18
-  %318 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %318 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   %reass.sub48 = sub i32 %314, %260
   %319 = add i32 %reass.sub48, 2
   tail call void @invert_screen(ptr noundef %318, i32 noundef %260, i32 noundef %319, i1 noundef zeroext true) #9
   br label %357
 
 320:                                              ; preds = %.critedge18
-  %321 = load volatile i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
+  %321 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
   %322 = icmp eq i32 %260, %321
-  %323 = load i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 56), align 8
+  %323 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 56), align 8
   %324 = icmp eq i32 %314, %323
   br i1 %322, label %325, label %335
 
@@ -636,7 +636,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
 
 326:                                              ; preds = %325
   %327 = icmp sgt i32 %314, %323
-  %328 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %328 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   br i1 %327, label %329, label %332
 
 329:                                              ; preds = %326
@@ -655,10 +655,10 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   br i1 %324, label %336, label %345
 
 336:                                              ; preds = %335
-  %337 = load volatile i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
+  %337 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
   %338 = icmp slt i32 %260, %337
-  %339 = load volatile i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
-  %340 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %339 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
+  %340 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   br i1 %338, label %341, label %343
 
 341:                                              ; preds = %336
@@ -672,33 +672,33 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   br label %357
 
 345:                                              ; preds = %335
-  %346 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %346 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   tail call void @complement_pos(ptr noundef %346, i32 noundef -1) #9
-  %347 = load volatile i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
+  %347 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
   %348 = icmp eq i32 %347, -1
   br i1 %348, label %354, label %349
 
 349:                                              ; preds = %345
-  %350 = load volatile i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
-  %351 = load i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 56), align 8
-  %352 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %350 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
+  %351 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 56), align 8
+  %352 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   %reass.sub46 = sub i32 %351, %350
   %353 = add i32 %reass.sub46, 2
   tail call void @invert_screen(ptr noundef %352, i32 noundef %350, i32 noundef %353, i1 noundef zeroext true) #9
-  store volatile i32 -1, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
+  store volatile i32 -1, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
   br label %354
 
 354:                                              ; preds = %349, %345
-  %355 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %355 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   %reass.sub47 = sub i32 %314, %260
   %356 = add i32 %reass.sub47, 2
   tail call void @invert_screen(ptr noundef %355, i32 noundef %260, i32 noundef %356, i1 noundef zeroext true) #9
   br label %357
 
 357:                                              ; preds = %354, %343, %341, %332, %329, %317
-  store volatile i32 %260, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
-  store i32 %314, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 56), align 8
-  %358 = load volatile i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
+  store volatile i32 %260, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
+  store i32 %314, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 56), align 8
+  %358 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
   %359 = sub i32 %314, %358
   %360 = sdiv i32 %359, 2
   %361 = add nsw i32 %360, 1
@@ -716,28 +716,28 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
 
 .thread:                                          ; preds = %357, %366
   %370 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #11
-  %371 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %371 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   tail call void @complement_pos(ptr noundef %371, i32 noundef -1) #9
-  %372 = load volatile i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
+  %372 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
   %373 = icmp eq i32 %372, -1
   br i1 %373, label %475, label %374
 
 374:                                              ; preds = %.thread
-  %375 = load volatile i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
-  %376 = load i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 56), align 8
-  %377 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %375 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
+  %376 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 56), align 8
+  %377 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   %reass.sub49 = sub i32 %376, %375
   %378 = add i32 %reass.sub49, 2
   tail call void @invert_screen(ptr noundef %377, i32 noundef %375, i32 noundef %378, i1 noundef zeroext true) #9
-  store volatile i32 -1, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
+  store volatile i32 -1, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
   br label %475
 
 379:                                              ; preds = %366
-  %380 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 40), align 8
+  %380 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 40), align 8
   tail call void @kfree(ptr noundef %380) #9
-  store ptr %368, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 40), align 8
-  %381 = load volatile i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
-  %382 = load i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 56), align 8
+  store ptr %368, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 40), align 8
+  %381 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
+  %382 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 56), align 8
   %383 = icmp ugt i32 %381, %382
   br i1 %383, label %.loopexit, label %.preheader
 
@@ -745,7 +745,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   %384 = phi i32 [ %456, %464 ], [ %381, %379 ]
   %385 = phi ptr [ %466, %464 ], [ %368, %379 ]
   %386 = phi ptr [ %465, %464 ], [ %368, %379 ]
-  %387 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
+  %387 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   br i1 %104, label %388, label %445
 
 388:                                              ; preds = %.preheader
@@ -870,12 +870,12 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
 464:                                              ; preds = %462, %460, %451
   %465 = phi ptr [ %453, %451 ], [ %463, %462 ], [ %453, %460 ]
   %466 = phi ptr [ %455, %451 ], [ %463, %462 ], [ %453, %460 ]
-  %467 = load i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 56), align 8
+  %467 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 56), align 8
   %468 = icmp ugt i32 %456, %467
   br i1 %468, label %.loopexit.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit.loopexit:                               ; preds = %464
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 40), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 40), align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %379
@@ -885,7 +885,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   %472 = ptrtoint ptr %469 to i64
   %473 = sub i64 %471, %472
   %474 = trunc i64 %473 to i32
-  store i32 %474, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 48), align 8
+  store i32 %474, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 48), align 8
   br label %475
 
 475:                                              ; preds = %.loopexit, %374, %.thread, %325, %257, %100, %64, %14, %10
@@ -934,9 +934,9 @@ define dso_local noundef range(i32 -5, 1) i32 @paste_selection(ptr noundef %0) #
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 656
   call void @add_wait_queue(ptr noundef nonnull %13, ptr noundef nonnull %2) #9
   call void @mutex_lock(ptr noundef nonnull @vc_sel) #9
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 40), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 40), align 8
   %15 = icmp ne ptr %14, null
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 48), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 48), align 8
   %17 = icmp ne i32 %16, 0
   %18 = select i1 %15, i1 %17, i1 false
   br i1 %18, label %19, label %.critedge
@@ -974,19 +974,19 @@ define dso_local noundef range(i32 -5, 1) i32 @paste_selection(ptr noundef %0) #
 
 37:                                               ; preds = %44, %36
   %38 = phi i32 [ %23, %36 ], [ %53, %44 ]
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 40), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 40), align 8
   %40 = icmp ne ptr %39, null
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 48), align 8
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 48), align 8
   %42 = icmp ugt i32 %41, %38
   %43 = select i1 %40, i1 %42, i1 false
   br i1 %43, label %22, label %.critedge, !llvm.loop !17
 
 44:                                               ; preds = %32
   store volatile i32 0, ptr %20, align 8
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 48), align 8
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 48), align 8
   %46 = sub i32 %45, %23
   %47 = zext i32 %46 to i64
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 40), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 40), align 8
   %49 = sext i32 %23 to i64
   %50 = getelementptr i8, ptr %48, i64 %49
   %51 = call i64 @tty_ldisc_receive_buf(ptr noundef nonnull %10, ptr noundef %50, ptr noundef null, i64 noundef %47) #9

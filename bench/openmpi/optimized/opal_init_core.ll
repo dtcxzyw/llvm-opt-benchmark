@@ -156,7 +156,7 @@ define range(i32 -13, 1) i32 @opal_init_gethostname() local_unnamed_addr #0 {
   br i1 %or.cond, label %12, label %13
 
 12:                                               ; preds = %9
-  store ptr %.0, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  store ptr %.0, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
   br label %27
 
 13:                                               ; preds = %9
@@ -237,7 +237,7 @@ define i32 @opal_init_util(ptr nocapture noundef readnone %0, ptr nocapture noun
 
 9:                                                ; preds = %2
   %10 = load i32, ptr @opal_class_init_epoch, align 4
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @opal_finalize_domain_t_class, i64 32), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_finalize_domain_t_class, i64 32), align 8
   %.not25 = icmp eq i32 %10, %11
   br i1 %.not25, label %13, label %12
 
@@ -247,7 +247,7 @@ define i32 @opal_init_util(ptr nocapture noundef readnone %0, ptr nocapture noun
 
 13:                                               ; preds = %12, %9
   store ptr @opal_finalize_domain_t_class, ptr @opal_init_util_domain, align 8
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @opal_init_util_domain, i64 8), align 8
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @opal_init_util_domain, i64 8), align 8
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_finalize_domain_t_class, i64 40), align 8
   %15 = load ptr, ptr %14, align 8
   %.not1.i = icmp eq ptr %15, null

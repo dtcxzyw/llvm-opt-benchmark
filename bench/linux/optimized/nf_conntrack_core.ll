@@ -810,7 +810,7 @@ define dso_local noundef zeroext i1 @nf_ct_delete(ptr noundef %0, i32 %1, i32 %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @nf_ct_helper_destroy(ptr noundef %0) #17
   %14 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !24
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !25
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !25
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !26
   %15 = load ptr, ptr %13, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1351,7 +1351,7 @@ define dso_local noundef range(i32 -28, 1) i32 @nf_conntrack_hash_check_insert(p
 
 16:                                               ; preds = %11, %1
   %17 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !24
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !25
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !25
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !26
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 336
@@ -1934,7 +1934,7 @@ define dso_local noundef range(i32 0, 2) i32 @__nf_conntrack_confirm(ptr nocaptu
 
 12:                                               ; preds = %1
   %13 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !24
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !25
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !25
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !26
   %14 = getelementptr i8, ptr %7, i64 80
   %15 = getelementptr i8, ptr %7, i64 88
@@ -3098,12 +3098,12 @@ define internal fastcc ptr @__nf_conntrack_alloc(ptr noundef %0, ptr nocapture n
   br i1 %20, label %21, label %30
 
 21:                                               ; preds = %18
-  %22 = load i8, ptr getelementptr inbounds (i8, ptr @conntrack_gc_work, i64 105), align 1, !range !6, !noundef !7
+  %22 = load i8, ptr getelementptr inbounds nuw (i8, ptr @conntrack_gc_work, i64 105), align 1, !range !6, !noundef !7
   %23 = icmp eq i8 %22, 0
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %21
-  store i8 1, ptr getelementptr inbounds (i8, ptr @conntrack_gc_work, i64 105), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @conntrack_gc_work, i64 105), align 1
   br label %25
 
 25:                                               ; preds = %24, %21
@@ -4090,7 +4090,7 @@ define internal fastcc void @nf_ct_iterate_cleanup(ptr nocapture noundef readonl
   %19 = and i64 %12, 1023
   %20 = getelementptr [1024 x %struct.spinlock], ptr @nf_conntrack_locks, i64 0, i64 %19
   %21 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #19
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !25
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !25
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !26
   tail call void @_raw_spin_lock(ptr noundef %20) #17
   %22 = load volatile i8, ptr @nf_conntrack_locks_all, align 1, !range !6, !noundef !7
@@ -4283,7 +4283,7 @@ declare dso_local void @synchronize_rcu() local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: none, inaccessiblemem: none)
 define dso_local void @nf_conntrack_cleanup_start() local_unnamed_addr #7 align 16 {
-  store i8 1, ptr getelementptr inbounds (i8, ptr @conntrack_gc_work, i64 104), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @conntrack_gc_work, i64 104), align 8
   ret void
 }
 
@@ -4522,7 +4522,7 @@ define dso_local noundef range(i32 -22, 1) i32 @nf_conntrack_hash_resize(i32 nou
 
 28:                                               ; preds = %24
   %29 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !24
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !25
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !25
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !26
   tail call void @_raw_spin_lock(ptr noundef nonnull @nf_conntrack_locks_all_lock) #17
   store volatile i8 1, ptr @nf_conntrack_locks_all, align 1
@@ -4821,11 +4821,11 @@ thread-pre-split:                                 ; preds = %10, %0
 
 47:                                               ; preds = %44
   store i64 68719476704, ptr @conntrack_gc_work, align 8
-  store volatile ptr getelementptr inbounds (i8, ptr @conntrack_gc_work, i64 8), ptr getelementptr inbounds (i8, ptr @conntrack_gc_work, i64 8), align 8
-  store volatile ptr getelementptr inbounds (i8, ptr @conntrack_gc_work, i64 8), ptr getelementptr inbounds (i8, ptr @conntrack_gc_work, i64 16), align 8
-  store ptr @gc_worker, ptr getelementptr inbounds (i8, ptr @conntrack_gc_work, i64 24), align 8
-  tail call void @init_timer_key(ptr noundef nonnull getelementptr inbounds (i8, ptr @conntrack_gc_work, i64 32), ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #17
-  store i8 0, ptr getelementptr inbounds (i8, ptr @conntrack_gc_work, i64 104), align 8
+  store volatile ptr getelementptr inbounds nuw (i8, ptr @conntrack_gc_work, i64 8), ptr getelementptr inbounds nuw (i8, ptr @conntrack_gc_work, i64 8), align 8
+  store volatile ptr getelementptr inbounds nuw (i8, ptr @conntrack_gc_work, i64 8), ptr getelementptr inbounds nuw (i8, ptr @conntrack_gc_work, i64 16), align 8
+  store ptr @gc_worker, ptr getelementptr inbounds nuw (i8, ptr @conntrack_gc_work, i64 24), align 8
+  tail call void @init_timer_key(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @conntrack_gc_work, i64 32), ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #17
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @conntrack_gc_work, i64 104), align 8
   %48 = load ptr, ptr @system_power_efficient_wq, align 8
   %49 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %48, ptr noundef nonnull @conntrack_gc_work, i64 noundef 1000) #17
   br label %59

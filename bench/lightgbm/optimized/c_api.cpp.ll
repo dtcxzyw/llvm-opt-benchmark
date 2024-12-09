@@ -23843,7 +23843,7 @@ define noundef i32 @LGBM_DatasetSerializeReferenceToBinary(ptr noundef %0, ptr n
           to label %_ZNSt10unique_ptrIN8LightGBM10ByteBufferESt14default_deleteIS1_EE5resetEPS1_.exit unwind label %16
 
 _ZNSt10unique_ptrIN8LightGBM10ByteBufferESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN8LightGBM10ByteBufferE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN8LightGBM10ByteBufferE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
@@ -38698,7 +38698,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %87, %62
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %65
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN8LightGBM14PipelineReader4ReadEPKciRKSt8functionIFmS6_mEEEUlvE_EEEEEE, i64 16), ptr %66, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN8LightGBM14PipelineReader4ReadEPKciRKSt8functionIFmS6_mEEEUlvE_EEEEEE, i64 16), ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store ptr %16, ptr %67, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 16

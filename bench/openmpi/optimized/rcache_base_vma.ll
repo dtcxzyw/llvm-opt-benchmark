@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal void @mca_rcache_base_vma_module_construct(ptr noundef initializes((1400, 1408)) %0) #0 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_recursive_mutex_t_class, i64 32), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_recursive_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -73,10 +73,10 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %1
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @mca_rcache_base_vma_module_alloc() local_unnamed_addr #0 {
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @mca_rcache_base_vma_module_t_class, i64 56), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_base_vma_module_t_class, i64 56), align 8
   %2 = tail call noalias ptr @malloc(i64 noundef %1) #4
   %3 = load i32, ptr @opal_class_init_epoch, align 4
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @mca_rcache_base_vma_module_t_class, i64 32), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_base_vma_module_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %3, %4
   br i1 %.not.i, label %6, label %5
 

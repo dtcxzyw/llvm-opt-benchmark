@@ -53,7 +53,7 @@ $_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4
 define void @_ZN6Assimp15RemoveVCProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp15RemoveVCProcessE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp15RemoveVCProcessE, i64 16), ptr %this, align 8
   %configDeleteFlags = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %configDeleteFlags, align 8
   %mScene = getelementptr inbounds nuw i8, ptr %this, i64 32

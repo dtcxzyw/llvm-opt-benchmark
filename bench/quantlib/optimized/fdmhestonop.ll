@@ -1054,7 +1054,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib18TripleBandLinearOpD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib18TripleBandLinearOpE, i64 16), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib18TripleBandLinearOpE, i64 16), ptr %this, align 8, !tbaa !10
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !25
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -3147,7 +3147,7 @@ entry:
   %agg.tmp56 = alloca %"class.boost::shared_ptr.8", align 8
   %agg.tmp64 = alloca %"class.boost::shared_ptr.9", align 8
   %agg.tmp65 = alloca %"class.boost::shared_ptr.10", align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib11FdmHestonOpE, i64 16), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib11FdmHestonOpE, i64 16), ptr %this, align 8, !tbaa !10
   %correlationMap_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %ref.tmp) #23
   invoke void @_ZN8QuantLib28SecondOrderMixedDerivativeOpC1EmmRKN5boost10shared_ptrINS_9FdmMesherEEE(ptr noundef nonnull align 8 dereferenceable(176) %ref.tmp, i64 noundef 0, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %mesher)
@@ -3960,7 +3960,7 @@ _ZN5boost10shared_ptrIN8QuantLib18YieldTermStructureEED2Ev.exit: ; preds = %entr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib17NinePointLinearOpD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib17NinePointLinearOpE, i64 16), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib17NinePointLinearOpE, i64 16), ptr %this, align 8, !tbaa !10
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !25
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -5091,7 +5091,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !10
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !25
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -5643,7 +5643,7 @@ _ZN5boost7numeric5ublas15unbounded_arrayImSaImEED2Ev.exit11: ; preds = %_ZN5boos
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib11FdmHestonOpD2Ev(ptr noundef nonnull align 8 dereferenceable(728) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib11FdmHestonOpE, i64 16), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib11FdmHestonOpE, i64 16), ptr %this, align 8, !tbaa !10
   %dxMap_ = getelementptr inbounds nuw i8, ptr %this, i64 360
   tail call void @_ZN8QuantLib19FdmHestonEquityPartD2Ev(ptr noundef nonnull align 8 dereferenceable(368) %dxMap_) #23
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 352
@@ -5697,7 +5697,7 @@ _ZN8QuantLib21FdmHestonVariancePartD2Ev.exit:     ; preds = %entry, %if.then.i.i
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib11FdmHestonOpD0Ev(ptr noundef nonnull align 8 dereferenceable(728) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib11FdmHestonOpE, i64 16), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib11FdmHestonOpE, i64 16), ptr %this, align 8, !tbaa !10
   %dxMap_.i = getelementptr inbounds nuw i8, ptr %this, i64 360
   tail call void @_ZN8QuantLib19FdmHestonEquityPartD2Ev(ptr noundef nonnull align 8 dereferenceable(368) %dxMap_.i) #23
   %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 352

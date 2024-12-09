@@ -2920,7 +2920,7 @@ _ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit: ; preds = %10
   br label %19
 
 17:                                               ; preds = %8, %6
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1120), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1120), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 1439, ptr noundef %18, ptr noundef nonnull @.str.28) #12
   br label %19
 
@@ -2970,7 +2970,7 @@ _ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit.i: ; preds = %
   br label %24
 
 _ZN13ObjectMonitor11check_ownerEP10JavaThread.exit: ; preds = %12, %14
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1120), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1120), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 1439, ptr noundef %23, ptr noundef nonnull @.str.28) #12
   br label %223
 
@@ -3047,7 +3047,7 @@ _ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit.thread: ; preds = %_Z
   br label %_ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit.thread65
 
 _ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit.thread65: ; preds = %41, %_ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit.thread, %_ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit
-  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1160), align 8
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1160), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str, i32 noundef 1503, ptr noundef %56, ptr noundef null) #12
   br label %223
 
@@ -3429,7 +3429,7 @@ _ZN12ObjectWaiter16wait_reenter_endEP13ObjectMonitor.exit: ; preds = %185, %189,
   br i1 %.not72, label %221, label %223
 
 221:                                              ; preds = %218
-  %222 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1160), align 8
+  %222 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1160), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str, i32 noundef 1678, ptr noundef %222, ptr noundef null) #12
   br label %223
 
@@ -3472,7 +3472,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %13, %23
   %.0.i = phi ptr [ %22, %13 ], [ %24, %23 ]
   %25 = getelementptr i8, ptr %.0.i, i64 24
   %.val = load ptr, ptr %25, align 8
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9152), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9152), align 8
   %27 = icmp eq ptr %26, %.val
   br i1 %27, label %_ZN8JfrEventI20EventJavaMonitorWaitE6commitEv.exit, label %28
 
@@ -3857,7 +3857,7 @@ _ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit.i: ; preds = %
   br label %18
 
 _ZN13ObjectMonitor11check_ownerEP10JavaThread.exit: ; preds = %6, %8
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1120), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1120), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 1439, ptr noundef %17, ptr noundef nonnull @.str.28) #12
   br label %65
 
@@ -3979,7 +3979,7 @@ _ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit.i: ; preds = %
   br label %18
 
 _ZN13ObjectMonitor11check_ownerEP10JavaThread.exit: ; preds = %6, %8
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1120), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1120), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 1439, ptr noundef %17, ptr noundef nonnull @.str.28) #12
   br label %69
 

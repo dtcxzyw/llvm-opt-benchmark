@@ -210,18 +210,18 @@ define dso_local range(i32 -1, 1) i32 @dump_attr_cb(i64 noundef %0, ptr noundef 
   store i32 %9, ptr %10, align 8
   %11 = zext i32 %8 to i64
   store i64 %11, ptr %5, align 8
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 36), align 4
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 36), align 4
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 1112
   store i32 %12, ptr %13, align 8
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 16), align 4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 16), align 4
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 1116
   store i32 %14, ptr %15, align 4
   %16 = tail call i64 @H5Aopen(i64 noundef %0, ptr noundef %1, i64 noundef 0) #15
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 4), align 4
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 4), align 4
   store i32 %17, ptr @oid_output, align 4
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 8), align 4
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 8), align 4
   store i32 %18, ptr @data_output, align 4
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 12), align 4
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 12), align 4
   store i32 %19, ptr @attr_data_output, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %6, ptr noundef nonnull align 8 dereferenceable(424) @h5tools_dataformat, i64 424, i1 false)
   %20 = load ptr, ptr @fp_format, align 8
@@ -249,7 +249,7 @@ define dso_local range(i32 -1, 1) i32 @dump_attr_cb(i64 noundef %0, ptr noundef 
   %.sink = phi i32 [ 65535, %27 ], [ %25, %24 ]
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 288
   store i32 %.sink, ptr %30, align 8
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 40), align 4
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 420
   store i32 %31, ptr %32, align 4
   %33 = load ptr, ptr @type_table, align 8
@@ -280,7 +280,7 @@ declare void @h5tools_setstatus(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @attr_iteration(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 56), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 56), align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %15, label %4
 
@@ -377,7 +377,7 @@ define internal range(i32 -1, 1) i32 @dump_all_cb(i64 noundef %0, ptr noundef %1
   %.sink = phi i32 [ 65535, %25 ], [ %23, %22 ]
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 288
   store i32 %.sink, ptr %28, align 8
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 40), align 4
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 420
   store i32 %29, ptr %30, align 4
   %31 = load i32, ptr %2, align 8
@@ -441,7 +441,7 @@ define internal range(i32 -1, 1) i32 @dump_all_cb(i64 noundef %0, ptr noundef %1
   br label %435
 
 54:                                               ; preds = %36
-  %55 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 8), align 4
+  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 8), align 4
   %.not138 = icmp eq i32 %55, 0
   br i1 %.not138, label %.thread, label %56
 
@@ -456,7 +456,7 @@ define internal range(i32 -1, 1) i32 @dump_all_cb(i64 noundef %0, ptr noundef %1
   br label %61
 
 61:                                               ; preds = %60, %56
-  %62 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 60), align 4
+  %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 60), align 4
   %.not139 = icmp eq i32 %62, 0
   br i1 %.not139, label %67, label %63
 
@@ -470,7 +470,7 @@ define internal range(i32 -1, 1) i32 @dump_all_cb(i64 noundef %0, ptr noundef %1
   br label %67
 
 67:                                               ; preds = %63, %66, %61
-  %68 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 64), align 4
+  %68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 64), align 4
   %69 = icmp sgt i32 %68, 0
   br i1 %69, label %70, label %75
 
@@ -937,7 +937,7 @@ define internal range(i32 -1, 1) i32 @dump_all_cb(i64 noundef %0, ptr noundef %1
   br i1 %.not.i, label %360, label %339
 
 339:                                              ; preds = %338
-  %340 = load ptr, ptr getelementptr inbounds (i8, ptr @table_list, i64 16), align 8
+  %340 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @table_list, i64 16), align 8
   %341 = getelementptr inbounds nuw %struct.anon.3, ptr %340, i64 %.0.i, i32 2
   %342 = load ptr, ptr %341, align 8
   store ptr %342, ptr @group_table, align 8
@@ -1168,7 +1168,7 @@ define dso_local void @dump_named_datatype(i64 noundef %0, ptr noundef %1) local
   %24 = phi i32 [ 65535, %21 ], [ %19, %18 ]
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 288
   store i32 %24, ptr %25, align 8
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 40), align 4
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 420
   store i32 %26, ptr %27, align 4
   %28 = tail call i64 @H5Tget_create_plist(i64 noundef %0) #15
@@ -1277,7 +1277,7 @@ define dso_local void @dump_named_datatype(i64 noundef %0, ptr noundef %1) local
   %90 = load i32, ptr @dump_indent, align 4
   %91 = add i32 %90, 3
   store i32 %91, ptr @dump_indent, align 4
-  %92 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 56), align 4
+  %92 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 56), align 4
   %.not.i = icmp eq i32 %92, 0
   br i1 %.not.i, label %attr_iteration.exit, label %93
 
@@ -1468,7 +1468,7 @@ sub_0:                                            ; preds = %37, %40
   %.sink = phi i32 [ 65535, %40 ], [ %38, %37 ]
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 288
   store i32 %.sink, ptr %42, align 8
-  %43 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
+  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 40), align 4
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 420
   store i32 %43, ptr %44, align 4
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -1554,7 +1554,7 @@ sub_0:                                            ; preds = %37, %40
   br i1 %101, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %95, %sub_0, %.preheader, %.tail
-  %102 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 4), align 4
+  %102 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 4), align 4
   %.not39 = icmp eq i32 %102, 0
   br i1 %.not39, label %105, label %103
 
@@ -1598,7 +1598,7 @@ sub_0:                                            ; preds = %37, %40
 
 126:                                              ; preds = %113
   store i8 1, ptr %114, align 8
-  %127 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 56), align 4
+  %127 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 56), align 4
   %.not.i = icmp eq i32 %127, 0
   br i1 %.not.i, label %attr_iteration.exit, label %128
 
@@ -1759,7 +1759,7 @@ define dso_local void @dump_dataset(i64 noundef %0, ptr noundef %1, ptr noundef 
   %.sink = phi i32 [ 65535, %21 ], [ %19, %18 ]
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 288
   store i32 %.sink, ptr %24, align 8
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 40), align 4
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 420
   store i32 %25, ptr %26, align 4
   %27 = tail call i64 @H5Dget_create_plist(i64 noundef %0) #15
@@ -1816,7 +1816,7 @@ define dso_local void @dump_dataset(i64 noundef %0, ptr noundef %1, ptr noundef 
   %57 = load ptr, ptr @rawoutstream, align 8
   call void @h5tools_dump_dataspace(ptr noundef %57, ptr noundef nonnull %5, ptr noundef nonnull %4, i64 noundef %56) #15
   %58 = call i32 @H5Sclose(i64 noundef %56) #15
-  %59 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 4), align 4
+  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 4), align 4
   %.not52 = icmp eq i32 %59, 0
   br i1 %.not52, label %62, label %60
 
@@ -1826,7 +1826,7 @@ define dso_local void @dump_dataset(i64 noundef %0, ptr noundef %1, ptr noundef 
   br label %62
 
 62:                                               ; preds = %60, %34
-  %63 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 28), align 4
+  %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 28), align 4
   %.not53 = icmp eq i32 %63, 0
   br i1 %.not53, label %67, label %64
 
@@ -1848,18 +1848,18 @@ define dso_local void @dump_dataset(i64 noundef %0, ptr noundef %1, ptr noundef 
 70:                                               ; preds = %68, %67
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 1104
   store ptr %2, ptr %71, align 8
-  %72 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 36), align 4
+  %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 36), align 4
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 1112
   store i32 %72, ptr %73, align 8
-  %74 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 16), align 4
+  %74 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 16), align 4
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 1116
   store i32 %74, ptr %75, align 4
-  %76 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 8), align 4
+  %76 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 8), align 4
   %.not54 = icmp eq i32 %76, 0
   br i1 %.not54, label %.loopexit, label %77
 
 77:                                               ; preds = %70
-  %78 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 52), align 4
+  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 52), align 4
   %.not55 = icmp eq i32 %78, 0
   %79 = load i32, ptr @packed_bits_num, align 4
   %spec.select = select i1 %.not55, i32 1, i32 %79
@@ -1872,7 +1872,7 @@ define dso_local void @dump_dataset(i64 noundef %0, ptr noundef %1, ptr noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %111
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %111 ]
-  %80 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 52), align 4
+  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 52), align 4
   %.not62 = icmp eq i32 %80, 0
   br i1 %.not62, label %94, label %81
 
@@ -1949,7 +1949,7 @@ define dso_local void @dump_dataset(i64 noundef %0, ptr noundef %1, ptr noundef 
   %112 = call i32 @H5Tclose(i64 noundef %53) #15
   %113 = load i32, ptr @bin_output, align 4
   %.not56 = icmp ne i32 %113, 0
-  %114 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 56), align 4
+  %114 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 56), align 4
   %.not.i = icmp eq i32 %114, 0
   %or.cond = select i1 %.not56, i1 true, i1 %.not.i
   br i1 %or.cond, label %attr_iteration.exit, label %115
@@ -2076,7 +2076,7 @@ define dso_local void @dump_data(i64 noundef %0, i32 noundef %1, ptr noundef %2,
   %.sink = phi i32 [ 65535, %14 ], [ %12, %11 ]
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 288
   store i32 %.sink, ptr %17, align 8
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 40), align 4
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 420
   store i32 %18, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2091,7 +2091,7 @@ define dso_local void @dump_data(i64 noundef %0, i32 noundef %1, ptr noundef %2,
   store ptr %2, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 1112
   store i32 %3, ptr %26, align 8
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 16), align 4
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 16), align 4
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 1116
   store i32 %27, ptr %28, align 4
   %29 = icmp eq i32 %1, 1
@@ -2766,10 +2766,10 @@ define dso_local void @handle_attributes(i64 noundef %0, ptr noundef %1, ptr noc
   store i32 %40, ptr %41, align 8
   %42 = zext i32 %38 to i64
   store i64 %42, ptr %7, align 8
-  %43 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 36), align 4
+  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 36), align 4
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 1112
   store i32 %43, ptr %44, align 8
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 16), align 4
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 16), align 4
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 1116
   store i32 %45, ptr %46, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %8, ptr noundef nonnull align 8 dereferenceable(424) @h5tools_dataformat, i64 424, i1 false)
@@ -2798,7 +2798,7 @@ define dso_local void @handle_attributes(i64 noundef %0, ptr noundef %1, ptr noc
   %.sink = phi i32 [ 65535, %54 ], [ %52, %51 ]
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 288
   store i32 %.sink, ptr %57, align 8
-  %58 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
+  %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 40), align 4
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 420
   store i32 %58, ptr %59, align 4
   %60 = sext i32 %.080 to i64
@@ -2870,11 +2870,11 @@ define dso_local void @handle_attributes(i64 noundef %0, ptr noundef %1, ptr noc
 
 101:                                              ; preds = %56
   %102 = tail call i64 @H5Aopen(i64 noundef %64, ptr noundef %63, i64 noundef 0) #15
-  %103 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 4), align 4
+  %103 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 4), align 4
   store i32 %103, ptr @oid_output, align 4
-  %104 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 8), align 4
+  %104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 8), align 4
   store i32 %104, ptr @data_output, align 4
-  %105 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 12), align 4
+  %105 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 12), align 4
   store i32 %105, ptr @attr_data_output, align 4
   %106 = load ptr, ptr @type_table, align 8
   store ptr %106, ptr @h5dump_type_table, align 8
@@ -2986,7 +2986,7 @@ define dso_local void @handle_datasets(i64 noundef %0, ptr noundef %1, ptr nound
   %6 = alloca %struct.H5O_info2_t, align 8
   %.not = icmp eq ptr %4, null
   %7 = select i1 %.not, ptr %1, ptr %4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 8), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 8), align 4
   %.not131 = icmp eq i32 %8, 0
   br i1 %.not131, label %28, label %9
 
@@ -3001,7 +3001,7 @@ define dso_local void @handle_datasets(i64 noundef %0, ptr noundef %1, ptr nound
   br label %14
 
 14:                                               ; preds = %13, %9
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 60), align 4
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 60), align 4
   %.not132 = icmp eq i32 %15, 0
   br i1 %.not132, label %20, label %16
 
@@ -3015,7 +3015,7 @@ define dso_local void @handle_datasets(i64 noundef %0, ptr noundef %1, ptr nound
   br label %20
 
 20:                                               ; preds = %16, %19, %14
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 64), align 4
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 64), align 4
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %23, label %28
 

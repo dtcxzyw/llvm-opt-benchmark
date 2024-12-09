@@ -92,12 +92,12 @@ define noundef i32 @ompi_osc_rdma_free(ptr nocapture noundef %0) local_unnamed_a
   br i1 %.not112, label %48, label %14
 
 14:                                               ; preds = %._crit_edge
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_osc_base_framework, i64 76), align 4
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_base_framework, i64 76), align 4
   %16 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 1, i32 noundef %15) #4
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %14
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_osc_base_framework, i64 76), align 4
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_base_framework, i64 76), align 4
   %19 = load ptr, ptr %12, align 8
   %20 = tail call ptr @ompi_comm_print_cid(ptr noundef %19) #4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %18, ptr noundef nonnull @.str, ptr noundef %20) #4
@@ -128,20 +128,20 @@ define noundef i32 @ompi_osc_rdma_free(ptr nocapture noundef %0) local_unnamed_a
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %35
-  %39 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_osc_rdma_component, i64 312)) #4
+  %39 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_osc_rdma_component, i64 312)) #4
   br label %40
 
 40:                                               ; preds = %35, %38
   %41 = load ptr, ptr %12, align 8
   %42 = getelementptr i8, ptr %41, i64 216
   %.val128 = load i32, ptr %42, align 8
-  %43 = tail call i32 @opal_hash_table_remove_value_uint32(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_osc_rdma_component, i64 360), i32 noundef %.val128) #4
+  %43 = tail call i32 @opal_hash_table_remove_value_uint32(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_osc_rdma_component, i64 360), i32 noundef %.val128) #4
   %44 = load i8, ptr @opal_uses_threads, align 1
   %45 = trunc i8 %44 to i1
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %40
-  %47 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_osc_rdma_component, i64 312)) #4
+  %47 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_osc_rdma_component, i64 312)) #4
   br label %48
 
 48:                                               ; preds = %46, %40, %._crit_edge

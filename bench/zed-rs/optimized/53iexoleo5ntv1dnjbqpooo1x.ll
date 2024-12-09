@@ -2249,7 +2249,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17had37f24dec889657E(pt
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 64
   store ptr @anon.a5bb7c08ed2b208438bd98f677051d35.263, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8, !noalias !519
   %.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr getelementptr inbounds (i8, ptr @anon.a5bb7c08ed2b208438bd98f677051d35.263, i64 1472), ptr %.sroa.6.0..sroa_idx.i.i.i.i, align 8, !noalias !519
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.a5bb7c08ed2b208438bd98f677051d35.263, i64 1472), ptr %.sroa.6.0..sroa_idx.i.i.i.i, align 8, !noalias !519
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   invoke void @"_ZN136_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$LP$K$C$V$RP$$GT$$GT$9from_iter17hc9f81fa4809dd475E"(ptr noalias nocapture noundef nonnull sret([48 x i8]) align 8 dereferenceable(48) %7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %6)
           to label %40 unwind label %38
@@ -11643,7 +11643,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h82ffcc9170851296E.exit: ; preds = %.no
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !2848
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
-  %90 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN2db3kvp15KEY_VALUE_STORE17h2e937b7ef350bffaE, i64 48) acquire, align 8
+  %90 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2db3kvp15KEY_VALUE_STORE17h2e937b7ef350bffaE, i64 48) acquire, align 8
   %91 = icmp eq i32 %90, 4
   br i1 %91, label %_ZN3std4sync4once4Once9call_once17h50461f76b21cdb53E.exit, label %92
 
@@ -11652,7 +11652,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h82ffcc9170851296E.exit: ; preds = %.no
   store ptr @_ZN2db3kvp15KEY_VALUE_STORE17h2e937b7ef350bffaE, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr %9, ptr %8, align 8
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h99bc864f50f625a4E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN2db3kvp15KEY_VALUE_STORE17h2e937b7ef350bffaE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a5bb7c08ed2b208438bd98f677051d35.267)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h99bc864f50f625a4E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN2db3kvp15KEY_VALUE_STORE17h2e937b7ef350bffaE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a5bb7c08ed2b208438bd98f677051d35.267)
           to label %.noexc22 unwind label %93
 
 .noexc22:                                         ; preds = %92
@@ -19055,7 +19055,7 @@ define hidden void @_ZN13extensions_ui14ExtensionsPage23refresh_feature_upsells1
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h8767225b451c1ffeE.exit" unwind label %34
 
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h8767225b451c1ffeE.exit": ; preds = %36
-  %42 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN13extensions_ui19keywords_by_feature19KEYWORDS_BY_FEATURE17h65484fc6de64e214E, i64 24) acquire, align 8
+  %42 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN13extensions_ui19keywords_by_feature19KEYWORDS_BY_FEATURE17h65484fc6de64e214E, i64 24) acquire, align 8
   %.not.i.i = icmp eq i32 %42, 4
   br i1 %.not.i.i, label %_ZN13extensions_ui19keywords_by_feature17h158b20b658cecfddE.exit, label %43
 

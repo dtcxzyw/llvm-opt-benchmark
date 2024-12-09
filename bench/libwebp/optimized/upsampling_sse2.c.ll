@@ -8,17 +8,17 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @WebPInitUpsamplersSSE2() local_unnamed_addr #0 {
-  store ptr @UpsampleRgbaLinePair_SSE2, ptr getelementptr inbounds (i8, ptr @WebPUpsamplers, i64 8), align 8
-  store ptr @UpsampleBgraLinePair_SSE2, ptr getelementptr inbounds (i8, ptr @WebPUpsamplers, i64 24), align 8
-  store ptr @UpsampleRgbaLinePair_SSE2, ptr getelementptr inbounds (i8, ptr @WebPUpsamplers, i64 56), align 8
-  store ptr @UpsampleBgraLinePair_SSE2, ptr getelementptr inbounds (i8, ptr @WebPUpsamplers, i64 64), align 8
+  store ptr @UpsampleRgbaLinePair_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPUpsamplers, i64 8), align 8
+  store ptr @UpsampleBgraLinePair_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPUpsamplers, i64 24), align 8
+  store ptr @UpsampleRgbaLinePair_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPUpsamplers, i64 56), align 8
+  store ptr @UpsampleBgraLinePair_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPUpsamplers, i64 64), align 8
   store ptr @UpsampleRgbLinePair_SSE2, ptr @WebPUpsamplers, align 8
-  store ptr @UpsampleBgrLinePair_SSE2, ptr getelementptr inbounds (i8, ptr @WebPUpsamplers, i64 16), align 8
-  store ptr @UpsampleArgbLinePair_SSE2, ptr getelementptr inbounds (i8, ptr @WebPUpsamplers, i64 32), align 8
-  store ptr @UpsampleArgbLinePair_SSE2, ptr getelementptr inbounds (i8, ptr @WebPUpsamplers, i64 72), align 8
-  store ptr @UpsampleRgb565LinePair_SSE2, ptr getelementptr inbounds (i8, ptr @WebPUpsamplers, i64 48), align 8
-  store ptr @UpsampleRgba4444LinePair_SSE2, ptr getelementptr inbounds (i8, ptr @WebPUpsamplers, i64 40), align 8
-  store ptr @UpsampleRgba4444LinePair_SSE2, ptr getelementptr inbounds (i8, ptr @WebPUpsamplers, i64 80), align 8
+  store ptr @UpsampleBgrLinePair_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPUpsamplers, i64 16), align 8
+  store ptr @UpsampleArgbLinePair_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPUpsamplers, i64 32), align 8
+  store ptr @UpsampleArgbLinePair_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPUpsamplers, i64 72), align 8
+  store ptr @UpsampleRgb565LinePair_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPUpsamplers, i64 48), align 8
+  store ptr @UpsampleRgba4444LinePair_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPUpsamplers, i64 40), align 8
+  store ptr @UpsampleRgba4444LinePair_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPUpsamplers, i64 80), align 8
   ret void
 }
 
@@ -3276,17 +3276,17 @@ define internal void @UpsampleRgba4444LinePair_SSE2(ptr noundef %0, ptr noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @WebPInitYUV444ConvertersSSE2() local_unnamed_addr #0 {
-  store ptr @Yuv444ToRgba_SSE2, ptr getelementptr inbounds (i8, ptr @WebPYUV444Converters, i64 8), align 8
-  store ptr @Yuv444ToBgra_SSE2, ptr getelementptr inbounds (i8, ptr @WebPYUV444Converters, i64 24), align 8
-  store ptr @Yuv444ToRgba_SSE2, ptr getelementptr inbounds (i8, ptr @WebPYUV444Converters, i64 56), align 8
-  store ptr @Yuv444ToBgra_SSE2, ptr getelementptr inbounds (i8, ptr @WebPYUV444Converters, i64 64), align 8
+  store ptr @Yuv444ToRgba_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPYUV444Converters, i64 8), align 8
+  store ptr @Yuv444ToBgra_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPYUV444Converters, i64 24), align 8
+  store ptr @Yuv444ToRgba_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPYUV444Converters, i64 56), align 8
+  store ptr @Yuv444ToBgra_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPYUV444Converters, i64 64), align 8
   store ptr @Yuv444ToRgb_SSE2, ptr @WebPYUV444Converters, align 8
-  store ptr @Yuv444ToBgr_SSE2, ptr getelementptr inbounds (i8, ptr @WebPYUV444Converters, i64 16), align 8
-  store ptr @Yuv444ToArgb_SSE2, ptr getelementptr inbounds (i8, ptr @WebPYUV444Converters, i64 32), align 8
-  store ptr @Yuv444ToRgba4444_SSE2, ptr getelementptr inbounds (i8, ptr @WebPYUV444Converters, i64 40), align 8
-  store ptr @Yuv444ToRgb565_SSE2, ptr getelementptr inbounds (i8, ptr @WebPYUV444Converters, i64 48), align 8
-  store ptr @Yuv444ToArgb_SSE2, ptr getelementptr inbounds (i8, ptr @WebPYUV444Converters, i64 72), align 8
-  store ptr @Yuv444ToRgba4444_SSE2, ptr getelementptr inbounds (i8, ptr @WebPYUV444Converters, i64 80), align 8
+  store ptr @Yuv444ToBgr_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPYUV444Converters, i64 16), align 8
+  store ptr @Yuv444ToArgb_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPYUV444Converters, i64 32), align 8
+  store ptr @Yuv444ToRgba4444_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPYUV444Converters, i64 40), align 8
+  store ptr @Yuv444ToRgb565_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPYUV444Converters, i64 48), align 8
+  store ptr @Yuv444ToArgb_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPYUV444Converters, i64 72), align 8
+  store ptr @Yuv444ToRgba4444_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPYUV444Converters, i64 80), align 8
   ret void
 }
 

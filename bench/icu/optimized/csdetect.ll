@@ -74,7 +74,7 @@ new.notnull.i:                                    ; preds = %if.then4.i
   br i1 %new.isnull2.i, label %new.cont.i, label %new.notnull3.i
 
 new.notnull3.i:                                   ; preds = %new.notnull.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CharsetRecog_UTF8E, i64 16), ptr %call1.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517CharsetRecog_UTF8E, i64 16), ptr %call1.i, align 8
   br label %new.cont.i
 
 new.cont.i:                                       ; preds = %new.notnull3.i, %new.notnull.i
@@ -96,7 +96,7 @@ new.notnull8.i:                                   ; preds = %new.cont5.i
   br i1 %new.isnull12.i, label %new.cont16.i, label %new.notnull13.i
 
 new.notnull13.i:                                  ; preds = %new.notnull8.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522CharsetRecog_UTF_16_BEE, i64 16), ptr %call11.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522CharsetRecog_UTF_16_BEE, i64 16), ptr %call11.i, align 8
   br label %new.cont16.i
 
 new.cont16.i:                                     ; preds = %new.notnull13.i, %new.notnull8.i
@@ -118,7 +118,7 @@ new.notnull26.i:                                  ; preds = %new.cont22.i
   br i1 %new.isnull30.i, label %new.cont34.i, label %new.notnull31.i
 
 new.notnull31.i:                                  ; preds = %new.notnull26.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522CharsetRecog_UTF_16_LEE, i64 16), ptr %call29.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522CharsetRecog_UTF_16_LEE, i64 16), ptr %call29.i, align 8
   br label %new.cont34.i
 
 new.cont34.i:                                     ; preds = %new.notnull31.i, %new.notnull26.i
@@ -140,7 +140,7 @@ new.notnull44.i:                                  ; preds = %new.cont40.i
   br i1 %new.isnull48.i, label %new.cont52.i, label %new.notnull49.i
 
 new.notnull49.i:                                  ; preds = %new.notnull44.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522CharsetRecog_UTF_32_BEE, i64 16), ptr %call47.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522CharsetRecog_UTF_32_BEE, i64 16), ptr %call47.i, align 8
   br label %new.cont52.i
 
 new.cont52.i:                                     ; preds = %new.notnull49.i, %new.notnull44.i
@@ -162,7 +162,7 @@ new.notnull62.i:                                  ; preds = %new.cont58.i
   br i1 %new.isnull66.i, label %new.cont70.i, label %new.notnull67.i
 
 new.notnull67.i:                                  ; preds = %new.notnull62.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522CharsetRecog_UTF_32_LEE, i64 16), ptr %call65.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522CharsetRecog_UTF_32_LEE, i64 16), ptr %call65.i, align 8
   br label %new.cont70.i
 
 new.cont70.i:                                     ; preds = %new.notnull67.i, %new.notnull62.i
@@ -189,7 +189,7 @@ new.notnull85.i:                                  ; preds = %new.notnull80.i
           to label %_ZN6icu_7519CharsetRecog_8859_1C2Ev.exit.i unwind label %lpad88.i
 
 _ZN6icu_7519CharsetRecog_8859_1C2Ev.exit.i:       ; preds = %new.notnull85.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519CharsetRecog_8859_1E, i64 16), ptr %call83.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519CharsetRecog_8859_1E, i64 16), ptr %call83.i, align 8
   br label %new.cont93.i
 
 new.cont93.i:                                     ; preds = %_ZN6icu_7519CharsetRecog_8859_1C2Ev.exit.i, %new.notnull80.i
@@ -216,7 +216,7 @@ new.notnull108.i:                                 ; preds = %new.notnull103.i
           to label %_ZN6icu_7519CharsetRecog_8859_2C2Ev.exit.i unwind label %lpad111.i
 
 _ZN6icu_7519CharsetRecog_8859_2C2Ev.exit.i:       ; preds = %new.notnull108.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519CharsetRecog_8859_2E, i64 16), ptr %call106.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519CharsetRecog_8859_2E, i64 16), ptr %call106.i, align 8
   br label %new.cont117.i
 
 new.cont117.i:                                    ; preds = %_ZN6icu_7519CharsetRecog_8859_2C2Ev.exit.i, %new.notnull103.i
@@ -243,7 +243,7 @@ new.notnull133.i:                                 ; preds = %new.notnull128.i
           to label %_ZN6icu_7522CharsetRecog_8859_5_ruC2Ev.exit.i unwind label %lpad136.i
 
 _ZN6icu_7522CharsetRecog_8859_5_ruC2Ev.exit.i:    ; preds = %new.notnull133.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522CharsetRecog_8859_5_ruE, i64 16), ptr %call131.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522CharsetRecog_8859_5_ruE, i64 16), ptr %call131.i, align 8
   br label %new.cont142.i
 
 new.cont142.i:                                    ; preds = %_ZN6icu_7522CharsetRecog_8859_5_ruC2Ev.exit.i, %new.notnull128.i
@@ -270,7 +270,7 @@ new.notnull158.i:                                 ; preds = %new.notnull153.i
           to label %_ZN6icu_7522CharsetRecog_8859_6_arC2Ev.exit.i unwind label %lpad161.i
 
 _ZN6icu_7522CharsetRecog_8859_6_arC2Ev.exit.i:    ; preds = %new.notnull158.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522CharsetRecog_8859_6_arE, i64 16), ptr %call156.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522CharsetRecog_8859_6_arE, i64 16), ptr %call156.i, align 8
   br label %new.cont167.i
 
 new.cont167.i:                                    ; preds = %_ZN6icu_7522CharsetRecog_8859_6_arC2Ev.exit.i, %new.notnull153.i
@@ -297,7 +297,7 @@ new.notnull183.i:                                 ; preds = %new.notnull178.i
           to label %_ZN6icu_7522CharsetRecog_8859_7_elC2Ev.exit.i unwind label %lpad186.i
 
 _ZN6icu_7522CharsetRecog_8859_7_elC2Ev.exit.i:    ; preds = %new.notnull183.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522CharsetRecog_8859_7_elE, i64 16), ptr %call181.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522CharsetRecog_8859_7_elE, i64 16), ptr %call181.i, align 8
   br label %new.cont192.i
 
 new.cont192.i:                                    ; preds = %_ZN6icu_7522CharsetRecog_8859_7_elC2Ev.exit.i, %new.notnull178.i
@@ -324,7 +324,7 @@ new.notnull208.i:                                 ; preds = %new.notnull203.i
           to label %_ZN6icu_7524CharsetRecog_8859_8_I_heC2Ev.exit.i unwind label %lpad211.i
 
 _ZN6icu_7524CharsetRecog_8859_8_I_heC2Ev.exit.i:  ; preds = %new.notnull208.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7524CharsetRecog_8859_8_I_heE, i64 16), ptr %call206.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7524CharsetRecog_8859_8_I_heE, i64 16), ptr %call206.i, align 8
   br label %new.cont217.i
 
 new.cont217.i:                                    ; preds = %_ZN6icu_7524CharsetRecog_8859_8_I_heC2Ev.exit.i, %new.notnull203.i
@@ -351,7 +351,7 @@ new.notnull233.i:                                 ; preds = %new.notnull228.i
           to label %_ZN6icu_7522CharsetRecog_8859_8_heC2Ev.exit.i unwind label %lpad236.i
 
 _ZN6icu_7522CharsetRecog_8859_8_heC2Ev.exit.i:    ; preds = %new.notnull233.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522CharsetRecog_8859_8_heE, i64 16), ptr %call231.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522CharsetRecog_8859_8_heE, i64 16), ptr %call231.i, align 8
   br label %new.cont242.i
 
 new.cont242.i:                                    ; preds = %_ZN6icu_7522CharsetRecog_8859_8_heC2Ev.exit.i, %new.notnull228.i
@@ -378,7 +378,7 @@ new.notnull258.i:                                 ; preds = %new.notnull253.i
           to label %_ZN6icu_7525CharsetRecog_windows_1251C2Ev.exit.i unwind label %lpad261.i
 
 _ZN6icu_7525CharsetRecog_windows_1251C2Ev.exit.i: ; preds = %new.notnull258.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525CharsetRecog_windows_1251E, i64 16), ptr %call256.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7525CharsetRecog_windows_1251E, i64 16), ptr %call256.i, align 8
   br label %new.cont267.i
 
 new.cont267.i:                                    ; preds = %_ZN6icu_7525CharsetRecog_windows_1251C2Ev.exit.i, %new.notnull253.i
@@ -405,7 +405,7 @@ new.notnull283.i:                                 ; preds = %new.notnull278.i
           to label %_ZN6icu_7525CharsetRecog_windows_1256C2Ev.exit.i unwind label %lpad286.i
 
 _ZN6icu_7525CharsetRecog_windows_1256C2Ev.exit.i: ; preds = %new.notnull283.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525CharsetRecog_windows_1256E, i64 16), ptr %call281.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7525CharsetRecog_windows_1256E, i64 16), ptr %call281.i, align 8
   br label %new.cont292.i
 
 new.cont292.i:                                    ; preds = %_ZN6icu_7525CharsetRecog_windows_1256C2Ev.exit.i, %new.notnull278.i
@@ -432,7 +432,7 @@ new.notnull308.i:                                 ; preds = %new.notnull303.i
           to label %_ZN6icu_7519CharsetRecog_KOI8_RC2Ev.exit.i unwind label %lpad311.i
 
 _ZN6icu_7519CharsetRecog_KOI8_RC2Ev.exit.i:       ; preds = %new.notnull308.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519CharsetRecog_KOI8_RE, i64 16), ptr %call306.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519CharsetRecog_KOI8_RE, i64 16), ptr %call306.i, align 8
   br label %new.cont317.i
 
 new.cont317.i:                                    ; preds = %_ZN6icu_7519CharsetRecog_KOI8_RC2Ev.exit.i, %new.notnull303.i
@@ -459,7 +459,7 @@ new.notnull333.i:                                 ; preds = %new.notnull328.i
           to label %_ZN6icu_7522CharsetRecog_8859_9_trC2Ev.exit.i unwind label %lpad336.i
 
 _ZN6icu_7522CharsetRecog_8859_9_trC2Ev.exit.i:    ; preds = %new.notnull333.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522CharsetRecog_8859_9_trE, i64 16), ptr %call331.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522CharsetRecog_8859_9_trE, i64 16), ptr %call331.i, align 8
   br label %new.cont342.i
 
 new.cont342.i:                                    ; preds = %_ZN6icu_7522CharsetRecog_8859_9_trC2Ev.exit.i, %new.notnull328.i
@@ -481,7 +481,7 @@ new.notnull353.i:                                 ; preds = %new.cont349.i
   br i1 %new.isnull357.i, label %new.cont361.i, label %new.notnull358.i
 
 new.notnull358.i:                                 ; preds = %new.notnull353.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CharsetRecog_sjisE, i64 16), ptr %call356.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517CharsetRecog_sjisE, i64 16), ptr %call356.i, align 8
   br label %new.cont361.i
 
 new.cont361.i:                                    ; preds = %new.notnull358.i, %new.notnull353.i
@@ -503,7 +503,7 @@ new.notnull372.i:                                 ; preds = %new.cont368.i
   br i1 %new.isnull376.i, label %new.cont380.i, label %new.notnull377.i
 
 new.notnull377.i:                                 ; preds = %new.notnull372.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521CharsetRecog_gb_18030E, i64 16), ptr %call375.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7521CharsetRecog_gb_18030E, i64 16), ptr %call375.i, align 8
   br label %new.cont380.i
 
 new.cont380.i:                                    ; preds = %new.notnull377.i, %new.notnull372.i
@@ -525,7 +525,7 @@ new.notnull391.i:                                 ; preds = %new.cont387.i
   br i1 %new.isnull395.i, label %new.cont399.i, label %new.notnull396.i
 
 new.notnull396.i:                                 ; preds = %new.notnull391.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519CharsetRecog_euc_jpE, i64 16), ptr %call394.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519CharsetRecog_euc_jpE, i64 16), ptr %call394.i, align 8
   br label %new.cont399.i
 
 new.cont399.i:                                    ; preds = %new.notnull396.i, %new.notnull391.i
@@ -547,7 +547,7 @@ new.notnull410.i:                                 ; preds = %new.cont406.i
   br i1 %new.isnull414.i, label %new.cont418.i, label %new.notnull415.i
 
 new.notnull415.i:                                 ; preds = %new.notnull410.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519CharsetRecog_euc_krE, i64 16), ptr %call413.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519CharsetRecog_euc_krE, i64 16), ptr %call413.i, align 8
   br label %new.cont418.i
 
 new.cont418.i:                                    ; preds = %new.notnull415.i, %new.notnull410.i
@@ -569,7 +569,7 @@ new.notnull429.i:                                 ; preds = %new.cont425.i
   br i1 %new.isnull433.i, label %new.cont437.i, label %new.notnull434.i
 
 new.notnull434.i:                                 ; preds = %new.notnull429.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CharsetRecog_big5E, i64 16), ptr %call432.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517CharsetRecog_big5E, i64 16), ptr %call432.i, align 8
   br label %new.cont437.i
 
 new.cont437.i:                                    ; preds = %new.notnull434.i, %new.notnull429.i
@@ -591,7 +591,7 @@ new.notnull448.i:                                 ; preds = %new.cont444.i
   br i1 %new.isnull452.i, label %new.cont456.i, label %new.notnull453.i
 
 new.notnull453.i:                                 ; preds = %new.notnull448.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519CharsetRecog_2022JPE, i64 16), ptr %call451.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519CharsetRecog_2022JPE, i64 16), ptr %call451.i, align 8
   br label %new.cont456.i
 
 new.cont456.i:                                    ; preds = %new.notnull453.i, %new.notnull448.i
@@ -613,7 +613,7 @@ new.notnull467.i:                                 ; preds = %new.cont463.i
   br i1 %new.isnull471.i, label %new.cont475.i, label %new.notnull472.i
 
 new.notnull472.i:                                 ; preds = %new.notnull467.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519CharsetRecog_2022KRE, i64 16), ptr %call470.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519CharsetRecog_2022KRE, i64 16), ptr %call470.i, align 8
   br label %new.cont475.i
 
 new.cont475.i:                                    ; preds = %new.notnull472.i, %new.notnull467.i
@@ -635,7 +635,7 @@ new.notnull486.i:                                 ; preds = %new.cont482.i
   br i1 %new.isnull490.i, label %new.cont494.i, label %new.notnull491.i
 
 new.notnull491.i:                                 ; preds = %new.notnull486.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519CharsetRecog_2022CNE, i64 16), ptr %call489.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519CharsetRecog_2022CNE, i64 16), ptr %call489.i, align 8
   br label %new.cont494.i
 
 new.cont494.i:                                    ; preds = %new.notnull491.i, %new.notnull486.i
@@ -662,7 +662,7 @@ new.notnull510.i:                                 ; preds = %new.notnull505.i
           to label %_ZN6icu_7526CharsetRecog_IBM424_he_rtlC2Ev.exit.i unwind label %lpad513.i
 
 _ZN6icu_7526CharsetRecog_IBM424_he_rtlC2Ev.exit.i: ; preds = %new.notnull510.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7526CharsetRecog_IBM424_he_rtlE, i64 16), ptr %call508.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7526CharsetRecog_IBM424_he_rtlE, i64 16), ptr %call508.i, align 8
   br label %new.cont519.i
 
 new.cont519.i:                                    ; preds = %_ZN6icu_7526CharsetRecog_IBM424_he_rtlC2Ev.exit.i, %new.notnull505.i
@@ -689,7 +689,7 @@ new.notnull535.i:                                 ; preds = %new.notnull530.i
           to label %_ZN6icu_7526CharsetRecog_IBM424_he_ltrC2Ev.exit.i unwind label %lpad538.i
 
 _ZN6icu_7526CharsetRecog_IBM424_he_ltrC2Ev.exit.i: ; preds = %new.notnull535.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7526CharsetRecog_IBM424_he_ltrE, i64 16), ptr %call533.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7526CharsetRecog_IBM424_he_ltrE, i64 16), ptr %call533.i, align 8
   br label %new.cont544.i
 
 new.cont544.i:                                    ; preds = %_ZN6icu_7526CharsetRecog_IBM424_he_ltrC2Ev.exit.i, %new.notnull530.i
@@ -716,7 +716,7 @@ new.notnull560.i:                                 ; preds = %new.notnull555.i
           to label %_ZN6icu_7526CharsetRecog_IBM420_ar_rtlC2Ev.exit.i unwind label %lpad563.i
 
 _ZN6icu_7526CharsetRecog_IBM420_ar_rtlC2Ev.exit.i: ; preds = %new.notnull560.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7526CharsetRecog_IBM420_ar_rtlE, i64 16), ptr %call558.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7526CharsetRecog_IBM420_ar_rtlE, i64 16), ptr %call558.i, align 8
   br label %new.cont569.i
 
 new.cont569.i:                                    ; preds = %_ZN6icu_7526CharsetRecog_IBM420_ar_rtlC2Ev.exit.i, %new.notnull555.i
@@ -743,7 +743,7 @@ new.notnull585.i:                                 ; preds = %new.notnull580.i
           to label %_ZN6icu_7526CharsetRecog_IBM420_ar_ltrC2Ev.exit.i unwind label %lpad588.i
 
 _ZN6icu_7526CharsetRecog_IBM420_ar_ltrC2Ev.exit.i: ; preds = %new.notnull585.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7526CharsetRecog_IBM420_ar_ltrE, i64 16), ptr %call583.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7526CharsetRecog_IBM420_ar_ltrE, i64 16), ptr %call583.i, align 8
   br label %new.cont594.i
 
 new.cont594.i:                                    ; preds = %_ZN6icu_7526CharsetRecog_IBM420_ar_ltrC2Ev.exit.i, %new.notnull580.i

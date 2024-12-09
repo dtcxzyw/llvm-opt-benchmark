@@ -42,15 +42,15 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   store i32 1, ptr @params, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @params, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @params, i64 4), align 4
   %4 = tail call ptr @getenv(ptr noundef nonnull @.str.23) #8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %_opt_env.exit.preheader, label %5
 
 5:                                                ; preds = %2
-  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 16)) #8
+  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 16)) #8
   %6 = tail call ptr @xstrdup(ptr noundef nonnull %4) #8
-  store ptr %6, ptr getelementptr inbounds (i8, ptr @params, i64 16), align 8
+  store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @params, i64 16), align 8
   br label %_opt_env.exit.preheader
 
 _opt_env.exit.preheader:                          ; preds = %2, %5
@@ -94,14 +94,14 @@ _opt_env.exit.backedge:                           ; preds = %_opt_env.exit, %26,
   unreachable
 
 13:                                               ; preds = %_opt_env.exit
-  store i32 1, ptr getelementptr inbounds (i8, ptr @params, i64 4), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @params, i64 4), align 4
   br label %_opt_env.exit.backedge
 
 14:                                               ; preds = %_opt_env.exit
-  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 16)) #8
+  call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 16)) #8
   %15 = load ptr, ptr @optarg, align 8
   %16 = call ptr @xstrdup(ptr noundef %15) #8
-  store ptr %16, ptr getelementptr inbounds (i8, ptr @params, i64 16), align 8
+  store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @params, i64 16), align 8
   br label %_opt_env.exit.backedge
 
 17:                                               ; preds = %_opt_env.exit
@@ -109,11 +109,11 @@ _opt_env.exit.backedge:                           ; preds = %_opt_env.exit, %26,
   br label %_opt_env.exit.backedge
 
 18:                                               ; preds = %_opt_env.exit
-  store i32 2, ptr getelementptr inbounds (i8, ptr @params, i64 4), align 4
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @params, i64 4), align 4
   br label %_opt_env.exit.backedge
 
 19:                                               ; preds = %_opt_env.exit
-  store i32 3, ptr getelementptr inbounds (i8, ptr @params, i64 4), align 4
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @params, i64 4), align 4
   br label %_opt_env.exit.backedge
 
 20:                                               ; preds = %_opt_env.exit
@@ -127,9 +127,9 @@ _opt_env.exit.backedge:                           ; preds = %_opt_env.exit, %26,
   unreachable
 
 22:                                               ; preds = %_opt_env.exit
-  store ptr @.str.15, ptr getelementptr inbounds (i8, ptr @params, i64 24), align 8
+  store ptr @.str.15, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8
   %23 = load ptr, ptr @optarg, align 8
-  store ptr %23, ptr getelementptr inbounds (i8, ptr @params, i64 32), align 8
+  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @params, i64 32), align 8
   %24 = call i32 @serializer_g_init(ptr noundef nonnull @.str.16, ptr noundef null) #8
   %.not10 = icmp eq i32 %24, 0
   br i1 %.not10, label %_opt_env.exit.backedge, label %25
@@ -139,9 +139,9 @@ _opt_env.exit.backedge:                           ; preds = %_opt_env.exit, %26,
   unreachable
 
 26:                                               ; preds = %_opt_env.exit
-  store ptr @.str.18, ptr getelementptr inbounds (i8, ptr @params, i64 24), align 8
+  store ptr @.str.18, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8
   %27 = load ptr, ptr @optarg, align 8
-  store ptr %27, ptr getelementptr inbounds (i8, ptr @params, i64 32), align 8
+  store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @params, i64 32), align 8
   %28 = call i32 @serializer_g_init(ptr noundef nonnull @.str.19, ptr noundef null) #8
   %.not9 = icmp eq i32 %28, 0
   br i1 %.not9, label %_opt_env.exit.backedge, label %29
@@ -157,7 +157,7 @@ _opt_env.exit.backedge:                           ; preds = %_opt_env.exit, %26,
   unreachable
 
 32:                                               ; preds = %_opt_env.exit
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 8), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 8), align 8
   %.not5 = icmp eq ptr %33, null
   br i1 %.not5, label %35, label %34
 
@@ -166,27 +166,27 @@ _opt_env.exit.backedge:                           ; preds = %_opt_env.exit, %26,
   br label %35
 
 35:                                               ; preds = %34, %32
-  store ptr null, ptr getelementptr inbounds (i8, ptr @params, i64 8), align 8
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 16), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @params, i64 8), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 16), align 8
   %.not6 = icmp eq ptr %36, null
   br i1 %.not6, label %.thread, label %37
 
 37:                                               ; preds = %35
-  %38 = call i32 @slurm_get_cluster_info(ptr noundef nonnull getelementptr inbounds (i8, ptr @params, i64 8), ptr noundef nonnull %36, i16 noundef zeroext 0) #8
+  %38 = call i32 @slurm_get_cluster_info(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 8), ptr noundef nonnull %36, i16 noundef zeroext 0) #8
   %.not7 = icmp eq i32 %38, 0
   br i1 %.not7, label %41, label %39
 
 39:                                               ; preds = %37
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 16), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 16), align 8
   call void @print_db_notok(ptr noundef %40, i1 noundef zeroext false) #8
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.21) #11
   unreachable
 
 41:                                               ; preds = %37
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 8), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 8), align 8
   %43 = call ptr @list_peek(ptr noundef %42) #8
   store ptr %43, ptr @working_cluster_rec, align 8
-  %.pr = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 8), align 8
+  %.pr = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 8), align 8
   %.not8 = icmp eq ptr %.pr, null
   br i1 %.not8, label %.thread, label %44
 
@@ -200,7 +200,7 @@ _opt_env.exit.backedge:                           ; preds = %_opt_env.exit, %26,
   unreachable
 
 48:                                               ; preds = %44
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 8), align 8
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 8), align 8
   %50 = call ptr @list_peek(ptr noundef %49) #8
   store ptr %50, ptr @working_cluster_rec, align 8
   br label %.thread

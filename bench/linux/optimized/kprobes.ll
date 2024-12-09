@@ -917,7 +917,7 @@ define dso_local void @kprobes_inc_nmissed_count(ptr noundef %0) #4 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @kprobe_busy_begin() local_unnamed_addr #0 align 16 {
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #21, !srcloc !36
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #21, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !37
   tail call void asm "movq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @current_kprobe, i64 ptrtoint (ptr @kprobe_busy to i64), ptr nonnull elementtype(ptr) @current_kprobe) #21, !srcloc !38
   %1 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @kprobe_ctlblk) #23, !srcloc !39
@@ -930,7 +930,7 @@ define dso_local void @kprobe_busy_begin() local_unnamed_addr #0 align 16 {
 define dso_local void @kprobe_busy_end() local_unnamed_addr #0 align 16 {
   tail call void asm "movq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @current_kprobe, i64 0, ptr nonnull elementtype(ptr) @current_kprobe) #21, !srcloc !40
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !41
-  %1 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #21, !srcloc !42
+  %1 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #21, !srcloc !42
   %2 = icmp ult i8 %1, 2
   tail call void @llvm.assume(i1 %2)
   %3 = icmp eq i8 %1, 0
@@ -1184,7 +1184,7 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
 
 70:                                               ; preds = %.thread24
   call void @jump_label_lock() #21
-  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #21, !srcloc !36
+  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #21, !srcloc !36
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !50
   %71 = load ptr, ptr %4, align 8
   %72 = ptrtoint ptr %71 to i64
@@ -1297,7 +1297,7 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
   %144 = phi i1 [ false, %84 ], [ false, %101 ], [ true, %105 ], [ true, %138 ], [ false, %141 ], [ true, %136 ], [ false, %110 ], [ false, %96 ], [ false, %92 ], [ false, %88 ], [ false, %79 ], [ false, %75 ]
   %145 = phi i32 [ -22, %84 ], [ -22, %101 ], [ 0, %105 ], [ 0, %138 ], [ -2, %141 ], [ 0, %136 ], [ -2, %110 ], [ -22, %96 ], [ -22, %92 ], [ -22, %88 ], [ -22, %79 ], [ -22, %75 ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !52
-  %146 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #21, !srcloc !42
+  %146 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #21, !srcloc !42
   %147 = icmp ult i8 %146, 2
   call void @llvm.assume(i1 %147)
   %148 = icmp eq i8 %146, 0
@@ -1356,7 +1356,7 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
   br i1 %177, label %228, label %178
 
 178:                                              ; preds = %173
-  %179 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %179 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %180 = call noalias noundef align 8 dereferenceable_or_null(168) ptr @kmalloc_trace(ptr noundef %179, i32 noundef 3520, i64 noundef 168) #24
   %181 = icmp eq ptr %180, null
   br i1 %181, label %.thread31, label %182
@@ -1798,7 +1798,7 @@ define internal fastcc void @try_to_optimize_kprobe(ptr noundef %0) unnamed_addr
   tail call void @cpus_read_lock() #21
   tail call void @jump_label_lock() #21
   tail call void @mutex_lock(ptr noundef nonnull @text_mutex) #21
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %8 = tail call noalias noundef align 8 dereferenceable_or_null(168) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 168) #24
   %9 = icmp eq ptr %8, null
   br i1 %9, label %60, label %10
@@ -3077,7 +3077,7 @@ define dso_local i32 @kprobe_add_ksym_blacklist(i64 noundef %0) local_unnamed_ad
   br i1 %8, label %22, label %9
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %11 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3264, i64 noundef 32) #24
   %12 = icmp eq ptr %11, null
   br i1 %12, label %22, label %13
@@ -3092,8 +3092,8 @@ define dso_local i32 @kprobe_add_ksym_blacklist(i64 noundef %0) local_unnamed_ad
   store volatile ptr %11, ptr %11, align 8
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store volatile ptr %11, ptr %18, align 8
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @kprobe_blacklist, i64 8), align 8
-  store ptr %11, ptr getelementptr inbounds (i8, ptr @kprobe_blacklist, i64 8), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kprobe_blacklist, i64 8), align 8
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @kprobe_blacklist, i64 8), align 8
   store ptr @kprobe_blacklist, ptr %11, align 8
   store ptr %19, ptr %18, align 8
   store volatile ptr %11, ptr %19, align 8
@@ -3137,7 +3137,7 @@ define dso_local range(i32 -2147483648, 1) i32 @kprobe_add_area_blacklist(i64 no
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %14 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 3264, i64 noundef 32) #24
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.thread, label %16
@@ -3158,8 +3158,8 @@ define dso_local range(i32 -2147483648, 1) i32 @kprobe_add_area_blacklist(i64 no
   store volatile ptr %14, ptr %14, align 8
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store volatile ptr %14, ptr %21, align 8
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @kprobe_blacklist, i64 8), align 8
-  store ptr %14, ptr getelementptr inbounds (i8, ptr @kprobe_blacklist, i64 8), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kprobe_blacklist, i64 8), align 8
+  store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @kprobe_blacklist, i64 8), align 8
   store ptr @kprobe_blacklist, ptr %14, align 8
   store ptr %22, ptr %21, align 8
   store volatile ptr %14, ptr %22, align 8
@@ -3195,9 +3195,9 @@ define dso_local range(i32 -34, 1) i32 @kprobe_get_kallsym(i32 noundef %0, ptr n
 
 6:                                                ; preds = %11, %4
   %7 = phi i32 [ %0, %4 ], [ %12, %11 ]
-  %8 = phi ptr [ getelementptr inbounds (i8, ptr @kprobe_insn_slots, i64 56), %4 ], [ %9, %11 ]
+  %8 = phi ptr [ getelementptr inbounds nuw (i8, ptr @kprobe_insn_slots, i64 56), %4 ], [ %9, %11 ]
   %9 = load volatile ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, getelementptr inbounds (i8, ptr @kprobe_insn_slots, i64 56)
+  %10 = icmp eq ptr %9, getelementptr inbounds nuw (i8, ptr @kprobe_insn_slots, i64 56)
   br i1 %10, label %20, label %11
 
 11:                                               ; preds = %6
@@ -3206,7 +3206,7 @@ define dso_local range(i32 -34, 1) i32 @kprobe_get_kallsym(i32 noundef %0, ptr n
   br i1 %13, label %14, label %6, !llvm.loop !25
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kprobe_insn_slots, i64 48), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kprobe_insn_slots, i64 48), align 8
   %16 = tail call i64 @strscpy(ptr noundef %3, ptr noundef %15, i64 noundef 512) #21
   store i8 116, ptr %2, align 1
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -3223,9 +3223,9 @@ define dso_local range(i32 -34, 1) i32 @kprobe_get_kallsym(i32 noundef %0, ptr n
 
 21:                                               ; preds = %26, %20
   %22 = phi i32 [ %7, %20 ], [ %27, %26 ]
-  %23 = phi ptr [ getelementptr inbounds (i8, ptr @kprobe_optinsn_slots, i64 56), %20 ], [ %24, %26 ]
+  %23 = phi ptr [ getelementptr inbounds nuw (i8, ptr @kprobe_optinsn_slots, i64 56), %20 ], [ %24, %26 ]
   %24 = load volatile ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, getelementptr inbounds (i8, ptr @kprobe_optinsn_slots, i64 56)
+  %25 = icmp eq ptr %24, getelementptr inbounds nuw (i8, ptr @kprobe_optinsn_slots, i64 56)
   br i1 %25, label %35, label %26
 
 26:                                               ; preds = %21
@@ -3234,7 +3234,7 @@ define dso_local range(i32 -34, 1) i32 @kprobe_get_kallsym(i32 noundef %0, ptr n
   br i1 %28, label %29, label %21, !llvm.loop !25
 
 29:                                               ; preds = %26
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @kprobe_optinsn_slots, i64 48), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kprobe_optinsn_slots, i64 48), align 8
   %31 = tail call i64 @strscpy(ptr noundef %3, ptr noundef %30, i64 noundef 512) #21
   store i8 116, ptr %2, align 1
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -3439,7 +3439,7 @@ define internal i32 @init_kprobes() #12 section ".init.text" align 16 {
 
 .loopexit:                                        ; preds = %20, %8, %5
   store i1 false, ptr @kprobes_all_disarmed, align 1
-  store i64 add (i64 sub (i64 ptrtoint (ptr @optprobe_template_end to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64)), i64 24), ptr getelementptr inbounds (i8, ptr @kprobe_optinsn_slots, i64 72), align 8
+  store i64 add (i64 sub (i64 ptrtoint (ptr @optprobe_template_end to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64)), i64 24), ptr getelementptr inbounds nuw (i8, ptr @kprobe_optinsn_slots, i64 72), align 8
   %26 = tail call i32 @arch_init_kprobes() #21
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %.thread
@@ -4187,7 +4187,7 @@ define internal noundef i32 @kprobes_module_callback(ptr nocapture readnone %0, 
   br i1 %29, label %41, label %30
 
 30:                                               ; preds = %27
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %32 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %31, i32 noundef 3264, i64 noundef 32) #24
   %33 = icmp eq ptr %32, null
   br i1 %33, label %41, label %34
@@ -4202,8 +4202,8 @@ define internal noundef i32 @kprobes_module_callback(ptr nocapture readnone %0, 
   store volatile ptr %32, ptr %32, align 8
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store volatile ptr %32, ptr %39, align 8
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @kprobe_blacklist, i64 8), align 8
-  store ptr %32, ptr getelementptr inbounds (i8, ptr @kprobe_blacklist, i64 8), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kprobe_blacklist, i64 8), align 8
+  store ptr %32, ptr getelementptr inbounds nuw (i8, ptr @kprobe_blacklist, i64 8), align 8
   store ptr @kprobe_blacklist, ptr %32, align 8
   store ptr %40, ptr %39, align 8
   store volatile ptr %32, ptr %40, align 8
@@ -4248,7 +4248,7 @@ define internal noundef i32 @kprobes_module_callback(ptr nocapture readnone %0, 
   br i1 %60, label %.thread.i, label %61
 
 61:                                               ; preds = %58
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %63 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %62, i32 noundef 3264, i64 noundef 32) #24
   %64 = icmp eq ptr %63, null
   br i1 %64, label %.thread.i, label %65
@@ -4268,8 +4268,8 @@ define internal noundef i32 @kprobes_module_callback(ptr nocapture readnone %0, 
   store volatile ptr %63, ptr %63, align 8
   %70 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store volatile ptr %63, ptr %70, align 8
-  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @kprobe_blacklist, i64 8), align 8
-  store ptr %63, ptr getelementptr inbounds (i8, ptr @kprobe_blacklist, i64 8), align 8
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kprobe_blacklist, i64 8), align 8
+  store ptr %63, ptr getelementptr inbounds nuw (i8, ptr @kprobe_blacklist, i64 8), align 8
   store ptr @kprobe_blacklist, ptr %63, align 8
   store ptr %71, ptr %70, align 8
   store volatile ptr %63, ptr %71, align 8
@@ -4318,7 +4318,7 @@ kprobe_add_area_blacklist.exit:                   ; preds = %75, %65, %.thread.i
   br i1 %95, label %.thread.i20, label %96
 
 96:                                               ; preds = %93
-  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %98 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %97, i32 noundef 3264, i64 noundef 32) #24
   %99 = icmp eq ptr %98, null
   br i1 %99, label %.thread.i20, label %100
@@ -4338,8 +4338,8 @@ kprobe_add_area_blacklist.exit:                   ; preds = %75, %65, %.thread.i
   store volatile ptr %98, ptr %98, align 8
   %105 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store volatile ptr %98, ptr %105, align 8
-  %106 = load ptr, ptr getelementptr inbounds (i8, ptr @kprobe_blacklist, i64 8), align 8
-  store ptr %98, ptr getelementptr inbounds (i8, ptr @kprobe_blacklist, i64 8), align 8
+  %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kprobe_blacklist, i64 8), align 8
+  store ptr %98, ptr getelementptr inbounds nuw (i8, ptr @kprobe_blacklist, i64 8), align 8
   store ptr @kprobe_blacklist, ptr %98, align 8
   store ptr %106, ptr %105, align 8
   store volatile ptr %98, ptr %106, align 8
@@ -5064,7 +5064,7 @@ define internal noundef i32 @show_kprobe_addr(ptr noundef %0, ptr nocapture noun
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %5, i8 0, i64 512, i1 false), !annotation !44
   %7 = and i64 %6, 4294967295
   %8 = getelementptr [64 x %struct.hlist_head], ptr @kprobe_table, i64 0, i64 %7
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #21, !srcloc !36
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #21, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !109
   %9 = load volatile ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
@@ -5225,7 +5225,7 @@ report_probe.exit3:                               ; preds = %105, %109
 
 .loopexit5:                                       ; preds = %.loopexit, %2
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !112
-  %128 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #21, !srcloc !42
+  %128 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #21, !srcloc !42
   %129 = icmp ult i8 %128, 2
   call void @llvm.assume(i1 %129)
   %130 = icmp eq i8 %128, 0

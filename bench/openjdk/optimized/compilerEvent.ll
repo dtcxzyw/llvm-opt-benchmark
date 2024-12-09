@@ -268,7 +268,7 @@ _ZN14PhaseTypeGuardD2Ev.exit:                     ; preds = %55, %56
 
 58:                                               ; preds = %57
   %59 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #11
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV25CompilerPhaseTypeConstant, i64 16), ptr %59, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV25CompilerPhaseTypeConstant, i64 16), ptr %59, align 8
   %60 = tail call noundef zeroext i1 @_ZN13JfrSerializer19register_serializerE9JfrTypeIdbPS_(i32 noundef 197, i1 noundef zeroext false, ptr noundef nonnull %59) #11
   br label %65
 

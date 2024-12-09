@@ -1126,7 +1126,7 @@ define linkonce_odr void @_ZN3nix8make_refI14CmdStoreRepairJEEENS_3refIT_EEDpOT0
   store i32 1, ptr %4, align 8, !noalias !9
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !9
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14CmdStoreRepairSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !9
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14CmdStoreRepairSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !9
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(744) %6, i8 0, i64 744, i1 false), !noalias !9
   invoke void @_ZN14CmdStoreRepairC1Ev(ptr noundef nonnull align 8 dereferenceable(480) %6)
@@ -1456,31 +1456,31 @@ define linkonce_odr void @_ZN14CmdStoreRepairC1Ev(ptr noundef nonnull align 8 de
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 672
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  store ptr getelementptr inbounds (i8, ptr @_ZTC14CmdStoreRepair688_N3nix7CommandE, i64 56), ptr %24, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTC14CmdStoreRepair688_N3nix7CommandE, i64 184), ptr %2, align 8
-  invoke void @_ZN3nix12StoreCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT14CmdStoreRepair, i64 368))
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC14CmdStoreRepair688_N3nix7CommandE, i64 56), ptr %24, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC14CmdStoreRepair688_N3nix7CommandE, i64 184), ptr %2, align 8
+  invoke void @_ZN3nix12StoreCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT14CmdStoreRepair, i64 368))
           to label %25 unwind label %31
 
 25:                                               ; preds = %1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  invoke void @_ZN3nix9MixRepairC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %26, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT14CmdStoreRepair, i64 408))
+  invoke void @_ZN3nix9MixRepairC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %26, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT14CmdStoreRepair, i64 408))
           to label %27 unwind label %33
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  invoke void @_ZN3nix19MixOperateOnOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %28, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT14CmdStoreRepair, i64 424))
+  invoke void @_ZN3nix19MixOperateOnOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %28, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT14CmdStoreRepair, i64 424))
           to label %29 unwind label %35
 
 29:                                               ; preds = %27
-  invoke void @_ZN3nix17StorePathsCommandC2Eb(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT14CmdStoreRepair, i64 8), i1 noundef zeroext false)
+  invoke void @_ZN3nix17StorePathsCommandC2Eb(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT14CmdStoreRepair, i64 8), i1 noundef zeroext false)
           to label %30 unwind label %37
 
 30:                                               ; preds = %29
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14CmdStoreRepair, i64 56), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14CmdStoreRepair, i64 248), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14CmdStoreRepair, i64 400), ptr %24, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14CmdStoreRepair, i64 480), ptr %26, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14CmdStoreRepair, i64 504), ptr %28, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14CmdStoreRepair, i64 56), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14CmdStoreRepair, i64 248), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14CmdStoreRepair, i64 400), ptr %24, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14CmdStoreRepair, i64 480), ptr %26, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14CmdStoreRepair, i64 504), ptr %28, align 8
   ret void
 
 31:                                               ; preds = %1
@@ -1505,7 +1505,7 @@ define linkonce_odr void @_ZN14CmdStoreRepairC1Ev(ptr noundef nonnull align 8 de
 
 39:                                               ; preds = %35, %37, %33
   %.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %38, %37 ], [ %36, %35 ]
-  tail call void @_ZN3nix12StoreCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT14CmdStoreRepair, i64 368)) #24
+  tail call void @_ZN3nix12StoreCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT14CmdStoreRepair, i64 368)) #24
   br label %40
 
 40:                                               ; preds = %39, %31
@@ -1730,7 +1730,7 @@ _ZNSt10shared_ptrIN3nix5StoreEED2Ev.exit:         ; preds = %2, %33, %46, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix4ArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix4ArgsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix4ArgsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
@@ -2060,9 +2060,9 @@ define linkonce_odr void @_ZN3nix7CommandD0Ev(ptr noundef nonnull align 8 derefe
 define linkonce_odr void @_ZN14CmdStoreRepairD1Ev(ptr noundef nonnull align 8 dereferenceable(480) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3nix22RawInstallablesCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT14CmdStoreRepair, i64 32)) #24
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  store ptr getelementptr inbounds (i8, ptr @_ZTC14CmdStoreRepair688_N3nix12StoreCommandE, i64 80), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC14CmdStoreRepair688_N3nix12StoreCommandE, i64 80), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  store ptr getelementptr inbounds (i8, ptr @_ZTC14CmdStoreRepair688_N3nix12StoreCommandE, i64 224), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC14CmdStoreRepair688_N3nix12StoreCommandE, i64 224), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i = icmp eq ptr %5, null
@@ -2145,9 +2145,9 @@ _ZN3nix12StoreCommandD2Ev.exit:                   ; preds = %1, %22, %35, %_ZNSt
 define linkonce_odr void @_ZN14CmdStoreRepairD0Ev(ptr noundef nonnull align 8 dereferenceable(480) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3nix22RawInstallablesCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT14CmdStoreRepair, i64 32)) #24
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  store ptr getelementptr inbounds (i8, ptr @_ZTC14CmdStoreRepair688_N3nix12StoreCommandE, i64 80), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC14CmdStoreRepair688_N3nix12StoreCommandE, i64 80), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  store ptr getelementptr inbounds (i8, ptr @_ZTC14CmdStoreRepair688_N3nix12StoreCommandE, i64 224), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC14CmdStoreRepair688_N3nix12StoreCommandE, i64 224), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i = icmp eq ptr %5, null
@@ -2334,9 +2334,9 @@ define linkonce_odr void @_ZTv0_n32_N14CmdStoreRepairD1Ev(ptr noundef %0) unname
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   tail call void @_ZN3nix22RawInstallablesCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT14CmdStoreRepair, i64 32)) #24
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 688
-  store ptr getelementptr inbounds (i8, ptr @_ZTC14CmdStoreRepair688_N3nix12StoreCommandE, i64 80), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC14CmdStoreRepair688_N3nix12StoreCommandE, i64 80), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 480
-  store ptr getelementptr inbounds (i8, ptr @_ZTC14CmdStoreRepair688_N3nix12StoreCommandE, i64 224), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC14CmdStoreRepair688_N3nix12StoreCommandE, i64 224), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 704
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i = icmp eq ptr %9, null

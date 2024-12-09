@@ -181,7 +181,7 @@ define dso_local noundef ptr @failover_register(ptr noundef %0, ptr noundef %1) 
   br i1 %5, label %6, label %54
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %8 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 32) #8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %54, label %10
@@ -207,8 +207,8 @@ define dso_local noundef ptr @failover_register(ptr noundef %0, ptr noundef %1) 
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store volatile ptr %0, ptr %19, align 8
   tail call void @_raw_spin_lock(ptr noundef nonnull @failover_lock) #7
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @failover_list, i64 8), align 8
-  store ptr %8, ptr getelementptr inbounds (i8, ptr @failover_list, i64 8), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @failover_list, i64 8), align 8
+  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @failover_list, i64 8), align 8
   store ptr @failover_list, ptr %8, align 8
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %20, ptr %21, align 8

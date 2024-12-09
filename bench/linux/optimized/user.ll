@@ -43,7 +43,7 @@ module asm ".previous\09\09\09\09\09"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 0, 2) i32 @is_hibernate_resume_dev(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = tail call zeroext i1 @hibernation_available() #7
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @snapshot_state, i64 36), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @snapshot_state, i64 36), align 4
   %4 = icmp eq i32 %3, %0
   %5 = select i1 %2, i1 %4, i1 false
   %6 = zext i1 %5 to i32
@@ -510,16 +510,16 @@ define internal i32 @snapshot_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
 19:                                               ; preds = %13
   %20 = load i32, ptr @swsusp_resume_device, align 4
   %21 = tail call i32 @swap_type_of(i32 noundef %20, i64 noundef 0) #7
-  store i32 %21, ptr getelementptr inbounds (i8, ptr @snapshot_state, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @snapshot_state, i64 28), align 4
-  store i8 0, ptr getelementptr inbounds (i8, ptr @snapshot_state, i64 35), align 1
+  store i32 %21, ptr getelementptr inbounds nuw (i8, ptr @snapshot_state, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @snapshot_state, i64 28), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @snapshot_state, i64 35), align 1
   %22 = tail call i32 @pm_notifier_call_chain_robust(i64 noundef 1, i64 noundef 2) #7
   br label %30
 
 23:                                               ; preds = %13
   store i1 true, ptr @need_wait, align 1
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @snapshot_state, i64 24), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @snapshot_state, i64 28), align 4
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @snapshot_state, i64 24), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @snapshot_state, i64 28), align 4
   %24 = tail call i32 @pm_notifier_call_chain_robust(i64 noundef 5, i64 noundef 6) #7
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %.thread
@@ -528,7 +528,7 @@ define internal i32 @snapshot_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %27 = tail call i32 @create_basic_memory_bitmaps() #7
   %28 = icmp eq i32 %27, 0
   %29 = zext i1 %28 to i8
-  store i8 %29, ptr getelementptr inbounds (i8, ptr @snapshot_state, i64 35), align 1
+  store i8 %29, ptr getelementptr inbounds nuw (i8, ptr @snapshot_state, i64 35), align 1
   br label %30
 
 30:                                               ; preds = %26, %19
@@ -543,10 +543,10 @@ define internal i32 @snapshot_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 34:                                               ; preds = %.thread, %30
   %35 = phi i32 [ %33, %.thread ], [ 0, %30 ]
-  store i8 0, ptr getelementptr inbounds (i8, ptr @snapshot_state, i64 32), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @snapshot_state, i64 33), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @snapshot_state, i64 34), align 2
-  store i32 0, ptr getelementptr inbounds (i8, ptr @snapshot_state, i64 36), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @snapshot_state, i64 32), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @snapshot_state, i64 33), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @snapshot_state, i64 34), align 2
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @snapshot_state, i64 36), align 4
   br label %36
 
 36:                                               ; preds = %34, %12, %4

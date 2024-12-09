@@ -52,7 +52,7 @@ define hidden void @_ZN17G1HeapRegionRangeC2Ejj(ptr nocapture noundef nonnull wr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN20G1CommittedRegionMapC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 25), (32, 49), (56, 64)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20G1CommittedRegionMap, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV20G1CommittedRegionMap, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %2, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24

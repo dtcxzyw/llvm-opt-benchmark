@@ -106,9 +106,9 @@ define void @_ZN21CopyFromProfileButtonC2EP7QWidget7QStringS2_(ptr noundef nonnu
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
   tail call void @_ZN11QPushButtonC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21CopyFromProfileButton, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21CopyFromProfileButton, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21CopyFromProfileButton, i64 480), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21CopyFromProfileButton, i64 480), ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   invoke void @_ZNK11QMetaObject2trEPKcS1_i(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %5, ptr noundef nonnull align 8 dereferenceable(56) @_ZN21CopyFromProfileButton16staticMetaObjectE, ptr noundef nonnull @.str, ptr noundef null, i32 noundef -1)
@@ -1806,7 +1806,7 @@ declare void @_ZN11QPushButton7setMenuEP5QMenu(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN12ProfileModelD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12ProfileModel, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12ProfileModel, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null

@@ -35,7 +35,7 @@ define i32 @mca_sharedfp_sm_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %3
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %10, ptr noundef nonnull @.str) #4
   br label %93
 
@@ -75,7 +75,7 @@ define i32 @mca_sharedfp_sm_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   br label %63
 
 26:                                               ; preds = %22
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %27, ptr noundef nonnull @.str.2, i64 noundef %14) #4
   br label %55
 
@@ -91,7 +91,7 @@ define i32 @mca_sharedfp_sm_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   br label %40
 
 33:                                               ; preds = %28
-  %34 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %35 = load i64, ptr %5, align 8
   call void (i32, ptr, ...) @opal_output(i32 noundef %34, ptr noundef nonnull @.str.3, i64 noundef %35, i64 noundef %14, i32 noundef 0) #4
   %.pr = load i32, ptr @mca_sharedfp_sm_verbose, align 4
@@ -101,7 +101,7 @@ define i32 @mca_sharedfp_sm_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   br i1 %.not47, label %40, label %38
 
 38:                                               ; preds = %33
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %39, ptr noundef nonnull @.str.4, i64 noundef %37) #4
   br label %40
 
@@ -123,7 +123,7 @@ define i32 @mca_sharedfp_sm_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   br i1 %.not, label %51, label %49
 
 49:                                               ; preds = %44
-  %50 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %50, ptr noundef nonnull @.str.6, i64 noundef %46) #4
   br label %51
 
@@ -149,7 +149,7 @@ define i32 @mca_sharedfp_sm_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   br i1 %.not49, label %63, label %58
 
 58:                                               ; preds = %55
-  %59 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %60 = load i32, ptr %15, align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %59, ptr noundef nonnull @.str.9, i32 noundef %60) #4
   %61 = load ptr, ptr @stdout, align 8
@@ -174,7 +174,7 @@ define i32 @mca_sharedfp_sm_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   br label %80
 
 71:                                               ; preds = %63
-  %72 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %73 = load i32, ptr %15, align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %72, ptr noundef nonnull @.str.10, i32 noundef %73) #4
   %.pr60 = load i32, ptr @mca_sharedfp_sm_verbose, align 4
@@ -184,7 +184,7 @@ define i32 @mca_sharedfp_sm_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   br i1 %.not51, label %80, label %75
 
 75:                                               ; preds = %71
-  %76 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %76 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %77 = load i32, ptr %15, align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %76, ptr noundef nonnull @.str.11, i32 noundef %77) #4
   %78 = load ptr, ptr @stdout, align 8

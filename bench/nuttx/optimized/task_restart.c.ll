@@ -109,7 +109,7 @@ define range(i32 -1, 1) i32 @task_restart(i32 noundef %0) local_unnamed_addr #0 
   br i1 %.not58.i, label %52, label %53
 
 52:                                               ; preds = %37
-  store ptr %11, ptr getelementptr inbounds (i8, ptr @g_inactivetasks, i64 8), align 8
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @g_inactivetasks, i64 8), align 8
   br label %55
 
 53:                                               ; preds = %37

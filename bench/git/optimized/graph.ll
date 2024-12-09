@@ -166,7 +166,7 @@ parse_graph_colors_config.exit:                   ; preds = %if.end.i, %if.else
   %4 = load ptr, ptr %string, align 8
   call void @free(ptr noundef %4) #15
   %5 = load ptr, ptr @graph_init.custom_colors, align 8
-  %6 = load i64, ptr getelementptr inbounds (i8, ptr @graph_init.custom_colors, i64 8), align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @graph_init.custom_colors, i64 8), align 8
   %7 = trunc i64 %6 to i16
   %conv4 = add i16 %7, -1
   store ptr %5, ptr @column_colors, align 8

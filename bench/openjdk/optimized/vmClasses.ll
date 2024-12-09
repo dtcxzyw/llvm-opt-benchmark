@@ -47,7 +47,7 @@ define hidden void @_ZN9vmClasses21metaspace_pointers_doEP16MetaspaceClosure(ptr
   store i32 2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI13InstanceKlassEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI13InstanceKlassEE, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %3, ptr %7, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %4) #5
@@ -316,7 +316,7 @@ _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i: ; preds = %10
   br i1 %.not15.i.i.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i, label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i
 
 _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i: ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i, %10
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %15 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %14, ptr null, ptr null, i1 noundef zeroext true, ptr noundef %0) #5
   %16 = load ptr, ptr %2, align 8
   %.not16.i.i.i = icmp eq ptr %16, null
@@ -487,7 +487,7 @@ _ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit35: ; preds = %46
 
 76:                                               ; preds = %74
   call void @_ZN23java_lang_ref_Reference15compute_offsetsEv() #5
-  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 216), align 8
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 216), align 8
   call void @_ZN16InstanceRefKlass25update_nonstatic_oop_mapsEP5Klass(ptr noundef %77) #5
   call void @_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread(i32 noundef 31, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull %0)
   %78 = load ptr, ptr %2, align 8
@@ -501,24 +501,24 @@ _ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit35: ; preds = %46
   br i1 %.not61, label %81, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit35.thread
 
 81:                                               ; preds = %79
-  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 928), align 16
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 928), align 16
   store ptr %82, ptr @_ZN13CollectedHeap20_filler_object_klassE, align 8
-  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 808), align 8
-  store ptr %83, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 32), align 16
-  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 816), align 16
-  store ptr %84, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 40), align 8
-  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 824), align 8
-  store ptr %85, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 48), align 16
-  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 832), align 16
-  store ptr %86, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 56), align 8
-  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 840), align 8
-  store ptr %87, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 64), align 16
-  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 848), align 16
-  store ptr %88, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 72), align 8
-  %89 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 856), align 8
-  store ptr %89, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 80), align 16
-  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 864), align 16
-  store ptr %90, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 88), align 8
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 808), align 8
+  store ptr %83, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 32), align 16
+  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 816), align 16
+  store ptr %84, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 40), align 8
+  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 824), align 8
+  store ptr %85, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 48), align 16
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 832), align 16
+  store ptr %86, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 56), align 8
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 840), align 8
+  store ptr %87, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 64), align 16
+  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 848), align 16
+  store ptr %88, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 72), align 8
+  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 856), align 8
+  store ptr %89, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 80), align 16
+  %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 864), align 16
+  store ptr %90, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 88), align 8
   call void @_ZN23InstanceStackChunkKlass20init_offset_of_stackEv() #5
   br label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit35.thread
 

@@ -520,7 +520,7 @@ define internal i32 @sd_probe(ptr noundef %0) #3 align 16 {
   br label %144
 
 7:                                                ; preds = %1, %1, %1
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %9 = tail call noalias align 8 dereferenceable_or_null(832) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 832) #21
   %10 = icmp eq ptr %9, null
   br i1 %10, label %144, label %11
@@ -1843,7 +1843,7 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #3 
   ]
 
 24:                                               ; preds = %1
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %26 = tail call noalias align 8 dereferenceable_or_null(512) ptr @kmalloc_trace(ptr noundef %25, i32 noundef 3264, i64 noundef 512) #21
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %35

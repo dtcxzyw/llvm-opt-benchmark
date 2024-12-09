@@ -354,7 +354,7 @@ define dso_local noundef nonnull align 1 ptr @_ZN5clang6formatlsERSoRKNS0_13Unwr
   store i32 1, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm14raw_os_ostreamE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm14raw_os_ostreamE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %0, ptr %8, align 8
   call fastcc void @_ZN5clang6format12_GLOBAL__N_19printLineERN4llvm11raw_ostreamERKNS0_13UnwrappedLineENS2_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(68) %1, ptr nonnull @.str, i64 0)
@@ -1317,7 +1317,7 @@ define dso_local void @_ZN5clang6format19UnwrappedLineParser5parseEv(ptr noundef
   %.sroa.0.0.copyload = load ptr, ptr %3, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2888
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5clang6format18IndexedTokenSourceE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5clang6format18IndexedTokenSourceE, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %5, i64 noundef 6) #19
@@ -1684,7 +1684,7 @@ _ZN4llvm15SmallVectorImplIiE10resizeImplILb0EEEvm.exit47: ; preds = %_ZN4llvm15S
   br i1 %190, label %191, label %26, !llvm.loop !15
 
 191:                                              ; preds = %189
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5clang6format18IndexedTokenSourceE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5clang6format18IndexedTokenSourceE, i64 16), ptr %2, align 8
   %192 = load ptr, ptr %8, align 8
   %193 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %194 = load i32, ptr %193, align 8
@@ -3566,7 +3566,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6format18IndexedTokenSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5clang6format18IndexedTokenSourceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5clang6format18IndexedTokenSourceE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -14998,7 +14998,7 @@ define dso_local void @_ZN5clang6format19UnwrappedLineParser16parsePPDirectiveEv
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2864
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 984
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5clang6format16ScopedMacroStateE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5clang6format16ScopedMacroStateE, i64 16), ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 73
@@ -15330,7 +15330,7 @@ _ZN5clang6format19UnwrappedLineParser14parsePPUnknownEv.exit6: ; preds = %151, %
   br label %_ZN5clang6format19UnwrappedLineParser12parsePPEndIfEv.exit
 
 _ZN5clang6format19UnwrappedLineParser12parsePPEndIfEv.exit: ; preds = %125, %121, %115, %_ZN5clang6format19UnwrappedLineParser14parsePPUnknownEv.exit10, %57, %58, %_ZN5clang6format19UnwrappedLineParser14parsePPUnknownEv.exit8, %_ZN5clang6format19UnwrappedLineParser14parsePPUnknownEv.exit12, %_ZN5clang6format19UnwrappedLineParser14parsePPUnknownEv.exit6, %56, %_ZN5clang6format19UnwrappedLineParser14parsePPUnknownEv.exit
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5clang6format16ScopedMacroStateE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5clang6format16ScopedMacroStateE, i64 16), ptr %2, align 8
   %164 = load ptr, ptr %28, align 8
   %165 = load ptr, ptr %23, align 8
   store ptr %164, ptr %165, align 8
@@ -15971,7 +15971,7 @@ _ZN5clang6format19UnwrappedLineParser14parsePPUnknownEv.exit: ; preds = %10, %15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6format16ScopedMacroStateD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5clang6format16ScopedMacroStateE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5clang6format16ScopedMacroStateE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -28962,7 +28962,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6format18IndexedTokenSourceD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5clang6format18IndexedTokenSourceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5clang6format18IndexedTokenSourceE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -31210,7 +31210,7 @@ _ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_S4_S4_S4_S4_E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6format16ScopedMacroStateD0Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5clang6format16ScopedMacroStateE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5clang6format16ScopedMacroStateE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 328

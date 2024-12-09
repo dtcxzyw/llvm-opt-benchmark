@@ -36,7 +36,7 @@ $_ZTIN3net13QuicDecrypterE = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net17AeadBaseDecrypterC2EPK11evp_aead_stmmm(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 41)) %this, ptr noundef %aead_alg, i64 noundef %key_size, i64 noundef %auth_tag_size, i64 noundef %nonce_prefix_size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net17AeadBaseDecrypterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net17AeadBaseDecrypterE, i64 16), ptr %this, align 8
   %aead_alg_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %aead_alg, ptr %aead_alg_, align 8
   %key_size_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -65,7 +65,7 @@ declare void @_ZN3net16ScopedEVPAEADCtxD1Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net17AeadBaseDecrypterD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net17AeadBaseDecrypterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net17AeadBaseDecrypterE, i64 16), ptr %this, align 8
   %ctx_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZN3net16ScopedEVPAEADCtxD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ctx_) #7
   ret void

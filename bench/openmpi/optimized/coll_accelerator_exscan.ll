@@ -71,7 +71,7 @@ mca_coll_accelerator_check_buf.exit:              ; preds = %opal_datatype_span.
   br i1 %39, label %76, label %40
 
 40:                                               ; preds = %37
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_accelerator, i64 56), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_accelerator, i64 56), align 8
   %42 = call i32 %41(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %38, ptr noundef nonnull %0, i64 noundef %.0.i, i32 noundef 0) #6
   %.not.i60 = icmp eq i32 %42, 0
   br i1 %.not.i60, label %mca_coll_accelerator_memcpy.exit, label %43
@@ -122,7 +122,7 @@ mca_coll_accelerator_check_buf.exit63:            ; preds = %47
   br i1 %.not58, label %76, label %.sink.split
 
 56:                                               ; preds = %52
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_accelerator, i64 56), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_accelerator, i64 56), align 8
   %58 = call i32 %57(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %53, ptr noundef nonnull %1, i64 noundef %.0.i, i32 noundef 0) #6
   %.not.i64 = icmp eq i32 %58, 0
   br i1 %.not.i64, label %mca_coll_accelerator_memcpy.exit65, label %59
@@ -159,7 +159,7 @@ mca_coll_accelerator_memcpy.exit65:               ; preds = %56
   br i1 %.not57, label %76, label %71
 
 71:                                               ; preds = %70
-  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_accelerator, i64 56), align 8
+  %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_accelerator, i64 56), align 8
   %73 = call i32 %72(i32 noundef -1, i32 noundef -1, ptr noundef %.045, ptr noundef nonnull %.047, i64 noundef %.0.i, i32 noundef 0) #6
   %.not.i66 = icmp eq i32 %73, 0
   br i1 %.not.i66, label %.sink.split, label %74

@@ -741,7 +741,7 @@ declare dso_local void @drmm_add_final_kfree(ptr noundef, ptr noundef) local_unn
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @drm_dev_alloc(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %4 = tail call noalias align 8 dereferenceable_or_null(1552) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 1552) #12
   %5 = icmp eq ptr %4, null
   br i1 %5, label %13, label %6
@@ -900,7 +900,7 @@ define internal fastcc i32 @drm_dev_init(ptr noundef %0, ptr noundef %1, ptr nou
   tail call void @idr_preload(i32 noundef 3264) #10
   %74 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @radix_tree_preloads) #13, !srcloc !19
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !20
-  %75 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !21
+  %75 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !21
   %76 = icmp ult i8 %75, 2
   tail call void @llvm.assume(i1 %76)
   %77 = icmp eq i8 %75, 0
@@ -1442,8 +1442,8 @@ declare dso_local void @drm_debugfs_dev_fini(ptr noundef) local_unnamed_addr #1
 define internal range(i32 -2147483648, 1) i32 @drm_core_init() #3 section ".init.text" align 16 {
   tail call void @drm_connector_ida_init() #10
   store i32 0, ptr @drm_minors_idr, align 8
-  store i32 67108868, ptr getelementptr inbounds (i8, ptr @drm_minors_idr, i64 4), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @drm_minors_idr, i64 8), i8 0, i64 16, i1 false)
+  store i32 67108868, ptr getelementptr inbounds nuw (i8, ptr @drm_minors_idr, i64 4), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @drm_minors_idr, i64 8), i8 0, i64 16, i1 false)
   tail call void @drm_memcpy_init_early() #10
   %1 = tail call i32 @drm_sysfs_init() #10
   %2 = icmp slt i32 %1, 0
@@ -1599,7 +1599,7 @@ define internal fastcc i32 @drm_minor_alloc(ptr noundef %0, i32 noundef range(i3
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @drm_minor_lock, i64 noundef %8) #10
   %12 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @radix_tree_preloads) #13, !srcloc !19
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !20
-  %13 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !21
+  %13 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !21
   %14 = icmp ult i8 %13, 2
   tail call void @llvm.assume(i1 %14)
   %15 = icmp eq i8 %13, 0

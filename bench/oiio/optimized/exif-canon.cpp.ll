@@ -977,7 +977,7 @@ for.end:                                          ; preds = %for.inc
   call fastcc void @_ZN18OpenImageIO_v2_6_03pvtL18encode_indexed_tagIsEEvi12TIFFDataTypeNS_4spanIKNS0_10LabelIndexELln1EEERSt6vectorIcSaIcEERS7_I12TIFFDirEntrySaISB_EERKNS_9ImageSpecEm(i32 noundef 1, ptr nonnull @_ZN18OpenImageIO_v2_6_03pvtL28canon_camerasettings_indicesE, i64 37, ptr noundef nonnull align 8 dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(24) %makerdirs, ptr noundef nonnull align 8 dereferenceable(160) %spec, i64 noundef %offset_correction)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp8.i)
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL25canon_focallength_indicesE, i64 48), align 16
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL25canon_focallength_indicesE, i64 48), align 16
   %add.i = add i32 %12, 1
   %conv.i = sext i32 %add.i to i64
   %cmp.i.i.i = icmp slt i32 %12, -1
@@ -1020,7 +1020,7 @@ for.body.outer.i:                                 ; preds = %for.inc.thread.i, %
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.outer.i
   %__begin2.032.i.idx = phi i64 [ %__begin2.032.i.add38, %for.inc.i ], [ %__begin2.032.ph.i.idx, %for.body.outer.i ]
-  %__begin2.032.i.ptr = getelementptr inbounds i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL25canon_focallength_indicesE, i64 %__begin2.032.i.idx
+  %__begin2.032.i.ptr = getelementptr inbounds nuw i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL25canon_focallength_indicesE, i64 %__begin2.032.i.idx
   %14 = load i32, ptr %__begin2.032.i.ptr, align 8
   %cmp7.i = icmp slt i32 %14, %conv6.i
   br i1 %cmp7.i, label %if.then.i, label %for.inc.i
@@ -1080,8 +1080,8 @@ if.then.i.i.i.i:                                  ; preds = %lpad9.i
   br label %eh.resume.i
 
 for.inc.i:                                        ; preds = %invoke.cont10.i, %for.body.i
-  %__begin2.032.i.add38 = add nsw i64 %__begin2.032.i.idx, 16
-  %cmp.not.i = icmp eq i64 %__begin2.032.i.add38, 64
+  %__begin2.032.i.add38 = add nuw nsw i64 %__begin2.032.i.idx, 16
+  %cmp.not.i = icmp samesign eq i64 %__begin2.032.i.add38, 64
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i
 
 for.inc.thread.i:                                 ; preds = %if.then12.i
@@ -1090,7 +1090,7 @@ for.inc.thread.i:                                 ; preds = %if.then12.i
   %conv17.i = sext i32 %16 to i64
   %add.ptr.i9.i = getelementptr inbounds i16, ptr %array.sroa.0.0.i, i64 %conv17.i
   store i16 %conv15.i, ptr %add.ptr.i9.i, align 2
-  %__begin2.032.i.add = add nsw i64 %__begin2.032.i.idx, 16
+  %__begin2.032.i.add = add nuw nsw i64 %__begin2.032.i.idx, 16
   %cmp.not36.i = icmp eq i64 %__begin2.032.i.add, 64
   br i1 %cmp.not36.i, label %if.then21.i, label %for.body.outer.i
 
@@ -1301,7 +1301,7 @@ call.i.noexc:                                     ; preds = %if.then
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.184, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.184, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.184, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.184, i64 4))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -3351,111 +3351,111 @@ entry:
   store i32 3, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 16), align 16
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 20), align 4
   store ptr @_ZN18OpenImageIO_v2_6_03pvtL28canon_camerasettings_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 24), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 32), align 16
-  store ptr @.str.2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 40), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 48), align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 52), align 4
-  store ptr @_ZN18OpenImageIO_v2_6_03pvtL25canon_focallength_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 56), align 8
-  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 64), align 16
-  store ptr @.str.3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 72), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 80), align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 84), align 4
-  store ptr @_ZN18OpenImageIO_v2_6_03pvtL22canon_shotinfo_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 88), align 8
-  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 96), align 16
-  store ptr @.str.4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 104), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 112), align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 116), align 4
-  store ptr @_ZN18OpenImageIO_v2_6_03pvtL22canon_panorama_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 120), align 8
-  store i32 6, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 128), align 16
-  store ptr @.str.5, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 136), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 144), align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 148), align 4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 152), align 8
-  store i32 7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 160), align 16
-  store ptr @.str.6, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 168), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 176), align 16
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 180), align 4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 184), align 8
-  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 192), align 16
-  store ptr @.str.7, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 200), align 8
-  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 208), align 16
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 212), align 4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 216), align 8
-  store i32 9, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 224), align 16
-  store ptr @.str.8, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 232), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 240), align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 244), align 4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 248), align 8
-  store i32 12, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 256), align 16
-  store ptr @.str.9, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 264), align 8
-  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 272), align 16
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 276), align 4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 280), align 8
-  store i32 16, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 288), align 16
-  store ptr @.str.10, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 296), align 8
-  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 304), align 16
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 308), align 4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 312), align 8
-  store i32 19, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 320), align 16
-  store ptr @.str.11, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 328), align 8
-  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 336), align 16
-  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 340), align 4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 344), align 8
-  store i32 21, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 352), align 16
-  store ptr @.str.12, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 360), align 8
-  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 368), align 16
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 372), align 4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 376), align 8
-  store i32 26, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 384), align 16
-  store ptr @.str.13, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 392), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 400), align 16
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 404), align 4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 408), align 8
-  store i32 28, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 416), align 16
-  store ptr @.str.14, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 424), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 432), align 16
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 436), align 4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 440), align 8
-  store i32 30, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 448), align 16
-  store ptr @.str.15, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 456), align 8
-  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 464), align 16
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 468), align 4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 472), align 8
-  store i32 35, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 480), align 16
-  store ptr @.str.16, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 488), align 8
-  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 496), align 16
-  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 500), align 4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 504), align 8
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 512), align 16
-  store ptr @.str.17, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 520), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 528), align 16
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 532), align 4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 536), align 8
-  store i32 149, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 544), align 16
-  store ptr @.str.18, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 552), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 560), align 16
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 564), align 4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 568), align 8
-  store i32 152, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 576), align 16
-  store ptr @.str.19, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 584), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 592), align 16
-  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 596), align 4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 600), align 8
-  store i32 174, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 608), align 16
-  store ptr @.str.20, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 616), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 624), align 16
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 628), align 4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 632), align 8
-  store i32 224, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 640), align 16
-  store ptr @.str.21, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 648), align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 656), align 16
-  store i32 17, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 660), align 4
-  store ptr @_ZN18OpenImageIO_v2_6_03pvtL24canon_sensorinfo_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 664), align 8
-  store i32 16400, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 672), align 16
-  store ptr @.str.22, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 680), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 688), align 16
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 692), align 4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 696), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 32), align 16
+  store ptr @.str.2, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 48), align 16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 52), align 4
+  store ptr @_ZN18OpenImageIO_v2_6_03pvtL25canon_focallength_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 56), align 8
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 64), align 16
+  store ptr @.str.3, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 72), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 80), align 16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 84), align 4
+  store ptr @_ZN18OpenImageIO_v2_6_03pvtL22canon_shotinfo_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 88), align 8
+  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 96), align 16
+  store ptr @.str.4, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 104), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 112), align 16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 116), align 4
+  store ptr @_ZN18OpenImageIO_v2_6_03pvtL22canon_panorama_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 120), align 8
+  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 128), align 16
+  store ptr @.str.5, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 136), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 144), align 16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 148), align 4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 152), align 8
+  store i32 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 160), align 16
+  store ptr @.str.6, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 168), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 176), align 16
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 180), align 4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 184), align 8
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 192), align 16
+  store ptr @.str.7, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 200), align 8
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 208), align 16
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 212), align 4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 216), align 8
+  store i32 9, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 224), align 16
+  store ptr @.str.8, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 232), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 240), align 16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 244), align 4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 248), align 8
+  store i32 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 256), align 16
+  store ptr @.str.9, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 264), align 8
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 272), align 16
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 276), align 4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 280), align 8
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 288), align 16
+  store ptr @.str.10, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 296), align 8
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 304), align 16
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 308), align 4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 312), align 8
+  store i32 19, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 320), align 16
+  store ptr @.str.11, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 328), align 8
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 336), align 16
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 340), align 4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 344), align 8
+  store i32 21, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 352), align 16
+  store ptr @.str.12, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 360), align 8
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 368), align 16
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 372), align 4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 376), align 8
+  store i32 26, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 384), align 16
+  store ptr @.str.13, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 392), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 400), align 16
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 404), align 4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 408), align 8
+  store i32 28, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 416), align 16
+  store ptr @.str.14, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 424), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 432), align 16
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 436), align 4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 440), align 8
+  store i32 30, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 448), align 16
+  store ptr @.str.15, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 456), align 8
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 464), align 16
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 468), align 4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 472), align 8
+  store i32 35, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 480), align 16
+  store ptr @.str.16, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 488), align 8
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 496), align 16
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 500), align 4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 504), align 8
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 512), align 16
+  store ptr @.str.17, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 520), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 528), align 16
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 532), align 4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 536), align 8
+  store i32 149, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 544), align 16
+  store ptr @.str.18, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 552), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 560), align 16
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 564), align 4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 568), align 8
+  store i32 152, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 576), align 16
+  store ptr @.str.19, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 584), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 592), align 16
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 596), align 4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 600), align 8
+  store i32 174, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 608), align 16
+  store ptr @.str.20, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 616), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 624), align 16
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 628), align 4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 632), align 8
+  store i32 224, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 640), align 16
+  store ptr @.str.21, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 648), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 656), align 16
+  store i32 17, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 660), align 4
+  store ptr @_ZN18OpenImageIO_v2_6_03pvtL24canon_sensorinfo_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 664), align 8
+  store i32 16400, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 672), align 16
+  store ptr @.str.22, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 680), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 688), align 16
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 692), align 4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 696), align 8
   ret void
 }
 

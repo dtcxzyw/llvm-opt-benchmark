@@ -118,7 +118,7 @@ define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #3 sect
   br label %2
 
 2:                                                ; preds = %2, %1
-  %3 = phi ptr [ getelementptr inbounds (i8, ptr @_ZL6imagesB5cxx11, i64 160), %1 ], [ %4, %2 ]
+  %3 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZL6imagesB5cxx11, i64 160), %1 ], [ %4, %2 ]
   %4 = getelementptr inbounds i8, ptr %3, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
   %5 = icmp eq ptr %4, @_ZL6imagesB5cxx11
@@ -1720,22 +1720,22 @@ define internal void @_GLOBAL__sub_I_radius_matching.cpp() #15 section ".text.st
 
 7:                                                ; preds = %0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #20
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL6imagesB5cxx11, i64 32), ptr noundef nonnull @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL6imagesB5cxx11, i64 32), ptr noundef nonnull @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %8 unwind label %12
 
 8:                                                ; preds = %7
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL6imagesB5cxx11, i64 64), ptr noundef nonnull @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL6imagesB5cxx11, i64 64), ptr noundef nonnull @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %9 unwind label %14
 
 9:                                                ; preds = %8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL6imagesB5cxx11, i64 96), ptr noundef nonnull @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL6imagesB5cxx11, i64 96), ptr noundef nonnull @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %10 unwind label %16
 
 10:                                               ; preds = %9
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #20
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL6imagesB5cxx11, i64 128), ptr noundef nonnull @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL6imagesB5cxx11, i64 128), ptr noundef nonnull @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %__cxx_global_var_init.1.exit unwind label %18
 
 .thread.i:                                        ; preds = %0
@@ -1766,19 +1766,19 @@ define internal void @_GLOBAL__sub_I_radius_matching.cpp() #15 section ".text.st
   br label %20
 
 20:                                               ; preds = %18, %16
-  %.311.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZL6imagesB5cxx11, i64 128), %18 ], [ getelementptr inbounds (i8, ptr @_ZL6imagesB5cxx11, i64 96), %16 ]
+  %.311.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZL6imagesB5cxx11, i64 128), %18 ], [ getelementptr inbounds nuw (i8, ptr @_ZL6imagesB5cxx11, i64 96), %16 ]
   %.pn.i = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
   br label %21
 
 21:                                               ; preds = %20, %14
-  %.210.i = phi ptr [ %.311.i, %20 ], [ getelementptr inbounds (i8, ptr @_ZL6imagesB5cxx11, i64 64), %14 ]
+  %.210.i = phi ptr [ %.311.i, %20 ], [ getelementptr inbounds nuw (i8, ptr @_ZL6imagesB5cxx11, i64 64), %14 ]
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %20 ], [ %15, %14 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   br label %22
 
 22:                                               ; preds = %21, %12
-  %.19.i = phi ptr [ %.210.i, %21 ], [ getelementptr inbounds (i8, ptr @_ZL6imagesB5cxx11, i64 32), %12 ]
+  %.19.i = phi ptr [ %.210.i, %21 ], [ getelementptr inbounds nuw (i8, ptr @_ZL6imagesB5cxx11, i64 32), %12 ]
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %21 ], [ %13, %12 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #20

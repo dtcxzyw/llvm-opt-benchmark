@@ -59,7 +59,7 @@ define internal i32 @crypto_ecb_create(ptr noundef %0, ptr noundef %1) #2 align 
   br label %58
 
 12:                                               ; preds = %6
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %14 = call noalias noundef align 8 dereferenceable_or_null(560) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 3520, i64 noundef 560) #6
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.thread, label %16

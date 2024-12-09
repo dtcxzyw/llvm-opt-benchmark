@@ -726,7 +726,7 @@ define hidden void @_ZN14KlassInfoTableC2Eb(ptr noundef nonnull align 8 derefere
 
 17:                                               ; preds = %16
   call void @_ZN15LockedClassesDoC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #15
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN14KlassInfoTable16AllClassesFinderE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN14KlassInfoTable16AllClassesFinderE, i64 16), ptr %4, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %0, ptr %18, align 8
   call void @_ZN20ClassLoaderDataGraph10classes_doEP12KlassClosure(ptr noundef nonnull %4) #15
@@ -1277,7 +1277,7 @@ _ZN14KlassInfoTable6lookupEP5Klass.exit.thread:   ; preds = %26, %2, %_ZNK5Klass
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN14KlassInfoTable5mergeEPS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.KlassInfoTableMergeClosure, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV26KlassInfoTableMergeClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV26KlassInfoTableMergeClosure, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1510,7 +1510,7 @@ define hidden void @_ZN14KlassHierarchy21print_class_hierarchyEP12outputStreambb
   store i64 -256, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 4, ptr %25, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackIP14KlassInfoEntryL8MEMFLAGS1EE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackIP14KlassInfoEntryL8MEMFLAGS1EE, i64 16), ptr %7, align 8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i64 510, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -1562,7 +1562,7 @@ _ZN14KlassInfoTableC2Eb.exit.thread:              ; preds = %38
 
 _ZN14KlassInfoTableC2Eb.exit:                     ; preds = %.preheader.i
   call void @_ZN15LockedClassesDoC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN14KlassInfoTable16AllClassesFinderE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN14KlassInfoTable16AllClassesFinderE, i64 16), ptr %6, align 8
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %9, ptr %43, align 8
   call void @_ZN20ClassLoaderDataGraph10classes_doEP12KlassClosure(ptr noundef nonnull %6) #15
@@ -1578,7 +1578,7 @@ _ZN14KlassInfoTableC2Eb.exit:                     ; preds = %.preheader.i
   br label %294
 
 46:                                               ; preds = %_ZN14KlassInfoTableC2Eb.exit
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16HierarchyClosure, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV16HierarchyClosure, i64 16), ptr %10, align 8
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %8, ptr %47, align 8
   br label %48
@@ -2178,7 +2178,7 @@ _ZN13GrowableArrayIP14KlassInfoEntryE10deallocateEPS1_.exit.i: ; preds = %.loope
   br label %_ZN13GrowableArrayIP14KlassInfoEntryED2Ev.exit
 
 _ZN13GrowableArrayIP14KlassInfoEntryED2Ev.exit:   ; preds = %_ZN13GrowableArrayIP14KlassInfoEntryE10deallocateEPS1_.exit.i, %316, %_ZN14KlassInfoTableD2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackIP14KlassInfoEntryL8MEMFLAGS1EE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackIP14KlassInfoEntryL8MEMFLAGS1EE, i64 16), ptr %7, align 8
   %320 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %321 = load ptr, ptr %320, align 8
   %322 = load i64, ptr %23, align 8
@@ -2342,7 +2342,7 @@ _ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit: ; preds = %_ZN14KlassInf
   store i64 -256, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 4, ptr %45, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackIP14KlassInfoEntryL8MEMFLAGS1EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackIP14KlassInfoEntryL8MEMFLAGS1EE, i64 16), ptr %4, align 8
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -2559,7 +2559,7 @@ _ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE3popEv.exit: ; preds = %.lr.ph37.split, 
   br i1 %156, label %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE13free_segmentsEPS1_.exit.i.i, label %.lr.ph37.split, !llvm.loop !22
 
 _ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE13free_segmentsEPS1_.exit.i.i: ; preds = %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE3popEv.exit, %.loopexit.us, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackIP14KlassInfoEntryL8MEMFLAGS1EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackIP14KlassInfoEntryL8MEMFLAGS1EE, i64 16), ptr %4, align 8
   %157 = load i64, ptr %43, align 8
   %158 = shl i64 %157, 3
   %159 = add i64 %158, 8
@@ -2956,7 +2956,7 @@ define hidden void @_ZN18ParHeapInspectTask4workEj(ptr noundef nonnull align 8 d
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV21RecordInstanceClosure, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV21RecordInstanceClosure, i64 16), ptr %6, align 8
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -2972,7 +2972,7 @@ define hidden void @_ZN18ParHeapInspectTask4workEj(ptr noundef nonnull align 8 d
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load ptr, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV26KlassInfoTableMergeClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV26KlassInfoTableMergeClosure, i64 16), ptr %3, align 8
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %32, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3126,7 +3126,7 @@ define hidden noundef i64 @_ZN14HeapInspection14populate_tableEP14KlassInfoTable
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %25 = call noundef i32 @_ZN4GCId20current_or_undefinedEv() #15
   store i32 %25, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18ParHeapInspectTask, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV18ParHeapInspectTask, i64 16), ptr %6, align 8
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %5, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -3143,7 +3143,7 @@ define hidden noundef i64 @_ZN14HeapInspection14populate_tableEP14KlassInfoTable
   %32 = load i8, ptr %30, align 8
   %33 = trunc i8 %32 to i1
   %34 = load i64, ptr %29, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18ParHeapInspectTask, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV18ParHeapInspectTask, i64 16), ptr %6, align 8
   call void @_ZN5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %31) #15
   call void @_ZN22ParallelObjectIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   %35 = load ptr, ptr %14, align 8
@@ -3182,7 +3182,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %37, %39
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %51 = load i64, ptr %50, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV21RecordInstanceClosure, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV21RecordInstanceClosure, i64 16), ptr %7, align 8
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -3320,7 +3320,7 @@ _ZN14KlassInfoTableC2Eb.exit:                     ; preds = %.preheader.i
 _ZN14KlassInfoHistoC2EP14KlassInfoTable.exit:     ; preds = %37, %40
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %38, ptr %45, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV12HistoClosure, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV12HistoClosure, i64 16), ptr %7, align 8
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %6, ptr %46, align 8
   br label %47
@@ -3502,7 +3502,7 @@ define hidden void @_ZN14HeapInspection27find_instances_at_safepointEP5KlassP13G
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(104) %4, i1 noundef zeroext false) #15
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19FindInstanceClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19FindInstanceClosure, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16

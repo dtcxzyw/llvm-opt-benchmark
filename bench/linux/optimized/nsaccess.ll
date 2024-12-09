@@ -72,7 +72,7 @@ define dso_local i32 @acpi_ns_root_initialize() local_unnamed_addr #0 align 16 {
   store i8 %25, ptr %26, align 1
   %27 = icmp eq ptr %11, null
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %29 = select i1 %27, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_node_struct, i64 24), ptr %28
+  %29 = select i1 %27, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_node_struct, i64 24), ptr %28
   store ptr %20, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr @acpi_gbl_root_node_struct, ptr %30, align 8

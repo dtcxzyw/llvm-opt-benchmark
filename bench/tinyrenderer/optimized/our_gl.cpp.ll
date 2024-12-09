@@ -50,14 +50,14 @@ define dso_local void @_Z8viewportiiii(i32 noundef %0, i32 noundef %1, i32 nound
   %11 = sitofp i32 %1 to double
   %12 = fadd double %10, %11
   store double %6, ptr @Viewport, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @Viewport, i64 8), i8 0, i64 16, i1 false)
-  store double %8, ptr getelementptr inbounds (i8, ptr @Viewport, i64 24), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @Viewport, i64 32), align 8
-  store double %10, ptr getelementptr inbounds (i8, ptr @Viewport, i64 40), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @Viewport, i64 48), align 8
-  store double %12, ptr getelementptr inbounds (i8, ptr @Viewport, i64 56), align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @Viewport, i64 64), ptr noundef nonnull align 8 dereferenceable(32) @constinit.4, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @Viewport, i64 96), ptr noundef nonnull align 8 dereferenceable(32) @constinit.6, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @Viewport, i64 8), i8 0, i64 16, i1 false)
+  store double %8, ptr getelementptr inbounds nuw (i8, ptr @Viewport, i64 24), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @Viewport, i64 32), align 8
+  store double %10, ptr getelementptr inbounds nuw (i8, ptr @Viewport, i64 40), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @Viewport, i64 48), align 8
+  store double %12, ptr getelementptr inbounds nuw (i8, ptr @Viewport, i64 56), align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @Viewport, i64 64), ptr noundef nonnull align 8 dereferenceable(32) @constinit.4, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @Viewport, i64 96), ptr noundef nonnull align 8 dereferenceable(32) @constinit.6, i64 32, i1 false)
   ret void
 }
 
@@ -79,8 +79,8 @@ define dso_local void @_Z10projectiond(double noundef %0) local_unnamed_addr #3 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.64..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) @constinit.4, i64 32, i1 false)
   %2 = fdiv double -1.000000e+00, %0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) @Projection, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.0, i64 112, i1 false)
-  store double %2, ptr getelementptr inbounds (i8, ptr @Projection, i64 112), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @Projection, i64 120), align 8
+  store double %2, ptr getelementptr inbounds nuw (i8, ptr @Projection, i64 112), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @Projection, i64 120), align 8
   ret void
 }
 
